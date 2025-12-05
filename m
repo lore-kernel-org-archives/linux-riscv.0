@@ -4,125 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BC90D339B2
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Dec 2025 18:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7150BD339AE
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Dec 2025 18:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OnDZ97znEBUzrvXMsBRO0N88iRM/bx4rlcUbkhClgrk=; b=2uGAhQNkSuwnyCpMkOczMTtFX1
-	D1ETjHNRTzlvI/UpTXORljbLhMEWXNSX15pfUyZ2ZWWyvVh+3zigLgTBndGdXC1jEA9T9l4BTvztH
-	m1KSZ19LGRDxAqw4NPp3aLUysxEE0wshR0hd0i4wjISlSYGCc/kUbAoDKa8w5mVI0lgN6ldrnFylr
-	TuOd6eojKSX8WRjPmR73kY9DOkqrRWdRXz0vYRUS5nQuCRaQBzsz1tSsGZFRyJ9R/0kI3ErVYQMb+
-	0wpx+4YlxdslONZJBcG5h52DWLCyDgJROkJs/nikAJt+ZYdhBfKADqYdBsZfSUkuHqBemYkPWRcpL
-	y9kOU2/g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RR35CMGMUQ0xKvO1YKVP/wdsA95MH02s2fZhdC977sg=; b=eehqBqNc8BmlNh
+	cel6nn/H+eeANKORR7dz7+w+B3VoD3bIFLxdvoeDHBY8Eh3ROjuvf0B0hHesyvyI7WiRfTX0wXrbO
+	zrjh0iaHMs1SLcir4tWul/kBx7nuhMK+cVZ8kzM3zP8eRlDEVwFXn6/vRY0YeVJWlY5Ev3hPf1m7g
+	qy+sezlH3OBhTUeI0vLQD/eLCEmTRHRkqcTV8nADNBlu+kJcF37oZQqLLzag7hOeR7MYqSgRLRNjG
+	U6n6WZ/LPGdRSFkWwyt08i9w0Yf27FTe5AbnBqPgWnBaFUS2/XUrZsgKIIWtqAN2bY87IHphfKPIo
+	+PL5W+lx2zNZOAFgILZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRaTa-00000009ncQ-3osg;
-	Fri, 05 Dec 2025 18:24:18 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1vRafo-00000009p3U-3Nyw;
+	Fri, 05 Dec 2025 18:36:57 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRaTX-00000009nal-3d8L
+	id 1vRafl-00000009p2b-3esQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Dec 2025 18:24:17 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-29ba9249e9dso34066135ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 05 Dec 2025 10:24:15 -0800 (PST)
+	Fri, 05 Dec 2025 18:36:55 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-b9a5b5b47bfso2127551a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Dec 2025 10:36:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1764959055; x=1765563855; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=R8W7GJchcQ4zk/poJ1GR6L1BtfcBrmnZJJRAQLqexSM=;
-        b=CWJKMuxtZvW1+7pNX/sV0ZoDKCRvMiztvEAVL36h7tq+5M3nyLFbTNBB8znQRaz81A
-         xdMZMtQ4GVsNtRcFogHWGtJjYB885NXa6WBSv8qFVlwUDFT4NTB+iUg9kiKCbv+gGvC1
-         AmnSUDIvz56IbDfcEQG8iV6thbqtvCvEvZIr6CLCi9OsI9Sq5/ZhfXwn6pfUDoMf2XL9
-         oPS9r9WuFz+WIYVuWzFjWJCbkeDGXLg/Bb7qwSGHD97D6d+7iZOt6XdvPKfEyPk5aMui
-         tlwNBFtp7B076aMY2+H66Q+9UqP6KidgYbGQApL9WLD79F18VsvJvFS5PAagPhRPAFIf
-         bpMg==
+        d=rivosinc.com; s=google; t=1764959813; x=1765564613; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZzDCu7IaTRxcq9mEPcCPJw7K7qmz1vUabcyA8OBdm1w=;
+        b=R2yx+OyrZf/v20MlMMVJ10R3frHFJ7J4cHBjAHL8X+b+odzN6EYOwG5WJWHQ0VJuQY
+         boBSIYNXkT9EsUZr8qFuvaLzKcYhKQNJxnZ33HSpnUr4fnjFFFRH8razWnsHjw7dySKR
+         UnBLzAhYNf13WmlobGWN2VDewtNDiPTSEGOVUKPOCFghZo2sfy7Sgzf/fYIJ49HZIX05
+         n9f0UI8u78rrS9WkbAsgch4BBHLml0N4wHxNlUgclZzQpDbMPYHBdXeBxVynx+n3HbUn
+         teaDq8VBsUj5IcO4t5rRmH9SvIEUengRuUbRrSFC7w9AbUkKIggz8Jb1yaMHFBvv5YGc
+         KtxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764959055; x=1765563855;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=R8W7GJchcQ4zk/poJ1GR6L1BtfcBrmnZJJRAQLqexSM=;
-        b=iXO3v5UjXPNN12Rl3OascaU+Lcp1u1I65etAcoSTDQTm4OUw5iIm52G+37XP1IsOTK
-         eT6+dCj8tWYUauS09Lggi/bnoFaY8QzeVHfCgYrPLbfR7NzYrxdz9GLQHQtFvKDwWM44
-         idMua61w7AYjvLxCAsCS4A1Fy3V/QCy4cXH87Q0d4m8RKdyiAfHZ3q8qjAjviDF0Q20S
-         Za5IYZWRUZQA2dxvboRYTRc3AHnYvF/zmLTkstqyHfg/ChvVpT1p8f1jIymNfDOEm8xC
-         dZMzPVzsfVT0BF8i3e+Q/OaOCGmVO2kJ8XOadbvtxNd1KKbu1olGch24nm39dm2dP+gS
-         hv0A==
-X-Forwarded-Encrypted: i=1; AJvYcCXKJRKJ/g13/9buR/OFpmAEFJxORAZROCDsyBEDTky2bj1cL6DypYUxJR6C8f5QXhRA+H94pQCYGbv7bg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjtMdWTsZlKUVZapt2RSoD2dUuyOeoKbi7X0BzNojkLffQHA4g
-	wBuFouHco9/PizgZ1oJ9/dOHbeqHpYOh2ZX9EloynEcdandaShnmPT3OezJqTpgsniQ=
-X-Gm-Gg: ASbGncuMzc+HRRAhnVz+eVf6LRgtvB1SXIMFnnW0/CxhY/8fLoEOnn5bClywz0GLag7
-	sMoO/ZdPmFUPsDVXuvk5jt10ckgHcOqOVK4bo22fXKs1xVnUJv3p4/HK/6j+EyqZa1kY82cv6eC
-	GTv1UzfZKSg2NPpdvx90SxJmHILGO+LD+hpJlCywOBtI7xTTQ9KOvcIMCHDmEFHW6YDKNGWxBjd
-	b5JUZcbMBIhs2LwPgSWX2Bi2YoVJrAGJLiqGsLjgyvEuvvEc8l601Q9OVMkMLf7o0XYpj+Q8yOt
-	sTWegiN5amL+7fN+ba8v1BxasWD4dL4qBpcl65dAdVim7NbbCBrxWZnpFRAHP3Kzdf9C/LZsjE1
-	n/YaUcI0hW032vKAjhJdaIEO6e42Ah1hhkhuyw/93feYeXsvQTDufkKqsQ1o4npKmUc//YKys0/
-	+Prdq0/mHsv/0NHazyDFZe
-X-Google-Smtp-Source: AGHT+IHZMCsXUTCjOVQ3AFVu8onlvt7po3LO4OEVVdk3jTNgtLDl44M+FmDz1C3tnLg32Vfv9eEpZQ==
-X-Received: by 2002:a17:903:11c8:b0:269:4759:904b with SMTP id d9443c01a7336-29d6848df81mr135161565ad.58.1764959054851;
-        Fri, 05 Dec 2025 10:24:14 -0800 (PST)
+        d=1e100.net; s=20230601; t=1764959813; x=1765564613;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=ZzDCu7IaTRxcq9mEPcCPJw7K7qmz1vUabcyA8OBdm1w=;
+        b=eJMTFwPj2Qr74jnQ0I0CspzuoXy6x0NXGRvSltuoFKX/JN/bf6JbsUHw6f1+O64K6E
+         QkaSujd7mcmf/KN5BcDntI80IJx3brZQoLBVYxwTi9TUrzLMweqqrHY93+2KBvvO5ur7
+         SSNTl4kmYdJEqZ899jj2Hx1lvr7h3efqPfuqVB/dJAzYhOlGnnL60t/9AJUdsKbgV+bD
+         MGCgtRfxmiFALe+kpWOnD3G3qBflHe1ItvSyQwxzGWTCv9wcsx+9sN3np7iuBdcGNNyH
+         v2EdRnYPF3F5aj+EM1f0Jr0T39ePGDnKbloUCgmWDnHlVNViURt23qymtu81ZADoJPLe
+         DPig==
+X-Forwarded-Encrypted: i=1; AJvYcCVaTTBr5yeQaLxX4CzihT5VFqKfSlZWJcpDBnjyotvaX7fOkh7kin+fFOv9Wa+/7yZpxukkGUBMdS4cvg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+lg+lb4r7J/k444m/y1eA9UsJk6D09cwb/agpViH1BTLfA0dw
+	nvUvNeorJpdyfFbgMs0v0QJV5625M6de4hqoa4owTNJcX1Rgmm4wWim07aowjDAHqvc=
+X-Gm-Gg: ASbGnctWafY2sZSM1WuKPzdBUSc3woNvVDWrJW6dApXxA6nbveZN6v4rys/kEGzgrVj
+	tZytiMOt5nTT8QP3s7T/q8ac56auo7fv1olDbR513l3oUODAv41iPrzeZDeq9ClmqHv9vJDY/9m
+	Z5bjKc+Y1gK0B16r9fA92O/r0SAYCvwNbovB+ZZT1aZ9bm06NmVIbu9c5xwAKA1WCo2MPCBiFHi
+	MFmRjmvh14HfXtPz59dAg7kewqsgaXRtU8wWaylFmFHg96cevvD7cwwcjoCDVRJu++5Ug5qfjs5
+	vDhH/pxpt9FVSKOGCK6sJQuxqookQ5eQ++bU43cyEKhMoZL7BemKQ+9mH+bRtbnT26oFs34OOKh
+	fHgWBDMUJu8BYPkhHyKZPaSHXy0VpHILtcTe1hulrG68dEwE7Rf/fbE4rbvFCO2M0AkSsiyr2VC
+	7+7igfC6QF8/V096LoQvnC
+X-Google-Smtp-Source: AGHT+IGMTXNhEE0AGobVo0Q+Qpcz65YU2t6Uoez+HvjFdTXQk2XlyYkBUQRk9w4i9DYExo/tp12ayw==
+X-Received: by 2002:a05:7300:bb08:b0:2a4:7270:1788 with SMTP id 5a478bee46e88-2abc720149cmr114273eec.19.1764959812961;
+        Fri, 05 Dec 2025 10:36:52 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29dae4a13d2sm54863235ad.9.2025.12.05.10.24.12
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2aba8395d99sm23933342eec.1.2025.12.05.10.36.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Dec 2025 10:24:14 -0800 (PST)
-Date: Fri, 5 Dec 2025 10:24:11 -0800
+        Fri, 05 Dec 2025 10:36:52 -0800 (PST)
 From: Deepak Gupta <debug@rivosinc.com>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christian Brauner <brauner@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Benno Lossin <lossin@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com,
-	richard.henderson@linaro.org, jim.shu@sifive.com,
-	andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com,
-	atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com,
-	alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org,
-	rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org,
-	Zong Li <zong.li@sifive.com>,
-	Andreas Korb <andreas.korb@aisec.fraunhofer.de>,
-	Valentin Haudiquet <valentin.haudiquet@canonical.com>
-Subject: Re: [PATCH v24 25/28] riscv: create a config for shadow stack and
- landing pad instr support
-Message-ID: <aTMjS-Ok-DrJJjQY@debug.ba.rivosinc.com>
-References: <20251204-v5_user_cfi_series-v24-0-ada7a3ba14dc@rivosinc.com>
- <20251204-v5_user_cfi_series-v24-25-ada7a3ba14dc@rivosinc.com>
- <b5feba48-7e7c-4ab9-a193-072f3980f525@infradead.org>
+Date: Fri, 05 Dec 2025 10:36:47 -0800
+Subject: [PATCH v25 01/28] mm: VM_SHADOW_STACK definition for riscv
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <b5feba48-7e7c-4ab9-a193-072f3980f525@infradead.org>
+Message-Id: <20251205-v5_user_cfi_series-v25-1-8a3570c3e145@rivosinc.com>
+References: <20251205-v5_user_cfi_series-v25-0-8a3570c3e145@rivosinc.com>
+In-Reply-To: <20251205-v5_user_cfi_series-v25-0-8a3570c3e145@rivosinc.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@suse.cz>, 
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Christian Brauner <brauner@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>, 
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
+ Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+ Trevor Gross <tmgross@umich.edu>, Benno Lossin <lossin@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arch@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com, 
+ andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
+ atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
+ alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
+ rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
+ Zong Li <zong.li@sifive.com>, David Hildenbrand <david@redhat.com>, 
+ Andreas Korb <andreas.korb@aisec.fraunhofer.de>, 
+ Valentin Haudiquet <valentin.haudiquet@canonical.com>, 
+ Deepak Gupta <debug@rivosinc.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764959808; l=941;
+ i=debug@rivosinc.com; s=20251023; h=from:subject:message-id;
+ bh=BfqrkDAmEYT+r742gKB+SlFctae91M/veuPAGWY6Q04=;
+ b=wb8Cvp9WwhgSAwjQuZXG2bfRw8uKBYeoYJuQ+D08ldqWnIr/+SHvUA9MzZ7+c1hnN4WDZnkHs
+ M6IZRQCZeBaCy67MIkBFvjWj4owucJIYwhEmnGzRtLdXw0MOWKyNECN
+X-Developer-Key: i=debug@rivosinc.com; a=ed25519;
+ pk=O37GQv1thBhZToXyQKdecPDhtWVbEDRQ0RIndijvpjk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_102416_018787_5F8E1911 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20251205_103653_909701_C1A349F6 
+X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,84 +134,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 02:17:27PM -0800, Randy Dunlap wrote:
->
->
->On 12/4/25 12:04 PM, Deepak Gupta wrote:
->> This patch creates a config for shadow stack support and landing pad instr
->> support. Shadow stack support and landing instr support can be enabled by
->> selecting `CONFIG_RISCV_USER_CFI`. Selecting `CONFIG_RISCV_USER_CFI` wires
->> up path to enumerate CPU support and if cpu support exists, kernel will
->> support cpu assisted user mode cfi.
->>
->> If CONFIG_RISCV_USER_CFI is selected, select `ARCH_USES_HIGH_VMA_FLAGS`,
->> `ARCH_HAS_USER_SHADOW_STACK` and DYNAMIC_SIGFRAME for riscv.
->>
->> Reviewed-by: Zong Li <zong.li@sifive.com>
->> Tested-by: Andreas Korb <andreas.korb@aisec.fraunhofer.de>
->> Tested-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
->> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
->> ---
->>  arch/riscv/Kconfig                  | 22 ++++++++++++++++++++++
->>  arch/riscv/configs/hardening.config |  4 ++++
->>  2 files changed, 26 insertions(+)
->>
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index 0c6038dc5dfd..f5574c6f66d8 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -1146,6 +1146,28 @@ config RANDOMIZE_BASE
->>
->>            If unsure, say N.
->>
->> +config RISCV_USER_CFI
->> +	def_bool y
->> +	bool "riscv userspace control flow integrity"
->> +	depends on 64BIT && \
->> +		$(cc-option,-mabi=lp64 -march=rv64ima_zicfiss_zicfilp -fcf-protection=full)
->> +	depends on RISCV_ALTERNATIVE
->> +	select RISCV_SBI
->> +	select ARCH_HAS_USER_SHADOW_STACK
->> +	select ARCH_USES_HIGH_VMA_FLAGS
->> +	select DYNAMIC_SIGFRAME
->> +	help
->> +	  Provides CPU assisted control flow integrity to userspace tasks.
->
->	           CPU-assisted
->
->> +	  Control flow integrity is provided by implementing shadow stack for
->> +	  backward edge and indirect branch tracking for forward edge in program.
->> +	  Shadow stack protection is a hardware feature that detects function
->> +	  return address corruption. This helps mitigate ROP attacks.
->> +	  Indirect branch tracking enforces that all indirect branches must land
->> +	  on a landing pad instruction else CPU will fault. This mitigates against
->> +	  JOP / COP attacks. Applications must be enabled to use it, and old user-
->> +	  space does not get protection "for free".
->> +	  default y.
->
->	  Default is y if hardware supports it.
->?
+VM_HIGH_ARCH_5 is used for riscv
 
-No default Y means support is built in the kernel for cfi.
-If hardware doesn't support CFI instructions, then kernel will do following
+Reviewed-by: Zong Li <zong.li@sifive.com>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Acked-by: David Hildenbrand <david@redhat.com>
+Tested-by: Andreas Korb <andreas.korb@aisec.fraunhofer.de>
+Tested-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+---
+ include/linux/mm.h | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-- prctls to manage shadow stack/landing pad enable/disable will fail.
-- vDSO will not have shadow stack instructions in it.
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index d16b33bacc32..2032d3f195f1 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -380,6 +380,13 @@ extern unsigned int kobjsize(const void *objp);
+ # define VM_SHADOW_STACK	VM_HIGH_ARCH_6
+ #endif
+ 
++#if defined(CONFIG_RISCV_USER_CFI)
++/*
++ * Following x86 and picking up the same bitpos.
++ */
++# define VM_SHADOW_STACK	VM_HIGH_ARCH_5
++#endif
++
+ #ifndef VM_SHADOW_STACK
+ # define VM_SHADOW_STACK	VM_NONE
+ #endif
 
+-- 
+2.45.0
 
->
->> +
->>  endmenu # "Kernel features"
->
->
->-- 
->~Randy
->
 
 _______________________________________________
 linux-riscv mailing list
