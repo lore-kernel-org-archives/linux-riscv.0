@@ -4,110 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F8AD3749B
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Dec 2025 20:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3BC0D374B9
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Dec 2025 23:27:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jpl6IjnU79l0dtQBdISeCWj4KS93dQdnZ65IAq7TM0g=; b=p3lH7v8fWZaWqL
-	4udOU62r3jukZ9gg2VdmPqR6F1NWBNgyRKb/nlYWm7k9JK6EtYLcktvCCFLsjd1fKXdPkw+fhRqm4
-	ie2ubk+KcY99gJp6ooSE0icl0XLh1K/fUY48EtUo8zdliBSFR9FkKbGwjscNVm7vVWNDBQnvBFxwB
-	zE26tj18bHW4NWo2cDXVa5i0RjDK4jOkPNd4O1ZC/MRY0rZV2gSpP/R8B9radsFrl171bH3UIEWZz
-	oj/5caM5STTHyVt4lPOAelUDYfPoM+7VR06ZavwASgoisdQ7+HWHfBoA5fqGTUUjy+eoKrAlk5YIa
-	ZnPr3MOfEnvaOwO9Z+RA==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:Mime-Version:Date:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TdQkeAj6NXCIq8NMf9UxtaIqPh9IdjIwIeXfzrw4MSo=; b=39xAhsQbk04kGf
+	KsZrwPmFvxG4D8AIAPYJUAa190DP9khAP9wsQAhVLSotGGK3kEfBlH7ZUkp6tErfLmxegWc1aRXi9
+	tFdVLEkEkkmE4K8p6B65p76ErHtma1YGbuEWX9AxHkFxs5HFvGGR//KNkD0La0Nj3c8Lbx81ob8l0
+	uMEgqvZej72c5TRCESfwmDE0ehq+pqJbLgF31dggNn9y0+wEBfoBkn4fypAsC4XYdsKPN8R2qewqa
+	L/BSJh3ZL1pw3xLpV+wqewKrtFwnEtn2eJJs5uwfjueJV/3DnvMjMCZhyk7hznBK8RRloi+NHEakL
+	hG/Um0yaKPq7N1JiC0iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRcGw-0000000A0ne-1F9W;
-	Fri, 05 Dec 2025 20:19:22 +0000
-Received: from mail.alien8.de ([2a01:4f9:3051:3f93::2])
+	id 1vRfCZ-0000000ABkU-2zHA;
+	Fri, 05 Dec 2025 23:27:03 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRcGq-0000000A0mX-4BtB
+	id 1vRfCX-0000000ABjV-1kW1
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Dec 2025 20:19:20 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id E159140E0218;
-	Fri,  5 Dec 2025 20:19:03 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id YMkoYSsiYCqw; Fri,  5 Dec 2025 20:19:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1764965939; bh=+k+j5zpiOXPUaOMclkmVjKztohgymIQPYnO7V/a+C/w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bxqGkefiEe2JFBIhARr9tXH5BeezbVW/58uxKq/Tfdv1Y3tcJ64dJ1cdY5nzgOcDx
-	 Me/EwWk+UXXs5J5ilfhEsv4wRvMy6BoVgrjCQn7zbTZT2qYHO7fKRxALp2n6Qt5htI
-	 gTAQ7c8xibH7fPZ24PWS1/mprjgWrwEhVK5CwZ82QcZ5336mD6SqPK/onz+yTMAXLP
-	 Uo4I7c8WqByXwRacksIdRkqnh8YO6p8CMsqM/PCHezHIYa9d4lP93ibGWI3ZNiVxAM
-	 mPb8gsmuEss401Wbz/xAbQNSUOuwu1r41oOvGUaV5kZBIn4MHLDAY7CJYqZBL9W3ap
-	 laFZ7I+Zcr/T9Q/3ukCSfpG9cZXEK5vOti5wbd4vPFVuUFGTZ5MyID5VShadi3zIRl
-	 xGQjT6zxjvwEqh0co2EFJhK3Wd2fCAbzZ0qQWgj1uBN8lkhIN9EAp7ruVUbMpryNy7
-	 Jki+8RlqBEddLzRCQhp0Rdzku+HsxukwOUwD/gyU69z3FlEw5ppsXfaJyz+G7RLJzh
-	 93hDC8gTmjSc4rYF7NhWhumcNWaQKLgqxtOxNJQCwIdPBsVUgVBY9zZpFZ/dqOCZNB
-	 Er3+sydfYNzFkSoqjM9orlD665WhWzJ3uGh+eWKn7Ik+dRECEpFAfI3O1YBJgdo385
-	 7MzW5WnEhsH8ZS8oz2Pgz8H4=
-Received: from zn.tnic (pd953023b.dip0.t-ipconnect.de [217.83.2.59])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with UTF8SMTPSA id D6DE840E0173;
-	Fri,  5 Dec 2025 20:17:54 +0000 (UTC)
-Date: Fri, 5 Dec 2025 21:17:47 +0100
-From: Borislav Petkov <bp@alien8.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: debug@rivosinc.com, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christian Brauner <brauner@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Benno Lossin <lossin@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com,
-	richard.henderson@linaro.org, jim.shu@sifive.com,
-	andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com,
-	atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com,
-	alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org,
-	rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org,
-	Zong Li <zong.li@sifive.com>, David Hildenbrand <david@redhat.com>,
-	Andreas Korb <andreas.korb@aisec.fraunhofer.de>,
-	Valentin Haudiquet <valentin.haudiquet@canonical.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Charles Mirabile <cmirabil@redhat.com>
-Subject: Re: [PATCH v25 00/28] riscv control-flow integrity for usermode
-Message-ID: <20251205201747.GAaTM963Zy4gr820KV@fat_crate.local>
-References: <20251205-v5_user_cfi_series-v25-0-1a07c0127361@rivosinc.com>
- <d45808b5-44c3-42c6-a54c-3a13606ee39d@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <d45808b5-44c3-42c6-a54c-3a13606ee39d@kernel.org>
+	Fri, 05 Dec 2025 23:27:02 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-340ad9349b3so4736381a91.1
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Dec 2025 15:27:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1764977220; x=1765582020; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=82PAlwWO21tp8UbhKx8JvXdy7ipLM4mrMDPu9N9Uvlk=;
+        b=o7PM5LOMtcf/jTKBpLfWaAqpqA0N3iQSzaW//XMsZnaeE9hQmmx1B2+VgNDT82uEnr
+         wwVzPVgFqCblYNZJ2skMdB0UabyVCaevmyNncB9/bxp9mRyVQenQPKp7qpWMrTBkwKkC
+         z8belu7kciEolGc2JM2Sq+eYC8c8aq5yTgP90xt/+FpdEh3kRQ3zyesaT2gA7V3rJ2YF
+         plAatFwNuTXJIlZsKMG+fGNNzXXzZuMUK0h7X1VHJ6Ga86p9CvgSQXQJKTjkXVU7aaEz
+         L+P4w6eOG13IXuxoMMSrLXOd1GoQV5Lq0NYmfffmnoZXZCU5yAasl2Y7JpXe0npOaF66
+         he0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764977220; x=1765582020;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=82PAlwWO21tp8UbhKx8JvXdy7ipLM4mrMDPu9N9Uvlk=;
+        b=DHnEv4/Ed4XwHg06UuQujqKZK3qj4XqQ8JnSoaCmQLp16MYj8PdD6yx/w6ydyTGBBT
+         d8ZmaaZ7kHZAN/boIOOWeKlvEZRu/svkFY8sTFKEoPD5JTNiEvPuYq0iHyGm1ou01Krd
+         06kIbtn59IkfSE7nNvxplbSwfkqcGXNe1C8xsxFcSNuFqg5ZPNAmtKGOZyzoIJIhCvAA
+         ZyqY9UVuxJpYCNgHUU9orpPVmfohplg6axFvmthmPvNQuy2ZIIWiQAqC9WWcfVhvOyo3
+         qcCRx/Y+kYTRhBWoQ6K1bNaSOF2b0XaSPM/ubMZnDKCU43dwFbGpuXdqBVSnj3f8TKIl
+         ApQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXMR9E+0Uwfvfee5ytoJM/O9nGLs6hKYP+DAOp77LwX/IWF4NKB0ZQGmFDEqnPbt2cCJpbZdjhL5MpN5A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPnfQ8Z6c10WE38Jki3r9AIIq0w03YKI2o8DiV9XQm5Xak7kf2
+	5nNVGhzC8d+aJUje+INNoqa/XI/T0Ei9r6VEw/1vAVDr9JQI4mZrJ6t51vmGQkPYsStZo8u+wuO
+	As7S1cw==
+X-Google-Smtp-Source: AGHT+IErDx9AIrBqjFmTumbdAWc/cSbBSgvfKCPFfnkGw52vegmGTZZ2dg0HO4IMDrvo9ctTc+uVUsD59M4=
+X-Received: from pjtv9.prod.google.com ([2002:a17:90a:c909:b0:33b:51fe:1a81])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:384c:b0:343:6a79:6c75
+ with SMTP id 98e67ed59e1d1-349a25e560bmr498079a91.29.1764977219654; Fri, 05
+ Dec 2025 15:26:59 -0800 (PST)
+Date: Fri,  5 Dec 2025 15:26:55 -0800
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
+Message-ID: <20251205232655.445294-1-seanjc@google.com>
+Subject: [PATCH] KVM: Remove subtle "struct kvm_stats_desc" pseudo-overlay
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	"Gustavo A . R . Silva" <gustavoars@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_121918_465972_EF7B90BD 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20251205_152701_485607_81C39DB7 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,32 +93,471 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 05, 2025 at 08:32:32PM +0100, Krzysztof Kozlowski wrote:
-> On 05/12/2025 19:41, Deepak Gupta via B4 Relay wrote:
-> > v25: Removal of `riscv_nousercfi` from `cpufeature.c` and instead placing
-> > it as extern in `usercfi.h` was leading to build error whene cfi config
-> > is not selected. Placed `riscv_nousercfi` outside cfi config ifdef block
-> > in `usercfi.h`
-> 
-> 
-> Please stop. You sent this 28-patch-bomb TWICE to 50 or 60 addresses.
-> It's actually merge window so it should wait in the first place, but for
-> sure sending it multiple times does not help. Please observe the Linux
-> development process.
+Remove KVM's internal pseudo-overlay of kvm_stats_desc, which subtly
+aliases the flexible name[] in the uAPI definition with a fixed-size array
+of the same name.  The unusual embedded structure results in compiler
+warnings due to -Wflex-array-member-not-at-end, and also necessitates an
+extra level of dereferencing in KVM.  To avoid the "overlay", define the
+uAPI structure to have a fixed-size name when building for the kernel.
 
-You can just delete them. I don't know about you but riscv shadow stack is not
-something I even pretend to know so it all goes to /dev/null
+Opportunistically clean up the indentation for the stats macros, and
+replace spaces with tabs.
 
+No functional change intended.
+
+Reported-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+Closes: https://lore.kernel.org/all/aPfNKRpLfhmhYqfP@kspp
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+
+Posting this as a standalone patch/email to make review and merging easier
+(assuming no one hates on the __KERNEL__ shenanigans).
+ 
+ arch/arm64/kvm/guest.c    |  4 +-
+ arch/loongarch/kvm/vcpu.c |  2 +-
+ arch/loongarch/kvm/vm.c   |  2 +-
+ arch/mips/kvm/mips.c      |  4 +-
+ arch/powerpc/kvm/book3s.c |  4 +-
+ arch/powerpc/kvm/booke.c  |  4 +-
+ arch/riscv/kvm/vcpu.c     |  2 +-
+ arch/riscv/kvm/vm.c       |  2 +-
+ arch/s390/kvm/kvm-s390.c  |  4 +-
+ arch/x86/kvm/x86.c        |  4 +-
+ include/linux/kvm_host.h  | 83 +++++++++++++++++----------------------
+ include/uapi/linux/kvm.h  |  8 ++++
+ virt/kvm/binary_stats.c   |  2 +-
+ virt/kvm/kvm_main.c       | 20 +++++-----
+ 14 files changed, 70 insertions(+), 75 deletions(-)
+
+diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+index 1c87699fd886..332c453b87cf 100644
+--- a/arch/arm64/kvm/guest.c
++++ b/arch/arm64/kvm/guest.c
+@@ -29,7 +29,7 @@
+ 
+ #include "trace.h"
+ 
+-const struct _kvm_stats_desc kvm_vm_stats_desc[] = {
++const struct kvm_stats_desc kvm_vm_stats_desc[] = {
+ 	KVM_GENERIC_VM_STATS()
+ };
+ 
+@@ -42,7 +42,7 @@ const struct kvm_stats_header kvm_vm_stats_header = {
+ 		       sizeof(kvm_vm_stats_desc),
+ };
+ 
+-const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
++const struct kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	STATS_DESC_COUNTER(VCPU, hvc_exit_stat),
+ 	STATS_DESC_COUNTER(VCPU, wfe_exit_stat),
+diff --git a/arch/loongarch/kvm/vcpu.c b/arch/loongarch/kvm/vcpu.c
+index 6d833599ef2e..2bcbd27f1152 100644
+--- a/arch/loongarch/kvm/vcpu.c
++++ b/arch/loongarch/kvm/vcpu.c
+@@ -13,7 +13,7 @@
+ #define CREATE_TRACE_POINTS
+ #include "trace.h"
+ 
+-const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
++const struct kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	STATS_DESC_COUNTER(VCPU, int_exits),
+ 	STATS_DESC_COUNTER(VCPU, idle_exits),
+diff --git a/arch/loongarch/kvm/vm.c b/arch/loongarch/kvm/vm.c
+index 194ccbcdc3b3..7deff56e0e1a 100644
+--- a/arch/loongarch/kvm/vm.c
++++ b/arch/loongarch/kvm/vm.c
+@@ -10,7 +10,7 @@
+ #include <asm/kvm_eiointc.h>
+ #include <asm/kvm_pch_pic.h>
+ 
+-const struct _kvm_stats_desc kvm_vm_stats_desc[] = {
++const struct kvm_stats_desc kvm_vm_stats_desc[] = {
+ 	KVM_GENERIC_VM_STATS(),
+ 	STATS_DESC_ICOUNTER(VM, pages),
+ 	STATS_DESC_ICOUNTER(VM, hugepages),
+diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
+index b0fb92fda4d4..23e69baad453 100644
+--- a/arch/mips/kvm/mips.c
++++ b/arch/mips/kvm/mips.c
+@@ -38,7 +38,7 @@
+ #define VECTORSPACING 0x100	/* for EI/VI mode */
+ #endif
+ 
+-const struct _kvm_stats_desc kvm_vm_stats_desc[] = {
++const struct kvm_stats_desc kvm_vm_stats_desc[] = {
+ 	KVM_GENERIC_VM_STATS()
+ };
+ 
+@@ -51,7 +51,7 @@ const struct kvm_stats_header kvm_vm_stats_header = {
+ 		       sizeof(kvm_vm_stats_desc),
+ };
+ 
+-const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
++const struct kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	STATS_DESC_COUNTER(VCPU, wait_exits),
+ 	STATS_DESC_COUNTER(VCPU, cache_exits),
+diff --git a/arch/powerpc/kvm/book3s.c b/arch/powerpc/kvm/book3s.c
+index d79c5d1098c0..2efbe05caed7 100644
+--- a/arch/powerpc/kvm/book3s.c
++++ b/arch/powerpc/kvm/book3s.c
+@@ -38,7 +38,7 @@
+ 
+ /* #define EXIT_DEBUG */
+ 
+-const struct _kvm_stats_desc kvm_vm_stats_desc[] = {
++const struct kvm_stats_desc kvm_vm_stats_desc[] = {
+ 	KVM_GENERIC_VM_STATS(),
+ 	STATS_DESC_ICOUNTER(VM, num_2M_pages),
+ 	STATS_DESC_ICOUNTER(VM, num_1G_pages)
+@@ -53,7 +53,7 @@ const struct kvm_stats_header kvm_vm_stats_header = {
+ 		       sizeof(kvm_vm_stats_desc),
+ };
+ 
+-const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
++const struct kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	STATS_DESC_COUNTER(VCPU, sum_exits),
+ 	STATS_DESC_COUNTER(VCPU, mmio_exits),
+diff --git a/arch/powerpc/kvm/booke.c b/arch/powerpc/kvm/booke.c
+index 3401b96be475..f3ddb24ece74 100644
+--- a/arch/powerpc/kvm/booke.c
++++ b/arch/powerpc/kvm/booke.c
+@@ -36,7 +36,7 @@
+ 
+ unsigned long kvmppc_booke_handlers;
+ 
+-const struct _kvm_stats_desc kvm_vm_stats_desc[] = {
++const struct kvm_stats_desc kvm_vm_stats_desc[] = {
+ 	KVM_GENERIC_VM_STATS(),
+ 	STATS_DESC_ICOUNTER(VM, num_2M_pages),
+ 	STATS_DESC_ICOUNTER(VM, num_1G_pages)
+@@ -51,7 +51,7 @@ const struct kvm_stats_header kvm_vm_stats_header = {
+ 		       sizeof(kvm_vm_stats_desc),
+ };
+ 
+-const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
++const struct kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	STATS_DESC_COUNTER(VCPU, sum_exits),
+ 	STATS_DESC_COUNTER(VCPU, mmio_exits),
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index a55a95da54d0..fdd99ac1e714 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -24,7 +24,7 @@
+ #define CREATE_TRACE_POINTS
+ #include "trace.h"
+ 
+-const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
++const struct kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	STATS_DESC_COUNTER(VCPU, ecall_exit_stat),
+ 	STATS_DESC_COUNTER(VCPU, wfi_exit_stat),
+diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
+index 66d91ae6e9b2..715a06ae8c13 100644
+--- a/arch/riscv/kvm/vm.c
++++ b/arch/riscv/kvm/vm.c
+@@ -13,7 +13,7 @@
+ #include <linux/kvm_host.h>
+ #include <asm/kvm_mmu.h>
+ 
+-const struct _kvm_stats_desc kvm_vm_stats_desc[] = {
++const struct kvm_stats_desc kvm_vm_stats_desc[] = {
+ 	KVM_GENERIC_VM_STATS()
+ };
+ static_assert(ARRAY_SIZE(kvm_vm_stats_desc) ==
+diff --git a/arch/s390/kvm/kvm-s390.c b/arch/s390/kvm/kvm-s390.c
+index 70dd9ce8cf2b..1cc90b8cf768 100644
+--- a/arch/s390/kvm/kvm-s390.c
++++ b/arch/s390/kvm/kvm-s390.c
+@@ -65,7 +65,7 @@
+ #define VCPU_IRQS_MAX_BUF (sizeof(struct kvm_s390_irq) * \
+ 			   (KVM_MAX_VCPUS + LOCAL_IRQS))
+ 
+-const struct _kvm_stats_desc kvm_vm_stats_desc[] = {
++const struct kvm_stats_desc kvm_vm_stats_desc[] = {
+ 	KVM_GENERIC_VM_STATS(),
+ 	STATS_DESC_COUNTER(VM, inject_io),
+ 	STATS_DESC_COUNTER(VM, inject_float_mchk),
+@@ -91,7 +91,7 @@ const struct kvm_stats_header kvm_vm_stats_header = {
+ 		       sizeof(kvm_vm_stats_desc),
+ };
+ 
+-const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
++const struct kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	STATS_DESC_COUNTER(VCPU, exit_userspace),
+ 	STATS_DESC_COUNTER(VCPU, exit_null),
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 0c6d899d53dd..62ee4816e573 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -237,7 +237,7 @@ EXPORT_SYMBOL_FOR_KVM_INTERNAL(enable_ipiv);
+ bool __read_mostly enable_device_posted_irqs = true;
+ EXPORT_SYMBOL_FOR_KVM_INTERNAL(enable_device_posted_irqs);
+ 
+-const struct _kvm_stats_desc kvm_vm_stats_desc[] = {
++const struct kvm_stats_desc kvm_vm_stats_desc[] = {
+ 	KVM_GENERIC_VM_STATS(),
+ 	STATS_DESC_COUNTER(VM, mmu_shadow_zapped),
+ 	STATS_DESC_COUNTER(VM, mmu_pte_write),
+@@ -263,7 +263,7 @@ const struct kvm_stats_header kvm_vm_stats_header = {
+ 		       sizeof(kvm_vm_stats_desc),
+ };
+ 
+-const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
++const struct kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	STATS_DESC_COUNTER(VCPU, pf_taken),
+ 	STATS_DESC_COUNTER(VCPU, pf_fixed),
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index d93f75b05ae2..7428d9949382 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1927,56 +1927,43 @@ enum kvm_stat_kind {
+ 
+ struct kvm_stat_data {
+ 	struct kvm *kvm;
+-	const struct _kvm_stats_desc *desc;
++	const struct kvm_stats_desc *desc;
+ 	enum kvm_stat_kind kind;
+ };
+ 
+-struct _kvm_stats_desc {
+-	struct kvm_stats_desc desc;
+-	char name[KVM_STATS_NAME_SIZE];
+-};
+-
+-#define STATS_DESC_COMMON(type, unit, base, exp, sz, bsz)		       \
+-	.flags = type | unit | base |					       \
+-		 BUILD_BUG_ON_ZERO(type & ~KVM_STATS_TYPE_MASK) |	       \
+-		 BUILD_BUG_ON_ZERO(unit & ~KVM_STATS_UNIT_MASK) |	       \
+-		 BUILD_BUG_ON_ZERO(base & ~KVM_STATS_BASE_MASK),	       \
+-	.exponent = exp,						       \
+-	.size = sz,							       \
++#define STATS_DESC_COMMON(type, unit, base, exp, sz, bsz)		\
++	.flags = type | unit | base |					\
++		 BUILD_BUG_ON_ZERO(type & ~KVM_STATS_TYPE_MASK) |       \
++		 BUILD_BUG_ON_ZERO(unit & ~KVM_STATS_UNIT_MASK) |	\
++		 BUILD_BUG_ON_ZERO(base & ~KVM_STATS_BASE_MASK),	\
++	.exponent = exp,						\
++	.size = sz,							\
+ 	.bucket_size = bsz
+ 
+-#define VM_GENERIC_STATS_DESC(stat, type, unit, base, exp, sz, bsz)	       \
+-	{								       \
+-		{							       \
+-			STATS_DESC_COMMON(type, unit, base, exp, sz, bsz),     \
+-			.offset = offsetof(struct kvm_vm_stat, generic.stat)   \
+-		},							       \
+-		.name = #stat,						       \
+-	}
+-#define VCPU_GENERIC_STATS_DESC(stat, type, unit, base, exp, sz, bsz)	       \
+-	{								       \
+-		{							       \
+-			STATS_DESC_COMMON(type, unit, base, exp, sz, bsz),     \
+-			.offset = offsetof(struct kvm_vcpu_stat, generic.stat) \
+-		},							       \
+-		.name = #stat,						       \
+-	}
+-#define VM_STATS_DESC(stat, type, unit, base, exp, sz, bsz)		       \
+-	{								       \
+-		{							       \
+-			STATS_DESC_COMMON(type, unit, base, exp, sz, bsz),     \
+-			.offset = offsetof(struct kvm_vm_stat, stat)	       \
+-		},							       \
+-		.name = #stat,						       \
+-	}
+-#define VCPU_STATS_DESC(stat, type, unit, base, exp, sz, bsz)		       \
+-	{								       \
+-		{							       \
+-			STATS_DESC_COMMON(type, unit, base, exp, sz, bsz),     \
+-			.offset = offsetof(struct kvm_vcpu_stat, stat)	       \
+-		},							       \
+-		.name = #stat,						       \
+-	}
++#define VM_GENERIC_STATS_DESC(stat, type, unit, base, exp, sz, bsz)	\
++{									\
++	STATS_DESC_COMMON(type, unit, base, exp, sz, bsz),		\
++	.offset = offsetof(struct kvm_vm_stat, generic.stat),		\
++	.name = #stat,							\
++}
++#define VCPU_GENERIC_STATS_DESC(stat, type, unit, base, exp, sz, bsz)	\
++{									\
++	STATS_DESC_COMMON(type, unit, base, exp, sz, bsz),		\
++	.offset = offsetof(struct kvm_vcpu_stat, generic.stat),		\
++	.name = #stat,							\
++}
++#define VM_STATS_DESC(stat, type, unit, base, exp, sz, bsz)		\
++{									\
++	STATS_DESC_COMMON(type, unit, base, exp, sz, bsz),		\
++	.offset = offsetof(struct kvm_vm_stat, stat),			\
++	.name = #stat,							\
++}
++#define VCPU_STATS_DESC(stat, type, unit, base, exp, sz, bsz)		\
++{									\
++	STATS_DESC_COMMON(type, unit, base, exp, sz, bsz),		\
++	.offset = offsetof(struct kvm_vcpu_stat, stat),			\
++	.name = #stat,							\
++}
+ /* SCOPE: VM, VM_GENERIC, VCPU, VCPU_GENERIC */
+ #define STATS_DESC(SCOPE, stat, type, unit, base, exp, sz, bsz)		       \
+ 	SCOPE##_STATS_DESC(stat, type, unit, base, exp, sz, bsz)
+@@ -2053,7 +2040,7 @@ struct _kvm_stats_desc {
+ 	STATS_DESC_IBOOLEAN(VCPU_GENERIC, blocking)
+ 
+ ssize_t kvm_stats_read(char *id, const struct kvm_stats_header *header,
+-		       const struct _kvm_stats_desc *desc,
++		       const struct kvm_stats_desc *desc,
+ 		       void *stats, size_t size_stats,
+ 		       char __user *user_buffer, size_t size, loff_t *offset);
+ 
+@@ -2098,9 +2085,9 @@ static inline void kvm_stats_log_hist_update(u64 *data, size_t size, u64 value)
+ 
+ 
+ extern const struct kvm_stats_header kvm_vm_stats_header;
+-extern const struct _kvm_stats_desc kvm_vm_stats_desc[];
++extern const struct kvm_stats_desc kvm_vm_stats_desc[];
+ extern const struct kvm_stats_header kvm_vcpu_stats_header;
+-extern const struct _kvm_stats_desc kvm_vcpu_stats_desc[];
++extern const struct kvm_stats_desc kvm_vcpu_stats_desc[];
+ 
+ #ifdef CONFIG_KVM_GENERIC_MMU_NOTIFIER
+ static inline int mmu_invalidate_retry(struct kvm *kvm, unsigned long mmu_seq)
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index dddb781b0507..76bd54848b11 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -14,6 +14,10 @@
+ #include <linux/ioctl.h>
+ #include <asm/kvm.h>
+ 
++#ifdef __KERNEL__
++#include <linux/kvm_types.h>
++#endif
++
+ #define KVM_API_VERSION 12
+ 
+ /*
+@@ -1579,7 +1583,11 @@ struct kvm_stats_desc {
+ 	__u16 size;
+ 	__u32 offset;
+ 	__u32 bucket_size;
++#ifdef __KERNEL__
++	char name[KVM_STATS_NAME_SIZE];
++#else
+ 	char name[];
++#endif
+ };
+ 
+ #define KVM_GET_STATS_FD  _IO(KVMIO,  0xce)
+diff --git a/virt/kvm/binary_stats.c b/virt/kvm/binary_stats.c
+index eefca6c69f51..76ce697c773b 100644
+--- a/virt/kvm/binary_stats.c
++++ b/virt/kvm/binary_stats.c
+@@ -50,7 +50,7 @@
+  * Return: the number of bytes that has been successfully read
+  */
+ ssize_t kvm_stats_read(char *id, const struct kvm_stats_header *header,
+-		       const struct _kvm_stats_desc *desc,
++		       const struct kvm_stats_desc *desc,
+ 		       void *stats, size_t size_stats,
+ 		       char __user *user_buffer, size_t size, loff_t *offset)
+ {
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 74e1afd67b44..6ebf1936c8d4 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -982,9 +982,9 @@ static void kvm_free_memslots(struct kvm *kvm, struct kvm_memslots *slots)
+ 		kvm_free_memslot(kvm, memslot);
+ }
+ 
+-static umode_t kvm_stats_debugfs_mode(const struct _kvm_stats_desc *pdesc)
++static umode_t kvm_stats_debugfs_mode(const struct kvm_stats_desc *desc)
+ {
+-	switch (pdesc->desc.flags & KVM_STATS_TYPE_MASK) {
++	switch (desc->flags & KVM_STATS_TYPE_MASK) {
+ 	case KVM_STATS_TYPE_INSTANT:
+ 		return 0444;
+ 	case KVM_STATS_TYPE_CUMULATIVE:
+@@ -1019,7 +1019,7 @@ static int kvm_create_vm_debugfs(struct kvm *kvm, const char *fdname)
+ 	struct dentry *dent;
+ 	char dir_name[ITOA_MAX_LEN * 2];
+ 	struct kvm_stat_data *stat_data;
+-	const struct _kvm_stats_desc *pdesc;
++	const struct kvm_stats_desc *pdesc;
+ 	int i, ret = -ENOMEM;
+ 	int kvm_debugfs_num_entries = kvm_vm_stats_header.num_desc +
+ 				      kvm_vcpu_stats_header.num_desc;
+@@ -6160,11 +6160,11 @@ static int kvm_stat_data_get(void *data, u64 *val)
+ 	switch (stat_data->kind) {
+ 	case KVM_STAT_VM:
+ 		r = kvm_get_stat_per_vm(stat_data->kvm,
+-					stat_data->desc->desc.offset, val);
++					stat_data->desc->offset, val);
+ 		break;
+ 	case KVM_STAT_VCPU:
+ 		r = kvm_get_stat_per_vcpu(stat_data->kvm,
+-					  stat_data->desc->desc.offset, val);
++					  stat_data->desc->offset, val);
+ 		break;
+ 	}
+ 
+@@ -6182,11 +6182,11 @@ static int kvm_stat_data_clear(void *data, u64 val)
+ 	switch (stat_data->kind) {
+ 	case KVM_STAT_VM:
+ 		r = kvm_clear_stat_per_vm(stat_data->kvm,
+-					  stat_data->desc->desc.offset);
++					  stat_data->desc->offset);
+ 		break;
+ 	case KVM_STAT_VCPU:
+ 		r = kvm_clear_stat_per_vcpu(stat_data->kvm,
+-					    stat_data->desc->desc.offset);
++					    stat_data->desc->offset);
+ 		break;
+ 	}
+ 
+@@ -6334,7 +6334,7 @@ static void kvm_uevent_notify_change(unsigned int type, struct kvm *kvm)
+ static void kvm_init_debug(void)
+ {
+ 	const struct file_operations *fops;
+-	const struct _kvm_stats_desc *pdesc;
++	const struct kvm_stats_desc *pdesc;
+ 	int i;
+ 
+ 	kvm_debugfs_dir = debugfs_create_dir("kvm", NULL);
+@@ -6347,7 +6347,7 @@ static void kvm_init_debug(void)
+ 			fops = &vm_stat_readonly_fops;
+ 		debugfs_create_file(pdesc->name, kvm_stats_debugfs_mode(pdesc),
+ 				kvm_debugfs_dir,
+-				(void *)(long)pdesc->desc.offset, fops);
++				(void *)(long)pdesc->offset, fops);
+ 	}
+ 
+ 	for (i = 0; i < kvm_vcpu_stats_header.num_desc; ++i) {
+@@ -6358,7 +6358,7 @@ static void kvm_init_debug(void)
+ 			fops = &vcpu_stat_readonly_fops;
+ 		debugfs_create_file(pdesc->name, kvm_stats_debugfs_mode(pdesc),
+ 				kvm_debugfs_dir,
+-				(void *)(long)pdesc->desc.offset, fops);
++				(void *)(long)pdesc->offset, fops);
+ 	}
+ }
+ 
+
+base-commit: e0c26d47def7382d7dbd9cad58bc653aed75737a
 -- 
-Regards/Gruss,
-    Boris.
+2.52.0.223.gf5cc29aaa4-goog
 
-https://people.kernel.org/tglx/notes-about-netiquette
 
 _______________________________________________
 linux-riscv mailing list
