@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA6C7D339B7
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Dec 2025 18:37:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DABBD339B8
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Dec 2025 18:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GblsGuxR+dj4PQktRHHS3Fhgk493xBztTQujWe2+Gdw=; b=hyhkX5szCSA7f+
-	dDyftd5dobPMcuHHb8JUPo1LOTICCE11RP2xz1+k5tLmagZkPUUk2RtiG2YnYEMBBtU4+xXrP3F/8
-	maW3l0OSTrukz298Wspencv2cQVN5eV3eQWYa1RVp6/018L5Omr38WoHsAcq0J1c7uFXoo9UOWy93
-	iyhksQw4F678adqwM9cYWAXTdQuFMos6p7zO+P8A/+yrLgK5aK6MtACsLdCoge4n3+A24kK2ycQYK
-	M3RjtWXOjarUQ7Qfpbw3FMxIPbAS2mDlq1BVCIFPdi6xJJpV994dToh7RLQMZFlTx1vkiRPlh2+UI
-	vTT/IAeae2Vp64VpgGlA==;
+	List-Owner; bh=e/OYzUpqMUw08GMJv1SJi3fQC8c1dbYA636Oe5XqlBE=; b=O7y4XOx0ns91ve
+	zHt8DhOkIovI9YpQdNghANa1xNPgaqzwmNiwkdMiq3wFb/cNAxvtkbQRKJEmMPJjKsPXs+lw7+p2G
+	WfICHRoX4/ZYRUc0rQfEJiQwY2rq1ZOkPvOQQkHBR8648sEWDOLzO3ANPldLBLYb4sNDN3lt6ChOB
+	ZoJPcoKbjk+J10cMuVjD7+iAgkdAm7lNOqzmtOqd2yRPx9seFBGhyxVeOm7Dw5ijyorioUi5oAq3Z
+	foTrvwn8lXCFKk6NUsK52B99RFmQcx8lk/MrGp67rak/v6lZp0vRy0q3+Cpu3QPVkfBzUmaqLT4P9
+	awM8gQOgTiKjy6G44Rmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRaft-00000009p5x-1AcO;
-	Fri, 05 Dec 2025 18:37:01 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1vRafq-00000009p4U-2sNL;
+	Fri, 05 Dec 2025 18:36:58 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRafr-00000009p4x-1mxm
+	id 1vRafn-00000009p34-2WPi
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Dec 2025 18:37:00 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-bddba676613so1617621a12.2
-        for <linux-riscv@lists.infradead.org>; Fri, 05 Dec 2025 10:36:59 -0800 (PST)
+	Fri, 05 Dec 2025 18:36:57 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-29558061c68so29710055ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Dec 2025 10:36:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1764959819; x=1765564619; darn=lists.infradead.org;
+        d=rivosinc.com; s=google; t=1764959815; x=1765564615; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=cETj36wQ9Li8D++iY1PBxUMbJIR6wBVZ7mUW8zqZ2ak=;
-        b=E4Xyqn0sf5Xg80UnXTpbA1oQzyNhxOROhKDS4pn6gu/AXnpeQ4oPNJBniOpinoDoLU
-         i017E6y6K6VO2ZLH5NeB6Ox7LTNsMrmE15p9O8IrGRDnbPcXHNeEsTJxp+YZKMtPZ5JX
-         IqiGwJtuVLs6KwiAsNShMqvw7GPwi8TrvvPdRVhVHi/w7vgZg6m5BCamXMv4uF9KS9V+
-         69tNusLeWR+LCqh/wsvkTIKIwY3rQlgK3oHtWsZWTfcu+IXm9YMNGQT7ldT6gRpfGsq+
-         ng2BH0piJoojBYMQX3glTzMCFdi0Y8hVTbWJoba4NiYLw+ixPcEoAT6av0G7/q9jpEez
-         FsZQ==
+        bh=64xLkyzyDt+G7LhAFS7W5T4PZ7pgqwloJjIatj/cxJQ=;
+        b=PJ6do/FZl9lvjU0EcjtxQEtYZZyno1XO0d/APcvR6/Uy3o3BX7Ty4Td0vRqmdbRhvL
+         9zAbS2iaWucua3wZiXFrXZUTf9b6oINMeSXZnngnDuDKuSXMt3ryyU5rKQcYJsa9HhEl
+         EDbZbLt9l1C8AdRdPvTSZCutqgZ5KL9lfTL8F9i1M3V2H9HIyRU17Ms3TJTQfO8L58XI
+         p+ugknrW/tlYEzkpFtMbcKC/4FMkg9fmRjpEXTo2iheMUsD/LKMM5Wgv5rduV3spGk2K
+         XjN0/bYjUCzqJkArBWW/zwgkkbugnwAGccd0oXpNMEE9nKtbYatgkYCB6kLzJBuSEXKa
+         4WRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764959819; x=1765564619;
+        d=1e100.net; s=20230601; t=1764959815; x=1765564615;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=cETj36wQ9Li8D++iY1PBxUMbJIR6wBVZ7mUW8zqZ2ak=;
-        b=jiuH2FXSPH52I4O1PpzG9nHMfVjayXfKyEVNxYhAVhl+lYqW5RNfpTV0hYtOMX2+d8
-         pUxR1bx4eVhei61H6SdT9tFf8/mcTmiZIHCW0+L4XVzTbdgZFcNlMerFqw7j8Eh3Wn82
-         DoNuAjlJ+8o+G0zCQ3P9B3lxyQhrZ4VMO8WkZBR/O7SkmQyYBJe+39Lnm5aMmmgyfuyC
-         Uaf7oUs64ZpYi4dUz03nAuDUt8PbvkfhSlMmKSBGoUfLyf+AMhY7RHx5Os85NnrKcY7Q
-         Kc0f6y5K6DS1kQFQrys8IK4zmZ6MuVxgVaZTH0Pc3EuXdwgjO4CXAZcsWaVAUefUdcCd
-         1Bew==
-X-Forwarded-Encrypted: i=1; AJvYcCXFRz+VIF4KuJPGMuOPRr4cgFAqWQSk5kFD+BVnBC919wX1WY30/WRsPv7fbnbdOL84UMtBBGLcjQjfdg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YweI+s0CdlsXu4xqn8ORkvyqMFi2VMlN2nr3NXkD9rVT4F3ODqZ
-	AG5mSRAQLwmjMmBgNzj9t0KOBT3n8IMF7ZTKMN3jbtDLSG92DjGkErxAlR61vZXv6TQ=
-X-Gm-Gg: ASbGncu2IuHIFQ5eBNvUv1wHHWrxrVAXQ7r0Jupm7Pn4AxUd+TXjXjHx8f/9nL/UOd4
-	9Joe372oYoJfbOndAtSIYv2XcJv2nDhQqv4B47MqTJhZpVgEj/On5zZkMIBtble2HN7RCpPfQRt
-	nayZw1uTdDFLUfA4AC7/xfZwflOsWQ3VfQaBUQRG2x2jGnj6IajX787syu6jDTNgbHGNum5/yKr
-	MwTbNHPQSEyxS9IQLhfV3l8TIK0OKpjV2tBZCCAj73F2vwHqZ0sM2f+eZ827fYKZ/Am+hj9dBIr
-	3dFtzek/bLDkKzHPblU8+AMcZxX/7gT+HUId94DKDNemGKTbSiZI+9lKUEvQPH8BkGJIq6cxz00
-	kANtmdszXj0mhWJmtPTj8gxxjD9x+6jiKh9BH21Hm2qhHhD6nIZCtXX/hplaydZRAYclvleDpEG
-	tcxwSqvtgQANH51PFp+PVo
-X-Google-Smtp-Source: AGHT+IEkzbnT/WgOlempvP3hpilfiz+Q71aHJSWUM26fnmV95b/U/OPvqEShn/bm1V+eS1bH7ZJBNQ==
-X-Received: by 2002:a05:7301:7389:b0:2a4:6488:7a91 with SMTP id 5a478bee46e88-2abc721e3aemr63588eec.37.1764959818484;
-        Fri, 05 Dec 2025 10:36:58 -0800 (PST)
+        bh=64xLkyzyDt+G7LhAFS7W5T4PZ7pgqwloJjIatj/cxJQ=;
+        b=s8UiCh6MrOs8C10g3elyVbimFWNlx7zEidLt2xdURlVoDYiduNMFd0NNB7ax2/zb/0
+         61u2X8WHhtl9Il61PdqaN0NgcTriig8Q+bopMQBqdj9xvSv1Dor5clqj2LaRC6Frcz+q
+         w1AHM3OlkLoLC7tpZVjopuq8H2rJF091esBVuspxfVVel9dnkWqRw+l3IPpeBrUcY3Z7
+         KjJP5+bjfQTpno4l+s0Ui7jvOYkjqG3PryJT8cNsR28SXA3FLVtR9HpNXshTpMOIi1O+
+         fqHYfF+SJbTlUJG6aTwVp2ZN/2o+6b/1aRzU0i/tdkFKO/r+AGkw8x7nLc3X6H+M9SCN
+         5G4A==
+X-Forwarded-Encrypted: i=1; AJvYcCUhKsrw24+YOqvsC9OLpythR3zsHOD/lmSTvPVcD8kSklFTmdK8lFY7DoahOscXBVt/etC5N+8PYiIA8w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFRotkDfuOh5rCYqlf9mdDgSTJwTbX9KULK8D6RKEn0BNrzBPu
+	IvgeFsW/uj+d+xJ7AH/cPUNjEuNRmobhf18wJCCzXZNDGyGfWyzo2bSfAwAEN6ufxmc=
+X-Gm-Gg: ASbGncv+TBKN4TDy5Jdl6Vxc2IDDdLISVnmsuEeN6qbouRL+MegeTWtsEuWLsekftk4
+	J8MrL7DgnqG6N2oG/lDicyQAf9PLChDB3ZWoaJKI/ScstbGb2n9UaA3ydyHhPfpgyrS67XPYcy+
+	+AzQmoMMKzOKgLT3dwAF/4KtTSJAptlFF5y919YbYyuXzaBm2IJ6wZxavplsvEJutc8tauIytLw
+	FkCqHA754Fqfzdoxt7ayL99gTdNB4BGwvH/Sb0QSvppZPUzhAOYdpIKoRhj9EH54CQIhJa+iPnC
+	CFrOUwRGAxm+zzPUUfBIWfmOmbWF4rAC3iUPv+DrwA9lOLHuZmXkuStL444ord2n5913+QpPm93
+	7Wc1kldCDeN1/o57XgrEv1M3HXQBXI/hfKP+ooR+McmtFyL1699RPHkgzJYscmW+4Ye1kwnHG1d
+	iHSY/wkWtvkiORLz6i8uts
+X-Google-Smtp-Source: AGHT+IGU2sLP85/lJ1hQVHbc76Oe28ZFP7QFL3n7WXxEEBaxhaqoxKiUM68PA0g4YWByoTPd/kSlLw==
+X-Received: by 2002:a05:7300:cc8f:b0:2a4:3593:9699 with SMTP id 5a478bee46e88-2abc71f7ee3mr78452eec.22.1764959814725;
+        Fri, 05 Dec 2025 10:36:54 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2aba8395d99sm23933342eec.1.2025.12.05.10.36.56
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2aba8395d99sm23933342eec.1.2025.12.05.10.36.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Dec 2025 10:36:57 -0800 (PST)
+        Fri, 05 Dec 2025 10:36:54 -0800 (PST)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Fri, 05 Dec 2025 10:36:50 -0800
-Subject: [PATCH v25 04/28] riscv: zicfiss / zicfilp extension csr and bit
- definitions
+Date: Fri, 05 Dec 2025 10:36:48 -0800
+Subject: [PATCH v25 02/28] dt-bindings: riscv: zicfilp and zicfiss in
+ dt-bindings (extensions.yaml)
 MIME-Version: 1.0
-Message-Id: <20251205-v5_user_cfi_series-v25-4-8a3570c3e145@rivosinc.com>
+Message-Id: <20251205-v5_user_cfi_series-v25-2-8a3570c3e145@rivosinc.com>
 References: <20251205-v5_user_cfi_series-v25-0-8a3570c3e145@rivosinc.com>
 In-Reply-To: <20251205-v5_user_cfi_series-v25-0-8a3570c3e145@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -108,20 +108,20 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
  rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
- Andreas Korb <andreas.korb@aisec.fraunhofer.de>, 
  Valentin Haudiquet <valentin.haudiquet@canonical.com>, 
  Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764959808; l=2422;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764959808; l=1566;
  i=debug@rivosinc.com; s=20251023; h=from:subject:message-id;
- bh=n7bR1NnVFI/AqRJ5DRrpGqIuuKL5t/EAGbECncFah4k=;
- b=31A6j7PC6Y5du6FtyG1Tip5TQTReoqkkZmO7mrZz/KN+VapztQ/ClG5jXhF8oJEHAJfpgvSh7
- Wdgdq2HWZ/wBlxT7xVvM72WWT8CT9lmclkSWtwU4fMwFZ3NA1iNoLlQ
+ bh=vDVmmVGnkAFlfQ8sB5tmt1wB1lda3XmsatvedsLasmU=;
+ b=FTcBrsY29zH4CGwlbVTm1o8uVBkzLWVuJZRVdzWSvyaLQ+YCd1ACncy30R/KVfqxKm8RGhxIK
+ fyUsZ0gvoQPAEuPbkBJtPN+hiBZ+Driu1BfYy5W9om0F5sqYa2IMOjY
 X-Developer-Key: i=debug@rivosinc.com; a=ed25519;
  pk=O37GQv1thBhZToXyQKdecPDhtWVbEDRQ0RIndijvpjk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_103659_469319_DF38A690 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20251205_103655_636740_D346642A 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,68 +138,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-zicfiss and zicfilp extension gets enabled via b3 and b2 in *envcfg CSR.
-menvcfg controls enabling for S/HS mode. henvcfg control enabling for VS
-while senvcfg controls enabling for U/VU mode.
+Make an entry for cfi extensions in extensions.yaml.
 
-zicfilp extension extends *status CSR to hold `expected landing pad` bit.
-A trap or interrupt can occur between an indirect jmp/call and target
-instr. `expected landing pad` bit from CPU is recorded into xstatus CSR so
-that when supervisor performs xret, `expected landing pad` state of CPU can
-be restored.
-
-zicfiss adds one new CSR
-- CSR_SSP: CSR_SSP contains current shadow stack pointer.
-
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-Tested-by: Andreas Korb <andreas.korb@aisec.fraunhofer.de>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Tested-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/include/asm/csr.h | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ Documentation/devicetree/bindings/riscv/extensions.yaml | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 4a37a98398ad..78f573ab4c53 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -18,6 +18,15 @@
- #define SR_MPP		_AC(0x00001800, UL) /* Previously Machine */
- #define SR_SUM		_AC(0x00040000, UL) /* Supervisor User Memory Access */
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index 543ac94718e8..3222326e32eb 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -444,6 +444,20 @@ properties:
+             The standard Zicboz extension for cache-block zeroing as ratified
+             in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
  
-+/* zicfilp landing pad status bit */
-+#define SR_SPELP	_AC(0x00800000, UL)
-+#define SR_MPELP	_AC(0x020000000000, UL)
-+#ifdef CONFIG_RISCV_M_MODE
-+#define SR_ELP		SR_MPELP
-+#else
-+#define SR_ELP		SR_SPELP
-+#endif
++        - const: zicfilp
++          description: |
++            The standard Zicfilp extension for enforcing forward edge
++            control-flow integrity as ratified in commit 3f8e450 ("merge
++            pull request #227 from ved-rivos/0709") of riscv-cfi
++            github repo.
 +
- #define SR_FS		_AC(0x00006000, UL) /* Floating-point Status */
- #define SR_FS_OFF	_AC(0x00000000, UL)
- #define SR_FS_INITIAL	_AC(0x00002000, UL)
-@@ -212,6 +221,8 @@
- #define ENVCFG_PMM_PMLEN_16		(_AC(0x3, ULL) << 32)
- #define ENVCFG_CBZE			(_AC(1, UL) << 7)
- #define ENVCFG_CBCFE			(_AC(1, UL) << 6)
-+#define ENVCFG_LPE			(_AC(1, UL) << 2)
-+#define ENVCFG_SSE			(_AC(1, UL) << 3)
- #define ENVCFG_CBIE_SHIFT		4
- #define ENVCFG_CBIE			(_AC(0x3, UL) << ENVCFG_CBIE_SHIFT)
- #define ENVCFG_CBIE_ILL			_AC(0x0, UL)
-@@ -230,6 +241,11 @@
- #define SMSTATEEN0_HSENVCFG		(_ULL(1) << SMSTATEEN0_HSENVCFG_SHIFT)
- #define SMSTATEEN0_SSTATEEN0_SHIFT	63
- #define SMSTATEEN0_SSTATEEN0		(_ULL(1) << SMSTATEEN0_SSTATEEN0_SHIFT)
-+/*
-+ * zicfiss user mode csr
-+ * CSR_SSP holds current shadow stack pointer.
-+ */
-+#define CSR_SSP                 0x011
- 
- /* mseccfg bits */
- #define MSECCFG_PMM			ENVCFG_PMM
++        - const: zicfiss
++          description: |
++            The standard Zicfiss extension for enforcing backward edge
++            control-flow integrity as ratified in commit 3f8e450 ("merge
++            pull request #227 from ved-rivos/0709") of riscv-cfi
++            github repo.
++
+         - const: zicntr
+           description:
+             The standard Zicntr extension for base counters and timers, as
 
 -- 
 2.45.0
