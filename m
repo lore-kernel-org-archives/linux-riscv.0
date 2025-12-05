@@ -4,68 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 167E8D339AE
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Dec 2025 18:42:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2804AD339BB
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Dec 2025 18:42:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kavyl4dAMsasct+Qc1do/j2axw5oUp/7gCa/FYQ4DuQ=; b=Z3AVoJDoFt2lm3
-	mRhHJFon794USm+zeZgaN0W48w6s+QhwrImzgb+lbhws9kPFmwtO2Omp1zBr4P5PhWfbSpqRG5Pz8
-	5QQgXmm85l3o80pW0S1USQlTsLCcsWuadSUYzQVeaz/WTVNZBjmG/thwU55Te92LDjT7udC68/sl9
-	CNCuEPd/BMtB3AF+nWGFUUwCfiPYGUggIPLQYKlMYL538c86NLT815WJY8cT3MrHqNC6y5zN5utNf
-	53ZKEs2PVFZEHYT56H7AhdAgkd0/qQOJb12+718sgCPMYn1tI73Ots0oevo55By2bn4+/ZSmkOyRN
-	Sv7ddhR6Fghmq9wPPfvw==;
+	List-Owner; bh=PB9l3hTA4SbHzdyd932uVP1p/wjCIiSmf0971rVa0fU=; b=LRPtCwa8RylBSR
+	9SZ3kWvMjOFtWbycUVuazahx7ov37Jmy19lZrYT62HgNwItpQQYh8dND1OUP3Q2IvMx5mDid4ZchM
+	3XMG2ubh8J6Vpp/sj3VDYohnQBVk1aupwZmbrpDIxBMXUGSSmjXuavAQPTUuO/J17xZrRTN5zQqmm
+	E2ZhrDl9mA3oulbZuBz4mVsLbUKF7HP4hL65O881pS0A9oKGPArwvPgRKQun+TB4L0/elSxJRBAQf
+	9hYjS/mW/qTWa8zdHOvKBSt501ySIIOkmbI1l67MEQ4m1szLK09/4lhDGcbnVoUxYZTtQoJrWuH3k
+	k9EAzERxTEhKJX0Yj7vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRakl-00000009rXZ-1G7K;
-	Fri, 05 Dec 2025 18:42:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vRakm-00000009rYq-0ntX;
+	Fri, 05 Dec 2025 18:42:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRakh-00000009rQH-2JhS
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 05 Dec 2025 18:41:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=FnS3sSaAmKH1sjlEJ414W/TvDIeFPTUnUNVNL3eOopI=; b=iJ6cg/DwVqt6ezbBQklfeQYRqT
-	C5EBjVkwF52HTbB8e7tIdei/3nBDoBOBFTRODPjb8pYQWkuPZR9lb+GuF6YlVgDgT8ThuaQA3q9bK
-	6t3dF+VKz/wya3SzHZjeQjOyXEKlPhBEDg9DtCwjbe7CAWTwlchDpGeNgSrch27ZL0swnvsfxVe4g
-	ujqCLbB0ir4yaa+NqOv2pDrlQk+Fe0a+1Fgw4WF7fKUOZVnw0AaUm4drD+qAYyqb4O7DmJtlEgV2S
-	gDSitor+LTAf8ISwGQLQQazUljj0JkJSwJ+exy8D8P7kvf3MVZ9spH/bSoXLT0sI87QUtX64bdfrA
-	T+A+Pu1g==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRZt7-00000006Ze6-1YOk
+	id 1vRakg-00000009rLc-46IE
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Dec 2025 17:46:39 +0000
+	Fri, 05 Dec 2025 18:42:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E9CFF44527;
-	Fri,  5 Dec 2025 18:41:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A39C1C4AF0E;
-	Fri,  5 Dec 2025 18:41:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A8450445A7;
+	Fri,  5 Dec 2025 18:41:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4E26CC2BCC9;
+	Fri,  5 Dec 2025 18:41:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764960110;
-	bh=04gVJXOYw7Ju2c/7DpEHB2s0kbuucyi2foZBfgP2tHg=;
+	s=k20201202; t=1764960111;
+	bh=HdNiZJqM6D0VyTTwRtYP1mVmu0G8OaSHRfodSNYlNJ4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=qJRZHyzJu2ng2T7+QcnxvUuW5qFDRntvNoU36U7lMP+q/wrd2WS9ZeHiZxa8jj/CG
-	 yMc6rnNdnNdXXtul9iIlTLORZngNPwglpavErhXvImT5OCQ50LWmfI3q92wSOYH0xD
-	 maWCJJk95yX+Dgd8GCroB4kj7xs8IWDTDMKbbQerZ63h7dqdspRWNUAg2pfE2aBDsJ
-	 WtBrC8XvTCJ6ZE1NP7UuzfzSzvA744bG8FSPvLB2PMSCtULPhAMH1/5jaN9YtSBnoa
-	 rAX9v5trUwIvEFcDVWGHpCI5GktP//+8mKsnsB+16mjaDZyIZtfirPZTAEv42qytwh
-	 9KKwlmKR5D/SA==
+	b=iAxiXLo7P2d1RH4Ja0xOnS5NbkRsHXeCdw3XoDzi62PEpqjuZQS4N+HJGNHu6vvVq
+	 +mB85a+v68lgCWgKln8OgAw8BTPPbQCFS3p5EJWvjIViXMF9tWHMf7hFLJ8JPOEcyM
+	 H2sOe/h3ukP0grYYEPo+/w6LyQ4nxrgTPMoQvquT0Sizdnjy5I47Yv3Dvla3GKQoiF
+	 4JJ+UMCrSBjisTnAP4TiF38v/Tqwg8bN4R8d1vIHIyMWcEWlTgG3OVtDKcC+Chzy+X
+	 LqroJAVlMcvabzgjHzuWMTXIHxG1eUG//DmCk4Dc011n1pHE4YE4jnMnOn6RUvy7Ya
+	 aTth9cXLX9i5w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 940D5D339B7;
-	Fri,  5 Dec 2025 18:41:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3EFB3D339B9;
+	Fri,  5 Dec 2025 18:41:51 +0000 (UTC)
 From: Deepak Gupta via B4 Relay <devnull+debug.rivosinc.com@kernel.org>
-Date: Fri, 05 Dec 2025 10:41:46 -0800
-Subject: [PATCH v25 08/28] riscv/mm: teach pte_mkwrite to manufacture
- shadow stack PTEs
+Date: Fri, 05 Dec 2025 10:41:53 -0800
+Subject: [PATCH v25 15/28] riscv/traps: Introduce software check exception
+ and uprobe handling
 MIME-Version: 1.0
-Message-Id: <20251205-v5_user_cfi_series-v25-8-1a07c0127361@rivosinc.com>
+Message-Id: <20251205-v5_user_cfi_series-v25-15-1a07c0127361@rivosinc.com>
 References: <20251205-v5_user_cfi_series-v25-0-1a07c0127361@rivosinc.com>
 In-Reply-To: <20251205-v5_user_cfi_series-v25-0-1a07c0127361@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -103,19 +88,19 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  Valentin Haudiquet <valentin.haudiquet@canonical.com>, 
  Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764960107; l=2371;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764960107; l=5652;
  i=debug@rivosinc.com; s=20251023; h=from:subject:message-id;
- bh=t88tD6h5jGJWywn6Tz9bzXAVcX1Z5iY6bKQeGfJKelY=;
- b=N4xtbVOv6lrVA6wKy86XWTPRYm7wr/n+y0/kgtebmS9buXcDZzbf/D6MfqGEe1Bu3tcMMb54a
- Ld6+7x5sDGnCUsJLpuBvs/MBw8Z5DkzSxijh9Av60LC4Pll0qAgDXRl
+ bh=pDv4J86Pof3YK1pZH0o5q7LZtPnnQoynOcq+79RnSA4=;
+ b=FA0dwWAf+SlsTvEyCwkwWI2vi3Xk4w4ZSLWYO5Izu2jboLX6nm3cXc/b/icI33DeXyCpdVvws
+ KyYb+7CWqiiATUA5TOiKUOAg+oAmRsA1Mi4AWS/kc4fk/15UGfdF4Fv
 X-Developer-Key: i=debug@rivosinc.com; a=ed25519;
  pk=O37GQv1thBhZToXyQKdecPDhtWVbEDRQ0RIndijvpjk=
 X-Endpoint-Received: by B4 Relay for debug@rivosinc.com/20251023 with
  auth_id=553
 X-Original-From: Deepak Gupta <debug@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_174637_816150_CDCA11E5 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20251205_104159_067372_8E29F9C5 
+X-CRM114-Status: GOOD (  20.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,72 +120,143 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Deepak Gupta <debug@rivosinc.com>
 
-pte_mkwrite creates PTEs with WRITE encodings for underlying arch.
-Underlying arch can have two types of writeable mappings. One that can be
-written using regular store instructions. Another one that can only be
-written using specialized store instructions (like shadow stack stores).
-pte_mkwrite can select write PTE encoding based on VMA range (i.e.
-VM_SHADOW_STACK)
+zicfiss / zicfilp introduces a new exception to priv isa `software check
+exception` with cause code = 18. This patch implements software check
+exception.
 
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Additionally it implements a cfi violation handler which checks for code
+in xtval. If xtval=2, it means that sw check exception happened because of
+an indirect branch not landing on 4 byte aligned PC or not landing on
+`lpad` instruction or label value embedded in `lpad` not matching label
+value setup in `x7`. If xtval=3, it means that sw check exception happened
+because of mismatch between link register (x1 or x5) and top of shadow
+stack (on execution of `sspopchk`).
+
+In case of cfi violation, SIGSEGV is raised with code=SEGV_CPERR.
+SEGV_CPERR was introduced by x86 shadow stack patches.
+
+To keep uprobes working, handle the uprobe event first before reporting
+the CFI violation in software-check exception handler. Because when the
+landing pad is activated, if the uprobe point is set at the lpad
+instruction at the beginning of a function, the system triggers a software
+-check exception instead of an ebreak exception due to the exception
+priority, then uprobe can't work successfully.
+
+Co-developed-by: Zong Li <zong.li@sifive.com>
 Reviewed-by: Zong Li <zong.li@sifive.com>
+Signed-off-by: Zong Li <zong.li@sifive.com>
 Tested-by: Andreas Korb <andreas.korb@aisec.fraunhofer.de>
 Tested-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/include/asm/pgtable.h |  7 +++++++
- arch/riscv/mm/pgtable.c          | 16 ++++++++++++++++
- 2 files changed, 23 insertions(+)
+ arch/riscv/include/asm/asm-prototypes.h |  1 +
+ arch/riscv/include/asm/entry-common.h   |  2 ++
+ arch/riscv/kernel/entry.S               |  3 ++
+ arch/riscv/kernel/traps.c               | 54 +++++++++++++++++++++++++++++++++
+ 4 files changed, 60 insertions(+)
 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index e4eb4657e1b6..b03e8f85221f 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -420,6 +420,10 @@ static inline pte_t pte_wrprotect(pte_t pte)
+diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
+index a9988bf21ec8..41ec5cdec367 100644
+--- a/arch/riscv/include/asm/asm-prototypes.h
++++ b/arch/riscv/include/asm/asm-prototypes.h
+@@ -51,6 +51,7 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_u);
+ DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
+ DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
+ DECLARE_DO_ERROR_INFO(do_trap_break);
++DECLARE_DO_ERROR_INFO(do_trap_software_check);
  
- /* static inline pte_t pte_mkread(pte_t pte) */
+ asmlinkage void ret_from_fork_kernel(void *fn_arg, int (*fn)(void *), struct pt_regs *regs);
+ asmlinkage void ret_from_fork_user(struct pt_regs *regs);
+diff --git a/arch/riscv/include/asm/entry-common.h b/arch/riscv/include/asm/entry-common.h
+index b28ccc6cdeea..34ed149af5d1 100644
+--- a/arch/riscv/include/asm/entry-common.h
++++ b/arch/riscv/include/asm/entry-common.h
+@@ -40,4 +40,6 @@ static inline int handle_misaligned_store(struct pt_regs *regs)
+ }
+ #endif
  
-+struct vm_area_struct;
-+pte_t pte_mkwrite(pte_t pte, struct vm_area_struct *vma);
-+#define pte_mkwrite pte_mkwrite
++bool handle_user_cfi_violation(struct pt_regs *regs);
 +
- static inline pte_t pte_mkwrite_novma(pte_t pte)
- {
- 	return __pte(pte_val(pte) | _PAGE_WRITE);
-@@ -765,6 +769,9 @@ static inline pmd_t pmd_mkyoung(pmd_t pmd)
- 	return pte_pmd(pte_mkyoung(pmd_pte(pmd)));
+ #endif /* _ASM_RISCV_ENTRY_COMMON_H */
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 036a6ca7641f..53c5aa0b6a16 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -495,6 +495,9 @@ SYM_DATA_START_LOCAL(excp_vect_table)
+ 	RISCV_PTR do_page_fault   /* load page fault */
+ 	RISCV_PTR do_trap_unknown
+ 	RISCV_PTR do_page_fault   /* store page fault */
++	RISCV_PTR do_trap_unknown /* cause=16 */
++	RISCV_PTR do_trap_unknown /* cause=17 */
++	RISCV_PTR do_trap_software_check /* cause=18 is sw check exception */
+ SYM_DATA_END_LABEL(excp_vect_table, SYM_L_LOCAL, excp_vect_table_end)
+ 
+ #ifndef CONFIG_MMU
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 80230de167de..d939a8dbdb15 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -366,6 +366,60 @@ void do_trap_ecall_u(struct pt_regs *regs)
+ 
  }
  
-+pmd_t pmd_mkwrite(pmd_t pmd, struct vm_area_struct *vma);
-+#define pmd_mkwrite pmd_mkwrite
++#define CFI_TVAL_FCFI_CODE	2
++#define CFI_TVAL_BCFI_CODE	3
++/* handle cfi violations */
++bool handle_user_cfi_violation(struct pt_regs *regs)
++{
++	unsigned long tval = csr_read(CSR_TVAL);
++	bool is_fcfi = (tval == CFI_TVAL_FCFI_CODE && cpu_supports_indirect_br_lp_instr());
++	bool is_bcfi = (tval == CFI_TVAL_BCFI_CODE && cpu_supports_shadow_stack());
 +
- static inline pmd_t pmd_mkwrite_novma(pmd_t pmd)
++	/*
++	 * Handle uprobe event first. The probe point can be a valid target
++	 * of indirect jumps or calls, in this case, forward cfi violation
++	 * will be triggered instead of breakpoint exception. Clear ELP flag
++	 * on sstatus image as well to avoid recurring fault.
++	 */
++	if (is_fcfi && probe_breakpoint_handler(regs)) {
++		regs->status &= ~SR_ELP;
++		return true;
++	}
++
++	if (is_fcfi || is_bcfi) {
++		do_trap_error(regs, SIGSEGV, SEGV_CPERR, regs->epc,
++			      "Oops - control flow violation");
++		return true;
++	}
++
++	return false;
++}
++
++/*
++ * software check exception is defined with risc-v cfi spec. Software check
++ * exception is raised when:-
++ * a) An indirect branch doesn't land on 4 byte aligned PC or `lpad`
++ *    instruction or `label` value programmed in `lpad` instr doesn't
++ *    match with value setup in `x7`. reported code in `xtval` is 2.
++ * b) `sspopchk` instruction finds a mismatch between top of shadow stack (ssp)
++ *    and x1/x5. reported code in `xtval` is 3.
++ */
++asmlinkage __visible __trap_section void do_trap_software_check(struct pt_regs *regs)
++{
++	if (user_mode(regs)) {
++		irqentry_enter_from_user_mode(regs);
++
++		/* not a cfi violation, then merge into flow of unknown trap handler */
++		if (!handle_user_cfi_violation(regs))
++			do_trap_unknown(regs);
++
++		irqentry_exit_to_user_mode(regs);
++	} else {
++		/* sw check exception coming from kernel is a bug in kernel */
++		die(regs, "Kernel BUG");
++	}
++}
++
+ #ifdef CONFIG_MMU
+ asmlinkage __visible noinstr void do_page_fault(struct pt_regs *regs)
  {
- 	return pte_pmd(pte_mkwrite_novma(pmd_pte(pmd)));
-diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
-index 8b6c0a112a8d..17a4bd05a02f 100644
---- a/arch/riscv/mm/pgtable.c
-+++ b/arch/riscv/mm/pgtable.c
-@@ -165,3 +165,19 @@ pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
- 	return old;
- }
- #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
-+
-+pte_t pte_mkwrite(pte_t pte, struct vm_area_struct *vma)
-+{
-+	if (vma->vm_flags & VM_SHADOW_STACK)
-+		return pte_mkwrite_shstk(pte);
-+
-+	return pte_mkwrite_novma(pte);
-+}
-+
-+pmd_t pmd_mkwrite(pmd_t pmd, struct vm_area_struct *vma)
-+{
-+	if (vma->vm_flags & VM_SHADOW_STACK)
-+		return pmd_mkwrite_shstk(pmd);
-+
-+	return pmd_mkwrite_novma(pmd);
-+}
 
 -- 
 2.43.0
