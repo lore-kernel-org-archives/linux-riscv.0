@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4121D339AE
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Dec 2025 18:37:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41EBBD339B4
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Dec 2025 18:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LbMyC2a5KjckNaC3eMf2AAeLRx5owNl0fRF+3Q6FGN4=; b=WvxwlS1YJfRV5D
-	yKKgwtpv67Gs2BSm+RmlbBDGieKA1odqZQlS72qL1WiAtXaM6H/xzPieRGgHZndygYObXU2G+h8Wt
-	ypmYhbLCp0i86v9PLQe1OANHkkiqfF3NpnwajCOh5S/vrtR1djNJfw+YMGzTSjxyFU+uHti9vtNma
-	fWJnw5KcvvHXCaBvLfamZglt86H8rZImGI9sBHGVwK6pPvBQBxc67PAJKjv1XKD3RUnnrujuEreWa
-	tod1vMlieHemTx3zQemfDFT4r8n5TbmRhe7smTgxWopb8TFvHy0wYAx+h2pLK4dW9d79sWMfMzsDo
-	a2bf6XNzlU8E21LRiJPQ==;
+	List-Owner; bh=nOaDUAqvMM3FtiELCatQ1m6lqRopzXjpR+2W+TZtoYA=; b=KZdv1VnmpfZmg6
+	L/UF/kMpoT3WN8KPVYeT3voFvDeKyVodAKMdX6aM+vR+M+Tt05QE8Ud4WrGgi3TurXJjZGQPZYIYq
+	ALWJfDO565ktuhHDAvzNfUOVqeJr/tVu8d2UHCATkDPkH7yEipi+F5sZ43rcO44kmtzedjHLhY9Hp
+	81xl+460MWJFku1B7v0iPKhfHyVRyc0FD5KGuNEu0V8R2D6GnSSQ3UArWc+7aXyC5A7zDtiwd3dnK
+	WN7rKWO/VaBqeeN1Nxby7qq0ndFwgojcYPFdGOiUzoQnjW5iSVKTEdxFQ3t+pJKSn14jm5GjdTNdj
+	hl22XIW7GikyWXEzkOMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRagW-00000009ptc-01rv;
-	Fri, 05 Dec 2025 18:37:40 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1vRagY-00000009pwy-0Pox;
+	Fri, 05 Dec 2025 18:37:42 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRagP-00000009pjl-1Gs1
+	id 1vRagT-00000009pp9-0ds8
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Dec 2025 18:37:35 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-bdcae553883so2012395a12.0
-        for <linux-riscv@lists.infradead.org>; Fri, 05 Dec 2025 10:37:33 -0800 (PST)
+	Fri, 05 Dec 2025 18:37:39 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-bea8b4ba79bso1969138a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Dec 2025 10:37:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1764959852; x=1765564652; darn=lists.infradead.org;
+        d=rivosinc.com; s=google; t=1764959856; x=1765564656; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7RnuI2UkBizC29w22/jrSl2sQbK2qqJuozv4nJOkh7A=;
-        b=V3GM0CVUYfc25U6LJc3K6J+XDP7AmJw/hQNqK8wCDZKEVV0PxuxMXV/zIfKLA9U7Kg
-         mFnURY4FBOEhyR2CPG+uXnR4QlnBjXk+/cFy6M33B6KIWDTPcFpS8DJIY65WzqRC3Gyp
-         ok8OrJfINY6RjoiyUjFSMszMRMUjEj5FxP8FaWhIJd44rrDGguwu9YDRId75hk7PeZP4
-         tqOm+RvMceH7fiZVNyXfkh9V0dEMjSQrA9s+khVWlmqLxA1nzQg9/7MTDb7O8yw0hvo2
-         QfPEC15PGjyyCJVfDWJac2CSOO9I/pG21s7XBzVSXFJMg5fJVUDyPETYPoQHzrJP4+0h
-         yGtA==
+        bh=FbIk5cCPbojOJ9uTDKoU4N3fqpVL6wCeA1bHhTiYoys=;
+        b=Ahr11sZAjud1sXcwQWN3mV6nMU7sbd5Vnpp8H/Uflt4/7FWi+snUm2TjtvOFFfTDMX
+         GGxYIpcXWjQnFrJws/X6KjwDsGZOpHKDgzOw89DSGSAYouadgQh2IGlqhfpyDPluZsFr
+         oT5FDtglOMGbWB5mySVBbePGfkicyWRU+QfH9pJ0EPayG4V6Emn/JBP4P6gANZlg4dzP
+         iNGaCyRDYU8DsuWTj1WTXRPfpkgA9TVfFeQsLoIsxc+OL6K303ebW9I0Fau12zr6JgS3
+         +7KMLAVjNtEC1HN2xtqkxEf87zj9qwFOitw+cTQyj3vFtoCWIIy9WjJkRzJwC/wkj2iO
+         MQvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764959852; x=1765564652;
+        d=1e100.net; s=20230601; t=1764959856; x=1765564656;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=7RnuI2UkBizC29w22/jrSl2sQbK2qqJuozv4nJOkh7A=;
-        b=t+wCv7Eyr6+9jcdrWrdz2fd05lDXA4j7Dg/zOZ3vmQFLVcedJ2S6lnSlLTbyGoqcLP
-         LlIzjPjbzW356EIz4kGxk4219+TOOhaYf4VU2Ef4gB2HBzu4oUtO5IMALGopylnJImZi
-         Tzz1T3GYpOTJLpn4nGLNbM1ckuA/ieKBFtd+3Ll6bnIk6PmqnJHhILzYNX0TI/SkIdSO
-         RZ+siZSoruHvrTDPM2Pf98e41Q/8r8QyEylcsymAQnQ+JUeYGseigC0On3cS7kjUrHku
-         FNXkdMOWd05PsdUaORNWTzXEscIiRJqRsFeEsXgYqcGQv5VhQ8xNBI+fPfZZqj9UUn1y
-         bU4A==
-X-Forwarded-Encrypted: i=1; AJvYcCUSHornFzuH08zE/2R2XiPlEfJ3Yo4T0vC9f6fO+sFS/GDhJfCLOWGsCwDDehCm2OZdAxuhJAQboedG6Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3zZycSu9O5Jgz7Sl/AzFtbD2Vo57w37INtY/QfBqTq017rGLa
-	I08q4G9+uOw4DmeLHvSY85pJeTTNWDSNKQ1zfmITejsYqoKV58nF5CB0er0EmLYYnh0=
-X-Gm-Gg: ASbGncsu2Kzb8Vv54EWzNrPN1PaHMef1aMQLcTdaB8RslAEZyCMRhPGXRG5ZOgrlp9f
-	RDEXNlXuV0/3arX23gzJvpMvRTRrfD92K6q+qEsoLYZ9dnLZwV6DMA22fbYO0ju4GXtwtLhOwFo
-	V6ZY55XtUG3wOWKKcxzaqx1gDdTRKUB8svNRlP4535j40s+wvOppm60tuscPWaLvpFC/Ff1gpa2
-	L0ippMtYGyS51RXxE1bOiLSX+pVhREWk0R93EODGcpyR664OIRz2y341jvYMKyAD2h5XTuKmL4R
-	yO8nHc3kuj/2WZANrL0v4Gw0aBxBalaVGEfnJMqU9tPBIP2KaJAeIZTK+AXIQAFe+nqfsOHDJFh
-	0tv7P3ccROUDtGN+nu4iGyc/AkGwV8fuo4uAaxuCrOCSHtzVsT1ENJemuNJBkFE/6ULZ+9TcVHS
-	gZ4UNV9sJF9NbPSnhhEQw0
-X-Google-Smtp-Source: AGHT+IFwWQQuMqwR1+ed74jDMY/CSXapqooDG8iNUOlxCqzdKYEOKwnXkGf4vaTbspDREQ1pfREY3Q==
-X-Received: by 2002:a05:7300:ce8d:b0:2a4:3593:6450 with SMTP id 5a478bee46e88-2abc6f4d29dmr119392eec.0.1764959852461;
-        Fri, 05 Dec 2025 10:37:32 -0800 (PST)
+        bh=FbIk5cCPbojOJ9uTDKoU4N3fqpVL6wCeA1bHhTiYoys=;
+        b=FVnuovJi4TfWFckeGq/n+ln4Iu/nnwiE27LkuAb57rmCaep1lzWsv8WuVV0JSLxdlp
+         O0ngd3vbPc2cwXLE8INmw2qz2mzXEABN9JD0l5fU2YsoHRQHZQgOlWNoSvYdSezpMwMi
+         IHeQNcXKog6bemGTxoDC6ER+YFwJx0JHVtI+v1rS4zCPheym0ay0Kxp+nq0otyQsf4s9
+         9BIGX5f5SB3JXNRZnK3bdjq9LB5OerzlvTGz5GiEKll7iJj4S9lE6NzK1gk/VYqjqhL6
+         27y5/tXKlDp2TT8GZcPW4a7LjXrq02o7iCfSmXCtnErvQCr9zxxLfvOdDlKS2NuVuJPR
+         WA/g==
+X-Forwarded-Encrypted: i=1; AJvYcCXhaH12BNt3lqxeC4Ly9N8+iIj7EvpdPLoK66wcCuHzm7ySYItXseTajqt0vfQf/Arz7Z6oH4YCBdNgIw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBkdpuqX3/LrAAp22/WGW1/VELLpRcFlpa4M59kbs8GH4ZRVM7
+	pyO3E6kEvl1GYU+QJW32Ot+m5OCUZA9Y9/YzIMibFBYyFBUpKM2P6/s7K/RZ+yQ+wVs=
+X-Gm-Gg: ASbGncuQsB5ixxzLb1g6PT9bf1U1rCPV/RPQIREa0pu4HAvDaJ16lzIj8xubRkx39zP
+	qcA0tC1o+2/3c6SjOD9kHgefQGQy+cCRFyuCXkrFjVwFVaN6s0hlFTV/scJ2dNc87ULFUr1rnrF
+	eAbJbtzpO7Q1BLWB7Birp58vYVMBSuOdqnyVpRmuGsXaRAhXBjPWluQT4cO2o3aSWNarN8VjWtZ
+	5nQ8FWm7q6Ndj5o3vQwQBTcwk6SGGcRawUjv8UnXHWdDLh3+v/ZrDt6bOg6s9KMn6eoTupGDZF9
+	27ENtmseymjVqkbqwC9GaGIVxPKN3zuoAurhou5hh5Ej4uIZM26GxmUbM5rdKraxkL8yk+/a/xu
+	63G2nTyFPEjHX4mZijnCxOrmDg8kz9wV3LrVa/clrrOaPd8sWwR8eDYeSaX0mFf6yXVO+DNppOD
+	iHUd5gdGz6RpNpA+Tz1yJb
+X-Google-Smtp-Source: AGHT+IHkjjsKzqNtkRXJFYg+Yls4ZdsONc5juLvXKNvtnLO3/ZLQmkbs2RVd7+58iM/Zo5/Mwe0wYQ==
+X-Received: by 2002:a05:7300:f40c:b0:2a4:432c:1e63 with SMTP id 5a478bee46e88-2abc712a348mr94020eec.5.1764959856105;
+        Fri, 05 Dec 2025 10:37:36 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2aba8395d99sm23933342eec.1.2025.12.05.10.37.30
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2aba8395d99sm23933342eec.1.2025.12.05.10.37.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Dec 2025 10:37:31 -0800 (PST)
+        Fri, 05 Dec 2025 10:37:35 -0800 (PST)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Fri, 05 Dec 2025 10:37:08 -0800
-Subject: [PATCH v25 22/28] riscv: enable kernel access to shadow stack
- memory via FWFT sbi call
+Date: Fri, 05 Dec 2025 10:37:10 -0800
+Subject: [PATCH v25 24/28] arch/riscv: dual vdso creation logic and select
+ vdso based on hw
 MIME-Version: 1.0
-Message-Id: <20251205-v5_user_cfi_series-v25-22-8a3570c3e145@rivosinc.com>
+Message-Id: <20251205-v5_user_cfi_series-v25-24-8a3570c3e145@rivosinc.com>
 References: <20251205-v5_user_cfi_series-v25-0-8a3570c3e145@rivosinc.com>
 In-Reply-To: <20251205-v5_user_cfi_series-v25-0-8a3570c3e145@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -108,21 +108,21 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
  rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
- Zong Li <zong.li@sifive.com>, 
+ Charles Mirabile <cmirabil@redhat.com>, 
  Andreas Korb <andreas.korb@aisec.fraunhofer.de>, 
  Valentin Haudiquet <valentin.haudiquet@canonical.com>, 
  Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764959808; l=2983;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764959808; l=9634;
  i=debug@rivosinc.com; s=20251023; h=from:subject:message-id;
- bh=UW9zPS2E4TbdsfJtyu+1aU02XU1fbJS+cjnllb5pNMY=;
- b=f2KU+fCOkVj7mMjxZQYYSKXqi4DC7zhXlZZWWremH2iJ9TKnGVTmf9UQKwNWQYisAJhI9NDY8
- wDPYzH1n8XfDJHQBz0URPXJgVJBe8mEcqmkwauMK0YTBxPK3RkLVc7B
+ bh=x3JVG0Npt7Vp6FJ7VZ184tzfxWj7zfRDDLEdRgBiASw=;
+ b=DP0jaDo8GMIVR5mv16tqNdKkiXt+tqgS8UirLPKq+8lp6UPqdjFktNR5NSTnwQRkwH0UgQ58P
+ gpSrWB1JqGOBa+zu4fC/nK7ifQXFg/wW4GVPQ/FV3XBbm/HuPXFvCVB
 X-Developer-Key: i=debug@rivosinc.com; a=ed25519;
  pk=O37GQv1thBhZToXyQKdecPDhtWVbEDRQ0RIndijvpjk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_103733_477742_D870393F 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20251205_103737_301738_B1B4FA4B 
+X-CRM114-Status: GOOD (  22.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,92 +139,248 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Kernel will have to perform shadow stack operations on user shadow stack.
-Like during signal delivery and sigreturn, shadow stack token must be
-created and validated respectively. Thus shadow stack access for kernel
-must be enabled.
+Shadow stack instructions are taken from zimop (mandated on RVA23).
+Any hardware prior to RVA23 profile will fault on shadow stack instruction.
+Any userspace with shadow stack instruction in it will fault on such
+hardware. Thus such userspace can't be brought onto such a hardware.
 
-In future when kernel shadow stacks are enabled for linux kernel, it must
-be enabled as early as possible for better coverage and prevent imbalance
-between regular stack and shadow stack. After `relocate_enable_mmu` has
-been done, this is as early as possible it can enabled.
+It's not known how userspace will respond to such binary fragmentation.
+However in order to keep kernel portable across such different hardware,
+`arch/riscv/kernel/vdso_cfi` is created which has logic (Makefile) to
+compile `arch/riscv/kernel/vdso` sources with cfi flags and then changes
+in `arch/riscv/kernel/vdso.c` for selecting appropriate vdso depending
+on whether underlying hardware(cpu) implements zimop extension. Offset
+of vdso symbols will change due to having two different vdso binaries,
+there is added logic to include new generated vdso offset header and
+dynamically select offset (like for rt_sigreturn).
 
-Reviewed-by: Zong Li <zong.li@sifive.com>
+Acked-by: Charles Mirabile <cmirabil@redhat.com>
 Tested-by: Andreas Korb <andreas.korb@aisec.fraunhofer.de>
 Tested-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/kernel/asm-offsets.c |  6 ++++++
- arch/riscv/kernel/head.S        | 27 +++++++++++++++++++++++++++
- 2 files changed, 33 insertions(+)
+ arch/riscv/Makefile                        |  3 +++
+ arch/riscv/include/asm/vdso.h              | 13 ++++++++++++-
+ arch/riscv/kernel/Makefile                 |  1 +
+ arch/riscv/kernel/vdso.c                   |  7 +++++++
+ arch/riscv/kernel/vdso/Makefile            | 29 ++++++++++++++++++++---------
+ arch/riscv/kernel/vdso/gen_vdso_offsets.sh |  4 +++-
+ arch/riscv/kernel/vdso_cfi/Makefile        | 25 +++++++++++++++++++++++++
+ arch/riscv/kernel/vdso_cfi/vdso-cfi.S      | 11 +++++++++++
+ 8 files changed, 82 insertions(+), 11 deletions(-)
 
-diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-index 8a2b2656cb2f..af827448a609 100644
---- a/arch/riscv/kernel/asm-offsets.c
-+++ b/arch/riscv/kernel/asm-offsets.c
-@@ -533,4 +533,10 @@ void asm_offsets(void)
- 	DEFINE(FREGS_A6,	    offsetof(struct __arch_ftrace_regs, a6));
- 	DEFINE(FREGS_A7,	    offsetof(struct __arch_ftrace_regs, a7));
- #endif
-+#ifdef CONFIG_RISCV_SBI
-+	DEFINE(SBI_EXT_FWFT, SBI_EXT_FWFT);
-+	DEFINE(SBI_EXT_FWFT_SET, SBI_EXT_FWFT_SET);
-+	DEFINE(SBI_FWFT_SHADOW_STACK, SBI_FWFT_SHADOW_STACK);
-+	DEFINE(SBI_FWFT_SET_FLAG_LOCK, SBI_FWFT_SET_FLAG_LOCK);
-+#endif
- }
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index bdf3352acf4c..9c99c5ad6fe8 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -15,6 +15,7 @@
- #include <asm/image.h>
- #include <asm/scs.h>
- #include <asm/xip_fixup.h>
-+#include <asm/usercfi.h>
- #include "efi-header.S"
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index f60c2de0ca08..b74b63da16a7 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -176,6 +176,8 @@ ifeq ($(CONFIG_MMU),y)
+ prepare: vdso_prepare
+ vdso_prepare: prepare0
+ 	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso include/generated/vdso-offsets.h
++	$(if $(CONFIG_RISCV_USER_CFI),$(Q)$(MAKE) \
++		$(build)=arch/riscv/kernel/vdso_cfi include/generated/vdso-cfi-offsets.h)
+ 	$(if $(CONFIG_COMPAT),$(Q)$(MAKE) \
+ 		$(build)=arch/riscv/kernel/compat_vdso include/generated/compat_vdso-offsets.h)
  
- __HEAD
-@@ -170,6 +171,19 @@ secondary_start_sbi:
- 	call relocate_enable_mmu
- #endif
- 	call .Lsetup_trap_vector
-+#if defined(CONFIG_RISCV_SBI) && defined(CONFIG_RISCV_USER_CFI)
-+	li a7, SBI_EXT_FWFT
-+	li a6, SBI_EXT_FWFT_SET
-+	li a0, SBI_FWFT_SHADOW_STACK
-+	li a1, 1 /* enable supervisor to access shadow stack access */
-+	li a2, SBI_FWFT_SET_FLAG_LOCK
-+	ecall
-+	beqz a0, 1f
-+	la a1, riscv_nousercfi
-+	li a0, CMDLINE_DISABLE_RISCV_USERCFI_BCFI
-+	REG_S a0, (a1)
-+1:
-+#endif
- 	scs_load_current
- 	call smp_callin
- #endif /* CONFIG_SMP */
-@@ -330,6 +344,19 @@ SYM_CODE_START(_start_kernel)
- 	la tp, init_task
- 	la sp, init_thread_union + THREAD_SIZE
- 	addi sp, sp, -PT_SIZE_ON_STACK
-+#if defined(CONFIG_RISCV_SBI) && defined(CONFIG_RISCV_USER_CFI)
-+	li a7, SBI_EXT_FWFT
-+	li a6, SBI_EXT_FWFT_SET
-+	li a0, SBI_FWFT_SHADOW_STACK
-+	li a1, 1 /* enable supervisor to access shadow stack access */
-+	li a2, SBI_FWFT_SET_FLAG_LOCK
-+	ecall
-+	beqz a0, 1f
-+	la a1, riscv_nousercfi
-+	li a0, CMDLINE_DISABLE_RISCV_USERCFI_BCFI
-+	REG_S a0, (a1)
-+1:
-+#endif
- 	scs_load_current
+@@ -183,6 +185,7 @@ endif
+ endif
  
- #ifdef CONFIG_KASAN
+ vdso-install-y			+= arch/riscv/kernel/vdso/vdso.so.dbg
++vdso-install-$(CONFIG_RISCV_USER_CFI)	+= arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg
+ vdso-install-$(CONFIG_COMPAT)	+= arch/riscv/kernel/compat_vdso/compat_vdso.so.dbg
+ 
+ BOOT_TARGETS := Image Image.gz Image.bz2 Image.lz4 Image.lzma Image.lzo Image.zst Image.xz loader loader.bin xipImage vmlinuz.efi
+diff --git a/arch/riscv/include/asm/vdso.h b/arch/riscv/include/asm/vdso.h
+index f80357fe24d1..35bf830a5576 100644
+--- a/arch/riscv/include/asm/vdso.h
++++ b/arch/riscv/include/asm/vdso.h
+@@ -18,9 +18,19 @@
+ 
+ #ifndef __ASSEMBLER__
+ #include <generated/vdso-offsets.h>
++#ifdef CONFIG_RISCV_USER_CFI
++#include <generated/vdso-cfi-offsets.h>
++#endif
+ 
++#ifdef CONFIG_RISCV_USER_CFI
+ #define VDSO_SYMBOL(base, name)							\
+-	(void __user *)((unsigned long)(base) + __vdso_##name##_offset)
++	  (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZIMOP) ?			\
++	  (void __user *)((unsigned long)(base) + __vdso_##name##_cfi_offset) :	\
++	  (void __user *)((unsigned long)(base) + __vdso_##name##_offset))
++#else
++#define VDSO_SYMBOL(base, name)							\
++	  ((void __user *)((unsigned long)(base) + __vdso_##name##_offset))
++#endif
+ 
+ #ifdef CONFIG_COMPAT
+ #include <generated/compat_vdso-offsets.h>
+@@ -33,6 +43,7 @@ extern char compat_vdso_start[], compat_vdso_end[];
+ #endif /* CONFIG_COMPAT */
+ 
+ extern char vdso_start[], vdso_end[];
++extern char vdso_cfi_start[], vdso_cfi_end[];
+ 
+ #endif /* !__ASSEMBLER__ */
+ 
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 2d0e0dcedbd3..9026400cba10 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -72,6 +72,7 @@ obj-y	+= vendor_extensions/
+ obj-y	+= probes/
+ obj-y	+= tests/
+ obj-$(CONFIG_MMU) += vdso.o vdso/
++obj-$(CONFIG_RISCV_USER_CFI) += vdso_cfi/
+ 
+ obj-$(CONFIG_RISCV_MISALIGNED)	+= traps_misaligned.o
+ obj-$(CONFIG_RISCV_MISALIGNED)	+= unaligned_access_speed.o
+diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
+index 3a8e038b10a2..43f70198ac3c 100644
+--- a/arch/riscv/kernel/vdso.c
++++ b/arch/riscv/kernel/vdso.c
+@@ -98,6 +98,13 @@ static struct __vdso_info compat_vdso_info __ro_after_init = {
+ 
+ static int __init vdso_init(void)
+ {
++	/* Hart implements zimop, expose cfi compiled vdso */
++	if (IS_ENABLED(CONFIG_RISCV_USER_CFI) &&
++	    riscv_has_extension_unlikely(RISCV_ISA_EXT_ZIMOP)) {
++		vdso_info.vdso_code_start = vdso_cfi_start;
++		vdso_info.vdso_code_end = vdso_cfi_end;
++	}
++
+ 	__vdso_init(&vdso_info);
+ #ifdef CONFIG_COMPAT
+ 	__vdso_init(&compat_vdso_info);
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index 272f1d837a80..a842dc034571 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -20,6 +20,10 @@ endif
+ ifdef VDSO_CFI_BUILD
+ CFI_MARCH = _zicfilp_zicfiss
+ CFI_FULL = -fcf-protection=full
++CFI_SUFFIX = -cfi
++OFFSET_SUFFIX = _cfi
++ccflags-y += -DVDSO_CFI=1
++asflags-y += -DVDSO_CFI=1
+ endif
+ 
+ # Files to link into the vdso
+@@ -48,13 +52,20 @@ endif
+ CFLAGS_hwprobe.o += -fPIC
+ 
+ # Build rules
+-targets := $(obj-vdso) vdso.so vdso.so.dbg vdso.lds
++vdso_offsets := vdso$(if $(VDSO_CFI_BUILD),$(CFI_SUFFIX),)-offsets.h
++vdso_o := vdso$(if $(VDSO_CFI_BUILD),$(CFI_SUFFIX),).o
++vdso_so := vdso$(if $(VDSO_CFI_BUILD),$(CFI_SUFFIX),).so
++vdso_so_dbg := vdso$(if $(VDSO_CFI_BUILD),$(CFI_SUFFIX),).so.dbg
++vdso_lds := vdso.lds
++
++targets := $(obj-vdso) $(vdso_so) $(vdso_so_dbg) $(vdso_lds)
++
+ obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
+ 
+-obj-y += vdso.o
+-CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
++obj-y += vdso$(if $(VDSO_CFI_BUILD),$(CFI_SUFFIX),).o
++CPPFLAGS_$(vdso_lds) += -P -C -U$(ARCH)
+ ifneq ($(filter vgettimeofday, $(vdso-syms)),)
+-CPPFLAGS_vdso.lds += -DHAS_VGETTIMEOFDAY
++CPPFLAGS_$(vdso_lds) += -DHAS_VGETTIMEOFDAY
+ endif
+ 
+ # Disable -pg to prevent insert call site
+@@ -63,12 +74,12 @@ CFLAGS_REMOVE_getrandom.o = $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+ CFLAGS_REMOVE_hwprobe.o = $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+ 
+ # Force dependency
+-$(obj)/vdso.o: $(obj)/vdso.so
++$(obj)/$(vdso_o): $(obj)/$(vdso_so)
+ 
+ # link rule for the .so file, .lds has to be first
+-$(obj)/vdso.so.dbg: $(obj)/vdso.lds $(obj-vdso) FORCE
++$(obj)/$(vdso_so_dbg): $(obj)/$(vdso_lds) $(obj-vdso) FORCE
+ 	$(call if_changed,vdsold_and_check)
+-LDFLAGS_vdso.so.dbg = -shared -soname=linux-vdso.so.1 \
++LDFLAGS_$(vdso_so_dbg) = -shared -soname=linux-vdso.so.1 \
+ 	--build-id=sha1 --eh-frame-hdr
+ 
+ # strip rule for the .so file
+@@ -79,9 +90,9 @@ $(obj)/%.so: $(obj)/%.so.dbg FORCE
+ # Generate VDSO offsets using helper script
+ gen-vdsosym := $(src)/gen_vdso_offsets.sh
+ quiet_cmd_vdsosym = VDSOSYM $@
+-	cmd_vdsosym = $(NM) $< | $(gen-vdsosym) | LC_ALL=C sort > $@
++	cmd_vdsosym = $(NM) $< | $(gen-vdsosym) $(OFFSET_SUFFIX) | LC_ALL=C sort > $@
+ 
+-include/generated/vdso-offsets.h: $(obj)/vdso.so.dbg FORCE
++include/generated/$(vdso_offsets): $(obj)/$(vdso_so_dbg) FORCE
+ 	$(call if_changed,vdsosym)
+ 
+ # actual build commands
+diff --git a/arch/riscv/kernel/vdso/gen_vdso_offsets.sh b/arch/riscv/kernel/vdso/gen_vdso_offsets.sh
+index c2e5613f3495..bd5d5afaaa14 100755
+--- a/arch/riscv/kernel/vdso/gen_vdso_offsets.sh
++++ b/arch/riscv/kernel/vdso/gen_vdso_offsets.sh
+@@ -2,4 +2,6 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+ LC_ALL=C
+-sed -n -e 's/^[0]\+\(0[0-9a-fA-F]*\) . \(__vdso_[a-zA-Z0-9_]*\)$/\#define \2_offset\t0x\1/p'
++SUFFIX=${1:-""}
++sed -n -e \
++'s/^[0]\+\(0[0-9a-fA-F]*\) . \(__vdso_[a-zA-Z0-9_]*\)$/\#define \2'$SUFFIX'_offset\t0x\1/p'
+diff --git a/arch/riscv/kernel/vdso_cfi/Makefile b/arch/riscv/kernel/vdso_cfi/Makefile
+new file mode 100644
+index 000000000000..8ebd190782b0
+--- /dev/null
++++ b/arch/riscv/kernel/vdso_cfi/Makefile
+@@ -0,0 +1,25 @@
++# SPDX-License-Identifier: GPL-2.0-only
++# RISC-V VDSO CFI Makefile
++# This Makefile builds the VDSO with CFI support when CONFIG_RISCV_USER_CFI is enabled
++
++# setting VDSO_CFI_BUILD triggers build for vdso differently
++VDSO_CFI_BUILD := 1
++
++# Set the source directory to the main vdso directory
++src := $(srctree)/arch/riscv/kernel/vdso
++
++# Copy all .S and .c files from vdso directory to vdso_cfi object build directory
++vdso_c_sources := $(wildcard $(src)/*.c)
++vdso_S_sources := $(wildcard $(src)/*.S)
++vdso_c_objects := $(addprefix $(obj)/, $(notdir $(vdso_c_sources)))
++vdso_S_objects := $(addprefix $(obj)/, $(notdir $(vdso_S_sources)))
++
++$(vdso_S_objects): $(obj)/%.S: $(src)/%.S
++	$(Q)cp $< $@
++
++$(vdso_c_objects): $(obj)/%.c: $(src)/%.c
++	$(Q)cp $< $@
++
++# Include the main VDSO Makefile which contains all the build rules and sources
++# The VDSO_CFI_BUILD variable will be passed to it to enable CFI compilation
++include $(src)/Makefile
+diff --git a/arch/riscv/kernel/vdso_cfi/vdso-cfi.S b/arch/riscv/kernel/vdso_cfi/vdso-cfi.S
+new file mode 100644
+index 000000000000..d426f6accb35
+--- /dev/null
++++ b/arch/riscv/kernel/vdso_cfi/vdso-cfi.S
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright 2025 Rivos, Inc
++ */
++
++#define	vdso_start	vdso_cfi_start
++#define	vdso_end	vdso_cfi_end
++
++#define __VDSO_PATH "arch/riscv/kernel/vdso_cfi/vdso-cfi.so"
++
++#include "../vdso/vdso.S"
 
 -- 
 2.45.0
