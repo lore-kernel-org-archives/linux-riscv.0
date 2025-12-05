@@ -4,52 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C4A2D339AE
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Dec 2025 18:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C145DD339BD
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Dec 2025 18:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VmvQvVBkw99ybkvKpV4pyK2xIg0IDbVq+e5Lrn+Te6I=; b=YTNaDjxf6pO3dA
-	aiWZ5PENq/CU9sQPKYSUQ82vydaEypRIufnA6lMRfOrtiI1GcAWJqyLWQzPiLLsZ4I/TmEoicr0QU
-	yZS3JsLacE3coqQOc9VwJAnpmAkAebrFXruXo7xvNJeeTY6reaqwHdCN/aS8wBE/rYUbHUgLhikkf
-	0kIxyUuw3EBAqUobWgXlpkSpc9iEGkfISCZwieQ9V5HYF1JK6DO3OP3kbgVj5L0gWOs0kN+NALLpJ
-	W6B2SMkk3KfHqyh2R8zd8HTETiBXi9Dd6coHTp74Kax8rojl4+StYRh9DLoRlPId9k25ONwz874yZ
-	R7XIQg5P8Tx/owx0jF6w==;
+	List-Owner; bh=iJkV0bn6K5XVyI2NV0xhOkjl+8uVh1FMPUUfD3lUC5s=; b=AChz0PlT2IrNH7
+	l96FpucxGEsFMVVAhcg9kBNClJ+P+FKIxFS21w8HRV7htmJbIzZq6VYAdL+y5c+8ZOGPWCk5JI8PF
+	vk301bKi6ZVP3GXllo2kCtT2K4VuuCyMzGtvw/ipHT77WgfUeeImOd+YphEqQLkJPBwxpMXVcNWY1
+	u1kYRi82IcA2n7qecgntbhF2JNsQbayqEI6CUkn8kJ8cq/ylI8kz32NaxliaHSbMM0Jj0KQAaLmLy
+	ykj4NEdSpjFHbyLMNO7wYwm0tK6N5GEJw38As/NcXRB22KCyjildoIKqV8kukWysFTm80x0GxO50V
+	KFv64w9VopEdckJWHgBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRakh-00000009rQl-0RRX;
+	id 1vRakh-00000009rRE-1o8Y;
 	Fri, 05 Dec 2025 18:41:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRake-00000009rLP-1Lmi
-	for linux-riscv@lists.infradead.org;
+	id 1vRakf-00000009rNv-2HRq
+	for linux-riscv@bombadil.infradead.org;
 	Fri, 05 Dec 2025 18:41:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Content-ID:Content-Description;
+	bh=Ko4UZoali671x/Z3JPzfzRKjAHhqWt8s623S099BIJg=; b=HYYdLbxUEYELQT4ZIxIzVFz0Nj
+	Ig12UP1H1R3O5nXqB6aun3jx3Jf6mmpkaM8soQu9nkSWs94AGR7kJ4FlA+PRxqNZJ1IJVVUwvn3cq
+	rpVOMow5Xs6Rqva4OiI6CMtfBsls5rzlkGYOmZsKmVIpimvAR4W4iHxza5PmqvcEtKqiTNYU6eh5a
+	JTfw7+d4xijx4jo4zd5hig8mnownxnMo1/hEsPwp4+47BqXwRLK4snAdSiNwNSYvqDjpi2r0J//ar
+	MoxJbS/Fq7cdPH/LmKdEv5lReh7Xb+8DOl2nsHdJd1PP9/RDgeaT+OmqmCR2RwDEaklvkUl8+Vjlo
+	+bubdLMw==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRZt4-00000006Zbj-2jmb
+	for linux-riscv@lists.infradead.org;
+	Fri, 05 Dec 2025 17:46:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 297C24453C;
-	Fri,  5 Dec 2025 18:41:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C5A6EC4AF1C;
+	by sea.source.kernel.org (Postfix) with ESMTP id 93182444DF;
+	Fri,  5 Dec 2025 18:41:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3745FC2BCB4;
 	Fri,  5 Dec 2025 18:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1764960110;
-	bh=4LvuRng/siwmu1oFj3UqAUW5VyWVgQ3fjBU+uxBnUDc=;
+	bh=RoLXunQkUD3GkpFVEtA9EVI1x173h9+oOTkpPb8AiyA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=sj9th8uyo5eOpCcjg+fKssFKd6Za8RyKS1qs/rvU/f7viC6l8sqnGlgvc+vLIQjIY
-	 hyDfm7/GnN3CkBFiQW8tTWzN7JQXv0RWze9VjKoJGj7IwEiPMwEXgfo8jSKNcV1zTD
-	 YDdgc48BFa8TcrC+CYIN6wU74vua3CrNciMweLTDnzHvbKFHREQ7K12rDJGdfgcRVv
-	 +pK4Bd9qAUvEC9kbpW2ojcN7Pbh8rXAZMfRH+FsE05RI4tJHeAfqef4bn3sdrUJF2/
-	 TPUQABHq7Mulr/YrkErkNEP5OATREj5yakpxjANZULUGhvTKgX4f6rTkA/TyH7yoqj
-	 HZPM/oM3iKhng==
+	b=amhMfDmSTHohN6Wc1pdd3rVWYIEX4UsU97c0TqHVZDgW6FiVYsVWarfrK4rcQx5gN
+	 kk/L1K6wBfBUoG3TYMc9NJB0VjJeEFJwUX6rOYiFD7IiS45BGm5rFIuUmRbdjdrRAG
+	 A3WDchBZv74gELIfiQPQJG0IUxaFFm+CRG3bK8xGmXQ8haNYTFAl/TlTCQX8p7w1v6
+	 CekfN9xdHO3QEKWZIqohZ/JJrTt2C21xHf9xr8ZL5U7ll4CL4z5fWTyvFAEN8e2bj5
+	 lye1igSXKU9X2TwITbMVsJBIDjCxflL1tKCvoiwPWUvh/pEzAwZGVwVWRfHTE5Gwmg
+	 yidtNedjYYA2A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AE359D339B2;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2BB08D339B7;
 	Fri,  5 Dec 2025 18:41:50 +0000 (UTC)
 From: Deepak Gupta via B4 Relay <devnull+debug.rivosinc.com@kernel.org>
-Date: Fri, 05 Dec 2025 10:41:47 -0800
-Subject: [PATCH v25 09/28] riscv/mm: write protect and shadow stack
+Date: Fri, 05 Dec 2025 10:41:42 -0800
+Subject: [PATCH v25 04/28] riscv: zicfiss / zicfilp extension csr and bit
+ definitions
 MIME-Version: 1.0
-Message-Id: <20251205-v5_user_cfi_series-v25-9-1a07c0127361@rivosinc.com>
+Message-Id: <20251205-v5_user_cfi_series-v25-4-1a07c0127361@rivosinc.com>
 References: <20251205-v5_user_cfi_series-v25-0-1a07c0127361@rivosinc.com>
 In-Reply-To: <20251205-v5_user_cfi_series-v25-0-1a07c0127361@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -82,24 +98,24 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
  rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
- Zong Li <zong.li@sifive.com>, 
  Andreas Korb <andreas.korb@aisec.fraunhofer.de>, 
  Valentin Haudiquet <valentin.haudiquet@canonical.com>, 
  Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764960107; l=2600;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764960107; l=2422;
  i=debug@rivosinc.com; s=20251023; h=from:subject:message-id;
- bh=m7ME6PGl9KI5AztkhWmEf8JbroLdBQJ+d2uYeaaihZ8=;
- b=OfaI4Xk0SE/CEsch8fnFMs7BcOTZvMSxkM+Yd8iq8w0TjiFlepDXeQmTi+YE0JpUmchqwv41Q
- 2imZhH+IVQNAh4/5Xw29E+MR6Km3/BNv21XPsodFkc14BNLEd289Nz0
+ bh=bX3DT0H8/Cf0WOd9ExAzvQuoOWT5xK5PI+asRJPlwXE=;
+ b=SSOzOiFS7a+lafurhUTL8mzosiTdRa0uawAAcSMqnOR2x3j3ayafozy6KNU05qCXpP5YUCtAz
+ ojOOUAHM6GXCQSIURYO27EP3bbrLw90JCc81wJ3KIuVfX1tt406wvjR
 X-Developer-Key: i=debug@rivosinc.com; a=ed25519;
  pk=O37GQv1thBhZToXyQKdecPDhtWVbEDRQ0RIndijvpjk=
 X-Endpoint-Received: by B4 Relay for debug@rivosinc.com/20251023 with
  auth_id=553
 X-Original-From: Deepak Gupta <debug@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_104156_426450_5CCD8657 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20251205_174635_186187_69C96247 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,63 +135,68 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Deepak Gupta <debug@rivosinc.com>
 
-`fork` implements copy on write (COW) by making pages readonly in child
-and parent both.
+zicfiss and zicfilp extension gets enabled via b3 and b2 in *envcfg CSR.
+menvcfg controls enabling for S/HS mode. henvcfg control enabling for VS
+while senvcfg controls enabling for U/VU mode.
 
-ptep_set_wrprotect and pte_wrprotect clears _PAGE_WRITE in PTE.
-Assumption is that page is readable and on fault copy on write happens.
+zicfilp extension extends *status CSR to hold `expected landing pad` bit.
+A trap or interrupt can occur between an indirect jmp/call and target
+instr. `expected landing pad` bit from CPU is recorded into xstatus CSR so
+that when supervisor performs xret, `expected landing pad` state of CPU can
+be restored.
 
-To implement COW on shadow stack pages, clearing up W bit makes them XWR =
-000. This will result in wrong PTE setting which says no perms but V=1 and
-PFN field pointing to final page. Instead desired behavior is to turn it
-into a readable page, take an access (load/store) fault on sspush/sspop
-(shadow stack) and then perform COW on such pages. This way regular reads
-would still be allowed and not lead to COW maintaining current behavior
-of COW on non-shadow stack but writeable memory.
+zicfiss adds one new CSR
+- CSR_SSP: CSR_SSP contains current shadow stack pointer.
 
-On the other hand it doesn't interfere with existing COW for read-write
-memory. Assumption is always that _PAGE_READ must have been set and thus
-setting _PAGE_READ is harmless.
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Reviewed-by: Zong Li <zong.li@sifive.com>
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 Tested-by: Andreas Korb <andreas.korb@aisec.fraunhofer.de>
 Tested-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/include/asm/pgtable.h | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/csr.h | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index b03e8f85221f..df4a04b64944 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -415,7 +415,7 @@ static inline int pte_special(pte_t pte)
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index 4a37a98398ad..78f573ab4c53 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -18,6 +18,15 @@
+ #define SR_MPP		_AC(0x00001800, UL) /* Previously Machine */
+ #define SR_SUM		_AC(0x00040000, UL) /* Supervisor User Memory Access */
  
- static inline pte_t pte_wrprotect(pte_t pte)
- {
--	return __pte(pte_val(pte) & ~(_PAGE_WRITE));
-+	return __pte((pte_val(pte) & ~(_PAGE_WRITE)) | (_PAGE_READ));
- }
++/* zicfilp landing pad status bit */
++#define SR_SPELP	_AC(0x00800000, UL)
++#define SR_MPELP	_AC(0x020000000000, UL)
++#ifdef CONFIG_RISCV_M_MODE
++#define SR_ELP		SR_MPELP
++#else
++#define SR_ELP		SR_SPELP
++#endif
++
+ #define SR_FS		_AC(0x00006000, UL) /* Floating-point Status */
+ #define SR_FS_OFF	_AC(0x00000000, UL)
+ #define SR_FS_INITIAL	_AC(0x00002000, UL)
+@@ -212,6 +221,8 @@
+ #define ENVCFG_PMM_PMLEN_16		(_AC(0x3, ULL) << 32)
+ #define ENVCFG_CBZE			(_AC(1, UL) << 7)
+ #define ENVCFG_CBCFE			(_AC(1, UL) << 6)
++#define ENVCFG_LPE			(_AC(1, UL) << 2)
++#define ENVCFG_SSE			(_AC(1, UL) << 3)
+ #define ENVCFG_CBIE_SHIFT		4
+ #define ENVCFG_CBIE			(_AC(0x3, UL) << ENVCFG_CBIE_SHIFT)
+ #define ENVCFG_CBIE_ILL			_AC(0x0, UL)
+@@ -230,6 +241,11 @@
+ #define SMSTATEEN0_HSENVCFG		(_ULL(1) << SMSTATEEN0_HSENVCFG_SHIFT)
+ #define SMSTATEEN0_SSTATEEN0_SHIFT	63
+ #define SMSTATEEN0_SSTATEEN0		(_ULL(1) << SMSTATEEN0_SSTATEEN0_SHIFT)
++/*
++ * zicfiss user mode csr
++ * CSR_SSP holds current shadow stack pointer.
++ */
++#define CSR_SSP                 0x011
  
- /* static inline pte_t pte_mkread(pte_t pte) */
-@@ -611,7 +611,15 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
- static inline void ptep_set_wrprotect(struct mm_struct *mm,
- 				      unsigned long address, pte_t *ptep)
- {
--	atomic_long_and(~(unsigned long)_PAGE_WRITE, (atomic_long_t *)ptep);
-+	pte_t read_pte = READ_ONCE(*ptep);
-+	/*
-+	 * ptep_set_wrprotect can be called for shadow stack ranges too.
-+	 * shadow stack memory is XWR = 010 and thus clearing _PAGE_WRITE will lead to
-+	 * encoding 000b which is wrong encoding with V = 1. This should lead to page fault
-+	 * but we dont want this wrong configuration to be set in page tables.
-+	 */
-+	atomic_long_set((atomic_long_t *)ptep,
-+			((pte_val(read_pte) & ~(unsigned long)_PAGE_WRITE) | _PAGE_READ));
- }
- 
- #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
+ /* mseccfg bits */
+ #define MSECCFG_PMM			ENVCFG_PMM
 
 -- 
 2.43.0
