@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C2BD3ABC5
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Dec 2025 00:20:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B45B7D3ABC2
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Dec 2025 00:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iBRVJjdKVDPs7uepvfNuyjMfiQ7InuTMf7tG64ljF2A=; b=eLg/F9/fJLoGXh
-	EXUpCF/m2vJte1z6d8nQulLlZqTvgLLc1Fs1Nnkeg+xmdWiNf9LG43y5PzSggvVa7aD/TvALidBVn
-	NjrOWVPWqWylk27kaUPcjSNNV6NdAnAW4t51cqh9eVo04nIgux6q6I9XETCmGEJiGmHN+owl7zdti
-	euuSLR0+b+4t2nyVGLkwRcvchfsRBK1iB5UJ+/vjyFBr2v2kqwk9UyFts92Gu1tetlgZo7MPgUpXM
-	JWBGk8i76YErynbglcfzNrnVfqK5CpMZ6Lus/UkHyzfHa/iEh8JYTzrBxAk2jqN8JHc077wzqD6gD
-	Yi283W4ZRM6379qHGwyQ==;
+	List-Owner; bh=2gt3NPCzfUcBYndmWl/jlTD+pgLExtKJZTM+YdvZw9A=; b=1iuth1pucpMsyL
+	zIQvIxdVmLlebmr75dMSjfASaBrVVgexj+XMAFSNWZYp4UY9OxMjjKFDMRVq9PYQiaMXfolu5N8Hp
+	/S5/voyM7QYgscHMdx5FS9JhwJBxNP+l0NUZNo3pshiTM47OFAJtc00E3PwdxuV9REjm/Pmqd6QhK
+	lQIx5RoBfGZjT9Jh1oG2MmN0862mqSOw7H+rARmqo30KJ0dIS/nfdq3hf5Yj1IVoGmuF46PUTSQgM
+	cxYhdQYcUZlC0dKvhITTlIWzAU9bYBnzNxCcFvHXhNqezN5nS4ViQXDArJrRjLahtUBBAAgJ0g36d
+	sXyLX0om7aRMX5iMsWYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg1h-0000000AI4O-0Tqp;
+	id 1vRg1h-0000000AI5h-2P4w;
 	Sat, 06 Dec 2025 00:19:53 +0000
-Received: from mail-pf1-f201.google.com ([209.85.210.201])
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg0I-0000000AFTR-1Sxj
+	id 1vRg0K-0000000AFY8-2KOT
 	for linux-riscv@lists.infradead.org;
-	Sat, 06 Dec 2025 00:18:27 +0000
-Received: by mail-pf1-f201.google.com with SMTP id d2e1a72fcca58-7b8973c4608so6532837b3a.3
-        for <linux-riscv@lists.infradead.org>; Fri, 05 Dec 2025 16:18:25 -0800 (PST)
+	Sat, 06 Dec 2025 00:18:29 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-29845b18d1aso46210565ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Dec 2025 16:18:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764980303; x=1765585103; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1764980307; x=1765585107; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=vcjFml1Ocn5W+9fhtxvlQ/X0kii0S1Hbwc7mdgCzQH4=;
-        b=NlCUVPd1rNZ9vTOXYpfH7RjIAbXOW8ZN5PIdRQKmgJMAR3jexsK/sh7TQ7ZP1nJUVt
-         MRRh+fRYlyJjP69OZRbN72wQdkei4P01C14LBB5QDK18vJnflQrSuNCrnpccs551P3Go
-         G5LanXBC2nwfQQA4sMv3E4RvWjZqJnT2pz6wk+tGPUS8Rp0LteJJFvp2PeSRkQu1xRWD
-         /oIEwifmc4TWLjL+DmJ+FoFptr7+GpfT1gNmpdyCO/e+BP1tku+/B5xJqy640UuaoR2O
-         ccEOQuB3NtojuLE9x4RtI0OvQXiuK3mYUVklN7yECjESoDkokt27uBNDNzQiDhsUhLcx
-         KaCw==
+        bh=wDDQncQUzzwpRSzzmwHiRYOU7FF2nSUQYIeQTrnvQK8=;
+        b=0/zturG11mr/1Hq3erScFcUMLeoI//KQSAErHzddY2RsDWzPoaioXb8H5tHB17hq7m
+         js6ETdLimjBOY9YArw+RbUvbaEgtQaPX91alU/ZdW9MzbgDiq+T7Jj/b7Dl9+GfM1dIN
+         O/a77cyfkRz0rPGtPr4CaCFJPC1sqJWPCvuggFbSs/4ExuXsLbgkQfbRiPZeoPOpOLSm
+         Yis9LF6SO6pS+WWIWYAQUCDb71x0f18knbPo7hu7ltkVN/Bx1I68ASsuQKPl9SwPBYEs
+         oqM8SJTkKqc0eqjWqZlntmPyFMpMzEyBabiZh5r3jQxV9GCABBzPSQLWJzyD9ChQF0Pc
+         UvNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764980303; x=1765585103;
+        d=1e100.net; s=20230601; t=1764980307; x=1765585107;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vcjFml1Ocn5W+9fhtxvlQ/X0kii0S1Hbwc7mdgCzQH4=;
-        b=M3KNlLB02VoPQ+2E/hbZnEbqTehUOLgPWQfNp6ZigtIgquPgJK5UzMnal9dinY/enA
-         bQAxdXK3fTD8DAPyjS5e9fYiA4pDfEEO/QBj/azGf2yvs190gxVEu+BL//tVhF9+4AxL
-         2G/fy7ANXx3vUHmthxz3LBkmJgZW0rjsTutYx0Jg2MpLHr7en33LGVp4CBkD4v/lLEOp
-         ajIHRAjxAyKxlo3JZ9kOsiJIFX8bI3r0eEtc4zkunfipVTko3ZK1AkwBHXpFv7XFsgyn
-         Z8ntLFlBae0MSQQEnkDQ3StmebU1CdgGIZgMsF6DfqBw8Ylot7gjo6XZcuFXksGVJYBJ
-         iCAA==
-X-Forwarded-Encrypted: i=1; AJvYcCUQQBth42m8Bi/gjzZPCdpOCv+h9ndUClbCCO0Nsrmibx7W6oXacOCy1tErcPpmCgfSXPJof3C9GDBaBg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYx5dt1H/MgE0VnUMmDIf7Z1c9THlyHofth7CR+ogE+afsCbKL
-	cV3qeMWRqvIxlfix29/8ocJ8iwo3+YiSz9fG+rHNHnS67g8wKHSrnVIxr3BjrdpbxQ4oNFjVHXi
-	xIvC4aw==
-X-Google-Smtp-Source: AGHT+IEi41vT7k5Y8TL0eorj0ILiZzn3n1cXKu+mvARIF/KTkqiX2XdS9wsUu8uQeqy5b+ge2DTi5IOhdXM=
-X-Received: from pfmm14.prod.google.com ([2002:a05:6a00:248e:b0:7dd:8bba:63ae])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:2ea0:b0:7a9:8770:ce5a
- with SMTP id d2e1a72fcca58-7e8c3628897mr847803b3a.20.1764980303025; Fri, 05
- Dec 2025 16:18:23 -0800 (PST)
-Date: Fri,  5 Dec 2025 16:17:04 -0800
+        bh=wDDQncQUzzwpRSzzmwHiRYOU7FF2nSUQYIeQTrnvQK8=;
+        b=wCgjsyDu/Oqv7Z4VPIb16sD0DTLNe89HF1qhV7NREgRuk/sLvho/qknwnk3l8I2d1D
+         4Fxqv9OC+zv1AOBPTaMm+x7YGv+BMhRuqYALZx3mhRX4+H2AMvj+MQ7kMkVHVcWJyvnp
+         0WaW3K+CW+2nKYNMEFk5yIeSGUKR7108Ps/WttL5sds4vBah4icmB08SnL0yD4pIxJPC
+         jj/N3yzZePX2WYvGa8MbysaUq3FYEf1Z0rGZaqXIahdNuGagI1IZhHBWGobMDn7kTGCK
+         YDurecz5bdt0ZshebAKBw47usO6BMe9pYNGgVex1ZefWC1M89/U6a75/a7T1UK0T04EG
+         ri7A==
+X-Forwarded-Encrypted: i=1; AJvYcCXpmsvpB+0wp3dwqLKYVNxnzaC0DfDzCgNmhjkI/ZmQjaZ3BXOoPJ7F6p9vS+vL28O44J84wF4Nc8x4aA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzmgq5otMYdGt4EvOdkycnX55YgOeV2rftmLBQrPMF22y3L/H7A
+	KpAMjrXSs8nBB4IcIpmxZaOqE2FkCt43+DJDyFErtoiY9jw43F/A90KKmroRrkpSV6syDUSlInh
+	r0eCgfQ==
+X-Google-Smtp-Source: AGHT+IG4vHPmom8LOFsNf9ubPRsWVZC6RkdL55O4HgJ6N06qyh5/Ls7bYlKNT7sQNBmfh9FVeBcsEGoEIG4=
+X-Received: from plhz1.prod.google.com ([2002:a17:902:d9c1:b0:298:51f6:847d])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2f84:b0:294:fc77:f021
+ with SMTP id d9443c01a7336-29df5deb193mr7205895ad.49.1764980306541; Fri, 05
+ Dec 2025 16:18:26 -0800 (PST)
+Date: Fri,  5 Dec 2025 16:17:06 -0800
 In-Reply-To: <20251206001720.468579-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251206001720.468579-1-seanjc@google.com>
 X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-Message-ID: <20251206001720.468579-29-seanjc@google.com>
-Subject: [PATCH v6 28/44] KVM: x86/pmu: Disallow emulation in the fastpath if
- mediated PMCs are active
+Message-ID: <20251206001720.468579-31-seanjc@google.com>
+Subject: [PATCH v6 30/44] KVM: nVMX: Add macros to simplify nested MSR
+ interception setting
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -86,8 +86,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Dapeng Mi <dapeng1.mi@linux.intel.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
 	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_161826_479388_29072DC0 
-X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-CacheID: sfid-20251205_161828_685756_2C3FD4F2 
+X-CRM114-Status: UNSURE (   8.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,75 +106,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Don't handle exits in the fastpath if emulation is required, i.e. if an
-instruction needs to be skipped, the mediated PMU is enabled, and one or
-more PMCs is counting instructions.  With the mediated PMU, KVM's cache of
-PMU state is inconsistent with respect to hardware until KVM exits the
-inner run loop (when the mediated PMU is "put").
+From: Dapeng Mi <dapeng1.mi@linux.intel.com>
 
-Reviewed-by: Sandipan Das <sandipan.das@amd.com>
+Add macros nested_vmx_merge_msr_bitmaps_xxx() to simplify nested MSR
+interception setting. No function change intended.
+
+Suggested-by: Sean Christopherson <seanjc@google.com>
+Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+Signed-off-by: Mingwei Zhang <mizhang@google.com>
 Tested-by: Xudong Hao <xudong.hao@intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/pmu.h | 10 ++++++++++
- arch/x86/kvm/x86.c |  9 +++++++++
- 2 files changed, 19 insertions(+)
+ arch/x86/kvm/vmx/nested.c | 35 +++++++++++++++++++----------------
+ 1 file changed, 19 insertions(+), 16 deletions(-)
 
-diff --git a/arch/x86/kvm/pmu.h b/arch/x86/kvm/pmu.h
-index 25b583da9ee2..0925246731cb 100644
---- a/arch/x86/kvm/pmu.h
-+++ b/arch/x86/kvm/pmu.h
-@@ -234,6 +234,16 @@ static inline bool pmc_is_globally_enabled(struct kvm_pmc *pmc)
- 	return test_bit(pmc->idx, (unsigned long *)&pmu->global_ctrl);
+diff --git a/arch/x86/kvm/vmx/nested.c b/arch/x86/kvm/vmx/nested.c
+index 40777278eabb..b56ed2b1ac67 100644
+--- a/arch/x86/kvm/vmx/nested.c
++++ b/arch/x86/kvm/vmx/nested.c
+@@ -617,6 +617,19 @@ static inline void nested_vmx_set_intercept_for_msr(struct vcpu_vmx *vmx,
+ 						   msr_bitmap_l0, msr);
  }
  
-+static inline bool kvm_pmu_is_fastpath_emulation_allowed(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
++#define nested_vmx_merge_msr_bitmaps(msr, type)	\
++	nested_vmx_set_intercept_for_msr(vmx, msr_bitmap_l1,	\
++					 msr_bitmap_l0, msr, type)
 +
-+	return !kvm_vcpu_has_mediated_pmu(vcpu) ||
-+	       !bitmap_intersects(pmu->pmc_counting_instructions,
-+				  (unsigned long *)&pmu->global_ctrl,
-+				  X86_PMC_IDX_MAX);
-+}
++#define nested_vmx_merge_msr_bitmaps_read(msr) \
++	nested_vmx_merge_msr_bitmaps(msr, MSR_TYPE_R)
 +
- void kvm_pmu_deliver_pmi(struct kvm_vcpu *vcpu);
- void kvm_pmu_handle_event(struct kvm_vcpu *vcpu);
- int kvm_pmu_rdpmc(struct kvm_vcpu *vcpu, unsigned pmc, u64 *data);
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 589a309259f4..4683df775b0a 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -2215,6 +2215,9 @@ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_emulate_invd);
- 
- fastpath_t handle_fastpath_invd(struct kvm_vcpu *vcpu)
- {
-+	if (!kvm_pmu_is_fastpath_emulation_allowed(vcpu))
-+		return EXIT_FASTPATH_NONE;
++#define nested_vmx_merge_msr_bitmaps_write(msr) \
++	nested_vmx_merge_msr_bitmaps(msr, MSR_TYPE_W)
 +
- 	if (!kvm_emulate_invd(vcpu))
- 		return EXIT_FASTPATH_EXIT_USERSPACE;
- 
-@@ -2271,6 +2274,9 @@ static inline bool kvm_vcpu_exit_request(struct kvm_vcpu *vcpu)
- 
- static fastpath_t __handle_fastpath_wrmsr(struct kvm_vcpu *vcpu, u32 msr, u64 data)
- {
-+	if (!kvm_pmu_is_fastpath_emulation_allowed(vcpu))
-+		return EXIT_FASTPATH_NONE;
++#define nested_vmx_merge_msr_bitmaps_rw(msr) \
++	nested_vmx_merge_msr_bitmaps(msr, MSR_TYPE_RW)
 +
- 	switch (msr) {
- 	case APIC_BASE_MSR + (APIC_ICR >> 4):
- 		if (!lapic_in_kernel(vcpu) || !apic_x2apic_mode(vcpu->arch.apic) ||
-@@ -11714,6 +11720,9 @@ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_emulate_halt);
+ /*
+  * Merge L0's and L1's MSR bitmap, return false to indicate that
+  * we do not use the hardware.
+@@ -700,23 +713,13 @@ static inline bool nested_vmx_prepare_msr_bitmap(struct kvm_vcpu *vcpu,
+ 	 * other runtime changes to vmcs01's bitmap, e.g. dynamic pass-through.
+ 	 */
+ #ifdef CONFIG_X86_64
+-	nested_vmx_set_intercept_for_msr(vmx, msr_bitmap_l1, msr_bitmap_l0,
+-					 MSR_FS_BASE, MSR_TYPE_RW);
+-
+-	nested_vmx_set_intercept_for_msr(vmx, msr_bitmap_l1, msr_bitmap_l0,
+-					 MSR_GS_BASE, MSR_TYPE_RW);
+-
+-	nested_vmx_set_intercept_for_msr(vmx, msr_bitmap_l1, msr_bitmap_l0,
+-					 MSR_KERNEL_GS_BASE, MSR_TYPE_RW);
++	nested_vmx_merge_msr_bitmaps_rw(MSR_FS_BASE);
++	nested_vmx_merge_msr_bitmaps_rw(MSR_GS_BASE);
++	nested_vmx_merge_msr_bitmaps_rw(MSR_KERNEL_GS_BASE);
+ #endif
+-	nested_vmx_set_intercept_for_msr(vmx, msr_bitmap_l1, msr_bitmap_l0,
+-					 MSR_IA32_SPEC_CTRL, MSR_TYPE_RW);
+-
+-	nested_vmx_set_intercept_for_msr(vmx, msr_bitmap_l1, msr_bitmap_l0,
+-					 MSR_IA32_PRED_CMD, MSR_TYPE_W);
+-
+-	nested_vmx_set_intercept_for_msr(vmx, msr_bitmap_l1, msr_bitmap_l0,
+-					 MSR_IA32_FLUSH_CMD, MSR_TYPE_W);
++	nested_vmx_merge_msr_bitmaps_rw(MSR_IA32_SPEC_CTRL);
++	nested_vmx_merge_msr_bitmaps_write(MSR_IA32_PRED_CMD);
++	nested_vmx_merge_msr_bitmaps_write(MSR_IA32_FLUSH_CMD);
  
- fastpath_t handle_fastpath_hlt(struct kvm_vcpu *vcpu)
- {
-+	if (!kvm_pmu_is_fastpath_emulation_allowed(vcpu))
-+		return EXIT_FASTPATH_NONE;
-+
- 	if (!kvm_emulate_halt(vcpu))
- 		return EXIT_FASTPATH_EXIT_USERSPACE;
- 
+ 	nested_vmx_set_intercept_for_msr(vmx, msr_bitmap_l1, msr_bitmap_l0,
+ 					 MSR_IA32_APERF, MSR_TYPE_R);
 -- 
 2.52.0.223.gf5cc29aaa4-goog
 
