@@ -4,90 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03182D3ABC7
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Dec 2025 00:26:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B93CD3ABD5
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Dec 2025 01:24:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M/GPqdxiwIh7gotTAegbzBVfTe5Oy9x//PqE7NqHDNw=; b=WO55meyhA/T1jb
-	CtNcKYalox6+2bwxQLz/v02d0610L9egUP/PFhTnvyNx26q4/REKiXHs8WwLBzxUNdgi2bPGH/DCA
-	cUTG2N5Wje+wPwolvKMWYX+gDuKZlAlxB0uAOvV6irbV3hGf1J6OdKA8y2zmJaEXKEd7rd7mSZTvN
-	Bo4kHYWxYyASlwZUg+s30HKtKMcOBjSd8ZPrxekj1K9a9nNjtgF7LxeJA1ZkVCdpvQ7WSTCIEJA4q
-	Al2U3PUysN/JiAJDuqrrbfZgX6e3HayJ5aYlnfpDnmOdTLV1MKbtfxIFiYUnn76Eu76BTvzFAyU7D
-	+zClHSUPt9sErUPHxnsQ==;
+	List-Owner; bh=o5BdJllz78BkBStW2nLpKJPdAMzKXckJDD9Y3HGMxZY=; b=tzybsCQCji1f69
+	4/nbiqat8tfJmXYUKs6mk+eVSdb4fVnLKeHEN5XMHCCx9B7PBpHiLCXx7PfnYFgjSMZrhEsTyMJTn
+	x7x/SAPqmx6nCV8VJhjsywWE8PO3/pJYncHaqApNmFs6dxAcDH6sDhr9AbZfvlQdZflIcHGA4h0o9
+	NccZ2bxA3M694qaSaHvruU/9pthcivZtbMFz8ySaKQlJ1UjjVzZai4Z5wwhr2B8E17AJP1NGDUQn6
+	8Kw1sXKyIpIRPTAVEXSDDFW3L0IubwMasDnwcFizv725jIWreSgEeGrY3qa041M3sF/jGr10ZtYDI
+	qsM3j3zDxYKu82pA8J0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg7l-0000000AMkF-143b;
-	Sat, 06 Dec 2025 00:26:09 +0000
-Received: from mail-ot1-x34a.google.com ([2607:f8b0:4864:20::34a])
+	id 1vRh1R-0000000AQ7w-1886;
+	Sat, 06 Dec 2025 01:23:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg7h-0000000AMip-4A7k
+	id 1vRh1P-0000000AQ7m-3Nw6
 	for linux-riscv@lists.infradead.org;
-	Sat, 06 Dec 2025 00:26:07 +0000
-Received: by mail-ot1-x34a.google.com with SMTP id 46e09a7af769-7c7595cde21so4911204a34.2
-        for <linux-riscv@lists.infradead.org>; Fri, 05 Dec 2025 16:26:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764980765; x=1765585565; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=VDZ6qvbhnxeB/xicU22NIlKKbEtAofiGZXasyTcZTcc=;
-        b=MCG++N0LfDKnfHnZ+8gtA5uG3CFiLpn+lTCbowAs2zyvzeeJ3FH0UqYkxLoiPDngZq
-         7MBiErVasTBA0BHWxRpC20G6eE+EzOmPrikl1ASWp9uRcv4M2t8tMk5QTnzgtyYp0ahY
-         jJmL4zbamo0Y50K4EKbsNTZfbshsF2ydKAjxMJZp/dNd5Qd8C17FGW2T0O62sYxFtnrl
-         rAUpRWGb9qOOlYOiAJcriGJMEB9FQFFTQGDH6bZCeQmAzXfZo4hJU5+rTUas9q//JZn8
-         5qkyS3BH+RzYKzngTDpjp5Zrd1+tc7KkE71WZ7X3paG3aFaLFBBJyROw58wPjTfJdVYu
-         13gQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764980765; x=1765585565;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VDZ6qvbhnxeB/xicU22NIlKKbEtAofiGZXasyTcZTcc=;
-        b=OXuNywCmN2+QCEYzr1auKboeWkKPw9QPdR+DcsxbN8IP7avLc9oenTqowvqEa0uxPq
-         RksoB4V67bS3Pb57QBSzrYxJhJZztoejPmdROydtEYvNFLO0HZlOL4oP+QI9PSSTBPXk
-         IDXKTOCooGnowlDvEREriNStIuRlJ9fmOXY0qM8KCH+PM6wfNIfLrfYJ04+FBD3ljpBn
-         Y4RjQ0CWFweHyjprKoFiNUarUVcxtkl1YnipusJhvU3hKU0YrPizZ62R2LmoAsXJm7Vy
-         4/VPImL/78r8Zzx4SyfX8FtTuqWS2oZyoQ5BpltoMhr7WRIpYjpeC9Yl2YPbLHvjxfba
-         SzCA==
-X-Forwarded-Encrypted: i=1; AJvYcCXKNiQr1u/bs1Dj6LeyPWUsM+AmDrJYjfC/VehwR93L1Xq1vdPT2BoCOJS/74JWkfz2OWaYyWvzer7a1w==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzbxv/ry7tXcGAbCWPu+yQCTkw9mqXg1bjOZUtD+VKR06mAHPZx
-	9QEZN72MrywaUVKSJdT6Zji+djoM6FBACCs6L94dGzJeXVmc3RMlLVzwOb/XOjExMjU7etURcmQ
-	21n/jNA==
-X-Google-Smtp-Source: AGHT+IF4RzpEBka8aK0ucRE2Cm9e095W8Dm56/F1owL7T0nm81v+pRoWT+IrKx6iUc4yDzdsBycmMqAWYnk=
-X-Received: from pjuy11.prod.google.com ([2002:a17:90a:d70b:b0:340:3ea9:30bc])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5905:b0:341:761c:3330
- with SMTP id 98e67ed59e1d1-349a25bd8e0mr687187a91.23.1764980304689; Fri, 05
- Dec 2025 16:18:24 -0800 (PST)
-Date: Fri,  5 Dec 2025 16:17:05 -0800
-In-Reply-To: <20251206001720.468579-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20251206001720.468579-1-seanjc@google.com>
-X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-Message-ID: <20251206001720.468579-30-seanjc@google.com>
-Subject: [PATCH v6 29/44] KVM: x86/pmu: Handle emulated instruction for
- mediated vPMU
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, Mingwei Zhang <mizhang@google.com>, 
-	Xudong Hao <xudong.hao@intel.com>, Sandipan Das <sandipan.das@amd.com>, 
-	Dapeng Mi <dapeng1.mi@linux.intel.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
-	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_162606_029797_752DC357 
-X-CRM114-Status: GOOD (  12.68  )
+	Sat, 06 Dec 2025 01:23:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D9D3D60127;
+	Sat,  6 Dec 2025 01:23:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C0F0C4CEF1;
+	Sat,  6 Dec 2025 01:23:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764984218;
+	bh=vNc7EiYFdBnK4eun6xh531tyyEP2yw2Sjg3Dc6e7o2c=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=KH8mrp2PCwSR0jUszro7/Gs4OZXn4NosECk8g1o5nwrLeexLPa0unFqY1aeC5/eWY
+	 T3jAxFnKAsdXbSn3wJ2oRp9XudUMaiUWr6tg31Tj0f0q/CLliKlYp9fnz6d5sS6Il8
+	 wCkAq07Eg+6X0Fe90pRcdK9qxsS0evQfO4AAQjM8S5UIYNQo0SWROby0wi0rTsWtWI
+	 q7tp9fajNAYULBdI0X0Im9Qg9ybX3535ZXx7sAYVko0nLLi/aMQqrqqTVuCROWA8vL
+	 4xw5mK0C9O2WN4tiOm7N/pOTOYV1nPoO85cI1r2qVAfi3yVFAAOo5T57rGsOE7HHHg
+	 s3u/DZrfUXG3A==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3BAB03808200;
+	Sat,  6 Dec 2025 01:20:37 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V updates for the v6.19 merge window (part one)
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <6b437742-e1c2-f6dd-61c8-fb3de45d3351@kernel.org>
+References: <6b437742-e1c2-f6dd-61c8-fb3de45d3351@kernel.org>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <6b437742-e1c2-f6dd-61c8-fb3de45d3351@kernel.org>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.19-mw1
+X-PR-Tracked-Commit-Id: a131fd60796dbfaa6297c0c8ca8e2a7610a64281
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 07025b51c1149951d64804c73014499bb3564dca
+Message-Id: <176498403571.1907434.16735367819986276747.pr-tracker-bot@kernel.org>
+Date: Sat, 06 Dec 2025 01:20:35 +0000
+To: Paul Walmsley <pjw@kernel.org>
+Cc: torvalds@linux-foundation.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,84 +71,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Dapeng Mi <dapeng1.mi@linux.intel.com>
+The pull request you sent on Thu, 4 Dec 2025 12:19:20 -0700 (MST):
 
-Mediated vPMU needs to accumulate the emulated instructions into counter
-and load the counter into HW at vm-entry.
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.19-mw1
 
-Moreover, if the accumulation leads to counter overflow, KVM needs to
-update GLOBAL_STATUS and inject PMI into guest as well.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/07025b51c1149951d64804c73014499bb3564dca
 
-Suggested-by: Sean Christopherson <seanjc@google.com>
-Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
-Signed-off-by: Mingwei Zhang <mizhang@google.com>
-Tested-by: Xudong Hao <xudong.hao@intel.com>
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- arch/x86/kvm/pmu.c | 39 +++++++++++++++++++++++++++++++++++++--
- 1 file changed, 37 insertions(+), 2 deletions(-)
+Thank you!
 
-diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
-index 578bf996bda2..cb07d9b62bee 100644
---- a/arch/x86/kvm/pmu.c
-+++ b/arch/x86/kvm/pmu.c
-@@ -1033,10 +1033,45 @@ void kvm_pmu_destroy(struct kvm_vcpu *vcpu)
- 	kvm_pmu_reset(vcpu);
- }
- 
-+static bool pmc_is_pmi_enabled(struct kvm_pmc *pmc)
-+{
-+	u8 fixed_ctr_ctrl;
-+
-+	if (pmc_is_gp(pmc))
-+		return pmc->eventsel & ARCH_PERFMON_EVENTSEL_INT;
-+
-+	fixed_ctr_ctrl = fixed_ctrl_field(pmc_to_pmu(pmc)->fixed_ctr_ctrl,
-+					  pmc->idx - KVM_FIXED_PMC_BASE_IDX);
-+	return fixed_ctr_ctrl & INTEL_FIXED_0_ENABLE_PMI;
-+}
-+
- static void kvm_pmu_incr_counter(struct kvm_pmc *pmc)
- {
--	pmc->emulated_counter++;
--	kvm_pmu_request_counter_reprogram(pmc);
-+	struct kvm_vcpu *vcpu = pmc->vcpu;
-+
-+	/*
-+	 * For perf-based PMUs, accumulate software-emulated events separately
-+	 * from pmc->counter, as pmc->counter is offset by the count of the
-+	 * associated perf event. Request reprogramming, which will consult
-+	 * both emulated and hardware-generated events to detect overflow.
-+	 */
-+	if (!kvm_vcpu_has_mediated_pmu(vcpu)) {
-+		pmc->emulated_counter++;
-+		kvm_pmu_request_counter_reprogram(pmc);
-+		return;
-+	}
-+
-+	/*
-+	 * For mediated PMUs, pmc->counter is updated when the vCPU's PMU is
-+	 * put, and will be loaded into hardware when the PMU is loaded. Simply
-+	 * increment the counter and signal overflow if it wraps to zero.
-+	 */
-+	pmc->counter = (pmc->counter + 1) & pmc_bitmask(pmc);
-+	if (!pmc->counter) {
-+		pmc_to_pmu(pmc)->global_status |= BIT_ULL(pmc->idx);
-+		if (pmc_is_pmi_enabled(pmc))
-+			kvm_make_request(KVM_REQ_PMI, vcpu);
-+	}
- }
- 
- static inline bool cpl_is_matched(struct kvm_pmc *pmc)
 -- 
-2.52.0.223.gf5cc29aaa4-goog
-
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
