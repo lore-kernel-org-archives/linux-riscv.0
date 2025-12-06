@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C58A0D3ABC4
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Dec 2025 00:18:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 661D8D3ABC2
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Dec 2025 00:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NtFap1weIAQODH+Q2aaFa7YqGsxCDyzqhZYKEn2e04I=; b=Vfe+0wxTL0H5S9
-	yQHE67woHFC8xMVXNe1MVas7fV3jClstg1/eppLfKZDnBAFCCjAtNHmr2fT5hqSZwRdyvSC8e7fx6
-	1xmd/4LuKRHqcEVZaEo5AF5Ulb/UmRGVqhk7MY7ec5CBYm/uUXrSTg6YpxA2Iy20dEn3oqSsKQWev
-	SH82K70DEYs661IDw1BqEmsx4YMmokr5SyU0n2DfeRe7O+ZV44tNlPa8AhUtek0MExFl8EjgOiuPI
-	2oVLnOQwI7uU+xIQAlcr9MxC5ODbl2+ZhBgH89yh+Buqc34NqiX5G1vvOV0KP+75mAWXh1qxHLzaY
-	mSgAxdxP12DNt4STehMw==;
+	List-Owner; bh=OtCrp+q4pbEaivl+fe5VBPo13OxBIg5MbZ3QAZJMZ9I=; b=gTkumA96RQVk2Q
+	v4VZR5CMUDZTDwudG4Q0eY7Lt/UTbdacm2pY2rwOfA3E/eWK1vrBrbrYGCctmPsOYGPxq5BwcdQ5r
+	PdT8S+1vDd3PsMfvPkryQ3wgch20dHsGdB+WTHWAo6+WxYQZOljjrkUdO3x1iWqkCby0tsZDLLyMz
+	JO1vnIBgwayJjFc8Qgsgq51c6+0ZOB52AOZut3HZ5CR+FDghtUwIkdCI6NR6JvDZ23ML/aoYkPwxi
+	7zA71Mxxwh7n06mLHsgODHrHWlt252hcfX3N42QkB46xFgpvopLWsLrP6xVOEQRDU1oL3Tk+OdLOp
+	SlZNYvLzu2BdN53eA01w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRfzb-0000000AEQ9-3NZn;
-	Sat, 06 Dec 2025 00:17:43 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vRfzj-0000000AEeT-3mm3;
+	Sat, 06 Dec 2025 00:17:51 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRfzW-0000000AEF4-0itI
+	id 1vRfzZ-0000000AEKc-0fNK
 	for linux-riscv@lists.infradead.org;
-	Sat, 06 Dec 2025 00:17:40 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-340c261fb38so4315547a91.0
-        for <linux-riscv@lists.infradead.org>; Fri, 05 Dec 2025 16:17:37 -0800 (PST)
+	Sat, 06 Dec 2025 00:17:42 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-340bc4ef67fso3026391a91.3
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Dec 2025 16:17:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764980257; x=1765585057; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1764980260; x=1765585060; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=yhKYQi5Qha/BTsmxjoFY4QUfh3xCFhBQAHy77hScZiw=;
-        b=0se4ZqDMMZYTWcT85NHm18QF0wFjGuyb47h5U5vSVKm68QTfPkNW/Ctx/jPSX+CV+f
-         L6Ul6XRPV6nH+HnmMRl9dyzADZtmc5ti5s6IZDaenbPJJbGUjMPStUQKQllJ5EOIooCn
-         zGcPFk53ZOE1osAQk8oShLpQBk2dYShmqtcpEk2itZZExTykmDS74rhTCn9fxXV3YPGI
-         VNzidZlzHkvy0DIEs/7F/bb2KjqS4u4dVJ2pUyo4kwcgldsZJKVmsFSA1irmsnoF3xpk
-         tGPe9x2P2t82oiZT+gnOlMIUHZA02qGR9UVu0e6Kz1Qas30d5+XKIIWdnZ/IXsh9AD5j
-         EQ+w==
+        bh=FylYYLVT0WTXptfl4HpO9XPf05XgvSaO59C95hLudDA=;
+        b=jCT2c14W3ZbPVoNUafuNvmuRZCxlWtOTiKQVMVgyLkL6CG5YB95f8Q6+Vs5NVh9r2B
+         DE9MdsJjGz9wZXbQr8fynuVe7N1DJ102OjrDoP5RMp4F2rveR83JYZj69wD1RmyBPokt
+         tFWEeGAMx8P6ry4for3fft0aFyXGes/86D8fzd2U6bI3pWAZo7NPMBY3r9DyEbFeb3JC
+         Bkxjv3cknq3L9xrBiktvM3JoKK0GonjBwJc5yvmwul9n/N9QEVCFEF9A7112dTEk6EUo
+         sbGfQH/MjzrG1ftxzUM5Ks7qdySZddEB3rRjQzc00CHZnkxPBJLa2Ef9O+vGYjWNlQoR
+         iKXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764980257; x=1765585057;
+        d=1e100.net; s=20230601; t=1764980260; x=1765585060;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=yhKYQi5Qha/BTsmxjoFY4QUfh3xCFhBQAHy77hScZiw=;
-        b=cxdWyfCNoPAlnuBu8nffumieGXPsN5odXMMVbARCtm7i0y+CqlR6tXZdgCTHjmcMZd
-         jUYC05Q/uEw6rUxIb032svCVS4un0+zWYvqbc5C4vZyKFGxFOk1gaDub2Vcy25Plgh7t
-         gR+yP5WTFabElORX8TeecabwIGWgODuNgkbdVUk2Kd7AnrZn937Ty2ttQdFoI+4/lVlB
-         W8cU+zydvzXIbnxq01hkFHsj32qVhi0ctnCIonVqqkADvOjlmIMWVF2yak0MZChr0hhn
-         j9a8MEmJObCV20oH66+ZTRsgHypH1fhNR5V/rr1GO4iGO0hV2C7DO+rUsxS3y642VS14
-         hj5w==
-X-Forwarded-Encrypted: i=1; AJvYcCUgRSscvFkvXQekG355JvLthtQNXigL7On+6wqURO1RpKOAMrNBW7uR+B5lGAuC3ttP9hhAN5/sa2G5Cg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YynXatlZEJl7Fb1ZTQYvFWUVyLGKdL87/PEDuOkw7N6kmYQ/Rfs
-	l3xLR8O9kP1lqCDX8IM5wZBOnhO0qOy9zGXuXC1tkXngeSwzbXF95kLMoNaaaufsPVUYEk5f6LM
-	YdxC4DA==
-X-Google-Smtp-Source: AGHT+IGmP8Ey35X4MpwHqzR6yI0kfgLszkB31H16gNGXB5SUmH/owSLovbegxo4T8OosEeKQAfSbsj3/1QU=
-X-Received: from pjtv9.prod.google.com ([2002:a17:90a:c909:b0:33b:51fe:1a81])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5627:b0:343:7f04:79c1
- with SMTP id 98e67ed59e1d1-349a24f29b9mr580948a91.9.1764980256849; Fri, 05
- Dec 2025 16:17:36 -0800 (PST)
-Date: Fri,  5 Dec 2025 16:16:41 -0800
+        bh=FylYYLVT0WTXptfl4HpO9XPf05XgvSaO59C95hLudDA=;
+        b=MOWyqEsVAVGWvbNFpbh9nAU3S9J/FnCB/IbrmVNCAsAc/SJFZVxyB3bTghuMXBQ+sY
+         Z0+/OeiOBYBtXpOljFrhYqQlZcorkzcHKwu01Gz0qE8s7QXJH75KdHTK58C0OgqnEYDC
+         q49JRPKOPVivQWq/2VIIcDsjy/IxNWftuoFLzHGsHaTZ2r2wZmY6K/+4df59Kup3RBg7
+         Ca1cZQMl6OR9DaYH0aRQUbYO9UwgH70D0V8mCm3lTa25fsmximhVwoPDFeywXDYLctwE
+         L45txsgAETPNilwLg1c10KvcH9gCFPDzBgUgN43VWoC/xK45SoPsBIQ90z+9SZdwMQQB
+         xjww==
+X-Forwarded-Encrypted: i=1; AJvYcCXeS1Kn1V96B9K4h4YMqE9/zmR2M3y6jiOnGGcl9m8Eoq9jmrnGAXCqDt5/n5MxihQCzdMl/tqDlXMtYQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxy4iHJw7YqG8bOW6JLpbcC2ZIi68CWH7lgZhdmV9BWFyFoT/oa
+	brcUkVxNs1nVwfTmQYeR/8jivV4P85MAEWvBcY8sFFUsp26WSmVeykOXczgD/c9YqaYiw8gmkEv
+	yzL3lTA==
+X-Google-Smtp-Source: AGHT+IFoT/ixFxXWDXJBPVNPACu7PrN8IiUqBDaVd9+tgekzVLP1tDFd7WsI6N47bV9683aut9/Cc/2CP5c=
+X-Received: from pjtl17.prod.google.com ([2002:a17:90a:c591:b0:349:1598:173b])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4acf:b0:340:d06d:ea73
+ with SMTP id 98e67ed59e1d1-349a2686512mr571973a91.19.1764980260147; Fri, 05
+ Dec 2025 16:17:40 -0800 (PST)
+Date: Fri,  5 Dec 2025 16:16:43 -0800
 In-Reply-To: <20251206001720.468579-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251206001720.468579-1-seanjc@google.com>
 X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-Message-ID: <20251206001720.468579-6-seanjc@google.com>
-Subject: [PATCH v6 05/44] perf: Clean up perf ctx time
+Message-ID: <20251206001720.468579-8-seanjc@google.com>
+Subject: [PATCH v6 07/44] perf: Add APIs to load/put guest mediated PMU context
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -85,8 +85,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Dapeng Mi <dapeng1.mi@linux.intel.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
 	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_161738_243361_9869480F 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20251205_161741_310095_CB43B150 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,225 +106,124 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Kan Liang <kan.liang@linux.intel.com>
 
-The current perf tracks two timestamps for the normal ctx and cgroup.
-The same type of variables and similar codes are used to track the
-timestamps. In the following patch, the third timestamp to track the
-guest time will be introduced.
-To avoid the code duplication, add a new struct perf_time_ctx and factor
-out a generic function update_perf_time_ctx().
+Add exported APIs to load/put a guest mediated PMU context.  KVM will
+load the guest PMU shortly before VM-Enter, and put the guest PMU shortly
+after VM-Exit.
 
-No functional change.
+On the perf side of things, schedule out all exclude_guest events when the
+guest context is loaded, and schedule them back in when the guest context
+is put.  I.e. yield the hardware PMU resources to the guest, by way of KVM.
 
-Suggested-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Note, perf is only responsible for managing host context.  KVM is
+responsible for loading/storing guest state to/from hardware.
+
+Suggested-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Kan Liang <kan.liang@linux.intel.com>
 Signed-off-by: Mingwei Zhang <mizhang@google.com>
+[sean: shuffle patches around, write changelog]
 Tested-by: Xudong Hao <xudong.hao@intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- include/linux/perf_event.h | 13 +++----
- kernel/events/core.c       | 70 +++++++++++++++++---------------------
- 2 files changed, 39 insertions(+), 44 deletions(-)
+ include/linux/perf_event.h |  2 ++
+ kernel/events/core.c       | 61 ++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 63 insertions(+)
 
 diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 94f679634ef6..42d1debc519f 100644
+index eaab830c9bf5..cfc8cd86c409 100644
 --- a/include/linux/perf_event.h
 +++ b/include/linux/perf_event.h
-@@ -999,6 +999,11 @@ struct perf_event_groups {
- 	u64				index;
- };
+@@ -1925,6 +1925,8 @@ extern u64 perf_event_pause(struct perf_event *event, bool reset);
+ #ifdef CONFIG_PERF_GUEST_MEDIATED_PMU
+ int perf_create_mediated_pmu(void);
+ void perf_release_mediated_pmu(void);
++void perf_load_guest_context(void);
++void perf_put_guest_context(void);
+ #endif
  
-+struct perf_time_ctx {
-+	u64		time;
-+	u64		stamp;
-+	u64		offset;
-+};
- 
- /**
-  * struct perf_event_context - event context structure
-@@ -1037,9 +1042,7 @@ struct perf_event_context {
- 	/*
- 	 * Context clock, runs when context enabled.
- 	 */
--	u64				time;
--	u64				timestamp;
--	u64				timeoffset;
-+	struct perf_time_ctx		time;
- 
- 	/*
- 	 * These fields let us detect when two contexts have both
-@@ -1172,9 +1175,7 @@ struct bpf_perf_event_data_kern {
-  * This is a per-cpu dynamically allocated data structure.
-  */
- struct perf_cgroup_info {
--	u64				time;
--	u64				timestamp;
--	u64				timeoffset;
-+	struct perf_time_ctx		time;
- 	int				active;
- };
- 
+ #else /* !CONFIG_PERF_EVENTS: */
 diff --git a/kernel/events/core.c b/kernel/events/core.c
-index cfeea7d330f9..5db8f4c60b9e 100644
+index f72d4844b05e..81c35859e6ea 100644
 --- a/kernel/events/core.c
 +++ b/kernel/events/core.c
-@@ -815,6 +815,24 @@ static void perf_ctx_enable(struct perf_event_context *ctx,
- static void ctx_sched_out(struct perf_event_context *ctx, struct pmu *pmu, enum event_type_t event_type);
- static void ctx_sched_in(struct perf_event_context *ctx, struct pmu *pmu, enum event_type_t event_type);
+@@ -469,10 +469,19 @@ static cpumask_var_t perf_online_pkg_mask;
+ static cpumask_var_t perf_online_sys_mask;
+ static struct kmem_cache *perf_event_cache;
  
-+static inline void update_perf_time_ctx(struct perf_time_ctx *time, u64 now, bool adv)
++#ifdef CONFIG_PERF_GUEST_MEDIATED_PMU
++static DEFINE_PER_CPU(bool, guest_ctx_loaded);
++
++static __always_inline bool is_guest_mediated_pmu_loaded(void)
 +{
-+	if (adv)
-+		time->time += now - time->stamp;
-+	time->stamp = now;
-+
-+	/*
-+	 * The above: time' = time + (now - timestamp), can be re-arranged
-+	 * into: time` = now + (time - timestamp), which gives a single value
-+	 * offset to compute future time without locks on.
-+	 *
-+	 * See perf_event_time_now(), which can be used from NMI context where
-+	 * it's (obviously) not possible to acquire ctx->lock in order to read
-+	 * both the above values in a consistent manner.
-+	 */
-+	WRITE_ONCE(time->offset, time->time - time->stamp);
++	return __this_cpu_read(guest_ctx_loaded);
 +}
++#else
+ static __always_inline bool is_guest_mediated_pmu_loaded(void)
+ {
+ 	return false;
+ }
++#endif
+ 
+ /*
+  * perf event paranoia level:
+@@ -6385,6 +6394,58 @@ void perf_release_mediated_pmu(void)
+ 	atomic_dec(&nr_mediated_pmu_vms);
+ }
+ EXPORT_SYMBOL_GPL(perf_release_mediated_pmu);
 +
- #ifdef CONFIG_CGROUP_PERF
- 
- static inline bool
-@@ -856,7 +874,7 @@ static inline u64 perf_cgroup_event_time(struct perf_event *event)
- 	struct perf_cgroup_info *t;
- 
- 	t = per_cpu_ptr(event->cgrp->info, event->cpu);
--	return t->time;
-+	return t->time.time;
- }
- 
- static inline u64 perf_cgroup_event_time_now(struct perf_event *event, u64 now)
-@@ -865,22 +883,11 @@ static inline u64 perf_cgroup_event_time_now(struct perf_event *event, u64 now)
- 
- 	t = per_cpu_ptr(event->cgrp->info, event->cpu);
- 	if (!__load_acquire(&t->active))
--		return t->time;
--	now += READ_ONCE(t->timeoffset);
-+		return t->time.time;
-+	now += READ_ONCE(t->time.offset);
- 	return now;
- }
- 
--static inline void __update_cgrp_time(struct perf_cgroup_info *info, u64 now, bool adv)
--{
--	if (adv)
--		info->time += now - info->timestamp;
--	info->timestamp = now;
--	/*
--	 * see update_context_time()
--	 */
--	WRITE_ONCE(info->timeoffset, info->time - info->timestamp);
--}
--
- static inline void update_cgrp_time_from_cpuctx(struct perf_cpu_context *cpuctx, bool final)
- {
- 	struct perf_cgroup *cgrp = cpuctx->cgrp;
-@@ -894,7 +901,7 @@ static inline void update_cgrp_time_from_cpuctx(struct perf_cpu_context *cpuctx,
- 			cgrp = container_of(css, struct perf_cgroup, css);
- 			info = this_cpu_ptr(cgrp->info);
- 
--			__update_cgrp_time(info, now, true);
-+			update_perf_time_ctx(&info->time, now, true);
- 			if (final)
- 				__store_release(&info->active, 0);
- 		}
-@@ -917,7 +924,7 @@ static inline void update_cgrp_time_from_event(struct perf_event *event)
- 	 * Do not update time when cgroup is not active
- 	 */
- 	if (info->active)
--		__update_cgrp_time(info, perf_clock(), true);
-+		update_perf_time_ctx(&info->time, perf_clock(), true);
- }
- 
- static inline void
-@@ -941,7 +948,7 @@ perf_cgroup_set_timestamp(struct perf_cpu_context *cpuctx)
- 	for (css = &cgrp->css; css; css = css->parent) {
- 		cgrp = container_of(css, struct perf_cgroup, css);
- 		info = this_cpu_ptr(cgrp->info);
--		__update_cgrp_time(info, ctx->timestamp, false);
-+		update_perf_time_ctx(&info->time, ctx->time.stamp, false);
- 		__store_release(&info->active, 1);
- 	}
- }
-@@ -1562,20 +1569,7 @@ static void __update_context_time(struct perf_event_context *ctx, bool adv)
- 
- 	lockdep_assert_held(&ctx->lock);
- 
--	if (adv)
--		ctx->time += now - ctx->timestamp;
--	ctx->timestamp = now;
--
--	/*
--	 * The above: time' = time + (now - timestamp), can be re-arranged
--	 * into: time` = now + (time - timestamp), which gives a single value
--	 * offset to compute future time without locks on.
--	 *
--	 * See perf_event_time_now(), which can be used from NMI context where
--	 * it's (obviously) not possible to acquire ctx->lock in order to read
--	 * both the above values in a consistent manner.
--	 */
--	WRITE_ONCE(ctx->timeoffset, ctx->time - ctx->timestamp);
-+	update_perf_time_ctx(&ctx->time, now, adv);
- }
- 
- static void update_context_time(struct perf_event_context *ctx)
-@@ -1593,7 +1587,7 @@ static u64 perf_event_time(struct perf_event *event)
- 	if (is_cgroup_event(event))
- 		return perf_cgroup_event_time(event);
- 
--	return ctx->time;
-+	return ctx->time.time;
- }
- 
- static u64 perf_event_time_now(struct perf_event *event, u64 now)
-@@ -1607,9 +1601,9 @@ static u64 perf_event_time_now(struct perf_event *event, u64 now)
- 		return perf_cgroup_event_time_now(event, now);
- 
- 	if (!(__load_acquire(&ctx->is_active) & EVENT_TIME))
--		return ctx->time;
-+		return ctx->time.time;
- 
--	now += READ_ONCE(ctx->timeoffset);
-+	now += READ_ONCE(ctx->time.offset);
- 	return now;
- }
- 
-@@ -12044,7 +12038,7 @@ static void task_clock_event_update(struct perf_event *event, u64 now)
- static void task_clock_event_start(struct perf_event *event, int flags)
- {
- 	event->hw.state = 0;
--	local64_set(&event->hw.prev_count, event->ctx->time);
-+	local64_set(&event->hw.prev_count, event->ctx->time.time);
- 	perf_swevent_start_hrtimer(event);
- }
- 
-@@ -12053,7 +12047,7 @@ static void task_clock_event_stop(struct perf_event *event, int flags)
- 	event->hw.state = PERF_HES_STOPPED;
- 	perf_swevent_cancel_hrtimer(event);
- 	if (flags & PERF_EF_UPDATE)
--		task_clock_event_update(event, event->ctx->time);
-+		task_clock_event_update(event, event->ctx->time.time);
- }
- 
- static int task_clock_event_add(struct perf_event *event, int flags)
-@@ -12073,8 +12067,8 @@ static void task_clock_event_del(struct perf_event *event, int flags)
- static void task_clock_event_read(struct perf_event *event)
- {
- 	u64 now = perf_clock();
--	u64 delta = now - event->ctx->timestamp;
--	u64 time = event->ctx->time + delta;
-+	u64 delta = now - event->ctx->time.stamp;
-+	u64 time = event->ctx->time.time + delta;
- 
- 	task_clock_event_update(event, time);
- }
++/* When loading a guest's mediated PMU, schedule out all exclude_guest events. */
++void perf_load_guest_context(void)
++{
++	struct perf_cpu_context *cpuctx = this_cpu_ptr(&perf_cpu_context);
++
++	lockdep_assert_irqs_disabled();
++
++	guard(perf_ctx_lock)(cpuctx, cpuctx->task_ctx);
++
++	if (WARN_ON_ONCE(__this_cpu_read(guest_ctx_loaded)))
++		return;
++
++	perf_ctx_disable(&cpuctx->ctx, EVENT_GUEST);
++	ctx_sched_out(&cpuctx->ctx, NULL, EVENT_GUEST);
++	if (cpuctx->task_ctx) {
++		perf_ctx_disable(cpuctx->task_ctx, EVENT_GUEST);
++		task_ctx_sched_out(cpuctx->task_ctx, NULL, EVENT_GUEST);
++	}
++
++	perf_ctx_enable(&cpuctx->ctx, EVENT_GUEST);
++	if (cpuctx->task_ctx)
++		perf_ctx_enable(cpuctx->task_ctx, EVENT_GUEST);
++
++	__this_cpu_write(guest_ctx_loaded, true);
++}
++EXPORT_SYMBOL_GPL(perf_load_guest_context);
++
++void perf_put_guest_context(void)
++{
++	struct perf_cpu_context *cpuctx = this_cpu_ptr(&perf_cpu_context);
++
++	lockdep_assert_irqs_disabled();
++
++	guard(perf_ctx_lock)(cpuctx, cpuctx->task_ctx);
++
++	if (WARN_ON_ONCE(!__this_cpu_read(guest_ctx_loaded)))
++		return;
++
++	perf_ctx_disable(&cpuctx->ctx, EVENT_GUEST);
++	if (cpuctx->task_ctx)
++		perf_ctx_disable(cpuctx->task_ctx, EVENT_GUEST);
++
++	perf_event_sched_in(cpuctx, cpuctx->task_ctx, NULL, EVENT_GUEST);
++
++	if (cpuctx->task_ctx)
++		perf_ctx_enable(cpuctx->task_ctx, EVENT_GUEST);
++	perf_ctx_enable(&cpuctx->ctx, EVENT_GUEST);
++
++	__this_cpu_write(guest_ctx_loaded, false);
++}
++EXPORT_SYMBOL_GPL(perf_put_guest_context);
+ #else
+ static int mediated_pmu_account_event(struct perf_event *event) { return 0; }
+ static void mediated_pmu_unaccount_event(struct perf_event *event) {}
 -- 
 2.52.0.223.gf5cc29aaa4-goog
 
