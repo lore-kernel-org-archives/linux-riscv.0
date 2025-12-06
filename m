@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 722ABD3ABC5
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Dec 2025 00:19:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C2BD3ABC5
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Dec 2025 00:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0oqFyjS4iCjzB4CSy1aV1ysmLxpzYEey0Fd+gPZzFTM=; b=trVGdk9dHn24ar
-	r0hHwEod+Qiu8sslUQcDppDmlWyJWqVQKXwE3N0NwdVluUg6P6nMcX3nN3ctptauNCTr0lXP0mErE
-	lwLX47BiHgqXGAOC+bs5CDI44so1CNnN1Jg1dOE53UPIwbsQRhOps7pN27s0UdhRkxQC4O9QzofHI
-	41Z7a0stQM9DdFf4rMPwGJBM8GB5jNJ72txEtzOQCdauifPODanbmpE1P1llC4kyFCl0BZa3m1sGh
-	i7S8uBPam/jqvoXE2P5HpaPmgwhTjtqL2i5HrECJC6gw5aocP5/IqenXDUlT1zrXNKFcC038/SPix
-	YyJtbEPMGMoxeWo+jMSg==;
+	List-Owner; bh=iBRVJjdKVDPs7uepvfNuyjMfiQ7InuTMf7tG64ljF2A=; b=eLg/F9/fJLoGXh
+	EXUpCF/m2vJte1z6d8nQulLlZqTvgLLc1Fs1Nnkeg+xmdWiNf9LG43y5PzSggvVa7aD/TvALidBVn
+	NjrOWVPWqWylk27kaUPcjSNNV6NdAnAW4t51cqh9eVo04nIgux6q6I9XETCmGEJiGmHN+owl7zdti
+	euuSLR0+b+4t2nyVGLkwRcvchfsRBK1iB5UJ+/vjyFBr2v2kqwk9UyFts92Gu1tetlgZo7MPgUpXM
+	JWBGk8i76YErynbglcfzNrnVfqK5CpMZ6Lus/UkHyzfHa/iEh8JYTzrBxAk2jqN8JHc077wzqD6gD
+	Yi283W4ZRM6379qHGwyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg1X-0000000AHjh-08aF;
-	Sat, 06 Dec 2025 00:19:43 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vRg1h-0000000AI4O-0Tqp;
+	Sat, 06 Dec 2025 00:19:53 +0000
+Received: from mail-pf1-f201.google.com ([209.85.210.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg0G-0000000AFSF-3IHq
-	for linux-riscv@bombadil.infradead.org;
-	Sat, 06 Dec 2025 00:18:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=1e8bcRXtuFwsQIbYtccrwhgHSv5SpQkyZPUQMVVAuRI=; b=N6Fj7KXyFNNhzqA2dH8mY07DdH
-	VLxIsj5mXGAmv3f45EciyA4ZAltShkQvs64SEi4isHaak65koodDTxpfAqKQLuzY2sPq7Zl1y71oq
-	Y2NaVYcIGygVB1qV1AIY7iUgOqlp8ntWZXO+SHoqrbkjmOJCU2XukZZ8omPIquvwIFKH7qOUWpswE
-	Ta7Z3GTQOjhak+eEHiQA9Vr/YkIZTSlURY6XQcLDbKR/+3K7VXz6UDuJt5pnfp7Lvw/717Mx7/qaY
-	QSE8b3+IQWTHvyyBoCOpQhI3PQxqIGaQ+BWvodgD3kPvua9L6jJ8rhmAL5I6kBO8/plwkM7jq7Pd4
-	bVbKKtfA==;
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg0C-00000006SS0-199o
+	id 1vRg0I-0000000AFTR-1Sxj
 	for linux-riscv@lists.infradead.org;
-	Sat, 06 Dec 2025 00:18:23 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-34943d156e4so6816965a91.3
-        for <linux-riscv@lists.infradead.org>; Fri, 05 Dec 2025 16:18:19 -0800 (PST)
+	Sat, 06 Dec 2025 00:18:27 +0000
+Received: by mail-pf1-f201.google.com with SMTP id d2e1a72fcca58-7b8973c4608so6532837b3a.3
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Dec 2025 16:18:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764980297; x=1765585097; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1764980303; x=1765585103; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=1e8bcRXtuFwsQIbYtccrwhgHSv5SpQkyZPUQMVVAuRI=;
-        b=RrAzfTZIQEGwgFaj14O7Pmc872guadyijxgZxF8DjX9yClPLAyDDOlyKo7QNhsLBEn
-         D+8/vmSFNvWpJy1tnJBMWgdsMPruzCRp+qDwBZeuUarMGHVOSJUqHKRtyR4oP0L/9qH+
-         2tFyyM+SP7zgUfLigtouKBjumISSSrDiNPMGszvyvb36Py0Vl2Rke3g5g4gpnLU/yZH+
-         KLXoEl7x3ra1j0TXBcqbyiEZJ3vEeufFPayZ5gofGzpncz+LClWY7KprZar2h7FCVVof
-         cH2pGzFKLhxXbExTb4XaxnXslfYEj6gobFl+n5pcgpOjPzMkKWwIpvLpUObsui3+PBHT
-         a1jQ==
+        bh=vcjFml1Ocn5W+9fhtxvlQ/X0kii0S1Hbwc7mdgCzQH4=;
+        b=NlCUVPd1rNZ9vTOXYpfH7RjIAbXOW8ZN5PIdRQKmgJMAR3jexsK/sh7TQ7ZP1nJUVt
+         MRRh+fRYlyJjP69OZRbN72wQdkei4P01C14LBB5QDK18vJnflQrSuNCrnpccs551P3Go
+         G5LanXBC2nwfQQA4sMv3E4RvWjZqJnT2pz6wk+tGPUS8Rp0LteJJFvp2PeSRkQu1xRWD
+         /oIEwifmc4TWLjL+DmJ+FoFptr7+GpfT1gNmpdyCO/e+BP1tku+/B5xJqy640UuaoR2O
+         ccEOQuB3NtojuLE9x4RtI0OvQXiuK3mYUVklN7yECjESoDkokt27uBNDNzQiDhsUhLcx
+         KaCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764980297; x=1765585097;
+        d=1e100.net; s=20230601; t=1764980303; x=1765585103;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=1e8bcRXtuFwsQIbYtccrwhgHSv5SpQkyZPUQMVVAuRI=;
-        b=Wnt6k9YEKn/5dD/daEcexG/Kp6vs4gC99KfW+Hb/uQRIazXROoUStw10SQp8axzaUH
-         aI2QpTDGfKX+v47dKVMpNxKCcpJlM6x2j98jBcZwmU9U8QzjQMwgLrNY7MengzGV3WAW
-         icZTAdTcBsyquDIJADqxNChxjfycoo8TrkvRuu6vaBJOe5xcx6Lz1fLrn6aSfi4qAahO
-         xvf7r9rIl6z60kaU7UAuwIUqbZkIr41/8TREafRZOpsLds4xGw4PNe7uNquYUEvnpf/h
-         lksrNyE/QG59iK5GkDM/S/AjoKFx6i90wODDvRXZ5tHrHodBT9J1uxcP2sxxMcdBFqdj
-         1+DA==
-X-Forwarded-Encrypted: i=1; AJvYcCViNvZf/3JfXYJsZtGiP9qskijOoRg71p7jlZlLMnlxHwkYfgxeR2cRDe3ic+dVGZ+fx7QCEapxRY9qCw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeLfc2dsXRhLfENIt57Z5JijJmoVFfmx/i9sna2IdfVmIH85AX
-	Vz8WuKD4JG1dEZs//v04gtcHujpZXx3tCEIaBQ7SNM99J/nH1dKAZdWjI2gghWTcnsBvPLYyaTK
-	4sVoxSw==
-X-Google-Smtp-Source: AGHT+IFA+TmENZM8zZH3xQmTmkf0AAav0uZn++oR8JtE8dy0fhXg220AvOxyf1+YRyhWVdU9HyzyXzK52Ag=
-X-Received: from pjwo11.prod.google.com ([2002:a17:90a:d24b:b0:33b:51fe:1a89])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5750:b0:330:84c8:92d0
- with SMTP id 98e67ed59e1d1-349a261424emr607582a91.24.1764980296958; Fri, 05
- Dec 2025 16:18:16 -0800 (PST)
-Date: Fri,  5 Dec 2025 16:17:01 -0800
+        bh=vcjFml1Ocn5W+9fhtxvlQ/X0kii0S1Hbwc7mdgCzQH4=;
+        b=M3KNlLB02VoPQ+2E/hbZnEbqTehUOLgPWQfNp6ZigtIgquPgJK5UzMnal9dinY/enA
+         bQAxdXK3fTD8DAPyjS5e9fYiA4pDfEEO/QBj/azGf2yvs190gxVEu+BL//tVhF9+4AxL
+         2G/fy7ANXx3vUHmthxz3LBkmJgZW0rjsTutYx0Jg2MpLHr7en33LGVp4CBkD4v/lLEOp
+         ajIHRAjxAyKxlo3JZ9kOsiJIFX8bI3r0eEtc4zkunfipVTko3ZK1AkwBHXpFv7XFsgyn
+         Z8ntLFlBae0MSQQEnkDQ3StmebU1CdgGIZgMsF6DfqBw8Ylot7gjo6XZcuFXksGVJYBJ
+         iCAA==
+X-Forwarded-Encrypted: i=1; AJvYcCUQQBth42m8Bi/gjzZPCdpOCv+h9ndUClbCCO0Nsrmibx7W6oXacOCy1tErcPpmCgfSXPJof3C9GDBaBg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYx5dt1H/MgE0VnUMmDIf7Z1c9THlyHofth7CR+ogE+afsCbKL
+	cV3qeMWRqvIxlfix29/8ocJ8iwo3+YiSz9fG+rHNHnS67g8wKHSrnVIxr3BjrdpbxQ4oNFjVHXi
+	xIvC4aw==
+X-Google-Smtp-Source: AGHT+IEi41vT7k5Y8TL0eorj0ILiZzn3n1cXKu+mvARIF/KTkqiX2XdS9wsUu8uQeqy5b+ge2DTi5IOhdXM=
+X-Received: from pfmm14.prod.google.com ([2002:a05:6a00:248e:b0:7dd:8bba:63ae])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:2ea0:b0:7a9:8770:ce5a
+ with SMTP id d2e1a72fcca58-7e8c3628897mr847803b3a.20.1764980303025; Fri, 05
+ Dec 2025 16:18:23 -0800 (PST)
+Date: Fri,  5 Dec 2025 16:17:04 -0800
 In-Reply-To: <20251206001720.468579-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251206001720.468579-1-seanjc@google.com>
 X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-Message-ID: <20251206001720.468579-26-seanjc@google.com>
-Subject: [PATCH v6 25/44] KVM: x86/pmu: Reprogram mediated PMU event selectors
- on event filter updates
+Message-ID: <20251206001720.468579-29-seanjc@google.com>
+Subject: [PATCH v6 28/44] KVM: x86/pmu: Disallow emulation in the fastpath if
+ mediated PMCs are active
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -101,8 +86,9 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Dapeng Mi <dapeng1.mi@linux.intel.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
 	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251206_001820_379628_0C9EB410 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20251205_161826_479388_29072DC0 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,69 +106,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Dapeng Mi <dapeng1.mi@linux.intel.com>
+Don't handle exits in the fastpath if emulation is required, i.e. if an
+instruction needs to be skipped, the mediated PMU is enabled, and one or
+more PMCs is counting instructions.  With the mediated PMU, KVM's cache of
+PMU state is inconsistent with respect to hardware until KVM exits the
+inner run loop (when the mediated PMU is "put").
 
-Refresh the event selectors that are programmed into hardware when a PMC
-is "reprogrammed" for a mediated PMU, i.e. if userspace changes the PMU
-event filters
-
-Note, KVM doesn't utilize the reprogramming infrastructure to handle
-counter overflow for mediated PMUs, as there's no need to reprogram a
-non-existent perf event.
-
-Suggested-by: Sean Christopherson <seanjc@google.com>
-Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
-Co-developed-by: Mingwei Zhang <mizhang@google.com>
-Signed-off-by: Mingwei Zhang <mizhang@google.com>
-[sean: add a helper to document behavior, split patch and rewrite changelog]
+Reviewed-by: Sandipan Das <sandipan.das@amd.com>
 Tested-by: Xudong Hao <xudong.hao@intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/pmu.c | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+ arch/x86/kvm/pmu.h | 10 ++++++++++
+ arch/x86/kvm/x86.c |  9 +++++++++
+ 2 files changed, 19 insertions(+)
 
-diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
-index 36eebc1c7e70..39904e6fd227 100644
---- a/arch/x86/kvm/pmu.c
-+++ b/arch/x86/kvm/pmu.c
-@@ -522,6 +522,25 @@ static bool pmc_is_event_allowed(struct kvm_pmc *pmc)
- 	return is_fixed_event_allowed(filter, pmc->idx);
+diff --git a/arch/x86/kvm/pmu.h b/arch/x86/kvm/pmu.h
+index 25b583da9ee2..0925246731cb 100644
+--- a/arch/x86/kvm/pmu.h
++++ b/arch/x86/kvm/pmu.h
+@@ -234,6 +234,16 @@ static inline bool pmc_is_globally_enabled(struct kvm_pmc *pmc)
+ 	return test_bit(pmc->idx, (unsigned long *)&pmu->global_ctrl);
  }
  
-+static void kvm_mediated_pmu_refresh_event_filter(struct kvm_pmc *pmc)
++static inline bool kvm_pmu_is_fastpath_emulation_allowed(struct kvm_vcpu *vcpu)
 +{
-+	bool allowed = pmc_is_event_allowed(pmc);
-+	struct kvm_pmu *pmu = pmc_to_pmu(pmc);
++	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
 +
-+	if (pmc_is_gp(pmc)) {
-+		pmc->eventsel_hw &= ~ARCH_PERFMON_EVENTSEL_ENABLE;
-+		if (allowed)
-+			pmc->eventsel_hw |= pmc->eventsel &
-+					    ARCH_PERFMON_EVENTSEL_ENABLE;
-+	} else {
-+		u64 mask = intel_fixed_bits_by_idx(pmc->idx - KVM_FIXED_PMC_BASE_IDX, 0xf);
-+
-+		pmu->fixed_ctr_ctrl_hw &= ~mask;
-+		if (allowed)
-+			pmu->fixed_ctr_ctrl_hw |= pmu->fixed_ctr_ctrl & mask;
-+	}
++	return !kvm_vcpu_has_mediated_pmu(vcpu) ||
++	       !bitmap_intersects(pmu->pmc_counting_instructions,
++				  (unsigned long *)&pmu->global_ctrl,
++				  X86_PMC_IDX_MAX);
 +}
 +
- static int reprogram_counter(struct kvm_pmc *pmc)
+ void kvm_pmu_deliver_pmi(struct kvm_vcpu *vcpu);
+ void kvm_pmu_handle_event(struct kvm_vcpu *vcpu);
+ int kvm_pmu_rdpmc(struct kvm_vcpu *vcpu, unsigned pmc, u64 *data);
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 589a309259f4..4683df775b0a 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -2215,6 +2215,9 @@ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_emulate_invd);
+ 
+ fastpath_t handle_fastpath_invd(struct kvm_vcpu *vcpu)
  {
- 	struct kvm_pmu *pmu = pmc_to_pmu(pmc);
-@@ -530,6 +549,11 @@ static int reprogram_counter(struct kvm_pmc *pmc)
- 	bool emulate_overflow;
- 	u8 fixed_ctr_ctrl;
- 
-+	if (kvm_vcpu_has_mediated_pmu(pmu_to_vcpu(pmu))) {
-+		kvm_mediated_pmu_refresh_event_filter(pmc);
-+		return 0;
-+	}
++	if (!kvm_pmu_is_fastpath_emulation_allowed(vcpu))
++		return EXIT_FASTPATH_NONE;
 +
- 	emulate_overflow = pmc_pause_counter(pmc);
+ 	if (!kvm_emulate_invd(vcpu))
+ 		return EXIT_FASTPATH_EXIT_USERSPACE;
  
- 	if (!pmc_is_globally_enabled(pmc) || !pmc_is_locally_enabled(pmc) ||
+@@ -2271,6 +2274,9 @@ static inline bool kvm_vcpu_exit_request(struct kvm_vcpu *vcpu)
+ 
+ static fastpath_t __handle_fastpath_wrmsr(struct kvm_vcpu *vcpu, u32 msr, u64 data)
+ {
++	if (!kvm_pmu_is_fastpath_emulation_allowed(vcpu))
++		return EXIT_FASTPATH_NONE;
++
+ 	switch (msr) {
+ 	case APIC_BASE_MSR + (APIC_ICR >> 4):
+ 		if (!lapic_in_kernel(vcpu) || !apic_x2apic_mode(vcpu->arch.apic) ||
+@@ -11714,6 +11720,9 @@ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_emulate_halt);
+ 
+ fastpath_t handle_fastpath_hlt(struct kvm_vcpu *vcpu)
+ {
++	if (!kvm_pmu_is_fastpath_emulation_allowed(vcpu))
++		return EXIT_FASTPATH_NONE;
++
+ 	if (!kvm_emulate_halt(vcpu))
+ 		return EXIT_FASTPATH_EXIT_USERSPACE;
+ 
 -- 
 2.52.0.223.gf5cc29aaa4-goog
 
