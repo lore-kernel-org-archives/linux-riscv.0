@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9C3ED3B7D3
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Dec 2025 11:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C0D7D3B7D2
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Dec 2025 11:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/gwxdoN23isnY3LxcHrWQhTzmGzV+oQxR1INndb396E=; b=PmjFf9ZdrKrfJ5
-	3SPNHEAKoo1f2wD5WXVaHPHgUzekUmBftptcNdWjRnnI4T7olbjeXeMtcvQNsCgdCUfBJYHTwpcdB
-	6JbGVXne0ht+yxzx3iOsXBn39nVM5Pxg44sG1cryoWS5ZezZg5YmOBpcxUtfkcT8r2kjAaJ+8ChnS
-	EdzsUKGqJtE81P49yyBbJoyZKo2aFxCQC3Jo7GpAMUJgZ65GKbwHwU8Qu91+vv3qnAowgBg9G/ZBk
-	lXSAq78XQvCzDqhjvqNNW4tKAU0mJCob/QLl3WEhXJIzbqzbARXHsBz7t7eUB50HJS/OmDOyyVA/m
-	jCrGVGU0W4c6s31cQOrA==;
+	List-Owner; bh=kDeljxGfRQhYnC4vS7+MCgTHrvAKV4tj2GANuRr5yXs=; b=37H9074TQs/6bz
+	tn4NTC0ajXy9nSJ62z9PO/vBnm/Hzi7fMeZRLkjrYDr8f9rtSUxu59lTKOlFMbhOxMR4TZtI7hM4b
+	srchKU3popRXH9JFbu/0yBngbfE+E/JxJO9gsLUz6SspVEr17kJfLx6WIFyeTMA2W0o9zEh30eHbC
+	pwVS2+EmcYwWcI9NrZVOYbfOi3y6aiid0Jod9WoY8nBg6hKbKMEU03qXFS7RmkRwKaPn5QvEu3Ds+
+	yozlgHc7/q3AgrEPSSx00cxGXw/tnojbQvYW5wKVnzpPSISRfwlVRkdppVFiBrHpxy/NtLbI6Xoo8
+	kRcSyI72xtShdBixfr7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRqJx-0000000ArRh-2BCL;
-	Sat, 06 Dec 2025 11:19:25 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vRqKc-0000000ArYR-3jXY;
+	Sat, 06 Dec 2025 11:20:06 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRqJv-0000000ArR4-0m7a
+	id 1vRqKa-0000000ArXU-1F3p
 	for linux-riscv@lists.infradead.org;
-	Sat, 06 Dec 2025 11:19:24 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-477b5e0323bso22253675e9.0
-        for <linux-riscv@lists.infradead.org>; Sat, 06 Dec 2025 03:19:22 -0800 (PST)
+	Sat, 06 Dec 2025 11:20:05 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-42e2b78d45bso1376430f8f.0
+        for <linux-riscv@lists.infradead.org>; Sat, 06 Dec 2025 03:20:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1765019961; x=1765624761; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1765020002; x=1765624802; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=Y+tHfftO48W6nfjgJOb4B4hvebCxVDzsjtXa/TDx3TU=;
-        b=Z6pdzQVe2+wJtT03YpMYjx4PqxWTkih6fQUwgzA6PPYHq1r8XLjbYqE/1MggLMlCWg
-         FXS3K0QLB6c1X/Gb0hSSNQs207oyMhqP1sjwRdJeqgEngiHbQssyOYDlKS+WLbryPPe0
-         Vhx4YcuLfosgS7Hl22OSuK8qgAPAF85JL7KRdeAEsM62Gu3sEqxZXkL4pRHGuElzdOej
-         tK+piBmVmwKTcjAuFU5V/kkwDOkMAetiAsZaEG7iRZqkZR7k8eHu86gjPgWtWYl0IpuW
-         ZpEE76LwKG8h9QWoY4GU0Iu6ZRlEm3zv8IF6Y4fXzMgeCUJ8T2PKvXTaH354jQZ/VEP+
-         Zcdw==
+        bh=Yq9rhuNEa0+4uQkglFFSVr44v4sksoXrRImSR0Ne2k0=;
+        b=nztCoxzdTed07J7r3C5sJ46FOR2C0wo9OE65gEmBgKgwD+XzXl0yiSgRZRxwUVJ7R1
+         JxFcmcHyjMPNdli2nVjZMDMFbMZZ7CH46wkONQL1/tqIHsRKHPLgZXGYZH8v0Q0zGpFU
+         ObR4T2zO9WFjDQG4/ibxbz5TFQl7vP2Q8fwzrRJBvS8u3RG7jcM6ZAPf0/BmoJ+Ej0/d
+         XMrDwcN3HPtH3I/o2Mmv0LSMSjaUbhhhBPUd6B2OqaCeseBbj+8cjXfnNOhVjIcRM90L
+         IRrAliExo7wNg11kq2DsyR8/BNboz7Z5PoCdg5vhYOY5rGKbllSZSejvdxZBsXkWXnQi
+         NRRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765019961; x=1765624761;
+        d=1e100.net; s=20230601; t=1765020002; x=1765624802;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Y+tHfftO48W6nfjgJOb4B4hvebCxVDzsjtXa/TDx3TU=;
-        b=t4s98aazCFei69ptSfsBfLtSVFyz5RIg31QhEtmkrh/h2sAGJlM94wWWAQqrfTHzk3
-         +AKMkHfePI1VXsxhatnBjkRajPTL7rOaWuN42GVCo2tF3DavDfKpW/TRMCbwjdGmfept
-         DfeEqS5i8AWoX20/n5f5vxlPJYz2ur3jDKANrWqAKXaAgLud65hEatJwaAOo4xKhtolT
-         lcC0+UXN0yGzfaftcD8G2DlTiVMqwJjWnaLHid3zjKp2DXp1/w00grjFe43PapttQZ7h
-         oY+LzXaNx307IMmsUi5V1IaL1ltbF/VfAu9NVtIbipgAhPyn1jYuR/JFyQ1ZTwNsQ2up
-         qWZA==
-X-Forwarded-Encrypted: i=1; AJvYcCWBhMXfE8ODFhZhY6hPc9WbKZtjUb9kOCcxecS2UtuhR9KCNVg8qYBkHifU8PB+yK8XM2BhdDECJM1BSg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZE1r1R9mBK1v9OgUB7eKFGAxzsk0tAmn5p7zUPQrWxHLhM/AH
-	ifG4qLXTDU39MUKo79EWt0iSJKKLqsQXhuJjQSCr82PFFgPfc/67Gemb+MQbIcChMSU=
-X-Gm-Gg: ASbGnct8miCOA4XQmzcLyFUtM/PtDnTbtrKnZPym8u6n7Fqb5xLGPMCv7EVjBoxsyW3
-	C6ZmPfrehEXdDejpejY34IQG40MFKgEMhpjqxHzGgcG3+BXbd0TGAUS3T0HegqP/WDrQisjrc8S
-	+ByND9YUxvZcoyJQHhhP4yYu5SHO7T2UkdIpCSD7MtkKLRKFGJ2CvPBKf+rPaz2EJ2dfwDcUMgX
-	Z4Min00djnywcR7K8Dixg1Dsvo9MIeQvz1ndQDuY0AirHVm1A0bGJu3l4/1nlCdSdU3AD3yvyH8
-	VeJtZcCN1MPVtC/1iPT+Sm9wHMx4Sz6ZcOoLyfrsqKBO4ktVjd1L88zthI6o/WcNWwfjEmHTojB
-	KtO2+j6gIjn1FYBZ+9GJewuerhpggFM/eluwFuoZcrWlmH6/J/brvE+To98/cZPy3mtAluyJlw6
-	IClXxEdO6xJafXjnSUHR4=
-X-Google-Smtp-Source: AGHT+IFQhZEwtnesdZtzEMw60QGuto1Jk8aN5Q0uD1nL300gD8ap+hhiRTO0P76q1MY51cduyxt10w==
-X-Received: by 2002:a05:600c:a11b:b0:477:a71c:d200 with SMTP id 5b1f17b1804b1-4792eb5e5b9mr87841915e9.11.1765019961379;
-        Sat, 06 Dec 2025 03:19:21 -0800 (PST)
+        bh=Yq9rhuNEa0+4uQkglFFSVr44v4sksoXrRImSR0Ne2k0=;
+        b=uEh0EUzlQSEnRHkVP+dYZca6+k6Sc7fDecxdnfy3k/dOYebIgULtNa/LzeA8vCF/lu
+         eUcHhGW069Cgk0LdhyUddYsidxAd07VI9kVAknGwRw7eAp8k053bgIPH47jcq8+yo5lX
+         n+9AB0AxDXx48XL512ATdx5mQPr2IBPUxJi+Cx0lTkxVMZmDUHlQZBJa4654oNOVzUgY
+         JbDOH24u+vxb2KD90eteN/TdFUjrSvemV9pZrSQPL+S8pDXZeWlchucogpmqRi+XXBkN
+         wGkmhF1laeZ0EKkKuNynOlxTs8iN+7xdBywxmrZ/NAVjUETeVw/SWlp0qD9UQ2i4DE5t
+         wxAw==
+X-Forwarded-Encrypted: i=1; AJvYcCWqDv00iaG6gIaayJMIs7Kd3m3MOaF7ykAFZ6wQW9oPTI210SUTds+EdVP2w122jVzQ8y8F02D+bTP4Fg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxrgjt4Q8/OosHSGr0ryFPiLRY6DWrnkBNwvTeFvABuwgPLDDhy
+	zI8e0tDJXKsENr6RQPbM+v34ikG2J3FzPndJ5w/avFIKxAepboNGPABUyQjeJtDd+40=
+X-Gm-Gg: ASbGncvUjEIKTSeKrABRjTkxntWVOZCebnWQpdryJTadhdJlpvhliaZKBMXsrLTKstF
+	km09biGhznBVeSQKduXbYlpCUJcqh70G9sCd3q7ef5vGc5KFI4goAOdJ4N4Lpl5pYsaN5PXApIr
+	tx3pdC2YXqwk5fnlttOrTodL5ZjXsrv65ok0oh1PpkqqbVscz0yGnAwRtWcB09e0CMyj9uXFo/H
+	VTU1Ib/9639A7rT3WBNqzS5QgGGdW62IpwEh3SNyQrh/4kvpyAJOvkSCeq7O1O5TytrLOeVFn/c
+	aSv1zH9buHo0ktTrwCdeUtE+GGrkAXmBy7ZFKQxr9kxOQurXHR6Acxq7yqtl7cUvTmgyuORkWz8
+	ZuWL6IYYVIJgUidhEyFdz6W7kb96Tn3945DHUvg1qhZqJI90Rrg4uX/Cyb5lIyJkH3gqUXpOfeW
+	E5Ow3ZAfqx2OO5rArCpH8=
+X-Google-Smtp-Source: AGHT+IFEgphPkYo9atYAEhSGN6ZsRn3wGRyDsC5dsg5UTtGzf5Qa6Sl3JSqY/PLn1LaGeX69E7opig==
+X-Received: by 2002:a05:6000:2384:b0:42b:39d0:638d with SMTP id ffacd0b85a97d-42f89f1036emr2447913f8f.28.1765020002426;
+        Sat, 06 Dec 2025 03:20:02 -0800 (PST)
 Received: from [192.168.50.4] ([82.78.167.134])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47930c747b8sm133725725e9.9.2025.12.06.03.19.20
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7d353f80sm14173665f8f.41.2025.12.06.03.20.01
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 06 Dec 2025 03:19:20 -0800 (PST)
-Message-ID: <5afbf96a-c87f-43cb-8cd1-d7c9970bfd07@tuxon.dev>
-Date: Sat, 6 Dec 2025 13:19:19 +0200
+        Sat, 06 Dec 2025 03:20:01 -0800 (PST)
+Message-ID: <b303c634-cb2a-4e92-a833-0e3e70c7d56e@tuxon.dev>
+Date: Sat, 6 Dec 2025 13:20:00 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] dt-bindings: clock: mpfs-ccc: Add pic64gx
+Subject: Re: [PATCH v2 3/3] dt-bindings: clock: mpfs-clkcfg: Add pic64gx
  compatibility
 To: Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org
 Cc: Conor Dooley <conor.dooley@microchip.com>,
@@ -86,13 +86,14 @@ Cc: Conor Dooley <conor.dooley@microchip.com>,
  linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 References: <20251121-tartar-drew-ba31c5ec9192@spud>
- <20251121-trade-slacked-5fc7c1139cb2@spud>
+ <20251121-unclip-shabby-a7a16e865146@spud>
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Content-Language: en-US
-In-Reply-To: <20251121-trade-slacked-5fc7c1139cb2@spud>
+In-Reply-To: <20251121-unclip-shabby-a7a16e865146@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251206_031923_243651_36AE057F 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20251206_032004_348977_16392664 
+X-CRM114-Status: UNSURE (   5.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,37 +115,14 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 11/21/25 15:44, Conor Dooley wrote:
 > From: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 > 
-> pic64gx SoC Clock Conditioning Circuitry is compatibles
-> with the Polarfire SoC
+> pic64gx has a clock controller compatible with mpfs-clkcfg. Don't permit
+> the deprecated configuration that was never supported for this SoC.
 > 
 > Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
 Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-
-> ---
->  .../devicetree/bindings/clock/microchip,mpfs-ccc.yaml       | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/microchip,mpfs-ccc.yaml b/Documentation/devicetree/bindings/clock/microchip,mpfs-ccc.yaml
-> index f1770360798f..9a6b50527c42 100644
-> --- a/Documentation/devicetree/bindings/clock/microchip,mpfs-ccc.yaml
-> +++ b/Documentation/devicetree/bindings/clock/microchip,mpfs-ccc.yaml
-> @@ -17,7 +17,11 @@ description: |
->  
->  properties:
->    compatible:
-> -    const: microchip,mpfs-ccc
-> +    oneOf:
-> +      - items:
-> +          - const: microchip,pic64gx-ccc
-> +          - const: microchip,mpfs-ccc
-> +      - const: microchip,mpfs-ccc
->  
->    reg:
->      items:
-
 
 _______________________________________________
 linux-riscv mailing list
