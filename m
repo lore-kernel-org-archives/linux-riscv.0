@@ -4,62 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B93CD3ABD5
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Dec 2025 01:24:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61873D3ABE7
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Dec 2025 03:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o5BdJllz78BkBStW2nLpKJPdAMzKXckJDD9Y3HGMxZY=; b=tzybsCQCji1f69
-	4/nbiqat8tfJmXYUKs6mk+eVSdb4fVnLKeHEN5XMHCCx9B7PBpHiLCXx7PfnYFgjSMZrhEsTyMJTn
-	x7x/SAPqmx6nCV8VJhjsywWE8PO3/pJYncHaqApNmFs6dxAcDH6sDhr9AbZfvlQdZflIcHGA4h0o9
-	NccZ2bxA3M694qaSaHvruU/9pthcivZtbMFz8ySaKQlJ1UjjVzZai4Z5wwhr2B8E17AJP1NGDUQn6
-	8Kw1sXKyIpIRPTAVEXSDDFW3L0IubwMasDnwcFizv725jIWreSgEeGrY3qa041M3sF/jGr10ZtYDI
-	qsM3j3zDxYKu82pA8J0g==;
+	List-Owner; bh=asuTOlvlnlE1//JXMeZSQdlPFxOrnDqFip/pBGWs+Qo=; b=gqNtGmRZNOYj/d
+	0iCcoEWxdvyRRW/rTeif2w5n3LETsDNud5lAriNvQJtxg7J+LYVezveB5hS4dAPc3I1Bqaql+uwKd
+	MJ6s5fWNzbDY7f4r434K46ZD2Wl6r1gxex6miYbyFdGJZWDjWHr03BruH6x0k/GU2fKXVZrDPCoYh
+	4z3NxUwwgeFmibV19rJ04oZSAkXwyXn+CeV8qMPxq5xf6w3dpUbJ3S/4wqlJlwmJcgUXBQcH7UBs9
+	iDbr+qliGdeyoACaGOuZYN1exAQYEaOZUs+ugw5YOyqnyZi9FOV4feYNbV6WEC+8ftiwxSoRAMfKa
+	bBk0sJvDr0j30WDOrH2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRh1R-0000000AQ7w-1886;
-	Sat, 06 Dec 2025 01:23:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vRj9x-0000000AYIa-3H4X;
+	Sat, 06 Dec 2025 03:40:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRh1P-0000000AQ7m-3Nw6
+	id 1vRj9w-0000000AYIB-367a
+	for linux-riscv@bombadil.infradead.org;
+	Sat, 06 Dec 2025 03:40:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=KoD1NRD0QaV+f74bc5iSUT0wwYVNJpat/RcP0vQRNuI=; b=Mhn+77wM3cs9rdVdBan8E+OBqf
+	tsQKEQpgOueaWEyYveh0VR6Zgr+6sYrGYRZwBNCe/SahAsSTgGizAfFkv9s0MWdDHFoID9t1v7kFz
+	bphsTRVwFVIGZugdHdt5mOe5L8UTo6VglivG8oMfia91iYfNXG7EIRdMAOvaLeAyCO6+byOEID2wQ
+	49nD1zo21O3cEykqqyE/3I7wqbOK3Q0L2TbVdDJ8GEAeD8nyUEQxioB3KNCJoDIbUkDNJOnWJfPjC
+	/db8Y1XAebEix8cmvbtpBjDdKpr5RSNlkjvM8XEOka8SuWm91gLEewWiloUQqXUcgffgEizmaqm5l
+	w0YcCSeQ==;
+Received: from omta033.useast.a.cloudfilter.net ([44.202.169.32])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRiIL-00000007J2F-32ra
 	for linux-riscv@lists.infradead.org;
-	Sat, 06 Dec 2025 01:23:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D9D3D60127;
-	Sat,  6 Dec 2025 01:23:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C0F0C4CEF1;
-	Sat,  6 Dec 2025 01:23:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764984218;
-	bh=vNc7EiYFdBnK4eun6xh531tyyEP2yw2Sjg3Dc6e7o2c=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=KH8mrp2PCwSR0jUszro7/Gs4OZXn4NosECk8g1o5nwrLeexLPa0unFqY1aeC5/eWY
-	 T3jAxFnKAsdXbSn3wJ2oRp9XudUMaiUWr6tg31Tj0f0q/CLliKlYp9fnz6d5sS6Il8
-	 wCkAq07Eg+6X0Fe90pRcdK9qxsS0evQfO4AAQjM8S5UIYNQo0SWROby0wi0rTsWtWI
-	 q7tp9fajNAYULBdI0X0Im9Qg9ybX3535ZXx7sAYVko0nLLi/aMQqrqqTVuCROWA8vL
-	 4xw5mK0C9O2WN4tiOm7N/pOTOYV1nPoO85cI1r2qVAfi3yVFAAOo5T57rGsOE7HHHg
-	 s3u/DZrfUXG3A==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3BAB03808200;
-	Sat,  6 Dec 2025 01:20:37 +0000 (UTC)
-Subject: Re: [GIT PULL] RISC-V updates for the v6.19 merge window (part one)
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <6b437742-e1c2-f6dd-61c8-fb3de45d3351@kernel.org>
-References: <6b437742-e1c2-f6dd-61c8-fb3de45d3351@kernel.org>
-X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
-X-PR-Tracked-Message-Id: <6b437742-e1c2-f6dd-61c8-fb3de45d3351@kernel.org>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.19-mw1
-X-PR-Tracked-Commit-Id: a131fd60796dbfaa6297c0c8ca8e2a7610a64281
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 07025b51c1149951d64804c73014499bb3564dca
-Message-Id: <176498403571.1907434.16735367819986276747.pr-tracker-bot@kernel.org>
-Date: Sat, 06 Dec 2025 01:20:35 +0000
-To: Paul Walmsley <pjw@kernel.org>
-Cc: torvalds@linux-foundation.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	Sat, 06 Dec 2025 02:45:16 +0000
+Received: from eig-obgw-6006b.ext.cloudfilter.net ([10.0.30.211])
+	by cmsmtp with ESMTPS
+	id RbVHvvhiZqgL9Rj8Bvjsu4; Sat, 06 Dec 2025 03:38:47 +0000
+Received: from gator4166.hostgator.com ([108.167.133.22])
+	by cmsmtp with ESMTPS
+	id Rj8AvDgexvXvHRj8AvDTjp; Sat, 06 Dec 2025 03:38:46 +0000
+X-Authority-Analysis: v=2.4 cv=e4IGSbp/ c=1 sm=1 tr=0 ts=6933a546
+ a=1YbLdUo/zbTtOZ3uB5T3HA==:117 a=ujWNxKVE5dX343uAl30YYw==:17
+ a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=7T7KSl7uo7wA:10 a=VwQbUJbxAAAA:8
+ a=1XWaLZrsAAAA:8 a=_lKBnUPEwlkEFLTacEwA:9 a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
+ a=xYX6OU9JNrHFPr8prv8u:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=embeddedor.com; s=default; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=KoD1NRD0QaV+f74bc5iSUT0wwYVNJpat/RcP0vQRNuI=; b=coIeJHotksEB6dU0JU8LIyi2+L
+	uaDb55h2Mt1UuG3h/KfXxkyCM9kNkUWFXfKhHQ4o8JDSD7EQAoRXlQNhy2MPsqj9G6CEDFz/Atw+9
+	ZgQjnWppwz+a1nyxKyA8oa3XON37XtoLsHEsqBF7NciO4/cTYHyJsaGDdkZ1q96dXAR3vN+Ajgd8E
+	26oVQjWOBLooorvXiIFmWbm5h0W8vYG/Im+2W7ub8NiQ1hVB5GfsOo4OHyrJbTvh1tDzKIt53tiIR
+	QYbVpumaH0gvsFCV4zcXTBdq2yPsnMuu7hmsfqp+jYwJ4mvpvuF9UPJnj4fcmmFTX5nHWOJenYOGa
+	9yhq7lSQ==;
+Received: from i118-18-233-1.s41.a027.ap.plala.or.jp ([118.18.233.1]:61266 helo=[10.83.24.44])
+	by gator4166.hostgator.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.98.1)
+	(envelope-from <gustavo@embeddedor.com>)
+	id 1vRj86-00000002EOT-2JGv;
+	Fri, 05 Dec 2025 21:38:43 -0600
+Message-ID: <0018d1c0-58ec-4b31-b016-472795990923@embeddedor.com>
+Date: Sat, 6 Dec 2025 12:38:14 +0900
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: Remove subtle "struct kvm_stats_desc" pseudo-overlay
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>,
+ Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Gustavo A . R . Silva" <gustavoars@kernel.org>
+References: <20251205232655.445294-1-seanjc@google.com>
+Content-Language: en-US
+From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
+In-Reply-To: <20251205232655.445294-1-seanjc@google.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - embeddedor.com
+X-BWhitelist: no
+X-Source-IP: 118.18.233.1
+X-Source-L: No
+X-Exim-ID: 1vRj86-00000002EOT-2JGv
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: i118-18-233-1.s41.a027.ap.plala.or.jp ([10.83.24.44]) [118.18.233.1]:61266
+X-Source-Auth: gustavo@embeddedor.com
+X-Email-Count: 3
+X-Org: HG=hgshared;ORG=hostgator;
+X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfMGBhTZW+clWbibNGADKz8eA7YpDyJPD47aTqUq48fyE6mnaz54D267gKLbyW2NZeXCLgsMN3i5ArhpEWk0GJWEfk9gH2bwgWd7FiS/tnilGmvca8wzJ
+ tHdLwad60bCc7EtkEc+OehpVa29EoCxdfGPYydPpawr1GurN678d8tamUtzFrKUmzHC+frWf5ahfJRQx24o+njDb1lbHLnii9TnwxPiFtSQsquODTMERFTx4
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251206_024514_082547_0BF7873A 
+X-CRM114-Status: UNSURE (   2.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,24 +130,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Thu, 4 Dec 2025 12:19:20 -0700 (MST):
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.19-mw1
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/07025b51c1149951d64804c73014499bb3564dca
+On 12/6/25 08:26, Sean Christopherson wrote:
+> Remove KVM's internal pseudo-overlay of kvm_stats_desc, which subtly
+> aliases the flexible name[] in the uAPI definition with a fixed-size array
+> of the same name.  The unusual embedded structure results in compiler
+> warnings due to -Wflex-array-member-not-at-end, and also necessitates an
+> extra level of dereferencing in KVM.  To avoid the "overlay", define the
+> uAPI structure to have a fixed-size name when building for the kernel.
 
-Thank you!
+Nice. Thanks for this.
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+> 
+> Opportunistically clean up the indentation for the stats macros, and
+> replace spaces with tabs.
+> 
+> No functional change intended.
+> 
+> Reported-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+> Closes: https://lore.kernel.org/all/aPfNKRpLfhmhYqfP@kspp
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+
+Acked-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+
+-Gustavo
 
 _______________________________________________
 linux-riscv mailing list
