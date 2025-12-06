@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59D86D3ABC4
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Dec 2025 00:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36AA9D3ABC5
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Dec 2025 00:20:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GoJ5plcXsJIjU8CUb9eKzfLvC1u4pYDffUIQZPh/2Nc=; b=Wv+A8WVNNByI5X
-	/ZWHiV5SjKZT7vimsMBLoZyqX5TCJ8q0EX82NJu6wwhYOsUpyBuGcKc8lQJAfNhmhbc8rg8GtEOlj
-	0XHLXIfJRhe3IKEsryOXYRu3dpTr3XdhN6VuXYbdgC6jzeaagiCHcttCYfAJ62M2odg1NMrLQdyPP
-	eZDvf3JZl9SiYksGJdDAqvB8u8SEdJuvJ/mESkLvn1ia2j3GmdDid++hyNgajzP+ikRd8kXIhIgjb
-	5cmNFywbLHpR6KW04NNcrOCuqx+5jzuFr79hFKYM7CDYUz316eEV5geRgZc2gKSAecOI7/k8mN2/6
-	H891e0xvdHX5MBr/D53A==;
+	List-Owner; bh=FQGljItsBUylZ/kgzueRwT+7zNuQCdFABLeuNgjO9NU=; b=EkVTJrMIqP6dZe
+	+Kagqc+GbQucHAWg25ts/oY4MzBzxjKvonZxHV7x/XKp5H6yGgmPOTCIUnYRZ/nqKw0r27SLGrn79
+	lMAjChlvK1+Vh9ji/0B4hrfWoczYGXbubDUBYWQS2FqDatBGKlC49xrQyIlDvrTQUSEVZmSyufJ/y
+	9ef6mJJ5Q34Bm91QBEQ48XmLMABZizEHy2EkcFmokbIuJ+B2jmEXEZcD3keLvruiVTRhZgn8Hi3MD
+	OurNzkOozjY2JdjLIkYdmpE8TCY+FgMAhel3uaAdJ8Qy+eS8wgyCbSS/Tw0wvDvqVK6+7oG/eJhtd
+	/NT+mkdpNJPmzqFzHxoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg1r-0000000AITt-2qXJ;
-	Sat, 06 Dec 2025 00:20:03 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vRg1y-0000000AIkw-39fW;
+	Sat, 06 Dec 2025 00:20:10 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg0S-0000000AFl3-3TBv
+	id 1vRg0W-0000000AFtL-2Toc
+	for linux-riscv@bombadil.infradead.org;
+	Sat, 06 Dec 2025 00:18:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=DfpzWNiupf9oyWVJGMgXVTAvVfysSBzo629ptknGMjs=; b=DTjZvvF4CamwaFPl0Rf5ny5Gwc
+	BqUMjlyz9rqB8Gma4pAwjxlwNV5slEOcGFJqtHyE6ZMFT9d5z3GHQqYtQUkCOukJYiIHbdOukQkTH
+	HOERaF6wAWKtt/gaZbNwvn8jR/qGjp/+4Woo52yS7l7cN/Wy99eZhSSxgi8fHc5bjvm1i1RAVJRJk
+	9REuA70qX+iA6O7IafLqp5UumclAQJm4TDrkFOmGJyWrRe9jXImo5PEKmgyH+Xjxlv2FPHPdz2YLR
+	cOiM1U3YCP9rZgrTwFdREWu72sTTDTOGRV692+z6UMVR5vFJFEM6Cc7nlORm/ehFF5b9DOJw7M+XR
+	8bhGy3Jg==;
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRg0R-00000006ScH-3TmL
 	for linux-riscv@lists.infradead.org;
-	Sat, 06 Dec 2025 00:18:38 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-349aadb8ab9so104847a91.3
+	Sat, 06 Dec 2025 00:18:39 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-340c261fb38so4316380a91.0
         for <linux-riscv@lists.infradead.org>; Fri, 05 Dec 2025 16:18:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764980315; x=1765585115; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1764980312; x=1765585112; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=YVw2IrEv6dj1lN2Egcfs+/+7XHiKcsFRJtntJAtFFMc=;
-        b=d1aDRN2nhaDWp0FsHLmffZ0QM/0xRWbRS7bEapbMWM+gSvuD47oD0g+RdLVObwHM0q
-         WE+c0SEZosLN3LPvTMiM/LIsmdPgh8uGZXeK9irQeVwMlYUSKNXtGhveUOO03JNC2MmJ
-         cYo+A1Fhhn68q7uQ0RvY/L1vt7Bf2LbikED+KjR07dlTsF7wk31nKrKfDlhVPe9gER/t
-         zh0BTZzm2YNwuz7jr8G6rMyJdtFRBUttgJosF2Kgw79BNvVmDn70vsypTCAzTX8piwbE
-         HMwYWJpAkLJbzxeQ4TDeo1CnM/pPy3ClCBLlvAhqbQmVpNOC6tbxTD90fuLGIK8TxBRO
-         3O6w==
+        bh=DfpzWNiupf9oyWVJGMgXVTAvVfysSBzo629ptknGMjs=;
+        b=jP9Xn7aGP3pqAnot0DCWKGeeEndBWFH3NvCg1IxcqGoOEtpqiZK21Hc6mrn/hBbCe1
+         umTCPLdXYtjVVm/sILpM6B8LjM9xRf7xHdY9q73QyWnlM7Sc5TASqf3/kswJ+j1aSYnC
+         8QimUmwzr51qcp8/Zr6VxGgdhc6YYVLjiT1+OfmuokywZy8klKbB3PpEEQmiIqvcq5gc
+         ej/3HxIGymfKu3SHHT4uViAmgiaw81gBRuxMeUleAuZEyIreXMnOcOwSx0AKMtdJiMdc
+         JpLvfYcR0ETyvM9klu1aM615TP3uic8T2XzVFFhJAM2Myi09RQsXZlsiBu5UA+Ob1uyh
+         s+FA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764980315; x=1765585115;
+        d=1e100.net; s=20230601; t=1764980312; x=1765585112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=YVw2IrEv6dj1lN2Egcfs+/+7XHiKcsFRJtntJAtFFMc=;
-        b=lNBD/a5piLOcrNMLiVgByS8Enx+85JqfkCS8O7vITP4Z9R6/xZOGAn6juZZ10ur2G/
-         DOGnaO+p0bVtAc7aKqhwWC8r+UmOHeNd7BKUdhqNCAVnBCqXBpxesuuzjYcjlrf0h17d
-         NoB21aSZk0oCd8eEL2EAdbRkcvF6RVUdCR3JiphwTGdy8LyMoZAvE69b31rZFt9YBP/y
-         O7aXqXVfUBlKDOAyfwN5f8AVMV8eUEmqq+Ae7iMzygKFMU7B8pEqYhkgUF3WIS29sPv8
-         1EQobf9R7MmM3HLJi2alTDxrBgl37NSh/EJKCK91vZOnst86LTRaBcBVy/cKy7QT+cko
-         YKcw==
-X-Forwarded-Encrypted: i=1; AJvYcCUf291hmJTZVjOp5w4pbosFzewfmQOkRjTNWFEaE8jJP9CmQTEcs5OGxHTw8tIYkvYn2gNSQh8RJmnA6A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrsJnq+xh4/JdTemUmWDC20K/t49KSXJjYzyHO0CjBmQML2OdD
-	6EJI9NFHzU2l7xPJMboRdWBNF93+0MxYe8RYiDOiewMrdSAU5e3IX3vjsOpJ2buR07sSTkg8/kC
-	VgdiOAw==
-X-Google-Smtp-Source: AGHT+IH5qbAxlC2vbzunodq4KUrEtCHMXaoxZK4q8nETSOlwObwaBJfEq5OV6dsDt0Oyzwdbj6cNRcmYmOA=
-X-Received: from pjbfs2.prod.google.com ([2002:a17:90a:f282:b0:334:1843:ee45])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3ec7:b0:349:9d63:8511
- with SMTP id 98e67ed59e1d1-349a25e3b79mr670940a91.25.1764980315199; Fri, 05
- Dec 2025 16:18:35 -0800 (PST)
-Date: Fri,  5 Dec 2025 16:17:10 -0800
+        bh=DfpzWNiupf9oyWVJGMgXVTAvVfysSBzo629ptknGMjs=;
+        b=n37s3pQPp68kEzKhQ91jqhBlQFFfYdvCEHbrVNPf2keXJgwXrKBc+KENtLx73QWuuu
+         aTLmpRuYBcHGJW1d8kq/uYRbbFmLH07bIV1Alle3m0Akc8qV4Vl0ttPKGFSdTrJXIpIN
+         pH1bqxhJG2i2bVkGRJE2VXs4uwYt3lDxfoDIk3RCbPFXXui8kGjqNAhVfd6VlMOBXcTp
+         MPPgUmfLt7tev/oE7zwWhh30GyVOLKpf0Tk6rc0ylna6VbDHHblMmUQVzU9aUDch5L+k
+         j0uxP3jB9E7JAxI0Je++D2J+OOnoJ736EkBxUgFpOsBMIdyDEe/pNv1YionOEA5C7s9+
+         8VQA==
+X-Forwarded-Encrypted: i=1; AJvYcCV9mhAr8T7J7yLwWu1Pw6tZTZHX6NP2V9hATbRuvsu3f4kmit8JQwfitCKCqIC2yohz+Ic44MP+0Ndkdg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmJvn6zQ0cxjEiNsGWNF6Fw8rZ3+LtgloQgX152Lg9SozBeqAC
+	UTTJ+bA0FV+8HOTwJJG6vRG1CQYedq3ELjeo92TEp1fHGBf8yOo6QzOx8Xn6T/0l8tR5YwnG/31
+	eJA6TtQ==
+X-Google-Smtp-Source: AGHT+IECzGPhAX0jAKjnbhpxSt8tw9U2yWj2g1X4v/o1b69MxFOOkQezmGTBDbALh6waJ5b9ZWPa3i4t9I0=
+X-Received: from pjbsb13.prod.google.com ([2002:a17:90b:50cd:b0:340:c0e9:24b6])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:55c4:b0:341:8adc:76d2
+ with SMTP id 98e67ed59e1d1-349a2518ceamr601732a91.16.1764980312307; Fri, 05
+ Dec 2025 16:18:32 -0800 (PST)
+Date: Fri,  5 Dec 2025 16:17:09 -0800
 In-Reply-To: <20251206001720.468579-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251206001720.468579-1-seanjc@google.com>
 X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-Message-ID: <20251206001720.468579-35-seanjc@google.com>
-Subject: [PATCH v6 34/44] KVM: x86/pmu: Elide WRMSRs when loading guest PMCs
- if values already match
+Message-ID: <20251206001720.468579-34-seanjc@google.com>
+Subject: [PATCH v6 33/44] KVM: x86/pmu: Expose enable_mediated_pmu parameter
+ to user space
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -86,8 +101,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Dapeng Mi <dapeng1.mi@linux.intel.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
 	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_161836_965828_D453C018 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20251206_001835_912983_894D802D 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,46 +120,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When loading a mediated PMU state, elide the WRMSRs to load PMCs with the
-guest's value if the value in hardware already matches the guest's value.
-For the relatively common case where neither the guest nor the host is
-actively using the PMU, i.e. when all/many counters are '0', eliding the
-WRMSRs reduces the latency of handling VM-Exit by a measurable amount
-(WRMSR is significantly more expensive than RDPMC).
+From: Dapeng Mi <dapeng1.mi@linux.intel.com>
 
-As measured by KVM-Unit-Tests' CPUID VM-Exit testcase, this provides a
-a ~25% reduction in latency (4k => 3k cycles) on Intel Emerald Rapids,
-and a ~13% reduction (6.2k => 5.3k cycles) on AMD Turin.
+Expose enable_mediated_pmu parameter to user space, i.e. allow userspace
+to enable/disable mediated vPMU support.
 
-Cc: Manali Shukla <manali.shukla@amd.com>
+Document the mediated versus perf-based behavior as part of the
+kernel-parameters.txt entry, and opportunistically add an entry for the
+core enable_pmu param as well.
+
+Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+Signed-off-by: Mingwei Zhang <mizhang@google.com>
 Tested-by: Xudong Hao <xudong.hao@intel.com>
+Co-developed-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/pmu.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ .../admin-guide/kernel-parameters.txt         | 49 +++++++++++++++++++
+ arch/x86/kvm/svm/svm.c                        |  2 +
+ arch/x86/kvm/vmx/vmx.c                        |  2 +
+ 3 files changed, 53 insertions(+)
 
-diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
-index cb07d9b62bee..fdf1df3100eb 100644
---- a/arch/x86/kvm/pmu.c
-+++ b/arch/x86/kvm/pmu.c
-@@ -1314,13 +1314,15 @@ static void kvm_pmu_load_guest_pmcs(struct kvm_vcpu *vcpu)
- 	for (i = 0; i < pmu->nr_arch_gp_counters; i++) {
- 		pmc = &pmu->gp_counters[i];
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 6c42061ca20e..ed6f2ed94756 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -2926,6 +2926,26 @@
  
--		wrmsrl(gp_counter_msr(i), pmc->counter);
-+		if (pmc->counter != rdpmc(i))
-+			wrmsrl(gp_counter_msr(i), pmc->counter);
- 		wrmsrl(gp_eventsel_msr(i), pmc->eventsel_hw);
- 	}
- 	for (i = 0; i < pmu->nr_arch_fixed_counters; i++) {
- 		pmc = &pmu->fixed_counters[i];
+ 			Default is Y (on).
  
--		wrmsrl(fixed_counter_msr(i), pmc->counter);
-+		if (pmc->counter != rdpmc(INTEL_PMC_FIXED_RDPMC_BASE | i))
-+			wrmsrl(fixed_counter_msr(i), pmc->counter);
- 	}
- }
++	kvm.enable_pmu=[KVM,X86]
++			If enabled, KVM will virtualize PMU functionality based
++			on the virtual CPU model defined by userspace.  This
++			can be overridden on a per-VM basis via
++			KVM_CAP_PMU_CAPABILITY.
++
++			If disabled, KVM will not virtualize PMU functionality,
++			e.g. MSRs, PMCs, PMIs, etc., even if userspace defines
++			a virtual CPU model that contains PMU assets.
++
++			Note, KVM's vPMU support implicitly requires running
++			with an in-kernel local APIC, e.g. to deliver PMIs to
++			the guest.  Running without an in-kernel local APIC is
++			not supported, though KVM will allow such a combination
++			(with severely degraded functionality).
++
++			See also enable_mediated_pmu.
++
++			Default is Y (on).
++
+ 	kvm.enable_virt_at_load=[KVM,ARM64,LOONGARCH,MIPS,RISCV,X86]
+ 			If enabled, KVM will enable virtualization in hardware
+ 			when KVM is loaded, and disable virtualization when KVM
+@@ -2972,6 +2992,35 @@
+ 			If the value is 0 (the default), KVM will pick a period based
+ 			on the ratio, such that a page is zapped after 1 hour on average.
  
++	kvm-{amd,intel}.enable_mediated_pmu=[KVM,AMD,INTEL]
++			If enabled, KVM will provide a mediated virtual PMU,
++			instead of the default perf-based virtual PMU (if
++			kvm.enable_pmu is true and PMU is enumerated via the
++			virtual CPU model).
++
++			With a perf-based vPMU, KVM operates as a user of perf,
++			i.e. emulates guest PMU counters using perf events.
++			KVM-created perf events are managed by perf as regular
++			(guest-only) events, e.g. are scheduled in/out, contend
++			for hardware resources, etc.  Using a perf-based vPMU
++			allows guest and host usage of the PMU to co-exist, but
++			incurs non-trivial overhead and can result in silently
++			dropped guest events (due to resource contention).
++
++			With a mediated vPMU, hardware PMU state is context
++			switched around the world switch to/from the guest.
++			KVM mediates which events the guest can utilize, but
++			gives the guest direct access to all other PMU assets
++			when possible (KVM may intercept some accesses if the
++			virtual CPU model provides a subset of hardware PMU
++			functionality).  Using a mediated vPMU significantly
++			reduces PMU virtualization overhead and eliminates lost
++			guest events, but is mutually exclusive with using perf
++			to profile KVM guests and adds latency to most VM-Exits
++			(to context switch PMU state).
++
++			Default is N (off).
++
+ 	kvm-amd.nested=	[KVM,AMD] Control nested virtualization feature in
+ 			KVM/SVM. Default is 1 (enabled).
+ 
+diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
+index cbebd3a18918..20fb7c38bf75 100644
+--- a/arch/x86/kvm/svm/svm.c
++++ b/arch/x86/kvm/svm/svm.c
+@@ -170,6 +170,8 @@ module_param(intercept_smi, bool, 0444);
+ bool vnmi = true;
+ module_param(vnmi, bool, 0444);
+ 
++module_param(enable_mediated_pmu, bool, 0444);
++
+ static bool svm_gp_erratum_intercept = true;
+ 
+ static u8 rsm_ins_bytes[] = "\x0f\xaa";
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index f0a20ff2a941..62ba2a2b9e98 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -150,6 +150,8 @@ module_param_named(preemption_timer, enable_preemption_timer, bool, S_IRUGO);
+ extern bool __read_mostly allow_smaller_maxphyaddr;
+ module_param(allow_smaller_maxphyaddr, bool, S_IRUGO);
+ 
++module_param(enable_mediated_pmu, bool, 0444);
++
+ #define KVM_VM_CR0_ALWAYS_OFF (X86_CR0_NW | X86_CR0_CD)
+ #define KVM_VM_CR0_ALWAYS_ON_UNRESTRICTED_GUEST X86_CR0_NE
+ #define KVM_VM_CR0_ALWAYS_ON				\
 -- 
 2.52.0.223.gf5cc29aaa4-goog
 
