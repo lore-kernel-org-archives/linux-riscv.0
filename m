@@ -4,91 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F20BFD1CDC6
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Dec 2025 05:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE32DD1CDC6
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Dec 2025 22:17:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7l405UB1J/O/ewyB5VchLJwysdx+qFxmo+EEE0E5Gn8=; b=DZz5tp40WQ4Yf/
-	Sv/2cxcTL1rthJVv+xVYcSMJ8cm8qF/l854oN3321ClpbPcMwsgdGv2CFgba8u3MPgmWvdSTP1gNd
-	Owk0n3yFNVUraric/2jeNS+0FP6xAi4A1AUZbpoBLYajhstjdYp2zl3uzCDCWIym8MViNuIQkAJ9I
-	Pn3xh80Vg0IrgQZCW+EgkkfgrnZB6u84/5yR2v4fnbiLvtO1qmo5g+t4yv4suoInWAb59U+6eHCoI
-	vaG06s8mpsEbIpjvBl/nPLf5Ll7SozXXJnwFqb+7zHD4gIivtpJuzy+kt/q+LLhjXmlbWu7qBkT6i
-	a5xKIiw5pBrN5kWkPJcA==;
+	List-Owner; bh=Aq+sNofPxFktFULc8UwKgf9S7abUOyNhAFklUbwT5wk=; b=LMImoGokbh3Dff
+	ypDY18HE2K8JUzKPvKdG01Aky8hyy4rChzU+peF0HBXd7dozfVAjvOB16HexhLJgzWJ0y5uSGAZZv
+	SVbntfA+7f83GVJOsjflpDSSpCAPqio8rHXiFTjGGBltWeG7LHGv993qLtT3/Gj5ch/dICWshq/IB
+	crtkXT58cEOqDroDt5RAfF71woxXe7+6sq+cL0pgjEBCEMTuaJviLtggEntdXY1th12IAvCg179xg
+	zBtRA1keJiE/CQvD+4G4Oac3hvxJpbuasOR73IK3XQb3Ip5eOhGeJ2qI/SlN5rO1V/ShJKftuecwt
+	FG/j+Ep7dpGT3syxQEDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vS76K-0000000BU8J-0WNU;
-	Sun, 07 Dec 2025 05:14:28 +0000
-Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
+	id 1vSN48-0000000CHdC-0HzP;
+	Sun, 07 Dec 2025 22:17:16 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vS76H-0000000BU7R-2JHe
+	id 1vSN43-0000000CHcf-2WWO
 	for linux-riscv@lists.infradead.org;
-	Sun, 07 Dec 2025 05:14:27 +0000
-Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-7c6d1ebb0c4so2926388a34.1
-        for <linux-riscv@lists.infradead.org>; Sat, 06 Dec 2025 21:14:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1765084464; x=1765689264; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gIr6vMU+1WXTpE+kuQ5XIOvR7lhOKuME2h0aehuNw7U=;
-        b=yphoFExAA6hw9FxEy79Q0Ktooulcc9EkrJ9pqdXEvLG6qOehRXefP1OnRnaNEVNhLc
-         Poky6A4ZJdREh/x8eKFnYaZT3857GWvtWxmk8nQFmT1znJ2J2KXWrCdELfW6gdephopu
-         4DR+dZ+uYk+4wjI8xgSDnCda9Qtoua7kHAxOWJhA7g/eia6rO3TYCsmskTiHmbdj21k8
-         y+DJtXXPhRmrjy9VW8z8q7gS+a2QlJ9arTOWgdp8NmjDXr73SrjMRLDH5uIgcnRWRO3E
-         BR/tSfSIUG7CSXrQ9SUIx2CcEDwy/ukbDWA/BzUILDPZWGXKFS/DpDF0zMVq44y42Bel
-         5JDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765084464; x=1765689264;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=gIr6vMU+1WXTpE+kuQ5XIOvR7lhOKuME2h0aehuNw7U=;
-        b=ekVumWnpNl/r4oxEqZW2AaQi5lt0PJgrcfFLOOOaGaEoVPfiotrEis97gQci908m8p
-         3BAp2o7ISPfdBY9PXofEIFQ/lnBut6CU+zAeESFkms59iLBhP1b27LoU8B8/Vo6Ypyh9
-         F7+bxEXop55FXkdYjZqbq730+qP5lVh62I9Fl4NF22JksLNmCHDhGW/7a9yggMe7dNBy
-         f3AbQCv+dnxpDOeDzIRQypG/l2rorwAJaPRflOl1VUuNF3Md7DlfFvfMGaycFKwxM/3U
-         wax2y4AIwgPYV4bVKYa8Z1RZzjw9KgkwIMtE2SMBtE2BuRK4qWhElLjnGqblcV7CCHzs
-         qOLA==
-X-Forwarded-Encrypted: i=1; AJvYcCXf2mf2kslJGpq1NNoogCiQbmOJcvXn1WpNV+QvzZflfD8cn6vtUcObKliXE/t0mC1Kf3d+UNNu/2zR8g==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8uQkWUQeNqcu1hTa2Hqv8ZVccs0WBuS7NAZvoB4nNWAvx96Rr
-	jWO++ossvCONr/su0GPGBDu7/TcBp1SclEOA7iBPsT8sN4Usrg/fuJMpWy7BNK1nnG5TWOGX6d4
-	gfUc72hReq2vYD3nO3on/WHeQf8C08qWivLAP+1gKPg==
-X-Gm-Gg: ASbGncuvYLgGcmjpYCF3fbo1OssLoOg6hohZecnqxrZpwtPWTm9G4mlLrwiqL18iRD9
-	12jfSWfg2vvp//1CDv+6D5d+eU7Gh5wrn7FyPNYwKuhwr0xaARuesRRLXk8oewH/yc84aLMck4i
-	S9LTC3k116OVA5ObJ1BvG/tMW1ZOG9tKKaZcdy20jghyopIDlzhy/wbVBPLAcQH8DUkRAas0Zsr
-	k/jHDPlMTBpf5o12+4AOg6FPqN0dhcgv52Hrqc77lfRrXhHLvArj82dfLxxOaiZ/bh3Tl3W
-X-Google-Smtp-Source: AGHT+IH3teezYiglKMW0l9sCwPDXKzHK/uYMVzLl99zBL+8tY4BEmXzPQzc7f6ucWRYnVm2fOg07KrRcgASdUHrgci4=
-X-Received: by 2002:a05:6820:f030:b0:659:9a49:8f73 with SMTP id
- 006d021491bc7-6599a973da4mr2018657eaf.56.1765084463840; Sat, 06 Dec 2025
- 21:14:23 -0800 (PST)
+	Sun, 07 Dec 2025 22:17:15 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251207221703euoutp01e8c2101223d0f419512e8c00cc87be03~-DsYleDGS0441104411euoutp016
+	for <linux-riscv@lists.infradead.org>; Sun,  7 Dec 2025 22:17:03 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251207221703euoutp01e8c2101223d0f419512e8c00cc87be03~-DsYleDGS0441104411euoutp016
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1765145823;
+	bh=6ZLVhZC18xx0mvblpN9SbwlhVyztlgqMhP5sOQZAvyk=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=Q7NW3VaxMCuXENzDaAi7YymCj0lxzohP70XexLJU4iKH6gyjr2rzdR6ZYd89mz17c
+	 7Ge+08MtOVd/1EsQeoP03kgXbfrosQfi4GTeLMIh42Lgcq8lR06I+wfzbgZWvvkph6
+	 /fwLWWMIqWGmdgee0zaTBF8izoW8qe/nmCB19jSk=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20251207221701eucas1p245e652808a94bd3bcacb97e777898760~-DsW3Ty8C1794817948eucas1p2f;
+	Sun,  7 Dec 2025 22:17:01 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20251207221700eusmtip16e2f41435a1f6269cfd750b936dae9d0~-DsVzu-rw0914809148eusmtip1k;
+	Sun,  7 Dec 2025 22:17:00 +0000 (GMT)
+Message-ID: <a3f4e795-e56d-4de0-8b46-5c8ff96d5f77@samsung.com>
+Date: Sun, 7 Dec 2025 23:16:59 +0100
 MIME-Version: 1.0
-References: <20251205232655.445294-1-seanjc@google.com>
-In-Reply-To: <20251205232655.445294-1-seanjc@google.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Sun, 7 Dec 2025 10:44:13 +0530
-X-Gm-Features: AQt7F2qP99gde5P8lRQoinF2DOSDMpaUpigWBx6hvnDvXPL66vGpk9e2egXMZ2I
-Message-ID: <CAAhSdy1cPnxjntaR=cwZqG+oVgFpZKM0rKYAEdkHUCToMvN0Ag@mail.gmail.com>
-Subject: Re: [PATCH] KVM: Remove subtle "struct kvm_stats_desc" pseudo-overlay
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	"Gustavo A . R . Silva" <gustavoars@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] rust: pwm: Add UnregisteredChip wrapper around Chip
+To: Markus Probst <markus.probst@posteo.de>
+Cc: linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, Drew Fustini
+	<fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	=?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Miguel Ojeda
+	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng
+	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, Benno Lossin
+	<lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl
+	<aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, Danilo Krummrich
+	<dakr@kernel.org>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <20251202-pwm_safe_register-v2-1-7a2e0d1e287f@posteo.de>
+X-CMS-MailID: 20251207221701eucas1p245e652808a94bd3bcacb97e777898760
+X-Msg-Generator: CA
+X-RootMTR: 20251202181800eucas1p18be878cb74d14444f2df8bdcd7a718ee
+X-EPHeader: CA
+X-CMS-RootMailID: 20251202181800eucas1p18be878cb74d14444f2df8bdcd7a718ee
+References: <CGME20251202181800eucas1p18be878cb74d14444f2df8bdcd7a718ee@eucas1p1.samsung.com>
+	<20251202-pwm_safe_register-v2-1-7a2e0d1e287f@posteo.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251206_211425_857829_F0DA58FD 
-X-CRM114-Status: UNSURE (   6.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251207_141712_275795_EEEE502E 
+X-CRM114-Status: GOOD (  37.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,27 +86,235 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBEZWMgNiwgMjAyNSBhdCA0OjU34oCvQU0gU2VhbiBDaHJpc3RvcGhlcnNvbiA8c2Vh
-bmpjQGdvb2dsZS5jb20+IHdyb3RlOgo+Cj4gUmVtb3ZlIEtWTSdzIGludGVybmFsIHBzZXVkby1v
-dmVybGF5IG9mIGt2bV9zdGF0c19kZXNjLCB3aGljaCBzdWJ0bHkKPiBhbGlhc2VzIHRoZSBmbGV4
-aWJsZSBuYW1lW10gaW4gdGhlIHVBUEkgZGVmaW5pdGlvbiB3aXRoIGEgZml4ZWQtc2l6ZSBhcnJh
-eQo+IG9mIHRoZSBzYW1lIG5hbWUuICBUaGUgdW51c3VhbCBlbWJlZGRlZCBzdHJ1Y3R1cmUgcmVz
-dWx0cyBpbiBjb21waWxlcgo+IHdhcm5pbmdzIGR1ZSB0byAtV2ZsZXgtYXJyYXktbWVtYmVyLW5v
-dC1hdC1lbmQsIGFuZCBhbHNvIG5lY2Vzc2l0YXRlcyBhbgo+IGV4dHJhIGxldmVsIG9mIGRlcmVm
-ZXJlbmNpbmcgaW4gS1ZNLiAgVG8gYXZvaWQgdGhlICJvdmVybGF5IiwgZGVmaW5lIHRoZQo+IHVB
-UEkgc3RydWN0dXJlIHRvIGhhdmUgYSBmaXhlZC1zaXplIG5hbWUgd2hlbiBidWlsZGluZyBmb3Ig
-dGhlIGtlcm5lbC4KPgo+IE9wcG9ydHVuaXN0aWNhbGx5IGNsZWFuIHVwIHRoZSBpbmRlbnRhdGlv
-biBmb3IgdGhlIHN0YXRzIG1hY3JvcywgYW5kCj4gcmVwbGFjZSBzcGFjZXMgd2l0aCB0YWJzLgo+
-Cj4gTm8gZnVuY3Rpb25hbCBjaGFuZ2UgaW50ZW5kZWQuCj4KPiBSZXBvcnRlZC1ieTogR3VzdGF2
-byBBLiBSLiBTaWx2YSA8Z3VzdGF2b2Fyc0BrZXJuZWwub3JnPgo+IENsb3NlczogaHR0cHM6Ly9s
-b3JlLmtlcm5lbC5vcmcvYWxsL2FQZk5LUnBMZmhtaFlxZlBAa3NwcAo+IFNpZ25lZC1vZmYtYnk6
-IFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNlYW5qY0Bnb29nbGUuY29tPgoKRm9yIEtWTSBSSVNDLVY6
-CkFja2VkLWJ5OiBBbnVwIFBhdGVsIDxhbnVwQGJyYWluZmF1bHQub3JnPgoKVGhhbmtzLApBbnVw
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+Hi Markus,
+On 12/2/25 19:17, Markus Probst wrote:
+> The `pwm::Registration::register` function provides no guarantee that the
+> function isn't called twice with the same pwm chip, which is considered
+> unsafe.
+> 
+> Add `pwm::UnregisteredChip` as wrapper around `pwm::Chip`.
+> Implement `pwm::UnregisteredChip::register` for the registration. This
+> function takes ownership of `pwm::UnregisteredChip` and therefore
+> guarantees that the registration can't be called twice on the same pwm
+> chip.
+> 
+> Signed-off-by: Markus Probst <markus.probst@posteo.de>
+> ---
+> This patch provides the additional guarantee that the pwm chip doesn't
+> get registered twice.
+> 
+> The following changes were made:
+> - change the visibility of `pwm::Registration` to private
+> - remove the `pwm::Registration::register` function
+> - add `pwm::UnregisteredChip` - a wrapper around `pwm::Chip`
+> - return `pwm::UnregisteredChip` in `pwm::Chip::new`
+> - add `pwm::UnregisteredChip::register` for registering the pwm chip
+>   once
+> - add Send + Sync bounds to `PwmOps`
+> 
+> Note that I wasn't able to test this patch, due to the lack of hardware.
+> 
+> Also I was not able to successfully compile drivers/pwm/pwm_th1520.rs,
+> as `clk::Clk` seems to be missing. I haven't found the missing patch
+> in linux-next nor in
+
+I suspect your kernel configuration is missing CONFIG_COMMON_CLK.
+
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git/log/?h=pwm/for-next
+> 
+> (the tree in which the th1520 pwm driver was merged).
+> So please verify yourself that the driver compiles and throws no errors.
+> ---
+> Changes in v2:
+> - use the `pwm::UnregisteredChip` wrapper instead of moving the
+>   registration into `pwm::Chip::new` to allow access to the chip prior
+>   to the registration
+
+Agree with this. By returning UnregisteredChip, you solved the safety
+issue (preventing double registration) while correctly preserving the
+"configuration gap" needed for complex drivers. Good example of Type
+State pattern :-)
+
+> - Link to v1: https://lore.kernel.org/r/20251127-pwm_safe_register-v1-1-d22d0ed068ac@posteo.de
+> ---
+>  drivers/pwm/pwm_th1520.rs |  2 +-
+>  rust/kernel/pwm.rs        | 68 ++++++++++++++++++++++++++++++-----------------
+>  2 files changed, 45 insertions(+), 25 deletions(-)
+> 
+> diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
+> index 955c359b07fb..65a52b6620ab 100644
+> --- a/drivers/pwm/pwm_th1520.rs
+> +++ b/drivers/pwm/pwm_th1520.rs
+> @@ -372,7 +372,7 @@ fn probe(
+>              }),
+>          )?;
+>  
+> -        pwm::Registration::register(dev, chip)?;
+> +        chip.register()?;
+>  
+>          Ok(KBox::new(Th1520PwmPlatformDriver, GFP_KERNEL)?.into())
+>      }
+> diff --git a/rust/kernel/pwm.rs b/rust/kernel/pwm.rs
+> index cb00f8a8765c..bf7515d04d8a 100644
+> --- a/rust/kernel/pwm.rs
+> +++ b/rust/kernel/pwm.rs
+> @@ -15,7 +15,11 @@
+>      prelude::*,
+>      types::{ARef, AlwaysRefCounted, Opaque}, //
+>  };
+> -use core::{marker::PhantomData, ptr::NonNull};
+> +use core::{
+> +    marker::PhantomData,
+> +    ops::Deref,
+> +    ptr::NonNull, //
+> +};
+>  
+>  /// Represents a PWM waveform configuration.
+>  /// Mirrors struct [`struct pwm_waveform`](srctree/include/linux/pwm.h).
+> @@ -173,7 +177,7 @@ pub struct RoundedWaveform<WfHw> {
+>  }
+>  
+>  /// Trait defining the operations for a PWM driver.
+> -pub trait PwmOps: 'static + Sized {
+> +pub trait PwmOps: 'static + Send + Sync + Sized {
+>      /// The driver-specific hardware representation of a waveform.
+>      ///
+>      /// This type must be [`Copy`], [`Default`], and fit within `PWM_WFHWSIZE`.
+> @@ -584,11 +588,12 @@ unsafe fn bound_parent_device(&self) -> &device::Device<Bound> {
+>      ///
+>      /// Returns an [`ARef<Chip>`] managing the chip's lifetime via refcounting
+>      /// on its embedded `struct device`.
+> -    pub fn new(
+> -        parent_dev: &device::Device,
+> +    #[allow(clippy::new_ret_no_self)]
+> +    pub fn new<'a>(
+> +        parent_dev: &'a device::Device<Bound>,
+>          num_channels: u32,
+>          data: impl pin_init::PinInit<T, Error>,
+> -    ) -> Result<ARef<Self>> {
+> +    ) -> Result<UnregisteredChip<'a, T>> {
+>          let sizeof_priv = core::mem::size_of::<T>();
+>          // SAFETY: `pwmchip_alloc` allocates memory for the C struct and our private data.
+>          let c_chip_ptr_raw =
+> @@ -623,7 +628,9 @@ pub fn new(
+>          // SAFETY: `chip_ptr_as_self` points to a valid `Chip` (layout-compatible with
+>          // `bindings::pwm_chip`) whose embedded device has refcount 1.
+>          // `ARef::from_raw` takes this pointer and manages it via `AlwaysRefCounted`.
+> -        Ok(unsafe { ARef::from_raw(NonNull::new_unchecked(chip_ptr_as_self)) })
+> +        let chip = unsafe { ARef::from_raw(NonNull::new_unchecked(chip_ptr_as_self)) };
+> +
+> +        Ok(UnregisteredChip { chip, parent_dev })
+>      }
+>  }
+>  
+> @@ -654,37 +661,29 @@ unsafe fn dec_ref(obj: NonNull<Chip<T>>) {
+>  // structure's state is managed and synchronized by the kernel's device model
+>  // and PWM core locking mechanisms. Therefore, it is safe to move the `Chip`
+>  // wrapper (and the pointer it contains) across threads.
+> -unsafe impl<T: PwmOps + Send> Send for Chip<T> {}
+> +unsafe impl<T: PwmOps> Send for Chip<T> {}
+>  
+>  // SAFETY: It is safe for multiple threads to have shared access (`&Chip`) because
+>  // the `Chip` data is immutable from the Rust side without holding the appropriate
+>  // kernel locks, which the C core is responsible for. Any interior mutability is
+>  // handled and synchronized by the C kernel code.
+> -unsafe impl<T: PwmOps + Sync> Sync for Chip<T> {}
+> +unsafe impl<T: PwmOps> Sync for Chip<T> {}
+>  
+> -/// A resource guard that ensures `pwmchip_remove` is called on drop.
+> -///
+> -/// This struct is intended to be managed by the `devres` framework by transferring its ownership
+> -/// via [`devres::register`]. This ties the lifetime of the PWM chip registration
+> -/// to the lifetime of the underlying device.
+> -pub struct Registration<T: PwmOps> {
+> +/// A wrapper arround `ARef<Chip<T>>` that ensures that `register` can only be called once.
+
+nit:
+s/arround/around/
+
+> +pub struct UnregisteredChip<'a, T: PwmOps> {
+>      chip: ARef<Chip<T>>,
+> +    parent_dev: &'a device::Device<Bound>,
+>  }
+>  
+> -impl<T: 'static + PwmOps + Send + Sync> Registration<T> {
+> +impl<T: PwmOps> UnregisteredChip<'_, T> {
+>      /// Registers a PWM chip with the PWM subsystem.
+>      ///
+>      /// Transfers its ownership to the `devres` framework, which ties its lifetime
+>      /// to the parent device.
+>      /// On unbind of the parent device, the `devres` entry will be dropped, automatically
+>      /// calling `pwmchip_remove`. This function should be called from the driver's `probe`.
+> -    pub fn register(dev: &device::Device<Bound>, chip: ARef<Chip<T>>) -> Result {
+> -        let chip_parent = chip.device().parent().ok_or(EINVAL)?;
+> -        if dev.as_raw() != chip_parent.as_raw() {
+> -            return Err(EINVAL);
+> -        }
+> -
+> -        let c_chip_ptr = chip.as_raw();
+> +    pub fn register(self) -> Result<ARef<Chip<T>>> {
+> +        let c_chip_ptr = self.chip.as_raw();
+>  
+>          // SAFETY: `c_chip_ptr` points to a valid chip with its ops initialized.
+>          // `__pwmchip_add` is the C function to register the chip with the PWM core.
+> @@ -692,12 +691,33 @@ pub fn register(dev: &device::Device<Bound>, chip: ARef<Chip<T>>) -> Result {
+>              to_result(bindings::__pwmchip_add(c_chip_ptr, core::ptr::null_mut()))?;
+>          }
+>  
+> -        let registration = Registration { chip };
+> +        let registration = Registration {
+> +            chip: ARef::clone(&self.chip),
+> +        };
+> +
+> +        devres::register(self.parent_dev, registration, GFP_KERNEL)?;
+>  
+> -        devres::register(dev, registration, GFP_KERNEL)
+> +        Ok(self.chip)
+>      }
+>  }
+>  
+> +impl<T: PwmOps> Deref for UnregisteredChip<'_, T> {
+> +    type Target = Chip<T>;
+> +
+> +    fn deref(&self) -> &Self::Target {
+> +        &self.chip
+> +    }
+> +}
+> +
+> +/// A resource guard that ensures `pwmchip_remove` is called on drop.
+> +///
+> +/// This struct is intended to be managed by the `devres` framework by transferring its ownership
+> +/// via [`devres::register`]. This ties the lifetime of the PWM chip registration
+> +/// to the lifetime of the underlying device.
+> +struct Registration<T: PwmOps> {
+> +    chip: ARef<Chip<T>>,
+> +}
+> +
+>  impl<T: PwmOps> Drop for Registration<T> {
+>      fn drop(&mut self) {
+>          let chip_raw = self.chip.as_raw();
+> 
+> ---
+> base-commit: fae00ea9f00367771003ace78f29549dead58fc7
+> change-id: 20251127-pwm_safe_register-e49b0a261101
+> 
+> 
+
+Thank you for your work. I've tested this patch successfully.
+Other than the typo this looks perfect.
+
+Tested-by: Michal Wilczynski <m.wilczynski@samsung.com>
+Acked-by: Michal Wilczynski <m.wilczynski@samsung.com>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
