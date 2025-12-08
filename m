@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4132D3B7DD
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Dec 2025 09:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF081D3B7DD
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Dec 2025 09:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SzRdvB2cI5BM6b1/GrfpmiuIwxIu0YQC+/iBV29tWqM=; b=40hF00n63IzydV
-	FU+FHJZ6PndWEP9HxUR8yUf1MGkJRm3dPZbWi9kzEWhrxrt1C0lratAs2SvRHEbgqcL4Hg7Dm6KPl
-	HiR/JbFGowGcvjO4CWIFBJzaXnmwIQxiwk9NQEFE+plP5vHUeAzRjuQhWIPs9t73BuqBPlePyDufB
-	4kBDFNQ6blDHFtrmijM5xHjeWu/c4zU6xZNzeeNn9t/UastAs+zLeSWdoSMOOI4KBmIaJs+B5TQE+
-	J+tREGSSYJTjH37c8nK/9fNzb8KHaJ91hv51G2Jp9QPHCxTlOxOnuIH7PreNPDSmM+oyDinUCu2rx
-	lmuoQ6zF+fNFtoAbVaKw==;
+	List-Owner; bh=WhrTZ/Tm5nJjsr5950/hxrn6eRtn/tu5SLX4HQcsW6A=; b=1+VWCrwg0TecnW
+	36MO3evGasMLionxSv10VzlQAo2g+pZiLLLq6QfcFXIWBt+MKa2pj7KlbrAsZRpnWmMX+NNw7RZVb
+	7yHKW8C94Q1mGl8xvkahweIdMDmEP0DOuLSf9CT/22RrWP+vT6nLOH//zRSZNI0WEt38YYVuJ0aKI
+	OIIGsVaRa3z2m1fo9G15oLz2ikRIgTqfwcfdN1sV+BkrX0+BAsfVggrsCAlX3VFxxzPx3CiD+PFvR
+	6ihukrX19GrjmgGY7v9NjpSOrBdrHk9Qp172XKieROUJYAvTQ2JPT8FVvmGGGXB1qpvz2xD0SLJiP
+	dtUuJDWquwonPscZQatw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSXeS-0000000CtBS-0WaZ;
-	Mon, 08 Dec 2025 09:35:28 +0000
+	id 1vSXfo-0000000CtS5-0t5O;
+	Mon, 08 Dec 2025 09:36:52 +0000
 Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSXeO-0000000Ct9O-1EjH;
-	Mon, 08 Dec 2025 09:35:25 +0000
+	id 1vSXfl-0000000CtQs-0q5k;
+	Mon, 08 Dec 2025 09:36:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1765186525; x=1796722525;
+  t=1765186610; x=1796722610;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=dxwlUYyotMAj1FOCT7HUPg377L9SdqVfiNdsHHzR+yM=;
-  b=PuKCZyqOjReTjq8jEzdtw98j6Asvg3VBZVzEepHmgcG+kd/UdjB6DMm9
-   QeWnVGXvXcBIOPzfRsOIIr8wNxdDJhHMLCzv/twpO9p/1W4dypsT6eo0U
-   TR0oFBEqYdtXyuc+jTmKwWBnwrdynpk2rD3Vmroy1iT+OBm13TZoN86v8
-   zzmg7PEL/6Fup2Fz+zsCk/KgHdUP+jovSbQjswyp4aTDQDPIdVCGMNHfC
-   iJh65ND4f3shKVNknV7HpnZVrkfnLAcxcwZURDxVaCIF7JAF034NO21QR
-   obQwZ7KhUom/eRoHQTdVp8OIAh1nKy9rpzqmyTDRkH0sbVzC/ssWWgoaX
-   Q==;
-X-CSE-ConnectionGUID: Pwj96jJJRUSpcR1/1p1Wag==
-X-CSE-MsgGUID: vdytw3bLQomg0tgPjQydbA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11635"; a="67288213"
+  bh=10zHr1SKSV4NU1wJMxeh9bCQVTkfIemMgU27+u6iC/0=;
+  b=PP7dzO0evI4UAjcZxKUHfLu3IaqCmD6XnlIaBOqa8Fc0WA0RZ3gG5vbx
+   n2AeZjmYIZENMnh5X0RJblsgSSlOwEkqqqLCkeXlHJ7aqhNsg9StR8mSF
+   Rstjsg1Z4dbkrGjE9Ts2xCV7l3fam/v7CZO/r742VMOp/eycHMEGuAPqq
+   El+2/ecbojZxgVm5JhBo0Cqwy7hYdeoK2Yl0p5TXkgwZ3zPVDVjc5HK2U
+   yeU4NCPO62vI3XdHRqL4CKbMu9LQi0Vq8xZuuhu6dPt42UtcwTJaKQQje
+   AqpecE32HoPkfXzh0k0knHlkyEemZM65xZHCytRuQ8vSCl8O5tGgCuU2c
+   A==;
+X-CSE-ConnectionGUID: 7Kay4eSCStmMe4Vo01B2cA==
+X-CSE-MsgGUID: wBvmKIheT1ey6ZcEuHfBmQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11635"; a="67288451"
 X-IronPort-AV: E=Sophos;i="6.20,258,1758610800"; 
-   d="scan'208";a="67288213"
+   d="scan'208";a="67288451"
 Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2025 01:35:24 -0800
-X-CSE-ConnectionGUID: GvTBKVl5QN2hGFwHvhUlpA==
-X-CSE-MsgGUID: UZpj0zMRTM69UjjLsI6NgA==
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2025 01:36:49 -0800
+X-CSE-ConnectionGUID: bsfJ0l67RQmzvo/wRHYFCA==
+X-CSE-MsgGUID: d+3gSK50QVqn044E2530nA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.20,258,1758610800"; 
-   d="scan'208";a="196157405"
+   d="scan'208";a="196157499"
 Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.240.12]) ([10.124.240.12])
-  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2025 01:35:15 -0800
-Message-ID: <c2562f0b-9d73-479d-acaf-27da2fbe0c1e@linux.intel.com>
-Date: Mon, 8 Dec 2025 17:35:13 +0800
+  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2025 01:36:40 -0800
+Message-ID: <78fb04ca-59a2-493a-a82b-d59aaf6b557a@linux.intel.com>
+Date: Mon, 8 Dec 2025 17:36:38 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 40/44] KVM: VMX: Set MSR index auto-load entry if and
- only if entry is "new"
+Subject: Re: [PATCH v6 41/44] KVM: VMX: Compartmentalize adding MSRs to host
+ vs. guest auto-load list
 To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
  Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>,
  Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
@@ -77,13 +77,13 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
  Xiong Zhang <xiong.y.zhang@linux.intel.com>,
  Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
 References: <20251206001720.468579-1-seanjc@google.com>
- <20251206001720.468579-41-seanjc@google.com>
+ <20251206001720.468579-42-seanjc@google.com>
 Content-Language: en-US
 From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <20251206001720.468579-41-seanjc@google.com>
+In-Reply-To: <20251206001720.468579-42-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_013524_373112_E5D636B2 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20251208_013649_281090_2C06C3EB 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,43 +102,72 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 On 12/6/2025 8:17 AM, Sean Christopherson wrote:
-> When adding an MSR to the auto-load lists, update the MSR index in the
-> list entry if and only if a new entry is being inserted, as 'i' can only
-> be non-negative if vmx_find_loadstore_msr_slot() found an entry with the
-> MSR's index.  Unnecessarily setting the index is benign, but it makes it
-> harder to see that updating the value is necessary even when an existing
-> entry for the MSR was found.
+> Undo the bundling of the "host" and "guest" MSR auto-load list logic so
+> that the code can be deduplicated by factoring out the logic to a separate
+> helper.  Now that "list full" situations are treated as fatal to the VM,
+> there is no need to pre-check both lists.
 >
-> No functional change intended.
+> For all intents and purposes, this reverts the add_atomic_switch_msr()
+> changes made by commit 3190709335dd ("x86/KVM/VMX: Separate the VMX
+> AUTOLOAD guest/host number accounting").
 >
 > Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->  arch/x86/kvm/vmx/vmx.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+>  arch/x86/kvm/vmx/vmx.c | 23 ++++++++++++-----------
+>  1 file changed, 12 insertions(+), 11 deletions(-)
 >
 > diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> index 2c50ebf4ff1b..be2a2580e8f1 100644
+> index be2a2580e8f1..018e01daab68 100644
 > --- a/arch/x86/kvm/vmx/vmx.c
 > +++ b/arch/x86/kvm/vmx/vmx.c
-> @@ -1141,16 +1141,16 @@ static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
+> @@ -1096,9 +1096,9 @@ static __always_inline void add_atomic_switch_msr_special(struct vcpu_vmx *vmx,
+>  static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
+>  				  u64 guest_val, u64 host_val)
+>  {
+> -	int i, j = 0;
+>  	struct msr_autoload *m = &vmx->msr_autoload;
+>  	struct kvm *kvm = vmx->vcpu.kvm;
+> +	int i;
 >  
+>  	switch (msr) {
+>  	case MSR_EFER:
+> @@ -1133,25 +1133,26 @@ static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
+>  	}
+>  
+>  	i = vmx_find_loadstore_msr_slot(&m->guest, msr);
+> -	j = vmx_find_loadstore_msr_slot(&m->host, msr);
+> -
+> -	if (KVM_BUG_ON(i < 0 && m->guest.nr == MAX_NR_LOADSTORE_MSRS, kvm) ||
+> -	    KVM_BUG_ON(j < 0 &&  m->host.nr == MAX_NR_LOADSTORE_MSRS, kvm))
+> -		return;
+> -
 >  	if (i < 0) {
+> +		if (KVM_BUG_ON(m->guest.nr == MAX_NR_LOADSTORE_MSRS, kvm))
+> +			return;
+> +
 >  		i = m->guest.nr++;
-> +		m->guest.val[i].index = msr;
+>  		m->guest.val[i].index = msr;
 >  		vmcs_write32(VM_ENTRY_MSR_LOAD_COUNT, m->guest.nr);
 >  	}
-> -	m->guest.val[i].index = msr;
 >  	m->guest.val[i].value = guest_val;
 >  
->  	if (j < 0) {
->  		j = m->host.nr++;
-> +		m->host.val[j].index = msr;
+> -	if (j < 0) {
+> -		j = m->host.nr++;
+> -		m->host.val[j].index = msr;
+> +	i = vmx_find_loadstore_msr_slot(&m->host, msr);
+> +	if (i < 0) {
+> +		if (KVM_BUG_ON(m->host.nr == MAX_NR_LOADSTORE_MSRS, kvm))
+> +			return;
+> +
+> +		i = m->host.nr++;
+> +		m->host.val[i].index = msr;
 >  		vmcs_write32(VM_EXIT_MSR_LOAD_COUNT, m->host.nr);
 >  	}
-> -	m->host.val[j].index = msr;
->  	m->host.val[j].value = host_val;
+> -	m->host.val[j].value = host_val;
+> +	m->host.val[i].value = host_val;
 >  }
 >  
+>  static bool update_transition_efer(struct vcpu_vmx *vmx)
 
 Reviewed-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
 
