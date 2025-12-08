@@ -4,68 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBFFED3B7EA
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Dec 2025 22:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39DE1D3B7E2
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Dec 2025 23:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S8x1NDFAjPAZ7Pp0nUjR0kJM9gAa1GLpaFb+kApP0B0=; b=JsVw3e1qOd2a3Q
-	C9DjiI5npgxV7TKkKI3rzCGzRxfv8+8iNuN6R1ReE1CbnSNHWw8HcWckk4gG9bPvMe78AMvwKuc7k
-	VeFS+LtX3EPxAaJniSwv94jfw+yGFHUu16flHgc+fADSfAM+eDZXjtOa4K6gdDq6I8moEZOU4glhr
-	wyQbfdepST3TYGuP/Is97PQumbIJjOmVBVEYX7oiaBGhOk+UwiGFygZK+g63oN+iEOOqc+Lhafo6e
-	oW6U1UIs703BBiiSMtXre9aKfSN9ibZThR4fNn7snFDR2ltDlSWBXKoDddqJSS6AnsrQi8E7qk7iF
-	bLVfS2AnJeEINunEONuQ==;
+	List-Owner; bh=KbgA4ivIA2pYvRTgky77JIDAoczKqDPnOX5FsGcRBIc=; b=yEaBKS0NO5hFgn
+	DwumjxbpTwXZb1s5BFX0Lcidk+El5UwwWP15UTqn4bfTgrOO9/WXPKGbKCq54K5EomQKLLOzlEjm2
+	1IrlXNarXRw+8PFB1HuyRRAeeNwy/YVBsohzHw2iYCpfcfn+HDwPz0tOJSF6+Y8l11ARKz7ePb/KQ
+	Wvsapi7+EKTsWK8jpADw07XsmLObjzIZzWraVrKZhwZinns/mzE/ttrZw6zp5B8524Rt3ou48UrQL
+	SS8zbuXPtoCe+HD2aGL5wO5Vwv54b7ZWMEFXX3P2tYxmrnSKNxYvPoNPZ/nZis6BeJbD16BB/2EqQ
+	X7NcFzmeeIxDh+RU2sUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSjQw-0000000DZcy-3LG6;
-	Mon, 08 Dec 2025 22:10:18 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vSkLz-0000000DcCY-2tkA;
+	Mon, 08 Dec 2025 23:09:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSjQt-0000000DZcA-3cmf
+	id 1vSkLy-0000000DcCS-46m5
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Dec 2025 22:10:17 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id B9DCF4E41AF2;
-	Mon,  8 Dec 2025 22:10:12 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8EE9B606DD;
-	Mon,  8 Dec 2025 22:10:12 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1D1B3103C8D5C;
-	Mon,  8 Dec 2025 23:10:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1765231811; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=mWYWUqUd6OQt7ZTmYi9XvKs64pHlmAY9QPRYKKtCcFM=;
-	b=Rt24g4myiXVnNAovrP9jmwGnftV0vDJl4Pb6W9vWLh7F7cxwRKWvMSxvvJilWNvYoBFu3Z
-	EQ2LIYI3Zzn53izvjSbY3Bqm/c6y/2svxnL2eelGeqq6n+hovdbER0s10q12AtvO6texI2
-	1pnme6q7Krn5NRMlM5Lrl9wOQUONd25MzixAhudxvBzcPVgx6LOm4utGikX3ySF0avryUb
-	RKHvAfiBuyjK70bta4tdNw+wmokJzX8dS+NPm5DficVcGyhgOviL9vJ9NBsuBIYAweJIFq
-	iwslDl/nfwQhPUsC0l3rB1MPDauYaHnuVVXcn8GMDc33BzGSeJt9HaDVWurhjQ==
-Date: Mon, 8 Dec 2025 23:10:08 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Lee Jones <lee@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Alex Elder <elder@riscstar.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-i2c@vger.kernel.org,
-	linux-rtc@vger.kernel.org
-Subject: Re: (subset) [PATCH v3 2/4] rtc: spacemit: MFD_SPACEMIT_P1 as
- dependencies
-Message-ID: <176523152359.342815.11295458688296790112.b4-ty@bootlin.com>
-References: <20251118-p1-kconfig-fix-v3-0-8839c5ac5db3@linux.spacemit.com>
- <20251118-p1-kconfig-fix-v3-2-8839c5ac5db3@linux.spacemit.com>
+	Mon, 08 Dec 2025 23:09:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1625F60133;
+	Mon,  8 Dec 2025 23:09:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C05AC4CEF1;
+	Mon,  8 Dec 2025 23:09:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765235353;
+	bh=akhtEbJUiRojKJtbftuWFnBF21f5LJGNssVKktpsdgI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PquNqk8stkQH3T6tYxNjnUGKCwEWKuga1Zdbz1UStzQZYMR9qhhn8PCafJNcMFXW1
+	 OQVMlLkM/tzEPo5X+2IVJpcgNzIGCGQraCHumowp795cNudgPFdI/r/sGGqUwWVW0G
+	 KicMoKbigreyVm/RIqMB6IpZZz3h6U0JMGamWDsk7B8ynHwjRy6NwykC/NUlAAfovX
+	 jkwIMzdwFN61JqkSJ3xpYee8KdBkBr6KG/tfjps6OAxiVqVrpav9eMfGy2jY7h1+x2
+	 aidY4AZbU8BUgnKvA8vJF4e274Ekab7Gz3LcMQrm/OKG/hjDcrYhyFYkMBRGCAQjTq
+	 CnX3RgziD8t8A==
+Date: Mon, 8 Dec 2025 15:09:11 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: Jerry Shih <jerry.shih@sifive.com>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-crypto@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] lib/crypto: riscv/chacha: Avoid s0/fp register
+Message-ID: <20251208230911.GA1853@quark>
+References: <20251202-riscv-chacha_zvkb-fp-v2-1-7bd00098c9dc@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251118-p1-kconfig-fix-v3-2-8839c5ac5db3@linux.spacemit.com>
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_141016_046471_9744FAEF 
-X-CRM114-Status: UNSURE (   7.78  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20251202-riscv-chacha_zvkb-fp-v2-1-7bd00098c9dc@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,28 +74,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Nov 2025 14:08:06 +0800, Troy Mitchell wrote:
-> RTC_DRV_SPACEMIT_P1 is a subdevice of P1 and should depend on
-> MFD_SPACEMIT_P1 rather than selecting it directly. Using 'select'
-> does not always respect the parent's dependencies, so 'depends on'
-> is the safer and more correct choice.
+On Tue, Dec 02, 2025 at 01:25:07PM +0800, Vivian Wang wrote:
+> In chacha_zvkb, avoid using the s0 register, which is the frame pointer,
+> by reallocating KEY0 to t5. This makes stack traces available if e.g. a
+> crash happens in chacha_zvkb.
 > 
-> Additionally, the default value depends on MFD_SPACEMIT_P1 rather
-> than ARCH_SPACEMIT.
+> No frame pointer maintenence is otherwise required since this is a leaf
+> function.
 > 
-> [...]
+> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+> ---
+> Changes in v2:
+> - Remove frame pointer maintenance, and simply avoid touching s0. Since
+>   this is a leaf function, this also allows unwinding to work.
+> - Link to v1: https://lore.kernel.org/r/20251130-riscv-chacha_zvkb-fp-v1-1-68ef7a6d477a@iscas.ac.cn
+> ---
+> 
 
-Applied, thanks!
+Applied to https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-fixes
 
-[2/4] rtc: spacemit: MFD_SPACEMIT_P1 as dependencies
-      https://git.kernel.org/abelloni/c/16bd954c9336
-
-Best regards,
-
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
