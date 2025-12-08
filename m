@@ -4,62 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA708D3B7E2
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Dec 2025 18:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D73D5D3B7EA
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Dec 2025 18:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/W8LsC1M6GYH1gvZ3LMdzA8XbyK8VwxhnrDM97pWjt0=; b=1XK85nCzDpk+/3SVB8h5BP1QR1
-	iX4usJLs6SNViTxuBmdaxKpIbqIb5bu0VPtOpfq4nTOX8In97q/DxkmJlVI997NV0fFh6iginOK8Y
-	zbsPnut02c6rEM7sUf93OxKoW1KWkef+rl7PvlW2fzqtNVihrMe9qvihn1lTFwnrLjXjHfIYKK3fC
-	LDt2uMmK81AgYEeIkZdA+gll18kl0ICWq/ad6bq/SVJv5V3E8B7C4b5kThbhz3NVDuXFubGH/Qdzp
-	VjgBqmHBrNqSvZ8als48U07BK31Z0NN/yLgvmrX8Wxp2u1h0EEoZSbSndNUhkhd4QEOcRqLvmjmnZ
-	Av3Ewxcw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=kI/jvDJA0hB07R/0VZyQVxwFJnEzhG3DJYbizqxAyxo=; b=P+46jqz0+BOe9twYUkdcmd6aeP
+	K1Uag0S+W9hw95GNkT1fDZbeschrDsET6+/N/3e7KEIheO0amMLmBWIT5/cUkbzXN1leYmLOFJDbP
+	C70xBEKLsHxm3+XD4VQh1aixICltfeK+MQRHVyHXt1tH1gwpBsmlThgc3Z6OVhioF0OD/vROn+LXL
+	nRgaJOazgprETLHuDbWvesb1Cz7BSKd2MEgJmzynOpY5Uh7RBU82PUiQl/IrRzu5tKhgoX8a9rBs6
+	G2P7X9GBjZSUy6leAmqSCX85JRkqpJP15jMCDAR8ngvT/ldRx0eFAWwT/VAbhi51fFNCR2AkMTKtB
+	LhyKxr6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSfZW-0000000DPV9-1Ot2;
-	Mon, 08 Dec 2025 18:02:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vSfeV-0000000DPtR-1UeQ;
+	Mon, 08 Dec 2025 18:08:03 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSfZV-0000000DPV0-1cRN
+	id 1vSfeS-0000000DPsL-31xn
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Dec 2025 18:02:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 82AF960133;
-	Mon,  8 Dec 2025 18:02:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDFA0C4CEF1;
-	Mon,  8 Dec 2025 18:02:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765216972;
-	bh=7q6s7jx4rNURD2mNarlLSt82SNn58lTyP8BfcayLfG0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hfy4FPNK9p+GuCosrgIElaGczapNltTYDZOAtYAY//Avlm4hGayWMCiLl/T6vi6wD
-	 xeMwgX/ayl8GJkvQGaPiR1Owrr+TX3kG6lVUqyRqOg2isAVEq7DtY8Tyr+OisgEefH
-	 KNRRNjz1PgXtI6tQQdc68bZKfPljiWplTyrYmM3EwvE8pFplSxwLKiZUmbic7hJ2ND
-	 ACO5IEcTWDXtVkk4Ta/D1MYE9G2FIsKkfOCCjpgAkuih+Kmv+vrrUHKdB3d7WxTxdI
-	 nEXDkNphrd5uzsZ+I1ou6PN+enwz3qbcx89F+g5gK4yPfKX4Nbt6oFXm4D0EsDXedk
-	 9UQtOR+aHrAbg==
-Date: Mon, 8 Dec 2025 18:02:47 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] clk: microchip: drop POLARFIRE from
- ARCH_MICROCHIP_POLARFIRE
-Message-ID: <20251208-flatten-devious-56abcfecd510@spud>
-References: <20251121-tartar-drew-ba31c5ec9192@spud>
- <20251121-prude-dilation-79d275fec296@spud>
- <86bd75e7-1191-458d-b71e-c3cecb960700@tuxon.dev>
-MIME-Version: 1.0
-In-Reply-To: <86bd75e7-1191-458d-b71e-c3cecb960700@tuxon.dev>
+	Mon, 08 Dec 2025 18:08:01 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-349a2f509acso4008291a91.1
+        for <linux-riscv@lists.infradead.org>; Mon, 08 Dec 2025 10:07:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1765217279; x=1765822079; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=SF6h5hGtRuMyBRglBJmpKQuSrVGlyuxXyhedVebSd6M=;
+        b=rY2uZbqVR52TSP72znPUL8jA5ul05kEze0XOV1OIIlCaQXC6HmuBPUsznpSlU8w42+
+         mFzVS72bLZV20Jbz+sbfdSzukqigPAasmS7l3gnyDIe2IISJhRpzBTz3Xno5fKF9HaUS
+         8WY9ZXiQNkmW6bPeDv7XPu9iDQ4P+7/P48gjLaixWLGXUj4u5bTaC6K/+Cv0Vf2NDKXQ
+         YtLcF5eF1l1tXca9mnz86QfpWZOsgPL880wag/ZOqmhKIiUp4HC9PqkA1XHxMdhHkbPF
+         uRO0ZlYisFpHEheeyullDxyozIdy3+x+29jnPbwMAsuO2J+izI3HPVI7YsLalDbGHKD+
+         f4hg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765217279; x=1765822079;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SF6h5hGtRuMyBRglBJmpKQuSrVGlyuxXyhedVebSd6M=;
+        b=j8q8I+n+kRuGo+BTmWedKKut1IBfPDlcyN6hcpkAqZmnxKn23vKB8/YHzicMHZs/e9
+         e+zg1xBanVBWdRx4z5lgDPJdhIO14hqW+4ocDdnlYMcaZivxXDnj7a2XhyjWQwzr0cWZ
+         iCixhHF1+l4wO7HZ/lZ4FoA/QFAtAVJCwyb6/NhG01bKINPpMxdEvR3GX2GK/c4h+aB8
+         xpWPkjqJ9qfiBhBk4r6VJU4fVLcdoRxRYd6931rLebEaAL2PfVbYNX/+EoGffXvB8seb
+         Ju+uoz3G9tR885QG3rzlfpZGVtJKwPOD/lxLm79FcrllPExWvXZIPg9JCrW10fLS1XUK
+         duog==
+X-Forwarded-Encrypted: i=1; AJvYcCV/3oee/9tJ1pwPiezrBr+ihBpabYqtAFwt+9LI9yVwdgmaHzlToLFA8C+09joDHj4l7v2OvPfKrc3iHQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxweucd5Rm7bvoLHVUV5Il/LkFXkb0IuF4PC+RXfaq3/c+jjGCY
+	29BUoI2en0J78hlr+FkXMEqtUPq0+fzI7B4QLik+AZ4e+6U2hK8rg1P1g9a6GTd/1P2g1feCL+A
+	2jr68cw==
+X-Google-Smtp-Source: AGHT+IH3HhOiXlRek80ArMNgo8utGCkumZ6GCHftobZYLKaRSJ46MkO0EFccaQp1M2wj9T7xKajFvZIZ67U=
+X-Received: from pjbfs21.prod.google.com ([2002:a17:90a:f295:b0:343:6849:31ae])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2787:b0:349:8a8b:da5c
+ with SMTP id 98e67ed59e1d1-349a24f2f71mr7253927a91.11.1765217279160; Mon, 08
+ Dec 2025 10:07:59 -0800 (PST)
+Date: Mon, 8 Dec 2025 10:07:57 -0800
+In-Reply-To: <20251208115156.GE3707891@noisy.programming.kicks-ass.net>
+Mime-Version: 1.0
+References: <20251206001720.468579-1-seanjc@google.com> <20251206001720.468579-5-seanjc@google.com>
+ <20251208115156.GE3707891@noisy.programming.kicks-ass.net>
+Message-ID: <aTcT_QcQaqyHV_S-@google.com>
+Subject: Re: [PATCH v6 04/44] perf: Add APIs to create/release mediated guest vPMUs
+From: Sean Christopherson <seanjc@google.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+	Mingwei Zhang <mizhang@google.com>, Xudong Hao <xudong.hao@intel.com>, 
+	Sandipan Das <sandipan.das@amd.com>, Dapeng Mi <dapeng1.mi@linux.intel.com>, 
+	Xiong Zhang <xiong.y.zhang@linux.intel.com>, Manali Shukla <manali.shukla@amd.com>, 
+	Jim Mattson <jmattson@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251208_100800_755913_3B7CFCD8 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,84 +98,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5608505257143552075=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Dec 08, 2025, Peter Zijlstra wrote:
+> On Fri, Dec 05, 2025 at 04:16:40PM -0800, Sean Christopherson wrote:
+> 
+> > +static atomic_t nr_include_guest_events __read_mostly;
+> > +
+> > +static atomic_t nr_mediated_pmu_vms __read_mostly;
+> > +static DEFINE_MUTEX(perf_mediated_pmu_mutex);
+> 
+> > +static int mediated_pmu_account_event(struct perf_event *event)
+> > +{
+> > +	if (!is_include_guest_event(event))
+> > +		return 0;
+> > +
+> > +	guard(mutex)(&perf_mediated_pmu_mutex);
+> > +
+> > +	if (atomic_read(&nr_mediated_pmu_vms))
+> > +		return -EOPNOTSUPP;
+> > +
+> > +	atomic_inc(&nr_include_guest_events);
+> > +	return 0;
+> > +}
+> > +
+> > +static void mediated_pmu_unaccount_event(struct perf_event *event)
+> > +{
+> > +	if (!is_include_guest_event(event))
+> > +		return;
+> > +
+> > +	atomic_dec(&nr_include_guest_events);
+> > +}
+> 
+> > +int perf_create_mediated_pmu(void)
+> > +{
+> > +	guard(mutex)(&perf_mediated_pmu_mutex);
+> > +	if (atomic_inc_not_zero(&nr_mediated_pmu_vms))
+> > +		return 0;
+> > +
+> > +	if (atomic_read(&nr_include_guest_events))
+> > +		return -EBUSY;
+> > +
+> > +	atomic_inc(&nr_mediated_pmu_vms);
+> > +	return 0;
+> > +}
+> > +EXPORT_SYMBOL_GPL(perf_create_mediated_pmu);
+> > +
+> > +void perf_release_mediated_pmu(void)
+> > +{
+> > +	if (WARN_ON_ONCE(!atomic_read(&nr_mediated_pmu_vms)))
+> > +		return;
+> > +
+> > +	atomic_dec(&nr_mediated_pmu_vms);
+> > +}
+> > +EXPORT_SYMBOL_GPL(perf_release_mediated_pmu);
+> 
+> These two things are supposed to be symmetric, but are implemented
+> differently; what gives?
+> 
+> That is, should not both have the general shape:
+> 
+> 	if (atomic_inc_not_zero(&A))
+> 		return 0;
+> 
+> 	guard(mutex)(&lock);
+> 
+> 	if (atomic_read(&B))
+> 		return -EBUSY;
+> 
+> 	atomic_inc(&A);
+> 	return 0;
+> 
+> Similarly, I would imagine both release variants to have the underflow
+> warn on like:
+> 
+> 	if (WARN_ON_ONCE(!atomic_read(&A)))
+> 		return;
+> 
+> 	atomic_dec(&A);
+> 
+> Hmm?
 
---===============5608505257143552075==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="SZ4voAMfwUKL6i6u"
-Content-Disposition: inline
+IIUC, you're suggesting someting like this?  If so, that makes perfect sense to me.
+
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index c6368c64b866..fa2e7b722283 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -6356,7 +6356,8 @@ static int mediated_pmu_account_event(struct perf_event *event)
+ 
+ static void mediated_pmu_unaccount_event(struct perf_event *event)
+ {
+-       if (!is_include_guest_event(event))
++       if (!is_include_guest_event(event) ||
++           WARN_ON_ONCE(!atomic_read(&nr_include_guest_events)))
+                return;
+ 
+        atomic_dec(&nr_include_guest_events);
+
+> Also, EXPORT_SYMBOL_FOR_KVM() ?
+
+Ya, for sure.  I posted this against a branch without EXPORT_SYMBOL_FOR_KVM(),
+because there are also hard dependencies on the for-6.19 KVM pull requests, and
+I didn't want to wait to post until 6.19-rc1 because of the impending winter
+break.  Though I also simply forgot about these exports :-(
+
+These could also use EXPORT_SYMBOL_FOR_KVM():
+
+  EXPORT_SYMBOL_FOR_MODULES(perf_load_guest_lvtpc, "kvm");
+  EXPORT_SYMBOL_FOR_MODULES(perf_put_guest_lvtpc, "kvm");
 
 
---SZ4voAMfwUKL6i6u
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Dec 06, 2025 at 01:18:30PM +0200, Claudiu Beznea wrote:
->=20
->=20
-> On 11/21/25 15:44, Conor Dooley wrote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> >=20
-> > This driver is used by non-polarfire devices now, and the ARCH_MICROCHIP
-> > symbol has been defined for some time on RISCV so drop it without any
-> > functional change.
-> >=20
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> >  drivers/clk/microchip/Kconfig | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> >=20
-> > diff --git a/drivers/clk/microchip/Kconfig b/drivers/clk/microchip/Kcon=
-fig
-> > index cab9a909893b..a0ef14310417 100644
-> > --- a/drivers/clk/microchip/Kconfig
-> > +++ b/drivers/clk/microchip/Kconfig
-> > @@ -5,8 +5,8 @@ config COMMON_CLK_PIC32
-> > =20
-> >  config MCHP_CLK_MPFS
-> >  	bool "Clk driver for PolarFire SoC"
-> > -	depends on ARCH_MICROCHIP_POLARFIRE || COMPILE_TEST
-> > -	default ARCH_MICROCHIP_POLARFIRE
-> > +	depends on ARCH_MICROCHIP || COMPILE_TEST
-> > +	default y
-> >  	depends on MFD_SYSCON
-> >  	select AUXILIARY_BUS
-> >  	select COMMON_CLK_DIVIDER_REGMAP
->=20
-> OK, I found v2 in my inbox. Same symptom here. It doesn't apply on top of
-> the current at91-next either.
-
-I think this should sort itself out after -rc1, but I'll resend if it
-doesn't.
-
---SZ4voAMfwUKL6i6u
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaTcSxwAKCRB4tDGHoIJi
-0gVcAQDoPZftNez0ce9Cr5hdYrZWaD7QcZQW5iseNvgVStkiYgEAtL73tR0IcFyP
-78nHFeNdr2XPy6pfdAdtCgcSvw7Ojg0=
-=t3LO
------END PGP SIGNATURE-----
-
---SZ4voAMfwUKL6i6u--
-
-
---===============5608505257143552075==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> I can make these edits when applying, if/when we get to applying. Let me
+> continue reading.
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5608505257143552075==--
-
