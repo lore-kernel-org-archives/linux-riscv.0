@@ -4,87 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD22D3B7EA
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Dec 2025 06:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1498FD3B7EA
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Dec 2025 08:09:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5ooTR5UFedsVbea9NOnjUkMpFU9g4OCaQUzbWMlYqqw=; b=UiL3ZimrHZKHnx
-	9XbPuhxD51/5klgM85Ha3okonOdRH/W6W70d98dlPH2EMpqtabxMlOTaI5K+ULuRZtd4EdYvXZ9VS
-	VFA1iIw/a1bP+NCn4j8KG3/vMHQfYN6QVhYtXQpGiG9qi1M/+dBMxZHoqY209gRLw1K/9UnQDYgbR
-	IvZbVAdxljFhOTWykPDx/4krbH01qRZoZU3RJHsK4a4YKPsOPpWn9WkGTMO/3QQAKWeWX1LP+oJew
-	5xjyS1HNJ9dO5KuqNFiu+Y9M4QHdYFhTU0CLi+UO1SQVIhS7V+Y9We4dmTcw3g5QAdvilosptBG+7
-	QGqny1kxQ2MElTLvdZ9A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=seUk7ku9ArLYFRMHEh9PfP8VvGdedVIFdnQUFNKGAoA=; b=WA1y7CCIDRiRgNRcWK1tbmqbTz
+	jbIklfs+nYgt6b9ItviP8JsNRjtlveG3/1FHt4iK+uugPnmyciES+rgnSfqhK/Ip5516lil6t4p3V
+	8TVusQ3dvV3RQ+HYKkcfKV2nT/z/qnxo5SUDRmcAg2fkVyLzEkABY99gNtRJ5gln3gGNMs/YvBKlo
+	CArOW8H0YIh92Rs4IMlPVKSEGN5tNRhJu89yS/pYpdda8i7Rdm2oZGtiC5NzoKMlqG6cq84iBfZGP
+	mMU6byA3wetmy1obuISGn51YttDsazcPvMfhHGu7yHgbVCJHzaaSvnyjoxyDTBpvsC36O0T1zCXGI
+	/MhK164w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSrG0-0000000DtDG-3NwO;
-	Tue, 09 Dec 2025 06:31:32 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1vSsm4-0000000DyXe-2oV2;
+	Tue, 09 Dec 2025 08:08:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSrFw-0000000DtCW-3vP3;
-	Tue, 09 Dec 2025 06:31:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1765261889; x=1796797889;
-  h=message-id:date:mime-version:subject:from:to:cc:
-   references:in-reply-to:content-transfer-encoding;
-  bh=3I2+FsbZXr1WnlAwsLrRK4zLjlcjjzCN2ZRMQ8uYaWE=;
-  b=nhK3dbG5OT0LTWKpnk5nbwaFY1SPEzMYbaRFIQqk7ODrZL+eT8JjFyOW
-   6iMhI+GZfViMdFDv6EWle4YLc4J0JHjIFOdsF48aRQGMhuhyHHYM+vhCt
-   SjuF03S6kumsMVrIi5YQ/myLU0BXv7cW9p1eegUjC0dpvWH4BDheyiZhm
-   g5PheeilxbwncQYB9kJeB0QzHhXnj3uO/ZNJWTleh3bUS9pPFLwVu220Y
-   ekEpGyY5Rh3w0ahE6RzgJ8hS0MK+dxfI2Yh5/MQw22BrVr4m6j3D9QY3K
-   C7zb+HfZedckS/WaSFBTI2BfNjHR3slJdzmkUdgfLa8lhW3Tzvy1fj6cU
-   g==;
-X-CSE-ConnectionGUID: 2kTCpqIoSNuwN9OkP5W0ng==
-X-CSE-MsgGUID: vOhp+sw0RPuG0OUbYcbneQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11636"; a="84621517"
-X-IronPort-AV: E=Sophos;i="6.20,260,1758610800"; 
-   d="scan'208";a="84621517"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2025 22:31:28 -0800
-X-CSE-ConnectionGUID: E0aTtjOiTQelMO5dDdd7mA==
-X-CSE-MsgGUID: 9WXsel9CRiO4rC94VpUqXQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,260,1758610800"; 
-   d="scan'208";a="196601217"
-Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.240.12]) ([10.124.240.12])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2025 22:31:20 -0800
-Message-ID: <8365c5ca-637d-4bef-a404-eb2166d384f5@linux.intel.com>
-Date: Tue, 9 Dec 2025 14:31:17 +0800
+	id 1vSsm2-0000000DyX6-1Z2l
+	for linux-riscv@lists.infradead.org;
+	Tue, 09 Dec 2025 08:08:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A587342A05;
+	Tue,  9 Dec 2025 08:08:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0824C4CEF5;
+	Tue,  9 Dec 2025 08:08:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765267720;
+	bh=RtLlcpTfLz2USeJH4EgZ5Bfw+5bkPGymDSn32qHKB5w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jd3rxWb/To5DpiKkKBBr2Zs3L2K8wvokog/m9FqvtGHziX/K1HppotDOO9+LU85gX
+	 G9UmQlfDAnaVUGVvNAvNgXXuQx0B5h4g4mx88v2qZN1UgddX4KaIDkyUyR08nehqzY
+	 DG0H9bRj2a0sYmnHMsCAb3R9wP2F3oTes9RWOLAYuRudGD/MeGxoeVteTLhnH4WUbs
+	 tq3+v250cHhl+1AApeR2QllCZFFJXN2+hCHgA0q9+Bw2BMC3xIIvmq9MPmryBTttKy
+	 pb0viuh5GF4RK8jRYG6NA7DcxJamvUG11dgvj9bwPMAGETZc1YTMZwrfsJR01KUyua
+	 B1CbHPf00fYPA==
+Date: Tue, 9 Dec 2025 09:08:37 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Markus Probst <markus.probst@posteo.de>, 
+	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	rust-for-linux@vger.kernel.org, Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Fu Wei <wefu@redhat.com>, Miguel Ojeda <ojeda@kernel.org>, 
+	Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>
+Subject: Re: [PATCH v2] rust: pwm: Add UnregisteredChip wrapper around Chip
+Message-ID: <zdwto7ahccckl2r3qoculu52lsus3dey2lcur2l3ltrxp5nrcf@djusgl5cdfu3>
+References: <CGME20251202181800eucas1p18be878cb74d14444f2df8bdcd7a718ee@eucas1p1.samsung.com>
+ <20251202-pwm_safe_register-v2-1-7a2e0d1e287f@posteo.de>
+ <a3f4e795-e56d-4de0-8b46-5c8ff96d5f77@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 44/44] KVM: VMX: Add mediated PMU support for CPUs
- without "save perf global ctrl"
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>,
- Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
- Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Mingwei Zhang <mizhang@google.com>, Xudong Hao <xudong.hao@intel.com>,
- Sandipan Das <sandipan.das@amd.com>,
- Xiong Zhang <xiong.y.zhang@linux.intel.com>,
- Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
-References: <20251206001720.468579-1-seanjc@google.com>
- <20251206001720.468579-45-seanjc@google.com>
- <ee30ed9c-6377-4d14-b930-f0e2c809df7c@linux.intel.com>
-Content-Language: en-US
-In-Reply-To: <ee30ed9c-6377-4d14-b930-f0e2c809df7c@linux.intel.com>
+In-Reply-To: <a3f4e795-e56d-4de0-8b46-5c8ff96d5f77@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_223129_076092_E6B6B260 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20251209_000842_523764_FF373971 
+X-CRM114-Status: GOOD (  25.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,191 +74,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6268276293466405191=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 12/8/2025 5:39 PM, Mi, Dapeng wrote:
-> On 12/6/2025 8:17 AM, Sean Christopherson wrote:
->> Extend mediated PMU support for Intel CPUs without support for saving
->> PERF_GLOBAL_CONTROL into the guest VMCS field on VM-Exit, e.g. for Skylake
->> and its derivatives, as well as Icelake.  While supporting CPUs without
->> VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL isn't completely trivial, it's not that
->> complex either.  And not supporting such CPUs would mean not supporting 7+
->> years of Intel CPUs released in the past 10 years.
->>
->> On VM-Exit, immediately propagate the saved PERF_GLOBAL_CTRL to the VMCS
->> as well as KVM's software cache so that KVM doesn't need to add full EXREG
->> tracking of PERF_GLOBAL_CTRL.  In practice, the vast majority of VM-Exits
->> won't trigger software writes to guest PERF_GLOBAL_CTRL, so deferring the
->> VMWRITE to the next VM-Enter would only delay the inevitable without
->> batching/avoiding VMWRITEs.
->>
->> Note!  Take care to refresh VM_EXIT_MSR_STORE_COUNT on nested VM-Exit, as
->> it's unfortunately possible that KVM could recalculate MSR intercepts
->> while L2 is active, e.g. if userspace loads nested state and _then_ sets
->> PERF_CAPABILITIES.  Eating the VMWRITE on every nested VM-Exit is
->> unfortunate, but that's a pre-existing problem and can/should be solved
->> separately, e.g. modifying the number of auto-load entries while L2 is
->> active is also uncommon on modern CPUs.
->>
->> Signed-off-by: Sean Christopherson <seanjc@google.com>
->> ---
->>  arch/x86/kvm/vmx/nested.c    |  6 ++++-
->>  arch/x86/kvm/vmx/pmu_intel.c |  7 -----
->>  arch/x86/kvm/vmx/vmx.c       | 52 ++++++++++++++++++++++++++++++++----
->>  3 files changed, 52 insertions(+), 13 deletions(-)
->>
->> diff --git a/arch/x86/kvm/vmx/nested.c b/arch/x86/kvm/vmx/nested.c
->> index 614b789ecf16..1ee1edc8419d 100644
->> --- a/arch/x86/kvm/vmx/nested.c
->> +++ b/arch/x86/kvm/vmx/nested.c
->> @@ -5142,7 +5142,11 @@ void __nested_vmx_vmexit(struct kvm_vcpu *vcpu, u32 vm_exit_reason,
->>  
->>  	kvm_nested_vmexit_handle_ibrs(vcpu);
->>  
->> -	/* Update any VMCS fields that might have changed while L2 ran */
->> +	/*
->> +	 * Update any VMCS fields that might have changed while vmcs02 was the
->> +	 * active VMCS.  The tracking is per-vCPU, not per-VMCS.
->> +	 */
->> +	vmcs_write32(VM_EXIT_MSR_STORE_COUNT, vmx->msr_autostore.nr);
->>  	vmcs_write32(VM_EXIT_MSR_LOAD_COUNT, vmx->msr_autoload.host.nr);
->>  	vmcs_write32(VM_ENTRY_MSR_LOAD_COUNT, vmx->msr_autoload.guest.nr);
->>  	vmcs_write64(TSC_OFFSET, vcpu->arch.tsc_offset);
->> diff --git a/arch/x86/kvm/vmx/pmu_intel.c b/arch/x86/kvm/vmx/pmu_intel.c
->> index 55249fa4db95..27eb76e6b6a0 100644
->> --- a/arch/x86/kvm/vmx/pmu_intel.c
->> +++ b/arch/x86/kvm/vmx/pmu_intel.c
->> @@ -777,13 +777,6 @@ static bool intel_pmu_is_mediated_pmu_supported(struct x86_pmu_capability *host_
->>  	if (WARN_ON_ONCE(!cpu_has_load_perf_global_ctrl()))
->>  		return false;
->>  
->> -	/*
->> -	 * KVM doesn't yet support mediated PMU on CPUs without support for
->> -	 * saving PERF_GLOBAL_CTRL via a dedicated VMCS field.
->> -	 */
->> -	if (!cpu_has_save_perf_global_ctrl())
->> -		return false;
->> -
->>  	return true;
->>  }
->>  
->> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
->> index 6a17cb90eaf4..ba1262c3e3ff 100644
->> --- a/arch/x86/kvm/vmx/vmx.c
->> +++ b/arch/x86/kvm/vmx/vmx.c
->> @@ -1204,6 +1204,17 @@ static bool update_transition_efer(struct vcpu_vmx *vmx)
->>  	return true;
->>  }
->>  
->> +static void vmx_add_autostore_msr(struct vcpu_vmx *vmx, u32 msr)
->> +{
->> +	vmx_add_auto_msr(&vmx->msr_autostore, msr, 0, VM_EXIT_MSR_STORE_COUNT,
->> +			 vmx->vcpu.kvm);
->> +}
->> +
->> +static void vmx_remove_autostore_msr(struct vcpu_vmx *vmx, u32 msr)
->> +{
->> +	vmx_remove_auto_msr(&vmx->msr_autostore, msr, VM_EXIT_MSR_STORE_COUNT);
->> +}
->> +
->>  #ifdef CONFIG_X86_32
->>  /*
->>   * On 32-bit kernels, VM exits still load the FS and GS bases from the
->> @@ -4225,6 +4236,8 @@ void pt_update_intercept_for_msr(struct kvm_vcpu *vcpu)
->>  
->>  static void vmx_recalc_pmu_msr_intercepts(struct kvm_vcpu *vcpu)
->>  {
->> +	u64 vm_exit_controls_bits = VM_EXIT_LOAD_IA32_PERF_GLOBAL_CTRL |
->> +				    VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL;
->>  	bool has_mediated_pmu = kvm_vcpu_has_mediated_pmu(vcpu);
->>  	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
->>  	struct vcpu_vmx *vmx = to_vmx(vcpu);
->> @@ -4234,12 +4247,19 @@ static void vmx_recalc_pmu_msr_intercepts(struct kvm_vcpu *vcpu)
->>  	if (!enable_mediated_pmu)
->>  		return;
->>  
->> +	if (!cpu_has_save_perf_global_ctrl()) {
->> +		vm_exit_controls_bits &= ~VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL;
->> +
->> +		if (has_mediated_pmu)
->> +			vmx_add_autostore_msr(vmx, MSR_CORE_PERF_GLOBAL_CTRL);
->> +		else
->> +			vmx_remove_autostore_msr(vmx, MSR_CORE_PERF_GLOBAL_CTRL);
->> +	}
->> +
->>  	vm_entry_controls_changebit(vmx, VM_ENTRY_LOAD_IA32_PERF_GLOBAL_CTRL,
->>  				    has_mediated_pmu);
->>  
->> -	vm_exit_controls_changebit(vmx, VM_EXIT_LOAD_IA32_PERF_GLOBAL_CTRL |
->> -					VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL,
->> -				   has_mediated_pmu);
->> +	vm_exit_controls_changebit(vmx, vm_exit_controls_bits, has_mediated_pmu);
->>  
->>  	for (i = 0; i < pmu->nr_arch_gp_counters; i++) {
->>  		vmx_set_intercept_for_msr(vcpu, MSR_IA32_PERFCTR0 + i,
->> @@ -7346,6 +7366,29 @@ static void atomic_switch_perf_msrs(struct vcpu_vmx *vmx)
->>  					      msrs[i].host);
->>  }
->>  
->> +static void vmx_refresh_guest_perf_global_control(struct kvm_vcpu *vcpu)
->> +{
->> +	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
->> +	struct vcpu_vmx *vmx = to_vmx(vcpu);
->> +
->> +	if (msr_write_intercepted(vmx, MSR_CORE_PERF_GLOBAL_CTRL))
->> +		return;
->> +
->> +	if (!cpu_has_save_perf_global_ctrl()) {
->> +		int slot = vmx_find_loadstore_msr_slot(&vmx->msr_autostore,
->> +						       MSR_CORE_PERF_GLOBAL_CTRL);
->> +
->> +		if (WARN_ON_ONCE(slot < 0))
->> +			return;
->> +
->> +		pmu->global_ctrl = vmx->msr_autostore.val[slot].value;
->> +		vmcs_write64(GUEST_IA32_PERF_GLOBAL_CTRL, pmu->global_ctrl);
->> +		return;
->> +	}
->> +
->> +	pmu->global_ctrl = vmcs_read64(GUEST_IA32_PERF_GLOBAL_CTRL);
->> +}
->> +
->>  static void vmx_update_hv_timer(struct kvm_vcpu *vcpu, bool force_immediate_exit)
->>  {
->>  	struct vcpu_vmx *vmx = to_vmx(vcpu);
->> @@ -7631,8 +7674,7 @@ fastpath_t vmx_vcpu_run(struct kvm_vcpu *vcpu, u64 run_flags)
->>  
->>  	vmx->loaded_vmcs->launched = 1;
->>  
->> -	if (!msr_write_intercepted(vmx, MSR_CORE_PERF_GLOBAL_CTRL))
->> -		vcpu_to_pmu(vcpu)->global_ctrl = vmcs_read64(GUEST_IA32_PERF_GLOBAL_CTRL);
->> +	vmx_refresh_guest_perf_global_control(vcpu);
->>  
->>  	vmx_recover_nmi_blocking(vmx);
->>  	vmx_complete_interrupts(vmx);
-> The change looks good to me, but I still have no bandwidth to test the code
-> on Ice lake, I would go back after I finish the tests. Thanks.
-
-Tested below test cases on Skylake and Sapphire Rapids servers for both
-mediated vPMU and Perf based emulated vPMU, no issue is found. Thanks.
-
-Kselftests: pmu_counters_test/pmu_event_filter_test/vmx_pmu_caps_test
-
-KVM-unit-tests: pmu/pmu_lbr/pmu_pebs
-
-Reviewed-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
-
-Tested-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+--===============6268276293466405191==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="s4iw3gf4t2dpvedc"
+Content-Disposition: inline
 
 
->
->
+--s4iw3gf4t2dpvedc
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2] rust: pwm: Add UnregisteredChip wrapper around Chip
+MIME-Version: 1.0
+
+On Sun, Dec 07, 2025 at 11:16:59PM +0100, Michal Wilczynski wrote:
+> On 12/2/25 19:17, Markus Probst wrote:
+> > The `pwm::Registration::register` function provides no guarantee that t=
+he
+> > function isn't called twice with the same pwm chip, which is considered
+> > unsafe.
+> >=20
+> > Add `pwm::UnregisteredChip` as wrapper around `pwm::Chip`.
+> > Implement `pwm::UnregisteredChip::register` for the registration. This
+> > function takes ownership of `pwm::UnregisteredChip` and therefore
+> > guarantees that the registration can't be called twice on the same pwm
+> > chip.
+> >=20
+> > Signed-off-by: Markus Probst <markus.probst@posteo.de>
+> > ---
+> > This patch provides the additional guarantee that the pwm chip doesn't
+> > get registered twice.
+> >=20
+> > The following changes were made:
+> > - change the visibility of `pwm::Registration` to private
+> > - remove the `pwm::Registration::register` function
+> > - add `pwm::UnregisteredChip` - a wrapper around `pwm::Chip`
+> > - return `pwm::UnregisteredChip` in `pwm::Chip::new`
+> > - add `pwm::UnregisteredChip::register` for registering the pwm chip
+> >   once
+> > - add Send + Sync bounds to `PwmOps`
+> >=20
+> > Note that I wasn't able to test this patch, due to the lack of hardware.
+> >=20
+> > Also I was not able to successfully compile drivers/pwm/pwm_th1520.rs,
+> > as `clk::Clk` seems to be missing. I haven't found the missing patch
+> > in linux-next nor in
+> >=20
+> > https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git/log/=
+?h=3Dpwm/for-next
+> >=20
+> > (the tree in which the th1520 pwm driver was merged).
+> > So please verify yourself that the driver compiles and throws no errors.
+
+What does "not able to successfully compile drivers/pwm/pwm_th1520.rs"
+mean? You were unable to find a .config that included CONFIG_PWM_TH1520,
+or you got a compiler error? If it's the latter, ...
+
+> I suspect your kernel configuration is missing CONFIG_COMMON_CLK.
+
+=2E.. are we missing a dependency for the driver?
+
+> Thank you for your work. I've tested this patch successfully.
+> Other than the typo this looks perfect.
+>=20
+> Tested-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> Acked-by: Michal Wilczynski <m.wilczynski@samsung.com>
+
+I applied the the patch to
+
+	https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for=
+-nexxt
+
+as 6.20 material with Michal's tags and the typo fixed.
+
+Thanks
+Uwe
+
+--s4iw3gf4t2dpvedc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmk32QIACgkQj4D7WH0S
+/k6nAgf/QrIW2SOzj5VyC7JWffgkMmIgcpXgz5LJAJH69mlroGtDRaNWm6PiGF2+
+KmyupX1UWeA+MQnNUyN5q5QafwNI8SpPAyJhQ/RXv5tpYeI25gsTeJg6xRw9STDR
+nuaU9VnNRv26IS507511zdmWBGdWtjiup6QzogHlJIBbBe1plzW2nmg4p9jXU66A
+8VbobpUWltvz8n7xlaycHOK4tkaPR7DLqiOATWxfBOyipfCbAPsUEjF0M9N8m1W0
+As2+iCPEQ3QmnNFIAKr7wdkPDC9V58TStvl72F6yYF3kl0COfihZu3fIsAaPPkiI
+ER2GAeFD3+56UAXKGQgYEyB+zuhNDg==
+=+IKm
+-----END PGP SIGNATURE-----
+
+--s4iw3gf4t2dpvedc--
+
+
+--===============6268276293466405191==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6268276293466405191==--
+
