@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C58DD3B7EA
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Dec 2025 00:54:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F15EDD3B7EA
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Dec 2025 02:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KIPHHsvvOR9bpaWSFqZdno22g6n82HCJOHGghJ4EPYM=; b=ztque/VXkeEMOO
-	gG3ZE6KRt6L8e1UlN8QNisxSIHkEbdkuxJGHQ94CjXearUC1kddUHoZDUk34uOtjniY9z54S/Aptz
-	aQ11+KPaLrclXVHipcxgJjtvt88XnI8J+rJUdPOkLk4vi3yIF2i6Ut3PlC92gwCP2muUUZEs+vqLG
-	SExEps67nk5CSgAopGf3VpNALSZYJo7so4Qp4rHJfq81FYn7BabnpNhMwCOWSP4qFH43DR1dwmrlQ
-	XR5B8u08PdqS+opndBr01KzGDm9F7cUcvk4VMxxt8SKfqQc+tHAhKPXYXLA5L5GlKP79eLB4OU3Ak
-	gm64poBIGyTl7lihF8nA==;
+	List-Owner; bh=OAiNxBspqaNCtEXbxfex8CFTh291KcdZvidHN2PRQK4=; b=NRqt/87xBYPZcH
+	rHViqqzjW5Q6er2I+DXyZoZ6XJqmSw8tKok+jWn1B7ownJyzilHjPmEdRDQKrTVJBO/c4QTbYVg1G
+	wOBTUo/Z5jz1HyTarnu5hOEwGkEW8eAsadn65oaOvWCCv/GcG05sZq/M6IsyVMYGrEHUPgtExRk4o
+	UB5BFDQkvylRJzOQp7Vz+z/sfkYv5unCkGzVDtFPCdRp9MIOZ78JqnfePJCU5Vf0Jb7h397uKinRr
+	JQClCr4KideBjzbU5ux7KI8tUc5m5u+CAgZrbdxidM5blvJR4BO9rA4+oW1Tov+DvITb+ujoQxXJz
+	v8lvZGqQYi9W7oW19OpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSlzO-0000000DgNP-17Fb;
-	Tue, 09 Dec 2025 00:54:02 +0000
-Received: from freeshell.de ([2a01:4f8:231:482b::2])
+	id 1vSnDx-0000000DjEp-1Fqa;
+	Tue, 09 Dec 2025 02:13:09 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSlzL-0000000DgMq-1MNB
+	id 1vSnDu-0000000DjEQ-2UA4
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Dec 2025 00:54:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
-	s=s2025; t=1765241608;
-	bh=JYbGL1yqQk9SuwODfYiIFqUpr7SdpAuoCOkoOtKwzjo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=n0BGyjBWBVeCMnYmYKWTILMYPfIjeney/xMqe0OhvU8ZLEGLi2p6M+2EtdGA8tzO5
-	 8srH96kKXvdBh8rM4UhzNG1NmoB5lkiOa5q8LXR8sgWJehogAPYVmB99PKL5/Q+rCq
-	 kKmmqI2k7oyjnkIGS3FAUyLaMXCsnQizHK8FZKJ5zzzunPdFD2KDvpHHqrwPOTHY14
-	 Gr35yDSTw5jFu64FHqnHwZ2YTv2kA1aoy51sbAEyoqzD7LqmZ5nuWHtQ3BT89h+7op
-	 YxXtNtmyACVEUZnsWxiIPuqz0ThsNfojJ2Py7W0wpy/MqmT8Lp2ppQ4jnAzO1ykRQs
-	 tzdSQgNHiNsOw==
-Received: from [192.168.2.54] (unknown [98.97.27.25])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 7A5E8B2215DE;
-	Tue,  9 Dec 2025 01:53:25 +0100 (CET)
-Message-ID: <0bb12889-cb28-44e7-b2d6-7ecba6264d1a@freeshell.de>
-Date: Mon, 8 Dec 2025 16:53:23 -0800
+	Tue, 09 Dec 2025 02:13:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1765246386; x=1796782386;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=t/n0Kb2PQ4ho9yOiWbXGt8ntdqBp4Egqu5F/G8IrLH4=;
+  b=BDNa51IPSdCYzCC7yJaSHB4MIwyXpumKfWmctY8rCZ4l/88fKq87fxpQ
+   XjKWNTKL2NVYdSHcaojZe1PB3iRLqw0kZy6CMS3eWZDCvnnbxpx5jXJj7
+   xwv2Kjvji7y56iqSEtSlKSCRkCvcJi2yyA499N1Ijn1COY1YO7kVHgzhH
+   kpIilO9nmbQm6pAgKXhCa/0bZh16kHb3noM2fvjflxtx3I5XkdQUTCzIk
+   2VZZ/Ft8nfSPNeQhirN8VT0jHy0dIGkKOKYI8KrmPSd6iDv3dCw3CErwp
+   xdlAOasoZOEteKbhWBRVMX8AClnsdX/a6t4jUTyMqqrB3RjmyWyvvEtJ2
+   A==;
+X-CSE-ConnectionGUID: cduP27I0TeKCiWNM4Ke78w==
+X-CSE-MsgGUID: nS281K+7RN2ahA4uV0wMWA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11636"; a="92673870"
+X-IronPort-AV: E=Sophos;i="6.20,260,1758610800"; 
+   d="scan'208";a="92673870"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2025 18:13:04 -0800
+X-CSE-ConnectionGUID: kMd9kbGSTMiVFdT/ioshHQ==
+X-CSE-MsgGUID: 7VGMrLKDT/GWc4gYkwlMOw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,260,1758610800"; 
+   d="scan'208";a="219442996"
+Received: from lkp-server01.sh.intel.com (HELO d335e3c6db51) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 08 Dec 2025 18:12:58 -0800
+Received: from kbuild by d335e3c6db51 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vSnDj-000000001Be-2v6q;
+	Tue, 09 Dec 2025 02:12:55 +0000
+Date: Tue, 9 Dec 2025 10:12:47 +0800
+From: kernel test robot <lkp@intel.com>
+To: Yunhui Cui <cuiyunhui@bytedance.com>, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, andii@kernel.org, andybnac@gmail.com,
+	apatel@ventanamicro.com, ast@kernel.org, ben.dooks@codethink.co.uk,
+	bjorn@kernel.org, bpf@vger.kernel.org, charlie@rivosinc.com,
+	cl@gentwo.org, conor.dooley@microchip.com, cyrilbur@tenstorrent.com,
+	daniel@iogearbox.net, debug@rivosinc.com, dennis@kernel.org,
+	eddyz87@gmail.com, haoluo@google.com, john.fastabend@gmail.com,
+	jolsa@kernel.org, kpsingh@kernel.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+	linux@rasmusvillemoes.dk, martin.lau@linux.dev, palmer@dabbelt.com,
+	pjw@kernel.org, puranjay@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH v2 2/3] riscv: introduce percpu.h into include/asm
+Message-ID: <202512090907.agDhp0Nd-lkp@intel.com>
+References: <20251208034944.73113-3-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] riscv: dts: starfive: Append starfive,jh7110
- compatible to VisionFive 2 Lite
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
- Conor Dooley <conor@kernel.org>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Hal Feng <hal.feng@starfivetech.com>,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Conor Dooley <conor.dooley@microchip.com>
-References: <20251206204540.112614-1-e@freeshell.de>
- <20251208-jogging-morally-9b787b7ab1b8@spud>
- <a18850ad-b6de-4444-9daf-a4a653f4f9ae@canonical.com>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <a18850ad-b6de-4444-9daf-a4a653f4f9ae@canonical.com>
+Content-Disposition: inline
+In-Reply-To: <20251208034944.73113-3-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_165359_861730_6FD39CB7 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20251208_181306_675244_1569A5F0 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,94 +98,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Yunhui,
 
-On 12/8/25 08:38, Heinrich Schuchardt wrote:
-> On 12/8/25 17:29, Conor Dooley wrote:
->> On Sat, Dec 06, 2025 at 12:45:30PM -0800, E Shattow wrote:
->>> Append starfive,jh7110 compatible to VisionFive 2 Lite and VisionFive 2
->>> Lite eMMC in the "least compatible" end of the list. JH7110S on these
->>> boards is the same tape-out as JH7110 however rated for thermal,
->>> voltage,
->>> and frequency characteristics for a maximum of 1.25GHz operation.
->>>
->>> Link to previous discussion suggesting this change:
->>> https://lore.kernel.org/lkml/1f96a267-f5c6-498e-
->>> a2c4-7a47a73ea7e7@canonical.com/
->>>
->>> Fixes: 900b32fd601b ("riscv: dts: starfive: Add VisionFive 2 Lite
->>> board device tree")
->>> Fixes: ae264ae12442 ("riscv: dts: starfive: Add VisionFive 2 Lite
->>> eMMC board device tree")
->>> Suggested-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
->>> Signed-off-by: E Shattow <e@freeshell.de>
->>
+kernel test robot noticed the following build errors:
 
->> You can't do this without modifying the binding too, as this doesn't
->> pass dtbs_check.
+[auto build test ERROR on linus/master]
+[also build test ERROR on v6.18 next-20251208]
+[cannot apply to bpf-next/net bpf-next/master bpf/master]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Will fix, thanks.
+url:    https://github.com/intel-lab-lkp/linux/commits/Yunhui-Cui/riscv-remove-irqflags-h-inclusion-in-asm-bitops-h/20251208-115407
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20251208034944.73113-3-cuiyunhui%40bytedance.com
+patch subject: [PATCH v2 2/3] riscv: introduce percpu.h into include/asm
+config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20251209/202512090907.agDhp0Nd-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251209/202512090907.agDhp0Nd-lkp@intel.com/reproduce)
 
->>
->> However, is this actually correct? The frequency of operation and the
->> temperature range aren't a superset of what the jh7110 can do, what is
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512090907.agDhp0Nd-lkp@intel.com/
 
-The unanswered question what I was asking in the code review of StarFive
-VisionFive 2 Lite series: What is the normal thing to do for compatible
-strings of relabeled silicon when there is a suggestion of different
-operational parameters?
+All errors (new ones prefixed by >>):
 
-The devicetree/usage-model documentation does mention SoC family but is
-not specific about any marketing or quality assurance test for silicon
-binning. For the K1/M1 SpacemiT chips relabled as Ky manufacture there's
-no suggestion that the relabeled chips have different operational
-parameters and so a new compatible was rejected then.
+   In file included from include/linux/atomic.h:80,
+                    from include/linux/cpumask.h:10,
+                    from include/linux/smp.h:13,
+                    from include/linux/lockdep.h:14,
+                    from include/linux/spinlock.h:63,
+                    from include/linux/mmzone.h:8,
+                    from include/linux/gfp.h:7,
+                    from include/linux/mm.h:7,
+                    from mm/slub.c:13:
+   mm/slub.c: In function '__update_cpu_freelist_fast':
+>> include/linux/atomic/atomic-arch-fallback.h:414:30: error: implicit declaration of function 'arch_cmpxchg128_local'; did you mean 'arch_cmpxchg64_local'? [-Wimplicit-function-declaration]
+     414 | #define raw_cmpxchg128_local arch_cmpxchg128_local
+         |                              ^~~~~~~~~~~~~~~~~~~~~
+   include/linux/atomic/atomic-instrumented.h:5005:9: note: in expansion of macro 'raw_cmpxchg128_local'
+    5005 |         raw_cmpxchg128_local(__ai_ptr, __VA_ARGS__); \
+         |         ^~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/percpu.h:231:17: note: in expansion of macro 'cmpxchg128_local'
+     231 |         ret__ = cmpxchg128_local(ptr__, old__, new__);                  \
+         |                 ^~~~~~~~~~~~~~~~
+   include/asm-generic/percpu.h:110:17: note: in expansion of macro 'this_cpu_cmpxchg128'
+     110 |         __val = _cmpxchg(pcp, __old, nval);                             \
+         |                 ^~~~~~~~
+   include/asm-generic/percpu.h:529:9: note: in expansion of macro '__cpu_fallback_try_cmpxchg'
+     529 |         __cpu_fallback_try_cmpxchg(pcp, ovalp, nval, this_cpu_cmpxchg128)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   mm/slab.h:24:41: note: in expansion of macro 'this_cpu_try_cmpxchg128'
+      24 | #define this_cpu_try_cmpxchg_freelist   this_cpu_try_cmpxchg128
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~
+   mm/slub.c:4380:16: note: in expansion of macro 'this_cpu_try_cmpxchg_freelist'
+    4380 |         return this_cpu_try_cmpxchg_freelist(s->cpu_slab->freelist_tid,
+         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The reset condition of 1000MHz @ 0.9V on the family of JH7110/JH7110-S
-boards is not present in the dts OPP tables for jh7110 and jh7110s dts.
-I've asked previously [1] (in the discussions about bootph-pre-ram
-hints) before having knowledge that there was a JH-7110S product
-planned, what prevents JH-7110 from having more than 4 divider operating
-points and including this default condition? Not having been tested
-seems to be the answer. Not all testing results are published or
-described in code upstream either. I'm making my guess based on what
-information that is available.
 
-1:
-https://lore.kernel.org/lkml/40d77aae-9e53-4981-a2aa-dcdc6f11ac83@freeshell.de/
+vim +414 include/linux/atomic/atomic-arch-fallback.h
 
->> the actual advantage of having it? If there's some software that this
+9257959a6e5b4f Mark Rutland 2023-06-05  413  
+9257959a6e5b4f Mark Rutland 2023-06-05 @414  #define raw_cmpxchg128_local arch_cmpxchg128_local
+e6ce9d741163af Uros Bizjak  2023-04-05  415  
 
-Unless I misunderstand the meaning (as above), then this is what is
-recommended for in the documentation. Heinrich confirms this avoids the
-need for checking the new "starfive,jh7110s" SoC compatible. Maybe I'm
-wrong about this approach for binned silicon? Please someone give me a
-clue if this was answered already and I missed it.
-
->> would make a difference for, please mention it in the commit message.
-> 
-> Appending "starfive,jh7110" would reduce the number of compatible
-> strings to check in the OpenSBI platform driver.
-
-I can include the (paraphrased) above summary by Heinrich, yes. Although
-now I doubt whether this is the best approach, when removal of
-"starfive,jh7110s" compatible is potentially an equally valid fix, or if
-we're rather considering JH7110 at 1.5GHz maximum to be a superset of
-itself at 1.25GHz maximum (JH-7110S). Would we want to change all the
-JH-7110 boards to then have JH-7110S as the least-compatible, if I am
-understanding that meaning of "superset"? I would like to know what is
-expected.
-
-> 
-> Best regards
-> 
-> Heinrich
-> 
->>
->> Cheers,
->> Conor.
->>
-
-Thanks for the review, -E
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
