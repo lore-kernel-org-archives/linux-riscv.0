@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1498FD3B7EA
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Dec 2025 08:09:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4C46D3B7EA
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Dec 2025 10:22:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=seUk7ku9ArLYFRMHEh9PfP8VvGdedVIFdnQUFNKGAoA=; b=WA1y7CCIDRiRgNRcWK1tbmqbTz
-	jbIklfs+nYgt6b9ItviP8JsNRjtlveG3/1FHt4iK+uugPnmyciES+rgnSfqhK/Ip5516lil6t4p3V
-	8TVusQ3dvV3RQ+HYKkcfKV2nT/z/qnxo5SUDRmcAg2fkVyLzEkABY99gNtRJ5gln3gGNMs/YvBKlo
-	CArOW8H0YIh92Rs4IMlPVKSEGN5tNRhJu89yS/pYpdda8i7Rdm2oZGtiC5NzoKMlqG6cq84iBfZGP
-	mMU6byA3wetmy1obuISGn51YttDsazcPvMfhHGu7yHgbVCJHzaaSvnyjoxyDTBpvsC36O0T1zCXGI
-	/MhK164w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=I/W372T4tfWT/3gRbaVy5KjH6vlceI0bZnh4YvMFqKw=; b=wfYsLkknODRJRF
+	zbmk4JzQyM/YhHo9OIrUui/tgItvFEX5ZVlOGDXDOBoBjB4Oj6oVKnbSArigbmAK9GK1plAvGiycW
+	fy821UBaku0fbq/c8/7i/gMA4EZ9gU9na7BGlXVKpdFLokGLl/vZ58tdvPSIXmSA0lH+3dC+ED5Fd
+	CvOjJNw6xs5llKe21zpldhJhVyZ2493bgTTbeFDhNIZQCkcJbjVH85mGNghTDFJ0KRq/OvAbe32bc
+	GktxlVWEuQLaJHBfV1gYdtljewl2Wqfh4GJmhEiB7muJat9EFfn+wxNbSrIDxw18suZ55sMtoWOKG
+	djE97t9qEBBHVyagK9dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSsm4-0000000DyXe-2oV2;
-	Tue, 09 Dec 2025 08:08:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vSur5-0000000E6Hy-0HHX;
+	Tue, 09 Dec 2025 10:22:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSsm2-0000000DyX6-1Z2l
+	id 1vSur2-0000000E6Hd-3cxZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Dec 2025 08:08:43 +0000
+	Tue, 09 Dec 2025 10:22:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A587342A05;
-	Tue,  9 Dec 2025 08:08:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0824C4CEF5;
-	Tue,  9 Dec 2025 08:08:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CF2E342AE5;
+	Tue,  9 Dec 2025 10:21:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D9C3C4CEF5;
+	Tue,  9 Dec 2025 10:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765267720;
-	bh=RtLlcpTfLz2USeJH4EgZ5Bfw+5bkPGymDSn32qHKB5w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jd3rxWb/To5DpiKkKBBr2Zs3L2K8wvokog/m9FqvtGHziX/K1HppotDOO9+LU85gX
-	 G9UmQlfDAnaVUGVvNAvNgXXuQx0B5h4g4mx88v2qZN1UgddX4KaIDkyUyR08nehqzY
-	 DG0H9bRj2a0sYmnHMsCAb3R9wP2F3oTes9RWOLAYuRudGD/MeGxoeVteTLhnH4WUbs
-	 tq3+v250cHhl+1AApeR2QllCZFFJXN2+hCHgA0q9+Bw2BMC3xIIvmq9MPmryBTttKy
-	 pb0viuh5GF4RK8jRYG6NA7DcxJamvUG11dgvj9bwPMAGETZc1YTMZwrfsJR01KUyua
-	 B1CbHPf00fYPA==
-Date: Tue, 9 Dec 2025 09:08:37 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Markus Probst <markus.probst@posteo.de>, 
-	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
-	Fu Wei <wefu@redhat.com>, Miguel Ojeda <ojeda@kernel.org>, 
-	Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH v2] rust: pwm: Add UnregisteredChip wrapper around Chip
-Message-ID: <zdwto7ahccckl2r3qoculu52lsus3dey2lcur2l3ltrxp5nrcf@djusgl5cdfu3>
-References: <CGME20251202181800eucas1p18be878cb74d14444f2df8bdcd7a718ee@eucas1p1.samsung.com>
- <20251202-pwm_safe_register-v2-1-7a2e0d1e287f@posteo.de>
- <a3f4e795-e56d-4de0-8b46-5c8ff96d5f77@samsung.com>
+	s=k20201202; t=1765275719;
+	bh=JgYIw3ICBrpjk2agf17x1ioIPfJ402eUxH3SB5S+2xY=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=WbGKERRNRYy6gW6/W/bFlLsP98T+EQnkqyCCqYlyww81Nmak/e/s+N6QS69RW5Hsy
+	 /2RI3XCmMnRCfyL/LcFr8+Z3W85G2ZaOB5LBYcYuDRTQn/gCJNmFIiDpajoU+9O8c+
+	 vpYs76S0VU1Ldu5qfwQ2+LTK6eFmolkLLpFTfbBokamUWrcy2g1iap/OKqajHGmBex
+	 wQOfGG21Qr0b5qceYqFvuOLCMw5h5sAQrwkA6AZkbBqeGyrC8MmCZRPh3hD/5ElLFS
+	 vu0UuYBmhXy+MvmHACkmcOnglPb+Z8KorQlA5NY/YPuftsLoBjHh6vu8NYaIOzdult
+	 2UdOXsqsJUh1w==
+From: Mark Brown <broonie@kernel.org>
+To: linux-kernel@vger.kernel.org, 
+ Javier Martinez Canillas <javierm@redhat.com>
+Cc: Alex Elder <elder@riscstar.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Yixun Lan <dlan@gentoo.org>, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev
+In-Reply-To: <20251206133852.1739475-1-javierm@redhat.com>
+References: <20251206133852.1739475-1-javierm@redhat.com>
+Subject: Re: [PATCH] regulator: spacemit: Align input supply name with the
+ DT binding
+Message-Id: <176527571370.622933.17720204195171811423.b4-ty@kernel.org>
+Date: Tue, 09 Dec 2025 19:21:53 +0900
 MIME-Version: 1.0
-In-Reply-To: <a3f4e795-e56d-4de0-8b46-5c8ff96d5f77@samsung.com>
+X-Mailer: b4 0.15-dev-47773
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_000842_523764_FF373971 
-X-CRM114-Status: GOOD (  25.21  )
+X-CRM114-CacheID: sfid-20251209_022200_928331_0001D804 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,115 +70,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6268276293466405191=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sat, 06 Dec 2025 14:38:48 +0100, Javier Martinez Canillas wrote:
+> The Device Tree binding schema for the SpacemiT P1 PMIC defines the main
+> input supply property as "vin-supply", but the driver defines the supply
+> name for BUCK and ALDO regulators as "vcc".
+> 
+> This causes the regulator core to lookup for a non-existent "vcc-supply".
+> Rename the supply from "vcc" to "vin", to match the DT binding and ensure
+> that the regulators input supplies are correctly resolved.
+> 
+> [...]
 
---===============6268276293466405191==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="s4iw3gf4t2dpvedc"
-Content-Disposition: inline
+Applied to
 
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
 
---s4iw3gf4t2dpvedc
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2] rust: pwm: Add UnregisteredChip wrapper around Chip
-MIME-Version: 1.0
+Thanks!
 
-On Sun, Dec 07, 2025 at 11:16:59PM +0100, Michal Wilczynski wrote:
-> On 12/2/25 19:17, Markus Probst wrote:
-> > The `pwm::Registration::register` function provides no guarantee that t=
-he
-> > function isn't called twice with the same pwm chip, which is considered
-> > unsafe.
-> >=20
-> > Add `pwm::UnregisteredChip` as wrapper around `pwm::Chip`.
-> > Implement `pwm::UnregisteredChip::register` for the registration. This
-> > function takes ownership of `pwm::UnregisteredChip` and therefore
-> > guarantees that the registration can't be called twice on the same pwm
-> > chip.
-> >=20
-> > Signed-off-by: Markus Probst <markus.probst@posteo.de>
-> > ---
-> > This patch provides the additional guarantee that the pwm chip doesn't
-> > get registered twice.
-> >=20
-> > The following changes were made:
-> > - change the visibility of `pwm::Registration` to private
-> > - remove the `pwm::Registration::register` function
-> > - add `pwm::UnregisteredChip` - a wrapper around `pwm::Chip`
-> > - return `pwm::UnregisteredChip` in `pwm::Chip::new`
-> > - add `pwm::UnregisteredChip::register` for registering the pwm chip
-> >   once
-> > - add Send + Sync bounds to `PwmOps`
-> >=20
-> > Note that I wasn't able to test this patch, due to the lack of hardware.
-> >=20
-> > Also I was not able to successfully compile drivers/pwm/pwm_th1520.rs,
-> > as `clk::Clk` seems to be missing. I haven't found the missing patch
-> > in linux-next nor in
-> >=20
-> > https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git/log/=
-?h=3Dpwm/for-next
-> >=20
-> > (the tree in which the th1520 pwm driver was merged).
-> > So please verify yourself that the driver compiles and throws no errors.
+[1/1] regulator: spacemit: Align input supply name with the DT binding
+      commit: 99f0c3a654c4a762aca4fadc8d9f8636b36d570a
 
-What does "not able to successfully compile drivers/pwm/pwm_th1520.rs"
-mean? You were unable to find a .config that included CONFIG_PWM_TH1520,
-or you got a compiler error? If it's the latter, ...
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-> I suspect your kernel configuration is missing CONFIG_COMMON_CLK.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-=2E.. are we missing a dependency for the driver?
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-> Thank you for your work. I've tested this patch successfully.
-> Other than the typo this looks perfect.
->=20
-> Tested-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> Acked-by: Michal Wilczynski <m.wilczynski@samsung.com>
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-I applied the the patch to
+Thanks,
+Mark
 
-	https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for=
--nexxt
-
-as 6.20 material with Michal's tags and the typo fixed.
-
-Thanks
-Uwe
-
---s4iw3gf4t2dpvedc
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmk32QIACgkQj4D7WH0S
-/k6nAgf/QrIW2SOzj5VyC7JWffgkMmIgcpXgz5LJAJH69mlroGtDRaNWm6PiGF2+
-KmyupX1UWeA+MQnNUyN5q5QafwNI8SpPAyJhQ/RXv5tpYeI25gsTeJg6xRw9STDR
-nuaU9VnNRv26IS507511zdmWBGdWtjiup6QzogHlJIBbBe1plzW2nmg4p9jXU66A
-8VbobpUWltvz8n7xlaycHOK4tkaPR7DLqiOATWxfBOyipfCbAPsUEjF0M9N8m1W0
-As2+iCPEQ3QmnNFIAKr7wdkPDC9V58TStvl72F6yYF3kl0COfihZu3fIsAaPPkiI
-ER2GAeFD3+56UAXKGQgYEyB+zuhNDg==
-=+IKm
------END PGP SIGNATURE-----
-
---s4iw3gf4t2dpvedc--
-
-
---===============6268276293466405191==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6268276293466405191==--
-
