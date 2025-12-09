@@ -4,61 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4C46D3B7EA
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Dec 2025 10:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3879D3B7F3
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Dec 2025 12:27:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I/W372T4tfWT/3gRbaVy5KjH6vlceI0bZnh4YvMFqKw=; b=wfYsLkknODRJRF
-	zbmk4JzQyM/YhHo9OIrUui/tgItvFEX5ZVlOGDXDOBoBjB4Oj6oVKnbSArigbmAK9GK1plAvGiycW
-	fy821UBaku0fbq/c8/7i/gMA4EZ9gU9na7BGlXVKpdFLokGLl/vZ58tdvPSIXmSA0lH+3dC+ED5Fd
-	CvOjJNw6xs5llKe21zpldhJhVyZ2493bgTTbeFDhNIZQCkcJbjVH85mGNghTDFJ0KRq/OvAbe32bc
-	GktxlVWEuQLaJHBfV1gYdtljewl2Wqfh4GJmhEiB7muJat9EFfn+wxNbSrIDxw18suZ55sMtoWOKG
-	djE97t9qEBBHVyagK9dA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OXd7T53EykpmiFFS3JL+xuWyrVH65RKtNdMOojFGOTU=; b=SG2Uja4MFIHzTbNY2+Ts6CaiFb
+	n+NEk5zkvUvHiRxBVeR3puhrAb8OXvhqJFqkhkAowoZ3lSBSAYHBwxQfCsHbPHm7U07iKkMd9x3iQ
+	+fxmQwm7Y7lIRLh8obfh7FkE+Zf0yPq0gCofkFT5X5OGXw4GGeVFL9sM5y1lkagoqlVzSLGMp65G3
+	Fe7WDp4OkFurKYpUdYMv648VYLu6yzaoS/MWCVrHniNCW2N1Ef1Bz1Eb5fHoOADrMtm2hxFfOXv97
+	bNi/bOnCTr7X7ADtc5U3moqm7gKENlL1uORMl2pfCg83480QFAgDtzWlT9vSvOqVfKYpYGQlUjUsc
+	B9vcTZ+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSur5-0000000E6Hy-0HHX;
-	Tue, 09 Dec 2025 10:22:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vSwnk-0000000EErz-44nT;
+	Tue, 09 Dec 2025 12:26:44 +0000
+Received: from mout01.posteo.de ([185.67.36.65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSur2-0000000E6Hd-3cxZ
+	id 1vSwni-0000000EErW-0790
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Dec 2025 10:22:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CF2E342AE5;
-	Tue,  9 Dec 2025 10:21:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D9C3C4CEF5;
-	Tue,  9 Dec 2025 10:21:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765275719;
-	bh=JgYIw3ICBrpjk2agf17x1ioIPfJ402eUxH3SB5S+2xY=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=WbGKERRNRYy6gW6/W/bFlLsP98T+EQnkqyCCqYlyww81Nmak/e/s+N6QS69RW5Hsy
-	 /2RI3XCmMnRCfyL/LcFr8+Z3W85G2ZaOB5LBYcYuDRTQn/gCJNmFIiDpajoU+9O8c+
-	 vpYs76S0VU1Ldu5qfwQ2+LTK6eFmolkLLpFTfbBokamUWrcy2g1iap/OKqajHGmBex
-	 wQOfGG21Qr0b5qceYqFvuOLCMw5h5sAQrwkA6AZkbBqeGyrC8MmCZRPh3hD/5ElLFS
-	 vu0UuYBmhXy+MvmHACkmcOnglPb+Z8KorQlA5NY/YPuftsLoBjHh6vu8NYaIOzdult
-	 2UdOXsqsJUh1w==
-From: Mark Brown <broonie@kernel.org>
-To: linux-kernel@vger.kernel.org, 
- Javier Martinez Canillas <javierm@redhat.com>
-Cc: Alex Elder <elder@riscstar.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Yixun Lan <dlan@gentoo.org>, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev
-In-Reply-To: <20251206133852.1739475-1-javierm@redhat.com>
-References: <20251206133852.1739475-1-javierm@redhat.com>
-Subject: Re: [PATCH] regulator: spacemit: Align input supply name with the
- DT binding
-Message-Id: <176527571370.622933.17720204195171811423.b4-ty@kernel.org>
-Date: Tue, 09 Dec 2025 19:21:53 +0900
+	Tue, 09 Dec 2025 12:26:43 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout01.posteo.de (Postfix) with ESMTPS id 79034240027
+	for <linux-riscv@lists.infradead.org>; Tue,  9 Dec 2025 13:26:36 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de; s=2017;
+	t=1765283197; bh=6kRQgAvNv1wCmszLH8/EHGjD0iO0c93xPFEurhW0eac=;
+	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
+	 MIME-Version:OpenPGP:From;
+	b=Q6jZpHtmwaUfK2eFiVH0kMDufXBcdb1km900Z+7u03SM69irDz5DYdZTahm3ngzLq
+	 cl5FD2abVBgo77hUH731qTek4Oq2YAh91VYobUDuEqIx9ewSt/MMBVvjWGKoyOmH14
+	 UKlpoU1v65F/OKCXxyVwe4qCevzycJPCafC2WIeyDz/pjgjCMtQFeOajzL/9aFs63D
+	 tGFHmScPO6X65TQoozVZ8U4ELCB2QV5pTYcal9KlOQOQfAnQwr8hx9jPN6C9bcfVvm
+	 huOBq8AGzSoR7NSRNSpKoGHq54eETQq+mUpsZcaanQF1zkYrMNy+DfeZbmOAnvKnuZ
+	 2ITDFNGyPy5Sg==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4dQdPj5xygz9rxB;
+	Tue,  9 Dec 2025 13:26:33 +0100 (CET)
+Message-ID: <a66b337528d700ae92d7940a04c59206e06a8495.camel@posteo.de>
+Subject: Re: [PATCH v2] rust: pwm: Add UnregisteredChip wrapper around Chip
+From: Markus Probst <markus.probst@posteo.de>
+To: Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>, Michal
+ Wilczynski <m.wilczynski@samsung.com>
+Cc: linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, Drew Fustini	
+ <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei
+ <wefu@redhat.com>,  Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor
+ <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>,  Gary Guo
+ <gary@garyguo.net>, =?ISO-8859-1?Q?Bj=F6rn?= Roy Baron
+ <bjorn3_gh@protonmail.com>,  Benno Lossin <lossin@kernel.org>, Andreas
+ Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+ Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>
+Date: Tue, 09 Dec 2025 12:26:36 +0000
+In-Reply-To: <zdwto7ahccckl2r3qoculu52lsus3dey2lcur2l3ltrxp5nrcf@djusgl5cdfu3>
+References: <CGME20251202181800eucas1p18be878cb74d14444f2df8bdcd7a718ee@eucas1p1.samsung.com>
+	 <20251202-pwm_safe_register-v2-1-7a2e0d1e287f@posteo.de>
+	 <a3f4e795-e56d-4de0-8b46-5c8ff96d5f77@samsung.com>
+	 <zdwto7ahccckl2r3qoculu52lsus3dey2lcur2l3ltrxp5nrcf@djusgl5cdfu3>
+Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
+ keydata=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
+ 66sLA9g==
 MIME-Version: 1.0
-X-Mailer: b4 0.15-dev-47773
+OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_022200_928331_0001D804 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20251209_042642_369680_6869D674 
+X-CRM114-Status: GOOD (  29.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,52 +112,152 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6722869363239242018=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 06 Dec 2025 14:38:48 +0100, Javier Martinez Canillas wrote:
-> The Device Tree binding schema for the SpacemiT P1 PMIC defines the main
-> input supply property as "vin-supply", but the driver defines the supply
-> name for BUCK and ALDO regulators as "vcc".
-> 
-> This causes the regulator core to lookup for a non-existent "vcc-supply".
-> Rename the supply from "vcc" to "vin", to match the DT binding and ensure
-> that the regulators input supplies are correctly resolved.
-> 
-> [...]
 
-Applied to
+--===============6722869363239242018==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-lFLVTFC6qwbla7dI63F6"
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
 
-Thanks!
+--=-lFLVTFC6qwbla7dI63F6
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-[1/1] regulator: spacemit: Align input supply name with the DT binding
-      commit: 99f0c3a654c4a762aca4fadc8d9f8636b36d570a
+On Tue, 2025-12-09 at 09:08 +0100, Uwe Kleine-K=C3=B6nig wrote:
+> On Sun, Dec 07, 2025 at 11:16:59PM +0100, Michal Wilczynski wrote:
+> > On 12/2/25 19:17, Markus Probst wrote:
+> > > The `pwm::Registration::register` function provides no guarantee that=
+ the
+> > > function isn't called twice with the same pwm chip, which is consider=
+ed
+> > > unsafe.
+> > >=20
+> > > Add `pwm::UnregisteredChip` as wrapper around `pwm::Chip`.
+> > > Implement `pwm::UnregisteredChip::register` for the registration. Thi=
+s
+> > > function takes ownership of `pwm::UnregisteredChip` and therefore
+> > > guarantees that the registration can't be called twice on the same pw=
+m
+> > > chip.
+> > >=20
+> > > Signed-off-by: Markus Probst <markus.probst@posteo.de>
+> > > ---
+> > > This patch provides the additional guarantee that the pwm chip doesn'=
+t
+> > > get registered twice.
+> > >=20
+> > > The following changes were made:
+> > > - change the visibility of `pwm::Registration` to private
+> > > - remove the `pwm::Registration::register` function
+> > > - add `pwm::UnregisteredChip` - a wrapper around `pwm::Chip`
+> > > - return `pwm::UnregisteredChip` in `pwm::Chip::new`
+> > > - add `pwm::UnregisteredChip::register` for registering the pwm chip
+> > >   once
+> > > - add Send + Sync bounds to `PwmOps`
+> > >=20
+> > > Note that I wasn't able to test this patch, due to the lack of hardwa=
+re.
+> > >=20
+> > > Also I was not able to successfully compile drivers/pwm/pwm_th1520.rs=
+,
+> > > as `clk::Clk` seems to be missing. I haven't found the missing patch
+> > > in linux-next nor in
+> > >=20
+> > > https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git/lo=
+g/?h=3Dpwm/for-next
+> > >=20
+> > > (the tree in which the th1520 pwm driver was merged).
+> > > So please verify yourself that the driver compiles and throws no erro=
+rs.
+>=20
+> What does "not able to successfully compile drivers/pwm/pwm_th1520.rs"
+> mean? You were unable to find a .config that included CONFIG_PWM_TH1520,
+> or you got a compiler error? If it's the latter, ...
+>=20
+> > I suspect your kernel configuration is missing CONFIG_COMMON_CLK.
+>=20
+> ... are we missing a dependency for the driver?
+I got a compiler error. Enabling CONFIG_COMMON_CLK indeed fixes it.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Without it:
+  CLIPPY     drivers/pwm/pwm_th1520.o
+error[E0432]: unresolved import `kernel::clk::Clk`
+  --> drivers/pwm/pwm_th1520.rs:26:5
+   |
+26 |     clk::Clk,
+   |     ^^^^^^^^ no `Clk` in `clk`
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+error: aborting due to 1 previous error
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+For more information about this error, try `rustc --explain E0432`.
+make[4]: *** [scripts/Makefile.build:354: drivers/pwm/pwm_th1520.o]
+Error 1
+make[3]: *** [scripts/Makefile.build:556: drivers/pwm] Error 2
+make[2]: *** [scripts/Makefile.build:556: drivers] Error 2
+make[1]: *** [/home/markustieger/build/synology/linux-
+upstream/Makefile:2010: .] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+A simple fix would be to add "depends on COMMON_CLK" in
+drivers/pwm/Kconfig for PWM_TH1520.
 
-Thanks,
-Mark
+Thanks
+- Markus Probst
 
+>=20
+> > Thank you for your work. I've tested this patch successfully.
+> > Other than the typo this looks perfect.
+> >=20
+> > Tested-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> > Acked-by: Michal Wilczynski <m.wilczynski@samsung.com>
+>=20
+> I applied the the patch to
+>=20
+> 	https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/f=
+or-nexxt
+>=20
+> as 6.20 material with Michal's tags and the typo fixed.
+>=20
+> Thanks
+> Uwe
+
+--=-lFLVTFC6qwbla7dI63F6
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmk4FXcACgkQNHYf+Oet
+Q9KBpQ/+LVKCzqtIaooI/JdA88A52s5Pp7ePykc1lsJBvvCBHqrZntXyTumfvCzS
++/71cPwVCRxSZT7t++Fhr2qSGCMlE11TiK8R8RQQJ6sh3rmT56VtVnueEl+S8xoe
+OnurEJsabyY8+tGsAXFPzvFXx15LZJiehPSOVs6VYQQBG7803uALxwFZczqgMKBZ
+PWfqevTrUbFroijfLm5lJR8vnB6cLQ/Mbewk/9HXzvJhReDb59edSNV1IHB0ifO4
+5FcZeV9dAG2fE04Q+ZkkcyOSopRsbb1hrwIygBFmQqqSiE99f+Ucz0kqFfYqK2z8
+Tf++yrEcv0+JQxzX3AwzfUyjmU7m3b01XVywoD1UyHt2pQZTT8z3uFx14KLBBQnC
+l9aXe6evwWWzAAjOHRlB+kYt5eNab7Jj/AN6eclR6FFhB6MoYSEBTguQZ2qfPPkZ
+gEX2z/RCj9fEWweLYsq8b7EjS0k/selOkCdQ4oUEJdap/EfHYg2kcXBrTgC4229N
+R/1mb+U3+5zgFTebKknIIlXwjFTiCXIdnyyHm2ECLcvA8kncfkLlJWqDXUmorVaI
+WDvLKvQVUhYq6m8sz/cDGZYbsHnIvUW+HHKVAuM3iN0alGT5rKsVvvRP3g+jcaEV
+iCugeIIEoG/7s7LNvE58HHt7pDMktrkNPmplttoz2aoOdpym/W0=
+=cGwT
+-----END PGP SIGNATURE-----
+
+--=-lFLVTFC6qwbla7dI63F6--
+
+
+--===============6722869363239242018==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6722869363239242018==--
+
