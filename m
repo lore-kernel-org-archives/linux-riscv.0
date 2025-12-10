@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB86D3C928
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Dec 2025 16:14:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8E1D3C929
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Dec 2025 16:14:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6uv+GadXxuAe+Z7C3M7nxN1cnpjDqiNfLuQya9ranuA=; b=jkNZUbzwLqJeJV
-	H+rcTCkUVlKbJ3WTI1PBI97XzB/8zvtKKR+ny8BJonNNiDGz3Z1ekbBnyH/zlqr+WMFpkfO3451kZ
-	dx3p61qQmQkKLfqCiUk2m8e9JeKn67PhWc4ojmPWaG6j1vEaDR3FTqjAKHepLBXWvXAX8SBul9MNb
-	esHYNKhvIh81s5/ZBjA4RPvpip30lEiZZonGxNBM5TcBiwgxOhSTA645I6NyKUWw1F5iKnELfxymO
-	AKaAnPb0YCaVzPL1KcvkmI8Sa0CHi3PURCi08v6D2x3woWgUn7bb/ylzHLG+WO95bj6os+kwc4kvH
-	eCcVLzeNbtPZb7YZyuXQ==;
+	List-Owner; bh=v6CIS2VxjwNX6ZLXSY6T789f1k/JCyBHVw5Zp7enwEs=; b=nSE9wRm4gm0lFh
+	ANP3PLquJ08bJfLIwcbrjK6+iR3KC7WzIhGkYAEyG3ZdfoUC8PaTA6KCjaXzwV7R+9UDdHtHZPxb1
+	WE4/NbXICDIpuHvnlgtmtq3WMpUiAwD5XAP3GDzOvtND9PDeu4pa9Pz+4oflZMY/51BKWNahXjV2I
+	B09z4mTlRXNiaX0MBReSs6009UZv6uI1MVsfvQRVvOE+5troPavsD1XAU0ZmQyAcpHdbTzDzNpb4a
+	00n7Gf+FYHjQVfa/97u3A13RRpqC9NLScJ9KXaHBZeUZu31fal/+tjGt/7X7VUv0LbN6Rz0SW4tiN
+	haWhRY35zszuIn4yV0UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTMpM-0000000Fc43-0J54;
-	Wed, 10 Dec 2025 16:14:08 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1vTMpP-0000000Fc5o-1wxC;
+	Wed, 10 Dec 2025 16:14:11 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTMpJ-0000000Fc2v-3O8G
+	id 1vTMpM-0000000Fc41-1U18
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Dec 2025 16:14:06 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-7a9c64dfa8aso5682225b3a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 10 Dec 2025 08:14:05 -0800 (PST)
+	Wed, 10 Dec 2025 16:14:10 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-298287a26c3so584065ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 10 Dec 2025 08:14:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1765383245; x=1765988045; darn=lists.infradead.org;
+        d=rivosinc.com; s=google; t=1765383247; x=1765988047; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=jTeBxOv2SMEIJm2X1dOR2xoggDwy3sZYySAZ+VrtZTc=;
-        b=dwe4rsrEqBbK7VLPjWrXSk1/8bMOKZzpTzQ9Lxg/bs95s8Yenm5ksPi3kILGIhDWpH
-         J7lFC2wAZfkkdFc8AKI8KtDd6spp4dDxbmSVM51At9/6h0QsZ4L9EcT2/DkiMtOAZCJM
-         nGPbA2z1XrcvPHEfaZc2r7+QR3G/EysCEPbEeEz/eS30ZWVLsXJswkmlCzSRQCn+CjcM
-         sz4nDF98xVFatzZ7/jjKeMyaGB+DUR9XU2G2Fktw3NSuZpbgMVLhrRM2Gc40vcQab3Mk
-         XSzHzbJEnAt77LNxEfhcfLg4a299VyTCh8Fd9O8ulZ5qN7BcFP5RAvq5SdNgMSJnKEQJ
-         3uWA==
+        bh=IN+0Higah65/S0OE4unSZjOSg4pcnk5MJNS5zeLBR1I=;
+        b=Vb/3+oTZK4yWTDhvbymN5DfShnPPFGoyBAhUJvcd2Cyy1G+W81ptMu4+sw7SdFsIOq
+         XZIoPwcnikQClHVVdVWfb/mmO7ueHeEsFd4qlWcPbrBAraOJrmNTFr9q/AxT519cZYfC
+         +drF0BT5x3UTgeYo9fMtTlNyRJI/PZJPyRQ+7lRzbLmEsOyQK8SPmpN07LGW/LjmXf7z
+         oADI5Gl70vJGi8svzw1yik7CDlgUI5yc+Fc7axQAPtdNEHjBPtPhZ0bDK/BPMl/qnWG9
+         6S5/F0hRRASdDmM7e6tIoqO0krIIkTkT1xem/gAznVEBAwQXgsMDI7Snrg0MKJAd+QL5
+         Jatw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765383245; x=1765988045;
+        d=1e100.net; s=20230601; t=1765383247; x=1765988047;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=jTeBxOv2SMEIJm2X1dOR2xoggDwy3sZYySAZ+VrtZTc=;
-        b=MXXs5f6GJyM/OFBCz6GpIY6M92gnIMZByKWfhkNUTNvVCGhAyvurjcj/7GnA6NkbmU
-         LkDbjL4ClWkHZyyjw8GsKhUdREOeJEf6A+isioKiDgXvOU9jvjXDjLz1MExAnEFGpN06
-         twoXPzNNhxODln7CYoeYHhsCfv/gycVyg3MGOCadzglcksLbVRARSskGIEEHr16gJ/01
-         2rRPmu+kAiaqKZeuYqrgNbOXURGBgYaC4UUk7+Unp1jIUkd0NnTNqAO5aw/HxUiLDFGz
-         ruFAgI8ITOgsJrlVChYCkqJ455JqIeXb7utQYyzNc5wyrakQDk2oo1hHGA4YNU5a5BQL
-         I1nQ==
-X-Gm-Message-State: AOJu0YxVF0JfRopDaDNhd7a4aYg7+wvH3sesr2edc+zvOp7GjKw4q7rq
-	6gq4PVfJnCdSc+ooqIu0A5DRVa4V85y+dC1EkIJ90HuIZxMEcHVKaKVTS9AWvqRhvYc=
-X-Gm-Gg: ASbGncuPlL6+Ke3VLWEVdAehPKm7Op7g5Zqdy0SNKW74Ip4Rz6vAdACHQh72OPLmtR4
-	TrHBQ5704UHptiSBjMbJqQ5OzEqufpf5QKhWNIA02OhENpwrnOX3tB2JlbCF17bEuj5272qbQtb
-	v2VQyFl+5ff7mxOyBvD5GTjX51RNam4DGv4fepgU9mgbJbczhng63kdyehRJV4z+4iTgqIDG4lw
-	t3+2DMQgOxNkVHudW725+wwqogUq491EVilX4z6cOSWnlLU9kOON5b+hObdDdy/whKd8zNFPm88
-	IUmBzbTIiF2ni4Mo6rmPBZl2Gy9Sgxcw4Llxz/u7sbKi6XiwsCJ+X66txh+YGUtqA/gGVan0tJD
-	sZYnTefEEMbUV/rhMl4x67XsuqCgBg4x9c2+cpx/7vgdpZ5RkLhoIJa+7XSISTjdMaUEDlYHZD2
-	9lQlTXmHf6bsM4ZvUkjS7erRauBUh133LRG8GFkqg9UW7FRJ4ZOTB1SpzAXjynzzHUTq704aSba
-	h7j4R4zmges
-X-Google-Smtp-Source: AGHT+IEnH2JCzQBXPTwYTipTGasI37dEmVRsGwF2tVJaArwKUp9ryzfhwoIxbl9WMS+Ke/jAN7fjLA==
-X-Received: by 2002:a05:7022:6289:b0:11b:9e5e:1a40 with SMTP id a92af1059eb24-11f2967d192mr2057361c88.15.1765383244756;
-        Wed, 10 Dec 2025 08:14:04 -0800 (PST)
+        bh=IN+0Higah65/S0OE4unSZjOSg4pcnk5MJNS5zeLBR1I=;
+        b=W0/fahiEmW4i21nU06b1AYRvhHaZy6eIdNZE2gbHLEsZN8/y7HtGLS9Rm2aOcjIfgg
+         jR+9zx82t5gsh9p2tRMjx/95xEYM14zqaz/K2bQHD3mlxUjQYwJm2dF/aGzWp8qNDqx9
+         spHqKtazqvEvPE6NkjFg9yO9gHQn/mGLFD5oZx4n7LQcrITSWyAfjuWsSfM2MA+A+BnJ
+         FtEuSKddJtCAFd3VsfOQm3tTUPIoWrmyyeeIWOv5y2uEooywshjseoUMoxg6Oa3dlvS2
+         lfrHwPvOonjw5CnXY7tjl/bJQFYt2kZfo3wNgeGa3qG8KSS56LGbEb5I4awHYU06USn5
+         rm8w==
+X-Gm-Message-State: AOJu0YyofNzrAaP5m6Knt2rCxXHZjcJtQpujJxqwCkcbDyG6pC0iU9vm
+	VlMvNMhFXizc6ZuKgVefMlgcGhlGVq4kpK0BfVhhOH41arW1IDPUqPM0+FI4avjYsxIYAt9DyuZ
+	QHwuf
+X-Gm-Gg: ASbGncvnQxdQeXMoCVI25x5Hyi1xz5LXZ+9OyVGbFLBYNSqM/8dIy79lDhYqWtvPD+2
+	XtgahkoUtgPRWej7GDAZszVCfl7sZFM5c/MFi+Zrc2kfc6ENyVrvRtRlV2DBzhCzDNAhQlo3f4K
+	UhVYtkyqt3G3QS2x3T34sgOQI/zd/3FlM1t06L0rwCjcaHxJ8vXeUNrJS4RPUmg1WgS6lfF4ist
+	m7SwwHJNOwm+PNqmF+GRV6QdUcJg2vicmiZwKNz3/+U9hTLySyRgXDCgMGreqklmozclwcSWG0m
+	huj213OS7KZbLtHdWp/8qy9b6+MgyMV8q1UP+fM6IUUro9JKDmfSaTKkN6+CcrMyizMPWBEtyFA
+	TjISACTrRX2pOdbefgxhufYXZjh54GojUSoi8G1onqdJ8UnKZg5I/lhArdxzQHzyHbcrkpUrNWq
+	fK9WBdwpHzFqyOLeAx5ISNsGciELNxAtHZ4v3Zp96+KVqWkEuJHPDbEomBq+qBMZr8oB9RdggQV
+	tABekL4iHOk
+X-Google-Smtp-Source: AGHT+IHfK46v7u7eEqOcag0osBQ23eDRG13EMnU5VZ1bavuPhSTrBEmVb1TzlKvZ5dAAoeNgscf/Yg==
+X-Received: by 2002:a05:7022:604:b0:11e:395:7dfc with SMTP id a92af1059eb24-11f296c8ba9mr1801860c88.28.1765383247383;
+        Wed, 10 Dec 2025 08:14:07 -0800 (PST)
 Received: from [127.0.1.1] (p7838222-ipoefx.ipoe.ocn.ne.jp. [123.225.39.221])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11f283d4733sm10364600c88.17.2025.12.10.08.14.02
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11f283d4733sm10364600c88.17.2025.12.10.08.14.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Dec 2025 08:14:04 -0800 (PST)
+        Wed, 10 Dec 2025 08:14:07 -0800 (PST)
 From: Charlie Jenkins <charlie@rivosinc.com>
 X-Google-Original-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Date: Wed, 10 Dec 2025 08:13:43 -0800
-Subject: [PATCH RFC 06/10] riscv: Makefile: Add enabled extensions to
- compiler flags
+Date: Wed, 10 Dec 2025 08:13:44 -0800
+Subject: [PATCH RFC 07/10] riscv: kconfig: Make vendor extensions tristate
 MIME-Version: 1.0
-Message-Id: <20251210-profiles-v1-6-315a6ff2ca5a@gmail.com>
+Message-Id: <20251210-profiles-v1-7-315a6ff2ca5a@gmail.com>
 References: <20251210-profiles-v1-0-315a6ff2ca5a@gmail.com>
 In-Reply-To: <20251210-profiles-v1-0-315a6ff2ca5a@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -89,16 +89,16 @@ To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1765383226; l=7578;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1765383226; l=3908;
  i=thecharlesjenkins@gmail.com; s=20240124; h=from:subject:message-id;
- bh=PXm4AG2hGsdYLwwyM2sQFSEI0LSfo1j2CNnPg+fTqTA=;
- b=0kvyOA3UMAW8IGwuP4q/SaToDXNlSkfb6ktLVtbx8kmnGX7Cnn9oikqQ51/0sCC+HvEusUnER
- HzDVolRAfIsAveQLbAR9G8+jDUiBSxWBDEXdwGEg/9W6pYn//C48M0u
+ bh=oW54abbRysZHDMCyrE264IqhApYvMrvVoe7o3AdfEeo=;
+ b=A2kGAVqVMr9wlv2Sb6EOoVmU3H2XBDyOEevuJaXq2h60+M/QGKVqHoFbj1fYiEmEFHrJZNmpb
+ cNjKpYZs9+wCrNUE+zxNnJ2VpNB1Ny3yB+T8TQSEk7e59UdSxzTs6DL
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=eVndo3OHViAjwuqHqbJB4ZtzJzzvk/r6fUf84tZ3rw4=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_081405_862299_6F051491 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20251210_081409_079030_9310E917 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,174 +115,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Build an optimized kernel with all extensions that the hardware is
-expected to support. Extensions that might be supported by hardware and
-will be detected at runtime will be added to the assembler flags but not
-to the compiler flags.
+Adjust the vendor extensions to use the same tristate selection as the
+standard extensions. This will allow the vendor extensions to use the
+same code paths as the standard extensions for discovery and
+optimization.
 
 Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
 ---
- arch/riscv/Makefile | 135 ++++++++++++++++++++++++++++++++++++++++++++--------
- 1 file changed, 116 insertions(+), 19 deletions(-)
+ arch/riscv/Kconfig.vendor                    | 25 ++++++++++++++++++++++---
+ arch/riscv/kernel/vendor_extensions/Makefile | 22 +++++++++++++++-------
+ drivers/perf/Kconfig                         |  2 +-
+ 3 files changed, 38 insertions(+), 11 deletions(-)
 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index ef1a7b1bffe8..efe43537e984 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -57,37 +57,134 @@ ifeq ($(CONFIG_SHADOW_CALL_STACK),y)
- 	KBUILD_LDFLAGS += --no-relax-gp
- endif
+diff --git a/arch/riscv/Kconfig.vendor b/arch/riscv/Kconfig.vendor
+index 3c1f92e406c3..74155c5b642f 100644
+--- a/arch/riscv/Kconfig.vendor
++++ b/arch/riscv/Kconfig.vendor
+@@ -14,6 +14,20 @@ config RISCV_ISA_VENDOR_EXT_ANDES
+ 	  requested by hardware probing to be ignored.
  
--# ISA string setting
--riscv-march-y				:= $(CONFIG_ARCH)
--riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
--riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
--riscv-march-$(CONFIG_RISCV_ISA_V)	:= $(riscv-march-y)v
-+# Handling of riscv extensions
-+# There are a couple of considerations when enabling extensions:
-+#	1. Does the toolchain support the extension?
-+#	2. Is the extension supported by the hardware the kernel will run on?
-+#       3. Does the extension have registers that need to be save/restored on
-+#          a context switch?
-+#       4. Is this extension emitted by the compiler or only by hand-coded
-+#          assembly?
-+#
-+# This section has helpers to support extensions with varying answers to these questions.
-+#
-+# The compiler will be allowed to emit an extension if all of the following
-+# are satisfied:
-+#       - The extension is a "stateless" extension (i.e. doesn't introduce additional
-+#         registers)
-+#	- The extension is supported by the toolchain (selected by CONFIG_TOOLCHAIN_HAS_*)
-+#	- The extension is enabled for use in the kernel (selected by CONFIG_RISCV_ISA_*=y)
-+#
-+# Assembler support for the instruction will be added if the extension is
-+# supported by the assembler (selected by CONFIG_TOOLCHAIN_HAS_*).
+ 	  If you don't know what to do here, say Y.
 +
-+# Extensions that the compiler is allowed to emit anywhere.
-+riscv-march-standard				:= $(CONFIG_ARCH)
++config RISCV_ISA_XANDESPMU
++	tristate "xandespmu extension support"
++	depends on NONPORTABLE || m
++	default m
++	help
++	  The Andes cores implement the PMU overflow extension very
++	  similar to the standard Sscofpmf and Smcntrpmf extension.
 +
-+# Extensions that the compiler is allowed to emit in FPU contexts.
-+# This should riscv-march-standard plus the FPU-specific extensions.
-+riscv-march-fpu					:= $(CONFIG_ARCH)
++	  Select "m" for boot-time detection for portability.
 +
-+# All extensions supported by the kernel. Some of these extensions require
-+# special care so they cannot be arbitrarily emitted by the compiler.
-+riscv-march-full				:= $(CONFIG_ARCH)
++	  Select "y" for compile-time detection for optimization. Only available with NONPORTABLE.
 +
-+# Returns the instruction if it is supported, returns the empty string otherwise.
-+# An instruction is only "supported" if RISCV_ISA_*!=n.
-+# An instruction that is "supported" can be emitted through alternatives, but an instruction that is
-+# "enabled" can be emitted arbitrarily by the compiler.
-+# Arguments:
-+#	$1 - name of extension
-+#	$2 - extension delimiter. Should be empty for base extensions and
-+#	     underscore otherwise
-+extension_supported=$(if $(and $(or $(filter $(CONFIG_RISCV_ISA_$(shell echo $1 | tr a-z A-Z)),m), $(filter $(CONFIG_RISCV_ISA_$(shell echo $1 | tr a-z A-Z)),y)), $(filter $(CONFIG_TOOLCHAIN_HAS_$(shell echo $1 | tr a-z A-Z)),y)),$2$1)
-+
-+# Returns the instruction if it is enabled, returns the empty string otherwise.
-+# An instruction is only "enabled" if RISCV_ISA_*=y.
-+# An instruction that is "supported" can be emitted through alternatives, but an instruction that is
-+# "enabled" can be emitted arbitrarily by the compiler.
-+# Arguments:
-+#	$1 - name of extension
-+#	$2 - extension delimiter. Should be empty for base extensions and
-+#	     underscore otherwise
-+extension_enabled=$(if $(and $(filter $(CONFIG_RISCV_ISA_$(shell echo $1 | tr a-z A-Z)),y), $(filter $(CONFIG_TOOLCHAIN_HAS_$(shell echo $1 | tr a-z A-Z)),y)),$2$1)
-+
-+# Use this macro to add support for an extension that is stateless.
-+# A "stateless" extension is one that does not add additional registers.
-+#
-+# Arguments:
-+#	$1 - name of extension
-+#	$2 - extension delimiter. Should be empty for base extensions and
-+#	     underscore otherwise
-+define add_stateless_extension
-+$(eval riscv-march-standard=$(riscv-march-standard)$(call extension_enabled,$1,$2))
-+$(eval riscv-march-fpu=$(riscv-march-fpu)$(call extension_enabled,$1,$2))
-+$(eval riscv-march-full=$(riscv-march-full)$(call extension_supported,$1,$2))
-+endef
++	  If you don't know what to do here, say m.
+ endmenu
  
--ifneq ($(CONFIG_RISCV_ISA_C),y)
--	KBUILD_RUSTFLAGS += -Ctarget-feature=-c
--endif
-+# Use this macro to add support for a floating point extension.
-+# Floating point extensions are not able to be used in all contexts, so they
-+# are kept separate.
-+#
-+# Arguments:
-+#	$1 - name of extension
-+#	$2 - extension delimiter. Should be empty for base extensions and
-+#	     underscore otherwise
-+define add_fpu_extension
-+$(eval riscv-march-fpu=$(riscv-march-fpu)$(call extension_enabled,$1,$2))
-+$(eval riscv-march-full=$(riscv-march-full)$(call extension_supported,$1,$2))
-+endef
-+
-+# Use this macro to add support for an extension that is stateful.
-+# A "stateful" extension is one that adds additional registers, or requires
-+# hand-coded assembly (instead of being arbitrarily emitted by the compiler).
-+#
-+# Arguments:
-+#	$1 - name of extension
-+#	$2 - extension delimiter. Should be empty for base extensions and
-+#	     underscore otherwise
-+define add_stateful_extension
-+$(eval riscv-march-full=$(riscv-march-full)$(call extension_supported,$1,$2))
-+endef
-+
-+# Extensions must be added in the canonical ISA string order
-+
-+# Base extensions
-+$(call add_fpu_extension,f)
-+$(call add_fpu_extension,d)
-+$(call add_stateless_extension,c)
-+$(call add_stateful_extension,v)
+ menu "MIPS"
+@@ -55,17 +69,22 @@ config RISCV_ISA_VENDOR_EXT_THEAD
+ 	  If you don't know what to do here, say Y.
  
- ifdef CONFIG_TOOLCHAIN_NEEDS_OLD_ISA_SPEC
- KBUILD_CFLAGS += -Wa,-misa-spec=2.2
- KBUILD_AFLAGS += -Wa,-misa-spec=2.2
- else
--riscv-march-$(CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI) := $(riscv-march-y)_zicsr_zifencei
-+$(call add_stateless_extension,zicsr,_)
-+$(call add_stateless_extension,zifencei,_)
- endif
+ config RISCV_ISA_XTHEADVECTOR
+-	bool "xtheadvector extension support"
++	tristate "xtheadvector extension support"
+ 	depends on RISCV_ISA_VENDOR_EXT_THEAD
+ 	depends on RISCV_ISA_V
+ 	depends on FPU
+-	default y
++	depends on NONPORTABLE || m
++	default m
+ 	help
+ 	  Say N here if you want to disable all xtheadvector related procedures
+ 	  in the kernel. This will disable vector for any T-Head board that
+ 	  contains xtheadvector rather than the standard vector.
  
--# Check if the toolchain supports Zacas
--riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZACAS) := $(riscv-march-y)_zacas
-+# Standard extensions
-+$(call add_stateless_extension,zabha,_)
-+$(call add_stateless_extension,zacas,_)
-+$(call add_stateless_extension,zba,_)
-+$(call add_stateless_extension,zbb,_)
-+$(call add_stateless_extension,zbc,_)
-+$(call add_stateless_extension,zbkb,_)
+-	  If you don't know what to do here, say Y.
++	   Select "m" for boot-time detection for portability.
++
++	   Select "y" for compile-time detection for optimization. Only available with NONPORTABLE.
++
++	   If you don't know what to do here, say m.
+ endmenu
  
--# Check if the toolchain supports Zabha
--riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZABHA) := $(riscv-march-y)_zabha
-+ifneq ($(CONFIG_RISCV_ISA_C),y)
-+	KBUILD_RUSTFLAGS += -Ctarget-feature=-c
+ endmenu
+diff --git a/arch/riscv/kernel/vendor_extensions/Makefile b/arch/riscv/kernel/vendor_extensions/Makefile
+index bf116c82b6bd..e5ef5219a050 100644
+--- a/arch/riscv/kernel/vendor_extensions/Makefile
++++ b/arch/riscv/kernel/vendor_extensions/Makefile
+@@ -1,9 +1,17 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
+-obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_ANDES)	+= andes.o
+-obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_MIPS)  	+= mips.o
+-obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_MIPS)  	+= mips_hwprobe.o
+-obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_SIFIVE)	+= sifive.o
+-obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_SIFIVE)	+= sifive_hwprobe.o
+-obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_THEAD)	+= thead.o
+-obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_THEAD)	+= thead_hwprobe.o
++ifneq ($(filter y m,$(CONFIG_RISCV_ISA_VENDOR_EXT_ANDES)),)
++obj-y	+= andes.o
 +endif
++ifneq ($(filter y m,$(CONFIG_RISCV_ISA_VENDOR_EXT_MIPS)),)
++obj-y  	+= mips.o
++obj-y  	+= mips_hwprobe.o
++endif
++ifneq ($(filter y m,$(CONFIG_RISCV_ISA_VENDOR_EXT_SIFIVE)),)
++obj-y	+= sifive.o
++obj-y	+= sifive_hwprobe.o
++endif
++ifneq ($(filter y m,$(CONFIG_RISCV_ISA_VENDOR_EXT_THEAD)),)
++obj-y	+= thead.o
++obj-y	+= thead_hwprobe.o
++endif
+diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+index 638321fc9800..dfbd02d28c3f 100644
+--- a/drivers/perf/Kconfig
++++ b/drivers/perf/Kconfig
+@@ -117,7 +117,7 @@ config STARFIVE_STARLINK_PMU
  
--# Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
--# matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
--KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
-+# Only include extensions that do not introduce additional state. This
-+# "additional state" most often means extra registers.
-+KBUILD_CFLAGS += -march=$(riscv-march-standard)
- 
--KBUILD_AFLAGS += -march=$(riscv-march-y)
-+# Make all instructions available to the assembler
-+KBUILD_AFLAGS += -march=$(riscv-march-full)
- 
--# For C code built with floating-point support, exclude V but keep F and D.
--CC_FLAGS_FPU  := -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)([^v_]*)v?/\1\2/')
-+# As an extension of the "standard" march string, include any extensions that
-+# are able to be used when the FPU is enabled.
-+CC_FLAGS_FPU  := -march=$(riscv-march-fpu)
- 
- KBUILD_CFLAGS += -mno-save-restore
- 
+ config ANDES_CUSTOM_PMU
+ 	bool "Andes custom PMU support"
+-	depends on ARCH_RENESAS && RISCV_ALTERNATIVE && RISCV_PMU_SBI
++	depends on ARCH_RENESAS && RISCV_ALTERNATIVE && RISCV_PMU_SBI && RISCV_ISA_XANDESPMU
+ 	default y
+ 	help
+ 	  The Andes cores implement the PMU overflow extension very
 
 -- 
 2.43.0
