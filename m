@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F081DD41D74
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Dec 2025 17:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1818D41D76
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Dec 2025 17:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kavyl4dAMsasct+Qc1do/j2axw5oUp/7gCa/FYQ4DuQ=; b=pVqh7Iy4276nAO
-	xfYdt1OMiwnDfl7uLUIV2kGZ+47qb2lXrl9WlY/SS8zKKswEY1g/OKh3MjJKONEba3X1J7s/TMQep
-	WLIcTfIa6DP7H8UrQus4qXxcyS4DKYuS2SkjsPd5ft8BhO1oRulaifNWhhi6wOS9+FD7j5Mpy5cVC
-	NXsg+SPmEinR78C/N8I8Xaf6OSn9vY1wtfp25dZi3/LMiU7l7rouzIcRi+CNl3rvobcvj7dyyiRZf
-	ZqHuJef0h/HYje3nl5gSF53KEVNiujfzyPCxF7HdCRu2qlc4ifqIA/nzzFPpNa20oI/HpgpeVPR+o
-	+fHEA79RKl4rR4yeNhXA==;
+	List-Owner; bh=Nm6Jl/RtqEVFpNHLwra7eURElvc3zFU2t8aSouT9nl8=; b=0a9qw/jhBd3JGx
+	rnVmoZKRIkBc8XMziSEPJaCvqBHoguLHYpv0QUjLkWF7THlAOn53ENdv++/TMOfHOYt9Ky6qVJUDt
+	FCx0mcNzGGFW1Lv54gFg3opU80BBo6jQ6GB2qyS8yi8iEkyqGStLvAd84pMlFANyj4Q8ir8kSSdZg
+	G/uXKqA35YLMrs5Ryat+2ugVPwI23w0PPRqjgPOyUha8Yz2Up3KYXzfHktMjapoGbJzc2mbbPLY6K
+	6kUXTyliAMkjwxLYHk+3Xc4gV3vqSG7RoP7QDo2d12KwoR7/Nr+p169+pvShf+bYdyPx8j9Skvzn5
+	xeJ1ddS2xHk+P1/rJRfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTkLu-0000000H1zW-02Up;
-	Thu, 11 Dec 2025 17:21:18 +0000
+	id 1vTkLz-0000000H2Ak-3sdG;
+	Thu, 11 Dec 2025 17:21:23 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTkLo-0000000H1rf-2tUi
+	id 1vTkLr-0000000H1rf-3LZj
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Dec 2025 17:21:14 +0000
+	Thu, 11 Dec 2025 17:21:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A7FE8444A8;
-	Thu, 11 Dec 2025 17:21:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 39381C2BCF6;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7179444519;
+	Thu, 11 Dec 2025 17:21:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D9F50C2BC86;
 	Thu, 11 Dec 2025 17:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765473667;
-	bh=04gVJXOYw7Ju2c/7DpEHB2s0kbuucyi2foZBfgP2tHg=;
+	s=k20201202; t=1765473668;
+	bh=90T9j19woMM9Op8OSN5I1WP0v5lIdLoenKbGZcEa7eI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=OCpAsr1Oah2IC1WUiR+F+qmoVx03kfKjO5ul4TmrKjdNWt19LHqvTST4ZB2RUq1CR
-	 NEtzlpt+tbK/vkBJH0OA2icZt4KiJe10Ga7WLcHVbiJw8lXe4haTFNISBchUT8Ebj+
-	 XnBvRjgRnEYVnit1J0yPzGqQWyOQRE2EMwcOBL6y0Pl02vaxZbe9z8guMNqjZHZQqH
-	 W0oW7Xs3l+QoWhJETZ/gXR695ia2e2aFysYWXbliVb4Cj0jIiIKo0eNIdWHAxmDn/Q
-	 3egHFl7g9dZTsUeUVzj8ot9W/2oexpllzYecP6QUqxo8+QagY3fcPHzeJwKp4yRwwU
-	 t1IlUnZxHNvCw==
+	b=bjOvZVm7pr79RiolSeGndjB+jOX3zTxcKlHydvF+gmzWO+S2qmBrW4/B4Z5HBAbuD
+	 ss8qgeclg98J5lAk/O5WsSI8Q89JbHvRuFUfYhE8D0pAivp5pAl/hn+B52jRlKrYNh
+	 HZeGBc8tT7Q05C1l2PRBqPoSCa3nsFzNCS5dsAQ2b8u4+odoZK+1wVhpSx1dgUfDep
+	 ipeNRRBtSI+gIW5tDViM0QgIjdj2h1cT2wPorz3qd80I5LN6iPWNOfa3O7JY3GRELx
+	 WaxWlY1wxJe2bGEfkr+z6DwL48FjYbfhiO5Fk4KWl9672PYPVxha06v+915dBy0xLv
+	 q67OilZr94I+A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 255D5D41D6D;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C7D15D41D6B;
 	Thu, 11 Dec 2025 17:21:07 +0000 (UTC)
 From: Deepak Gupta via B4 Relay <devnull+debug.rivosinc.com@kernel.org>
-Date: Thu, 11 Dec 2025 09:20:41 -0800
-Subject: [PATCH v26 08/28] riscv/mm: teach pte_mkwrite to manufacture
- shadow stack PTEs
+Date: Thu, 11 Dec 2025 09:20:47 -0800
+Subject: [PATCH v26 14/28] riscv: Implements arch agnostic indirect branch
+ tracking prctls
 MIME-Version: 1.0
-Message-Id: <20251211-v5_user_cfi_series-v26-8-f0f419e81ac0@rivosinc.com>
+Message-Id: <20251211-v5_user_cfi_series-v26-14-f0f419e81ac0@rivosinc.com>
 References: <20251211-v5_user_cfi_series-v26-0-f0f419e81ac0@rivosinc.com>
 In-Reply-To: <20251211-v5_user_cfi_series-v26-0-f0f419e81ac0@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -88,19 +88,19 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  Valentin Haudiquet <valentin.haudiquet@canonical.com>, 
  Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1765473664; l=2371;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1765473664; l=5844;
  i=debug@rivosinc.com; s=20251023; h=from:subject:message-id;
- bh=t88tD6h5jGJWywn6Tz9bzXAVcX1Z5iY6bKQeGfJKelY=;
- b=2eVX9clVHze7ulKPpPv+R2k2xcoyYfboAVjhbcXbqF72Iv1e7pp49F2bHxf0gP5GgR/QmHs4n
- ILGolFzplBOBXJnDxgwDpdGNoU+rmmyqKLAJdAaQWB5pGIXvIhx5d7p
+ bh=wFkoKafNuhuo5Khjoh4DbWfgN2zX7rAU3xJ3b3Vz/iA=;
+ b=KNp9Df1Xy3jjdBJ66JMCtZKCAlsxxgs14113q7TFnm++4BGOo+0whVLyN1ucgVBUeyaapTI2f
+ JMx65ciy1GNA9RXeAYm70vHEy/W8CAwkhtBuTW5HzfJJl7q+t5H3mQ2
 X-Developer-Key: i=debug@rivosinc.com; a=ed25519;
  pk=O37GQv1thBhZToXyQKdecPDhtWVbEDRQ0RIndijvpjk=
 X-Endpoint-Received: by B4 Relay for debug@rivosinc.com/20251023 with
  auth_id=553
 X-Original-From: Deepak Gupta <debug@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_092112_807493_6C2318A4 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20251211_092115_915045_F3637DA5 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,71 +120,184 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Deepak Gupta <debug@rivosinc.com>
 
-pte_mkwrite creates PTEs with WRITE encodings for underlying arch.
-Underlying arch can have two types of writeable mappings. One that can be
-written using regular store instructions. Another one that can only be
-written using specialized store instructions (like shadow stack stores).
-pte_mkwrite can select write PTE encoding based on VMA range (i.e.
-VM_SHADOW_STACK)
+prctls implemented are:
+PR_SET_INDIR_BR_LP_STATUS, PR_GET_INDIR_BR_LP_STATUS and
+PR_LOCK_INDIR_BR_LP_STATUS
 
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 Reviewed-by: Zong Li <zong.li@sifive.com>
 Tested-by: Andreas Korb <andreas.korb@aisec.fraunhofer.de>
 Tested-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/include/asm/pgtable.h |  7 +++++++
- arch/riscv/mm/pgtable.c          | 16 ++++++++++++++++
- 2 files changed, 23 insertions(+)
+ arch/riscv/include/asm/usercfi.h | 14 +++++++
+ arch/riscv/kernel/entry.S        |  4 ++
+ arch/riscv/kernel/process.c      |  5 +++
+ arch/riscv/kernel/usercfi.c      | 79 ++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 102 insertions(+)
 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index e4eb4657e1b6..b03e8f85221f 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -420,6 +420,10 @@ static inline pte_t pte_wrprotect(pte_t pte)
+diff --git a/arch/riscv/include/asm/usercfi.h b/arch/riscv/include/asm/usercfi.h
+index d71093f414df..4501d741a609 100644
+--- a/arch/riscv/include/asm/usercfi.h
++++ b/arch/riscv/include/asm/usercfi.h
+@@ -16,6 +16,8 @@ struct kernel_clone_args;
+ struct cfi_state {
+ 	unsigned long ubcfi_en : 1; /* Enable for backward cfi. */
+ 	unsigned long ubcfi_locked : 1;
++	unsigned long ufcfi_en : 1; /* Enable for forward cfi. Note that ELP goes in sstatus */
++	unsigned long ufcfi_locked : 1;
+ 	unsigned long user_shdw_stk; /* Current user shadow stack pointer */
+ 	unsigned long shdw_stk_base; /* Base address of shadow stack */
+ 	unsigned long shdw_stk_size; /* size of shadow stack */
+@@ -32,6 +34,10 @@ bool is_shstk_locked(struct task_struct *task);
+ bool is_shstk_allocated(struct task_struct *task);
+ void set_shstk_lock(struct task_struct *task);
+ void set_shstk_status(struct task_struct *task, bool enable);
++bool is_indir_lp_enabled(struct task_struct *task);
++bool is_indir_lp_locked(struct task_struct *task);
++void set_indir_lp_status(struct task_struct *task, bool enable);
++void set_indir_lp_lock(struct task_struct *task);
  
- /* static inline pte_t pte_mkread(pte_t pte) */
+ #define PR_SHADOW_STACK_SUPPORTED_STATUS_MASK (PR_SHADOW_STACK_ENABLE)
  
-+struct vm_area_struct;
-+pte_t pte_mkwrite(pte_t pte, struct vm_area_struct *vma);
-+#define pte_mkwrite pte_mkwrite
+@@ -57,6 +63,14 @@ void set_shstk_status(struct task_struct *task, bool enable);
+ 
+ #define set_shstk_status(task, enable) do {} while (0)
+ 
++#define is_indir_lp_enabled(task) false
 +
- static inline pte_t pte_mkwrite_novma(pte_t pte)
- {
- 	return __pte(pte_val(pte) | _PAGE_WRITE);
-@@ -765,6 +769,9 @@ static inline pmd_t pmd_mkyoung(pmd_t pmd)
- 	return pte_pmd(pte_mkyoung(pmd_pte(pmd)));
++#define is_indir_lp_locked(task) false
++
++#define set_indir_lp_status(task, enable) do {} while (0)
++
++#define set_indir_lp_lock(task) do {} while (0)
++
+ #endif /* CONFIG_RISCV_USER_CFI */
+ 
+ #endif /* __ASSEMBLER__ */
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 8410850953d6..036a6ca7641f 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -174,6 +174,10 @@ SYM_CODE_START(handle_exception)
+ 	 * or vector in kernel space.
+ 	 */
+ 	li t0, SR_SUM | SR_FS_VS
++#ifdef CONFIG_64BIT
++	li t1, SR_ELP
++	or t0, t0, t1
++#endif
+ 
+ 	REG_L s0, TASK_TI_USER_SP(tp)
+ 	csrrc s1, CSR_STATUS, t0
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index a137d3483646..49f527e3acfd 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -163,6 +163,11 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
+ 	set_shstk_status(current, false);
+ 	set_shstk_base(current, 0, 0);
+ 	set_active_shstk(current, 0);
++	/*
++	 * disable indirect branch tracking on exec.
++	 * libc will enable it later via prctl.
++	 */
++	set_indir_lp_status(current, false);
+ 
+ #ifdef CONFIG_64BIT
+ 	regs->status &= ~SR_UXL;
+diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
+index 0b77b812e4d7..a384ce9ed25c 100644
+--- a/arch/riscv/kernel/usercfi.c
++++ b/arch/riscv/kernel/usercfi.c
+@@ -72,6 +72,35 @@ void set_shstk_lock(struct task_struct *task)
+ 	task->thread_info.user_cfi_state.ubcfi_locked = 1;
  }
  
-+pmd_t pmd_mkwrite(pmd_t pmd, struct vm_area_struct *vma);
-+#define pmd_mkwrite pmd_mkwrite
-+
- static inline pmd_t pmd_mkwrite_novma(pmd_t pmd)
- {
- 	return pte_pmd(pte_mkwrite_novma(pmd_pte(pmd)));
-diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
-index 8b6c0a112a8d..17a4bd05a02f 100644
---- a/arch/riscv/mm/pgtable.c
-+++ b/arch/riscv/mm/pgtable.c
-@@ -165,3 +165,19 @@ pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
- 	return old;
- }
- #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
-+
-+pte_t pte_mkwrite(pte_t pte, struct vm_area_struct *vma)
++bool is_indir_lp_enabled(struct task_struct *task)
 +{
-+	if (vma->vm_flags & VM_SHADOW_STACK)
-+		return pte_mkwrite_shstk(pte);
-+
-+	return pte_mkwrite_novma(pte);
++	return task->thread_info.user_cfi_state.ufcfi_en;
 +}
 +
-+pmd_t pmd_mkwrite(pmd_t pmd, struct vm_area_struct *vma)
++bool is_indir_lp_locked(struct task_struct *task)
 +{
-+	if (vma->vm_flags & VM_SHADOW_STACK)
-+		return pmd_mkwrite_shstk(pmd);
++	return task->thread_info.user_cfi_state.ufcfi_locked;
++}
 +
-+	return pmd_mkwrite_novma(pmd);
++void set_indir_lp_status(struct task_struct *task, bool enable)
++{
++	if (!cpu_supports_indirect_br_lp_instr())
++		return;
++
++	task->thread_info.user_cfi_state.ufcfi_en = enable ? 1 : 0;
++
++	if (enable)
++		task->thread.envcfg |= ENVCFG_LPE;
++	else
++		task->thread.envcfg &= ~ENVCFG_LPE;
++
++	csr_write(CSR_ENVCFG, task->thread.envcfg);
++}
++
++void set_indir_lp_lock(struct task_struct *task)
++{
++	task->thread_info.user_cfi_state.ufcfi_locked = 1;
++}
+ /*
+  * If size is 0, then to be compatible with regular stack we want it to be as big as
+  * regular stack. Else PAGE_ALIGN it and return back
+@@ -370,3 +399,53 @@ int arch_lock_shadow_stack_status(struct task_struct *task,
+ 
+ 	return 0;
+ }
++
++int arch_get_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
++{
++	unsigned long fcfi_status = 0;
++
++	if (!cpu_supports_indirect_br_lp_instr())
++		return -EINVAL;
++
++	/* indirect branch tracking is enabled on the task or not */
++	fcfi_status |= (is_indir_lp_enabled(t) ? PR_INDIR_BR_LP_ENABLE : 0);
++
++	return copy_to_user(status, &fcfi_status, sizeof(fcfi_status)) ? -EFAULT : 0;
++}
++
++int arch_set_indir_br_lp_status(struct task_struct *t, unsigned long status)
++{
++	bool enable_indir_lp = false;
++
++	if (!cpu_supports_indirect_br_lp_instr())
++		return -EINVAL;
++
++	/* indirect branch tracking is locked and further can't be modified by user */
++	if (is_indir_lp_locked(t))
++		return -EINVAL;
++
++	/* Reject unknown flags */
++	if (status & ~PR_INDIR_BR_LP_ENABLE)
++		return -EINVAL;
++
++	enable_indir_lp = (status & PR_INDIR_BR_LP_ENABLE);
++	set_indir_lp_status(t, enable_indir_lp);
++
++	return 0;
++}
++
++int arch_lock_indir_br_lp_status(struct task_struct *task,
++				 unsigned long arg)
++{
++	/*
++	 * If indirect branch tracking is not supported or not enabled on task,
++	 * nothing to lock here
++	 */
++	if (!cpu_supports_indirect_br_lp_instr() ||
++	    !is_indir_lp_enabled(task) || arg != 0)
++		return -EINVAL;
++
++	set_indir_lp_lock(task);
++
++	return 0;
 +}
 
 -- 
