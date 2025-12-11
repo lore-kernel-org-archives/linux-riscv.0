@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2415ED41D6D
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Dec 2025 17:21:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8232BD41D78
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Dec 2025 17:21:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E3+KRqeH7wuE014bD1ciMEaqgtDSr/cl5BGs7bl1Bhw=; b=U35dyKrZo5kMJ/
-	YBTkNQ9ln9GA8oYbo4nFLriAH4/PN7QpLLJdC9nG0RONP+t2y+9kDTKJyiFqVatpmFLrLxPYHZQnd
-	8A8958kEGpPP4NcW3RMEsVQxSlHHw9e5mpxnih74xhw/3ZxomtefPVi7LH9yKhky3f6wzDCn1wm3u
-	Z77o7eC7yTK/PzpIfx1s+ukGnK9HfvFtLgo867Ai8gUDidINHG7SjKWtiEqeC6TQWP0fvF9LlbP0v
-	C+LsKqNhSTBWIWOSaavErOa22yxXrwgYvuJ8vpJe7hKQCDJXiGQVecFqIbF7NYQzW1bg3EuuE8gt4
-	VXfrLR9ySxXwmNaUhSjg==;
+	List-Owner; bh=VmvQvVBkw99ybkvKpV4pyK2xIg0IDbVq+e5Lrn+Te6I=; b=rjycr0IjjxjcG/
+	B56o7hgImSdrPlxYDfkRfTfxDkQb61GbLhZWyG/ECdrRHlRBcVDO9L+XL+nwYCXKca2sZ8qwv1erg
+	ezocQLEQ8g2eAzcWfSodrxonifepxwBdy0f90t/AqlvpM5XgYcmlz156qKj85L71xDbwYhzhtuLFR
+	xTJbQ30wS+McTpLDx0Y70jR0r0Tr2BcUrXZkrKwwEog61qr8tQR7fbqcitr6xfsUm2oezCy1lQD52
+	WXanTsvcQiBl6w9DLeqNyQS16yPSKtIgl+UBGPb2ed8OXHwAx9UrlWrTLe36+PqeojUYrOdO+k4di
+	s60wTVzrM2imkZxCAN4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTkLq-0000000H1uR-03VH;
-	Thu, 11 Dec 2025 17:21:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTkLl-0000000H1om-2RC9
-	for linux-riscv@lists.infradead.org;
+	id 1vTkLn-0000000H1qi-1eed;
 	Thu, 11 Dec 2025 17:21:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vTkLk-0000000H1op-4AkI
+	for linux-riscv@lists.infradead.org;
+	Thu, 11 Dec 2025 17:21:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C58FF44349;
-	Thu, 11 Dec 2025 17:21:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6A2B5C16AAE;
-	Thu, 11 Dec 2025 17:21:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CDB7860163;
+	Thu, 11 Dec 2025 17:21:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4EF3BC4AF62;
+	Thu, 11 Dec 2025 17:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765473666;
-	bh=s9Nd8OrIdmTzTe15BEE4fAoU+yUwpq+wRGim3URhRCA=;
+	s=k20201202; t=1765473667;
+	bh=4LvuRng/siwmu1oFj3UqAUW5VyWVgQ3fjBU+uxBnUDc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=EQyS+uV0U+SCI3XKmW5ij21lzLSY5/r6FFdHK6UdNPWASDaVW7X6vqQy8UFzq7obp
-	 xNquXMSvaGbYh+O1Y1QHlYjFVXEVzi/KAT5FtYIO2rbGMIPMDkmOrXouZDFnL2XDQ1
-	 /Pc5oqCur4NqxRbepSYsRcW+7uGBQt6UuIqJQC/H8/7DWCYrdXzeRGz1D2A0ssrDjB
-	 Mwr/6tG4ESESK1COpL7kDvI0bKB0+/9jQxFkmlmnbZS2WGk5p5epcH4ik/LdphIQkY
-	 e4BIlP9Vd9pTuhZDTsVevQIemhh/kABtvpqK/OKY4M1vzcxnvOtcxh4IG7rYjssZ+U
-	 N+TLwFIChvTMw==
+	b=I8L5c3sdnFHyk8y4eKujxMzAwyziRO8M7cGRGcx7q0Hm2I6MAR5nLwux0EBflmse9
+	 fiGeEniz8/ehR+f00KFNfLo69v2p7er61m49RahVfLCD5TgRqMg7wbm7ZIPnl+b57h
+	 i5X+vwP1MX5RnSA0qWLAnxzqtEQ3RVLcsWn2OKJRVx3INrF3WdqUJ2aFr7QMhqcWPn
+	 +7QXrR6EYZgQVhTiK0wMH5tuhLh2DX4NFzcYZglZoAnQgYweluIen6sDBGSarj1J7B
+	 EbGcH/BtghV02jDwtB0M6TC2zFgrmXWA33wRHp/7wnOCsljom+EOXxJAdIspwU1pLG
+	 SxYaJBCLdLMuA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 522F8D41D6B;
-	Thu, 11 Dec 2025 17:21:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3D828D41D6B;
+	Thu, 11 Dec 2025 17:21:07 +0000 (UTC)
 From: Deepak Gupta via B4 Relay <devnull+debug.rivosinc.com@kernel.org>
-Date: Thu, 11 Dec 2025 09:20:34 -0800
-Subject: [PATCH v26 01/28] mm: VM_SHADOW_STACK definition for riscv
+Date: Thu, 11 Dec 2025 09:20:42 -0800
+Subject: [PATCH v26 09/28] riscv/mm: write protect and shadow stack
 MIME-Version: 1.0
-Message-Id: <20251211-v5_user_cfi_series-v26-1-f0f419e81ac0@rivosinc.com>
+Message-Id: <20251211-v5_user_cfi_series-v26-9-f0f419e81ac0@rivosinc.com>
 References: <20251211-v5_user_cfi_series-v26-0-f0f419e81ac0@rivosinc.com>
 In-Reply-To: <20251211-v5_user_cfi_series-v26-0-f0f419e81ac0@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -82,25 +82,21 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
  rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
- Zong Li <zong.li@sifive.com>, David Hildenbrand <david@redhat.com>, 
+ Zong Li <zong.li@sifive.com>, 
  Andreas Korb <andreas.korb@aisec.fraunhofer.de>, 
  Valentin Haudiquet <valentin.haudiquet@canonical.com>, 
  Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1765473664; l=941;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1765473664; l=2600;
  i=debug@rivosinc.com; s=20251023; h=from:subject:message-id;
- bh=DXRwVlzwdoQZD1P4AgHLEInq/8iOZjrgGgTHzLAJMYU=;
- b=0Dv74hXBGeBWjfcrTvnDOWwPkPd9Di2kldY2KrnrI7XBDo3LnCyqAM/EE3wTg03KyqefMIxt7
- jB5QQy+W8tED+wmP1c2WDSx9gEcyu7GDFvkzXMucAUjsZp+DrZPXcOM
+ bh=m7ME6PGl9KI5AztkhWmEf8JbroLdBQJ+d2uYeaaihZ8=;
+ b=7r7tctPp48JTpLLMCrtR05us6p7SdJXkKkEEO06m1B4TlLQ16GoFfLyU9wxmcdOzT74COct2N
+ jaVecpC/SXpDU0mrIX2zLnqJBo7xwa+24wGsDowi+y2qRTtlpBOvsDN
 X-Developer-Key: i=debug@rivosinc.com; a=ed25519;
  pk=O37GQv1thBhZToXyQKdecPDhtWVbEDRQ0RIndijvpjk=
 X-Endpoint-Received: by B4 Relay for debug@rivosinc.com/20251023 with
  auth_id=553
 X-Original-From: Deepak Gupta <debug@rivosinc.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_092109_706930_21C3993B 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,36 +116,63 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Deepak Gupta <debug@rivosinc.com>
 
-VM_HIGH_ARCH_5 is used for riscv
+`fork` implements copy on write (COW) by making pages readonly in child
+and parent both.
 
-Reviewed-by: Zong Li <zong.li@sifive.com>
+ptep_set_wrprotect and pte_wrprotect clears _PAGE_WRITE in PTE.
+Assumption is that page is readable and on fault copy on write happens.
+
+To implement COW on shadow stack pages, clearing up W bit makes them XWR =
+000. This will result in wrong PTE setting which says no perms but V=1 and
+PFN field pointing to final page. Instead desired behavior is to turn it
+into a readable page, take an access (load/store) fault on sspush/sspop
+(shadow stack) and then perform COW on such pages. This way regular reads
+would still be allowed and not lead to COW maintaining current behavior
+of COW on non-shadow stack but writeable memory.
+
+On the other hand it doesn't interfere with existing COW for read-write
+memory. Assumption is always that _PAGE_READ must have been set and thus
+setting _PAGE_READ is harmless.
+
 Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Acked-by: David Hildenbrand <david@redhat.com>
+Reviewed-by: Zong Li <zong.li@sifive.com>
 Tested-by: Andreas Korb <andreas.korb@aisec.fraunhofer.de>
 Tested-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- include/linux/mm.h | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/riscv/include/asm/pgtable.h | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index d16b33bacc32..2032d3f195f1 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -380,6 +380,13 @@ extern unsigned int kobjsize(const void *objp);
- # define VM_SHADOW_STACK	VM_HIGH_ARCH_6
- #endif
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index b03e8f85221f..df4a04b64944 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -415,7 +415,7 @@ static inline int pte_special(pte_t pte)
  
-+#if defined(CONFIG_RISCV_USER_CFI)
-+/*
-+ * Following x86 and picking up the same bitpos.
-+ */
-+# define VM_SHADOW_STACK	VM_HIGH_ARCH_5
-+#endif
-+
- #ifndef VM_SHADOW_STACK
- # define VM_SHADOW_STACK	VM_NONE
- #endif
+ static inline pte_t pte_wrprotect(pte_t pte)
+ {
+-	return __pte(pte_val(pte) & ~(_PAGE_WRITE));
++	return __pte((pte_val(pte) & ~(_PAGE_WRITE)) | (_PAGE_READ));
+ }
+ 
+ /* static inline pte_t pte_mkread(pte_t pte) */
+@@ -611,7 +611,15 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+ static inline void ptep_set_wrprotect(struct mm_struct *mm,
+ 				      unsigned long address, pte_t *ptep)
+ {
+-	atomic_long_and(~(unsigned long)_PAGE_WRITE, (atomic_long_t *)ptep);
++	pte_t read_pte = READ_ONCE(*ptep);
++	/*
++	 * ptep_set_wrprotect can be called for shadow stack ranges too.
++	 * shadow stack memory is XWR = 010 and thus clearing _PAGE_WRITE will lead to
++	 * encoding 000b which is wrong encoding with V = 1. This should lead to page fault
++	 * but we dont want this wrong configuration to be set in page tables.
++	 */
++	atomic_long_set((atomic_long_t *)ptep,
++			((pte_val(read_pte) & ~(unsigned long)_PAGE_WRITE) | _PAGE_READ));
+ }
+ 
+ #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
 
 -- 
 2.43.0
