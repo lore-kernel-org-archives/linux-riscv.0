@@ -4,107 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 409B8D41D68
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Dec 2025 17:13:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42CC3D41D6B
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Dec 2025 17:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fCtkHpxhr+y7BA3Hrw+YuywOJloSLUKJDMdfZpYISnI=; b=YbU9Pd1ETv3XlG
-	pXn9LsL69FucZzjYGJw1t3zb1eR3q5cogcoC41AdMXknJfXpNiPktfUfWkBq1msa6YNO30SgwwKaW
-	w6c4hnS1x3DKDta+koYSl9nkT4bRBEEmNLRznkJ3CmDayO2r+4AG8lnnXUXJ3JAj6HLkjaUgQQoxy
-	CpCScCMVT+yOaFpL415e3wMlOVwOoNMscTM1D9s3PbzDJpfeo26DkdPdZGrHto6T+yBer8RCV65GV
-	1e9GGqN1PvNY6y7ItUGiqatGsaFYDkEZTAwe7u1kDLpQd6QCazGJG7qdanhW968ooXXvMfoCKdsey
-	g0HC7qWEBImxQUX6cs1Q==;
+	List-Owner; bh=55CYjwsYo/KhnjnBc+B/vCyDLo21d0l0e7cBQAHVH1g=; b=j3gxMee61ngDt+
+	yT4/t8ZBUqt8dMsc5VKvrBi9KTcAZ1TvS4cN43xVAJGvxlJfpNy6vJ9CWPBzK1+VARRNQ6hxPtFSK
+	QQ2kw1WxcqS/B2thiktfviUx/SfTqlNFlezmjKOwe/dH580fwEjcQWCUNThEOnjbBtozpU+nEl9wq
+	L/XGnyU+q5kOLytAHevsT2Th1JDoRcXPnwFvQWmLejSBvc8x9jgp82F2HoYyYujTdnpHcefuBAgIK
+	sjH29r66RxZLBRjK9KA2/1CpGoSFaz7urDGuH0QCPV7PhI98JteFBzRiOYwb/MwHCEk1D+kaIdSsq
+	BRuLitQIoUEwmPyXHD7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTkEH-0000000H0y6-0JBk;
-	Thu, 11 Dec 2025 17:13:25 +0000
-Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
+	id 1vTkLn-0000000H1qn-2rlN;
+	Thu, 11 Dec 2025 17:21:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTkEE-0000000H0xg-05Ea
+	id 1vTkLk-0000000H1on-3ARp
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Dec 2025 17:13:23 +0000
-Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-640f88b8613so283149d50.2
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Dec 2025 09:13:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1765473200; x=1766078000; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XgsqjP5OdKf2pfViq8wHSszLchDHEA8k2q0YnXN+A5g=;
-        b=XhfiwheXNS+ja6aQ17eXlZa9RqkxGluI7ZgDO4WsMRGiH94cklRqJA9rrftqZc2+Oy
-         4voJ2cUOPNYE6UsTow1KOFGpHhkSMHOrPrfVRu+IqSOOvwDnGV/DrmrojJ2esUDYywNQ
-         sd2BmmkD+ioMzIRNW0YEGk6zjf9Nj8jBV+snLshGbrAL7Ugm9nBOd4npr9G76I4YTEfG
-         iFOMgwP2lJaSX0nOKsZRFCURKJgrWNMoSwEAHtqddkWydHwI4xavpXtFxigza/SkU3FI
-         Mv1h57XK8gzA+lLX1Fx4mvm2V+urzx4SIkCjNhU9b5RIRBe0UL4HaLN0MPK1EM6Z3qyy
-         Z0TQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765473200; x=1766078000;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=XgsqjP5OdKf2pfViq8wHSszLchDHEA8k2q0YnXN+A5g=;
-        b=eqiaJFUOv3Cd6Chpx/cxxEQ+1ArrTEmCTk67l5NqPRKYRGUrPqr9qes5XCOPwhjMVI
-         ePuTG4q+TIVyeIOmWfOVCiK1LAlIh5zsGTBAskTYNpzbwgrqt0OQ4taczO0l+ctOuy+n
-         NUOToTfFWLBaBavqp1sKkys5Uf+5Zme1wnjsgUe6N1JbDDdcJeFryPAdjYQ7f/G4TTD/
-         wi9BnQpUbg6IejHZ82/dywy32o6PmHna06Wf1qOlfeFVi4Z77/q30oB7rRTtbkc6GxnD
-         saTIlK938MAbkuNqPur3Uqetvn4cwvGI3Cu2NfI5FQmwKnTUefpKElqWel2I5cTyPqtx
-         xD7A==
-X-Forwarded-Encrypted: i=1; AJvYcCWWx92neiCp8z43PVN+8E8njQvYU6RNQiMGPsHk0caGXYlj3c+Hey5c2F5MziVcRHfxUJ5L7Rp0nuy/CQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUZVrQGH6e9BfeDZ4QT0aYzvxTufHyNp8ybrrm3/I4LwZ4rKr1
-	ovusdk6TmjwEfF9JwbiZeUlVxJOLPeMk/IOsPM3YpV/vGN/rWMryeQtPD9O/DDOhmA3foomPBDU
-	HSdgIufUlEM9MfcivReV17eXOIMBTavpNWIsbjEYqlA==
-X-Gm-Gg: AY/fxX4QwMpNZzbHbd09bIMprfvxQ1wF9hwfklVRvf3MMOYZHlaoMqzbS+65Aioa2CE
-	NWP3tsYHpUY12EpXwbdVvIuSi9NCW9K48w6mNCIEKuJT/ugSeI3+KoAJ9KXYowgeX4g5xzBH7vX
-	2F3t3ONhQZt43HgwwhIXCXL+iQL5FqBO6riXJqnnE6z0mY0pgMeNulqNUQPKj8jRveZ3/xYUaCL
-	gejE5ECkgvCONjk8JtnwnkUEtz6BTiV9iElOARiz6Tm5uwdaMih6ez8C4fXXn0DmX50miNO
-X-Google-Smtp-Source: AGHT+IEDvxO44/POz7bnaB+zrKXCNOOS/WPSTW3GIVXm1upC0YATz2kq4R7kn6XsCe0YNeacKDOWMUqKTxb574ExUiM=
-X-Received: by 2002:a05:690e:2514:20b0:63b:8e09:7a47 with SMTP id
- 956f58d0204a3-6446e97b295mr4684556d50.19.1765473200251; Thu, 11 Dec 2025
- 09:13:20 -0800 (PST)
+	Thu, 11 Dec 2025 17:21:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 77973601B0;
+	Thu, 11 Dec 2025 17:21:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E0FF3C2BCF5;
+	Thu, 11 Dec 2025 17:21:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765473667;
+	bh=vGt6In+217AGJUZ3daQuh5/lKq7QCYpyZ3cg9p1d1Mc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=EE2hWZ5PMU0uEzvIDFgKXsa6ggAJANPFBPmE8Qyhx55d9cfmrufPkXDc+XYKMk7GZ
+	 UsUcV9bLp9TJ/P6HzRxbD68SfC4YGeDT9uxC8V+HVADw9RuYiysZW9zT+TPXyiTP8q
+	 VuAkDjxt9orR6dQxpVejQ14mXp0/TWuH6xc/htYAVscUrf6eUo+XySVGjXxY7kRLir
+	 RAdWJGth+YlPnv0fSyFURHLL41rba3d8DhC4KVvHNJmckD+JU7+f7V4T09sa7D8VzW
+	 gYcfvPAYHjeFaEAoQBJ0vQOUuDts7eFCxneTjKBpxpgysu07mpvjWTY3HdE2O8KQuv
+	 O/l28wcswB+Aw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CFD56D41C15;
+	Thu, 11 Dec 2025 17:21:06 +0000 (UTC)
+From: Deepak Gupta via B4 Relay <devnull+debug.rivosinc.com@kernel.org>
+Date: Thu, 11 Dec 2025 09:20:38 -0800
+Subject: [PATCH v26 05/28] riscv: usercfi state for task and save/restore
+ of CSR_SSP on trap entry/exit
 MIME-Version: 1.0
-References: <20251205-v5_user_cfi_series-v25-0-1a07c0127361@rivosinc.com>
- <20251205-v5_user_cfi_series-v25-6-1a07c0127361@rivosinc.com> <b2acb9ca-1320-ab42-3937-2ea17153fac2@kernel.org>
-In-Reply-To: <b2acb9ca-1320-ab42-3937-2ea17153fac2@kernel.org>
-From: Deepak Gupta <debug@rivosinc.com>
-Date: Thu, 11 Dec 2025 09:13:01 -0800
-X-Gm-Features: AQt7F2rXBhYBRubaxsEthZTktAJEjMnbT8BXdFrJ84aaWwsz26es8ubAplXa-kc
-Message-ID: <CAKC1njTfn-5ZeAV7x5819kXUqitVgO0HkKQi1S6UvZyiuroxvg@mail.gmail.com>
-Subject: Re: [PATCH v25 06/28] riscv/mm : ensure PROT_WRITE leads to VM_READ | VM_WRITE
-To: Paul Walmsley <pjw@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Christian Brauner <brauner@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, Jann Horn <jannh@google.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, 
-	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Benno Lossin <lossin@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com, 
-	richard.henderson@linaro.org, jim.shu@sifive.com, andybnac@gmail.com, 
-	kito.cheng@sifive.com, charlie@rivosinc.com, atishp@rivosinc.com, 
-	evan@rivosinc.com, cleger@rivosinc.com, alexghiti@rivosinc.com, 
-	samitolvanen@google.com, broonie@kernel.org, rick.p.edgecombe@intel.com, 
-	rust-for-linux@vger.kernel.org, Zong Li <zong.li@sifive.com>, 
-	Andreas Korb <andreas.korb@aisec.fraunhofer.de>, 
-	Valentin Haudiquet <valentin.haudiquet@canonical.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_091322_241830_2785414B 
-X-CRM114-Status: GOOD (  16.20  )
+Message-Id: <20251211-v5_user_cfi_series-v26-5-f0f419e81ac0@rivosinc.com>
+References: <20251211-v5_user_cfi_series-v26-0-f0f419e81ac0@rivosinc.com>
+In-Reply-To: <20251211-v5_user_cfi_series-v26-0-f0f419e81ac0@rivosinc.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@suse.cz>, 
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Christian Brauner <brauner@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>, 
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
+ Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+ Trevor Gross <tmgross@umich.edu>, Benno Lossin <lossin@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arch@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com, 
+ andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
+ atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
+ alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
+ rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
+ Zong Li <zong.li@sifive.com>, 
+ Valentin Haudiquet <valentin.haudiquet@canonical.com>, 
+ Deepak Gupta <debug@rivosinc.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1765473664; l=5639;
+ i=debug@rivosinc.com; s=20251023; h=from:subject:message-id;
+ bh=mAV3hY87u/VPuMTejtLxOd8WgAb63pEhw7mYXdwweG4=;
+ b=AAQ4wJso7SYTBtbMOMPHx0SUABDNp55Me4hDl/ssX/sOaicMQcTgXe+S6zc4Ia7IwEXugRBhh
+ dXxjKQigt+uCIrH6rlhF/U4L9/ciIkgVlOLbK70DJpr9YridJh870nT
+X-Developer-Key: i=debug@rivosinc.com; a=ed25519;
+ pk=O37GQv1thBhZToXyQKdecPDhtWVbEDRQ0RIndijvpjk=
+X-Endpoint-Received: by B4 Relay for debug@rivosinc.com/20251023 with
+ auth_id=553
+X-Original-From: Deepak Gupta <debug@rivosinc.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,34 +108,180 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: debug@rivosinc.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBEZWMgMTEsIDIwMjUgYXQgMTI6NDfigK9BTSBQYXVsIFdhbG1zbGV5IDxwandAa2Vy
-bmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBGcmksIDUgRGVjIDIwMjUsIERlZXBhayBHdXB0YSB2aWEg
-QjQgUmVsYXkgd3JvdGU6Cj4KPiA+IEZyb206IERlZXBhayBHdXB0YSA8ZGVidWdAcml2b3NpbmMu
-Y29tPgo+ID4KPiA+IGBhcmNoX2NhbGNfdm1fcHJvdF9iaXRzYCBpcyBpbXBsZW1lbnRlZCBvbiBy
-aXNjLXYgdG8gcmV0dXJuIFZNX1JFQUQgfAo+ID4gVk1fV1JJVEUgaWYgUFJPVF9XUklURSBpcyBz
-cGVjaWZpZWQuIFNpbWlsYXJseSBgcmlzY3Zfc3lzX21tYXBgIGlzCj4gPiB1cGRhdGVkIHRvIGNv
-bnZlcnQgYWxsIGluY29taW5nIFBST1RfV1JJVEUgdG8gKFBST1RfV1JJVEUgfCBQUk9UX1JFQUQp
-Lgo+ID4gVGhpcyBpcyB0byBtYWtlIHN1cmUgdGhhdCBhbnkgZXhpc3RpbmcgYXBwcyB1c2luZyBQ
-Uk9UX1dSSVRFIHN0aWxsIHdvcmsuCj4gPgo+ID4gRWFybGllciBgcHJvdGVjdGlvbl9tYXBbVk1f
-V1JJVEVdYCB1c2VkIHRvIHBpY2sgcmVhZC13cml0ZSBQVEUgZW5jb2RpbmdzLgo+ID4gTm93IGBw
-cm90ZWN0aW9uX21hcFtWTV9XUklURV1gIHdpbGwgYWx3YXlzIHBpY2sgUEFHRV9TSEFET1dTVEFD
-SyBQVEUKPiA+IGVuY29kaW5ncyBmb3Igc2hhZG93IHN0YWNrLiBBYm92ZSBjaGFuZ2VzIGVuc3Vy
-ZSB0aGF0IGV4aXN0aW5nIGFwcHMKPiA+IGNvbnRpbnVlIHRvIHdvcmsgYmVjYXVzZSB1bmRlcm5l
-YXRoIGtlcm5lbCB3aWxsIGJlIHBpY2tpbmcKPiA+IGBwcm90ZWN0aW9uX21hcFtWTV9XUklURXxW
-TV9SRUFEXWAgUFRFIGVuY29kaW5ncy4KPiA+Cj4gPiBSZXZpZXdlZC1ieTogWm9uZyBMaSA8em9u
-Zy5saUBzaWZpdmUuY29tPgo+ID4gUmV2aWV3ZWQtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdo
-aXRpQHJpdm9zaW5jLmNvbT4KPiA+IFNpZ25lZC1vZmYtYnk6IEFybmQgQmVyZ21hbm4gPGFybmRA
-YXJuZGIuZGU+Cj4KPiBUaGlzIFNpZ25lZC1vZmYtYnk6IGRvZXNuJ3QgbG9vayByaWdodC4gIEl0
-IGRvZXNuJ3QgbG9vayBsaWtlIEFybmQKPiBkZXZlbG9wZWQgdGhpcyBwYXRjaCwgYW5kIGl0IGRv
-ZXNuJ3QgYXBwZWFyIHRoYXQgaGUgcmVwbGllZCB3aXRoIGEKPiBTaWduZWQtb2ZmLWJ5OiB0byB0
-aGUgbGlzdCByZWdhcmRpbmcgYSBwYXRjaCB0aGF0IHlvdSB3cm90ZS4gIERpZCBJIG1pc3MKPiBp
-dD8gIERpZCB5b3UgbWVhbiBDby1kZXZlbG9wZWQtYnk6IG9yIHNvbWUgb3RoZXIgdGFnPwo+CgpT
-ZWVtcyBsaWtlIGI0IG1lc3NlZCBpdCB1cC4gSSdsbCBmaXggaXQgdXAuCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Deepak Gupta <debug@rivosinc.com>
+
+Carves out space in arch specific thread struct for cfi status and shadow
+stack in usermode on riscv.
+
+This patch does following
+- defines a new structure cfi_status with status bit for cfi feature
+- defines shadow stack pointer, base and size in cfi_status structure
+- defines offsets to new member fields in thread in asm-offsets.c
+- Saves and restore shadow stack pointer on trap entry (U --> S) and exit
+  (S --> U)
+
+Shadow stack save/restore is gated on feature availiblity and implemented
+using alternative. CSR can be context switched in `switch_to` as well but
+soon as kernel shadow stack support gets rolled in, shadow stack pointer
+will need to be switched at trap entry/exit point (much like `sp`). It can
+be argued that kernel using shadow stack deployment scenario may not be as
+prevalant as user mode using this feature. But even if there is some
+minimal deployment of kernel shadow stack, that means that it needs to be
+supported. And thus save/restore of shadow stack pointer in entry.S instead
+of in `switch_to.h`.
+
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+Reviewed-by: Zong Li <zong.li@sifive.com>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Tested-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+---
+ arch/riscv/include/asm/processor.h   |  1 +
+ arch/riscv/include/asm/thread_info.h |  3 +++
+ arch/riscv/include/asm/usercfi.h     | 23 +++++++++++++++++++++++
+ arch/riscv/kernel/asm-offsets.c      |  4 ++++
+ arch/riscv/kernel/entry.S            | 31 +++++++++++++++++++++++++++++++
+ 5 files changed, 62 insertions(+)
+
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index da5426122d28..4c3dd94d0f63 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -16,6 +16,7 @@
+ #include <asm/insn-def.h>
+ #include <asm/alternative-macros.h>
+ #include <asm/hwcap.h>
++#include <asm/usercfi.h>
+ 
+ #define arch_get_mmap_end(addr, len, flags)			\
+ ({								\
+diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+index 836d80dd2921..36918c9200c9 100644
+--- a/arch/riscv/include/asm/thread_info.h
++++ b/arch/riscv/include/asm/thread_info.h
+@@ -73,6 +73,9 @@ struct thread_info {
+ 	 */
+ 	unsigned long		a0, a1, a2;
+ #endif
++#ifdef CONFIG_RISCV_USER_CFI
++	struct cfi_state	user_cfi_state;
++#endif
+ };
+ 
+ #ifdef CONFIG_SHADOW_CALL_STACK
+diff --git a/arch/riscv/include/asm/usercfi.h b/arch/riscv/include/asm/usercfi.h
+new file mode 100644
+index 000000000000..4c5233e8f3f9
+--- /dev/null
++++ b/arch/riscv/include/asm/usercfi.h
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: GPL-2.0
++ * Copyright (C) 2024 Rivos, Inc.
++ * Deepak Gupta <debug@rivosinc.com>
++ */
++#ifndef _ASM_RISCV_USERCFI_H
++#define _ASM_RISCV_USERCFI_H
++
++#ifndef __ASSEMBLER__
++#include <linux/types.h>
++
++#ifdef CONFIG_RISCV_USER_CFI
++struct cfi_state {
++	unsigned long ubcfi_en : 1; /* Enable for backward cfi. */
++	unsigned long user_shdw_stk; /* Current user shadow stack pointer */
++	unsigned long shdw_stk_base; /* Base address of shadow stack */
++	unsigned long shdw_stk_size; /* size of shadow stack */
++};
++
++#endif /* CONFIG_RISCV_USER_CFI */
++
++#endif /* __ASSEMBLER__ */
++
++#endif /* _ASM_RISCV_USERCFI_H */
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index 7d42d3b8a32a..8a2b2656cb2f 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -51,6 +51,10 @@ void asm_offsets(void)
+ #endif
+ 
+ 	OFFSET(TASK_TI_CPU_NUM, task_struct, thread_info.cpu);
++#ifdef CONFIG_RISCV_USER_CFI
++	OFFSET(TASK_TI_CFI_STATE, task_struct, thread_info.user_cfi_state);
++	OFFSET(TASK_TI_USER_SSP, task_struct, thread_info.user_cfi_state.user_shdw_stk);
++#endif
+ 	OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
+ 	OFFSET(TASK_THREAD_F1,  task_struct, thread.fstate.f[1]);
+ 	OFFSET(TASK_THREAD_F2,  task_struct, thread.fstate.f[2]);
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index d3d92a4becc7..8410850953d6 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -92,6 +92,35 @@
+ 	REG_L	a0, TASK_TI_A0(tp)
+ .endm
+ 
++/*
++ * If previous mode was U, capture shadow stack pointer and save it away
++ * Zero CSR_SSP at the same time for sanitization.
++ */
++.macro save_userssp tmp, status
++	ALTERNATIVE("nops(4)",
++		__stringify(				\
++		andi \tmp, \status, SR_SPP;		\
++		bnez \tmp, skip_ssp_save;		\
++		csrrw \tmp, CSR_SSP, x0;		\
++		REG_S \tmp, TASK_TI_USER_SSP(tp);	\
++		skip_ssp_save:),
++		0,
++		RISCV_ISA_EXT_ZICFISS,
++		CONFIG_RISCV_USER_CFI)
++.endm
++
++.macro restore_userssp tmp, status
++	ALTERNATIVE("nops(4)",
++		__stringify(				\
++		andi \tmp, \status, SR_SPP;		\
++		bnez \tmp, skip_ssp_restore;		\
++		REG_L \tmp, TASK_TI_USER_SSP(tp);	\
++		csrw CSR_SSP, \tmp;			\
++		skip_ssp_restore:),
++		0,
++		RISCV_ISA_EXT_ZICFISS,
++		CONFIG_RISCV_USER_CFI)
++.endm
+ 
+ SYM_CODE_START(handle_exception)
+ 	/*
+@@ -148,6 +177,7 @@ SYM_CODE_START(handle_exception)
+ 
+ 	REG_L s0, TASK_TI_USER_SP(tp)
+ 	csrrc s1, CSR_STATUS, t0
++	save_userssp s2, s1
+ 	csrr s2, CSR_EPC
+ 	csrr s3, CSR_TVAL
+ 	csrr s4, CSR_CAUSE
+@@ -243,6 +273,7 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
+ 	call riscv_v_context_nesting_end
+ #endif
+ 	REG_L a0, PT_STATUS(sp)
++	restore_userssp s3, a0
+ 	/*
+ 	 * The current load reservation is effectively part of the processor's
+ 	 * state, in the sense that load reservations cannot be shared between
+
+-- 
+2.43.0
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
