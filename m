@@ -4,60 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B90CD59D8E
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Dec 2025 21:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99978D59D95
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Dec 2025 21:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wIVDioafALf6ntCEtDBGhcD8lVpmqIDPnApcPl5P/ag=; b=Ny5J1xt4phjtpy
-	YffgGmpelB1nptUxgEjPCebBmNI8ItGp7cEXfdqF5G8w2vGS7E+aK/9YG/Q/C06z/b6sqI5k5Xd5B
-	D52u7/oauIR37qEDKSalgLY2WiwUCJNCpDX9jVzRWXdh+bV3C8tK+CNB5RsuoEwGmumbOkaNK++6U
-	6UQzNsHMAujc0sUv4HzP9/aYiVrP2sAPNLEuaDZ6/NIm1K5HzlFG3b8lFX2e4H5pURsA6goZp+i5K
-	s6cSWf9BuE+sEOGrrHv6bghsshWxwtvHG1IpxNy3nSsCxAbq5oEpbW/XtkMmNJDHT40/0jSHcn9Dv
-	eMytUYu21YQ9B1cGFiXg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IfzGr15aMNgmO/SNidGfC40Vhbx7hL/dtt79SnfC8T8=; b=W/oWioPZTrq00R
+	42PkTj5y72gIU1H8jA3MHOaiYE55+hA6sLFN7sYmo4T0GaUdlUyJUyoFUVfcmeBT52R0HFn4jYyHt
+	Y4J8hCMHqtdR65T8F/gtv7xv2Pgy6rx4MJZvC0+IFHAUveWoft7Pn0kFcJzajr9HnR0F5Oe2fY5Nw
+	Y5qGfbK8F8KeabX69MVTb4bGD6KkdyIpAxJBgo9AXUsFpVxCHqr/IARZlr1+yyfBYs+uoKFosgALh
+	PMZQgMU9olbuYaui9W7jsTfBDijrbHhvEC8YuqkElbvth0eQRsgEs6VdzxH+x4OyuTlZOv3tXBZjj
+	w23WMoMB4ntzbYsgikxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUAZ5-000000016kr-2iaq;
-	Fri, 12 Dec 2025 21:20:39 +0000
-Received: from freeshell.de ([2a01:4f8:231:482b::2])
+	id 1vUAZj-000000016o4-0D31;
+	Fri, 12 Dec 2025 21:21:19 +0000
+Received: from freeshell.de ([116.202.128.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUAZ2-000000016kG-2eBA
+	id 1vUAZg-000000016nT-2QrP
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Dec 2025 21:20:38 +0000
+	Fri, 12 Dec 2025 21:21:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
-	s=s2025; t=1765574405;
-	bh=WQDdYwNv2snvRGevd9vz/rtNBkJTH/PSOizUMnJriB8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=KCWinTeDqTI5SGpmD6CRi0NDayJtht3TxcIEYSUZEbWnPAUeL+NUbR6eHHxAfC2o8
-	 5hMAyH+WNrwhyyNiPlNn0rRV7YOiKzz7BfR1JfAuqR+SamZhfhQlfM5kOqcsSVOhid
-	 eY5QLN9ARapYNOLNVi3743vAm4A/i6d4pHMC/jU8cBDlhr7iBXd9Do399KK9FVrBsm
-	 AvOvIRHvhEb+tDU0lQodK8DGjXd3bGRfSpX4AkTh3qaB9BReJNtoVLj3NNzGaPL3zB
-	 z37yOAn5Mqk89yTsCY+Ya3HiaUIaYKda6EZVfUursQOZg/dJ/xZOZncktND4DFWTRs
-	 PTMfx60wCqNVA==
+	s=s2025; t=1765574416;
+	bh=3gGVTI0YI5QvXC2icpDxmS5lT2Dtp0IOC8hclERXIVs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Iivra8QoiwLbr+SZT3Twpi3gGTREMowRA7CH5IpFkUGmiabHpP/AtrwquNSkurAGo
+	 3oKSKy3xpaUHA8WXJu8Y20QBCUky/CXZUwPTyzv1piGDmdiEMlXNzAgRxvXczivSHy
+	 hleWfHMPopTW2iYSrkOkVcPnnsFJZGkkgRP+ae9UpRKuhGW+RUZKTCs/d19oi5Q5kH
+	 WVDTZnQ/WDToatbQAYWIxi8LwaUgl/rDwItG9xj1W8g1bsrN5Mqy+dMJMDia9YVqpi
+	 0lhOfD4C3uaPKxXCHUTufstIAlNi0b0mL35Gejvwe0LDteY9/Z0WCu2ndQtRlSKyqr
+	 Aoo1GELZkC/yA==
 Received: from hay.lan (unknown [IPv6:2605:59c0:2078:cf00:6ecf:39ff:fe00:8375])
 	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id C96F0B2213EF;
-	Fri, 12 Dec 2025 22:20:03 +0100 (CET)
+	by freeshell.de (Postfix) with ESMTPSA id 33FBEB221413;
+	Fri, 12 Dec 2025 22:20:13 +0100 (CET)
 From: E Shattow <e@freeshell.de>
-To: Paul Walmsley <pjw@kernel.org>,
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Michael Zhu <michael.zhu@starfivetech.com>,
+	Drew Fustini <drew@beagleboard.org>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
 Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
-	E Shattow <e@freeshell.de>
-Subject: [PATCH v2 0/3] riscv: dts: starfive: Append starfive,jh7110 compatible to VisionFive 2 Lite
-Date: Fri, 12 Dec 2025 13:19:17 -0800
-Message-ID: <20251212211934.135602-1-e@freeshell.de>
+	E Shattow <e@freeshell.de>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v2 1/3] dt-bindings: riscv: starfive: Append JH-7110 SoC compatible to VisionFive 2 Lite board
+Date: Fri, 12 Dec 2025 13:19:18 -0800
+Message-ID: <20251212211934.135602-2-e@freeshell.de>
 X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20251212211934.135602-1-e@freeshell.de>
+References: <20251212211934.135602-1-e@freeshell.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_132037_156170_5B098E10 
-X-CRM114-Status: UNSURE (   7.26  )
+X-CRM114-CacheID: sfid-20251212_132116_774931_109E30EF 
+X-CRM114-Status: UNSURE (   7.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,37 +86,35 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Append "starfive,jh7110" compatible to VisionFive 2 Lite and VisionFive 2
-Lite eMMC in the least-compatible end of the list.
+Lite eMMC boards in the least-compatible end of the list.
 
 Appending "starfive,jh7110" reduces the number of compatible strings to
-check in the OpenSBI platform driver. JH-7110S SoC on these boards is the same
-as JH-7110 SoC however rated for thermal, voltage, and frequency
+check in the OpenSBI platform driver. JH-7110S SoC on these boards is the
+same as JH-7110 SoC however rated for thermal, voltage, and frequency
 characteristics for a maximum of 1.25GHz operation.
 
 Link to previous discussion suggesting this change:
 https://lore.kernel.org/lkml/1f96a267-f5c6-498e-a2c4-7a47a73ea7e7@canonical.com/
 
-Changes since v1:
-- add "starfive,jh7110" to dt-binding
-- revise commit message
-- split dts patch to patch-per-fix
-- add cover letter
+Fixes: 7a1e15b248d6 ("dt-bindings: riscv: Add StarFive JH7110S SoC and VisionFive 2 Lite board")
+Suggested-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Signed-off-by: E Shattow <e@freeshell.de>
+---
+ Documentation/devicetree/bindings/riscv/starfive.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-E Shattow (3):
-  dt-bindings: riscv: starfive: Append JH-7110 SoC compatible to
-    VisionFive 2 Lite board
-  riscv: dts: starfive: Append JH-7110 SoC compatible to VisionFive 2
-    Lite board
-  riscv: dts: starfive: Append JH-7110 SoC compatible to VisionFive 2
-    Lite eMMC board
-
- Documentation/devicetree/bindings/riscv/starfive.yaml           | 1 +
- .../dts/starfive/jh7110-starfive-visionfive-2-lite-emmc.dts     | 2 +-
- .../boot/dts/starfive/jh7110-starfive-visionfive-2-lite.dts     | 2 +-
- 3 files changed, 3 insertions(+), 2 deletions(-)
-
-
-base-commit: 187d0801404f415f22c0b31531982c7ea97fa341
+diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
+index 9253aab21518..8ba0e10b529a 100644
+--- a/Documentation/devicetree/bindings/riscv/starfive.yaml
++++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
+@@ -41,6 +41,7 @@ properties:
+               - starfive,visionfive-2-lite
+               - starfive,visionfive-2-lite-emmc
+           - const: starfive,jh7110s
++          - const: starfive,jh7110
+ 
+ additionalProperties: true
+ 
 -- 
 2.50.0
 
