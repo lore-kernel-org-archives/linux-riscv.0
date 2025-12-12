@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FED5D43367
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Dec 2025 02:06:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83499D41D74
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Dec 2025 02:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cOCiTB8w3O6d8UaBeLp+bzrBr4Ui3U5w7WE/Fx/oQ4A=; b=BGzhiGPpfohjGO
-	d/XatXeo+Gni21LZXYrcV3bgYhKLmkZTGSOqJ9OoTs0E+p7G7uhqDGY2YfBXYEBZpr7S/kYeJIniK
-	GLxGokc5Sz8F+Mzisn04XNfIg4KlwCr5g6OhihD6TKdz4x+4hb5NAmdJ/uf/mnZj1DM5A57s9eOzH
-	BXfWfRiQCT2s5YAfTTBNB4SCaEPtz5J1sDVLr9XJULvOqXu4jdoZ5ivNWoNHs3FY+nfMLhQUxkGd9
-	KS1J++8gvoGHTiNNdlBzuXLzlr8240qTD7R2PSgB6GPXIIP4I+K7CGHVnOs/ynL4BY+zMb+n0iDD6
-	uAeBZasnRDwtu/qMSzpg==;
+	List-Owner; bh=qxlbrqQYMBOkF357ZGIAfNO2arS8z9h4cvhdZrDO0BE=; b=riQ6R1ezGjInWF
+	nr2nUwsiRiZUlUssVJtLmu5EnHLN2HIOsTk8j77c7gmscvMBL5ld8UdELlE1nlui/ouLFdHAO4XtE
+	0cqR1eV1u/nSY7Ozsbw40B/PV7+DnTehipvIfpKE3QeksdjJR0j/BqbalDkpasuxtI8FiCkt7xtSW
+	GOEwbbEiKEiGeNZ4lwsJwaj615o55nzIPqhFt4c70jBbVaAOizbIsOA13HLjUPsGUXZGkgGINm7N/
+	1ndihy7AkU7jl1M8r00ScjQtw+Gggn9h4c35X71CEJ303zZrs+TLW5+PScucakWekdR8TYlI4J0Ec
+	ol86LbRcgyaUleUwkFag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTsXv-0000000HWOz-1tzj;
-	Fri, 12 Dec 2025 02:06:15 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1vTsXx-0000000HWQ9-3Cy8;
+	Fri, 12 Dec 2025 02:06:17 +0000
+Received: from mail-dy1-x132a.google.com ([2607:f8b0:4864:20::132a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTsXs-0000000HWNl-1feW
+	id 1vTsXv-0000000HWOy-3a8Y
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Dec 2025 02:06:13 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-343ff854297so927492a91.1
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Dec 2025 18:06:12 -0800 (PST)
+	Fri, 12 Dec 2025 02:06:17 +0000
+Received: by mail-dy1-x132a.google.com with SMTP id 5a478bee46e88-2a484a0b7cfso774396eec.1
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Dec 2025 18:06:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765505171; x=1766109971; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1765505175; x=1766109975; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6UW8ta2pE4L/+9Yv6ju5XY9TcpGvPkrqtEfI1VIl2bA=;
-        b=dMBhCVlvNxOVC17JkN26R6yWwqgYJ2koA5g0hSz19pZ0FMaea+Ae7LEXJtSrDYRqw7
-         NyxQMX/ALtDoiGimRsFg0z8Nl6Xjdw1U18xa1wjzWFTF25/Cn9+SjHCm5gupYQ0Q1X6g
-         +MVryru4UUf2moQW9Pv3fBm4CPWx3tXyQFzp0DlEo4zW0k+RDEnu8afqlecTFE0E2eOy
-         Ws8AaR4o4Kz9YynOcrgfwfF8vmGBqu+KdmMt77dtTnbSX6pxuCE9EqbWL82yRDGepsEZ
-         vAZaRBRES82VAhk7EoljAvJc0tRP2w041Y2xktmb/uMvfvYYYZKl0jr9f2EEc5PJiYme
-         h8yw==
+        bh=lDRFsyvQwwFF2ebD1NnNsyQGvhsS9i0D0wecAIBs+ow=;
+        b=eGQMjEnW6kCwKKwLVKEhi/xuJA0mcnufK+CiEfeER6XEJmcdzdCqwV+UX7Pqj5nY0y
+         rJ9Y4h1QAey7Puo6PukunfEcq3ftAr8XHCXsmMxlnLAK88rH0kmzspOw6h6et1OYkeds
+         pkE0nbs1M172lqOTm+A2sBPTuwhZAngwFeu5NsQ5ct6amRf5GrwV4mA6vmm9RMpoLaex
+         cNOUIK2Jz5eL+WW3pUphIi8gpYueP7ZnvWeXXJPw9odGdnGL5O3wHMjX7iQK2+KigPlb
+         EKeRu4BSf8VPaCYR0AjelriG8nV7aZSxltmLhdzvkCXS3M8AX0bCi+8LbQTzaGjhPpOU
+         T8MQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765505171; x=1766109971;
+        d=1e100.net; s=20230601; t=1765505175; x=1766109975;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=6UW8ta2pE4L/+9Yv6ju5XY9TcpGvPkrqtEfI1VIl2bA=;
-        b=cOruwcLGZAfspwowL6D7wBzmZ4d3jLQLZCUJWXQpvKe8YfEubUyeust35H4lIrHik8
-         fVmTe/7WhCMfpV6TiSRJS+ZDF821H+Ylc+aJbnRZntmfY0twC1euD9+oNtbBDGYqlqp5
-         X/eUfIJTqTyaYFdWG8uJlvDYr0tbglC7eNBAB3CkdEiuVFv1ZJUgDbNqJzOG5aGSV1B3
-         /7YT83yYJjX7BHZZWW3eFzlb9ReuG358FKRsuUA0OBd2rtFK8ZTn48e7r+cjGpI18LYy
-         S9a4FlkRfOTNc9lYTcFEAUwfvc9UUrPQ02zeuNmHmEemW8Ch6WUKonyxZYeg/iG+/5Tw
-         XXgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWEu71hPQP/NLONhzZqXZA+8WvR5TtkNL2ILTrBHSyfpmdhepw8PITbWAGEx2Kl/xMG8uzqTH/oPQzNAg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxV069Z60t+IG4QxfQz1Qzz1jMJTJW0yU/ArUGr/cjvThJ8YqAF
-	UCbivWhXyI67hmCPhYisjkyNHZLsZv1s/un7bp0fMG35x+JVTtVPbajS
-X-Gm-Gg: AY/fxX4MTA/bFUsCjyexqg8Ai2fs2JLEIkWjJba+x38G90T62/4sqfCC7/Tvv/3YJXr
-	He+zig6kzrHuseJAumk9cEv0ebgAyW570O40IAVuDqg7+TNijREIzJv9hu5uj8qOeZiX6pqUytN
-	0cV7pf5pNhl1pQnCOe9a2MeYONvTdL1gpR4baYXkCbrR90nf51BGAqqLNeZGeowJRWnSrpNfrG5
-	OXHwwB5ptBZ+ej6ZPMlv865Y5chIv3uqsemKyVENgxyNcaulokYC81AJ1sPLbFMZWcwORtFZyPD
-	qcX6R0MRk04CDQ3SD9W1b2+xYU9s0aV6hMtHGJIr+uq+SCh+R4vIwjhEa6KxT5UhHDxvLpMrSKE
-	l9cDWYoyT04Yaf2MkNFCz+jfMT/vmLOsW7EsePsyi6AHWUONYCuONafCd3BuOUMb42VR2V/P5Ab
-	Lfh+HDNmHJ4+OjLnNds5H+
-X-Google-Smtp-Source: AGHT+IGSWde9J7Z1CP0kykXZdi8BkMxbnhMLXy73Xa4qFfGp95pPa1k3E1/AVaVXLlBhIIxrLowN/A==
-X-Received: by 2002:a05:7022:f303:b0:119:e569:f610 with SMTP id a92af1059eb24-11f349a1991mr358648c88.9.1765505171307;
-        Thu, 11 Dec 2025 18:06:11 -0800 (PST)
+        bh=lDRFsyvQwwFF2ebD1NnNsyQGvhsS9i0D0wecAIBs+ow=;
+        b=ZIqFk+ORbzuTAZdeIVq3cteT8mJ8ienok8QMyRKrDRmfO0c3Cs2JaYL4NjWPsz1482
+         +9Pyl3/5wjLWzz+M/IIbCzlCwVIB22am9hNOnEBoGqq/Lg6cy/eodz7xPR4gwK8iy2j6
+         i0T6nmURXKHmKJ1j08Bel9V+WBaVY6VOwI0CJNcV2MYDjZfrqTK8y1Xf4S64w3i9KLzh
+         ihBuHIkS0L8F5XMaT7AHNCTG/QucIjJlCfHi22w3TUh37M5OE82Q2R3MjHNTYhvsSTvN
+         rWFnW2q4e/bC22JkWrvp0ggBuZeE9Rv0o7oaQ5PN71RUcBNiHPm52rjbfgc68iEVTgPk
+         3n2A==
+X-Forwarded-Encrypted: i=1; AJvYcCU1yuzwDfvaI3kGKVdVVr/+XmCeQuxAr7RE9aaE/cLRhXF6jECDE0rEgDiT4It3C3hJsVhtc7tpQkpEPQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFpXD0lRwHsMal3LHXOhn8iLl+oScoD4Wkp0ozRHQ6JHMv6jLf
+	k3tJbgKAumoyTbfyKihD1dzHKzbv9qI4v1mYFXSXvRJPCPJg3YVlHgyd
+X-Gm-Gg: AY/fxX7ePhZz0oKhLrJPw+dstCMUrHrui9hSd8nyk+tgsrMyXUv0snstfE5EvW0MpiZ
+	pPv9QD02laNvmI+OgSJb0VMZaQK9Et+xY328YDoQ27uJze/bZkrajLVstDg+dWwn8ebyWCpV91Z
+	/L8PkRuh1h+TyNrPHmXWw3+Zzoku0M65jN0PVE/Hg1NnJV29sR4U+Kjt40gbeIf618UDRThAA7h
+	Oh70Hixy9QiL06HlanTX7k0j5nXgHS9w0TMGk3XQkrYL+zfWgzfLn04NMzz3SGFQgDVJhSz+nEU
+	hI2k9bqyo8Zk9o3YJe6dIQuzfhaQ13Wxbv6DmFgmt1WRYOiF+kuhCHtVEvWHhafFScfpcpbz0fe
+	FRdp3td69tNyjO4MEo42tVToD66Dqr1X0HpFOGBiAqp4bAR/NoCtYxY5LCwslvEgvmMX44T+mDz
+	YNo0zmoYGZwg==
+X-Google-Smtp-Source: AGHT+IHp4XoVEq8gZitvB+BzE1jK7qxIPLPcDqRDy/MZup4QourLgfB3mVZLdfvqwzeWxynBbGaqDg==
+X-Received: by 2002:a05:693c:26c4:b0:2a4:626d:5c38 with SMTP id 5a478bee46e88-2ac1c7af40dmr1966521eec.17.1765505174731;
+        Thu, 11 Dec 2025 18:06:14 -0800 (PST)
 Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11f2e1bb3b4sm12959928c88.4.2025.12.11.18.06.10
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ac190acd01sm11708576eec.1.2025.12.11.18.06.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Dec 2025 18:06:10 -0800 (PST)
+        Thu, 11 Dec 2025 18:06:14 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
 	Vinod Koul <vkoul@kernel.org>,
@@ -86,22 +86,22 @@ To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
 	Longbin Li <looong.bin@gmail.com>,
 	Yixun Lan <dlan@gentoo.org>,
 	Ze Huang <huangze@whut.edu.cn>
-Cc: "Anton D . Stavinskii" <stavinsky@gmail.com>,
-	dmaengine@vger.kernel.org,
+Cc: dmaengine@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	sophgo@lists.linux.dev
-Subject: [PATCH 2/3] dmaengine: dw-axi-dmac: Add support for CV1800B DMA
-Date: Fri, 12 Dec 2025 10:05:02 +0800
-Message-ID: <20251212020504.915616-3-inochiama@gmail.com>
+	sophgo@lists.linux.dev,
+	"Anton D. Stavinskii" <stavinsky@gmail.com>
+Subject: [PATCH 3/3] riscv: dts: sophgo: cv180x: Allow the DMA multiplexer to set channel number for DMA controller
+Date: Fri, 12 Dec 2025 10:05:03 +0800
+Message-ID: <20251212020504.915616-4-inochiama@gmail.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20251212020504.915616-1-inochiama@gmail.com>
 References: <20251212020504.915616-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_180612_441616_2A292997 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20251211_180615_893917_9F35BC2F 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,94 +118,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As the DMA controller on Sophgo CV1800 series SoC only has 8 channels,
-the SoC provides a dma multiplexer to reuse the DMA channel. However,
-the dma multiplexer also controlls the DMA interrupt multiplexer, which
-means that the dma multiplexer needs to know the channel number.
+Change the DMA controller compatible to the sophgo,cv1800b-axi-dma,
+which supports setting DMA channel number in DMA phandle args.
 
-Allow the driver to use DMA phandle args as the channel number, so the
-DMA multiplexer can route the DMA interrupt correctly.
-
+Fixes: 514951a81a5e ("riscv: dts: sophgo: cv18xx: add DMA controller")
+Reported-by: Anton D. Stavinskii <stavinsky@gmail.com>
+Closes: https://github.com/sophgo/linux/issues/9
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    | 23 ++++++++++++++++---
- drivers/dma/dw-axi-dmac/dw-axi-dmac.h         |  1 +
- 2 files changed, 21 insertions(+), 3 deletions(-)
+ arch/riscv/boot/dts/sophgo/cv180x.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-index b23536645ff7..62bf0d0dc354 100644
---- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-+++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-@@ -50,6 +50,7 @@
- #define AXI_DMA_FLAG_HAS_APB_REGS	BIT(0)
- #define AXI_DMA_FLAG_HAS_RESETS		BIT(1)
- #define AXI_DMA_FLAG_USE_CFG2		BIT(2)
-+#define AXI_DMA_FLAG_HANDSHAKE_AS_CHAN	BIT(3)
-
- static inline void
- axi_dma_iowrite32(struct axi_dma_chip *chip, u32 reg, u32 val)
-@@ -1361,15 +1362,26 @@ static struct dma_chan *dw_axi_dma_of_xlate(struct of_phandle_args *dma_spec,
- 					    struct of_dma *ofdma)
- {
- 	struct dw_axi_dma *dw = ofdma->of_dma_data;
-+	unsigned int handshake = dma_spec->args[0];
- 	struct axi_dma_chan *chan;
- 	struct dma_chan *dchan;
-
--	dchan = dma_get_any_slave_channel(&dw->dma);
-+	if (dw->hdata->use_handshake_as_channel_number) {
-+		if (handshake >= dw->hdata->nr_channels)
-+			return NULL;
-+
-+		chan = &dw->chan[handshake];
-+		dchan = dma_get_slave_channel(&chan->vc.chan);
-+	} else {
-+		dchan = dma_get_any_slave_channel(&dw->dma);
-+	}
-+
- 	if (!dchan)
- 		return NULL;
-
--	chan = dchan_to_axi_dma_chan(dchan);
--	chan->hw_handshake_num = dma_spec->args[0];
-+	if (!chan)
-+		chan = dchan_to_axi_dma_chan(dchan);
-+	chan->hw_handshake_num = handshake;
- 	return dchan;
- }
-
-@@ -1508,6 +1520,8 @@ static int dw_probe(struct platform_device *pdev)
- 			return ret;
- 	}
-
-+	chip->dw->hdata->use_handshake_as_channel_number = !!(flags & AXI_DMA_FLAG_HANDSHAKE_AS_CHAN);
-+
- 	chip->dw->hdata->use_cfg2 = !!(flags & AXI_DMA_FLAG_USE_CFG2);
-
- 	chip->core_clk = devm_clk_get(chip->dev, "core-clk");
-@@ -1663,6 +1677,9 @@ static const struct of_device_id dw_dma_of_id_table[] = {
- 	}, {
- 		.compatible = "intel,kmb-axi-dma",
- 		.data = (void *)AXI_DMA_FLAG_HAS_APB_REGS,
-+	}, {
-+		.compatible = "sophgo,cv1800b-axi-dma",
-+		.data = (void *)AXI_DMA_FLAG_HANDSHAKE_AS_CHAN,
- 	}, {
- 		.compatible = "starfive,jh7110-axi-dma",
- 		.data = (void *)(AXI_DMA_FLAG_HAS_RESETS | AXI_DMA_FLAG_USE_CFG2),
-diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
-index b842e6a8d90d..67cc199e24d1 100644
---- a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
-+++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
-@@ -34,6 +34,7 @@ struct dw_axi_dma_hcfg {
- 	bool	reg_map_8_channels;
- 	bool	restrict_axi_burst_len;
- 	bool	use_cfg2;
-+	bool	use_handshake_as_channel_number;
- };
-
- struct axi_dma_chan {
---
+diff --git a/arch/riscv/boot/dts/sophgo/cv180x.dtsi b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
+index 1b2b1969a648..e1b515b46466 100644
+--- a/arch/riscv/boot/dts/sophgo/cv180x.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
+@@ -417,7 +417,7 @@ sdhci1: mmc@4320000 {
+ 		};
+ 
+ 		dmac: dma-controller@4330000 {
+-			compatible = "snps,axi-dma-1.01a";
++			compatible = "sophgo,cv1800b-axi-dma";
+ 			reg = <0x04330000 0x1000>;
+ 			interrupts = <SOC_PERIPHERAL_IRQ(13) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_SDMA_AXI>, <&clk CLK_SDMA_AXI>;
+-- 
 2.52.0
 
 
