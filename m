@@ -4,72 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C1DED4921E
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Dec 2025 18:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C8FD59D84
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Dec 2025 18:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=y3qJYMBkUAYIKOB/liY8ohJc+Wo1A724aUlIGti+JhA=; b=snEa41ivFbjXVr
-	NxgSiztSFlBAeI7LT6GyeKCNx7DncMn6LbrcaYBVp26gF3grCxDtc4C36UaimJDe0IXd1duQlLKZF
-	/yv14AmyEqTFyR1beV+jUisJHCykhA7qVqLu6kMLT3DwI2i7GJvoI5CVG/Pu/hBhI5lR7S+a17tCo
-	wztvc1PBUW9z3TlQUejjR/wKevM0kWVuWmXLC1SCc3/UFBZID105vPJV4DK/92BQ4TLw67ZIswF3Q
-	o31VD8CevdyFxWIdIqSGNrcMKIbiuIBWuow7HtLZmiKzNeTbVFaoWQQZ18kf1bL0Zpg+8dzlXsBWY
-	Xeml2Ccnx6YkPVUFvFSw==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CgXGG0NUrV1UwbY+Gk6feyNcwe6nK1z9IBgRVTk0yrI=; b=Fkp0LVQRCG/wSd
+	ohMFRnXtiS5QqO1wrwSrDTqW6qMWPmgsBDc+4KKelpYCR8JAsL929f/vW+LC1XPv6VieWtoGTfhTO
+	t7xW1enIyktOI19m/Y4bPMtF8EfpdY+bUXGJLTFs4lSZMM1CFuTmGCQIdr20LR5ylJ33Ofpv5AWCB
+	ALK6LpkJSJ/hI5UpxzUd+acL+P6tyhS11QS3c7SdTw4POKFwhzBEMxBY57SwQc9pz7R850c079n1J
+	hTY7oGZwTYQJN+HG214MnJeHiNKVVr6oZ5HeP3ioXq3GBsJXXBuUkJVWSuKo9PlRlBSo305RgABNO
+	qg4SFyi6zgWLlt5uc8jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU8BB-00000000xPE-3wRL;
-	Fri, 12 Dec 2025 18:47:49 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vU8C9-00000000xVg-1dyB;
+	Fri, 12 Dec 2025 18:48:49 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU8B9-00000000xOq-2GKP
+	id 1vU8C7-00000000xVL-0Ee5
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Dec 2025 18:47:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1765565264;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=0sp0c7ijMfmNIDKHaHKpRzr1j+6h+exLVgKMjotQmgM=;
-	b=H045SYqY7mLnnx+XnDskvjAmPVRqjzhvCJGbc4KjwhxQ956s0Ra0FH2JE7vCrnBUHL03Cg
-	GPuNW08T8IBLOqAeQvoaG0lhyvml4MWakDSt+EJPMFlXv8x6MZX9rLINwR35Iq1WbzA2yL
-	pJOemJJx6Do9Im5RWk3Aw/HkD+0/XSw=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-685-lP-MYbFaME-oWaxlvJ1hLQ-1; Fri,
- 12 Dec 2025 13:47:40 -0500
-X-MC-Unique: lP-MYbFaME-oWaxlvJ1hLQ-1
-X-Mimecast-MFC-AGG-ID: lP-MYbFaME-oWaxlvJ1hLQ_1765565259
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 69CEA1800657;
-	Fri, 12 Dec 2025 18:47:37 +0000 (UTC)
-Received: from cmirabil.redhat.com (unknown [10.22.88.59])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id C01001953984;
-	Fri, 12 Dec 2025 18:47:34 +0000 (UTC)
-From: Charles Mirabile <cmirabil@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-crypto@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	ebiggers@kernel.org,
-	Jason@zx2c4.com,
-	ardb@kernel.org,
-	zhihang.shao.iscas@gmail.com,
-	zhangchunyan@iscas.ac.cn,
-	Charles Mirabile <cmirabil@redhat.com>
-Subject: [PATCH] crypto: riscv: add poly1305-core.S to .gitignore
-Date: Fri, 12 Dec 2025 13:47:17 -0500
-Message-ID: <20251212184717.133701-1-cmirabil@redhat.com>
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+	Fri, 12 Dec 2025 18:48:48 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47774d3536dso15058405e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Dec 2025 10:48:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765565325; x=1766170125; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ws8si3q8m+pORfnElCi6zW3h1zosQU2jocpsY2hNquM=;
+        b=ML4StUKJypQsGqlBRVJe988X6g8x+cilfVqnVOQjhmJApgG5rOnk14F6mbAiYeLf+z
+         culXEn0ix6ZydtgptHV7+WpQcTyZIGKy7eCnQ34zSEwg7bQCZ8s+UBcPLvVHuAnmd5V6
+         y4QWSXahc/2cFWEEhMUGZxFuwSvftxLDmt6KUgLTlfq3UR5aHOaKvEFLzjx+WWGOxPwN
+         Vfe4JUxJOrQJD57EVt98zIRQoPuCuziNsJosKRDpSHxCRHgL5uNtA4aC3NenW4JFOTeN
+         njdHYJqo3mcmg1c4lbst6F4elEsbicn29Wr6hfMluIfKB/wxt3JZ+nfkWF+/b1Juyxlm
+         fu+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765565325; x=1766170125;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Ws8si3q8m+pORfnElCi6zW3h1zosQU2jocpsY2hNquM=;
+        b=vmFlppfJBZqHYOfxQOhlvoQZe4VSUo3huvO7DmXiawmiJ1yKUqjVZjnIiR0r4UUGd6
+         Wm9tzkRjbxaNENmJeVrFk4xwIJYO75wjQaP8JTo1VxHvvUZR2hvvA6jZQGFh3CQtMCwm
+         an4FvHiSRrvt9Nhryk1qn1KwkplbTlZINSkVK92o/elLeC6dbJ3MFQdN2RzARkVrFHsn
+         TkMdXCU0ecO29o5tr1c2TIHC9DfpMJqxsPekcGp7fVcVokF6Uy101atEVK9YZKpJV217
+         WqNUhzEigjixuvQc4Nvd+c9+5lEabbxGLUEFEgMdATmxVPiTtSRY/egqH5tCSfDAQvNI
+         Q3wA==
+X-Forwarded-Encrypted: i=1; AJvYcCVtjjrY49p+FIH8PwLzYPNS4SQXz9yrJVOxyomJ6fGMQ8foE9Ie7XTzj9wtoj2jwO/5UPBPWQtFAZ6QGg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywo01h0utpbz829LBAKgcKDfPv3QOa8xVXc846Js2Y50kHNyK7n
+	0Z4yUB4MxQJfy1ZjSPumjSnIQstQXBaO1fMZ+obdLrK0RtY+LmJ1i4mD
+X-Gm-Gg: AY/fxX7Y+0oX6AD1qmfNPOd0GoG9tf0Wgia//PPQySCodEjx7XO4jFQQeSPUdWQ6ybt
+	VPKgPyf+6FCs+edPieLKVQ5iGh9jq+BYFCnYmAwrFBdfuX2f/1rt+k9Ch1ku/OWRAy199ahbgJn
+	dF8y+vFSjXLfWV3tV1hsOSwwIl/BJNUWejb/1U3JlJWmHax/VakBhtgoM3i5d1Cy90QVCfCKNx4
+	Pbv6U+WbuhioZy8UTX49pny5+kDQA71vdQ7mX34s4B4Mg6zbGaHv0E2d/9JewH+eu0zjz3+vpcM
+	DtQmt4Wi5RTPsMUxEs6pynaqtwFLCGRkZo8mcWay+UVqexIeiVqLOzsDe2kM7PJiOoE9I1ZXGiJ
+	LraRQ5tMeByu63B6beb7Xh0w8a/H8Ijifp+QHQeBMDYOg5IsIFDQVUAOUgPDo+k4eRGhIZVvRmp
+	3i7rkOsBw/XsK2XRP9TOsRNrYXypy0KxilIN2yusB/mBxXNhlG5OG7h8d03M+l4btK/Uw=
+X-Google-Smtp-Source: AGHT+IEcsB4SsohMiuSMRBVsLyNXjKi7YpKhM33MGaetXAZYk3yBX6k/E4+lyPkq3E+DCl/tx3dVDg==
+X-Received: by 2002:a05:600c:1c89:b0:479:3a8e:e490 with SMTP id 5b1f17b1804b1-47a8f2cb09dmr38671305e9.18.1765565324767;
+        Fri, 12 Dec 2025 10:48:44 -0800 (PST)
+Received: from smtpclient.apple (bba-86-96-93-57.alshamil.net.ae. [86.96.93.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47a8f3240fasm47202405e9.0.2025.12.12.10.48.41
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 12 Dec 2025 10:48:44 -0800 (PST)
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81\))
+Subject: Re: [PATCH 1/3] dt-bindings: dma: snps,dw-axi-dmac: Add CV1800B
+ compatible
+From: Anton Stavinsky <stavinsky@gmail.com>
+In-Reply-To: <20251212020504.915616-2-inochiama@gmail.com>
+Date: Fri, 12 Dec 2025 22:48:29 +0400
+Cc: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+ Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>,
+ Chen Wang <unicorn_wang@outlook.com>,
+ Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+ Longbin Li <looong.bin@gmail.com>,
+ Yixun Lan <dlan@gentoo.org>,
+ Ze Huang <huangze@whut.edu.cn>,
+ dmaengine@vger.kernel.org,
+ devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org,
+ sophgo@lists.linux.dev
+Message-Id: <A0AF03A6-1F0B-462D-A088-3B4DF6BA6292@gmail.com>
+References: <20251212020504.915616-1-inochiama@gmail.com>
+ <20251212020504.915616-2-inochiama@gmail.com>
+To: Inochi Amaoto <inochiama@gmail.com>
+X-Mailer: Apple Mail (2.3826.700.81)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_104747_668149_6820F5B6 
-X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-CacheID: sfid-20251212_104847_123376_8E56B978 
+X-CRM114-Status: UNSURE (   8.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,25 +120,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-poly1305-core.S is an auto-generated file, so it should be ignored.
 
-Fixes: bef9c7559869 ("lib/crypto: riscv/poly1305: Import OpenSSL/CRYPTOGAMS implementation")
-Signed-off-by: Charles Mirabile <cmirabil@redhat.com>
----
- lib/crypto/riscv/.gitignore | 2 ++
- 1 file changed, 2 insertions(+)
- create mode 100644 lib/crypto/riscv/.gitignore
+> The DMA controller on CV1800B needs to use the DMA phandle args
+> as the channel number instead of hardware handshake number, so
+> add a new compatible for the DMA controller on CV1800B.
 
-diff --git a/lib/crypto/riscv/.gitignore b/lib/crypto/riscv/.gitignore
-new file mode 100644
-index 000000000000..0d47d4f21c6d
---- /dev/null
-+++ b/lib/crypto/riscv/.gitignore
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+poly1305-core.S
--- 
-2.43.0
+Thanks a lot,  Inochi. I've tested on my Milk Duo 256M board. 
+Seems to be working with the I2S driver, which I'm working on right now.
+No issues with DMA interrupts anymore, DMA router used right channel. 
+
 
 
 _______________________________________________
