@@ -4,70 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757AED59D7B
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Dec 2025 17:59:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B55D59D84
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Dec 2025 18:33:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sr8V7d+n8nA6RrsNWIlTXxE7h+jkzk6z0W4kWCQeqV4=; b=vN61sYun3vztYBKAiwaA5Qc8kC
-	L2HFFDm7sfM9jFMO9MK9yMmY9Q68dVpiA3aUulv2lvZKzJebxJ1oO4Qo5J8VkiJMA1hcBbau6cCS9
-	HQjQ3c+3EeupBAhuO+9/qU9Syxg3UYm8NBADbcMue67cHcaQ9IgGsopiY2YtuC0iXUPLZZ4EGl6Q2
-	Zd6/0bkbfYdhmyM/RU+vxYMCJSYr3Z6Qna7lvAkNuDePPaaC5jcml2rItCjlepMdn72IgP8ks1qDW
-	9aLvTRxmH0h7K4jHgzkZNGawRK3BS+OE/NRRyklQz5aN/40elXMyvfuFel0GVTndJqIzrdhUfZSY3
-	f14YP/6A==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N9/Vc3wjs7s0j1yTTv5MuG0CIzR/o03dWrvsnmTQi90=; b=UDiyp68cZuT4K596yNziNpyKck
+	u6gYPNjAFxcvreDZqomj9z4YOX4foxUTqDOLD7GMBn+op7wC5Zg+sOEIUmCN8gUXte1iyfGe+vS/5
+	v1LRUH1wqKXDt6VxwW63XElzxZt8yZZ/NyHJdgNHLMx9HrOi4IwH0g/K2QGMlg/x652hTsKf1VXZO
+	CUo2GHPt1l4AFxPg5mvg5SUKO537H6hylwUbfmZIvmXlR8d4lNBdV7isIiMZFW0Zt/ouW8wKXncCW
+	dRoVV5k9VloIttiVXDqB/TrLCWifcjeKc+F6e6eqpX+sdQxE2qeFbtvGFfPBhLnXq8dMapQ0srBXt
+	T29R1CzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU7QD-00000000vAH-1gx2;
-	Fri, 12 Dec 2025 17:59:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vU7xF-00000000wf0-19Iw;
+	Fri, 12 Dec 2025 18:33:25 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU7QB-00000000vA5-1GBD
+	id 1vU7xC-00000000weS-1Luq
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Dec 2025 17:59:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2880960017;
-	Fri, 12 Dec 2025 17:59:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DADD3C4CEF1;
-	Fri, 12 Dec 2025 17:59:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765562353;
-	bh=8RRRc4CBHUq0nTddaC6P4w2gbfOVChhf7hvdjIaZf3w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JnKkkqOsuQYo6Kg/tf3OLKczT7R+rmDIqxBXoC1ouGBPIYWybMu1jOjUCYs1AIhbX
-	 Xja5+84QoJsD6CPaTpUPv50qtXCmrctCWJCBQTZxlHbye+f4Bp9ov3MT0ybaryu05A
-	 VrAvQARc/Kdeb0EalRbebKXZBb0QPcYvNCpIJeTJDcjl43oxH38TFAhlgI7yzrMQyp
-	 75RM7OWSrr4mW1g7Ve+ze5CVITxQc2WqlDjwxvraGvXtHVaGl5mBJb9n+CuuXwcta2
-	 LONKGNyC4CbiBwCAvW+LYLypMAEcX+tJVIX5Z+dHXyDZRD7RQldGFxdk9iCFDaCIYr
-	 xltoAOAUV0UPQ==
-Date: Fri, 12 Dec 2025 17:59:08 +0000
-From: Conor Dooley <conor@kernel.org>
-To: E Shattow <e@freeshell.de>
-Cc: Samuel Holland <samuel.holland@sifive.com>,
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
+	Fri, 12 Dec 2025 18:33:23 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2984dfae0acso27883855ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Dec 2025 10:33:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc.com; s=google; t=1765564401; x=1766169201; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=eUSGmEJqTzYByGnUlGU1GkRTgZG6xNYZQ+XlXEoFmO0=;
+        b=WwjuMkFPhINlzq8K/nVwKT+xfRibUHU6XfGs2FfCe27UJQtstgONhCpYvgmtqLRau/
+         thQ1vznHRFGUXovjy02cgV5aBo4tnv+E3y2luasVttHQTZKWozVfgAOmJeKeBfOvC9a0
+         MLoRYwaPlREoxXZFhQo6CmmwMsWHcDedub3I2Gq3rF63xKUuETvnnx8xBbdEezliL1Gm
+         a5/j4U65bRNxt4AwE6XPpMi5mGTVgdYJ09REvym1vZU6vlnvHAzFCDiJzbFYFczRrJuw
+         iWF6kyUfDCD5ky54lg2QGvGhYPpz23CxP27rs3Avu2v8fLOLMgGwfJIlK0usrTe4k5ta
+         Uwag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765564401; x=1766169201;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=eUSGmEJqTzYByGnUlGU1GkRTgZG6xNYZQ+XlXEoFmO0=;
+        b=ASqlSmZ+/jjubjxJSmbXx5LhYzNQKF/Y8v9psxA1odWnhxBxmXq7pQ9lZ8mfkHIdl7
+         QgIa5W8lqaQkb8RV2I7W6whLgZFaRfo7XK066g9FCxjZxo+J78demLSmPazwoVnW9eZj
+         gSXtIuvywbBVPDX44ICBmK2enfjjv2vcwp5pCcjmV50Lff9wVqeUadLGKEtTQY2VkSkp
+         em6DF2Y6/u6vO2swyBAntRQ5rcODXFsLQYM92vBr0d4YWTQjTJdvdZFxFBHDOY7cyrp9
+         YttZmNjL30ebMlDsVeEyxDaPs5Qo42YoK/M3r8T4fkrvaxLbR0L2IwgFMhhmbPTo9X6Z
+         stKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWwR9qihjbV8gAXgUTQmeYk3H50SLiS5tA07fn6wRurXhAVC0zHE9FhcNvo0NBwsxKqBq+r1PEVFe+OTA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjsiSybsnz1v+7WzpJrEztp9pdvg4ylsnGwxJEWppo5giLE7gz
+	Yx2mW8s0ruo0g26eb+vvDzlvdijqRdiJ6t2b936OyqfVXDUQ/0Gz5cq38vpMhjoAYkI=
+X-Gm-Gg: AY/fxX75ftcuUo3/iNCjWlGsfWfmrsIkWfKV2wnow4josG5BGv1dxlzkA4DRTTTgzk5
+	+37evt6tIHG7oaEnyj2mVEF6/I93N0P/nZQjs0Pd1Dau0KaxbmU2Wvulo5ZaCa3ISHHvzNzJvL7
+	rmqBYUmfp7AdZkZBNvGZPWjO+3evtFv+K7uDYfwqtt4wKl7/QJCllqx7Tl1+vhXwyOwAqvHI2vg
+	6aTLi7p050mNbhIcL33PU3xKkDVy88d2QgBOLovvkVqBJZCTFcwcs0nbOnWip6Fo919b3rDki7b
+	R1Y5SFowCETDYVTJzmLFWgku91/K36z80A98pquDVg1ux3/pKWIJsL6zhahv/m+cx7Xtwesu3y/
+	dSX4ob72x5tMr0J0TPPDyrkVFB8Z1AtvLzuoIwOU7ydKBUi7Vuwm4itGVOALnxsV3VrEs/dwKGj
+	tRMkfcMjSXA9dfYwZRb6zE
+X-Google-Smtp-Source: AGHT+IFtnl41QfJeu3IJ/uV+L4EiFBX8zP0ux5EampS/J9pJIP4sBjIMESLAF9z1UPcxbBQKr8xzaw==
+X-Received: by 2002:a17:903:22cc:b0:29f:2456:8cde with SMTP id d9443c01a7336-29f245690bdmr29337135ad.4.1765564400511;
+        Fri, 12 Dec 2025 10:33:20 -0800 (PST)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29eea04b7bdsm59970265ad.85.2025.12.12.10.33.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 12 Dec 2025 10:33:20 -0800 (PST)
+Date: Fri, 12 Dec 2025 10:33:16 -0800
+From: Deepak Gupta <debug@rivosinc.com>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christian Brauner <brauner@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Benno Lossin <lossin@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
 	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v1] riscv: dts: starfive: Append starfive,jh7110
- compatible to VisionFive 2 Lite
-Message-ID: <20251212-arming-slacks-18b9407f69e3@spud>
-References: <20251206204540.112614-1-e@freeshell.de>
- <20251208-jogging-morally-9b787b7ab1b8@spud>
- <a18850ad-b6de-4444-9daf-a4a653f4f9ae@canonical.com>
- <0bb12889-cb28-44e7-b2d6-7ecba6264d1a@freeshell.de>
- <d8fa12cc-7a03-4954-8ea5-1e2edf9a149d@sifive.com>
- <20251210-pull-pleading-57c880596510@spud>
- <4b08ce35-9d2d-4e7b-9ea6-c1dcbc4ad04d@freeshell.de>
+	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com,
+	richard.henderson@linaro.org, jim.shu@sifive.com,
+	Andy Chiu <andybnac@gmail.com>, kito.cheng@sifive.com,
+	charlie@rivosinc.com, atishp@rivosinc.com, evan@rivosinc.com,
+	cleger@rivosinc.com, alexghiti@rivosinc.com,
+	samitolvanen@google.com, broonie@kernel.org,
+	rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org,
+	Zong Li <zong.li@sifive.com>, David Hildenbrand <david@redhat.com>,
+	Andreas Korb <andreas.korb@aisec.fraunhofer.de>,
+	Valentin Haudiquet <valentin.haudiquet@canonical.com>,
+	Charles Mirabile <cmirabil@redhat.com>
+Subject: Re: [PATCH v26 00/28] riscv control-flow integrity for usermode
+Message-ID: <aTxf7IGlkGLgHgI2@debug.ba.rivosinc.com>
+References: <20251211-v5_user_cfi_series-v26-0-f0f419e81ac0@rivosinc.com>
+ <e052745b-6bf0-c2a3-21b2-5ecd8b04ec70@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <4b08ce35-9d2d-4e7b-9ea6-c1dcbc4ad04d@freeshell.de>
+Content-Disposition: inline
+In-Reply-To: <e052745b-6bf0-c2a3-21b2-5ecd8b04ec70@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251212_103322_431644_A5058359 
+X-CRM114-Status: GOOD (  17.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,117 +134,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1110163136768142066=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Dec 12, 2025 at 01:30:29AM -0700, Paul Walmsley wrote:
+>On Thu, 11 Dec 2025, Deepak Gupta via B4 Relay wrote:
+>
+>> v26: CONFIG_RISCV_USER_CFI depends on CONFIG_MMU (dependency of shadow stack
+>> on MMU). Used b4 to pick tags, apparantly it messed up some tag picks. Fixing it
+>
+>Deepak: I'm now (at least) the third person to tell you to stop resending
+>this entire series over and over again.
 
---===============1110163136768142066==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Kfbt5e6Jlj5iflno"
-Content-Disposition: inline
+To be very honest I also feel very bad doing and DOSing the lists. Sorry to you
+and everyone else.
 
+But I have been sitting on this patch series for last 3-4 merge windows with
+patches being exactly same/similar. So I have been a little more than desperate
+to get it in.
 
---Kfbt5e6Jlj5iflno
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I really haven't had any meaningful feedback on patch series except stalling
+just before each merge window for reasons which really shouldn't stall its
+merge. Sure that's the nature of open source development and it's maintainer's
+call at the end of the day. And I am new to this. I'll improve.
 
-On Wed, Dec 10, 2025 at 08:23:54PM -0800, E Shattow wrote:
->=20
-> On 12/10/25 08:43, Conor Dooley wrote:
-> > On Tue, Dec 09, 2025 at 03:18:58PM +0900, Samuel Holland wrote:
-> >> On 2025-12-09 9:53 AM, E Shattow wrote:
-> >>> The unanswered question what I was asking in the code review of StarF=
-ive=20
-> >>> VisionFive 2 Lite series: What is the normal thing to do for compatib=
-le=20
-> >>> strings of relabeled silicon when there is a suggestion of different=
-=20
-> >>> operational parameters?
-> >> I don't think we are very consistent on this, and some of it depends o=
-n how
-> >> different the binned chips are from each other.
-> >=20
-> > Largely I think the lack of consistency stems from there being relative=
-ly
-> > few users of these soc-level compatibles, so there's nothing really gai=
-ned
-> > from having one in a lot of cases.
-> >=20
-> >> Example 1: Rockchip RK3399 has several bins. RK3399-S and RK3399-T jus=
-t override
-> >> the OPPs, but reuse the SoC compatible string without change. On the o=
-ther hand
-> >> RK3399pro is a superset of RK3399, but uses a new compatible string wi=
-thout a
-> >> fallback.
-> >>
-> >> Example 2: Allwinner H616 (https://linux-sunxi.org/H616) has multiple
-> >> bins/packages/die revisions. H313 is a down-binned version of H616, wh=
-ich reuses
-> >> the SoC compatible string without change. H700 is a superset of H616 (=
-same die,
-> >> more pins), but uses a new compatible string without a fallback.
-> >>
-> >>> I can include the (paraphrased) above summary by Heinrich, yes. Altho=
-ugh
-> >>> now I doubt whether this is the best approach, when removal of
-> >>> "starfive,jh7110s" compatible is potentially an equally valid fix, or=
- if
-> >>> we're rather considering JH7110 at 1.5GHz maximum to be a superset of
-> >>> itself at 1.25GHz maximum (JH-7110S). Would we want to change all the
-> >>> JH-7110 boards to then have JH-7110S as the least-compatible, if I am
-> >>> understanding that meaning of "superset"? I would like to know what is
-> >>> expected.
-> >>
-> >> If starfive,jh7110 is a superset of starfive,jh7110s, yes, it would be=
- valid to
-> >> add starfive,jh7110s as a fallback compatible string in all of the exi=
-sting
-> >> board bindings. But this is not very useful, as existing software alre=
-ady looks
-> >> for starfive,jh7110, and you can't replace that without breaking compa=
-tibility
-> >> with existing DTs. So the advantage of one compatible string (mostly) =
-covering
-> >> both SoCs only applies to new software.
-> >=20
-> > Yeah, adding it to the existing stuff provides no real benefit.
->=20
-> I agree, there's not any benefit to add "starfive,jh7110s" as the
-> least-compatible to existing stuff.
->=20
-> The reply from Samuel is quite helpful however it's not any clearer to
-> me what direction to take this.
+>
+>First, a modified version of the CFI v23 series was ALREADY SITTING IN
+>LINUX-NEXT.  So there's no reason you should be resending the entire
+>series, UNLESS your intention for me is to drop the entire existing series
+>and wait for another merge window.
+>
+>Second: when someone asks you questions about an individual patch, and you
+>want to answer those questions, it's NOT GOOD for you to resend the entire
+>28 series as the response!  You are DDOSing a bunch of lists and E-mail
+>inboxes.  Just answer the question in a single E-mail.  If you want to
+>update a single patch, just send that one patch.
 
-I think the idea is fine, just explain why it'd be helpful in the commit
-message and do the dt-binding change that this doesn't cause warnings.
+Noted. I wasn't sure about it. I'll explicitly ask next time if you want me to
+send another one.
 
---Kfbt5e6Jlj5iflno
-Content-Type: application/pgp-signature; name="signature.asc"
+>
+>If you don't start paying attention to these rules then people are going
+>to start ignoring you -- at best! -- and it's going to give the entire
+>community a bad reputation.
 
------BEGIN PGP SIGNATURE-----
+Even before this, this patch series has been ignored largely. I don't know
+how to get attention. All I wanted was either feedback or get it in. And as I
+said I've been desparate to get it in. Also as I said, I'll improve.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaTxX7AAKCRB4tDGHoIJi
-0nmjAQDvW2M/SJc1mloZZeSTieEzeq3XEtz99LP8y2uOdYeEzwD+Km3roylyabwi
-8vw0sl/uT0llCM/gnJswUJDN6CjCywc=
-=7Ipe
------END PGP SIGNATURE-----
+>
+>Please acknowledge that you understand this,
 
---Kfbt5e6Jlj5iflno--
+ACKed.
 
-
---===============1110163136768142066==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>
+>
+>- Paul
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1110163136768142066==--
-
