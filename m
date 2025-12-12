@@ -4,91 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E616FD59D77
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Dec 2025 17:56:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757AED59D7B
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Dec 2025 17:59:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BZ92qxupLNC9C8DfsJar5iDhqT4t7b/PS7xMYyfKJCI=; b=3JtU4gnqQNwLtb
-	Tf/LW/m02W9U0Aa3n03Ky5uS+uhhehpGN/fE2trTuZ351fYU0m7idvrcOn4oJD3W9MNgvqd1P7Wfs
-	nX1QYqoC0ZWSTDVgYrXjVZ9CdcRg7ngwt5oldSYGU2bzngrLyXqhZ9ZwYYrsJ+86PSPar+Ud6nneU
-	tXQu5/ESucA+AHLKxWr+pyMKLoWVMjPheg8yJVqkxnTlpfHZ1Lsa2ihUloCb52LLB3j4d6MH4nDss
-	9Qsr/kp77QMsipLEvMr7jl50UnjLLeo+OZrOXOhPmFzOZSlG1wwPZvC9g2I8r0hFpuPGcpOMBSoR0
-	YCMX7JYu3WPJDcOtWFCg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sr8V7d+n8nA6RrsNWIlTXxE7h+jkzk6z0W4kWCQeqV4=; b=vN61sYun3vztYBKAiwaA5Qc8kC
+	L2HFFDm7sfM9jFMO9MK9yMmY9Q68dVpiA3aUulv2lvZKzJebxJ1oO4Qo5J8VkiJMA1hcBbau6cCS9
+	HQjQ3c+3EeupBAhuO+9/qU9Syxg3UYm8NBADbcMue67cHcaQ9IgGsopiY2YtuC0iXUPLZZ4EGl6Q2
+	Zd6/0bkbfYdhmyM/RU+vxYMCJSYr3Z6Qna7lvAkNuDePPaaC5jcml2rItCjlepMdn72IgP8ks1qDW
+	9aLvTRxmH0h7K4jHgzkZNGawRK3BS+OE/NRRyklQz5aN/40elXMyvfuFel0GVTndJqIzrdhUfZSY3
+	f14YP/6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU7NZ-00000000uyy-3Cfx;
-	Fri, 12 Dec 2025 17:56:33 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1vU7QD-00000000vAH-1gx2;
+	Fri, 12 Dec 2025 17:59:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU7NX-00000000uxz-03eU
+	id 1vU7QB-00000000vA5-1GBD
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Dec 2025 17:56:32 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-b725ead5800so222266066b.1
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Dec 2025 09:56:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1765562187; x=1766166987; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=OcS8a0/8s9a8JTU78PtVC9Y+lOz3UE5scrw2tzT8jNk=;
-        b=YHOCxz2vXiS72sSioiM4WNwFQRtT2bOXAxTjEt7hnOIcZAuwAMeu++qDe70YU4HBJk
-         HfvQV8kPXT5WJG5MH8M3MTioPmEz6Doh644TuDqliSHmZYKkNdaEtmGQGh/nQQL4hnsb
-         2eb+U5ylJLaDIO974W3pxRv3BYK4sXNtRKrkA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765562187; x=1766166987;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OcS8a0/8s9a8JTU78PtVC9Y+lOz3UE5scrw2tzT8jNk=;
-        b=F+UODRhHYAgtbNeho6HBqDIJTTrhT5X5A3rJKcEZOMWJ93lZ+xEkIv0ZEHkfWfMCwx
-         TAiO7AblR1owmfmbnIW3eBdkHsGns8siQiuSOGagZKmc3hq+cxhAf7FQenLvi3fSIix0
-         DIq2Ayogb2LMK3TG60wYJeUmNd6XTct5m94+ATtEewGwUhAMqYSEqkAN+9tONPeTFlyz
-         zZqfDlk8N12BzEyxO0K8A0a43Q3vsWgRflAGIsrbSGJK2C25VxzOxplSNf+tX6wmoVho
-         RBHI4m4j9goe0rdvxAPdUB8m2jLIUo16qEWMjo59o6/OUZHRz1ERpUX6jfpzqL4Oosgm
-         8/Zg==
-X-Forwarded-Encrypted: i=1; AJvYcCVhCCuYFX0ERPK/MxQzcZZMdN5z/vGWOq5PbJDxu4TeoNyRo4o9CsDpX1lVEAh9HzNAuAmjDz+NfDhGxA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPSphnawsgCTL11rQz/s7mJQylC+QUjMWUcyT4725D8JJ8LFup
-	qbGVo5QTbHUWtn64E6UVhwvFm6B++GNsWufbQh+cq/bLp94KnxuPNUQjXVEwftg6w5vhxxVr/uw
-	M77GffaLykQ==
-X-Gm-Gg: AY/fxX6NwLNdZnLair7p7JcbzLX696PVHw83mHMdufi3xk7F2dnq/NWvHRwoJglZxjR
-	g9qkjhN/KAg3QeR1W1CthuARaNKbRInx+6JHdvQnWf/gmzWCf0Ti8YQGWSAU2OQrgHZYzOpplaO
-	6TMD2i0M5ga6SvrgsnJmsflXsleqy51dDbs/+/9F0rgvWFOJe5dptBhyQDnTxfDbvljyXHkJfLk
-	85EJBst5F9lB/IkAjTsShEZIm27sJpriPeFloY7Zo2o/3GoAyvPe31+Zt/TFjPlmga4IzdLp1nn
-	eppqjxBFJyOB38ceST4nVKxaICbNgU+gY246mB9eixORx3OjvHs+UOxac/mIW87oUccyIcwysVZ
-	g6BguVnUnzDNdkhU8Ji3rXaSuPzLibjNF9ikfYxsl3zkkZCGqnihKr2VwU42H4dCho8soHpXzb1
-	GJ4kqBtdTBLi36Pi3n+JAApiCa3g4Kwkxs6z1srHIV4EWuyNcJqSpmwywvjIC2
-X-Google-Smtp-Source: AGHT+IF1nx27wIw0SuTfaCVSHpGUBYjLYeHlmBY8fNMmSvnSJsEzZuVCHsOjxS+Ec2EQjBkvD0B3jw==
-X-Received: by 2002:a17:907:2d1f:b0:b73:58a0:e064 with SMTP id a640c23a62f3a-b7d23b884admr294211866b.50.1765562186683;
-        Fri, 12 Dec 2025 09:56:26 -0800 (PST)
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com. [209.85.208.45])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7cfa5d0af6sm631953166b.68.2025.12.12.09.56.26
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 12 Dec 2025 09:56:26 -0800 (PST)
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6498850d3f6so1966762a12.0
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Dec 2025 09:56:26 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXNBIxSYaV2tgwY9vn5iEBJCj7vazuWNPqkvkTQqXf7AIsam6awUiQpN84t0DmsynlwbvujpHoYdhgYlA==@lists.infradead.org
-X-Received: by 2002:a17:907:d19:b0:b76:23b0:7d70 with SMTP id
- a640c23a62f3a-b7d23ad8414mr342276066b.39.1765562185764; Fri, 12 Dec 2025
- 09:56:25 -0800 (PST)
+	Fri, 12 Dec 2025 17:59:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2880960017;
+	Fri, 12 Dec 2025 17:59:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DADD3C4CEF1;
+	Fri, 12 Dec 2025 17:59:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765562353;
+	bh=8RRRc4CBHUq0nTddaC6P4w2gbfOVChhf7hvdjIaZf3w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JnKkkqOsuQYo6Kg/tf3OLKczT7R+rmDIqxBXoC1ouGBPIYWybMu1jOjUCYs1AIhbX
+	 Xja5+84QoJsD6CPaTpUPv50qtXCmrctCWJCBQTZxlHbye+f4Bp9ov3MT0ybaryu05A
+	 VrAvQARc/Kdeb0EalRbebKXZBb0QPcYvNCpIJeTJDcjl43oxH38TFAhlgI7yzrMQyp
+	 75RM7OWSrr4mW1g7Ve+ze5CVITxQc2WqlDjwxvraGvXtHVaGl5mBJb9n+CuuXwcta2
+	 LONKGNyC4CbiBwCAvW+LYLypMAEcX+tJVIX5Z+dHXyDZRD7RQldGFxdk9iCFDaCIYr
+	 xltoAOAUV0UPQ==
+Date: Fri, 12 Dec 2025 17:59:08 +0000
+From: Conor Dooley <conor@kernel.org>
+To: E Shattow <e@freeshell.de>
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v1] riscv: dts: starfive: Append starfive,jh7110
+ compatible to VisionFive 2 Lite
+Message-ID: <20251212-arming-slacks-18b9407f69e3@spud>
+References: <20251206204540.112614-1-e@freeshell.de>
+ <20251208-jogging-morally-9b787b7ab1b8@spud>
+ <a18850ad-b6de-4444-9daf-a4a653f4f9ae@canonical.com>
+ <0bb12889-cb28-44e7-b2d6-7ecba6264d1a@freeshell.de>
+ <d8fa12cc-7a03-4954-8ea5-1e2edf9a149d@sifive.com>
+ <20251210-pull-pleading-57c880596510@spud>
+ <4b08ce35-9d2d-4e7b-9ea6-c1dcbc4ad04d@freeshell.de>
 MIME-Version: 1.0
-References: <98b74397-05bc-dbee-cab4-3f40d643eaac@kernel.org>
-In-Reply-To: <98b74397-05bc-dbee-cab4-3f40d643eaac@kernel.org>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Sat, 13 Dec 2025 05:56:08 +1200
-X-Gmail-Original-Message-ID: <CAHk-=wiBP2B788uvFxyiy38JvtTb_3HrbjABWkCyXf_Rxbo4vQ@mail.gmail.com>
-X-Gm-Features: AQt7F2rYmYrdWgBfjwKJcmBQU2bqvM35nrdRv8RaH-NxEsckq9Xbibw_T_Z1uh0
-Message-ID: <CAHk-=wiBP2B788uvFxyiy38JvtTb_3HrbjABWkCyXf_Rxbo4vQ@mail.gmail.com>
-Subject: Re: [GIT PULL] RISC-V updates for the v6.19 merge window (part two)
-To: Paul Walmsley <pjw@kernel.org>
-Cc: sfr@canb.auug.org.au, akpm@linux-foundation.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_095631_182825_3CE3A552 
-X-CRM114-Status: GOOD (  11.93  )
+In-Reply-To: <4b08ce35-9d2d-4e7b-9ea6-c1dcbc4ad04d@freeshell.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,41 +79,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1110163136768142066=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Dec 2025 at 14:36, Paul Walmsley <pjw@kernel.org> wrote:
->
-> Please pull this second and final set of RISC-V patches for the v6.19
-> merge window.  The primary addition in this pull request is support for
-> CFI in user processes.  This series has been around for almost two years.
 
-It can damn well be around for another release then.
+--===============1110163136768142066==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Kfbt5e6Jlj5iflno"
+Content-Disposition: inline
 
-Because I'm really tired of these late pull requests. That's true in
-general, but it's particularly true when I've told people I'm
-traveling with a laptop. I was spending extra time the first week of
-the merge window to get things out of the way so that I would *not*
-have to deal with conflicts etc when on the road.
 
-I appreciate people who send me a second pull request with *fixes* for
-the first one because they are starting to already react to bug
-reports. But your whole thing where you think you send me a first pull
-request and then a second one late in the merge window with more
-development is simply not ok.
+--Kfbt5e6Jlj5iflno
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Either it was ready to go early, or it's not ready to go at all. None
-of this "I have more presents for you".
+On Wed, Dec 10, 2025 at 08:23:54PM -0800, E Shattow wrote:
+>=20
+> On 12/10/25 08:43, Conor Dooley wrote:
+> > On Tue, Dec 09, 2025 at 03:18:58PM +0900, Samuel Holland wrote:
+> >> On 2025-12-09 9:53 AM, E Shattow wrote:
+> >>> The unanswered question what I was asking in the code review of StarF=
+ive=20
+> >>> VisionFive 2 Lite series: What is the normal thing to do for compatib=
+le=20
+> >>> strings of relabeled silicon when there is a suggestion of different=
+=20
+> >>> operational parameters?
+> >> I don't think we are very consistent on this, and some of it depends o=
+n how
+> >> different the binned chips are from each other.
+> >=20
+> > Largely I think the lack of consistency stems from there being relative=
+ly
+> > few users of these soc-level compatibles, so there's nothing really gai=
+ned
+> > from having one in a lot of cases.
+> >=20
+> >> Example 1: Rockchip RK3399 has several bins. RK3399-S and RK3399-T jus=
+t override
+> >> the OPPs, but reuse the SoC compatible string without change. On the o=
+ther hand
+> >> RK3399pro is a superset of RK3399, but uses a new compatible string wi=
+thout a
+> >> fallback.
+> >>
+> >> Example 2: Allwinner H616 (https://linux-sunxi.org/H616) has multiple
+> >> bins/packages/die revisions. H313 is a down-binned version of H616, wh=
+ich reuses
+> >> the SoC compatible string without change. H700 is a superset of H616 (=
+same die,
+> >> more pins), but uses a new compatible string without a fallback.
+> >>
+> >>> I can include the (paraphrased) above summary by Heinrich, yes. Altho=
+ugh
+> >>> now I doubt whether this is the best approach, when removal of
+> >>> "starfive,jh7110s" compatible is potentially an equally valid fix, or=
+ if
+> >>> we're rather considering JH7110 at 1.5GHz maximum to be a superset of
+> >>> itself at 1.25GHz maximum (JH-7110S). Would we want to change all the
+> >>> JH-7110 boards to then have JH-7110S as the least-compatible, if I am
+> >>> understanding that meaning of "superset"? I would like to know what is
+> >>> expected.
+> >>
+> >> If starfive,jh7110 is a superset of starfive,jh7110s, yes, it would be=
+ valid to
+> >> add starfive,jh7110s as a fallback compatible string in all of the exi=
+sting
+> >> board bindings. But this is not very useful, as existing software alre=
+ady looks
+> >> for starfive,jh7110, and you can't replace that without breaking compa=
+tibility
+> >> with existing DTs. So the advantage of one compatible string (mostly) =
+covering
+> >> both SoCs only applies to new software.
+> >=20
+> > Yeah, adding it to the existing stuff provides no real benefit.
+>=20
+> I agree, there's not any benefit to add "starfive,jh7110s" as the
+> least-compatible to existing stuff.
+>=20
+> The reply from Samuel is quite helpful however it's not any clearer to
+> me what direction to take this.
 
-The merge window is not for late development or for "Let's make extra
-work for Linus the last day of the merge window when he's on the road
-in a strange time zone"
+I think the idea is fine, just explain why it'd be helpful in the commit
+message and do the dt-binding change that this doesn't cause warnings.
 
-             Linus
+--Kfbt5e6Jlj5iflno
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaTxX7AAKCRB4tDGHoIJi
+0nmjAQDvW2M/SJc1mloZZeSTieEzeq3XEtz99LP8y2uOdYeEzwD+Km3roylyabwi
+8vw0sl/uT0llCM/gnJswUJDN6CjCywc=
+=7Ipe
+-----END PGP SIGNATURE-----
+
+--Kfbt5e6Jlj5iflno--
+
+
+--===============1110163136768142066==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1110163136768142066==--
+
