@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2BF8D59D99
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD7BAD5B171
 	for <linux-riscv@archiver.kernel.org>; Sun, 14 Dec 2025 16:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4jW2aGfc9bOHdhHeoNJo25pBRIJhHw+Q5YhnyKyYnwY=; b=Z4hiHeT+bt9KY2
-	m4HHxi3osyobFhfqstOjE46WVgm1nBSJnDeVgtrhYf5w+y2RvK85QveC2LgF3OQeO475KIStSJEde
-	KDmLULLQMXaZKFF8pkt2WrCMC/T0bgK93N2AOSjaZk8VpqOPbSbB2tMc0TIzBhL4lynsIJD5FzUTD
-	BGOt7Tk9PrbX4g3zsut/z9kxkELJesaHI0TiQYc2QmV/7B0AAdaflU59vLzqNnqbDde44JJFW1aQS
-	KPYex+qe/XdsC1l4hbalZ4KYpYA1GqL+zCGvpToN+HESpCEdtzrAVB25Lupx4VU4cMBQQhV0H2Ab+
-	YSQhoIicTL2ODolzmZpQ==;
+	List-Owner; bh=KA3Yg4bd4Fa3vGRDejJKXYZ6uxWaUkeWF8QScl7jTvk=; b=Tso/32AvMYITkW
+	XA/2X13hnYvvVJC5s/ArFcpQ8XVMD4Z7VxGip3iV3JCreK0aSuLpqfS3a7m/6rVdIuywGMx+wWhnZ
+	dCMSC+hDVh8JB8yl1H3/E+vAtAwcIMRiNEDQJ99SovzyxlGIDarK/ozXAbOEWve/IwzgvckALGmvd
+	zQdG5HCWc1yKcZqi1xBvHxKcUKwr+dGj6zlZpMHuDfXt5mXkiF8CWq1a2q/mDV9jY2KB5lIdU/wMw
+	PxaXnUCU3b2Sn7iOZyeF/QYKdeUQB5SbnYzYJjM2UQm/1fJRYFsihmjtRAGCk+BzFHL0kxaFlWxdH
+	tL4rJiL59f2k+q8MF5AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUp4f-00000002aFC-2I6p;
-	Sun, 14 Dec 2025 16:35:59 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1vUp4n-00000002aJG-3IL7;
+	Sun, 14 Dec 2025 16:36:05 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUp4X-00000002aDL-2bPP
+	id 1vUp4j-00000002aFc-0Vhe
 	for linux-riscv@lists.infradead.org;
-	Sun, 14 Dec 2025 16:35:56 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-594330147efso3449925e87.2
-        for <linux-riscv@lists.infradead.org>; Sun, 14 Dec 2025 08:35:49 -0800 (PST)
+	Sun, 14 Dec 2025 16:36:03 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5945510fd7aso2349238e87.0
+        for <linux-riscv@lists.infradead.org>; Sun, 14 Dec 2025 08:36:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765730147; x=1766334947; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1765730159; x=1766334959; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iYG0UzrVNvu+sJ+OoGaiC09VrdPSEEepGbXjW8i1wGU=;
-        b=Dx7rr0ZeCDhH03rnyHJdCgnnzdteMlDTmTaSS7wTRwO+nBgK5frd+Bhrt0wuohYmH+
-         9ILhkBU73WhR2f+MMLGqIHmc9A8eAK+Oi+wEq4G5lVvSGPliYcbR/oDM3QDbCeImKc/r
-         57Dus4mkh2cqyaGyz/Yw/S7K5/Mw+XvYUvpjqPdLpRZJ66ywwM34tqXLeRRoUZYCH11z
-         lJeIrhT6l0sXxmA+duBsPrEsT/8UMu0NZmnN29RPcj62v9tO6zudoaneYIgE75iT8qVf
-         XBdNv7U0wPTuYwELxjiXgP+eHMu3M/9hKvWqwFsoULvZJ5QmoPArD8TTWEhaTa3cs5zQ
-         93EQ==
+        bh=hLvTGAt1jf9FADXLFeMcoHBdGn1FeJvj5K58j/U4zDM=;
+        b=gb6rXPurkvijIzAwbjyiEy4HWpx4+9GbSaYGlAK2FmjolNm+XfYt9U3q5K3qyJkaHH
+         tDnd3WL/WzBtzhGemowhEoHLdLPQbEaAYhLEVsUPGsBIwwLlz9QZbxzDPABLcqQ5r3J+
+         mlrgdDd0o6EAoahWW5GHZMmmezd3XQqoX5zH4ydD7XFQxma0kxrTGNGOZ9CHdnFjV71Y
+         9FkQZfgkiJ1/NCFT7BVbJOKSemoRH2wUOynS5Bz70wFNsmRG3gYPKneD3gtjDeydLkfQ
+         XvR0MATeWSue9g0+6WhdbAlouJe29THoni/yRc+/gziiRh9ODtccvUqOEo5EckNMAyEu
+         eTRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765730147; x=1766334947;
+        d=1e100.net; s=20230601; t=1765730159; x=1766334959;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=iYG0UzrVNvu+sJ+OoGaiC09VrdPSEEepGbXjW8i1wGU=;
-        b=NE0K2wAVcb9zQ0PCje9iy+cslZz2tWBbpQGKRnGNDAz6f498fQydXrRgKFaj1xFV60
-         tuc4j7uan5fDI1Gc6541I8/oUzs1D6RNz2V4i8pBBX+Id9cxbDlTLMiobOa5puo0gkhZ
-         QvtYwUnRAbanPus0Wsi24CYgw9Hqs0ryjNWUMYPklBbH3SqGk/CRDgRLJsqqE2qlRPyO
-         dQgyveebs09mbibRdFkPC9kV3JBi05s+dDbMST8tDH7xRKpVdTNjlBvo+/+I7AXwlmIX
-         ZdACaBJM4f94IN9kv2VW9N8EVedfF8XNYVtiWx4tc+B79/Ia35l5iicyzwTHc809DQW+
-         RdyA==
-X-Gm-Message-State: AOJu0Yw+Uy5YO29pvHBYPyZ94nYTmwPTCbPSRmrF5+a3xXAPo+xAP3x1
-	jUH0h0Kllyq3onNDVX149/EUkMeiu7dkX6vduXdqv2umfFEvoA8bagp9PMN9reDb
-X-Gm-Gg: AY/fxX7zfhXvIJk+NdWoJG82Kk2AwVvkVxCINNr10Xqu5IG2PoozUqXDadJr+gdRz4s
-	hJYciF5bSy+hpjzJK24RPCGicI4Fjg9FNJU9XUxdWVZkejOCKrDWVGCTwZegIl8oPUhNTKJ16h2
-	QPSMbTlpQfEplIFtWHiIIo2hmfqZZSeozL1PYunc0xSREqU7UsbYcAKFJE/VUiH863uW8e77iBe
-	seNr3g46O2AbaVk3N1nOCvCMUBw/ronyKWqiXXirk3sjdbHgfiT00qtjqW3NlPcOu3pRz+nwiJY
-	gJS+ynLmf3q87jepRnJUv5ExDibwabBobh8E8SkIUj/ygKh5wEw85FOKoqdwtWjHXQRZEBMFXh9
-	xtM7JNYroolmIONQucciZrQWM3fws696XtmqIQcwi7X04wzg1thLrc8URvYbx1mjtB4KE4V4L5i
-	D9Qw==
-X-Google-Smtp-Source: AGHT+IFa8YrKVxWZ8N5CZhPJ/l8DS6QHhWtXFyJ2Kk/ViapXJFN4nzGXTae+4TaN+8nHnP2k0U2DqA==
-X-Received: by 2002:a05:6512:3d23:b0:577:318a:a1c6 with SMTP id 2adb3069b0e04-598faa448aemr2580474e87.23.1765730146784;
-        Sun, 14 Dec 2025 08:35:46 -0800 (PST)
+        bh=hLvTGAt1jf9FADXLFeMcoHBdGn1FeJvj5K58j/U4zDM=;
+        b=lQY56dKa8TBQht5DAd6GUzXVBJ9s7c9BY/45w1C7UFrN+ow5Mv7iDFIhFDVItkNqwR
+         8GuwMJ6no5PvY8ngmCm6iRi50lnYS4sSxtXPAm7/sGctGsE/UEEp/3PfKl7JlVatoZ10
+         dlMZfGvtEbfhJY951rhJvS2oWYlscfNAEKDwhEYe+SAoGsUZsjNWMtxeThkoxVXDxqW0
+         iFw5gLjwgUTWDSmHAduVrUEvZH/+DhTBGaKORzK7PP7i/JdSiPeo8FU8iojVpkXyP1NU
+         3WxLfiJeNaxVezTUXdNTXUYfBmwCePsEOGivqR119WvT3m31gX8raXm/pCUcNjc7Xg2X
+         XoNA==
+X-Gm-Message-State: AOJu0Yzpk/atmvOsysoomAMw5smxKTZz+pELQlvMJHZcMxW+HC94u0G0
+	WbCm0mXjlboyu9iL/xkLg4XxLL99n35TCLwlRrlBrql5QLkZiEI1amLB4tQg/dhi
+X-Gm-Gg: AY/fxX7o+0s4sYYHgDjln82tvp9BdTnWwIIykwoOWf1w9MaoWBkt8yK4EQJtzmBcR+g
+	OR9iN/Dj3zIJcj3czSc0VVGWEr4gY0QvcsuXupIohZh/W7OdKvYBskzva2wF0MnsYUcB0p4b99c
+	qGPocTjL98qZkIJNcyusbLuK9wB5StZ1WXvqrO+8wmsawqCZxWOLlRz6cVCnpJVdXVNRMMKBIOP
+	+3ZC+CrMmmhE3D29rtPb8GUFJLJEj/D21i9j/n1rCLznvkWTRFk8tgUIGxm7P5yAnHTmvRfH0v4
+	oBsNXx8sRiEKhd5Gw93OUvJgzLmPtCLlTiYmQUatcTWtCPo+ZNtdJ/wHu/ptfJMWvtmx/4zjslM
+	YOVWjIeorMY99smfX/Xq352rDbEf39NyGxdCyhRzlq3qlmLp9CUObH3anNaV8Q9r/tkgWEqp0ce
+	r7Dw==
+X-Google-Smtp-Source: AGHT+IEMgxSe+xOjvGBPNy2ALsapXgkNGgurTBHru15sXVWXKkYyH3kcS5UntnGJK/O/jOAOqloXjQ==
+X-Received: by 2002:a05:6512:1329:b0:594:522d:68f4 with SMTP id 2adb3069b0e04-598faa80f60mr2571650e87.28.1765730158483;
+        Sun, 14 Dec 2025 08:35:58 -0800 (PST)
 Received: from curiosity ([5.188.167.4])
-        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-598f7717b79sm3789618e87.60.2025.12.14.08.35.43
+        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-598f7717b79sm3789618e87.60.2025.12.14.08.35.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Dec 2025 08:35:46 -0800 (PST)
+        Sun, 14 Dec 2025 08:35:57 -0800 (PST)
 From: Sergey Matyukevich <geomatsi@gmail.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -87,18 +87,17 @@ Cc: Paul Walmsley <pjw@kernel.org>,
 	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
 	Heiko Stuebner <heiko@sntech.de>,
 	Guo Ren <guoren@kernel.org>,
-	Sergey Matyukevich <geomatsi@gmail.com>,
-	Ilya Mamay <mmamayka01@gmail.com>
-Subject: [PATCH v5 1/9] riscv: ptrace: return ENODATA for inactive vector extension
-Date: Sun, 14 Dec 2025 19:35:05 +0300
-Message-ID: <20251214163537.1054292-2-geomatsi@gmail.com>
+	Sergey Matyukevich <geomatsi@gmail.com>
+Subject: [PATCH v5 7/9] selftests: riscv: verify syscalls discard vector context
+Date: Sun, 14 Dec 2025 19:35:11 +0300
+Message-ID: <20251214163537.1054292-8-geomatsi@gmail.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20251214163537.1054292-1-geomatsi@gmail.com>
 References: <20251214163537.1054292-1-geomatsi@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_083554_183963_D85D7353 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20251214_083601_336322_AF720460 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,58 +114,147 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ilya Mamay <mmamayka01@gmail.com>
+Add a test to v_ptrace test suite to verify that vector csr registers
+are clobbered on syscalls.
 
-Currently, ptrace returns EINVAL when the vector extension is supported
-but not yet activated for the traced process. This error code is not
-always appropriate since the ptrace arguments may be valid.
-
-Debug tools like gdbserver expect ENODATA when the requested register
-set is not active, e.g. see [1]. This expectation seems to be more
-appropriate, so modify the vector ptrace implementation to return:
-- EINVAL when V extension is not supported
-- ENODATA when V extension is supported but not active
-
-[1] https://github.com/bminor/binutils-gdb/blob/637f25e88675fa47e47f9cc5e2cf37384836b8a2/gdbserver/linux-low.cc#L5020
-
-Signed-off-by: Ilya Mamay <mmamayka01@gmail.com>
 Signed-off-by: Sergey Matyukevich <geomatsi@gmail.com>
 ---
- arch/riscv/kernel/ptrace.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+ .../riscv/vector/validate_v_ptrace.c          | 124 ++++++++++++++++++
+ 1 file changed, 124 insertions(+)
 
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index e6272d74572f..9d203fb84f5e 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -95,9 +95,12 @@ static int riscv_vr_get(struct task_struct *target,
- 	struct __riscv_v_ext_state *vstate = &target->thread.vstate;
- 	struct __riscv_v_regset_state ptrace_vstate;
+diff --git a/tools/testing/selftests/riscv/vector/validate_v_ptrace.c b/tools/testing/selftests/riscv/vector/validate_v_ptrace.c
+index a8d64d351edd..2dd0c727e520 100644
+--- a/tools/testing/selftests/riscv/vector/validate_v_ptrace.c
++++ b/tools/testing/selftests/riscv/vector/validate_v_ptrace.c
+@@ -212,4 +212,128 @@ TEST(ptrace_v_early_debug)
+ 	}
+ }
  
--	if (!riscv_v_vstate_query(task_pt_regs(target)))
-+	if (!(has_vector() || has_xtheadvector()))
- 		return -EINVAL;
- 
-+	if (!riscv_v_vstate_query(task_pt_regs(target)))
-+		return -ENODATA;
++TEST(ptrace_v_syscall_clobbering)
++{
++	pid_t pid;
 +
- 	/*
- 	 * Ensure the vector registers have been saved to the memory before
- 	 * copying them to membuf.
-@@ -130,9 +133,12 @@ static int riscv_vr_set(struct task_struct *target,
- 	struct __riscv_v_ext_state *vstate = &target->thread.vstate;
- 	struct __riscv_v_regset_state ptrace_vstate;
- 
--	if (!riscv_v_vstate_query(task_pt_regs(target)))
-+	if (!(has_vector() || has_xtheadvector()))
- 		return -EINVAL;
- 
-+	if (!riscv_v_vstate_query(task_pt_regs(target)))
-+		return -ENODATA;
++	if (!is_vector_supported() && !is_xtheadvector_supported())
++		SKIP(return, "Vector not supported");
 +
- 	/* Copy rest of the vstate except datap */
- 	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &ptrace_vstate, 0,
- 				 sizeof(struct __riscv_v_regset_state));
++	chld_lock = 1;
++	pid = fork();
++	ASSERT_LE(0, pid)
++		TH_LOG("fork: %m");
++
++	if (pid == 0) {
++		unsigned long vl;
++
++		while (chld_lock == 1)
++			asm volatile("" : : "g"(chld_lock) : "memory");
++
++		if (is_xtheadvector_supported()) {
++			asm volatile (
++				// 0 | zimm[10:0] | rs1 | 1 1 1 | rd |1010111| vsetvli
++				// vsetvli	t4, x0, e16, m2, d1
++				".4byte		0b00000000010100000111111011010111\n"
++				"mv		%[new_vl], t4\n"
++				: [new_vl] "=r" (vl) : : "t4");
++		} else {
++			asm volatile (
++				".option push\n"
++				".option arch, +zve32x\n"
++				"vsetvli %[new_vl], x0, e16, m2, tu, mu\n"
++				".option pop\n"
++				: [new_vl] "=r"(vl) : : );
++		}
++
++		while (1) {
++			asm volatile (
++				".option push\n"
++				".option norvc\n"
++				"ebreak\n"
++				".option pop\n");
++
++			sleep(0);
++		}
++	} else {
++		struct __riscv_v_regset_state *regset_data;
++		unsigned long vlenb = get_vr_len();
++		struct user_regs_struct regs;
++		size_t regset_size;
++		struct iovec iov;
++		int status;
++
++		/* attach */
++
++		ASSERT_EQ(0, ptrace(PTRACE_ATTACH, pid, NULL, NULL));
++		ASSERT_EQ(pid, waitpid(pid, &status, 0));
++		ASSERT_TRUE(WIFSTOPPED(status));
++
++		/* unlock */
++
++		ASSERT_EQ(0, ptrace(PTRACE_POKEDATA, pid, &chld_lock, 0));
++
++		/* resume and wait for the 1st ebreak */
++
++		ASSERT_EQ(0, ptrace(PTRACE_CONT, pid, NULL, NULL));
++		ASSERT_EQ(pid, waitpid(pid, &status, 0));
++		ASSERT_TRUE(WIFSTOPPED(status));
++
++		/* read tracee vector csr regs using ptrace GETREGSET */
++
++		regset_size = sizeof(*regset_data) + vlenb * 32;
++		regset_data = calloc(1, regset_size);
++
++		iov.iov_base = regset_data;
++		iov.iov_len = regset_size;
++
++		ASSERT_EQ(0, ptrace(PTRACE_GETREGSET, pid, NT_RISCV_VECTOR, &iov));
++
++		/* verify initial vsetvli settings */
++
++		if (is_xtheadvector_supported()) {
++			EXPECT_EQ(5UL, regset_data->vtype);
++		} else {
++			EXPECT_EQ(9UL, regset_data->vtype);
++		}
++
++		EXPECT_EQ(regset_data->vlenb, regset_data->vl);
++		EXPECT_EQ(vlenb, regset_data->vlenb);
++		EXPECT_EQ(0UL, regset_data->vstart);
++		EXPECT_EQ(0UL, regset_data->vcsr);
++
++		/* skip 1st ebreak, then resume and wait for the 2nd ebreak */
++
++		iov.iov_base = &regs;
++		iov.iov_len = sizeof(regs);
++
++		ASSERT_EQ(0, ptrace(PTRACE_GETREGSET, pid, NT_PRSTATUS, &iov));
++		regs.pc += 4;
++		ASSERT_EQ(0, ptrace(PTRACE_SETREGSET, pid, NT_PRSTATUS, &iov));
++
++		ASSERT_EQ(0, ptrace(PTRACE_CONT, pid, NULL, NULL));
++		ASSERT_EQ(pid, waitpid(pid, &status, 0));
++		ASSERT_TRUE(WIFSTOPPED(status));
++
++		/* read tracee vtype using ptrace GETREGSET */
++
++		iov.iov_base = regset_data;
++		iov.iov_len = regset_size;
++
++		ASSERT_EQ(0, ptrace(PTRACE_GETREGSET, pid, NT_RISCV_VECTOR, &iov));
++
++		/* verify that V state is illegal after syscall */
++
++		EXPECT_EQ((1UL << (__riscv_xlen - 1)), regset_data->vtype);
++		EXPECT_EQ(vlenb, regset_data->vlenb);
++		EXPECT_EQ(0UL, regset_data->vstart);
++		EXPECT_EQ(0UL, regset_data->vcsr);
++		EXPECT_EQ(0UL, regset_data->vl);
++
++		/* cleanup */
++
++		ASSERT_EQ(0, kill(pid, SIGKILL));
++	}
++}
++
+ TEST_HARNESS_MAIN
 -- 
 2.52.0
 
