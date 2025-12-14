@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531C2D5B175
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Dec 2025 16:36:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B02D6D5B16D
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Dec 2025 16:36:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Anhrbrt0yFv9tbBPi5NGhlXKDkvTMwZDGdeqBGxLCWo=; b=1xnRt8x7s8ZOXo
-	6vB09DCkRluIElL4DSZhzVf5z5k4Jdi6MD+UcqdqB+YapcfFYaMNDo0zek+29AMg5hBdQoPdiofXX
-	stz9ECJt9wLjMhEtSy0WyRpbrKUcsxg7QjOolHdyg7WZzCr/IPASpv2HzVzRNPVvOCxR7WSidRjn/
-	TjveGmUHKaPCCj8BlaQsXJclc09SGeDzLtxweZ0TFSvzsoZEtrNLiU9LyGLRYNxp0ROETc3aC2xa/
-	aZoPwBN6uDtIkZePSBmXC4jksVI98aR0JIRpXg4jzWj+89iv/9l/BeIdZg3OKZYoMaain/xK+9qfR
-	d0c4pavKtPQfLAhcmbVw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vvIBTynk2EERpaeTMKGx/ERQO41kiNC0ur3mCwx/m+I=; b=Q8mQZWjJ1X4D0G
+	/OXZ3DTF+7bAW3IDJdMkSpk3Igeg+I4e3z5tMZGmNerBPRZnDWdf9YVOaNd0kspkIUbRIDv+SjVrQ
+	k4oy5izJU9VuJ/lUTHQeS3Dv04xnrylR+W61q3iQ5EWTLatYBrQStISsVAvfKxSG786KjMp6A1z6Y
+	daCzpMCJfBFoXJ/wNAZJul/N73cogPxHJ8VWaGT9Mg9KkhbP4drAYQ8ZndgCvVP2u2B9kfvSrAs/7
+	y5dgvxpb98F/49TC8bGDT8xCAIE9zXBEw8s7leL1cvKKlGXkvrzLj/IU37bn+YkPeRaaXu0ZdSBEE
+	sWxBk1r+SymXEWo2CKmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUp4d-00000002aEC-0OYX;
-	Sun, 14 Dec 2025 16:35:55 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1vUp4o-00000002aJW-0IX6;
+	Sun, 14 Dec 2025 16:36:08 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUp4V-00000002aD3-0IuO
+	id 1vUp4k-00000002aH1-1uYM
 	for linux-riscv@lists.infradead.org;
-	Sun, 14 Dec 2025 16:35:48 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-59578e38613so2745854e87.2
-        for <linux-riscv@lists.infradead.org>; Sun, 14 Dec 2025 08:35:46 -0800 (PST)
+	Sun, 14 Dec 2025 16:36:04 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-5957c929a5eso3980227e87.1
+        for <linux-riscv@lists.infradead.org>; Sun, 14 Dec 2025 08:36:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765730144; x=1766334944; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=KW14eOIkaYwqJSzWMg8OOBiyNxtSIoZ6QzdhSZdq80k=;
-        b=dQ7j8GW1aibjhTz/lo6k4WQ+M8A3ZKa5S9L0hhRhjLBaGNxH1Qx6qR9nuHhZI0aMoQ
-         7rpEchoF0tQC3j/P9fAn4UfAj/PxfULhfhKuPYZFxTuWUtPY5xA0COQ6B34Ax5PgrdV1
-         wGC5d0/qib2DJyUfTxUA0jDARMK18ao+mxAwRK3yOwSKvWnK6iXun1Bn4M/B5AvSB1hI
-         pdRfXbUxG1/2CxxAatFbKFNwIBu6ZxdSShnZdb6ROjWjM5oN+Eed07Yz2HJmtzoo7dLU
-         2LRpm10xijUNywTb03Oj8gbHDId8y904Aa65FJHTMGfURbF+K3c8H4THQvVRuerxM7Gk
-         AAvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765730144; x=1766334944;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1765730160; x=1766334960; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=KW14eOIkaYwqJSzWMg8OOBiyNxtSIoZ6QzdhSZdq80k=;
-        b=ql5kzkv6UZ6/jDGDM4TgY4EapJNDlZBlBfy2kqU8yz51VtgmFxKBxBxF/d/+Na26Ua
-         qR35F+SghlIZIrF3f4xJrZ+amQEaxp7I0TCASCPh2rCOkKg2r+LjmiBdikdIiv1U+Q6e
-         ZFtTeRgfuuiL4IIbEGd1JWxQ7j3TuJK+NYR6VC8DT51a2KbgTCQrpuTIa2NPZGUouRsn
-         sK1N+W4K9CI166mjEzuXp9m+QozOoNGwrlv1LDbqcRlbpHcNLgv6F+VIiX8cXJd47wHb
-         8/9ZM0wb42hWIyavsMuBRV/5bjVZFVKQY2qWlHoLWrPSo4LwN4TJegKb932Z/no2WBl6
-         L0PQ==
-X-Gm-Message-State: AOJu0YyYi/hiQahmaTVjUT9FByoXB9gk5n8ct+M9IHTj8Q0CVcn86OYU
-	60zD7TeVSz/aqwisJaQPhg4OwGsrTWhkwcJfmgcQKYmU3WsWfbhHv4ITbYQ6dE4W
-X-Gm-Gg: AY/fxX5kqI6sUTvmdQPXLokaZ3vigMC2O5rPWUoGfJrj6K53UTtVtkFHS9BQlwrtXy+
-	0nR2J81OxhTfLzkIB02QOp4S6uzk1PYfVFgOsn8YKOJC6gw8aO7rbrTsTsnizCIEvwDtKI36/vE
-	tkVJmEWhhFYCbo7NYRylK0SB8KFW3+DhUTTJA/HX5tj52N3NPkiRPn+r2qB7kuoax/wnhtrT8sI
-	fQCw84FmggpfyxNkCjZXb7ysjfsiXDKCNB/5MBQZiNeuIkD/NWtCTlb9j7+k7sxt5P8BLyzq2aw
-	RRItNbOmn/3MYztq5QWQypg9wh1Fde+u0U9lna3yc0iJJZveycEDqPLjj2kv5DmCnAZSfah3/Xm
-	AaxsOvqRTQkA/8N7IDIvWcoIv/FZhaGPOHFf+EEOJhYoCgGR25354jbveoMTA7deOB/bVo+PdOe
-	5mVQ==
-X-Google-Smtp-Source: AGHT+IF0fXC+uv8d2AkqLZUwN0Kj5Ka9OMORJEEFQOxcLCnJNaAOH3tMwrpqZgf74HUK7PX9yUcEbA==
-X-Received: by 2002:a05:6512:39ce:b0:595:7d40:df10 with SMTP id 2adb3069b0e04-598faa8effbmr2438191e87.40.1765730143778;
-        Sun, 14 Dec 2025 08:35:43 -0800 (PST)
+        bh=sQaSn0DLqOFOsA8M/K0su83gKd9Tn+v/MOGwCqXayKA=;
+        b=mTJuRGeYVEYMm1KkZFCMMGruNAQLPwnl+9QDoDBOcO15Pn+7ukvRuHepM1sJY9Amro
+         6KZkWaa9eUJ0t/ne+8XKsfR/YZ7rw3r+KD63DTaG8In9vvGFGk7oKahBb/ESWeO2FCCH
+         fspKnTu8QwfXK8Sz0YwKspUjqFTJyw5y2qNMxzaxo+bwPWBmM9iw1BZSvQZ3rHpLRTLy
+         dytYKzRk0peKXfalcVo2bVei7T+e4b8GRIwNl5qtrRz9brFtNH5uV6glwRphjC6cgFZD
+         AQmzyEdID0mwtSYJyaMQCIfKDLTKxVK2XU8pSczjL9T1f8SXSNP55rvRHP5WCdX3c78Q
+         SepA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765730160; x=1766334960;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=sQaSn0DLqOFOsA8M/K0su83gKd9Tn+v/MOGwCqXayKA=;
+        b=PPPurkt+n808bmbSVfr4Xu3ICI5Z0ugYc3GdLq1pXSGzViAQ2/E1InccHQgwIgP6be
+         qSSc+XeqW/E+lBpBoA/9Okxu9hfihmX6s9wRY6F2qdDiZwBoIas5RuWwdQMcASRQXseF
+         s0YtlUJ3ZMfX+YkCoqmCW0b5XnVabb5odm2m+U0ItajRwCd3QX4XzxnNBV2RSN6tPiUl
+         sNSsvy+qJKo4e/xp/0mF0JvRLnIs+LtzpQ0t4b3g2LtWSFjL77YCFhjnmuUzm19h0Uhq
+         0ilHcboTVSsNE+BIYhbB0BvM3Ms5prk9opNfR+eNFTF5W8tHCxvnjNnOtMZg6p5uf+kI
+         zJRw==
+X-Gm-Message-State: AOJu0YwBMX9nUTGScJxoVOT4++GJ2Rrtpmu+TrANt/99o+ohr71fIqJT
+	04B1qw1EEw0gasofmY9DMQ7n6no3qZy03Enc28DrmmPO/DNYFSmMhXOkJtqKAA9y
+X-Gm-Gg: AY/fxX6P3CZrfCiOy5UYOUPcgkLk+rFABaU90wA4ros6GYBgDqc0lfOENjSTfPqx5nC
+	v1wFojVwtwHeUuQcnRF14En0nLCmT6i3FErSpJu5ZfnGzgaXAkmWu4E0/LYlMLZlI5zKU+x/Gqk
+	NwEY39xNOVXPAHlrdeoBKEslGxd1+FeEjc1OREK6BZdxSZKgUQGlNSU2+BgQ3r0BcewTkrOCdSp
+	z0ietZICs0Fur2Yy+ml3Ln4bD75SW0tbHirvEjjnE6+qnSznZD6JXnuYDPhYXYxYi4TQN5z6X7O
+	Uh/EyWWcW0EeNrUaFH94osKZva+J1QUIHO3Sfj+oHy3vjqjlltuskTavIaLHPASJwZrdff5eVRt
+	8e7wmG4f9A1hWL2Ln4prsuZoDe/3WJ0VDhfCHSnpcr58FoqQ8EPWegQJF8vwVy7bQDG3iWB6x9R
+	IvCg==
+X-Google-Smtp-Source: AGHT+IF2w7XngXI0Qr5uEUjrppLH+KRGrVaFiuWS6ITxuOpJgvkDn9nUFBqzNj2KkczyUIhqPar1hQ==
+X-Received: by 2002:a05:6512:3c95:b0:594:2a0f:916f with SMTP id 2adb3069b0e04-598faa9299amr2673562e87.43.1765730159952;
+        Sun, 14 Dec 2025 08:35:59 -0800 (PST)
 Received: from curiosity ([5.188.167.4])
-        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-598f7717b79sm3789618e87.60.2025.12.14.08.35.41
+        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-598f7717b79sm3789618e87.60.2025.12.14.08.35.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Dec 2025 08:35:41 -0800 (PST)
+        Sun, 14 Dec 2025 08:35:59 -0800 (PST)
 From: Sergey Matyukevich <geomatsi@gmail.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -87,14 +88,16 @@ Cc: Paul Walmsley <pjw@kernel.org>,
 	Heiko Stuebner <heiko@sntech.de>,
 	Guo Ren <guoren@kernel.org>,
 	Sergey Matyukevich <geomatsi@gmail.com>
-Subject: [PATCH v5 0/9] riscv: vector: misc ptrace fixes for debug use-cases
-Date: Sun, 14 Dec 2025 19:35:04 +0300
-Message-ID: <20251214163537.1054292-1-geomatsi@gmail.com>
+Subject: [PATCH v5 8/9] selftests: riscv: verify ptrace rejects invalid vector csr inputs
+Date: Sun, 14 Dec 2025 19:35:12 +0300
+Message-ID: <20251214163537.1054292-9-geomatsi@gmail.com>
 X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20251214163537.1054292-1-geomatsi@gmail.com>
+References: <20251214163537.1054292-1-geomatsi@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_083547_163832_11D9891F 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20251214_083602_591833_643DD4B0 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,88 +114,342 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series suggests fixes for several corner cases in the RISC-V
-vector ptrace implementation:
+Add a test to v_ptrace test suite to verify that ptrace rejects the
+invalid input combinations of vector csr registers. Use kselftest
+fixture variants to create multiple invalid inputs for the test.
 
-- init vector context with proper vlenb, to avoid reading zero vlenb
-  by an early attached debugger
-
-- follow gdbserver expectations and return ENODATA instead of EINVAL
-  if vector extension is supported but not yet activated for the
-  traced process
-
-- validate input vector csr registers in ptrace, to maintain an accurate
-  view of the tracee's vector context across multiple halt/resume
-  debug cycles
-
-For detailed description see the appropriate commit messages. A new test
-suite validate_v_ptrace is added to the tools/testing/selftests/riscv/vector
-to verify some of the vector ptrace functionality and corner cases.
-
-So far tested on the following platforms:
-- test in QEMU rv32/rv64
-- test on c908 (BananaPi CanMV K230D Zero)
-- test on c906 (MangoPi MQ Pro)
-
-Previous versions:
-- v4: https://lore.kernel.org/linux-riscv/20251108194207.1257866-1-geomatsi@gmail.com/T/#u
-- v3: https://lore.kernel.org/linux-riscv/20251025210655.43099-1-geomatsi@gmail.com/T/#u
-- v2: https://lore.kernel.org/linux-riscv/20250821173957.563472-1-geomatsi@gmail.com/T/#u
-- v1: https://lore.kernel.org/linux-riscv/20251007115840.2320557-1-geomatsi@gmail.com/T/#u
-
-Changes in v5:
-- add support and minimal set of tests for XTheadVector
-
-Changes in v4:
-The form 'vsetvli x0, x0, ...' can only be used if VLMAX remains
-unchanged, see spec 6.2. This condition was not met by the initial
-values in the selftests w.r.t. the initial zeroed context. QEMU accepted
-such values, but actual hardware (c908, BananaPi CanMV Zero board) did
-not, setting vill. So fix the selftests after testing on hardware:
-- replace 'vsetvli x0, x0, ...' by 'vsetvli rd, x0, ...' 
-- fixed instruction returns VLMAX, so use it in checks as well
-- replace fixed vlenb == 16 in the syscall test
-
-Changes in v3:
-Address the review comments by Andy Chiu and rework the approach:
-- drop forced vector context save entirely
-- perform strict validation of vector csr regs in ptrace
-
-Changes in v2:
-- add thread_info flag to allow to force vector context save
-- force vector context save after vector ptrace to ensure valid vector
-  context in the next ptrace operations
-- force vector context save on the first context switch after vector
-  context init to get proper vlenb
-
+Signed-off-by: Sergey Matyukevich <geomatsi@gmail.com>
 ---
+ .../riscv/vector/validate_v_ptrace.c          | 318 ++++++++++++++++++
+ 1 file changed, 318 insertions(+)
 
-Ilya Mamay (1):
-  riscv: ptrace: return ENODATA for inactive vector extension
-
-Sergey Matyukevich (8):
-  riscv: vector: init vector context with proper vlenb
-  riscv: csr: define vtype register elements
-  riscv: ptrace: validate input vector csr registers
-  selftests: riscv: test ptrace vector interface
-  selftests: riscv: verify initial vector state with ptrace
-  selftests: riscv: verify syscalls discard vector context
-  selftests: riscv: verify ptrace rejects invalid vector csr inputs
-  selftests: riscv: verify ptrace accepts valid vector csr values
-
- arch/riscv/include/asm/csr.h                  |  17 +
- arch/riscv/kernel/ptrace.c                    |  98 +-
- arch/riscv/kernel/vector.c                    |  12 +-
- .../testing/selftests/riscv/vector/.gitignore |   2 +
- tools/testing/selftests/riscv/vector/Makefile |  10 +-
- .../selftests/riscv/vector/v_helpers.c        |  23 +
- .../selftests/riscv/vector/v_helpers.h        |   2 +
- .../riscv/vector/validate_v_ptrace.c          | 919 ++++++++++++++++++
- 8 files changed, 1075 insertions(+), 8 deletions(-)
- create mode 100644 tools/testing/selftests/riscv/vector/validate_v_ptrace.c
-
-
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+diff --git a/tools/testing/selftests/riscv/vector/validate_v_ptrace.c b/tools/testing/selftests/riscv/vector/validate_v_ptrace.c
+index 2dd0c727e520..623b13e7582e 100644
+--- a/tools/testing/selftests/riscv/vector/validate_v_ptrace.c
++++ b/tools/testing/selftests/riscv/vector/validate_v_ptrace.c
+@@ -336,4 +336,322 @@ TEST(ptrace_v_syscall_clobbering)
+ 	}
+ }
+ 
++FIXTURE(v_csr_invalid)
++{
++};
++
++FIXTURE_SETUP(v_csr_invalid)
++{
++}
++
++FIXTURE_TEARDOWN(v_csr_invalid)
++{
++}
++
++#define VECTOR_1_0		(1UL << 0)
++#define XTHEAD_VECTOR_0_7	(1UL << 1)
++
++#define vector_test(x)		((x) & VECTOR_1_0)
++#define xthead_test(x)		((x) & XTHEAD_VECTOR_0_7)
++
++/* modifications of the initial vsetvli settings */
++FIXTURE_VARIANT(v_csr_invalid)
++{
++	unsigned long vstart;
++	unsigned long vl;
++	unsigned long vtype;
++	unsigned long vcsr;
++	unsigned long vlenb_mul;
++	unsigned long vlenb_min;
++	unsigned long vlenb_max;
++	unsigned long spec;
++};
++
++/* unexpected vlenb value */
++FIXTURE_VARIANT_ADD(v_csr_invalid, new_vlenb)
++{
++	.vstart = 0x0,
++	.vl = 0x0,
++	.vtype = 0x3,
++	.vcsr = 0x0,
++	.vlenb_mul = 0x2,
++	.vlenb_min = 0x0,
++	.vlenb_max = 0x0,
++	.spec = VECTOR_1_0 | XTHEAD_VECTOR_0_7,
++};
++
++/* invalid reserved bits in vcsr */
++FIXTURE_VARIANT_ADD(v_csr_invalid, vcsr_invalid_reserved_bits)
++{
++	.vstart = 0x0,
++	.vl = 0x0,
++	.vtype = 0x3,
++	.vcsr = 0x1UL << 8,
++	.vlenb_mul = 0x1,
++	.vlenb_min = 0x0,
++	.vlenb_max = 0x0,
++	.spec = VECTOR_1_0 | XTHEAD_VECTOR_0_7,
++};
++
++/* invalid reserved bits in vtype */
++FIXTURE_VARIANT_ADD(v_csr_invalid, vtype_invalid_reserved_bits)
++{
++	.vstart = 0x0,
++	.vl = 0x0,
++	.vtype = (0x1UL << 8) | 0x3,
++	.vcsr = 0x0,
++	.vlenb_mul = 0x1,
++	.vlenb_min = 0x0,
++	.vlenb_max = 0x0,
++	.spec = VECTOR_1_0 | XTHEAD_VECTOR_0_7,
++};
++
++/* set vill bit */
++FIXTURE_VARIANT_ADD(v_csr_invalid, invalid_vill_bit)
++{
++	.vstart = 0x0,
++	.vl = 0x0,
++	.vtype = (0x1UL << (__riscv_xlen - 1)) | 0x3,
++	.vcsr = 0x0,
++	.vlenb_mul = 0x1,
++	.vlenb_min = 0x0,
++	.vlenb_max = 0x0,
++	.spec = VECTOR_1_0 | XTHEAD_VECTOR_0_7,
++};
++
++/* reserved vsew value: vsew > 3 */
++FIXTURE_VARIANT_ADD(v_csr_invalid, reserved_vsew)
++{
++	.vstart = 0x0,
++	.vl = 0x0,
++	.vtype = 0x4UL << 3,
++	.vcsr = 0x0,
++	.vlenb_mul = 0x1,
++	.vlenb_min = 0x0,
++	.vlenb_max = 0x0,
++	.spec = VECTOR_1_0,
++};
++
++/* XTheadVector: unsupported non-zero VEDIV value */
++FIXTURE_VARIANT_ADD(v_csr_invalid, reserved_vediv)
++{
++	.vstart = 0x0,
++	.vl = 0x0,
++	.vtype = 0x3UL << 5,
++	.vcsr = 0x0,
++	.vlenb_mul = 0x1,
++	.vlenb_min = 0x0,
++	.vlenb_max = 0x0,
++	.spec = XTHEAD_VECTOR_0_7,
++};
++
++/* reserved vlmul value: vlmul == 4 */
++FIXTURE_VARIANT_ADD(v_csr_invalid, reserved_vlmul)
++{
++	.vstart = 0x0,
++	.vl = 0x0,
++	.vtype = 0x4,
++	.vcsr = 0x0,
++	.vlenb_mul = 0x1,
++	.vlenb_min = 0x0,
++	.vlenb_max = 0x0,
++	.spec = VECTOR_1_0,
++};
++
++/* invalid fractional LMUL for VLEN <= 256: LMUL= 1/8, SEW = 64 */
++FIXTURE_VARIANT_ADD(v_csr_invalid, frac_lmul1)
++{
++	.vstart = 0x0,
++	.vl = 0x0,
++	.vtype = 0x1d,
++	.vcsr = 0x0,
++	.vlenb_mul = 0x1,
++	.vlenb_min = 0x0,
++	.vlenb_max = 0x20,
++	.spec = VECTOR_1_0,
++};
++
++/* invalid integral LMUL for VLEN <= 16: LMUL= 2, SEW = 64 */
++FIXTURE_VARIANT_ADD(v_csr_invalid, int_lmul1)
++{
++	.vstart = 0x0,
++	.vl = 0x0,
++	.vtype = 0x19,
++	.vcsr = 0x0,
++	.vlenb_mul = 0x1,
++	.vlenb_min = 0x0,
++	.vlenb_max = 0x2,
++	.spec = VECTOR_1_0,
++};
++
++/* XTheadVector: invalid integral LMUL for VLEN <= 16: LMUL= 2, SEW = 64 */
++FIXTURE_VARIANT_ADD(v_csr_invalid, int_lmul2)
++{
++	.vstart = 0x0,
++	.vl = 0x0,
++	.vtype = 0xd,
++	.vcsr = 0x0,
++	.vlenb_mul = 0x1,
++	.vlenb_min = 0x0,
++	.vlenb_max = 0x2,
++	.spec = XTHEAD_VECTOR_0_7,
++};
++
++/* invalid VL for VLEN <= 128: LMUL= 2, SEW = 64, VL = 8 */
++FIXTURE_VARIANT_ADD(v_csr_invalid, vl1)
++{
++	.vstart = 0x0,
++	.vl = 0x8,
++	.vtype = 0x19,
++	.vcsr = 0x0,
++	.vlenb_mul = 0x1,
++	.vlenb_min = 0x0,
++	.vlenb_max = 0x10,
++	.spec = VECTOR_1_0,
++};
++
++/* XTheadVector: invalid VL for VLEN <= 128: LMUL= 2, SEW = 64, VL = 8 */
++FIXTURE_VARIANT_ADD(v_csr_invalid, vl2)
++{
++	.vstart = 0x0,
++	.vl = 0x8,
++	.vtype = 0xd,
++	.vcsr = 0x0,
++	.vlenb_mul = 0x1,
++	.vlenb_min = 0x0,
++	.vlenb_max = 0x10,
++	.spec = XTHEAD_VECTOR_0_7,
++};
++
++TEST_F(v_csr_invalid, ptrace_v_invalid_values)
++{
++	unsigned long vlenb;
++	pid_t pid;
++
++	if (!is_vector_supported() && !is_xtheadvector_supported())
++		SKIP(return, "Vectors not supported");
++
++	if (is_vector_supported() && !vector_test(variant->spec))
++		SKIP(return, "Test not supported for Vector");
++
++	if (is_xtheadvector_supported() && !xthead_test(variant->spec))
++		SKIP(return, "Test not supported for XTheadVector");
++
++	vlenb = get_vr_len();
++
++	if (variant->vlenb_min) {
++		if (vlenb < variant->vlenb_min)
++			SKIP(return, "This test does not support VLEN < %lu\n",
++			     variant->vlenb_min * 8);
++	}
++
++	if (variant->vlenb_max) {
++		if (vlenb > variant->vlenb_max)
++			SKIP(return, "This test does not support VLEN > %lu\n",
++			     variant->vlenb_max * 8);
++	}
++
++	chld_lock = 1;
++	pid = fork();
++	ASSERT_LE(0, pid)
++		TH_LOG("fork: %m");
++
++	if (pid == 0) {
++		unsigned long vl;
++
++		while (chld_lock == 1)
++			asm volatile("" : : "g"(chld_lock) : "memory");
++
++		if (is_xtheadvector_supported()) {
++			asm volatile (
++				// 0 | zimm[10:0] | rs1 | 1 1 1 | rd |1010111| vsetvli
++				// vsetvli	t4, x0, e16, m2, d1
++				".4byte		0b00000000010100000111111011010111\n"
++				"mv		%[new_vl], t4\n"
++				: [new_vl] "=r" (vl) : : "t4");
++		} else {
++			asm volatile (
++				".option push\n"
++				".option arch, +zve32x\n"
++				"vsetvli %[new_vl], x0, e16, m2, tu, mu\n"
++				".option pop\n"
++				: [new_vl] "=r"(vl) : : );
++		}
++
++		while (1) {
++			asm volatile (
++				".option push\n"
++				".option norvc\n"
++				"ebreak\n"
++				"nop\n"
++				".option pop\n");
++		}
++	} else {
++		struct __riscv_v_regset_state *regset_data;
++		size_t regset_size;
++		struct iovec iov;
++		int status;
++		int ret;
++
++		/* attach */
++
++		ASSERT_EQ(0, ptrace(PTRACE_ATTACH, pid, NULL, NULL));
++		ASSERT_EQ(pid, waitpid(pid, &status, 0));
++		ASSERT_TRUE(WIFSTOPPED(status));
++
++		/* unlock */
++
++		ASSERT_EQ(0, ptrace(PTRACE_POKEDATA, pid, &chld_lock, 0));
++
++		/* resume and wait for the 1st ebreak */
++
++		ASSERT_EQ(0, ptrace(PTRACE_CONT, pid, NULL, NULL));
++		ASSERT_EQ(pid, waitpid(pid, &status, 0));
++		ASSERT_TRUE(WIFSTOPPED(status));
++
++		/* read tracee vector csr regs using ptrace GETREGSET */
++
++		regset_size = sizeof(*regset_data) + vlenb * 32;
++		regset_data = calloc(1, regset_size);
++
++		iov.iov_base = regset_data;
++		iov.iov_len = regset_size;
++
++		ASSERT_EQ(0, ptrace(PTRACE_GETREGSET, pid, NT_RISCV_VECTOR, &iov));
++
++		/* verify initial vsetvli settings */
++
++		if (is_xtheadvector_supported()) {
++			EXPECT_EQ(5UL, regset_data->vtype);
++		} else {
++			EXPECT_EQ(9UL, regset_data->vtype);
++		}
++
++		EXPECT_EQ(regset_data->vlenb, regset_data->vl);
++		EXPECT_EQ(vlenb, regset_data->vlenb);
++		EXPECT_EQ(0UL, regset_data->vstart);
++		EXPECT_EQ(0UL, regset_data->vcsr);
++
++		/* apply invalid settings from fixture variants */
++
++		regset_data->vlenb *= variant->vlenb_mul;
++		regset_data->vstart = variant->vstart;
++		regset_data->vtype = variant->vtype;
++		regset_data->vcsr = variant->vcsr;
++		regset_data->vl = variant->vl;
++
++		iov.iov_base = regset_data;
++		iov.iov_len = regset_size;
++
++		errno = 0;
++		ret = ptrace(PTRACE_SETREGSET, pid, NT_RISCV_VECTOR, &iov);
++		ASSERT_EQ(errno, EINVAL);
++		ASSERT_EQ(ret, -1);
++
++		/* cleanup */
++
++		ASSERT_EQ(0, kill(pid, SIGKILL));
++	}
++}
++
+ TEST_HARNESS_MAIN
 -- 
 2.52.0
 
