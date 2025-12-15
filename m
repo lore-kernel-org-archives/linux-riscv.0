@@ -4,145 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99467D5B16F
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Dec 2025 13:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23C52D5B16F
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Dec 2025 13:59:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1eHyGw6UnVMl6AO7AXjH23CL6NtgqY5SEu6BnBMdehc=; b=K/Oo4slacahElV
-	M6XiQxUOkOOXxOpLwbK2/0bvNpxjQCFgsyUBb/Yew4nJm4dhKaqQZbY7dPq3c8SU+gNV/8SsTnwry
-	k11JXZzDUNwj6t30JiVmZFXvBilei+srhGSR/A5l7Y7Zv7XRNbl2Iyv7XGXuQdJSjfs0ROKm+xjcU
-	y0rpwoM06py7/lHi84QftAUWjXKHlFJXRlaWRy3R5Iqsp5G2cW+vkZcTyvcGsYE0QR4aCEkmtAzEo
-	ZlNmcWpe4RkGSJy1n5aeSaWj22oNC2lWgAaXsbB+vBSWLCXLWduTBt+3emBk+GtiyqbiFUKdo4Ujn
-	gFYpAdWRY5qs2cwJTXYw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
+	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WZk9oqYPGHjlr7uc3W7eqceRWqwH+mcN2WHCRhsvqLo=; b=LQcNjEBKEp/5e81oM5D6l5FgtU
+	9IRBJHhEbV+n12jbt9Q5kkGEVFz4eFL3ejoi/Rd3ldgMd1sUt3BuqPpfwg8JT5gZ8ZR3XIuphcyMz
+	7NOcgZ3so7oehwi4ocEzcSQ50NeRI+tNo+/yL8vmgEIwvc74JXzw6YFW41hQc/cL1AobvlyAUtB2T
+	6exPL3XQtCvGHclQUZMnhfX7EQgEKzI08IxnJag4qzTpydFTtp8En4JwuefRU6i42uLKJ6W711LgY
+	VrnNiniX0GCUqsbCaS+64NAvMzOUJ3w6hCyoIegH0OZA+kFgBhG21Co80Wlf1TC03+CjFLguGMuHM
+	vAstNgzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV8LL-00000003fu3-09QZ;
-	Mon, 15 Dec 2025 13:10:27 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1vV96B-00000003ipi-27To;
+	Mon, 15 Dec 2025 13:58:51 +0000
+Received: from crocodile.elm.relay.mailchannels.net ([23.83.212.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV8LI-00000003ftO-2kcc
+	id 1vV966-00000003inM-3nfw
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Dec 2025 13:10:25 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-7b9387df58cso5160170b3a.3
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Dec 2025 05:10:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765804224; x=1766409024; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BM/PVPr4BUoxQ98yubiOVvCOB+UxL8diHIpcrjRnF1s=;
-        b=QhEyP70cbwUqwmeHaSSeB5+arEYAYv7ePUm4x3ygA9MybwxX0BPnEVHqZzqOAiDzUv
-         zdtNCwSuYExeIqA3R2gzGpvBVBAGrYBfHFbtr9CeV66cSomasvskPA+eBxPesZwbGGqx
-         noJ5PuviZZ1rF1UkHtPlhzUYHqjqnsCz3AX+NkPaXDT/HAowdNw7PIXZjH6y36kGYUPH
-         6n49cGU/sT1/EFChbFsG1o0ScJGGHOQVbZQdkQMNkhS6c1LmaU/96tsxIly73mhzjWKh
-         TUyjcK3ZKb5Rz3rvuZu5GRFVUTDOaQ5vDXimdeMSjPei7CUusO3KvepAlV0ER90PWCkV
-         41qw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765804224; x=1766409024;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=BM/PVPr4BUoxQ98yubiOVvCOB+UxL8diHIpcrjRnF1s=;
-        b=ZTCo9lLd+P/xUtkTZhHyqDAj1ySrKGYdsiYiwtH0UJQA+zJlR+vn6oJdH78ZW8HCa7
-         56WOxEcgG5FXivSh2YzV82C1YHNWTPcCd6lZpSmzBzFDrEcNVLGcUaIyrPer5OxyHMI4
-         c1Zt8Mfspdbef3MLE5tR2G2UOr7nhxSFf6IzAtuZtU1Dp9mmGeH7rgeFZOeH23KoS/Oi
-         vBCice4venCaEW/AzbaU2Jmjh2f3WQ81SIonPWzD1pBJeXmmhNdUlkgc1KgswLgICQ/3
-         BAxVckslh9Kp+jt1hNVlXbZzZO1IaI5o8x3p5l/FIzXA/KV9d4P+jvUdf5UFHZw27sj1
-         YdOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWNFECHu+iyTbMM6tTCcaBQVRuYY1jkL9ZWgsYsnUoz9CKbIFm2GehMNiwPZzyI9ZrNQxczYV1h7xCHtA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/Jh++7aqD9/cqn6tUHo1UBP+nT55Ws5JoWPhYy6KAx5uJEU9N
-	RgIP/n5qKNVRtxZOYfkNt1+Y5KN6DpnmlLn9r24g2/5H4wPQ4lWzrff6
-X-Gm-Gg: AY/fxX6M6vSVRdDUFlhnilpNecDEXLxkx4PgVyc8xAP/eV/L/T/3N5QJ2WOgwJZ6aZO
-	4ttByeUxIT7mYWyKy/CnhX4acBHM6V8TmygPfiv54E8JRkiRRZPa0cpVbeJ/hIxoumawEAtXekl
-	NDnL5i9vOa0GsPbasMUwwh1M2wMyktwsOKL0dLOUb6rhzS19M9LYXEYMwNN4OLAJfFJrW/GGlKy
-	WTAfl4iBvPkIqMC9oELHpHFOCex/oXOKSIRhBpLB7wAwPhYcz2dR4itdPDufTE76y4u5cajui96
-	Hb5ARg4wqHb8nRIlKjd39CRL0pKEtyQAPI54llSgzWc+kloQZsn6GLvweJ1kzL1c/gwCVY+ukAr
-	jbzKlodWgbOGXwyYdQ5oE5mDZ+Ul8/PGwjPls0nVNbf5UneqcKL+ejx0eOuKdL1V0qUzAakUijt
-	6x1w151j9repg9IPXLpAcZeGmqUNczejY=
-X-Google-Smtp-Source: AGHT+IG3VwDpkA1WmQaMbo19+RTJgzIpgUIvYpPpKARDCY4wBFScDx5yKp0n9nH8m2HxqssodBKlAQ==
-X-Received: by 2002:a05:6a00:b904:b0:7b9:d7c2:fdf6 with SMTP id d2e1a72fcca58-7f6679326b4mr10674588b3a.24.1765804223544;
-        Mon, 15 Dec 2025 05:10:23 -0800 (PST)
-Received: from DESKTOP-8TIG9K0.localdomain ([119.28.20.50])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7f4c22848a7sm12761222b3a.3.2025.12.15.05.10.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Dec 2025 05:10:22 -0800 (PST)
-From: Xie Yuanbin <qq570070308@gmail.com>
-To: tglx@linutronix.de,
-	peterz@infradead.org,
-	riel@surriel.com,
-	segher@kernel.crashing.org,
-	david@kernel.org,
-	hpa@zytor.com,
-	arnd@arndb.de,
-	akpm@linux-foundation.org,
-	acme@kernel.org,
-	adrian.hunter@intel.com,
-	agordeev@linux.ibm.com,
-	alex@ghiti.fr,
-	alexander.shishkin@linux.intel.com,
-	andreas@gaisler.com,
-	anshuman.khandual@arm.com,
-	aou@eecs.berkeley.edu,
-	borntraeger@linux.ibm.com,
-	bp@alien8.de,
-	bsegall@google.com,
-	dave.hansen@linux.intel.com,
-	davem@davemloft.net,
-	dietmar.eggemann@arm.com,
-	frederic@kernel.org,
-	gor@linux.ibm.com,
-	hca@linux.ibm.com,
-	irogers@google.com,
-	james.clark@linaro.org,
-	jolsa@kernel.org,
-	juri.lelli@redhat.com,
-	justinstitt@google.com,
-	lorenzo.stoakes@oracle.com,
-	luto@kernel.org,
-	mark.rutland@arm.com,
-	mathieu.desnoyers@efficios.com,
-	max.kellermann@ionos.com,
-	mgorman@suse.de,
-	mingo@redhat.com,
-	morbo@google.com,
-	namhyung@kernel.org,
-	nathan@kernel.org,
-	nick.desaulniers+lkml@gmail.com,
-	nysal@linux.ibm.com,
-	palmer@dabbelt.com,
-	paulmck@kernel.org,
-	pjw@kernel.org,
-	rostedt@goodmis.org,
-	ryan.roberts@arm.com,
-	svens@linux.ibm.com,
-	thuth@redhat.com,
-	urezki@gmail.com,
-	vincent.guittot@linaro.org,
-	vschneid@redhat.com,
-	linux@armlinux.org.uk
-Cc: linux-kernel@vger.kernel.org,
-	x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v5 0/3] Optimize code generation during context switching
-Date: Mon, 15 Dec 2025 21:10:01 +0800
-Message-ID: <20251215131001.1021-1-qq570070308@gmail.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251214190907.184793-1-qq570070308@gmail.com>
-References: <20251214190907.184793-1-qq570070308@gmail.com>
+	Mon, 15 Dec 2025 13:58:49 +0000
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 48911801D2D;
+	Mon, 15 Dec 2025 13:58:45 +0000 (UTC)
+Received: from fr-int-smtpout12.hostinger.io (100-108-113-51.trex-nlb.outbound.svc.cluster.local [100.108.113.51])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id BD1D48003D8;
+	Mon, 15 Dec 2025 13:58:43 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
+	t=1765807124;
+	b=iunP80axDCTN3ndTayvpqBb4oDXT2BCkV1xczBXK8qHkuqquwxDVUFbwW74mgCUa4pbQEC
+	zQVL+D5JaZvjgv4HJkAZ074xbPiFuz1YaRcX16IS09oVRQa5ja4NMTShY24sObGHTq/rmR
+	Ex9rXUKxx5H8D18t+nNFrhNBePoWg7r80G8wSjtdRbS/YT3qit9+y88sEO3mGp9JuYkseV
+	VVlZZSZiRquMIAko8YCeOz1Pun9rkg/MYTRSpb1IkR9nUGWB+EtZoqaqcsGkXFjZM0wl3L
+	X4kiDKiaelwYKLq01cYlbnxQ7+Jo9EBjjv/rkrNtWeApbNIcymvs7JGSEQDowg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1765807124;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=7apR0jdlQh68JBNJS0Kzie+uOx07+3csdNlfXBvqoM4=;
+	b=eTDkUX8hciBrw+YgJ6uMydTou8BWyCUrGqkCMQUM9QI2uwVtqtvbbZXV1dK6Hw9OWNhJiy
+	XYh5EqMsq2yE+UsWUWssJJWev8XImR7tblXBzskwo4vA7BKTw8bGezQmqxzToP47q7oe5O
+	LcKNcy9qZz7X6/YcdkuLjTMBf/7zpxMxj4my6KPQqqEXvq5pH9pif+4o1ojT+1nVtessyU
+	clATMFE1Qph65r5GxHF4sqNwLnRfEcSRcd4Th3sCS2DougpbuvbHVFNAPgjLnvGpGVhFqn
+	zilA7nV1jaYomYCVIwcIOJ1fmGaFUDjoe39pwAG0KD+PElKkwYJlmJsmVmb7Dw==
+ARC-Authentication-Results: i=1;
+	rspamd-6ccd5b4cc5-7gv7b;
+	auth=pass smtp.auth=hostingeremail
+ smtp.mailfrom=michael.opdenacker@rootcommit.com
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Stop-Decisive: 64ea8f0331194735_1765807125175_3980996007
+X-MC-Loop-Signature: 1765807125175:4184771881
+X-MC-Ingress-Time: 1765807125175
+Received: from fr-int-smtpout12.hostinger.io (fr-int-smtpout12.hostinger.io
+ [148.222.54.46])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.108.113.51 (trex/7.1.3);
+	Mon, 15 Dec 2025 13:58:45 +0000
+Received: from [IPV6:2001:861:4450:d360:6864:9326:2fe9:fe2] (unknown [IPv6:2001:861:4450:d360:6864:9326:2fe9:fe2])
+	(Authenticated sender: michael.opdenacker@rootcommit.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4dVM9F1vjhz1xrB;
+	Mon, 15 Dec 2025 13:58:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
+	s=hostingermail-a; t=1765807122;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7apR0jdlQh68JBNJS0Kzie+uOx07+3csdNlfXBvqoM4=;
+	b=CGMaqbMDJcq8MFuPxwaVG13FlF54jhY7ek8mzWB07NRJ3rIq9vppnBBesUwa1Ea73rIz0q
+	OdIW/ma4P9dv1EGxfVq0gT4mSLXAJGnA4eG8wuPKc1Lgt036nDkPVFOFAR746SPtoHfXrh
+	71FUq2VuyHtXRxWnNe7FPztogzDU9eNeZZ0UAsg8Xn3RlhgQbSQL5MtLy5wn1cuCj0mwJR
+	nm+06P2x1FOmfx6dYRNQI1DIgGn/21zx3u5y6YpW1BxPXiP0E3/+0+pFrIFvnbrIyT87dD
+	tttIkLNY7z7LFhV0OWcla25X0XxgWttDC9AUr96ZeIWSdJ8sIrj48TqhsfZqlA==
+Message-ID: <bf815359-4b6e-4243-8a7a-6b00e259f4f6@rootcommit.com>
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: michael.opdenacker@rootcommit.com,
+ Dan Carpenter <dan.carpenter@linaro.org>,
+ Binbin Zhou <zhoubinbin@loongson.cn>, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>
+Subject: Re: [PATCH 2/2] riscv: dts: spacemit: Add MMC support on BPI-F3 and
+ OrangePi RV2
+To: Yao Zi <me@ziyao.cc>
+References: <20251215-k1-boards-add-mmc-v1-0-d68dc87d4aab@rootcommit.com>
+ <20251215-k1-boards-add-mmc-v1-2-d68dc87d4aab@rootcommit.com>
+ <aUADG5c8r0GEN6iP@pie>
+Content-Language: en-US, fr
+From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+Organization: Root Commit
+In-Reply-To: <aUADG5c8r0GEN6iP@pie>
+Date: Mon, 15 Dec 2025 13:58:41 +0000 (UTC)
+X-CM-Analysis: v=2.4 cv=NuiDcNdJ c=1 sm=1 tr=0 ts=69401412 a=w3a6Hyo9sJ87gWsMspevqA==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=d70CFdQeAAAA:8 a=asDJCzfm3GB8K8yUXNsA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=MtV9mxeqUzM0PhnktY_2:22 a=NcxpMcIZDGm-g932nG_k:22
+X-CM-Envelope: MS4xfHAxxhTFOsmXJazwYlkMl2VvC/NWIAnTz3QIjkn94KcQIsuoDXEI1/5C8Fx8hqz+sa4T4w7JJCrmTGqJmAq2epTIbF4h3geq/jO6N9x4gyqguRfjJgI0 /x1UhAcMjHVc+X2NaTuAC7p3IBftvhkQJYm+QELrNA09wW5Ms1Hx2qcEZH/PrrW7rz7QjwTXvqchwBmsDYdMW+71znxkuEVLw3badFrDHkBd7zHVLBX5tFTz nvOkEUY6zk588u35eliyaM+AGZIWeGBivbFxUYwkKGoD+W62gboEIql+v7sSQIHNbYcTjQrFmIy4549P1wAQVKNebYQFHs6PjS5yNep1JnQgJ36cMG4PHyjt nuFKAoz+o3TncRbLoJXMQbhFFto/Y2/S8EUhC9LIukwBAhAbpeAmlXViWFG1x7gznM3EJUUH2Ew94t3enN8cXK9QR0KNHAFpvbaaNTNoK1bgqND8g53cVHrZ XK02uvzTk/k7aRAvryMHeIlj6lV19F0D0DOHttizZaSzizNhweN4S5eezTA=
+X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_051024_702654_D14D19DC 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251215_055847_293899_2CF71530 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,59 +122,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is some additional testing information that needs to be
-supplemented:
-1.
-On Mon, 15 Dec 2025 03:09:04 +0800, Xie Yuanbin Wrote:
-> 2. Testing config:
-> x86-64: `make x86_64_defconfig` first, then menuconfig setting:
-> CONFIG_HZ=100
-> CONFIG_DEBUG_ENTRY=n
-> CONFIG_X86_DEBUG_FPU=n
-> CONFIG_EXPERT=y
-> CONFIG_MODIFY_LDT_SYSCALL=n
-> CONFIG_STACKPROTECTOR=n
-> CONFIG_BLK_DEV_NVME=y (just for boot)
->
-> arm64: `make defconfig` first, then menuconfig setting:
-> CONFIG_KVM=n
-> CONFIG_HZ=100
-> CONFIG_SHADOW_CALL_STACK=y
->
-> arm32: `make multi_v7_defconfig` first, then menuconfig setting:
-> CONFIG_ARCH_OMAP2PLUS_TYPICAL=n
-> CONFIG_HIGHMEM=n
-
-The above is the config for performance test, when testing for size, the
-config is: `make x86_64_defconfig` first, then menuconfig setting:
-CONFIG_SCHED_CORE=y
-CONFIG_NO_HZ_FULL=y
-CONFIG_CC_OPTIMIZE_FOR_SIZE=y (optional)
-
-Enable CONFIG_SCHED_CORE and CONFIG_NO_HZ_FULL to test the modified code.
-
-2. When testing with Raspberry Pi 3b, in order to make the test result
-stable, the CPU frequency should be fixed. In detail, setting in
-config.txt:
-```config.txt
-arm_boost=0
-core_freq_fixed=1
-arm_freq=1200
-gpu_freq=250
-sdram_freq=400
-arm_freq_min=1200
-gpu_freq_min=250
-sdram_freq_min=400
-```
-
-Thanks!
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgWWFvCgpUaGFua3MgYSBsb3QgZm9yIHRoZSByZXZpZXchCgpPbiAxMi8xNS8yNSAxMzo0Niwg
+WWFvIFppIHdyb3RlOgo+IE9uIE1vbiwgRGVjIDE1LCAyMDI1IGF0IDEwOjEwOjE0QU0gKzAwMDAs
+IE1pY2hhZWwgT3BkZW5hY2tlciB3cm90ZToKPj4gVGhpcyBpbnRyb2R1Y2VzIGEgbmV3IHNkaGNp
+MCBub2RlIGFuZCBlbmFibGVzIGl0Cj4+IGZvciB0aGUgQmFuYW5hUEkgRjMgYW5kIE9yYW5nZVBp
+IFJWMiBib2FyZHMuCj4+Cj4+IE5vdGUgdGhhdCBjYXJkIGRldGVjdCBpcyBtYXJrZWQgYXMgYnJv
+a2VuIGluIHRoZSBkcml2ZXIKPj4gKFNESENJX1FVSVJLX0JST0tFTl9DQVJEX0RFVEVDVElPTiBx
+dWlyayksIHRoZXJlZm9yZSByZW1vdmluZyB0aGUgY2FyZAo+PiB3aGlsZSB0aGUgc3lzdGVtIGlz
+IHJ1bm5pbmcgd29uJ3QgaGF2ZSBhbnkgZWZmZWN0Lgo+IFRoaXMgZGVzY3JpcHRpb24gbG9va3Mg
+c3VzcGljaW91czogU0RIQ0lfUVVJUktfQlJPS0VOX0NBUkRfREVURUNUSU9OCj4gZG9lc24ndCBi
+cmVhayBob3RwbHVnLiBJdCBvbmx5IGluZm9ybXMgc2RoY2kgY29yZSB0byBhY3RpdmVseSBwb2xs
+IGZvcgo+IGNhcmQgc3RhdHVzLCBpbnN0ZWFkIG9mIHJlbHlpbmcgb24gaW50ZXJydXB0cyBmb3Ig
+c3RhdHVzIGNoYW5nZS4KCkkgbXVzdCBoYXZlIG1pc2ludGVycHJldGVkIHRoZSBjb2RlLsKgIEkg
+bW9kaWZpZWQgdGhlIGRlc2NyaXB0aW9uIHRvIGp1c3QgCm1lbnRpb24KdGhhdCBjYXJkIGRldGVj
+dGlvbiBjdXJyZW50bHkgZG9lc24ndCB3b3JrIHdpdGggdGhlc2UgY2hhbmdlcy4KCj4KPiAuLi4K
+Pgo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS5kdHNpIGIv
+YXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS5kdHNpCj4+IGluZGV4IDc4MThjYTQ5Nzli
+Ni4uYTViN2Q3YzhjMDY2IDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNl
+bWl0L2sxLmR0c2kKPj4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS5kdHNp
+Cj4+IEBAIC05ODcsNiArOTg3LDE2IEBAIGVtbWM6IG1tY0BkNDI4MTAwMCB7Cj4+ICAgCQkJCWlu
+dGVycnVwdHMgPSA8MTAxPjsKPj4gICAJCQkJc3RhdHVzID0gImRpc2FibGVkIjsKPj4gICAJCQl9
+Owo+PiArCj4+ICsJCQlzZGhjaTA6IG1tY0BkNDI4MDAwMCB7Cj4+ICsJCQkJY29tcGF0aWJsZSA9
+ICJzcGFjZW1pdCxrMS1zZGhjaSI7Cj4+ICsJCQkJcmVnID0gPDB4MCAweGQ0MjgwMDAwIDB4MCAw
+eDIwMD47Cj4+ICsJCQkJY2xvY2tzID0gPCZzeXNjb25fYXBtdSBDTEtfU0RIX0FYST4sCj4+ICsJ
+CQkJCSA8JnN5c2Nvbl9hcG11IENMS19TREgwPjsKPj4gKwkJCQljbG9jay1uYW1lcyA9ICJjb3Jl
+IiwgImlvIjsKPj4gKwkJCQlpbnRlcnJ1cHRzID0gPDk5PjsKPj4gKwkJCQlzdGF0dXMgPSAiZGlz
+YWJsZWQiOwo+PiArCQkJfTsKPiBUaGlzIG5vZGUgc2hvdWxkIGJlIHByb2JhYmx5IHB1dCBiZWZv
+cmUgdGhlIGVtbWMgbm9kZSwgc2luY2UgaXQgY29tZXMKPiB3aXRoIGxvd2VyIGFkZHJlc3MuCgpP
+b3BzLCBjb3JyZWN0IGluIG15IGJyYW5jaC4gVGhhbmtzIQpDaGVlcnMKTWljaGFlbC4KCi0tIApN
+aWNoYWVsIE9wZGVuYWNrZXIKUm9vdCBDb21taXQKWW9jdG8gUHJvamVjdCBhbmQgT3BlbkVtYmVk
+ZGVkIFRyYWluaW5nIGNvdXJzZSAtIExlYXJuIGJ5IGRvaW5nOgpodHRwczovL3Jvb3Rjb21taXQu
+Y29tL3RyYWluaW5nL3lvY3RvLwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
