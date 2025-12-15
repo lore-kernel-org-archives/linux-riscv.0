@@ -4,106 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB0FAD59D99
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Dec 2025 23:44:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8747D5B16E
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Dec 2025 02:55:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EHBxYnEt/D7RPNUGEZx+jTwEVp4GG4Dps0YHEQoMdj8=; b=zqaQppVsEG+2xl
-	h8siZEO4LDRtAAXyuVPHG51rzMaaG2wQkZSr5ZdEk/ReaYWgbUaRSMotYE/JGCVlAzKxzu9aHp/QL
-	O7Gmut0CNHu+sxkW0fo4XAFcidA+lUy21CK7wYP5UXgHNyYWpbZRS8vtWbjgZhz4x64sGajJbdkru
-	7FRFQqCNtdAHGNn6LqiqWSr+j84RJCEdriYs79dbJDplAJDybfMcXExc0kWS0rtNMwnId4PPt0hnR
-	JCq4cNqwpbybD2xT4E4dLsP3L95EP7L5og0KnYPkEHaMW91/FrjhXW3Ym9F8PrhLQNWaPKUBUHbgC
-	ZC/3tVmUUVBIiGdFSMGg==;
+	List-Owner; bh=7lIJt6UicOwodIlwZVMifSR8wGqlsAVaFVk36dNAPBc=; b=S4ELmEFp0pva9e
+	DarDuv9Gjl94LpNnZgViDvhEZmpjuPyCvGiol/h5exnsSMa9OI/30DwwQBaI5O3TRCn8rJDw+bCOb
+	Etv/A0ZWMcceGw/UOXstFIOZL+1N2E4NyHVwfyAwYAjZXgzQyeg7axurNmFzaOLbn8tmQ5yJ0MrzL
+	ay+ujbJd47WhbcksQMw5qbGR9up4BeSKZovbN8KYDQQMDrnp1DEW3pIExhCsOnrGqDqMbmDw7lUUi
+	X3oATvfOdFZLCGBIHv0ks/w+g3hCER43yMMeeIZqXaBo516sKEEwcz+7HDrWZu4VDPNySft+W85oF
+	htEE2uo9zvfdst/WLvsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUvkc-00000002qTO-2Dwd;
-	Sun, 14 Dec 2025 23:43:42 +0000
-Received: from shelob.surriel.com ([96.67.55.147])
+	id 1vUyjQ-00000002xbp-2Tf2;
+	Mon, 15 Dec 2025 02:54:40 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUvkZ-00000002qSz-3UGi;
-	Sun, 14 Dec 2025 23:43:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
-	; s=mail; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=24kY9Nr5wlYZDF7jnKs9v6WeM4iMH9sHuTP5M2EV7I8=; b=WXbduQIYx6FgowO4SUfZ6UQl8P
-	es6kKDSIyUC81IRgmPtsbh+zvONXuh8F1ntYsGSJ8xdAThIZdkwX9XlhvtqzPCbuBM1D4cxC2xKwA
-	opuECmoBWHf337R/5oq41e1VeSiKyHsglXCKnuPrghV5bxnd3CqEFW6jxaaPMPLi7wTF8qQtdJbAS
-	B9u9iNZDrTMvqVOoPBRu6RRtycVbFB1OY/IuCcsQjEm/75/P7FxC/6jOKZ8vI5+CZxc6AaGP5rkYo
-	gUCxc0xFH5f4buE701MUd96DxLK5EJ8SxwPRYSCYnXsBWlfzFYY0SQtprriLKSo/yXcJ9dFI30JQr
-	/IKZRalA==;
-Received: from fangorn.home.surriel.com ([10.0.13.7])
-	by shelob.surriel.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.97.1)
-	(envelope-from <riel@surriel.com>)
-	id 1vUvgx-000000003ch-1imb;
-	Sun, 14 Dec 2025 18:39:56 -0500
-Message-ID: <ce226891413fe9c1d6f0c02697a32b646b4e0a0c.camel@surriel.com>
-Subject: Re: [PATCH v5 2/3] sched: Make raw_spin_rq_unlock() inline
-From: Rik van Riel <riel@surriel.com>
-To: Xie Yuanbin <qq570070308@gmail.com>, tglx@linutronix.de, 
-	peterz@infradead.org, segher@kernel.crashing.org, david@kernel.org,
- hpa@zytor.com, 	arnd@arndb.de, acme@kernel.org, adrian.hunter@intel.com,
- agordeev@linux.ibm.com, 	akpm@linux-foundation.org, alex@ghiti.fr,
- alexander.shishkin@linux.intel.com, 	andreas@gaisler.com,
- anshuman.khandual@arm.com, aou@eecs.berkeley.edu, 
-	borntraeger@linux.ibm.com, bp@alien8.de, bsegall@google.com, 
-	dave.hansen@linux.intel.com, davem@davemloft.net, dietmar.eggemann@arm.com,
- 	frederic@kernel.org, gor@linux.ibm.com, hca@linux.ibm.com,
- irogers@google.com, 	james.clark@linaro.org, jolsa@kernel.org,
- juri.lelli@redhat.com, 	justinstitt@google.com, lorenzo.stoakes@oracle.com,
- luto@kernel.org, 	mark.rutland@arm.com, mathieu.desnoyers@efficios.com,
- max.kellermann@ionos.com, 	mgorman@suse.de, mingo@redhat.com,
- morbo@google.com, namhyung@kernel.org, 	nathan@kernel.org,
- nick.desaulniers+lkml@gmail.com, nysal@linux.ibm.com, 	palmer@dabbelt.com,
- paulmck@kernel.org, pjw@kernel.org, rostedt@goodmis.org, 
-	ryan.roberts@arm.com, svens@linux.ibm.com, thuth@redhat.com,
- urezki@gmail.com, 	vincent.guittot@linaro.org, vschneid@redhat.com,
- linux@armlinux.org.uk
-Cc: linux-kernel@vger.kernel.org, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, llvm@lists.linux.dev
-Date: Sun, 14 Dec 2025 18:39:56 -0500
-In-Reply-To: <20251214190907.184793-3-qq570070308@gmail.com>
-References: <20251214190907.184793-1-qq570070308@gmail.com>
-	 <20251214190907.184793-3-qq570070308@gmail.com>
-Autocrypt: addr=riel@surriel.com; prefer-encrypt=mutual;
- keydata=mQENBFIt3aUBCADCK0LicyCYyMa0E1lodCDUBf6G+6C5UXKG1jEYwQu49cc/gUBTTk33A
- eo2hjn4JinVaPF3zfZprnKMEGGv4dHvEOCPWiNhlz5RtqH3SKJllq2dpeMS9RqbMvDA36rlJIIo47
- Z/nl6IA8MDhSqyqdnTY8z7LnQHqq16jAqwo7Ll9qALXz4yG1ZdSCmo80VPetBZZPw7WMjo+1hByv/
- lvdFnLfiQ52tayuuC1r9x2qZ/SYWd2M4p/f5CLmvG9UcnkbYFsKWz8bwOBWKg1PQcaYHLx06sHGdY
- dIDaeVvkIfMFwAprSo5EFU+aes2VB2ZjugOTbkkW2aPSWTRsBhPHhV6dABEBAAG0HlJpayB2YW4gU
- mllbCA8cmllbEByZWRoYXQuY29tPokBHwQwAQIACQUCW5LcVgIdIAAKCRDOed6ShMTeg05SB/986o
- gEgdq4byrtaBQKFg5LWfd8e+h+QzLOg/T8mSS3dJzFXe5JBOfvYg7Bj47xXi9I5sM+I9Lu9+1XVb/
- r2rGJrU1DwA09TnmyFtK76bgMF0sBEh1ECILYNQTEIemzNFwOWLZZlEhZFRJsZyX+mtEp/WQIygHV
- WjwuP69VJw+fPQvLOGn4j8W9QXuvhha7u1QJ7mYx4dLGHrZlHdwDsqpvWsW+3rsIqs1BBe5/Itz9o
- 6y9gLNtQzwmSDioV8KhF85VmYInslhv5tUtMEppfdTLyX4SUKh8ftNIVmH9mXyRCZclSoa6IMd635
- Jq1Pj2/Lp64tOzSvN5Y9zaiCc5FucXtB9SaWsgdmFuIFJpZWwgPHJpZWxAc3VycmllbC5jb20+iQE
- +BBMBAgAoBQJSLd2lAhsjBQkSzAMABgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRDOed6ShMTe
- g4PpB/0ZivKYFt0LaB22ssWUrBoeNWCP1NY/lkq2QbPhR3agLB7ZXI97PF2z/5QD9Fuy/FD/jddPx
- KRTvFCtHcEzTOcFjBmf52uqgt3U40H9GM++0IM0yHusd9EzlaWsbp09vsAV2DwdqS69x9RPbvE/Ne
- fO5subhocH76okcF/aQiQ+oj2j6LJZGBJBVigOHg+4zyzdDgKM+jp0bvDI51KQ4XfxV593OhvkS3z
- 3FPx0CE7l62WhWrieHyBblqvkTYgJ6dq4bsYpqxxGJOkQ47WpEUx6onH+rImWmPJbSYGhwBzTo0Mm
- G1Nb1qGPG+mTrSmJjDRxrwf1zjmYqQreWVSFEt26tBpSaWsgdmFuIFJpZWwgPHJpZWxAZmIuY29tP
- okBPgQTAQIAKAUCW5LbiAIbIwUJEswDAAYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQznneko
- TE3oOUEQgAsrGxjTC1bGtZyuvyQPcXclap11Ogib6rQywGYu6/Mnkbd6hbyY3wpdyQii/cas2S44N
- cQj8HkGv91JLVE24/Wt0gITPCH3rLVJJDGQxprHTVDs1t1RAbsbp0XTksZPCNWDGYIBo2aHDwErhI
- omYQ0Xluo1WBtH/UmHgirHvclsou1Ks9jyTxiPyUKRfae7GNOFiX99+ZlB27P3t8CjtSO831Ij0Ip
- QrfooZ21YVlUKw0Wy6Ll8EyefyrEYSh8KTm8dQj4O7xxvdg865TLeLpho5PwDRF+/mR3qi8CdGbkE
- c4pYZQO8UDXUN4S+pe0aTeTqlYw8rRHWF9TnvtpcNzZw==
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+	id 1vUyjM-00000002xah-0S98
+	for linux-riscv@lists.infradead.org;
+	Mon, 15 Dec 2025 02:54:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1765767183;
+	bh=LiOFsrrj0KtqzqIbiahsWzPZsSJKwCxlNGMnrbqjcQ4=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=Cu11vrnwNr/eb++/XHQSyjkXNZMtfNEfU7a3ZX8ebT8q+E+nqsPIUqyhcWlbi4XyS
+	 sfbuZpqWNLr7H6+HsFPomN8jj1UuAS0JchK1NhpbsIXXSKG/KIMFiWCwUTTfswJOGE
+	 71bbJ4sDfd2sUpw8M1kVIZMYe4SOsVjsd8TtuK/E=
+X-QQ-mid: esmtpsz11t1765767175t5383ce71
+X-QQ-Originating-IP: XeUGLSypuNGU5v41rnfBMyEYp+WgNaRHp+98uR4Tggo=
+Received: from = ( [183.48.246.103])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 15 Dec 2025 10:52:54 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 8115786445991593814
+EX-QQ-RecipientCnt: 9
+Date: Mon, 15 Dec 2025 10:52:54 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Alex Elder <elder@riscstar.com>, Andi Shyti <andi.shyti@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
+	Troy Mitchell <troymitchell988@gmail.com>,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH v4] i2c: spacemit: introduce pio for k1
+Message-ID: <7F2C864E2E9B876A+aT94BuAAOW_mzY3x@kernel.org>
+References: <20251009-k1-i2c-atomic-v4-1-a89367870286@linux.spacemit.com>
+ <613db920-6025-43cb-a733-d58f65363caa@riscstar.com>
+ <aTs3eNLCKTR5boro@aurel32.net>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <aTs3eNLCKTR5boro@aurel32.net>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MEbuyMJPIbYUrnFWuxHepkyOQxrEmHTrZknwel+/p4ifa7IGR4PPyMCk
+	ntomL9JUBTuo8k9VhnI1Zg/wlAVoE96DGpwRwVsW7TefULgMnoRFd9mqhTKdq6y3DcJlmvA
+	xDc4rp0kmAPIu8LD1O0HsldV0A/NNfqusFchmWTtVIuu7/G8jttxgfO2uUuh1MPeU5zzoVS
+	l+Aj+N1PxtTUCp2Q7H/mWHvYl6HZxdl4aGMxwhrdX78zRooTeYllwwD/n3hOGufV7e9qkwf
+	NCuxSFTQaoa93SZswOMx2VK2fA+maQt99NDFxNRZwTpqwDHR0hEFR6ey8AznZYIBN/nMVql
+	C3DFqJqA4N33TetGxO7emkoKMfF5+JUNv23Ue5Q0JX+TwOAD4uDzsxgUha7eOv3Z0YJdbDU
+	/w21/IviPrtFbOYM+TKB12ziBeYCxkGCXSUKVYiNKq4GwBli593+SnNMIyKM62lYhX0iAh7
+	LExrjgQSwyyfCFOxNxjlFW1Akhffe4LSymQbp13/4jqfqOJ0BxC3T9GmdmP+7ltgZ7iExJi
+	u3IbAuIClstZHjZg4IHlhDt7ddAaxJSSE3hGdhKJvrQpLkohkULeaMBVBe9yS5L4GtrCS8X
+	zHTZe8Vii7xSY8YclAgBEsErvP9CFeULmPlsWDhwKmwZB8JVZcUjtF8I8Er9/Gy34I/Uk3T
+	KrpGd8qH941SIZWskqUOxj23EsQoDmoNyQZ0x3lZKWxH1NQVBT2LmLYfea43tdRImjW8Plv
+	BfF13Pb1TQAZgU640eqrU6SQ1gaz241Ra20dt6DpQf0Hj+ksMnCcGsidl3vV37X0II6QoAy
+	ySrUXmZJ68linFfrMwC/wdRv1AiOknPSHwmOgY/Tdt6qPsRs3HeYocyHM8RGKgR8hNx5brx
+	M9Z+Gxiz/vSsa9RoPN6rmJkT/VtAyePj4OxsjGohkVymcUPUpcx3O8nN50cSy9zMLbtKncj
+	woVRLpRSOEhbwSbkL+WM9+lf+LNCyegh9N91+9XttBEiX+oypiEjfwkUkSZuGWSXt1M9C10
+	+FVxXTmAtHkdoP4Mh3Q1B8mOUSJ6kePTV3a0bb8bzPMBDRA/Ve/jvytstuoT7Jk2C8xSPqr
+	qO2Euo2NXoHKfVqaS4d+C93bSFECDD3P2nJ4waDaIei
+X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_154339_910033_A02625B4 
-X-CRM114-Status: UNSURE (   5.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251214_185437_090818_89DA8778 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,24 +99,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2025-12-15 at 03:09 +0800, Xie Yuanbin wrote:
-> raw_spin_rq_unlock() is short, and is called in some hot code paths
-> such as finish_lock_switch.
+On Thu, Dec 11, 2025 at 10:28:24PM +0100, Aurelien Jarno wrote:
+> Hi Troy,
 > 
-> Make raw_spin_rq_unlock() inline to optimize performance.
+> On 2025-11-07 09:50, Alex Elder wrote:
+> > On 10/9/25 4:59 AM, Troy Mitchell wrote:
+> > > This patch introduces I2C PIO functionality for the Spacemit K1 SoC,
+> > > enabling the use of I2C in atomic context.
+> > 
+> > (Sorry I haven't commented on your earlier versions.  They
+> > included other changes to prepare for this; I'm looking at
+> > this patch in isolation and haven't reviewed the others.)
+> > 
+> > An aside:  I notice the #includes are indented an additional
+> > space in this source file;  perhaps you can get rid of those
+> > (in a separate patch) at some point.
+> > 
+> > You really need to provide more information about how this
+> > is implemented.  This patch makes non-trivial changes to
+> > the logic.
 > 
-> Signed-off-by: Xie Yuanbin <qq570070308@gmail.com>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Rik van Riel <riel@surriel.com>
-> Cc: Segher Boessenkool <segher@kernel.crashing.org>
-> Cc: David Hildenbrand (Red Hat) <david@kernel.org>
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Cc: H. Peter Anvin (Intel) <hpa@zytor.com>
+> What is the status on implementing the changes asked by Alex? Do you 
+> need some help with that?
+I've been a bit busy recently, but I expect the next version can be
+posted later this week or next week.
 
-Reviewed-by: Rik van Riel <riel@surriel.com>
-
--- 
-All Rights Reversed.
+                              - Troy
+> 
+> Thanks
+> Aurelien
+> 
+> -- 
+> Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+> aurelien@aurel32.net                     http://aurel32.net
+> 
 
 _______________________________________________
 linux-riscv mailing list
