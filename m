@@ -4,109 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 344E3D59D99
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Dec 2025 10:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7528AD41D74
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Dec 2025 11:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BIm8KBjCWs0T1fOi+rAh5H239f3THOOmQsjhXP5IcAI=; b=YMpsKxlMsBmi2b
-	Zts4QR2mcN2U5G4Dfk3uem5iWJdkjioZZXjAaT5Ps9fnBFIoO/gjvGO1BPbWjMCTdoctAwXs4XURp
-	gTTElC5SgpZcBOmgRd/YtHK1P14X4oRndkKXuqBJK5YqaCNmknel+N1sm0ZfFGnnKlDox+zg848bn
-	jybBf47SUz0TYFChK7ifrvaBw0Pc8BJ/hdpnv05LtjLR8reQAWQ6AjQR8sPsY26IfK/uJetqcr/Uq
-	MfKs+1xJz8rwpEJ4DutZqLXKx87rSxsIUjqOZU8+29xKZ3icei25KOWJpOx9rup8MSHbjs+KDU0hy
-	+g404BYGr4NE1MMtb57Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=hBdgzz6GjihcaEInHf0dqWw3O5gaBLZ/RAvOgRbW2mU=; b=kT/jaYgGAE/fLM
+	gT/NPG3uhlnmubvtPdChVBPlsw+WhlUt/NER+ouWebAS6SnJXP1S1EBtaA5jHzSzOYobG+JV/6/7v
+	HnYeOHpQOJCgQeIckE2DbnMsVjf9yQDzismiNrReXIEIUuH7nqKAwOlOWQ7AZuLNtROP2jonJnbZ4
+	nMZLnE+BM8JYgbGYjKNDQAYC9NmnVhfAi5lTyb3KMMd/Rx/1EzKue+8oEIyBYM9uOu8DCHT/UOA+Z
+	nScSIp2bLztCBYSWRpxX+kCX8upwZ4S9tvewbmfHmNQXojVz8f1wRHZkM43NjZsO11d8oMh/JTqmL
+	oMIH6RpPKGbUF41j7YZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV5X6-00000003QTK-2Nh2;
-	Mon, 15 Dec 2025 10:10:24 +0000
-Received: from flamingo.ash.relay.mailchannels.net ([23.83.222.60])
+	id 1vV6wQ-00000003XhR-04k8;
+	Mon, 15 Dec 2025 11:40:38 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV5X2-00000003QQQ-0Pq4
+	id 1vV6wN-00000003Xh7-2nMC
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Dec 2025 10:10:22 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 444CC5814F5;
-	Mon, 15 Dec 2025 10:10:17 +0000 (UTC)
-Received: from fr-int-smtpout21.hostinger.io (trex-green-2.trex.outbound.svc.cluster.local [100.102.46.124])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id E3CAD5821E9;
-	Mon, 15 Dec 2025 10:10:15 +0000 (UTC)
-ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
-	t=1765793416;
-	b=vCoiiQWfrfmSAw5Kbyq7NtL++P9mCF8s/wDKFjYBC3yqPCzBOPQjb2f8dz3/dIXYF3QTZo
-	4qC0n9lfGdAqiW783KsBgYAMyYQ6LmMFDUdKQPRrzEXbanfBEFH9TEUl/arcmt15fXAA9H
-	WtPHAnqT4YQRN+xrKAWpy4fvINMyLyZnCmHt+T7xlvtpc3hCecE/P/jycnxlUnBxAmL7kE
-	fehU+BMJB+FZWfmhNaXtk1mlyzvDTb2HCcEvZvi+XdcnXpW0qAQ/4sPzPg/u+CJhtqaRLI
-	ogt8+SjaW2jcnNWxxxSKcRTIY9JKKFdSTz1444GHSOF9vf+Manpj5Fg6b0MMkg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1765793416;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=VMIbn/FU3oQZsgd+4oIuI055Pl8F5Y64ypVTigSYHrg=;
-	b=5Zu47cCdDptYEFu93meRPCI/C9oCDxsvH40zVkJw0o3ROdeGGBFTLsqNm7iBnBLfe6+eca
-	Y9ukzlja5xfZw/ec67HY4dLbcfyqIDUMKSSeis0TD9DNCiLusXrTli6kTe5RYLYqxEzGcj
-	Ah+JQQhfSKQahC0kSvMIz0tVPYjTKV/ugwxJexu8Ve+54meq9y4vM0BWduDd/KWTOuBscs
-	oKBJx9Imh5KfMQmL/bUmYNX1bqD6YweVqawJw9Zhl5+IUgQGSnIhvJymLueXx12eEeLqYU
-	AQtmmu3g7BGmW6lHu6MGi0/swahOrJpSMYtc5+EhsPY4M9/Drl/3ob1y7mcsqA==
-ARC-Authentication-Results: i=1;
-	rspamd-659888d77d-j78qb;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Squirrel-Average: 6876e82847daf2fe_1765793417155_1225003095
-X-MC-Loop-Signature: 1765793417155:1821563061
-X-MC-Ingress-Time: 1765793417154
-Received: from fr-int-smtpout21.hostinger.io (fr-int-smtpout21.hostinger.io
- [148.222.54.33])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.102.46.124 (trex/7.1.3);
-	Mon, 15 Dec 2025 10:10:17 +0000
-Received: from [127.0.1.1] (unknown [IPv6:2001:861:4450:d360:b35b:2e1:df94:f057])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4dVG5f0Cn3z1y5P;
-	Mon, 15 Dec 2025 10:10:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1765793414;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VMIbn/FU3oQZsgd+4oIuI055Pl8F5Y64ypVTigSYHrg=;
-	b=KvMf/yXBaZU16+Q1Wf64dLnQ7pvnKdoX0n7qgUA/hVrfmuz/P2rpkJhKAX302UGM/yfmCd
-	W3P3n/pCLW3zKdR9bT3WlXOYl/mjpfQ+01a3j9OQt9e3eyo52QMfEUwiUqBbi2x+r4Rerk
-	rJ/T24N7LMDhNhS+3U0y0bgEIrwV6Om3b3HEn9leakW0pqmEcNwyKK0A1sRjM9mwn9SCAv
-	6lzpKHb9ECJAWPr2FtS8F690qlEra/3/AtEp5S+n4C9I9CmxiCOBns8YcOGDLbenIx8FU/
-	GXBnw861IOk9s8d+xTtHggnT/ZXXFjRsUl450ZaD9FWNtMKL80bOfoYhH7MyoA==
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Subject: [PATCH 1/2] riscv: dts: spacemit: Add i2c buses on OrangePi RV2
+	Mon, 15 Dec 2025 11:40:36 +0000
+Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
+	by smtp-out1.suse.de (Postfix) with ESMTP id 4CDD63381B
+	for <linux-riscv@lists.infradead.org>; Mon, 15 Dec 2025 11:40:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1765798832; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=zNfj/jlLvTAEeY+MzqE5tPfnPIij1sHOmQm+jKBVqu4=;
+	b=FIpAOIl+M1gnklLuixkvgg4OJGdYxL87K/5h5GAA0xmFP6eTbs4s6wykvM2+HuC2TXeyDu
+	lwGfjzxSjhVtqzQSoHraq6nanOEIOoIKtgRXOZxk56fw8Gg2dQnTT5uWCWNA/9jHVIScrA
+	vVHWqhBCw+tUIKCKL7kPzhQZZzBc9ik=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1765798832;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=zNfj/jlLvTAEeY+MzqE5tPfnPIij1sHOmQm+jKBVqu4=;
+	b=Dk/ZdNNiy4TD5vMnrnlPvl1T1rEAGdZwV49JkX8SHOyRmBwSwh2o7OLoHfxdBUvC1vHx91
+	gGk93cKtk5f9bBBA==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1765798832; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=zNfj/jlLvTAEeY+MzqE5tPfnPIij1sHOmQm+jKBVqu4=;
+	b=FIpAOIl+M1gnklLuixkvgg4OJGdYxL87K/5h5GAA0xmFP6eTbs4s6wykvM2+HuC2TXeyDu
+	lwGfjzxSjhVtqzQSoHraq6nanOEIOoIKtgRXOZxk56fw8Gg2dQnTT5uWCWNA/9jHVIScrA
+	vVHWqhBCw+tUIKCKL7kPzhQZZzBc9ik=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1765798832;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=zNfj/jlLvTAEeY+MzqE5tPfnPIij1sHOmQm+jKBVqu4=;
+	b=Dk/ZdNNiy4TD5vMnrnlPvl1T1rEAGdZwV49JkX8SHOyRmBwSwh2o7OLoHfxdBUvC1vHx91
+	gGk93cKtk5f9bBBA==
+Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
+	id E1FA54A04CE; Mon, 15 Dec 2025 12:40:31 +0100 (CET)
+From: Andreas Schwab <schwab@suse.de>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH] errata/sifive: remove unreliable warn_miss_errata
+Date: Mon, 15 Dec 2025 12:40:31 +0100
+Message-ID: <mvmv7i8q8gg.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Message-Id: <20251215-k1-boards-add-mmc-v1-1-d68dc87d4aab@rootcommit.com>
-References: <20251215-k1-boards-add-mmc-v1-0-d68dc87d4aab@rootcommit.com>
-In-Reply-To: <20251215-k1-boards-add-mmc-v1-0-d68dc87d4aab@rootcommit.com>
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>, 
- Binbin Zhou <zhoubinbin@loongson.cn>, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, 
- Michael Opdenacker <michael.opdenacker@rootcommit.com>
-X-Mailer: b4 0.13.0
-Date: Mon, 15 Dec 2025 10:10:14 +0000 (UTC)
-X-CM-Envelope: MS4xfCgOq+potrQ8fxVNIoSj4GYYrhM5BiuzgnDmBeKJAPHOLwl/3ml0oNQuqTCKO/P/y5lkItcXnkUtxTzJMHQZOmGkRPukeB02D3ygoGFSNM8vEBjCJqgP 6PF2TYFBLECaITUgSOByvscOJ13tQFStqF9DX+v2IeduqRWGb0cEwQUedytnv6ptdfOMWWyP7PwdJUmkctrqWjNFFXXSGp/fdRbPv9gZu8TXJ05a3EWdANiO +h9jIw6a6nWVRtNnSyNSmkfa75nzClx30OmTBOgMcTjURKQxhietzUMrKrV+W7BF2edb2ncAMBcrxJ/2v7fK8Sl6c65XJwBXqCB7Y9CuaTH5NYzh2B7GfkuS khrJjDRgrc0Pmci651V6auEIhhhHJ/Mez6K9YttjzWQZUAStiN2W6CYffbK6VaRFZPwheIvaByZ9p2m7sudi+8g6SX1OEXgONfzRprzzU2SuAxZZ8oE=
-X-CM-Analysis: v=2.4 cv=DJTd4DNb c=1 sm=1 tr=0 ts=693fde86 a=1de+KQ0ukeRx8XkBeA/5cw==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=d70CFdQeAAAA:8 a=zuwN4CuKjCjMoOjqGcsA:9 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22
-X-AuthUser: michael.opdenacker@rootcommit.com
+X-Spamd-Result: default: False [-1.46 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_SPAM_SHORT(2.54)[0.845];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_NO_TLS_LAST(0.10)[];
+	ARC_NA(0.00)[];
+	RCVD_COUNT_ONE(0.00)[1];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_ONE(0.00)[1];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	FROM_HAS_DN(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	TO_DN_NONE(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[hawking.nue2.suse.org:helo,suse.de:mid,suse.de:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_021020_408007_5D09F0DD 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251215_034035_888158_E18BEC99 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,213 +106,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The OrangePi RV2 board exposes i2c2 and i2c8 buses
-from the Spacemit K1 SoC.
+When both the SiFive and MIPS errata are enabled then
+sifive_errata_patch_func emits a wrong and misleading warning claiming
+that the SiFive errata haven't been applied.  This happens because
+sifive_errata_patch_func is being called twice, once for the kernel image
+and once for the vdso image.  The vdso image has alternative entries
+for the MIPS errata, but none for the SiFive errata.
 
-This declares devices present on such buses, in particular
-the at24 eeprom to store MAC addresses and the regulators
-attached to the PMIC on i2c8.
-
-Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+Signed-off-by: Andreas Schwab <schwab@suse.de>
 ---
- arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts | 166 +++++++++++++++++++++++
- 1 file changed, 166 insertions(+)
+ arch/riscv/errata/sifive/errata.c | 18 ------------------
+ 1 file changed, 18 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-index 41dc8e35e6eb..b9b760d7c398 100644
---- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-@@ -17,6 +17,8 @@ aliases {
- 		serial0 = &uart0;
- 		ethernet0 = &eth0;
- 		ethernet1 = &eth1;
-+		i2c2 = &i2c2;
-+		i2c8 = &i2c8;
- 	};
+diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
+index 38aac2c47845..d0c61f86cba3 100644
+--- a/arch/riscv/errata/sifive/errata.c
++++ b/arch/riscv/errata/sifive/errata.c
+@@ -75,26 +75,12 @@ static u32 __init_or_module sifive_errata_probe(unsigned long archid,
+ 	return cpu_req_errata;
+ }
  
- 	chosen {
-@@ -33,6 +35,25 @@ led1 {
- 			default-state = "on";
- 		};
- 	};
-+
-+	reg_dc_in: dc-in-12v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "dc_in_12v";
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	reg_vcc_4v: vcc-4v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_4v";
-+		regulator-min-microvolt = <4000000>;
-+		regulator-max-microvolt = <4000000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+		vin-supply = <&reg_dc_in>;
-+	};
- };
+-static void __init_or_module warn_miss_errata(u32 miss_errata)
+-{
+-	int i;
+-
+-	pr_warn("----------------------------------------------------------------\n");
+-	pr_warn("WARNING: Missing the following errata may cause potential issues\n");
+-	for (i = 0; i < ERRATA_SIFIVE_NUMBER; i++)
+-		if (miss_errata & 0x1 << i)
+-			pr_warn("\tSiFive Errata[%d]:%s\n", i, errata_list[i].name);
+-	pr_warn("Please enable the corresponding Kconfig to apply them\n");
+-	pr_warn("----------------------------------------------------------------\n");
+-}
+-
+ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ 			      unsigned long archid, unsigned long impid,
+ 			      unsigned int stage)
+ {
+ 	struct alt_entry *alt;
+ 	u32 cpu_req_errata;
+-	u32 cpu_apply_errata = 0;
+ 	u32 tmp;
  
- &eth0 {
-@@ -81,6 +102,151 @@ rgmii1: phy@1 {
- 	};
- };
- 
-+&i2c2 {
-+	pinctrl-0 = <&i2c2_0_cfg>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	eeprom@50 {
-+		compatible = "atmel,24c02";
-+		reg = <0x50>;
-+		vcc-supply = <&buck3_1v8>; /* EEPROM_VCC1V8 */
-+		pagesize = <16>;
-+		read-only;
-+		size = <256>;
-+
-+		nvmem-layout {
-+			compatible = "onie,tlv-layout";
-+
-+			mac-address {
-+				#nvmem-cell-cells = <1>;
-+			};
-+
-+			num-macs {
-+			};
-+
-+			serial-number {
-+			};
-+		};
-+	};
-+};
-+
-+&i2c8 {
-+	pinctrl-0 = <&i2c8_cfg>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	pmic@41 {
-+		compatible = "spacemit,p1";
-+		reg = <0x41>;
-+		interrupts = <64>;
-+		vin-supply = <&reg_vcc_4v>;
-+
-+		regulators {
-+			buck1 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3450000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck2 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3450000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck3_1v8: buck3 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck4 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck5 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3450000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck6 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3450000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			aldo1 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-boot-on;
-+			};
-+
-+			aldo2 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			aldo3 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			aldo4 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			dldo1 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-boot-on;
-+			};
-+
-+			dldo2 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			dldo3 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			dldo4 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-always-on;
-+			};
-+
-+			dldo5 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			dldo6 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-always-on;
-+			};
-+
-+			dldo7 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+		};
-+	};
-+};
-+
- &pdma {
- 	status = "okay";
- };
+ 	BUILD_BUG_ON(ERRATA_SIFIVE_NUMBER >= RISCV_VENDOR_EXT_ALTERNATIVES_BASE);
+@@ -118,10 +104,6 @@ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ 			patch_text_nosync(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt),
+ 					  alt->alt_len);
+ 			mutex_unlock(&text_mutex);
+-			cpu_apply_errata |= tmp;
+ 		}
+ 	}
+-	if (stage != RISCV_ALTERNATIVES_MODULE &&
+-	    cpu_apply_errata != cpu_req_errata)
+-		warn_miss_errata(cpu_req_errata - cpu_apply_errata);
+ }
+-- 
+2.52.0
+
 
 -- 
-2.43.0
-
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
