@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8747D5B16E
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Dec 2025 02:55:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 023A1D59D99
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Dec 2025 02:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7lIJt6UicOwodIlwZVMifSR8wGqlsAVaFVk36dNAPBc=; b=S4ELmEFp0pva9e
-	DarDuv9Gjl94LpNnZgViDvhEZmpjuPyCvGiol/h5exnsSMa9OI/30DwwQBaI5O3TRCn8rJDw+bCOb
-	Etv/A0ZWMcceGw/UOXstFIOZL+1N2E4NyHVwfyAwYAjZXgzQyeg7axurNmFzaOLbn8tmQ5yJ0MrzL
-	ay+ujbJd47WhbcksQMw5qbGR9up4BeSKZovbN8KYDQQMDrnp1DEW3pIExhCsOnrGqDqMbmDw7lUUi
-	X3oATvfOdFZLCGBIHv0ks/w+g3hCER43yMMeeIZqXaBo516sKEEwcz+7HDrWZu4VDPNySft+W85oF
-	htEE2uo9zvfdst/WLvsw==;
+	List-Owner; bh=oCD7BFj5ZX7vCL9C5jKcWQdBllX1MT1xtGjipUrR7kA=; b=4n5sNhBJbUsJM1
+	uz3bWgj4w6DBEPdCLX/rNuKegMrh2kFvf3ousYbDUX1Um0hlOPVqH1V/uprZgBFeiPX43hUW1bI84
+	/cPW9nRrtuaU+xzVFhmQet17MP7YOkEA34zXtrCIFXXPY3CK1HdjUqySynNRmZ0sPDbuDz7EPshH3
+	iOvAJc3GnJPf6IcNAiUuFdfr+4vcmIQg6+3sfyfYAKopZfRozEaC1nbslSqFV8XY+6SI8u56GJWUc
+	LxGute9ZoVfWSKRjJs7Vv1gG+Jdj/g4n3q7Im8Y5rn/G3cPWjcxrjb3mHMZUTC7fg6iOgba0RRi47
+	300rwf1gB5gN+yoy12vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUyjQ-00000002xbp-2Tf2;
-	Mon, 15 Dec 2025 02:54:40 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1vUyl7-00000002xjV-08Yp;
+	Mon, 15 Dec 2025 02:56:25 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUyjM-00000002xah-0S98
+	id 1vUyl4-00000002xhx-0gQY
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Dec 2025 02:54:38 +0000
+	Mon, 15 Dec 2025 02:56:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1765767183;
-	bh=LiOFsrrj0KtqzqIbiahsWzPZsSJKwCxlNGMnrbqjcQ4=;
+	s=mxsw2412; t=1765767288;
+	bh=ePccDOthFyLYtm90K2o9nMjYsKD7YRLlY05U0kQc0FE=;
 	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=Cu11vrnwNr/eb++/XHQSyjkXNZMtfNEfU7a3ZX8ebT8q+E+nqsPIUqyhcWlbi4XyS
-	 sfbuZpqWNLr7H6+HsFPomN8jj1UuAS0JchK1NhpbsIXXSKG/KIMFiWCwUTTfswJOGE
-	 71bbJ4sDfd2sUpw8M1kVIZMYe4SOsVjsd8TtuK/E=
-X-QQ-mid: esmtpsz11t1765767175t5383ce71
-X-QQ-Originating-IP: XeUGLSypuNGU5v41rnfBMyEYp+WgNaRHp+98uR4Tggo=
+	b=wu7/HYl6TDvK9IYrmfCs1XC9Y1HsgSad5JA2mQHBDs6+WCnldIx4IOfb4wuS7QAi/
+	 yDRQ/Op4UM7VbHumZISHA1uUbHVo9sQyXYveBbtNiIL3y6pdrUZram1q+N7aYaD+ND
+	 dRLOgOxTaVKCLo55FcxGIsLQGHMqSQ7xrCmi0dWA=
+X-QQ-mid: zesmtpsz6t1765767284t6cf729bf
+X-QQ-Originating-IP: 9pTzAVsmuC6mHETYV41cHodoDPvc/PLgk8GGdyTolFM=
 Received: from = ( [183.48.246.103])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 15 Dec 2025 10:52:54 +0800 (CST)
+	id ; Mon, 15 Dec 2025 10:54:43 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8115786445991593814
-EX-QQ-RecipientCnt: 9
-Date: Mon, 15 Dec 2025 10:52:54 +0800
+X-BIZMAIL-ID: 2478898065667183843
+EX-QQ-RecipientCnt: 14
+Date: Mon, 15 Dec 2025 10:54:42 +0800
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Alex Elder <elder@riscstar.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Yixun Lan <dlan@gentoo.org>,
-	Troy Mitchell <troymitchell988@gmail.com>,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH v4] i2c: spacemit: introduce pio for k1
-Message-ID: <7F2C864E2E9B876A+aT94BuAAOW_mzY3x@kernel.org>
-References: <20251009-k1-i2c-atomic-v4-1-a89367870286@linux.spacemit.com>
- <613db920-6025-43cb-a733-d58f65363caa@riscstar.com>
- <aTs3eNLCKTR5boro@aurel32.net>
+To: Inochi Amaoto <inochiama@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Haylen Chu <heylenay@4d2.org>, Brian Masney <bmasney@redhat.com>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Alex Elder <elder@riscstar.com>,
+	Akhilesh Patil <akhilesh@ee.iitb.ac.in>
+Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH] clk: spacemit: Fix module build for spacemit common ccu
+ driver
+Message-ID: <EE6920993009E270+aT94cmKTM0tHn8Ly@kernel.org>
+References: <20251214232938.668293-1-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aTs3eNLCKTR5boro@aurel32.net>
+In-Reply-To: <20251214232938.668293-1-inochiama@gmail.com>
 X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MEbuyMJPIbYUrnFWuxHepkyOQxrEmHTrZknwel+/p4ifa7IGR4PPyMCk
-	ntomL9JUBTuo8k9VhnI1Zg/wlAVoE96DGpwRwVsW7TefULgMnoRFd9mqhTKdq6y3DcJlmvA
-	xDc4rp0kmAPIu8LD1O0HsldV0A/NNfqusFchmWTtVIuu7/G8jttxgfO2uUuh1MPeU5zzoVS
-	l+Aj+N1PxtTUCp2Q7H/mWHvYl6HZxdl4aGMxwhrdX78zRooTeYllwwD/n3hOGufV7e9qkwf
-	NCuxSFTQaoa93SZswOMx2VK2fA+maQt99NDFxNRZwTpqwDHR0hEFR6ey8AznZYIBN/nMVql
-	C3DFqJqA4N33TetGxO7emkoKMfF5+JUNv23Ue5Q0JX+TwOAD4uDzsxgUha7eOv3Z0YJdbDU
-	/w21/IviPrtFbOYM+TKB12ziBeYCxkGCXSUKVYiNKq4GwBli593+SnNMIyKM62lYhX0iAh7
-	LExrjgQSwyyfCFOxNxjlFW1Akhffe4LSymQbp13/4jqfqOJ0BxC3T9GmdmP+7ltgZ7iExJi
-	u3IbAuIClstZHjZg4IHlhDt7ddAaxJSSE3hGdhKJvrQpLkohkULeaMBVBe9yS5L4GtrCS8X
-	zHTZe8Vii7xSY8YclAgBEsErvP9CFeULmPlsWDhwKmwZB8JVZcUjtF8I8Er9/Gy34I/Uk3T
-	KrpGd8qH941SIZWskqUOxj23EsQoDmoNyQZ0x3lZKWxH1NQVBT2LmLYfea43tdRImjW8Plv
-	BfF13Pb1TQAZgU640eqrU6SQ1gaz241Ra20dt6DpQf0Hj+ksMnCcGsidl3vV37X0II6QoAy
-	ySrUXmZJ68linFfrMwC/wdRv1AiOknPSHwmOgY/Tdt6qPsRs3HeYocyHM8RGKgR8hNx5brx
-	M9Z+Gxiz/vSsa9RoPN6rmJkT/VtAyePj4OxsjGohkVymcUPUpcx3O8nN50cSy9zMLbtKncj
-	woVRLpRSOEhbwSbkL+WM9+lf+LNCyegh9N91+9XttBEiX+oypiEjfwkUkSZuGWSXt1M9C10
-	+FVxXTmAtHkdoP4Mh3Q1B8mOUSJ6kePTV3a0bb8bzPMBDRA/Ve/jvytstuoT7Jk2C8xSPqr
-	qO2Euo2NXoHKfVqaS4d+C93bSFECDD3P2nJ4waDaIei
-X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: N2msJaiA+ppMoK38P6mvOs1kBiDz8Jf2CIP293VWTRVbv++ahMObJ4vt
+	/bvmTHqoJhuUiA0fy1LLqv2cP87jWGXItZA2quUcC5CtxL7bMNH6tTADQzq7wxOPzRIH4AS
+	/4A5vNEE3tchovlvWJB1xe8g1iUYqN989t0iRKkw4PUFKXy7qpkVj3ho4xVtLDNEwAynpiU
+	BlTlZWAkxSJjANZ1avdJ/2SVPaC2b8+rv91Lt4MSJoP69++ohTk02hQnFC4AwK+LG3mP0No
+	StffNkG/cnHzpM+tpIWG8uivOsH+Wy4tLTEHznaOv1dNCHVMtQnm6+E3fkHg52ObywKrcu3
+	fjkORVJKYHKWxw4G64e1VjWRCkksimfTYQ+mlwovNcVYktHUIn2Lhc1PsBWpCQa4sBgKCN9
+	l60y/h17lTzZuXBoG6j3pBtd/gU5qTXNsKr5G0IMJgX8ENAoMx+Ro6ZhQoj6FTxqceClZUH
+	a2GdCompGjHeq7t0Q+gpbuthR9z8pTR2RucE6MxuYXCiuIp/3EuphqhqYFxx4kJcfZxl2dP
+	2COm/JAwVi58IV7E5IBxlo1WDt+PFJ8sgaEaY/4srRKyodGH9urvh6cCRtsjh/jhpXdsG2T
+	2ZNSq7DBBP1kBACoaVnfs9rZqYUxEdFSDod22VBypaEHgO+/KbhjIFakJYBxWLdimfjvhVE
+	8BEsu83mtYMqRZpYhy1aJ+3Lea9IyuLAcBTvRn2LurqR4RSYYFqM8/aRam+LbpXhIxRmCSt
+	g7+aIJ8zk0QKX1FnFCyAi0GnQTWFN/mV++3jWgIh04HbZUi6W6401UIlkdtrk19FMYY4z7C
+	sZvetOeyB3l1ISJ2AZGCTFX6SOsl8ahaP6iASbEV271sP0kgbx57i1mRBxw+S1maKa0dHTB
+	hViKXKMXpxCK7YmW7B3W9XVPFjHUxP0PGk/ckC3Yj/0fjnKIUh0DkqtwJAB7fH++I8SmqSG
+	GT6GlOOFdWBAhKJnh3iTS0HnpqDYlw2UormhO/VRkyy+nvMPlPUgFjpHBkZ8uQ8f7ptk/vv
+	Ks0JUIb2EPAQow3RwfpN2pozw0BR6etQvCoQq3uZTcEVwqRJkcRZ0WA63ITLkDaUuwPbODV
+	uZok5l9HLlAN+Q8Ay1ursU6G/9+OL/zJg==
+X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_185437_090818_89DA8778 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20251214_185622_771842_7A2B4CD5 
+X-CRM114-Status: UNSURE (   7.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,40 +103,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 11, 2025 at 10:28:24PM +0100, Aurelien Jarno wrote:
-> Hi Troy,
+On Mon, Dec 15, 2025 at 07:29:37AM +0800, Inochi Amaoto wrote:
+> For build spacemit common clock driver as a module, the build
+> process require MODULE_LICENSE()/MODULE_DESCRIPTION() globally
+> and EXPORT_SYMBOL() for every exposed symbol. Otherwise, the
+> build will fail.
 > 
-> On 2025-11-07 09:50, Alex Elder wrote:
-> > On 10/9/25 4:59 AM, Troy Mitchell wrote:
-> > > This patch introduces I2C PIO functionality for the Spacemit K1 SoC,
-> > > enabling the use of I2C in atomic context.
-> > 
-> > (Sorry I haven't commented on your earlier versions.  They
-> > included other changes to prepare for this; I'm looking at
-> > this patch in isolation and haven't reviewed the others.)
-> > 
-> > An aside:  I notice the #includes are indented an additional
-> > space in this source file;  perhaps you can get rid of those
-> > (in a separate patch) at some point.
-> > 
-> > You really need to provide more information about how this
-> > is implemented.  This patch makes non-trivial changes to
-> > the logic.
+> Add these missing hints, so the driver can be built as a module.
 > 
-> What is the status on implementing the changes asked by Alex? Do you 
-> need some help with that?
-I've been a bit busy recently, but I expect the next version can be
-posted later this week or next week.
+> Fixes: 1b72c59db0ad ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+Thanks.
 
-                              - Troy
-> 
-> Thanks
-> Aurelien
-> 
-> -- 
-> Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-> aurelien@aurel32.net                     http://aurel32.net
-> 
+Acked-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
 _______________________________________________
 linux-riscv mailing list
