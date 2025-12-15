@@ -4,92 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7528AD41D74
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Dec 2025 11:40:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A4CCD5B16E
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Dec 2025 12:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hBdgzz6GjihcaEInHf0dqWw3O5gaBLZ/RAvOgRbW2mU=; b=kT/jaYgGAE/fLM
-	gT/NPG3uhlnmubvtPdChVBPlsw+WhlUt/NER+ouWebAS6SnJXP1S1EBtaA5jHzSzOYobG+JV/6/7v
-	HnYeOHpQOJCgQeIckE2DbnMsVjf9yQDzismiNrReXIEIUuH7nqKAwOlOWQ7AZuLNtROP2jonJnbZ4
-	nMZLnE+BM8JYgbGYjKNDQAYC9NmnVhfAi5lTyb3KMMd/Rx/1EzKue+8oEIyBYM9uOu8DCHT/UOA+Z
-	nScSIp2bLztCBYSWRpxX+kCX8upwZ4S9tvewbmfHmNQXojVz8f1wRHZkM43NjZsO11d8oMh/JTqmL
-	oMIH6RpPKGbUF41j7YZw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0bYsiwW80VggYxGsnNBiyPzhybLDxR8tKyM0A3y9Bvg=; b=jhTsh07qsDioqs
+	vuYtWnWntkCI8VxhX6sD5dGvFneYS/M75/gpDYf7FeMIAvVM42/iFdHFyDtGxtboT8IMzNVxwsN+v
+	fNGM5gKxzY1aCw+zkMZhUNqHg2IOTtnUdKDWfp6tfVqAk+3jMk1DZ39GO7Fml4AAFzgpgQSEeenKQ
+	w1zhKJvtKY/lUO7hkwfYtXp+3Av3EPJlbSd0KSqexOwM61LFJjjnQjp0IeTDU/LDf2lAA13GL+MUl
+	0weNLnT1KF7kOMvfKKPp8UbepVY+VF9u0xV3z+btmAMsJLyREXdavNQX1WYNXpAnN/s3e61s+xyDz
+	Yh1Taw4v3cN2my5kDigw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV6wQ-00000003XhR-04k8;
-	Mon, 15 Dec 2025 11:40:38 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1vV7yN-00000003eNK-1XIe;
+	Mon, 15 Dec 2025 12:46:43 +0000
+Received: from mail64.out.titan.email ([44.205.83.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV6wN-00000003Xh7-2nMC
+	id 1vV7yL-00000003eMs-1ioW
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Dec 2025 11:40:36 +0000
-Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
-	by smtp-out1.suse.de (Postfix) with ESMTP id 4CDD63381B
-	for <linux-riscv@lists.infradead.org>; Mon, 15 Dec 2025 11:40:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1765798832; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=zNfj/jlLvTAEeY+MzqE5tPfnPIij1sHOmQm+jKBVqu4=;
-	b=FIpAOIl+M1gnklLuixkvgg4OJGdYxL87K/5h5GAA0xmFP6eTbs4s6wykvM2+HuC2TXeyDu
-	lwGfjzxSjhVtqzQSoHraq6nanOEIOoIKtgRXOZxk56fw8Gg2dQnTT5uWCWNA/9jHVIScrA
-	vVHWqhBCw+tUIKCKL7kPzhQZZzBc9ik=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1765798832;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=zNfj/jlLvTAEeY+MzqE5tPfnPIij1sHOmQm+jKBVqu4=;
-	b=Dk/ZdNNiy4TD5vMnrnlPvl1T1rEAGdZwV49JkX8SHOyRmBwSwh2o7OLoHfxdBUvC1vHx91
-	gGk93cKtk5f9bBBA==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1765798832; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=zNfj/jlLvTAEeY+MzqE5tPfnPIij1sHOmQm+jKBVqu4=;
-	b=FIpAOIl+M1gnklLuixkvgg4OJGdYxL87K/5h5GAA0xmFP6eTbs4s6wykvM2+HuC2TXeyDu
-	lwGfjzxSjhVtqzQSoHraq6nanOEIOoIKtgRXOZxk56fw8Gg2dQnTT5uWCWNA/9jHVIScrA
-	vVHWqhBCw+tUIKCKL7kPzhQZZzBc9ik=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1765798832;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=zNfj/jlLvTAEeY+MzqE5tPfnPIij1sHOmQm+jKBVqu4=;
-	b=Dk/ZdNNiy4TD5vMnrnlPvl1T1rEAGdZwV49JkX8SHOyRmBwSwh2o7OLoHfxdBUvC1vHx91
-	gGk93cKtk5f9bBBA==
-Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
-	id E1FA54A04CE; Mon, 15 Dec 2025 12:40:31 +0100 (CET)
-From: Andreas Schwab <schwab@suse.de>
-To: linux-riscv@lists.infradead.org
-Subject: [PATCH] errata/sifive: remove unreliable warn_miss_errata
-Date: Mon, 15 Dec 2025 12:40:31 +0100
-Message-ID: <mvmv7i8q8gg.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Mon, 15 Dec 2025 12:46:42 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by smtp-out.flockmail.com (Postfix) with ESMTP id 4dVKZ42WQ9z9ryp;
+	Mon, 15 Dec 2025 12:46:36 +0000 (UTC)
+DKIM-Signature: a=rsa-sha256; bh=26gKZ8cHJQyg3tsQnLKxfy/czi/WwVFDnMPNQEmK7DE=;
+	c=relaxed/relaxed; d=ziyao.cc;
+	h=message-id:mime-version:to:cc:subject:in-reply-to:date:from:references:from:to:cc:subject:date:message-id:in-reply-to:references:reply-to;
+	q=dns/txt; s=titan1; t=1765802796; v=1;
+	b=Ce2/7dv/i4glBqnOluWyICUzbXC9PY0zJek9gZOj5/Gq0rOXsZGlvQ/qXY1FBrXoSsn6OQoe
+	ysTC1SneZ/ijWRuV6tTgWTsaC9nlb6BmkGFN2Bh4wi9H0WeDD6knni0Qw9W0NEDlIJsZJIoQNSo
+	eoNHiK8wEola+IhHXLgFtF2Y=
+Received: from pie (unknown [117.171.66.90])
+	by smtp-out.flockmail.com (Postfix) with ESMTPA id 4dVKZ04nK2z9s1F;
+	Mon, 15 Dec 2025 12:46:32 +0000 (UTC)
+Date: Mon, 15 Dec 2025 12:46:19 +0000
+Feedback-ID: :me@ziyao.cc:ziyao.cc:flockmailId
+From: Yao Zi <me@ziyao.cc>
+To: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	Yixun Lan <dlan@gentoo.org>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>,
+	Binbin Zhou <zhoubinbin@loongson.cn>,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH 2/2] riscv: dts: spacemit: Add MMC support on BPI-F3 and
+ OrangePi RV2
+Message-ID: <aUADG5c8r0GEN6iP@pie>
+References: <20251215-k1-boards-add-mmc-v1-0-d68dc87d4aab@rootcommit.com>
+ <20251215-k1-boards-add-mmc-v1-2-d68dc87d4aab@rootcommit.com>
 MIME-Version: 1.0
-X-Spamd-Result: default: False [-1.46 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_SPAM_SHORT(2.54)[0.845];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_NO_TLS_LAST(0.10)[];
-	ARC_NA(0.00)[];
-	RCVD_COUNT_ONE(0.00)[1];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_COUNT_ONE(0.00)[1];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	FROM_HAS_DN(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	TO_DN_NONE(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[hawking.nue2.suse.org:helo,suse.de:mid,suse.de:email]
+Content-Disposition: inline
+In-Reply-To: <20251215-k1-boards-add-mmc-v1-2-d68dc87d4aab@rootcommit.com>
+X-F-Verdict: SPFVALID
+X-Titan-Src-Out: 1765802796147399430.21635.5162492382395939498@prod-use1-smtp-out1003.
+X-CMAE-Score: 0
+X-CMAE-Analysis: v=2.4 cv=a8/K9VSF c=1 sm=1 tr=0 ts=6940032c
+	a=rBp+3XZz9uO5KTvnfbZ58A==:117 a=rBp+3XZz9uO5KTvnfbZ58A==:17
+	a=kj9zAlcOel0A:10 a=MKtGQD3n3ToA:10 a=CEWIc4RMnpUA:10
+	a=9nqrEZDV118k6e1QdI8A:9 a=CjuIK1q_8ugA:10 a=3z85VNIBY5UIEeAh_hcH:22
+	a=NWVoK91CQySWRX1oVYDe:22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_034035_888158_E18BEC99 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20251215_044641_555873_78791740 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,68 +83,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When both the SiFive and MIPS errata are enabled then
-sifive_errata_patch_func emits a wrong and misleading warning claiming
-that the SiFive errata haven't been applied.  This happens because
-sifive_errata_patch_func is being called twice, once for the kernel image
-and once for the vdso image.  The vdso image has alternative entries
-for the MIPS errata, but none for the SiFive errata.
+On Mon, Dec 15, 2025 at 10:10:14AM +0000, Michael Opdenacker wrote:
+> This introduces a new sdhci0 node and enables it
+> for the BananaPI F3 and OrangePi RV2 boards.
+> 
+> Note that card detect is marked as broken in the driver
+> (SDHCI_QUIRK_BROKEN_CARD_DETECTION quirk), therefore removing the card
+> while the system is running won't have any effect.
 
-Signed-off-by: Andreas Schwab <schwab@suse.de>
----
- arch/riscv/errata/sifive/errata.c | 18 ------------------
- 1 file changed, 18 deletions(-)
+This description looks suspicious: SDHCI_QUIRK_BROKEN_CARD_DETECTION
+doesn't break hotplug. It only informs sdhci core to actively poll for
+card status, instead of relying on interrupts for status change.
 
-diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
-index 38aac2c47845..d0c61f86cba3 100644
---- a/arch/riscv/errata/sifive/errata.c
-+++ b/arch/riscv/errata/sifive/errata.c
-@@ -75,26 +75,12 @@ static u32 __init_or_module sifive_errata_probe(unsigned long archid,
- 	return cpu_req_errata;
- }
- 
--static void __init_or_module warn_miss_errata(u32 miss_errata)
--{
--	int i;
--
--	pr_warn("----------------------------------------------------------------\n");
--	pr_warn("WARNING: Missing the following errata may cause potential issues\n");
--	for (i = 0; i < ERRATA_SIFIVE_NUMBER; i++)
--		if (miss_errata & 0x1 << i)
--			pr_warn("\tSiFive Errata[%d]:%s\n", i, errata_list[i].name);
--	pr_warn("Please enable the corresponding Kconfig to apply them\n");
--	pr_warn("----------------------------------------------------------------\n");
--}
--
- void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
- 			      unsigned long archid, unsigned long impid,
- 			      unsigned int stage)
- {
- 	struct alt_entry *alt;
- 	u32 cpu_req_errata;
--	u32 cpu_apply_errata = 0;
- 	u32 tmp;
- 
- 	BUILD_BUG_ON(ERRATA_SIFIVE_NUMBER >= RISCV_VENDOR_EXT_ALTERNATIVES_BASE);
-@@ -118,10 +104,6 @@ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
- 			patch_text_nosync(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt),
- 					  alt->alt_len);
- 			mutex_unlock(&text_mutex);
--			cpu_apply_errata |= tmp;
- 		}
- 	}
--	if (stage != RISCV_ALTERNATIVES_MODULE &&
--	    cpu_apply_errata != cpu_req_errata)
--		warn_miss_errata(cpu_req_errata - cpu_apply_errata);
- }
--- 
-2.52.0
+...
 
+> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> index 7818ca4979b6..a5b7d7c8c066 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> @@ -987,6 +987,16 @@ emmc: mmc@d4281000 {
+>  				interrupts = <101>;
+>  				status = "disabled";
+>  			};
+> +
+> +			sdhci0: mmc@d4280000 {
+> +				compatible = "spacemit,k1-sdhci";
+> +				reg = <0x0 0xd4280000 0x0 0x200>;
+> +				clocks = <&syscon_apmu CLK_SDH_AXI>,
+> +					 <&syscon_apmu CLK_SDH0>;
+> +				clock-names = "core", "io";
+> +				interrupts = <99>;
+> +				status = "disabled";
+> +			};
 
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+This node should be probably put before the emmc node, since it comes
+with lower address.
+
+Regards,
+Yao Zi
 
 _______________________________________________
 linux-riscv mailing list
