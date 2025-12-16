@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA02D609AF
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 15:34:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38028D609AA
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 15:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pb9hH3P4NtxTI+e2LjDfDltKlxYVEW9IALO6ZXNuGao=; b=FrUVd+59OoAuIz
-	kWySCNlo9fvUQyEgbqkgMyRDTOK1ZluVuVUr13Qv4E2MrP08DkwF5KFeUwr7pRMcpu6rt2z0rkGHo
-	/NtllnIDpCT0GD4p0ECWbES9wPVSh+G6LMu1niIEMhDj2sTeAX0M+3Apnv897la4z8utobrZ8pkR/
-	M6qhbZmKjQpRvubH4dbhxGagucX87utngAhanEhjHrLdym6Mp8QGebNch0h9CEWRNFSi0d1tSj6i8
-	GkjpQ5jAQX1kOGR3vz5u4HWZEQvHix/yuUcch0GDoMQL1iCb6iSnoN1eDcRmZq7flv0m9v3mdnBDC
-	+izLSd63sBEdTz6LrcFg==;
+	List-Owner; bh=PxhGtf8GQEZLC4fxoEnkvZOdKQGWBGSIg+7mDfHqKWA=; b=a0/Z4q1Nxb+8rt
+	4XH+yRJ6Jd/4utQJ0jfOM6Xv+NMv6hKQrhZ+Pw58nmCWWI4EI6jMi8AzWbqYGRBoIXpp5bwjOqDkS
+	CWc8KGcCnfV1bXe/1mz0s+nGg7OOAhvRHNeIhd2INoYhYP+N7VWRYdUU99hSgGXfU/eWUrz5qsnxm
+	211GdXu/B0w1yesG1bTT8CLoYQ+L2S2HOlmjXmihfKdvlZ40oNnFnwJFEicTVMUlcb4LRnXQ05say
+	lWuuPLaLOeAlzHDQQ7nNf6kMTZ5rssUUjP5L3wNBhOq+sczxRIO46aejQukiRfhx+efhAogXrXRVk
+	P53Z9+b8Of7zMPXbZjpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVX3w-00000005SBN-2Ewo;
-	Tue, 16 Dec 2025 15:34:08 +0000
+	id 1vVX5H-00000005SSP-3Ait;
+	Tue, 16 Dec 2025 15:35:31 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVX3u-00000005SAv-0RBC
+	id 1vVX5F-00000005SRt-2QYA
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Dec 2025 15:34:07 +0000
+	Tue, 16 Dec 2025 15:35:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 49E874428C;
-	Tue, 16 Dec 2025 15:34:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0795C4CEF1;
-	Tue, 16 Dec 2025 15:33:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4236042A68;
+	Tue, 16 Dec 2025 15:35:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD9BBC4CEF1;
+	Tue, 16 Dec 2025 15:35:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765899245;
-	bh=hM7hv/uTuPw7pyoCXXVQEAU9qrJdNAHs1PtiCSlFsmM=;
+	s=k20201202; t=1765899329;
+	bh=ogz6DU6yHeTIS19hmTjn7eKrxbGw0a8WOL02t8Hhp1s=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=j72WahTNaRpouLKnmp3Xq5tYiE/Xsm8e9vemO6EUt4zFrYn9WnvJtMnEEbzXQxvhh
-	 iA9Qrj75/sn4DgXX0d099GGHKFKLQlkqYjM1c37KF7ZeFwJxqpKY/oTxWKrm8HPI8d
-	 mv3wVqyL4CgbayS3uGmfJp7YeNglZ5vOM3HA6DUdJNhkWe89yYXFOaZSw7uE+rDs/A
-	 CXxVbXSZYReSf+xnAnmAIb8Wo8hMnlqeseOQ92U77AF2ADxgZMie0BriYc+gDeB/fW
-	 vmz2WSnWtm40d0awiljo8LcB0cwHlzJUVwVmMorBacjjHKFgF9drEHva77pg2c07OP
-	 C3JNxeuoGBqsg==
-Message-ID: <b3af2b4a-1d70-4c49-a794-b4006e930fd7@kernel.org>
-Date: Tue, 16 Dec 2025 16:33:58 +0100
+	b=DTNTWkXpW9maNa6neQuNcscwLT24F+1ne21G8qSOJBnJ9jiHzQng4U8ursF4w0JmN
+	 gtFcs6bWu3xiSAz2c9CGm8pvU5Ve8Yt563YhATSlf/FZ07Q0Q6VkNFy500YkLkPLU1
+	 eUHnCZ/8lyFQb6gvjWJ9sICbKaKxoQb8RO3WKDFCOIhEZsOAqBK5AYKLLQepwmlO42
+	 MV950LyOSEiQEpPDr4xMcvaYYFT61twr4OdrS08dNEhZvsO0iBru+iNA5cFa769OtV
+	 UUSVztPFqQJADhFxAK6PRWi9MfUqXp+rSmlYNquLUP7XTLie/zOt9c0KujvWjeWPkv
+	 V/cOBKvOhbdig==
+Message-ID: <b0857d3b-5b82-47c1-8415-ec9b2046e704@kernel.org>
+Date: Tue, 16 Dec 2025 16:35:22 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/8] dt-bindings: interrupt-controller: add SpacemiT K3
- IMSIC
+Subject: Re: [PATCH 7/8] riscv: dts: spacemit: add initial device tree of
+ SpacemiT K3 SoC
 To: Guodong Xu <guodong@riscstar.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
@@ -67,7 +67,7 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  linux-kernel@vger.kernel.org, spacemit@lists.linux.dev,
  linux-serial@vger.kernel.org
 References: <20251216-k3-basic-dt-v1-0-a0d256c9dc92@riscstar.com>
- <20251216-k3-basic-dt-v1-4-a0d256c9dc92@riscstar.com>
+ <20251216-k3-basic-dt-v1-7-a0d256c9dc92@riscstar.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -113,10 +113,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251216-k3-basic-dt-v1-4-a0d256c9dc92@riscstar.com>
+In-Reply-To: <20251216-k3-basic-dt-v1-7-a0d256c9dc92@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_073406_185488_DF04249C 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20251216_073529_663820_0F7C2E60 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,24 +134,49 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 16/12/2025 14:32, Guodong Xu wrote:
-> Add compatible string for SpacemiT K3 IMSIC.
+> SpacemiT K3 is equipped with 8 X100 cores, which are RVA23 compliant.
+> Add nodes of uarts, timer and interrupt-controllers.
 > 
 > Signed-off-by: Guodong Xu <guodong@riscstar.com>
 > ---
->  Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/riscv/boot/dts/spacemit/k3.dtsi | 529 +++++++++++++++++++++++++++++++++++
+>  1 file changed, 529 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
-> index c23b5c09fdb90baccece03708f4a381084b22049..152eff7335dd8457bf01d02497b7080f2a02ab65 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
-> @@ -47,6 +47,7 @@ properties:
->    compatible:
->      items:
->        - enum:
-> +          - spacemit,k3-imsics
+> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..cb27b790716fdd6dc2bc89c28dd2588a596a5af9
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+> @@ -0,0 +1,529 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (c) 2025 SpacemiT (Hangzhou) Technology Co. Ltd
+> + * Copyright (c) 2025 Guodong Xu <guodong@riscstar.com>
+> + */
+> +
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +/dts-v1/;
+> +
+> +/ {
+> +	#address-cells = <2>;
+> +	#size-cells = <2>;
+> +	model = "SpacemiT K3";
+> +	compatible = "spacemit,k3";
+> +
+> +	aliases {
+> +		serial0 = &uart0;
+> +		serial2 = &uart2;
+> +		serial3 = &uart3;
+> +		serial4 = &uart4;
+> +		serial5 = &uart5;
+> +		serial6 = &uart6;
+> +		serial7 = &uart7;
+> +		serial8 = &uart8;
+> +		serial9 = &uart9;
+> +		serial10 = &uart10;
 
-Also not sorted. s > q.
+These are not properties of the soc, but the board DTS.
 
 Best regards,
 Krzysztof
