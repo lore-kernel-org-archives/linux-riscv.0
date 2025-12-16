@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C5BAD609BB
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 16:41:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBD70D609BB
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 16:41:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S+g3me4A1kGzLHe06Pj2llOgbuU6Ai43Ia5uSYLIbeg=; b=0n9yEYnysQ9H8X+pF7CPUhRSnW
-	+QhqjwK8MuSiHVzFjoQaDAIv2x72203y0ivoNtstSmbjnEVGpQUC4ObJX6fXTD0CcipES2le5KoUt
-	k0KsR60i1pwOq4GCWX2YmwhGliaI3GUcvJeKtCW3EvnnmX2F/ZRaj70McFIikl8hwk4PaOdRySDsg
-	owdyUzrdVlOjXxiVMTdTagrySwf5TmQpFMMxzBMTWJbUmmwKV0kDzgpYLYOTgl4pESOjxenH0tIB7
-	KKLaRxUOtQIUTezdB8TgwJ36o2SZX7xhOxAnIih6DdvhY/BsUyT1+OYcBo9LtO6jn9rr205xZkTSj
-	f1vsHwpQ==;
+	bh=inTC3D57WLgNwUoN0doLyFCpuKl2S+WQ1VGEy7p34XM=; b=j0bx68NqkFdxkcqkP44ArE3qCz
+	wT6LnPY8T+ee1iJ2TsfdJ9SsVjZYUT55oBaO+ejEkUCT/tNAnkB13oN2QLmAaECbkQLDbelGCEWy/
+	QddFvRzACXHfxp9xeb9XplWY/0nkP5HG1Ok9bxUIlhB84ftHFGwbOJoWxT6i3mQ3wNr/sbcIrFQe7
+	soxscLrT7j7AxT6pJeja3pN7sniaGtzX1rD4QKaOajchYCIUG9uUYhkJ48pg2wzW1e4rliCr13L0U
+	Hhzykijqn+wSPFDZu58KmydAhBo0LHolwo/ADQ6aBp1Gm1uhe3USSZdXfqUH/fBPFCX2NKoMdDMgr
+	eIEHKWEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVY6k-00000005Xqt-04wH;
-	Tue, 16 Dec 2025 16:41:06 +0000
+	id 1vVY7A-00000005Xzq-48oF;
+	Tue, 16 Dec 2025 16:41:32 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVY6h-00000005Xpt-2yI5
+	id 1vVY79-00000005Xyj-0KUZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Dec 2025 16:41:04 +0000
+	Tue, 16 Dec 2025 16:41:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6497643F6B;
-	Tue, 16 Dec 2025 16:41:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAF88C4CEF1;
-	Tue, 16 Dec 2025 16:40:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C606843F6B;
+	Tue, 16 Dec 2025 16:41:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11611C4CEF1;
+	Tue, 16 Dec 2025 16:41:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765903263;
-	bh=gLWf9IOQkDnImM+DlGc+esOKlGsP0FIXh/V7uRJefKQ=;
+	s=k20201202; t=1765903290;
+	bh=Se/DK8m93a4S91149Yg8i4Gry3opMMWQfbXS3uw4q1Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JhazTWPdLbi3i9qJUTN2ZC43I/OyNoykyVQ0xg6mHucOwLfANYHpJX3FvMkWYufcV
-	 o1RLSXsuF/lOQg+3/VSHMkKPppBRH/y73XBRjFmP8ixqdymFVjTIGYz4P6QfrQA/oP
-	 Mxq9VZXUYBrQ4XX4M/I2MFVEeBsXbut4pn5xDBj2B4znltfNhrqgsOAoAfuuXCF2cV
-	 apKdfLFJWpf6JHn3XhwjMJQfYDlASZCciMeyLQcPlRFlh3ReVnoJgWSOdsTRNYQNYF
-	 0nNRGg3RULKZ+u9oqvEdIIUbIaf1yJ1t2dxIe8c6w4IlD0MgPzNfW49klSwZg609BB
-	 Roeq9iRc82hxg==
-Date: Tue, 16 Dec 2025 16:40:56 +0000
+	b=H9dBlgt7+8r02618IAf+x+IefVeRB44+xlz3X0Pj9ZBBeZm6ENDYcfzDEIobH5YE2
+	 6kYh7UstB7R24S/U+uuNB4uYpKe2FjIbCt+4qpK4mkiir3yQDDc3lfc8FxmT0RX+Mx
+	 0guEUdH0Fp2eriqmAezfH+iS+Gn0SkR9oNVXyoJimVZjrRJzla3TljFoMdMHIDh8pB
+	 pVGZcsASXRkl9DilDaNItuQpKQ5zFSJth9ZkNqW3YMSV6RXmtAcbKIqHnW3IjjqMqE
+	 ayeKXb0LfAwqYvbjIlXZR7fBIEPGGmc9aAxY6sbHuvugKk4G5PULWHHilGAAeAHqD5
+	 dCzrJrV6NudkA==
+Date: Tue, 16 Dec 2025 16:41:23 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Guodong Xu <guodong@riscstar.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -64,16 +64,16 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org, spacemit@lists.linux.dev,
 	linux-serial@vger.kernel.org
-Subject: Re: [PATCH 3/8] dt-bindings: interrupt-controller: add SpacemiT K3
- APLIC
-Message-ID: <20251216-aching-feed-1d27e71a0c63@spud>
+Subject: Re: [PATCH 5/8] dt-bindings: serial: 8250: add SpacemiT K3 UART
+ compatible
+Message-ID: <20251216-reforest-list-ceb775dc9dbd@spud>
 References: <20251216-k3-basic-dt-v1-0-a0d256c9dc92@riscstar.com>
- <20251216-k3-basic-dt-v1-3-a0d256c9dc92@riscstar.com>
+ <20251216-k3-basic-dt-v1-5-a0d256c9dc92@riscstar.com>
 MIME-Version: 1.0
-In-Reply-To: <20251216-k3-basic-dt-v1-3-a0d256c9dc92@riscstar.com>
+In-Reply-To: <20251216-k3-basic-dt-v1-5-a0d256c9dc92@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_084103_765936_F3B750D6 
-X-CRM114-Status: UNSURE (   6.06  )
+X-CRM114-CacheID: sfid-20251216_084131_131297_C77D2192 
+X-CRM114-Status: UNSURE (   5.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,39 +86,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8075963358099583141=="
+Content-Type: multipart/mixed; boundary="===============1703420738236597678=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8075963358099583141==
+--===============1703420738236597678==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="JhmyKJ6DVv3RyAWJ"
+	protocol="application/pgp-signature"; boundary="DPFQEofot18lifdU"
 Content-Disposition: inline
 
 
---JhmyKJ6DVv3RyAWJ
+--DPFQEofot18lifdU
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-pw-bot: not-applicable
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
---JhmyKJ6DVv3RyAWJ
+--DPFQEofot18lifdU
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaUGLmAAKCRB4tDGHoIJi
-0pcqAQDpB+Dg1i3rnP/xTAl/Jw8jDSstTyZ2dBxoRyt/wHK9CgEApR/0s8e6AF1M
-cF49Ot1LSkgE66g/pqgEEP0wGxzizg4=
-=JI5p
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaUGLswAKCRB4tDGHoIJi
+0g1NAQDL9fx7G+lJVeeNHoBHTDkYugqV7bhsvIgVM3pX/jBY+QEA+emY/EGgQGnT
+Y0ExzgcquFyQ1T6l5rM0hgNUaLylNgc=
+=y5Wj
 -----END PGP SIGNATURE-----
 
---JhmyKJ6DVv3RyAWJ--
+--DPFQEofot18lifdU--
 
 
---===============8075963358099583141==
+--===============1703420738236597678==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -129,5 +129,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8075963358099583141==--
+--===============1703420738236597678==--
 
