@@ -4,70 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 471A8D5CC8D
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 09:33:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EFB6D5CCB6
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 10:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=45/bj4LBjFEuK4IDp3CT6PXMqfuwt2TuSVlDuzmTmXQ=; b=0Q1Z8hJi0B13Ew
-	j9ru72wVzNBkfSNEyOw08DDjnQQHS0UiiyShepKN0k1nN35aq7J7mJC5HbqG/VUG21mGC5UEcChET
-	N54ewwtB4DXHSawCzpqcOz7GUMSA/eW3Ys1y3L54SNiMFM8dIqptYrUYyI9Ub/91KWElo9IcU2ApC
-	m5d1NJKbw7XrVEQY4KkkRaThnv8YbMjK+GHsIvNmQenx6hp4tbJ1F+ZhBP85TnI28IpmPjlUI2vdl
-	mzuNZMcCEmmOdSZ3JPI8hGFAiPfABIOr1wylKdgoSubfjr8V2FWNs4MF97HumH/FO50ZhQtOxsPzm
-	slyE81lORdp5DRFFmJKQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+vZ3afzFvDj6XHGFmc3SWsblC6LiQYbb8hWjSrsyWoY=; b=3THK8ow4HAoglY
+	HpNrPUtJ7hkedtJnBtwNbQzg4O8dCkVDyozGGjGZhne6ptMzsqF9K8BwagReqhhWnlfouzqrm+X5f
+	zvB8y2xQUugZi09jPKF6dO//kh1DI4RMSUuNjZkucO9Vv4S6Nuz6zN038HbyApctmKW3MDyD3tHA0
+	W3sR33onDqQmUGgYOp2A8XfhdLetoU9tlrl65RHvAyxVIX02yVhA/SOC6yuSqBaauxnZLuyjWHVx3
+	MiQFlQNYMRe2a/qfYcRT351mS6h9Isah43LeqYmKajvSUyDzMPrAeG9txXpYRCIUBIk2jL5w/bB/v
+	mdwW2upIZS/G6V6fJ3Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVRQZ-00000004zuI-0apc;
-	Tue, 16 Dec 2025 09:33:07 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1vVRxG-000000050zk-4BTj;
+	Tue, 16 Dec 2025 10:06:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVRQV-00000004ztU-346O
+	id 1vVRxE-000000050zL-17jV
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Dec 2025 09:33:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=TNA733PsBYBZkQ0bNttM0vjmR+VfrtvXtxcXQOSbpyE=;
-	b=A17GappssN9YGqiyjqwselfNscYPni0E1hIigxOXZTgR472KYsNmaqqAj6eQ3h
-	U+Xtn4gxvLlyCUNenJktWjGLXelEvenZnjt07IM8e6WQ48ZEkJV2P7VOOsctvxxd
-	maIje05HwtHBGXNQOBxk9rvrFwQWCXorsGq1jqokJNClo=
-Received: from [IPV6:240c:c983:3:5c03:81d3:caf5:2e64:be2] (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgD3NMTaJkFpXxmRHg--.264S2;
-	Tue, 16 Dec 2025 17:31:11 +0800 (CST)
-Message-ID: <68620b24-256f-4032-8bc0-911d94bfb616@163.com>
-Date: Tue, 16 Dec 2025 17:31:06 +0800
+	Tue, 16 Dec 2025 10:06:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2C7A74018A;
+	Tue, 16 Dec 2025 10:06:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DAA5C4CEF1;
+	Tue, 16 Dec 2025 10:06:47 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Anup Patel <anup@brainfault.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+	Cyan Yang <cyan.yang@sifive.com>,
+	Nutty Liu <liujingqi@lanxincomputing.com>,
+	Nick Hu <nick.hu@sifive.com>,
+	Thierry Reding <treding@nvidia.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH] irqchip/riscv-aplic: Pass context data to syscore callbacks
+Date: Tue, 16 Dec 2025 11:06:41 +0100
+Message-ID: <d52051073ff90ea3fd023c9d15822e30f456c9d1.1765879470.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] thermal: spacemit: k1: Add thermal sensor support
-To: Yao Zi <me@ziyao.cc>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20251216-patchv2-k1-thermal-v1-0-d4b31fe9c904@163.com>
- <20251216-patchv2-k1-thermal-v1-2-d4b31fe9c904@163.com>
- <aUDc-o63KJpY8xLG@pie>
-Content-Language: en-US
-From: wayne <shuweiwoo@163.com>
-In-Reply-To: <aUDc-o63KJpY8xLG@pie>
-X-CM-TRANSID: PygvCgD3NMTaJkFpXxmRHg--.264S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxXr1xWry8uF1DKF4xArWUArb_yoWrurykpF
-	WUKFZ3CFWkGF1xJwsxZr4kAw1Fqr4IyFWjgrn29w1Yywn8CFy7GFyUK34Y9Fy8u3s5ur1F
-	vws0qr4Yka4DAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Ut3kNUUUUU=
-X-Originating-IP: [240c:c983:3:5c03:81d3:caf5:2e64:be2]
-X-CM-SenderInfo: 5vkx4vplzr0qqrwthudrp/xtbDAABs+mlBJuCDsAAA3L
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_013304_150921_334B0C60 
-X-CRM114-Status: GOOD (  26.63  )
+X-CRM114-CacheID: sfid-20251216_020652_351573_F4101412 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,147 +67,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-|On 2025/12/16 12:16, |Yao Zi wrote:
-
-> On Tue, Dec 16, 2025 at 10:00:36AM +0800, Shuwei Wu wrote:
->> The thermal sensor on K1 supports monitoring five temperature zones.
->> The driver registers these sensors with the thermal framework
->> and supports standard operations:
->> - Reading temperature (millidegree Celsius)
->> - Setting high/low thresholds for interrupts
->>
->> Signed-off-by: Shuwei Wu <shuweiwoo@163.com>
->> ---
->> Changes in v2:
->> - Rename k1_thermal.c to k1_tsensor.c for better hardware alignment
->> - Move driver to drivers/thermal/spacemit/
->> - Add Kconfig/Makefile for spacemit and update top-level build files
->> - Refactor names, style, code alignment, and comments
->> - Simplify probe and error handling
->> ---
->>   drivers/thermal/Kconfig               |   2 +
->>   drivers/thermal/Makefile              |   1 +
->>   drivers/thermal/spacemit/Kconfig      |  19 +++
->>   drivers/thermal/spacemit/Makefile     |   3 +
->>   drivers/thermal/spacemit/k1_tsensor.c | 283 ++++++++++++++++++++++++++++++++++
->>   5 files changed, 308 insertions(+)
->> diff --git a/drivers/thermal/spacemit/k1_tsensor.c b/drivers/thermal/spacemit/k1_tsensor.c
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..f164754e807ddd311c8cf98bcc074fd580514aa2
->> --- /dev/null
->> +++ b/drivers/thermal/spacemit/k1_tsensor.c
-> ...
->
->> +static void k1_tsensor_init(struct k1_tsensor *ts)
->> +{
-> Configuration of K1_TSU_PCTRL2 (offset 0x04) is removed in this
-> revision, but why? Isn't it necessary for the sensor to function?
->
-> And you didn't ask my question raised in v1 about the source of 24MHz
-> clock. I still suspect whether the binding is complete or not.
-
-Thank you for pointing this out, and I apologize for not addressing your 
-question
-
-about the 24MHz clock earlier.
-
-In v1, I referenced the vendor's implementation, though their device tree
-
-did not specify this clock for the thermal node.
-
-After your review, I revisited the SpacemiT K1 clock tree published by 
-the vendor,
-
-and found that TSENSOR relies only on the APBC clock, which in turn is 
-ultimately
-
-sourced from the 24MHz crystal via the PLL.
-
-Disabling the 24MHz clock for the syscon_apbc node in the device tree 
-had no impact
-
-on TSENSOR operation in my testing, so I did not include it in the binding.
-
-As for the PCTRL2 configuration, I confirmed that its default value 
-after reset is zero,
-
-and changing its configuration had no effect on the temperature sensor's 
-behavior.
-
-This led me to remove the PCTRL2 configuration code in v2.
-
->> +	u32 val;
->> +
->> +	/* Disable all the interrupts */
->> +	writel(0xffffffff, ts->base + K1_TSENSOR_INT_EN_REG);
->> +
->> +	/* Configure ADC sampling time and filter period */
->> +	val = readl(ts->base + K1_TSENSOR_TIME_REG);
->> +	val &= ~K1_TSENSOR_TIME_MASK;
->> +	val |= K1_TSENSOR_TIME_FILTER_PERIOD |
->> +		K1_TSENSOR_TIME_ADC_CNT_RST |
->> +		K1_TSENSOR_TIME_WAIT_REF_CNT;
-> It's more natural to align K1_TSENSOR_TIME_ADC_CNT_RST and other
-> following constants with K1_TSENSOR_TIME_FILTER_PERIOD. This applies for
-> other multiple-line assignments, too.
->
-> ...
->
->> +static int k1_tsensor_probe(struct platform_device *pdev)
->> +{
-> ...
->
->> +	for (i = 0; i < MAX_SENSOR_NUMBER; ++i) {
->> +		ts->ch[i].id = i;
->> +		ts->ch[i].ts = ts;
->> +		ts->ch[i].tzd = devm_thermal_of_zone_register(dev, i, ts->ch + i, &k1_tsensor_ops);
->> +		if (IS_ERR(ts->ch[i].tzd))
->> +			return PTR_ERR(ts->ch[i].tzd);
-> Would emitting a error message with dev_err_probe() help here?
-
-In v1, the reviewer mentioned that it is no need to print extra error 
-message.
-
-See:
-
-https://lore.kernel.org/spacemit/20251127225848-GYA1797866@gentoo.org/T/#mc335bea36323d2d8b3afb09aa40c9c7160440d39 
-
->> +
->> +		/* Attach sysfs hwmon attributes for userspace monitoring */
->> +		ret = devm_thermal_add_hwmon_sysfs(dev, ts->ch[i].tzd);
->> +		if (ret)
->> +			dev_warn(dev, "Failed to add hwmon sysfs attributes\n");
->> +
->> +		k1_tsensor_enable_irq(ts->ch + i);
->> +	}
->> +
->> +	irq = platform_get_irq(pdev, 0);
->> +	if (irq < 0)
->> +		return irq;
-> Same as the above question.
-Ditto.
->> +	ret = devm_request_threaded_irq(dev, irq, NULL,
->> +					k1_tsensor_irq_thread,
->> +					IRQF_ONESHOT, "k1_tsensor", ts);
->> +	if (ret < 0)
->> +		return ret;
-> Same as above.
-Ditto.
-> Besides these questions, the driver itself looks pretty nice to me :)
->
-> Best regards,
-> Yao Zi
-
-|Please let me know if you need further details or test results. Thank 
-you for reviewing my patch. Best regards, Shuwei Wu|
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gUklTQy1WOgoKICAgIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtYXBsaWMtbWFpbi5jOjEx
+MToyMDogZXJyb3I6IGluaXRpYWxpemF0aW9uIG9mIOKAmGludCAoKikodm9pZCAqKeKAmSBmcm9t
+IGluY29tcGF0aWJsZSBwb2ludGVyIHR5cGUg4oCYaW50ICgqKSh2b2lkKeKAmSBbLVdlcnJvcj1p
+bmNvbXBhdGlibGUtcG9pbnRlci10eXBlc10KICAgICAgMTExIHwgICAgICAgICAuc3VzcGVuZCA9
+IGFwbGljX3N5c2NvcmVfc3VzcGVuZCwKCSAgfCAgICAgICAgICAgICAgICAgICAgXn5+fn5+fn5+
+fn5+fn5+fn5+fn5+CiAgICBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWFwbGljLW1haW4uYzox
+MTE6MjA6IG5vdGU6IChuZWFyIGluaXRpYWxpemF0aW9uIGZvciDigJhhcGxpY19zeXNjb3JlX29w
+cy5zdXNwZW5k4oCZKQogICAgZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1tYWluLmM6
+MTEyOjE5OiBlcnJvcjogaW5pdGlhbGl6YXRpb24gb2Yg4oCYdm9pZCAoKikodm9pZCAqKeKAmSBm
+cm9tIGluY29tcGF0aWJsZSBwb2ludGVyIHR5cGUg4oCYdm9pZCAoKikodm9pZCnigJkgWy1XZXJy
+b3I9aW5jb21wYXRpYmxlLXBvaW50ZXItdHlwZXNdCiAgICAgIDExMiB8ICAgICAgICAgLnJlc3Vt
+ZSA9IGFwbGljX3N5c2NvcmVfcmVzdW1lLAoJICB8ICAgICAgICAgICAgICAgICAgIF5+fn5+fn5+
+fn5+fn5+fn5+fn5+CiAgICBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWFwbGljLW1haW4uYzox
+MTI6MTk6IG5vdGU6IChuZWFyIGluaXRpYWxpemF0aW9uIGZvciDigJhhcGxpY19zeXNjb3JlX29w
+cy5yZXN1bWXigJkpCiAgICBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWFwbGljLW1haW4uYzog
+SW4gZnVuY3Rpb24g4oCYYXBsaWNfcHJvYmXigJk6CiAgICBkcml2ZXJzL2lycWNoaXAvaXJxLXJp
+c2N2LWFwbGljLW1haW4uYzozNzU6MTc6IGVycm9yOiBpbXBsaWNpdCBkZWNsYXJhdGlvbiBvZiBm
+dW5jdGlvbiDigJhyZWdpc3Rlcl9zeXNjb3JlX29wc+KAmTsgZGlkIHlvdSBtZWFuIOKAmHJlZ2lz
+dGVyX3N5c2NvcmXigJk/IFstV2Vycm9yPWltcGxpY2l0LWZ1bmN0aW9uLWRlY2xhcmF0aW9uXQog
+ICAgICAzNzUgfCAgICAgICAgICAgICAgICAgcmVnaXN0ZXJfc3lzY29yZV9vcHMoJmFwbGljX3N5
+c2NvcmVfb3BzKTsKCSAgfCAgICAgICAgICAgICAgICAgXn5+fn5+fn5+fn5+fn5+fn5+fn4KCSAg
+fCAgICAgICAgICAgICAgICAgcmVnaXN0ZXJfc3lzY29yZQoKRml4IHRoaXMgYnkgdXBkYXRpbmcg
+dGhlIGRyaXZlciBmb3IgdGhlIHN5c2NvcmUgQVBJIGNoYW5nZXMgaW4gY29tbWl0CmE5N2ZiYzNl
+ZTNlMmE1MzYgKCJzeXNjb3JlOiBQYXNzIGNvbnRleHQgZGF0YSB0byBjYWxsYmFja3MiKS4KCkZp
+eGVzOiAxYzU0NmJiNDMzNjE4ODQzICgiaXJxY2hpcC9yaXNjdi1hcGxpYzogUHJlc2VydmUgQVBM
+SUMgc3RhdGVzIGFjcm9zcyBzdXNwZW5kL3Jlc3VtZSIpClNpZ25lZC1vZmYtYnk6IEdlZXJ0IFV5
+dHRlcmhvZXZlbiA8Z2VlcnQrcmVuZXNhc0BnbGlkZXIuYmU+Ci0tLQpDb21taXQgYTk3ZmJjM2Vl
+M2UyYTUzNiBpcyBpbiB2Ni4xOS1yYzEsIHdoaWNoIGlzIG5vdyB0aGUgYmFzZSBmb3IKaXJxY2hp
+cC9pcnEvZHJpdmVycy4KLS0tCiBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWFwbGljLW1haW4u
+YyB8IDEwICsrKysrKystLS0KIDEgZmlsZSBjaGFuZ2VkLCA3IGluc2VydGlvbnMoKyksIDMgZGVs
+ZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1t
+YWluLmMgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWFwbGljLW1haW4uYwppbmRleCBiNzYw
+OTQyZTU3ZjkxNmQ4Li40NDk1Y2EyNmFiZjU3MTJkIDEwMDY0NAotLS0gYS9kcml2ZXJzL2lycWNo
+aXAvaXJxLXJpc2N2LWFwbGljLW1haW4uYworKysgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2
+LWFwbGljLW1haW4uYwpAQCAtODksNyArODksNyBAQCBzdGF0aWMgdm9pZCBhcGxpY19zYXZlX3N0
+YXRlcyhzdHJ1Y3QgYXBsaWNfcHJpdiAqcHJpdikKIAl9CiB9CiAKLXN0YXRpYyBpbnQgYXBsaWNf
+c3lzY29yZV9zdXNwZW5kKHZvaWQpCitzdGF0aWMgaW50IGFwbGljX3N5c2NvcmVfc3VzcGVuZCh2
+b2lkICpkYXRhKQogewogCXN0cnVjdCBhcGxpY19wcml2ICpwcml2OwogCkBAIC05OSw3ICs5OSw3
+IEBAIHN0YXRpYyBpbnQgYXBsaWNfc3lzY29yZV9zdXNwZW5kKHZvaWQpCiAJcmV0dXJuIDA7CiB9
+CiAKLXN0YXRpYyB2b2lkIGFwbGljX3N5c2NvcmVfcmVzdW1lKHZvaWQpCitzdGF0aWMgdm9pZCBh
+cGxpY19zeXNjb3JlX3Jlc3VtZSh2b2lkICpkYXRhKQogewogCXN0cnVjdCBhcGxpY19wcml2ICpw
+cml2OwogCkBAIC0xMTIsNiArMTEyLDEwIEBAIHN0YXRpYyBzdHJ1Y3Qgc3lzY29yZV9vcHMgYXBs
+aWNfc3lzY29yZV9vcHMgPSB7CiAJLnJlc3VtZSA9IGFwbGljX3N5c2NvcmVfcmVzdW1lLAogfTsK
+IAorc3RhdGljIHN0cnVjdCBzeXNjb3JlIGFwbGljX3N5c2NvcmUgPSB7CisJLm9wcyA9ICZhcGxp
+Y19zeXNjb3JlX29wcywKK307CisKIHN0YXRpYyBpbnQgYXBsaWNfcG1fbm90aWZpZXIoc3RydWN0
+IG5vdGlmaWVyX2Jsb2NrICpuYiwgdW5zaWduZWQgbG9uZyBhY3Rpb24sIHZvaWQgKmRhdGEpCiB7
+CiAJc3RydWN0IGFwbGljX3ByaXYgKnByaXYgPSBjb250YWluZXJfb2YobmIsIHN0cnVjdCBhcGxp
+Y19wcml2LCBnZW5wZF9uYik7CkBAIC0zNzIsNyArMzc2LDcgQEAgc3RhdGljIGludCBhcGxpY19w
+cm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQogCQlkZXZfZXJyX3Byb2JlKGRldiwg
+cmMsICJmYWlsZWQgdG8gc2V0dXAgQVBMSUMgaW4gJXMgbW9kZVxuIiwKIAkJCSAgICAgIG1zaV9t
+b2RlID8gIk1TSSIgOiAiZGlyZWN0Iik7CiAJZWxzZQotCQlyZWdpc3Rlcl9zeXNjb3JlX29wcygm
+YXBsaWNfc3lzY29yZV9vcHMpOworCQlyZWdpc3Rlcl9zeXNjb3JlKCZhcGxpY19zeXNjb3JlKTsK
+IAogI2lmZGVmIENPTkZJR19BQ1BJCiAJaWYgKCFhY3BpX2Rpc2FibGVkKQotLSAKMi40My4wCgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
