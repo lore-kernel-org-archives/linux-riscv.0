@@ -4,52 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1856BD5E39D
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 15:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20985D5E39D
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 15:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JCm9BN9sWbjz0Q4JGmzcr4uc57PdtT1fzHi8BLsJJtk=; b=iqj9ssBwpW8weo
-	39tEW4cEg3lU0IpMn3rYqpIm+zLNtjB85kkG8trCRRlqwlO7zacYZRX9zGOJKkK1jI47eoZoTJ+2X
-	tFL/sy+n3lDHwG6zWrcZQjYxjxPE1Ngq7SJlvbp19n+ZanodPVoRGV8zO9OmPEX5Z5Gn5t4VbzDat
-	jF1NxcU5tc1gm+8GftD/DgzI1oUw0rg4hDC7DcQD0gBRRsbfUmZblBm61iNrYYUhb8KbEv+bOR596
-	EQ0hfvrT5HMbtX4NxHfB6NT8/+6To/ZUmyPPy9xuAlYRu4mLGpqraMqPHNvfNr6i88lyc+Troia5G
-	6tC61dvHGSWkplTp+kHw==;
+	List-Owner; bh=QvwL2DL9FRQVQ5Z8Op+G/ZzcxEUC4+QY3K7uV4nh5+M=; b=yxnVaYjMO1TBQI
+	M+6tbm9gwwHaOR9+7dCGAYUxq2jzUBd0jsrum2gUXJkbclKNNMgGDrc8O/r1o5Adrk7bOqUap8eIN
+	e/kwt+XA+xCA9Sf62rcCP9GNtbq5UcyeMPRnR648ZVSYMkzSFSFirRvySIDcqeQNNu7vs7f8bwZP8
+	fQyJapBjPrMQResJbPjUoKyRJSV446pj8e/6yQh5Ys8UewVinShfdY5f3nDcpdiaRbCdrHzGk87YE
+	oYFRvaE+ks32YYryBIHR0UE4WacPnTUbpz+JNe962ZU+cEg7z1r8Fh6fryyajxzVuBHohNC4mvAZE
+	JEXMtu//bPsFbkLXMcqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVWcY-00000005PK8-3bc7;
-	Tue, 16 Dec 2025 15:05:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vVWef-00000005PfM-0ERK;
+	Tue, 16 Dec 2025 15:08:01 +0000
+Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVWcY-00000005PJr-1RbG
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 16 Dec 2025 15:05:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=OHreVBKjGF2j1Pq/Jgx5M+c9zG2uR52iZdSiy1kKuNY=; b=XFo+BBhjKpA9I5gVVdSykwN1wR
-	qrn34sM3UeTXf/U4vbYnyaOmJM7OKnevn3MH27QkvcsR87lvPfcfmPHTzMFWUb3tZ5Lqunhe7bUXO
-	uq9e/AePuBKQbwVQNKIwgwF4NrgQax9aopfqHavfIjVE6pgUxD3PwCB7XQCfoJ91Jf55KdgyxFoSG
-	iO4+kvts8EdfVBWFVba26S+qfS5Gd+C9je5TBuyUVDQfwraQhKXOVM2N1wG7bA8SRMuyrLmnQEXWj
-	5tmEu3RZ1xulUMSG2zAQH8tbCX5OsdvFz2XYK0K0EXedsMdzca4n4IZqTs68Q6wIf4k0LDcslsGbY
-	5UhB2jBw==;
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVVl1-00000004zBv-3spI
+	id 1vVWec-00000005PeQ-2c5e
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Dec 2025 14:10:33 +0000
+	Tue, 16 Dec 2025 15:08:00 +0000
 Received: from localhost (unknown [116.232.18.222])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 2E93C3408CF;
-	Tue, 16 Dec 2025 15:05:36 +0000 (UTC)
-Date: Tue, 16 Dec 2025 23:05:30 +0800
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 5975F340CF2;
+	Tue, 16 Dec 2025 15:07:55 +0000 (UTC)
+Date: Tue, 16 Dec 2025 23:07:48 +0800
 From: Yixun Lan <dlan@gentoo.org>
 To: Guodong Xu <guodong@riscstar.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -70,17 +55,17 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org, spacemit@lists.linux.dev,
 	linux-serial@vger.kernel.org
-Subject: Re: [PATCH 6/8] dt-bindings: riscv: spacemit: add K3 and Pico-ITX
- board bindings
-Message-ID: <20251216150530-GYD1903981@gentoo.org>
+Subject: Re: [PATCH 1/8] dt-bindings: riscv: add SpacemiT X100 CPU compatible
+Message-ID: <20251216150748-GYA1937017@gentoo.org>
 References: <20251216-k3-basic-dt-v1-0-a0d256c9dc92@riscstar.com>
- <20251216-k3-basic-dt-v1-6-a0d256c9dc92@riscstar.com>
+ <20251216-k3-basic-dt-v1-1-a0d256c9dc92@riscstar.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251216-k3-basic-dt-v1-6-a0d256c9dc92@riscstar.com>
+In-Reply-To: <20251216-k3-basic-dt-v1-1-a0d256c9dc92@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_141032_292703_CB52480A 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20251216_070758_708666_9DEEC3DB 
+X-CRM114-Status: UNSURE (   5.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,32 +85,15 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hi Guodong,
 
 On 21:32 Tue 16 Dec     , Guodong Xu wrote:
-> Add DT binding documentation for the SpacemiT K3 SoC and the board Pico-ITX
-> which is a 2.5-inch single-board computer.
+> Add compatible string for the SpacemiT X100 (RVA23 compliant) core.
 > 
+> Link: https://www.spacemit.com/en/spacemit-x100-core/
+> 
+no blank line here
 > Signed-off-by: Guodong Xu <guodong@riscstar.com>
-> ---
->  Documentation/devicetree/bindings/riscv/spacemit.yaml | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Documentation/devicetree/bindings/riscv/spacemit.yaml
-> index 9c49482002f768cd0cc59be6db02659a43fa31ce..003b0bc1539b621e39172a0565dfea1274cbc8b8 100644
-> --- a/Documentation/devicetree/bindings/riscv/spacemit.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
-> @@ -8,7 +8,8 @@ title: SpacemiT SoC-based boards
->  
->  maintainers:
->    - Yangyu Chen <cyy@cyyself.name>
-> -  - Yixun Lan <dlan@gentoo.org>
-> +  - Yixun Lan   <dlan@gentoo.org>
-> +  - Guodong Xu  <guodong@riscstar.com>
-please simply use "one blank space" here, it's more consistent,
-trying to align them like this would result in even worse situation..
- 
-- only email addresses got aligned while not user names (first, second
-  name?)
-- adding another maintainer in future may break the alignment (if long
-  name)
+
+with that fixed
+Reviewed-by: Yixun Lan <dlan@gentoo.org>
 
 -- 
 Yixun Lan (dlan)
