@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A60AD5B87A
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 01:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C487D5B87E
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 01:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Bdz8AG6rrMngVhB7PlXq0SnxNujPBmY/PgkrxVz8MUY=; b=TtfxDwHxjdj4jM
-	vNxe6jfUKqgStmW44Un1IZg8a9xMlhfHTHb3RQY8EAii210WdX3P5/+Oa3AMfczYpq665lV+oZhBY
-	f40u7nNWeg5BT3bK1U0JlAvRdNpLmw5k8ljFoyGESPDn5nYaJ6KvV3wC8CFsyy+BpmyTzvgBXAE5c
-	RTrMNyhpY70Cpk2w7WZePb7Fa7G5xP4Ee3Bv58lHDOTRVgPUhI0mAjvIaJaxPCtQc2D9/nyW/QbKD
-	KqNVyij6IQBKAQBIkx4R5E0uigYQJA7+8Ns9rrRWMAnfO+lFT+icdhJuRc46J/KJL8TznvaSWtVWC
-	kwK+x/PJYGC7f90QBtSQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wHEArWi1LFkCIU/EShDwen/4/vCOfGRwwNf0rhc4duo=; b=kggc/gbDn7SWvE
+	YHOiRBjKbCrIFPIf8iSLAZ8ICmBsIZaNrS4ZXUnPKBUl0+0rORn9dPIUUefjEcJEA0LCXU3Uidc0y
+	qXGtufAxV49WFiB8/57/O1d4hn5oL4kTxlIPwu6fSCJGggAgxt/NARb5A78jARxIxk5g9BVYHA5ij
+	4opcbFWUqYA/6Jvhap4IUzzC4EI3TPlXm12/55VZnmgsxI1HgbbBVBkrtn1FFNA8OYRx/UC44N2f7
+	hQlyL8heNZvUJF/tlpOjHlM+fBC4ksXudGIVb+wq5Denlzxx/sdysYzboEw7GLEGzHwiUeIWDSU+T
+	07rn0bhB6u2X/tEEi0SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVKAD-00000004VeJ-13ON;
-	Tue, 16 Dec 2025 01:47:45 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1vVKAN-00000004Vfv-2IUf;
+	Tue, 16 Dec 2025 01:47:55 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVKAA-00000004Vds-2gLn
+	id 1vVKAK-00000004VfK-1eLA
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Dec 2025 01:47:43 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7fbbb84f034so85444b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Dec 2025 17:47:39 -0800 (PST)
+	Tue, 16 Dec 2025 01:47:54 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-7f1243792f2so2658385b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Dec 2025 17:47:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1765849659; x=1766454459; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jQOYML69oTsOQ75vYxPwSIyfraEydi6o2qTswuNZTTg=;
-        b=jN+/i5wUtvajyszX/OK7JcDltLAfCWcTumEvNDmON8Dpoe2eRGMIeCqz1Abwe8LXkp
-         WpWjN9h/OwfbZT9qTGN+flt8q9RAB17THARY8O1hjduuT/ZqpjVi7xfXWC6JctIVs9Da
-         /RornhImfvrGJCUh4yGlCnF/UAqNmAyD3YxZBsU1tB9bgMaUD0co4aj2+wQFAG3p4VIc
-         CntbWg3KQzaVDHfq82YNxDz+M5trwtKKAWn3T8YnIp3Zs4jE+bnnRV9QqDxlZ/GCub+4
-         12+pvbi4wOZzzVcGrjOrTZKqusvKEZPtNOk+0aO0XmkFfAlwdnKLHKHI+BGYj0TDoQOw
-         YmAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765849659; x=1766454459;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=bytedance.com; s=google; t=1765849671; x=1766454471; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=jQOYML69oTsOQ75vYxPwSIyfraEydi6o2qTswuNZTTg=;
-        b=ExCwjwvoaVwFXPaVJQ9tx3axwPTHVZh/PZ5RvntEdxF/PBLzpHwtZ4egPfsXbS1SI4
-         PvUUawJHyR6E0HhgMIP2TQQGFsGrRdthQNuCKxW/kfQ7kqAIgEiHrraMJ8PIsK1BYF+M
-         CDue5yHN7S14bN9Bkq01msBaD0+s5UftNnbphsanP5c7JJQ4Yxu4QKO4qNUPX2WPc7ZA
-         WohUpnEw4hZWzRwOeWiYTtI5RMTu/B66Mg9jj7aYGdgoYEH4VD272FWSTUTF49ORm70M
-         ddYWm+qCQEgSlEbnA0J8+e8oz4YYdhqKntgGsmbnOeRjSp9uXzbJjbLstHEJE8wMzwwK
-         Ixhw==
-X-Forwarded-Encrypted: i=1; AJvYcCUxMfUb5J1yaH8B21CdkR4fB9a8PSNmbaZMPEPSd+DOoyxkfcK1cStOUanzYnhJj4bGfzvXW8qQ09N8yQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxP9ED/35UXFrhjcvfM9fgJvJf+A/iMcYPg9m5b/LEtzUt1ZPa
-	qiho9B2WWEiLlI5E6DpS7YGnUgUkRtg8fltpNz49vQj/POPfDHV3feEKpoeZTRdC9N8=
-X-Gm-Gg: AY/fxX7fpOG5BTgV6bU+1Ic3lpF4KN1PUasWIBbBKN66nXFGBuIbtzjhRhYVBOpzoFB
-	n7UhHbw3I7lv4EVhoNur8qog9q7ojIgrmJkSlaKpKhp9Qhny+UFlb1QXybMpuDOHQxZMXYSVHyt
-	A2FYM38yXTNYsJXzpQ2iOTOkdLf48BCzWXFNBvTb3FvgjGhYv/KfnzUTxqeOonrZr3BNQrqUSTB
-	4dLLacgBUayb9Tml4lb6fE1+WdN/GvooZqwPNUxJTsA8B4/MWi0KlUfD3yQrhT6BkqiM4Ep3vF0
-	dqwxJja7Zt3n2AzF+cGNRDQZuM1z6CKMUjprZ6pgl3BcV/Cc3kzn16Iltxe+PNgTcVBQHYllE8h
-	64+m23AtQO8PtItO6mxheCHIIQpjRiI1/1KgU6x+FtLIpx4fbQxIBAsrvsbYIwI7TLi11v9qnEd
-	SSmBk46rkF+at8YVq8R1tbgl6/LNIWyiqOar06zM3U+YEs
-X-Google-Smtp-Source: AGHT+IFb4p41Qgk4jrG7oAwM1kTzSPIz8GaGD809Q++LMxasrDyli3QXNwxda2W99S4WH1s8MPX1mQ==
-X-Received: by 2002:a05:6a20:3945:b0:34f:b50e:e2e2 with SMTP id adf61e73a8af0-369afa01a2cmr11969729637.58.1765849658920;
-        Mon, 15 Dec 2025 17:47:38 -0800 (PST)
+        bh=HQt8uoJWMBYj/YlVtM/kz+RuiqvE92xrlYMKIfu5C3o=;
+        b=BpE5RJ2tBcfN3ZRmspmJJZ7TzaUP6FJjuRWXbCIVhTMpXkY+ZqplSNpxbeKP05G7Cq
+         6jk6Sh1wQBGJ1hvfu4qZyAH+cyPRfCZydQGzTHNk2MZioM08alPhdKE/Vmij5Dfk1JWt
+         nirSg9Zw0Dx85knWzLupwfyttYMn7pHrHO9mdCHRPSU14hJNny+Y2wn5tizuzVjM2JNA
+         Ngm2UUYGRgF+CZtFQn6eE4eH5g8RsKns+D3dE+498ny9qZLgBu0B+RTflNVy5jEcW1I4
+         7eHR5Q5YT0/7bSGfSk6r3qpGuLwHjHbYm7lJqO/RV/prhdl2P42F7NCB+aNbq6UMMXEG
+         kBTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765849671; x=1766454471;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=HQt8uoJWMBYj/YlVtM/kz+RuiqvE92xrlYMKIfu5C3o=;
+        b=AyClL3I7qI0loPQgCNrWZ2I7+uplwLqeusez77QHEyaDEpiCZ1x7nugkTVxfvril51
+         KZITgX3GMFQnkM67s8NyK/BMF7rZf8Asdk+yzjrIxJET2I7lhhb9nGFd2poLBwS+5S0M
+         Dhthe9TN2/6rjbCVzbHS9z8zhZBMO3qGaisi8/dFP9xB6iOQLTHZJpamthVx7VArrrAI
+         4FjLq/6GrKMNhqNQQFCuD4c8dDTw7KyQWt7RxVEMLIG6Zv7V2tBIySEzUQeth2OhWuwy
+         KKsdL+fLx/Dja9MrsaWCZo9pgL3onFPpjhQjBHKO6+mdzUpmH9D9TEDHGN/WGTqKrzXj
+         zj9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVdx3EyBrQNDhm8D5CLD8vMxwH0NlG/trSu63Acilmn0gUK3Gq3KvT8eDRmHBnt6tIZTSMi7WMZ+3kA4A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPl2ohlNlivg0NfGk5HCQYKskw83Y6Xk8lQv46FSsio0rSujxo
+	i09V9lC3g8iX8jugCNGqpmuxRl8syUwSCa1xxV081XAfhCCzb9mv6rvZwlYu8TkGvq0=
+X-Gm-Gg: AY/fxX4hGsvM065WGZalyXDnPDJ2dfDZrwA1ukzUU1pTkfxp67ON/OPbYAo4Qqc80e3
+	VHpBx3RQaBy5dbWldDKtrHYLFsT6ewzGRtqkiyKJcMgDTR1SG3NwZXrzx42c7dZJCVGV6ME1sBm
+	riPBhehp8Dw0Uurod6MQSd5dd6k4okjV8VqROZvWg550GpfVebKyLOo9bfoI9VG3aazqqs9T4ad
+	UEEoEejAAAA1jREfd6N6LV/+FObwdNl3mKFlrSUd8pOUcuA/D6iASyS2CEN335rtGtx125vbV27
+	C9gb3lRI+iV/oNCR0I2Oq9MPALLLt+q4RZmrHCKU2kxqBa7qoS3gKTtA9nB7TUHRwtWWtcmsDrb
+	p3sPfS4+eebuxc6DzTuql9+OB31sYr1QiUua20VqgdZCjglcvTmrKWwKf0is49MXNxaAohtQVtd
+	UsXu7HlCGZ+LQxUM2pRDB1xjnR5nULfgOAyxe9fh/kzdJc
+X-Google-Smtp-Source: AGHT+IE5/ROoI003OCaxm/0k3SuDfxUIEDBUTPu0GmjjWMBKr4s+4vh/dmnl09LKvowuDGy06jqmLQ==
+X-Received: by 2002:a05:6a20:4320:b0:366:14af:9bcc with SMTP id adf61e73a8af0-369afdf778bmr12452247637.66.1765849671148;
+        Mon, 15 Dec 2025 17:47:51 -0800 (PST)
 Received: from L6YN4KR4K9.bytedance.net ([139.177.225.224])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c0c2c963b53sm13632790a12.36.2025.12.15.17.47.27
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c0c2c963b53sm13632790a12.36.2025.12.15.17.47.39
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 15 Dec 2025 17:47:38 -0800 (PST)
+        Mon, 15 Dec 2025 17:47:50 -0800 (PST)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: aou@eecs.berkeley.edu,
 	alex@ghiti.fr,
@@ -112,14 +113,16 @@ To: aou@eecs.berkeley.edu,
 	yonghong.song@linux.dev,
 	yury.norov@gmail.com,
 	zong.li@sifive.com
-Subject: [PATCH v3 0/3] RISC-V: add percpu.h to include/asm
-Date: Tue, 16 Dec 2025 09:47:18 +0800
-Message-Id: <20251216014721.42262-1-cuiyunhui@bytedance.com>
+Subject: [PATCH v3 1/3] riscv: remove irqflags.h inclusion in asm/bitops.h
+Date: Tue, 16 Dec 2025 09:47:19 +0800
+Message-Id: <20251216014721.42262-2-cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+In-Reply-To: <20251216014721.42262-1-cuiyunhui@bytedance.com>
+References: <20251216014721.42262-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_174742_704320_2F78F362 
-X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-CacheID: sfid-20251215_174752_755459_46520095 
+X-CRM114-Status: UNSURE (   8.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -137,31 +140,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-v1->v2:
-1. Support percpu add/and/or operations for non-ZABHA
-2. Implement optimization: store percpu offset in thread_info
+The arch/riscv/include/asm/bitops.h does not functionally require
+including /linux/irqflags.h. Additionally, adding
+arch/riscv/include/asm/percpu.h causes a circular inclusion:
+kernel/bounds.c
+->include/linux/log2.h
+->include/linux/bitops.h
+->arch/riscv/include/asm/bitops.h
+->include/linux/irqflags.h
+->include/linux/find.h
+->return val ? __ffs(val) : size;
+->arch/riscv/include/asm/bitops.h
 
-v2->v3:
-1. Fix this_cpu_cmpxchg128() compilation issue when
-system_has_cmpxchg128() is unsupported
-2. Fix sparse warning issues
+The compilation log is as follows:
+CC      kernel/bounds.s
+In file included from ./include/linux/bitmap.h:11,
+               from ./include/linux/cpumask.h:12,
+               from ./arch/riscv/include/asm/processor.h:55,
+               from ./arch/riscv/include/asm/thread_info.h:42,
+               from ./include/linux/thread_info.h:60,
+               from ./include/asm-generic/preempt.h:5,
+               from ./arch/riscv/include/generated/asm/preempt.h:1,
+               from ./include/linux/preempt.h:79,
+               from ./arch/riscv/include/asm/percpu.h:8,
+               from ./include/linux/irqflags.h:19,
+               from ./arch/riscv/include/asm/bitops.h:14,
+               from ./include/linux/bitops.h:68,
+               from ./include/linux/log2.h:12,
+               from kernel/bounds.c:13:
+./include/linux/find.h: In function 'find_next_bit':
+./include/linux/find.h:66:30: error: implicit declaration of function '__ffs' [-Wimplicit-function-declaration]
+   66 |                 return val ? __ffs(val) : size;
+      |                              ^~~~~
 
-Yunhui Cui (3):
-  riscv: remove irqflags.h inclusion in asm/bitops.h
-  riscv: introduce percpu.h into include/asm
-  riscv: store percpu offset into thread_info
+Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+---
+ arch/riscv/include/asm/bitops.h | 1 -
+ 1 file changed, 1 deletion(-)
 
- arch/riscv/include/asm/asm.h         |   6 +-
- arch/riscv/include/asm/bitops.h      |   1 -
- arch/riscv/include/asm/percpu.h      | 248 +++++++++++++++++++++++++++
- arch/riscv/include/asm/switch_to.h   |   8 +
- arch/riscv/include/asm/thread_info.h |   5 +-
- arch/riscv/kernel/asm-offsets.c      |   1 +
- arch/riscv/kernel/smpboot.c          |   7 +
- arch/riscv/net/bpf_jit_comp64.c      |   9 +-
- 8 files changed, 269 insertions(+), 16 deletions(-)
- create mode 100644 arch/riscv/include/asm/percpu.h
-
+diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
+index 238092125c118..3c1a15be54d80 100644
+--- a/arch/riscv/include/asm/bitops.h
++++ b/arch/riscv/include/asm/bitops.h
+@@ -11,7 +11,6 @@
+ #endif /* _LINUX_BITOPS_H */
+ 
+ #include <linux/compiler.h>
+-#include <linux/irqflags.h>
+ #include <asm/barrier.h>
+ #include <asm/bitsperlong.h>
+ 
 -- 
 2.39.5
 
