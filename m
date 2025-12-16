@@ -4,95 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71F13D609BB
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 16:32:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54848D609BB
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 16:34:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YLW7C9bXIItv8LCzqHsvoN8O6vaZC0eS5PredH3kmqc=; b=lnm3CNVr3MACzs
-	ArsWsVtLWNxmKDlFrtPd/k4atVtaDYkKAg7eR0wrmbF0yWsN8zyNYuwJyrtMPnHPkscITSqOiBUJp
-	PFZts3cCXYYib+SR4H60cGMS5eBoABrVLtwgyMPyLvl59Hi/7LVUw70H15Fz/MitRBimZuHDw2tHe
-	egZrTicUky7WYex+IExBqM5TOhu6LhwzU5MxUl4PmREJwz+0H47YUDmsBVTNNgL6W2aUdinY3wMNx
-	azVhXx3fi6w0LLmPh8kI+i5ugWmvMDoqaaKbSLG+Yj0CSjPGd1UaDAUe6oKkSQapcBnwM1PE/uKT1
-	1GjnVkw0r/f76Sy76nEA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SZFIYp1KOBNt+GiP74t1eUJ9FxkDt9XQwOsd6CxZvWI=; b=pBhgXy4CVndJb/KSxeS7oNnK8l
+	pwwQQLrYvXDB1akF/Pcj3yt2dFGP9NBy7liu/QxlfMggFdvRM0va3Yy7rhaAqWEZnyCgc5RXwisJ4
+	ddrf8p+1DPfgG5gGGtgYqayDd97QGwWhmhlie7zQ3DNcJw4q454PCw4+04QYKQ1lP3iBMEO9UnYhE
+	7f7zJVvL2AxIfWvJPzwW6N0146ErHoSK81hpyG5YBxfn5h2kZE8AsNaYg3dvBskTMqBCMZjDXRrzv
+	JUUOib9/Rs/W6D0KQ5w2SEBhTvv856a9k4OH2LbdHXnt3AYjD4+4R1VWT10SB1Gk4D0D6WQvz5Lz0
+	hXctVAhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXy8-00000005Wtx-06cW;
-	Tue, 16 Dec 2025 16:32:12 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1vVXzn-00000005X9C-0IjI;
+	Tue, 16 Dec 2025 16:33:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXy5-00000005WtH-2RR3;
-	Tue, 16 Dec 2025 16:32:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1765902729; x=1797438729;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=BYYyvPXCv/z3Zv/yIQlMx58UIuXYnnZWL+o4/ZYGJM8=;
-  b=Ww//Ya2IZVJRpwLMfIwJ5jgCThrWjqPhEoxWXeH0Q7zcAiCH3AQhNnnz
-   l41g73hFbnrfLDMjG3thBu05ij8egQPGaO8OfRPf0NmK5ftcBq8Rik6hH
-   Y2gQQt5DsdKNme5DYj8+d+VrEpKrDhhcIZo+mDgzvkEdlxrd9hkSnHGoZ
-   KIuRl1Dyy8WN6O3TxCtyo/9vEfkV+i3okOkJR+voSESeeD5tjLbMfRczV
-   oCOCiY1OdMT2CnPWg5xQXalu3iIMbT8TgVvJUOyNu5/yYebNPhp/x3zBd
-   r5sYnu09RCOzZ1SqGI3/FSJqx1ZYeJ7/R65Gtd9WwkCDPYhKVYzb+20lc
-   Q==;
-X-CSE-ConnectionGUID: 8cSpbeVITI+irXho8Tn9hQ==
-X-CSE-MsgGUID: fJ0M90HpTC2tpIqVKQQHKQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11644"; a="67868233"
-X-IronPort-AV: E=Sophos;i="6.21,153,1763452800"; 
-   d="scan'208";a="67868233"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Dec 2025 08:32:07 -0800
-X-CSE-ConnectionGUID: hOe0vqPVR7CciV+fTWvORw==
-X-CSE-MsgGUID: v02B96M3SIa8VhPps1uokQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,153,1763452800"; 
-   d="scan'208";a="197808734"
-Received: from lkp-server02.sh.intel.com (HELO 034c7e8e53c3) ([10.239.97.151])
-  by orviesa009.jf.intel.com with ESMTP; 16 Dec 2025 08:32:00 -0800
-Received: from kbuild by 034c7e8e53c3 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vVXxu-000000003YO-0J5B;
-	Tue, 16 Dec 2025 16:31:58 +0000
-Date: Wed, 17 Dec 2025 00:31:27 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ryan Roberts <ryan.roberts@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
+	id 1vVXzk-00000005X8i-2QFa
+	for linux-riscv@lists.infradead.org;
+	Tue, 16 Dec 2025 16:33:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0060140408;
+	Tue, 16 Dec 2025 16:33:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BB5CC4CEF1;
+	Tue, 16 Dec 2025 16:33:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765902828;
+	bh=YKJMtPFWa6ht+n9Bxx5M3M/3OHahvRpYpniNwtoIfcE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rD2pRTmX6g38MqEQaqw1UPO3Qn55ibZ/bbyJaoRGufwZLufeGkG88EHBSDXFUabaO
+	 640367wbsRRwXZs1Myg2eN36rgpbN1bA1N44fXG8hZgG8H0qEww3e+uxo0g0c7KIfi
+	 q2Qs5HMImmZiZjsM6uyoA/5+fN0ZHxYpeZ3pyLA4+tGqEv/HNvNRIj7szFMWYd0Z1j
+	 DaeiKBc/0y/WW4bz+TdnR77riKVcs30CTmrBn9WyEbKP+U6PU5YXESVvas52pHfBoV
+	 ouJiRXUxFT0t30dxtShiqzxEVijxlxrFRIOus6ondRUejmAstBAnkj26AfvNrfU4Kd
+	 E6LbXeRVnlnYA==
+Date: Tue, 16 Dec 2025 16:33:41 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Guodong Xu <guodong@riscstar.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Jeremy Linton <jeremy.linton@arm.com>
-Cc: oe-kbuild-all@lists.linux.dev, Ryan Roberts <ryan.roberts@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] randomize_kstack: Unify random source across
- arches
-Message-ID: <202512170038.vJZdUhEN-lkp@intel.com>
-References: <20251215163520.1144179-4-ryan.roberts@arm.com>
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <anup@brainfault.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
+	Yangyu Chen <cyy@cyyself.name>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@sifive.com>,
+	Heinrich Schuchardt <xypron.glpk@gmx.de>,
+	Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, spacemit@lists.linux.dev,
+	linux-serial@vger.kernel.org
+Subject: Re: [PATCH 6/8] dt-bindings: riscv: spacemit: add K3 and Pico-ITX
+ board bindings
+Message-ID: <20251216-wing-squander-2fed378d3035@spud>
+References: <20251216-k3-basic-dt-v1-0-a0d256c9dc92@riscstar.com>
+ <20251216-k3-basic-dt-v1-6-a0d256c9dc92@riscstar.com>
+ <20251216150530-GYD1903981@gentoo.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251215163520.1144179-4-ryan.roberts@arm.com>
+In-Reply-To: <20251216150530-GYD1903981@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_083209_711411_12604CCE 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20251216_083352_657566_5D322CF6 
+X-CRM114-Status: GOOD (  15.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,126 +86,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5773582123983625241=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
 
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on tip/sched/core]
-[also build test ERROR on akpm-mm/mm-everything linus/master v6.19-rc1 next-20251216]
-[cannot apply to kees/for-next/hardening kees/for-next/execve]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Roberts/prandom-Convert-prandom_u32_state-to-__always_inline/20251216-013546
-base:   tip/sched/core
-patch link:    https://lore.kernel.org/r/20251215163520.1144179-4-ryan.roberts%40arm.com
-patch subject: [PATCH v2 3/3] randomize_kstack: Unify random source across arches
-config: x86_64-rhel-9.4-ltp (https://download.01.org/0day-ci/archive/20251217/202512170038.vJZdUhEN-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251217/202512170038.vJZdUhEN-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512170038.vJZdUhEN-lkp@intel.com/
-
-All error/warnings (new ones prefixed by >>):
-
->> arch/x86/boot/startup/sev-startup.o: warning: objtool: section .discard.addressable has absolute relocation at offset 0x0
---
-   In file included from include/linux/device/driver.h:21,
-                    from include/linux/device.h:32,
-                    from include/linux/blk_types.h:11,
-                    from include/linux/writeback.h:13,
-                    from include/linux/memcontrol.h:23,
-                    from include/linux/resume_user_mode.h:8,
-                    from include/linux/entry-virt.h:6,
-                    from include/linux/kvm_host.h:5,
-                    from arch/x86/kvm/svm/svm.c:3:
->> include/linux/module.h:132:49: error: redefinition of '__inittest'
-     132 |         static inline initcall_t __maybe_unused __inittest(void)                \
-         |                                                 ^~~~~~~~~~
-   arch/x86/kvm/svm/svm.c:5509:1: note: in expansion of macro 'module_init'
-    5509 | module_init(svm_init)
-         | ^~~~~~~~~~~
-   include/linux/module.h:132:49: note: previous definition of '__inittest' with type 'int (*(void))(void)'
-     132 |         static inline initcall_t __maybe_unused __inittest(void)                \
-         |                                                 ^~~~~~~~~~
-   include/linux/module.h:125:41: note: in expansion of macro 'module_init'
-     125 | #define late_initcall(fn)               module_init(fn)
-         |                                         ^~~~~~~~~~~
-   include/linux/randomize_kstack.h:86:1: note: in expansion of macro 'late_initcall'
-      86 | late_initcall(random_kstack_init);
-         | ^~~~~~~~~~~~~
->> include/linux/module.h:134:13: error: redefinition of 'init_module'
-     134 |         int init_module(void) __copy(initfn)                    \
-         |             ^~~~~~~~~~~
-   arch/x86/kvm/svm/svm.c:5509:1: note: in expansion of macro 'module_init'
-    5509 | module_init(svm_init)
-         | ^~~~~~~~~~~
-   include/linux/module.h:134:13: note: previous definition of 'init_module' with type 'int(void)'
-     134 |         int init_module(void) __copy(initfn)                    \
-         |             ^~~~~~~~~~~
-   include/linux/module.h:125:41: note: in expansion of macro 'module_init'
-     125 | #define late_initcall(fn)               module_init(fn)
-         |                                         ^~~~~~~~~~~
-   include/linux/randomize_kstack.h:86:1: note: in expansion of macro 'late_initcall'
-      86 | late_initcall(random_kstack_init);
-         | ^~~~~~~~~~~~~
---
-   ld: arch/x86/kvm/vmx/main.o: in function `vt_init':
->> arch/x86/kvm/vmx/main.c:1038: multiple definition of `init_module'; arch/x86/kvm/vmx/vmx.o:include/linux/randomize_kstack.h:81: first defined here
---
-   In file included from drivers/misc/sgi-xp/xpc_main.c:47:
->> include/linux/module.h:132:49: error: redefinition of '__inittest'
-     132 |         static inline initcall_t __maybe_unused __inittest(void)                \
-         |                                                 ^~~~~~~~~~
-   drivers/misc/sgi-xp/xpc_main.c:1285:1: note: in expansion of macro 'module_init'
-    1285 | module_init(xpc_init);
-         | ^~~~~~~~~~~
-   include/linux/module.h:132:49: note: previous definition of '__inittest' with type 'int (*(void))(void)'
-     132 |         static inline initcall_t __maybe_unused __inittest(void)                \
-         |                                                 ^~~~~~~~~~
-   include/linux/module.h:125:41: note: in expansion of macro 'module_init'
-     125 | #define late_initcall(fn)               module_init(fn)
-         |                                         ^~~~~~~~~~~
-   include/linux/randomize_kstack.h:86:1: note: in expansion of macro 'late_initcall'
-      86 | late_initcall(random_kstack_init);
-         | ^~~~~~~~~~~~~
->> include/linux/module.h:134:13: error: redefinition of 'init_module'
-     134 |         int init_module(void) __copy(initfn)                    \
-         |             ^~~~~~~~~~~
-   drivers/misc/sgi-xp/xpc_main.c:1285:1: note: in expansion of macro 'module_init'
-    1285 | module_init(xpc_init);
-         | ^~~~~~~~~~~
-   include/linux/module.h:134:13: note: previous definition of 'init_module' with type 'int(void)'
-     134 |         int init_module(void) __copy(initfn)                    \
-         |             ^~~~~~~~~~~
-   include/linux/module.h:125:41: note: in expansion of macro 'module_init'
-     125 | #define late_initcall(fn)               module_init(fn)
-         |                                         ^~~~~~~~~~~
-   include/linux/randomize_kstack.h:86:1: note: in expansion of macro 'late_initcall'
-      86 | late_initcall(random_kstack_init);
-         | ^~~~~~~~~~~~~
+--===============5773582123983625241==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="WOHLg4B2RTM9rCY3"
+Content-Disposition: inline
 
 
-vim +1038 arch/x86/kvm/vmx/main.c
+--WOHLg4B2RTM9rCY3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-d6bee7813752b3 Kai Huang 2025-01-22  1036  
-d6bee7813752b3 Kai Huang 2025-01-22  1037  static int __init vt_init(void)
-d6bee7813752b3 Kai Huang 2025-01-22 @1038  {
+On Tue, Dec 16, 2025 at 11:05:30PM +0800, Yixun Lan wrote:
+> Hi Guodong,
+>=20
+> On 21:32 Tue 16 Dec     , Guodong Xu wrote:
+> > Add DT binding documentation for the SpacemiT K3 SoC and the board Pico=
+-ITX
+> > which is a 2.5-inch single-board computer.
+> >=20
+> > Signed-off-by: Guodong Xu <guodong@riscstar.com>
+> > ---
+> >  Documentation/devicetree/bindings/riscv/spacemit.yaml | 6 +++++-
+> >  1 file changed, 5 insertions(+), 1 deletion(-)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Do=
+cumentation/devicetree/bindings/riscv/spacemit.yaml
+> > index 9c49482002f768cd0cc59be6db02659a43fa31ce..003b0bc1539b621e39172a0=
+565dfea1274cbc8b8 100644
+> > --- a/Documentation/devicetree/bindings/riscv/spacemit.yaml
+> > +++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+> > @@ -8,7 +8,8 @@ title: SpacemiT SoC-based boards
+> > =20
+> >  maintainers:
+> >    - Yangyu Chen <cyy@cyyself.name>
+> > -  - Yixun Lan <dlan@gentoo.org>
+> > +  - Yixun Lan   <dlan@gentoo.org>
+> > +  - Guodong Xu  <guodong@riscstar.com>
+> please simply use "one blank space" here, it's more consistent,
+> trying to align them like this would result in even worse situation..
+> =20
+> - only email addresses got aligned while not user names (first, second
+>   name?)
+> - adding another maintainer in future may break the alignment (if long
+>   name)
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Yeah, these are never aligned. Just do one space gap.
+
+--WOHLg4B2RTM9rCY3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaUGJ4gAKCRB4tDGHoIJi
+0kA9AQCvdHdh3ZN6TPbUIs6IjVSdbLXEtx33bODh8014ZkTIPAD+O1FYIibih/H5
+/frJtNNEwi9BQrqT/KU1vwpLyBCJQwU=
+=4/Ek
+-----END PGP SIGNATURE-----
+
+--WOHLg4B2RTM9rCY3--
+
+
+--===============5773582123983625241==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5773582123983625241==--
+
