@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A13D5C0C1
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 02:02:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65B2ED5B161
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 03:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2roeKEHURgqDYgGatc9nnEwdxTX2Puc6CuYBkIU1l2M=; b=n00Hg+gkzXZzQz
-	Rz0pGv4d3TuhJH6ia+iGLUITEovwmwkfl+aNFy/0EyoLAGo5brdDC9h2RYHqtx3jShY4rDRc4oNrN
-	IBvs0mV7XWEXmCGlYurIH53r/iD7hQjhYSXML2QfomJwbffDvpn6QXCf7iut1/6D+MgERY4Chn+Ko
-	nfqNOtnMpT4WdipOpkMlbppVAHh5/kQWlbLcyTFgHLWxi2FP+gZouoEE1O/rAzqzQcl3Al/RnDfpl
-	rBO+FabbDIX/B13DKfXi9kIOnJqZi0dy0EzXcEmaRftiVvQoGd0QiiH9eyltZbxQdxwCiVO/Hzv84
-	38zejbfMsU5yRYnIRCNA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=I6l3Jx7/roViEJ0gSiYWdYDXOIgDiTyGT8rZwn8enKE=; b=M2iHv+v336sanP
+	KN3YK4PYruE7uENgV3jal8EzNiGY8JPqk1J03DEJ65mMur5TUfCWyWmN0Iq9hRu0D6F/I736LK2Ic
+	+VNI1Xt/Qr+myT6VwcVT7AXddJQdDfYe1Kg6Mj7c83Hc+jN1CNjkg+grAR+s05B7g1XsUneVwnCkK
+	Y+7+/GaHLiU1CNlMpQdlsNWDzBTSayky9dZ1kIeDk89xUnqGdYPkGznLU8FOBo8n7vwSXaxRfCrcL
+	aCTCFolRA1AXZxdPjH6HR1bdtmMEl37dY76wtbTyoj5fVSx6BpT0Z6JvLNUcKrL7BShDiuudWoecA
+	FKlk7b+I0ImT7/XMJJ3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVKOa-00000004Xnz-0Znf;
-	Tue, 16 Dec 2025 02:02:36 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
+	id 1vVM1A-00000004dmr-2TDf;
+	Tue, 16 Dec 2025 03:46:32 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVKOW-00000004Xn7-3Qsl
+	id 1vVM19-00000004dmE-0Ky9
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Dec 2025 02:02:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version:
-	Content-Type:To; bh=O5iu4yIsSO9ZWZlJQVFULBolHuSozJ/OSd+ZcqTsLBc=;
-	b=ps1CQMlYZwgVk3oj5+edqK156CDZtUI9pGrvMF1uF6vjIJxpC87bATBL/2fRun
-	MDB0q98WA0avy5aGORlr/0zzb3gBkhgtldssJTABKPCbWnAEWJ29oct7NN/0HlcC
-	WYTG86EJXD29xaB9mWdQF9VJOsUxlCesFVIH5/rm1Imx8=
-Received: from [192.168.10.1] (unknown [])
-	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wDXUu97vUBpOmJ5Ag--.29S2;
-	Tue, 16 Dec 2025 10:01:34 +0800 (CST)
-From: Shuwei Wu <shuweiwoo@163.com>
-Subject: [PATCH v2 0/3] thermal: spacemit: Add support for SpacemiT K1 SoC
- thermal sensor
-Date: Tue, 16 Dec 2025 10:00:34 +0800
-Message-Id: <20251216-patchv2-k1-thermal-v1-0-d4b31fe9c904@163.com>
+	Tue, 16 Dec 2025 03:46:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765856786; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Ipw0SjPs/+ZaxA9RNcbRPDPdNWITUkg4iR5jYne/ZCt039Lvz+Oa6wj4bzaJtzjXzFG0AhXXMrgRe4hVEDwiPv96QarMhWe2c60OMoRi3zqYSXNhDWzEaSM3wFZZ91lWF4LeOtHSVIE13oRd3oVgY1UAGtL5oDF0R1oR0zki59I=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1765856786; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ILbL4CVlKIJmH7YalADTkioP1Q0SfdtkN/e5ADTMbaE=; 
+	b=g6gARh9JlLGIA8iSKgbkAfkYe2GL79b4wwIK06zCVxZK3HBO3HzYhRurCp6uAV0/x0dcZ1OvkcQMbrX9gesbFxQXRf1m8N/+KBnYhxhoOzNs8kFEhtXppCD5mTIRvHaP/EJwJ22soLYgAhnXPXOlqBAtfDOGdx7GDf8X5vMwk8E=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765856786;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=ILbL4CVlKIJmH7YalADTkioP1Q0SfdtkN/e5ADTMbaE=;
+	b=hjA2nAQHtvwsXX/Tc3IfHW0MZ45NPdpMimRdRZZHNudFsig7tbXMR/YnHpSBFy70
+	UzTOAJLsP4bAkz5IOnO/N/45ex7OzIsUf2o4v9X8A364LQVY332Us10EuyDWY45Ljqn
+	09AoguNgiF9kt/UXCf9tYPl7sc32mVu+HAqH9yFw=
+Received: by mx.zohomail.com with SMTPS id 1765856785611547.9393815748379;
+	Mon, 15 Dec 2025 19:46:25 -0800 (PST)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Date: Tue, 16 Dec 2025 11:39:42 +0800
+Subject: [PATCH v3 2/6] dt-bindings: clock: add Anlogic DR1V90 CRU
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAEK9QGkC/x3MQQqEMAxA0atI1hOYRAriVQYXnZja4IxKK0UQ7
- 25x+Rb/n5A1mWbomxOSFsu2LhX0akCiXyZFG6uB3+yIyeHmd4mFcSbco6a//6EL4du1XRASgRp
- uSYMdz/QDhWG4rhtSmDr3aAAAAA==
-X-Change-ID: 20251215-patchv2-k1-thermal-5ffb838fc1cc
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+Message-Id: <20251216-dr1v90-cru-v3-2-52cc938d1db0@pigmoral.tech>
+References: <20251216-dr1v90-cru-v3-0-52cc938d1db0@pigmoral.tech>
+In-Reply-To: <20251216-dr1v90-cru-v3-0-52cc938d1db0@pigmoral.tech>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Shuwei Wu <shuweiwoo@163.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1765850492; l=1390;
- i=shuweiwoo@163.com; s=20251125; h=from:subject:message-id;
- bh=4JEux+wemjhe5lRBTJMYmOo5JbXHIEj6+c2dZiB74RM=;
- b=IBMt8PFGdohtMqhWB2UmoRRcAUFBvDkXtpCpUypHi17BMGo7NcoyJ6EagYHfgnr1dwBZrT80M
- 2DUUw/J5whNA+TmA6JdliHQpyalK89xB+W/Gj/STy5B/OfzU8fA73x2
-X-Developer-Key: i=shuweiwoo@163.com; a=ed25519;
- pk=qZs6i2UZnXkmjUrwO5HJxcfpCvgSNrR4dcU5cjtfTSk=
-X-CM-TRANSID: _____wDXUu97vUBpOmJ5Ag--.29S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7uw43JF4rJr4rKw13GFyDWrg_yoW8JF47pF
-	s8ur95Cr1DGF4xJw4fur1UuFZxtF4rtFy2gr1Igw1YqF15CFy3Jr98try5Xa48Xry3JFyj
-	vrsrGr45CF1qyrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pi8sq_UUUUU=
-X-Originating-IP: [240c:c983:3:5c03:81d3:caf5:2e64:be2]
-X-CM-SenderInfo: 5vkx4vplzr0qqrwthudrp/xtbC5B-4h2lAvX+0VQAA3O
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1765856765; l=5234;
+ i=junhui.liu@pigmoral.tech; s=20250910; h=from:subject:message-id;
+ bh=ALpitnnLzJTc1MzTgQ2H8DGRaqnG8rx6bQ5zk8Xl2O8=;
+ b=XxYkN41uxIs6la8TNt0l+S196xv0qPiFPnhpnoC2KCT6bsOGez5cKvM+WqPwk13gVY/tG+JXb
+ NjODhJjvuoeDm/ane6t59uKE6618kfjIMI2Mb1ZQB0skMrQFiL/4xFu
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
+ pk=cgATWSU1KfGWmdwNmkPyHGnWgofhqqhE8Vts58wyxe4=
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_180233_288510_F5140A07 
-X-CRM114-Status: UNSURE (   7.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251215_194631_177863_D11DEE6F 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,41 +92,185 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce support for the on-die thermal sensor found
-on the SpacemiT K1 SoC.
+Add the Clock and Reset Unit (CRU) support for the Anlogic DR1V90 SoC,
+which is responsible for clock and reset management.
 
-Include the device tree binding documentation in YAML format, the
-thermal sensor driver implementation, and the device tree changes to
-enable the sensor on K1 SoC.
-
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 ---
-Changes in v2:
-- Move driver to drivers/thermal/spacemit/ and update Kconfig/Makefile
-- Address reviewer feedback on style and structure
-- Improve variable naming and comments
-- Link to v1: https://lore.kernel.org/r/20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com
+ .../bindings/clock/anlogic,dr1v90-cru.yaml         | 60 ++++++++++++++++++++++
+ include/dt-bindings/clock/anlogic,dr1v90-cru.h     | 46 +++++++++++++++++
+ include/dt-bindings/reset/anlogic,dr1v90-cru.h     | 41 +++++++++++++++
+ 3 files changed, 147 insertions(+)
 
----
-Shuwei Wu (3):
-      dt-bindings: thermal: Add SpacemiT K1 thermal sensor
-      thermal: spacemit: k1: Add thermal sensor support
-      riscv: dts: spacemit: Add thermal sensor for K1 SoC
+diff --git a/Documentation/devicetree/bindings/clock/anlogic,dr1v90-cru.yaml b/Documentation/devicetree/bindings/clock/anlogic,dr1v90-cru.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..165c71ce333a8ee8ebbc86f238bb807880580aca
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/anlogic,dr1v90-cru.yaml
+@@ -0,0 +1,60 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/anlogic,dr1v90-cru.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Anlogic DR1V90 Clock and Reset Unit (CRU)
++
++maintainers:
++  - Junhui Liu <junhui.liu@pigmoral.tech>
++
++properties:
++  compatible:
++    const: anlogic,dr1v90-cru
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Main Oscillator (33 MHz)
++      - description: External CAN clock
++      - description: External WDT clock
++
++  clock-names:
++    items:
++      - const: osc_33m
++      - const: can_ext
++      - const: wdt_ext
++
++  "#clock-cells":
++    const: 1
++    description:
++      Refer <dt-bindings/clock/anlogic,dr1v90-cru.h> for valid indices.
++
++  "#reset-cells":
++    const: 1
++    description:
++      Refer <dt-bindings/reset/anlogic,dr1v90-cru.h> for valid indices.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - "#clock-cells"
++  - "#reset-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-controller@f8801000 {
++        compatible = "anlogic,dr1v90-cru";
++        reg = <0xf8801000 0x400>;
++        clocks = <&osc_33m>, <&can_ext>, <&wdt_ext>;
++        clock-names = "osc_33m", "can_ext", "wdt_ext";
++        #clock-cells = <1>;
++        #reset-cells = <1>;
++    };
+diff --git a/include/dt-bindings/clock/anlogic,dr1v90-cru.h b/include/dt-bindings/clock/anlogic,dr1v90-cru.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..664daf3946a7bc5812f03ac026081027690bc562
+--- /dev/null
++++ b/include/dt-bindings/clock/anlogic,dr1v90-cru.h
+@@ -0,0 +1,46 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (C) 2024-2025 Anlogic, Inc.
++ * Copyright (C) 2025 Junhui Liu <junhui.liu@pigmoral.tech>
++ */
++
++#ifndef _DT_BINDINGS_CLOCK_ANLOGIC_DR1V90_CRU_H_
++#define _DT_BINDINGS_CLOCK_ANLOGIC_DR1V90_CRU_H_
++
++#define CLK_OSC_DIV2		0
++#define CLK_CPU_PLL		1
++#define CLK_CPU_PLL_4X		2
++#define CLK_CPU_4X		3
++#define CLK_CPU_2X		4
++#define CLK_CPU_1X		5
++#define CLK_IO_PLL		6
++#define CLK_IO_1000M		7
++#define CLK_IO_400M		8
++#define CLK_IO_25M		9
++#define CLK_IO_80M		10
++#define CLK_IO_400M_DIV2	11
++#define CLK_IO_400M_DIV4	12
++#define CLK_IO_400M_DIV8	13
++#define CLK_IO_400M_DIV16	14
++#define CLK_QSPI		15
++#define CLK_SPI			16
++#define CLK_SMC			17
++#define CLK_SDIO		18
++#define CLK_GPIO_DB		19
++#define CLK_EFUSE		20
++#define CLK_TVS			21
++#define CLK_TRNG		22
++#define CLK_OSC_DIV		23
++#define CLK_PWM			24
++#define CLK_FCLK0		25
++#define CLK_FCLK1		26
++#define CLK_FCLK2		27
++#define CLK_FCLK3		28
++#define CLK_WDT_SEL		29
++#define CLK_EFUSE_SEL		30
++#define CLK_CAN_SEL		31
++#define CLK_CPU_SEL		32
++#define CLK_CAN0		33
++#define CLK_CAN1		34
++
++#endif /* _DT_BINDINGS_CLOCK_ANLOGIC_DR1V90_CRU_H_ */
+diff --git a/include/dt-bindings/reset/anlogic,dr1v90-cru.h b/include/dt-bindings/reset/anlogic,dr1v90-cru.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..c5b7aae1ab6ac7b931c35e52615991afdfe43b08
+--- /dev/null
++++ b/include/dt-bindings/reset/anlogic,dr1v90-cru.h
+@@ -0,0 +1,41 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (C) 2025 Junhui Liu <junhui.liu@pigmoral.tech>
++ */
++
++#ifndef _DT_BINDINGS_RESET_ANLOGIC_DR1V90_CRU_H_
++#define _DT_BINDINGS_RESET_ANLOGIC_DR1V90_CRU_H_
++
++#define RESET_OCM		0
++#define RESET_QSPI		1
++#define RESET_SMC		2
++#define RESET_WDT		3
++#define RESET_DMAC_AXI		4
++#define RESET_DMAC_AHB		5
++#define RESET_NPU		6
++#define RESET_JPU		7
++#define RESET_DDRBUS		8
++#define RESET_NIC_HP0		9
++#define RESET_NIC_HP1		10
++#define RESET_NIC_GP0M		11
++#define RESET_NIC_GP1M		12
++#define RESET_GPIO		13
++#define RESET_IPC		14
++#define RESET_USB0		15
++#define RESET_USB1		16
++#define RESET_GBE0		17
++#define RESET_GBE1		18
++#define RESET_SDIO0		19
++#define RESET_SDIO1		20
++#define RESET_UART0		21
++#define RESET_UART1		22
++#define RESET_SPI0		23
++#define RESET_SPI1		24
++#define RESET_CAN0		25
++#define RESET_CAN1		26
++#define RESET_TTC0		27
++#define RESET_TTC1		28
++#define RESET_I2C0		29
++#define RESET_I2C1		30
++
++#endif /* _DT_BINDINGS_RESET_ANLOGIC_DR1V90_CRU_H_ */
 
- .../bindings/thermal/spacemit,k1-tsensor.yaml      |  76 ++++++
- arch/riscv/boot/dts/spacemit/k1.dtsi               | 101 ++++++++
- drivers/thermal/Kconfig                            |   2 +
- drivers/thermal/Makefile                           |   1 +
- drivers/thermal/spacemit/Kconfig                   |  19 ++
- drivers/thermal/spacemit/Makefile                  |   3 +
- drivers/thermal/spacemit/k1_tsensor.c              | 283 +++++++++++++++++++++
- 7 files changed, 485 insertions(+)
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20251215-patchv2-k1-thermal-5ffb838fc1cc
-
-Best regards,
 -- 
-Shuwei Wu <shuweiwoo@163.com>
+2.52.0
 
 
 _______________________________________________
