@@ -4,75 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF24D5C0C0
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 04:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09743D5B161
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 05:22:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UIsz7tqNDFAeAxZQTTPXTwa9XnF4F+bPjixVo4ksg3A=; b=32WK90OXWtGM1c
-	VTNvQlIuk0el7QCxVRJIXJIntWLABdFYXe76qfzVtK+D3ofPx0bPOzswE32xcZdjNDLvT9PjW6Ml2
-	L9obvDWvF2WGiHyspVlhwIAicAtTj/klgLVx8AV2I5oYN0DG0ByQkF9eEPF97azOzdwS77lx42eg/
-	5Rk0t0UyZcnsH3UzYii+Lvwk2HKNYqA6Rc18mVmNb7vcIPXav6b9v7wEic5IrnVvq8+CYX7Y8Wumx
-	5KsktLI0eUI0TnB2PjhOvFCtZfUCgkRw7T8r3OJut0OQ46K4rsgvVCKTihZx6Qa0ool9nFP7wh1GV
-	RmZC4cg55sNX0q2dUqyQ==;
+	List-Owner; bh=VTP62E7ixH810BDPhQ6AczlHJaSb90IRYtaxGgYIHLc=; b=xRTbFULvyALfsi
+	Sot4DwKpdjebXTQ4wuYKEaPEMt31JzOqezl8L4+AxiCZGEOnmcI17IzjaRXRQZyS7Yd9MsTK7ZyaL
+	S3PZAXgAsQ9Kl3PPe42Fylko/Ah95Vja//tmN38946ohGnFWipk7qbu8bus9hVMKWu+otvkyPDzJZ
+	cKhEvknPGEvHs0R+O76N2KEAkFD7eFG+62wYy5R5c6Om60SDEyIrQyBB/cRJ1GvhVr5/jIKFMY7br
+	f6usyEbtjxxOX2N5XMb+rd1rmJlvaHp9/XblB+yauPLhsn0h0lLiJnWmH3K+zw2Y1lXzHH45Jq0FG
+	bwFMfY4tU4nbWOqLEiWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVMUW-00000004fkW-2pzA;
-	Tue, 16 Dec 2025 04:16:52 +0000
-Received: from mail76.out.titan.email ([3.216.99.56])
+	id 1vVNVf-00000004iGi-17k3;
+	Tue, 16 Dec 2025 05:22:07 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVMUU-00000004fjH-1VKs
+	id 1vVNVc-00000004iGK-3TeR
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Dec 2025 04:16:51 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by smtp-out.flockmail.com (Postfix) with ESMTP id 4dVkCN0kqRz7t9J;
-	Tue, 16 Dec 2025 04:16:48 +0000 (UTC)
-DKIM-Signature: a=rsa-sha256; bh=7n7qMq2z773A6crxSe2h52Ruo5UwRmT1FP0PMQ4p+ec=;
-	c=relaxed/relaxed; d=ziyao.cc;
-	h=to:message-id:in-reply-to:date:from:subject:cc:references:mime-version:from:to:cc:subject:date:message-id:in-reply-to:references:reply-to;
-	q=dns/txt; s=titan1; t=1765858608; v=1;
-	b=C8ai/uUIcIC2/r/nA4mW3Nq1ffkkSI+I3YlQXUq3FWa23HXh8a/tFdEMWU2roXuU9kbCsiYu
-	lZSGqUF/tkrawoRz5rj97BGdWFBLWoJ5ggk0HP1c6Rt9P1a8ylySQHB3BRYR1NKllYeTq9M89qc
-	pHolYxhgXdEU8CuzjKVQ9730=
-Received: from pie (unknown [117.171.66.90])
-	by smtp-out.flockmail.com (Postfix) with ESMTPA id 4dVkCF3YM3z7t7t;
-	Tue, 16 Dec 2025 04:16:41 +0000 (UTC)
-Date: Tue, 16 Dec 2025 04:16:27 +0000
-Feedback-ID: :me@ziyao.cc:ziyao.cc:flockmailId
-From: Yao Zi <me@ziyao.cc>
-To: Shuwei Wu <shuweiwoo@163.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] thermal: spacemit: k1: Add thermal sensor support
-Message-ID: <aUDc-o63KJpY8xLG@pie>
-References: <20251216-patchv2-k1-thermal-v1-0-d4b31fe9c904@163.com>
- <20251216-patchv2-k1-thermal-v1-2-d4b31fe9c904@163.com>
+	Tue, 16 Dec 2025 05:22:05 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-34c277ea011so3116775a91.1
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Dec 2025 21:22:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765862523; x=1766467323; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=g0IdpBtg/JhdmjSRlVsZcTYVx5UhfvoA9V35JLo5kNg=;
+        b=GUgy9BXP32giqmCnzyXoU5ZCfENRTUMzS7mp/vHGKxpsAKfnW7QE+89eS7Dr5xQib1
+         076vgcP6lQipDFtQPT05YtsVfJnZheGfmLsJ9DzZC5DKKNONvdS7TQ34MwHj1qR9irkG
+         szbibw1m+MLN2VTvle+wnTJ2cZx2lWfTXjFNuElM18FkGHw/v0uOE/L1YsTi3lKjCVkJ
+         dEh71ts16f6ni0DMquarigspvkYVsxF1Lx8c/XS1g1Sepu535FC0hbAoCcBu+7ryv3Q4
+         mPWYAsgp5vbI4zkTQylBdZdbhy7EWrPMb6wVACDXDPie0g0qq1wDQhZOq6CVWUbhCRNd
+         YsWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765862523; x=1766467323;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=g0IdpBtg/JhdmjSRlVsZcTYVx5UhfvoA9V35JLo5kNg=;
+        b=HVdRE02v4wUTxT13PBdii/900NuQ97wp1xz4ibGlj0L2AM0LsW487mUxcSxpWbczfm
+         sFYlyll4LqEm9OwFG6Rgk0nOItsoOJup0YMnklJVMZNYRe3hUu79xtPzqrbdT+12P77N
+         r1p1XoqbB/D/7b+6vj4iibecpSzBmz8ey/5EypCbSuURdxwrPfUPLFHDoXz9lje8jIs2
+         ZEquKKwtaH4HpCeTwfhAMxwUdp/gugXMFFUzmYO0RNSlaXmMGceN/1QIFJ5GgqN6iWZ7
+         oxnDqxklMPAkNwloGXmDDaXR3pH4PJiihFplC7h26mt3okv+2ZC87NRIyHLcjjcoVd1t
+         77Yw==
+X-Forwarded-Encrypted: i=1; AJvYcCWf5IkOR0J8QTRjVcrpWNW+1UwA/tT/YmqSzX5F9vyajxt/khhll3KQ/Psyuyt+gnb8aLISoouqOF/tSQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyt3J4GhGLbAQHgnFL2VjWctn7my9ZsdldeWwx3dZoxP/8OS0oz
+	ou9Maez9NAly2WuKIj3BHkP3SbctMZxtNApuV+uOvqYtwMdEqQhfBkNk
+X-Gm-Gg: AY/fxX4tEykYOqE21a7vTZ6+3lCWxgiA6wUhl20TMcnuetzSoL/70ZBqlHHW52nJdZQ
+	oF05KDfyp9jHKt9ZwH5MiwG47WbOBAnNG6BL+vhVRHXcTsKhPiMBVhSyQVgPXe1KPUGX7A2oAeN
+	hNkAePk4y4z1vfdtifJi4sTwapJMRocOk2mxC5qDWc90iAdlSq/XL3VVN4a1SZnNWnF+WujKgkB
+	+2ufFhzdrn4WLe5gHY+uPCdoIu29PPIwvP2dYhSYOnUKuS3Uugk8o4yjsQycgf9HzuZecLZo9lN
+	hJdpUwfl9gSZGrtqE0ZuvDA3HJu+1muMdeFFspi5ERCixhi7uq5pQx9q1uO8pQ6340b5csRhLa9
+	mkvUAVj3V41anZnfoMPQWgccFKRxubUImaNPYIx5XXc+wm4hQAySX3eJeXjsKBPEU
+X-Google-Smtp-Source: AGHT+IH7rgc/KiTJTKPFRn//6KTwpo0aXlM6RPxFGdwYRhguaslwU6dfICFDwUD8TCCvmZpUxPVrDg==
+X-Received: by 2002:a17:90b:1fc6:b0:349:7fc6:18 with SMTP id 98e67ed59e1d1-34abd6e0193mr11861601a91.13.1765862522998;
+        Mon, 15 Dec 2025 21:22:02 -0800 (PST)
+Received: from localhost ([221.192.179.227])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34cd4bd9987sm109226a91.4.2025.12.15.21.22.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Dec 2025 21:22:02 -0800 (PST)
+Date: Tue, 16 Dec 2025 13:21:56 +0800
+From: Encrow Thorne <jyc0019@gmail.com>
+To: Guodong Xu <guodong@riscstar.com>
+Cc: alex@ghiti.fr, andi.shyti@kernel.org, aou@eecs.berkeley.edu,
+	conor+dt@kernel.org, devicetree@vger.kernel.org, dlan@gentoo.org,
+	krzk+dt@kernel.org, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	p.zabel@pengutronix.de, palmer@dabbelt.com, pjw@kernel.org,
+	robh@kernel.org, spacemit@lists.linux.dev,
+	troy.mitchell@linux.spacemit.com, troymitchell988@gmail.com
+Subject: Re: [PATCH 2/3] i2c: k1: add reset support
+Message-ID: <20251216052156.GB6413@hailin-HP-Pavilion-Laptop-14-dv0xxx>
+References: <20251119-i2c-k1_reset-support-v1-2-0e9e82bf9b65@gmail.com>
+ <20251211073526.3164875-1-guodong@riscstar.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251216-patchv2-k1-thermal-v1-2-d4b31fe9c904@163.com>
-X-F-Verdict: SPFVALID
-X-Titan-Src-Out: 1765858607931248556.30087.3778824715309203318@prod-use1-smtp-out1002.
-X-CMAE-Score: 0
-X-CMAE-Analysis: v=2.4 cv=TPG/S0la c=1 sm=1 tr=0 ts=6940dd2f
-	a=rBp+3XZz9uO5KTvnfbZ58A==:117 a=rBp+3XZz9uO5KTvnfbZ58A==:17
-	a=kj9zAlcOel0A:10 a=MKtGQD3n3ToA:10 a=CEWIc4RMnpUA:10 a=Byx-y9mGAAAA:8
-	a=K1kigjf773wChWhSffkA:9 a=CjuIK1q_8ugA:10 a=3z85VNIBY5UIEeAh_hcH:22
-	a=NWVoK91CQySWRX1oVYDe:22
+In-Reply-To: <20251211073526.3164875-1-guodong@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_201650_494200_A192C770 
-X-CRM114-Status: GOOD (  23.73  )
+X-CRM114-CacheID: sfid-20251215_212204_873783_0E8DBE39 
+X-CRM114-Status: GOOD (  25.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,104 +104,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 16, 2025 at 10:00:36AM +0800, Shuwei Wu wrote:
-> The thermal sensor on K1 supports monitoring five temperature zones.
-> The driver registers these sensors with the thermal framework
-> and supports standard operations:
-> - Reading temperature (millidegree Celsius)
-> - Setting high/low thresholds for interrupts
+On Thu, Dec 11, 2025 at 03:35:26PM +0800, Guodong Xu wrote:
+> On Wed, Nov 19, 2025 at 07:46:44PM +0800, Encrow Thorne wrote:
+> > Add reset control handling to the K1 I2C driver.
+> >
+> > Signed-off-by: Encrow Thorne <jyc0019@gmail.com>
+> > ---
+> >  drivers/i2c/busses/i2c-k1.c | 11 +++++++++++
+> >  1 file changed, 11 insertions(+)
+> >
+> > diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
+> > index 6b918770e612..64d817d8315d 100644
+> > --- a/drivers/i2c/busses/i2c-k1.c
+> > +++ b/drivers/i2c/busses/i2c-k1.c
+> > @@ -10,6 +10,7 @@
+> >   #include <linux/module.h>
+> >   #include <linux/of_address.h>
+> >   #include <linux/platform_device.h>
+> > + #include <linux/reset.h>
+> >
+> >  /* spacemit i2c registers */
+> >  #define SPACEMIT_ICR		 0x0		/* Control register */
+> > @@ -113,6 +114,7 @@ struct spacemit_i2c_dev {
+> >  	void __iomem *base;
+> >  	int irq;
+> >  	u32 clock_freq;
+> > +	struct reset_control *resets;
 > 
-> Signed-off-by: Shuwei Wu <shuweiwoo@163.com>
-> ---
-> Changes in v2:
-> - Rename k1_thermal.c to k1_tsensor.c for better hardware alignment
-> - Move driver to drivers/thermal/spacemit/
-> - Add Kconfig/Makefile for spacemit and update top-level build files
-> - Refactor names, style, code alignment, and comments
-> - Simplify probe and error handling
-> ---
->  drivers/thermal/Kconfig               |   2 +
->  drivers/thermal/Makefile              |   1 +
->  drivers/thermal/spacemit/Kconfig      |  19 +++
->  drivers/thermal/spacemit/Makefile     |   3 +
->  drivers/thermal/spacemit/k1_tsensor.c | 283 ++++++++++++++++++++++++++++++++++
->  5 files changed, 308 insertions(+)
-> diff --git a/drivers/thermal/spacemit/k1_tsensor.c b/drivers/thermal/spacemit/k1_tsensor.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..f164754e807ddd311c8cf98bcc074fd580514aa2
-> --- /dev/null
-> +++ b/drivers/thermal/spacemit/k1_tsensor.c
+> Thanks for the patch! A few suggestions to simplify this:
+> 
+> The reset_control structure doesn't need to be stored in the device
+> struct since the devm API automatically manages the resource lifecycle.
+> 
+> >
+> >  	struct i2c_msg *msgs;
+> >  	u32 msg_num;
+> > @@ -571,6 +573,15 @@ static int spacemit_i2c_probe(struct platform_device *pdev)
+> 
+> Please use a local variable in the probe function instead:
+> 
+>        struct reset_control *rst;
+> 
+> >  	if (IS_ERR(clk))
+> >  		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable bus clock");
+> >
+> > +	i2c->resets = devm_reset_control_get_optional(dev, NULL);
+>
+  
+> There is a new API, I would suggest this:
+>        rst = devm_reset_control_get_optional_exclusive_deasserted(dev, NULL);
+> 
+> 
+> > +	if (IS_ERR(i2c->resets))
+> > +		return dev_err_probe(dev, PTR_ERR(i2c->resets),
+> > +				    "failed to get reset\n");
+> > +
+> > +	reset_control_assert(i2c->resets);
+> > +	udelay(2);
+> > +	reset_control_deassert(i2c->resets);
+> > +
+> 
+> Why you need to call assert() then deassert()?
+> Wouldn't the single API fit?
+> 
+ Good point.
+ 
+ Thank you for your suggestions, I will fix them in v2.
 
-...
-
-> +static void k1_tsensor_init(struct k1_tsensor *ts)
-> +{
-
-Configuration of K1_TSU_PCTRL2 (offset 0x04) is removed in this
-revision, but why? Isn't it necessary for the sensor to function?
-
-And you didn't ask my question raised in v1 about the source of 24MHz
-clock. I still suspect whether the binding is complete or not.
-
-> +	u32 val;
-> +
-> +	/* Disable all the interrupts */
-> +	writel(0xffffffff, ts->base + K1_TSENSOR_INT_EN_REG);
-> +
-> +	/* Configure ADC sampling time and filter period */
-> +	val = readl(ts->base + K1_TSENSOR_TIME_REG);
-> +	val &= ~K1_TSENSOR_TIME_MASK;
-> +	val |= K1_TSENSOR_TIME_FILTER_PERIOD |
-> +		K1_TSENSOR_TIME_ADC_CNT_RST |
-> +		K1_TSENSOR_TIME_WAIT_REF_CNT;
-
-It's more natural to align K1_TSENSOR_TIME_ADC_CNT_RST and other
-following constants with K1_TSENSOR_TIME_FILTER_PERIOD. This applies for
-other multiple-line assignments, too.
-
-...
-
-> +static int k1_tsensor_probe(struct platform_device *pdev)
-> +{
-
-...
-
-> +	for (i = 0; i < MAX_SENSOR_NUMBER; ++i) {
-> +		ts->ch[i].id = i;
-> +		ts->ch[i].ts = ts;
-> +		ts->ch[i].tzd = devm_thermal_of_zone_register(dev, i, ts->ch + i, &k1_tsensor_ops);
-> +		if (IS_ERR(ts->ch[i].tzd))
-> +			return PTR_ERR(ts->ch[i].tzd);
-
-Would emitting a error message with dev_err_probe() help here?
-
-> +
-> +		/* Attach sysfs hwmon attributes for userspace monitoring */
-> +		ret = devm_thermal_add_hwmon_sysfs(dev, ts->ch[i].tzd);
-> +		if (ret)
-> +			dev_warn(dev, "Failed to add hwmon sysfs attributes\n");
-> +
-> +		k1_tsensor_enable_irq(ts->ch + i);
-> +	}
-> +
-> +	irq = platform_get_irq(pdev, 0);
-> +	if (irq < 0)
-> +		return irq;
-
-Same as the above question.
-
-> +	ret = devm_request_threaded_irq(dev, irq, NULL,
-> +					k1_tsensor_irq_thread,
-> +					IRQF_ONESHOT, "k1_tsensor", ts);
-> +	if (ret < 0)
-> +		return ret;
-
-Same as above.
-
-Besides these questions, the driver itself looks pretty nice to me :)
-
-Best regards,
-Yao Zi
+ 				- Encrow
+> Best regards,
+> Guodong
+> 
+> >  	spacemit_i2c_reset(i2c);
+> >
+> >  	i2c_set_adapdata(&i2c->adapt, i2c);
+> >
 
 _______________________________________________
 linux-riscv mailing list
