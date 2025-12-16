@@ -4,90 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3437AD5E14C
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 13:18:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4189D5E14E
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 13:23:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IXhbYah9Z3o7ge23VB8rP8qwed34eXD/BjTTVCzgT/s=; b=qylZ5D5D547dK6
-	eaCV7woIQSGfIAO4GLUYv5orS/yiTKRXeqf6zo97uLy4bgkQPLozmxBCd5CfgfVSJMxl8vwKCz/OM
-	UBaQRvpS3csKAdfwmGRkW9BMMMOy0LCcO+xNR0l53DTrc+hFi4aNtyTYC67lwJRI1uNxFv2/DdshZ
-	TVqrcx1D4YFGwpZ9z46W3epe5+7GSYkz8g5bvYEuP9tatomfEPnB30x1KLemvvSXtogBPcHvbio4E
-	JgVpodmRtEapBV4oss9KhXhFQzXWG/Ha+czIV1i6stNamfW9xh2GGwEF1VrznNvWgaoI5RQM4D/8D
-	2r6iBsZOGUHhlESbvJaQ==;
+	List-Owner; bh=6yoMAOq3wNQrCiovTyanxT/UrDd3HM0odxpdQN9Gpw8=; b=UFz2gICBP8A3hj
+	XamtoeIXd0ZYURrlY0/bbtaKTyYyFWiysBvLjtHpgGZ+RFUYbazNDQt9XObrwT9fAUuYnmITz2tog
+	wKbSj31w8AhS/g3N/gLQakraagHEYasyzYedzy+/v5bBC/OiTA4xb+Ycfu73CBq2nZOS6DVBjCzbG
+	7NLrX29WzYsrcRT0GisKO0QsM09gbodgTaUrEHt55xMcS7+TLpYuKMFVMFqqrTRjPQzLJpt2Zx4zV
+	PVIRNlnp8wyzLnKYyb173o/FwjNjIwi57Bkj8h4aekCdk7AlrRGKNOuYjzImESXCuECoGR0LeIk0U
+	WgIkxtLHxOhjk6PC+yjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVUw7-00000005Eog-3wuc;
-	Tue, 16 Dec 2025 13:17:55 +0000
-Received: from mail-oo1-xc2e.google.com ([2607:f8b0:4864:20::c2e])
+	id 1vVV1j-00000005F4H-0Fgh;
+	Tue, 16 Dec 2025 13:23:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVUw3-00000005EoE-0vPT
+	id 1vVV1g-00000005F3P-2wjo
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Dec 2025 13:17:54 +0000
-Received: by mail-oo1-xc2e.google.com with SMTP id 006d021491bc7-657509d761dso2697260eaf.0
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Dec 2025 05:17:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765891070; x=1766495870; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=M5Nc5kSjeLOYF1kQP3EhPUJ3irJVYIWAj/CpkVkXlqs=;
-        b=m+o7zPJ6OyAYkoHYFN0Y7p7y2T5+x7DiZxELnnEDXMGEpzr+q37KWNrPegilQGZQdP
-         GNleQxbjopQHKO9MEzCvzyLys6P1UUxlXwW6ZXi1bPSH4qj2I75vGMrmeboAhf2JWeWF
-         8tx5xu61REjXdlwnviJBGXXTz58QrbfpDIBDhnAi7/QOPZxzJ9IYR/zh+/dqag3hYOUE
-         QW4MkEY/xKJEtxQRRjewEXHriFRNgrgizgN4soJhJhTQQ5O1mGJ9AhOCu2aaCecR4omD
-         F1IKoAFNwVHS/6X61ZFAhVQmN/dSlXE+irYnKNC24jrne9+h6J6lG2PtnxXNHjT2EIAr
-         1PWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765891070; x=1766495870;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=M5Nc5kSjeLOYF1kQP3EhPUJ3irJVYIWAj/CpkVkXlqs=;
-        b=SET9HptaWlwOBVvN//spbwUMqf6qntd49IjJ6130Zo+2qoJ1o68gNqngtnWvazQzda
-         J2s35bjQB1+xksyP7eJNOpybBfvJwPs/wkblIosrC+tCkQ1a6pAARhvjkZTeRJC4+jWi
-         jB2vo94qQq4ieyrGATPzJmQGHnFgxIA+GxIIRfSbEksxJ89/kwiwjKMrBoTg2BENC0Y9
-         OjlXmKi7lVm8IzciLK8IeOMmXfb2RtrKvdcU44WVgONNPWTzFuWIAyqRKENZkr+OXaaP
-         H9kpv15mBmXBb4y/k2KHbN/KKqFuARcyCE8oIRwnMcYErB8NZj7qsie0BvpMAOyvNKiQ
-         y+6g==
-X-Forwarded-Encrypted: i=1; AJvYcCWhGDY+EukgzN+RV7dZahwG07h2CioQJhJIFHhuVzsR7C2T2addUb8odUQlQw8EDxHXcC6DkbvmOXKVHA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxueL8OC5dhstprPtUKskhJ4UZtdIbF+i6EMYsjxo5eHJf9HmO3
-	5zaBZZstGQzxjhK/5yVf65AVDyBCvGmT7xihCZ2KqT8Juh3CYxU8yXf2iiJOWBt+PtxOSCN+IVy
-	xAKD+O5xRJ4bQ5pPbaDpqzEen0z2vIXFecFoWfcbKRg==
-X-Gm-Gg: AY/fxX4Q0YUSU7zmrZe1j8I3NJPMttECe0F15nPM8YcNNBybe9mHg3D9jSv4uwdxJOO
-	UuNL+2ONXMkP0sX4BwUFKle8QRZmQ4wmqsc+MfglWwO9L4z0gDYSmjjV6764YBTXKDvW9/GJu+c
-	2i+yeebLN40Sp8aSTmlaX7QIvrrp5ylD7xpngOOKJYy778oOQQirXD4Ud0wLWPBVyE4e26iV02u
-	PCV/e3pNXaCK6FN6Mb54zCPaxzdBVj0z/AAlS/bA/miFLhXCQisAQ4aun5fXkJ72Ziebw4ZXOb1
-	Odn9SwH1MaKE1ovmAnBGtr4d8yWAHCBSbRON
-X-Google-Smtp-Source: AGHT+IH8VEaZzqh5zZTcB8vKsSC66JepkEuL2a9J2zyEGbF3ADaE18eZgFTcRxc8CGjXDE5KvbwfgmqDaqUUUAD3soA=
-X-Received: by 2002:a05:6820:2214:b0:659:9a49:8fbe with SMTP id
- 006d021491bc7-65b452848f3mr6608510eaf.55.1765891069683; Tue, 16 Dec 2025
- 05:17:49 -0800 (PST)
+	Tue, 16 Dec 2025 13:23:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E2D16444A2
+	for <linux-riscv@lists.infradead.org>; Tue, 16 Dec 2025 13:23:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7E13C2BCAF
+	for <linux-riscv@lists.infradead.org>; Tue, 16 Dec 2025 13:23:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765891419;
+	bh=DPq1jAGc1D2O/ZyUazla2tvm5eNJUgScceBv0fDtLkU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=nGre6DbvGUgnZ+ESxttsrnECY5lWVvqQ1gRq4R08/NWMM6Rb5ayGTuV9K9W/HqR3Q
+	 YGAGrMdKjxCZnF9RFyzdK69F1AQUANMKOGzht2N/FoW3JIeHZRdnF2XsY2K6sgW70V
+	 U+HDhuzRiG/Lo6imIWRSAqVyL/NRr0FvFO4gOUpyGp6IDnfl/qh3D/gj1x5B8ycpG2
+	 gAzN/+9lxsa+fl1T+WbVyRxI/k88S3LHjZRCLCWuBXE6N3osXAj09ZGHK4TAGCckwT
+	 gZZIYQP8g382SyQr6jZi16qKdej6YlbWsF/u8WCmfc+fxrtTHYs0PrlqLhepsiLRQ3
+	 PMZCjx7IxWsOg==
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-34aa62f9e74so5704205a91.1
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Dec 2025 05:23:39 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUY4O72MvbJHNv/N50vqINMsgovK4MwLxt+YygE7Dws3c7fh69OZZNllUXRLaYpjdirBOXH3rsflbzSNA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJYCt5nTUysVoyJyPgEqJ36toL5oVLoYfztW4vKOa/AxCnpd3m
+	biGvrfvS9i3/vITufHd5tDxqYYDqNR/NYdToDHnekwWdGnt3OHV/G18GjGSLmB/JfDdv1J6ahbt
+	pKuqmP2kiNh49trGl9eOFmGv2FLKJZ/c=
+X-Google-Smtp-Source: AGHT+IHUnDpKNHYUuXbGrQN2jg3vGOrZPyoOq5q+Rmr8AbIh7IbWBUkMTVkTTrw2Wag6CLrhtskPUlwtBJIXFO06Kbc=
+X-Received: by 2002:a17:90b:4cce:b0:34a:b1ea:664e with SMTP id
+ 98e67ed59e1d1-34abd734361mr11835652a91.15.1765891419204; Tue, 16 Dec 2025
+ 05:23:39 -0800 (PST)
 MIME-Version: 1.0
-References: <20251204101730.1036671-1-arnd@kernel.org> <CAHUa44H1Ejbbuzr1hF1HrT69JGgnvfkkDkh+9KvEvBT+eWBDhw@mail.gmail.com>
- <0b061075-ab71-4ac1-93ec-438ddaaec903@oss.qualcomm.com> <aTbCqyOuprPOyU4X@sumit-X1>
- <2c0d09b7-0d8c-4bf2-a1bd-1dc4b58cd0a8@oss.qualcomm.com> <3aacf997-3a21-4e4b-b6bd-c55c36fb4c74@oss.qualcomm.com>
- <CAHUa44GO-D1YcQ_36pe-vQ83fB9rcOkny+M7a=CThAxWb6TLTQ@mail.gmail.com> <ba8554b7-499b-4fb8-b792-471d83cf3893@oss.qualcomm.com>
-In-Reply-To: <ba8554b7-499b-4fb8-b792-471d83cf3893@oss.qualcomm.com>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Tue, 16 Dec 2025 14:17:37 +0100
-X-Gm-Features: AQt7F2rzrn2reenZ61zHb0RF-mtpsW8kdfOWWvyd1ydaz_86tS9Y4U3dPNZzna4
-Message-ID: <CAHUa44GaKGhDuNcMqn0c0UgK-CV3bHoUE_Q_X-0ZY+jNEs9ZcQ@mail.gmail.com>
-Subject: Re: [PATCH] tee: fix tee_ioctl_object_invoke_arg padding
-To: Harshal Dev <harshal.dev@oss.qualcomm.com>
-Cc: Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>, Sumit Garg <sumit.garg@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Arnd Bergmann <arnd@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Sumit Garg <sumit.garg@oss.qualcomm.com>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Etienne Carriere <etienne.carriere@foss.st.com>, Randy Dunlap <rdunlap@infradead.org>, 
-	op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
+References: <20251126160854.553077-1-tzimmermann@suse.de> <20251126160854.553077-10-tzimmermann@suse.de>
+In-Reply-To: <20251126160854.553077-10-tzimmermann@suse.de>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Tue, 16 Dec 2025 14:23:28 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXFeBS7O5A-CPds3UfFnjegGTpVsuF7VznBc-zZ+gjygtw@mail.gmail.com>
+X-Gm-Features: AQt7F2oAVMGGFI57G40bXQNZ0WT8L2VZYIDSVOafxb5SZLs3ZzjQIedL6et7Yfs
+Message-ID: <CAMj1kXFeBS7O5A-CPds3UfFnjegGTpVsuF7VznBc-zZ+gjygtw@mail.gmail.com>
+Subject: Re: [PATCH v3 9/9] efi: libstub: Simplify interfaces for primary_display
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: javierm@redhat.com, arnd@arndb.de, richard.lyu@suse.com, 
+	helgaas@kernel.org, x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-fbdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_051751_919738_4401F99F 
-X-CRM114-Status: GOOD (  30.53  )
+X-CRM114-CacheID: sfid-20251216_052340_806693_DA256FEB 
+X-CRM114-Status: GOOD (  34.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,68 +82,231 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksCgpPbiBUdWUsIERlYyAxNiwgMjAyNSBhdCAxMTo1NuKAr0FNIEhhcnNoYWwgRGV2CjxoYXJz
-aGFsLmRldkBvc3MucXVhbGNvbW0uY29tPiB3cm90ZToKPgo+IEhpIEplbnMsCj4KPiBPbiAxMi8x
-Ni8yMDI1IDE6MTggUE0sIEplbnMgV2lrbGFuZGVyIHdyb3RlOgo+ID4gSGksCj4gPgo+ID4gT24g
-VHVlLCBEZWMgOSwgMjAyNSBhdCA0OjU04oCvQU0gQW1pcnJlemEgWmFycmFiaQo+ID4gPGFtaXJy
-ZXphLnphcnJhYmlAb3NzLnF1YWxjb21tLmNvbT4gd3JvdGU6Cj4gPj4KPiA+PiBIaSwKPiA+Pgo+
-ID4+IE9uIDEyLzgvMjAyNSAxMTo1NCBQTSwgSGFyc2hhbCBEZXYgd3JvdGU6Cj4gPj4+Cj4gPj4+
-Cj4gPj4+IE9uIDEyLzgvMjAyNSA1OjUwIFBNLCBTdW1pdCBHYXJnIHZpYSBPUC1URUUgd3JvdGU6
-Cj4gPj4+PiBPbiBNb24sIERlYyAwOCwgMjAyNSBhdCAwNDoyNDoxN1BNICsxMTAwLCBBbWlycmV6
-YSBaYXJyYWJpIHdyb3RlOgo+ID4+Pj4+IEhpLAo+ID4+Pj4+Cj4gPj4+Pj4gT24gMTIvNS8yMDI1
-IDEyOjI3IEFNLCBKZW5zIFdpa2xhbmRlciB3cm90ZToKPiA+Pj4+Pj4gSGksCj4gPj4+Pj4+Cj4g
-Pj4+Pj4+IE9uIFRodSwgRGVjIDQsIDIwMjUgYXQgMTE6MTfigK9BTSBBcm5kIEJlcmdtYW5uIDxh
-cm5kQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4+Pj4+Pj4KPiA+Pj4+Pj4+IEZyb206IEFybmQgQmVy
-Z21hbm4gPGFybmRAYXJuZGIuZGU+Cj4gPj4+Pj4+Pgo+ID4+Pj4+Pj4gVGhlIHRlZV9pb2N0bF9v
-YmplY3RfaW52b2tlX2FyZyBzdHJ1Y3R1cmUgaGFzIHBhZGRpbmcgb24gc29tZQo+ID4+Pj4+Pj4g
-YXJjaGl0ZWN0dXJlcyBidXQgbm90IG9uIHg4Ni0zMiBhbmQgYSBmZXcgb3RoZXJzOgo+ID4+Pj4+
-Pj4KPiA+Pj4+Pj4+IGluY2x1ZGUvbGludXgvdGVlLmg6NDc0OjMyOiBlcnJvcjogcGFkZGluZyBz
-dHJ1Y3QgdG8gYWxpZ24gJ3BhcmFtcycgWy1XZXJyb3I9cGFkZGVkXQo+ID4+Pj4+Pj4KPiA+Pj4+
-Pj4+IEkgZXhwZWN0IHRoYXQgYWxsIGN1cnJlbnQgdXNlcnMgb2YgdGhpcyBhcmUgb24gYXJjaGl0
-ZWN0dXJlcyB0aGF0IGRvCj4gPj4+Pj4+PiBoYXZlIGltcGxpY2l0IHBhZGRpbmcgaGVyZSAoYXJt
-NjQsIGFybSwgeDg2LCByaXNjdiksIHNvIG1ha2UgdGhlIHBhZGRpbmcKPiA+Pj4+Pj4+IGV4cGxp
-Y2l0IGluIG9yZGVyIHRvIGF2b2lkIHN1cnByaXNlcyBpZiB0aGlzIGxhdGVyIGdldHMgdXNlZCBl
-bHNld2hlcmUuCj4gPj4+Pj4+Pgo+ID4+Pj4+Pj4gRml4ZXM6IGQ1YjhiMGZhMTc3NSAoInRlZTog
-YWRkIFRFRV9JT0NUTF9QQVJBTV9BVFRSX1RZUEVfT0JKUkVGIikKPiA+Pj4+Pj4+IFNpZ25lZC1v
-ZmYtYnk6IEFybmQgQmVyZ21hbm4gPGFybmRAYXJuZGIuZGU+Cj4gPj4+Pj4+PiAtLS0KPiA+Pj4+
-Pj4+IFRoZSBuZXcgaW50ZXJmYWNlIHNob3dlZCB1cCBpbiA2LjE4LCBidXQgSSBvbmx5IGNhbWUg
-YWNyb3NzIHRoaXMgYWZ0ZXIKPiA+Pj4+Pj4+IHRoYXQgd2FzIHJlbGVhc2VkLiBDaGFuZ2luZyBp
-dCBub3cgaXMgdGVjaG5pY2FsbHkgYW4gQUJJIGNoYW5nZSBvbgo+ID4+Pj4+Pj4gYXJjaGl0ZWN0
-dXJlcyB3aXRoIHVudXN1YWwgcGFkZGluZyBydWxlcywgc28gcGxlYXNlIGNvbnNpZGVyIGNhcmVm
-dWxseQo+ID4+Pj4+Pj4gd2hldGhlciB3ZSB3YW50IHRvIGRvIGl0IHRoaXMgd2F5IG9yIG5vdC4K
-PiA+Pj4+Pj4+Cj4gPj4+Pj4+PiBXb3JraW5nIGFyb3VuZCB0aGUgQUJJIGRpZmZlcmVuY2VzIHdp
-dGhvdXQgYW4gQUJJIGNoYW5nZSBpcyBwb3NzaWJsZSwKPiA+Pj4+Pj4+IGJ1dCBhZGRzIGEgbG90
-IG9mIGNvbXBsZXhpdHkgZm9yIGNvbXBhdCBoYW5kbGluZy4KPiA+Pj4+Pj4KPiA+Pj4+Pj4gVGhp
-cyBpcyBjdXJyZW50bHkgb25seSB1c2VkIGJ5IHRoZSByZWNlbnRseSBpbnRyb2R1Y2VkIHFjb210
-ZWUgYmFja2VuZAo+ID4+Pj4+PiBkcml2ZXIuIFNvIGl0J3Mgb25seSB1c2VkIG9uIGEgZmV3IGFy
-bTY0IFF1YWxjb21tIHBsYXRmb3JtcyByaWdodCBub3cuCj4gPj4+Pj4+Cj4gPj4+Pj4+IEkgdGhp
-bmsgd2Ugc2hvdWxkIHRha2UgdGhpcyBwYXRjaCwgYnV0IGxldCdzIGhlYXIgd2hhdCBvdGhlcnMg
-dGhpbmsuCj4gPj4+Pgo+ID4+Pj4gWWVhaCBzaW5jZSBpdCdzIG5vdCBhbiBBQkkgaXNzdWUgb24g
-YXJtNjQgcGxhdGZvcm1zIHdoZXJlIFFURUUgcnVucywgc286Cj4gPj4+Pgo+ID4+Pj4gUmV2aWV3
-ZWQtYnk6IFN1bWl0IEdhcmcgPHN1bWl0LmdhcmdAb3NzLnF1YWxjb21tLmNvbT4KPiA+Pj4+Cj4g
-Pj4+Pj4+Cj4gPj4+Pj4+IFRoYW5rcywKPiA+Pj4+Pj4gSmVucwo+ID4+Pj4+Pgo+ID4+Pj4+Cj4g
-Pj4+Pj4gSSBhZ3JlZS4gV2Ugc2hvdWxkIHRha2UgdGhpcyBwYXRjaC4gQXMgbm90ZWQsIHRoZXJl
-IGFyZSBub3QgbWFueQo+ID4+Pj4+IGNsaWVudHMgcmVseWluZyBvbiBpdCB5ZXQsIHNvIHVwZGF0
-aW5nIHRoZSB1c2Vyc3BhY2Ugc2hvdWxkCj4gPj4+Pj4gYmUgc3RyYWlnaHRmb3J3YXJkLgo+ID4+
-Pj4KPiA+Pj4+IFlvdSBzaG91bGQgcmF0aGVyIHRlc3Qgd2l0aG91dCBhbnkgdXNlcnNwYWNlIGxp
-YnJhcnkgdXBkYXRlIHRvIHRlc3QgaXQncwo+ID4+Pj4gbm90IGFuIEFCSSBpc3N1ZS4gSnVzdCBm
-b3IgY29ycmVjdG5lc3Mgc2FrZSwgeW91IGNhbiB1cGRhdGUgdGhlIGxpYnJhcnkKPiA+Pj4+IHRv
-by4KPiA+Pj4+Cj4gPj4+Cj4gPj4+IEknbGwgdGFrZSB0aGUgdGltZSB0byB0ZXN0IGl0IGF0IHNv
-bWUgcG9pbnQgdGhpcyB3ZWVrIGJvdGggd2l0aCBhbmQgd2l0aG91dCB1cGRhdGluZwo+ID4+PiB0
-aGUgbGlicmFyeSBBQkkuCj4gPj4+Cj4gPj4KPiA+PiBTdW1taXQsIHRoYXQgd2FzIHRoZSBwbGFu
-IGZyb20gdGhlIGJlZ2lubmluZywgdGhhdCdzIHdoeSBJIGRpZCBub3QgYWRkICJSZXZpZXdlZC1i
-eToiCj4gPj4gaW4gdGhlIGZpcnN0IHBsYWNlLiBUaGFua3MgSGFyc2hhbCBmb3Igdm9sdW50ZWVy
-aW5nLgo+ID4KPiA+IEFyZSB3ZSBnb29kIHdpdGggdGhpcyBwYXRjaCBub3c/Cj4gPgo+Cj4gWWVz
-LCB0aGlzIGlzIGdvb2QgZnJvbSBvdXIgc2lkZS4KPgo+IFRlc3RlZC1ieTogSGFyc2hhbCBEZXYg
-PGhhcnNoYWwuZGV2QG9zcy5xdWFsY29tbS5jb20+CgpHb29kLCB0aGFuayB5b3UsIEhhcnNoYWwu
-CgpSZXZpZXdlZC1ieTogSmVucyBXaWtsYW5kZXIgPGplbnMud2lrbGFuZGVyQGxpbmFyby5vcmc+
-CgpBcm5kLCB3aGF0IGRvIHlvdSBwcmVmZXIsIHRha2luZyB0aGlzIGRpcmVjdGx5IG9yIHNob3Vs
-ZCBJIHNlbmQgaXQgaW4KYSBwdWxsIHJlcXVlc3Q/CgpDaGVlcnMsCkplbnMKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Thomas
+
+On Wed, 26 Nov 2025 at 17:09, Thomas Zimmermann <tzimmermann@suse.de> wrote:
+>
+> Rename alloc_primary_display() and __alloc_primary_display(), clarify
+> free semantics to make interfaces easier to understand.
+>
+> Rename alloc_primary_display() to lookup_primary_display() as it
+> does not necessarily allocate. Then rename __alloc_primary_display()
+> to the new alloc_primary_display(). The helper belongs to
+> free_primary_display), so it should be named without underscores.
+>
+> The lookup helper does not necessarily allocate, so the output
+> parameter needs_free to indicate when free should be called.
+
+I don't understand why we need this. Whether or not the helper
+allocates is a compile time decision, and in builds where it doesn't,
+the free helper doesn't do anything.
+
+I'm all for making things simpler, but I don't think this patch
+achieves that tbh.
+
+I've queued up this series now up until this patch - once we converge
+on the simplification, I'm happy to apply it on top.
+
+Thanks,
+
+
+
+> Pass
+> an argument through the calls to track this state. Put the free
+> handling into release_primary_display() for simplificy.
+>
+> Also move the comment fro primary_display.c to efi-stub-entry.c,
+> where it now describes lookup_primary_display().
+>
+> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+> ---
+>  drivers/firmware/efi/libstub/efi-stub-entry.c | 23 +++++++++++++++++--
+>  drivers/firmware/efi/libstub/efi-stub.c       | 22 ++++++++++++------
+>  drivers/firmware/efi/libstub/efistub.h        |  2 +-
+>  .../firmware/efi/libstub/primary_display.c    | 17 +-------------
+>  drivers/firmware/efi/libstub/zboot.c          |  6 +++--
+>  5 files changed, 42 insertions(+), 28 deletions(-)
+>
+> diff --git a/drivers/firmware/efi/libstub/efi-stub-entry.c b/drivers/firmware/efi/libstub/efi-stub-entry.c
+> index aa85e910fe59..3077b51fe0b2 100644
+> --- a/drivers/firmware/efi/libstub/efi-stub-entry.c
+> +++ b/drivers/firmware/efi/libstub/efi-stub-entry.c
+> @@ -14,10 +14,29 @@ static void *kernel_image_addr(void *addr)
+>         return addr + kernel_image_offset;
+>  }
+>
+> -struct sysfb_display_info *alloc_primary_display(void)
+> +/*
+> + * There are two ways of populating the core kernel's sysfb_primary_display
+> + * via the stub:
+> + *
+> + *   - using a configuration table, which relies on the EFI init code to
+> + *     locate the table and copy the contents; or
+> + *
+> + *   - by linking directly to the core kernel's copy of the global symbol.
+> + *
+> + * The latter is preferred because it makes the EFIFB earlycon available very
+> + * early, but it only works if the EFI stub is part of the core kernel image
+> + * itself. The zboot decompressor can only use the configuration table
+> + * approach.
+> + */
+> +
+> +struct sysfb_display_info *lookup_primary_display(bool *needs_free)
+>  {
+> +       *needs_free = true;
+> +
+>         if (IS_ENABLED(CONFIG_ARM))
+> -               return __alloc_primary_display();
+> +               return alloc_primary_display();
+> +
+> +       *needs_free = false;
+>
+>         if (IS_ENABLED(CONFIG_X86) ||
+>             IS_ENABLED(CONFIG_EFI_EARLYCON) ||
+> diff --git a/drivers/firmware/efi/libstub/efi-stub.c b/drivers/firmware/efi/libstub/efi-stub.c
+> index 42d6073bcd06..dc545f62c62b 100644
+> --- a/drivers/firmware/efi/libstub/efi-stub.c
+> +++ b/drivers/firmware/efi/libstub/efi-stub.c
+> @@ -51,14 +51,14 @@ static bool flat_va_mapping = (EFI_RT_VIRTUAL_OFFSET != 0);
+>  void __weak free_primary_display(struct sysfb_display_info *dpy)
+>  { }
+>
+> -static struct sysfb_display_info *setup_primary_display(void)
+> +static struct sysfb_display_info *setup_primary_display(bool *dpy_needs_free)
+>  {
+>         struct sysfb_display_info *dpy;
+>         struct screen_info *screen = NULL;
+>         struct edid_info *edid = NULL;
+>         efi_status_t status;
+>
+> -       dpy = alloc_primary_display();
+> +       dpy = lookup_primary_display(dpy_needs_free);
+>         if (!dpy)
+>                 return NULL;
+>         screen = &dpy->screen;
+> @@ -68,15 +68,22 @@ static struct sysfb_display_info *setup_primary_display(void)
+>
+>         status = efi_setup_graphics(screen, edid);
+>         if (status != EFI_SUCCESS)
+> -               goto err_free_primary_display;
+> +               goto err___free_primary_display;
+>
+>         return dpy;
+>
+> -err_free_primary_display:
+> -       free_primary_display(dpy);
+> +err___free_primary_display:
+> +       if (*dpy_needs_free)
+> +               free_primary_display(dpy);
+>         return NULL;
+>  }
+>
+> +static void release_primary_display(struct sysfb_display_info *dpy, bool dpy_needs_free)
+> +{
+> +       if (dpy && dpy_needs_free)
+> +               free_primary_display(dpy);
+> +}
+> +
+>  static void install_memreserve_table(void)
+>  {
+>         struct linux_efi_memreserve *rsv;
+> @@ -156,13 +163,14 @@ efi_status_t efi_stub_common(efi_handle_t handle,
+>                              char *cmdline_ptr)
+>  {
+>         struct sysfb_display_info *dpy;
+> +       bool dpy_needs_free;
+>         efi_status_t status;
+>
+>         status = check_platform_features();
+>         if (status != EFI_SUCCESS)
+>                 return status;
+>
+> -       dpy = setup_primary_display();
+> +       dpy = setup_primary_display(&dpy_needs_free);
+>
+>         efi_retrieve_eventlog();
+>
+> @@ -182,7 +190,7 @@ efi_status_t efi_stub_common(efi_handle_t handle,
+>
+>         status = efi_boot_kernel(handle, image, image_addr, cmdline_ptr);
+>
+> -       free_primary_display(dpy);
+> +       release_primary_display(dpy, dpy_needs_free);
+>
+>         return status;
+>  }
+> diff --git a/drivers/firmware/efi/libstub/efistub.h b/drivers/firmware/efi/libstub/efistub.h
+> index 979a21818cc1..1503ffb82903 100644
+> --- a/drivers/firmware/efi/libstub/efistub.h
+> +++ b/drivers/firmware/efi/libstub/efistub.h
+> @@ -1176,8 +1176,8 @@ efi_enable_reset_attack_mitigation(void) { }
+>
+>  void efi_retrieve_eventlog(void);
+>
+> +struct sysfb_display_info *lookup_primary_display(bool *needs_free);
+>  struct sysfb_display_info *alloc_primary_display(void);
+> -struct sysfb_display_info *__alloc_primary_display(void);
+>  void free_primary_display(struct sysfb_display_info *dpy);
+>
+>  void efi_cache_sync_image(unsigned long image_base,
+> diff --git a/drivers/firmware/efi/libstub/primary_display.c b/drivers/firmware/efi/libstub/primary_display.c
+> index cdaebab26514..34c54ac1e02a 100644
+> --- a/drivers/firmware/efi/libstub/primary_display.c
+> +++ b/drivers/firmware/efi/libstub/primary_display.c
+> @@ -7,24 +7,9 @@
+>
+>  #include "efistub.h"
+>
+> -/*
+> - * There are two ways of populating the core kernel's sysfb_primary_display
+> - * via the stub:
+> - *
+> - *   - using a configuration table, which relies on the EFI init code to
+> - *     locate the table and copy the contents; or
+> - *
+> - *   - by linking directly to the core kernel's copy of the global symbol.
+> - *
+> - * The latter is preferred because it makes the EFIFB earlycon available very
+> - * early, but it only works if the EFI stub is part of the core kernel image
+> - * itself. The zboot decompressor can only use the configuration table
+> - * approach.
+> - */
+> -
+>  static efi_guid_t primary_display_guid = LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID;
+>
+> -struct sysfb_display_info *__alloc_primary_display(void)
+> +struct sysfb_display_info *alloc_primary_display(void)
+>  {
+>         struct sysfb_display_info *dpy;
+>         efi_status_t status;
+> diff --git a/drivers/firmware/efi/libstub/zboot.c b/drivers/firmware/efi/libstub/zboot.c
+> index 4b76f74c56da..c1fd1fdbcb08 100644
+> --- a/drivers/firmware/efi/libstub/zboot.c
+> +++ b/drivers/firmware/efi/libstub/zboot.c
+> @@ -26,9 +26,11 @@ void __weak efi_cache_sync_image(unsigned long image_base,
+>         // executable code loaded into memory to be safe for execution.
+>  }
+>
+> -struct sysfb_display_info *alloc_primary_display(void)
+> +struct sysfb_display_info *lookup_primary_display(bool *needs_free)
+>  {
+> -       return __alloc_primary_display();
+> +       *needs_free = true;
+> +
+> +       return alloc_primary_display();
+>  }
+>
+>  asmlinkage efi_status_t __efiapi
+> --
+> 2.51.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
