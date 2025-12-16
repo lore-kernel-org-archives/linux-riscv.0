@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C56B3D5E154
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 13:33:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55488D5E151
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 13:34:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iz3iFUmmWwVtS1cGILmwYzKgMzC1bBnfUCW78K1cLYI=; b=GmIHphR2fc8aZk
-	vB/31HCzxdE1I6DuvG1lY3KAoogIGlrI3HeBR7Kfu5yc0RoM70wxDzbCWxn1yBAqPwn6FsD9FkDFy
-	Qv0u645NqK5M4PwgTyeWT//IsYnCiEEgHAtxGdA5Pb4TpM2eQoHzbXreeCp8ye+kpTP6LaSO+0wvE
-	Joi85vwEPhaTX9psyw+XxurVO7j484CkHyrsBkL4LR0sTho70f/2DpX049HY5R/McWvKHw0NgwtGx
-	X7KBobwP/19bKNRocZZvjg3IheLkNvMVYeDWpg9MuRrTI5mvqmDb3uiyy7D9Sn0a8gmisEkYZhXk1
-	dsTg7i9ENAM4l4BglR5w==;
+	List-Owner; bh=O4/KWJ82v8ic1jp9GMhCnZIlnw26JlNgFgh+e7j+Iq4=; b=uQ7YyrK1VvMEvL
+	9soFViDVZQkFttVs3+5hbekgvEzcX5fkpk9Fp07eT3LuMlxXGQ0PQ8hb+fk2wNJmgPbyrV2nyYx18
+	VfHVgGxesAJHSu8Iypuds7jUhHRqOs5nMTsxK0pCoiM+nrZ5rreHoUGvzbqnIuci2ZPzTCJQNyU1v
+	ox0yby8MzC/kFmgSzMT2AN/NWhlm1qAPm5iYrGWBt2w78OO7/KYqo3avhbjpoTlKNaZSNqplBdP2n
+	PQK5Vu5tehnMkgZwikL1J4SC1+85c3Tj1VPkJ/thSiDM2GQR0ur3OjUvBSrI+5GooCthho2jdMeJy
+	01R9OFCsz5ISs3uw+Q9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVVBM-00000005Gho-1BUA;
-	Tue, 16 Dec 2025 13:33:40 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1vVVBX-00000005GmL-2wxF;
+	Tue, 16 Dec 2025 13:33:51 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVVBK-00000005Gh0-2xFW
+	id 1vVVBV-00000005GlC-26LM
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Dec 2025 13:33:39 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-bcfd82f55ebso1773898a12.1
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Dec 2025 05:33:38 -0800 (PST)
+	Tue, 16 Dec 2025 13:33:50 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-29f0f875bc5so60708875ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Dec 2025 05:33:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1765892018; x=1766496818; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1765892029; x=1766496829; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=HUW1fhKJDbOe4HKSh/QeNnUAlu3BR5pVkgdl5b0ZaBI=;
-        b=G0T4RfxgJ2pJysoVH3r5o++2ltrZdwoh9aV89ugFfmCr2HY47nqmXr9GqyFxdf9ZNJ
-         7nZOpxClvb6LzEwMZ1GTMXqK6VZjTUjezYdKdHmdOWLPZENU+6FwWbJOibsfSdQHDn9H
-         oPW/3Mx8nqa8WEjiD3j/E/kV6ktZKYlVIYFE/lJy1XhMxdFrwxRzhjPvQt8jLCK4QgCK
-         MrcmpN2q1btDKMJYcFt2twit9BsmNoCccf6D10jRWQ4fpNKGEL7IoBLbkZsCJyz3lPGh
-         AYnyQfx4aWP5PBhlrKd1l6Tg6eeWf32sTbkQzKFQ7pMn0fP8wLfd2OFRHHUr9jJO2wrj
-         onRw==
+        bh=L+gFWCwRiawMnBncXcTO/PvxprCNgSOeAOdslKE2EFs=;
+        b=GxW1BheKiG+zeuNvF7W0/2YBOjuxZ7WXwrtWI2B1JESvopPC6XuDGZrk1XeELjQIEB
+         D7s+cNusSMZWnIByvhWbieOn7WwAkc4Pl1BuoXjNoKZ+UvFz4VVUWVVcvG5ZEtKFiyhB
+         pva4dJnCT7kyYYQpoTNj/uNRMD+Vbp3tYKFQfr2voZGXqUCJBqRxDjS8gO/SQZRLS1k8
+         +MjYz+IgP7K3F58XOCI6ZIDzP0I2RBhWLfD2WvvwnLFA5vZikUD95NO30f5bZjeSeAJi
+         rEAXaFLKZZnfGKN6z1Zp7vRBh1aFQ5M/yjvq2YPhCp8plq4zK+RSQ366Vwsc6mbqGDbm
+         8efg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765892018; x=1766496818;
+        d=1e100.net; s=20230601; t=1765892029; x=1766496829;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=HUW1fhKJDbOe4HKSh/QeNnUAlu3BR5pVkgdl5b0ZaBI=;
-        b=Fv79OkH4bcVLMSPGtc0Pdb8UCQc2UV/Bm47TiJLeD8mJ3y4J7cDM/q5EriiuIyoiXj
-         AQx+MEWjKPzWYR6dSIfJiP3PejjDBaEo7PCNqTVXOVEg/I8h7HHj++YJYPj/Xom44zo2
-         mQdyTGmZNrgMXDzMll1A9x5A/JwQBtPhNig8GDAKHYHsSPOrIxBZNFQES6NZR0IWAtG8
-         AxQbXaUOr8hlbRL9f4oYHeohr1E4dysEvmvaQ+crKW5Ncj2vUNG4Oh7a/J9I5cCtsula
-         KhnDWj9V7YoEYz9eGewi1nP15obJ9n9SkKtBOAhoxsw0tzG17CkSumRfLiW3DCK9x3qn
-         DdCA==
-X-Forwarded-Encrypted: i=1; AJvYcCVz2CRH8qVylWlXwLBFoRlLSvoSgSDQKCiCu7VcX7DzhrmEY+CE+t2GW8tpSVfROn9/R+fCHZX5tLpczA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRX7IexBiRMmkHJ97uWzW7n8G33QFZPnT142McK6jmkcvyOKth
-	W84BOjKjItcKR0QNmSihp5f8Zu7WHyy0GLI1CwgBLHRenSkn9PzDwFvZunA+57m/ZMs=
-X-Gm-Gg: AY/fxX6MnHcfsEFLXYIBJpINyVhlQ30OYurYhjAPj4rvSabtFsyjLFECWHIgb/7Aypk
-	Uzb9T/YvEzY9zzHvSZmbTL7kXL8Drd93ONwU25A/aKgH+mLrzRxdFHnuqGEaR6jD6Xv+Gg0jftb
-	oRXtpqbX0JU9P4EX46WlC0nhgQz9WIMwqjkJnXpBMM4tpsaP7UlTX80xXQofKYk9qUkg3srhv5O
-	i5gzEs8eUbjns9c6SVLadC6yjG6J9jZWe2izAztK+sUF4Z9Im4a0kbdVikA4/EdJcw1LhYZHV9O
-	LB6N2W6aEWqY7j4puIT59cMGLDqZkGKN7RXh9WRM7O+7DDieTyKRGAyVeqvNFmTodwXt8BWqHKI
-	fOv+pfPGxDDksXtd+LEXhhc6dxR18RvzTl926YTyCv6vsj3qe+T3CNu0Az3H1sPlGoJ4D/6zLtu
-	lfPfiRJJEDX3KcQVyUf99TJDkrhjTiSnc=
-X-Google-Smtp-Source: AGHT+IET9GhiW4RGL3w1Cy73SGb3pcHepT5GGV/njIgZC7quLxJZByYdERwcXy6lYO6BkLM3PBzhsQ==
-X-Received: by 2002:a17:902:e84c:b0:2a0:971b:151 with SMTP id d9443c01a7336-2a0971b059bmr130452205ad.2.1765892017756;
-        Tue, 16 Dec 2025 05:33:37 -0800 (PST)
+        bh=L+gFWCwRiawMnBncXcTO/PvxprCNgSOeAOdslKE2EFs=;
+        b=YbsKC4N0s9Fec7Guy3MBCXaUANP7Bq0i49dnIqDu+M99hyJanhRAk+Hd6tH/LSPyrE
+         8VxfN8WxDOH5KC973G/67h4qle0YXVxKKy7XRKATzXivw8JUd8qRrc09P/4fqfCz5gLJ
+         P56df9RAjzX0aq2e1W2lrQJHN3Hd3Hs95PPlb8C5bpuz80Z9qYQfYh1ex7X6+zi6e7QG
+         Q+U5cuWjtPZGo6ThU0ZucKz16Lhrg0kz/VYqAC8jYAbnCtMTJGhagzOCs9pzdKrA8otQ
+         /MX3n3GWSd7PgxOlyUV7ycWeg5uAQelClIOofinL/6q96Ua+axL5vQMuG/kvMnRRrBGv
+         IUIg==
+X-Forwarded-Encrypted: i=1; AJvYcCX8fC3kyu/dw/wtGFP6aA+8/W2/Aq0vkwT+kQAIBFxuemlrYWwiaOHqk9h+SoqPS0bPYd/aBIu3lsz6VQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9JBjd4F025NxfJePhYlBfYEsBWr0zdcpYQ7ukOW/4dN35KsPU
+	1CkdNwTen4dP8N0kOjSliO3PkoHQ3iXYuLLh6rnouLRL4iP2T14VRbpFt5Hilb+5iAU=
+X-Gm-Gg: AY/fxX4LMdHLfbHpeBhLcnaTlT2+zMmMXnJnGN5uAB8NDrrwsfjX2G7aeIj/daKSwTV
+	KeJWQtJ+Bu9DlabWoN+67NKUDHQBDQHquXSA6zjZDBtqNiIY3g32gDCHzvMHtmi9ed1dPz8Ca8z
+	oTKoc/gHwEKSNB+AgNw6H0M3JOV20W9WO002Tyik9wEnSn1y8AkoCHBbWKduxBx/1t+6911A/F+
+	h0EZRAwLakpZH/pwjHC1P+mbWP/g1eqtrGEXemIOSXDxbG1Gi8Y/ye7/FvU+C34e7ZGdgO3Hn5R
+	huUsqFXpksYb30EijQvC5qNlNQMfYEGCvTylG/KmNI9rWUmf8CgvjnjIDfsBgDl+cPTqMu0ecGP
+	V7/PRxZ7xPWpDtpCIq810HKnX2Q+4pISp/MNEM5HeBFAZyCzBWfwyLJs1OgWt1UqKiyZJ6Zo0sL
+	qXBy6urAmn1w+ugOPyOATBrWkHTIH/TsY=
+X-Google-Smtp-Source: AGHT+IH555BYg0W02DfoN/1AYodPyeJqWymKTxAH7DEgGh7AGGSGr1M1vruhKc7CF1NGnjMT2M0bUg==
+X-Received: by 2002:a17:903:48b:b0:297:d697:41e with SMTP id d9443c01a7336-29f241515b7mr111102665ad.37.1765892028806;
+        Tue, 16 Dec 2025 05:33:48 -0800 (PST)
 Received: from [127.0.1.1] ([2a12:a305:4::4029])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a14625add8sm15829525ad.61.2025.12.16.05.33.27
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a14625add8sm15829525ad.61.2025.12.16.05.33.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Dec 2025 05:33:37 -0800 (PST)
+        Tue, 16 Dec 2025 05:33:48 -0800 (PST)
 From: Guodong Xu <guodong@riscstar.com>
-Date: Tue, 16 Dec 2025 21:32:28 +0800
-Subject: [PATCH 4/8] dt-bindings: interrupt-controller: add SpacemiT K3
- IMSIC
+Date: Tue, 16 Dec 2025 21:32:29 +0800
+Subject: [PATCH 5/8] dt-bindings: serial: 8250: add SpacemiT K3 UART
+ compatible
 MIME-Version: 1.0
-Message-Id: <20251216-k3-basic-dt-v1-4-a0d256c9dc92@riscstar.com>
+Message-Id: <20251216-k3-basic-dt-v1-5-a0d256c9dc92@riscstar.com>
 References: <20251216-k3-basic-dt-v1-0-a0d256c9dc92@riscstar.com>
 In-Reply-To: <20251216-k3-basic-dt-v1-0-a0d256c9dc92@riscstar.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -98,8 +98,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  linux-serial@vger.kernel.org, Guodong Xu <guodong@riscstar.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_053338_755425_3CD313E7 
-X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-CacheID: sfid-20251216_053349_544924_17B258E4 
+X-CRM114-Status: UNSURE (   8.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -117,25 +117,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for SpacemiT K3 IMSIC.
+The SpacemiT K3 UART controller is compatible with the Intel XScale UART.
+Add K3 UART binding and allow describing it with a fixed clock-frequency
+for now.
+
+The clocks and clock-names properties will be made mandatory in a future
+patch, once the K3 clock driver and device tree are merged.
 
 Signed-off-by: Guodong Xu <guodong@riscstar.com>
 ---
- Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml | 1 +
+ Documentation/devicetree/bindings/serial/8250.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
-index c23b5c09fdb90baccece03708f4a381084b22049..152eff7335dd8457bf01d02497b7080f2a02ab65 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
-@@ -47,6 +47,7 @@ properties:
-   compatible:
-     items:
-       - enum:
-+          - spacemit,k3-imsics
-           - qemu,imsics
-       - const: riscv,imsics
- 
+diff --git a/Documentation/devicetree/bindings/serial/8250.yaml b/Documentation/devicetree/bindings/serial/8250.yaml
+index 167ddcbd880058b6dcea9ce33bd814ff8ba6b0f6..73851f19330d7f9fc254efcd32b5977feada0b07 100644
+--- a/Documentation/devicetree/bindings/serial/8250.yaml
++++ b/Documentation/devicetree/bindings/serial/8250.yaml
+@@ -160,6 +160,7 @@ properties:
+           - enum:
+               - mrvl,mmp-uart
+               - spacemit,k1-uart
++              - spacemit,k3-uart
+           - const: intel,xscale-uart
+       - items:
+           - enum:
 
 -- 
 2.43.0
