@@ -4,95 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13593D637DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 22:45:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC01D637B3
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Dec 2025 22:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xc9JGOTkMA+nH/PgqDyAyVT4mGTn3jxLkuzFdRRnGBw=; b=REH9DvGh7Tn0qe
-	K/yqc+CfiFA0gSKbvV4eneePP0ZbawMW8DHH2p3S7yzUD8cv03J+tcihwcjf31hGa2NLpe8Lt9u0H
-	/fcavBgpaCegVQf4Vr2IWGkQc7843zEm06ZFGasxGLgMGr0kdVA8H7XXvik1JqY0GLOG8Y06mkkvF
-	kDJSg/OgvovuJYRmX2cR7OjoVzHX00M9YsX7Iz7deFXcxSOWbi8+H6aIZO8VlUQVrn2oj6YTUZePl
-	5z6Nygez75d9Yh5T7jQNpZtv1DVfbwnGXPE2dsweyb+LW5aV2x8pznOePx+mF24AEnN7OpS5NLmC8
-	ZBSBUlB0OK0x0lm+8CQA==;
+	List-Owner; bh=In702yoS3QUNdfw3jCYF6xfq/2hJ7vR8dqSnUkwFsLE=; b=I2An1lmQuiGGJH
+	n6sFD/jppjWKkh94LoH5cWptMYLDTRlBLejoq+ssJRHNhQC0UvuQpBxn7cfXptSW/QRwOYrBR2m80
+	sDYlhDt/0Jgg4sNQcIqLIhhzatd9SlGtRr+5hG12u5WGtIkKEAGDDoCmPcPTfFQnwj0DZEAiT/TS/
+	LDKUeDMv1KK+1aTIuXpgTnP6rWcegY0RRJWKMreXmZRgM0dmmphmCpIhoaz6lvGFlQQJ9XX0TCHgc
+	lY3GuvvHsVsByLYT18g2Y6IX8wtvIR+xi3ptHYES7ofxLtE3JWZdFo9uZU94KShvoN24mJjZDXb9l
+	CHa0NiOUrNFqstm5yO3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVdnI-00000005uLn-0R2t;
-	Tue, 16 Dec 2025 22:45:24 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1vVdpv-00000005ucX-0Teo;
+	Tue, 16 Dec 2025 22:48:07 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVdnF-00000005uLU-2SI8
+	id 1vVdps-00000005uc2-2gpf
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Dec 2025 22:45:22 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-34b75fba315so4643424a91.3
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Dec 2025 14:45:21 -0800 (PST)
+	Tue, 16 Dec 2025 22:48:05 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-34b75fba315so4645312a91.3
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Dec 2025 14:48:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765925120; x=1766529920; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1765925284; x=1766530084; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=A7nXoigv9/yz61HlMjawiCb2Rzy4kdcjqDMu4uuBc3o=;
-        b=KVXz/MwrP0hjArk8eDiS4rH5ZXSMMRKlAtmEzKHbgrRfMPS9xUZmKqa6XuFcES3cvc
-         QGU8ouy4enW04W+ri9Bv6ME9q1OoJBcLUcPl3qUDhiPrcQ4e7svLxz/jQR+SI1I6UqCZ
-         1TGru8ey+fL+r8bCEQNJUS7yCnQGdhiEQogkKW0caRS7G5mcUCofgRwXFlfZfEVoJx+D
-         bYJD7OBV+7rnOUhM8QoEDP4P2bgZUS+/rC9MdGR/iEEZ93gR+ppSvgFhszWM0aWfs/E0
-         V9cuA5s9/DNuuefJeM8ZEOarjzayOaiPJC4wmxELl5VgJ1ttX3MnHwaEHYEwHAikXq0h
-         1lhg==
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=l9rGdkbmWGyQJZ2uzMV3zz7cGEtt/UxhE/bLykVRNgg=;
+        b=lGXByKDZ//Cuuz0NNGC0MzZmni7/4r92/fACxhPCXCXDu7bEADbZcsu1LBEIYsGufe
+         L5s7k3oyGC7lmaaZq3W/bkjHI0j8kFQixcMdWH539h22RsfEMVySHPlLLlVcYFRzOzQA
+         pQyFkeid8lU/tadrNZCq9dAr/9Xw7fX6k2FtQAt+6iMIVCNB/Hi24I+xSpql1CwGNnki
+         aJa8qGW/0WDsPorHT+X13SBaY4XODufD47hu++57bl+eRjzEktwnCvTrhDbbHOp9D8Q4
+         wAJu8Bn3WNMvRru8BFZRAdjdHvURmCOID3zwVeYPrIOdmmR6WVBd36HvJ65zXZ8G7m1r
+         Y6TQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765925120; x=1766529920;
+        d=1e100.net; s=20230601; t=1765925284; x=1766530084;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=A7nXoigv9/yz61HlMjawiCb2Rzy4kdcjqDMu4uuBc3o=;
-        b=RWQZBMeCXMVhHoYy39PZR1oNV2fyqnDBR+B5tbn56XL6orx/4eC0vC/65386a1ukVi
-         myVw3tOtmaVHmmSMQF6WYgC2bF+FSzMI8FJRhu0uiCY00dJd1Ag1n1s/TpgfyE6fGvlt
-         EYo3Hdq9n32KCjNZ+SmxrB65BUM084EYf/5Nh4DAwam5HbgkeCweDFoEPGDrc85JTVwV
-         NrlKXnQ997+xz3XgYqFodamUY/Ku6S3zJVNoqCg3cZSIUafi7mce4kOLbaMktf/8pAxF
-         RGfHKfUYUk2gU3VrJ3TsrFYILvR82unDjwfWSvG99R72lFj9fnZ4zPf54D1gNbXYWGVO
-         Id8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXfTkKJ23mLAiDNUk6qeniSfIVoQHvh59EId2N7M+mjTvchdoraub5QNcra7ZPWqemEFSHomdSTyQEOYg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6bWGHviks7JehcrE4fj4FtKiOYI57W1wfrdAWRCoAUuvz4gxf
-	mXb0ObSXLzitvWS6E06l6nFAisjwLtqfJPiZW6Kf7S1BwMpHijx+SH2v
-X-Gm-Gg: AY/fxX5PQCBtnHeyzM0UIiEOIkbBaI6I7uYlUFNst06kbpFQzN0a/11kvsoHCvvYAgZ
-	okVBIK0XZgIw0DcJUjiJwJc3BJcwQ5z0nP5E1RpYai9sQN6fcRi4B3xjlYsNPWJmJLhA1/PyGut
-	+a8/IZxYhZiPlsbMm1fJKp1TqRTOtt7aYbXm6BoUn7hQD3ygsYV3dFfwQ+G7xGcBcsTYlYC4eP+
-	1RB/cW9x4pfUMGcx0xlSkvGwo7AN+LP77Vyt+KSE15bugeGSvop7+S7BvmJhijoMu3ksTyJv4pg
-	sHOnu6D4qndPC29jGXiHKVbMBfaipWorsQOcBh2J4KX5tLyiYtgIjmtya7Rm8ydHctS17Ci951I
-	Ks6GrmJRTZaLjNCNh6obuj2/btsO3MEBTFlCDC3LsYbomY1DfRUXG33gcS7JPM2ECTAoMTuJ9TI
-	cWg7+rAFJigg==
-X-Google-Smtp-Source: AGHT+IE9nIlDHsFmfYsacNR6G1ZVOO+zgg/tDfoQF+xuebBoHAyCLps0J4BtB+5eml9RBwlgxvUP1Q==
-X-Received: by 2002:a05:701b:2719:b0:11b:c4ee:66b with SMTP id a92af1059eb24-11f354dd89amr8447143c88.37.1765925120396;
-        Tue, 16 Dec 2025 14:45:20 -0800 (PST)
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=l9rGdkbmWGyQJZ2uzMV3zz7cGEtt/UxhE/bLykVRNgg=;
+        b=Oa6fKn735Xd4wnlon2yxiiW5+V2Cb1EGKM37qrz+32+jNKp+sEohTHhpgy1NJHLP2O
+         r+f6pI2CIEN4icNRbnddX1KAZwF/uApu4wDPV0ghD1y0fdRbpfm1F0PswOX6UXMyKCDI
+         Nh80cNVqKeBuCh50g3pbzuoO9bSa840oDqOjNpS+IVnltwoY3jDnheyH/r9fMLC3iULf
+         R16pfW0LatuFpv9GyZdGnYrU6PpJ7A7i+Ad4F+cIZ0bFguy97/PeRRCffHwcDyfTLN2r
+         Qo3pCNfMr+5hFwKImfk6/RmF51UTICBfuHAvFT/EG9vw10/Ichey9zvIr2MVwmycAlJ0
+         FtpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVV2ax/VpwpzMXkjZ/4AZ5q3Ikfpe7Xf9X/mWMRsAnjAFTDUSifoaM8A/NqgNecuZSsUiMHdgTbma8K9g==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywo+o75J3x1F7ZGWyaoe9RTx5u5huwdZUuFVM0vI6kCsobD9Dkp
+	eaXjEChtpDCagKKPc8Bk3+S+uhWJwtqV3JU4tzj/RGR6pLESTFJMfqhF
+X-Gm-Gg: AY/fxX5OFF6zVD7vP5vxQL7VKKS7L2hz8XImK2Uu2JikE/vkEAZK6cpumWlEcci092h
+	t4jjDiLPXWd7hSgO5cSqIGap0tP3n6OnwzGkxq0BRFh6DnaENiYVzTgTlcsEb49Tyfej6fvU8Dx
+	5yMw6Jmmi6V7htgCuv5jw5+o6mMxNeLIE75le2rYi/d9xUGNK7H/wSWN1KZJYQknD/g74bNrPhU
+	stdduECZbp05kJH9vg2Wew++s9/s9umRF+AJNVlBAmtSfFFR1mgM9l7xvMJuLfWPfVWrVS6rGUZ
+	/rVzBvzuFOw5jR/3V2iwAD9AZoAwV2Wpu6WokxwfDziC95lVQhmHRLby0IpjVc7IfgRYDkQH62e
+	G9kx9LGtVz3E9S3DEnjmDPRa9xgXvvPYR5XaexvdFkCd/KrnHOIkRcUhfcRnN1Q0Hd43hKEOdRw
+	DRFmrjD9Z4Ow==
+X-Google-Smtp-Source: AGHT+IGpN9v1EcQ6pUGv0/ADFBj6VB7V4djHe72YLpgDuXNgYHZwaOdWyf2CzcAfbqYS8D3JmbWdkQ==
+X-Received: by 2002:a05:7022:619c:b0:119:e569:fb9d with SMTP id a92af1059eb24-11f35484a3emr12886397c88.12.1765925283458;
+        Tue, 16 Dec 2025 14:48:03 -0800 (PST)
 Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11f2e1bb28dsm57479374c88.2.2025.12.16.14.45.19
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11f392500cdsm39814598c88.7.2025.12.16.14.48.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Dec 2025 14:45:19 -0800 (PST)
-Date: Wed, 17 Dec 2025 06:44:17 +0800
+        Tue, 16 Dec 2025 14:48:03 -0800 (PST)
+Date: Wed, 17 Dec 2025 06:47:00 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Inochi Amaoto <inochiama@gmail.com>, 
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Chen Wang <unicorn_wang@outlook.com>, Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
-	Longbin Li <looong.bin@gmail.com>, Ze Huang <huangze@whut.edu.cn>, dmaengine@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	sophgo@lists.linux.dev, Yixun Lan <dlan@gentoo.org>
-Subject: Re: [PATCH v2 0/3] riscv: sophgo: allow DMA multiplexer set channel
- number for DMA controller
-Message-ID: <aUHgt8caOoo1gsES@inochi.infowork>
-References: <20251214224601.598358-1-inochiama@gmail.com>
- <aUE9hDtflXpcgGnX@inochi.infowork>
- <aUF4w9sO5lmU9T6v@anton.local>
+To: Yixun Lan <dlan@gentoo.org>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Haylen Chu <heylenay@4d2.org>, Brian Masney <bmasney@redhat.com>, 
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>, Alex Elder <elder@riscstar.com>, 
+	Akhilesh Patil <akhilesh@ee.iitb.ac.in>, linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH] clk: spacemit: Fix module build for spacemit common ccu
+ driver
+Message-ID: <aUHgy0jzZk-oSUuO@inochi.infowork>
+References: <20251214232938.668293-1-inochiama@gmail.com>
+ <20251215221202-GYA1903981@gentoo.org>
+ <20251216144845-GYC1903981@gentoo.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aUF4w9sO5lmU9T6v@anton.local>
+In-Reply-To: <20251216144845-GYC1903981@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_144521_666355_305CFFF6 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251216_144804_683632_8ABCEB0D 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,20 +105,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 16, 2025 at 07:25:06PM +0400, Anton D. Stavinskii wrote:
-> On Tue, Dec 16, 2025 at 07:09:16PM +0400, Inochi Amaoto wrote:
+On Tue, Dec 16, 2025 at 10:48:45PM +0800, Yixun Lan wrote:
+> Hi
 > 
-> > Hi Anton,
+> On 06:12 Tue 16 Dec     , Yixun Lan wrote:
+> > Hi Inochi,
 > > 
-> > Since you have tested this patch before, could you give a Tested-by?
+> > On 07:29 Mon 15 Dec     , Inochi Amaoto wrote:
+> > > For build spacemit common clock driver as a module, the build
+> > > process require MODULE_LICENSE()/MODULE_DESCRIPTION() globally
+> > > and EXPORT_SYMBOL() for every exposed symbol. Otherwise, the
+> > > build will fail.
+> > > 
+> > > Add these missing hints, so the driver can be built as a module.
+> > > 
+> > > Fixes: 1b72c59db0ad ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
+> > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > looks good, thanks
 > > 
-> Done. V2 works fine with Milk Duo 256M with 2 channels RX and TX working
-> simultaneously.
+> > Reviewed-by: Yixun Lan <dlan@gentoo.org>
+> > 
+> On my second thought, since all functions only used in spacemit clock
+> driver, how about using symbol namespaces? please refer the doc
 > 
+> https://www.kernel.org/doc/Documentation/kbuild/namespaces.rst
 > 
-> Tested-by: Anton D. Stavinskii <stavinsky@gmail.com>
+> or check drivers/clk/meson/ for example..
+> 
+> -- 
+> Yixun Lan (dlan)
 
-Thanks
+Good to know, I will change this in the v2.
 
 Regards,
 Inochi
