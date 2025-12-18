@@ -4,59 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F821D6E2CA
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Dec 2025 19:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B11D6E2B7
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Dec 2025 22:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d83pmYfph/3BA5C9vUsu8OqAEMaTVsHS1ggQO01HE0Q=; b=A7/yjAagUUUuoQ
-	ldKdZQSXZpUcNRZcud/FSrsQXBXJBJSUMZX8Wbfpx5bkWRLaySedB1L7ZwSvDUUh1XWDx3Xf4XYf7
-	dold+Iyr17/iY+suX+tG/8zKFHSnCbwvI+itUhQTEes0FeZwl9w9ahFglwe4n6RcM/4fAS7p5JG2U
-	yyHkdpx9t1C19Wcd3D0nQbqdWaNKl3D4kMsuJ4ZVHSUqfOfds/Lv3mvS9UCvggpyle5RIsxLs/myp
-	hvbqiT5xIWBCZk3RL+EfG1MhTje1IJvFV+0/BGp+A///mf2HnVNdbJY2lUVcO3uT20+jykOwaBcUi
-	G/NW6QnFK7tG85yg57BA==;
+	List-Owner; bh=5114gEi0pQ5hlEa3UhnO2aVGSTRcnVplG5o0WcI6Uuc=; b=Ffj6w5ayr6tLIJ
+	j+fpalbqbV6jEAcxyrThQkDITrM5zYUQC8YliIrV1qhKWvlng9XqFWjqoxfLXZQcDyAKBX3vD7Jzx
+	tsARRcRbRyU3R5MG6kAEziSBjv497jzhCBjLFHCHegwGIInPLmHPA+4w9ThWJdwXQxyQU3StCdP4o
+	tQUffJmt/+b2uIaG9QXmwf5N+xOPKaJnQ+KxY8d0HyG3vBR0j+omz0KC4ZxbLeeri9E5jb4eKTFfX
+	gTva7u/KJ/cvd/SaloOk0O+B3x+n8jwgKWHyH42jaF4n+xT2Bw9MKP52nRAWM7/RnRlIZrHeV7xbY
+	bL/XeX9MA2koSZd47Vnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJRj-000000094FS-2CRT;
-	Thu, 18 Dec 2025 19:13:55 +0000
-Received: from mailer.gwdg.de ([134.76.10.26])
+	id 1vWMj9-00000009HHt-3JFB;
+	Thu, 18 Dec 2025 22:44:07 +0000
+Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJRg-000000094Dx-0lve
+	id 1vWMj7-00000009HHW-1Zrd
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Dec 2025 19:13:54 +0000
-Received: from mbx19-sub-05.um.gwdg.de ([10.108.142.70] helo=email.gwdg.de)
-	by mailer.gwdg.de with esmtps (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
-	(GWDG Mailer)
-	(envelope-from <lukas.gerlach@cispa.de>)
-	id 1vWJRT-000RlL-1f;
-	Thu, 18 Dec 2025 20:13:39 +0100
-Received: from localhost.localdomain (10.250.9.200) by MBX19-SUB-05.um.gwdg.de
- (10.108.142.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.35; Thu, 18 Dec
- 2025 20:13:38 +0100
-From: Lukas Gerlach <lukas.gerlach@cispa.de>
-To: <linux-riscv@lists.infradead.org>
-CC: <palmer@dabbelt.com>, <pjw@kernel.org>, <aou@eecs.berkeley.edu>,
-	<alex@ghiti.fr>, <linux-kernel@vger.kernel.org>, <daniel.weber@cispa.de>,
-	<michael.schwarz@cispa.de>, <marton.bognar@kuleuven.be>,
-	<jo.vanbulck@kuleuven.be>, Lukas Gerlach <lukas.gerlach@cispa.de>
-Subject: [PATCH 1/2] riscv: Use pointer masking to limit uaccess speculation
-Date: Thu, 18 Dec 2025 20:13:31 +0100
-Message-ID: <20251218191332.35849-2-lukas.gerlach@cispa.de>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251218191332.35849-1-lukas.gerlach@cispa.de>
-References: <20251218191332.35849-1-lukas.gerlach@cispa.de>
+	Thu, 18 Dec 2025 22:44:06 +0000
+Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-6446fcddf2fso1082301d50.0
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Dec 2025 14:44:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1766097844; x=1766702644; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tNtkMphr11RONSM4Q0l7F/V0bPE7UA2WWJNfv0nmNOE=;
+        b=UCD8hut9kovolMrpFiWOLXwihmbBJMaeAPaFxkLZjhd1Rk5yO9UpCZO0MdBTQAGxC7
+         bnpT+iA48C140WVKovOyJqKhr/8Rz6jW19bnBnclRXDX1t3zRWOKhCP/SYbWm4LCelp5
+         1Vp3eq69wsdTPbwT33oiL0V2yVEzOGBkN4NG8dlVfSrSjcGqAr0I5HaBKzfPUtfUy29I
+         I6+E7ythsuJInrXHFb+0coovIePmloYYTfs08rYDIpuyOU61TAwYcHUfDH+hxH5FHKP7
+         uHusdi+2eQrvuowJVl6vEENJGrlbmogF1/8UMva9HQbwmooa8XozoHs9Q7yQLfxvICCH
+         i7Fg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766097844; x=1766702644;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=tNtkMphr11RONSM4Q0l7F/V0bPE7UA2WWJNfv0nmNOE=;
+        b=UI6CjevONfpCHMPR1jHlcAZFu9Oo4Rob1Dl7G/HR5cVv4HFQVP4h69vt0qxdvMEbxT
+         qb170hlJ+fTLG9JXQ9jNoQq2EoKgjVuPRiwEQA/sJ3/pgHYRNOW4Oc8L57rb+RXJNoxy
+         SfV0/1/TI+tCDkGAD87Ke3wWb8fnYzxdfeHOmxVaKw/v+9wbU4TXj6ykIgZfAsI0LscU
+         +5Q4YR2B1Qu7/xBBm5QEKxSRdETROJJ192G8QF0/XSnPqxjZLAtL5IhlU5FIsL46JIf7
+         rcK1t6okdTOMDHX68qdvO/INc/7b+0gEm5In8/qFKjfHNX7R+fzVHXVllUIMEDxKos4z
+         Gxww==
+X-Forwarded-Encrypted: i=1; AJvYcCUEbs7azumrzRW12p7e+EJJL5z6bkq2tRh2Fr9eGhInIs/URKUt5ch33XnYz2s16V7kyzK/pyD2qNTMDg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiZHKBTqxLbBVymR4JLx1DQgCHMF/eqsYE0v7zSUhT5I5x/3+x
+	559hncKexGNyRJN/3IkxZH7wXRMpln79daYOvd/BzpH7LS+j5c4bu/rXHIQLD8e0RBZnhifSljx
+	GV+tEIRWZP5i71ltMCLyuGbig4pBlkc9SbRwm5uET6A==
+X-Gm-Gg: AY/fxX4vYCmZ0fw7Ur/iKp0BTsQ5y5SkpDqb2/8mWfAYo47bYuAVrX+/3ae/ofCvY02
+	4BW8mVicg7wGhi0ZT6r6RktAtpGguy2j31XNYlL7ZLQKOKI8ykMtYSstSGr0C/ZBWtgBQeIZtYc
+	PE3woxl/uUxpCtpK15YxJThiZVZwqyiUd7aYDqtL9KRsWs3MpQDx1yQqYOfVVFDyGt2pCtdrXjm
+	t1zcWL1W5jWb+ddlgDan3FMxhpgSlh4LDzT809zBxXwTwI1QTA6ulIBaWIsWsvxTTKceUnNbKZK
+	szcgsb52KCoMTE4O4Ml48PitvXNPzcjfeCqpMLFCtP+p
+X-Google-Smtp-Source: AGHT+IHr9hpj9uqrYP2d59hszb1BUZgIk82NvUf6gFEhieUb4Vo2pOoa14pKSV9rG9cinvTKc1D+k5JkFPZo7lCJHqE=
+X-Received: by 2002:a05:690e:1a07:b0:63f:a103:5d57 with SMTP id
+ 956f58d0204a3-6466a8398e7mr669772d50.5.1766097843665; Thu, 18 Dec 2025
+ 14:44:03 -0800 (PST)
 MIME-Version: 1.0
-X-Originating-IP: [10.250.9.200]
-X-ClientProxiedBy: MBX19-FMZ-05.um.gwdg.de (10.108.142.64) To
- MBX19-SUB-05.um.gwdg.de (10.108.142.70)
-X-Virus-Scanned: (clean) by clamav
+References: <20251216-k3-basic-dt-v1-0-a0d256c9dc92@riscstar.com>
+ <20251216-k3-basic-dt-v1-8-a0d256c9dc92@riscstar.com> <3c38ce9c-4259-4149-bf2c-a54e74c00a34@canonical.com>
+ <CAH1PCMbzv_uggyZ3JLPyWXSwbe2dJAh7jVT64xpM6SLG77VZqQ@mail.gmail.com> <e5d92ecd-6bc1-438d-87ec-96f60d1b8a24@gmail.com>
+In-Reply-To: <e5d92ecd-6bc1-438d-87ec-96f60d1b8a24@gmail.com>
+From: Guodong Xu <guodong@riscstar.com>
+Date: Fri, 19 Dec 2025 06:43:52 +0800
+X-Gm-Features: AQt7F2oVki_LCRnJdnjikkWlgQNyCWYw-P2aQmvWCPvKClL0oukF3aD3rXDC9xw
+Message-ID: <CAH1PCMaRrw1zu41oKpBO+5DpDU2Ri69TQEQa+4tXkZJtEuQDHw@mail.gmail.com>
+Subject: Re: [PATCH 8/8] riscv: dts: spacemit: add SpacemiT K3 Pico-ITX board
+ device tree
+To: Bo Gan <ganboing@gmail.com>
+Cc: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor@kernel.org>, 
+	Heinrich Schuchardt <xypron.glpk@gmx.de>, Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, spacemit@lists.linux.dev, 
+	linux-serial@vger.kernel.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@gentoo.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Samuel Holland <samuel.holland@sifive.com>, Anup Patel <anup@brainfault.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Lubomir Rintel <lkundrak@v3.sk>, Yangyu Chen <cyy@cyyself.name>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_111352_246942_85ABC79C 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20251218_144405_547833_6CEDBC53 
+X-CRM114-Status: GOOD (  33.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,135 +105,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Similarly to x86 and arm64, mitigate speculation past an access_ok()
-check by masking the pointer before use.
-
-On RISC-V, user addresses have the MSB clear while kernel addresses
-have the MSB set. The uaccess_mask_ptr() function clears the MSB,
-ensuring any kernel pointer becomes invalid and will fault, while
-valid user pointers remain unchanged. This prevents speculative
-access to kernel memory via user copy functions.
-
-The masking is applied to __get_user, __put_user, raw_copy_from_user,
-raw_copy_to_user, clear_user, and the unsafe_* variants.
-
-Signed-off-by: Lukas Gerlach <lukas.gerlach@cispa.de>
----
- arch/riscv/include/asm/uaccess.h | 41 +++++++++++++++++++++++++-------
- 1 file changed, 32 insertions(+), 9 deletions(-)
-
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index 36bba6720c26..ceee1d62ff9b 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -74,6 +74,23 @@ static inline unsigned long __untagged_addr_remote(struct mm_struct *mm, unsigne
- #define __typefits(x, type, not) \
- 	__builtin_choose_expr(sizeof(x) <= sizeof(type), (unsigned type)0, not)
- 
-+/*
-+ * Sanitize a uaccess pointer such that it cannot reach any kernel address.
-+ *
-+ * On RISC-V, virtual addresses are sign-extended from the top implemented bit.
-+ * User addresses have the MSB clear; kernel addresses have the MSB set.
-+ * Clearing the MSB ensures any kernel pointer becomes non-canonical and will
-+ * fault, while valid user pointers remain unchanged.
-+ */
-+#define uaccess_mask_ptr(ptr) ((__typeof__(ptr))__uaccess_mask_ptr(ptr))
-+static inline void __user *__uaccess_mask_ptr(const void __user *ptr)
-+{
-+	unsigned long val = (unsigned long)ptr;
-+
-+	val = (val << 1) >> 1;
-+	return (void __user *)val;
-+}
-+
- /*
-  * The exception table consists of pairs of addresses: the first is the
-  * address of an instruction that is allowed to fault, and the second is
-@@ -235,7 +252,8 @@ __gu_failed:								\
-  */
- #define __get_user(x, ptr)					\
- ({								\
--	const __typeof__(*(ptr)) __user *__gu_ptr = untagged_addr(ptr); \
-+	const __typeof__(*(ptr)) __user *__gu_ptr =		\
-+		uaccess_mask_ptr(untagged_addr(ptr));		\
- 	long __gu_err = 0;					\
- 	__typeof__(x) __gu_val;					\
- 								\
-@@ -366,7 +384,8 @@ err_label:							\
-  */
- #define __put_user(x, ptr)					\
- ({								\
--	__typeof__(*(ptr)) __user *__gu_ptr = untagged_addr(ptr); \
-+	__typeof__(*(ptr)) __user *__gu_ptr =			\
-+		uaccess_mask_ptr(untagged_addr(ptr));		\
- 	__typeof__(*__gu_ptr) __val = (x);			\
- 	long __pu_err = 0;					\
- 								\
-@@ -413,13 +432,15 @@ unsigned long __must_check __asm_copy_from_user(void *to,
- static inline unsigned long
- raw_copy_from_user(void *to, const void __user *from, unsigned long n)
- {
--	return __asm_copy_from_user(to, untagged_addr(from), n);
-+	return __asm_copy_from_user(to,
-+		uaccess_mask_ptr(untagged_addr(from)), n);
- }
- 
- static inline unsigned long
- raw_copy_to_user(void __user *to, const void *from, unsigned long n)
- {
--	return __asm_copy_to_user(untagged_addr(to), from, n);
-+	return __asm_copy_to_user(
-+		uaccess_mask_ptr(untagged_addr(to)), from, n);
- }
- 
- extern long strncpy_from_user(char *dest, const char __user *src, long count);
-@@ -434,7 +455,7 @@ unsigned long __must_check clear_user(void __user *to, unsigned long n)
- {
- 	might_fault();
- 	return access_ok(to, n) ?
--		__clear_user(untagged_addr(to), n) : n;
-+		__clear_user(uaccess_mask_ptr(untagged_addr(to)), n) : n;
- }
- 
- #define arch_get_kernel_nofault(dst, src, type, err_label)			\
-@@ -461,20 +482,22 @@ static inline void user_access_restore(unsigned long enabled) { }
-  * the error labels - thus the macro games.
-  */
- #define arch_unsafe_put_user(x, ptr, label)				\
--	__put_user_nocheck(x, (ptr), label)
-+	__put_user_nocheck(x, uaccess_mask_ptr(ptr), label)
- 
- #define arch_unsafe_get_user(x, ptr, label)	do {			\
- 	__inttype(*(ptr)) __gu_val;					\
--	__get_user_nocheck(__gu_val, (ptr), label);			\
-+	__get_user_nocheck(__gu_val, uaccess_mask_ptr(ptr), label);	\
- 	(x) = (__force __typeof__(*(ptr)))__gu_val;			\
- } while (0)
- 
- #define unsafe_copy_to_user(_dst, _src, _len, label)			\
--	if (__asm_copy_to_user_sum_enabled(_dst, _src, _len))		\
-+	if (__asm_copy_to_user_sum_enabled(				\
-+		uaccess_mask_ptr(_dst), _src, _len))			\
- 		goto label;
- 
- #define unsafe_copy_from_user(_dst, _src, _len, label)			\
--	if (__asm_copy_from_user_sum_enabled(_dst, _src, _len))		\
-+	if (__asm_copy_from_user_sum_enabled(				\
-+		_dst, uaccess_mask_ptr(_src), _len))			\
- 		goto label;
- 
- #else /* CONFIG_MMU */
--- 
-2.51.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIEJvCgpPbiBXZWQsIERlYyAxNywgMjAyNSBhdCA1OjA24oCvUE0gQm8gR2FuIDxnYW5ib2lu
+Z0BnbWFpbC5jb20+IHdyb3RlOgo+Cj4gSGkgR3VvZG9uZywKPgo+IE9uIDEyLzE2LzI1IDIzOjEz
+LCBHdW9kb25nIFh1IHdyb3RlOgo+ID4gT24gVHVlLCBEZWMgMTYsIDIwMjUgYXQgMTA6MzPigK9Q
+TSBIZWlucmljaCBTY2h1Y2hhcmR0Cj4gPiA8aGVpbnJpY2guc2NodWNoYXJkdEBjYW5vbmljYWwu
+Y29tPiB3cm90ZToKPiA+Pgo+ID4+IE9uIDEyLzE2LzI1IDE0OjMyLCBHdW9kb25nIFh1IHdyb3Rl
+Ogo+ID4+PiBLMyBQaWNvLUlUWCBpcyBhIDIuNS1pbmNoIHNpbmdsZS1ib2FyZCBjb21wdXRlciBl
+cXVpcHRlZCB3aXRoIGEgU3BhY2VtaVQKPiA+Pj4gSzMgU29DLgo+ID4+Pgo+ID4+PiBUaGlzIG1p
+bmltYWwgZGV2aWNlIHRyZWUgZW5hYmxlcyBib290aW5nIGludG8gYSBzZXJpYWwgY29uc29sZSB3
+aXRoIFVBUlQKPiA+Pj4gb3V0cHV0Lgo+ID4+Pgo+ID4+PiBTaWduZWQtb2ZmLWJ5OiBHdW9kb25n
+IFh1IDxndW9kb25nQHJpc2NzdGFyLmNvbT4KPiA+Pj4gLS0tCj4gPj4+ICAgIGFyY2gvcmlzY3Yv
+Ym9vdC9kdHMvc3BhY2VtaXQvTWFrZWZpbGUgICAgICAgIHwgIDEgKwo+ID4+PiAgICBhcmNoL3Jp
+c2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2szLXBpY28taXR4LmR0cyB8IDI1ICsrKysrKysrKysrKysr
+KysrKysrKysrKysKPiA+Pj4gICAgMiBmaWxlcyBjaGFuZ2VkLCAyNiBpbnNlcnRpb25zKCspCj4g
+Pj4+Cj4gPj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L01ha2Vm
+aWxlIGIvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9NYWtlZmlsZQo+ID4+PiBpbmRleCA5
+NTg4OWU3MjY5ZDFiYWU2NzliMjhjZDA1M2UxYjBhMjNhZTZkZTY4Li43ZTJiODc3MDI1NzE4MTEz
+YTBlMzE5MTdlYWRmNzU2MmY0ODhkODI1IDEwMDY0NAo+ID4+PiAtLS0gYS9hcmNoL3Jpc2N2L2Jv
+b3QvZHRzL3NwYWNlbWl0L01ha2VmaWxlCj4gPj4+ICsrKyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMv
+c3BhY2VtaXQvTWFrZWZpbGUKPiA+Pj4gQEAgLTQsMyArNCw0IEBAIGR0Yi0kKENPTkZJR19BUkNI
+X1NQQUNFTUlUKSArPSBrMS1taWxrdi1qdXBpdGVyLmR0Ygo+ID4+PiAgICBkdGItJChDT05GSUdf
+QVJDSF9TUEFDRU1JVCkgKz0gazEtbXVzZXBpLXByby5kdGIKPiA+Pj4gICAgZHRiLSQoQ09ORklH
+X0FSQ0hfU1BBQ0VNSVQpICs9IGsxLW9yYW5nZXBpLXIycy5kdGIKPiA+Pj4gICAgZHRiLSQoQ09O
+RklHX0FSQ0hfU1BBQ0VNSVQpICs9IGsxLW9yYW5nZXBpLXJ2Mi5kdGIKPiA+Pj4gK2R0Yi0kKENP
+TkZJR19BUkNIX1NQQUNFTUlUKSArPSBrMy1waWNvLWl0eC5kdGIKPiA+Pj4gZGlmZiAtLWdpdCBh
+L2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazMtcGljby1pdHguZHRzIGIvYXJjaC9yaXNj
+di9ib290L2R0cy9zcGFjZW1pdC9rMy1waWNvLWl0eC5kdHMKPiA+Pj4gbmV3IGZpbGUgbW9kZSAx
+MDA2NDQKPiA+Pj4gaW5kZXggMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAw
+MC4uMGY5ZDA0ZGQzNTJmNTMzMWU4MjU5OTI4NTExM2I4NmFmNWIwOWViZQo+ID4+PiAtLS0gL2Rl
+di9udWxsCj4gPj4+ICsrKyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazMtcGljby1p
+dHguZHRzCj4gPj4+IEBAIC0wLDAgKzEsMjUgQEAKPiA+Pj4gKy8vIFNQRFgtTGljZW5zZS1JZGVu
+dGlmaWVyOiAoR1BMLTIuMCBPUiBNSVQpCj4gPj4+ICsvKgo+ID4+PiArICogQ29weXJpZ2h0IChj
+KSAyMDI1IFNwYWNlbWlUIChIYW5nemhvdSkgVGVjaG5vbG9neSBDby4gTHRkCj4gPj4+ICsgKiBD
+b3B5cmlnaHQgKGMpIDIwMjUgR3VvZG9uZyBYdSA8Z3VvZG9uZ0ByaXNjc3Rhci5jb20+Cj4gPj4+
+ICsgKi8KPiA+Pj4gKwo+ID4+PiArI2luY2x1ZGUgImszLmR0c2kiCj4gPj4+ICsKPiA+Pj4gKy8g
+ewo+ID4+PiArICAgICBtb2RlbCA9ICJTcGFjZW1pVCBLMyBQaWNvLUlUWCI7Cj4gPj4+ICsgICAg
+IGNvbXBhdGlibGUgPSAic3BhY2VtaXQsazMtcGljby1pdHgiLCAic3BhY2VtaXQsazMiOwo+ID4+
+PiArCj4gPj4+ICsgICAgIGNob3NlbiB7Cj4gPj4+ICsgICAgICAgICAgICAgc3Rkb3V0LXBhdGgg
+PSAic2VyaWFsMCI7Cj4gPj4+ICsgICAgIH07Cj4gPj4+ICsKPiA+Pj4gKyAgICAgbWVtb3J5QDEw
+MDIwMDAwMCB7Cj4gPj4+ICsgICAgICAgICAgICAgZGV2aWNlX3R5cGUgPSAibWVtb3J5IjsKPiA+
+Pj4gKyAgICAgICAgICAgICByZWcgPSA8MHgxIDB4MDAyMDAwMDAgMHgzIDB4ZmZlMDAwMDA+Owo+
+ID4+Cj4gPj4gU2hvdWxkbid0IHRoZSByZXNlcnZlZCBtZW1vcnkgYmUgZGVzY3JpYmVkIGFzIG5v
+LW1hcCAvcmVzZXJ2ZWQtbWVtb3J5Cj4gPj4gbm9kZXMgaW5zdGVhZD8KPiA+Cj4gPiBIaSBIZWlu
+cmljaCwKPiA+Cj4gPiBZZXMsIHlvdSBhcmUgcmlnaHQuIFVzaW5nIGEgcmVzZXJ2ZWQtbWVtb3J5
+IG5vZGUgd2l0aCB0aGUgbm8tbWFwIHByb3BlcnR5IGlzCj4gPiB0aGUgY29ycmVjdCBhcHByb2Fj
+aC4gSSB3aWxsIHVwZGF0ZSB0aGlzIGluIHRoZSBuZXh0IHZlcnNpb24gdG8gZXhwbGljaXRseQo+
+ID4gcmVzZXJ2ZSB0aGUgZmlyc3QgMk1CLgo+ID4KPiA+Pgo+ID4+IEkgd291bGQgYXNzdW1lIHRo
+YXQgMHgxLDAwMDAsMDAwMCBpcyB0aGUgbG9jYXRpb24gb2YgT3BlblNCSS4KPiA+PiBXaGF0IGlz
+IGF0IDB4MyxmZmUwLDAwMDA/Cj4gPgo+ID4gWWVzLCBjb25maXJtZWQsIDB4MTAwMDAwMDAwIGlz
+IHRoZSBzdGFydCBvZiBPcGVuU0JJLiBUaGUgc2l6ZSAweDNmZmUwMDAwMCBpbgo+ID4gbXkgb3Jp
+Z2luYWwgcGF0Y2ggd2FzIHRoZSByZXN1bHQgb2YgbWFudWFsbHkgc3VidHJhY3RpbmcgdGhlIDJN
+QiBPcGVuU0JJCj4gPiBvZmZzZXQgZnJvbSB0aGUgdG90YWwgMTZHQiBtZW1vcnkuCj4gPgo+ID4g
+SSB3aWxsIGNvcnJlY3QgdGhpcyBpbiB2MiB0byBzaG93IHRoZSBhY3R1YWwgbWVtb3J5IGFuZCBw
+dXQgdGhlIGZpcnN0IDJNQiBpbgo+ID4gcmVzZXJ2ZWQtbWVtb3J5IHt9IGZvciBvcGVuc2JpLgo+
+Cj4gSSBkb24ndCB0aGluayB0aGlzIGlzIHRoZSByaWdodCBhcHByb2FjaC4gVGhlIExpbnV4IGtl
+cm5lbCBzaG91bGRuJ3QgY2FyZQo+IGFib3V0IHRoZSBzaXplIG9mIHRoZSB1bmRlcmx5aW5nIFNC
+SSBpbXBsZW1lbnRhdGlvbi4gVGhlIHNpemUgb2YgT3BlblNCSQo+IGFsc28gZGVwZW5kcyBvbiB0
+aGUgdmVyc2lvbiBhbmQgZmVhdHVyZXMgZW5hYmxlZC4gVGh1cywgeW91IHNob3VsZCBqdXN0CgpU
+aGFua3MgZm9yIHRoZSByZXZpZXcuIFlvdSBhcmUgY29ycmVjdCBhbmQgSSBjb25maXJtZWQgd2l0
+aCB0aGUgVS1Cb290CndoaWNoIHdlIGFyZSBjdXJyZW50bHkgdXNpbmcgb24gdGhlIEszIFBpY28g
+Ym9hcmQgY2FuIGhhbmRsZSB0aGlzIG1lbW9yeQpyZXNlcnZhdGlvbiBzaXR1YXRpb24uIEFuZCBp
+dCBzaG91bGQsIGFzIHlvdSBzYWlkLiBVLUJvb3QKaGFzIGZpcnN0LWhhbmQgaW5mb3JtYXRpb24g
+YWJvdXQgd2hlcmUgYW5kIHdoYXQgaXQgd2FudHMgdG8gcmVzZXJ2ZS4KCj4gbGV0IHRoZSBPcGVu
+U0JJIG9yIHdoYXRldmVyIFNCSSBmaXggdXAgdGhlIGRldmljZS10cmVlIGZvciB5b3UuIE9wZW5T
+QkkKPiBhbHJlYWR5IGRvZXMgdGhhdCB0b2RheS4gSXQgaW5zZXJ0cyBvbmUgb3IgbW9yZSByZXNl
+cnZlZC1tZW1vcnkgbm9kZSBhbmQKPiBjYXJ2ZXMgb3V0IHRoZSBtZW1vcnkgcmVnaW9uIG9mIGl0
+cyBvd24uIElmIHRoZXJlJ3Mgc29tZSBib290bG9hZGVyIGluCj4gYmV0d2VlbiBTQkkgPC0+IExp
+bnV4LCBzdWNoIGFzIFUtYm9vdCwgdGhlbiBpdCdzIHJlc3BvbnNpYmxlIGZvciBjb3B5aW5nCj4g
+b3ZlciB0aG9zZSByZXNlcnZlZCByZWdpb25zIGZyb20gT3BlblNCSSBpbnRvIHRoZSBkZXZpY2Ut
+dHJlZSBMaW51eCB1c2VzCj4gKFUtYm9vdCBhbHJlYWR5IGRvZXMpLiBUaHVzLCB0aGVyZSdzIG5v
+IG5lZWQgdG8gbWFudWFsbHkgc3BlY2lmeSBpdC4KCkFncmVlLiBCYWNrIHRvIHRoZSBLMyBQaWNv
+IERUUywgbmV4dCB2ZXJzaW9uLCBJIHdpbGwgZGVzY3JpYmUgbWVtb3J5IGxheW91dAphcyB3aGF0
+IGl0IGlzIG9uIHRoZSBib2FyZC4KbWVtb3J5QDEwMDAwMDAwMCAjIHN0YXJ0cyBmcm9tIDRHCgpC
+UiwKR3VvZG9uZyBYdQoKPgo+IEJvCj4KPiA+Cj4gPiBUaGFua3MgZm9yIHRoZSByZXZpZXcuCj4g
+Pgo+ID4gQlIsCj4gPiBHdW9kb25nIFh1Cj4gPgo+ID4KPiA+Pgo+ID4+IEJlc3QgcmVnYXJkcwo+
+ID4+Cj4gPj4gSGVpbnJpY2gKPiA+Pgo+ID4+PiArICAgICB9Owo+ID4+PiArfTsKPiA+Pj4gKwo+
+ID4+PiArJnVhcnQwIHsKPiA+Pj4gKyAgICAgc3RhdHVzID0gIm9rYXkiOwo+ID4+PiArfTsKPiA+
+Pj4KPiA+Pgo+ID4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
