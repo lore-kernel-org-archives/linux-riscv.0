@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 562B2D6ACFB
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Dec 2025 13:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33673D6ACFB
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Dec 2025 13:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=bWAhXdzEVdbeJOimO3ngXdBkgqaw1hWjh57zumjEmVM=; b=4BR
-	nowB20114wgk6CSBXlG9S1W91tAp3NbTGn8/nuXd9dO/fAETjud7jvv58POqcQRY+vAGKt0v0ydkf
-	4OcK5c/DgIkAannaLoE+zhpzyEHIR/OSacs6vaZswUh0pO839TwhoTutNxA8Ib/baTMuosSrCXxFz
-	v3JbuL+5fea/RyHKgkF93Oh43B7Hc+9AK6KKp9/jbe40zvHmjpEdfT+gqgPBl4b+HAy4ivYJfoP3M
-	jvBD838D7r4bR3LbhtoBAS76aJPLAYfCkGUgejRLDJewnM0wG8WqGY8n5E3JdMci+9aPjaYki5A/7
-	IUbzQQQMs9Fzw+nJ16I01++6idcoZJA==;
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=z2qTSY8XunJGMWWnS+HJq0B7Xfaonvc4zfdnaq1EPXw=; b=HUWt671snxIxexg+yJh2OjtpD/
+	jYFDHXo0LxPgqm9Q2CIFh77dZzZEWzo+a6XN0Kokfh359bZFdPr9yyWkcucZahWwsrwUI2jNiNbUJ
+	E66OpMVN5FBcnkrN2AnFvRUOGkYJWHAMDD0Kvv1j+Y87CB69lR8SmCvvQLEz4e7UBJi1nPw8KWtQp
+	V57HwIxIGVqbmSWHE8p1tv+1+KwL62MPvsnY761U0MDHX8EAV+oQvN+S4DqxcQ1I+2jxTFPvDZHuF
+	0RXM6L45mB6VwBgVH99FRYEAU0EjHajD9zf5srISprRE44X/68XhVrtDK3Ntii73atDYAWSg6LfC7
+	wMZ483/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWE2v-00000008X6C-3T6Q;
-	Thu, 18 Dec 2025 13:27:57 +0000
-Received: from mail-ed1-x549.google.com ([2a00:1450:4864:20::549])
+	id 1vWE30-00000008X8k-0uhs;
+	Thu, 18 Dec 2025 13:28:02 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWE2o-00000008Wzs-1U2E
+	id 1vWE2r-00000008X29-090t
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Dec 2025 13:27:57 +0000
-Received: by mail-ed1-x549.google.com with SMTP id 4fb4d7f45d1cf-6416581521eso701873a12.2
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Dec 2025 05:27:49 -0800 (PST)
+	Thu, 18 Dec 2025 13:28:00 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-477b8a667bcso8434225e9.2
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Dec 2025 05:27:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1766064468; x=1766669268; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Qi+diNh9H3fqHmnH6Hx1SnRjbjw/DBqYuPovI/jASd0=;
-        b=cs2QYPD78ZN5tNAIW1/LWIk9PUoTP2s8v6lbeXgWLNZtcOKV3HLpKumJyBcjaErvje
-         guXa/W9ov61JBGUpuE/i/mYFF5jw4DIXjj1FTZWx3LU042N2i4m1ty282xqUXgkT2g2W
-         861JUWUz5ig6z/P71wF7uvRfx9sy9qiZ3zt/lURvpwM2/rC6stTotGUqYpUv4rxekZoS
-         fmdW2zqb5E6F8KYK2lW/1K8ig6oQGBZkvVwkZ5Vv9x+QXKq+UvVJzvPgBBPRuNjcg84j
-         TV79rHn0HWrBgHxD7oX51j5HKaNZuP+R+3erL8SAphxUpYtaGbjWe1T1pjuarO9lwvUa
-         aQpQ==
+        d=google.com; s=20230601; t=1766064470; x=1766669270; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=jK28JFeXstDuyy0FEYnFWM4ECthU7/SRvZ+Uc2K8TMM=;
+        b=vILVNNw7ygo4TkM5dXaGgNzbR4vhhsm4d8prvB8VeZRIvcnEdMuAbWfPhu8gZj+Ykl
+         JXqnJef8hIH9W4YSAs9fqg20tCHsKxnFYrOqsCmcQnZ/kxTyr9JlI7ClI+OpVyrDlEbY
+         NWG9DhLLYx/Wyy1UQnSLZA/CECFzYE7Ej7c/A1M8/gAf3EqbkxT43Puz8tGS5eWH0ISp
+         HGjD+gqEb+plx7N+IV7+l4ZtKb5J29QyHQP/qtRl7ly86dj7Sjb8fJ10QqnoTghwWeci
+         sD1hU2j4LkM0fl4BNrOHTi1YCP8vRn1tlWODwJh+JAPiAH1J2fwrvlxrPpYk3Oszymz4
+         7HCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766064468; x=1766669268;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Qi+diNh9H3fqHmnH6Hx1SnRjbjw/DBqYuPovI/jASd0=;
-        b=qkJ91LA9xlFFNWVk9wEpKWzByxmzicImmoQPX8sB52kZ1oiwuhrlY3MKp52o71UCnF
-         1WMDXjEr6l9vVh07N7DzTQrAVQ+YuGzM41Rj3MOrWx3Z1EV8jOjsaX0sHHe7FcnoaXNV
-         j32nyIC40JjT3d0rrxiI7V9ea1I2PRmvUdv3GvD5MwBTTgFjdum1ipLaW/qVyeCFGgaE
-         8EO00+3X+IDGCngQflZwIHwQ0xU1jTDlMav76kCJvPNebL+h/V8IFu9saRAtexPRSW8Q
-         X4dqUVAZAutE5kmvfz3xQIMulqrHRU0QbHHfCfJaBN9OixIATgjpiepOOiWGkRp1+onI
-         CMuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXDdhS4HRWen26f09R6e7ZmtiHn4WHodkYgGstkrw/h5EphzSvh8ZrsA35vp1USpowM97ZB3wMzhaTcbg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+j7Sp0imz8QsXM43oH0Wzgde3M6RI1NKtKh5QoOWo1iuFKSiX
-	C6rBEYlJhR8t44LrhgQGUrvXCHjUaZNYiyL1/yL1R9zzxTtgA4QhiIrEG3UFspeBBNE7s9+/Y28
-	mzhK/zhhwjekdeChNkw==
-X-Google-Smtp-Source: AGHT+IEJ9HLtb50XHuIEDIn2I5dEKRfpXNrH3igp0u5gga3J4+yG7DZI2Q0fi7gmDBfxIdYoUF2j/d9U4mcuUv4=
-X-Received: from edbin13-n2.prod.google.com ([2002:a05:6402:208d:20b0:641:9bdd:d74f])
+        d=1e100.net; s=20230601; t=1766064470; x=1766669270;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jK28JFeXstDuyy0FEYnFWM4ECthU7/SRvZ+Uc2K8TMM=;
+        b=qFyoQMzYZIZEx+eHY0NeMdD+PTmtUFdrzD1Fk++01LsU66mB5IgfxX6+GcVIJTvi8X
+         868DksSR0imDHprk6Nkvl1HURaxgjaRryEkqbDSrsF9NjEw/bqoZ2HLas67upAlCYdPy
+         0dT4LLGFw9Pz8UN40PzETJz1QV2wyKXzsYx/lX9kkqEUXPMlOIPXRGso24875UDRO/Wd
+         u0wvDEAqMAP5q+XSMOcvXQ4qP70E1KezFkStxUZfSjIX2zVJ8e6BzTOh9A7jATw3nTBf
+         9GoQCnZGEvUnDiYWeDA615PSmxJptKONFsTZN6OUFbYzGLYzk5GpO1GQWGLWZVZ7esQH
+         eSdA==
+X-Forwarded-Encrypted: i=1; AJvYcCWV+ldsi7Ys3N3d4IGQ6yAbuksfshmOjTeduT5rIGDDtqCy5aur/GbiH47CQgdtLFoQ15urf0gPyk9jeQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGtysbKPdXxY9xQpA7ZAzVdIboZt5PpImetDkBiTDrIbAv48Q5
+	f/yia3XhFF6rXGX9hDsYkQ9iD1VuLZ8VlVwL3rl1Qr13NuRbTtqFhsNZ4mGX9czOAzcIyfAhEev
+	vOegYNONKhwaGJugcEQ==
+X-Google-Smtp-Source: AGHT+IE3mV0hHlOMpYVWIjAwdmvo5jE0L9sBOpWL6XsbMzQezjxagjqpMFllYAiylsVjD8lLgu0n6vRFRAWYICM=
+X-Received: from wmgp21.prod.google.com ([2002:a05:600c:2055:b0:477:afa:d217])
  (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6402:557:b0:649:ab53:f11c with SMTP id 4fb4d7f45d1cf-649ab53f181mr13887194a12.23.1766064467917;
- Thu, 18 Dec 2025 05:27:47 -0800 (PST)
-Date: Thu, 18 Dec 2025 13:27:39 +0000
+ 2002:a05:600c:3104:b0:477:fcb:2256 with SMTP id 5b1f17b1804b1-47a8f906dd3mr228600355e9.17.1766064470141;
+ Thu, 18 Dec 2025 05:27:50 -0800 (PST)
+Date: Thu, 18 Dec 2025 13:27:40 +0000
+In-Reply-To: <20251218-clk-send-sync-v3-0-e48b2e2f1eac@google.com>
 Mime-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAEsBRGkC/3WMQQrCMBAAv1JydmWzSbF68h/iIU23bbA2kkiwl
- P7dtAdBweMMzMwicnAcxamYReDkovNjBrUrhO3N2DG4JrMgpBKPqMEON4g8NhCn0YKyrTm0mqV
- lErl5BG7da/tdrpl7F58+TNs+ydX+OyUJEnTVIClFyHV17rzvBt5bfxfrKtEnl0j4mxMgaG3qU inDWOmvfFmWN6cYRdHqAAAA
-X-Change-Id: 20250904-clk-send-sync-3cfa7f4e1ce2
+References: <20251218-clk-send-sync-v3-0-e48b2e2f1eac@google.com>
 X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1102; i=aliceryhl@google.com;
- h=from:subject:message-id; bh=TNCoBCaC1De+GuiDPz38rW09O9saXkMK3Ckv9akyQNA=;
- b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBpRAFNFVzmcQ2qN1p0BMkwj9qfGdczHhAq4h4h8
- brc4EWRh+iJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCaUQBTQAKCRAEWL7uWMY5
- RsZdD/9D8QHTjLTOthce0e12XPB+tRv7yTYfTigi7v76k7nrub0lKoKFh5YWCFnp/HL8DRywxKb
- oxs4TkZ46IOOOzwErax+03oga+ud4RA5ABn2ckO9+qT8fUPy3GhuUXscu70HfPiUymY65J5HtKS
- x1v/qKELfXqmLSu+t4/CfIGxtLVN6znV8WnqApVX89X3sYG8OJFT1Lrqv3H83yFlfcW/aaKlxe/
- UTOgL6htm/yH98HfawS0BAuPXG8f8J7T7geAiZ2LhiEJoivaWalj9qcuNxa05izSy+54u3NwoXQ
- /cCACpUNeOZnAGatJra0dJW4pPehjlM0X3TtI1bgq/Z6TL08AoZa7wmJaxv3kYvoACDSg6uQnoz
- 0pzCePqB0kse0Fz5H8nxVc7Z0VWBAkc9Ij4s5Fh+S3l0CDIIxk/cr9PNYBUxtcF2Qqb75cMiueP
- mvNcZp5DsU99p93dsNst594/1XVkYTPcpurKSTtmOvxTImC2AL+0RCI+BY9CsuOpYiqnGVMTe7N
- mGTNbC5b8FDZe9TtKb2nhVBwrMt9OrVGLqj7gT2yMGUiKesa6kTrkd1YllkFpEDiLJJW6fUsWJQ
- zt1Psk8ettsFrj2CWt2WZdymF9Bz/KV8ycv/6A3TMtQuvymfQHZnQ83QUyLw3a/GekISTmoqW2B Nc412T9BlsDc0+A==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1327; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=GfyAuLsrs0QXvlLECZS+Ag8ZW62Fz2Y2rspmoop5J3s=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBpRAFSGE9hInQJ93qtSDZ6USDztanUVRXYt7zuZ
+ u/M3OKN66SJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCaUQBUgAKCRAEWL7uWMY5
+ RpjnEACSGceY2rPEdAJ9IM0nAQ/WAryJFpSfxt+WLrj3iN4p5BmgrDdLtUBRaFYTYqcli8hAS05
+ YJwMVlfRAd6iFo4DaO3eqnrvZQRPSaBmxegr8FhHpfv8XSaez94scQlMk6FrcSlvrA6Ee4Gtlwp
+ l+ilXpbYOyAubw6GpjlWswSHxKOg0QwnWCzW2KwjpbXJnfLQ5fH4lcncuzMfaAkPvCFV4t1y2KV
+ kaWXQIWrkEvVGzZJssbmxCb1PvSE6oyjcy3TzBBSM/E1t9jJSdXBS+NfHM5gMDUErPaSO224COW
+ ei9hJ+Rb2IfKuZtQ9gud09brWgGvjaOVaiC9LM5c3bNNygut/rL2sqBDf0eUnTjZZ4hl4T7zj9w
+ q/VO+QeTNdEDV8AfXeYCZs11q9X+mpJK3MYCF7ZLQsBZFOiaSgTwrF5Q7PSXXxL860gZaGED9so
+ hqtSPCzOrli9/mHqIoHfLoSPuUaf2bxTBaNboLD+d8kdD2+h9FLLvMhgGVhXYhEUmOsBKZC9MlN
+ DwpN5R2dUuDE7iXXAi9r6a3YRd7J5IHGfhXALODtLYLu7bdkcna8Ggb35wgjrid9IfeQf9eEdVQ
+ 9zkYMJevx5Tf5DKTw7VxZGkTJHxKfsL+G8+CcVjptxDvHWl4UkCa+/HLohudluaxij+Yf/xnesA vfDaSFT0gn04/pQ==
 X-Mailer: b4 0.14.2
-Message-ID: <20251218-clk-send-sync-v3-0-e48b2e2f1eac@google.com>
-Subject: [PATCH v3 0/3] Implement Send and Sync for clk
+Message-ID: <20251218-clk-send-sync-v3-1-e48b2e2f1eac@google.com>
+Subject: [PATCH v3 1/3] rust: clk: implement Send and Sync
 From: Alice Ryhl <aliceryhl@google.com>
 To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
@@ -98,8 +97,8 @@ Cc: Viresh Kumar <viresh.kumar@linaro.org>, Miguel Ojeda <ojeda@kernel.org>,
 	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, 
 	Alice Ryhl <aliceryhl@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_052750_410241_4D9CE681 
-X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-CacheID: sfid-20251218_052754_500440_E6CC20B1 
+X-CRM114-Status: UNSURE (   8.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -117,41 +116,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Clk type is thread-safe, so let's mark it as thread-safe in the type
-system. This lets us get rid of hacks in drivers.
+These traits are required for drivers to embed the Clk type in their own
+data structures because driver data structures are usually required to
+be Send. Since the Clk type is thread-safe, implement the relevant
+traits.
 
-For Stephen's clk tree.
-
+Reviewed-by: Daniel Almeida <daniel.almeida@collabora.com>
+Reviewed-by: Danilo Krummrich <dakr@kernel.org>
+Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
+Reviewed-by: Boqun Feng <boqun.feng@gmail.com>
 Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 ---
-Changes in v3:
-- Rebase on v6.19-rc1.
-- Pick up tags.
-- Add fix for pwm driver as well.
-- Link to v2: https://lore.kernel.org/r/20251020-clk-send-sync-v2-0-44ab533ae084@google.com
+ rust/kernel/clk.rs | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Changes in v2:
-- Rebase on v6.18-rc1.
-- Add patch to tyr driver.
-- Link to v1: https://lore.kernel.org/r/20250904-clk-send-sync-v1-1-48d023320eb8@google.com
+diff --git a/rust/kernel/clk.rs b/rust/kernel/clk.rs
+index c1cfaeaa36a22be2e3180b1e9142bb608ab276ea..d192fbd97861212d738d24510eebcd99c9177f2c 100644
+--- a/rust/kernel/clk.rs
++++ b/rust/kernel/clk.rs
+@@ -129,6 +129,13 @@ mod common_clk {
+     #[repr(transparent)]
+     pub struct Clk(*mut bindings::clk);
+ 
++    // SAFETY: It is safe to call `clk_put` on another thread than where `clk_get` was called.
++    unsafe impl Send for Clk {}
++
++    // SAFETY: It is safe to call any combination of the `&self` methods in parallel, as the
++    // methods are synchronized internally.
++    unsafe impl Sync for Clk {}
++
+     impl Clk {
+         /// Gets [`Clk`] corresponding to a [`Device`] and a connection id.
+         ///
 
----
-Alice Ryhl (3):
-      rust: clk: implement Send and Sync
-      tyr: remove impl Send/Sync for TyrData
-      pwm: th1520: remove impl Send/Sync for Th1520PwmDriverData
-
- drivers/gpu/drm/tyr/driver.rs | 12 ------------
- drivers/pwm/pwm_th1520.rs     | 15 ---------------
- rust/kernel/clk.rs            |  7 +++++++
- 3 files changed, 7 insertions(+), 27 deletions(-)
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20250904-clk-send-sync-3cfa7f4e1ce2
-
-Best regards,
 -- 
-Alice Ryhl <aliceryhl@google.com>
+2.52.0.351.gbe84eed79e-goog
 
 
 _______________________________________________
