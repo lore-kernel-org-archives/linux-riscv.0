@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33673D6ACFB
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Dec 2025 13:28:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DF1D6ACF5
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Dec 2025 13:28:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,75 +13,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=z2qTSY8XunJGMWWnS+HJq0B7Xfaonvc4zfdnaq1EPXw=; b=HUWt671snxIxexg+yJh2OjtpD/
-	jYFDHXo0LxPgqm9Q2CIFh77dZzZEWzo+a6XN0Kokfh359bZFdPr9yyWkcucZahWwsrwUI2jNiNbUJ
-	E66OpMVN5FBcnkrN2AnFvRUOGkYJWHAMDD0Kvv1j+Y87CB69lR8SmCvvQLEz4e7UBJi1nPw8KWtQp
-	V57HwIxIGVqbmSWHE8p1tv+1+KwL62MPvsnY761U0MDHX8EAV+oQvN+S4DqxcQ1I+2jxTFPvDZHuF
-	0RXM6L45mB6VwBgVH99FRYEAU0EjHajD9zf5srISprRE44X/68XhVrtDK3Ntii73atDYAWSg6LfC7
-	wMZ483/g==;
+	bh=j4Mx/vq6ffo1Rqfhk+lDexKnqnMQdSG+dPh+1z4FGpQ=; b=NvkR3YLKH0J1vIAiGNeUU7l7ms
+	Nog3s4MRZO2wM1ftgTWwp0ZCp9efuzT1oMbVE48W8x0+vM7EESsUzuaaiNjX9pbMX/0q/L+hI3/ME
+	sOqYLvCqGS3U88aB7mYhXyMcw0uhw46YPOFvGRL3VVS0THvkDm0NB7/fzncfLEAZJn6wcOc1kAuN1
+	hIeM04D4gvteBE91HZ/EWeGptAxIeKNMNqmcPCesT79YeWu07nu1useW1fXo+qYZvE2gPB5iISFy4
+	i4CHrn81gecsg97wpn3aAElYuH2087g/jGK8yKtF/SCWfr5xVl0JiMwIRQUfR/JVebe9V1pB9Gkze
+	AwkP2JBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWE30-00000008X8k-0uhs;
-	Thu, 18 Dec 2025 13:28:02 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1vWE31-00000008X9i-2in9;
+	Thu, 18 Dec 2025 13:28:03 +0000
+Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWE2r-00000008X29-090t
+	id 1vWE2s-00000008X38-46CZ
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Dec 2025 13:28:00 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-477b8a667bcso8434225e9.2
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Dec 2025 05:27:51 -0800 (PST)
+	Thu, 18 Dec 2025 13:28:01 +0000
+Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-64981ed54feso649599a12.3
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Dec 2025 05:27:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1766064470; x=1766669270; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1766064472; x=1766669272; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jK28JFeXstDuyy0FEYnFWM4ECthU7/SRvZ+Uc2K8TMM=;
-        b=vILVNNw7ygo4TkM5dXaGgNzbR4vhhsm4d8prvB8VeZRIvcnEdMuAbWfPhu8gZj+Ykl
-         JXqnJef8hIH9W4YSAs9fqg20tCHsKxnFYrOqsCmcQnZ/kxTyr9JlI7ClI+OpVyrDlEbY
-         NWG9DhLLYx/Wyy1UQnSLZA/CECFzYE7Ej7c/A1M8/gAf3EqbkxT43Puz8tGS5eWH0ISp
-         HGjD+gqEb+plx7N+IV7+l4ZtKb5J29QyHQP/qtRl7ly86dj7Sjb8fJ10QqnoTghwWeci
-         sD1hU2j4LkM0fl4BNrOHTi1YCP8vRn1tlWODwJh+JAPiAH1J2fwrvlxrPpYk3Oszymz4
-         7HCg==
+        bh=uPptdLMQzSRoeYj6Hrjl7dIAj/bZbKtg9ZgsU3qRcP4=;
+        b=ZyfNNxDZFXVtWZjqf4yAXMMFYNber++SENJITCB2icI/7QaHUeHaJqo0T3hpJ/h9lr
+         Bs2H5KMdEWzmu4Bl8LcZnMvfsedyghxhc9hfr+W1mGZw7Xlq3NJsXxQqoet8w6Pw9Hdc
+         21LEZ+zUp7H53kzfxdpSsFW6ElMXQWKnVXWEdadqQ5JFHjHuuL8S+IxrWUJhpHYoxCAH
+         Wk7BB1KfTGNB95btcU5OCEPBGhwba+3Uru95BOGGyDt2SUV6WCrQVu5pcGNsXfe/Tr6e
+         WbfLLlHDzZLD1lUr9KqAzYBqBmtTLFznz/dJ0kV5yvtSKMYPcYJlgF1qEBFbbA3a38GS
+         2Bpw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766064470; x=1766669270;
+        d=1e100.net; s=20230601; t=1766064472; x=1766669272;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jK28JFeXstDuyy0FEYnFWM4ECthU7/SRvZ+Uc2K8TMM=;
-        b=qFyoQMzYZIZEx+eHY0NeMdD+PTmtUFdrzD1Fk++01LsU66mB5IgfxX6+GcVIJTvi8X
-         868DksSR0imDHprk6Nkvl1HURaxgjaRryEkqbDSrsF9NjEw/bqoZ2HLas67upAlCYdPy
-         0dT4LLGFw9Pz8UN40PzETJz1QV2wyKXzsYx/lX9kkqEUXPMlOIPXRGso24875UDRO/Wd
-         u0wvDEAqMAP5q+XSMOcvXQ4qP70E1KezFkStxUZfSjIX2zVJ8e6BzTOh9A7jATw3nTBf
-         9GoQCnZGEvUnDiYWeDA615PSmxJptKONFsTZN6OUFbYzGLYzk5GpO1GQWGLWZVZ7esQH
-         eSdA==
-X-Forwarded-Encrypted: i=1; AJvYcCWV+ldsi7Ys3N3d4IGQ6yAbuksfshmOjTeduT5rIGDDtqCy5aur/GbiH47CQgdtLFoQ15urf0gPyk9jeQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGtysbKPdXxY9xQpA7ZAzVdIboZt5PpImetDkBiTDrIbAv48Q5
-	f/yia3XhFF6rXGX9hDsYkQ9iD1VuLZ8VlVwL3rl1Qr13NuRbTtqFhsNZ4mGX9czOAzcIyfAhEev
-	vOegYNONKhwaGJugcEQ==
-X-Google-Smtp-Source: AGHT+IE3mV0hHlOMpYVWIjAwdmvo5jE0L9sBOpWL6XsbMzQezjxagjqpMFllYAiylsVjD8lLgu0n6vRFRAWYICM=
-X-Received: from wmgp21.prod.google.com ([2002:a05:600c:2055:b0:477:afa:d217])
+        bh=uPptdLMQzSRoeYj6Hrjl7dIAj/bZbKtg9ZgsU3qRcP4=;
+        b=wClm7PI3qKrHss1+UB5ZyhNdCIIptm7xv6drJYsUqf8Kl2exKOZT+4Xoc7cA2YPiB1
+         0/jo7sAG0dUanc1h5RIFk3bL6/41fWe4OU8VFCPTdAJAZngV6WbQd42ZJYbN74gSmUTX
+         moMEE/VaUTq9H7kPHJ643tgqRWNVH+zJKmFiPoBlSTXf/wuwVY6xbLoclF2ids9a4ihQ
+         qvM2razxGt+7jYkz7vH8Xfntb79TtXI5o4MM/L9q7FOJTKz4fruzbMpcOUO0kGF8aVWs
+         XRWef9uUMeVYlDpoYvNOBNfp/rkhwo+OtxvGP8VKmhmI17KOb7vduo8HuLSbfpt/XzGE
+         wg9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWxYsI94LaiN9wZqlUIKOI9L5VFlno3M6CuNasb+vbsH7gJGjDJ4Cd8DNtF9dmYj1rM+ArV/I9sM3XibA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzzCXGslpjMRXYLpAE4gN23si+bbhWTXmWnHCvwzzU+97TnO+s
+	G1ZyJhxK20EF+qAPOQIm/4kt2RX8Riczd96sTWkkYrdJ3pJTEi4ZScX5D5n4P+qLmMliHGxUeQo
+	FeTSKjlqQSPNt1rQ3Vg==
+X-Google-Smtp-Source: AGHT+IEqPOft361pJTlpzbo4r1Az15cTuwMQEfh5KrGil6c5DKT9dTPisXdo2WdHWgmo3QB8gCSt51uaXvkVnKs=
+X-Received: from edtb2.prod.google.com ([2002:aa7:c902:0:b0:64b:3f32:3786])
  (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3104:b0:477:fcb:2256 with SMTP id 5b1f17b1804b1-47a8f906dd3mr228600355e9.17.1766064470141;
- Thu, 18 Dec 2025 05:27:50 -0800 (PST)
-Date: Thu, 18 Dec 2025 13:27:40 +0000
+ 2002:a05:6402:510c:b0:649:aa2b:d34e with SMTP id 4fb4d7f45d1cf-649aa2bd4d5mr19796028a12.34.1766064472249;
+ Thu, 18 Dec 2025 05:27:52 -0800 (PST)
+Date: Thu, 18 Dec 2025 13:27:41 +0000
 In-Reply-To: <20251218-clk-send-sync-v3-0-e48b2e2f1eac@google.com>
 Mime-Version: 1.0
 References: <20251218-clk-send-sync-v3-0-e48b2e2f1eac@google.com>
 X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1327; i=aliceryhl@google.com;
- h=from:subject:message-id; bh=GfyAuLsrs0QXvlLECZS+Ag8ZW62Fz2Y2rspmoop5J3s=;
- b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBpRAFSGE9hInQJ93qtSDZ6USDztanUVRXYt7zuZ
- u/M3OKN66SJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCaUQBUgAKCRAEWL7uWMY5
- RpjnEACSGceY2rPEdAJ9IM0nAQ/WAryJFpSfxt+WLrj3iN4p5BmgrDdLtUBRaFYTYqcli8hAS05
- YJwMVlfRAd6iFo4DaO3eqnrvZQRPSaBmxegr8FhHpfv8XSaez94scQlMk6FrcSlvrA6Ee4Gtlwp
- l+ilXpbYOyAubw6GpjlWswSHxKOg0QwnWCzW2KwjpbXJnfLQ5fH4lcncuzMfaAkPvCFV4t1y2KV
- kaWXQIWrkEvVGzZJssbmxCb1PvSE6oyjcy3TzBBSM/E1t9jJSdXBS+NfHM5gMDUErPaSO224COW
- ei9hJ+Rb2IfKuZtQ9gud09brWgGvjaOVaiC9LM5c3bNNygut/rL2sqBDf0eUnTjZZ4hl4T7zj9w
- q/VO+QeTNdEDV8AfXeYCZs11q9X+mpJK3MYCF7ZLQsBZFOiaSgTwrF5Q7PSXXxL860gZaGED9so
- hqtSPCzOrli9/mHqIoHfLoSPuUaf2bxTBaNboLD+d8kdD2+h9FLLvMhgGVhXYhEUmOsBKZC9MlN
- DwpN5R2dUuDE7iXXAi9r6a3YRd7J5IHGfhXALODtLYLu7bdkcna8Ggb35wgjrid9IfeQf9eEdVQ
- 9zkYMJevx5Tf5DKTw7VxZGkTJHxKfsL+G8+CcVjptxDvHWl4UkCa+/HLohudluaxij+Yf/xnesA vfDaSFT0gn04/pQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1600; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=F1lcAFNww32YALWPOxbeZmA3ejiotHsR5mfwB5toNyY=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBpRAFSWSny77iwIsGzKsSzrxHbWYGRidi4wKUj+
+ ky0LI75Ss2JAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCaUQBUgAKCRAEWL7uWMY5
+ RvgbD/0e4oYtNdP81rAHg3z94FA3jXour1f/plwNgEk/ZamK57EcpX33mAyVLYHcizYsBAXobj8
+ am8MyWvLYn6vpr7tx2LS7NZKRpaDdKtU8hLtv4kiTrUqlXTHc2gdDX+4bUPvbHaucO/SaM0cwhH
+ YmdiCosFbFZKnHVwGbfbiOK0e/NfqRfDUckj/cxh4YB5cCtDV8FFyJ3kkDdAxM0dGs4OLipgI4h
+ i5CMx4B1rrv2P9G/QlL/fSDjJ43XH4475E9YOsLEvPEhAYlLIYUzo/rE/Kaeu6PICY8hh1yy6Fv
+ STETnhmW/mMc1h/YSnBddXnFklCoCMHGWZzwUNVhbINFR9wXTZ9dORQQEC/kQKrz3HB9mCUHavC
+ AKTMK8M518WNFW/KmcpCQuCUV/QMzh53S1dqxnOGrFXOkyTT1J8DV7ILO1B1djcUFyYWghNR8Ip
+ ghgLFaoKreKay09TC/pz6aQe6oegcfGdVHZeCwrF783LbaefHkCwnQxgq93CoWD4SaDxVdptyiU
+ c3VFdxgQUkPGbHHH9zk5ct26cnzGalmVDInhx915An/XkyBHna1HZl1I7dkY5je4cJxn8iXJi9n
+ ezwBfnj1zNVzI053FQL7sgbp13dOehoXQV30MffCZQ21N9huXxaq2USl3CSpqC1SP89Y7AVazfB RhbcohkXt0oVDGw==
 X-Mailer: b4 0.14.2
-Message-ID: <20251218-clk-send-sync-v3-1-e48b2e2f1eac@google.com>
-Subject: [PATCH v3 1/3] rust: clk: implement Send and Sync
+Message-ID: <20251218-clk-send-sync-v3-2-e48b2e2f1eac@google.com>
+Subject: [PATCH v3 2/3] tyr: remove impl Send/Sync for TyrData
 From: Alice Ryhl <aliceryhl@google.com>
 To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
@@ -97,8 +97,8 @@ Cc: Viresh Kumar <viresh.kumar@linaro.org>, Miguel Ojeda <ojeda@kernel.org>,
 	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, 
 	Alice Ryhl <aliceryhl@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_052754_500440_E6CC20B1 
-X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-CacheID: sfid-20251218_052755_032006_CF0AF88C 
+X-CRM114-Status: UNSURE (   9.43  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,38 +116,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-These traits are required for drivers to embed the Clk type in their own
-data structures because driver data structures are usually required to
-be Send. Since the Clk type is thread-safe, implement the relevant
-traits.
+Now that clk implements Send and Sync, we no longer need to manually
+implement these traits for TyrData. Thus remove the implementations.
 
-Reviewed-by: Daniel Almeida <daniel.almeida@collabora.com>
+The comment also mentions the regulator. However, the regulator had the
+traits added in commit 9a200cbdb543 ("rust: regulator: implement Send
+and Sync for Regulator<T>"), which is already in mainline.
+
 Reviewed-by: Danilo Krummrich <dakr@kernel.org>
-Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
 Reviewed-by: Boqun Feng <boqun.feng@gmail.com>
 Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 ---
- rust/kernel/clk.rs | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/gpu/drm/tyr/driver.rs | 12 ------------
+ 1 file changed, 12 deletions(-)
 
-diff --git a/rust/kernel/clk.rs b/rust/kernel/clk.rs
-index c1cfaeaa36a22be2e3180b1e9142bb608ab276ea..d192fbd97861212d738d24510eebcd99c9177f2c 100644
---- a/rust/kernel/clk.rs
-+++ b/rust/kernel/clk.rs
-@@ -129,6 +129,13 @@ mod common_clk {
-     #[repr(transparent)]
-     pub struct Clk(*mut bindings::clk);
+diff --git a/drivers/gpu/drm/tyr/driver.rs b/drivers/gpu/drm/tyr/driver.rs
+index 0389c558c0367522471ea78fcf72a6b58c4a3650..09711fb7fe0b1c83b72bffba06f5a76c53244f4d 100644
+--- a/drivers/gpu/drm/tyr/driver.rs
++++ b/drivers/gpu/drm/tyr/driver.rs
+@@ -53,18 +53,6 @@ pub(crate) struct TyrData {
+     pub(crate) gpu_info: GpuInfo,
+ }
  
-+    // SAFETY: It is safe to call `clk_put` on another thread than where `clk_get` was called.
-+    unsafe impl Send for Clk {}
-+
-+    // SAFETY: It is safe to call any combination of the `&self` methods in parallel, as the
-+    // methods are synchronized internally.
-+    unsafe impl Sync for Clk {}
-+
-     impl Clk {
-         /// Gets [`Clk`] corresponding to a [`Device`] and a connection id.
-         ///
+-// Both `Clk` and `Regulator` do not implement `Send` or `Sync`, but they
+-// should. There are patches on the mailing list to address this, but they have
+-// not landed yet.
+-//
+-// For now, add this workaround so that this patch compiles with the promise
+-// that it will be removed in a future patch.
+-//
+-// SAFETY: This will be removed in a future patch.
+-unsafe impl Send for TyrData {}
+-// SAFETY: This will be removed in a future patch.
+-unsafe impl Sync for TyrData {}
+-
+ fn issue_soft_reset(dev: &Device<Bound>, iomem: &Devres<IoMem>) -> Result {
+     regs::GPU_CMD.write(dev, iomem, regs::GPU_CMD_SOFT_RESET)?;
+ 
 
 -- 
 2.52.0.351.gbe84eed79e-goog
