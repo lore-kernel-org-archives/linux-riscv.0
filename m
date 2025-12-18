@@ -4,58 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397D0D68BE8
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Dec 2025 07:41:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8235FD68BF6
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Dec 2025 08:51:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5gss6AqKjr5wJXUOaw+JPIAiTnnf16VKz55KKGUdWNI=; b=k51dz5+UmATEUN
-	2Hd1Bi6KKpxe/M/RxmheoyJTZiOh/NKoP7qVc1QDkP1cnDNBADfWUWkrc0J1CAEZ3SIubiCuu3OAT
-	58W8Yico9iZWLzhTLcDUEDzGQY5elb4NZJcNHnPmxx38gwOkZTFYYlubmk0Y15LNK6azBSyS6mRMV
-	RlNoj63+Mx+o8AfZSWfi7XlIEBjewUJgHkWHeUAiO1V4RsKP8quobQWaA2lNQmuCyr4JbyyfPD48u
-	D1MTyvZlPH299z/seSrWyF/xBrWXdBWYtOR19u+sD0Yj8jJ0c4jhipLVdhkZsSKVVOBbVdIjezMT1
-	utvKfTkFY6vIF6BsBSzA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wQQ/wt8FbObH1XzEFLG2wo7y99Ihhmsvfbl8FE3f1v8=; b=Db7/9hiZHU5bSv
+	TnHziiS7dNW+jKb/LcSv2nS2C8xmVsdAVjU3hazaofrPsb0p+hY5aRe536LlPlmbo5+tzwC5bazS8
+	EEa4B0ZtWjXUn7ZzKsvwJZ83iZT4cKO6OBTQ8ElybUTk1bPmbaz37Z4sPgYXBT9YiSocKNBg8trqh
+	5vA51B/UcYZW8xdpPl+ROel1mbdtk6n88GojjO5oO945q6zbnwjIJ5UuLePopNLQW4xq/5p4IuDje
+	f+IUy3t5Esmh/x75m5+KtGNtEWlSEVFVE2a7PVIv7TSljK9QB4yoO/rBo0LYpET5qEOn9MAOjf1u2
+	1akXlWyqXjDf+FK2uP9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW8dS-00000007yLx-4Boy;
-	Thu, 18 Dec 2025 07:41:19 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1vW9ij-0000000861l-22sf;
+	Thu, 18 Dec 2025 08:50:49 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW8dQ-00000007yLX-2DUL
+	id 1vW9ih-0000000861b-3kPX
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 18 Dec 2025 08:50:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Subject:To:From:Date:Message-ID:Sender:Reply-To:Cc:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=g+bJVIpt0gfvrKpvvpbdhzaZrLDQ51BQvCd8rNT5zDA=; b=O0UN448Q9PlpJpBVCIH6TdWDWH
+	63xvS6MzcgkUxOaB0EPQRG/zESidHF1IR/7uSSpaNxwZ8+3AgWQ61GMsMrm1uSN3FHNXhvKpxzj0r
+	OTUR3I/gR9XEJovEt9Vj93JMDuqcHSdwVJIgiT6lK+SJiXvG3dRe2Xc6dN+xSNrfnZvtDARiC2WCi
+	UtOUAl5DTWKg9tXpXySqEetVtn8YvuFxgasigF6i1pkcmOal8K+CRhW+hcoxFQ/8THd/4ycqGdiCm
+	f2hqzIarx+vZn/C7sKng8M4ACcWs6/j6P4ZwouOdqoDUc34Od3kiumVS4ZmoESEA0akSn19xrEeeg
+	QJ3UCXNQ==;
+Received: from mail.torqly.pl ([51.38.112.117])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vW8rB-00000008OWh-3eDL
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Dec 2025 07:41:17 +0000
-Received: from localhost (unknown [116.232.18.222])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 15BB7340F3B;
-	Thu, 18 Dec 2025 07:41:14 +0000 (UTC)
-Date: Thu, 18 Dec 2025 15:41:10 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Yao Zi <me@ziyao.cc>
-Cc: Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Haylen Chu <heylenay@4d2.org>,
-	Inochi Amaoto <inochiama@gmail.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 4/4] clk: spacemit: k3: add the clock tree
-Message-ID: <20251218074110-GYB1943598@gentoo.org>
-References: <20251211-k3-clk-v1-0-8ee47c70c5bc@gentoo.org>
- <20251211-k3-clk-v1-4-8ee47c70c5bc@gentoo.org>
- <aTo8sCPpVM1o9PKX@pie>
+	Thu, 18 Dec 2025 07:55:31 +0000
+Received: by mail.torqly.pl (Postfix, from userid 1002)
+	id 936BCAC931; Thu, 18 Dec 2025 09:46:29 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=torqly.pl; s=mail;
+	t=1766047638; bh=g+bJVIpt0gfvrKpvvpbdhzaZrLDQ51BQvCd8rNT5zDA=;
+	h=Date:From:To:Subject:From;
+	b=OG3P6lxdzcJXAVxxuyukVFiKvGo/r15BWK41GAaDWSkin20RyJ+V4REHkApfEJQ8E
+	 cVTC0Q7qTPz6sVYj1xfYk46NBWm4j6Skp973bXS5SHlIJ3e/0HB3RcDOltJurV9Z8z
+	 hmvM5UHaM0RU1/iVANGyp0yKidUK7G4L5u4ieL8JFr03A0mR8R+rSVjvqTOLdBPCXE
+	 uoSbAk/NfV2+LrsaV3YER5sbwCuclVLraMvj3xaqOCWk5aoH9nlfq2jigIgn8uqIWs
+	 VVn7iC0WTLYd4n+1bpWR2+pDy7aZG4EJxoTpOcbfdz6XpmzdO+sz1fCnj37m7Bwve5
+	 Hnn6vHUe9P4yA==
+Received: by mail.torqly.pl for <linux-riscv@lists.infradead.org>; Thu, 18 Dec 2025 08:46:01 GMT
+Message-ID: <20251218084500-0.1.tu.d9jlw.0.fu4bkdb2gt@torqly.pl>
+Date: Thu, 18 Dec 2025 08:46:01 GMT
+From: "Tomasz Jaworski" <tomasz.jaworski@torqly.pl>
+To: <linux-riscv@lists.infradead.org>
+Subject: =?UTF-8?Q?Ulga_na_sk=C5=82adki_ZUS?=
+X-Mailer: mail.torqly.pl
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aTo8sCPpVM1o9PKX@pie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_234116_679101_71810DDE 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20251218_075530_363397_64B10B57 
+X-CRM114-Status: UNSURE (   0.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,59 +76,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yao,
-
-On 03:38 Thu 11 Dec     , Yao Zi wrote:
-> On Thu, Dec 11, 2025 at 09:19:44AM +0800, Yixun Lan wrote:
-> > Add clock support to SpacemiT K3 SoC, the clock tree consist of several
-> > blocks which are APBC, APBS, APMU, DCIU, MPUM.
-> > 
-> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> > ---
-> >  drivers/clk/spacemit/Kconfig     |    6 +
-> >  drivers/clk/spacemit/Makefile    |   11 +-
-> >  drivers/clk/spacemit/ccu-k3.c    | 1641 ++++++++++++++++++++++++++++++++++++++
-> >  include/soc/spacemit/ccu.h       |   18 +
-> >  include/soc/spacemit/k1-syscon.h |   12 +-
-> >  include/soc/spacemit/k3-syscon.h |  273 +++++++
-> >  6 files changed, 1947 insertions(+), 14 deletions(-)
-> 
-...
-> > +
-> > +	return devm_add_action_or_reset(dev, spacemit_adev_unregister, adev);
-> > +}
-> 
-> This piece of code looks quiet similar to types/functions with the same
-> names in ccu-k1.c. If I'm correct, could we separate the logic into a
-> new file and avoid duplication?
-> 
-make sense, will do
-
-> 
-> k3_ccu_probe looks quote similar to k1_ccu_probe, too. The only
-> difference is that k3_ccu_probe checks for spacemit,k3-pll instead of
-> spacemit,k1-pll.
-> 
-> We could share most of the probe code by writing a SoC-independent probe
-> function,
-> 
-> 	int spacemit_ccu_probe(struct platform_dev *pdev,
-> 			       const char *pll_compatible);
-> 
-> and calling it in ccu-k1.c and ccu-k3.c with different pll_compatible.
-> 
-ditto
-
-thanks
--- 
-Yixun Lan (dlan)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RHppZcWEIGRvYnJ5LCAKCmNoY2lhxYJieW0gd3NrYXphxIcgUGHFhHN0d3UgbW/FvGxpd2/Fm8SH
+IHphcnrEhWR6YW5pYSBiZW5lZml0YW1pIHcgxYJhdHd5IHNwb3PDs2IsIHBvcHJ6ZXogbmFzemUg
+aW50dWljeWpuZSBuYXJ6xJlkemllLCBqYWtpbSBqZXN0IGthcnRhIGx1bmNob3dhLiAKCk5hc3pl
+IGthcnR5IG9mZXJ1asSFIHd5Z29kxJksIG9zemN6xJlkbm/Fm2NpIGkgemRyb3dlIHd5Ym9yeSDF
+vHl3aWVuaW93ZS4gRG9maW5hbnNvd2FuaWUgcG9zacWCa8OzdyBqZXN0IGtvcnp5c3RuZSBkbGEg
+b2J1IHN0cm9uLiBLYXJ0eSBsdW5jaCB0byBkbGEgcHJhY29kYXdjeSByZWFsbmUgb3N6Y3rEmWRu
+b8WbY2kgdyBwb3N0YWNpIHp3b2xuaWVuaWEgeiBaVVMgZG8gNDUwIHrFgiBtaWVzacSZY3puaWUg
+bmEgcHJhY293bmlrYS4gCgpLYXJ0xJkgbW/FvG5hIGRvxYJhZG93YcSHIGRvd29sbsSFIGt3b3TE
+hSwgYSBuaWV3eWtvcnp5c3RhbmUgxZtyb2RraSBuaWUgcHJ6ZXBhZGFqxIUsIGxlY3ogcHJ6ZWNo
+b2R6xIUgbmEga29sZWpueSBtaWVzacSFYy4gCgpNb2fEmSBwcnplZHN0YXdpxIcgb2ZlcnTEmSwg
+a3TDs3JhIHBvendvbGkgem9wdHltYWxpem93YcSHIGtvc3p0eSBpIHphcGV3bmnEhyBwcmFjb3du
+aWtvbSBwb8W8xIVkYW55IGJlbmVmaXQ/CgoKUG96ZHJhd2lhbQpUb21hc3ogSmF3b3Jza2kKCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
