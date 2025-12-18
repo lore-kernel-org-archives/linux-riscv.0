@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DF1D6ACF5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3CB2D6ACFE
 	for <linux-riscv@archiver.kernel.org>; Thu, 18 Dec 2025 13:28:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -13,75 +13,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=j4Mx/vq6ffo1Rqfhk+lDexKnqnMQdSG+dPh+1z4FGpQ=; b=NvkR3YLKH0J1vIAiGNeUU7l7ms
-	Nog3s4MRZO2wM1ftgTWwp0ZCp9efuzT1oMbVE48W8x0+vM7EESsUzuaaiNjX9pbMX/0q/L+hI3/ME
-	sOqYLvCqGS3U88aB7mYhXyMcw0uhw46YPOFvGRL3VVS0THvkDm0NB7/fzncfLEAZJn6wcOc1kAuN1
-	hIeM04D4gvteBE91HZ/EWeGptAxIeKNMNqmcPCesT79YeWu07nu1useW1fXo+qYZvE2gPB5iISFy4
-	i4CHrn81gecsg97wpn3aAElYuH2087g/jGK8yKtF/SCWfr5xVl0JiMwIRQUfR/JVebe9V1pB9Gkze
-	AwkP2JBw==;
+	bh=dwth9kK2XusIw2n21s/iu6HRzCbUUbDXg/Ds0Mx+POM=; b=lvUJ0xCdoUj/oUFhz9VD+wHrMh
+	EPsdkYKACo4i8Wk8hbvQVDNHaQPLWTKEtMKtNB1FbJDwUJ5qNbSkjrQiHf5xysm0cHdkyHLLFlHnu
+	4MGdD7X2TIAnYSHxN0Ue2sH1+0SN1KovskOtGdvncij4h8p1Gs86sE4uQyVSClGi7ugxTHfyRfNfw
+	RW1CNUQpvc/yfBaTTCAAsbcZC/S8Vmu4yz2dgF1hPVsfVxu95Q8wQBfJXr3+br8bHhaFBiFiudvS+
+	YEhneqBe7JRap872reEl3q7mrtGB6TRZRNoaIAtr3wZjL/sR4rltLTx7O9RJd+KCQ1/ArUO84Prrs
+	eQkbmqQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWE31-00000008X9i-2in9;
-	Thu, 18 Dec 2025 13:28:03 +0000
-Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
+	id 1vWE34-00000008XB3-06LO;
+	Thu, 18 Dec 2025 13:28:06 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWE2s-00000008X38-46CZ
+	id 1vWE2t-00000008X3E-3h7m
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Dec 2025 13:28:01 +0000
-Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-64981ed54feso649599a12.3
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Dec 2025 05:27:53 -0800 (PST)
+	Thu, 18 Dec 2025 13:28:05 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-47904cdb9bbso14593575e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Dec 2025 05:27:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1766064472; x=1766669272; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1766064474; x=1766669274; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uPptdLMQzSRoeYj6Hrjl7dIAj/bZbKtg9ZgsU3qRcP4=;
-        b=ZyfNNxDZFXVtWZjqf4yAXMMFYNber++SENJITCB2icI/7QaHUeHaJqo0T3hpJ/h9lr
-         Bs2H5KMdEWzmu4Bl8LcZnMvfsedyghxhc9hfr+W1mGZw7Xlq3NJsXxQqoet8w6Pw9Hdc
-         21LEZ+zUp7H53kzfxdpSsFW6ElMXQWKnVXWEdadqQ5JFHjHuuL8S+IxrWUJhpHYoxCAH
-         Wk7BB1KfTGNB95btcU5OCEPBGhwba+3Uru95BOGGyDt2SUV6WCrQVu5pcGNsXfe/Tr6e
-         WbfLLlHDzZLD1lUr9KqAzYBqBmtTLFznz/dJ0kV5yvtSKMYPcYJlgF1qEBFbbA3a38GS
-         2Bpw==
+        bh=qz+Ave0Rr+pYsqesYd5D1VozD7cgPG0dKKZRCf4yYNk=;
+        b=heEsx0vMbaQ+2eB/FMIFq9yG80Y161Xp8btROiz8TsVM1X6BwPy0QDJmuMWobw5Gbg
+         wU7IOemfeDB4hssqQcQoaFBTriJYpOV6nwy1rodZ+7k/aGqeFuy59g9n9CmeE+Z4K6td
+         FzeX4NtBhdbdVKO3EiXXsHfdGhyeS5Ckx7U9W605+e9ECwbptpZi54PHnEQj7MR0R2AT
+         fE/UWjvY0W8sY89J1ggK55HDGK123l6RswfdD2Z9xjzDxQwWcFtAdS9KaI479k5Hupr0
+         SoAfo4tg5XUDtTuw9cGxVA6i7Zj8R/NepECIs/7PKB3ZsQCDsITSy8dYe6IVHyzJdCjA
+         LE2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766064472; x=1766669272;
+        d=1e100.net; s=20230601; t=1766064474; x=1766669274;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=uPptdLMQzSRoeYj6Hrjl7dIAj/bZbKtg9ZgsU3qRcP4=;
-        b=wClm7PI3qKrHss1+UB5ZyhNdCIIptm7xv6drJYsUqf8Kl2exKOZT+4Xoc7cA2YPiB1
-         0/jo7sAG0dUanc1h5RIFk3bL6/41fWe4OU8VFCPTdAJAZngV6WbQd42ZJYbN74gSmUTX
-         moMEE/VaUTq9H7kPHJ643tgqRWNVH+zJKmFiPoBlSTXf/wuwVY6xbLoclF2ids9a4ihQ
-         qvM2razxGt+7jYkz7vH8Xfntb79TtXI5o4MM/L9q7FOJTKz4fruzbMpcOUO0kGF8aVWs
-         XRWef9uUMeVYlDpoYvNOBNfp/rkhwo+OtxvGP8VKmhmI17KOb7vduo8HuLSbfpt/XzGE
-         wg9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWxYsI94LaiN9wZqlUIKOI9L5VFlno3M6CuNasb+vbsH7gJGjDJ4Cd8DNtF9dmYj1rM+ArV/I9sM3XibA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzzCXGslpjMRXYLpAE4gN23si+bbhWTXmWnHCvwzzU+97TnO+s
-	G1ZyJhxK20EF+qAPOQIm/4kt2RX8Riczd96sTWkkYrdJ3pJTEi4ZScX5D5n4P+qLmMliHGxUeQo
-	FeTSKjlqQSPNt1rQ3Vg==
-X-Google-Smtp-Source: AGHT+IEqPOft361pJTlpzbo4r1Az15cTuwMQEfh5KrGil6c5DKT9dTPisXdo2WdHWgmo3QB8gCSt51uaXvkVnKs=
-X-Received: from edtb2.prod.google.com ([2002:aa7:c902:0:b0:64b:3f32:3786])
+        bh=qz+Ave0Rr+pYsqesYd5D1VozD7cgPG0dKKZRCf4yYNk=;
+        b=CCrKDNq5OsLFqyPCk/CyWtj+W6wPHcmK6+0mY5B4g+pAK6WDjIOBUIJHXIQH1vSrxT
+         jBH9JiQdhBYfMcPDde9OJiqWmxihEvZeyyabxoMkWmCsWxUm5dIgBHskj8Se5mHsM+fS
+         ai0ePLn5ud5k4hHsoXFnn6FomPaNyhCX3j6Ex5P79NZ1/sFFuAlOuP0I4WPI0DytrNhd
+         KzDgCobUHF2qCuHTvH0cZ8Tq/HNNa8SBBHUX17vzBQ7NLCn9jciEArcgdLz5cMwP0c9W
+         YWIIg6igls6CxxNkwp8YE4YXlTiuxtdY5n4UovR3SK9h2zH3zbU7PMzXYhP0u29OceRD
+         O8Jw==
+X-Forwarded-Encrypted: i=1; AJvYcCWEmVNdOmpY3Is2ioLJwxCqFHt1gq0SwC/jrqJueYf9sNpfIltwBMWLgxb0WBd0StNYqsmrAicFbhhbsg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMNYpNyZ64nCFzYPkMITWbN2LBUkXmghjiYrzdPMKMAWvqM4ai
+	zhiqgwZguFpexxb1qFy4XtmZwdd6AsJhSCeiil5lDSZ2BkJK1fnl2xxRb01UJdhM9aE5jECty57
+	9rneteTkR6xsaiociIA==
+X-Google-Smtp-Source: AGHT+IGlOhSMahMSUEguAwn167F6Fbjkcu8ZrI+51vEqMqCJE+3S5hQDbdF4w5Iw7QzwlTk2wDuRew3DnOxTRuQ=
+X-Received: from wmpc42.prod.google.com ([2002:a05:600c:4a2a:b0:477:40c1:3e61])
  (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6402:510c:b0:649:aa2b:d34e with SMTP id 4fb4d7f45d1cf-649aa2bd4d5mr19796028a12.34.1766064472249;
- Thu, 18 Dec 2025 05:27:52 -0800 (PST)
-Date: Thu, 18 Dec 2025 13:27:41 +0000
+ 2002:a05:600c:45cd:b0:46e:2815:8568 with SMTP id 5b1f17b1804b1-47be29c60fdmr30005265e9.10.1766064473619;
+ Thu, 18 Dec 2025 05:27:53 -0800 (PST)
+Date: Thu, 18 Dec 2025 13:27:42 +0000
 In-Reply-To: <20251218-clk-send-sync-v3-0-e48b2e2f1eac@google.com>
 Mime-Version: 1.0
 References: <20251218-clk-send-sync-v3-0-e48b2e2f1eac@google.com>
 X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1600; i=aliceryhl@google.com;
- h=from:subject:message-id; bh=F1lcAFNww32YALWPOxbeZmA3ejiotHsR5mfwB5toNyY=;
- b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBpRAFSWSny77iwIsGzKsSzrxHbWYGRidi4wKUj+
- ky0LI75Ss2JAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCaUQBUgAKCRAEWL7uWMY5
- RvgbD/0e4oYtNdP81rAHg3z94FA3jXour1f/plwNgEk/ZamK57EcpX33mAyVLYHcizYsBAXobj8
- am8MyWvLYn6vpr7tx2LS7NZKRpaDdKtU8hLtv4kiTrUqlXTHc2gdDX+4bUPvbHaucO/SaM0cwhH
- YmdiCosFbFZKnHVwGbfbiOK0e/NfqRfDUckj/cxh4YB5cCtDV8FFyJ3kkDdAxM0dGs4OLipgI4h
- i5CMx4B1rrv2P9G/QlL/fSDjJ43XH4475E9YOsLEvPEhAYlLIYUzo/rE/Kaeu6PICY8hh1yy6Fv
- STETnhmW/mMc1h/YSnBddXnFklCoCMHGWZzwUNVhbINFR9wXTZ9dORQQEC/kQKrz3HB9mCUHavC
- AKTMK8M518WNFW/KmcpCQuCUV/QMzh53S1dqxnOGrFXOkyTT1J8DV7ILO1B1djcUFyYWghNR8Ip
- ghgLFaoKreKay09TC/pz6aQe6oegcfGdVHZeCwrF783LbaefHkCwnQxgq93CoWD4SaDxVdptyiU
- c3VFdxgQUkPGbHHH9zk5ct26cnzGalmVDInhx915An/XkyBHna1HZl1I7dkY5je4cJxn8iXJi9n
- ezwBfnj1zNVzI053FQL7sgbp13dOehoXQV30MffCZQ21N9huXxaq2USl3CSpqC1SP89Y7AVazfB RhbcohkXt0oVDGw==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1620; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=hJ1r8AWFe6vjamRRbSdgVoDTTorMAE8/5j325qhqRPo=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBpRAFSiykIxnKvVV7ampJwe+hiZPH4dlKVVfNC2
+ bRMusCRGIiJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCaUQBUgAKCRAEWL7uWMY5
+ Rs5ND/9lBcHvvP1F2jrlMF7zlcbzolVf/Ik/QcXkh9CEtamti0oWtsfXPKvcrmdowiTh3qqTeOG
+ d1pcYkv8At0D62DBbQJID40ZEj2jC53yyQTl+JbIxQgkPKYKW/7tiZ/YZ5l4Be6z2ypAJGa6jlu
+ 7P+IO8CGeyODkeDgL0U2tMGXuoKl6vJ9s93DzDVlYt3L2Dx6cpR55jWVWkBfziIoGS9Eei+zk7Z
+ 4ylYtbeoBKVsKs4Ix3y89qYWygDe/wXz0aRIGoDHBiJpBl2ppjbCEhP0PWGQra7A3KUayfL2KYF
+ zmZLGvVKljUBMKcuQTuQUJN31zFt6WU2+ASxRD7tU+8u2vwrGOoiHDCS5fwLhJ12/F3DBE2H4eL
+ vVgQ+jd6O8L4xD7oC1Z77SciJgITmTJCFM/W1W4jBGkk9AFU6+XIyzMnWryfADATfwgdGytDQIu
+ F8KCpPdYrWW3vo38v9f5rhole5bvAC9Eh3vo2PyGcGLpjIqimDbqTsLCSvJmm/yQa0TbMqIXp5a
+ ya9OwwArkL66kUK/YcdhJDrrJZXsHnkTxjYNekN0UfUNnAkWUl7AO9hiAu/V0GLq7YAfVjeSoGl
+ 4Gq54cB6CKjvPxv7GEqVbzEqyOnzjEJ8wCcU96VlVrvDrX57llCh1ppRHSozowXpxgScpJ/166f Mej0UG+6YnuMTlQ==
 X-Mailer: b4 0.14.2
-Message-ID: <20251218-clk-send-sync-v3-2-e48b2e2f1eac@google.com>
-Subject: [PATCH v3 2/3] tyr: remove impl Send/Sync for TyrData
+Message-ID: <20251218-clk-send-sync-v3-3-e48b2e2f1eac@google.com>
+Subject: [PATCH v3 3/3] pwm: th1520: remove impl Send/Sync for Th1520PwmDriverData
 From: Alice Ryhl <aliceryhl@google.com>
 To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
@@ -97,8 +97,8 @@ Cc: Viresh Kumar <viresh.kumar@linaro.org>, Miguel Ojeda <ojeda@kernel.org>,
 	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, 
 	Alice Ryhl <aliceryhl@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_052755_032006_CF0AF88C 
-X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-CacheID: sfid-20251218_052755_953281_5FCC9EBB 
+X-CRM114-Status: UNSURE (   9.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -117,41 +117,39 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Now that clk implements Send and Sync, we no longer need to manually
-implement these traits for TyrData. Thus remove the implementations.
+implement these traits for Th1520PwmDriverData. Thus remove the
+implementations.
 
-The comment also mentions the regulator. However, the regulator had the
-traits added in commit 9a200cbdb543 ("rust: regulator: implement Send
-and Sync for Regulator<T>"), which is already in mainline.
-
-Reviewed-by: Danilo Krummrich <dakr@kernel.org>
-Reviewed-by: Boqun Feng <boqun.feng@gmail.com>
 Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 ---
- drivers/gpu/drm/tyr/driver.rs | 12 ------------
- 1 file changed, 12 deletions(-)
+ drivers/pwm/pwm_th1520.rs | 15 ---------------
+ 1 file changed, 15 deletions(-)
 
-diff --git a/drivers/gpu/drm/tyr/driver.rs b/drivers/gpu/drm/tyr/driver.rs
-index 0389c558c0367522471ea78fcf72a6b58c4a3650..09711fb7fe0b1c83b72bffba06f5a76c53244f4d 100644
---- a/drivers/gpu/drm/tyr/driver.rs
-+++ b/drivers/gpu/drm/tyr/driver.rs
-@@ -53,18 +53,6 @@ pub(crate) struct TyrData {
-     pub(crate) gpu_info: GpuInfo,
+diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
+index e3b7e77356fc2492077c519073e861beb3e44df9..043dc4dbc6232020195c7b73fad302bbb69652df 100644
+--- a/drivers/pwm/pwm_th1520.rs
++++ b/drivers/pwm/pwm_th1520.rs
+@@ -97,21 +97,6 @@ struct Th1520PwmDriverData {
+     clk: Clk,
  }
  
--// Both `Clk` and `Regulator` do not implement `Send` or `Sync`, but they
--// should. There are patches on the mailing list to address this, but they have
--// not landed yet.
--//
--// For now, add this workaround so that this patch compiles with the promise
--// that it will be removed in a future patch.
--//
--// SAFETY: This will be removed in a future patch.
--unsafe impl Send for TyrData {}
--// SAFETY: This will be removed in a future patch.
--unsafe impl Sync for TyrData {}
+-// This `unsafe` implementation is a temporary necessity because the underlying `kernel::clk::Clk`
+-// type does not yet expose `Send` and `Sync` implementations. This block should be removed
+-// as soon as the clock abstraction provides these guarantees directly.
+-// TODO: Remove those unsafe impl's when Clk will support them itself.
 -
- fn issue_soft_reset(dev: &Device<Bound>, iomem: &Devres<IoMem>) -> Result {
-     regs::GPU_CMD.write(dev, iomem, regs::GPU_CMD_SOFT_RESET)?;
+-// SAFETY: The `devres` framework requires the driver's private data to be `Send` and `Sync`.
+-// We can guarantee this because the PWM core synchronizes all callbacks, preventing concurrent
+-// access to the contained `iomem` and `clk` resources.
+-unsafe impl Send for Th1520PwmDriverData {}
+-
+-// SAFETY: The same reasoning applies as for `Send`. The PWM core's synchronization
+-// guarantees that it is safe for multiple threads to have shared access (`&self`)
+-// to the driver data during callbacks.
+-unsafe impl Sync for Th1520PwmDriverData {}
+-
+ impl pwm::PwmOps for Th1520PwmDriverData {
+     type WfHw = Th1520WfHw;
  
 
 -- 
