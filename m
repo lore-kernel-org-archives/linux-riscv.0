@@ -4,154 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB9FCD68BF6
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Dec 2025 09:20:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68BF9D6ACDA
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Dec 2025 09:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kebZJHYSS3s2qvkCPQS9laZ7kKVJ92J98OjVPPvVkb4=; b=gzsgbovh+1sCuH
-	sVliguW9cEUi9zftMgedcxP1rY/Mn+134BhSIRLNLIOUsOh8Sj4u8EQP4guSQshjeIuTbOCmvlzpJ
-	i8vzsBNEps0Z/b/X4mswwD9qYD+UVMymDxEs6se1X5pv1ZCJ6JhaqgjrUFveUtMnMRm7eHlW/gI8L
-	ja+XYUzIpNvwYCMRAqqDatXhaS7e2XqzCPS2ggmcXkhbOBZtjcIB30NR/sACkXzWsUxj/CwrU6bx8
-	lQShZABdIwX98SyKD92cExYrIgDO1Im4BBFganTzFhTlQugDkwZfpUwFoA6bOTGGvW00XYrVkGdt8
-	UbYUrfRGalEmbFFWQWsg==;
+	List-Owner; bh=e/Rtex4jbdxTn+Vrq0/S0TGMhw5B6mDAsey75U6tKNU=; b=XPb1iZ2U6rzjPm
+	wWe/AbWKN799KcPRp6ihHDZb1xxG1Bol4J6iq2sKhc7Op2HHpNCS8D6Tc8GwbQByhMsG7oPdyqbJQ
+	joF5m4VhyILbixPKMVQqdHin4Aep1RioPiIi2nvLwZNNBTOspQqm424VdtT38suu0rqX2KfCuhAcS
+	WwXkB6TwV0CHyBJsI3A6XXAaAO4Dtc4dZpPH+CiTy8gf2f15y5XhhC5rDpgt+oUX1IpK9nVzQUkPV
+	OurD+I8NSuti6bW2nfiaZ4hH5VyMruAORR1vtA8r2346mDYckanIVV+RP3991qlqOPecqs9/TzmZn
+	lbtVTaXHVOnECTl3Btww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWAAv-0000000887e-0CsQ;
-	Thu, 18 Dec 2025 09:19:57 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vWAdb-00000008B5K-1Ud8;
+	Thu, 18 Dec 2025 09:49:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWAAr-0000000886D-0RI7;
-	Thu, 18 Dec 2025 09:19:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ObSM2vFi2L84I782WDo3/oqfIAZOO/FEW/IZVO7Z0BrzGODJ3zZXj35hH3m0Q5eDLgrYajmxgnTlp/mnYa3LRAnhj3gMidJafFN2f19oz0BXGVM6uk9bhkZN+T/7DUKrT+NW1uNt87YhJ0QVFnyxI8UvEO0PyFn26jco2lc/vXITI7/wg2Yq0ZaHBVbpmjp9mcbsMS7+BYUV7Mmd6TcQ/BL1MJQhDubunTB8wAq6cDky/b5ct7YsO2/mPqp77diLj42QrfnGHR5XuHxF1Xi83TUUPzfhyyXWycNdqGt8Qc0qpFlEbg4368OLYJ0pNITk38qtqh9tbI/vazIlpmPLHA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OqMOpAN9R5MslrgIqeQxp1PVShpqEea3zlFkjgV7CRw=;
- b=KKm78j/aICLbDwzsLmtvOQmDWfBKhGCFly9KhL82JAvGWfI0c8do6201FBBHN8vjabTlfUipzD/iTOO0XzgO59w/9h3Xog5F2HRCZWObRj+XWq1IhwIfYppGuO/BnJ6jzMvNPq7s21cvx4NIDltrYelJMeTYE/TNgu3hmLvImlk72d+MjuXrRrNQNTOvJHYHDYj2E51VNY5iiYhD+B5g+BKxe1vIWEGFD8aIOpDsU68UkTeGqqOcNepCVQrSFKcShlzRLDTKWmQ+axTN9sdt9fLyak0W400HUU/oUkSSCa4oClYOxPiXDDvLdV8T6ezhOTDdHaTGuHw+5FUAiaUt8w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=infradead.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OqMOpAN9R5MslrgIqeQxp1PVShpqEea3zlFkjgV7CRw=;
- b=Hfca2GaE2BibD/dqKPoeJNWHS/QK3M0fLjsWgl8E6Dzmo+k7x8CZ8F94nitFi2mEPOYi5DzFGvry3y4egJh8Th+VRUVDDWn2HdZTbu3NfxP7rIW3bZYWQqnm6dJeUAeB5OgI5e+rVNNg24bK1T+7pnDhhofggZ8KkUyMatmjfjs=
-Received: from BLAPR03CA0011.namprd03.prod.outlook.com (2603:10b6:208:32b::16)
- by DS7PR12MB8371.namprd12.prod.outlook.com (2603:10b6:8:e9::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Thu, 18 Dec
- 2025 09:19:45 +0000
-Received: from BL6PEPF0001AB72.namprd02.prod.outlook.com
- (2603:10b6:208:32b:cafe::95) by BLAPR03CA0011.outlook.office365.com
- (2603:10b6:208:32b::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Thu,
- 18 Dec 2025 09:19:34 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BL6PEPF0001AB72.mail.protection.outlook.com (10.167.242.165) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9412.4 via Frontend Transport; Thu, 18 Dec 2025 09:19:45 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 18 Dec
- 2025 03:19:42 -0600
-Received: from [10.252.198.192] (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Thu, 18 Dec 2025 03:19:35 -0600
-Message-ID: <f6408786-8b40-4ded-8a20-307fe0133e98@amd.com>
-Date: Thu, 18 Dec 2025 14:49:34 +0530
+	id 1vWAda-00000008B5D-1DG5
+	for linux-riscv@lists.infradead.org;
+	Thu, 18 Dec 2025 09:49:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3A675600AC;
+	Thu, 18 Dec 2025 09:49:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76F25C4CEFB;
+	Thu, 18 Dec 2025 09:49:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766051372;
+	bh=jpct4wgiQvvz63Cwe2t0WKmpu8qE8JWTj+D4fEqN3KU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=i+zreEJolTQBByW8JlPjfJ3Z1VMPes2Pd7PeJAb/lYS9S+kjePXS6fxK/1oiCfHLA
+	 SApDHO3FssA1sTS4F0w9Fy38cvl6WxkWVC0byQPuPQVMzC/aSU38p7T3YrTzKe/lEq
+	 +t3yiGig3MducPpc0NbGREP5v9YB9iZndsqe1W4uJCR6ayBC+wFjG6VFCOs/Ruqnwr
+	 /aqNqVbKxX2atQFftfDEC4z1dyMeo2hNdSyY1J2kx4C/dxYP0m2u9xYNOYoJOhOi8v
+	 V67YJYBgk8qBspVZuXfk+ga0SVCqlyGMbpJhXfGQGXvZ8Lw12uC/zGimGfkUK+YzIy
+	 Z5I+jzlJ5xCgg==
+Message-ID: <cbea0364-b8e3-4e3b-852f-b16436b60de1@kernel.org>
+Date: Thu, 18 Dec 2025 10:49:26 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/44] KVM: x86: Add support for mediated vPMUs
-To: Peter Zijlstra <peterz@infradead.org>, Sean Christopherson
-	<seanjc@google.com>
-CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, "Tianrui
- Zhao" <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, Huacai Chen
-	<chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>, "H. Peter Anvin"
-	<hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Ingo Molnar
-	<mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim
-	<namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>, "Mingwei
- Zhang" <mizhang@google.com>, Xudong Hao <xudong.hao@intel.com>, Sandipan Das
-	<sandipan.das@amd.com>, Dapeng Mi <dapeng1.mi@linux.intel.com>, Xiong Zhang
-	<xiong.y.zhang@linux.intel.com>, Jim Mattson <jmattson@google.com>
-References: <20251206001720.468579-1-seanjc@google.com>
- <20251208153738.GC3707837@noisy.programming.kicks-ass.net>
+Subject: Re: [PATCH v3 08/22] mm: Allow page table accessors to be
+ non-idempotent
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>,
+ linux-mm@kvack.org
+Cc: devicetree@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>,
+ linux-kernel@vger.kernel.org, Mike Rapoport <rppt@kernel.org>,
+ Michal Hocko <mhocko@suse.com>, Conor Dooley <conor@kernel.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+ Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
+ Vlastimil Babka <vbabka@suse.cz>, "Liam R . Howlett"
+ <Liam.Howlett@oracle.com>
+References: <20251113014656.2605447-1-samuel.holland@sifive.com>
+ <20251113014656.2605447-9-samuel.holland@sifive.com>
+ <fbfef7fc-4030-462b-b514-498eea6620aa@arm.com>
+ <c2597d43-d909-4259-bb5b-9294e4069385@kernel.org>
+ <af8fd275-a34d-4b2f-8834-9c85dab2bbae@sifive.com>
+ <a063f6c5-2785-4a9f-8079-25edb3e54cef@arm.com>
+From: "David Hildenbrand (Red Hat)" <david@kernel.org>
 Content-Language: en-US
-From: Manali Shukla <manali.shukla@amd.com>
-In-Reply-To: <20251208153738.GC3707837@noisy.programming.kicks-ass.net>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB72:EE_|DS7PR12MB8371:EE_
-X-MS-Office365-Filtering-Correlation-Id: d67c9980-5904-4dbe-4d1a-08de3e16957a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QzlMeThiMnRmb2k1VE13NWtoR2ZsaThSaENWdkpMWHNmd1FuTnNJYWYxY1RM?=
- =?utf-8?B?b2kxbGxTRWZhMnh6U01EN05TbVRjeXphWERrbEJTbHhmbHhkNitzazJZS2dZ?=
- =?utf-8?B?NmtzeXRYY0g0T1VZNVBZanJ2NUllSVRNcUp0ZXNtTTRJVHcyblJLUUthK1Rw?=
- =?utf-8?B?bHZ4ejhkdzU5SGtUeUVtTkViQjV6bVYxaitqK2JRNXlweW1sUW42OEp4RlUz?=
- =?utf-8?B?UHJMeEN1NmxZTk9Qem9oNEY5TnRTL0ZJSVM2NXdzcVBPSW43VDFlMkdxQm5i?=
- =?utf-8?B?ck9Qc1pLOEJ4MEljRnI4VERuNmh2TjI0WmZiaGZPQUJaWVdRNlE4cmdpNjlp?=
- =?utf-8?B?cFZRNWZHQW5jcDRZN1FmRVBSMlY3QmVlRmloWHp2K0F5YmJsRHF5amxWVjRj?=
- =?utf-8?B?eHM2YTBxWDMwSmRlYVRRaW9BSDkyazlpaFZ1b3h6L1hJbks4MklnaDhZZWxS?=
- =?utf-8?B?UGlZaUFCbUJHZEpUSERCM1lJdXR0eElwWE1xSDhkR3J6Z1pqM3JwQytkS2JE?=
- =?utf-8?B?WGU5dmFvMTFWVmJ1aGRGSFRZdnJZaGdNelpUSDQyUW5BK09UODErN3JUNzk2?=
- =?utf-8?B?dlFaTDcvUHBMQi9aZ1Q0citQSk9SYVhOZG1zRk10V1o2WGZ5U3p0SUFhejQ4?=
- =?utf-8?B?OVFtT292TFdLZUxrQTU1eU9Sc1ZTdHdUSkNFbndwQ3FKR3h2WUkyTlZQdnI5?=
- =?utf-8?B?ZHZJSVBNTTRncWZPNFJBUC9LNUprdVR0c1ptWW9BTExlMEgzZU52MTJuRmpD?=
- =?utf-8?B?SjZ4VGVGT2hPdktXZ1pIc2VVVTlJZjUxWlBRWWhiSlNIVDE1ZG9RRm92Tytz?=
- =?utf-8?B?L0h1QXNtdjhoc2JIMHZwcXZkM1FtbndSMWpBcnEzVHMrY1dybnowcFNuT285?=
- =?utf-8?B?NHVpcUgvSWVrTEhrcE95c1Z2ZWt6SWhCUFdIYi90cVFCTHVtaHhlR1I3a1kx?=
- =?utf-8?B?ODI4MCtzWWtaTWdxMzV3QXRZOHFYbW5mT1haM3RLUkdUUlFiclpkaVcxUG56?=
- =?utf-8?B?TzFWN0I5UFdXMld4N3NkdXkrc1Q3QkxtTjBydUZ6MzhacTdRMnhuTHlEN1M2?=
- =?utf-8?B?eWtnV3AzVG40ODJrYlc2L1V1TkNPNEhSSy9QazRhU1VFRHdFT2hEUHRXVEJH?=
- =?utf-8?B?UWFpWE5ZenB0WW9aMkZ4ZFNFeFJ6QW5uSUt4aFBuVzRPelEvR2NYc0FDUXMx?=
- =?utf-8?B?b25jbXl2OEloaWpUNlVoNUZFUkxNaFllQzlKbXQ4WUo4bFo1eG83VEtIb1JF?=
- =?utf-8?B?RElDWmtUalZjRENjcDd4ZU9iR0hnMytySnMwUVk1Z2JqdEhZVVRLbk5YaDVx?=
- =?utf-8?B?WWNiMUNvN1k5OGlnMGk0MGdFSGxEVnpoZzBSWHN3UFNWbTg4V2ErYVRyQTVx?=
- =?utf-8?B?dFhkYmE3c0RTTkVtUXBjREpWMCs0cFVlanNwQjlGb3h3NzNjaGV2YWhHRWJi?=
- =?utf-8?B?U0NFcVdNcGUxQUhDeXZZR3BUS0J4MDJhK0pVbVlvOWU2dXJQWXJTRm1BbXV1?=
- =?utf-8?B?RlgvbFptSzJsMWU3SndUZm5MczZ0QUxWNVBqQndHVFM2YjhlaVlPZHcrcFBU?=
- =?utf-8?B?MnRjV3M0MjZjd2l1Q0FtTUppRXBob0Q2dXQ3a3hhS1g5WC9wV3hVZjJ5T1R0?=
- =?utf-8?B?NVVQcHRmUmFkQ0xsRWN1MjVjckpJbEZ4TUJoNEl3aUM3bURwR2JHTDlWOGx3?=
- =?utf-8?B?Q1gxaitqV2E1eWR0L3docnZmK0x3cHgwQm1pOVkwS1NWQ2VHcFc3bUk0cGo5?=
- =?utf-8?B?dXNDcmRNOFVBcjlVVmhoNjZoZENtMjdkdmIzb2sxdFJKVUc3UDlUclpFQlhz?=
- =?utf-8?B?R0hab1dsbGhWMkkyWFZhWXFUMHJ5dTZWdjl0OGllTXBkeUpHaUxVYVBHK0d6?=
- =?utf-8?B?ekhoTUFFNStSZkF2aTNSQ2ViK2gvcWZMYjVkQTQwdGZrUSt3cFBpaUdHVDBK?=
- =?utf-8?B?cnhJVnFvUGUyT0NQL2RhNFFaalJkSS8zTHNGc2ZGOE1ONThaandGSERYUzJS?=
- =?utf-8?B?WGJMQXNqNnZHdXJyejNTU1J6ZVBMc2NmNE1xZUwxQ3haNGpaNmdvSHZpbElX?=
- =?utf-8?B?SDVPRFRibkRpWGRVWDJmUVMwcnB6M2lWNUlIVjRFaWt4aEFaY3dzZWZNWWxq?=
- =?utf-8?Q?ZL6E=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2025 09:19:45.0846
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d67c9980-5904-4dbe-4d1a-08de3e16957a
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB72.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8371
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_011953_574063_16B0D414 
-X-CRM114-Status: GOOD (  14.93  )
+In-Reply-To: <a063f6c5-2785-4a9f-8079-25edb3e54cef@arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,99 +81,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/8/2025 9:07 PM, Peter Zijlstra wrote:
-> On Fri, Dec 05, 2025 at 04:16:36PM -0800, Sean Christopherson wrote:
->> My hope/plan is that the perf changes will go through the tip tree with a
->> stable tag/branch, and the KVM changes will go the kvm-x86 tree.
-> 
->> Kan Liang (7):
->>   perf: Skip pmu_ctx based on event_type
->>   perf: Add generic exclude_guest support
->>   perf: Add APIs to create/release mediated guest vPMUs
->>   perf: Clean up perf ctx time
->>   perf: Add a EVENT_GUEST flag
->>   perf: Add APIs to load/put guest mediated PMU context
->>   perf/x86/intel: Support PERF_PMU_CAP_MEDIATED_VPMU
->>
->> Mingwei Zhang (3):
->>   perf/x86/core: Plumb mediated PMU capability from x86_pmu to
->>     x86_pmu_cap
->>
->> Sandipan Das (3):
->>   perf/x86/core: Do not set bit width for unavailable counters
->>   perf/x86/amd: Support PERF_PMU_CAP_MEDIATED_VPMU for AMD host
->>
->> Sean Christopherson (19):
->>   perf: Move security_perf_event_free() call to __free_event()
->>   perf/x86/core: Register a new vector for handling mediated guest PMIs
->>   perf/x86/core: Add APIs to switch to/from mediated PMI vector (for
->>     KVM)
-> 
-> That all looks to be in decent shape; lets go get this merged. There is
-> the nit on patch 4 and I think a number of the exports want to be
-> EXPORT_SYMBOL_FOR_KVM() instead, but we can do that on top.
-> 
-> I'll queue these patches after rc1.
-
-I have tested this series on AMD EPYC 9745 (Turin, 128-Core Processor)
-with 12 hours of perf_fuzzer runs across multiple configurations. No new
-failures were observed.
-
-Test Platform:
---------------
-Hardware: AMD EPYC 9745 128-Core Processor (Turin)
-Test Duration: 12 hours of perf_fuzzer per configuration
-
-Configuration 1: enable_mediated_pmu=Y
----------------------------------------
-SVM guests:
-  -cpu host
-  -cpu host,-perfmon-v2
-  -cpu host,-perfctr-core
-
-SEV-ES guest:
-  -cpu host
-
-SEV-SNP guest:
-  -cpu host
-
-Configuration 2: enable_mediated_pmu=N
----------------------------------------
-SVM guest:
-  -cpu EPYC-Genoa-v2,+pmu
-  -cpu EPYC-Genoa-v2,+pmu,-perfmon-v2
-  -cpu EPYC-Genoa-v2,+pmu,-perfctr-core
-
-SEV-ES guest:
-  -cpu EPYC-Genoa-v2,+pmu
-
-SEV-SNP guest:
-  -cpu EPYC-Genoa-v2,+pmu
-
-KVM Unit Tests (KUT):
----------------------
-Tested all combinations of:
-  - enable_mediated_pmu={0,1}
-  - force_emulation_prefix={0,1}
-
-CPU configurations tested:
-  -cpu host
-  -cpu host,-perfmon-v2
-  -cpu host,-perfctr-core
-
-All KUT tests passed as expected across all combinations.
-
-Tested-by: Manali Shukla <manali.shukla@amd.com>
-
--Manali
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMTIvMTEvMjUgMTQ6NTksIFJ5YW4gUm9iZXJ0cyB3cm90ZToKPiBPbiAxMS8xMi8yMDI1IDAw
+OjMzLCBTYW11ZWwgSG9sbGFuZCB3cm90ZToKPj4gT24gMjAyNS0xMS0yOCAyOjQ3IEFNLCBEYXZp
+ZCBIaWxkZW5icmFuZCAoUmVkIEhhdCkgd3JvdGU6Cj4+PiBPbiAxMS8yNy8yNSAxNzo1NywgUnlh
+biBSb2JlcnRzIHdyb3RlOgo+Pj4+IE9uIDEzLzExLzIwMjUgMDE6NDUsIFNhbXVlbCBIb2xsYW5k
+IHdyb3RlOgo+Pj4+PiBDdXJyZW50bHksIHNvbWUgZnVuY3Rpb25zIHN1Y2ggYXMgcHRlX29mZnNl
+dF9tYXAoKSBhcmUgcGFzc2VkIGJvdGgKPj4+Pj4gcG9pbnRlcnMgdG8gaGFyZHdhcmUgcGFnZSB0
+YWJsZXMsIGFuZCBwb2ludGVycyB0byBwcmV2aW91c2x5LXJlYWQgUE1ECj4+Pj4+IGVudHJpZXMg
+b24gdGhlIHN0YWNrLiBUbyBlbnN1cmUgY29ycmVjdG5lc3MgaW4gdGhlIGZpcnN0IGNhc2UsIHRo
+ZXNlCj4+Pj4+IGZ1bmN0aW9ucyBtdXN0IHVzZSB0aGUgcGFnZSB0YWJsZSBhY2Nlc3NvciBmdW5j
+dGlvbiAocG1kcF9nZXQoKSkgdG8KPj4+Pj4gZGVyZWZlcmVuY2UgdGhlIHN1cHBsaWVkIHBvaW50
+ZXIuIEhvd2V2ZXIsIHRoaXMgbWVhbnMgcG1kcF9nZXQoKSBpcwo+Pj4+PiBjYWxsZWQgdHdpY2Ug
+aW4gdGhlIHNlY29uZCBjYXNlLiBUaGlzIGRvdWJsZSBjYWxsIG11c3QgYmUgYXZvaWRlZCBpZgo+
+Pj4+PiBwbWRwX2dldCgpIGFwcGxpZXMgc29tZSBub24taWRlbXBvdGVudCB0cmFuc2Zvcm1hdGlv
+biB0byB0aGUgdmFsdWUuCj4+Pj4+Cj4+Pj4+IEF2b2lkIHRoZSBkb3VibGUgdHJhbnNmb3JtYXRp
+b24gYnkgY2FsbGluZyBzZXRfcG1kKCkgb24gdGhlIHN0YWNrCj4+Pj4+IHZhcmlhYmxlcyB3aGVy
+ZSBuZWNlc3NhcnkgdG8ga2VlcCBzZXRfcG1kKCkvcG1kcF9nZXQoKSBjYWxscyBiYWxhbmNlZC4K
+Pj4+Pgo+Pj4+IEkgZG9uJ3QgdGhpbmsgdGhpcyBpcyBhIGdvb2Qgc29sdXRpb24uCj4+Pgo+Pj4g
+QWdyZWVkLAo+Pj4KPj4+ICDCoMKgwqDCoHNldF9wbWQoJnBtZCwgcG1kKTsKPj4+Cj4+PiBpcyBy
+YXRoZXIgaG9ycmlibGUuCj4+IEkgYWdyZWUgdGhhdCB0aGlzIHBhdGNoIGlzIHVnbHkuIFRoZSBv
+bmx5IHdheSBJIHNlZSB0byBhdm9pZCBjb2RlIGxpa2UgdGhpcyBpcwo+PiB0byByZWZhY3RvciAo
+b3IgZHVwbGljYXRlKSB0aGUgZnVuY3Rpb25zIHNvIG5vIGZ1bmN0aW9uIHRha2VzIHBvaW50ZXJz
+IHRvIGJvdGgKPj4gaGFyZHdhcmUgcGFnZSB0YWJsZXMgYW5kIG9uLXN0YWNrIHBhZ2UgdGFibGUg
+ZW50cmllcy4gSXMgdGhhdCBzb3J0IG9mCj4+IHJlZmFjdG9yaW5nIHRoZSByaWdodCBkaXJlY3Rp
+b24gdG8gZ28gZm9yIHY0Pwo+IAo+ICBGcm9tIGEgcXVpY2sgbG9vayBhdCB0aGUgY29kZSwgSSB0
+aGluayB0aGF0IHNvbWUgY2FzZXMgYXJlIHNvbHZhYmxlIGJ5Cj4gcmVmYWN0b3JpbmcgdG8gcGFz
+cyB0aGUgdmFsdWUgaW5zdGVhZCBvZiB0aGUgcG9pbnRlciwgYW5kIGxlYXZlIGl0IHRvIHRoZSBo
+aWdoZXIKPiBsZXZlbCBkZWNpZGUgaG93IHRvIHJlYWQgdGhlIHZhbHVlIGZyb20gdGhlIHBvaW50
+ZXIgLSBpdCBrbm93cyBpZiBpdCBpcyBwb2ludGluZwo+IHRvIEhXIHBndGFibGUgb3IgaWYgaXQn
+cyBhIChlLmcpIHN0YWNrIHZhbHVlLgo+IAo+IEJ1dCB0aGUgbW9yZSBJIGxvb2sgYXQgdGhlIGNv
+ZGUsIHRoZSBtb3JlIGluc3RhbmNlcyBJIGZpbmQgd2hlcmUgcG9pbnRlcnMgdG8KPiBzdGFjayB2
+YXJpYWJsZXMgYXJlIGJlaW5nIHBhc3NlZCB0byBhcmNoIHBndGFibGUgaGVscGVycyBhcyBpZiB0
+aGV5IGFyZSBIVwo+IHBndGFibGUgZW50cnkgcG9pbnRlcnMuIChNYWlubHkgcG1kIGxldmVsKS4K
+PiAKPiBJIHdvbmRlciBpZiB3ZSBuZWVkIHRvIGJpdGUgdGhlIGJ1bGxldCBhbmQgZXhwbGljaXRs
+eSBzZXBhcmF0ZSB0aGUgdHlwZXM/IEF0Cj4gZWFjaCBsZXZlbCwgd2UgaGF2ZToKPiAKPiAgIDEu
+IHBhZ2UgdGFibGUgZW50cnkgdmFsdWUKPiAgIDIuIHBvaW50ZXIgdG8gcGFnZSB0YWJsZSBlbnRy
+eSBfdmFsdWVfIChlLmcuIHBvaW50ZXIgdG8gcFhYX3Qgb24gc3RhY2spCj4gICAzLiBwb2ludGVy
+IHRvIHBhZ2UgdGFibGUgZW50cnkgaW4gSFcgcGd0YWJsZQo+IAo+IFRvZGF5LCAxIGlzIHJlcHJl
+c2VudGVkIGJ5IHB0ZV90LCBwbWRfdCwgZXRjLiAyIGFuZCAzIGFyZSByZXByZXNlbnRlZCBieSB0
+aGUKPiBzYW1lIHR5cGU7IHB0ZV90KiwgcG1kX3QqLCBldGMuCj4gCj4gSWYgd2UgY3JlYXRlIGEg
+bmV3IHR5cGUgZm9yIDMsIGl0IHdpbGwgYm90aCBkb2N1bWVudCBhbmQgZW5mb3JjZSB3aGVuIHR5
+cGUgMiBvcgo+IHR5cGUgMyBpcyByZXF1aXJlZC4KPiAKPiBlLmc6Cj4gCj4gLy8gcHRlX3Q6IGRl
+ZmluZWQgYnkgYXJjaC4KPiB0eXBlZGVmIHVuc2lnbmVkIGxvbmcgcHRlX3Q7Cj4gCj4gLy8gcHRl
+cF90OiBuZXcgb3BhcXVlIHR5cGUgdGhhdCBjYW4ndCBiZSBkZXJlZmVyZW5jZWQuCj4gc3RydWN0
+IF9fcHRlcF90Owo+IHR5cGVkZWYgc3RydWN0IF9fcHRlcF90ICpwdGVwX3Q7CgpUaGlzIGlzIHdo
+YXQgSSBoYWQgaW4gbWluZCB3aGVuIHdlIGxhc3QgZGlzY3Vzc2VkIHRoaXMgdG9waWMgYW5kIEkg
+CnN1Z2dlc3RlZCBhIHdheSBmb3J3YXJkIHRvIG5vdCBwbGF5IHdoYWNrLWEtbW9sZSB3aXRoIG5l
+dyB1c2VycyB0aGF0IGRvIAoqcHRlcCBzaG93aW5nIHVwLgoKQWdyZWVkIHRoYXQgd2UgaWRlYWxs
+eSBpbmRpY2F0ZSB0aGF0IHRoaXMgaXMgYSBIVyBQVEUgcG9pbnRlciB0aGF0IG11c3QgCmJlIGRl
+LXJlZmVyZW5jZWQgdGhyb3VnaCBwdGVwX2dldCgpIG9yIHNpbWlsYXIuIChtYXliZSB3ZSdkIGZp
+bmQgYSBuZXcgCm5hbWUgZm9yIHRoaXMgc2V0IG9mIGZ1bmN0aW9ucykuCgpJIHRhbGtlZCB0byBT
+YW11ZWwgYXQgTFBDLCBwb2ludGluZyBoaW0gYXQgdGhlIHdheSBYRU4tcHYgaW1wbGVtZW50ZWQg
+CnN1cHBvcnQgZm9yIGNoYW5naW5nIFBGTnMgaW4gcHRlcy4gV2UgbWlnaHQgbm90IG5lZWQgYWxs
+IG9mIHRoYXQgcmV3b3JrIAp0byBtb3ZlIGZvcndhcmQgd2l0aCB0aGUgcmlzYy12IGNoYW5nZS4K
+CkhhdmluZyB0aGF0IHNhaWQsIEkgYWxzbyBhZ3JlZSB0aGF0IHRoaXMgd291bGQgYmUgYSBjbGVh
+bnVwIHdvcnRoIGhhdmluZyAKKHdoaWNoIHdpbGwgcmVzdWx0IGluIHF1aXRlIGEgYml0IG9mIGNo
+dXJuIDopICkuCgpTbyBpZiBzb21lb25lIHdhbnRzIHRvIGJ1bXAgdXAgdGhlIHBhdGNoIGNvdW50
+LCBzcGVhayBub3cuCgotLSAKQ2hlZXJzCgpEYXZpZAoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
