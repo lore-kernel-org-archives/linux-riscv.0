@@ -4,123 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BFBD711D6
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:08:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E0FD74961
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:13:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iif6SJ55HxxnLKmhQtOAcskaN7x8pOiHDJiI2ljBipI=; b=lQHuztU+hXd2hr
-	+IoudMKXGSWjcllaUUPz3wnwK2Rm0UapRdcgQZ/TVF5sCxZbEb46oHZxdNdfuQMpPNi830E9BwdKx
-	juKeiKjkKYLMsj9dPt801LYQj/jWQfk+Z9v8zZnuZp/rdSvKx/pfOh/c/09MIgTIZ/dMnBs61IGzM
-	UurYS/LT8rTq5RfvSNoQNGyjTiKxVdC0/6xtMA2jwVv3gALv2VZFUyy1pF8YEdlnGZ+LZEnFd/zPQ
-	bhqmq23GOimpVLnQeh919Cgs/lzOu2Wyk3k4qxX1pgLq95eSN4/ZQURYE03/fDIS3uatUziw2DDxA
-	Ybm2uHJKGdOc1FffHCaA==;
+	List-Owner; bh=0527nHLhDiIafDoPzA0g3hj5yY5ZOvJ3LQRj1JHkDE0=; b=PQKhlMbm2jMIy9
+	Wjih+Z8ST2AjpNzm74qYr4xRi0IFsWmnmDagsM14CbCXNalyGsEVGYu7dHvdco2UVHnWZcSWB8L0Q
+	IKNotaE6Ny/Ay0E5Rm1xbCn412UJOr6ZjTBtxh2S9FKMkWTnxa1pNwol22lMLLx1bYiOyXrxcc3sK
+	de5iHH68/a8Vo/Jw5kaFRfAlbeNi0gquU7BlH+YHB5/8fyC7JUMWpEBRIvoyAlzZOK4H554MbHc2y
+	2L0YNq/HbrYQfzIigF2cXIT5VHhY6KL7N1KWn2G250Dq+yXuL++AHjyso4aG8/Bi4fcIfqFfTr4t3
+	qOTMInhZcKT4gZDveViw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVX8-00000009ntj-3OWr;
-	Fri, 19 Dec 2025 08:08:18 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1vWVbq-00000009ooi-3XLI;
+	Fri, 19 Dec 2025 08:13:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVX4-00000009nsZ-0kyM
+	id 1vWVbo-00000009on6-0SAi
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Dec 2025 08:08:17 +0000
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com [209.85.221.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 677743F85A
-	for <linux-riscv@lists.infradead.org>; Fri, 19 Dec 2025 08:08:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1766131690;
-	bh=EaxKPv8EzMQw4Q+d/tnNq9TX6lEJW/rr1OxXypt8e2A=;
-	h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type;
-	b=lMO9chE9CcnVozxEYLHoj4xFpT1kl3IskAJ3/7366fiBllXxh85PbwM5l0L21nAxi
-	 kveo6QHHrBaaNckQ9Bi8YvvjL8P9o+j793sFO3xmBJbT59h86Z+VDZq+ElTmgcJfuz
-	 68tR5M1xM5GiUqaXs277UbQkeWZfb1/qJCrkQJXSvGBFJLP7dSqQ/pHx6FJM0j8RP+
-	 /+WmTHSF844Wh7jvZxoUDTHq5E43NVLDyHYl/0epFZmfS9bcH+HvQxWPTIa/Bv1kEB
-	 ZmPudXl3Of8tNNpQ4DfmeygGGuidzoUl/Gk57i0o62qRxymPATEqaQ7Irgoe3oXziE
-	 8MCss7G3kAQ7B5FiinJt62iv+RWAOVmeedSFHfhifI/Vn9eLBgWuRRuaKx7P4v/xf7
-	 lveNktI8e0G8AyZJMbU+djvve4d6KXQmeIMEHEuYfDD6fAhqQB1O57JhAgb8h6jsWJ
-	 44ZVR2GxTTl0jWh1YakMkXlxgAQDw+iFL3vd0EvBmzNNSfNYD5SfD9o0jll/LgCIR+
-	 Ne4ZbQ++AsjXQ05i+ooBqv4i6ENQ9D7o9Ra8nmkCKeffO/IsXmSzKDCpoTXu9mKZhf
-	 Aeie9E8yHXg6uBmx69uN2jtnDu1PjhPicgX4OJfE5O5WSeMnkx1lNKtIAKVGMKLy/+
-	 sDa+8XYzY1uiRoa5xUabefr4=
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-430fd96b440so725015f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Dec 2025 00:08:10 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766131690; x=1766736490;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=EaxKPv8EzMQw4Q+d/tnNq9TX6lEJW/rr1OxXypt8e2A=;
-        b=TikoiVMQa7VqKpdOBTHaaKzMViuZlHpOkouo6qZPbLI1CoWkqfmcHw4icKrqQnQU8U
-         TpxIHcx25i0rsfRhP29wGu8QXdWa1GzndZf3bJHOxNeuzcdNK7QMTRywRPZrdWUDHdLv
-         5lT8PAu9Nz9Tuo0CnehdOMIkFsnCAA2GeLxCzaT+9PJiByaHQSNMmCz0QsducTxJ+xaV
-         JyuTJ/U4JuVKrZLeG/Z++1Cy3A3DRD1xD03GlYj8YsX2KzUaNrOAJ6wU4txiVrZOH3Dv
-         xYkK0Fn7AhT+2CZh96AKjQ7E7C2kdNiGQrMeCGVsDLZ+dhXnvZMIHrbjFk+pbCrUFPsO
-         VJUA==
-X-Forwarded-Encrypted: i=1; AJvYcCX8qZrF/HD4WK5+Rrp+ygyjGMzs0ULrhpd2BXYm1TBw7Zo+eLXgi0eLPFTkPfmLjIXVtSAeyliBgvasgw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+HX4eP3OFTYfI77msYNkqn6H/ABrr9jEHQT6krgMUHJOPFAew
-	GcLLT2vrRS8ykq9HUQMvNewYo+DUQSaUrbG26YttdQTcRhm+ZjAcIi/Pfce404I9ldKU+pU0cI1
-	yRUxFuR0HhY+sFasptXGGrHzKceAGTKno9yW8/FeaoADc4ctMaagBZWya4yw6Orc/qs5QX4MdBH
-	BDNdSDI2SmhQ==
-X-Gm-Gg: AY/fxX5PAuDuk1z7ogxm1NXCITa6GHzuGDiLQlqvWiw6Bh6RyxdmQpixfyZCbg+gfDH
-	vOvJJfLQTxchJv7jrWXoT/1EOuiRYBxUWJmOGYFJ3t0HVO1J8lJj9nOZ7idLCIqEusTM4w7UW9j
-	QzFwyAEQRvjpcrWaNLkqPCKTNRtWf0j5RfgOD9SNiOJqPnKjWC98/lKlb7VnALQuUWNNFrMaKy+
-	Xg6ecAZLIiuEDFGJt26l+ZtDxMUXn7YLpN8pu9ZqNjE9bPpF1VM0+TBjQj9u1UivvMwGH6cDHrs
-	1xVPWiTCfddsEyhxPMfougPs2ToppGnP2FBLeb9kq+j4+kUQRYehhoYk0wranOAyKFeBGfOOb/I
-	u+9ALHSwyu73J7rx8uQ2DkJqrDCNa4d+DPs4bAp3NugGXN/mZnRrjfvwPLGnnNg/U9zdKZl9hjT
-	5iymUbVyA=
-X-Received: by 2002:a05:6000:1a8d:b0:430:f6ad:1814 with SMTP id ffacd0b85a97d-4324e7045eemr2091891f8f.58.1766131689899;
-        Fri, 19 Dec 2025 00:08:09 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IF+g+eItW+D6N0t8wn4CUhhQAlan/FWbDAzi/nwqnnLL5ClhWb3g9EwyncInKQ4MUzOoaMdTA==
-X-Received: by 2002:a05:6000:1a8d:b0:430:f6ad:1814 with SMTP id ffacd0b85a97d-4324e7045eemr2091855f8f.58.1766131689463;
-        Fri, 19 Dec 2025 00:08:09 -0800 (PST)
-Received: from [192.168.123.154] (ip-005-147-080-091.um06.pools.vodafone-ip.de. [5.147.80.91])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324ea2267fsm3416457f8f.12.2025.12.19.00.08.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 Dec 2025 00:08:08 -0800 (PST)
-Message-ID: <212e6371-245e-4f44-98a0-5e1db47222a1@canonical.com>
-Date: Fri, 19 Dec 2025 09:08:07 +0100
+	Fri, 19 Dec 2025 08:13:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6D80743F28;
+	Fri, 19 Dec 2025 08:13:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4893CC4CEF1;
+	Fri, 19 Dec 2025 08:13:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766131987;
+	bh=Da1igU9nJRPnZ5L4W+6oiwIrxZfJDMP73Owv2lIqQYo=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=Xo2kx7m/wag5DqzcA3vxDHxKhWOgdPOuJESlc1/0Bw4zijQRvGwcYF8sgefqxVOUH
+	 Zw7Jq6c5KKya3qz84l3oCzhyv+f3Hl5QN6IR/gQco94/zBQsFWJdUZMRarmcE3Ll17
+	 OQ7tjezH9QvsQp+tDWb38i+rSMT0jcobYPSBIFuOov4nLe+6ZCUeTdTun+6WS/hhTx
+	 W5N1PVgKEmBDep/c+MpJ7ASaed7AYRm9hypU4jHMnojPqCCBuQmDlX2Msq21NunqfC
+	 TPT3nmO8DeMmdKSb9GRyluaIuOy7isHD9uVzuPGv9qibqFkmE44JdEtsdo/sYFbVcX
+	 QY19z9sJx1rpA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 78C73380AA50;
+	Fri, 19 Dec 2025 08:09:57 +0000 (UTC)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/8] riscv: dts: spacemit: add initial device tree of
- SpacemiT K3 SoC
-To: Guodong Xu <guodong@riscstar.com>, Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@sifive.com>,
- Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, spacemit@lists.linux.dev,
- linux-serial@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@gentoo.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Samuel Holland <samuel.holland@sifive.com>, Anup Patel
- <anup@brainfault.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
- Yangyu Chen <cyy@cyyself.name>
-References: <20251216-k3-basic-dt-v1-0-a0d256c9dc92@riscstar.com>
- <20251216-k3-basic-dt-v1-7-a0d256c9dc92@riscstar.com>
- <60948ca2-ed3d-485b-9b11-15df7ef8791d@canonical.com>
- <CAH1PCMb=+TvB1w+G6a2ANDp05HUwC4r6CFBDHXFwSmoP3Mm8xw@mail.gmail.com>
- <f9b6b5e2-ec9e-4208-8267-77020e0a9411@canonical.com>
- <20251218-basil-quantum-225ce16e4699@spud>
- <CAH1PCMZ3KM9-D3NJ1N2LUHTHFSDVKmGKT5fU8knAL7NnV9E-gw@mail.gmail.com>
-Content-Language: en-US
-From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-In-Reply-To: <CAH1PCMZ3KM9-D3NJ1N2LUHTHFSDVKmGKT5fU8knAL7NnV9E-gw@mail.gmail.com>
+Subject: Re: [PATCH V14 0/6] riscv: mm: Add soft-dirty and uffd-wp support
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <176613179607.3684357.9882444672528861382.git-patchwork-notify@kernel.org>
+Date: Fri, 19 Dec 2025 08:09:56 +0000
+References: <20250918083731.1820327-1-zhangchunyan@iscas.ac.cn>
+In-Reply-To: <20250918083731.1820327-1-zhangchunyan@iscas.ac.cn>
+To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, robh@kernel.org, krzk+dt@kernel.org,
+ conor@kernel.org, debug@rivosinc.com, ved@rivosinc.com,
+ viro@zeniv.linux.org.uk, brauner@kernel.org, jack@suse.cz,
+ akpm@linux-foundation.org, peterx@redhat.com, arnd@arndb.de,
+ david@redhat.com, lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com,
+ vbabka@suse.cz, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+ axelrasmussen@google.com, yuanchu@google.com, zhang.lyra@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_000814_604027_2DEFB96D 
-X-CRM114-Status: GOOD (  26.16  )
+X-CRM114-CacheID: sfid-20251219_001308_164689_8CBADB51 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,60 +77,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTIvMTkvMjUgMDM6MDMsIEd1b2RvbmcgWHUgd3JvdGU6Cj4gSGksIENvbm9yIGFuZCBIZWlu
-cmljaAo+IAo+IE9uIFRodSwgRGVjIDE4LCAyMDI1IGF0IDg6NTbigK9BTSBDb25vciBEb29sZXkg
-PGNvbm9yQGtlcm5lbC5vcmc+IHdyb3RlOgo+Pgo+PiBPbiBXZWQsIERlYyAxNywgMjAyNSBhdCAw
-OTowNzoxNEFNICswMTAwLCBIZWlucmljaCBTY2h1Y2hhcmR0IHdyb3RlOgo+Pj4gT24gMTIvMTcv
-MjUgMDg6MTEsIEd1b2RvbmcgWHUgd3JvdGU6Cj4+Cj4+Pj4gU3BlY2lmaWNhbGx5LCBJIG11c3Qg
-YWRoZXJlIHRvCj4+Pj4gRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2V4
-dGVuc2lvbnMueWFtbCAoYW5kIGNwdXMueWFtbCBmb3IKPj4+PiBwcm9wZXJ0aWVzIGxpa2UgJ3Jp
-c2N2LHN2MzknIHdoaWNoIHN0YW5kcyBmb3IgdGhlIGV4dGVuc2lvbiBTdjM5KS4gSWYgSQo+Pj4+
-IGFkZCBleHRlbnNpb24gc3RyaW5ncyB0aGF0IGFyZSBub3QgeWV0IGRlZmluZWQgaW4gdGhlc2Ug
-c2NoZW1hcywgc3VjaCBhcwo+Pj4+IHN1cG0sIHJ1bm5pbmcgJ21ha2UgZHRic19jaGVjayBXPTMn
-IGZhaWxzIHdpdGg6ICdzdXBtJyBpcyBub3Qgb25lIG9mCj4+Pj4gWydpJywgJ20nLCAnYScsIC4u
-Ll0sIGZvbGxvd2VkIGJ5ICJVbmV2YWx1YXRlZCBwcm9wZXJ0aWVzIGFyZSBub3QgYWxsb3dlZC4i
-Cj4+Pgo+Pj4gSWYgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2V4dGVu
-c2lvbnMueWFtbCBpcyBpbmNvbXBsZXRlCj4+PiB3aXRoIHJlc3BlY3QgdG8gcmF0aWZpZWQgZXh0
-ZW5zaW9ucywgSSBndWVzcyB0aGUgcmlnaHQgYXBwcm9hY2ggaXMgdG8gYW1lbmQKPj4+IGl0IGFu
-ZCBub3QgdG8gY3VydGFpbCB0aGUgQ1BVIGRlc2NyaXB0aW9uLgo+Pgo+PiBBYnNvbHV0ZWx5LiBJ
-ZiB0aGUgY3B1IHN1cHBvcnRzIHNvbWV0aGluZyB0aGF0IGlzIG5vdCBkb2N1bWVudGVkLCB0aGVu
-Cj4+IHBsZWFzZSBkb2N1bWVudCBpdCByYXRoZXIgdGhhbiBvbWl0IGZyb20gdGhlIGRldmljZXRy
-ZWUuCj4gCj4gVGhhbmtzIGZvciB0aGUgcmV2aWV3LiBNYXkgSSBjbGFyaWZ5IG9uZSB0aGluZz8g
-Qm90aCBvZiB5b3UgbWVudGlvbmVkCj4gZG9jdW1lbnQgdGhlbSwgZ2l2ZW4gdGhlIGFtb3VudCBv
-ZiBtaXNzaW5nIGV4dGVuc2lvbnMsIGlzIGl0IGFjY2VwdGFibGUgaWYKPiBJIHN1Ym1pdCBhIHBy
-ZXJlcXVpc2l0ZSBwYXRjaCB0aGF0IG9ubHkgZG9jdW1lbnRzIHRoZXNlIHN0cmluZ3MgaW4KPiBy
-aXNjdi9leHRlbnNpb25zLnlhbWwgcGx1cyB0aGUgbmVjZXNzYXJ5IGh3cHJvYmUgZXhwb3J0PyBM
-ZWF2aW5nIHRoZSBhY3R1YWwKPiB1c2FnZSBvZiB0aGVzZSBleHRlbnNpb25zIChuYW1lZCBmZWF0
-dXJlcykgdG8gdGhlIGZ1dHVyZSBwYXRjaGVzLgoKQWRkaW5nIHRoZSBtaXNzaW5nIGV4dGVuc2lv
-bnMgdG8KRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2V4dGVuc2lvbnMu
-eWFtbAppcyB3aGF0IGl0IHRha2VzIHRvIGRlc2NyaWJlIHRoZSBLMTAwIGNvcmVzIGluIHRoZSBk
-ZXZpY2UtdHJlZS4KCkRpc2NvdmVyaW5nIHRoZSBuZXcgZXh0ZW5zaW9ucyBhcyBDUFUgZmVhdHVy
-ZXMgYW5kIGV4cG9zaW5nIHRoZW0gdmlhIApod3Byb2JlIGlzIHByb2JhYmx5IGJlc3QgaGFuZGxl
-ZCBpbiBhIHNlcGFyYXRlIHBhdGNoIHNlcmllcy4KCkJlc3QgcmVnYXJkcwoKSGVpbnJpY2gKCj4g
-Cj4gVG8gcHJvdmlkZSBzb21lIGNvbnRleHQgb24gd2h5IEkgYXNrOiBJJ3ZlIGludmVzdGlnYXRl
-ZCB0aGUgY29tbWl0cyAmIGxrbWwKPiBoaXN0b3J5IG9mIFJJU0MtViBleHRlbnNpb25zIHNpbmNl
-IHY2LjUsIGFuZCBJIHN1bW1hcml6ZWQgdGhlIGN1cnJlbnQgc3RhdHVzCj4gcmVnYXJkaW5nIHRo
-ZSBSVkEyMyBwcm9maWxlIGhlcmU6Cj4gWzFdIHN0YXR1cyBpbiB2Ni4xOCAoaW5jLiB2Ni4xOS1y
-YzEpOgo+IGh0dHBzOi8vZG9jdWxhcnh1LmdpdGh1Yi5pby9ydmEyMy9saW51eC1rZXJuZWwtY292
-ZXJhZ2UuaHRtbAo+IFsyXSBzdXBwb3J0IGV2b2x1dGlvbiBzaW5jZSB2Ni41Ogo+IGh0dHBzOi8v
-ZG9jdWxhcnh1LmdpdGh1Yi5pby9ydmEyMy9ydmEyMy1rZXJuZWwtc3VwcG9ydC1ldm9sdXRpb24u
-aHRtbAo+IAo+IFN0cmljdGx5IGRlc2NyaWJpbmcgdGhlIFNwYWNlbWlUIFgxMDAvSzMgKG9yIGFu
-eSBjb3JlKSBhcyBSVkEyMy1jb21wbGlhbnQKPiByZXF1aXJlcyBhZGRpbmcgdGhlc2UgZXh0ZW5z
-aW9ucyB0aGF0IGFyZSBjdXJyZW50bHkgbWlzc2luZyBmcm9tCj4gdGhlIGtlcm5lbCBiaW5kaW5n
-czoKPiBSVkEyM1U2NDogWmljY2lmLCBaaWNjYW1vYSwgWmljY2xzbSwgWmE2NHJzCj4gUlZBMjNT
-NjQ6IFNzMXAxMywgU3NjY3B0ciwgU3N0dmVjZCwgU3N0dmFsYSwgU3Njb3VudGVyZW53LCBTc3U2
-NHhsLAo+ICAgICAgICAgICAgU2hhLCBTaGNvdW50ZXJlbncsIFNodnN0dmFsYSwgU2h0dmFsYSwg
-U2h2c3R2ZWNkLCBTaHZzYXRwYSwgU2hnYXRwYQo+IFBsdXMgJ1N1cG0nLCAnWmljNjRiJywgJ1Nz
-c3RhdGVlbicsICdCJyB3aGVyZSB0aGUga2VybmVsIHN1cHBvcnRzIHRoZW0gYnV0Cj4gdGhleSBh
-cmUgbm90IGxpdGVyYWxseSBkb2N1bWVudGVkIGluIHlhbWwuCj4gCj4gSXMgdGhpcyBhcHByb2Fj
-aCBhY2NlcHRhYmxlIHRvIHlvdT8gSWYgc28sIEkgd2lsbCBwcm9jZWVkIHdpdGggc3VibWl0dGlu
-ZyB0aGVtLgo+IAo+IFRoYW5rIHlvdSB2ZXJ5IG11Y2guCj4gCj4gQmVzdCByZWdhcmRzLAo+IEd1
-b2RvbmcgWHUKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+Hello:
+
+This series was applied to riscv/linux.git (fixes)
+by Andrew Morton <akpm@linux-foundation.org>:
+
+On Thu, 18 Sep 2025 16:37:25 +0800 you wrote:
+> This patchset adds support for Svrsw60t59b [1] extension which is ratified now,
+> also add soft dirty and userfaultfd write protect tracking for RISC-V.
+> 
+> The patches 1 and 2 add macros to allow architectures to define their own checks
+> if the soft-dirty / uffd_wp PTE bits are available, in other words for RISC-V,
+> the Svrsw60t59b extension is supported on which device the kernel is running.
+> Also patch1-2 are removing "ifdef CONFIG_MEM_SOFT_DIRTY"
+> "ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP" and
+> "ifdef CONFIG_PTE_MARKER_UFFD_WP" in favor of checks which if not overridden by
+> the architecture, no change in behavior is expected.
+> 
+> [...]
+
+Here is the summary with links:
+  - [V14,1/6] mm: softdirty: Add pgtable_supports_soft_dirty()
+    (no matching commit)
+  - [V14,2/6] mm: userfaultfd: Add pgtable_supports_uffd_wp()
+    (no matching commit)
+  - [V14,3/6] riscv: Add RISC-V Svrsw60t59b extension support
+    https://git.kernel.org/riscv/c/59f6acb4be02
+  - [V14,4/6] riscv: mm: Add soft-dirty page tracking support
+    https://git.kernel.org/riscv/c/2a3ebad4db63
+  - [V14,5/6] riscv: mm: Add userfaultfd write-protect support
+    https://git.kernel.org/riscv/c/c64da3950cf4
+  - [V14,6/6] dt-bindings: riscv: Add Svrsw60t59b extension description
+    https://git.kernel.org/riscv/c/519912bdaee8
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
