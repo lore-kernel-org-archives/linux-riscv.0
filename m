@@ -4,89 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 928C9D7877D
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 14:05:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 442EAD78786
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 14:36:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aMGkXHCkIY1vl1tNIXKGerc4jSqZNI68reIIWfy4iT4=; b=M1kXw0mqGMdoCY
-	q0t0WTiTS3WyOmbTalOH7Nh7/BF0QGJ5zidu2qSUzaZeqW1/IQvmAONUacRziC2D/dbfjWxzvlqJi
-	W5AdbwPOJ0/wZv+chPkyOQUEskPnS1Xt5IhT9HOgwLgVQpc1EPD8UrsTDqmYd4+vYeu1LIwYwiq9S
-	Jh3Z3NfxPmiuMYOcDGAcLpYBCjJRyP1/HbAhbCeVf2snRLly2YUZhBou066p70E9KP61APtopPAGF
-	47FZNFnKA7urVsBoucpnrJgzn1DaZP552bDhWBZ3aUMOlPP1Fwhf5L3CgGENqywLvyiJ1UaQM/A1l
-	dMhRLkVyWsyUXYZvWL+A==;
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6h7x2N/tN3pANTnyigEZNkGdkFTclaC2WACGQi9nXag=; b=V55q53rl3piis6
+	cMYw+T8Zne09HLF5xdMy/AgmZpsptbAXijSLi2hV6FTuEmDHUbSSbRxk9edg3wUjZWQIKmuBROoQP
+	cYJVzUqMcL3K/ahOYf5m8fxws4ldZHO5wiN20w+KZOycZ74MGAJty80dsPYofsEg0XJKufGXTomas
+	aF9JViQAa8m/O7CZ/rVM0Me3Ia+twWUeWFJkl5wib7obMAQsivdN6wsOjJQ4gXLq3+0zQT2e+yWIn
+	qkb2R771jLbYfA6K1xSfQRUv23j1dZ0Vm+k6jzvT+6/73mDiaSC4gxYKRNFVO10jUIkSqXSuNl429
+	Zw2Y9zMdkzs/pQHJYCaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWb68-0000000ANyU-0OxU;
-	Fri, 19 Dec 2025 14:04:48 +0000
-Received: from mail-yx1-xb142.google.com ([2607:f8b0:4864:20::b142])
+	id 1vWbax-0000000AQNX-3PMI;
+	Fri, 19 Dec 2025 14:36:40 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWb65-0000000ANy6-2W3I
+	id 1vWbat-0000000AQHa-10RJ
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Dec 2025 14:04:47 +0000
-Received: by mail-yx1-xb142.google.com with SMTP id 956f58d0204a3-644715aad1aso2120527d50.0
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Dec 2025 06:04:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766153084; x=1766757884; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EGxqoB7Y4Q+aOAQo4uC0e9A1qBgkvdCsyCbyewI9lPY=;
-        b=T9tjt14mqcu5ADe6Lk1nRV3fqjafUX/VZ2n4P84H7rUbzKx8/svxS57dIv2pX40vxK
-         U1Ol6uYpVNvT30vG3hG1WbIqXsVAquvdVx8NGK1Uer0nPdLeudzGIAl9p/q3j+4aTfsd
-         2l8Eq2fVgArZq04UsIHv3xBnIsKtxvxwE1qjl5mEisx1weNZwcWwBVe1ePvU7szpfxqB
-         4l+H0nsuV0Up3t90zlAGTtRSpFhqN7EBkh+UPbvdFPvsJaNdcbowCocXhUUofrLO0zuT
-         J8aklBszL0oueRsxJ7LlCJlHuDTdsfCpsnTOSfB/8lgSKzox3uLhN3Z41R096ASYBZ1C
-         Zcaw==
+	Fri, 19 Dec 2025 14:36:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1766154992;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
+	bh=HSFPB/bwkL8yxZYc5klNfsL7dvjnOX38Gvv8GtWH4y8=;
+	b=REtFunrwBfMpCNjUzlTFJblKohJgO6SgqxHvx525+W5iMOAK9rCfT/ZKjpUpp3IZtM0cm8
+	oL3uoBGph4u0mdlK43d33s4ssVvt9e7hfHpBtuUztdS9j8XEHaiwtGCxDg2f5Ec3RbhVSU
+	D6kaYwbcZ+xLzngWV0dPeIyITYNIopg=
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
+ [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-373-F5FIYTf0MHiAj4DxBJAPcA-1; Fri, 19 Dec 2025 09:36:30 -0500
+X-MC-Unique: F5FIYTf0MHiAj4DxBJAPcA-1
+X-Mimecast-MFC-AGG-ID: F5FIYTf0MHiAj4DxBJAPcA_1766154990
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2a13be531b2so37281945ad.2
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Dec 2025 06:36:30 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766153084; x=1766757884;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=EGxqoB7Y4Q+aOAQo4uC0e9A1qBgkvdCsyCbyewI9lPY=;
-        b=acDLEw4gLqFBPsG1dXSLDrbanLF1h8nTMT2SjrfQ86ujNuH8UTlCZ4kXdAJivYXQbW
-         5SiYkzgp4yZrC8LJJPnUHheY5np8ZBq/i5Jki+g4TtcDFtunI+aLCg+2TJgLLh4vHNWu
-         Wnn0JhFVvEIUL3l4wrkCDegGntMKFj8lJCmOp7QJFxpBs4sGf8AZdCeL0C3mtOebwj+F
-         a0fwdHM1l/3t4k+oZHRbOpAWgohxyZYo6lVzFRB7pRPKA2z9KAcD7c/hZ2CsA0SsN/pd
-         4Bgs1XU9rqB+z+HnSXdvjxT9tSmeqqw9cdhDzzzm90HSyEJ66vZRjpG0Zmk/UOH10udg
-         hIQA==
-X-Forwarded-Encrypted: i=1; AJvYcCWp3RJ5YuMUDYM+IpDNPtIP5JpPkM0GgJkvADs3iOYwn0U7ZJIH5+ai8vQhmT8idEr47Kb9mR8n7q5ZOw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAUOcGEQx+UbPMVvybSnvgPf+2kiAUOSFNjs1TT/kHKdIX7htH
-	oStAw8QowgcrfKlfVpqTEMhgbkV4LMlEVpMmg3gQXp5/arpu2/iwX43tE9m1T2YaTj3mbgANEjZ
-	hkj8RrdvfizhhtPkQtr6mi7987tVQZkY=
-X-Gm-Gg: AY/fxX6rSa/o9uq67RAzlbUI1XRcJVLZLNrJ5tTv7O3ufgGLQdDhSLmdq8lT1El0dOG
-	p5kCd9dVxKirgRuVseajPorAQWghuxCabRYWYN1Qkep3CKxSQ3aJtEKFChwKIerJY+fco6X4pzk
-	JUlRiNS7nYoUEKJ+WWuVRA2QEvKdGpufp6mdncZEE/zMn4fgAOId3eRb6ZWcIEA3kin9Pd0V0th
-	3Rtl5aZYCaUP7mUZtuLoN3Y1eB4h+mx1A97TgZG1hT3pmUuNbJL80ob0z4ehSvktpAM93v79zY=
-X-Google-Smtp-Source: AGHT+IFe5VQEy4+st1yZpJ90yvWkO9sdYhLBqjXP1Svo3qIeSORvrFBH7F5HtDjDOBbEu4XaMNwh4a68BzkqLovyvi0=
-X-Received: by 2002:a05:690e:1242:b0:63f:c019:23b2 with SMTP id
- 956f58d0204a3-6466329e6b7mr4564629d50.28.1766153084263; Fri, 19 Dec 2025
- 06:04:44 -0800 (PST)
+        d=1e100.net; s=20230601; t=1766154990; x=1766759790;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=HSFPB/bwkL8yxZYc5klNfsL7dvjnOX38Gvv8GtWH4y8=;
+        b=gn4ilGLmpIj8yMO8ovVnvbY5drR9gzdLaPqLjkntAixoh9DmkLopbAroI/9hnWfZIG
+         1ACD8cdavyA/5ABarntTsoCWCt+/1DQx30ix7DR2sUFpD/dcWlp9JwlWOXKSNgY5K0BF
+         K+GKYi4viEHu7uygihPS/huBTmUTiZxVUtB5XKB5oxTv1RcJfKRaJcoaoRmS05OYYZof
+         oEKhfI47ZsFkm2KQ/NUYkQmK8YdwudHqPgNEZpWinT7pXoj20PufVTUCGBHL+1tzdJ2q
+         e5s1RHXh7jUvBrSzXPnSBvI8xBFeNA/gBMFO24cSUcy8s1/aAorJNNoQnUacEq4pE2WY
+         Sdbg==
+X-Gm-Message-State: AOJu0Yw4AoacIvbgaRIP9+EnnyD62EXn3lOT1TJE6cK/ufUWDcZclHBB
+	/y14jpMGA74KPwO2JJR85A7DQ2TntuYFBFL9UZgS1Gmr0xy3O87nH0NYWu4fVp1wFNyikqBcFi0
+	ZetsSLMet56OSki7EwkNavDRV6Z2w8+O8OPiZSY1meanpjAUK6+Ln3Y5Me6f9iY8y8IbASvRjnI
+	nOIKghpPT1MOR63nhk/02D7Y94UQk0xSnMIhtx4vNeHXSI
+X-Gm-Gg: AY/fxX6ElWBDKNXAPQV+qSoZ5a2ZFdHY9UN5gfHPLt57V8BLwl9//QF0mnDUKwFZmpo
+	PFPGguOOFSWfNRU8hkA6xIDzkUd+3VTLBzYwJuZ7z+sUbHpZM3l5Az3dhKXQUypoy/8+p9wZG64
+	gz4bLUO+pdwyE1WaYgsDsF4Y2MVNd5g4XTxj/4si3hMKb9UAeZvHzxXv92JHDu1A8bHLx9OH2Ni
+	e5Y48k=
+X-Received: by 2002:a17:90a:e7c9:b0:34a:b8e0:dd64 with SMTP id 98e67ed59e1d1-34e92113546mr2602517a91.1.1766154989657;
+        Fri, 19 Dec 2025 06:36:29 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IH6XTI+e9miphOZJZOd+oGctJdHIYB919X0q9PI20jDC/DqiFfT4PXKX2g1KDxLKh2+5CLUbQqa1wiKc1MyUkg=
+X-Received: by 2002:a17:90a:e7c9:b0:34a:b8e0:dd64 with SMTP id
+ 98e67ed59e1d1-34e92113546mr2602507a91.1.1766154989236; Fri, 19 Dec 2025
+ 06:36:29 -0800 (PST)
 MIME-Version: 1.0
-References: <20251118123639.688444-1-dongml2@chinatelecom.cn>
- <875xa2g0m0.fsf@igel.home> <5070743.31r3eYUQgx@7950hx> <1948844.tdWV9SEqCh@7950hx>
- <87cy4aeg56.fsf@igel.home>
-In-Reply-To: <87cy4aeg56.fsf@igel.home>
-From: Menglong Dong <menglong8.dong@gmail.com>
-Date: Fri, 19 Dec 2025 22:04:32 +0800
-X-Gm-Features: AQt7F2ruKyHMhyl2Amo3LqNoWlaqpaF_0zgXhcG3nHKrhX2LjLD44Yver_XU5ik
-Message-ID: <CADxym3Y098836fHHRSjeryxCp=CPB8sDU19TBBVs07VZOERJXw@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v3 3/6] bpf: fix the usage of BPF_TRAMP_F_SKIP_FRAME
-To: Andreas Schwab <schwab@linux-m68k.org>
-Cc: Menglong Dong <menglong.dong@linux.dev>, ast@kernel.org, rostedt@goodmis.org, 
-	daniel@iogearbox.net, john.fastabend@gmail.com, andrii@kernel.org, 
-	martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org, 
-	yonghong.song@linux.dev, kpsingh@kernel.org, sdf@fomichev.me, 
-	haoluo@google.com, jolsa@kernel.org, mhiramat@kernel.org, 
-	mark.rutland@arm.com, mathieu.desnoyers@efficios.com, jiang.biao@linux.dev, 
-	bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-trace-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+From: Jason Montleon <jmontleo@redhat.com>
+Date: Fri, 19 Dec 2025 09:36:17 -0500
+X-Gm-Features: AQt7F2pnE7QJEunHyj172HIMr_CoX0S3PPbHC3g7BOuigEeA0QrCgTUwLvZmr1E
+Message-ID: <CAJD_bPKbZaEHmKzVcLPGJuR3Y3MO1AJDA0TmLZrLkCJ0PzCM1A@mail.gmail.com>
+Subject: [REGRESSION] Cannot boot 6.19-rc1 on riscv64 with BPF enabled.
+To: Linux regressions mailing list <regressions@lists.linux.dev>, menglong8.dong@gmail.com, ast@kernel.org
+Cc: linux-riscv@lists.infradead.org, bpf@vger.kernel.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ED5u_kgM8RyM-Ekas5RLRQYgj0XDwbu-0K_Ce2vecok_1766154990
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_060445_667346_54BF3C2E 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20251219_063635_429874_AF247EFB 
+X-CRM114-Status: UNSURE (   5.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,51 +94,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBEZWMgMTksIDIwMjUgYXQgOTo0OeKAr1BNIEFuZHJlYXMgU2Nod2FiIDxzY2h3YWJA
-bGludXgtbTY4ay5vcmc+IHdyb3RlOgo+Cj4gT24gRGV6IDE5IDIwMjUsIE1lbmdsb25nIERvbmcg
-d3JvdGU6Cj4KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5j
-IGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwo+ID4gaW5kZXggNWY5NDU3ZTkxMGU4
-Li4wOWI3MGJmMzYyZDMgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2Nv
-bXA2NC5jCj4gPiArKysgYi9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5jCj4gPiBAQCAt
-MTEzNCw3ICsxMTM0LDcgQEAgc3RhdGljIGludCBfX2FyY2hfcHJlcGFyZV9icGZfdHJhbXBvbGlu
-ZShzdHJ1Y3QgYnBmX3RyYW1wX2ltYWdlICppbSwKPiA+ICAgICAgIHN0b3JlX2FyZ3MobnJfYXJn
-X3Nsb3RzLCBhcmdzX29mZiwgY3R4KTsKPiA+Cj4gPiAgICAgICAvKiBza2lwIHRvIGFjdHVhbCBi
-b2R5IG9mIHRyYWNlZCBmdW5jdGlvbiAqLwo+ID4gLSAgICAgaWYgKGZsYWdzICYgQlBGX1RSQU1Q
-X0ZfT1JJR19TVEFDSykKPiA+ICsgICAgIGlmIChmbGFncyAmIEJQRl9UUkFNUF9GX0NBTExfT1JJ
-RykKPiA+ICAgICAgICAgICAgICAgb3JpZ19jYWxsICs9IFJWX0ZFTlRSWV9OSU5TTlMgKiA0Owo+
-Cj4gVGhlcmUgYXJlIG5vdyB0aHJlZSBvY2N1cnJlbmNlcyBvZiB0aGF0IGNvbmRpdGlvbiwgYW5k
-IG9ubHkgdGhlIHRoaXJkCj4gb25lIHVzZXMgb3JpZ19jYWxsLiAgSG93IGFib3V0IG1lcmdpbmcg
-dGhlbT8KClllYWgsIEkgdGhpbmsgd2UgY2FuIG1lcmdlIGl0IHRvIHRoZSB0aGlyZCBvbmUsIGxp
-a2UgdGhpczoKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5jIGIv
-YXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwppbmRleCA1Zjk0NTdlOTEwZTguLjM3ODg4
-YWJlZTcwYyAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYworKysg
-Yi9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5jCkBAIC0xMTMzLDEwICsxMTMzLDYgQEAg
-c3RhdGljIGludCBfX2FyY2hfcHJlcGFyZV9icGZfdHJhbXBvbGluZShzdHJ1Y3QKYnBmX3RyYW1w
-X2ltYWdlICppbSwKCiAgICAgICAgc3RvcmVfYXJncyhucl9hcmdfc2xvdHMsIGFyZ3Nfb2ZmLCBj
-dHgpOwoKLSAgICAgICAvKiBza2lwIHRvIGFjdHVhbCBib2R5IG9mIHRyYWNlZCBmdW5jdGlvbiAq
-LwotICAgICAgIGlmIChmbGFncyAmIEJQRl9UUkFNUF9GX09SSUdfU1RBQ0spCi0gICAgICAgICAg
-ICAgICBvcmlnX2NhbGwgKz0gUlZfRkVOVFJZX05JTlNOUyAqIDQ7Ci0KICAgICAgICBpZiAoZmxh
-Z3MgJiBCUEZfVFJBTVBfRl9DQUxMX09SSUcpIHsKICAgICAgICAgICAgICAgIGVtaXRfaW1tKFJW
-X1JFR19BMCwgY3R4LT5pbnNucyA/IChjb25zdCBzNjQpaW0gOgpSVl9NQVhfQ09VTlRfSU1NLCBj
-dHgpOwogICAgICAgICAgICAgICAgcmV0ID0gZW1pdF9jYWxsKChjb25zdCB1NjQpX19icGZfdHJh
-bXBfZW50ZXIsIHRydWUsIGN0eCk7CkBAIC0xMTcxLDYgKzExNjcsOCBAQCBzdGF0aWMgaW50IF9f
-YXJjaF9wcmVwYXJlX2JwZl90cmFtcG9saW5lKHN0cnVjdApicGZfdHJhbXBfaW1hZ2UgKmltLAog
-ICAgICAgIH0KCiAgICAgICAgaWYgKGZsYWdzICYgQlBGX1RSQU1QX0ZfQ0FMTF9PUklHKSB7Cisg
-ICAgICAgICAgICAgICAvKiBza2lwIHRvIGFjdHVhbCBib2R5IG9mIHRyYWNlZCBmdW5jdGlvbiAq
-LworICAgICAgICAgICAgICAgb3JpZ19jYWxsICs9IFJWX0ZFTlRSWV9OSU5TTlMgKiA0OwogICAg
-ICAgICAgICAgICAgcmVzdG9yZV9hcmdzKG1pbl90KGludCwgbnJfYXJnX3Nsb3RzLApSVl9NQVhf
-UkVHX0FSR1MpLCBhcmdzX29mZiwgY3R4KTsKICAgICAgICAgICAgICAgIHJlc3RvcmVfc3RhY2tf
-YXJncyhucl9hcmdfc2xvdHMgLSBSVl9NQVhfUkVHX0FSR1MsCmFyZ3Nfb2ZmLCBzdGtfYXJnX29m
-ZiwgY3R4KTsKICAgICAgICAgICAgICAgIHJldCA9IGVtaXRfY2FsbCgoY29uc3QgdTY0KW9yaWdf
-Y2FsbCwgdHJ1ZSwgY3R4KTsKCj4KPiAtLQo+IEFuZHJlYXMgU2Nod2FiLCBzY2h3YWJAbGludXgt
-bTY4ay5vcmcKPiBHUEcgS2V5IGZpbmdlcnByaW50ID0gNzU3OCBFQjQ3IEQ0RTUgNEQ2OSAyNTEw
-ICAyNTUyIERGNzMgRTc4MCBBOURBIEFFQzEKPiAiQW5kIG5vdyBmb3Igc29tZXRoaW5nIGNvbXBs
-ZXRlbHkgZGlmZmVyZW50LiIKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+When booting riscv64 systems with BPF enabled using 6.19-rc1 the
+system produces the following panic. I tried on several boards and
+they resulted in the same error.
+
+[ 5.380583] Insufficient stack space to handle exception!
+[ 5.385986] Task stack: [0xffffffc600020000..0xffffffc600024000]
+[ 5.392339] Overflow stack: [0xffffffd7fef7a070..0xffffffd7fef7b070]
+[ 5.398693] CPU: 2 UID: 0 PID: 1 Comm: systemd Tainted: G W
+6.19.0-rc1-00001-g74d9cab5b6c1 #15 NONE
+[ 5.409302] Tainted: [W]=WARN
+[ 5.412271] Hardware name: starfive StarFive VisionFive 2
+v1.3B/StarFive VisionFive 2 v1.3B, BIOS 2024.10-rc3 10/01/2024
+[ 5.423134] epc : copy_from_kernel_nofault_allowed+0xa/0x28
+[ 5.428718] ra : copy_from_kernel_nofault+0x28/0x198
+[ 5.433774] epc : ffffffff8024062a ra : ffffffff80240670 sp : ffffffc60001fff0
+[ 5.440997] gp : ffffffff82464ce8 tp : 0000000000000000 t0 : ffffffff80024620
+[ 5.448219] t1 : ffffffff8017c052 t2 : 0000000000000000 s0 : ffffffc600020030
+[ 5.455442] s1 : ffffffd6c2198260 a0 : ffffffd6c2198260 a1 : 0000000000000008
+[ 5.462664] a2 : 0000000000000008 a3 : 000000000000009d a4 : 0000000000000000
+[ 5.469885] a5 : 0000000000000000 a6 : 0000000000000021 a7 : 0000000000000003
+[ 5.477106] s2 : ffffffc600020070 s3 : 0000000000000008 s4 : 0000000000000000
+[ 5.484327] s5 : ffffffc600020080 s6 : 0000000000000000 s7 : 0000000000038000
+[ 5.491549] s8 : 0000000000008002 s9 : 0000000000380000 s10: ffffffc600023cf8
+[ 5.498771] s11: ffffffd6c419bf00 t3 : 0000000077ab9db9 t4 : 00000000113918e7
+[ 5.505993] t5 : ffffffff9e9bcc29 t6 : ffffffc600023ad4
+[ 5.511304] status: 0000000200000120 badaddr: ffffffc60001fff0 cause:
+000000000000000f
+[ 5.519221] Kernel panic - not syncing: Kernel stack overflow
+[ 5.524967] CPU: 2 UID: 0 PID: 1 Comm: systemd Tainted: G W
+6.19.0-rc1-00001-g74d9cab5b6c1 #15 NONE
+[ 5.535574] Tainted: [W]=WARN
+[ 5.538544] Hardware name: starfive StarFive VisionFive 2
+v1.3B/StarFive VisionFive 2 v1.3B, BIOS 2024.10-rc3 10/01/2024
+[ 5.549408] Call Trace:
+[ 5.551859] [<ffffffff8001e438>] dump_backtrace+0x28/0x38
+[ 5.557262] [<ffffffff80002462>] show_stack+0x3a/0x50
+[ 5.562317] [<ffffffff80016d02>] dump_stack_lvl+0x5a/0x80
+[ 5.567720] [<ffffffff80016d40>] dump_stack+0x18/0x20
+[ 5.572776] [<ffffffff80002b7a>] vpanic+0xf2/0x2d0
+[ 5.577570] [<ffffffff80002d96>] panic+0x3e/0x48
+[ 5.582191] [<ffffffff8001e110>] handle_bad_stack+0x98/0xc0
+[ 5.587765] [<ffffffff80240670>] copy_from_kernel_nofault+0x28/0x198
+[ 5.594122] SMP: stopping secondary CPUs
+[ 5.598070] ---[ end Kernel panic - not syncing: Kernel stack overflow ]---
+
+A bisect identified 47c9214dcb as the problematic commit:
+[47c9214dcbea9043ac20441a285c7bb5486b8b2d] bpf: fix the usage of
+BPF_TRAMP_F_SKIP_FRAME
+
+This commit reverts cleanly and when building 6.19-rc1 without it I am
+able to boot successfully.
+
+A copy of the trace, bisect log, and config used to reproduce the
+problem are at:
+https://gist.github.com/jmontleon/b8b861352e7b9bc9fd3a93d391926dec
+
+#regzbot introduced: 47c9214dcb
+
+Thank you,
+Jason Montleon
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
