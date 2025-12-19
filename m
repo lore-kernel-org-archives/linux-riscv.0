@@ -4,64 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C015FD711D6
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:14:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11198D711D6
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ALBGXR3KqZZeVMw2TlDJICF4Y6KA4lMR1Zv9YzjCyn0=; b=t4fJmOqJvFFFnm
-	hQUv+H4ppHvQew9jCm8tsddkWlGBopdWnaMuIgohv2Srcta+lUvnp5bs1vfn+wK6gAOYnXdRatOF7
-	UAhuGgv+D1KuyL1wksuS1vP78uSlBoZSt23U+WrR2tkaEpNwOkKZwvgW+Zt+dJGkjN2F1pqL0iHds
-	J82AOKi3JC+F5gA01a0dFwByTHNX8+1UhibvhRq8xPut1nkQuhuJD+B6T0iYKMr7F4wltWi8hbASA
-	l3UtJxtj8bSZe7GAlXJzpFpV6IWCa0FaYqfmJvu+uYx/zT27Rw4U/i7Yw4Lh5N4uxVkgAWTIiku7G
-	NF/vyTWnlUBmN+UNek/A==;
+	List-Owner; bh=Ne27rcR6i0Jf4oLPbKHyCUeXnsZIY5EpP7WWxYxYP/c=; b=ch75kvLA9aUfP1
+	dbqQOv7JegVKlQeUlKPbSsl815VGqqcKZ+9wSZLRzKhywEISMxZLnJKRHqjZEZgWgCoN1j0QiULD0
+	j02zh7Bgj07SH5q+kCGlFLJx27iDE6SqiHR9ANvokLHHBoS613Z3OvFXi/XhXY8m+cqKuBJJPU9IQ
+	gFZC/fh52ZUBW/lojYOpfWHXUGA4wm/pfZgOty3j2VonVfg9y9mv+UYMTkDFKM+lOeBGObbQ+9Rl5
+	TXtw3Xq7EyMxochTaXRQ8txUUOchHyssoD32E2rBM43JohpDNpCA5xohU7P6wbW8q3vXPgXxkTdN7
+	P4LKo+J0weTMNZ4c93BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVcQ-00000009pXj-2gGp;
-	Fri, 19 Dec 2025 08:13:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vWVeq-00000009r6r-2HZf;
+	Fri, 19 Dec 2025 08:16:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVcB-00000009p9J-1cNn;
-	Fri, 19 Dec 2025 08:13:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 906FA4437E;
-	Fri, 19 Dec 2025 08:13:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EE75C19425;
-	Fri, 19 Dec 2025 08:13:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766132010;
-	bh=l//QwgPNp1q4alMwyDOP8wGl2QpoY+/qlyQYNCdTd4I=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=qxl4+v7EchxSQ7uPMHgNydReNM1Y6n+K31KkYZykBB3zU4/1J55VuaieSBPlR9Uew
-	 sLPPbZyXzw6pJ+styBQdsS0VRaDdqAl6U1hXPC2bUl0TvEu+rZd1OaDzNP4aOStHCw
-	 ZZvMZqHw68rVGgMhd/UwwdRS24KcLQ02S/WO0J1ohgEOhsHUDqnR1nA5FOlM747o2y
-	 erJR+P6geI4sQdGcE79OMvqcCMoTWhhpXEVOtbXXJGenq2Ir6sw+qs+MsKb7rWSt8r
-	 14TrsfA2fV/kOFeqFhp7zu47yGs3J1syqT9XBu0q/JfKl9NfTeBHRszhr2z6HTblmW
-	 GL+j2vbGTM0rw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 790A6380AA50;
-	Fri, 19 Dec 2025 08:10:20 +0000 (UTC)
+	id 1vWVei-00000009r6A-0UqR
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 19 Dec 2025 08:16:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=TLmAC4hT0OSI18H7TcOFY4Ez6H/3FbSY2SyIRVYgovE=; b=TCuaD9drr9BbyqrxB2N3Koux+L
+	VZn6NgRh4RLF6kD9F8ke/OtJGG2TeFSLcUo1DTlDhOfcs2vtT8H2kL/tSfOU6gWD3pqR53vajh6Dt
+	W74nPRNUKCjtuMj1ZbskI2tqnA4cCGlRhR5me6KCYakIEgnvmIN2D8LLB2IX7AsOHJ+Rs2M8Hqv7m
+	2bxsDkV6PCHuNfUM4HZzTrkpbAYO6DSYa/hNAzyA5wRN3dYvUK+fiVDbGmU5YX25kzgzgHUiWvVoc
+	7P4H5YAOjiIUvOK+rGmjsgz/kLyc+jv1sgzV2VGv1jK+AOPWP78pxIyPXFKJDxOBI/dcUXRnEP+Xy
+	02TCnvFA==;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWUnB-0000000ANXz-0UhQ
+	for linux-riscv@lists.infradead.org;
+	Fri, 19 Dec 2025 07:20:52 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5BIJnu1C009885;
+	Fri, 19 Dec 2025 08:14:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=TLmAC4
+	hT0OSI18H7TcOFY4Ez6H/3FbSY2SyIRVYgovE=; b=nwttFawpHer+20l410dRlu
+	cKOvNOTC0wkbEAA7HSAbXIOCiHGVn5aehw+coVbKAolv/DFC3dnlV/HidILC1RDJ
+	CCh+RYEHq1677l3YMI5a4jFgK10x0QpRZlh1HCkN9LTk/yw36fMECqaei29Fe9yI
+	4M9htiVhpMNWFIaJ5YfUW9tleDQOqpEwT6FMpR7//SG6E7lDT1HyS1g+jZFnHuqd
+	AkEPq+c65fBdubmcTkNI8jbM/vyr734mKAZOMu5FTUY7lhh9gXEndXSUchimT2OX
+	YLw6zfxTC34hZPeFM4kffGzkaOqNurRSILC7oN25rPEjRF7S+AgPqkuId6duBtGw
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4b4r3qacw0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 19 Dec 2025 08:14:23 +0000 (GMT)
+Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5BJ87tpl013021;
+	Fri, 19 Dec 2025 08:14:22 GMT
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4b4r3qacvr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 19 Dec 2025 08:14:22 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5BJ7ZYkL001249;
+	Fri, 19 Dec 2025 08:14:21 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4b4qvpjqj5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 19 Dec 2025 08:14:21 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5BJ8EHdx52822390
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 19 Dec 2025 08:14:17 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8C98B2005A;
+	Fri, 19 Dec 2025 08:14:17 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CED9A20040;
+	Fri, 19 Dec 2025 08:14:13 +0000 (GMT)
+Received: from [9.124.209.192] (unknown [9.124.209.192])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 19 Dec 2025 08:14:13 +0000 (GMT)
+Message-ID: <041352df-41ce-4898-8535-d6b7fd74a52b@linux.ibm.com>
+Date: Fri, 19 Dec 2025 13:44:12 +0530
 MIME-Version: 1.0
-Subject: Re: [PATCH v3] RISC-V: KVM: Fix guest page fault within HLV*
- instructions
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176613181927.3684357.6307325316578427331.git-patchwork-notify@kernel.org>
-Date: Fri, 19 Dec 2025 08:10:19 +0000
-References: <20251121133543.46822-1-fangyu.yu@linux.alibaba.com>
-In-Reply-To: <20251121133543.46822-1-fangyu.yu@linux.alibaba.com>
-To: yu fangyu <fangyu.yu@linux.alibaba.com>
-Cc: linux-riscv@lists.infradead.org, anup@brainfault.org,
- atish.patra@linux.dev, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, guoren@kernel.org,
- ajones@ventanamicro.com, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5] mm/hugetlb: ignore hugepage kernel args if hugepages
+ are unsupported
+To: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+        linux-kernel@vger.kernel.org
+Cc: Andrew Morton <akpm@linux-foundation.org>, Borislav Petkov
+ <bp@alien8.de>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        David Hildenbrand <david@kernel.org>,
+        Heiko Carstens <hca@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Muchun Song <muchun.song@linux.dev>,
+        Oscar Salvador <osalvador@suse.de>,
+        Thomas Gleixner <tglx@linutronix.de>,
+        Vasily Gorbik <gor@linux.ibm.com>, linux-mm@kvack.org,
+        linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+        x86@kernel.org, linux-arm64@lists.infradead.org,
+        linux-riscv@lists.infradead.org
+References: <20251218114154.228484-1-sourabhjain@linux.ibm.com>
+ <875xa3ksz9.ritesh.list@gmail.com>
+Content-Language: en-US
+From: Sourabh Jain <sourabhjain@linux.ibm.com>
+In-Reply-To: <875xa3ksz9.ritesh.list@gmail.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: PyctZo-oqOS2S2ryVat7yBVzS80fLUM4
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE5MDA2MyBTYWx0ZWRfXytVrcdj3UhfX
+ Z8Vv9kMP0lMlwbFYhGcACf7pjgeECzAYFhQeBfU3P07X5wGgFiK9l1nnIAu5mg9e4G5uAYB6xak
+ th58W2VYeaEcbUbuCrtcQn3a+sUnLl8JD6j3hdBrzuJfg4KQ7rt5RmL1A+BVc2qz79P2hwYP5ed
+ WqgZGZ/zmGdlvU+WpcYuFcw9dwq4Bj/OYhjS3fXjQAAsifERVxszD6rP/QQorzk4k/i7xH/AOuT
+ S+27eQb0MkDCeQ96c/ngWWgd6r2PMNDX3+vjEA6GID2JdwjmSh1jNLVO5Un4ntk2bMzcTjk0tVC
+ s9U+7Ay7aQva8pBivlzQDr+mXwnPciyysNUsjcyRXEj+gouTutQCHOZI62FwHpPivwDtoOXqlAx
+ H0Zm3o0A+OeCQJlE9WX7ZBlPQxgVRvroPCdMLKmlpeP9yVIs9shPkc0ydrcVnBTV9M6rTm6GeLl
+ Uez/4l3A21EnUiLKd/A==
+X-Proofpoint-ORIG-GUID: KZXZSziruriyHL7lrh2IB41nqPbe4UYL
+X-Authority-Analysis: v=2.4 cv=C/HkCAP+ c=1 sm=1 tr=0 ts=6945095f cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=pGLkceISAAAA:8 a=ejwGrTNpCrPNuk7NXeMA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-19_02,2025-12-17_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 impostorscore=0 bulkscore=0 malwarescore=0 lowpriorityscore=0
+ suspectscore=0 clxscore=1015 priorityscore=1501 adultscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2512120000 definitions=main-2512190063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_001331_633930_11484CF8 
-X-CRM114-Status: UNSURE (   8.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251219_072049_506453_7CA18995 
+X-CRM114-Status: GOOD (  20.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,39 +151,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to riscv/linux.git (fixes)
-by Anup Patel <anup@brainfault.org>:
-
-On Fri, 21 Nov 2025 21:35:43 +0800 you wrote:
-> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
-> 
-> When executing HLV* instructions at the HS mode, a guest page fault
-> may occur when a g-stage page table migration between triggering the
-> virtual instruction exception and executing the HLV* instruction.
-> 
-> This may be a corner case, and one simpler way to handle this is to
-> re-execute the instruction where the virtual  instruction exception
-> occurred, and the guest page fault will be automatically handled.
-> 
-> [...]
-
-Here is the summary with links:
-  - [v3] RISC-V: KVM: Fix guest page fault within HLV* instructions
-    https://git.kernel.org/riscv/c/974555d6e417
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
+On 19/12/25 09:45, Ritesh Harjani (IBM) wrote:
+> Sourabh Jain <sourabhjain@linux.ibm.com> writes:
+>
+>> Skip processing hugepage kernel arguments (hugepagesz, hugepages, and
+>> default_hugepagesz) when hugepages are not supported by the
+>> architecture.
+>>
+>> Some architectures may need to disable hugepages based on conditions
+>> discovered during kernel boot. The hugepages_supported() helper allows
+>> architecture code to advertise whether hugepages are supported.
+>>
+>> Currently, normal hugepage allocation is guarded by
+>> hugepages_supported(), but gigantic hugepages are allocated regardless
+>> of this check. This causes problems on powerpc for fadump (firmware-
+>> assisted dump).
+>>
+>> In the fadump (firmware-assisted dump) scenario, a production kernel
+>> crash causes the system to boot into a special kernel whose sole
+>> purpose is to collect the memory dump and reboot. Features such as
+>> hugepages are not required in this environment and should be
+>> disabled.
+>>
+>> For example, fadump kernel booting with the kernel arguments
+>> default_hugepagesz=1GB hugepagesz=1GB hugepages=200 prints the
+>> following logs:
+>>
+>> HugeTLB: allocating 200 of page size 1.00 GiB failed.  Only allocated 58 hugepages.
+>> HugeTLB support is disabled!
+>> HugeTLB: huge pages not supported, ignoring associated command-line parameters
+>> hugetlbfs: disabling because there are no supported hugepage sizes
+>>
+>> Even though the logs say that hugetlb support is disabled, gigantic
+>> hugepages are still getting allocated, which causes the fadump kernel
+>> to run out of memory during boot.
+>>
+>> To fix this, the gigantic hugepage allocation should come under
+>> hugepages_supported().
+>>
+>> To bring gigantic hugepage allocation under hugepages_supported(), two
+>> approaches were previously proposed:
+>> [1] Check hugepages_supported() in the generic code before allocating
+>> gigantic hugepages.
+>> [2] Make arch_hugetlb_valid_size() return false for all hugetlb sizes.
+>>
+>> Approach [2] has two minor issues:
+>> 1. It prints misleading logs about invalid hugepage sizes
+>> 2. The kernel still processes hugepage kernel arguments unnecessarily
+>>
+> And that every other architecture will have to duplicate this in their
+> arch_hugetlb_valid_size() whenever they face the same problem.
+>
+> Instead like at other places, hugepages_supported() should also be
+> checked in the following cmdlines setup functions.
+>
+>> To control gigantic hugepage allocation, it is proposed to skip
+>> processing the hugepage kernel arguments (hugepagesz, hugepages, and
+>> default_hugepagesz) when hugepages_support() returns false.
+>>
+> Right. Thanks for taking care of it. I guess after this patch [1] moves
+> hugetlbpage_init_defaultsize() to mmu_early_init_devtree(), it's good to
+> bring back these checks in the respective cmdline setup functions which
+> was removed as part of commit [2]
+>
+> [1]:
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2354ad252b66695be02f4acd18e37bf6264f0464
+>
+> [2]: https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c2833a5bf75b3657c4dd20b3709c8c702754cb1f
+>
+> LGTM. Please feel free to add:
+> Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+
+Thank you for the review Ritesh.
+
+- Sourabh Jain
 
 _______________________________________________
 linux-riscv mailing list
