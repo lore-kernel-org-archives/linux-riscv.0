@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA60D711D6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CAA4D74964
 	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,63 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ayzdQoIw8NtnAeeu75WlS0vIa5Hoo8ZH70/6AGHtkqI=; b=B7gYTyqPXgetIc
-	/TjURdlkPnTlxmzuwDzV5gcVoC+a+edF2LznwLVH2wdFmHcxVrQotmymgXa93ofKNbyK9mIe/ImCu
-	35ZrovTG2Q8ng94r01plRb26NqVClrf1UvoMje81UOvxOLNAfDERMgXo30Rz+ifyIo995iLJ1UhcN
-	J4upVJRg/CLJ4QKFqZFgta/nT6zmGixtDr45eXqkrg/lq2kJLV1HzBGmZ9sBAbqViga6X8DIkG98Z
-	HAYjwAzRhBQVkg9WZ26RZZbucH3qmsYbfAJQ+wiYE6k/XjbWxh6z37WdwVZPHZt1sJJ8hkmJzhDFM
-	/qyQ6HNLJQ61gGKkntxQ==;
+	List-Owner; bh=njM6As6UzNSPyYiX08881zlq7f19Y7COAUdInh7jb7k=; b=p2RePuB/BYHybm
+	2eaKgePAKXWa36kYXeRqJxtsNsYN3L4RxgQPLY4zPApBJl71BlI3GrUsgexjWx0frn+8+ih13UR8I
+	TuXawu2RYJ+oOHV+MYN/NsUUvWJjVRPGmKciftOkCuwpL+mWzKqjgueDUhZYqvdrGwaRRDWnlbRW+
+	eI4qKD9tcfCAoBS8bK5rVhQC/y9NSczJ7Gi7UZRhbMmMciBfmpYsOBeUVkEfZwsHj6lfryZfi4pks
+	kQ0khtop9/gfIhMLwQb0yaH8M/uhoCY/3mgW4NeYYTRYNOaKCr5kWlFeYHpwDHdp35BbgkTRzo1Ai
+	UaZ/YX4gdXv54syz/Tfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVcA-00000009p89-1Z0N;
-	Fri, 19 Dec 2025 08:13:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vWVc6-00000009p1q-33xa;
+	Fri, 19 Dec 2025 08:13:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVc2-00000009oxO-0MQ4;
-	Fri, 19 Dec 2025 08:13:22 +0000
+	id 1vWVbx-00000009otU-2Hvx
+	for linux-riscv@lists.infradead.org;
+	Fri, 19 Dec 2025 08:13:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 61E2B6014A;
-	Fri, 19 Dec 2025 08:13:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12A1FC4CEF1;
-	Fri, 19 Dec 2025 08:13:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 295A24437E;
+	Fri, 19 Dec 2025 08:13:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 054CCC4CEF1;
+	Fri, 19 Dec 2025 08:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766132001;
-	bh=lvn+iw5IxWpNsx5ppx7UaT4z6tDEmv9IRQkqRmBQGQc=;
+	s=k20201202; t=1766131997;
+	bh=r0gi6Pa7RYkDOmLxwP7sAf14xxMtRN2sCVwGszpsTD8=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=M/IUrif+d4VKn/MpBzO8oXg7fyF4udbLWjFGC+kaeTKXVdK9pnVZSk9qfn61Oncpi
-	 GhR5l8VAZ4IA86aoju4qY4COjaufMk77R9+qzFfwAZOU9Mv14DiZsPZrAzz0fP8C8O
-	 RVHu5dAXut9fzq8uA8rHcl2hgk3qtCR3o7FIhbbxw1etaHqlACnKIZpUTGy4fOBicw
-	 mUDSllG1LCmoO9eVDdYT7nQEkxN8ixdDPeXlwtWDpLBykJTtiH2K8RTzj7p3zgR18A
-	 EftOxjTcUmtQ5u7Eo9SivKx97gnYTIzCDyvlh8FtZdCb56p0NX1TrxQ6CjwLInTtmr
-	 ati6fNfjsc4FQ==
+	b=tpE0mTgPIT9GZb7i4tCzc+1kWFUUpEt3N8OCk8gahe8sUIZU+QM5VKaOKMnGm2HF7
+	 LE/93tXVAbbpEfMRCO0TA5nXQSDsvo+kGraLsLIeHAqpCQlvysfBn716wUVfKqjO4X
+	 VqKFhvtW0qFFn8sgJQjYrzL8IDZWQJ+mvYYRgGz0/UXcYHwV38MIeAx3hbgUvd3cD0
+	 yJuls34RHzicXsTGUSjz2orXhjV/biH+Nf5ualKn0NY0nt/cx0NSFzYWgM29o+PfuG
+	 UnDHj8988x5clcZ/qiKVhVZZlGMAcbfNq+L3bnWfkn+pUL5L1iWBR5SB1SgnwjOnGS
+	 JB+jew0Fkl5Og==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3BBE4380AA50;
-	Fri, 19 Dec 2025 08:10:11 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3BEA0380AA50;
+	Fri, 19 Dec 2025 08:10:07 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/6] iommu: Pass in old_domain pointer to attach_dev
+Subject: Re: [PATCH v8 00/15] Consolidate iommu page table implementations
+ (AMD)
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176613180983.3684357.11179224135837486617.git-patchwork-notify@kernel.org>
-Date: Fri, 19 Dec 2025 08:10:09 +0000
-References: <cover.1761017765.git.nicolinc@nvidia.com>
-In-Reply-To: <cover.1761017765.git.nicolinc@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: linux-riscv@lists.infradead.org, joro@8bytes.org, jgg@nvidia.com,
- kevin.tian@intel.com, suravee.suthikulpanit@amd.com, will@kernel.org,
- robin.murphy@arm.com, sven@kernel.org, j@jannau.net,
- robin.clark@oss.qualcomm.com, m.szyprowski@samsung.com, krzk@kernel.org,
- dwmw2@infradead.org, baolu.lu@linux.intel.com, yong.wu@mediatek.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- tjeznach@rivosinc.com, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, heiko@sntech.de, schnelle@linux.ibm.com,
- mjrosato@linux.ibm.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com,
- wens@csie.org, jernej.skrabec@gmail.com, samuel@sholland.org,
- thierry.reding@gmail.com, jonathanh@nvidia.com, jean-philippe@linaro.org,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
- virtualization@lists.linux.dev, patches@lists.linux.dev
+Message-Id: <176613180577.3684357.2034328332423326144.git-patchwork-notify@kernel.org>
+Date: Fri, 19 Dec 2025 08:10:05 +0000
+References: <0-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
+In-Reply-To: <0-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: linux-riscv@lists.infradead.org, alex@ghiti.fr, anup@brainfault.org,
+ aou@eecs.berkeley.edu, corbet@lwn.net, iommu@lists.linux.dev,
+ joro@8bytes.org, justinstitt@google.com, linux-doc@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, llvm@lists.linux.dev, morbo@google.com,
+ nathan@kernel.org, nick.desaulniers+lkml@gmail.com, ojeda@kernel.org,
+ palmer@dabbelt.com, pjw@kernel.org, robin.murphy@arm.com, shuah@kernel.org,
+ suravee.suthikulpanit@amd.com, will@kernel.org, aik@amd.com,
+ alejandro.j.jimenez@oracle.com, jgowans@amazon.com, kevin.tian@intel.com,
+ michael.roth@amd.com, pasha.tatashin@soleen.com, patches@lists.linux.dev,
+ skhawaja@google.com, vasant.hegde@amd.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251219_001317_628029_43CA3C01 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,31 +88,50 @@ Hello:
 This series was applied to riscv/linux.git (fixes)
 by Joerg Roedel <joerg.roedel@amd.com>:
 
-On Wed, 22 Oct 2025 19:21:03 -0700 you wrote:
-> Tidy the release_device callbacks in the drivers and switch to the core
-> managed release_domain.
+On Tue,  4 Nov 2025 14:29:58 -0400 you wrote:
+> [Joerg, can you put this and vtd in linux-next please. The vtd series is still
+> good at v3 thanks]
 > 
-> This allows the core further to pass in the old domain pointer into the
-> attach_dev callbacks to reduce the use of iommu_get_domain_for_dev().
-> 
-> This is a preparatory series for new iommu_dev_reset APIs:
-> https://lore.kernel.org/all/cover.1756682135.git.nicolinc@nvidia.com/
+> Currently each of the iommu page table formats duplicates all of the logic
+> to maintain the page table and perform map/unmap/etc operations. There are
+> several different versions of the algorithms between all the different
+> formats. The io-pgtable system provides an interface to help isolate the
+> page table code from the iommu driver, but doesn't provide tools to
+> implement the common algorithms.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,1/6] iommu: Generic support for RMRs during device release
-    https://git.kernel.org/riscv/c/e94160488e65
-  - [v2,2/6] iommu/arm-smmu-v3: Set release_domain to arm_smmu_blocked_domain
-    https://git.kernel.org/riscv/c/52f77fb176ec
-  - [v2,3/6] iommu/exynos-iommu: Set release_domain to exynos_identity_domain
-    https://git.kernel.org/riscv/c/680a6a60fc08
-  - [v2,4/6] iommu/amd: Set release_domain to blocked_domain
-    https://git.kernel.org/riscv/c/c21b34762e2f
-  - [v2,5/6] iommu: Do not revert set_domain for the last gdev
-    https://git.kernel.org/riscv/c/2b33598e666d
-  - [v2,6/6] iommu: Pass in old domain to attach_dev callback functions
+  - [v8,01/15] genpt: Generic Page Table base API
+    https://git.kernel.org/riscv/c/7c5b184db714
+  - [v8,02/15] genpt: Add Documentation/ files
+    https://git.kernel.org/riscv/c/ab0b572847ac
+  - [v8,03/15] iommupt: Add the basic structure of the iommu implementation
+    https://git.kernel.org/riscv/c/cdb39d918579
+  - [v8,04/15] iommupt: Add the AMD IOMMU v1 page table format
+    https://git.kernel.org/riscv/c/879ced2bab1b
+  - [v8,05/15] iommupt: Add iova_to_phys op
+    https://git.kernel.org/riscv/c/9d4c274cd7d5
+  - [v8,06/15] iommupt: Add unmap_pages op
+    https://git.kernel.org/riscv/c/7c53f4238aa8
+  - [v8,07/15] iommupt: Add map_pages op
+    https://git.kernel.org/riscv/c/dcd6a011a8d5
+  - [v8,08/15] iommupt: Add read_and_clear_dirty op
+    https://git.kernel.org/riscv/c/4a00f9434891
+  - [v8,09/15] iommupt: Add a kunit test for Generic Page Table
+    https://git.kernel.org/riscv/c/1dd4187f53c3
+  - [v8,10/15] iommupt: Add a mock pagetable format for iommufd selftest to use
+    https://git.kernel.org/riscv/c/e5359dcc617a
+  - [v8,11/15] iommufd: Change the selftest to use iommupt instead of xarray
+    https://git.kernel.org/riscv/c/e93d5945ed5b
+  - [v8,12/15] iommupt: Add the x86 64 bit page table format
+    https://git.kernel.org/riscv/c/aef5de756ea8
+  - [v8,13/15] iommu/amd: Use the generic iommu page table
     (no matching commit)
+  - [v8,14/15] iommu/amd: Remove AMD io_pgtable support
+    https://git.kernel.org/riscv/c/2fdf6db436e3
+  - [v8,15/15] iommupt: Add a kunit test for the IOMMU implementation
+    https://git.kernel.org/riscv/c/bc5233c0904e
 
 You are awesome, thank you!
 -- 
