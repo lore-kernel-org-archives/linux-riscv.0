@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98CEFD74965
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:13:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8D5BD74966
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/j84sWrFCA8WKExX/jwlEeS6K6pT6Gqz8gcS+tnEf4M=; b=GdiBgEjn9rJiJj
-	/fymDokqjxPLEP52yNKFWYKa10/aXvP6DHEgCfSpD2jCfVIbSG9TYBxK4DzwdYqaWnksbXobhuWfc
-	TWutCnHQnT7Vobrve7Cr54ZQ0V/uI7RhasZimV35XCLbbbUWSmjyI/hNXV4e9Yasa7YUk3KUA2SUb
-	kLdZ2q5HpTOqYttadHBtJ7jID54sE6/IQl+cHthsVOTtwgii+Q/d/kzqzKDh2HvSGBvWl2D1vr/Ds
-	cQTqBJz3cTJXVRZ5DLGLA1WkDoibArJCg4YWCqZH658MSK/ZMJnSK4bMhKT78ELHbbCbK2PheViif
-	FQutXdzYzJvwGeNtbhPg==;
+	List-Owner; bh=MuQWIE1GCm0GLfLVxZt3L+40pGwli+8qy6HmYfTYi7A=; b=tgVQdo6YNMc3L0
+	1dhQFZ1ScZl+2XfE1IB/erph0Z13WLl/Bc3a+3sFbErTJgsZjeFa6sxfsEUrqtFss/0bodStV0FAR
+	M5L5mktl2JIpnsBi6LVSIfVGVegSIz7ZwI/oQjMtcr7UpHrkL22QhgcDfBF/eyzD1x9g9WkR1em7s
+	OPg24Fde7kgF2bNnCpyPuk3TxHiwDFmGnYt0PserjA9/S4Xd6LybUeLDKRIqF8wA088CAMqVf8ajH
+	Gafssce6gPoCSyezQiBy1ePivtQquiMleiizBEB1qBGofyBE0v9TB+JpzsEJ5ZEFsbgjfIt5dBbgn
+	Bk/hyV+m8arF3V/WfjZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVbq-00000009ooE-2HVm;
-	Fri, 19 Dec 2025 08:13:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vWVc6-00000009p10-098U;
+	Fri, 19 Dec 2025 08:13:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVbn-00000009on5-2XwJ
+	id 1vWVbw-00000009osC-1t3l
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Dec 2025 08:13:08 +0000
+	Fri, 19 Dec 2025 08:13:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 07FB7423D4;
-	Fri, 19 Dec 2025 08:13:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE4B5C4CEF1;
-	Fri, 19 Dec 2025 08:13:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C37F66001D;
+	Fri, 19 Dec 2025 08:13:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7977CC4CEF1;
+	Fri, 19 Dec 2025 08:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766131985;
-	bh=f+RrjfVCBgq3UY1No8gqDTUXVFcFPU09Uy5DhqORVsA=;
+	s=k20201202; t=1766131995;
+	bh=U5TfeA3yjn9BSqQ7F9UYR0lZfnuNH+kOmFuHNqkEFro=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=hUEVguASheuvLht0vG4bqerZ4qXyBJDhgQ9N4gICfgoYkp2tcOdnUvuiXsQbR5vWb
-	 2MRjucnHZFaLP+IyIrhDMjtcQrimJtAiPF3eUaYbb2pq1JHNoCEVbrjjm5QWaXWmap
-	 5t+8ZZ0LESAAJYtRcrtT0UanhCz7t6IbAF+FGuj2iKcJ3RqMcK20pjvwfSWFdumvv+
-	 9gGAeSRfvGhR5vWbNnUhVPf5wDsGT21A/Qu8Ua227VjPGRBi4Z9KPd2O2dfldfod2r
-	 5YTbgYdRs8RmbJJZqTH1Z7OaiqsZxWPr3t+G0ETOpmGiz8S5gwVnw9jwhs/lv+SVDn
-	 dfEXWXMQvPrqQ==
+	b=pHM1EhSiqpgkXLqI+/HzdlYx+SdqNhjl/UIVIGqAtn+BZjbR1j0+VNbIeSarHixTq
+	 B8YSVgg6qHYJD/s5cl4h0oYZrR41yH2q0iH9vGNfDPJ+ASSPsPwGwIgyqOMQDiDpMg
+	 8M2dRBrYe9vZGkxAkd4fFxal+eVrDgZuyAo4SGAudots/Z3E+hw5AHs3wM/vDvKQ00
+	 cnwqOA311m4x5Eqmc2wHuzAbXbIzn+wb/NhZhNzs5ijkmOVjZO6oJRvvhLzB7SVgVA
+	 ihkqgriYAenFFIY6vutcq+P7pGHRypY1smRLNhWONwBWyKmFmd0ggNu/awwqnu9NrK
+	 f8W4lZaW22iUw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F3005380AA50;
-	Fri, 19 Dec 2025 08:09:55 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B5B0E380AA50;
+	Fri, 19 Dec 2025 08:10:05 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 0/6] Add support for StarFive VisionFive 2 Lite board
+Subject: Re: [PATCH] irqchip/sifive-plic: fix call to __plic_toggle in M-Mode
+ code
+ path
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176613179479.3684357.2451207324135136166.git-patchwork-notify@kernel.org>
-Date: Fri, 19 Dec 2025 08:09:54 +0000
-References: <20251125075604.69370-1-hal.feng@starfivetech.com>
-In-Reply-To: <20251125075604.69370-1-hal.feng@starfivetech.com>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, conor+dt@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, palmer@dabbelt.com, pjw@kernel.org,
- aou@eecs.berkeley.edu, rafael@kernel.org, viresh.kumar@linaro.org,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- bhelgaas@google.com, lgirdwood@gmail.com, broonie@kernel.org,
- emil.renner.berthing@canonical.com, heinrich.schuchardt@canonical.com,
- e@freeshell.de, devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_001307_686976_9C3E8512 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <176613180427.3684357.14207836014506509623.git-patchwork-notify@kernel.org>
+Date: Fri, 19 Dec 2025 08:10:04 +0000
+References: <20251103161813.2437427-1-cmirabil@redhat.com>
+In-Reply-To: <20251103161813.2437427-1-cmirabil@redhat.com>
+To: Charles Mirabile <cmirabil@redhat.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lzampier@redhat.com, samuel.holland@sifive.com, pjw@kernel.org,
+ tglx@linutronix.de, lkp@intel.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,45 +76,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Conor Dooley <conor.dooley@microchip.com>:
+This patch was applied to riscv/linux.git (fixes)
+by Thomas Gleixner <tglx@linutronix.de>:
 
-On Tue, 25 Nov 2025 15:55:58 +0800 you wrote:
-> VisionFive 2 Lite is a mini SBC based on the StarFive JH7110S industrial
-> SoC which can run at -40~85 degrees centigrade and up to 1.25GHz.
+On Mon,  3 Nov 2025 11:18:13 -0500 you wrote:
+> The code path for M-Mode linux that disables interrupts for other contexts
+> was missed when refactoring __plic_toggle.
 > 
-> Board features:
-> - JH7110S SoC
-> - 4/8 GiB LPDDR4 DRAM
-> - AXP15060 PMIC
-> - 40 pin GPIO header
-> - 1x USB 3.0 host port
-> - 3x USB 2.0 host port
-> - 1x M.2 M-Key (size: 2242)
-> - 1x MicroSD slot (optional non-removable 64GiB eMMC)
-> - 1x QSPI Flash
-> - 1x I2C EEPROM
-> - 1x 1Gbps Ethernet port
-> - SDIO-based Wi-Fi & UART-based Bluetooth
-> - 1x HDMI port
-> - 1x 2-lane DSI
-> - 1x 2-lane CSI
+> Since the new version caches updates to the state for the primary context,
+> its use in this codepath is no longer desireable even if it could be made
+> correct.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v4,1/6] PCI: starfive: Use regulator APIs instead of GPIO APIs to enable the 3V3 power supply of PCIe slots
-    (no matching commit)
-  - [v4,2/6] dt-bindings: riscv: Add StarFive JH7110S SoC and VisionFive 2 Lite board
-    https://git.kernel.org/riscv/c/7a1e15b248d6
-  - [v4,3/6] riscv: dts: starfive: jh7110-common: Move out some nodes to the board dts
-    https://git.kernel.org/riscv/c/84853940a733
-  - [v4,4/6] riscv: dts: starfive: Add common board dtsi for VisionFive 2 Lite variants
-    https://git.kernel.org/riscv/c/2ad6d71a0de8
-  - [v4,5/6] riscv: dts: starfive: Add VisionFive 2 Lite board device tree
-    https://git.kernel.org/riscv/c/900b32fd601b
-  - [v4,6/6] riscv: dts: starfive: Add VisionFive 2 Lite eMMC board device tree
-    https://git.kernel.org/riscv/c/ae264ae12442
+  - irqchip/sifive-plic: fix call to __plic_toggle in M-Mode code path
+    https://git.kernel.org/riscv/c/a045359e7245
 
 You are awesome, thank you!
 -- 
