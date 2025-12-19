@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3EE1D74964
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C82FD74961
 	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,58 +12,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n6g3z57Ij+j+gj7dIC0u1MlQ5pHp6J+oFn3ckKseCGI=; b=srF4HSjyMGxHbO
-	47N8vIi/GmQsNtd/5/+OUvgoUvSs4PopqOZdsqNT/Tf767JE+jafwKDMfoUqXFEm2Ra3/LfDiqeKP
-	pT7fZiBqyEaS/wXHV6VeHpbXY0VYolfGOk52g9A1+5Wa+quDKHz+FZKRKOTsAVN2302ev9OEECBKs
-	hy5sVeYEK9uxZx1KcLPr2rZ7o0b1X5GMsh4uS0JWHAtnL6sLDlXjJfbh/AMjd0cUkDJVCLkcnis0W
-	4+Bcd6YghgvpC4fv6vRQQXnbe74TyP+s6nUS+sK+inw7vnC6kmVkhziDCbyMncNDGNsNdLEn5HSKN
-	+070qde+bg53ysQX6PDg==;
+	List-Owner; bh=iL9aGju31CtRRfG3J9amf+MWMaRNYnNvvCexsPQU17g=; b=qOt0FNheIWIX03
+	RZJ6IFhlTsyu5GmEfJ2vR6VfDd659IbkzreMkqKzKGuKvLf938hzj+8b/aBxd4eCAe0ctk6LRSrNP
+	imp7C4eOF2lu2sDjF6Xd+lnxqY5SJJRPLpcaPFNLrq504D8ev/G6+X1xtGx/FgCNBTwrCLPXdx6OI
+	rZRGS0pSgp8m+ylV9IJb88LAJ2lAqBAyTDIyrb6L5XqOfR+DvaRu2ekYoxZpYODbeHI7RYG7A2EVO
+	6OSICeiG5wmN2f1Ra//QDIGAcdoq8Gbqexb+s4zJ8r0m08S+v+IKnZwJQgVVez0BSkw18xnCu35eu
+	/eHNtqk5RSdc63giqa/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVcM-00000009pP0-0lD8;
-	Fri, 19 Dec 2025 08:13:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vWVcO-00000009pTf-2CAU;
+	Fri, 19 Dec 2025 08:13:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVc5-00000009oz1-1zYc
+	id 1vWVcA-00000009p7K-0mdt
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Dec 2025 08:13:27 +0000
+	Fri, 19 Dec 2025 08:13:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 24BEA4440F;
-	Fri, 19 Dec 2025 08:13:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01EEAC4CEF1;
-	Fri, 19 Dec 2025 08:13:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8C1B26014C;
+	Fri, 19 Dec 2025 08:13:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AEE7C16AAE;
+	Fri, 19 Dec 2025 08:13:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766132005;
-	bh=J3NfC8i9MKxrVgFTXBRYcoZRhSndcZg4ZT/YfzfylV4=;
+	s=k20201202; t=1766132009;
+	bh=kgtkqQanSlE0c9RUER2tUM0+KsbsX/FrAzeTetm0HOU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=gCqUoNwyUIvDPMTLk/cPSJnRKgcaIRyAB6+da8V5IFd8z8q6B6SQnFxyU6BNrqk0u
-	 /kAX1HWOAk9uyRNTkI1muPbgz/TYFKOmTEuOXj0gkyzw8dVrpg4Ijhe+697yaQiUZL
-	 TSRVMcS53WPMn3cwMPxQO2qopW5d6usXXl79VHAkbOZE8Is44DyyTPyh4cSD/dKJ+4
-	 0GW1nlaJfIAbbu6rqWw7nPndlvDoZgeW1z2oe1tnYAAkL+2zl46XXcgak9UBvjeIah
-	 tEPRHstAZfPwPvQaHNVjnu1qir6eo59WSdxaOfOTy9PnLqdV4sf8w/23XGxZ8yHHat
-	 tXGzx3UBh4Brw==
+	b=rjo1Kry+fyYxnQI8brBvI4faz6fFRHFUKZwKsbJmi/bnGKuJnZeCNKKrkfleufCKE
+	 BlaiYb2d24In68vTs+3OZwNd2bu+DHBmLIdBTLVF/UYIUXYyL6lfLzFxTxJUJc409o
+	 u1zFXAho4yQcC8rFaaGtK2mhAtGIpS9Yu866IRUY4xV8ORDWvn5+1fglkALBe53vL8
+	 Jz7ikJva87HnFbKzvwIasggjTLM/HXPy7wWktD2QZ1lTM+3GUngVNe6yjCaUgwAEjW
+	 KNTOtJ0Ei3181Y3kMhs3XCJH4+d7KQ9ZGhuEf/Zh5JLx6Jlik3PhWUeBv2wQZ0D2Hh
+	 0VJP5bK2lVoSQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3C785380AA50;
-	Fri, 19 Dec 2025 08:10:15 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3B912380AA50;
+	Fri, 19 Dec 2025 08:10:19 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] of/irq: Ignore interrupt parent for nodes without
- interrupts
+Subject: Re: [PATCH v2] lib/crypto: riscv/chacha: Avoid s0/fp register
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176613181379.3684357.14380947909185500489.git-patchwork-notify@kernel.org>
-Date: Fri, 19 Dec 2025 08:10:13 +0000
-References: <fbe6fc3657070fe2df7f0529043542b52b827449.1763116833.git.geert+renesas@glider.be>
-In-Reply-To: <fbe6fc3657070fe2df7f0529043542b52b827449.1763116833.git.geert+renesas@glider.be>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: linux-riscv@lists.infradead.org, robh@kernel.org, saravanak@google.com,
- krzk+dt@kernel.org, conor+dt@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, samuel@sholland.org, maz@kernel.org,
- prabhakar.mahadev-lad.rj@bp.renesas.com, magnus.damm@gmail.com,
- devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_001325_554881_11BD0F70 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <176613181802.3684357.12542900768855708596.git-patchwork-notify@kernel.org>
+Date: Fri, 19 Dec 2025 08:10:18 +0000
+References: <20251202-riscv-chacha_zvkb-fp-v2-1-7bd00098c9dc@iscas.ac.cn>
+In-Reply-To: <20251202-riscv-chacha_zvkb-fp-v2-1-7bd00098c9dc@iscas.ac.cn>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: linux-riscv@lists.infradead.org, jerry.shih@sifive.com,
+ ebiggers@kernel.org, Jason@zx2c4.com, ardb@kernel.org, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,26 +76,21 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Rob Herring (Arm) <robh@kernel.org>:
+by Eric Biggers <ebiggers@kernel.org>:
 
-On Fri, 14 Nov 2025 11:47:54 +0100 you wrote:
-> The Devicetree Specification states:
+On Tue, 02 Dec 2025 13:25:07 +0800 you wrote:
+> In chacha_zvkb, avoid using the s0 register, which is the frame pointer,
+> by reallocating KEY0 to t5. This makes stack traces available if e.g. a
+> crash happens in chacha_zvkb.
 > 
->     The root of the interrupt tree is determined when traversal of the
->     interrupt tree reaches an interrupt controller node without an
->     interrupts property and thus no explicit interrupt parent.
-> 
-> However, of_irq_init() gratuitously assumes that a node without
-> interrupts has an actual interrupt parent if it finds an
-> interrupt-parent property higher up in the device tree.  Hence when such
-> a property is present (e.g. in the root node), the root interrupt
-> controller may not be detected as such, causing a panic:
+> No frame pointer maintenence is otherwise required since this is a leaf
+> function.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2] of/irq: Ignore interrupt parent for nodes without interrupts
-    https://git.kernel.org/riscv/c/1b1f04d8271e
+  - [v2] lib/crypto: riscv/chacha: Avoid s0/fp register
+    https://git.kernel.org/riscv/c/43169328c7b4
 
 You are awesome, thank you!
 -- 
