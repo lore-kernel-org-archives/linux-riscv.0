@@ -4,56 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCECFE66882
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 19:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32F69E66884
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 20:13:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jBxESjW/qM7xzydo01+0HmvmmxYev19xMW6ngIcL4FQ=; b=NOKjd0nj9Pyr07
-	PkNKTF/ExirI683EXIJ1tbj6sjgf2scM6GXt2VIkhKMIOgWgd8n5tgyrDfISQzPZX6BU16j5CTwmJ
-	FsjJL6PFke5IdGBnHZJGKbyjPRHo+VAIyxZLmFmQM6g/U52qwoVDFcMJYIoDom7X7Be3UnQhwm/hh
-	sGS1wDBN55oubz5BWB174ktBuJDX/i9hwvckjc/B07l91Aj9yNAKGiminhaLMsWdcHbXMr5/QUMsn
-	BegegXzcuiKMN98tis3NwQX8C0Cxejq1NqrrJVv82x4eXBa1Gd0gtPvBa5u4TRBvfHMFUIpqGDnMy
-	y1skKe2qfqeMaxrzHg8g==;
+	List-Owner; bh=9YLrI0GowbJtt23Br4Vwf0gK/NlmA7ohZ+numwRBYAI=; b=K00ea3eKP8hAAa
+	ljMOkPbIrbgPDAreN7BdFWuP7RE5Tx2UA+BIqBZDR3ulemejZPRVVMrxp1J0YnPsxx99Mtvw9wFNS
+	a/E2nu/RBFrwYJ4zy2xISZHgaqZtKGqWiNFafCJrmCkDhqHq3bfkR27GwoWeFImNF7TjOAnVZxTNj
+	+4vrDphSeZFe8cEkDnubATHCPlIGZxNKVeOzTDAg166yP4JCN7SgiUAqzLL1xrgV0ZU8t4dxVIotz
+	6WNsV882HdsQR+PgUxZVMpux8Z6dSbl/9XoE+i7brW2SqYnWmp6/vH8KtkqZ2AXqfL8M72TML6sCF
+	v6BhD7ZVzi9B4Xvf2pLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWgDF-0000000AtXS-3Sp5;
-	Fri, 19 Dec 2025 19:32:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vWgqn-0000000Aw3E-1ygW;
+	Fri, 19 Dec 2025 20:13:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWgDD-0000000AtX5-2t8E
+	id 1vWgql-0000000Aw15-0OCI
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Dec 2025 19:32:28 +0000
+	Fri, 19 Dec 2025 20:13:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 89153444AA;
-	Fri, 19 Dec 2025 19:32:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 227CDC116B1;
-	Fri, 19 Dec 2025 19:32:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1E3E5406C1;
+	Fri, 19 Dec 2025 20:13:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAB65C4CEF1;
+	Fri, 19 Dec 2025 20:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766172746;
-	bh=dxdW68X2kvLQgIr4oNlWMogIiBjhXtoI9Gpq80I84oM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B2Hk/sUSg4OqBlDtU58XABw0wWGbLVpkC2I8FBz9kZo0dTu6zsCwm+ICKhyWBm9Wo
-	 Ujn72u37NBQmzYsiyI1avGwf2y8P0OdLCFSY7VEFgu8C9OeXhGvHfO1Bv8JosjqLdD
-	 LSVEaNb9NOX32DcFw6Sveko/O3UJYx/p48+PdXp/3uYxrqq1oXJP2AwSOXK3Pj9IZb
-	 opuTk7YvtGsNKsPHzrK2XZFx2fkaZFGmgOZi3+O4fWpVQelsUvMlVYCYewmUO5EDxM
-	 UcXbIUo6skcH1CjiL5IFUoTlbuCTVnXxpmWATECg26ZW9wP6cFatZo+dznw6sZz2l+
-	 UG4+aUp7gy+0A==
-Date: Fri, 19 Dec 2025 11:32:24 -0800
-From: Drew Fustini <fustini@kernel.org>
-To: Yao Zi <ziyao@disroot.org>, Yao Zi <me@ziyao.cc>
-Subject: Re: [PATCH 0/7] Implement CPU frequency scaling for TH1520
-Message-ID: <aUWoSNI2mFaPARfI@x1>
-References: <20251120131416.26236-1-ziyao@disroot.org>
+	s=k20201202; t=1766175198;
+	bh=aRwMUESpiltUQ2s00opo5VRbvw+oBsSsn0KkMj6sCz4=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=qBB3IN/BWyjWIhM3of5YvVNu7B/uxLto2mVzhrtEx0zo/jg9M5yuumJ2r7OkZiDfm
+	 Nu1TPDoIZVFqICPzqqU3DCvcTEXKxemGWLw+Td5BPjXlA+VFC+kJA4PU0FgYjRokQp
+	 0fWf5H8kAnTEP8wM6hQmvB7fK2aoK+dtYILB7pyTi+JW0cOG9COZQzVsp43uLC02vp
+	 3HQQM/vWVnyyW/FW/0yEnmpLCxmF4Imf+PA4IGU4t/iqfckoepw6u0rmUYWBHz2JTD
+	 kTx0C1ZHsVoTPl43yhWAYRd+jQTXPGHRKl0bjIg+aTPJx0YKx/CR6Tg9EBesyF5Ew5
+	 NCumm2TLTi/KA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B56DC380AAF2;
+	Fri, 19 Dec 2025 20:10:07 +0000 (UTC)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251120131416.26236-1-ziyao@disroot.org>
+Subject: Re: [PATCH bpf v2] riscv,
+ bpf: fix incorrect usage of BPF_TRAMP_F_ORIG_STACK
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176617500654.3992426.2561516989478104083.git-patchwork-notify@kernel.org>
+Date: Fri, 19 Dec 2025 20:10:06 +0000
+References: <20251219142948.204312-1-dongml2@chinatelecom.cn>
+In-Reply-To: <20251219142948.204312-1-dongml2@chinatelecom.cn>
+To: Menglong Dong <menglong8.dong@gmail.com>
+Cc: ast@kernel.org, schwab@linux-m68k.org, daniel@iogearbox.net,
+ andrii@kernel.org, martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
+ yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
+ sdf@fomichev.me, haoluo@google.com, jolsa@kernel.org, bjorn@kernel.org,
+ pulehui@huawei.com, puranjay@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, bpf@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_113227_769788_2D5E2153 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20251219_121319_166034_1F819559 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,67 +76,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Guo Ren <guoren@kernel.org>, Han Gao <rabenda.cn@gmail.com>, Han Gao <gaohan@iscas.ac.cn>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 01:14:09PM +0000, Yao Zi wrote:
-> On TH1520 SoC, c910_clk feeds the CPU cluster. It could be glitchlessly
-> reparented to one of the two PLLs: either to cpu_pll0 indirectly through
-> c910_i0_clk, or to cpu_pll1 directly. This series fixes a bug in PLL
-> enabling code, supports rate change for PLL, and finally implements
-> frequency scaling support for c910_clk.
-> 
-> However, to achieve reliable frequency scaling, CPU voltage must be
-> adjusted together with frequency, and AON-firmware-based PMIC support
-> for TH1520 SoC is still missing in mainline. Thus PATCH 7 that fills OPP
-> table for TH1520 CPU and enables CPUfreq is only for testing purpose,
-> not intended for upstream (yet).
-> 
-> Testing is done on Lichee Pi 4A board, only operating points safe
-> to be used with the the default PMIC configuration are enabled in
-> devicetree. I've confirmed there's a performance gain when running
-> coremark and some building work compared to the case without cpufreq.
-> 
-> This series is based on next-20251120, thanks for your time and review.
-> 
-> Yao Zi (7):
->   dt-bindings: clock: thead,th1520-clk-ap: Add ID for C910 bus clock
->   clk: thead: th1520-ap: Poll for PLL lock and wait for stability
->   clk: thead: th1520-ap: Add C910 bus clock
->   clk: thead: th1520-ap: Support setting PLL rates
->   clk: thead: th1520-ap: Add macro to define multiplexers with flags
->   clk: thead: th1520-ap: Support CPU frequency scaling
->   [Not For Upstream] riscv: dts: thead: Add CPU clock and OPP table for
->     TH1520
-> 
->  arch/riscv/boot/dts/thead/th1520.dtsi         |  35 ++
->  drivers/clk/thead/clk-th1520-ap.c             | 350 +++++++++++++++++-
->  .../dt-bindings/clock/thead,th1520-clk-ap.h   |   1 +
->  3 files changed, 379 insertions(+), 7 deletions(-)
-> 
-> -- 
-> 2.51.2
-> 
+Hello:
 
-Applied to thead-clk-for-next, thanks!
+This patch was applied to bpf/bpf.git (master)
+by Andrii Nakryiko <andrii@kernel.org>:
 
-[1/7] dt-bindings: clock: thead,th1520-clk-ap: Add ID for C910 bus clock
-      https://git.kernel.org/fustini/c/5f352125f8a0
-[1/7] clk: thead: th1520-ap: Poll for PLL lock and wait for stability
-      https://git.kernel.org/fustini/c/892abfbed71e
-[2/7] clk: thead: th1520-ap: Add C910 bus clock
-      https://git.kernel.org/fustini/c/b436f8a82aaa
-[3/7] clk: thead: th1520-ap: Support setting PLL rates
-      https://git.kernel.org/fustini/c/238cc6316a88
-[5/7] clk: thead: th1520-ap: Add macro to define multiplexers with flags
-      https://git.kernel.org/fustini/c/5dbee3503771
-[6/7] clk: thead: th1520-ap: Support CPU frequency scaling
-      https://git.kernel.org/fustini/c/30441a56b1d1
+On Fri, 19 Dec 2025 22:29:48 +0800 you wrote:
+> The usage of BPF_TRAMP_F_ORIG_STACK in __arch_prepare_bpf_trampoline() is
+> wrong, and it should be BPF_TRAMP_F_CALL_ORIG, which caused crash as
+> Andreas reported:
+> 
+>   Insufficient stack space to handle exception!
+>   Task stack:     [0xff20000000010000..0xff20000000014000]
+>   Overflow stack: [0xff600000ffdad070..0xff600000ffdae070]
+>   CPU: 1 UID: 0 PID: 1 Comm: systemd Not tainted 6.18.0-rc5+ #15 PREEMPT(voluntary)
+>   Hardware name: riscv-virtio qemu/qemu, BIOS 2025.10 10/01/2025
+>   epc : copy_from_kernel_nofault+0xa/0x198
+>    ra : bpf_probe_read_kernel+0x20/0x60
+>   epc : ffffffff802b732a ra : ffffffff801e6070 sp : ff2000000000ffe0
+>    gp : ffffffff82262ed0 tp : 0000000000000000 t0 : ffffffff80022320
+>    t1 : ffffffff801e6056 t2 : 0000000000000000 s0 : ff20000000010040
+>    s1 : 0000000000000008 a0 : ff20000000010050 a1 : ff60000083b3d320
+>    a2 : 0000000000000008 a3 : 0000000000000097 a4 : 0000000000000000
+>    a5 : 0000000000000000 a6 : 0000000000000021 a7 : 0000000000000003
+>    s2 : ff20000000010050 s3 : ff6000008459fc18 s4 : ff60000083b3d340
+>    s5 : ff20000000010060 s6 : 0000000000000000 s7 : ff20000000013aa8
+>    s8 : 0000000000000000 s9 : 0000000000008000 s10: 000000000058dcb0
+>    s11: 000000000058dca7 t3 : 000000006925116d t4 : ff6000008090f026
+>    t5 : 00007fff9b0cbaa8 t6 : 0000000000000016
+>   status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+>   Kernel panic - not syncing: Kernel stack overflow
+>   CPU: 1 UID: 0 PID: 1 Comm: systemd Not tainted 6.18.0-rc5+ #15 PREEMPT(voluntary)
+>   Hardware name: riscv-virtio qemu/qemu, BIOS 2025.10 10/01/2025
+>   Call Trace:
+>   [<ffffffff8001a1f8>] dump_backtrace+0x28/0x38
+>   [<ffffffff80002502>] show_stack+0x3a/0x50
+>   [<ffffffff800122be>] dump_stack_lvl+0x56/0x80
+>   [<ffffffff80012300>] dump_stack+0x18/0x22
+>   [<ffffffff80002abe>] vpanic+0xf6/0x328
+>   [<ffffffff80002d2e>] panic+0x3e/0x40
+>   [<ffffffff80019ef0>] handle_bad_stack+0x98/0xa0
+>   [<ffffffff801e6070>] bpf_probe_read_kernel+0x20/0x60
+> 
+> [...]
 
--Drew
+Here is the summary with links:
+  - [bpf,v2] riscv, bpf: fix incorrect usage of BPF_TRAMP_F_ORIG_STACK
+    https://git.kernel.org/bpf/bpf/c/22cc16c04b78
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
 _______________________________________________
 linux-riscv mailing list
