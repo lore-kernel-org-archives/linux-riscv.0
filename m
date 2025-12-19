@@ -4,59 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C82FD74961
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60247D74967
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:13:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iL9aGju31CtRRfG3J9amf+MWMaRNYnNvvCexsPQU17g=; b=qOt0FNheIWIX03
-	RZJ6IFhlTsyu5GmEfJ2vR6VfDd659IbkzreMkqKzKGuKvLf938hzj+8b/aBxd4eCAe0ctk6LRSrNP
-	imp7C4eOF2lu2sDjF6Xd+lnxqY5SJJRPLpcaPFNLrq504D8ev/G6+X1xtGx/FgCNBTwrCLPXdx6OI
-	rZRGS0pSgp8m+ylV9IJb88LAJ2lAqBAyTDIyrb6L5XqOfR+DvaRu2ekYoxZpYODbeHI7RYG7A2EVO
-	6OSICeiG5wmN2f1Ra//QDIGAcdoq8Gbqexb+s4zJ8r0m08S+v+IKnZwJQgVVez0BSkw18xnCu35eu
-	/eHNtqk5RSdc63giqa/g==;
+	List-Owner; bh=3HDm1YRde/n54xww7I4UFPSPkGZ8Oey9cKAkoAJqqCI=; b=NmtHslGSvKZ3Uw
+	7cs2PNsQsyi2jmvdnJX/a9tKJvDZjEqwa/E+bIyFaDMwEA5rFMqhtOhicZTMeEvt6HeiynBfygl/z
+	kgozD81kn+YQsog2WBw9YLg6WSq5eOUHjF41CbY7sT/6WPbjzqUf7xsLw01+dmM1UQPZTdenLvGu0
+	72KeM5GUS+kM1MctGdCrPOtCfn3Idgacw5Me+L3kzS3SBCzQd7eggk6aDT9MUjTKt/end+ydIP4p/
+	ckesFmdYMmcELdbfDoYhKlBxJuW1h+eP267/uvaWdtgpr6CyqWSH6UK5ZjhpY0DOIMPBNjUqiS6Rq
+	kWYew9nymS+N58Cji91g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVcO-00000009pTf-2CAU;
-	Fri, 19 Dec 2025 08:13:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vWVcN-00000009pQy-0K8J;
+	Fri, 19 Dec 2025 08:13:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVcA-00000009p7K-0mdt
-	for linux-riscv@lists.infradead.org;
-	Fri, 19 Dec 2025 08:13:30 +0000
+	id 1vWVc6-00000009p1Z-3eFR;
+	Fri, 19 Dec 2025 08:13:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8C1B26014C;
-	Fri, 19 Dec 2025 08:13:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AEE7C16AAE;
-	Fri, 19 Dec 2025 08:13:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 690324445B;
+	Fri, 19 Dec 2025 08:13:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 483C9C116D0;
+	Fri, 19 Dec 2025 08:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766132009;
-	bh=kgtkqQanSlE0c9RUER2tUM0+KsbsX/FrAzeTetm0HOU=;
+	s=k20201202; t=1766132006;
+	bh=VFiTUqFKrbPqxZ9+NNyag6Ajy0uzkayrmpB0IcPZ4PU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=rjo1Kry+fyYxnQI8brBvI4faz6fFRHFUKZwKsbJmi/bnGKuJnZeCNKKrkfleufCKE
-	 BlaiYb2d24In68vTs+3OZwNd2bu+DHBmLIdBTLVF/UYIUXYyL6lfLzFxTxJUJc409o
-	 u1zFXAho4yQcC8rFaaGtK2mhAtGIpS9Yu866IRUY4xV8ORDWvn5+1fglkALBe53vL8
-	 Jz7ikJva87HnFbKzvwIasggjTLM/HXPy7wWktD2QZ1lTM+3GUngVNe6yjCaUgwAEjW
-	 KNTOtJ0Ei3181Y3kMhs3XCJH4+d7KQ9ZGhuEf/Zh5JLx6Jlik3PhWUeBv2wQZ0D2Hh
-	 0VJP5bK2lVoSQ==
+	b=VFqc9JjXV4mr5LizAyAg0tm5CJ5+ZKRz2e441pHxsOiibmeY59xqgqo0crFansJqy
+	 P4iE+LwFzjEO14DLRaSWWuqKz/n7erWqILtXs9Lv/MNRN1owKC0LAzXRhNgKAx58lp
+	 tCR21R2Dw0bWznLJdN91LGXcdkvn7rx4jeDVemHE8IzxC1Y4JBCay11De2Xm5vEcbu
+	 /4J0e8p+7t4L6eUrHmM/cZpJ3p6Ww14fgV6pv5nQ+0hOx32UTmjPSSI9YD07/Dl1O5
+	 ++5+k0gllM3NNDpP4jmGzEK4n89hxvNhgOvvTI0omoe5NZ2P4gzH53HInU9C88e17j
+	 c8ndEnoCuJn4A==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3B912380AA50;
-	Fri, 19 Dec 2025 08:10:19 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 79F14380AA50;
+	Fri, 19 Dec 2025 08:10:16 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] lib/crypto: riscv/chacha: Avoid s0/fp register
+Subject: Re: [patch V6 02/12] uaccess: Provide ASM GOTO safe wrappers for
+ unsafe_*_user()
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176613181802.3684357.12542900768855708596.git-patchwork-notify@kernel.org>
-Date: Fri, 19 Dec 2025 08:10:18 +0000
-References: <20251202-riscv-chacha_zvkb-fp-v2-1-7bd00098c9dc@iscas.ac.cn>
-In-Reply-To: <20251202-riscv-chacha_zvkb-fp-v2-1-7bd00098c9dc@iscas.ac.cn>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: linux-riscv@lists.infradead.org, jerry.shih@sifive.com,
- ebiggers@kernel.org, Jason@zx2c4.com, ardb@kernel.org, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-Id: <176613181528.3684357.16950067300895090684.git-patchwork-notify@kernel.org>
+Date: Fri, 19 Dec 2025 08:10:15 +0000
+References: <877bweujtn.ffs@tglx>
+In-Reply-To: <877bweujtn.ffs@tglx>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-riscv@lists.infradead.org, ylavic.dev@gmail.com,
+ linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, lkp@intel.com,
+ linux@armlinux.org.uk, linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+ maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
+ christophe.leroy@csgroup.eu, linuxppc-dev@lists.ozlabs.org, pjw@kernel.org,
+ palmer@dabbelt.com, hca@linux.ibm.com, borntraeger@linux.ibm.com,
+ svens@linux.ibm.com, linux-s390@vger.kernel.org,
+ mathieu.desnoyers@efficios.com, andrew.cooper3@citrix.com,
+ david.laight.linux@gmail.com, Julia.Lawall@inria.fr, nicolas.palix@imag.fr,
+ peterz@infradead.org, dvhart@infradead.org, dave@stgolabs.net,
+ andrealmeid@igalia.com, viro@zeniv.linux.org.uk, brauner@kernel.org,
+ jack@suse.cz, linux-fsdevel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251219_001327_050168_1702E7CB 
+X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,21 +88,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Eric Biggers <ebiggers@kernel.org>:
+by Peter Zijlstra <peterz@infradead.org>:
 
-On Tue, 02 Dec 2025 13:25:07 +0800 you wrote:
-> In chacha_zvkb, avoid using the s0 register, which is the frame pointer,
-> by reallocating KEY0 to t5. This makes stack traces available if e.g. a
-> crash happens in chacha_zvkb.
+On Wed, 29 Oct 2025 10:40:52 +0100 you wrote:
+> ASM GOTO is miscompiled by GCC when it is used inside a auto cleanup scope:
 > 
-> No frame pointer maintenence is otherwise required since this is a leaf
-> function.
+> bool foo(u32 __user *p, u32 val)
+> {
+> 	scoped_guard(pagefault)
+> 		unsafe_put_user(val, p, efault);
+> 	return true;
+> efault:
+> 	return false;
+> }
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2] lib/crypto: riscv/chacha: Avoid s0/fp register
-    https://git.kernel.org/riscv/c/43169328c7b4
+  - [V6,02/12] uaccess: Provide ASM GOTO safe wrappers for unsafe_*_user()
+    https://git.kernel.org/riscv/c/3eb6660f26d1
 
 You are awesome, thank you!
 -- 
