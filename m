@@ -4,68 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60DDED711CA
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 06:14:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DC13D7495A
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 06:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aAQGVOy3pk/C7qTHY8cIymBenmzFR5leOlKkeTj62AU=; b=ipP4NA5E2fa0Wc
-	9YyLaeJglYlfwv2h3+zuqiJHjuW82/n+lxtidPTCOeYOn/B7snlHLdrbix6VKLLZ6wHniL2U6d0Ch
-	o5RdiBMVDAbnYtW1RT1OEkHaZzp7zRafCV3/MagvdemCnjotoaCA4H6tlHVXpreYucqxrWrb3Az3C
-	kOwzRUcYIDHq/NG8Ir1cOU5KYWudg2r09DiVsyFCHNmb3poUwaL2xn9P3EdW8FGJXP2xCzhkRKv14
-	nLJRZUMZGQ542oEGMVYu66PYznz34uYqMUQBeuHkl7sY7zxWdxQVoZaKVUMehjy6+lQPfxK6sHP2E
-	1+NPeJiwWeAHm0gZLl2A==;
+	List-Owner; bh=pyIXYa+1brgz5dyoZVT0yOfOVx9GwLT0XfekHC08wWI=; b=pmc+BXj1XfC1vA
+	UzTfffYnlVO/HHApLq9Uy6+Uj/coOsc93HEKqr3iVFEbRxfNKqqLKKc+CclMFDC6V7uEPDPICymCP
+	E/ccApTJv8ByL8kFlU3T97j2AshzPvPdUyQLYlk1RoTJyhWIspuKHyAXI5cWgxEPhtR0Rt3HpbW4a
+	cv5wytSZWtVOG8oY+4eDeAzQ0Cvkkn6u2mMfHFZBvyuX51xQyTk9Ty0ALdkXVNtSnKoj+YBH+TQ0S
+	hq2NjB4fvgIc+4zWCWo7le636REwOgvJL1cfEs/s/rknyUpDpaxGFtjv5B32C6m/geHmB8y1plgX/
+	gxo0rN14O+xzFYxgb/Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWTka-00000009hPn-23Ar;
-	Fri, 19 Dec 2025 06:14:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vWUR5-00000009j2x-3AW2;
+	Fri, 19 Dec 2025 06:57:59 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWTkY-00000009hPc-2hVb
+	id 1vWUR2-00000009j2b-1eYv
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Dec 2025 06:14:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ABCD860008;
-	Fri, 19 Dec 2025 06:14:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00031C4CEF1;
-	Fri, 19 Dec 2025 06:13:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766124841;
-	bh=fpp+RqGdOfeNhoOl4yFFqEiGPr5KLb+tEsiopJhtJ8Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EVzl6xJHootXl5U66WYKjPigWhllML8t2eFx7gR1rzs163UBU9syfQBGmZSjw7c8i
-	 z4QRSnTO7UTMa0f4OOvFAWHboC7GzOxSVkJrjH5VF0vnghM5Snl+QXNNXAS5b2mBPg
-	 FzAMkkTUJq4WuNkhOMU3L6Pu4qN27vWTzJNaJcZs6y2mXcY0C52bYFUip9sYx7NE0h
-	 vGBshnjTyYWtRCF5aGo3z1NwEbxrj0qN98ay/pnuCBOicyHCq3H2qQXyTTBBm5DSn6
-	 G3ceP4nqOOqGUpVi1gKbgaTiLqI2gcYpaHWZq6ZyhJOTjPCDbka3UUMquhnkcVCjIB
-	 ro5B91Op54COg==
-Message-ID: <64a9ca24-2968-4532-ac04-594c340ec2a2@kernel.org>
-Date: Fri, 19 Dec 2025 07:13:52 +0100
+	Fri, 19 Dec 2025 06:57:59 +0000
+Received: from duge-virtual-machine (unknown [223.160.207.22])
+	by APP-05 (Coremail) with SMTP id zQCowAA3yQxe90RphiUoAQ--.14517S2;
+	Fri, 19 Dec 2025 14:57:36 +0800 (CST)
+Date: Fri, 19 Dec 2025 14:57:33 +0800
+From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+To: Xukai Wang <kingxukai@zohomail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Troy Mitchell <TroyMitchell988@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v9 0/3] riscv: canaan: Add support for K230 clock
+Message-ID: <aUT3XYQmn51tLItg@duge-virtual-machine>
+References: <20251127-b4-k230-clk-v9-0-3aa09e17faf5@zohomail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] mm/hugetlb: ignore hugepage kernel args if hugepages
- are unsupported
-To: Sourabh Jain <sourabhjain@linux.ibm.com>, linux-kernel@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>, Borislav Petkov
- <bp@alien8.de>, Christophe Leroy <christophe.leroy@csgroup.eu>,
- Heiko Carstens <hca@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Muchun Song <muchun.song@linux.dev>,
- Oscar Salvador <osalvador@suse.de>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Thomas Gleixner <tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>,
- linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, x86@kernel.org, linux-arm64@lists.infradead.org,
- linux-riscv@lists.infradead.org
-References: <20251218114154.228484-1-sourabhjain@linux.ibm.com>
- <83920c44-47f5-4a46-bfa7-76713197d7e4@kernel.org>
- <1fddcf72-26f7-4fb4-84b8-1328e486d58e@linux.ibm.com>
-From: "David Hildenbrand (Red Hat)" <david@kernel.org>
-Content-Language: en-US
-In-Reply-To: <1fddcf72-26f7-4fb4-84b8-1328e486d58e@linux.ibm.com>
+Content-Disposition: inline
+In-Reply-To: <20251127-b4-k230-clk-v9-0-3aa09e17faf5@zohomail.com>
+X-CM-TRANSID: zQCowAA3yQxe90RphiUoAQ--.14517S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxtryUCrykAw4kCFyfZrWkJFb_yoW7WrWkpr
+	Wa9w1xtF1jqw4fXanFq348Aan5Ga1xKan8Wa4Iv3s3AF43GFWjqFnagr1xtF47tryI93yj
+	qrWUJrW3Za4UCFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6r1S6rWUM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjxUvwvKDUUUU
+X-Originating-IP: [223.160.207.22]
+X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251218_225756_820907_730F7926 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,83 +84,200 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTIvMTgvMjUgMTQ6MDYsIFNvdXJhYmggSmFpbiB3cm90ZToKPiAKPiAKPiBPbiAxOC8xMi8y
-NSAxNzozMiwgRGF2aWQgSGlsZGVuYnJhbmQgKFJlZCBIYXQpIHdyb3RlOgo+PiBPbiAxMi8xOC8y
-NSAxMjo0MSwgU291cmFiaCBKYWluIHdyb3RlOgo+Pj4gU2tpcCBwcm9jZXNzaW5nIGh1Z2VwYWdl
-IGtlcm5lbCBhcmd1bWVudHMgKGh1Z2VwYWdlc3osIGh1Z2VwYWdlcywgYW5kCj4+PiBkZWZhdWx0
-X2h1Z2VwYWdlc3opIHdoZW4gaHVnZXBhZ2VzIGFyZSBub3Qgc3VwcG9ydGVkIGJ5IHRoZQo+Pj4g
-YXJjaGl0ZWN0dXJlLgo+Pj4KPj4+IFNvbWUgYXJjaGl0ZWN0dXJlcyBtYXkgbmVlZCB0byBkaXNh
-YmxlIGh1Z2VwYWdlcyBiYXNlZCBvbiBjb25kaXRpb25zCj4+PiBkaXNjb3ZlcmVkIGR1cmluZyBr
-ZXJuZWwgYm9vdC4gVGhlIGh1Z2VwYWdlc19zdXBwb3J0ZWQoKSBoZWxwZXIgYWxsb3dzCj4+PiBh
-cmNoaXRlY3R1cmUgY29kZSB0byBhZHZlcnRpc2Ugd2hldGhlciBodWdlcGFnZXMgYXJlIHN1cHBv
-cnRlZC4KPj4+Cj4+PiBDdXJyZW50bHksIG5vcm1hbCBodWdlcGFnZSBhbGxvY2F0aW9uIGlzIGd1
-YXJkZWQgYnkKPj4+IGh1Z2VwYWdlc19zdXBwb3J0ZWQoKSwgYnV0IGdpZ2FudGljIGh1Z2VwYWdl
-cyBhcmUgYWxsb2NhdGVkIHJlZ2FyZGxlc3MKPj4+IG9mIHRoaXMgY2hlY2suIFRoaXMgY2F1c2Vz
-IHByb2JsZW1zIG9uIHBvd2VycGMgZm9yIGZhZHVtcCAoZmlybXdhcmUtCj4+PiBhc3Npc3RlZCBk
-dW1wKS4KPj4+Cj4+PiBJbiB0aGUgZmFkdW1wIChmaXJtd2FyZS1hc3Npc3RlZCBkdW1wKSBzY2Vu
-YXJpbywgYSBwcm9kdWN0aW9uIGtlcm5lbAo+Pj4gY3Jhc2ggY2F1c2VzIHRoZSBzeXN0ZW0gdG8g
-Ym9vdCBpbnRvIGEgc3BlY2lhbCBrZXJuZWwgd2hvc2Ugc29sZQo+Pj4gcHVycG9zZSBpcyB0byBj
-b2xsZWN0IHRoZSBtZW1vcnkgZHVtcCBhbmQgcmVib290LiBGZWF0dXJlcyBzdWNoIGFzCj4+PiBo
-dWdlcGFnZXMgYXJlIG5vdCByZXF1aXJlZCBpbiB0aGlzIGVudmlyb25tZW50IGFuZCBzaG91bGQg
-YmUKPj4+IGRpc2FibGVkLgo+Pj4KPj4+IEZvciBleGFtcGxlLCBmYWR1bXAga2VybmVsIGJvb3Rp
-bmcgd2l0aCB0aGUga2VybmVsIGFyZ3VtZW50cwo+Pj4gZGVmYXVsdF9odWdlcGFnZXN6PTFHQiBo
-dWdlcGFnZXN6PTFHQiBodWdlcGFnZXM9MjAwIHByaW50cyB0aGUKPj4+IGZvbGxvd2luZyBsb2dz
-Ogo+Pj4KPj4+IEh1Z2VUTEI6IGFsbG9jYXRpbmcgMjAwIG9mIHBhZ2Ugc2l6ZSAxLjAwIEdpQiBm
-YWlsZWQuwqAgT25seSBhbGxvY2F0ZWQKPj4+IDU4IGh1Z2VwYWdlcy4KPj4+IEh1Z2VUTEIgc3Vw
-cG9ydCBpcyBkaXNhYmxlZCEKPj4+IEh1Z2VUTEI6IGh1Z2UgcGFnZXMgbm90IHN1cHBvcnRlZCwg
-aWdub3JpbmcgYXNzb2NpYXRlZCBjb21tYW5kLWxpbmUKPj4+IHBhcmFtZXRlcnMKPj4+IGh1Z2V0
-bGJmczogZGlzYWJsaW5nIGJlY2F1c2UgdGhlcmUgYXJlIG5vIHN1cHBvcnRlZCBodWdlcGFnZSBz
-aXplcwo+Pj4KPj4+IEV2ZW4gdGhvdWdoIHRoZSBsb2dzIHNheSB0aGF0IGh1Z2V0bGIgc3VwcG9y
-dCBpcyBkaXNhYmxlZCwgZ2lnYW50aWMKPj4+IGh1Z2VwYWdlcyBhcmUgc3RpbGwgZ2V0dGluZyBh
-bGxvY2F0ZWQsIHdoaWNoIGNhdXNlcyB0aGUgZmFkdW1wIGtlcm5lbAo+Pj4gdG8gcnVuIG91dCBv
-ZiBtZW1vcnkgZHVyaW5nIGJvb3QuCj4+Cj4+IFllYWgsIHRoYXQncyBzdWJvcHRpbWFsLgo+Pgo+
-Pj4KPj4+IFRvIGZpeCB0aGlzLCB0aGUgZ2lnYW50aWMgaHVnZXBhZ2UgYWxsb2NhdGlvbiBzaG91
-bGQgY29tZSB1bmRlcgo+Pj4gaHVnZXBhZ2VzX3N1cHBvcnRlZCgpLgo+Pj4KPj4+IFRvIGJyaW5n
-IGdpZ2FudGljIGh1Z2VwYWdlIGFsbG9jYXRpb24gdW5kZXIgaHVnZXBhZ2VzX3N1cHBvcnRlZCgp
-LCB0d28KPj4+IGFwcHJvYWNoZXMgd2VyZSBwcmV2aW91c2x5IHByb3Bvc2VkOgo+Pj4gWzFdIENo
-ZWNrIGh1Z2VwYWdlc19zdXBwb3J0ZWQoKSBpbiB0aGUgZ2VuZXJpYyBjb2RlIGJlZm9yZSBhbGxv
-Y2F0aW5nCj4+PiBnaWdhbnRpYyBodWdlcGFnZXMuCj4+PiBbMl0gTWFrZSBhcmNoX2h1Z2V0bGJf
-dmFsaWRfc2l6ZSgpIHJldHVybiBmYWxzZSBmb3IgYWxsIGh1Z2V0bGIgc2l6ZXMuCj4+Pgo+Pj4g
-QXBwcm9hY2ggWzJdIGhhcyB0d28gbWlub3IgaXNzdWVzOgo+Pj4gMS4gSXQgcHJpbnRzIG1pc2xl
-YWRpbmcgbG9ncyBhYm91dCBpbnZhbGlkIGh1Z2VwYWdlIHNpemVzCj4+PiAyLiBUaGUga2VybmVs
-IHN0aWxsIHByb2Nlc3NlcyBodWdlcGFnZSBrZXJuZWwgYXJndW1lbnRzIHVubmVjZXNzYXJpbHkK
-Pj4+Cj4+PiBUbyBjb250cm9sIGdpZ2FudGljIGh1Z2VwYWdlIGFsbG9jYXRpb24sIGl0IGlzIHBy
-b3Bvc2VkIHRvIHNraXAKPj4+IHByb2Nlc3NpbmcgdGhlIGh1Z2VwYWdlIGtlcm5lbCBhcmd1bWVu
-dHMgKGh1Z2VwYWdlc3osIGh1Z2VwYWdlcywgYW5kCj4+PiBkZWZhdWx0X2h1Z2VwYWdlc3opIHdo
-ZW4gaHVnZXBhZ2VzX3N1cHBvcnQoKSByZXR1cm5zIGZhbHNlLgo+Pgo+PiBZb3UgY291bGQgYnJp
-ZWZseSBtZW50aW9uIHRoZSBuZXcgb3V0cHV0IGhlcmUsIHNvIG9uZSBoYXMgYQo+PiBiZWZvcmUt
-YWZ0ZXIgY29tcGFyaXNvbi4KPiAKPiBIZXJlIGlzIHRoZSBmYWR1bXAga2VybmVsIGJvb3QgbG9n
-cyBhZnRlciB0aGlzIHBhdGNoIGFwcGxpZWQ6Cj4ga2VybmVsIGNvbW1hbmQgaGFkOiBkZWZhdWx0
-X2h1Z2VwYWdlc3o9MUdCIGh1Z2VwYWdlc3o9MUdCIGh1Z2VwYWdlcz0yMDAKPiAKPiBIdWdlVExC
-OiBodWdlcGFnZXMgdW5zdXBwb3J0ZWQsIGlnbm9yaW5nIGRlZmF1bHRfaHVnZXBhZ2Vzej0xR0Ig
-Y21kbGluZQo+IEh1Z2VUTEI6IGh1Z2VwYWdlcyB1bnN1cHBvcnRlZCwgaWdub3JpbmcgaHVnZXBh
-Z2Vzej0xR0IgY21kbGluZQo+IEh1Z2VUTEI6IGh1Z2VwYWdlcyB1bnN1cHBvcnRlZCwgaWdub3Jp
-bmcgaHVnZXBhZ2VzPTIwMCBjbWRsaW5lCj4gSHVnZVRMQiBzdXBwb3J0IGlzIGRpc2FibGVkIQo+
-IGh1Z2V0bGJmczogZGlzYWJsaW5nIGJlY2F1c2UgdGhlcmUgYXJlIG5vIHN1cHBvcnRlZCBodWdl
-cGFnZSBzaXplcwo+IAo+IEkgd2lsbCB3YWl0IGZvciBhIGRheSBvciB0d28gYmVmb3JlIHNlbmRp
-bmcgdjIgd2l0aCB0aGUgYWJvdmUgbG9ncwo+IGluY2x1ZGVkIGluCj4gdGhlIGNvbW1pdCBtZXNz
-YWdlLgo+IAo+Pgo+PiBDdXJpb3VzLCBzaG91bGQgd2UgYXQgbGVhc3QgYWRkIGEgRml4ZXM6IHRh
-Zz8gQWxsb2NhdGluZyBtZW1vcnkgd2hlbgo+PiBpdCdzIGNvbXBsZXRlbHkgdW51c2FibGUgc291
-bmRzIHdyb25nLgo+IAo+IE5vdCBzdXJlIHdoaWNoIGNvbW1pdCBJIHNob3VsZCB1c2UgZm9yIEZp
-eGVzLiBUaGlzIGlzc3VlIGhhcwo+IGJlZW4gcHJlc2VudCBmb3IgYSBsb25nIHRpbWUsIHBvc3Np
-Ymx5IHNpbmNlIHRoZSBiZWdpbm5pbmcuCgpJIGRvbid0IGtub3cgdGhlIGZ1bGwgaGlzdG9yeSwg
-YnV0IEkgd291bGQgYXNzdW1lIHRoYXQgc3VwcG9ydCBmb3IgCmdpZ2FudGljIHBhZ2VzIHdhcyBh
-ZGRlZCBsYXRlcj8KCkl0IHdvdWxkIGJlIGdyZWF0IGlmIHlvdSBjb3VsZCBkaWcgYSBiaXQgc28g
-d2UgY291bGQgYWRkIGEgRml4ZXM6LgoKPiAKPiBJIGFsc28gbm90aWNlZCBhbiBpbnRlcmVzdGlu
-ZyBpc3N1ZSByZWxhdGVkIHRvIGV4Y2Vzc2l2ZSBtZW1vcnkKPiBhbGxvY2F0aW9uLCB3aGVyZSB0
-aGUgcHJvZHVjdGlvbi9maXJzdCBrZXJuZWwgZmFpbGVkIHRvIGJvb3QuCj4gV2hpbGUgdGVzdGlu
-ZyB0aGlzIHBhdGNoLCBJIGNvbmZpZ3VyZWQgYSB2ZXJ5IGhpZ2ggaHVnZXBhZ2VzIChodWdlcGFn
-ZXN6PTJNKQo+IGNvdW50LCBhbmQgdGhlIGZpcnN0IGtlcm5lbCBmYWlsZWQgdG8gYm9vdCBhcyBh
-IHJlc3VsdC4gSSB3aWxsIHJlcG9ydAo+IHRoaXMgaXNzdWUgc2VwYXJhdGVseS4KCkknZCBzYXkg
-dGhhdCdzIHJhdGhlciBleHBlY3RlZDogaWYgeW91IHN0ZWFsIHRvbyBtdWNoIG1lbW9yeSBmcm9t
-IHRoZSAKa2VybmVsIGl0IHdpbGwgbm90IGJlIGFibGUgdG8gZnVuY3Rpb24uIEl0J3MgdGhlIHNh
-bWUgd2hlbiB1c2luZyB0aGUgCm1lbT0gcGFyYW1ldGVyIEkgd291bGQgYXNzdW1lLgoKLS0gCkNo
-ZWVycwoKRGF2aWQKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+I'm writing to share test results and the corresponding patch for 
+K230 clock configuration issues, covering critical clock flag 
+settings and HS/SD subsystem clock adjustments.
+
+1.  Critical Clock Protection for CPU Subsystems
+I found that cpu0/cpu1 core-related clocks (src/plic/apb/noc_ddrcp4 
+etc.) had no protection, risking accidental disabling and subsystem 
+malfunctions. I added the `CLK_IS_CRITICAL` flag to these clock 
+nodes to block unintended disable operations.
+
+2.  HS/SD Clock Setting Fixes
+Two hardware-spec mismatches were fixed:
+- Adjusted `hs_hclk_src_gate` from register bit1 to bit0, and 
+  updated its parent clock from `hs_hclk_high_src_rate` to 
+  `hs_hclk_high_gate`.
+- Corrected `hs_sd_card_src_rate` parent clock from `pll0_div4` to 
+  `hs_sd_card_src_gate`, fixing SD controller clock source 
+  misconfiguration.
+
+3.  Test Verification
+Post-fix on-board testing confirmed all modified clock nodes align 
+with K230 hardware specs and the clock tree relationships are 
+correct.
+The CPU core and HS/SD subsystems run stably without any clock-
+related errors or anomalies.
+
+The patch modifies `drivers/clk/clk-k230.c` (19 insertions, 19 
+deletions), with the full diff attached below for your review.
+
+Best regards,
+Jiayu Du
+
+---
+ drivers/clk/clk-k230.c | 38 +++++++++++++++++++-------------------
+ 1 file changed, 19 insertions(+), 19 deletions(-)
+
+diff --git a/drivers/clk/clk-k230.c b/drivers/clk/clk-k230.c
+index 8750e9cbac..43a4e61a0c 100644
+--- a/drivers/clk/clk-k230.c
++++ b/drivers/clk/clk-k230.c
+@@ -317,7 +317,7 @@ struct clk_fixed_factor *k230_pll_divs[] = {
+ 
+ K230_CLK_GATE_FORMAT(cpu0_src_gate,
+ 		     K230_CPU0_SRC_GATE,
+-		     0, 0, 0, 0,
++		     0, 0, CLK_IS_CRITICAL, 0,
+ 		     &pll0_div2.hw);
+ 
+ K230_CLK_RATE_FORMAT(cpu0_src_rate,
+@@ -325,7 +325,7 @@ K230_CLK_RATE_FORMAT(cpu0_src_rate,
+ 		     1, 16, 1, 0xF,
+ 		     16, 16, 0, 0x0,
+ 		     0x0, 31, mul, 0x0,
+-		     false, 0,
++		     false, CLK_IS_CRITICAL,
+ 		     &cpu0_src_gate.clk.hw);
+ 
+ K230_CLK_RATE_FORMAT(cpu0_axi_rate,
+@@ -333,12 +333,12 @@ K230_CLK_RATE_FORMAT(cpu0_axi_rate,
+ 		     1, 1, 0, 0,
+ 		     1, 8, 6, 0x7,
+ 		     0x0, 31, div, 0x0,
+-		     0, 0,
++		     0, CLK_IS_CRITICAL,
+ 		     &cpu0_src_rate.clk.hw);
+ 
+ K230_CLK_GATE_FORMAT(cpu0_plic_gate,
+ 		     K230_CPU0_PLIC_GATE,
+-		     0x0, 9, 0, 0,
++		     0x0, 9, CLK_IS_CRITICAL, 0,
+ 		     &cpu0_src_rate.clk.hw);
+ 
+ K230_CLK_RATE_FORMAT(cpu0_plic_rate,
+@@ -346,17 +346,17 @@ K230_CLK_RATE_FORMAT(cpu0_plic_rate,
+ 		     1, 1, 0, 0,
+ 		     1, 8, 10, 0x7,
+ 		     0x0, 31, div, 0x0,
+-		     false, 0,
++		     false, CLK_IS_CRITICAL,
+ 		     &cpu0_plic_gate.clk.hw);
+ 
+ K230_CLK_GATE_FORMAT(cpu0_noc_ddrcp4_gate,
+ 		     K230_CPU0_NOC_DDRCP4_GATE,
+-		     0x60, 7, 0, 0,
++		     0x60, 7, CLK_IS_CRITICAL, 0,
+ 		     &cpu0_src_rate.clk.hw);
+ 
+ K230_CLK_GATE_FORMAT(cpu0_apb_gate,
+ 		     K230_CPU0_APB_GATE,
+-		     0x0, 13, 0, 0,
++		     0x0, 13, CLK_IS_CRITICAL, 0,
+ 		     &pll0_div4.hw);
+ 
+ K230_CLK_RATE_FORMAT(cpu0_apb_rate,
+@@ -364,7 +364,7 @@ K230_CLK_RATE_FORMAT(cpu0_apb_rate,
+ 		     1, 1, 0, 0,
+ 		     1, 8, 15, 0x7,
+ 		     0x0, 31, div, 0x0,
+-		     false, 0,
++		     false, CLK_IS_CRITICAL,
+ 		     &cpu0_apb_gate.clk.hw);
+ 
+ static const struct clk_parent_data k230_cpu1_src_mux_pdata[] = {
+@@ -376,12 +376,12 @@ static const struct clk_parent_data k230_cpu1_src_mux_pdata[] = {
+ K230_CLK_MUX_FORMAT(cpu1_src_mux,
+ 		    K230_CPU1_SRC_MUX,
+ 		    0x4, 1, 0x3,
+-		    0, 0,
++		    CLK_IS_CRITICAL, 0,
+ 		    k230_cpu1_src_mux_pdata);
+ 
+ K230_CLK_GATE_FORMAT(cpu1_src_gate,
+ 		     K230_CPU1_SRC_GATE,
+-		     0x4, 0, CLK_IGNORE_UNUSED, 0,
++		     0x4, 0, CLK_IS_CRITICAL, 0,
+ 		     &cpu1_src_mux.clk.hw);
+ 
+ K230_CLK_RATE_FORMAT(cpu1_src_rate,
+@@ -389,7 +389,7 @@ K230_CLK_RATE_FORMAT(cpu1_src_rate,
+ 		     1, 1, 0, 0,
+ 		     1, 8, 3, 0x7,
+ 		     0x4, 31, div, 0x0,
+-		     false, 0,
++		     false, CLK_IS_CRITICAL,
+ 		     &cpu1_src_gate.clk.hw);
+ 
+ K230_CLK_RATE_FORMAT(cpu1_axi_rate,
+@@ -397,12 +397,12 @@ K230_CLK_RATE_FORMAT(cpu1_axi_rate,
+ 		     1, 1, 0, 0,
+ 		     1, 8, 12, 0x7,
+ 		     0x4, 31, div, 0x0,
+-		     false, 0,
++		     false, CLK_IS_CRITICAL,
+ 		     &cpu1_src_rate.clk.hw);
+ 
+ K230_CLK_GATE_FORMAT(cpu1_plic_gate,
+ 		     K230_CPU1_PLIC_GATE,
+-		     0x4, 15, CLK_IGNORE_UNUSED, 0,
++		     0x4, 15, CLK_IS_CRITICAL, 0,
+ 		     &cpu1_src_rate.clk.hw);
+ 
+ K230_CLK_RATE_FORMAT(cpu1_plic_rate,
+@@ -410,12 +410,12 @@ K230_CLK_RATE_FORMAT(cpu1_plic_rate,
+ 		     1, 1, 0, 0,
+ 		     1, 8, 16, 0x7,
+ 		     0x4, 31, div, 0x0,
+-		     false, 0,
++		     false, CLK_IS_CRITICAL,
+ 		     &cpu1_plic_gate.clk.hw);
+ 
+ K230_CLK_GATE_FORMAT(cpu1_apb_gate,
+ 		     K230_CPU1_APB_GATE,
+-		     0x4, 19, 0, 0,
++		     0x4, 19, CLK_IS_CRITICAL, 0,
+ 		     &pll0_div4.hw);
+ 
+ K230_CLK_RATE_FORMAT(cpu1_apb_rate,
+@@ -423,7 +423,7 @@ K230_CLK_RATE_FORMAT(cpu1_apb_rate,
+ 		     1, 1, 0, 0,
+ 		     1, 8, 15, 0x7,
+ 		     0x0, 31, div, 0x0,
+-		     false, 0,
++		     false, CLK_IS_CRITICAL,
+ 		     &cpu1_apb_gate.clk.hw);
+ 
+ K230_CLK_GATE_FORMAT_PNAME(pmu_apb_gate,
+@@ -446,8 +446,8 @@ K230_CLK_GATE_FORMAT(hs_hclk_high_gate,
+ 
+ K230_CLK_GATE_FORMAT(hs_hclk_src_gate,
+ 		     K230_HS_HCLK_SRC_GATE,
+-		     0x18, 1, 0, 0,
+-		     &hs_hclk_high_src_rate.clk.hw);
++		     0x18, 0, 0, 0,
++		     &hs_hclk_high_gate.clk.hw);
+ 
+ K230_CLK_RATE_FORMAT(hs_hclk_src_rate,
+ 		     K230_HS_HCLK_SRC_RATE,
+@@ -560,7 +560,7 @@ K230_CLK_RATE_FORMAT(hs_sd_card_src_rate,
+ 		     2, 8, 12, 0x7,
+ 		     0x1C, 31, div, 0x0,
+ 		     false, 0,
+-		     &pll0_div4.hw);
++		     &hs_sd_card_src_gate.clk.hw);
+ 
+ K230_CLK_GATE_FORMAT(hs_sd0_card_gate,
+ 		     K230_HS_SD0_CARD_GATE,
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
