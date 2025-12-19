@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA38D74962
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 07:42:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE8CD74961
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 07:42:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wXulyND2F1DJRW/iiAACRaQwtyL4nyARZBHELV3ncqA=; b=WFaOcN0dZ5l8BB
-	PWMiMxGKxUC/8PAQh3iZ3nlSTuqXA3kBfU48YiHdtL8R+G59yVRy5vQNmUnwlDEJOqdjsPiSvwPBJ
-	0GM3OCppbFqT/h9VsOoMEETSBFLK0fhT3hiXMCyd+dDMgcPtYpKxHv8+K3Xy/neDdFe7SlU0FyRea
-	QEHMlz5wvfWasbPMOwC9Ji4tSABXx5vmSpDLcwfo4mFT8fOXrwcJ3jBzrwyRA99+EBHwjFCiQFbQP
-	cKKSSyCvxIfz9D/tzbIujC0nFdmiaJafwPO/8JXiYwE5Erxiyi1o/zAM+vu90YeMpdebNxxkwTeRF
-	NQeuyvHBeJ2PtmrCFAzw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XL8BrCPX7SVeFu4hvgbUy1f2PLErVC3JMCwccpsk/VM=; b=aMigO2oUDUJq67
+	ntnMYpIXZlWW2KjrLPR+3OJYVxGY/RDlGqoeuCRtil7BPLh7zCOl+7by4CFteWIB5gX9/ErjMrRzl
+	Mvj13titIU2TCMYyY7CSlP8enLqt/pK/ivkDSdfwcLQeXmHprbwLpyG8Da0C2NZNuVlZyAFhT/22C
+	iLQ2nfy6B5rdwrZkJbLQ8pM00qubabYR9yJdJXRU67jqzdh8eh6vtFdeliWp+u4bBKziLeDPQUrS8
+	0WIJNmZoYrKBLe7QRjUSg6HCk+PHgYsio0RmS2B0NWsPadUkkKFFyxgrafOhdOqTdu2R/VqR7SN1e
+	gXO8T+RwCkbVJ5alJL+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWV8M-00000009llr-2qWA;
-	Fri, 19 Dec 2025 07:42:42 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1vWV8G-00000009lkt-1cBq;
+	Fri, 19 Dec 2025 07:42:36 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWV8K-00000009llS-0wT1
+	id 1vWV8D-00000009lkU-3C0e
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Dec 2025 07:42:41 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-7b9c17dd591so1333977b3a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Dec 2025 23:42:39 -0800 (PST)
+	Fri, 19 Dec 2025 07:42:35 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7e1651ae0d5so1177506b3a.1
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Dec 2025 23:42:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766130159; x=1766734959; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=A16mIOMQmuaHn2+TKOnGQUAwRDMDtpdj4WXcnB4hmwo=;
-        b=i5m2rUOJ6cswEjdkpWhlAMC15iOU8mWDBMtR0awjZ+Udl0dyvqNw94WnT40Sj4CL9Y
-         pxCHhaQNhSD2mZ9/pze/PAG2+GoKFLcbkPYwvtyvv6JxkDQQFl5PlcXO5f+pz7tjCPuq
-         wSbmI7Yj4Y+yzPOgb9V/FPDz1GXdqnCuK18+f4ljUCNNHYI3GSGaOvbF9UvXYPfVLnpI
-         NY1Sww8o+Puo3gJHYw7zgry6BFpXmD55+Xkh85Hxj4AtpI9WwkiS2mttg8cHmk9IMdK7
-         yhzT0FD0s6ZVINmaV3L1Y2qY8VYzJkGZhK7s16v5Izts6FBcR+09mfilTksUSgzeecGc
-         p2cw==
+        d=gmail.com; s=20230601; t=1766130152; x=1766734952; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qGrTuvEwjjViNUMt3QJcRhb16ogXp7GtzCI+L0Kabag=;
+        b=HyNEtIKPIwsYSQa6oFHzWXm7s7S8x1b8n8UO18wOAxSur3C1IWrLqECkyAPR5fQtXE
+         WRvWSmn5yrnOSfmIeUQrgwppvUIXJPATW3ZV2eAjvG9MZDFnchCYur8ftV0TrSRFuO3o
+         HTitq4YGENA7zidIXpLIJOYmyD9TGdvY/3BZhegUmwHzQz4e7NBF6dmM9xVfU+5lnS1C
+         LUvcW/hP4MCCVvezcFvYze1f0BUnvzIerBsDE4fGSnGp59evCZftkmC+P02So+dvAT4+
+         Ll44wG2VK40bH8IrNJSzf8oQS+kp5g7bJJFTiN3VXacs9IJsY9lIJGMOEfAHTKNcFUiI
+         bmsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766130159; x=1766734959;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=A16mIOMQmuaHn2+TKOnGQUAwRDMDtpdj4WXcnB4hmwo=;
-        b=YI33VPHHEX/Cm4v+DY0GOIugcfmWixltlMW6+pMciEqrBg6Oi+NykD1QdzO0jVRnlg
-         1PbdVCaDgWf679C7FiWhiuHekTAJojmvBykdUZvgkViugwol0FuixDkj5t3MC/kqX8sJ
-         QlSD0K0Akjew0TCeSMCKdpJWVFsVpEhgddse+HoVV2nICNBtTuIMTAsfQSflErURNdyu
-         S+k55DwbcrfXiBTJFEb6l3TRUpxGAjTkFTTnYcjGGhWLQVE1ODzRHu+vG49jHX1K+tfW
-         yRN/qtGNnls7nEtI/Qqvyvue6J+C8bgyBWASTHbQtBXeIXzwaFBvvoC7+pZz90tmd8Qd
-         xyFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU4VWztqBNaZVAxF4NAqEk2I2EdUJBZmUnSHxUCNIoHgW1n3AG8WSasoH2Vrygxxam9PW1F7Nzf15/qQA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx10sdTsicO67/9FQMm5bgF1kLNmF5itBDXUz3TUaP/iX53Z58U
-	MOCaw+nxzrhVZBi3i3LRMx5G+wnc8elPAZpAtBpcd9zaSfwpl+O4WzHD
-X-Gm-Gg: AY/fxX5+CvLoh4CPwG0mrN4zzjmsBJTGHdDumJpmEchboEV08qmtXGntZnMqaBs+OPN
-	JMg4fzkINpR4nFEHtC6FtMbeZeR+6qkbsVvenBFUDavikrx6QPIAvM6zSMZiXgvioDIy5El9I6b
-	75mNeA/qCBFIcLqf+97zR/B39IfneqikSwcbJ39HU5n/wlugOXAT1BZmtZGw673UHz5TBWxhBIO
-	FRdlFkY8ARXmGL0vqw2hq2xRiIpVqe0Sv/8d4ywie7NwQTVpQl1Hp8PN6eykZ6/Dcfhx2jbILof
-	KXvImq04tZ32oQYTntFz+0V+1gQyon+J06SjPPAYUFFgXCLsqHCMxIi3jjuAOeb1Ft6e1u2dQ6T
-	U99oZlvPQYF0lOo4lczTzwS61bdAOGTOUjhYWFiQrg0abiG8qaZ8D
-X-Google-Smtp-Source: AGHT+IHMDEZLLOxw+3dAFpieF2QA1Yfe4kaK1QG7vQqgmnkvKYHURHQzbX3y21w9Lj3QQl7AzO8tFw==
-X-Received: by 2002:a05:6a20:914c:b0:366:14b2:30b with SMTP id adf61e73a8af0-376a9cddf9fmr2091296637.62.1766130159109;
-        Thu, 18 Dec 2025 23:42:39 -0800 (PST)
+        d=1e100.net; s=20230601; t=1766130152; x=1766734952;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qGrTuvEwjjViNUMt3QJcRhb16ogXp7GtzCI+L0Kabag=;
+        b=nTqFHfPWt0FMWSu5IWNHGNGAOKscPzRRap704l5seVmCv5kzPjdldv0lPliuUzD7aZ
+         d7wlTtjutUlv+Q6q8M0aPCzC5oBsGtOq8oEDIsZG1sLzkv2SKVLD5nCs4RHFdQfsvaPG
+         1PSz2M6yQZ/Nx98wzPYVPIl0Po2gb/IPjlpLirnLUdte81eFhAb2tUz46LOwR4GkB/fm
+         u5wWdUwrNQEe/STiiyDhTU3FXy4ZvYmnM6iQ18rCc6tuygxfpon46uYAu3SDqnrhdngf
+         qw1aUWSDwy8lOFIjtg8du3c1DE1lIXLxxSPWMRZBScGpXwyIkr7HKIFezfTzkB07XilO
+         lBTg==
+X-Forwarded-Encrypted: i=1; AJvYcCWeuiF/MBWjDOzOEY5odOiWRkYqJZnt0hbeJlqNEjcYBdMlrWGx3DTqM/JGceEDFv7JRKtA0CPc/3oTkQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUKMIhqYkSQaupx3B/gUgJBjRebGMJxUL2/fpD95nw1y/GNHn3
+	qZxDbBXYwYRB9XedXzx3zIVjkAzbgx6Knr+1PNbmtNtNQH2EAvgoq0oA
+X-Gm-Gg: AY/fxX4xdSF9ZsWe/bRb9fFPpRfEebI+OyjO7lQJuxU64UfnLwaErr+mbT+p6XQQqqE
+	AWabwRPAUIfzizqKt4inLxhhQJ9RdsqIROPJYiryPdlhjFlXPs+0fwQR4Ihb+VZLNPf8tDnaoI/
+	pqzvfqVxjm+fdr3CNyPd9vpDtS8WhJ5raz2pGPv/ym7Xn7RL3rbEJnfG2C+zb7Q0hk3bXN037HH
+	GF9fwgoPCoMYdz10v7vJF/bRhjuqUZxAaM31DTI7T787SOlBoh2EpLOj+Z3mhObWig2syZZEXCg
+	kTASEdti8gK+TysReE95l/XFj84snz5Wsn9JvPzFSpIg8W4BeJE2ypFrnav26FJOAmeX2w1/HXc
+	cIQkOEvCM42fbEgIxHlavkmfJpppaPv7Ijn1ZcQEBDAugynG3Mxnz
+X-Google-Smtp-Source: AGHT+IHvlxajrZyvgu5NAl/VwkuEOt/upecy4ZBkpxVWB19Jg5A5qRKqAiwdH54bqOmcRQaHwjRFZg==
+X-Received: by 2002:a05:6a00:2995:b0:7e8:4587:e8bf with SMTP id d2e1a72fcca58-7ff664798e5mr1631925b3a.50.1766130152282;
+        Thu, 18 Dec 2025 23:42:32 -0800 (PST)
 Received: from localhost ([221.192.179.86])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c1e7bd602desm1335791a12.21.2025.12.18.23.42.37
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7ff7e493123sm1489676b3a.50.2025.12.18.23.42.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Dec 2025 23:42:38 -0800 (PST)
+        Thu, 18 Dec 2025 23:42:31 -0800 (PST)
 From: Encrow Thorne <jyc0019@gmail.com>
-Date: Fri, 19 Dec 2025 15:42:20 +0800
-Subject: [PATCH v2 1/3] dt-bindings: i2c: spacemit: add optional resets
+Subject: [PATCH v2 0/3] i2c: spacemit: add reset support
+Date: Fri, 19 Dec 2025 15:42:19 +0800
+Message-Id: <20251219-i2c-reset-v2-0-ad201a602e74@gmail.com>
 MIME-Version: 1.0
-Message-Id: <20251219-i2c-reset-v2-1-ad201a602e74@gmail.com>
-References: <20251219-i2c-reset-v2-0-ad201a602e74@gmail.com>
-In-Reply-To: <20251219-i2c-reset-v2-0-ad201a602e74@gmail.com>
+X-B4-Tracking: v=1; b=H4sIANsBRWkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHQUlJIzE
+ vPSU3UzU4B8JSMDI1NDI0ML3UyjZN2i1OLUEt1E86RUQ2NLI0PjlFQloPqCotS0zAqwWdGxtbU
+ Ao4A1YFsAAAA=
+X-Change-ID: 20251218-i2c-reset-a7be139213de
 To: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
  Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -89,16 +90,16 @@ Cc: Troy Mitchell <troymitchell988@gmail.com>,
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Encrow Thorne <jyc0019@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766130147; l=857;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1766130147; l=1131;
  i=jyc0019@gmail.com; s=20251009; h=from:subject:message-id;
- bh=/r6f9IRpVGju3Ryu7UDsRNF+0ADreBgeJr9SFE2YWMw=;
- b=wvV25q8btJ4G30xXAzQfVKnpzsZrDgyjSlGnmi9bOhuNQ9Aeuh6j0rLJZZ2UdmpI8Wk3BNmIX
- Bd8J5IqmhlsD4ZMfSltfVzsoWEpZ9saVGE6AaJqKlfN0k6035M6lSH8
+ bh=qNd7Kkg/H2zhSsCmeKqv5XE2BPxplo29/JW30z7IwFc=;
+ b=IP9PYiLnxh4jarsPPV3BBgqvdAZV84EWSlqmOsx0gleAv9VAbPkrnmv1JaYOb/jF/whJbat21
+ mM7tks7h+8dDHF63uWqww3whwCH//d9Myr1eKBAj41dpiIhog/DiS+4
 X-Developer-Key: i=jyc0019@gmail.com; a=ed25519;
  pk=nnjLv04DUE0FXih6IcJUOjWFTEoo4xYQOu7m5RRHvZ4=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_234240_277028_EA991AF9 
-X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-CacheID: sfid-20251218_234233_829551_AA57396C 
+X-CRM114-Status: UNSURE (   7.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,32 +117,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The I2C controller requires a reset to ensure it starts from a clean state.
+Add reset support for the K1 I2C driver. A reset ensures that the
+controller starts in a clean and known state.
 
-Add the 'resets' property to support this hardware requirement.
+Reset ensures that the I2C hardware is in a clean state. We cannot assume
+that no program used I2C before the kernel booted.
 
 Signed-off-by: Encrow Thorne <jyc0019@gmail.com>
 ---
+Changes in v2:
+- Replace reset property in dt-bindings.
+- Use devm_reset_control_get_optional_exclusive_deasserted() instead.
+- Rebase to v6.19-rc1.
+- Link to v1: https://lore.kernel.org/r/20251119-i2c-k1_reset-support-v1-0-0e9e82bf9b65@gmail.com
+
+---
+Encrow Thorne (3):
+      dt-bindings: i2c: spacemit: add optional resets
+      i2c: k1: add reset support
+      riscv: dts: spacemit: add reset property
+
  Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/riscv/boot/dts/spacemit/k1.dtsi                       | 8 ++++++++
+ drivers/i2c/busses/i2c-k1.c                                | 7 +++++++
+ 3 files changed, 18 insertions(+)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20251218-i2c-reset-a7be139213de
 
-diff --git a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-index b7220fff2235..1290106e28e6 100644
---- a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-+++ b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-@@ -32,6 +32,9 @@ properties:
-       - const: func
-       - const: bus
- 
-+  resets:
-+    maxItems: 1
-+
-   clock-frequency:
-     description: |
-       K1 support three different modes which running different frequencies
-
+Best regards,
 -- 
-2.25.1
+Encrow Thorne <jyc0019@gmail.com>
 
 
 _______________________________________________
