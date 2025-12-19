@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA57FD74961
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:13:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA60D711D6
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oP0kP4Dh6tPq4Q0kP1sLnPOtcq6pwtltbYwKjhLYa9Q=; b=R9n12HY2IJ7ISz
-	UXgxX/bWNYeDHLcVwEeQ8QWZNcIhlgNKYwP1ThAN+mk7IJ252Ebed6t6aCgAXvW12HmaHuPNRRQsX
-	N+hvhd+A9cgQaPgcVF+YyeHZGzkRYVcAGX+CXNz7C9mCd+72UhPy1zcOC5lv9f7EDf6Ww7cID8xpn
-	SKyVYMbHNv6buH0rxoIBUR/vWll1/iJfo5rO7NyoJIoOt3Hej1CKd1DQjTMwq6sz/dHNPtWElM5kL
-	OcCW2ktKpRXu+obxc8NPcYtOd6rlfr3d0tIuUBvsj9D9qOsFN3ie+I7LzYO168jOEbkau09ObvWIw
-	9Pua5+4nimsJfwth81yA==;
+	List-Owner; bh=ayzdQoIw8NtnAeeu75WlS0vIa5Hoo8ZH70/6AGHtkqI=; b=B7gYTyqPXgetIc
+	/TjURdlkPnTlxmzuwDzV5gcVoC+a+edF2LznwLVH2wdFmHcxVrQotmymgXa93ofKNbyK9mIe/ImCu
+	35ZrovTG2Q8ng94r01plRb26NqVClrf1UvoMje81UOvxOLNAfDERMgXo30Rz+ifyIo995iLJ1UhcN
+	J4upVJRg/CLJ4QKFqZFgta/nT6zmGixtDr45eXqkrg/lq2kJLV1HzBGmZ9sBAbqViga6X8DIkG98Z
+	HAYjwAzRhBQVkg9WZ26RZZbucH3qmsYbfAJQ+wiYE6k/XjbWxh6z37WdwVZPHZt1sJJ8hkmJzhDFM
+	/qyQ6HNLJQ61gGKkntxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVc9-00000009p6a-1uHR;
-	Fri, 19 Dec 2025 08:13:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vWVcA-00000009p89-1Z0N;
+	Fri, 19 Dec 2025 08:13:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVby-00000009ouT-3KJB;
+	id 1vWVc2-00000009oxO-0MQ4;
 	Fri, 19 Dec 2025 08:13:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6699744265;
-	Fri, 19 Dec 2025 08:13:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43DA1C4CEF1;
-	Fri, 19 Dec 2025 08:13:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 61E2B6014A;
+	Fri, 19 Dec 2025 08:13:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12A1FC4CEF1;
+	Fri, 19 Dec 2025 08:13:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766131998;
-	bh=ZpBHca7oN52iVgWXthIDFgDhI9A0INgKqTumn5Wu6+Y=;
+	s=k20201202; t=1766132001;
+	bh=lvn+iw5IxWpNsx5ppx7UaT4z6tDEmv9IRQkqRmBQGQc=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=GLiYOmvPUPoGBBkA0Ts0/kjAyBBbJ5CVV866J5BiVEgPJj3OYjRgC+9kPctyKNkbY
-	 OTmQcFlqulWRizG9DOeVMcBBx3TMpnVx8OsXdwOLS+oyRNZ43rplVORNJeOQQd5TCz
-	 VpcmAphzU3UsvkI5L30JzY+yn/H0KfEWqpVte7ln/hSbjF1dNKhUJB0U1REatJzEyR
-	 lb/rrla5Oq6RnkhwpZlVihV4NT0itGutxX9yV+3Mu7xreaNE+7eVmbadIEeUslLbKZ
-	 K6SjjazHiexJwS8UcYibsLYI3osV5J/1Mf1cfAxG4KlgZXMP2+gQZEcu1CfsRsvhQs
-	 DlwDgJSLvSrwg==
+	b=M/IUrif+d4VKn/MpBzO8oXg7fyF4udbLWjFGC+kaeTKXVdK9pnVZSk9qfn61Oncpi
+	 GhR5l8VAZ4IA86aoju4qY4COjaufMk77R9+qzFfwAZOU9Mv14DiZsPZrAzz0fP8C8O
+	 RVHu5dAXut9fzq8uA8rHcl2hgk3qtCR3o7FIhbbxw1etaHqlACnKIZpUTGy4fOBicw
+	 mUDSllG1LCmoO9eVDdYT7nQEkxN8ixdDPeXlwtWDpLBykJTtiH2K8RTzj7p3zgR18A
+	 EftOxjTcUmtQ5u7Eo9SivKx97gnYTIzCDyvlh8FtZdCb56p0NX1TrxQ6CjwLInTtmr
+	 ati6fNfjsc4FQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7872A380AA50;
-	Fri, 19 Dec 2025 08:10:08 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3BBE4380AA50;
+	Fri, 19 Dec 2025 08:10:11 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [patch V5 00/12] uaccess: Provide and use scopes for user access
+Subject: Re: [PATCH v2 0/6] iommu: Pass in old_domain pointer to attach_dev
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176613180728.3684357.15978002339429469981.git-patchwork-notify@kernel.org>
-Date: Fri, 19 Dec 2025 08:10:07 +0000
-References: <20251027083700.573016505@linutronix.de>
-In-Reply-To: <20251027083700.573016505@linutronix.de>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- lkp@intel.com, linux@armlinux.org.uk, linux-arm-kernel@lists.infradead.org,
- torvalds@linux-foundation.org, x86@kernel.org, maddy@linux.ibm.com,
- mpe@ellerman.id.au, npiggin@gmail.com, christophe.leroy@csgroup.eu,
- linuxppc-dev@lists.ozlabs.org, pjw@kernel.org, palmer@dabbelt.com,
- hca@linux.ibm.com, borntraeger@linux.ibm.com, svens@linux.ibm.com,
- linux-s390@vger.kernel.org, mathieu.desnoyers@efficios.com,
- andrew.cooper3@citrix.com, david.laight.linux@gmail.com,
- Julia.Lawall@inria.fr, nicolas.palix@imag.fr, peterz@infradead.org,
- dvhart@infradead.org, dave@stgolabs.net, andrealmeid@igalia.com,
- viro@zeniv.linux.org.uk, brauner@kernel.org, jack@suse.cz,
- linux-fsdevel@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_001320_754349_90FCAF0B 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <176613180983.3684357.11179224135837486617.git-patchwork-notify@kernel.org>
+Date: Fri, 19 Dec 2025 08:10:09 +0000
+References: <cover.1761017765.git.nicolinc@nvidia.com>
+In-Reply-To: <cover.1761017765.git.nicolinc@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: linux-riscv@lists.infradead.org, joro@8bytes.org, jgg@nvidia.com,
+ kevin.tian@intel.com, suravee.suthikulpanit@amd.com, will@kernel.org,
+ robin.murphy@arm.com, sven@kernel.org, j@jannau.net,
+ robin.clark@oss.qualcomm.com, m.szyprowski@samsung.com, krzk@kernel.org,
+ dwmw2@infradead.org, baolu.lu@linux.intel.com, yong.wu@mediatek.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ tjeznach@rivosinc.com, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, heiko@sntech.de, schnelle@linux.ibm.com,
+ mjrosato@linux.ibm.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com,
+ wens@csie.org, jernej.skrabec@gmail.com, samuel@sholland.org,
+ thierry.reding@gmail.com, jonathanh@nvidia.com, jean-philippe@linaro.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
+ virtualization@lists.linux.dev, patches@lists.linux.dev
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,44 +88,33 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Ingo Molnar <mingo@kernel.org>:
+by Joerg Roedel <joerg.roedel@amd.com>:
 
-On Mon, 27 Oct 2025 09:43:40 +0100 (CET) you wrote:
-> This is a follow up on the V4 feedback:
+On Wed, 22 Oct 2025 19:21:03 -0700 you wrote:
+> Tidy the release_device callbacks in the drivers and switch to the core
+> managed release_domain.
 > 
->    https://lore.kernel.org/20251022102427.400699796@linutronix.de
+> This allows the core further to pass in the old domain pointer into the
+> attach_dev callbacks to reduce the use of iommu_get_domain_for_dev().
 > 
-> Changes vs. V4:
-> 
->   - Rename get/put_user_masked() to get/put_user_inline()
+> This is a preparatory series for new iommu_dev_reset APIs:
+> https://lore.kernel.org/all/cover.1756682135.git.nicolinc@nvidia.com/
 > 
 > [...]
 
 Here is the summary with links:
-  - [V5,01/12] ARM: uaccess: Implement missing __get_user_asm_dword()
-    https://git.kernel.org/riscv/c/44c5b6768e3a
-  - [V5,02/12] uaccess: Provide ASM GOTO safe wrappers for unsafe_*_user()
+  - [v2,1/6] iommu: Generic support for RMRs during device release
+    https://git.kernel.org/riscv/c/e94160488e65
+  - [v2,2/6] iommu/arm-smmu-v3: Set release_domain to arm_smmu_blocked_domain
+    https://git.kernel.org/riscv/c/52f77fb176ec
+  - [v2,3/6] iommu/exynos-iommu: Set release_domain to exynos_identity_domain
+    https://git.kernel.org/riscv/c/680a6a60fc08
+  - [v2,4/6] iommu/amd: Set release_domain to blocked_domain
+    https://git.kernel.org/riscv/c/c21b34762e2f
+  - [v2,5/6] iommu: Do not revert set_domain for the last gdev
+    https://git.kernel.org/riscv/c/2b33598e666d
+  - [v2,6/6] iommu: Pass in old domain to attach_dev callback functions
     (no matching commit)
-  - [V5,03/12] x86/uaccess: Use unsafe wrappers for ASM GOTO
-    https://git.kernel.org/riscv/c/14219398e3e1
-  - [V5,04/12] powerpc/uaccess: Use unsafe wrappers for ASM GOTO
-    https://git.kernel.org/riscv/c/5002dd53144f
-  - [V5,05/12] riscv/uaccess: Use unsafe wrappers for ASM GOTO
-    https://git.kernel.org/riscv/c/0988ea18c624
-  - [V5,06/12] s390/uaccess: Use unsafe wrappers for ASM GOTO
-    https://git.kernel.org/riscv/c/43cc54d8dbe6
-  - [V5,07/12] uaccess: Provide scoped user access regions
-    https://git.kernel.org/riscv/c/e497310b4ffb
-  - [V5,08/12] uaccess: Provide put/get_user_inline()
-    https://git.kernel.org/riscv/c/b2cfc0cd68b8
-  - [V5,09/12,RFC] coccinelle: misc: Add scoped_masked_$MODE_access() checker script
-    (no matching commit)
-  - [V5,10/12] futex: Convert to get/put_user_inline()
-    https://git.kernel.org/riscv/c/e4e28fd6986e
-  - [V5,11/12] x86/futex: Convert to scoped user access
-    https://git.kernel.org/riscv/c/e02718c9865c
-  - [V5,12/12] select: Convert to scoped user access
-    https://git.kernel.org/riscv/c/3ce17e690994
 
 You are awesome, thank you!
 -- 
