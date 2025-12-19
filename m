@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60247D74967
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C015FD711D6
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3HDm1YRde/n54xww7I4UFPSPkGZ8Oey9cKAkoAJqqCI=; b=NmtHslGSvKZ3Uw
-	7cs2PNsQsyi2jmvdnJX/a9tKJvDZjEqwa/E+bIyFaDMwEA5rFMqhtOhicZTMeEvt6HeiynBfygl/z
-	kgozD81kn+YQsog2WBw9YLg6WSq5eOUHjF41CbY7sT/6WPbjzqUf7xsLw01+dmM1UQPZTdenLvGu0
-	72KeM5GUS+kM1MctGdCrPOtCfn3Idgacw5Me+L3kzS3SBCzQd7eggk6aDT9MUjTKt/end+ydIP4p/
-	ckesFmdYMmcELdbfDoYhKlBxJuW1h+eP267/uvaWdtgpr6CyqWSH6UK5ZjhpY0DOIMPBNjUqiS6Rq
-	kWYew9nymS+N58Cji91g==;
+	List-Owner; bh=ALBGXR3KqZZeVMw2TlDJICF4Y6KA4lMR1Zv9YzjCyn0=; b=t4fJmOqJvFFFnm
+	hQUv+H4ppHvQew9jCm8tsddkWlGBopdWnaMuIgohv2Srcta+lUvnp5bs1vfn+wK6gAOYnXdRatOF7
+	UAhuGgv+D1KuyL1wksuS1vP78uSlBoZSt23U+WrR2tkaEpNwOkKZwvgW+Zt+dJGkjN2F1pqL0iHds
+	J82AOKi3JC+F5gA01a0dFwByTHNX8+1UhibvhRq8xPut1nkQuhuJD+B6T0iYKMr7F4wltWi8hbASA
+	l3UtJxtj8bSZe7GAlXJzpFpV6IWCa0FaYqfmJvu+uYx/zT27Rw4U/i7Yw4Lh5N4uxVkgAWTIiku7G
+	NF/vyTWnlUBmN+UNek/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVcN-00000009pQy-0K8J;
-	Fri, 19 Dec 2025 08:13:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vWVcQ-00000009pXj-2gGp;
+	Fri, 19 Dec 2025 08:13:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVc6-00000009p1Z-3eFR;
-	Fri, 19 Dec 2025 08:13:28 +0000
+	id 1vWVcB-00000009p9J-1cNn;
+	Fri, 19 Dec 2025 08:13:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 690324445B;
-	Fri, 19 Dec 2025 08:13:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 483C9C116D0;
-	Fri, 19 Dec 2025 08:13:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 906FA4437E;
+	Fri, 19 Dec 2025 08:13:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EE75C19425;
+	Fri, 19 Dec 2025 08:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766132006;
-	bh=VFiTUqFKrbPqxZ9+NNyag6Ajy0uzkayrmpB0IcPZ4PU=;
+	s=k20201202; t=1766132010;
+	bh=l//QwgPNp1q4alMwyDOP8wGl2QpoY+/qlyQYNCdTd4I=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=VFqc9JjXV4mr5LizAyAg0tm5CJ5+ZKRz2e441pHxsOiibmeY59xqgqo0crFansJqy
-	 P4iE+LwFzjEO14DLRaSWWuqKz/n7erWqILtXs9Lv/MNRN1owKC0LAzXRhNgKAx58lp
-	 tCR21R2Dw0bWznLJdN91LGXcdkvn7rx4jeDVemHE8IzxC1Y4JBCay11De2Xm5vEcbu
-	 /4J0e8p+7t4L6eUrHmM/cZpJ3p6Ww14fgV6pv5nQ+0hOx32UTmjPSSI9YD07/Dl1O5
-	 ++5+k0gllM3NNDpP4jmGzEK4n89hxvNhgOvvTI0omoe5NZ2P4gzH53HInU9C88e17j
-	 c8ndEnoCuJn4A==
+	b=qxl4+v7EchxSQ7uPMHgNydReNM1Y6n+K31KkYZykBB3zU4/1J55VuaieSBPlR9Uew
+	 sLPPbZyXzw6pJ+styBQdsS0VRaDdqAl6U1hXPC2bUl0TvEu+rZd1OaDzNP4aOStHCw
+	 ZZvMZqHw68rVGgMhd/UwwdRS24KcLQ02S/WO0J1ohgEOhsHUDqnR1nA5FOlM747o2y
+	 erJR+P6geI4sQdGcE79OMvqcCMoTWhhpXEVOtbXXJGenq2Ir6sw+qs+MsKb7rWSt8r
+	 14TrsfA2fV/kOFeqFhp7zu47yGs3J1syqT9XBu0q/JfKl9NfTeBHRszhr2z6HTblmW
+	 GL+j2vbGTM0rw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 79F14380AA50;
-	Fri, 19 Dec 2025 08:10:16 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 790A6380AA50;
+	Fri, 19 Dec 2025 08:10:20 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [patch V6 02/12] uaccess: Provide ASM GOTO safe wrappers for
- unsafe_*_user()
+Subject: Re: [PATCH v3] RISC-V: KVM: Fix guest page fault within HLV*
+ instructions
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176613181528.3684357.16950067300895090684.git-patchwork-notify@kernel.org>
-Date: Fri, 19 Dec 2025 08:10:15 +0000
-References: <877bweujtn.ffs@tglx>
-In-Reply-To: <877bweujtn.ffs@tglx>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: linux-riscv@lists.infradead.org, ylavic.dev@gmail.com,
- linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, lkp@intel.com,
- linux@armlinux.org.uk, linux-arm-kernel@lists.infradead.org, x86@kernel.org,
- maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
- christophe.leroy@csgroup.eu, linuxppc-dev@lists.ozlabs.org, pjw@kernel.org,
- palmer@dabbelt.com, hca@linux.ibm.com, borntraeger@linux.ibm.com,
- svens@linux.ibm.com, linux-s390@vger.kernel.org,
- mathieu.desnoyers@efficios.com, andrew.cooper3@citrix.com,
- david.laight.linux@gmail.com, Julia.Lawall@inria.fr, nicolas.palix@imag.fr,
- peterz@infradead.org, dvhart@infradead.org, dave@stgolabs.net,
- andrealmeid@igalia.com, viro@zeniv.linux.org.uk, brauner@kernel.org,
- jack@suse.cz, linux-fsdevel@vger.kernel.org
+Message-Id: <176613181927.3684357.6307325316578427331.git-patchwork-notify@kernel.org>
+Date: Fri, 19 Dec 2025 08:10:19 +0000
+References: <20251121133543.46822-1-fangyu.yu@linux.alibaba.com>
+In-Reply-To: <20251121133543.46822-1-fangyu.yu@linux.alibaba.com>
+To: yu fangyu <fangyu.yu@linux.alibaba.com>
+Cc: linux-riscv@lists.infradead.org, anup@brainfault.org,
+ atish.patra@linux.dev, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, guoren@kernel.org,
+ ajones@ventanamicro.com, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_001327_050168_1702E7CB 
-X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-CacheID: sfid-20251219_001331_633930_11484CF8 
+X-CRM114-Status: UNSURE (   8.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,25 +81,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Peter Zijlstra <peterz@infradead.org>:
+by Anup Patel <anup@brainfault.org>:
 
-On Wed, 29 Oct 2025 10:40:52 +0100 you wrote:
-> ASM GOTO is miscompiled by GCC when it is used inside a auto cleanup scope:
+On Fri, 21 Nov 2025 21:35:43 +0800 you wrote:
+> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 > 
-> bool foo(u32 __user *p, u32 val)
-> {
-> 	scoped_guard(pagefault)
-> 		unsafe_put_user(val, p, efault);
-> 	return true;
-> efault:
-> 	return false;
-> }
+> When executing HLV* instructions at the HS mode, a guest page fault
+> may occur when a g-stage page table migration between triggering the
+> virtual instruction exception and executing the HLV* instruction.
+> 
+> This may be a corner case, and one simpler way to handle this is to
+> re-execute the instruction where the virtual  instruction exception
+> occurred, and the guest page fault will be automatically handled.
 > 
 > [...]
 
 Here is the summary with links:
-  - [V6,02/12] uaccess: Provide ASM GOTO safe wrappers for unsafe_*_user()
-    https://git.kernel.org/riscv/c/3eb6660f26d1
+  - [v3] RISC-V: KVM: Fix guest page fault within HLV* instructions
+    https://git.kernel.org/riscv/c/974555d6e417
 
 You are awesome, thank you!
 -- 
