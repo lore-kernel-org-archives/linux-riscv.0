@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FCA9D74960
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:03:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44866D74960
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Wb7/LtGrQ9zwWTvIRo+UQEslAkdX+FuA3jAWm+GONaw=; b=IqLfvNll1zUZid
-	gjuXrKWEDEd4Ln42EpT0nk4Nf/ZckvL0Wgi9fiDiRPg7r6G0aKrlvE9YZ7xrjG32efKt2aPEv6jjZ
-	T7hbMnARXFbUVYAr8agxkl/af5riY5GFzGNQkNGFZrRNukfxFC+oNyb2Cib6ZcN2SmAg0ogi4gHww
-	0IyB78t9VysIOfAqQnaGAG5F0D4ltecZWIYzc8i3/giPOhNhQ5INe1dafpQIQ3N6FlYfaJFJ4DZtC
-	+vix0SOho1W4re20TJSw/swjKZ6qznF/jMaUP7mZcDSd1B71kXSQTAfsvVk3jGDdAZLyQpDYVU8g5
-	upgOXtfeCGdx1BhGHQYw==;
+	List-Owner; bh=n6Q+ezrSVXFGS0A17VuQW6qIyB/EmaEOSxaLcKB4qeI=; b=mO3k50yjgpQCRR
+	bLlzG4h6+fKu1f7tE46qhXVqzuNmXZV4vp9+qWVzrLMeME5iklQtGhASy+NODLXIPaeoDjH+OgPLc
+	mlhsV5WgPG9vkzYCuf/oJ3sFPN2N15Rebjfb+CgdVEOzqRodnvUWhHCyN2Efv88w+OWHQYGgIois/
+	a+9zR2bWHI4CkDxfdkJyK7FcTRAwu0hjh0JBCnKb5YpEwEY5+ZC/AgduCmRl/EkOQvh49nyWazWTQ
+	B0ZKUt+6lQOFYwYZGIcnGNQXGhrtqGYwFaNgbA2HuBYIb7hvGHWBz8tUdXTff5eUuRnjx1OvIaf00
+	EuCQh9z7bge0hCQXMQhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVSQ-00000009nF4-0sfG;
-	Fri, 19 Dec 2025 08:03:26 +0000
+	id 1vWVSz-00000009nMv-05NG;
+	Fri, 19 Dec 2025 08:04:01 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVSO-00000009nEo-2Aqg
+	id 1vWVSx-00000009nMa-1tQF
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Dec 2025 08:03:24 +0000
+	Fri, 19 Dec 2025 08:03:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8CF9760018;
-	Fri, 19 Dec 2025 08:03:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3BFBC4CEF1;
-	Fri, 19 Dec 2025 08:03:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DD55860018;
+	Fri, 19 Dec 2025 08:03:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7818CC4CEF1;
+	Fri, 19 Dec 2025 08:03:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766131403;
-	bh=5oHCMAYXk9mhgPSXArbGQbtKkWJe8cng3obhdOQEGxw=;
+	s=k20201202; t=1766131438;
+	bh=zXOryCWFhEl8Ab+6mPQPjcBfG82cdijROqqxSWbfyec=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Vr19UHqUu7zEExd0eVSpBfeh20mZIRPWXXIcm7MbKNe7Cr3rps9M+CkF5aXTHvtYc
-	 l1IpkhdAICU/5RoW6rGaqExai6PVmDYILY7NOHWcWf4XGdF6fd8MV7eHuGToo7hOU+
-	 JCbvbzj1qMalfqQYLUjHVB3aVzwEEgrcq++bhzxBQT03NoiKVfiTyxfSyJaQdYIAch
-	 r60gbmvb+WnW6CuqaKw8ExfZR0nt8toYsQKqo6IxtIax1GdyozlEM+FOT0HFz/hO5N
-	 hxAG0/zmxOclDOLYMgKhaKU+OOuxw4OgsGwvFLR3nQhjmNFiNOuL2h9nDSk0z8MIG2
-	 n5rHhQdj3akqQ==
-Message-ID: <04880c83-0b3a-4197-9043-d657db91f922@kernel.org>
-Date: Fri, 19 Dec 2025 09:03:14 +0100
+	b=Ipfz3YZ2+YzK4UsikTFRwneDagfOUFLtvH0ii9DRGUQEL6a+3SsB2014dva+XFbsC
+	 7IEZB9atRLokYDW1Lkad7jQkPN4hRHTH1nWcozkcCIfG3vxMVpU6mG7BblV5LKOSrX
+	 +pY8iDuCIQJ7wCYKWb7NkLv63Vov1qnQ2lrWYsusaPQdxaKfhWYWoLtXi148nc4nya
+	 htK+bpxuYUvXrolZNsQAaZo+rJj5cH6OY1hdRW9eWYdDzEnTcsUqUyrvRH/OCcJDJH
+	 WRJfQ5i16SbyTBQ7RE2MywrgU/wTsA9/acmLyJzqxaoUhIXldUHNlC4SKe5N19lRoA
+	 80usW1D5By+mw==
+Message-ID: <604e5781-5c59-422f-9c5a-ee4be6f8b329@kernel.org>
+Date: Fri, 19 Dec 2025 09:03:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: i2c: spacemit: add optional resets
+Subject: Re: [PATCH v2 0/3] i2c: spacemit: add reset support
 To: Encrow Thorne <jyc0019@gmail.com>,
  Troy Mitchell <troy.mitchell@linux.spacemit.com>,
  Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -60,7 +60,6 @@ Cc: Troy Mitchell <troymitchell988@gmail.com>,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
 References: <20251219-i2c-reset-v2-0-ad201a602e74@gmail.com>
- <20251219-i2c-reset-v2-1-ad201a602e74@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251219-i2c-reset-v2-1-ad201a602e74@gmail.com>
+In-Reply-To: <20251219-i2c-reset-v2-0-ad201a602e74@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,34 +123,19 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 19/12/2025 08:42, Encrow Thorne wrote:
-> The I2C controller requires a reset to ensure it starts from a clean state.
+> Add reset support for the K1 I2C driver. A reset ensures that the
+> controller starts in a clean and known state.
 > 
-> Add the 'resets' property to support this hardware requirement.
+> Reset ensures that the I2C hardware is in a clean state. We cannot assume
+> that no program used I2C before the kernel booted.
 > 
 > Signed-off-by: Encrow Thorne <jyc0019@gmail.com>
 > ---
->  Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> index b7220fff2235..1290106e28e6 100644
-> --- a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> +++ b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> @@ -32,6 +32,9 @@ properties:
->        - const: func
->        - const: bus
->  
-> +  resets:
-> +    maxItems: 1
-> +
+> Changes in v2:
+> - Replace reset property in dt-bindings.
 
-Still between other clock-related properties. You already got such
-comment...
-
->    clock-frequency:
->      description: |
->        K1 support three different modes which running different frequencies
-> 
+Replace with what? I don't see anything else there - you still have
+reset property.
 
 
 Best regards,
