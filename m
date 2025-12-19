@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CAA4D74964
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:13:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2DF6D74961
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Dec 2025 08:13:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=njM6As6UzNSPyYiX08881zlq7f19Y7COAUdInh7jb7k=; b=p2RePuB/BYHybm
-	2eaKgePAKXWa36kYXeRqJxtsNsYN3L4RxgQPLY4zPApBJl71BlI3GrUsgexjWx0frn+8+ih13UR8I
-	TuXawu2RYJ+oOHV+MYN/NsUUvWJjVRPGmKciftOkCuwpL+mWzKqjgueDUhZYqvdrGwaRRDWnlbRW+
-	eI4qKD9tcfCAoBS8bK5rVhQC/y9NSczJ7Gi7UZRhbMmMciBfmpYsOBeUVkEfZwsHj6lfryZfi4pks
-	kQ0khtop9/gfIhMLwQb0yaH8M/uhoCY/3mgW4NeYYTRYNOaKCr5kWlFeYHpwDHdp35BbgkTRzo1Ai
-	UaZ/YX4gdXv54syz/Tfw==;
+	List-Owner; bh=IIpS5Rbjo2ajjH9WvcoYRoOD7epDdvlpYSOCy5hWM0k=; b=W97WhyM4sdmng2
+	YiUDvv0f2JQlNYh9KPBXYLAZjpx0YvhAdoegtH4NzRVpJeOmMiYRapC0OXenNiaRdzrm0CTciGC0K
+	6ZYEkfErTfUDq/JN6ZI0XNnCuYW6XS/te0obHdmyUwqn/DA36nyieClf3DD7asS9bkHRY5/EHw2Vw
+	Po0VfDLC0RsTtvPuAVQZ4VglLInABiCRzyZJQJ3sRVZTSeJXiv1uINdrIOh/Ey66CR8yfpgAXbtt0
+	CBDh3uK62o40DU4rY4VMfUXQUN/pQHZA9QrCvOn/Hf7YCBqSpQtQpBl8E1QV69N4qxqQbLfhSm0y5
+	ZITu5+2Yy8Ghu3DiB2xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVc6-00000009p1q-33xa;
-	Fri, 19 Dec 2025 08:13:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vWVcD-00000009pDh-2shz;
+	Fri, 19 Dec 2025 08:13:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVbx-00000009otU-2Hvx
-	for linux-riscv@lists.infradead.org;
-	Fri, 19 Dec 2025 08:13:20 +0000
+	id 1vWVc3-00000009oyh-48TL;
+	Fri, 19 Dec 2025 08:13:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 295A24437E;
-	Fri, 19 Dec 2025 08:13:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 054CCC4CEF1;
-	Fri, 19 Dec 2025 08:13:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9C95044067;
+	Fri, 19 Dec 2025 08:13:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B07DC116D0;
+	Fri, 19 Dec 2025 08:13:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766131997;
-	bh=r0gi6Pa7RYkDOmLxwP7sAf14xxMtRN2sCVwGszpsTD8=;
+	s=k20201202; t=1766132003;
+	bh=Nh4bNCxQArVNKStHwunAd0nAadgCxl/5Y0MhYvrhhA4=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=tpE0mTgPIT9GZb7i4tCzc+1kWFUUpEt3N8OCk8gahe8sUIZU+QM5VKaOKMnGm2HF7
-	 LE/93tXVAbbpEfMRCO0TA5nXQSDsvo+kGraLsLIeHAqpCQlvysfBn716wUVfKqjO4X
-	 VqKFhvtW0qFFn8sgJQjYrzL8IDZWQJ+mvYYRgGz0/UXcYHwV38MIeAx3hbgUvd3cD0
-	 yJuls34RHzicXsTGUSjz2orXhjV/biH+Nf5ualKn0NY0nt/cx0NSFzYWgM29o+PfuG
-	 UnDHj8988x5clcZ/qiKVhVZZlGMAcbfNq+L3bnWfkn+pUL5L1iWBR5SB1SgnwjOnGS
-	 JB+jew0Fkl5Og==
+	b=KrQ01xcrbwQWKQ0F78yn78ahzA97qwvNR9Pw+Q526pBm5+X6gDYIO9CNYymLeRk0E
+	 ZeoqNVNLts2A+jqw1Ovp2vk6AC67N40g4CisyTOpmgLZDRQvLQIQ2pVjoUpj09ivIa
+	 ZcimKcA+6epLIHHxV3HeX1HwAtuKRCpw0OvtH/glgC0VDYtkFi4iWqIV4yBFZ218s9
+	 mL4+6Zqvfgf0isksNC3MpFvm5K/GsLNwiogk1x5iopcqLeLmW5vG9EJo7nunl8dFd3
+	 zerwTiyf2THJDZXOCHtaB1n9UonvrcWmWLjKN7yFolOruk8m3r1hGw9jual2pfz+eG
+	 kw8fQM72Fuiuw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3BEA0380AA50;
-	Fri, 19 Dec 2025 08:10:07 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B5B12380AA50;
+	Fri, 19 Dec 2025 08:10:13 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v8 00/15] Consolidate iommu page table implementations
- (AMD)
+Subject: Re: [patch V3 00/12] uaccess: Provide and use scopes for user masked
+ access
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176613180577.3684357.2034328332423326144.git-patchwork-notify@kernel.org>
-Date: Fri, 19 Dec 2025 08:10:05 +0000
-References: <0-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
-In-Reply-To: <0-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: linux-riscv@lists.infradead.org, alex@ghiti.fr, anup@brainfault.org,
- aou@eecs.berkeley.edu, corbet@lwn.net, iommu@lists.linux.dev,
- joro@8bytes.org, justinstitt@google.com, linux-doc@vger.kernel.org,
- linux-kselftest@vger.kernel.org, llvm@lists.linux.dev, morbo@google.com,
- nathan@kernel.org, nick.desaulniers+lkml@gmail.com, ojeda@kernel.org,
- palmer@dabbelt.com, pjw@kernel.org, robin.murphy@arm.com, shuah@kernel.org,
- suravee.suthikulpanit@amd.com, will@kernel.org, aik@amd.com,
- alejandro.j.jimenez@oracle.com, jgowans@amazon.com, kevin.tian@intel.com,
- michael.roth@amd.com, pasha.tatashin@soleen.com, patches@lists.linux.dev,
- skhawaja@google.com, vasant.hegde@amd.com
+Message-Id: <176613181252.3684357.901874888075051255.git-patchwork-notify@kernel.org>
+Date: Fri, 19 Dec 2025 08:10:12 +0000
+References: <20251017085938.150569636@linutronix.de>
+In-Reply-To: <20251017085938.150569636@linutronix.de>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lkp@intel.com, linux@armlinux.org.uk, linux-arm-kernel@lists.infradead.org,
+ torvalds@linux-foundation.org, x86@kernel.org, maddy@linux.ibm.com,
+ mpe@ellerman.id.au, npiggin@gmail.com, christophe.leroy@csgroup.eu,
+ linuxppc-dev@lists.ozlabs.org, pjw@kernel.org, palmer@dabbelt.com,
+ hca@linux.ibm.com, borntraeger@linux.ibm.com, svens@linux.ibm.com,
+ linux-s390@vger.kernel.org, mathieu.desnoyers@efficios.com,
+ andrew.cooper3@citrix.com, Julia.Lawall@inria.fr, nicolas.palix@imag.fr,
+ peterz@infradead.org, dvhart@infradead.org, dave@stgolabs.net,
+ andrealmeid@igalia.com, viro@zeniv.linux.org.uk, brauner@kernel.org,
+ jack@suse.cz, linux-fsdevel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_001317_628029_43CA3C01 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20251219_001324_844019_3D8CC475 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,52 +87,43 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Joerg Roedel <joerg.roedel@amd.com>:
+by Peter Zijlstra <peterz@infradead.org>:
 
-On Tue,  4 Nov 2025 14:29:58 -0400 you wrote:
-> [Joerg, can you put this and vtd in linux-next please. The vtd series is still
-> good at v3 thanks]
+On Fri, 17 Oct 2025 12:08:54 +0200 (CEST) you wrote:
+> This is a follow up on the V2 feedback:
 > 
-> Currently each of the iommu page table formats duplicates all of the logic
-> to maintain the page table and perform map/unmap/etc operations. There are
-> several different versions of the algorithms between all the different
-> formats. The io-pgtable system provides an interface to help isolate the
-> page table code from the iommu driver, but doesn't provide tools to
-> implement the common algorithms.
+>    https://lore.kernel.org/20250916163004.674341701@linutronix.de
+> 
+> The main concern over the V2 implementation was the requirement to have
+> the code within the macro itself.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v8,01/15] genpt: Generic Page Table base API
-    https://git.kernel.org/riscv/c/7c5b184db714
-  - [v8,02/15] genpt: Add Documentation/ files
-    https://git.kernel.org/riscv/c/ab0b572847ac
-  - [v8,03/15] iommupt: Add the basic structure of the iommu implementation
-    https://git.kernel.org/riscv/c/cdb39d918579
-  - [v8,04/15] iommupt: Add the AMD IOMMU v1 page table format
-    https://git.kernel.org/riscv/c/879ced2bab1b
-  - [v8,05/15] iommupt: Add iova_to_phys op
-    https://git.kernel.org/riscv/c/9d4c274cd7d5
-  - [v8,06/15] iommupt: Add unmap_pages op
-    https://git.kernel.org/riscv/c/7c53f4238aa8
-  - [v8,07/15] iommupt: Add map_pages op
-    https://git.kernel.org/riscv/c/dcd6a011a8d5
-  - [v8,08/15] iommupt: Add read_and_clear_dirty op
-    https://git.kernel.org/riscv/c/4a00f9434891
-  - [v8,09/15] iommupt: Add a kunit test for Generic Page Table
-    https://git.kernel.org/riscv/c/1dd4187f53c3
-  - [v8,10/15] iommupt: Add a mock pagetable format for iommufd selftest to use
-    https://git.kernel.org/riscv/c/e5359dcc617a
-  - [v8,11/15] iommufd: Change the selftest to use iommupt instead of xarray
-    https://git.kernel.org/riscv/c/e93d5945ed5b
-  - [v8,12/15] iommupt: Add the x86 64 bit page table format
-    https://git.kernel.org/riscv/c/aef5de756ea8
-  - [v8,13/15] iommu/amd: Use the generic iommu page table
+  - [V3,01/12] ARM: uaccess: Implement missing __get_user_asm_dword()
     (no matching commit)
-  - [v8,14/15] iommu/amd: Remove AMD io_pgtable support
-    https://git.kernel.org/riscv/c/2fdf6db436e3
-  - [v8,15/15] iommupt: Add a kunit test for the IOMMU implementation
-    https://git.kernel.org/riscv/c/bc5233c0904e
+  - [V3,02/12] uaccess: Provide ASM GOTO safe wrappers for unsafe_*_user()
+    (no matching commit)
+  - [V3,03/12] x86/uaccess: Use unsafe wrappers for ASM GOTO
+    (no matching commit)
+  - [V3,04/12] powerpc/uaccess: Use unsafe wrappers for ASM GOTO
+    (no matching commit)
+  - [V3,05/12] riscv/uaccess: Use unsafe wrappers for ASM GOTO
+    https://git.kernel.org/riscv/c/0988ea18c624
+  - [V3,06/12] s390/uaccess: Use unsafe wrappers for ASM GOTO
+    (no matching commit)
+  - [V3,07/12] uaccess: Provide scoped masked user access regions
+    (no matching commit)
+  - [V3,08/12] uaccess: Provide put/get_user_masked()
+    (no matching commit)
+  - [V3,09/12,RFC] coccinelle: misc: Add scoped_masked_$MODE_access() checker script
+    (no matching commit)
+  - [V3,10/12] futex: Convert to scoped masked user access
+    (no matching commit)
+  - [V3,11/12] x86/futex: Convert to scoped masked user access
+    (no matching commit)
+  - [V3,12/12] select: Convert to scoped masked user access
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
