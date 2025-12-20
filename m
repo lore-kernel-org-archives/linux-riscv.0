@@ -4,71 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9991EE668B4
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Dec 2025 16:34:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 677C8E668B1
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Dec 2025 16:37:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=QPJeNboYmKqQxDsi1yTmupvhwG1o3rD6N2Pei4Rl1iM=; b=TD/Hh5zDHQhMe1
-	HCu7zZaGBC2jgwAGiLJDP2Jsj9oIbaXnYzAq6Bn9nc+rTwzLG4tvnHbr9EXHHcvKJpGXhMOTeooWx
-	1Z1rEQ8sHz+dchuGHscgNOiV35LKAiuCPSA/1VbCO5f//rIgMBFSkx3G5I9I74U8hR4ZinukAHhr6
-	0SHhJAgAHE2q9WERSTH4/MQPvyA1VIgWy1P4g1dg9XcViY9X8vy34IDmem34KiztGrA1vzdE16Z/u
-	aqkAFaP6KX+Nt+XxEzEBU1XWniojfNwb0akQq6fapcjT9V1v0i2TeNDjNp9NsVachpGZsPBi8oHqT
-	JBmZqNzN9whEDSjgUsOA==;
+	List-Owner; bh=3cS9CspPnhr3K/VsoejAn/wiPQn0gsVUBWhufJns1QM=; b=dgUsttlNjdzaVB
+	CLW2YdpPULVaTUVpN9lKSS51US/mds3DaVX7n0xlNsxEgvP3jkVzA67eT6JfpxWp3nZTXdvfUnR9H
+	fCx72hHdAYxKTv/dSxIGU/Ev64+5m24pNtdfv2IH1Twz5c7Ra+2EYAU0TgI6+QQc4QztRUbM6T1fn
+	KW+4cWVo97ve/ZkW7x6qW+9weDPg1WiJ+xm9xCcv0qGTnhHpOoywA4VwQZ/QR6q13r6QZ0F7eq5tz
+	+rZ15I6SNAr0yijK9HB0qAh9W7Sie55oFO9H9Ywx9l39zXAVIKAIKD67n9dtVqHXL1RfWBl1ii0sa
+	fYYt7xDXPxCpBCSr7uQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWzu3-0000000BkeJ-00B1;
-	Sat, 20 Dec 2025 16:33:59 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1vWzxP-0000000Bkot-3dKo;
+	Sat, 20 Dec 2025 16:37:27 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWztz-0000000BkdJ-0ipT
+	id 1vWzxN-0000000Bko3-0YX2
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Dec 2025 16:33:57 +0000
-Received: from localhost.localdomain (unknown [223.166.92.103])
-	by APP-05 (Coremail) with SMTP id zQCowACnPRHnz0ZpnwlTAQ--.53309S2;
-	Sun, 21 Dec 2025 00:33:46 +0800 (CST)
-From: Han Gao <gaohan@iscas.ac.cn>
-To: Alex Deucher <alexander.deucher@amd.com>,
-	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org
-Cc: Han Gao <rabenda.cn@gmail.com>,
+	Sat, 20 Dec 2025 16:37:27 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-34b75f7a134so2137377a91.0
+        for <linux-riscv@lists.infradead.org>; Sat, 20 Dec 2025 08:37:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1766248644; x=1766853444; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9FCav/YO9x/c2l0kK2rjBlOI4AUzqgUWfXFrOx8/XtI=;
+        b=Ic25n0HCl+kYkNHdbsUC2MrwtwobCiixfNAWzRXwH6eyS1rY/yZ/0Citwq9oFjztPW
+         bl5AIBMMOySjVrjMFBOyYRDUTeUdSGVL28c0ThERO6fr6iPWp+Km47G5DBLSZcATpQxA
+         hJQCkQCZmmI91ujfivCmoZhtpYvgegoIwyBsIzW5G2FQy7jA4MAP70yGtemODm6qGS4M
+         FXGo+38wx3Sw+yrjqiDyyouMrNHO8dZs09U4C/kIeHfSpOrL3OxUw9dtsv6GYuOOhhM5
+         qNyzEYqH2lpKemcnoR+j2jN7K1z9VxmY8Qo9feILyw1dCIVYNua0u5Kfguh7rXqOWbSM
+         qiaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766248644; x=1766853444;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9FCav/YO9x/c2l0kK2rjBlOI4AUzqgUWfXFrOx8/XtI=;
+        b=COddr6TeXmcSdtRB/SQkWiezYLXjIl9Xnu12HkJZC+gUFYefpAW9qr730m3+iWYJo4
+         8sGeeZEU3zsf5V1FHgptyjWwqepF0KGFU5rMGAGaUX0RN3419M21i4sl8BWmwV/dhWfI
+         MjL94IA9thU35RoBPgCy4KoLC2yYr2rczzL43PA4zvQvvnGM8UGjmELSNN0m05J3lCMA
+         Hr3VhtUj5gVwVsCVjllaabMccyrpFeuscgaSxGXluxLqS9dDcu5paJ3+LxaLTRzaov/E
+         7LiFv8ZKvD2p7wcaBcMiItyLhPCisd7fmIr3Bdp5itRN/vNzB2WdDXewlJ6BIx6vGXfM
+         +yGg==
+X-Forwarded-Encrypted: i=1; AJvYcCXu5mkVEMdxWqd7EIDJ3dZdCSkqVFNLFlPnkLvxmNWOgfBGe8o2aDhX0vnBg6n5ncTbGua0uNtbiH7EMQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQ3Q7ful0hloejU96EdpVDMrHJJgkMoMqWsL8sAQevOzh5z+rK
+	cjjHytxVa1O5ZG17UZF34s6CP6tt257L9oTc8IRJFXEcgQISWmOW3ModdYnzM/qYvP8=
+X-Gm-Gg: AY/fxX6GKNpoLWaD/YvgioW0m3k2Qdw4Cq9NyuDEIWY7VEr2+aZcdHU9lgEzFi6Z7a0
+	UW1azzULISgV4fMyhsm0wGh+YFXCW3kRXIVya/9p/JeZaqqmDnOTBPHuEmRPjFEWMVdrg6r7Kk9
+	eUPL9iFwSsxs5u91wMtrveci0HN0QggsIF8pza5hc6EZUMTO2D85AT1VHzqIuWlBdV0yU5NHvNS
+	0MMaKE4RtVI0g3LTTPo+zNpD3nt6ogUGCmMfwBNoX9PgRsuVFM/kt5IubS3t6Jus7Yb0q70rA77
+	fEYM1MdKuK2FIFAik5fuJqmnJZ9IdP4cbrf2dsjR0NKDkjzcpaqNVOY5JQFL1jj29yJxAHPnt+c
+	DD0Wp3NezobknYaZUgccBVy45pDpPMKdFKUI20vDN0KK7eJtXjCY1+ni+JPBPqfd0W33tt2Epus
+	O1Mymm8ppZfLylhoCopnZrNXnufhw1cHDagEotHOHKiOsSPgOvb4e6
+X-Google-Smtp-Source: AGHT+IEJ3D8d9FhHHj3AGrLqpCRsqvYXaepmMKWkAaQAZJhz7+7JujmZvyMN56HD4piBnaPs2x/1og==
+X-Received: by 2002:a17:90b:51c8:b0:340:bb64:c5e with SMTP id 98e67ed59e1d1-34e9212a206mr5848851a91.14.1766248644122;
+        Sat, 20 Dec 2025 08:37:24 -0800 (PST)
+Received: from J9GPGXL7NT.bytedance.net ([139.177.225.252])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34e70dbc9d6sm8368055a91.10.2025.12.20.08.37.19
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 20 Dec 2025 08:37:23 -0800 (PST)
+From: Xu Lu <luxu.kernel@bytedance.com>
+To: anup@brainfault.org,
+	atish.patra@linux.dev,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	tglx@linutronix.de
+Cc: kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
-	sophgo@lists.linux.dev,
-	Han Gao <gaohan@iscas.ac.cn>
-Subject: [PATCH] drm/radeon: bypass no_64bit_msi with new msi64 parameter
-Date: Sun, 21 Dec 2025 00:33:38 +0800
-Message-ID: <20251220163338.3852399-1-gaohan@iscas.ac.cn>
-X-Mailer: git-send-email 2.47.3
+	linux-kernel@vger.kernel.org,
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: [PATCH v3] irqchip/riscv-imsic: Adjust the number of available guest irq files
+Date: Sun, 21 Dec 2025 00:37:13 +0800
+Message-ID: <20251220163713.34040-1-luxu.kernel@bytedance.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowACnPRHnz0ZpnwlTAQ--.53309S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7try8AF4fCrW5JF15Ar4kXrb_yoW8uw4UpF
-	45WF9Iqr9xtasIg3y7XFW7XF15Aa18Way8Wr4DG3sxuw45AryUGFy3Z3W3JrykXrn7Xry2
-	qrn7G3yrur4FyrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
-X-Originating-IP: [223.166.92.103]
-X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiDAUCDGlGuzwaKwAAse
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251220_083355_565885_95B7F278 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20251220_083725_170788_2860770A 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,58 +106,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sophgo SG2042's MSI driver lacks 32-bit MSI support.
-Added a msi64 parameter to skip the limitation and force 64-bit MSI.
+During initialization, kernel maps the MMIO resources of IMSIC, which is
+parsed from ACPI or DTS and may not strictly contains all guest
+interrupt files. Page fault happens when KVM wrongly allocates an
+unmapped guest interrupt file and writes it.
 
-Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+Thus, during initialization, we calculate the number of available guest
+interrupt files according to MMIO resources and constrain the number of
+guest interrupt files that can be allocated by KVM.
+
+Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
 ---
- drivers/gpu/drm/radeon/radeon.h         | 1 +
- drivers/gpu/drm/radeon/radeon_drv.c     | 4 ++++
- drivers/gpu/drm/radeon/radeon_irq_kms.c | 2 +-
- 3 files changed, 6 insertions(+), 1 deletion(-)
+ arch/riscv/kvm/aia.c                    | 2 +-
+ drivers/irqchip/irq-riscv-imsic-state.c | 7 ++++++-
+ include/linux/irqchip/riscv-imsic.h     | 3 +++
+ 3 files changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/radeon/radeon.h b/drivers/gpu/drm/radeon/radeon.h
-index 527b9d19d730..7207e3156c28 100644
---- a/drivers/gpu/drm/radeon/radeon.h
-+++ b/drivers/gpu/drm/radeon/radeon.h
-@@ -122,6 +122,7 @@ extern int radeon_uvd;
- extern int radeon_vce;
- extern int radeon_si_support;
- extern int radeon_cik_support;
-+extern int radeon_msi64;
- 
- /*
-  * Copy from radeon_drv.h so we don't have to include both and have conflicting
-diff --git a/drivers/gpu/drm/radeon/radeon_drv.c b/drivers/gpu/drm/radeon/radeon_drv.c
-index 87fd6255c114..53af28494c03 100644
---- a/drivers/gpu/drm/radeon/radeon_drv.c
-+++ b/drivers/gpu/drm/radeon/radeon_drv.c
-@@ -249,6 +249,10 @@ int radeon_cik_support = -1;
- MODULE_PARM_DESC(cik_support, "CIK support (1 = enabled, 0 = disabled, -1 = default)");
- module_param_named(cik_support, radeon_cik_support, int, 0444);
- 
-+int radeon_msi64;
-+MODULE_PARM_DESC(msi64, "MSI64 support (1 = enabled, 0 = disabled)");
-+module_param_named(msi64, radeon_msi64, int, 0444);
-+
- static const struct pci_device_id pciidlist[] = {
- 	radeon_PCI_IDS
- };
-diff --git a/drivers/gpu/drm/radeon/radeon_irq_kms.c b/drivers/gpu/drm/radeon/radeon_irq_kms.c
-index 9961251b44ba..62eb5a6968ff 100644
---- a/drivers/gpu/drm/radeon/radeon_irq_kms.c
-+++ b/drivers/gpu/drm/radeon/radeon_irq_kms.c
-@@ -250,7 +250,7 @@ static bool radeon_msi_ok(struct radeon_device *rdev)
- 	 * of address for "64-bit" MSIs which breaks on some platforms, notably
- 	 * IBM POWER servers, so we limit them
+diff --git a/arch/riscv/kvm/aia.c b/arch/riscv/kvm/aia.c
+index dad3181856600..cac3c2b51d724 100644
+--- a/arch/riscv/kvm/aia.c
++++ b/arch/riscv/kvm/aia.c
+@@ -630,7 +630,7 @@ int kvm_riscv_aia_init(void)
  	 */
--	if (rdev->family < CHIP_BONAIRE) {
-+	if (rdev->family < CHIP_BONAIRE && !radeon_msi64) {
- 		dev_info(rdev->dev, "radeon: MSI limited to 32-bit\n");
- 		rdev->pdev->no_64bit_msi = 1;
+ 	if (gc)
+ 		kvm_riscv_aia_nr_hgei = min((ulong)kvm_riscv_aia_nr_hgei,
+-					    BIT(gc->guest_index_bits) - 1);
++					    gc->nr_guest_files);
+ 	else
+ 		kvm_riscv_aia_nr_hgei = 0;
+ 
+diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
+index dc95ad856d80a..1e982ce024a47 100644
+--- a/drivers/irqchip/irq-riscv-imsic-state.c
++++ b/drivers/irqchip/irq-riscv-imsic-state.c
+@@ -794,7 +794,7 @@ static int __init imsic_parse_fwnode(struct fwnode_handle *fwnode,
+ 
+ int __init imsic_setup_state(struct fwnode_handle *fwnode, void *opaque)
+ {
+-	u32 i, j, index, nr_parent_irqs, nr_mmios, nr_handlers = 0;
++	u32 i, j, index, nr_parent_irqs, nr_mmios, nr_guest_files, nr_handlers = 0;
+ 	struct imsic_global_config *global;
+ 	struct imsic_local_config *local;
+ 	void __iomem **mmios_va = NULL;
+@@ -888,6 +888,7 @@ int __init imsic_setup_state(struct fwnode_handle *fwnode, void *opaque)
  	}
+ 
+ 	/* Configure handlers for target CPUs */
++	global->nr_guest_files = BIT(global->guest_index_bits) - 1;
+ 	for (i = 0; i < nr_parent_irqs; i++) {
+ 		rc = imsic_get_parent_hartid(fwnode, i, &hartid);
+ 		if (rc) {
+@@ -928,6 +929,10 @@ int __init imsic_setup_state(struct fwnode_handle *fwnode, void *opaque)
+ 		local->msi_pa = mmios[index].start + reloff;
+ 		local->msi_va = mmios_va[index] + reloff;
+ 
++		nr_guest_files = (resource_size(&mmios[index]) - reloff) / IMSIC_MMIO_PAGE_SZ - 1;
++		global->nr_guest_files = global->nr_guest_files > nr_guest_files ? nr_guest_files :
++					 global->nr_guest_files;
++
+ 		nr_handlers++;
+ 	}
+ 
+diff --git a/include/linux/irqchip/riscv-imsic.h b/include/linux/irqchip/riscv-imsic.h
+index 7494952c55187..43aed52385008 100644
+--- a/include/linux/irqchip/riscv-imsic.h
++++ b/include/linux/irqchip/riscv-imsic.h
+@@ -69,6 +69,9 @@ struct imsic_global_config {
+ 	/* Number of guest interrupt identities */
+ 	u32					nr_guest_ids;
+ 
++	/* Number of guest interrupt files per core */
++	u32					nr_guest_files;
++
+ 	/* Per-CPU IMSIC addresses */
+ 	struct imsic_local_config __percpu	*local;
+ };
 -- 
-2.47.3
+2.20.1
 
 
 _______________________________________________
