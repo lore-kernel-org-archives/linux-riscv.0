@@ -4,44 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20325E668AE
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Dec 2025 10:16:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3503DE668B3
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Dec 2025 10:16:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KCRaCr6NzrfCvbXKdZQicijvCYArWy/A1YEOsLB8Fe0=; b=lj8zEihn239biU
-	x0qkSCSJMw607gpVL5AETqrOQAQsw/jevApE7QM/l0rJ+NzOBISyklbY8KFcHxuKwPdUnywmaKQr8
-	i45DkzQPokEna0qhGSTKarN61GtecvQ4RcRabia5PwkXTxrQGssh6jhPk/DhiPO5zlJ8JaEDP1wqT
-	Y+OiJjybqZd4DpkRkIN3+/+YXwx+wmlLpyiYSZnpZrriWMf3VtvJP+eKmw/NotMQGnbKh+iVwf7sA
-	f7BkQBmYcV2wcsxVuJxhA8V2lSWBwNtrsSnwo2eEi29wfO2wrmzdDVlwJDquAM/OYR18lPmNrNFJF
-	iqL8aaiRrRytAC5uCN/w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ws812lW4LqqNaQAQ1iGaT5PtFtfOzI+YqgIA04B1ywc=; b=eiSZaVX8d8yU0y
+	hLH/Iysk4gujVGOYjVgMB7b4FUuNv/GdgaSdPiFWgMzT8Lv2lyz2idRXawPOVEU5atuUYD2KhYVPJ
+	bBsp5yf2JcNGR2bzkesfQs5gMKtIQG/M8S8aULKrOBykGWEEKvSBWJAxXaQly4E+JEv08FACheJSI
+	v40Iajom1ig7QNkrI+yjg5iVz4Ryl9vpHdstxNBaTwZnFNqlhZ0AIczQpcjtGB3RIiGc0A+EX2DEs
+	MXD6bUd7AhzwZH+XvleufjG3G7lJzflV538aVWZ2SBbo48F1IY/6s5yLeeZPYEdjUpjrwuZyaLlOP
+	u5HbVxo4LPTNodGQqG+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWu09-0000000BUrJ-3MYt;
-	Sat, 20 Dec 2025 10:15:53 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1vWtzw-0000000BUoY-3TQt;
+	Sat, 20 Dec 2025 10:15:40 +0000
+Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWu05-0000000BUqk-3fMY
+	id 1vWtzu-0000000BUo6-2GcG
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Dec 2025 10:15:51 +0000
+	Sat, 20 Dec 2025 10:15:39 +0000
 Received: from [127.0.0.1] (unknown [116.232.18.222])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 1DE42341E7C;
-	Sat, 20 Dec 2025 10:15:44 +0000 (UTC)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 83605340DD9;
+	Sat, 20 Dec 2025 10:15:30 +0000 (UTC)
 From: Yixun Lan <dlan@gentoo.org>
-Date: Sat, 20 Dec 2025 18:14:55 +0800
-Subject: [PATCH RFC 3/3] pinctrl: spacemit: k3: adjust drive strength and
- schmitter trigger
+Subject: [PATCH RFC 0/3] pinctrl: spacemit: add support for K3 SoC
+Date: Sat, 20 Dec 2025 18:14:52 +0800
+Message-Id: <20251220-02-k3-pinctrl-v1-0-f6f4aea60abf@gentoo.org>
 MIME-Version: 1.0
-Message-Id: <20251220-02-k3-pinctrl-v1-3-f6f4aea60abf@gentoo.org>
-References: <20251220-02-k3-pinctrl-v1-0-f6f4aea60abf@gentoo.org>
-In-Reply-To: <20251220-02-k3-pinctrl-v1-0-f6f4aea60abf@gentoo.org>
+X-B4-Tracking: v=1; b=H4sIAB13RmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDQyNTXQMj3Wxj3YLMvOSSohxdc2OL5KSUlKRUE8sUJaCegqLUtMwKsHn
+ RSkFuzkqxtbUAdHHQYmQAAAA=
+X-Change-ID: 20251125-02-k3-pinctrl-738cbddbe49d
 To: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>
@@ -50,27 +51,28 @@ Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
  linux-kernel@vger.kernel.org, Yixun Lan <dlan@gentoo.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10394; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=JrqpSztMIibxE6cOPrU6XYfvaR2rsM4120PwejlzsPk=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpRnc+t23jSTJSmRIF7s0ok81iXPsLfQkb+GM9M
- BsC5fqHfD+JAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaUZ3PhsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1342; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=CWrajBOGSouuszgbzBF2LrNrwqQq9PQ6TusWyaPtx+Y=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpRnc1IYiyHDAw0s9avPJXNC57Vz9j5yjYhkvmp
+ r8H7jw7N8eJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaUZ3NRsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+3N/w/+N3ibpi9/Ma9fAofpeYYYn5BsvB6+joE/sAWxkbJ4YCM/N6v2Nhoz+
- sE6DWG21ndwFGbPkFHG1UFAN9QqjN/+XxcZQfMveb5SuQaB5g7vtE7i/MWLRYuJxJ1MAPvCCRDl
- D/r6OlcglPuof3GkGi3GGKnIEQTlmeDpWeb/iAnrehknx5UpVmlVVgy9f8rPkMuI/GRrm1MB2ni
- haD7bbxgf+UwEdsM1TKQsEqu3ZLHLr4o1HVd0lvcFSPpZVSh6Mo4ORfopaEOnBQ1QYYaFKajNa1
- nwoPNZZ3wishFxdwzh68kUVNrCunscR6V61PBZsvEeJ6a2xtiuN3bBbkB3mwH0FluYVNZD+agIS
- fzDF9pbRoIZshQAfmbZiEZkNb8RGtbHQhsjoI/oLcSiSqsT1ezUrk/O/p5c03FeWf3KLLejnLh9
- 4ZrrX4PGLTYmH7KFb9ix2tEqDrrJIMZz7YHlxmvZnA4TfCvPzt6cu2ikJPTMl+PVZ/ZB+SzN2uL
- 4nHMYTNrRJ9Uvhmql7ieMKWJ2fwpRPsZpnbzfRaMjiNTcCH0qpDBronwo1lAQKC/UE2N8oIfDMw
- GWWYIvDvuKopq8UfoSfnTz6TuqtA5XRGOhY0oSExys6HAK4IhGGcrRRI7z6iEBpLwIZqddSZ81K
- JeDDYO+JJnPDcAGIw3Dq05fWoB/wRI=
+ QACgkQMarqR1lNu+39KxAAlGg9cKah8u40Gq/cIw9w78SLxP9OzFytJvedh837+XVanDD32avjW
+ buvoT150qcLlm/XppSiVaYU11T2arSyhy6A1BtTCsHSm9SPXqoOqd31+Te248g+KAmnUwWylO/g
+ M7e09nOx+a4qUns1z7C2J69egEtmyGIUPJrz0Ocz0V1ysKCHIlWK8ey8JAWdDbovR6iwXNBbmDO
+ GsMivrpuazzpGhWbyuDtyjSfGfbkp+MYf3576jSQjSX3hIl4VuOk5dG/aS5vQxELJJh64mE/rdw
+ UvkaV/cV1fC1OmGL1WluFO1zZu4okjFo6Gep2+WLAxnIGgl4vgntPhMHOn/YqnExjXtPIrs0QOi
+ RJZsp421KshqtsT9h+E+5y/K4zQLr5NxvtFrtViBDn624xb4VDplHuAQnU26CERvbG6AYjA8E8j
+ 0EKDAgFCRstJOqiky4dDMQT9B3XIcMz1fnXKOzRqFuGUayEOXZnDhuSOrUAkppsQLm5ZViiCA6T
+ H26tZGIcvkpDOfwEmGuksepw/OR+LXeETbSgZoX9Il57K+qsb/UTqHGjLnNgWSnt7B5HUVgr4VM
+ 8R9obMqh/nDaLNEbyQGgbnlWDXJq5E3DAQzEobe378ksmT+vqtPsh0Eblpo71gaW0+nl3yPx0Nr
+ 2/tucQGJXRLufw1NVj3xcAeP+rQj1g=
 X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251220_021549_949453_FF08DA41 
-X-CRM114-Status: GOOD (  17.42  )
+X-CRM114-CacheID: sfid-20251220_021538_614124_F7267949 
+X-CRM114-Status: UNSURE (   7.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,322 +89,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-K3 SoC expand drive strength to 4 bits which support even larger
-settings table comparing to old SoC generation. Also schmitter trigger
-setting is changed to 1 bit.
+This series attempt to add pinctrl support for SpacemiT K3 SoC,
+
+I'm marking this series as RFC for now, as the driver is verified on K1
+SoC platform, but only tested on K3 FPGA, since K3 production SoC isn't ready.
+
+The K3 pinctrl IP shares almost same logic with previous K1 SoC generation,
+but has different register offset and pin configuration, I've introduced
+a pin_to_offset() function to handle the difference of register offset.
+for the drive strength and schmitter trigger settings, they are also changed.
+
+The patch #1 try to add pin support which should handle pin mux, while patch #2
+adjust drive strength and schmitter trigger settings accordingly for new SoC.
 
 Signed-off-by: Yixun Lan <dlan@gentoo.org>
 ---
- drivers/pinctrl/spacemit/pinctrl-k1.c | 163 ++++++++++++++++++++++++----------
- 1 file changed, 116 insertions(+), 47 deletions(-)
+Yixun Lan (3):
+      dt-bindings: pinctrl: spacemit: add K3 SoC support
+      pinctrl: spacemit: k3: add initial pin support
+      pinctrl: spacemit: k3: adjust drive strength and schmitter trigger
 
-diff --git a/drivers/pinctrl/spacemit/pinctrl-k1.c b/drivers/pinctrl/spacemit/pinctrl-k1.c
-index 441817f539e3..8ca247fb8ba0 100644
---- a/drivers/pinctrl/spacemit/pinctrl-k1.c
-+++ b/drivers/pinctrl/spacemit/pinctrl-k1.c
-@@ -24,11 +24,12 @@
- #include "pinctrl-k1.h"
- 
- /*
-- * +---------+----------+-----------+--------+--------+----------+--------+
-- * |   pull  |   drive  | schmitter |  slew  |  edge  |  strong  |   mux  |
-- * | up/down | strength |  trigger  |  rate  | detect |   pull   |  mode  |
-- * +---------+----------+-----------+--------+--------+----------+--------+
-- *   3 bits     3 bits     2 bits     1 bit    3 bits     1 bit    3 bits
-+ *     |   pull  |   drive  | schmitter | slew  |  edge  | strong |   mux  |
-+ * SoC | up/down | strength |  trigger  | rate  | detect |  pull  |  mode  |
-+ *-----+---------+----------+-----------+-------+--------+--------+--------+
-+ * K1  | 3 bits  |  3 bits  |   2 bits  | 1 bit | 3 bits |  1 bit | 3 bits |
-+ *-----+---------+----------+-----------+-------+--------+--------+--------+
-+ * K3  | 3 bits  |  4 bits  |   1 bits  | 1 bit | 3 bits |  1 bit | 3 bits |
-  */
- 
- #define PAD_MUX			GENMASK(2, 0)
-@@ -38,12 +39,29 @@
- #define PAD_EDGE_CLEAR		BIT(6)
- #define PAD_SLEW_RATE		GENMASK(12, 11)
- #define PAD_SLEW_RATE_EN	BIT(7)
--#define PAD_SCHMITT		GENMASK(9, 8)
--#define PAD_DRIVE		GENMASK(12, 10)
-+#define PAD_SCHMITT_K1		GENMASK(9, 8)
-+#define PAD_DRIVE_K1		GENMASK(12, 10)
-+#define PAD_SCHMITT_K3		BIT(8)
-+#define PAD_DRIVE_K3		GENMASK(12, 9)
- #define PAD_PULLDOWN		BIT(13)
- #define PAD_PULLUP		BIT(14)
- #define PAD_PULL_EN		BIT(15)
- 
-+struct spacemit_pin_drv_strength {
-+	u8		val;
-+	u32		mA;
-+};
-+
-+struct spacemit_pinctrl_dconf {
-+	u64				schmitt_mask;
-+	u64				drive_mask;
-+
-+	struct spacemit_pin_drv_strength *ds_1v8_tbl;
-+	size_t				 ds_1v8_tbl_num;
-+	struct spacemit_pin_drv_strength *ds_3v3_tbl;
-+	size_t				 ds_3v3_tbl_num;
-+};
-+
- struct spacemit_pin {
- 	u16				pin;
- 	u16				flags;
-@@ -67,6 +85,7 @@ struct spacemit_pinctrl_data {
- 	const struct spacemit_pin	*data;
- 	u16				npins;
- 	unsigned int			(*pin_to_offset)(unsigned int pin);
-+	const struct spacemit_pinctrl_dconf	*dconf;
- };
- 
- struct spacemit_pin_mux_config {
-@@ -74,11 +93,6 @@ struct spacemit_pin_mux_config {
- 	u32				config;
- };
- 
--struct spacemit_pin_drv_strength {
--	u8		val;
--	u32		mA;
--};
--
- /* map pin id to pinctrl register offset, refer MFPR definition */
- static unsigned int spacemit_k1_pin_to_offset(unsigned int pin)
- {
-@@ -193,23 +207,70 @@ static void spacemit_pctrl_dbg_show(struct pinctrl_dev *pctldev,
- 	seq_printf(seq, "mux: %ld reg: 0x%04x", (value & PAD_MUX), value);
- }
- 
--/* use IO high level output current as the table */
--static struct spacemit_pin_drv_strength spacemit_ds_1v8_tbl[4] = {
--	{ 0, 11 },
--	{ 2, 21 },
--	{ 4, 32 },
--	{ 6, 42 },
-+static const struct spacemit_pinctrl_dconf k1_drive_conf = {
-+	.drive_mask = PAD_DRIVE_K1,
-+	.schmitt_mask = PAD_SCHMITT_K1,
-+	.ds_1v8_tbl = (struct spacemit_pin_drv_strength[]) {
-+		{ 0, 11 },
-+		{ 2, 21 },
-+		{ 4, 32 },
-+		{ 6, 42 },
-+	},
-+	.ds_1v8_tbl_num = 4,
-+	.ds_3v3_tbl = (struct spacemit_pin_drv_strength[]) {
-+		{ 0,  7 },
-+		{ 2, 10 },
-+		{ 4, 13 },
-+		{ 6, 16 },
-+		{ 1, 19 },
-+		{ 3, 23 },
-+		{ 5, 26 },
-+		{ 7, 29 },
-+	},
-+	.ds_3v3_tbl_num = 8,
- };
- 
--static struct spacemit_pin_drv_strength spacemit_ds_3v3_tbl[8] = {
--	{ 0,  7 },
--	{ 2, 10 },
--	{ 4, 13 },
--	{ 6, 16 },
--	{ 1, 19 },
--	{ 3, 23 },
--	{ 5, 26 },
--	{ 7, 29 },
-+static const struct spacemit_pinctrl_dconf k3_drive_conf = {
-+	.drive_mask = PAD_DRIVE_K3,
-+	.schmitt_mask = PAD_SCHMITT_K3,
-+	.ds_1v8_tbl = (struct spacemit_pin_drv_strength[]) {
-+		{ 0,  2 },
-+		{ 1,  4 },
-+		{ 2,  6 },
-+		{ 3,  7 },
-+		{ 4,  9 },
-+		{ 5,  11 },
-+		{ 6,  13 },
-+		{ 7,  14 },
-+		{ 8,  21 },
-+		{ 9,  23 },
-+		{ 10, 25 },
-+		{ 11, 26 },
-+		{ 12, 28 },
-+		{ 13, 30 },
-+		{ 14, 31 },
-+		{ 15, 33 },
-+	},
-+	.ds_1v8_tbl_num = 16,
-+	.ds_3v3_tbl = (struct spacemit_pin_drv_strength[]) {
-+		{ 0,  3 },
-+		{ 1,  5 },
-+		{ 2,  7 },
-+		{ 3,  9 },
-+		{ 4,  11 },
-+		{ 5,  13 },
-+		{ 6,  15 },
-+		{ 7,  17 },
-+		{ 8,  25 },
-+		{ 9,  27 },
-+		{ 10, 29 },
-+		{ 11, 31 },
-+		{ 12, 33 },
-+		{ 13, 35 },
-+		{ 14, 37 },
-+		{ 15, 38 },
-+	},
-+	.ds_3v3_tbl_num = 16,
- };
- 
- static inline u8 spacemit_get_ds_value(struct spacemit_pin_drv_strength *tbl,
-@@ -237,16 +298,17 @@ static inline u32 spacemit_get_ds_mA(struct spacemit_pin_drv_strength *tbl,
- }
- 
- static inline u8 spacemit_get_driver_strength(enum spacemit_pin_io_type type,
-+					      const struct spacemit_pinctrl_dconf *dconf,
- 					      u32 mA)
- {
- 	switch (type) {
- 	case IO_TYPE_1V8:
--		return spacemit_get_ds_value(spacemit_ds_1v8_tbl,
--					     ARRAY_SIZE(spacemit_ds_1v8_tbl),
-+		return spacemit_get_ds_value(dconf->ds_1v8_tbl,
-+					     dconf->ds_1v8_tbl_num,
- 					     mA);
- 	case IO_TYPE_3V3:
--		return spacemit_get_ds_value(spacemit_ds_3v3_tbl,
--					     ARRAY_SIZE(spacemit_ds_3v3_tbl),
-+		return spacemit_get_ds_value(dconf->ds_3v3_tbl,
-+					     dconf->ds_3v3_tbl_num,
- 					     mA);
- 	default:
- 		return 0;
-@@ -254,16 +316,17 @@ static inline u8 spacemit_get_driver_strength(enum spacemit_pin_io_type type,
- }
- 
- static inline u32 spacemit_get_drive_strength_mA(enum spacemit_pin_io_type type,
-+						 const struct spacemit_pinctrl_dconf *dconf,
- 						 u32 value)
- {
- 	switch (type) {
- 	case IO_TYPE_1V8:
--		return spacemit_get_ds_mA(spacemit_ds_1v8_tbl,
--					  ARRAY_SIZE(spacemit_ds_1v8_tbl),
--					  value & 0x6);
-+		return spacemit_get_ds_mA(dconf->ds_1v8_tbl,
-+					  dconf->ds_1v8_tbl_num,
-+					  value);
- 	case IO_TYPE_3V3:
--		return spacemit_get_ds_mA(spacemit_ds_3v3_tbl,
--					  ARRAY_SIZE(spacemit_ds_3v3_tbl),
-+		return spacemit_get_ds_mA(dconf->ds_3v3_tbl,
-+					  dconf->ds_3v3_tbl_num,
- 					  value);
- 	default:
- 		return 0;
-@@ -510,6 +573,7 @@ static int spacemit_pinconf_get(struct pinctrl_dev *pctldev,
- #define ENABLE_DRV_STRENGTH	BIT(1)
- #define ENABLE_SLEW_RATE	BIT(2)
- static int spacemit_pinconf_generate_config(const struct spacemit_pin *spin,
-+					    const struct spacemit_pinctrl_dconf *dconf,
- 					    unsigned long *configs,
- 					    unsigned int num_configs,
- 					    u32 *value)
-@@ -547,8 +611,8 @@ static int spacemit_pinconf_generate_config(const struct spacemit_pin *spin,
- 			drv_strength = arg;
- 			break;
- 		case PIN_CONFIG_INPUT_SCHMITT:
--			v &= ~PAD_SCHMITT;
--			v |= FIELD_PREP(PAD_SCHMITT, arg);
-+			v &= ~dconf->schmitt_mask;
-+			v |= (arg << __ffs(dconf->schmitt_mask)) & dconf->schmitt_mask;
- 			break;
- 		case PIN_CONFIG_POWER_SOURCE:
- 			voltage = arg;
-@@ -584,10 +648,10 @@ static int spacemit_pinconf_generate_config(const struct spacemit_pin *spin,
- 			}
- 		}
- 
--		val = spacemit_get_driver_strength(type, drv_strength);
-+		val = spacemit_get_driver_strength(type, dconf, drv_strength);
- 
--		v &= ~PAD_DRIVE;
--		v |= FIELD_PREP(PAD_DRIVE, val);
-+		v &= ~dconf->drive_mask;
-+		v |= (arg << __ffs(dconf->drive_mask)) & dconf->drive_mask;
- 	}
- 
- 	if (flag & ENABLE_SLEW_RATE) {
-@@ -637,7 +701,8 @@ static int spacemit_pinconf_set(struct pinctrl_dev *pctldev,
- 	const struct spacemit_pin *spin = spacemit_get_pin(pctrl, pin);
- 	u32 value;
- 
--	if (spacemit_pinconf_generate_config(spin, configs, num_configs, &value))
-+	if (spacemit_pinconf_generate_config(spin, pctrl->data->dconf,
-+					     configs, num_configs, &value))
- 		return -EINVAL;
- 
- 	return spacemit_pin_set_config(pctrl, pin, value);
-@@ -659,7 +724,8 @@ static int spacemit_pinconf_group_set(struct pinctrl_dev *pctldev,
- 		return -EINVAL;
- 
- 	spin = spacemit_get_pin(pctrl, group->grp.pins[0]);
--	if (spacemit_pinconf_generate_config(spin, configs, num_configs, &value))
-+	if (spacemit_pinconf_generate_config(spin, pctrl->data->dconf,
-+					     configs, num_configs, &value))
- 		return -EINVAL;
- 
- 	for (i = 0; i < group->grp.npins; i++)
-@@ -693,6 +759,7 @@ static void spacemit_pinconf_dbg_show(struct pinctrl_dev *pctldev,
- 				      struct seq_file *seq, unsigned int pin)
- {
- 	struct spacemit_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
-+	const struct spacemit_pinctrl_dconf *dconf = pctrl->data->dconf;
- 	const struct spacemit_pin *spin = spacemit_get_pin(pctrl, pin);
- 	enum spacemit_pin_io_type type = spacemit_to_pin_io_type(spin);
- 	void __iomem *reg = spacemit_pin_to_reg(pctrl, pin);
-@@ -703,17 +770,17 @@ static void spacemit_pinconf_dbg_show(struct pinctrl_dev *pctldev,
- 
- 	seq_printf(seq, ", io type (%s)", io_type_desc[type]);
- 
--	tmp = FIELD_GET(PAD_DRIVE, value);
-+	tmp = (value & dconf->drive_mask) >> __ffs(dconf->drive_mask);
- 	if (type == IO_TYPE_1V8 || type == IO_TYPE_3V3) {
--		mA = spacemit_get_drive_strength_mA(type, tmp);
-+		mA = spacemit_get_drive_strength_mA(type, dconf, tmp);
- 		seq_printf(seq, ", drive strength (%d mA)", mA);
- 	}
- 
- 	/* drive strength depend on power source, so show all values */
- 	if (type == IO_TYPE_EXTERNAL)
- 		seq_printf(seq, ", drive strength (%d or %d mA)",
--			   spacemit_get_drive_strength_mA(IO_TYPE_1V8, tmp),
--			   spacemit_get_drive_strength_mA(IO_TYPE_3V3, tmp));
-+			   spacemit_get_drive_strength_mA(IO_TYPE_1V8, dconf, tmp),
-+			   spacemit_get_drive_strength_mA(IO_TYPE_3V3, dconf, tmp));
- 
- 	seq_printf(seq, ", register (0x%04x)", value);
- }
-@@ -1051,6 +1118,7 @@ static const struct spacemit_pinctrl_data k1_pinctrl_data = {
- 	.data = k1_pin_data,
- 	.npins = ARRAY_SIZE(k1_pin_desc),
- 	.pin_to_offset = spacemit_k1_pin_to_offset,
-+	.dconf = &k1_drive_conf,
- };
- 
- static const struct pinctrl_pin_desc k3_pin_desc[] = {
-@@ -1387,6 +1455,7 @@ static const struct spacemit_pinctrl_data k3_pinctrl_data = {
- 	.data = k3_pin_data,
- 	.npins = ARRAY_SIZE(k3_pin_desc),
- 	.pin_to_offset = spacemit_k3_pin_to_offset,
-+	.dconf = &k3_drive_conf,
- };
- 
- static const struct of_device_id k1_pinctrl_ids[] = {
+ .../bindings/pinctrl/spacemit,k1-pinctrl.yaml      |   4 +-
+ drivers/pinctrl/spacemit/Kconfig                   |   4 +-
+ drivers/pinctrl/spacemit/pinctrl-k1.c              | 517 +++++++++++++++++++--
+ 3 files changed, 471 insertions(+), 54 deletions(-)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20251125-02-k3-pinctrl-738cbddbe49d
 
+Best regards,
 -- 
-2.52.0
+Yixun Lan
 
 
 _______________________________________________
