@@ -4,118 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2E56E668AE
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Dec 2025 12:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2339FD78797
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Dec 2025 14:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jLWMQTrXavkAE4LnRj0qNOml3ui8LFk/H+oXqMCg0vs=; b=HdzgM7Ng6qH+I2
-	V7eF/1LPjN04ekuKa1tieS0nkny2vKlWRFnVRL1vcZ9CwyikxAU8uW0iFZ06+eqlJS+5dV0iIkUfO
-	xklOauU7dm/c9K+WAYvYPIYW112HH1iexAj0trZRjzn2b4x+HV6QC2B5IJghQGN0oQVC4iveJ/TYC
-	7GnMzPJo7RJUT0OqtWurNpZivDnjeyCT/b9a8xOMVBAX4Y/5hFYbIR8YWULfc6GTZnVTZG8nFb5nR
-	NfinM+VomKXGVupUSLwsfzz05onD6lMVO8y5ZjgHHxExA2kobh3pjZDt59llnM0PuTLHmM1/OItfk
-	CrYu/VYLHy7SyEziZrUg==;
+	List-Owner; bh=sFS9FzNV+wsDRruB/bYgd4LGVI4Qy7cZ4gslHvdZGNA=; b=evn88VlF49WWUn
+	hOKoqNacZEsYLwrh2W9UZ6lr+iiTTZ8D/Qyuo9CHLcS0BJUJsHyJeg8gs7BBwAD+W/64BQ8Wb9UF0
+	M1gYYAZdlzP7kfaKIVEXV1H6+WIJkgpHFBYyihdYDLgF9+EQSB++CA2EEYOt9MS3WqsxAk53S2/zZ
+	hlzSj3aOoNML32NxFBpFgzZii4pqcVuLLjEr74Sok3PLpMf9DEA5vdNptRGilHumSh67u78LJwHbh
+	JLGo1iwvoSRHXQMtKB5te4Voslp0Ev/zhqHYTLvYFOhgvXLZuKpM/eNbnq3gY+f8yo7Rkazju9jgH
+	kOXQd3RURz4kHesMnbsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWwMN-0000000BbbK-1dt2;
-	Sat, 20 Dec 2025 12:46:59 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1vWyDu-0000000BfAx-0r6C;
+	Sat, 20 Dec 2025 14:46:22 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWwMJ-0000000BbZo-25ZN
+	id 1vWyDr-0000000BfAd-0iSO
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Dec 2025 12:46:57 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2a09d981507so18564465ad.1
-        for <linux-riscv@lists.infradead.org>; Sat, 20 Dec 2025 04:46:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1766234814; x=1766839614; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PnLeQHT6gKO5LrS+1ND5Ys5FEsU3x/z5LzPcGERhZEM=;
-        b=f9T7EX3GhepjZEeRo9flz3bWBC9apzypbCY/3lT1ak+wSGTYte8BfLOQP9gt/chxI1
-         drORO6TrgOMZ/FG34C8DaqEcq57X5hWqR2APCfZLHNSrHM5c1vVJObL2eOU7hONpHM7u
-         VD9RsUODHCFiLkV8QDY8/INsjStqtWh1ROmajgEdM+rLaXWLmaE+nmmbnqk9qF/po/S8
-         ibHyWwQZOpTRPqwaBPJCD3QXW2iMhSuVv+9tXSKooXS60pjES+wHya5IDCHaeQe0GsJR
-         qIoLYNngUxPf3vLENx09wJBaTjcFSypO8YKt3+WRHCBLiKdNkibER8WjauhoFdtLrxX3
-         CLpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766234814; x=1766839614;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=PnLeQHT6gKO5LrS+1ND5Ys5FEsU3x/z5LzPcGERhZEM=;
-        b=KvUfboYYQfKDiyejsU1PNQGXEhgXL50QJVs4PndQAKWtP8szUF9Kkercihd0eOecm9
-         7B5rA/m6IrFNBuKF0tWkwmQTX7ryThJhjDsDyqVUMG5YAWjcWdeulFyqYZ1QJkb6ZB0b
-         DqE6XCbWa1jK1fQjHOQxccVVr4SqaS8EmJgPlTmglz/jYbSiU/3YcoqNqICWTYpLe4r7
-         89X5LbKKmv7Ktxn8niblTB/2uU5CMrDMU0k2+c1QyXOwKyKtTLAeJtwYzA9M6G906YtM
-         0Xe2U6jfK1vA4WB2ZszrzIP3AWR4RAVT8zkCD4HN0HGI6cpgw7Y4weCYog+D8O3fMmLK
-         CgNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXiqrZDeweFg549XpnwoV9RR2D7NvyJNM6h1zYbEGcz/iApgnKLllE61yaIOJ8KbTqaQJvP9ZxIbPNh+Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgrBViJPYZO7HFpIHi9fJompJ/SCNJ9eM/b/N0A5YKytJ8Ffi2
-	GINXJdzdE6togf/GqurYPaAGwAWCl9rRWH7cU9l9gwgK3J5fJBlpcareFmNN2awM0fAS8+Ee+52
-	9BBqKtEdOxqh0rXp/GbRIWROCiPv314o=
-X-Gm-Gg: AY/fxX5DwqvitovEAsqh1tdOnXPmYW4aXBLhjpYUbnAmzUqmPU9oQRTmEv9BYXZ0gTe
-	PoPxCkPUdaurV3We3O3qnw55cB1RY2RHLxdWUoVb1xi3jg29DRafPsRe9hA1+hNfiDnfkVJg/oe
-	/XHJsp3+yKvt1omS8AihZjxqOo7HS2SUWkibUht/bgJeYVEbX3I2r12GyzMx2qA04Ao46kbt2LP
-	UMbKZEVw8KrgoO8eR2YtZ6lBbBn79NMCYV8bZ9TvQkakd2AXUwY6HWa2sbw6p8U6EnhFUKO8rGx
-	BElVBNYLIn9r+TgUWnNilSSoAEYzFbZwyzAAqNU=
-X-Google-Smtp-Source: AGHT+IGTZVFXf6rAC1bEGZmO7YaQs0mj72/Bxua6dbMs1yZR8CidcfGRl/4LVrNe9mb+pBaCXI6UiiHmEjBYB9UahrA=
-X-Received: by 2002:a17:903:198e:b0:2a0:99f7:67b4 with SMTP id
- d9443c01a7336-2a2f0cbc904mr55199135ad.8.1766234813931; Sat, 20 Dec 2025
- 04:46:53 -0800 (PST)
+	Sat, 20 Dec 2025 14:46:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1766241979; x=1797777979;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0/9AqWDR0QjCmpU+CYPu2fRg5LQPeaeBa8kwPoIxDO4=;
+  b=FaTM6G7xL5ssQMimG/lXJQOd8qEelDkXisyKcC+GUe3EaL75bSiaj18f
+   Jf9J4NoJ28sbAMTRaMRjXZcQjgz1DCxHaNV8uH5s7OfO4bcE/VF6FvryA
+   Uy8Rrw+y7E7i2TvxP8VECL/J8pbJeXjPvEsvHxI8agyUZrZI+YLmNU5Oc
+   ojepeuW6pE6XkYEsAoextYbcyXRF6ajcu4RyuevD/CrIk1WHtiY3BMQcf
+   JbbXoLuGTrhnw5683r/dAy28KDaexTaqWH2B59WMYATnx9/oTb6YmvyDW
+   B5ou3yv8TJ2XvvrgLqWHni0xXoRuEIOBa3XZJUH0EThtWHqaVf2eeHc+u
+   A==;
+X-CSE-ConnectionGUID: 67nU7TmcTeCkCb48/htjyA==
+X-CSE-MsgGUID: /VzqkwA3S521QS10wZmyQQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11648"; a="79629243"
+X-IronPort-AV: E=Sophos;i="6.21,164,1763452800"; 
+   d="scan'208";a="79629243"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2025 06:46:16 -0800
+X-CSE-ConnectionGUID: zaOdA7FhQs+c+8EGhahraQ==
+X-CSE-MsgGUID: Gd8F3kBzSy6LdBZnFHEqKw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,164,1763452800"; 
+   d="scan'208";a="199024654"
+Received: from lkp-server01.sh.intel.com (HELO 0d09efa1b85f) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 20 Dec 2025 06:46:09 -0800
+Received: from kbuild by 0d09efa1b85f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vWyDf-000000004fu-1cUP;
+	Sat, 20 Dec 2025 14:46:07 +0000
+Date: Sat, 20 Dec 2025 22:45:45 +0800
+From: kernel test robot <lkp@intel.com>
+To: Yunhui Cui <cuiyunhui@bytedance.com>, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, andii@kernel.org, andybnac@gmail.com,
+	apatel@ventanamicro.com, ast@kernel.org, ben.dooks@codethink.co.uk,
+	bjorn@kernel.org, bpf@vger.kernel.org, charlie@rivosinc.com,
+	cl@gentwo.org, conor.dooley@microchip.com, cyrilbur@tenstorrent.com,
+	daniel@iogearbox.net, debug@rivosinc.com, dennis@kernel.org,
+	eddyz87@gmail.com, haoluo@google.com, john.fastabend@gmail.com,
+	jolsa@kernel.org, kpsingh@kernel.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+	linux@rasmusvillemoes.dk, martin.lau@linux.dev, palmer@dabbelt.com,
+	pjw@kernel.org, puranjay@kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH v3 2/3] riscv: introduce percpu.h into include/asm
+Message-ID: <202512202218.FI6bB5kV-lkp@intel.com>
+References: <20251216014721.42262-3-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-References: <20251219-qcom-sa8255p-emac-v6-0-487f1082461e@oss.qualcomm.com> <20251219-qcom-sa8255p-emac-v6-1-487f1082461e@oss.qualcomm.com>
-In-Reply-To: <20251219-qcom-sa8255p-emac-v6-1-487f1082461e@oss.qualcomm.com>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Sat, 20 Dec 2025 13:46:43 +0100
-X-Gm-Features: AQt7F2qpxOToWQKPYlABMJwLqho0Xychdf9rQln23uKf9MMkpqj4U-v6YeXkrYo
-Message-ID: <CAFBinCAXb87FKwA_=UEx5YTekevVUun1gieUfMux=oQAgjZS7w@mail.gmail.com>
-Subject: Re: [PATCH v6 1/7] dt-bindings: net: qcom: document the ethqos device
- for SCMI-based systems
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Vinod Koul <vkoul@kernel.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Matthew Gerlach <matthew.gerlach@altera.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Keguang Zhang <keguang.zhang@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com, 
-	Romain Gantois <romain.gantois@bootlin.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Minda Chen <minda.chen@starfivetech.com>, 
-	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Maxime Ripard <mripard@kernel.org>, Shuang Liang <liangshuang@eswincomputing.com>, 
-	Zhi Li <lizhi2@eswincomputing.com>, Shangjuan Wei <weishangjuan@eswincomputing.com>, 
-	"G. Jaya Kumaran" <vineetha.g.jaya.kumaran@intel.com>, Clark Wang <xiaoning.wang@nxp.com>, 
-	Linux Team <linux-imx@nxp.com>, Frank Li <Frank.Li@nxp.com>, David Wu <david.wu@rock-chips.com>, 
-	Samin Guo <samin.guo@starfivetech.com>, 
-	Christophe Roullier <christophe.roullier@foss.st.com>, Swathi K S <swathi.ks@samsung.com>, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
-	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org, 
-	linux-mips@vger.kernel.org, imx@lists.linux.dev, 
-	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Disposition: inline
+In-Reply-To: <20251216014721.42262-3-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251220_044655_551394_C9B067E1 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251220_064619_296171_C328532E 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,29 +92,261 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBEZWMgMTksIDIwMjUgYXQgMTI6NDLigK9QTSBCYXJ0b3N6IEdvbGFzemV3c2tpCjxi
-YXJ0b3N6LmdvbGFzemV3c2tpQG9zcy5xdWFsY29tbS5jb20+IHdyb3RlOgo+Cj4gRnJvbTogQmFy
-dG9zeiBHb2xhc3pld3NraSA8YmFydG9zei5nb2xhc3pld3NraUBsaW5hcm8ub3JnPgo+Cj4gRGVz
-Y3JpYmUgdGhlIGZpcm13YXJlLW1hbmFnZWQgdmFyaWFudCBvZiB0aGUgUUNvbSBEZXNpZ25XYXJl
-IE1BQy4gQXMgdGhlCj4gcHJvcGVydGllcyBoZXJlIGRpZmZlciBhIGxvdCBmcm9tIHRoZSBITE9T
-LW1hbmFnZWQgdmFyaWFudCwgbGV0cyBwdXQgaXQKPiBpbiBhIHNlcGFyYXRlIGZpbGUuIFNpbmNl
-IHdlIG5lZWQgdG8gdXBkYXRlIHRoZSBtYXhpbXVtIG51bWJlciBvZiBwb3dlcgo+IGRvbWFpbnMs
-IGxldCdzIHVwZGF0ZSBleGlzdGluZyBiaW5kaW5ncyByZWZlcmVuY2luZyB0aGUgdG9wLWxldmVs
-Cj4gc25wcyxkd21hYy55YW1sIGFuZCBsaW1pdCB0aGVpciBtYXhJdGVtcyBmb3IgcG93ZXItZG9t
-YWlucyB0byAxLgo+Cj4gU2lnbmVkLW9mZi1ieTogQmFydG9zeiBHb2xhc3pld3NraSA8YmFydG9z
-ei5nb2xhc3pld3NraUBsaW5hcm8ub3JnPgo+IFNpZ25lZC1vZmYtYnk6IEJhcnRvc3ogR29sYXN6
-ZXdza2kgPGJhcnRvc3ouZ29sYXN6ZXdza2lAb3NzLnF1YWxjb21tLmNvbT4KPiAtLS0KPiAgLi4u
-L2JpbmRpbmdzL25ldC9hbGx3aW5uZXIsc3VuN2ktYTIwLWdtYWMueWFtbCAgICAgfCAgMyArCj4g
-IC4uLi9iaW5kaW5ncy9uZXQvYWx0cixzb2NmcGdhLXN0bW1hYy55YW1sICAgICAgICAgIHwgIDMg
-Kwo+ICAuLi4vYmluZGluZ3MvbmV0L2FtbG9naWMsbWVzb24tZHdtYWMueWFtbCAgICAgICAgICB8
-ICAzICsKQW1sb2dpYyBTb0NzIGhhdmUgdXAgdG8gb25lIHBvd2VyIGRvbWFpbiwgc28gZm9yIHRo
-ZSBBbWxvZ2ljIHBhcnQ6ClJldmlld2VkLWJ5OiBNYXJ0aW4gQmx1bWVuc3RpbmdsIDxtYXJ0aW4u
-Ymx1bWVuc3RpbmdsQGdvb2dsZW1haWwuY29tPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
-aXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Yunhui,
+
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on linus/master]
+[also build test WARNING on v6.19-rc1 next-20251219]
+[cannot apply to bpf-next/net bpf-next/master bpf/master]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Yunhui-Cui/riscv-remove-irqflags-h-inclusion-in-asm-bitops-h/20251216-094956
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20251216014721.42262-3-cuiyunhui%40bytedance.com
+patch subject: [PATCH v3 2/3] riscv: introduce percpu.h into include/asm
+config: riscv-randconfig-002-20251217 (https://download.01.org/0day-ci/archive/20251220/202512202218.FI6bB5kV-lkp@intel.com/config)
+compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251220/202512202218.FI6bB5kV-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512202218.FI6bB5kV-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:11:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:12:
+   In file included from arch/riscv/include/asm/io.h:140:
+   include/asm-generic/io.h:846:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     846 |         insw(addr, buffer, count);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:109:53: note: expanded from macro 'insw'
+     109 | #define insw(addr, buffer, count) __insw(PCI_IOBASE + (addr), buffer, count)
+         |                                          ~~~~~~~~~~ ^
+   In file included from mm/slub.c:14:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:27:
+   In file included from include/linux/kernel_stat.h:8:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:11:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:12:
+   In file included from arch/riscv/include/asm/io.h:140:
+   include/asm-generic/io.h:854:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     854 |         insl(addr, buffer, count);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:110:53: note: expanded from macro 'insl'
+     110 | #define insl(addr, buffer, count) __insl(PCI_IOBASE + (addr), buffer, count)
+         |                                          ~~~~~~~~~~ ^
+   In file included from mm/slub.c:14:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:27:
+   In file included from include/linux/kernel_stat.h:8:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:11:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:12:
+   In file included from arch/riscv/include/asm/io.h:140:
+   include/asm-generic/io.h:863:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     863 |         outsb(addr, buffer, count);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:122:55: note: expanded from macro 'outsb'
+     122 | #define outsb(addr, buffer, count) __outsb(PCI_IOBASE + (addr), buffer, count)
+         |                                            ~~~~~~~~~~ ^
+   In file included from mm/slub.c:14:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:27:
+   In file included from include/linux/kernel_stat.h:8:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:11:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:12:
+   In file included from arch/riscv/include/asm/io.h:140:
+   include/asm-generic/io.h:872:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     872 |         outsw(addr, buffer, count);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:123:55: note: expanded from macro 'outsw'
+     123 | #define outsw(addr, buffer, count) __outsw(PCI_IOBASE + (addr), buffer, count)
+         |                                            ~~~~~~~~~~ ^
+   In file included from mm/slub.c:14:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:27:
+   In file included from include/linux/kernel_stat.h:8:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:11:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:12:
+   In file included from arch/riscv/include/asm/io.h:140:
+   include/asm-generic/io.h:881:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     881 |         outsl(addr, buffer, count);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:124:55: note: expanded from macro 'outsl'
+     124 | #define outsl(addr, buffer, count) __outsl(PCI_IOBASE + (addr), buffer, count)
+         |                                            ~~~~~~~~~~ ^
+   In file included from mm/slub.c:14:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:27:
+   In file included from include/linux/kernel_stat.h:8:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:11:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:12:
+   In file included from arch/riscv/include/asm/io.h:140:
+   include/asm-generic/io.h:1209:55: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+    1209 |         return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
+         |                                                   ~~~~~~~~~~ ^
+>> mm/slub.c:4385:9: warning: variable '__old' is uninitialized when used within its own initialization [-Wuninitialized]
+    4385 |         return this_cpu_try_cmpxchg_freelist(s->cpu_slab->freelist_tid,
+         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    4386 |                                              &old.freelist_tid, new.freelist_tid);
+         |                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   mm/slab.h:31:39: note: expanded from macro 'this_cpu_try_cmpxchg_freelist'
+      31 | #define this_cpu_try_cmpxchg_freelist   this_cpu_try_cmpxchg64
+         |                                         ^
+   include/asm-generic/percpu.h:520:2: note: expanded from macro 'this_cpu_try_cmpxchg64'
+     520 |         __cpu_fallback_try_cmpxchg(pcp, ovalp, nval, this_cpu_cmpxchg64)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/asm-generic/percpu.h:110:24: note: expanded from macro '__cpu_fallback_try_cmpxchg'
+     110 |         __val = _cmpxchg(pcp, __old, nval);                             \
+         |                 ~~~~~~~~~~~~~~^~~~~~~~~~~~
+   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/atomic/atomic-instrumented.h:4810:32: note: expanded from macro 'cmpxchg_relaxed'
+    4810 |         raw_cmpxchg_relaxed(__ai_ptr, __VA_ARGS__); \
+         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+   arch/riscv/include/asm/cmpxchg.h:265:24: note: expanded from macro 'arch_cmpxchg_relaxed'
+     265 |         _arch_cmpxchg((ptr), (o), (n),                                  \
+         |         ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     266 |                       SC_SFX(""), CAS_SFX(""),                          \
+         |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     267 |                       SC_PREPEND(""), SC_APPEND(""),                    \
+         |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     268 |                       CAS_PREPEND(""), CAS_APPEND(""))
+         |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/cmpxchg.h:218:32: note: expanded from macro '_arch_cmpxchg'
+     218 |         __typeof__(*(__ptr)) __old = (old);                             \
+         |                              ~~~~~    ^~~
+   mm/slub.c:4385:9: error: instruction requires the following: RV64I Base Instruction Set
+   mm/slab.h:31:39: note: expanded from macro 'this_cpu_try_cmpxchg_freelist'
+      31 | #define this_cpu_try_cmpxchg_freelist   this_cpu_try_cmpxchg64
+         |                                         ^
+   include/asm-generic/percpu.h:520:47: note: expanded from macro 'this_cpu_try_cmpxchg64'
+     520 |         __cpu_fallback_try_cmpxchg(pcp, ovalp, nval, this_cpu_cmpxchg64)
+         |                                                      ^
+   <inline asm>:1:5: note: instantiated into assembly here
+       1 |         0:      lr.d s9, 0(a1)
+         |                 ^
+   mm/slub.c:4385:9: error: instruction requires the following: RV64I Base Instruction Set
+    4385 |         return this_cpu_try_cmpxchg_freelist(s->cpu_slab->freelist_tid,
+         |                ^
+   mm/slab.h:31:39: note: expanded from macro 'this_cpu_try_cmpxchg_freelist'
+      31 | #define this_cpu_try_cmpxchg_freelist   this_cpu_try_cmpxchg64
+         |                                         ^
+   include/asm-generic/percpu.h:520:47: note: expanded from macro 'this_cpu_try_cmpxchg64'
+     520 |         __cpu_fallback_try_cmpxchg(pcp, ovalp, nval, this_cpu_cmpxchg64)
+         |                                                      ^
+   <inline asm>:3:2: note: instantiated into assembly here
+       3 |         sc.d a3, a0, 0(a1)
+         |         ^
+   mm/slub.c:4385:9: error: instruction requires the following: RV64I Base Instruction Set
+    4385 |         return this_cpu_try_cmpxchg_freelist(s->cpu_slab->freelist_tid,
+         |                ^
+   mm/slab.h:31:39: note: expanded from macro 'this_cpu_try_cmpxchg_freelist'
+      31 | #define this_cpu_try_cmpxchg_freelist   this_cpu_try_cmpxchg64
+         |                                         ^
+   include/asm-generic/percpu.h:520:47: note: expanded from macro 'this_cpu_try_cmpxchg64'
+     520 |         __cpu_fallback_try_cmpxchg(pcp, ovalp, nval, this_cpu_cmpxchg64)
+         |                                                      ^
+   <inline asm>:1:5: note: instantiated into assembly here
+       1 |         0:      lr.d s9, 0(a1)
+         |                 ^
+   mm/slub.c:4385:9: error: instruction requires the following: RV64I Base Instruction Set
+    4385 |         return this_cpu_try_cmpxchg_freelist(s->cpu_slab->freelist_tid,
+         |                ^
+   mm/slab.h:31:39: note: expanded from macro 'this_cpu_try_cmpxchg_freelist'
+      31 | #define this_cpu_try_cmpxchg_freelist   this_cpu_try_cmpxchg64
+         |                                         ^
+   include/asm-generic/percpu.h:520:47: note: expanded from macro 'this_cpu_try_cmpxchg64'
+     520 |         __cpu_fallback_try_cmpxchg(pcp, ovalp, nval, this_cpu_cmpxchg64)
+         |                                                      ^
+   <inline asm>:3:2: note: instantiated into assembly here
+       3 |         sc.d a3, a0, 0(a1)
+         |         ^
+   mm/slub.c:4385:9: error: instruction requires the following: RV64I Base Instruction Set
+    4385 |         return this_cpu_try_cmpxchg_freelist(s->cpu_slab->freelist_tid,
+         |                ^
+   mm/slab.h:31:39: note: expanded from macro 'this_cpu_try_cmpxchg_freelist'
+      31 | #define this_cpu_try_cmpxchg_freelist   this_cpu_try_cmpxchg64
+         |                                         ^
+   include/asm-generic/percpu.h:520:47: note: expanded from macro 'this_cpu_try_cmpxchg64'
+     520 |         __cpu_fallback_try_cmpxchg(pcp, ovalp, nval, this_cpu_cmpxchg64)
+         |                                                      ^
+   <inline asm>:1:5: note: instantiated into assembly here
+       1 |         0:      lr.d s10, 0(a1)
+         |                 ^
+   mm/slub.c:4385:9: error: instruction requires the following: RV64I Base Instruction Set
+    4385 |         return this_cpu_try_cmpxchg_freelist(s->cpu_slab->freelist_tid,
+         |                ^
+   mm/slab.h:31:39: note: expanded from macro 'this_cpu_try_cmpxchg_freelist'
+      31 | #define this_cpu_try_cmpxchg_freelist   this_cpu_try_cmpxchg64
+         |                                         ^
+   include/asm-generic/percpu.h:520:47: note: expanded from macro 'this_cpu_try_cmpxchg64'
+     520 |         __cpu_fallback_try_cmpxchg(pcp, ovalp, nval, this_cpu_cmpxchg64)
+         |                                                      ^
+   <inline asm>:3:2: note: instantiated into assembly here
+       3 |         sc.d a3, a0, 0(a1)
+         |         ^
+   mm/slub.c:4385:9: error: instruction requires the following: RV64I Base Instruction Set
+
+
+vim +/__old +4385 mm/slub.c
+
+0b303fb402862d Vlastimil Babka 2021-05-08  4376  
+6801be4f2653e5 Peter Zijlstra  2023-05-31  4377  static inline bool
+6801be4f2653e5 Peter Zijlstra  2023-05-31  4378  __update_cpu_freelist_fast(struct kmem_cache *s,
+6801be4f2653e5 Peter Zijlstra  2023-05-31  4379  			   void *freelist_old, void *freelist_new,
+6801be4f2653e5 Peter Zijlstra  2023-05-31  4380  			   unsigned long tid)
+6801be4f2653e5 Peter Zijlstra  2023-05-31  4381  {
+b244358e9a1cd6 Vlastimil Babka 2025-11-07  4382  	struct freelist_tid old = { .freelist = freelist_old, .tid = tid };
+b244358e9a1cd6 Vlastimil Babka 2025-11-07  4383  	struct freelist_tid new = { .freelist = freelist_new, .tid = next_tid(tid) };
+6801be4f2653e5 Peter Zijlstra  2023-05-31  4384  
+b244358e9a1cd6 Vlastimil Babka 2025-11-07 @4385  	return this_cpu_try_cmpxchg_freelist(s->cpu_slab->freelist_tid,
+b244358e9a1cd6 Vlastimil Babka 2025-11-07  4386  					     &old.freelist_tid, new.freelist_tid);
+6801be4f2653e5 Peter Zijlstra  2023-05-31  4387  }
+6801be4f2653e5 Peter Zijlstra  2023-05-31  4388  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
