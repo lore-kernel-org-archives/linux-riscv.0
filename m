@@ -4,74 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3503DE668B3
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Dec 2025 10:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2E56E668AE
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Dec 2025 12:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ws812lW4LqqNaQAQ1iGaT5PtFtfOzI+YqgIA04B1ywc=; b=eiSZaVX8d8yU0y
-	hLH/Iysk4gujVGOYjVgMB7b4FUuNv/GdgaSdPiFWgMzT8Lv2lyz2idRXawPOVEU5atuUYD2KhYVPJ
-	bBsp5yf2JcNGR2bzkesfQs5gMKtIQG/M8S8aULKrOBykGWEEKvSBWJAxXaQly4E+JEv08FACheJSI
-	v40Iajom1ig7QNkrI+yjg5iVz4Ryl9vpHdstxNBaTwZnFNqlhZ0AIczQpcjtGB3RIiGc0A+EX2DEs
-	MXD6bUd7AhzwZH+XvleufjG3G7lJzflV538aVWZ2SBbo48F1IY/6s5yLeeZPYEdjUpjrwuZyaLlOP
-	u5HbVxo4LPTNodGQqG+A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jLWMQTrXavkAE4LnRj0qNOml3ui8LFk/H+oXqMCg0vs=; b=HdzgM7Ng6qH+I2
+	V7eF/1LPjN04ekuKa1tieS0nkny2vKlWRFnVRL1vcZ9CwyikxAU8uW0iFZ06+eqlJS+5dV0iIkUfO
+	xklOauU7dm/c9K+WAYvYPIYW112HH1iexAj0trZRjzn2b4x+HV6QC2B5IJghQGN0oQVC4iveJ/TYC
+	7GnMzPJo7RJUT0OqtWurNpZivDnjeyCT/b9a8xOMVBAX4Y/5hFYbIR8YWULfc6GTZnVTZG8nFb5nR
+	NfinM+VomKXGVupUSLwsfzz05onD6lMVO8y5ZjgHHxExA2kobh3pjZDt59llnM0PuTLHmM1/OItfk
+	CrYu/VYLHy7SyEziZrUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWtzw-0000000BUoY-3TQt;
-	Sat, 20 Dec 2025 10:15:40 +0000
-Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
+	id 1vWwMN-0000000BbbK-1dt2;
+	Sat, 20 Dec 2025 12:46:59 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWtzu-0000000BUo6-2GcG
+	id 1vWwMJ-0000000BbZo-25ZN
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Dec 2025 10:15:39 +0000
-Received: from [127.0.0.1] (unknown [116.232.18.222])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 83605340DD9;
-	Sat, 20 Dec 2025 10:15:30 +0000 (UTC)
-From: Yixun Lan <dlan@gentoo.org>
-Subject: [PATCH RFC 0/3] pinctrl: spacemit: add support for K3 SoC
-Date: Sat, 20 Dec 2025 18:14:52 +0800
-Message-Id: <20251220-02-k3-pinctrl-v1-0-f6f4aea60abf@gentoo.org>
+	Sat, 20 Dec 2025 12:46:57 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2a09d981507so18564465ad.1
+        for <linux-riscv@lists.infradead.org>; Sat, 20 Dec 2025 04:46:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20230601; t=1766234814; x=1766839614; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PnLeQHT6gKO5LrS+1ND5Ys5FEsU3x/z5LzPcGERhZEM=;
+        b=f9T7EX3GhepjZEeRo9flz3bWBC9apzypbCY/3lT1ak+wSGTYte8BfLOQP9gt/chxI1
+         drORO6TrgOMZ/FG34C8DaqEcq57X5hWqR2APCfZLHNSrHM5c1vVJObL2eOU7hONpHM7u
+         VD9RsUODHCFiLkV8QDY8/INsjStqtWh1ROmajgEdM+rLaXWLmaE+nmmbnqk9qF/po/S8
+         ibHyWwQZOpTRPqwaBPJCD3QXW2iMhSuVv+9tXSKooXS60pjES+wHya5IDCHaeQe0GsJR
+         qIoLYNngUxPf3vLENx09wJBaTjcFSypO8YKt3+WRHCBLiKdNkibER8WjauhoFdtLrxX3
+         CLpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766234814; x=1766839614;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=PnLeQHT6gKO5LrS+1ND5Ys5FEsU3x/z5LzPcGERhZEM=;
+        b=KvUfboYYQfKDiyejsU1PNQGXEhgXL50QJVs4PndQAKWtP8szUF9Kkercihd0eOecm9
+         7B5rA/m6IrFNBuKF0tWkwmQTX7ryThJhjDsDyqVUMG5YAWjcWdeulFyqYZ1QJkb6ZB0b
+         DqE6XCbWa1jK1fQjHOQxccVVr4SqaS8EmJgPlTmglz/jYbSiU/3YcoqNqICWTYpLe4r7
+         89X5LbKKmv7Ktxn8niblTB/2uU5CMrDMU0k2+c1QyXOwKyKtTLAeJtwYzA9M6G906YtM
+         0Xe2U6jfK1vA4WB2ZszrzIP3AWR4RAVT8zkCD4HN0HGI6cpgw7Y4weCYog+D8O3fMmLK
+         CgNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXiqrZDeweFg549XpnwoV9RR2D7NvyJNM6h1zYbEGcz/iApgnKLllE61yaIOJ8KbTqaQJvP9ZxIbPNh+Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgrBViJPYZO7HFpIHi9fJompJ/SCNJ9eM/b/N0A5YKytJ8Ffi2
+	GINXJdzdE6togf/GqurYPaAGwAWCl9rRWH7cU9l9gwgK3J5fJBlpcareFmNN2awM0fAS8+Ee+52
+	9BBqKtEdOxqh0rXp/GbRIWROCiPv314o=
+X-Gm-Gg: AY/fxX5DwqvitovEAsqh1tdOnXPmYW4aXBLhjpYUbnAmzUqmPU9oQRTmEv9BYXZ0gTe
+	PoPxCkPUdaurV3We3O3qnw55cB1RY2RHLxdWUoVb1xi3jg29DRafPsRe9hA1+hNfiDnfkVJg/oe
+	/XHJsp3+yKvt1omS8AihZjxqOo7HS2SUWkibUht/bgJeYVEbX3I2r12GyzMx2qA04Ao46kbt2LP
+	UMbKZEVw8KrgoO8eR2YtZ6lBbBn79NMCYV8bZ9TvQkakd2AXUwY6HWa2sbw6p8U6EnhFUKO8rGx
+	BElVBNYLIn9r+TgUWnNilSSoAEYzFbZwyzAAqNU=
+X-Google-Smtp-Source: AGHT+IGTZVFXf6rAC1bEGZmO7YaQs0mj72/Bxua6dbMs1yZR8CidcfGRl/4LVrNe9mb+pBaCXI6UiiHmEjBYB9UahrA=
+X-Received: by 2002:a17:903:198e:b0:2a0:99f7:67b4 with SMTP id
+ d9443c01a7336-2a2f0cbc904mr55199135ad.8.1766234813931; Sat, 20 Dec 2025
+ 04:46:53 -0800 (PST)
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAB13RmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1NDQyNTXQMj3Wxj3YLMvOSSohxdc2OL5KSUlKRUE8sUJaCegqLUtMwKsHn
- RSkFuzkqxtbUAdHHQYmQAAAA=
-X-Change-ID: 20251125-02-k3-pinctrl-738cbddbe49d
-To: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Yixun Lan <dlan@gentoo.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1342; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=CWrajBOGSouuszgbzBF2LrNrwqQq9PQ6TusWyaPtx+Y=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpRnc1IYiyHDAw0s9avPJXNC57Vz9j5yjYhkvmp
- r8H7jw7N8eJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaUZ3NRsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
- maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+39KxAAlGg9cKah8u40Gq/cIw9w78SLxP9OzFytJvedh837+XVanDD32avjW
- buvoT150qcLlm/XppSiVaYU11T2arSyhy6A1BtTCsHSm9SPXqoOqd31+Te248g+KAmnUwWylO/g
- M7e09nOx+a4qUns1z7C2J69egEtmyGIUPJrz0Ocz0V1ysKCHIlWK8ey8JAWdDbovR6iwXNBbmDO
- GsMivrpuazzpGhWbyuDtyjSfGfbkp+MYf3576jSQjSX3hIl4VuOk5dG/aS5vQxELJJh64mE/rdw
- UvkaV/cV1fC1OmGL1WluFO1zZu4okjFo6Gep2+WLAxnIGgl4vgntPhMHOn/YqnExjXtPIrs0QOi
- RJZsp421KshqtsT9h+E+5y/K4zQLr5NxvtFrtViBDn624xb4VDplHuAQnU26CERvbG6AYjA8E8j
- 0EKDAgFCRstJOqiky4dDMQT9B3XIcMz1fnXKOzRqFuGUayEOXZnDhuSOrUAkppsQLm5ZViiCA6T
- H26tZGIcvkpDOfwEmGuksepw/OR+LXeETbSgZoX9Il57K+qsb/UTqHGjLnNgWSnt7B5HUVgr4VM
- 8R9obMqh/nDaLNEbyQGgbnlWDXJq5E3DAQzEobe378ksmT+vqtPsh0Eblpo71gaW0+nl3yPx0Nr
- 2/tucQGJXRLufw1NVj3xcAeP+rQj1g=
-X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+References: <20251219-qcom-sa8255p-emac-v6-0-487f1082461e@oss.qualcomm.com> <20251219-qcom-sa8255p-emac-v6-1-487f1082461e@oss.qualcomm.com>
+In-Reply-To: <20251219-qcom-sa8255p-emac-v6-1-487f1082461e@oss.qualcomm.com>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Sat, 20 Dec 2025 13:46:43 +0100
+X-Gm-Features: AQt7F2qpxOToWQKPYlABMJwLqho0Xychdf9rQln23uKf9MMkpqj4U-v6YeXkrYo
+Message-ID: <CAFBinCAXb87FKwA_=UEx5YTekevVUun1gieUfMux=oQAgjZS7w@mail.gmail.com>
+Subject: Re: [PATCH v6 1/7] dt-bindings: net: qcom: document the ethqos device
+ for SCMI-based systems
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Vinod Koul <vkoul@kernel.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Matthew Gerlach <matthew.gerlach@altera.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Keguang Zhang <keguang.zhang@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com, 
+	Romain Gantois <romain.gantois@bootlin.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Minda Chen <minda.chen@starfivetech.com>, 
+	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Maxime Ripard <mripard@kernel.org>, Shuang Liang <liangshuang@eswincomputing.com>, 
+	Zhi Li <lizhi2@eswincomputing.com>, Shangjuan Wei <weishangjuan@eswincomputing.com>, 
+	"G. Jaya Kumaran" <vineetha.g.jaya.kumaran@intel.com>, Clark Wang <xiaoning.wang@nxp.com>, 
+	Linux Team <linux-imx@nxp.com>, Frank Li <Frank.Li@nxp.com>, David Wu <david.wu@rock-chips.com>, 
+	Samin Guo <samin.guo@starfivetech.com>, 
+	Christophe Roullier <christophe.roullier@foss.st.com>, Swathi K S <swathi.ks@samsung.com>, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
+	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org, 
+	linux-mips@vger.kernel.org, imx@lists.linux.dev, 
+	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251220_021538_614124_F7267949 
-X-CRM114-Status: UNSURE (   7.08  )
+X-CRM114-CacheID: sfid-20251220_044655_551394_C9B067E1 
+X-CRM114-Status: UNSURE (   9.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,45 +127,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series attempt to add pinctrl support for SpacemiT K3 SoC,
-
-I'm marking this series as RFC for now, as the driver is verified on K1
-SoC platform, but only tested on K3 FPGA, since K3 production SoC isn't ready.
-
-The K3 pinctrl IP shares almost same logic with previous K1 SoC generation,
-but has different register offset and pin configuration, I've introduced
-a pin_to_offset() function to handle the difference of register offset.
-for the drive strength and schmitter trigger settings, they are also changed.
-
-The patch #1 try to add pin support which should handle pin mux, while patch #2
-adjust drive strength and schmitter trigger settings accordingly for new SoC.
-
-Signed-off-by: Yixun Lan <dlan@gentoo.org>
----
-Yixun Lan (3):
-      dt-bindings: pinctrl: spacemit: add K3 SoC support
-      pinctrl: spacemit: k3: add initial pin support
-      pinctrl: spacemit: k3: adjust drive strength and schmitter trigger
-
- .../bindings/pinctrl/spacemit,k1-pinctrl.yaml      |   4 +-
- drivers/pinctrl/spacemit/Kconfig                   |   4 +-
- drivers/pinctrl/spacemit/pinctrl-k1.c              | 517 +++++++++++++++++++--
- 3 files changed, 471 insertions(+), 54 deletions(-)
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20251125-02-k3-pinctrl-738cbddbe49d
-
-Best regards,
--- 
-Yixun Lan
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBEZWMgMTksIDIwMjUgYXQgMTI6NDLigK9QTSBCYXJ0b3N6IEdvbGFzemV3c2tpCjxi
+YXJ0b3N6LmdvbGFzemV3c2tpQG9zcy5xdWFsY29tbS5jb20+IHdyb3RlOgo+Cj4gRnJvbTogQmFy
+dG9zeiBHb2xhc3pld3NraSA8YmFydG9zei5nb2xhc3pld3NraUBsaW5hcm8ub3JnPgo+Cj4gRGVz
+Y3JpYmUgdGhlIGZpcm13YXJlLW1hbmFnZWQgdmFyaWFudCBvZiB0aGUgUUNvbSBEZXNpZ25XYXJl
+IE1BQy4gQXMgdGhlCj4gcHJvcGVydGllcyBoZXJlIGRpZmZlciBhIGxvdCBmcm9tIHRoZSBITE9T
+LW1hbmFnZWQgdmFyaWFudCwgbGV0cyBwdXQgaXQKPiBpbiBhIHNlcGFyYXRlIGZpbGUuIFNpbmNl
+IHdlIG5lZWQgdG8gdXBkYXRlIHRoZSBtYXhpbXVtIG51bWJlciBvZiBwb3dlcgo+IGRvbWFpbnMs
+IGxldCdzIHVwZGF0ZSBleGlzdGluZyBiaW5kaW5ncyByZWZlcmVuY2luZyB0aGUgdG9wLWxldmVs
+Cj4gc25wcyxkd21hYy55YW1sIGFuZCBsaW1pdCB0aGVpciBtYXhJdGVtcyBmb3IgcG93ZXItZG9t
+YWlucyB0byAxLgo+Cj4gU2lnbmVkLW9mZi1ieTogQmFydG9zeiBHb2xhc3pld3NraSA8YmFydG9z
+ei5nb2xhc3pld3NraUBsaW5hcm8ub3JnPgo+IFNpZ25lZC1vZmYtYnk6IEJhcnRvc3ogR29sYXN6
+ZXdza2kgPGJhcnRvc3ouZ29sYXN6ZXdza2lAb3NzLnF1YWxjb21tLmNvbT4KPiAtLS0KPiAgLi4u
+L2JpbmRpbmdzL25ldC9hbGx3aW5uZXIsc3VuN2ktYTIwLWdtYWMueWFtbCAgICAgfCAgMyArCj4g
+IC4uLi9iaW5kaW5ncy9uZXQvYWx0cixzb2NmcGdhLXN0bW1hYy55YW1sICAgICAgICAgIHwgIDMg
+Kwo+ICAuLi4vYmluZGluZ3MvbmV0L2FtbG9naWMsbWVzb24tZHdtYWMueWFtbCAgICAgICAgICB8
+ICAzICsKQW1sb2dpYyBTb0NzIGhhdmUgdXAgdG8gb25lIHBvd2VyIGRvbWFpbiwgc28gZm9yIHRo
+ZSBBbWxvZ2ljIHBhcnQ6ClJldmlld2VkLWJ5OiBNYXJ0aW4gQmx1bWVuc3RpbmdsIDxtYXJ0aW4u
+Ymx1bWVuc3RpbmdsQGdvb2dsZW1haWwuY29tPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
