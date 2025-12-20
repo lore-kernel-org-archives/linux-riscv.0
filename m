@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5707FE668B1
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Dec 2025 16:32:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9991EE668B4
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Dec 2025 16:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Lnag4aU5/UBlevZHT7xKcp6X+5zG9bY4yMhgdSvYV1w=; b=KMZLomzZSoTlDF
-	W0qnfGDCMkx7pRlNMwY9z1ZDAL9XWmjjXxsRuPoLrYa2OUtsPsds/HmvP9E5ix1NgQU9eeYaGVZtm
-	3iL4XlZqX2Kwq05nOKyiyPlSwfEghqQjoW61/xF1UlsR+e9d6Eg1S0MTavtkqZeEh7Vips4kLLY7d
-	QK73LBSpTNV/tBR2pfzNPWQpnBDmZ5qKhPmuXfZw5T+wW6rro3AkXx0BpvbBkQ568oikG0w1RKnIX
-	jEQo5ZEjt5JW4p4M7E5wPYtG68nSDvMKgFLf4FuNVe/h5WbTBr9WyT7LURoYg535VLoSCo2t2Ba0J
-	VL4Igy7XgdCZJvHfFw3w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QPJeNboYmKqQxDsi1yTmupvhwG1o3rD6N2Pei4Rl1iM=; b=TD/Hh5zDHQhMe1
+	HCu7zZaGBC2jgwAGiLJDP2Jsj9oIbaXnYzAq6Bn9nc+rTwzLG4tvnHbr9EXHHcvKJpGXhMOTeooWx
+	1Z1rEQ8sHz+dchuGHscgNOiV35LKAiuCPSA/1VbCO5f//rIgMBFSkx3G5I9I74U8hR4ZinukAHhr6
+	0SHhJAgAHE2q9WERSTH4/MQPvyA1VIgWy1P4g1dg9XcViY9X8vy34IDmem34KiztGrA1vzdE16Z/u
+	aqkAFaP6KX+Nt+XxEzEBU1XWniojfNwb0akQq6fapcjT9V1v0i2TeNDjNp9NsVachpGZsPBi8oHqT
+	JBmZqNzN9whEDSjgUsOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWzrm-0000000BkVi-1fl2;
-	Sat, 20 Dec 2025 16:31:38 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1vWzu3-0000000BkeJ-00B1;
+	Sat, 20 Dec 2025 16:33:59 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWzrj-0000000BkVM-1MxJ
+	id 1vWztz-0000000BkdJ-0ipT
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Dec 2025 16:31:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1766248295; x=1797784295;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=gFxpIXF13nGXH8jcMN3U6G/SWnqn2l0yxiGSNIRPPzs=;
-  b=BPAbGBS4JroNC3o+tc8acy4JdWocOerxQTv8eyMkbo5UbU2afEva/+G7
-   itdK7E8QunRunUyHZbQVX0dVj0GwFRy+vhbit3ysKrsTwtnrd2BSO0nTy
-   pPpLT7fNpaVZtMjWgusanf7WcrAgIQZun4+y72uWPg4uLBqp78QpYz9fc
-   dhcElbGTcIiSRn3isyebvPBRDV+sxrBMCuf456E943lJsegFiqdEGy/hV
-   VcjyZHFNnzYrwCaJXn5PbyuBYBCqRze2lcYsqMxBNsbGI5mmueHOODBHd
-   y6en0SkkY+lkpekdMapXQD9Earo+iU6Q3U8yfVA2f0LloAGaoX386JmQR
-   g==;
-X-CSE-ConnectionGUID: 7L6oRRRKSXC4ahbzEWBGxg==
-X-CSE-MsgGUID: hmmzwrdGRquNig70/A+2Xg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11648"; a="67375610"
-X-IronPort-AV: E=Sophos;i="6.21,164,1763452800"; 
-   d="scan'208";a="67375610"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2025 08:31:32 -0800
-X-CSE-ConnectionGUID: 2zwW58zfTPKjCecmEA7d3Q==
-X-CSE-MsgGUID: ub5ZTe6sRmib9MeS8+2Qkw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,164,1763452800"; 
-   d="scan'208";a="222605833"
-Received: from lkp-server01.sh.intel.com (HELO 0d09efa1b85f) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 20 Dec 2025 08:31:25 -0800
-Received: from kbuild by 0d09efa1b85f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vWzrX-000000004sd-0pgl;
-	Sat, 20 Dec 2025 16:31:23 +0000
-Date: Sun, 21 Dec 2025 00:31:08 +0800
-From: kernel test robot <lkp@intel.com>
-To: Yunhui Cui <cuiyunhui@bytedance.com>, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, andii@kernel.org, andybnac@gmail.com,
-	apatel@ventanamicro.com, ast@kernel.org, ben.dooks@codethink.co.uk,
-	bjorn@kernel.org, bpf@vger.kernel.org, charlie@rivosinc.com,
-	cl@gentwo.org, conor.dooley@microchip.com, cyrilbur@tenstorrent.com,
-	daniel@iogearbox.net, debug@rivosinc.com, dennis@kernel.org,
-	eddyz87@gmail.com, haoluo@google.com, john.fastabend@gmail.com,
-	jolsa@kernel.org, kpsingh@kernel.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-	linux@rasmusvillemoes.dk, martin.lau@linux.dev, palmer@dabbelt.com,
-	pjw@kernel.org, puranjay@kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev
-Subject: Re: [PATCH v3 2/3] riscv: introduce percpu.h into include/asm
-Message-ID: <202512210052.w0bpUAAO-lkp@intel.com>
-References: <20251216014721.42262-3-cuiyunhui@bytedance.com>
+	Sat, 20 Dec 2025 16:33:57 +0000
+Received: from localhost.localdomain (unknown [223.166.92.103])
+	by APP-05 (Coremail) with SMTP id zQCowACnPRHnz0ZpnwlTAQ--.53309S2;
+	Sun, 21 Dec 2025 00:33:46 +0800 (CST)
+From: Han Gao <gaohan@iscas.ac.cn>
+To: Alex Deucher <alexander.deucher@amd.com>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org
+Cc: Han Gao <rabenda.cn@gmail.com>,
+	linux-riscv@lists.infradead.org,
+	sophgo@lists.linux.dev,
+	Han Gao <gaohan@iscas.ac.cn>
+Subject: [PATCH] drm/radeon: bypass no_64bit_msi with new msi64 parameter
+Date: Sun, 21 Dec 2025 00:33:38 +0800
+Message-ID: <20251220163338.3852399-1-gaohan@iscas.ac.cn>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251216014721.42262-3-cuiyunhui@bytedance.com>
+X-CM-TRANSID: zQCowACnPRHnz0ZpnwlTAQ--.53309S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7try8AF4fCrW5JF15Ar4kXrb_yoW8uw4UpF
+	45WF9Iqr9xtasIg3y7XFW7XF15Aa18Way8Wr4DG3sxuw45AryUGFy3Z3W3JrykXrn7Xry2
+	qrn7G3yrur4FyrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
+	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
+X-Originating-IP: [223.166.92.103]
+X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiDAUCDGlGuzwaKwAAse
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251220_083135_394919_F5A99A9D 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20251220_083355_565885_95B7F278 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,508 +85,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yunhui,
+Sophgo SG2042's MSI driver lacks 32-bit MSI support.
+Added a msi64 parameter to skip the limitation and force 64-bit MSI.
 
-kernel test robot noticed the following build errors:
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+---
+ drivers/gpu/drm/radeon/radeon.h         | 1 +
+ drivers/gpu/drm/radeon/radeon_drv.c     | 4 ++++
+ drivers/gpu/drm/radeon/radeon_irq_kms.c | 2 +-
+ 3 files changed, 6 insertions(+), 1 deletion(-)
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.19-rc1 next-20251219]
-[cannot apply to bpf-next/net bpf-next/master bpf/master]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Yunhui-Cui/riscv-remove-irqflags-h-inclusion-in-asm-bitops-h/20251216-094956
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20251216014721.42262-3-cuiyunhui%40bytedance.com
-patch subject: [PATCH v3 2/3] riscv: introduce percpu.h into include/asm
-config: riscv-randconfig-002-20251217 (https://download.01.org/0day-ci/archive/20251221/202512210052.w0bpUAAO-lkp@intel.com/config)
-compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251221/202512210052.w0bpUAAO-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512210052.w0bpUAAO-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-     109 | #define insw(addr, buffer, count) __insw(PCI_IOBASE + (addr), buffer, count)
-         |                                          ~~~~~~~~~~ ^
-   In file included from net/core/page_pool.c:14:
-   In file included from include/net/netdev_lock.h:7:
-   In file included from include/linux/netdevice.h:38:
-   In file included from include/net/net_namespace.h:43:
-   In file included from include/linux/skbuff.h:17:
-   In file included from include/linux/bvec.h:10:
-   In file included from include/linux/highmem.h:12:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:140:
-   include/asm-generic/io.h:854:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     854 |         insl(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:110:53: note: expanded from macro 'insl'
-     110 | #define insl(addr, buffer, count) __insl(PCI_IOBASE + (addr), buffer, count)
-         |                                          ~~~~~~~~~~ ^
-   In file included from net/core/page_pool.c:14:
-   In file included from include/net/netdev_lock.h:7:
-   In file included from include/linux/netdevice.h:38:
-   In file included from include/net/net_namespace.h:43:
-   In file included from include/linux/skbuff.h:17:
-   In file included from include/linux/bvec.h:10:
-   In file included from include/linux/highmem.h:12:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:140:
-   include/asm-generic/io.h:863:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     863 |         outsb(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:122:55: note: expanded from macro 'outsb'
-     122 | #define outsb(addr, buffer, count) __outsb(PCI_IOBASE + (addr), buffer, count)
-         |                                            ~~~~~~~~~~ ^
-   In file included from net/core/page_pool.c:14:
-   In file included from include/net/netdev_lock.h:7:
-   In file included from include/linux/netdevice.h:38:
-   In file included from include/net/net_namespace.h:43:
-   In file included from include/linux/skbuff.h:17:
-   In file included from include/linux/bvec.h:10:
-   In file included from include/linux/highmem.h:12:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:140:
-   include/asm-generic/io.h:872:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     872 |         outsw(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:123:55: note: expanded from macro 'outsw'
-     123 | #define outsw(addr, buffer, count) __outsw(PCI_IOBASE + (addr), buffer, count)
-         |                                            ~~~~~~~~~~ ^
-   In file included from net/core/page_pool.c:14:
-   In file included from include/net/netdev_lock.h:7:
-   In file included from include/linux/netdevice.h:38:
-   In file included from include/net/net_namespace.h:43:
-   In file included from include/linux/skbuff.h:17:
-   In file included from include/linux/bvec.h:10:
-   In file included from include/linux/highmem.h:12:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:140:
-   include/asm-generic/io.h:881:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     881 |         outsl(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:124:55: note: expanded from macro 'outsl'
-     124 | #define outsl(addr, buffer, count) __outsl(PCI_IOBASE + (addr), buffer, count)
-         |                                            ~~~~~~~~~~ ^
-   In file included from net/core/page_pool.c:14:
-   In file included from include/net/netdev_lock.h:7:
-   In file included from include/linux/netdevice.h:38:
-   In file included from include/net/net_namespace.h:43:
-   In file included from include/linux/skbuff.h:17:
-   In file included from include/linux/bvec.h:10:
-   In file included from include/linux/highmem.h:12:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:140:
-   include/asm-generic/io.h:1209:55: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-    1209 |         return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
-         |                                                   ~~~~~~~~~~ ^
-   In file included from net/core/page_pool.c:11:
-   In file included from include/linux/slab.h:16:
-   In file included from include/linux/gfp.h:7:
-   In file included from include/linux/mmzone.h:8:
-   In file included from include/linux/spinlock.h:59:
-   In file included from include/linux/irqflags.h:19:
->> arch/riscv/include/asm/percpu.h:43:1: error: instruction requires the following: RV64I Base Instruction Set
-      43 | PERCPU_OP(add, add)
-         | ^
-   arch/riscv/include/asm/percpu.h:41:2: note: expanded from macro 'PERCPU_OP'
-      41 |         __PERCPU_AMO_OP_CASE(.d, name, 64, amo_insn)
-         |         ^
-   arch/riscv/include/asm/percpu.h:33:3: note: expanded from macro '__PERCPU_AMO_OP_CASE'
-      33 |                 "amo" #amo_insn #sfx " zero, %[val], %[ptr]"            \
-         |                 ^
-   <inline asm>:1:2: note: instantiated into assembly here
-       1 |         amoadd.d zero, s4, 0(a1)
-         |         ^
-   In file included from net/core/page_pool.c:11:
-   In file included from include/linux/slab.h:16:
-   In file included from include/linux/gfp.h:7:
-   In file included from include/linux/mmzone.h:8:
-   In file included from include/linux/spinlock.h:59:
-   In file included from include/linux/irqflags.h:19:
->> arch/riscv/include/asm/percpu.h:43:1: error: instruction requires the following: RV64I Base Instruction Set
-      43 | PERCPU_OP(add, add)
-         | ^
-   arch/riscv/include/asm/percpu.h:41:2: note: expanded from macro 'PERCPU_OP'
-      41 |         __PERCPU_AMO_OP_CASE(.d, name, 64, amo_insn)
-         |         ^
-   arch/riscv/include/asm/percpu.h:33:3: note: expanded from macro '__PERCPU_AMO_OP_CASE'
-      33 |                 "amo" #amo_insn #sfx " zero, %[val], %[ptr]"            \
-         |                 ^
-   <inline asm>:1:2: note: instantiated into assembly here
-       1 |         amoadd.d zero, a2, 0(a1)
-         |         ^
-   In file included from net/core/page_pool.c:11:
-   In file included from include/linux/slab.h:16:
-   In file included from include/linux/gfp.h:7:
-   In file included from include/linux/mmzone.h:8:
-   In file included from include/linux/spinlock.h:59:
-   In file included from include/linux/irqflags.h:19:
->> arch/riscv/include/asm/percpu.h:43:1: error: instruction requires the following: RV64I Base Instruction Set
-      43 | PERCPU_OP(add, add)
-         | ^
-   arch/riscv/include/asm/percpu.h:41:2: note: expanded from macro 'PERCPU_OP'
-      41 |         __PERCPU_AMO_OP_CASE(.d, name, 64, amo_insn)
-         |         ^
-   arch/riscv/include/asm/percpu.h:33:3: note: expanded from macro '__PERCPU_AMO_OP_CASE'
-      33 |                 "amo" #amo_insn #sfx " zero, %[val], %[ptr]"            \
-         |                 ^
-   <inline asm>:1:2: note: instantiated into assembly here
-       1 |         amoadd.d zero, a2, 0(a1)
-         |         ^
-   In file included from net/core/page_pool.c:11:
-   In file included from include/linux/slab.h:16:
-   In file included from include/linux/gfp.h:7:
-   In file included from include/linux/mmzone.h:8:
-   In file included from include/linux/spinlock.h:59:
-   In file included from include/linux/irqflags.h:19:
->> arch/riscv/include/asm/percpu.h:43:1: error: instruction requires the following: RV64I Base Instruction Set
-      43 | PERCPU_OP(add, add)
-         | ^
-   arch/riscv/include/asm/percpu.h:41:2: note: expanded from macro 'PERCPU_OP'
-      41 |         __PERCPU_AMO_OP_CASE(.d, name, 64, amo_insn)
-         |         ^
-   arch/riscv/include/asm/percpu.h:33:3: note: expanded from macro '__PERCPU_AMO_OP_CASE'
-      33 |                 "amo" #amo_insn #sfx " zero, %[val], %[ptr]"            \
-         |                 ^
-   <inline asm>:1:2: note: instantiated into assembly here
-       1 |         amoadd.d zero, s9, 0(a1)
-         |         ^
-   In file included from net/core/page_pool.c:11:
-   In file included from include/linux/slab.h:16:
-   In file included from include/linux/gfp.h:7:
-   In file included from include/linux/mmzone.h:8:
-   In file included from include/linux/spinlock.h:59:
-   In file included from include/linux/irqflags.h:19:
->> arch/riscv/include/asm/percpu.h:43:1: error: instruction requires the following: RV64I Base Instruction Set
-      43 | PERCPU_OP(add, add)
-         | ^
-   arch/riscv/include/asm/percpu.h:41:2: note: expanded from macro 'PERCPU_OP'
-      41 |         __PERCPU_AMO_OP_CASE(.d, name, 64, amo_insn)
-         |         ^
-   arch/riscv/include/asm/percpu.h:33:3: note: expanded from macro '__PERCPU_AMO_OP_CASE'
-      33 |                 "amo" #amo_insn #sfx " zero, %[val], %[ptr]"            \
-         |                 ^
-   <inline asm>:1:2: note: instantiated into assembly here
-       1 |         amoadd.d zero, s9, 0(a0)
-         |         ^
-   In file included from net/core/page_pool.c:11:
-   In file included from include/linux/slab.h:16:
-   In file included from include/linux/gfp.h:7:
-   In file included from include/linux/mmzone.h:8:
-   In file included from include/linux/spinlock.h:59:
-   In file included from include/linux/irqflags.h:19:
->> arch/riscv/include/asm/percpu.h:43:1: error: instruction requires the following: RV64I Base Instruction Set
-      43 | PERCPU_OP(add, add)
-         | ^
-   arch/riscv/include/asm/percpu.h:41:2: note: expanded from macro 'PERCPU_OP'
-      41 |         __PERCPU_AMO_OP_CASE(.d, name, 64, amo_insn)
-         |         ^
-   arch/riscv/include/asm/percpu.h:33:3: note: expanded from macro '__PERCPU_AMO_OP_CASE'
-      33 |                 "amo" #amo_insn #sfx " zero, %[val], %[ptr]"            \
-         |                 ^
-   <inline asm>:1:2: note: instantiated into assembly here
-       1 |         amoadd.d zero, s7, 0(a1)
-         |         ^
-   In file included from net/core/page_pool.c:11:
-   In file included from include/linux/slab.h:16:
-   In file included from include/linux/gfp.h:7:
-   In file included from include/linux/mmzone.h:8:
-   In file included from include/linux/spinlock.h:59:
-   In file included from include/linux/irqflags.h:19:
->> arch/riscv/include/asm/percpu.h:43:1: error: instruction requires the following: RV64I Base Instruction Set
-      43 | PERCPU_OP(add, add)
-         | ^
-   arch/riscv/include/asm/percpu.h:41:2: note: expanded from macro 'PERCPU_OP'
-      41 |         __PERCPU_AMO_OP_CASE(.d, name, 64, amo_insn)
-         |         ^
-   arch/riscv/include/asm/percpu.h:33:3: note: expanded from macro '__PERCPU_AMO_OP_CASE'
-      33 |                 "amo" #amo_insn #sfx " zero, %[val], %[ptr]"            \
-         |                 ^
-   <inline asm>:1:2: note: instantiated into assembly here
-       1 |         amoadd.d zero, a2, 0(a1)
-         |         ^
-   In file included from net/core/page_pool.c:11:
-   In file included from include/linux/slab.h:16:
-   In file included from include/linux/gfp.h:7:
-   In file included from include/linux/mmzone.h:8:
-   In file included from include/linux/spinlock.h:59:
-   In file included from include/linux/irqflags.h:19:
->> arch/riscv/include/asm/percpu.h:43:1: error: instruction requires the following: RV64I Base Instruction Set
-      43 | PERCPU_OP(add, add)
-         | ^
-   arch/riscv/include/asm/percpu.h:41:2: note: expanded from macro 'PERCPU_OP'
-      41 |         __PERCPU_AMO_OP_CASE(.d, name, 64, amo_insn)
-         |         ^
-   arch/riscv/include/asm/percpu.h:33:3: note: expanded from macro '__PERCPU_AMO_OP_CASE'
-      33 |                 "amo" #amo_insn #sfx " zero, %[val], %[ptr]"            \
-         |                 ^
-   <inline asm>:1:2: note: instantiated into assembly here
-       1 |         amoadd.d zero, a2, 0(a1)
-         |         ^
-   In file included from net/core/page_pool.c:11:
-   In file included from include/linux/slab.h:16:
-   In file included from include/linux/gfp.h:7:
-   In file included from include/linux/mmzone.h:8:
-   In file included from include/linux/spinlock.h:59:
-   In file included from include/linux/irqflags.h:19:
->> arch/riscv/include/asm/percpu.h:43:1: error: instruction requires the following: RV64I Base Instruction Set
-      43 | PERCPU_OP(add, add)
-         | ^
-   arch/riscv/include/asm/percpu.h:41:2: note: expanded from macro 'PERCPU_OP'
-      41 |         __PERCPU_AMO_OP_CASE(.d, name, 64, amo_insn)
-         |         ^
-   arch/riscv/include/asm/percpu.h:33:3: note: expanded from macro '__PERCPU_AMO_OP_CASE'
-      33 |                 "amo" #amo_insn #sfx " zero, %[val], %[ptr]"            \
-         |                 ^
-   <inline asm>:1:2: note: instantiated into assembly here
-       1 |         amoadd.d zero, a2, 0(a1)
-         |         ^
-   7 warnings and 9 errors generated.
---
-   include/asm-generic/io.h:854:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     854 |         insl(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:110:53: note: expanded from macro 'insl'
-     110 | #define insl(addr, buffer, count) __insl(PCI_IOBASE + (addr), buffer, count)
-         |                                          ~~~~~~~~~~ ^
-   In file included from net/batman-adv/routing.c:7:
-   In file included from net/batman-adv/routing.h:10:
-   In file included from net/batman-adv/main.h:207:
-   In file included from include/linux/etherdevice.h:20:
-   In file included from include/linux/if_ether.h:19:
-   In file included from include/linux/skbuff.h:17:
-   In file included from include/linux/bvec.h:10:
-   In file included from include/linux/highmem.h:12:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:140:
-   include/asm-generic/io.h:863:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     863 |         outsb(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:122:55: note: expanded from macro 'outsb'
-     122 | #define outsb(addr, buffer, count) __outsb(PCI_IOBASE + (addr), buffer, count)
-         |                                            ~~~~~~~~~~ ^
-   In file included from net/batman-adv/routing.c:7:
-   In file included from net/batman-adv/routing.h:10:
-   In file included from net/batman-adv/main.h:207:
-   In file included from include/linux/etherdevice.h:20:
-   In file included from include/linux/if_ether.h:19:
-   In file included from include/linux/skbuff.h:17:
-   In file included from include/linux/bvec.h:10:
-   In file included from include/linux/highmem.h:12:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:140:
-   include/asm-generic/io.h:872:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     872 |         outsw(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:123:55: note: expanded from macro 'outsw'
-     123 | #define outsw(addr, buffer, count) __outsw(PCI_IOBASE + (addr), buffer, count)
-         |                                            ~~~~~~~~~~ ^
-   In file included from net/batman-adv/routing.c:7:
-   In file included from net/batman-adv/routing.h:10:
-   In file included from net/batman-adv/main.h:207:
-   In file included from include/linux/etherdevice.h:20:
-   In file included from include/linux/if_ether.h:19:
-   In file included from include/linux/skbuff.h:17:
-   In file included from include/linux/bvec.h:10:
-   In file included from include/linux/highmem.h:12:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:140:
-   include/asm-generic/io.h:881:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     881 |         outsl(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:124:55: note: expanded from macro 'outsl'
-     124 | #define outsl(addr, buffer, count) __outsl(PCI_IOBASE + (addr), buffer, count)
-         |                                            ~~~~~~~~~~ ^
-   In file included from net/batman-adv/routing.c:7:
-   In file included from net/batman-adv/routing.h:10:
-   In file included from net/batman-adv/main.h:207:
-   In file included from include/linux/etherdevice.h:20:
-   In file included from include/linux/if_ether.h:19:
-   In file included from include/linux/skbuff.h:17:
-   In file included from include/linux/bvec.h:10:
-   In file included from include/linux/highmem.h:12:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:140:
-   include/asm-generic/io.h:1209:55: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-    1209 |         return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
-         |                                                   ~~~~~~~~~~ ^
-   In file included from net/batman-adv/routing.c:7:
-   In file included from net/batman-adv/routing.h:10:
-   In file included from net/batman-adv/main.h:207:
-   In file included from include/linux/etherdevice.h:20:
-   In file included from include/linux/if_ether.h:19:
-   In file included from include/linux/skbuff.h:17:
-   In file included from include/linux/bvec.h:10:
-   In file included from include/linux/highmem.h:5:
-   In file included from include/linux/fs.h:5:
-   In file included from include/linux/fs/super.h:5:
-   In file included from include/linux/fs/super_types.h:7:
-   In file included from include/linux/list_lru.h:13:
-   In file included from include/linux/shrinker.h:8:
-   In file included from include/linux/completion.h:12:
-   In file included from include/linux/swait.h:7:
-   In file included from include/linux/spinlock.h:59:
-   In file included from include/linux/irqflags.h:19:
->> arch/riscv/include/asm/percpu.h:43:1: error: instruction requires the following: RV64I Base Instruction Set
-      43 | PERCPU_OP(add, add)
-         | ^
-   arch/riscv/include/asm/percpu.h:41:2: note: expanded from macro 'PERCPU_OP'
-      41 |         __PERCPU_AMO_OP_CASE(.d, name, 64, amo_insn)
-         |         ^
-   arch/riscv/include/asm/percpu.h:33:3: note: expanded from macro '__PERCPU_AMO_OP_CASE'
-      33 |                 "amo" #amo_insn #sfx " zero, %[val], %[ptr]"            \
-         |                 ^
-   <inline asm>:1:2: note: instantiated into assembly here
-       1 |         amoadd.d zero, a2, 0(a1)
-         |         ^
-   In file included from net/batman-adv/routing.c:7:
-   In file included from net/batman-adv/routing.h:10:
-   In file included from net/batman-adv/main.h:207:
-   In file included from include/linux/etherdevice.h:20:
-   In file included from include/linux/if_ether.h:19:
-   In file included from include/linux/skbuff.h:17:
-   In file included from include/linux/bvec.h:10:
-   In file included from include/linux/highmem.h:5:
-   In file included from include/linux/fs.h:5:
-   In file included from include/linux/fs/super.h:5:
-   In file included from include/linux/fs/super_types.h:7:
-   In file included from include/linux/list_lru.h:13:
-   In file included from include/linux/shrinker.h:8:
-   In file included from include/linux/completion.h:12:
-   In file included from include/linux/swait.h:7:
-   In file included from include/linux/spinlock.h:59:
-   In file included from include/linux/irqflags.h:19:
->> arch/riscv/include/asm/percpu.h:43:1: error: instruction requires the following: RV64I Base Instruction Set
-      43 | PERCPU_OP(add, add)
-         | ^
-   arch/riscv/include/asm/percpu.h:41:2: note: expanded from macro 'PERCPU_OP'
-      41 |         __PERCPU_AMO_OP_CASE(.d, name, 64, amo_insn)
-         |         ^
-   arch/riscv/include/asm/percpu.h:33:3: note: expanded from macro '__PERCPU_AMO_OP_CASE'
-      33 |                 "amo" #amo_insn #sfx " zero, %[val], %[ptr]"            \
-         |                 ^
-   <inline asm>:1:2: note: instantiated into assembly here
-       1 |         amoadd.d zero, s6, 0(a1)
-         |         ^
-   In file included from net/batman-adv/routing.c:7:
-   In file included from net/batman-adv/routing.h:10:
-   In file included from net/batman-adv/main.h:207:
-   In file included from include/linux/etherdevice.h:20:
-   In file included from include/linux/if_ether.h:19:
-   In file included from include/linux/skbuff.h:17:
-   In file included from include/linux/bvec.h:10:
-   In file included from include/linux/highmem.h:5:
-   In file included from include/linux/fs.h:5:
-   In file included from include/linux/fs/super.h:5:
-   In file included from include/linux/fs/super_types.h:7:
-   In file included from include/linux/list_lru.h:13:
-   In file included from include/linux/shrinker.h:8:
-   In file included from include/linux/completion.h:12:
-   In file included from include/linux/swait.h:7:
-   In file included from include/linux/spinlock.h:59:
-   In file included from include/linux/irqflags.h:19:
->> arch/riscv/include/asm/percpu.h:43:1: error: instruction requires the following: RV64I Base Instruction Set
-      43 | PERCPU_OP(add, add)
-         | ^
-   arch/riscv/include/asm/percpu.h:41:2: note: expanded from macro 'PERCPU_OP'
-      41 |         __PERCPU_AMO_OP_CASE(.d, name, 64, amo_insn)
-         |         ^
-   arch/riscv/include/asm/percpu.h:33:3: note: expanded from macro '__PERCPU_AMO_OP_CASE'
-      33 |                 "amo" #amo_insn #sfx " zero, %[val], %[ptr]"            \
-         |                 ^
-   <inline asm>:1:2: note: instantiated into assembly here
-       1 |         amoadd.d zero, a2, 0(a1)
-         |         ^
-   In file included from net/batman-adv/routing.c:7:
-   In file included from net/batman-adv/routing.h:10:
-   In file included from net/batman-adv/main.h:207:
-   In file included from include/linux/etherdevice.h:20:
-   In file included from include/linux/if_ether.h:19:
-   In file included from include/linux/skbuff.h:17:
-   In file included from include/linux/bvec.h:10:
-   In file included from include/linux/highmem.h:5:
-   In file included from include/linux/fs.h:5:
-   In file included from include/linux/fs/super.h:5:
-   In file included from include/linux/fs/super_types.h:7:
-   In file included from include/linux/list_lru.h:13:
-   In file included from include/linux/shrinker.h:8:
-   In file included from include/linux/completion.h:12:
-   In file included from include/linux/swait.h:7:
-   In file included from include/linux/spinlock.h:59:
-   In file included from include/linux/irqflags.h:19:
->> arch/riscv/include/asm/percpu.h:43:1: error: instruction requires the following: RV64I Base Instruction Set
-      43 | PERCPU_OP(add, add)
-         | ^
-   arch/riscv/include/asm/percpu.h:41:2: note: expanded from macro 'PERCPU_OP'
-      41 |         __PERCPU_AMO_OP_CASE(.d, name, 64, amo_insn)
-         |         ^
-   arch/riscv/include/asm/percpu.h:33:3: note: expanded from macro '__PERCPU_AMO_OP_CASE'
-      33 |                 "amo" #amo_insn #sfx " zero, %[val], %[ptr]"            \
-         |                 ^
-   <inline asm>:1:2: note: instantiated into assembly here
-       1 |         amoadd.d zero, a1, 0(a2)
-         |         ^
-   7 warnings and 4 errors generated.
-..
-
-
-vim +43 arch/riscv/include/asm/percpu.h
-
-    38	
-    39	#define PERCPU_OP(name, amo_insn)					\
-    40		__PERCPU_AMO_OP_CASE(.w, name, 32, amo_insn)			\
-    41		__PERCPU_AMO_OP_CASE(.d, name, 64, amo_insn)
-    42	
-  > 43	PERCPU_OP(add, add)
-    44	PERCPU_OP(andnot, and)
-    45	PERCPU_OP(or, or)
-    46	
-
+diff --git a/drivers/gpu/drm/radeon/radeon.h b/drivers/gpu/drm/radeon/radeon.h
+index 527b9d19d730..7207e3156c28 100644
+--- a/drivers/gpu/drm/radeon/radeon.h
++++ b/drivers/gpu/drm/radeon/radeon.h
+@@ -122,6 +122,7 @@ extern int radeon_uvd;
+ extern int radeon_vce;
+ extern int radeon_si_support;
+ extern int radeon_cik_support;
++extern int radeon_msi64;
+ 
+ /*
+  * Copy from radeon_drv.h so we don't have to include both and have conflicting
+diff --git a/drivers/gpu/drm/radeon/radeon_drv.c b/drivers/gpu/drm/radeon/radeon_drv.c
+index 87fd6255c114..53af28494c03 100644
+--- a/drivers/gpu/drm/radeon/radeon_drv.c
++++ b/drivers/gpu/drm/radeon/radeon_drv.c
+@@ -249,6 +249,10 @@ int radeon_cik_support = -1;
+ MODULE_PARM_DESC(cik_support, "CIK support (1 = enabled, 0 = disabled, -1 = default)");
+ module_param_named(cik_support, radeon_cik_support, int, 0444);
+ 
++int radeon_msi64;
++MODULE_PARM_DESC(msi64, "MSI64 support (1 = enabled, 0 = disabled)");
++module_param_named(msi64, radeon_msi64, int, 0444);
++
+ static const struct pci_device_id pciidlist[] = {
+ 	radeon_PCI_IDS
+ };
+diff --git a/drivers/gpu/drm/radeon/radeon_irq_kms.c b/drivers/gpu/drm/radeon/radeon_irq_kms.c
+index 9961251b44ba..62eb5a6968ff 100644
+--- a/drivers/gpu/drm/radeon/radeon_irq_kms.c
++++ b/drivers/gpu/drm/radeon/radeon_irq_kms.c
+@@ -250,7 +250,7 @@ static bool radeon_msi_ok(struct radeon_device *rdev)
+ 	 * of address for "64-bit" MSIs which breaks on some platforms, notably
+ 	 * IBM POWER servers, so we limit them
+ 	 */
+-	if (rdev->family < CHIP_BONAIRE) {
++	if (rdev->family < CHIP_BONAIRE && !radeon_msi64) {
+ 		dev_info(rdev->dev, "radeon: MSI limited to 32-bit\n");
+ 		rdev->pdev->no_64bit_msi = 1;
+ 	}
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.47.3
+
 
 _______________________________________________
 linux-riscv mailing list
