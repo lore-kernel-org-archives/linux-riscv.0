@@ -4,56 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8246D711D5
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Dec 2025 03:53:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EF5DD711D5
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Dec 2025 04:01:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kIt65PMnBBz4I0oOYt7eAwxOcjnwSoOFixWSwTrm/BU=; b=Re6qFCoQig7Bsk
-	sazjPvoBCcxS8A4i9xiy9npWiN/VynLCbfv2RMaI87TFXY9iulvzc8HzFPaCgSIS8ZwiSRljONacG
-	QSNurZPMiREZLubNlY0z1X9kk6LEuZDGYm49S0QdaPf8oh2aDX3+YN4UJpXlb03EySFKfY5aYCACp
-	z4tMRFZxoiBKxdc5XStcuFUWft9OxMIUsab8frT2remlXuBIbCSu0RAa4aBbJ5QolhJsRta9zd8YQ
-	Mpwm0Z7W9myf8yMUsAXBKl/Czg7ePTcHIihi9BfNCD6eW17pyGmRbYeZA1gmbqkXRGHFMdQ4QC/g5
-	7Xa+dgEFody4yV4sT4EQ==;
+	List-Owner; bh=vq+qtJW1VMjwls2cIrh/X4up8fyPy1hGPL5w4diwrFM=; b=reUZLf6Uhc2QvH
+	YzQ6g+zqe5A8Lo6Ye8n289+3nW3xg5GGLDlqeYvLHrn1inB+odcDuqFxOPYZoLc1bKBmD8TCFysld
+	qWdQBAYgRhY8cep+egAvnMahb1p9eT/CcgxYXpnkPcfogcWreqmfP6NUp+JZKvJ90iAzbkvNJIekq
+	WJVJTvOEDjETa/qwJd1hjLGfiRje4oa8RpY0nKsdh/GpXxmRGLVL82432GMH+i+k4H70WSkvKqEPT
+	uFEena6j41+8NlnImM6ZKXNlgUfszrvmIRfQqjg0QtKOq5aXhzFOI7qS50wahZh32ca7tJWw4XVcN
+	DtVANGbZt/fgGi/TaUtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXWyZ-0000000D3Fx-04yz;
-	Mon, 22 Dec 2025 03:52:51 +0000
-Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1vXX6o-0000000D3cP-01Mj;
+	Mon, 22 Dec 2025 04:01:22 +0000
+Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXWyW-0000000D3FT-1Fm6
+	id 1vXX6k-0000000D3c0-2rDt
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Dec 2025 03:52:49 +0000
-Received: from localhost (unknown [116.232.18.222])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 21C9F340F69;
-	Mon, 22 Dec 2025 03:52:43 +0000 (UTC)
-Date: Mon, 22 Dec 2025 11:52:39 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 3/3] pinctrl: spacemit: k3: adjust drive strength and
- schmitter trigger
-Message-ID: <20251222035239-GYB1977180@gentoo.org>
-References: <20251220-02-k3-pinctrl-v1-0-f6f4aea60abf@gentoo.org>
- <20251220-02-k3-pinctrl-v1-3-f6f4aea60abf@gentoo.org>
- <408BBF8CF676D97D+aUiy2w1iP1LJoUOW@kernel.org>
+	Mon, 22 Dec 2025 04:01:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1766376071; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=jJTQzpISHipMt3HLUpoJRYGm/IKIVJaBVnxnj6e3DoDi0oj64OvULk5kXub9IJDC1MvZGH2GkyomLe3KTKjGhftmv9sA8uagKf4qEMoewurIaOJwfHCPg02Sy6JDB8EOkCnWZ91akI80I+9Aj/6JkWLXApOeV2QZIEtoAacFfJk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1766376071; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=oBEFJoFmTU+vEOGTCKO2z7+KnNU8YcaoRn4bK/FMXBA=; 
+	b=PM24BrMntV095i2mdbSWntFpBirgJ+WNLRytUnPc6i+WNHoAnUlRHQxuh7GNR81ZEgy+7Xte+LW6zyPW3abYOU4eTO/R3FI8Tvzab/K+IOwW33LyjP5Ar/H0aZvFODMlaMq/AwFh7tYnR5gVh+EzV19Xko3FYZgeyBuX6tjBRGs=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
+	dmarc=pass header.from=<kingxukai@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766376071;
+	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
+	bh=oBEFJoFmTU+vEOGTCKO2z7+KnNU8YcaoRn4bK/FMXBA=;
+	b=XrLqBu3GKd7xwRUNBXGIgRrVx9VyGq3ZdnSbfyUzbsn8Yv04FT9eIYQ5U7b3VHhj
+	ef+innxJTCFYfqmcN+L7cGlAYWxtXOrsrOLpl02PpH4bHPr/TTMSKfTnYCwai+AhI49
+	DVRuEW2vv61xxYT5JyNbrbk7/etKuN0v2H/CwZHg=
+Received: by mx.zohomail.com with SMTPS id 176637606573635.396960694368545;
+	Sun, 21 Dec 2025 20:01:05 -0800 (PST)
+Message-ID: <6e03598a-e64b-4967-8f89-f50bde9b830d@zohomail.com>
+Date: Mon, 22 Dec 2025 12:00:51 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <408BBF8CF676D97D+aUiy2w1iP1LJoUOW@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 2/3] clk: canaan: Add clock driver for Canaan K230
+To: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Troy Mitchell <TroyMitchell988@gmail.com>
+References: <20251127-b4-k230-clk-v9-0-3aa09e17faf5@zohomail.com>
+ <20251127-b4-k230-clk-v9-2-3aa09e17faf5@zohomail.com>
+ <aUUGeGnYR+joVR8c@duge-virtual-machine>
+From: Xukai Wang <kingxukai@zohomail.com>
+Content-Language: en-US
+In-Reply-To: <aUUGeGnYR+joVR8c@duge-virtual-machine>
+Feedback-ID: rr080112273b93726cead76ead8813bb2200003d9a5c6b4d17009bff3a7becc08ab060c66a7138e180c948a9:zu0801122720c840063080d6e6cf514a4d0000b0bee724e5468a7038436aafd3691ee76d6ad180dd2795d4b6:rf0801122c96364ed9249f1d3ec01a3c4c00000e250bc758d4aea3154b9aed0c14b3444959420cab0c2037f289276a2cfc:ZohoMail
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251221_195248_393092_1A6C3497 
-X-CRM114-Status: GOOD (  12.63  )
+X-CRM114-CacheID: sfid-20251221_200118_814871_B29D4131 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,39 +89,169 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Troy,
 
-On 10:54 Mon 22 Dec     , Troy Mitchell wrote:
-> Hi Yixun,
-> 
-> On Sat, Dec 20, 2025 at 06:14:55PM +0800, Yixun Lan wrote:
-> > K3 SoC expand drive strength to 4 bits which support even larger
-> > settings table comparing to old SoC generation. Also schmitter trigger
-> > setting is changed to 1 bit.
-> > 
-> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> > ---
-> >  drivers/pinctrl/spacemit/pinctrl-k1.c | 163 ++++++++++++++++++++++++----------
-> >  1 file changed, 116 insertions(+), 47 deletions(-)
-> > 
-> > diff --git a/drivers/pinctrl/spacemit/pinctrl-k1.c b/drivers/pinctrl/spacemit/pinctrl-k1.c
-> > index 441817f539e3..8ca247fb8ba0 100644
-> > --- a/drivers/pinctrl/spacemit/pinctrl-k1.c
-> > +++ b/drivers/pinctrl/spacemit/pinctrl-k1.c
-> [...]
-> > -		val = spacemit_get_driver_strength(type, drv_strength);
-> > +		val = spacemit_get_driver_strength(type, dconf, drv_strength);
-> >  
-> > -		v &= ~PAD_DRIVE;
-> > -		v |= FIELD_PREP(PAD_DRIVE, val);
-> > +		v &= ~dconf->drive_mask;
-> > +		v |= (arg << __ffs(dconf->drive_mask)) & dconf->drive_mask;
->             ^^^^
-> use val here.
- should be s/arg/val/, thanks for the catch!
-
--- 
-Yixun Lan (dlan)
+On 2025/12/19 16:02, Jiayu Du wrote:
+> On Thu, Nov 27, 2025 at 08:45:13PM +0800, Xukai Wang wrote:
+>> This patch provides basic support for the K230 clock, which covers
+>> all clocks in K230 SoC.
+>>
+>> The clock tree of the K230 SoC consists of a 24MHZ external crystal
+>> oscillator, PLLs and an external pulse input for timerX, and their
+>> derived clocks.
+>>
+>> Co-developed-by: Troy Mitchell <TroyMitchell988@gmail.com>
+>> Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
+>> Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
+>> ---
+>>  drivers/clk/Kconfig    |    6 +
+>>  drivers/clk/Makefile   |    1 +
+>>  drivers/clk/clk-k230.c | 2443 ++++++++++++++++++++++++++++++++++++++++++++++++
+>>  3 files changed, 2450 insertions(+)
+> ...
+>> diff --git a/drivers/clk/clk-k230.c b/drivers/clk/clk-k230.c
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..8750e9cbac04f30e31d8f2eb395c9b49027ca278
+>> --- /dev/null
+>> +++ b/drivers/clk/clk-k230.c
+>> @@ -0,0 +1,2443 @@
+> ...
+>> +
+>> +K230_CLK_GATE_FORMAT(cpu0_src_gate,
+>> +		     K230_CPU0_SRC_GATE,
+>> +		     0, 0, 0, 0,
+>> +		     &pll0_div2.hw);
+> Core-related clocks of cpu0/cpu1 (src/plic/apb/noc_ddrcp4, etc.)
+> lack protection flags, which risks accidental disabling.
+>
+> Recommend to replace the flag bits for all CPU0/CPU1 core clock
+> nodes with `CLK_IS_CRITICAL`,like this:
+> `0, 0, 0, 0,` -> `0, 0, CLK_IS_CRITICAL, 0,`
+>
+>> +
+>> +K230_CLK_RATE_FORMAT(cpu0_src_rate,
+>> +		     K230_CPU0_SRC_RATE,
+>> +		     1, 16, 1, 0xF,
+>> +		     16, 16, 0, 0x0,
+>> +		     0x0, 31, mul, 0x0,
+>> +		     false, 0,
+>> +		     &cpu0_src_gate.clk.hw);
+>> +
+> same as above,`false, 0,` ->`false, CLK_IS_CRITICAL,`
+>> +K230_CLK_RATE_FORMAT(cpu0_axi_rate,
+>> +		     K230_CPU0_AXI_RATE,
+>> +		     1, 1, 0, 0,
+>> +		     1, 8, 6, 0x7,
+>> +		     0x0, 31, div, 0x0,
+>> +		     0, 0,
+>> +		     &cpu0_src_rate.clk.hw);
+>> +
+> same as above,`0, 0,` ->`0, CLK_IS_CRITICAL,`
+>> +K230_CLK_GATE_FORMAT(cpu0_plic_gate,
+>> +		     K230_CPU0_PLIC_GATE,
+>> +		     0x0, 9, 0, 0,
+>> +		     &cpu0_src_rate.clk.hw);
+>> +
+> same as above,`0x0, 9, 0, 0,` -> `0x0, 9, CLK_IS_CRITICAL, 0,`
+>> +K230_CLK_RATE_FORMAT(cpu0_plic_rate,
+>> +		     K230_CPU0_PLIC_RATE,
+>> +		     1, 1, 0, 0,
+>> +		     1, 8, 10, 0x7,
+>> +		     0x0, 31, div, 0x0,
+>> +		     false, 0,
+>> +		     &cpu0_plic_gate.clk.hw);
+>> +
+> same as above,`false, 0,` -> `false, CLK_IS_CRITICAL,`
+>> +K230_CLK_GATE_FORMAT(cpu0_noc_ddrcp4_gate,
+>> +		     K230_CPU0_NOC_DDRCP4_GATE,
+>> +		     0x60, 7, 0, 0,
+>> +		     &cpu0_src_rate.clk.hw);
+>> +
+> same as above,`0x60, 7, 0, 0,` -> `0x60, 7, CLK_IS_CRITICAL, 0,`
+>> +K230_CLK_GATE_FORMAT(cpu0_apb_gate,
+>> +		     K230_CPU0_APB_GATE,
+>> +		     0x0, 13, 0, 0,
+>> +		     &pll0_div4.hw);
+>> +
+> same as above,`0x0, 13, 0, 0,` -> `0x0, 13, CLK_IS_CRITICAL, 0,`
+>> +K230_CLK_RATE_FORMAT(cpu0_apb_rate,
+>> +		     K230_CPU0_APB_RATE,
+>> +		     1, 1, 0, 0,
+>> +		     1, 8, 15, 0x7,
+>> +		     0x0, 31, div, 0x0,
+>> +		     false, 0,
+>> +		     &cpu0_apb_gate.clk.hw);
+>> +
+> same as above,`false, 0,` -> `false, CLK_IS_CRITICAL,`
+>> +static const struct clk_parent_data k230_cpu1_src_mux_pdata[] = {
+>> +	{ .hw = &pll0_div2.hw, },
+>> +	{ .hw = &pll3.hw, },
+>> +	{ .hw = &pll0.hw, },
+>> +};
+>> +
+>> +K230_CLK_MUX_FORMAT(cpu1_src_mux,
+>> +		    K230_CPU1_SRC_MUX,
+>> +		    0x4, 1, 0x3,
+>> +		    0, 0,
+>> +		    k230_cpu1_src_mux_pdata);
+>> +
+> same as above,`0, 0,` -> `CLK_IS_CRITICAL, 0,`
+>> +K230_CLK_GATE_FORMAT(cpu1_src_gate,
+>> +		     K230_CPU1_SRC_GATE,
+>> +		     0x4, 0, CLK_IGNORE_UNUSED, 0,
+>> +		     &cpu1_src_mux.clk.hw);
+>> +
+> same as above,`0x4, 0, CLK_IGNORE_UNUSED, 0,` -> `0x4, 0, CLK_IS_CRITICAL, 0,`
+>> +K230_CLK_RATE_FORMAT(cpu1_src_rate,
+>> +		     K230_CPU1_SRC_GATE,
+>> +		     1, 1, 0, 0,
+>> +		     1, 8, 3, 0x7,
+>> +		     0x4, 31, div, 0x0,
+>> +		     false, 0,
+>> +		     &cpu1_src_gate.clk.hw);
+>> +
+> same as above,`false, 0,` -> `false, CLK_IS_CRITICAL,`
+>> +K230_CLK_RATE_FORMAT(cpu1_axi_rate,
+>> +		     K230_CPU1_AXI_RATE,
+>> +		     1, 1, 0, 0,
+>> +		     1, 8, 12, 0x7,
+>> +		     0x4, 31, div, 0x0,
+>> +		     false, 0,
+>> +		     &cpu1_src_rate.clk.hw);
+>> +
+> same as above,`false, 0,` -> `false, CLK_IS_CRITICAL,`
+>> +K230_CLK_GATE_FORMAT(cpu1_plic_gate,
+>> +		     K230_CPU1_PLIC_GATE,
+>> +		     0x4, 15, CLK_IGNORE_UNUSED, 0,
+>> +		     &cpu1_src_rate.clk.hw);
+>> +
+> same as above,`0x4, 15, CLK_IGNORE_UNUSED, 0,` -> `0x4, 15, CLK_IS_CRITICAL, 0,`
+>> +K230_CLK_RATE_FORMAT(cpu1_plic_rate,
+>> +		     K230_CPU1_PLIC_RATE,
+>> +		     1, 1, 0, 0,
+>> +		     1, 8, 16, 0x7,
+>> +		     0x4, 31, div, 0x0,
+>> +		     false, 0,
+>> +		     &cpu1_plic_gate.clk.hw);
+>> +
+> same as above,`false, 0,` -> `false, CLK_IS_CRITICAL,`
+>> +K230_CLK_GATE_FORMAT(cpu1_apb_gate,
+>> +		     K230_CPU1_APB_GATE,
+>> +		     0x4, 19, 0, 0,
+>> +		     &pll0_div4.hw);
+>> +
+> same as above,`0x4, 19, 0, 0,` -> `0x4, 19, CLK_IS_CRITICAL, 0,`
+>> +K230_CLK_RATE_FORMAT(cpu1_apb_rate,
+>> +		     K230_CPU1_APB_RATE,
+>> +		     1, 1, 0, 0,
+>> +		     1, 8, 15, 0x7,
+>> +		     0x0, 31, div, 0x0,
+>> +		     false, 0,
+>> +		     &cpu1_apb_gate.clk.hw);
+>> +
+> same as above,`false, 0,` -> `false, CLK_IS_CRITICAL,`
+Thanks for the recommendation. I'll add the CLK_IS_CRITICAL flag to all
+clk_gate clocks for CPU-related clocks, but not to the rate clocks, as
+they don't need this flag.
 
 _______________________________________________
 linux-riscv mailing list
