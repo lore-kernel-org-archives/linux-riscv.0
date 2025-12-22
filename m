@@ -4,105 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4970AE67811
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Dec 2025 18:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BFDAE6ADE7
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Dec 2025 20:37:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LhqLos/IuW+sk8qGxJue38cxBETud7azl5M/n2nxh4Q=; b=jgxh3DO/hlz39w
-	IwUu9LZqc1ALr/iWWFm19QEUhw0wD2+j/dtZMBJpU5pLkFCLCMRf3IIRpOUDaOx4qi0T6yB8sRTpP
-	FSB4+KUMnOhSJVAuJ0ah+V/NSWXdGeIh5UBxw7WO7mOv+L/WJYuVi9r6KPPBzeCUUvGA4HpIcTOMX
-	Yc6qdc5Uc5xhH4Swr4M6Q5csMyA4UI/YnJZIgOo0BMazEHVBpl+XTIPZgn8fnXFGXUi/foeUAPgV7
-	enH6g9nBNJcwmh3xTWtw0i5GOGTNASbQ9b+Y5L0r8LcJBzX0TzFALvsZmSnync7A38sO9/OOSY38/
-	t6F+plUxOskJ8uBschnQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mVg6anatQjPEzuEsJ6TSlK015NEr14yp+2fhFu6AIwQ=; b=IS8KBeSZjQcjWWhk9rW0yRy2+u
+	lPnSgoH5TXntCemNiy2uJp83e92++ydf9G6jAF1zhFlJA4TedWc0+m3g57vioduZ9eTzcgsKF5JH8
+	nqJbHNPsX0P+/DkayjeL4u/yCxR+0P4OtBOXYrTel3aqZnYJTzUtlKAY5qTpTJJFa0OQognU4utOe
+	9G5m8VtBBxCLuRhROi53wwrTmSqa3kgbc30t6r82fFzIh7A/6eerwCnZoouhMrovOwv1t498mXRH4
+	fbQRilppoALyt4VZ7WrmJSTI3sURhoAjvJz0Nsua5jgNZBRhTrFc8OeaJLnRFpo53eazJocCobf2z
+	OrOKek1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXkxn-0000000E52w-4AR6;
-	Mon, 22 Dec 2025 18:49:00 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vXme2-0000000E8v4-3aTv;
+	Mon, 22 Dec 2025 20:36:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXkxk-0000000E52Z-2EbP
+	id 1vXme0-0000000E8uU-1w2G
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Dec 2025 18:48:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1766429335;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=u+4D8Tlj01NwbwJ7Sfzz7JxK73l3sJ2lS0F6Yeexu9o=;
-	b=gnTZhv0wrkXncNyU+fM2DKA+wiLjeD0HgrunQE5+tWQKjWxujHeattXYpChdukLoOM1KNX
-	N5TxwTZJXx8pEWiGZBy1wGQItDnIXUBdvM/a97D2p3dUrw/iF6AZWnv6eSnBDA4a96ur4I
-	HYzzkS0pJlhOUlZx6VLKSLvOMVsIa9A=
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
- [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-447-Z2lPXoa8MDCYAHXjXy8Cew-1; Mon, 22 Dec 2025 13:48:51 -0500
-X-MC-Unique: Z2lPXoa8MDCYAHXjXy8Cew-1
-X-Mimecast-MFC-AGG-ID: Z2lPXoa8MDCYAHXjXy8Cew_1766429331
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-88a37ca7ffdso62993016d6.3
-        for <linux-riscv@lists.infradead.org>; Mon, 22 Dec 2025 10:48:51 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766429331; x=1767034131;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=u+4D8Tlj01NwbwJ7Sfzz7JxK73l3sJ2lS0F6Yeexu9o=;
-        b=Bax32UITEjaoJyFKQq9Pmm4NUN6H0MHE7N9kohsi6en+QzTtFEQ3T5xYlojs6Ekft6
-         ORZChSyCQQvN3mjMlC13kRHbizngw68VaW/7cpa6CM++WbPgrOuzOsy3qiI3Z8l9oQwO
-         749fhNXMg2xhm5QfpP8Q9ObGabIdWfedWXSZwqY0MuzAHIVEfsOC4hm0OA9Eay47I18G
-         m0eapg2xQ+Yjaqe/qu1Z3QQcXvOaB1msjVFs/zWW0r91xPPZU+xEsf7Q7AXvNTOoXe52
-         VzSWy4CnxliRq0/CV2nDByDStUVDybq5Z/7ybbi2bisxYwRTlvKjx7AVkNPo6NUXr1R/
-         /GmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW/ZFC6dp8IOjR7WtzL4i0KyxiqzI0XUG+BvCsq84T3DDr8Fe0w35/WfP+fBsjNlIlrKcUp1xj8oo5Bog==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQfqYYShfkPIlIsfN453bmadGHULXDUfyoMAexsrRUXWXrx7CO
-	vIMinKtFtZMSJFqcrci0ITehVKobY3NSqTAOHWptn223ImDcAesit5DiyvkFU/FK62CNlFRxedi
-	izC1Rfw2w6BMNFk7+EBDyCAhW1Ab5DLMc98/EI/wi/N3yEt4Vc0pJDxgCIYok4+9/y3a1Yg==
-X-Gm-Gg: AY/fxX7tCJD2qiuCZeB8H2IYz3C1LU/NwfxZTaYi7rTRAXX72QnDcmyYVw6XXeVsxU2
-	hIRmx1ssQHvo0yrcbZF3AX2pSkIGvOz95IfzRGiRhD7m/p7tAlSNTpJzbb/GwkGgO9S0m5dPIkF
-	cmoprb0qR5BoQcR8qI/DpBKytaqV6qdMKeNjjbmwOsB0rmwtRxHMidB606CHIKOYi9MMGYHscGI
-	XGxC3TEO2F1WCZYBoPltKtFao2xkAvKi599OAE784wE4OZxYWL2d3E0nIq/49f+ZZN9l09tiHHj
-	OeWhLoA44jPBUT6Mr4L5Smbo9lVI5tq/o1iPKLdGiPCI22+gJm8jRQrpI7O1YWpMw5zbyU7vl97
-	3nSvHB/MoC/S/Bpk76QIv9NIS6zuSHSXjc6/xFkOB7Hll
-X-Received: by 2002:a05:6214:4308:b0:87c:1ec5:841e with SMTP id 6a1803df08f44-88d8166608amr169685016d6.8.1766429330766;
-        Mon, 22 Dec 2025 10:48:50 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFijTdoPJMxUAie0Ei+GEBkM/RdlFRvhMDa4MJTrCaVw2VpeAozymdzb5LdL3eiKsbDMfDUhA==
-X-Received: by 2002:a05:6214:4308:b0:87c:1ec5:841e with SMTP id 6a1803df08f44-88d8166608amr169684816d6.8.1766429330363;
-        Mon, 22 Dec 2025 10:48:50 -0800 (PST)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88d9a44e26bsm86467836d6.47.2025.12.22.10.48.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Dec 2025 10:48:49 -0800 (PST)
-Date: Mon, 22 Dec 2025 13:48:43 -0500
-From: Brian Masney <bmasney@redhat.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Mon, 22 Dec 2025 20:36:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9849E404F5;
+	Mon, 22 Dec 2025 20:36:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57FCBC4CEF1;
+	Mon, 22 Dec 2025 20:36:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766435798;
+	bh=OCb7Ri4ue/mb6gJDnZKrlyQpns/UtB1eogrgWP7fjbU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Aa/IV9M7BDWFqyXp55P/4K1Yq0lalz6HntPHGQCkSiR0mdrOVkVR0sRPJGED0gO94
+	 XCxP5+vn9aPA5o8wWrf9Qx3wm0e9E/kvAGrpcxKK8xZbP6P1WxgcOdXLwG5jwAEPvo
+	 yB4ceUWwxDUlf8AOiSLhgxwiFchWfAvQ46SUrHGUgbYTlnQd6GsF41pNRpH2+h9XMc
+	 h79ehRoHCpc4EAT4fblDojaDr+PNt0IOwKau7zNTUP7ubJWU5rmQ2+A1xoV1TGEbng
+	 zqQGwgYz3PDYqL1h4havXBcrm7U91TZmELKRRqfkAhrVtIgOlaf9wsavj4C/aUGctz
+	 V/pJSuJ5qt8wQ==
+Date: Mon, 22 Dec 2025 20:36:28 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Cc: Guodong Xu <guodong@riscstar.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@sifive.com>,
+	Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, spacemit@lists.linux.dev,
+	linux-serial@vger.kernel.org, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: Re: [PATCH v3 1/6] clk: correct clk_div_mask() return value for
- width == 32
-Message-ID: <aUmSi3mSDjx7cmpn@redhat.com>
-References: <20251216-dr1v90-cru-v3-0-52cc938d1db0@pigmoral.tech>
- <20251216-dr1v90-cru-v3-1-52cc938d1db0@pigmoral.tech>
+	Yixun Lan <dlan@gentoo.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <anup@brainfault.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
+	Yangyu Chen <cyy@cyyself.name>
+Subject: Re: [PATCH 7/8] riscv: dts: spacemit: add initial device tree of
+ SpacemiT K3 SoC
+Message-ID: <20251222-dimmer-wooing-db29fe925498@spud>
+References: <20251216-k3-basic-dt-v1-0-a0d256c9dc92@riscstar.com>
+ <20251216-k3-basic-dt-v1-7-a0d256c9dc92@riscstar.com>
+ <60948ca2-ed3d-485b-9b11-15df7ef8791d@canonical.com>
+ <CAH1PCMb=+TvB1w+G6a2ANDp05HUwC4r6CFBDHXFwSmoP3Mm8xw@mail.gmail.com>
+ <f9b6b5e2-ec9e-4208-8267-77020e0a9411@canonical.com>
+ <20251218-basil-quantum-225ce16e4699@spud>
+ <CAH1PCMZ3KM9-D3NJ1N2LUHTHFSDVKmGKT5fU8knAL7NnV9E-gw@mail.gmail.com>
+ <20251220-repacking-football-c79e660e788a@spud>
+ <4e4c9e7b-d95c-4157-94c3-b06002f94a48@canonical.com>
 MIME-Version: 1.0
-In-Reply-To: <20251216-dr1v90-cru-v3-1-52cc938d1db0@pigmoral.tech>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: bfVTaC7dkaK2FEpIfgAc2ysq2V74XalcPZastgXEx8U_1766429331
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+In-Reply-To: <4e4c9e7b-d95c-4157-94c3-b06002f94a48@canonical.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_104856_646422_43A949C3 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20251222_123640_546437_B8F81093 
+X-CRM114-Status: GOOD (  43.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,31 +92,169 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3345539002515039054=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 16, 2025 at 11:39:41AM +0800, Junhui Liu wrote:
-> The macro clk_div_mask() currently wraps to zero when width is 32 due to
-> 1 << 32 being undefined behavior. This leads to incorrect mask generation
-> and prevents correct retrieval of register field values for 32-bit-wide
-> dividers.
-> 
-> Although it is unlikely to exhaust all U32_MAX div, some clock IPs may rely
-> on a 32-bit val entry in their div_table to match a div, so providing a
-> full 32-bit mask is necessary.
-> 
-> Fix this by casting 1 to long, ensuring proper behavior for valid widths up
-> to 32.
-> 
-> Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+--===============3345539002515039054==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="988vl9+00At+flzi"
+Content-Disposition: inline
 
+
+--988vl9+00At+flzi
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Heinrich, Samuel,
+
+On Sun, Dec 21, 2025 at 01:10:15AM +0100, Heinrich Schuchardt wrote:
+> On 12/21/25 00:23, Conor Dooley wrote:
+> > On Fri, Dec 19, 2025 at 10:03:24AM +0800, Guodong Xu wrote:
+> > > Hi, Conor and Heinrich
+> > >=20
+> > > On Thu, Dec 18, 2025 at 8:56=E2=80=AFAM Conor Dooley <conor@kernel.or=
+g> wrote:
+> > > >=20
+> > > > On Wed, Dec 17, 2025 at 09:07:14AM +0100, Heinrich Schuchardt wrote:
+> > > > > On 12/17/25 08:11, Guodong Xu wrote:
+> > > >=20
+> > > > > > Specifically, I must adhere to
+> > > > > > Documentation/devicetree/bindings/riscv/extensions.yaml (and cp=
+us.yaml for
+> > > > > > properties like 'riscv,sv39' which stands for the extension Sv3=
+9). If I
+> > > > > > add extension strings that are not yet defined in these schemas=
+, such as
+> > > > > > supm, running 'make dtbs_check W=3D3' fails with: 'supm' is not=
+ one of
+> > > > > > ['i', 'm', 'a', ...], followed by "Unevaluated properties are n=
+ot allowed."
+> > > > >=20
+> > > > > If Documentation/devicetree/bindings/riscv/extensions.yaml is inc=
+omplete
+> > > > > with respect to ratified extensions, I guess the right approach i=
+s to amend
+> > > > > it and not to curtail the CPU description.
+> > > >=20
+> > > > Absolutely. If the cpu supports something that is not documented, t=
+hen
+> > > > please document it rather than omit from the devicetree.
+> > >=20
+> > > Thanks for the review. May I clarify one thing? Both of you mentioned
+> > > document them, given the amount of missing extensions, is it acceptab=
+le if
+> > > I submit a prerequisite patch that only documents these strings in
+> > > riscv/extensions.yaml plus the necessary hwprobe export? Leaving the =
+actual
+> > > usage of these extensions (named features) to the future patches.
+> > >=20
+> > > To provide some context on why I ask: I've investigated the commits &=
+ lkml
+> > > history of RISC-V extensions since v6.5, and I summarized the current=
+ status
+> > > regarding the RVA23 profile here:
+> > > [1] status in v6.18 (inc. v6.19-rc1):
+> > > https://docularxu.github.io/rva23/linux-kernel-coverage.html
+> > > [2] support evolution since v6.5:
+> > > https://docularxu.github.io/rva23/rva23-kernel-support-evolution.html
+> > >=20
+> > > Strictly describing the SpacemiT X100/K3 (or any core) as RVA23-compl=
+iant
+> > > requires adding these extensions that are currently missing from
+> > > the kernel bindings:
+> > > RVA23U64: Ziccif, Ziccamoa, Zicclsm, Za64rs
+> > > RVA23S64: Ss1p13, Ssccptr, Sstvecd, Sstvala, Sscounterenw, Ssu64xl,
+> > >            Sha, Shcounterenw, Shvstvala, Shtvala, Shvstvecd, Shvsatpa=
+, Shgatpa
+> >=20
+> >=20
+> > > Plus 'Supm', 'Zic64b', 'Ssstateen', 'B' where the kernel supports the=
+m but
+> > > they are not literally documented in yaml.
+> >=20
+> > I don't think Supm is suitable for devicetree, doesn't it describe
+> > what the kernel/userspace are capable of rather than hardware?
+> > Zic64b doesn't sound like hardware description (so not really suitable
+> > for devicetree either) but block size information is already represented
+> > by some existing properties (see riscv,cbo*-block-size in riscv/cpus.ya=
+ml)
+> > and duplicating that information is not really a great idea.
+> >=20
+> > I'll admit that I do not really understand Sxstateen and how they work,
+> > but my understanding was that knowing about Smstateen is sufficient and
+> > implied Sstateen, but having Ssstateen defined seems harmless and
+> > possible. I think kvm is the only user of this at the moment, so
+> > probably worth CCing Anup and maybe Drew Jones on the patch adding
+> > Ssstateen to make sure it makes sense.
+>=20
+> Supm is described in
+>=20
+> RISC-V Pointer Masking
+> Version 1.0, 10/2024: Ratified
+> https://raw.githubusercontent.com/riscv/riscv-j-extension/master/zjpm-spe=
+c.pdf
+>=20
+> The interpretation taken by QEMU has been:
+>=20
+> * Supm implies Ssnpm and Smnpm
+> * RVA23 capable machine models display it in the device-tree
+>=20
+> If Supm is not shown in the device-tree, software might assume that the
+> system does not support pointer masking in user mode and is not RVA23
+> compliant.
+>=20
+> Hence I would suggest:
+>=20
+> If the X100 cores have Ssnpm and Smnpm, add Supm to the device-tree.
+>=20
+> If the kernel does not support user space pointer masking, the kernel sho=
+uld
+> filter out Supm and not announce it, neither in /proc/cpuinfo nor via
+> hwprobe.
+
+Samuel seems to have some specific thoughts on how this works, given he
+didn't blindly implement ssnpm and smnpm, but has made supm be mode
+dependent and not permitted in dt, hopefully he sees this.
+
+Personally I'm not convinced that putting supm in dt makes sense, but
+instead the kernel should imply it if the sxnpm extension matching the
+mode the kernel is operating in is present and RISCV_ISA_SUPM is set in
+Kconfig. That's effectively how it works at present, except it'd involve
+promoting RISCV_ISA_SUPM to a "real" extension instead of being a macro.
+A validate callback should easily be able to handle checking the
+mode and whether the Kconfig option is set.
+That way it would get exposed to userspace using the actual mechanisms,
+reading the devicetree itself from userspace is not a valid way of
+checking what extensions are usable after all.
+
+
+--988vl9+00At+flzi
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaUmrxwAKCRB4tDGHoIJi
+0nD0AQCh7tCcD/VUpyn10ynw6g14Ck95MSUjtbHdKUKfiQ6VTQD+PltQ3Mrq+GoG
+ElDL9JRaanMKaQR08ZCQxkZeZxcEBgI=
+=6WEG
+-----END PGP SIGNATURE-----
+
+--988vl9+00At+flzi--
+
+
+--===============3345539002515039054==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3345539002515039054==--
+
