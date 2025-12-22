@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 711C2E674AD
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Dec 2025 13:08:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7223E674AD
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Dec 2025 13:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IBbr8uNzX6ohvp/VOdTx+XST4nlnn/EkO1Et6UJ79ug=; b=ugxvDecfq3Nqp5
-	4NtuUck2zIBGNlRPES6kKNYUOkSNxIvr3uDs1xw0Xjva9KLJtAh9eBWzz5EwIDQthtMyom2XJKfvG
-	qAqVf005N72R/xDAwa0I0ZOTxphdYuq7vg26lQ+qqlE/1JypAh5L3cympkkTQ3zPPhQ5tF5HM89It
-	jiLRoBO2hDmpO7hAy2Y5UpPtetB3c1yWaFeE0mfxHOEw3qynCYB9xGtK1bjq7KWWmmxVmCHiJGTbd
-	HCVL2oKjCu4n1vUzzyvMdnQj781GaRgPgtmqlA3MuwsnOy4hjk0pWC/RDEP/wXh+DCD3DIAPan2FE
-	rDV1oA9NC/mOwnvwmdZA==;
+	List-Owner; bh=G3Pai1AM4YHXXDbdjS+OE40v9oDNagbDayzHf+hGJnA=; b=FtBcbOJdQeKGE4
+	6wRHFgeeKRY7aM9MgzeXGIlLHMfK4pYQgoxhyS9Kikg96NeuP8dAXfLW3n3PpAQNJY12ccA2G1G5G
+	Elp0hdTiCwM3Ov456AbZFM0fKUb4+r8Q1pNGdsl7e6XkRT7TMmoZScna7IFsGnSDD8Do9yHXxks4k
+	InbKlDGa1B89rj71KG2MP/HhJsQNKqCn/kRUirYt5O7/eEyfaoJSiT6TL6BReYna7vh+VeAcLf7Gd
+	it53owBo/4mHdQtmiWI6o4yzy3XCHq4/O/bCGHM0vxyoebQwPWIS9sqA8FbvNHY8BZRRARq6FltZ8
+	r5h6T/7VGKENb0mc7RIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXfds-0000000DmeI-2KOg;
-	Mon, 22 Dec 2025 13:08:04 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1vXfe2-0000000Dmjk-47mU;
+	Mon, 22 Dec 2025 13:08:14 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXfdp-0000000Dmcb-0QHB
+	id 1vXfe0-0000000Dmi5-1qrv
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Dec 2025 13:08:03 +0000
-Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-8035e31d834so1294198b3a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 22 Dec 2025 05:08:00 -0800 (PST)
+	Mon, 22 Dec 2025 13:08:13 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-7f0db5700b2so3575071b3a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Dec 2025 05:08:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1766408880; x=1767013680; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1766408891; x=1767013691; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=QkOHhVohKsGIoIuLcaXjm92Us2r7m97EVQ3rEIH1/FI=;
-        b=AmQCm11UZ48mTaRZeEtSIc+Exmhd/Zr2YlIEfN9QWWovjs3/jMnH0DQiexFafcsMgJ
-         mdzD2w6J4KGBvAnqXwqyRsm/f+JC5GsqJAfNmpN8Te68/QJ8LDUN6I4iM1F1TSNoMQpe
-         rXJmgWDkr/uCxDKQ/AsG9lYZRUIENZsfSEIU+/RTwMwyvQOfu9K4mJzgx9evuhFuUPL1
-         rJENQneFArux0coKjE8TQT0lRi8Skqg9Jt0QT5Gc/Dh+UzVtZ333KSsjW9fn81ckJZoa
-         JQ60zpFT8M2Vd+yBhBzEm4lzeefxuPqzyzKPw0SXYVWUQVuGcDinEKZS/VM9mD+xpvmf
-         Kkdg==
+        bh=4UGeHuXe1WkpRh7lAuv6WjtJBbiZ85uUpTEhyAT5GGU=;
+        b=oNO9FhKTtQ6UH7f9WYhlRGbCE1dntvNCqqv2n3xF94mNvWjEbNzaZnKk0ShqZ1/tbC
+         FuWeJQpr54m0iQyozziAZ0cxoURkU0vhnFIgzFFqWr164Rpua2PRRu3Fkdo7fgFC1BHH
+         yQYsWr8Fyi5fktrvYhoxD25/Oyn+EUtY6mbx228J+h7SgKXi9DWKqNXimg2t9nKjdYUo
+         7/n+gKcW9G0iagVFpNdIgrLRHsdOTJTwdU2N2nLqEoZjfDeMeK2P3AjMZ2Yp4uvkkJfI
+         YXd0Z4JWfHArleCCPBrG8CkvBbRHhIz7J1338LOYXxgawgfw1OeE29g3RGImElWiYtoB
+         x4tA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766408880; x=1767013680;
+        d=1e100.net; s=20230601; t=1766408891; x=1767013691;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=QkOHhVohKsGIoIuLcaXjm92Us2r7m97EVQ3rEIH1/FI=;
-        b=YC7b1QBOXqB7ma0AduUEhjuXjRN1fA5J6mZqz/znnrfFANA/H7mtkvIBB3LOVhfxEa
-         IdKGyorgjWNyIxu6woBiBjeRKxcUmbWJdClhUzHC1AJd/7NGCokr96d/UseJChAUlNH/
-         N8Iyjq8jz4mf7/JZ8JmmKX7Eg/L/kMIAgveBpmhgSJpgys/rtYN4hObhru65wPBNE4cI
-         mXkuy6U1t/H5kE9qDpyAHnz0FXFM4zD7Cho/Qa7CphiwZ8itEgV38xlsI4GxDcuiXIIL
-         x89vmG/OpPHOmkZx5Jn+zEWeyAa9IeTRIzAVNoIDV4J5VAV1/p7FUH4pUyJ7uPJxauCK
-         f8UA==
-X-Forwarded-Encrypted: i=1; AJvYcCWx6nB/lOnOG2nYPB57UfEgkAi5bAzsx89wRXcZdUI+dQEgs7K8aB74fbY/mWxaT+o0DfZtYAYtO+8XYw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRoNK0V28NHSyxEPpqeLI0Cb2I6tvBVbjFDbrFLjwm6nW4CLx+
-	4gHsX5Lhmtom83X9+JMqFiZCKZMULoReMhXv81oJ+tcxhSBnMxsF1Dztz5mIikBM/KI=
-X-Gm-Gg: AY/fxX5LLgdrpXlWd67yCue+g6IriWfElUTAM+IM25TdpC2sRyu9mJfC/z183C1j4hp
-	QkSggxiVQ+FFPK64vWth0ewtBZBpKFDcmGRJ5ipibH5WflDI9N7HI7TToQyYYf/EQYymWBh4wjP
-	M78yaUbfLpqhZLZaJGDjT9E3cSDKSL1hycgbgQNZSXqp6mw31L7sLLGFztimXkpC/2a9Kaf1hTD
-	CbFVvPLbzph/cWrabeOFNQjEitloR7Jb4BjZ4TV863D3N6tyrGJ9s0DeC/8cr7ro10I+9G/oJ89
-	yu3kLz4YNewVZkElr06tvMEkLLgAKYttmLIgSF//wTsGpxK46wCkp38ZR99JWueQ1ozVP7zD26g
-	EbZypfiTIa6o23+VtnlaxRzJS6rmE0oT2QBbZgEuYHARCyg1eRQcavzs97uaMO4/uaQZ/lZYEII
-	7oT3KD7i+OPCL+DX0dJDamKJAxCa79bEk=
-X-Google-Smtp-Source: AGHT+IEVVJo9wYrbvjovvz34oXELviGUYat3B+h9KiQImiYaXL0x/LFxPhkuEtVr9NEz35uNWiLhaQ==
-X-Received: by 2002:a05:6a20:9189:b0:366:14ac:e1d9 with SMTP id adf61e73a8af0-376aaff470amr10935543637.63.1766408880374;
-        Mon, 22 Dec 2025 05:08:00 -0800 (PST)
+        bh=4UGeHuXe1WkpRh7lAuv6WjtJBbiZ85uUpTEhyAT5GGU=;
+        b=sO2UHzYnHCv+lYOWuIsvSqJfGkC/BtmTsuNFeYuf07Q4//+PLTG0WOl5ffrT7CE8CF
+         b/4sk9WbWJ09udNSmuAkTaXQeS+/eE8/3Gf5dtlI8mUw6UlyvLBlATm98jtDQzSSmQ+H
+         rhQX57APdOlW1fMwcNEpwLilT85bvsRnmdbKHKpgDa1VFFi6mq5kNfrsXzaLp7RPgId0
+         tFjNdvgwodPLmp7d9zvvXnUu8TQjlkPE2S1BaQBLg6JwPesMxPKoxna62L7FLfVVc+0e
+         oJWg/p0rAWmmjo9pNWLbI32cOqty24XB/xg6LCu4Vu+SkfnC3gfYb+mLF+DBK2cWgXIS
+         rz2g==
+X-Forwarded-Encrypted: i=1; AJvYcCVNw1yMnHj+esDrK7V1zgM3meFp0tx4CUA4VST/wVHQX8l9VOBl/PoT2wZkf7C6jLZscPA0sAWX5WZVWg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvUu9ab6aerpnjzOmMzrPow/4bHJMoYVFBtR9HwlL6RLoeX5Yj
+	O+/bcj6IgQQfDUFfRtLars4xn0JX5LiMVfFgInaaaXbVSv2p4/E+8l8Y7Tg9jTgfGIA=
+X-Gm-Gg: AY/fxX5/WJdJZ098DCzu6egxdVv3uM+sHH7yGlZpVYp9r+ursb3juKFxoP+YQqVjF+l
+	lKEIEZk3rXHItxnrIXllb1r7DGBnqpdsXaPNtRYjnmyxtOc8S6C/MIHWU6kb719CdXSv000tChd
+	hiZFso0z+Z1eG2F1k5D/Ze2DytQSDi/9mOj+fUGQpYow5M5cvXqU5Gf8OoZlfhImxZ4zAIX06Oz
+	A2Bp5jaJIFZIr0CpP53m4Sl8wp4HWqnEZGfV2YswDFLPxFIFV7mjd9kXGcFrs9N04ANDOHjV75J
+	TlHmrGPOXn53bzNTsITvARvDKM6sEQHOkBogcg23BKKf61Mp61jJ0Ev6pukfPo6tKLEki1zlCgh
+	3eq87eCb9+8HpqCyJYTP6CAE8tfBuyOEASC7XX/zMqDnBQs9/M3ER+S80U3bwV6XPbsgUuaF/hE
+	JKEgtVPDKH2Lrm4ps4WI5klugsEyqJh5U=
+X-Google-Smtp-Source: AGHT+IHHPuN3hCtZKFz2kz+Wvy3Izr0+e/klWfBzpYbVvra66xOr1F8o2wRbCo2GQASyMyGdljfeaw==
+X-Received: by 2002:a05:6a20:3ca2:b0:363:e4d7:2c34 with SMTP id adf61e73a8af0-376aa8f384dmr10273525637.57.1766408891406;
+        Mon, 22 Dec 2025 05:08:11 -0800 (PST)
 Received: from [127.0.1.1] ([2a12:a305:4::402f])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34e70c932casm12970405a91.0.2025.12.22.05.07.50
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34e70c932casm12970405a91.0.2025.12.22.05.08.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Dec 2025 05:08:00 -0800 (PST)
+        Mon, 22 Dec 2025 05:08:11 -0800 (PST)
 From: Guodong Xu <guodong@riscstar.com>
-Date: Mon, 22 Dec 2025 21:04:19 +0800
-Subject: [PATCH v2 09/13] dt-bindings: riscv: Add Ssccptr, Sscounterenw,
- Sstvala, Sstvecd, Ssu64xl
+Date: Mon, 22 Dec 2025 21:04:20 +0800
+Subject: [PATCH v2 10/13] dt-bindings: riscv: Add Sha and its comprised
+ extensions
 MIME-Version: 1.0
-Message-Id: <20251222-k3-basic-dt-v2-9-3af3f3cd0f8a@riscstar.com>
+Message-Id: <20251222-k3-basic-dt-v2-10-3af3f3cd0f8a@riscstar.com>
 References: <20251222-k3-basic-dt-v2-0-3af3f3cd0f8a@riscstar.com>
 In-Reply-To: <20251222-k3-basic-dt-v2-0-3af3f3cd0f8a@riscstar.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -98,9 +98,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  linux-serial@vger.kernel.org, Guodong Xu <guodong@riscstar.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_050802_622545_933EB8AE 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251222_050812_540448_C3411070 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,84 +116,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add descriptions for five new extensions: Ssccptr, Sscounterenw, Sstvala,
-Sstvecd, and Ssu64xl. These extensions are ratified in RISC-V Profiles
-Version 1.0 (commit b1d806605f87 "Updated to ratified state.").
+Add descriptions for the Sha extension and the seven extensions it
+comprises: Shcounterenw, Shgatpa, Shtvala, Shvsatpa, Shvstvala, Shvstvecd,
+and Ssstateen.
 
-They are introduced as new extension names for existing features and
-regulate implementation details for RISC-V Profile compliance. According
-to RISC-V Profiles Version 1.0 and RVA23 Profiles Version 1.0, their
-requirement status are:
+Sha is ratified in the RVA23 Profiles Version 1.0 (commit 0273f3c921b6
+"rva23/rvb23 ratified") as a new profile-defined extension that captures
+the full set of features that are mandated to be supported along with
+the H extension.
 
- - Ssccptr: Mandatory in RVA20S64, RVA22S64, RVA23S64
- - Sscounterenw: Mandatory in RVA22S64, RVA23S64
- - Sstvala: Mandatory in RVA20S64, RVA22S64, RVA23S64
- - Sstvecd: Mandatory in RVA20S64, RVA22S64, RVA23S64
- - Ssu64xl: Optional in RVA20S64, RVA22S64; Mandatory in RVA23S64
+Extensions Shcounterenw, Shgatpa, Shtvala, Shvsatpa, Shvstvala, Shvstvecd,
+and Ssstateen are ratified in the RISC-V Profiles Version 1.0 (commit
+b1d806605f87 "Updated to ratified state").
+
+The requirement status for Sha and its comprised extension in RISC-V
+Profiles are:
+ - Sha: Mandatory in RVA23S64
+ - H: Optional in RVA22S64; Mandatory in RVA23S64
+ - Shcounterenw: Optional in RVA22S64; Mandatory in RVA23S64
+ - Shgatpa: Optional in RVA22S64; Mandatory in RVA23S64
+ - Shtvala: Optional in RVA22S64; Mandatory in RVA23S64
+ - Shvsatpa: Optional in RVA22S64; Mandatory in RVA23S64
+ - Shvstvala: Optional in RVA22S64; Mandatory in RVA23S64
+ - Shvstvecd: Optional in RVA22S64; Mandatory in RVA23S64
+ - Ssstateen: Optional in RVA22S64; Mandatory in RVA23S64
+
+Add schema checks to enforce that Sha implies the presence of all its
+comprised extensions.
 
 Signed-off-by: Guodong Xu <guodong@riscstar.com>
 ---
 v2: New patch.
 ---
- .../devicetree/bindings/riscv/extensions.yaml      | 32 ++++++++++++++++++++++
- 1 file changed, 32 insertions(+)
+ .../devicetree/bindings/riscv/extensions.yaml      | 79 ++++++++++++++++++++++
+ 1 file changed, 79 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index a6b9d7e3edf86ecfb117ba72e295ef097bdc9831..ed7a88c0ab3b7dc7ad4a4d2fd300d6fb33ef050c 100644
+index ed7a88c0ab3b7dc7ad4a4d2fd300d6fb33ef050c..1066b7e65dab89704dbac449db4aa5605c95b9d3 100644
 --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
 +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -160,12 +160,26 @@ properties:
-             behavioural changes to interrupts as frozen at commit ccbddab
-             ("Merge pull request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
+@@ -128,6 +128,57 @@ properties:
+             version of the privileged ISA specification.
  
-+        - const: ssccptr
+         # multi-letter extensions, sorted alphanumerically
++        - const: sha
 +          description: |
-+            The standard Ssccptr extension for main memory (cacheability and
-+            coherence) hardware page-table reads, as ratified in RISC-V
++            The standard Sha extension for augmented hypervisor extension as
++            ratified in RVA23 Profiles Version 1.0, with commit 0273f3c921b6
++            ("rva23/rvb23 ratified").
++
++            Sha captures the full set of features that are mandated to be
++            supported along with the H extension. Sha comprises the following
++            extensions: H, Shcounterenw, Shgatpa, Shtvala, Shvsatpa, Shvstvala,
++            Shvstvecd, and Ssstateen.
++
++        - const: shcounterenw
++          description: |
++            The standard Shcounterenw extension for support writable enables
++            in hcounteren for any supported counter, as ratified in RISC-V
 +            Profiles Version 1.0, with commit b1d806605f87 ("Updated to
 +            ratified state.")
 +
-         - const: sscofpmf
-           description: |
-             The standard Sscofpmf supervisor-level extension for count overflow
-             and mode-based filtering as ratified at commit 01d1df0 ("Add ability
-             to manually trigger workflow. (#2)") of riscv-count-overflow.
- 
-+        - const: sscounterenw
++        - const: shgatpa
 +          description: |
-+            The standard Sscounterenw extension for support writable enables
-+            in scounteren for any supported counter, as ratified in RISC-V
-+            Profiles Version 1.0, with commit b1d806605f87 ("Updated to
-+            ratified state.")
++            The standard Shgatpa extension indicates that for each supported
++            virtual memory scheme SvNN supported in satp, the corresponding
++            hgatp SvNNx4 mode must be supported. The hgatp mode Bare must
++            also be supported. It is ratified in RISC-V Profiles Version 1.0,
++            with commit b1d806605f87 ("Updated to ratified state.")
 +
-         - const: ssnpm
-           description: |
-             The standard Ssnpm extension for next-mode pointer masking as
-@@ -178,6 +192,24 @@ properties:
-             ratified at commit 3f9ed34 ("Add ability to manually trigger
-             workflow. (#2)") of riscv-time-compare.
- 
-+        - const: sstvala
++        - const: shtvala
 +          description: |
-+            The standard Sstvala extension for stval provides all needed values
++            The standard Shtvala extension for htval be written with the
++            faulting guest physical address in all circumstances permitted by
++            the ISA. It is ratified in RISC-V Profiles Version 1.0, with
++            commit b1d806605f87 ("Updated to ratified state.")
++
++        - const: shvsatpa
++          description: |
++            The standard Shvsatpa extension for vsatp supporting all translation
++            modes supported in satp, as ratified in RISC-V Profiles Version 1.0,
++            with commit b1d806605f87 ("Updated to ratified state.")
++
++        - const: shvstvala
++          description: |
++            The standard Shvstvala extension for vstval provides all needed
++            values as ratified in RISC-V Profiles Version 1.0, with commit
++            b1d806605f87 ("Updated to ratified state.")
++
++        - const: shvstvecd
++          description: |
++            The standard Shvstvecd extension for vstvec supporting Direct mode,
 +            as ratified in RISC-V Profiles Version 1.0, with commit b1d806605f87
 +            ("Updated to ratified state.")
 +
-+        - const: sstvecd
-+          description: |
-+            The standard Sstvecd extension for stvec supports Direct mode as
-+            ratified in RISC-V Profiles Version 1.0, with commit b1d806605f87
-+            ("Updated to ratified state.")
-+
-+        - const: ssu64xl
-+          description: |
-+            The standard Ssu64xl extension for UXLEN=64 must be supported, as
-+            ratified in RISC-V Profiles Version 1.0, with commit b1d806605f87
-+            ("Updated to ratified state.")
-+
-         - const: svade
+         - const: smaia
            description: |
-             The standard Svade supervisor-level extension for SW-managed PTE A/D
+             The standard Smaia supervisor-level extension for the advanced
+@@ -186,6 +237,12 @@ properties:
+             ratified at commit d70011dde6c2 ("Update to ratified state")
+             of riscv-j-extension.
+ 
++        - const: ssstateen
++          description: |
++            The standard Ssstateen extension for supervisor-mode view of the
++            state-enable extension, as ratified in RISC-V Profiles Version 1.0,
++            with commit b1d806605f87 ("Updated to ratified state.")
++
+         - const: sstc
+           description: |
+             The standard Sstc supervisor-level extension for time compare as
+@@ -813,6 +870,28 @@ properties:
+                 const: zbb
+             - contains:
+                 const: zbs
++      # sha comprises the following extensions
++      - if:
++          contains:
++            const: sha
++        then:
++          allOf:
++            - contains:
++                const: h
++            - contains:
++                const: shcounterenw
++            - contains:
++                const: shgatpa
++            - contains:
++                const: shtvala
++            - contains:
++                const: shvsatpa
++            - contains:
++                const: shvstvala
++            - contains:
++                const: shvstvecd
++            - contains:
++                const: ssstateen
+       # Zcb depends on Zca
+       - if:
+           contains:
 
 -- 
 2.43.0
