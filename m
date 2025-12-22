@@ -4,85 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E96CD711D5
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Dec 2025 05:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DADF0E6748D
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Dec 2025 05:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nEm7OLy05VyACKWzPXYptv9uJRDgOypdD7OkwHtz4NM=; b=BUQvlGoCzlJPdg
-	5oZyd3B9qqkf2iRDHPDnvIOyzCedSAPpWDM+cOw0sr4OS3Wva24zgTYuI3UJiCn4d5ehDjSb2TMxs
-	QEzuD99aAElBs8LP/eGHxsgtUGzIOhVsyK63nj7Dy+1see8mvnQgK3vAxQdpZUNtsKBItatKH1p74
-	E7piTm2R4bhuQaih6oxydWDFzBpOIH2dSHR2c31BunE43rJPLHA1Sg8wmCeB96PvRamT4AZ0XyySa
-	SWTd7pn0Vb4gQ/T1/n0UFS6kNXinB2Ji8r14aF+LTjngfrw0sChGRjclwIUuRvUb9DqvFu9G76WhN
-	WB0pTDC6JQ4pBGnDUfnw==;
+	List-Owner; bh=AWwEP2JsU6NMK63xhaF7TtIzNFbY8IpVGlt4spyRVJc=; b=ioZWX7RliIxOuu
+	U946c1tfDkK3reTMncCAXmFP7f5b4ZTyk3s/r9OW2D7rnnv2y4wTR/spkpnIg0v+vqX/PQ1WF2NXG
+	gkHePHy6rAFP59qTGM5z5b7Ayi6ugPJdgEHFFVletV3id/5sBAZkEA6KCcIa9in8eYP7Tok3moCxO
+	PueZGbFAppgxz5M4JZ25lfDL4TLd3L7DtI63eRZj2qVx79+nPq+qvQwiz5bomQwYg4urtgaHSYVwH
+	ERMSzW4qorVTENftzo0gDOQU4Q2HcGGZDAGq0SUtR648nkc9Id6fWFEqKn22NS8yCq/4dnr9fisOr
+	c4S+m2RiGZdXvDxzzi/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXY5I-0000000D5p0-2lEN;
-	Mon, 22 Dec 2025 05:03:52 +0000
-Received: from mail-oo1-xc2e.google.com ([2607:f8b0:4864:20::c2e])
+	id 1vXYeU-0000000D8A4-3dRJ;
+	Mon, 22 Dec 2025 05:40:14 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXY5F-0000000D5oE-1Lkt
+	id 1vXYeS-0000000D897-08Xc
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Dec 2025 05:03:50 +0000
-Received: by mail-oo1-xc2e.google.com with SMTP id 006d021491bc7-65d0953cd49so2253008eaf.0
-        for <linux-riscv@lists.infradead.org>; Sun, 21 Dec 2025 21:03:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1766379827; x=1766984627; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sy9ZgPgnx+KQ7BMNaVsbyPKbe9xDbdHd4prPK2wn3fY=;
-        b=kGS6O04julx38MOVxpcsZADrzHfzSdFAze1uwLxh8UzBllTobPlAAUzhH1oRSLboWg
-         vPVYeYmBZIb3TI4S3vFYrqNMQXq1egodAYipOiNY7uJiWqyrGlY68NDepaXvbqzTVWCJ
-         ugdsBXfzyHeqHnR3LNTLMboVqyb2FfE8N8ZWkXDba9CuHiirmkImT/pgBsvlWknduqMY
-         RU0FF8a/TIDcNpn8VXUCpR+YF+fsmkmY9/Rmc2IKpYcD/QxcKDUG8wMkMy0W+zWUEIYK
-         VA3tidPa+Gkp8c3v6P5Qoo+wb/iOll6KHl/YaETenrRAIh+oaIFYCdtLzhHi6Ua83LHG
-         itng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766379827; x=1766984627;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=sy9ZgPgnx+KQ7BMNaVsbyPKbe9xDbdHd4prPK2wn3fY=;
-        b=t5wH5z8Hbd78wjHdLu9GrzX0BjDCKbXAgYVggZr6Cub8BPf4lCq9Ronv3+YDTX1TsA
-         0WoMzLjleVvzvlJkFOnZYoTKXRc9tEj0UHycDkjjZB2J19ZenNLQOkBLv8QqDRxdwKiu
-         53qqbclgAam/4acKdM9aGh8keK+3juHPrahNz/MfI609ubhIUb3tRak0ulJrpD642GEK
-         8Hw4mG0lVGSjCfTx2ISKp+0Zf+d3dCeSwjCEHEjFIf9v4wpaPrJC8DqTOUm7QEzeMIbi
-         eghMqS+yxNjwuZglLJSVDCIsh7dbd34rZ+QEFdbRrt/1dzEkSukiIYIbYXK5MhEPCPL0
-         8+xA==
-X-Forwarded-Encrypted: i=1; AJvYcCX8tjGCnpq6yVPsQujbSpV6yjggKSzg31pxZ8koj9uh89YZ21O1Tp0IMSNl11IGvViufheQJOtLP6Zkzw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQeL/6+vrfpgKB0rHlOUQ4/uryD2vmoMBENy7biCBULX6wQFPU
-	Wks48+/MEi8uwJld2pLl7MFQdVve1JjjY08HJGy3xChFt72QgbwfLhJtWW/0NUS4LbSGas5jWyt
-	TjZW04VQ+6mv1kfJuY+3hFRlSw3JD5C+2JYk8okv1Gg==
-X-Gm-Gg: AY/fxX7jhmvDHXIIOO2Dt+gTqLMIiq3fOtQGOiEaZfUPUEzMXDNAybodOO+sxHjh0Up
-	9pyHoiA4xgMFEnUa2KV5gXuOs37y3HH4V89n6cvBjH5Wq3Q5pm5CjEF1+sGJfBvVrChxUAeiEWz
-	vUlzjnG9Y2iaWSbw8VydjGSCK2FLOw2sBFmTfgwFzk17R7dqr1lcQW49HuNMhmFnC4rIPJ4u78q
-	nXjiwsdKl77vygYrYtf8Px4uyve+efIduB1obcqkFbPm9KXDj3ctR3Qcrn6se5fUV5r0BBz19Rg
-	ksi2Tyo=
-X-Google-Smtp-Source: AGHT+IHKvupHro/hyAQmz/UbSx9bp78T+3p3ZGuqrZrOOXP0J2lbd0Nbq+Z7QXEgflbpCa+jplwI2INuovHvot6H1ks=
-X-Received: by 2002:a4a:ddcb:0:b0:659:9a49:8f55 with SMTP id
- 006d021491bc7-65d0e99fd3cmr3454670eaf.26.1766379827059; Sun, 21 Dec 2025
- 21:03:47 -0800 (PST)
+	Mon, 22 Dec 2025 05:40:13 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5BLNjF83013087;
+	Mon, 22 Dec 2025 05:39:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=bPrvbE
+	SkSgpp2WWexJD4gcdzcojzOAas7o1H9mduoIs=; b=UTYePHwrRVJJT8bAG4yalB
+	aMGC1zn6wFxfkDesL0EL4u0sNEtqEB8bLLVa0yVhNf0Dj8P2DgVQATZXW/9O2Jf8
+	KtxNC7oEKzdGE4F0HJx7xaw94vF81AM5NdZGAB/F8vg5dnnHzCYrQjCHHbmEaSCu
+	2pY9M4iaAqtiXefjnEHSOjgVupBES/ei1c2gU8sNjW/SurGnIYrJIYNBQMhskYdq
+	XXe1WUaXzD/1n75TeL9kXvr4bgq3sozantlWBx+Zf4FHgOI7LET+8m7jU4uIDleh
+	+xRwB5slFlZLP5JNNK6MKrLO1+DYpxEdhBN4ldMfmeiJDKP8eeFjS8iZiNt3S1xw
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4b5kh46dhp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 22 Dec 2025 05:39:15 +0000 (GMT)
+Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5BM5dFER009164;
+	Mon, 22 Dec 2025 05:39:15 GMT
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4b5kh46dhk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 22 Dec 2025 05:39:15 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5BM256AH032274;
+	Mon, 22 Dec 2025 05:39:14 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4b68u0v5mx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 22 Dec 2025 05:39:14 +0000
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5BM5d90m45482272
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 22 Dec 2025 05:39:09 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2ACE020043;
+	Mon, 22 Dec 2025 05:39:09 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 44B0C20040;
+	Mon, 22 Dec 2025 05:39:05 +0000 (GMT)
+Received: from [9.124.208.188] (unknown [9.124.208.188])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon, 22 Dec 2025 05:39:04 +0000 (GMT)
+Message-ID: <25467781-3b81-4a6b-87d3-91bcb4f42aab@linux.ibm.com>
+Date: Mon, 22 Dec 2025 11:09:04 +0530
 MIME-Version: 1.0
-References: <20251220163713.34040-1-luxu.kernel@bytedance.com>
-In-Reply-To: <20251220163713.34040-1-luxu.kernel@bytedance.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 22 Dec 2025 10:33:34 +0530
-X-Gm-Features: AQt7F2rHINEGxooKlYvEjJ0KOTniXCDPUi7Tp7Ga57aVoykJu_SMOEsVgSJ7joI
-Message-ID: <CAAhSdy1rHO407BwLtP-s5J1fJtcp2GfvvhtEEpnN2AOn79s8qg@mail.gmail.com>
-Subject: Re: [PATCH v3] irqchip/riscv-imsic: Adjust the number of available
- guest irq files
-To: Xu Lu <luxu.kernel@bytedance.com>
-Cc: atish.patra@linux.dev, pjw@kernel.org, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@linutronix.de, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6] mm/hugetlb: ignore hugepage kernel args if hugepages
+ are unsupported
+To: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Borislav Petkov
+ <bp@alien8.de>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Heiko Carstens <hca@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Muchun Song <muchun.song@linux.dev>,
+        Oscar Salvador <osalvador@suse.de>,
+        Thomas Gleixner <tglx@linutronix.de>,
+        Vasily Gorbik <gor@linux.ibm.com>, linux-mm@kvack.org,
+        linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+        x86@kernel.org, linux-riscv@lists.infradead.org,
+        "David Hildenbrand (Red Hat)" <david@kernel.org>,
+        linux-kernel@vger.kernel.org
+References: <20251221053611.441251-1-sourabhjain@linux.ibm.com>
+ <87a4zcml36.ritesh.list@gmail.com>
+Content-Language: en-US
+From: Sourabh Jain <sourabhjain@linux.ibm.com>
+In-Reply-To: <87a4zcml36.ritesh.list@gmail.com>
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=bulBxUai c=1 sm=1 tr=0 ts=6948d983 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=E0RgZOrFmug6THL7l80A:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: THFbMRSaiISb1s41jq2UWF0mx8OZh7pJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjIyMDA0NSBTYWx0ZWRfX0vXp8Po2cnuP
+ m+ATDiOSQgBQtxY7ucShSj4isWiaJ+dnupb64+UuNNvx7BpOPFxmsPI/dr8sRrSZLQMCrAhbgGJ
+ Uu7SgNpXam9GF3O+r40dxFPMe71em5mFnXmoXlHHBL9fQV7wRr5sVVscsmkQkMkPU+NZYBgb1vY
+ pkHeECDtvgYIAnZiz/hS4yeA2oroC+STJEUF8X/7/C529p1lIFK+StUf3jwELrV0IUR12YUQoYd
+ DjFNMmeT+Q6D1ddTpvUFpJjfN1tIBek3Xs11jbJ1fxTLZkgqkHW9fplE0bD2cw6sOMUEULSKaiv
+ XPszuYY6x7IoTTVeNZ2bU8qlpiOdq3Wk7EguN6bXyVVYoEe1BzGnENd6CTG9RH2hY6Z1LYGtxup
+ W1iWC7jzVgexG3XnHHyTkuzp4yky4GaK7H/9nh2ewyvpPd+oTWyYVlvkgmotyS21stSizlVVrI/
+ udkDWLFG8UzqTYVWzIA==
+X-Proofpoint-GUID: mL7M4Ewt3ZJPWfnEqof-eoMUjrtkqty-
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-21_05,2025-12-19_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 suspectscore=0 clxscore=1015 lowpriorityscore=0
+ priorityscore=1501 spamscore=0 malwarescore=0 bulkscore=0 phishscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2512120000
+ definitions=main-2512220045
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251221_210349_622546_14BDFF61 
-X-CRM114-Status: GOOD (  23.23  )
+X-CRM114-CacheID: sfid-20251221_214012_109122_6771185B 
+X-CRM114-Status: GOOD (  25.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,85 +135,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBEZWMgMjAsIDIwMjUgYXQgMTA6MDfigK9QTSBYdSBMdSA8bHV4dS5rZXJuZWxAYnl0
-ZWRhbmNlLmNvbT4gd3JvdGU6Cj4KPiBEdXJpbmcgaW5pdGlhbGl6YXRpb24sIGtlcm5lbCBtYXBz
-IHRoZSBNTUlPIHJlc291cmNlcyBvZiBJTVNJQywgd2hpY2ggaXMKPiBwYXJzZWQgZnJvbSBBQ1BJ
-IG9yIERUUyBhbmQgbWF5IG5vdCBzdHJpY3RseSBjb250YWlucyBhbGwgZ3Vlc3QKPiBpbnRlcnJ1
-cHQgZmlsZXMuIFBhZ2UgZmF1bHQgaGFwcGVucyB3aGVuIEtWTSB3cm9uZ2x5IGFsbG9jYXRlcyBh
-bgo+IHVubWFwcGVkIGd1ZXN0IGludGVycnVwdCBmaWxlIGFuZCB3cml0ZXMgaXQuCgpUaGUgbW90
-aXZhdGlvbiBpcyBub3QgY2xlYXIgZnJvbSB0aGUgYWJvdmUgdGV4dCBhbmQgbmVlZHMgdG8gaW1w
-cm92ZS4KCkhvdyBhYm91dCB0aGUgZm9sbG93aW5nID8KCkN1cnJlbnRseSwgS1ZNIGFzc3VtZXMg
-dGhlIG1pbmltdW0gb2YgaW1wbGVtZW50ZWQgSEdFSUUgYml0cyBhbmQKIkJJVChnYy0+Z3Vlc3Rf
-aW5kZXhfYml0cykgLSAxIiBhcyB0aGUgbnVtYmVyIG9mIGd1ZXN0IGZpbGVzIGF2YWlsYWJsZQph
-Y3Jvc3MgYWxsIENQVXMuIFRoaXMgd2lsbCBub3Qgd29yayBvbmx5IHdoZW4gQ1BVcyBoYXZlIGRp
-ZmZlcmVudCBudW1iZXIKb2YgZ3Vlc3QgZmlsZXMgYmVjYXVzZSBLVk0gbWF5IGluY29ycmVjdGx5
-IGFsbG9jYXRlIGEgZ3Vlc3QgZmlsZSBvbiBhIENQVQp3aXRoIGZld2VyIGd1ZXN0IGZpbGVzLgoK
-Pgo+IFRodXMsIGR1cmluZyBpbml0aWFsaXphdGlvbiwgd2UgY2FsY3VsYXRlIHRoZSBudW1iZXIg
-b2YgYXZhaWxhYmxlIGd1ZXN0CgpzL1RodXMsIGR1cmluZyBpbml0aWFsaXphdGlvbi9UbyBhZGRy
-ZXNzIHRoZSBhYm92ZS8KCj4gaW50ZXJydXB0IGZpbGVzIGFjY29yZGluZyB0byBNTUlPIHJlc291
-cmNlcyBhbmQgY29uc3RyYWluIHRoZSBudW1iZXIgb2YKPiBndWVzdCBpbnRlcnJ1cHQgZmlsZXMg
-dGhhdCBjYW4gYmUgYWxsb2NhdGVkIGJ5IEtWTS4KPgo+IFNpZ25lZC1vZmYtYnk6IFh1IEx1IDxs
-dXh1Lmtlcm5lbEBieXRlZGFuY2UuY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2t2bS9haWEuYyAg
-ICAgICAgICAgICAgICAgICAgfCAyICstCj4gIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW1z
-aWMtc3RhdGUuYyB8IDcgKysrKysrLQo+ICBpbmNsdWRlL2xpbnV4L2lycWNoaXAvcmlzY3YtaW1z
-aWMuaCAgICAgfCAzICsrKwo+ICAzIGZpbGVzIGNoYW5nZWQsIDEwIGluc2VydGlvbnMoKyksIDIg
-ZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vYWlhLmMgYi9hcmNo
-L3Jpc2N2L2t2bS9haWEuYwo+IGluZGV4IGRhZDMxODE4NTY2MDAuLmNhYzNjMmI1MWQ3MjQgMTAw
-NjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rdm0vYWlhLmMKPiArKysgYi9hcmNoL3Jpc2N2L2t2bS9h
-aWEuYwo+IEBAIC02MzAsNyArNjMwLDcgQEAgaW50IGt2bV9yaXNjdl9haWFfaW5pdCh2b2lkKQo+
-ICAgICAgICAgICovCj4gICAgICAgICBpZiAoZ2MpCj4gICAgICAgICAgICAgICAgIGt2bV9yaXNj
-dl9haWFfbnJfaGdlaSA9IG1pbigodWxvbmcpa3ZtX3Jpc2N2X2FpYV9ucl9oZ2VpLAo+IC0gICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQklUKGdjLT5ndWVzdF9pbmRl
-eF9iaXRzKSAtIDEpOwo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgZ2MtPm5yX2d1ZXN0X2ZpbGVzKTsKPiAgICAgICAgIGVsc2UKPiAgICAgICAgICAgICAgICAg
-a3ZtX3Jpc2N2X2FpYV9ucl9oZ2VpID0gMDsKPgo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2lycWNo
-aXAvaXJxLXJpc2N2LWltc2ljLXN0YXRlLmMgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWlt
-c2ljLXN0YXRlLmMKPiBpbmRleCBkYzk1YWQ4NTZkODBhLi4xZTk4MmNlMDI0YTQ3IDEwMDY0NAo+
-IC0tLSBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW1zaWMtc3RhdGUuYwo+ICsrKyBiL2Ry
-aXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW1zaWMtc3RhdGUuYwo+IEBAIC03OTQsNyArNzk0LDcg
-QEAgc3RhdGljIGludCBfX2luaXQgaW1zaWNfcGFyc2VfZndub2RlKHN0cnVjdCBmd25vZGVfaGFu
-ZGxlICpmd25vZGUsCj4KPiAgaW50IF9faW5pdCBpbXNpY19zZXR1cF9zdGF0ZShzdHJ1Y3QgZndu
-b2RlX2hhbmRsZSAqZndub2RlLCB2b2lkICpvcGFxdWUpCj4gIHsKPiAtICAgICAgIHUzMiBpLCBq
-LCBpbmRleCwgbnJfcGFyZW50X2lycXMsIG5yX21taW9zLCBucl9oYW5kbGVycyA9IDA7Cj4gKyAg
-ICAgICB1MzIgaSwgaiwgaW5kZXgsIG5yX3BhcmVudF9pcnFzLCBucl9tbWlvcywgbnJfZ3Vlc3Rf
-ZmlsZXMsIG5yX2hhbmRsZXJzID0gMDsKPiAgICAgICAgIHN0cnVjdCBpbXNpY19nbG9iYWxfY29u
-ZmlnICpnbG9iYWw7Cj4gICAgICAgICBzdHJ1Y3QgaW1zaWNfbG9jYWxfY29uZmlnICpsb2NhbDsK
-PiAgICAgICAgIHZvaWQgX19pb21lbSAqKm1taW9zX3ZhID0gTlVMTDsKPiBAQCAtODg4LDYgKzg4
-OCw3IEBAIGludCBfX2luaXQgaW1zaWNfc2V0dXBfc3RhdGUoc3RydWN0IGZ3bm9kZV9oYW5kbGUg
-KmZ3bm9kZSwgdm9pZCAqb3BhcXVlKQo+ICAgICAgICAgfQo+Cj4gICAgICAgICAvKiBDb25maWd1
-cmUgaGFuZGxlcnMgZm9yIHRhcmdldCBDUFVzICovCj4gKyAgICAgICBnbG9iYWwtPm5yX2d1ZXN0
-X2ZpbGVzID0gQklUKGdsb2JhbC0+Z3Vlc3RfaW5kZXhfYml0cykgLSAxOwo+ICAgICAgICAgZm9y
-IChpID0gMDsgaSA8IG5yX3BhcmVudF9pcnFzOyBpKyspIHsKPiAgICAgICAgICAgICAgICAgcmMg
-PSBpbXNpY19nZXRfcGFyZW50X2hhcnRpZChmd25vZGUsIGksICZoYXJ0aWQpOwo+ICAgICAgICAg
-ICAgICAgICBpZiAocmMpIHsKPiBAQCAtOTI4LDYgKzkyOSwxMCBAQCBpbnQgX19pbml0IGltc2lj
-X3NldHVwX3N0YXRlKHN0cnVjdCBmd25vZGVfaGFuZGxlICpmd25vZGUsIHZvaWQgKm9wYXF1ZSkK
-PiAgICAgICAgICAgICAgICAgbG9jYWwtPm1zaV9wYSA9IG1taW9zW2luZGV4XS5zdGFydCArIHJl
-bG9mZjsKPiAgICAgICAgICAgICAgICAgbG9jYWwtPm1zaV92YSA9IG1taW9zX3ZhW2luZGV4XSAr
-IHJlbG9mZjsKPgoKTmVlZCBjb21tZW50cyBleHBsYWluaW5nIHdoeSB3ZSBhcmUgdGFraW5nIHRo
-ZQptaW5pbXVtIG51bWJlciBvZiBndWVzdCBmaWxlcyBhY3Jvc3MgQ1BVcy4KCj4gKyAgICAgICAg
-ICAgICAgIG5yX2d1ZXN0X2ZpbGVzID0gKHJlc291cmNlX3NpemUoJm1taW9zW2luZGV4XSkgLSBy
-ZWxvZmYpIC8gSU1TSUNfTU1JT19QQUdFX1NaIC0gMTsKPiArICAgICAgICAgICAgICAgZ2xvYmFs
-LT5ucl9ndWVzdF9maWxlcyA9IGdsb2JhbC0+bnJfZ3Vlc3RfZmlsZXMgPiBucl9ndWVzdF9maWxl
-cyA/IG5yX2d1ZXN0X2ZpbGVzIDoKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgIGdsb2JhbC0+bnJfZ3Vlc3RfZmlsZXM7CgpnbG9iYWwtPm5yX2d1ZXN0X2ZpbGVzID0g
-bWluKG5yX2d1ZXN0X2ZpbGVzLCBnbG9iYWwtPm5yX2d1ZXN0X2ZpbGVzKTsKCj4gKwo+ICAgICAg
-ICAgICAgICAgICBucl9oYW5kbGVycysrOwo+ICAgICAgICAgfQo+Cj4gZGlmZiAtLWdpdCBhL2lu
-Y2x1ZGUvbGludXgvaXJxY2hpcC9yaXNjdi1pbXNpYy5oIGIvaW5jbHVkZS9saW51eC9pcnFjaGlw
-L3Jpc2N2LWltc2ljLmgKPiBpbmRleCA3NDk0OTUyYzU1MTg3Li40M2FlZDUyMzg1MDA4IDEwMDY0
-NAo+IC0tLSBhL2luY2x1ZGUvbGludXgvaXJxY2hpcC9yaXNjdi1pbXNpYy5oCj4gKysrIGIvaW5j
-bHVkZS9saW51eC9pcnFjaGlwL3Jpc2N2LWltc2ljLmgKPiBAQCAtNjksNiArNjksOSBAQCBzdHJ1
-Y3QgaW1zaWNfZ2xvYmFsX2NvbmZpZyB7Cj4gICAgICAgICAvKiBOdW1iZXIgb2YgZ3Vlc3QgaW50
-ZXJydXB0IGlkZW50aXRpZXMgKi8KPiAgICAgICAgIHUzMiAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICBucl9ndWVzdF9pZHM7Cj4KPiArICAgICAgIC8qIE51bWJlciBvZiBndWVz
-dCBpbnRlcnJ1cHQgZmlsZXMgcGVyIGNvcmUgKi8KPiArICAgICAgIHUzMiAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICBucl9ndWVzdF9maWxlczsKPiArCj4gICAgICAgICAvKiBQ
-ZXItQ1BVIElNU0lDIGFkZHJlc3NlcyAqLwo+ICAgICAgICAgc3RydWN0IGltc2ljX2xvY2FsX2Nv
-bmZpZyBfX3BlcmNwdSAgICAgICpsb2NhbDsKPiAgfTsKPiAtLQo+IDIuMjAuMQo+CgpSZWdhcmRz
-LApBbnVwCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+
+On 21/12/25 11:29, Ritesh Harjani (IBM) wrote:
+> Hi Sourabh,
+>
+> Sourabh Jain <sourabhjain@linux.ibm.com> writes:
+>
+>> Skip processing hugepage kernel arguments (hugepagesz, hugepages, and
+>> default_hugepagesz) when hugepages are not supported by the
+>> architecture.
+>>
+>> Some architectures may need to disable hugepages based on conditions
+>> discovered during kernel boot. The hugepages_supported() helper allows
+>> architecture code to advertise whether hugepages are supported.
+>>
+>> Currently, normal hugepage allocation is guarded by
+>> hugepages_supported(), but gigantic hugepages are allocated regardless
+>> of this check. This causes problems on powerpc for fadump (firmware-
+>> assisted dump).
+>>
+>> In the fadump (firmware-assisted dump) scenario, a production kernel
+>> crash causes the system to boot into a special kernel whose sole
+>> purpose is to collect the memory dump and reboot. Features such as
+>> hugepages are not required in this environment and should be
+>> disabled.
+>>
+>> For example, when the fadump kernel boots with the following kernel
+>> arguments:
+>> default_hugepagesz=1GB hugepagesz=1GB hugepages=200
+>>
+>> Before this patch, the kernel prints the following logs:
+>>
+>> HugeTLB: allocating 200 of page size 1.00 GiB failed.  Only allocated 58 hugepages.
+>> HugeTLB support is disabled!
+>> HugeTLB: huge pages not supported, ignoring associated command-line parameters
+>> hugetlbfs: disabling because there are no supported hugepage sizes
+>>
+>> Even though the logs state that HugeTLB support is disabled, gigantic
+>> hugepages are still allocated. This causes the fadump kernel to run out
+>> of memory during boot.
+>>
+>> After this patch is applied, the kernel prints the following logs for
+>> the same command line:
+>>
+>> HugeTLB: hugepages unsupported, ignoring default_hugepagesz=1GB cmdline
+>> HugeTLB: hugepages unsupported, ignoring hugepagesz=1GB cmdline
+>> HugeTLB: hugepages unsupported, ignoring hugepages=200 cmdline
+>> HugeTLB support is disabled!
+>> hugetlbfs: disabling because there are no supported hugepage sizes
+>>
+>> To fix the issue, gigantic hugepage allocation should be guarded by
+>> hugepages_supported().
+>>
+>> Previously, two approaches were proposed to bring gigantic hugepage
+>> allocation under hugepages_supported():
+>>
+>> [1] Check hugepages_supported() in the generic code before allocating
+>> gigantic hugepages
+>> [2] Make arch_hugetlb_valid_size() return false for all hugetlb sizes
+>>
+>> Approach [2] has two minor issues:
+>> 1. It prints misleading logs about invalid hugepage sizes
+>> 2. The kernel still processes hugepage kernel arguments unnecessarily
+>>
+>> To control gigantic hugepage allocation, skip processing hugepage kernel
+>> arguments (default_hugepagesz, hugepagesz and hugepages) when
+>> hugepages_supported() returns false.
+>>
+>> Link: https://lore.kernel.org/all/20250121150419.1342794-1-sourabhjain@linux.ibm.com/ [1]
+>> Link: https://lore.kernel.org/all/20250128043358.163372-1-sourabhjain@linux.ibm.com/ [2]
+>> Fixes: c2833a5bf75b ("hugetlbfs: fix changes to command line processing")
+>
+> I appreciate our proactiveness to respond quickly on mailing list, but I
+> suggest we give enough time to folks before sending the next version
+> please ;).
+
+I agree that I posted the v6 too quickly. I will avoid that in future.
+
+>
+> Your email from last night [1] says that we will use this fixes tag but
+> you haven't even given us 24hrs to respond to that email thread :). Now
+> we've sent this v6, with Acked-by of David and Reviewed-by of mine,
+> which seems like everything was agreed upon, but that isn't the case
+> actually.
+
+Yes, you are right. I should have waited until the discussion about the
+Fixes tag was finished.
+
+Thanks for pointing out things Ritesh.
+
+- Sourabh Jain
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
