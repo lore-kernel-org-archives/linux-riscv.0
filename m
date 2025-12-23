@@ -4,138 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB1E6E6F078
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4469E6F07A
 	for <linux-riscv@archiver.kernel.org>; Tue, 23 Dec 2025 09:40:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s6nAohenm10w0F4You7DxtJ3Scmrpv9DWYweG9K0OW0=; b=LhKBvNRRivjazs
-	ZB8xcT9i6u3iUQsU2dlulc0Gx9UgY5/G3JaZ9IxDAGbqZXNEgnsbZevqUJymBJnW/mSgSrq+s08QR
-	UFcXj7BFanJvDvLN5A9fQ+s3wlkjJxCvXVf+p0G1xZgWt3Me4gpYN6c9rJdObDr6TKoFpbFqXW+Kl
-	Wj8u0W28eZEDWXJ6ZofDRU+FwQ+caJGVK0M4cqRaBQWHTqRfjxQ4b67zoYHT+usBaNsyMSGOcWndb
-	ZUjZqxV70/lT9APTLR/qkBMoi4K/ustVjihgQ/C/2x78u0sd4jOS3fgUIhdotZc7ZfujN0zAo+x+n
-	Y1xHloto6H6c4t1KyFRw==;
+	List-Owner; bh=LOE5z6Hgz+Rv33pferWHEWut0yPxxgEh3a6lWZ1O4F4=; b=Ad/cap/rHWl8+X
+	B48iSlFAuSWeim4QO1X+/9uCyNZeVzYoF0wntaxKqG0BGmmhoIDOxddIBc/kIILnsXbh5qmg5rnp/
+	YfwgW5El0WBhIQEkjUUpV/zu1f7xcArGiOdcQGpNCUMZyp4BViQm2RtC+HsVSzYPwxQOSqNOQ7M7B
+	6X8RhzP5OCMtPMLRMEhfUyAA3nRqeBJ1KQfOHV2mT8jRVKLgnAqn4FJLI6Qjfz+okv1bGba9zbG38
+	baZzHDJzVhq8/qZB5l0onUZHBXwwgDqeJ6OP5utLivvjcA69HbptZT3UYXiR9DWsEG0Bzqs06Wfba
+	AIQUJWJ1T414qb591exw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXysq-0000000EmZc-35ms;
-	Tue, 23 Dec 2025 09:40:48 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1vXyso-0000000EmZD-1g7A;
+	Tue, 23 Dec 2025 09:40:46 +0000
+Received: from mail-ua1-x930.google.com ([2607:f8b0:4864:20::930])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXysn-0000000EmYe-3LY9
+	id 1vXysm-0000000EmYf-26t2
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Dec 2025 09:40:47 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 591D4336CA;
-	Tue, 23 Dec 2025 09:40:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1766482841; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+ZdRSSvs2aVpnn7IZDI7qNSbU0W6jegWiD2v75muEUA=;
-	b=XynscgSMzalVPHbN9I9u+cZUDPbDgeVrvET9iQxtnhxyaJQ2pMGDFNQ4yJ8Z3iy+Qjh8py
-	q6Tvi1Z9J88U/1+cY5N0CrB7pmCxBTay7rygrhXO/8iVCZnZVigKspRlmYdYvh7ppI/twD
-	SSZi34upUHrMYFY8cSACEW7icbBd0nM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1766482841;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+ZdRSSvs2aVpnn7IZDI7qNSbU0W6jegWiD2v75muEUA=;
-	b=bJR/eS6PwIKCSEA6Ec+78+ACEc/61r5DkLxS+E4PG3cuvX/hnl1gzuLYQpEpxmXznE5jn2
-	IFDrmu0ut53pgtCg==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=bmpsjkMf;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=fqeZ6EET
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1766482840; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+ZdRSSvs2aVpnn7IZDI7qNSbU0W6jegWiD2v75muEUA=;
-	b=bmpsjkMfzZa+aJthWTEaBV0QlKNqoKdIva7oCTmUAeF4TBqhJ/fc2pJwprfBcuqUtGZqHf
-	yyOy6pLCzbrNwOx5AFslXLtfGaXRqhbMIEp84BHgwV6i5QuZhvI+0BnWnmvVIp8vObwnB6
-	yVMVoe//dYJS/5wAy9M/+FkE14SKteg=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1766482840;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+ZdRSSvs2aVpnn7IZDI7qNSbU0W6jegWiD2v75muEUA=;
-	b=fqeZ6EET1iPcOFDW+Tv/sHohy3LIxiz3vQMOuWefonoSzdQQrF31I6f1MwCjOz3nrV0Z80
-	y60ZypezGTQdT3Dg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 663DB3EA63;
-	Tue, 23 Dec 2025 09:40:39 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id uTrzFZdjSmnzOgAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Tue, 23 Dec 2025 09:40:39 +0000
-Date: Tue, 23 Dec 2025 10:40:30 +0100
-Message-ID: <87sed1ilip.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: Han Gao <gaohan@iscas.ac.cn>
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Maxim Mikityanskiy <maxtram95@gmail.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Stuart Hayhurst <stuart.a.hayhurst@gmail.com>,
-	linux-sound@vger.kernel.org,
-	Han Gao <rabenda.cn@gmail.com>,
-	linux-riscv@lists.infradead.org,
-	sophgo@lists.linux.dev,
+	Tue, 23 Dec 2025 09:40:45 +0000
+Received: by mail-ua1-x930.google.com with SMTP id a1e0cc1a2514c-93f5b804d4aso1073434241.3
+        for <linux-riscv@lists.infradead.org>; Tue, 23 Dec 2025 01:40:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766482843; x=1767087643; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=f5DQ/Hd0FueInSklnxg49suOinyeSeX9sLj0XHbFm3M=;
+        b=iSwpLZgv77LeXuNP7CWPQkQ0CmguIrBijKrBJaq0LdWtcF0sqzuXXi5/H/QKt518zm
+         chTV3jtq6Lzhv3S9VbtpdzFA5mQqTapSB27azOc8Fx3O/H7HRcS/r7FyKFmTIgToh0gL
+         yPfMj8AJpS30LBvhoEwM6Lj2ngBAtuaJO0NLMLMBPmXb9/zpdnkMDMFcdajhW8f9soW7
+         dkNwTtsqZUAHdgWiQdE7DxHh5mvqipqfzkko8hAgGp5oLW1ARBJvd+P1NZau3rfNRPiD
+         u5QQmnUatIB8JNic6cjNuc0oghga060idwQUFV4zjTunto8Y5TspYESrrntpZ9XRWryr
+         c5ng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766482843; x=1767087643;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=f5DQ/Hd0FueInSklnxg49suOinyeSeX9sLj0XHbFm3M=;
+        b=bhSPKCXCQDw/ZMI8uKrMQ+v+gxXxiv/orm4Qfa69AvM5Sxrk5Y8swmHc4P0UeFxeKw
+         sKFmDD3nuCFklqVUU2ZW/lfs2Lhh4Zc13bemduCVSU74jxb9tdLHQpcNuoyqXvF6o2Ax
+         fF2DmjqQ4KdJCRMNXO7kblnxkxfvmI9UvKTLmLGaaIv8ezzTMmoPjY9pMHxyNz88JZvi
+         AXZGaI6FPESn+TseYCSLsYnA6/OBLoBsO+xG/mdSiNUcOa7qWgYUQ8WF3seYdQJvxO2r
+         RXnUh/WyV6l87BP8m/E3LNC9c1PORjGrm04QUlpVqf081RbAn3O5T2u4+uTvP1+QYMFt
+         kerw==
+X-Forwarded-Encrypted: i=1; AJvYcCW5Vc9VC/lqbkag7yq/L4O6kIQVSYJjufzGJwCuR3ptdGiv4kFO6vX6OJOkpOS9WFjISnJtlS11vkKJEA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx26ocju6wo+De0QhNtGXyBWzPY8tpgDyAD9qAMgsLI+M1qNarC
+	AghM5HzeZVgz7PbaFdfB1G8vdocNRZK4pjfQYaWkCybx3hGqCOxsM7H0kK4QNPgSmKdcYZiKUN5
+	sMhlkQ1Ftq1uvvvRuVAZziNIqXfHdfe4=
+X-Gm-Gg: AY/fxX63JVyd1YY2WV3ulCz3ryGO9Xm0tpVup2j4sJP+X+Nru82arZVuOVW37dUVmBt
+	6PjNBzkMmLHgeKGzoUgo8kO7Q8apF2s2E3PaxiNDdwy3+XV4OgeTB4bVm4HNKaC7QO1cvjOaWk4
+	3H9/qHJlwg+KA9ZVOaTj736yonSa9J0mVXXw1tQvIsZspGEpAC0BbeDq5L1zrKM6bic3E1hNoux
+	ICrpQwLuGwhUXg/132ejRgTT9eGl2bcA799l312IkIwRAAx0VQOEByu8QC2TmnkzJFgtyJke6AM
+	Bz3bOHVBiUBY9lZlWS0RBuLSSbA2
+X-Google-Smtp-Source: AGHT+IHezjaq3BOJA0/IKlT+rUY4LDRLZgpfCi9YXlzB67YTN0ZhqyYz9++mFn6fkbdpRKvBfOwrvMA4yblTtcXrdoQ=
+X-Received: by 2002:a05:6102:2c14:b0:5dd:b288:61af with SMTP id
+ ada2fe7eead31-5eb1a420692mr3942878137.0.1766482842127; Tue, 23 Dec 2025
+ 01:40:42 -0800 (PST)
+MIME-Version: 1.0
+References: <20251220170501.3972438-1-gaohan@iscas.ac.cn> <ad17d046-158d-4019-b801-423896fcf5fc@app.fastmail.com>
+In-Reply-To: <ad17d046-158d-4019-b801-423896fcf5fc@app.fastmail.com>
+From: Han Gao <rabenda.cn@gmail.com>
+Date: Tue, 23 Dec 2025 17:40:31 +0800
+X-Gm-Features: AQt7F2pNnJvaR2fFMXaWCzuRSUjzCZVvvwJpoWcbcif2idpoK6d8gJIQk4KoPBE
+Message-ID: <CAAT7Ki-ddgsyJ4MDfn6MXKEBjXN__PZxWJQ_W5WjCcuaJ-_6Uw@mail.gmail.com>
+Subject: Re: [PATCH] ALSA: hda: intel: Introduce msi64 parameter to override
+ 64-bit MSI restriction
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Han Gao <gaohan@iscas.ac.cn>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
+	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>, 
+	Bard Liao <yung-chuan.liao@linux.intel.com>, Maxim Mikityanskiy <maxtram95@gmail.com>, 
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, 
+	Stuart Hayhurst <stuart.a.hayhurst@gmail.com>, linux-sound@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, sophgo@lists.linux.dev, 
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ALSA: hda: intel: Introduce msi64 parameter to override 64-bit MSI restriction
-In-Reply-To: <20251220170501.3972438-1-gaohan@iscas.ac.cn>
-References: <20251220170501.3972438-1-gaohan@iscas.ac.cn>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.1 Mule/6.0
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-Spamd-Result: default: False [-2.01 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	URIBL_BLOCKED(0.00)[suse.de:dkim,suse.de:mid];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[15];
-	MIME_TRACE(0.00)[0:+];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	FREEMAIL_CC(0.00)[perex.cz,suse.com,linux.intel.com,gmail.com,linux.dev,vger.kernel.org,lists.infradead.org,lists.linux.dev];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,iscas.ac.cn:email,suse.de:dkim,suse.de:mid]
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: 591D4336CA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_014045_984571_C193D616 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251223_014044_579130_8256629A 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,31 +99,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 20 Dec 2025 18:05:01 +0100,
-Han Gao wrote:
-> 
-> Sophgo SG2042 MSI driver does not support 32-bit MSI.
-> Introduce an 'msi64' kernel parameter to bypass NO_MSI64 for ATI/HDMI.
-> 
-> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
-
-As Arnd already suggested, there is no reason to add a new module
-option just for this case.
-
-If any, we can add a device-specific quirk entry, but it should be
-investigated more deeply at first.
-
-
-thanks,
-
-Takashi
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBEZWMgMjMsIDIwMjUgYXQgMTowMeKAr0FNIEFybmQgQmVyZ21hbm4gPGFybmRAYXJu
+ZGIuZGU+IHdyb3RlOgo+Cj4gT24gU2F0LCBEZWMgMjAsIDIwMjUsIGF0IDE4OjA1LCBIYW4gR2Fv
+IHdyb3RlOgo+ID4gU29waGdvIFNHMjA0MiBNU0kgZHJpdmVyIGRvZXMgbm90IHN1cHBvcnQgMzIt
+Yml0IE1TSS4KPiA+IEludHJvZHVjZSBhbiAnbXNpNjQnIGtlcm5lbCBwYXJhbWV0ZXIgdG8gYnlw
+YXNzIE5PX01TSTY0IGZvciBBVEkvSERNSS4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBIYW4gR2Fv
+IDxnYW9oYW5AaXNjYXMuYWMuY24+Cj4gPiAtLS0KPiA+ICttb2R1bGVfcGFyYW0obXNpNjQsIGJv
+b2wsIDA0NDQpOwo+ID4gK01PRFVMRV9QQVJNX0RFU0MobXNpNjQsICJGb3JjZSB1c2UgbXNpIDY0
+Yml0LiIpOwo+Cj4gVGhpcyBkb2VzIG5vdCBzZWVtIGxpa2UgYW4gYXBwcm9wcmlhdGUgdXNlIGZv
+ciBhIG1vZHVsZQo+IHBhcmFtZXRlci4gVGhlcmUgYXJlIHZlcnkgZmV3IHRoaW5ncyB3ZSB3YW50
+IHRvIHVzZSB0aG9zZQo+IGZvciBpbiBuZXcgY29kZSwgYW5kIHdvcmtpbmcgYXJvdW5kIGhhcmR3
+YXJlIGJ1Z3MgaXMKPiBjbGVhcmx5IG5vdCBvbmUuCj4KPiA+IEBAIC0xOTAzLDcgKzE5MDYsNyBA
+QCBzdGF0aWMgaW50IGF6eF9maXJzdF9pbml0KHN0cnVjdCBhenggKmNoaXApCj4gPiAgICAgICAg
+ICAgICAgIGNoaXAtPmd0c19wcmVzZW50ID0gdHJ1ZTsKPiA+ICAjZW5kaWYKPiA+Cj4gPiAtICAg
+ICBpZiAoY2hpcC0+bXNpICYmIGNoaXAtPmRyaXZlcl9jYXBzICYgQVpYX0RDQVBTX05PX01TSTY0
+KSB7Cj4gPiArICAgICBpZiAoY2hpcC0+bXNpICYmIGNoaXAtPmRyaXZlcl9jYXBzICYgQVpYX0RD
+QVBTX05PX01TSTY0ICYmICFtc2k2NCkgewo+ID4gICAgICAgICAgICAgICBkZXZfZGJnKGNhcmQt
+PmRldiwgIkRpc2FibGluZyA2NGJpdCBNU0lcbiIpOwo+ID4gICAgICAgICAgICAgICBwY2ktPm5v
+XzY0Yml0X21zaSA9IHRydWU7Cj4gPiAgICAgICB9Cj4KPiBUaGUgYmVoYXZpb3IgaXMgYWxzbyB3
+cm9uZzogaWYgdGhlIHN5c3RlbSBjYW4gdXNlIG5laXRoZXIgMzItYml0Cj4gTVNJIG5vciA2NC1i
+aXQgTVNJLCB0aGlzIHdvdWxkIGFjY2lkZW50YWxseSB0cnkgdG8gdXNlIHRoZQo+IDY0LWJpdCB2
+YXJpYW50IGFuZCB0aGVuIGNhdXNlIHJ1bnRpbWUgaXNzdWVzLgo+Cj4gSSB3b3VsZCBleHBlY3Qg
+dGhlIG9ubHkgcG9zc2libGUgZmFsbGJhY2sgdG8gYmUgdXNpbmcgbGVnYWN5IEludFgKPiBpbnRl
+cnJ1cHRzLCBvciByZXR1cm5pbmcgYSBwcm9iZSBmYWlsdXJlIGlmIHRoYXQgZG9lc24ndCB3b3Jr
+CgpVbmZvcnR1bmF0ZWx5LCB0aGUgU0cyMDQyIGNoaXAgZG9lcyBub3QgaGF2ZSBhbiBhdmFpbGFi
+bGUgbGVnYWN5IElOVHguCgpkYjc5YWZhMWU1NzkyNWJhOTZhYjE4NTE0YzBlYmU0MmEyOGUzOTNl
+CjkxZWQ2ZmQyYzM4M2JiOGYwMmQ2NmU5OGI0YTRkMmY3MjA3MjQ5ZGMKCkFjY29yZGluZyB0byB0
+aGVzZSB0d28gY29tbWl0cywgdGhlc2UgaXNzdWVzIHNlZW0gdG8gYmUgY2F1c2VkIGJ5IHBvd2Vy
+cGMuCkNhbiB3ZSB1c2UgdGhlIENPTkZJR19QUEM2NCBtYWNybyB0byBkZXRlcm1pbmUgdGhpcz8K
+Cj4gZWl0aGVyLgo+Cj4gICAgICAgQXJuZAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
