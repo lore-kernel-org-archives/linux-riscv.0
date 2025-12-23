@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B381E6B26B
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Dec 2025 01:31:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF004E6B261
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Dec 2025 02:26:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iuuZj57guiWT3pPjsVlFYi1CCVr4pzaK4GMV77/GV6o=; b=1QZrm4MdgHl6Ne
-	0thg9CI/FGsvmF+dhCWWXqtLgn+zgFRX2lNgTfdna6eU+ygJSiocn/NTCf1CAPuSqqUT4WPaQDeZ0
-	HKNy/H1rwQ+iaTqdV8BqSYod2gkC+dq/wCDUUdExNHnIxIbTUFbEuoJkfoLlwmt7kcpwFhwAmBNfc
-	yMcrHHQ2O6pCT70UqSb07YxQsl8RLkJSLzBkRfzsKhmSHMMd4gpGC7Ll270RUMckFs0OugCwjVR1E
-	GTMYTvHvi39HUOtocJS5NF6cKhlC7YFJnZ1fMcQxtqG56XXDzdWpNS6hpXCXMAn/Y74v0fuw5MovZ
-	oiMsHjwKQ5hin0WilRtQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZjliVu0pemH/kw/nc8WuYRP5Ds/1eYIoUaoG5XbP3ds=; b=C5A4duwrWc2HLR
+	ToC/o3HBSO55V0iWBYQtZH1S0A52Py+tRUDzq6y+cNwVXBW0zQAYDavijCCKVjCTbjLmdA9ZuD7r2
+	WONP+0uOb6kqjOhu54Hddg9RD9P6nd+6fo8JkDWuxOKvdYsCe4gCbJB1iV0qWlMAKB+57ND7tABbr
+	7J1ZchHl58qynlKGelPQ/2b9qqtQ7kvaSg191T+lJbA7L4GCwb2kytAvLSTMjqeu0I7CGxrHzWkoc
+	eNypBS7SujHuJ0sLd9mgzU0kU9vFreXgO++VebQC2nO+vBy00G4pLXfOMukmkwpSaAVSzl7RAbBg1
+	DByfPDznFUN8P6ai4+ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXrEm-0000000EO6w-14bt;
-	Tue, 23 Dec 2025 01:30:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vXs5p-0000000EQVC-3ObT;
+	Tue, 23 Dec 2025 02:25:45 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXrEk-0000000EO6a-0VEx
+	id 1vXs5m-0000000EQUp-2Y83
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Dec 2025 01:30:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E74CF40DD1;
-	Tue, 23 Dec 2025 01:30:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 613A2C4CEF1;
-	Tue, 23 Dec 2025 01:30:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766453452;
-	bh=j7q2987NriSlS+UGsGEBmtZisdMET3w6wHahvWlFCXA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dO5p1eAeCiTmrLjfR2upqrJjMfmN+fqYqX5pLP/UpyRrXF2AUHgEYFwEMyD3r1obi
-	 pEDjXWgKmiqndnrwphcQ1xmocdXiVenBgaQpH8OhamNZ4Iq/5MM1cZj8puJ14LI3RY
-	 LIv+2+3bD4SBxu39wqhdoZkP8nz/qNyqFeQe02gX9CRGPAcZc59Hrq2vgSPjMPIkYw
-	 UaOU0CNfN/e1qXIcM9EXSCPrhHOvAC89afJ/neG7VaxyRjcLSVrHRanYLjzuXOsJWy
-	 l8K/ZNSDlGs6d4U/rrmNlDoBWYqa9kWYB4qLSlkOXTaf4oEIb8M8vGOL0VKP76nvWM
-	 AiNxz4lmAEbWw==
-From: SeongJae Park <sj@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: SeongJae Park <sj@kernel.org>,
-	"David Hildenbrand (Red Hat)" <david@kernel.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Sourabh Jain <sourabhjain@linux.ibm.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Muchun Song <muchun.song@linux.dev>,
-	Oscar Salvador <osalvador@suse.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	linux-mm@kvack.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	x86@kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6] mm/hugetlb: ignore hugepage kernel args if hugepages are unsupported
-Date: Mon, 22 Dec 2025 17:30:44 -0800
-Message-ID: <20251223013045.4579-1-sj@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251221104907.032abf56c67f3e50c9c94e31@linux-foundation.org>
-References: 
+	Tue, 23 Dec 2025 02:25:43 +0000
+Received: from [127.0.0.1] (unknown [116.232.18.222])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 08D4A340EA8;
+	Tue, 23 Dec 2025 02:25:27 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+Subject: [PATCH v2 0/3] mmc: sdhci-of-k1: add reset support
+Date: Tue, 23 Dec 2025 10:24:48 +0800
+Message-Id: <20251223-07-k1-sdhci-reset-v2-0-5b8248cfc522@gentoo.org>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAHD9SWkC/32NQQrCMBBFr1Jm7UgmamNdeQ/porSTdBAayZSgl
+ Nzd2AO4fA/++xsoJ2GFW7NB4iwqcalgDw2M87AERpkqgzX2QtYSGodPQp3mUTCx8orUdWYicuZ
+ 8clB3r8Re3nvz0VeeRdeYPvtFpp/9V8tVYuuuZvDODy27e+BljfEYU4C+lPIFBE0AXLMAAAA=
+X-Change-ID: 20251221-07-k1-sdhci-reset-1990d1170437
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Iker Pedrosa <ikerpedrosam@gmail.com>, linux-mmc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Yixun Lan <dlan@gentoo.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1181; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=Mwz4mD+tkwx1nsWURsMNV1z+XbY+V1uxN9xNzwtuJAA=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpSf2Kf7VnoThBSQORz8vGkFmgA549SBpTrrWq0
+ nQufYgz/VGJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaUn9ihsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+0uiw//cM/o1Oen8fYzJ+hL1YTV6bg2t1KXr38twAHGcpmAoVVwngF2pTZ5C
+ pPLfW4GHft0m1x7hlfpXkIbVBZFc9wCsXByi6kqB7B4UMYCZNCecWlzxhAO7U7TxQJFRaCpSK63
+ 1qmX0s8Bmpo0MhXU1BOj4CS3zGbxkkw5QlI8tOHlrI0YyMPj6Jx4pF6C29aAQbr+zNdW+jf3nTb
+ 1fq4pAhnxbG27+CBaw73vPiXorLYu3i3OCLupIehZgQkzGL6HE53+olJwZ2vZ3DDehKD6w/I2NG
+ zUKrEYkiPns9Atd1nbMPCjmjGyjyB1G8Fqag9UshIerkFnthxt7OcnIQ922YHIxr1kH2fF6ha1B
+ 3B+uov6HAQQ76Qpx4cMMagNuE7CF+DHfE9q5u/jRGF8H4ZD0k+5WArmOGPzor4JfBJmhYnDXYfV
+ J1k5vZREFIRJahSDMD75A4Jx6y1SFZG+iaNZmd6R20bKJokXypCVK8mztAXvUhAsmTJVoKhy9TQ
+ Xxuy1lEyF6yLk3RizevghA3E8o5bGKCekTllz+8WD9LguRgW6ilggzqq92f/PE5YI6WwLUUW8Px
+ o+bf8HSvM69EHsWKCvu48QUGndGRL6trqUDLOwBhtlAxQ50ZrxF6C39gnVOUnimuz/KmQbptCuA
+ g8//1pFwJm7rbhjbIOOLs9LlhHbe3U=
+X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_173054_181071_5FB37E6D 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20251222_182542_701899_9A4375D9 
+X-CRM114-Status: UNSURE (   6.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,35 +92,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 21 Dec 2025 10:49:07 -0800 Andrew Morton <akpm@linux-foundation.org> wrote:
+This series try to add reset support explicitly to SpacemiT SDHCI controller.
+Previous it works well for eMMC due to it's already initialized at brom or
+bootloader phase.
+  The controller has two reset lines, one connect to AXI bus which shared by
+all controllers, while another one connect to individual controller separately.
 
-> On Sun, 21 Dec 2025 10:22:44 +0100 "David Hildenbrand (Red Hat)" <david@kernel.org> wrote:
-> 
-> > > 
-> > > My main concern was -
-> > > A fixes tag means it might get auto backported to stable kernels too,
-> > 
-> > Not in the MM world -- IIRC. I think there is the agreement, that we 
-> > decide what should go into stable and what not.
-> > 
-> > Andrew can correct me if my memory is wrong.
-> 
-> Yes, -stable maintainers have been asked to only backport patches where
-> the MM developers asked for that, with cc:stable.  There may be
-> slipups, but as far as I know this is working.
-> 
-> I don't actually know how they determine which patches need this
-> special treatment.  Pathname?  Signed-off-by:akpm?
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
+---
+Changes in v2:
+- To not break DT ABI, make the reset line request optional
+- Use devm_reset_control_get_optional() api
+- Link to v1: https://lore.kernel.org/r/20251221-07-k1-sdhci-reset-v1-0-6780af7fa6e7@gentoo.org
 
-I guess it is pathname, based on ignore_list file [1] of stable-queue repo.
+---
+Yixun Lan (3):
+      dt-bindings: mmc: spacemit,sdhci: add reset support
+      mmc: sdhci-of-k1: add reset support
+      riscv: dts: spacemit: sdhci: add reset support
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/stable/stable-queue.git/tree/ignore_list#n16
+ .../devicetree/bindings/mmc/spacemit,sdhci.yaml      | 10 ++++++++++
+ arch/riscv/boot/dts/spacemit/k1.dtsi                 |  3 +++
+ drivers/mmc/host/sdhci-of-k1.c                       | 20 ++++++++++++++++++++
+ 3 files changed, 33 insertions(+)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20251221-07-k1-sdhci-reset-1990d1170437
 
+Best regards,
+-- 
+Yixun Lan
 
-Thanks,
-SJ
-
-[...]
 
 _______________________________________________
 linux-riscv mailing list
