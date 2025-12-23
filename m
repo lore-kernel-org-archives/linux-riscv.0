@@ -4,66 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C419AE6F08F
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Dec 2025 13:49:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA82E6F092
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Dec 2025 13:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2D8j8epJK5Msyf8qrQyTv6aJ9QDf1u3x3U2PRbYveZY=; b=vrk1qftQtB+VLZ
-	uOXSTusEvSDeIQoP03YVc3E0IZ6omka8fcR7Gy+og2y1zqIMpYIlC2BpC28j8Amcda4UThbc2AGns
-	leD5ejOmACLAR7N7QYpuLRaYR4OuaRN8P28jvmxh51jWYVOY4p+BhdQQl56MwJymuWLRII1UINDTG
-	OD/nRqtCbNQxbQPROg9uTw7kMgYNrSnBRtYTxdNEWmnkrHtUSLo0PKYjQHfBvvFjn1Q9iKXqoUM+N
-	3d7c6/QguN5ZP5woeXY7HWyjH+EPwhc5gRLxzFxjAG+7Gu7afPxx/56YocGua3m89XOsBMuD8Cdx7
-	S9hxXgcRNgavCJI3JTag==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ynLzRECs0SqNvd3S7grs29WRjnzmQSoBj4pgmJtVHc0=; b=e13ijaJjYEIHgQ
+	UGm7LRgcRpUgGHXiwEl8SK+GpY54yNDN5VLSRi2KAy7ofOkArIGOaa7xT216k2kn2tJy9/X8isnf8
+	BQ5MSY+TRkgcScu/PyKk573FjsvOWt6qqC1cBFqb/HJJewTp2zOCjESnfstI0wXnw5Xjdob21oTXf
+	YFB7MnIm4sIpiDdqj5Fs2dFlnokZtmRqQWDSqzdBirQtn7CLmNu7JTL6XNLuSPvRKz6NFWUn6X5DV
+	iSULrf/mj7xVxkHfJxymsYq0YKYF/Sgj5wYhPeSfBmWfXpX8WcjaVjuyAUgUjrCpI+eEr2KFNuEd3
+	jJYROpLleNFvvrUn0tfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY2lb-0000000FYY4-2uXG;
-	Tue, 23 Dec 2025 13:49:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vY2n8-0000000FYiv-1nzC;
+	Tue, 23 Dec 2025 13:51:10 +0000
+Received: from akranes.kaiser.cx ([2a0a:4cc0:1:11ef:4484:ccff:febf:ddfa])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY2lY-0000000FYXP-3yVz
+	id 1vY2n6-0000000FYiP-0pef
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Dec 2025 13:49:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 315B643783;
-	Tue, 23 Dec 2025 13:49:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E62AC113D0;
-	Tue, 23 Dec 2025 13:49:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766497772;
-	bh=LP9Z5o7yi79FN2SK/0EC/YZ6R6r1WQyV9Or8AKfEtvY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EEAyTQ6myK2KnxFepTTbdpaQpKGbh93LnSrNBArV/EeC0O614blICVIzT3ETZOM45
-	 swJQTl7BJ9vuQQFS25RpFOenhWK2uFEOQH7U/OokTjgU6crXJWPRL4WplVevfIp9FO
-	 MwV3ns8BPhryvu0JOQHqB6aNthvxov+HCDf2Tf4IcAf1IM3oAn/+AiXFTHJEeAvNLl
-	 Nzu4JUEzBlO7+0rkw9mt1wpxV/Qiy5J2/pAIcgjp1EDk1dYA/8D8u4bXUeXRhmm2qB
-	 CvGoshRElij4almUSa+ZIVARPsD/diRNniIB6+Rmbu95OeOPDuXP9x1mF54fulBNYK
-	 t0lOWN5qEZM6w==
-Date: Tue, 23 Dec 2025 14:49:28 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Iker Pedrosa <ikerpedrosam@gmail.com>, linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: mmc: spacemit,sdhci: add reset
- support
-Message-ID: <20251223-great-ambitious-piculet-bbdecc@quoll>
-References: <20251223-07-k1-sdhci-reset-v2-0-5b8248cfc522@gentoo.org>
- <20251223-07-k1-sdhci-reset-v2-1-5b8248cfc522@gentoo.org>
+	Tue, 23 Dec 2025 13:51:09 +0000
+Received: from ipservice-092-208-105-009.092.208.pools.vodafone-ip.de ([92.208.105.9] helo=nb282.user.codasip.com)
+	by akranes.kaiser.cx with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <martin@kaiser.cx>)
+	id 1vY2mn-003sEJ-2z;
+	Tue, 23 Dec 2025 14:50:49 +0100
+From: Martin Kaiser <martin@kaiser.cx>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Martin Kaiser <martin@kaiser.cx>
+Subject: [PATCH] riscv: trace: fix snapshot deadlock with sbi ecall
+Date: Tue, 23 Dec 2025 14:50:06 +0100
+Message-ID: <20251223135043.1336524-1-martin@kaiser.cx>
+X-Mailer: git-send-email 2.43.7
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251223-07-k1-sdhci-reset-v2-1-5b8248cfc522@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_054933_009053_2FAC23F7 
-X-CRM114-Status: UNSURE (   8.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251223_055108_249312_F3EDF137 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,20 +64,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 23, 2025 at 10:24:49AM +0800, Yixun Lan wrote:
-> The SpacemiT SDHCI controller has two reset lines, one connect to AXI bus
-> which shared by all controllers, while another one connect to individual
-> controller separately.
-> 
-> Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> ---
->  Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml | 10 ++++++++++
->  1 file changed, 10 insertions(+)
+If sbi_ecall.c's functions are traceable,
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+echo "__sbi_ecall:snapshot" > /sys/kernel/tracing/set_ftrace_filter
 
-Best regards,
-Krzysztof
+may get the kernel into a deadlock.
+
+(Functions in sbi_ecall.c are excluded from tracing if
+CONFIG_RISCV_ALTERNATIVE_EARLY is set.)
+
+__sbi_ecall triggers a snapshot of the ringbuffer. The snapshot code
+raises an IPI interrupt, which results in another call to __sbi_ecall
+and another snapshot...
+
+All it takes to get into this endless loop is one initial __sbi_ecall.
+On RISC-V systems without SSTC extension, the clock events in
+timer-riscv.c issue periodic sbi ecalls, making the problem easy to
+trigger.
+
+Always exclude the sbi_ecall.c functions from tracing to fix the
+potential deadlock.
+
+sbi ecalls can easiliy be logged via trace events, excluding ecall
+functions from function tracing is not a big limitation.
+
+Signed-off-by: Martin Kaiser <martin@kaiser.cx>
+---
+ arch/riscv/kernel/Makefile | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
+
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 9026400cba10..cabb99cadfb6 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -3,12 +3,6 @@
+ # Makefile for the RISC-V Linux kernel
+ #
+ 
+-ifdef CONFIG_FTRACE
+-CFLAGS_REMOVE_ftrace.o	= $(CC_FLAGS_FTRACE)
+-CFLAGS_REMOVE_patch.o	= $(CC_FLAGS_FTRACE)
+-CFLAGS_REMOVE_sbi.o	= $(CC_FLAGS_FTRACE)
+-CFLAGS_REMOVE_return_address.o	= $(CC_FLAGS_FTRACE)
+-endif
+ CFLAGS_syscall_table.o	+= $(call cc-disable-warning, override-init)
+ CFLAGS_compat_syscall_table.o += $(call cc-disable-warning, override-init)
+ 
+@@ -24,7 +18,6 @@ CFLAGS_sbi_ecall.o := -mcmodel=medany
+ ifdef CONFIG_FTRACE
+ CFLAGS_REMOVE_alternative.o = $(CC_FLAGS_FTRACE)
+ CFLAGS_REMOVE_cpufeature.o = $(CC_FLAGS_FTRACE)
+-CFLAGS_REMOVE_sbi_ecall.o = $(CC_FLAGS_FTRACE)
+ endif
+ ifdef CONFIG_RELOCATABLE
+ CFLAGS_alternative.o += -fno-pie
+@@ -43,6 +36,14 @@ CFLAGS_sbi_ecall.o += -D__NO_FORTIFY
+ endif
+ endif
+ 
++ifdef CONFIG_FTRACE
++CFLAGS_REMOVE_ftrace.o	= $(CC_FLAGS_FTRACE)
++CFLAGS_REMOVE_patch.o	= $(CC_FLAGS_FTRACE)
++CFLAGS_REMOVE_sbi.o	= $(CC_FLAGS_FTRACE)
++CFLAGS_REMOVE_return_address.o	= $(CC_FLAGS_FTRACE)
++CFLAGS_REMOVE_sbi_ecall.o = $(CC_FLAGS_FTRACE)
++endif
++
+ always-$(KBUILD_BUILTIN) += vmlinux.lds
+ 
+ obj-y	+= head.o
+-- 
+2.43.7
 
 
 _______________________________________________
