@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1A20E6F08C
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Dec 2025 13:04:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E09E6F08F
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Dec 2025 13:48:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RQJlYqJbeq6gGk6/CIBowsDAj1cF3lbayaxTcfF4SB0=; b=QI+ddsY5MNguuk
-	tXJRg6GHqjL0EyidaSGZ4r5eQ2hbMp8SeDB9HtXZ81XZkAw4pEr/N/6VA/YlvjFyXSXUBEB5wNVAV
-	ChATVWQ7cKZjyWIyw59DSkOXmZJB/yModkMtUGnp/PK9NsSg/83T8QkbFwrK2zwRPuDrBteP5cvXq
-	V1TGihMg8S0ASSIy6EdNEzQ68499J4JNxF0NoqkYNIaGUm7qifCF3qIX2MztzOX6UZSyb9ukp43qs
-	x/bGJb4gMaHp+IMGqrnFGwY/4uGP6bKRfefusDQVLp3/FR7gpOiszQT9+8d0X1C2S/+urMYx2ANXc
-	G3ne8zqvylDO8IxnVCPQ==;
+	List-Owner; bh=y0M7JDH/1Pl56ofS4LETUuiAi8mRDJ2k5MARbyiOnas=; b=n/KNBxmgB4zHPx
+	4jxYZGYeOll+uvNDNh3NdsYx0aIndvqNambFqTFWHTnk97JH7qQ2yP14DZhitg4e52ZFSZy17e3zs
+	8vhw+0BoB7jdYNrN+OzGEuvg2GRRpKDTvPnWqMfA3WfQ+GSD8GV70QY3Q9O6Glbtd414O7K4UJhKx
+	B9Uo0gNMbPGFa6JQmTi1A4YBXQvbj4HvLxCJ0VwduHfW6enhQXP0W4kR66wtFqNZ3bCVCVOd9upN6
+	eG1cbnUjqrZrrQ2gmrvfee8CrOzAvcsHK5KubSZPQfsk/SZbX2/E5O/XbDC/ljGsBmfLAFBGi3Pxh
+	5NIh8i+BXdkFFMZ27wtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY23L-0000000FW2m-3xEj;
-	Tue, 23 Dec 2025 13:03:51 +0000
-Received: from mail54.out.titan.email ([44.195.191.162])
+	id 1vY2jp-0000000FYEd-3CT1;
+	Tue, 23 Dec 2025 13:47:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY23J-0000000FW2H-0nLq
+	id 1vY2jo-0000000FYEQ-1qtR
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Dec 2025 13:03:50 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by smtp-out.flockmail.com (Postfix) with ESMTP id 4dbFZB5nPbz7t8t;
-	Tue, 23 Dec 2025 13:03:46 +0000 (UTC)
-DKIM-Signature: a=rsa-sha256; bh=I76jbNhd2RnmoQzo2cA05wxM926Wl/tgrqz3TL3NnOw=;
-	c=relaxed/relaxed; d=ziyao.cc;
-	h=from:to:subject:mime-version:date:cc:message-id:in-reply-to:references:from:to:cc:subject:date:message-id:in-reply-to:references:reply-to;
-	q=dns/txt; s=titan1; t=1766495026; v=1;
-	b=QZrBurUv3CXhzp3FFy9bI/Z7CVNdjHHS7lMRj4rol2r25ZAfM59ObLsQtz3lhLeahovWgQ12
-	uZC9VD6ALu2KtOhgTkuyKF5u1ftWhweOnCSrfb3LRXpmK8JCTWoz7d4haLsjUQZgeAqKQiclXxx
-	3Uw1XngdPpvWZqdjusB3LSTQ=
-Received: from pie (unknown [117.171.66.90])
-	by smtp-out.flockmail.com (Postfix) with ESMTPA id 4dbFZ26L07z7t88;
-	Tue, 23 Dec 2025 13:03:38 +0000 (UTC)
-Date: Tue, 23 Dec 2025 13:03:27 +0000
-Feedback-ID: :me@ziyao.cc:ziyao.cc:flockmailId
-From: Yao Zi <me@ziyao.cc>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Inochi Amaoto <inochiama@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Linus Walleij <linusw@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH 2/2] pinctrl: spacemit: support I/O power domain
- configuration
-Message-ID: <aUqTH_fis1-g42SU@pie>
-References: <20251223-kx-pinctrl-aib-io-pwr-domain-v1-0-5f1090a487c7@linux.spacemit.com>
- <20251223-kx-pinctrl-aib-io-pwr-domain-v1-2-5f1090a487c7@linux.spacemit.com>
- <aUpirQFWf3w-5PQ2@inochi.infowork>
- <B479B24A35F8D731+aUpl0JdKOziIH14S@kernel.org>
+	Tue, 23 Dec 2025 13:47:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 48A8A6013D;
+	Tue, 23 Dec 2025 13:47:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66CBFC113D0;
+	Tue, 23 Dec 2025 13:47:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766497663;
+	bh=sfI6oSUVUszg+G4GEdk3ZFCt3nWG6J6yi2rcz+VwDqQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=olU5v8t9qwqNRAYdoWlW7UthOf0g2d2x2lbOnnsWj8Iyzzh1yZr26pjKR5oGaXfMZ
+	 zOOJHgsKHmavtCJn7jDOluVPrbnHjKirDPMzn7qqPef4MHoAZDAwXhTKu9SGkSME1C
+	 1e6Ydp0+rBi9V6+6+/kEUgEHLbGr7H/0vGkmZMXSKMBbIKPoFTRHcrf/JqlbaEeAx5
+	 X7rp+D2JC3t3bK1slt0HHL2ERwqe58eFIW0kXtr6Fn0Xb/SmtX9hHPr7u7YY91bdM2
+	 8G/PpZxE0HEJ3syzQTjBhA8TLk2CVNTHnjfjc9HFpfnAAHWEhpwY60yZrEq11GWwzZ
+	 y3D2L2yHDiAGA==
+Date: Tue, 23 Dec 2025 14:47:40 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Guodong Xu <guodong@riscstar.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@gentoo.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Samuel Holland <samuel.holland@sifive.com>, Anup Patel <anup@brainfault.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Lubomir Rintel <lkundrak@v3.sk>, Yangyu Chen <cyy@cyyself.name>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor@kernel.org>, 
+	Heinrich Schuchardt <xypron.glpk@gmx.de>, Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, spacemit@lists.linux.dev, linux-serial@vger.kernel.org
+Subject: Re: [PATCH v2 04/13] dt-bindings: interrupt-controller: add SpacemiT
+ K3 IMSIC
+Message-ID: <20251223-careful-nebulous-griffin-9c6c08@quoll>
+References: <20251222-k3-basic-dt-v2-0-3af3f3cd0f8a@riscstar.com>
+ <20251222-k3-basic-dt-v2-4-3af3f3cd0f8a@riscstar.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <B479B24A35F8D731+aUpl0JdKOziIH14S@kernel.org>
-X-F-Verdict: SPFVALID
-X-Titan-Src-Out: 1766495026646385511.30087.5691599438730667089@prod-use1-smtp-out1002.
-X-CMAE-Score: 0
-X-CMAE-Analysis: v=2.4 cv=a8/K9VSF c=1 sm=1 tr=0 ts=694a9332
-	a=rBp+3XZz9uO5KTvnfbZ58A==:117 a=rBp+3XZz9uO5KTvnfbZ58A==:17
-	a=kj9zAlcOel0A:10 a=MKtGQD3n3ToA:10 a=CEWIc4RMnpUA:10 a=lv0vYI88AAAA:8
-	a=q2HxCz5xri-O7L11LKAA:9 a=CjuIK1q_8ugA:10 a=E7e_GlrEz2WywKPBwZdi:22
-	a=9qqun4PRrEabIEPCFt1_:22 a=3z85VNIBY5UIEeAh_hcH:22
-	a=NWVoK91CQySWRX1oVYDe:22
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_050349_506796_9DF7A856 
-X-CRM114-Status: GOOD (  25.88  )
+In-Reply-To: <20251222-k3-basic-dt-v2-4-3af3f3cd0f8a@riscstar.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,79 +81,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 23, 2025 at 05:50:08PM +0800, Troy Mitchell wrote:
-> On Tue, Dec 23, 2025 at 05:42:26PM +0800, Inochi Amaoto wrote:
-> > On Tue, Dec 23, 2025 at 05:11:12PM +0800, Troy Mitchell wrote:
-> > > IO domain power control registers are used to configure the operating
-> > > voltage of dual-voltage GPIO banks. By default, these registers are
-> > > configured for 3.3V operation. As a result, even when a GPIO bank is
-> > > externally supplied with 1.8V, the internal logic continues to
-> > > operate in the 3.3V domain, which may lead to functional failures.
-> > > 
-> > > This patch adds support for programming the IO domain power control
-> > > registers, allowing dual-voltage GPIO banks to be explicitly configured
-> > > for 1.8V operation when required.
-> > > 
-> > > Care must be taken when configuring these registers. If a GPIO bank is
-> > > externally supplied with 3.3V while the corresponding IO power domain
-> > > is configured for 1.8V, external current injection (back-powering)
-> > > may occur, potentially causing damage to the GPIO pin.
-> > > 
-> > > Due to these hardware constraints and safety considerations, the IO
-> > > domain power control registers are implemented as secure registers.
-> > > Access to these registers requires unlocking via the AIB Secure Access
-> > > Register (ASAR) in the APBC block before a single read or write
-> > > operation can be performed.
-> > > 
-> > > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> > > ---
-> > >  arch/riscv/boot/dts/spacemit/k1.dtsi  |   4 +-
-> > >  drivers/pinctrl/spacemit/pinctrl-k1.c | 131 +++++++++++++++++++++++++++++++++-
-> > >  2 files changed, 131 insertions(+), 4 deletions(-)
-> > > 
-> > 
-> > > diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> > > index 7818ca4979b6a7755722919a5958512aa11950ab..23ecb19624f227f3c39de35bf3078379f7a2490e 100644
-> > > --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-> > > +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> > > @@ -565,10 +565,12 @@ i2c8: i2c@d401d800 {
-> > >  
-> > >  		pinctrl: pinctrl@d401e000 {
-> > >  			compatible = "spacemit,k1-pinctrl";
-> > > -			reg = <0x0 0xd401e000 0x0 0x400>;
-> > > +			reg = <0x0 0xd401e000 0x0 0x400>,
-> > > +			      <0x0 0xd401e800 0x0 0x34>;
-> > >  			clocks = <&syscon_apbc CLK_AIB>,
-> > >  				 <&syscon_apbc CLK_AIB_BUS>;
-> > >  			clock-names = "func", "bus";
-> > > +			spacemit,apbc = <&syscon_apbc 0x50>;
-> > >  		};
-> > 
-> > If you insist on a new reg field, you should change the binding as well.
-> Yes, I forgot to modify the binding.
-
-This will also break ABI compatibility with older devicetrees, I
-strongly suggest against a new item in reg property.
-
-Furthermore, it's unreasonable to describe d401_e000 - d401_e400 and
-d401_e800 - d401_e834 as separate memory regions. TRM claims the region
-starting from 0xd401_e000 with length 0xc00 is "Pad Configuration". So I
-think this separation neither simplifies anything nor matches the
-hardware.
-
-> > This change breaks binding, can we use something like <0x0 0xd401e000 0x0 0x1000>?
-
-If the TRM is correct, we probably can and should.
-
-> I'll double check this. Thanks!
+On Mon, Dec 22, 2025 at 09:04:14PM +0800, Guodong Xu wrote:
+> Add compatible string for SpacemiT K3 IMSIC.
 > 
->                             - Troy
-> > 
-> > Regards,
-> > Inochi
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
+> ---
+> v2: Fix the order to keep things alphabetically.
 
-Regards,
-Yao Zi
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
