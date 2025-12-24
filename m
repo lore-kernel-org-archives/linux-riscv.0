@@ -4,83 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91081E776C3
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Dec 2025 16:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCBF0E776C0
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Dec 2025 16:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FRU6O+hSEz1wfWDN/6ns9IiU/f8CTiQMEEM+ydkL5a0=; b=mJTpcWFKURisD0
-	KPOPnU5jGV5DSmtLet0DiR1UB1xRX0xqdGcqjLMk1Oz1/zU/n7ll69Hi6q5BK62jGRf4JLXoA4PjN
-	toe/KYg+CxkUyNzu41+7OFCQ7NMyZ4nk7VdvThSydC8o7UoF5tVQ/2ZXYqUUfnEFbeXJtfv3sZ5dt
-	q/v7Z3C3OBA1qvMYu8hE5OiqrxXAfa9ylwkiA6VS3v/R/jqiT6coPHpoPs0cqfQah1hNtFvjoCnyJ
-	nFov4u2FcQmIXz+n0/alVV7kpHnCx8M29f94AvyRbzcUnoS0VDpgWsA7wCeFJXzv9PWAdQTA08zlP
-	dL2+oBur8mxgIMPugJbQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=sWtTMHXe4MABVmJgmQ/jRdQsEgWsEJS3SFRrZiVEjno=; b=HOBqEZLtHHzTqSRKgYURoz+ERN
+	BFTKWr3i7X35Yc9GSCl7plGHaupwsyDbwDovpjuPjCb8mM0sb9ZL7tDLUnTGLawjyZLR/+GEuHDdf
+	aw1y4sYiAeFOcuPnp6pmNDsBqW/eIIpFoOxEFlRjHTE0Ic3dkQGonnh4+U/IMdylpATgBFW98r3cq
+	nv1gzlpF+e3YVSfdZNUIwjWNW4i3vTBpCBa0AXaQpeKMHwLkEmebQu6orcRQ98H9/ifNVm7YGnR1l
+	ZIWrmSn7qstn7QXKZvbLK0BnY7yNMtJD9Ix4sZ+8DVAJDzdRHF1bC9RvsfulIsTGNdKbmT6JLOfqW
+	+ZwYVr9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYRU2-0000000HD2v-2nXJ;
-	Wed, 24 Dec 2025 16:13:07 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1vYRZ8-0000000HDwl-21Wk;
+	Wed, 24 Dec 2025 16:18:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYRTo-0000000HCsD-1py7
-	for linux-riscv@lists.infradead.org;
-	Wed, 24 Dec 2025 16:13:00 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.54])
-	by APP-05 (Coremail) with SMTP id zQCowAA3yw7WEExpgGPNAQ--.14041S7;
-	Thu, 25 Dec 2025 00:12:19 +0800 (CST)
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: [PATCH v4 5/9] drm/bridge: add a driver for T-Head TH1520 HDMI controller
-Date: Thu, 25 Dec 2025 00:12:01 +0800
-Message-ID: <20251224161205.1132149-6-zhengxingda@iscas.ac.cn>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20251224161205.1132149-1-zhengxingda@iscas.ac.cn>
-References: <20251224161205.1132149-1-zhengxingda@iscas.ac.cn>
+	id 1vYRZ4-0000000HDvz-33wB;
+	Wed, 24 Dec 2025 16:18:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5DEC84337A;
+	Wed, 24 Dec 2025 16:18:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1340CC4CEF7;
+	Wed, 24 Dec 2025 16:18:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766593097;
+	bh=jzhJfxnvJUvERodafb6uRPp3to4d4hQE2SKWE3YryHY=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=FCp+/KOhwYp98tnwqGwWl8jrc/X5Z/Q4Q8YJmARm0sL3g9KO7lgOnfT9cmlzHPe9Z
+	 QWjUspxRLmTGsvUvOJCMlErLfQLehAM4kFU8asmQV8KZyxG+CacSkcAIDy8Caf8nm2
+	 NMBZ+th33jQtp81ci0vKx3zV0E99Zvkg1UuWbKhPDEgdWflK19Ujzn60Z/IigTPG85
+	 J2ZhCxsZ8dM4HWxl5+LxVYNmnngUhIj3tm2SXy/kP/vs9fll7dCDCXAydHowKCqCw0
+	 f0yg4Xto3pISXrooax5EKL43DKr+5RXvlk4R4HjmBo6Ev/HfEMWtnJuGCZ3dcI9O7p
+	 R5hOz3toSaeag==
+Date: Wed, 24 Dec 2025 10:18:16 -0600
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowAA3yw7WEExpgGPNAQ--.14041S7
-X-Coremail-Antispam: 1UD129KBjvJXoW3XF13tFy5KFyrXr1DGr4fuFg_yoWfXryDpa
-	y7AayYkrWkXF1aga1fAr48ZrZaya9rXFy5t3y2qwsavwn3tF4rXryDJrWrXFWrArsrZw13
-	tFn8uFWYgF17J3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmv14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
-	4UJwA2z4x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr0_
-	Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6x
-	IIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_
-	Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8c
-	xan2IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCj
-	c4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4
-	CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4U
-	MIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJV
-	WUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUv
-	cSsGvfC2KfnxnUUI43ZEXa7sRRjg43UUUUU==
-X-Originating-IP: [112.94.100.54]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: mani@kernel.org, linux@armlinux.org.uk, linux-riscv@lists.infradead.org, 
+ nathan@kernel.org, devicetree@vger.kernel.org, catalin.marinas@arm.com, 
+ kever.yang@rock-chips.com, dan.j.williams@intel.com, 
+ linux-doc@vger.kernel.org, haren@linux.ibm.com, palmer@dabbelt.com, 
+ conor+dt@kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, alex@ghiti.fr, jose@osyx.tech, 
+ neil.armstrong@linaro.org, gregkh@linuxfoundation.org, heiko@sntech.de, 
+ prabhakar.mahadev-lad.rj@bp.renesas.com, will@kernel.org, corbet@lwn.net, 
+ dev@kael-k.io, aou@eecs.berkeley.edu, krzk+dt@kernel.org, 
+ maddy@linux.ibm.com, bagasdotme@gmail.com, ajd@linux.ibm.com, 
+ pjw@kernel.org, davidmcerdeira@osyx.tech
+To: joaopeixoto@osyx.tech
+In-Reply-To: <20251224135217.25350-4-joaopeixoto@osyx.tech>
+References: <20251224135217.25350-1-joaopeixoto@osyx.tech>
+ <20251224135217.25350-4-joaopeixoto@osyx.tech>
+Message-Id: <176659309471.2305281.17349642622422527927.robh@kernel.org>
+Subject: Re: [PATCH 3/5] dt-bindings: Add Bao I/O dispatcher driver binding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_081252_841889_5E0B228C 
-X-CRM114-Status: GOOD (  25.51  )
+X-CRM114-CacheID: sfid-20251224_081818_836117_DDF8AD3F 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,266 +76,186 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Icenowy Zheng <uwu@icenowy.me>
-
-T-Head TH1520 SoC contains a Synopsys DesignWare HDMI controller (paired
-with DesignWare HDMI TX PHY Gen2) that takes the "DP" output from the
-display controller.
-
-Add a driver for this controller utilizing the common DesignWare HDMI
-code in the kernel.
-
-Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
----
-No changes in v3, v4.
-
-Changes in v2:
-- Created a new function to set PHY parameters and refactored the
-  control flow of the configure_phy callback.
-
- MAINTAINERS                             |   1 +
- drivers/gpu/drm/bridge/Kconfig          |  10 ++
- drivers/gpu/drm/bridge/Makefile         |   1 +
- drivers/gpu/drm/bridge/th1520-dw-hdmi.c | 173 ++++++++++++++++++++++++
- 4 files changed, 185 insertions(+)
- create mode 100644 drivers/gpu/drm/bridge/th1520-dw-hdmi.c
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 5b11839cba9de..fc04fc007a054 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22556,6 +22556,7 @@ F:	Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
- F:	arch/riscv/boot/dts/thead/
- F:	drivers/clk/thead/clk-th1520-ap.c
- F:	drivers/firmware/thead,th1520-aon.c
-+F:	drivers/gpu/drm/bridge/th1520-dw-hdmi.c
- F:	drivers/mailbox/mailbox-th1520.c
- F:	drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
- F:	drivers/pinctrl/pinctrl-th1520.c
-diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
-index a250afd8d6622..8e19f5fb9ad7c 100644
---- a/drivers/gpu/drm/bridge/Kconfig
-+++ b/drivers/gpu/drm/bridge/Kconfig
-@@ -335,6 +335,16 @@ config DRM_THINE_THC63LVD1024
- 	help
- 	  Thine THC63LVD1024 LVDS/parallel converter driver.
- 
-+config DRM_THEAD_TH1520_DW_HDMI
-+	tristate "T-Head TH1520 DesignWare HDMI bridge"
-+	depends on OF
-+	depends on COMMON_CLK
-+	depends on ARCH_THEAD || COMPILE_TEST
-+	select DRM_DW_HDMI
-+	help
-+	  Choose this to enable support for the internal HDMI bridge found
-+	  on the T-Head TH1520 SoC.
-+
- config DRM_TOSHIBA_TC358762
- 	tristate "TC358762 DSI/DPI bridge"
- 	depends on OF
-diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
-index c7dc03182e592..085b5db45d6fd 100644
---- a/drivers/gpu/drm/bridge/Makefile
-+++ b/drivers/gpu/drm/bridge/Makefile
-@@ -28,6 +28,7 @@ obj-$(CONFIG_DRM_SII902X) += sii902x.o
- obj-$(CONFIG_DRM_SII9234) += sii9234.o
- obj-$(CONFIG_DRM_SIMPLE_BRIDGE) += simple-bridge.o
- obj-$(CONFIG_DRM_SOLOMON_SSD2825) += ssd2825.o
-+obj-$(CONFIG_DRM_THEAD_TH1520_DW_HDMI) += th1520-dw-hdmi.o
- obj-$(CONFIG_DRM_THINE_THC63LVD1024) += thc63lvd1024.o
- obj-$(CONFIG_DRM_TOSHIBA_TC358762) += tc358762.o
- obj-$(CONFIG_DRM_TOSHIBA_TC358764) += tc358764.o
-diff --git a/drivers/gpu/drm/bridge/th1520-dw-hdmi.c b/drivers/gpu/drm/bridge/th1520-dw-hdmi.c
-new file mode 100644
-index 0000000000000..389eead5f1c45
---- /dev/null
-+++ b/drivers/gpu/drm/bridge/th1520-dw-hdmi.c
-@@ -0,0 +1,173 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright (C) 2025 Icenowy Zheng <uwu@icenowy.me>
-+ *
-+ * Based on rcar_dw_hdmi.c, which is:
-+ *   Copyright (C) 2016 Renesas Electronics Corporation
-+ * Based on imx8mp-hdmi-tx.c, which is:
-+ *   Copyright (C) 2022 Pengutronix, Lucas Stach <kernel@pengutronix.de>
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/reset.h>
-+
-+#include <drm/bridge/dw_hdmi.h>
-+#include <drm/drm_modes.h>
-+
-+#define TH1520_HDMI_PHY_OPMODE_PLLCFG	0x06	/* Mode of operation and PLL dividers */
-+#define TH1520_HDMI_PHY_CKSYMTXCTRL	0x09	/* Clock Symbol and Transmitter Control Register */
-+#define TH1520_HDMI_PHY_VLEVCTRL	0x0e	/* Voltage Level Control Register */
-+#define TH1520_HDMI_PHY_PLLCURRGMPCTRL	0x10	/* PLL current and Gmp (conductance) */
-+#define TH1520_HDMI_PHY_PLLDIVCTRL	0x11	/* PLL dividers */
-+#define TH1520_HDMI_PHY_TXTERM		0x19	/* Transmission Termination Register */
-+
-+struct th1520_hdmi_phy_params {
-+	unsigned long mpixelclock;
-+	u16 opmode_pllcfg;
-+	u16 pllcurrgmpctrl;
-+	u16 plldivctrl;
-+	u16 cksymtxctrl;
-+	u16 vlevctrl;
-+	u16 txterm;
-+};
-+
-+static const struct th1520_hdmi_phy_params th1520_hdmi_phy_params[] = {
-+	{ 35500000,  0x0003, 0x0283, 0x0628, 0x8088, 0x01a0, 0x0007 },
-+	{ 44900000,  0x0003, 0x0285, 0x0228, 0x8088, 0x01a0, 0x0007 },
-+	{ 71000000,  0x0002, 0x1183, 0x0614, 0x8088, 0x01a0, 0x0007 },
-+	{ 90000000,  0x0002, 0x1142, 0x0214, 0x8088, 0x01a0, 0x0007 },
-+	{ 121750000, 0x0001, 0x20c0, 0x060a, 0x8088, 0x01a0, 0x0007 },
-+	{ 165000000, 0x0001, 0x2080, 0x020a, 0x8088, 0x01a0, 0x0007 },
-+	{ 198000000, 0x0000, 0x3040, 0x0605, 0x83c8, 0x0120, 0x0004 },
-+	{ 297000000, 0x0000, 0x3041, 0x0205, 0x81dc, 0x0200, 0x0005 },
-+	{ 371250000, 0x0640, 0x3041, 0x0205, 0x80f6, 0x0140, 0x0000 },
-+	{ 495000000, 0x0640, 0x3080, 0x0005, 0x80f6, 0x0140, 0x0000 },
-+	{ 594000000, 0x0640, 0x3080, 0x0005, 0x80fa, 0x01e0, 0x0004 },
-+};
-+
-+struct th1520_hdmi {
-+	struct dw_hdmi_plat_data plat_data;
-+	struct dw_hdmi *dw_hdmi;
-+	struct clk *pixclk;
-+	struct reset_control *mainrst, *prst;
-+};
-+
-+static enum drm_mode_status
-+th1520_hdmi_mode_valid(struct dw_hdmi *hdmi, void *data,
-+		       const struct drm_display_info *info,
-+		       const struct drm_display_mode *mode)
-+{
-+	/*
-+	 * The maximum supported clock frequency is 594 MHz, as shown in the PHY
-+	 * parameters table.
-+	 */
-+	if (mode->clock > 594000)
-+		return MODE_CLOCK_HIGH;
-+
-+	return MODE_OK;
-+}
-+
-+static void th1520_hdmi_phy_set_params(struct dw_hdmi *hdmi,
-+				const struct th1520_hdmi_phy_params *params)
-+{
-+	dw_hdmi_phy_i2c_write(hdmi, params->opmode_pllcfg,
-+			      TH1520_HDMI_PHY_OPMODE_PLLCFG);
-+	dw_hdmi_phy_i2c_write(hdmi, params->pllcurrgmpctrl,
-+			      TH1520_HDMI_PHY_PLLCURRGMPCTRL);
-+	dw_hdmi_phy_i2c_write(hdmi, params->plldivctrl,
-+			      TH1520_HDMI_PHY_PLLDIVCTRL);
-+	dw_hdmi_phy_i2c_write(hdmi, params->vlevctrl,
-+			      TH1520_HDMI_PHY_VLEVCTRL);
-+	dw_hdmi_phy_i2c_write(hdmi, params->cksymtxctrl,
-+			      TH1520_HDMI_PHY_CKSYMTXCTRL);
-+	dw_hdmi_phy_i2c_write(hdmi, params->txterm,
-+			      TH1520_HDMI_PHY_TXTERM);
-+}
-+
-+static int th1520_hdmi_phy_configure(struct dw_hdmi *hdmi, void *data,
-+				     unsigned long mpixelclock)
-+{
-+	unsigned int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(th1520_hdmi_phy_params); i++) {
-+		if (mpixelclock <= th1520_hdmi_phy_params[i].mpixelclock) {
-+			th1520_hdmi_phy_set_params(hdmi,
-+						   &th1520_hdmi_phy_params[i]);
-+			return 0;
-+		}
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+static int th1520_dw_hdmi_probe(struct platform_device *pdev)
-+{
-+	struct th1520_hdmi *hdmi;
-+	struct dw_hdmi_plat_data *plat_data;
-+	struct device *dev = &pdev->dev;
-+
-+	hdmi = devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
-+	if (!hdmi)
-+		return -ENOMEM;
-+
-+	plat_data = &hdmi->plat_data;
-+
-+	hdmi->pixclk = devm_clk_get_enabled(dev, "pix");
-+	if (IS_ERR(hdmi->pixclk))
-+		return dev_err_probe(dev, PTR_ERR(hdmi->pixclk),
-+				     "Unable to get pixel clock\n");
-+
-+	hdmi->mainrst = devm_reset_control_get_exclusive_deasserted(dev, "main");
-+	if (IS_ERR(hdmi->mainrst))
-+		return dev_err_probe(dev, PTR_ERR(hdmi->mainrst),
-+				     "Unable to get main reset\n");
-+
-+	hdmi->prst = devm_reset_control_get_exclusive_deasserted(dev, "apb");
-+	if (IS_ERR(hdmi->prst))
-+		return dev_err_probe(dev, PTR_ERR(hdmi->prst),
-+				     "Unable to get apb reset\n");
-+
-+	plat_data->output_port = 1;
-+	plat_data->mode_valid = th1520_hdmi_mode_valid;
-+	plat_data->configure_phy = th1520_hdmi_phy_configure;
-+	plat_data->priv_data = hdmi;
-+
-+	hdmi->dw_hdmi = dw_hdmi_probe(pdev, plat_data);
-+	if (IS_ERR(hdmi))
-+		return PTR_ERR(hdmi);
-+
-+	platform_set_drvdata(pdev, hdmi);
-+
-+	return 0;
-+}
-+
-+static void th1520_dw_hdmi_remove(struct platform_device *pdev)
-+{
-+	struct dw_hdmi *hdmi = platform_get_drvdata(pdev);
-+
-+	dw_hdmi_remove(hdmi);
-+}
-+
-+static const struct of_device_id th1520_dw_hdmi_of_table[] = {
-+	{ .compatible = "thead,th1520-dw-hdmi" },
-+	{ /* Sentinel */ },
-+};
-+MODULE_DEVICE_TABLE(of, th1520_dw_hdmi_of_table);
-+
-+static struct platform_driver th1520_dw_hdmi_platform_driver = {
-+	.probe		= th1520_dw_hdmi_probe,
-+	.remove		= th1520_dw_hdmi_remove,
-+	.driver		= {
-+		.name	= "th1520-dw-hdmi",
-+		.of_match_table = th1520_dw_hdmi_of_table,
-+	},
-+};
-+
-+module_platform_driver(th1520_dw_hdmi_platform_driver);
-+
-+MODULE_AUTHOR("Icenowy Zheng <uwu@icenowy.me>");
-+MODULE_DESCRIPTION("T-Head TH1520 HDMI Encoder Driver");
-+MODULE_LICENSE("GPL");
--- 
-2.52.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIFdlZCwgMjQgRGVjIDIwMjUgMTM6NTI6MTUgKzAwMDAsIGpvYW9wZWl4b3RvQG9zeXgudGVj
+aCB3cm90ZToKPiBGcm9tOiBKb8OjbyBQZWl4b3RvIDxqb2FvcGVpeG90b0Bvc3l4LnRlY2g+Cj4g
+Cj4gVGhpcyBwYXRjaCBhZGRzIGEgRGV2aWNlIFRyZWUgYmluZGluZyBmb3IgdGhlIEJhbyBJL08g
+RGlzcGF0Y2hlciBrZXJuZWwKPiBtb2R1bGUsIHdoaWNoIGNhbiBiZSBsb2FkZWQgaW50byBiYWNr
+ZW5kIFZNcy4gVGhlIEkvTyBEaXNwYXRjaGVyCj4gcHJvdmlkZXMgdGhlIGJyaWRnZSBiZXR3ZWVu
+IHRoZSBCYW8gaHlwZXJ2aXNvciBSZW1vdGUgSS9PIHN5c3RlbSBhbmQgdGhlCj4gZnJvbnRlbmQg
+ZGV2aWNlIG1vZGVsIGluIHVzZXJzcGFjZSwgb2ZmZXJpbmcgYSB1bmlmaWVkIEFQSSB0byBzdXBw
+b3J0Cj4gdmFyaW91cyBWaXJ0SU8gYmFja2VuZHMuCj4gCj4gVGhlIGRpc3BhdGNoZXIgaGFuZGxl
+cyBoeXBlcmNhbGxzIHRvIHRoZSBCYW8gaHlwZXJ2aXNvciwgSVJRL2V2ZW50ZmQKPiBmb3J3YXJk
+aW5nLCBhbmQgcHJvdmlkZXMgYSBjaGFyYWN0ZXIgZGV2aWNlIGludGVyZmFjZSBmb3IgZnJvbnRl
+bmQKPiBkZXZpY2VzLCBlbmFibGluZyBlZmZpY2llbnQgY29tbXVuaWNhdGlvbiBiZXR3ZWVuIHRo
+ZSBoeXBlcnZpc29yIGFuZAo+IHVzZXJzcGFjZSBkZXZpY2UgbW9kZWxzLgo+IAo+IFRoZSBiaW5k
+aW5nIGRvY3VtZW50cyB0aGUgZm9sbG93aW5nIHByb3BlcnRpZXM6Cj4gICAtIGNvbXBhdGlibGU6
+ICJiYW8saW8tZGlzcGF0Y2hlciIKPiAgIC0gcmVnOiBNZW1vcnkgcmVnaW9ucyBmb3IgdGhlIGRp
+c3BhdGNoZXIgKG11bHRpcGxlIFZpcnRJTyBkZXZpY2VzKQo+ICAgLSBpbnRlcnJ1cHRzOiBJbnRl
+cnJ1cHRzIHVzZWQgYnkgdGhlIGRldmljZXMKPiAgIC0gaW50ZXJydXB0LXBhcmVudDogUGFyZW50
+IGludGVycnVwdCBjb250cm9sbGVyCj4gCj4gVGhpcyBlbmFibGVzIGtlcm5lbCBkcml2ZXJzIHRv
+IGNvcnJlY3RseSBpbnN0YW50aWF0ZSBhbmQgY29uZmlndXJlIEJhbwo+IEkvTyBEaXNwYXRjaGVy
+IG1vZHVsZXMgYmFzZWQgb24gdGhlIERUIGRlc2NyaXB0aW9uLgo+IAo+IFNpZ25lZC1vZmYtYnk6
+IEpvw6NvIFBlaXhvdG8gPGpvYW9wZWl4b3RvQG9zeXgudGVjaD4KPiAtLS0KPiAgLi4uL2JpbmRp
+bmdzL2Jhby9pby1kaXNwYXRjaGVyLnlhbWwgICAgICAgICAgIHwgNjcgKysrKysrKysrKysrKysr
+KysrKwo+ICAxIGZpbGUgY2hhbmdlZCwgNjcgaW5zZXJ0aW9ucygrKQo+ICBjcmVhdGUgbW9kZSAx
+MDA2NDQgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Jhby9pby1kaXNwYXRjaGVy
+LnlhbWwKPiAKCk15IGJvdCBmb3VuZCBlcnJvcnMgcnVubmluZyAnbWFrZSBkdF9iaW5kaW5nX2No
+ZWNrJyBvbiB5b3VyIHBhdGNoOgoKeWFtbGxpbnQgd2FybmluZ3MvZXJyb3JzOgouL0RvY3VtZW50
+YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9iYW8vaXBjc2htZW0ueWFtbDo0OjY6IFtlcnJvcl0g
+c3RyaW5nIHZhbHVlIGlzIHJlZHVuZGFudGx5IHF1b3RlZCB3aXRoIGFueSBxdW90ZXMgKHF1b3Rl
+ZC1zdHJpbmdzKQouL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9iYW8vaXBjc2ht
+ZW0ueWFtbDo1OjEwOiBbZXJyb3JdIHN0cmluZyB2YWx1ZSBpcyByZWR1bmRhbnRseSBxdW90ZWQg
+d2l0aCBhbnkgcXVvdGVzIChxdW90ZWQtc3RyaW5ncykKLi9Eb2N1bWVudGF0aW9uL2RldmljZXRy
+ZWUvYmluZGluZ3MvYmFvL2lwY3NobWVtLnlhbWw6MTc6MTogW2Vycm9yXSBzeW50YXggZXJyb3I6
+IGZvdW5kIGNoYXJhY3RlciAnXHQnIHRoYXQgY2Fubm90IHN0YXJ0IGFueSB0b2tlbiAoc3ludGF4
+KQouL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9iYW8vaW8tZGlzcGF0Y2hlci55
+YW1sOjQ6NjogW2Vycm9yXSBzdHJpbmcgdmFsdWUgaXMgcmVkdW5kYW50bHkgcXVvdGVkIHdpdGgg
+YW55IHF1b3RlcyAocXVvdGVkLXN0cmluZ3MpCi4vRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2Jp
+bmRpbmdzL2Jhby9pby1kaXNwYXRjaGVyLnlhbWw6NToxMDogW2Vycm9yXSBzdHJpbmcgdmFsdWUg
+aXMgcmVkdW5kYW50bHkgcXVvdGVkIHdpdGggYW55IHF1b3RlcyAocXVvdGVkLXN0cmluZ3MpCi4v
+RG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Jhby9pby1kaXNwYXRjaGVyLnlhbWw6
+MjA6MTI6IFtlcnJvcl0gc3RyaW5nIHZhbHVlIGlzIHJlZHVuZGFudGx5IHF1b3RlZCB3aXRoIGFu
+eSBxdW90ZXMgKHF1b3RlZC1zdHJpbmdzKQoKZHRzY2hlbWEvZHRjIHdhcm5pbmdzL2Vycm9yczoK
+L2J1aWxkcy9yb2JoZXJyaW5nL2R0LXJldmlldy1jaS9saW51eC9Eb2N1bWVudGF0aW9uL2Rldmlj
+ZXRyZWUvYmluZGluZ3MvYmFvL2lwY3NobWVtLnlhbWw6IGlnbm9yaW5nLCBlcnJvciBwYXJzaW5n
+IGZpbGUKLi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvYmFvL2lwY3NobWVtLnlh
+bWw6MTc6MTogZm91bmQgYSB0YWIgY2hhcmFjdGVyIHdoZXJlIGFuIGluZGVudGF0aW9uIHNwYWNl
+IGlzIGV4cGVjdGVkCi9idWlsZHMvcm9iaGVycmluZy9kdC1yZXZpZXctY2kvbGludXgvRG9jdW1l
+bnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Jhby9pby1kaXNwYXRjaGVyLnlhbWw6IHByb3Bl
+cnRpZXM6cmVnOiAnYW55T2YnIGNvbmRpdGlvbmFsIGZhaWxlZCwgb25lIG11c3QgYmUgZml4ZWQ6
+CgkndHlwZScgaXMgbm90IG9uZSBvZiBbJ21heEl0ZW1zJywgJ2Rlc2NyaXB0aW9uJywgJ2RlcHJl
+Y2F0ZWQnXQoJCWhpbnQ6IE9ubHkgIm1heEl0ZW1zIiBpcyByZXF1aXJlZCBmb3IgYSBzaW5nbGUg
+ZW50cnkgaWYgdGhlcmUgYXJlIG5vIGNvbnN0cmFpbnRzIGRlZmluZWQgZm9yIHRoZSB2YWx1ZXMu
+CgknaXRlbXMnIGlzIG5vdCBvbmUgb2YgWydtYXhJdGVtcycsICdkZXNjcmlwdGlvbicsICdkZXBy
+ZWNhdGVkJ10KCQloaW50OiBPbmx5ICJtYXhJdGVtcyIgaXMgcmVxdWlyZWQgZm9yIGEgc2luZ2xl
+IGVudHJ5IGlmIHRoZXJlIGFyZSBubyBjb25zdHJhaW50cyBkZWZpbmVkIGZvciB0aGUgdmFsdWVz
+LgoJQWRkaXRpb25hbCBwcm9wZXJ0aWVzIGFyZSBub3QgYWxsb3dlZCAoJ3R5cGUnIHdhcyB1bmV4
+cGVjdGVkKQoJCWhpbnQ6IEFycmF5cyBtdXN0IGJlIGRlc2NyaWJlZCB3aXRoIGEgY29tYmluYXRp
+b24gb2YgbWluSXRlbXMvbWF4SXRlbXMvaXRlbXMKCSdtYXhJdGVtcycgaXMgbm90IG9uZSBvZiBb
+J2Rlc2NyaXB0aW9uJywgJ2RlcHJlY2F0ZWQnLCAnY29uc3QnLCAnZW51bScsICdtaW5pbXVtJywg
+J21heGltdW0nLCAnbXVsdGlwbGVPZicsICdkZWZhdWx0JywgJyRyZWYnLCAnb25lT2YnXQoJJ3R5
+cGUnIGlzIG5vdCBvbmUgb2YgWydkZXNjcmlwdGlvbicsICdkZXByZWNhdGVkJywgJ2NvbnN0Jywg
+J2VudW0nLCAnbWluaW11bScsICdtYXhpbXVtJywgJ211bHRpcGxlT2YnLCAnZGVmYXVsdCcsICck
+cmVmJywgJ29uZU9mJ10KCSdpdGVtcycgaXMgbm90IG9uZSBvZiBbJ2Rlc2NyaXB0aW9uJywgJ2Rl
+cHJlY2F0ZWQnLCAnY29uc3QnLCAnZW51bScsICdtaW5pbXVtJywgJ21heGltdW0nLCAnbXVsdGlw
+bGVPZicsICdkZWZhdWx0JywgJyRyZWYnLCAnb25lT2YnXQoJL2J1aWxkcy9yb2JoZXJyaW5nL2R0
+LXJldmlldy1jaS9saW51eC9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvYmFvL2lv
+LWRpc3BhdGNoZXIueWFtbDogcHJvcGVydGllczpyZWc6aXRlbXM6ICdhbnlPZicgY29uZGl0aW9u
+YWwgZmFpbGVkLCBvbmUgbXVzdCBiZSBmaXhlZDoKCQknbWF4SXRlbXMnIGlzIGEgcmVxdWlyZWQg
+cHJvcGVydHkKCQkJaGludDogT25seSAibWF4SXRlbXMiIGlzIHJlcXVpcmVkIGZvciBhIHNpbmds
+ZSBlbnRyeSBpZiB0aGVyZSBhcmUgbm8gY29uc3RyYWludHMgZGVmaW5lZCBmb3IgdGhlIHZhbHVl
+cy4KCQkndHlwZScgaXMgbm90IG9uZSBvZiBbJ21heEl0ZW1zJywgJ2Rlc2NyaXB0aW9uJywgJ2Rl
+cHJlY2F0ZWQnXQoJCQloaW50OiBPbmx5ICJtYXhJdGVtcyIgaXMgcmVxdWlyZWQgZm9yIGEgc2lu
+Z2xlIGVudHJ5IGlmIHRoZXJlIGFyZSBubyBjb25zdHJhaW50cyBkZWZpbmVkIGZvciB0aGUgdmFs
+dWVzLgoJCUFkZGl0aW9uYWwgcHJvcGVydGllcyBhcmUgbm90IGFsbG93ZWQgKCd0eXBlJyB3YXMg
+dW5leHBlY3RlZCkKCQkJaGludDogQXJyYXlzIG11c3QgYmUgZGVzY3JpYmVkIHdpdGggYSBjb21i
+aW5hdGlvbiBvZiBtaW5JdGVtcy9tYXhJdGVtcy9pdGVtcwoJCSd0eXBlJyBpcyBub3Qgb25lIG9m
+IFsnZGVzY3JpcHRpb24nLCAnZGVwcmVjYXRlZCcsICdjb25zdCcsICdlbnVtJywgJ21pbmltdW0n
+LCAnbWF4aW11bScsICdtdWx0aXBsZU9mJywgJ2RlZmF1bHQnLCAnJHJlZicsICdvbmVPZiddCgkJ
+CWhpbnQ6ICJpdGVtcyIgY2FuIGJlIGEgbGlzdCBkZWZpbmluZyBlYWNoIGVudHJ5IG9yIGEgc2No
+ZW1hIGFwcGx5aW5nIHRvIGFsbCBpdGVtcy4gQSBsaXN0IGhhcyBhbiBpbXBsaWNpdCBzaXplLiBB
+IHNjaGVtYSByZXF1aXJlcyBtaW5JdGVtcy9tYXhJdGVtcyB0byBkZWZpbmUgdGhlIHNpemUuCgkJ
+aGludDogY2VsbCBhcnJheSBwcm9wZXJ0aWVzIG11c3QgZGVmaW5lIGhvdyBtYW55IGVudHJpZXMg
+YW5kIHdoYXQgdGhlIGVudHJpZXMgYXJlIHdoZW4gdGhlcmUgaXMgbW9yZSB0aGFuIG9uZSBlbnRy
+eS4KCQlmcm9tIHNjaGVtYSAkaWQ6IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9tZXRhLXNjaGVtYXMv
+Y2VsbC55YW1sCgkxIHdhcyBleHBlY3RlZAoJCWhpbnQ6IE9ubHkgIm1heEl0ZW1zIiBpcyByZXF1
+aXJlZCBmb3IgYSBzaW5nbGUgZW50cnkgaWYgdGhlcmUgYXJlIG5vIGNvbnN0cmFpbnRzIGRlZmlu
+ZWQgZm9yIHRoZSB2YWx1ZXMuCgloaW50OiBjZWxsIGFycmF5IHByb3BlcnRpZXMgbXVzdCBkZWZp
+bmUgaG93IG1hbnkgZW50cmllcyBhbmQgd2hhdCB0aGUgZW50cmllcyBhcmUgd2hlbiB0aGVyZSBp
+cyBtb3JlIHRoYW4gb25lIGVudHJ5LgoJZnJvbSBzY2hlbWEgJGlkOiBodHRwOi8vZGV2aWNldHJl
+ZS5vcmcvbWV0YS1zY2hlbWFzL2NlbGwueWFtbAovYnVpbGRzL3JvYmhlcnJpbmcvZHQtcmV2aWV3
+LWNpL2xpbnV4L0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9iYW8vaW8tZGlzcGF0
+Y2hlci55YW1sOiBwcm9wZXJ0aWVzOnJlZzp0eXBlOiAnYXJyYXknIGlzIG5vdCBvbmUgb2YgWydi
+b29sZWFuJywgJ29iamVjdCddCglmcm9tIHNjaGVtYSAkaWQ6IGh0dHA6Ly9kZXZpY2V0cmVlLm9y
+Zy9tZXRhLXNjaGVtYXMvY29yZS55YW1sCi9idWlsZHMvcm9iaGVycmluZy9kdC1yZXZpZXctY2kv
+bGludXgvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Jhby9pby1kaXNwYXRjaGVy
+LnlhbWw6IHByb3BlcnRpZXM6aW50ZXJydXB0czp0eXBlOiAnYXJyYXknIGlzIG5vdCBvbmUgb2Yg
+Wydib29sZWFuJywgJ29iamVjdCddCglmcm9tIHNjaGVtYSAkaWQ6IGh0dHA6Ly9kZXZpY2V0cmVl
+Lm9yZy9tZXRhLXNjaGVtYXMvY29yZS55YW1sCi9idWlsZHMvcm9iaGVycmluZy9kdC1yZXZpZXct
+Y2kvbGludXgvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Jhby9pby1kaXNwYXRj
+aGVyLnlhbWw6IHByb3BlcnRpZXM6aW50ZXJydXB0LXBhcmVudDp0eXBlOiAnc3RyaW5nJyBpcyBu
+b3Qgb25lIG9mIFsnYm9vbGVhbicsICdvYmplY3QnXQoJZnJvbSBzY2hlbWEgJGlkOiBodHRwOi8v
+ZGV2aWNldHJlZS5vcmcvbWV0YS1zY2hlbWFzL2NvcmUueWFtbAovYnVpbGRzL3JvYmhlcnJpbmcv
+ZHQtcmV2aWV3LWNpL2xpbnV4L0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9iYW8v
+aW8tZGlzcGF0Y2hlci55YW1sOiBwcm9wZXJ0aWVzOmludGVycnVwdHM6ICdhbnlPZicgY29uZGl0
+aW9uYWwgZmFpbGVkLCBvbmUgbXVzdCBiZSBmaXhlZDoKCSd0eXBlJyBpcyBub3Qgb25lIG9mIFsn
+bWF4SXRlbXMnLCAnZGVzY3JpcHRpb24nLCAnZGVwcmVjYXRlZCddCgkJaGludDogT25seSAibWF4
+SXRlbXMiIGlzIHJlcXVpcmVkIGZvciBhIHNpbmdsZSBlbnRyeSBpZiB0aGVyZSBhcmUgbm8gY29u
+c3RyYWludHMgZGVmaW5lZCBmb3IgdGhlIHZhbHVlcy4KCSdpdGVtcycgaXMgbm90IG9uZSBvZiBb
+J21heEl0ZW1zJywgJ2Rlc2NyaXB0aW9uJywgJ2RlcHJlY2F0ZWQnXQoJCWhpbnQ6IE9ubHkgIm1h
+eEl0ZW1zIiBpcyByZXF1aXJlZCBmb3IgYSBzaW5nbGUgZW50cnkgaWYgdGhlcmUgYXJlIG5vIGNv
+bnN0cmFpbnRzIGRlZmluZWQgZm9yIHRoZSB2YWx1ZXMuCgknbWluSXRlbXMnIGlzIG5vdCBvbmUg
+b2YgWydtYXhJdGVtcycsICdkZXNjcmlwdGlvbicsICdkZXByZWNhdGVkJ10KCQloaW50OiBPbmx5
+ICJtYXhJdGVtcyIgaXMgcmVxdWlyZWQgZm9yIGEgc2luZ2xlIGVudHJ5IGlmIHRoZXJlIGFyZSBu
+byBjb25zdHJhaW50cyBkZWZpbmVkIGZvciB0aGUgdmFsdWVzLgoJQWRkaXRpb25hbCBwcm9wZXJ0
+aWVzIGFyZSBub3QgYWxsb3dlZCAoJ3R5cGUnIHdhcyB1bmV4cGVjdGVkKQoJCWhpbnQ6IEFycmF5
+cyBtdXN0IGJlIGRlc2NyaWJlZCB3aXRoIGEgY29tYmluYXRpb24gb2YgbWluSXRlbXMvbWF4SXRl
+bXMvaXRlbXMKCSd0eXBlJyBpcyBub3Qgb25lIG9mIFsnZGVzY3JpcHRpb24nLCAnZGVwcmVjYXRl
+ZCcsICdjb25zdCcsICdlbnVtJywgJ21pbmltdW0nLCAnbWF4aW11bScsICdtdWx0aXBsZU9mJywg
+J2RlZmF1bHQnLCAnJHJlZicsICdvbmVPZiddCgknaXRlbXMnIGlzIG5vdCBvbmUgb2YgWydkZXNj
+cmlwdGlvbicsICdkZXByZWNhdGVkJywgJ2NvbnN0JywgJ2VudW0nLCAnbWluaW11bScsICdtYXhp
+bXVtJywgJ211bHRpcGxlT2YnLCAnZGVmYXVsdCcsICckcmVmJywgJ29uZU9mJ10KCSdtaW5JdGVt
+cycgaXMgbm90IG9uZSBvZiBbJ2Rlc2NyaXB0aW9uJywgJ2RlcHJlY2F0ZWQnLCAnY29uc3QnLCAn
+ZW51bScsICdtaW5pbXVtJywgJ21heGltdW0nLCAnbXVsdGlwbGVPZicsICdkZWZhdWx0JywgJyRy
+ZWYnLCAnb25lT2YnXQoJJ21heEl0ZW1zJyBpcyBub3Qgb25lIG9mIFsnZGVzY3JpcHRpb24nLCAn
+ZGVwcmVjYXRlZCcsICdjb25zdCcsICdlbnVtJywgJ21pbmltdW0nLCAnbWF4aW11bScsICdtdWx0
+aXBsZU9mJywgJ2RlZmF1bHQnLCAnJHJlZicsICdvbmVPZiddCgkvYnVpbGRzL3JvYmhlcnJpbmcv
+ZHQtcmV2aWV3LWNpL2xpbnV4L0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9iYW8v
+aW8tZGlzcGF0Y2hlci55YW1sOiBwcm9wZXJ0aWVzOmludGVycnVwdHM6aXRlbXM6ICdhbnlPZicg
+Y29uZGl0aW9uYWwgZmFpbGVkLCBvbmUgbXVzdCBiZSBmaXhlZDoKCQknbWF4SXRlbXMnIGlzIGEg
+cmVxdWlyZWQgcHJvcGVydHkKCQkJaGludDogT25seSAibWF4SXRlbXMiIGlzIHJlcXVpcmVkIGZv
+ciBhIHNpbmdsZSBlbnRyeSBpZiB0aGVyZSBhcmUgbm8gY29uc3RyYWludHMgZGVmaW5lZCBmb3Ig
+dGhlIHZhbHVlcy4KCQkndHlwZScgaXMgbm90IG9uZSBvZiBbJ21heEl0ZW1zJywgJ2Rlc2NyaXB0
+aW9uJywgJ2RlcHJlY2F0ZWQnXQoJCQloaW50OiBPbmx5ICJtYXhJdGVtcyIgaXMgcmVxdWlyZWQg
+Zm9yIGEgc2luZ2xlIGVudHJ5IGlmIHRoZXJlIGFyZSBubyBjb25zdHJhaW50cyBkZWZpbmVkIGZv
+ciB0aGUgdmFsdWVzLgoJCUFkZGl0aW9uYWwgcHJvcGVydGllcyBhcmUgbm90IGFsbG93ZWQgKCd0
+eXBlJyB3YXMgdW5leHBlY3RlZCkKCQkJaGludDogQXJyYXlzIG11c3QgYmUgZGVzY3JpYmVkIHdp
+dGggYSBjb21iaW5hdGlvbiBvZiBtaW5JdGVtcy9tYXhJdGVtcy9pdGVtcwoJCSd0eXBlJyBpcyBu
+b3Qgb25lIG9mIFsnZGVzY3JpcHRpb24nLCAnZGVwcmVjYXRlZCcsICdjb25zdCcsICdlbnVtJywg
+J21pbmltdW0nLCAnbWF4aW11bScsICdtdWx0aXBsZU9mJywgJ2RlZmF1bHQnLCAnJHJlZicsICdv
+bmVPZiddCgkJCWhpbnQ6ICJpdGVtcyIgY2FuIGJlIGEgbGlzdCBkZWZpbmluZyBlYWNoIGVudHJ5
+IG9yIGEgc2NoZW1hIGFwcGx5aW5nIHRvIGFsbCBpdGVtcy4gQSBsaXN0IGhhcyBhbiBpbXBsaWNp
+dCBzaXplLiBBIHNjaGVtYSByZXF1aXJlcyBtaW5JdGVtcy9tYXhJdGVtcyB0byBkZWZpbmUgdGhl
+IHNpemUuCgkJaGludDogY2VsbCBhcnJheSBwcm9wZXJ0aWVzIG11c3QgZGVmaW5lIGhvdyBtYW55
+IGVudHJpZXMgYW5kIHdoYXQgdGhlIGVudHJpZXMgYXJlIHdoZW4gdGhlcmUgaXMgbW9yZSB0aGFu
+IG9uZSBlbnRyeS4KCQlmcm9tIHNjaGVtYSAkaWQ6IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9tZXRh
+LXNjaGVtYXMvY2VsbC55YW1sCgkxIHdhcyBleHBlY3RlZAoJCWhpbnQ6IE9ubHkgIm1heEl0ZW1z
+IiBpcyByZXF1aXJlZCBmb3IgYSBzaW5nbGUgZW50cnkgaWYgdGhlcmUgYXJlIG5vIGNvbnN0cmFp
+bnRzIGRlZmluZWQgZm9yIHRoZSB2YWx1ZXMuCgloaW50OiBjZWxsIGFycmF5IHByb3BlcnRpZXMg
+bXVzdCBkZWZpbmUgaG93IG1hbnkgZW50cmllcyBhbmQgd2hhdCB0aGUgZW50cmllcyBhcmUgd2hl
+biB0aGVyZSBpcyBtb3JlIHRoYW4gb25lIGVudHJ5LgoJZnJvbSBzY2hlbWEgJGlkOiBodHRwOi8v
+ZGV2aWNldHJlZS5vcmcvbWV0YS1zY2hlbWFzL2NlbGwueWFtbAovYnVpbGRzL3JvYmhlcnJpbmcv
+ZHQtcmV2aWV3LWNpL2xpbnV4L0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9iYW8v
+aW8tZGlzcGF0Y2hlci55YW1sOiBwcm9wZXJ0aWVzOiBGYWxzZSBzY2hlbWEgZG9lcyBub3QgYWxs
+b3cgeydkZXNjcmlwdGlvbic6ICdQYXJlbnQgaW50ZXJydXB0IGNvbnRyb2xsZXIgbm9kZScsICd0
+eXBlJzogJ3N0cmluZyd9Cglmcm9tIHNjaGVtYSAkaWQ6IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9t
+ZXRhLXNjaGVtYXMvaW50ZXJydXB0cy55YW1sCm1ha2VbMl06ICoqKiBEZWxldGluZyBmaWxlICdE
+b2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvYmFvL2lwY3NobWVtLmV4YW1wbGUuZHRz
+JwpEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvYmFvL2lwY3NobWVtLnlhbWw6MTc6
+MTogZm91bmQgYSB0YWIgY2hhcmFjdGVyIHdoZXJlIGFuIGluZGVudGF0aW9uIHNwYWNlIGlzIGV4
+cGVjdGVkCm1ha2VbMl06ICoqKiBbRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL01h
+a2VmaWxlOjI2OiBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvYmFvL2lwY3NobWVt
+LmV4YW1wbGUuZHRzXSBFcnJvciAxCm1ha2VbMl06ICoqKiBXYWl0aW5nIGZvciB1bmZpbmlzaGVk
+IGpvYnMuLi4uCm1ha2VbMV06ICoqKiBbL2J1aWxkcy9yb2JoZXJyaW5nL2R0LXJldmlldy1jaS9s
+aW51eC9NYWtlZmlsZToxNTY1OiBkdF9iaW5kaW5nX2NoZWNrXSBFcnJvciAyCm1ha2U6ICoqKiBb
+TWFrZWZpbGU6MjQ4OiBfX3N1Yi1tYWtlXSBFcnJvciAyCgpkb2MgcmVmZXJlbmNlIGVycm9ycyAo
+bWFrZSByZWZjaGVja2RvY3MpOgoKU2VlIGh0dHBzOi8vcGF0Y2h3b3JrLmtlcm5lbC5vcmcvcHJv
+amVjdC9kZXZpY2V0cmVlL3BhdGNoLzIwMjUxMjI0MTM1MjE3LjI1MzUwLTQtam9hb3BlaXhvdG9A
+b3N5eC50ZWNoCgpUaGUgYmFzZSBmb3IgdGhlIHNlcmllcyBpcyBnZW5lcmFsbHkgdGhlIGxhdGVz
+dCByYzEuIEEgZGlmZmVyZW50IGRlcGVuZGVuY3kKc2hvdWxkIGJlIG5vdGVkIGluICp0aGlzKiBw
+YXRjaC4KCklmIHlvdSBhbHJlYWR5IHJhbiAnbWFrZSBkdF9iaW5kaW5nX2NoZWNrJyBhbmQgZGlk
+bid0IHNlZSB0aGUgYWJvdmUKZXJyb3IocyksIHRoZW4gbWFrZSBzdXJlICd5YW1sbGludCcgaXMg
+aW5zdGFsbGVkIGFuZCBkdC1zY2hlbWEgaXMgdXAgdG8KZGF0ZToKCnBpcDMgaW5zdGFsbCBkdHNj
+aGVtYSAtLXVwZ3JhZGUKClBsZWFzZSBjaGVjayBhbmQgcmUtc3VibWl0IGFmdGVyIHJ1bm5pbmcg
+dGhlIGFib3ZlIGNvbW1hbmQgeW91cnNlbGYuIE5vdGUKdGhhdCBEVF9TQ0hFTUFfRklMRVMgY2Fu
+IGJlIHNldCB0byB5b3VyIHNjaGVtYSBmaWxlIHRvIHNwZWVkIHVwIGNoZWNraW5nCnlvdXIgc2No
+ZW1hLiBIb3dldmVyLCBpdCBtdXN0IGJlIHVuc2V0IHRvIHRlc3QgYWxsIGV4YW1wbGVzIHdpdGgg
+eW91ciBzY2hlbWEuCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
