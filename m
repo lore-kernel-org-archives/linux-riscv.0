@@ -4,123 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D7BAE75448
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Dec 2025 11:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E492E75459
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Dec 2025 13:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LUuYLxs+An5C9aT6hZ6KIOq3umeGMBtPrSIjL+rJjC0=; b=So2zQQgQxOzMqa
-	uepdjG/Cydyh8B/8goW82SIlPmwZZZF2RhjrlOkD+O5lmAmi/UGXLnnHWWYPtbGmsYSkiNrw1Ch0s
-	88Q8xwb+YOrZDSpJaNPT6kpraXfNW1bZ1Q+8sUcQYQyy8gVcl4czMTXSeFgEXaaSO0sxceC7OATOe
-	Op7IEH3HJAybDfTonLmBFy6iOSeVVO2KIMuhZ8XWZD1f4Xm2MB3qffe+cW1cpv3xIVM0m0Mpi+XX5
-	h4dcfszoGYM5jwR2I+p84ooCPLc5DIiT3PnkEXZN75QFIwY4T5XE1NW2UwlmZn3Ou00QJKWxnXlj5
-	5r5e63C0kStDWhpLf7Sw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Oc+coQLit5p0y69N3pvc9XdUpKUP8rIG0qzTGGMXyUc=; b=WND5EPn4QzNg2m
+	Or0NPSa0h4I35ecET4PvUOTfQTQef6M1SIpfKZNL4iSZBE8Uji0ghjkzUeQ1sV5DvwHxhBIXYMIxq
+	ROxupCuD5x/8/XTBmyz3Ifq3KzMbU1WKDdAfZvVpFTX8g8lIkkYVAd2ekqTEbh7NpcZLwlCiIvSMx
+	HzjeC3HI2uv9gC7Uen5G1r/V9B8sZJ3jc6Ge+B1PlNSI9PitqLZJq9xxIan16hq7B+TKWqHYSSIV7
+	DIJXgLP1D5DVRrQZv1ZBo+OKWhIy7vp1BBqkm8opJGpdWv8svvXY+4YeGutfDIy+NHxv8GE8mnlJk
+	xDMRxi0IQFmXliWh17qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYNUa-0000000Gm1W-04st;
-	Wed, 24 Dec 2025 11:57:24 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vYP6n-0000000GrGv-2PBs;
+	Wed, 24 Dec 2025 13:40:57 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYNUX-0000000Gm19-225H
+	id 1vYP6i-0000000GrG1-1KWg
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Dec 2025 11:57:22 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5BO6jUE4007802;
-	Wed, 24 Dec 2025 11:55:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=pp1; bh=GH//FvUvT9DjuJ5WlysudQDLTqviGbkOp/XERUeAZ
-	Ak=; b=fvAG5zOZcxGC1lF/pEv6wdznKjxkwp8lHYlBZ5BuKwt3tsTYlNccljICg
-	G9yXbB/ElkqoxeuGhBhaQKX+lmCoX6nI7S5A2AQ0rl7sw/YCg1gdIJLnGm5E7NfP
-	29nyejkCjHW6XO/sI+4vieGEF/sHryL87M0ofPLxo0WnzsWQ9JSErifSsBIcXM0N
-	TRnvHwCVIyTNz9ttmjGDQjdB36+6sTv198dc0k74OcTqXvL/saKZHNyw/k0j1vGh
-	z95ypT3PsWzSF4OWgnOJnVLcS60BmYG2g2xVRopuqlAFng3cCyIiAX2+u0ZZXG9N
-	+9n0tpumpq1yD98OXXOmeFuOZq9rw==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4b5h7j13av-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 24 Dec 2025 11:55:36 +0000 (GMT)
-Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5BOBtaoj000913;
-	Wed, 24 Dec 2025 11:55:36 GMT
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4b5h7j13as-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 24 Dec 2025 11:55:36 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5BOB0WXd030352;
-	Wed, 24 Dec 2025 11:55:35 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4b66gy017j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 24 Dec 2025 11:55:35 +0000
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5BOBtVvD24707400
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 24 Dec 2025 11:55:31 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 156E020043;
-	Wed, 24 Dec 2025 11:55:31 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 236C520040;
-	Wed, 24 Dec 2025 11:55:27 +0000 (GMT)
-Received: from li-4f5ba44c-27d4-11b2-a85c-a08f5b49eada.ibm.com.com (unknown [9.124.211.66])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 24 Dec 2025 11:55:26 +0000 (GMT)
-From: Sourabh Jain <sourabhjain@linux.ibm.com>
-To: linux-kernel@vger.kernel.org
-Cc: Sourabh Jain <sourabhjain@linux.ibm.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Borislav Petkov <bp@alien8.de>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Heiko Carstens <hca@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Muchun Song <muchun.song@linux.dev>,
-        Oscar Salvador <osalvador@suse.de>,
-        Thomas Gleixner <tglx@linutronix.de>,
-        Vasily Gorbik <gor@linux.ibm.com>, linux-mm@kvack.org,
-        linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-        x86@kernel.org, linux-riscv@lists.infradead.org,
-        "David Hildenbrand (Red Hat)" <david@kernel.org>,
-        "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Subject: [PATCH v7] mm/hugetlb: ignore hugepage kernel args if hugepages are unsupported
-Date: Wed, 24 Dec 2025 17:25:24 +0530
-Message-ID: <20251224115524.1272010-1-sourabhjain@linux.ibm.com>
-X-Mailer: git-send-email 2.51.1
+	Wed, 24 Dec 2025 13:40:54 +0000
+Received: by mail-wm1-x342.google.com with SMTP id 5b1f17b1804b1-47774d3536dso46672195e9.0
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Dec 2025 05:40:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1766583646; x=1767188446; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=4bOu15FXdawoXLU6RXH7GKUZX7zUNavG7vPjXViBxOI=;
+        b=TgiHz0Yn+MEG7CJ43RznVsVPQ3lwciH4FSoFJ82XgPwnSgn4fS6WFjCWuVu002fy71
+         D3rVrTuRch/e/Ylyc8IO58/nf76CIWfgnnvx+XKNgcVSiRT5Savfxw1JE/VrHPhdpLS1
+         D5db22a2zvH51WV8ucsioBAz/XEPuI2TbmGuHRXF/9D5F3CW9CcT3Az+YlDlX2sAIP5Y
+         kGcX3AyImGrM5lPofnyvRhZi9Xu/OyvRiC9Hcrbxap4HgMEtxz1F/DKPdYYU1RJdB/hE
+         NSLyw8jiNPhTnL3lgqWGfvZPSg9JeJqkYyzydU8PxWA0V7RpdiSqgzySN/VCKsgMMOOJ
+         PUeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766583646; x=1767188446;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4bOu15FXdawoXLU6RXH7GKUZX7zUNavG7vPjXViBxOI=;
+        b=IsYv+gzzpbXV09mGB00TPbg/8etZECSLJAyfI2ekmP8bUXbrQv3Zlgk7DAQwBCpbzh
+         4vboF5yVcLiNBwar50vtfB/ziUVgRKtHBBWN1xLqfAMlgLajhGlY+sbkuNiJO+V5vcdk
+         lPajP5UaPb8z7XDKGhAPmWJnkZfnxJ7b9fkSfEywyyQtJcQ4ymuL/QjNj/kO89D4HiU2
+         RbomNLCLK02R9qmzLqnlr8tiyaZ48/TGeQ9/tgHPD9s5iN049sx0DpOip3VatVa64c5P
+         EJZ24jlquisB7HrP/ZIyx742K2NipRz5jiskwgzZy84ziVvYunBwSkvbG3PwVmsnoivM
+         5OuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXEZWT/asJHmv2dV1Fc8dsLsweFE3gZDjt/nFDetwI10B0SemQIgjw2nMs8VwMkE+X0Lxi6ao+lkx+htg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKwvxNeXyo1e992yVDm9xfxzZgzFIzcN6Dmng5SxZxhN4e35d5
+	OO2dhPSWfgiJFcQMofgy6D8UyvYOtII3Ech3rY/QsAyKNfCa//GRpbqEUbDLOzUStnk=
+X-Gm-Gg: AY/fxX7u3zDoXs5Q2hiQ7HJ9KdMJNJA2y3qtyhoBLosKFVie3ktnhWDYPqeg7MNwa8F
+	kQZfDK7EZotPu5i2GOHdwJc+0weJdLFMu9N3RmTpzXXtYgxYhIHR8ZzXv6yV2N5ihisxojtKwS0
+	hLs/auosimRTEFENpe/PmuDcZvxKo1CXfRc6SGIfXTX6Pb+Kh1VM1r7lrl79hyZlmgJ+32rHLIs
+	sV3WfSigbIrUhrDXucrmhCKua/VuiI6z7J0mQmysW+j+qLxVKrNBO2HXudcAkkic8Mad+1Khd5+
+	2ScVouT2F+Ww6tc4WUH90qGMnDQ+XDP/wjVZ6xOZW3ho1+O1jeCzI049W9eZIq4Dw5w6/dEbhN4
+	/1prpNNpU51mt/ZlOfaFdwV4ArbA81R28YOQ7C1AJ/lY/s2xOboj5D94HdceDj9Xi7aWF1GGs8/
+	ssoBxO6wcmDoEGSicRwW/JnCUhuDI=
+X-Google-Smtp-Source: AGHT+IE8mTfoPQdEFqjfoLhz+ly5EIeJ+Tot9qbv5NCIzLJlMGkF44TFB89BCLTRXL8dljzxOMuMcQ==
+X-Received: by 2002:a05:600c:19ca:b0:477:a289:d854 with SMTP id 5b1f17b1804b1-47d18b98f87mr179558255e9.5.1766583646316;
+        Wed, 24 Dec 2025 05:40:46 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47be3a204e9sm133872835e9.2.2025.12.24.05.40.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 24 Dec 2025 05:40:45 -0800 (PST)
+Message-ID: <c25d5032-5a41-4e95-ae76-3466875241a0@linaro.org>
+Date: Wed, 24 Dec 2025 13:40:44 +0000
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjI0MDEwMiBTYWx0ZWRfX49G/5GzFC2U/
- C+f55vWA8QZ8uaj863eDNaXePjGYiWXDwCH5iY7yWpgjHslmBbSyeAHeTQcfp+KrSv5ZnKLoj/d
- vMhTl0MmZuDR5DNh1wAKqvzc3zj6iueboozycmyXGikd3l1w2WwX42jhm6k6SudFTMiTaOWORqp
- NDTC01xlHbVpKIFjXhj9MvmxxKv3N7bhfcKb0tlV01ArCOJUdV21rZl9sQLoOSqMViR5b6Acmcn
- li12HmGHR3mNMJY99fT4GEKJjkhU7lWX0iI7MAKhBh/ifEPHQgpjLImHh5LnDIXBXHwtbP2/aMO
- jy8FfzVoZNwY2CdeATTsbe9B2fpA238SfkhJurHuSW3yMCP04ybmUCtfDXNAMD/GG9GALRjD8Fj
- 7OVsDNpPVUGSf5B7NsjgSWSivaSyzokbe2B26CptiCJhZxsI5hkKvVqv8aVcIADMBec0fy/R8Wc
- 9E+66lZ5qfXXGrwquEw==
-X-Authority-Analysis: v=2.4 cv=Ba3VE7t2 c=1 sm=1 tr=0 ts=694bd4b8 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=wP3pNCr1ah4A:10 a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8
- a=Z4Rwk6OoAAAA:8 a=1UX6Do5GAAAA:8 a=20KFwNOVAAAA:8 a=37rDS-QxAAAA:8
- a=voM4FWlXAAAA:8 a=JfrnYn6hAAAA:8 a=pGLkceISAAAA:8 a=hZZqHmf6Ppl5AQPYj_cA:9
- a=HkZW87K1Qel5hWWM3VKY:22 a=Et2XPkok5AAZYJIKzHr1:22 a=k1Nq6YrhK2t884LQW06G:22
- a=IC2XNlieTeVoXbcui8wp:22 a=1CNFftbPRP8L7MoqJWF3:22
-X-Proofpoint-ORIG-GUID: fc0BAFO5dfQ8F-QvuQiPYBQ1kNVWgziz
-X-Proofpoint-GUID: 4LYmkV6B52ZfJ4_3n5nWsrbPH4bn8tWI
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-24_03,2025-12-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 suspectscore=0 bulkscore=0 adultscore=0 priorityscore=1501
- malwarescore=0 lowpriorityscore=0 impostorscore=0 clxscore=1015 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2512120000 definitions=main-2512240102
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] perf unwind-libdw: fix a cross-arch unwinding bug
+To: shimin.guo@skydio.com
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-riscv@lists.infradead.org, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>,
+ Leo Yan <leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, Guo Ren <guoren@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+References: <20251223-cross-arch-unwind-v1-1-4d71ee7db512@skydio.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20251223-cross-arch-unwind-v1-1-4d71ee7db512@skydio.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_035721_664944_43B59141 
-X-CRM114-Status: GOOD (  24.41  )
+X-CRM114-CacheID: sfid-20251224_054052_922535_67E075A2 
+X-CRM114-Status: GOOD (  28.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,188 +107,460 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Skip processing hugepage kernel arguments (hugepagesz, hugepages, and
-default_hugepagesz) when hugepages are not supported by the
-architecture.
 
-Some architectures may need to disable hugepages based on conditions
-discovered during kernel boot. The hugepages_supported() helper allows
-architecture code to advertise whether hugepages are supported.
 
-Currently, normal hugepage allocation is guarded by
-hugepages_supported(), but gigantic hugepages are allocated regardless
-of this check. This causes problems on powerpc for fadump (firmware-
-assisted dump).
+On 24/12/2025 2:19 am, Shimin Guo via B4 Relay wrote:
+> From: Shimin Guo <shimin.guo@skydio.com>
+> 
+> The set_initial_registers field of Dwfl_Thread_Callbacks needs to be set
+> according to the arch of the stack samples being analyzed, not the arch
+> that perf itself is built for. Currently perf fails to unwind stack samples
+> collected from archs different from that of the host perf is running on.
+> This patch moves the arch-specific implementations of set_initial_registers
+> from tools/perf/arch to tools/perf/utli/unwind-libdw-arch, similar to the
+> way the perf-regs-arch folder contains arch-specific functions related to
+> registers, and chooses the implementation based on the arch of the data
+> being processed.
+> 
+> Signed-off-by: Shimin Guo <shimin.guo@skydio.com>
+> ---
+> checkpatch flagged three issues:
+>> tools/perf/util/unwind-libdw-arch/Build:232: WARNING: added, moved
+> or deleted file(s), does MAINTAINERS need updating?
+> 
+> Not sure what to do about that.
+> 
 
-In the fadump (firmware-assisted dump) scenario, a production kernel
-crash causes the system to boot into a special kernel whose sole
-purpose is to collect the memory dump and reboot. Features such as
-hugepages are not required in this environment and should be
-disabled.
+You don't need to do anything here because there's a blanket rule for 
+the Perf dir.
 
-For example, when the fadump kernel boots with the following kernel
-arguments:
-default_hugepagesz=1GB hugepagesz=1GB hugepages=200
+>> checkpatch.pl: tools/perf/util/unwind-libdw.c:228: WARNING:
+> Non-declarative macros with multiple statements should be enclosed in
+> a do - while loop
 
-Before this patch, the kernel prints the following logs:
+I think you can ignore this one.
 
- HugeTLB: allocating 200 of page size 1.00 GiB failed.  Only allocated 58 hugepages.
- HugeTLB support is disabled!
- HugeTLB: huge pages not supported, ignoring associated command-line parameters
- hugetlbfs: disabling because there are no supported hugepage sizes
+>> checkpatch.pl: tools/perf/util/unwind-libdw.c:228: WARNING: macros
+> should not use a trailing semicolon
+> 
+> Are these two false positives? I'm defining static global variables
+> with the macro.
 
-Even though the logs state that HugeTLB support is disabled, gigantic
-hugepages are still allocated. This causes the fadump kernel to run out
-of memory during boot.
+But I don't see a reason not to follow this one, just remove the semicolon.
 
-After this patch is applied, the kernel prints the following logs for
-the same command line:
+> ---
+>   tools/perf/arch/arm/util/Build                     |  1 -
+>   tools/perf/arch/arm64/util/Build                   |  1 -
+>   tools/perf/arch/csky/util/Build                    |  2 -
+>   tools/perf/arch/powerpc/util/Build                 |  1 -
+>   tools/perf/arch/riscv/util/Build                   |  1 -
+>   tools/perf/arch/s390/util/Build                    |  2 -
+>   tools/perf/arch/x86/util/Build                     |  1 -
+>   tools/perf/util/Build                              |  1 +
+>   tools/perf/util/unwind-libdw-arch/Build            |  8 ++++
+>   .../unwind-libdw-arch/unwind-libdw-arm.c}          |  4 +-
+>   .../unwind-libdw-arch/unwind-libdw-arm64.c}        |  4 +-
+>   .../unwind-libdw-arch/unwind-libdw-csky.c}         |  6 +--
+>   .../unwind-libdw-arch/unwind-libdw-loongarch.c}    |  4 +-
+>   .../unwind-libdw-arch/unwind-libdw-powerpc.c}      |  4 +-
+>   .../unwind-libdw-arch/unwind-libdw-riscv.c}        |  4 +-
+>   .../unwind-libdw-arch/unwind-libdw-s390.c}         |  6 +--
+>   .../unwind-libdw-arch/unwind-libdw-x86.c}          |  2 +-
+>   tools/perf/util/unwind-libdw.c                     | 49 +++++++++++++++++++---
+>   tools/perf/util/unwind-libdw.h                     | 10 ++++-
+>   19 files changed, 79 insertions(+), 32 deletions(-)
+> 
+> diff --git a/tools/perf/arch/arm/util/Build b/tools/perf/arch/arm/util/Build
+> index fd695e1fdaee2ccc300a206131b8b38a763b00ce..3291f893b943df0722dff583523fff4ae79919bc 100644
+> --- a/tools/perf/arch/arm/util/Build
+> +++ b/tools/perf/arch/arm/util/Build
+> @@ -1,6 +1,5 @@
+>   perf-util-y += perf_regs.o
+>   
+>   perf-util-$(CONFIG_LOCAL_LIBUNWIND)    += unwind-libunwind.o
+> -perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
+>   
+>   perf-util-y += pmu.o auxtrace.o cs-etm.o
+> diff --git a/tools/perf/arch/arm64/util/Build b/tools/perf/arch/arm64/util/Build
+> index d63881081d2eb1e9a83eabf82104d75308f7fc79..0177af19cc00038d6a6005592ddc530bf7eb1557 100644
+> --- a/tools/perf/arch/arm64/util/Build
+> +++ b/tools/perf/arch/arm64/util/Build
+> @@ -1,4 +1,3 @@
+> -perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
+>   perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
+>   perf-util-$(CONFIG_LOCAL_LIBUNWIND) += unwind-libunwind.o
+>   perf-util-y += ../../arm/util/auxtrace.o
+> diff --git a/tools/perf/arch/csky/util/Build b/tools/perf/arch/csky/util/Build
+> index 5e6ea82c42021d3d5651ca4c4a3a6e5138574e4e..6b2d0e021b11464e46d6b53974260d32ea969732 100644
+> --- a/tools/perf/arch/csky/util/Build
+> +++ b/tools/perf/arch/csky/util/Build
+> @@ -1,3 +1 @@
+>   perf-util-y += perf_regs.o
+> -
+> -perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
+> diff --git a/tools/perf/arch/powerpc/util/Build b/tools/perf/arch/powerpc/util/Build
+> index 3d0d5427aef7f26a8c05c883cc7ad763f08cbb30..5fd28ec713a4db74ecd1d26866a65ddb20e94bd3 100644
+> --- a/tools/perf/arch/powerpc/util/Build
+> +++ b/tools/perf/arch/powerpc/util/Build
+> @@ -9,5 +9,4 @@ perf-util-y += evsel.o
+>   perf-util-$(CONFIG_LIBDW) += skip-callchain-idx.o
+>   
+>   perf-util-$(CONFIG_LIBUNWIND) += unwind-libunwind.o
+> -perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
+>   perf-util-y += auxtrace.o
+> diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
+> index 58a672246024dd0f72e767d11e9958bd9913ec3c..628b9ebd418bde8cdf1ab1332bf79f7c9d50760e 100644
+> --- a/tools/perf/arch/riscv/util/Build
+> +++ b/tools/perf/arch/riscv/util/Build
+> @@ -2,4 +2,3 @@ perf-util-y += perf_regs.o
+>   perf-util-y += header.o
+>   
+>   perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
+> -perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
+> diff --git a/tools/perf/arch/s390/util/Build b/tools/perf/arch/s390/util/Build
+> index c64eb18dbdae93adafabf8542e4c9a763ecfe057..5391d26fedd46b7d30a1bef0bff2ec2d58ec30ed 100644
+> --- a/tools/perf/arch/s390/util/Build
+> +++ b/tools/perf/arch/s390/util/Build
+> @@ -2,8 +2,6 @@ perf-util-y += header.o
+>   perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
+>   perf-util-y += perf_regs.o
+>   
+> -perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
+> -
+>   perf-util-y += machine.o
+>   perf-util-y += pmu.o
+>   
+> diff --git a/tools/perf/arch/x86/util/Build b/tools/perf/arch/x86/util/Build
+> index c0dc5965f3624a6f02525a04d287dff755356d20..fad256252bb95a8f8350b6bb1a54e8074eaebbec 100644
+> --- a/tools/perf/arch/x86/util/Build
+> +++ b/tools/perf/arch/x86/util/Build
+> @@ -12,7 +12,6 @@ perf-util-y += evsel.o
+>   perf-util-y += iostat.o
+>   
+>   perf-util-$(CONFIG_LOCAL_LIBUNWIND)    += unwind-libunwind.o
+> -perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
+>   
+>   perf-util-y += auxtrace.o
+>   perf-util-y += archinsn.o
+> diff --git a/tools/perf/util/Build b/tools/perf/util/Build
+> index 1c2a43e1dc68e7f751ec6082352b10de9ffeea62..15f8a4f4b24a46b6300e824f672dd9c0d5b7865f 100644
+> --- a/tools/perf/util/Build
+> +++ b/tools/perf/util/Build
+> @@ -226,6 +226,7 @@ perf-util-$(CONFIG_LIBDW) += debuginfo.o
+>   perf-util-$(CONFIG_LIBDW) += annotate-data.o
+>   
+>   perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
+> +perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-arch/
+>   perf-util-$(CONFIG_LOCAL_LIBUNWIND)    += unwind-libunwind-local.o
+>   perf-util-$(CONFIG_LIBUNWIND)          += unwind-libunwind.o
+>   perf-util-$(CONFIG_LIBUNWIND_X86)      += libunwind/x86_32.o
+> diff --git a/tools/perf/util/unwind-libdw-arch/Build b/tools/perf/util/unwind-libdw-arch/Build
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..e016d54ae2a40ecba47156c8f09cb72156105727
+> --- /dev/null
+> +++ b/tools/perf/util/unwind-libdw-arch/Build
+> @@ -0,0 +1,8 @@
+> +perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-x86.o
+> +perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-arm.o
+> +perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-arm64.o
+> +perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-csky.o
+> +perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-loongarch.o
+> +perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-powerpc.o
+> +perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-riscv.o
+> +perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-s390.o
+> \ No newline at end of file
+> diff --git a/tools/perf/arch/arm/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-arm.c
+> similarity index 88%
+> rename from tools/perf/arch/arm/util/unwind-libdw.c
+> rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-arm.c
+> index fbb643f224ec4b27ce9d67051fe0bc4ad555b05e..c2718d6b6cff131cd67883e24bb0d3d963c8095a 100644
+> --- a/tools/perf/arch/arm/util/unwind-libdw.c
+> +++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-arm.c
+> @@ -1,11 +1,11 @@
+>   // SPDX-License-Identifier: GPL-2.0
+>   #include <elfutils/libdwfl.h>
+> -#include "perf_regs.h"
+> +#include "../../../arch/arm/include/uapi/asm/perf_regs.h"
+>   #include "../../../util/unwind-libdw.h"
+>   #include "../../../util/perf_regs.h"
+>   #include "../../../util/sample.h"
+>   
+> -bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
+> +bool libdw_set_initial_registers_arm(Dwfl_Thread *thread, void *arg)
+>   {
+>   	struct unwind_info *ui = arg;
+>   	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
+> diff --git a/tools/perf/arch/arm64/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-arm64.c
+> similarity index 92%
+> rename from tools/perf/arch/arm64/util/unwind-libdw.c
+> rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-arm64.c
+> index b89b0a7e5ad919fed23643d219fbdc3d84deff1e..87602503e057badc6efd37169cc60c96cf3949ab 100644
+> --- a/tools/perf/arch/arm64/util/unwind-libdw.c
+> +++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-arm64.c
+> @@ -1,11 +1,11 @@
+>   // SPDX-License-Identifier: GPL-2.0
+>   #include <elfutils/libdwfl.h>
+> -#include "perf_regs.h"
+> +#include "../../../arch/arm64/include/uapi/asm/perf_regs.h"
+>   #include "../../../util/unwind-libdw.h"
+>   #include "../../../util/perf_regs.h"
+>   #include "../../../util/sample.h"
+>   
+> -bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
+> +bool libdw_set_initial_registers_arm64(Dwfl_Thread *thread, void *arg)
+>   {
+>   	struct unwind_info *ui = arg;
+>   	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
+> diff --git a/tools/perf/arch/csky/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-csky.c
+> similarity index 92%
+> rename from tools/perf/arch/csky/util/unwind-libdw.c
+> rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-csky.c
+> index b20b1569783d7e982e91b1b40120d29ccf2f01d1..889d3b788931f3af55b03ef8b91d5def364972e5 100644
+> --- a/tools/perf/arch/csky/util/unwind-libdw.c
+> +++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-csky.c
+> @@ -2,12 +2,12 @@
+>   // Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd.
+>   
+>   #include <elfutils/libdwfl.h>
+> -#include "perf_regs.h"
+> +#include "../../../arch/csky/include/uapi/asm/perf_regs.h"
+>   #include "../../util/unwind-libdw.h"
+>   #include "../../util/perf_regs.h"
+> -#include "../../util/event.h"
+> +#include "../../util/sample.h"
+>   
+> -bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
+> +bool libdw_set_initial_registers_csky(Dwfl_Thread *thread, void *arg)
+>   {
+>   	struct unwind_info *ui = arg;
+>   	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
+> diff --git a/tools/perf/arch/loongarch/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-loongarch.c
+> similarity index 91%
+> rename from tools/perf/arch/loongarch/util/unwind-libdw.c
+> rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-loongarch.c
+> index 60b1144bedd5f325e1512eeab05c29a1e8de2b03..1c5753ace6f63be771aa92365d3174ad8ed3a6fd 100644
+> --- a/tools/perf/arch/loongarch/util/unwind-libdw.c
+> +++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-loongarch.c
+> @@ -2,12 +2,12 @@
+>   /* Copyright (C) 2020-2023 Loongson Technology Corporation Limited */
+>   
+>   #include <elfutils/libdwfl.h>
+> -#include "perf_regs.h"
+> +#include "../../../arch/loongarch/include/uapi/asm/perf_regs.h"
+>   #include "../../util/unwind-libdw.h"
+>   #include "../../util/perf_regs.h"
+>   #include "../../util/sample.h"
+>   
+> -bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
+> +bool libdw_set_initial_registers_loongarch(Dwfl_Thread *thread, void *arg)
+>   {
+>   	struct unwind_info *ui = arg;
+>   	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
+> diff --git a/tools/perf/arch/powerpc/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-powerpc.c
+> similarity index 93%
+> rename from tools/perf/arch/powerpc/util/unwind-libdw.c
+> rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-powerpc.c
+> index 82d0c28ae3459ecdb0039cac1f534420d142739b..28635af3c4aa420faa4de7e53428d82917f78021 100644
+> --- a/tools/perf/arch/powerpc/util/unwind-libdw.c
+> +++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-powerpc.c
+> @@ -1,7 +1,7 @@
+>   // SPDX-License-Identifier: GPL-2.0
+>   #include <elfutils/libdwfl.h>
+>   #include <linux/kernel.h>
+> -#include "perf_regs.h"
+> +#include "../../../arch/powerpc/include/uapi/asm/perf_regs.h"
+>   #include "../../../util/unwind-libdw.h"
+>   #include "../../../util/perf_regs.h"
+>   #include "../../../util/sample.h"
+> @@ -13,7 +13,7 @@ static const int special_regs[3][2] = {
+>   	{ 109, PERF_REG_POWERPC_CTR },
+>   };
+>   
+> -bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
+> +bool libdw_set_initial_registers_powerpc(Dwfl_Thread *thread, void *arg)
+>   {
+>   	struct unwind_info *ui = arg;
+>   	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
+> diff --git a/tools/perf/arch/riscv/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-riscv.c
+> similarity index 92%
+> rename from tools/perf/arch/riscv/util/unwind-libdw.c
+> rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-riscv.c
+> index dc1476e16321736de897ad53a00fbc813bd706db..2a5442b3b5bdc27252378de0073deb8a620f8779 100644
+> --- a/tools/perf/arch/riscv/util/unwind-libdw.c
+> +++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-riscv.c
+> @@ -2,12 +2,12 @@
+>   /* Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd. */
+>   
+>   #include <elfutils/libdwfl.h>
+> -#include "perf_regs.h"
+> +#include "../../../arch/riscv/include/uapi/asm/perf_regs.h"
+>   #include "../../util/unwind-libdw.h"
+>   #include "../../util/perf_regs.h"
+>   #include "../../util/sample.h"
+>   
+> -bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
+> +bool libdw_set_initial_registers_riscv(Dwfl_Thread *thread, void *arg)
+>   {
+>   	struct unwind_info *ui = arg;
+>   	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
+> diff --git a/tools/perf/arch/s390/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-s390.c
+> similarity index 89%
+> rename from tools/perf/arch/s390/util/unwind-libdw.c
+> rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-s390.c
+> index c27c7a0d1076c890c35ba19543932c4ed5ac9c2a..18d44074a55bc1c7fa2d7150afc1f1a93d4eadf8 100644
+> --- a/tools/perf/arch/s390/util/unwind-libdw.c
+> +++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-s390.c
+> @@ -4,11 +4,11 @@
+>   #include "../../util/perf_regs.h"
+>   #include "../../util/event.h"
+>   #include "../../util/sample.h"
+> -#include "dwarf-regs-table.h"
+> -#include "perf_regs.h"
+> +#include "../../arch/s390/include/dwarf-regs-table.h"
+> +#include "../../../arch/s390/include/uapi/asm/perf_regs.h"
+>   
+>   
+> -bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
+> +bool libdw_set_initial_registers_s390(Dwfl_Thread *thread, void *arg)
+>   {
+>   	struct unwind_info *ui = arg;
+>   	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
+> diff --git a/tools/perf/arch/x86/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-x86.c
+> similarity index 94%
+> rename from tools/perf/arch/x86/util/unwind-libdw.c
+> rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-x86.c
+> index 798493e887d7308cb293e29e4ba11054d0fda722..822e799fe1543d82dab27a8efeada3f5cde08a44 100644
+> --- a/tools/perf/arch/x86/util/unwind-libdw.c
+> +++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-x86.c
 
- HugeTLB: hugepages unsupported, ignoring default_hugepagesz=1GB cmdline
- HugeTLB: hugepages unsupported, ignoring hugepagesz=1GB cmdline
- HugeTLB: hugepages unsupported, ignoring hugepages=200 cmdline
- HugeTLB support is disabled!
- hugetlbfs: disabling because there are no supported hugepage sizes
+You missed converting the unwind-libdw-x86.c perf_regs.h paths to a 
+static arch so now Perf can only be built on x86. If you try to build 
+for another arch then you get the local header and then missing x86 
+definitions.
 
-To fix the issue, gigantic hugepage allocation should be guarded by
-hugepages_supported().
+Unfortunately you also have to convert the one in 
+tools/perf/arch/x86/include/perf_regs.h which is a bit weird, but the 
+build seems to work.
 
-Previously, two approaches were proposed to bring gigantic hugepage
-allocation under hugepages_supported():
+Other than that, looks good.
 
-[1] Check hugepages_supported() in the generic code before allocating
-gigantic hugepages
-[2] Make arch_hugetlb_valid_size() return false for all hugetlb sizes
-
-Approach [2] has two minor issues:
-1. It prints misleading logs about invalid hugepage sizes
-2. The kernel still processes hugepage kernel arguments unnecessarily
-
-To control gigantic hugepage allocation, skip processing hugepage kernel
-arguments (default_hugepagesz, hugepagesz and hugepages) when
-hugepages_supported() returns false.
-
-Note for backporting: This fix is a partial retrieval of the commit
-mentioned in the Fixes tag and is only valid once the change referenced
-by the Depends-on tag is present. When backporting this patch, the
-commit mentioned in the Depends-on tag must be included first.
-
-Note for backporting: This fix is a partial retrieval of the commit
-mentioned in the Fixes tag. It is only valid once the change referenced
-by the Depends-on tag is present. When backporting this patch, the
-commit mentioned in the Depends-on tag must be included first.
-
-Link: https://lore.kernel.org/all/20250121150419.1342794-1-sourabhjain@linux.ibm.com/ [1]
-Link: https://lore.kernel.org/all/20250128043358.163372-1-sourabhjain@linux.ibm.com/ [2]
-Fixes: c2833a5bf75b ("hugetlbfs: fix changes to command line processing")
-Depends-on: 2354ad252b66 ("powerpc/mm: Update default hugetlb size early")
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Borislav Petkov <bp@alien8.de>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Heiko Carstens <hca@linux.ibm.com>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Muchun Song <muchun.song@linux.dev>
-Cc: Oscar Salvador <osalvador@suse.de>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Vasily Gorbik <gor@linux.ibm.com>
-Cc: linux-mm@kvack.org
-Cc: linuxppc-dev@lists.ozlabs.org
-Cc: linux-s390@vger.kernel.org
-Cc: x86@kernel.org
-Cc: linux-riscv@lists.infradead.org
-Acked-by: David Hildenbrand (Red Hat) <david@kernel.org>
-Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-Signed-off-by: Sourabh Jain <sourabhjain@linux.ibm.com>
----
-Changelog:
-
-v1:
-https://lore.kernel.org/all/20250121150419.1342794-1-sourabhjain@linux.ibm.com/
-
-v2:
-https://lore.kernel.org/all/20250124103220.111303-1-sourabhjain@linux.ibm.com/
- - disable gigantic hugepage in arch code, arch_hugetlb_valid_size()
-
-v3:
-https://lore.kernel.org/all/20250125104928.88881-1-sourabhjain@linux.ibm.com/
- - Do not modify the initialization of the shift variable
-
-v4:
-https://lore.kernel.org/all/20250128043358.163372-1-sourabhjain@linux.ibm.com/
- - Update commit message to include how hugepages_supported() detects
-   hugepages support when fadump is active
- - Add Reviewed-by tag
- - NO functional change
-
-v5:
-https://lore.kernel.org/all/20251218114154.228484-1-sourabhjain@linux.ibm.com/
- - Significant change in approach: disable processing of hugepage kernel
-   arguments if hugepages_supported() returns false
- - Drop a Reviewed-by tag
-
-v6:
-https://lore.kernel.org/all/20251221053611.441251-1-sourabhjain@linux.ibm.com/
- - Updated commit message with additional logs and tags
- - No functional changes
-
-v7:
- - Add a note for backporting this fix in the commit message
- - Add a Depends-on tag referencing the prerequisite commit
- - No functional changes
----
- mm/hugetlb.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
-
-diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-index 51273baec9e5..e0ab14020513 100644
---- a/mm/hugetlb.c
-+++ b/mm/hugetlb.c
-@@ -4286,6 +4286,11 @@ static int __init hugepages_setup(char *s)
- 	unsigned long tmp;
- 	char *p = s;
- 
-+	if (!hugepages_supported()) {
-+		pr_warn("HugeTLB: hugepages unsupported, ignoring hugepages=%s cmdline\n", s);
-+		return 0;
-+	}
-+
- 	if (!parsed_valid_hugepagesz) {
- 		pr_warn("HugeTLB: hugepages=%s does not follow a valid hugepagesz, ignoring\n", s);
- 		parsed_valid_hugepagesz = true;
-@@ -4366,6 +4371,11 @@ static int __init hugepagesz_setup(char *s)
- 	unsigned long size;
- 	struct hstate *h;
- 
-+	if (!hugepages_supported()) {
-+		pr_warn("HugeTLB: hugepages unsupported, ignoring hugepagesz=%s cmdline\n", s);
-+		return 0;
-+	}
-+
- 	parsed_valid_hugepagesz = false;
- 	size = (unsigned long)memparse(s, NULL);
- 
-@@ -4414,6 +4424,12 @@ static int __init default_hugepagesz_setup(char *s)
- 	unsigned long size;
- 	int i;
- 
-+	if (!hugepages_supported()) {
-+		pr_warn("HugeTLB: hugepages unsupported, ignoring default_hugepagesz=%s cmdline\n",
-+			s);
-+		return 0;
-+	}
-+
- 	parsed_valid_hugepagesz = false;
- 	if (parsed_default_hugepagesz) {
- 		pr_err("HugeTLB: default_hugepagesz previously specified, ignoring %s\n", s);
--- 
-2.51.1
+> @@ -5,7 +5,7 @@
+>   #include "../../../util/perf_regs.h"
+>   #include "util/sample.h"
+>   
+> -bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
+> +bool libdw_set_initial_registers_x86(Dwfl_Thread *thread, void *arg)
+>   {
+>   	struct unwind_info *ui = arg;
+>   	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
+> diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
+> index ae70fb56a05729b9f06a411d162eabebbf29ac52..4a0f13bc5af99de446d440c551c718ef0187e195 100644
+> --- a/tools/perf/util/unwind-libdw.c
+> +++ b/tools/perf/util/unwind-libdw.c
+> @@ -225,12 +225,46 @@ static bool memory_read(Dwfl *dwfl __maybe_unused, Dwarf_Addr addr, Dwarf_Word *
+>   	return true;
+>   }
+>   
+> -static const Dwfl_Thread_Callbacks callbacks = {
+> -	.next_thread		= next_thread,
+> -	.memory_read		= memory_read,
+> -	.set_initial_registers	= libdw__arch_set_initial_registers,
+> +#define DEFINE_DWFL_THREAD_CALLBACKS(arch)                           \
+> +static const Dwfl_Thread_Callbacks callbacks_##arch = {              \
+> +	.next_thread           = next_thread,                        \
+> +	.memory_read           = memory_read,                        \
+> +	.set_initial_registers = libdw_set_initial_registers_##arch, \
+>   };
+>   
+> +DEFINE_DWFL_THREAD_CALLBACKS(x86)
+> +DEFINE_DWFL_THREAD_CALLBACKS(arm)
+> +DEFINE_DWFL_THREAD_CALLBACKS(arm64)
+> +DEFINE_DWFL_THREAD_CALLBACKS(csky)
+> +DEFINE_DWFL_THREAD_CALLBACKS(loongarch)
+> +DEFINE_DWFL_THREAD_CALLBACKS(powerpc)
+> +DEFINE_DWFL_THREAD_CALLBACKS(riscv)
+> +DEFINE_DWFL_THREAD_CALLBACKS(s390)
+> +
+> +static const Dwfl_Thread_Callbacks *get_thread_callbacks(const char *arch)
+> +{
+> +	if (!strcmp(arch, "arm"))
+> +		return &callbacks_arm;
+> +	else if (!strcmp(arch, "arm64"))
+> +		return &callbacks_arm64;
+> +	else if (!strcmp(arch, "csky"))
+> +		return &callbacks_csky;
+> +	else if (!strcmp(arch, "loongarch"))
+> +		return &callbacks_loongarch;
+> +	else if (!strcmp(arch, "powerpc"))
+> +		return &callbacks_powerpc;
+> +	else if (!strcmp(arch, "riscv"))
+> +		return &callbacks_riscv;
+> +	else if (!strcmp(arch, "s390"))
+> +		return &callbacks_s390;
+> +	else if (!strcmp(arch, "x86"))
+> +		return &callbacks_x86;
+> +
+> +	pr_err("Fail to get thread callbacks for arch %s, returns NULL\n",
+> +	       arch);
+> +	return NULL;
+> +}
+> +
+>   static int
+>   frame_callback(Dwfl_Frame *state, void *arg)
+>   {
+> @@ -278,6 +312,7 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+>   	const char *arch = perf_env__arch(ui_buf.machine->env);
+>   	Dwarf_Word ip;
+>   	int err = -EINVAL, i;
+> +	const Dwfl_Thread_Callbacks *callbacks;
+>   
+>   	if (!data->user_regs || !data->user_regs->regs)
+>   		return -EINVAL;
+> @@ -300,7 +335,11 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+>   	if (err)
+>   		goto out;
+>   
+> -	err = !dwfl_attach_state(ui->dwfl, EM_NONE, thread__tid(thread), &callbacks, ui);
+> +	callbacks = get_thread_callbacks(arch);
+> +	if (!callbacks)
+> +		goto out;
+> +
+> +	err = !dwfl_attach_state(ui->dwfl, EM_NONE, thread__tid(thread), callbacks, ui);
+>   	if (err)
+>   		goto out;
+>   
+> diff --git a/tools/perf/util/unwind-libdw.h b/tools/perf/util/unwind-libdw.h
+> index 8c88bc4f2304b59561ffd482469ca63ce0f531f0..574b29848cce31e6bfd93021f752b518cebf73b7 100644
+> --- a/tools/perf/util/unwind-libdw.h
+> +++ b/tools/perf/util/unwind-libdw.h
+> @@ -9,7 +9,15 @@ struct machine;
+>   struct perf_sample;
+>   struct thread;
+>   
+> -bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg);
+> +bool libdw_set_initial_registers_x86(Dwfl_Thread *thread, void *arg);
+> +bool libdw_set_initial_registers_arm(Dwfl_Thread *thread, void *arg);
+> +bool libdw_set_initial_registers_arm64(Dwfl_Thread *thread, void *arg);
+> +bool libdw_set_initial_registers_csky(Dwfl_Thread *thread, void *arg);
+> +bool libdw_set_initial_registers_loongarch(Dwfl_Thread *thread, void *arg);
+> +bool libdw_set_initial_registers_mips(Dwfl_Thread *thread, void *arg);
+> +bool libdw_set_initial_registers_powerpc(Dwfl_Thread *thread, void *arg);
+> +bool libdw_set_initial_registers_riscv(Dwfl_Thread *thread, void *arg);
+> +bool libdw_set_initial_registers_s390(Dwfl_Thread *thread, void *arg);
+>   
+>   struct unwind_info {
+>   	Dwfl			*dwfl;
+> 
+> ---
+> base-commit: cbd41c6d4c26c161a2b0e70ad411d3885ff13507
+> change-id: 20251223-cross-arch-unwind-d890d6a5ff0a
+> 
+> Best regards,
 
 
 _______________________________________________
