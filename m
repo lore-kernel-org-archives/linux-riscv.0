@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F08E7545C
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Dec 2025 16:13:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F230E7545C
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Dec 2025 16:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Dl1+x4ZqD7lxfkigovVnMsz4c34w06ExXRV2UoIeO70=; b=xpAFvgdP6NGEOa
-	aqXMNnLLPQrRgjwhrKl/5WElNOWTNGNNT7KLskzkm+LAe1kLsd91w4ZGMh/IzfuX5ud4aeWJgzKjp
-	hV0sp0Gk38QkS/pYUqMtNToBGP+eAglm/x3gicYxk5PFqRA6rTocgmnC9BzrLwNJniphlHVdcpOmN
-	Ake8gr/6iCxXI7pVxMwPeQK45WMULXTXZYsqdm6sfKjQdHclk2R4R7biYFgVi1s81HSIpbSS+eYCJ
-	MijvhwFwAqSKYZfXDg0254bN0BetPy1eZN6fL/BSMBOrcVeJE4HioNvoBJiGdjgCYdZ0mUtxPef1z
-	AY66aZlAArZjdyk43uaA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nxp547bU99UaG9cTj8lOASVJ1CndLgq1UPLQ8XqHs20=; b=ssKcbErk0yeodz
+	z/43VyPOlkaDjFKen6k7ZBsUm9rWDJhHXwEt5QqNvOtk3A6B9RmDwuWNhom//Mk2fvESUqlIOwDRH
+	gEl87HelIoMIrP1qC+D2dyU37rzxstmHtDoi2mepxrLgiHsBRiLMLcxQ+lTsYBqq8rAD91EqwlwIk
+	ErIRbHS2kVcr87PUtPLbMGNGmu+PMhejv3VxI13363SRtOcdXFoPaMM48B4yNxW7mogAdjJ8WGzYY
+	C3t1HZk+z14F2v0RdbsKRZEYvMW4x56jP5CNlMJQM6NrTKAwsh+X67KPcH83vz5fsj0xcPAM60GVm
+	xhROrRdpYqbp7KpxeXuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYRTg-0000000HCqy-3FYg;
-	Wed, 24 Dec 2025 16:12:44 +0000
+	id 1vYRTj-0000000HCrT-0SRh;
+	Wed, 24 Dec 2025 16:12:47 +0000
 Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYRTb-0000000HCoF-0RDZ
+	id 1vYRTe-0000000HCou-1FC9
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Dec 2025 16:12:43 +0000
+	Wed, 24 Dec 2025 16:12:44 +0000
 Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.54])
-	by APP-05 (Coremail) with SMTP id zQCowAA3yw7WEExpgGPNAQ--.14041S2;
-	Thu, 25 Dec 2025 00:12:09 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowAA3yw7WEExpgGPNAQ--.14041S8;
+	Thu, 25 Dec 2025 00:12:22 +0800 (CST)
 From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
@@ -51,40 +51,37 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Jonas Karlman <jonas@kwiboo.se>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
 	Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Han Gao <rabenda.cn@gmail.com>,
-	Yao Zi <ziyao@disroot.org>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Subject: [PATCH v4 0/9] Verisilicon DC8200 driver (and adaption to TH1520)
-Date: Thu, 25 Dec 2025 00:11:56 +0800
-Message-ID: <20251224161205.1132149-1-zhengxingda@iscas.ac.cn>
+Subject: [PATCH v4 6/9] riscv: dts: thead: add DPU and HDMI device tree nodes
+Date: Thu, 25 Dec 2025 00:12:02 +0800
+Message-ID: <20251224161205.1132149-7-zhengxingda@iscas.ac.cn>
 X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20251224161205.1132149-1-zhengxingda@iscas.ac.cn>
+References: <20251224161205.1132149-1-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowAA3yw7WEExpgGPNAQ--.14041S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3Aw18Cw1UArykGr1fAw18Zrb_yoW7AFWxpF
-	47AFWFyFyDAa1aqrZ7tF10gay3Aas7JFWfWr47XwnxZ3yqyFy5Zr98AFy5JFWDJr17AryI
-	vF4vkr42kr12yF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0pRWv3bUUUUU=
+X-CM-TRANSID: zQCowAA3yw7WEExpgGPNAQ--.14041S8
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZF47Gw43GFyxZF4DArWkZwb_yoW5JFyfp3
+	WSkF4ftFWvkF1S9a13JryIqrWrGFn5AFy8WwnxtryUCay3WFW2g3yIyr95JFykJFy7Zwnx
+	AF1qvr10ka13tw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmv14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
+	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
+	4UJwA2z4x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr0_
+	Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6x
+	IIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_
+	Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8c
+	xan2IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCj
+	c4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4
+	CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4U
+	MIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJV
+	WUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUv
+	cSsGvfC2KfnxnUUI43ZEXa7sRRjg43UUUUU==
 X-Originating-IP: [112.94.100.54]
 X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_081239_545554_A2169CF4 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20251224_081243_485858_91F6FD8D 
+X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,105 +93,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset tries to add a driver for Verisilicon DC8200 driver, and
-demonstrates the driver on T-Head TH1520 with its HDMI output.
+From: Icenowy Zheng <uwu@icenowy.me>
 
-This display controller IP is used on StarFive JH7110 too, but as the
-HDMI controller used there isn't as common as the DesignWare one, I
-choose to use TH1520 in this patchset.
+T-Head TH1520 SoC contains a Verisilicon DC8200 display controller
+(called DPU in manual) and a Synopsys DesignWare HDMI TX controller.
 
-The DC driver is written with other DC-series (mainly DC8000, which is
-known to be used on Eswin EIC7700 SoC) display controllers in mind, and
-uses the identification registers available on all Vivante branded IPs.
-A known exception is DCNano display controller, which is unlikely to be
-supported by this driver because of totally different register map and
-no known identification registers. (P.S. the in-tree loongson DRM driver
-seems to be for some DCNano instances based on the register map.)
+Add device tree nodes to them.
 
-The HDMI controller seems to come with some common PHY by Synopsys, the
-DesignWare HDMI TX 2.0 PHY. By searching a few register names from the
-BSP driver of that PHY, that PHY seems to be used by a in-tree dw-hdmi
-glue, rcar_dw_hdmi -- an updated downstream version of rcar_dw_hdmi
-contains all 6 registers set here in the th1520-dw-hdmi driver. Some
-more suprising thing is that RK3288 uses the same PHY too, but the
-in-tree dw_hdmi-rockchip driver writes the configuration data array in a
-weird way to reuse the HDMI 3D TX PHY configuring function. It might be
-valuable to add common configuring function and configuration data
-definition for this HDMI 2.0 PHY too, but the current driver in this
-patchset simply duplicated most configuration logic from rcar_dw_hdmi
-driver (but with 3 extra configuration registers configured).
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+---
+No changes in v4.
 
-Icenowy Zheng (9):
-  dt-bindings: vendor-prefixes: add verisilicon
-  dt-bindings: display: add verisilicon,dc
-  drm: verisilicon: add a driver for Verisilicon display controllers
-  dt-bindings: display/bridge: add binding for TH1520 HDMI controller
-  drm/bridge: add a driver for T-Head TH1520 HDMI controller
-  riscv: dts: thead: add DPU and HDMI device tree nodes
-  riscv: dts: thead: lichee-pi-4a: enable HDMI
-  MAINTAINERS: assign myself as maintainer for verisilicon DC driver
-  mailmap: map all Icenowy Zheng's mail addresses
+Changes in v3:
+- Adapting to the changed binding.
 
- .mailmap                                      |   4 +
- .../display/bridge/thead,th1520-dw-hdmi.yaml  | 120 +++++++
- .../bindings/display/verisilicon,dc.yaml      | 144 ++++++++
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- MAINTAINERS                                   |   8 +
- .../boot/dts/thead/th1520-lichee-pi-4a.dts    |  26 +-
- arch/riscv/boot/dts/thead/th1520.dtsi         |  70 ++++
- drivers/gpu/drm/Kconfig                       |   2 +
- drivers/gpu/drm/Makefile                      |   1 +
- drivers/gpu/drm/bridge/Kconfig                |  10 +
- drivers/gpu/drm/bridge/Makefile               |   1 +
- drivers/gpu/drm/bridge/th1520-dw-hdmi.c       | 173 +++++++++
- drivers/gpu/drm/verisilicon/Kconfig           |  15 +
- drivers/gpu/drm/verisilicon/Makefile          |   5 +
- drivers/gpu/drm/verisilicon/vs_bridge.c       | 331 ++++++++++++++++++
- drivers/gpu/drm/verisilicon/vs_bridge.h       |  40 +++
- drivers/gpu/drm/verisilicon/vs_bridge_regs.h  |  54 +++
- drivers/gpu/drm/verisilicon/vs_crtc.c         | 217 ++++++++++++
- drivers/gpu/drm/verisilicon/vs_crtc.h         |  29 ++
- drivers/gpu/drm/verisilicon/vs_crtc_regs.h    |  60 ++++
- drivers/gpu/drm/verisilicon/vs_dc.c           | 205 +++++++++++
- drivers/gpu/drm/verisilicon/vs_dc.h           |  39 +++
- drivers/gpu/drm/verisilicon/vs_dc_top_regs.h  |  27 ++
- drivers/gpu/drm/verisilicon/vs_drm.c          | 177 ++++++++++
- drivers/gpu/drm/verisilicon/vs_drm.h          |  29 ++
- drivers/gpu/drm/verisilicon/vs_hwdb.c         | 150 ++++++++
- drivers/gpu/drm/verisilicon/vs_hwdb.h         |  29 ++
- drivers/gpu/drm/verisilicon/vs_plane.c        | 102 ++++++
- drivers/gpu/drm/verisilicon/vs_plane.h        |  68 ++++
- .../gpu/drm/verisilicon/vs_primary_plane.c    | 157 +++++++++
- .../drm/verisilicon/vs_primary_plane_regs.h   |  53 +++
- 31 files changed, 2347 insertions(+), 1 deletion(-)
- create mode 100644 Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-hdmi.yaml
- create mode 100644 Documentation/devicetree/bindings/display/verisilicon,dc.yaml
- create mode 100644 drivers/gpu/drm/bridge/th1520-dw-hdmi.c
- create mode 100644 drivers/gpu/drm/verisilicon/Kconfig
- create mode 100644 drivers/gpu/drm/verisilicon/Makefile
- create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge_regs.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc_regs.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_dc_top_regs.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_drm.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_drm.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_hwdb.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_hwdb.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_primary_plane.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
+No changes in v2.
 
+ arch/riscv/boot/dts/thead/th1520.dtsi | 70 +++++++++++++++++++++++++++
+ 1 file changed, 70 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+index bd5d33840884e..5c0a7072f253a 100644
+--- a/arch/riscv/boot/dts/thead/th1520.dtsi
++++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+@@ -585,6 +585,76 @@ clk_vo: clock-controller@ffef528050 {
+ 			#clock-cells = <1>;
+ 		};
+ 
++		hdmi: hdmi@ffef540000 {
++			compatible = "thead,th1520-dw-hdmi";
++			reg = <0xff 0xef540000 0x0 0x40000>;
++			reg-io-width = <4>;
++			interrupts = <111 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clk_vo CLK_HDMI_PCLK>,
++				 <&clk_vo CLK_HDMI_SFR>,
++				 <&clk_vo CLK_HDMI_CEC>,
++				 <&clk_vo CLK_HDMI_PIXCLK>;
++			clock-names = "iahb", "isfr", "cec", "pix";
++			resets = <&rst TH1520_RESET_ID_HDMI>,
++				 <&rst TH1520_RESET_ID_HDMI_APB>;
++			reset-names = "main", "apb";
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					hdmi_in: endpoint {
++						remote-endpoint = <&dpu_out_dp1>;
++					};
++				};
++
++				hdmi_out_port: port@1 {
++					reg = <1>;
++				};
++			};
++		};
++
++		dpu: display@ffef600000 {
++			compatible = "thead,th1520-dc8200", "verisilicon,dc";
++			reg = <0xff 0xef600000 0x0 0x100000>;
++			interrupts = <93 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clk_vo CLK_DPU_CCLK>,
++				 <&clk_vo CLK_DPU_ACLK>,
++				 <&clk_vo CLK_DPU_HCLK>,
++				 <&clk_vo CLK_DPU_PIXELCLK0>,
++				 <&clk_vo CLK_DPU_PIXELCLK1>;
++			clock-names = "core", "axi", "ahb", "pix0", "pix1";
++			resets = <&rst TH1520_RESET_ID_DPU_CORE>,
++				 <&rst TH1520_RESET_ID_DPU_AXI>,
++				 <&rst TH1520_RESET_ID_DPU_AHB>;
++			reset-names = "core", "axi", "ahb";
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				dpu_port0: port@0 {
++					reg = <0>;
++				};
++
++				dpu_port1: port@1 {
++					reg = <1>;
++					#address-cells = <1>;
++					#size-cells = <0>;
++
++					dpu_out_dp1: endpoint@1 {
++						reg = <1>;
++						remote-endpoint = <&hdmi_in>;
++					};
++				};
++			};
++		};
++
+ 		dmac0: dma-controller@ffefc00000 {
+ 			compatible = "snps,axi-dma-1.01a";
+ 			reg = <0xff 0xefc00000 0x0 0x1000>;
 -- 
 2.52.0
 
