@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 887C3E7545C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91081E776C3
 	for <linux-riscv@archiver.kernel.org>; Wed, 24 Dec 2025 16:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,24 +12,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ig8/yGqvPHxb6axPCl1CPJSNcU8lcmQpJHuSKU5PCEY=; b=KZrewqEmGr0Vvw
-	UGTb8VshxkBeCgBqiqGp7WtD36DrGdqRO2UPrBj6ZbNJXF4YKsXOAzxh3QfPkb3T1SJRZvylV0gos
-	ggQxUzRbngiOLK7mJ2gYh5NJbhfY/pSR0e/8v+77lmQCEKOCyNUMsCYhDoY7p2KyuRLA0T6F7MR75
-	V8Tzl44aUd8c1yH+rPjvY7kNWXhzV8CglJoPJpGPTFOYsB1dDKoAGLSw5Uu48WZMYhwQI5BpjOiLc
-	qpsQBy20z7pK9YJgxLpmebz2iLaSea3ay5hI17oG1ZRAFTW5FnvYm6+p7JEMJjRYhTWHTq0uk9os5
-	AhJWrNXJJkgr27sX7wdw==;
+	List-Owner; bh=FRU6O+hSEz1wfWDN/6ns9IiU/f8CTiQMEEM+ydkL5a0=; b=mJTpcWFKURisD0
+	KPOPnU5jGV5DSmtLet0DiR1UB1xRX0xqdGcqjLMk1Oz1/zU/n7ll69Hi6q5BK62jGRf4JLXoA4PjN
+	toe/KYg+CxkUyNzu41+7OFCQ7NMyZ4nk7VdvThSydC8o7UoF5tVQ/2ZXYqUUfnEFbeXJtfv3sZ5dt
+	q/v7Z3C3OBA1qvMYu8hE5OiqrxXAfa9ylwkiA6VS3v/R/jqiT6coPHpoPs0cqfQah1hNtFvjoCnyJ
+	nFov4u2FcQmIXz+n0/alVV7kpHnCx8M29f94AvyRbzcUnoS0VDpgWsA7wCeFJXzv9PWAdQTA08zlP
+	dL2+oBur8mxgIMPugJbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYRTw-0000000HCyP-2ZQQ;
-	Wed, 24 Dec 2025 16:13:00 +0000
+	id 1vYRU2-0000000HD2v-2nXJ;
+	Wed, 24 Dec 2025 16:13:07 +0000
 Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYRTl-0000000HCs2-2tlk
+	id 1vYRTo-0000000HCsD-1py7
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Dec 2025 16:12:59 +0000
+	Wed, 24 Dec 2025 16:13:00 +0000
 Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.54])
-	by APP-05 (Coremail) with SMTP id zQCowAA3yw7WEExpgGPNAQ--.14041S6;
-	Thu, 25 Dec 2025 00:12:18 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowAA3yw7WEExpgGPNAQ--.14041S7;
+	Thu, 25 Dec 2025 00:12:19 +0800 (CST)
 From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
@@ -51,36 +51,36 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Jonas Karlman <jonas@kwiboo.se>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
 	Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: [PATCH v4 4/9] dt-bindings: display/bridge: add binding for TH1520 HDMI controller
-Date: Thu, 25 Dec 2025 00:12:00 +0800
-Message-ID: <20251224161205.1132149-5-zhengxingda@iscas.ac.cn>
+Subject: [PATCH v4 5/9] drm/bridge: add a driver for T-Head TH1520 HDMI controller
+Date: Thu, 25 Dec 2025 00:12:01 +0800
+Message-ID: <20251224161205.1132149-6-zhengxingda@iscas.ac.cn>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20251224161205.1132149-1-zhengxingda@iscas.ac.cn>
 References: <20251224161205.1132149-1-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowAA3yw7WEExpgGPNAQ--.14041S6
-X-Coremail-Antispam: 1UD129KBjvJXoWxuF1rJF17Xr1ftFyrtw4fZrb_yoW5Kw4Upa
-	1fGa1kJFykJF17ua1xJr1IkrZYqrZ5AFnYgr17Ww1jy3y5WFy2qrZIkrn8XFyrJF4xZay3
-	ZFZ8Xr1fKa1av3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: zQCowAA3yw7WEExpgGPNAQ--.14041S7
+X-Coremail-Antispam: 1UD129KBjvJXoW3XF13tFy5KFyrXr1DGr4fuFg_yoWfXryDpa
+	y7AayYkrWkXF1aga1fAr48ZrZaya9rXFy5t3y2qwsavwn3tF4rXryDJrWrXFWrArsrZw13
+	tFn8uFWYgF17J3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUUmv14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
 	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
 	4UJwA2z4x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr0_
 	Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6x
 	IIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_
 	Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8c
 	xan2IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCj
 	c4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4
-	CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1x
+	CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4U
 	MIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJV
 	WUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUv
 	cSsGvfC2KfnxnUUI43ZEXa7sRRjg43UUUUU==
 X-Originating-IP: [112.94.100.54]
 X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_081251_141595_360F07E3 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20251224_081252_841889_5E0B228C 
+X-CRM114-Status: GOOD (  25.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,7 +92,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org
+Cc: devicetree@vger.kernel.org, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -100,155 +100,253 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Icenowy Zheng <uwu@icenowy.me>
 
-T-Head TH1520 SoC contains a Synopsys DesignWare HDMI controller paired
-with DesignWare HDMI PHY, with an extra clock gate for HDMI pixel clock
-and two reset controls.
+T-Head TH1520 SoC contains a Synopsys DesignWare HDMI controller (paired
+with DesignWare HDMI TX PHY Gen2) that takes the "DP" output from the
+display controller.
 
-Add a device tree binding to it.
+Add a driver for this controller utilizing the common DesignWare HDMI
+code in the kernel.
 
 Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
 No changes in v3, v4.
 
 Changes in v2:
-- Re-aligned multi-line clocks/resets in example.
-- Added Krzysztof's R-b.
+- Created a new function to set PHY parameters and refactored the
+  control flow of the configure_phy callback.
 
-P.S. Should the mail addresss of Krzysztof be changed? I got notice
-email that says he's no longer working for Linaro.
+ MAINTAINERS                             |   1 +
+ drivers/gpu/drm/bridge/Kconfig          |  10 ++
+ drivers/gpu/drm/bridge/Makefile         |   1 +
+ drivers/gpu/drm/bridge/th1520-dw-hdmi.c | 173 ++++++++++++++++++++++++
+ 4 files changed, 185 insertions(+)
+ create mode 100644 drivers/gpu/drm/bridge/th1520-dw-hdmi.c
 
- .../display/bridge/thead,th1520-dw-hdmi.yaml  | 120 ++++++++++++++++++
- 1 file changed, 120 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-hdmi.yaml
-
-diff --git a/Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-hdmi.yaml b/Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-hdmi.yaml
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 5b11839cba9de..fc04fc007a054 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22556,6 +22556,7 @@ F:	Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
+ F:	arch/riscv/boot/dts/thead/
+ F:	drivers/clk/thead/clk-th1520-ap.c
+ F:	drivers/firmware/thead,th1520-aon.c
++F:	drivers/gpu/drm/bridge/th1520-dw-hdmi.c
+ F:	drivers/mailbox/mailbox-th1520.c
+ F:	drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+ F:	drivers/pinctrl/pinctrl-th1520.c
+diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
+index a250afd8d6622..8e19f5fb9ad7c 100644
+--- a/drivers/gpu/drm/bridge/Kconfig
++++ b/drivers/gpu/drm/bridge/Kconfig
+@@ -335,6 +335,16 @@ config DRM_THINE_THC63LVD1024
+ 	help
+ 	  Thine THC63LVD1024 LVDS/parallel converter driver.
+ 
++config DRM_THEAD_TH1520_DW_HDMI
++	tristate "T-Head TH1520 DesignWare HDMI bridge"
++	depends on OF
++	depends on COMMON_CLK
++	depends on ARCH_THEAD || COMPILE_TEST
++	select DRM_DW_HDMI
++	help
++	  Choose this to enable support for the internal HDMI bridge found
++	  on the T-Head TH1520 SoC.
++
+ config DRM_TOSHIBA_TC358762
+ 	tristate "TC358762 DSI/DPI bridge"
+ 	depends on OF
+diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
+index c7dc03182e592..085b5db45d6fd 100644
+--- a/drivers/gpu/drm/bridge/Makefile
++++ b/drivers/gpu/drm/bridge/Makefile
+@@ -28,6 +28,7 @@ obj-$(CONFIG_DRM_SII902X) += sii902x.o
+ obj-$(CONFIG_DRM_SII9234) += sii9234.o
+ obj-$(CONFIG_DRM_SIMPLE_BRIDGE) += simple-bridge.o
+ obj-$(CONFIG_DRM_SOLOMON_SSD2825) += ssd2825.o
++obj-$(CONFIG_DRM_THEAD_TH1520_DW_HDMI) += th1520-dw-hdmi.o
+ obj-$(CONFIG_DRM_THINE_THC63LVD1024) += thc63lvd1024.o
+ obj-$(CONFIG_DRM_TOSHIBA_TC358762) += tc358762.o
+ obj-$(CONFIG_DRM_TOSHIBA_TC358764) += tc358764.o
+diff --git a/drivers/gpu/drm/bridge/th1520-dw-hdmi.c b/drivers/gpu/drm/bridge/th1520-dw-hdmi.c
 new file mode 100644
-index 0000000000000..68fff885ce15b
+index 0000000000000..389eead5f1c45
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-hdmi.yaml
-@@ -0,0 +1,120 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/bridge/thead,th1520-dw-hdmi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/gpu/drm/bridge/th1520-dw-hdmi.c
+@@ -0,0 +1,173 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright (C) 2025 Icenowy Zheng <uwu@icenowy.me>
++ *
++ * Based on rcar_dw_hdmi.c, which is:
++ *   Copyright (C) 2016 Renesas Electronics Corporation
++ * Based on imx8mp-hdmi-tx.c, which is:
++ *   Copyright (C) 2022 Pengutronix, Lucas Stach <kernel@pengutronix.de>
++ */
 +
-+title: T-Head TH1520 DesignWare HDMI TX Encoder
++#include <linux/clk.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/reset.h>
 +
-+maintainers:
-+  - Icenowy Zheng <uwu@icenowy.me>
++#include <drm/bridge/dw_hdmi.h>
++#include <drm/drm_modes.h>
 +
-+description:
-+  The HDMI transmitter is a Synopsys DesignWare HDMI TX controller
-+  paired with a DesignWare HDMI Gen2 TX PHY.
++#define TH1520_HDMI_PHY_OPMODE_PLLCFG	0x06	/* Mode of operation and PLL dividers */
++#define TH1520_HDMI_PHY_CKSYMTXCTRL	0x09	/* Clock Symbol and Transmitter Control Register */
++#define TH1520_HDMI_PHY_VLEVCTRL	0x0e	/* Voltage Level Control Register */
++#define TH1520_HDMI_PHY_PLLCURRGMPCTRL	0x10	/* PLL current and Gmp (conductance) */
++#define TH1520_HDMI_PHY_PLLDIVCTRL	0x11	/* PLL dividers */
++#define TH1520_HDMI_PHY_TXTERM		0x19	/* Transmission Termination Register */
 +
-+allOf:
-+  - $ref: /schemas/display/bridge/synopsys,dw-hdmi.yaml#
++struct th1520_hdmi_phy_params {
++	unsigned long mpixelclock;
++	u16 opmode_pllcfg;
++	u16 pllcurrgmpctrl;
++	u16 plldivctrl;
++	u16 cksymtxctrl;
++	u16 vlevctrl;
++	u16 txterm;
++};
 +
-+properties:
-+  compatible:
-+    enum:
-+      - thead,th1520-dw-hdmi
++static const struct th1520_hdmi_phy_params th1520_hdmi_phy_params[] = {
++	{ 35500000,  0x0003, 0x0283, 0x0628, 0x8088, 0x01a0, 0x0007 },
++	{ 44900000,  0x0003, 0x0285, 0x0228, 0x8088, 0x01a0, 0x0007 },
++	{ 71000000,  0x0002, 0x1183, 0x0614, 0x8088, 0x01a0, 0x0007 },
++	{ 90000000,  0x0002, 0x1142, 0x0214, 0x8088, 0x01a0, 0x0007 },
++	{ 121750000, 0x0001, 0x20c0, 0x060a, 0x8088, 0x01a0, 0x0007 },
++	{ 165000000, 0x0001, 0x2080, 0x020a, 0x8088, 0x01a0, 0x0007 },
++	{ 198000000, 0x0000, 0x3040, 0x0605, 0x83c8, 0x0120, 0x0004 },
++	{ 297000000, 0x0000, 0x3041, 0x0205, 0x81dc, 0x0200, 0x0005 },
++	{ 371250000, 0x0640, 0x3041, 0x0205, 0x80f6, 0x0140, 0x0000 },
++	{ 495000000, 0x0640, 0x3080, 0x0005, 0x80f6, 0x0140, 0x0000 },
++	{ 594000000, 0x0640, 0x3080, 0x0005, 0x80fa, 0x01e0, 0x0004 },
++};
 +
-+  reg-io-width:
-+    const: 4
++struct th1520_hdmi {
++	struct dw_hdmi_plat_data plat_data;
++	struct dw_hdmi *dw_hdmi;
++	struct clk *pixclk;
++	struct reset_control *mainrst, *prst;
++};
 +
-+  clocks:
-+    maxItems: 4
++static enum drm_mode_status
++th1520_hdmi_mode_valid(struct dw_hdmi *hdmi, void *data,
++		       const struct drm_display_info *info,
++		       const struct drm_display_mode *mode)
++{
++	/*
++	 * The maximum supported clock frequency is 594 MHz, as shown in the PHY
++	 * parameters table.
++	 */
++	if (mode->clock > 594000)
++		return MODE_CLOCK_HIGH;
 +
-+  clock-names:
-+    items:
-+      - const: iahb
-+      - const: isfr
-+      - const: cec
-+      - const: pix
++	return MODE_OK;
++}
 +
-+  resets:
-+    items:
-+      - description: Main reset
-+      - description: Configuration APB reset
++static void th1520_hdmi_phy_set_params(struct dw_hdmi *hdmi,
++				const struct th1520_hdmi_phy_params *params)
++{
++	dw_hdmi_phy_i2c_write(hdmi, params->opmode_pllcfg,
++			      TH1520_HDMI_PHY_OPMODE_PLLCFG);
++	dw_hdmi_phy_i2c_write(hdmi, params->pllcurrgmpctrl,
++			      TH1520_HDMI_PHY_PLLCURRGMPCTRL);
++	dw_hdmi_phy_i2c_write(hdmi, params->plldivctrl,
++			      TH1520_HDMI_PHY_PLLDIVCTRL);
++	dw_hdmi_phy_i2c_write(hdmi, params->vlevctrl,
++			      TH1520_HDMI_PHY_VLEVCTRL);
++	dw_hdmi_phy_i2c_write(hdmi, params->cksymtxctrl,
++			      TH1520_HDMI_PHY_CKSYMTXCTRL);
++	dw_hdmi_phy_i2c_write(hdmi, params->txterm,
++			      TH1520_HDMI_PHY_TXTERM);
++}
 +
-+  reset-names:
-+    items:
-+      - const: main
-+      - const: apb
++static int th1520_hdmi_phy_configure(struct dw_hdmi *hdmi, void *data,
++				     unsigned long mpixelclock)
++{
++	unsigned int i;
 +
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
++	for (i = 0; i < ARRAY_SIZE(th1520_hdmi_phy_params); i++) {
++		if (mpixelclock <= th1520_hdmi_phy_params[i].mpixelclock) {
++			th1520_hdmi_phy_set_params(hdmi,
++						   &th1520_hdmi_phy_params[i]);
++			return 0;
++		}
++	}
 +
-+    properties:
-+      port@0:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Input port connected to DC8200 DPU "DP" output
++	return -EINVAL;
++}
 +
-+      port@1:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: HDMI output port
++static int th1520_dw_hdmi_probe(struct platform_device *pdev)
++{
++	struct th1520_hdmi *hdmi;
++	struct dw_hdmi_plat_data *plat_data;
++	struct device *dev = &pdev->dev;
 +
-+    required:
-+      - port@0
-+      - port@1
++	hdmi = devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
++	if (!hdmi)
++		return -ENOMEM;
 +
-+required:
-+  - compatible
-+  - reg
-+  - reg-io-width
-+  - clocks
-+  - clock-names
-+  - resets
-+  - reset-names
-+  - interrupts
-+  - ports
++	plat_data = &hdmi->plat_data;
 +
-+unevaluatedProperties: false
++	hdmi->pixclk = devm_clk_get_enabled(dev, "pix");
++	if (IS_ERR(hdmi->pixclk))
++		return dev_err_probe(dev, PTR_ERR(hdmi->pixclk),
++				     "Unable to get pixel clock\n");
 +
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
-+    #include <dt-bindings/reset/thead,th1520-reset.h>
++	hdmi->mainrst = devm_reset_control_get_exclusive_deasserted(dev, "main");
++	if (IS_ERR(hdmi->mainrst))
++		return dev_err_probe(dev, PTR_ERR(hdmi->mainrst),
++				     "Unable to get main reset\n");
 +
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
++	hdmi->prst = devm_reset_control_get_exclusive_deasserted(dev, "apb");
++	if (IS_ERR(hdmi->prst))
++		return dev_err_probe(dev, PTR_ERR(hdmi->prst),
++				     "Unable to get apb reset\n");
 +
-+      hdmi@ffef540000 {
-+        compatible = "thead,th1520-dw-hdmi";
-+        reg = <0xff 0xef540000 0x0 0x40000>;
-+        reg-io-width = <4>;
-+        interrupts = <111 IRQ_TYPE_LEVEL_HIGH>;
-+        clocks = <&clk_vo CLK_HDMI_PCLK>,
-+                 <&clk_vo CLK_HDMI_SFR>,
-+                 <&clk_vo CLK_HDMI_CEC>,
-+                 <&clk_vo CLK_HDMI_PIXCLK>;
-+        clock-names = "iahb", "isfr", "cec", "pix";
-+        resets = <&rst_vo TH1520_RESET_ID_HDMI>,
-+                 <&rst_vo TH1520_RESET_ID_HDMI_APB>;
-+        reset-names = "main", "apb";
++	plat_data->output_port = 1;
++	plat_data->mode_valid = th1520_hdmi_mode_valid;
++	plat_data->configure_phy = th1520_hdmi_phy_configure;
++	plat_data->priv_data = hdmi;
 +
-+        ports {
-+          #address-cells = <1>;
-+          #size-cells = <0>;
-+          port@0 {
-+            reg = <0>;
++	hdmi->dw_hdmi = dw_hdmi_probe(pdev, plat_data);
++	if (IS_ERR(hdmi))
++		return PTR_ERR(hdmi);
 +
-+            hdmi_in: endpoint {
-+              remote-endpoint = <&dpu_out_dp1>;
-+            };
-+          };
++	platform_set_drvdata(pdev, hdmi);
 +
-+          port@1 {
-+            reg = <1>;
++	return 0;
++}
 +
-+            hdmi_out_conn: endpoint {
-+              remote-endpoint = <&hdmi_conn_in>;
-+            };
-+          };
-+        };
-+      };
-+    };
++static void th1520_dw_hdmi_remove(struct platform_device *pdev)
++{
++	struct dw_hdmi *hdmi = platform_get_drvdata(pdev);
++
++	dw_hdmi_remove(hdmi);
++}
++
++static const struct of_device_id th1520_dw_hdmi_of_table[] = {
++	{ .compatible = "thead,th1520-dw-hdmi" },
++	{ /* Sentinel */ },
++};
++MODULE_DEVICE_TABLE(of, th1520_dw_hdmi_of_table);
++
++static struct platform_driver th1520_dw_hdmi_platform_driver = {
++	.probe		= th1520_dw_hdmi_probe,
++	.remove		= th1520_dw_hdmi_remove,
++	.driver		= {
++		.name	= "th1520-dw-hdmi",
++		.of_match_table = th1520_dw_hdmi_of_table,
++	},
++};
++
++module_platform_driver(th1520_dw_hdmi_platform_driver);
++
++MODULE_AUTHOR("Icenowy Zheng <uwu@icenowy.me>");
++MODULE_DESCRIPTION("T-Head TH1520 HDMI Encoder Driver");
++MODULE_LICENSE("GPL");
 -- 
 2.52.0
 
