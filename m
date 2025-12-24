@@ -4,56 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397C1E74906
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Dec 2025 03:04:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F0CE7490D
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Dec 2025 04:52:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4GpV995ILKHazIlZVAftA5YjWFMrSrMsQCqqi5WraD0=; b=TS7iaJJfAfZ/B/
-	8maEscXrX+RkL8ZX4RU8IVfbTYFwgcf9U0YzBZ0f96H/NoW4SXUs8bZq/bTYF4AYr8SgO0USxce/u
-	y+6RcM4ew5GvOVvEqsfDEQ4yaCRJLXXCQiGjr5hNdxes3zCGdfU/PSawfooQAHU/kju7ylvHkoBP2
-	gUYFq/dA5nkpqeJUjiUDH/190K9oJho6t86tO3/3fxHIp6wM2hpXmBS/XfnYb/CCU+Shs8n9Piljf
-	W/B95+JXFMbqrONw1WpEZj3EX0Eac+TvsJCrCscwuXzkRfIFBkzez5OB0CxnN1ruGmpGtTEtXHgy8
-	3p8E0/gYNjAJBDDQ9c2g==;
+	List-Owner; bh=ZW3/KhuVzZ3df43GLSWWRqBYB4xfSWZtmNDtWcgC13A=; b=tC48MgslvFJz5B
+	y4beUqaEqJw2f6CEPbftSuojd4VfPZSqPZyzbEfgMJyOl7LtHpB+M3RkTj/DG+pSN2BZNpe03zM1w
+	xjPPgVJUs7Vr84lDVzPMjUsO7/cANxeCghJjyFXxxUHwN42dWJTSDfL9OOGtBWUcOKUzug8DkIHXt
+	B/q25MveuEE2fLsGu2mCIX6Dbk2NjFp2gG3f6jWpxFW2lGV4GTFI40ALmrkFhtIBHT8aYSIINND+7
+	RgWLICl/YmUjkcwP0HICypL1i84dm0BqrpakT2kDCGipHeazw78tNg8WqVHkLk4HhFxPNYaCmNPCO
+	a8UIqfpsaeFlGq3a3GOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYFAl-0000000GLIC-1bHq;
-	Wed, 24 Dec 2025 03:04:23 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1vYGr4-0000000GPBj-2CSE;
+	Wed, 24 Dec 2025 04:52:10 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYFAi-0000000GLHp-3tUm
+	id 1vYGqz-0000000GPAx-1kFG
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Dec 2025 03:04:21 +0000
-Received: from localhost (unknown [116.232.18.222])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 4551B34173F;
-	Wed, 24 Dec 2025 03:04:19 +0000 (UTC)
-Date: Wed, 24 Dec 2025 11:04:14 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 1/3] dt-bindings: pinctrl: spacemit: add K3 SoC
- support
-Message-ID: <20251224030414-GYA1992051@gentoo.org>
-References: <20251220-02-k3-pinctrl-v1-0-f6f4aea60abf@gentoo.org>
- <20251220-02-k3-pinctrl-v1-1-f6f4aea60abf@gentoo.org>
- <8840B91CE3D9278B+aUtWX6fizXnheGMl@kernel.org>
+	Wed, 24 Dec 2025 04:52:08 +0000
+Received: from [192.168.0.109] (unknown [114.241.82.59])
+	by APP-05 (Coremail) with SMTP id zQCowADHWAxmcUtp2LW8AQ--.30082S2;
+	Wed, 24 Dec 2025 12:51:51 +0800 (CST)
+Message-ID: <2eb2ad42-67e7-4f5b-bade-4a3627eb270c@iscas.ac.cn>
+Date: Wed, 24 Dec 2025 12:51:51 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <8840B91CE3D9278B+aUtWX6fizXnheGMl@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/5] PCI/MSI: Generalize no_64bit_msi into msi_addr_mask
+To: Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alex Deucher <alexander.deucher@amd.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Brett Creeley <brett.creeley@amd.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>
+Cc: Han Gao <gaohan@iscas.ac.cn>, linuxppc-dev@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, netdev@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-sound@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20251224-pci-msi-addr-mask-v1-0-05a6fcb4b4c0@iscas.ac.cn>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <20251224-pci-msi-addr-mask-v1-0-05a6fcb4b4c0@iscas.ac.cn>
+X-CM-TRANSID: zQCowADHWAxmcUtp2LW8AQ--.30082S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Zw1rGFyUZF4fuFW7AFW8Zwb_yoW8Jw4rpF
+	4UGFW3uFWFy3yftFWay3Wj9F15Z3Z3K343W3y3Kwn3ZFnIqr17XrnrGF13JwnFqrWxJr40
+	qFy7Gwn0gFnxWr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnU
+	UI43ZEXa7IUn1v3UUUUUU==
+X-Originating-IP: [114.241.82.59]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_190421_013626_FB4EB833 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20251223_205205_824256_0F191EE3 
+X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,42 +94,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Troy,
+On 12/24/25 11:10, Vivian Wang wrote:
+> The Sophgo SG2042 is a cursed machine in more ways than one.
+>
+[...]
 
-On 10:56 Wed 24 Dec     , Troy Mitchell wrote:
-> Hi Yixun,
-> 
-> On Sat, Dec 20, 2025 at 06:14:53PM +0800, Yixun Lan wrote:
-> > Add new compatible string for SpacemiT K3 SoC, the pinctrl IP shares
-> > almost same logic with previous K1 generation, but has different register
-> > offset and pin configuration, for example the drive strength and
-> > schmitter trigger settings has been changed.
-> > 
-> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> > ---
-> >  Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml | 4 +++-
-> >  1 file changed, 3 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
-> > index d80e88aa07b4..c5b0218ad625 100644
-> > --- a/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
-> > +++ b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
-> > @@ -11,7 +11,9 @@ maintainers:
-> >  
-> >  properties:
-> >    compatible:
-> > -    const: spacemit,k1-pinctrl
-> > +    enum:
-> > +      - spacemit,k1-pinctrl
-> > +      - spacemit,k3-pinctrl
-> The drive-strength description should be updated. The driver uses a
-> different current table between K1 and K3, but the binding description does not
-> mention K3.
-> 
-yes, I realised already, will update in next version
+> ---
+> Vivian Wang (5):
+>       PCI/MSI: Conservatively generalize no_64bit_msi into msi_addr_mask
+>       PCI/MSI: Check msi_addr_mask in msi_verify_entries()
+>       drm/radeon: Raise msi_addr_mask to 40 bits for pre-Bonaire
+>       ALSA: hda/intel: Raise msi_addr_mask to dma_bits
+>       [RFC net-next] net: ionic: Set msi_addr_mask to IONIC_ADDR_LEN-bit everywhere
+>
+>  arch/powerpc/platforms/powernv/pci-ioda.c           |  2 +-
+>  arch/powerpc/platforms/pseries/msi.c                |  4 ++--
+>  drivers/gpu/drm/radeon/radeon_irq_kms.c             |  4 ++--
+>  drivers/net/ethernet/pensando/ionic/ionic_bus_pci.c |  4 +---
+>  drivers/pci/msi/msi.c                               | 11 +++++++----
+>  drivers/pci/msi/pcidev_msi.c                        |  2 +-
+>  drivers/pci/probe.c                                 |  7 +++++++
+>  include/linux/pci.h                                 |  8 +++++++-
+>  sound/hda/controllers/intel.c                       | 10 +++++-----
+>  9 files changed, 33 insertions(+), 19 deletions(-)
+> ---
+> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+> change-id: 20251223-pci-msi-addr-mask-2d765a7eb390
+>
+> Best regards,
 
--- 
-Yixun Lan (dlan)
++cc linux-riscv and sophgo lists. Please see:
+
+    https://lore.kernel.org/r/20251224-pci-msi-addr-mask-v1-0-05a6fcb4b4c0@iscas.ac.cn/
+
+This is what happens when I rely on get_maintainers.pl too much...
+
 
 _______________________________________________
 linux-riscv mailing list
