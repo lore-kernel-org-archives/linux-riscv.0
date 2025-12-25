@@ -4,63 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6636E784AC
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Dec 2025 02:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A71AE784BF
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Dec 2025 04:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AxmhndSpncjnb+zgk9E++o0iyB1gLEH/9Ge1+yCDtnk=; b=BkC4tMlO0uCFtu
-	RDKM1NkAJiLmCeWCpuPkIN1aQXpBClFXsdiPB14gooEhlitJmfiA5Xt/kjOPgH4EMfQlFy4uCS045
-	SfIB9/vXOLfG3X6GJOGtrX4wprUbcNFPhzAstLgfFYlXqbl4B479k2CI3N5jPrkdXdOrau3ozVq2E
-	BURaDjhVCTz2yFk/W/E3tAy800utAPfOmWjrXJqbxQe6CL18DIZtc5yLfwhZ8sNHAwF8UmdCv7ii3
-	E7pirrloSeIIAyb9n4pAK1Iz1kgaH7N1qZbJYjqhzGsRFq1acgrHAkORlCWfL6Blv+f4RJYf/pPk5
-	qKeKfZnYUWLcvioBPdIA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8cVc3jelSTd/CkgQ+/abaN2DkyAv68OBvhLeufbkskk=; b=nlqT2WEcu05nwoTkTDo1g/GzTF
+	xQqNgY1oSFthDfrmVh4Ep1qu0FkF7BN1C4mmQ/IcA9wCgCsqGMbUhSgyjYcfltNZ3e/1OSB5f1AVE
+	b1XZQBXzn+Po0M8I4tdeY4M+8MD2yyJ0q1EsQ9FI410mEhJilKUysWX17XrZEAnl+Hce+JNJsIYvN
+	re3Ac7xxmOLdcLGDQ6EL4rd6yd97JylUj4oEDpNVmgIDSLYEv8BqvWF0zZUYkwu5IeklLbQ4Zd8Y9
+	UnD2YpAW9riMB3+5TRcfBqtoBEStrPPmqt82K0n5jggErxgfw1pSGNQkV5k31bHF5IL5j3Gl1QAAD
+	LWEy70Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYazy-0000000Hant-3piG;
-	Thu, 25 Dec 2025 02:22:42 +0000
-Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1vYd1x-000000003qw-3kqE;
+	Thu, 25 Dec 2025 04:32:53 +0000
+Received: from mail-koreacentralazolkn190130003.outbound.protection.outlook.com ([2a01:111:f403:d40f::3] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYazv-0000000HanG-24qG
+	id 1vYd1v-000000003qW-2mCi
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Dec 2025 02:22:41 +0000
-Received: from ofsar (unknown [116.232.18.222])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 33C4A341030;
-	Thu, 25 Dec 2025 02:22:32 +0000 (UTC)
-From: Yixun Lan <dlan@gentoo.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Haylen Chu <heylenay@4d2.org>,
-	Alex Elder <elder@riscstar.com>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Charles Mirabile <cmirabil@redhat.com>,
-	Brian Masney <bmasney@redhat.com>,
-	Akhilesh Patil <akhilesh@ee.iitb.ac.in>,
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Yixun Lan <dlan@gentoo.org>,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v4 0/2] clk: spacemit: Fix module build for spacemit common ccu driver
-Date: Thu, 25 Dec 2025 10:22:25 +0800
-Message-ID: <176662919110.361686.13875991021272017337.b4-ty@gentoo.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20251219012819.440972-1-inochiama@gmail.com>
-References: <20251219012819.440972-1-inochiama@gmail.com>
+	Thu, 25 Dec 2025 04:32:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FpHFbyB73sMErD5MUsCJEmDixSRwbRszDW+dnsVLXc09SeqnG6TggoRrAD8PMOluJIfhtpLSQ741Ad9Lty/tSsoHB88udIQ4lgJs8o+53brtFimDAEmKiiSbbyJBpw8fyQLKimuI5/MuIvI1NtHr2Goc1vzLnkRBzi1BybO7YjodE1w6XEVSRcWt9Mni6xCnwKvqLuW8JFi1u3MP6ty38FYoubsjDE96VvJlzZm/uFV+OQtoP6RJPprGN+b+RmlZzpP2qpdhdvYsXK+B9SMCQ5WvbJPDK6TsJWcDGn/ZTiBzCkFZTidEOwkNvahGBvJdSkHQQMggy8M/SmeNEZ71NA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=p+MDjXybpSXgJ8uqWlFbICtuHh4W2w+Hyionyp5ApEo=;
+ b=f3h2gasxtKsDV0KF4/+BQDX70Gsfd4vZH0NNvaw6yJx+lrQh/u8YfaHZcmmCPbWjwAOXUoNZ8hf2H5gJ/Pim4XmiO5eqXoQsZwU9J0ik+6mupebk8jg4WSyLfj1kXctzVFBxY+MuPfvZvPcFn/KOuGQ5bolTbVw9FsqnjFCMS8UMHxa7lcd6kVEvlQj7PvfK2YmpFCLayPkIWdKd5PB0ESGvOZipdqAWtGZ55xkSPn1mBLRScOYAKuitswqflfuKSNbLus1h6BL5ZsX4gYZUsWm3AE775O7kGcI77icYu3eeoWTe2TDZ6Y3JCJdMuYrbdeyZrAtbD6b51OMh4W2bfw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=p+MDjXybpSXgJ8uqWlFbICtuHh4W2w+Hyionyp5ApEo=;
+ b=ScTH1yeGXk3dis9oD48SiB/wTH7bsA6F7JYyBsw3icGg4i/RjnivBrELS4gjwB+TtPSp5HEBP5jDzBPMn4qCHegsfnbVAV/PzxBh5OCQxX3McGhu6J2W2nJuMSJyRmXiuwo9+JWR+J6Y2e6/Q8bzYIkn9fzmZXx3ZDTDsV6jUUWwuFBR34AIdAJDAt6H2WYNysDmPFyq+hXPEwP8TmCataH8YKnp4k0TMer3vE3pbBJIrlOV1eQbORZe8V/m2mu4zH/au+fa8HRK1FBptFJdsZz2Q0NzKF+ZbaAd52C+gwD42/46RzrrmD6PsynaAWj1P1ZWKXY3jaqCkjvpD96/hQ==
+Received: from KUZPR04MB9265.apcprd04.prod.outlook.com (2603:1096:d10:5a::6)
+ by TYZPR04MB5925.apcprd04.prod.outlook.com (2603:1096:400:203::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9456.11; Thu, 25 Dec
+ 2025 04:32:43 +0000
+Received: from KUZPR04MB9265.apcprd04.prod.outlook.com
+ ([fe80::3c38:c065:daf4:cbfa]) by KUZPR04MB9265.apcprd04.prod.outlook.com
+ ([fe80::3c38:c065:daf4:cbfa%5]) with mapi id 15.20.9456.008; Thu, 25 Dec 2025
+ 04:32:42 +0000
+Message-ID: <KUZPR04MB92652A9F33B1EA2A2CFF51C4F3B3A@KUZPR04MB9265.apcprd04.prod.outlook.com>
+Date: Thu, 25 Dec 2025 12:32:37 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/riscv: Fix unsigned comparison with negative error
+ code
+To: Alper Ak <alperyasinak1@gmail.com>, tjeznach@rivosinc.com
+Cc: Dan Carpenter <error27@gmail.com>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ iommu@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251222151550.987992-1-alperyasinak1@gmail.com>
+Content-Language: en-US
+From: "Nutty.Liu" <nutty.liu@hotmail.com>
+In-Reply-To: <20251222151550.987992-1-alperyasinak1@gmail.com>
+X-ClientProxiedBy: SG2PR02CA0072.apcprd02.prod.outlook.com
+ (2603:1096:4:54::36) To KUZPR04MB9265.apcprd04.prod.outlook.com
+ (2603:1096:d10:5a::6)
+X-Microsoft-Original-Message-ID: <1d83802e-7178-46ca-92bf-f589c90edce2@hotmail.com>
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KUZPR04MB9265:EE_|TYZPR04MB5925:EE_
+X-MS-Office365-Filtering-Correlation-Id: e3962b81-248a-44ac-03e0-08de436ea4b5
+X-Microsoft-Antispam: BCL:0;ARA:14566002|7042599007|5072599009|461199028|6090799003|51005399006|19110799012|41001999006|23021999003|8060799015|15080799012|12121999013|10035399007|440099028|4302099013|3412199025|40105399003|1602099012;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Rkx3Tk40eEFYRDdDUk9OQTg2TmFFN3lmeUJER1VWWVNwYVhZT29NT0NDMld1?=
+ =?utf-8?B?K1dVM04xakRZNFZYNUJKSHBXM1JFZDhFbnkzQ2NZVXlaYWNGY1lzRzRUb1Jv?=
+ =?utf-8?B?NXlmcnUwNyt6T1RaNmhudlZDMk1PWUNmK2J3bmYvdXBoQjNJR1Q3clQrSGlo?=
+ =?utf-8?B?RkpLdTMwR0wza2hQR0hYUEpLWjhBSXNJZ1FQVUtPeEo4RlRHRndING1qNFQ3?=
+ =?utf-8?B?SVAySFBqbzRicXRCZ0NCNVVPM0Q2RngyQ0lpNm0zYytCTFkzT0t3U2tFWUZt?=
+ =?utf-8?B?VEQ3Q0RqbVEwWWJLb2t3TlVobkZQZnFIanNGaTczZGs2L2NIaUg0RW1FMDVY?=
+ =?utf-8?B?Zit6UitIVVFBL3N6bVZFbjZONFE5aTV1VFNUMVlvclJEVk1MbFlMM0pyZjJi?=
+ =?utf-8?B?cGpITmpyZW4wM1g1VjYxQWQvVWFDN01GaWZUcUQwM2Z6bS82TkVZZlNlMzNu?=
+ =?utf-8?B?UzJYRG00ZjZjZWwyYXROZ2FoSkxKTE5DZm1Bb0ljUjNYNG4zQmwyT3JmK0Qy?=
+ =?utf-8?B?Uk83RFNYT3hUbUxZTXNWcUJYZEpIa1U4dFpEbmtVMzgrUlBQakJxdlZBRzdn?=
+ =?utf-8?B?RmhFay9vODVucXozMlBZZi91OHZxUmRwdEVwUDRtM2U3RXVoZDQ3U3p2YzJU?=
+ =?utf-8?B?QlRCL2JDN3hOSmFDa05ZTU5QZ3NuRmdMUVJuelBPODVZQlFOMk1OQkppbTk2?=
+ =?utf-8?B?Q3laRE84NS81ejZIQk1sL3d5VktpWE91bk0xZXdtOFZsRVNhaU1WUmhrTS9F?=
+ =?utf-8?B?K2FjbmE3endva0tzY3VxaG54MUdtQzdrMEQ3U2lhU2xjakVzY2s1OWdZS0o4?=
+ =?utf-8?B?WXUzbVZKMXMvRm8yQlB3UHhYMzlIeGpmMWJDQ0ZRc0hkcjhVK1JsbVF4c2p1?=
+ =?utf-8?B?VGpOdTRWUnk4NS9XcDNWY2U2UVIwdk11akxhaTFMdTZqMXBmUGJuVk5lMEhP?=
+ =?utf-8?B?ZWZRVUhjeGtOaGdoQnpYZlcyRmRydlZ6YU5iR3JkR0E4cmF0cm8rWGdMV0ph?=
+ =?utf-8?B?dXUyUnRQTFcxTDhhbTBFS3FQeGkwWHFvQVNvb28vSlNiWFY3OGVROFRpekxs?=
+ =?utf-8?B?WXBPZGFiM2taTEI1TzZwRWxaa29YaGlnL2FSSUJyRVM2OW9kL1BFMVBSR3FQ?=
+ =?utf-8?B?bGVIUGVTdHNHbThLZEt0YzhRVWZraEJBczJwZkpBa0xNSnVZazNueVZZUEN0?=
+ =?utf-8?B?N2ZYVGpSMHV5NmlaOTh0MEQwMHFMTzVhbGpZeFpCZTVqQmdqeDFSeUVsbksx?=
+ =?utf-8?B?bVFMVUI5ZVJoWTVCcnFQMVJjaVRsdG9IVTFydmdJNVJ4YUgrK2t3STJTZEtZ?=
+ =?utf-8?B?UDVjRThyOXNZMFljcktGT0R0VjBWSlprK2NGTHVZNEhySlIwTXRJQUxsVkQy?=
+ =?utf-8?B?UkpqaHZLQnQva2tkVGlmeDdacS9mTTBFaW53anNxYjJKTFdrT2RnbWg4QUQz?=
+ =?utf-8?B?UjQwellNNXhyU05kbVdzQzRyN0FLY3pWY0p3aXZIOStzaXBtcnNxU3RKeTdT?=
+ =?utf-8?B?dXlLQVBpWS94M3pmUDBnT3hxdjA5YUg2K0htRnptNjNsdHB3Y29vOGNkYU5i?=
+ =?utf-8?B?WGJzRVZwbkxUUXlybkpSdE1aMEFPREFVdTE0cm56TnN2NmxCMGJ6SVcrR1Jm?=
+ =?utf-8?B?YjV3UnQyY0VaSWtDMWJMaFBrdVhENHZYcGFYeG5zQmlva21mWG4rdU9oVjZD?=
+ =?utf-8?B?V3FsUFlBZTl2dmt0UURhUlZVT1RUYVpqUk1qUk9JK2RzdUo2QWw1MUxPRWt1?=
+ =?utf-8?B?aG01TFpDYVZKdW55dExpMkhOZG04MGFyR0xXeWRuaVZxZk45Uy96NmtPQXJH?=
+ =?utf-8?B?V1dZdXhSNTBMeFBBR0JxQ1g4c1lIN0VPNVBNMVpzbGNxVVZUUnBoTDZzOWk5?=
+ =?utf-8?B?Rkp0NSt5SmdLMkVPdUpZNHdNWDNJZm5idFdHZ3p6a3NDVXpPWTlQdEtDZmNz?=
+ =?utf-8?Q?ZiJOEfBKjRV53mlCKLSfoBDRkfubzFfj?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RVZUcHE5SkNJSWRWN1BSYVN4UnM5SVlSRnYxQWN0REtUQ2poR1k5V3pyZmhI?=
+ =?utf-8?B?TXFxODNJa1pvM05Ddm5jNzBQTHVPaml3Wno0SHc2Nk9scjdselR2enVlbmsr?=
+ =?utf-8?B?akc4dlFhcjNQOWNhNjZPRWtsRzZYWnk4aXhCemhaaDNrRUJxM1Fzc3BKVmIx?=
+ =?utf-8?B?VDJMOFg2RDFHOHNOc2FYemw3Z3NRQkpEdU55eHZqTzFIYklqOHlBUGNHRlNK?=
+ =?utf-8?B?OUtuSkhUSGpFcXozNGVETDRRMXZ1Smp6RC9IMVpKM2hjUEtGZjRwVUxiNE00?=
+ =?utf-8?B?RlpXOVBnS3REa3dlY1FOd1VEdDlic210MXZEa3ZOTnpRaGpJK3ZWMk81Y3dP?=
+ =?utf-8?B?MVExR1k5dFpncDJ6RXFnRHptYTloL2kwc0VBT1kvaHB5MWpkdXZtdkNYeS9w?=
+ =?utf-8?B?NktRd3VtNDl0Q3poNjFGcm1JcjFOcERZSmczZk1Sclo1VTJKc2ZvNitMTTVX?=
+ =?utf-8?B?MTltWEY5MUE3MkM1dlRScUlhRmp6NkRreFNmcThYSHhBRXI2UVNFVXc0dExy?=
+ =?utf-8?B?SlhJSFp3T1hDTmY5dmpvU0diejhmZlM1cWhzVjkwcnlPVEYrbXpxN3RGeEE1?=
+ =?utf-8?B?M1RiUm1QUDBrNVNPN25TaS9LeWh5K2xNaTFkUXZsOGZodzlNcWtGQWtJTE9i?=
+ =?utf-8?B?MiswbXNuWW0wRHZURVhmdkVhTXBnYUtuaDcyUTg4SVJaNlJLSFkvQXYwbmo0?=
+ =?utf-8?B?NnBVOEtTSVNWbDVtbU1EQ3pveHBnd1lheWNyQmFxMUI2bXQ2ZjdpaExZdTFi?=
+ =?utf-8?B?aTNzeXZlVjZkbGpiOGlkQ1M5aHYvSWw0T0VVRmw0L0IzUDlIV1NDRU9qQWhS?=
+ =?utf-8?B?UzhGWlc0d1lXTmFyclVxNHFSWEV6RFJ0QXdmblRHRHBPMVBFcGRBcXQwTjNF?=
+ =?utf-8?B?NE5DaCtKMW45YTROQ2pXK1Y5MVZPNDA2Y29xNk9ZS29lOUU0QzhHTnM3dG1Y?=
+ =?utf-8?B?bGVkSFJCZE9yQk5JNHh5NWJ4UUhhNEdsdUdyeXlCbEdBbFU5ZzVKQmIyR1V1?=
+ =?utf-8?B?OElFeHZaODhTaEdoTDRqd2dLK0xvK3NubDQvTWtraXZuckhIVDVoMzVEM0gx?=
+ =?utf-8?B?MXlnQW5WckJZamRhNzFUSzBhaS8xVWkyNE1RbVQ1cnhqa1IrRzBUMHVzZ3lh?=
+ =?utf-8?B?TUxnUkRpOFZkRm1mRVhLbWxSVjlYbXJQTmY1UXhSYnVLNGdvY0hyTlRQeTFQ?=
+ =?utf-8?B?ZFhvcGh6TWN3UW1EdWxCc2RJZW1ITzBkbXlhMzljdUFEYXVaL2tuSUQ4aS9a?=
+ =?utf-8?B?SmVhYk9KNlNBQjZ4ckF0OUY3aUpoRElIY01jZERTQlE2RGFaanJ0RjQ4NFRR?=
+ =?utf-8?B?cDdkM2hZUTdHeEQvc2RaTjlobldKQVpudnkybDZjWXo5T0pIQ1lSQzdwbDB5?=
+ =?utf-8?B?eklLVytoazJ4cHJHMDREck1PL3VrNzZMMDhrbkdYOExKcURGSFdLZU0yNG9X?=
+ =?utf-8?B?RERoZTcvN0dMelg3blNqYnFXeUh6ODdaVmZtdkNBb0Y0c1djTjI4TTZlM3Zh?=
+ =?utf-8?B?UUNlNXluQWJzcldFVFpjT1R6dkppd2pybGhzdGh6MGlnbHRsSEl4cjI3dms1?=
+ =?utf-8?B?Q092T2F1a255b1VwSHNrcnJpZVQ1WVZNSTRCMXJNQmRkZG42QWJGZ0NCNEln?=
+ =?utf-8?B?YkI5RHF3RkFJdUNodHRqS3FLQnhjMUhHOWRMalpjOEkxVGpzdmtMdFpISm9q?=
+ =?utf-8?B?Ulp0UHFsRDNyQmE5VXNjTVFHOFd3bzJaWWlhOFNQVklxR2oza25xbm4yblJx?=
+ =?utf-8?B?QUp3cHl4d2NEUERITUgrSnZiRlkyY0t5WG5FVFRLRTlyTUJpa1N1ZWRveisw?=
+ =?utf-8?B?ZDc0L0xjNkloY1lob1hPQVVuc3ViZ1Bhb3U2dU1QV3dDWDlNK2d1V2pGajJY?=
+ =?utf-8?Q?RIuhtIPPuLG6C?=
+X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-515b2.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: e3962b81-248a-44ac-03e0-08de436ea4b5
+X-MS-Exchange-CrossTenant-AuthSource: KUZPR04MB9265.apcprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Dec 2025 04:32:42.8440
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR04MB5925
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_182239_557904_BC244948 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251224_203251_937473_D5B1F736 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,35 +166,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 19 Dec 2025 09:28:16 +0800, Inochi Amaoto wrote:
-> Currently, the SPACEMIT_CCU entry is only a switch for enabling entry
-> SPACEMIT_K1_CCU. It does not guide the build for common clock codes
-> even if it is a tristate entry. This makes this entry useless.
-> 
-> Change the Makefile to add a separate build for common clock logic,
-> so the SPACEMIT_CCU entry takes effect, also add necessary
-> MODULE_LICENSE()/MODULE_DESCRIPTION()/EXPORT_SYMBOL() for the module
-> build.
-> 
-> [...]
+On 12/22/2025 11:15 PM, Alper Ak wrote:
+> platform_irq_count() can return -EPROBE_DEFER, but irqs_count is
+> unsigned. This causes the negative value to wrap around and bypass
+> the error check.
+>
+> Store the return value in a signed integer first and check for
+> errors before assigning to irqs_count.
+>
+> Reported-by: Dan Carpenter <error27@gmail.com>
+> Closes: https://lore.kernel.org/r/202512141551.kZLTle5r-lkp@intel.com/
+> Signed-off-by: Alper Ak <alperyasinak1@gmail.com>
+> ---
+>   drivers/iommu/riscv/iommu-platform.c | 9 +++++++--
+>   1 file changed, 7 insertions(+), 2 deletions(-)
+Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
 
-Applied, thanks!
-
-[1/2] clk: spacemit: Respect Kconfig setting when building modules
-      https://github.com/spacemit-com/linux/commit/5ec8cbbc54c82c0bdae4dbf0e5aecf9817bde2b9
-[2/2] clk: spacemit: Hide common clock driver from user controller
-      https://github.com/spacemit-com/linux/commit/99735a742f7e9a3e7f4cb6c58edf1b38101e7657
-
-Best regards,
--- 
-Yixun Lan
-
+Thanks,
+Nutty
+> diff --git a/drivers/iommu/riscv/iommu-platform.c b/drivers/iommu/riscv/iommu-platform.c
+> index 83a28c83f991..5ec8efedbf12 100644
+> --- a/drivers/iommu/riscv/iommu-platform.c
+> +++ b/drivers/iommu/riscv/iommu-platform.c
+> @@ -68,8 +68,13 @@ static int riscv_iommu_platform_probe(struct platform_device *pdev)
+>   	iommu->caps = riscv_iommu_readq(iommu, RISCV_IOMMU_REG_CAPABILITIES);
+>   	iommu->fctl = riscv_iommu_readl(iommu, RISCV_IOMMU_REG_FCTL);
+>   
+> -	iommu->irqs_count = platform_irq_count(pdev);
+> -	if (iommu->irqs_count <= 0)
+> +	ret = platform_irq_count(pdev);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	iommu->irqs_count = ret;
+> +
+> +	if (!iommu->irqs_count)
+>   		return dev_err_probe(dev, -ENODEV,
+>   				     "no IRQ resources provided\n");
+>   	if (iommu->irqs_count > RISCV_IOMMU_INTR_COUNT)
 
 _______________________________________________
 linux-riscv mailing list
