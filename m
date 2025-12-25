@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DB24E776FC
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Dec 2025 23:53:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6636E784AC
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Dec 2025 02:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qw9PDt/MxK2ahjo2vLzGWgjuA9jK9zf6YwXMpkWg2x8=; b=cZlOn/khZeO46HLvKfAdU+YMWp
-	NDNbCU/FxcRPHpDMHDhJTXVd0fb58uCjUM90krwZUvtpB3p/knM8KpKGgnZjEHvVwUE5vG8RqStaZ
-	gts/Cf49zgeonbv4pmslwDBg5Ruh+/p0ZzO0B9DDUgaU4Qn6X6r5G6teACxhGcxDrUcWam1ElCPKh
-	K9E8zWrEtx1WFtENhZR5MK/fgeiFOGDMN/dnPopZh0NatGnb7w1vmcPFKnfaW0h8M/XPAwGKhDe+g
-	iMttShLxULWztXeu3c5x/If5CkrJcqHgHktkumVt7/kGyvsKuh6x6alguoNF14m3vNc266qdsA2Rg
-	WbzgimFw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AxmhndSpncjnb+zgk9E++o0iyB1gLEH/9Ge1+yCDtnk=; b=BkC4tMlO0uCFtu
+	RDKM1NkAJiLmCeWCpuPkIN1aQXpBClFXsdiPB14gooEhlitJmfiA5Xt/kjOPgH4EMfQlFy4uCS045
+	SfIB9/vXOLfG3X6GJOGtrX4wprUbcNFPhzAstLgfFYlXqbl4B479k2CI3N5jPrkdXdOrau3ozVq2E
+	BURaDjhVCTz2yFk/W/E3tAy800utAPfOmWjrXJqbxQe6CL18DIZtc5yLfwhZ8sNHAwF8UmdCv7ii3
+	E7pirrloSeIIAyb9n4pAK1Iz1kgaH7N1qZbJYjqhzGsRFq1acgrHAkORlCWfL6Blv+f4RJYf/pPk5
+	qKeKfZnYUWLcvioBPdIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYYfI-0000000HVYF-1y3p;
-	Wed, 24 Dec 2025 23:53:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vYazy-0000000Hant-3piG;
+	Thu, 25 Dec 2025 02:22:42 +0000
+Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYYfG-0000000HVXl-2nYx
+	id 1vYazv-0000000HanG-24qG
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Dec 2025 23:53:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7A34544145;
-	Wed, 24 Dec 2025 23:53:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3B57C4CEF7;
-	Wed, 24 Dec 2025 23:53:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766620389;
-	bh=H0yqiO0IIh+bx2j+z5i/ox186xpZi3mE9KvZEbkJJuA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KlFxyKY2+80CMGNz7Jd+5h8dEgmn04kJoRtkVRXSZ0yXW9UwMn9P5hmADYMXlHmAi
-	 ZochvG5h3JUryyw1cQahRqFJADt6oABUlPucQIPabU60fsYmwNiq4qiPpx8iuyNZst
-	 cHZ2w9QDLn5+xMHcrh6azjhkah2GmrMK+MVjdPgsLltrpM928JQzFsWxKu5hNyO0Zu
-	 QC+xyWPrhR/v9yoyBJ1Fuqe7u5UFtWq6QHflaAbGkB0Byy18UtNjYc1gKBHJofyUdU
-	 CvLu40TmvlWHHQM8+JMZh6VXvSzdo+cLlNB+4h81VpZig5/3273Mmvl/FL0XXu5nLz
-	 Cv3PAVooB/i7A==
-Date: Wed, 24 Dec 2025 23:53:02 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Guodong Xu <guodong@riscstar.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@gentoo.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
-	Yangyu Chen <cyy@cyyself.name>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Heinrich Schuchardt <xypron.glpk@gmx.de>,
-	Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
-	Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	spacemit@lists.linux.dev, linux-serial@vger.kernel.org
-Subject: Re: [PATCH v2 07/13] dt-bindings: riscv: Add B ISA extension
- description
-Message-ID: <20251224-charcoal-woozy-d2138984e37a@spud>
-References: <20251222-k3-basic-dt-v2-0-3af3f3cd0f8a@riscstar.com>
- <20251222-k3-basic-dt-v2-7-3af3f3cd0f8a@riscstar.com>
- <20251222-stitch-preachy-3fab87fd6f0f@spud>
- <CAH1PCMZ7ywZ3unLy0yHYK+fFHk0y=q2cEtPnRi=qSpf=fc75rw@mail.gmail.com>
+	Thu, 25 Dec 2025 02:22:41 +0000
+Received: from ofsar (unknown [116.232.18.222])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 33C4A341030;
+	Thu, 25 Dec 2025 02:22:32 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Haylen Chu <heylenay@4d2.org>,
+	Alex Elder <elder@riscstar.com>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Charles Mirabile <cmirabil@redhat.com>,
+	Brian Masney <bmasney@redhat.com>,
+	Akhilesh Patil <akhilesh@ee.iitb.ac.in>,
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Yixun Lan <dlan@gentoo.org>,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v4 0/2] clk: spacemit: Fix module build for spacemit common ccu driver
+Date: Thu, 25 Dec 2025 10:22:25 +0800
+Message-ID: <176662919110.361686.13875991021272017337.b4-ty@gentoo.org>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20251219012819.440972-1-inochiama@gmail.com>
+References: <20251219012819.440972-1-inochiama@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <CAH1PCMZ7ywZ3unLy0yHYK+fFHk0y=q2cEtPnRi=qSpf=fc75rw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_155310_743863_3D7EA41B 
-X-CRM114-Status: GOOD (  28.65  )
+X-CRM114-CacheID: sfid-20251224_182239_557904_BC244948 
+X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,132 +72,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2339182209423740208=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2339182209423740208==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="HifpPaV/N2udDB+0"
-Content-Disposition: inline
+On Fri, 19 Dec 2025 09:28:16 +0800, Inochi Amaoto wrote:
+> Currently, the SPACEMIT_CCU entry is only a switch for enabling entry
+> SPACEMIT_K1_CCU. It does not guide the build for common clock codes
+> even if it is a tristate entry. This makes this entry useless.
+> 
+> Change the Makefile to add a separate build for common clock logic,
+> so the SPACEMIT_CCU entry takes effect, also add necessary
+> MODULE_LICENSE()/MODULE_DESCRIPTION()/EXPORT_SYMBOL() for the module
+> build.
+> 
+> [...]
 
+Applied, thanks!
 
---HifpPaV/N2udDB+0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[1/2] clk: spacemit: Respect Kconfig setting when building modules
+      https://github.com/spacemit-com/linux/commit/5ec8cbbc54c82c0bdae4dbf0e5aecf9817bde2b9
+[2/2] clk: spacemit: Hide common clock driver from user controller
+      https://github.com/spacemit-com/linux/commit/99735a742f7e9a3e7f4cb6c58edf1b38101e7657
 
-On Tue, Dec 23, 2025 at 02:51:17PM +0800, Guodong Xu wrote:
-> Hi, Conor
->=20
-> On Tue, Dec 23, 2025 at 5:17=E2=80=AFAM Conor Dooley <conor@kernel.org> w=
-rote:
-> >
-> > On Mon, Dec 22, 2025 at 09:04:17PM +0800, Guodong Xu wrote:
-> > > Add description of the single-letter "B" extennsion for Bit Manipulat=
-ion.
-> > > B is mandatory for RVA23U64.
-> > >
-> > > The B extension is ratified in the 20240411 version of the unprivileg=
-ed
-> > > ISA specification. According to the ratified spec, "the B standard
-> > > extension comprises instructions provided by the Zba, Zbb, and Zbs
-> > > extensions.
-> > >
-> > > Hence add a schema check rule to enforce that B implies Zba, Zbb and =
-Zbs.
-> > >
-> > > Signed-off-by: Guodong Xu <guodong@riscstar.com>
-> > > ---
-> > > v2: New patch.
-> > > ---
-> > >  .../devicetree/bindings/riscv/extensions.yaml         | 19 +++++++++=
-++++++++++
-> > >  1 file changed, 19 insertions(+)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml =
-b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > index 565cb2cbb49b552959392810a9b731b43346a594..385e1deb23996d294e766=
-2693f1257f910a6e129 100644
-> > > --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > @@ -109,6 +109,13 @@ properties:
-> > >              The standard C extension for compressed instructions, as=
- ratified in
-> > >              the 20191213 version of the unprivileged ISA specificati=
-on.
-> > >
-> > > +        - const: b
-> > > +          description:
-> > > +            The standard B extension for bit manipulation instructio=
-ns, as
-> > > +            ratified in the 20240411 version of the unprivileged ISA
-> > > +            specification. The B standard extension comprises instru=
-ctions
-> > > +            provided by the Zba, Zbb, and Zbs extensions.
-> > > +
-> > >          - const: v
-> > >            description:
-> > >              The standard V extension for vector operations, as ratif=
-ied
-> > > @@ -735,6 +742,18 @@ properties:
-> > >          then:
-> > >            contains:
-> > >              const: f
-> > > +      # b comprises the following extensions
-> > > +      - if:
-> > > +          contains:
-> > > +            const: b
-> >
-> > What's the value in adding b, if it depends on having all 3 of the
-> > components defined individually too? Currently all "superset" types of
-> > extensions are permitted without their component parts also being defin=
-ed,
-> > this doesn't follow convention and therefore needs to be explained.
-> >
-> > You obviously need this construct because the kernel does not understand
-> > "b", and even if you added support for interpreting "b" to the kernel
-> > this is probably still needed to make sure the ABI is maintained for
-> > anything importing a devicetree from the kernel.
->=20
-> Yes, exactly. Unlike other single-letter extensions, "b" was ratified
-> (Apr/2024) much later than its components zba/zbb/zbs (Jun/2021).
-> Existing software and the kernel already expect these explicit component
-> strings, so enforcing this dependency ensures cores declaring "b" will
-> also be correctly understood by older software that only looks for
-> zba/zbb/zbs.
->=20
-> I will update the commit message in v3 to clearly explain this reasoning.
+Best regards,
+-- 
+Yixun Lan
 
-> Does it sound good to you?
-
-Ye, sounds good.
-
---HifpPaV/N2udDB+0
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaUx83gAKCRB4tDGHoIJi
-0ljjAP96xVKxRWfFsjBSIjF8h7xUeXl0VufSfLRn5F0vEPVYagD9FVwi2yti7kCT
-/cmOcUpIv5O0e1rm6HZBmL6W+TJv+ws=
-=eCFG
------END PGP SIGNATURE-----
-
---HifpPaV/N2udDB+0--
-
-
---===============2339182209423740208==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2339182209423740208==--
-
