@@ -4,92 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B29E6E7AD7C
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Dec 2025 03:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E7BDE7AD7E
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Dec 2025 03:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X2llJbUfmdblJuoECtq63nByNHVNiDt1ppSuXBAh630=; b=DrDbduJhbgkewt
-	s+BK9lp9iZ7RlAIKlzq2nnW4xYKiL+HgFjCsAcM6JtQml0c7qSzHeWxUu/6A7rIlp3hEE9EaA6XXn
-	fcHeQ0nYbI6HocB2UF2blvrQJMgHiDNVHirhwaP6J4g45WWel62F40Is4lGh6B9pSPUv90nhsntiQ
-	fwUE+oZKMJ4/rdUuoRl3jhgqHjlVT9vattV2w7Rnmfry5JzHy3bUB4q+N/D9J9/uhHXHjRI54yGdL
-	HKEQrtZax3fJqA3qzn3/jjzxxcmHNlVgefo2LDe3aSE/eDM0E3HHg1HR1AW52tna129964q4MWf3i
-	xqtiMWYt2APFZ205Xr8w==;
+	List-Owner; bh=zdf6fWnIVWkhOAnkz3Dwh29FsA66z8rD78qmQI4j0Vc=; b=zpjjU14XuEaPvj
+	1tAbF2f3XLyZXLZ/aq8MILz+57SE8r7vBNZPsYiFF0TL7J9HnUNXie34K14xkIb3rFOLcAmyA2S3+
+	RvZhlozRbDVrLZCS1t9GV6yc9IA01uoVMn58aEvMn+TVkTGfcK4m/GVtwp7adLDxNjlxwNXvitkiw
+	uFt9nYxiUl6sDPmCDhATU9PjycUV4JrCIsgwMtqqG/zvkMEKJb9gLg29dvf+0v3AMDkTSPq7HGPqV
+	gWe4kowUJNCVLWWHte0LTX43R+nIgddcBgeoUE0Xzxk1P994e5lghyHfV0pXFqkk8cfPpx/iIDuZO
+	8joFUdhEsNH4C7dPbqlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYyTP-00000000rUo-18l3;
-	Fri, 26 Dec 2025 03:26:39 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1vYyY3-00000000rjC-44OO;
+	Fri, 26 Dec 2025 03:31:27 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYyTL-00000000rTX-2WSB
+	id 1vYyY1-00000000rit-0ApL
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Dec 2025 03:26:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1766719558;
-	bh=d4wAjrfZaiGw8WX4hHJd4M+lVGETHBvdtA4Tr1bun5g=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=JANkgSTuVRx+6NDdzzzicfV1VHbc5JHd5Vz1D93L0UREW5Zu9GakNyt8QAGb/LZRo
-	 u6kgHasHHosZMxyqYyassWoF8mRCSFfQsKc/lMPrkxpX6cid4/ArN42UM5j+b/rBSE
-	 R06a043S+lDHiDfY358HJ9Mo4P6/cF8ajd/jC+RQ=
-X-QQ-mid: esmtpgz13t1766719550t82a12a29
-X-QQ-Originating-IP: PieMHnuodpUbtX3Z4xQgyrHPViUuOiKsiF0WOIWLd8k=
-Received: from = ( [183.48.244.228])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 26 Dec 2025 11:25:48 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 13964547808078100876
-EX-QQ-RecipientCnt: 20
-Date: Fri, 26 Dec 2025 11:25:48 +0800
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Encrow Thorne <jyc0019@gmail.com>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: Troy Mitchell <troymitchell988@gmail.com>,
-	Guodong Xu <guodong@riscstar.com>, linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: i2c: spacemit: add optional resets
-Message-ID: <65A454B4ACFB1A38+aU4APFpyblOCKqJ4@kernel.org>
-References: <20251219-i2c-reset-v2-0-ad201a602e74@gmail.com>
- <20251219-i2c-reset-v2-1-ad201a602e74@gmail.com>
- <04880c83-0b3a-4197-9043-d657db91f922@kernel.org>
+	Fri, 26 Dec 2025 03:31:26 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2a0d6f647e2so111772535ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 25 Dec 2025 19:31:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766719884; x=1767324684; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ljrm7quFnjMy54/Pt9XBIqU31VKgbwYSBMG+BN2K7MI=;
+        b=mTiBeWn4OaB3adssDAB5MYQEF3f5qJ4gJNJr3Ocn3RZN+8snIUtVv3srp3n7T8CcpD
+         mEZQqov73Gm5A4vlvGLWFZ1C8QTH8sOMvXbI6VKotWvx14ysfmk+VEvPZg6JPvly5LEt
+         I+Q1MZoihiA8QxS0TO39YXRyxvN4nwOmShGe1ef5PEQTnter8vlJjnKOL8ZgbxK+TzLO
+         GrQxLEGpq7O5g1Q2+dZXy+hQN4ngG9hfLjTduxvn6jhnVHOmls/DV6Z/Ehw7PMqFTr6o
+         3khWS0g8ByZAszsHcz8e5y6DIjmJpuRlJXh9QiRhsPsCr4bqjPnsB/Gdz9c+w2jRQzyO
+         FS3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766719884; x=1767324684;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Ljrm7quFnjMy54/Pt9XBIqU31VKgbwYSBMG+BN2K7MI=;
+        b=Nx/F2NQYJHbf87UWj6D7qge0YnrgamZHUGR78hbAxnAx3uWF/i5VgxEsUaqSAOIGda
+         MlzfdZ2NjS9DgzxWylWnEpvdUhfLF9HapKdO7CLToWqL9+LWVqRFU6e2GR9VW7VPPObN
+         wICc/m3I870ZpHuctk9a/eVe/1gq8jvq6+YsFNI0o80ZNmidtgpeOYFNaG5VoFlV15bK
+         GiaPFQ+sTZ1G9NJ3lnI8wo6IJnYEKeAL64CPiYaxQWNUwsxFv/lzcfXj4URIOLARmh42
+         UEs0bygu+KbLVqMKw2IqpkwFvopSgPUPcfRlCokUjiPmeZgTk5eZl4jGOCNjip0AXRH9
+         KItQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWi0XLIJYwxuru8bnW5FAtgwTo3UbWQhEoLrEp8s6dPIxY2oGPSknmMfDUDSq/6kI3pyGY4m0aV3TVkYA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyksrFv8oAPyxKYzRKKpwXk48JtT1y3hrT6+elRLUxVCu93mkfN
+	whFxXQT0VcYY8oghK4Q+o6Tn0BFuy0JyWQQfiufm0cGcMiY+RRGsj9cT
+X-Gm-Gg: AY/fxX5ptQNg48D0yJBhrmFCNygWTNKIIq6dzbDa7E2dBTb3wI4Ly91La2AJDGepsen
+	kbK5W85K0zPfKbVH27x7JxhaJ3ZFU+Mj98gZ8+pl4dY368QBEjVR1md5DxxgPJAid59q3qu1ONs
+	Z2Eu+AoMSXjMYp31a0Mc8my4Om82tE8zSsDG/CZmGhw1yhw6qPsnA9nwAF/Biaqn+i0L8BulXWM
+	Kb4xcJnasCUmlmhJmCx4CZBbm9E2qcwrYJfDeQUzwNj77ybPSSubUh+YyNDFupkJVSNmAUx2P9Z
+	bpCErYe0RbVhSAaCjzAr4eOy8VeSqE/DXW5aSRclb0Q5yYtqttSA/8TvwPOMllHk8i0dLzPgV9w
+	zNGvQj+Kv9Rwh2bS34D/XlMJS8+O2iFI3Qm/M+vqFJeTUQlA6djEMkVMYYHHzZExDk8ZJ0Irqx0
+	H/pGUXdA==
+X-Google-Smtp-Source: AGHT+IEsWuTTwcDert2et1eGbmI+azWdFMlAfpYldjsNTfapmRbLtz5IkDDd9aYbRthA17abbkgkHw==
+X-Received: by 2002:a17:902:e747:b0:2a0:b02b:2114 with SMTP id d9443c01a7336-2a2f220697cmr217826285ad.11.1766719883950;
+        Thu, 25 Dec 2025 19:31:23 -0800 (PST)
+Received: from fric.. ([210.73.43.101])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34e7727356dsm11014982a91.4.2025.12.25.19.31.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Dec 2025 19:31:23 -0800 (PST)
+From: Jiakai Xu <jiakaipeanut@gmail.com>
+X-Google-Original-From: Jiakai Xu <jiakaiPeanut@gmail.com>
+To: pjw@kernel.org
+Cc: alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	namcao@linutronix.de,
+	nathan@kernel.org,
+	palmer@dabbelt.com,
+	xujiakai2025@iscas.ac.cn
+Subject: Re: [PATCH] riscv: fix KUnit test_kprobes crash when building with Clang
+Date: Fri, 26 Dec 2025 03:31:18 +0000
+Message-Id: <20251226033118.1527871-1-jiakaiPeanut@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <f1ea892e-a07a-5ded-dd6e-3e7ea55fe446@kernel.org>
+References: <f1ea892e-a07a-5ded-dd6e-3e7ea55fe446@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <04880c83-0b3a-4197-9043-d657db91f922@kernel.org>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MIfPdqFTtU/fn7oLTGYkZ0c/4VuPNpisMQEjcz/egD5/ixeXzTpYrQTv
-	hjXsGTa4IeM0R0jPDjtAtLyJKJJDbZq7wnIHBc45S02KcJl4BCsspRFYdNynRUUyRVYGbCX
-	KubTsh2p2G+tIelw4NUpVyzFjSXY+mPawbjf1xW3zeH4yjPfmXIrJtXiUHuRJ+DpNoCQn0Z
-	EpeAPhU3x/ww7DsxWsuaZdP8mDd3UdvM0A6xy3BhKMUC47DXVSJ8elXNdU0BJMVvdm+uw3y
-	o8dakn4zjJpRwXiEfcD7AYVrg/vttmmpP5DEYVFqTSkn7/t5JP8oxPllktOEwdPhf0JHZAv
-	mUmF7mQiFB7lmaVWGmGMCntQs9nBcKXcMUPKEHWwJI9qEr3eGCaw/bq8/UiU4CbE2/QTNrx
-	FUbzq1c9VJQaKc3PqtR7raaF3qvb1v6d4ynz6e+beQan2FwLDCuYH3UUhVyFVKlHjHfj0WX
-	GhDq9c3sFleL4rQW21ejC8Iprpp2IWluBBW936nmoYxhpVmmnJZl56vvPraa/jbGL49fr1M
-	cB1ZT0SBJfs5YvMfq4cVR54obauBmq0K1RhQZD2b7MxTA16ZLBgyn7sz9xPVRmFfYAkk/vG
-	Mu4nukO6wXbzbv7XVHphj1hzzlxYSD0tfgfQ0Uj2SNKgQ8ojrygY1DM/89K6HetBK+l/nR9
-	tLdIQps17SptGpfy5LH2ifR7MzFw7PHFYNIVQXojyNi/dpzogfU0gj7iKh/s4yphZP2Qgk3
-	lBszomX49tO4dTi56OzZveb8GUoEqYfR86uSG+bhaUB+87UkXPPEXQGDJVf8poMwUGzOrA1
-	dXq8RuhpCylu6PpY0BH1GzjDXAhnhSeAdf7wOG1otKQZ+SmQePhMoBpnF8iWEGFaMuxFn+u
-	EiWY4iafjqaThCrBeAUGyvZhW75c1VbxKkP2EP4Tlcx2zp6ifPMuCjjtxjNcIRoxKbbqWrv
-	VoOpeH5X9cl0c58zhipE6tgepGhEIvR5OpoDm3mM/IMamg1zejOlOm8Zs1WbNbNW6UvrATi
-	MxVM/G6APAsukPmhZUFIOH9IO/HAbcUpVQnrq8g2+/O9f9oOzqGw03xz3idIVBEZ3Tt6kox
-	Q==
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251225_192636_188009_F5D7DBDC 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20251225_193125_088159_7A71FFE6 
+X-CRM114-Status: UNSURE (   6.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,45 +108,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 19, 2025 at 09:03:14AM +0100, Krzysztof Kozlowski wrote:
-> On 19/12/2025 08:42, Encrow Thorne wrote:
-> > The I2C controller requires a reset to ensure it starts from a clean state.
-> > 
-> > Add the 'resets' property to support this hardware requirement.
-> > 
-> > Signed-off-by: Encrow Thorne <jyc0019@gmail.com>
-> > ---
-> >  Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml | 3 +++
-> >  1 file changed, 3 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> > index b7220fff2235..1290106e28e6 100644
-> > --- a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> > +++ b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> > @@ -32,6 +32,9 @@ properties:
-> >        - const: func
-> >        - const: bus
-> >  
-> > +  resets:
-> > +    maxItems: 1
-> > +
-> 
-> Still between other clock-related properties. You already got such
-> comment...
-Please replace it below clock-frequency.
-With this fix, you can add my tag:
+Hi Paul,
 
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> 
-> >    clock-frequency:
-> >      description: |
-> >        K1 support three different modes which running different frequencies
-> > 
-> 
-> 
-> Best regards,
-> Krzysztof
-> 
+I am very sorry for the delayed response. Due to an issue with my email 
+client, I did not receive your previous message.
+
+I have just submitted the v2 patch which incorporates the suggestions from 
+the LLVM folks. Please review it at your convenience.
+
+Again, I apologize for the delay and any inconvenience this may have caused.
+
+Best regards,
+Jiakai
 
 _______________________________________________
 linux-riscv mailing list
