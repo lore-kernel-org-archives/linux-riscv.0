@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B45EE8FDA0
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Dec 2025 07:54:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 380DCE8FDA5
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Dec 2025 08:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BJsmoOCh6aHlxL9qzryaq7e3N80mWw7MlE7IzhAyvY4=; b=kgdYWIdX0q7s+y
-	uv2GJ3AZVmxbkNpn9AEFsPNFDHB4s4FFtVOeAYGKDtZXAcrugVpBoQm9eu4Zhn0+S/IA5FVpe4c3F
-	EO5R6CafptjiZkkN2lLNiux8VgnagYYnxE1l2IvLFsWAI3oeMi/hD7VGYds4lvg9sFUP+UBRpPZyz
-	FswqgRLI4y2NrOaZMl96ypdYsUiZ+uPLEs4KxT5JlGQ9ZqVfP7q0YruJ9cCKxT8cUKZZLWgoggI7X
-	qNQX39Vl5UJ5IScZb38KfNxmrpKFu7VDY9FP887oqBTN/vRV61zjxJUD6J/qabfe78+duFNkrK/cY
-	+lEuagUxaQ0YHsHRWpXA==;
+	List-Owner; bh=WvQqq4Mzip2S/ixg3P3r7K2dBfGCv5fupZQiE9vODXA=; b=NZC/k3Vb4CLoDg
+	vZ1I8zNPoh0Ocbi0qfMUUMAMcoTJw6ha4bRft3jVzjDRLytvvDbBxdr0OR6EzZAPWiT8W6TmDrwMx
+	pFCeJTZVdTaUtmNwRDcriO7oiRAVgaUv9P1v3K0o3KHqXW56n/75ihEn5MQnY8CZyMTbbvTfDR7Xb
+	Mb/yzunXdcFQHvm1WbiraVG4X4cR1Sda/K9GxM1R1lJvNRo8ky8T7dU4V170dVQv+hHUWLC1X8BLz
+	Mbp4jOz5K0EsgTV8WdczT3pW+F251YAB/e8v6Xhfw+l9NeBTmauLxZ0wQpBLP1qb7V2YXvCs1LH9J
+	wA8xEZqBdh9qUW4QlMVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZ2eH-000000010tV-0rlF;
-	Fri, 26 Dec 2025 07:54:09 +0000
-Received: from smtpbg150.qq.com ([18.132.163.193])
+	id 1vZ3Ft-000000012Ie-1aTD;
+	Fri, 26 Dec 2025 08:33:01 +0000
+Received: from smtpbg154.qq.com ([15.184.224.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZ2eD-000000010s3-3l9z
+	id 1vZ3Fq-000000012GL-2wxd
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Dec 2025 07:54:07 +0000
+	Fri, 26 Dec 2025 08:33:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1766735582;
-	bh=5rqzRz+DAZpWWro/FXmO/xzVSv2PlwUs0gKPEOGz7hE=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=cdYNSvpRt2Endd4lQxXEpMMNt9ITTaLhvpAg5ERsa5f0hYLtYjnaOqejPhX07MGyV
-	 h+/yzCWLkSO4EYibfy1igM9rsE0bvgknmo08m+MNLBduwJNj8GsU25FdYyoYqlq3fJ
-	 c2AnfNkWfoipMTSnWaLOUTMAvDFZmc38pcSS0fXY=
-X-QQ-mid: esmtpgz12t1766735574tec301483
-X-QQ-Originating-IP: A4Tsnl5JTI7DzEsZRGnZiXX+NSH/kdjq4a+YWdmnzZU=
+	s=mxsw2412; t=1766737936;
+	bh=UeRZTj3RgL+C0LFt7dsn6u9FGTvGMeuehM6rrW+shiI=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=mJhcpjrbeGThy0ehyJV+9LUlK+DF/FsBL80FztQfBY/Z6BhFIFe+WktLCNS0aAzBT
+	 hjwkZL0wb1Y7kOQzU7/uv1xtLISs6fkRiW9quFsGQsr2syyAFKctUy6VhRQ0kTDKSg
+	 GCyKl5U4tkYwCEaKxxlqDjI90QUJ44J+BZnXZhZI=
+X-QQ-mid: esmtpsz18t1766737930t654bff71
+X-QQ-Originating-IP: xxPuGQWHfUB+ZjzOWJRulHKNXe3Xaa+AWCBb4JYA1Pw=
 Received: from = ( [120.239.196.19])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 26 Dec 2025 15:52:52 +0800 (CST)
+	id ; Fri, 26 Dec 2025 16:32:08 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 6635047226762412195
-EX-QQ-RecipientCnt: 13
-Date: Fri, 26 Dec 2025 15:52:52 +0800
+X-BIZMAIL-ID: 4478349540645840041
+EX-QQ-RecipientCnt: 8
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Alex Elder <elder@riscstar.com>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Lee Jones <lee@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-i2c@vger.kernel.org,
-	linux-rtc@vger.kernel.org
-Subject: Re: [PATCH v3 1/4] i2c: spacemit: configure ILCR for accurate SCL
- frequency
-Message-ID: <569E6DA87DE510D5+aU4-1Jl9XxjAWQq4@kernel.org>
-References: <20251118-p1-kconfig-fix-v3-0-8839c5ac5db3@linux.spacemit.com>
- <20251118-p1-kconfig-fix-v3-1-8839c5ac5db3@linux.spacemit.com>
- <81eca0ab-47a3-4b12-98ae-fbd46a15ff93@riscstar.com>
- <BD74A47E5BB66010+aU4j6CgGxebcBV5I@kernel.org>
+Date: Fri, 26 Dec 2025 16:31:59 +0800
+Subject: [PATCH v5 1/3] i2c: spacemit: drop useless spaces
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <BD74A47E5BB66010+aU4j6CgGxebcBV5I@kernel.org>
+Message-Id: <20251226-k1-i2c-ilcr-v5-1-b5807b7dd0e6@linux.spacemit.com>
+References: <20251226-k1-i2c-ilcr-v5-0-b5807b7dd0e6@linux.spacemit.com>
+In-Reply-To: <20251226-k1-i2c-ilcr-v5-0-b5807b7dd0e6@linux.spacemit.com>
+To: Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Alex Elder <elder@riscstar.com>
+Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1766737924; l=1067;
+ i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
+ bh=4WF7PpSbGiAEocf+vpDDLvscterKabWsWS0qOo26+rs=;
+ b=KJMJPL6qdCMVv2K9MWdKfiPFYf7zIVqzvL6gfg4ecAxDEfxEgo4gP9417pUbzM07yL6rSG/3q
+ 7f3PLcX914TDjDXzmDvTmMK70AbxOpS1DVZyxTUocqQ7UYAmuY3e63I
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
 X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: Mf2c2cXG8XEigeMabfrexd3DMjAQPofMXRXdqz9J/jtmeegkGJ2HNWF7
-	SAHH7rF1i9va7PNDp9KiIp7vW7W0zlsBcUC+4li6O90WXkv3i60Z32TEJdT4X7wUTZ+tDPg
-	NTd5j9c+tiFfq/HNohfVKJCj5zK05XwQJDDZf+1+S3l1V5T9XLGdOrpImh2/EZp7UV0rZzH
-	2aA2cOi6n644hFSegaTU7bXhfDIzjImRzH3dkqo1xIZCr8Q3laMdg8gh9WbERITDmCQovum
-	K29yOQCC2iBwZH5upwnPBrGzkdqm5CWZPNVuwofCZMfU32FpOIsWftKURuv4+Z9bkvYjtpy
-	9rxIDW3rixjCHiyrDoE0I48xJRnI+JY3UC6Jqiu4EL0JKcAUiVqJSmqfAK1hKA79VEtvd4o
-	DnJ4X5gYbG0FH2B+9mufXUkR10RhBN12w2VxK5YtL+L49AJ3IrFYex+mcfQEjdS1Ht1ZI6t
-	AuhWW/OJs0Ug5cNvIMS7RxOkebS1l4kZDPKqf/cqWd6egkGWje1DYlQCX+5umG3O9W4zx/2
-	UHM8b3rovYEU4tx7RQO7z6rnGI2RWncxhFMmuHE1S8kfe/A5DOGDz9F1MXsYxzx09V7LyjV
-	Rx0ND+Fls+JDkWnEP9hnI+WKGHG/zM90i68zcO00vpPe5eJ6X+Z5/1dcm9Y8V/TKHuiIHM4
-	kG3H5QH2bbFEJffP6Q5xRZHe9k6CYrMgBJxjj+LP4KNyzEiOHYsZljPTWH2HGOcxbfnBSl5
-	c5eZWNf44ROA9ET9ub8pqxExjRfyR/Yxwp2vZoJ9l5KGd4VKAK2Bj+PTMQMd9wBi1x8y1TE
-	R/Xm7SsiGUBFQALgWEUH82qrPJ3ZadofzSYFyDrHY5RDyY2LzSlwERzzzAfrVRZFkDaH6QO
-	Lp1T/LJPUoUMr9emhOP2J0GHmNQDTO3WGNHDh+qTEITXkfDNdzi/sydkkxXsUECGT7e+kx+
-	ecTORDNs1VPyNKuytqbQ454Qp6uKr1Dwbq+dRrpUgIqZaPikvWkdHnQIAYPcSg6sXweRFZh
-	n8M4wp1RsPU35sJfzLAB1jEDWTY/ozRQVwJIVVyNl7vnTRvat3ne48SiqEdzI=
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MQaNw+J8Qgodt8wxrv8k7I9ZNKv8IuZP0w2xAALaZmv8umk0faUXObGI
+	V/IQT0hhFYpDQ5SFPY9BZeO17BhzLtTJm2UINXRsHsJFn4jn9NzGJ44DM6ikrP753RCky6L
+	uh9SwxsKrI/nYtkha0V8l+sQwToFrVWOtl9PW8VgvPPSmqpi39lwy71h1SH6bhlM1qzk/Cp
+	vIGFmizy6Qov3h7QlTnhf8SOu/lQLx7HkzGmhExxH21BLUtvjo0zKyq+qdZhCp8KpvvmNIK
+	bjt4ptZzbXYX/MHA1/wln5xJ4ahsEheNfA0g+umA5KSShXR53QhuCRE3E+Gg1ezx1uL7nls
+	lI7duOtetNqxb7rpuKw2FRon0l9SHK9LIqEX9Ul+b03fNNgJw4oS3fWptB5ngsZ6bWBWhpt
+	K6R7AESJy4vp02EI6OZM+tcHooHw5URJt3icq4/rrXUiEt+5DB28JWCKOsjp8hZAKMTmtgA
+	RGoObos3qqdTjnoOoGY3C61kPeX+4TPJgnuc8qfBRslOscOhdrCj7LvFaHPDMOTDV0T1kM8
+	MC/ysC58DERFTshc1/Kvrg7sgOwzAx3qujIIfrNMeWNUHE/I5EK+m5tr4umb/aQp5QZFGPI
+	7ILL9Pfelaopmr+gv1ndKjENgNg+KyYBvHbWeVfCqC83ebFGBfb6nxlbefVEPcQ/kX0DG69
+	mueAVHNiLv4Qdw8lwLCgSfBA7N1wW91xdrYuWjFuvLSdZckVkQT63KBg9sTCsPOHc0X1bQI
+	Y9dXesWdB7LURb33wUwqp+aQaF7A7hfOQiMFvG/LaBezesFgHkmp7wcX2uKKmkBFFbQIIfl
+	oX7Wh2eqhUoPty9XTzFnVJ/4eQhQJWsRHYdMDUTX07OE0yLCjjhzQapOWjn81OYvxk5VReL
+	8ognfjQ3JJcxTvHOpZBiA/cPnmxyqKN9rMxutZwZ+yGZxp+PVkQrUg9eIG29j3L340Wc+oi
+	KR7o915D6podvNewCjnxWpC5Hx1KSsHkGhj8FkYQ18Rzaik5L03tP8CFFXejO/0DYKcuNsN
+	Fqa4XcP+A0Tz2HO87htYoXZfnNhaoGRLi93n9JCBUJ7mZGH2x9+IzzMHFaWRJNwhWhUsHuU
+	sP4OkWiGh8ejRgsxsxmWjAGahi3Uzdqvhu9MAb4ykO6yPk+stAlo25WdMyBirur1oT71ozf
+	CfvF
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251225_235406_416949_863FCA3A 
-X-CRM114-Status: UNSURE (   6.62  )
+X-CRM114-CacheID: sfid-20251226_003259_337585_75D8859A 
+X-CRM114-Status: UNSURE (   7.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,19 +105,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> > > +static int spacemit_i2c_clk_set_rate(struct clk_hw *hw, unsigned long rate,
-> > > +				     unsigned long parent_rate)
-> > > +{
-> > > +	struct spacemit_i2c_dev *i2c = container_of(hw, struct spacemit_i2c_dev, scl_clk_hw);
-> > > +	u32 lv, lcr, mask, shift, max_lv;
-> > > +
-> > > +	lv = DIV_ROUND_UP(parent_rate, rate);
-> > 
-> > Would DIV_ROUND_CLOSEST() give a more accurate value?
-> I'll test it.
-Same result. So I'll keep it.
+Previously, the I2C driver had an extra leading space in column 0 of
+included header lines. This commit removes the redundant whitespace.
 
-                        - Troy
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+---
+ drivers/i2c/busses/i2c-k1.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
+index d42c03ef5db5984ea8e06b3d7eb485b4f899e616..30cdf733deef264061c8ea565634c5a17f5aebfd 100644
+--- a/drivers/i2c/busses/i2c-k1.c
++++ b/drivers/i2c/busses/i2c-k1.c
+@@ -4,12 +4,12 @@
+  */
+ 
+ #include <linux/bitfield.h>
+- #include <linux/clk.h>
+- #include <linux/i2c.h>
+- #include <linux/iopoll.h>
+- #include <linux/module.h>
+- #include <linux/of_address.h>
+- #include <linux/platform_device.h>
++#include <linux/clk.h>
++#include <linux/i2c.h>
++#include <linux/iopoll.h>
++#include <linux/module.h>
++#include <linux/of_address.h>
++#include <linux/platform_device.h>
+ 
+ /* spacemit i2c registers */
+ #define SPACEMIT_ICR		 0x0		/* Control register */
+
+-- 
+2.52.0
+
 
 _______________________________________________
 linux-riscv mailing list
