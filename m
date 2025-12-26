@@ -4,59 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 819E1E8FDA2
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Dec 2025 12:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D146E8FDA2
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Dec 2025 12:59:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ekjPW1mwk6D8U+q/S4GJz+D4hJJ1JJkobP0Q1bNQKZk=; b=C7c1/3md6TNJ53
-	93Ce0LZSWqgA3F2E3PnjZtGiXruRVHm+4V3fq967rPnLv6Cv5bRTKUbaHB3hQRhaRblzILy8G8VXY
-	bQto2JNmHEJYDqNUK4c84ebWuWpo3GimfUNJPB8qhwVc6neW7xzLf/A5nHwe+sslGuPc4E1NnppB8
-	+DcFMz3JUZBH8zP76CsMsY1O/feL2FDCXgjtbQTGRcag/TwEEgT2EPxjpm5Zzr/8/BwVVeCpcgLqy
-	QtlCAbrig7JBJ8jBTSUoTlof4fZD4RVbVc1CFCjNoacZ9u9XsUwTCM0n8nMlCcRW1hTZXfHQ7/I2E
-	2kZM7qhbCf8cKLmCzOkQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=hmr1y6WhNkC9llETpHZdHmFcb/KuqGnszFowwQcAGQA=; b=VtDO/cvPytpyYW
+	aUQTx7MEo/ftlFxtde+OM1uw3iWYrcys0nbnA0ncz4vOnIjl+3IvZ2BBLmYuLCJrR3q4TuAyMBk0V
+	JEwxbCg/3nVngtDmeatguSx8lENEZ18KFe4u1DDvMPaammRqac3OKoZrat8wsmyCX12f/tBwRt95Q
+	7CXgJ7EVjEh+MNpr+q0cUCbUWgS1aUO7phfYqkE/3XKB4KI/JgTn1NuEYTTH1ZLhPzoEFhGGMc5q2
+	fZteyj9SDXa4ujqumKeqGTETk5oukRxzC0yZYHsEtMd5UoKi8VXBE94pgr2KUO4P/ZlITX3YXzAqw
+	9K8haeVwkngNKpHLgC1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZ6lz-00000001AeL-0PLf;
-	Fri, 26 Dec 2025 12:18:23 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1vZ7P9-00000001BrV-3Z2y;
+	Fri, 26 Dec 2025 12:58:51 +0000
+Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZ6lv-00000001Ady-3TlQ
+	id 1vZ7P7-00000001BrA-1IMn
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Dec 2025 12:18:21 +0000
-Received: from localhost (unknown [116.232.18.222])
+	Fri, 26 Dec 2025 12:58:50 +0000
+Received: from [127.0.0.1] (unknown [116.232.18.222])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id E0D16341F62;
-	Fri, 26 Dec 2025 12:18:17 +0000 (UTC)
-Date: Fri, 26 Dec 2025 20:18:12 +0800
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 3A3A23415E9;
+	Fri, 26 Dec 2025 12:58:42 +0000 (UTC)
 From: Yixun Lan <dlan@gentoo.org>
-To: Yao Zi <me@ziyao.cc>
-Cc: Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Haylen Chu <heylenay@4d2.org>,
-	Guodong Xu <guodong@riscstar.com>,
-	Inochi Amaoto <inochiama@gmail.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 5/5] clk: spacemit: k3: add the clock tree
-Message-ID: <20251226121812-GYA2007514@gentoo.org>
-References: <20251226-k3-clk-v3-0-602ce93bb6c3@gentoo.org>
- <20251226-k3-clk-v3-5-602ce93bb6c3@gentoo.org>
- <aU50DIe9qMneb0GT@pie>
+Subject: [PATCH v2 0/3] pinctrl: spacemit: add support for K3 SoC
+Date: Fri, 26 Dec 2025 20:58:23 +0800
+Message-Id: <20251226-02-k3-pinctrl-v2-0-5172397e6831@gentoo.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aU50DIe9qMneb0GT@pie>
+X-B4-Tracking: v=1; b=H4sIAG+GTmkC/13Myw6CMBCF4Vchs3ZMO1y8rHwPw6LQKUw0LWkJ0
+ RDe3Yo7l/9JzrdC4iic4FqsEHmRJMHnoEMB/Wj8wCg2N5CiWmuqURE+SpzE93N84qk89521HVc
+ XC/kzRXby2r17m3uUNIf43vlFf9efRKT+pEWjQte4yrBplOncbWA/h3AMcYB227YPvB1YaasAA
+ AA=
+X-Change-ID: 20251125-02-k3-pinctrl-738cbddbe49d
+To: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Yixun Lan <dlan@gentoo.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1471; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=mISs6e4sFOmpqFJF5huwwA03CYAmRcdBj3UxE2vX5+w=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpToZ2sXKWCLz7sikw7eDEqH4mys554B/JUlG6x
+ g94EcrjLsSJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaU6GdhsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+3nAg//bcFwZe43UMQMUvof6Cd+Ra84AQgnlE06KFJldrRDftkiQBc7+qcPX
+ 03m/xs+cpvQfDH70A/iG7D7aomvbrjii9ydC4lhnJdjanvrmOQ/fnP26QKciI4twg8wLc+iLPcY
+ awK8e7z4j0vpu7He9m1n3mmKl/96bMJcvWcIKvYdZBSJ5x/i5BS4yAz/TpTVZHcYA4JvdPCt2+k
+ QOuLYIFOvRjGfj1pqi1pZ+16a1ICpx0aJ74ifrefy/VKsxnP+pPBGWFQkaD+7HsXhma5gja9kqs
+ hwzZ2SDtPNSRtChi9Zh54xE+Y3umbo/Ft2RhQsd6lWaPjEImL/J//3+VDBuPPv+u/y5qM9o5RPP
+ qAYTIQSQYoxM89Zz2HwZR/eM+5M0iJrRyiKd3I0kzX4FVT9UCuMZzUa6V4pNfC7bSa62aYWw0ut
+ AW/jrZ2JIUQyryK29hJlpQNZ+Y3nNznhsv88SXeDKCnRt6ftxytK61F5Yaw21JuKzkzBLkkpnJR
+ gEgTFtlunDT9su0XDqu3jwvf9Ag6E5LNlEvKq3RHXhd0TOi40D5SfNsMWXAEDw1LIG5rk3V7SXi
+ KmWwLqDG4n8wy/VgG3J+N6vdbCPAYaIeJdHn9nSwlAV4lDRaBts5pF5/Jc15CV91vSxPo92aYjf
+ gyC0dXXDdomG+8DW8zRdr4ZZfooO2s=
+X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251226_041819_952476_562E2307 
-X-CRM114-Status: GOOD (  23.12  )
+X-CRM114-CacheID: sfid-20251226_045849_390926_204944BD 
+X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,52 +90,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yao,
+This series attempt to add pinctrl support for SpacemiT K3 SoC,
 
-On 11:39 Fri 26 Dec     , Yao Zi wrote:
-> On Fri, Dec 26, 2025 at 07:01:20PM +0800, Yixun Lan wrote:
-> > Add clock support to SpacemiT K3 SoC, the clock tree consist of several
-> > blocks which are APBC, APBS, APMU, DCIU, MPUM.
-> > 
-> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> > ---
-> >  drivers/clk/spacemit/Kconfig      |    6 +
-> >  drivers/clk/spacemit/Makefile     |    3 +
-> >  drivers/clk/spacemit/ccu-k3.c     | 1482 +++++++++++++++++++++++++++++++++++++
-> >  drivers/clk/spacemit/ccu_common.c |    3 +-
-> >  4 files changed, 1493 insertions(+), 1 deletion(-)
-> 
-> ...
-> 
-> > diff --git a/drivers/clk/spacemit/ccu_common.c b/drivers/clk/spacemit/ccu_common.c
-> > index f1a837aafb46..5132f73be68d 100644
-> > --- a/drivers/clk/spacemit/ccu_common.c
-> > +++ b/drivers/clk/spacemit/ccu_common.c
-> > @@ -144,7 +144,8 @@ int spacemit_ccu_probe(struct platform_device *pdev)
-> >  	 * are in APBS region. Reference to MPMU syscon is required to check PLL
-> >  	 * status.
-> >  	 */
-> > -	if (of_device_is_compatible(dev->of_node, "spacemit,k1-pll")) {
-> > +	if (of_device_is_compatible(dev->of_node, "spacemit,k1-pll") ||
-> > +		of_device_is_compatible(dev->of_node, "spacemit,k3-pll")) {
-> 
-> To me it's better to add a argument to spacemit_ccu_probe to specify the
-> compatible of PLL, so we don't need to modify ccu_common.c each time a
-> new SoC is introduced, and the condition won't be pretty long in the
-> future.
-Adding extra argument will break {struct platform_driver}.probe() prototype
+I've removed the RFC tag as the driver is tested on K3 SoC.
 
-I can think of creating a sepecific helper function for each driver to
-hide the change, but still will bring extra cost, something will like:
- k1_ccu_probe(pdev) -> spacemit_ccu_probe(pdev, compatible)
+The K3 pinctrl IP shares almost same logic with previous K1 SoC generation,
+but has different register offset and pin configuration, I've introduced
+a pin_to_offset() function to handle the difference of register offset.
+for the drive strength and schmitter trigger settings, they are also changed.
 
-> 
-> It isn't a serious issue for now, and I think this piece of code is
-> acceptable.
-right, I'd be reluctant to do the change
+The patch #1 try to add pin support which should handle pin mux, while patch #2
+adjust drive strength and schmitter trigger settings accordingly for new SoC.
 
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
+---
+Changes in v2:
+- RFC tag removed
+- update dt-binding docs for drive strength
+- fix wrong argument for drive strength
+- Link to v1: https://lore.kernel.org/r/20251220-02-k3-pinctrl-v1-0-f6f4aea60abf@gentoo.org
+
+---
+Yixun Lan (3):
+      dt-bindings: pinctrl: spacemit: add K3 SoC support
+      pinctrl: spacemit: k3: add initial pin support
+      pinctrl: spacemit: k3: adjust drive strength and schmitter trigger
+
+ .../bindings/pinctrl/spacemit,k1-pinctrl.yaml      |  12 +-
+ drivers/pinctrl/spacemit/Kconfig                   |   4 +-
+ drivers/pinctrl/spacemit/pinctrl-k1.c              | 517 +++++++++++++++++++--
+ 3 files changed, 477 insertions(+), 56 deletions(-)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20251125-02-k3-pinctrl-738cbddbe49d
+
+Best regards,
 -- 
-Yixun Lan (dlan)
+Yixun Lan
+
 
 _______________________________________________
 linux-riscv mailing list
