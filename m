@@ -4,90 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4A80E8FDA0
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Dec 2025 05:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D970AE82CDE
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Dec 2025 06:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=81R6RIOq/01dea+vfGdaAiocl9uLMewXf28Nb/dOsj8=; b=JuMvoahAOYwxwq
-	JQmlRxkCVob75Yt7q45k5Yt0NTrv4HV9GvPpEflwaIEaMLUENWEPoC6YJ5cypqPp1jOQJ1ef/7CCz
-	sbebQnRzu+By2rGKVYnYXRmqDwFS/ZmEFkIwIeHzMd2DS1LtiZz/F8RGyT0vZqOM/auPyAtwEmALC
-	xh9M6HCH0WuSEuQSE1bNB8gqxWLv4rhigZva5BONOjyU+13b0NVkxIyDp4eHEAi17FyllfSpfihRC
-	Fg7iwribOCV9ZeC9WBuWixiYNLPnR854zLNRugLS9vX342uPiRdNYCQf9al9zTCb9MhXP1xhXjTDv
-	krnMGdRvs5QBAw9RUEcg==;
+	List-Owner; bh=hHLV5Br/VjnH1feGTHkIyoUcvomb7VkknlpIv5/VLNQ=; b=SamIOfbSdtAZvH
+	xkXXYXoEzhfRsqRW8dGjTLE29F+EAZ0Lnw0Kk+IFMtBABEP/OlW6czlI5FXykY05iefD5IddeqvfR
+	Wp+NnYuOtYgZdE7SoQddADG+hCCkJyhb7NOocXZBFAO9dI5TOiydxm9QPHlis+K/zmpThSYcwSO/J
+	fGSBdI/NOldFdjU3Uul1Um92PUALY8UiE3j1Mnh2gM9LZOEwdXJjSN54wxA4L+Sh8lZS+3PmP15zu
+	oghCwB7V887QdU5sxveI+CvSaaSiI/gDR5PYSEMci03c3uj758stmBItviKArsu/q/KR277aN3iyI
+	F4zniWQPLIv79fJcXoig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZ0r8-00000000w5Z-2xQW;
-	Fri, 26 Dec 2025 05:59:18 +0000
-Received: from smtpbgjp3.qq.com ([54.92.39.34])
+	id 1vZ1hY-00000000yQb-3RdC;
+	Fri, 26 Dec 2025 06:53:28 +0000
+Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZ0r2-00000000w4r-3g4S
+	id 1vZ1hV-00000000yPx-2Oiq
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Dec 2025 05:59:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1766728690;
-	bh=naZAYYRI1JBcsRQk9sPvRjOUBTUxZLDtykBpQJLgSuw=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=JngAh+MQppEx2hWmdB3PBYTZPRbUR1l7A5kXs7kYdhohhx19crMKpcz3XWMESx95I
-	 rJplrSHC4pdWMu3d605nAlwp3JEru4LZVMlBC2ePLJLWIGUAPldtOgxGZ2srSiXn2z
-	 SEqdqE1s20+agEk3Zdac4h+4O3IBspxafCAro15o=
-X-QQ-mid: esmtpgz15t1766728682ta0fc67c3
-X-QQ-Originating-IP: oXV7eas6q4+G5fWnguFIeViUamJ75KfeaJ7jJJI9E9g=
-Received: from = ( [183.48.244.228])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 26 Dec 2025 13:58:00 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8067851373917819696
-EX-QQ-RecipientCnt: 13
-Date: Fri, 26 Dec 2025 13:58:00 +0800
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Alex Elder <elder@riscstar.com>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Lee Jones <lee@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-i2c@vger.kernel.org,
-	linux-rtc@vger.kernel.org
-Subject: Re: [PATCH v3 1/4] i2c: spacemit: configure ILCR for accurate SCL
- frequency
-Message-ID: <BD74A47E5BB66010+aU4j6CgGxebcBV5I@kernel.org>
-References: <20251118-p1-kconfig-fix-v3-0-8839c5ac5db3@linux.spacemit.com>
- <20251118-p1-kconfig-fix-v3-1-8839c5ac5db3@linux.spacemit.com>
- <81eca0ab-47a3-4b12-98ae-fbd46a15ff93@riscstar.com>
+	Fri, 26 Dec 2025 06:53:27 +0000
+Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-6467bed0d2fso4073247d50.0
+        for <linux-riscv@lists.infradead.org>; Thu, 25 Dec 2025 22:53:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1766732003; x=1767336803; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=In4D9uIw9WRI5SeupWLx7/A1v5eMK/I9jTjhCEC0gVE=;
+        b=CyFSi3jreq/sZR5G0vnRnISDkZH54BuvfCtWJBt7amdkiubccx8d8iEnTXjy+8zrjF
+         3DOZLa5k9rPKOFlpJYISj6utuVYwSjA2Z9+L2iYas5gn+YOsoLhzpog+K/U4qRm7EcWW
+         +L4cFPW+J8z/W2YjtM+cbd/1EfoSMOregr3hYpcx3iACfoiPr76vXESMHqbz39fkf6qy
+         iltI55Gb7WHgVvsc212E6RrSJePsulVzHFQNGVrfIuTfVID7nrqRIjH5Zm07akhWKktD
+         qwDtatwX4WLreyihjBkZWefHm/JJOoJEUEYwUiRN83AvK6bqKav8zV1I/QKNMiZPm4ry
+         I07A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766732003; x=1767336803;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=In4D9uIw9WRI5SeupWLx7/A1v5eMK/I9jTjhCEC0gVE=;
+        b=OSi5CXSq+B5xp8gOyLVO2LSEZiPIABjXoeVg5k5xg7iP4p8AaqJEn5klDzulk/WRLW
+         tGyeMYj8Fo8RsF0zc1jhuQTtldhSfNaibdfDZhGTq/z5FTMwlFEhK/02bHDt5fbYaNlz
+         QlN/HfY8bdcrU9GMAqRwUEtCm2yvPftg98itCcpwcZL0knKjEePLalBwsUNBd/WprmDr
+         4DUGZ5mvBrC6M/CpoXSkl54GLSGOdJK5Suax6R3W+NOvxCP5aVWwqufsH6yU66bi/plC
+         kNGlyXr7Yd+Ue80T1QplzUZdxlKlT+uazzus3rJ2+P/wtEGPQL+mH3UjNMQ2ESGS3s1z
+         w4Rg==
+X-Forwarded-Encrypted: i=1; AJvYcCVtW00PpHtNrjO3I2Il6lUqHBND3aDNH93JcjYHW5CzMuGwkmUtA1S3O8aLg3/ClJJNvd/776ifspTKHA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxm5uBrqOfbD18gHLGL8NJ5QWTq872PkINPqMr1MPAx/hTOo3hw
+	mftyY2cNybPEdz1KOBNu+bWkSKzagW6PXqvWC3qikpJGEIGtqBbXrrD2byjgFUFa+KHIwZTL+xu
+	VWPnC5tle4b5+soi3QQC5mNvjciYs3ZrS0PYgXibLoQ==
+X-Gm-Gg: AY/fxX6QdQKClMA9ImCP6KWldiit/+KGVYvnnGGu/9iwGHie4uS5qr8G1zQYrEeDRov
+	tX0Xirvf5dIHCPHRX5tYxS0DOnTQSDBjz5e2TZPqairCuKwOj17JEFS4pKPHYHOAnJr/iyixVPC
+	ynb6jTpQI8FPuvNhC80bescnpR6oJ20s7+8uS68f2cnnYXxkLbqL3WW+JaYFkg2zAW9zplk66vv
+	sTfkOF8XAX7bRKMeykeMImBlSBstVvnCHztFMtOIzoIwxjTSRFe26n7niD7LJe/eedKs8OtlWZT
+	Y399FGF3R3gfDekKECYk/xZ6g64BCgBCaEo5Bc+L
+X-Google-Smtp-Source: AGHT+IEykdaZ4Rha9W0iaPgKCHo3kRALkhoNrPmt5lxv9NvuluuvBnDgd6routLnDG3edhTl56BVVI71jDU66ZvrElQ=
+X-Received: by 2002:a05:690e:1a08:b0:644:5bba:e497 with SMTP id
+ 956f58d0204a3-6466a871e61mr13684712d50.38.1766732003513; Thu, 25 Dec 2025
+ 22:53:23 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <81eca0ab-47a3-4b12-98ae-fbd46a15ff93@riscstar.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MlEcK20dh8y2ahYrz7s7E6C+uyK0sndIC3rJhcQqJqKW9tp3QEjBFFfq
-	fAv1ET2cr+JvmFr4vzdygVxnrxRrB2O5JuH9iAq1L7nha/iR3W/7MS2BalnJQnaFqDELRs7
-	FYDI3mgU7Xv0HIjmlXV2ZS6lGaUYN2+zaDOVo3G3O5MOFbc482ZRAd+q/vhMO/a1FDko2lq
-	V52JkFfHKMBVPh+3jFO9+xarsVzWlw6Oldj0eVOQdlppxHB0Z0UH30gsDL/0DZNek1cdf0u
-	29ECwxVHjj0Xrk/otJ63/DBz7NWPGJIQmHI4RInjb/gnAfVxXxdfK3eRLsLWrG66dTBlp8E
-	UOo1h5mS6vCkxY0WZVUnzkfEeZhlwXXmwgmXfkkNvCR7wWx4XM5Fw+EiFAsMZBa6TnDCp3Z
-	yPIQD3Xv2yZrXjCbtBBvQU2ZzdYc3lY39lHXqH+Jwnm20++17zv7IL9l/fXhMNGgZ9TAzRm
-	Argriy+n07myR1UvKx2oXEdSpD3T0sBIQKgwi7mcnDhEBwiDHXpsQbOGKmKkVmunWtgISxS
-	7IfuvFPKW2JNK+6AqlIStA/VqjDTpeffEFAXzgKLCoSqF80nff80LmBer+b1BEOu2qtnWsg
-	DxC/WhKUe0TvZ0ikhH9DGGfH+Fwz54t+Hz1zu0GL0WfA+BMwffizN7nrIx/6zm7/4M+7pf2
-	++M+euNmYt3ec/4PQ1W7LxOT34Et0MDCpQ6gcVSHzrbeCMezakjrTHOl0StBUux2v3x7lss
-	X+0QQObwj39OfkZWBF0glwobU+B0vulLj8oHxjAPiOmYJcRCmrl1OiaWbF9UnTP5x6ShaXB
-	2ZBVm7A7v8W7N3syGoTiii4dJQSOrpE9qD1tCs+ffNnk2hVM940hPw1OmClwdKUr8uGyuWS
-	/tssDnT1iSPFk9ADVudAfB74Kattz7QmSK4Izhr2uxSP9+U2y6U8Xr4l4TycQly6znSy5ZP
-	fczajv7WuTD0gD7EiSA46QykP9qCEa2AMG6degqjCvtwLnsEYKS6Lcr5+AIOXZYNpIjOODG
-	6x2kytyiAgICXpYpt9RC3XFYfhCyTcrcTm4BNd5Wv9c021Dij1zgeDF8UZLhNGM6i0X66Jp
-	1UZ49TqHmWW7D2Hghhbq2FAFOE+Vy6xmA==
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-RECHKSPAM: 0
+References: <20251216-k3-basic-dt-v1-0-a0d256c9dc92@riscstar.com>
+ <20251216-k3-basic-dt-v1-7-a0d256c9dc92@riscstar.com> <60948ca2-ed3d-485b-9b11-15df7ef8791d@canonical.com>
+ <CAH1PCMb=+TvB1w+G6a2ANDp05HUwC4r6CFBDHXFwSmoP3Mm8xw@mail.gmail.com>
+ <f9b6b5e2-ec9e-4208-8267-77020e0a9411@canonical.com> <20251218-basil-quantum-225ce16e4699@spud>
+ <CAH1PCMZ3KM9-D3NJ1N2LUHTHFSDVKmGKT5fU8knAL7NnV9E-gw@mail.gmail.com>
+ <20251220-repacking-football-c79e660e788a@spud> <4e4c9e7b-d95c-4157-94c3-b06002f94a48@canonical.com>
+ <20251222-dimmer-wooing-db29fe925498@spud>
+In-Reply-To: <20251222-dimmer-wooing-db29fe925498@spud>
+From: Guodong Xu <guodong@riscstar.com>
+Date: Fri, 26 Dec 2025 14:53:10 +0800
+X-Gm-Features: AQt7F2rBtU4YKSmnk202JjvlyhsDSwcTDORz2f5ucxaceC-cTv-SHH-Q_N8lHTA
+Message-ID: <CAH1PCMbane4uN=N0UPRDG9x9NUbD9SYsbH+NnP-gzU6Bo8L2wQ@mail.gmail.com>
+Subject: Re: [PATCH 7/8] riscv: dts: spacemit: add initial device tree of
+ SpacemiT K3 SoC
+To: Conor Dooley <conor@kernel.org>
+Cc: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@sifive.com>, 
+	Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	spacemit@lists.linux.dev, linux-serial@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@gentoo.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Samuel Holland <samuel.holland@sifive.com>, Anup Patel <anup@brainfault.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Lubomir Rintel <lkundrak@v3.sk>, Yangyu Chen <cyy@cyyself.name>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251225_215914_620003_5EB7D1B1 
-X-CRM114-Status: GOOD (  58.04  )
+X-CRM114-CacheID: sfid-20251225_225325_885160_12671E53 
+X-CRM114-Status: GOOD (  46.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,398 +108,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 18, 2025 at 11:32:44AM -0600, Alex Elder wrote:
-> On 11/18/25 12:08 AM, Troy Mitchell wrote:
-> > The SpacemiT I2C controller's SCL (Serial Clock Line) frequency for
-> > master mode operations is determined by the ILCR (I2C Load Count Register).
-> > Previously, the driver relied on the hardware's reset default
-> > values for this register.
-> > 
-> > The hardware's default ILCR values (SLV=0x156, FLV=0x5d) yield SCL
-> > frequencies lower than intended. For example, with the default
-> > 31.5 MHz input clock, these default settings result in an SCL
-> > frequency of approximately 93 kHz (standard mode) when targeting 100 kHz,
-> > and approximately 338 kHz (fast mode) when targeting 400 kHz.
-> > These frequencies are below the 100 kHz/400 kHz nominal speeds.
-> > 
-> > This patch integrates the SCL frequency management into
-> > the Common Clock Framework (CCF). Specifically, the ILCR register,
-> > which acts as a frequency divider for the SCL clock, is now registered
-> > as a managed clock (scl_clk) within the CCF.
-> > 
-> > This patch also cleans up unnecessary whitespace
-> > in the included header files.
-> 
-> I have a few comments below.  Sorry I didn't comment on
-> earlier versions. > Reviewed-by: Yixun Lan <dlan@gentoo.org>
-> > Link: https://lore.kernel.org/all/176244506110.1925720.10807118665958896958.b4-ty@kernel.org/ [1]
-> > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> > ---
-> > This patch was affected by the P1 Kconfig, which caused the maintainer
-> > to revert it.
-> > The current commit is a direct cherry-pick and reserves the original changelog.
-> > This note is to clarify for anyone who sees the cover letter marked as v2
-> > while the changelog entries reach v4.
-> > ---
-> > Changelog in v4:
-> > - initialize clk_init_data with {} so that init.flags is implicitly set to 0
-> > - minor cleanup and style fixes for better readability
-> > - remove unused spacemit_i2c_scl_clk_exclusive_put() cleanup callback
-> > - replace clk_set_rate_exclusive()/clk_rate_exclusive_put() pair with clk_set_rate()
-> > - simplify LCR LV field macros by using FIELD_GET/FIELD_MAX helpers
-> > - Link to v3: https://lore.kernel.org/all/20250814-k1-i2c-ilcr-v3-1-317723e74bcd@linux.spacemit.com/
-> > 
-> > Changelog in v3:
-> > - use MASK macro in `recalc_rate` function
-> > - rename clock name
-> > - Link to v2: https://lore.kernel.org/r/20250718-k1-i2c-ilcr-v2-1-b4c68f13dcb1@linux.spacemit.com
-> > 
-> > Changelog in v2:
-> > - Align line breaks.
-> > - Check `lv` in `clk_set_rate` function.
-> > - Force fast mode when SCL frequency is illegal or unavailable.
-> > - Change "linux/bits.h" to <linux/bits.h>
-> > - Kconfig: Add dependency on CCF.
-> > - Link to v1: https://lore.kernel.org/all/20250710-k1-i2c-ilcr-v1-1-188d1f460c7d@linux.spacemit.com/
-> > ---
-> >   drivers/i2c/busses/Kconfig  |   2 +-
-> >   drivers/i2c/busses/i2c-k1.c | 159 ++++++++++++++++++++++++++++++++++++++++----
-> >   2 files changed, 146 insertions(+), 15 deletions(-)
-> > 
-> > diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
-> > index fd81e49638aaa161ae264a722e9e06adc7914cda..fedf5d31f9035b73a27a7f8a764bf5c26975d0e1 100644
-> > --- a/drivers/i2c/busses/Kconfig
-> > +++ b/drivers/i2c/busses/Kconfig
-> > @@ -798,7 +798,7 @@ config I2C_JZ4780
-> >   config I2C_K1
-> >   	tristate "SpacemiT K1 I2C adapter"
-> >   	depends on ARCH_SPACEMIT || COMPILE_TEST
-> > -	depends on OF
-> > +	depends on OF && COMMON_CLK
-> >   	help
-> >   	  This option enables support for the I2C interface on the SpacemiT K1
-> >   	  platform.
-> > diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
-> > index 6b918770e612e098b8ad17418f420d87c94df166..e38a0ba71734ca602854c85672dcb61423453515 100644
-> > --- a/drivers/i2c/busses/i2c-k1.c
-> > +++ b/drivers/i2c/busses/i2c-k1.c
-> > @@ -4,18 +4,21 @@
-> >    */
-> >   #include <linux/bitfield.h>
-> > - #include <linux/clk.h>
-> > - #include <linux/i2c.h>
-> > - #include <linux/iopoll.h>
-> > - #include <linux/module.h>
-> > - #include <linux/of_address.h>
-> > - #include <linux/platform_device.h>
-> > +#include <linux/bits.h>
-> > +#include <linux/clk.h>
-> > +#include <linux/clk-provider.h>
-> > +#include <linux/i2c.h>
-> > +#include <linux/iopoll.h>
-> > +#include <linux/module.h>
-> > +#include <linux/of_address.h>
-> > +#include <linux/platform_device.h>
-> >   /* spacemit i2c registers */
-> >   #define SPACEMIT_ICR		 0x0		/* Control register */
-> >   #define SPACEMIT_ISR		 0x4		/* Status register */
-> >   #define SPACEMIT_IDBR		 0xc		/* Data buffer register */
-> >   #define SPACEMIT_IRCR		 0x18		/* Reset cycle counter */
-> > +#define SPACEMIT_ILCR		 0x10		/* Load Count Register */
-> >   #define SPACEMIT_IBMR		 0x1c		/* Bus monitor register */
-> >   /* SPACEMIT_ICR register fields */
-> > @@ -87,6 +90,13 @@
-> >   #define SPACEMIT_BMR_SDA         BIT(0)		/* SDA line level */
-> >   #define SPACEMIT_BMR_SCL         BIT(1)		/* SCL line level */
-> > +#define SPACEMIT_LCR_LV_STANDARD_SHIFT		0
-> > +#define SPACEMIT_LCR_LV_FAST_SHIFT		9
-> 
-> Why do you need these SHIFT symbols?  Just use the masks
-> and FIELD_GET() related macros.  I'll provide examples below.
-> 
-> > +#define SPACEMIT_LCR_LV_STANDARD_MASK		GENMASK(8, 0)
-> > +#define SPACEMIT_LCR_LV_FAST_MASK		GENMASK(17, 9)
-> > +#define SPACEMIT_LCR_LV_STANDARD_MAX_VALUE	FIELD_MAX(SPACEMIT_LCR_LV_STANDARD_MASK)
-> > +#define SPACEMIT_LCR_LV_FAST_MAX_VALUE		FIELD_MAX(SPACEMIT_LCR_LV_FAST_MASK)
-> > +
-> >   /* i2c bus recover timeout: us */
-> >   #define SPACEMIT_I2C_BUS_BUSY_TIMEOUT		100000
-> > @@ -104,11 +114,20 @@ enum spacemit_i2c_state {
-> >   	SPACEMIT_STATE_WRITE,
-> >   };
-> > +enum spacemit_i2c_mode {
-> > +	SPACEMIT_MODE_STANDARD,
-> > +	SPACEMIT_MODE_FAST
-> > +};
-> 
-> Will there ever be more than two i2c modes?  If not, this
-> could simply be a Boolean.
-Yes, Will. See below.
-> 
-> > +
-> >   /* i2c-spacemit driver's main struct */
-> >   struct spacemit_i2c_dev {
-> >   	struct device *dev;
-> >   	struct i2c_adapter adapt;
-> > +	struct clk_hw scl_clk_hw;
-> > +	struct clk *scl_clk;
-> > +	enum spacemit_i2c_mode mode;
-> 
-> Perhaps this could be:
-> 
-> 	bool fast_mode;
-hardware also supports high-speed mode.
-
-> 
-> > +
-> >   	/* hardware resources */
-> >   	void __iomem *base;
-> >   	int irq;
-> > @@ -129,6 +148,79 @@ struct spacemit_i2c_dev {
-> >   	u32 status;
-> >   };
-> > +static void spacemit_i2c_scl_clk_disable_unprepare(void *data)
-> > +{
-> > +	struct spacemit_i2c_dev *i2c = data;
-> > +
-> > +	clk_disable_unprepare(i2c->scl_clk);
-> > +}
-> > +
-> > +static int spacemit_i2c_clk_set_rate(struct clk_hw *hw, unsigned long rate,
-> > +				     unsigned long parent_rate)
-> > +{
-> > +	struct spacemit_i2c_dev *i2c = container_of(hw, struct spacemit_i2c_dev, scl_clk_hw);
-> > +	u32 lv, lcr, mask, shift, max_lv;
-> > +
-> > +	lv = DIV_ROUND_UP(parent_rate, rate);
-> 
-> Would DIV_ROUND_CLOSEST() give a more accurate value?
-I'll test it.
-> 
-> > +
-> > +	if (i2c->mode == SPACEMIT_MODE_STANDARD) {
-> > +		mask = SPACEMIT_LCR_LV_STANDARD_MASK;
-> > +		shift = SPACEMIT_LCR_LV_STANDARD_SHIFT;
-> > +		max_lv = SPACEMIT_LCR_LV_STANDARD_MAX_VALUE;
-> > +	} else if (i2c->mode == SPACEMIT_MODE_FAST) {
-> > +		mask = SPACEMIT_LCR_LV_FAST_MASK;
-> > +		shift = SPACEMIT_LCR_LV_FAST_SHIFT;
-> > +		max_lv = SPACEMIT_LCR_LV_FAST_MAX_VALUE;
-> > +	}
-> > +
-> > +	if (!lv || lv > max_lv) {
-> > +		dev_err(i2c->dev, "set scl clock failed: lv 0x%x", lv);
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	lcr = readl(i2c->base + SPACEMIT_ILCR);
-> > +	lcr &= ~mask;
-> > +	lcr |= lv << shift;
-> > +	writel(lcr, i2c->base + SPACEMIT_ILCR);
-> 
-> 	FIELD_MODIFY(mask, &lcr, lv);
-> 
-> I suppose this might give you trouble because the mask isn't
-> constant at compile time, but anyway I think something like
-> this is simpler:
-> 
-> 	lv = DIV_ROUND_CLOSEST(parent_rate, rate);
-> 	lcr = readl(i2c->base + SPACEMIT_ILCR);
-> 	if (i2c->fast_mode)
-> 		FIELD_MODIFY(SPACEMIT_LCR_LV_FAST_MASK, &lcr, lv);
-> 	else
-> 		FIELD_MODIFY(SPACEMIT_LCR_LV_STANDARD_MASK, &lcr, lv);
-> 	writel(lcr, i2c->base + SPACEMIT_ILCR);
-> 
-> Note:  I've never used FIELD_MODIFY(), but it looks like this is
-> how it's supposed to be used.
-Thanks! I'll give it a go.
-> 
-> > +	return 0;
-> > +}
-> > +
-> > +static long spacemit_i2c_clk_round_rate(struct clk_hw *hw, unsigned long rate,
-> > +					unsigned long *parent_rate)
-> > +{
-> > +	u32 lv, freq;
-> > +
-> > +	lv = DIV_ROUND_UP(*parent_rate, rate);
-> > +	freq = DIV_ROUND_UP(*parent_rate, lv);
-> 
-> Consider whether DIV_ROUND_CLOSEST() (in one or both of
-> these) provides a rate that is as close as possible to the
-> requested rate.
-> 
-> > +
-> > +	return freq;
-> > +}
-> > +
-> > +static unsigned long spacemit_i2c_clk_recalc_rate(struct clk_hw *hw,
-> > +						  unsigned long parent_rate)
-> > +{
-> > +	struct spacemit_i2c_dev *i2c = container_of(hw, struct spacemit_i2c_dev, scl_clk_hw);
-> > +	u32 lcr, lv = 0;
-> > +
-> > +	lcr = readl(i2c->base + SPACEMIT_ILCR);
-> > +
-> > +	if (i2c->mode == SPACEMIT_MODE_STANDARD)
-> > +		lv = FIELD_GET(SPACEMIT_LCR_LV_STANDARD_MASK, lcr);
-> > +	else if (i2c->mode == SPACEMIT_MODE_FAST)
-> > +		lv = FIELD_GET(SPACEMIT_LCR_LV_FAST_MASK, lcr);
-> > +	else
-> > +		return 0;
-> 
-> You shouldn't need the last else here.  You can probably tell
-> by inspection that it will always be one mode or the other.
-> And a Boolean reinforces that.
-I'll drop else here.
-
-> 
-> > +
-> > +	return DIV_ROUND_UP(parent_rate, lv);
-> > +}
-> > +
-> > +static const struct clk_ops spacemit_i2c_clk_ops = {
-> > +	.set_rate = spacemit_i2c_clk_set_rate,
-> > +	.round_rate = spacemit_i2c_clk_round_rate,
-> > +	.recalc_rate = spacemit_i2c_clk_recalc_rate,
-> > +};
-> > +
-> >   static void spacemit_i2c_enable(struct spacemit_i2c_dev *i2c)
-> >   {
-> >   	u32 val;
-> > @@ -147,6 +239,26 @@ static void spacemit_i2c_disable(struct spacemit_i2c_dev *i2c)
-> >   	writel(val, i2c->base + SPACEMIT_ICR);
-> >   }
-> > +static struct clk *spacemit_i2c_register_scl_clk(struct spacemit_i2c_dev *i2c,
-> > +						 struct clk *parent)
-> > +{
-> > +	struct clk_init_data init = {};
-> > +	char name[32];
-> > +
-> > +	snprintf(name, sizeof(name), "%s_scl_clk", dev_name(i2c->dev));
-> 
-> What if dev_name(i2c->dev) is longer than 24?  You should
-> be checking the return value here.
-Thanks! I'll check the return value and extend the array size to 64.
-
-> 
-> > +
-> > +	init.name = name;
-> > +	init.ops = &spacemit_i2c_clk_ops;
-> > +	init.parent_data = (struct clk_parent_data[]) {
-> > +		{ .fw_name = "func" },
-> > +	};
-> > +	init.num_parents = 1;
-> > +
-> > +	i2c->scl_clk_hw.init = &init;
-> > +
-> > +	return devm_clk_register(i2c->dev, &i2c->scl_clk_hw);
-> > +}
-> > +
-> >   static void spacemit_i2c_reset(struct spacemit_i2c_dev *i2c)
-> >   {
-> >   	writel(SPACEMIT_CR_UR, i2c->base + SPACEMIT_ICR);
-> > @@ -246,7 +358,7 @@ static void spacemit_i2c_init(struct spacemit_i2c_dev *i2c)
-> >   	 */
-> >   	val |= SPACEMIT_CR_DRFIE;
-> > -	if (i2c->clock_freq == SPACEMIT_I2C_MAX_FAST_MODE_FREQ)
-> > +	if (i2c->mode == SPACEMIT_MODE_FAST)
-> >   		val |= SPACEMIT_CR_MODE_FAST;
-> >   	/* disable response to general call */
-> > @@ -538,14 +650,15 @@ static int spacemit_i2c_probe(struct platform_device *pdev)
-> >   		dev_warn(dev, "failed to read clock-frequency property: %d\n", ret);
-> 
-> I don't think there's any need to warn when the "clock-frequency"
-> property is not found.  It's an optional property, and the default
-> is specified in the binding to be 400 KHz.
-I will fix it in another patch.
-> 
-> >   	/* For now, this driver doesn't support high-speed. */
-> > -	if (!i2c->clock_freq || i2c->clock_freq > SPACEMIT_I2C_MAX_FAST_MODE_FREQ) {
-> > -		dev_warn(dev, "unsupported clock frequency %u; using %u\n",
-> > -			 i2c->clock_freq, SPACEMIT_I2C_MAX_FAST_MODE_FREQ);
-> > +	if (i2c->clock_freq > SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ &&
-> > +	    i2c->clock_freq <= SPACEMIT_I2C_MAX_FAST_MODE_FREQ) {
-> > +		i2c->mode = SPACEMIT_MODE_FAST;
-> > +	} else if (i2c->clock_freq && i2c->clock_freq <= SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ) {
-> > +		i2c->mode = SPACEMIT_MODE_STANDARD;
-> So this I2C driver will literally support *either* the standard
-> speed *or* the high speed frequency.  Is this a necessary
-> restriction?  If it is, perhaps the DT binding should be
-> clear that the speeds should be one of those supported
-> (because anything else will result in using a supported
-> speed, not the one provided).
-I think there may be a misunderstanding here.
-The documentation already states that:
-
-K1 supports three different modes running at different frequencies:
-- standard speed mode: up to 100000 (100 kHz)
-- fast speed mode    : up to 400000 (400 kHz)
-- high speed mode........
-
-The mode only defines the valid frequency range.
-In standard mode, the maximum frequency is 100 kHz; in fast mode,
-the valid range is 100 kHz to 400 kHz.
-
-The exact operating frequency is determined by the ILCR register.
-This is precisely the motivation for this patch: without it, once
-the mode is selected, the actual bus frequency depends solely on the
-ILCR reset value rather than the clock-frequency provided by DT.
-
-                              - Troy
->
-> 
-> (Sorry, these last two comments are not about your patch,
-> but about the driver that's already accepted.)
-> 
-> 					-Alex
-> 
-> > +	} else {
-> > +		dev_warn(i2c->dev, "invalid clock-frequency, fallback to fast mode");
-> > +		i2c->mode = SPACEMIT_MODE_FAST;
-> >   		i2c->clock_freq = SPACEMIT_I2C_MAX_FAST_MODE_FREQ;
-> > -	} else if (i2c->clock_freq < SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ) {
-> > -		dev_warn(dev, "unsupported clock frequency %u; using %u\n",
-> > -			 i2c->clock_freq,  SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ);
-> > -		i2c->clock_freq = SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ;
-> >   	}
-> >   	i2c->dev = &pdev->dev;
-> > @@ -567,10 +680,28 @@ static int spacemit_i2c_probe(struct platform_device *pdev)
-> >   	if (IS_ERR(clk))
-> >   		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable func clock");
-> > +	i2c->scl_clk = spacemit_i2c_register_scl_clk(i2c, clk);
-> > +	if (IS_ERR(i2c->scl_clk))
-> > +		return dev_err_probe(&pdev->dev, PTR_ERR(i2c->scl_clk),
-> > +				     "failed to register scl clock\n");
-> > +
-> >   	clk = devm_clk_get_enabled(dev, "bus");
-> >   	if (IS_ERR(clk))
-> >   		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable bus clock");
-> > +	ret = clk_set_rate(i2c->scl_clk, i2c->clock_freq);
-> > +	if (ret)
-> > +		return dev_err_probe(&pdev->dev, ret, "failed to set rate for SCL clock");
-> > +
-> > +	ret = clk_prepare_enable(i2c->scl_clk);
-> > +	if (ret)
-> > +		return dev_err_probe(&pdev->dev, ret, "failed to prepare and enable clock");
-> > +
-> > +	ret = devm_add_action_or_reset(dev, spacemit_i2c_scl_clk_disable_unprepare, i2c);
-> > +	if (ret)
-> > +		return dev_err_probe(&pdev->dev, ret,
-> > +				     "failed to register cleanup action for clk disable and unprepare");
-> > +
-> >   	spacemit_i2c_reset(i2c);
-> >   	i2c_set_adapdata(&i2c->adapt, i2c);
-> > 
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBEZWMgMjMsIDIwMjUgYXQgNDozNuKAr0FNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBIZWlucmljaCwgU2FtdWVsLAo+Cj4gT24gU3VuLCBEZWMgMjEs
+IDIwMjUgYXQgMDE6MTA6MTVBTSArMDEwMCwgSGVpbnJpY2ggU2NodWNoYXJkdCB3cm90ZToKPiA+
+IE9uIDEyLzIxLzI1IDAwOjIzLCBDb25vciBEb29sZXkgd3JvdGU6Cj4gPiA+IE9uIEZyaSwgRGVj
+IDE5LCAyMDI1IGF0IDEwOjAzOjI0QU0gKzA4MDAsIEd1b2RvbmcgWHUgd3JvdGU6Cj4gPiA+ID4g
+SGksIENvbm9yIGFuZCBIZWlucmljaAo+ID4gPiA+Cj4gPiA+ID4gT24gVGh1LCBEZWMgMTgsIDIw
+MjUgYXQgODo1NuKAr0FNIENvbm9yIERvb2xleSA8Y29ub3JAa2VybmVsLm9yZz4gd3JvdGU6Cj4g
+PiA+ID4gPgo+ID4gPiA+ID4gT24gV2VkLCBEZWMgMTcsIDIwMjUgYXQgMDk6MDc6MTRBTSArMDEw
+MCwgSGVpbnJpY2ggU2NodWNoYXJkdCB3cm90ZToKPiA+ID4gPiA+ID4gT24gMTIvMTcvMjUgMDg6
+MTEsIEd1b2RvbmcgWHUgd3JvdGU6Cj4gPiA+ID4gPgo+ID4gPiA+ID4gPiA+IFNwZWNpZmljYWxs
+eSwgSSBtdXN0IGFkaGVyZSB0bwo+ID4gPiA+ID4gPiA+IERvY3VtZW50YXRpb24vZGV2aWNldHJl
+ZS9iaW5kaW5ncy9yaXNjdi9leHRlbnNpb25zLnlhbWwgKGFuZCBjcHVzLnlhbWwgZm9yCj4gPiA+
+ID4gPiA+ID4gcHJvcGVydGllcyBsaWtlICdyaXNjdixzdjM5JyB3aGljaCBzdGFuZHMgZm9yIHRo
+ZSBleHRlbnNpb24gU3YzOSkuIElmIEkKPiA+ID4gPiA+ID4gPiBhZGQgZXh0ZW5zaW9uIHN0cmlu
+Z3MgdGhhdCBhcmUgbm90IHlldCBkZWZpbmVkIGluIHRoZXNlIHNjaGVtYXMsIHN1Y2ggYXMKPiA+
+ID4gPiA+ID4gPiBzdXBtLCBydW5uaW5nICdtYWtlIGR0YnNfY2hlY2sgVz0zJyBmYWlscyB3aXRo
+OiAnc3VwbScgaXMgbm90IG9uZSBvZgo+ID4gPiA+ID4gPiA+IFsnaScsICdtJywgJ2EnLCAuLi5d
+LCBmb2xsb3dlZCBieSAiVW5ldmFsdWF0ZWQgcHJvcGVydGllcyBhcmUgbm90IGFsbG93ZWQuIgo+
+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiBJZiBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGlu
+Z3MvcmlzY3YvZXh0ZW5zaW9ucy55YW1sIGlzIGluY29tcGxldGUKPiA+ID4gPiA+ID4gd2l0aCBy
+ZXNwZWN0IHRvIHJhdGlmaWVkIGV4dGVuc2lvbnMsIEkgZ3Vlc3MgdGhlIHJpZ2h0IGFwcHJvYWNo
+IGlzIHRvIGFtZW5kCj4gPiA+ID4gPiA+IGl0IGFuZCBub3QgdG8gY3VydGFpbCB0aGUgQ1BVIGRl
+c2NyaXB0aW9uLgo+ID4gPiA+ID4KPiA+ID4gPiA+IEFic29sdXRlbHkuIElmIHRoZSBjcHUgc3Vw
+cG9ydHMgc29tZXRoaW5nIHRoYXQgaXMgbm90IGRvY3VtZW50ZWQsIHRoZW4KPiA+ID4gPiA+IHBs
+ZWFzZSBkb2N1bWVudCBpdCByYXRoZXIgdGhhbiBvbWl0IGZyb20gdGhlIGRldmljZXRyZWUuCj4g
+PiA+ID4KPiA+ID4gPiBUaGFua3MgZm9yIHRoZSByZXZpZXcuIE1heSBJIGNsYXJpZnkgb25lIHRo
+aW5nPyBCb3RoIG9mIHlvdSBtZW50aW9uZWQKPiA+ID4gPiBkb2N1bWVudCB0aGVtLCBnaXZlbiB0
+aGUgYW1vdW50IG9mIG1pc3NpbmcgZXh0ZW5zaW9ucywgaXMgaXQgYWNjZXB0YWJsZSBpZgo+ID4g
+PiA+IEkgc3VibWl0IGEgcHJlcmVxdWlzaXRlIHBhdGNoIHRoYXQgb25seSBkb2N1bWVudHMgdGhl
+c2Ugc3RyaW5ncyBpbgo+ID4gPiA+IHJpc2N2L2V4dGVuc2lvbnMueWFtbCBwbHVzIHRoZSBuZWNl
+c3NhcnkgaHdwcm9iZSBleHBvcnQ/IExlYXZpbmcgdGhlIGFjdHVhbAo+ID4gPiA+IHVzYWdlIG9m
+IHRoZXNlIGV4dGVuc2lvbnMgKG5hbWVkIGZlYXR1cmVzKSB0byB0aGUgZnV0dXJlIHBhdGNoZXMu
+Cj4gPiA+ID4KPiA+ID4gPiBUbyBwcm92aWRlIHNvbWUgY29udGV4dCBvbiB3aHkgSSBhc2s6IEkn
+dmUgaW52ZXN0aWdhdGVkIHRoZSBjb21taXRzICYgbGttbAo+ID4gPiA+IGhpc3Rvcnkgb2YgUklT
+Qy1WIGV4dGVuc2lvbnMgc2luY2UgdjYuNSwgYW5kIEkgc3VtbWFyaXplZCB0aGUgY3VycmVudCBz
+dGF0dXMKPiA+ID4gPiByZWdhcmRpbmcgdGhlIFJWQTIzIHByb2ZpbGUgaGVyZToKPiA+ID4gPiBb
+MV0gc3RhdHVzIGluIHY2LjE4IChpbmMuIHY2LjE5LXJjMSk6Cj4gPiA+ID4gaHR0cHM6Ly9kb2N1
+bGFyeHUuZ2l0aHViLmlvL3J2YTIzL2xpbnV4LWtlcm5lbC1jb3ZlcmFnZS5odG1sCj4gPiA+ID4g
+WzJdIHN1cHBvcnQgZXZvbHV0aW9uIHNpbmNlIHY2LjU6Cj4gPiA+ID4gaHR0cHM6Ly9kb2N1bGFy
+eHUuZ2l0aHViLmlvL3J2YTIzL3J2YTIzLWtlcm5lbC1zdXBwb3J0LWV2b2x1dGlvbi5odG1sCj4g
+PiA+ID4KPiA+ID4gPiBTdHJpY3RseSBkZXNjcmliaW5nIHRoZSBTcGFjZW1pVCBYMTAwL0szIChv
+ciBhbnkgY29yZSkgYXMgUlZBMjMtY29tcGxpYW50Cj4gPiA+ID4gcmVxdWlyZXMgYWRkaW5nIHRo
+ZXNlIGV4dGVuc2lvbnMgdGhhdCBhcmUgY3VycmVudGx5IG1pc3NpbmcgZnJvbQo+ID4gPiA+IHRo
+ZSBrZXJuZWwgYmluZGluZ3M6Cj4gPiA+ID4gUlZBMjNVNjQ6IFppY2NpZiwgWmljY2Ftb2EsIFpp
+Y2Nsc20sIFphNjRycwo+ID4gPiA+IFJWQTIzUzY0OiBTczFwMTMsIFNzY2NwdHIsIFNzdHZlY2Qs
+IFNzdHZhbGEsIFNzY291bnRlcmVudywgU3N1NjR4bCwKPiA+ID4gPiAgICAgICAgICAgIFNoYSwg
+U2hjb3VudGVyZW53LCBTaHZzdHZhbGEsIFNodHZhbGEsIFNodnN0dmVjZCwgU2h2c2F0cGEsIFNo
+Z2F0cGEKPiA+ID4KPiA+ID4KPiA+ID4gPiBQbHVzICdTdXBtJywgJ1ppYzY0YicsICdTc3N0YXRl
+ZW4nLCAnQicgd2hlcmUgdGhlIGtlcm5lbCBzdXBwb3J0cyB0aGVtIGJ1dAo+ID4gPiA+IHRoZXkg
+YXJlIG5vdCBsaXRlcmFsbHkgZG9jdW1lbnRlZCBpbiB5YW1sLgo+ID4gPgo+ID4gPiBJIGRvbid0
+IHRoaW5rIFN1cG0gaXMgc3VpdGFibGUgZm9yIGRldmljZXRyZWUsIGRvZXNuJ3QgaXQgZGVzY3Jp
+YmUKPiA+ID4gd2hhdCB0aGUga2VybmVsL3VzZXJzcGFjZSBhcmUgY2FwYWJsZSBvZiByYXRoZXIg
+dGhhbiBoYXJkd2FyZT8KPiA+ID4gWmljNjRiIGRvZXNuJ3Qgc291bmQgbGlrZSBoYXJkd2FyZSBk
+ZXNjcmlwdGlvbiAoc28gbm90IHJlYWxseSBzdWl0YWJsZQo+ID4gPiBmb3IgZGV2aWNldHJlZSBl
+aXRoZXIpIGJ1dCBibG9jayBzaXplIGluZm9ybWF0aW9uIGlzIGFscmVhZHkgcmVwcmVzZW50ZWQK
+PiA+ID4gYnkgc29tZSBleGlzdGluZyBwcm9wZXJ0aWVzIChzZWUgcmlzY3YsY2JvKi1ibG9jay1z
+aXplIGluIHJpc2N2L2NwdXMueWFtbCkKPiA+ID4gYW5kIGR1cGxpY2F0aW5nIHRoYXQgaW5mb3Jt
+YXRpb24gaXMgbm90IHJlYWxseSBhIGdyZWF0IGlkZWEuCj4gPiA+Cj4gPiA+IEknbGwgYWRtaXQg
+dGhhdCBJIGRvIG5vdCByZWFsbHkgdW5kZXJzdGFuZCBTeHN0YXRlZW4gYW5kIGhvdyB0aGV5IHdv
+cmssCj4gPiA+IGJ1dCBteSB1bmRlcnN0YW5kaW5nIHdhcyB0aGF0IGtub3dpbmcgYWJvdXQgU21z
+dGF0ZWVuIGlzIHN1ZmZpY2llbnQgYW5kCj4gPiA+IGltcGxpZWQgU3N0YXRlZW4sIGJ1dCBoYXZp
+bmcgU3NzdGF0ZWVuIGRlZmluZWQgc2VlbXMgaGFybWxlc3MgYW5kCj4gPiA+IHBvc3NpYmxlLiBJ
+IHRoaW5rIGt2bSBpcyB0aGUgb25seSB1c2VyIG9mIHRoaXMgYXQgdGhlIG1vbWVudCwgc28KPiA+
+ID4gcHJvYmFibHkgd29ydGggQ0NpbmcgQW51cCBhbmQgbWF5YmUgRHJldyBKb25lcyBvbiB0aGUg
+cGF0Y2ggYWRkaW5nCj4gPiA+IFNzc3RhdGVlbiB0byBtYWtlIHN1cmUgaXQgbWFrZXMgc2Vuc2Uu
+Cj4gPgo+ID4gU3VwbSBpcyBkZXNjcmliZWQgaW4KPiA+Cj4gPiBSSVNDLVYgUG9pbnRlciBNYXNr
+aW5nCj4gPiBWZXJzaW9uIDEuMCwgMTAvMjAyNDogUmF0aWZpZWQKPiA+IGh0dHBzOi8vcmF3Lmdp
+dGh1YnVzZXJjb250ZW50LmNvbS9yaXNjdi9yaXNjdi1qLWV4dGVuc2lvbi9tYXN0ZXIvempwbS1z
+cGVjLnBkZgo+ID4KPiA+IFRoZSBpbnRlcnByZXRhdGlvbiB0YWtlbiBieSBRRU1VIGhhcyBiZWVu
+Ogo+ID4KPiA+ICogU3VwbSBpbXBsaWVzIFNzbnBtIGFuZCBTbW5wbQo+ID4gKiBSVkEyMyBjYXBh
+YmxlIG1hY2hpbmUgbW9kZWxzIGRpc3BsYXkgaXQgaW4gdGhlIGRldmljZS10cmVlCj4gPgo+ID4g
+SWYgU3VwbSBpcyBub3Qgc2hvd24gaW4gdGhlIGRldmljZS10cmVlLCBzb2Z0d2FyZSBtaWdodCBh
+c3N1bWUgdGhhdCB0aGUKPiA+IHN5c3RlbSBkb2VzIG5vdCBzdXBwb3J0IHBvaW50ZXIgbWFza2lu
+ZyBpbiB1c2VyIG1vZGUgYW5kIGlzIG5vdCBSVkEyMwo+ID4gY29tcGxpYW50Lgo+ID4KPiA+IEhl
+bmNlIEkgd291bGQgc3VnZ2VzdDoKPiA+Cj4gPiBJZiB0aGUgWDEwMCBjb3JlcyBoYXZlIFNzbnBt
+IGFuZCBTbW5wbSwgYWRkIFN1cG0gdG8gdGhlIGRldmljZS10cmVlLgo+ID4KPiA+IElmIHRoZSBr
+ZXJuZWwgZG9lcyBub3Qgc3VwcG9ydCB1c2VyIHNwYWNlIHBvaW50ZXIgbWFza2luZywgdGhlIGtl
+cm5lbCBzaG91bGQKPiA+IGZpbHRlciBvdXQgU3VwbSBhbmQgbm90IGFubm91bmNlIGl0LCBuZWl0
+aGVyIGluIC9wcm9jL2NwdWluZm8gbm9yIHZpYQo+ID4gaHdwcm9iZS4KPgo+IFNhbXVlbCBzZWVt
+cyB0byBoYXZlIHNvbWUgc3BlY2lmaWMgdGhvdWdodHMgb24gaG93IHRoaXMgd29ya3MsIGdpdmVu
+IGhlCj4gZGlkbid0IGJsaW5kbHkgaW1wbGVtZW50IHNzbnBtIGFuZCBzbW5wbSwgYnV0IGhhcyBt
+YWRlIHN1cG0gYmUgbW9kZQo+IGRlcGVuZGVudCBhbmQgbm90IHBlcm1pdHRlZCBpbiBkdCwgaG9w
+ZWZ1bGx5IGhlIHNlZXMgdGhpcy4KPgo+IFBlcnNvbmFsbHkgSSdtIG5vdCBjb252aW5jZWQgdGhh
+dCBwdXR0aW5nIHN1cG0gaW4gZHQgbWFrZXMgc2Vuc2UsIGJ1dAo+IGluc3RlYWQgdGhlIGtlcm5l
+bCBzaG91bGQgaW1wbHkgaXQgaWYgdGhlIHN4bnBtIGV4dGVuc2lvbiBtYXRjaGluZyB0aGUKPiBt
+b2RlIHRoZSBrZXJuZWwgaXMgb3BlcmF0aW5nIGluIGlzIHByZXNlbnQgYW5kIFJJU0NWX0lTQV9T
+VVBNIGlzIHNldCBpbgo+IEtjb25maWcuIFRoYXQncyBlZmZlY3RpdmVseSBob3cgaXQgd29ya3Mg
+YXQgcHJlc2VudCwgZXhjZXB0IGl0J2QgaW52b2x2ZQo+IHByb21vdGluZyBSSVNDVl9JU0FfU1VQ
+TSB0byBhICJyZWFsIiBleHRlbnNpb24gaW5zdGVhZCBvZiBiZWluZyBhIG1hY3JvLgo+IEEgdmFs
+aWRhdGUgY2FsbGJhY2sgc2hvdWxkIGVhc2lseSBiZSBhYmxlIHRvIGhhbmRsZSBjaGVja2luZyB0
+aGUKPiBtb2RlIGFuZCB3aGV0aGVyIHRoZSBLY29uZmlnIG9wdGlvbiBpcyBzZXQuCgpIaSwgQ29u
+b3IKCkFzIHdlIHdhaXQgZm9yIFNhbXVlbCB0byBzaGFyZSBoaXMgb3BpbmlvbiwgbWF5YmUgSSBj
+YW4gc3VibWl0IGEgcGF0Y2ggaW4KKEkgYWxyZWFkeSBoYXZlIGl0KQpteSBuZXh0IHZlcnNpb24g
+b3IgYXMgaW4gYSBkaWZmZXJlbnQgcGF0Y2hzZXQgdG8gaW1wbGVtZW50IHdoYXQgeW91IHN1Z2dl
+c3RlZC4KIC0gQXNzaWduIFJJU0NWX0lTQV9FWFRfU1VQTSBhIHN0YW5kYWxvbmUgZXh0IG51bWJl
+ciBpbiBod2NhcC5oCiAtIEltcGxlbWVudCBhIHJpc2N2X2V4dF9zdXBtX3ZhbGlkYXRlKCkgYW5k
+IHB1dCBpdCBpbiB0aGUgY2FsbGJhY2sgb2YgYm90aAogICAgc3NucG0gYW5kIHNtbnBtLgogLSBL
+Y29uZmlnIHdpbGwgYmUga2VwdCBhcyBhIHRvcCBsZXZlbCBnYXRla2VlcGVyLCBubyBjaGFuZ2Uu
+CiAtIGR0LWJpbmRpbmcgZW50cnkgZm9yIHN1cG0gd2lsbCBub3QgYmUgYWRkZWQuCgpUaGUgb25s
+eSByZWFzb24gc3VwcG9ydCBtZSB0byBhZGQgc3VtcCBpbnRvIHRvIHRoZSBkdCBiaW5kaW5nCihl
+eHRlbnNpb25zLnlhbWwpIGlzIGl0J3Mgbm93IGEgbWFuZGF0b3J5IGV4dGVuc2lvbiByZXF1aXJl
+ZCBieSBSVkEyM1U2NC4KSG93ZXZlciwgYXMgeW91IGV4cGxhaW5lZCwgdGhhdCBsb2dpYyBzZWVt
+cyBub3Qgc3Ryb25nIGVub3VnaC4KClRoYW5rIHlvdS4KQmVzdCByZWdhcmRzLApHdW9kb25nIFh1
+Cgo+IFRoYXQgd2F5IGl0IHdvdWxkIGdldCBleHBvc2VkIHRvIHVzZXJzcGFjZSB1c2luZyB0aGUg
+YWN0dWFsIG1lY2hhbmlzbXMsCj4gcmVhZGluZyB0aGUgZGV2aWNldHJlZSBpdHNlbGYgZnJvbSB1
+c2Vyc3BhY2UgaXMgbm90IGEgdmFsaWQgd2F5IG9mCj4gY2hlY2tpbmcgd2hhdCBleHRlbnNpb25z
+IGFyZSB1c2FibGUgYWZ0ZXIgYWxsLgo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
