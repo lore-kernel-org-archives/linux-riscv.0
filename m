@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C588E92704
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Dec 2025 12:58:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17BE4E92704
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Dec 2025 12:59:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dkeDCZzwe7CstEAPNRTDE6O21l/MXEtrZfG9TK3+Lo4=; b=zXeE2+JRmEFuzz
-	iJNxLwl5PgmSgvXGcVlz47/WgDxPgrB/NMZH9wfISN/d5URlPg8tZJOkhOkOnluOYfL35GclhbhT5
-	97pGbt5XjQ1Gsmy1Wvr0EH5TLW+eLowJ2yy6ImTeZJomcZRZEVXPase9G0OxQ4Jl/xMXUfsBOlNMe
-	NNtIonY4izSW2aFM8bnvNxBD/4UCt8nIy3T/tQGP7kjmSTe6D9F2wcqvECkIanvkZGCGYTg2WOoN1
-	8igcRLwteiYGrsgQIyLhfjpV8iZMX7FNsVa6rba9SHQC86zKYmAb8OeZdd9SFvO2wYotCvdEXb5tt
-	mbLNqX62Pyy9KpH1l4XQ==;
+	List-Owner; bh=dPoALxXnjdyRfupuc7LsnlSsPOekJ+r90NDbcV5bGYw=; b=R/+0q2rrcEBlG2
+	DXH1pCXQrFM3xceD+CvTCGo8r47rBg/Qbp8/9Nvu2gM7DCag8Sd6ngbJJWhExnUd1HSl0vxev6ua6
+	WfmyKECPVwVRDWBStjKSU5Ij8fJjZU/uQLn+DmlMyUhf+woPqc+VRkvYD0vjVdc5QTJN/d0wY12He
+	HGmwZOaErIJHVLILp+1Sz5CHGhIAsB8N1LiehypG6V+uUVdmW4O+TF2VhNiCCcf1Nfqs/ql8AWDJo
+	DED2wEqIczQ2EEnUx/AourrxERNndIJG/svwMlNQz2oNafkfkeNbasDmEKNeHn0YitlZfVVTRVs62
+	ZNvV1tnYTLbNB5v6XWdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTsK-00000001zQU-04H7;
-	Sat, 27 Dec 2025 12:58:28 +0000
+	id 1vZTsn-00000001zUs-1S9l;
+	Sat, 27 Dec 2025 12:58:57 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTsI-00000001zPy-00F1
+	id 1vZTsk-00000001zUI-33Pw
 	for linux-riscv@lists.infradead.org;
-	Sat, 27 Dec 2025 12:58:27 +0000
+	Sat, 27 Dec 2025 12:58:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 40A55441D7;
-	Sat, 27 Dec 2025 12:58:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E1AAC4CEF1;
-	Sat, 27 Dec 2025 12:58:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5D7E34025C;
+	Sat, 27 Dec 2025 12:58:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D75D5C4CEF1;
+	Sat, 27 Dec 2025 12:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766840305;
-	bh=/pXRR/sWcGQCcY5EBpPQcvK8Drdg24de1jwnX3o0WXU=;
+	s=k20201202; t=1766840334;
+	bh=k4FB5zVKTKqkWa9q1H2Dj2JT2mpBhRONcOMtrdXSqvo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lTWjKue4TjA1ChtdzFqrhqVW8jMA2ZJhY0FS9H3uB6ODx57QrTRsooBNJDU/sWjtg
-	 l8oLOuVJ++slptmhKHpqpCQ3jOaucdGTxmTqvXoHAxCWj69XOE2zWZPBatwzcMwHaQ
-	 ko67X//SoFPtUoxeJRL0QXKgOiRbYBfQrfWNAzqP92TSE/bpP1h3LTzxaQijJhkgql
-	 Hrg6T1sQz2W3kdUvHPT/yGRqxYyDU2S3OStsZL/brZtjBOKB5S9LWm5KDeFElZrnI9
-	 3odLcPYqreAbaryfcizU+3Szdt/r1qp80aIcK98G3gzs2E2lOwaNEO+kDRar5ZYS4g
-	 GXFdCLv8Dutbw==
-Date: Sat, 27 Dec 2025 13:58:22 +0100
+	b=a3tfka+8fd5bfBRBJw4GDpHKx+C9QZYi1/1GeoC0lJDaWrWmz2VbKlF6Dh5Gbmxt3
+	 zFQRB5XBreiQvlF+27l6rjI3wh4CZq3vneXmiIaSEH5dHmX2IIdtfKUOEy/04LSQnw
+	 JzJA2jc1HLPsmmx8IC/WMYAzGRJLiGM+T/sNtiUGc8eG9hb1kRLXhyAlRgCZ/BGfGA
+	 h/HbRz8vyBaJrY/NTTMoR2ovlKY1sbXNHYeoBFV/Ixxj0Ase55sFq/pqomiSrhtaOe
+	 hlthOFUkZc5w/rXIcge7f5zzB6ze7sPtrIVA+g0Xx0wkP/qYJjgMB5bC2aYOChjeJl
+	 PEgXCD6uSt8og==
+Date: Sat, 27 Dec 2025 13:58:52 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 Cc: Rob Herring <robh@kernel.org>, 
@@ -52,15 +52,16 @@ Cc: Rob Herring <robh@kernel.org>,
 	Linus Walleij <linusw@kernel.org>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
 Subject: Re: [PATCH 1/2] dt-bindings: pinctrl: add syscon property
-Message-ID: <20251227-sambar-of-imminent-persistence-fd8c51@quoll>
+Message-ID: <20251227-lavender-turkey-from-camelot-ab6aec@quoll>
 References: <20251223-kx-pinctrl-aib-io-pwr-domain-v1-0-5f1090a487c7@linux.spacemit.com>
  <20251223-kx-pinctrl-aib-io-pwr-domain-v1-1-5f1090a487c7@linux.spacemit.com>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <20251223-kx-pinctrl-aib-io-pwr-domain-v1-1-5f1090a487c7@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251227_045826_069202_7444C30D 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20251227_045854_783168_6A4F3DB5 
+X-CRM114-Status: UNSURE (   8.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,58 +86,21 @@ On Tue, Dec 23, 2025 at 05:11:11PM +0800, Troy Mitchell wrote:
 > The ASAR register resides within the APBC register address space.
 > A corresponding syscon property is added to allow the pinctrl driver
 > to access this register.
-> 
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> ---
->  .../devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml      | 11 +++++++++++
->  1 file changed, 11 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
-> index c5b0218ad6251f97b1f27089ffff724a7b0f69ae..4dc49c2cc1d52008ad89896ae0419091802cd2c4 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
-> @@ -32,6 +32,15 @@ properties:
->    resets:
->      maxItems: 1
->  
-> +  spacemit,apbc:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    items:
-> +      - items:
-> +          - description: phandle to syscon that access the protected register
-> +          - description: offset of access secure registers
-> +    description:
-> +      A phandle to syscon with byte offset to access the protected register
+>
 
-Say here for what purpose.
+Also:
 
-> +
->  patternProperties:
->    '-cfg$':
->      type: object
-> @@ -111,6 +120,7 @@ required:
->    - reg
->    - clocks
->    - clock-names
-> +  - spacemit,apbc
+Please use subject prefixes matching the subsystem. You can get them for
+example with 'git log --oneline -- DIRECTORY_OR_FILE' on the directory
+your patch is touching. For bindings, the preferred subjects are
+explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
 
-That's ABI break without justification.
+You are not adding syscon to all pinctrls.
 
->  
->  additionalProperties: false
->  
-> @@ -128,6 +138,7 @@ examples:
->              clocks = <&syscon_apbc 42>,
->                       <&syscon_apbc 94>;
->              clock-names = "func", "bus";
-> +            spacemit,apbc = <&syscon_apbc 0x50>;
->  
->              uart0_2_cfg: uart0-2-cfg {
->                  uart0-2-pins {
-> 
-> -- 
-> 2.52.0
-> 
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
