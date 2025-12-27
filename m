@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 033B9E8FDD8
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Dec 2025 13:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0207CE9271A
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Dec 2025 18:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HOjby7pa7h7E4bK6dqOcW2stu8S3jkYTj+cfygv3DeE=; b=mn6qYOFLDaSwc6
-	TwLaQAtYL7ei5CqV1RsFbrxG8u8SWvCYssDgY1vqusThF/FZzW2kpa/8VTXubxJ4kDdIJkrxfpJzS
-	1Ue1jLqATh99B0tqU8ZU0qA34115g6z0lETgTnd8M2ythYjEK8HB0loBJ3G/ZKrMIrM65wThwjYik
-	3L9E1caE4hg3EazFH6oKz15cWLBtMjm+NXN0bRq2Z+H8urNRPM2otya+c3yFOg3FzgPhidO8ff4+/
-	rSuOl/4PBi1hXez/77nT9tynA/DCZSC+poeEXdExPEEqH0mYml/MuWPzHdEWB50Pe630mk1XY1Jws
-	1iel/7X6y0ejgqhbSBlw==;
+	List-Owner; bh=mtkBQ6uL4j4IhjtRxH1aM+hM4gFTx7INfp0YviUzBnA=; b=caOCB1JJQwlAkf
+	IgDIwLxpH1Q66uH1UxqZLA2ruA36C35mZH01W3wUxe5K4JZ/jlbCI/lPZkhJ5rNMzbeKJp7X9Dxv9
+	8WJ82lcZvOeaZ0iYYDxynsCWZtxWOqJ6+AeykHrwdOFLvzYWtrWLGt1poNF/X6L9V6RO+d5QGY6Ho
+	yQ/WkY97JDJlL5pMYaq1NAMU6XGwo3CHmp1kCbfiPghG3lpgFOLIYKPyskisCGLSmJ4ayuf0x6Xjx
+	e7GZrgovIzP+FP1OrA3BaUJiTUnIw7v5+Ju14mXuasJIm/Zqck5b2HdNts9LLwIjaQNBbpZ+IdSig
+	9m3IALNF8O5KURxFQEZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTuE-00000001zfI-3Rdn;
-	Sat, 27 Dec 2025 13:00:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vZZPG-000000028dY-32C3;
+	Sat, 27 Dec 2025 18:52:50 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTuD-00000001zf7-2TGS
+	id 1vZZPD-000000028dB-2EVu
 	for linux-riscv@lists.infradead.org;
-	Sat, 27 Dec 2025 13:00:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A97426000A;
-	Sat, 27 Dec 2025 13:00:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADFFEC4CEF1;
-	Sat, 27 Dec 2025 13:00:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766840424;
-	bh=Gh6gqoS5hMGDmiIF264QlqRD2aJHzbjUVlGUqxG43cU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XRgVXU5YOBBADhBt7fo0NPjp5x67v/ZS3Kkc5iQtFeEVf9ojbZuhzwTJ5EX9g7Ad4
-	 Lk0DgezSXYiM6gm73K6CvbfUzrNTQyGM9xqP5VsiST3jUsq6RurBWB7vSkD9AZUi5y
-	 dnZwfCO+feez9AMKLXMr0Pp+CMNDtjEsrtPFASUClKbh3y45B7xosdX5beSLGhomyB
-	 OXYrD+9RkAllOvCBSE68bylE4SRO3Mir03EEsrFlreW54K3SrPGWHBy4dEvOYmtT8M
-	 jBMDuj7Yco6Se8vEQL3Mxq4O4CNs9/D1bdra63n3jLNC4qNqRq0CoUhtiybmOfIZAJ
-	 uyeqLV/Z6rbqQ==
-Date: Sat, 27 Dec 2025 14:00:21 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Linus Walleij <linusw@kernel.org>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH 2/2] pinctrl: spacemit: support I/O power domain
- configuration
-Message-ID: <20251227-pastel-certain-orca-4b53cf@quoll>
-References: <20251223-kx-pinctrl-aib-io-pwr-domain-v1-0-5f1090a487c7@linux.spacemit.com>
- <20251223-kx-pinctrl-aib-io-pwr-domain-v1-2-5f1090a487c7@linux.spacemit.com>
+	Sat, 27 Dec 2025 18:52:48 +0000
+Received: from localhost (unknown [116.232.18.222])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 7FCE0340F7B;
+	Sat, 27 Dec 2025 18:52:42 +0000 (UTC)
+Date: Sun, 28 Dec 2025 02:52:31 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Haylen Chu <heylenay@4d2.org>,
+	Guodong Xu <guodong@riscstar.com>,
+	Inochi Amaoto <inochiama@gmail.com>, Yao Zi <me@ziyao.cc>,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/5] dt-bindings: soc: spacemit: add k3 syscon
+ compatible
+Message-ID: <20251227185231-GYA2018741@gentoo.org>
+References: <20251226-k3-clk-v3-0-602ce93bb6c3@gentoo.org>
+ <20251226-k3-clk-v3-1-602ce93bb6c3@gentoo.org>
+ <20251227-glaring-aromatic-raven-cbe30c@quoll>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251223-kx-pinctrl-aib-io-pwr-domain-v1-2-5f1090a487c7@linux.spacemit.com>
+In-Reply-To: <20251227-glaring-aromatic-raven-cbe30c@quoll>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251227_105247_596136_7F16A6F5 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,72 +76,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 23, 2025 at 05:11:12PM +0800, Troy Mitchell wrote:
-> IO domain power control registers are used to configure the operating
-> voltage of dual-voltage GPIO banks. By default, these registers are
-> configured for 3.3V operation. As a result, even when a GPIO bank is
-> externally supplied with 1.8V, the internal logic continues to
-> operate in the 3.3V domain, which may lead to functional failures.
-> 
-> This patch adds support for programming the IO domain power control
+Hi Krzysztof,
 
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
-
-> registers, allowing dual-voltage GPIO banks to be explicitly configured
-> for 1.8V operation when required.
-> 
-> Care must be taken when configuring these registers. If a GPIO bank is
-> externally supplied with 3.3V while the corresponding IO power domain
-> is configured for 1.8V, external current injection (back-powering)
-> may occur, potentially causing damage to the GPIO pin.
-> 
-> Due to these hardware constraints and safety considerations, the IO
-> domain power control registers are implemented as secure registers.
-> Access to these registers requires unlocking via the AIB Secure Access
-> Register (ASAR) in the APBC block before a single read or write
-> operation can be performed.
-> 
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> ---
->  arch/riscv/boot/dts/spacemit/k1.dtsi  |   4 +-
-
-No, this never, never comes together with driver code. You cannot fix
-non-bisectability and ABI break that way.
-
-Read carefully maintainers soc profile and submitting patches in DT dir.
-
+On 12:25 Sat 27 Dec     , Krzysztof Kozlowski wrote:
+> On Fri, Dec 26, 2025 at 07:01:16PM +0800, Yixun Lan wrote:
+> > The SpacemiT K3 SoC clock IP is scattered over several different blocks,
+> > which are APBC, APBS, APMU, DCIU, MPMU, all of them are capable of
+> > generating clock and reset signals. APMU and MPMU have additional Power
+> > Domain management functionality.
+> > 
 ...
+> >  
+> >  properties:
+> >    compatible:
+> > -    const: spacemit,k1-pll
+> > +    contains:
+> 
+> No drop, there is no such syntax for this property, so you copied here
+> something completely different.
+oh, will drop it in next version
 
-
->  static int spacemit_pinctrl_probe(struct platform_device *pdev)
->  {
-> +	struct device_node *np = pdev->dev.of_node;
->  	struct device *dev = &pdev->dev;
->  	struct spacemit_pinctrl *pctrl;
->  	struct clk *func_clk, *bus_clk;
-> @@ -816,6 +927,18 @@ static int spacemit_pinctrl_probe(struct platform_device *pdev)
->  	if (IS_ERR(pctrl->regs))
->  		return PTR_ERR(pctrl->regs);
->  
-> +	pctrl->io_pd_reg = devm_platform_ioremap_resource(pdev, 1);
-> +	if (IS_ERR(pctrl->io_pd_reg))
-> +		return PTR_ERR(pctrl->io_pd_reg);
-> +
-> +	pctrl->regmap_apbc =
-> +		syscon_regmap_lookup_by_phandle_args(np, "spacemit,apbc", 1,
-> +						     &pctrl->regmap_apbc_offset);
-> +
-> +	if (IS_ERR(pctrl->regmap_apbc))
-> +		return dev_err_probe(dev, PTR_ERR(pctrl->regmap_apbc),
-> +				     "failed to get syscon\n");
-
-Actual ABI break.
-
-Best regards,
-Krzysztof
-
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
