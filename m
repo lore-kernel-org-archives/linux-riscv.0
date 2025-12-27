@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3DC5E92716
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Dec 2025 19:26:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C97AE92710
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Dec 2025 19:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X34LK61oE0AW3NZoxHJN42z3trHLD7Bdv1R+/UNu0xM=; b=TQpz3OMIyf/XIt
-	q5Pu9bWqxrB39AVC+2ryYWSHDUMXOterIFivnj9PeYYE1s3V/4wPP9vBwlBjzBmly2+0WoxXjayLz
-	vkwVR+XgrXs46fjNgUjnymxmOmkMko7lOFFHxFJhkfFpZochz7RBCGb9UzIfoxHh/RT7iYl/Faaoa
-	sIu3Q3tGNulJTm7Snc6K8ZjrOw+oJwKQ1K+YLPbv/vaY5lMXLkk5zsFUTLSPvcLi6OadtBcQxLYgx
-	LT2JvUPKIY7GndxNVMx3wE7w4qFSLehu24EHvfj/pqGbuOhiCblHHofcUz37IgkCEQtRlc0HLHbcS
-	eXvTIfgGPz9jwQ2smjRQ==;
+	List-Owner; bh=hD2j6JGO2B+Uvs1U3gUYw9mxLdF5jaIOw14hq4kuCHg=; b=Wiz2shRtEMhBO9
+	VWb8q9fQJ20ZF6bonIF1PssTHoIPhs7ZU/Wy36LuPoHPkNTB2+b7cM4f53IbRRo6D4pocIBHSO+1v
+	EgJ2UCeoSOqFatnAHTg0e07icD3ffpoXlZlKqxcZujihBT9UDJju4NK4OzSva/ENO3Ja8qo/z+Q+U
+	i0KiPW4HvWH0YIuCOJISvkXIS5O07c2g+/TkDeCzLLlwJqLbTOaQlQBNM2KM04d7ipJaqVPUk6fQh
+	yDUPOuXG8xJRNrmIrV24/X+XjoKGy3SrdL2vss/dogun11iwavFwZbQwvXY0rzX2II5kkiL1o6gWW
+	xx3FBR2vGq/4BEZBaHvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZZvr-000000029Pw-0K0G;
-	Sat, 27 Dec 2025 19:26:31 +0000
+	id 1vZa84-00000002ATf-0Ggd;
+	Sat, 27 Dec 2025 19:39:08 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZZvp-000000029PX-1JDz
+	id 1vZa81-00000002ASy-1O77
 	for linux-riscv@lists.infradead.org;
-	Sat, 27 Dec 2025 19:26:30 +0000
+	Sat, 27 Dec 2025 19:39:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1783A43D31;
-	Sat, 27 Dec 2025 19:26:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89A4BC4CEF1;
-	Sat, 27 Dec 2025 19:26:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 474DC44173;
+	Sat, 27 Dec 2025 19:39:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1827C4CEFB;
+	Sat, 27 Dec 2025 19:38:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766863587;
-	bh=g6XM4F8uz0727eTzV4+CObVOUm/jIwZfW3Pg+ZtYyqY=;
+	s=k20201202; t=1766864344;
+	bh=5UfU9wK/UiZIrl88vtYC0Bz1Q47olwIt+/+4hqtNt34=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AlOUttL+vXbzz9KSbTnp6sMpeWUu4zX1iCBTZ5zfLx/SuhKrgfxW3fQg9qzMX4A5q
-	 U8PNbnNtxJr3AfJ3S2j0G7Ux3naYZMFitjcriQdkVamRTzpsBum2s7d4es1aXno1q7
-	 OcpI/MWNclC8ExQ3QRQWhWtZJxFJ7mTfnCMXc9IHv4Uq36atnXXDc89lztcMGByIHR
-	 XbtMBELD6KiwpKHZcWfz1VZCaoFDbn+o9TpMB2NB8o7soDB9D6NpiI5op8PgDKUApS
-	 oDhwCTjbLJTLi1RlQ/F60v+KvMlEzdLJDX/+/V597F5E3Z0/0XI86GtAq7Gt6kQsXQ
-	 OX1NcdFeUUOtw==
-Date: Sat, 27 Dec 2025 20:26:14 +0100
+	b=gyrU8F5ZzWWmPIpdjmw0aVcqJiF+u/bG5HdWZK6Kkc9E5GwCznMLSEVeqvr6Gtl6S
+	 6Kth5oylNBE5owYyN43ACifqVGOUPewH3ozWBjJ4N0Wbgc0sXNiCiI0n3837FvigG8
+	 bZozZUjbBV7klvMNJs3XCrheOPKfSAI/KjGhqfkhRKeGRPiBygtf1UsRpSTmcKLnY+
+	 O1T4qlWhdyWWZRMK5H/ca4puTDtKoyodzvSNFT36Zym9a2gh6JOnmJA9okL4sFCc2P
+	 EZlCDFQ3fh//+eTVHjnECSvUTDXf/cLCgTjZG/1xoyezGMTPliW8FaSAh1YlT85SMx
+	 euTe352qzt0Wg==
+Date: Sat, 27 Dec 2025 20:38:44 +0100
 From: Andi Shyti <andi.shyti@kernel.org>
-To: Guodong Xu <guodong@riscstar.com>
-Cc: Encrow Thorne <jyc0019@gmail.com>, 
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Troy Mitchell <troymitchell988@gmail.com>, 
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] i2c: k1: add reset support
-Message-ID: <zjrd3dgvcg3pxmn4455iljtugbufr4igyokdycusyhpykbzyl5@nrwgz366wm67>
-References: <20251219-i2c-reset-v2-0-ad201a602e74@gmail.com>
- <20251219-i2c-reset-v2-2-ad201a602e74@gmail.com>
- <2dmrli7yzznpurg74wet4oidhljjf3csdjly2dwpyvyndhrec3@uc6ke7mep6fv>
- <CAH1PCMbGbe6MQtAucf-4W+H_G0LrvPNGyaB_OUyxqf5TF=jixg@mail.gmail.com>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Yixun Lan <dlan@gentoo.org>, Alex Elder <elder@riscstar.com>, 
+	Aurelien Jarno <aurelien@aurel32.net>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
+	Troy Mitchell <troymitchell988@gmail.com>, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH v5 0/2] i2c: spacemit: introduce pio for k1
+Message-ID: <bjbt6gqnqtorlrft2oezr6mxuyywhebdmlnidtqlpf3qputojm@hkdp5a7boozb>
+References: <20251226-k1-i2c-atomic-v5-0-023c798c5523@linux.spacemit.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAH1PCMbGbe6MQtAucf-4W+H_G0LrvPNGyaB_OUyxqf5TF=jixg@mail.gmail.com>
+In-Reply-To: <20251226-k1-i2c-atomic-v5-0-023c798c5523@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251227_112629_408277_3008C346 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20251227_113905_388144_1A6366F1 
+X-CRM114-Status: UNSURE (   7.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,30 +70,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgR3VvZG9uZywKCk9uIEZyaSwgRGVjIDI2LCAyMDI1IGF0IDA3OjM4OjIyQU0gKzA4MDAsIEd1
-b2RvbmcgWHUgd3JvdGU6Cj4gT24gRnJpLCBEZWMgMjYsIDIwMjUgYXQgNTowMeKAr0FNIEFuZGkg
-U2h5dGkgPGFuZGkuc2h5dGlAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPiA+ICsgICAgIHJzdCA9IGRl
-dm1fcmVzZXRfY29udHJvbF9nZXRfb3B0aW9uYWxfZXhjbHVzaXZlX2RlYXNzZXJ0ZWQoZGV2LCBO
-VUxMKTsKPiA+ID4gKyAgICAgaWYgKElTX0VSUihyc3QpKQo+ID4gPiArICAgICAgICAgICAgIHJl
-dHVybiBkZXZfZXJyX3Byb2JlKGRldiwgUFRSX0VSUihyc3QpLAo+ID4gPiArICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICJmYWlsZWQgdG8gYWNxdWlyZSBkZWFzc2VydGVkIHJlc2V0
-XG4iKTsKPiA+Cj4gPiBJZiB0aGlzIGlzIG9wdGlvbmFsLCB3aHkgYXJlIHdlIHJldHVybmluZyB3
-aXRoIGVycm9yPwo+ID4KPiAKPiBBY2NvcmRpbmcgdG8gaW5jbHVkZS9saW51eC9yZXNldC5oLCBp
-ZiB0aGUgcmVxdWVzdGVkIHJlc2V0IGlzIG5vdAo+IHNwZWNpZmllZCBpbiB0aGUgZGV2aWNlIHRy
-ZWUsIHRoaXMgZnVuY3Rpb24gcmV0dXJucyBOVUxMIGluc3RlYWQgb2YKPiBhbiBlcnJvci4gVGhl
-cmVmb3JlLCBJU19FUlIocnN0KSB3aWxsIG9ubHkgYmUgdHJ1ZSBmb3IgYWN0dWFsCj4gZXJyb3Jz
-IChlLmcgcHJvYmUgZGVmZXJyYWwpLgoKQW5kIHRoaXMgaXMgcXVpdGUgb2J2aW91cywgYnV0IHlv
-dSBoYXZlbid0IGFuc3dlcmVkIG15IHFlc3Rpb24uCgpXaHkgZG8gd2UgY2FyZSBvZiBpbnRlcm5h
-bCBmYWlsdXJlcyBpbiByZXNldD8gSWYgcmVzZXQgZmFpbHMgb24KYW4gb3B0aW9uYWwgcmVzZXQg
-Y29udHJvbCBmdW5jdGlvbiB3aHkgc2hvdWxkIHdlIGtpbGwgb3VyIGRyaXZlcj8KSnVzdCBpZ25v
-cmUgdGhlIGVycm9yIGFuZCBtb3ZlIGZvcndhcmQgYXMgd2UgaGF2ZSBkb25lIHVudGlsIG5vdy4K
-CklmIHRoZSBrZXJuZWwgaXMgc3VmZmVyaW5nIGZyb20gaW50ZXJuYWwgZmFpbHVyZXMgKHNheSBF
-Tk9NRU0pLAppdCB3aWxsIGZhaWwgYW55d2F5IG9yLCB3aXRoIHNvbWUgbHVjaywgcmVjb3Zlci4K
-CkFuZGkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Troy,
+
+On Fri, Dec 26, 2025 at 11:31:09AM +0800, Troy Mitchell wrote:
+> This patch introduces I2C PIO functionality for the Spacemit K1 SoC,
+> enabling the use of I2C in atomic context.
+> 
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> ---
+> Troy Mitchell (2):
+>       i2c: spacemit: replace i2c_xfer_msg()
+>       i2c: spacemit: introduce pio for k1
+
+Do we still have RnB and Tested by Aurelien here?
+
+Andi
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
