@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC2D8E92704
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Dec 2025 12:43:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EACE3E8FDCC
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Dec 2025 12:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PY4oi13IkkP8oGQgaMA4dy1O2EJCKaOERL2DAz/EBmM=; b=EUlGemQYpNv905
-	M8kbB0Eg2PDeTYgwwRgZH7SroyNLPQzz9vT6kDfjcFE5fmqOCGsFE8lxLdHIHZbdParKqWwXc7lNJ
-	u8QfZj6o+M6no+850E6IblPhT7V3p3YxG3c5JbgYUbYWUVfeNS+0dQqaeiCbQutl5AdLSG0YeNlWn
-	ZdID90yVZIclGWQsjFWY7yqVYJAVnwuRrwb26x3OFr7YncZOxbstevcVuioBQw2h/RpvblNlVK3+0
-	d8k7X5rw0xG9TSluo2V8iI9Y7uhAyAya/lBVUZD7z6dDesCi13EScxyzOd25T6ApdEDG0IQXHNYfh
-	PJuSAYKwepL571s90Gxg==;
+	List-Owner; bh=ZC1EYRIy78eShKGSK7Kw8tCKbuMqId6tw9PvfTKaqDI=; b=BIYLVkdJU9X7sR
+	p9SCKMcRc6AF5hNT+pAamCim0A3CLhxcH5zWrkmpb32OjcBqQU6zTqF1Ziz/2eXSehuD0JR0skSJ0
+	lPOmfA30psDTs7hzkncDeKRx1CDBqSZTu9qV2/J5YDRDotb2NU4XaFja7GiNOvAMQFIDnpfnpauvp
+	Hyap9/ketS53JasU2VUVbbhcD81rwO3B+r9PiLnZjLP/IKxDLqDEmLihYJZsGQn1WSgLkAtTDCWvO
+	KcwZC20Qrggs+sXO0fADRk8DHMVfsCbRMopc7b5sfAuhu1OY2C+MHKOMX0+DS0I+8PRvGLrUHvf+M
+	mcFSiHgh32OG2mTZ64bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTdO-00000001yr0-2JH5;
-	Sat, 27 Dec 2025 12:43:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vZTrH-00000001zM1-2bCm;
+	Sat, 27 Dec 2025 12:57:23 +0000
+Received: from mailer.gwdg.de ([134.76.10.26])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTdN-00000001yqr-0Ay8
+	id 1vZTrE-00000001zLi-0f7P
 	for linux-riscv@lists.infradead.org;
-	Sat, 27 Dec 2025 12:43:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0B6436000A;
-	Sat, 27 Dec 2025 12:43:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FB05C4CEF1;
-	Sat, 27 Dec 2025 12:42:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766839379;
-	bh=evZsjUyJHrxkPefhOiZUy0dqWLUa+4V2/GdjlFkFNnI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YLWk2arydbLSzy/AnZ2BZ6imA8M4zOPW9cm9RSS0dwJnJK4ULnLL/1TPCAPkz3ylQ
-	 NYdeQeLd2rn6Ml1t+VkRE6fJ+vD32YTbNo1rEI6jETciiq65AMpCiIqI23MRgMUrJ9
-	 pg2AeobEuaaT1wKWM99ISpLpG7nwiQDrg1ZF7y61h5fRSkzB8vXDN/MjeQBfbFYtRv
-	 QUnOA1btcsORE9l0zGDnBQNmnaXnOKQc3E5ZogduThQlf6MwYrdjKfoBL/g6K8LEUT
-	 D6p28pqUbT7T4zz2MAFErlYavypbulKlZDNoS7LQSFMJE+RUDomQhVM86g0GpYa9ns
-	 wyI1hA+OPxoAA==
-Date: Sat, 27 Dec 2025 13:42:57 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: =?utf-8?Q?Beno=C3=AEt?= Monin <benoit.monin@bootlin.com>
-Cc: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
-	Gregory CLEMENT <gregory.clement@bootlin.com>, =?utf-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Tawfik Bayouk <tawfik.bayouk@mobileye.com>, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-mips@vger.kernel.org
-Subject: Re: [PATCH v2 01/10] dt-bindings: soc: mobileye: Add EyeQ7H OLB
-Message-ID: <20251227-bipedal-wombat-of-correction-d71fd8@quoll>
-References: <20251224-clk-eyeq7-v2-0-81744d1025d9@bootlin.com>
- <20251224-clk-eyeq7-v2-1-81744d1025d9@bootlin.com>
+	Sat, 27 Dec 2025 12:57:22 +0000
+Received: from mbx19-sub-05.um.gwdg.de ([10.108.142.70] helo=email.gwdg.de)
+	by mailer.gwdg.de with esmtps (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
+	(GWDG Mailer)
+	(envelope-from <lukas.gerlach@cispa.de>)
+	id 1vZTr9-000AU4-0r;
+	Sat, 27 Dec 2025 13:57:15 +0100
+Received: from Mac.speedport.ip (10.250.9.200) by MBX19-SUB-05.um.gwdg.de
+ (10.108.142.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.35; Sat, 27 Dec
+ 2025 13:57:14 +0100
+From: Lukas Gerlach <lukas.gerlach@cispa.de>
+To: Deepak Gupta <debug@rivosinc.com>
+CC: <linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>, <pjw@kernel.org>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <linux-kernel@vger.kernel.org>,
+	<daniel.weber@cispa.de>, <michael.schwarz@cispa.de>,
+	<marton.bognar@kuleuven.be>, <jo.vanbulck@kuleuven.be>
+Subject: Re: [PATCH 1/2] riscv: Use pointer masking to limit uaccess speculation
+Date: Sat, 27 Dec 2025 13:57:03 +0100
+Message-ID: <20251227125703.80908-1-lukas.gerlach@cispa.de>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <aUXxW3iZOClLNofi@debug.ba.rivosinc.com>
+References: <aUXxW3iZOClLNofi@debug.ba.rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251224-clk-eyeq7-v2-1-81744d1025d9@bootlin.com>
+X-Originating-IP: [10.250.9.200]
+X-ClientProxiedBy: MBX19-GWD-08.um.gwdg.de (10.108.142.61) To
+ MBX19-SUB-05.um.gwdg.de (10.108.142.70)
+X-Virus-Scanned: (clean) by clamav
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251227_045720_197413_62928F47 
+X-CRM114-Status: UNSURE (   4.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,35 +69,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBEZWMgMjQsIDIwMjUgYXQgMTE6MDc6MTRBTSArMDEwMCwgQmVub8OudCBNb25pbiB3
-cm90ZToKPiArICAnI3Jlc2V0LWNlbGxzJzoKPiArICAgIGRlc2NyaXB0aW9uOgo+ICsgICAgICBG
-aXJzdCBjZWxsIGlzIGRvbWFpbiBhbmQgb3B0aW9uYWwgaWYgY29tcGF0aWJsZSBoYXMgYSBzaW5n
-bGUgcmVzZXQgZG9tYWluLgo+ICsgICAgICBTZWNvbmQgY2VsbCBpcyByZXNldCBpbmRleCBpbnNp
-ZGUgdGhhdCBkb21haW4uCj4gKyAgICBlbnVtOiBbIDEsIDIgXQo+ICsKPiArICAnI2Nsb2NrLWNl
-bGxzJzoKPiArICAgIGNvbnN0OiAxCj4gKwo+ICsgIGNsb2NrczoKPiArICAgIG1pbkl0ZW1zOiAx
-Cj4gKyAgICBtYXhJdGVtczogMgo+ICsKPiArICBjbG9jay1uYW1lczoKPiArICAgIG1pbkl0ZW1z
-OiAxCj4gKyAgICBtYXhJdGVtczogMgo+ICsKPiArcmVxdWlyZWQ6Cj4gKyAgLSBjb21wYXRpYmxl
-Cj4gKyAgLSByZWcKPiArICAtICcjY2xvY2stY2VsbHMnCj4gKyAgLSBjbG9ja3MKPiArICAtIGNs
-b2NrLW5hbWVzCj4gKwo+ICthZGRpdGlvbmFsUHJvcGVydGllczogZmFsc2UKClRoaXMgZ29lcyBi
-ZWZvcmUgZXhhbXBsZXMgc2VjdGlvbi4KCj4gKwo+ICthbGxPZjoKPiArICAtIGlmOgo+ICsgICAg
-ICBwcm9wZXJ0aWVzOgo+ICsgICAgICAgIGNvbXBhdGlibGU6Cj4gKyAgICAgICAgICBjb250YWlu
-czoKPiArICAgICAgICAgICAgZW51bToKPiArICAgICAgICAgICAgICAtIG1vYmlsZXllLGV5ZXE3
-aC1kZHIwLW9sYgo+ICsgICAgICAgICAgICAgIC0gbW9iaWxleWUsZXllcTdoLWRkcjEtb2xiCj4g
-KyAgICAgICAgICAgICAgLSBtb2JpbGV5ZSxleWVxN2gtbWlwczAtb2xiCj4gKyAgICAgICAgICAg
-ICAgLSBtb2JpbGV5ZSxleWVxN2gtbWlwczEtb2xiCj4gKyAgICAgICAgICAgICAgLSBtb2JpbGV5
-ZSxleWVxN2gtbWlwczItb2xiCj4gKyAgICAgICAgICAgICAgLSBtb2JpbGV5ZSxleWVxN2gtcGVy
-aXBoLWVhc3Qtb2xiCj4gKyAgICAgICAgICAgICAgLSBtb2JpbGV5ZSxleWVxN2gtc291dGgtb2xi
-Cj4gKyAgICB0aGVuOgo+ICsgICAgICBwcm9wZXJ0aWVzOgo+ICsgICAgICAgIGNsb2NrczoKPiAr
-ICAgICAgICAgIG1heEl0ZW1zOiAxCj4gKyAgICAgICAgICBkZXNjcmlwdGlvbjoKPiArICAgICAg
-ICAgICAgUmVmZXJlbmNlIGlucHV0IGNsb2NrLgoKSnVzdCB1c2UgaXRlbXMgd2l0aCBkZXNjcmlw
-dGlvbiBzeW50YXgsIGxpa2UgZXZlcnl3aGVyZSBlbHNlLgoKV2l0aCB0aGVzZSBmaXhlZDoKClJl
-dmlld2VkLWJ5OiBLcnp5c3p0b2YgS296bG93c2tpIDxrcnp5c3p0b2Yua296bG93c2tpQG9zcy5x
-dWFsY29tbS5jb20+CgpCZXN0IHJlZ2FyZHMsCktyenlzenRvZgoKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Thanks for the review. You're right - we should only clear the sign bit
+(b38/b47/b56 depending on mode), not b63. Clearing upper bits would
+interfere with pointer masking.
+
+Here's a fix that computes the sign bit position arithmetically to avoid
+branches, this ensures the mitigation cannot be bypassed under speculation.
+This is basically the VA_BITS macro but computed in a branch-free way.
+
+In arch/riscv/include/asm/uaccess.h:
+
+  #define UACCESS_SIGN_BIT \
+      (VA_BITS_SV39 - 1 + 9*((unsigned long)pgtable_l4_enabled) + \
+       9*((unsigned long)pgtable_l5_enabled))
+
+  #define uaccess_mask_ptr(ptr) ((__typeof__(ptr))__uaccess_mask_ptr(ptr))
+  static inline void __user *__uaccess_mask_ptr(const void __user *ptr)
+  {
+      return (void __user *)((unsigned long)ptr & ~BIT_ULL(UACCESS_SIGN_BIT));
+  }
+
+This evaluates to bit 38 for Sv39, bit 47 for Sv48, and bit 56 for Sv57.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
