@@ -4,93 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 948F7E8FDBE
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Dec 2025 23:24:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A96CEE784BE
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Dec 2025 23:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hwgV3NjWUWbAt6g4+GnIV03JPcNJQlawGXeedsWf5RM=; b=vajq3Hwwj2/s08
-	Wl6IIMFGwvqu92Mgrv4B3whiVZkMet5uolL7vBYT5/UtSkckC1vqBLjCcAbNpRH4ZHrVnpKasmAqc
-	G2FDWh6NFFyyQnO/4lwlJH7VfwKrwGpG5Mnqs+K8udx/gpoFYOOwMmTuxc75/9KRCTs3XV1MRWZ67
-	9jzC58Mbhvkou1BsVEoBdPBnC2CbsMrhBzGpkuEsgSPZnKkHO6IGjXq8t1kEtWeRytc2PZ83cQ69e
-	I43ODCwkSJqJmo9WZJ9KO6EIEU0b4ogkSkGAl74/A5b1TW1DlZ76phMrH12KCx8r1e2/quo+ucgk8
-	FE1i6jmrzxew1K95QXaw==;
+	List-Owner; bh=Uyu0dEHA3FpYGP1XXx0ZRRXdlQ7FzdobhUUkcM9NYVk=; b=UW4EFvshxBxK39
+	nV9uXSczd20JFyr5GXiOqczM0PUD/S/SqZgvOv6dVT+bPg5SzAmpMlpQeNwjhPcVxFSxCvO5bHekZ
+	QFA8MOBRENTpwYiGWSHP1VHVMoF834gqiocCRUiI9RXJckH4q2j1Vl9ELdsAIjfNimpwHMNO342Qt
+	0e4w35yxDtC0TFci3XoOW15uQzNv4IUmbhrUQ7cZO5L05hc5Px6K36Klxkk+/Dl/YN3LV5SODG1Kj
+	EMc/kD/FS/7zlR0xgdiMvhp6Hr5B7QJ1QNEyQ00tZkBnaayaOXzXWKsWpSFB1i5MKWe92VVP3vqHq
+	GgisPeTtaaHCg/z+6DMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va07i-0000000365M-1fJn;
-	Sun, 28 Dec 2025 23:24:30 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1va0Wj-0000000377c-3IYH;
+	Sun, 28 Dec 2025 23:50:21 +0000
+Received: from mail-qk1-x744.google.com ([2607:f8b0:4864:20::744])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va07e-0000000364b-3dxE
+	id 1va0Wh-0000000377F-0kt7
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 Dec 2025 23:24:28 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-4f1ab2ea5c1so120454701cf.3
-        for <linux-riscv@lists.infradead.org>; Sun, 28 Dec 2025 15:24:25 -0800 (PST)
+	Sun, 28 Dec 2025 23:50:20 +0000
+Received: by mail-qk1-x744.google.com with SMTP id af79cd13be357-8b2148ca40eso1377565485a.1
+        for <linux-riscv@lists.infradead.org>; Sun, 28 Dec 2025 15:50:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1766964265; x=1767569065; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1766965818; x=1767570618; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=xydt6mikMK7J/ACpt60zKlMdVmmHvuDTKG/LIZvEl0Q=;
-        b=hUiEOF18mz5bRxSrN4psmH9R1l04n3UpDfUbwhVv6P2Ndz/m3LpOzC/rC8ohXS9tpT
-         Ieq6i/iwiKkBShOJUCa+q95Ai5NEyDuS1/5VdsADK3kW+xt8J5LJl3P8ZVYsevCK6KCp
-         W41/wtp8PD6Arp5qRqeNZRpQusPX+ZsHQFukFZfnIp/hAqkTfapxsGC+PCRDNO0Zlx5H
-         yd9BThn6+jwSWMD2vfdglNn0AXZu/Zn/2Km2hQMPVHqpsBAYU3BKOZlOyBRazZS49Uze
-         4j8S6w5JYFJKY/d/31pw+HbZkNaNI6aKb4xwHn9sMt7KxgRs9zppSgzwe+bISSRWM27o
-         DJkQ==
+        bh=GpN54oVgQguU3p5JgPy3uhgmnh+wgxqdR+Icp20pf+8=;
+        b=pnycaIHJCYB3e1zn1tWX8JibhJPFlNBHcYf7yoY7Lb45LTU3esCCiQNsNjKuLEWvUY
+         JIMwpW4lDq4a9ZPUh1WVqiW/3ZfpmLYnWI9XD5j5HVmdPizERuMaSXHMeYmEMvzk7+ce
+         hDUHbTQQwPu39jBEFf7wAdfDRXRzHRwiHIiPD1uIdGTyjAMYpxbSEUF1q/7G11nodeG9
+         vp+3v7MM7b5Q8j3JdZaQy2ik/4nyAZePBE9H4D6rHJRu8dv/Jq1BQTHrFKJHF3TC8s2+
+         el/xCdk0yI1L87tIQxwgZydmtWxNJ2dhIrYo8Q08AW+i/hiOA6adQHPIa4Y07yKVZ/gX
+         3EjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766964265; x=1767569065;
+        d=1e100.net; s=20230601; t=1766965818; x=1767570618;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=xydt6mikMK7J/ACpt60zKlMdVmmHvuDTKG/LIZvEl0Q=;
-        b=M1qRw0qDR3jPbTjE/EcYq6QyeX/GBJ+Eg83/IlFePXqpjFyMRfBA5gp6t1OYW2RDvC
-         lgl3xlqQwfiiZXrG7ex6Wgo1PsMfD9Q3ccoggPmf/J8r77A1iLwtMTsx4UKCvsDHk4A0
-         mhKavaSZizs7K9iDNDeKcBeN71T284+zGoBi1xBCowQQ68y8kCoD4cjGaLKuZBLv8xHz
-         ZFpoafoENc8ppEH4mugYXVv/PVyKj5sZzVCKuBxahc+n1vjlvOWgHDf0PCnzgsiNssHR
-         qq3c5R+0mWMRpOZhcZQjBXB9fzggSgIE229woysuSGn9Z3GTq6QUkBQSyFv8nSY22zK/
-         ovEA==
-X-Forwarded-Encrypted: i=1; AJvYcCVy2kCVfp6qkD0KfZJKTvSfaGp5giwZg71ec6LbSYaTs3M0stDmB3NNRNHqLUzi78m/jCQFim8DcFvbAg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/r+cS2zTfjVzse9wThYh2bOsRO6k/x0YYSim13k+gf9hX7+jg
-	Q2vKlaiJ7bShiq6FMlpKExzS666y0N2MGo6T3iFEOLEmwl+b594PyWVPMs7T3HePRf0=
-X-Gm-Gg: AY/fxX7RKcU1FIVSRNf8HyuMMUWYI0tZtCGzCrRDJhTFNycEI8QxtWy/ofAHdkLHGJP
-	tvBBmp+iKyhSXm2M0ehFbek4TfqltS6NlKbENEFBn3i51cTlYGW2Axl/JcIWSw6kTe81Hvg0qkj
-	qAAvWQvll+db/gHtQbyEd1NOcLW1eBRXS72tlQHUBdrqfenoZvEwG7JHv6NBaeR/hvG9XXqSl1t
-	OYqDQkxuQOB4ZuBTHbqP0wteigyzJj04zfLhVd6ZANDUjETBrJ3HS4zcnWnJGFxQvc0yUUiICMP
-	V8ZcRY32RYPH3Inwud0SbIJ36H9ru66/QBMQAsfECYAozx1jK0F8bTCmPaqk36kJY0QNRz7SBl2
-	MOjqAw3kNxn+JiIyZgXxoxGc/DrFm9CcdptNLvzCCVA6VjjG05bbffNLCFwt9I1uC1FxvVw3clv
-	1JXtlEfRptii5zZVXosdgTVm068sOBglGAX43i4cqvlX5zz1uTAUA=
-X-Google-Smtp-Source: AGHT+IFxndCaQ3g5mQEld9CJ+Zg2xTQQHo+r3w56Ps2u11p4W4wTawdR8ANKUOQfAZjJSvAqZ/++TQ==
-X-Received: by 2002:a05:622a:7502:b0:4f4:df23:ab5d with SMTP id d75a77b69052e-4f4e39243a4mr169416911cf.75.1766964264478;
-        Sun, 28 Dec 2025 15:24:24 -0800 (PST)
+        bh=GpN54oVgQguU3p5JgPy3uhgmnh+wgxqdR+Icp20pf+8=;
+        b=G6TrWIzsoKB9CEG3MbBHy4mCH0ksAZZU5+yblI7gap4k9gAZ/W45BH199HOR2VpCm4
+         UUMXI5aijUzt1IIeQM5h3kHieYzjHa+A8lCetQ10muAnyibl5n2I/RaprUwC3PzYVXDQ
+         Aridp9oCxIlchOwH+PgHD/CW6aEbb+zMUWPYXrQ5K1Nte8GTwlhX9ojkgZg0kG5uXnlb
+         SuhbpCDtLMCEQTL5/4YZBwlatwlUa60LJ4N75lwYPLXzgaX2dNoNUa38OPDKy1aIU0/a
+         hFQQCn2ggTwgPK5nUFAyjvh12sdJxkxsuxbBgzdtphV/Aplt7EvXpS8RVxZP4/dOJ/M7
+         4z0w==
+X-Forwarded-Encrypted: i=1; AJvYcCWgTOlZ+rNdg5RkxbbmzcTGT2QXSu94BZUu2wZRf36FG1dE2B5lSnkstcVmWBj95Syf+PVibiF4AVclhA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5I557rOmdMSrhc0LuWcNllhb9z2Zq6TRuC9fU4NLhr2nwLThz
+	Uz0dbTVLI4cyqEH7YvKHBwsxyyS+tTGahFR7TFH3jIMR5tE0s8jENZYbQSt2Cdhq1yE=
+X-Gm-Gg: AY/fxX6PXSXb6LhwgCatofuB0vGoFbOvlwwiSoagcUbm6o7aEaG4/Y2YTrqi3vuMBv6
+	Zyv7poR1bDvtn84HQfQWnCOZII4xGyAL3c9LDRlSpykRhmwA+1o/GsgckzeA9aKU719UTqcLOwx
+	7skgfPqLjXP3oaHaLZ8dT4v69q66zEL3d2hAzCjXWFhswZPNLCGfSU8r8dZtIpUO+wPh7jmnXMF
+	OLtD8SaclW6hlKTUmfcLIBWjf8t4x8D6pYQs7jUvWbd0vIdZ9Vi+hSZiki3J8JbQ+Bp0OZgY9Cb
+	oWJOKFL4Uxar9oREsQXt/ujgX9/8DDRRboQ1i3pRad/InBPRchw0Wrq+oX/OWXXYCrQy5i6STJ5
+	ZO1ytB74RVVJnQDzQayio07us0UvCreFfGZpXojDk/SGJVDpp4ZqNaNjRV8SyvhxeFZGZKXTJNZ
+	SYLOCAkB76SqJjpYQEWDR2xdu7jkr1ns3AUsCQDPbwT8Z9uf4b8O4=
+X-Google-Smtp-Source: AGHT+IEGbKgRTG08k8rXERBJismFkK/tDgJdZx5wXocvbU/vsRR/qDK2KUySLLUQVB2beTsVWlcMDw==
+X-Received: by 2002:a05:620a:29c7:b0:809:eb12:1ea0 with SMTP id af79cd13be357-8c08fd18b81mr4252356785a.81.1766965817857;
+        Sun, 28 Dec 2025 15:50:17 -0800 (PST)
 Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4f4ac64c011sm207819451cf.25.2025.12.28.15.24.22
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c0973f28e3sm2406423185a.45.2025.12.28.15.50.15
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 28 Dec 2025 15:24:24 -0800 (PST)
-Message-ID: <bb6665f2-e4c5-455c-b6d0-9acf41aa9e30@riscstar.com>
-Date: Sun, 28 Dec 2025 17:24:22 -0600
+        Sun, 28 Dec 2025 15:50:17 -0800 (PST)
+Message-ID: <5979c8ef-b0fa-40c8-944d-96e226fbcbe8@riscstar.com>
+Date: Sun, 28 Dec 2025 17:50:14 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/2] i2c: spacemit: replace i2c_xfer_msg()
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
- Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- Aurelien Jarno <aurelien@aurel32.net>,
- Michael Opdenacker <michael.opdenacker@rootcommit.com>,
- Troy Mitchell <troymitchell988@gmail.com>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-References: <20251226-k1-i2c-atomic-v5-0-023c798c5523@linux.spacemit.com>
- <20251226-k1-i2c-atomic-v5-1-023c798c5523@linux.spacemit.com>
+Subject: Re: [PATCH v2 07/13] dt-bindings: riscv: Add B ISA extension
+ description
+To: Guodong Xu <guodong@riscstar.com>
+Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@gentoo.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Samuel Holland <samuel.holland@sifive.com>, Anup Patel
+ <anup@brainfault.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
+ Yangyu Chen <cyy@cyyself.name>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Heinrich Schuchardt <xypron.glpk@gmx.de>,
+ Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
+ Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ spacemit@lists.linux.dev, linux-serial@vger.kernel.org
+References: <20251222-k3-basic-dt-v2-0-3af3f3cd0f8a@riscstar.com>
+ <20251222-k3-basic-dt-v2-7-3af3f3cd0f8a@riscstar.com>
+ <20251222-stitch-preachy-3fab87fd6f0f@spud>
+ <CAH1PCMZ7ywZ3unLy0yHYK+fFHk0y=q2cEtPnRi=qSpf=fc75rw@mail.gmail.com>
+ <66c0676a-7920-4825-b916-3c00b1648a08@riscstar.com>
+ <CAH1PCMbBURb=DpChf+Y-DjYjzpXG-pKgoaHAu=TUuG4oVC56cg@mail.gmail.com>
 Content-Language: en-US
 From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20251226-k1-i2c-atomic-v5-1-023c798c5523@linux.spacemit.com>
+In-Reply-To: <CAH1PCMbBURb=DpChf+Y-DjYjzpXG-pKgoaHAu=TUuG4oVC56cg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_152427_165819_0F9D0B6F 
-X-CRM114-Status: GOOD (  18.31  )
+X-CRM114-CacheID: sfid-20251228_155019_234939_050176BE 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,107 +123,34 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/25/25 9:31 PM, Troy Mitchell wrote:
-> The upcoming PIO support requires a wait_pio_xfer() helper, which is
-> invoked from xfer_msg().
+On 12/27/25 8:51 PM, Guodong Xu wrote:
+>> That's what I understand it to mean, anyway.
+>>     https://github.com/riscv/riscv-b
+>>
+>> There's no point in supporting "b" in devicetree to represent
+>> the others if it also requires the others to be present.
+>>
+>> I think that, instead, "b", "zba", "zbb", and "zbs" should all
+>> be allowed.
+>>
+>> I might even go further and harden the requirement, saying that
+>> if you specify "b" you should*not* specify "zba", "zbb", or "zbs".
+> Historical reasons here. "b" came too late. The chip vendors have published
+> cores with "zba", "zbb", and "zbs"already.
 > 
-> Since wait_pio_xfer() depends on err_check(), move the definition of
-> xfer_msg() after err_check() to avoid a forward declaration of
-> err_check().
-> 
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> That's a migration bridge to require "b" must be listed
+> together with the other three.
 
-Other than fixing "replace" with "move" as Andi mentioned,
-this looks good.
+Are you saying "b" has already been included with "zba", "zbb", and
+"zbs" in an existing DTS file?
 
-Reviewed-by: Alex Elder <elder@riscstar.com>
+What I'm suggesting is that (unless someone has already done this in
+a DTS file), there is no reason to require "b" *and* the other three.
+You should allow either "b" *or* all of the other three, not both.
+That would support older platforms as well as newer ones that use
+the more concise "b" only.
 
-> ---
->   drivers/i2c/busses/i2c-k1.c | 62 ++++++++++++++++++++++-----------------------
->   1 file changed, 31 insertions(+), 31 deletions(-)
-> 
-> diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
-> index d42c03ef5db5984ea8e06b3d7eb485b4f899e616..accef6653b56bd3505770328af17e441fad613a7 100644
-> --- a/drivers/i2c/busses/i2c-k1.c
-> +++ b/drivers/i2c/busses/i2c-k1.c
-> @@ -304,37 +304,6 @@ static void spacemit_i2c_start(struct spacemit_i2c_dev *i2c)
->   	writel(val, i2c->base + SPACEMIT_ICR);
->   }
->   
-> -static int spacemit_i2c_xfer_msg(struct spacemit_i2c_dev *i2c)
-> -{
-> -	unsigned long time_left;
-> -	struct i2c_msg *msg;
-> -
-> -	for (i2c->msg_idx = 0; i2c->msg_idx < i2c->msg_num; i2c->msg_idx++) {
-> -		msg = &i2c->msgs[i2c->msg_idx];
-> -		i2c->msg_buf = msg->buf;
-> -		i2c->unprocessed = msg->len;
-> -		i2c->status = 0;
-> -
-> -		reinit_completion(&i2c->complete);
-> -
-> -		spacemit_i2c_start(i2c);
-> -
-> -		time_left = wait_for_completion_timeout(&i2c->complete,
-> -							i2c->adapt.timeout);
-> -		if (!time_left) {
-> -			dev_err(i2c->dev, "msg completion timeout\n");
-> -			spacemit_i2c_conditionally_reset_bus(i2c);
-> -			spacemit_i2c_reset(i2c);
-> -			return -ETIMEDOUT;
-> -		}
-> -
-> -		if (i2c->status & SPACEMIT_SR_ERR)
-> -			return spacemit_i2c_handle_err(i2c);
-> -	}
-> -
-> -	return 0;
-> -}
-> -
->   static bool spacemit_i2c_is_last_msg(struct spacemit_i2c_dev *i2c)
->   {
->   	if (i2c->msg_idx != i2c->msg_num - 1)
-> @@ -418,6 +387,37 @@ static void spacemit_i2c_err_check(struct spacemit_i2c_dev *i2c)
->   	complete(&i2c->complete);
->   }
->   
-> +static int spacemit_i2c_xfer_msg(struct spacemit_i2c_dev *i2c)
-> +{
-> +	unsigned long time_left;
-> +	struct i2c_msg *msg;
-> +
-> +	for (i2c->msg_idx = 0; i2c->msg_idx < i2c->msg_num; i2c->msg_idx++) {
-> +		msg = &i2c->msgs[i2c->msg_idx];
-> +		i2c->msg_buf = msg->buf;
-> +		i2c->unprocessed = msg->len;
-> +		i2c->status = 0;
-> +
-> +		reinit_completion(&i2c->complete);
-> +
-> +		spacemit_i2c_start(i2c);
-> +
-> +		time_left = wait_for_completion_timeout(&i2c->complete,
-> +							i2c->adapt.timeout);
-> +		if (!time_left) {
-> +			dev_err(i2c->dev, "msg completion timeout\n");
-> +			spacemit_i2c_conditionally_reset_bus(i2c);
-> +			spacemit_i2c_reset(i2c);
-> +			return -ETIMEDOUT;
-> +		}
-> +
-> +		if (i2c->status & SPACEMIT_SR_ERR)
-> +			return spacemit_i2c_handle_err(i2c);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->   static irqreturn_t spacemit_i2c_irq_handler(int irq, void *devid)
->   {
->   	struct spacemit_i2c_dev *i2c = devid;
-> 
-
+					-Alex
 
 _______________________________________________
 linux-riscv mailing list
