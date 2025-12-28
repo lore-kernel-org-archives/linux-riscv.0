@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21F66D3B7E5
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Dec 2025 08:50:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3989AE784BE
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Dec 2025 10:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yvbHJGlSWTj78zpaUiuvWkee6F4RVUtYGN4LDoPGplY=; b=QazPa4DVY0p+vD
-	dR1AXO2pqcfB/zcRUOAH7ObiFcxDgb1fRjqn6PT8MuwZKjLDq7DMBNEIM8lD/YcymxQrPARB3Rn31
-	GhLr14zjoWOvu7KjQtlbEOMhWcQeSLFxQpyhr+IQDWb6lhq82BIj5BjYiKx/Q9hgdAiXCPg7MLtmZ
-	4yXUgUBycPOZLkaT6lmGexcqysgfFI4aY4NFj1V2y1L3peiuwyPdK+h2N9Why79ZYMIMixjiOMJ1L
-	f3LPIlnWirzL9fKCaJL01D/L6QclKq2A6YVjF939OBFfypZYynBXRHEhQTiUggtbl7IbzN2ZBe7i2
-	QT8eCurMvPpU2dUpkVbA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=505RFJyLGtG2qFu6cT3W1hJ42TjOuDOh/jltXuNcXGs=; b=1iSDUZM8Minr+b
+	WZhuBmRujBt2CE36h8TexEoc21V47ce+Y9gZGDKrG9LBaPiy5i2pTs+GJi+KwI647FpxYKmjdiIwS
+	pSEBdZERTLigg/kiZ/2W12/cEV8O0YrsAFuzUP18LROmiku89UcLCXBVkyZpRi3MHtpC9OJo6LOyr
+	apEAofCtioq4KxcLNXDCDQRm7+/l/S8FIuiikZX6r6Je7OTF0kbynoXMQaTrJbf0ssijJn+cNUnR4
+	12B4PjSkibOoI4mkWAFTQnbWv1wLWtjJmuQ/N/pCZcZMPVJcCl2GxaZ+OHzRKoiTwJt4YKmBneuYh
+	XBfHOoCU9VOmmGhUkLRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZmTo-00000002biQ-1EKA;
-	Sun, 28 Dec 2025 08:50:24 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1vZo5I-00000002dYo-3Zl4;
+	Sun, 28 Dec 2025 10:33:12 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZmTk-00000002bi2-0E9D
+	id 1vZo5F-00000002dYG-2TtL
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 Dec 2025 08:50:23 +0000
-Received: from duge-virtual-machine.localdomain (unknown [183.192.221.253])
-	by APP-03 (Coremail) with SMTP id rQCowABHS8JC71BpFy9OAg--.14364S2;
-	Sun, 28 Dec 2025 16:50:10 +0800 (CST)
-From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-To: linusw@kernel.org
-Cc: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	linux-gpio@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	gaohan@iscas.ac.cn,
-	me@ziyao.cc,
-	Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-Subject: [PATCH 1/1] pinctrl: canaan: k230: Fix NULL pointer dereference in device tree parsing
-Date: Sun, 28 Dec 2025 16:50:05 +0800
-Message-ID: <20251228085005.155760-1-jiayu.riscv@isrc.iscas.ac.cn>
-X-Mailer: git-send-email 2.52.0
+	Sun, 28 Dec 2025 10:33:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1766917884;
+	bh=4juI8+CNL0err5MO2vqKaa/2yYGzmUY2NVZNg7kqT8w=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=jeryTxn7GKY2364jezJiIaz+IHhY3xIq1JfXd/wSWEvqqVOAnS7+aijnxnepE40se
+	 SmroOwsvLRvEhTUBUaqsOGow0oGj3DCHiIsOpYbQyZ2aPrUkxsjh5GVyfL2BYap5kh
+	 oczxKjIVVTm45MivtcXgTGr50iTcCcCRX2dBdkRc=
+X-QQ-mid: zesmtpip3t1766917875t195b4575
+X-QQ-Originating-IP: COBzNePZhwIpXoBfs/bCvY7aRKmMMGtpLegvX3mcOlI=
+Received: from = ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sun, 28 Dec 2025 18:31:14 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 5684403937810610960
+EX-QQ-RecipientCnt: 11
+Date: Sun, 28 Dec 2025 18:31:14 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Andi Shyti <andi.shyti@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Yixun Lan <dlan@gentoo.org>, Alex Elder <elder@riscstar.com>,
+	Aurelien Jarno <aurelien@aurel32.net>,
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	Troy Mitchell <troymitchell988@gmail.com>,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH v5 1/2] i2c: spacemit: replace i2c_xfer_msg()
+Message-ID: <86E3DC2399D2C68D+aVEG8iEgR4iSn5Vw@troy-wujie14pro-arch>
+References: <20251226-k1-i2c-atomic-v5-0-023c798c5523@linux.spacemit.com>
+ <20251226-k1-i2c-atomic-v5-1-023c798c5523@linux.spacemit.com>
+ <fnyar6fvzqr3dw33wv6abg3plmj5p2tr75a45zmyrb765fmrm2@gkw7mupx4wdw>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABHS8JC71BpFy9OAg--.14364S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Zry8XrWUGFWruF4ruF1xKrg_yoW8Zw1rpF
-	43Ga98Kr47JF4kWw1rAayDZFya9as7A34fCw13t34Fgwn8tryDX3W5WFWUZws8CFZxCF15
-	tr4YyFyj9w1UJr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWUuVWrJwAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
-X-Originating-IP: [183.192.221.253]
-X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
+Content-Disposition: inline
+In-Reply-To: <fnyar6fvzqr3dw33wv6abg3plmj5p2tr75a45zmyrb765fmrm2@gkw7mupx4wdw>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: M0/UNHhZ6hMGkPFKdgToen6Vp6uEWmWe7Yh5Q0GxBZbIqdgtL8bTjmI3
+	ALEflv97CWuNb3vLuaxhCQADM7biZX/QZGQ7I57u5s9ITXRrcd8nno8onIYVhrfeMhFIjeB
+	1PpREx3oL3PJ5mXtknlI9Vutt79oCorVpjdIkPsD1Bu4KNmPYOesHRb0Mo8sj4lcgh0I2CA
+	GzCwae1HIBa6qWq28fkwkt9IN1T1EUkEUaUADBli+wNnpjdvTFrzE7sf7ZiS8Va2cG8C9Sd
+	LMvHPQDAA8WKfNQq+tzMlxATzYDrKn/Ryf/LcdH54sU+gQvngeEXgHGg7ZH4qJmTpJWn5J/
+	SYWvtiBcl6D2LEz07wFUiQ6VU5LBs8qtFEuOQJOBhVtPGmDaLi5CQ/1gxPxELtPDcRDVR7x
+	FFhy5dLGZAIiTfOMFSI/nc/nNj44SO9e/U3TnxoyloC0+wO4aFKtlJzYK3CQe+B8V4zW3Ts
+	NMNYkvXWKTSkPwdP4FBQfm+nRGuNC7Rb51pWSEmrF7JvkaJW8y9Xu0FwnPjfqCJK631CJqI
+	BKQ5A71KYWG8H//tDwY8IaVrS+ed/1pqha9SXbqiN+sVF/K1ExWHZwvWOX/v7LQnmFMR1Y3
+	4EYD2N0EzPE26cee27WllYfAWAFHNnxe72I/zyBQM/TMa1+PxJTpmR9PT1A0d+ySDgnAFNk
+	DqcsC46YN1aMugwMIziL1atSXQMYxvqBzIdryDM+C+RphInC0PNwryrs6djNu+kLM45/YvX
+	bSvW1sxYafmeip1EjshhJVxZhGxizabCK9xD/4D8AFLSP9/P2aER1jBVg6PmDX748Ba5yEs
+	soRHnuXATCgoIpCLdVBpbMg7Ly6pOTN5RrG+W7qy3Ss1VRGrLdvN2l2gizcMixFpOyYgpK5
+	Ud4HiCVDp+c6mNGB5qtn9h1GYZYDXaw+L3B6FmZn/GbFcMFd4J5CBWGBCVnBNPHHD9H97ve
+	NotasFXtcd7uXscpRqhlejOmPBTzcoO5cdtIGmbVspz6WznE4zldfeaTns8yHmjjV8ohyKP
+	vJBYBCvoK6Ay32cidlnyixh5f6NDFHzN+5RdgHS26WNVW2XyCt
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_005020_525944_B8E05CB1 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20251228_023310_645914_18CAE4A8 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,68 +100,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When probing the k230 pinctrl driver, the kernel triggers a NULL pointer
-dereference. The crash trace showed:
-[    0.732084] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000068
-[    0.740737] ...
-[    0.776296] epc : k230_pinctrl_probe+0x1be/0x4fc
+On Sat, Dec 27, 2025 at 08:45:31PM +0100, Andi Shyti wrote:
+> Hi Troy,
+> 
+> On Fri, Dec 26, 2025 at 11:31:10AM +0800, Troy Mitchell wrote:
+> > The upcoming PIO support requires a wait_pio_xfer() helper, which is
+> > invoked from xfer_msg().
+> > 
+> > Since wait_pio_xfer() depends on err_check(), move the definition of
+> > xfer_msg() after err_check() to avoid a forward declaration of
+> > err_check().
+> 
+> on the subject, this is clearly an i2c_xfer_msg move, not a
+> replace, right?
+Yes.
+> 
+> (if no v6 is coming, there is no need to resend for this, it can
+> be fixed before merging).
+Thanks! 
 
-In k230_pinctrl_parse_functions(), we attempt to retrieve
-the device pointer via info->pctl_dev->dev, but info->pctl_dev is only
-initialized after k230_pinctrl_parse_dt() completes.
-At the time of DT parsing, info->pctl_dev is still NULL, leading to the invalid
-dereference of info->pctl_dev->dev.
-
-Use the already available device pointer from platform_device
-instead of accessing through uninitialized pctl_dev.
-
-Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
----
- drivers/pinctrl/pinctrl-k230.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/pinctrl/pinctrl-k230.c b/drivers/pinctrl/pinctrl-k230.c
-index d716f23d83..20f7c0f70e 100644
---- a/drivers/pinctrl/pinctrl-k230.c
-+++ b/drivers/pinctrl/pinctrl-k230.c
-@@ -65,6 +65,7 @@ struct k230_pmx_func {
- };
- 
- struct k230_pinctrl {
-+	struct device		*dev;
- 	struct pinctrl_desc	pctl;
- 	struct pinctrl_dev	*pctl_dev;
- 	struct regmap		*regmap_base;
-@@ -470,7 +471,7 @@ static int k230_pinctrl_parse_groups(struct device_node *np,
- 				     struct k230_pinctrl *info,
- 				     unsigned int index)
- {
--	struct device *dev = info->pctl_dev->dev;
-+	struct device *dev = info->dev;
- 	const __be32 *list;
- 	int size, i, ret;
- 
-@@ -511,7 +512,7 @@ static int k230_pinctrl_parse_functions(struct device_node *np,
- 					struct k230_pinctrl *info,
- 					unsigned int index)
- {
--	struct device *dev = info->pctl_dev->dev;
-+	struct device *dev = info->dev;
- 	struct k230_pmx_func *func;
- 	struct k230_pin_group *grp;
- 	static unsigned int idx, i;
-@@ -596,6 +597,8 @@ static int k230_pinctrl_probe(struct platform_device *pdev)
- 	if (!info)
- 		return -ENOMEM;
- 
-+	info->dev = dev;
-+
- 	pctl = &info->pctl;
- 
- 	pctl->name	= "k230-pinctrl";
--- 
-2.52.0
-
+                                  - Troy
 
 _______________________________________________
 linux-riscv mailing list
