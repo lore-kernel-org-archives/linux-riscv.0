@@ -4,116 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849D1D3B7E5
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Dec 2025 12:47:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BB07E784BE
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Dec 2025 12:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jlmmOorGtPdU2x3hpb6Bfi5tnJdkDmIXYDTVgx1jK44=; b=uSrjwZ5AD9PW4u
-	vqR2eDVcNx6f8gV4Tlg4DsdPnHinAp8kJGp1Thv4GNluBDR29M2LbxPTpwy0qYqMtf1b66SmdrTb7
-	dZJ4cpN7LNbDN11DQkLYUDLY8Stvqk0vKvhCSkYluWUFzS5NfO2iOvysAH6XuOX5QievpdHyNQ+ya
-	s/oMYgYgWT+GgKkt60uXC+6ZByC2PJZuOjxdXg4kMA7pKUAqi/saAtcGAUJ3WjIsejC28mdAab2Bd
-	A0Z0YzP1i1vj2myXwRl3ZlOdQSMQlvsFqnoNlprkUa7CG+ahwxBpNcd4zY0ZJ9FOOssgdtvytZ94o
-	HCj3KL/Lxzngx+Li6j5g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=u5C7mgFvVRORcS4prUIEDaqEeWYXFpNC8gcC7ztbQZo=; b=VkDClenD/sDf5o
+	THZeh5GhjwmqAtDJAdRjehVZtSMV68y5UBO3I46p0pFaG1oTqRpr+N4P8xDCIA04RMxY1jj6zwbPP
+	LOiEMwqXKigvE9CKAVEHUf3RujsZdrEJvfBrzcvJmaXUuzwaqUajqdGW54FmcSu1Oc2HtGKoDmUqx
+	yplGkQXVJ1grCgEdqxw0slAYr2I5RRM4uCoq6+BDZnPSDE5OHhGDc9RgNhQMmiDy5qFEGrqLuVwGr
+	VynPy55NRD7+cWiKeFUT7gKwIaCtkYDq7sUEaAUNqXNxMPsSUKsGEbWH7WCHdaC37G0fwn+VsN3Mo
+	s/eyps1ABEiYiDifr4Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZqAl-00000002kYb-3vEd;
-	Sun, 28 Dec 2025 12:46:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vZqHO-00000002lGA-1po2;
+	Sun, 28 Dec 2025 12:53:50 +0000
+Received: from mail-m155101.qiye.163.com ([101.71.155.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZqAj-00000002kW1-1veU;
-	Sun, 28 Dec 2025 12:46:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 77B79600AA;
-	Sun, 28 Dec 2025 12:46:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9132C4CEFB;
-	Sun, 28 Dec 2025 12:46:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766926016;
-	bh=zJEIy7O/CTkdhQmMkACZcULIRougkhyexygWc4ZDAXg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CUM35TWv/cMbcrOeR73n+XHNIa0BmyPC6QF36LaL20Yna6xWY0BSLgjEuB9NNQVFs
-	 xNgPahJssiqOsbE9daKLMR7RnvAjtHzSJrJwXaBKr1VZ2hmtoHuKqqj/Ei3WWyVnyR
-	 Wh9FJBMTwNv7vmoGVNVBHufARIfuWEgzOKFYbpxpdKPvSpUfd7Cv9IO1T53Wmkuk0g
-	 eTkgXuXNAJmvtbrLMYLsdFLyK5kO0YcuaWIYnLXROnMlWOeCSui3e7muw2Lh0uwkGX
-	 kMLPW+nF7Pn138We0BaiaTiOz67ixNks7n7EVEQ8aFn6s9NF7PTZZssQ5hCt3c+BXR
-	 5rgqGKWhVXizA==
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Alex Shi <alexs@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@kernel.org>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Matt Turner <mattst88@gmail.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>,
-	Michal Simek <monstr@monstr.eu>,
-	Mike Rapoport <rppt@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Oscar Salvador <osalvador@suse.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Vineet Gupta <vgupta@kernel.org>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Will Deacon <will@kernel.org>,
-	x86@kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-cxl@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
+	id 1vZqHM-00000002lFZ-0jWS
+	for linux-riscv@lists.infradead.org;
+	Sun, 28 Dec 2025 12:53:49 +0000
+Received: from LAPTOP-N070L597.localdomain (unknown [58.241.16.34])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2eca68e1d;
+	Sun, 28 Dec 2025 20:48:39 +0800 (GMT+08:00)
+From: Zilin Guan <zilin@seu.edu.cn>
+To: conor.dooley@microchip.com
+Cc: daire.mcnamara@microchip.com,
 	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org
-Subject: [PATCH 28/28] Revert "mm/hugetlb: deal with multiple calls to hugetlb_bootmem_alloc"
-Date: Sun, 28 Dec 2025 14:39:58 +0200
-Message-ID: <20251228124001.3624742-29-rppt@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251228124001.3624742-1-rppt@kernel.org>
-References: <20251228124001.3624742-1-rppt@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Zilin Guan <zilin@seu.edu.cn>,
+	Jianhao Xu <jianhao.xu@seu.edu.cn>
+Subject: [PATCH] soc: microchip: mpfs: Fix memory leak in mpfs_sys_controller_probe()
+Date: Sun, 28 Dec 2025 12:48:36 +0000
+Message-Id: <20251228124836.3681318-1-zilin@seu.edu.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+X-HM-Tid: 0a9b6500f27803a1kunm8b0da3cda5767
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZSBofVkhOTk4fT08fQxpKGVYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlOQ1VJT0pVSk1VSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSUJDQ0xVSktLVUtZBg
+	++
+DKIM-Signature: a=rsa-sha256;
+	b=OdFARV9ONvNCho4sAGZiGFcKXEwgjxj5/IH4WU/h95xIMJlezjrviReOHeH3JdyUkpCNGsJCHajH9w8RAfVa+jrzJa57v87ccVVyDXc5rySMdwLKMV1aRvmO6gxG9G7Uo8AtQCiVG/Ry4jg/aa84vOakhELYApx67LNuUmDKZhw=; s=default; c=relaxed/relaxed; d=seu.edu.cn; v=1;
+	bh=8TQHnr3dcefIVDlkuxlro1RTJr9H/RV8WrNYmYPmmtw=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251228_045348_595327_9FBDA472 
+X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,115 +72,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+In mpfs_sys_controller_probe(), if of_get_mtd_device_by_node() fails,
+the function returns immediately without freeing the allocated memory
+for sys_controller, leading to a memory leak.
 
-hugetlb_bootmem_alloc() is called only once, no need to check if it was
-called aready at its entry.
+Fix this by jumping to the out_free label to ensure the memory is
+properly freed.
 
-Other checks performed during HVO initialization are also no longer
-necessary because sparse_init() that calls hugetlb_vmemmap_init_early()
-and hugetlb_vmemmap_init_late() is alaways called after
-hugetlb_bootmem_alloc().
+Also, consolidate the error handling for the mbox_request_channel()
+failure case to use the same label.
 
-This reverts commit d58b2498200724e4f8c12d71a5953da03c8c8bdf.
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Fixes: 742aa6c563d2 ("soc: microchip: mpfs: enable access to the system controller's flash")
+Co-developed-by: Jianhao Xu <jianhao.xu@seu.edu.cn>
+Signed-off-by: Jianhao Xu <jianhao.xu@seu.edu.cn>
+Signed-off-by: Zilin Guan <zilin@seu.edu.cn>
 ---
- include/linux/hugetlb.h |  6 ------
- mm/hugetlb.c            | 12 ------------
- mm/hugetlb_vmemmap.c    | 11 -----------
- 3 files changed, 29 deletions(-)
+ drivers/soc/microchip/mpfs-sys-controller.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
-diff --git a/include/linux/hugetlb.h b/include/linux/hugetlb.h
-index 08fc332e88a7..c8b1a6dd2d46 100644
---- a/include/linux/hugetlb.h
-+++ b/include/linux/hugetlb.h
-@@ -175,7 +175,6 @@ extern int sysctl_hugetlb_shm_group __read_mostly;
- extern struct list_head huge_boot_pages[MAX_NUMNODES];
+diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/microchip/mpfs-sys-controller.c
+index 30bc45d17d34..81636cfecd37 100644
+--- a/drivers/soc/microchip/mpfs-sys-controller.c
++++ b/drivers/soc/microchip/mpfs-sys-controller.c
+@@ -142,8 +142,10 @@ static int mpfs_sys_controller_probe(struct platform_device *pdev)
  
- void hugetlb_bootmem_alloc(void);
--bool hugetlb_bootmem_allocated(void);
- extern nodemask_t hugetlb_bootmem_nodes;
- void hugetlb_bootmem_set_nodes(void);
+ 	sys_controller->flash = of_get_mtd_device_by_node(np);
+ 	of_node_put(np);
+-	if (IS_ERR(sys_controller->flash))
+-		return dev_err_probe(dev, PTR_ERR(sys_controller->flash), "Failed to get flash\n");
++	if (IS_ERR(sys_controller->flash)) {
++		ret = dev_err_probe(dev, PTR_ERR(sys_controller->flash), "Failed to get flash\n");
++		goto out_free;
++	}
  
-@@ -1300,11 +1299,6 @@ static inline bool hugetlbfs_pagecache_present(
- static inline void hugetlb_bootmem_alloc(void)
- {
- }
--
--static inline bool hugetlb_bootmem_allocated(void)
--{
--	return false;
--}
- #endif	/* CONFIG_HUGETLB_PAGE */
- 
- static inline spinlock_t *huge_pte_lock(struct hstate *h,
-diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-index 82b322ae3fdc..e5a350c83d75 100644
---- a/mm/hugetlb.c
-+++ b/mm/hugetlb.c
-@@ -4470,21 +4470,11 @@ void __init hugetlb_bootmem_set_nodes(void)
+ no_flash:
+ 	sys_controller->client.dev = dev;
+@@ -155,8 +157,7 @@ static int mpfs_sys_controller_probe(struct platform_device *pdev)
+ 	if (IS_ERR(sys_controller->chan)) {
+ 		ret = dev_err_probe(dev, PTR_ERR(sys_controller->chan),
+ 				    "Failed to get mbox channel\n");
+-		kfree(sys_controller);
+-		return ret;
++		goto out_free;
  	}
+ 
+ 	init_completion(&sys_controller->c);
+@@ -174,6 +175,10 @@ static int mpfs_sys_controller_probe(struct platform_device *pdev)
+ 	dev_info(&pdev->dev, "Registered MPFS system controller\n");
+ 
+ 	return 0;
++
++out_free:
++	kfree(sys_controller);
++	return ret;
  }
  
--static bool __hugetlb_bootmem_allocated __initdata;
--
--bool __init hugetlb_bootmem_allocated(void)
--{
--	return __hugetlb_bootmem_allocated;
--}
--
- void __init hugetlb_bootmem_alloc(void)
- {
- 	struct hstate *h;
- 	int i;
- 
--	if (__hugetlb_bootmem_allocated)
--		return;
--
- 	hugetlb_bootmem_set_nodes();
- 
- 	for (i = 0; i < MAX_NUMNODES; i++)
-@@ -4498,8 +4488,6 @@ void __init hugetlb_bootmem_alloc(void)
- 		if (hstate_is_gigantic(h))
- 			hugetlb_hstate_alloc_pages(h);
- 	}
--
--	__hugetlb_bootmem_allocated = true;
- }
- 
- /*
-diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
-index 9d01f883fd71..a9280259e12a 100644
---- a/mm/hugetlb_vmemmap.c
-+++ b/mm/hugetlb_vmemmap.c
-@@ -794,14 +794,6 @@ void __init hugetlb_vmemmap_init_early(int nid)
- 	struct huge_bootmem_page *m = NULL;
- 	void *map;
- 
--	/*
--	 * Noting to do if bootmem pages were not allocated
--	 * early in boot, or if HVO wasn't enabled in the
--	 * first place.
--	 */
--	if (!hugetlb_bootmem_allocated())
--		return;
--
- 	if (!READ_ONCE(vmemmap_optimize_enabled))
- 		return;
- 
-@@ -847,9 +839,6 @@ void __init hugetlb_vmemmap_init_late(int nid)
- 	struct hstate *h;
- 	void *map;
- 
--	if (!hugetlb_bootmem_allocated())
--		return;
--
- 	if (!READ_ONCE(vmemmap_optimize_enabled))
- 		return;
- 
+ static void mpfs_sys_controller_remove(struct platform_device *pdev)
 -- 
-2.51.0
+2.34.1
 
 
 _______________________________________________
