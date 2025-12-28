@@ -4,54 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B15CDD3B7E5
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Dec 2025 08:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21F66D3B7E5
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Dec 2025 08:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=EpCCp2Cdp8AtN6uxXAIfbpvtc4zczz6HFLV4mfKGbeI=; b=eEtgTYdOo0FyfS
-	jo9HI019560Fjfi34SH3gGcVCEc6jbU0F5/j4E1S4ZFWEwQBuGBLrcSRJWOEZgfruE5OJ2r4QCQg/
-	1NuaCsPv401J99gp4HsPKyVoQp41dv/V+MH/Na5AutlWPYrAPXVguCQALbgjJihf4TxlAgzeIIUQz
-	Smwc4TWg4/Han7ROgsh3ASmCXA5fVLvJgs3jMDK0qSoDN3gJFrRyqYKncwJokv0cbB30ya/eLublO
-	JJ+gxH/uFOE+/zrrcMi+hx/WlUtRB6Grm/voQaFvt/UwB0StieLO3SDZopOIkfu+VRE5WFNW8FVQZ
-	957nwjRV/CLn8c8vPiwQ==;
+	List-Owner; bh=yvbHJGlSWTj78zpaUiuvWkee6F4RVUtYGN4LDoPGplY=; b=QazPa4DVY0p+vD
+	dR1AXO2pqcfB/zcRUOAH7ObiFcxDgb1fRjqn6PT8MuwZKjLDq7DMBNEIM8lD/YcymxQrPARB3Rn31
+	GhLr14zjoWOvu7KjQtlbEOMhWcQeSLFxQpyhr+IQDWb6lhq82BIj5BjYiKx/Q9hgdAiXCPg7MLtmZ
+	4yXUgUBycPOZLkaT6lmGexcqysgfFI4aY4NFj1V2y1L3peiuwyPdK+h2N9Why79ZYMIMixjiOMJ1L
+	f3LPIlnWirzL9fKCaJL01D/L6QclKq2A6YVjF939OBFfypZYynBXRHEhQTiUggtbl7IbzN2ZBe7i2
+	QT8eCurMvPpU2dUpkVbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZlzG-00000002auY-0npx;
-	Sun, 28 Dec 2025 08:18:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vZmTo-00000002biQ-1EKA;
+	Sun, 28 Dec 2025 08:50:24 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZlzD-00000002au9-0NiV
+	id 1vZmTk-00000002bi2-0E9D
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 Dec 2025 08:18:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5418243B89;
-	Sun, 28 Dec 2025 08:18:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF04AC4CEFB;
-	Sun, 28 Dec 2025 08:18:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766909922;
-	bh=k39l4e/zjSbWQcdwT32FZK/RCqW5lWzsUM7UgFuJHzU=;
-	h=Date:From:To:cc:Subject:From;
-	b=RlQj0i/vo+sOELfWJTx4lSpJZRoLD/ooe4ZX+rivmozGnj1MBuzYdMIc2BS2P3s2X
-	 uQYJevaJY6/u6bKDYcuyrmduMIPjaST9hCYrDU3tqjMu2FQvbjKnujz0P2Hc/yJcg6
-	 hoTUy2ZblLGdYgutyYcJiMHhw4JbnuLKinQO+hT2eWTie4zzpjt/xKrRlXaMKkPJgr
-	 aFIKttJbv+MYkO21tk+FEAIGF3oO0gsN+ZQHIuCNTYgvYxkGA9h/DfEEM0JkEDx7N1
-	 4hYTkfgx9euBn/qLIAjH9C2iKEy9W1hJXbevfLTa5JIKe/rzGp3qXQ7FuMg29Kk2do
-	 XwjQAgdKRFaiw==
-Date: Sun, 28 Dec 2025 01:18:38 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: torvalds@linux-foundation.org
-cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [GIT PULL] RISC-V updates for v6.19-rc3
-Message-ID: <fc36548c-baa4-821d-24cd-2f645f7d9cec@kernel.org>
+	Sun, 28 Dec 2025 08:50:23 +0000
+Received: from duge-virtual-machine.localdomain (unknown [183.192.221.253])
+	by APP-03 (Coremail) with SMTP id rQCowABHS8JC71BpFy9OAg--.14364S2;
+	Sun, 28 Dec 2025 16:50:10 +0800 (CST)
+From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+To: linusw@kernel.org
+Cc: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	linux-gpio@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	gaohan@iscas.ac.cn,
+	me@ziyao.cc,
+	Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+Subject: [PATCH 1/1] pinctrl: canaan: k230: Fix NULL pointer dereference in device tree parsing
+Date: Sun, 28 Dec 2025 16:50:05 +0800
+Message-ID: <20251228085005.155760-1-jiayu.riscv@isrc.iscas.ac.cn>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
+X-CM-TRANSID: rQCowABHS8JC71BpFy9OAg--.14364S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Zry8XrWUGFWruF4ruF1xKrg_yoW8Zw1rpF
+	43Ga98Kr47JF4kWw1rAayDZFya9as7A34fCw13t34Fgwn8tryDX3W5WFWUZws8CFZxCF15
+	tr4YyFyj9w1UJr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWUuVWrJwAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
+	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
+X-Originating-IP: [183.192.221.253]
+X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_001847_175519_7E399522 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20251228_005020_525944_B8E05CB1 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,132 +85,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Linus,
+When probing the k230 pinctrl driver, the kernel triggers a NULL pointer
+dereference. The crash trace showed:
+[    0.732084] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000068
+[    0.740737] ...
+[    0.776296] epc : k230_pinctrl_probe+0x1be/0x4fc
 
-Please pull these RISC-V updates for v6.20-rc3.  Nothing exotic here;
-these are the cleanup and new ISA extension probing patches (not
-including CFI) that were originally part of the second pull request in
-the last merge window.
+In k230_pinctrl_parse_functions(), we attempt to retrieve
+the device pointer via info->pctl_dev->dev, but info->pctl_dev is only
+initialized after k230_pinctrl_parse_dt() completes.
+At the time of DT parsing, info->pctl_dev is still NULL, leading to the invalid
+dereference of info->pctl_dev->dev.
 
-The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
+Use the already available device pointer from platform_device
+instead of accessing through uninitialized pctl_dev.
 
-  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+---
+ drivers/pinctrl/pinctrl-k230.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.19-rc3
-
-for you to fetch changes up to 5efaf92da4365cb8d1ae6dd7a2d1245c69e09ff5:
-
-  riscv: Add SBI debug trigger extension and function ids (2025-12-19 00:22:30 -0700)
-
-
-Happy holidays,
-
-- Paul
-
-----------------------------------------------------------------
-RISC-V updates for v6.19-rc3
-
-- Add probing and userspace reporting support for the standard RISC-V
-  ISA extensions Zilsd and Zclsd, which implement load/store dual
-  instructions on RV32
-
-- Abstract the register saving code in setup_sigcontext() so it can be
-  used for stateful RISC-V ISA extensions beyond the vector extension
-
-- Add the SBI extension ID and some initial data structure definitions
-  for the RISC-V standard SBI debug trigger extension
-
-- Clean up some code slightly: change some page table functions to
-  avoid atomic operations oinn !SMP and to avoid unnecessary casts to
-  atomic_long_t; and use the existing RISCV_FULL_BARRIER macro in
-  place of some open-coded "fence rw,rw" instructions
-
-----------------------------------------------------------------
-Andy Chiu (1):
-      riscv: signal: abstract header saving for setup_sigcontext
-
-Himanshu Chauhan (1):
-      riscv: Add SBI debug trigger extension and function ids
-
-Paul Walmsley (3):
-      riscv: mm: pmdp_huge_get_and_clear(): avoid atomic ops when !CONFIG_SMP
-      riscv: mm: ptep_get_and_clear(): avoid atomic ops when !CONFIG_SMP
-      riscv: mm: use xchg() on non-atomic_long_t variables, not atomic_long_xchg()
-
-Pincheng Wang (3):
-      dt-bindings: riscv: add Zilsd and Zclsd extension descriptions
-      riscv: add ISA extension parsing for Zilsd and Zclsd
-      riscv: hwprobe: export Zilsd and Zclsd ISA extensions
-
-Zongmin Zhou (1):
-      riscv/atomic.h: use RISCV_FULL_BARRIER in _arch_atomic* function.
-
- Documentation/arch/riscv/hwprobe.rst               |  8 +++
- .../devicetree/bindings/riscv/extensions.yaml      | 36 +++++++++++++
- arch/riscv/include/asm/atomic.h                    |  8 +--
- arch/riscv/include/asm/hwcap.h                     |  2 +
- arch/riscv/include/asm/pgtable.h                   | 16 +++++-
- arch/riscv/include/asm/sbi.h                       | 29 ++++++++++
- arch/riscv/include/asm/vector.h                    |  3 ++
- arch/riscv/include/uapi/asm/hwprobe.h              |  3 ++
- arch/riscv/kernel/cpufeature.c                     | 24 +++++++++
- arch/riscv/kernel/signal.c                         | 62 ++++++++++++++--------
- arch/riscv/kernel/sys_hwprobe.c                    |  2 +
- 11 files changed, 166 insertions(+), 27 deletions(-)
-
-vmlinux size differences in bytes (from 8f0b4cce4481):
- text   data  bss    dec   hex filename                             
-  -40   +224    .   +184   +b8 vmlinux.defconfig.gcc-15             
- -576    +64    .   -512  -200 vmlinux.nosmp_defconfig.gcc-15       
- +192   +276    .   +468  +1d4 vmlinux.rv32_defconfig.gcc-15        
- -392   +212    .   -180   -b4 vmlinux.rv32_nosmp_defconfig.gcc-15  
- +411   +192    .   +603  +25b vmlinux.nommu_virt_defconfig.gcc-15  
- +184   +160    .   +344  +158 vmlinux.defconfig.clang-20           
--1092   +480    .   -612  -264 vmlinux.nosmp_defconfig.clang-20     
- +200   +288    .   +488  +1e8 vmlinux.rv32_defconfig.clang-20      
--1100   +224    .   -876  -36c vmlinux.rv32_nosmp_defconfig.clang-20
- +443   +128    .   +571  +23b vmlinux.nommu_virt_defconfig.clang-20
- +240   +480    .   +720  +2d0 vmlinux.defconfig.gcc-14             
- -696   +320    .   -376  -178 vmlinux.nosmp_defconfig.gcc-14       
- +216   +340    .   +556  +22c vmlinux.rv32_defconfig.gcc-14        
- -592   +244    .   -348  -15c vmlinux.rv32_nosmp_defconfig.gcc-14  
- +403   +192    .   +595  +253 vmlinux.nommu_virt_defconfig.gcc-14  
- +192   +224    .   +416  +1a0 vmlinux.defconfig.clang-19           
--1124   +480    .   -644  -284 vmlinux.nosmp_defconfig.clang-19     
- +216   +224    .   +440  +1b8 vmlinux.rv32_defconfig.clang-19      
--1076   +224    .   -852  -354 vmlinux.rv32_nosmp_defconfig.clang-19
- +455   +128    .   +583  +247 vmlinux.nommu_virt_defconfig.clang-19
- +232   +384    .   +616  +268 vmlinux.defconfig.gcc-13             
- -824   +384    .   -440  -1b8 vmlinux.nosmp_defconfig.gcc-13       
- +192   +276    .   +468  +1d4 vmlinux.rv32_defconfig.gcc-13        
- -680   +276    .   -404  -194 vmlinux.rv32_nosmp_defconfig.gcc-13  
- +411   +256    .   +667  +29b vmlinux.nommu_virt_defconfig.gcc-13  
- +196   +224    .   +420  +1a4 vmlinux.defconfig.clang-18           
--1012   +416    .   -596  -254 vmlinux.nosmp_defconfig.clang-18     
- +224   +288    .   +512  +200 vmlinux.rv32_defconfig.clang-18      
--1068   +256    .   -812  -32c vmlinux.rv32_nosmp_defconfig.clang-18
- +451   +192    .   +643  +283 vmlinux.nommu_virt_defconfig.clang-18
- +168   +384    .   +552  +228 vmlinux.defconfig.gcc-12             
- -800   +352    .   -448  -1c0 vmlinux.nosmp_defconfig.gcc-12       
- +104   +340    .   +444  +1bc vmlinux.rv32_defconfig.gcc-12        
- -720   +244    .   -476  -1dc vmlinux.rv32_nosmp_defconfig.gcc-12  
- +395   +192    .   +587  +24b vmlinux.nommu_virt_defconfig.gcc-12  
- +208   +224    .   +432  +1b0 vmlinux.defconfig.clang-17           
--1076   +416    .   -660  -294 vmlinux.nosmp_defconfig.clang-17     
- +224   +256    .   +480  +1e0 vmlinux.rv32_defconfig.clang-17      
--1068   +224    .   -844  -34c vmlinux.rv32_nosmp_defconfig.clang-17
- +447   +128    .   +575  +23f vmlinux.nommu_virt_defconfig.clang-17
- +176   +416    .   +592  +250 vmlinux.defconfig.gcc-11             
- -880   +352    .   -528  -210 vmlinux.nosmp_defconfig.gcc-11       
-   -8   +244    .   +236   +ec vmlinux.rv32_defconfig.gcc-11        
- -824   +276    .   -548  -224 vmlinux.rv32_nosmp_defconfig.gcc-11  
- +411 +12544    . +12955 +329b vmlinux.nommu_virt_defconfig.gcc-11  
-  +32  -3840    .  -3808  -ee0 vmlinux.allnoconfig.gcc-14           
- +603   +320    .   +923  +39b vmlinux.allmodconfig.gcc-14          
-  -40    +64    .    +24   +18 vmlinux.allnoconfig.clang-19         
-+5935   +832 -120  +6647 +19f7 vmlinux.allmodconfig.clang-19        
+diff --git a/drivers/pinctrl/pinctrl-k230.c b/drivers/pinctrl/pinctrl-k230.c
+index d716f23d83..20f7c0f70e 100644
+--- a/drivers/pinctrl/pinctrl-k230.c
++++ b/drivers/pinctrl/pinctrl-k230.c
+@@ -65,6 +65,7 @@ struct k230_pmx_func {
+ };
+ 
+ struct k230_pinctrl {
++	struct device		*dev;
+ 	struct pinctrl_desc	pctl;
+ 	struct pinctrl_dev	*pctl_dev;
+ 	struct regmap		*regmap_base;
+@@ -470,7 +471,7 @@ static int k230_pinctrl_parse_groups(struct device_node *np,
+ 				     struct k230_pinctrl *info,
+ 				     unsigned int index)
+ {
+-	struct device *dev = info->pctl_dev->dev;
++	struct device *dev = info->dev;
+ 	const __be32 *list;
+ 	int size, i, ret;
+ 
+@@ -511,7 +512,7 @@ static int k230_pinctrl_parse_functions(struct device_node *np,
+ 					struct k230_pinctrl *info,
+ 					unsigned int index)
+ {
+-	struct device *dev = info->pctl_dev->dev;
++	struct device *dev = info->dev;
+ 	struct k230_pmx_func *func;
+ 	struct k230_pin_group *grp;
+ 	static unsigned int idx, i;
+@@ -596,6 +597,8 @@ static int k230_pinctrl_probe(struct platform_device *pdev)
+ 	if (!info)
+ 		return -ENOMEM;
+ 
++	info->dev = dev;
++
+ 	pctl = &info->pctl;
+ 
+ 	pctl->name	= "k230-pinctrl";
+-- 
+2.52.0
 
 
 _______________________________________________
