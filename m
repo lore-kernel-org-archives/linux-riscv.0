@@ -4,89 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F456E92722
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Dec 2025 00:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93335E9271B
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Dec 2025 02:00:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+DtbO049ORJT8kyL1slgMeSYF2PJz9eI9/wbShPqalU=; b=VLx3vIKoDWWl5v
-	sEShpUTVwFu6uAuo+yHoqi/rky/Pmg4UsHxnAcBlzyTz4gucIwcxe5+sKTK6eqq3Tu7auYHKgJ0+U
-	Q8ohBj4uwPTea86VXPjBNPBYbRPsK8qdzxA/loutrcgZ8qI8vNs3u0GB5p/wT8TNjx9PgBtGYsBIv
-	dA01kFVetVkgf4d8okScs2mb6UppexcGIQIcGgTUpWI8FkZd7H+HVxy6Ku5Bq7t8IcxFmb2JOoWwI
-	cEJAs2a6S/do6xSLZxYUIwB9fpGgH6fXkYxgVtBcBT5JZWwrVmPvw3yi4Tg2jGFpwtuW3oF4pHdA1
-	aEXQAOaWFLAMaLVPFkhQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EbrwR7NkPaYKcdjHXZVVvidlQegq++nmECk68ORtDoQ=; b=mvJl+VliTeQL/v/klfaUBFypl1
+	5lQn8iTgjrHUHJaZNmW0IudoYNQsmPTtYYiRP1Z+xslUgfIHIGl/Qin6X/Tp1mMtzJyuRv0ESzafj
+	HcN9AZaCjw7d2veRK81Vhd6SX4UwYeoYw1AIew581nEITHXiUlwXq4Sk5WmWkoT2RRtAf0m3X2k03
+	lrpK4wGe+7RhiccRANMHEWw2ylTvAj4hqcfPsQTUAwe+5Gfzo5yMNJkD8s084oQauccVsgljmJ29K
+	iC79vKSoCxiTltF3PUlQbIQEHbqEb8xjya7djEt34kC7zPekUQNSA04v5qHYASO+hBFmgSm1lDDm5
+	Bfa8RMJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZesA-00000002Ize-3mz8;
-	Sun, 28 Dec 2025 00:43:02 +0000
-Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
+	id 1vZg4P-00000002KoO-1aJ2;
+	Sun, 28 Dec 2025 01:59:45 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZes8-00000002IzF-0u46
+	id 1vZg4M-00000002Knz-1HFK
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 Dec 2025 00:43:01 +0000
-Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-78fc520433aso48471837b3.1
-        for <linux-riscv@lists.infradead.org>; Sat, 27 Dec 2025 16:42:59 -0800 (PST)
+	Sun, 28 Dec 2025 01:59:43 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-bd1b0e2c1eeso6083180a12.0
+        for <linux-riscv@lists.infradead.org>; Sat, 27 Dec 2025 17:59:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1766882579; x=1767487379; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zwhU6tz2IAJuOhbctHFHYJBwk5gc+cswNffBuQKQ3CU=;
-        b=Lo97B5ejbfeRlhTNUXeNorOEo8V4Q1YNIxq3NydBcQ+6TNDdPKnsigO6DNp8rbbU4X
-         eueBBkBkHaZk+BSIjExRSaE2qpazfiMnps389s6PpcMxEq4x0sNVFcjRH7P+3Y4nyeYF
-         e7Ufwb/VApJdSGdVdZfvQrmCrMeJuU7lQMLTp61T5xfUrSI9DMvmbEzX0vzl04ebuV7c
-         sfZAuSbROPSkR9q9scAQytgBeRcoBirFxCUHQ/NIxB1yLvBgsJYEvC0ZwcTfHI/N4E97
-         jN3U5mNekPSKJUwDbXDkPc8FVf/Rz0F0gRgygpGJhA70NyWhMNIXmBG/cAibaS0mqXFH
-         QsYA==
+        d=rivosinc.com; s=google; t=1766887181; x=1767491981; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qwK/WtRE1URKQu/wEiiLSymaVuBrwwLZzwrg6P+n/NU=;
+        b=GdM9fwjNhUwnftvS0mW3bmzhBNaqm5aOyuVCB/UWrPV7z+jdDJukTjVz6+ZDCu4XpM
+         yYztU1itWT7Ntf0rkTIOPRWwNMBB42ALVQFu3R/kquabyHw1XuZAiBiFgZmG/9DEjhjr
+         omLVoB26LByTtHVfEJr0PIzxMjUnb0/AcL9iZp0q6ueQXAA+s1RhJ7i4XCZwwUG54Tt/
+         unk4Smu8DAKpw3PqlBWPxYw2BjJU5SvT+Bsu8nE8lk4P58seOpkkgmxAaziLfv4vCGxk
+         Us7qFi8fZ5SZHEsLGMMuUL9juy5ed9cPrDpz5jNlTnp4Q0Y82zMmAlWovbnYfTYd+OKQ
+         ltqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766882579; x=1767487379;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=zwhU6tz2IAJuOhbctHFHYJBwk5gc+cswNffBuQKQ3CU=;
-        b=PlI0dKbMFLhEk72fixH6gZB5l3d+6uh9qA131nwLDuTEIAjf9PoN04UjRMgfe/5J74
-         fZcw760BBqbE/jEMCj5EalF5LiQFWkZza7vDUz4STYJ/J/ViQwbmL7SvRh2InG8q+ghK
-         vkq2GyTs1OYVqiB82/8qqrCUvcGzK9CTCrHzyqaANQDBv/+UM+Cv69xSGexAWlDip71v
-         V73qOEW6ZBznZ8M42Qq/WoOr/C5r+0ekGr5x1GxGeRDB+1QcCnBwBwc4lV1RgWTJPqPa
-         Y0B64y/k4nh/qhFSRvhYBzkHGNheoQN/wc9H0MpODPdcOVFIaV5Y4vLKn4YIVVb18NH6
-         kydw==
-X-Forwarded-Encrypted: i=1; AJvYcCX0fRdi9fdr467od3sWjoeMy7ku6snvhuw86qaZ/p90ynjTIfabeGi/CY0oHYjHp4qhHSE1o/j9eiBKZg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7lwX4xFQR6L37SulAyd+Q/rkT4932vCykKByeHRNtOrnXJ0SY
-	cXC5NrYojwc1o8DfGoU41EyCrK5LWHDAJC8XB7/aNJHrgTG24WopwiBbeeZ+c+v0TTciJcwor+1
-	hF1/Kt+h20owK3jK6uLasbaWFbFNeCC2hS9LdP0wSCQ==
-X-Gm-Gg: AY/fxX4Vu7s4rjPHoXu6TsTFZlxPzMAYHKXG8B5ydcSWgdkPWEtBjcEHndtT+DUqvl7
-	+EA2AO48QIlqEXfa9tqsiabBE0Ge9MY2cB9Bxn815F4Ksxx+xJTDRXQfQZxrND8c2FbPmlWK4UP
-	J51ZQFMZs5pC4mQLfh9yfOyPkYIJC7MrIDOi+4qaoeCfkH/TANpXZbpIqd6+LyZBQPXxdCNY/Fv
-	robGkmikTQxc6VRbdzRJ0A8b7tlqXkcHBlQ3HDtcFSL8ozHxVNJ8F2o4k03/cLXJ6Djvpr0WPnu
-	m3lB5H5o34lZvmiMN0kaPbCBsrNPlEd78DQLCsVdF2seUh0caHJ587Y=
-X-Google-Smtp-Source: AGHT+IErlcXBgMih7zxAEH5xWwRllR/TKu/x3r4n41MRYEc1IKi6ZvbVG+UxUtBlusdkfkmh4FvWruwadgCeYqiXZ8Y=
-X-Received: by 2002:a53:b178:0:b0:644:7712:ed72 with SMTP id
- 956f58d0204a3-6466a874977mr19597372d50.43.1766882578983; Sat, 27 Dec 2025
- 16:42:58 -0800 (PST)
+        d=1e100.net; s=20230601; t=1766887181; x=1767491981;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qwK/WtRE1URKQu/wEiiLSymaVuBrwwLZzwrg6P+n/NU=;
+        b=knyNCQwNOf7BOE4UZf1ZvpbRc5gxdlDsqzvfUAQfi7GTpZrtaBr4cgQmNwAcVu/V7q
+         moLLPBVGYSfv310A/udG5/7yhFXC4QD0CS2MpVV+5HfarDbMJ5JksvHD7vaWGYDXFym+
+         8ELDr1qyuiEWwUOjZzScsS2OFhGRMyd8DdEMC9BLDNzTze6LjEuRg5R0Ed0zFCyCAbqL
+         ohmrv6xpvHmUzz4azxUaKhAmFnLTyQuQ8rZoH8RWCWoT56vjSlbIXNX5TIvlFpHN/zrv
+         f2wC7H+UoLqH7FQFwBRkxorzPZSoYtbL77yOTHleRiMXEq6+01uVzxvd/P4BfhUZ8v02
+         9fqw==
+X-Forwarded-Encrypted: i=1; AJvYcCUrkXor8LMri91FW8plt81Qn+HppgTPaBy1M3vSMfJQUFXezpVNSaYg92vnY6Ij9Qh/97kQ04dhVyEEfA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRziu7kawP4a3BhCfvPUDCr7cTx/XOURv1OdT8YprucAUAZubr
+	gpQoTrbRXYqBse5KhGhSRsQVWvpgbjB7ufTXXF87SZF3uGMerQezFN8GYpGlALtYwx0=
+X-Gm-Gg: AY/fxX7Exp/RWRYlvkVw8K07zU585QPeNX+H62Kp1wVrUM0opbuxtTEISWEI/UBpVMJ
+	tmK+O6BXBBxTUZhwlwKQH+ibfUYlfjJp7kwJAkHkvJvsgdYOV3kjm1SlxvsL/ct60zoYhkrSAEv
+	3mxT5gVoGZ2TXfvUACcR7f8pdkSTF8fb4wZ96OmiVGVfVtv3wPq9yWmhOeKjSXsc4/+FIoYFG7l
+	eNmC1ZzwP4M2ekczaXQHd9giEjJeiVK6EYoDIs84SzDWbt2gCQG0GAOD/Zq+f3oms90E3T4VXSv
+	cYjg+u9AJ+W8me3BIF/ZXasUje1bqxZvhmYts7Ek5nBDk29kYqlt+kNoiPJC598SSbueHsdCURp
+	ziDQdFeQXbAGzZ8FicSZ7snRUSMYe14J41ZL4ifaIUXqTsX6+0Q5z4ouiCj4ESZeKjI5H6T7HkX
+	2dnwvtTcM2wov76jZD28E0
+X-Google-Smtp-Source: AGHT+IGNuBlPIRiYFjBvShXA4Nrx8Q9TrbfmMnCwgNLDU+kIlceQV38rIKRBeT80Y7XFehbCXbOl3A==
+X-Received: by 2002:a05:7022:6887:b0:11b:a892:80b4 with SMTP id a92af1059eb24-121721ab83amr31513090c88.5.1766887181046;
+        Sat, 27 Dec 2025 17:59:41 -0800 (PST)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-121724de268sm79381703c88.8.2025.12.27.17.59.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 27 Dec 2025 17:59:40 -0800 (PST)
+Date: Sat, 27 Dec 2025 17:59:38 -0800
+From: Deepak Gupta <debug@rivosinc.com>
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Lukas Gerlach <lukas.gerlach@cispa.de>, linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux-kernel@vger.kernel.org, daniel.weber@cispa.de,
+	michael.schwarz@cispa.de, marton.bognar@kuleuven.be,
+	jo.vanbulck@kuleuven.be
+Subject: Re: [PATCH 1/2] riscv: Use pointer masking to limit uaccess
+ speculation
+Message-ID: <aVCPCm2mHUxSzQJi@debug.ba.rivosinc.com>
+References: <20251218191332.35849-1-lukas.gerlach@cispa.de>
+ <20251218191332.35849-2-lukas.gerlach@cispa.de>
+ <aUXxW3iZOClLNofi@debug.ba.rivosinc.com>
+ <20251227212859.3a83d65e@pumpkin>
 MIME-Version: 1.0
-References: <20251219-i2c-reset-v2-0-ad201a602e74@gmail.com>
- <20251219-i2c-reset-v2-2-ad201a602e74@gmail.com> <2dmrli7yzznpurg74wet4oidhljjf3csdjly2dwpyvyndhrec3@uc6ke7mep6fv>
- <CAH1PCMbGbe6MQtAucf-4W+H_G0LrvPNGyaB_OUyxqf5TF=jixg@mail.gmail.com> <zjrd3dgvcg3pxmn4455iljtugbufr4igyokdycusyhpykbzyl5@nrwgz366wm67>
-In-Reply-To: <zjrd3dgvcg3pxmn4455iljtugbufr4igyokdycusyhpykbzyl5@nrwgz366wm67>
-From: Guodong Xu <guodong@riscstar.com>
-Date: Sun, 28 Dec 2025 08:42:47 +0800
-X-Gm-Features: AQt7F2opxPHnMSK_AxzmQeemtfy8x4nXYU2M7Wsw2w8qZ6_eughd9bfR4C5SjDk
-Message-ID: <CAH1PCMY9A3CO1PXo-b5_BGY13xdx3nvAqb-R28hUz1VMLzTHWQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] i2c: k1: add reset support
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: Encrow Thorne <jyc0019@gmail.com>, Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Yixun Lan <dlan@gentoo.org>, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Troy Mitchell <troymitchell988@gmail.com>, linux-i2c@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20251227212859.3a83d65e@pumpkin>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251227_164300_513312_EF817E8B 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20251227_175942_370034_BB96C491 
+X-CRM114-Status: GOOD (  28.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,43 +101,127 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksIEFuZGkKCk9uIFN1biwgRGVjIDI4LCAyMDI1IGF0IDM6MjbigK9BTSBBbmRpIFNoeXRpIDxh
-bmRpLnNoeXRpQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gSGkgR3VvZG9uZywKPgo+IE9uIEZyaSwg
-RGVjIDI2LCAyMDI1IGF0IDA3OjM4OjIyQU0gKzA4MDAsIEd1b2RvbmcgWHUgd3JvdGU6Cj4gPiBP
-biBGcmksIERlYyAyNiwgMjAyNSBhdCA1OjAx4oCvQU0gQW5kaSBTaHl0aSA8YW5kaS5zaHl0aUBr
-ZXJuZWwub3JnPiB3cm90ZToKPiA+ID4gPiArICAgICByc3QgPSBkZXZtX3Jlc2V0X2NvbnRyb2xf
-Z2V0X29wdGlvbmFsX2V4Y2x1c2l2ZV9kZWFzc2VydGVkKGRldiwgTlVMTCk7Cj4gPiA+ID4gKyAg
-ICAgaWYgKElTX0VSUihyc3QpKQo+ID4gPiA+ICsgICAgICAgICAgICAgcmV0dXJuIGRldl9lcnJf
-cHJvYmUoZGV2LCBQVFJfRVJSKHJzdCksCj4gPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAiZmFpbGVkIHRvIGFjcXVpcmUgZGVhc3NlcnRlZCByZXNldFxuIik7Cj4gPiA+
-Cj4gPiA+IElmIHRoaXMgaXMgb3B0aW9uYWwsIHdoeSBhcmUgd2UgcmV0dXJuaW5nIHdpdGggZXJy
-b3I/Cj4gPiA+Cj4gPgo+ID4gQWNjb3JkaW5nIHRvIGluY2x1ZGUvbGludXgvcmVzZXQuaCwgaWYg
-dGhlIHJlcXVlc3RlZCByZXNldCBpcyBub3QKPiA+IHNwZWNpZmllZCBpbiB0aGUgZGV2aWNlIHRy
-ZWUsIHRoaXMgZnVuY3Rpb24gcmV0dXJucyBOVUxMIGluc3RlYWQgb2YKPiA+IGFuIGVycm9yLiBU
-aGVyZWZvcmUsIElTX0VSUihyc3QpIHdpbGwgb25seSBiZSB0cnVlIGZvciBhY3R1YWwKPiA+IGVy
-cm9ycyAoZS5nIHByb2JlIGRlZmVycmFsKS4KPgo+IEFuZCB0aGlzIGlzIHF1aXRlIG9idmlvdXMs
-IGJ1dCB5b3UgaGF2ZW4ndCBhbnN3ZXJlZCBteSBxZXN0aW9uLgo+Cj4gV2h5IGRvIHdlIGNhcmUg
-b2YgaW50ZXJuYWwgZmFpbHVyZXMgaW4gcmVzZXQ/IElmIHJlc2V0IGZhaWxzIG9uCj4gYW4gb3B0
-aW9uYWwgcmVzZXQgY29udHJvbCBmdW5jdGlvbiB3aHkgc2hvdWxkIHdlIGtpbGwgb3VyIGRyaXZl
-cj8KClRoYW5rcyBmb3IgdGhlIGNsYXJpZmljYXRpb24uIEkgc2VlIHlvdXIgcG9pbnQgbm93LgoK
-TXkgcmVhc29uaW5nIGlzIHRoYXQgaWYgdGhlIHJlc2V0cyBwcm9wZXJ0eSBpcyBleHBsaWNpdGx5
-IGxpc3RlZCBpbiB0aGUKRGV2aWNlIFRyZWUsIHRoZSBkcml2ZXIgbXVzdCByZXNwZWN0IGl0LiBJ
-ZiB0aGUgcHJvcGVydHkgaXMgcHJlc2VudCBidXQKd2UgZW5jb3VudGVyIGFuIGVycm9yIChsaWtl
-IC1FUFJPQkVfREVGRVIpLCBpZ25vcmluZyB0aGF0IGZhaWx1cmUgY291bGQKcHV0IHRoZSBoYXJk
-d2FyZSBpbiBhbiB1bmRlZmluZWQgb3IgZGlydHkgc3RhdGUuCgo+IEp1c3QgaWdub3JlIHRoZSBl
-cnJvciBhbmQgbW92ZSBmb3J3YXJkIGFzIHdlIGhhdmUgZG9uZSB1bnRpbCBub3cuCgpJIHdhbnQg
-dG8gZG91YmxlLWNoZWNrIHdoYXQgeW91IG1lYW4uCgpJIGNoZWNrZWQgb3RoZXIgZHJpdmVycyBp
-biBkcml2ZXJzL2kyYy9idXNzZXMgKGUuZy4gaTJjLXJpaWMuYywgaTJjLW12NjR4eHguYywKaTJj
-LWRlc2lnbndhcmUtcGxhdGRydi5jKSwgYW5kIHRoZXkgc2VlbSB0byBmb2xsb3cgdGhpcyBwYXR0
-ZXJuIG9mIHJldHVybmluZwplcnJvcnMgZXZlbiBmb3Igb3B0aW9uYWwgcmVzZXRzLgoKQlIsCkd1
-b2RvbmcKCj4KPiBJZiB0aGUga2VybmVsIGlzIHN1ZmZlcmluZyBmcm9tIGludGVybmFsIGZhaWx1
-cmVzIChzYXkgRU5PTUVNKSwKPiBpdCB3aWxsIGZhaWwgYW55d2F5IG9yLCB3aXRoIHNvbWUgbHVj
-aywgcmVjb3Zlci4KPgo+IEFuZGkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+On Sat, Dec 27, 2025 at 09:28:59PM +0000, David Laight wrote:
+>On Fri, 19 Dec 2025 16:44:11 -0800
+>Deepak Gupta <debug@rivosinc.com> wrote:
+>
+>> On Thu, Dec 18, 2025 at 08:13:31PM +0100, Lukas Gerlach wrote:
+>> >Similarly to x86 and arm64, mitigate speculation past an access_ok()
+>> >check by masking the pointer before use.
+>> >
+>> >On RISC-V, user addresses have the MSB clear while kernel addresses
+>> >have the MSB set. The uaccess_mask_ptr() function clears the MSB,
+>> >ensuring any kernel pointer becomes invalid and will fault, while
+>> >valid user pointers remain unchanged. This prevents speculative
+>> >access to kernel memory via user copy functions.
+>> >
+>> >The masking is applied to __get_user, __put_user, raw_copy_from_user,
+>> >raw_copy_to_user, clear_user, and the unsafe_* variants.
+>> >
+>> >Signed-off-by: Lukas Gerlach <lukas.gerlach@cispa.de>
+>> >---
+>> > arch/riscv/include/asm/uaccess.h | 41 +++++++++++++++++++++++++-------
+>> > 1 file changed, 32 insertions(+), 9 deletions(-)
+>> >
+>> >diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+>> >index 36bba6720c26..ceee1d62ff9b 100644
+>> >--- a/arch/riscv/include/asm/uaccess.h
+>> >+++ b/arch/riscv/include/asm/uaccess.h
+>> >@@ -74,6 +74,23 @@ static inline unsigned long __untagged_addr_remote(struct mm_struct *mm, unsigne
+>> > #define __typefits(x, type, not) \
+>> > 	__builtin_choose_expr(sizeof(x) <= sizeof(type), (unsigned type)0, not)
+>> >
+>> >+/*
+>> >+ * Sanitize a uaccess pointer such that it cannot reach any kernel address.
+>> >+ *
+>> >+ * On RISC-V, virtual addresses are sign-extended from the top implemented bit.
+>> >+ * User addresses have the MSB clear; kernel addresses have the MSB set.
+>> >+ * Clearing the MSB ensures any kernel pointer becomes non-canonical and will
+>> >+ * fault, while valid user pointers remain unchanged.
+>> >+ */
+>> >+#define uaccess_mask_ptr(ptr) ((__typeof__(ptr))__uaccess_mask_ptr(ptr))
+>> >+static inline void __user *__uaccess_mask_ptr(const void __user *ptr)
+>> >+{
+>> >+	unsigned long val = (unsigned long)ptr;
+>> >+
+>> >+	val = (val << 1) >> 1;
+>> >+	return (void __user *)val;
+>>
+>> This is only clearing b63 which is what we don't need here.
+>
+>It is also entirely the wrong operation.
+>A kernel address needs converting into an address that is guaranteed
+>to fault - not a user address that might be valid.
+
+This is about speculative accesses and not actual accesses. Due to some
+speculation it is possible that in speculative path a wrong address is
+generated with MSB=1. This simply ensures that bit is cleared for agen
+even in speculative path.
+
+>
+>You need a guard page of address space between valid user addresses
+>and valid kernel addresses that is guaranteed to not be used.
+
+IIUC, risc-v does that already (last user page is unmapped and first
+kernel page is unmapped).
+
+>Typically this is the top page of the user address space.
+>All kernel addresses need converting to the base of the guard page
+>using ALU operations (to avoid speculative accesses).
+>So: ptr = min(ptr, guard_page); easiest done (as in x86-64) with
+>a compare and conditional move.
+>The ppc version is more complex because there isn't a usable conditional
+>move instruction.
+>I think this would work for x86-32:
+>	offset = ptr + -guard_page;
+>	mask = sbb(x,x); // ~0u if the add set the carry flag.
+>	ptr -= offset & mask;
+>You need to find something that works for riscv.
+
+I believe what you're describing is `access_ok` in x86. `__access_ok` in
+`asm-generic/access_ok.h` should cover same behavior for risc-v.
+
+>
+>>
+>> You should be clearing b47 (if bit indexing starts at 0) on Sv48 and b56
+>> on Sv57 system.
+>>
+>> Anything above b47/b56 isn't going to be used anyways in indexing into
+>> page tables and will be ignored if pointer masking is enabled at S.
+>
+>Gah more broken hardware...
+>Ignoring the high address bits doesn't work and is really a bad idea.
+>Arm did it as well.
+>Trying to do 'user pointer masking' for uaccess validation is a PITA
+>if you have to allow for non-zero values in the high bits it makes
+>life even more complicated.
+
+Pointer masking and preventing speculative accesses to kernel addresses
+are two different things (although they're related because they impact
+address generation part). 
+
+Kernel may not have pointer masking enabled and in that case, it'll just
+trap if high unused bits don't match b38/47/56. To accomodate that, there
+already are patches in riscv to remove the tag in high unused bits before
+access is made by the kernel.
+
+>
+>And 'pointer masking' is so broken unless it is done at the page level
+>and enforced by the hardware.
+>What it does is make random/invalid addresses much more likely to be valid.
+>An interpreter can use them internally, but they are so slow software
+>masking  (following the validation) shouldn't be a real issue.
+>
+>	David
+>
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
