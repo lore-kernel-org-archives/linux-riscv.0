@@ -4,95 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8627E92FC4
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Dec 2025 18:02:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E593E92FC4
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Dec 2025 18:35:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hXMlEyupoiImK5V+zuXoDs1KCk55SVPZmSUuR5JhCfM=; b=WN2W/nqwdakz/L
-	8xR+qUVbPsnHXgWpCO/ZuxuzRr8JnOBjKK8R8bQOJplnhAvSnuiD/g9vB2hfh3O+3ZE4y2GgOLl/8
-	mrUCNKgFrf0AwtVeYG5VkdFtkPYLTMBZ5E4RIz8GPeFS0BYsPMIGdKmavF5dN66VRA4L1VCXqNHSB
-	7Uwty4vxmAdg+cdT0jav+A570NL71rEkAY/i3/xpWk/8v6UWETAjoHu2tEcAY+TuXW0QxpTM8Myqf
-	dtU9/5Y39ecN0i7wC7OWYv0tbE8m2pjaHVAfaOLCHVWnq0q2ab1iW5vfO6gMqeODyZI+5iKAa4KCD
-	yqPJcxm2PkEX8P56Qv3w==;
+	List-Owner; bh=1yvM3G0+a9fafloJUmkFRAMv108rEF1BL+89bHqHx8E=; b=cBQeWv2Q1WTj8m
+	LbRq+PihZP3JsxuvAoOz0nnF3Xpta8Z6tdyY32SM45L6jlZDsN9T+0+N4UccM9Z8Iu2pnaDKb1Z1k
+	QLsALnJmTyNLnr+Si0RHfOTzJLA5YhTEkNivq10bmMw6tEGwnxxdbod9NR5t58jD9zE8Fk+OHFihT
+	FKm2eibYHm7FdrSpI1qKu9Rc7IWUdzWJzA1SoGn63cURuMb/GL3gA53jTiz8qim3wX1UpZRYDV6dv
+	mui6sysIM3ui5dpc13Uhidc9XuD/hAGxElEi/14Ya3E38mj9FNYudKmO+N1jvNcBhJtgq9wgE+NCV
+	e1nj3azBnOui9WOez1NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaHZc-00000003vul-3ZeG;
-	Mon, 29 Dec 2025 18:02:28 +0000
-Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
+	id 1vaI5a-00000003xCC-2jNg;
+	Mon, 29 Dec 2025 18:35:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaHZa-00000003vuN-2oBb
+	id 1vaI5Y-00000003xBp-1OdH
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Dec 2025 18:02:27 +0000
-Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-88a2b99d8c5so71024426d6.1
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Dec 2025 10:02:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1767031345; x=1767636145; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=xDy1M86lySMiZB+6e+NfnSGr5v4JHWbEjB5Zb9z5vPo=;
-        b=qXcMK+4vBrlEhSEbO6zGCgnMe0TuRTACIvDStLuMALi/rRWvtZpRltnhyoMKtW7t7y
-         sKkTQXVzHY8N+8BRmrksca4ZJnDfDUc5EXXrDGDyypR96WOmrQxtngu7SafcshfW0+4c
-         Skk5Ck7sg8eNHJf05ZTv1sPPtotlcLV3lcSSg89U2z437zSD2TU1SApciZalI/re2Vhi
-         PaDu+Sm6e6V2aBQrpr6cGDLKRA4aEreGulXRfe8nh/VAz3Tm6pK/7fXLb6mJZwa+ruR7
-         q0OobrRGG8xpEuQqQY9ZBMPOJZCg2JAe6JnvLjMZM+JBhIQkKBQpQmfqT3SDT4Nl0UBA
-         dyOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767031345; x=1767636145;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xDy1M86lySMiZB+6e+NfnSGr5v4JHWbEjB5Zb9z5vPo=;
-        b=u0orbn79auVs3NwKvVxK9WHShQRM1LoxyoSjEOjgGCpdKIS65Hiw+9kbRwilJ6Rofw
-         u7mGSQTlmoxMXjvXk0AbaUFqicNioM0PpJQyo8PL2iZ45EaA5V+4HkxTTkyTMDy9TK1x
-         ICDlUgqsueyKEOPF2uW8+/onG/7PVDYsY0Avl2FHJI3qtNXtzkUrwd5aNLfzg5bJT25Y
-         NiU8bsDnOfJAJRfpImaFYZ5GocPlqD93it3KjVwSVARz+eChPbif68rR4nJFNpcyiD9m
-         X39ICXQwbs49EA1dfTeSpGKvyqJRa1F9qgV+IqzrYr1y1LevlQgIrFDZjJ+rp+LIVeGb
-         RRKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXR6uiPoIFy6m9NUMyzJTsaL0gtzcACM4Z+VNbRnQHAv06rf4SNgDv7uH6cg0LYxyb7bC+zveyqAAfsfw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEOY4VNosc90lwnG4rjaG/hJE+8WSvInImUcEBaCTWzi63rrGC
-	zsd89WdZeEuFXQfhRBYZvNadY4k3vVmSyRAC8An7ZV1adbK1sbquaWYulga/g6EyTFE=
-X-Gm-Gg: AY/fxX7JihC3BWKNGftB8daYVCa16KeTcgrkFZS8+12Du6xGTx5z98A0Nn56J92RLqh
-	LO1jl18FeUN0NyQcswcjTrfCvwKGRMYC9oteUybkvL5L/HJjXIC3z7w3iQNGPUcYZJEwWMfFZNC
-	KEzZ7PHL0lLLqbcIqCtjQxmlp9gzE9vdPL2biZNWECxWbcE7DZV7smVUVlWG4J/etVVr2wG2CXV
-	Vbb5g1EI76HXo4Cbl48+YNhaYdX/KA5th0KakE+W/eTMPrws+Bah3CganP6tER2NV1nv2UecEi/
-	z0SLZ10YiDO6l3ZMPWlRh9w9CByT8zGBzCV9/OoN4RimCWn1opThLY3HjhZscbPufu3+Tg2UR4l
-	g9JFQpBuVuwIRimHFQGmoZmpgbrE/rBzII6MWmj6Gswx5d6sKDvEYa5FViyHEMFzcvIEe8AuCYb
-	lGFquRhTkYiWzjalWE75kOBIbj+g==
-X-Google-Smtp-Source: AGHT+IGXtGMT6O6A6KaQIdzPXBUgINz+WinbQ4cwEL4NneioBCpZL0bLeOv1X+9oO0ye3ANqbf5YQw==
-X-Received: by 2002:a05:6214:3a83:b0:888:7d0a:18db with SMTP id 6a1803df08f44-88d83a78234mr548804566d6.48.1767031345078;
-        Mon, 29 Dec 2025 10:02:25 -0800 (PST)
-Received: from [10.211.55.5] ([209.81.125.20])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88d997ada77sm231925916d6.37.2025.12.29.10.02.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 29 Dec 2025 10:02:24 -0800 (PST)
-Message-ID: <4c7c0f69-4732-4f62-970a-2a9273b3b5c7@riscstar.com>
-Date: Mon, 29 Dec 2025 12:02:23 -0600
+	Mon, 29 Dec 2025 18:35:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 69473432E9;
+	Mon, 29 Dec 2025 18:35:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23EF6C4CEF7;
+	Mon, 29 Dec 2025 18:35:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767033326;
+	bh=eG2cXpjbEn5KgR3sqGbsjKORgaU2dlYeuXkzKF8Mu+Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tJiTqQdxcxiahCt/5Na42Sqqnb6QMNXBFsKWCsh/jwM7SZm5uZJ6HLYmiAziNGUIM
+	 bStVvsBKeMwq3158DF+MVo9QN/3PmTb3lyOHtcBb4uKosJIhW1HwdKEgIRXdhJLqIv
+	 Aze3DO85ITf1QVHZwt8J08+vxDRRz+G7IJLe4q9AeAEu/dotyEun9ursQ2VT4iGuwF
+	 /uUam40Exa8qQD64T3RwaQSpZhRY3Q8GKi1W2craqo9vuRBjDKQdEdaMErKFYMrgrL
+	 I+Qs35NIYKKJSezvh7BHgJsqWQugepNS5WIMPfLeYt/RvPpPpf/xHw5lAuaNu5cPsR
+	 klwqXccc4oIpw==
+Message-ID: <398ca47d-19d4-4b26-98db-2bf283b6b0cb@kernel.org>
+Date: Mon, 29 Dec 2025 19:35:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/3] rtc: spacemit: default module when MFD_SPACEMIT_P1
- is enabled
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Lee Jones <lee@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- Andi Shyti <andi.shyti@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-i2c@vger.kernel.org, linux-rtc@vger.kernel.org
-References: <20251225-p1-kconfig-fix-v4-0-44b6728117c1@linux.spacemit.com>
- <20251225-p1-kconfig-fix-v4-3-44b6728117c1@linux.spacemit.com>
- <202512251653368b33c7e7@mail.local>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <202512251653368b33c7e7@mail.local>
+Subject: Re: [PATCH v7] mm/hugetlb: ignore hugepage kernel args if hugepages
+ are unsupported
+To: Andrew Morton <akpm@linux-foundation.org>,
+ Sourabh Jain <sourabhjain@linux.ibm.com>, Sasha Levin <sashal@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Borislav Petkov <bp@alien8.de>,
+ Heiko Carstens <hca@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Muchun Song <muchun.song@linux.dev>,
+ Oscar Salvador <osalvador@suse.de>, Thomas Gleixner <tglx@linutronix.de>,
+ Vasily Gorbik <gor@linux.ibm.com>, linux-mm@kvack.org,
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, x86@kernel.org,
+ linux-riscv@lists.infradead.org,
+ "David Hildenbrand (Red Hat)" <david@kernel.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
+References: <20251224115524.1272010-1-sourabhjain@linux.ibm.com>
+ <20251228143533.33e2be2d6282d036f55e12cb@linux-foundation.org>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <20251228143533.33e2be2d6282d036f55e12cb@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_100226_724944_492BBC08 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20251229_103528_413987_8D4ED09C 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,63 +79,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/25/25 10:53 AM, Alexandre Belloni wrote:
-> On 25/12/2025 15:46:33+0800, Troy Mitchell wrote:
->> The RTC driver defaulted to the same value as MFD_SPACEMIT_P1, which
->> caused it to be built-in automatically whenever the PMIC support was
->> set to y.
->>
->> This is not always desirable, as the RTC function is not required on
->> all platforms using the SpacemiT P1 PMIC.
-> 
-> But then, can't people simply change the config? I don't feel like
-> this is an improvement.
-
-It's not an improvement for people who want to use the SpacemiT
-P1 PMIC, but it's an improvement for all the other RISC-V builds
-using "defconfig" that would rather have that support be modular
-to avoid needlessly consuming resources.
-
-I haven't done any testing on this but it looks fine to me.
-
-Acked-by: Alex Elder <elder@riscstar.com>
-
-I think it's a small change worth merging.  I don't think
-doing so does any harm.  Your call or course, Alexandre.
-
-					-Alex
-
->> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
->> ---
->>   drivers/rtc/Kconfig | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
->> index 50dc779f7f983074df7882200c90f0df21d142f2..53866493e9bbaf35ff0de85cbfe43e8343eadc1e 100644
->> --- a/drivers/rtc/Kconfig
->> +++ b/drivers/rtc/Kconfig
->> @@ -410,7 +410,7 @@ config RTC_DRV_SPACEMIT_P1
->>   	tristate "SpacemiT P1 RTC"
->>   	depends on ARCH_SPACEMIT || COMPILE_TEST
->>   	depends on MFD_SPACEMIT_P1
->> -	default MFD_SPACEMIT_P1
->> +	default m if MFD_SPACEMIT_P1
->>   	help
->>   	  Enable support for the RTC function in the SpacemiT P1 PMIC.
->>   	  This driver can also be built as a module, which will be called
->>
->> -- 
->> 2.52.0
->>
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAyOC8xMi8yMDI1IMOgIDIzOjM1LCBBbmRyZXcgTW9ydG9uIGEgw6ljcml0wqA6Cj4gT24g
+V2VkLCAyNCBEZWMgMjAyNSAxNzoyNToyNCArMDUzMCBTb3VyYWJoIEphaW4gPHNvdXJhYmhqYWlu
+QGxpbnV4LmlibS5jb20+IHdyb3RlOgo+IAo+PiBOb3RlIGZvciBiYWNrcG9ydGluZzogVGhpcyBm
+aXggaXMgYSBwYXJ0aWFsIHJldHJpZXZhbCBvZiB0aGUgY29tbWl0Cj4+IG1lbnRpb25lZCBpbiB0
+aGUgRml4ZXMgdGFnLiBJdCBpcyBvbmx5IHZhbGlkIG9uY2UgdGhlIGNoYW5nZSByZWZlcmVuY2Vk
+Cj4+IGJ5IHRoZSBEZXBlbmRzLW9uIHRhZyBpcyBwcmVzZW50LiBXaGVuIGJhY2twb3J0aW5nIHRo
+aXMgcGF0Y2gsIHRoZQo+PiBjb21taXQgbWVudGlvbmVkIGluIHRoZSBEZXBlbmRzLW9uIHRhZyBt
+dXN0IGJlIGluY2x1ZGVkIGZpcnN0Lgo+Pgo+PiBMaW5rOiBodHRwczovL2V1cjAxLnNhZmVsaW5r
+cy5wcm90ZWN0aW9uLm91dGxvb2suY29tLz91cmw9aHR0cHMlM0ElMkYlMkZsb3JlLmtlcm5lbC5v
+cmclMkZhbGwlMkYyMDI1MDEyMTE1MDQxOS4xMzQyNzk0LTEtc291cmFiaGphaW4lNDBsaW51eC5p
+Ym0uY29tJTJGJmRhdGE9MDUlN0MwMiU3Q2NocmlzdG9waGUubGVyb3klNDBjc2dyb3VwLmV1JTdD
+OTNhOGY5MjVmYzAyNGZmOWMzZmUwOGRlNDY2MTZjM2IlN0M4Yjg3YWY3ZDg2NDc0ZGM3OGRmNDVm
+NjlhMjAxMWJiNSU3QzAlN0MwJTdDNjM5MDI1NTgxNDA0MDI3MDY2JTdDVW5rbm93biU3Q1RXRnBi
+R1pzYjNkOGV5SkZiWEIwZVUxaGNHa2lPblJ5ZFdVc0lsWWlPaUl3TGpBdU1EQXdNQ0lzSWxBaU9p
+SlhhVzR6TWlJc0lrRk9Jam9pVFdGcGJDSXNJbGRVSWpveWZRJTNEJTNEJTdDMCU3QyU3QyU3QyZz
+ZGF0YT0zaVZVZGFNQldoRXhLa0RpViUyQkJmWXVmUFRLdmExZFZpa2h5UVNoT3E3bWMlM0QmcmVz
+ZXJ2ZWQ9MCBbMV0KPj4gTGluazogaHR0cHM6Ly9ldXIwMS5zYWZlbGlua3MucHJvdGVjdGlvbi5v
+dXRsb29rLmNvbS8/dXJsPWh0dHBzJTNBJTJGJTJGbG9yZS5rZXJuZWwub3JnJTJGYWxsJTJGMjAy
+NTAxMjgwNDMzNTguMTYzMzcyLTEtc291cmFiaGphaW4lNDBsaW51eC5pYm0uY29tJTJGJmRhdGE9
+MDUlN0MwMiU3Q2NocmlzdG9waGUubGVyb3klNDBjc2dyb3VwLmV1JTdDOTNhOGY5MjVmYzAyNGZm
+OWMzZmUwOGRlNDY2MTZjM2IlN0M4Yjg3YWY3ZDg2NDc0ZGM3OGRmNDVmNjlhMjAxMWJiNSU3QzAl
+N0MwJTdDNjM5MDI1NTgxNDA0MDUzMjA2JTdDVW5rbm93biU3Q1RXRnBiR1pzYjNkOGV5SkZiWEIw
+ZVUxaGNHa2lPblJ5ZFdVc0lsWWlPaUl3TGpBdU1EQXdNQ0lzSWxBaU9pSlhhVzR6TWlJc0lrRk9J
+am9pVFdGcGJDSXNJbGRVSWpveWZRJTNEJTNEJTdDMCU3QyU3QyU3QyZzZGF0YT1HYW1EZTJSODdT
+ZHBGdXJuajlDbXQ5d09RdGtHTGdJTzF6N25sNVFQeGdZJTNEJnJlc2VydmVkPTAgWzJdCj4+IEZp
+eGVzOiBjMjgzM2E1YmY3NWIgKCJodWdldGxiZnM6IGZpeCBjaGFuZ2VzIHRvIGNvbW1hbmQgbGlu
+ZSBwcm9jZXNzaW5nIikKPj4gRGVwZW5kcy1vbjogMjM1NGFkMjUyYjY2ICgicG93ZXJwYy9tbTog
+VXBkYXRlIGRlZmF1bHQgaHVnZXRsYiBzaXplIGVhcmx5IikKPiAKPiBUaGlzIHdpbGwgYmUgdGhl
+IGZpcnN0ICJEZXBlbmRzLW9uOiIgaW4gaGlzdG9yeS4gIFdoaWNoIGlzIGEgaGludCB0aGF0Cj4g
+d2UncmUgZG9pbmcgc29tZXRoaW5nIHdyb25nLiAgVGhpcyBpbm5vdmF0aW9uIHdpbGwgc3VyZWx5
+IGZvb2wgYW55Cj4gZG93bnN0cmVhbSBhdXRvbWF0aW9uLiAgTGV0J3MgdXNlIGV4aXN0aW5nIHRv
+b2xzIGlmIHBvc3NpYmxlLgoKV2hhdCBkbyB5b3UgbWVhbiBieSAiZmlyc3QgaW4gaGlzdG9yeSIg
+PyBEbyB5b3UgbWVhbiBpdCdzIG5ldmVyIGJlZW4gCnVzZWQgYmVmb3JlID8gQXMgZmFyIGFzIEkg
+Y2FuIHNlZSBpdCBoYXMgYmVlbiB1c2VkIHNldmVyYWwgdGltZXMgCmFscmVhZHkuIEZpcnN0IG9u
+ZSB3YXMgaW4gMjAxNCB3aXRoIGNvbW1pdCBhMDg1NTA1NGU1OWIgKCJpd2x3aWZpOiBkdm06IApk
+cm9wIG5vbiBWTyBmcmFtZXMgd2hlbiBmbHVzaGluZyIpCgpTYXNoYSwgZG8gdG9vbHMgdXNlIGl0
+ID8KCiQgZ2l0IGxvZyB8IGdyZXAgIkRlcGVuZHMtb246ICIgfCB3YyAtbAoxMzcKCiQgZ2l0IGxv
+ZyB8IGdyZXAgIkRlcGVuZHMtb246ICIgfCBoZWFkIC0xMAogICAgIERlcGVuZHMtb246IGUyZGFl
+YzQ4OGM1NyAoIm5iZDogRml4IGh1bmd0YXNrIHdoZW4gbmJkX2NvbmZpZ19wdXQiKQogICAgIERl
+cGVuZHMtb246IGFybTY0OiBkdHM6IG51dm90b246IENvbWJpbmUgTlBDTTg0NSByZXNldCBhbmQg
+Y2xrIG5vZGVzCiAgICAgRGVwZW5kcy1vbjogMDU4NTE4YzIwOTIwICgibGFuZGxvY2s6IEFsaWdu
+IHBhcnRpYWwgcmVmZXIgYWNjZXNzIApjaGVja3Mgd2l0aCBmaW5hbCBvbmVzIikKICAgICBEZXBl
+bmRzLW9uOiBkNjE3ZjBkNzJkODAgKCJsYW5kbG9jazogT3B0aW1pemUgZmlsZSBwYXRoIHdhbGtz
+IGFuZCAKcHJlcGFyZSBmb3IgYXVkaXQgc3VwcG9ydCIpCiAgICAgRGVwZW5kcy1vbjogN2NjYmUw
+NzZkOTg3ICgibHNtOiBPbmx5IGJ1aWxkIGxzbV9hdWRpdC5jIGlmIApDT05GSUdfU0VDVVJJVFkg
+YW5kIENPTkZJR19BVURJVCBhcmUgc2V0IikKICAgICBEZXBlbmRzLW9uOiAyNmYyMDQzODBhM2Mg
+KCJmczogRml4IGZpbGVfc2V0X2Zvd25lciBMU00gaG9vayAKaW5jb25zaXN0ZW5jaWVzIikKICAg
+ICBEZXBlbmRzLW9uOiBjb21taXQgMDQ1YjE0Y2E1YzM2ICgib2Y6IFdBUk4gb24gZGVwcmVjYXRl
+ZCAKI2FkZHJlc3MtY2VsbHMvI3NpemUtY2VsbHMgaGFuZGxpbmciKQogICAgIERlcGVuZHMtb246
+IHY2LjEyKyB3aXRoIFBSRUVNUFRfUlQgZW5hYmxlZAogICAgIERlcGVuZHMtb246IDA0NWIxNGNh
+NWMzNiAoIm9mOiBXQVJOIG9uIGRlcHJlY2F0ZWQgCiNhZGRyZXNzLWNlbGxzLyNzaXplLWNlbGxz
+IGhhbmRsaW5nIikKICAgICBEZXBlbmRzLW9uOiBjb21taXQgYWVjODlkYzVkNDIxICgiYmxvY2s6
+IGtlZXAgcV91c2FnZV9jb3VudGVyIGluIAphdG9taWMgbW9kZSBhZnRlciBkZWxfZ2VuZGlzayIp
+CgpDaHJpc3RvcGhlCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
