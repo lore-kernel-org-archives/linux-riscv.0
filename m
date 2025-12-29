@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A25E92FC4
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Dec 2025 20:15:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 378CBE92FD0
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Dec 2025 20:15:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0HDKT3F9ah+RJrljqP4gAMyxKVFrnIk4Fkf8kx3nRKc=; b=3neOd6PR748I+A
-	fKO8nEmJjvlSOdtmBUHqOl2X+19EvS55oyIzT8mne2hJ+BUZQ9qV08PxDYih8gdChTPGRg0bkcsTZ
-	rYK/fRUv8N2kKytvaGDQi5V064ehtqpdqgF6gEDnwAJjg+Iah+DVrxO1zTiBvNb5DyRuvHJnKZ3SS
-	gBDkh0UD8xjghXLfJR9n6QkhjIQ67IDUk6+ZJGtnzfM63nr8y+757WI/IsMPgptfrGaT1F7+l6/8a
-	56Mot1xIZionaBtpLkvVEJVUunyGLfwdW64nteZvdyhd0anoezQyGhcurv30VJxK9P9wvqkMGOqoz
-	zTIpoxVLYASItafYorkg==;
+	List-Owner; bh=fkkX8gnA0DrQvTK6DGdxmMykz+WXQkY11pdxolc5cy0=; b=lOFO9T2s0kUGud
+	PqOJLLnY9N+wQPLL/py5Ww/mkvbGZVgSGwjk+NmBj7vh3Ysst6Ji8qqEubtHR3+OWBIzvGlMhGTlG
+	gpknRSNenEPIssGQrb2Ox4TbvPn/TLhpa3t3QqH4n2Pe+gGc6rMQsL7hrLSEKT0LyKjeJ8PAOcL2P
+	bI45ch3tjZg2ImmXuWbNWj+R8q8FzBBFDUjYCudwDs8O06ET6XcCDJBsKgMe5clnx/FuunQMYsLge
+	jcLmqr7LMeT6Ct5mkVMuVaLbz+Oaw44PBpAG+/OECbB8N8ol/xeU98s5k7SXJknOKPt8wcoKwax7m
+	NhuTZwL0yhRv/JGu6e1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaJdv-000000042Li-1CIg;
+	id 1vaJdv-000000042Ln-2P6S;
 	Mon, 29 Dec 2025 20:15:03 +0000
 Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaJdr-000000042KS-2ppL;
-	Mon, 29 Dec 2025 20:15:01 +0000
+	id 1vaJdt-000000042L3-2uL9
+	for linux-riscv@lists.infradead.org;
+	Mon, 29 Dec 2025 20:15:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
 	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
 	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=ehhD4wbRH7wTUpUt/VpjfWrT/bv2UxVguaxZJATB154=; b=Zp4437afYBpglBIfsU9Cu7FhPk
-	GOGNSR+oUYd6yiPvLfJUI977dPzBKtmKDt3Qw2RdwgwVHDJk0zOADkDXiwYB+cXfvImJr3n5mgDEC
-	vcoVLWkkifPkpoJMWJR2NgtekkCiM7NH1gYa6uHAAMkABkip9XREI2FqPa/scESAOtjSXgdN4wWcI
-	VmFckGOq8jSUxWwsbEWlxUeh0SWDzaagBfT/IKb65LcpxXdjX6gHDri3SRrrQJk4SlhUO/AIH5Qi4
-	+jJu0IfV3yTVpkMNt82k5RxUSwqpPNEpQYAun05CiSBULG1Ow3yLrakboKUl2KzdlBPK80I30vfJP
-	yyH31Wrg==;
+	bh=bEEUJVfxLVTTxjkHipHATe6EImddwPLUCuwideZLEw8=; b=gfLhfqRize/eRRS/BDZh55+6je
+	mVyUeI6SdYH4q++FKnkHq/XL40pqWaCcK6xHZ52N5EImUBgLLb6IO5hqO9oWMg71hEh+E2rUQx0Jk
+	dFed70DloaP/4djHySE7IB0qB4zaFlqGD2RibN2HhX2NtbgPusxHXB4SKuNnDpY8CBAOMniCcjuu1
+	lJqWSmTatvds7H4HkE1qsjWQozMgKn1Eot/LgNBiRgMMsqxJ122x8FjBuWgIJmnJilG6BMmuCV+2a
+	0RketsO6gb4dqyIOIO7Kf44qT3rmtdPezdPZn2qZW5kvtMku2XyyQ1ouN0af0z4D4k959S1i0NWg4
+	uhJ0Mytw==;
 Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
 	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <aurelien@aurel32.net>)
-	id 1vaJdk-00000003dMJ-0mmb;
-	Mon, 29 Dec 2025 21:14:52 +0100
-Date: Mon, 29 Dec 2025 21:14:51 +0100
+	id 1vaJdq-00000003dMY-1TXH;
+	Mon, 29 Dec 2025 21:14:58 +0100
+Date: Mon, 29 Dec 2025 21:14:57 +0100
 From: Aurelien Jarno <aurelien@aurel32.net>
 To: Ze Huang <huang.ze@linux.dev>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@gentoo.org>, devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Ze Huang <huangze@whut.edu.cn>
-Subject: Re: [PATCH v6 0/2] Add USB2.0 PHY support for SpacemiT K1
-Message-ID: <aVLhO9hAZBBNUEnP@aurel32.net>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/3] riscv: dts: spacemit: Add USB 3.0 support for K1
+Message-ID: <aVLhQQrYQ0T2rBeq@aurel32.net>
 Mail-Followup-To: Ze Huang <huang.ze@linux.dev>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@gentoo.org>, devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Ze Huang <huangze@whut.edu.cn>
-References: <20251017-k1-usb2phy-v6-0-7cf9ea2477a1@linux.dev>
+	linux-kernel@vger.kernel.org
+References: <20251101-k1-usb3dts-v1-0-dd2660e5740b@linux.dev>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251017-k1-usb2phy-v6-0-7cf9ea2477a1@linux.dev>
+In-Reply-To: <20251101-k1-usb3dts-v1-0-dd2660e5740b@linux.dev>
 User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_121500_161763_F4AD4ACE 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20251229_121501_733904_66A47621 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,80 +88,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025-10-17 22:49, Ze Huang wrote:
-> This patch series introduces support for the USB2.0 PHY on the SpacemiT
-> K1 SoC. The implementation has been tested on the Milk-V Jupiter and
-> BananaPi-f3.
+Hi,
+
+On 2025-11-01 17:03, Ze Huang wrote:
+> This patch series enables the DWC3 USB 3.0 host controller on the
+> Spacemit K1 SoC, and enables it for the Banana Pi F3 board.
 > 
-> K1 includes three USB ports as follows[1]:
-> - A USB2.0 OTG Port
-> - A USB2.0 Host Only Port
-> - A USB3.0 Port with a USB2.0 DRD interface
+> To make USB 3.0 work on the K1, we need patches for the USB2 PHY [1],
+> ComboPHY [2], and DWC3 [3] driver, also, ensure enabling the following
+
+Note that the CompoPHY part got merged in the meantime.
+
+> configurations:
 > 
-> Each of these ports is connected to a USB2.0 PHY responsible for USB2
-> transmission.
+> CONFIG_PHY_SPACEMIT_K1_USB2=y
+> CONFIG_PHY_SPACEMIT_K1_PCIE=y
+> CONFIG_USB_DWC3=y
+> CONFIG_USB_ONBOARD_DEV=y
 > 
-> This series is based on 6.18-rc1.
+> The series is based on v6.18-rc1.
 > 
-> Link: https://developer.spacemit.com/documentation?token=AjHDwrW78igAAEkiHracBI9HnTb#part5 [1]
+> Link: https://lore.kernel.org/all/20251017-k1-usb2phy-v6-0-7cf9ea2477a1@linux.dev/ [1]
+> Link: https://lore.kernel.org/all/20251017190740.306780-1-elder@riscstar.com/ [2]
+> Link: https://github.com/torvalds/linux/commit/e0b6dc00c701 [3]
 > 
-> Signed-off-by: Ze Huang <huangze@whut.edu.cn>
-> ---
-> Changes in v6:
-> - phy: spacemit: k1-usb2-phy:
->   - Fix clock API usage and ensure proper clock disabling in error paths.
->   - Refactor Register Definitions: Replace address/number-based macros with
->     feature-based names
-> - Link to v5: https://lore.kernel.org/all/20250527-b4-k1-usb3-phy-v2-v5-3-2d366b0af999@whut.edu.cn
-> 
-> Changes in v5:
-> - phy driver for usb2:
->   - convert readl/writel to regmap
->   - fix typo: sentinal -> sentinel
-> - Link to v4: https://lore.kernel.org/r/20250526-b4-k1-usb3-phy-v2-v4-0-eca668fc16a2@whut.edu.cn
-> 
-> Changes in v4:
-> - combphy driver:
->   - add in-code comments to indicate that PCIe mode is not yet supported.
->   - replace custom spacemit_reg_update() with standard regmap API.
->   - drop spacemit_combphy_wait_ready helper function as only used once.
->   - Fix PHY init timeout handling: ensure proper error reporting when PLL
->     lock fails during USB3 PHY initialization
-> - Link to v3: https://lore.kernel.org/r/20250517-b4-k1-usb3-phy-v2-v3-0-e0655613a163@whut.edu.cn
-> 
-> Changes in v3:
-> - improve commit message, provide more info about phy hardware
-> - drop superfluous local variable in `spacemit_combphy_wait_ready`
-> - replace devm_reset_control_get with devm_reset_control_get_exclusive
-> - Link to v2: https://lore.kernel.org/r/20250418-b4-k1-usb3-phy-v2-v2-0-b69e02da84eb@whut.edu.cn
-> 
-> Changes in v2:
-> - combphy dt-bindings:
->   - fix reg-names
->   - describe reg
->   - describe #phy-cells argument
-> - drop stale ".owner" in driver struct
-> - add support for usb lfps_thres in combphy
-> - fix Kconfig depends on
-> - Link to v1: https://lore.kernel.org/all/20250407-b4-k1-usb3-v3-2-v1-0-bf0bcc41c9ba@whut.edu.cn
+> Thanks,
+> Ze Huang
 > 
 > Signed-off-by: Ze Huang <huang.ze@linux.dev>
-> 
 > ---
-> Ze Huang (2):
->       dt-bindings: phy: spacemit: add K1 USB2 PHY
->       phy: spacemit: support K1 USB2.0 PHY controller
+> Ze Huang (3):
+>       riscv: dts: spacemit: Add USB2 PHY node for K1
+>       riscv: dts: spacemit: Add DWC3 USB 3.0 controller node for K1
+>       riscv: dts: spacemit: Enable USB3.0 on BananaPi-F3
 > 
->  .../devicetree/bindings/phy/spacemit,usb2-phy.yaml |  40 +++++
->  drivers/phy/Kconfig                                |   1 +
->  drivers/phy/Makefile                               |   1 +
->  drivers/phy/spacemit/Kconfig                       |  13 ++
->  drivers/phy/spacemit/Makefile                      |   2 +
->  drivers/phy/spacemit/phy-k1-usb2.c                 | 200 +++++++++++++++++++++
->  6 files changed, 257 insertions(+)
-> ---
-> base-commit: cb6649f6217c0331b885cf787f1d175963e2a1d2
-> change-id: 20251017-k1-usb2phy-a53ed4ea51b0
+>  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 47 +++++++++++++++++++++++++
+>  arch/riscv/boot/dts/spacemit/k1.dtsi            | 32 +++++++++++++++++
+>  2 files changed, 79 insertions(+)
 
 The whole series is:
 
