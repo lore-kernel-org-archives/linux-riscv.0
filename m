@@ -4,96 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2AE8D3B7E5
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Dec 2025 10:14:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FC56D3B7E5
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Dec 2025 10:27:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9d1v4lKBdHMu43mNodddHMit28l80MDXahxOcl6c9Ck=; b=Q8ilA1QNTTrumz
-	Xyt/oX19/ZikD9upje/D+XKvE2YdAq56GtdK7va+5CT3CkWZ/dfcfth3tXHcbdbftZoECo1NgLCNS
-	xN/uCTVBY2JTpA7AlPXk32v2qaS+EmAmfiP9QDEhJM1HWyL1zmKKKxrv+N/xcTcuKlHagUH/j8dgJ
-	v9OuuquSIadyuo/SuIYOL+fVdHbjGfGZEh8Ig6nCKvy52GnNRVT2ZnTogyKshc8tLHVsXnmqQ8gUb
-	bquGOeyAEB9TK/qQGifvUVvBgI3xJwoL5IEe3zg6boEVeLKtw86jDXOB+NFt596NciK+kz4p+ruyY
-	Q2TJCv1HfUoTT0NjzUEA==;
+	List-Owner; bh=bh/OdeuPq8+9P8EQcWgKBOwCoPuD/u8UCzp4XL4MCUY=; b=mhAuoaE1L5bB4q
+	XuGjancMZaX7+LJEHMdiepra/aSaAWrWty1LpJPcSSDqcZzfTGUEyXQSrasgJWKf75joLWcrinS5A
+	HzTPDUGLKpqzBeokR5rVVWqRAyGUSJYI6ZRmCOpWteJ8Nb6/UbcL9V1Qbcvk+0OUhUgKg/26D1Fqk
+	/D2KwPinSQ0LgflaWLo4qQSj0TMMRDFOLNl2c1hkxp90+8886+R07g5PfWsPxpRYzW71yGeZm90bm
+	xHZlWDO2jtKLtRXawCer63NBodQ87ZPVO/oqtajfUcQ/WBDfeWuo0jlnR7GUiJehKUmIfAEasqJtv
+	Dvv5UaJqhPV8JOmgeDEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaAGl-00000003YpB-0oGD;
-	Mon, 29 Dec 2025 10:14:31 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vaASu-00000003ZXB-3QgE;
+	Mon, 29 Dec 2025 10:27:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaAGi-00000003Yok-3PS0
+	id 1vaASr-00000003ZWZ-3wX3
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Dec 2025 10:14:30 +0000
+	Mon, 29 Dec 2025 10:27:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1767003267;
+	s=mimecast20190719; t=1767004021;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=0MeGtttQCSy+HkQ1P/XOLXh/i4l7g+qeOEMBCMGW53s=;
-	b=FYrYbNgtcFWGKVxlgzWZnr7SOPBxaHfmDDrXI1+ZrpUXJXyLVTDW5G0mX/Qa2O4hK8T34b
-	O7yq/Abbgo8itrM/7XsgqkcWM21qCjET4R4JEcURTU68B2/8hAwrdYrpqwXtngE9XE7W21
-	UituaO9eD4U2+VAxcIqk9gt2ipQtVG0=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=+gTURj67hUtoANoYmcW+tjm4QyZ/4RAo5MqihnzdnVQ=;
+	b=XOHIt+zyQBDt27gFd+IidW0IyDY4uTwiv2nDPSqmih0KL9YUR3eTUt75VL8SgunSBJ5Yhr
+	IRoipEEE/00gcXPKQ4LelYrk3QDDMCSMIITgos8rTAczGOALanUwhsSiVCnl93b07+4iTn
+	BgwybS8Cq+ysv4s2eJm5/ZDuQHKU8l8=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-582-2A1sLqImPLCATidEsWBpYw-1; Mon, 29 Dec 2025 05:14:25 -0500
-X-MC-Unique: 2A1sLqImPLCATidEsWBpYw-1
-X-Mimecast-MFC-AGG-ID: 2A1sLqImPLCATidEsWBpYw_1767003264
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-430fcb6b2ebso5199954f8f.2
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Dec 2025 02:14:25 -0800 (PST)
+ us-mta-99-_0fmJgEaNrGom8wl840rYw-1; Mon, 29 Dec 2025 05:26:59 -0500
+X-MC-Unique: _0fmJgEaNrGom8wl840rYw-1
+X-Mimecast-MFC-AGG-ID: _0fmJgEaNrGom8wl840rYw_1767004018
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4775e00b16fso27698705e9.2
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Dec 2025 02:26:59 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767003264; x=1767608064;
+        d=1e100.net; s=20230601; t=1767004018; x=1767608818;
         h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
          :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0MeGtttQCSy+HkQ1P/XOLXh/i4l7g+qeOEMBCMGW53s=;
-        b=quMICS0vYZ7WdB0ZW0YQqbyh82ePMgwbwZWCsiX8l+Ujm38jgMEi4fNsG3Lst4idGl
-         hNZcVF5c/RiEPYKObgpQOKlyW/Frls8Xd6jTeoN4AbAPoRlbPdM+uveM/pGRXC3yMlW8
-         cfCr9ElutXAkMqjdva6tFMYWkAbWHkAuJn6qTT38bsf2NTawV1X1zNUbLJJk7hlm6rKz
-         xa00Btk2Y+l/NrDdRCYwqGyWy9W7EccpQ67v1UxWCUw0M2NbiPyRK3Etdd77ymvR3mWJ
-         2BxqYk2DAo8FFlmW9a9DA3rFgzqoNvOQHd6nEQa+QL4fIz4LAVljPwsNo5KJM6xPThJ5
-         YbcA==
-X-Forwarded-Encrypted: i=1; AJvYcCVeTTvWg+u7NAh4QMK+QG7agURkWZ6SLGIlkBsz09uDnW1GLXjQkLhg/ZfusioBBsZFHxdRZ81P9M8oAw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEcUi5pSK6nwzoN6zwJHj70SMdtui/MVv5y4H7qhLEoNFP/5hk
-	EvR3dC+rALg4fm30sYRjbSUvKX/FsNKAsM5gufMRyUD3BAcWvgZtnaV1zZbaqL8bIb50juhALcw
-	uTfi5cS3mi5fbtC+jx/nBStxyPJk3Gd+PkHEWzq4/812hOj6AyKy3IkIu4II1WPNKMucP8Q==
-X-Gm-Gg: AY/fxX71NNszgjgQmn6zzXNe6GKo/3sk4N8IVfgOnncWeNX/DQaEE+RAembUDdUYFEK
-	QoAQxdd7iT3TDJo5mXoDcSEl95gdYPpEfhEb5VLJmBXQYCEftmrKK2tUvi1kwn/vq6nhbZugVTq
-	TggzewuzA08xLPdDKGveQorqUBGc71K0rCMezXjuIuj3QR+Eg9a/jup6zgAeajF3h32EzDqM0Vx
-	Qx6u8H6fTGHdgSaeSXWJrsRsGXyC+FqJB1CeDhxN6GwAClLVMyN0mhjlwQMiin78AvH/6WK7fyD
-	N8EiE7T8iMfEVtRxXUSeg/tM4lWFLNeTmdaz5d/1jbXyIUWAcwrBRzK7SSGE5kRIVSOTHJOlqz0
-	FbOYTXqWVURr2vu5d29ZOgJnRgooHAxwchSTLq/YwX253KUlS7IA7oLlAWl03SSMUcXdy
-X-Received: by 2002:a05:6000:2583:b0:431:53:1f49 with SMTP id ffacd0b85a97d-4324e4f69d4mr29072894f8f.41.1767003264188;
-        Mon, 29 Dec 2025 02:14:24 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEaUX+P/aYJXLzomp8EeNsbkaHr1ZMGK/ODEhPXEZsAY+UeUvgAFBACIto/Ps2yRmhT3bcm8A==
-X-Received: by 2002:a05:6000:2583:b0:431:53:1f49 with SMTP id ffacd0b85a97d-4324e4f69d4mr29072878f8f.41.1767003263793;
-        Mon, 29 Dec 2025 02:14:23 -0800 (PST)
+        bh=+gTURj67hUtoANoYmcW+tjm4QyZ/4RAo5MqihnzdnVQ=;
+        b=ICvUe2ELEXx8DzQzQMQOp64+WZbQSTON09x05GdIepFEPrlrl4fJSv4hf4o1GouPxi
+         zQ2u2uXNwwu6SCwfNoBMoxx61KJHCtl4L0/vlv6roF4mkQiKk9bgVZhE3eELpzvX1jgg
+         8xBQQ1MO+VNoGZ1YvazeGxoBy5KT+Y/cFYYsXMeUnDv91CRWqGT0O7k7S+Hjyy+vJvg9
+         x2FOnRP0E/oqmVAyia5zWZUKQpH/6XHmOkBOsLr/wK1ac+9AqplA0w3Q/ftT/d0jcLt5
+         ilcfjQzGWy5EfLRiLxV/kz6L5BxUiEr2fZl35P7UJyQStmEcVMJSzAiT1PbEK1d8e6uk
+         OMuA==
+X-Forwarded-Encrypted: i=1; AJvYcCWalJvH0lodGUAZMgR9KxCImtIPgQZWyVMKIOieP8uon2DW1TiOe1lHd5OxpoqpnyoKMrvFuVV6CCJ9eQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDRiv+WTeqZcHxGMS6Q6cNhyGruwWbB05lEG4UHBol/PXbdEEg
+	3yzH+iShBqThwzJEddGdXJcTd3AOXJiA/XSxzN2Jc9GKZ5bKsyOe9np4dXHBSYrOEld7gV/BNjX
+	37g6R7YL1fj2ot9CPM0U6eBwD2zuGKRvXb9Pg3M1Wuq0NQG3KSq5Td/fI6HTLQdaCDdanyg==
+X-Gm-Gg: AY/fxX7UbAoBcz6NcrV6Xo/jpL0HVmg8T5KSh0Ra70sIx2rXkMI2TV+k+w7ggxmXtpJ
+	ZeohkCRzlc8b6MH2FuLY5jaqMKefvVqHTJ4oGHiFKSxmRve9dirMZAPW9qfS2NFhoLMMamq+yRa
+	cLYW86pIrUkOznqs1lNOrc5QWc1KtpKso7ZqtZ2x41Nuuwj7XYaiijQ31SsWVpDFFeKby7tu6bf
+	AbbSqjEb79t4ee4Ki01xBFGqQDD7156eIHa05mApWIqFLi9GFPDCuPpDhGoC6MpmmNOyC44Ccrv
+	LE9kk4KGw2LCGLf5IExjaApBjukMyfzSu2OTLKMtYzYUeAAX9Tw5n5Vgjat7QJqNeWOpOaOSzYA
+	lzKblFR6V1hW9EHC6vTYuGfMONaIk8kCOWJacjdJ1mamJpRX/1BzUMrDgVh/c2amRDKUM
+X-Received: by 2002:a05:600c:1d0b:b0:479:2a0b:180d with SMTP id 5b1f17b1804b1-47d1954a5f7mr342815035e9.11.1767004018146;
+        Mon, 29 Dec 2025 02:26:58 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHCLr8RQ/kQaLCzAKU4XinX/5NPXh7J4eFNQbJHL+v0sAPDycbmoLCRLQ+zzlU/e+HX1KBdsg==
+X-Received: by 2002:a05:600c:1d0b:b0:479:2a0b:180d with SMTP id 5b1f17b1804b1-47d1954a5f7mr342814785e9.11.1767004017733;
+        Mon, 29 Dec 2025 02:26:57 -0800 (PST)
 Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324ea1af20sm58270346f8f.2.2025.12.29.02.14.22
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d28bede16sm170253275e9.20.2025.12.29.02.26.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Dec 2025 02:14:22 -0800 (PST)
+        Mon, 29 Dec 2025 02:26:56 -0800 (PST)
 From: Javier Martinez Canillas <javierm@redhat.com>
-To: Chukun Pan <amadeus@jmu.edu.cn>, michael.opdenacker@rootcommit.com
-Cc: dan.carpenter@linaro.org, dlan@gentoo.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, Chukun Pan
- <amadeus@jmu.edu.cn>
-Subject: Re: [PATCH 2/2] riscv: dts: spacemit: Add MMC support on BPI-F3 and
- OrangePi RV2
-In-Reply-To: <20251224150003.1232791-1-amadeus@jmu.edu.cn>
-References: <20251215-k1-boards-add-mmc-v1-2-d68dc87d4aab@rootcommit.com>
- <20251224150003.1232791-1-amadeus@jmu.edu.cn>
-Date: Mon, 29 Dec 2025 11:14:21 +0100
-Message-ID: <87zf71fvcy.fsf@ocarina.mail-host-address-is-not-set>
+To: Alex Elder <elder@riscstar.com>, vkoul@kernel.org,
+ neil.armstrong@linaro.org
+Cc: dlan@gentoo.org, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, guodong@riscstar.com,
+ linux-phy@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kernel test
+ robot <lkp@intel.com>
+Subject: Re: [PATCH] phy: Kconfig: spacemit: add COMMON_CLK dependency
+In-Reply-To: <20251226173228.2020411-1-elder@riscstar.com>
+References: <20251226173228.2020411-1-elder@riscstar.com>
+Date: Mon, 29 Dec 2025 11:26:55 +0100
+Message-ID: <87wm25fus0.fsf@ocarina.mail-host-address-is-not-set>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: p0vf0Aoh9E-k55tzErsXhI2ZwIUbw9ZikL0NzH5f6Gw_1767003264
+X-Mimecast-MFC-PROC-ID: BsCYakkQiUY9b2baYJxZKifeV72NSWUcJv2peCvWB98_1767004018
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_021428_945244_8FF48565 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20251229_022702_042899_E3A91701 
+X-CRM114-Status: UNSURE (   7.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,50 +112,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Chukun Pan <amadeus@jmu.edu.cn> writes:
+Alex Elder <elder@riscstar.com> writes:
 
-> Hi,
->
->> +&sdhci0 {
->> +	pinctrl-names = "default";
->> +	pinctrl-0 = <&mmc1_cfg>;
->
-> It would be better to arrange them in alphabetical order.
-> (Place pinctrl below no-sdio)
->
->> +	bus-width = <4>;
->> +	cd-gpios = <&gpio K1_GPIO(80) GPIO_ACTIVE_HIGH>;
->
-> It seems that "cap-sd-highspeed" is missing?
->
->> +	cd-inverted;
->> +	no-sdio;
->> +	status = "okay";
->> +};
->
->> +			sdhci0: mmc@d4280000 {
->
-> An immature idea. Would naming nodes this way be better?
->
-> sdmmc: mmc@d4280000
->  sdio: mmc@d4280800
->  emmc: mmc@d4281000
->
-> This seems to fit the description here better:
-> https://bianbu-linux.spacemit.com/en/device/peripheral_driver/SDHC/#dts-configuration
->
+Hello Alex,
 
-I initially thought something similar but it's not accurate. Because as
-explained in the doc that you referred:
+> The SpacemiT PCIe PHY driver depends on the common clock framework.
+> Not specifying that led to a failure when doing a COMPILE_TEST build
+> for the SPARC architecture.
+>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202512251903.sTVZgg6c-lkp@intel.com/
+> Signed-off-by: Alex Elder <elder@riscstar.com>
+> ---
 
-* slot1 supports SD/SDIO (1/4 bit)
-* slot2 supports SDIO/eMMC (1/4 bit)
-* slot3 supports only eMMC (1/4/8 bit)
-
-Which means that only slot3 is limited to eMMC.
-
-So even when a typical configuration is what you mentioned (and what I saw
-in most of the existing designs), slots 1 and 2 won't always be SD and SDIO.
+Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
 
 -- 
 Best regards,
