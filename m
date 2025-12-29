@@ -4,62 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FD37D3B7E5
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Dec 2025 02:37:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3900CD3B7E5
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Dec 2025 03:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9+zzQnUA7kfZ0Zua4aRv8u70T9ukxYHNgBQEo08Knk0=; b=lLOKFSliYuM++i
-	Sng1duzt23FIhMxNaEm4uFvkDKTmbc4A0id+RlR02yOI9wwIPT7cy+6NxNTJ+7YSi9p0oOlExtkFz
-	MukF98vJ0CYoTkN5+Pea6a0qI+dfmvs1dwMAkI89cczLMQqS/nis6z7RimyJWU+m7NbJMzIpYm2sQ
-	+0nuckbSy4EYqusIUncYmtR0A29LGo4VSUdMMqZWWfnHsBZQ2LPC+KEFnT97/YLWg0cvtOezOt8c/
-	U54VUjvN27xYbJG9he3luks2NiNqmKiHwbVzKO1mNaxc/W+3DS7NGE85XDw9TQ5gu8I3SvbhpkHBE
-	E8ngC4eCZWsZZieY3SJQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eO5HZ+4Z1xU2P5ytfwCBimu5SS68vToL+i/Y2Z7QDw0=; b=HBLZBEq1jw4L03
+	5PEGlx4VoUzLImrDU3u7wH25fC0CJBL283xW6O+Y6uOdf0wYCADN5fNTRcL1ctjBc5dzlKYxvT3Vl
+	g4/zTNcibixD+cK0EHw/mV6vLyF1kL4P4bvdspqSyKM73TKKKntmPYSugXpJXN84ZANS/QhTRT9Ei
+	6REEB2iKW4g+6gM3o7h/XBViwXOmrgvfN7K/WyU6HBjzpuqS25+H1zVJjpWN3U6crXH1dRts5M2ww
+	8D0v/ODfKL0kWdzJ+hDZd2Bif5oTlUTQbVdj8q/C3Ivmn08qE+y4kFXtY1FJbzvEooarnmUXjD0Yc
+	4p9x6xcC4Bsj9qpHxpPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va38W-00000003Eed-2J1K;
-	Mon, 29 Dec 2025 02:37:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1va3hx-00000003GMK-3QJc;
+	Mon, 29 Dec 2025 03:14:09 +0000
+Received: from out-178.mta0.migadu.com ([91.218.175.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va38V-00000003EeV-0Z8m
-	for linux-riscv@lists.infradead.org;
-	Mon, 29 Dec 2025 02:37:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 954176001A;
-	Mon, 29 Dec 2025 02:37:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 482C5C4CEFB;
-	Mon, 29 Dec 2025 02:37:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766975849;
-	bh=7ZcmFVqLNlsCeCHjD+ng4FXYjFB6oaLeok1weFSF4Gs=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=PchjK303tzJUsCa7FsWVTH/s6pBBL6vWiTT8vZjD8M/c0NTmKHUQANxJ+7tYzhctA
-	 vGDlYi3MfJF8hnefdvFUAzOpSfCFBkr+arTB7PQtry5yy0zElCDaOtv9esMZkdfLTh
-	 I4SejkYULn4aWfy+5gnPxQTsMwuLDS465BsmwGXkLaIZ5ZCPyaUnAnLxYhcZ6IlRjl
-	 tUbbDbhrZpIq+q3gXK6QosNJ0uwtSMmMEJULtjtHrSOe0AdHY5fBMUDwEX0wz33WeE
-	 jgaPtArt+QYR8VY1Id9cqw3ZEeLKgUj70e3LnaD2UwaYonS9SNDFieKk08RwpDFH6O
-	 74wz7+XnqlVjA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 477923808200;
-	Mon, 29 Dec 2025 02:34:13 +0000 (UTC)
-Subject: Re: [GIT PULL] RISC-V updates for v6.19-rc3
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <fc36548c-baa4-821d-24cd-2f645f7d9cec@kernel.org>
-References: <fc36548c-baa4-821d-24cd-2f645f7d9cec@kernel.org>
-X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
-X-PR-Tracked-Message-Id: <fc36548c-baa4-821d-24cd-2f645f7d9cec@kernel.org>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.19-rc3
-X-PR-Tracked-Commit-Id: 5efaf92da4365cb8d1ae6dd7a2d1245c69e09ff5
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 03de3e44a706cd96f75ede209cb289324367ed4b
-Message-Id: <176697565186.2397610.13576639934067283885.pr-tracker-bot@kernel.org>
-Date: Mon, 29 Dec 2025 02:34:11 +0000
-To: Paul Walmsley <pjw@kernel.org>
-Cc: torvalds@linux-foundation.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	id 1va3hv-00000003GLC-1fYd;
+	Mon, 29 Dec 2025 03:14:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1766978044;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=F1afDEBzhkrjAza00g4g2aJTxEIGJdJZw63+C1Fb5ZI=;
+	b=xudHUjePDfaFRoveEwaIphF8mZs/R5mnH9f47udtH04DIRRrs8+LS6GS4z4/Dl/4eYgJsK
+	oBr6TOGzLIp7T/sxGOQwSW0OgPsC7SNoPYqwaW6LKziESfl/Vb8AEvdBWzNjrGqBebpb8i
+	DehsZ+lJojnmbdQbaGriVFYLNw3k1b4=
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.200.81.1.6\))
+Subject: Re: [PATCH 27/28] mm/hugetlb: drop hugetlb_cma_check()
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20251228124001.3624742-28-rppt@kernel.org>
+Date: Mon, 29 Dec 2025 11:13:03 +0800
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Alex Shi <alexs@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Borislav Petkov <bp@alien8.de>,
+ Brian Cain <bcain@kernel.org>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@kernel.org>,
+ Dinh Nguyen <dinguyen@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Guo Ren <guoren@kernel.org>,
+ Heiko Carstens <hca@linux.ibm.com>,
+ Helge Deller <deller@gmx.de>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Jonathan Corbet <corbet@lwn.net>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Magnus Lindholm <linmag7@gmail.com>,
+ Matt Turner <mattst88@gmail.com>,
+ Max Filippov <jcmvbkbc@gmail.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Michal Hocko <mhocko@suse.com>,
+ Michal Simek <monstr@monstr.eu>,
+ Oscar Salvador <osalvador@suse.de>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Pratyush Yadav <pratyush@kernel.org>,
+ Richard Weinberger <richard@nod.at>,
+ Russell King <linux@armlinux.org.uk>,
+ Stafford Horne <shorne@gmail.com>,
+ Suren Baghdasaryan <surenb@google.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Vasily Gorbik <gor@linux.ibm.com>,
+ Vineet Gupta <vgupta@kernel.org>,
+ Vlastimil Babka <vbabka@suse.cz>,
+ Will Deacon <will@kernel.org>,
+ x86@kernel.org,
+ linux-alpha@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org,
+ linux-cxl@vger.kernel.org,
+ linux-doc@vger.kernel.org,
+ linux-hexagon@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org,
+ linux-mm@kvack.org,
+ linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org,
+ linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org,
+ linux-um@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org,
+ loongarch@lists.linux.dev,
+ sparclinux@vger.kernel.org
+Message-Id: <2F5422EB-495E-4BC7-8174-13BED1147382@linux.dev>
+References: <20251228124001.3624742-1-rppt@kernel.org>
+ <20251228124001.3624742-28-rppt@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251228_191407_575031_703DDB21 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,24 +125,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Sun, 28 Dec 2025 01:18:38 -0700 (MST):
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.19-rc3
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/03de3e44a706cd96f75ede209cb289324367ed4b
+> On Dec 28, 2025, at 20:39, Mike Rapoport <rppt@kernel.org> wrote:
+> 
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> 
+> hugetlb_cma_check() was required when the ordering of hugetlb_cma_reserve()
+> and hugetlb_bootmem_alloc() was architecture depended.
+> 
+> Since hugetlb_cma_reserve() is always called before hugetlb_bootmem_alloc()
+> there is no need to check whether hugetlb_cma_reserve() was already called.
+> 
+> Drop unneeded hugetlb_cma_check() function.
+> 
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
-Thank you!
+Nice cleanup.
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Acked-by: Muchun Song <muchun.song@linux.dev>
+
+Thanks.
+
 
 _______________________________________________
 linux-riscv mailing list
