@@ -4,72 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7380BE8FDBE
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Dec 2025 15:07:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1EFFE92734
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Dec 2025 16:32:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/bhKAzHPftxBpbAckfZ6zrOjTmCv6KQXVFQe7ngiAPA=; b=eVXyNlkmApYd4a
-	OHEtGShkZHRk0bMDW9vT/R53SrqTv0xmBgen+cVy1JxgbWve4cN1BiIVCyekfi9mTPHcbp3zK6nZl
-	fA05USETChf7aSDmnpDIHSeQplWeQVi8o/ZtIpntSNqIoq4ZiOgWrxCtUEV04CT5rueSLFjgPmxHV
-	pcgTtVw6gwMMLGshgRK6eVT+drYWswLc9J/CW/vFh9jYLN5gPjlZvI+Gb4BWBBFBbYsrcrO44hN4v
-	V05sL1sLros6szkV80nA2TsGHHqPbZyioaFR0Dkevz3sMbCi3XjkU3PjKd7GbeCv475AEKGA8DqOq
-	CoqFLrkM0pcyWneYQ++g==;
+	List-Owner; bh=RMnNrXHNDBKh3uJv+XL1zCMoUp2VY8yuMbO0BzS4bhQ=; b=rin8D1mwqHJtfV
+	YruJAjfscu/59FbGRiLTKtiC8BkMb7W8mDqFWqZ/1Y76C8UjRLnfL0UAJimxLwqTdMB6Vh5sSLmaU
+	EEzLWLqHhW76VTcbrTygF8wKq4J3wa4R53beQzF211qdJhi+I+9Y74ntb2yeVX4WELeZDZohkf2kS
+	rmGU84RO2RDJTK/rjZjILN4X8GVWCEs6Yh2Fk4QDck+cPLKdn4GDskM0ettT7ftljUze8Gnsp+ApP
+	RCDHtZXa6VkC0BcNlm5+Ff8UKGBDTsKn84yyEjKiPACOPgJuZkPVUA7wfokIxSSuHr9Jx53fO3c95
+	FMBh8b8BdSLv1WvF/k9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaEqE-00000003pCy-332y;
-	Mon, 29 Dec 2025 15:07:26 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1vaGAK-00000003soX-1bYU;
+	Mon, 29 Dec 2025 16:32:16 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaEqC-00000003pCY-1qGS
+	id 1vaGAG-00000003smw-1qmw
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Dec 2025 15:07:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=r3xcQVlio1jAsYzH6bF2UOcPNsgAQ8fN2ZfKQURdl3I=; b=kZCRIvKKkVm1m36/YU+zN8rNvj
-	xCLfp5trE+ZE9nJYUUQ4DWyF42Xy22kyakepBVvyiz2zhb0gsVcV14s2lCIIwBIkItslMCeCsjjho
-	+n25CoOz67Mk05z+JLAU649JXXKUo35O06HzUYaeAcRPNfb5+eoXN9p7t7SDjvUSiZzSol4MPhwgt
-	zAgNlR2qPJg+cHk6HC3ACWY/m3IP+C42uO6HeDSQB5TArDrWq+mWm4P2mIxi4ZZKOZv5+8cfu9+/P
-	P9kpTEroZ+Y2bKuZK6uFHAzQC+pwlhWlxwKug8CYdwTScUQ1Y70cbGOBguzCXd1s1MbYo4DETCYZy
-	FxnI5+Cg==;
-Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
-	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1vaEq4-00000003Mt9-0yLp;
-	Mon, 29 Dec 2025 16:07:16 +0100
-Date: Mon, 29 Dec 2025 16:07:15 +0100
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Alex Elder <elder@riscstar.com>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Troy Mitchell <troymitchell988@gmail.com>,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH v5 2/2] i2c: spacemit: introduce pio for k1
-Message-ID: <aVKZIwZf6_NJJRz8@aurel32.net>
-Mail-Followup-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Alex Elder <elder@riscstar.com>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Troy Mitchell <troymitchell988@gmail.com>,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-References: <20251226-k1-i2c-atomic-v5-0-023c798c5523@linux.spacemit.com>
- <20251226-k1-i2c-atomic-v5-2-023c798c5523@linux.spacemit.com>
+	Mon, 29 Dec 2025 16:32:14 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251229163205euoutp017326870a588be18abd4fdf341a1bc32b~FvLevlXHZ0525505255euoutp01t
+	for <linux-riscv@lists.infradead.org>; Mon, 29 Dec 2025 16:32:05 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251229163205euoutp017326870a588be18abd4fdf341a1bc32b~FvLevlXHZ0525505255euoutp01t
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1767025925;
+	bh=ExuLuxvl1jriYgk9lUcZeu3ugdqLUTCtudQjE6LZFdU=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=OUtfCeto9if+4bYrYwp+GWsRyDWuD6AyJW8UKJeGrqKoriGKr5kYlYTNdA2Lcs7no
+	 2jmv7sB5rLPYTOX588jBaXA8gQjpZSs7EJ3XOVBFc2/E2i16RBNXcG3L9mhWnQKJgR
+	 WfjSDB8fkHclTM1JBTSCy+WyBwNwrJnNUdNzNAF0=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20251229163205eucas1p1e9395170d400ce20537e79156f44778b~FvLeQqbAc1226212262eucas1p11;
+	Mon, 29 Dec 2025 16:32:05 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20251229163204eusmtip2db25adcf9b918fc714030cdbfc1150d0~FvLdReIoO2218922189eusmtip2Y;
+	Mon, 29 Dec 2025 16:32:04 +0000 (GMT)
+Message-ID: <a1d2fc77-ac57-49d4-a13e-cc391e6e2b92@samsung.com>
+Date: Mon, 29 Dec 2025 17:32:03 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251226-k1-i2c-atomic-v5-2-023c798c5523@linux.spacemit.com>
-User-Agent: Mutt/2.2.13 (2024-03-09)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/9] Verisilicon DC8200 driver (and adaption to
+ TH1520)
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Krzysztof
+	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Drew
+	Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei
+	<wefu@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>, Heiko Stuebner
+	<heiko@sntech.de>, Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
+	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: Han Gao <rabenda.cn@gmail.com>, Yao Zi <ziyao@disroot.org>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <20251224161205.1132149-1-zhengxingda@iscas.ac.cn>
+X-CMS-MailID: 20251229163205eucas1p1e9395170d400ce20537e79156f44778b
+X-Msg-Generator: CA
+X-RootMTR: 20251224161255eucas1p24c6de486b021f25007ed1ce24468cab2
+X-EPHeader: CA
+X-CMS-RootMailID: 20251224161255eucas1p24c6de486b021f25007ed1ce24468cab2
+References: <CGME20251224161255eucas1p24c6de486b021f25007ed1ce24468cab2@eucas1p2.samsung.com>
+	<20251224161205.1132149-1-zhengxingda@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_070725_070671_85B49623 
-X-CRM114-Status: GOOD (  31.60  )
+X-CRM114-CacheID: sfid-20251229_083213_073408_AE0ECB6A 
+X-CRM114-Status: GOOD (  21.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,113 +90,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksCgpPbiAyMDI1LTEyLTI2IDExOjMxLCBUcm95IE1pdGNoZWxsIHdyb3RlOgo+IFRoaXMgcGF0
-Y2ggaW50cm9kdWNlcyBJMkMgUElPIGZ1bmN0aW9uYWxpdHkgZm9yIHRoZSBTcGFjZW1pdCBLMSBT
-b0MsCj4gZW5hYmxpbmcgdGhlIHVzZSBvZiBJMkMgaW4gYXRvbWljIGNvbnRleHQuCj4gCj4gV2hl
-biBpMmMgeGZlcl9hdG9taWMgaXMgaW52b2tlZCwgdXNlX3BpbyBpcyBzZXQgYWNjb3JkaW5nbHku
-Cj4gCj4gU2luY2UgYW4gYXRvbWljIGNvbnRleHQgaXMgcmVxdWlyZWQsIGFsbCBpbnRlcnJ1cHRz
-IGFyZSBkaXNhYmxlZCB3aGVuCj4gb3BlcmF0aW5nIGluIFBJTyBtb2RlLiBFdmVuIHdpdGggaW50
-ZXJydXB0cyBkaXNhYmxlZCwgdGhlIGJpdHMgaW4gdGhlCj4gSVNSIChJbnRlcnJ1cHQgU3RhdHVz
-IFJlZ2lzdGVyKSB3aWxsIHN0aWxsIGJlIHNldCwgc28gZXJyb3IgaGFuZGxpbmcgY2FuCj4gYmUg
-cGVyZm9ybWVkIGJ5IHBvbGxpbmcgdGhlIHJlbGV2YW50IHN0YXR1cyBiaXRzIGluIHRoZSBJU1Iu
-Cj4gCj4gU2lnbmVkLW9mZi1ieTogVHJveSBNaXRjaGVsbCA8dHJveS5taXRjaGVsbEBsaW51eC5z
-cGFjZW1pdC5jb20+Cj4gLS0tCj4gQ2hhbmdlcyBpbiB2NToKPiAtIG9wdGltaXplIGNvZGUgbG9n
-aWMKPiAtIHJlZmFjdG9yIGRlbGF5IGhhbmRsaW5nIGludG8gc3BhY2VtaXRfaTJjX2RlbGF5KCkg
-aGVscGVyCj4gLSBpbnRyb2R1Y2Ugc3BhY2VtaXRfaTJjX2NvbXBsZXRlKCkgdG8gY2VudHJhbGl6
-ZSB0cmFuc2ZlciBjb21wbGV0aW9uCj4gLSByZXdvcmsgUElPIHRyYW5zZmVyIHdhaXQgbG9naWMg
-Zm9yIGNsYXJpdHkgYW5kIGNvcnJlY3RuZXNzCj4gLSBtb2RpZnkgYW5kIGFkZCBzb21lIGNvbW1l
-bnRzCj4gLSBtb2RpZnkgY29tbWl0IG1lc3NhZ2UKPiAtIExpbmsgdG8gdjQ6IGh0dHBzOi8vbG9y
-ZS5rZXJuZWwub3JnL2FsbC8yMDI1MTAwOS1rMS1pMmMtYXRvbWljLXY0LTEtYTg5MzY3ODcwMjg2
-QGxpbnV4LnNwYWNlbWl0LmNvbS8KPiAKPiBDaGFuZ2VzIGluIHY0Ogo+IC0gcmVmYWN0b3IgZm9y
-IGJldHRlciByZWFkYWJpbGl0eTogc2ltcGxpZnkgY29uZGl0aW9uIGNoZWNrIGFuZCBtb3Zpbmcg
-aWYvZWxzZSAodGltZW91dC8KPiAgIHdhaXRfeGZlcl9jb21wbGV0ZSkgbG9naWMgaW50byBhIGZ1
-bmN0aW9uCj4gLSByZW1vdmUgaXJyZWxldmFudCBjaGFuZ2VzCj4gLSByZW1vdmUgdGhlIHN0YXR1
-cyBjbGVhciBjYWxsIGluIHNwYWNlbWl0X2kyY194ZmVyX2NvbW1vbigpCj4gLSBzb3J0IGZ1bmN0
-aW9ucyB0byBhdm9pZCBmb3J3YXJkIGRlY2xhcmF0aW9ucywKPiAgIG1vdmUgdW5hdm9pZGFibGUg
-b25lcyBhYm92ZSBmdW5jdGlvbiBkZWZpbml0aW9ucwo+IC0gdXNlIHVkZWxheSgpIGluIGF0b21p
-YyBjb250ZXh0IHRvIGF2b2lkIHNsZWVwaW5nCj4gLSB3YWl0IGZvciBNU0Qgb24gdGhlIGxhc3Qg
-Ynl0ZSBpbiB3YWl0X3Bpb194ZmVyKCkKPiAtIExpbmsgdG8gdjM6IGh0dHBzOi8vbG9yZS5rZXJu
-ZWwub3JnL3IvMjAyNTA5MjktazEtaTJjLWF0b21pYy12My0xLWY3ZTY2MGMxMzhiNkBsaW51eC5z
-cGFjZW1pdC5jb20KPiAKPiBDaGFuZ2VzIGluIHYzOgo+IC0gZHJvcCAxLTUgcGF0Y2hlcyAoaGF2
-ZSBiZWVuIG1lcmdlZCkKPiAtIG1vZGlmeSBjb21taXQgbWVzc2FnZQo+IC0gdXNlIHJlYWRsX3Bv
-bGxfdGltZW91dF9hdG9taWMoKSBpbiB3YWl0X3Bpb194ZmVyKCkKPiAtIHVzZSBtc2Vjc190b19q
-aWZmaWVzKCkgd2hlbiBnZXQgUElPIG1vZGUgdGltZW91dCB2YWx1ZQo+IC0gZmFjdG9yIG91dCB0
-cmFuc2ZlciBzdGF0ZSBoYW5kbGluZyBpbnRvIHNwYWNlbWl0X2kyY19oYW5kbGVfc3RhdGUoKS4K
-PiAtIGRvIG5vdCBkaXNhYmxlL2VuYWJsZSB0aGUgY29udHJvbGxlciBJUlEgYXJvdW5kIFBJTyB0
-cmFuc2ZlcnMuCj4gLSBjb25zb2xpZGF0ZSBzcGFjZW1pdF9pMmNfaW5pdCgpIGludGVycnVwdCBz
-ZXR1cAo+IC0gcmVuYW1lIGlzX3BpbyAtPiB1c2VfcGlvCj4gLSByZW5hbWUgc3BhY2VtaXRfaTJj
-X3hmZXIoKSAtPiBzcGFjZW1pdF9pMmNfeGZlcl9jb21tb24oKQo+IC0gcmVuYW1lIHNwYWNlbWl0
-X2kyY19pbnRfeGZlcigpIC0+IHNwYWNlbWl0X2kyY194ZmVyKCkKPiAtIHJlbmFtZSBzcGFjZW1p
-dF9pMmNfcGlvX3hmZXIoKSAtPiBzcGFjZW1pdF9pMmNfcGlvX3hmZXJfYXRvbWljKCkKPiAtIGNh
-bGwgc3BhY2VtaXRfaTJjX2Vycl9jaGVjaygpIGluIHdhaXRfcGlvX3hmZXIoKSB3aGVuIHdyaXRl
-IGxhc3QgYnl0ZQo+IC0gTGluayB0byB2MjogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI1
-MDkyNS1rMS1pMmMtYXRvbWljLXYyLTAtNDZkYzEzMzExY2RhQGxpbnV4LnNwYWNlbWl0LmNvbQo+
-IAo+IENoYW5nZXMgaW4gdjI6Cj4gLSBhZGQgaXNfcGlvIGp1ZGdlbWVudCBpbiBpcnFfaGFuZGxl
-cigpCj4gLSB1c2UgYSBmaXhlZCB0aW1lb3V0IHZhbHVlIHdoZW4gUElPCj4gLSB1c2UgcmVhZGxf
-cG9sbF90aW1lb3V0KCkgaW4gIHNwYWNlbWl0X2kyY193YWl0X2J1c19pZGxlKCkgd2hlbiBQSU8K
-PiAtIExpbmsgdG8gdjE6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNTA4MjctazEtaTJj
-LWF0b21pYy12MS0wLWU1OWJlYTAyZDY4MEBsaW51eC5zcGFjZW1pdC5jb20KPiAtLS0KPiAgZHJp
-dmVycy9pMmMvYnVzc2VzL2kyYy1rMS5jIHwgMjk3ICsrKysrKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKy0tLS0tLS0tLS0tCj4gIDEgZmlsZSBjaGFuZ2VkLCAyMjUgaW5zZXJ0aW9ucygrKSwg
-NzIgZGVsZXRpb25zKC0pCj4gCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaTJjL2J1c3Nlcy9pMmMt
-azEuYyBiL2RyaXZlcnMvaTJjL2J1c3Nlcy9pMmMtazEuYwo+IGluZGV4IGFjY2VmNjY1M2I1NmJk
-MzUwNTc3MDMyOGFmMTdlNDQxZmFkNjEzYTcuLjc4YTJkZTJjNTE3ZTUxZTZmZjk5N2NjMjE0MDJl
-YjhmODUwNTRmODUgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVycy9pMmMvYnVzc2VzL2kyYy1rMS5jCj4g
-KysrIGIvZHJpdmVycy9pMmMvYnVzc2VzL2kyYy1rMS5jCgouLi4KCj4gQEAgLTM4Myw4ICs0MjQs
-MTM0IEBAIHN0YXRpYyB2b2lkIHNwYWNlbWl0X2kyY19lcnJfY2hlY2soc3RydWN0IHNwYWNlbWl0
-X2kyY19kZXYgKmkyYykKPiAgCj4gIAlzcGFjZW1pdF9pMmNfY2xlYXJfaW50X3N0YXR1cyhpMmMs
-IFNQQUNFTUlUX0kyQ19JTlRfU1RBVFVTX01BU0spOwo+ICAKPiAtCWkyYy0+c3RhdGUgPSBTUEFD
-RU1JVF9TVEFURV9JRExFOwo+IC0JY29tcGxldGUoJmkyYy0+Y29tcGxldGUpOwo+ICsJc3BhY2Vt
-aXRfaTJjX2NvbXBsZXRlKGkyYyk7Cj4gK30KPiArCj4gK3N0YXRpYyB2b2lkIHNwYWNlbWl0X2ky
-Y19oYW5kbGVfc3RhdGUoc3RydWN0IHNwYWNlbWl0X2kyY19kZXYgKmkyYykKPiArewo+ICsJdTMy
-IHZhbDsKPiArCj4gKwlpZiAoaTJjLT5zdGF0dXMgJiBTUEFDRU1JVF9TUl9FUlIpCj4gKwkJZ290
-byBlcnJfb3V0Owo+ICsKPiArCXZhbCA9IHJlYWRsKGkyYy0+YmFzZSArIFNQQUNFTUlUX0lDUik7
-Cj4gKwl2YWwgJj0gfihTUEFDRU1JVF9DUl9UQiB8IFNQQUNFTUlUX0NSX0FDS05BSyB8IFNQQUNF
-TUlUX0NSX1NUT1AgfCBTUEFDRU1JVF9DUl9TVEFSVCk7Cj4gKwo+ICsJc3dpdGNoIChpMmMtPnN0
-YXRlKSB7Cj4gKwljYXNlIFNQQUNFTUlUX1NUQVRFX1NUQVJUOgo+ICsJCXNwYWNlbWl0X2kyY19o
-YW5kbGVfc3RhcnQoaTJjKTsKPiArCQlicmVhazsKPiArCWNhc2UgU1BBQ0VNSVRfU1RBVEVfUkVB
-RDoKPiArCQlzcGFjZW1pdF9pMmNfaGFuZGxlX3JlYWQoaTJjKTsKPiArCQlicmVhazsKPiArCWNh
-c2UgU1BBQ0VNSVRfU1RBVEVfV1JJVEU6Cj4gKwkJc3BhY2VtaXRfaTJjX2hhbmRsZV93cml0ZShp
-MmMpOwo+ICsJCWJyZWFrOwo+ICsJZGVmYXVsdDoKPiArCQlicmVhazsKPiArCX0KPiArCj4gKwlp
-ZiAoaTJjLT5zdGF0ZSAhPSBTUEFDRU1JVF9TVEFURV9JRExFKSB7Cj4gKwkJdmFsIHw9IFNQQUNF
-TUlUX0NSX1RCOwo+ICsJCWlmIChpMmMtPnVzZV9waW8pCj4gKwkJCXZhbCB8PSBTUEFDRU1JVF9D
-Ul9BTERJRTsKPiArCj4gKwo+ICsJCWlmIChzcGFjZW1pdF9pMmNfaXNfbGFzdF9tc2coaTJjKSkg
-ewo+ICsJCQkvKiB0cmlnZ2VyIG5leHQgYnl0ZSB3aXRoIHN0b3AgKi8KPiArCQkJdmFsIHw9IFNQ
-QUNFTUlUX0NSX1NUT1A7Cj4gKwo+ICsJCQlpZiAoaTJjLT5yZWFkKQo+ICsJCQkJdmFsIHw9IFNQ
-QUNFTUlUX0NSX0FDS05BSzsKPiArCQl9Cj4gKwkJd3JpdGVsKHZhbCwgaTJjLT5iYXNlICsgU1BB
-Q0VNSVRfSUNSKTsKPiArCX0KPiArCj4gK2Vycl9vdXQ6Cj4gKwlzcGFjZW1pdF9pMmNfZXJyX2No
-ZWNrKGkyYyk7Cj4gK30KPiArCj4gKy8qCj4gKyAqIEluIFBJTyBtb2RlLCB0aGlzIGZ1bmN0aW9u
-IGlzIHVzZWQgYXMgYSByZXBsYWNlbWVudCBmb3IKPiArICogd2FpdF9mb3JfY29tcGxldGlvbl90
-aW1lb3V0KCksIHdob3NlIHJldHVybiB2YWx1ZSBpbmRpY2F0ZXMKPiArICogdGhlIHJlbWFpbmlu
-ZyB0aW1lLgo+ICsgKgo+ICsgKiBXZSBkbyBub3QgaGF2ZSBhIG1lYW5pbmdmdWwgcmVtYWluaW5n
-LXRpbWUgdmFsdWUgaGVyZSwgc28KPiArICogcmV0dXJuIGEgbm9uLXplcm8gdmFsdWUgb24gc3Vj
-Y2VzcyB0byBpbmRpY2F0ZSAibm90IHRpbWVkIG91dCIuCj4gKyAqIFJldHVybmluZyAxIGVuc3Vy
-ZXMgY2FsbGVycyB0cmVhdGluZyB0aGUgcmV0dXJuIHZhbHVlIGFzCj4gKyAqIHRpbWVfbGVmdCB3
-aWxsIG5vdCBpbmNvcnJlY3RseSByZXBvcnQgYSB0aW1lb3V0Lgo+ICsgKi8KPiArc3RhdGljIGlu
-dCBzcGFjZW1pdF9pMmNfd2FpdF9waW9feGZlcihzdHJ1Y3Qgc3BhY2VtaXRfaTJjX2RldiAqaTJj
-KQo+ICt7Cj4gKwl1MzIgbWFzaywgbXNlYyA9IGppZmZpZXNfdG9fbXNlY3MoaTJjLT5hZGFwdC50
-aW1lb3V0KTsKPiArCWt0aW1lX3QgdGltZW91dCA9IGt0aW1lX2FkZF9tcyhrdGltZV9nZXQoKSwg
-bXNlYyk7Cj4gKwlpbnQgcmV0Owo+ICsKPiArCW1hc2sgPSBTUEFDRU1JVF9TUl9JUkYgfCBTUEFD
-RU1JVF9TUl9JVEU7Cj4gKwo+ICsJZG8gewo+ICsJCWkyYy0+c3RhdHVzID0gcmVhZGwoaTJjLT5i
-YXNlICsgU1BBQ0VNSVRfSVNSKTsKPiArCj4gKwkJc3BhY2VtaXRfaTJjX2NsZWFyX2ludF9zdGF0
-dXMoaTJjLCBpMmMtPnN0YXR1cyk7CgpEbyB3ZSBhY3R1YWxseSBuZWVkIHRvIGNsZWFyIHRoZSBp
-bnRlcnJ1cHQgc3RhdHVzIGV2ZW4gaWYgbm9uZSBvZiBhYm92ZSAKYml0cyBhcmUgc2V0PyBTYWlk
-IG90aGVyd2lzZSwgY2FuIHdlIG1vdmUgdGhpcyBsaW5lIGFmdGVyIHRoZSBpZiBhbmQgCmJlZm9y
-ZSB0aGUgaGFuZGxlX3N0YXRlPwoKPiArCj4gKwkJaWYgKCEoaTJjLT5zdGF0dXMgJiBtYXNrKSkg
-ewo+ICsJCQl1ZGVsYXkoMTApOwoKSXQgc2VlbXMgdGhhdCB0aGUgcG9sbCBkZWxheSBlbHNld2hl
-cmUgaW4gdGhpcyBwYXRjaCBpcyAzMCDCtXMuIApNYXliZSB1c2UgYSBjb25zaXN0ZW50IHZhbHVl
-LgoKPiArCQkJY29udGludWU7Cj4gKwkJfQo+ICsKPiArCQlzcGFjZW1pdF9pMmNfaGFuZGxlX3N0
-YXRlKGkyYyk7Cj4gKwo+ICsKClBsZWFzZSBkZWxldGUgdGhlIGV4dHJhIGJsYW5rIGxpbmVzIGhl
-cmUuCgo+ICsJfSB3aGlsZSAoaTJjLT51bnByb2Nlc3NlZCAmJiBrdGltZV9jb21wYXJlKGt0aW1l
-X2dldCgpLCB0aW1lb3V0KSA8IDApOwo+ICsKCk90aGVyd2lzZSBpdCBzb3VuZHMgZ29vZCwgdGhh
-bmtzIGZvciB0aGUgY2hhbmdlcy4KClJlZ2FyZHMKQXVyZWxpZW4KCi0tIApBdXJlbGllbiBKYXJu
-byAgICAgICAgICAgICAgICAgICAgICAgICAgR1BHOiA0MDk2Ui8xREREOEM5QgphdXJlbGllbkBh
-dXJlbDMyLm5ldCAgICAgICAgICAgICAgICAgICAgIGh0dHA6Ly9hdXJlbDMyLm5ldAoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+
+On 12/24/25 17:11, Icenowy Zheng wrote:
+> This patchset tries to add a driver for Verisilicon DC8200 driver, and
+> demonstrates the driver on T-Head TH1520 with its HDMI output.
+> 
+> This display controller IP is used on StarFive JH7110 too, but as the
+> HDMI controller used there isn't as common as the DesignWare one, I
+> choose to use TH1520 in this patchset.
+> 
+> The DC driver is written with other DC-series (mainly DC8000, which is
+> known to be used on Eswin EIC7700 SoC) display controllers in mind, and
+> uses the identification registers available on all Vivante branded IPs.
+> A known exception is DCNano display controller, which is unlikely to be
+> supported by this driver because of totally different register map and
+> no known identification registers. (P.S. the in-tree loongson DRM driver
+> seems to be for some DCNano instances based on the register map.)
+> 
+> The HDMI controller seems to come with some common PHY by Synopsys, the
+> DesignWare HDMI TX 2.0 PHY. By searching a few register names from the
+> BSP driver of that PHY, that PHY seems to be used by a in-tree dw-hdmi
+> glue, rcar_dw_hdmi -- an updated downstream version of rcar_dw_hdmi
+> contains all 6 registers set here in the th1520-dw-hdmi driver. Some
+> more suprising thing is that RK3288 uses the same PHY too, but the
+> in-tree dw_hdmi-rockchip driver writes the configuration data array in a
+> weird way to reuse the HDMI 3D TX PHY configuring function. It might be
+> valuable to add common configuring function and configuration data
+> definition for this HDMI 2.0 PHY too, but the current driver in this
+> patchset simply duplicated most configuration logic from rcar_dw_hdmi
+> driver (but with 3 extra configuration registers configured).
+> 
+> Icenowy Zheng (9):
+>   dt-bindings: vendor-prefixes: add verisilicon
+>   dt-bindings: display: add verisilicon,dc
+>   drm: verisilicon: add a driver for Verisilicon display controllers
+>   dt-bindings: display/bridge: add binding for TH1520 HDMI controller
+>   drm/bridge: add a driver for T-Head TH1520 HDMI controller
+>   riscv: dts: thead: add DPU and HDMI device tree nodes
+>   riscv: dts: thead: lichee-pi-4a: enable HDMI
+>   MAINTAINERS: assign myself as maintainer for verisilicon DC driver
+>   mailmap: map all Icenowy Zheng's mail addresses
+> 
+
+I tested this patchset on the Lichee Pi 4A (TH1520). I successfully ran a 
+fully hardware accelerated graphics stack using Weston and Zink over the 
+HDMI output.
+
+I have documented the reproduction steps and test results here:
+[1] https://mwilczynski.dev/posts/riscv-gpu-zink/#building-the-stack-reproduction-guide
+
+Great work, thank you!
+
+Feel free to add to driver and DTS patches (3,5,6,7).
+Tested-by: Michal Wilczynski <m.wilczynski@samsung.com>
+
+Best regards,
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
