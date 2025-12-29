@@ -4,86 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66B3EE784BE
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Dec 2025 02:09:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FD37D3B7E5
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Dec 2025 02:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dP4kSEp2Rhjj00dh58gizPnHKRk4quQdIFC/9XUu0VA=; b=kyEOChBVL0Hj4C
-	DIv3d/vfG/eZc98bhz6u7yB8pfjrZdqDQU+FFslzfixrF4oOBX+GE2ltedmcOWWzEWi8xJ0cJHFlk
-	w4kSzt7n6/rQgv2R/seJa1wqX9cNZy1YZlnUIbusODpG+p1jPXHQSey8UqLf/muT7dA/I0GwJ4Cso
-	Htl9Ga7ESb3I+GG35rgnJojTo4udipLdU07Llwbz6LkJlwqDGdR4usaKE6Sk5rKyYwlg8tyebrzzA
-	bHQnf8xbzy0qRP+onQarrSZdu6+DepP5LE5HuPdZTPcwuR2BRXI4iQ1o1zgLtOpjFLvIaxP36Rc2a
-	Ku6hWRzX7dRHLKlPb3Vg==;
+	List-Owner; bh=9+zzQnUA7kfZ0Zua4aRv8u70T9ukxYHNgBQEo08Knk0=; b=lLOKFSliYuM++i
+	Sng1duzt23FIhMxNaEm4uFvkDKTmbc4A0id+RlR02yOI9wwIPT7cy+6NxNTJ+7YSi9p0oOlExtkFz
+	MukF98vJ0CYoTkN5+Pea6a0qI+dfmvs1dwMAkI89cczLMQqS/nis6z7RimyJWU+m7NbJMzIpYm2sQ
+	+0nuckbSy4EYqusIUncYmtR0A29LGo4VSUdMMqZWWfnHsBZQ2LPC+KEFnT97/YLWg0cvtOezOt8c/
+	U54VUjvN27xYbJG9he3luks2NiNqmKiHwbVzKO1mNaxc/W+3DS7NGE85XDw9TQ5gu8I3SvbhpkHBE
+	E8ngC4eCZWsZZieY3SJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va2gp-00000003Dhd-1476;
-	Mon, 29 Dec 2025 02:08:55 +0000
-Received: from smtpbgbr2.qq.com ([54.207.22.56])
+	id 1va38W-00000003Eed-2J1K;
+	Mon, 29 Dec 2025 02:37:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va2gm-00000003Dgr-3Eob
+	id 1va38V-00000003EeV-0Z8m
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Dec 2025 02:08:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1766974065;
-	bh=PQImGFjWOUyAK1IDHTVdJv3c+SXK+cKNa1d2Bg+qzF0=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=CTVgvUJyYaZeGjZC/u4hjDTwwV2zC7HCIHFsxhEe/UoIH7/rKKcTegrTSWdQ00r2f
-	 6Q5JZmLdHIVLW5rYWaEwc4pj42rO3ChoL/AEExiQGAwUuIPZZnvRbwh2wwABX6/4Fi
-	 54lkRtye26qaWwj5Ym10cDC6Yz6WdKTLNrdEK1+0=
-X-QQ-mid: zesmtpsz2t1766974056tbc048f24
-X-QQ-Originating-IP: 4ECW4Bo3pMvb33vEOeyUaEHe2Q3GyIVA8m5u3tnBJRs=
-Received: from = ( [120.239.196.19])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 29 Dec 2025 10:07:35 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 16099099167800225801
-EX-QQ-RecipientCnt: 11
-Date: Mon, 29 Dec 2025 10:07:35 +0800
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Alex Elder <elder@riscstar.com>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Troy Mitchell <troymitchell988@gmail.com>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH v5 2/2] i2c: spacemit: introduce pio for k1
-Message-ID: <6D29D0765AB5632A+aVHiZ9Wph0hNzqDY@kernel.org>
-References: <20251226-k1-i2c-atomic-v5-0-023c798c5523@linux.spacemit.com>
- <20251226-k1-i2c-atomic-v5-2-023c798c5523@linux.spacemit.com>
- <86c5e338-e630-4933-a123-cfa1201495ed@riscstar.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <86c5e338-e630-4933-a123-cfa1201495ed@riscstar.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MtJoEQFRGvIzjRIpniR076rR5J1pEXAcgJ2vLhffiUUfkbJ14q8rJ6+x
-	FutnnVzxbI8qxvGlMFgCobaEGw0Pqqaemdb5E52XstXPGrN321lQxV/C3pHskddpev6m6iu
-	OiaVYLonevwiaudytfv6cwNQsc9hGqa0LizAgPhiNisM6s0biIurXr0xCOySZHdLd2BGLyP
-	YPMyCafe+hZKaf8hctd03VbZgm/v5Hl+znhKLv0CKY/Hp4gUm8t+4FjhLT8VmWQ9L5HY1Xo
-	YJphrGl1BNhgfvG5fJovAsGq3VNypF5hIwcA8eg6CllVvwHzTwxw4DFYv2UFBiTNNFrrR3z
-	PkGd6gzwOV/3xn2CUaUqt9+apGn9k29lq1Iy3jZpfb1oFRAjEdkN386WRiO3r1+gtpS30ex
-	wptS26mMi7J+mIVLDDpNFUjhr+rpIGWm9QVnuCiRfyx1+6Y3uINAc51i/uRarPGXVQ8NMyK
-	h1M6Uzl1/9UiG/OfnCWO96txuN8ZnVtk3wjir486V2zusG9N2WZ7tx4ynNvae69y1bB6OrH
-	8ir3TkZYYt4cFYekwcl9vw19cwhI9kW7esKduKG1+odz2FZbqG9eYcx2R2zDQUqUQDU5Lco
-	AtuluTMUsYG2jNxR52pZNHvG58W39sf0OQ5QSVyOTLTNjRDLCPr9SV0j5+m3g2wICCY5ITB
-	JM2jAcgF6mEkjoFRHifmZy79LjwJNzLyjo9VobvEdep+fbrfwfVB0xUybUY9dUt/9rp/o86
-	2TYCI7D8xgmoSvM37pDxXTf+YNkJCef4b+uRM+z9cQ8iD6Z/bRyU9EIZ6AR7NDfHt+HTTCd
-	fj5vptzmHPnXxopoS+qO/1vP78Jsw361oOUnUiv281Yzni2Rukh66rE05lW4pisWIoXvCPv
-	KSc8SIXDEEWwwJK5/Wd2r1rNvycmy7khyeYK1LI1p4aqouqup3GbTM5JP0BMC2Lhnu43dF7
-	ABkaeHd9/c8h5wywjF0ZvuNxcca7FZtH1LRP1h//9QOjo3Uh5GLuL3jH+K8EsoUCz+bDqD5
-	7TvLr9xiW1zdwdhHqis4u0ed+wmRn2gPMk4Ezcg6Xke1oL/AVVKUs2xep+HmY=
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_180853_665106_16B09101 
-X-CRM114-Status: GOOD (  11.06  )
+	Mon, 29 Dec 2025 02:37:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 954176001A;
+	Mon, 29 Dec 2025 02:37:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 482C5C4CEFB;
+	Mon, 29 Dec 2025 02:37:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766975849;
+	bh=7ZcmFVqLNlsCeCHjD+ng4FXYjFB6oaLeok1weFSF4Gs=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=PchjK303tzJUsCa7FsWVTH/s6pBBL6vWiTT8vZjD8M/c0NTmKHUQANxJ+7tYzhctA
+	 vGDlYi3MfJF8hnefdvFUAzOpSfCFBkr+arTB7PQtry5yy0zElCDaOtv9esMZkdfLTh
+	 I4SejkYULn4aWfy+5gnPxQTsMwuLDS465BsmwGXkLaIZ5ZCPyaUnAnLxYhcZ6IlRjl
+	 tUbbDbhrZpIq+q3gXK6QosNJ0uwtSMmMEJULtjtHrSOe0AdHY5fBMUDwEX0wz33WeE
+	 jgaPtArt+QYR8VY1Id9cqw3ZEeLKgUj70e3LnaD2UwaYonS9SNDFieKk08RwpDFH6O
+	 74wz7+XnqlVjA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 477923808200;
+	Mon, 29 Dec 2025 02:34:13 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V updates for v6.19-rc3
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <fc36548c-baa4-821d-24cd-2f645f7d9cec@kernel.org>
+References: <fc36548c-baa4-821d-24cd-2f645f7d9cec@kernel.org>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <fc36548c-baa4-821d-24cd-2f645f7d9cec@kernel.org>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.19-rc3
+X-PR-Tracked-Commit-Id: 5efaf92da4365cb8d1ae6dd7a2d1245c69e09ff5
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 03de3e44a706cd96f75ede209cb289324367ed4b
+Message-Id: <176697565186.2397610.13576639934067283885.pr-tracker-bot@kernel.org>
+Date: Mon, 29 Dec 2025 02:34:11 +0000
+To: Paul Walmsley <pjw@kernel.org>
+Cc: torvalds@linux-foundation.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,31 +71,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> > @@ -474,6 +608,11 @@ static void spacemit_i2c_calc_timeout(struct spacemit_i2c_dev *i2c)
-> >   	unsigned long timeout;
-> >   	int idx = 0, cnt = 0;
-> > +	if (i2c->use_pio) {
-> > +		i2c->adapt.timeout = msecs_to_jiffies(SPACEMIT_WAIT_TIMEOUT);
-> 
-> Again, why is a rough 1000 millisecond timeout OK for PIO, while a
-> fairly precise timeout value based on the number of bytes to be
-> transferred and the transfer bit rate computed for interrupt mode?
-Sorry I didn't see this.
+The pull request you sent on Sun, 28 Dec 2025 01:18:38 -0700 (MST):
 
-In interrupt-driven mode we wait for a single completion event, so the
-timeout needs to reflect the worst-case transfer duration to avoid
-spurious timeouts.
-In PIO mode the loop is driven by FIFO/status progress, and the timeout
-is only a safeguard against a stalled bus rather than an exact transfer
-time.
-Therefore a simple conservative value is sufficient there.
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.19-rc3
 
-                                  - Troy
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/03de3e44a706cd96f75ede209cb289324367ed4b
+
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
