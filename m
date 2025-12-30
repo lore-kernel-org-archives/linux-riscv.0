@@ -4,86 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF90DEE0214
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Dec 2025 15:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65AE0EE4988
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Dec 2025 16:48:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GOhpLawlhdzd84W99VF9/05ZC4FCNWL9ivElH7S0FfE=; b=ZoF+kL3l4PVwYr
-	zdPXrbjNeTvwo29S54qyTFeqHgMTTEMc2fExc0pbG+FuHVmbNh0mp2MP56Q71M1esPjyUjo0JXGDf
-	pSJWCdtXyk8sLob/HuE0t/uTUifmpOnbdGZjn9T36KVJF59ZK60RlrthoG+fe4NyLtNkzUAIJ9bwm
-	LEUDr22Fk5aaT4SnHaKS2o6u/0RG60R/Im1ytQ/O2TNCmpRr5ZgiNZ0zufOQbkNjPqyG00QhLfjCa
-	C13k92aV+ZYUzwr3+vVgb4mcoBE2+ylmZi0VrRZQnin+GMXV1+KV42AmEklUG7i+t/d41WciSwH3i
-	afL0bb0iAG5JFryesrOg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ulm4fpDjim/XMuGcVSlZ8vfFnx7f8aS0k8Salhs6SQI=; b=DK4jmPk93A4j13
+	gHLkLs2qlwIHAoJdCRSmci+VYZXPzqfxg+E251Pyik9mE6mic0grRSiMgGWtLsg+OPIZTIb2Y9GC6
+	rFNpJR0OzC5HqlIfnOjeSh6ILEIAHl5bCfl6JRXldUo+C6/kt/sHnSZaYsqX+g99qIm+Lo8IQBjCz
+	0TT7vzUDgx3sBETQBpxnm8xmHwpkFtkJ2XX/e8iIhSNyOMJhESFBXmzgEbiWPFT2+04qk4lymlvTx
+	8oBpSAqYnDwIPys4/jUjlgWy7kiLndZm3tGdznLGHPbRafinhdOaCBdFj4oYscRMHRYnsYSqdvfaJ
+	nC8RIhH+Cc4aNV1Y3GJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vabjc-0000000502R-0cPm;
-	Tue, 30 Dec 2025 15:34:08 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1vactZ-000000054T1-33oX;
+	Tue, 30 Dec 2025 16:48:29 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vabjZ-0000000501u-111P
+	id 1vactV-000000054SY-3kCR
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Dec 2025 15:34:06 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-3825ae23d95so29428491fa.0
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Dec 2025 07:34:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767108843; x=1767713643; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=IIQJu7CyiY9gIZvx6eWahf0Uexh2lGW7onsdB+Wi7IY=;
-        b=v1MyOqEoQ6RghvVFFrGoISbeFpFuhRpivYSIWgKSxPVJ32BuzwjOpuG4lZh87SWSje
-         f6m8KA2nGG2y1xIAk1IVRQHz8eunf6BAGgmtP+nPNJTBKq7+5toEcmML4mn0Rtux1/TU
-         YZDb4bbd+M3Lbd/eKGnkbVKPgb2IO1MJD86bWROR821/W5tenBkwqIYQFpB1vu3fHj9s
-         RqgxMpwLQpY4E2kS8ePbzuXDtv43tMG6Mxxhk0Ux//sT60zVmWj+qgMSbl8EZX1zn9+0
-         KcjVwy05Wnh7qwsayvb/JI8EedwJBu54ryLND7ZTcr3Pi2pqqWAytfQ56jO/MEeDyyy1
-         cGqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767108843; x=1767713643;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IIQJu7CyiY9gIZvx6eWahf0Uexh2lGW7onsdB+Wi7IY=;
-        b=jJSKxQtLQre3l/D0thYB8aIAxPgXZGwAvyeiV9rKHTIp95l/1CSf+uWrlPA+B4usEm
-         oh8SzonWNqx0JqBpjxb0WqH4Hf5MfkILb3FCviLxG0/hfJzAiQqoeBC3QlAn41GKKBuB
-         58crTnhqF7791a0uWU1cPIAV2jMdNewBXbboCgHxYTxQX+YYqrFTPfTk9Qi6qMLDTOxd
-         DWz3JwlLBHL8fcV87B/XcwrW2DPcUHHM4Eyi6xrn4dY2nkoHORrHHy9QNohJ9jZ4/2Je
-         WkihzsS7vhIp6V1pxExXnqRJI4iDkDE8YRB66jMZSsLRlPzq1Mb7aKuPSqRbkO4Kvuxf
-         2NcA==
-X-Forwarded-Encrypted: i=1; AJvYcCUlHueFjc4zzh/QsjKSkBD+AF1bi3m3kv7vqlJh1eo+TND7C4J1YWdY7KWrCOD2uc3N8n7AqWT9QiKtSg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yya2/H9Hpb2vjo6d6GGkBo1vAVl/n6+CSjnVpzl23FvrLtF6LPw
-	MExzsD3NJf10a6YFrS+DgI5vWoK4PcM7NZyZ6LTCjOAtXImYcQRDfNm4lwq7fHPhZIh+yn4Cr0/
-	5S1BnCUBWFAe/t0h8Oy8OTFN9/V0JYHs7GCyy/UKdRQ==
-X-Gm-Gg: AY/fxX7lCs+Oz6w+EpGXfrswGM05rO6MxM/+KyMOu69d3CFz9DJx9yR8w0sQ8LErw7I
-	/FCV+FaltGEPqLpfc2dCzyDe8d1fu+gbLsXhKDKVOg5+EAlugelARl1XMUG62rhONrhz3emEFwZ
-	52Qk842Jo7UxwCtpcPcK63TTm1hd0eyf4CmC9u83denN1mwndquSoIh13Z+PYwEgmPCnoTLpDpS
-	z5/EZkX9Cr6pYzh07zeqOzejWi7RCB2qeBcGaH7gaYVt4gqNTsFZsG2k/uBr7H4Qiks+0rimt73
-	rspizzk=
-X-Google-Smtp-Source: AGHT+IEEzSWxU0Fr9jtKf4rnUE+MZIqWiBIfHx6EwjCFpsAYl5LLEX7BferoDb537v/2XTB1q5TRJQn0YC6nmgiVvgg=
-X-Received: by 2002:a2e:ab89:0:b0:37a:3033:16f6 with SMTP id
- 38308e7fff4ca-3812164513emr98831031fa.35.1767108842896; Tue, 30 Dec 2025
- 07:34:02 -0800 (PST)
+	Tue, 30 Dec 2025 16:48:28 +0000
+Received: from minun.felixc.at (unknown [65.108.105.71])
+	by APP-05 (Coremail) with SMTP id zQCowAA3yQw8AlRpUjKQAg--.63740S2;
+	Wed, 31 Dec 2025 00:48:08 +0800 (CST)
+From: Asuna Yang <xinrui.riscv@isrc.iscas.ac.cn>
+Subject: [PATCH v6 0/4] RISC-V: re-enable gcc + rust builds
+Date: Tue, 30 Dec 2025 17:47:53 +0100
+Message-Id: <20251230-gcc-rust-v5-v6-0-2ac86ba728c8@isrc.iscas.ac.cn>
 MIME-Version: 1.0
-References: <20251223-07-k1-sdhci-reset-v2-0-5b8248cfc522@gentoo.org>
-In-Reply-To: <20251223-07-k1-sdhci-reset-v2-0-5b8248cfc522@gentoo.org>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 30 Dec 2025 16:33:27 +0100
-X-Gm-Features: AQt7F2oqCrEKFHiJvi35sI497oUVGoB1FksL7aATuRnp8180lObyxwQDc3LztRs
-Message-ID: <CAPDyKFo905ptdO-rSkiJ-ax2u=P_+EAJA30b14n=B4j9adaaKg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/3] mmc: sdhci-of-k1: add reset support
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Iker Pedrosa <ikerpedrosam@gmail.com>, linux-mmc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+X-B4-Tracking: v=1; b=H4sIADkCVGkC/22MQQrDIBBFrxJmXYuZaChd9R4lC9HRDDSxaCotw
+ bvXZl34m/fhvR0yJaYM126HRIUzx7XBeOrAzmYNJNg1BpSoe5RKBGtFeuVNFC2M8ZYcDT2ZAZr
+ xTOT5fdTuU+OZ8xbT54gX/Xv/d9qkQKc8SncZLapbWAw/zjYuMNVav7H9R8mmAAAA
+X-Change-ID: 20251204-gcc-rust-v5-aafcede31ea3
+To: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, 
+ Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Danilo Krummrich <dakr@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Jonathan Corbet <corbet@lwn.net>, Conor Dooley <conor@kernel.org>, 
+ Mingcong Bai <jeffbai@aosc.io>, Han Gao <rabenda.cn@gmail.com>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>, Jason Montleon <jmontleo@redhat.com>
+Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ rust-for-linux@vger.kernel.org, llvm@lists.linux.dev, 
+ linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, 
+ Asuna Yang <xinrui.riscv@isrc.iscas.ac.cn>
+X-Mailer: b4 0.14.3
+X-CM-TRANSID: zQCowAA3yQw8AlRpUjKQAg--.63740S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZrW8KrWUGF48JF1fuw4UJwb_yoW8Jw4xpa
+	95Cr4fKrWDJFWIgr4fAr48WF45GF1rJrWrJF17t34UJ3y7ur18trnIkr4rJa17ZryvvrWj
+	vr1F9Fy09ryUCwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBKb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6r1S6rWUM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAG
+	YxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCI4V
+	WUMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_
+	Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x
+	0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8
+	JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIx
+	AIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7xRAhL0DUUUUU=
+	=
+X-Originating-IP: [65.108.105.71]
+X-CM-SenderInfo: x0lq233loux21fy6x21ufox2xfdvhtffof0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_073405_313953_B419B648 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20251230_084826_305276_DB6B8BD1 
+X-CRM114-Status: UNSURE (   6.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,44 +98,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Dec 2025 at 03:25, Yixun Lan <dlan@gentoo.org> wrote:
->
-> This series try to add reset support explicitly to SpacemiT SDHCI controller.
-> Previous it works well for eMMC due to it's already initialized at brom or
-> bootloader phase.
->   The controller has two reset lines, one connect to AXI bus which shared by
-> all controllers, while another one connect to individual controller separately.
->
-> Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> ---
-> Changes in v2:
-> - To not break DT ABI, make the reset line request optional
-> - Use devm_reset_control_get_optional() api
-> - Link to v1: https://lore.kernel.org/r/20251221-07-k1-sdhci-reset-v1-0-6780af7fa6e7@gentoo.org
->
-> ---
-> Yixun Lan (3):
->       dt-bindings: mmc: spacemit,sdhci: add reset support
->       mmc: sdhci-of-k1: add reset support
->       riscv: dts: spacemit: sdhci: add reset support
->
->  .../devicetree/bindings/mmc/spacemit,sdhci.yaml      | 10 ++++++++++
->  arch/riscv/boot/dts/spacemit/k1.dtsi                 |  3 +++
->  drivers/mmc/host/sdhci-of-k1.c                       | 20 ++++++++++++++++++++
->  3 files changed, 33 insertions(+)
-> ---
-> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> change-id: 20251221-07-k1-sdhci-reset-1990d1170437
->
-> Best regards,
-> --
-> Yixun Lan
->
+Previous v5 patch:
+https://lore.kernel.org/20251204-gcc-rust-v5-v5-0-2d4f20d86c24@gmail.com
 
-Patch 1->2 applied for next, thanks!
+Changes in v6:
+- Simplified `bindgen-backend-option` Kconfig function by using
+`/dev/null` with clang option `-x c` instead of `touch`ing a new temp
+file.
+- Moved the `BINDGEN_TARGET` check to `rust/Makefile` so it only
+performs the check when Rust is enabled, avoiding breaking targets that
+do not support Rust builds.
+- Updated my git email to the institutional email address.
 
-Kind regards
-Uffe
+Signed-off-by: Asuna Yang <xinrui.riscv@isrc.iscas.ac.cn>
+---
+Asuna Yang (4):
+      rust: export BINDGEN_TARGET from a separate Makefile
+      rust: generate a fatal error if BINDGEN_TARGET is undefined
+      rust: add a Kconfig function to test for support of bindgen options
+      RISC-V: handle extension configs for bindgen, re-enable gcc + rust builds
+
+ Documentation/rust/arch-support.rst |  2 +-
+ Makefile                            |  3 ++-
+ arch/riscv/Kconfig                  | 35 ++++++++++++++++++++++++++++++++++-
+ rust/Makefile                       | 17 ++++++++---------
+ scripts/Kconfig.include             |  5 +++++
+ scripts/Makefile.rust               | 10 ++++++++++
+ 6 files changed, 60 insertions(+), 12 deletions(-)
+---
+base-commit: 8640b74557fc8b4c300030f6ccb8cd078f665ec8
+change-id: 20251204-gcc-rust-v5-aafcede31ea3
+
+Best regards,
+-- 
+Asuna Yang <xinrui.riscv@isrc.iscas.ac.cn>
+
 
 _______________________________________________
 linux-riscv mailing list
