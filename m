@@ -4,75 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63E98E92FE3
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Dec 2025 02:38:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9921DE92FD2
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Dec 2025 03:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YV1Bt1kDfoIMo6e9gk7KQyTEpCHe6h7XuJwCdqhrkIQ=; b=C9Bi+dT6+7I9Ra
-	agAyDYqrI0TeaJypixVdpAxZhyKCU4IoTHM//vlJ5dPxSeSZIBr51IEp428bUIr8Sy/HV8LOhGCS/
-	7aFcFD33z97t5WR8E49Mtzk5aFT1NH6U8v5hXMSkLSZU3bDndg3rQHCh40yhJqnsQbEo9Cb33c6C+
-	eyoD0kyMttJT/KBPmG7jVJPsUjt55jhTH/yRl3tnIWxv8etZai6Bg/NVCVDkqPbzFLtaykt7DpV6I
-	eWOuw+7Ys/UlVSta+y+pHAyTRCtNQ0TnjU6a3FzyXHIQU9v2V27mhk6LRxDGgNyqMttCiw3BwBOKq
-	PFhAB1ySxC5fM4pQe09g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ApG+5dJx4Tv0zfRP8/PsH5pMrsAW0vRJMsG/8L9CVpo=; b=sTJmc6fODnlDGi
+	MvfQaFEhsCn+Ej/zQtTf7yQ6fxutb0ZdEmpb9Znppc7+B1ER3s/wWTQ7gSgxb04FimlGPuVJm5Ld2
+	KpwyuwJ+sjmMVTCT5sRWGghVayb7Zp8cVkEE/kllc3IBmII9gfcF9cnvg43QC6v0zWVaKslnbDeOb
+	NgtlXQ8IoAawClPrjEfNjI+bMhQZzwt7Dcr+qWNEQe3Ly3O0Qg11biUzb8ABk0PD9/eUzFggPM4QX
+	VD4owWcxfCiSbQ9H1E1ZMVydj1xeUjR6q3cKtwHzO/lwvtRHDchWzqEOp6HAU7TE/RXBeT6zcJZqo
+	SPNntPvZAWAYh2YiIOpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaPcW-00000004Jml-1udw;
-	Tue, 30 Dec 2025 02:38:00 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vaQC6-00000004Lxm-3Krc;
+	Tue, 30 Dec 2025 03:14:46 +0000
+Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaPcO-00000004Jhu-39xU;
-	Tue, 30 Dec 2025 02:37:56 +0000
-Received: from duge-virtual-machine (unknown [223.160.207.108])
-	by APP-01 (Coremail) with SMTP id qwCowACXQW3oOlNpIqZOAg--.5334S2;
-	Tue, 30 Dec 2025 10:37:31 +0800 (CST)
-From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-To: conor@kernel.org
-Cc: vkoul@kernel.org,
-	gregkh@linuxfoundation.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	neil.armstrong@linaro.org,
-	krzk+dt@kernel.org,
-	jiayu.riscv@isrc.iscas.ac.cn,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-usb@vger.kernel.org
-Subject: [PATCH 0/5] Add USB support for Canaan K230
-Date: Tue, 30 Dec 2025 10:37:19 +0800
-Message-ID: <20251230023725.15966-1-jiayu.riscv@isrc.iscas.ac.cn>
-X-Mailer: git-send-email 2.52.0
+	id 1vaQC4-00000004LxG-0DOK
+	for linux-riscv@lists.infradead.org;
+	Tue, 30 Dec 2025 03:14:45 +0000
+Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-88a3bba9fd4so110448706d6.2
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Dec 2025 19:14:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1767064483; x=1767669283; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Fo+LCIXOkAwoygnwlPI9RcyCWfLGdVzpI0JFy2xEtoo=;
+        b=jF0TyExg+3IJj8R4Oho2Lkj2Hxj3zXT/7UJKIL8sTTdpoDeSl4fjLRD3yHp5b6NXWx
+         ET5oIxazKcuAzxZFSXAaqOBqB7uoblz1VmrzntcNb2CoVKwlX8FIzl1wQ+8gK55i1k6V
+         n6v7Gz3+1+LfShY/0gTPtUV2ZH7Gnoz9ec6XQveTUFWpLE30FY9tifE8lppIiW1B8Qwg
+         ppM7kYl4ac3+CCi8WvUIFFNrFtRQ9ZpvzEWIc6A0uNjHtP7RwKUicgSRVjxNfcNweK+H
+         o0vLzhPWfmUd9/gDBiH01hIC48S4XnKMG2MsYAKWb65pby2F83cZj6OQXOAOobqMjKN9
+         lIRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767064483; x=1767669283;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Fo+LCIXOkAwoygnwlPI9RcyCWfLGdVzpI0JFy2xEtoo=;
+        b=Xw4VMibLcOuk7OCy5AQThYy12Rz75kV8vjEebLtI6MQ0TsxJ37t8nLmO/yxALqP4Px
+         GMH6E/1Tr9o3NM4PMNE5zDbp1aiSP5iP8e7I35c2gUo+3vtft3KNaPJJ/Olztw+UzX32
+         KMU1TLfCMBvBnGXGw20CNDra2sKTyfB4UKKs16RiVf9k/ZLMPCs0E/TMJ5Pph5nVa1Ns
+         zhbMQZUNVmcZDTmJcSvBeRpO9JHd1VMbV2ruPcCzcmOQnOENc7e0gzj4CWaptZjcf0XQ
+         0T+lOiu1x4dgkD3qFTGvknDDUbEmcK0oBIZcxKKYFqyn3ITS7iCp5xvnvQsmpeLbgadW
+         oBpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVuUipDKpLzEhn1tDYnfJAEuq7icP0KaFq9WMQ5Nmu0NI7DlpEWZ2V8UEj3xj/wA8pGWv1Fwws+TOxQ0g==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yydsghh4QORDE7M0pWRfQ57Q0HmPZnERtNmGmQkUxy6tNdHh2BM
+	/GEelYqcI5517cEa5n0AZvuC1np1zsyIgoEc+vKlDNJsloDVFMEL0pZjuQMZr76vHDI=
+X-Gm-Gg: AY/fxX4rtXFzq2PTMJIKdyBpa+/Mu8di4knfaFv+ZJHMt6n2pf1CA4OwbGkr/OGjxA7
+	TUKdWJ2/3DszRgmANRKBt9nysh1qVVnr54aCw6S0Pe8UZEVzvzTL833bEudyjvfs+OhKQFIPTvh
+	dsyznXXTxfcPcsh8Lp/6BuPs2mJUNHugBKhh0B0B8hEVSUcY6cBrojE4Luogv85/UB+HVo9dlw0
+	qjvjAD84drD4DtPJjFM8El242sIH+5+fKvOXklW3UsSblZyfZ1gn7BZ++s+Bq4a6p49jeF6ECzZ
+	efd4mKFRhAT0mDQpzt9JYQpfNxw7T2kz4ANsBgdH31lvineBzioVwtb8T8CmQz05n1KvTkw/GkE
+	Zakk5g84unVRrzdDffM49jRfH95MKNi92U4OTU72lz9aQ5ah13kamam9CSK4j5LkYPdEPUE7i0G
+	lHX23MoMVfyx/2FFQI2pdk0jNdWn+S6npR+DaZdjL2/k07HpQujE4=
+X-Google-Smtp-Source: AGHT+IFB7LZkmRzeqkhHKLp45e4MyeYxB7bz7JU2i7yTBStrvqCCZV4IuhRIFy1YvcIXrLmRgcwS+A==
+X-Received: by 2002:ad4:55e6:0:b0:888:4938:49e7 with SMTP id 6a1803df08f44-88d859bfbb5mr348817656d6.71.1767064482735;
+        Mon, 29 Dec 2025 19:14:42 -0800 (PST)
+Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88d997aef2esm238379696d6.32.2025.12.29.19.14.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 29 Dec 2025 19:14:42 -0800 (PST)
+Message-ID: <80e18a32-543a-48f5-81f2-4fa64cb8bf8c@riscstar.com>
+Date: Mon, 29 Dec 2025 21:14:39 -0600
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowACXQW3oOlNpIqZOAg--.5334S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7uF1UZryxGw18Jr1xJFyrZwb_yoW8XF4xpa
-	y2kFZxGrnrtF4aqF4fJF48ury3Z3Z7Jry3Gryaq3srXF1UAFy5Ja93JFy3Zw17GF47Cry2
-	vFsYkFy7GFyjyrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWUuVWrJwAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
-X-Originating-IP: [223.160.207.108]
-X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 11/13] dt-bindings: riscv: Add Supm extension
+ description
+To: Rob Herring <robh@kernel.org>
+Cc: Guodong Xu <guodong@riscstar.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@gentoo.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Samuel Holland <samuel.holland@sifive.com>, Anup Patel
+ <anup@brainfault.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
+ Yangyu Chen <cyy@cyyself.name>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Conor Dooley <conor@kernel.org>, Heinrich Schuchardt <xypron.glpk@gmx.de>,
+ Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
+ Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ spacemit@lists.linux.dev, linux-serial@vger.kernel.org
+References: <20251222-k3-basic-dt-v2-0-3af3f3cd0f8a@riscstar.com>
+ <20251222-k3-basic-dt-v2-11-3af3f3cd0f8a@riscstar.com>
+ <fc719e92-10bc-455f-b402-c93bdbf878cf@riscstar.com>
+ <20251230021306.GA3094273-robh@kernel.org>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20251230021306.GA3094273-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_183753_182236_1ACDF4F9 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251229_191444_350464_E2DD4701 
+X-CRM114-Status: GOOD (  24.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,45 +115,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for the USB PHY and DWC2 IP which is used by Canaan K230,
-and made relevant changes to the DTS.
+On 12/29/25 8:13 PM, Rob Herring wrote:
+> On Fri, Dec 26, 2025 at 03:28:47PM -0600, Alex Elder wrote:
+>> On 12/22/25 7:04 AM, Guodong Xu wrote:
+>>> Add description for the Supm extension. Supm indicates support for pointer
+>>> masking in user mode. Supm is mandatory for RVA23S64.
+>>>
+>>> The Supm extension is ratified in commit d70011dde6c2 ("Update to ratified
+>>> state") of riscv-j-extension.
+>>>
+>>> Supm depends on either Smnpm or Ssnpm, so add a schema check to enforce
+>>> this dependency.
+>>
+>> I have the same general question on this, about whether it's really
+>> necessary for the DT binding to enforce these requirements.  The
+>> RISC-V specifications are what truly defines their meaning, so I
+>> don't really see why the DT framework should need to enforce them.
+>> (That said, I'm sure there are other cases where DT enforces things
+>> it shouldn't have to.)
+> 
+> Does the specification have some way to check it? What happens if a DT
+> is wrong? Are you going to require a DT update to make things right? Or
+> the kernel has to work-around the error? Neither is great. So having
+> this as a schema makes sense to prevent either scenario.
 
-This series is based on the initial 100ask K230 DshanPi series [1] which
-is based on the clock and pinctrl series. Check the details in the link.
+I'm really glad you weighed in.  I actually have several questions
+related to RISC-V extensions and DT.  But for now I'll focus on
+just this...
 
-Link: https://lore.kernel.org/all/20251229061318.16756-1-jiayu.riscv@isrc.iscas.ac.cn/ [1]
+To answer your first question, I'm not sure how the specification
+is "checked", or what "it" is that you're asking about for that
+matter.  Also I think we have to be clear about what "wrong" means.
 
-Jiayu Du (5):
-  dt-bindings: phy: Add Canaan K230 USB2.0 PHY DT schema
-  dt-bindings: soc: canaan: Add top syscon for Canaan K230 SoC
-  dt-bindings: usb: dwc2: Add support for Canaan K230 SoC
-  phy: usb: Add driver for Canaan K230 USB 2.0 PHY
-  riscv: dts: canaan: Add syscon and USB nodes for K230
+RISC-V is defined by a (large and growing) set of specifications
+that are developed through a well-defined process.  When a spec
+is *ratified* it is committed, and it won't be changed.  These
+specifications are ultimately *the* definition of RISC-V
+compliance.
 
- .../bindings/phy/canaan,k230-usb-phy.yaml     |  36 +++
- .../soc/canaan/canaan,k230-hisys-cfg.yaml     |  68 +++++
- .../devicetree/bindings/usb/dwc2.yaml         |   3 +
- .../boot/dts/canaan/k230-canmv-dshanpi.dts    |  21 ++
- arch/riscv/boot/dts/canaan/k230.dtsi          |  51 ++++
- drivers/phy/Kconfig                           |   1 +
- drivers/phy/Makefile                          |   1 +
- drivers/phy/canaan/Kconfig                    |  14 +
- drivers/phy/canaan/Makefile                   |   2 +
- drivers/phy/canaan/phy-k230-usb.c             | 272 ++++++++++++++++++
- 10 files changed, 469 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml
- create mode 100644 Documentation/devicetree/bindings/soc/canaan/canaan,k230-hisys-cfg.yaml
- create mode 100644 drivers/phy/canaan/Kconfig
- create mode 100644 drivers/phy/canaan/Makefile
- create mode 100644 drivers/phy/canaan/phy-k230-usb.c
+I assumed the "wrong" you're talking about is a DTS/DTB that has
+been committed but somehow does not match what a RISC-V spec
+says, but I might be mistaken.
 
--- 
-2.52.0
+Anyway, we can flip that around and have a similar problem:  What
+if we define the DT binding in such a way that it doesn't match
+the RISC-V spec?  The (ratified) RISC-V spec is right.
+
+My thought was that we should have software do the verification,
+and recommend the software (e.g. arch/riscv/kernel/cpufeature.c
+in Linux) be updated to verify things before committing to a
+DT binding.
+
+To me, C code is more general and more universally understandable
+than YAML rules, but I'm biased by how well I work with C versus
+YAML schemas.
+
+In any case, a "wrong" binding is a problem no matter what the
+reason.  One way or another there are things expressed via DT
+that must match the RISC-V specifications.  And yes, we do have
+tools and bindings that can verify things related to DT.
+
+>> And now, having looked at these added binding definitions (in patches
+>> 07 through 11 in this series), I wonder what exactly is required for
+>> them to be accepted.  For the most part these seem to just be defining
+>> how the extensions specified for RISC-V are to be expressed in
+>> DT files.  It seems to be a fairly straightforward copy from the
+>> ratified specification(s) to the YAML format.
+>>
+>> Who need to sign off on it?  Conor?  Paul?  DT maintainers?
+> 
+> I generally leave this extension mess to Conor.
+
+Sounds wise.  Should I address my other few questions on this
+topic to Conor?  I don't want this particular series to get
+held up on unrelated discussions.
+
+					-Alex
+
+> Rob
 
 
 _______________________________________________
