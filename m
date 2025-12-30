@@ -4,103 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1738BEE0203
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Dec 2025 14:29:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94A30EE020A
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Dec 2025 15:07:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qOSf591/oHd0mUd32w6OTOmFxp8p2yqmLzNdjGC1X90=; b=gdmRkcAD7vTFRB
-	mmJ2bb+s2BEfTaK3s5WA9MjALGGfzcwf2b4VvCD6c/2auNdH0WLmSuZ5FMQhT997RSQ6r2eyUxO3q
-	reRT9gsV8ih/wTcZC1YCYuLrxKoQbuSHChZf6vyriNZ6To3/K15PBP2HOLYFzAaRnnCyzKWdOzKuB
-	BoYuqt+18k8Y/w7cG8Y8mB/VmqLmO5NDqtSUf3VN9ISk0d4FtKShl0L026q8KF4375o3ISHltoJpT
-	Bde/FGR/hHZPzv18A0ELx9UdCC+PHJ+VBWX5jv4q9JeWdhB5haUUwEFuezJzE1tvqFpds4VPCZtcJ
-	MaWWNUmCP0qUV5zkGt1w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hmgccuw5dEjxmCszcVXkfJ+Wl5Z5GFb2W2AtEvl3/Mg=; b=WXtjaQ+9MUmFC7
+	dRrYRRkqOB433EnmU7D3QJR2wMrr0vpxpy7BdmzSBVdl7w5y4iGpe7SaVUQMGkvIzjdI3e0h70y5a
+	hqFEV29eSVpDLLOMJMDNdyGmVPPLPm2WSlZip52h0DQvAuIgcCVbqchj5OP2uVVSiXMwjqrm00pK/
+	COijVG3aAMuciennO9WjAcFD24+XJRMOgGgTwUTqDI5u78uwMwvY70O8ilQyBX7z5LLifhKAeR+Al
+	k+gd6fAat8gMuq0MxA9e2fJUT6RqBRuSvTyWtLcw5A4FXW7c/JP15Q9IDkKAQkHq3Nm2L5EKraMek
+	gFetfqDhSXcnfEuAb6bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaajI-00000004wAi-1wwL;
-	Tue, 30 Dec 2025 14:29:44 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1vabJR-00000004ypt-3NS4;
+	Tue, 30 Dec 2025 15:07:05 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaajG-00000004wAM-05Cg
+	id 1vabJP-00000004ypU-19xd
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Dec 2025 14:29:43 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2a0c20ee83dso127519125ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Dec 2025 06:29:41 -0800 (PST)
+	Tue, 30 Dec 2025 15:07:04 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2a0833b5aeeso136665665ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Dec 2025 07:07:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767104981; x=1767709781; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=RxCXRDx0w1yWm9FY0vwmJNFDCxUNTSO4kUQ4eb5iubM=;
-        b=QT72mtWKKMTOrdv+bBZb+MmQDmG4d7eRbgiB9+65J1s+ExAj7JaHZBkmceXHd577WS
-         MvfPP7JSeb5QhvgDBaNwDun33KyRr0e1p0qnWP7T/jDnAGuQp1LQ01XNWiek2k65HGLd
-         Q+BmgtMdcu9T0sn/t/YQHZBY4+cZKT1TqzTv90bhqlDS4zrraNWSLtwOpnr4u5FAz/Fb
-         blS/aGc+UrHSMGFqCyROfbZy8B0ZPzif6LiFgZBRSoglRuiZHSqYMvaAoJ9nGtK3mAkj
-         2XtoXRxd4qZu0zgGhjj2zFcafiLIrkjRG7nXVjYc13+o9eT/iwRYdy97V20dFdJioWRp
-         TSNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767104981; x=1767709781;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1767107222; x=1767712022; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=RxCXRDx0w1yWm9FY0vwmJNFDCxUNTSO4kUQ4eb5iubM=;
-        b=o3q8hhkLIv+FPFnI/uUcYBKvYMTwi3jYRC1Phx1etSL1CcxRWGvt1F2bU0KRaoirdQ
-         AEDxH1GoNZM5WULPrfzRZIHcmeAwQtUxy4ajmkzMnUEsyVWdcJJ37K/M37BMlO5a++LP
-         uGvLegtO+OLLjHJL3NUA4jLyietZGLT1e3N5YQnHRl5Rm4dr1bDjB34rBa7HL9T4FEAh
-         TfoMRne68LlFz8V3UL4HzmET/EIgGkRe8hFVxIPlURs3zBxtpe/re70Vpw4DrgCCoiqR
-         jFu7xJ+iKKlipdELWkpiS/2rOEZwxoKdCM6HyWX56c5oppI5Rlzvol/QwXlOgO/+8YqX
-         fYiw==
-X-Forwarded-Encrypted: i=1; AJvYcCW0+wo34BRRDUoJ7ml2vTTrW3eF1awIDkXJiukmkzuwWgN4kVfY3V2qqvYHe6Ptcw4Qgu26orLkOQ3x/w==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzkl71OPoo4y6fmmvNsIgZThUke4rUjszmGJhJVmX3nFGU7zuA3
-	Gc0pzH0R7vpOiu2gmyd4iWCqWYDk6VnkHlhyCmYZei+Qx2vtAnkKPmWV
-X-Gm-Gg: AY/fxX76vBRlzii+HvDRvLPVYYQ56NJoexT03Zc8hEG7onuqa4VH/pUBerztrhuhqXl
-	YGW34o2mxGWySJh2G2RCdmgyM3BgrbIuXs2UwcIlz/TRfjhR14F8QbFs3PmJPXzAw0Lzyjo0H0l
-	1mvvG4G9prFb7F98/ocM21YrFSh+JqjoiyRFNuPqR1ujsf/7vYavrU+U6Cre69VbVnzrO8q9Ych
-	IqCx7o5CwfkReKH2sGILzMLc1+2v+6EY4VAZZu8Sm/C5qoTVXl7UJYTrLovq1e0A0WFRzPr8gmO
-	9TbiuA1lz12saMWvvurEi+WNoAz/USQaKw5iRqqa0gIbnCe4uBcxP7iBdXqZpGo47RA1itnAi5j
-	S2RmosKrzN2WEtX/f/G3F9eMdFRuZr7R4UTApz3R18FJC+jyNmGP7lD8rE3KvD3DwBfxCd6v2BO
-	RZirvHUMbnOmwaBWM=
-X-Google-Smtp-Source: AGHT+IEuziUm5FuVFOLapyO93nCQfCb40IgI2Or9ENPDmWDsqW88deWU184+w+hKs3Tyi+48xUtmng==
-X-Received: by 2002:a17:902:f607:b0:2a1:4c31:335 with SMTP id d9443c01a7336-2a2f2717b88mr314299295ad.26.1767104980514;
-        Tue, 30 Dec 2025 06:29:40 -0800 (PST)
+        bh=tIBqKSox5UwnVaoV8Kjau6whEf+LnmnAR93Js9qWwVY=;
+        b=fOldKeCjmpkiKcxKQjZjTuJysINbBKm/zopHg71fGIhsdKlnmT+3G0/YgZq6XD8ZOl
+         JXaeBQ+LEThiOLHci4dV1S/t+z+B1eqlCeTEjXGLJNJQtxdCZVx+L6H7PE7NRu99Y9PV
+         4fHdLda+ggTOKKHRD6KQfQEdhIkZDRFEhwhfYSm6vsgwLHOuEJjmKeKoX7DBuoLcEVgV
+         LZaN1JbSJIHfEBzproIRNDuOqH/mljftu+Np9VbuqzT/lwsaqpLmMm6MWZGqrc5EjnPW
+         /XoZGu6y9Y0/QPZIeZ9EwHB4ycNgzxC24+06fEbHPqVUXFRCGUmBB8d2BlM1Clrd+tnZ
+         xR6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767107222; x=1767712022;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=tIBqKSox5UwnVaoV8Kjau6whEf+LnmnAR93Js9qWwVY=;
+        b=tL22Je6fiiXOVPVPGT1hkouW/ndxXyQohe6aUfPM8gLi/Msk2OttXUJRvy3pp1k6zn
+         Z/dl7h01nUD5hADiqh073HGY68kY6NlYJBXmvtcG160t9K5cWczpKPcPregYh9Lnp+/V
+         U7ok5LmsdMgbs7wDftGUDdonm16mBAumAYYmegMifwT1oTDbNguZ+/fqxxdCEDgkVp0u
+         bSpIIEEOoDJXOdsaUqpdneFjmM1AZjnm1Ygxekgt4/LanYEi42Rrag/uHlff4P4H8VSj
+         3GL8rKrb8uFWPUt4T6EsjBBCIJzz5NR/0n4w/jJjCgLCNJZZGHl7GOu63MRfYHxx0scy
+         iktQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWYG0WHibzyZRjVo6Uony4GoXrr11RA5ik/ON0ITsS5Tz697+M+5UuOy0k+LDzq1AlUSQnjSIAxiQ5PCA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8/vpXdGOAsxHsUSu9rLoZFF1QgQCq4YaNe5VKGX88B7LcIzhY
+	e9bJox4Cp0BKHnaFIAhihntwl3OGnc3yFpJwAH5vt/Qqs3PQXPdnC/WY
+X-Gm-Gg: AY/fxX76+4P55HCGFf/PWgtLOpvjAvmiY+BXen7o0gARy1s2cvicGdinISYdbiGPuI/
+	yJmrYOxq/7imn0AuKVrmzA7VQdjOe2nkS8ZrMowOCJhOde5VgkgxBqWXSsLUfnrWnePu7epcNH9
+	BU7WPW2G6OK0nHpHOao1aDJ85JDdDPLpWPdq2rjuPl+ONS9PdIQlpaF9bm4BbXKgHi/7IMRFGxF
+	cRCQkw/jzKfSOjmQtppGCCnqK6brv8XcSHtrXJIgi8O0T8VpihMov1DT6+DRgLw6lCes4kWvf2s
+	i0K9dQp8UYEfuXoiGBhSPsH8wgwTMEnb2NGrMZPNmSL2XldUpn3beZ9BlvhxItJPc40PMP3qF1j
+	Yeu2eWh5UmlPImF4Vc1QwrdB7cR+QuJmnE1/PDA8KlDLJSqTzON+wYoV8gMxG+bDa6OpxyTLBrl
+	rKK0QY
+X-Google-Smtp-Source: AGHT+IF4mlQHloICVoZ4fRZRB5k6TueSAxDDvE3GQmVRBYhsflqEoWLyLFOrsYFcTTyvrCL2lLxibw==
+X-Received: by 2002:a17:902:e945:b0:2a0:9081:8a6 with SMTP id d9443c01a7336-2a2f232c8a5mr357039835ad.20.1767107222036;
+        Tue, 30 Dec 2025 07:07:02 -0800 (PST)
 Received: from localhost ([211.94.234.112])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a2f3c6a80esm298183155ad.8.2025.12.30.06.29.38
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a2f3c88d0asm298919885ad.40.2025.12.30.07.07.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Dec 2025 06:29:40 -0800 (PST)
+        Tue, 30 Dec 2025 07:07:01 -0800 (PST)
 From: Encrow Thorne <jyc0019@gmail.com>
-Subject: [PATCH v3 0/3] i2c: spacemit: add reset support
-Date: Tue, 30 Dec 2025 22:29:01 +0800
-Message-Id: <20251230-i2c-reset-v3-0-7500eb93b06e@gmail.com>
+To: jyc0019@gmail.com
+Cc: alex@ghiti.fr,
+	andi.shyti@kernel.org,
+	aou@eecs.berkeley.edu,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	dlan@gentoo.org,
+	guodong@riscstar.com,
+	krzk+dt@kernel.org,
+	linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	p.zabel@pengutronix.de,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robh@kernel.org,
+	spacemit@lists.linux.dev,
+	troy.mitchell@linux.spacemit.com,
+	troymitchell988@gmail.com
+Subject: [PATCH 1/3] dt-bindings: i2c: spacemit: add optional resets
+Date: Tue, 30 Dec 2025 23:06:51 +0800
+Message-Id: <20251230150653.42097-1-jyc0019@gmail.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20251230-i2c-reset-v3-0-7500eb93b06e@gmail.com>
+References: <20251230-i2c-reset-v3-0-7500eb93b06e@gmail.com>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAK3hU2kC/03MywrCMBCF4Vcps3Ykmai1rnwP6SImYztgLyQlK
- CXvbiwILv/D4VshchCOcKlWCJwkyjSWMLsKXG/HjlF8aSBFR036jEIOA0de0NZ31qYhbTxD+c+
- BH/LarFtbupe4TOG90Ym+609p/pREqNB6UtqeFHF9uHaDlefeTQO0OecPQOy0fKIAAAA=
-X-Change-ID: 20251218-i2c-reset-a7be139213de
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: Troy Mitchell <troymitchell988@gmail.com>, 
- Guodong Xu <guodong@riscstar.com>, linux-i2c@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Encrow Thorne <jyc0019@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1767104943; l=1371;
- i=jyc0019@gmail.com; s=20251009; h=from:subject:message-id;
- bh=a1J69aM75aks5NKEgsk6GGcoN5bgwi6MKrm7NlrTPLc=;
- b=18EDF1Yo3gil3UtsnPjnP04wMrhNkhNbTfRqJtMQTnJdkoA05tCeC3CideDM+jpKg5I8J2niZ
- Bu9piLwlLabC0cfTZuCfH/4VcODZZNdWNjER3S6w/QX91MM1paamAdS
-X-Developer-Key: i=jyc0019@gmail.com; a=ed25519;
- pk=nnjLv04DUE0FXih6IcJUOjWFTEoo4xYQOu7m5RRHvZ4=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_062942_103861_64908EF8 
-X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-CacheID: sfid-20251230_070703_442880_E7A5EDA6 
+X-CRM114-Status: UNSURE (   7.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,43 +117,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add reset support for the K1 I2C driver. A reset ensures that the
-controller starts in a clean and known state.
+The I2C controller requires a reset to ensure it starts from a clean state.
 
-Reset ensures that the I2C hardware is in a clean state. We cannot assume
-that no program used I2C before the kernel booted.
+Add the 'resets' property to support this hardware requirement.
 
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 Signed-off-by: Encrow Thorne <jyc0019@gmail.com>
 ---
-Changes in v3:
-- Move reset property in dt-bindings.
-- Use devm_reset_control_get_optional_exclusive_deasserted() instead.
-- Rebase to v6.19-rc1.
-- Link to v2: https://lore.kernel.org/r/20251219-i2c-reset-v2-0-ad201a602e74@gmail.com
-
-Changes in v2:
-- Replace reset property in dt-bindings.
-- Use devm_reset_control_get_optional_exclusive_deasserted() instead.
-- Rebase to v6.19-rc1.
-- Link to v1: https://lore.kernel.org/r/20251119-i2c-k1_reset-support-v1-0-0e9e82bf9b65@gmail.com
-
----
-Encrow Thorne (3):
-      dt-bindings: i2c: spacemit: add optional resets
-      i2c: k1: add reset support
-      riscv: dts: spacemit: add reset property
-
  Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml | 3 +++
- arch/riscv/boot/dts/spacemit/k1.dtsi                       | 8 ++++++++
- drivers/i2c/busses/i2c-k1.c                                | 7 +++++++
- 3 files changed, 18 insertions(+)
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20251218-i2c-reset-a7be139213de
+ 1 file changed, 3 insertions(+)
 
-Best regards,
+diff --git a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
+index b7220fff2235..5896fb120501 100644
+--- a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
++++ b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
+@@ -41,6 +41,9 @@ properties:
+     default: 400000
+     maximum: 3300000
+ 
++  resets:
++    maxItems: 1
++
+ required:
+   - compatible
+   - reg
 -- 
-Encrow Thorne <jyc0019@gmail.com>
+2.25.1
 
 
 _______________________________________________
