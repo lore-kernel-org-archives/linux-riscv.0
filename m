@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D65E92722
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Dec 2025 04:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CABD3E9411C
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Dec 2025 07:36:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AP/1qiF+Q3k+WoDC5vooOH9ScFEbmBpX8NM4ZaJ231c=; b=qEa3Ikmbe+NOPk
-	Y4QNpPcfIxFZWzm+WBDMk+010zNo5DeR25GfmOx5RxlzB1qhcyjNSRKT6oJih/6M7nK/Zo8zzMSEy
-	lYG73M2n5pGZbmk+rFk0TPBGN2bn5p31jaLdujTMecE+G6GPn4+Yvv1uJhzdUfm53SrYQ0lRdMa5E
-	zGuZdO1n2sDKGujfOf63r0Oy36Eru3HJQG+0oCg9f3DsMJ3qUOckKYkCTLBAT0P8+0xColvo6T48t
-	jO9PzzhQ3TK9/R4KPZ839Ij21ceeX38ErVc+6Iy3P35oLq+Uek0LxeJiFm8YEFcc+RsbRI5mDLzjr
-	4fOWAoG35/6IVgkfCz3g==;
+	List-Owner; bh=XJlScckrf0ewf7lT3FzJuEEWZqlxCjUvd+RhipJwBZk=; b=tZHer8kuMn7IKX
+	3UJ7D1HCEJ30i2wr4iSQI2IXFmGsXAMZeNY6T4AzEMmDxaxszRyRD6KLjY9+WyJp0bwTdwqFMu1g0
+	4GKOIf7nb95N0rD0jI76wHFmrI15ymuhbNznRgAvTCzQ12gf6UMJCBd2S8OGnPcoO1OaTr/xG6miq
+	+o7PErheBYrvaPYwHFkzIRmvIg4/JTXiImF5uVyJn6VFYKWpS/m7TD+ayLPyOARAVAeY8NOpV1B0p
+	uzanknobfgMSfwRX+M7722vPPe17OnQOU8G1fDxnHc3Y8l+oyCaL/Gfri6gpBEDrtRW+nXcf65xd5
+	IvqLin6iQ8vwIPDPXRfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaQuc-00000004NnE-21D1;
-	Tue, 30 Dec 2025 04:00:46 +0000
-Received: from mail103.out.titan.email ([34.226.11.255])
+	id 1vaUH9-00000004WEc-0NnL;
+	Tue, 30 Dec 2025 07:36:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaQua-00000004NmT-0yBN
-	for linux-riscv@lists.infradead.org;
-	Tue, 30 Dec 2025 04:00:45 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by smtp-out.flockmail.com (Postfix) with ESMTP id 4dgKBK1bPTz7t7k;
-	Tue, 30 Dec 2025 04:00:41 +0000 (UTC)
-DKIM-Signature: a=rsa-sha256; bh=pgoi0kavrdiXHW8AgEZoYSacqFxVye/voJVKHdbpWi0=;
-	c=relaxed/relaxed; d=ziyao.cc;
-	h=subject:mime-version:to:date:from:cc:message-id:references:in-reply-to:from:to:cc:subject:date:message-id:in-reply-to:references:reply-to;
-	q=dns/txt; s=titan1; t=1767067241; v=1;
-	b=NsV8C8cWdw/MPZHR9ezKCn7T7LEkPtCv2LrM4rAaZmXAjFJU3bBnNhhqNAm0c67Lu2qavpO9
-	+r6niwOo6bmH3k5sLceL5uRUy1lnoroK0W5FgFrvQ4Jx+I7aYLNIK604vpZ4r51rdAVktNfmM/P
-	YtS6Q6B1ooSb47FI65xKJHec=
-Received: from pie (unknown [117.171.66.56])
-	by smtp-out.flockmail.com (Postfix) with ESMTPA id 4dgKBF3PBtz7t7g;
-	Tue, 30 Dec 2025 04:00:37 +0000 (UTC)
-Date: Tue, 30 Dec 2025 04:00:34 +0000
-Feedback-ID: :me@ziyao.cc:ziyao.cc:flockmailId
-From: Yao Zi <me@ziyao.cc>
-To: Alex Elder <elder@riscstar.com>, Yixun Lan <dlan@gentoo.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Guodong Xu <guodong@riscstar.com>, Inochi Amaoto <inochiama@gmail.com>,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH v2 2/3] clk: spacemit: extract common ccu functions
-Message-ID: <aVNOYuC0-lcymn-P@pie>
-References: <20251226-06-k1-clk-common-v2-0-28b59418b4df@gentoo.org>
- <20251226-06-k1-clk-common-v2-2-28b59418b4df@gentoo.org>
- <3ea5b28b-a0ed-49fb-a8a8-6f575a24820d@riscstar.com>
+	id 1vaUH4-00000004WDq-1hga;
+	Tue, 30 Dec 2025 07:36:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8008E402FC;
+	Tue, 30 Dec 2025 07:36:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3D02C4CEFB;
+	Tue, 30 Dec 2025 07:36:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767080169;
+	bh=3spopZsNXxvl9VFGdm0Har22/l2edY2y+GJxsqfjeSQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uwIE5jixzPny/vITlv9VBaDQIxhslgJ4JV0TrJH1QEr24JDi0JrFvAZ3z/u3yzFA4
+	 cgpEhQBzWzMaKaMCXwhjmIYU8FjSj7aiy9rOSvJj2s9v+NTzHA6jaoU+erq7pLnqxj
+	 ZbISZ6x/kyNQuHao5YQrZIIYTymTOBQtucJMkddQU51xsxq94Amio06NLvHkb4djgI
+	 ch+0nRuN6P2ii2DcbEIYjmKf/g8yY2W11/WfZ/7EJQ/fIZsusVHwFhb/VAGzZ7YlBC
+	 Ok5pSKwdUDUiC5y1jDNNt1xnhsRAwWHr0BSNShW0SUCTUHNdNdGAYKXJAxmXgT4vfS
+	 /ooaRpuP47oNw==
+Date: Tue, 30 Dec 2025 08:36:06 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+Cc: conor@kernel.org, vkoul@kernel.org, gregkh@linuxfoundation.org, 
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	neil.armstrong@linaro.org, krzk+dt@kernel.org, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+	linux-usb@vger.kernel.org
+Subject: Re: [PATCH 1/5] dt-bindings: phy: Add Canaan K230 USB2.0 PHY DT
+ schema
+Message-ID: <20251230-tricky-hasty-koala-2fc9f0@quoll>
+References: <20251230023725.15966-1-jiayu.riscv@isrc.iscas.ac.cn>
+ <20251230023725.15966-2-jiayu.riscv@isrc.iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <3ea5b28b-a0ed-49fb-a8a8-6f575a24820d@riscstar.com>
-X-F-Verdict: SPFVALID
-X-Titan-Src-Out: 1767067241070516921.30087.1589077241347436584@prod-use1-smtp-out1002.
-X-CMAE-Score: 0
-X-CMAE-Analysis: v=2.4 cv=WtDRMcfv c=1 sm=1 tr=0 ts=69534e69
-	a=ILiXPvH1yGBXwyP4YTaA5g==:117 a=ILiXPvH1yGBXwyP4YTaA5g==:17
-	a=kj9zAlcOel0A:10 a=MKtGQD3n3ToA:10 a=CEWIc4RMnpUA:10 a=VwQbUJbxAAAA:8
-	a=9WVa6OCtZuRSJDRKafAA:9 a=CjuIK1q_8ugA:10 a=3z85VNIBY5UIEeAh_hcH:22
-	a=NWVoK91CQySWRX1oVYDe:22
+In-Reply-To: <20251230023725.15966-2-jiayu.riscv@isrc.iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_200044_408074_5D7AFBD5 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20251229_233611_338994_CD3C29FF 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,37 +76,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 29, 2025 at 06:50:14PM -0600, Alex Elder wrote:
-> On 12/26/25 12:55 AM, Yixun Lan wrote:
-> > Refactor the probe function of SpacemiT's clock, and extract a common ccu
-> > file, so new clock driver added in the future can share the same code,
-> > which would lower the burden of maintenance. Since this commit changes the
-> > module name where the auxiliary device registered, the auxiliary device id
-> > need to be adjusted. Idea of the patch is come from review of K3 clock
-> > driver, please refer this disucssion [1].
-> 
-> I understand the point here, and it's just like the first patch:
-> you're extracting generic code out of the K1-specific file so a
-> new K3-specific source file can use it too.  This is really good.
-> 
-> However the end result should incorporate *only* generic code
-> in the generic file, and have the SoC-specific source files
-> contain everything else.
-> 
-> But as you have it now, the (new) generic probe function
-> contains special handling for "spacemit,k1-pll", and that's
-> not generic.
-> 
-> So I suggest you still implement k1_ccu_probe() (and k3_ccu_probe())
-> separately, allowing each of them to do platform-specific things
-> before (and/or after) calling the generic probe function.
+On Tue, Dec 30, 2025 at 10:37:20AM +0800, Jiayu Du wrote:
+> k230-usb-phy driver supports USB 2.0 phys integrated in Canaan
 
-I've raised similar concerns in the series for K3 clock tree[1].
+Describe hardware, not driver.
 
-Regards,
-Yao Zi
+> K230 SoC. Add YAML schema for its binding.
 
-[1]: https://lore.kernel.org/all/aU50DIe9qMneb0GT@pie/
+There is no such stuff as YAML schema for a binding. Look at other
+commits how they phrase it.
+
+> 
+> Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+> ---
+>  .../bindings/phy/canaan,k230-usb-phy.yaml     | 36 +++++++++++++++++++
+>  1 file changed, 36 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml b/Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml
+> new file mode 100644
+> index 000000000000..f1c9511c873f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml
+> @@ -0,0 +1,36 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/canaan,k230-usb-phy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Canaan K230 USB2.0 PHY
+> +
+> +maintainers:
+> +  - Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+> +
+> +properties:
+> +  compatible:
+> +    const: canaan,k230-usb-phy
+> +
+> +  reg:
+> +    description:
+> +      Two register regions for USB PHY in HiSysConfig syscon block.
+
+Drop
+
+> +    items:
+> +      - description: USB PHY test control reg (pullup/pulldown config)
+> +      - description: USB PHY core control reg (PLL/transceiver tuning)
+> +    minItems: 2
+> +    maxItems: 2
+
+You didn't ever test it, did you? Drop last two lines.
+
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  "#phy-cells":
+> +    const: 0
+> +
+> +required:
+> +  - compatible
+> +  - reg
+
+clocks
+
+> +  - "#phy-cells"
+> +
+> +additionalProperties: false
+
+Missing example.
+
+> -- 
+> 2.52.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
