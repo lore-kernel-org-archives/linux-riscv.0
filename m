@@ -4,80 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 752F8EE498F
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Dec 2025 17:37:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E273BEE498F
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Dec 2025 17:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d7tXoeciOufK6FonTSpkox5Z+qjdj2rXHGK7vj8gsFo=; b=OYXdfxznrcWi4zzjzFr3/RHLVZ
-	+deju5U6hFOEhELaOkq2ski1wTZ3R+F4cFciXJHP0jcI3zWEdCkpVBWTJI5AS9xrAmek4c71I5dNK
-	noVUaUDhl2m3BUayeW5DwoAKSScc8DQHTZHica/qTbp1HqaRLxrM7sWqtvNKmiKNrJxGZBAzR2uZV
-	OqUJX74msyIOIlZ4aTJ+QQScBZmPedgokTEFhjBgF32Ah9OpiO2NeGcmSANEGb6hVIcPLqKjV+4Q0
-	rnd9XHsOkVJrES7sms3mOU8xZV9BpRYLka3Y0A/qXpqSZHDdw7hl+9Bm1JCvjpER6LuIiS1UQBtM2
-	dN+FXG+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9yJmw9QsE9nmhqNdVnTarwjiGam8U4duhS2Zv4Y++I4=; b=p2qZEbX5pt30gj
+	9Bjq6dQUWsae7f5hYDgYRzy0ScLndKCwGQtfJ1tLDwFY9F4RccltHKNZhbYbdvTUsOcPczWKY6Tzu
+	LPm9RsKKtVbKLu41mDko61iK5JnL+70PMSCMI+5iXw5zR9Wxc3Dg3QeQWYThuzfiUycgx1WccfSJd
+	qUW3cUYoCWOuPdLiI9FdVnk9JdrvJBAkw8tLHpuryAnhYU/1X6wo0OONXisuirndYZ12RVulB7tX7
+	9Lx0W/EW/w3OZ/EYbqn/QaWKAnQnexUrhxmuCSi8x0yHWnkkResevcxfqQwKRlAbNp+9Nbknxzf/t
+	brP/211j6eRp8Xu0SiEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vadf8-000000058XY-1jW0;
-	Tue, 30 Dec 2025 17:37:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vadmA-000000058n1-2amU;
+	Tue, 30 Dec 2025 17:44:55 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vadf3-000000058XC-3GAe
+	id 1vadm7-000000058mG-075K
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Dec 2025 17:37:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C74ED4382E;
-	Tue, 30 Dec 2025 17:37:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD252C4CEFB;
-	Tue, 30 Dec 2025 17:37:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767116252;
-	bh=ER043jVCO9ksspnoXQ3DT8YenpRNj1BgFtkwPByCQfE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=trHJTh89ZZ0TlEasQyjQuvfGf3jU5D1a4C0y5jjMoIywc9mrU3sfLzjoQqpW8NgAI
-	 e5csb5YBL+JkJHJHw3JWwglX/STcIoAS+Wb1L5i2LyqYz13QgnQLrozBM/uWo8Rc8r
-	 U6ItN4iNXdSpNwdTMxFLD4M442kNyTNAQBLs/vQwyuhb80KCCa9ShIWm1wAsqSKaNh
-	 NiPbwN/XNzGGvo8pUv6GXFm7u0SUgj2qUKzLt6s8oQvQ9cpB3T1cNWxyU/uGBrS0TG
-	 Tpw+JJK5/xMBZpFcBIlLC9qYJrmla87YrKaszP8iNrAn7fRV6Oj3mE8Q3QvOgle4ai
-	 dUVR/Y0g0PLpQ==
-Date: Tue, 30 Dec 2025 17:37:25 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Alex Elder <elder@riscstar.com>, Guodong Xu <guodong@riscstar.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@gentoo.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
-	Yangyu Chen <cyy@cyyself.name>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Heinrich Schuchardt <xypron.glpk@gmx.de>,
-	Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
-	Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	spacemit@lists.linux.dev, linux-serial@vger.kernel.org
-Subject: Re: [PATCH v2 11/13] dt-bindings: riscv: Add Supm extension
- description
-Message-ID: <20251230-budding-dimple-c34636b0ca4d@spud>
-References: <20251222-k3-basic-dt-v2-0-3af3f3cd0f8a@riscstar.com>
- <20251222-k3-basic-dt-v2-11-3af3f3cd0f8a@riscstar.com>
- <fc719e92-10bc-455f-b402-c93bdbf878cf@riscstar.com>
- <20251230021306.GA3094273-robh@kernel.org>
- <80e18a32-543a-48f5-81f2-4fa64cb8bf8c@riscstar.com>
- <CAL_JsqK8hRsVWV6WfbZ6hF1PwFfOJhyOrpWwoOhviAgv5ZxKUw@mail.gmail.com>
-MIME-Version: 1.0
-In-Reply-To: <CAL_JsqK8hRsVWV6WfbZ6hF1PwFfOJhyOrpWwoOhviAgv5ZxKUw@mail.gmail.com>
+	Tue, 30 Dec 2025 17:44:53 +0000
+Received: from smtpclient.apple (unknown [58.38.116.204])
+	by APP-03 (Coremail) with SMTP id rQCowAAHKeBqD1Rp4MmmAg--.62002S2;
+	Wed, 31 Dec 2025 01:44:11 +0800 (CST)
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
+Subject: Re: [PATCH] riscv: boot: Always make Image from vmlinux, not
+ vmlinux.unstripped
+From: Han Gao <gaohan@iscas.ac.cn>
+In-Reply-To: <20251230-riscv-vmlinux-not-unstripped-v1-1-15f49df880df@iscas.ac.cn>
+Date: Wed, 31 Dec 2025 01:44:00 +0800
+Cc: Han Gao <gaohan@iscas.ac.cn>,
+ Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Alexey Gladkov <legion@kernel.org>,
+ Masahiro Yamada <masahiroy@kernel.org>,
+ Nicolas Schier <nsc@kernel.org>,
+ linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org,
+ stable@vger.kernel.org
+Message-Id: <15D6E841-BA8C-43D0-B08D-170DF475AB3B@iscas.ac.cn>
+References: <20251230-riscv-vmlinux-not-unstripped-v1-1-15f49df880df@iscas.ac.cn>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+X-Mailer: Apple Mail (2.3864.300.41.1.7)
+X-CM-TRANSID: rQCowAAHKeBqD1Rp4MmmAg--.62002S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7uFyUKF1kGF4fuFy8uF48JFb_yoW8ZF4rp3
+	yDuw1YkrWUJrWjgFy0yr429FW2qFn0g3yfZFy5KF1UtFWjqF1vqwnFg3yUWFyDGFnaga1U
+	Xr4fGas5Ca40y3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
+	1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+	7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r
+	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02
+	628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4
+	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
+	MI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJV
+	WUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
+	6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYx
+	BIdaVFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
+X-Originating-IP: [58.38.116.204]
+X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiBg0MDGlT6Zg9CAAAs1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_093733_883176_5A321E4A 
-X-CRM114-Status: GOOD (  45.33  )
+X-CRM114-CacheID: sfid-20251230_094451_443632_8464654B 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,141 +86,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2202320938272112788=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2202320938272112788==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ymaqOL8nauUqvgFe"
-Content-Disposition: inline
+
+> On Dec 30, 2025, at 21:39, Vivian Wang <wangruikang@iscas.ac.cn> wrote:
+> 
+> Since commit 4b47a3aefb29 ("kbuild: Restore pattern to avoid stripping
+> .rela.dyn from vmlinux") vmlinux has .rel*.dyn preserved. Therefore, use
+> vmlinux to produce Image, not vmlinux.unstripped.
+> 
+> Doing so fixes booting a RELOCATABLE=y Image with kexec. The problem is
+> caused by this chain of events:
+> 
+> - Since commit 3e86e4d74c04 ("kbuild: keep .modinfo section in
+>  vmlinux.unstripped"), vmlinux.unstripped gets a .modinfo section.
+> - The .modinfo section has SHF_ALLOC, so it ends up in Image, at the end
+>  of it.
+> - The Image header's image_size field does not expect to include
+>  .modinfo and does not account for it, since it should not be in Image.
+> - If .modinfo is large enough, the file size of Image ends up larger
+>  than image_size, which eventually leads to it failing
+>  sanity_check_segment_list().
+> 
+> Using vmlinux instead of vmlinux.unstripped means that the unexpected
+> .modinfo section is gone from Image, fixing the file size problem.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: 3e86e4d74c04 ("kbuild: keep .modinfo section in vmlinux.unstripped")
+> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+> ---
+> arch/riscv/boot/Makefile | 4 ----
+> 1 file changed, 4 deletions(-)
+> 
+> diff --git a/arch/riscv/boot/Makefile b/arch/riscv/boot/Makefile
+> index bfc3d0b75b9b..5301adf5f3f5 100644
+> --- a/arch/riscv/boot/Makefile
+> +++ b/arch/riscv/boot/Makefile
+> @@ -31,11 +31,7 @@ $(obj)/xipImage: vmlinux FORCE
+> 
+> endif
+> 
+> -ifdef CONFIG_RELOCATABLE
+> -$(obj)/Image: vmlinux.unstripped FORCE
+> -else
+> $(obj)/Image: vmlinux FORCE
+> -endif
+> $(call if_changed,objcopy)
+> 
+> $(obj)/Image.gz: $(obj)/Image FORCE
+> 
+> ---
+> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+> change-id: 20251230-riscv-vmlinux-not-unstripped-30ec0c930fd2
+> 
+> Best regards,
+> -- 
+> Vivian "dramforever" Wang
+
+Tested-by: Han Gao <gaohan@iscas.ac.cn>
 
 
---ymaqOL8nauUqvgFe
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Dec 30, 2025 at 09:21:56AM -0600, Rob Herring wrote:
-> On Mon, Dec 29, 2025 at 9:14=E2=80=AFPM Alex Elder <elder@riscstar.com> w=
-rote:
-> >
-> > On 12/29/25 8:13 PM, Rob Herring wrote:
-> > > On Fri, Dec 26, 2025 at 03:28:47PM -0600, Alex Elder wrote:
-> > >> On 12/22/25 7:04 AM, Guodong Xu wrote:
-> > >>> Add description for the Supm extension. Supm indicates support for =
-pointer
-> > >>> masking in user mode. Supm is mandatory for RVA23S64.
-> > >>>
-> > >>> The Supm extension is ratified in commit d70011dde6c2 ("Update to r=
-atified
-> > >>> state") of riscv-j-extension.
-> > >>>
-> > >>> Supm depends on either Smnpm or Ssnpm, so add a schema check to enf=
-orce
-> > >>> this dependency.
-> > >>
-> > >> I have the same general question on this, about whether it's really
-> > >> necessary for the DT binding to enforce these requirements.  The
-> > >> RISC-V specifications are what truly defines their meaning, so I
-> > >> don't really see why the DT framework should need to enforce them.
-> > >> (That said, I'm sure there are other cases where DT enforces things
-> > >> it shouldn't have to.)
-> > >
-> > > Does the specification have some way to check it? What happens if a DT
-> > > is wrong? Are you going to require a DT update to make things right? =
-Or
-> > > the kernel has to work-around the error? Neither is great. So having
-> > > this as a schema makes sense to prevent either scenario.
-> >
-> > I'm really glad you weighed in.  I actually have several questions
-> > related to RISC-V extensions and DT.  But for now I'll focus on
-> > just this...
-> >
-> > To answer your first question, I'm not sure how the specification
-> > is "checked", or what "it" is that you're asking about for that
-> > matter.  Also I think we have to be clear about what "wrong" means.
-> >
-> > RISC-V is defined by a (large and growing) set of specifications
-> > that are developed through a well-defined process.  When a spec
-> > is *ratified* it is committed, and it won't be changed.  These
-> > specifications are ultimately *the* definition of RISC-V
-> > compliance.
-> >
-> > I assumed the "wrong" you're talking about is a DTS/DTB that has
-> > been committed but somehow does not match what a RISC-V spec
-> > says, but I might be mistaken.
->=20
-> That's correct.
->=20
-> > Anyway, we can flip that around and have a similar problem:  What
-> > if we define the DT binding in such a way that it doesn't match
-> > the RISC-V spec?  The (ratified) RISC-V spec is right.
->=20
-> Sure. Any time there is more than 1 source of truth, they could be
-> mismatched. But it is 1 spec and 1 schema to compare, not N DTS files.
-> Checking the schema matches the spec is much easier than reviewing
-> every new DTS file.
-
-The objective is not to define things with divergent meanings anyway,
-only to say "this string is exactly this version of this extension",
-so that if some other version of an extension comes along we have a way
-to differentiate. We didn't before and that became problematic for both
-standard extensions and vendor specific stuff. You'll note we don't look
-to define anything ourselves, just cite the spec that provides the
-definitions.
-
-> The only true fix is to make the spec machine readable.
->=20
-> > My thought was that we should have software do the verification,
-> > and recommend the software (e.g. arch/riscv/kernel/cpufeature.c
-> > in Linux) be updated to verify things before committing to a
-> > DT binding.
->=20
-> That moves validation from build time to run time. How is that better?
-> And what about other OSs?
->=20
-> I'm very much of the opinion that it is not the kernel's job to
-> validate the DT. It obviously has not done a very good job given
-> issues we find with schemas. It's fine to have some checks in this
-> case if the kernel can't function (or use/enable the extension)
-> without the dependent extensions, but there are lots of classes of
-> errors the kernel doesn't need to care about.
-
-By and large what's in cpufeature.c is there to turn extensions off
-based on kconfig choices (vector support enabled etc) or kernel design
-decisions (kernel requiring both d and f extensions for fpu support). I
-don't think there's anything there that doesn't assume that the
-devicetree is correct. For my money, it's much simpler to describe
-dependencies in a binding than add more code to the kernel that tries to
-figure out dependencies at runtime.
-
-
---ymaqOL8nauUqvgFe
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaVQN1QAKCRB4tDGHoIJi
-0pPPAP4x6bW65umXa6RU00YxbiyATI4Z5w1FZqeGJ2pVpPy15wEAn/l7pCbOzmgf
-4bOyYpW9PLJJt0w+gKHxg8U0+X6LcAg=
-=Cne9
------END PGP SIGNATURE-----
-
---ymaqOL8nauUqvgFe--
-
-
---===============2202320938272112788==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2202320938272112788==--
-
