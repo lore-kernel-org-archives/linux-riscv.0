@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5AC4EE4990
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Dec 2025 18:06:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E671EE4992
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Dec 2025 18:06:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D9aaDjE+I0wO/0Li2kFKj9rQUTau3FP+LRV2FVopOJw=; b=Ao4EeK84GfgslV
-	DbSoG28Cgdz/Zbil3xW74OcvdPrVf39pkCKNPlb86fIxEPU6LKg1M90nlrze6sCrjQSySxHBrokaj
-	vwEZQ+ldRDQHNVrXVJUid7N7boS8uaqhdZAoJXLZO2wGp54xuL185lwgB795m2cT4bEXlILTn322D
-	d0ji9rc5pXNrsF5UeX+OQ2By5nrQycZJF1+hUIvaJoQRz7mxo9nEXnk/nkg5StN5nb5AY4VF4NZ9e
-	JeqK46dBUCcEFaoqXK8cNlcSV9F5rBjqZH35koPo/CG4PC8oVB1XKSUTcVu4gXr1uqpIpXpfeiei6
-	plqltzL/icOxvmrxzmHA==;
+	List-Owner; bh=JB/vOZrdKGQO9JYeJ291XfuZuBkPoAhltcYHFdwaq+s=; b=3Z/LwFxsWXIfQ1
+	H1b7J6jxvsEd95X9IWtPXFw8r1xlUsHMKXlX6l7A/X3ppNnLEe1Pyn71saXv67p9wp/SWqv54zHvy
+	gDyR8krOvkAS5JmmCD5tHhr1bFr4BorAulBybnykmZmdlxBy7j7it3bDNUNaYasTGoceLZ7xuxp+d
+	9MaeYHiGDGE+q4xS4++0ckYevMBf9ZnDMhl2GZ1eNGI4UENxrl9B83+VPWK4UtkpClMWN9M26sNkG
+	ePeWmmFfOFC4jUoQOBBpTjsbL7JVHrieKcPuFSAjBoDXZ67n7MFQ8DwoNnKKs0ZwB2f0ycDZuZZve
+	xC6EP44liIipsoZMAXAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vae7L-00000005AGd-3AUw;
-	Tue, 30 Dec 2025 18:06:47 +0000
-Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
+	id 1vae7J-00000005AFM-1p3u;
+	Tue, 30 Dec 2025 18:06:45 +0000
+Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vae7J-00000005AFE-3O11
+	id 1vae7G-00000005AE8-3nLp
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Dec 2025 18:06:46 +0000
-Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-88a379ca088so117163966d6.0
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Dec 2025 10:06:45 -0800 (PST)
+	Tue, 30 Dec 2025 18:06:44 +0000
+Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-88a367a1db0so171776766d6.3
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Dec 2025 10:06:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1767118005; x=1767722805; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1767118001; x=1767722801; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=Kw6K1zDOG7+9A9tzeUA0t/hpBL/fZjOT2o6xij6Wc/E=;
-        b=SOHsQ1NhkvXnDza0FZ3VckMT7BCIRQ5WMjKbDO3HIlAgc24ZokARejYUrqT9y117yV
-         8p+yju7Hn/+c0cKogp6JH8IAuOHcUDuDFL8OYIy0eJVUkVrWJ4CbkINtCmw7oEDbvO5W
-         n9SkkWK3XQ7cpSwdcMuAiYVtNebg1VR83dSIs5YXFQOPF8bvzMQe5bq2t0A6t2iF+len
-         OoNAQ/pELwerBuHwxSl5fhJlhkDKpjCgMXmGHFraLlR8Ux3uDQyAA7JvjVDH1pXcgnQU
-         IZ5Lh53qmvpyraxwGwV0xEeAQ7/sOpYWWqh6rVPVfcNDTAoVimC1+99cPnMJJbGJ6FXK
-         ofDw==
+        bh=4yVj/w5JDZnyERJYSMulDshPdYjkZAshZuWaOUGklxI=;
+        b=BPFPMu+MebxLbODKaBRRAD1kR6X68vB5YgJs2JKrw6HFOKDacHCcXqK0NhQykC//85
+         zdx+x3IqcARCof7XOWopsuN8EAFprgjq0E4zX8bRnjpR8hcV9MmpqYx+ay5e6YflLvGQ
+         0DAXcAvI6I/NCWb33Kbq2QL873ur+i8aQ8e2doC7Is+WxLgBuFcYmRmZAa9F0pq888ol
+         retdqq1i3IMaJ2aXdJlVlMQDC8mGHMtrGSDV6AA3YnzPMifpVq+YQLic+DgwCIPTup9d
+         kXp6/u2Z0h01V0M64+rx0ud2WirGzRkHCW3tV7zB0HqVW0zG10rR4eNFcWxPjd1qzaTz
+         6v9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767118005; x=1767722805;
+        d=1e100.net; s=20230601; t=1767118001; x=1767722801;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Kw6K1zDOG7+9A9tzeUA0t/hpBL/fZjOT2o6xij6Wc/E=;
-        b=TrvV7f3SV/7/DMT2My1OMuaxpItgkKZ3b4nTJK6P1/4Lf5YaxAR7VwPXDP7egjvkJ8
-         zhBbMlH4s1oqtP7PC38xFIstzNtLZJ9WrgkfEJ97Iz+8w+VfGqis2/qqpbVn1nUT6qC5
-         h5v+1vzmrFf2BjcmzbeQ9cltzdOD/wsOo+xlm0kdLdOgaX/+GB508oQQP/s8stRSQzBo
-         OAJi8VctPI90Izyik1DP4Bi3u33Bjl2Bw6vKIeE3qdNDq4WfUYW2h+2hjwU5u5/Rm+FV
-         VNcwetOHOo0bcT1TtORbBT2Mh9WMauoSiQ8/0fQ/wf6pu5t4UN9m+zgjzQinyIyTy9mD
-         6sTg==
-X-Forwarded-Encrypted: i=1; AJvYcCXU44VQzs/ZKET3NCsMHCFVWhaRBjuF9nb81ua/x7wAE+WFPOIx9v6FKPIrXv9xYlwlDlzgxgGz8a6iBA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzL3mGkUMM1AcEFP8S7lrJcng88F/U90K/OPwyMcaBcIaIL1RU8
-	Ig5Rg6cR/wl3c3QcznnVvFUFQwYAHycmBpKNEkX7W/xl+XxB1838C9wUOzbG8RX4tO8=
-X-Gm-Gg: AY/fxX6fd8/UlAhiCmHxwF0xXyyUsQxxmo2Ux3TdqG4qakw06pxhZ38tL4BaHnrV0pK
-	51zHP7OZgoQesOr176uNy4vQdob3r4obmhVObHpUTPqrA1D6xok70RvJlr7+XI/5He6T/vidgTU
-	SSTpc2ejniNSy6VVlWrUAMabT07eaoYTrNzkK+e1tlCp7NojDVyhZ4/+ZdbPV51BRdWPhofetMR
-	ACfL9qFIQpGsiZiu2ZuO8t8yD/si5DJ+K1uOaxbX5z5frh0/rIjPIHg+VNrs3MTATo5SiSMq2tU
-	xmZUa5Hi4ZwCrywXE5tLDICaLVXC/mKUvRHG/hx7peHWAf1v4mqEASZv+TFQ5YZou8WzCbn6H9p
-	flwFBxiKPBLuG74odESBNbeM5NrhkF8k2Eb8vElIZ2Q2pLhM5EogIFPGK7muoWsRnU6KUywI/1M
-	H+paOHaAkUgk9ESdbrEtKbaE0OQWXC9i5mbLt6KkX/tejtjnPySsI=
-X-Google-Smtp-Source: AGHT+IH9R9RdQs+4+/paw7zFCFKKDDzjpBdbtJmraB11OzlyUV7KUFzWKn/pZTATXFnVWVQr0NrhUQ==
-X-Received: by 2002:a05:6214:4308:b0:88a:2f0f:c173 with SMTP id 6a1803df08f44-88d86e482c0mr506484426d6.68.1767118004593;
-        Tue, 30 Dec 2025 10:06:44 -0800 (PST)
+        bh=4yVj/w5JDZnyERJYSMulDshPdYjkZAshZuWaOUGklxI=;
+        b=gUMvegE8IcIpj4ziAGo4RzzMA2xYIfj+avBmjw6vbe0hGYppFP8CnuQqeYrliWDjo1
+         8I9bMCRlahPh0aycOLtLgvYkMfo8M8vWQ4CbVwhewdmOh1vSx7/NZ9QrZ03MQGQgjJ8W
+         mZdNdBvlb3VvpYBYe9gRaH5Xyb1y91IrHEE2Ccuo6LHjntRgyt+/BFrGNuHiHf7O+cLT
+         yLmEVk6NKikANsneiE0ea03h7uWBKJ71jN40LYRTD0lo99f20QAF8vRd/pvjP26OL2Cn
+         8T7NAoMyFDUKmGWZ5So/M5a+5vUlO7HmoGIjwngMNOcOJMrwR+PBIbQu+TwGWsdtuhBl
+         B4vQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVhGM/dRuITmJVi286mcspOFve+jcOd8vh7x+WPLCAtS9yiKAk1IyNXyb2A+0ZCk+RhDxQtDMitW2lYGQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwieePNxBq0t+k1KHmxd7C5T2VZwkKA53yPyS6XUFGqEKKkOodl
+	PnBIJ53a3oWLx/K2tPcqSD0XwAZq2t5OiCTbqQ68wam0onGh4dAQnN4Yc3ssvK+3ZL8=
+X-Gm-Gg: AY/fxX7llX0oJo1PW0+JHH+YcOYADAZTItF4xt0I7CNX48O/87YW9tjfVdJ/ts4zmOY
+	eFWWFuksKmXd0Bho5j0FTseJs5YgIw6qU+e3Maw8m4teWv4FTDg/5P/JWL/khFE0DwdbbE/pHC1
+	GHWFiveO3MaE3hO3P84//eAJKVmJ4ufZb339Cc0wBvpOIj4vZ9RrhP2Gcio2SBufab5XCWojC/H
+	9NwX92uXxPlyglBHjEBknOX5k8UprQFnh8Azn6+xFBbpHe9iqGTa7I2uXh6tBJ/PO77kCwlA8wx
+	igZDn2ZBW+mwFOkf0tZMEEGyXgp33QfuqiMtHmaXuwIU60GEqnMP4jQvnju85PA9CJdwzJFU/aD
+	oXGePGGh+W1MGVeIrtSg0A2SZ+YIKmG4b1cm8HQsIXdxNxkRS0XjDWvpS0nSlwEHFnyy8rbVGgC
+	Jt1mzCaG1qPURa2ODIvvLwcv9jhBR1xuR4Xo0wDc3Ek90s1GlHGKg=
+X-Google-Smtp-Source: AGHT+IGutbAgelJ7VpLiqCRVpc5Qslt27XYYdm9lZscZshp31OHqvrlSlOewiedfwdLZdpnsi4JpGQ==
+X-Received: by 2002:a05:6214:5b85:b0:88f:e9f0:77b9 with SMTP id 6a1803df08f44-88fe9f07bd7mr289091346d6.58.1767118001338;
+        Tue, 30 Dec 2025 10:06:41 -0800 (PST)
 Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88d99d7e8d4sm261620256d6.41.2025.12.30.10.06.41
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88d99d7e8d4sm261620256d6.41.2025.12.30.10.06.37
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 30 Dec 2025 10:06:44 -0800 (PST)
-Message-ID: <55c2c0e2-2213-4cc9-a752-fce17149bc35@riscstar.com>
-Date: Tue, 30 Dec 2025 12:06:39 -0600
+        Tue, 30 Dec 2025 10:06:41 -0800 (PST)
+Message-ID: <13ac4110-5ef9-4469-9fcc-4168479758dc@riscstar.com>
+Date: Tue, 30 Dec 2025 12:06:37 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/13] dt-bindings: riscv: Add B ISA extension
+Subject: Re: [PATCH v2 11/13] dt-bindings: riscv: Add Supm extension
  description
-To: Conor Dooley <conor@kernel.org>
-Cc: Guodong Xu <guodong@riscstar.com>, Rob Herring <robh@kernel.org>,
+To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>
+Cc: Guodong Xu <guodong@riscstar.com>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -95,19 +95,16 @@ Cc: Guodong Xu <guodong@riscstar.com>, Rob Herring <robh@kernel.org>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  spacemit@lists.linux.dev, linux-serial@vger.kernel.org
 References: <20251222-k3-basic-dt-v2-0-3af3f3cd0f8a@riscstar.com>
- <20251222-k3-basic-dt-v2-7-3af3f3cd0f8a@riscstar.com>
- <20251222-stitch-preachy-3fab87fd6f0f@spud>
- <CAH1PCMZ7ywZ3unLy0yHYK+fFHk0y=q2cEtPnRi=qSpf=fc75rw@mail.gmail.com>
- <66c0676a-7920-4825-b916-3c00b1648a08@riscstar.com>
- <20251230-imprison-sleet-6b5a1e26d34b@spud>
- <dc87a3c0-8627-4328-a17a-6510ee8245ac@riscstar.com>
- <20251230-ungloved-unworthy-cacc7e22e1c7@spud>
+ <20251222-k3-basic-dt-v2-11-3af3f3cd0f8a@riscstar.com>
+ <fc719e92-10bc-455f-b402-c93bdbf878cf@riscstar.com>
+ <20251230021306.GA3094273-robh@kernel.org>
+ <20251230-outing-discourse-723547cc14da@spud>
 Content-Language: en-US
 From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20251230-ungloved-unworthy-cacc7e22e1c7@spud>
+In-Reply-To: <20251230-outing-discourse-723547cc14da@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_100645_858886_2FA4AAE9 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20251230_100642_963679_5D2592EB 
+X-CRM114-Status: GOOD (  23.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,53 +116,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTIvMzAvMjUgMTE6NDYgQU0sIENvbm9yIERvb2xleSB3cm90ZToKPiBPbiBUdWUsIERlYyAz
-MCwgMjAyNSBhdCAxMToyOToxNEFNIC0wNjAwLCBBbGV4IEVsZGVyIHdyb3RlOgo+PiBPbiAxMi8z
-MC8yNSAxMTowOSBBTSwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+Pj4gT24gRnJpLCBEZWMgMjYsIDIw
-MjUgYXQgMDM6Mjg6MjVQTSAtMDYwMCwgQWxleCBFbGRlciB3cm90ZToKPj4+PiBPbiAxMi8yMy8y
-NSAxMjo1MSBBTSwgR3VvZG9uZyBYdSB3cm90ZToKPj4+Pj4gSGksIENvbm9yCj4+Pj4+Cj4+Pj4+
-IE9uIFR1ZSwgRGVjIDIzLCAyMDI1IGF0IDU6MTfigK9BTSBDb25vciBEb29sZXkgPGNvbm9yQGtl
-cm5lbC5vcmc+IHdyb3RlOgo+Pj4+Pj4KPj4+Pj4+IE9uIE1vbiwgRGVjIDIyLCAyMDI1IGF0IDA5
-OjA0OjE3UE0gKzA4MDAsIEd1b2RvbmcgWHUgd3JvdGU6Cj4+Pj4+Pj4gQWRkIGRlc2NyaXB0aW9u
-IG9mIHRoZSBzaW5nbGUtbGV0dGVyICJCIiBleHRlbm5zaW9uIGZvciBCaXQgTWFuaXB1bGF0aW9u
-Lgo+Pj4+Pj4+IEIgaXMgbWFuZGF0b3J5IGZvciBSVkEyM1U2NC4KPj4+Pj4+Pgo+Pj4+Pj4+IFRo
-ZSBCIGV4dGVuc2lvbiBpcyByYXRpZmllZCBpbiB0aGUgMjAyNDA0MTEgdmVyc2lvbiBvZiB0aGUg
-dW5wcml2aWxlZ2VkCj4+Pj4+Pj4gSVNBIHNwZWNpZmljYXRpb24uIEFjY29yZGluZyB0byB0aGUg
-cmF0aWZpZWQgc3BlYywgInRoZSBCIHN0YW5kYXJkCj4+Pj4+Pj4gZXh0ZW5zaW9uIGNvbXByaXNl
-cyBpbnN0cnVjdGlvbnMgcHJvdmlkZWQgYnkgdGhlIFpiYSwgWmJiLCBhbmQgWmJzCj4+Pj4+Pj4g
-ZXh0ZW5zaW9ucy4KPj4+Pj4+Pgo+Pj4+Pj4+IEhlbmNlIGFkZCBhIHNjaGVtYSBjaGVjayBydWxl
-IHRvIGVuZm9yY2UgdGhhdCBCIGltcGxpZXMgWmJhLCBaYmIgYW5kIFpicy4KPj4+Pj4+Pgo+Pj4+
-Pj4+IFNpZ25lZC1vZmYtYnk6IEd1b2RvbmcgWHUgPGd1b2RvbmdAcmlzY3N0YXIuY29tPgo+Pj4+
-Pj4+IC0tLQoKLiAuIC4KCj4+PiBUaGUgZGVwZW5kZW5jeSBjYW4gYmUgZ28gYm90aCB3YXlzLCB0
-byBhbHNvIG1ha2Ugc3BlY2lmeWluZyAiYiIgbWFuZGF0b3J5Cj4+PiB3aGVuIHRoZSB0aHJlZSBj
-b21wb25lbnRzIGFyZS4gVGhhdCBwcm9iYWJseSBwcm9kdWNlcyB0aGUgbW9zdCBoZWxwZnVsCj4+
-PiBkZXZpY2V0cmVlIHVsdGltYXRlbHkuCj4+Cj4+IFdoYXQgYWJvdXQgRFQgZmlsZXMgdGhhdCBz
-cGVjaWZpZWQgemJhK3piYit6YnMgYmVmb3JlICJiIiB3YXMKPj4gcmF0aWZpZWQ/Cj4gCj4gVGhl
-eSdkIGdlbmVyYXRlIGEgd2FybmluZywgd2hpY2ggY2FuIHRoZW4gYmUgZml4ZWQuIFRoYXQncyBm
-aW5lIHRvIGRvLCBhCj4gd2FybmluZyBpbiBsaW51eC1uZXh0IGRvZXNuJ3QgaGFybSBhbnlvbmUu
-IFVwZGF0aW5nIGRldmljZXRyZWVzIGluIHdheXMKPiB0aGF0IGRvbid0IGNoYW5nZSB0aGVpciBt
-ZWFuaW5nIGJ1dCBwcm92aWRlIGV4dHJhIHZhbHVlIGlzIG5vdCBhIHByb2JsZW0KPiBpbiBteSBi
-b29rLgoKT0suCgouIC4gLgoKPj4gQnV0IHdoeSBldmVuIGJvdGhlciBzdXBwb3J0aW5nICJiIiBp
-ZiB5b3UgaGF2ZSB0byAqYWxzbyoKPj4gc3VwcG9ydCAiemJhK3piYit6YnMiIGlmIHlvdSB1c2Ug
-aXQ/ICBJdCBhZGRzIHRoZSBwb3NzaWJpbGl0eQo+PiBvZiBuZXcgZXJyb3JzICgiYiIgd2l0aG91
-dCAiemJzIiwgZm9yIGV4YW1wbGUpLCB3aGlsZSBub3QKPj4gcmVhbGx5IGVuYWJsaW5nIG9yIHJl
-cHJlc2VudGluZyBhbnl0aGluZyBuZXcuCj4gCj4gVGhhdCB3YXMgbXkgZmlyc3QgcXVlc3Rpb24g
-YWZ0ZXIgYWxsISBVbHRpbWF0ZWx5IEknZCByZWFsbHkgZXJyIG9uIHRoZQo+IHNpZGUgb2YgYWRk
-aW5nIGl0IGJlY2F1c2UgcGVvcGxlIHdpbGwgZXhwZWN0IHRvIGJlIGFibGUgdG8gdXNlIGl0IGFu
-ZAo+IGJlY2F1c2UsIGluIHRlcm1zIG9mIGtlcm5lbCBzdXBwb3J0LCBpdCB3aWxsIGJlIHVzZWZ1
-bCBmb3IgQUNQSSBzeXN0ZW1zLgoKSSB0aGluayBpdCdzIHRvbyBiYWQgdGhlc2UgImVxdWl2YWxl
-bnQiIGV4dGVuc2lvbnMgY2FuJ3QgYmUgdXNlZAp0byBzaW1wbGlmeSB0aGluZ3MuCgpJIHJlYWxs
-eSBkaXNsaWtlIHJlcXVpcmluZyB0aGUgYm90aCBhIHNpbXBsZXIgZXh0ZW5zaW9uICphbmQqCnRo
-ZSBvdGhlcnMgdGhhdCBpdCByZXByZXNlbnRzL2ltcGxpZXMuCgpCdXQgcHJhY3RpY2FsbHkgc3Bl
-YWtpbmcgeW91J3JlIHByb2JhYmx5IHJpZ2h0LiAgUGVvcGxlIHdpbGwKZXhwZWN0IHRvIGJlIGFi
-bGUgdG8gdXNlIHRoZW0uICBEVCB0b29scyB3aWxsIHRoZW4gcG9pbnQgb3V0CndoYXQncyBtaXNz
-aW5nLCBhbmQgdGhlIGxpc3Qgb2YgZXh0ZW5zaW9ucyBzdXBwb3J0ZWQgYnkgYQpnaXZlbiBDUFUg
-d2lsbCBqdXN0IGdyb3cgYW5kIGdyb3cgYW5kIGdyb3cuCgoJCQkJCS1BbGV4CgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 12/30/25 11:22 AM, Conor Dooley wrote:
+> On Mon, Dec 29, 2025 at 08:13:06PM -0600, Rob Herring wrote:
+>> On Fri, Dec 26, 2025 at 03:28:47PM -0600, Alex Elder wrote:
+>>> On 12/22/25 7:04 AM, Guodong Xu wrote:
+>>>> Add description for the Supm extension. Supm indicates support for pointer
+>>>> masking in user mode. Supm is mandatory for RVA23S64.
+>>>>
+>>>> The Supm extension is ratified in commit d70011dde6c2 ("Update to ratified
+>>>> state") of riscv-j-extension.
+>>>>
+>>>> Supm depends on either Smnpm or Ssnpm, so add a schema check to enforce
+>>>> this dependency.
+>>>
+>>> I have the same general question on this, about whether it's really
+>>> necessary for the DT binding to enforce these requirements.  The
+>>> RISC-V specifications are what truly defines their meaning, so I
+>>> don't really see why the DT framework should need to enforce them.
+>>> (That said, I'm sure there are other cases where DT enforces things
+>>> it shouldn't have to.)
+>>
+>> Does the specification have some way to check it? What happens if a DT
+>> is wrong? Are you going to require a DT update to make things right? Or
+>> the kernel has to work-around the error? Neither is great. So having
+>> this as a schema makes sense to prevent either scenario.
+> 
+> The reason this whole mess exists is because extensions got redefined
+> after the kernel port was merged and the bindings defined. This is
+
+Redefined, or just new extensions defined?
+
+Was support for any extensions added to the kernel before they were
+ratified?  Even if so, did the meaning of the extension change
+between when support was added to the kernel and ratification?
+
+> almost all a hedge against there being future redefinitions. For now,
+> and hopefully forever, this will just be a list of extensions with
+> citations to their relevant documentation so that we can say "this is
+
+Yes, this is good.  I think the bindings should, where possible,
+just refer to the precise definitions in the (ratified) RISC-V
+specifications.  But I now agree that they can also encode
+logic to enforce things.
+
+> exactly what this means". The added bonus is avoiding messes like people
+> implementing development versions of specs and claiming support, because
+> that just becomes "your devicetree is wrong".
+> 
+> The dependency stuff exists because it is far too easy to miss something
+> in a list of 30+ extensions and dt validation can reduce some of the
+> complexity required when checking what extensions are supported.
+
+By "dependency stuff" do you just mean the DT binding logic?
+
+Anyway I've come around to the idea that DT bindings actually
+should do validation like this.
+
+>>> And now, having looked at these added binding definitions (in patches
+>>> 07 through 11 in this series), I wonder what exactly is required for
+>>> them to be accepted.  For the most part these seem to just be defining
+>>> how the extensions specified for RISC-V are to be expressed in
+>>> DT files.  It seems to be a fairly straightforward copy from the
+>>> ratified specification(s) to the YAML format.
+>>>
+>>> Who need to sign off on it?  Conor?  Paul?  DT maintainers?
+>>
+>> I generally leave this extension mess to Conor.
+> 
+> And generally I do without that much back and forth, just so happens
+> that a couple of the ones in this series are the less simple cases to
+> deal with.
+
+Thanks.  I may have a remaining question or two for you but they aren't
+that pressing.
+
+					-Alex
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
