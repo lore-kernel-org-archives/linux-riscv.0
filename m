@@ -4,63 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 115FBEE57D1
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Dec 2025 03:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 143FFEE57D3
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Dec 2025 03:35:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kYDeoTg3XrgNEGIp4TuXI8gzNVBAGzrZkYz4SK42ybY=; b=UeTt+DrWyMvWvh
-	48ehgmn7iK9UMT/YqRQ3wRPNKkcWk0mn4AXbsa1IfY1EEwgNKYLLo/4C48T9DUNQ9YewpRnb8Xh/I
-	4ViEUx/Ku9Df/fyA1eMrUMhoiFpzt01QwE8KvTi08GVt4jFKjXVvMG5zUgnG4l2zFfQzHG1lsnQ+y
-	m/rFx3iXXldCGJRRwaRiaWX/iSkz34snMxmwTuieY7YugedsUj2AUrhBvEk9Qt1CXEdinQN3l5sAI
-	gXZ4Xdxf1a2tMrrEo8qBGKIyojgjLMC4k7jNq1vgUS8FXgOZYjg6rohjeXkce+JLXhrncmc0X4n1w
-	Xn4Jyer/dzHaf20fxwuA==;
+	List-Owner; bh=s6cp+NPLki2AaMcsoJzG+p0ViSJreXOPlBnjintpUak=; b=JD5+wZD2rsVj3D
+	5yOw7OUpUAL0wKjh/i78tcpScUYW9oaZwDqBgkXBXF+7F+6W+RbHerSXMAa4z3OQFXWRPCZi/om2k
+	i+Q2JJdJdoHsip5gG1Ui/fDaCc3uPS0Qova8Mp0VJEkBAmUCk55kaN57ouCYME8+lEwGOIb3ezorO
+	4C3UoOabNkJs3WgS78WbBoFCkpM52XOJkB/lgyXyKlzEqe8S590IEuVsvu0PXvxP9lGsAqGFQPueG
+	g/I7Ib/7chyAo32ZV0lwknSX9Rd0lD1tTLkmO29NQDGt28vbgKnuG/1W1BMARlwlvL8bPwYOsyI79
+	9xmaUA9adx5/GJKbVpFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vamzD-00000005e5A-1uXZ;
-	Wed, 31 Dec 2025 03:34:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vamzC-00000005e4z-0bni;
+	Wed, 31 Dec 2025 03:34:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vamzA-00000005e4G-0Xbc
+	id 1vamzA-00000005e4T-47Ma
 	for linux-riscv@lists.infradead.org;
 	Wed, 31 Dec 2025 03:34:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B0C3840E48;
-	Wed, 31 Dec 2025 03:34:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AE99C116B1;
-	Wed, 31 Dec 2025 03:34:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 21D1760008;
+	Wed, 31 Dec 2025 03:34:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC3DEC116B1;
+	Wed, 31 Dec 2025 03:34:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767152094;
-	bh=W67htXk7veB8kQWZBdf+dxwYDMiW/M+g7D0+HEH2ynQ=;
+	s=k20201202; t=1767152095;
+	bh=eEV+BYVsuwLalAqlkiRONaACRt+zlDbvjbq/Sm/p+Ec=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=KwikY9o0/aljAeEMwyEV3HVhnF+RivFEW5Hd/pE5cfla4xzY+juJuHvU4Whox5aWD
-	 v7qtEnsclZcofyobHm7mpfsYW/p6OFBTyx/66pOvjxF8WSmnWwzNLKFYPAPWRza2Ga
-	 53FjmLrPDQl7I0oOv67LNLc8WVCfCJ4VoH5Yqrb0LqrSM/460b8g2q5NhaB4FhFxn+
-	 EvhhVb4f30nAtg391PkStzEEm8smWMVM9uoLO8ljWKVXuQhce+8rvpxHzQwje4GvRf
-	 jkq7Df8Tslj1LWOcQ1K7OPvuiGlAtvKNELTh6KnSzC31JqOfb0Xhiwovxb0HIcGyxF
-	 R0/FXQuqhutag==
+	b=ouXx29PImiPloHd4J98lkiXKSgMYAttKpGOEwS0lex9aC2dpJmXk3s57Zy3AkqdOm
+	 32VG1wDjIgK1vjkGP0Rr6zif9mv35u2JKsHqDm7Vs7NJqi6F1gTMhyQ+lbmDKmH0ZM
+	 K+sGoa7UZNmjVhzYp2dyglWXuaENfYrkKPNadypA0b9lA0RhknVckp5XNSVFeQh8oA
+	 eKK6woXwMpShaU+H9bTLQkMpsYx3d0bzTAniNGz9HF8Qxl8sjjsQ5/P20BZQiPnMEk
+	 hPYrJjfsYGCIWpbvVKl6Qk7C7gn7Un7QIZriYdkWkK4rs3jrdSxKP1qx5wMlWzxgDM
+	 dF8qdh5YURmBA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 78A0D3809A19;
-	Wed, 31 Dec 2025 03:31:37 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B5A7C3809A19;
+	Wed, 31 Dec 2025 03:31:38 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/2] riscv: Add Spectre v1 mitigations
+Subject: Re: [GIT PULL] RISC-V updates for v6.19-rc3
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176715189629.3416240.5165553541798344765.git-patchwork-notify@kernel.org>
-Date: Wed, 31 Dec 2025 03:31:36 +0000
-References: <20251218191332.35849-1-lukas.gerlach@cispa.de>
-In-Reply-To: <20251218191332.35849-1-lukas.gerlach@cispa.de>
-To: Lukas Gerlach <lukas.gerlach@cispa.de>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, pjw@kernel.org,
- aou@eecs.berkeley.edu, alex@ghiti.fr, linux-kernel@vger.kernel.org,
- daniel.weber@cispa.de, michael.schwarz@cispa.de, marton.bognar@kuleuven.be,
- jo.vanbulck@kuleuven.be
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_193456_196559_DC07DF35 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <176715189753.3416240.13725683049999454282.git-patchwork-notify@kernel.org>
+Date: Wed, 31 Dec 2025 03:31:37 +0000
+References: <fc36548c-baa4-821d-24cd-2f645f7d9cec@kernel.org>
+In-Reply-To: <fc36548c-baa4-821d-24cd-2f645f7d9cec@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
+ linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,28 +73,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Paul Walmsley <pjw@kernel.org>:
+This pull request was applied to riscv/linux.git (fixes)
+by Linus Torvalds <torvalds@linux-foundation.org>:
 
-On Thu, 18 Dec 2025 20:13:30 +0100 you wrote:
-> This series adds Spectre v1 to RISC-V in line with x86 and arm64.
+On Sun, 28 Dec 2025 01:18:38 -0700 (MST) you wrote:
+> Linus,
 > 
-> Modern RISC-V CPUs with deep pipelines (e.g., XuanTie C910, SiFive P550)
-> are susceptible to Spectre v1 attacks where an attacker can speculatively
-> bypass bounds checks and leak kernel memory via cache side channels.
-> 
-> The first patch adds pointer masking to uaccess routines. Similar to
-> arm64's uaccess_mask_ptr(), this clears the top bit of user pointers
-> before access, ensuring that even under speculation, a user-controlled
-> pointer cannot reach kernel memory.
+> Please pull these RISC-V updates for v6.20-rc3.  Nothing exotic here;
+> these are the cleanup and new ISA extension probing patches (not
+> including CFI) that were originally part of the second pull request in
+> the last merge window.
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/2] riscv: Use pointer masking to limit uaccess speculation
-    (no matching commit)
-  - [2/2] riscv: Sanitize syscall table indexing under speculation
-    https://git.kernel.org/riscv/c/25fd7ee7bf58
+  - [GIT,PULL] RISC-V updates for v6.19-rc3
+    https://git.kernel.org/riscv/c/03de3e44a706
 
 You are awesome, thank you!
 -- 
