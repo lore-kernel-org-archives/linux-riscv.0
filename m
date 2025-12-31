@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83461EE57CE
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Dec 2025 02:12:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75877EE49BD
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Dec 2025 03:01:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dxKQmwbRSUr6mr2MFFY1S306VeNOrq5rP6xCItysnTk=; b=vwCBjHz3MlR4iQ
-	7PCWC2wb5y49FneuscREmfGg75+Abgb5BauOl4ASWaJ++zqzp97gfQxWpGMLmLOuQ0qiH0DIf9VSy
-	RSt1NK1302aTA2yl69jKvaC0JjoI9z/h2EN7/g0UJePw3xxZM1I7lvuyT13DeagS775FboeoM7qpt
-	bzaz/DvBzqB7ZHXkdwzi86DsqGzJ2ODONR9eiB3SlgUH5HMopUE1mkFQSSlc9KRv5VOhxk0O8vq6n
-	suUlm79mHtB/9Vv5kGvArkT+stdw8ZgYMFymhGAkLP6IImjkrG7WrIF6CiTJ19X2VNTdyaI2fqHAF
-	v8HCXLTejVqowHW6dGlg==;
+	List-Owner; bh=8xFmDuy1tfirUDbG67x9t+DEKbRVf8Q/A/XRivVO7CM=; b=Ka7hHJugrTK94t
+	Mb64ywLrpvF2vmdjhRgj6OyUC4txLsBJ1orC+yzRrqinkvdajhkWwT94q1ojRW3oZaYJQyGHoAlnz
+	0ZtBRkmd4G/wDlOLvdYxiKbLHEpK+efOztA2K4pGlL/BzwoOuAU/U1ivZCuWwlugjCUVGM+sJ6S34
+	BvHkxYygBBSqJg7zgIlILQY1Kg4mGvBsSZc7dqv31EWuASNhwACughDsDwJh6jx2QVNaakSKtGwLy
+	cOQLwMDVvl1oEnSAKRDLh6Vm9p6nZ1ORX4ubHP8iqS+eEWpUlsnj72sSaDPmHAsVxSE/9QS1J0Onc
+	H162dFlE88Daa8kZDbpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1valh8-00000005Z10-3WYH;
-	Wed, 31 Dec 2025 02:12:14 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1vamSk-00000005cLw-245Z;
+	Wed, 31 Dec 2025 03:01:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1valh6-00000005Z0U-3TJy
+	id 1vamSk-00000005cLb-0pmj
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Dec 2025 02:12:14 +0000
-Received: from localhost (unknown [116.232.18.222])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 94570340D40;
-	Wed, 31 Dec 2025 02:12:09 +0000 (UTC)
-Date: Wed, 31 Dec 2025 10:12:05 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Yao Zi <me@ziyao.cc>
-Cc: Alex Elder <elder@riscstar.com>, Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Guodong Xu <guodong@riscstar.com>,
-	Inochi Amaoto <inochiama@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH v2 2/3] clk: spacemit: extract common ccu functions
-Message-ID: <20251231021205-GYB2019108@gentoo.org>
-References: <20251226-06-k1-clk-common-v2-0-28b59418b4df@gentoo.org>
- <20251226-06-k1-clk-common-v2-2-28b59418b4df@gentoo.org>
- <3ea5b28b-a0ed-49fb-a8a8-6f575a24820d@riscstar.com>
- <aVNOYuC0-lcymn-P@pie>
+	Wed, 31 Dec 2025 03:01:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 51C8860008;
+	Wed, 31 Dec 2025 03:01:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51EA4C116C6;
+	Wed, 31 Dec 2025 03:01:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767150085;
+	bh=Q2+Rt8W61CA9DfQnOvcn73GgeeG4biAzPEGsgWhR4ko=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=RSWmi1fquDi6fA20tELdQkP1lOKT4KonhKTiaR39WPycrE6efi9VAMZ7aXCjBmRsn
+	 M9D51EWeAC5PFewmfYcRQK04TitdhWL40pA/TAtbMK350gmvuwVR4xUsETIXifQmxE
+	 pRWfPxhSEr1PK0zi3XuWV0j3AST1eNQ0ia8CPEIfJXDNyiosbLEsEVva3jGXWRmgJY
+	 JDSgBTyT/osNrRtl4sc23wRDPPSz6yl9evPQ4UjphKCUrsMvM0vnIurYL9wGzqp+VZ
+	 Bg+LCKvqdPQOF0oeXmEpJb2J/XH2UMivVWij/Lzr91BjckG0kwXYTu6T2CZxTLqCYI
+	 nu/50mnZoMCHQ==
+Date: Tue, 30 Dec 2025 20:01:20 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: Lukas Gerlach <lukas.gerlach@cispa.de>
+cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, pjw@kernel.org, 
+    aou@eecs.berkeley.edu, alex@ghiti.fr, linux-kernel@vger.kernel.org, 
+    daniel.weber@cispa.de, michael.schwarz@cispa.de, marton.bognar@kuleuven.be, 
+    jo.vanbulck@kuleuven.be
+Subject: Re: [PATCH 2/2] riscv: Sanitize syscall table indexing under
+ speculation
+In-Reply-To: <20251218191332.35849-3-lukas.gerlach@cispa.de>
+Message-ID: <e41be7b8-5c39-a41f-e194-7cfc595b3f76@kernel.org>
+References: <20251218191332.35849-1-lukas.gerlach@cispa.de> <20251218191332.35849-3-lukas.gerlach@cispa.de>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aVNOYuC0-lcymn-P@pie>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_181212_890114_C5A1EC53 
-X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,47 +71,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alex, Yao,
+On Thu, 18 Dec 2025, Lukas Gerlach wrote:
 
-On 04:00 Tue 30 Dec     , Yao Zi wrote:
-> On Mon, Dec 29, 2025 at 06:50:14PM -0600, Alex Elder wrote:
-> > On 12/26/25 12:55 AM, Yixun Lan wrote:
-> > > Refactor the probe function of SpacemiT's clock, and extract a common ccu
-> > > file, so new clock driver added in the future can share the same code,
-> > > which would lower the burden of maintenance. Since this commit changes the
-> > > module name where the auxiliary device registered, the auxiliary device id
-> > > need to be adjusted. Idea of the patch is come from review of K3 clock
-> > > driver, please refer this disucssion [1].
-> > 
-> > I understand the point here, and it's just like the first patch:
-> > you're extracting generic code out of the K1-specific file so a
-> > new K3-specific source file can use it too.  This is really good.
-> > 
-> > However the end result should incorporate *only* generic code
-> > in the generic file, and have the SoC-specific source files
-> > contain everything else.
-> > 
-> > But as you have it now, the (new) generic probe function
-> > contains special handling for "spacemit,k1-pll", and that's
-> > not generic.
-> > 
-> > So I suggest you still implement k1_ccu_probe() (and k3_ccu_probe())
-> > separately, allowing each of them to do platform-specific things
-> > before (and/or after) calling the generic probe function.
+> The syscall number is a user-controlled value used to index into the
+> syscall table. Use array_index_nospec() to clamp this value after the
+> bounds check to prevent speculative out-of-bounds access and subsequent
+> data leakage via cache side channels.
 > 
-> I've raised similar concerns in the series for K3 clock tree[1].
-> 
-> Regards,
-> Yao Zi
-> 
-> [1]: https://lore.kernel.org/all/aU50DIe9qMneb0GT@pie/
-> 
+> Signed-off-by: Lukas Gerlach <lukas.gerlach@cispa.de>
 
-Ok, since both of you raise this, I will do it in next version
-thanks
+Thanks, queued for v6.19-rc.
 
--- 
-Yixun Lan (dlan)
+
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
