@@ -4,58 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96DEBE9410D
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Dec 2025 03:15:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 115FBEE57D1
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Dec 2025 03:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nT6VqWVxSqbKA068Xi8Ep35JGQkzyEMK6DImeJceH8U=; b=RAAnwW+W3LAITf0JlJFO9ORWJp
-	aLQADRIC/gPxmEJrZkC90ZIaxG/be2F6JOJoEMC7hfcJ492I1pVtTUb1YApQfQ5znz9iojysCHs+A
-	ygggZDbyW2s3dCAqzOb2LhOMO3d7xm+YaUetSUnfomVK/s8nJOfSWPWcvnztV4jCr10F7t6CvdhNo
-	vaj+vRxTr0yudq+slRynlyS5e9IfK+2S6qFdkh9qm5mgd2ARBUEhDDvXALj4VQ5uJMfMNQ9qjug/e
-	9gU5Qa3S6bceILhNLA2D3RbMBQ/NZzxcUG4+7AHFCH37Ybal8uOO+6Mr7s/S2OOptB0LeliVTRejW
-	YBwHvbyg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kYDeoTg3XrgNEGIp4TuXI8gzNVBAGzrZkYz4SK42ybY=; b=UeTt+DrWyMvWvh
+	48ehgmn7iK9UMT/YqRQ3wRPNKkcWk0mn4AXbsa1IfY1EEwgNKYLLo/4C48T9DUNQ9YewpRnb8Xh/I
+	4ViEUx/Ku9Df/fyA1eMrUMhoiFpzt01QwE8KvTi08GVt4jFKjXVvMG5zUgnG4l2zFfQzHG1lsnQ+y
+	m/rFx3iXXldCGJRRwaRiaWX/iSkz34snMxmwTuieY7YugedsUj2AUrhBvEk9Qt1CXEdinQN3l5sAI
+	gXZ4Xdxf1a2tMrrEo8qBGKIyojgjLMC4k7jNq1vgUS8FXgOZYjg6rohjeXkce+JLXhrncmc0X4n1w
+	Xn4Jyer/dzHaf20fxwuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vamgP-00000005dLn-2Rwt;
-	Wed, 31 Dec 2025 03:15:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vamzD-00000005e5A-1uXZ;
+	Wed, 31 Dec 2025 03:34:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vamgN-00000005dLe-3LLx
+	id 1vamzA-00000005e4G-0Xbc
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Dec 2025 03:15:31 +0000
+	Wed, 31 Dec 2025 03:34:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BD9CA60008;
-	Wed, 31 Dec 2025 03:15:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DB64C116B1;
-	Wed, 31 Dec 2025 03:15:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B0C3840E48;
+	Wed, 31 Dec 2025 03:34:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AE99C116B1;
+	Wed, 31 Dec 2025 03:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767150930;
-	bh=N6HFlgfL0VlBPAArfq2sVNpxf0YCgEJBIZpYYblK/AE=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=TgzO4umgcLGzUMcmIMv2OSGLrdbS7wevapcH78+Fa3HxlNbvuFoQeod1ZHOg7UlWP
-	 uBFwmhaaFjaEjtRZflAUWUJl1Z86eogvqYnwdxj9LzWEseC1ujA/PkQa3WoWWRTdoS
-	 Gp/m2NtIPK/ITnczhrq9kNDNNbODJ1EdNO9378zevAnU9xzsOj74JWGx3DYv5CkSDR
-	 pK+u+7nbiD4njHRZOBWP09jEN8k4DDChJnNBVvBkhVwFe4JQHEVfU4ZB5t8pDohdRr
-	 G58BrLp71Pj6UuJ+Ky1/PMmjOHSvdTo1sDEXXLRNZQeQc4EGTTfClsUeDQBbpPjBoN
-	 7lvabxAopB55g==
-Date: Tue, 30 Dec 2025 20:15:28 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Jiakai Xu <jiakaipeanut@gmail.com>
-cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-    Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Nam Cao <namcao@linutronix.de>, 
-    Alexandre Ghiti <alex@ghiti.fr>, Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Subject: Re: [PATCH v2] riscv: fix KUnit test_kprobes crash when building
- with Clang
-In-Reply-To: <20251226032317.1523764-1-jiakaiPeanut@gmail.com>
-Message-ID: <5cad53b9-e6f7-d8c8-8c54-c4e5af035bbf@kernel.org>
-References: <20251226032317.1523764-1-jiakaiPeanut@gmail.com>
+	s=k20201202; t=1767152094;
+	bh=W67htXk7veB8kQWZBdf+dxwYDMiW/M+g7D0+HEH2ynQ=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=KwikY9o0/aljAeEMwyEV3HVhnF+RivFEW5Hd/pE5cfla4xzY+juJuHvU4Whox5aWD
+	 v7qtEnsclZcofyobHm7mpfsYW/p6OFBTyx/66pOvjxF8WSmnWwzNLKFYPAPWRza2Ga
+	 53FjmLrPDQl7I0oOv67LNLc8WVCfCJ4VoH5Yqrb0LqrSM/460b8g2q5NhaB4FhFxn+
+	 EvhhVb4f30nAtg391PkStzEEm8smWMVM9uoLO8ljWKVXuQhce+8rvpxHzQwje4GvRf
+	 jkq7Df8Tslj1LWOcQ1K7OPvuiGlAtvKNELTh6KnSzC31JqOfb0Xhiwovxb0HIcGyxF
+	 R0/FXQuqhutag==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 78A0D3809A19;
+	Wed, 31 Dec 2025 03:31:37 +0000 (UTC)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-1674692257-1767150930=:293827"
+Subject: Re: [PATCH 0/2] riscv: Add Spectre v1 mitigations
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <176715189629.3416240.5165553541798344765.git-patchwork-notify@kernel.org>
+Date: Wed, 31 Dec 2025 03:31:36 +0000
+References: <20251218191332.35849-1-lukas.gerlach@cispa.de>
+In-Reply-To: <20251218191332.35849-1-lukas.gerlach@cispa.de>
+To: Lukas Gerlach <lukas.gerlach@cispa.de>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, pjw@kernel.org,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, linux-kernel@vger.kernel.org,
+ daniel.weber@cispa.de, michael.schwarz@cispa.de, marton.bognar@kuleuven.be,
+ jo.vanbulck@kuleuven.be
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251230_193456_196559_DC07DF35 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,102 +72,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+Hello:
 
---8323329-1674692257-1767150930=:293827
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8BIT
+This series was applied to riscv/linux.git (fixes)
+by Paul Walmsley <pjw@kernel.org>:
 
-Hi Jiakai Xu,
+On Thu, 18 Dec 2025 20:13:30 +0100 you wrote:
+> This series adds Spectre v1 to RISC-V in line with x86 and arm64.
+> 
+> Modern RISC-V CPUs with deep pipelines (e.g., XuanTie C910, SiFive P550)
+> are susceptible to Spectre v1 attacks where an attacker can speculatively
+> bypass bounds checks and leak kernel memory via cache side channels.
+> 
+> The first patch adds pointer masking to uaccess routines. Similar to
+> arm64's uaccess_mask_ptr(), this clears the top bit of user pointers
+> before access, ensuring that even under speculation, a user-controlled
+> pointer cannot reach kernel memory.
+> 
+> [...]
 
-thanks for updating this patch -
+Here is the summary with links:
+  - [1/2] riscv: Use pointer masking to limit uaccess speculation
+    (no matching commit)
+  - [2/2] riscv: Sanitize syscall table indexing under speculation
+    https://git.kernel.org/riscv/c/25fd7ee7bf58
 
-On Fri, 26 Dec 2025, Jiakai Xu wrote:
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-> Clang misinterprets the placement of test_kprobes_addresses and 
-> test_kprobes_functions arrays when they are not explicitly assigned 
-> to a data section. This can lead to kmalloc_array() allocation 
-> errors and KUnit failures.
-> 
-> When testing the Clang-compiled code in QEMU, this warning was emitted:
-> 
-> WARNING: CPU: 1 PID: 3000 at mm/page_alloc.c:5159 __alloc_frozen_pages_noprof+0xe6/0x2fc mm/page_alloc.c:5159
-> 
-> Further investigation revealed that the test_kprobes_addresses array
-> appeared to have over 100,000 elements, including invalid addresses;
-> whereas, according to test-kprobes-asm.S, test_kprobes_addresses
-> should only have 25 elements.
-> 
-> When compiling the kernel with GCC, the kernel boots correctly.
-> 
-> This patch fixes the issue by adding .section .rodata to explicitly 
-> place arrays in the read-only data segment.
-> 
-> For detailed debug and analysis, see:
-> https://github.com/j1akai/temp/blob/main/20251113/readme.md
-> 
-> Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-> Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
-> Link: https://patch.msgid.link/738dd4e2.ff73.19a7cd7b4d5.Coremail.xujiakai2025@iscas.ac.cn
-> Link: https://github.com/llvm/llvm-project/issues/168308
-> 
-> v1 -> v2：
-> - Drop changes to .align, and .globl.
 
-This should go below the --- line (or above the Signed-off-by:, Link: 
-lines).  There shouldn't be anything between the Signed-off-by:, Link: 
-trailers and the ---.
-
-I've fixed this up locally, and queued for v6.19-rc.
-
-> 
-> ---
->  arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
-> index b951d0f12482..f16deee9e091 100644
-> --- a/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
-> +++ b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
-> @@ -181,6 +181,7 @@ SYM_FUNC_END(test_kprobes_c_bnez)
->  
->  #endif /* CONFIG_RISCV_ISA_C */
->  
-> +.section .rodata
->  SYM_DATA_START(test_kprobes_addresses)
->  	RISCV_PTR test_kprobes_add_addr1
->  	RISCV_PTR test_kprobes_add_addr2
-> @@ -212,6 +213,7 @@ SYM_DATA_START(test_kprobes_addresses)
->  	RISCV_PTR 0
->  SYM_DATA_END(test_kprobes_addresses)
->  
-> +.section .rodata
->  SYM_DATA_START(test_kprobes_functions)
->  	RISCV_PTR test_kprobes_add
->  	RISCV_PTR test_kprobes_jal
-> -- 
-> 2.34.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
---8323329-1674692257-1767150930=:293827
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-1674692257-1767150930=:293827--
-
