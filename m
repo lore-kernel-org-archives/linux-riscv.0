@@ -4,73 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DADEE6428
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Dec 2025 14:21:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB3AEE6428
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Dec 2025 15:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Subject:
-	Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p/WH5RGFgd2hbe/hcsR7Bp3yabAAlrA5+fjtQ0WUgnU=; b=gzET8zxDMSbcAJ
-	7p6NQDIYoTWvb526avxxWTHDme/8LqS5/QrRTJcnUqpxbIFXNuRfv2erRYxQ/Ca0mtFtNZyoS336I
-	65deiefeAVPsPG2X5rGfB99txzivpjRHy84w+D58AnC6nXW83tOaotJbrVJ9/mir+UfxPuC23V939
-	XH5Atn5sti6To+nbG+AmNaXprhPyCChwUoUhixlUNCqVq1eW6wq9HvxWXOQWSqh8AK0NnMrfLGe1O
-	l2/cFrgOmugDYCE3KM5hkRzIj3wrsr/S2JEK79gs+oS9A9J9C/i486DBBQs+TUYLhNmZCgHAxicgX
-	3DLE6yVx22QhpvZdZSQA==;
+	List-Owner; bh=Wr2uBOyVhcEbuA9u7iWHnJQceBQi0fLjKHHdt9CH6Zg=; b=NLOyvg3exkYTdo
+	M5Ek/Kht5t6BlqJTVLpiSQVcyYR7m05rld4F8FBsQUVYq6MlD8XphXxqZgpJr2Naq0d3MuFJYs7W5
+	K6p8qIs9GQsP2WmGk59hPuTuFolIKKKAZkB31v9rUUyRkdjxqphz8DPKsFbsooy3GbFqbwnIsmkHM
+	RRjCs5pM3LePC5Tz5VFibd32PHDKUBjzZBpMk2sNxkzY5eo7HtpOfYXBoBJN1LXOTeidAHltSZymH
+	5i+4QMbHGXODWKM7mvbar6MPnAJWphBFLMRPhPPs+O3PWi2kV2e6BsILXm5Rm3YeQfLZ+khEQ9kiw
+	e2kJwV5+w8XylbW7cRdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vax4I-00000006282-3jIH;
-	Wed, 31 Dec 2025 14:20:54 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vaySL-000000066Oo-0O4L;
+	Wed, 31 Dec 2025 15:49:49 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vax4F-0000000627e-2tsm
+	id 1vaySH-000000066Mn-3RwT
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Dec 2025 14:20:53 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id A8741C1AE2B;
-	Wed, 31 Dec 2025 14:20:06 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 24E1D60744;
-	Wed, 31 Dec 2025 14:20:32 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D1397113B0770;
-	Wed, 31 Dec 2025 15:20:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767190830; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=s/LBclbjVdapialdhCPRdRaESKqlpOnpyxq4+NMgleQ=;
-	b=13wHxziny/E58+NBQrqX+3oqwXTJN93YZxWKmfk5Vk+lqAW1vaeCJkJLSB+5n0yxC5C0i6
-	peGkD9i2Lg28sPjmOWunBbHe1zqqgF4XTN44q8Uzl7NhT7l6RKxtK9qDxicfDKP/68Zdon
-	ju0bXrBWNhg3k9kYcMUK0beztObZRm4JPE3U9sEkhvXyTcuK333O6r8kXtLaEWhYvMQD2u
-	6wlC3QxgUhFpBujq2T3zNWeMC8TdZ9bsKGNgxiC4jF48r6qANgMY/1mv3ZyhcuMP8j0bcp
-	8785748qfhPRghOe6yvJgSmnhDkzlaOHBtvUyKUu5H4/KFh4FcxTeIH6mHrawQ==
-Mime-Version: 1.0
-Date: Wed, 31 Dec 2025 15:20:19 +0100
-Message-Id: <DFCGV315JITK.1TXTXWUOMLMB9@bootlin.com>
-Subject: Re: [PATCH v4 3/9] drm: verisilicon: add a driver for Verisilicon
- display controllers
-To: "Icenowy Zheng" <zhengxingda@iscas.ac.cn>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Drew Fustini" <fustini@kernel.org>, "Guo
- Ren" <guoren@kernel.org>, "Fu Wei" <wefu@redhat.com>, "Philipp Zabel"
- <p.zabel@pengutronix.de>, "Heiko Stuebner" <heiko@sntech.de>, "Andrzej
- Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Michal
- Wilczynski" <m.wilczynski@samsung.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.20.1
-References: <20251224161205.1132149-1-zhengxingda@iscas.ac.cn>
- <20251224161205.1132149-4-zhengxingda@iscas.ac.cn>
-In-Reply-To: <20251224161205.1132149-4-zhengxingda@iscas.ac.cn>
-X-Last-TLS-Session-Version: TLSv1.3
+	Wed, 31 Dec 2025 15:49:47 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-64d0d41404cso13327073a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 31 Dec 2025 07:49:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767196183; x=1767800983; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=H6r7yw9l553CBnZ0Oq6/Kvj3e3aIbXAlTRdm8Qc8sow=;
+        b=QGFJM+5zzECLce/Ez4Hm9KA6Yf2GspnQLdjfiLnUsbTeaLIkdBKnz9eKXeAd01+4TB
+         Rsl1Eg/dsnn+mN4bsUM0JR01/PqQDE/Zp8RhK9RpWiwT+ANY5tEVk4JNUDMU3oHuEvQ0
+         dswALg0SwD518q5oPBa/UZJvodrqsY0GkjBGn5zxaQcaJYF/JEiqLEVXhBh8flXBd+/X
+         WQYb+g0r50BvbK2zGN0pIEwE7tqemOTo9DqrxSo+A0PtVHLiHQIX+ezWSCoAml7dzPAR
+         01jQrZB+6wHQsKClgyurzc3qcBZO0TQG9ky3ao6g3rHvsKzIhRX0QSPClWpndQgJ4BpD
+         AO/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767196183; x=1767800983;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=H6r7yw9l553CBnZ0Oq6/Kvj3e3aIbXAlTRdm8Qc8sow=;
+        b=pZHtW4KjthnavwHM/2sMrU+icxVkaUWw8JUVy68clXQB4kao2E9nknVzZoTCCeaWdp
+         viKN0g1BSYbGmeN98uoDc5K0Wy2Jy6eaQrRaR8z3GThkKpaOA/kfy0gcHxAg2a50Ch8u
+         qhOpQ6xfDPvaoZq0BFIfQU2AEE1cxAir+Zm8Y9Nwt1Tk6XE1TMQ3INDB2NlqzdML4mJ2
+         T8R1179OcZLQTOTK4WlM53uPne1FsLyrD/LgG0LtCcmEkdF4d0miZfVCKFB+UQAtI2w+
+         7V6eGH9YU5O/KZqjqjG6AUSYsS1lcn93Ln/smx+f3e84pwihedjBQgkflVKeP8ZbI7j/
+         pgGA==
+X-Forwarded-Encrypted: i=1; AJvYcCU75nQ6TAKua5hDsJmfndWPCA/tWfThqe2wIGd35Rtp44NxRTd7dm7Ap4LQ6SloZjcPAZ0oc8i9YAgGMg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx93DX8oFQ3QNnBxtZFN0zBcDe833Uvz995ewuA7wLLj8pzHjZg
+	dWmP07bVHbmHEGPAhL/JVSIi4pH/CGPeuxP2LfTNl52e8OuDszBeNDNj66I/E4p7ysHBM/p0Gyg
+	8W/Xy55gGfqaN6BY4sZcSWyVnRAjH/GM=
+X-Gm-Gg: AY/fxX54USZ3MB6rHJu7XMeb+Pm55q8RsBEtIlBB/AWAHauCI1Z6pb2hVe/DrfVknMu
+	WoyIxPV5lxfcrWHd0koo82q9grpSp3vWH1puy6qcaLfERTseRHPKrp3qFCpAekqun1HGqxapyt2
+	fER+mqdIIJa9Ou2qTSaFl54fKGbw0gB5FI0AEd3zQwUaKNjYPOUCxX1zjGkWrNB09AAhhhc8dP0
+	299BxiUvm84Z/XP1o9ZcfYx6x1ogO606PAOfma437dSqJAJRWQrfMwJrnDBg0//8DUckbAT
+X-Google-Smtp-Source: AGHT+IFWPXcZKnGq0Krk9SV9S7c2h0pNtpTmEWv1Brc1vDiv5zIRm5JUQPWxix5qBNEZM9fT8eFcchz/mGnlgfTZ7QQ=
+X-Received: by 2002:a05:6402:430d:b0:64d:170:7976 with SMTP id
+ 4fb4d7f45d1cf-64d01707bacmr33060451a12.16.1767196183052; Wed, 31 Dec 2025
+ 07:49:43 -0800 (PST)
+MIME-Version: 1.0
+References: <20251228124001.3624742-1-rppt@kernel.org> <20251228124001.3624742-2-rppt@kernel.org>
+In-Reply-To: <20251228124001.3624742-2-rppt@kernel.org>
+From: Magnus Lindholm <linmag7@gmail.com>
+Date: Wed, 31 Dec 2025 16:49:31 +0100
+X-Gm-Features: AQt7F2rayRHt2K_8t_heYN2h4Fxse0t-QPEGBzoKWlAlrWu2fr6sWsAyLE9oYEU
+Message-ID: <CA+=Fv5TDfwnu7Qf2y=PLWWN1EvNpNbr8habnTO7R4_caAySDzw@mail.gmail.com>
+Subject: Re: [PATCH 01/28] alpha: introduce arch_zone_limits_init()
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Alex Shi <alexs@kernel.org>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, 
+	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	"David S. Miller" <davem@davemloft.net>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	David Hildenbrand <david@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Guo Ren <guoren@kernel.org>, 
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Jonathan Corbet <corbet@lwn.net>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>, 
+	Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Pratyush Yadav <pratyush@kernel.org>, 
+	Richard Weinberger <richard@nod.at>, Russell King <linux@armlinux.org.uk>, 
+	Stafford Horne <shorne@gmail.com>, Suren Baghdasaryan <surenb@google.com>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>, Vlastimil Babka <vbabka@suse.cz>, 
+	Will Deacon <will@kernel.org>, x86@kernel.org, linux-alpha@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+	linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-mm@kvack.org, linux-openrisc@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	sparclinux@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_062051_911685_268C8DE1 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20251231_074945_895663_592DC237 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,64 +118,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed Dec 24, 2025 at 5:11 PM CET, Icenowy Zheng wrote:
-> From: Icenowy Zheng <uwu@icenowy.me>
->
-> This is a from-scratch driver targeting Verisilicon DC-series display
-> controllers, which feature self-identification functionality like their
-> GC-series GPUs.
->
-> Only DC8200 is being supported now, and only the main framebuffer is set
-> up (as the DRM primary plane). Support for more DC models and more
-> features is my further targets.
->
-> As the display controller is delivered to SoC vendors as a whole part,
-> this driver does not use component framework and extra bridges inside a
-> SoC is expected to be implemented as dedicated bridges (this driver
-> properly supports bridge chaining).
->
-> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-
-[...]
-
-> +++ b/drivers/gpu/drm/verisilicon/vs_bridge.h
-
-> +struct vs_bridge {
-> +	struct drm_bridge base;
-> +	struct drm_encoder *enc;
-> +	struct drm_connector *conn;
-> +
-> +	struct vs_crtc *crtc;
-> +	struct drm_bridge *next;
-
-It is a common convention to call this 'next_bridge'. This makes it easier
-to understand but also to grep and find similar patterns.
-
-For info, we are working to move to 'struct drm_bridge::next_bridge' [0] as
-you can see from example patches like [1]. However this currently applies
-only to drivers using of_drm_find_bridge(), so it does not affect your
-driver.
-
-I'm sorry I have seen your patch only at v4.
-
-[0] https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/3fdeae134ba956aacbd87d5532c025913c98fc49
-[1] https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/8f92a5fcbfe33f86b08f5f74dcc58a41425ea8c0
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBEZWMgMjgsIDIwMjUgYXQgMTo0MOKAr1BNIE1pa2UgUmFwb3BvcnQgPHJwcHRAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBGcm9tOiAiTWlrZSBSYXBvcG9ydCAoTWljcm9zb2Z0KSIgPHJw
+cHRAa2VybmVsLm9yZz4KPgo+IE1vdmUgY2FsY3VsYXRpb25zIG9mIHpvbmUgbGltaXRzIHRvIGEg
+ZGVkaWNhdGVkIGFyY2hfem9uZV9saW1pdHNfaW5pdCgpCj4gZnVuY3Rpb24uCj4KPiBMYXRlciBN
+TSBjb3JlIHdpbGwgdXNlIHRoaXMgZnVuY3Rpb24gYXMgYW4gYXJjaGl0ZWN0dXJlIHNwZWNpZmlj
+IGNhbGxiYWNrCj4gZHVyaW5nIG5vZGVzIGFuZCB6b25lcyBpbml0aWFsaXphdGlvbiBhbmQgdGh1
+cyB0aGVyZSB3b24ndCBiZSBhIG5lZWQgdG8KPiBjYWxsIGZyZWVfYXJlYV9pbml0KCkgZnJvbSBl
+dmVyeSBhcmNoaXRlY3R1cmUuCj4KPiBTaWduZWQtb2ZmLWJ5OiBNaWtlIFJhcG9wb3J0IChNaWNy
+b3NvZnQpIDxycHB0QGtlcm5lbC5vcmc+Cj4gLS0tCj4gIGFyY2gvYWxwaGEvbW0vaW5pdC5jIHwg
+MTUgKysrKysrKysrKy0tLS0tCj4gIGluY2x1ZGUvbGludXgvbW0uaCAgIHwgIDEgKwo+ICAyIGZp
+bGVzIGNoYW5nZWQsIDExIGluc2VydGlvbnMoKyksIDUgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0t
+Z2l0IGEvYXJjaC9hbHBoYS9tbS9pbml0LmMgYi9hcmNoL2FscGhhL21tL2luaXQuYwo+IGluZGV4
+IDRjNWFiOWNkOGEwYS4uY2QwY2IxYWJkZTVmIDEwMDY0NAo+IC0tLSBhL2FyY2gvYWxwaGEvbW0v
+aW5pdC5jCj4gKysrIGIvYXJjaC9hbHBoYS9tbS9pbml0LmMKPiBAQCAtMjA4LDEyICsyMDgsOCBA
+QCBjYWxsYmFja19pbml0KHZvaWQgKiBrZXJuZWxfZW5kKQo+ICAgICAgICAgcmV0dXJuIGtlcm5l
+bF9lbmQ7Cj4gIH0KPgo+IC0vKgo+IC0gKiBwYWdpbmdfaW5pdCgpIHNldHMgdXAgdGhlIG1lbW9y
+eSBtYXAuCj4gLSAqLwo+IC12b2lkIF9faW5pdCBwYWdpbmdfaW5pdCh2b2lkKQo+ICt2b2lkIF9f
+aW5pdCBhcmNoX3pvbmVfbGltaXRzX2luaXQodW5zaWduZWQgbG9uZyAqbWF4X3pvbmVfcGZuKQo+
+ICB7Cj4gLSAgICAgICB1bnNpZ25lZCBsb25nIG1heF96b25lX3BmbltNQVhfTlJfWk9ORVNdID0g
+ezAsIH07Cj4gICAgICAgICB1bnNpZ25lZCBsb25nIGRtYV9wZm47Cj4KPiAgICAgICAgIGRtYV9w
+Zm4gPSB2aXJ0X3RvX3BoeXMoKGNoYXIgKilNQVhfRE1BX0FERFJFU1MpID4+IFBBR0VfU0hJRlQ7
+Cj4gQEAgLTIyMSw4ICsyMTcsMTcgQEAgdm9pZCBfX2luaXQgcGFnaW5nX2luaXQodm9pZCkKPgo+
+ICAgICAgICAgbWF4X3pvbmVfcGZuW1pPTkVfRE1BXSA9IGRtYV9wZm47Cj4gICAgICAgICBtYXhf
+em9uZV9wZm5bWk9ORV9OT1JNQUxdID0gbWF4X3BmbjsKPiArfQo+ICsKPiArLyoKPiArICogcGFn
+aW5nX2luaXQoKSBzZXRzIHVwIHRoZSBtZW1vcnkgbWFwLgo+ICsgKi8KPiArdm9pZCBfX2luaXQg
+cGFnaW5nX2luaXQodm9pZCkKPiArewo+ICsgICAgICAgdW5zaWduZWQgbG9uZyBtYXhfem9uZV9w
+Zm5bTUFYX05SX1pPTkVTXSA9IHswLCB9Owo+Cj4gICAgICAgICAvKiBJbml0aWFsaXplIG1lbV9t
+YXBbXS4gICovCj4gKyAgICAgICBhcmNoX3pvbmVfbGltaXRzX2luaXQobWF4X3pvbmVfcGZuKTsK
+PiAgICAgICAgIGZyZWVfYXJlYV9pbml0KG1heF96b25lX3Bmbik7Cj4KPiAgICAgICAgIC8qIElu
+aXRpYWxpemUgdGhlIGtlcm5lbCdzIFpFUk9fUEdFLiAqLwo+IGRpZmYgLS1naXQgYS9pbmNsdWRl
+L2xpbnV4L21tLmggYi9pbmNsdWRlL2xpbnV4L21tLmgKPiBpbmRleCAxNTA3NjI2MWQwYzIuLjYy
+OGMwZTBhYzMxMyAxMDA2NDQKPiAtLS0gYS9pbmNsdWRlL2xpbnV4L21tLmgKPiArKysgYi9pbmNs
+dWRlL2xpbnV4L21tLmgKPiBAQCAtMzU1Miw2ICszNTUyLDcgQEAgc3RhdGljIGlubGluZSB1bnNp
+Z25lZCBsb25nIGdldF9udW1fcGh5c3BhZ2VzKHZvaWQpCj4gICAqIGZyZWVfYXJlYV9pbml0KG1h
+eF96b25lX3BmbnMpOwo+ICAgKi8KPiAgdm9pZCBmcmVlX2FyZWFfaW5pdCh1bnNpZ25lZCBsb25n
+ICptYXhfem9uZV9wZm4pOwo+ICt2b2lkIGFyY2hfem9uZV9saW1pdHNfaW5pdCh1bnNpZ25lZCBs
+b25nICptYXhfem9uZV9wZm4pOwo+ICB1bnNpZ25lZCBsb25nIG5vZGVfbWFwX3Bmbl9hbGlnbm1l
+bnQodm9pZCk7Cj4gIGV4dGVybiB1bnNpZ25lZCBsb25nIGFic2VudF9wYWdlc19pbl9yYW5nZSh1
+bnNpZ25lZCBsb25nIHN0YXJ0X3BmbiwKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIGVuZF9wZm4pOwo+IC0tCj4gMi41MS4wCj4K
+ClRoaXMgbG9va3MgZmluZSB0byBtZSBmcm9tIHRoZSBBbHBoYSBzaWRlLgoKQWNrZWQtYnk6IE1h
+Z251cyBMaW5kaG9sbSA8bGlubWFnN0BnbWFpbC5jb20+CgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
