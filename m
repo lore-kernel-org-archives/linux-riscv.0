@@ -4,94 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFEB2EE6428
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Dec 2025 10:57:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DADEE6428
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Dec 2025 14:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Subject:
+	Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UOS1rU0CjhDeOJzQ7aqMylGuMmRqczhc3B6n/nVkIm8=; b=XOE/hDJ2U0JNRh
-	iFp4NUap7O2a7JI7/+N5hj6jpmHW3DiQv0rrbqraXh/fm+qvDtmhS+u78AS7anie9g2bf/WmUzD8q
-	sUt7+7c4a/jPkElk9c8hdaxw8c3ulsuW32Hf1xZwXa9cWL4OoaZH9fbn4tSw/m0diKMyb46pNKdSr
-	cit4yzpjDB92Jmj25NRw1yteqnMrvraO30VOms/bCOm8pqmGFOSN2LrAHYyF6ZlfpB1TCWLpt3byf
-	cxvmHHd8RdrAVdVyjOzTb8qJSkl57yz6N6ivk4QBhu8DysI1qvFME0p4PpEuHKo9oH7jzbGL1+w4H
-	YB0uIeK7o9qVQgsjP82g==;
+	List-Owner; bh=p/WH5RGFgd2hbe/hcsR7Bp3yabAAlrA5+fjtQ0WUgnU=; b=gzET8zxDMSbcAJ
+	7p6NQDIYoTWvb526avxxWTHDme/8LqS5/QrRTJcnUqpxbIFXNuRfv2erRYxQ/Ca0mtFtNZyoS336I
+	65deiefeAVPsPG2X5rGfB99txzivpjRHy84w+D58AnC6nXW83tOaotJbrVJ9/mir+UfxPuC23V939
+	XH5Atn5sti6To+nbG+AmNaXprhPyCChwUoUhixlUNCqVq1eW6wq9HvxWXOQWSqh8AK0NnMrfLGe1O
+	l2/cFrgOmugDYCE3KM5hkRzIj3wrsr/S2JEK79gs+oS9A9J9C/i486DBBQs+TUYLhNmZCgHAxicgX
+	3DLE6yVx22QhpvZdZSQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vatsv-00000005u8M-1KMe;
-	Wed, 31 Dec 2025 10:56:57 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1vax4I-00000006282-3jIH;
+	Wed, 31 Dec 2025 14:20:54 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vatst-00000005u7z-374C
+	id 1vax4F-0000000627e-2tsm
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Dec 2025 10:56:56 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-47755de027eso63375755e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 31 Dec 2025 02:56:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767178614; x=1767783414; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=i7R9+4upUD30LvVBHKBIsvpaPmqe/LxN03we2YAJ0+o=;
-        b=d7RFZjodzsEX0Z5glXZDma3ht5x78Qpo2lE+j07ILLzmsnwa7nuMz8JvaYZU9/6rlq
-         f/OHtIg7EN0T/DtWZMd7mnF+Azl9wDlKW+osGvB4D2Pe1ppn4KMvCxCO6k9dDWTEFjKJ
-         RI8IXm7/yjnURjWN85a6CvOB0FjqS0zEv8A+KPGCiuEOb0z0YmoxbsfqQ6EPVGtxiTMY
-         RVD6NiMvSEhS1eDpewJSE+l9vfeVEv7GzXFaIDcTmz39YA+zs1abid65u8X1T2wdkMEa
-         jQqLUl4YymUqr1nhody5JjddsQ6IverdgJmi/ozqNxc/T8/dXpc5nwrQSJgNi14t5qyF
-         3xZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767178614; x=1767783414;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=i7R9+4upUD30LvVBHKBIsvpaPmqe/LxN03we2YAJ0+o=;
-        b=KNRIguQEK6xs8458FWpkm125hNegrhsTrcPH4/X/I32hvg2uzOiPNFtLVu7b+LFoJf
-         1n5oXAUnTXuaTd8gdbB2mANYL3Rln39R0/aVg8gV9jQ9baDAT5Pu2laIpxSHUN9xmkek
-         u/bvlfhvhlJ1utXtHPojTDm3wfYhh5awAK2bj+6+n3X8741TJV682m6MAxK+xV26mzgG
-         Q0zzc33vY8rOtSQGLmI39stlaAredcc3JvHLPKJ8FzJVVYW68LpdfBNJHKWuDwI8G42W
-         P/16FmcHNg7FtNUciWVKsOBU9/IMXprNRQkRhIg+g7DgVe7fprIu1VgpV/x84vdQQ8uA
-         BdcQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUIjikTMnukd7CGKBOHBy3kWi8OEEYAejTkNGWuHg9w+IrHkYNPgZb58Q0gg7tc9YfaLhhwJTuu2g4fsg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXnj7yXujIdx51lSlm5U3p8yygzWfEmBCfPX1zEWGhI5FYhvbA
-	nBEf/fIRyHrSqRoqGhFQRWfNkt5/eIhDTesiN3KU0EYAQc685FtKPSpO
-X-Gm-Gg: AY/fxX4dabg9SmWuUSorI3YHW7b9gSrdMO7p65v3QkV3WD6tRTKkMCRlteR5EK7JgV9
-	54sMnf/w+jwW3/zMtU+yKEwZNeA9SRvyLWBTfjkzB3G7TtoUxsuyB/xIh5M1RMLR+gQj1+XVTvY
-	NFSg1IeO7et4sqjrkF6VWsmbdY95JHdISi9HFaxM+dYDHmNDVyqCLL4wKjIjsU8NlmLRWD+4XQq
-	IICVLuCaiYslNfAyreH6oVEGEaKs5Km0ruv66VxlAcNWW0p/sDJJFfpd7SARYRPWObkYDwrUKbk
-	3I5W6vNcIdHKxRqh/7UptNlYpVyiSGp+km4X9WCDvcMfAacU28e44FwZAqWjRuYUzJEZ5b8xMKH
-	o5UemO0+SjbkTt9lrGHH6wrpuMCaq5gHcIs92uBRZemmW+qtWDzaDkdypgTTumd8Wp9ceqWqboj
-	wfHaKECIYyy0djctuDKwoYPz4I7XimMX94B67jPnmirZCgk50ZN2VOvycwJdaJMcs=
-X-Google-Smtp-Source: AGHT+IHDZb5mskiCuLOc+8SBDEk/OvIO6Pug2fQj87O+qUGMgHUJl5YBr1B9MzEZuOqkC4xwyZSO8A==
-X-Received: by 2002:a05:600c:8595:b0:47d:5d27:2a7f with SMTP id 5b1f17b1804b1-47d5d272cd4mr54788585e9.26.1767178613627;
-        Wed, 31 Dec 2025 02:56:53 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47be273e4d5sm696441795e9.6.2025.12.31.02.56.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 Dec 2025 02:56:53 -0800 (PST)
-Date: Wed, 31 Dec 2025 10:56:51 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
- <alex@ghiti.fr>, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, Troy Mitchell
- <troy.mitchell@linux.spacemit.com>, Brian Masney <bmasney@redhat.com>
-Subject: Re: [PATCH v4 1/6] clk: correct clk_div_mask() return value for
- width == 32
-Message-ID: <20251231105651.430f75f8@pumpkin>
-In-Reply-To: <20251231-dr1v90-cru-v4-1-1db8c877eb91@pigmoral.tech>
-References: <20251231-dr1v90-cru-v4-0-1db8c877eb91@pigmoral.tech>
-	<20251231-dr1v90-cru-v4-1-1db8c877eb91@pigmoral.tech>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
-MIME-Version: 1.0
+	Wed, 31 Dec 2025 14:20:53 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id A8741C1AE2B;
+	Wed, 31 Dec 2025 14:20:06 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 24E1D60744;
+	Wed, 31 Dec 2025 14:20:32 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D1397113B0770;
+	Wed, 31 Dec 2025 15:20:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1767190830; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=s/LBclbjVdapialdhCPRdRaESKqlpOnpyxq4+NMgleQ=;
+	b=13wHxziny/E58+NBQrqX+3oqwXTJN93YZxWKmfk5Vk+lqAW1vaeCJkJLSB+5n0yxC5C0i6
+	peGkD9i2Lg28sPjmOWunBbHe1zqqgF4XTN44q8Uzl7NhT7l6RKxtK9qDxicfDKP/68Zdon
+	ju0bXrBWNhg3k9kYcMUK0beztObZRm4JPE3U9sEkhvXyTcuK333O6r8kXtLaEWhYvMQD2u
+	6wlC3QxgUhFpBujq2T3zNWeMC8TdZ9bsKGNgxiC4jF48r6qANgMY/1mv3ZyhcuMP8j0bcp
+	8785748qfhPRghOe6yvJgSmnhDkzlaOHBtvUyKUu5H4/KFh4FcxTeIH6mHrawQ==
+Mime-Version: 1.0
+Date: Wed, 31 Dec 2025 15:20:19 +0100
+Message-Id: <DFCGV315JITK.1TXTXWUOMLMB9@bootlin.com>
+Subject: Re: [PATCH v4 3/9] drm: verisilicon: add a driver for Verisilicon
+ display controllers
+To: "Icenowy Zheng" <zhengxingda@iscas.ac.cn>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Drew Fustini" <fustini@kernel.org>, "Guo
+ Ren" <guoren@kernel.org>, "Fu Wei" <wefu@redhat.com>, "Philipp Zabel"
+ <p.zabel@pengutronix.de>, "Heiko Stuebner" <heiko@sntech.de>, "Andrzej
+ Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Michal
+ Wilczynski" <m.wilczynski@samsung.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.20.1
+References: <20251224161205.1132149-1-zhengxingda@iscas.ac.cn>
+ <20251224161205.1132149-4-zhengxingda@iscas.ac.cn>
+In-Reply-To: <20251224161205.1132149-4-zhengxingda@iscas.ac.cn>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_025655_821947_3E6EF6E2 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20251231_062051_911685_268C8DE1 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,60 +82,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 31 Dec 2025 14:40:05 +0800
-Junhui Liu <junhui.liu@pigmoral.tech> wrote:
+On Wed Dec 24, 2025 at 5:11 PM CET, Icenowy Zheng wrote:
+> From: Icenowy Zheng <uwu@icenowy.me>
+>
+> This is a from-scratch driver targeting Verisilicon DC-series display
+> controllers, which feature self-identification functionality like their
+> GC-series GPUs.
+>
+> Only DC8200 is being supported now, and only the main framebuffer is set
+> up (as the DRM primary plane). Support for more DC models and more
+> features is my further targets.
+>
+> As the display controller is delivered to SoC vendors as a whole part,
+> this driver does not use component framework and extra bridges inside a
+> SoC is expected to be implemented as dedicated bridges (this driver
+> properly supports bridge chaining).
+>
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 
-> The macro clk_div_mask() currently wraps to zero when width is 32 due to
-> 1 << 32 being undefined behavior. This leads to incorrect mask generation
-> and prevents correct retrieval of register field values for 32-bit-wide
-> dividers.
-> 
-> Although it is unlikely to exhaust all U32_MAX div, some clock IPs may rely
-> on a 32-bit val entry in their div_table to match a div, so providing a
-> full 32-bit mask is necessary.
-> 
-> Fix this by casting 1 to long, ensuring proper behavior for valid widths up
-> to 32.
-> 
-> Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> Reviewed-by: Brian Masney <bmasney@redhat.com>
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> ---
->  include/linux/clk-provider.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/include/linux/clk-provider.h b/include/linux/clk-provider.h
-> index 630705a47129..a651ccaf1b44 100644
-> --- a/include/linux/clk-provider.h
-> +++ b/include/linux/clk-provider.h
-> @@ -720,7 +720,7 @@ struct clk_divider {
->  	spinlock_t	*lock;
->  };
->  
-> -#define clk_div_mask(width)	((1 << (width)) - 1)
-> +#define clk_div_mask(width)	((1L << (width)) - 1)
+[...]
 
-That makes no difference on 32bit architectures.
-I also suspect you need to ensure the value is 'unsigned int'.
-If you can guarantee that width isn't zero (probably true), then:
-#define clk_div_mask(width) ((2u << (width) - 1) - 1)
-should have the desired value for widths 1..32.
-It probably adds an extra instruction.
-(OTOH so does passing width as 'u8'.)
+> +++ b/drivers/gpu/drm/verisilicon/vs_bridge.h
 
-	David
+> +struct vs_bridge {
+> +	struct drm_bridge base;
+> +	struct drm_encoder *enc;
+> +	struct drm_connector *conn;
+> +
+> +	struct vs_crtc *crtc;
+> +	struct drm_bridge *next;
 
+It is a common convention to call this 'next_bridge'. This makes it easier
+to understand but also to grep and find similar patterns.
 
->  #define to_clk_divider(_hw) container_of(_hw, struct clk_divider, hw)
->  
->  #define CLK_DIVIDER_ONE_BASED		BIT(0)
-> 
+For info, we are working to move to 'struct drm_bridge::next_bridge' [0] as
+you can see from example patches like [1]. However this currently applies
+only to drivers using of_drm_find_bridge(), so it does not affect your
+driver.
 
+I'm sorry I have seen your patch only at v4.
+
+[0] https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/3fdeae134ba956aacbd87d5532c025913c98fc49
+[1] https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/8f92a5fcbfe33f86b08f5f74dcc58a41425ea8c0
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 _______________________________________________
 linux-riscv mailing list
