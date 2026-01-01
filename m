@@ -4,57 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC02EEB57D
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jan 2026 11:08:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A47E7EEB580
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jan 2026 11:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
 	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qIpPo6VUR5JciFvs0QHOv1Q1q2jPINyrpJal5Bk5sEE=; b=Vty8HiI+4t/jXt
-	l3rRhqz47QtzTytPZVmWx0Qz9Rfvm2VqYVxIWt3R2nehizeMBycOn5GYZKRSQNN39yMaqRjlcWxi6
-	qYe9rdmmJJDGi3JCQfIVAhTxjzl3mpZu4EfLEpf5ZA+fG+uVjZCNZEeH1TM+8vgX0E3xjLm/QKLzu
-	RCZ06Htgp8j6Z2+WUTG0SOxNsgaRQhUiWfziV16mk8zhO2na2AMP/2nRmwS0Ux1dyXtBlWoAA0nEh
-	B3MqOuszAl+NIoWQdbCihkBBPbTbH54pCG8S0YANvw41TrzQ3O9vIzf/B9uxxd39JtsqHOqzXi54g
-	u8h5NbYSKKScM1zsXang==;
+	List-Owner; bh=yhStmmFoMHpEFEJtpil2r78jZwKGVBMxGz33AnLsHKw=; b=tjJ/qIi2emqDHu
+	Zigd1jmvHiXPHXC4sj1BHyNKkgKLp2WAGNXiNoAk9+5esHuRAN58AYxFCqpsxWboqUrHpoC74a8yi
+	pCrp2yM3uvIf2KQ9+fr2Qen68aQY/z7DPX9rBybEeRg5dEaI5WWXr4CmPyh3DW2ezHKUzQ1x09SLa
+	yHJr852QXUJTZiLmVzLdbN49aanFwt3SFQLfKFaQR7mM5KO2O/jQhBUpqSY9UIZkRL6KrYzZzqcCd
+	51aux1pG87dgqrDT9iy7ceRSnniRA+nha2sU+2PcTsh/ndDUVG61XXJLJs6YEffRP0YtGtuLXqwIt
+	x2yGxay321udfNORhTig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbGXJ-00000006nty-0kth;
-	Thu, 01 Jan 2026 11:08:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vbGXT-00000006nzJ-3u5w;
+	Thu, 01 Jan 2026 11:08:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbGXG-00000006nsx-0N2F;
-	Thu, 01 Jan 2026 11:08:06 +0000
+	id 1vbGXS-00000006nyH-0Cf6;
+	Thu, 01 Jan 2026 11:08:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 70A0160017;
-	Thu,  1 Jan 2026 11:08:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6753C116B1;
-	Thu,  1 Jan 2026 11:07:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 99E37444AD;
+	Thu,  1 Jan 2026 11:08:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C36BC4CEF7;
+	Thu,  1 Jan 2026 11:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767265683;
-	bh=gp6INFoQIq+43goOk9oT04JrR78Bq4E+oz5E4M6bfiQ=;
+	s=k20201202; t=1767265697;
+	bh=3vaei/sb4rRmaAM32GbT3y9z3sM0igMG4DfOPhlluSU=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=GGV10kGkKqFcf14C5Upi5Cp3QL/wbrh4VI6T8Ueqa6PsJRMWmcOtw0fRl+PBA7lQl
-	 BaboTeuIvtUjkRezkQ47SQ9aiR4YAahqom6C10TrcKt+X814EW5/XXRwXgd04ieomC
-	 CQcATpRqCutGzxFZHRjYe7ajSsHAXZn6A+om9sG0wk9KwIZHHwCUC8xHELH8LMbVIU
-	 fnWO1q+vhQ/Qs7vWBarnf/y0K2C0FzeQ9BU2vBNQxAfz+asfP43imMamyOAwKFSyju
-	 YoorE+vOfapEuKDhn+ewxYbHpTr/8udBzhnrxj+1prGOhpe+SaUNTmwK69OqamWE60
-	 YStqjnX/KzbKQ==
+	b=HOIHDwpytqpPEntMiXTtTqNLwL/AWkk5lnVzoRTfToONZZoRUmf5lgO/goH9KYxdm
+	 DmMwGeNNT7Xp0234TNJlVwAyFexDXn+42kz9noU3Hr51pXAVWDIg2HBgUwSXQIS4wR
+	 FN3DYkYBXOvyX1dQiVlG3N4CXpzz4UwJzspZYcV0bJnWVt3t869+KgZAI3fB8LKF4D
+	 7UzduxE6iPs7C8SH7lx1fKRrXr6DUx74UMFn1WYN7XG3dvNoIuZsPwDUs6O8yUibr6
+	 ZlyALsDgUiyMY5TKd3Qe3Ob1eWfm+dC9KmFYA2jE0LR+FIqSKWLhxyZ1kmuYDmWujs
+	 fR4K48mefwz+g==
 From: Vinod Koul <vkoul@kernel.org>
-To: neil.armstrong@linaro.org, Alex Elder <elder@riscstar.com>
-Cc: dlan@gentoo.org, pjw@kernel.org, palmer@dabbelt.com, 
- aou@eecs.berkeley.edu, alex@ghiti.fr, guodong@riscstar.com, 
- linux-phy@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel test robot <lkp@intel.com>
-In-Reply-To: <20251226173228.2020411-1-elder@riscstar.com>
-References: <20251226173228.2020411-1-elder@riscstar.com>
-Subject: Re: [PATCH] phy: Kconfig: spacemit: add COMMON_CLK dependency
-Message-Id: <176726567931.201416.8144273654305302884.b4-ty@kernel.org>
-Date: Thu, 01 Jan 2026 16:37:59 +0530
+To: Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Ze Huang <huang.ze@linux.dev>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Ze Huang <huangze@whut.edu.cn>
+In-Reply-To: <20251017-k1-usb2phy-v6-0-7cf9ea2477a1@linux.dev>
+References: <20251017-k1-usb2phy-v6-0-7cf9ea2477a1@linux.dev>
+Subject: Re: [PATCH v6 0/2] Add USB2.0 PHY support for SpacemiT K1
+Message-Id: <176726569400.201416.7844610224983761844.b4-ty@kernel.org>
+Date: Thu, 01 Jan 2026 16:38:14 +0530
 MIME-Version: 1.0
 X-Mailer: b4 0.13.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260101_030818_118774_566116B2 
+X-CRM114-Status: UNSURE (   7.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,17 +77,24 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 26 Dec 2025 11:32:27 -0600, Alex Elder wrote:
-> The SpacemiT PCIe PHY driver depends on the common clock framework.
-> Not specifying that led to a failure when doing a COMPILE_TEST build
-> for the SPARC architecture.
+On Fri, 17 Oct 2025 22:49:51 +0800, Ze Huang wrote:
+> This patch series introduces support for the USB2.0 PHY on the SpacemiT
+> K1 SoC. The implementation has been tested on the Milk-V Jupiter and
+> BananaPi-f3.
 > 
+> K1 includes three USB ports as follows[1]:
+> - A USB2.0 OTG Port
+> - A USB2.0 Host Only Port
+> - A USB3.0 Port with a USB2.0 DRD interface
 > 
+> [...]
 
 Applied, thanks!
 
-[1/1] phy: Kconfig: spacemit: add COMMON_CLK dependency
-      commit: 8df20813eb01fe29b4507fd470d73675bda3e1dd
+[1/2] dt-bindings: phy: spacemit: add K1 USB2 PHY
+      commit: 61b84d5b20af2a4c9944972202c1386026598928
+[2/2] phy: spacemit: support K1 USB2.0 PHY controller
+      commit: fe4bc1a08638309b6be1af37210930b856908eb7
 
 Best regards,
 -- 
