@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 754B6EEB576
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jan 2026 00:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6ABBEEB575
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jan 2026 01:27:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JZLnfNNcLdXrvgvue+JZZLFYth5K0WsAiLCKsLEu2yI=; b=rzj9TABi0nH5bpQzZUOCr9wqDe
-	BgPhX1y3aJuEl4AC5/C1xRrPSP6DWxgLSkxdA3Zl0xpvqlL6b8zgRNX9IGayBZPenWxUVz+6L8Ede
-	ZQS5Rr87BoP4hi4uZIH041xNr+5x/tLMi27LW+SgQZ32+6QFAGKek54griJ+6zkcRNNPasjilRpA8
-	Gc5fUNmiWRcGCdZ1kWZ4VGHqwQt42EaA3tpLtXWHets5aGMSnwigk4ai0kCOYfZtW1ulxaxPZijAv
-	oKtlCezkRYxEWzEmyQ9Z4rlrJYBqvx778JK1ixNmVXGM0hE3/vDxHi/J2mmAZOWBhQYGchLTdsNjH
-	T1j2r77w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Y0scR4pc8pvAvcD7neNBVOK1KJ5oCKtT8vx1rX17vKI=; b=RKf/JVmuPYQOsl
+	mxVoWQQYs1ZAxN8aux0WqbqDmF/iUnec6FSq6lcNhi9C2LGPEZpJWHGO8ZAIEnMzhdoLfxk2hQuTG
+	CTwlg2lYmNa7Rm5CnERpm7FgBXmIKuWF9hqRZ4xtdjFsOXrPhj984EWenRuLpiDG4HtmGUyflp/CB
+	T6jVM1wbsAbR82bYIzUd3Cxd8jhSP3Q9O7O5uqXnAcPF5rx0KDYtfxEesdJwbTTXihqAHK71dKNUe
+	pHQY2WtNOvPMZRckp3qlwSI/j8SyypCMnnrd1c7AkA2x3i4HJ6iNt+2/51A/Iyu8wXvL8IhKZE6QE
+	xA8GEYyLtlfH7tZPycUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb6U6-00000006SU1-24ZX;
-	Thu, 01 Jan 2026 00:24:10 +0000
+	id 1vb7TG-00000006Upa-1Ix4;
+	Thu, 01 Jan 2026 01:27:22 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb6U5-00000006STt-0NJn
-	for linux-riscv@lists.infradead.org;
-	Thu, 01 Jan 2026 00:24:09 +0000
+	id 1vb7TD-00000006UpL-3Plf;
+	Thu, 01 Jan 2026 01:27:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E9FC760017;
-	Thu,  1 Jan 2026 00:24:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91A82C113D0;
-	Thu,  1 Jan 2026 00:24:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767227047;
-	bh=KNoiApyMWT+DJ8JQATW2+HokfFFLugunixpx2ju/Efw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g/5VTD1BhKf5/WmuhqAfM50d2/IyTD8N6HxvtXDzKesz6dn/jpDImNFrOkRc/TdsW
-	 rpJxwoW9hd1fGmrsP0T1sU+a4jrWPAv+zVthRCZOXFc4h/Y7auCh90lJj2946gVhGb
-	 3lTyhgxycbHSOnozzEVTj7nD6nkQYohyk8SsUBzXRkXL1T7tBt5MwNSba5mCuo4sPB
-	 MZ9pBrD4u2RJ+jed66+QfogHzPi8nF7yukLACKy5peqY2TAM7e2uR/GAVec9TCvVlQ
-	 nADJT2YCvkhGrAvJvOw5NOWB0KawztDXlhqHH0moqLtgoQI+l90C+q7gGOPQPgrEhf
-	 8su+eCYh/8uxw==
-Date: Thu, 1 Jan 2026 00:24:00 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Guodong Xu <guodong@riscstar.com>
-Cc: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@sifive.com>,
-	Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, spacemit@lists.linux.dev,
-	linux-serial@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@gentoo.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
-	Yangyu Chen <cyy@cyyself.name>
-Subject: Re: [PATCH 7/8] riscv: dts: spacemit: add initial device tree of
- SpacemiT K3 SoC
-Message-ID: <20260101-legume-engraved-0fae8282cfbe@spud>
-References: <20251216-k3-basic-dt-v1-7-a0d256c9dc92@riscstar.com>
- <60948ca2-ed3d-485b-9b11-15df7ef8791d@canonical.com>
- <CAH1PCMb=+TvB1w+G6a2ANDp05HUwC4r6CFBDHXFwSmoP3Mm8xw@mail.gmail.com>
- <f9b6b5e2-ec9e-4208-8267-77020e0a9411@canonical.com>
- <20251218-basil-quantum-225ce16e4699@spud>
- <CAH1PCMZ3KM9-D3NJ1N2LUHTHFSDVKmGKT5fU8knAL7NnV9E-gw@mail.gmail.com>
- <20251220-repacking-football-c79e660e788a@spud>
- <4e4c9e7b-d95c-4157-94c3-b06002f94a48@canonical.com>
- <20251222-dimmer-wooing-db29fe925498@spud>
- <CAH1PCMbane4uN=N0UPRDG9x9NUbD9SYsbH+NnP-gzU6Bo8L2wQ@mail.gmail.com>
-MIME-Version: 1.0
-In-Reply-To: <CAH1PCMbane4uN=N0UPRDG9x9NUbD9SYsbH+NnP-gzU6Bo8L2wQ@mail.gmail.com>
+	by tor.source.kernel.org (Postfix) with ESMTP id 3163160008;
+	Thu,  1 Jan 2026 01:27:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF7ACC113D0;
+	Thu,  1 Jan 2026 01:27:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1767230836;
+	bh=kfzq7OmA115iWgJ760zWgcONuzBXEf0EdKCppmYMA+4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=go9XllSISBYzAOyojV4kRDLc0Hnz1rcUEPO57TcB9+qJSNx41b/AgCw3COmwnxqiT
+	 j7mZyPb6MMMoWfBvYMRKbnSkqA9aNlPjK8qN3O6fQrDlWlCfoS7A/tERDwbL0qwoSr
+	 LfQqAcLLX+Rrl87zP58OiVxJMBgmW31R6wiBayKc=
+Date: Wed, 31 Dec 2025 17:27:14 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Alex Shi <alexs@kernel.org>, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>, Borislav Petkov <bp@alien8.de>,
+ Brian Cain <bcain@kernel.org>, "Christophe Leroy (CS GROUP)"
+ <chleroy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ "David S. Miller" <davem@davemloft.net>, Dave Hansen
+ <dave.hansen@linux.intel.com>, David Hildenbrand <david@kernel.org>, Dinh
+ Nguyen <dinguyen@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, Helge
+ Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar
+ <mingo@redhat.com>, Johannes Berg <johannes@sipsolutions.net>, John Paul
+ Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Jonathan Corbet
+ <corbet@lwn.net>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, Lorenzo
+ Stoakes <lorenzo.stoakes@oracle.com>, Magnus Lindholm <linmag7@gmail.com>,
+ Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Michal Simek <monstr@monstr.eu>, Muchun Song <muchun.song@linux.dev>, Oscar
+ Salvador <osalvador@suse.de>, Palmer Dabbelt <palmer@dabbelt.com>, Pratyush
+ Yadav <pratyush@kernel.org>, Richard Weinberger <richard@nod.at>, Russell
+ King <linux@armlinux.org.uk>, Stafford Horne <shorne@gmail.com>, Suren
+ Baghdasaryan <surenb@google.com>, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, Vasily
+ Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>, Vlastimil
+ Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>, x86@kernel.org,
+ linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-cxl@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-mm@kvack.org,
+ linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-um@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ loongarch@lists.linux.dev, sparclinux@vger.kernel.org
+Subject: Re: [PATCH 00/28] arch, mm: consolidate hugetlb early reservation
+Message-Id: <20251231172714.a7fe44e856c14fdc8fe1cb43@linux-foundation.org>
+In-Reply-To: <20251228124001.3624742-1-rppt@kernel.org>
+References: <20251228124001.3624742-1-rppt@kernel.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,75 +91,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5905071956033120929=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sun, 28 Dec 2025 14:39:30 +0200 Mike Rapoport <rppt@kernel.org> wrote:
 
---===============5905071956033120929==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="X7aUwCxMZok6EY4n"
-Content-Disposition: inline
+> Order in which early memory reservation for hugetlb happens depends on
+> architecture, on configuration options and on command line parameters.
+> 
+> Some architectures rely on the core MM to call hugetlb_bootmem_alloc()
+> while others call it very early to allow pre-allocation of HVO-style
+> vmemmap.
+> 
+> When hugetlb_cma is supported by an architecture it is initialized during
+> setup_arch() and then later hugetlb_init code needs to understand did it
+> happen or not.
+> 
+> To make everything consistent and unified, both reservation of hugetlb
+> memory from bootmem and creation of CMA areas for hugetlb must be called
+> from core MM initialization and it would have been a simple change.
+> However, HVO-style pre-initialization ordering requirements slightly
+> complicate things and for HVO pre-init to work sparse and memory map should
+> be initialized after hugetlb reservations.
+> 
+> This required pulling out the call to free_area_init() out of setup_arch()
+> path and moving it MM initialization and this is what the first 23 patches
+> do.
+> 
+> These changes are deliberately split into per-arch patches that change how
+> the zone limits are calculated for each architecture and the patches 22 and
+> 23 just remove the calls to free_area_init() and sprase_init() from arch/*.
+> 
+> Patch 24 is a simple cleanup for MIPS.
+> 
+> Patches 25 and 26 actually consolidate hugetlb reservations and patches 27
+> and 28 perform some aftermath cleanups.
 
+Thanks for the diligence - this can't have been the most exciting thing
+to work on!
 
---X7aUwCxMZok6EY4n
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> I tried to trim the distribution list and although it's still quite long
+> if you feel that someone was wrongly excluded please add them back.
 
-On Fri, Dec 26, 2025 at 02:53:10PM +0800, Guodong Xu wrote:
-
-> As we wait for Samuel to share his opinion, maybe I can submit a patch in
-> (I already have it)
-> my next version or as in a different patchset to implement what you sugge=
-sted.
->  - Assign RISCV_ISA_EXT_SUPM a standalone ext number in hwcap.h
->  - Implement a riscv_ext_supm_validate() and put it in the callback of bo=
-th
->     ssnpm and smnpm.
->  - Kconfig will be kept as a top level gatekeeper, no change.
->  - dt-binding entry for supm will not be added.
->=20
-> The only reason support me to add sump into to the dt binding
-> (extensions.yaml) is it's now a mandatory extension required by RVA23U64.
-> However, as you explained, that logic seems not strong enough.
-
-Regardless of what we end up doing in dt, I think you should write the
-kernel code as if we are adding it to the binding. That way you can "imply"
-supm from both ssnpm and smnpm (see riscv_zvkng_bundled_exts for an
-example) and add the validate callback that checks against the privilege
-level to supm itself. I don't think sxnpm should be disabled if the
-privilege level of the kernel is different to that of the extension
-(e.g. s mode kernel and smnpm) or if the kconfig option is disabled
-(because I think ssnpm could be providing kvm with pointer masking even
-when it is disabled for userspace). I think doing it the way I suggest
-works better for those kinds of cases but also will just happen to work
-for ACPI systems that have supm without the relevant sxmpm listed.
-
---X7aUwCxMZok6EY4n
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaVW+oAAKCRB4tDGHoIJi
-0t9lAP0S+GP12VlrrHu2vbrcEV+WOXWl8WA2T3jhIVGaQnHF+QD/bc6sUs2BIlUa
-/VSDfvq3JlZVUzvMjkx29+2XvTi3yAc=
-=RYdG
------END PGP SIGNATURE-----
-
---X7aUwCxMZok6EY4n--
-
-
---===============5905071956033120929==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+I'll add these to mm.git's mm-new branch for some testing.  I'll
+suppress the usual email storm because 41 * 28 is a lot of emails ;)
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5905071956033120929==--
-
