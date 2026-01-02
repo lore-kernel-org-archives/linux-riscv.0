@@ -4,119 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC3CDE9410B
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 07:01:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27186FA3729
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 07:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sAWiEuwEhMFWDRO2agk4Rrco6WudS+BQkzv4b2V1bzY=; b=sMU+DGCVIvllgK
-	CIkkjuHGuFqIBXQ8F0mFNP1swWPsS0F8w+JprxXalFbs7cJP8c020ZJvZCRfknJBqSSZ6gR/73nwU
-	dOzWVV102wRVHjZGJxpnO/XyYr6kqoq4sPO7HxI+G8oDNfoBnKrD0DYBmNhdPii3v9d9oWejCYGzP
-	lg+dJ31BfkTgAkJ51zs5jNGwcyoqB6eXGfUaLem0ct0KPVTLdzpwyHnZuqjMFdIJyAvxlJaelhBdc
-	oNYMQ5I74krShAUrQoVp6nl8E3oMzY0HajVOHC9qE0XwVx4qFQQkIzpu1e0dSMbP5h/q5bRTOXWbP
-	zpMP/kFCqSa2iDLEDOVQ==;
+	List-Owner; bh=pteQj+ZFSnUP+T2OlA2jVstlCSkA6RYAcEQCB058QTY=; b=BXXOeczNKXaIKj
+	9j7SOryTl46E0tGOA1X6I1L9qnMx5dHEEZ2q4x34fh4UpvB2+qH4UhUEM4JU7MR1AmkmGVAP+aMju
+	V/RNo/8ZHLrxZxaCXif6TrVWE85+11/o0sv6A+KpHYIKNLopIXg3sEj0J3uwOGi17B+lWg790c4Pj
+	PwSQ3Z3mC0Ye6ZP7pkAayYS7D+FdG6DLB3vGfJyx36aDXCglTkuXvyasINoRC2fXJizkI+/UuLYKt
+	pBPXhmiygR2eMkn+6n/YTlQptANAL3oSD+ND6ohO3pVEyUcRFCSFUQrNMesHHGPUpOxylBDYi8Hv9
+	mXO1WrxnavX86dWGDvLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbZA6-00000007sMe-15ff;
-	Fri, 02 Jan 2026 07:01:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vbZA8-00000007sPN-2IwD;
+	Fri, 02 Jan 2026 07:01:28 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbZA2-00000007sJC-23zf;
-	Fri, 02 Jan 2026 07:01:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 063C7439EC;
-	Fri,  2 Jan 2026 07:01:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E256C116B1;
-	Fri,  2 Jan 2026 07:01:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767337281;
-	bh=djQarGwsnsMGImsgSQVJ5sD5jo+ZigjiDeQZakHIJZw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YfFbGR66VHayErTkQoIoUIc4G3/Zokhn15LvFAqjzKw26utOu1LBn48hs2H6HzNQq
-	 enWDeSBA/K3oa8124S39Ky2QzRfQWKFy5skfNoCEkG9sz9vKEVoMX6gEHdOtbCXbst
-	 YovEdBmAC4uGLaHGNAqP3BqXeZF+EKxoW8SDO9IcHD6qwesn+Gli/x6/TpHAYsUlrD
-	 UCxGtUCULcfUxhXrs9KtImo/ip7nUbo9TQd43s1ekjsaSWhD1ejl+EXFJWf86KxJTp
-	 WhffTvUE+ThhBNL4rEwUFZ6nXbB9jltND/rGE7Zw/xtewRIoZJM55k7N+y1oDTnXyg
-	 wl/J8tjy8RWJQ==
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Alex Shi <alexs@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@kernel.org>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Matt Turner <mattst88@gmail.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>,
-	Michal Simek <monstr@monstr.eu>,
-	Mike Rapoport <rppt@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Oscar Salvador <osalvador@suse.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Vineet Gupta <vgupta@kernel.org>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Will Deacon <will@kernel.org>,
-	x86@kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-cxl@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org
-Subject: [PATCH v2 04/28] arm64: introduce arch_zone_limits_init()
-Date: Fri,  2 Jan 2026 08:59:40 +0200
-Message-ID: <20260102070005.65328-5-rppt@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260102070005.65328-1-rppt@kernel.org>
-References: <20260102070005.65328-1-rppt@kernel.org>
+	id 1vbZA4-00000007sL2-2P0f
+	for linux-riscv@lists.infradead.org;
+	Fri, 02 Jan 2026 07:01:26 +0000
+Received: from [127.0.0.1] (unknown [116.232.18.222])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 559BF340DA1;
+	Fri, 02 Jan 2026 07:01:19 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+Date: Fri, 02 Jan 2026 15:00:24 +0800
+Subject: [PATCH v3 3/4] pinctrl: spacemit: k3: add initial pin support
 MIME-Version: 1.0
+Message-Id: <20260102-02-k3-pinctrl-v3-3-30aa104e2847@gentoo.org>
+References: <20260102-02-k3-pinctrl-v3-0-30aa104e2847@gentoo.org>
+In-Reply-To: <20260102-02-k3-pinctrl-v3-0-30aa104e2847@gentoo.org>
+To: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Yixun Lan <dlan@gentoo.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=15217; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=/MRpvp+cwdSbDmLiFgi17bE8BWDrGFI3hfVNRzFOP5o=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpV20pbh+QLHmQMnJHidURSofcEY8SuZidP8Jsj
+ QOv3dH61EeJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaVdtKRsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+2IGA/8D1YqsYC9vy2+ZZncd9NtXrwFMbN/ghP1QenjdsHAjcfncLrB/hJD4
+ E/835Kb9aGt/whyRVMEpK9Vk5dyRArZKJUQqBTKpWNoh3XOnmQHlBJr2Nx+KBT5c2U4v0TKNlS8
+ cB5PR1KVcFuG4OZZFc9/b1CofY30SXOfz/VlFmWygwNMFHnixHmWcipEYnJ12KM6Fa4dn0RQn8t
+ AHJXqaVqFLSqqbMnhUm82MwZakewVCB758JY7YLtLEh0Ld4TnBq7pskmqjodUjajQGX3ScDVSAm
+ HFH9BHOvJSvX5TgMh+rVvjNKUlO0hMVb6iZCuz5SEu/WKiWAGefYRcD2KQ4z4I1g/igsU12y2Hy
+ 5YY57Vq3nuFCQbhkunsM30x9SH6MyoRnsJL9LyjMXrhrJnzTLezHsuN5aBiI+oR5hlbiybWOKYA
+ 2u20zdYu02qO+RMLHTG7QWMy+q5dUn4shwHyzKzNeBV3PXRhxkLgXNHssuZXcBERAlv7t+w0k9S
+ RTUoluI1NONUypoSBg2BVXxZvCftaHdT9p7iXoJUOQRydcc0UAxzsgnPp2AomRlPkpwiy+NrekD
+ RuCy1O3TV9oVd5yF0ErigkCFx4iM13dQXUyHQtkeMlQNjT+mMIQoofOEh6kuQxGioeTDYlJwgAO
+ xCoWn1Ahw5ZcoQBakEWo+dMrBBuwmg=
+X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260101_230122_596999_D5620B15 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20260101_230124_703044_DCE101F2 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,80 +86,446 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+For the pinctrl IP of SpacemiT's K3 SoC, it has different register offset
+comparing with previous SoC generation, so introduce a function to do the
+pin to offset mapping. Also add all the pinctrl data.
 
-Move calculations of zone limits to a dedicated arch_zone_limits_init()
-function.
-
-Later MM core will use this function as an architecture specific callback
-during nodes and zones initialization and thus there won't be a need to
-call free_area_init() from every architecture.
-
-While on it rename zone_sizes_init() to dma_limits_init() to better
-reflect what that function does.
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
 ---
- arch/arm64/mm/init.c | 22 +++++++++++++++++-----
- 1 file changed, 17 insertions(+), 5 deletions(-)
+ drivers/pinctrl/spacemit/Kconfig      |   4 +-
+ drivers/pinctrl/spacemit/pinctrl-k1.c | 354 +++++++++++++++++++++++++++++++++-
+ 2 files changed, 352 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index 524d34a0e921..06815d34cc11 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -118,7 +118,21 @@ static phys_addr_t __init max_zone_phys(phys_addr_t zone_limit)
- 	return min(zone_limit, memblock_end_of_DRAM() - 1) + 1;
+diff --git a/drivers/pinctrl/spacemit/Kconfig b/drivers/pinctrl/spacemit/Kconfig
+index d6f6017fd097..c021d51033d1 100644
+--- a/drivers/pinctrl/spacemit/Kconfig
++++ b/drivers/pinctrl/spacemit/Kconfig
+@@ -4,7 +4,7 @@
+ #
+ 
+ config PINCTRL_SPACEMIT_K1
+-	bool "SpacemiT K1 SoC Pinctrl driver"
++	bool "SpacemiT K1/K3 SoC Pinctrl driver"
+ 	depends on ARCH_SPACEMIT || COMPILE_TEST
+ 	depends on OF
+ 	default ARCH_SPACEMIT
+@@ -12,7 +12,7 @@ config PINCTRL_SPACEMIT_K1
+ 	select GENERIC_PINMUX_FUNCTIONS
+ 	select GENERIC_PINCONF
+ 	help
+-	  Say Y to select the pinctrl driver for K1 SoC.
++	  Say Y to select the pinctrl driver for K1/K3 SoC.
+ 	  This pin controller allows selecting the mux function for
+ 	  each pin. This driver can also be built as a module called
+ 	  pinctrl-k1.
+diff --git a/drivers/pinctrl/spacemit/pinctrl-k1.c b/drivers/pinctrl/spacemit/pinctrl-k1.c
+index 33af9b5791c1..441817f539e3 100644
+--- a/drivers/pinctrl/spacemit/pinctrl-k1.c
++++ b/drivers/pinctrl/spacemit/pinctrl-k1.c
+@@ -66,6 +66,7 @@ struct spacemit_pinctrl_data {
+ 	const struct pinctrl_pin_desc   *pins;
+ 	const struct spacemit_pin	*data;
+ 	u16				npins;
++	unsigned int			(*pin_to_offset)(unsigned int pin);
+ };
+ 
+ struct spacemit_pin_mux_config {
+@@ -79,7 +80,7 @@ struct spacemit_pin_drv_strength {
+ };
+ 
+ /* map pin id to pinctrl register offset, refer MFPR definition */
+-static unsigned int spacemit_pin_to_offset(unsigned int pin)
++static unsigned int spacemit_k1_pin_to_offset(unsigned int pin)
+ {
+ 	unsigned int offset = 0;
+ 
+@@ -124,10 +125,17 @@ static unsigned int spacemit_pin_to_offset(unsigned int pin)
+ 	return offset << 2;
  }
  
--static void __init zone_sizes_init(void)
-+void __init arch_zone_limits_init(unsigned long *max_zone_pfns)
++static unsigned int spacemit_k3_pin_to_offset(unsigned int pin)
 +{
-+	phys_addr_t __maybe_unused dma32_phys_limit =
-+		max_zone_phys(DMA_BIT_MASK(32));
++	unsigned int offset = pin > 130 ? (pin + 2) : pin;
 +
-+#ifdef CONFIG_ZONE_DMA
-+	max_zone_pfns[ZONE_DMA] = PFN_DOWN(max_zone_phys(zone_dma_limit));
-+#endif
-+#ifdef CONFIG_ZONE_DMA32
-+	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(dma32_phys_limit);
-+#endif
-+	max_zone_pfns[ZONE_NORMAL] = max_pfn;
++	return offset << 2;
 +}
 +
-+static void __init dma_limits_init(void)
+ static inline void __iomem *spacemit_pin_to_reg(struct spacemit_pinctrl *pctrl,
+ 						unsigned int pin)
  {
- 	unsigned long max_zone_pfns[MAX_NR_ZONES]  = {0};
- 	phys_addr_t __maybe_unused acpi_zone_dma_limit;
-@@ -139,17 +153,15 @@ static void __init zone_sizes_init(void)
- 	if (memblock_start_of_DRAM() < U32_MAX)
- 		zone_dma_limit = min(zone_dma_limit, U32_MAX);
- 	arm64_dma_phys_limit = max_zone_phys(zone_dma_limit);
--	max_zone_pfns[ZONE_DMA] = PFN_DOWN(arm64_dma_phys_limit);
- #endif
- #ifdef CONFIG_ZONE_DMA32
--	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(dma32_phys_limit);
- 	if (!arm64_dma_phys_limit)
- 		arm64_dma_phys_limit = dma32_phys_limit;
- #endif
- 	if (!arm64_dma_phys_limit)
- 		arm64_dma_phys_limit = PHYS_MASK + 1;
--	max_zone_pfns[ZONE_NORMAL] = max_pfn;
- 
-+	arch_zone_limits_init(max_zone_pfns);
- 	free_area_init(max_zone_pfns);
+-	return pctrl->regs + spacemit_pin_to_offset(pin);
++	return pctrl->regs + pctrl->data->pin_to_offset(pin);
  }
  
-@@ -319,7 +331,7 @@ void __init bootmem_init(void)
- 	 * done after the fixed reservations
- 	 */
- 	sparse_init();
--	zone_sizes_init();
-+	dma_limits_init();
+ static u16 spacemit_dt_get_pin(u32 value)
+@@ -177,7 +185,7 @@ static void spacemit_pctrl_dbg_show(struct pinctrl_dev *pctldev,
+ 	void __iomem *reg;
+ 	u32 value;
  
- 	/*
- 	 * Reserve the CMA area after arm64_dma_phys_limit was initialised.
+-	seq_printf(seq, "offset: 0x%04x ", spacemit_pin_to_offset(pin));
++	seq_printf(seq, "offset: 0x%04x ", pctrl->data->pin_to_offset(pin));
+ 	seq_printf(seq, "type: %s ", io_type_desc[type]);
+ 
+ 	reg = spacemit_pin_to_reg(pctrl, pin);
+@@ -1042,10 +1050,348 @@ static const struct spacemit_pinctrl_data k1_pinctrl_data = {
+ 	.pins = k1_pin_desc,
+ 	.data = k1_pin_data,
+ 	.npins = ARRAY_SIZE(k1_pin_desc),
++	.pin_to_offset = spacemit_k1_pin_to_offset,
++};
++
++static const struct pinctrl_pin_desc k3_pin_desc[] = {
++	PINCTRL_PIN(0, "GPIO_00"),
++	PINCTRL_PIN(1, "GPIO_01"),
++	PINCTRL_PIN(2, "GPIO_02"),
++	PINCTRL_PIN(3, "GPIO_03"),
++	PINCTRL_PIN(4, "GPIO_04"),
++	PINCTRL_PIN(5, "GPIO_05"),
++	PINCTRL_PIN(6, "GPIO_06"),
++	PINCTRL_PIN(7, "GPIO_07"),
++	PINCTRL_PIN(8, "GPIO_08"),
++	PINCTRL_PIN(9, "GPIO_09"),
++	PINCTRL_PIN(10, "GPIO_10"),
++	PINCTRL_PIN(11, "GPIO_11"),
++	PINCTRL_PIN(12, "GPIO_12"),
++	PINCTRL_PIN(13, "GPIO_13"),
++	PINCTRL_PIN(14, "GPIO_14"),
++	PINCTRL_PIN(15, "GPIO_15"),
++	PINCTRL_PIN(16, "GPIO_16"),
++	PINCTRL_PIN(17, "GPIO_17"),
++	PINCTRL_PIN(18, "GPIO_18"),
++	PINCTRL_PIN(19, "GPIO_19"),
++	PINCTRL_PIN(20, "GPIO_20"),
++	PINCTRL_PIN(21, "GPIO_21"),
++	PINCTRL_PIN(22, "GPIO_22"),
++	PINCTRL_PIN(23, "GPIO_23"),
++	PINCTRL_PIN(24, "GPIO_24"),
++	PINCTRL_PIN(25, "GPIO_25"),
++	PINCTRL_PIN(26, "GPIO_26"),
++	PINCTRL_PIN(27, "GPIO_27"),
++	PINCTRL_PIN(28, "GPIO_28"),
++	PINCTRL_PIN(29, "GPIO_29"),
++	PINCTRL_PIN(30, "GPIO_30"),
++	PINCTRL_PIN(31, "GPIO_31"),
++	PINCTRL_PIN(32, "GPIO_32"),
++	PINCTRL_PIN(33, "GPIO_33"),
++	PINCTRL_PIN(34, "GPIO_34"),
++	PINCTRL_PIN(35, "GPIO_35"),
++	PINCTRL_PIN(36, "GPIO_36"),
++	PINCTRL_PIN(37, "GPIO_37"),
++	PINCTRL_PIN(38, "GPIO_38"),
++	PINCTRL_PIN(39, "GPIO_39"),
++	PINCTRL_PIN(40, "GPIO_40"),
++	PINCTRL_PIN(41, "GPIO_41"),
++	PINCTRL_PIN(42, "GPIO_42"),
++	PINCTRL_PIN(43, "GPIO_43"),
++	PINCTRL_PIN(44, "GPIO_44"),
++	PINCTRL_PIN(45, "GPIO_45"),
++	PINCTRL_PIN(46, "GPIO_46"),
++	PINCTRL_PIN(47, "GPIO_47"),
++	PINCTRL_PIN(48, "GPIO_48"),
++	PINCTRL_PIN(49, "GPIO_49"),
++	PINCTRL_PIN(50, "GPIO_50"),
++	PINCTRL_PIN(51, "GPIO_51"),
++	PINCTRL_PIN(52, "GPIO_52"),
++	PINCTRL_PIN(53, "GPIO_53"),
++	PINCTRL_PIN(54, "GPIO_54"),
++	PINCTRL_PIN(55, "GPIO_55"),
++	PINCTRL_PIN(56, "GPIO_56"),
++	PINCTRL_PIN(57, "GPIO_57"),
++	PINCTRL_PIN(58, "GPIO_58"),
++	PINCTRL_PIN(59, "GPIO_59"),
++	PINCTRL_PIN(60, "GPIO_60"),
++	PINCTRL_PIN(61, "GPIO_61"),
++	PINCTRL_PIN(62, "GPIO_62"),
++	PINCTRL_PIN(63, "GPIO_63"),
++	PINCTRL_PIN(64, "GPIO_64"),
++	PINCTRL_PIN(65, "GPIO_65"),
++	PINCTRL_PIN(66, "GPIO_66"),
++	PINCTRL_PIN(67, "GPIO_67"),
++	PINCTRL_PIN(68, "GPIO_68"),
++	PINCTRL_PIN(69, "GPIO_69"),
++	PINCTRL_PIN(70, "GPIO_70"),
++	PINCTRL_PIN(71, "GPIO_71"),
++	PINCTRL_PIN(72, "GPIO_72"),
++	PINCTRL_PIN(73, "GPIO_73"),
++	PINCTRL_PIN(74, "GPIO_74"),
++	PINCTRL_PIN(75, "GPIO_75"),
++	PINCTRL_PIN(76, "GPIO_76"),
++	PINCTRL_PIN(77, "GPIO_77"),
++	PINCTRL_PIN(78, "GPIO_78"),
++	PINCTRL_PIN(79, "GPIO_79"),
++	PINCTRL_PIN(80, "GPIO_80"),
++	PINCTRL_PIN(81, "GPIO_81"),
++	PINCTRL_PIN(82, "GPIO_82"),
++	PINCTRL_PIN(83, "GPIO_83"),
++	PINCTRL_PIN(84, "GPIO_84"),
++	PINCTRL_PIN(85, "GPIO_85"),
++	PINCTRL_PIN(86, "GPIO_86"),
++	PINCTRL_PIN(87, "GPIO_87"),
++	PINCTRL_PIN(88, "GPIO_88"),
++	PINCTRL_PIN(89, "GPIO_89"),
++	PINCTRL_PIN(90, "GPIO_90"),
++	PINCTRL_PIN(91, "GPIO_91"),
++	PINCTRL_PIN(92, "GPIO_92"),
++	PINCTRL_PIN(93, "GPIO_93"),
++	PINCTRL_PIN(94, "GPIO_94"),
++	PINCTRL_PIN(95, "GPIO_95"),
++	PINCTRL_PIN(96, "GPIO_96"),
++	PINCTRL_PIN(97, "GPIO_97"),
++	PINCTRL_PIN(98,  "GPIO_98"),
++	PINCTRL_PIN(99,  "GPIO_99"),
++	PINCTRL_PIN(100, "GPIO_100"),
++	PINCTRL_PIN(101, "GPIO_101"),
++	PINCTRL_PIN(102, "GPIO_102"),
++	PINCTRL_PIN(103, "GPIO_103"),
++	PINCTRL_PIN(104, "GPIO_104"),
++	PINCTRL_PIN(105, "GPIO_105"),
++	PINCTRL_PIN(106, "GPIO_106"),
++	PINCTRL_PIN(107, "GPIO_107"),
++	PINCTRL_PIN(108, "GPIO_108"),
++	PINCTRL_PIN(109, "GPIO_109"),
++	PINCTRL_PIN(110, "GPIO_110"),
++	PINCTRL_PIN(111, "GPIO_111"),
++	PINCTRL_PIN(112, "GPIO_112"),
++	PINCTRL_PIN(113, "GPIO_113"),
++	PINCTRL_PIN(114, "GPIO_114"),
++	PINCTRL_PIN(115, "GPIO_115"),
++	PINCTRL_PIN(116, "GPIO_116"),
++	PINCTRL_PIN(117, "GPIO_117"),
++	PINCTRL_PIN(118, "GPIO_118"),
++	PINCTRL_PIN(119, "GPIO_119"),
++	PINCTRL_PIN(120, "GPIO_120"),
++	PINCTRL_PIN(121, "GPIO_121"),
++	PINCTRL_PIN(122, "GPIO_122"),
++	PINCTRL_PIN(123, "GPIO_123"),
++	PINCTRL_PIN(124, "GPIO_124"),
++	PINCTRL_PIN(125, "GPIO_125"),
++	PINCTRL_PIN(126, "GPIO_126"),
++	PINCTRL_PIN(127, "GPIO_127"),
++	PINCTRL_PIN(128, "PWR_SCL"),
++	PINCTRL_PIN(129, "PWR_SDA"),
++	PINCTRL_PIN(130, "VCXO_EN"),
++	PINCTRL_PIN(131, "PMIC_INT_N"),
++	PINCTRL_PIN(132, "MMC1_DAT3"),
++	PINCTRL_PIN(133, "MMC1_DAT2"),
++	PINCTRL_PIN(134, "MMC1_DAT1"),
++	PINCTRL_PIN(135, "MMC1_DAT0"),
++	PINCTRL_PIN(136, "MMC1_CMD"),
++	PINCTRL_PIN(137, "MMC1_CLK"),
++	PINCTRL_PIN(138, "QSPI_DAT0"),
++	PINCTRL_PIN(139, "QSPI_DAT1"),
++	PINCTRL_PIN(140, "QSPI_DAT2"),
++	PINCTRL_PIN(141, "QSPI_DAT3"),
++	PINCTRL_PIN(142, "QSPI_CS0"),
++	PINCTRL_PIN(143, "QSPI_CS1"),
++	PINCTRL_PIN(144, "QSPI_CLK"),
++	PINCTRL_PIN(145, "PRI_TDI"),
++	PINCTRL_PIN(146, "PRI_TMS"),
++	PINCTRL_PIN(147, "PRI_TCK"),
++	PINCTRL_PIN(148, "PRI_TDO"),
++	PINCTRL_PIN(149, "PWR_SSP_SCLK"),
++	PINCTRL_PIN(150, "PWR_SSP_FRM"),
++	PINCTRL_PIN(151, "PWR_SSP_TXD"),
++	PINCTRL_PIN(152, "PWR_SSP_RXD"),
++};
++
++static const struct spacemit_pin k3_pin_data[ARRAY_SIZE(k3_pin_desc)] = {
++	/* GPIO1 bank */
++	K1_FUNC_PIN(0, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(1, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(2, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(3, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(4, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(5, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(6, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(7, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(8, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(9, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(10, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(11, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(12, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(13, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(14, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(15, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(16, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(17, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(18, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(19, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(20, 0, IO_TYPE_EXTERNAL),
++
++	/* GPIO2 bank */
++	K1_FUNC_PIN(21, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(22, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(23, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(24, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(25, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(26, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(27, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(28, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(29, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(30, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(31, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(32, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(33, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(34, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(35, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(36, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(37, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(38, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(39, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(40, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(41, 0, IO_TYPE_EXTERNAL),
++
++	/* GPIO3 bank */
++	K1_FUNC_PIN(42, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(43, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(44, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(45, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(46, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(47, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(48, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(49, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(50, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(51, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(52, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(53, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(54, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(55, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(56, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(57, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(58, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(59, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(60, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(61, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(62, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(63, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(64, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(65, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(66, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(67, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(68, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(69, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(70, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(71, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(72, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(73, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(74, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(75, 0, IO_TYPE_1V8),
++
++	/* GPIO4 bank */
++	K1_FUNC_PIN(76, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(77, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(78, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(79, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(80, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(81, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(82, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(83, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(84, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(85, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(86, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(87, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(88, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(89, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(90, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(91, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(92, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(93, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(94, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(95, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(96, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(97, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(98, 0, IO_TYPE_EXTERNAL),
++
++	/* GPIO5 bank */
++	K1_FUNC_PIN(99, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(100, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(101, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(102, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(103, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(104, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(105, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(106, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(107, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(108, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(109, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(110, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(111, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(112, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(113, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(114, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(115, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(116, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(117, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(118, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(119, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(120, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(121, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(122, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(123, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(124, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(125, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(126, 0, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(127, 0, IO_TYPE_EXTERNAL),
++
++	/* PMIC */
++	K1_FUNC_PIN(128, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(129, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(130, 0, IO_TYPE_1V8),
++	K1_FUNC_PIN(131, 0, IO_TYPE_1V8),
++
++	/* SD/MMC1 */
++	K1_FUNC_PIN(132, 1, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(133, 1, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(134, 1, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(135, 1, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(136, 1, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(137, 1, IO_TYPE_EXTERNAL),
++
++	/* QSPI */
++	K1_FUNC_PIN(138, 1, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(139, 1, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(140, 1, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(141, 1, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(142, 1, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(143, 1, IO_TYPE_EXTERNAL),
++	K1_FUNC_PIN(144, 1, IO_TYPE_EXTERNAL),
++
++	/* PMIC */
++	K1_FUNC_PIN(145, 1, IO_TYPE_1V8),
++	K1_FUNC_PIN(146, 1, IO_TYPE_1V8),
++	K1_FUNC_PIN(147, 1, IO_TYPE_1V8),
++	K1_FUNC_PIN(148, 1, IO_TYPE_1V8),
++	K1_FUNC_PIN(149, 1, IO_TYPE_1V8),
++	K1_FUNC_PIN(150, 1, IO_TYPE_1V8),
++	K1_FUNC_PIN(151, 1, IO_TYPE_1V8),
++	K1_FUNC_PIN(152, 1, IO_TYPE_1V8),
++};
++
++static const struct spacemit_pinctrl_data k3_pinctrl_data = {
++	.pins = k3_pin_desc,
++	.data = k3_pin_data,
++	.npins = ARRAY_SIZE(k3_pin_desc),
++	.pin_to_offset = spacemit_k3_pin_to_offset,
+ };
+ 
+ static const struct of_device_id k1_pinctrl_ids[] = {
+ 	{ .compatible = "spacemit,k1-pinctrl", .data = &k1_pinctrl_data },
++	{ .compatible = "spacemit,k3-pinctrl", .data = &k3_pinctrl_data },
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, k1_pinctrl_ids);
+@@ -1061,5 +1407,5 @@ static struct platform_driver k1_pinctrl_driver = {
+ builtin_platform_driver(k1_pinctrl_driver);
+ 
+ MODULE_AUTHOR("Yixun Lan <dlan@gentoo.org>");
+-MODULE_DESCRIPTION("Pinctrl driver for the SpacemiT K1 SoC");
++MODULE_DESCRIPTION("Pinctrl driver for the SpacemiT K1/K3 SoC");
+ MODULE_LICENSE("GPL");
+
 -- 
-2.51.0
+2.52.0
 
 
 _______________________________________________
