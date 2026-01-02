@@ -4,116 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9A7FEEB57A
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 07:07:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89796EEB57A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 09:38:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8XafII/Dpk9zzJqIlxQQChORsNiHal3krVAhJUi2ewU=; b=WTaCS/IG07ayYq
-	BSSooinoR0JqVPqTzBixJxYl+MJ/BzoQoffLStiFGnPtH/wPCsUgRQ3mMWQ0CUUedkPrKZDmPH9R9
-	ZHumcePyI9bqYMulDMXFmClEqti4wy5QxBXruPhAn3NScHTtlbbsLhVX7CVUtvMMl+pLeHtip5wsB
-	Nbxm6XGIvk6zIxVbZWhs2j+f6qOxScAMTSUPlUdUgLkA27poZR0XIM2/VLZeFJ5Uwv4Q2/4Ra5bRP
-	nFO0LBkdCGiNpgRTmXXnV/hIurOFg6WByk3mV1YdY6uil+djjGvP5W+fF2X0AzdALSkGh1Se/L2WN
-	E+PqfdW9OAO46das6IkQ==;
+	List-Owner; bh=B8fpNoLwJ5aGacJQiwpR9zNnt6yS1RQuxQroej1kocs=; b=cOEiwlEF5XIxqe
+	U+WMNmd4TujaUGrAgPcEX1JQXndAKyQc6uRtDkLsbO3WrQ6uKt2ntr3mt1TNQKP3luUYaSk84ESPc
+	G/L6uTprK94H2dku95l5GAd0h+LyuGHlMeKr+dqq7JRFlPhu+un9Gh3jKJRlbKXFRmdzs0Bo45Jfd
+	2oWtowkk3tyR9aeLhRu1PEx9VintcCgHO2xx3ygAmq2UZlBKDY5UjM+jqOTWvocatZZUI3+fRJzvK
+	dUs/Z1WjO136JtbOdd6gm+AK5hGY/Tfmop5esh8CKCGcdDvvxPXk4s8AfNIOlUPDSe476d0xsAZmy
+	Kv0FO4eqCzVfUhqiVITw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbZFf-00000007w6u-1gb0;
-	Fri, 02 Jan 2026 07:07:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vbbcC-000000081ra-2QDy;
+	Fri, 02 Jan 2026 09:38:36 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbZFc-00000007w67-2zJT;
-	Fri, 02 Jan 2026 07:07:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CCDAB6012A;
-	Fri,  2 Jan 2026 07:07:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E504C116B1;
-	Fri,  2 Jan 2026 07:06:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767337627;
-	bh=HRLMNbJfcIyzccjy/sfTD1k/8iARayV6dPdQfJTMnWo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CxvPssLFALKnAzAlXBll5rTphhZU7lG8jhoItNzn1fDH5h3/PSapvXks4U3zBNKEd
-	 Gjt8HaJNmGMQm+aKOWUJhnKIeCQ7VO+u8fAo/doIZz/Il+9XwBm8RvGrlfHBY4wksj
-	 Cq6GIEs4nXBSlEFiuN6ruwU2ocb72rmtMW/CPlqo0QaPKgGKxexcSr/e058WN5u+vt
-	 lU7HuQVp28/ddYn1T2PDlLul6PCmb+/cdQqpBV+UeDT6K9x9v670twTwtzSruR1eek
-	 5EbuXWwPo0AdoPZsDEj9liyOPfYpCx9mEEd3RXrrfPHn5OQecwQijHHNqnHYPLSYBm
-	 a5OWg4z3pZQcw==
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Alex Shi <alexs@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@kernel.org>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Matt Turner <mattst88@gmail.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>,
-	Michal Simek <monstr@monstr.eu>,
-	Mike Rapoport <rppt@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Oscar Salvador <osalvador@suse.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Vineet Gupta <vgupta@kernel.org>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Will Deacon <will@kernel.org>,
-	x86@kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-cxl@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
+	id 1vbbcA-000000081rD-0P2V
+	for linux-riscv@lists.infradead.org;
+	Fri, 02 Jan 2026 09:38:35 +0000
+Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-7bb710d1d1dso16908198b3a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Jan 2026 01:38:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767346713; x=1767951513; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RwhWeUrUie5hyZYttQG7hPgt9HlHhLDOoPbYGUOuM7E=;
+        b=JBVCOjeAsJqaiMuaPfV0/ba75CWLIKxgFeIZY2l37JqIaArjxMk6d6D5tpGWJ5X/aT
+         lTqY0Dj/ZKYQsdhfPef2AiTVvNny1mgNfiXikfACKfIkLcyO/hhBq1NEfx+WHGiqMpz0
+         UGD9RjcQYS8Amnl7ObJ8GoXP16OuLJoYlD/y/rTrFpH8pGlhin84CS2XIEKpCUIbNuuz
+         dWlrkIU7IJ5NlEzHZnSJ0+da6F5cantRZXQIiV2OE4qsXf0QCPJL2frXZtvxq4iXa6B5
+         V2B79VYXscJ00EPXDpTx7Of7CzIx799yhtkRdBgBTwqtYrQ/HJWJ54Ik0mXw/h3a+NO3
+         lJVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767346713; x=1767951513;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=RwhWeUrUie5hyZYttQG7hPgt9HlHhLDOoPbYGUOuM7E=;
+        b=bCgrD+JBEePj4l/6daUtndf1GJVOgheEsTN4uRWzd7Accsxelx2Kps2CAzPaGHKdFE
+         VHsO3Rwa2+JQYX6tMswd1QXS7m7iG8lX1JsHOvJoaY6/JOO2vXZ71Znv1D8Va2BArbTJ
+         PdMtVL5Sm7Ys9Mi3bTWrWCCpjwCS2nkOtEKWhS/Sby1/qgdoQHnk3TZ+QeF5ZwvPbT4+
+         fUOX6hI7w7Z6TgcfnUJ432Q3dXq30W7pRJpObTcFqind60j1iMXPf3jrZ+bq/BPA8RrF
+         ALsBDkkzZzDA/w9RJlt2FtGC138Lqnc52wyYi8VTI3E9cfgjx+VjLnhXfTFvm+uFkEHp
+         f9sQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUUdVCc/HXBGQOwDQVeLsGPqQNZdykCSUUTPXtPk//l9pxgsrU/Xjl6zntJYmyE33uCXWUK6uwboJHzyQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWYMORIYse8z8/y55tAl8LxgPvu8GqmDvA+2+ddjXXK8a0kZP2
+	9AkhiSDSL/xosfFrnghlLe9tLLmahHfBUrUesbhQDSLS7y2MWbNADroJ
+X-Gm-Gg: AY/fxX6lA9JkcwPWbY2Xgrbiwxj6IcfoISHJtqNH3oQMGPJxwDWWz6PAPyQV0y3zv9N
+	UNlS/lvCAHrtgFB61W+RG3v/GLMk+WnCF9C9mBZcgzfFkdwyv6MJYEW2UcARMbOrlHuKB175fKu
+	8o0e3T7PWalni0xkuKICIdwIq6op0ZUFKz5U5Mi4f7XY//lFCcxfFsKjxKqSOHmGSyVfmWTEMwn
+	Az4T+qZ6VzRy+iZhmkh9mq8nXAJsmpYrV7Tp9imqHVI4UDqmP/jjcxsCbzarGgRDPgY0QS8LITh
+	loga1UmK6SApIEjFbDGnIWkOQvbCyw3PkAYgULxSST+W7F1qHdKBw5vlmpgD/Zvmi+UEoyBdDhS
+	5efOxiYvcWaBORsRhPc3j0PQE2s/jFfVeUHz90WwgJLz4UDDufWW/2yWh2C7yK9Mf3V1z1/0zn0
+	oksYI4k8m6XONs33OjOmQAQZ/juKWUmzC043SE
+X-Google-Smtp-Source: AGHT+IEPKnJZiVW+ZjQMzr1s3UZY7zlimkXWRy8RZhKuALAzMn9XlNWaqI02+XA6z8lylihvHGysrw==
+X-Received: by 2002:a05:6a20:938e:b0:341:c4e5:f626 with SMTP id adf61e73a8af0-376a81e76a8mr39650137637.7.1767346712639;
+        Fri, 02 Jan 2026 01:38:32 -0800 (PST)
+Received: from jvle-ThinkPad-X1-Carbon-Gen-8.. ([114.241.85.219])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c1e7cb01a9asm34594544a12.35.2026.01.02.01.38.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 Jan 2026 01:38:32 -0800 (PST)
+From: Keke Ming <ming.jvle@gmail.com>
+To: sanjayembeddedse@gmail.com
+Cc: alex@ghiti.fr,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
 	linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org
-Subject: [PATCH v2 28/28] Revert "mm/hugetlb: deal with multiple calls to hugetlb_bootmem_alloc"
-Date: Fri,  2 Jan 2026 09:00:04 +0200
-Message-ID: <20260102070005.65328-29-rppt@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260102070005.65328-1-rppt@kernel.org>
-References: <20260102070005.65328-1-rppt@kernel.org>
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	tglx@linutronix.de,
+	virendrasinhchauhan1206@gmail.com,
+	Keke Ming <ming.jvle@gmail.com>
+Subject: Re: [PATCH] irqchip/riscv-aplic: adapt to syscore API passing context data
+Date: Fri,  2 Jan 2026 17:37:41 +0800
+Message-ID: <20260102093744.66053-1-ming.jvle@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <6eafdd754222e11a43be4bbc3652f7605d47afa6.1766559840.git.sanjayembeddedse@gmail.com>
+References: <6eafdd754222e11a43be4bbc3652f7605d47afa6.1766559840.git.sanjayembeddedse@gmail.com>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260102_013834_159139_031400A9 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,124 +104,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-
-This reverts commit d58b2498200724e4f8c12d71a5953da03c8c8bdf.
-
-hugetlb_bootmem_alloc() is called only once, no need to check if it was
-called already at its entry.
-
-Other checks performed during HVO initialization are also no longer
-necessary because sparse_init() that calls hugetlb_vmemmap_init_early()
-and hugetlb_vmemmap_init_late() is always called after
-hugetlb_bootmem_alloc().
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Acked-by: Muchun Song <muchun.song@linux.dev>
----
- include/linux/hugetlb.h |  6 ------
- mm/hugetlb.c            | 12 ------------
- mm/hugetlb_vmemmap.c    | 11 -----------
- 3 files changed, 29 deletions(-)
-
-diff --git a/include/linux/hugetlb.h b/include/linux/hugetlb.h
-index 08fc332e88a7..c8b1a6dd2d46 100644
---- a/include/linux/hugetlb.h
-+++ b/include/linux/hugetlb.h
-@@ -175,7 +175,6 @@ extern int sysctl_hugetlb_shm_group __read_mostly;
- extern struct list_head huge_boot_pages[MAX_NUMNODES];
- 
- void hugetlb_bootmem_alloc(void);
--bool hugetlb_bootmem_allocated(void);
- extern nodemask_t hugetlb_bootmem_nodes;
- void hugetlb_bootmem_set_nodes(void);
- 
-@@ -1300,11 +1299,6 @@ static inline bool hugetlbfs_pagecache_present(
- static inline void hugetlb_bootmem_alloc(void)
- {
- }
--
--static inline bool hugetlb_bootmem_allocated(void)
--{
--	return false;
--}
- #endif	/* CONFIG_HUGETLB_PAGE */
- 
- static inline spinlock_t *huge_pte_lock(struct hstate *h,
-diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-index 82b322ae3fdc..e5a350c83d75 100644
---- a/mm/hugetlb.c
-+++ b/mm/hugetlb.c
-@@ -4470,21 +4470,11 @@ void __init hugetlb_bootmem_set_nodes(void)
- 	}
- }
- 
--static bool __hugetlb_bootmem_allocated __initdata;
--
--bool __init hugetlb_bootmem_allocated(void)
--{
--	return __hugetlb_bootmem_allocated;
--}
--
- void __init hugetlb_bootmem_alloc(void)
- {
- 	struct hstate *h;
- 	int i;
- 
--	if (__hugetlb_bootmem_allocated)
--		return;
--
- 	hugetlb_bootmem_set_nodes();
- 
- 	for (i = 0; i < MAX_NUMNODES; i++)
-@@ -4498,8 +4488,6 @@ void __init hugetlb_bootmem_alloc(void)
- 		if (hstate_is_gigantic(h))
- 			hugetlb_hstate_alloc_pages(h);
- 	}
--
--	__hugetlb_bootmem_allocated = true;
- }
- 
- /*
-diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
-index 9d01f883fd71..a9280259e12a 100644
---- a/mm/hugetlb_vmemmap.c
-+++ b/mm/hugetlb_vmemmap.c
-@@ -794,14 +794,6 @@ void __init hugetlb_vmemmap_init_early(int nid)
- 	struct huge_bootmem_page *m = NULL;
- 	void *map;
- 
--	/*
--	 * Noting to do if bootmem pages were not allocated
--	 * early in boot, or if HVO wasn't enabled in the
--	 * first place.
--	 */
--	if (!hugetlb_bootmem_allocated())
--		return;
--
- 	if (!READ_ONCE(vmemmap_optimize_enabled))
- 		return;
- 
-@@ -847,9 +839,6 @@ void __init hugetlb_vmemmap_init_late(int nid)
- 	struct hstate *h;
- 	void *map;
- 
--	if (!hugetlb_bootmem_allocated())
--		return;
--
- 	if (!READ_ONCE(vmemmap_optimize_enabled))
- 		return;
- 
--- 
-2.51.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBEZWMgMjQsIDIwMjUgYXQgMTY6NDE6NDYgKzA1MzAsIFNhbmpheSBDaGl0cm9kYSB3
+cm90ZToKPiBUaGUgUklTQy1WIEFQTElDIGRyaXZlciBzdGFydGVkIHByZXNlcnZpbmcgc3RhdGUg
+YWNyb3NzIHN1c3BlbmQvcmVzdW1lLAo+IGJ1dCBpdHMgc3lzY29yZSB1c2FnZSBzdGlsbCBhc3N1
+bWVkIHRoZSBvbGQgQVBJLiBCdWlsZGluZyBhZ2FpbnN0Cj4gbGludXgtbmV4dCBhZnRlciBhOTdm
+YmMzZWUzZTIgZmFpbHMgYmVjYXVzZSB0aGUgY2FsbGJhY2tzIGRvbuKAmXQgcmVjZWl2ZQo+IHRo
+ZSBuZWNlc3NhcnkgZHJpdmVyIGNvbnRleHQuCgpUZXN0ZWQgdGhpcyBvbiByaXNjdjY0IChjcm9z
+cy1jb21waWxlZCBvbiB4ODZfNjQpIHVzaW5nIGxpbnV4LW5leHQgCihuZXh0LTIwMjUxMjE5KS4g
+V2l0aG91dCB0aGlzIHBhdGNoLCB0aGUgYnVpbGQgZmFpbHMgd2l0aDoKCmRyaXZlcnMvaXJxY2hp
+cC9pcnEtcmlzY3YtYXBsaWMtbWFpbi5jOjExMToyMDogZXJyb3I6IGluaXRpYWxpemF0aW9uIG9m
+IArigJhpbnQgKCopKHZvaWQgKinigJkgZnJvbSBpbmNvbXBhdGlibGUgcG9pbnRlciB0eXBlIOKA
+mGludCAoKikodm9pZCnigJkKClRoaXMgcGF0Y2ggY29ycmVjdGx5IGZpeGVzIHRoZSBjb21waWxh
+dGlvbiBlcnJvciBieSB1cGRhdGluZyB0aGUgQVBMSUMgCmRyaXZlciB0byB0aGUgbmV3IHN5c2Nv
+cmUgQVBJLgoKVGVzdGVkLWJ5OiBLZWtlIE1pbmcgPG1pbmcuanZsZUBnbWFpbC5jb20+CgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
