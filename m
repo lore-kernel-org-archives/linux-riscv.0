@@ -4,73 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47ED4EEB57A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC3CDE9410B
 	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 07:01:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vp+ERIHh3tdv3zhPBUUvJ/pR2CdPUCbA7vNJeh8NTC4=; b=mZ9kcUnbIF9xDg
-	EjrjmXOItktjE25M1i/UHwuzpuEmLr+dFSmvfSG7LvBet+bNhMqp4kXGqgTVG/gEbCI4K5ncH/0k1
-	hVPNjzmQufiqdXoE0qBdbbvdB3tXzhYPwEW2+pKHQzNK4rFnuLlWDJpEb5Gg7Xo950MsRca86VNOq
-	Xj2msUcEalrAskcxEfFCVFRNKsiZrLVXnjrt9Ut0XpEJ7VDb51nDMqAQb8o9Sc64V1zD+/ijuWhyf
-	1O+4nMp3s5/KVbcKIzBjRo5rC3hIjsYd9JY0QhwvH7iieXGxQX6GU4a14sfrYOwmYJ/FIQxKf/gNl
-	sv0T9ZEofNszFRgZ3aeg==;
+	List-Owner; bh=sAWiEuwEhMFWDRO2agk4Rrco6WudS+BQkzv4b2V1bzY=; b=sMU+DGCVIvllgK
+	CIkkjuHGuFqIBXQ8F0mFNP1swWPsS0F8w+JprxXalFbs7cJP8c020ZJvZCRfknJBqSSZ6gR/73nwU
+	dOzWVV102wRVHjZGJxpnO/XyYr6kqoq4sPO7HxI+G8oDNfoBnKrD0DYBmNhdPii3v9d9oWejCYGzP
+	lg+dJ31BfkTgAkJ51zs5jNGwcyoqB6eXGfUaLem0ct0KPVTLdzpwyHnZuqjMFdIJyAvxlJaelhBdc
+	oNYMQ5I74krShAUrQoVp6nl8E3oMzY0HajVOHC9qE0XwVx4qFQQkIzpu1e0dSMbP5h/q5bRTOXWbP
+	zpMP/kFCqSa2iDLEDOVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbZA4-00000007sLZ-3NrD;
-	Fri, 02 Jan 2026 07:01:24 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1vbZA6-00000007sMe-15ff;
+	Fri, 02 Jan 2026 07:01:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbZ9z-00000007sHN-0q3h
-	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jan 2026 07:01:22 +0000
-Received: from [127.0.0.1] (unknown [116.232.18.222])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id C2BCA341EA2;
-	Fri, 02 Jan 2026 07:01:14 +0000 (UTC)
-From: Yixun Lan <dlan@gentoo.org>
-Date: Fri, 02 Jan 2026 15:00:23 +0800
-Subject: [PATCH v3 2/4] dt-bindings: pinctrl: spacemit: add K3 SoC support
+	id 1vbZA2-00000007sJC-23zf;
+	Fri, 02 Jan 2026 07:01:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 063C7439EC;
+	Fri,  2 Jan 2026 07:01:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E256C116B1;
+	Fri,  2 Jan 2026 07:01:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767337281;
+	bh=djQarGwsnsMGImsgSQVJ5sD5jo+ZigjiDeQZakHIJZw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=YfFbGR66VHayErTkQoIoUIc4G3/Zokhn15LvFAqjzKw26utOu1LBn48hs2H6HzNQq
+	 enWDeSBA/K3oa8124S39Ky2QzRfQWKFy5skfNoCEkG9sz9vKEVoMX6gEHdOtbCXbst
+	 YovEdBmAC4uGLaHGNAqP3BqXeZF+EKxoW8SDO9IcHD6qwesn+Gli/x6/TpHAYsUlrD
+	 UCxGtUCULcfUxhXrs9KtImo/ip7nUbo9TQd43s1ekjsaSWhD1ejl+EXFJWf86KxJTp
+	 WhffTvUE+ThhBNL4rEwUFZ6nXbB9jltND/rGE7Zw/xtewRIoZJM55k7N+y1oDTnXyg
+	 wl/J8tjy8RWJQ==
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Alex Shi <alexs@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@kernel.org>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	Matt Turner <mattst88@gmail.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Hocko <mhocko@suse.com>,
+	Michal Simek <monstr@monstr.eu>,
+	Mike Rapoport <rppt@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Will Deacon <will@kernel.org>,
+	x86@kernel.org,
+	linux-alpha@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-cxl@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-um@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org
+Subject: [PATCH v2 04/28] arm64: introduce arch_zone_limits_init()
+Date: Fri,  2 Jan 2026 08:59:40 +0200
+Message-ID: <20260102070005.65328-5-rppt@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260102070005.65328-1-rppt@kernel.org>
+References: <20260102070005.65328-1-rppt@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20260102-02-k3-pinctrl-v3-2-30aa104e2847@gentoo.org>
-References: <20260102-02-k3-pinctrl-v3-0-30aa104e2847@gentoo.org>
-In-Reply-To: <20260102-02-k3-pinctrl-v3-0-30aa104e2847@gentoo.org>
-To: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Yixun Lan <dlan@gentoo.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1568; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=CkrLUVXxpWysujkEFBNhXJWBIS5qj4KiudgLlB1FfKs=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpV20mEQe9Qt3KK1/XJlVuHSxuLm6AvIFghLmhd
- 06pN3cgbRyJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaVdtJhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
- maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+0GwhAAka9VP676eVFbawkMbsAryQtqgduKkgr27PobGT1snFQLceg6Q1c9A
- 4Q2J/25Buwr4plkGKBx2QLJEtLT+DqZToB2qB+JWhXFB/BaUf/XsmclCvadNsFjbDZvh8O5Zehr
- Aosz7dHGOvRBvxFmA4RiFYJP1n8KSEpCF65IzMt3jJGysTfBp6isezPBmQ6ukUWphIdeJw+cwA3
- 6RGTnyFueM4F67Y8a36clpbiKSTSMUswbEqULpY1T0bgQc3mm2/pvH1CUNzPOeS+jnPc1YoxHZv
- evQH7jWwUhEBn8SgqR7tWHNethYPPRWwqG4v0gnHJCuaXhGWxjyhJjjogLH4kwRM1orU3A1L6rK
- kucuMGwZaaBiDlb15pLV3NWVOM08CXRkoBbysRYujG6f5C/BxI3+jUx1ygVizu5U4DwA136R+TZ
- 4Emh7+oxCMDiIS6EMH853srL9D3sD6JNUe5ou1c61r8ckHLjgCMGGgqFTW8ju6SEdI8AMSNOG7G
- 7eq+MbdgdIfLlYNv0JgIADTrdkcCJVt1+SadJzvMBIMmSIYWPyEwUPXQRCZQ3HDIIlIDUjbLXfj
- 36eCDjZQdhp0dEHXDybAWTpHDcTvpCY1d2ACwcClcaOSO7YgP59XbhqQ6h4ypwyoek76aAdD08z
- 4j5a5/4sIjzpPzWrGan3aq0sIqgo20=
-X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260101_230121_291410_1CBCECD8 
-X-CRM114-Status: UNSURE (   8.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260101_230122_596999_D5620B15 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,47 +133,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add new compatible string for SpacemiT K3 SoC, the pinctrl IP shares
-almost same logic with previous K1 generation, but has different register
-offset and pin configuration, for example the drive strength and
-schmitter trigger settings has been changed.
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-Signed-off-by: Yixun Lan <dlan@gentoo.org>
+Move calculations of zone limits to a dedicated arch_zone_limits_init()
+function.
+
+Later MM core will use this function as an architecture specific callback
+during nodes and zones initialization and thus there won't be a need to
+call free_area_init() from every architecture.
+
+While on it rename zone_sizes_init() to dma_limits_init() to better
+reflect what that function does.
+
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- .../devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml       | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+ arch/arm64/mm/init.c | 22 +++++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
-index 609d7db97822..9a76cffcbaee 100644
---- a/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
-@@ -11,7 +11,9 @@ maintainers:
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index 524d34a0e921..06815d34cc11 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -118,7 +118,21 @@ static phys_addr_t __init max_zone_phys(phys_addr_t zone_limit)
+ 	return min(zone_limit, memblock_end_of_DRAM() - 1) + 1;
+ }
  
- properties:
-   compatible:
--    const: spacemit,k1-pinctrl
-+    enum:
-+      - spacemit,k1-pinctrl
-+      - spacemit,k3-pinctrl
- 
-   reg:
-     items:
-@@ -81,6 +83,12 @@ patternProperties:
-               - enum: [ 7, 10, 13, 16, 19, 23, 26, 29 ]
-                 description: For K1 SoC, 3.3V voltage output
- 
-+              - enum: [ 2, 4, 6, 7, 9, 11, 13, 14, 21, 23, 25, 26, 28, 30, 31, 33 ]
-+                description: For K3 SoC, 1.8V voltage output
+-static void __init zone_sizes_init(void)
++void __init arch_zone_limits_init(unsigned long *max_zone_pfns)
++{
++	phys_addr_t __maybe_unused dma32_phys_limit =
++		max_zone_phys(DMA_BIT_MASK(32));
 +
-+              - enum: [ 3, 5, 7, 9, 11, 13, 15, 17, 25, 27, 29, 31, 33, 35, 37, 38 ]
-+                description: For K3 SoC, 1.8V voltage output
++#ifdef CONFIG_ZONE_DMA
++	max_zone_pfns[ZONE_DMA] = PFN_DOWN(max_zone_phys(zone_dma_limit));
++#endif
++#ifdef CONFIG_ZONE_DMA32
++	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(dma32_phys_limit);
++#endif
++	max_zone_pfns[ZONE_NORMAL] = max_pfn;
++}
 +
-           input-schmitt:
-             description: |
-               typical threshold for schmitt trigger.
-
++static void __init dma_limits_init(void)
+ {
+ 	unsigned long max_zone_pfns[MAX_NR_ZONES]  = {0};
+ 	phys_addr_t __maybe_unused acpi_zone_dma_limit;
+@@ -139,17 +153,15 @@ static void __init zone_sizes_init(void)
+ 	if (memblock_start_of_DRAM() < U32_MAX)
+ 		zone_dma_limit = min(zone_dma_limit, U32_MAX);
+ 	arm64_dma_phys_limit = max_zone_phys(zone_dma_limit);
+-	max_zone_pfns[ZONE_DMA] = PFN_DOWN(arm64_dma_phys_limit);
+ #endif
+ #ifdef CONFIG_ZONE_DMA32
+-	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(dma32_phys_limit);
+ 	if (!arm64_dma_phys_limit)
+ 		arm64_dma_phys_limit = dma32_phys_limit;
+ #endif
+ 	if (!arm64_dma_phys_limit)
+ 		arm64_dma_phys_limit = PHYS_MASK + 1;
+-	max_zone_pfns[ZONE_NORMAL] = max_pfn;
+ 
++	arch_zone_limits_init(max_zone_pfns);
+ 	free_area_init(max_zone_pfns);
+ }
+ 
+@@ -319,7 +331,7 @@ void __init bootmem_init(void)
+ 	 * done after the fixed reservations
+ 	 */
+ 	sparse_init();
+-	zone_sizes_init();
++	dma_limits_init();
+ 
+ 	/*
+ 	 * Reserve the CMA area after arm64_dma_phys_limit was initialised.
 -- 
-2.52.0
+2.51.0
 
 
 _______________________________________________
