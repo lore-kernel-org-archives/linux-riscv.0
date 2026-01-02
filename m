@@ -4,94 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89796EEB57A
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 09:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E27BDEEE25C
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 11:01:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B8fpNoLwJ5aGacJQiwpR9zNnt6yS1RQuxQroej1kocs=; b=cOEiwlEF5XIxqe
-	U+WMNmd4TujaUGrAgPcEX1JQXndAKyQc6uRtDkLsbO3WrQ6uKt2ntr3mt1TNQKP3luUYaSk84ESPc
-	G/L6uTprK94H2dku95l5GAd0h+LyuGHlMeKr+dqq7JRFlPhu+un9Gh3jKJRlbKXFRmdzs0Bo45Jfd
-	2oWtowkk3tyR9aeLhRu1PEx9VintcCgHO2xx3ygAmq2UZlBKDY5UjM+jqOTWvocatZZUI3+fRJzvK
-	dUs/Z1WjO136JtbOdd6gm+AK5hGY/Tfmop5esh8CKCGcdDvvxPXk4s8AfNIOlUPDSe476d0xsAZmy
-	Kv0FO4eqCzVfUhqiVITw==;
+	List-Owner; bh=e3Lco4T4mu27dvMzT37yWvsA9hpwr1wnhwNuegxZX6s=; b=iViD4PGvrUNhFX
+	X6Vfm7K5FOh1UgpWQW4Vdu8EG29rR/tAHjaNkuSr50w45fxQ0wvE1i5gXdaiUz2x3G8Du0w9PMIvc
+	zrPUaaxhZ5wRXynz3p2fCZ5afVKDtWYekdFehJHI8n/k1zu+ptp+Vr1vNNPbCnO3rGNRt0j0B1cN8
+	CDALULAbN6H4sp+kV8N11vskNAtQCSY5wADUqoNqZ1WPBbrvtC8OquTOCr1GtA4pzilg0Sg8vJ/No
+	1ttac7H50gECBQTiNlq0UMcu3HyzvHNEcyDXFKllgB7vtqsnxAVjyIqrxzDekRV6D1vyZinRwdAMy
+	QN1aeznl8j0fba8mt/oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbbcC-000000081ra-2QDy;
-	Fri, 02 Jan 2026 09:38:36 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1vbcuJ-000000086Ka-1YMh;
+	Fri, 02 Jan 2026 11:01:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbbcA-000000081rD-0P2V
+	id 1vbcuF-000000086K8-1wQo
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jan 2026 09:38:35 +0000
-Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-7bb710d1d1dso16908198b3a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Jan 2026 01:38:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767346713; x=1767951513; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RwhWeUrUie5hyZYttQG7hPgt9HlHhLDOoPbYGUOuM7E=;
-        b=JBVCOjeAsJqaiMuaPfV0/ba75CWLIKxgFeIZY2l37JqIaArjxMk6d6D5tpGWJ5X/aT
-         lTqY0Dj/ZKYQsdhfPef2AiTVvNny1mgNfiXikfACKfIkLcyO/hhBq1NEfx+WHGiqMpz0
-         UGD9RjcQYS8Amnl7ObJ8GoXP16OuLJoYlD/y/rTrFpH8pGlhin84CS2XIEKpCUIbNuuz
-         dWlrkIU7IJ5NlEzHZnSJ0+da6F5cantRZXQIiV2OE4qsXf0QCPJL2frXZtvxq4iXa6B5
-         V2B79VYXscJ00EPXDpTx7Of7CzIx799yhtkRdBgBTwqtYrQ/HJWJ54Ik0mXw/h3a+NO3
-         lJVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767346713; x=1767951513;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=RwhWeUrUie5hyZYttQG7hPgt9HlHhLDOoPbYGUOuM7E=;
-        b=bCgrD+JBEePj4l/6daUtndf1GJVOgheEsTN4uRWzd7Accsxelx2Kps2CAzPaGHKdFE
-         VHsO3Rwa2+JQYX6tMswd1QXS7m7iG8lX1JsHOvJoaY6/JOO2vXZ71Znv1D8Va2BArbTJ
-         PdMtVL5Sm7Ys9Mi3bTWrWCCpjwCS2nkOtEKWhS/Sby1/qgdoQHnk3TZ+QeF5ZwvPbT4+
-         fUOX6hI7w7Z6TgcfnUJ432Q3dXq30W7pRJpObTcFqind60j1iMXPf3jrZ+bq/BPA8RrF
-         ALsBDkkzZzDA/w9RJlt2FtGC138Lqnc52wyYi8VTI3E9cfgjx+VjLnhXfTFvm+uFkEHp
-         f9sQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUUdVCc/HXBGQOwDQVeLsGPqQNZdykCSUUTPXtPk//l9pxgsrU/Xjl6zntJYmyE33uCXWUK6uwboJHzyQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWYMORIYse8z8/y55tAl8LxgPvu8GqmDvA+2+ddjXXK8a0kZP2
-	9AkhiSDSL/xosfFrnghlLe9tLLmahHfBUrUesbhQDSLS7y2MWbNADroJ
-X-Gm-Gg: AY/fxX6lA9JkcwPWbY2Xgrbiwxj6IcfoISHJtqNH3oQMGPJxwDWWz6PAPyQV0y3zv9N
-	UNlS/lvCAHrtgFB61W+RG3v/GLMk+WnCF9C9mBZcgzfFkdwyv6MJYEW2UcARMbOrlHuKB175fKu
-	8o0e3T7PWalni0xkuKICIdwIq6op0ZUFKz5U5Mi4f7XY//lFCcxfFsKjxKqSOHmGSyVfmWTEMwn
-	Az4T+qZ6VzRy+iZhmkh9mq8nXAJsmpYrV7Tp9imqHVI4UDqmP/jjcxsCbzarGgRDPgY0QS8LITh
-	loga1UmK6SApIEjFbDGnIWkOQvbCyw3PkAYgULxSST+W7F1qHdKBw5vlmpgD/Zvmi+UEoyBdDhS
-	5efOxiYvcWaBORsRhPc3j0PQE2s/jFfVeUHz90WwgJLz4UDDufWW/2yWh2C7yK9Mf3V1z1/0zn0
-	oksYI4k8m6XONs33OjOmQAQZ/juKWUmzC043SE
-X-Google-Smtp-Source: AGHT+IEPKnJZiVW+ZjQMzr1s3UZY7zlimkXWRy8RZhKuALAzMn9XlNWaqI02+XA6z8lylihvHGysrw==
-X-Received: by 2002:a05:6a20:938e:b0:341:c4e5:f626 with SMTP id adf61e73a8af0-376a81e76a8mr39650137637.7.1767346712639;
-        Fri, 02 Jan 2026 01:38:32 -0800 (PST)
-Received: from jvle-ThinkPad-X1-Carbon-Gen-8.. ([114.241.85.219])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c1e7cb01a9asm34594544a12.35.2026.01.02.01.38.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Jan 2026 01:38:32 -0800 (PST)
-From: Keke Ming <ming.jvle@gmail.com>
-To: sanjayembeddedse@gmail.com
-Cc: alex@ghiti.fr,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	tglx@linutronix.de,
-	virendrasinhchauhan1206@gmail.com,
-	Keke Ming <ming.jvle@gmail.com>
-Subject: Re: [PATCH] irqchip/riscv-aplic: adapt to syscore API passing context data
-Date: Fri,  2 Jan 2026 17:37:41 +0800
-Message-ID: <20260102093744.66053-1-ming.jvle@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <6eafdd754222e11a43be4bbc3652f7605d47afa6.1766559840.git.sanjayembeddedse@gmail.com>
-References: <6eafdd754222e11a43be4bbc3652f7605d47afa6.1766559840.git.sanjayembeddedse@gmail.com>
+	Fri, 02 Jan 2026 11:01:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 84CC5432F8;
+	Fri,  2 Jan 2026 11:01:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5913C16AAE;
+	Fri,  2 Jan 2026 11:01:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767351678;
+	bh=MwKJwpnCxjSn8BMhS1akxq/00lr/MQbNFr63/39YNgU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=e7lh3g6ahEyHGXjbaXZexuZsffnHf0OXeZgyWbcXOnlC+RuGon9px64K6XqfkOVPR
+	 Xi1sM1UqqSlMgOPVL2M3rRdSMTHYpWRZav8npIyjLMrjm9CjZF2w1MXgzNKYHECNEg
+	 34eqZelSzMk5zXpaHqzOeGjukT81I3MU6idWvWGmAXsXEke1w0WQAaG+Fsh9kYWbLj
+	 KuC12x8CeJTd9nM5NU5vHSFdjOoylBJ2ls2+Nhd/k9iw50tc5kvQR0r/JHzCi+5k3v
+	 DeY9UcQ2+9Stp6+4R8T9Kvph336pQKYLUF17Yle/9eiR8CkCvWGLrDfdw6nrlNIqv3
+	 zVNIbvVITwnYQ==
+Date: Fri, 2 Jan 2026 12:01:15 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/4] dt-bindings: pinctrl: spacemit: convert drive
+ strength to schema format
+Message-ID: <20260102-mottled-albatross-of-fame-0e7efe@quoll>
+References: <20260102-02-k3-pinctrl-v3-0-30aa104e2847@gentoo.org>
+ <20260102-02-k3-pinctrl-v3-1-30aa104e2847@gentoo.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260102-02-k3-pinctrl-v3-1-30aa104e2847@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_013834_159139_031400A9 
-X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-CacheID: sfid-20260102_030119_523336_9162F9E7 
+X-CRM114-Status: UNSURE (   8.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,24 +72,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBEZWMgMjQsIDIwMjUgYXQgMTY6NDE6NDYgKzA1MzAsIFNhbmpheSBDaGl0cm9kYSB3
-cm90ZToKPiBUaGUgUklTQy1WIEFQTElDIGRyaXZlciBzdGFydGVkIHByZXNlcnZpbmcgc3RhdGUg
-YWNyb3NzIHN1c3BlbmQvcmVzdW1lLAo+IGJ1dCBpdHMgc3lzY29yZSB1c2FnZSBzdGlsbCBhc3N1
-bWVkIHRoZSBvbGQgQVBJLiBCdWlsZGluZyBhZ2FpbnN0Cj4gbGludXgtbmV4dCBhZnRlciBhOTdm
-YmMzZWUzZTIgZmFpbHMgYmVjYXVzZSB0aGUgY2FsbGJhY2tzIGRvbuKAmXQgcmVjZWl2ZQo+IHRo
-ZSBuZWNlc3NhcnkgZHJpdmVyIGNvbnRleHQuCgpUZXN0ZWQgdGhpcyBvbiByaXNjdjY0IChjcm9z
-cy1jb21waWxlZCBvbiB4ODZfNjQpIHVzaW5nIGxpbnV4LW5leHQgCihuZXh0LTIwMjUxMjE5KS4g
-V2l0aG91dCB0aGlzIHBhdGNoLCB0aGUgYnVpbGQgZmFpbHMgd2l0aDoKCmRyaXZlcnMvaXJxY2hp
-cC9pcnEtcmlzY3YtYXBsaWMtbWFpbi5jOjExMToyMDogZXJyb3I6IGluaXRpYWxpemF0aW9uIG9m
-IArigJhpbnQgKCopKHZvaWQgKinigJkgZnJvbSBpbmNvbXBhdGlibGUgcG9pbnRlciB0eXBlIOKA
-mGludCAoKikodm9pZCnigJkKClRoaXMgcGF0Y2ggY29ycmVjdGx5IGZpeGVzIHRoZSBjb21waWxh
-dGlvbiBlcnJvciBieSB1cGRhdGluZyB0aGUgQVBMSUMgCmRyaXZlciB0byB0aGUgbmV3IHN5c2Nv
-cmUgQVBJLgoKVGVzdGVkLWJ5OiBLZWtlIE1pbmcgPG1pbmcuanZsZUBnbWFpbC5jb20+CgpfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
-YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
-aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, Jan 02, 2026 at 03:00:22PM +0800, Yixun Lan wrote:
+> In order to better extend the pinctrl support for future new SoC, convert
+> drive strength setting from free form text to more standard schema format.
+> 
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> ---
+>  .../devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml     | 12 ++++++++----
+>  1 file changed, 8 insertions(+), 4 deletions(-)
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
