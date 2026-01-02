@@ -4,95 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC702FA3752
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 15:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ADB9FA3728
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 16:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pizJ3W3XDY66cbpSec5YLOU4B4MiuuUL5qwiAFhajYs=; b=OGXdMu5aNkB5pA
-	lbDOHU8iZtdjYOX/8WLhSg8ApwKzmajlq+Ny9sOCFfp+Hs4Jv0R+4wnagdj9k7Y4SN0l10Z3yjzgf
-	D9YVeNSLIseq9vU05uXS5BHF9LZt6ZypkBHjVG90gOueR1ezay9v3dxMcguR7iSLPSkJ68Vy7ZVxY
-	0nys0z31XGI4R4bHZj4+EkmC5lAoGo3/oD1Wt+8lz005mwhT+BBRQ1d1yOhDQMZeHBi0Zu/f3Z5U6
-	DCjnQNpy8fyVY6j57oRAorO2nGxq804uNgMM9z9DAt9KBHILrkB4g7/u5jnS9JVUHlkBllOP2wKq/
-	DLSYLfRPNIZez/fVwWjQ==;
+	List-Owner; bh=Mv3bkYpD3Itsh/lRutje5MMOU2j2nl3Ow+YVHwUq2lw=; b=FxgCMUaS5Vfwga
+	m/tVuHPNLMl46203P91f4qBwNF4wlOq2dV5nUardRHjfbydiSiyPS22FuJ27SQFcAf3Tjr9iMc6kj
+	NPJkkNx01J68StyYSgM/BjM4VbYEBVVfhTwjExyxDsKvG+N3daONe95F4UYjcdUtre94bBI9E8pzF
+	udsoQFWY2bdeAVidhrT1rI097/R7ep3oNgc58WGSPuJE8+8fhVZMbPcTEJZV1yS+kar4lIF/hWQz7
+	yu3aETFerUWlzIdrfrvqZfgnk67J9KFsAP9gN1wYCXWfjZ4EZn0sq1jjI0/SdK/9rPWy0RQmI0YI9
+	qREKYfs+TcvcVTl9AyQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbhIR-00000008Rl5-15PF;
-	Fri, 02 Jan 2026 15:42:35 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1vbiOT-00000008Vu9-0JLV;
+	Fri, 02 Jan 2026 16:52:53 +0000
+Received: from out-182.mta1.migadu.com ([2001:41d0:203:375::b6])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbhIN-00000008RkN-3v4G
+	id 1vbiOP-00000008VfY-3zJS
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jan 2026 15:42:33 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-4f1b1948ffaso83159921cf.2
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Jan 2026 07:42:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1767368551; x=1767973351; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=XUaW410yZnjl46gYHFzLMVokQz6be6dGpRuwVbnPCzc=;
-        b=VBibnT94QGSibn/RjkuxRxVZu1pAoHrSWMsvM+Ix9NThUEb6bIBafRp9DfOjMvYokD
-         LUoZu5d1BiyEOiRDsaMy33EKRr2ECRoI30kAIiQlXy0+HgaiRblHg6/dNCCWl9PcFkkn
-         0VA+FHDAaEjhhx11HGYXDR9WcU2hn0sQ6TAbcPRyqNyvHIujNbry6cBNEfgYE9xjxKw0
-         yoouKFiTbEUf4D2VtpVsZ6SXEXZ8Tz+t1br2QZ59gU+XbWtR8g7UMSEvBiVBJiJHvW82
-         w+D4hEUvcBQr7ahnmVLwv0ynL7XWZUr+0d3RGe2IXAiq/hw7uM2gqbVFP5qGlZcfXkWv
-         KmnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767368551; x=1767973351;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=XUaW410yZnjl46gYHFzLMVokQz6be6dGpRuwVbnPCzc=;
-        b=l0l1irifCr0Fet7jNC4vBcwL9EHqEgC50zf8tWXOaGp4lkAcxnUaxW23z4TgI3QKna
-         qNPebEV1Py35UFY8Umo+DhVVcX0AJVE33O90ppUQ3zjYBEutsXEq0HecFi+TPRs9GQhU
-         2bpCZtCK8j5K6E5AIYCwft2ag10c4D6TrHCmR2eZPSG7jFWefjcGyaJ/HEMSiJGLJmXk
-         NpZ/3InxIfD30WJvz9ThT3nEzllFpY3/Mgz6LOz1saUu7UdTUaM2Yi5BAxPglANVTmWR
-         J4igUu3gVr/8BRUku/G2Ec4cg+/4fWdDfFw27QKix9OBphMtMb9HrOAjqTeGWxHkde9C
-         zrUw==
-X-Forwarded-Encrypted: i=1; AJvYcCW91KvONQTP/5SKkWv7BfsCZEaKYL+TsDySiUfu3uMmO1NNFWQSSuiz6Znrjx9pofIi4D73mCgBsaIR5Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4ZMosE7qIG7ZmJLDi//vrGJMXmNu/LjJKe26Cd87zuR5l5rsI
-	aJsf6ktaxiWbsYQGYXZ7m9aVtH+qCS9WD4EOri646GJL2LDbFrGnwT0e8kAekAc5I3c=
-X-Gm-Gg: AY/fxX5GJGLBxsBiXMftBj3zmlSTDxvVW7QeP1REA0U0Dg1XiVLRfV4AxXsZ33qaOkE
-	wAUudQ0TayD8h9xVGmJDLvJ1pKTDtG5Km0cX/AoQ5m/Z3doak+czKKgxODhxI9a6V7Ep6/B9iLj
-	Qnxi/BofKljgXwWz+nopVyMStXCKdPpmyYo/TsNkZlc1Ev6nehkq0v7DbnMHQhbx5tqsMmtvMwu
-	nvueYtfufAbV8UYg0fJqx87HRDzeZmk6DtHhgAwMHKuQ6U5LEctWATNGIQtTlkFMC8GWyaVWB9Z
-	NGYpO1W4OjhZ48KYdDHOqcBAkzZdZ3iYoE3q2qD6SRg/WnPpeFZHdTVrcewCf+JSG2ea2UB20zp
-	zAOT3d8QSjS1pqMUvjXa5ScoQaRVt9opZhTwMzxO7ouC+ij2ua60P1UiGNqf/aF3MIz5v+X3C0I
-	yxj7AEeeCuuJ2bMluexAJv1VUUY0v4O8HBH6Czcjqai1PYOQKsGlU=
-X-Google-Smtp-Source: AGHT+IHtEl+Nsh7Sudx4gNAqVHpF5lV6u1SdMvxxbZdekk0b4Vk5JFG+dPcCu/VVDnvDpxsq/g1ikQ==
-X-Received: by 2002:ac8:6044:0:b0:4f4:c150:7d1c with SMTP id d75a77b69052e-4f4c3ebfe26mr437680291cf.53.1767368550594;
-        Fri, 02 Jan 2026 07:42:30 -0800 (PST)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88d997aeff4sm326161116d6.29.2026.01.02.07.42.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 02 Jan 2026 07:42:30 -0800 (PST)
-Message-ID: <8241a2a0-62e6-4708-8cf6-58d0a59476ff@riscstar.com>
-Date: Fri, 2 Jan 2026 09:42:28 -0600
+	Fri, 02 Jan 2026 16:52:51 +0000
+Date: Fri, 2 Jan 2026 16:50:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1767372635;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/IOX7hPDsgsT0UBaOJ1o9DdM2zakUCXvebaEol31d18=;
+	b=Lac3KFn91xbpaVlEotQmFSPHR+uy6HSU3teRI3ycjKU7EVBSmWNCaBIP6QUIDb3AuwtjLd
+	qoeR2LjrDQE5ZhehtFAqz1eelPn+5Gyp0VDOi4E4hCtejdvfeKUXIbl7wKsayuvPtxzkSR
+	5Z+U0FOQlNdJFZpIMA57L8rJpRZQVA4=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yosry Ahmed <yosry.ahmed@linux.dev>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 06/21] KVM: selftests: Add "struct kvm_mmu" to track a
+ given MMU instance
+Message-ID: <nctpddfljuifypbfgj4vwl46t6yeq7wpcmkrf3jfivk6w45yp6@ms3zlex6xu2b>
+References: <20251230230150.4150236-1-seanjc@google.com>
+ <20251230230150.4150236-7-seanjc@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] reset: spacemit: fix auxiliary device id
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Guodong Xu <guodong@riscstar.com>,
- Inochi Amaoto <inochiama@gmail.com>, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev
-References: <20251226-06-k1-clk-common-v2-0-28b59418b4df@gentoo.org>
- <20251226-06-k1-clk-common-v2-3-28b59418b4df@gentoo.org>
- <546ab443-d0b1-4f21-856c-c74e84511d06@riscstar.com>
- <20251231020951-GYA2019108@gentoo.org>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20251231020951-GYA2019108@gentoo.org>
+Content-Disposition: inline
+In-Reply-To: <20251230230150.4150236-7-seanjc@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_074232_234414_FBE03D88 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20260102_085250_278293_0D91C6F4 
+X-CRM114-Status: GOOD (  27.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,69 +72,658 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/30/25 8:09 PM, Yixun Lan wrote:
-> Hi Alex,
+On Tue, Dec 30, 2025 at 03:01:35PM -0800, Sean Christopherson wrote:
+> Add a "struct kvm_mmu" to track a given MMU instance, e.g. a VM's stage-1
+> MMU versus a VM's stage-2 MMU, so that x86 can share MMU functionality for
+> both stage-1 and stage-2 MMUs, without creating the potential for subtle
+> bugs, e.g. due to consuming on vm->pgtable_levels when operating a stage-2
+> MMU.
 > 
-> On 18:50 Mon 29 Dec     , Alex Elder wrote:
->> On 12/26/25 12:55 AM, Yixun Lan wrote:
->>> Due to the auxiliary register procedure moved to ccu common module,
->>> the auxiliary device id need to be adjusted, otherwise reset driver
->>> will fail to probe.
->>>
->>> Signed-off-by: Yixun Lan <dlan@gentoo.org>
->>> ---
->>>    drivers/reset/reset-spacemit.c | 2 +-
->>>    1 file changed, 1 insertion(+), 1 deletion(-)
->>>
->>> diff --git a/drivers/reset/reset-spacemit.c b/drivers/reset/reset-spacemit.c
->>> index e1272aff28f7..8922e14fa836 100644
->>> --- a/drivers/reset/reset-spacemit.c
->>> +++ b/drivers/reset/reset-spacemit.c
->>> @@ -278,7 +278,7 @@ static int spacemit_reset_probe(struct auxiliary_device *adev,
->>>    
->>>    #define K1_AUX_DEV_ID(_unit) \
->>>    	{ \
->>> -		.name = "spacemit_ccu_k1." #_unit "-reset", \
->>> +		.name = "spacemit_ccu." _K_RST(_unit), \
->>>    		.driver_data = (kernel_ulong_t)&k1_ ## _unit ## _reset_data, \
->>>    	}
->>
->> The above macro is named K1_AUX_DEV_ID().  Why don't you
->> define K3_AUX_DEV_ID(), which could use "k3" in its name?
->>
-> that should also works, the idea of using same macro '_K_RST()' here
-> is trying to explictly tell users the clock and reset shares same name
-
-You mean like "spacemit,k1-syscon-mpmu" is used, and you'd rather
-name the reset "spacemit.k1-mpmu-reset" because it sort of matches
-a little better than "spacemit_ccu_k1.mpmu-reset"?
-
-Anyway, when K1_AUX_DEV_ID() was defined, it was named that way
-to suggest a pattern that would mean K3_AUX_DEV_ID() would also
-be defined.
-
-I don't really care where the "k1"/"k3" goes, before or after the
-period.  But I think the "k1" could be encoded explicitly here
-rather than doing it with _K_RST() (i.e., don't even use a macro).
-
-					-Alex
+> Encapsulate the existing de facto MMU in "struct kvm_vm", e.g instead of
+> burying the MMU details in "struct kvm_vm_arch", to avoid more #ifdefs in
+> ____vm_create(), and in the hopes that other architectures can utilize the
+> formalized MMU structure if/when they too support stage-2 page tables.
 > 
->> Anyway, if you go this route I suggest you drop "K1_" from the
->> name of this macro.
->>
-> or could further refactor the code, to make K1/K3 drivers share same macro
+> No functional change intended.
 > 
-> anyway I don't want to change this patch, my goal here is tring to fix
-> reset driver after clock common driver refactored plus the modularization
-> introduced, it's more proper to leave those refactor work up to Guodong,
-> since he did a lot adjustment to add reset support for K3 SoC
-> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
+Reviewed-by: Yosry Ahmed <yosry.ahmed@linux.dev>
+
+> ---
+>  .../testing/selftests/kvm/include/kvm_util.h  | 11 ++++--
+>  .../selftests/kvm/lib/arm64/processor.c       | 38 +++++++++----------
+>  tools/testing/selftests/kvm/lib/kvm_util.c    | 28 +++++++-------
+>  .../selftests/kvm/lib/loongarch/processor.c   | 28 +++++++-------
+>  .../selftests/kvm/lib/riscv/processor.c       | 31 +++++++--------
+>  .../selftests/kvm/lib/s390/processor.c        | 16 ++++----
+>  .../testing/selftests/kvm/lib/x86/processor.c | 28 +++++++-------
+>  .../kvm/x86/vmx_nested_la57_state_test.c      |  2 +-
+>  8 files changed, 94 insertions(+), 88 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+> index 81f4355ff28a..39558c05c0bf 100644
+> --- a/tools/testing/selftests/kvm/include/kvm_util.h
+> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
+> @@ -88,12 +88,17 @@ enum kvm_mem_region_type {
+>  	NR_MEM_REGIONS,
+>  };
+>  
+> +struct kvm_mmu {
+> +	bool pgd_created;
+> +	uint64_t pgd;
+> +	int pgtable_levels;
+> +};
+> +
+>  struct kvm_vm {
+>  	int mode;
+>  	unsigned long type;
+>  	int kvm_fd;
+>  	int fd;
+> -	unsigned int pgtable_levels;
+>  	unsigned int page_size;
+>  	unsigned int page_shift;
+>  	unsigned int pa_bits;
+> @@ -104,13 +109,13 @@ struct kvm_vm {
+>  	struct sparsebit *vpages_valid;
+>  	struct sparsebit *vpages_mapped;
+>  	bool has_irqchip;
+> -	bool pgd_created;
+>  	vm_paddr_t ucall_mmio_addr;
+> -	vm_paddr_t pgd;
+>  	vm_vaddr_t handlers;
+>  	uint32_t dirty_ring_size;
+>  	uint64_t gpa_tag_mask;
+>  
+> +	struct kvm_mmu mmu;
+> +
+>  	struct kvm_vm_arch arch;
+>  
+>  	struct kvm_binary_stats stats;
+> diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
+> index d46e4b13b92c..c40f59d48311 100644
+> --- a/tools/testing/selftests/kvm/lib/arm64/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
+> @@ -28,7 +28,7 @@ static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
+>  
+>  static uint64_t pgd_index(struct kvm_vm *vm, vm_vaddr_t gva)
+>  {
+> -	unsigned int shift = (vm->pgtable_levels - 1) * (vm->page_shift - 3) + vm->page_shift;
+> +	unsigned int shift = (vm->mmu.pgtable_levels - 1) * (vm->page_shift - 3) + vm->page_shift;
+>  	uint64_t mask = (1UL << (vm->va_bits - shift)) - 1;
+>  
+>  	return (gva >> shift) & mask;
+> @@ -39,7 +39,7 @@ static uint64_t pud_index(struct kvm_vm *vm, vm_vaddr_t gva)
+>  	unsigned int shift = 2 * (vm->page_shift - 3) + vm->page_shift;
+>  	uint64_t mask = (1UL << (vm->page_shift - 3)) - 1;
+>  
+> -	TEST_ASSERT(vm->pgtable_levels == 4,
+> +	TEST_ASSERT(vm->mmu.pgtable_levels == 4,
+>  		"Mode %d does not have 4 page table levels", vm->mode);
+>  
+>  	return (gva >> shift) & mask;
+> @@ -50,7 +50,7 @@ static uint64_t pmd_index(struct kvm_vm *vm, vm_vaddr_t gva)
+>  	unsigned int shift = (vm->page_shift - 3) + vm->page_shift;
+>  	uint64_t mask = (1UL << (vm->page_shift - 3)) - 1;
+>  
+> -	TEST_ASSERT(vm->pgtable_levels >= 3,
+> +	TEST_ASSERT(vm->mmu.pgtable_levels >= 3,
+>  		"Mode %d does not have >= 3 page table levels", vm->mode);
+>  
+>  	return (gva >> shift) & mask;
+> @@ -104,7 +104,7 @@ static uint64_t pte_addr(struct kvm_vm *vm, uint64_t pte)
+>  
+>  static uint64_t ptrs_per_pgd(struct kvm_vm *vm)
+>  {
+> -	unsigned int shift = (vm->pgtable_levels - 1) * (vm->page_shift - 3) + vm->page_shift;
+> +	unsigned int shift = (vm->mmu.pgtable_levels - 1) * (vm->page_shift - 3) + vm->page_shift;
+>  	return 1 << (vm->va_bits - shift);
+>  }
+>  
+> @@ -117,13 +117,13 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
+>  {
+>  	size_t nr_pages = page_align(vm, ptrs_per_pgd(vm) * 8) / vm->page_size;
+>  
+> -	if (vm->pgd_created)
+> +	if (vm->mmu.pgd_created)
+>  		return;
+>  
+> -	vm->pgd = vm_phy_pages_alloc(vm, nr_pages,
+> -				     KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+> -				     vm->memslots[MEM_REGION_PT]);
+> -	vm->pgd_created = true;
+> +	vm->mmu.pgd = vm_phy_pages_alloc(vm, nr_pages,
+> +					 KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+> +					 vm->memslots[MEM_REGION_PT]);
+> +	vm->mmu.pgd_created = true;
+>  }
+>  
+>  static void _virt_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr,
+> @@ -147,12 +147,12 @@ static void _virt_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr,
+>  		"  paddr: 0x%lx vm->max_gfn: 0x%lx vm->page_size: 0x%x",
+>  		paddr, vm->max_gfn, vm->page_size);
+>  
+> -	ptep = addr_gpa2hva(vm, vm->pgd) + pgd_index(vm, vaddr) * 8;
+> +	ptep = addr_gpa2hva(vm, vm->mmu.pgd) + pgd_index(vm, vaddr) * 8;
+>  	if (!*ptep)
+>  		*ptep = addr_pte(vm, vm_alloc_page_table(vm),
+>  				 PGD_TYPE_TABLE | PTE_VALID);
+>  
+> -	switch (vm->pgtable_levels) {
+> +	switch (vm->mmu.pgtable_levels) {
+>  	case 4:
+>  		ptep = addr_gpa2hva(vm, pte_addr(vm, *ptep)) + pud_index(vm, vaddr) * 8;
+>  		if (!*ptep)
+> @@ -190,16 +190,16 @@ uint64_t *virt_get_pte_hva_at_level(struct kvm_vm *vm, vm_vaddr_t gva, int level
+>  {
+>  	uint64_t *ptep;
+>  
+> -	if (!vm->pgd_created)
+> +	if (!vm->mmu.pgd_created)
+>  		goto unmapped_gva;
+>  
+> -	ptep = addr_gpa2hva(vm, vm->pgd) + pgd_index(vm, gva) * 8;
+> +	ptep = addr_gpa2hva(vm, vm->mmu.pgd) + pgd_index(vm, gva) * 8;
+>  	if (!ptep)
+>  		goto unmapped_gva;
+>  	if (level == 0)
+>  		return ptep;
+>  
+> -	switch (vm->pgtable_levels) {
+> +	switch (vm->mmu.pgtable_levels) {
+>  	case 4:
+>  		ptep = addr_gpa2hva(vm, pte_addr(vm, *ptep)) + pud_index(vm, gva) * 8;
+>  		if (!ptep)
+> @@ -263,13 +263,13 @@ static void pte_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent, uint64_t p
+>  
+>  void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
+>  {
+> -	int level = 4 - (vm->pgtable_levels - 1);
+> +	int level = 4 - (vm->mmu.pgtable_levels - 1);
+>  	uint64_t pgd, *ptep;
+>  
+> -	if (!vm->pgd_created)
+> +	if (!vm->mmu.pgd_created)
+>  		return;
+>  
+> -	for (pgd = vm->pgd; pgd < vm->pgd + ptrs_per_pgd(vm) * 8; pgd += 8) {
+> +	for (pgd = vm->mmu.pgd; pgd < vm->mmu.pgd + ptrs_per_pgd(vm) * 8; pgd += 8) {
+>  		ptep = addr_gpa2hva(vm, pgd);
+>  		if (!*ptep)
+>  			continue;
+> @@ -350,7 +350,7 @@ void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
+>  		TEST_FAIL("Unknown guest mode, mode: 0x%x", vm->mode);
+>  	}
+>  
+> -	ttbr0_el1 = vm->pgd & GENMASK(47, vm->page_shift);
+> +	ttbr0_el1 = vm->mmu.pgd & GENMASK(47, vm->page_shift);
+>  
+>  	/* Configure output size */
+>  	switch (vm->mode) {
+> @@ -358,7 +358,7 @@ void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
+>  	case VM_MODE_P52V48_16K:
+>  	case VM_MODE_P52V48_64K:
+>  		tcr_el1 |= TCR_IPS_52_BITS;
+> -		ttbr0_el1 |= FIELD_GET(GENMASK(51, 48), vm->pgd) << 2;
+> +		ttbr0_el1 |= FIELD_GET(GENMASK(51, 48), vm->mmu.pgd) << 2;
+>  		break;
+>  	case VM_MODE_P48V48_4K:
+>  	case VM_MODE_P48V48_16K:
+> diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+> index 8279b6ced8d2..65752daeed90 100644
+> --- a/tools/testing/selftests/kvm/lib/kvm_util.c
+> +++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+> @@ -281,34 +281,34 @@ struct kvm_vm *____vm_create(struct vm_shape shape)
+>  	/* Setup mode specific traits. */
+>  	switch (vm->mode) {
+>  	case VM_MODE_P52V48_4K:
+> -		vm->pgtable_levels = 4;
+> +		vm->mmu.pgtable_levels = 4;
+>  		break;
+>  	case VM_MODE_P52V48_64K:
+> -		vm->pgtable_levels = 3;
+> +		vm->mmu.pgtable_levels = 3;
+>  		break;
+>  	case VM_MODE_P48V48_4K:
+> -		vm->pgtable_levels = 4;
+> +		vm->mmu.pgtable_levels = 4;
+>  		break;
+>  	case VM_MODE_P48V48_64K:
+> -		vm->pgtable_levels = 3;
+> +		vm->mmu.pgtable_levels = 3;
+>  		break;
+>  	case VM_MODE_P40V48_4K:
+>  	case VM_MODE_P36V48_4K:
+> -		vm->pgtable_levels = 4;
+> +		vm->mmu.pgtable_levels = 4;
+>  		break;
+>  	case VM_MODE_P40V48_64K:
+>  	case VM_MODE_P36V48_64K:
+> -		vm->pgtable_levels = 3;
+> +		vm->mmu.pgtable_levels = 3;
+>  		break;
+>  	case VM_MODE_P52V48_16K:
+>  	case VM_MODE_P48V48_16K:
+>  	case VM_MODE_P40V48_16K:
+>  	case VM_MODE_P36V48_16K:
+> -		vm->pgtable_levels = 4;
+> +		vm->mmu.pgtable_levels = 4;
+>  		break;
+>  	case VM_MODE_P47V47_16K:
+>  	case VM_MODE_P36V47_16K:
+> -		vm->pgtable_levels = 3;
+> +		vm->mmu.pgtable_levels = 3;
+>  		break;
+>  	case VM_MODE_PXXVYY_4K:
+>  #ifdef __x86_64__
+> @@ -321,22 +321,22 @@ struct kvm_vm *____vm_create(struct vm_shape shape)
+>  			 vm->va_bits);
+>  
+>  		if (vm->va_bits == 57) {
+> -			vm->pgtable_levels = 5;
+> +			vm->mmu.pgtable_levels = 5;
+>  		} else {
+>  			TEST_ASSERT(vm->va_bits == 48,
+>  				    "Unexpected guest virtual address width: %d",
+>  				    vm->va_bits);
+> -			vm->pgtable_levels = 4;
+> +			vm->mmu.pgtable_levels = 4;
+>  		}
+>  #else
+>  		TEST_FAIL("VM_MODE_PXXVYY_4K not supported on non-x86 platforms");
+>  #endif
+>  		break;
+>  	case VM_MODE_P47V64_4K:
+> -		vm->pgtable_levels = 5;
+> +		vm->mmu.pgtable_levels = 5;
+>  		break;
+>  	case VM_MODE_P44V64_4K:
+> -		vm->pgtable_levels = 5;
+> +		vm->mmu.pgtable_levels = 5;
+>  		break;
+>  	default:
+>  		TEST_FAIL("Unknown guest mode: 0x%x", vm->mode);
+> @@ -1956,8 +1956,8 @@ void vm_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
+>  	fprintf(stream, "%*sMapped Virtual Pages:\n", indent, "");
+>  	sparsebit_dump(stream, vm->vpages_mapped, indent + 2);
+>  	fprintf(stream, "%*spgd_created: %u\n", indent, "",
+> -		vm->pgd_created);
+> -	if (vm->pgd_created) {
+> +		vm->mmu.pgd_created);
+> +	if (vm->mmu.pgd_created) {
+>  		fprintf(stream, "%*sVirtual Translation Tables:\n",
+>  			indent + 2, "");
+>  		virt_dump(stream, vm, indent + 4);
+> diff --git a/tools/testing/selftests/kvm/lib/loongarch/processor.c b/tools/testing/selftests/kvm/lib/loongarch/processor.c
+> index 07c103369ddb..17aa55a2047a 100644
+> --- a/tools/testing/selftests/kvm/lib/loongarch/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/loongarch/processor.c
+> @@ -50,11 +50,11 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
+>  	int i;
+>  	vm_paddr_t child, table;
+>  
+> -	if (vm->pgd_created)
+> +	if (vm->mmu.pgd_created)
+>  		return;
+>  
+>  	child = table = 0;
+> -	for (i = 0; i < vm->pgtable_levels; i++) {
+> +	for (i = 0; i < vm->mmu.pgtable_levels; i++) {
+>  		invalid_pgtable[i] = child;
+>  		table = vm_phy_page_alloc(vm, LOONGARCH_PAGE_TABLE_PHYS_MIN,
+>  				vm->memslots[MEM_REGION_PT]);
+> @@ -62,8 +62,8 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
+>  		virt_set_pgtable(vm, table, child);
+>  		child = table;
+>  	}
+> -	vm->pgd = table;
+> -	vm->pgd_created = true;
+> +	vm->mmu.pgd = table;
+> +	vm->mmu.pgd_created = true;
+>  }
+>  
+>  static int virt_pte_none(uint64_t *ptep, int level)
+> @@ -77,11 +77,11 @@ static uint64_t *virt_populate_pte(struct kvm_vm *vm, vm_vaddr_t gva, int alloc)
+>  	uint64_t *ptep;
+>  	vm_paddr_t child;
+>  
+> -	if (!vm->pgd_created)
+> +	if (!vm->mmu.pgd_created)
+>  		goto unmapped_gva;
+>  
+> -	child = vm->pgd;
+> -	level = vm->pgtable_levels - 1;
+> +	child = vm->mmu.pgd;
+> +	level = vm->mmu.pgtable_levels - 1;
+>  	while (level > 0) {
+>  		ptep = addr_gpa2hva(vm, child) + virt_pte_index(vm, gva, level) * 8;
+>  		if (virt_pte_none(ptep, level)) {
+> @@ -161,11 +161,11 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
+>  {
+>  	int level;
+>  
+> -	if (!vm->pgd_created)
+> +	if (!vm->mmu.pgd_created)
+>  		return;
+>  
+> -	level = vm->pgtable_levels - 1;
+> -	pte_dump(stream, vm, indent, vm->pgd, level);
+> +	level = vm->mmu.pgtable_levels - 1;
+> +	pte_dump(stream, vm, indent, vm->mmu.pgd, level);
+>  }
+>  
+>  void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu, uint8_t indent)
+> @@ -297,7 +297,7 @@ static void loongarch_vcpu_setup(struct kvm_vcpu *vcpu)
+>  
+>  	width = vm->page_shift - 3;
+>  
+> -	switch (vm->pgtable_levels) {
+> +	switch (vm->mmu.pgtable_levels) {
+>  	case 4:
+>  		/* pud page shift and width */
+>  		val = (vm->page_shift + width * 2) << 20 | (width << 25);
+> @@ -309,15 +309,15 @@ static void loongarch_vcpu_setup(struct kvm_vcpu *vcpu)
+>  		val |= vm->page_shift | width << 5;
+>  		break;
+>  	default:
+> -		TEST_FAIL("Got %u page table levels, expected 3 or 4", vm->pgtable_levels);
+> +		TEST_FAIL("Got %u page table levels, expected 3 or 4", vm->mmu.pgtable_levels);
+>  	}
+>  
+>  	loongarch_set_csr(vcpu, LOONGARCH_CSR_PWCTL0, val);
+>  
+>  	/* PGD page shift and width */
+> -	val = (vm->page_shift + width * (vm->pgtable_levels - 1)) | width << 6;
+> +	val = (vm->page_shift + width * (vm->mmu.pgtable_levels - 1)) | width << 6;
+>  	loongarch_set_csr(vcpu, LOONGARCH_CSR_PWCTL1, val);
+> -	loongarch_set_csr(vcpu, LOONGARCH_CSR_PGDL, vm->pgd);
+> +	loongarch_set_csr(vcpu, LOONGARCH_CSR_PGDL, vm->mmu.pgd);
+>  
+>  	/*
+>  	 * Refill exception runs on real mode
+> diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
+> index 2eac7d4b59e9..e6ec7c224fc3 100644
+> --- a/tools/testing/selftests/kvm/lib/riscv/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
+> @@ -60,7 +60,7 @@ static uint64_t pte_index(struct kvm_vm *vm, vm_vaddr_t gva, int level)
+>  {
+>  	TEST_ASSERT(level > -1,
+>  		"Negative page table level (%d) not possible", level);
+> -	TEST_ASSERT(level < vm->pgtable_levels,
+> +	TEST_ASSERT(level < vm->mmu.pgtable_levels,
+>  		"Invalid page table level (%d)", level);
+>  
+>  	return (gva & pte_index_mask[level]) >> pte_index_shift[level];
+> @@ -70,19 +70,19 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
+>  {
+>  	size_t nr_pages = page_align(vm, ptrs_per_pte(vm) * 8) / vm->page_size;
+>  
+> -	if (vm->pgd_created)
+> +	if (vm->mmu.pgd_created)
+>  		return;
+>  
+> -	vm->pgd = vm_phy_pages_alloc(vm, nr_pages,
+> -				     KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+> -				     vm->memslots[MEM_REGION_PT]);
+> -	vm->pgd_created = true;
+> +	vm->mmu.pgd = vm_phy_pages_alloc(vm, nr_pages,
+> +					 KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+> +					 vm->memslots[MEM_REGION_PT]);
+> +	vm->mmu.pgd_created = true;
+>  }
+>  
+>  void virt_arch_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr)
+>  {
+>  	uint64_t *ptep, next_ppn;
+> -	int level = vm->pgtable_levels - 1;
+> +	int level = vm->mmu.pgtable_levels - 1;
+>  
+>  	TEST_ASSERT((vaddr % vm->page_size) == 0,
+>  		"Virtual address not on page boundary,\n"
+> @@ -98,7 +98,7 @@ void virt_arch_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr)
+>  		"  paddr: 0x%lx vm->max_gfn: 0x%lx vm->page_size: 0x%x",
+>  		paddr, vm->max_gfn, vm->page_size);
+>  
+> -	ptep = addr_gpa2hva(vm, vm->pgd) + pte_index(vm, vaddr, level) * 8;
+> +	ptep = addr_gpa2hva(vm, vm->mmu.pgd) + pte_index(vm, vaddr, level) * 8;
+>  	if (!*ptep) {
+>  		next_ppn = vm_alloc_page_table(vm) >> PGTBL_PAGE_SIZE_SHIFT;
+>  		*ptep = (next_ppn << PGTBL_PTE_ADDR_SHIFT) |
+> @@ -126,12 +126,12 @@ void virt_arch_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr)
+>  vm_paddr_t addr_arch_gva2gpa(struct kvm_vm *vm, vm_vaddr_t gva)
+>  {
+>  	uint64_t *ptep;
+> -	int level = vm->pgtable_levels - 1;
+> +	int level = vm->mmu.pgtable_levels - 1;
+>  
+> -	if (!vm->pgd_created)
+> +	if (!vm->mmu.pgd_created)
+>  		goto unmapped_gva;
+>  
+> -	ptep = addr_gpa2hva(vm, vm->pgd) + pte_index(vm, gva, level) * 8;
+> +	ptep = addr_gpa2hva(vm, vm->mmu.pgd) + pte_index(vm, gva, level) * 8;
+>  	if (!ptep)
+>  		goto unmapped_gva;
+>  	level--;
+> @@ -176,13 +176,14 @@ static void pte_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent,
+>  
+>  void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
+>  {
+> -	int level = vm->pgtable_levels - 1;
+> +	struct kvm_mmu *mmu = &vm->mmu;
+> +	int level = mmu->pgtable_levels - 1;
+>  	uint64_t pgd, *ptep;
+>  
+> -	if (!vm->pgd_created)
+> +	if (!mmu->pgd_created)
+>  		return;
+>  
+> -	for (pgd = vm->pgd; pgd < vm->pgd + ptrs_per_pte(vm) * 8; pgd += 8) {
+> +	for (pgd = mmu->pgd; pgd < mmu->pgd + ptrs_per_pte(vm) * 8; pgd += 8) {
+>  		ptep = addr_gpa2hva(vm, pgd);
+>  		if (!*ptep)
+>  			continue;
+> @@ -211,7 +212,7 @@ void riscv_vcpu_mmu_setup(struct kvm_vcpu *vcpu)
+>  		TEST_FAIL("Unknown guest mode, mode: 0x%x", vm->mode);
+>  	}
+>  
+> -	satp = (vm->pgd >> PGTBL_PAGE_SIZE_SHIFT) & SATP_PPN;
+> +	satp = (vm->mmu.pgd >> PGTBL_PAGE_SIZE_SHIFT) & SATP_PPN;
+>  	satp |= SATP_MODE_48;
+>  
+>  	vcpu_set_reg(vcpu, RISCV_GENERAL_CSR_REG(satp), satp);
+> diff --git a/tools/testing/selftests/kvm/lib/s390/processor.c b/tools/testing/selftests/kvm/lib/s390/processor.c
+> index 8ceeb17c819a..6a9a660413a7 100644
+> --- a/tools/testing/selftests/kvm/lib/s390/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/s390/processor.c
+> @@ -17,7 +17,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
+>  	TEST_ASSERT(vm->page_size == PAGE_SIZE, "Unsupported page size: 0x%x",
+>  		    vm->page_size);
+>  
+> -	if (vm->pgd_created)
+> +	if (vm->mmu.pgd_created)
+>  		return;
+>  
+>  	paddr = vm_phy_pages_alloc(vm, PAGES_PER_REGION,
+> @@ -25,8 +25,8 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
+>  				   vm->memslots[MEM_REGION_PT]);
+>  	memset(addr_gpa2hva(vm, paddr), 0xff, PAGES_PER_REGION * vm->page_size);
+>  
+> -	vm->pgd = paddr;
+> -	vm->pgd_created = true;
+> +	vm->mmu.pgd = paddr;
+> +	vm->mmu.pgd_created = true;
+>  }
+>  
+>  /*
+> @@ -70,7 +70,7 @@ void virt_arch_pg_map(struct kvm_vm *vm, uint64_t gva, uint64_t gpa)
+>  		gva, vm->max_gfn, vm->page_size);
+>  
+>  	/* Walk through region and segment tables */
+> -	entry = addr_gpa2hva(vm, vm->pgd);
+> +	entry = addr_gpa2hva(vm, vm->mmu.pgd);
+>  	for (ri = 1; ri <= 4; ri++) {
+>  		idx = (gva >> (64 - 11 * ri)) & 0x7ffu;
+>  		if (entry[idx] & REGION_ENTRY_INVALID)
+> @@ -94,7 +94,7 @@ vm_paddr_t addr_arch_gva2gpa(struct kvm_vm *vm, vm_vaddr_t gva)
+>  	TEST_ASSERT(vm->page_size == PAGE_SIZE, "Unsupported page size: 0x%x",
+>  		    vm->page_size);
+>  
+> -	entry = addr_gpa2hva(vm, vm->pgd);
+> +	entry = addr_gpa2hva(vm, vm->mmu.pgd);
+>  	for (ri = 1; ri <= 4; ri++) {
+>  		idx = (gva >> (64 - 11 * ri)) & 0x7ffu;
+>  		TEST_ASSERT(!(entry[idx] & REGION_ENTRY_INVALID),
+> @@ -149,10 +149,10 @@ static void virt_dump_region(FILE *stream, struct kvm_vm *vm, uint8_t indent,
+>  
+>  void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
+>  {
+> -	if (!vm->pgd_created)
+> +	if (!vm->mmu.pgd_created)
+>  		return;
+>  
+> -	virt_dump_region(stream, vm, indent, vm->pgd);
+> +	virt_dump_region(stream, vm, indent, vm->mmu.pgd);
+>  }
+>  
+>  void vcpu_arch_set_entry_point(struct kvm_vcpu *vcpu, void *guest_code)
+> @@ -184,7 +184,7 @@ struct kvm_vcpu *vm_arch_vcpu_add(struct kvm_vm *vm, uint32_t vcpu_id)
+>  
+>  	vcpu_sregs_get(vcpu, &sregs);
+>  	sregs.crs[0] |= 0x00040000;		/* Enable floating point regs */
+> -	sregs.crs[1] = vm->pgd | 0xf;		/* Primary region table */
+> +	sregs.crs[1] = vm->mmu.pgd | 0xf;	/* Primary region table */
+>  	vcpu_sregs_set(vcpu, &sregs);
+>  
+>  	vcpu->run->psw_mask = 0x0400000180000000ULL;  /* DAT enabled + 64 bit mode */
+> diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
+> index c14bf2b5f28f..f027f86d1535 100644
+> --- a/tools/testing/selftests/kvm/lib/x86/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/x86/processor.c
+> @@ -162,9 +162,9 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
+>  		    "Unknown or unsupported guest mode: 0x%x", vm->mode);
+>  
+>  	/* If needed, create the top-level page table. */
+> -	if (!vm->pgd_created) {
+> -		vm->pgd = vm_alloc_page_table(vm);
+> -		vm->pgd_created = true;
+> +	if (!vm->mmu.pgd_created) {
+> +		vm->mmu.pgd = vm_alloc_page_table(vm);
+> +		vm->mmu.pgd_created = true;
+>  	}
+>  }
+>  
+> @@ -175,7 +175,7 @@ static void *virt_get_pte(struct kvm_vm *vm, uint64_t *parent_pte,
+>  	uint64_t *page_table = addr_gpa2hva(vm, pt_gpa);
+>  	int index = (vaddr >> PG_LEVEL_SHIFT(level)) & 0x1ffu;
+>  
+> -	TEST_ASSERT((*parent_pte & PTE_PRESENT_MASK) || parent_pte == &vm->pgd,
+> +	TEST_ASSERT((*parent_pte & PTE_PRESENT_MASK) || parent_pte == &vm->mmu.pgd,
+>  		    "Parent PTE (level %d) not PRESENT for gva: 0x%08lx",
+>  		    level + 1, vaddr);
+>  
+> @@ -218,7 +218,7 @@ static uint64_t *virt_create_upper_pte(struct kvm_vm *vm,
+>  void __virt_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr, int level)
+>  {
+>  	const uint64_t pg_size = PG_LEVEL_SIZE(level);
+> -	uint64_t *pte = &vm->pgd;
+> +	uint64_t *pte = &vm->mmu.pgd;
+>  	int current_level;
+>  
+>  	TEST_ASSERT(vm->mode == VM_MODE_PXXVYY_4K,
+> @@ -243,7 +243,7 @@ void __virt_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr, int level)
+>  	 * Allocate upper level page tables, if not already present.  Return
+>  	 * early if a hugepage was created.
+>  	 */
+> -	for (current_level = vm->pgtable_levels;
+> +	for (current_level = vm->mmu.pgtable_levels;
+>  	     current_level > PG_LEVEL_4K;
+>  	     current_level--) {
+>  		pte = virt_create_upper_pte(vm, pte, vaddr, paddr,
+> @@ -309,14 +309,14 @@ static bool vm_is_target_pte(uint64_t *pte, int *level, int current_level)
+>  static uint64_t *__vm_get_page_table_entry(struct kvm_vm *vm, uint64_t vaddr,
+>  					   int *level)
+>  {
+> -	int va_width = 12 + (vm->pgtable_levels) * 9;
+> -	uint64_t *pte = &vm->pgd;
+> +	int va_width = 12 + (vm->mmu.pgtable_levels) * 9;
+> +	uint64_t *pte = &vm->mmu.pgd;
+>  	int current_level;
+>  
+>  	TEST_ASSERT(!vm->arch.is_pt_protected,
+>  		    "Walking page tables of protected guests is impossible");
+>  
+> -	TEST_ASSERT(*level >= PG_LEVEL_NONE && *level <= vm->pgtable_levels,
+> +	TEST_ASSERT(*level >= PG_LEVEL_NONE && *level <= vm->mmu.pgtable_levels,
+>  		    "Invalid PG_LEVEL_* '%d'", *level);
+>  
+>  	TEST_ASSERT(vm->mode == VM_MODE_PXXVYY_4K,
+> @@ -332,7 +332,7 @@ static uint64_t *__vm_get_page_table_entry(struct kvm_vm *vm, uint64_t vaddr,
+>  		    (((int64_t)vaddr << (64 - va_width) >> (64 - va_width))),
+>  		    "Canonical check failed.  The virtual address is invalid.");
+>  
+> -	for (current_level = vm->pgtable_levels;
+> +	for (current_level = vm->mmu.pgtable_levels;
+>  	     current_level > PG_LEVEL_4K;
+>  	     current_level--) {
+>  		pte = virt_get_pte(vm, pte, vaddr, current_level);
+> @@ -357,7 +357,7 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
+>  	uint64_t *pde, *pde_start;
+>  	uint64_t *pte, *pte_start;
+>  
+> -	if (!vm->pgd_created)
+> +	if (!vm->mmu.pgd_created)
+>  		return;
+>  
+>  	fprintf(stream, "%*s                                          "
+> @@ -365,7 +365,7 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
+>  	fprintf(stream, "%*s      index hvaddr         gpaddr         "
+>  		"addr         w exec dirty\n",
+>  		indent, "");
+> -	pml4e_start = (uint64_t *) addr_gpa2hva(vm, vm->pgd);
+> +	pml4e_start = (uint64_t *) addr_gpa2hva(vm, vm->mmu.pgd);
+>  	for (uint16_t n1 = 0; n1 <= 0x1ffu; n1++) {
+>  		pml4e = &pml4e_start[n1];
+>  		if (!(*pml4e & PTE_PRESENT_MASK))
+> @@ -538,7 +538,7 @@ static void vcpu_init_sregs(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+>  	sregs.cr4 |= X86_CR4_PAE | X86_CR4_OSFXSR;
+>  	if (kvm_cpu_has(X86_FEATURE_XSAVE))
+>  		sregs.cr4 |= X86_CR4_OSXSAVE;
+> -	if (vm->pgtable_levels == 5)
+> +	if (vm->mmu.pgtable_levels == 5)
+>  		sregs.cr4 |= X86_CR4_LA57;
+>  	sregs.efer |= (EFER_LME | EFER_LMA | EFER_NX);
+>  
+> @@ -549,7 +549,7 @@ static void vcpu_init_sregs(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+>  	kvm_seg_set_kernel_data_64bit(&sregs.gs);
+>  	kvm_seg_set_tss_64bit(vm->arch.tss, &sregs.tr);
+>  
+> -	sregs.cr3 = vm->pgd;
+> +	sregs.cr3 = vm->mmu.pgd;
+>  	vcpu_sregs_set(vcpu, &sregs);
+>  }
+>  
+> diff --git a/tools/testing/selftests/kvm/x86/vmx_nested_la57_state_test.c b/tools/testing/selftests/kvm/x86/vmx_nested_la57_state_test.c
+> index cf1d2d1f2a8f..915c42001dba 100644
+> --- a/tools/testing/selftests/kvm/x86/vmx_nested_la57_state_test.c
+> +++ b/tools/testing/selftests/kvm/x86/vmx_nested_la57_state_test.c
+> @@ -90,7 +90,7 @@ int main(int argc, char *argv[])
+>  	 * L1 needs to read its own PML5 table to set up L2. Identity map
+>  	 * the PML5 table to facilitate this.
+>  	 */
+> -	virt_map(vm, vm->pgd, vm->pgd, 1);
+> +	virt_map(vm, vm->mmu.pgd, vm->mmu.pgd, 1);
+>  
+>  	vcpu_alloc_vmx(vm, &vmx_pages_gva);
+>  	vcpu_args_set(vcpu, 1, vmx_pages_gva);
+> -- 
+> 2.52.0.351.gbe84eed79e-goog
+> 
 
 _______________________________________________
 linux-riscv mailing list
