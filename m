@@ -4,76 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DFCFFA3739
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 12:04:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF3FFA3741
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 12:21:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	References:MIME-Version:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=umhyswmOLObkb6lYnyoeFsIxHnHx0ELLUhw+wACqtlc=; b=fh5eiYBUyYr6PG5ivJZ7HU+PqZ
-	6HhneFAGfCGCdgkPVTUSbKytsbUabJ6zVSqcAfxBBhqGJQwZmCAmkmxUq0UJiVDrAaB26WGq9ZXkk
-	JIvZJrX3SX8eXDBTw/4C87mUKkt83+kws14nD3GYutGcEOfsfJMJgTVexbqIVML9ePRipQXcW57ze
-	nG4JhAxExjuupY+Lu0JWAFRgwY4aP9UV8j3qT66VA5ShgNBmMXDk5FB3uo2lPT2olGKPcfc9ELaqw
-	vQRUbQe6fOXwdXD7Vj7KocosjrO7keWdEZcLk2qn+1IQ55H5zLHKPwNpqw/10jLHVtVoFeiA+jWQY
-	jRZLXerA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AFjGO+HvusXCTaxj09jdgfgmJCRwVMHq1N6wNCzOkJ4=; b=Rg4UkW3vHbKBmZ
+	E8VGE6rUHjf1XOAcMxzQfLrdqcVZZi0ikH/8Wk0pK+npRvhdTFKQMOmekKa7btJOokuk9DgeYaCvI
+	AqspKOb3dOOET6Jqfzr46rPvlww17l4TSYUWwerGZ0Z+VEWU6ovBgXJK+k6k+2h2iFlPIQ2gaXl+F
+	xrKIkqiGxYXMfUR0JTtpYq1jLF1OaupHRAYms1SSkkP/0tSDzOUcMGOK7y7KlHHdnuwxcbcDddHpV
+	kA1YCf8FJsjnLzzw8tTc9Z31OAInHeaY1GIZaFkBjFhAmH5C/spw2zTSnqpD4uKYL6bCVbUuEarVm
+	3P3o2xSnlHcy55tolX8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbdtR-00000008AeZ-0Pf9;
-	Fri, 02 Jan 2026 12:04:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vbe9H-00000008BcW-2odS;
+	Fri, 02 Jan 2026 12:20:55 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbdtP-00000008AeQ-2cky
+	id 1vbe9F-00000008Bc5-2uSq
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jan 2026 12:04:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B801260126
-	for <linux-riscv@lists.infradead.org>; Fri,  2 Jan 2026 12:04:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6708FC116C6
-	for <linux-riscv@lists.infradead.org>; Fri,  2 Jan 2026 12:04:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767355470;
-	bh=59k3WvNfbtsHGqp3wrH4jG/zkpNkZY4RPujBPr3N4Ec=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=SfnBg3z6JXiRoZflPmOVGUHFuruFYuiE+zkZrLeS0AEQTeec4jgW+4ZJJziClTTQE
-	 tXZ8fJVnTWbUb/KXHS+l5x8LEQF5LKb9u5iQRQqZgLXMtp7cyTk8GQKj6+Phfmy1wA
-	 2Lx0oLJf4/0Cd//JpD7TwLulUvSEWolWSBZJMFveLSX30K5lfjQ2fIoIVgW/ToD3NX
-	 UMeVez8z4WOgOi7b3n/tFCiRsH0y+xZr3Sap6cH0I+19WMv7KyWW9eJMHjq9Xnr/V4
-	 bVxKz8oG+2sJVFGs1VETgutBH2D8fJlYRWeUwSQpbQPxhBG80r2sYtRPNnntR7wyrf
-	 9DFt5+7ZqJh2A==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-37cd7f9de7cso101092751fa.1
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Jan 2026 04:04:30 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUkjDWiY4eTGu2uICnaCkOcMrH0TMw9TjFC8uNbsJP+OXRZ4V1YgY4mX9lQTWwFEyOxaoxEOU1T627dNQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyi1QaAGVve3Q/Zc33S/4OKrxDRYFko6WbAuPZIhL1ZhYyzN9j3
-	WNSI1VDcik98/TsPU2FRhJO0tR97qSgXnn8kNInqgmOCBrKJTr1SGy3ZGr4Sedex6JHsYk6WPeJ
-	ZYtJKbCDWz/l1XTw5KtKaM8sbb38bG1kr3kmzTxfnAg==
-X-Google-Smtp-Source: AGHT+IFUiX6/gBsxHBbe8XiBBJNLN4AHx3ry+rnXue2rQrXSZAdwUQSv/gaC9bW4w7uNTZPy0KYDhnlDKOZnmPqAmek=
-X-Received: by 2002:a05:651c:241:b0:37a:84e5:a1cc with SMTP id
- 38308e7fff4ca-381216b59b9mr125204291fa.22.1767355469012; Fri, 02 Jan 2026
- 04:04:29 -0800 (PST)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 2 Jan 2026 12:04:27 +0000
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 2 Jan 2026 12:04:27 +0000
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260102113643-GYA2060252@gentoo.org>
-MIME-Version: 1.0
-References: <20251229-02-k3-gpio-v1-0-269e76785abb@gentoo.org>
- <20251229-02-k3-gpio-v1-2-269e76785abb@gentoo.org> <CAMRc=MfHzP+xm-uX+jad5gPOGDpR23O6mB+xcSvF6ZiZfnxQjg@mail.gmail.com>
- <20260102113643-GYA2060252@gentoo.org>
-Date: Fri, 2 Jan 2026 12:04:27 +0000
-X-Gmail-Original-Message-ID: <CAMRc=MeHbod4CaUX7aff_guK531dwyoYhqPOP0rP=i9ydAKmmg@mail.gmail.com>
-X-Gm-Features: AQt7F2rbDr8PJDI60jTnbkM-CN_H7pZqQh59NrJ8eglG_7JODhy0DFRdFCZvpcI
-Message-ID: <CAMRc=MeHbod4CaUX7aff_guK531dwyoYhqPOP0rP=i9ydAKmmg@mail.gmail.com>
+	Fri, 02 Jan 2026 12:20:54 +0000
+Received: from localhost (unknown [116.232.18.222])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id D5F8D341291;
+	Fri, 02 Jan 2026 12:20:50 +0000 (UTC)
+Date: Fri, 2 Jan 2026 20:20:45 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
 Subject: Re: [PATCH 2/2] gpio: spacemit: Add GPIO support for K3 SoC
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Bartosz Golaszewski <brgl@kernel.org>
+Message-ID: <20260102122045-GYA2060493@gentoo.org>
+References: <20251229-02-k3-gpio-v1-0-269e76785abb@gentoo.org>
+ <20251229-02-k3-gpio-v1-2-269e76785abb@gentoo.org>
+ <CAMRc=MfHzP+xm-uX+jad5gPOGDpR23O6mB+xcSvF6ZiZfnxQjg@mail.gmail.com>
+ <20260102113643-GYA2060252@gentoo.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260102113643-GYA2060252@gentoo.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260102_042053_755193_78A58FC7 
+X-CRM114-Status: GOOD (  23.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,52 +65,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2 Jan 2026 12:36:43 +0100, Yixun Lan <dlan@gentoo.org> said:
->
->> >  static u32 spacemit_gpio_bank_index(struct spacemit_gpio_bank *gb)
->> >  {
->> >         return (u32)(gb - gb->sg->sgb);
->> > @@ -60,13 +70,14 @@ static u32 spacemit_gpio_bank_index(struct spacemit_gpio_bank *gb)
->> >  static irqreturn_t spacemit_gpio_irq_handler(int irq, void *dev_id)
->> >  {
->> >         struct spacemit_gpio_bank *gb = dev_id;
->> > +       struct spacemit_gpio *sg = gb->sg;
->> >         unsigned long pending;
->> >         u32 n, gedr;
->> >
->> > -       gedr = readl(gb->base + SPACEMIT_GEDR);
->> > +       gedr = readl(gb->base + to_spacemit_gpio_regs(sg)->gedr);
->>
->> Since you're already touching all these register accesses - can you
->> maybe provide dedicated wrapper functions around readl()/writel() and
->> avoid any file-wide changes in the future if anything requires further
->> modification?
->>
-> can you elaborate a bit further on this?
-> I don't get how a wrapper helper could help to avoid file-wide changes..
->
-
-Just create functions called "spacemit_gpio_read/write()" that wrap the
-readl()/writel() and its arguments.
-
-Like:
-
-static u32 spacemit_gpio_read(struct spacemit_gpio_bank *gb, unsigned long reg)
-{
-	return readl(gb->base + func_to_convert_reg_enum_to_offset(reg));
-}
-
-Looks cleaner at call sites even if it's a bit more complex. Just create an
-array mapping the register enum to offset and assign it to platform data.
-
-Bart
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgYmFydCwKCk9uIDE5OjM2IEZyaSAwMiBKYW4gICAgICwgWWl4dW4gTGFuIHdyb3RlOgo+IEhp
+IEJhcnQsCj4gCj4gT24gMTI6MTAgRnJpIDAyIEphbiAgICAgLCBCYXJ0b3N6IEdvbGFzemV3c2tp
+IHdyb3RlOgo+ID4gT24gTW9uLCBEZWMgMjksIDIwMjUgYXQgMTo0N+KAr1BNIFlpeHVuIExhbiA8
+ZGxhbkBnZW50b28ub3JnPiB3cm90ZToKPiA+ID4KPiA+ID4gU3BhY2VtaVQgSzMgU29DIGhhcyBj
+aGFuZ2VkIGdwaW8gcmVnaXN0ZXIgbGF5b3V0IHdoaWxlIGNvbXBhcmluZwo+ID4gPiB3aXRoIHBy
+ZXZpb3VzIGdlbmVyYXRpb24sIHRoZSByZWdpc3RlciBvZmZzZXQgYW5kIGJhbmsgb2Zmc2V0Cj4g
+PiA+IG5lZWQgdG8gYmUgYWRqdXN0ZWQsIGludHJvZHVjZSBhIGNvbXBhdGlibGUgZGF0YSB0byBl
+eHRlbmQgdGhlCj4gPiA+IGRyaXZlciB0byBzdXBwb3J0IHRoaXMuCj4gPiA+Cj4gPiA+IFNpZ25l
+ZC1vZmYtYnk6IFlpeHVuIExhbiA8ZGxhbkBnZW50b28ub3JnPgo+ID4gPiAtLS0KPiA+ID4gIGRy
+aXZlcnMvZ3Bpby9ncGlvLXNwYWNlbWl0LWsxLmMgfCAxNTAgKysrKysrKysrKysrKysrKysrKysr
+KysrKysrKy0tLS0tLS0tLS0tLQo+ID4gPiAgMSBmaWxlIGNoYW5nZWQsIDEwNiBpbnNlcnRpb25z
+KCspLCA0NCBkZWxldGlvbnMoLSkKPiA+ID4KPiA+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3Bp
+by9ncGlvLXNwYWNlbWl0LWsxLmMgYi9kcml2ZXJzL2dwaW8vZ3Bpby1zcGFjZW1pdC1rMS5jCj4g
+PiA+IGluZGV4IGViNjZhMTVjMDAyZi4uMDJjYzVjMTFiNjE3IDEwMDY0NAo+ID4gPiAtLS0gYS9k
+cml2ZXJzL2dwaW8vZ3Bpby1zcGFjZW1pdC1rMS5jCj4gPiA+ICsrKyBiL2RyaXZlcnMvZ3Bpby9n
+cGlvLXNwYWNlbWl0LWsxLmMKPiA+ID4gQEAgLTE1LDI4ICsxNSwxOSBAQAo+ID4gPiAgI2luY2x1
+ZGUgPGxpbnV4L3BsYXRmb3JtX2RldmljZS5oPgo+ID4gPiAgI2luY2x1ZGUgPGxpbnV4L3NlcV9m
+aWxlLmg+Cj4gPiA+CltzbmlwXS4uLgo+ID4gPiAgc3RhdGljIHUzMiBzcGFjZW1pdF9ncGlvX2Jh
+bmtfaW5kZXgoc3RydWN0IHNwYWNlbWl0X2dwaW9fYmFuayAqZ2IpCj4gPiA+ICB7Cj4gPiA+ICAg
+ICAgICAgcmV0dXJuICh1MzIpKGdiIC0gZ2ItPnNnLT5zZ2IpOwo+ID4gPiBAQCAtNjAsMTMgKzcw
+LDE0IEBAIHN0YXRpYyB1MzIgc3BhY2VtaXRfZ3Bpb19iYW5rX2luZGV4KHN0cnVjdCBzcGFjZW1p
+dF9ncGlvX2JhbmsgKmdiKQo+ID4gPiAgc3RhdGljIGlycXJldHVybl90IHNwYWNlbWl0X2dwaW9f
+aXJxX2hhbmRsZXIoaW50IGlycSwgdm9pZCAqZGV2X2lkKQo+ID4gPiAgewo+ID4gPiAgICAgICAg
+IHN0cnVjdCBzcGFjZW1pdF9ncGlvX2JhbmsgKmdiID0gZGV2X2lkOwo+ID4gPiArICAgICAgIHN0
+cnVjdCBzcGFjZW1pdF9ncGlvICpzZyA9IGdiLT5zZzsKPiA+ID4gICAgICAgICB1bnNpZ25lZCBs
+b25nIHBlbmRpbmc7Cj4gPiA+ICAgICAgICAgdTMyIG4sIGdlZHI7Cj4gPiA+Cj4gPiA+IC0gICAg
+ICAgZ2VkciA9IHJlYWRsKGdiLT5iYXNlICsgU1BBQ0VNSVRfR0VEUik7Cj4gPiA+ICsgICAgICAg
+Z2VkciA9IHJlYWRsKGdiLT5iYXNlICsgdG9fc3BhY2VtaXRfZ3Bpb19yZWdzKHNnKS0+Z2Vkcik7
+Cj4gPiAKPiA+IFNpbmNlIHlvdSdyZSBhbHJlYWR5IHRvdWNoaW5nIGFsbCB0aGVzZSByZWdpc3Rl
+ciBhY2Nlc3NlcyAtIGNhbiB5b3UKPiA+IG1heWJlIHByb3ZpZGUgZGVkaWNhdGVkIHdyYXBwZXIg
+ZnVuY3Rpb25zIGFyb3VuZCByZWFkbCgpL3dyaXRlbCgpIGFuZAo+ID4gYXZvaWQgYW55IGZpbGUt
+d2lkZSBjaGFuZ2VzIGluIHRoZSBmdXR1cmUgaWYgYW55dGhpbmcgcmVxdWlyZXMgZnVydGhlcgo+
+ID4gbW9kaWZpY2F0aW9uPwo+ID4gCj4gY2FuIHlvdSBlbGFib3JhdGUgYSBiaXQgZnVydGhlciBv
+biB0aGlzPwo+IEkgZG9uJ3QgZ2V0IGhvdyBhIHdyYXBwZXIgaGVscGVyIGNvdWxkIGhlbHAgdG8g
+YXZvaWQgZmlsZS13aWRlIGNoYW5nZXMuLgo+IApoZXJlIGlzIG15IGF0dGVtcHQgdG8gc29sdmUg
+dGhpcywgZGVmaW5lIGEgbWFjcm8gdG8gcmVnaXN0ZXIgYWRkcmVzczoKCiNkZWZpbmUgdG9fc3Bh
+Y2VtaXRfZ3Bpb19yZWdzKGdiKSAoKGdiKS0+c2ctPmRhdGEtPnJlZ19vZmZzZXRzKQoKI2RlZmlu
+ZSBTUEFDRU1JVF9HRURSKGdiKSAgICAgICgoZ2IpLT5iYXNlICsgdG9fc3BhY2VtaXRfZ3Bpb19y
+ZWdzKGdiKS0+Z2VkcikKCglnZWRyID0gcmVhZGwoU1BBQ0VNSVRfR0VEUihnYikpOwoKcGxlYXNl
+IGxldCBtZSBrbm93IGlmIHRoaXMgZm9sbG93IHlvdXIgc3VnZ2VzdGlvbiBvciBub3QKCi0tIApZ
+aXh1biBMYW4gKGRsYW4pCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
