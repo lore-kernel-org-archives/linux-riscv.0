@@ -4,55 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF3C5FA3734
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 11:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DFCFFA3739
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 12:04:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iXVaQq0q/BF8LLODYrnT//5r9suw/uByuoZNpeZMYdg=; b=g6vv3thT1Kaj3c
-	S+66bVSIgvP3W6lmUAqbhnLz5C6OPz8UO2is+B5rmuEJwjZciEASaTMChXp7OHZgrJhnIPncPEBDZ
-	4qVC/hE5zyDofcylbIjtdk13OUNvGRjm1ceeoaWTkzE3svNvMCjeySZvD8TWpY1oMDPXThTBiUxl+
-	Y4dzQRo3RkATxorSovYMCT/iJf+OuTSmMzNs0dF4YjY1/PIGlLLx1DnQn2xUY3p8Vda91wxPuAQip
-	IoGg9oISqP7aVvQFo0EG9xCJpe7cr1JnqsyfA5rBo8QA6ACCOE7V2vgxUJNDlrsmu0xzQvK9NUJbq
-	XMimGDctLCuZvqQ+UHWw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	References:MIME-Version:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=umhyswmOLObkb6lYnyoeFsIxHnHx0ELLUhw+wACqtlc=; b=fh5eiYBUyYr6PG5ivJZ7HU+PqZ
+	6HhneFAGfCGCdgkPVTUSbKytsbUabJ6zVSqcAfxBBhqGJQwZmCAmkmxUq0UJiVDrAaB26WGq9ZXkk
+	JIvZJrX3SX8eXDBTw/4C87mUKkt83+kws14nD3GYutGcEOfsfJMJgTVexbqIVML9ePRipQXcW57ze
+	nG4JhAxExjuupY+Lu0JWAFRgwY4aP9UV8j3qT66VA5ShgNBmMXDk5FB3uo2lPT2olGKPcfc9ELaqw
+	vQRUbQe6fOXwdXD7Vj7KocosjrO7keWdEZcLk2qn+1IQ55H5zLHKPwNpqw/10jLHVtVoFeiA+jWQY
+	jRZLXerA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbdSg-0000000896N-1OvA;
-	Fri, 02 Jan 2026 11:36:54 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1vbdtR-00000008AeZ-0Pf9;
+	Fri, 02 Jan 2026 12:04:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbdSe-00000008960-07r7
+	id 1vbdtP-00000008AeQ-2cky
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jan 2026 11:36:53 +0000
-Received: from localhost (unknown [116.232.18.222])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 203E334134D;
-	Fri, 02 Jan 2026 11:36:48 +0000 (UTC)
-Date: Fri, 2 Jan 2026 19:36:43 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] gpio: spacemit: Add GPIO support for K3 SoC
-Message-ID: <20260102113643-GYA2060252@gentoo.org>
-References: <20251229-02-k3-gpio-v1-0-269e76785abb@gentoo.org>
- <20251229-02-k3-gpio-v1-2-269e76785abb@gentoo.org>
- <CAMRc=MfHzP+xm-uX+jad5gPOGDpR23O6mB+xcSvF6ZiZfnxQjg@mail.gmail.com>
+	Fri, 02 Jan 2026 12:04:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B801260126
+	for <linux-riscv@lists.infradead.org>; Fri,  2 Jan 2026 12:04:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6708FC116C6
+	for <linux-riscv@lists.infradead.org>; Fri,  2 Jan 2026 12:04:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767355470;
+	bh=59k3WvNfbtsHGqp3wrH4jG/zkpNkZY4RPujBPr3N4Ec=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=SfnBg3z6JXiRoZflPmOVGUHFuruFYuiE+zkZrLeS0AEQTeec4jgW+4ZJJziClTTQE
+	 tXZ8fJVnTWbUb/KXHS+l5x8LEQF5LKb9u5iQRQqZgLXMtp7cyTk8GQKj6+Phfmy1wA
+	 2Lx0oLJf4/0Cd//JpD7TwLulUvSEWolWSBZJMFveLSX30K5lfjQ2fIoIVgW/ToD3NX
+	 UMeVez8z4WOgOi7b3n/tFCiRsH0y+xZr3Sap6cH0I+19WMv7KyWW9eJMHjq9Xnr/V4
+	 bVxKz8oG+2sJVFGs1VETgutBH2D8fJlYRWeUwSQpbQPxhBG80r2sYtRPNnntR7wyrf
+	 9DFt5+7ZqJh2A==
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-37cd7f9de7cso101092751fa.1
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Jan 2026 04:04:30 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUkjDWiY4eTGu2uICnaCkOcMrH0TMw9TjFC8uNbsJP+OXRZ4V1YgY4mX9lQTWwFEyOxaoxEOU1T627dNQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyi1QaAGVve3Q/Zc33S/4OKrxDRYFko6WbAuPZIhL1ZhYyzN9j3
+	WNSI1VDcik98/TsPU2FRhJO0tR97qSgXnn8kNInqgmOCBrKJTr1SGy3ZGr4Sedex6JHsYk6WPeJ
+	ZYtJKbCDWz/l1XTw5KtKaM8sbb38bG1kr3kmzTxfnAg==
+X-Google-Smtp-Source: AGHT+IFUiX6/gBsxHBbe8XiBBJNLN4AHx3ry+rnXue2rQrXSZAdwUQSv/gaC9bW4w7uNTZPy0KYDhnlDKOZnmPqAmek=
+X-Received: by 2002:a05:651c:241:b0:37a:84e5:a1cc with SMTP id
+ 38308e7fff4ca-381216b59b9mr125204291fa.22.1767355469012; Fri, 02 Jan 2026
+ 04:04:29 -0800 (PST)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 2 Jan 2026 12:04:27 +0000
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 2 Jan 2026 12:04:27 +0000
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260102113643-GYA2060252@gentoo.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMRc=MfHzP+xm-uX+jad5gPOGDpR23O6mB+xcSvF6ZiZfnxQjg@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_033652_099862_26A962B1 
-X-CRM114-Status: GOOD (  24.36  )
+References: <20251229-02-k3-gpio-v1-0-269e76785abb@gentoo.org>
+ <20251229-02-k3-gpio-v1-2-269e76785abb@gentoo.org> <CAMRc=MfHzP+xm-uX+jad5gPOGDpR23O6mB+xcSvF6ZiZfnxQjg@mail.gmail.com>
+ <20260102113643-GYA2060252@gentoo.org>
+Date: Fri, 2 Jan 2026 12:04:27 +0000
+X-Gmail-Original-Message-ID: <CAMRc=MeHbod4CaUX7aff_guK531dwyoYhqPOP0rP=i9ydAKmmg@mail.gmail.com>
+X-Gm-Features: AQt7F2rbDr8PJDI60jTnbkM-CN_H7pZqQh59NrJ8eglG_7JODhy0DFRdFCZvpcI
+Message-ID: <CAMRc=MeHbod4CaUX7aff_guK531dwyoYhqPOP0rP=i9ydAKmmg@mail.gmail.com>
+Subject: Re: [PATCH 2/2] gpio: spacemit: Add GPIO support for K3 SoC
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Bartosz Golaszewski <brgl@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,94 +85,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQmFydCwKCk9uIDEyOjEwIEZyaSAwMiBKYW4gICAgICwgQmFydG9zeiBHb2xhc3pld3NraSB3
-cm90ZToKPiBPbiBNb24sIERlYyAyOSwgMjAyNSBhdCAxOjQ34oCvUE0gWWl4dW4gTGFuIDxkbGFu
-QGdlbnRvby5vcmc+IHdyb3RlOgo+ID4KPiA+IFNwYWNlbWlUIEszIFNvQyBoYXMgY2hhbmdlZCBn
-cGlvIHJlZ2lzdGVyIGxheW91dCB3aGlsZSBjb21wYXJpbmcKPiA+IHdpdGggcHJldmlvdXMgZ2Vu
-ZXJhdGlvbiwgdGhlIHJlZ2lzdGVyIG9mZnNldCBhbmQgYmFuayBvZmZzZXQKPiA+IG5lZWQgdG8g
-YmUgYWRqdXN0ZWQsIGludHJvZHVjZSBhIGNvbXBhdGlibGUgZGF0YSB0byBleHRlbmQgdGhlCj4g
-PiBkcml2ZXIgdG8gc3VwcG9ydCB0aGlzLgo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6IFlpeHVuIExh
-biA8ZGxhbkBnZW50b28ub3JnPgo+ID4gLS0tCj4gPiAgZHJpdmVycy9ncGlvL2dwaW8tc3BhY2Vt
-aXQtazEuYyB8IDE1MCArKysrKysrKysrKysrKysrKysrKysrKysrKysrLS0tLS0tLS0tLS0tCj4g
-PiAgMSBmaWxlIGNoYW5nZWQsIDEwNiBpbnNlcnRpb25zKCspLCA0NCBkZWxldGlvbnMoLSkKPiA+
-Cj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9ncGlvL2dwaW8tc3BhY2VtaXQtazEuYyBiL2RyaXZl
-cnMvZ3Bpby9ncGlvLXNwYWNlbWl0LWsxLmMKPiA+IGluZGV4IGViNjZhMTVjMDAyZi4uMDJjYzVj
-MTFiNjE3IDEwMDY0NAo+ID4gLS0tIGEvZHJpdmVycy9ncGlvL2dwaW8tc3BhY2VtaXQtazEuYwo+
-ID4gKysrIGIvZHJpdmVycy9ncGlvL2dwaW8tc3BhY2VtaXQtazEuYwo+ID4gQEAgLTE1LDI4ICsx
-NSwxOSBAQAo+ID4gICNpbmNsdWRlIDxsaW51eC9wbGF0Zm9ybV9kZXZpY2UuaD4KPiA+ICAjaW5j
-bHVkZSA8bGludXgvc2VxX2ZpbGUuaD4KPiA+Cj4gPiAtLyogcmVnaXN0ZXIgb2Zmc2V0ICovCj4g
-PiAtI2RlZmluZSBTUEFDRU1JVF9HUExSICAgICAgICAgIDB4MDAgLyogcG9ydCBsZXZlbCAtIFIg
-Ki8KPiA+IC0jZGVmaW5lIFNQQUNFTUlUX0dQRFIgICAgICAgICAgMHgwYyAvKiBwb3J0IGRpcmVj
-dGlvbiAtIFIvVyAqLwo+ID4gLSNkZWZpbmUgU1BBQ0VNSVRfR1BTUiAgICAgICAgICAweDE4IC8q
-IHBvcnQgc2V0IC0gVyAqLwo+ID4gLSNkZWZpbmUgU1BBQ0VNSVRfR1BDUiAgICAgICAgICAweDI0
-IC8qIHBvcnQgY2xlYXIgLSBXICovCj4gPiAtI2RlZmluZSBTUEFDRU1JVF9HUkVSICAgICAgICAg
-IDB4MzAgLyogcG9ydCByaXNpbmcgZWRnZSBSL1cgKi8KPiA+IC0jZGVmaW5lIFNQQUNFTUlUX0dG
-RVIgICAgICAgICAgMHgzYyAvKiBwb3J0IGZhbGxpbmcgZWRnZSBSL1cgKi8KPiA+IC0jZGVmaW5l
-IFNQQUNFTUlUX0dFRFIgICAgICAgICAgMHg0OCAvKiBlZGdlIGRldGVjdCBzdGF0dXMgLSBSL1cx
-QyAqLwo+ID4gLSNkZWZpbmUgU1BBQ0VNSVRfR1NEUiAgICAgICAgICAweDU0IC8qIChzZXQpIGRp
-cmVjdGlvbiAtIFcgKi8KPiA+IC0jZGVmaW5lIFNQQUNFTUlUX0dDRFIgICAgICAgICAgMHg2MCAv
-KiAoY2xlYXIpIGRpcmVjdGlvbiAtIFcgKi8KPiA+IC0jZGVmaW5lIFNQQUNFTUlUX0dTUkVSICAg
-ICAgICAgMHg2YyAvKiAoc2V0KSByaXNpbmcgZWRnZSBkZXRlY3QgZW5hYmxlIC0gVyAqLwo+ID4g
-LSNkZWZpbmUgU1BBQ0VNSVRfR0NSRVIgICAgICAgICAweDc4IC8qIChjbGVhcikgcmlzaW5nIGVk
-Z2UgZGV0ZWN0IGVuYWJsZSAtIFcgKi8KPiA+IC0jZGVmaW5lIFNQQUNFTUlUX0dTRkVSICAgICAg
-ICAgMHg4NCAvKiAoc2V0KSBmYWxsaW5nIGVkZ2UgZGV0ZWN0IGVuYWJsZSAtIFcgKi8KPiA+IC0j
-ZGVmaW5lIFNQQUNFTUlUX0dDRkVSICAgICAgICAgMHg5MCAvKiAoY2xlYXIpIGZhbGxpbmcgZWRn
-ZSBkZXRlY3QgZW5hYmxlIC0gVyAqLwo+ID4gLSNkZWZpbmUgU1BBQ0VNSVRfR0FQTUFTSyAgICAg
-ICAweDljIC8qIGludGVycnVwdCBtYXNrICwgMCBkaXNhYmxlLCAxIGVuYWJsZSAtIFIvVyAqLwo+
-ID4gLQo+ID4gICNkZWZpbmUgU1BBQ0VNSVRfTlJfQkFOS1MgICAgICAgICAgICAgIDQKPiA+ICAj
-ZGVmaW5lIFNQQUNFTUlUX05SX0dQSU9TX1BFUl9CQU5LICAgICAzMgo+ID4KPiA+ICAjZGVmaW5l
-IHRvX3NwYWNlbWl0X2dwaW9fYmFuayh4KSBjb250YWluZXJfb2YoKHgpLCBzdHJ1Y3Qgc3BhY2Vt
-aXRfZ3Bpb19iYW5rLCBnYykKPiA+ICsjZGVmaW5lIHRvX3NwYWNlbWl0X2dwaW9fcmVncyhzZykg
-KChzZyktPmRhdGEtPnJlZ19vZmZzZXRzKQo+ID4KPiA+ICBzdHJ1Y3Qgc3BhY2VtaXRfZ3BpbzsK
-PiA+ICtzdHJ1Y3Qgc3BhY2VtaXRfZ3Bpb19yZWdfb2Zmc2V0czsKPiAKPiBXaHkgbm90IG1vdmUg
-dGhpcyBzdHJ1Y3R1cmUgaGVyZSBpbnN0ZWFkIGFuZCBhdm9pZCB0aGUgZm9yd2FyZCBkZWNsYXJh
-dGlvbj8KPiAKc3VyZSwgSSB3aWxsIGRvCgo+ID4gKwo+ID4gK3N0cnVjdCBzcGFjZW1pdF9ncGlv
-X2RhdGEgewo+ID4gKyAgICAgICBzdHJ1Y3Qgc3BhY2VtaXRfZ3Bpb19yZWdfb2Zmc2V0cyAqcmVn
-X29mZnNldHM7Cj4gPiArICAgICAgIHUzMiBiYW5rX29mZnNldHNbNF07Cj4gPiArfTsKPiA+Cj4g
-PiAgc3RydWN0IHNwYWNlbWl0X2dwaW9fYmFuayB7Cj4gPiAgICAgICAgIHN0cnVjdCBncGlvX2dl
-bmVyaWNfY2hpcCBjaGlwOwo+ID4gQEAgLTQ5LDkgKzQwLDI4IEBAIHN0cnVjdCBzcGFjZW1pdF9n
-cGlvX2Jhbmsgewo+ID4KPiA+ICBzdHJ1Y3Qgc3BhY2VtaXRfZ3BpbyB7Cj4gPiAgICAgICAgIHN0
-cnVjdCBkZXZpY2UgKmRldjsKPiA+ICsgICAgICAgY29uc3Qgc3RydWN0IHNwYWNlbWl0X2dwaW9f
-ZGF0YSAqZGF0YTsKPiA+ICAgICAgICAgc3RydWN0IHNwYWNlbWl0X2dwaW9fYmFuayBzZ2JbU1BB
-Q0VNSVRfTlJfQkFOS1NdOwo+ID4gIH07Cj4gPgo+ID4gK3N0cnVjdCBzcGFjZW1pdF9ncGlvX3Jl
-Z19vZmZzZXRzIHsKPiA+ICsgICAgICAgdTMyIGdwbHI7ICAgICAgLyogcG9ydCBsZXZlbCAtIFIg
-Ki8KPiA+ICsgICAgICAgdTMyIGdwZHI7ICAgICAgLyogcG9ydCBkaXJlY3Rpb24gLSBSL1cgKi8K
-PiA+ICsgICAgICAgdTMyIGdwc3I7ICAgICAgLyogcG9ydCBzZXQgLSBXICovCj4gPiArICAgICAg
-IHUzMiBncGNyOyAgICAgIC8qIHBvcnQgY2xlYXIgLSBXICovCj4gPiArICAgICAgIHUzMiBncmVy
-OyAgICAgIC8qIHBvcnQgcmlzaW5nIGVkZ2UgUi9XICovCj4gPiArICAgICAgIHUzMiBnZmVyOyAg
-ICAgIC8qIHBvcnQgZmFsbGluZyBlZGdlIFIvVyAqLwo+ID4gKyAgICAgICB1MzIgZ2VkcjsgICAg
-ICAvKiBlZGdlIGRldGVjdCBzdGF0dXMgLSBSL1cxQyAqLwo+ID4gKyAgICAgICB1MzIgZ3Nkcjsg
-ICAgICAvKiAoc2V0KSBkaXJlY3Rpb24gLSBXICovCj4gPiArICAgICAgIHUzMiBnY2RyOyAgICAg
-IC8qIChjbGVhcikgZGlyZWN0aW9uIC0gVyAqLwo+ID4gKyAgICAgICB1MzIgZ3NyZXI7ICAgICAv
-KiAoc2V0KSByaXNpbmcgZWRnZSBkZXRlY3QgZW5hYmxlIC0gVyAqLwo+ID4gKyAgICAgICB1MzIg
-Z2NyZXI7ICAgICAvKiAoY2xlYXIpIHJpc2luZyBlZGdlIGRldGVjdCBlbmFibGUgLSBXICovCj4g
-PiArICAgICAgIHUzMiBnc2ZlcjsgICAgIC8qIChzZXQpIGZhbGxpbmcgZWRnZSBkZXRlY3QgZW5h
-YmxlIC0gVyAqLwo+ID4gKyAgICAgICB1MzIgZ2NmZXI7ICAgICAvKiAoY2xlYXIpIGZhbGxpbmcg
-ZWRnZSBkZXRlY3QgZW5hYmxlIC0gVyAqLwo+ID4gKyAgICAgICB1MzIgZ2FwbWFzazsgICAvKiBp
-bnRlcnJ1cHQgbWFzayAsIDAgZGlzYWJsZSwgMSBlbmFibGUgLSBSL1cgKi8KPiA+ICsgICAgICAg
-dTMyIGdjcG1hc2s7ICAgLyogaW50ZXJydXB0IG1hc2sgZm9yIEszICovCj4gPiArfTsKPiA+ICsK
-PiA+ICBzdGF0aWMgdTMyIHNwYWNlbWl0X2dwaW9fYmFua19pbmRleChzdHJ1Y3Qgc3BhY2VtaXRf
-Z3Bpb19iYW5rICpnYikKPiA+ICB7Cj4gPiAgICAgICAgIHJldHVybiAodTMyKShnYiAtIGdiLT5z
-Zy0+c2diKTsKPiA+IEBAIC02MCwxMyArNzAsMTQgQEAgc3RhdGljIHUzMiBzcGFjZW1pdF9ncGlv
-X2JhbmtfaW5kZXgoc3RydWN0IHNwYWNlbWl0X2dwaW9fYmFuayAqZ2IpCj4gPiAgc3RhdGljIGly
-cXJldHVybl90IHNwYWNlbWl0X2dwaW9faXJxX2hhbmRsZXIoaW50IGlycSwgdm9pZCAqZGV2X2lk
-KQo+ID4gIHsKPiA+ICAgICAgICAgc3RydWN0IHNwYWNlbWl0X2dwaW9fYmFuayAqZ2IgPSBkZXZf
-aWQ7Cj4gPiArICAgICAgIHN0cnVjdCBzcGFjZW1pdF9ncGlvICpzZyA9IGdiLT5zZzsKPiA+ICAg
-ICAgICAgdW5zaWduZWQgbG9uZyBwZW5kaW5nOwo+ID4gICAgICAgICB1MzIgbiwgZ2VkcjsKPiA+
-Cj4gPiAtICAgICAgIGdlZHIgPSByZWFkbChnYi0+YmFzZSArIFNQQUNFTUlUX0dFRFIpOwo+ID4g
-KyAgICAgICBnZWRyID0gcmVhZGwoZ2ItPmJhc2UgKyB0b19zcGFjZW1pdF9ncGlvX3JlZ3Moc2cp
-LT5nZWRyKTsKPiAKPiBTaW5jZSB5b3UncmUgYWxyZWFkeSB0b3VjaGluZyBhbGwgdGhlc2UgcmVn
-aXN0ZXIgYWNjZXNzZXMgLSBjYW4geW91Cj4gbWF5YmUgcHJvdmlkZSBkZWRpY2F0ZWQgd3JhcHBl
-ciBmdW5jdGlvbnMgYXJvdW5kIHJlYWRsKCkvd3JpdGVsKCkgYW5kCj4gYXZvaWQgYW55IGZpbGUt
-d2lkZSBjaGFuZ2VzIGluIHRoZSBmdXR1cmUgaWYgYW55dGhpbmcgcmVxdWlyZXMgZnVydGhlcgo+
-IG1vZGlmaWNhdGlvbj8KPiAKY2FuIHlvdSBlbGFib3JhdGUgYSBiaXQgZnVydGhlciBvbiB0aGlz
-PwpJIGRvbid0IGdldCBob3cgYSB3cmFwcGVyIGhlbHBlciBjb3VsZCBoZWxwIHRvIGF2b2lkIGZp
-bGUtd2lkZSBjaGFuZ2VzLi4KCi0tIApZaXh1biBMYW4gKGRsYW4pCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, 2 Jan 2026 12:36:43 +0100, Yixun Lan <dlan@gentoo.org> said:
+>
+>> >  static u32 spacemit_gpio_bank_index(struct spacemit_gpio_bank *gb)
+>> >  {
+>> >         return (u32)(gb - gb->sg->sgb);
+>> > @@ -60,13 +70,14 @@ static u32 spacemit_gpio_bank_index(struct spacemit_gpio_bank *gb)
+>> >  static irqreturn_t spacemit_gpio_irq_handler(int irq, void *dev_id)
+>> >  {
+>> >         struct spacemit_gpio_bank *gb = dev_id;
+>> > +       struct spacemit_gpio *sg = gb->sg;
+>> >         unsigned long pending;
+>> >         u32 n, gedr;
+>> >
+>> > -       gedr = readl(gb->base + SPACEMIT_GEDR);
+>> > +       gedr = readl(gb->base + to_spacemit_gpio_regs(sg)->gedr);
+>>
+>> Since you're already touching all these register accesses - can you
+>> maybe provide dedicated wrapper functions around readl()/writel() and
+>> avoid any file-wide changes in the future if anything requires further
+>> modification?
+>>
+> can you elaborate a bit further on this?
+> I don't get how a wrapper helper could help to avoid file-wide changes..
+>
+
+Just create functions called "spacemit_gpio_read/write()" that wrap the
+readl()/writel() and its arguments.
+
+Like:
+
+static u32 spacemit_gpio_read(struct spacemit_gpio_bank *gb, unsigned long reg)
+{
+	return readl(gb->base + func_to_convert_reg_enum_to_offset(reg));
+}
+
+Looks cleaner at call sites even if it's a bit more complex. Just create an
+array mapping the register enum to offset and assign it to platform data.
+
+Bart
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
