@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC9CFA3753
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 17:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B23DFA3753
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 17:10:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1IFdnDZU9HK+oRaJMFMGUlGMFk/UcvWTvopez3a+X1U=; b=5AhsUPD4LSXHSY
-	FXjWPMEjciiJ23raq5iutgwVtSoS1FF/8Jy5DWITFlfAJPEfy8u8P5szD4+eYazECIbkRkcXGn9cp
-	zLaAeuaf/0f5KPptvPBthKqlfWEqylCFE3mTjfJR0E65f3SMQmlJyjWSuyKmWe9htL2uEVZIujVjb
-	m/OWRfTgjkaCfkQDnU6PFUYVrsNx3cPMqKySR1QdEZCSNo6P8tx4WPfCCMvRPHKl6ovaRmRNwg5ze
-	+qTwiL/XljxNU9QyoXgvzWEsIrFU7gfOSDMqVpoOCPjNGQznItgyr8GolQLj51c7h8NwbSxKXzi4j
-	XTnlpAUdgyV1V86z8QKw==;
+	List-Owner; bh=H8Iwk4GNmqeSDzXF3NudYO32NZRtzqZnvAmx5WWMzAU=; b=1kT3GxNbeVvqQm
+	K47LQlw9QSlcoCJXLT29pHH/bu8SQ0uJ5bAzoLhzdZ6qyUJgBULn1J+zBhvg1rQ5DoDA1MJUXKKoK
+	Dohv+vmdDfgX5kX4iIlZGUtHHDFbNGUIkksYpD+Txgp9BRVj5YwA2LFyQFshLqbLWdf2Liprr6DS2
+	Z5oRw3dWN5WSNVf5gKRgshx+loDiznPdGJa1tzXV3n7D2nYEqQfYLpwdMhFH9JK5dSbByf0Ls2lMv
+	vyMzsuAfx5R+NNb5pVzulNCgOP4MgrgljQ3MVYiKhZcREJhIuda90+Acog9747lY84/Wxq/pALtct
+	QfbtxnXMc54EI+P2jYMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbiZT-00000008XWM-1tk1;
-	Fri, 02 Jan 2026 17:04:15 +0000
-Received: from out-186.mta1.migadu.com ([95.215.58.186])
+	id 1vbifc-00000008YKX-39cp;
+	Fri, 02 Jan 2026 17:10:36 +0000
+Received: from out-174.mta1.migadu.com ([2001:41d0:203:375::ae])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbiZP-00000008XUD-1YY4
+	id 1vbifZ-00000008YIs-3lKX
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jan 2026 17:04:13 +0000
-Date: Fri, 2 Jan 2026 17:03:49 +0000
+	Fri, 02 Jan 2026 17:10:35 +0000
+Date: Fri, 2 Jan 2026 17:10:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1767373448;
+	t=1767373830;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=kMbovm/gG/7jubGENqfjP/9rxqSn/HJfGYv99VNhtHo=;
-	b=gcjMVEgM+r9x0LCC9CNLWmc8hkGGczkEUcOS+ZUDjiXsI5+UDN+fVo4JgvC0Tz39SlTk4g
-	ELNQYbp1SMiKD6mZDD6hUF/Hhz55lFxsvuTSq/b7fV9ZYQJLtryImwzf0g3U06LT2LmP7D
-	6arYDRy1xXoqqsfCF4lTg1hx123J1j8=
+	bh=jVV1USKSvlkP8yy4xlBDNM9RAl76sphsQ5V9uMR2oHg=;
+	b=vlCdmtgtMIxaW81mMsur8wK/rEEgTOOUMtcLgWwmSxP2Vz2CcZrG+LS6zCMrp/P+tNdJTE
+	iGgy3y57Mq466D17AOcEx4V3De3b/l2hps5vWyXQR1/kwsCDp7Y1b4lZAL6WG50pw11vso
+	zHin2v43gjeOeTH++RQGXFpV0FNDJ7c=
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Yosry Ahmed <yosry.ahmed@linux.dev>
 To: Sean Christopherson <seanjc@google.com>
@@ -49,18 +49,18 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
 	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	kvmarm@lists.linux.dev, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 12/21] KVM: selftests: Add a stage-2 MMU instance to
- kvm_vm
-Message-ID: <3kuuj6toya5xlv74yrl4wg74b52wsvfqv3gigdbsdaqs7eibt5@th3b5x3dik7y>
+Subject: Re: [PATCH v4 20/21] KVM: selftests: Rename
+ vm_get_page_table_entry() to vm_get_pte()
+Message-ID: <txx7pwn52hbd5oen56famqzwtauxdiwuw7ulrq3jiqr3t5dy6d@pxwlz2tkjswo>
 References: <20251230230150.4150236-1-seanjc@google.com>
- <20251230230150.4150236-13-seanjc@google.com>
+ <20251230230150.4150236-21-seanjc@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251230230150.4150236-13-seanjc@google.com>
+In-Reply-To: <20251230230150.4150236-21-seanjc@google.com>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_090411_688322_A6BD61B5 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20260102_091034_076331_86505232 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,40 +77,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 30, 2025 at 03:01:41PM -0800, Sean Christopherson wrote:
-> Add a stage-2 MMU instance so that architectures that support nested
-> virtualization (more specifically, nested stage-2 page tables) can create
-> and track stage-2 page tables for running L2 guests.  Plumb the structure
-> into common code to avoid cyclical dependencies, and to provide some line
-> of sight to having common APIs for creating stage-2 mappings.
+On Tue, Dec 30, 2025 at 03:01:49PM -0800, Sean Christopherson wrote:
+> Shorten the API to get a PTE as the "PTE" acronym is ubiquitous, and the
+> "page table entry" makes it unnecessarily difficult to quickly understand
+> what callers are doing.
 > 
-> As a bonus, putting the member in common code justifies using stage2_mmu
-> instead of tdp_mmu for x86.
+> No functional change intended.
 > 
 > Signed-off-by: Sean Christopherson <seanjc@google.com>
 
 Reviewed-by: Yosry Ahmed <yosry.ahmed@linux.dev>
 
 > ---
->  tools/testing/selftests/kvm/include/kvm_util.h | 5 +++++
->  1 file changed, 5 insertions(+)
+>  tools/testing/selftests/kvm/include/x86/processor.h           | 2 +-
+>  tools/testing/selftests/kvm/lib/x86/processor.c               | 2 +-
+>  tools/testing/selftests/kvm/x86/hyperv_tlb_flush.c            | 2 +-
+>  .../selftests/kvm/x86/smaller_maxphyaddr_emulation_test.c     | 4 +---
+>  4 files changed, 4 insertions(+), 6 deletions(-)
 > 
-> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-> index c1497515fa6a..371d55e0366e 100644
-> --- a/tools/testing/selftests/kvm/include/kvm_util.h
-> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
-> @@ -116,7 +116,12 @@ struct kvm_vm {
->  	uint32_t dirty_ring_size;
->  	uint64_t gpa_tag_mask;
+> diff --git a/tools/testing/selftests/kvm/include/x86/processor.h b/tools/testing/selftests/kvm/include/x86/processor.h
+> index 7b7d962244d6..ab29b1c7ed2d 100644
+> --- a/tools/testing/selftests/kvm/include/x86/processor.h
+> +++ b/tools/testing/selftests/kvm/include/x86/processor.h
+> @@ -1357,7 +1357,7 @@ static inline bool kvm_is_ignore_msrs(void)
+>  	return get_kvm_param_bool("ignore_msrs");
+>  }
 >  
-> +	/*
-> +	 * "mmu" is the guest's stage-1, with a short name because the vast
-> +	 * majority of tests only care about the stage-1 MMU.
-> +	 */
->  	struct kvm_mmu mmu;
-> +	struct kvm_mmu stage2_mmu;
+> -uint64_t *vm_get_page_table_entry(struct kvm_vm *vm, uint64_t vaddr);
+> +uint64_t *vm_get_pte(struct kvm_vm *vm, uint64_t vaddr);
 >  
->  	struct kvm_vm_arch arch;
+>  uint64_t kvm_hypercall(uint64_t nr, uint64_t a0, uint64_t a1, uint64_t a2,
+>  		       uint64_t a3);
+> diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
+> index 5a3385d48902..ab869a98bbdc 100644
+> --- a/tools/testing/selftests/kvm/lib/x86/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/x86/processor.c
+> @@ -390,7 +390,7 @@ static uint64_t *__vm_get_page_table_entry(struct kvm_vm *vm,
+>  	return virt_get_pte(vm, mmu, pte, vaddr, PG_LEVEL_4K);
+>  }
+>  
+> -uint64_t *vm_get_page_table_entry(struct kvm_vm *vm, uint64_t vaddr)
+> +uint64_t *vm_get_pte(struct kvm_vm *vm, uint64_t vaddr)
+>  {
+>  	int level = PG_LEVEL_4K;
+>  
+> diff --git a/tools/testing/selftests/kvm/x86/hyperv_tlb_flush.c b/tools/testing/selftests/kvm/x86/hyperv_tlb_flush.c
+> index a3b7ce155981..c542cc4762b1 100644
+> --- a/tools/testing/selftests/kvm/x86/hyperv_tlb_flush.c
+> +++ b/tools/testing/selftests/kvm/x86/hyperv_tlb_flush.c
+> @@ -619,7 +619,7 @@ int main(int argc, char *argv[])
+>  	 */
+>  	gva = vm_vaddr_unused_gap(vm, NTEST_PAGES * PAGE_SIZE, KVM_UTIL_MIN_VADDR);
+>  	for (i = 0; i < NTEST_PAGES; i++) {
+> -		pte = vm_get_page_table_entry(vm, data->test_pages + i * PAGE_SIZE);
+> +		pte = vm_get_pte(vm, data->test_pages + i * PAGE_SIZE);
+>  		gpa = addr_hva2gpa(vm, pte);
+>  		virt_pg_map(vm, gva + PAGE_SIZE * i, gpa & PAGE_MASK);
+>  		data->test_pages_pte[i] = gva + (gpa & ~PAGE_MASK);
+> diff --git a/tools/testing/selftests/kvm/x86/smaller_maxphyaddr_emulation_test.c b/tools/testing/selftests/kvm/x86/smaller_maxphyaddr_emulation_test.c
+> index fabeeaddfb3a..0e8aec568010 100644
+> --- a/tools/testing/selftests/kvm/x86/smaller_maxphyaddr_emulation_test.c
+> +++ b/tools/testing/selftests/kvm/x86/smaller_maxphyaddr_emulation_test.c
+> @@ -47,7 +47,6 @@ int main(int argc, char *argv[])
+>  	struct kvm_vcpu *vcpu;
+>  	struct kvm_vm *vm;
+>  	struct ucall uc;
+> -	uint64_t *pte;
+>  	uint64_t *hva;
+>  	uint64_t gpa;
+>  	int rc;
+> @@ -73,8 +72,7 @@ int main(int argc, char *argv[])
+>  	hva = addr_gpa2hva(vm, MEM_REGION_GPA);
+>  	memset(hva, 0, PAGE_SIZE);
+>  
+> -	pte = vm_get_page_table_entry(vm, MEM_REGION_GVA);
+> -	*pte |= BIT_ULL(MAXPHYADDR);
+> +	*vm_get_pte(vm, MEM_REGION_GVA) |= BIT_ULL(MAXPHYADDR);
+>  
+>  	vcpu_run(vcpu);
 >  
 > -- 
 > 2.52.0.351.gbe84eed79e-goog
