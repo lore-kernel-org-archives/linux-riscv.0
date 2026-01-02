@@ -4,56 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF3FFA3741
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 12:21:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BA3DFA3741
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jan 2026 12:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AFjGO+HvusXCTaxj09jdgfgmJCRwVMHq1N6wNCzOkJ4=; b=Rg4UkW3vHbKBmZ
-	E8VGE6rUHjf1XOAcMxzQfLrdqcVZZi0ikH/8Wk0pK+npRvhdTFKQMOmekKa7btJOokuk9DgeYaCvI
-	AqspKOb3dOOET6Jqfzr46rPvlww17l4TSYUWwerGZ0Z+VEWU6ovBgXJK+k6k+2h2iFlPIQ2gaXl+F
-	xrKIkqiGxYXMfUR0JTtpYq1jLF1OaupHRAYms1SSkkP/0tSDzOUcMGOK7y7KlHHdnuwxcbcDddHpV
-	kA1YCf8FJsjnLzzw8tTc9Z31OAInHeaY1GIZaFkBjFhAmH5C/spw2zTSnqpD4uKYL6bCVbUuEarVm
-	3P3o2xSnlHcy55tolX8w==;
+	List-Owner; bh=SILJMA/IFW5k3BiPRE/TynTaF496NBFkVkmMVxiuXNw=; b=aAzQY0nKEtojr3
+	5xX7R8Pckyp3RVnxidVrxgDun6995msXfSkx5KjRKZHh4qUU8MhIvO8ZMjiwD+7YC+QObvILbd8D1
+	k6EJsqqn2qQW2bMcxIo0FDqsqpxsTMrYmqjNHish4MM18SaWKHx1Jenll+VAph0ZLAU3YYRhKsUGc
+	8+/JYMaaexbBNytzEw/IxRsBLLW+ay15qEYwIj0T8YzjACFvIGYQXYGT1TPlkl8h6+IMBX1NwaLzE
+	LQdoI5t5WGSU9M6FRiazNdcawyf58wNw+xo1vDvdsG8fTz8zHu4y0Atjd/HCNwFl4VU9lrhaYKuQX
+	2kqV/GJ/PBBSVADV7/ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbe9H-00000008BcW-2odS;
-	Fri, 02 Jan 2026 12:20:55 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbe9F-00000008Bc5-2uSq
-	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jan 2026 12:20:54 +0000
-Received: from localhost (unknown [116.232.18.222])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id D5F8D341291;
-	Fri, 02 Jan 2026 12:20:50 +0000 (UTC)
-Date: Fri, 2 Jan 2026 20:20:45 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] gpio: spacemit: Add GPIO support for K3 SoC
-Message-ID: <20260102122045-GYA2060493@gentoo.org>
-References: <20251229-02-k3-gpio-v1-0-269e76785abb@gentoo.org>
- <20251229-02-k3-gpio-v1-2-269e76785abb@gentoo.org>
- <CAMRc=MfHzP+xm-uX+jad5gPOGDpR23O6mB+xcSvF6ZiZfnxQjg@mail.gmail.com>
- <20260102113643-GYA2060252@gentoo.org>
+	id 1vbejr-00000008G4v-2reE;
+	Fri, 02 Jan 2026 12:58:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vbejp-00000008G4F-08ZO;
+	Fri, 02 Jan 2026 12:58:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 81774497;
+	Fri,  2 Jan 2026 04:58:31 -0800 (PST)
+Received: from [10.57.94.221] (unknown [10.57.94.221])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9905D3F5A1;
+	Fri,  2 Jan 2026 04:58:33 -0800 (PST)
+Message-ID: <581a0fac-7891-4644-af65-0354e22b9311@arm.com>
+Date: Fri, 2 Jan 2026 12:58:32 +0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260102113643-GYA2060252@gentoo.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] randomize_kstack: Unify random source across
+ arches
+Content-Language: en-GB
+To: kernel test robot <lkp@intel.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Jeremy Linton <jeremy.linton@arm.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
+References: <20251215163520.1144179-4-ryan.roberts@arm.com>
+ <202512170038.vJZdUhEN-lkp@intel.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <202512170038.vJZdUhEN-lkp@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_042053_755193_78A58FC7 
-X-CRM114-Status: GOOD (  23.94  )
+X-CRM114-CacheID: sfid-20260102_045841_198770_A102750E 
+X-CRM114-Status: GOOD (  17.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,52 +75,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgYmFydCwKCk9uIDE5OjM2IEZyaSAwMiBKYW4gICAgICwgWWl4dW4gTGFuIHdyb3RlOgo+IEhp
-IEJhcnQsCj4gCj4gT24gMTI6MTAgRnJpIDAyIEphbiAgICAgLCBCYXJ0b3N6IEdvbGFzemV3c2tp
-IHdyb3RlOgo+ID4gT24gTW9uLCBEZWMgMjksIDIwMjUgYXQgMTo0N+KAr1BNIFlpeHVuIExhbiA8
-ZGxhbkBnZW50b28ub3JnPiB3cm90ZToKPiA+ID4KPiA+ID4gU3BhY2VtaVQgSzMgU29DIGhhcyBj
-aGFuZ2VkIGdwaW8gcmVnaXN0ZXIgbGF5b3V0IHdoaWxlIGNvbXBhcmluZwo+ID4gPiB3aXRoIHBy
-ZXZpb3VzIGdlbmVyYXRpb24sIHRoZSByZWdpc3RlciBvZmZzZXQgYW5kIGJhbmsgb2Zmc2V0Cj4g
-PiA+IG5lZWQgdG8gYmUgYWRqdXN0ZWQsIGludHJvZHVjZSBhIGNvbXBhdGlibGUgZGF0YSB0byBl
-eHRlbmQgdGhlCj4gPiA+IGRyaXZlciB0byBzdXBwb3J0IHRoaXMuCj4gPiA+Cj4gPiA+IFNpZ25l
-ZC1vZmYtYnk6IFlpeHVuIExhbiA8ZGxhbkBnZW50b28ub3JnPgo+ID4gPiAtLS0KPiA+ID4gIGRy
-aXZlcnMvZ3Bpby9ncGlvLXNwYWNlbWl0LWsxLmMgfCAxNTAgKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKy0tLS0tLS0tLS0tLQo+ID4gPiAgMSBmaWxlIGNoYW5nZWQsIDEwNiBpbnNlcnRpb25z
-KCspLCA0NCBkZWxldGlvbnMoLSkKPiA+ID4KPiA+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3Bp
-by9ncGlvLXNwYWNlbWl0LWsxLmMgYi9kcml2ZXJzL2dwaW8vZ3Bpby1zcGFjZW1pdC1rMS5jCj4g
-PiA+IGluZGV4IGViNjZhMTVjMDAyZi4uMDJjYzVjMTFiNjE3IDEwMDY0NAo+ID4gPiAtLS0gYS9k
-cml2ZXJzL2dwaW8vZ3Bpby1zcGFjZW1pdC1rMS5jCj4gPiA+ICsrKyBiL2RyaXZlcnMvZ3Bpby9n
-cGlvLXNwYWNlbWl0LWsxLmMKPiA+ID4gQEAgLTE1LDI4ICsxNSwxOSBAQAo+ID4gPiAgI2luY2x1
-ZGUgPGxpbnV4L3BsYXRmb3JtX2RldmljZS5oPgo+ID4gPiAgI2luY2x1ZGUgPGxpbnV4L3NlcV9m
-aWxlLmg+Cj4gPiA+CltzbmlwXS4uLgo+ID4gPiAgc3RhdGljIHUzMiBzcGFjZW1pdF9ncGlvX2Jh
-bmtfaW5kZXgoc3RydWN0IHNwYWNlbWl0X2dwaW9fYmFuayAqZ2IpCj4gPiA+ICB7Cj4gPiA+ICAg
-ICAgICAgcmV0dXJuICh1MzIpKGdiIC0gZ2ItPnNnLT5zZ2IpOwo+ID4gPiBAQCAtNjAsMTMgKzcw
-LDE0IEBAIHN0YXRpYyB1MzIgc3BhY2VtaXRfZ3Bpb19iYW5rX2luZGV4KHN0cnVjdCBzcGFjZW1p
-dF9ncGlvX2JhbmsgKmdiKQo+ID4gPiAgc3RhdGljIGlycXJldHVybl90IHNwYWNlbWl0X2dwaW9f
-aXJxX2hhbmRsZXIoaW50IGlycSwgdm9pZCAqZGV2X2lkKQo+ID4gPiAgewo+ID4gPiAgICAgICAg
-IHN0cnVjdCBzcGFjZW1pdF9ncGlvX2JhbmsgKmdiID0gZGV2X2lkOwo+ID4gPiArICAgICAgIHN0
-cnVjdCBzcGFjZW1pdF9ncGlvICpzZyA9IGdiLT5zZzsKPiA+ID4gICAgICAgICB1bnNpZ25lZCBs
-b25nIHBlbmRpbmc7Cj4gPiA+ICAgICAgICAgdTMyIG4sIGdlZHI7Cj4gPiA+Cj4gPiA+IC0gICAg
-ICAgZ2VkciA9IHJlYWRsKGdiLT5iYXNlICsgU1BBQ0VNSVRfR0VEUik7Cj4gPiA+ICsgICAgICAg
-Z2VkciA9IHJlYWRsKGdiLT5iYXNlICsgdG9fc3BhY2VtaXRfZ3Bpb19yZWdzKHNnKS0+Z2Vkcik7
-Cj4gPiAKPiA+IFNpbmNlIHlvdSdyZSBhbHJlYWR5IHRvdWNoaW5nIGFsbCB0aGVzZSByZWdpc3Rl
-ciBhY2Nlc3NlcyAtIGNhbiB5b3UKPiA+IG1heWJlIHByb3ZpZGUgZGVkaWNhdGVkIHdyYXBwZXIg
-ZnVuY3Rpb25zIGFyb3VuZCByZWFkbCgpL3dyaXRlbCgpIGFuZAo+ID4gYXZvaWQgYW55IGZpbGUt
-d2lkZSBjaGFuZ2VzIGluIHRoZSBmdXR1cmUgaWYgYW55dGhpbmcgcmVxdWlyZXMgZnVydGhlcgo+
-ID4gbW9kaWZpY2F0aW9uPwo+ID4gCj4gY2FuIHlvdSBlbGFib3JhdGUgYSBiaXQgZnVydGhlciBv
-biB0aGlzPwo+IEkgZG9uJ3QgZ2V0IGhvdyBhIHdyYXBwZXIgaGVscGVyIGNvdWxkIGhlbHAgdG8g
-YXZvaWQgZmlsZS13aWRlIGNoYW5nZXMuLgo+IApoZXJlIGlzIG15IGF0dGVtcHQgdG8gc29sdmUg
-dGhpcywgZGVmaW5lIGEgbWFjcm8gdG8gcmVnaXN0ZXIgYWRkcmVzczoKCiNkZWZpbmUgdG9fc3Bh
-Y2VtaXRfZ3Bpb19yZWdzKGdiKSAoKGdiKS0+c2ctPmRhdGEtPnJlZ19vZmZzZXRzKQoKI2RlZmlu
-ZSBTUEFDRU1JVF9HRURSKGdiKSAgICAgICgoZ2IpLT5iYXNlICsgdG9fc3BhY2VtaXRfZ3Bpb19y
-ZWdzKGdiKS0+Z2VkcikKCglnZWRyID0gcmVhZGwoU1BBQ0VNSVRfR0VEUihnYikpOwoKcGxlYXNl
-IGxldCBtZSBrbm93IGlmIHRoaXMgZm9sbG93IHlvdXIgc3VnZ2VzdGlvbiBvciBub3QKCi0tIApZ
-aXh1biBMYW4gKGRsYW4pCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+On 16/12/2025 16:31, kernel test robot wrote:
+> Hi Ryan,
+> 
+> kernel test robot noticed the following build errors:
+> 
+> [auto build test ERROR on tip/sched/core]
+> [also build test ERROR on akpm-mm/mm-everything linus/master v6.19-rc1 next-20251216]
+> [cannot apply to kees/for-next/hardening kees/for-next/execve]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Roberts/prandom-Convert-prandom_u32_state-to-__always_inline/20251216-013546
+> base:   tip/sched/core
+> patch link:    https://lore.kernel.org/r/20251215163520.1144179-4-ryan.roberts%40arm.com
+> patch subject: [PATCH v2 3/3] randomize_kstack: Unify random source across arches
+> config: x86_64-rhel-9.4-ltp (https://download.01.org/0day-ci/archive/20251217/202512170038.vJZdUhEN-lkp@intel.com/config)
+> compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251217/202512170038.vJZdUhEN-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202512170038.vJZdUhEN-lkp@intel.com/
+> 
+> All error/warnings (new ones prefixed by >>):
+> 
+>>> arch/x86/boot/startup/sev-startup.o: warning: objtool: section .discard.addressable has absolute relocation at offset 0x0
+> --
+>    In file included from include/linux/device/driver.h:21,
+>                     from include/linux/device.h:32,
+>                     from include/linux/blk_types.h:11,
+>                     from include/linux/writeback.h:13,
+>                     from include/linux/memcontrol.h:23,
+>                     from include/linux/resume_user_mode.h:8,
+>                     from include/linux/entry-virt.h:6,
+>                     from include/linux/kvm_host.h:5,
+>                     from arch/x86/kvm/svm/svm.c:3:
+>>> include/linux/module.h:132:49: error: redefinition of '__inittest'
+>      132 |         static inline initcall_t __maybe_unused __inittest(void)                \
+>          |                                                 ^~~~~~~~~~
+>    arch/x86/kvm/svm/svm.c:5509:1: note: in expansion of macro 'module_init'
+>     5509 | module_init(svm_init)
+>          | ^~~~~~~~~~~
+>    include/linux/module.h:132:49: note: previous definition of '__inittest' with type 'int (*(void))(void)'
+>      132 |         static inline initcall_t __maybe_unused __inittest(void)                \
+>          |                                                 ^~~~~~~~~~
+>    include/linux/module.h:125:41: note: in expansion of macro 'module_init'
+>      125 | #define late_initcall(fn)               module_init(fn)
+>          |                                         ^~~~~~~~~~~
+>    include/linux/randomize_kstack.h:86:1: note: in expansion of macro 'late_initcall'
+>       86 | late_initcall(random_kstack_init);
+>          | ^~~~~~~~~~~~~
+
+Oops, this is due to having put late_initcall() in the header file. I'll move
+this to a c file for the next version.
+
+Thanks for the report!
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
