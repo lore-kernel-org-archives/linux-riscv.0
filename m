@@ -4,59 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ACC7FA3727
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Jan 2026 01:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BEBFC6160
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Jan 2026 05:36:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g4LRU9ywmpBEQUBY3yiAik/9XcS1eFuxibw6eL6TzQQ=; b=S84nRrRBFMff+T
-	JgybF0NqSpTr4fnNVc2v/pefyY3HWDRST+52nWTdxM3ocmE1TtwoBIevuiTEVs/XAnkhX2/vhDwfC
-	NtT3CWBQV+uQF4DAzVNs+FTyl9AWdLxnakbcsWq4kWlpmqLoHk2XDOnEQ1Lz5IVw1B+TQjj5EO0jT
-	Kc1VeNagVybZuZpLyqnlWOGbkX9quemn7shUUyesArF/jwjkpQiOiow/hHOov/VuK4WmZzRN4myU0
-	4Tx2cjimtvU1mHOdr6b2bZ4M+dx5jeDXUbvkI+v3iEGtlsBfgG3eNeMWHCyI45dCh2Up2lfbN1ZDV
-	aTkp9u87FQxH52E5zyIA==;
+	List-Owner; bh=71D2SkuE4FLSp+LwXbKr6DIVfNE3NH0OJyfBlkTveQM=; b=0GP0vk4i2I9sqA
+	v8vY5dNINKkbrtG+VGOjWjxvXt/1DhgLsklyRkh41bhd/r4SKjLAHXV8V4m95is0G/0AiKWCmqXcx
+	t0j8Grvn2eLewP5DI8N4bPT93Wwsu8ShBVLK6/YYn/jg7w1l54tLCXKCJuuhBqfxnBFQ+/BlBZfYS
+	e4Sqd9XwIz7uJ4asHoPuomh2NdJ5YFgAbPAXAXi/uUFAm910owX8iwotkIyyA2kG7Yr0lHv+ljOau
+	Qgb5BrQGYmmP2frbzu5hB6m+wDSC4NUPukIOZxoSUCiJgo9mO9YItwHtz8Hur8XwviiYObfHTxpSP
+	ExVAg9/mTWJVGeSfSf3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbqux-00000008rdS-1Fjs;
-	Sat, 03 Jan 2026 01:58:59 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1vbuJc-000000090AC-2H5z;
+	Sat, 03 Jan 2026 05:36:40 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbquu-00000008rcr-2xMT
+	id 1vbuJW-0000000906y-0ceW
 	for linux-riscv@lists.infradead.org;
-	Sat, 03 Jan 2026 01:58:58 +0000
-Received: from localhost (unknown [116.232.18.222])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 28519341455;
-	Sat, 03 Jan 2026 01:58:51 +0000 (UTC)
-Date: Sat, 3 Jan 2026 09:58:42 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Alex Elder <elder@riscstar.com>
-Cc: Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Guodong Xu <guodong@riscstar.com>,
-	Inochi Amaoto <inochiama@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH v2 1/3] clk: spacemit: prepare common ccu header
-Message-ID: <20260103015842-GYA2060612@gentoo.org>
-References: <20251226-06-k1-clk-common-v2-0-28b59418b4df@gentoo.org>
- <20251226-06-k1-clk-common-v2-1-28b59418b4df@gentoo.org>
- <17c27455-897d-4249-8206-88364230af7d@riscstar.com>
- <20260101143810-GYC2019108@gentoo.org>
- <cc1cb833-2c4a-4e20-a50d-109a4919e274@riscstar.com>
+	Sat, 03 Jan 2026 05:36:36 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-430f5ecaa08so5117840f8f.3
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Jan 2026 21:36:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767418591; x=1768023391; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=10gk4kIzv5viXrYP6wsblohOaaYzL8Wh9uCfOfLAyTE=;
+        b=kFKwiFyfwIzgCTWImL6CEHj7kl+MF16YmJcChFDmY2ZJtVwD+M6/MMszL5Q5yWSS1A
+         ditRaRoMss92ESpfl9fWsLa8XkA0+yy/QC+l4hUSX2DIuPfSfgAM+QsDzPBFffciTXfU
+         aemswB5r8hB7CBGzumhzc+qvoCWln77ic5Kk/AEyTujZca/I6cuArTIY/vSXZpW3hX5b
+         U7+dhfp5vIYeTC17bpYnf91WmwIQ8QP9ckJfhfWSgQEHLiBq2p34XdPMFqL2vK8I8d0V
+         NU+yr/DmReH3m9cDasQPWAmApwU9w/qZtSgogPIJJCMAbMzKJTNe0fZw2dUSyIAqphTl
+         ts2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767418591; x=1768023391;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=10gk4kIzv5viXrYP6wsblohOaaYzL8Wh9uCfOfLAyTE=;
+        b=mIflCWIyu5nHwi0fqQg+Jm5WB6qHJD6CeF/enOdMNLgGOZjfWUlBf7jL9lbPKKHZ10
+         uOgD3WfhGvn4n1mHP3aEMBAgV9/WF+78srmFZos7yy3yXl/K52KA+IiSxsg+pykmXtFt
+         yUEM2ZPJ6CzUsz/cSb1Me2FTMee8THXeK8akKO7fI3CfWt8YILxyPN1xLxZDQ3YEKg3B
+         8KPJnbYv7nFaS/BFTKY1uo49yIjKgIPRBbgjjN6orQJRUXi8JYmZ4YWR3DsQC9l5qNop
+         aZ8Mj8nCnhsBjZTA0CI3fxZvn62prdn3GBHRYp5XMFPx78CU8pC4sayJoS3a5Z0aCgOg
+         5BkA==
+X-Forwarded-Encrypted: i=1; AJvYcCV+lx42hBa2SFSHnDd82eTsH79f3FrQUNw3w09zFbt2Nu57F1QigAl4AxFz9K2CifPzOt0bB4czLM1ThQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyp7wk8SNa7Tg5ZaU6EU8AYzE52HxR4VTai4se10yUbF1oiMNEd
+	pmxMBNgKnbZ1P63/2tzjPBUHStoPQ8VUqj5JgaTCNsSqBNaVBf9RrYtV
+X-Gm-Gg: AY/fxX70z6M76yywp6AVticJg5aYuRC2qqc4CNIZSBR7Wb7zTCOupQyz0ssDF1WHw4K
+	W+ggQp3aJX2ojFISkmAwoM75xtqwjAFUfSmhIcOtynzG8AHilGEUsQkSltTunuaYcGyd443Rh+a
+	S1Z/Np4kpZEbgu1IOLczd/G9H0+bByMa4iqMTqhJjeCwwIsoIA1ZI2UZbKVlnW+zyHZY67uEavc
+	JyRG007S3D0j6wdU1cb308bKJwJDl39xG8StZ8jOgjkcLLtG5oAJR0yUVVowGOZNZbAtGFspFmt
+	kIuXD1jxFMQo8JyiDHKaKEkUTcZo/Tegt2QsvDUEOE28hczdF2IzUy99+dGD16SHD8tNRC6Vai0
+	CQuwFTI4szELTQQB3Jm3YSPaB2TGoQif25hlEztFRRgyElHcrGBK3bCZu/KIlMrPeP7oSEmxb4t
+	OyMjGQU7Af/Bd6i69iNBpY2Mq4I9ZkhXbYrrTbyqv778PCeRrupVC0bP4ISO3mVWYL
+X-Google-Smtp-Source: AGHT+IGVfFhDmvRzquITceR9a5MtoKyW2aPxvUx0HbCgVxiLGpVVcSZGOqzt3JsoKLBzXfIUaXLywg==
+X-Received: by 2002:a05:6000:178f:b0:430:fd84:317a with SMTP id ffacd0b85a97d-4324e4fb825mr53362620f8f.38.1767418590643;
+        Fri, 02 Jan 2026 21:36:30 -0800 (PST)
+Received: from localhost (brnt-04-b2-v4wan-170138-cust2432.vm7.cable.virginm.net. [94.175.9.129])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324eaa4749sm89007161f8f.37.2026.01.02.21.36.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 Jan 2026 21:36:28 -0800 (PST)
+Date: Sat, 3 Jan 2026 05:36:26 +0000
+From: Stafford Horne <shorne@gmail.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Alex Shi <alexs@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>,
+	Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>,
+	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+	x86@kernel.org, linux-alpha@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-mm@kvack.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org
+Subject: Re: [PATCH v2 12/28] openrisc: introduce arch_zone_limits_init()
+Message-ID: <aViq2vsMk5tltK0f@antec>
+References: <20260102070005.65328-1-rppt@kernel.org>
+ <20260102070005.65328-13-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <cc1cb833-2c4a-4e20-a50d-109a4919e274@riscstar.com>
+In-Reply-To: <20260102070005.65328-13-rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_175856_818068_350BBE27 
-X-CRM114-Status: GOOD (  60.40  )
+X-CRM114-CacheID: sfid-20260102_213634_207114_EED15F4A 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,211 +143,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alex,
+On Fri, Jan 02, 2026 at 08:59:48AM +0200, Mike Rapoport wrote:
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> 
+> Move calculations of zone limits to a dedicated arch_zone_limits_init()
+> function.
+> 
+> Later MM core will use this function as an architecture specific callback
+> during nodes and zones initialization and thus there won't be a need to
+> call free_area_init() from every architecture.
+> 
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> ---
+>  arch/openrisc/mm/init.c | 12 ++++++++----
+>  1 file changed, 8 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/openrisc/mm/init.c b/arch/openrisc/mm/init.c
+> index 9382d9a0ec78..67de93e7a685 100644
+> --- a/arch/openrisc/mm/init.c
+> +++ b/arch/openrisc/mm/init.c
+> @@ -39,15 +39,19 @@
+>  
+>  int mem_init_done;
+>  
+> -static void __init zone_sizes_init(void)
+> +void __init arch_zone_limits_init(unsigned long *max_zone_pfns)
+>  {
+> -	unsigned long max_zone_pfn[MAX_NR_ZONES] = { 0 };
+> -
+>  	/*
+>  	 * We use only ZONE_NORMAL
+>  	 */
+> -	max_zone_pfn[ZONE_NORMAL] = max_low_pfn;
+> +	max_zone_pfns[ZONE_NORMAL] = max_low_pfn;
+> +}
+> +
+> +static void __init zone_sizes_init(void)
+> +{
+> +	unsigned long max_zone_pfn[MAX_NR_ZONES] = { 0 };
+>  
+> +	arch_zone_limits_init(max_zone_pfn);
+>  	free_area_init(max_zone_pfn);
+>  }
 
-On 09:42 Fri 02 Jan     , Alex Elder wrote:
-> On 1/1/26 8:38 AM, Yixun Lan wrote:
-> > Hi Alex,
-> > 
-> > On 18:50 Mon 29 Dec     , Alex Elder wrote:
-> >> On 12/26/25 12:55 AM, Yixun Lan wrote:
-> >>> In order to prepare adding clock driver for new SoC, extract common
-> >>> ccu header file, so it can be shared by all drivers.
-> >>
-> >> You are moving the definition of the SpacemiT CCU auxiliary
-> >> device structure, plus the to_spacemit_ccu_adev() function,
-> >> into a new header file.
-> > yes, and this is explaining the code which I consider not necessary,
-> > it's more obvious to read the code..
-> > 
-> >> The reason you're doing this is
-> >> because these two things are generic, but they're defined
-> >> in the K1 SoC-specific header file "k1-syscon.h".  So you
-> >> are creating a new header file for this purpose.
-> >>
-> > right
-> >> These are things you should explain here, to help orient
-> >> reviewers and will inform anyone in the future looking at
-> >> commit history.
-> > I thought I've explained the goal/motivation already with above
-> > commit message, maybe I can improve it, so how about:
-> > 
-> > In order to prepare adding clock driver for new K3 SoC, extract generic
-> > code to a separate common ccu header file, so they are not defined
-> > in K1 SoC-specific file, and then can be shared by all drivers.
-> 
-> This would be much better.  You don't need to explain every detail
-> of the code, but providing the motivation this way and explaining
-> it at a high level helps the reader a lot.
-> 
-> >>> Also introduce a reset name macro, so it can be both used in clock
-> >>> and reset subsystem, explicitly to make them match each other.
-> >>
-> >> This should go in a separate patch, and should change the
-> >> code to use the macro so it builds and continues to function
-> >> with the new change place.
-> >>
-> > yes, I could do this in a separate patch
-> > 
-> >> However I don't understand why you think it's necessary to
-> >> introduce the reset name macro.  Is it because you want to
-> >> incorporate an SoC identifier in the name?
-> >>
-> > I've explained here:
-> > https://lore.kernel.org/r/20251231020951-GYA2019108@gentoo.org
-> > 
-> > It's necessary to incorporate the SoC identifier which will help
-> > to differentiate K1 and K3 reset driver, otherwise there will be
-> > driver name collision, lead to reset driver probe failure while
-> > adding K3 SoC ..
-> 
-> I just had a talk with Guodong and he helped clear up a
-> misunderstanding I had about this.  I was thinking about
-> what happens at probe time, and that only the K1 or the
-> K3 CCU will get registered.
-> 
-> But he explained that the issue is that two *drivers* claim
-> to support the same "compatible" auxiliary device name, and
-> even if only the K1 CCU got registered, both reset drivers
-> are available in the kernel and you still need to specify
-> which reset driver you want use.
-> 
-> You are implementing both the K1 and K3 reset code in the
-> same module, which I think is why this is necessary.
-> 
-> >> Even if this is your reason, I still don't think you need
-> >> the macro.  I'll try to explain what I mean in the
-> >> next patch.
-> >>
-> > If you still have concerns, and we can't reach certain agreement,
-> > then I could drop this macro in next version, leave this optimization
-> > to future patches, I don't want main clock driver delayed by it.
-> 
-> No I no longer have concerns and I accept that you need to
-> encode the platform/SoC in the reset auxiliary device name.
-> 
-> > I personally tend to keep the macro, but probably the naming need some
-> > improvement..
-> 
-> What I'd prefer is to just name the resets directly, to encode the
-> platform ("k1" or "k3") where defined.  I.e.,
-> 
->   static const struct spacemit_ccu_data k1_ccu_mpmu_data = {
-> -	.reset_name	= "mpmu-reset",
-> +	.reset_name	= "k1-mpmu-reset",
-ok, I will go this way
->   	.hws		= k1_ccu_mpmu_hws,
->   	.num		= ARRAY_SIZE(k1_ccu_mpmu_hws),
->   };
-> 
-> Does this lead to a problem somewhere else?  What does hiding
-> this convention behind the _K_RST() macro do that's better
-> than this?  Is it because you want the separate clock and
-> reset drivers to use the same convention?
-yes, I was planing to use same convention for clock and reset
+Thanks, this looks like a good cleanup.
 
-> 
-> I think it's a little more difficult to talk about this because
-> we're talking about changes that are implemented by two separate
-> patch series.
-that's true
 
-> 
-> >> One more comment, below.
-> >>
-> >>> Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> >>> ---
-> >>>    include/soc/spacemit/ccu.h       | 21 +++++++++++++++++++++
-> >>>    include/soc/spacemit/k1-syscon.h | 13 +++----------
-> >>>    2 files changed, 24 insertions(+), 10 deletions(-)
-> >>>
-> >>> diff --git a/include/soc/spacemit/ccu.h b/include/soc/spacemit/ccu.h
-> >>> new file mode 100644
-> >>> index 000000000000..84dcdecccc05
-> >>> --- /dev/null
-> >>> +++ b/include/soc/spacemit/ccu.h
-> >>> @@ -0,0 +1,21 @@
-> >>> +/* SPDX-License-Identifier: GPL-2.0-only */
-> >>> +
-> >>> +#ifndef __SOC_SPACEMIT_CCU_H__
-> >>> +#define __SOC_SPACEMIT_CCU_H__
-> >>> +
-> >>> +#include <linux/auxiliary_bus.h>
-> >>> +#include <linux/regmap.h>
-> >>> +
-> >>> +/* Auxiliary device used to represent a CCU reset controller */
-> >>> +struct spacemit_ccu_adev {
-> >>> +	struct auxiliary_device adev;
-> >>> +	struct regmap *regmap;
-> >>> +};
-> >>> +
-> >>> +static inline struct spacemit_ccu_adev *
-> >>> +to_spacemit_ccu_adev(struct auxiliary_device *adev)
-> >>> +{
-> >>> +	return container_of(adev, struct spacemit_ccu_adev, adev);
-> >>> +}
-> >>> +
-> >>> +#endif /* __SOC_SPACEMIT_CCU_H__ */
-> >>> diff --git a/include/soc/spacemit/k1-syscon.h b/include/soc/spacemit/k1-syscon.h
-> >>> index 354751562c55..13efa7a30853 100644
-> >>> --- a/include/soc/spacemit/k1-syscon.h
-> >>> +++ b/include/soc/spacemit/k1-syscon.h
-> >>> @@ -5,17 +5,10 @@
-> >>>    #ifndef __SOC_K1_SYSCON_H__
-> >>>    #define __SOC_K1_SYSCON_H__
-> >>>    
-> >>> -/* Auxiliary device used to represent a CCU reset controller */
-> >>> -struct spacemit_ccu_adev {
-> >>> -	struct auxiliary_device adev;
-> >>> -	struct regmap *regmap;
-> >>> -};
-> >>> +#include "ccu.h"
-> >>>    
-> >>> -static inline struct spacemit_ccu_adev *
-> >>> -to_spacemit_ccu_adev(struct auxiliary_device *adev)
-> >>> -{
-> >>> -	return container_of(adev, struct spacemit_ccu_adev, adev);
-> >>> -}
-> >>> +/* Reset name macro, should match in clock and reset */
-> >>> +#define _K_RST(_unit)			"k1-" #_unit "-reset"
-> >>
-> >> The generic-sounding _K_RST() encodes "k1" in the name,
-> >> and it shouldn't.  Also, why do you use the underscore
-> >> prefix?
-> >>
-> > want to make it slightly generic/short but still keep it local for K1 driver,
-> > and also avoid potential collision with other drivers in kernel code..
-> > 
-> > or do you have any sugestion for better naming?
-> 
-> First, I suggest you avoid even using such a macro.  But I
-> could be wrong about that too...
-> 
-ok, see previous comment
-> I would name it RESET_NAME(_unit) or something similar.  It's
-> only used by code and DTS files that are related to SpacemiT
-> platforms.
-> 
-will drop the macro
-
-thanks!
-> 					-Alex
-> 
-> >> Anyway, I'll keep reading.
-> >>
-> >> 					-Alex
-> >>
-> >>>    
-> >>>    /* APBS register offset */
-> >>>    #define APBS_PLL1_SWCR1			0x100
-> >>>
-> >>
-> >>
-> > 
-> 
-
--- 
-Yixun Lan (dlan)
+Acked-by: Stafford Horne <shorne@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
