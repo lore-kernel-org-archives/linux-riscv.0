@@ -4,43 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C41DBFC6160
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Jan 2026 07:27:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D13FC6175
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Jan 2026 07:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b9y9Pw0IeFUI8/x1T0gLIMecdMVaV/IqypismvL/MZI=; b=OKGUW4vAX8orMd
-	d2jeTFjFVllWrx2o28tinkvFsKdaYWn6PQOYq3t/mZD6LqwXC2uvXlkm1Z+whGSMP9WK+v5C/OEg9
-	+gxvBzIYjtlMuYDcMl4aRynQaqhpafQTFkHCK822OD4lLroJ+SgXIHUsK7e5VC34/+V9V3J459RwH
-	jxPutcK2pXTbgSKpkpaGzp6+Ee8Z6jstmXXMNihhHexMqNVF2HTPvuvv/rJIkTdnBVlQtiN2eS32m
-	p2RU2HarBWXcWxSOXQ80Fdf729RUsqDXsN0/00jFCUrd5ng7Ov5PJyX4l+WKROPm84mYHETxkM3Zu
-	VlxvqIA7ZtTebemUjVhw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=zA0H3iWFMGFMEksWOyFqiJ5Fbv4WQ+VMLUf+30B9EbM=; b=G0vkGdKHJ8BHpO
+	AOHxzroIdA0BpB3hdUoQgfHJy1xWCVIt1Mu0Cw3lO2UsdoK3P0QORRUN68mH1LeX2eE54Lm4G+wJm
+	efVWtqsCPFq+yYBgDk9BHXBrxz7JAwouSU5YXqhyAu3hWv/kWxuK7S874FSpK9bKoTjEu+gJcBUPD
+	Gbr5Ink7ELza1py4i9tzmu7upC4SfkmzNW6y5jXoVWhVZCRzHGZx41khtHlc2g4NxQLcHBZULNepv
+	pDkqvbRz0spx+X9zVNn8xCXqGJYVVD/Jyf8kqKEQxcV6cXd7ZbnEO0nH0ZyvUU9v5jRxKEV9RJxSf
+	bqDJYMfRZjwV9SLfQ/jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbw2P-000000093Ub-2kPR;
-	Sat, 03 Jan 2026 07:27:01 +0000
+	id 1vbw2F-000000093So-3vDe;
+	Sat, 03 Jan 2026 07:26:51 +0000
 Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbw2N-000000093U5-0dfV
+	id 1vbw2C-000000093SV-3wqE
 	for linux-riscv@lists.infradead.org;
-	Sat, 03 Jan 2026 07:27:00 +0000
+	Sat, 03 Jan 2026 07:26:50 +0000
 Received: from [127.0.0.1] (unknown [116.232.18.222])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 14539340FC1;
-	Sat, 03 Jan 2026 07:26:52 +0000 (UTC)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id E96C7340FC1;
+	Sat, 03 Jan 2026 07:26:40 +0000 (UTC)
 From: Yixun Lan <dlan@gentoo.org>
-Date: Sat, 03 Jan 2026 15:26:13 +0800
-Subject: [PATCH v3 2/4] clk: spacemit: extract common ccu functions
+Subject: [PATCH v3 0/4] clk: spacemit: refactor common ccu driver
+Date: Sat, 03 Jan 2026 15:26:11 +0800
+Message-Id: <20260103-06-k1-clk-common-v3-0-6061d9f69eef@gentoo.org>
 MIME-Version: 1.0
-Message-Id: <20260103-06-k1-clk-common-v3-2-6061d9f69eef@gentoo.org>
-References: <20260103-06-k1-clk-common-v3-0-6061d9f69eef@gentoo.org>
-In-Reply-To: <20260103-06-k1-clk-common-v3-0-6061d9f69eef@gentoo.org>
+X-B4-Tracking: v=1; b=H4sIAJTEWGkC/23OwU7EIBAG4FdpODsNM9IW9rTvYTywlLZkF1Coj
+ WbTdxepB40e/0nm+/87yzY5m9mpubNkN5ddDCU8PjTMLDrMFtxYMiNOHRIOwHu4IpjbFUz0Pga
+ QI5puUKrjYmDl7SXZyb1X8un5yMm+vhV5PY7M25x1lU/Nt6s4kkTVCsHVQIDgQjSL016fZ6/dr
+ S1l7EtbXF5j+qh7N6zcQRD/O21D4DBOJDXXCnvC82zDGmMb01y1jX4K/T8CFYHkpVMC5UWM0y9
+ h3/dPXMw+SEEBAAA=
+X-Change-ID: 20251217-06-k1-clk-common-8d1c57995047
 To: Stephen Boyd <sboyd@kernel.org>, 
  Michael Turquette <mturquette@baylibre.com>, 
  Philipp Zabel <p.zabel@pengutronix.de>
@@ -49,27 +53,28 @@ Cc: Alex Elder <elder@riscstar.com>, Guodong Xu <guodong@riscstar.com>,
  linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>, Yao Zi <me@ziyao.cc>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12258; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=K0IJLaeneB5SNTST27Lw8J0YScDYYBejIzMdFyw7xCk=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpWMSmHR+PdhBGHHE1Ob7ljxF+R8sF7DFvZTJ2w
- 0LuRl+oR/yJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaVjEphsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2288; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=2UBPL2Yd1+yxV1XJdoGNsQHljb9tjz7tzWyKUEq7MBk=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpWMSgZ6lZNd20/VmyN2CFgIClwQKAnNpSevaIR
+ JVJEjknD9GJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaVjEoBsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+2kog//QevM92NZIFFqPzTdxy5Izcb9OOT9/L+u5xW68f3Vfw3Cp6T0xCx3J
- IqEecZ3r1ta5RArKG8QoaySDWqFBqIh1BsE2GfV39NFqZCFbJBF38HkxsySYGSFwQ/Q5W4eb+2X
- FQmOewR2yKe5ExclY/rPwTXAdZ9cQHLxKNRi0m/o/ffrm7ez7aNq3v+IfMDVqGmkTLhdfyxvaSU
- xAQdMPwEGIU6YtMZ+vh+wIyw4HBOCgigYcDVmvsalm5GrZ64PkFEkq6zPBrsbmGBJInz94Hfaf9
- jzFc9Pxa06559HrcM7qdMi0EFC6FfbE/uKR0HH44M8VU65QWi/ytNDzMfaG7lMhP69v2D6qr8Bw
- CZycPbC/JtPeDeyBxaavwbesZtZqxc3Q40i6EAnss0MMerm+eVsIdIHRDo7FflpPHVRYNK1EUhU
- 4pmWvdo0DfrP09wSE2QnzDOjxPOuNNoq1WxP2w50gDGw4+4qMd/zXMKe+KSmTMC4gjMTt1YzCsZ
- jdZ4LfSk5cxUu/rA8MBvATKLSyO2lqGOrVvRgd7WlPPPygsWGIqPCUvHTa4UfWgW1fA0vXUglQw
- sB4yHojHsojdsXDkNMlTFOdObYsHS3ls8lr2sZwDBOO5LodAGGg6oSmR+emCZkMf5RDCr0PZYZH
- SVCO/F2jdceWZ87ersFt8gZsZZ1ZIs=
+ QACgkQMarqR1lNu+3VwRAAm0p9O+pUjjGDtkLvJfflAyKfliyq6r189UJNV9UCe9L2A/kvs8pg+
+ yiue77H9fhmQOfN5Z2ZyIhm2nEjwynB5UBIllXwy7pfxywS9riRRCW5l3UTZNFctJ8ivKJnun8V
+ tAf5AaT/XFvqAehJ2Qhdv7hmKW3rVQxX03onWMYiq891fyG3BTkO4GesWcafDiPoxcQQI8S5Ili
+ moN7ZUWt+HmgaiBkARsyHrqlWPWaqpgoVEgq+XIJZI2yMbogNC7EOY44eDWLn4qWezvpeX1O+X+
+ 33tJkqayEJD2parIsC67mZoVY5oRXOzhudJ+Rf0EK77ESvlUy6ZA+W8dDIvYprRQ60P8V4hRltf
+ VSVwUTTYx519UR4KqCZUSQLo7G79HSQxITepyv4CC1/wBh2IYT5gLoDS/5UPPBmweD6vlqNpj2X
+ PSZmtm2ixk9QbDk1eDN2qVSI3vnaURRASGg5FgDyD9oyWAAMg9hIeArk0yj5kf7zSuDYuFI6UCk
+ SrNPeACxnKIisDNnk3xNWarkt3B6ph8nHwRZc6l2Oc4eg90faPaxRoh+0pdBn9qlbj31/TyW2+i
+ LXaB1WPi1P8YCEE7ip8hrOHPqhNc1ZclsNtSlDGPYESX793LkP63vWzSSR8yEjWXxamVFREeSYc
+ 2VATG8HPTZ9/UZh7ksrvaSXIRMZtBI=
 X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_232659_234981_9502C433 
-X-CRM114-Status: GOOD (  23.56  )
+X-CRM114-CacheID: sfid-20260102_232649_013556_C89A10BE 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,455 +91,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Refactor the probe function of SpacemiT's clock, and extract a common ccu
-file, so new clock driver added in the future can share the same code,
-which would lower the burden of maintenance. Since this commit changes the
-module name where the auxiliary device registered, the auxiliary device id
-need to be adjusted. Idea of the patch comes from the review of K3 clock
-driver, please refer to this disucssion[1] for more detail.
+The goal here is to refactor the clock driver to extract common part, and
+reuse it, so in the future, we can maximize the source code usage once
+adding new clock driver (specifically, for the SpacemiT K3 SoC here)
 
-Link: https://lore.kernel.org/all/aTo8sCPpVM1o9PKX@pie/ [1]
-Suggested-by: Yao Zi <me@ziyao.cc>
+Since reset driver register via auxiliary bus which requires a adjustment
+of the auxiliary device id accordingly.
+
+This patch will depend on Kconfig fix for building modules [1], and the idea
+come from K3 clock's review[2]
+
+Please note, Patch 1 is needed for both clock and reset driver, so extract it
+out as single independent patch. Then it can be pulled into both subsystem.
+
+Link: https://lore.kernel.org/all/20251219012819.440972-1-inochiama@gmail.com/ [1]
+Link: https://lore.kernel.org/all/aTo8sCPpVM1o9PKX@pie [2]
 Signed-off-by: Yixun Lan <dlan@gentoo.org>
 ---
- drivers/clk/spacemit/ccu-k1.c     | 179 ++------------------------------------
- drivers/clk/spacemit/ccu_common.c | 171 ++++++++++++++++++++++++++++++++++++
- drivers/clk/spacemit/ccu_common.h |  10 +++
- 3 files changed, 186 insertions(+), 174 deletions(-)
+Changes in v3:
+- drop reset macro, and have separate patch for changing reset name
+- extract common spacemit_ccu_probe(), leave SoC specific change out
+- improve commit message
+- Link to v2: https://lore.kernel.org/r/20251226-06-k1-clk-common-v2-0-28b59418b4df@gentoo.org
 
-diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-index 01d9485b615d..02c792a73759 100644
---- a/drivers/clk/spacemit/ccu-k1.c
-+++ b/drivers/clk/spacemit/ccu-k1.c
-@@ -5,15 +5,10 @@
-  */
- 
- #include <linux/array_size.h>
--#include <linux/auxiliary_bus.h>
- #include <linux/clk-provider.h>
--#include <linux/delay.h>
--#include <linux/idr.h>
--#include <linux/mfd/syscon.h>
- #include <linux/minmax.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
--#include <linux/slab.h>
- #include <soc/spacemit/k1-syscon.h>
- 
- #include "ccu_common.h"
-@@ -23,14 +18,6 @@
- 
- #include <dt-bindings/clock/spacemit,k1-syscon.h>
- 
--struct spacemit_ccu_data {
--	const char *reset_name;
--	struct clk_hw **hws;
--	size_t num;
--};
--
--static DEFINE_IDA(auxiliary_ids);
--
- /* APBS clocks start, APBS region contains and only contains all PLL clocks */
- 
- /*
-@@ -1001,167 +988,6 @@ static const struct spacemit_ccu_data k1_ccu_apbc2_data = {
- 	.reset_name	= "apbc2-reset",
- };
- 
--static int spacemit_ccu_register(struct device *dev,
--				 struct regmap *regmap,
--				 struct regmap *lock_regmap,
--				 const struct spacemit_ccu_data *data)
--{
--	struct clk_hw_onecell_data *clk_data;
--	int i, ret;
--
--	/* Nothing to do if the CCU does not implement any clocks */
--	if (!data->hws)
--		return 0;
--
--	clk_data = devm_kzalloc(dev, struct_size(clk_data, hws, data->num),
--				GFP_KERNEL);
--	if (!clk_data)
--		return -ENOMEM;
--
--	clk_data->num = data->num;
--
--	for (i = 0; i < data->num; i++) {
--		struct clk_hw *hw = data->hws[i];
--		struct ccu_common *common;
--		const char *name;
--
--		if (!hw) {
--			clk_data->hws[i] = ERR_PTR(-ENOENT);
--			continue;
--		}
--
--		name = hw->init->name;
--
--		common = hw_to_ccu_common(hw);
--		common->regmap		= regmap;
--		common->lock_regmap	= lock_regmap;
--
--		ret = devm_clk_hw_register(dev, hw);
--		if (ret) {
--			dev_err(dev, "Cannot register clock %d - %s\n",
--				i, name);
--			return ret;
--		}
--
--		clk_data->hws[i] = hw;
--	}
--
--	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
--	if (ret)
--		dev_err(dev, "failed to add clock hardware provider (%d)\n", ret);
--
--	return ret;
--}
--
--static void spacemit_cadev_release(struct device *dev)
--{
--	struct auxiliary_device *adev = to_auxiliary_dev(dev);
--
--	ida_free(&auxiliary_ids, adev->id);
--	kfree(to_spacemit_ccu_adev(adev));
--}
--
--static void spacemit_adev_unregister(void *data)
--{
--	struct auxiliary_device *adev = data;
--
--	auxiliary_device_delete(adev);
--	auxiliary_device_uninit(adev);
--}
--
--static int spacemit_ccu_reset_register(struct device *dev,
--				       struct regmap *regmap,
--				       const char *reset_name)
--{
--	struct spacemit_ccu_adev *cadev;
--	struct auxiliary_device *adev;
--	int ret;
--
--	/* Nothing to do if the CCU does not implement a reset controller */
--	if (!reset_name)
--		return 0;
--
--	cadev = kzalloc(sizeof(*cadev), GFP_KERNEL);
--	if (!cadev)
--		return -ENOMEM;
--
--	cadev->regmap = regmap;
--
--	adev = &cadev->adev;
--	adev->name = reset_name;
--	adev->dev.parent = dev;
--	adev->dev.release = spacemit_cadev_release;
--	adev->dev.of_node = dev->of_node;
--	ret = ida_alloc(&auxiliary_ids, GFP_KERNEL);
--	if (ret < 0)
--		goto err_free_cadev;
--	adev->id = ret;
--
--	ret = auxiliary_device_init(adev);
--	if (ret)
--		goto err_free_aux_id;
--
--	ret = auxiliary_device_add(adev);
--	if (ret) {
--		auxiliary_device_uninit(adev);
--		return ret;
--	}
--
--	return devm_add_action_or_reset(dev, spacemit_adev_unregister, adev);
--
--err_free_aux_id:
--	ida_free(&auxiliary_ids, adev->id);
--err_free_cadev:
--	kfree(cadev);
--
--	return ret;
--}
--
--static int k1_ccu_probe(struct platform_device *pdev)
--{
--	struct regmap *base_regmap, *lock_regmap = NULL;
--	const struct spacemit_ccu_data *data;
--	struct device *dev = &pdev->dev;
--	int ret;
--
--	base_regmap = device_node_to_regmap(dev->of_node);
--	if (IS_ERR(base_regmap))
--		return dev_err_probe(dev, PTR_ERR(base_regmap),
--				     "failed to get regmap\n");
--
--	/*
--	 * The lock status of PLLs locate in MPMU region, while PLLs themselves
--	 * are in APBS region. Reference to MPMU syscon is required to check PLL
--	 * status.
--	 */
--	if (of_device_is_compatible(dev->of_node, "spacemit,k1-pll")) {
--		struct device_node *mpmu = of_parse_phandle(dev->of_node,
--							    "spacemit,mpmu", 0);
--		if (!mpmu)
--			return dev_err_probe(dev, -ENODEV,
--					     "Cannot parse MPMU region\n");
--
--		lock_regmap = device_node_to_regmap(mpmu);
--		of_node_put(mpmu);
--
--		if (IS_ERR(lock_regmap))
--			return dev_err_probe(dev, PTR_ERR(lock_regmap),
--					     "failed to get lock regmap\n");
--	}
--
--	data = of_device_get_match_data(dev);
--
--	ret = spacemit_ccu_register(dev, base_regmap, lock_regmap, data);
--	if (ret)
--		return dev_err_probe(dev, ret, "failed to register clocks\n");
--
--	ret = spacemit_ccu_reset_register(dev, base_regmap, data->reset_name);
--	if (ret)
--		return dev_err_probe(dev, ret, "failed to register resets\n");
--
--	return 0;
--}
--
- static const struct of_device_id of_k1_ccu_match[] = {
- 	{
- 		.compatible	= "spacemit,k1-pll",
-@@ -1195,6 +1021,11 @@ static const struct of_device_id of_k1_ccu_match[] = {
- };
- MODULE_DEVICE_TABLE(of, of_k1_ccu_match);
- 
-+static int k1_ccu_probe(struct platform_device *pdev)
-+{
-+	return spacemit_ccu_probe(pdev, "spacemit,k1-pll");
-+}
-+
- static struct platform_driver k1_ccu_driver = {
- 	.driver = {
- 		.name		= "spacemit,k1-ccu",
-diff --git a/drivers/clk/spacemit/ccu_common.c b/drivers/clk/spacemit/ccu_common.c
-index 4412c4104dab..5f05b17f8452 100644
---- a/drivers/clk/spacemit/ccu_common.c
-+++ b/drivers/clk/spacemit/ccu_common.c
-@@ -1,6 +1,177 @@
- // SPDX-License-Identifier: GPL-2.0-only
- 
-+#include <linux/clk-provider.h>
-+#include <linux/device/devres.h>
-+#include <linux/mfd/syscon.h>
- #include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/slab.h>
-+#include <soc/spacemit/ccu.h>
-+
-+#include "ccu_common.h"
-+
-+static DEFINE_IDA(auxiliary_ids);
-+static int spacemit_ccu_register(struct device *dev,
-+				 struct regmap *regmap,
-+				 struct regmap *lock_regmap,
-+				 const struct spacemit_ccu_data *data)
-+{
-+	struct clk_hw_onecell_data *clk_data;
-+	int i, ret;
-+
-+	/* Nothing to do if the CCU does not implement any clocks */
-+	if (!data->hws)
-+		return 0;
-+
-+	clk_data = devm_kzalloc(dev, struct_size(clk_data, hws, data->num),
-+				GFP_KERNEL);
-+	if (!clk_data)
-+		return -ENOMEM;
-+
-+	clk_data->num = data->num;
-+
-+	for (i = 0; i < data->num; i++) {
-+		struct clk_hw *hw = data->hws[i];
-+		struct ccu_common *common;
-+		const char *name;
-+
-+		if (!hw) {
-+			clk_data->hws[i] = ERR_PTR(-ENOENT);
-+			continue;
-+		}
-+
-+		name = hw->init->name;
-+
-+		common = hw_to_ccu_common(hw);
-+		common->regmap		= regmap;
-+		common->lock_regmap	= lock_regmap;
-+
-+		ret = devm_clk_hw_register(dev, hw);
-+		if (ret) {
-+			dev_err(dev, "Cannot register clock %d - %s\n",
-+				i, name);
-+			return ret;
-+		}
-+
-+		clk_data->hws[i] = hw;
-+	}
-+
-+	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
-+	if (ret)
-+		dev_err(dev, "failed to add clock hardware provider (%d)\n", ret);
-+
-+	return ret;
-+}
-+
-+static void spacemit_cadev_release(struct device *dev)
-+{
-+	struct auxiliary_device *adev = to_auxiliary_dev(dev);
-+
-+	ida_free(&auxiliary_ids, adev->id);
-+	kfree(to_spacemit_ccu_adev(adev));
-+}
-+
-+static void spacemit_adev_unregister(void *data)
-+{
-+	struct auxiliary_device *adev = data;
-+
-+	auxiliary_device_delete(adev);
-+	auxiliary_device_uninit(adev);
-+}
-+
-+static int spacemit_ccu_reset_register(struct device *dev,
-+				       struct regmap *regmap,
-+				       const char *reset_name)
-+{
-+	struct spacemit_ccu_adev *cadev;
-+	struct auxiliary_device *adev;
-+	int ret;
-+
-+	/* Nothing to do if the CCU does not implement a reset controller */
-+	if (!reset_name)
-+		return 0;
-+
-+	cadev = kzalloc(sizeof(*cadev), GFP_KERNEL);
-+	if (!cadev)
-+		return -ENOMEM;
-+
-+	cadev->regmap = regmap;
-+
-+	adev = &cadev->adev;
-+	adev->name = reset_name;
-+	adev->dev.parent = dev;
-+	adev->dev.release = spacemit_cadev_release;
-+	adev->dev.of_node = dev->of_node;
-+	ret = ida_alloc(&auxiliary_ids, GFP_KERNEL);
-+	if (ret < 0)
-+		goto err_free_cadev;
-+	adev->id = ret;
-+
-+	ret = auxiliary_device_init(adev);
-+	if (ret)
-+		goto err_free_aux_id;
-+
-+	ret = auxiliary_device_add(adev);
-+	if (ret) {
-+		auxiliary_device_uninit(adev);
-+		return ret;
-+	}
-+
-+	return devm_add_action_or_reset(dev, spacemit_adev_unregister, adev);
-+
-+err_free_aux_id:
-+	ida_free(&auxiliary_ids, adev->id);
-+err_free_cadev:
-+	kfree(cadev);
-+
-+	return ret;
-+}
-+
-+int spacemit_ccu_probe(struct platform_device *pdev, const char *compat)
-+{
-+	struct regmap *base_regmap, *lock_regmap = NULL;
-+	const struct spacemit_ccu_data *data;
-+	struct device *dev = &pdev->dev;
-+	int ret;
-+
-+	base_regmap = device_node_to_regmap(dev->of_node);
-+	if (IS_ERR(base_regmap))
-+		return dev_err_probe(dev, PTR_ERR(base_regmap),
-+				     "failed to get regmap\n");
-+
-+	/*
-+	 * The lock status of PLLs locate in MPMU region, while PLLs themselves
-+	 * are in APBS region. Reference to MPMU syscon is required to check PLL
-+	 * status.
-+	 */
-+	if (compat && of_device_is_compatible(dev->of_node, compat)) {
-+		struct device_node *mpmu = of_parse_phandle(dev->of_node,
-+							    "spacemit,mpmu", 0);
-+		if (!mpmu)
-+			return dev_err_probe(dev, -ENODEV,
-+					     "Cannot parse MPMU region\n");
-+
-+		lock_regmap = device_node_to_regmap(mpmu);
-+		of_node_put(mpmu);
-+
-+		if (IS_ERR(lock_regmap))
-+			return dev_err_probe(dev, PTR_ERR(lock_regmap),
-+					     "failed to get lock regmap\n");
-+	}
-+
-+	data = of_device_get_match_data(dev);
-+
-+	ret = spacemit_ccu_register(dev, base_regmap, lock_regmap, data);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to register clocks\n");
-+
-+	ret = spacemit_ccu_reset_register(dev, base_regmap, data->reset_name);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to register resets\n");
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_NS_GPL(spacemit_ccu_probe, "CLK_SPACEMIT");
- 
- MODULE_DESCRIPTION("SpacemiT CCU common clock driver");
- MODULE_LICENSE("GPL");
-diff --git a/drivers/clk/spacemit/ccu_common.h b/drivers/clk/spacemit/ccu_common.h
-index da72f3836e0b..7ae244b5eace 100644
---- a/drivers/clk/spacemit/ccu_common.h
-+++ b/drivers/clk/spacemit/ccu_common.h
-@@ -7,6 +7,8 @@
- #ifndef _CCU_COMMON_H_
- #define _CCU_COMMON_H_
- 
-+#include <linux/clk-provider.h>
-+#include <linux/platform_device.h>
- #include <linux/regmap.h>
- 
- struct ccu_common {
-@@ -36,6 +38,12 @@ static inline struct ccu_common *hw_to_ccu_common(struct clk_hw *hw)
- 	return container_of(hw, struct ccu_common, hw);
- }
- 
-+struct spacemit_ccu_data {
-+	const char *reset_name;
-+	struct clk_hw **hws;
-+	size_t num;
-+};
-+
- #define ccu_read(c, reg)						\
- 	({								\
- 		u32 tmp;						\
-@@ -45,4 +53,6 @@ static inline struct ccu_common *hw_to_ccu_common(struct clk_hw *hw)
- #define ccu_update(c, reg, mask, val) \
- 	regmap_update_bits((c)->regmap, (c)->reg_##reg, mask, val)
- 
-+int spacemit_ccu_probe(struct platform_device *pdev, const char *compat);
-+
- #endif /* _CCU_COMMON_H_ */
+Changes in v2:
+- extract common header file which shared by clock and reset
+- add SoC namespace to differentiate reset for auxiliary bus
+- Link to v1: https://lore.kernel.org/r/20251220-06-k1-clk-common-v1-0-df28a0a91621@gentoo.org
 
+---
+Yixun Lan (4):
+      clk: spacemit: prepare common ccu header
+      clk: spacemit: extract common ccu functions
+      clk: spacemit: add platform SoC prefix to reset name
+      reset: spacemit: fix auxiliary device id
+
+ drivers/clk/spacemit/ccu-k1.c     | 191 +++-----------------------------------
+ drivers/clk/spacemit/ccu_common.c | 171 ++++++++++++++++++++++++++++++++++
+ drivers/clk/spacemit/ccu_common.h |  10 ++
+ drivers/reset/reset-spacemit.c    |   2 +-
+ include/soc/spacemit/ccu.h        |  21 +++++
+ include/soc/spacemit/k1-syscon.h  |  12 +--
+ 6 files changed, 215 insertions(+), 192 deletions(-)
+---
+base-commit: 99735a742f7e9a3e7f4cb6c58edf1b38101e7657
+change-id: 20251217-06-k1-clk-common-8d1c57995047
+prerequisite-message-id: 20251219012819.440972-1-inochiama@gmail.com
+prerequisite-patch-id: df430730ed961011cee5c5d47b7ace84b3c5ebb7
+prerequisite-patch-id: 64003618c33be925602e46b7543f2c13d3f36474
+
+Best regards,
 -- 
-2.52.0
+Yixun Lan
 
 
 _______________________________________________
