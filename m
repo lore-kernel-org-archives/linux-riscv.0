@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4CE0FC6160
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Jan 2026 08:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39C6BFC6176
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Jan 2026 08:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J1BlxXvfoVsQJHUM0EIKPDp2fwejIpCdF0Qt2gSyibo=; b=AamCruxWGn7cUD
-	SuT3BXtQG0Wewnwfb1YaPLz9ESYtKLu97NqQIsnUewqbiSxvHmR1mLEGVGhFrlQh5IaTVOfa9o9aB
-	VJmNZ3/hHYYOymquZAFflDkZpil3h/vuv7G74DdTbyy1NyXMqP96E104YIwz/uTMeqfCRqTYEhnzm
-	fHu5RY+3NjFxqCboGRrXcKUCFxcj9iYtSGw95evCzHRnYrqqKAcaFXpmASaCSJ085QpdXM4tdlTLd
-	XnjmohxI/zqHTd016L/bTm0RjNbH+BQWt67ELt9t+MEJnRkqya6nB34l0KTXZWD0lW5lpNT7Gjc7N
-	/yXEBEBRY4J2hHYikTLg==;
+	List-Owner; bh=26dsXStTM0aGOTwSHwogx+3r2F6C3pBeluFnlLnQVh8=; b=uUChRgS0B74lOC
+	Bw1KuZvrjoZ+6YsejB9a38EzKq/JjvMJ8UgFIsZ13vu6hWcpit20ajJuPlf4gFcVnIcr7yGd2gmhR
+	QYRfgchuKPv11T5WEov76a4e7o4jOKocQKwwGFVqjopTidfvQHylFNz92fDDFsQENaeG5Z2QgKJOD
+	+PsrFqp+evCx4mfH3VQLvFx+z4gmM4xuDLe4gW1YG8rmAmW13soG0qMKXeAWiGd8G14uv/bua86xT
+	fODt/Lg/Mj8GKZ7O4fkRcZ9hZiEv3+RAN5ZCvsBvlmYIycqWpsfw7aONwqOxBpQY7xGRUH7m3XaAD
+	0jnDbolLeAibu2siuTdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbxIw-000000097J8-2B5n;
-	Sat, 03 Jan 2026 08:48:10 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1vbxIx-000000097Kc-3dC8;
+	Sat, 03 Jan 2026 08:48:11 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbxIp-000000097FU-1or4
+	id 1vbxIu-000000097Gj-1gDU
 	for linux-riscv@lists.infradead.org;
-	Sat, 03 Jan 2026 08:48:09 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7baf61be569so13213992b3a.3
-        for <linux-riscv@lists.infradead.org>; Sat, 03 Jan 2026 00:48:03 -0800 (PST)
+	Sat, 03 Jan 2026 08:48:10 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-7f651586be1so232665b3a.1
+        for <linux-riscv@lists.infradead.org>; Sat, 03 Jan 2026 00:48:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767430082; x=1768034882; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1767430087; x=1768034887; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bvs9mu39u8pUKEaoauSfWHl5WiFJwmaNAiuKq3SpZKw=;
-        b=iIUplYs83FarEa4c8rEDrLRCeMilUc1ymK5CCvZAeYJ/QNHdUaAIl1TPbeZezRci6T
-         RTexWOkM3sjsf/Sh1FcrzvL5AZuepe9zvxy3GCZvva57Jt+tMfaymFCbOOw5N15/oZ88
-         e1LYEY5Tgp491oSs7/oK05bFMKpiRsi2N3IPjpUp4qaMjUPOpFJum4cwRc03egbtLC/j
-         pmx0VSoC3OkqGxlDYDSjwILiAX1FrRbzzwDQm39w4oO+hBhEFSA8Bao+WWlZaQyqbF44
-         ktLd92rilqfYgxgToRe6rokZyX2hJpEGhL2DDqVZi1kn7mzDR0R9EQbKf5YO97iiapeo
-         ktdg==
+        bh=JHUhniRWcOleZ/LWsZA4B498/r40yHnXuPYvUqkOFcY=;
+        b=D+XAV7YN6cVLQzR2LSH1tl+GP8pYDh09oIJm8nsybzEEfLg1O9XZcrsuUr3pZ4XClU
+         D47CcN2xcG8zGdHqsN51MEgbQh3PaWVSGcC5FgIOFXQg6RtQ99cg3plfGoBW2yekHaN4
+         c4shuL4CEhL6RPmyR4v50doPU/O3bYUVVMlgHk8OKMAuNSP1+98AR+D+G6UGFiMiDNnA
+         SAXKe5plWNmYjIJSPn8PAPzeUse4vqOZQy/LOISmeU2kTmsMP4ODRCXpDghd+wIfUvOB
+         R/kJP+ezQWbWY2O1rwO6CB7hqTxX79RotF5KgXyXjyHUFBs+6iuxH98Sw1Yddj2Fn3gp
+         P8tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767430082; x=1768034882;
+        d=1e100.net; s=20230601; t=1767430087; x=1768034887;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=bvs9mu39u8pUKEaoauSfWHl5WiFJwmaNAiuKq3SpZKw=;
-        b=M30K8lxNNCNWH0d2yARVdldMsreYGwM60k2fO4lEfC7dE9erJXsC5OBs1YBZSsDZC2
-         oXmIFkEv88YIopKf4Ey6+BCl+hA8SBRE+6BwGozLWLc6cz3c4KHLVYrUqeJzqTZqyWSU
-         GGrnYd5amB9Y5kkSZuX318KDwxRz4zikkpbtTVM7OX9/z/ZwmLYBoTOaTEijabrwIha7
-         cpzBf0h8eIZN9TXdYAYoP2Ym+jAV7u+O12jIr1R7bBn8zaFsauyK9d/03G3dfDuaKYvj
-         vpwDUDrZPN8nBjfnWB9fOVIn8E5iEHMjLCgfgbEyj2vQBOH8qz21psWSuPEgW4c0DSvE
-         /fmw==
-X-Forwarded-Encrypted: i=1; AJvYcCX0NHthejcrZNgag0aTMjfGHlXHMOpXbvpEunuOQwlHrItZWxfxouwVYUrpXRhWXbue1CjyGa7Wf8YKzQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywsfv8lz5ynlRCRw/705dJrTJnhfd29xMm1HCYuvlDAn8+ow76x
-	tdEX7xX7/eFXWepeaKXfs9Hzo98GoLmgHqVlrWojG3BFvjCyY6jUVU+HW2jmGyyQ
-X-Gm-Gg: AY/fxX45lKTd2EVsI8bovf6/S0iKJqIJSov7EUvQKo+Gra7sIUxVh1yO9EqiVmV/2/V
-	dAXTYJzAi9UlxgVRrwvPCR7sTel6/T4NnmffEstaV3hE/57q5YxgtQb3Uq/sQaK1TXOci+0GtGX
-	7MUZu9EjQqDJvT0zhTufzBb/Bxt28Qn5G+5NxUqwKTcC8Q+WIgQlCYyEIOMoEO8Tyss7DlVBkDu
-	zOR5W4UBRbOcp23T6wqMtyZRyWCqmz1bn+eRF4xLCHdARx5s+Ac8BsTshTmkl16DtHWe2Tg3ZW5
-	LRIQ7O8ofNAiG/HJuazVyvzgXsv+GyOkKpj4ZAxrtp/6i/v5eIimzpXjk0hyn1t4epCwwnYIxMZ
-	SY92Qw92k2bNUBBAw+jS0wIF8HbOJdAkg99ZE8sx0EuoFuF2fAboti0mZdoKOCty5pwhR3WyY5z
-	rbx4oHMjSBuTu4oqseV4KyHu+PvqDNMyYFXgY=
-X-Google-Smtp-Source: AGHT+IFtMJvjrpfUuqAmA+OpACtkefUVF2XH5YredFgsYPdy6OhoXIwbDm8pMiudZkIWzurpixeN8w==
-X-Received: by 2002:a05:6a00:338f:b0:7a2:7792:a477 with SMTP id d2e1a72fcca58-7ff65d7e81amr37223258b3a.27.1767430082432;
-        Sat, 03 Jan 2026 00:48:02 -0800 (PST)
+        bh=JHUhniRWcOleZ/LWsZA4B498/r40yHnXuPYvUqkOFcY=;
+        b=hp9zzUFFkI8H2trXef85X769mmY7cODRw6iYdKOWjZeuAMEJoCxhjcQDIRYoeLQl3w
+         GZGSgzOnAYPs42MNhENnHwntYFeVj9HkDOzwA3oaPzGi7VM6Fuhg2s+ZarbzXr4xZ42T
+         T7SSxPFW0M01lz5Co1ykMZwQRKLH2zw4+NhH/fCJQZu6fl52nm3uLtA6tJfkE2QIegmK
+         c0ozuTuzWIXNC1EAFC+QKa5HV2WiVXSTMGyAQjtF1dlz2y2CbeZe8GiZ/2eP3cYho8y1
+         Ftzo3YTCQrhuMa189EUDI4Rr+1hJzouzxCCyrjLS2Gw5YaV6oT+tqSUL2BekY7vFC3OH
+         MPYg==
+X-Forwarded-Encrypted: i=1; AJvYcCWMcLtpjJ4+YZEQfoovXZWacHXlbWvMkBVKqATNB2FXekD0WgCz5lvDR5zqrQdKf1hKPtcceAWYJErhWQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yww1xjW/ZSCAFtUHhZ0CMPBeOCz06fmzQGcGaAEKsIM2LAlu/Cx
+	BDFuq1kp3bAiwSas6+WpitCewPeRGmq1mLB+s65htL7wkR0qxX9QS+0S
+X-Gm-Gg: AY/fxX65qyr+Zzu5AtE1jZwhDHZxnVJvVcjg/bhFso15h4lbSi5BvaX2x+gfe2IxrtW
+	u1kf7Xfys64LMJmAB2bBM0Vv9bH7I9iLgWzuau28RCaGT6oD9C/7uqw5sjkXdkpM/819giXnhl0
+	fIBhU/ctQbyUAZfEl5vCubWdfZhgtOZ1/kC8Od0C+kI2ycqDvYR32KUwwcLGAXKwUgTJdk+3jD7
+	5ySKBa0bz2I+rgPlmXCu+yEgopJSvj44/ekJUEdaj+OBit+qcvTTuRXibuDcEbBrQR57PSFbwbB
+	QJzcaIlvV76kjGK6Bs4wrvaf2TicP0M2vsMV1e9/Eaos0XbX+KzXrBnXWS3wLocSU5H7Zl5hV+e
+	zQEjvNT+UMpl5ZAnQq7S38RVkkbp57XYNgiFtvdzPOt6kXHXbeyMQSH05A/ZHlfkwysBxlOD/y7
+	659+f8MxgFnaE14MnJew35CHJWI1WnU2587eo=
+X-Google-Smtp-Source: AGHT+IFoiqDv7u4QVwPAsnB9Ilz+AGYXHXN7Krwf9OXzvHcyBpVKkqOp/lFBq/KGwKuFExK695g6Ag==
+X-Received: by 2002:a05:6a00:4895:b0:7e8:3fcb:9afc with SMTP id d2e1a72fcca58-8148ba1ab36mr1175712b3a.18.1767430087435;
+        Sat, 03 Jan 2026 00:48:07 -0800 (PST)
 Received: from jvle-ThinkPad-X1-Carbon-Gen-8.. ([210.73.43.101])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7ff7e197983sm42704939b3a.33.2026.01.03.00.47.57
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7ff7e197983sm42704939b3a.33.2026.01.03.00.48.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 03 Jan 2026 00:48:02 -0800 (PST)
+        Sat, 03 Jan 2026 00:48:07 -0800 (PST)
 From: Keke Ming <ming.jvle@gmail.com>
 To: mhiramat@kernel.org,
 	oleg@redhat.com,
@@ -89,16 +89,16 @@ Cc: linux@armlinux.org.uk,
 	linux-mips@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Keke Ming <ming.jvle@gmail.com>
-Subject: [PATCH 3/5] mips/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
-Date: Sat,  3 Jan 2026 16:42:41 +0800
-Message-ID: <20260103084243.195125-4-ming.jvle@gmail.com>
+Subject: [PATCH 4/5] arm/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
+Date: Sat,  3 Jan 2026 16:42:42 +0800
+Message-ID: <20260103084243.195125-5-ming.jvle@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260103084243.195125-1-ming.jvle@gmail.com>
 References: <20260103084243.195125-1-ming.jvle@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_004804_404224_9D262678 
-X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-CacheID: sfid-20260103_004809_575261_D71556C6 
+X-CRM114-Status: UNSURE (   9.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,27 +120,31 @@ Replace deprecated kmap_atomic() with kmap_local_page().
 
 Signed-off-by: Keke Ming <ming.jvle@gmail.com>
 ---
- arch/mips/kernel/uprobes.c | 4 ++--
+ arch/arm/probes/uprobes/core.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/mips/kernel/uprobes.c b/arch/mips/kernel/uprobes.c
-index 401b148f8917..05cfc320992b 100644
---- a/arch/mips/kernel/uprobes.c
-+++ b/arch/mips/kernel/uprobes.c
-@@ -214,11 +214,11 @@ void arch_uprobe_copy_ixol(struct page *page, unsigned long vaddr,
- 	unsigned long kaddr, kstart;
+diff --git a/arch/arm/probes/uprobes/core.c b/arch/arm/probes/uprobes/core.c
+index 3d96fb41d624..0e1c6b9e7e54 100644
+--- a/arch/arm/probes/uprobes/core.c
++++ b/arch/arm/probes/uprobes/core.c
+@@ -113,7 +113,7 @@ int arch_uprobe_analyze_insn(struct arch_uprobe *auprobe, struct mm_struct *mm,
+ void arch_uprobe_copy_ixol(struct page *page, unsigned long vaddr,
+ 			   void *src, unsigned long len)
+ {
+-	void *xol_page_kaddr = kmap_atomic(page);
++	void *xol_page_kaddr = kmap_local_page(page);
+ 	void *dst = xol_page_kaddr + (vaddr & ~PAGE_MASK);
  
- 	/* Initialize the slot */
--	kaddr = (unsigned long)kmap_atomic(page);
-+	kaddr = (unsigned long)kmap_local_page(page);
- 	kstart = kaddr + (vaddr & ~PAGE_MASK);
- 	memcpy((void *)kstart, src, len);
- 	flush_icache_range(kstart, kstart + len);
--	kunmap_atomic((void *)kaddr);
-+	kunmap_local((void *)kaddr);
+ 	preempt_disable();
+@@ -126,7 +126,7 @@ void arch_uprobe_copy_ixol(struct page *page, unsigned long vaddr,
+ 
+ 	preempt_enable();
+ 
+-	kunmap_atomic(xol_page_kaddr);
++	kunmap_local(xol_page_kaddr);
  }
  
- /**
+ 
 -- 
 2.43.0
 
