@@ -4,97 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5875AFC6180
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Jan 2026 09:46:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 912FAFC617E
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Jan 2026 10:57:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sDrk4KnCqQUWz//IIwUk1Ogeu3S/M82M/lsLZboZBu4=; b=p3eOGBQQm6oIR4
-	HoiXIP4Yrb7B5KOmYn7ODWPFDro7j/k5hGw3ARKU1nx3M9jtSK1pgVb8UO866GQcrGmM4bZw9LRiL
-	t5nFsQdUn6X+RqIgqVOh4taYqwf7Hnn9IyiiOp9IsUUX9lcusrvc8jIrL1fNa/FFMbyrhTeQCDyWY
-	T5OywyiUyWHtb6QdH+RMfAxlhkbRwR1qeJ9y1HeDdkkf2IFrAvEkp8xU+Oy9kxJecrxqC0deKLW1x
-	j4tuOBoF2ieFVNAuIRX6Jl/LuejJLBQ64HlgpuIjIxXJ7ioJU5b63xb0FloKna5sTbxLf7JaD/oXT
-	wJJKd5rdiTcEYciNFzpQ==;
+	List-Owner; bh=4M15SESiPqwA8MZT4lz7apXzQDfwVBRZERDmFg7HcvQ=; b=FIaev547S317TW
+	+WqJlsEC1XuNgJS3bNuapkVQrRBZPPdCr4b/eX07v5ONy4CSPmU6CBuhH3sPf/f7jmOAdGdN3jsGR
+	SRkrKUDUrFhgnJzq3NNgeyYMBU3rbLwxWcNKfQ35VpEtvBkTJYWFTxI40huq2NDsqXKps4mzzUux2
+	z1VQ7uD59zd6gGuvcNjtcm1xX4/QLRRvHp1GB/q4qvpHic6QJg8v5IFcF/63rLjOz6BoH2uBEgAjY
+	oNBLUrh+0ghQIbiNF0ahbR/AcopTs8EN58n9FaKyKRX3ClRFwPSMN+7yssO+V7/Eb6M5f7O6vULY1
+	yWiEMevq0nYfHiRKFW8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbyDF-00000009AAu-3L0n;
-	Sat, 03 Jan 2026 09:46:21 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1vbzJk-00000009Huh-2zJE;
+	Sat, 03 Jan 2026 10:57:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbyD9-00000009A80-2qFR
+	id 1vbzJj-00000009HuL-0Bar
+	for linux-riscv@bombadil.infradead.org;
+	Sat, 03 Jan 2026 10:57:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=yGpUw0Ox/Jp3kMXH8XGSAcDFluSymyYJIP4RuNh5bqs=; b=WWqgZuM48b7FbOoOeeyE8QCA++
+	8iVDuXNHU1VUP6ASEGefeZkliQobPiqAk1F6yJLREFzWtOZUh54RqolYady6Bam3Lyh7wcOPgL0Bn
+	xiImINu2TwwQ1ch7KXaBfCefMnxAIWx2hFElPfCTW5OZIBkkFMjnsx+pvpl1Fc0OOQiyqwWpVsIsh
+	howQWwax+RnGJvEU+dsz1cbQc/h8416AK0NrK0VI5QEBukFrn9Axubtx5dc5txBW5leW8pbOzzctu
+	896Z7chtLjvosptBE4zCCkFKaBp8D6MV2cE6jo8McPNeymM0/lHanbXtCVzv9Xj5hfFeu5WcYzHBb
+	OYPDAzHw==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vbzJg-00000006Tj3-0kwd
 	for linux-riscv@lists.infradead.org;
-	Sat, 03 Jan 2026 09:46:20 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2a0d06ffa2aso156300125ad.3
-        for <linux-riscv@lists.infradead.org>; Sat, 03 Jan 2026 01:46:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767433575; x=1768038375; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lxjRzDH8YfA2CgJ8ukRlCUfNc/bMZBLM3ftExUQvlc8=;
-        b=fhMX4oj0E/VcOOGC1r/gaws0ZSolr0RZb+WdQ/0QCjZlVTDXQlSI6GV6bWe2M+pDvP
-         4B3hNd0cyyOu9G7x3hRMMQ1nxeMZh3FT30c5CPTR2KChOzwzpsp1h7cShxlYwP2h4Vv5
-         RjTAHbvqV3ZiAT6HBHsVdRbhZSipcD8+AkotlmVMjqtPaIjgbOl9xwmThMdWIqll9GsO
-         xImYrs1VcX83qPWFuCOi3VOS73uo89iJXBPvfdoaOrF5JUNIH/EQ80IS26gNEHi9itih
-         9yv9aRU5dN3Rr7lamPludvgNbfDD6a5Ik55x/1e+Km99N6/nRQdvKGYwrFllp+wD8oIV
-         Dqeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767433575; x=1768038375;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=lxjRzDH8YfA2CgJ8ukRlCUfNc/bMZBLM3ftExUQvlc8=;
-        b=FRYIMLrrG4/lbvuoCh8osQeUa5/JR+iLHmqvi1HhDWkeehvCUa9TD7o5Pxv3G6NTcy
-         rGMZRHiFj8dbjIfrlp96cncHnWjNsB5/xNH0uStgfovSZKomc49CQVmcRdYogyd8Lykp
-         DmuRzEfTbMBfcxLjsZNUKzJ4DFEbvOMzhYclDVBQUhL+f5Dwoy/5CIpkpzxJ0h+m6pmb
-         fL/gqKsNM1YZF0u8lJ97cqV53YjNVzNtugQq1kIvwd5lSxtkLjqnDOb4Wql+6F7gPhFi
-         Ch0MrftBPE7xI4qaH9PPNqXX1Al+VcTZohk9L98tVRNRegdiOGKCCnLeBX3rKPvhoaMo
-         BDCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUEkDn/wjABdt7CQ51jWHsuS1SojtoVQDUFyaVR6vMuiBCpoC6JScsfu8pMKiwKWaF76MfY2NkaDe/MXQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsDwFwJdtXnUdagVvdkw0R2J1K538LRcwGzx5YhgpZIvRSAqY5
-	vfy/9BqzQk77xLvlX5nXTB0TFXGpb0CMf6aB6oqBxtQjtYMxAL/hSyccpvOJn+EiESA=
-X-Gm-Gg: AY/fxX6R0ihGrsfH8bWXjdIjy+KztIUXjzUNOqAql0b22ZXth/Xdia+1tCXx8l4FDwE
-	fTiEUpmBrmcfsFhKH0lampuNOp7U184ZczXISs/7FtN198dIN0ipMI0wVr7D6oW1vrfYSbADlu9
-	HCiDsSFlRbFK9U7sPrWPOJdPcS8aJB/USfIHoxq1Wk3v1eVte1tg4eZ4s/TIET9kiRxo/PX1Qtn
-	YkqBZ9bhkS3yy4aAekaPSyo794yzzOIik4DWwPKW1ljKJ2ycFDGrPScvI/VA7etlbrsHx1Xmq1Y
-	KoS4Vn28gFRv6v23DxB9eDE1oEFUN92J/AwwxrLnyuOQeQsp1q4cEkvFO+Q4/7VwFKG1J2X81GE
-	PKq/RWW9P1Hk0IFzc9dj2ETfnuQkuClDYwjNoiMVZyvmdyPuxaNIHVWnuQcGQBmQ05qwWXbtLfN
-	5WgHQj9ohkjQrlylc59/VveVF235KlX18lA9DJlea3GQ17FyqimJucsSzp0MHxwdcy
-X-Google-Smtp-Source: AGHT+IEkB956+B9xGmx9cTGzL/pONpKgSLBP8lNFvd+0O3zkG68Mte459jHa1jjHCkA3n/rN8fRFsg==
-X-Received: by 2002:a17:903:290:b0:2a1:e19:ff5 with SMTP id d9443c01a7336-2a2f273818fmr480811265ad.38.1767433574809;
-        Sat, 03 Jan 2026 01:46:14 -0800 (PST)
-Received: from localhost.localdomain (123-48-16-240.area55c.commufa.jp. [123.48.16.240])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a2f3d4cbdasm403124315ad.65.2026.01.03.01.46.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 03 Jan 2026 01:46:14 -0800 (PST)
-From: Naohiko Shimizu <naohiko.shimizu@gmail.com>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: alex@ghiti.fr,
-	anup@brainfault.org,
-	atish.patra@linux.dev,
-	daniel.lezcano@linaro.org,
-	tglx@linutronix.de,
-	nick.hu@sifive.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	Naohiko Shimizu <naohiko.shimizu@gmail.com>
-Subject: [PATCH 2/3] riscv: kvm: Fix vstimecmp update hazard on RV32
-Date: Sat,  3 Jan 2026 18:45:00 +0900
-Message-Id: <20260103094501.5625-3-naohiko.shimizu@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260103094501.5625-1-naohiko.shimizu@gmail.com>
-References: <20260103094501.5625-1-naohiko.shimizu@gmail.com>
+	Sat, 03 Jan 2026 10:57:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1767437816;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yGpUw0Ox/Jp3kMXH8XGSAcDFluSymyYJIP4RuNh5bqs=;
+	b=ax4RHCu/p7fBnYo1xzU5uv1romfCxT5VQqacOTHLwbUgE124/Rac6ke5T7uYJ7xlpVQQGK
+	Q7QRhMmCq+ztpxuX0V1a/bHLUsHkj8IU8yZJcabWnaflW70d5lyhZZkzPcAPDa4YmtEkzh
+	rplg6o0ipoL5gydEGyUB5hiLi4oGCUw=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1767437823;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yGpUw0Ox/Jp3kMXH8XGSAcDFluSymyYJIP4RuNh5bqs=;
+	b=e48SpL+wVjq+Besk63t6agZ+KxHd/sR+iFjGcyt2KBKIe2bra/kXA6O5dGDwak6m9/+X4I
+	NQhnIZkbA6yqiOrETTxUCP+WHKezZXQgnji+xHVMAC5d5vgbKKCCRZRG7dnsYtuJ0KWWfi
+	+j7ds22ks4o5PIB+5HO6G2YVxVZdZJo=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-80-zNokpBgqPf6VSRWU69Yn0Q-1; Sat,
+ 03 Jan 2026 05:56:49 -0500
+X-MC-Unique: zNokpBgqPf6VSRWU69Yn0Q-1
+X-Mimecast-MFC-AGG-ID: zNokpBgqPf6VSRWU69Yn0Q_1767437807
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0451619560A5;
+	Sat,  3 Jan 2026 10:56:45 +0000 (UTC)
+Received: from fedora (unknown [10.45.224.28])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 3114119560A7;
+	Sat,  3 Jan 2026 10:56:36 +0000 (UTC)
+Received: by fedora (nbSMTP-1.00) for uid 1000
+	oleg@redhat.com; Sat,  3 Jan 2026 11:56:44 +0100 (CET)
+Date: Sat, 3 Jan 2026 11:56:35 +0100
+From: Oleg Nesterov <oleg@redhat.com>
+To: Keke Ming <ming.jvle@gmail.com>
+Cc: mhiramat@kernel.org, peterz@infradead.org, linux@armlinux.org.uk,
+	catalin.marinas@arm.com, will@kernel.org, tsbogend@alpha.franken.de,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	akpm@linux-foundation.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 0/5] uprobes: transition from kmap_atomic to
+ kmap_local_page
+Message-ID: <aVj146EunyaOQzxO@redhat.com>
+References: <20260103084243.195125-1-ming.jvle@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260103084243.195125-1-ming.jvle@gmail.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_014618_879420_52D2D745 
-X-CRM114-Status: UNSURE (   8.07  )
+X-CRM114-CacheID: sfid-20260103_105704_330200_B87637D1 
+X-CRM114-Status: UNSURE (   7.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,39 +116,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Naohiko Shimizu <naohiko.shimizu@gmail.com>
----
- arch/riscv/kvm/vcpu_timer.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+On 01/03, Keke Ming wrote:
+>
+> Keke Ming (5):
+>   riscv/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
+>   arm64/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
+>   mips/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
+>   arm/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
+>   uprobes: use kmap_local_page() for temporary page mappings
+>
+>  arch/arm/probes/uprobes/core.c     |  4 ++--
+>  arch/arm64/kernel/probes/uprobes.c |  4 ++--
+>  arch/mips/kernel/uprobes.c         |  4 ++--
+>  arch/riscv/kernel/probes/uprobes.c |  4 ++--
+>  kernel/events/uprobes.c            | 12 ++++++------
+>  5 files changed, 14 insertions(+), 14 deletions(-)
 
-diff --git a/arch/riscv/kvm/vcpu_timer.c b/arch/riscv/kvm/vcpu_timer.c
-index 85a7262115e1..f36247e4c783 100644
---- a/arch/riscv/kvm/vcpu_timer.c
-+++ b/arch/riscv/kvm/vcpu_timer.c
-@@ -72,8 +72,9 @@ static int kvm_riscv_vcpu_timer_cancel(struct kvm_vcpu_timer *t)
- static int kvm_riscv_vcpu_update_vstimecmp(struct kvm_vcpu *vcpu, u64 ncycles)
- {
- #if defined(CONFIG_32BIT)
--	ncsr_write(CSR_VSTIMECMP, ncycles & 0xFFFFFFFF);
-+	ncsr_write(CSR_VSTIMECMP,  ULONG_MAX);
- 	ncsr_write(CSR_VSTIMECMPH, ncycles >> 32);
-+	ncsr_write(CSR_VSTIMECMP, (u32)ncycles);
- #else
- 	ncsr_write(CSR_VSTIMECMP, ncycles);
- #endif
-@@ -307,8 +308,9 @@ void kvm_riscv_vcpu_timer_restore(struct kvm_vcpu *vcpu)
- 		return;
- 
- #if defined(CONFIG_32BIT)
--	ncsr_write(CSR_VSTIMECMP, (u32)t->next_cycles);
-+	ncsr_write(CSR_VSTIMECMP, ULONG_MAX);
- 	ncsr_write(CSR_VSTIMECMPH, (u32)(t->next_cycles >> 32));
-+	ncsr_write(CSR_VSTIMECMP, (u32)(t->next_cycles));
- #else
- 	ncsr_write(CSR_VSTIMECMP, t->next_cycles);
- #endif
--- 
-2.39.5
+Thanks,
+
+Acked-by: Oleg Nesterov <oleg@redhat.com>
 
 
 _______________________________________________
