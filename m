@@ -4,88 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60718C2A069
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jan 2026 02:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90379C2A069
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jan 2026 06:01:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pHE7y3IEQx6mHog9NP5QVVwWl68yyr+SaKNmfOfNLvo=; b=O1LRuddenu55+7
-	cUVSJCRZESwJS1ILoxHOjieRgWLU5nbRHjU19jPKLocCmM+w4Ley6axnVQLzySrmlkwuBfPjc0dyv
-	ZqvisXscsNBZNGQt5D3XRkOPlUchsC7LmGR48Hu4twQu6jwLwQPzcGds6jAq+yVchMz+4akK8ZFxj
-	7drzGtfOi/Iq0xqtk1KaWSqVtSEzOrgudpUjhTnasMHEH20G0c8vXO1PobExA0oo6NnfAOFEIjbIQ
-	Ug7UM0DuiW7ZpK62qfvmpiidpZESupGhF2VnNvRUVnrBuFNSrOJ2XzLKpbO9ubb632CTSl3dAfQ8I
-	VrH4uj9GKAVx3OZYO1tg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fFyoHXHwYNCYAqxdhnCEFZH/ojdCZeYdhVy0R9c+HBE=; b=24OVSH4G0AxNBu
+	OxvkSlwO873ioqEsUnJ+RddxGyYAekkHfeDDm1GtTiFgFceXxum+IwNhkvfJW4CbtxelxojmAYGfQ
+	bvk2yRenboD8wVr5i+S+nvJBg6CjWaUhtZkN7KaS2K4FXMz9OPpg51mtFWodDt56EHFz+nED2M98u
+	7shVZWTwSd5k8MM+2Y/jV3obz+4tKoDacrKEDmwTOUd+D+jev4Fge3eIdfiIzDxJKRcB6zoXiSw1y
+	J3wstco2rzpufROEwwwLTcvgnA4iGL4NM/TX+SMY6vTcuVrHvIGWnYqFfbsZYXeaBvxuvw8afwu5H
+	9I3cJXcRopuLxcQPSDUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcDth-00000009xwz-186T;
-	Sun, 04 Jan 2026 02:31:13 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1vcHAI-0000000A337-0SLI;
+	Sun, 04 Jan 2026 06:00:34 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcDte-00000009xwc-1EuQ
+	id 1vcHAD-0000000A32f-29xA
 	for linux-riscv@lists.infradead.org;
-	Sun, 04 Jan 2026 02:31:12 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5958931c9c7so14949611e87.2
-        for <linux-riscv@lists.infradead.org>; Sat, 03 Jan 2026 18:31:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767493867; x=1768098667; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hsRWgvZP95DFqQgE5Dg/83eeX9dTEUkTAnlAVYh6kW4=;
-        b=hEIbm3xlRlQ2EI3Re2Ao8n0bQfTRAenKPAl6dOlPNwnldIUdKiIFTnlxRUtycpM0lS
-         GasCchUaDE1QhCAZKjYTQwm7ZxiFfGTnGYWeNDNTfApd8d/xyv4Xa3IoX8cy+Q1M9L+M
-         7ILTDh60p7udhXdnDycDhqA6grEs5gv5IRVd8VpP3HDzcE9tgRGhc1p1Fv1MAcYRbe8q
-         8exLPsltOBJs4BQjvXQNOpohzy9n9ISfTOsDtcMwf6509pY9H0DJv9QtrHUQdhPDjfHW
-         zYtF/yyXYs7JxjEmtg6R+NSG4gdFjb2/9eIV+mP6Pu88pcqE+oV4STrAZ8Gh9IOlGhvb
-         QlYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767493867; x=1768098667;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hsRWgvZP95DFqQgE5Dg/83eeX9dTEUkTAnlAVYh6kW4=;
-        b=OEnDlXnaKWOaSF+doheD9SsKAlMrdB8RsJCH+OJtUowmCJYoz1GQwjcn/mntSZXtkA
-         l14MBBYeWyWeALtxi8N89DcJdDAcvZEegzwP5hdcnXVkwlJcpEgCYy8Yj0ZQuItb1aMV
-         Ud8W3o3eiA9+Ya3+Wielh3UANaGibT+WxRJbHtQpHgqwTVGwDlUX5VuPvWFUEdh/z5YD
-         +KxOjh8Htc/UdR98jSC7IXYS9+HJI2yNTbDrz+taWoIa+Vs5GnDG8Qxosi3ErFPkGGcT
-         FbWylOctvlEae4PE7PWPumNJnAVARbkDvmD3910S3LJRH1Jr6L+NIAk/VrpzsFhbvMUL
-         G4VQ==
-X-Gm-Message-State: AOJu0YwWRQBHCn0qkv/jVqQBW8/mkDRCS4T2VRSPBBWahwnUPhOpUht8
-	1oiD8ldwvSSyl+xtix4tWCy3SKSWXGFrjEnlIoR7BMDw3o4tbe9VNcoHKVKsix8cO/MooIhZypv
-	pfxdW93xnHmuqcePBWXZrpucz5+CCMjU=
-X-Gm-Gg: AY/fxX4SXfiwHIDfwdeQDL9XB1Yl7KGu955L1fVREqMENXxidSaYJJHvmxh5UBEfsyC
-	MUgpwStNhkqEjG8JTEanwBRZdplDDe6FxCzKQLnQorxRSUmQped7cH9gZcl2YZMWZR36Yoqr6Be
-	sjKHErqtn2eDi/JheVNsZ1s3fzSWUGB22pPJi+I4kcZygXtCqjQhrNQB4aaO7ZErFbIqBWXK9lD
-	HVZTBG5HJ7q50vLpdaE/LBtS+K0WmV3I5gBpvxzyMQqjWXXb1Q5nh4+iWY/zilWfPHfuk/lSJ/b
-	HrHd6OA6Y6qcsSnYLxRKhFXXs+10wUpWCMQGaevuqy9bm6hgfS7j7H3BqojlsdJvJ54r6SLqm0t
-	j8H85rZUI2YmTfAaIfmSJom0pR2SrOBqfuuUjTE7Lrw==
-X-Google-Smtp-Source: AGHT+IHCfWg304ZdWsohB+YD/N10Y1S3fIz7YcKtU4yVi6JuHY84X3Cvj0L0zoUQtCI/DmqwIRlf4bayHj2gTJG6s+o=
-X-Received: by 2002:a05:6512:398c:b0:594:522d:68f4 with SMTP id
- 2adb3069b0e04-59a17de2c1amr15711243e87.28.1767493867357; Sat, 03 Jan 2026
- 18:31:07 -0800 (PST)
+	Sun, 04 Jan 2026 06:00:32 +0000
+Received: from [127.0.0.2] (unknown [114.241.82.145])
+	by APP-01 (Coremail) with SMTP id qwCowAD3oGzmAVppu3AIAw--.1340S2;
+	Sun, 04 Jan 2026 14:00:08 +0800 (CST)
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Date: Sun, 04 Jan 2026 14:00:04 +0800
+Subject: [PATCH net-next v3] net: spacemit: Remove broken flow control
+ support
 MIME-Version: 1.0
-References: <20251222-cstr-pwm-v1-1-e8916d976f8d@gmail.com>
-In-Reply-To: <20251222-cstr-pwm-v1-1-e8916d976f8d@gmail.com>
-From: Tamir Duberstein <tamird@gmail.com>
-Date: Sat, 3 Jan 2026 21:30:31 -0500
-X-Gm-Features: AQt7F2qNa6HgMSZbmev-xRE2S9e0Bs2mMObDhaf91cavhP-VhsbNAWN5nPUG0C8
-Message-ID: <CAJ-ks9mrpcLaeiGjBcXNqTUwo00Y2MhhHWnWauou6exU1y920Q@mail.gmail.com>
-Subject: Re: [PATCH] drivers: pwm: replace `kernel::c_str!` with C-Strings
-To: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org
+Message-Id: <20260104-k1-ethernet-actually-remove-fc-v3-1-3871b055064c@iscas.ac.cn>
+X-B4-Tracking: v=1; b=H4sIAOMBWmkC/42OQQ7CIBREr9L8tb8pqKV05T2MJhS/lthSBSSap
+ ncX0QO4nMy8mZnBkzPkoS1mcBSNN5NNYr0qQPfKXgjNKWngFd8yxjd4ZUihJ2cpoNLhoYbhhY7
+ GKRKeNYqqbtZMiGrTSEglN0dn88wDe/gwlp4BDl/H0f2RFsPP7pQn1NM4mtAWsS6ZRKfZcV5yv
+ jc+TO6Vn0aegX9PRY4MtySE6mrZCcl2xmvlS6VLbeGwLMsbNQdpkQgBAAA=
+X-Change-ID: 20251124-k1-ethernet-actually-remove-fc-706831770489
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Yixun Lan <dlan@gentoo.org>, Vadim Fedorenko <vadim.fedorenko@linux.dev>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Vivian Wang <wangruikang@iscas.ac.cn>
+X-Mailer: b4 0.14.3
+X-CM-TRANSID: qwCowAD3oGzmAVppu3AIAw--.1340S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3Wr43Gr1rWr4xtw43Cw4kJFb_yoWxAr4rpF
+	45X3s2kFWUXFsYgFs3Cw4UAFy3Ga4xtrnrua4fCw4Fg3ZIyrn7AFy0k3W7CFyDurW8ury5
+	Kw4UA3W8GFsrX37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
+	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
+	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
+	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
+	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
+	nIWIevJa73UjIFyTuYvjfUonmRUUUUU
+X-Originating-IP: [114.241.82.145]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_183110_940949_077C7075 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20260103_220029_934443_0BC8E697 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,34 +84,227 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBEZWMgMjIsIDIwMjUgYXQgNzoyNOKAr0FNIFRhbWlyIER1YmVyc3RlaW4gPHRhbWly
-ZEBrZXJuZWwub3JnPiB3cm90ZToKPgo+IEZyb206IFRhbWlyIER1YmVyc3RlaW4gPHRhbWlyZEBn
-bWFpbC5jb20+Cj4KPiBDLVN0cmluZyBsaXRlcmFscyB3ZXJlIGFkZGVkIGluIFJ1c3QgMS43Ny4g
-UmVwbGFjZSBpbnN0YW5jZXMgb2YKPiBga2VybmVsOjpjX3N0ciFgIHdpdGggQy1TdHJpbmcgbGl0
-ZXJhbHMgd2hlcmUgcG9zc2libGUuCj4KPiBTaWduZWQtb2ZmLWJ5OiBUYW1pciBEdWJlcnN0ZWlu
-IDx0YW1pcmRAZ21haWwuY29tPgo+IC0tLQo+ICBkcml2ZXJzL3B3bS9wd21fdGgxNTIwLnJzIHwg
-MyArLS0KPiAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAyIGRlbGV0aW9ucygtKQo+
-Cj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvcHdtL3B3bV90aDE1MjAucnMgYi9kcml2ZXJzL3B3bS9w
-d21fdGgxNTIwLnJzCj4gaW5kZXggZTNiN2U3NzM1NmZjLi44YWU4Zjg1MmVjMDIgMTAwNjQ0Cj4g
-LS0tIGEvZHJpdmVycy9wd20vcHdtX3RoMTUyMC5ycwo+ICsrKyBiL2RyaXZlcnMvcHdtL3B3bV90
-aDE1MjAucnMKPiBAQCAtMjIsNyArMjIsNiBAQAo+Cj4gIHVzZSBjb3JlOjpvcHM6OkRlcmVmOwo+
-ICB1c2Uga2VybmVsOjp7Cj4gLSAgICBjX3N0ciwKPiAgICAgIGNsazo6Q2xrLAo+ICAgICAgZGV2
-aWNlOjp7Qm91bmQsIENvcmUsIERldmljZX0sCj4gICAgICBkZXZyZXMsCj4gQEAgLTMyNyw3ICsz
-MjYsNyBAQCBmbiBkcm9wKHNlbGY6IFBpbjwmbXV0IFNlbGY+KSB7Cj4gICAgICBPRl9UQUJMRSwK
-PiAgICAgIE1PRFVMRV9PRl9UQUJMRSwKPiAgICAgIDxUaDE1MjBQd21QbGF0Zm9ybURyaXZlciBh
-cyBwbGF0Zm9ybTo6RHJpdmVyPjo6SWRJbmZvLAo+IC0gICAgWyhvZjo6RGV2aWNlSWQ6Om5ldyhj
-X3N0ciEoInRoZWFkLHRoMTUyMC1wd20iKSksICgpKV0KPiArICAgIFsob2Y6OkRldmljZUlkOjpu
-ZXcoYyJ0aGVhZCx0aDE1MjAtcHdtIiksICgpKV0KPiAgKTsKPgo+ICBpbXBsIHBsYXRmb3JtOjpE
-cml2ZXIgZm9yIFRoMTUyMFB3bVBsYXRmb3JtRHJpdmVyIHsKPgo+IC0tLQo+IGJhc2UtY29tbWl0
-OiA4ZjBiNGNjZTQ0ODFmYjIyNjUzNjk3Y2NlZDhkMGQwNDAyN2NiMWU4Cj4gY2hhbmdlLWlkOiAy
-MDI1MTIyMi1jc3RyLXB3bS1jOWI5YTQ3MDExNTcKPgo+IEJlc3QgcmVnYXJkcywKPiAtLQo+IFRh
-bWlyIER1YmVyc3RlaW4gPHRhbWlyZEBnbWFpbC5jb20+Cj4KCkBVd2UgY291bGQgeW91IHBsZWFz
-ZSBoYXZlIGEgbG9vaz8KCkNoZWVycy4KVGFtaXIKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+The current flow control implementation doesn't handle autonegotiation
+and ethtool operations properly. Remove it for now so we don't claim
+support for something that doesn't really work. A better implementation
+will be sent in future patches.
+
+Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+---
+Changes in v3:
+- Remove Fixes since this is for net-next, not for backporting (Andrew)
+- Link to v2: https://lore.kernel.org/r/20251124-k1-ethernet-actually-remove-fc-v2-1-5e77ab69b791@iscas.ac.cn
+---
+
+My employer has switched focus somewhat so I'm unlikely to prioritize
+the proper implementation of flow control etc with phylink for now.
+Sorry. This is just a little bit of polish for Spacemit K1 ethernet
+support on 6.20/7.0 to go with the other peripheral support.
+---
+ drivers/net/ethernet/spacemit/k1_emac.c | 110 --------------------------------
+ 1 file changed, 110 deletions(-)
+
+diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
+index 220eb5ce7583..c85dc742c404 100644
+--- a/drivers/net/ethernet/spacemit/k1_emac.c
++++ b/drivers/net/ethernet/spacemit/k1_emac.c
+@@ -46,8 +46,6 @@
+ #define EMAC_RX_FRAMES			64
+ #define EMAC_RX_COAL_TIMEOUT		(600 * 312)
+ 
+-#define DEFAULT_FC_PAUSE_TIME		0xffff
+-#define DEFAULT_FC_FIFO_HIGH		1600
+ #define DEFAULT_TX_ALMOST_FULL		0x1f8
+ #define DEFAULT_TX_THRESHOLD		1518
+ #define DEFAULT_RX_THRESHOLD		12
+@@ -132,9 +130,6 @@ struct emac_priv {
+ 	u32 tx_delay;
+ 	u32 rx_delay;
+ 
+-	bool flow_control_autoneg;
+-	u8 flow_control;
+-
+ 	/* Softirq-safe, hold while touching hardware statistics */
+ 	spinlock_t stats_lock;
+ };
+@@ -179,9 +174,7 @@ static void emac_set_mac_addr_reg(struct emac_priv *priv,
+ 
+ static void emac_set_mac_addr(struct emac_priv *priv, const unsigned char *addr)
+ {
+-	/* We use only one address, so set the same for flow control as well */
+ 	emac_set_mac_addr_reg(priv, addr, MAC_ADDRESS1_HIGH);
+-	emac_set_mac_addr_reg(priv, addr, MAC_FC_SOURCE_ADDRESS_HIGH);
+ }
+ 
+ static void emac_reset_hw(struct emac_priv *priv)
+@@ -200,9 +193,6 @@ static void emac_reset_hw(struct emac_priv *priv)
+ 
+ static void emac_init_hw(struct emac_priv *priv)
+ {
+-	/* Destination address for 802.3x Ethernet flow control */
+-	u8 fc_dest_addr[ETH_ALEN] = { 0x01, 0x80, 0xc2, 0x00, 0x00, 0x01 };
+-
+ 	u32 rxirq = 0, dma = 0;
+ 
+ 	regmap_set_bits(priv->regmap_apmu,
+@@ -228,12 +218,6 @@ static void emac_init_hw(struct emac_priv *priv)
+ 		DEFAULT_TX_THRESHOLD);
+ 	emac_wr(priv, MAC_RECEIVE_PACKET_START_THRESHOLD, DEFAULT_RX_THRESHOLD);
+ 
+-	/* Configure flow control (enabled in emac_adjust_link() later) */
+-	emac_set_mac_addr_reg(priv, fc_dest_addr, MAC_FC_SOURCE_ADDRESS_HIGH);
+-	emac_wr(priv, MAC_FC_PAUSE_HIGH_THRESHOLD, DEFAULT_FC_FIFO_HIGH);
+-	emac_wr(priv, MAC_FC_HIGH_PAUSE_TIME, DEFAULT_FC_PAUSE_TIME);
+-	emac_wr(priv, MAC_FC_PAUSE_LOW_THRESHOLD, 0);
+-
+ 	/* RX IRQ mitigation */
+ 	rxirq = FIELD_PREP(MREGBIT_RECEIVE_IRQ_FRAME_COUNTER_MASK,
+ 			   EMAC_RX_FRAMES);
+@@ -1018,57 +1002,6 @@ static int emac_mdio_init(struct emac_priv *priv)
+ 	return ret;
+ }
+ 
+-static void emac_set_tx_fc(struct emac_priv *priv, bool enable)
+-{
+-	u32 val;
+-
+-	val = emac_rd(priv, MAC_FC_CONTROL);
+-
+-	FIELD_MODIFY(MREGBIT_FC_GENERATION_ENABLE, &val, enable);
+-	FIELD_MODIFY(MREGBIT_AUTO_FC_GENERATION_ENABLE, &val, enable);
+-
+-	emac_wr(priv, MAC_FC_CONTROL, val);
+-}
+-
+-static void emac_set_rx_fc(struct emac_priv *priv, bool enable)
+-{
+-	u32 val = emac_rd(priv, MAC_FC_CONTROL);
+-
+-	FIELD_MODIFY(MREGBIT_FC_DECODE_ENABLE, &val, enable);
+-
+-	emac_wr(priv, MAC_FC_CONTROL, val);
+-}
+-
+-static void emac_set_fc(struct emac_priv *priv, u8 fc)
+-{
+-	emac_set_tx_fc(priv, fc & FLOW_CTRL_TX);
+-	emac_set_rx_fc(priv, fc & FLOW_CTRL_RX);
+-	priv->flow_control = fc;
+-}
+-
+-static void emac_set_fc_autoneg(struct emac_priv *priv)
+-{
+-	struct phy_device *phydev = priv->ndev->phydev;
+-	u32 local_adv, remote_adv;
+-	u8 fc;
+-
+-	local_adv = linkmode_adv_to_lcl_adv_t(phydev->advertising);
+-
+-	remote_adv = 0;
+-
+-	if (phydev->pause)
+-		remote_adv |= LPA_PAUSE_CAP;
+-
+-	if (phydev->asym_pause)
+-		remote_adv |= LPA_PAUSE_ASYM;
+-
+-	fc = mii_resolve_flowctrl_fdx(local_adv, remote_adv);
+-
+-	priv->flow_control_autoneg = true;
+-
+-	emac_set_fc(priv, fc);
+-}
+-
+ /*
+  * Even though this MAC supports gigabit operation, it only provides 32-bit
+  * statistics counters. The most overflow-prone counters are the "bytes" ones,
+@@ -1425,42 +1358,6 @@ static void emac_ethtool_get_regs(struct net_device *dev,
+ 			emac_rd(priv, MAC_GLOBAL_CONTROL + i * 4);
+ }
+ 
+-static void emac_get_pauseparam(struct net_device *dev,
+-				struct ethtool_pauseparam *pause)
+-{
+-	struct emac_priv *priv = netdev_priv(dev);
+-
+-	pause->autoneg = priv->flow_control_autoneg;
+-	pause->tx_pause = !!(priv->flow_control & FLOW_CTRL_TX);
+-	pause->rx_pause = !!(priv->flow_control & FLOW_CTRL_RX);
+-}
+-
+-static int emac_set_pauseparam(struct net_device *dev,
+-			       struct ethtool_pauseparam *pause)
+-{
+-	struct emac_priv *priv = netdev_priv(dev);
+-	u8 fc = 0;
+-
+-	if (!netif_running(dev))
+-		return -ENETDOWN;
+-
+-	priv->flow_control_autoneg = pause->autoneg;
+-
+-	if (pause->autoneg) {
+-		emac_set_fc_autoneg(priv);
+-	} else {
+-		if (pause->tx_pause)
+-			fc |= FLOW_CTRL_TX;
+-
+-		if (pause->rx_pause)
+-			fc |= FLOW_CTRL_RX;
+-
+-		emac_set_fc(priv, fc);
+-	}
+-
+-	return 0;
+-}
+-
+ static void emac_get_drvinfo(struct net_device *dev,
+ 			     struct ethtool_drvinfo *info)
+ {
+@@ -1634,8 +1531,6 @@ static void emac_adjust_link(struct net_device *dev)
+ 		}
+ 
+ 		emac_wr(priv, MAC_GLOBAL_CONTROL, ctrl);
+-
+-		emac_set_fc_autoneg(priv);
+ 	}
+ 
+ 	phy_print_status(phydev);
+@@ -1715,8 +1610,6 @@ static int emac_phy_connect(struct net_device *ndev)
+ 		goto err_node_put;
+ 	}
+ 
+-	phy_support_asym_pause(phydev);
+-
+ 	phydev->mac_managed_pm = true;
+ 
+ 	emac_update_delay_line(priv);
+@@ -1886,9 +1779,6 @@ static const struct ethtool_ops emac_ethtool_ops = {
+ 	.get_sset_count		= emac_get_sset_count,
+ 	.get_strings		= emac_get_strings,
+ 	.get_ethtool_stats	= emac_get_ethtool_stats,
+-
+-	.get_pauseparam		= emac_get_pauseparam,
+-	.set_pauseparam		= emac_set_pauseparam,
+ };
+ 
+ static const struct net_device_ops emac_netdev_ops = {
+
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20251124-k1-ethernet-actually-remove-fc-706831770489
+
+Best regards,
+-- 
+Vivian "dramforever" Wang
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
