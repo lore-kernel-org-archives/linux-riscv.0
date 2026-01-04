@@ -4,107 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FF83C2A06C
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jan 2026 12:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF7ADC2A062
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jan 2026 12:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5TO3Os99sHXmWZupTrDQqrnynIpczyBCDkixHcbyPBE=; b=4UW/ilsWk7y6Yi
-	BDPTANjaEop4UlCpHcP0lhwOenTqjW8XaMsItJ7qRwZHpSzJ2F2VRr00poPWcX3UP8cCWgjE+H+0e
-	4RZKdNYiGimZq7HNoytr6/DlEynGO98c07X3RdKEJigLRT9tC8OkfOx2MtLpjN/hTlP9xvxEKJ6r7
-	QqCx0LVuN7REcSSUA7elZbe1l68nqmHsiaSkoCKZ2gE2Ib+tj2YqVQgMbxP9e92lSZuMbZHz24xNV
-	OmaU7Dn41eq9ZuvaImyJQxP9JdFkRAU1N9SB1yttuFCM94xomoydrnEHjv5FlF0V7EQl2DKcrxPkA
-	aji6/8r7KrTq1I1Q9VUw==;
+	List-Owner; bh=CH+Vi5cwSwQUP3zlbPIUBU4Dbs9ybmcXiXackFftCJI=; b=pQ2WUkEQ0px8Qk
+	2HE8h3f/KePSCLBugpmzQdbV/wpdyxFH5VYEfHSgVktKkkAGeRm4FA3cNOswuJGTw54NeQBKrIam6
+	SNp1L+cco9OR7MzZlPz4nPAXqjLMZnvmTpdibb7H5O3Z3fFcYPe8Up9iN2hUJG0jBHTCI0X6iwtQW
+	rMf+rsBVMydGNfJcyumtUSqAgTBdM7MVasfwtwPwMQZK0e9s2QMO7Frvyy9GsmqGzl3eFJ1x+fhD0
+	Gp+MCE0hX8rX6nYJ6JxHikT8rwq7dDVASYCMQFNiGTIyB3p0TKzueJEXcnskUDKDhq3bN/KjVYOaI
+	bLzZouQIV06JmbZdlRSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcMoA-0000000ADPh-43aB;
-	Sun, 04 Jan 2026 12:02:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vcNWG-0000000AEhG-3CGn;
+	Sun, 04 Jan 2026 12:47:40 +0000
+Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcMo8-0000000ADP6-1cZQ;
-	Sun, 04 Jan 2026 12:02:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B443941990;
-	Sun,  4 Jan 2026 12:02:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBEE4C4CEF7;
-	Sun,  4 Jan 2026 12:01:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767528123;
-	bh=4sa1iSi4oDg5XKMoz/YTQfrnb1djTAsHN5WmWDd4u+I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=INT0kxBNHgbBEXAA8WBKHyCuHkaVMGgpladnOebfsTa2yzQEYV4mt1yJlN1PwnUNz
-	 G4VwNDd1qyIbSlxRqbG31MW/aCW0NgYeMa2AQOcXg9gdLQ2vLQ8cpLRs/OvRLxPgLM
-	 zrYw+rbOt3/ZgtPyhC+4awQoJA3/jIoNRc6jn+AQvMSMdpvmZk0yDmwOEIirlcn6Fk
-	 MRm98b/tsfvPN/LkKJNqg07jtHRl5wM8VTQcUWaDc+iUxs0zzTGNhqOtNPkcd9CZqU
-	 27IV33yAMIJYJGbt3gk6IFngZkbX6GD6/FqDbQgyLW1/3NDufvpgxz5xhJM1ESJUtq
-	 0kvgqRIhU453Q==
-Date: Sun, 4 Jan 2026 14:01:40 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Klara Modin <klarasmodin@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: Alex Shi <alexs@kernel.org>, Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
-	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>,
-	Muchun Song <muchun.song@linux.dev>,
-	Oscar Salvador <osalvador@suse.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>,
-	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
-	x86@kernel.org, linux-alpha@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org
-Subject: [PATCH 3.5] arm: make initialization of zero page independent of the
- memory map (was Re: [PATCH v2 22/28] arch, mm: consolidate initialization of
- nodes, zones and memory map)
-Message-ID: <aVpWpLV4Dut5Muo2@kernel.org>
-References: <20260102070005.65328-1-rppt@kernel.org>
- <20260102070005.65328-23-rppt@kernel.org>
- <aVhN2NgQEKe0yzva@soda.int.kasm.eu>
- <aVll339wim7dCIaQ@kernel.org>
- <aVlwOyicOLPB9SOa@parmesan.int.kasm.eu>
+	id 1vcNWD-0000000AEgZ-39nD
+	for linux-riscv@lists.infradead.org;
+	Sun, 04 Jan 2026 12:47:39 +0000
+Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7c6d1ebb0c4so9621852a34.1
+        for <linux-riscv@lists.infradead.org>; Sun, 04 Jan 2026 04:47:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1767530856; x=1768135656; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UBR94AA+E+xBOJnVfHQAl63HlInJovxw9TDKKyfWGlQ=;
+        b=dmV6zyThUG1Fq4SYq6PPB34wGwV39mXKAehO504sKoEBzOPqTEBO72bz5W3VrUpMvD
+         Fx/FeYNZwjx5dqMKJdnJQDV2FMNw8sfSxBBtekLj1UxPzkRCUZWbn8rALl8LQPC8ql4H
+         BMsr5kYdjeNLeKYUCfJDyBcDtDJhZPeOaQgVLHg5z6jRAGkhxhhluGXBssrHCdMwgAwq
+         lRPhFq8yLAI/EmSkv3Tpv9y4kENIR2tpySDsYL1gd2NdWe2/HG3NNVRbYSO/g0WW81pp
+         W1+KFHKu0Sl9zt17Fi+5uXL27lxirJNEpG2NuhiYcoxWGKAKyd225/fBiyuOPd5BBLER
+         FegA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767530856; x=1768135656;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=UBR94AA+E+xBOJnVfHQAl63HlInJovxw9TDKKyfWGlQ=;
+        b=VgRuUWlm5U0xkO6J0LOT/3LktLCKmFvdiqNDAqsq/IDup+scjRnISiCfhdNgJUpSQB
+         uYLblrfr4TC5BErvdp+MF7YZgdDqEYM1CNAu8Bineb6Scs9madFadV7KP1cQ6TXqb5tJ
+         4W1RH3viEHltKpTjdTaOrGk456+w9JxKulFORCbmsFwMoywqodZVpmOTVaKUNuy0/SKB
+         JkEPsyiOotQS5PgBfCKVTBf+FoBcAixlTnoolN/s+BoyDjODf5HABt7OzgdUElLy1MIy
+         dKlpiTorPiSnNS9aLG4+H/7EWK8UVkqYNk40YUkKRuK7FXp4uZS8aBzuxCbBKv52R5uT
+         bbMA==
+X-Forwarded-Encrypted: i=1; AJvYcCUfompeRgnJDZfWZtTMk4BJRFNDxgRKiFIoBGi6BcaX1FJiv3GeOepe3YcLC9pafOpVGelUchfAyaZPkw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzdp0ugc9ee+5sPQGMcIph8Cx8qSOQG6tQj6MtXeJW6sOn1Z8P/
+	UufYKUxKyTTuhT26F6Cf3/BTCPc8kQXQoY/RUvSly+ZfifDI4FibHAn4xbOLS4+jyiWwJ0bK69H
+	m2Ld1825OM1vHLRjpgprijoQOhefxUaime4OerAeqfw==
+X-Gm-Gg: AY/fxX5sH2O7vq95buWmrrJB39jdoi7rMIlk5EI/JBVI8fuQJA5UJqUuis1FrYq+3yU
+	rBesATOKfyZRqy2VecU88zOn7A5rXG0ahLbDSqSnqF4ckGUI1lvgHv++BYoCWcDXphGiOGiSGqB
+	t3xea0ngiJFJ4Lvlr57BFQ7lNq4b2aCvaJhJjT9Ww8WyLys5wURMSwMRPcqtdLb3DNNLcrDKJtQ
+	a+1Y1aMiAsvJkJpE2zCW/D646ZctlusBk5TJkzHVjbAtK2hEEflKeWq1K0rOpEpgJFrSZLtPwXU
+	60UlD1YR78aBlTAhR21QCHCOFx5fSPjTUG6sZhER+x2qOuRX4RM+pecafA==
+X-Google-Smtp-Source: AGHT+IECPen7zcw66duYFJVMDMXNIgOGjSV9WYBIHgME1nUXUInP9aO+nmllavOhiMWoxzZo2zi2xGJh9M2MH0LN4iA=
+X-Received: by 2002:a4a:ead6:0:b0:65d:163:3f3 with SMTP id 006d021491bc7-65d0eac5c3cmr17185222eaf.56.1767530855865;
+ Sun, 04 Jan 2026 04:47:35 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aVlwOyicOLPB9SOa@parmesan.int.kasm.eu>
+References: <20251229072530.3075496-1-maqianga@uniontech.com>
+In-Reply-To: <20251229072530.3075496-1-maqianga@uniontech.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Sun, 4 Jan 2026 18:17:24 +0530
+X-Gm-Features: AQt7F2oslKyeGGWLcGF1wus_STNTXspuscmibPNIQSPFMw_t6obj9SIrjq9AInM
+Message-ID: <CAAhSdy25eSUF1w5cUzT0N0seYuLEVz66k89SQK=Qu+4gZKtURQ@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: KVM: Remove unnecessary 'ret' assignments
+To: Qiang Ma <maqianga@uniontech.com>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	atish.patra@linux.dev, alex@ghiti.fr, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_040204_468599_8BACB8F9 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20260104_044738_044523_080F25EE 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,129 +92,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Andrew,
-
-Can you please stick this between patch 3 (arm: introduce
-arch_zone_limits_init()) and patch 4 (arm64: introduce
-arch_zone_limits_init())?
-
-From 35d016bbf5da7c08cc5c5547c85558fc50cb63aa Mon Sep 17 00:00:00 2001
-From: Klara Modin <klarasmodin@gmail.com>
-Date: Sat, 3 Jan 2026 20:40:09 +0200
-Subject: [PATCH] arm: make initialization of zero page independent of the
- memory map
-
-Unlike most architectures, arm keeps a struct page pointer to the
-empty_zero_page and to initialize it requires conversion of a virtual
-address to page which makes it necessary to have memory map initialized
-before creating the empty_zero_page.
-
-Make empty_zero_page a stataic array in BSS to decouple it's
-initialization from the initialization of the memory map.
-
-This also aligns arm with vast majorty of architectures.
-
-Signed-off-by: Klara Modin <klarasmodin@gmail.com>
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
----
- arch/arm/include/asm/pgtable.h |  4 ++--
- arch/arm/mm/mmu.c              | 10 +---------
- arch/arm/mm/nommu.c            | 10 +---------
- 3 files changed, 4 insertions(+), 20 deletions(-)
-
-diff --git a/arch/arm/include/asm/pgtable.h b/arch/arm/include/asm/pgtable.h
-index 86378eec7757..6fa9acd6a7f5 100644
---- a/arch/arm/include/asm/pgtable.h
-+++ b/arch/arm/include/asm/pgtable.h
-@@ -15,8 +15,8 @@
-  * ZERO_PAGE is a global shared page that is always zero: used
-  * for zero-mapped memory areas etc..
-  */
--extern struct page *empty_zero_page;
--#define ZERO_PAGE(vaddr)	(empty_zero_page)
-+extern unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)];
-+#define ZERO_PAGE(vaddr)	(virt_to_page(empty_zero_page))
- #endif
- 
- #include <asm-generic/pgtable-nopud.h>
-diff --git a/arch/arm/mm/mmu.c b/arch/arm/mm/mmu.c
-index 8bac96e205ac..518def8314e7 100644
---- a/arch/arm/mm/mmu.c
-+++ b/arch/arm/mm/mmu.c
-@@ -45,7 +45,7 @@ extern unsigned long __atags_pointer;
-  * empty_zero_page is a special page that is used for
-  * zero-initialized data and COW.
-  */
--struct page *empty_zero_page;
-+unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)] __page_aligned_bss;
- EXPORT_SYMBOL(empty_zero_page);
- 
- /*
-@@ -1754,8 +1754,6 @@ static void __init early_fixmap_shutdown(void)
-  */
- void __init paging_init(const struct machine_desc *mdesc)
- {
--	void *zero_page;
--
- #ifdef CONFIG_XIP_KERNEL
- 	/* Store the kernel RW RAM region start/end in these variables */
- 	kernel_sec_start = CONFIG_PHYS_OFFSET & SECTION_MASK;
-@@ -1781,13 +1779,7 @@ void __init paging_init(const struct machine_desc *mdesc)
- 
- 	top_pmd = pmd_off_k(0xffff0000);
- 
--	/* allocate the zero page. */
--	zero_page = early_alloc(PAGE_SIZE);
--
- 	bootmem_init();
--
--	empty_zero_page = virt_to_page(zero_page);
--	__flush_dcache_folio(NULL, page_folio(empty_zero_page));
- }
- 
- void __init early_mm_init(const struct machine_desc *mdesc)
-diff --git a/arch/arm/mm/nommu.c b/arch/arm/mm/nommu.c
-index d638cc87807e..7e42d8accec6 100644
---- a/arch/arm/mm/nommu.c
-+++ b/arch/arm/mm/nommu.c
-@@ -31,7 +31,7 @@ unsigned long vectors_base;
-  * empty_zero_page is a special page that is used for
-  * zero-initialized data and COW.
-  */
--struct page *empty_zero_page;
-+unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)] __page_aligned_bss;
- EXPORT_SYMBOL(empty_zero_page);
- 
- #ifdef CONFIG_ARM_MPU
-@@ -156,18 +156,10 @@ void __init adjust_lowmem_bounds(void)
-  */
- void __init paging_init(const struct machine_desc *mdesc)
- {
--	void *zero_page;
--
- 	early_trap_init((void *)vectors_base);
- 	mpu_setup();
- 
--	/* allocate the zero page. */
--	zero_page = (void *)memblock_alloc_or_panic(PAGE_SIZE, PAGE_SIZE);
--
- 	bootmem_init();
--
--	empty_zero_page = virt_to_page(zero_page);
--	flush_dcache_page(empty_zero_page);
- }
- 
- /*
--- 
-2.51.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBEZWMgMjksIDIwMjUgYXQgMTI6NTbigK9QTSBRaWFuZyBNYSA8bWFxaWFuZ2FAdW5p
+b250ZWNoLmNvbT4gd3JvdGU6Cj4KPiBJZiB0aGUgcHJvZ3JhbSBjYW4gZXhlY3V0ZSB1cCB0byB0
+aGlzIHBvaW50LCBpbmRpY2F0aW5nIHRoYXQKPiBrdm1fdmNwdV93cml0ZV9ndWVzdCgpIHJldHVy
+bnMgMCwgYW5kIHRoZSBhY3R1YWwgdmFsdWUgb2YKPiBTQklfU1VDQ0VTUyBpcyBhbHNvIDAuIEF0
+IHRoaXMgdGltZSwgcmV0IGRvZXMgbm90IG5lZWQgdG8gYmUKPiBhc3NpZ25lZCBhIHZhbHVlIG9m
+IDAuCj4KPiBGaXhlczogZTMwOWZkMTEzYjlmICgiUklTQy1WOiBLVk06IEltcGxlbWVudCBnZXQg
+ZXZlbnQgaW5mbyBmdW5jdGlvbiIpCj4KPiBTaWduZWQtb2ZmLWJ5OiBRaWFuZyBNYSA8bWFxaWFu
+Z2FAdW5pb250ZWNoLmNvbT4KClNpbXBsaWZpZWQgY29tbWl0IGRlc2NyaXB0aW9uIGFuZCBxdWV1
+ZWQgaXQgZm9yIExpbnV4LTYuMTkgZml4ZXMuCgpSZXZpZXdlZC1ieTogQW51cCBQYXRlbCA8YW51
+cEBicmFpbmZhdWx0Lm9yZz4KClRoYW5rcywKQW51cAoKPiAtLS0KPiAgYXJjaC9yaXNjdi9rdm0v
+dmNwdV9wbXUuYyB8IDUgKy0tLS0KPiAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCA0
+IGRlbGV0aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfcG11LmMg
+Yi9hcmNoL3Jpc2N2L2t2bS92Y3B1X3BtdS5jCj4gaW5kZXggYTJmYWU3MGVlMTc0Li40ZDhkNWU5
+YWE1M2QgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rdm0vdmNwdV9wbXUuYwo+ICsrKyBiL2Fy
+Y2gvcmlzY3Yva3ZtL3ZjcHVfcG11LmMKPiBAQCAtNDk0LDEyICs0OTQsOSBAQCBpbnQga3ZtX3Jp
+c2N2X3ZjcHVfcG11X2V2ZW50X2luZm8oc3RydWN0IGt2bV92Y3B1ICp2Y3B1LCB1bnNpZ25lZCBs
+b25nIHNhZGRyX2xvdwo+ICAgICAgICAgfQo+Cj4gICAgICAgICByZXQgPSBrdm1fdmNwdV93cml0
+ZV9ndWVzdCh2Y3B1LCBzaG1lbSwgZWluZm8sIHNobWVtX3NpemUpOwo+IC0gICAgICAgaWYgKHJl
+dCkgewo+ICsgICAgICAgaWYgKHJldCkKPiAgICAgICAgICAgICAgICAgcmV0ID0gU0JJX0VSUl9J
+TlZBTElEX0FERFJFU1M7Cj4gLSAgICAgICAgICAgICAgIGdvdG8gZnJlZV9tZW07Cj4gLSAgICAg
+ICB9Cj4KPiAtICAgICAgIHJldCA9IDA7Cj4gIGZyZWVfbWVtOgo+ICAgICAgICAga2ZyZWUoZWlu
+Zm8pOwo+ICBvdXQ6Cj4gLS0KPiAyLjIwLjEKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
