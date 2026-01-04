@@ -4,75 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90379C2A069
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jan 2026 06:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2E52C2A069
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jan 2026 07:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fFyoHXHwYNCYAqxdhnCEFZH/ojdCZeYdhVy0R9c+HBE=; b=24OVSH4G0AxNBu
-	OxvkSlwO873ioqEsUnJ+RddxGyYAekkHfeDDm1GtTiFgFceXxum+IwNhkvfJW4CbtxelxojmAYGfQ
-	bvk2yRenboD8wVr5i+S+nvJBg6CjWaUhtZkN7KaS2K4FXMz9OPpg51mtFWodDt56EHFz+nED2M98u
-	7shVZWTwSd5k8MM+2Y/jV3obz+4tKoDacrKEDmwTOUd+D+jev4Fge3eIdfiIzDxJKRcB6zoXiSw1y
-	J3wstco2rzpufROEwwwLTcvgnA4iGL4NM/TX+SMY6vTcuVrHvIGWnYqFfbsZYXeaBvxuvw8afwu5H
-	9I3cJXcRopuLxcQPSDUQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cefjdWivqQBdaOMrtIsf6qEhnkG0yuBzv+zfwalK114=; b=VALqPFkjNcUsBN
+	rgF0B2lWVUhgCWGlS1GXNBCfHa/rsls56RjTyBf3q9I8uUXXwrPfB+jzqlgyZYfSDnpAHpf0He255
+	Rrq6RFmyGSz1iD3RJAUjEASQXh9a6AXtzszBhiT3Bf/jcRy4UwMdi/gdcJ8zmBB7pJbK8qxNnyQOq
+	TVflN7mrM7cmPlJfiyFbBzgBlN4aVeVvzPOxa9fuYNwfxUeZWdNEx2qGTz20QetCH06XPOhu6KWOf
+	rmCRjms7oetLf8XQonEhs0OcFrJkz0LMYnNHCUTLDEN8C/vonC7AIqIENoynm23HqQM4ozTWc7oj1
+	HmLNi25qs65vikOdbW5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcHAI-0000000A337-0SLI;
-	Sun, 04 Jan 2026 06:00:34 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vcIFD-0000000A4Zq-1DZC;
+	Sun, 04 Jan 2026 07:09:43 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcHAD-0000000A32f-29xA
+	id 1vcIF9-0000000A4Ys-1yG6
 	for linux-riscv@lists.infradead.org;
-	Sun, 04 Jan 2026 06:00:32 +0000
-Received: from [127.0.0.2] (unknown [114.241.82.145])
-	by APP-01 (Coremail) with SMTP id qwCowAD3oGzmAVppu3AIAw--.1340S2;
-	Sun, 04 Jan 2026 14:00:08 +0800 (CST)
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Sun, 04 Jan 2026 14:00:04 +0800
-Subject: [PATCH net-next v3] net: spacemit: Remove broken flow control
- support
+	Sun, 04 Jan 2026 07:09:41 +0000
+Received: from duge-virtual-machine (unknown [223.160.207.26])
+	by APP-05 (Coremail) with SMTP id zQCowAAHnA8aElppQBI+Aw--.34953S4;
+	Sun, 04 Jan 2026 15:09:21 +0800 (CST)
+From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+To: conor@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	alex@ghiti.fr,
+	jiayu.riscv@isrc.iscas.ac.cn,
+	cyy@cyyself.name,
+	kingxukai@zohomail.com,
+	TroyMitchell988@gmail.com,
+	gaohan@iscas.ac.cn,
+	me@ziyao.cc
+Subject: [PATCH v2 2/2] riscv: dts: canaan: Add initial dshanpi board DT files
+Date: Sun,  4 Jan 2026 15:09:11 +0800
+Message-ID: <20260104070911.219588-3-jiayu.riscv@isrc.iscas.ac.cn>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260104070911.219588-1-jiayu.riscv@isrc.iscas.ac.cn>
+References: <20260104070911.219588-1-jiayu.riscv@isrc.iscas.ac.cn>
 MIME-Version: 1.0
-Message-Id: <20260104-k1-ethernet-actually-remove-fc-v3-1-3871b055064c@iscas.ac.cn>
-X-B4-Tracking: v=1; b=H4sIAOMBWmkC/42OQQ7CIBREr9L8tb8pqKV05T2MJhS/lthSBSSap
- ncX0QO4nMy8mZnBkzPkoS1mcBSNN5NNYr0qQPfKXgjNKWngFd8yxjd4ZUihJ2cpoNLhoYbhhY7
- GKRKeNYqqbtZMiGrTSEglN0dn88wDe/gwlp4BDl/H0f2RFsPP7pQn1NM4mtAWsS6ZRKfZcV5yv
- jc+TO6Vn0aegX9PRY4MtySE6mrZCcl2xmvlS6VLbeGwLMsbNQdpkQgBAAA=
-X-Change-ID: 20251124-k1-ethernet-actually-remove-fc-706831770489
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Yixun Lan <dlan@gentoo.org>, Vadim Fedorenko <vadim.fedorenko@linux.dev>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Vivian Wang <wangruikang@iscas.ac.cn>
-X-Mailer: b4 0.14.3
-X-CM-TRANSID: qwCowAD3oGzmAVppu3AIAw--.1340S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3Wr43Gr1rWr4xtw43Cw4kJFb_yoWxAr4rpF
-	45X3s2kFWUXFsYgFs3Cw4UAFy3Ga4xtrnrua4fCw4Fg3ZIyrn7AFy0k3W7CFyDurW8ury5
-	Kw4UA3W8GFsrX37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
-	nIWIevJa73UjIFyTuYvjfUonmRUUUUU
-X-Originating-IP: [114.241.82.145]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+X-CM-TRANSID: zQCowAAHnA8aElppQBI+Aw--.34953S4
+X-Coremail-Antispam: 1UD129KBjvJXoWxZry8KFy3Aw4fCFWfCryDWrg_yoWrAFyDpr
+	s8urZxGFWI9F9a9FW2g3yIgF43CF4qk34rCr1ayFyUtrWjqFWvkwn3t34rXF18Xr1UX390
+	yan5ZryxtF1xZ3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmj14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWUuVWrJwAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
+	ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AI
+	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
+	vE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
+	r2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04
+	v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j
+	6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7
+	AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE
+	2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcV
+	C2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2Kfnx
+	nUUI43ZEXa7VUbH5lUUUUUU==
+X-Originating-IP: [223.160.207.26]
+X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_220029_934443_0BC8E697 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20260103_230939_972434_0D32D9FD 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,219 +93,157 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The current flow control implementation doesn't handle autonegotiation
-and ethtool operations properly. Remove it for now so we don't claim
-support for something that doesn't really work. A better implementation
-will be sent in future patches.
+Add board devicetree for 100ask K230 dashanpi, and also the SoM
+device utilized by the board. UART0 is enabled as the default
+console.
 
-Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
 ---
-Changes in v3:
-- Remove Fixes since this is for net-next, not for backporting (Andrew)
-- Link to v2: https://lore.kernel.org/r/20251124-k1-ethernet-actually-remove-fc-v2-1-5e77ab69b791@iscas.ac.cn
----
+ arch/riscv/boot/dts/canaan/Makefile           |  1 +
+ .../boot/dts/canaan/k230-canmv-dshanpi.dts    | 82 +++++++++++++++++++
+ .../dts/canaan/k230-canmv-module-dshanpi.dtsi | 30 +++++++
+ 3 files changed, 113 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/k230-canmv-module-dshanpi.dtsi
 
-My employer has switched focus somewhat so I'm unlikely to prioritize
-the proper implementation of flow control etc with phylink for now.
-Sorry. This is just a little bit of polish for Spacemit K1 ethernet
-support on 6.20/7.0 to go with the other peripheral support.
----
- drivers/net/ethernet/spacemit/k1_emac.c | 110 --------------------------------
- 1 file changed, 110 deletions(-)
-
-diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
-index 220eb5ce7583..c85dc742c404 100644
---- a/drivers/net/ethernet/spacemit/k1_emac.c
-+++ b/drivers/net/ethernet/spacemit/k1_emac.c
-@@ -46,8 +46,6 @@
- #define EMAC_RX_FRAMES			64
- #define EMAC_RX_COAL_TIMEOUT		(600 * 312)
- 
--#define DEFAULT_FC_PAUSE_TIME		0xffff
--#define DEFAULT_FC_FIFO_HIGH		1600
- #define DEFAULT_TX_ALMOST_FULL		0x1f8
- #define DEFAULT_TX_THRESHOLD		1518
- #define DEFAULT_RX_THRESHOLD		12
-@@ -132,9 +130,6 @@ struct emac_priv {
- 	u32 tx_delay;
- 	u32 rx_delay;
- 
--	bool flow_control_autoneg;
--	u8 flow_control;
--
- 	/* Softirq-safe, hold while touching hardware statistics */
- 	spinlock_t stats_lock;
- };
-@@ -179,9 +174,7 @@ static void emac_set_mac_addr_reg(struct emac_priv *priv,
- 
- static void emac_set_mac_addr(struct emac_priv *priv, const unsigned char *addr)
- {
--	/* We use only one address, so set the same for flow control as well */
- 	emac_set_mac_addr_reg(priv, addr, MAC_ADDRESS1_HIGH);
--	emac_set_mac_addr_reg(priv, addr, MAC_FC_SOURCE_ADDRESS_HIGH);
- }
- 
- static void emac_reset_hw(struct emac_priv *priv)
-@@ -200,9 +193,6 @@ static void emac_reset_hw(struct emac_priv *priv)
- 
- static void emac_init_hw(struct emac_priv *priv)
- {
--	/* Destination address for 802.3x Ethernet flow control */
--	u8 fc_dest_addr[ETH_ALEN] = { 0x01, 0x80, 0xc2, 0x00, 0x00, 0x01 };
--
- 	u32 rxirq = 0, dma = 0;
- 
- 	regmap_set_bits(priv->regmap_apmu,
-@@ -228,12 +218,6 @@ static void emac_init_hw(struct emac_priv *priv)
- 		DEFAULT_TX_THRESHOLD);
- 	emac_wr(priv, MAC_RECEIVE_PACKET_START_THRESHOLD, DEFAULT_RX_THRESHOLD);
- 
--	/* Configure flow control (enabled in emac_adjust_link() later) */
--	emac_set_mac_addr_reg(priv, fc_dest_addr, MAC_FC_SOURCE_ADDRESS_HIGH);
--	emac_wr(priv, MAC_FC_PAUSE_HIGH_THRESHOLD, DEFAULT_FC_FIFO_HIGH);
--	emac_wr(priv, MAC_FC_HIGH_PAUSE_TIME, DEFAULT_FC_PAUSE_TIME);
--	emac_wr(priv, MAC_FC_PAUSE_LOW_THRESHOLD, 0);
--
- 	/* RX IRQ mitigation */
- 	rxirq = FIELD_PREP(MREGBIT_RECEIVE_IRQ_FRAME_COUNTER_MASK,
- 			   EMAC_RX_FRAMES);
-@@ -1018,57 +1002,6 @@ static int emac_mdio_init(struct emac_priv *priv)
- 	return ret;
- }
- 
--static void emac_set_tx_fc(struct emac_priv *priv, bool enable)
--{
--	u32 val;
--
--	val = emac_rd(priv, MAC_FC_CONTROL);
--
--	FIELD_MODIFY(MREGBIT_FC_GENERATION_ENABLE, &val, enable);
--	FIELD_MODIFY(MREGBIT_AUTO_FC_GENERATION_ENABLE, &val, enable);
--
--	emac_wr(priv, MAC_FC_CONTROL, val);
--}
--
--static void emac_set_rx_fc(struct emac_priv *priv, bool enable)
--{
--	u32 val = emac_rd(priv, MAC_FC_CONTROL);
--
--	FIELD_MODIFY(MREGBIT_FC_DECODE_ENABLE, &val, enable);
--
--	emac_wr(priv, MAC_FC_CONTROL, val);
--}
--
--static void emac_set_fc(struct emac_priv *priv, u8 fc)
--{
--	emac_set_tx_fc(priv, fc & FLOW_CTRL_TX);
--	emac_set_rx_fc(priv, fc & FLOW_CTRL_RX);
--	priv->flow_control = fc;
--}
--
--static void emac_set_fc_autoneg(struct emac_priv *priv)
--{
--	struct phy_device *phydev = priv->ndev->phydev;
--	u32 local_adv, remote_adv;
--	u8 fc;
--
--	local_adv = linkmode_adv_to_lcl_adv_t(phydev->advertising);
--
--	remote_adv = 0;
--
--	if (phydev->pause)
--		remote_adv |= LPA_PAUSE_CAP;
--
--	if (phydev->asym_pause)
--		remote_adv |= LPA_PAUSE_ASYM;
--
--	fc = mii_resolve_flowctrl_fdx(local_adv, remote_adv);
--
--	priv->flow_control_autoneg = true;
--
--	emac_set_fc(priv, fc);
--}
--
- /*
-  * Even though this MAC supports gigabit operation, it only provides 32-bit
-  * statistics counters. The most overflow-prone counters are the "bytes" ones,
-@@ -1425,42 +1358,6 @@ static void emac_ethtool_get_regs(struct net_device *dev,
- 			emac_rd(priv, MAC_GLOBAL_CONTROL + i * 4);
- }
- 
--static void emac_get_pauseparam(struct net_device *dev,
--				struct ethtool_pauseparam *pause)
--{
--	struct emac_priv *priv = netdev_priv(dev);
--
--	pause->autoneg = priv->flow_control_autoneg;
--	pause->tx_pause = !!(priv->flow_control & FLOW_CTRL_TX);
--	pause->rx_pause = !!(priv->flow_control & FLOW_CTRL_RX);
--}
--
--static int emac_set_pauseparam(struct net_device *dev,
--			       struct ethtool_pauseparam *pause)
--{
--	struct emac_priv *priv = netdev_priv(dev);
--	u8 fc = 0;
--
--	if (!netif_running(dev))
--		return -ENETDOWN;
--
--	priv->flow_control_autoneg = pause->autoneg;
--
--	if (pause->autoneg) {
--		emac_set_fc_autoneg(priv);
--	} else {
--		if (pause->tx_pause)
--			fc |= FLOW_CTRL_TX;
--
--		if (pause->rx_pause)
--			fc |= FLOW_CTRL_RX;
--
--		emac_set_fc(priv, fc);
--	}
--
--	return 0;
--}
--
- static void emac_get_drvinfo(struct net_device *dev,
- 			     struct ethtool_drvinfo *info)
- {
-@@ -1634,8 +1531,6 @@ static void emac_adjust_link(struct net_device *dev)
- 		}
- 
- 		emac_wr(priv, MAC_GLOBAL_CONTROL, ctrl);
--
--		emac_set_fc_autoneg(priv);
- 	}
- 
- 	phy_print_status(phydev);
-@@ -1715,8 +1610,6 @@ static int emac_phy_connect(struct net_device *ndev)
- 		goto err_node_put;
- 	}
- 
--	phy_support_asym_pause(phydev);
--
- 	phydev->mac_managed_pm = true;
- 
- 	emac_update_delay_line(priv);
-@@ -1886,9 +1779,6 @@ static const struct ethtool_ops emac_ethtool_ops = {
- 	.get_sset_count		= emac_get_sset_count,
- 	.get_strings		= emac_get_strings,
- 	.get_ethtool_stats	= emac_get_ethtool_stats,
--
--	.get_pauseparam		= emac_get_pauseparam,
--	.set_pauseparam		= emac_set_pauseparam,
- };
- 
- static const struct net_device_ops emac_netdev_ops = {
-
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20251124-k1-ethernet-actually-remove-fc-706831770489
-
-Best regards,
+diff --git a/arch/riscv/boot/dts/canaan/Makefile b/arch/riscv/boot/dts/canaan/Makefile
+index 7d54ea5c6f3d..89cb64bde440 100644
+--- a/arch/riscv/boot/dts/canaan/Makefile
++++ b/arch/riscv/boot/dts/canaan/Makefile
+@@ -2,6 +2,7 @@
+ dtb-$(CONFIG_ARCH_CANAAN) += canaan_kd233.dtb
+ dtb-$(CONFIG_ARCH_CANAAN) += k210_generic.dtb
+ dtb-$(CONFIG_ARCH_CANAAN) += k230-canmv.dtb
++dtb-$(CONFIG_ARCH_CANAAN) += k230-canmv-dshanpi.dtb
+ dtb-$(CONFIG_ARCH_CANAAN) += k230-evb.dtb
+ dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_bit.dtb
+ dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_dock.dtb
+diff --git a/arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts b/arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts
+new file mode 100644
+index 000000000000..4f95b534ee87
+--- /dev/null
++++ b/arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts
+@@ -0,0 +1,82 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++ * Copyright (C) 2025 Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
++ */
++
++/dts-v1/;
++
++#include "k230-canmv-module-dshanpi.dtsi"
++
++/ {
++	model = "100ask CanMV-K230-dshanpi";
++	compatible = "100ask,canmv-k230-dshanpi",
++		     "100ask,canmv-k230-module-dshanpi",
++		     "canaan,kendryte-k230";
++
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	vdd_5v: regulator-vdd-5v {
++		compatible = "regulator-fixed";
++		regulator-name = "vdd_5v";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-always-on;
++		regulator-boot-on;
++	};
++
++	vdd_3v3: regulator-vdd-3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "vdd_3v3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-always-on;
++		regulator-boot-on;
++		vin-supply = <&vdd_5v>;
++	};
++
++	vdd_1v8: regulator-vdd-1v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "vdd_1v8";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		regulator-always-on;
++		regulator-boot-on;
++		vin-supply = <&vdd_5v>;
++	};
++};
++
++&pinctrl {
++	uart0_pins: uart0-pins {
++		uart0-txd-cfg {
++			pinmux = <K230_PINMUX(38, 1)>;
++			slew-rate = <0>;
++			drive-strength = <7>;
++			power-source = <K230_MSC_1V8>;
++			output-enable;
++			bias-disable;
++			input-schmitt-enable;
++		};
++
++		uart0-rxd-cfg {
++			pinmux = <K230_PINMUX(39, 1)>;
++			slew-rate = <0>;
++			drive-strength = <7>;
++			power-source = <K230_MSC_1V8>;
++			input-enable;
++			bias-disable;
++			input-schmitt-enable;
++		};
++	};
++};
++
++&uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0_pins>;
++	status = "okay";
++};
+diff --git a/arch/riscv/boot/dts/canaan/k230-canmv-module-dshanpi.dtsi b/arch/riscv/boot/dts/canaan/k230-canmv-module-dshanpi.dtsi
+new file mode 100644
+index 000000000000..ed0abc68f321
+--- /dev/null
++++ b/arch/riscv/boot/dts/canaan/k230-canmv-module-dshanpi.dtsi
+@@ -0,0 +1,30 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++ * Copyright (C) 2025 Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
++ */
++
++/dts-v1/;
++
++#include "k230.dtsi"
++
++/ {
++	model = "100ask CanMV-K230-Module-dshanpi";
++	compatible = "100ask,canmv-k230-module-dshanpi",
++		     "canaan,kendryte-k230";
++
++	ddr: memory@0 {
++		device_type = "memory";
++		reg = <0x0 0x0 0x0 0x40000000>;
++	};
++
++	timerx_pulse_in: clock-50m {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <50000000>;
++	};
++};
++
++&sysclk {
++	clocks = <&osc24m>, <&timerx_pulse_in>;
++	clock-names = "osc24m", "timer-pulse-in";
++};
 -- 
-Vivian "dramforever" Wang
+2.52.0
 
 
 _______________________________________________
