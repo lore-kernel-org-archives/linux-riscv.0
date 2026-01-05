@@ -4,85 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 423B6C2A072
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 04:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED9BC2A075
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 05:15:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Oue4SRaFaOWPQwWfvgeZWmAPLTCy1sneV1ZlVYUmi+s=; b=ADlC1YAcXDXmbl
-	zfLkAQCXuAO+mKY1KVkQWYmezqpgYwG1+sazIST0YYbvrO6olsT80WGzT5odFqiyk1Ex3ofK+ID/D
-	ksNFV/K3Bt951mH+ifIx/D/ADP+6Xvx3y8IFo9fo7TSDBp9fP5cXOGNv2k1taAyV6k/EckO58Gt+6
-	+jSE+iGiG63sxmP+P/jnvn2wql3ffoc2VdxDbPJREAl245htQh07yr9ngthgHO5WyHSENgzfgCH6k
-	McOABGKRk/QkhMRCPOsV8kahWTp74i/gL0Ozdcr6HiRYyfrnrlmfx0kvcuOqsQNvikGuDwkbrNDoC
-	VzB13POnHSWL9HZ+JGXA==;
+	List-Owner; bh=jTAP+jnRnZ3MaXp3NomveLBUMvFBVWxGmBc/4WESbqc=; b=2QiAinA4j6NC7W
+	AxuByItadE8TQyFDHQrYZ7qGv+wPYz9n1k1Dbd/K+ggnkGI5h4T1WnndiBBsYLoYC5+UY98E7FHhN
+	ntb82mBcBq7ybV6ByKDJPwMwz2UxMvOI/IruVwikZ1c1ywJDjmUa1BRw+E123huxIpMtWHjAVgt45
+	4AughsHAI7YWaGbel2jLST2Inzm2t56CrPsvD8SklQA5L5S4SrX9TbVR8JRwI1c/gRA3Y0z5FgBGo
+	9oxhFrTYnvgkbqsoSb0MFDnlwUer+IU+BHp9G9gSgr05Ug4YbGGTCR9aKy+DYYo3/IdxOB18g42gq
+	bfzSMqFa6NN5mxbzBXog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccGF-0000000AhTP-16GJ;
-	Mon, 05 Jan 2026 04:32:07 +0000
-Received: from mail-oa1-x29.google.com ([2001:4860:4864:20::29])
+	id 1vccvf-0000000Aj46-3m63;
+	Mon, 05 Jan 2026 05:14:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccGD-0000000AhRZ-083e
-	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jan 2026 04:32:06 +0000
-Received: by mail-oa1-x29.google.com with SMTP id 586e51a60fabf-3e3dac349easo15086873fac.2
-        for <linux-riscv@lists.infradead.org>; Sun, 04 Jan 2026 20:32:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1767587524; x=1768192324; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hHkaBZ4KK18wS8f7Porp98nIhGzHcidozMr5EBFYJqU=;
-        b=pw/RnTBfZSVNpw15+IXspVuIsavIp399mCoICKOdMwExWpwsNOpxUXFkSoU1hP76Ce
-         fRqfvyt2oklc4sE6eCmhHiB+dLRXlaHI4MRHSkicMeSQ4FSWamEWe2FbPajnJC7C/o9K
-         iKfMln/9BTSbVzEgKwxvLweiMM2IAkzv4psGFU2auEj8v09LSLWkMhlOJcKJRjnSlhxu
-         OjqRbJYFlver5dTSIdig29st8u4e/pfSyrogp/HstnN+hJzuGLC0k6NSU3A9PUQ79RTH
-         kF1P2Zno92zAciGv0poozdpCP2PaE+/Isbr3w4pXAt7/FIjo/D32szJ/eit1SeIPig/T
-         b1MA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767587524; x=1768192324;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hHkaBZ4KK18wS8f7Porp98nIhGzHcidozMr5EBFYJqU=;
-        b=bg/LIO39oYeQ6WRZ0DqB/Jti8QHp6I8OPhrz/Um9Z6CR1YuYoXPervi8ESiDId5ka2
-         +w10MkUCT3I4DVNvtJm2Qnj8i8d9sL2P4UM1GkW1NM7VKKC/w/a0RAUD7LTifudaSyGz
-         CB/QMEN9FPSY5LGSa0dMGeGG7GLUOsDf/tlPFF6cgLpqT5qK6Xp7YZ+eP0TAScyRYOvq
-         tg6YIiyMes/6p7+4Pg7Bk5AqMr67WltSMeppVqsOa0HPkHT87iWVrWT+BbqLHd+xi4Lc
-         Eyo+pi9XonFkqZfp/ZUgDIOzl36dfUEM5efFy1xQKzZi9rhFecW8X/+MTAOrh1tJTjoe
-         Zklw==
-X-Forwarded-Encrypted: i=1; AJvYcCUt/6ZWgy1+RaliUDUBYsKeHfQjwQq5qJFvWlPLp9zagKd0tE5TPyghTrjXUuelZNuYHwSz75NxkXO+oQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZSLNMveZMw3W5zCm044hlh6ovnjJIsrTMHjPUfx4qRcDinizm
-	xEumacYsrZItCD2YiJanVQjSi/T152I4BN15H0MjiU+yVgjOU9NqkPgI5aQo94gJg3zx9dQ4WWV
-	xzMKV4ZXP9jG7zHe9RusiWPInakKG9yInogzy2XlLDw==
-X-Gm-Gg: AY/fxX7s+J5Re1f1h1PvxsxIpKWm+W/KTSxiyvZZI9VHwlLIUHJQgCsz2kG8xOSBqz0
-	QsPhJM0z9baOSgQA2Nr1uI9PbHdDhRvYPcNrOFBIFvRqwAvjG3gGz7Kkp1h+6gXDeX+fnw4qflG
-	CBl/Z1yfJPQOnQO4uKkGPpYkONGhwoLTDR4SkLqTFZk0jHrJLKzBf1EuwV3LDwb8F0i+MiXNY+0
-	rg0CJXFOIQrT8OJ7i1/uVqPOe5qPx026jKSVvnXExRmUiogWV/U0p7NfqTyI3YMn7n9axZbmn7k
-	/kWvBJud3IqJN5OzvogofFRAeTz7G3rBXdmQF3UonRfCSPS2uMvhWBwwIw==
-X-Google-Smtp-Source: AGHT+IFTgEGwXPx6BKmlWZVg0kN84C+S2+KENgMMgK/TV+vTypAKt4mWKTS5e1BqvI7y/qNPjWol9HS75PcMvY2Cyfg=
-X-Received: by 2002:a05:6820:1517:b0:65f:1038:1312 with SMTP id
- 006d021491bc7-65f103814a5mr6928745eaf.24.1767587523833; Sun, 04 Jan 2026
- 20:32:03 -0800 (PST)
+	id 1vccvb-0000000Aj1D-3wQI;
+	Mon, 05 Jan 2026 05:14:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3B3A044123;
+	Mon,  5 Jan 2026 05:14:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A769FC2BCB1;
+	Mon,  5 Jan 2026 05:14:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767590091;
+	bh=LgDbklGtIZFHjM4cuU4zrZQcyIE2hb0ascSpMxwTuKE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ijd+I7op5lmUKmk5siN9yLBtx/9k6AgkTruGEiLPcRGwEnQMxlLCxqX8pywV5GfoN
+	 tsBAnhPaMBaFTSP28NAe1luTRwpp2pepivmaJuj0U3w+9l8tt4BoMZon1eDSPWJB/3
+	 ixqKtW8L6wJNKC6zKnVH2XGD1Z7xpH2r9lqNLJaF8E3YC+ZE63dSTUP00KZnr6xOk/
+	 NAtoHW7Uew++VxBJ2sTNG1FMLDxVg+Xrvb1C2h9ttJ1kMRrZWuu7+Iip6dnqGcRe1T
+	 XviKWGaNVEUdpOmcKj0/MhKJk2lIzVOli5+z36mLRKHUUDgb/+WCYf9f34Ddkdec22
+	 hvdBT5uSXtmZg==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Holger Dengler <dengler@linux.ibm.com>,
+	Harald Freudenberger <freude@linux.ibm.com>,
+	Eric Biggers <ebiggers@kernel.org>
+Subject: [PATCH 01/36] crypto: powerpc/aes - Rename struct aes_key
+Date: Sun,  4 Jan 2026 21:12:34 -0800
+Message-ID: <20260105051311.1607207-2-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260105051311.1607207-1-ebiggers@kernel.org>
+References: <20260105051311.1607207-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-References: <20260104135938.524-1-naohiko.shimizu@gmail.com> <20260104135938.524-4-naohiko.shimizu@gmail.com>
-In-Reply-To: <20260104135938.524-4-naohiko.shimizu@gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 5 Jan 2026 10:01:52 +0530
-X-Gm-Features: AQt7F2q2sNhEFpoD1aMpeC7h9p1U_y0qvSfsQ2UQSOqUFOrIw4g5EvmP552X2Mw
-Message-ID: <CAAhSdy0sLTudTUc9fXMXkjoyZkiiGk=HS_Ybgz_LT0E8-i5RJg@mail.gmail.com>
-Subject: Re: [PATCH v3 3/3] riscv: suspend: Fix stimecmp update hazard on RV32
-To: Naohiko Shimizu <naohiko.shimizu@gmail.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	atish.patra@linux.dev, daniel.lezcano@linaro.org, tglx@linutronix.de, 
-	nick.hu@sifive.com, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_203205_093387_60EE43B0 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20260104_211452_025830_E9277E0E 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,47 +77,185 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBKYW4gNCwgMjAyNiBhdCA3OjMw4oCvUE0gTmFvaGlrbyBTaGltaXp1CjxuYW9oaWtv
-LnNoaW1penVAZ21haWwuY29tPiB3cm90ZToKPgo+IE9uIFJWMzIsIHVwZGF0aW5nIHRoZSA2NC1i
-aXQgc3RpbWVjbXAgKG9yIHZzdGltZWNtcCkgQ1NSIHJlcXVpcmVzIHR3bwo+IHNlcGFyYXRlIDMy
-LWJpdCB3cml0ZXMuIEEgcmFjZSBjb25kaXRpb24gZXhpc3RzIGlmIHRoZSB0aW1lciB0cmlnZ2Vy
-cwo+IGR1cmluZyB0aGVzZSB0d28gd3JpdGVzLgo+Cj4gVGhlIFJJU0MtViBQcml2aWxlZ2VkIFNw
-ZWNpZmljYXRpb24gKGUuZy4sIFNlY3Rpb24gMy4yLjEgZm9yIG10aW1lY21wKQo+IHJlY29tbWVu
-ZHMgYSBzcGVjaWZpYyAzLXN0ZXAgc2VxdWVuY2UgdG8gYXZvaWQgc3B1cmlvdXMgaW50ZXJydXB0
-cwo+IHdoZW4gdXBkYXRpbmcgNjQtYml0IGNvbXBhcmlzb24gcmVnaXN0ZXJzIG9uIDMyLWJpdCBz
-eXN0ZW1zOgo+Cj4gMS4gU2V0IHRoZSBsb3ctb3JkZXIgYml0cyAoc3RpbWVjbXApIHRvIGFsbCBv
-bmVzIChVTE9OR19NQVgpLgo+IDIuIFNldCB0aGUgaGlnaC1vcmRlciBiaXRzIChzdGltZWNtcGgp
-IHRvIHRoZSBkZXNpcmVkIHZhbHVlLgo+IDMuIFNldCB0aGUgbG93LW9yZGVyIGJpdHMgKHN0aW1l
-Y21wKSB0byB0aGUgZGVzaXJlZCB2YWx1ZS4KPgo+IEN1cnJlbnQgaW1wbGVtZW50YXRpb24gd3Jp
-dGVzIHRoZSBMU0IgZmlyc3Qgd2l0aG91dCBlbnN1cmluZyBhIGZ1dHVyZQo+IHZhbHVlLCB3aGlj
-aCBtYXkgbGVhZCB0byBhIHRyYW5zaWVudCBzdGF0ZSB3aGVyZSB0aGUgNjQtYml0IGNvbXBhcmlz
-b24KPiBpcyBpbmNvcnJlY3RseSBldmFsdWF0ZWQgYXMgImV4cGlyZWQiIGJ5IHRoZSBoYXJkd2Fy
-ZS4gVGhpcyByZXN1bHRzIGluCj4gc3B1cmlvdXMgdGltZXIgaW50ZXJydXB0cy4KPgo+IFRoaXMg
-cGF0Y2ggYWRvcHRzIHRoZSBzcGVjLXJlY29tbWVuZGVkIDMtc3RlcCBzZXF1ZW5jZSB0byBlbnN1
-cmUgdGhlCj4gaW50ZXJtZWRpYXRlIDY0LWJpdCBzdGF0ZSBpcyBuZXZlciBzbWFsbGVyIHRoYW4g
-dGhlIGN1cnJlbnQgdGltZS4KPgo+IEZpeGVzOiBmZmVmNTRhZDQxMTAgKCJyaXNjdjogQWRkIHN0
-aW1lY21wIHNhdmUgYW5kIHJlc3RvcmUiKQo+IFNpZ25lZC1vZmYtYnk6IE5hb2hpa28gU2hpbWl6
-dSA8bmFvaGlrby5zaGltaXp1QGdtYWlsLmNvbT4KCkxHVE0uCgpSZXZpZXdlZC1ieTogQW51cCBQ
-YXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4KClJlZ2FyZHMsCkFudXAKCgo+IC0tLQo+ICBhcmNo
-L3Jpc2N2L2tlcm5lbC9zdXNwZW5kLmMgfCAzICsrLQo+ICAxIGZpbGUgY2hhbmdlZCwgMiBpbnNl
-cnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJu
-ZWwvc3VzcGVuZC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc3VzcGVuZC5jCj4gaW5kZXggMjRiM2Y1
-N2Q0NjdmLi5hZmY5MzA5MGM0ZWYgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvc3Vz
-cGVuZC5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvc3VzcGVuZC5jCj4gQEAgLTUxLDEwICs1
-MSwxMSBAQCB2b2lkIHN1c3BlbmRfcmVzdG9yZV9jc3JzKHN0cnVjdCBzdXNwZW5kX2NvbnRleHQg
-KmNvbnRleHQpCj4KPiAgI2lmZGVmIENPTkZJR19NTVUKPiAgICAgICAgIGlmIChyaXNjdl9oYXNf
-ZXh0ZW5zaW9uX3VubGlrZWx5KFJJU0NWX0lTQV9FWFRfU1NUQykpIHsKPiAtICAgICAgICAgICAg
-ICAgY3NyX3dyaXRlKENTUl9TVElNRUNNUCwgY29udGV4dC0+c3RpbWVjbXApOwo+ICAjaWYgX19y
-aXNjdl94bGVuIDwgNjQKPiArICAgICAgICAgICAgICAgY3NyX3dyaXRlKENTUl9TVElNRUNNUCwg
-VUxPTkdfTUFYKTsKPiAgICAgICAgICAgICAgICAgY3NyX3dyaXRlKENTUl9TVElNRUNNUEgsIGNv
-bnRleHQtPnN0aW1lY21waCk7Cj4gICNlbmRpZgo+ICsgICAgICAgICAgICAgICBjc3Jfd3JpdGUo
-Q1NSX1NUSU1FQ01QLCBjb250ZXh0LT5zdGltZWNtcCk7Cj4gICAgICAgICB9Cj4KPiAgICAgICAg
-IGNzcl93cml0ZShDU1JfU0FUUCwgY29udGV4dC0+c2F0cCk7Cj4gLS0KPiAyLjM5LjUKPgoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Rename struct aes_key in aesp8-ppc.h and aes-gcm-p10-glue.c to
+p8_aes_key and p10_aes_key, respectively.  This frees up the name to use
+in the library API in <crypto/aes.h>.
+
+Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+---
+ arch/powerpc/crypto/aes-gcm-p10-glue.c |  4 ++--
+ arch/powerpc/crypto/aes.c              |  4 ++--
+ arch/powerpc/crypto/aes_cbc.c          |  4 ++--
+ arch/powerpc/crypto/aes_ctr.c          |  2 +-
+ arch/powerpc/crypto/aes_xts.c          |  6 +++---
+ arch/powerpc/crypto/aesp8-ppc.h        | 23 ++++++++++++-----------
+ 6 files changed, 22 insertions(+), 21 deletions(-)
+
+diff --git a/arch/powerpc/crypto/aes-gcm-p10-glue.c b/arch/powerpc/crypto/aes-gcm-p10-glue.c
+index 85f4fd4b1bdc..f3417436d3f7 100644
+--- a/arch/powerpc/crypto/aes-gcm-p10-glue.c
++++ b/arch/powerpc/crypto/aes-gcm-p10-glue.c
+@@ -42,11 +42,11 @@ asmlinkage void aes_p10_gcm_decrypt(const u8 *in, u8 *out, size_t len,
+ asmlinkage void gcm_init_htable(unsigned char htable[], unsigned char Xi[]);
+ asmlinkage void gcm_ghash_p10(unsigned char *Xi, unsigned char *Htable,
+ 			      unsigned char *aad, unsigned int alen);
+ asmlinkage void gcm_update(u8 *iv, void *Xi);
+ 
+-struct aes_key {
++struct p10_aes_key {
+ 	u8 key[AES_MAX_KEYLENGTH];
+ 	u64 rounds;
+ };
+ 
+ struct gcm_ctx {
+@@ -61,11 +61,11 @@ struct Hash_ctx {
+ 	u8 H[16];	/* subkey */
+ 	u8 Htable[256];	/* Xi, Hash table(offset 32) */
+ };
+ 
+ struct p10_aes_gcm_ctx {
+-	struct aes_key enc_key;
++	struct p10_aes_key enc_key;
+ 	u8 nonce[RFC4106_NONCE_SIZE];
+ };
+ 
+ static void vsx_begin(void)
+ {
+diff --git a/arch/powerpc/crypto/aes.c b/arch/powerpc/crypto/aes.c
+index 3f1e5e894902..b7192ee719fc 100644
+--- a/arch/powerpc/crypto/aes.c
++++ b/arch/powerpc/crypto/aes.c
+@@ -19,12 +19,12 @@
+ 
+ #include "aesp8-ppc.h"
+ 
+ struct p8_aes_ctx {
+ 	struct crypto_cipher *fallback;
+-	struct aes_key enc_key;
+-	struct aes_key dec_key;
++	struct p8_aes_key enc_key;
++	struct p8_aes_key dec_key;
+ };
+ 
+ static int p8_aes_init(struct crypto_tfm *tfm)
+ {
+ 	const char *alg = crypto_tfm_alg_name(tfm);
+diff --git a/arch/powerpc/crypto/aes_cbc.c b/arch/powerpc/crypto/aes_cbc.c
+index 5f2a4f375eef..4a9f285f0970 100644
+--- a/arch/powerpc/crypto/aes_cbc.c
++++ b/arch/powerpc/crypto/aes_cbc.c
+@@ -19,12 +19,12 @@
+ 
+ #include "aesp8-ppc.h"
+ 
+ struct p8_aes_cbc_ctx {
+ 	struct crypto_skcipher *fallback;
+-	struct aes_key enc_key;
+-	struct aes_key dec_key;
++	struct p8_aes_key enc_key;
++	struct p8_aes_key dec_key;
+ };
+ 
+ static int p8_aes_cbc_init(struct crypto_skcipher *tfm)
+ {
+ 	struct p8_aes_cbc_ctx *ctx = crypto_skcipher_ctx(tfm);
+diff --git a/arch/powerpc/crypto/aes_ctr.c b/arch/powerpc/crypto/aes_ctr.c
+index e27c4036e711..7dbd06f442db 100644
+--- a/arch/powerpc/crypto/aes_ctr.c
++++ b/arch/powerpc/crypto/aes_ctr.c
+@@ -19,11 +19,11 @@
+ 
+ #include "aesp8-ppc.h"
+ 
+ struct p8_aes_ctr_ctx {
+ 	struct crypto_skcipher *fallback;
+-	struct aes_key enc_key;
++	struct p8_aes_key enc_key;
+ };
+ 
+ static int p8_aes_ctr_init(struct crypto_skcipher *tfm)
+ {
+ 	struct p8_aes_ctr_ctx *ctx = crypto_skcipher_ctx(tfm);
+diff --git a/arch/powerpc/crypto/aes_xts.c b/arch/powerpc/crypto/aes_xts.c
+index 9440e771cede..b4c760e465ea 100644
+--- a/arch/powerpc/crypto/aes_xts.c
++++ b/arch/powerpc/crypto/aes_xts.c
+@@ -20,13 +20,13 @@
+ 
+ #include "aesp8-ppc.h"
+ 
+ struct p8_aes_xts_ctx {
+ 	struct crypto_skcipher *fallback;
+-	struct aes_key enc_key;
+-	struct aes_key dec_key;
+-	struct aes_key tweak_key;
++	struct p8_aes_key enc_key;
++	struct p8_aes_key dec_key;
++	struct p8_aes_key tweak_key;
+ };
+ 
+ static int p8_aes_xts_init(struct crypto_skcipher *tfm)
+ {
+ 	struct p8_aes_xts_ctx *ctx = crypto_skcipher_ctx(tfm);
+diff --git a/arch/powerpc/crypto/aesp8-ppc.h b/arch/powerpc/crypto/aesp8-ppc.h
+index 5764d4438388..0bea010128cb 100644
+--- a/arch/powerpc/crypto/aesp8-ppc.h
++++ b/arch/powerpc/crypto/aesp8-ppc.h
+@@ -1,10 +1,10 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/types.h>
+ #include <crypto/aes.h>
+ 
+-struct aes_key {
++struct p8_aes_key {
+ 	u8 key[AES_MAX_KEYLENGTH];
+ 	int rounds;
+ };
+ 
+ extern struct shash_alg p8_ghash_alg;
+@@ -12,19 +12,20 @@ extern struct crypto_alg p8_aes_alg;
+ extern struct skcipher_alg p8_aes_cbc_alg;
+ extern struct skcipher_alg p8_aes_ctr_alg;
+ extern struct skcipher_alg p8_aes_xts_alg;
+ 
+ int aes_p8_set_encrypt_key(const u8 *userKey, const int bits,
+-			   struct aes_key *key);
++			   struct p8_aes_key *key);
+ int aes_p8_set_decrypt_key(const u8 *userKey, const int bits,
+-			   struct aes_key *key);
+-void aes_p8_encrypt(const u8 *in, u8 *out, const struct aes_key *key);
+-void aes_p8_decrypt(const u8 *in, u8 *out, const struct aes_key *key);
++			   struct p8_aes_key *key);
++void aes_p8_encrypt(const u8 *in, u8 *out, const struct p8_aes_key *key);
++void aes_p8_decrypt(const u8 *in, u8 *out, const struct p8_aes_key *key);
+ void aes_p8_cbc_encrypt(const u8 *in, u8 *out, size_t len,
+-			const struct aes_key *key, u8 *iv, const int enc);
+-void aes_p8_ctr32_encrypt_blocks(const u8 *in, u8 *out,
+-				 size_t len, const struct aes_key *key,
+-				 const u8 *iv);
++			const struct p8_aes_key *key, u8 *iv, const int enc);
++void aes_p8_ctr32_encrypt_blocks(const u8 *in, u8 *out, size_t len,
++				 const struct p8_aes_key *key, const u8 *iv);
+ void aes_p8_xts_encrypt(const u8 *in, u8 *out, size_t len,
+-			const struct aes_key *key1, const struct aes_key *key2, u8 *iv);
++			const struct p8_aes_key *key1,
++			const struct p8_aes_key *key2, u8 *iv);
+ void aes_p8_xts_decrypt(const u8 *in, u8 *out, size_t len,
+-			const struct aes_key *key1, const struct aes_key *key2, u8 *iv);
++			const struct p8_aes_key *key1,
++			const struct p8_aes_key *key2, u8 *iv);
+
+base-commit: e78a3142fa5875126e477fdfe329b0aeb1b0693f
+-- 
+2.52.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
