@@ -4,101 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A71DC2A070
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jan 2026 23:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD2A5C2A072
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 04:32:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M/JU0eHWGfdSBII18hInsRLko08ek3RfCBfcAyPxa1A=; b=RAyHez+EStYh7M
-	Nt5Kc5pR8XdT5nMSfYsXJN8fimIFXgSxg7lLl9z7i2nx0/SytUSi5tI7CufoLt6EecgA2iQUMRXhx
-	KXLcHYcAkLVPaodg/Ot1C8R6R+wgVgtJJxJ3nK+q5uodTpYnSsO1A+eEX4j3HbFad+WDx7xm+Q1+K
-	ve5vIOWB2IE+ltwluayUrluZ7u7z8a2NqevilF9/ivXGJymovIKA0Rf2sscH65ur7GyTghP+PKzJD
-	+JrpjzZ/ZkxFawozYJSWJPhdsQfAbThm6MjVPMu2FgCBQSUDUhauvP5NEkv1qG/NsMBiBA2zV+LpE
-	nw6GVcUhpQkVyGjnK0bA==;
+	List-Owner; bh=xi6jwyNCVjT1cRls/zXrEGNqT79oXEiJHJMpzKIsjHA=; b=A4+Z92o7i5FWuQ
+	2G9vYsSeG1bMZWhLm6yUNrXhRNfWxD/vJqRjcvjexZ9vRxCBuPzIqBjeGTkoT1EVoIepUeFoDh9Rg
+	MPG7pMlrZ60pzJdEhq2I968lLEJxGRYYX703CXsX69PFq1diVDZhhmtVzvhsnUCa8NtSR6+XATOxh
+	V+DX8X4Mvcox//84pB3FJsCrVJBR8fZeLRgVj6PY3AnVdX3fZVyiafTgVu+ZCF7iZbNsTT6HsJp2i
+	as8D2sSpYzdwgufHy9r+WiNvZr/HzI5pmwzUccGj1I/IeMk+rfK3Tv2L87UvgTnootpL7zRUy7fHg
+	MQ/2cJ1+OgAClARnjP/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcX6Y-0000000AXIq-2Zzb;
-	Sun, 04 Jan 2026 23:01:46 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1vccFl-0000000AhLM-3mGL;
+	Mon, 05 Jan 2026 04:31:37 +0000
+Received: from mail-oa1-x2e.google.com ([2001:4860:4864:20::2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcX6V-0000000AXHi-1In9
+	id 1vccFi-0000000AhKj-4Arv
 	for linux-riscv@lists.infradead.org;
-	Sun, 04 Jan 2026 23:01:44 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-43246af170aso692440f8f.0
-        for <linux-riscv@lists.infradead.org>; Sun, 04 Jan 2026 15:01:41 -0800 (PST)
+	Mon, 05 Jan 2026 04:31:37 +0000
+Received: by mail-oa1-x2e.google.com with SMTP id 586e51a60fabf-3ec6c10a295so5404089fac.0
+        for <linux-riscv@lists.infradead.org>; Sun, 04 Jan 2026 20:31:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767567700; x=1768172500; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1767587493; x=1768192293; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qjmKR/eiCoAVpyGnbyfS9wTkl7aiV0GxbUH0ODK6l+U=;
-        b=hTSV515b18AO70GXYckibs+eV1Yf40cmefJ3AECPmzgJXY0x69zumpmOx780Wn1yDB
-         NBDc9G/W6wB6GHURfQaQxJwlDfzjB3hUnmUo2o5EikOfsXuZqTT2VUU7ZPqkaUfEY0hQ
-         EoXY61CoiQYuqoGHt4+8EyYEEDRb7y2a+Ejd3Cdnf8LtAvZk9/XySyjY9wipOiqTXvow
-         S7xpehxZG26PEcAXRbgoIdOnuAa6IElqXR+Nga6FJwDZPi6sUqlqr9N8Q64RarGyErjQ
-         XuHz0Y3r+wk2UXYuazNXLWehBUkJ2bLaDOzOtKU0VEwuiRF2vMgYR5EV9X7cNsYgQd5G
-         uO3g==
+        bh=ZXRh45S0E1wg+SbwJvRj0sTfGM+6MbGGitqWTepWxqA=;
+        b=P6nmyTu7eJOQmLFmBQRqiBm758mSFDV0LoYy0+erKMgzXrkNtdpyh4w2xAnaDvji0S
+         Fh4BC8UZDlF7OhVBEJpcfB20Fc0YtRo0S5BlQzANefUrkVaYc/7A+CnxNzujwfZzhMgF
+         iGiUOf43mcC2oGRpOkECRl0llxoh6Egm4HoTj9o4hFOWK5INaVOS7QjOu5xlFOADrk/S
+         VjUF5yudf8RKqhO5LA8Irikaj7Y2DwdomJzhsXYGeQVX1hr1iN6nHyQUvR0mz1zx9ErQ
+         2t0HPS7QGzsBZw+Fg5r40582Ka0AQ5dRCZZ+cly7chBantwyMwtWalacZy3/mq7JvoaB
+         SaGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767567700; x=1768172500;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20230601; t=1767587493; x=1768192293;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=qjmKR/eiCoAVpyGnbyfS9wTkl7aiV0GxbUH0ODK6l+U=;
-        b=Nmf3gu3xfbOZe0T1YT8PFfeiaRxqWmkCiPveqYI/FF4+7eOTj0bRYmRQNUXzKjmDc2
-         WFBAkR7qPlOJtcCclelIY5wzVCQkmkmrzYVJVp3aeheRlHY4XXMjlhZ0eBOGd4te9sn8
-         S3modgXfsxPgHIEyO+g2kyVIu07iTJ38QgwwM2c+b39Q0kdBrv75I909LnIk1Ed+Tf3e
-         8JrCeyW03FUXz1gIpyOdOm8p7t5guGqCl5f2l3scJ3CTFixtvOtte1rT6Eybmf3OdTYv
-         TLrfTFAwiDi6iAnEmh4RdkifQ98Ep1NFwizXk93L4t81j6J98kOXD858kEVSZS4gqeIe
-         4cFw==
-X-Forwarded-Encrypted: i=1; AJvYcCUGlBl76T2eJNOxUBnDEuSDnWgYztEEacZ8iAepPS2mFTufHY2k2BxBYuAbuPJEKYhawOJFEbH+MMIJHw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyanw5dIrdO2QzSnpog8Q3rNniHSlavnVfc2qBOoo/Ps8ixCz0D
-	Di7xdKaxIpWQ/jO1O6+n4DsImVMfYU/pc/SpMTSxXM/kObSN0tI0wKSN
-X-Gm-Gg: AY/fxX7GCJVaisaMpFpW9nfPLjNuldpzezy0TRMMNRZYpAVnYt08M665mApz+3uPTnN
-	ZqupxhFtX21auIudZqnRAf9+BcSd9KaEqJ5kDoI2UujvM1h6wlk58ZwPb/ksMIQkXttffP1dN0s
-	cVJSvgIN/SIa1W0/IDWsfqfH5a0GnYcnCrj3nNxU8yC8Y7dO7aXaesUbrtAF8S8LY/ZeeK0AWIB
-	oOZUhnxbXGBk8gc0mnrfJijWfKy3Q6XoQ2WBcRbbv7g1PjWydB7pV0Jt1xlnYhLCfpcrzO5XF6m
-	5muunKx9wQJbyH/6Jff5gr2sJQOiw1ALsbj1nCpFp/vGZSPXUetwVoErL53Fa4siOPaXYt+nRdQ
-	Yn5M+xnWPHQMFHIca+8nB4lz/8slReItrgDxlXi19Izna/2p+7KkxeOrw7aZPiC0xng/EfhogZv
-	tFAtVBibZtblmXtSFkpWpGVNmN1JqUfY9PFBLziNhZhwuXAx6pU2lX
-X-Google-Smtp-Source: AGHT+IEPxlgtmoJsOcbnrDXHkchjsFc7moeHiVQTpzEoBA2t+H1hGAq+A791EuxHgrzC5U6Ox/NHuQ==
-X-Received: by 2002:a05:6000:3111:b0:430:fe6c:b1aa with SMTP id ffacd0b85a97d-432aa434e77mr7977363f8f.26.1767567699992;
-        Sun, 04 Jan 2026 15:01:39 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324ea227e0sm99650545f8f.17.2026.01.04.15.01.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Jan 2026 15:01:38 -0800 (PST)
-Date: Sun, 4 Jan 2026 23:01:36 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
- <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
- <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, Kees Cook
- <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, Arnd
- Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>, "Jason A.
- Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>, Jeremy
- Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] randomize_kstack: Unify random source across
- arches
-Message-ID: <20260104230136.7aaf8886@pumpkin>
-In-Reply-To: <20260102131156.3265118-4-ryan.roberts@arm.com>
-References: <20260102131156.3265118-1-ryan.roberts@arm.com>
-	<20260102131156.3265118-4-ryan.roberts@arm.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        bh=ZXRh45S0E1wg+SbwJvRj0sTfGM+6MbGGitqWTepWxqA=;
+        b=J1Mwj2/AXm1StByEdwNwFOLtLUFNTLtmjywnG2rIVL5oaAdTRc2Lm2M9lmh6xnC9FR
+         /Fi9NjWqm+I26xbILzh4UAssFhvmIlBhfrX/aETSIb4PzxtJYrxYyWn7wPf+Sue2H/jd
+         wFUS5RDP7ZpUAnm9ckQTYQM0NVZI2vUHqyi5r99CNesdSu8GXxp9N3xHG6I3I5yn1MW6
+         PcSEXwnG0iW3JnWDCFQgvpSPO0xbwTkHMkzA/ZGAbrtP+KE1q7w+Pv0wj+MTgozlpcC7
+         d5jmzm6U02kK6ami7ivCf75b+xSSgTkFTbZ8ciQ60jab6AaXyKsZHet80jvLnl30FMTz
+         tCNg==
+X-Forwarded-Encrypted: i=1; AJvYcCWLiDvPUN2aoVw5xOORzbM0FTm1SL5OZOINOo6wrucu5lNdpczsOVbAYUR5TJUcnEoD72jAzSJQ10UPfg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyU115u/GJWs4Z1n8Ltl4g9KAIRbCxxyMKGQcjCFjHbrVYQV+T2
+	+TOdOfsTqpbm3jugSheEC6Jgc1zYxxwH/nKSj99poSDoBbExX9gLFARlhb6PPugt3BlqWDMfcAe
+	NUKru7TJ5Vt5B+YdImVSokpolgB+x0FzK4kztuIPcjQ==
+X-Gm-Gg: AY/fxX6gL3VJWYV5hUTHKMqZ4XAd9g3j/YmnjNChBWMo/Y7xABlQvDOXBc2yMTSOKBT
+	6FVC4NqYJKHYXFNU3R3dnFprwyPtmQj3P0jNvdyN6BNei6nT4YF7nbePQNwWthLSL7p9vMZ11N1
+	ZAoC64Jt3V7Dm9vsRJ2CsEdbK63whsI8s2mBkv6VOdwBYMrsMbf4f+bbeOkLfWfxpk6poaKIe5Z
+	dn2rnfAcFDqTmTNDO2ML4lU41KPbMGYVq69hpjmsACPIwYcOrNwQGNfPqlXnusSo4utRF13saAx
+	4c8fqhss7OZz/svNNLatCAD1OqW2suL0+KKJGSq+gkaDyr4Cy8Cq1IhrQYYP1v4iiLld
+X-Google-Smtp-Source: AGHT+IEwkcDRlFymm0SPcnTgEwcBBNPUXBq54o6AH1iKbZWNrVdE8TDy/EhnihwLQhHoswrfeUq7eC4nfF3TU8/lvoI=
+X-Received: by 2002:a4a:dcc8:0:b0:65d:7e5:d49d with SMTP id
+ 006d021491bc7-65d0eade78cmr16123734eaf.72.1767587493534; Sun, 04 Jan 2026
+ 20:31:33 -0800 (PST)
 MIME-Version: 1.0
+References: <20260104135938.524-1-naohiko.shimizu@gmail.com> <20260104135938.524-3-naohiko.shimizu@gmail.com>
+In-Reply-To: <20260104135938.524-3-naohiko.shimizu@gmail.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 5 Jan 2026 10:01:22 +0530
+X-Gm-Features: AQt7F2oifOmggNLxX3Gj-6EJLO4qsWCjAuonxgnVcRqV8UojPRmnf2HWnXWgnm4
+Message-ID: <CAAhSdy2rH5Jt5t7zCRfFd5d1X7qG41QoUuWvKgwuKX=X3Wk6cA@mail.gmail.com>
+Subject: Re: [PATCH v3 2/3] riscv: kvm: Fix vstimecmp update hazard on RV32
+To: Naohiko Shimizu <naohiko.shimizu@gmail.com>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	atish.patra@linux.dev, daniel.lezcano@linaro.org, tglx@linutronix.de, 
+	nick.hu@sifive.com, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_150143_443189_E829E0DB 
-X-CRM114-Status: GOOD (  26.09  )
+X-CRM114-CacheID: sfid-20260104_203135_321112_390542FE 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,82 +94,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri,  2 Jan 2026 13:11:54 +0000
-Ryan Roberts <ryan.roberts@arm.com> wrote:
-
-> Previously different architectures were using random sources of
-> differing strength and cost to decide the random kstack offset. A number
-> of architectures (loongarch, powerpc, s390, x86) were using their
-> timestamp counter, at whatever the frequency happened to be. Other
-> arches (arm64, riscv) were using entropy from the crng via
-> get_random_u16().
-> 
-> There have been concerns that in some cases the timestamp counters may
-> be too weak, because they can be easily guessed or influenced by user
-> space. And get_random_u16() has been shown to be too costly for the
-> level of protection kstack offset randomization provides.
-> 
-> So let's use a common, architecture-agnostic source of entropy; a
-> per-cpu prng, seeded at boot-time from the crng. This has a few
-> benefits:
-> 
->   - We can remove choose_random_kstack_offset(); That was only there to
->     try to make the timestamp counter value a bit harder to influence
->     from user space.
-> 
->   - The architecture code is simplified. All it has to do now is call
->     add_random_kstack_offset() in the syscall path.
-> 
->   - The strength of the randomness can be reasoned about independently
->     of the architecture.
-> 
->   - Arches previously using get_random_u16() now have much faster
->     syscall paths, see below results.
-> 
-> There have been some claims that a prng may be less strong than the
-> timestamp counter if not regularly reseeded. But the prng has a period
-> of about 2^113. So as long as the prng state remains secret, it should
-> not be possible to guess. If the prng state can be accessed, we have
-> bigger problems.
-
-If you have 128 bits of output from consecutive outputs I think you
-can trivially determine the full state using (almost) 'school boy' maths
-that could be done on pencil and paper.
-(Most of the work only has to be done once.)
-
-The underlying problem is that the TAUSWORTHE() transformation is 'linear'
-So that TAUSWORTHE(x ^ y) == TAUSWORTHE(x) ^ TAUSWORTHE(y).
-(This is true of a LFSR/CRC and TOUSWORTH() is doing some subset of CRCs.)
-This means that each output bit is the 'xor' of some of the input bits.
-The four new 'state' values are just xor of the the bits of the old ones.
-The final xor of the four states gives a 32bit value with each bit just
-an xor of some of the 128 state bits.
-Get four consecutive 32 bit values and you can solve the 128 simultaneous
-equations (by trivial substitution) and get the initial state.
-The solution gives you the 128 128bit constants for:
-	u128 state = 0;
-	u128 val = 'value returned from 4 calls';
-	for (int i = 0; i < 128; i++)
-		state |= parity(const128[i] ^ val) << i;
-You done need all 32bits, just accumulate 128 bits.  
-So if you can get the 5bit stack offset from 26 system calls you know the
-value that will be used for all the subsequent calls.
-
-Simply changing the final line to use + not ^ makes the output non-linear
-and solving the equations a lot harder.
-
-I might sit down tomorrow and see if I can actually code it...
-
-	David
-
- 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBKYW4gNCwgMjAyNiBhdCA3OjMw4oCvUE0gTmFvaGlrbyBTaGltaXp1CjxuYW9oaWtv
+LnNoaW1penVAZ21haWwuY29tPiB3cm90ZToKPgo+IE9uIFJWMzIsIHVwZGF0aW5nIHRoZSA2NC1i
+aXQgc3RpbWVjbXAgKG9yIHZzdGltZWNtcCkgQ1NSIHJlcXVpcmVzIHR3bwo+IHNlcGFyYXRlIDMy
+LWJpdCB3cml0ZXMuIEEgcmFjZSBjb25kaXRpb24gZXhpc3RzIGlmIHRoZSB0aW1lciB0cmlnZ2Vy
+cwo+IGR1cmluZyB0aGVzZSB0d28gd3JpdGVzLgo+Cj4gVGhlIFJJU0MtViBQcml2aWxlZ2VkIFNw
+ZWNpZmljYXRpb24gKGUuZy4sIFNlY3Rpb24gMy4yLjEgZm9yIG10aW1lY21wKQo+IHJlY29tbWVu
+ZHMgYSBzcGVjaWZpYyAzLXN0ZXAgc2VxdWVuY2UgdG8gYXZvaWQgc3B1cmlvdXMgaW50ZXJydXB0
+cwo+IHdoZW4gdXBkYXRpbmcgNjQtYml0IGNvbXBhcmlzb24gcmVnaXN0ZXJzIG9uIDMyLWJpdCBz
+eXN0ZW1zOgo+Cj4gMS4gU2V0IHRoZSBsb3ctb3JkZXIgYml0cyAoc3RpbWVjbXApIHRvIGFsbCBv
+bmVzIChVTE9OR19NQVgpLgo+IDIuIFNldCB0aGUgaGlnaC1vcmRlciBiaXRzIChzdGltZWNtcGgp
+IHRvIHRoZSBkZXNpcmVkIHZhbHVlLgo+IDMuIFNldCB0aGUgbG93LW9yZGVyIGJpdHMgKHN0aW1l
+Y21wKSB0byB0aGUgZGVzaXJlZCB2YWx1ZS4KPgo+IEN1cnJlbnQgaW1wbGVtZW50YXRpb24gd3Jp
+dGVzIHRoZSBMU0IgZmlyc3Qgd2l0aG91dCBlbnN1cmluZyBhIGZ1dHVyZQo+IHZhbHVlLCB3aGlj
+aCBtYXkgbGVhZCB0byBhIHRyYW5zaWVudCBzdGF0ZSB3aGVyZSB0aGUgNjQtYml0IGNvbXBhcmlz
+b24KPiBpcyBpbmNvcnJlY3RseSBldmFsdWF0ZWQgYXMgImV4cGlyZWQiIGJ5IHRoZSBoYXJkd2Fy
+ZS4gVGhpcyByZXN1bHRzIGluCj4gc3B1cmlvdXMgdGltZXIgaW50ZXJydXB0cy4KPgo+IFRoaXMg
+cGF0Y2ggYWRvcHRzIHRoZSBzcGVjLXJlY29tbWVuZGVkIDMtc3RlcCBzZXF1ZW5jZSB0byBlbnN1
+cmUgdGhlCj4gaW50ZXJtZWRpYXRlIDY0LWJpdCBzdGF0ZSBpcyBuZXZlciBzbWFsbGVyIHRoYW4g
+dGhlIGN1cnJlbnQgdGltZS4KPgo+IEZpeGVzOiA4ZjVjYjQ0YjFiYWUgKCJSSVNDLVY6IEtWTTog
+U3VwcG9ydCBzc3RjIGV4dGVuc2lvbiIpCj4gU2lnbmVkLW9mZi1ieTogTmFvaGlrbyBTaGltaXp1
+IDxuYW9oaWtvLnNoaW1penVAZ21haWwuY29tPgoKTEdUTS4KClJldmlld2VkLWJ5OiBBbnVwIFBh
+dGVsIDxhbnVwQGJyYWluZmF1bHQub3JnPgoKUXVldWVkIHRoaXMgYXMgZml4ZXMgZm9yIExpbnV4
+LTYuMTkuCgpUaGFua3MsCkFudXAKCj4gLS0tCj4gIGFyY2gvcmlzY3Yva3ZtL3ZjcHVfdGltZXIu
+YyB8IDYgKysrKy0tCj4gIDEgZmlsZSBjaGFuZ2VkLCA0IGluc2VydGlvbnMoKyksIDIgZGVsZXRp
+b25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vdmNwdV90aW1lci5jIGIvYXJj
+aC9yaXNjdi9rdm0vdmNwdV90aW1lci5jCj4gaW5kZXggODVhNzI2MjExNWUxLi5mMzYyNDdlNGM3
+ODMgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rdm0vdmNwdV90aW1lci5jCj4gKysrIGIvYXJj
+aC9yaXNjdi9rdm0vdmNwdV90aW1lci5jCj4gQEAgLTcyLDggKzcyLDkgQEAgc3RhdGljIGludCBr
+dm1fcmlzY3ZfdmNwdV90aW1lcl9jYW5jZWwoc3RydWN0IGt2bV92Y3B1X3RpbWVyICp0KQo+ICBz
+dGF0aWMgaW50IGt2bV9yaXNjdl92Y3B1X3VwZGF0ZV92c3RpbWVjbXAoc3RydWN0IGt2bV92Y3B1
+ICp2Y3B1LCB1NjQgbmN5Y2xlcykKPiAgewo+ICAjaWYgZGVmaW5lZChDT05GSUdfMzJCSVQpCj4g
+LSAgICAgICBuY3NyX3dyaXRlKENTUl9WU1RJTUVDTVAsIG5jeWNsZXMgJiAweEZGRkZGRkZGKTsK
+PiArICAgICAgIG5jc3Jfd3JpdGUoQ1NSX1ZTVElNRUNNUCwgIFVMT05HX01BWCk7Cj4gICAgICAg
+ICBuY3NyX3dyaXRlKENTUl9WU1RJTUVDTVBILCBuY3ljbGVzID4+IDMyKTsKPiArICAgICAgIG5j
+c3Jfd3JpdGUoQ1NSX1ZTVElNRUNNUCwgKHUzMiluY3ljbGVzKTsKPiAgI2Vsc2UKPiAgICAgICAg
+IG5jc3Jfd3JpdGUoQ1NSX1ZTVElNRUNNUCwgbmN5Y2xlcyk7Cj4gICNlbmRpZgo+IEBAIC0zMDcs
+OCArMzA4LDkgQEAgdm9pZCBrdm1fcmlzY3ZfdmNwdV90aW1lcl9yZXN0b3JlKHN0cnVjdCBrdm1f
+dmNwdSAqdmNwdSkKPiAgICAgICAgICAgICAgICAgcmV0dXJuOwo+Cj4gICNpZiBkZWZpbmVkKENP
+TkZJR18zMkJJVCkKPiAtICAgICAgIG5jc3Jfd3JpdGUoQ1NSX1ZTVElNRUNNUCwgKHUzMil0LT5u
+ZXh0X2N5Y2xlcyk7Cj4gKyAgICAgICBuY3NyX3dyaXRlKENTUl9WU1RJTUVDTVAsIFVMT05HX01B
+WCk7Cj4gICAgICAgICBuY3NyX3dyaXRlKENTUl9WU1RJTUVDTVBILCAodTMyKSh0LT5uZXh0X2N5
+Y2xlcyA+PiAzMikpOwo+ICsgICAgICAgbmNzcl93cml0ZShDU1JfVlNUSU1FQ01QLCAodTMyKSh0
+LT5uZXh0X2N5Y2xlcykpOwo+ICAjZWxzZQo+ICAgICAgICAgbmNzcl93cml0ZShDU1JfVlNUSU1F
+Q01QLCB0LT5uZXh0X2N5Y2xlcyk7Cj4gICNlbmRpZgo+IC0tCj4gMi4zOS41Cj4KCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
