@@ -4,98 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C374C2A062
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 07:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7317DC2A062
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 07:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xG7JbrGp+qUi6xD2Qzojtc1uQoSTRfuHTFFwiCn2sGU=; b=esy5Qzb41M75kH
-	VkUGR6yBCZCM0sxo/vgVraLQXEPTx5cwHiiPe2gMJtIlzs+jp+e73LCUldytO+H3FscNd64gTP8Ci
-	nNQhLnyLu16KvdqzFLxg/XHMbVz/DE+Jfb2ooK+LrMe6aQnMTmQhOorRJGo49xDQqwamhalGnzwjp
-	E1oQu56fSxzWD+u5CuzRvsI3IRLgfNV2OHQm03HktcDiRdm5iUGhAA7/tKRfcYFS+aY5wi5ulvazz
-	T8pP6DQu3HcwrcH5iK09abQiqf3Gg87d1GMCMqUx09QGGX9U3cJ74rpTyiiTfdqyV1DVBUjnrftt8
-	Q2CP5qi2PZLekW+jB1sQ==;
+	List-Owner; bh=hYr+F7TTSBx3foPTot5KBp3SqG2Tu0o0ryzsIT/L6Lg=; b=mxH/Uhw/dH83Vu
+	Y9CsHbUM0rRvvg/uiXzyaajmpacKrdfUTMIOJSdlES8oyEE5m/8u+tCta3JBaw5L5ft0Qqa7eL3yZ
+	BaHb6ObOGtHGw65H0kyyHpItEoHg91RVyD++QkDgBFK7fPywMCFnoA0BzgSdOFQkqMVX+yJd1Sg3T
+	5vPFyZw143Ja/fSHVGptDnl7hTjJlkb7SEhCaRXqrrp2gZbGWyGtBdLfqyK4N/InxSPD942w931M9
+	Q1jyLBpSAvEiZtrvwYaKRcX/8Jhoodn2z4FTS2r92BIDNa1sKW6zRPOz+fjqieNy7RXsK3zpIod0P
+	JFO82bev5sdX5oA4LfTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcfJQ-0000000Avf8-054u;
-	Mon, 05 Jan 2026 07:47:36 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1vcfJx-0000000AvkG-2rAS;
+	Mon, 05 Jan 2026 07:48:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcfJN-0000000AveU-1Iez
+	id 1vcfJu-0000000AvjO-2H0Z
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jan 2026 07:47:34 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-c227206e6dcso13332020a12.2
-        for <linux-riscv@lists.infradead.org>; Sun, 04 Jan 2026 23:47:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767599252; x=1768204052; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2Smn7G9NNF4TKpSBrLZt6/rkru/ozPf2jYkxgsCOt/U=;
-        b=BiBPPtyqr4IQCbYYfTBKfXz1F7mRwBl5bvagFOFJIVnaJF2QTrrWpd/YMcgor5mEC+
-         qNnIwWmrhI88sQ6MXAnKtZ0I3G/0FBHdfQ9YVvoLU536U17FFheESm1FL0xpj630U6de
-         RgqVgG24GGLPrgcGvbT8H1dzjdC/4DojBqOKr/E4UPKEDPX91ZlSxWJS8LjAuK2s/itO
-         joyeFm6ql1JsgQ1/+d8+1j4gUjrbzc3zhkNob4vzH1X+604bisj9i/Ksu2r1Gn8kPkD7
-         TF+s0YtHeF/VTeLTLblJnuPBGeCn31p5R++YAP6RkcNvJSFXPXbMTY9ntRY1s6b4Pg0h
-         Wjcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767599252; x=1768204052;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=2Smn7G9NNF4TKpSBrLZt6/rkru/ozPf2jYkxgsCOt/U=;
-        b=jDHUYYtp9/wkIjGoRpl9ZSsSJJhXfOxwMIDCWX6Ov1dC0raES8+iGd6zKfeuGmSWsf
-         PtcMkWC6rihg5qgDume+s0giVUyh9bitlxyCFy1V65I6uQeLe9z9V/E+ZhcamRwznfWG
-         0EJN9UgWticYq/eQEDAQpbCb09ULaRLILKCi1SKl/erITj3Mg+eKoodSHfENEHcXBfQf
-         azu5deWAZSEBAy+6BE3cQFGbFdzrepAsd24fsizwnCV3zcnst0gNPeEz9WDdTWAKDLNr
-         KHzK5FeGH3tKJEdbJ1oyWPJlU98/lYQlfirxp9o8NWsVJR/V8ljrZkVSIbNIXypt/MGb
-         Ym8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXij8w7QfOE7hypk96VgRSHlBt83yUQYtJW6owj1+neXAUdS4Vv7avlKeQuM8uVAHL3cBAfbBpx3a3qew==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPM9/gptu2tP4LnxvgpWiNAYqw1HfAOk/5HGS2rTB/74RmbXZ8
-	T3M/DdDzE4GMGKv+EU+gO1n6TSiUmRqIrGXH+7IrgRt1dkdoLSbQC73J
-X-Gm-Gg: AY/fxX5JBee6lPTjdHvSL0fLMmShhoPLyHRg9uvcFQDt+NiQjQl+II0qrMAanW3ZMXc
-	mpBHd753qKFYuKZY/pkmkED+zzrZiyauDOWG3Prb2C0/XDxRJuI5898/qdwntA3mJHZUWWqp1bY
-	O9ymzbaq7YKQ4sIKW+Nkwz2NSsEQ9vNyBLQmE/LtjR9tNfL/d1HKgH5YjtTBuz+jx2air6/Yhb6
-	18a8X3haU6LJyFTKw4DF1YSvsXcGDxh3D4ckHpBZu7Bi/q8U416rnC2GR041CYBZZ2hOg/Ep9Ux
-	PM1ldXkd/Fne+FdFzpr2PBXC9aWO5XaW3z4lUfbECGGdkZoSeQFTmI2IngdjcE7zfH9wI8hHpUp
-	6EX4A1r8n7LyJMgWEOmsySJQ+nJxhLrcOVCudijZ/yxJcKfjOrnPprgkVDbtxNHqGUAdAGjLS2w
-	==
-X-Google-Smtp-Source: AGHT+IHVaBHzL3ldcoq10mQ0DvSoQNAzO29+h1IBrSy2gZY7Qh6quSoh5XWNmgIvhDzcT+gz+HyNHQ==
-X-Received: by 2002:a05:693c:8008:b0:2b0:4f8e:3273 with SMTP id 5a478bee46e88-2b05ebd7223mr36936529eec.6.1767599252090;
-        Sun, 04 Jan 2026 23:47:32 -0800 (PST)
-Received: from gmail.com ([2a09:bac5:1f0f:28::4:33f])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b05ffad66fsm101610210eec.4.2026.01.04.23.47.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Jan 2026 23:47:31 -0800 (PST)
-From: Qingfang Deng <dqfext@gmail.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Harald Freudenberger <freude@linux.ibm.com>
-Subject: Re: [PATCH 02/36] lib/crypto: aes: Introduce improved AES library
-Date: Mon,  5 Jan 2026 15:47:12 +0800
-Message-ID: <20260105074712.498-1-dqfext@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260105051311.1607207-3-ebiggers@kernel.org>
-References: <20260105051311.1607207-1-ebiggers@kernel.org> <20260105051311.1607207-3-ebiggers@kernel.org>
+	Mon, 05 Jan 2026 07:48:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DB65143F34;
+	Mon,  5 Jan 2026 07:48:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33F95C116D0;
+	Mon,  5 Jan 2026 07:48:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767599285;
+	bh=jFItEYqWycbML0uRZa5QIsNaPt2k0e3e4B23aor7VOU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DU6sJ1fe+5obkbuOqQlJARDdHeheBUzVuURdhizbD8Wq16wnRvc5kr8MhL7rjGyGQ
+	 4zo0ZBi+qr2Ur/02GZ/gQs7tWiDC/klyvi3Sfc9BbiGgzg6M5DOrYuUk+USeTwz0ZN
+	 Hl9kW3z0bSItcM1o6gG0ueMpRTz4QdDnHDWrUVAerH+C9dqiKKoGBMJLKBz/+pqFjc
+	 IjMF5yxiiBCTNNUNJ/rVOOucgb5cQlYJelNgnY2s+XBuuUT+2ZcwzQAS5CnR0vjmjY
+	 1s6yT1c7I+LzjYOxvbIRSfLYqxWN/lZtz0iOQhVenpTjtzoFR1ZM3YHZP3jhNjcnbL
+	 nVvHfsASB5T1A==
+Date: Mon, 5 Jan 2026 08:48:03 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Stephen Boyd <sboyd@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Haylen Chu <heylenay@4d2.org>, Guodong Xu <guodong@riscstar.com>, 
+	Inochi Amaoto <inochiama@gmail.com>, Yao Zi <me@ziyao.cc>, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/5] dt-bindings: soc: spacemit: k3: add clock support
+Message-ID: <20260105-copper-warthog-of-mathematics-883f7c@quoll>
+References: <20260103-k3-clk-v4-0-4cccba2360f0@gentoo.org>
+ <20260103-k3-clk-v4-1-4cccba2360f0@gentoo.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260103-k3-clk-v4-1-4cccba2360f0@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_234733_352737_72CD7472 
-X-CRM114-Status: UNSURE (   6.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260104_234806_641629_072DC809 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,21 +78,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4 Jan 2026 21:12:35 -0800, Eric Biggers wrote:
->  extern const u8 crypto_aes_sbox[];
->  extern const u8 crypto_aes_inv_sbox[];
-> +extern const u32 __cacheline_aligned aes_enc_tab[256];
-> +extern const u32 __cacheline_aligned aes_dec_tab[256];
- 
-__cacheline_aligned puts the array in ".data..cacheline_aligned"
-section. As a const array, it should be in ".rodata" section, so
-____cacheline_aligned (note the extra underscores) should be used
-instead.
-You can also apply the same to crypto_aes_sbox and crypto_aes_inv_sbox
-while at it.
+On Sat, Jan 03, 2026 at 03:44:16PM +0800, Yixun Lan wrote:
+> Add compatible strings for clock drivers to support Spacemit K3 SoC,
+> also includes all the defined clock IDs.
+> 
+> The SpacemiT K3 SoC clock IP is scattered over several different blocks,
+> which are APBC, APBS, APMU, DCIU, MPMU, all of them are capable of
+> generating clock and reset signals. APMU and MPMU have additional Power
+> Domain management functionality.
+> 
+> Following is a brief list that shows devices managed in each block:
+> 
+> APBC: UART, GPIO, PWM, SPI, TIMER, I2S, IR, DR, TSEN, IPC, CAN
+> APBS: various PPL clocks control
+> APMU: CCI, CPU, CSI, ISP, LCD, USB, QSPI, DMA, VPU, GPU, DSI, PCIe, EMAC..
+> DCID: SRAM, DMA, TCM
+> MPMU: various PLL1 derived clocks, UART, WATCHDOG, I2S
+> 
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> ---
+>  .../devicetree/bindings/clock/spacemit,k1-pll.yaml |   8 +-
+>  .../bindings/soc/spacemit/spacemit,k1-syscon.yaml  |  13 +-
+>  include/dt-bindings/clock/spacemit,k3-clocks.h     | 390 +++++++++++++++++++++
+>  3 files changed, 406 insertions(+), 5 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/spacemit,k1-pll.yaml b/Documentation/devicetree/bindings/clock/spacemit,k1-pll.yaml
+> index 06bafd68c00a..66e109474824 100644
+> --- a/Documentation/devicetree/bindings/clock/spacemit,k1-pll.yaml
+> +++ b/Documentation/devicetree/bindings/clock/spacemit,k1-pll.yaml
+> @@ -4,14 +4,16 @@
+>  $id: http://devicetree.org/schemas/clock/spacemit,k1-pll.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: SpacemiT K1 PLL
+> +title: SpacemiT K1/K3 PLL
+>  
+>  maintainers:
+>    - Haylen Chu <heylenay@4d2.org>
+>  
+>  properties:
+>    compatible:
+> -    const: spacemit,k1-pll
+> +    enum:
+> +      - spacemit,k1-pll
+> +      - spacemit,k3-pll
+>  
+>    reg:
+>      maxItems: 1
+> @@ -28,7 +30,7 @@ properties:
+>    "#clock-cells":
+>      const: 1
+>      description:
+> -      See <dt-bindings/clock/spacemit,k1-syscon.h> for valid indices.
+> +      See corresponding file under <dt-bindings/clock/> for valid indices.
 
-Regards,
-Qingfang
+List two paths, better. Generic path to clock directory is obvious and
+not helping.
+
+>  
+>  required:
+>    - compatible
+> diff --git a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+> index 133a391ee68c..66e6683a3ccb 100644
+> --- a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+> +++ b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/soc/spacemit/spacemit,k1-syscon.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: SpacemiT K1 SoC System Controller
+> +title: SpacemiT K1/K3 SoC System Controller
+>  
+>  maintainers:
+>    - Haylen Chu <heylenay@4d2.org>
+> @@ -22,6 +22,10 @@ properties:
+>        - spacemit,k1-syscon-rcpu
+>        - spacemit,k1-syscon-rcpu2
+>        - spacemit,k1-syscon-apbc2
+> +      - spacemit,k3-syscon-apbc
+> +      - spacemit,k3-syscon-apmu
+> +      - spacemit,k3-syscon-dciu
+> +      - spacemit,k3-syscon-mpmu
+>  
+>    reg:
+>      maxItems: 1
+> @@ -39,7 +43,7 @@ properties:
+>    "#clock-cells":
+>      const: 1
+>      description:
+> -      See <dt-bindings/clock/spacemit,k1-syscon.h> for valid indices.
+> +      See corresponding file under <dt-bindings/clock/> for valid indices.
+
+Same problem here.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
