@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED9BC2A075
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 05:15:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC7CC2A079
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 05:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jTAP+jnRnZ3MaXp3NomveLBUMvFBVWxGmBc/4WESbqc=; b=2QiAinA4j6NC7W
-	AxuByItadE8TQyFDHQrYZ7qGv+wPYz9n1k1Dbd/K+ggnkGI5h4T1WnndiBBsYLoYC5+UY98E7FHhN
-	ntb82mBcBq7ybV6ByKDJPwMwz2UxMvOI/IruVwikZ1c1ywJDjmUa1BRw+E123huxIpMtWHjAVgt45
-	4AughsHAI7YWaGbel2jLST2Inzm2t56CrPsvD8SklQA5L5S4SrX9TbVR8JRwI1c/gRA3Y0z5FgBGo
-	9oxhFrTYnvgkbqsoSb0MFDnlwUer+IU+BHp9G9gSgr05Ug4YbGGTCR9aKy+DYYo3/IdxOB18g42gq
-	bfzSMqFa6NN5mxbzBXog==;
+	List-Owner; bh=Vc330sGfMz/J2LOF7b2bfCZDyY+brakSdPzxJuhxfg8=; b=s/xpMf/PdSBneo
+	k0bOdIqkJhbrgWHorHhqHQFpGU8UNb+1fqIpc0H7aeyhx0a6ckLuYQotG/Am+zYviNCYZNDXlg8f/
+	OzBxk50pi/sNtgbnSKLcTdemPfGNDGjWd5L2wlr4OADI3Na33FPHehONl9wnVZf7n8OG51zC4W+YV
+	rGWwBU4iQTpDdsBo96TWWSUKtFq9JYSMMh8fDtK5DVU9C3j0dkaHnQd3IPhozZBJiGGMoaKFCgZmP
+	hLBHT6xtpHe/M0dv1+fV1TLyBH9GEHhQeIfDkAgdeRrQRc0rB0vZX36RFRJXf7OvWglJvvkcNYodG
+	PpEYfjOLwgvhkX9EKEfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccvf-0000000Aj46-3m63;
-	Mon, 05 Jan 2026 05:14:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vccvi-0000000Aj73-0OXG;
+	Mon, 05 Jan 2026 05:14:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccvb-0000000Aj1D-3wQI;
+	id 1vccvd-0000000Aj2C-32Ug;
 	Mon, 05 Jan 2026 05:14:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3B3A044123;
-	Mon,  5 Jan 2026 05:14:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A769FC2BCB1;
-	Mon,  5 Jan 2026 05:14:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2B9656013B;
+	Mon,  5 Jan 2026 05:14:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70058C19424;
+	Mon,  5 Jan 2026 05:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767590091;
-	bh=LgDbklGtIZFHjM4cuU4zrZQcyIE2hb0ascSpMxwTuKE=;
+	s=k20201202; t=1767590092;
+	bh=geRxBzAl7TSK/fpIj/XhC82GQN0xlq7+PsYx1FYDX+E=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ijd+I7op5lmUKmk5siN9yLBtx/9k6AgkTruGEiLPcRGwEnQMxlLCxqX8pywV5GfoN
-	 tsBAnhPaMBaFTSP28NAe1luTRwpp2pepivmaJuj0U3w+9l8tt4BoMZon1eDSPWJB/3
-	 ixqKtW8L6wJNKC6zKnVH2XGD1Z7xpH2r9lqNLJaF8E3YC+ZE63dSTUP00KZnr6xOk/
-	 NAtoHW7Uew++VxBJ2sTNG1FMLDxVg+Xrvb1C2h9ttJ1kMRrZWuu7+Iip6dnqGcRe1T
-	 XviKWGaNVEUdpOmcKj0/MhKJk2lIzVOli5+z36mLRKHUUDgb/+WCYf9f34Ddkdec22
-	 hvdBT5uSXtmZg==
+	b=bPdsZ+s0sKbOH+q/HMC9eucNVcRcMkg4SpEX+JFQUtRNw0vpcM4NbiZQo7VwMIFYb
+	 QoFHYPT3uO4dy4nwQokeG2xosTkHn3S6Pk9QENxE2PaAMH5xMsXBFTn6j8vvgHcksb
+	 cq4JxtSumUfF6KDVcwFwPr1fOnVTEEmgCBvBW5VXMMbJNZNIEFjt/DXqYWSIaLJDVe
+	 2gdc64O4GtBdDXQev62Mr/HheY8hU1HTC0C0Tzf+PLGhwqJ56g9vqz32+xMdDug2YU
+	 eWB7MzcFhYsp38MUZUwGbZU9rTkXEMwVGICNdAQC4K9MoI3joH7JpXGAfAaCr65aiY
+	 wVCoGj70WNX1Q==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,16 +56,13 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 01/36] crypto: powerpc/aes - Rename struct aes_key
-Date: Sun,  4 Jan 2026 21:12:34 -0800
-Message-ID: <20260105051311.1607207-2-ebiggers@kernel.org>
+Subject: [PATCH 04/36] crypto: arm/aes - Switch to aes_enc_tab[] and aes_dec_tab[]
+Date: Sun,  4 Jan 2026 21:12:37 -0800
+Message-ID: <20260105051311.1607207-5-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260105051311.1607207-1-ebiggers@kernel.org>
 References: <20260105051311.1607207-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_211452_025830_E9277E0E 
-X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,175 +79,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Rename struct aes_key in aesp8-ppc.h and aes-gcm-p10-glue.c to
-p8_aes_key and p10_aes_key, respectively.  This frees up the name to use
-in the library API in <crypto/aes.h>.
+Instead of crypto_ft_tab and crypto_it_tab from aes_generic.c, use
+aes_enc_tab and aes_dec_tab from lib/crypto/aes.c.  These contain the
+same data in the first 1024 bytes (which is the part that this code
+uses), so the result is the same.  This will allow aes_generic.c to
+eventually be removed.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/powerpc/crypto/aes-gcm-p10-glue.c |  4 ++--
- arch/powerpc/crypto/aes.c              |  4 ++--
- arch/powerpc/crypto/aes_cbc.c          |  4 ++--
- arch/powerpc/crypto/aes_ctr.c          |  2 +-
- arch/powerpc/crypto/aes_xts.c          |  6 +++---
- arch/powerpc/crypto/aesp8-ppc.h        | 23 ++++++++++++-----------
- 6 files changed, 22 insertions(+), 21 deletions(-)
+ arch/arm/crypto/aes-cipher-core.S | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/powerpc/crypto/aes-gcm-p10-glue.c b/arch/powerpc/crypto/aes-gcm-p10-glue.c
-index 85f4fd4b1bdc..f3417436d3f7 100644
---- a/arch/powerpc/crypto/aes-gcm-p10-glue.c
-+++ b/arch/powerpc/crypto/aes-gcm-p10-glue.c
-@@ -42,11 +42,11 @@ asmlinkage void aes_p10_gcm_decrypt(const u8 *in, u8 *out, size_t len,
- asmlinkage void gcm_init_htable(unsigned char htable[], unsigned char Xi[]);
- asmlinkage void gcm_ghash_p10(unsigned char *Xi, unsigned char *Htable,
- 			      unsigned char *aad, unsigned int alen);
- asmlinkage void gcm_update(u8 *iv, void *Xi);
+diff --git a/arch/arm/crypto/aes-cipher-core.S b/arch/arm/crypto/aes-cipher-core.S
+index 1da3f41359aa..87567d6822ba 100644
+--- a/arch/arm/crypto/aes-cipher-core.S
++++ b/arch/arm/crypto/aes-cipher-core.S
+@@ -190,12 +190,12 @@
+ 	.align		3
+ 	.ltorg
+ 	.endm
  
--struct aes_key {
-+struct p10_aes_key {
- 	u8 key[AES_MAX_KEYLENGTH];
- 	u64 rounds;
- };
+ ENTRY(__aes_arm_encrypt)
+-	do_crypt	fround, crypto_ft_tab,, 2
++	do_crypt	fround, aes_enc_tab,, 2
+ ENDPROC(__aes_arm_encrypt)
  
- struct gcm_ctx {
-@@ -61,11 +61,11 @@ struct Hash_ctx {
- 	u8 H[16];	/* subkey */
- 	u8 Htable[256];	/* Xi, Hash table(offset 32) */
- };
- 
- struct p10_aes_gcm_ctx {
--	struct aes_key enc_key;
-+	struct p10_aes_key enc_key;
- 	u8 nonce[RFC4106_NONCE_SIZE];
- };
- 
- static void vsx_begin(void)
- {
-diff --git a/arch/powerpc/crypto/aes.c b/arch/powerpc/crypto/aes.c
-index 3f1e5e894902..b7192ee719fc 100644
---- a/arch/powerpc/crypto/aes.c
-+++ b/arch/powerpc/crypto/aes.c
-@@ -19,12 +19,12 @@
- 
- #include "aesp8-ppc.h"
- 
- struct p8_aes_ctx {
- 	struct crypto_cipher *fallback;
--	struct aes_key enc_key;
--	struct aes_key dec_key;
-+	struct p8_aes_key enc_key;
-+	struct p8_aes_key dec_key;
- };
- 
- static int p8_aes_init(struct crypto_tfm *tfm)
- {
- 	const char *alg = crypto_tfm_alg_name(tfm);
-diff --git a/arch/powerpc/crypto/aes_cbc.c b/arch/powerpc/crypto/aes_cbc.c
-index 5f2a4f375eef..4a9f285f0970 100644
---- a/arch/powerpc/crypto/aes_cbc.c
-+++ b/arch/powerpc/crypto/aes_cbc.c
-@@ -19,12 +19,12 @@
- 
- #include "aesp8-ppc.h"
- 
- struct p8_aes_cbc_ctx {
- 	struct crypto_skcipher *fallback;
--	struct aes_key enc_key;
--	struct aes_key dec_key;
-+	struct p8_aes_key enc_key;
-+	struct p8_aes_key dec_key;
- };
- 
- static int p8_aes_cbc_init(struct crypto_skcipher *tfm)
- {
- 	struct p8_aes_cbc_ctx *ctx = crypto_skcipher_ctx(tfm);
-diff --git a/arch/powerpc/crypto/aes_ctr.c b/arch/powerpc/crypto/aes_ctr.c
-index e27c4036e711..7dbd06f442db 100644
---- a/arch/powerpc/crypto/aes_ctr.c
-+++ b/arch/powerpc/crypto/aes_ctr.c
-@@ -19,11 +19,11 @@
- 
- #include "aesp8-ppc.h"
- 
- struct p8_aes_ctr_ctx {
- 	struct crypto_skcipher *fallback;
--	struct aes_key enc_key;
-+	struct p8_aes_key enc_key;
- };
- 
- static int p8_aes_ctr_init(struct crypto_skcipher *tfm)
- {
- 	struct p8_aes_ctr_ctx *ctx = crypto_skcipher_ctx(tfm);
-diff --git a/arch/powerpc/crypto/aes_xts.c b/arch/powerpc/crypto/aes_xts.c
-index 9440e771cede..b4c760e465ea 100644
---- a/arch/powerpc/crypto/aes_xts.c
-+++ b/arch/powerpc/crypto/aes_xts.c
-@@ -20,13 +20,13 @@
- 
- #include "aesp8-ppc.h"
- 
- struct p8_aes_xts_ctx {
- 	struct crypto_skcipher *fallback;
--	struct aes_key enc_key;
--	struct aes_key dec_key;
--	struct aes_key tweak_key;
-+	struct p8_aes_key enc_key;
-+	struct p8_aes_key dec_key;
-+	struct p8_aes_key tweak_key;
- };
- 
- static int p8_aes_xts_init(struct crypto_skcipher *tfm)
- {
- 	struct p8_aes_xts_ctx *ctx = crypto_skcipher_ctx(tfm);
-diff --git a/arch/powerpc/crypto/aesp8-ppc.h b/arch/powerpc/crypto/aesp8-ppc.h
-index 5764d4438388..0bea010128cb 100644
---- a/arch/powerpc/crypto/aesp8-ppc.h
-+++ b/arch/powerpc/crypto/aesp8-ppc.h
-@@ -1,10 +1,10 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- #include <linux/types.h>
- #include <crypto/aes.h>
- 
--struct aes_key {
-+struct p8_aes_key {
- 	u8 key[AES_MAX_KEYLENGTH];
- 	int rounds;
- };
- 
- extern struct shash_alg p8_ghash_alg;
-@@ -12,19 +12,20 @@ extern struct crypto_alg p8_aes_alg;
- extern struct skcipher_alg p8_aes_cbc_alg;
- extern struct skcipher_alg p8_aes_ctr_alg;
- extern struct skcipher_alg p8_aes_xts_alg;
- 
- int aes_p8_set_encrypt_key(const u8 *userKey, const int bits,
--			   struct aes_key *key);
-+			   struct p8_aes_key *key);
- int aes_p8_set_decrypt_key(const u8 *userKey, const int bits,
--			   struct aes_key *key);
--void aes_p8_encrypt(const u8 *in, u8 *out, const struct aes_key *key);
--void aes_p8_decrypt(const u8 *in, u8 *out, const struct aes_key *key);
-+			   struct p8_aes_key *key);
-+void aes_p8_encrypt(const u8 *in, u8 *out, const struct p8_aes_key *key);
-+void aes_p8_decrypt(const u8 *in, u8 *out, const struct p8_aes_key *key);
- void aes_p8_cbc_encrypt(const u8 *in, u8 *out, size_t len,
--			const struct aes_key *key, u8 *iv, const int enc);
--void aes_p8_ctr32_encrypt_blocks(const u8 *in, u8 *out,
--				 size_t len, const struct aes_key *key,
--				 const u8 *iv);
-+			const struct p8_aes_key *key, u8 *iv, const int enc);
-+void aes_p8_ctr32_encrypt_blocks(const u8 *in, u8 *out, size_t len,
-+				 const struct p8_aes_key *key, const u8 *iv);
- void aes_p8_xts_encrypt(const u8 *in, u8 *out, size_t len,
--			const struct aes_key *key1, const struct aes_key *key2, u8 *iv);
-+			const struct p8_aes_key *key1,
-+			const struct p8_aes_key *key2, u8 *iv);
- void aes_p8_xts_decrypt(const u8 *in, u8 *out, size_t len,
--			const struct aes_key *key1, const struct aes_key *key2, u8 *iv);
-+			const struct p8_aes_key *key1,
-+			const struct p8_aes_key *key2, u8 *iv);
-
-base-commit: e78a3142fa5875126e477fdfe329b0aeb1b0693f
+ 	.align		5
+ ENTRY(__aes_arm_decrypt)
+-	do_crypt	iround, crypto_it_tab, crypto_aes_inv_sbox, 0
++	do_crypt	iround, aes_dec_tab, crypto_aes_inv_sbox, 0
+ ENDPROC(__aes_arm_decrypt)
 -- 
 2.52.0
 
