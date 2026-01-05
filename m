@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D33C2A072
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 05:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 410E6C2A075
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 05:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zNzmJHXueU1uqIovg4FQqkvxZJ53ijRZhOCEGudQjKU=; b=oKcI7CEy8oYx/l
-	+8fUevuS9vfeT2Xng3Ly247zVGu646z3/DRdxBkqOEF5kXF0p+/DOsliRnv6RRhjsDikk7xiDiGVY
-	PtBNZo+lp9cP7C7OAsePoTE2+BcKP8TAZS8YqU/4UMz8yq1UQOPrCTVdnbbju1X03xcNKvMorhtty
-	c/Y4w9RmGztL8JN9lODzg1IocW0xrRGO+BhLhj7krHBlbRyCSCGn7lUuiEXiZcze8A2lf9dBpVRJb
-	62475S6NC6W1AycPDLtBgZ1UPCF54KLGlUI6iC5Vk2rdA+7HDZ8ll5lnX9bqtHFSFsI04GVzpRuGW
-	AlGIfTCVln6rTEqfrQHA==;
+	List-Owner; bh=HHYjo4vSKxvqCNFf0SlK0H9Fh9W0C7iyXR0AgcOo43g=; b=ovQT17zUUhw7hY
+	nChK2J+GmrFv5n6fUZFoA2mKjzLe0PNbpqPG3FqSiPnDrMxFhwsICn8tLRgaoqZkfq8rd4iK8ChTT
+	SZj9kR0lc7Dq1Fooc3fTpbuf6A8Mf+hbT20QLN4UOy4EJJym0YnoXJdqZ7YSqR6oKomFGBUPyCppW
+	ciOkIF4PP2OcUhbzh+1o7JecUBx78Cq/lEAa/pdVUdFTHk0snzoeqVnnEgNfRBxO95mJMvFrdSDoq
+	LthjRfD7miiEK1jCMw/LxJgDSvAKhigCVog6Elk5s7PfkO1pjdiTKybgW+3Sx5szjyBXb3uXAspKd
+	Iub3LuK+oV/q6MWhAq3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccx9-0000000Al9m-33zq;
-	Mon, 05 Jan 2026 05:16:27 +0000
+	id 1vccxF-0000000AlIj-1o0t;
+	Mon, 05 Jan 2026 05:16:33 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccvo-0000000Aj3N-27OM;
-	Mon, 05 Jan 2026 05:15:05 +0000
+	id 1vccvp-0000000Aj5N-0E5k;
+	Mon, 05 Jan 2026 05:15:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5CCC74434B;
+	by sea.source.kernel.org (Postfix) with ESMTP id E3E4E44345;
 	Mon,  5 Jan 2026 05:15:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1DB5C2BCB2;
-	Mon,  5 Jan 2026 05:15:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56DBAC19425;
+	Mon,  5 Jan 2026 05:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1767590104;
-	bh=NFL++YcblhzlGK3w2LADc6E1fzvZkgF4LxjOicoIZ1Q=;
+	bh=QrYuLwUNu/mVSc/Yo9MLheYVuGpn5hYaMt0fTaKLTGY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tRQqfhtA2O5EPzgQlXTjC9WYjX+ogwMOT4kcPOtfAjeFNIivecPxD18ZAwTLAhQB6
-	 fchsFvky/zd8YoikJGzyo9TAeEXv8d4fexYoImgFtGBdvTrxM3d51ucS+v+8du08Ea
-	 Z5fK60dhIR/VDxkzg5tkCyJvE6ZN9n489TzeAKIouRaS3jInP9xdD29r3SVa5aW7Mv
-	 u0ww0PR2xXwB5+Sn6y2Drvc1aV7RgL/pLeNWEW02oRogbdGpLPPzqUta8kV+oK5pDa
-	 oGw4+d5oMdKOGwMtqZcoIsJoHIS/+m/1Ubp4C42AIeToZ6tR1AjZyKYzBdfWK8VUY+
-	 9UYPQqDO2mBqQ==
+	b=G3G0Bk0G56Ktu3wG+6a9uAZH1lAOba80s4ElWn2pJFGgFmNV/Cvh+Z4L4klecwAfJ
+	 4A4jYZkIX5u/TAbMBp2/t6kvMz1vfkfl6kK8wTbdYEMZzD48byZukOJjTQls80D1Xy
+	 4WkndmU3Qn4EkS0p+n03CEKYzEJ0P2Wu+x5eAaKoh0QJtMhWu243+nRHSrwnSBLnET
+	 /USJVwZLIvP7OD84paOmDdk+WrENSjRQUTX3tIVS55nIybRN4WLxj52YLt7MKHOYg9
+	 LR99hxKJTTahowUoQL9JPYKxznndT0rryjV8qUaCJhK4rY0IHuWnAW46qVo1Gxtx6a
+	 1WQW7lG89tSYQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,16 +56,16 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 20/36] chelsio: Use new AES library API
-Date: Sun,  4 Jan 2026 21:12:53 -0800
-Message-ID: <20260105051311.1607207-21-ebiggers@kernel.org>
+Subject: [PATCH 21/36] net: phy: mscc: macsec: Use new AES library API
+Date: Sun,  4 Jan 2026 21:12:54 -0800
+Message-ID: <20260105051311.1607207-22-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260105051311.1607207-1-ebiggers@kernel.org>
 References: <20260105051311.1607207-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_211504_698365_9B24DFC9 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20260104_211505_272795_F9121B10 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,122 +93,37 @@ callers of the old aes_encrypt() have been updated.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- .../ethernet/chelsio/inline_crypto/ch_ipsec/chcr_ipsec.c  | 6 +++---
- .../ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c    | 8 ++++----
- .../net/ethernet/chelsio/inline_crypto/chtls/chtls_hw.c   | 6 +++---
- 3 files changed, 10 insertions(+), 10 deletions(-)
+ drivers/net/phy/mscc/mscc_macsec.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/net/ethernet/chelsio/inline_crypto/ch_ipsec/chcr_ipsec.c b/drivers/net/ethernet/chelsio/inline_crypto/ch_ipsec/chcr_ipsec.c
-index 49b57bb5fac1..882d09b2b1a8 100644
---- a/drivers/net/ethernet/chelsio/inline_crypto/ch_ipsec/chcr_ipsec.c
-+++ b/drivers/net/ethernet/chelsio/inline_crypto/ch_ipsec/chcr_ipsec.c
-@@ -168,11 +168,11 @@ static int ch_ipsec_setkey(struct xfrm_state *x,
+diff --git a/drivers/net/phy/mscc/mscc_macsec.c b/drivers/net/phy/mscc/mscc_macsec.c
+index 4f39ba63a9a9..bcb7f5a4a8fd 100644
+--- a/drivers/net/phy/mscc/mscc_macsec.c
++++ b/drivers/net/phy/mscc/mscc_macsec.c
+@@ -502,19 +502,19 @@ static u32 vsc8584_macsec_flow_context_id(struct macsec_flow *flow)
+ 
+ /* Derive the AES key to get a key for the hash autentication */
+ static int vsc8584_macsec_derive_key(const u8 *key, u16 key_len, u8 hkey[16])
  {
- 	int keylen = (x->aead->alg_key_len + 7) / 8;
- 	unsigned char *key = x->aead->alg_key;
- 	int ck_size, key_ctx_size = 0;
- 	unsigned char ghash_h[AEAD_H_SIZE];
--	struct crypto_aes_ctx aes;
-+	struct aes_enckey aes;
- 	int ret = 0;
- 
- 	if (keylen > 3) {
- 		keylen -= 4;  /* nonce/salt is present in the last 4 bytes */
- 		memcpy(sa_entry->salt, key + keylen, 4);
-@@ -202,17 +202,17 @@ static int ch_ipsec_setkey(struct xfrm_state *x,
- 						 key_ctx_size >> 4);
- 
- 	/* Calculate the H = CIPH(K, 0 repeated 16 times).
- 	 * It will go in key context
- 	 */
--	ret = aes_expandkey(&aes, key, keylen);
-+	ret = aes_prepareenckey(&aes, key, keylen);
- 	if (ret) {
- 		sa_entry->enckey_len = 0;
- 		goto out;
- 	}
- 	memset(ghash_h, 0, AEAD_H_SIZE);
--	aes_encrypt(&aes, ghash_h, ghash_h);
-+	aes_encrypt_new(&aes, ghash_h, ghash_h);
- 	memzero_explicit(&aes, sizeof(aes));
- 
- 	memcpy(sa_entry->key + (DIV_ROUND_UP(sa_entry->enckey_len, 16) *
- 	       16), ghash_h, AEAD_H_SIZE);
- 	sa_entry->kctx_len = ((DIV_ROUND_UP(sa_entry->enckey_len, 16)) << 4) +
-diff --git a/drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c b/drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c
-index 4e2096e49684..09c0687f911f 100644
---- a/drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c
-+++ b/drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c
-@@ -74,11 +74,11 @@ static int chcr_ktls_save_keys(struct chcr_ktls_info *tx_info,
- {
- 	int ck_size, key_ctx_size, mac_key_size, keylen, ghash_size, ret;
- 	unsigned char ghash_h[TLS_CIPHER_AES_GCM_256_TAG_SIZE];
- 	struct tls12_crypto_info_aes_gcm_128 *info_128_gcm;
- 	struct ktls_key_ctx *kctx = &tx_info->key_ctx;
--	struct crypto_aes_ctx aes_ctx;
-+	struct aes_enckey aes;
- 	unsigned char *key, *salt;
- 
- 	switch (crypto_info->cipher_type) {
- 	case TLS_CIPHER_AES_GCM_128:
- 		info_128_gcm =
-@@ -136,17 +136,17 @@ static int chcr_ktls_save_keys(struct chcr_ktls_info *tx_info,
- 		       roundup(keylen, 16) + ghash_size;
- 	/* Calculate the H = CIPH(K, 0 repeated 16 times).
- 	 * It will go in key context
- 	 */
- 
--	ret = aes_expandkey(&aes_ctx, key, keylen);
-+	ret = aes_prepareenckey(&aes, key, keylen);
- 	if (ret)
- 		goto out;
- 
- 	memset(ghash_h, 0, ghash_size);
--	aes_encrypt(&aes_ctx, ghash_h, ghash_h);
--	memzero_explicit(&aes_ctx, sizeof(aes_ctx));
-+	aes_encrypt_new(&aes, ghash_h, ghash_h);
-+	memzero_explicit(&aes, sizeof(aes));
- 
- 	/* fill the Key context */
- 	if (direction == TLS_OFFLOAD_CTX_DIR_TX) {
- 		kctx->ctx_hdr = FILL_KEY_CTX_HDR(ck_size,
- 						 mac_key_size,
-diff --git a/drivers/net/ethernet/chelsio/inline_crypto/chtls/chtls_hw.c b/drivers/net/ethernet/chelsio/inline_crypto/chtls/chtls_hw.c
-index fab6df21f01c..be2b623957c0 100644
---- a/drivers/net/ethernet/chelsio/inline_crypto/chtls/chtls_hw.c
-+++ b/drivers/net/ethernet/chelsio/inline_crypto/chtls/chtls_hw.c
-@@ -245,11 +245,11 @@ static int chtls_key_info(struct chtls_sock *csk,
- {
- 	unsigned char key[AES_MAX_KEY_SIZE];
- 	unsigned char *key_p, *salt;
- 	unsigned char ghash_h[AEAD_H_SIZE];
- 	int ck_size, key_ctx_size, kctx_mackey_size, salt_size;
--	struct crypto_aes_ctx aes;
+ 	const u8 input[AES_BLOCK_SIZE] = {0};
+-	struct crypto_aes_ctx ctx;
 +	struct aes_enckey aes;
  	int ret;
  
- 	key_ctx_size = sizeof(struct _key_ctx) +
- 		       roundup(keylen, 16) + AEAD_H_SIZE;
- 
-@@ -289,16 +289,16 @@ static int chtls_key_info(struct chtls_sock *csk,
- 	}
- 
- 	/* Calculate the H = CIPH(K, 0 repeated 16 times).
- 	 * It will go in key context
- 	 */
--	ret = aes_expandkey(&aes, key, keylen);
-+	ret = aes_prepareenckey(&aes, key, keylen);
+-	ret = aes_expandkey(&ctx, key, key_len);
++	ret = aes_prepareenckey(&aes, key, key_len);
  	if (ret)
  		return ret;
  
- 	memset(ghash_h, 0, AEAD_H_SIZE);
--	aes_encrypt(&aes, ghash_h, ghash_h);
-+	aes_encrypt_new(&aes, ghash_h, ghash_h);
- 	memzero_explicit(&aes, sizeof(aes));
- 	csk->tlshws.keylen = key_ctx_size;
+-	aes_encrypt(&ctx, hkey, input);
+-	memzero_explicit(&ctx, sizeof(ctx));
++	aes_encrypt_new(&aes, hkey, input);
++	memzero_explicit(&aes, sizeof(aes));
+ 	return 0;
+ }
  
- 	/* Copy the Key context */
- 	if (optname == TLS_RX) {
+ static int vsc8584_macsec_transformation(struct phy_device *phydev,
+ 					 struct macsec_flow *flow,
 -- 
 2.52.0
 
