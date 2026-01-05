@@ -4,71 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D7F9CD0424
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 22:59:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C67CD0424
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 23:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0gbpMdwqQK4P2ikaibhHBKSxRLTv6lxcc0wxUsu+IPo=; b=d/Ua0eiZLrRtM2
-	Yu+P4KcBzWPfGmeZYPEMtmgck9lJh1xXsR6uNN/WDg3Xjp2lXfwO9UI8ezelQbB16Qr6P4NeyEozY
-	knOyS7emItfirolHRcp46kb3wZZAkJSb1OJ1z6x43m0XKh0uabY9PxWYMBuMgsjLEuKBUMM21rZu1
-	9AFOGqzy1rPBf0mGFZzXJLdeSbreCKRGOzZke7Ofox3wpOnLC7RRr1m3DsuokkOF4EN9xdwupRKKq
-	+URhbfpfxUfY5SIhc6z9fOE/Jc9I7Pi1DzAaVwiWHgDGbyh7l2CBLMaYPmFojL1oelrjTg9sjO6Os
-	VOfMUFy6c7lXhD5030Rg==;
+	List-Owner; bh=RWOP/lkBze0SsA5eqhi9r1JjtnFytfvXn47FzVCNk+g=; b=wG+yDibaqJFzC1
+	50+yUqDR8hGP6sAUjnWb3bBN/0Mk5nnT2xEbVRhucByiXfcOYJNFscHxBPxgc45wdn1vA++1qhyAa
+	/dlzsBdORIuENg9kreG9Oa6hFfH+51ir49JgCFK7Yf+oYVZ5G4ocsnQhb+sHcyp5rbPi1bdkogvK/
+	XJnHWVWJRAVQWF2dAQ0hSnmhnjfMuA7cu8CifGNcOIC9oanL+fC755M2tIgFqcPgb3s8GMmLBfnU7
+	7xmigkVoZWcRkEYkPba3d0DcIThzIHO9tt8668EzIYtGPbL85JlS7HVcKzQRYuG1rrPIlBFq2ERpk
+	q+0/5gqj40VGXwLoecBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vctXi-0000000CDC5-2j6y;
-	Mon, 05 Jan 2026 22:59:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vctpK-0000000CEKC-1QGF;
+	Mon, 05 Jan 2026 23:17:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vctXc-0000000CD63-38MB;
-	Mon, 05 Jan 2026 22:59:16 +0000
+	id 1vctpI-0000000CEJh-1nSF
+	for linux-riscv@lists.infradead.org;
+	Mon, 05 Jan 2026 23:17:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5A068403B1;
-	Mon,  5 Jan 2026 22:59:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F616C116D0;
-	Mon,  5 Jan 2026 22:59:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 69AA86011E;
+	Mon,  5 Jan 2026 23:17:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52937C116D0;
+	Mon,  5 Jan 2026 23:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767653952;
-	bh=MEkyDErUS6Fel9lwzIrHo9OgWUdBuOYVWyJEsTcqV2Y=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=B/e27yM1Uo+eqLH3XgQ5mzZZQgzs5xG8DfsjcQbKX9v+IzN0VMu//p3EiYm7SugTk
-	 N4YOnEVUMNX5Z71ZhVhv2OVglKZQjcFb6VQcApg5LpRbnMEXqvSebw9GvmM5LTuy87
-	 zG5E251p0BvG/B+EGgGf/5/LA4M5Odom8s088SyCguToJfGF2dJQyHEbwg8HI3eySY
-	 JFS1t/Vo1q2JvaTV34z/4ybnN99ilSUSDfHoCznH2bI879hEy+1CL/5jn6nrC4vthr
-	 cHZp0bxJz9FdtRNBPuTKlWWly1QVhNwUpm4N8h60Q+D3SU16esUqjFCndwqMhNYXqK
-	 DJa+kOKEE0BBA==
-From: Will Deacon <will@kernel.org>
-To: Atish Patra <atish.patra@linux.dev>,
-	Anup Patel <anup@brainfault.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Ji Sheng Teoh <jisheng.teoh@starfivetech.com>,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	"Yury Norov (NVIDIA)" <yury.norov@gmail.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH] drivers: perf: use bitmap_empty() where appropriate
-Date: Mon,  5 Jan 2026 22:58:30 +0000
-Message-ID: <176764558097.1441586.5364156428350110916.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251216012004.341288-1-yury.norov@gmail.com>
-References: <20251216012004.341288-1-yury.norov@gmail.com>
+	s=k20201202; t=1767655047;
+	bh=39FKH8D38UVbpuLTkAYB13o8AfvF/nw55c78cDCsOgY=;
+	h=Date:From:To:List-Id:cc:Subject:In-Reply-To:References:From;
+	b=iKIlzu/T30KzA8IGSHVJG68kdqFKadJ3cdLrJ7XWntv7cI+0FFOG01K3yKbJ15Y76
+	 O2chYOImsfUyxMDYZr9A67frEP1zoYvqRNaGHiNXQ5iF/eNeuIFCgWTFwNty8jVV3P
+	 OdkWutvDS/nDttpW/193ntNECYIHxdcBfz3nUJJOFZw2Rof/8qD9iivZgRWKx0qL2E
+	 /0l+M1DE1EkJehvQ1H/6oqfv/Y2MUCc2tmsdEoR4UdRwZ052T4CMbGv3scb8s3lnLR
+	 eEMXQKGntp8as63BG8P3mRmLFaZe/EaSA89vRzQAEUJ3DGXQGbrDt4oEbCSqo9CR7i
+	 ZeJbfkdq7ISOg==
+Date: Mon, 5 Jan 2026 16:17:22 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: Lukas Gerlach <lukas.gerlach@cispa.de>
+cc: patchwork-bot+linux-riscv@kernel.org, linux-riscv@lists.infradead.org, 
+    palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+    linux-kernel@vger.kernel.org, daniel.weber@cispa.de, 
+    michael.schwarz@cispa.de, marton.bognar@kuleuven.be, 
+    jo.vanbulck@kuleuven.be
+Subject: Re: [PATCH 0/2] riscv: Add Spectre v1 mitigations
+In-Reply-To: <176715189629.3416240.5165553541798344765.git-patchwork-notify@kernel.org>
+Message-ID: <6f196be2-3d56-75f5-78d8-800138a8ba46@kernel.org>
+References: <20251218191332.35849-1-lukas.gerlach@cispa.de> <176715189629.3416240.5165553541798344765.git-patchwork-notify@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_145912_810488_DCE401FD 
-X-CRM114-Status: UNSURE (   6.49  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,28 +71,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 Dec 2025 20:20:03 -0500, Yury Norov (NVIDIA) wrote:
-> bitmap_empty() is more verbose and efficient, as it stops traversing
-> bitmaps as soon as the 1st set bit found.
+On Wed, 31 Dec 2025, patchwork-bot+linux-riscv@kernel.org wrote:
+
+> This series was applied to riscv/linux.git (fixes)
+> by Paul Walmsley <pjw@kernel.org>:
 > 
-> Switch perf code to using bitmap_empty() where appropriate, and
-> correspondingly use boolean types.
+> On Thu, 18 Dec 2025 20:13:30 +0100 you wrote:
+> > This series adds Spectre v1 to RISC-V in line with x86 and arm64.
+.
+> > [...]
 > 
-> 
-> [...]
+> Here is the summary with links:
+>   - [1/2] riscv: Use pointer masking to limit uaccess speculation
+>     (no matching commit)
+>   - [2/2] riscv: Sanitize syscall table indexing under speculation
+>     https://git.kernel.org/riscv/c/25fd7ee7bf58
 
-Applied to will (for-next/perf), thanks!
+Just to be clear, I only picked up the syscall table indexing patch, not 
+the address masking patch.  Am still waiting for an update for that one.
 
-[1/1] drivers: perf: use bitmap_empty() where appropriate
-      https://git.kernel.org/will/c/0c7c64146f70
 
-Cheers,
--- 
-Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
