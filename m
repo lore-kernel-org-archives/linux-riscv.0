@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC7CC2A079
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 05:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B33E5C2A075
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 05:15:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vc330sGfMz/J2LOF7b2bfCZDyY+brakSdPzxJuhxfg8=; b=s/xpMf/PdSBneo
-	k0bOdIqkJhbrgWHorHhqHQFpGU8UNb+1fqIpc0H7aeyhx0a6ckLuYQotG/Am+zYviNCYZNDXlg8f/
-	OzBxk50pi/sNtgbnSKLcTdemPfGNDGjWd5L2wlr4OADI3Na33FPHehONl9wnVZf7n8OG51zC4W+YV
-	rGWwBU4iQTpDdsBo96TWWSUKtFq9JYSMMh8fDtK5DVU9C3j0dkaHnQd3IPhozZBJiGGMoaKFCgZmP
-	hLBHT6xtpHe/M0dv1+fV1TLyBH9GEHhQeIfDkAgdeRrQRc0rB0vZX36RFRJXf7OvWglJvvkcNYodG
-	PpEYfjOLwgvhkX9EKEfg==;
+	List-Owner; bh=tBEXGqQ9ebPb01VqSmzJCaKCwsVQIZcgspPA1qpniYY=; b=NTGaLL+ZKxiJHM
+	njQxy2v5+v7m3yzcnM1aIrjf5Uwnt5GvuzBZ4jgo3EEs1Bemyc9qOKfGO4c3++Q6wSGCXm/1FFKh0
+	XHc6TmwFX53yYOruaH2IGURGJWoHU2rkmfD/jAamveSy5hH9ZZiPmq3lAh9SvZGCiYTGWDc5tyg/+
+	TVSWOrVYXMO8ja4DgENpwjMRWOv+/fFHScXcD4Ae8GL4rHmdiXt0WbczBUyGD/joD++IJBeLpvqG5
+	AZrsUgmSgIx1ToURVUVYEdaLLylLsd6dhOB0GyjQV3NuVViTelYW6QHBw76H7FAbxwYoKYZNkH7fp
+	59vEB0rj0SaRm7qdrG2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccvi-0000000Aj73-0OXG;
-	Mon, 05 Jan 2026 05:14:58 +0000
+	id 1vccvm-0000000AjBy-0o2h;
+	Mon, 05 Jan 2026 05:15:02 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccvd-0000000Aj2C-32Ug;
-	Mon, 05 Jan 2026 05:14:53 +0000
+	id 1vccve-0000000Aj2V-1Em3;
+	Mon, 05 Jan 2026 05:14:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2B9656013B;
+	by tor.source.kernel.org (Postfix) with ESMTP id B90B160141;
 	Mon,  5 Jan 2026 05:14:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70058C19424;
-	Mon,  5 Jan 2026 05:14:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0776FC16AAE;
+	Mon,  5 Jan 2026 05:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767590092;
-	bh=geRxBzAl7TSK/fpIj/XhC82GQN0xlq7+PsYx1FYDX+E=;
+	s=k20201202; t=1767590093;
+	bh=GVpfgLYStBAX0V1nv+zpcwWE8NNlDpzM24qOLk0l6H0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bPdsZ+s0sKbOH+q/HMC9eucNVcRcMkg4SpEX+JFQUtRNw0vpcM4NbiZQo7VwMIFYb
-	 QoFHYPT3uO4dy4nwQokeG2xosTkHn3S6Pk9QENxE2PaAMH5xMsXBFTn6j8vvgHcksb
-	 cq4JxtSumUfF6KDVcwFwPr1fOnVTEEmgCBvBW5VXMMbJNZNIEFjt/DXqYWSIaLJDVe
-	 2gdc64O4GtBdDXQev62Mr/HheY8hU1HTC0C0Tzf+PLGhwqJ56g9vqz32+xMdDug2YU
-	 eWB7MzcFhYsp38MUZUwGbZU9rTkXEMwVGICNdAQC4K9MoI3joH7JpXGAfAaCr65aiY
-	 wVCoGj70WNX1Q==
+	b=mcaDwAKvV9yG8G8Pz4lAe99jwm46Fe9LLX8+KbH5dMJSycqIAUz83Pyr5V6Cd1b04
+	 YoMgKpCPcIYuZMn4nHnOWiMAoLtfwubSrFn7sUIu8xppL3qu0xo6ojvfww4gONJB8V
+	 rq7To3cHCghDjntKqSetWW5zMDKnbMruaVIHEDQ7PPwotlLt//+yJcjrzB/XygRUXR
+	 IgzDKNgYpYIrxCD+tJf/ynFCWwPV4C88wsk+otewUC3xwsxr4ezuJsjKuRaoi2otT4
+	 5L4MHdL6JsCiBx8xOZs9AaNExwgKNNXW1ADOHPLOADwT+cGkHm5IJyFSx+sEZiR77g
+	 QVn77rj2ogf/g==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,9 +56,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 04/36] crypto: arm/aes - Switch to aes_enc_tab[] and aes_dec_tab[]
-Date: Sun,  4 Jan 2026 21:12:37 -0800
-Message-ID: <20260105051311.1607207-5-ebiggers@kernel.org>
+Subject: [PATCH 05/36] crypto: arm64/aes - Switch to aes_enc_tab[] and aes_dec_tab[]
+Date: Sun,  4 Jan 2026 21:12:38 -0800
+Message-ID: <20260105051311.1607207-6-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260105051311.1607207-1-ebiggers@kernel.org>
 References: <20260105051311.1607207-1-ebiggers@kernel.org>
@@ -87,28 +87,28 @@ eventually be removed.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/arm/crypto/aes-cipher-core.S | 4 ++--
+ arch/arm64/crypto/aes-cipher-core.S | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/crypto/aes-cipher-core.S b/arch/arm/crypto/aes-cipher-core.S
-index 1da3f41359aa..87567d6822ba 100644
---- a/arch/arm/crypto/aes-cipher-core.S
-+++ b/arch/arm/crypto/aes-cipher-core.S
-@@ -190,12 +190,12 @@
- 	.align		3
- 	.ltorg
+diff --git a/arch/arm64/crypto/aes-cipher-core.S b/arch/arm64/crypto/aes-cipher-core.S
+index c9d6955f8404..651f701c56a8 100644
+--- a/arch/arm64/crypto/aes-cipher-core.S
++++ b/arch/arm64/crypto/aes-cipher-core.S
+@@ -121,12 +121,12 @@ CPU_BE(	rev		w7, w7		)
+ 	stp		w6, w7, [out, #8]
+ 	ret
  	.endm
  
- ENTRY(__aes_arm_encrypt)
--	do_crypt	fround, crypto_ft_tab,, 2
-+	do_crypt	fround, aes_enc_tab,, 2
- ENDPROC(__aes_arm_encrypt)
+ SYM_FUNC_START(__aes_arm64_encrypt)
+-	do_crypt	fround, crypto_ft_tab, crypto_ft_tab + 1, 2
++	do_crypt	fround, aes_enc_tab, aes_enc_tab + 1, 2
+ SYM_FUNC_END(__aes_arm64_encrypt)
  
  	.align		5
- ENTRY(__aes_arm_decrypt)
+ SYM_FUNC_START(__aes_arm64_decrypt)
 -	do_crypt	iround, crypto_it_tab, crypto_aes_inv_sbox, 0
 +	do_crypt	iround, aes_dec_tab, crypto_aes_inv_sbox, 0
- ENDPROC(__aes_arm_decrypt)
+ SYM_FUNC_END(__aes_arm64_decrypt)
 -- 
 2.52.0
 
