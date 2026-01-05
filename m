@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55326C2A07A
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 05:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F694C2A072
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 05:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m7TZFuR7sw4PW3UXp3xZB/oF43A63bs3pm7X09BR6WI=; b=xT5vTKF9JqNvS4
-	ScqCweqw+H6pZ2SHVODnjdzHLnRttxTE1N2YWVq+ljRXAmvPXviUh90hJY2IpbhpUblXxw7SVTLCZ
-	B2nXzJwOqxKylF4/MqE96PlShUiGDGgOUsYz/67JK/uA7svqRAdODRWNcKigIQnXdU+NQNgoqKdrE
-	eO5X7AYfJVryDp17BdvfMLgj90fz/v20shGz8CCuKjJkCswkW7gpnwwTl0Vnx6LnRTAue+Q297Jd7
-	GXyZ7VBHBJ2fomHzJcNnHeBrYC8r5R3RJGb9reFUebiD16hbsz47Zr+3g1LBozzxpVIVSjhvWvgSD
-	U8oVOzJahkpybyEBAW7w==;
+	List-Owner; bh=VKXkDQdqGZs3FCYkhlo/+XNOPoV4pC9K8QC/oU8lVvs=; b=1wwdlAw8/iVqCw
+	0vumbYJDcO0cyWl5CA3u/zi+uh3Ej/26MqEi8AI3dFBE/pFN0fY8d49/xNqwMilJcGMoAlPfT+Ou4
+	AEoCoT73ePlzc+gXQe04wECoZj8XGMLuzIrPQIR3nagd1MYCcxFr8m/K0tVkpTRhwFPFkuryBhkAu
+	k/hLyqukW2u5A9JQAShuoTcErEbgdLDUGe6JEn4jbbaA8TwzXMQEPOTiKEZDh3OI4QSJ2dN0kncpb
+	2vT3jU1ybZPWIO+BUTK4jG5Caj7hqbjqGHVeHLj9Mqip/Ngt6akaPzegbXfIsRCtk6ggbv/ei2sSN
+	vR+W0FHsc1cWx1Gnt5tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccwJ-0000000AjxC-2qzC;
-	Mon, 05 Jan 2026 05:15:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vccwQ-0000000Ak9G-2ccv;
+	Mon, 05 Jan 2026 05:15:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccvi-0000000Aj4l-2iYa;
+	id 1vccvj-0000000Aj8U-2ka3;
 	Mon, 05 Jan 2026 05:15:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 768A14430E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4C0554430C;
+	Mon,  5 Jan 2026 05:14:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C70FC116D0;
 	Mon,  5 Jan 2026 05:14:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B68A6C4AF0F;
-	Mon,  5 Jan 2026 05:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767590098;
-	bh=6o3GJgNO3+qhDeZcBcOFMC7mOIMcNsXDI5dORGkm4b8=;
+	s=k20201202; t=1767590099;
+	bh=zT5da4wtZ207ehQuGdU88e6ZhYy7QpzWx5B47Z9y3Rg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=d1CIbrQyE+09yYQYpmoUoYrRIuPsxLgFqB9fe79FMlgPMcy6I4ddG+GBVc1FgHx/R
-	 hWMxCxgnP3J/TqJ8gUECjXS1u9P7eT4lqFHUaxZDl9yArB8qGWfBGYRi9sRCRIH6Jd
-	 mpQxJRZvG46ly9iK9/KlMDvJI/u0hIXUCIGaP2pKlAezF/Bi9jQ89RpN2CN5cPom1M
-	 8De8z8ZomaCaFAMGBMx/eQu+l7fGLGULuLKf3lIjys/08dvSIDVifZxUUvuU8xGOrn
-	 D8jA4vHyCuLWPGfp5vylvssw1JATSfW5oRWThnGyzcfYNBzW+bpxkPCJmNBiImaPRB
-	 XpcY5IoBNJZEQ==
+	b=HYEPxEELQkvEVKog6DSHYN/Vq8uSnddwAnmdDca4mhGRvv+jY+b+A0bFSuvQRu3fV
+	 hHmASQpzA8wDck/p7tCLuRmH35F1QdwY94/HmKgmcF/Gad8UhJMtqHsC6R74EYHbxn
+	 HFQJCvrWqNc10tz1mpC3eE4iWv9UFaaGnUwkoX0FN2L0bOn9fQ/eRYQra2OSCGFoZz
+	 Fc9MtWjMhiqFMXMdXYWK9L5n5wjZEiuU3J9/rWFXyD4eVE/J1zKYnx3c5KRmtKQ/08
+	 10NfRfalJYTpo6cyk6E/6JAI/JLZ6JyvwJn/VSaMWD5mQBFl6KdxX2X2uns87UWcuG
+	 7jeZ9aiQEKugg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,16 +56,16 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 13/36] lib/crypto: powerpc/aes: Migrate POWER8 optimized code into library
-Date: Sun,  4 Jan 2026 21:12:46 -0800
-Message-ID: <20260105051311.1607207-14-ebiggers@kernel.org>
+Subject: [PATCH 14/36] lib/crypto: riscv/aes: Migrate optimized code into library
+Date: Sun,  4 Jan 2026 21:12:47 -0800
+Message-ID: <20260105051311.1607207-15-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260105051311.1607207-1-ebiggers@kernel.org>
 References: <20260105051311.1607207-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_211458_790303_1D516327 
-X-CRM114-Status: GOOD (  27.72  )
+X-CRM114-CacheID: sfid-20260104_211459_836162_E48A25B8 
+X-CRM114-Status: GOOD (  29.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,672 +77,321 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the POWER8 AES assembly code into lib/crypto/, wire the key
-expansion and single-block en/decryption functions up to the AES library
-API, and remove the superseded "p8_aes" crypto_cipher algorithm.
-
-The result is that both the AES library and crypto_cipher APIs are now
-optimized for POWER8, whereas previously only crypto_cipher was (and
-optimizations weren't enabled by default, which this commit fixes too).
-
-Note that many of the functions in the POWER8 assembly code are still
-used by the AES mode implementations in arch/powerpc/crypto/.  For now,
-just export these functions.  These exports will go away once the AES
-modes are migrated to the library as well.  (Trying to split up the
-assembly file seemed like much more trouble than it would be worth.)
-
-Another challenge with this code is that the POWER8 assembly code uses a
-custom format for the expanded AES key.  Since that code is imported
-from OpenSSL and is also targeted to POWER8 (rather than POWER9 which
-has better data movement and byteswap instructions), that is not easily
-changed.  For now I've just kept the custom format.  To maintain full
-correctness, this requires executing some slow fallback code in the case
-where the usability of VSX changes between key expansion and use.  This
-should be tolerable, as this case shouldn't happen in practice.
-
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
----
- arch/powerpc/crypto/Makefile                  |   7 +-
- arch/powerpc/crypto/aes.c                     | 134 --------------
- arch/powerpc/crypto/aesp8-ppc.h               |  23 ---
- arch/powerpc/crypto/vmx.c                     |  10 +-
- include/crypto/aes.h                          |  41 +++++
- lib/crypto/Kconfig                            |   2 +-
- lib/crypto/Makefile                           |  14 +-
- lib/crypto/powerpc/.gitignore                 |   2 +
- lib/crypto/powerpc/aes.h                      | 164 ++++++++++++++++++
- .../crypto/powerpc}/aesp8-ppc.pl              |   1 +
- 10 files changed, 226 insertions(+), 172 deletions(-)
- delete mode 100644 arch/powerpc/crypto/aes.c
- create mode 100644 lib/crypto/powerpc/.gitignore
- rename {arch/powerpc/crypto => lib/crypto/powerpc}/aesp8-ppc.pl (99%)
-
-diff --git a/arch/powerpc/crypto/Makefile b/arch/powerpc/crypto/Makefile
-index e22310da86b5..3ac0886282a2 100644
---- a/arch/powerpc/crypto/Makefile
-+++ b/arch/powerpc/crypto/Makefile
-@@ -9,11 +9,11 @@ obj-$(CONFIG_CRYPTO_AES_PPC_SPE) += aes-ppc-spe.o
- obj-$(CONFIG_CRYPTO_AES_GCM_P10) += aes-gcm-p10-crypto.o
- obj-$(CONFIG_CRYPTO_DEV_VMX_ENCRYPT) += vmx-crypto.o
- 
- aes-ppc-spe-y := aes-spe-glue.o
- aes-gcm-p10-crypto-y := aes-gcm-p10-glue.o aes-gcm-p10.o ghashp10-ppc.o aesp10-ppc.o
--vmx-crypto-objs := vmx.o aesp8-ppc.o ghashp8-ppc.o aes.o aes_cbc.o aes_ctr.o aes_xts.o ghash.o
-+vmx-crypto-objs := vmx.o ghashp8-ppc.o aes_cbc.o aes_ctr.o aes_xts.o ghash.o
- 
- ifeq ($(CONFIG_CPU_LITTLE_ENDIAN),y)
- override flavour := linux-ppc64le
- else
- ifdef CONFIG_PPC64_ELF_ABI_V2
-@@ -24,17 +24,16 @@ endif
- endif
- 
- quiet_cmd_perl = PERL    $@
-       cmd_perl = $(PERL) $< $(flavour) > $@
- 
--targets += aesp10-ppc.S ghashp10-ppc.S aesp8-ppc.S ghashp8-ppc.S
-+targets += aesp10-ppc.S ghashp10-ppc.S ghashp8-ppc.S
- 
- $(obj)/aesp10-ppc.S $(obj)/ghashp10-ppc.S: $(obj)/%.S: $(src)/%.pl FORCE
- 	$(call if_changed,perl)
- 
--$(obj)/aesp8-ppc.S $(obj)/ghashp8-ppc.S: $(obj)/%.S: $(src)/%.pl FORCE
-+$(obj)/ghashp8-ppc.S: $(obj)/%.S: $(src)/%.pl FORCE
- 	$(call if_changed,perl)
- 
- OBJECT_FILES_NON_STANDARD_aesp10-ppc.o := y
- OBJECT_FILES_NON_STANDARD_ghashp10-ppc.o := y
--OBJECT_FILES_NON_STANDARD_aesp8-ppc.o := y
- OBJECT_FILES_NON_STANDARD_ghashp8-ppc.o := y
-diff --git a/arch/powerpc/crypto/aes.c b/arch/powerpc/crypto/aes.c
-deleted file mode 100644
-index b7192ee719fc..000000000000
---- a/arch/powerpc/crypto/aes.c
-+++ /dev/null
-@@ -1,134 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * AES routines supporting VMX instructions on the Power 8
-- *
-- * Copyright (C) 2015 International Business Machines Inc.
-- *
-- * Author: Marcelo Henrique Cerri <mhcerri@br.ibm.com>
-- */
--
--#include <asm/simd.h>
--#include <asm/switch_to.h>
--#include <crypto/aes.h>
--#include <crypto/internal/cipher.h>
--#include <crypto/internal/simd.h>
--#include <linux/err.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--#include <linux/uaccess.h>
--
--#include "aesp8-ppc.h"
--
--struct p8_aes_ctx {
--	struct crypto_cipher *fallback;
--	struct p8_aes_key enc_key;
--	struct p8_aes_key dec_key;
--};
--
--static int p8_aes_init(struct crypto_tfm *tfm)
--{
--	const char *alg = crypto_tfm_alg_name(tfm);
--	struct crypto_cipher *fallback;
--	struct p8_aes_ctx *ctx = crypto_tfm_ctx(tfm);
--
--	fallback = crypto_alloc_cipher(alg, 0, CRYPTO_ALG_NEED_FALLBACK);
--	if (IS_ERR(fallback)) {
--		printk(KERN_ERR
--		       "Failed to allocate transformation for '%s': %ld\n",
--		       alg, PTR_ERR(fallback));
--		return PTR_ERR(fallback);
--	}
--
--	crypto_cipher_set_flags(fallback,
--				crypto_cipher_get_flags((struct
--							 crypto_cipher *)
--							tfm));
--	ctx->fallback = fallback;
--
--	return 0;
--}
--
--static void p8_aes_exit(struct crypto_tfm *tfm)
--{
--	struct p8_aes_ctx *ctx = crypto_tfm_ctx(tfm);
--
--	if (ctx->fallback) {
--		crypto_free_cipher(ctx->fallback);
--		ctx->fallback = NULL;
--	}
--}
--
--static int p8_aes_setkey(struct crypto_tfm *tfm, const u8 *key,
--			 unsigned int keylen)
--{
--	int ret;
--	struct p8_aes_ctx *ctx = crypto_tfm_ctx(tfm);
--
--	preempt_disable();
--	pagefault_disable();
--	enable_kernel_vsx();
--	ret = aes_p8_set_encrypt_key(key, keylen * 8, &ctx->enc_key);
--	ret |= aes_p8_set_decrypt_key(key, keylen * 8, &ctx->dec_key);
--	disable_kernel_vsx();
--	pagefault_enable();
--	preempt_enable();
--
--	ret |= crypto_cipher_setkey(ctx->fallback, key, keylen);
--
--	return ret ? -EINVAL : 0;
--}
--
--static void p8_aes_encrypt(struct crypto_tfm *tfm, u8 *dst, const u8 *src)
--{
--	struct p8_aes_ctx *ctx = crypto_tfm_ctx(tfm);
--
--	if (!crypto_simd_usable()) {
--		crypto_cipher_encrypt_one(ctx->fallback, dst, src);
--	} else {
--		preempt_disable();
--		pagefault_disable();
--		enable_kernel_vsx();
--		aes_p8_encrypt(src, dst, &ctx->enc_key);
--		disable_kernel_vsx();
--		pagefault_enable();
--		preempt_enable();
--	}
--}
--
--static void p8_aes_decrypt(struct crypto_tfm *tfm, u8 *dst, const u8 *src)
--{
--	struct p8_aes_ctx *ctx = crypto_tfm_ctx(tfm);
--
--	if (!crypto_simd_usable()) {
--		crypto_cipher_decrypt_one(ctx->fallback, dst, src);
--	} else {
--		preempt_disable();
--		pagefault_disable();
--		enable_kernel_vsx();
--		aes_p8_decrypt(src, dst, &ctx->dec_key);
--		disable_kernel_vsx();
--		pagefault_enable();
--		preempt_enable();
--	}
--}
--
--struct crypto_alg p8_aes_alg = {
--	.cra_name = "aes",
--	.cra_driver_name = "p8_aes",
--	.cra_module = THIS_MODULE,
--	.cra_priority = 1000,
--	.cra_type = NULL,
--	.cra_flags = CRYPTO_ALG_TYPE_CIPHER | CRYPTO_ALG_NEED_FALLBACK,
--	.cra_alignmask = 0,
--	.cra_blocksize = AES_BLOCK_SIZE,
--	.cra_ctxsize = sizeof(struct p8_aes_ctx),
--	.cra_init = p8_aes_init,
--	.cra_exit = p8_aes_exit,
--	.cra_cipher = {
--		       .cia_min_keysize = AES_MIN_KEY_SIZE,
--		       .cia_max_keysize = AES_MAX_KEY_SIZE,
--		       .cia_setkey = p8_aes_setkey,
--		       .cia_encrypt = p8_aes_encrypt,
--		       .cia_decrypt = p8_aes_decrypt,
--	},
--};
-diff --git a/arch/powerpc/crypto/aesp8-ppc.h b/arch/powerpc/crypto/aesp8-ppc.h
-index 0bea010128cb..6862c605cc33 100644
---- a/arch/powerpc/crypto/aesp8-ppc.h
-+++ b/arch/powerpc/crypto/aesp8-ppc.h
-@@ -1,31 +1,8 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- #include <linux/types.h>
- #include <crypto/aes.h>
- 
--struct p8_aes_key {
--	u8 key[AES_MAX_KEYLENGTH];
--	int rounds;
--};
--
- extern struct shash_alg p8_ghash_alg;
--extern struct crypto_alg p8_aes_alg;
- extern struct skcipher_alg p8_aes_cbc_alg;
- extern struct skcipher_alg p8_aes_ctr_alg;
- extern struct skcipher_alg p8_aes_xts_alg;
--
--int aes_p8_set_encrypt_key(const u8 *userKey, const int bits,
--			   struct p8_aes_key *key);
--int aes_p8_set_decrypt_key(const u8 *userKey, const int bits,
--			   struct p8_aes_key *key);
--void aes_p8_encrypt(const u8 *in, u8 *out, const struct p8_aes_key *key);
--void aes_p8_decrypt(const u8 *in, u8 *out, const struct p8_aes_key *key);
--void aes_p8_cbc_encrypt(const u8 *in, u8 *out, size_t len,
--			const struct p8_aes_key *key, u8 *iv, const int enc);
--void aes_p8_ctr32_encrypt_blocks(const u8 *in, u8 *out, size_t len,
--				 const struct p8_aes_key *key, const u8 *iv);
--void aes_p8_xts_encrypt(const u8 *in, u8 *out, size_t len,
--			const struct p8_aes_key *key1,
--			const struct p8_aes_key *key2, u8 *iv);
--void aes_p8_xts_decrypt(const u8 *in, u8 *out, size_t len,
--			const struct p8_aes_key *key1,
--			const struct p8_aes_key *key2, u8 *iv);
-diff --git a/arch/powerpc/crypto/vmx.c b/arch/powerpc/crypto/vmx.c
-index 0b725e826388..7d2beb774f99 100644
---- a/arch/powerpc/crypto/vmx.c
-+++ b/arch/powerpc/crypto/vmx.c
-@@ -25,17 +25,13 @@ static int __init p8_init(void)
- 
- 	ret = crypto_register_shash(&p8_ghash_alg);
- 	if (ret)
- 		goto err;
- 
--	ret = crypto_register_alg(&p8_aes_alg);
--	if (ret)
--		goto err_unregister_ghash;
--
- 	ret = crypto_register_skcipher(&p8_aes_cbc_alg);
- 	if (ret)
--		goto err_unregister_aes;
-+		goto err_unregister_ghash;
- 
- 	ret = crypto_register_skcipher(&p8_aes_ctr_alg);
- 	if (ret)
- 		goto err_unregister_aes_cbc;
- 
-@@ -47,12 +43,10 @@ static int __init p8_init(void)
- 
- err_unregister_aes_ctr:
- 	crypto_unregister_skcipher(&p8_aes_ctr_alg);
- err_unregister_aes_cbc:
- 	crypto_unregister_skcipher(&p8_aes_cbc_alg);
--err_unregister_aes:
--	crypto_unregister_alg(&p8_aes_alg);
- err_unregister_ghash:
- 	crypto_unregister_shash(&p8_ghash_alg);
- err:
- 	return ret;
- }
-@@ -60,11 +54,10 @@ static int __init p8_init(void)
- static void __exit p8_exit(void)
- {
- 	crypto_unregister_skcipher(&p8_aes_xts_alg);
- 	crypto_unregister_skcipher(&p8_aes_ctr_alg);
- 	crypto_unregister_skcipher(&p8_aes_cbc_alg);
--	crypto_unregister_alg(&p8_aes_alg);
- 	crypto_unregister_shash(&p8_ghash_alg);
- }
- 
- module_cpu_feature_match(PPC_MODULE_FEATURE_VEC_CRYPTO, p8_init);
- module_exit(p8_exit);
-@@ -72,6 +65,5 @@ module_exit(p8_exit);
- MODULE_AUTHOR("Marcelo Cerri<mhcerri@br.ibm.com>");
- MODULE_DESCRIPTION("IBM VMX cryptographic acceleration instructions "
- 		   "support on Power 8");
- MODULE_LICENSE("GPL");
- MODULE_VERSION("1.0.0");
--MODULE_IMPORT_NS("CRYPTO_INTERNAL");
-diff --git a/include/crypto/aes.h b/include/crypto/aes.h
-index 49ce2d1e086e..e6082b7c6443 100644
---- a/include/crypto/aes.h
-+++ b/include/crypto/aes.h
-@@ -16,26 +16,51 @@
- #define AES_KEYSIZE_256		32
- #define AES_BLOCK_SIZE		16
- #define AES_MAX_KEYLENGTH	(15 * 16)
- #define AES_MAX_KEYLENGTH_U32	(AES_MAX_KEYLENGTH / sizeof(u32))
- 
-+/*
-+ * The POWER8 VSX optimized AES assembly code is borrowed from OpenSSL and
-+ * inherits OpenSSL's AES_KEY format, which stores the number of rounds after
-+ * the round keys.  That assembly code is difficult to change.  So for
-+ * compatibility purposes we reserve space for the extra nrounds field on PPC64.
-+ *
-+ * Note: when prepared for decryption, the round keys are just the reversed
-+ * standard round keys, not the round keys for the Equivalent Inverse Cipher.
-+ */
-+struct p8_aes_key {
-+	u32 rndkeys[AES_MAX_KEYLENGTH_U32];
-+	int nrounds;
-+};
-+
- union aes_enckey_arch {
- 	u32 rndkeys[AES_MAX_KEYLENGTH_U32];
- #ifdef CONFIG_CRYPTO_LIB_AES_ARCH
- #if defined(CONFIG_PPC) && defined(CONFIG_SPE)
- 	/* Used unconditionally (when SPE AES code is enabled in kconfig) */
- 	u32 spe_enc_key[AES_MAX_KEYLENGTH_U32] __aligned(8);
-+#elif defined(CONFIG_PPC)
-+	/*
-+	 * Kernels that include the POWER8 VSX optimized AES code use this field
-+	 * when that code is usable at key preparation time.  Otherwise they
-+	 * fall back to rndkeys.  In the latter case, p8.nrounds (which doesn't
-+	 * overlap rndkeys) is set to 0 to differentiate the two formats.
-+	 */
-+	struct p8_aes_key p8;
- #endif
- #endif /* CONFIG_CRYPTO_LIB_AES_ARCH */
- };
- 
- union aes_invkey_arch {
- 	u32 inv_rndkeys[AES_MAX_KEYLENGTH_U32];
- #ifdef CONFIG_CRYPTO_LIB_AES_ARCH
- #if defined(CONFIG_PPC) && defined(CONFIG_SPE)
- 	/* Used unconditionally (when SPE AES code is enabled in kconfig) */
- 	u32 spe_dec_key[AES_MAX_KEYLENGTH_U32] __aligned(8);
-+#elif defined(CONFIG_PPC)
-+	/* Used conditionally, analogous to aes_enckey_arch::p8 */
-+	struct p8_aes_key p8;
- #endif
- #endif /* CONFIG_CRYPTO_LIB_AES_ARCH */
- };
- 
- /**
-@@ -153,10 +178,26 @@ void ppc_crypt_ctr(u8 *out, const u8 *in, u32 *key_enc, u32 rounds, u32 bytes,
- 		   u8 *iv);
- void ppc_encrypt_xts(u8 *out, const u8 *in, u32 *key_enc, u32 rounds, u32 bytes,
- 		     u8 *iv, u32 *key_twk);
- void ppc_decrypt_xts(u8 *out, const u8 *in, u32 *key_dec, u32 rounds, u32 bytes,
- 		     u8 *iv, u32 *key_twk);
-+int aes_p8_set_encrypt_key(const u8 *userKey, const int bits,
-+			   struct p8_aes_key *key);
-+int aes_p8_set_decrypt_key(const u8 *userKey, const int bits,
-+			   struct p8_aes_key *key);
-+void aes_p8_encrypt(const u8 *in, u8 *out, const struct p8_aes_key *key);
-+void aes_p8_decrypt(const u8 *in, u8 *out, const struct p8_aes_key *key);
-+void aes_p8_cbc_encrypt(const u8 *in, u8 *out, size_t len,
-+			const struct p8_aes_key *key, u8 *iv, const int enc);
-+void aes_p8_ctr32_encrypt_blocks(const u8 *in, u8 *out, size_t len,
-+				 const struct p8_aes_key *key, const u8 *iv);
-+void aes_p8_xts_encrypt(const u8 *in, u8 *out, size_t len,
-+			const struct p8_aes_key *key1,
-+			const struct p8_aes_key *key2, u8 *iv);
-+void aes_p8_xts_decrypt(const u8 *in, u8 *out, size_t len,
-+			const struct p8_aes_key *key1,
-+			const struct p8_aes_key *key2, u8 *iv);
- #endif
- 
- /**
-  * aes_preparekey() - Prepare an AES key for encryption and decryption
-  * @key: (output) The key structure to initialize
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 50057f534aec..ddd3fe826b81 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -14,11 +14,11 @@ config CRYPTO_LIB_AES
- config CRYPTO_LIB_AES_ARCH
- 	bool
- 	depends on CRYPTO_LIB_AES && !UML && !KMSAN
- 	default y if ARM
- 	default y if ARM64
--	default y if PPC && SPE
-+	default y if PPC && (SPE || (PPC64 && VSX))
- 
- config CRYPTO_LIB_AESCFB
- 	tristate
- 	select CRYPTO_LIB_AES
- 	select CRYPTO_LIB_UTILS
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index d68fde004104..16140616ace8 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -33,11 +33,23 @@ ifeq ($(CONFIG_PPC),y)
- ifeq ($(CONFIG_SPE),y)
- libaes-y += powerpc/aes-spe-core.o \
- 	    powerpc/aes-spe-keys.o \
- 	    powerpc/aes-spe-modes.o \
- 	    powerpc/aes-tab-4k.o
--endif
-+else
-+libaes-y += powerpc/aesp8-ppc.o
-+aes-perlasm-flavour-y := linux-ppc64
-+aes-perlasm-flavour-$(CONFIG_PPC64_ELF_ABI_V2) := linux-ppc64-elfv2
-+aes-perlasm-flavour-$(CONFIG_CPU_LITTLE_ENDIAN) := linux-ppc64le
-+quiet_cmd_perlasm_aes = PERLASM $@
-+      cmd_perlasm_aes = $(PERL) $< $(aes-perlasm-flavour-y) $@
-+# Use if_changed instead of cmd, in case the flavour changed.
-+$(obj)/powerpc/aesp8-ppc.S: $(src)/powerpc/aesp8-ppc.pl FORCE
-+	$(call if_changed,perlasm_aes)
-+targets += powerpc/aesp8-ppc.S
-+OBJECT_FILES_NON_STANDARD_powerpc/aesp8-ppc.o := y
-+endif # !CONFIG_SPE
- endif # CONFIG_PPC
- 
- endif # CONFIG_CRYPTO_LIB_AES_ARCH
- 
- ################################################################################
-diff --git a/lib/crypto/powerpc/.gitignore b/lib/crypto/powerpc/.gitignore
-new file mode 100644
-index 000000000000..598ca7aff6b1
---- /dev/null
-+++ b/lib/crypto/powerpc/.gitignore
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+aesp8-ppc.S
-diff --git a/lib/crypto/powerpc/aes.h b/lib/crypto/powerpc/aes.h
-index cf22020f9050..42e0a993c619 100644
---- a/lib/crypto/powerpc/aes.h
-+++ b/lib/crypto/powerpc/aes.h
-@@ -1,17 +1,20 @@
- /* SPDX-License-Identifier: GPL-2.0-only */
- /*
-  * Copyright (c) 2015 Markus Stockhausen <stockhausen@collogia.de>
-+ * Copyright (C) 2015 International Business Machines Inc.
-  * Copyright 2026 Google LLC
-  */
- #include <asm/simd.h>
- #include <asm/switch_to.h>
- #include <linux/cpufeature.h>
- #include <linux/jump_label.h>
- #include <linux/preempt.h>
- #include <linux/uaccess.h>
- 
-+#ifdef CONFIG_SPE
-+
- EXPORT_SYMBOL_GPL(ppc_expand_key_128);
- EXPORT_SYMBOL_GPL(ppc_expand_key_192);
- EXPORT_SYMBOL_GPL(ppc_expand_key_256);
- EXPORT_SYMBOL_GPL(ppc_generate_decrypt_key);
- EXPORT_SYMBOL_GPL(ppc_encrypt_ecb);
-@@ -70,5 +73,166 @@ static void aes_decrypt_arch(const struct aes_key *key,
- {
- 	spe_begin();
- 	ppc_decrypt_aes(out, in, key->inv_k.spe_dec_key, key->nrounds / 2 - 1);
- 	spe_end();
- }
-+
-+#else /* CONFIG_SPE */
-+
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_vec_crypto);
-+
-+EXPORT_SYMBOL_GPL(aes_p8_set_encrypt_key);
-+EXPORT_SYMBOL_GPL(aes_p8_set_decrypt_key);
-+EXPORT_SYMBOL_GPL(aes_p8_encrypt);
-+EXPORT_SYMBOL_GPL(aes_p8_decrypt);
-+EXPORT_SYMBOL_GPL(aes_p8_cbc_encrypt);
-+EXPORT_SYMBOL_GPL(aes_p8_ctr32_encrypt_blocks);
-+EXPORT_SYMBOL_GPL(aes_p8_xts_encrypt);
-+EXPORT_SYMBOL_GPL(aes_p8_xts_decrypt);
-+
-+static inline bool is_vsx_format(const struct p8_aes_key *key)
-+{
-+	return key->nrounds != 0;
-+}
-+
-+/*
-+ * Convert a round key from VSX to generic format by reflecting the 16 bytes,
-+ * and (if apply_inv_mix=true) applying InvMixColumn to each column.
-+ *
-+ * It would be nice if the VSX and generic key formats would be compatible.  But
-+ * that's very difficult to do, with the assembly code having been borrowed from
-+ * OpenSSL and also targeted to POWER8 rather than POWER9.
-+ *
-+ * Fortunately, this conversion should only be needed in extremely rare cases,
-+ * possibly not at all in practice.  It's just included for full correctness.
-+ */
-+static void rndkey_from_vsx(u32 out[4], const u32 in[4], bool apply_inv_mix)
-+{
-+	u32 k0 = swab32(in[0]);
-+	u32 k1 = swab32(in[1]);
-+	u32 k2 = swab32(in[2]);
-+	u32 k3 = swab32(in[3]);
-+
-+	if (apply_inv_mix) {
-+		k0 = inv_mix_columns(k0);
-+		k1 = inv_mix_columns(k1);
-+		k2 = inv_mix_columns(k2);
-+		k3 = inv_mix_columns(k3);
-+	}
-+	out[0] = k3;
-+	out[1] = k2;
-+	out[2] = k1;
-+	out[3] = k0;
-+}
-+
-+static void aes_preparekey_arch(union aes_enckey_arch *k,
-+				union aes_invkey_arch *inv_k,
-+				const u8 *in_key, int key_len, int nrounds)
-+{
-+	const int keybits = 8 * key_len;
-+	int ret;
-+
-+	if (static_branch_likely(&have_vec_crypto) && likely(may_use_simd())) {
-+		preempt_disable();
-+		pagefault_disable();
-+		enable_kernel_vsx();
-+		ret = aes_p8_set_encrypt_key(in_key, keybits, &k->p8);
-+		/*
-+		 * aes_p8_set_encrypt_key() should never fail here, since the
-+		 * key length was already validated.
-+		 */
-+		WARN_ON_ONCE(ret);
-+		if (inv_k) {
-+			ret = aes_p8_set_decrypt_key(in_key, keybits,
-+						     &inv_k->p8);
-+			/* ... and likewise for aes_p8_set_decrypt_key(). */
-+			WARN_ON_ONCE(ret);
-+		}
-+		disable_kernel_vsx();
-+		pagefault_enable();
-+		preempt_enable();
-+	} else {
-+		aes_expandkey_generic(k->rndkeys,
-+				      inv_k ? inv_k->inv_rndkeys : NULL,
-+				      in_key, key_len);
-+		/* Mark the key as using the generic format. */
-+		k->p8.nrounds = 0;
-+		if (inv_k)
-+			inv_k->p8.nrounds = 0;
-+	}
-+}
-+
-+static void aes_encrypt_arch(const struct aes_enckey *key,
-+			     u8 out[AES_BLOCK_SIZE],
-+			     const u8 in[AES_BLOCK_SIZE])
-+{
-+	if (static_branch_likely(&have_vec_crypto) &&
-+	    likely(is_vsx_format(&key->k.p8) && may_use_simd())) {
-+		preempt_disable();
-+		pagefault_disable();
-+		enable_kernel_vsx();
-+		aes_p8_encrypt(in, out, &key->k.p8);
-+		disable_kernel_vsx();
-+		pagefault_enable();
-+		preempt_enable();
-+	} else if (unlikely(is_vsx_format(&key->k.p8))) {
-+		/*
-+		 * This handles (the hopefully extremely rare) case where a key
-+		 * was prepared using the VSX optimized format, then encryption
-+		 * is done in a context that cannot use VSX instructions.
-+		 */
-+		u32 rndkeys[AES_MAX_KEYLENGTH_U32];
-+
-+		for (int i = 0; i < 4 * (key->nrounds + 1); i += 4)
-+			rndkey_from_vsx(&rndkeys[i],
-+					&key->k.p8.rndkeys[i], false);
-+		aes_encrypt_generic(rndkeys, key->nrounds, out, in);
-+	} else {
-+		aes_encrypt_generic(key->k.rndkeys, key->nrounds, out, in);
-+	}
-+}
-+
-+static void aes_decrypt_arch(const struct aes_key *key, u8 out[AES_BLOCK_SIZE],
-+			     const u8 in[AES_BLOCK_SIZE])
-+{
-+	if (static_branch_likely(&have_vec_crypto) &&
-+	    likely(is_vsx_format(&key->inv_k.p8) && may_use_simd())) {
-+		preempt_disable();
-+		pagefault_disable();
-+		enable_kernel_vsx();
-+		aes_p8_decrypt(in, out, &key->inv_k.p8);
-+		disable_kernel_vsx();
-+		pagefault_enable();
-+		preempt_enable();
-+	} else if (unlikely(is_vsx_format(&key->inv_k.p8))) {
-+		/*
-+		 * This handles (the hopefully extremely rare) case where a key
-+		 * was prepared using the VSX optimized format, then decryption
-+		 * is done in a context that cannot use VSX instructions.
-+		 */
-+		u32 inv_rndkeys[AES_MAX_KEYLENGTH_U32];
-+		int i;
-+
-+		rndkey_from_vsx(&inv_rndkeys[0],
-+				&key->inv_k.p8.rndkeys[0], false);
-+		for (i = 4; i < 4 * key->nrounds; i += 4) {
-+			rndkey_from_vsx(&inv_rndkeys[i],
-+					&key->inv_k.p8.rndkeys[i], true);
-+		}
-+		rndkey_from_vsx(&inv_rndkeys[i],
-+				&key->inv_k.p8.rndkeys[i], false);
-+		aes_decrypt_generic(inv_rndkeys, key->nrounds, out, in);
-+	} else {
-+		aes_decrypt_generic(key->inv_k.inv_rndkeys, key->nrounds,
-+				    out, in);
-+	}
-+}
-+
-+#define aes_mod_init_arch aes_mod_init_arch
-+static void aes_mod_init_arch(void)
-+{
-+	if (cpu_has_feature(CPU_FTR_ARCH_207S) &&
-+	    (cur_cpu_spec->cpu_user_features2 & PPC_FEATURE2_VEC_CRYPTO))
-+		static_branch_enable(&have_vec_crypto);
-+}
-+
-+#endif /* !CONFIG_SPE */
-diff --git a/arch/powerpc/crypto/aesp8-ppc.pl b/lib/crypto/powerpc/aesp8-ppc.pl
-similarity index 99%
-rename from arch/powerpc/crypto/aesp8-ppc.pl
-rename to lib/crypto/powerpc/aesp8-ppc.pl
-index f729589d792e..253a06758057 100644
---- a/arch/powerpc/crypto/aesp8-ppc.pl
-+++ b/lib/crypto/powerpc/aesp8-ppc.pl
-@@ -103,10 +103,11 @@ if ($flavour =~ /64/) {
- $LITTLE_ENDIAN = ($flavour=~/le$/) ? $SIZE_T : 0;
- 
- $0 =~ m/(.*[\/\\])[^\/\\]+$/; $dir=$1;
- ( $xlate="${dir}ppc-xlate.pl" and -f $xlate ) or
- ( $xlate="${dir}../../perlasm/ppc-xlate.pl" and -f $xlate) or
-+( $xlate="${dir}../../../arch/powerpc/crypto/ppc-xlate.pl" and -f $xlate) or
- die "can't locate ppc-xlate.pl";
- 
- open STDOUT,"| $^X $xlate $flavour ".shift || die "can't call $xlate: $!";
- 
- $FRAME=8*$SIZE_T;
--- 
-2.52.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+TW92ZSB0aGUgYWVzX2VuY3J5cHRfenZrbmVkKCkgYW5kIGFlc19kZWNyeXB0X3p2a25lZCgpIGFz
+c2VtYmx5CmZ1bmN0aW9ucyBpbnRvIGxpYi9jcnlwdG8vLCB3aXJlIHRoZW0gdXAgdG8gdGhlIEFF
+UyBsaWJyYXJ5IEFQSSwgYW5kCnJlbW92ZSB0aGUgImFlcy1yaXNjdjY0LXp2a25lZCIgY3J5cHRv
+X2NpcGhlciBhbGdvcml0aG0uCgpUbyBtYWtlIHRoaXMgcG9zc2libGUsIGNoYW5nZSB0aGUgcHJv
+dG90eXBlcyBvZiB0aGVzZSBmdW5jdGlvbnMgdG8KdGFrZSAocm5ka2V5cywga2V5X2xlbikgaW5z
+dGVhZCBvZiBhIHBvaW50ZXIgdG8gY3J5cHRvX2Flc19jdHgsIGFuZApjaGFuZ2UgdGhlIFJJU0Mt
+ViBBRVMtWFRTIGNvZGUgdG8gaW1wbGVtZW50IHR3ZWFrIGVuY3J5cHRpb24gdXNpbmcgdGhlCkFF
+UyBsaWJyYXJ5IGluc3RlYWQgb2YgZGlyZWN0bHkgY2FsbGluZyBhZXNfZW5jcnlwdF96dmtuZWQo
+KS4KClRoZSByZXN1bHQgaXMgdGhhdCBib3RoIHRoZSBBRVMgbGlicmFyeSBhbmQgY3J5cHRvX2Np
+cGhlciBBUElzIHVzZQpSSVNDLVYncyBBRVMgaW5zdHJ1Y3Rpb25zLCB3aGVyZWFzIHByZXZpb3Vz
+bHkgb25seSBjcnlwdG9fY2lwaGVyIGRpZAooYW5kIGl0IHdhc24ndCBlbmFibGVkIGJ5IGRlZmF1
+bHQsIHdoaWNoIHRoaXMgY29tbWl0IGZpeGVzIGFzIHdlbGwpLgoKU2lnbmVkLW9mZi1ieTogRXJp
+YyBCaWdnZXJzIDxlYmlnZ2Vyc0BrZXJuZWwub3JnPgotLS0KIGFyY2gvcmlzY3YvY3J5cHRvL0tj
+b25maWcgICAgICAgICAgICAgIHwgIDIgLQogYXJjaC9yaXNjdi9jcnlwdG8vYWVzLW1hY3Jvcy5T
+ICAgICAgICAgfCAxMiArKystCiBhcmNoL3Jpc2N2L2NyeXB0by9hZXMtcmlzY3Y2NC1nbHVlLmMg
+ICB8IDc4ICsrLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQogYXJjaC9yaXNjdi9jcnlwdG8vYWVzLXJp
+c2N2NjQtenZrbmVkLlMgfCAyNyAtLS0tLS0tLS0KIGxpYi9jcnlwdG8vS2NvbmZpZyAgICAgICAg
+ICAgICAgICAgICAgIHwgIDIgKwogbGliL2NyeXB0by9NYWtlZmlsZSAgICAgICAgICAgICAgICAg
+ICAgfCAgMSArCiBsaWIvY3J5cHRvL3Jpc2N2L2Flcy1yaXNjdjY0LXp2a25lZC5TICB8IDg0ICsr
+KysrKysrKysrKysrKysrKysrKysrKysrCiBsaWIvY3J5cHRvL3Jpc2N2L2Flcy5oICAgICAgICAg
+ICAgICAgICB8IDYzICsrKysrKysrKysrKysrKysrKysKIDggZmlsZXMgY2hhbmdlZCwgMTY1IGlu
+c2VydGlvbnMoKyksIDEwNCBkZWxldGlvbnMoLSkKIGNyZWF0ZSBtb2RlIDEwMDY0NCBsaWIvY3J5
+cHRvL3Jpc2N2L2Flcy1yaXNjdjY0LXp2a25lZC5TCiBjcmVhdGUgbW9kZSAxMDA2NDQgbGliL2Ny
+eXB0by9yaXNjdi9hZXMuaAoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvY3J5cHRvL0tjb25maWcg
+Yi9hcmNoL3Jpc2N2L2NyeXB0by9LY29uZmlnCmluZGV4IDE0YzVhY2I5MzVlOS4uMjJkNGVhYWIx
+NWYzIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2NyeXB0by9LY29uZmlnCisrKyBiL2FyY2gvcmlz
+Y3YvY3J5cHRvL0tjb25maWcKQEAgLTQsMTUgKzQsMTMgQEAgbWVudSAiQWNjZWxlcmF0ZWQgQ3J5
+cHRvZ3JhcGhpYyBBbGdvcml0aG1zIGZvciBDUFUgKHJpc2N2KSIKIAogY29uZmlnIENSWVBUT19B
+RVNfUklTQ1Y2NAogCXRyaXN0YXRlICJDaXBoZXJzOiBBRVMsIG1vZGVzOiBFQ0IsIENCQywgQ1RT
+LCBDVFIsIFhUUyIKIAlkZXBlbmRzIG9uIDY0QklUICYmIFRPT0xDSEFJTl9IQVNfVkVDVE9SX0NS
+WVBUTyAmJiBcCiAJCSAgIFJJU0NWX0VGRklDSUVOVF9WRUNUT1JfVU5BTElHTkVEX0FDQ0VTUwot
+CXNlbGVjdCBDUllQVE9fQUxHQVBJCiAJc2VsZWN0IENSWVBUT19MSUJfQUVTCiAJc2VsZWN0IENS
+WVBUT19TS0NJUEhFUgogCWhlbHAKLQkgIEJsb2NrIGNpcGhlcjogQUVTIGNpcGhlciBhbGdvcml0
+aG1zCiAJICBMZW5ndGgtcHJlc2VydmluZyBjaXBoZXJzOiBBRVMgd2l0aCBFQ0IsIENCQywgQ1RT
+LCBDVFIsIFhUUwogCiAJICBBcmNoaXRlY3R1cmU6IHJpc2N2NjQgdXNpbmc6CiAJICAtIFp2a25l
+ZCB2ZWN0b3IgY3J5cHRvIGV4dGVuc2lvbgogCSAgLSBadmJiIHZlY3RvciBleHRlbnNpb24gKFhU
+UykKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvY3J5cHRvL2Flcy1tYWNyb3MuUyBiL2FyY2gvcmlz
+Y3YvY3J5cHRvL2Flcy1tYWNyb3MuUwppbmRleCBkMWEyNThkMDRiYzcuLjEzODQxNjQ2MjFhNSAx
+MDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9jcnlwdG8vYWVzLW1hY3Jvcy5TCisrKyBiL2FyY2gvcmlz
+Y3YvY3J5cHRvL2Flcy1tYWNyb3MuUwpAQCAtNDksMTIgKzQ5LDE0IEBACiAvLyAgIC0gSWYgQUVT
+LTEyOCwgbG9hZHMgcm91bmQga2V5cyBpbnRvIHYxLXYxMSBhbmQganVtcHMgdG8gXGxhYmVsMTI4
+LgogLy8gICAtIElmIEFFUy0xOTIsIGxvYWRzIHJvdW5kIGtleXMgaW50byB2MS12MTMgYW5kIGp1
+bXBzIHRvIFxsYWJlbDE5Mi4KIC8vICAgLSBJZiBBRVMtMjU2LCBsb2FkcyByb3VuZCBrZXlzIGlu
+dG8gdjEtdjE1IGFuZCBjb250aW51ZXMgb253YXJkcy4KIC8vCiAvLyBBbHNvIHNldHMgdmw9NCBh
+bmQgdnR5cGU9ZTMyLG0xLHRhLG1hLiAgQ2xvYmJlcnMgdDAgYW5kIHQxLgotLm1hY3JvCWFlc19i
+ZWdpbglrZXlwLCBsYWJlbDEyOCwgbGFiZWwxOTIKKy5tYWNybwlhZXNfYmVnaW4Ja2V5cCwgbGFi
+ZWwxMjgsIGxhYmVsMTkyLCBrZXlfbGVuCisuaWZiIFxrZXlfbGVuCiAJbHd1CQl0MCwgNDgwKFxr
+ZXlwKQkvLyB0MCA9IGtleSBsZW5ndGggaW4gYnl0ZXMKKy5lbmRpZgogCWxpCQl0MSwgMjQJCS8v
+IHQxID0ga2V5IGxlbmd0aCBmb3IgQUVTLTE5MgogCXZzZXRpdmxpCXplcm8sIDQsIGUzMiwgbTEs
+IHRhLCBtYQogCXZsZTMyLnYJCXYxLCAoXGtleXApCiAJYWRkaQkJXGtleXAsIFxrZXlwLCAxNgog
+CXZsZTMyLnYJCXYyLCAoXGtleXApCkBAIC03NCwxNiArNzYsMjQgQEAKIAl2bGUzMi52CQl2OSwg
+KFxrZXlwKQogCWFkZGkJCVxrZXlwLCBca2V5cCwgMTYKIAl2bGUzMi52CQl2MTAsIChca2V5cCkK
+IAlhZGRpCQlca2V5cCwgXGtleXAsIDE2CiAJdmxlMzIudgkJdjExLCAoXGtleXApCisuaWZiIFxr
+ZXlfbGVuCiAJYmx0CQl0MCwgdDEsIFxsYWJlbDEyOAkvLyBJZiBBRVMtMTI4LCBnb3RvIGxhYmVs
+MTI4LgorLmVsc2UKKwlibHQJCVxrZXlfbGVuLCB0MSwgXGxhYmVsMTI4CS8vIElmIEFFUy0xMjgs
+IGdvdG8gbGFiZWwxMjguCisuZW5kaWYKIAlhZGRpCQlca2V5cCwgXGtleXAsIDE2CiAJdmxlMzIu
+dgkJdjEyLCAoXGtleXApCiAJYWRkaQkJXGtleXAsIFxrZXlwLCAxNgogCXZsZTMyLnYJCXYxMywg
+KFxrZXlwKQorLmlmYiBca2V5X2xlbgogCWJlcQkJdDAsIHQxLCBcbGFiZWwxOTIJLy8gSWYgQUVT
+LTE5MiwgZ290byBsYWJlbDE5Mi4KKy5lbHNlCisJYmVxCQlca2V5X2xlbiwgdDEsIFxsYWJlbDE5
+MgkvLyBJZiBBRVMtMTkyLCBnb3RvIGxhYmVsMTkyLgorLmVuZGlmCiAJLy8gRWxzZSwgaXQncyBB
+RVMtMjU2LgogCWFkZGkJCVxrZXlwLCBca2V5cCwgMTYKIAl2bGUzMi52CQl2MTQsIChca2V5cCkK
+IAlhZGRpCQlca2V5cCwgXGtleXAsIDE2CiAJdmxlMzIudgkJdjE1LCAoXGtleXApCmRpZmYgLS1n
+aXQgYS9hcmNoL3Jpc2N2L2NyeXB0by9hZXMtcmlzY3Y2NC1nbHVlLmMgYi9hcmNoL3Jpc2N2L2Ny
+eXB0by9hZXMtcmlzY3Y2NC1nbHVlLmMKaW5kZXggZjgxNGVlMDQ4NTU1Li5lMWI4YjBkNzA2NjYg
+MTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvY3J5cHRvL2Flcy1yaXNjdjY0LWdsdWUuYworKysgYi9h
+cmNoL3Jpc2N2L2NyeXB0by9hZXMtcmlzY3Y2NC1nbHVlLmMKQEAgLTEzLDI1ICsxMywxNyBAQAog
+ICovCiAKICNpbmNsdWRlIDxhc20vc2ltZC5oPgogI2luY2x1ZGUgPGFzbS92ZWN0b3IuaD4KICNp
+bmNsdWRlIDxjcnlwdG8vYWVzLmg+Ci0jaW5jbHVkZSA8Y3J5cHRvL2ludGVybmFsL2NpcGhlci5o
+PgogI2luY2x1ZGUgPGNyeXB0by9pbnRlcm5hbC9zaW1kLmg+CiAjaW5jbHVkZSA8Y3J5cHRvL2lu
+dGVybmFsL3NrY2lwaGVyLmg+CiAjaW5jbHVkZSA8Y3J5cHRvL3NjYXR0ZXJ3YWxrLmg+CiAjaW5j
+bHVkZSA8Y3J5cHRvL3h0cy5oPgogI2luY2x1ZGUgPGxpbnV4L2xpbmthZ2UuaD4KICNpbmNsdWRl
+IDxsaW51eC9tb2R1bGUuaD4KIAotYXNtbGlua2FnZSB2b2lkIGFlc19lbmNyeXB0X3p2a25lZChj
+b25zdCBzdHJ1Y3QgY3J5cHRvX2Flc19jdHggKmtleSwKLQkJCQkgICBjb25zdCB1OCBpbltBRVNf
+QkxPQ0tfU0laRV0sCi0JCQkJICAgdTggb3V0W0FFU19CTE9DS19TSVpFXSk7Ci1hc21saW5rYWdl
+IHZvaWQgYWVzX2RlY3J5cHRfenZrbmVkKGNvbnN0IHN0cnVjdCBjcnlwdG9fYWVzX2N0eCAqa2V5
+LAotCQkJCSAgIGNvbnN0IHU4IGluW0FFU19CTE9DS19TSVpFXSwKLQkJCQkgICB1OCBvdXRbQUVT
+X0JMT0NLX1NJWkVdKTsKLQogYXNtbGlua2FnZSB2b2lkIGFlc19lY2JfZW5jcnlwdF96dmtuZWQo
+Y29uc3Qgc3RydWN0IGNyeXB0b19hZXNfY3R4ICprZXksCiAJCQkJICAgICAgIGNvbnN0IHU4ICpp
+biwgdTggKm91dCwgc2l6ZV90IGxlbik7CiBhc21saW5rYWdlIHZvaWQgYWVzX2VjYl9kZWNyeXB0
+X3p2a25lZChjb25zdCBzdHJ1Y3QgY3J5cHRvX2Flc19jdHggKmtleSwKIAkJCQkgICAgICAgY29u
+c3QgdTggKmluLCB1OCAqb3V0LCBzaXplX3QgbGVuKTsKIApAQCAtODQsNTQgKzc2LDE4IEBAIHN0
+YXRpYyBpbnQgcmlzY3Y2NF9hZXNfc2V0a2V5KHN0cnVjdCBjcnlwdG9fYWVzX2N0eCAqY3R4LAog
+CSAqICAgc3RydWN0IGNyeXB0b19hZXNfY3R4IGFuZCBhZXNfZXhwYW5ka2V5KCkgZXZlcnl3aGVy
+ZS4KIAkgKi8KIAlyZXR1cm4gYWVzX2V4cGFuZGtleShjdHgsIGtleSwga2V5bGVuKTsKIH0KIAot
+c3RhdGljIGludCByaXNjdjY0X2Flc19zZXRrZXlfY2lwaGVyKHN0cnVjdCBjcnlwdG9fdGZtICp0
+Zm0sCi0JCQkJICAgICBjb25zdCB1OCAqa2V5LCB1bnNpZ25lZCBpbnQga2V5bGVuKQotewotCXN0
+cnVjdCBjcnlwdG9fYWVzX2N0eCAqY3R4ID0gY3J5cHRvX3RmbV9jdHgodGZtKTsKLQotCXJldHVy
+biByaXNjdjY0X2Flc19zZXRrZXkoY3R4LCBrZXksIGtleWxlbik7Ci19Ci0KIHN0YXRpYyBpbnQg
+cmlzY3Y2NF9hZXNfc2V0a2V5X3NrY2lwaGVyKHN0cnVjdCBjcnlwdG9fc2tjaXBoZXIgKnRmbSwK
+IAkJCQkgICAgICAgY29uc3QgdTggKmtleSwgdW5zaWduZWQgaW50IGtleWxlbikKIHsKIAlzdHJ1
+Y3QgY3J5cHRvX2Flc19jdHggKmN0eCA9IGNyeXB0b19za2NpcGhlcl9jdHgodGZtKTsKIAogCXJl
+dHVybiByaXNjdjY0X2Flc19zZXRrZXkoY3R4LCBrZXksIGtleWxlbik7CiB9CiAKLS8qIEJhcmUg
+QUVTLCB3aXRob3V0IGEgbW9kZSBvZiBvcGVyYXRpb24gKi8KLQotc3RhdGljIHZvaWQgcmlzY3Y2
+NF9hZXNfZW5jcnlwdChzdHJ1Y3QgY3J5cHRvX3RmbSAqdGZtLCB1OCAqZHN0LCBjb25zdCB1OCAq
+c3JjKQotewotCWNvbnN0IHN0cnVjdCBjcnlwdG9fYWVzX2N0eCAqY3R4ID0gY3J5cHRvX3RmbV9j
+dHgodGZtKTsKLQotCWlmIChjcnlwdG9fc2ltZF91c2FibGUoKSkgewotCQlrZXJuZWxfdmVjdG9y
+X2JlZ2luKCk7Ci0JCWFlc19lbmNyeXB0X3p2a25lZChjdHgsIHNyYywgZHN0KTsKLQkJa2VybmVs
+X3ZlY3Rvcl9lbmQoKTsKLQl9IGVsc2UgewotCQlhZXNfZW5jcnlwdChjdHgsIGRzdCwgc3JjKTsK
+LQl9Ci19Ci0KLXN0YXRpYyB2b2lkIHJpc2N2NjRfYWVzX2RlY3J5cHQoc3RydWN0IGNyeXB0b190
+Zm0gKnRmbSwgdTggKmRzdCwgY29uc3QgdTggKnNyYykKLXsKLQljb25zdCBzdHJ1Y3QgY3J5cHRv
+X2Flc19jdHggKmN0eCA9IGNyeXB0b190Zm1fY3R4KHRmbSk7Ci0KLQlpZiAoY3J5cHRvX3NpbWRf
+dXNhYmxlKCkpIHsKLQkJa2VybmVsX3ZlY3Rvcl9iZWdpbigpOwotCQlhZXNfZGVjcnlwdF96dmtu
+ZWQoY3R4LCBzcmMsIGRzdCk7Ci0JCWtlcm5lbF92ZWN0b3JfZW5kKCk7Ci0JfSBlbHNlIHsKLQkJ
+YWVzX2RlY3J5cHQoY3R4LCBkc3QsIHNyYyk7Ci0JfQotfQotCiAvKiBBRVMtRUNCICovCiAKIHN0
+YXRpYyBpbmxpbmUgaW50IHJpc2N2NjRfYWVzX2VjYl9jcnlwdChzdHJ1Y3Qgc2tjaXBoZXJfcmVx
+dWVzdCAqcmVxLCBib29sIGVuYykKIHsKIAlzdHJ1Y3QgY3J5cHRvX3NrY2lwaGVyICp0Zm0gPSBj
+cnlwdG9fc2tjaXBoZXJfcmVxdGZtKHJlcSk7CkBAIC0zMzYsMjEgKzI5MiwyMSBAQCBzdGF0aWMg
+aW50IHJpc2N2NjRfYWVzX2N0cl9jcnlwdChzdHJ1Y3Qgc2tjaXBoZXJfcmVxdWVzdCAqcmVxKQog
+CiAvKiBBRVMtWFRTICovCiAKIHN0cnVjdCByaXNjdjY0X2Flc194dHNfY3R4IHsKIAlzdHJ1Y3Qg
+Y3J5cHRvX2Flc19jdHggY3R4MTsKLQlzdHJ1Y3QgY3J5cHRvX2Flc19jdHggY3R4MjsKKwlzdHJ1
+Y3QgYWVzX2VuY2tleSB0d2Vha19rZXk7CiB9OwogCiBzdGF0aWMgaW50IHJpc2N2NjRfYWVzX3h0
+c19zZXRrZXkoc3RydWN0IGNyeXB0b19za2NpcGhlciAqdGZtLCBjb25zdCB1OCAqa2V5LAogCQkJ
+CSAgdW5zaWduZWQgaW50IGtleWxlbikKIHsKIAlzdHJ1Y3QgcmlzY3Y2NF9hZXNfeHRzX2N0eCAq
+Y3R4ID0gY3J5cHRvX3NrY2lwaGVyX2N0eCh0Zm0pOwogCiAJcmV0dXJuIHh0c192ZXJpZnlfa2V5
+KHRmbSwga2V5LCBrZXlsZW4pID86CiAJICAgICAgIHJpc2N2NjRfYWVzX3NldGtleSgmY3R4LT5j
+dHgxLCBrZXksIGtleWxlbiAvIDIpID86Ci0JICAgICAgIHJpc2N2NjRfYWVzX3NldGtleSgmY3R4
+LT5jdHgyLCBrZXkgKyBrZXlsZW4gLyAyLCBrZXlsZW4gLyAyKTsKKwkgICAgICAgYWVzX3ByZXBh
+cmVlbmNrZXkoJmN0eC0+dHdlYWtfa2V5LCBrZXkgKyBrZXlsZW4gLyAyLCBrZXlsZW4gLyAyKTsK
+IH0KIAogc3RhdGljIGludCByaXNjdjY0X2Flc194dHNfY3J5cHQoc3RydWN0IHNrY2lwaGVyX3Jl
+cXVlc3QgKnJlcSwgYm9vbCBlbmMpCiB7CiAJc3RydWN0IGNyeXB0b19za2NpcGhlciAqdGZtID0g
+Y3J5cHRvX3NrY2lwaGVyX3JlcXRmbShyZXEpOwpAQCAtMzY0LDEzICszMjAsMTEgQEAgc3RhdGlj
+IGludCByaXNjdjY0X2Flc194dHNfY3J5cHQoc3RydWN0IHNrY2lwaGVyX3JlcXVlc3QgKnJlcSwg
+Ym9vbCBlbmMpCiAKIAlpZiAocmVxLT5jcnlwdGxlbiA8IEFFU19CTE9DS19TSVpFKQogCQlyZXR1
+cm4gLUVJTlZBTDsKIAogCS8qIEVuY3J5cHQgdGhlIElWIHdpdGggdGhlIHR3ZWFrIGtleSB0byBn
+ZXQgdGhlIGZpcnN0IHR3ZWFrLiAqLwotCWtlcm5lbF92ZWN0b3JfYmVnaW4oKTsKLQlhZXNfZW5j
+cnlwdF96dmtuZWQoJmN0eC0+Y3R4MiwgcmVxLT5pdiwgcmVxLT5pdik7Ci0Ja2VybmVsX3ZlY3Rv
+cl9lbmQoKTsKKwlhZXNfZW5jcnlwdF9uZXcoJmN0eC0+dHdlYWtfa2V5LCByZXEtPml2LCByZXEt
+Pml2KTsKIAogCWVyciA9IHNrY2lwaGVyX3dhbGtfdmlydCgmd2FsaywgcmVxLCBmYWxzZSk7CiAK
+IAkvKgogCSAqIElmIHRoZSBtZXNzYWdlIGxlbmd0aCBpc24ndCBkaXZpc2libGUgYnkgdGhlIEFF
+UyBibG9jayBzaXplIGFuZCB0aGUKQEAgLTQ1NCwyNyArNDA4LDEwIEBAIHN0YXRpYyBpbnQgcmlz
+Y3Y2NF9hZXNfeHRzX2RlY3J5cHQoc3RydWN0IHNrY2lwaGVyX3JlcXVlc3QgKnJlcSkKIAlyZXR1
+cm4gcmlzY3Y2NF9hZXNfeHRzX2NyeXB0KHJlcSwgZmFsc2UpOwogfQogCiAvKiBBbGdvcml0aG0g
+ZGVmaW5pdGlvbnMgKi8KIAotc3RhdGljIHN0cnVjdCBjcnlwdG9fYWxnIHJpc2N2NjRfenZrbmVk
+X2Flc19jaXBoZXJfYWxnID0gewotCS5jcmFfZmxhZ3MgPSBDUllQVE9fQUxHX1RZUEVfQ0lQSEVS
+LAotCS5jcmFfYmxvY2tzaXplID0gQUVTX0JMT0NLX1NJWkUsCi0JLmNyYV9jdHhzaXplID0gc2l6
+ZW9mKHN0cnVjdCBjcnlwdG9fYWVzX2N0eCksCi0JLmNyYV9wcmlvcml0eSA9IDMwMCwKLQkuY3Jh
+X25hbWUgPSAiYWVzIiwKLQkuY3JhX2RyaXZlcl9uYW1lID0gImFlcy1yaXNjdjY0LXp2a25lZCIs
+Ci0JLmNyYV9jaXBoZXIgPSB7Ci0JCS5jaWFfbWluX2tleXNpemUgPSBBRVNfTUlOX0tFWV9TSVpF
+LAotCQkuY2lhX21heF9rZXlzaXplID0gQUVTX01BWF9LRVlfU0laRSwKLQkJLmNpYV9zZXRrZXkg
+PSByaXNjdjY0X2Flc19zZXRrZXlfY2lwaGVyLAotCQkuY2lhX2VuY3J5cHQgPSByaXNjdjY0X2Fl
+c19lbmNyeXB0LAotCQkuY2lhX2RlY3J5cHQgPSByaXNjdjY0X2Flc19kZWNyeXB0LAotCX0sCi0J
+LmNyYV9tb2R1bGUgPSBUSElTX01PRFVMRSwKLX07Ci0KIHN0YXRpYyBzdHJ1Y3Qgc2tjaXBoZXJf
+YWxnIHJpc2N2NjRfenZrbmVkX2Flc19za2NpcGhlcl9hbGdzW10gPSB7CiAJewogCQkuc2V0a2V5
+ID0gcmlzY3Y2NF9hZXNfc2V0a2V5X3NrY2lwaGVyLAogCQkuZW5jcnlwdCA9IHJpc2N2NjRfYWVz
+X2VjYl9lbmNyeXB0LAogCQkuZGVjcnlwdCA9IHJpc2N2NjRfYWVzX2VjYl9kZWNyeXB0LApAQCAt
+NTcyLDE5ICs1MDksMTUgQEAgc3RhdGljIGludCBfX2luaXQgcmlzY3Y2NF9hZXNfbW9kX2luaXQo
+dm9pZCkKIHsKIAlpbnQgZXJyID0gLUVOT0RFVjsKIAogCWlmIChyaXNjdl9pc2FfZXh0ZW5zaW9u
+X2F2YWlsYWJsZShOVUxMLCBaVktORUQpICYmCiAJICAgIHJpc2N2X3ZlY3Rvcl92bGVuKCkgPj0g
+MTI4KSB7Ci0JCWVyciA9IGNyeXB0b19yZWdpc3Rlcl9hbGcoJnJpc2N2NjRfenZrbmVkX2Flc19j
+aXBoZXJfYWxnKTsKLQkJaWYgKGVycikKLQkJCXJldHVybiBlcnI7Ci0KIAkJZXJyID0gY3J5cHRv
+X3JlZ2lzdGVyX3NrY2lwaGVycygKIAkJCXJpc2N2NjRfenZrbmVkX2Flc19za2NpcGhlcl9hbGdz
+LAogCQkJQVJSQVlfU0laRShyaXNjdjY0X3p2a25lZF9hZXNfc2tjaXBoZXJfYWxncykpOwogCQlp
+ZiAoZXJyKQotCQkJZ290byB1bnJlZ2lzdGVyX3p2a25lZF9jaXBoZXJfYWxnOworCQkJcmV0dXJu
+IGVycjsKIAogCQlpZiAocmlzY3ZfaXNhX2V4dGVuc2lvbl9hdmFpbGFibGUoTlVMTCwgWlZLQikp
+IHsKIAkJCWVyciA9IGNyeXB0b19yZWdpc3Rlcl9za2NpcGhlcigKIAkJCQkmcmlzY3Y2NF96dmtu
+ZWRfenZrYl9hZXNfc2tjaXBoZXJfYWxnKTsKIAkJCWlmIChlcnIpCkBAIC02MDUsMTIgKzUzOCwx
+MCBAQCBzdGF0aWMgaW50IF9faW5pdCByaXNjdjY0X2Flc19tb2RfaW5pdCh2b2lkKQogCWlmIChy
+aXNjdl9pc2FfZXh0ZW5zaW9uX2F2YWlsYWJsZShOVUxMLCBaVktCKSkKIAkJY3J5cHRvX3VucmVn
+aXN0ZXJfc2tjaXBoZXIoJnJpc2N2NjRfenZrbmVkX3p2a2JfYWVzX3NrY2lwaGVyX2FsZyk7CiB1
+bnJlZ2lzdGVyX3p2a25lZF9za2NpcGhlcl9hbGdzOgogCWNyeXB0b191bnJlZ2lzdGVyX3NrY2lw
+aGVycyhyaXNjdjY0X3p2a25lZF9hZXNfc2tjaXBoZXJfYWxncywKIAkJCQkgICAgQVJSQVlfU0la
+RShyaXNjdjY0X3p2a25lZF9hZXNfc2tjaXBoZXJfYWxncykpOwotdW5yZWdpc3Rlcl96dmtuZWRf
+Y2lwaGVyX2FsZzoKLQljcnlwdG9fdW5yZWdpc3Rlcl9hbGcoJnJpc2N2NjRfenZrbmVkX2Flc19j
+aXBoZXJfYWxnKTsKIAlyZXR1cm4gZXJyOwogfQogCiBzdGF0aWMgdm9pZCBfX2V4aXQgcmlzY3Y2
+NF9hZXNfbW9kX2V4aXQodm9pZCkKIHsKQEAgLTYxOCwxMSArNTQ5LDEwIEBAIHN0YXRpYyB2b2lk
+IF9fZXhpdCByaXNjdjY0X2Flc19tb2RfZXhpdCh2b2lkKQogCQljcnlwdG9fdW5yZWdpc3Rlcl9z
+a2NpcGhlcigmcmlzY3Y2NF96dmtuZWRfenZiYl96dmtnX2Flc19za2NpcGhlcl9hbGcpOwogCWlm
+IChyaXNjdl9pc2FfZXh0ZW5zaW9uX2F2YWlsYWJsZShOVUxMLCBaVktCKSkKIAkJY3J5cHRvX3Vu
+cmVnaXN0ZXJfc2tjaXBoZXIoJnJpc2N2NjRfenZrbmVkX3p2a2JfYWVzX3NrY2lwaGVyX2FsZyk7
+CiAJY3J5cHRvX3VucmVnaXN0ZXJfc2tjaXBoZXJzKHJpc2N2NjRfenZrbmVkX2Flc19za2NpcGhl
+cl9hbGdzLAogCQkJCSAgICBBUlJBWV9TSVpFKHJpc2N2NjRfenZrbmVkX2Flc19za2NpcGhlcl9h
+bGdzKSk7Ci0JY3J5cHRvX3VucmVnaXN0ZXJfYWxnKCZyaXNjdjY0X3p2a25lZF9hZXNfY2lwaGVy
+X2FsZyk7CiB9CiAKIG1vZHVsZV9pbml0KHJpc2N2NjRfYWVzX21vZF9pbml0KTsKIG1vZHVsZV9l
+eGl0KHJpc2N2NjRfYWVzX21vZF9leGl0KTsKIApkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9jcnlw
+dG8vYWVzLXJpc2N2NjQtenZrbmVkLlMgYi9hcmNoL3Jpc2N2L2NyeXB0by9hZXMtcmlzY3Y2NC16
+dmtuZWQuUwppbmRleCAyM2QwNjNmOTRjZTYuLmQwZmM0NTgxYTM4MCAxMDA2NDQKLS0tIGEvYXJj
+aC9yaXNjdi9jcnlwdG8vYWVzLXJpc2N2NjQtenZrbmVkLlMKKysrIGIvYXJjaC9yaXNjdi9jcnlw
+dG8vYWVzLXJpc2N2NjQtenZrbmVkLlMKQEAgLTU0LDM3ICs1NCwxMCBAQAogI2RlZmluZSBJTlAJ
+CWExCiAjZGVmaW5lIE9VVFAJCWEyCiAjZGVmaW5lIExFTgkJYTMKICNkZWZpbmUgSVZQCQlhNAog
+Ci0ubWFjcm8JX19hZXNfY3J5cHRfenZrbmVkCWVuYywga2V5bGVuCi0JdmxlMzIudgkJdjE2LCAo
+SU5QKQotCWFlc19jcnlwdAl2MTYsIFxlbmMsIFxrZXlsZW4KLQl2c2UzMi52CQl2MTYsIChPVVRQ
+KQotCXJldAotLmVuZG0KLQotLm1hY3JvCWFlc19jcnlwdF96dmtuZWQJZW5jCi0JYWVzX2JlZ2lu
+CUtFWVAsIDEyOGYsIDE5MmYKLQlfX2Flc19jcnlwdF96dmtuZWQJXGVuYywgMjU2Ci0xMjg6Ci0J
+X19hZXNfY3J5cHRfenZrbmVkCVxlbmMsIDEyOAotMTkyOgotCV9fYWVzX2NyeXB0X3p2a25lZAlc
+ZW5jLCAxOTIKLS5lbmRtCi0KLS8vIHZvaWQgYWVzX2VuY3J5cHRfenZrbmVkKGNvbnN0IHN0cnVj
+dCBjcnlwdG9fYWVzX2N0eCAqa2V5LAotLy8JCQkgICBjb25zdCB1OCBpblsxNl0sIHU4IG91dFsx
+Nl0pOwotU1lNX0ZVTkNfU1RBUlQoYWVzX2VuY3J5cHRfenZrbmVkKQotCWFlc19jcnlwdF96dmtu
+ZWQJMQotU1lNX0ZVTkNfRU5EKGFlc19lbmNyeXB0X3p2a25lZCkKLQotLy8gU2FtZSBwcm90b3R5
+cGUgYW5kIGNhbGxpbmcgY29udmVudGlvbiBhcyB0aGUgZW5jcnlwdGlvbiBmdW5jdGlvbgotU1lN
+X0ZVTkNfU1RBUlQoYWVzX2RlY3J5cHRfenZrbmVkKQotCWFlc19jcnlwdF96dmtuZWQJMAotU1lN
+X0ZVTkNfRU5EKGFlc19kZWNyeXB0X3p2a25lZCkKLQogLm1hY3JvCV9fYWVzX2VjYl9jcnlwdAll
+bmMsIGtleWxlbgogCXNybGkJCXQwLCBMRU4sIDIKIAkvLyB0MCBpcyB0aGUgcmVtYWluaW5nIGxl
+bmd0aCBpbiAzMi1iaXQgd29yZHMuICBJdCdzIGEgbXVsdGlwbGUgb2YgNC4KIDE6CiAJdnNldHZs
+aQkJdDEsIHQwLCBlMzIsIG04LCB0YSwgbWEKZGlmZiAtLWdpdCBhL2xpYi9jcnlwdG8vS2NvbmZp
+ZyBiL2xpYi9jcnlwdG8vS2NvbmZpZwppbmRleCBkZGQzZmU4MjZiODEuLmE4YzBiMDJhNGZiMCAx
+MDA2NDQKLS0tIGEvbGliL2NyeXB0by9LY29uZmlnCisrKyBiL2xpYi9jcnlwdG8vS2NvbmZpZwpA
+QCAtMTUsMTAgKzE1LDEyIEBAIGNvbmZpZyBDUllQVE9fTElCX0FFU19BUkNICiAJYm9vbAogCWRl
+cGVuZHMgb24gQ1JZUFRPX0xJQl9BRVMgJiYgIVVNTCAmJiAhS01TQU4KIAlkZWZhdWx0IHkgaWYg
+QVJNCiAJZGVmYXVsdCB5IGlmIEFSTTY0CiAJZGVmYXVsdCB5IGlmIFBQQyAmJiAoU1BFIHx8IChQ
+UEM2NCAmJiBWU1gpKQorCWRlZmF1bHQgeSBpZiBSSVNDViAmJiA2NEJJVCAmJiBUT09MQ0hBSU5f
+SEFTX1ZFQ1RPUl9DUllQVE8gJiYgXAorCQkgICAgIFJJU0NWX0VGRklDSUVOVF9WRUNUT1JfVU5B
+TElHTkVEX0FDQ0VTUwogCiBjb25maWcgQ1JZUFRPX0xJQl9BRVNDRkIKIAl0cmlzdGF0ZQogCXNl
+bGVjdCBDUllQVE9fTElCX0FFUwogCXNlbGVjdCBDUllQVE9fTElCX1VUSUxTCmRpZmYgLS1naXQg
+YS9saWIvY3J5cHRvL01ha2VmaWxlIGIvbGliL2NyeXB0by9NYWtlZmlsZQppbmRleCAxNjE0MDYx
+NmFjZTguLjgxMWI2MDc4N2RkNSAxMDA2NDQKLS0tIGEvbGliL2NyeXB0by9NYWtlZmlsZQorKysg
+Yi9saWIvY3J5cHRvL01ha2VmaWxlCkBAIC00OCwxMCArNDgsMTEgQEAgJChvYmopL3Bvd2VycGMv
+YWVzcDgtcHBjLlM6ICQoc3JjKS9wb3dlcnBjL2Flc3A4LXBwYy5wbCBGT1JDRQogdGFyZ2V0cyAr
+PSBwb3dlcnBjL2Flc3A4LXBwYy5TCiBPQkpFQ1RfRklMRVNfTk9OX1NUQU5EQVJEX3Bvd2VycGMv
+YWVzcDgtcHBjLm8gOj0geQogZW5kaWYgIyAhQ09ORklHX1NQRQogZW5kaWYgIyBDT05GSUdfUFBD
+CiAKK2xpYmFlcy0kKENPTkZJR19SSVNDVikgKz0gcmlzY3YvYWVzLXJpc2N2NjQtenZrbmVkLm8K
+IGVuZGlmICMgQ09ORklHX0NSWVBUT19MSUJfQUVTX0FSQ0gKIAogIyMjIyMjIyMjIyMjIyMjIyMj
+IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
+IyMjIyMKIAogb2JqLSQoQ09ORklHX0NSWVBUT19MSUJfQUVTQ0ZCKQkJCSs9IGxpYmFlc2NmYi5v
+CmRpZmYgLS1naXQgYS9saWIvY3J5cHRvL3Jpc2N2L2Flcy1yaXNjdjY0LXp2a25lZC5TIGIvbGli
+L2NyeXB0by9yaXNjdi9hZXMtcmlzY3Y2NC16dmtuZWQuUwpuZXcgZmlsZSBtb2RlIDEwMDY0NApp
+bmRleCAwMDAwMDAwMDAwMDAuLjBkOTg4YmMzZDM3YgotLS0gL2Rldi9udWxsCisrKyBiL2xpYi9j
+cnlwdG8vcmlzY3YvYWVzLXJpc2N2NjQtenZrbmVkLlMKQEAgLTAsMCArMSw4NCBAQAorLyogU1BE
+WC1MaWNlbnNlLUlkZW50aWZpZXI6IEFwYWNoZS0yLjAgT1IgQlNELTItQ2xhdXNlICovCisvLwor
+Ly8gVGhpcyBmaWxlIGlzIGR1YWwtbGljZW5zZWQsIG1lYW5pbmcgdGhhdCB5b3UgY2FuIHVzZSBp
+dCB1bmRlciB5b3VyCisvLyBjaG9pY2Ugb2YgZWl0aGVyIG9mIHRoZSBmb2xsb3dpbmcgdHdvIGxp
+Y2Vuc2VzOgorLy8KKy8vIENvcHlyaWdodCAyMDIzIFRoZSBPcGVuU1NMIFByb2plY3QgQXV0aG9y
+cy4gQWxsIFJpZ2h0cyBSZXNlcnZlZC4KKy8vCisvLyBMaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hl
+IExpY2Vuc2UgMi4wICh0aGUgIkxpY2Vuc2UiKS4gWW91IGNhbiBvYnRhaW4KKy8vIGEgY29weSBp
+biB0aGUgZmlsZSBMSUNFTlNFIGluIHRoZSBzb3VyY2UgZGlzdHJpYnV0aW9uIG9yIGF0CisvLyBo
+dHRwczovL3d3dy5vcGVuc3NsLm9yZy9zb3VyY2UvbGljZW5zZS5odG1sCisvLworLy8gb3IKKy8v
+CisvLyBDb3B5cmlnaHQgKGMpIDIwMjMsIENocmlzdG9waCBNw7xsbG5lciA8Y2hyaXN0b3BoLm11
+ZWxsbmVyQHZydWxsLmV1PgorLy8gQ29weXJpZ2h0IChjKSAyMDIzLCBQaG9lYmUgQ2hlbiA8cGhv
+ZWJlLmNoZW5Ac2lmaXZlLmNvbT4KKy8vIENvcHlyaWdodCAoYykgMjAyMywgSmVycnkgU2hpaCA8
+amVycnkuc2hpaEBzaWZpdmUuY29tPgorLy8gQ29weXJpZ2h0IDIwMjQgR29vZ2xlIExMQworLy8g
+QWxsIHJpZ2h0cyByZXNlcnZlZC4KKy8vCisvLyBSZWRpc3RyaWJ1dGlvbiBhbmQgdXNlIGluIHNv
+dXJjZSBhbmQgYmluYXJ5IGZvcm1zLCB3aXRoIG9yIHdpdGhvdXQKKy8vIG1vZGlmaWNhdGlvbiwg
+YXJlIHBlcm1pdHRlZCBwcm92aWRlZCB0aGF0IHRoZSBmb2xsb3dpbmcgY29uZGl0aW9ucworLy8g
+YXJlIG1ldDoKKy8vIDEuIFJlZGlzdHJpYnV0aW9ucyBvZiBzb3VyY2UgY29kZSBtdXN0IHJldGFp
+biB0aGUgYWJvdmUgY29weXJpZ2h0CisvLyAgICBub3RpY2UsIHRoaXMgbGlzdCBvZiBjb25kaXRp
+b25zIGFuZCB0aGUgZm9sbG93aW5nIGRpc2NsYWltZXIuCisvLyAyLiBSZWRpc3RyaWJ1dGlvbnMg
+aW4gYmluYXJ5IGZvcm0gbXVzdCByZXByb2R1Y2UgdGhlIGFib3ZlIGNvcHlyaWdodAorLy8gICAg
+bm90aWNlLCB0aGlzIGxpc3Qgb2YgY29uZGl0aW9ucyBhbmQgdGhlIGZvbGxvd2luZyBkaXNjbGFp
+bWVyIGluIHRoZQorLy8gICAgZG9jdW1lbnRhdGlvbiBhbmQvb3Igb3RoZXIgbWF0ZXJpYWxzIHBy
+b3ZpZGVkIHdpdGggdGhlIGRpc3RyaWJ1dGlvbi4KKy8vCisvLyBUSElTIFNPRlRXQVJFIElTIFBS
+T1ZJREVEIEJZIFRIRSBDT1BZUklHSFQgSE9MREVSUyBBTkQgQ09OVFJJQlVUT1JTCisvLyAiQVMg
+SVMiIEFORCBBTlkgRVhQUkVTUyBPUiBJTVBMSUVEIFdBUlJBTlRJRVMsIElOQ0xVRElORywgQlVU
+IE5PVAorLy8gTElNSVRFRCBUTywgVEhFIElNUExJRUQgV0FSUkFOVElFUyBPRiBNRVJDSEFOVEFC
+SUxJVFkgQU5EIEZJVE5FU1MgRk9SCisvLyBBIFBBUlRJQ1VMQVIgUFVSUE9TRSBBUkUgRElTQ0xB
+SU1FRC4gSU4gTk8gRVZFTlQgU0hBTEwgVEhFIENPUFlSSUdIVAorLy8gT1dORVIgT1IgQ09OVFJJ
+QlVUT1JTIEJFIExJQUJMRSBGT1IgQU5ZIERJUkVDVCwgSU5ESVJFQ1QsIElOQ0lERU5UQUwsCisv
+LyBTUEVDSUFMLCBFWEVNUExBUlksIE9SIENPTlNFUVVFTlRJQUwgREFNQUdFUyAoSU5DTFVESU5H
+LCBCVVQgTk9UCisvLyBMSU1JVEVEIFRPLCBQUk9DVVJFTUVOVCBPRiBTVUJTVElUVVRFIEdPT0RT
+IE9SIFNFUlZJQ0VTOyBMT1NTIE9GIFVTRSwKKy8vIERBVEEsIE9SIFBST0ZJVFM7IE9SIEJVU0lO
+RVNTIElOVEVSUlVQVElPTikgSE9XRVZFUiBDQVVTRUQgQU5EIE9OIEFOWQorLy8gVEhFT1JZIE9G
+IExJQUJJTElUWSwgV0hFVEhFUiBJTiBDT05UUkFDVCwgU1RSSUNUIExJQUJJTElUWSwgT1IgVE9S
+VAorLy8gKElOQ0xVRElORyBORUdMSUdFTkNFIE9SIE9USEVSV0lTRSkgQVJJU0lORyBJTiBBTlkg
+V0FZIE9VVCBPRiBUSEUgVVNFCisvLyBPRiBUSElTIFNPRlRXQVJFLCBFVkVOIElGIEFEVklTRUQg
+T0YgVEhFIFBPU1NJQklMSVRZIE9GIFNVQ0ggREFNQUdFLgorCisvLyBUaGUgZ2VuZXJhdGVkIGNv
+ZGUgb2YgdGhpcyBmaWxlIGRlcGVuZHMgb24gdGhlIGZvbGxvd2luZyBSSVNDLVYgZXh0ZW5zaW9u
+czoKKy8vIC0gUlY2NEkKKy8vIC0gUklTQy1WIFZlY3RvciAoJ1YnKSB3aXRoIFZMRU4gPj0gMTI4
+CisvLyAtIFJJU0MtViBWZWN0b3IgQUVTIGJsb2NrIGNpcGhlciBleHRlbnNpb24gKCdadmtuZWQn
+KQorCisjaW5jbHVkZSA8bGludXgvbGlua2FnZS5oPgorCisudGV4dAorLm9wdGlvbiBhcmNoLCAr
+enZrbmVkCisKKyNpbmNsdWRlICIuLi8uLi9hcmNoL3Jpc2N2L2NyeXB0by9hZXMtbWFjcm9zLlMi
+CisKKyNkZWZpbmUgUk5ES0VZUwkJYTAKKyNkZWZpbmUgS0VZX0xFTgkJYTEKKyNkZWZpbmUgT1VU
+UAkJYTIKKyNkZWZpbmUgSU5QCQlhMworCisubWFjcm8JX19hZXNfY3J5cHRfenZrbmVkCWVuYywg
+a2V5Yml0cworCXZsZTMyLnYJCXYxNiwgKElOUCkKKwlhZXNfY3J5cHQJdjE2LCBcZW5jLCBca2V5
+Yml0cworCXZzZTMyLnYJCXYxNiwgKE9VVFApCisJcmV0CisuZW5kbQorCisubWFjcm8JYWVzX2Ny
+eXB0X3p2a25lZAllbmMKKwlhZXNfYmVnaW4JUk5ES0VZUywgMTI4ZiwgMTkyZiwgS0VZX0xFTgor
+CV9fYWVzX2NyeXB0X3p2a25lZAlcZW5jLCAyNTYKKzEyODoKKwlfX2Flc19jcnlwdF96dmtuZWQJ
+XGVuYywgMTI4CisxOTI6CisJX19hZXNfY3J5cHRfenZrbmVkCVxlbmMsIDE5MgorLmVuZG0KKwor
+Ly8gdm9pZCBhZXNfZW5jcnlwdF96dmtuZWQoY29uc3QgdTMyIHJuZGtleXNbXSwgaW50IGtleV9s
+ZW4sCisvLwkJCSAgIHU4IG91dFtBRVNfQkxPQ0tfU0laRV0sIGNvbnN0IHU4IGluW0FFU19CTE9D
+S19TSVpFXSk7CitTWU1fRlVOQ19TVEFSVChhZXNfZW5jcnlwdF96dmtuZWQpCisJYWVzX2NyeXB0
+X3p2a25lZAkxCitTWU1fRlVOQ19FTkQoYWVzX2VuY3J5cHRfenZrbmVkKQorCisvLyB2b2lkIGFl
+c19kZWNyeXB0X3p2a25lZChjb25zdCB1MzIgcm5ka2V5c1tdLCBpbnQga2V5X2xlbiwKKy8vCQkJ
+ICAgdTggb3V0W0FFU19CTE9DS19TSVpFXSwgY29uc3QgdTggaW5bQUVTX0JMT0NLX1NJWkVdKTsK
+K1NZTV9GVU5DX1NUQVJUKGFlc19kZWNyeXB0X3p2a25lZCkKKwlhZXNfY3J5cHRfenZrbmVkCTAK
+K1NZTV9GVU5DX0VORChhZXNfZGVjcnlwdF96dmtuZWQpCmRpZmYgLS1naXQgYS9saWIvY3J5cHRv
+L3Jpc2N2L2Flcy5oIGIvbGliL2NyeXB0by9yaXNjdi9hZXMuaApuZXcgZmlsZSBtb2RlIDEwMDY0
+NAppbmRleCAwMDAwMDAwMDAwMDAuLjBiMjZmNThmYWYyYgotLS0gL2Rldi9udWxsCisrKyBiL2xp
+Yi9jcnlwdG8vcmlzY3YvYWVzLmgKQEAgLTAsMCArMSw2MyBAQAorLyogU1BEWC1MaWNlbnNlLUlk
+ZW50aWZpZXI6IEdQTC0yLjAtb25seSAqLworLyoKKyAqIENvcHlyaWdodCAoQykgMjAyMyBWUlVM
+TCBHbWJICisgKiBDb3B5cmlnaHQgKEMpIDIwMjMgU2lGaXZlLCBJbmMuCisgKiBDb3B5cmlnaHQg
+MjAyNCBHb29nbGUgTExDCisgKi8KKworI2luY2x1ZGUgPGFzbS9zaW1kLmg+CisjaW5jbHVkZSA8
+YXNtL3ZlY3Rvci5oPgorCitzdGF0aWMgX19yb19hZnRlcl9pbml0IERFRklORV9TVEFUSUNfS0VZ
+X0ZBTFNFKGhhdmVfenZrbmVkKTsKKwordm9pZCBhZXNfZW5jcnlwdF96dmtuZWQoY29uc3QgdTMy
+IHJuZGtleXNbXSwgaW50IGtleV9sZW4sCisJCQl1OCBvdXRbQUVTX0JMT0NLX1NJWkVdLCBjb25z
+dCB1OCBpbltBRVNfQkxPQ0tfU0laRV0pOwordm9pZCBhZXNfZGVjcnlwdF96dmtuZWQoY29uc3Qg
+dTMyIHJuZGtleXNbXSwgaW50IGtleV9sZW4sCisJCQl1OCBvdXRbQUVTX0JMT0NLX1NJWkVdLCBj
+b25zdCB1OCBpbltBRVNfQkxPQ0tfU0laRV0pOworCitzdGF0aWMgdm9pZCBhZXNfcHJlcGFyZWtl
+eV9hcmNoKHVuaW9uIGFlc19lbmNrZXlfYXJjaCAqaywKKwkJCQl1bmlvbiBhZXNfaW52a2V5X2Fy
+Y2ggKmludl9rLAorCQkJCWNvbnN0IHU4ICppbl9rZXksIGludCBrZXlfbGVuLCBpbnQgbnJvdW5k
+cykKK3sKKwlhZXNfZXhwYW5ka2V5X2dlbmVyaWMoay0+cm5ka2V5cywgaW52X2sgPyBpbnZfay0+
+aW52X3JuZGtleXMgOiBOVUxMLAorCQkJICAgICAgaW5fa2V5LCBrZXlfbGVuKTsKK30KKworc3Rh
+dGljIHZvaWQgYWVzX2VuY3J5cHRfYXJjaChjb25zdCBzdHJ1Y3QgYWVzX2VuY2tleSAqa2V5LAor
+CQkJICAgICB1OCBvdXRbQUVTX0JMT0NLX1NJWkVdLAorCQkJICAgICBjb25zdCB1OCBpbltBRVNf
+QkxPQ0tfU0laRV0pCit7CisJaWYgKHN0YXRpY19icmFuY2hfbGlrZWx5KCZoYXZlX3p2a25lZCkg
+JiYgbGlrZWx5KG1heV91c2Vfc2ltZCgpKSkgeworCQlrZXJuZWxfdmVjdG9yX2JlZ2luKCk7CisJ
+CWFlc19lbmNyeXB0X3p2a25lZChrZXktPmsucm5ka2V5cywga2V5LT5sZW4sIG91dCwgaW4pOwor
+CQlrZXJuZWxfdmVjdG9yX2VuZCgpOworCX0gZWxzZSB7CisJCWFlc19lbmNyeXB0X2dlbmVyaWMo
+a2V5LT5rLnJuZGtleXMsIGtleS0+bnJvdW5kcywgb3V0LCBpbik7CisJfQorfQorCitzdGF0aWMg
+dm9pZCBhZXNfZGVjcnlwdF9hcmNoKGNvbnN0IHN0cnVjdCBhZXNfa2V5ICprZXksCisJCQkgICAg
+IHU4IG91dFtBRVNfQkxPQ0tfU0laRV0sCisJCQkgICAgIGNvbnN0IHU4IGluW0FFU19CTE9DS19T
+SVpFXSkKK3sKKwkvKgorCSAqIE5vdGUgdGhhdCB0aGUgWnZrbmVkIGNvZGUgdXNlcyB0aGUgc3Rh
+bmRhcmQgcm91bmQga2V5cywgd2hpbGUgdGhlCisJICogZmFsbGJhY2sgdXNlcyB0aGUgaW52ZXJz
+ZSByb3VuZCBrZXlzLiAgVGh1cyBib3RoIG11c3QgYmUgcHJlc2VudC4KKwkgKi8KKwlpZiAoc3Rh
+dGljX2JyYW5jaF9saWtlbHkoJmhhdmVfenZrbmVkKSAmJiBsaWtlbHkobWF5X3VzZV9zaW1kKCkp
+KSB7CisJCWtlcm5lbF92ZWN0b3JfYmVnaW4oKTsKKwkJYWVzX2RlY3J5cHRfenZrbmVkKGtleS0+
+ay5ybmRrZXlzLCBrZXktPmxlbiwgb3V0LCBpbik7CisJCWtlcm5lbF92ZWN0b3JfZW5kKCk7CisJ
+fSBlbHNlIHsKKwkJYWVzX2RlY3J5cHRfZ2VuZXJpYyhrZXktPmludl9rLmludl9ybmRrZXlzLCBr
+ZXktPm5yb3VuZHMsCisJCQkJICAgIG91dCwgaW4pOworCX0KK30KKworI2RlZmluZSBhZXNfbW9k
+X2luaXRfYXJjaCBhZXNfbW9kX2luaXRfYXJjaAorc3RhdGljIHZvaWQgYWVzX21vZF9pbml0X2Fy
+Y2godm9pZCkKK3sKKwlpZiAocmlzY3ZfaXNhX2V4dGVuc2lvbl9hdmFpbGFibGUoTlVMTCwgWlZL
+TkVEKSAmJgorCSAgICByaXNjdl92ZWN0b3JfdmxlbigpID49IDEyOCkKKwkJc3RhdGljX2JyYW5j
+aF9lbmFibGUoJmhhdmVfenZrbmVkKTsKK30KLS0gCjIuNTIuMAoKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
