@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5915AC2A077
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 05:18:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0EFBC2A075
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 05:18:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yvLzUe4ryPIe2xlZ0bc/ublRQLUwnXHKCDRC1zeQfwI=; b=njW+TcdGje1mBV
-	uCOweOcsDUWMXK/DO7uV0elcdudPel7MSfQzMbt4kB4pfNTorJULsfJp3tSuK0CD9JdOj31eP+M9I
-	nwNlt/a6NlgJj8RimlFPdf+6bn51LK5r0dGnmt6uCgq59ZSYeCBaiiUOQkoAEg1JXkk3W5rasZ0QX
-	ykoNVXI5W4HEMTb8QvYRbThk0CV9rypE5LixKAJt+V8ONxQnW/6/hChStdUe69IgRZRpitip2IruF
-	Q/5h/Az1RtW36p9smS8hDtjaM82o0wFaHwdLM5bKLMQC3U9A1L+tp//pLoVCo7oX1WBB9+bSylqZH
-	s2EcVa+NdtAEjxL78NJQ==;
+	List-Owner; bh=xfzU7rYLTN4UACa0L/dW6VuJYH9DzJ1cxrEYCUSuH5k=; b=j42jy+FPmiSqiv
+	RPrZgSDEaOxcOaTIizU+jYjOPpbzc49sP8wO3J+Pdjz1PD1+w+BgAMyp+XMvxpF5A8r2N7D3UNrIq
+	FdM9MiccpD3CVBbsco/LtQg8gxpFZjzacVvLFKiO1+sK7cQFDVSh25eNMQveCruuNDiklWw6Wrail
+	2Y1F/ZVgkST8v7vJ18dibF1YtRjnk99ZxGPBtgVQCkGEAJq/PAk0+zAPyCebWHz9kUQMn0ERRfbHo
+	k0AdHezUmF/Mbn7wW97UbewRd9ahJsSaaX8+w4/hZXkdooOL0tRVm0gsxL+jQKihwhv86/2haKf2c
+	NhEpOgqxrMLBDl4QGEig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccyW-0000000AnAd-2BMc;
-	Mon, 05 Jan 2026 05:17:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vccyq-0000000Anfl-2yQP;
+	Mon, 05 Jan 2026 05:18:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccvw-0000000AjQ7-1dDC;
-	Mon, 05 Jan 2026 05:15:12 +0000
+	id 1vccvy-0000000AjSz-0gzu;
+	Mon, 05 Jan 2026 05:15:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7B30560143;
-	Mon,  5 Jan 2026 05:15:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF868C19424;
-	Mon,  5 Jan 2026 05:15:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5711560126;
+	Mon,  5 Jan 2026 05:15:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B139C2BC86;
+	Mon,  5 Jan 2026 05:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767590111;
-	bh=aczZF388MJyjmHPpFhPybAXNgrNBDPfQD3X1AxBltYA=;
+	s=k20201202; t=1767590113;
+	bh=ZEZ/lY7ZIO891sPEBRd1dtmoAwyoQ6T6NHQ246zb3/o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=COMWjurarSx0tc1u0S//8fc2KTuNtS7ijGjFRXrLCJRnu+BuhGv5rgrBzbQUJ9eF5
-	 fVBqlLQCuTXn/8/pQ/36762MnXgp49Y/vHrPz+Wy10++9qVLD712eBBI3lj9aXnofW
-	 w9BoBKOvqzQIGb/Y3WbOUvJy4+90x0vv1nkK6HHPztOSezbco4jwJZe26f9WBPqpFS
-	 Y33A2c+vhXOxvM9uuhpD/HfuD9O3XcHzM9gQcrRCNuE3jgGt8ftga6xph8pPM2WNwy
-	 LnP5SXRnh6sRdcCJDF0YTvrEIRBr9CnT0phwNCdB/LyCfXliTTCkqThp8KHp5P5g2+
-	 PtPGFK4PWLXCg==
+	b=apeAvzoFhCmf28cauH2AK1P6lYgUC26vcBsw43BItwp24FqiMj05XhvRtwpsz/QN/
+	 b72Lju9LymvdFnhX7WykF3DvmMLydGXaxY5YTX7FLVoSaGvrAxQyEIC9p9lETETlnY
+	 X0AeM7Qtv39qrQzjYAqmt2szo0QoZ4zymLYQje68HgXloV75XsfDnZiC7lRzOwjSST
+	 xBRMsKgeTX5BzVfUKnd+8/Ec3jZ0RXnX8Khcbm4RlYYAFkf0qhnv81sZbfsuLGS2rh
+	 dmb1lXlxyH1lWkoX5IitelaskMSoZm1RIUAWSg+A2NUS2uDzFqL4Cv00hUQm9s7rAl
+	 FjMPUvYxijPzA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,9 +56,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 31/36] crypto: omap - Use new AES library API
-Date: Sun,  4 Jan 2026 21:13:04 -0800
-Message-ID: <20260105051311.1607207-32-ebiggers@kernel.org>
+Subject: [PATCH 34/36] lib/crypto: aes: Remove old AES en/decryption functions
+Date: Sun,  4 Jan 2026 21:13:07 -0800
+Message-ID: <20260105051311.1607207-35-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260105051311.1607207-1-ebiggers@kernel.org>
 References: <20260105051311.1607207-1-ebiggers@kernel.org>
@@ -79,81 +79,202 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Switch from the old AES library functions (which use struct
-crypto_aes_ctx) to the new ones (which use struct aes_enckey).  This
-eliminates the unnecessary computation and caching of the decryption
-round keys.  The new AES en/decryption functions are also much faster
-and use AES instructions when supported by the CPU.
-
-Note: aes_encrypt_new() will be renamed to aes_encrypt() once all
-callers of the old aes_encrypt() have been updated.
+Now that no callers of the original aes_encrypt() and aes_decrypt()
+remain, remove them.  This frees up their names for aes_encrypt_new()
+and aes_decrypt_new() to be renamed to.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- drivers/crypto/omap-aes-gcm.c | 6 +++---
- drivers/crypto/omap-aes.h     | 2 +-
- 2 files changed, 4 insertions(+), 4 deletions(-)
+ include/crypto/aes.h |  16 ------
+ lib/crypto/aes.c     | 118 -------------------------------------------
+ 2 files changed, 134 deletions(-)
 
-diff --git a/drivers/crypto/omap-aes-gcm.c b/drivers/crypto/omap-aes-gcm.c
-index 1f4586509ca4..efe94a983589 100644
---- a/drivers/crypto/omap-aes-gcm.c
-+++ b/drivers/crypto/omap-aes-gcm.c
-@@ -175,11 +175,11 @@ static int omap_aes_gcm_copy_buffers(struct omap_aes_dev *dd,
+diff --git a/include/crypto/aes.h b/include/crypto/aes.h
+index 18a5f518e914..4ce710209da8 100644
+--- a/include/crypto/aes.h
++++ b/include/crypto/aes.h
+@@ -293,26 +293,10 @@ int aes_preparekey(struct aes_key *key, const u8 *in_key, size_t key_len);
+  * Context: Any context.
+  */
+ int aes_prepareenckey(struct aes_enckey *enc_key,
+ 		      const u8 *in_key, size_t key_len);
  
- static int do_encrypt_iv(struct aead_request *req, u32 *tag, u32 *iv)
- {
- 	struct omap_aes_gcm_ctx *ctx = crypto_aead_ctx(crypto_aead_reqtfm(req));
+-/**
+- * aes_encrypt - Encrypt a single AES block
+- * @ctx:	Context struct containing the key schedule
+- * @out:	Buffer to store the ciphertext
+- * @in:		Buffer containing the plaintext
+- */
+-void aes_encrypt(const struct crypto_aes_ctx *ctx, u8 *out, const u8 *in);
+-
+-/**
+- * aes_decrypt - Decrypt a single AES block
+- * @ctx:	Context struct containing the key schedule
+- * @out:	Buffer to store the plaintext
+- * @in:		Buffer containing the ciphertext
+- */
+-void aes_decrypt(const struct crypto_aes_ctx *ctx, u8 *out, const u8 *in);
+-
+ typedef union {
+ 	const struct aes_enckey *enc_key;
+ 	const struct aes_key *full_key;
+ } aes_encrypt_arg __attribute__ ((__transparent_union__));
  
--	aes_encrypt(&ctx->actx, (u8 *)tag, (u8 *)iv);
-+	aes_encrypt_new(&ctx->akey, (u8 *)tag, (const u8 *)iv);
- 	return 0;
+diff --git a/lib/crypto/aes.c b/lib/crypto/aes.c
+index 57b6d68fd378..f8c67206b850 100644
+--- a/lib/crypto/aes.c
++++ b/lib/crypto/aes.c
+@@ -249,26 +249,10 @@ static u32 inv_mix_columns(u32 x)
+ 	u32 y = mul_by_x2(x);
+ 
+ 	return mix_columns(x ^ y ^ ror32(y, 16));
  }
  
- void omap_aes_gcm_dma_out_callback(void *data)
+-static __always_inline u32 subshift(u32 in[], int pos)
+-{
+-	return (aes_sbox[in[pos] & 0xff]) ^
+-	       (aes_sbox[(in[(pos + 1) % 4] >>  8) & 0xff] <<  8) ^
+-	       (aes_sbox[(in[(pos + 2) % 4] >> 16) & 0xff] << 16) ^
+-	       (aes_sbox[(in[(pos + 3) % 4] >> 24) & 0xff] << 24);
+-}
+-
+-static __always_inline u32 inv_subshift(u32 in[], int pos)
+-{
+-	return (aes_inv_sbox[in[pos] & 0xff]) ^
+-	       (aes_inv_sbox[(in[(pos + 3) % 4] >>  8) & 0xff] <<  8) ^
+-	       (aes_inv_sbox[(in[(pos + 2) % 4] >> 16) & 0xff] << 16) ^
+-	       (aes_inv_sbox[(in[(pos + 1) % 4] >> 24) & 0xff] << 24);
+-}
+-
+ static u32 subw(u32 in)
  {
-@@ -312,11 +312,11 @@ int omap_aes_gcm_setkey(struct crypto_aead *tfm, const u8 *key,
- 			unsigned int keylen)
+ 	return (aes_sbox[in & 0xff]) ^
+ 	       (aes_sbox[(in >>  8) & 0xff] <<  8) ^
+ 	       (aes_sbox[(in >> 16) & 0xff] << 16) ^
+@@ -343,61 +327,10 @@ int aes_expandkey(struct crypto_aes_ctx *ctx, const u8 *in_key,
+ 	aes_expandkey_generic(ctx->key_enc, ctx->key_dec, in_key, key_len);
+ 	return 0;
+ }
+ EXPORT_SYMBOL(aes_expandkey);
+ 
+-/**
+- * aes_encrypt - Encrypt a single AES block
+- * @ctx:	Context struct containing the key schedule
+- * @out:	Buffer to store the ciphertext
+- * @in:		Buffer containing the plaintext
+- */
+-void aes_encrypt(const struct crypto_aes_ctx *ctx, u8 *out, const u8 *in)
+-{
+-	const u32 *rkp = ctx->key_enc + 4;
+-	int rounds = 6 + ctx->key_length / 4;
+-	u32 st0[4], st1[4];
+-	int round;
+-
+-	st0[0] = ctx->key_enc[0] ^ get_unaligned_le32(in);
+-	st0[1] = ctx->key_enc[1] ^ get_unaligned_le32(in + 4);
+-	st0[2] = ctx->key_enc[2] ^ get_unaligned_le32(in + 8);
+-	st0[3] = ctx->key_enc[3] ^ get_unaligned_le32(in + 12);
+-
+-	/*
+-	 * Force the compiler to emit data independent Sbox references,
+-	 * by xoring the input with Sbox values that are known to add up
+-	 * to zero. This pulls the entire Sbox into the D-cache before any
+-	 * data dependent lookups are done.
+-	 */
+-	st0[0] ^= aes_sbox[ 0] ^ aes_sbox[ 64] ^ aes_sbox[134] ^ aes_sbox[195];
+-	st0[1] ^= aes_sbox[16] ^ aes_sbox[ 82] ^ aes_sbox[158] ^ aes_sbox[221];
+-	st0[2] ^= aes_sbox[32] ^ aes_sbox[ 96] ^ aes_sbox[160] ^ aes_sbox[234];
+-	st0[3] ^= aes_sbox[48] ^ aes_sbox[112] ^ aes_sbox[186] ^ aes_sbox[241];
+-
+-	for (round = 0;; round += 2, rkp += 8) {
+-		st1[0] = mix_columns(subshift(st0, 0)) ^ rkp[0];
+-		st1[1] = mix_columns(subshift(st0, 1)) ^ rkp[1];
+-		st1[2] = mix_columns(subshift(st0, 2)) ^ rkp[2];
+-		st1[3] = mix_columns(subshift(st0, 3)) ^ rkp[3];
+-
+-		if (round == rounds - 2)
+-			break;
+-
+-		st0[0] = mix_columns(subshift(st1, 0)) ^ rkp[4];
+-		st0[1] = mix_columns(subshift(st1, 1)) ^ rkp[5];
+-		st0[2] = mix_columns(subshift(st1, 2)) ^ rkp[6];
+-		st0[3] = mix_columns(subshift(st1, 3)) ^ rkp[7];
+-	}
+-
+-	put_unaligned_le32(subshift(st1, 0) ^ rkp[4], out);
+-	put_unaligned_le32(subshift(st1, 1) ^ rkp[5], out + 4);
+-	put_unaligned_le32(subshift(st1, 2) ^ rkp[6], out + 8);
+-	put_unaligned_le32(subshift(st1, 3) ^ rkp[7], out + 12);
+-}
+-EXPORT_SYMBOL(aes_encrypt);
+-
+ static __always_inline u32 enc_quarterround(const u32 w[4], int i, u32 rk)
  {
- 	struct omap_aes_gcm_ctx *ctx = crypto_aead_ctx(tfm);
- 	int ret;
+ 	return rk ^ aes_enc_tab[(u8)w[i]] ^
+ 	       rol32(aes_enc_tab[(u8)(w[(i + 1) % 4] >> 8)], 8) ^
+ 	       rol32(aes_enc_tab[(u8)(w[(i + 2) % 4] >> 16)], 16) ^
+@@ -502,61 +435,10 @@ static void __maybe_unused aes_decrypt_generic(const u32 inv_rndkeys[],
+ 	put_unaligned_le32(declast_quarterround(w, 1, *rkp++), &out[4]);
+ 	put_unaligned_le32(declast_quarterround(w, 2, *rkp++), &out[8]);
+ 	put_unaligned_le32(declast_quarterround(w, 3, *rkp++), &out[12]);
+ }
  
--	ret = aes_expandkey(&ctx->actx, key, keylen);
-+	ret = aes_prepareenckey(&ctx->akey, key, keylen);
- 	if (ret)
- 		return ret;
- 
- 	memcpy(ctx->octx.key, key, keylen);
- 	ctx->octx.keylen = keylen;
-@@ -332,11 +332,11 @@ int omap_aes_4106gcm_setkey(struct crypto_aead *tfm, const u8 *key,
- 
- 	if (keylen < 4)
- 		return -EINVAL;
- 	keylen -= 4;
- 
--	ret = aes_expandkey(&ctx->actx, key, keylen);
-+	ret = aes_prepareenckey(&ctx->akey, key, keylen);
- 	if (ret)
- 		return ret;
- 
- 	memcpy(ctx->octx.key, key, keylen);
- 	memcpy(ctx->octx.nonce, key + keylen, 4);
-diff --git a/drivers/crypto/omap-aes.h b/drivers/crypto/omap-aes.h
-index 99c36a777e97..6aa70bde387a 100644
---- a/drivers/crypto/omap-aes.h
-+++ b/drivers/crypto/omap-aes.h
-@@ -96,11 +96,11 @@ struct omap_aes_ctx {
- 	struct crypto_skcipher	*fallback;
- };
- 
- struct omap_aes_gcm_ctx {
- 	struct omap_aes_ctx	octx;
--	struct crypto_aes_ctx	actx;
-+	struct aes_enckey	akey;
- };
- 
- struct omap_aes_reqctx {
- 	struct omap_aes_dev *dd;
- 	unsigned long mode;
+-/**
+- * aes_decrypt - Decrypt a single AES block
+- * @ctx:	Context struct containing the key schedule
+- * @out:	Buffer to store the plaintext
+- * @in:		Buffer containing the ciphertext
+- */
+-void aes_decrypt(const struct crypto_aes_ctx *ctx, u8 *out, const u8 *in)
+-{
+-	const u32 *rkp = ctx->key_dec + 4;
+-	int rounds = 6 + ctx->key_length / 4;
+-	u32 st0[4], st1[4];
+-	int round;
+-
+-	st0[0] = ctx->key_dec[0] ^ get_unaligned_le32(in);
+-	st0[1] = ctx->key_dec[1] ^ get_unaligned_le32(in + 4);
+-	st0[2] = ctx->key_dec[2] ^ get_unaligned_le32(in + 8);
+-	st0[3] = ctx->key_dec[3] ^ get_unaligned_le32(in + 12);
+-
+-	/*
+-	 * Force the compiler to emit data independent Sbox references,
+-	 * by xoring the input with Sbox values that are known to add up
+-	 * to zero. This pulls the entire Sbox into the D-cache before any
+-	 * data dependent lookups are done.
+-	 */
+-	st0[0] ^= aes_inv_sbox[ 0] ^ aes_inv_sbox[ 64] ^ aes_inv_sbox[129] ^ aes_inv_sbox[200];
+-	st0[1] ^= aes_inv_sbox[16] ^ aes_inv_sbox[ 83] ^ aes_inv_sbox[150] ^ aes_inv_sbox[212];
+-	st0[2] ^= aes_inv_sbox[32] ^ aes_inv_sbox[ 96] ^ aes_inv_sbox[160] ^ aes_inv_sbox[236];
+-	st0[3] ^= aes_inv_sbox[48] ^ aes_inv_sbox[112] ^ aes_inv_sbox[187] ^ aes_inv_sbox[247];
+-
+-	for (round = 0;; round += 2, rkp += 8) {
+-		st1[0] = inv_mix_columns(inv_subshift(st0, 0)) ^ rkp[0];
+-		st1[1] = inv_mix_columns(inv_subshift(st0, 1)) ^ rkp[1];
+-		st1[2] = inv_mix_columns(inv_subshift(st0, 2)) ^ rkp[2];
+-		st1[3] = inv_mix_columns(inv_subshift(st0, 3)) ^ rkp[3];
+-
+-		if (round == rounds - 2)
+-			break;
+-
+-		st0[0] = inv_mix_columns(inv_subshift(st1, 0)) ^ rkp[4];
+-		st0[1] = inv_mix_columns(inv_subshift(st1, 1)) ^ rkp[5];
+-		st0[2] = inv_mix_columns(inv_subshift(st1, 2)) ^ rkp[6];
+-		st0[3] = inv_mix_columns(inv_subshift(st1, 3)) ^ rkp[7];
+-	}
+-
+-	put_unaligned_le32(inv_subshift(st1, 0) ^ rkp[4], out);
+-	put_unaligned_le32(inv_subshift(st1, 1) ^ rkp[5], out + 4);
+-	put_unaligned_le32(inv_subshift(st1, 2) ^ rkp[6], out + 8);
+-	put_unaligned_le32(inv_subshift(st1, 3) ^ rkp[7], out + 12);
+-}
+-EXPORT_SYMBOL(aes_decrypt);
+-
+ /*
+  * Note: the aes_prepare*key_* names reflect the fact that the implementation
+  * might not actually expand the key.  (The s390 code for example doesn't.)
+  * Where the key is expanded we use the more specific names aes_expandkey_*.
+  *
 -- 
 2.52.0
 
