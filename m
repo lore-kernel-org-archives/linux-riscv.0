@@ -4,56 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6665FC2A07A
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 09:42:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D7FCC2A074
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 10:30:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tNCbkpoYWNIbCnLOqzDrtndo+LIMIVQH1djXrTE1zwk=; b=b+T9vnyOBCKq6o
-	/Tq2dwNAlLh21A/peTvIhZGqaJ3xbNHVQ14sfOIDwrjVksE2nSgHLgmmaKZpyypsMEzvXH8hNdnJF
-	5ibPxpggBycyYj+4iJ4l5a9meWUaF1bBL0YLrV+8qMAthbUakLqhHTZLXt+/hz3zUjlJf5ONtaDX/
-	6E2dWm9pu9mJnNGknVwrgIqMnGffjT0hhTDgThOflgYCTuLoqAnkoHYoaKbNhoXGcxYNQAGEHtBW5
-	2AikuZtsyBbaITz6+esRegiPE1utmY2Klg5rleXirXTxTJR3q/d6FKKMlh03x6g4UwAsJpzwgaUP5
-	fdGYzO0pe+L5Z7oRSY1A==;
+	List-Owner; bh=Ck13lVqZdyQZlArnsr2dLQo86mEk6l3baiibVG8rV9s=; b=SW1q7iBmb3qTBI
+	YqftLswePfCaV8IMUcsQ6D2dXuMRV+lYbAf8vEtwhe5WPqPrTpuLeJ7cOGE9Q7rI0REw58ofTUdLj
+	3kQXLfwSoxZ/KhyCEe61qqTdInS21e/UO7fph1F+KI7MmtdNOazKWjV1nvK+K5vK93TISIRq2XdXi
+	/u7TscM37jr5I3AxJoXcB0XF//xONhdCxsXveK+qSmwcVDcTjhRqJRbwHECtGqLz2eVp5VzYpplwB
+	upUFVZ3CefWw1HaW0e42uvUEA67RUsyMw50m0aAZnO9N5bERVyCWWKtatM/fecl0mdJoFkH1kAnq5
+	08JXfbs4rDbLsLe31Ntg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vch64-0000000B4hP-1fWi;
-	Mon, 05 Jan 2026 09:41:56 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vch61-0000000B4gj-2tvX
-	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jan 2026 09:41:55 +0000
-Received: from localhost (unknown [116.232.18.222])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id C50C1341E55;
-	Mon, 05 Jan 2026 09:41:50 +0000 (UTC)
-Date: Mon, 5 Jan 2026 17:41:46 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Linus Walleij <linusw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH v2 2/2] gpio: spacemit: Add GPIO support for K3 SoC
-Message-ID: <20260105094146-GYB2078702@gentoo.org>
-References: <20260104-02-k3-gpio-v2-0-07377739581a@gentoo.org>
- <20260104-02-k3-gpio-v2-2-07377739581a@gentoo.org>
- <CAMRc=McqmX5T-zOraWHz1Cfap+hcV_X=7dtKQOZehN9O8Fynhw@mail.gmail.com>
+	id 1vchqo-0000000B6tC-12bA;
+	Mon, 05 Jan 2026 10:30:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vchql-0000000B6sX-2AfV;
+	Mon, 05 Jan 2026 10:30:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 45673497;
+	Mon,  5 Jan 2026 02:30:00 -0800 (PST)
+Received: from [10.1.38.150] (XHFQ2J9959.cambridge.arm.com [10.1.38.150])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9EA473F6A8;
+	Mon,  5 Jan 2026 02:30:03 -0800 (PST)
+Message-ID: <19a0da52-5322-40b0-9195-5d191f582bc5@arm.com>
+Date: Mon, 5 Jan 2026 10:30:02 +0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMRc=McqmX5T-zOraWHz1Cfap+hcV_X=7dtKQOZehN9O8Fynhw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] randomize_kstack: Maintain kstack_offset per task
+Content-Language: en-GB
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Jeremy Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260102131156.3265118-1-ryan.roberts@arm.com>
+ <20260102131156.3265118-2-ryan.roberts@arm.com>
+ <20260102224432.172b1247@pumpkin>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260102224432.172b1247@pumpkin>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_014153_756326_34242E14 
-X-CRM114-Status: GOOD (  21.25  )
+X-CRM114-CacheID: sfid-20260105_023011_607690_72AF67FF 
+X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,106 +81,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Bartosz,
+On 02/01/2026 22:44, David Laight wrote:
+> On Fri,  2 Jan 2026 13:11:52 +0000
+> Ryan Roberts <ryan.roberts@arm.com> wrote:
+> 
+>> kstack_offset was previously maintained per-cpu, but this caused a
+>> couple of issues. So let's instead make it per-task.
+>>
+>> Issue 1: add_random_kstack_offset() and choose_random_kstack_offset()
+>> expected and required to be called with interrupts and preemption
+>> disabled so that it could manipulate per-cpu state. But arm64, loongarch
+>> and risc-v are calling them with interrupts and preemption enabled. I
+>> don't _think_ this causes any functional issues, but it's certainly
+>> unexpected and could lead to manipulating the wrong cpu's state, which
+>> could cause a minor performance degradation due to bouncing the cache
+>> lines. By maintaining the state per-task those functions can safely be
+>> called in preemptible context.
+>>
+>> Issue 2: add_random_kstack_offset() is called before executing the
+>> syscall and expands the stack using a previously chosen rnadom offset.
+>                                                            <>
+> 	David
 
-On 01:23 Mon 05 Jan     , Bartosz Golaszewski wrote:
-> On Sat, 3 Jan 2026 22:33:39 +0100, Yixun Lan <dlan@gentoo.org> said:
-> > SpacemiT K3 SoC has changed gpio register layout while comparing
-> > with previous generation, the register offset and bank offset
-> > need to be adjusted, introduce a compatible data to extend the
-> > driver to support this.
-> >
-> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> > ---
-> >  drivers/gpio/gpio-spacemit-k1.c | 163 ++++++++++++++++++++++++++++------------
-> >  1 file changed, 117 insertions(+), 46 deletions(-)
-> >
-> > diff --git a/drivers/gpio/gpio-spacemit-k1.c b/drivers/gpio/gpio-spacemit-k1.c
-> > index eb66a15c002f..bca5c3dc13ca 100644
-> > --- a/drivers/gpio/gpio-spacemit-k1.c
-> > +++ b/drivers/gpio/gpio-spacemit-k1.c
-> > @@ -15,29 +15,37 @@
-> >  #include <linux/platform_device.h>
-> >  #include <linux/seq_file.h>
-> >
-> > -/* register offset */
-> > -#define SPACEMIT_GPLR		0x00 /* port level - R */
-> > -#define SPACEMIT_GPDR		0x0c /* port direction - R/W */
-> > -#define SPACEMIT_GPSR		0x18 /* port set - W */
-> > -#define SPACEMIT_GPCR		0x24 /* port clear - W */
-> > -#define SPACEMIT_GRER		0x30 /* port rising edge R/W */
-> > -#define SPACEMIT_GFER		0x3c /* port falling edge R/W */
-> > -#define SPACEMIT_GEDR		0x48 /* edge detect status - R/W1C */
-> > -#define SPACEMIT_GSDR		0x54 /* (set) direction - W */
-> > -#define SPACEMIT_GCDR		0x60 /* (clear) direction - W */
-> > -#define SPACEMIT_GSRER		0x6c /* (set) rising edge detect enable - W */
-> > -#define SPACEMIT_GCRER		0x78 /* (clear) rising edge detect enable - W */
-> > -#define SPACEMIT_GSFER		0x84 /* (set) falling edge detect enable - W */
-> > -#define SPACEMIT_GCFER		0x90 /* (clear) falling edge detect enable - W */
-> > -#define SPACEMIT_GAPMASK	0x9c /* interrupt mask , 0 disable, 1 enable - R/W */
-> > -
-> >  #define SPACEMIT_NR_BANKS		4
-> >  #define SPACEMIT_NR_GPIOS_PER_BANK	32
-> >
-> >  #define to_spacemit_gpio_bank(x) container_of((x), struct spacemit_gpio_bank, gc)
-> > +#define to_spacemit_gpio_regs(gb) ((gb)->sg->data->offsets)
-> > +
-> > +enum spacemit_gpio_registers {
-> > +	SPACEMIT_GPLR = 0,	/* port level - R */
-> 
-> No need for the = 0 here.
-ok, I will drop it
+Cheers; will fix in next version.
 
-> > +static const unsigned int spacemit_gpio_k1_offsets[] = {
-> > +	0x00,
-> > +	0x0c,
-> > +	0x18,
-> > +	0x24,
-> > +	0x30,
-> > +	0x3c,
-> > +	0x48,
-> > +	0x54,
-> > +	0x60,
-> > +	0x6c,
-> > +	0x78,
-> > +	0x84,
-> > +	0x90,
-> > +	0x9c,
-> > +	0xA8,
-> > +};
-> > +
-> > +static const unsigned int spacemit_gpio_k3_offsets[] = {
-> > +	0x0,
-> > +	0x4,
-> > +	0x8,
-> > +	0xc,
-> > +	0x10,
-> > +	0x14,
-> > +	0x18,
-> > +	0x1c,
-> > +	0x20,
-> > +	0x24,
-> > +	0x28,
-> > +	0x2c,
-> > +	0x30,
-> > +	0x34,
-> > +	0x38,
-> > +};
-> 
-> I would very much prefer for you to use the
-> 
->     [ENUM] = 0xVALUE
-> 
-> style of initialization here for better readability.
-> 
-ok, will do
-
-> Otherwise looks good so LGTM on the next iteration.
-> 
-thanks
-
--- 
-Yixun Lan (dlan)
+Thanks,
+Ryan
 
 _______________________________________________
 linux-riscv mailing list
