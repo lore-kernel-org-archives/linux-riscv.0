@@ -4,100 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F0F2C79F8B
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 12:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B066C79F8A
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jan 2026 12:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=akhPo73tt2aojNiVMprPTrDLaJBC7qgoErSKzztD7+Q=; b=aHD0pIzIe1Gxxw
-	6atgWR1YtZ4u7XLn10hVL3WPQj5Zpgq2i3dQSUf9aav7vrtzZ5fjro2eJbz6NGkWem4yOmUC+Y+i9
-	2hl6b0HVHfJoMtV94EnvbSExZiCkT/MHpMTqj5kz7/P5CkLCkbv1RZTWq+SK9lZmGSUmjXpnkBqrg
-	cvtYMBYAl3/R12yflkAGXIDgHuT+xwyrXiNN3UwFfGY/ANyHlG4fM6iPhSWvgXoiaSbYLgA0F5hUA
-	3/0XYzyjRwTfnRqRR5dqjSN7wNu4cJWHjOWediX8w4idJICpql7wKQTywByZaGckmF3zYtLsL/St8
-	Rcer6iNma0B/5CJiRsVQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AHlxlemIGjUllCbWnhh4SRT7v9XPB6KWoY7zqXNUHHg=; b=p5WARg9yOurPNf
+	zzA6VBH9pwheFGju3ve7EemBhXIT+Xaz8pppYalifzbaQiFdlx5BEDCDei0T6QTLC8Tp9O/dMKIXi
+	FbstGPonuept1zZQFPTsLNat/WOYMiyuJWCvgIssbFXcNga0de7bWxCIcVIYFMqPktkSX0fD2qjmO
+	pPVP5Pi8gH+QUvEn8wi8WL2BATqqsNLzmYZdV9ZuUwTMsoGw4zZQr5fJAW4JBkoKnk0ZZ0Hg+5OXH
+	pHYmMxk8CBX8kutJ5jsZLzaNPCC7V9ca8jyro64u5OdhtF18iuG0Ixhz940ywkYIYTZwDHaXT9AFO
+	WGEOMsK552OuJVFbGubQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcjh1-0000000BHGI-44Em;
-	Mon, 05 Jan 2026 12:28:16 +0000
+	id 1vcjhB-0000000BHKv-1yRI;
+	Mon, 05 Jan 2026 12:28:25 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcjgy-0000000BHEu-2fSH
+	id 1vcjh8-0000000BHIN-0OLn
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jan 2026 12:28:14 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6058KRo53798532
-	for <linux-riscv@lists.infradead.org>; Mon, 5 Jan 2026 12:28:10 GMT
+	Mon, 05 Jan 2026 12:28:24 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 605851iO978645
+	for <linux-riscv@lists.infradead.org>; Mon, 5 Jan 2026 12:28:21 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=FhnBgqCd894h4xDDyalypD
-	S1B5tbKhHsA76XEw2zZxU=; b=QPZyalOnblB4vaPsgrD/LCt8SvD882UV71zW0z
-	XdlhiHYZwBkV7qbOm/nIGDNyp1udmWPc/kfJhuFovga4cXZILGzTRMCrnd9sGi9G
-	cqpDsVGpjjO6wUbZIegEEwTOGky17bZME8R++zkstSucabaNjDewwvMyAcy5pSbl
-	vP8wXu4nQMBeTHu0GeVH9XN8MO07EqDd4LIN3BbaAnE57IAJE/AtaYt4W8e209IB
-	OI53NTZVNBTkoU8Yh6A/xWlqDS+Uu6GUT0AfohJ3Cnyv6jz/4hwF37US6bUh6l9y
-	qPFVFC2m5lpT/lmtabxI21tm+4/wuCPim44/h0NY6/1++Ifg==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bfyx0hx5f-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	CBFYHO0C6Kk6N+QrFXXXFlcKOp9qo98Yeql0J+xKQe0=; b=eBI69wSI/osXsl7O
+	qRyjkGuMysg9O8lz8xtVuXcwubY6v2F+C0GRWT/5z+rQWNGoubCdc5CbZO5V3A78
+	oJY2G9setfBVLvNV0mif9MQoSJohxQ5sKNax5Vc0kTxtLL0IM+/ASxpaw35NtVSI
+	WcDZA9xEQDSjgTiGZTQvxB+/JEeLykLrybV/mJzd7XHo4MHsJ8dh421HL6uJmSy0
+	uYSi9CQT4XiUJV+8MGK5sPAXV9pONYMVWIYC81S8NQVLBBVrDFSUYe4NSsJCCOwz
+	nbMe2tWAePT4ihOqcDDRF2C2dOGKL8LV4EEKEMxbd6eazd9rQpJvwjHXrArs5kx5
+	hvuG7g==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bg9ftgr3k-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Mon, 05 Jan 2026 12:28:10 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2a31087af17so315766825ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Jan 2026 04:28:10 -0800 (PST)
+	for <linux-riscv@lists.infradead.org>; Mon, 05 Jan 2026 12:28:20 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-29f2381ea85so310360785ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 05 Jan 2026 04:28:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767616089; x=1768220889; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=FhnBgqCd894h4xDDyalypDS1B5tbKhHsA76XEw2zZxU=;
-        b=gsdZhsvo+TnGnOWU6E/sZmYhZH/fj2ASLW42hc7p8KBNMMOD+fHpNEr07dc68unQIs
-         Tj7rpFYs0OZpGbIH5a8XAbQFD6AtFtpi9vwTJXdp3Ln9KSLeGlacnUnDVzGcAqkhP4IP
-         fWS9dZriyHM2WFoe3g2SEsxbZ/lgVvNSaltekwh9heoCtkT0dFUghyFoKunkryVoIkK4
-         nmz4QxFV4WeHjtvUOsVtGx8ZvISYfdEb3lBCpkRjRy/fD+2CQhrpYKyax6C7cKD1lhzz
-         YAh5SrTEsVdxpUCBn+cpogkXBiSW9aYBXdPiNVlDa7ZpFB3GQPuoUJi1YMl6n+asb0VP
-         YmUw==
+        d=oss.qualcomm.com; s=google; t=1767616100; x=1768220900; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CBFYHO0C6Kk6N+QrFXXXFlcKOp9qo98Yeql0J+xKQe0=;
+        b=XHKUYffxVCxt0R1rt36o4IO9VHH6YcZhAGBlcHixGoyUbOJql1/1k18vuJoBCXTQiy
+         rpsQbWKSXGaAsqqI/FJuTevNO1V6vCUaael7l9Hh3aqsNAvyq1wl+0Wm/nkuI043MArU
+         9sC5iEaktoNP6XolM35qrQjW3Uc/X8LHU3xQyvN6dQqbj17gifX8O3sFqmaOMrRyMvrt
+         KZOWMk0ScksKUAwWsdX9gfoqZFXNdrnpqi5Yqn1nRborSUs1kK+2rYkl4m/a2qEJrth6
+         SwXc9bVnoNrqvV54M/iEyXXNQgMt9L+Ow9c7zPtlTgyJlwxYdTnN1kI0N+PjYrxRPx6R
+         5kXg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767616089; x=1768220889;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FhnBgqCd894h4xDDyalypDS1B5tbKhHsA76XEw2zZxU=;
-        b=HE9wbdQym1xD9qEvCHOASePyT/SW2AK9C68dm/lAD5uquYjIDx9gMYp8WhxapfCzGG
-         qi4PUyouzN3+r+bf7/+d91qiYBmpCMDu4H1uqmykrzlNzRuXP7PS88bTyXI9INgqSdSC
-         jyR2c9GoeSyhAF0fclZ4zoG482enHcphKMU6toHD5oabAh9J+C65iBB/oswXR7uutDzU
-         rBZEvIYdMoprnYP9ub1H5ZMkZvDDDf+d35hXIlJP/EG5fKSx8D5bD1iihh93iw8ZXu6i
-         uCEMaCbHR6VOBTajfFCkgavUzWfLPh6p9eJzZWJCXO3C1qIFRNzS57N9yufjlVgxxiD0
-         b8fw==
-X-Forwarded-Encrypted: i=1; AJvYcCWmuX1NJyjiYmKooOD3TvhFBbOonAuCqw0z/uaPy9PQd+Qjp0mPybA72ZFssC8si8u6wmlkl9In27/0lg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YylOQU/4XUINy3jDj/Q1wUI0bL+yBXqxrvZ0p2QsllCgva46kA6
-	aE7/SVqrF8XfXmFDG8BN64NUAVwvDwXtjEQdnGBXFw9nULr2gMudaQzk/5xdbHDF6WQQn1WbFcR
-	ZSJACGsTf+n1vPQASZ8APsaDbXXsPsAuUw1UjpKrbdb2k5FPZKt1JcJ3fucJ5zEA1lJTYApM=
-X-Gm-Gg: AY/fxX6Vm2lwOJSw+6iLW4xR257uVMNw+S9qe2/ZQJZuJLVNwvVgMBYtooJaxkg+Xcn
-	nhMmsUAPq/Lh4Sp43Re+Cmc0prSa0HLj4aJDoHiLnGntgxuflTkroDb/nRY8l5pk4TWFGNr8J3G
-	Lk5VQkskkiTh9KdRH896PkfSbbg7fu7N9DR24xiOTg/rx4tQCUJpcfbeEQ3S8z+5JM3d+y54VN7
-	BAsuiu5W2nDXaXnz6bHfSZaZVRyYfrQrssPUu3WKf4ExIQHxkaIh3O7ceAFPOf0YaxoJj6qPlG3
-	vN9P+3DREaZ4khtWi4AUtyOJXw7S32r187fm6hJXOWmhRvERAsaZ3hvX+q44G5PGdFvfnePlDIJ
-	tLjU1911iRejdjsRLDSVeKo6Xu3vWzb88igk=
-X-Received: by 2002:a17:902:e5ca:b0:29e:bf7b:7f36 with SMTP id d9443c01a7336-2a2f2a41a08mr391760935ad.58.1767616089407;
-        Mon, 05 Jan 2026 04:28:09 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IET+z4gvln2AUwlbFjFw+MzhBkeuBLY3bqxJej2pC+/8tWtSlxole94SJbnplA8xuBW7zdQcg==
-X-Received: by 2002:a17:902:e5ca:b0:29e:bf7b:7f36 with SMTP id d9443c01a7336-2a2f2a41a08mr391760755ad.58.1767616088758;
-        Mon, 05 Jan 2026 04:28:08 -0800 (PST)
+        d=1e100.net; s=20230601; t=1767616100; x=1768220900;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=CBFYHO0C6Kk6N+QrFXXXFlcKOp9qo98Yeql0J+xKQe0=;
+        b=Mg65hSDsyNbkhi5edmhOkRW6iSs6Wdc5lqA7mBASideFda/HzJF+lYZP9hv+7+YOlK
+         xGCgcwMdVG6emdnk3sT63lVeQFTL2FYDM/ZLtEgSxLsYAIP6x859WvdlwSsS/G3o7X45
+         VRRf4Zo7H+5gyqE4M7RCRQ9r5C66i8OqhZIaFmpsJk2UzoivNzzq8tUHg+UKDwiF0Uuc
+         Yt5ZARqOYPe5sJpIo4ev7W3oisngOnwI+t3zle1rJAua8XV2J2jVBZCsBZK4WNCQm9Im
+         jMiVn+GlMCYCp+qJIAPl1O4wR4EVlVM/shNtPM2t8VxbR8CsJc2emdiV3suYwpamwymk
+         R1dQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXtOpsz9NOJr0A1WQZaXZPpGett0VvC4egteY1ADFOgOYfzdltmoZcyS2RVZeWl+hyQZNJUApWpgmu5Vw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlTVIlJ+iq7dkVi/y0rtVucZqBqemY44s8xLX4wCRA3d4R9jLq
+	vx7C8Vp28V48fCt8G+sV3zM69qSTHZK21QVJdsJOg1i3ifHRweftoZQwXf9cKx2UhoKNrSBV8EQ
+	IBxwEZ6FFEiZ5N5GpBnMFthj0L/NlBxA890m14UvylfsTHf4xGVoqNsjyaM3SGSReiWXgMDs=
+X-Gm-Gg: AY/fxX6HhGAko07xMpp2ODOXSgJeVMTZ6IkxwaUvxvRT8kjHLRjSv94H7wB2d9pgeUL
+	SY6ApdLQGhHLJtfXzpzQHjP/h2BaX08fUjqsG6OZLJW1k8gw/fFAx21d6jtLP7LhW2wxmuZexjM
+	T/S4euxD1eue5rgQBIQROUaKLjuuRnwl6fBrO5h05FnkVcZcVLZg3q5wX1Mp2NqWuCZJZEdRm4H
+	HwhkL9axd6o93tJmcVdsw49PEydtvdR8Yydpq/Vssebhh5HAAoA4+Ask23v4wMIgq/EvKP9aNER
+	oFeHo4ITIfL5l2r/dDDycDs0VVdoWLB1HjhNLxJM+ZKOou9cGjsvTZQvoOFrLbK36mHX0vvffDe
+	tjEtd5ndES6uJPL3k0kdV2ODVrXlp8tdIfN8=
+X-Received: by 2002:a17:903:2f82:b0:2a2:f2e6:cc54 with SMTP id d9443c01a7336-2a2f2e6cc7bmr512249595ad.4.1767616099593;
+        Mon, 05 Jan 2026 04:28:19 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IH0UKyUvXerMX21bnjBAhF6AG6XXCayaIe7tQngiVFg2WkvJ67HwAbgKGU99xM74jozlgyeNA==
+X-Received: by 2002:a17:903:2f82:b0:2a2:f2e6:cc54 with SMTP id d9443c01a7336-2a2f2e6cc7bmr512249235ad.4.1767616098933;
+        Mon, 05 Jan 2026 04:28:18 -0800 (PST)
 Received: from hu-sumk-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a2f3c82a10sm448109275ad.26.2026.01.05.04.27.58
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a2f3c82a10sm448109275ad.26.2026.01.05.04.28.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jan 2026 04:28:08 -0800 (PST)
+        Mon, 05 Jan 2026 04:28:18 -0800 (PST)
 From: Sumit Kumar <sumit.kumar@oss.qualcomm.com>
-Subject: [PATCH 0/2] PCI: dwc: Add multi-port controller support
-Date: Mon, 05 Jan 2026 17:57:53 +0530
-Message-Id: <20260105-dt-parser-v1-0-b11c63cb5e2c@oss.qualcomm.com>
+Date: Mon, 05 Jan 2026 17:57:54 +0530
+Subject: [PATCH 1/2] PCI: API changes for multi-port controller support
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAEmuW2kC/3WOy24DIQxFfyViXSJsMBm66n9UXQDjSZCaTArpq
- FU0/15IF53msbF0LZ9zfRaFc+IinldnkXlKJY2HGuBpJeLOH7YsU1+zQIUECpTsT/Loc6Wk6wK
- pyNANEUS9P2Ye0tfF9fpW8y6V05i/L+oJ2vbXAmAWlgmkkp1G6nUcYBP4ZSxl/fHp3+O436/ra
- O4K2tqO12Ak6513JpAZbsH2xYR/zfhfgE1gbPSBSTOEBwK9FOilQFeB7gk1RUIi++j1Brpr0BA
- RO2vYdfFO8zzPPxbKniedAQAA
-X-Change-ID: 20251010-dt-parser-98b50ce18fc1
+Message-Id: <20260105-dt-parser-v1-1-b11c63cb5e2c@oss.qualcomm.com>
+References: <20260105-dt-parser-v1-0-b11c63cb5e2c@oss.qualcomm.com>
+In-Reply-To: <20260105-dt-parser-v1-0-b11c63cb5e2c@oss.qualcomm.com>
 To: Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>,
         Lorenzo Pieralisi <lpieralisi@kernel.org>,
         =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
@@ -132,39 +130,39 @@ Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-riscv@lists.infradead.org,
         Sumit Kumar <sumit.kumar@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1767616078; l=1933;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1767616078; l=3103;
  i=sumit.kumar@oss.qualcomm.com; s=20250409; h=from:subject:message-id;
- bh=oOdjw5Byp9hHCPO/ockAN81t86SXy2F/vEnb3wQ8Fiw=;
- b=WU8lb1IRlgnKDoA9DoKTUmSQTgI6f7zeHzmNW0Tkt7aRJYhehUZTwlR+K5OXYgJ0gdfAFYhjX
- qSneDuM7UF2AaUjsAqusdejjuvDVr2QpTc2oXVQufADAoi3I1PrM2Fo
+ bh=PpB/m1gJTMQMTX0vFxuSFv/chuv/UflEufPn0M3zptk=;
+ b=GZFtZaD7jCyIpCFrp+hdjsax21pknJcBxL8vAxnhFDnfZj47lMwrBRAT21E3qZGvMjJkEW8ux
+ BqW2LAmuAn6Bin1Gz5N2VInqCcnD4NPJG2jM/9hN2ngl6jFso9HAv9x
 X-Developer-Key: i=sumit.kumar@oss.qualcomm.com; a=ed25519;
  pk=3cys6srXqLACgA68n7n7KjDeM9JiMK1w6VxzMxr0dnM=
-X-Authority-Analysis: v=2.4 cv=CZYFJbrl c=1 sm=1 tr=0 ts=695bae5a cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+X-Proofpoint-GUID: YOybHO1ocptIEBsXNa2qf6cc74s6I8zm
+X-Authority-Analysis: v=2.4 cv=GboaXAXL c=1 sm=1 tr=0 ts=695bae64 cx=c_pps
+ a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=k2kXPNx1VYhKFT5-HLMA:9
- a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA1MDEwOSBTYWx0ZWRfX9MSjiD2fHte0
- nE7GFPQN9AmKy0EtkQOxjPGEi97mwy2fJZ0LrmsPsJKs0cBDKJWcGd/fAq/dgXlFAu3idQDmLJR
- x49QKfV/SBA1IT2eCjg+YyORKZ8sgde+0MnpVtB/FPW07kaCZvPX0wqGuzAIcSdWXYUhauTJcPu
- 5XZbMONR+c4RFExFzDHVEGVdY5sVNJZcq539IpFWLqAeA43TFp/bE5cwhMnOxvP+3/dC2lH1Yz4
- v3GejS8gGcruSbQoAtPV/t9XaJceMAr3qcblIbOKaBB/yIIH2TiCt2fOS9oMEZW8UqIR5mogCfQ
- WykW5AjPhoU5W3b2Hwj0xRJ4+QB1eQWmDYw9x/x9PY1mUD5mRLQITnz74h/Xr4vLOPKFlH8OOAD
- xXi4MUfTs0eFliXxCsoyvVIscKs4xYAmvLQNVIZqhpmn1RBKNkm8gxR9L7liIhkQVA/EKPSlSjo
- lOfVXOhK8v5bm4v99hw==
-X-Proofpoint-GUID: kmLOeZsEKNbF7POFMaDDgygVMaxe8_e5
-X-Proofpoint-ORIG-GUID: kmLOeZsEKNbF7POFMaDDgygVMaxe8_e5
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=ujblt7VnwxmsJrSXvRcA:9
+ a=QEXdDO2ut3YA:10 a=GvdueXVYPmCkWapjIL-Q:22
+X-Proofpoint-ORIG-GUID: YOybHO1ocptIEBsXNa2qf6cc74s6I8zm
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA1MDEwOSBTYWx0ZWRfXyQLys5zqRh6I
+ vF9Dqy6hOiJ6rbaXR86jWVEvnvr1Y1i9r5TX8wo181PmH2j0EIsAk6dVxWS+bu/EyFnftFAp3/U
+ UfWtnykgOR6UvQRmCVVXzPN0LCxIC/C81GJ2ap5daA9m7aD6AOCZDug8WpMp9kRzefmkOlzqcej
+ x8kP/rEvI2hcbD+LBlhRu0dxNm2agI1oHdDJmFJhXgUvIhM2P4X6XNF+mqr9mIaUk0s27+aEN8e
+ OqaCPMHqY4O7cgusd68xAy+qwsvgsZ4hsDELoryvXJRHmemIw/hY55jT46zeed5+o30z2J9HNdh
+ sDdpxcJHObGEaMeToDmhKS4xL6YCJrxCkQB48JORxpAHiU2Kd2xosKMcIA+o7TjTXhh4aozayvY
+ qZXAeYKf2VWUWGzDnZiTVpd2hThlpzS5jhFShxuTSmJcIRXSZQUEuB30sWSD3yxcH41xBlNCq/t
+ AKh6CXzxxvYdabb8QBQ==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2026-01-05_01,2025-12-31_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 priorityscore=1501 spamscore=0 bulkscore=0 lowpriorityscore=0
- impostorscore=0 suspectscore=0 adultscore=0 phishscore=0 malwarescore=0
+ adultscore=0 phishscore=0 bulkscore=0 lowpriorityscore=0 priorityscore=1501
+ suspectscore=0 impostorscore=0 spamscore=0 malwarescore=0 clxscore=1015
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601050109
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_042812_808515_BB391894 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20260105_042822_644188_875D6968 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,46 +179,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds support for multi-port PCIe controllers in the DesignWare
-driver. Currently, the driver only supports a single Root Port with
-controller-level properties, which doesn't work for multi-port controllers
-where each port may have different configurations.
+For multi-port controllers, equalization preset properties should be
+specified in individual root port nodes rather than the controller node,
+allowing each port to have its own configuration.
 
-This series introduces a per-port structure and parsing API that allows 
-each Root Port to be configured independently via pcie@N child nodes in
-device tree, while maintaining backward compatibility with existing 
-single-port bindings.
+Change of_pci_get_equalization_presets() to accept a device_node pointer.
+This allows parsing equalization presets from any device tree node,
+which is needed for multi-port PCIe controllers.
 
 Signed-off-by: Sumit Kumar <sumit.kumar@oss.qualcomm.com>
 ---
-Sumit Kumar (2):
-      PCI: API changes for multi-port controller support
-      PCI: dwc: Add multi-port controller support
+ drivers/pci/of.c  | 6 ++++--
+ drivers/pci/pci.h | 2 ++
+ 2 files changed, 6 insertions(+), 2 deletions(-)
 
- drivers/pci/controller/dwc/pci-exynos.c           |   4 +-
- drivers/pci/controller/dwc/pci-imx6.c             |  15 +-
- drivers/pci/controller/dwc/pci-meson.c            |   1 -
- drivers/pci/controller/dwc/pcie-designware-host.c | 168 ++++++++++++++++++----
- drivers/pci/controller/dwc/pcie-designware.c      |  32 ++---
- drivers/pci/controller/dwc/pcie-designware.h      |  17 ++-
- drivers/pci/controller/dwc/pcie-fu740.c           |   6 +-
- drivers/pci/controller/dwc/pcie-intel-gw.c        |  13 +-
- drivers/pci/controller/dwc/pcie-qcom-common.c     |   5 +-
- drivers/pci/controller/dwc/pcie-qcom-ep.c         |   4 +-
- drivers/pci/controller/dwc/pcie-qcom.c            |   4 +-
- drivers/pci/controller/dwc/pcie-rcar-gen4.c       |  13 +-
- drivers/pci/controller/dwc/pcie-spear13xx.c       |   5 +-
- drivers/pci/controller/dwc/pcie-tegra194.c        |   4 +-
- drivers/pci/of.c                                  |   6 +-
- drivers/pci/pci.h                                 |   2 +
- 16 files changed, 226 insertions(+), 73 deletions(-)
----
-base-commit: 097a6c336d0080725c626fda118ecfec448acd0f
-change-id: 20251010-dt-parser-98b50ce18fc1
+diff --git a/drivers/pci/of.c b/drivers/pci/of.c
+index 3579265f119845637e163d9051437c89662762f8..d09eff40b523c920c9ca3eaa64f784765b3c5bf8 100644
+--- a/drivers/pci/of.c
++++ b/drivers/pci/of.c
+@@ -971,6 +971,7 @@ EXPORT_SYMBOL_GPL(of_pci_get_slot_power_limit);
+  * of_pci_get_equalization_presets - Parses the "eq-presets-Ngts" property.
+  *
+  * @dev: Device containing the properties.
++ * @node: Device tree node containing the properties.
+  * @presets: Pointer to store the parsed data.
+  * @num_lanes: Maximum number of lanes supported.
+  *
+@@ -981,6 +982,7 @@ EXPORT_SYMBOL_GPL(of_pci_get_slot_power_limit);
+  * errno otherwise.
+  */
+ int of_pci_get_equalization_presets(struct device *dev,
++				    struct device_node *node,
+ 				    struct pci_eq_presets *presets,
+ 				    int num_lanes)
+ {
+@@ -988,7 +990,7 @@ int of_pci_get_equalization_presets(struct device *dev,
+ 	int ret;
+ 
+ 	presets->eq_presets_8gts[0] = PCI_EQ_RESV;
+-	ret = of_property_read_u16_array(dev->of_node, "eq-presets-8gts",
++	ret = of_property_read_u16_array(node, "eq-presets-8gts",
+ 					 presets->eq_presets_8gts, num_lanes);
+ 	if (ret && ret != -EINVAL) {
+ 		dev_err(dev, "Error reading eq-presets-8gts: %d\n", ret);
+@@ -998,7 +1000,7 @@ int of_pci_get_equalization_presets(struct device *dev,
+ 	for (int i = 0; i < EQ_PRESET_TYPE_MAX - 1; i++) {
+ 		presets->eq_presets_Ngts[i][0] = PCI_EQ_RESV;
+ 		snprintf(name, sizeof(name), "eq-presets-%dgts", 8 << (i + 1));
+-		ret = of_property_read_u8_array(dev->of_node, name,
++		ret = of_property_read_u8_array(node, name,
+ 						presets->eq_presets_Ngts[i],
+ 						num_lanes);
+ 		if (ret && ret != -EINVAL) {
+diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+index 34f65d69662e9f61f0c489ec58de2ce17d21c0c6..72fa6db95b8a75f6e69b8019d1eb2262b6a46c13 100644
+--- a/drivers/pci/pci.h
++++ b/drivers/pci/pci.h
+@@ -965,6 +965,7 @@ void pci_release_bus_of_node(struct pci_bus *bus);
+ int devm_of_pci_bridge_init(struct device *dev, struct pci_host_bridge *bridge);
+ bool of_pci_supply_present(struct device_node *np);
+ int of_pci_get_equalization_presets(struct device *dev,
++				    struct device_node *node,
+ 				    struct pci_eq_presets *presets,
+ 				    int num_lanes);
+ #else
+@@ -1013,6 +1014,7 @@ static inline bool of_pci_supply_present(struct device_node *np)
+ }
+ 
+ static inline int of_pci_get_equalization_presets(struct device *dev,
++						  struct device_node *node,
+ 						  struct pci_eq_presets *presets,
+ 						  int num_lanes)
+ {
 
-Best regards,
 -- 
-Sumit Kumar <sumit.kumar@oss.qualcomm.com>
+2.34.1
 
 
 _______________________________________________
