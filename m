@@ -4,49 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48900CEFCE1
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jan 2026 17:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2DD7CEFCE4
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jan 2026 17:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0NZ4/zd7J4KGUTdPnVSvwd5JyipfkMOtaCcO67LX6Sg=; b=Kno42TIbO5oU76
-	VXY9mzaVUmo3I1kNCeTV/dUNiHTIUf4/zv4GjGHjY/ReXX0wIXBwN4fRQPzltUz1xeIveCrRMw0J3
-	ahbZRrzy0JfGk6XrOZH/Qitqp8mK9XMYpYmyP1EFrj2aHn9RDZojEOc9K9FTswzbS6dFFUpRBDf23
-	ygjqWZ5+WqBOwgI13f3daAEgXWLnLMqbB7p0DHWR/tpclRBgR7jIDCbhnvOvZCaIQvhitADE7kV0F
-	lq+Z4JVbbbTI63JUSxR3ZRGFLFfTGLR+wasVsReh6t1vxLl7X7C+YeY8ciC+JA4WSq9o7N5cvme/P
-	rEqUmCqiggdE3p9l6tbw==;
+	List-Owner; bh=QAL4UBV27BMQoMYpysIcBkw9XwOgcf6UynivgIW58EM=; b=INoz7GMWFRMC6X
+	x4jtcSa6644lm84bTAX/+aI/0U68guGtqhB+BA2k1x15XAn20BgjYp/NDnVP5KoHtbDo8IAePvTIL
+	xNwY/dkA++qyisETSRZTdzIg0YkBKZ9Ajc7v0pgjg9CSRWbPHdTWOaa3WBgVExa8Saf+hyYogvB9o
+	tKWQVfm2dZCLFX1Kj6Q9EfTVbd8M1YT1feTNrVm9mhgKRlsiUzozTMtEiD41Bf5+K3jfdbo3Fqy78
+	c8oHeOUxd+gc9Hn3U3pvOGKPLhA0V+2BPSt3EokJ197mgLE1dWvRgaEeLdoaNOEYFfljxWmP5bxsY
+	qEsCSCDpAFZ79n6DJj4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdAdF-0000000DYSn-2Tq5;
-	Tue, 06 Jan 2026 17:14:09 +0000
+	id 1vdAzB-0000000DZvR-1m3c;
+	Tue, 06 Jan 2026 17:36:49 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdAdC-0000000DYRu-1O5D
-	for linux-riscv@lists.infradead.org;
-	Tue, 06 Jan 2026 17:14:08 +0000
+	id 1vdAz9-0000000DZuX-1jUS;
+	Tue, 06 Jan 2026 17:36:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3BB834026B;
-	Tue,  6 Jan 2026 17:14:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0AC7C116C6;
-	Tue,  6 Jan 2026 17:14:03 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Magnus Damm <magnus.damm@gmail.com>
-Cc: linux-renesas-soc@vger.kernel.org,
+	by sea.source.kernel.org (Postfix) with ESMTP id 3DCDC434FA;
+	Tue,  6 Jan 2026 17:36:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7808AC116C6;
+	Tue,  6 Jan 2026 17:36:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767721006;
+	bh=2bhIEBi52pIagS1gzwrT2nGBXwwpZUgIJ8cVRDzNmRs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=aUcZ6ByDj/EDc5TqP6NwYwESet8oPR96E8Ha+KbhwG++iJCjHHs5649/YILIN6a5i
+	 lGLE59xRuT59pszXonCOTd03/wQSf0UIdugbC2EoY/cRqkdw76MN1otcSzOM2gnGOT
+	 R3PoL0dEo6SZnQlqiGRkk39RTykCHpRlIzpVKpvgxbvu/ahnvc66yMAxpYYkllD+cp
+	 1Du2G2u+74mLsej9bCPE5w93oZi5AMspAQXn4BsTS9FcpNs4KlBM2fpUz+il6A4rHn
+	 5Pp0NFrHCgq77O7kOipx7LrpoMg3jmLN0oCBY4HOcB52TGb5k5NERwZa77xTa0enaf
+	 b+9x5XwTQ0b/w==
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Arnd Bergmann <arnd@arndb.de>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH v2] riscv: dts: renesas: r9a07g043f: Move interrupt-parent to top node
-Date: Tue,  6 Jan 2026 18:14:01 +0100
-Message-ID: <97d3d70e42832f4ffa3888bec792b692a7ab700f.1767719409.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
+	linux-arch@vger.kernel.org,
+	Peter Xu <peterx@redhat.com>,
+	Oscar Salvador <osalvador@suse.de>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH RESEND v2] asm-generic: Remove pud_user() from pgtable-nopmd.h
+Date: Tue,  6 Jan 2026 18:34:20 +0100
+Message-ID: <61ef32ebc3ea2e926de2bebecf3b5c3a10989fca.1767720453.git.chleroy@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2913; i=chleroy@kernel.org; h=from:subject:message-id; bh=2bhIEBi52pIagS1gzwrT2nGBXwwpZUgIJ8cVRDzNmRs=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWTGus913H6oo5FNQlXgwSqpRTHr7m98sNP9nJm6/78fb WWTt/dN6ShlYRDjYpAVU2Q5/p9714yuL6n5U3fpw8xhZQIZwsDFKQATaWNm+B+jI1vqtaJqhUq3 cVqqEX/2FbsHzPnPzv04frwmMPPwXFZGhqkeqflXf2vvPx5Zw80+/62G5qmXl8rF5GvvXmnelLD OlhcA
+X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_091406_388665_47CBCE0F 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260106_093647_490506_AFC7F7C5 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,44 +83,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the "interrupt-parent = <&plic>" property from the soc node to the
-top node, for consistency with
-arch/arm64/boot/dts/renesas/r9a07g043u.dtsi.
+Commit 2c8a81dc0cc5 ("riscv/mm: fix two page table check related
+issues") added pud_user() in include/asm-generic/pgtable-nopmd.h
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+But pud_user() only exists on ARM64 and RISCV and is not expected
+by any part of MM.
+
+Add the missing definition in arch/riscv/include/asm/pgtable-32.h
+and remove it from asm-generic/pgtable-nopmd.h
+
+A stub pud_user() is also required for ARM64 after
+commit ed928a3402d8 ("arm64/mm: fix page table check compile
+error for CONFIG_PGTABLE_LEVELS=2")
+
+Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+Reviewed-by: Peter Xu <peterx@redhat.com>
+Reviewed-by: Oscar Salvador <osalvador@suse.de>
+Acked-by: Alexandre Ghiti <alexghiti@rivosinc.com> # riscv
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 ---
-To be queued in renesas-devel for v6.20.
+Who should take this patch ? I expected it to be merged by Arnd as asm-generic maintainer but this is the second time I resend.
 
-v2:
-  - Drop RFC, as commit 1b1f04d8271e7ba7 ("of/irq: Ignore interrupt
-    parent for nodes without interrupts") is upstream as of v6.19-rc1.
+Should the patch go via riscv tree instead as the undue pud_user() was initialy introduced by riscv ?
+
+v2: Change ARM64 pud_user macro to pud_user(pud)
 ---
- arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/pgtable.h    | 1 +
+ arch/riscv/include/asm/pgtable-32.h | 5 +++++
+ include/asm-generic/pgtable-nopmd.h | 1 -
+ 3 files changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-index a8bcb26f42700644..571de3cafa8214e4 100644
---- a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-+++ b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-@@ -12,6 +12,8 @@
- #include <arm64/renesas/r9a07g043.dtsi>
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 64d5f1d9cce96..a9af0b441b0f9 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -965,6 +965,7 @@ static inline pmd_t *pud_pgtable(pud_t pud)
  
- / {
-+	interrupt-parent = <&plic>;
+ #define pud_valid(pud)		false
+ #define pud_page_paddr(pud)	({ BUILD_BUG(); 0; })
++#define pud_user(pud)		false /* Always 0 with folding */
+ #define pud_user_exec(pud)	pud_user(pud) /* Always 0 with folding */
+ 
+ /* Match pmd_offset folding in <asm/generic/pgtable-nopmd.h> */
+diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
+index 00f3369570a83..37878ef374668 100644
+--- a/arch/riscv/include/asm/pgtable-32.h
++++ b/arch/riscv/include/asm/pgtable-32.h
+@@ -36,4 +36,9 @@
+ static const __maybe_unused int pgtable_l4_enabled;
+ static const __maybe_unused int pgtable_l5_enabled;
+ 
++static inline int pud_user(pud_t pud)
++{
++	return 0;
++}
 +
- 	cpus {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
-@@ -52,7 +54,6 @@ &pinctrl {
- 
- &soc {
- 	dma-noncoherent;
--	interrupt-parent = <&plic>;
- 
- 	irqc: interrupt-controller@110a0000 {
- 		compatible = "renesas,r9a07g043f-irqc";
+ #endif /* _ASM_RISCV_PGTABLE_32_H */
+diff --git a/include/asm-generic/pgtable-nopmd.h b/include/asm-generic/pgtable-nopmd.h
+index 8ffd64e7a24cb..b01349a312fa7 100644
+--- a/include/asm-generic/pgtable-nopmd.h
++++ b/include/asm-generic/pgtable-nopmd.h
+@@ -30,7 +30,6 @@ typedef struct { pud_t pud; } pmd_t;
+ static inline int pud_none(pud_t pud)		{ return 0; }
+ static inline int pud_bad(pud_t pud)		{ return 0; }
+ static inline int pud_present(pud_t pud)	{ return 1; }
+-static inline int pud_user(pud_t pud)		{ return 0; }
+ static inline int pud_leaf(pud_t pud)		{ return 0; }
+ static inline void pud_clear(pud_t *pud)	{ }
+ #define pmd_ERROR(pmd)				(pud_ERROR((pmd).pud))
 -- 
-2.43.0
+2.49.0
 
 
 _______________________________________________
