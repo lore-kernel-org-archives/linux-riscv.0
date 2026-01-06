@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D8CCEFCE7
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jan 2026 18:28:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6165CEFCE7
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jan 2026 18:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m2hIzVZqDHVkZRhRzvIi3PguN7bxn70RyvaUrCPsD4I=; b=jtMEiCWuyxSGSD
-	h/fuNlB08SI5MdQ7/CWNLRJ0gpRwBlsN7IzYMSB8Kd8Nyk3Mien+VP7apCqXnwigWypdbl2akE5mG
-	2AIUfRhjzLKX2OMjlQKmgfnhDXB5t7z4R+Eqh4bONQPs1umTO1wSTlLI//EvYg32MhUSdVL0VzF2D
-	E/p0McMk2jqGeWe3Zzojh/fQX0+elGn9BPJQkPQoapn2Q+Gb1wpL6RdYn6srlAy3u+GlzMElIYha9
-	/yu/NSFF+IRUsCw/56TWFp7zpngyn2MQPYa0H6HcLQMLONVwvv1i3bE80xYYSz82BZnmfAo5Vsw+o
-	q5lSWOEaBrCNbaRaTdpQ==;
+	List-Owner; bh=R8DbI9ohpzy2TGV1UAY3dPiDYBbAY1N6fKisQDiBfUY=; b=maiqfW4uR21ywf
+	1kWXA9hqdU2cX4L+SFxxE2aCtqnzIH5mKr74J17VXN0Dsg0kOq2E6FdYLEV2xzjkfnKeWnwgATblG
+	Y4dmIsNdIinY+lwyb++wVxZRMAXzR9L75zLnETU7FaYL580kS9iqvutiLm5E1lp10DL0rH+i0hbBp
+	UQkEXubyeonVpl4kaJ4JgSg/MDhM4lBLPsc6La7tomIssn1ZnTEpxD75BBX3gPaTFehIPeXxKo3qA
+	8D+c+G2EJOwNARcXSsaKdPXUQe2jVAeemqCKWJnJZTQrvdqrpxD19FTC9g6rEBwIZprjJ4GkbpmGp
+	UJU1+WRpDtWBMxqvKlRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBmf-0000000Dfud-0zRp;
-	Tue, 06 Jan 2026 18:27:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdBmq-0000000Dfvi-2eOx;
+	Tue, 06 Jan 2026 18:28:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBme-0000000DfuW-27py
+	id 1vdBmn-0000000DfvI-2raL
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Jan 2026 18:27:56 +0000
+	Tue, 06 Jan 2026 18:28:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC2FE60147;
-	Tue,  6 Jan 2026 18:27:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64F48C19423;
-	Tue,  6 Jan 2026 18:27:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5096441B6A;
+	Tue,  6 Jan 2026 18:28:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A54DC16AAE;
+	Tue,  6 Jan 2026 18:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767724075;
-	bh=Prv57drWJrH6jeQxrlKC1P3LM56QbpCo4BEmXOIcOk4=;
+	s=k20201202; t=1767724085;
+	bh=/kUTBjDyHLOP++rgoCOAu8BTPjxi49VyNskoVZ4vBSc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hQ9Biqbon5XoPR3/DxK4V4OTbpe9l6bkrBiox0FkY4UYFsrYYLQDzWmLMYnnLTfJr
-	 4hGZbpxQFnH/YYWzRotId8mJtxPY4x/ySgMFWefl3GjWndsd1TpL1bfbe9gh+NAK9X
-	 QuOgQr3UEY4zhuNHt9JJyeRBiHN7+aGuwuhRer9wnf2fIoKaR/4oGPj+K9MdtUe6Bh
-	 11LFYU9RIJ3wYcijSKoj9bhdH5+tfhf1EqxqPgrQaQ9yqvW4Ukj7j3TKbV7aHxANa1
-	 mHF7jr15Qk1kxqkgAB0m9Vh30svSKpLjFjPXmDAXbkEMPD42i3sINSuGxBIgTfZnZs
-	 ZSqJ2gp5t7lVg==
-Date: Tue, 6 Jan 2026 12:27:54 -0600
-From: Rob Herring <robh@kernel.org>
+	b=bCAPKZAbn39k8eOCcd3oj3Nn4sYm+QuZqLjs7w6lS/wpANcUuqYlNWLB908OWP03P
+	 t/6hVgUQ74kCvCWiDVdpZjehdtDGxhZ+/VTMAeXGVfVqrElZdGsxmJZqzzz3e6kSrq
+	 Q69PJJd/lF8hveaXkcw48n4m2CIxWq/205cxax2Ja4Zs7xqBXu11qq0Dhv83IOkyTq
+	 kaGzy7r4SotX7GdgYMI7LdHNYBLv9egs1brgf+TabC4uOYdiFYzjptuFHKLqjEyYTh
+	 b2umfxcQCo5Q+TKBM6mbF5W0/jNBKyDs0QB/pM6yDFS6x/YTsd7tvnGxpKCQp9PQUh
+	 r+o3VEq+6kmUA==
+Date: Tue, 6 Jan 2026 12:28:04 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-Cc: conor@kernel.org, krzk+dt@kernel.org, pjw@kernel.org,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, alex@ghiti.fr, cyy@cyyself.name,
-	kingxukai@zohomail.com, TroyMitchell988@gmail.com,
-	gaohan@iscas.ac.cn, me@ziyao.cc
-Subject: Re: [PATCH v2 2/2] riscv: dts: canaan: Add initial dshanpi board DT
- files
-Message-ID: <20260106182754.GA2506656-robh@kernel.org>
+Cc: alex@ghiti.fr, cyy@cyyself.name, me@ziyao.cc, krzk+dt@kernel.org,
+	palmer@dabbelt.com, conor@kernel.org, TroyMitchell988@gmail.com,
+	gaohan@iscas.ac.cn, linux-riscv@lists.infradead.org, pjw@kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	kingxukai@zohomail.com, aou@eecs.berkeley.edu
+Subject: Re: [PATCH v2 1/2] dt-bindings: riscv: canaan: add 100ask K230
+ boards compatible strings
+Message-ID: <176772408361.2509936.16592890461437169152.robh@kernel.org>
 References: <20260104070911.219588-1-jiayu.riscv@isrc.iscas.ac.cn>
- <20260104070911.219588-3-jiayu.riscv@isrc.iscas.ac.cn>
+ <20260104070911.219588-2-jiayu.riscv@isrc.iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260104070911.219588-3-jiayu.riscv@isrc.iscas.ac.cn>
+In-Reply-To: <20260104070911.219588-2-jiayu.riscv@isrc.iscas.ac.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260106_102805_745979_DA0CC524 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,165 +78,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 04, 2026 at 03:09:11PM +0800, Jiayu Du wrote:
-> Add board devicetree for 100ask K230 dashanpi, and also the SoM
-> device utilized by the board. UART0 is enabled as the default
-> console.
+
+On Sun, 04 Jan 2026 15:09:10 +0800, Jiayu Du wrote:
+> K230 CANMV DSHANPI is a development board produced by 100ASK.
+> 
+> Add compatible string for the board and its SoM.
 > 
 > Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
 > ---
->  arch/riscv/boot/dts/canaan/Makefile           |  1 +
->  .../boot/dts/canaan/k230-canmv-dshanpi.dts    | 82 +++++++++++++++++++
->  .../dts/canaan/k230-canmv-module-dshanpi.dtsi | 30 +++++++
->  3 files changed, 113 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts
->  create mode 100644 arch/riscv/boot/dts/canaan/k230-canmv-module-dshanpi.dtsi
 > 
-> diff --git a/arch/riscv/boot/dts/canaan/Makefile b/arch/riscv/boot/dts/canaan/Makefile
-> index 7d54ea5c6f3d..89cb64bde440 100644
-> --- a/arch/riscv/boot/dts/canaan/Makefile
-> +++ b/arch/riscv/boot/dts/canaan/Makefile
-> @@ -2,6 +2,7 @@
->  dtb-$(CONFIG_ARCH_CANAAN) += canaan_kd233.dtb
->  dtb-$(CONFIG_ARCH_CANAAN) += k210_generic.dtb
->  dtb-$(CONFIG_ARCH_CANAAN) += k230-canmv.dtb
-> +dtb-$(CONFIG_ARCH_CANAAN) += k230-canmv-dshanpi.dtb
->  dtb-$(CONFIG_ARCH_CANAAN) += k230-evb.dtb
->  dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_bit.dtb
->  dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_dock.dtb
-> diff --git a/arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts b/arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts
-> new file mode 100644
-> index 000000000000..4f95b534ee87
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts
-> @@ -0,0 +1,82 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (C) 2025 Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "k230-canmv-module-dshanpi.dtsi"
-> +
-> +/ {
-> +	model = "100ask CanMV-K230-dshanpi";
-> +	compatible = "100ask,canmv-k230-dshanpi",
-> +		     "100ask,canmv-k230-module-dshanpi",
-> +		     "canaan,kendryte-k230";
-> +
-> +	aliases {
-> +		serial0 = &uart0;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +	};
-> +
-> +	vdd_5v: regulator-vdd-5v {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vdd_5v";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +	};
-> +
-> +	vdd_3v3: regulator-vdd-3v3 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vdd_3v3";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		vin-supply = <&vdd_5v>;
-> +	};
-> +
-> +	vdd_1v8: regulator-vdd-1v8 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vdd_1v8";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		vin-supply = <&vdd_5v>;
-> +	};
-> +};
-> +
-> +&pinctrl {
-> +	uart0_pins: uart0-pins {
-> +		uart0-txd-cfg {
-> +			pinmux = <K230_PINMUX(38, 1)>;
-> +			slew-rate = <0>;
-> +			drive-strength = <7>;
-> +			power-source = <K230_MSC_1V8>;
-> +			output-enable;
-> +			bias-disable;
-> +			input-schmitt-enable;
-> +		};
-> +
-> +		uart0-rxd-cfg {
-> +			pinmux = <K230_PINMUX(39, 1)>;
-> +			slew-rate = <0>;
-> +			drive-strength = <7>;
-> +			power-source = <K230_MSC_1V8>;
-> +			input-enable;
-> +			bias-disable;
-> +			input-schmitt-enable;
-> +		};
-> +	};
-> +};
-> +
-> +&uart0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&uart0_pins>;
-> +	status = "okay";
-> +};
-> diff --git a/arch/riscv/boot/dts/canaan/k230-canmv-module-dshanpi.dtsi b/arch/riscv/boot/dts/canaan/k230-canmv-module-dshanpi.dtsi
-> new file mode 100644
-> index 000000000000..ed0abc68f321
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/canaan/k230-canmv-module-dshanpi.dtsi
-> @@ -0,0 +1,30 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (C) 2025 Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "k230.dtsi"
-> +
-> +/ {
-> +	model = "100ask CanMV-K230-Module-dshanpi";
-> +	compatible = "100ask,canmv-k230-module-dshanpi",
-> +		     "canaan,kendryte-k230";
-
-These get overwritten, but aren't really valid on their own. Drop.
-
-> +
-> +	ddr: memory@0 {
-> +		device_type = "memory";
-> +		reg = <0x0 0x0 0x0 0x40000000>;
-> +	};
-> +
-> +	timerx_pulse_in: clock-50m {
-
-clock-50000000
-
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +		clock-frequency = <50000000>;
-> +	};
-> +};
-> +
-> +&sysclk {
-> +	clocks = <&osc24m>, <&timerx_pulse_in>;
-> +	clock-names = "osc24m", "timer-pulse-in";
-> +};
-> -- 
-> 2.52.0
+> The hardware details are available here[1].
 > 
+> [1]: https://github.com/100askTeam/eLinuxAI-TrainingDocs/blob/master/docs/CanaanK230/part1/01-Introductionhardwareresources.md
+> 
+>  Documentation/devicetree/bindings/riscv/canaan.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
