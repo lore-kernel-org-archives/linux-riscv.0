@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18FB2C47BE2
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jan 2026 10:56:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 569BFC47BEA
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jan 2026 11:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=blYP+SxWDV7/lh9jeAJgYsOUNv5XKj0sY93pFiLYPh4=; b=jIPUROpU+GPXl9
-	ygKcDQW20a6a7cpnax8BwQD8haZk0r58+KctCI/0NHOMPkJs+sAQyqNrRl9nGaPSaQqB2wPnw3GMS
-	7fHOShRGxqHfIIq6ChTCdRc0O8a1uLkAv4yfdx889ceSOOV5WBj8t5oaMUpUqjpKFauR5oJ/BqOx0
-	hJ34zKS3xhaDxrLOuPUN7gpKTNT6wXTRCqfayL0SbecziaAAC9f+M5+E4NB4Qt+uVk2sAMmhB4ucu
-	KMB7O2m+HuX9pePGT6eWuDF8H3CIAUF1kMHrvT4nevN2oUuG57xGldptcWya4ItdJSgG6QM9lXL5V
-	62YxSQAp5QJdvlQEiayQ==;
+	List-Owner; bh=eKIycVvme71gfCO7jXsTDlhkrOgWCVXwLY1WTeUHAnA=; b=A7VwS8il/oxqnE
+	lleCLzGcmxMHC8CjJPE4TInpTd7+XUmVJrt20xRZmnUBs2DnJQKMmWt5PP821k4F6YDoMnXUOdca4
+	ZDDcjK13be/fjX++l4iBk3ap+HeIV3OLpGa94xAxPd5/E52CRojCbzm7DyRMnwYaln/zgi7dzRnK4
+	NUzQRRK1UoJZ+B3Z7YsoPNaSymbl2xw6IXLnJ0GFOd16l0C4VRFKkW58bqpA9kjiYO8MzAfKWsbMk
+	/y/SEoC2JKPeop80oSeni+sh/p6waON+W5SFz7EzPZMAFBRHccb6TRL3xIMkgRL0mgdJZ+ruMrc2W
+	XBLkk1CoioFBrpeulhjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd4jN-0000000Cplf-2yje;
-	Tue, 06 Jan 2026 10:56:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vd538-0000000CrH4-3fls;
+	Tue, 06 Jan 2026 11:16:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd4jI-0000000Cpk7-3TU9;
-	Tue, 06 Jan 2026 10:56:02 +0000
+	id 1vd536-0000000CrGK-44lZ;
+	Tue, 06 Jan 2026 11:16:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D975B6014A;
-	Tue,  6 Jan 2026 10:55:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98CD3C116C6;
-	Tue,  6 Jan 2026 10:55:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0A45060148;
+	Tue,  6 Jan 2026 11:16:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 528DEC116C6;
+	Tue,  6 Jan 2026 11:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767696959;
-	bh=ifuhjD9dVO9aJ7A0tSpgghkHXwetyJmijfctFIgwaSQ=;
+	s=k20201202; t=1767698187;
+	bh=KAZTfW562W1oYvg6yLMZiwveTP/LAQQ3kkh1Vqc/32Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XcDKNXevXkZg8xqIKBNqcWVx14ybsmAEKhzw4HEBwmq1U1GERhcd9QTkvp0unu5XI
-	 4OtXMxpN3HDf2tPDnnCKq2y497yTXDIj9nwFNlSyK8XyAvBjNdCzBdhXb3UBfaJLYy
-	 bIxZvujpYBeIfSlkKvuvJ0h1jhRL7zX7mfeW2X1kp1T0EdPR4my3C0+VCKtM6gporu
-	 lCxKwiDrmNkz+dxHxkM3gRyY2kx49QXeLHIy/rjFwAN42buU38WLxvWwE2kP3GxLYG
-	 ORkDLiVIxrPfNjLrOHjr2dyBvLgqACPGBYm7yqDNsN2yVOJS+A/6eR7ejJBG6Ztgl+
-	 xoq8axTMuSkUA==
-Date: Tue, 6 Jan 2026 11:55:46 +0100
+	b=Z1K0/H+XpY/nY87i0BbOhrc0NiRe8qTneWo9Kclay0A+/ZiYEVXM8rM2Ru8hsNf8y
+	 PxNWW770aUY0dfnswiMYnNUyiXyMopWxWKymiXrW+XiA+s5Y09ERidRRZG782OYHhD
+	 4chf+I3fc+I8JmctmpRXqsR1iNYjVBnbR4j2HQFYpy59lZTrFG7rUnvWhWWj//5go4
+	 LXdUEq9t2WGgtOv7/a88UHej4y9EJJGE/vb9oors6pxeMGccynmmEkVG5rYPDW4Rsq
+	 79BH7p4Wrb3LzWNxaEbPknCyslDbxH1Y7TENlLw78noR/6XK39CD77/BuMLy05qqQB
+	 oJUN+EE7CvPnw==
+Date: Tue, 6 Jan 2026 12:16:16 +0100
 From: Niklas Cassel <cassel@kernel.org>
 To: Manivannan Sadhasivam <mani@kernel.org>
 Cc: Sumit Kumar <sumit.kumar@oss.qualcomm.com>,
@@ -79,14 +79,15 @@ Cc: Sumit Kumar <sumit.kumar@oss.qualcomm.com>,
 	linux-renesas-soc@vger.kernel.org, linux-tegra@vger.kernel.org,
 	linux-riscv@lists.infradead.org
 Subject: Re: [PATCH 2/2] PCI: dwc: Add multi-port controller support
-Message-ID: <aVzqMqTUWIuKhgmC@fedora>
+Message-ID: <aVzvANWTavhabhEB@ryzen>
 References: <20260105-dt-parser-v1-0-b11c63cb5e2c@oss.qualcomm.com>
  <20260105-dt-parser-v1-2-b11c63cb5e2c@oss.qualcomm.com>
  <aVvkmkd5mWPmxeiS@ryzen>
  <m5ukeugo2lazipljqpubyvm7j3xk2j5o7i2xgdbkkhii57xmyk@lh32qdzjhe4n>
+ <aVzqMqTUWIuKhgmC@fedora>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <m5ukeugo2lazipljqpubyvm7j3xk2j5o7i2xgdbkkhii57xmyk@lh32qdzjhe4n>
+In-Reply-To: <aVzqMqTUWIuKhgmC@fedora>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,87 +104,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 06, 2026 at 10:49:19AM +0530, Manivannan Sadhasivam wrote:
-> On Mon, Jan 05, 2026 at 05:19:38PM +0100, Niklas Cassel wrote:
-> > On Mon, Jan 05, 2026 at 05:57:55PM +0530, Sumit Kumar wrote:
-> > > The current DesignWare PCIe RC implementation supports only the controller
-> > > (Host Bridge) node for specifying the Root Port properties in an assumption
-> > > that the underlying platform only supports a single root Port per
-> > > controller instance. This limits support for multi-port controllers where
-> > > different ports may have different lane configurations and speed limits.
-> > > 
-> > > Introduce a separate dw_pcie_port structure to enable multi-port support.
-> > > Each Root Port can have independent lane count, speed limit through pcie@N
-> > > child nodes in device tree. Add dw_pcie_parse_root_ports()
-> > > API to parse these child nodes.
-> > > 
-> > > Equalization presets and link width detection currently use common DBI
-> > > space for all the root ports. Per-port DBI space assignment for these
-> > > features will be added in future.
-> > > 
-> > > Signed-off-by: Sumit Kumar <sumit.kumar@oss.qualcomm.com>
-> > 
-> > Hello Sumit,
-> > 
-> > Is there a reason why you represent this as a list of ports rather than a
-> > simple array?
-> > 
-> > The number of ports is known by parsing the device tree, so it should be
-> > static, no?
-> > 
-> > At least to me, this seem similar to e.g. how a gpio_device has multiple
-> > gpio_descriptors "struct gpio_desc *descs":
-> > https://github.com/torvalds/linux/blob/master/drivers/gpio/gpiolib.h#L68C1-L68C26
-> > 
-> > A list is usually used for something that is dynamic.
-> > I don't think that the number of ports to a PCIe controller will be dynamic.
-> > 
-> > I can see that struct qcom_pcie in pcie-qcom.c has struct list_head ports,
-> > but that does not necessarily mean that we need to have a list of ports in
-> > pcie-designware-host.c. (pcie-qcom could also be modified to have an array
-> > of ports if there is a desire for similar design pattern.)
-> > 
+On Tue, Jan 06, 2026 at 11:55:46AM +0100, Niklas Cassel wrote:
+> For iterating, to avoid manually traversing the array, we could do like
+> libata and create a simple macro, e.g. ata_qc_for_each():
+> https://github.com/torvalds/linux/blob/v6.19-rc4/drivers/ata/libata-eh.c#L851-L854
+> https://github.com/torvalds/linux/blob/v6.19-rc4/include/linux/libata.h#L1657-L1659
 > 
-> Only reason why I went with lists in pcie-qcom is flexibility. There are useful
-> helpers available for traversing the lists and they seem much more elegant to
-> use rather than manually traversing the array in C.
-> 
-> But to be frank, I don't really care which one is used as there is going to be
-> only a handful of ports at max anyway and there is not much overhead.
+> And at least personally, I think my brain will parse dw_pcie_port_for_each() { }
+> faster than it parses list_for_each_entry(port, &pcie->ports, list) { },
+> since it is more unique, but perhaps I am the weird one here :)
 
-Personally, when I see lists, I automatically think of something that is
-dynamic, so using lists for something static just looks a little bit out of
-place IMHO.
+Or... for_each_dw_pcie_port()
 
-Technically, the difference is speed. If we want a specific element, we
-will need to traverse the list. With an array, we can access the element
-directly. However, looking at the current patch, it seems like it never
-looks for a specific port, it always does an operation for all ports.
-So from a speed perspective, it doesn't matter, at least not for now.
+We also don't need to supply an integer to the macro, we could do like e.g.
+for_each_nhlt_endpoint():
+https://github.com/torvalds/linux/blob/v6.19-rc4/include/acpi/nhlt.h#L63-L64
 
-
-One advantage I can see, instead of doing:
-
-+	struct dw_pcie_port *port = list_first_entry(&pci->pp.ports,
-+						struct dw_pcie_port, list);
-+	return dw_pcie_wait_for_link(pci, port);
-
-for drivers with only one port (most drivers), we could just instead do:
-
-+	return dw_pcie_wait_for_link(pci, pci->pp.port);
-
-To simply get the first element in the array. No need to sprinkle
-list_first_entry() everywhere in all the drivers if they just have one port.
-
-
-For iterating, to avoid manually traversing the array, we could do like
-libata and create a simple macro, e.g. ata_qc_for_each():
-https://github.com/torvalds/linux/blob/v6.19-rc4/drivers/ata/libata-eh.c#L851-L854
-https://github.com/torvalds/linux/blob/v6.19-rc4/include/linux/libata.h#L1657-L1659
-
-And at least personally, I think my brain will parse dw_pcie_port_for_each() { }
-faster than it parses list_for_each_entry(port, &pcie->ports, list) { },
-since it is more unique, but perhaps I am the weird one here :)
+which has does "for (unsigned int __i = 0; " in the macro.
 
 
 Kind regards,
