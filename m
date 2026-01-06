@@ -4,67 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8AAAC47BE2
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jan 2026 10:49:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18FB2C47BE2
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jan 2026 10:56:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
-	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=NgC8nSmfW/ZSiQIj6Lmjt9BG/ajLX5eerfNs7YqaSeE=; b=Fz8isCNjnAhktMp1Wz+boWGFMG
-	ykpuSYEVxdKsRRi2b0TXcNrSQtB1QgkUSdl2H4JGx/ZZwNvF90te0DjLbdWHJ2ksuZr0mvZkTjExX
-	ees8rt47QNOEsXpUMfIl7SQPQsiXrIEx0cetGmJR18GsT7ayX8WVV+nsA1Cc2yqwuMY+0l1uFHWuj
-	8eZtmMFSX6rF7b0GAkTbDGabPjItc7jfEZxH1itb02WmMZ9U5cz9PguokDWhcxlE6262WSNZH/QZD
-	PQ6b4TFOV8SwODdwcf1GwLpP4r0stdtjvWiRxLYdrERTT2pnRJ62s4r20n4xxUt6XYgvE0UyGsTrY
-	aXzG5GWQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=blYP+SxWDV7/lh9jeAJgYsOUNv5XKj0sY93pFiLYPh4=; b=jIPUROpU+GPXl9
+	ygKcDQW20a6a7cpnax8BwQD8haZk0r58+KctCI/0NHOMPkJs+sAQyqNrRl9nGaPSaQqB2wPnw3GMS
+	7fHOShRGxqHfIIq6ChTCdRc0O8a1uLkAv4yfdx889ceSOOV5WBj8t5oaMUpUqjpKFauR5oJ/BqOx0
+	hJ34zKS3xhaDxrLOuPUN7gpKTNT6wXTRCqfayL0SbecziaAAC9f+M5+E4NB4Qt+uVk2sAMmhB4ucu
+	KMB7O2m+HuX9pePGT6eWuDF8H3CIAUF1kMHrvT4nevN2oUuG57xGldptcWya4ItdJSgG6QM9lXL5V
+	62YxSQAp5QJdvlQEiayQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd4cr-0000000CpKB-46Pp;
-	Tue, 06 Jan 2026 10:49:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vd4jN-0000000Cplf-2yje;
+	Tue, 06 Jan 2026 10:56:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd4cp-0000000CpJK-2CGv
-	for linux-riscv@lists.infradead.org;
-	Tue, 06 Jan 2026 10:49:20 +0000
+	id 1vd4jI-0000000Cpk7-3TU9;
+	Tue, 06 Jan 2026 10:56:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BB84343AF0;
-	Tue,  6 Jan 2026 10:49:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 778BCC116C6;
-	Tue,  6 Jan 2026 10:49:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D975B6014A;
+	Tue,  6 Jan 2026 10:55:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98CD3C116C6;
+	Tue,  6 Jan 2026 10:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767696558;
-	bh=Xb+h5SYWWvSkRROTlUNDQfcSyzPkTdiaZXJudKyt/vs=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=a8JEB5pQYJ3qSa/sAUCsQA7nnQdcSlB7apzjxcN6PLujcME5h/9mXw2AHYMWsSnh+
-	 2O2EGX3V5n9r3ub5Q0JWJQJA9OmtoqjCcnwXCOyfkc4CiJ0wIhFpaL+z9eb1aNZ8pL
-	 XPeqyYpLqxJ+iQjH65Ui1fUs4H00hGhTEd2UiDxey5E8/FihsdMRMrgkBaDcNO371N
-	 Y23tR7ERbOFXOPTDXYQKQv7w85g1LqCWLLbsvrbBaTVjeFS23ySlK/G6zlyU1jjHYI
-	 D03iDAPjdFW9fJAqH0mdbaD5RlIRzMOjMn1mUrv3j+xOtkdpVe5cuc4DAXTaqEPu09
-	 oHiIEPJsQuwlA==
-Date: Tue, 06 Jan 2026 04:49:17 -0600
+	s=k20201202; t=1767696959;
+	bh=ifuhjD9dVO9aJ7A0tSpgghkHXwetyJmijfctFIgwaSQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XcDKNXevXkZg8xqIKBNqcWVx14ybsmAEKhzw4HEBwmq1U1GERhcd9QTkvp0unu5XI
+	 4OtXMxpN3HDf2tPDnnCKq2y497yTXDIj9nwFNlSyK8XyAvBjNdCzBdhXb3UBfaJLYy
+	 bIxZvujpYBeIfSlkKvuvJ0h1jhRL7zX7mfeW2X1kp1T0EdPR4my3C0+VCKtM6gporu
+	 lCxKwiDrmNkz+dxHxkM3gRyY2kx49QXeLHIy/rjFwAN42buU38WLxvWwE2kP3GxLYG
+	 ORkDLiVIxrPfNjLrOHjr2dyBvLgqACPGBYm7yqDNsN2yVOJS+A/6eR7ejJBG6Ztgl+
+	 xoq8axTMuSkUA==
+Date: Tue, 6 Jan 2026 11:55:46 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Sumit Kumar <sumit.kumar@oss.qualcomm.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Yue Wang <yue.wang@amlogic.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Chuanhua Lei <lchuanhua@maxlinear.com>,
+	Marek Vasut <marek.vasut+renesas@gmail.com>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Pratyush Anand <pratyush.anand@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
+	linux-amlogic@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/2] PCI: dwc: Add multi-port controller support
+Message-ID: <aVzqMqTUWIuKhgmC@fedora>
+References: <20260105-dt-parser-v1-0-b11c63cb5e2c@oss.qualcomm.com>
+ <20260105-dt-parser-v1-2-b11c63cb5e2c@oss.qualcomm.com>
+ <aVvkmkd5mWPmxeiS@ryzen>
+ <m5ukeugo2lazipljqpubyvm7j3xk2j5o7i2xgdbkkhii57xmyk@lh32qdzjhe4n>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, andriy.shevchenko@linux.intel.com, 
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- viresh.kumar@linaro.org, linux-riscv@lists.infradead.org, alex@ghiti.fr, 
- aou@eecs.berkeley.edu, sboyd@kernel.org, palmer@dabbelt.com, 
- krzk+dt@kernel.org, rahul@summations.net, rafael@kernel.org, 
- darshan.prajapati@einfochips.com, anup@brainfault.org, cyy@cyyself.name, 
- jassisinghbrar@gmail.com, michal.simek@amd.com, charlie@rivosinc.com, 
- pjw@kernel.org, dfustini@oss.tenstorrent.com, leyfoon.tan@starfivetech.com, 
- conor+dt@kernel.org, jms@oss.tenstorrent.com
-To: Joshua Yeong <joshua.yeong@starfivetech.com>
-In-Reply-To: <20260106092117.3727152-2-joshua.yeong@starfivetech.com>
-References: <20260106092117.3727152-1-joshua.yeong@starfivetech.com>
- <20260106092117.3727152-2-joshua.yeong@starfivetech.com>
-Message-Id: <176769655757.1087310.16557649549419031766.robh@kernel.org>
-Subject: Re: [PATCH 1/5] dt-bindings: firmware: Add RPMI performance
- service message proxy bindings
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_024919_581698_1ADC1654 
-X-CRM114-Status: GOOD (  11.82  )
+Content-Disposition: inline
+In-Reply-To: <m5ukeugo2lazipljqpubyvm7j3xk2j5o7i2xgdbkkhii57xmyk@lh32qdzjhe4n>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,49 +103,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 06 Jan 2026 17:21:12 +0800, Joshua Yeong wrote:
-> Add device tree bindings for the RPMI performance service group based
-> message proxy implemented by the SBI implementation (machine mode
-> firmware or hypervisor).
+On Tue, Jan 06, 2026 at 10:49:19AM +0530, Manivannan Sadhasivam wrote:
+> On Mon, Jan 05, 2026 at 05:19:38PM +0100, Niklas Cassel wrote:
+> > On Mon, Jan 05, 2026 at 05:57:55PM +0530, Sumit Kumar wrote:
+> > > The current DesignWare PCIe RC implementation supports only the controller
+> > > (Host Bridge) node for specifying the Root Port properties in an assumption
+> > > that the underlying platform only supports a single root Port per
+> > > controller instance. This limits support for multi-port controllers where
+> > > different ports may have different lane configurations and speed limits.
+> > > 
+> > > Introduce a separate dw_pcie_port structure to enable multi-port support.
+> > > Each Root Port can have independent lane count, speed limit through pcie@N
+> > > child nodes in device tree. Add dw_pcie_parse_root_ports()
+> > > API to parse these child nodes.
+> > > 
+> > > Equalization presets and link width detection currently use common DBI
+> > > space for all the root ports. Per-port DBI space assignment for these
+> > > features will be added in future.
+> > > 
+> > > Signed-off-by: Sumit Kumar <sumit.kumar@oss.qualcomm.com>
+> > 
+> > Hello Sumit,
+> > 
+> > Is there a reason why you represent this as a list of ports rather than a
+> > simple array?
+> > 
+> > The number of ports is known by parsing the device tree, so it should be
+> > static, no?
+> > 
+> > At least to me, this seem similar to e.g. how a gpio_device has multiple
+> > gpio_descriptors "struct gpio_desc *descs":
+> > https://github.com/torvalds/linux/blob/master/drivers/gpio/gpiolib.h#L68C1-L68C26
+> > 
+> > A list is usually used for something that is dynamic.
+> > I don't think that the number of ports to a PCIe controller will be dynamic.
+> > 
+> > I can see that struct qcom_pcie in pcie-qcom.c has struct list_head ports,
+> > but that does not necessarily mean that we need to have a list of ports in
+> > pcie-designware-host.c. (pcie-qcom could also be modified to have an array
+> > of ports if there is a desire for similar design pattern.)
+> > 
 > 
-> The RPMI performance service group is defined by the RISC-V Platform
-> Management Interface (RPMI) specification.
+> Only reason why I went with lists in pcie-qcom is flexibility. There are useful
+> helpers available for traversing the lists and they seem much more elegant to
+> use rather than manually traversing the array in C.
 > 
-> Signed-off-by: Joshua Yeong <joshua.yeong@starfivetech.com>
-> ---
->  .../firmware/riscv,rpmi-mpxy-performance.yaml | 65 +++++++++++++++++++
->  1 file changed, 65 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/firmware/riscv,rpmi-mpxy-performance.yaml
-> 
+> But to be frank, I don't really care which one is used as there is going to be
+> only a handful of ports at max anyway and there is not much overhead.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Personally, when I see lists, I automatically think of something that is
+dynamic, so using lists for something static just looks a little bit out of
+place IMHO.
 
-yamllint warnings/errors:
+Technically, the difference is speed. If we want a specific element, we
+will need to traverse the list. With an array, we can access the element
+directly. However, looking at the current patch, it seems like it never
+looks for a specific port, it always does an operation for all ports.
+So from a speed perspective, it doesn't matter, at least not for now.
 
-dtschema/dtc warnings/errors:
-Warning: Duplicate compatible "riscv,rpmi-mpxy-clock" found in schemas matching "$id":
-	http://devicetree.org/schemas/firmware/riscv,rpmi-mpxy-performance.yaml
-	http://devicetree.org/schemas/clock/riscv,rpmi-mpxy-clock.yaml#
-Documentation/devicetree/bindings/firmware/riscv,rpmi-mpxy-performance.example.dtb: /example-0/performance: failed to match any schema with compatible: ['riscv,rpmi-mpxy-performance']
 
-doc reference errors (make refcheckdocs):
+One advantage I can see, instead of doing:
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260106092117.3727152-2-joshua.yeong@starfivetech.com
++	struct dw_pcie_port *port = list_first_entry(&pci->pp.ports,
++						struct dw_pcie_port, list);
++	return dw_pcie_wait_for_link(pci, port);
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+for drivers with only one port (most drivers), we could just instead do:
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
++	return dw_pcie_wait_for_link(pci, pci->pp.port);
 
-pip3 install dtschema --upgrade
+To simply get the first element in the array. No need to sprinkle
+list_first_entry() everywhere in all the drivers if they just have one port.
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
 
+For iterating, to avoid manually traversing the array, we could do like
+libata and create a simple macro, e.g. ata_qc_for_each():
+https://github.com/torvalds/linux/blob/v6.19-rc4/drivers/ata/libata-eh.c#L851-L854
+https://github.com/torvalds/linux/blob/v6.19-rc4/include/linux/libata.h#L1657-L1659
+
+And at least personally, I think my brain will parse dw_pcie_port_for_each() { }
+faster than it parses list_for_each_entry(port, &pcie->ports, list) { },
+since it is more unique, but perhaps I am the weird one here :)
+
+
+Kind regards,
+Niklas
 
 _______________________________________________
 linux-riscv mailing list
