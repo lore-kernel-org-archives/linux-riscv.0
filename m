@@ -4,64 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6165CEFCE7
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jan 2026 18:28:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64995CEFD0C
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jan 2026 21:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R8DbI9ohpzy2TGV1UAY3dPiDYBbAY1N6fKisQDiBfUY=; b=maiqfW4uR21ywf
-	1kWXA9hqdU2cX4L+SFxxE2aCtqnzIH5mKr74J17VXN0Dsg0kOq2E6FdYLEV2xzjkfnKeWnwgATblG
-	Y4dmIsNdIinY+lwyb++wVxZRMAXzR9L75zLnETU7FaYL580kS9iqvutiLm5E1lp10DL0rH+i0hbBp
-	UQkEXubyeonVpl4kaJ4JgSg/MDhM4lBLPsc6La7tomIssn1ZnTEpxD75BBX3gPaTFehIPeXxKo3qA
-	8D+c+G2EJOwNARcXSsaKdPXUQe2jVAeemqCKWJnJZTQrvdqrpxD19FTC9g6rEBwIZprjJ4GkbpmGp
-	UJU1+WRpDtWBMxqvKlRA==;
+	List-Owner; bh=BXZno/CkwvYldNCd5PvekNK5/ZjI9ElCcnRiaw+RbAc=; b=Mv3fKxA0ajujt3
+	gfKVqLkjYObQwgFEFQvt1jpG6ys9TvZMvPYTKRL/q2SiEVs5coyHNNb02/sMFFE1PWKvvlTiu3s7j
+	VUuOQH07ozMqvhwNwPJNY2n9zdqsHxKvIF4p6JxQj4X+7Et4/UPvQl3cSoHVYme8HTlSNjClbKomd
+	NssLhigG3HBnKAWSXzvRWLCrvKzyLkGug77YjMmK0LABASSQoG7OvYB/NxpDANRl+G3Q8bGvlOFcQ
+	UjL1J1KP6t1IZoZTQQ0qdK0gmN0TnY/OvCE8EDDsJ50CBMzbhxCkhSSIk5OEqD0pDb8FwkuaxQiVQ
+	ULdexrboXmn/vqDSSLaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBmq-0000000Dfvi-2eOx;
-	Tue, 06 Jan 2026 18:28:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdEQU-0000000Dr49-1MqH;
+	Tue, 06 Jan 2026 21:17:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBmn-0000000DfvI-2raL
-	for linux-riscv@lists.infradead.org;
-	Tue, 06 Jan 2026 18:28:06 +0000
+	id 1vdEQR-0000000Dr3G-2e1H;
+	Tue, 06 Jan 2026 21:17:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5096441B6A;
-	Tue,  6 Jan 2026 18:28:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A54DC16AAE;
-	Tue,  6 Jan 2026 18:28:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BD2406011E;
+	Tue,  6 Jan 2026 21:17:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 654D4C116C6;
+	Tue,  6 Jan 2026 21:16:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767724085;
-	bh=/kUTBjDyHLOP++rgoCOAu8BTPjxi49VyNskoVZ4vBSc=;
+	s=k20201202; t=1767734229;
+	bh=QLjWo0t79X6kihc/yxh2M5ASDv7kRQJ7SHHK2+hjnB8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bCAPKZAbn39k8eOCcd3oj3Nn4sYm+QuZqLjs7w6lS/wpANcUuqYlNWLB908OWP03P
-	 t/6hVgUQ74kCvCWiDVdpZjehdtDGxhZ+/VTMAeXGVfVqrElZdGsxmJZqzzz3e6kSrq
-	 Q69PJJd/lF8hveaXkcw48n4m2CIxWq/205cxax2Ja4Zs7xqBXu11qq0Dhv83IOkyTq
-	 kaGzy7r4SotX7GdgYMI7LdHNYBLv9egs1brgf+TabC4uOYdiFYzjptuFHKLqjEyYTh
-	 b2umfxcQCo5Q+TKBM6mbF5W0/jNBKyDs0QB/pM6yDFS6x/YTsd7tvnGxpKCQp9PQUh
-	 r+o3VEq+6kmUA==
-Date: Tue, 6 Jan 2026 12:28:04 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-Cc: alex@ghiti.fr, cyy@cyyself.name, me@ziyao.cc, krzk+dt@kernel.org,
-	palmer@dabbelt.com, conor@kernel.org, TroyMitchell988@gmail.com,
-	gaohan@iscas.ac.cn, linux-riscv@lists.infradead.org, pjw@kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	kingxukai@zohomail.com, aou@eecs.berkeley.edu
-Subject: Re: [PATCH v2 1/2] dt-bindings: riscv: canaan: add 100ask K230
- boards compatible strings
-Message-ID: <176772408361.2509936.16592890461437169152.robh@kernel.org>
-References: <20260104070911.219588-1-jiayu.riscv@isrc.iscas.ac.cn>
- <20260104070911.219588-2-jiayu.riscv@isrc.iscas.ac.cn>
+	b=VJ/EMUWx5xOJ6jpzJjm0a8IJNcQXZ0IMgt5F25rQqG1hlEHkjqG5BZPoexNzSRB8n
+	 ICw7PV+KEBh86ODxQ5AoDVhaagYgn4YkBkB7CinZ0kCJNIsvVJNgoQ24oai3nms+oY
+	 DGjicaEv3qk8rwdLUAR52lasyYpCOLODRpkmPpw8N9jw46UqQsJ4dN1c+wRHkh4w0w
+	 vAWV3JJqa5D5ZWBys99/vUGTlSTYxtlq91mFh/GizjZCkTWeLyK7i0hMO9WYJMcptw
+	 bYIqbO0v07rxEjX/JKZpJcj9Gb/MCwfYETeSB1I2AacmE+ZRsN55wlYVEi1ec6R8lK
+	 z4a5G4ksV4N9Q==
+Date: Tue, 6 Jan 2026 22:16:56 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Sumit Kumar <sumit.kumar@oss.qualcomm.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Yue Wang <yue.wang@amlogic.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Chuanhua Lei <lchuanhua@maxlinear.com>,
+	Marek Vasut <marek.vasut+renesas@gmail.com>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Pratyush Anand <pratyush.anand@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
+	linux-amlogic@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/2] PCI: dwc: Add multi-port controller support
+Message-ID: <aV17yIhuOFLGYi8r@fedora>
+References: <20260105-dt-parser-v1-0-b11c63cb5e2c@oss.qualcomm.com>
+ <20260105-dt-parser-v1-2-b11c63cb5e2c@oss.qualcomm.com>
+ <aVvkmkd5mWPmxeiS@ryzen>
+ <m5ukeugo2lazipljqpubyvm7j3xk2j5o7i2xgdbkkhii57xmyk@lh32qdzjhe4n>
+ <aVzqMqTUWIuKhgmC@fedora>
+ <5gne3bureusi45sy4zqr2zrfvt4ba4uxgnsfdnjeh2eno5zspe@ldvhq2nilsan>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260104070911.219588-2-jiayu.riscv@isrc.iscas.ac.cn>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_102805_745979_DA0CC524 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <5gne3bureusi45sy4zqr2zrfvt4ba4uxgnsfdnjeh2eno5zspe@ldvhq2nilsan>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,25 +105,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jan 06, 2026 at 06:41:09PM +0530, Manivannan Sadhasivam wrote:
+> > One advantage I can see, instead of doing:
+> > 
+> > +	struct dw_pcie_port *port = list_first_entry(&pci->pp.ports,
+> > +						struct dw_pcie_port, list);
+> > +	return dw_pcie_wait_for_link(pci, port);
+> > 
+> > for drivers with only one port (most drivers), we could just instead do:
+> > 
+> > +	return dw_pcie_wait_for_link(pci, pci->pp.port);
+> > 
+> > To simply get the first element in the array. No need to sprinkle
+> > list_first_entry() everywhere in all the drivers if they just have one port.
+> > 
+> > 
+> > For iterating, to avoid manually traversing the array, we could do like
+> > libata and create a simple macro, e.g. ata_qc_for_each():
+> > https://github.com/torvalds/linux/blob/v6.19-rc4/drivers/ata/libata-eh.c#L851-L854
+> > https://github.com/torvalds/linux/blob/v6.19-rc4/include/linux/libata.h#L1657-L1659
+> > 
+> 
+> I specifically do not want to introduce custom helpers. That's one of my primary
+> motivation for using lists :)
 
-On Sun, 04 Jan 2026 15:09:10 +0800, Jiayu Du wrote:
-> K230 CANMV DSHANPI is a development board produced by 100ASK.
-> 
-> Add compatible string for the board and its SoM.
-> 
-> Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-> ---
-> 
-> The hardware details are available here[1].
-> 
-> [1]: https://github.com/100askTeam/eLinuxAI-TrainingDocs/blob/master/docs/CanaanK230/part1/01-Introductionhardwareresources.md
-> 
->  Documentation/devicetree/bindings/riscv/canaan.yaml | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
+You are the maintainer.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+IMO it would still be nice if we could avoid sprinkling:
 
++struct dw_pcie_port *port = list_first_entry(&pci->pp.ports,
++                                             struct dw_pcie_port, list);
+
+all over the glue drivers somehow, especially those that will only have a
+single port. Perhaps by introducing a macro?
+
+In case you don't like the idea of introducing a macro to get the first
+port...
+Since most glue drivers only seem to use the port when calling
+dw_pcie_wait_for_link(), perhaps we could introduce an alternate version
+of dw_pcie_wait_for_link(), that can be called by glue drivers that only
+have a single port.
+
+
+Kind regards,
+Niklas
 
 _______________________________________________
 linux-riscv mailing list
