@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A3C7C47BD1
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jan 2026 09:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA22C47BD0
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jan 2026 09:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Te7H3k8162jdNUF2ZSTCUq+Hl/mnms+9UQRBUTKFvdU=; b=h5QmxlJ1LtPUuf
-	I3Bc7nJ9bdIzuNnKxP9IrUOFrQMGtkrj0p0DXKPpXSCOhsyiC3wixIygBpdK7JJ2Elp5JHsdVI5zg
-	oaK8+s/+MhoCztM5jXWqcKiTmD1heoDgsU6HKwEx1i9jjY8QPhrHHjvYa4Tnwuooj/HO8QfS9dzj0
-	j84nypMC2s4ZlF3W5exF6H9SUsxrIow4UOqDQgHzzrqY05CIkrF2OH9y8qBKC8hYa1Fad81tVcdCG
-	xJv2EynL70A+OvSDffKB4zlU6/IAUY1UT2GnI25jk5B7fJWpW23dHQu6cxNN4ZQMAQWZT4PZuVJys
-	UYKppkf/EueZidmg4+WA==;
+	List-Owner; bh=sEEqysbQEKvcAMqQmGYlwCb13GL3I3KpjJTgKuIgu8w=; b=zn9B2sa7VkYhCa
+	MogQi7ZjAkmHxQyoqak7fYNQV4lkSofJQ3xvDEDiHg5y1khtWS+WJA8vwQlFhaLlLTwakZPGi6R42
+	TYFUGpzjZ45MJ3EMBQl3nMJCntt/LK7tBiEw6pwOi8pj3KoDRxUbK4UCZl2AIpYV5SqgoOfneH4ow
+	s8ya7UGn7IknalOq/P+Q+8ei1ab3eOjiXoGpdcjMr1mhfDqFwbKfVXccNACjxQLgpvQuz0c29fWfL
+	oZskjexGNhZg/4P/YmOhVJiBaliHTG+swuNOF/h7Y3qQJVgsipPa9qRgf/O2P3laUDcbVMRx5chpr
+	u+K9KeNkxOMogDqw3VNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd3Ga-0000000ChLZ-2Z18;
-	Tue, 06 Jan 2026 09:22:16 +0000
-Received: from mail-sh0chn02on20710.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::710] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1vd3Gn-0000000ChOD-0qaR;
+	Tue, 06 Jan 2026 09:22:29 +0000
+Received: from mail-bjschn02on20717.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::717] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd3GY-0000000ChKN-2gj0
+	id 1vd3Gk-0000000ChNH-1oMc
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Jan 2026 09:22:15 +0000
+	Tue, 06 Jan 2026 09:22:27 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ea4rbdu+3DqzE5mq4y2Ksu2VvAU/yp3T7WOrJdZNO8wKg2OD2upBSWNxnRnXQI/Hshmo9aBKdV98LM2/X1huzujlm/FjHsgDAXZ+PgQs8uV8+hRBGMfDJNt8sGiCbbAWyf5MqrSQz7fFYefKUhXUbdDBMDhMONzW8R9nspQy2sxnTnWlP0iNjUPPXyOSagOumsA7cGBqneIbRuZZBvrni4+qkWagYTvNjnjG99kS+Nl7Nr9OEcsBADL//J4ljWZLchoTOyWC1Q9WynBL85+amyMhC1wd8ENQXxEdq6ADHxTuHcWa19Xq4WD/N53pekzxHj07zsa1yeUh6gVwZeVoZg==
+ b=VrbkDXaLXRkIPLkAQwudABPhfRUnQfy9GgVxqNedJ0kwCq5fNFKmhUtZmtqijv37rxaGT7UQJLxkP8xBIzQOK2QRV7DiJKVfbf9VKmktmkBLsmzlZ09oZRdfv8xJfYfNA+YpMqFY3TJwx0ZcWis95FaEYlqWCPx+k8pJs2MlHzCamJit8Ws07b6uzlD3NsjJfxJ9IpnT23OVVLJih/on0IPm42gbM+DsiPVHkAqexn9ZPQaLFM1uORIVmkJksQJgRx+G+k+Li+lB7dGqn5SP4tjs+N9/TYoTkr1L9ATAGmE5sFP7Fa6EMboG6yIBE8S5Q4WX8AwZzA7YAtvtSej25A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=riT3ma3FNotfFDXDu4XiwyZfXtI287FI8R03KiFZAOg=;
- b=gGvSCNgZOOehA2ZI5zrsrSp37kr5bEF1TkneqV8jmdmshcJpYtVgMBKqWDhDEnJ6ctxLz3KcStsmxCBIxmEOAKGF+3iz5EjCKUNC77PRrUE7a7gOIeY8xh0YHEVM0RqJlSKTFLRBKKjD6ZbCifETfT6XhahPEMPXb8e4xykdtLh6JIPvw9/z2P5q0J8/feQ2qRGjyt0glxWoRDbQ4y86tFK3CGRDSHm06VyoAFNfgF1AgWlrF71h0dfccf++r8tgmyuB1DStdjplwO4W8dZ245qXDnIikB0obEfEtmIVpKnKUC8nWCLwfoTQnG5TPNygOI494a3DivPnibL69gb2xw==
+ bh=N0opdMDfUs59Uk9CqjaxK57v7wc/9d//PB/5YEZ2jnE=;
+ b=fi2jBFvmG1Arism7Si8t4IIEYNjjVvCN5ic+akUkiBp6KA4HzKz67RTp1rYOZwkrYb1zhx77jUFi85FnlSMiV9bLtVWpluw96xJMwuwQxI/zZDWVq9YTyAKpRX16R3F6V36ZZ8PXYJO5BtmZMZOVYVyYEye0LhLz91or/ZshMyli7ml1jy6xO02iwv9mLnIN/UruJxWoD45yAgigOHV0WSo2Fp0O2844hStjEbsokoRZ+BGUAK2reDoTyGdtF75Bal2i8K6UNq3BtG8AA7HPA2AYM4wx57B8Yjvm1HNrlck2uy1l68OuyK//2ETu7BYY8h6SYhZVA9EmBQi6mdkSeA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c311:20::14) by SH0PR01MB0730.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c311:22::19) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Tue, 6 Jan
- 2026 09:22:01 +0000
+ 2026 09:22:19 +0000
 Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
  ([fe80::81c4:2724:6a48:a18]) by SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
  ([fe80::81c4:2724:6a48:a18%4]) with mapi id 15.20.9388.011; Tue, 6 Jan 2026
- 09:22:01 +0000
+ 09:22:19 +0000
 From: Joshua Yeong <joshua.yeong@starfivetech.com>
 To: rahul@summations.net,
 	anup@brainfault.org,
@@ -75,9 +75,9 @@ Cc: linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-pm@vger.kernel.org
-Subject: [PATCH 1/5] dt-bindings: firmware: Add RPMI performance service message proxy bindings
-Date: Tue,  6 Jan 2026 17:21:12 +0800
-Message-ID: <20260106092117.3727152-2-joshua.yeong@starfivetech.com>
+Subject: [PATCH 3/5] dt-bindings: riscv: cpus: document performance-domains property
+Date: Tue,  6 Jan 2026 17:21:14 +0800
+Message-ID: <20260106092117.3727152-4-joshua.yeong@starfivetech.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260106092117.3727152-1-joshua.yeong@starfivetech.com>
 References: <20260106092117.3727152-1-joshua.yeong@starfivetech.com>
@@ -87,54 +87,55 @@ X-ClientProxiedBy: ZQ0PR01CA0035.CHNPR01.prod.partner.outlook.cn
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: SH0PR01MB0841:EE_|SH0PR01MB0730:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6a87ed47-4ddf-4ea5-1cc7-08de4d050c0f
+X-MS-Office365-Filtering-Correlation-Id: f9f0ee9d-665e-49fb-564d-08de4d0516e0
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|52116014|41320700013|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: uQu2qLuOzJ7YU9WhgBAYJhiW+jNIueOP1F6fckdUF0Qt1vDGBhPpRk0l+8cerSTI6K0ojdVhZdqHj61r9Vh1dHiSE0UBIsmC436OMjfm+DoQGJSa7cVkevqH3xJM55mXDDjVw11XSj1b7cwRZGl0Zx5+WSt0SgiJ38angqqx7vPTAgJIqKpBmMmf9X1kLxVu665OVk7h9O4p5jRCv833Qj8RgmfkA58RblLprOF9Lu3t5afYbXdHAA3JntVdkpuNHr3oOleSm851BmRzu6KTvFPRcNnIzQ3v7F0rjcGfq/NjgDbDfTr3Xj0zuSoyHPp7apCqGl7UC3w7gOfQl6PzVKpi9QAVLxBEVkkvFe9q7xE3klyFvFvowT7ami6BYF9dsXmjvPLW4cM2zHTWz9CEgfNIF3JQCF6zytcW6/BRs2GSnnRGnAEgwoosqQ8jkXGmWZzloaOOP1y6THW9Dw8zj4gSgkeYBfoMUsp5ZQ2S+0PhjpPhWSpUJjBGqzCoXtqhEisitTQIJnaQWqG+kemUjbsYyZnPkOdcQjgcgr9ESiWP8zV6ObJKZnFoiGBJrY9rmg44yEZSetbBnChc3GRPrHVz7llcFFgveUtK3X65WnE=
+X-Microsoft-Antispam-Message-Info: Y/IpyhEH4VAm/0K0o/BFVCwm64QPhkO7IfAbrl/REGlK5efQVc3l4anqUvuVYJzmIXlhKSl7JqG/u/4NXpRErsFeisNeuuHCN6UF4EyJzYEEvZyGg0zlLrtv0DQho1vyk4eO5Wafongk1B/T8AbprIiVHhE74mGA8K2Sqov2UC211N/2FbFZynxtoDUlb/8l+DBiSthL8dRrptS8JwyM+i9A5su802/Qw4W2/W2pmxJt4Jfs3RxFUQZZJsV9zG8Hu4rUAIox74f5+LOPLHTtuE6awVOc4B4OR5jiFd8szhBXPWRiMxMlQq3O5Txa0Pz8akPX0eJT4I2FwQ+NBrb1eO8QJzi5hG5rsP6/LCY/+ktOcT/VZp8sTelJAtrjir2neDYI8YZDmJ/SfqFrCLPfmVHtzuPGpAHjPhVtkwTWgOL+hp9J4Gg3xVkA42s54alOVOg2ChlrKMcEMOrp3Q4FgqL6cwkpwLQ+C3WqsahLSJmr/WZs5YesvnBFe3ANEQEDueD+plRA+idwWut44+V0dRXjYkH1skqdqEwt0JdBDFKywparjiGaa7vLOmWrjS8N6OsAl9W/NodzUAHhKYp7vXIKYXq4HkmrubE3zQJq0R8=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(52116014)(41320700013)(38350700014)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NG94XhRNbcsx/WaQTAIGSpYbL0gJrbmo5gp8KPJme0pBtG8C7pNBtKjHiIqT?=
- =?us-ascii?Q?bzRyX3aYu7pD+mIFpKSvDuL26YwoTelmXFFdqxnWiFFl3z3hQ+z5p5fzkLhl?=
- =?us-ascii?Q?XK2rZBWEPYM2jU+5ar5Xy76Z5Q7grCR6pJk0lpnZ7kgxDtUlwsqNXnUb2goE?=
- =?us-ascii?Q?No85KpvhaCJcEsOO4KYZ2qsrGeYvRBJSZn7uIEv7yC6+hL8tJayfqdQ0gZ2A?=
- =?us-ascii?Q?3fN2dBlyRkqYtGiiaP38R7puxw8dy6p4+7W7kjBYn/F5ocYGsO67AiQNeySo?=
- =?us-ascii?Q?SRkRrN0HAJqmSwNOxRyDYEVnAx2pZnqFN8/WqD4O6i1wuEzs8+lRmFIIUHWf?=
- =?us-ascii?Q?PEFTkKl+JQu3IbBGZnu2ClfRn3faIwU/pSdALA1x/pObhSYdIma+A8WmO/9m?=
- =?us-ascii?Q?dMoanpSG+iAb5dZ+Gq4XPOuajurFtap4qtwDyBfheBlMk77O95hJKbSeMH+c?=
- =?us-ascii?Q?28R41Z5EkPPvCiCKTzYnH9yeLyoYqyJPCmWKHn4F98Eg8yw4PRkhDe6/U4Vq?=
- =?us-ascii?Q?0Jh6E+2GvkeszJ4WoKBYBoKZT9414GU+P8XBAl6m1aXgP7ovseY0HR2acvLc?=
- =?us-ascii?Q?YclXnvPvztarZHJCcDq0uIuDq0tmuPbRQ8krU/Y1oRDVCIxKirVK8luG/AyB?=
- =?us-ascii?Q?Q32Z2IwSOh2NJv86RAYcfdJvtnLNy5vWX1fa5D7zYDhcIYUBQAJfFdYKwdRn?=
- =?us-ascii?Q?GB+etf6mRvOfJZRznD/Gr/WOCQ96vwJXMICf76Ovc4fkl4aSv7CSRHT+Xlg6?=
- =?us-ascii?Q?Becwg+0GkdmlAOEpjDTf4X3SqQ9Nv3cIe8M+6kz6Pylt9fb9tzFractQuyQT?=
- =?us-ascii?Q?xYrhEG02V2TIIyenowdc3HBXHlCusSM73iKEwo826HFbaA8z/AAX+hiOCoyI?=
- =?us-ascii?Q?MLDK3iaT0uH4N8DnmuYfj0OI+FQydJc7qJ7zEk8SEqDKPlZyG/h9VNLS4Gz2?=
- =?us-ascii?Q?dPBSOS3nzT7qJcZBf3tqtakfET/bVe9qaOalaIp9SoB7aHvLMsZxDnmllJSE?=
- =?us-ascii?Q?tWQ/71gqxH5MPeA1mVCYU1Op3na9qyZSmPmhxRt4OUh9vjQ9M5pnkSczhq6F?=
- =?us-ascii?Q?uRa/hlaMdVggo46Y46ESFfagpmw7WbFVhUYwxXlYOKg8SCMEySD9dsWgyiD1?=
- =?us-ascii?Q?+q6Ezsfa83C6z+Tr9htQyt5RH/9VsbIlGUM98prXxujkoT28Ix9/rP6Ug+jo?=
- =?us-ascii?Q?qQPT9euvYh6ql1M7P/VsnGsev4GShiYw0zNsobcXQOm2ESftwMhEdbb0TEqU?=
- =?us-ascii?Q?Nost0txt3wDOjgUQ+IQ9TzB92lh6DRzYsxfFIhaGKdLCvxzz/JWpWa6ZyRhb?=
- =?us-ascii?Q?Uj6S7S6ui04ibv2KHLHcoeuj6hbXhA+KNP7YodFfUnVpriLBCmpGn6uZGblA?=
- =?us-ascii?Q?/mL/QaIk8yPV4PREB6IvK6n1ssbvRv7TtMqDSk4Lr4YX2bS14YIo3gM9JHY9?=
- =?us-ascii?Q?5Ft4lkKLATyfopXZfhJyZ47t7WT0Fjnmw1+YUCL4v6vNDsUXNAfIRdyza2fp?=
- =?us-ascii?Q?wCqF6z5i6aqZaleWEdJKZf1fZVxhnYbQHN/oMq6Rpy5UJP320nzvFOLARYta?=
- =?us-ascii?Q?W6z8y7cRkfT0V1P3z2vkYHZDVUhUwslmzFpoxnVDOkS29vZTN6Wwp93jjES8?=
- =?us-ascii?Q?ldnNQ99ZfjSXWRj2dRyRAd0=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hOZbyLaNqxAhMcoksSfS/XZL5DEB1P0sxAgMATkncmu14BoLJZHYzJXG9YZJ?=
+ =?us-ascii?Q?I5cRhGA/xlP4oeIhG/WZuBzXtZPTC3qMOMpBVUyk1+gvdrTi2ZHTyrmk5RBV?=
+ =?us-ascii?Q?BKNh9BkU6QMVbpQXDy4MPobs2P09earrOovZ+Hz88uNTOUWyLiHNouvzGh7j?=
+ =?us-ascii?Q?AkT+aZ7hLICaf7l4DlT6OWabLxWwQJTpxJG/49Uws0mNbo1CSygmqwPtNe/6?=
+ =?us-ascii?Q?NJMWI2oJVWYqDy6ydt0ihlFbvjKzFsgrVAmlxa6h+nyJq3wbMZPw88eCF2oX?=
+ =?us-ascii?Q?1Otf6F7FA2WyZvvvx+/j5ITjDjQFpwzHwoqL4dYrs731yev98ZpQ2Ll8E8Yd?=
+ =?us-ascii?Q?hlHyQhvcwltLYmgRtp75JMkxajP8z12ebrKQiczrQ3Hvs3RAG3hPp/+oCb0i?=
+ =?us-ascii?Q?iOHAVkcvC4CqZH4+9fIZHgQhgOGtMMKy1tPrW+wxiROntyQLgzHtqI2/cVR5?=
+ =?us-ascii?Q?zuvVcvyLnki5xSEOq2zwKgXpQvgEJf2lNKXYtBLtUrMsmaOV8Wi+vQCHgsg+?=
+ =?us-ascii?Q?4EeSUYu/mQVvJyhSjUZFn11jQFwOVwSFegv4v2ZVNsd8lf2UThMwvI1koRrT?=
+ =?us-ascii?Q?+RJaCrF9pYeM5Y4vs6nZvEZGk9NWG3vrRoa/5Qzn5VwHsKs7eX8wOWefaMia?=
+ =?us-ascii?Q?XKiYpIaxrflMLQ+NulJYpV6pHytKsvRSXV6GpVvPYQ0GAjc6+oL4ULwNhGbX?=
+ =?us-ascii?Q?7DQQ+LC2KUcFWNvwDw0fuJeOMDgVafJ0sP/TRg6hmMH4HgEJ5GBy++0XbYyC?=
+ =?us-ascii?Q?GxoCKWuYHYgoftHk1TqCxC6ElWAvDhgUkQAeI0He0y0sSdsC1TNlw/ygwALC?=
+ =?us-ascii?Q?PQqPjJx+oSweTpK1sp2gEeeJgJqTu/eV3y568f3IyMzeL5Ywr1whOPmKKgQi?=
+ =?us-ascii?Q?eobeAc2+rDrYmtp1yZTNWE5WFeyX+R8K0toNeSGvwmhmeY+7/9YgWOYY8XkK?=
+ =?us-ascii?Q?wKPtwSag1mN+TsL8HE2DOpSLHQOBzDN4igfMjfUyyHRHwrLODxZB7YHt9kW0?=
+ =?us-ascii?Q?Pd36TS7rHCcaRWb+pPwQZ/06TMlkcoaZW58ETbRNyBqT4Hn/lBnZjljVmWpP?=
+ =?us-ascii?Q?vuWWsmwnodzU00GOA2vm7sCKpcqdq/vx521ATrRGEZaepbTu8qDM0bEr85P1?=
+ =?us-ascii?Q?jYeQrI4Zx56d+WroMPdmjS32ABdKX9gKJghqy6qETbWRKAZSh12+QLpd9q7t?=
+ =?us-ascii?Q?allm2brj9xCmQVEe1MHqOO76psFPD+u10Q76UPuReh39JWg8IX8f6G209MUt?=
+ =?us-ascii?Q?Skq84V4cEYTvW2NLehcXs4WUiMxdP6kQ/ulqHMEE/oVaGy85GTuHGBZbXo1U?=
+ =?us-ascii?Q?8sCCl2nin7aI4DjYy0XdPA6TCPvHqQqazCta3PIW4sxT7/BltEFc+u8gb3FQ?=
+ =?us-ascii?Q?gnQ39bl/x3pvDWT40qzYO8T6Q1T5VAyGlm114vHOzzLxf/ekHDdAoekUW3My?=
+ =?us-ascii?Q?h+CjEarE59mPXNUdiw08b1QdWsVvARqpnp+9l0ryjL1I0EST00xIE2Z6MtK6?=
+ =?us-ascii?Q?ZhZAAPFvtGXGag7qv0iy5LL/1TNmyNkGd3f3dNe7akR5+hQGLWmGwqaMa1SE?=
+ =?us-ascii?Q?Nw8PTPYFzi+pZXKiFew+agx/aJbXOQbvAKqDI9H7FS8dWZF2aXsacSEvEp1c?=
+ =?us-ascii?Q?Q5azm3svh2t2MFXNG3RBarw=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6a87ed47-4ddf-4ea5-1cc7-08de4d050c0f
+X-MS-Exchange-CrossTenant-Network-Message-Id: f9f0ee9d-665e-49fb-564d-08de4d0516e0
 X-MS-Exchange-CrossTenant-AuthSource: SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2026 09:22:00.8960
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2026 09:22:19.0424
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2mZJrfpZ4DqFCtE0P3vMqqJ89hjjFHQYaQjvMFIbWPEy3et1QP1VFpw9Wj8LbwgHSfshkpssnAat8YEIe8hSUNv8CUHjCIliCTgRHL+1TKo=
+X-MS-Exchange-CrossTenant-UserPrincipalName: XZQoJDWee//0+WqFghoWV4ejzPCo59xOx8SZBE7NqGGbT+fl1DQIIfdMi9yWEaPeb/+feimC0098rHU9rTOogj/L9nCPx4lBWnUja4kAcHg=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SH0PR01MB0730
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_012214_682740_14C3215D 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20260106_012226_474009_BADB4FF2 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,90 +152,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings for the RPMI performance service group based
-message proxy implemented by the SBI implementation (machine mode
-firmware or hypervisor).
-
-The RPMI performance service group is defined by the RISC-V Platform
-Management Interface (RPMI) specification.
+The property is defined as a phandle array referencing an RPMI
+performance domain provider, with the domain specifier interpreted
+according to the bindings of the referenced RPMI performance controller.
 
 Signed-off-by: Joshua Yeong <joshua.yeong@starfivetech.com>
 ---
- .../firmware/riscv,rpmi-mpxy-performance.yaml | 65 +++++++++++++++++++
- 1 file changed, 65 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/firmware/riscv,rpmi-mpxy-performance.yaml
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/firmware/riscv,rpmi-mpxy-performance.yaml b/Documentation/devicetree/bindings/firmware/riscv,rpmi-mpxy-performance.yaml
-new file mode 100644
-index 000000000000..0b97bbff458f
---- /dev/null
-+++ b/Documentation/devicetree/bindings/firmware/riscv,rpmi-mpxy-performance.yaml
-@@ -0,0 +1,65 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/firmware/riscv,rpmi-mpxy-performance.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RISC-V RPMI performance service group based message proxy
-+
-+maintainers:
-+  - Joshua Yeong <joshua.yeong@starfivetech.com>
-+
-+description: |
-+  The RISC-V Platform Management Interface (RPMI) [1] defines a modular and
-+  extensible messaging protocol for platform management functions. The supervisor
-+  software can send and receive RPMI messages via SBI MPXY extension [2]
-+  or via a dedicated supervisor-mode RPMI transport.
-+
-+  The RPMI specification [1] defines performance service group (performance
-+  domain) for accessing and controlling platform-managed performance-related
-+  resources implemented by a platform microcontroller. The SBI implementation
-+  (machine mode firmware or hypervisor) can implement an SBI MPXY channel
-+  to allow supervisor software to access the RPMI performance service group.
-+
-+  ===========================================
-+  References
-+  ===========================================
-+
-+  [1] RISC-V Platform Management Interface (RPMI) v1.0 (or higher)
-+      https://github.com/riscv-non-isa/riscv-rpmi/releases
-+
-+  [2] RISC-V Supervisor Binary Interface (SBI) v3.0 (or higher)
-+      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
-+
-+properties:
-+  compatible:
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index d733c0bd534f..a7c38d078981 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -143,6 +143,13 @@ properties:
+       DMIPS/MHz, relative to highest capacity-dmips-mhz
+       in the system.
+ 
++  performance-domains:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
 +    description:
-+      Intended for use by the SBI implementation.
-+    const: riscv,rpmi-mpxy-clock
++      A phandle and RPMI performance domain specifier, as defined by the
++      bindings of the referenced RPMI performance controller or provider.
++      (see riscv,rpmi-performance.yaml / riscv,rpmi-mpxy-performance.yaml)
 +
-+  mboxes:
-+    maxItems: 1
-+    description:
-+      Mailbox channel of the underlying RPMI transport.
-+
-+  riscv,sbi-mpxy-channel-id:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      The SBI MPXY channel id to be used for providing RPMI access to
-+      the supervisor software.
-+
-+required:
-+  - compatible
-+  - mboxes
-+  - riscv,sbi-mpxy-channel-id
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    performance {
-+        compatible = "riscv,rpmi-mpxy-performance";
-+        mboxes = <&rpmi_shmem_mbox 0x0a>;
-+        riscv,sbi-mpxy-channel-id = <0x1001>;
-+    };
-+...
+ anyOf:
+   - required:
+       - riscv,isa
 -- 
 2.43.0
 
