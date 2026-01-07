@@ -4,66 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E6A5D0D16D
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 22:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D0B3D0D178
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 22:37:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UP3j5dXawVQJGp1EW64s1xXIIXeGnOZLHRkHDeyMits=; b=k9tg5jNlBW/sMn
-	7cLAgf31olA7vqwnB7LacdnlyWajys4nJOIZPdL9IgomLNcGAPMrDeajzC0oBu+cCMIGa5a6Rh2ms
-	j20TNdz54VmerhKsm662IJAr7GYmDPlFZ6yZHVBoyMobBebQmreucxSB68sswVeHOoN3zo/KxLL7N
-	oEKQ4tlc1+4rq9acfDHiC76v+8HjCz23QvImdekvSf+0TQ1tWgl4hXiqeE8Rxn61DnTshC3hm4Uy3
-	BWjfIFfOw0hH3VTURpmKxImfkJ8GArW7s37Z43wpPHodAIQv6AKbfAHfncjjjVXReleh1dFqoYO5Q
-	8lNCmzXRYzyeGZDeshKA==;
+	List-Owner; bh=e2aGYpf7MdMGVAWXLblfnVb95dq/Q+KYv5DdjIj2dx0=; b=DDDMPwyZ9NCpe4
+	PTQYXfRIKdWPvBxR35YtWnVi4xa0FEBsagZEitMaTsq7Vk4zD9cz2zWWXE/227p8Kx92fleq+yI+B
+	w46A/ct1LOOJGVO+BOYYkplpK/ZQntYaUvzV0O+vmrmVKi9YHdoR3wHRLir9wmM2Z6X5xlz5DVDjm
+	CRKMD34kXPxDCgzXjEN9IE8FKKQpBK7AAUzmhQk+3WN5wFH6yIGPl/ySxfQguqEw1IKwkmqzB+pgU
+	VvNDAjNGX9sMlVo2jjj/sOBFktAQQpcbk7aA8xJSrAe0qjd6i9QiDMeh14pEW+0qzivIEF2y5TDtD
+	dFOgs9wIv3OtTRpmLXtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdc7B-0000000Fhzs-3vX8;
-	Wed, 07 Jan 2026 22:34:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vdc9I-0000000FiAz-1V8T;
+	Wed, 07 Jan 2026 22:37:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdc7A-0000000Fhzk-45KP
+	id 1vdc9F-0000000FiAU-32tf
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jan 2026 22:34:53 +0000
+	Wed, 07 Jan 2026 22:37:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CBD7B60007;
-	Wed,  7 Jan 2026 22:34:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FF6BC4CEF1;
-	Wed,  7 Jan 2026 22:34:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F078B40129;
+	Wed,  7 Jan 2026 22:37:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69005C4CEF1;
+	Wed,  7 Jan 2026 22:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767825291;
-	bh=u2djh5HTea2QgQAtKE8wrDS39r3GdGnQy6gR3KSDYo8=;
+	s=k20201202; t=1767825420;
+	bh=ZUNm8c6aAEtDnspk3VLQ42ha1pnLFLiQPIXXJlqPy4I=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=kpIdvfQrxqcdWmTnAlntF/vZqTBIV/dYi2cpN6FGularoO0Ce+glktt9n3X43t00Y
-	 LbANnAjw7W2dRUg4YvSms29eNjfW8EpVkKrNu3jsJQWHmqkpRzcqsj91Ww9gyP55p2
-	 WuIzknUf0JP43QyZ/MIzEjAR2xrb6j77mHBAahXUGWj5WTgcOwaBw1QwzP9XeGdYF2
-	 AGMtFXAVr4h//JpvQhgYDNBGYAvYmzocfxWJXxBNhDZjmGCbGrWfXkS5sUDyIxi6y8
-	 K2np+ZUVoKbW40KNeKgIKR5ZzTNlwtmcmcYe6MSgYJ0WsgpExgC3uQKp+t7t5e8wCi
-	 7yFBeHOqhBoaA==
-Date: Wed, 7 Jan 2026 15:34:48 -0700 (MST)
+	b=VDY1fwm6u8MQKsaFyH1vTxG8WGAUw7O+0HOqcpbfkWMkTIbV7QmGsJCDTVGi4QTI0
+	 pJfgOrUmYtkVd2CY77jDWsj/i87LVfgMDe3ZoRQI6nF6zQRD775qMfW746QS4cW0Sc
+	 Wx2+KsFNeI1L++4Y0l3/tjlFUi2E/ffTZEA+O3YcfsEwl2ohr1b4kHOT4Gh8/vuiiO
+	 fYn1CJ+B4fWlPp6H7gbhE29TW5CJ6wY1dmZYQKpld+VYC0MrJJ3DR3oyroNtbuMYHF
+	 1Cp0ezWfclLyCfJoI9Nmy9B+Y4TJ+1koI12Ew1RBaNWvOyGbjzvtWdDusqxoyJmDaH
+	 y7YoBF8uhAKPg==
+Date: Wed, 7 Jan 2026 15:36:57 -0700 (MST)
 From: Paul Walmsley <pjw@kernel.org>
-To: Yunhui Cui <cuiyunhui@bytedance.com>
-cc: aou@eecs.berkeley.edu, alex@ghiti.fr, andybnac@gmail.com, 
-    apatel@ventanamicro.com, ast@kernel.org, ben.dooks@codethink.co.uk, 
-    bjorn@kernel.org, bpf@vger.kernel.org, charlie@rivosinc.com, cl@gentwo.org, 
-    conor.dooley@microchip.com, cyrilbur@tenstorrent.com, daniel@iogearbox.net, 
-    debug@rivosinc.com, dennis@kernel.org, eddyz87@gmail.com, 
-    haoluo@google.com, john.fastabend@gmail.com, jolsa@kernel.org, 
-    kpsingh@kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-    linux-riscv@lists.infradead.org, linux@rasmusvillemoes.dk, 
-    martin.lau@linux.dev, palmer@dabbelt.com, pjw@kernel.org, 
-    puranjay@kernel.org, pulehui@huawei.com, ruanjinjie@huawei.com, 
-    rkrcmar@ventanamicro.com, samuel.holland@sifive.com, sdf@fomichev.me, 
-    song@kernel.org, tglx@linutronix.de, tj@kernel.org, thuth@redhat.com, 
-    yonghong.song@linux.dev, yury.norov@gmail.com, zong.li@sifive.com
-Subject: Re: [PATCH v3 1/3] riscv: remove irqflags.h inclusion in
- asm/bitops.h
-In-Reply-To: <20251216014721.42262-2-cuiyunhui@bytedance.com>
-Message-ID: <bb259f36-6a5a-1bb8-75de-9bb62ade44a8@kernel.org>
-References: <20251216014721.42262-1-cuiyunhui@bytedance.com> <20251216014721.42262-2-cuiyunhui@bytedance.com>
+To: Martin Kaiser <martin@kaiser.cx>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    linux-riscv@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: trace: fix snapshot deadlock with sbi ecall
+In-Reply-To: <20251223135043.1336524-1-martin@kaiser.cx>
+Message-ID: <e06402bf-a612-4d9c-c5f6-5361826f5fdf@kernel.org>
+References: <20251223135043.1336524-1-martin@kaiser.cx>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260107_143701_782963_60E74E5A 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,45 +72,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Dec 2025, Yunhui Cui wrote:
+On Tue, 23 Dec 2025, Martin Kaiser wrote:
 
-> The arch/riscv/include/asm/bitops.h does not functionally require
-> including /linux/irqflags.h. Additionally, adding
-> arch/riscv/include/asm/percpu.h causes a circular inclusion:
-> kernel/bounds.c
-> ->include/linux/log2.h
-> ->include/linux/bitops.h
-> ->arch/riscv/include/asm/bitops.h
-> ->include/linux/irqflags.h
-> ->include/linux/find.h
-> ->return val ? __ffs(val) : size;
-> ->arch/riscv/include/asm/bitops.h
+> If sbi_ecall.c's functions are traceable,
 > 
-> The compilation log is as follows:
-> CC      kernel/bounds.s
-> In file included from ./include/linux/bitmap.h:11,
->                from ./include/linux/cpumask.h:12,
->                from ./arch/riscv/include/asm/processor.h:55,
->                from ./arch/riscv/include/asm/thread_info.h:42,
->                from ./include/linux/thread_info.h:60,
->                from ./include/asm-generic/preempt.h:5,
->                from ./arch/riscv/include/generated/asm/preempt.h:1,
->                from ./include/linux/preempt.h:79,
->                from ./arch/riscv/include/asm/percpu.h:8,
->                from ./include/linux/irqflags.h:19,
->                from ./arch/riscv/include/asm/bitops.h:14,
->                from ./include/linux/bitops.h:68,
->                from ./include/linux/log2.h:12,
->                from kernel/bounds.c:13:
-> ./include/linux/find.h: In function 'find_next_bit':
-> ./include/linux/find.h:66:30: error: implicit declaration of function '__ffs' [-Wimplicit-function-declaration]
->    66 |                 return val ? __ffs(val) : size;
->       |                              ^~~~~
+> echo "__sbi_ecall:snapshot" > /sys/kernel/tracing/set_ftrace_filter
 > 
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> may get the kernel into a deadlock.
+> 
+> (Functions in sbi_ecall.c are excluded from tracing if
+> CONFIG_RISCV_ALTERNATIVE_EARLY is set.)
+> 
+> __sbi_ecall triggers a snapshot of the ringbuffer. The snapshot code
+> raises an IPI interrupt, which results in another call to __sbi_ecall
+> and another snapshot...
+> 
+> All it takes to get into this endless loop is one initial __sbi_ecall.
+> On RISC-V systems without SSTC extension, the clock events in
+> timer-riscv.c issue periodic sbi ecalls, making the problem easy to
+> trigger.
+> 
+> Always exclude the sbi_ecall.c functions from tracing to fix the
+> potential deadlock.
+> 
+> sbi ecalls can easiliy be logged via trace events, excluding ecall
+> functions from function tracing is not a big limitation.
+> 
+> Signed-off-by: Martin Kaiser <martin@kaiser.cx>
 
-Thanks, queued this patch for v6.19-rc.
-
+Thanks, queued for v6.19-rc.
 
 - Paul
 
