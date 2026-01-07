@@ -4,57 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B97CFD64F
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 15:10:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1944CFD64E
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 15:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FxMMFVxQRa60KD8W+PJlli6cbbbvBRSxgElKi9Qgglg=; b=KNLrr5p1ODs2Nj
-	1pS4p76QTwDpw3WtFm9h7LWn4Iq65M8QXgPoeOuFKXAP3uRhErSIpMDwZ/NlmRAFziWTYifV/j54R
-	YNJVepkzHtpUzdeYaAKYLKOajqGY5UQPpaw8dJOQMK5h0ZHn83UVoHUXsBhL5MS7koxvj+5aT2IW3
-	74H2HTN7frgWqiY83zs5uAEVddDG1oGw+k8oOoQu68TraC6gNxbPnec2LwMHVlxIxcJb0uFoBx1xP
-	UtrHwS5rJZc6ZbF3D8CXkXRAs6Zx7zuHHh5vIeBPYaolIo0GWc80PxwTyac5IyVrb4lkUCzERVvPi
-	HyHJ/Fek1ip1kLEYs8sw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GHiRLwxs4+opdzbGQifMyC1ihDciWqmf5tcHt4OhCuo=; b=OyPcGpfR0A+KMA
+	ry7mAURBBmKL7wLnxlq7rvEnDZ+hz2Cf3A1xK6IoCeeDW4pBngrQRy9vV3qLtjPSmJ0lAQwjSBoGp
+	6xcgElVZ5zIklyy7XyXbv0jVoti4f1YJiLtKYpIFQTOikbGK9MJBbpEIFSH1VG7e8EiOMsL5p/YXu
+	4TInDEjeJigkrl1J2ABhw5rY0Lm8kYtSYZqjKjbXockLvhwfw/Pk1YVKBPdwkiCVbEGcmYwBiF8wv
+	6ZcliJ3RZw2xCq4mzv7PBypGgsZ7TsKcNizfEcGPATrWGCBDZiheBXfLwdPNeI9YNzPFlehvLJCD7
+	K+hdLdhGffquL9PcTmgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdVAj-0000000F9Jj-2pDS;
-	Wed, 07 Jan 2026 15:10:05 +0000
+	id 1vdVAr-0000000F9Lo-1TPl;
+	Wed, 07 Jan 2026 15:10:13 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdVAh-0000000F9JM-0OVr
+	id 1vdVAp-0000000F9Kq-1UDx
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jan 2026 15:10:04 +0000
+	Wed, 07 Jan 2026 15:10:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1767798599;
-	bh=rJaqvOB8/875SKmK7dTBqU4qyFZchqY4Kmbj5roEflw=;
-	h=From:Subject:Date:To:Cc:From;
-	b=LnmnRkXnQNe1UnB0hMqYpQRqFTI6QfwNN3MV5sH8fGUIQPJFt5Goe1ISJWNT5I48c
-	 0CUrGVe0NSoMAwjGGkwkvgUylrysHJq+bzq5gb+iMhRFHaMwRLdVZx1VDU7z1VSImH
-	 mHSCZISTSmr24CLvcNa0I5sdP4vFS+holZI3tcgDA7sCwtb4Ybg4c4H2tkiSRkTCX2
-	 ae8xmUWzSdOPoSg34EThmEzyjWOn1AhreRUsZHchab3/AfvulkkZ9YHHIG7LMdJfcS
-	 HJbWdCSybK/SQ5tCFnD8lLo4hiZ2yV8gxk4WklOp2UTmAGYVpop6yz5ciPnyPa8M+5
-	 B6hFEa1P6pe8g==
+	s=mail; t=1767798608;
+	bh=90di0w1PwxPIRzuSClWm8hTlTurueeQPrjHhHA1IgeE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=WbxUGimfzP1F2xdrdKe/4cd+wlHBTKhKTGbIJq3+nq4YJ2hsGZfl7PcRgQ4RGiBs1
+	 dtSuohh7qCBvMt0aJuuvXZfkQTiaG4QDZ9nx9ak+XP+t/JRMwRc+9iCl5jI/diqDNK
+	 dLqasMDWtpSjOnCaPPPKpS/agyuMomX7YkrtoFWONOXCLUgvmzyl/n8cmA2SJNpkX5
+	 GeJSvxuSN4GhvqLeXEOdJnjSEcxCU0LxaUjx+hQSbqBzrZrppwCiz9bvJBwLCAFWiX
+	 w/tYrDOBR7aAWG6Ydn2+yoQJp0lXhTUYV09eF92e5fEmZ7M1Y81NwfByPFfBig9Pzy
+	 dv/MMlIrcuw8A==
 Received: from [192.168.0.79] (unknown [IPv6:2804:14d:72b4:81ae:67c:16ff:fe57:b5a3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dwlsalmeida)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F2FB117E13D8;
-	Wed,  7 Jan 2026 16:09:54 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 75C9117E1529;
+	Wed,  7 Jan 2026 16:10:04 +0100 (CET)
 From: Daniel Almeida <daniel.almeida@collabora.com>
-Subject: [PATCH v3 0/3] Clk improvements
-Date: Wed, 07 Jan 2026 12:09:51 -0300
-Message-Id: <20260107-clk-type-state-v3-0-77d3e3ee59c2@collabora.com>
+Date: Wed, 07 Jan 2026 12:09:53 -0300
+Subject: [PATCH v3 2/3] rust: clk: add devres-managed clks
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAD93XmkC/6WQzW7DIBCEX8XiXCoWjAk+9T2qHPhZGtTYJECtW
- lHevSSu1Ko59jgrzbczcyEFc8RCxu5CMi6xxDQ3IZ464g5mfkMafdOEMy6ZZpq64zut6wlpqaY
- idQyMUd5LCZ400yljiJ934Ou+6ZDTROsho/nBKP6AWYAC3enBSrGDISj74tLxaGzK5tml6UY+x
- FJTXu9JF37j/4e29QH2YOWUUbBaOQBrBwF/rPvrVjLj+aONVbemxJrStkjTFOvYaeOwV1IY2b5
- YxkGDlz3q4IMKGoVv151ES36PPHbfE/f3SAVnT8s6OypcMCr0CA75uIiW4PoFV/nla7YBAAA=
-X-Change-ID: 20250909-clk-type-state-c01aa7dd551d
+Message-Id: <20260107-clk-type-state-v3-2-77d3e3ee59c2@collabora.com>
+References: <20260107-clk-type-state-v3-0-77d3e3ee59c2@collabora.com>
+In-Reply-To: <20260107-clk-type-state-v3-0-77d3e3ee59c2@collabora.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
  Viresh Kumar <viresh.kumar@linaro.org>, Danilo Krummrich <dakr@kernel.org>, 
  Alice Ryhl <aliceryhl@google.com>, 
@@ -77,8 +73,8 @@ Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
  Daniel Almeida <daniel.almeida@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_071003_300921_541A95CC 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20260107_071011_566916_AC3EEDA8 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,78 +91,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series contains a few improvements that simplifies clock handling for
-drivers.
+The clk API allows fine-grained control, but some drivers might be
+more interested in a "set and forget" API.
 
-Patch 1 implements the same typestate pattern that has been used
-successfully for Regulators. This is needed because otherwise drivers
-will be responsible for unpreparing and disabling clocks themselves and
-ultimately handling the reference counts on their own. This is
-undesirable. The patch automatically encodes this information using the
-type system so that no misuse can occur.
+Expand the current API to support this. The clock will automatically be
+disabled, unprepared and freed when the device is unbound from the bus
+without further intervention by the driver.
 
-Patch 2 makes things more convenient by offering devres-managed APIs. This
-lets drivers set clock parameters once and forget about lifetime
-management.
-
-Patch 3 converts clk.rs to the newer kernel-vertical style in order to make
-future changes easier.
-
-This depends on Alice Ryhl's series [0].
-
-[0]: https://lore.kernel.org/rust-for-linux/20251218-clk-send-sync-v3-0-e48b2e2f1eac@google.com/
-
+Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
 ---
-Changes in v3:
-- Rebased on top of 6.19-rc4
-- Dropped patch 1 (from Alice), added her series as a dependency instead
-- Fixed Tyr, PWM_TH1520 drivers
-- Changed clk.rs imports to kernel-vertical style
-- Added support get_optional shortcut for Prepared and Enabled (i.e.:
-  Clk::<Enabled>::get_optional())
-- Fixed misplaced #[inline] tag
+ rust/kernel/clk.rs | 43 +++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 43 insertions(+)
 
-Thanks, Danilo {
-  - Moved the devres changes into its own patch
-  - Require &Device<Bound> for all functions where a &Device is used
-  - Account for con_in in SAFETY comments where applicable
-  - Added backticks
-}
+diff --git a/rust/kernel/clk.rs b/rust/kernel/clk.rs
+index 6323b40dc7ba..e840e7c20af7 100644
+--- a/rust/kernel/clk.rs
++++ b/rust/kernel/clk.rs
+@@ -95,6 +95,49 @@ impl Sealed for super::Prepared {}
+         impl Sealed for super::Enabled {}
+     }
+ 
++    /// Obtains and enables a [`devres`]-managed [`Clk`] for a bound device.
++    ///
++    /// [`devres`]: crate::devres::Devres
++    pub fn devm_enable(dev: &Device<Bound>, name: Option<&CStr>) -> Result {
++        let name = name.map_or(ptr::null(), |n| n.as_char_ptr());
++
++        // SAFETY: It is safe to call [`devm_clk_get_enabled`] with a valid
++        // device pointer.
++        from_err_ptr(unsafe { bindings::devm_clk_get_enabled(dev.as_raw(), name) })?;
++        Ok(())
++    }
++
++    /// Obtains and enables a [`devres`]-managed [`Clk`] for a bound device.
++    ///
++    /// This does not print any error messages if the clock is not found.
++    ///
++    /// [`devres`]: crate::devres::Devres
++    pub fn devm_enable_optional(dev: &Device<Bound>, name: Option<&CStr>) -> Result {
++        let name = name.map_or(ptr::null(), |n| n.as_char_ptr());
++
++        // SAFETY: It is safe to call [`devm_clk_get_optional_enabled`] with a
++        // valid device pointer.
++        from_err_ptr(unsafe { bindings::devm_clk_get_optional_enabled(dev.as_raw(), name) })?;
++        Ok(())
++    }
++
++    /// Same as [`devm_enable_optional`], but also sets the rate.
++    pub fn devm_enable_optional_with_rate(
++        dev: &Device,
++        name: Option<&CStr>,
++        rate: Hertz,
++    ) -> Result {
++        let name = name.map_or(ptr::null(), |n| n.as_char_ptr());
++
++        // SAFETY: It is safe to call
++        // [`devm_clk_get_optional_enabled_with_rate`] with a valid device
++        // pointer.
++        from_err_ptr(unsafe {
++            bindings::devm_clk_get_optional_enabled_with_rate(dev.as_raw(), name, rate.as_hz())
++        })?;
++        Ok(())
++    }
++
+     /// A trait representing the different states that a [`Clk`] can be in.
+     pub trait ClkState: private::Sealed {
+         /// Whether the clock should be disabled when dropped.
 
-- Link to v2: https://lore.kernel.org/r/20250910-clk-type-state-v2-0-1b97c11bb631@collabora.com
-
-Changes in v2:
-- Added Alice's patch as patch 1, since it is a dependency.
-- Added devm helpers (like we did for Regulator<T>)
-- Fixed missing clk_put() call in Drop (Danilo)
-- Fixed missing parenthesis and wrong docs (Viresh)
-- Removed extra "dev" parameter from "shutdown" example (Danilo)
-- Removed useless type annotation from example (Danilo)
-- Link to v1: https://lore.kernel.org/rust-for-linux/20250729-clk-type-state-v1-1-896b53816f7b@collabora.com/#r
-
----
-Daniel Almeida (3):
-      rust: clk: use the type-state pattern
-      rust: clk: add devres-managed clks
-      rust: clk: use 'kernel vertical style' for imports
-
- drivers/cpufreq/rcpufreq_dt.rs |   2 +-
- drivers/gpu/drm/tyr/driver.rs  |  31 +--
- drivers/pwm/pwm_th1520.rs      |  17 +-
- rust/kernel/clk.rs             | 466 +++++++++++++++++++++++++++++------------
- rust/kernel/cpufreq.rs         |   8 +-
- 5 files changed, 346 insertions(+), 178 deletions(-)
----
-base-commit: 9ace4753a5202b02191d54e9fdf7f9e3d02b85eb
-change-id: 20250909-clk-type-state-c01aa7dd551d
-prerequisite-change-id: 20250904-clk-send-sync-3cfa7f4e1ce2:v3
-prerequisite-patch-id: 13476f9e7e7c3bdbcab42912948953743381b1e0
-prerequisite-patch-id: 8f91583384bb4516afcac66d21ac08b3982747b2
-prerequisite-patch-id: b2ad5ecbd9a395b622bc04f891b5bb276f6f6b16
-
-Best regards,
 -- 
-Daniel Almeida <daniel.almeida@collabora.com>
+2.52.0
 
 
 _______________________________________________
