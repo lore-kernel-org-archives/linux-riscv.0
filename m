@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED42DD0D151
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 17:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CBF1D0D145
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 17:52:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GOERYOuC/mtqdjKTROrlFFgc5LdoNYSLkg7chmCl5Co=; b=iDITOV1MddjMU3
-	p9n+9BnX9IgsJDJLfLUWaUlPSG4DnLSghPK1t3Wu2azWx4kB8gmeDq2mJbL3CAt0zaFetfx6D1ALY
-	qsCBQYdSfd7x3mKq5CetqG6kul8WiVAMbRHGYNzNGUXSRRYF7en376MCDr1ygkxXylLJcBcv4SAgl
-	pqrpA79LjTbMfN6eSaQCkClCztpteflvqNi2PlVr9oXD/lMaEof06DCpIeEPygTGgAAM9wjdae+6k
-	FjsFR42jHe+Vndoa5nUQgOEy0JHt0JUfpPGAu8ddXH9xNPs1jdJ3GJ6YfkJFUD039FX1LqY4/YKER
-	Zaxdv/vsfT+zwCMWC6/g==;
+	List-Owner; bh=HVbAuwEhZfwXH4FUEPvJZDdBOQYOpkzqycwu5EHvf5c=; b=2EomAOTzph6WYZ
+	67iwvLqEOg1Jzvga4TWmNS5CxP7AAcRZFyZhAmFpkZoMqSmgygUOJ3FBEbnEPa7JaEClqWnx1ZWrH
+	vLLjCF5RpSGPyiLQz6UnDeXbm36HDtPep8076UbQarPo0O5l6VuV8NoctEmzLxLHQgfwXyLcm6jdT
+	JI+NFYS79gOqTmkufM3Q35UkKY2qxIu4ZLta/RPusm8w2/IC5h9E77rpQsUKSRN78cDkXL4IWBdGf
+	kYWG0sQLtT/+JRmaYJ0k5pZizFzSEx40cLYaWLgs/leILtLvOV/CLjJeAJcyVZgwcZShUflERDD2L
+	4IXhd6ybzdlGGk8tJtbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdXhB-0000000FOp5-2qk3;
-	Wed, 07 Jan 2026 17:51:45 +0000
-Received: from mail-oo1-xc41.google.com ([2607:f8b0:4864:20::c41])
+	id 1vdXhD-0000000FOq7-3uKV;
+	Wed, 07 Jan 2026 17:51:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdXh9-0000000FOo7-2DnZ
+	id 1vdXhB-0000000FOop-2iml
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jan 2026 17:51:45 +0000
-Received: by mail-oo1-xc41.google.com with SMTP id 006d021491bc7-65ecd7fcf36so1280320eaf.1
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Jan 2026 09:51:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1767808302; x=1768413102; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/E5kiVoPjL6HPjfNbHsUE0ncuM+O4VtxgKzooyiAI6s=;
-        b=GkUcv7sEkID36UWSh/zF3R81P0A2dhn5dL4cWT02GFIsVKZfz9JHp2iLvbQEh6h/PQ
-         ALvwVr/Gx+zJY0akzU+AGm+ggz0N4pphF/ma0atooVAxbrTWwgsh+dPqOGr+Sawi6WKQ
-         ncT5mb6J1a2+VjXBeKrZylGZCl3ERrbnG/Y2tSJ5uhOX0pWb7oFJLdcAyXefdnJq4XQl
-         62Y4iPqmm24joCjYZTP1yrSiAdwMtuBkgDN4/Cqs3Uxhy6qQbi825aYcBorR0YT477NC
-         K76QpZKui4+ayKMm/+m8Seat9R44D8omFLP4b4P7u5oNg+BUYtB/tEX5fxsb8cYOCOJM
-         NB1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767808302; x=1768413102;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/E5kiVoPjL6HPjfNbHsUE0ncuM+O4VtxgKzooyiAI6s=;
-        b=pRb8eoYQlLw7/1GdrqsW2RS7DE7modpcDpfz0GvvAPiTVm33A6AaQOwsjLSIYFg5l4
-         knt/7ovpbrdK4Gs80N7+KMv7XsG5uOgS6+6es4mYWG08aJ2X14xUvMSCNQzulT2Zs6BN
-         J0lM4psL5R6MdkUUGUoxDyf3dX7QQ5Y8A+c/+v+hReBrjp8D3IDsINtDRIfWySAREj90
-         Jqd+RJVomzCY7cfxuKa2au4jIIX93AuFBpH/t7oMhLWkmkUPDLt2tFMFckBfYF/bNlnR
-         c4eO6sJ57XhZBtBea8TyeH7pDe/MzqDB2XCucObnOYyizAMiDjYdQNnpqgXxYse7sfQ7
-         TflQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW9d3tx682XFNVaViQw5+btp45Ny9SmYJSt7hl04thPc4eL8BkSYpHyv4atcYgoTPixhn65ml8+Iw7jfw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdkvNY1tW7Uhzy3xsQ8OodLbr4rhm21yrznPZfDCOhHtNc3rE5
-	NBFYLtMwOfx4N+TZVR1OgOjVEuj5pZpwku+cFgzOhJbjuZUcQO5WYfMkWGUexMBvN0A=
-X-Gm-Gg: AY/fxX6w2tBn1ID3WJ48Ir0CdcG1M1EH1KTtZWXJlZuXI1PM7cmfhsbVrDDp1SCqcvT
-	1Cvwq1Zejmb4zd/ZH7x9nbFyOPQPDk9ve2mv5PMY5gDaVfM4CHrhc8w7h6HsI4VopCGuf8fsSjT
-	kvFe3WRIWYkBF3GRsK3twntfoNV/1GFGRXb+zc52MZbAaPIvwHLgxGqZRtHNQ02fqMacP5MQI77
-	BOl3TOoYgcoIk0eEgUnN2qknP1SJNSgkGyzSkGIKrksm40EiXa75z8kpeojD4gEfGXEAKw1SbIM
-	eYF5Jv4J80fh15HDJ9XoPtmFxgiILyQSRTt44tpEFOJyFnOC8rUbJCs0JslLcw4eMiYAzRr8l5c
-	xL5vBnPpaNkGEvmjHSYg1kKDQYUNPz7FeHMihPf54cg0o94AV8tnxQaGga98gJ9VoUOJCaShAU1
-	fYAlXnb1OJXgst
-X-Google-Smtp-Source: AGHT+IE13osf5CjYyTbx4kUFVq9/wdcOC/ch/TW3ja8QBG6H6cD6+EWQcns0Lx1kzYLZNwCYibHqkw==
-X-Received: by 2002:a05:6820:2204:b0:659:9a49:8fe1 with SMTP id 006d021491bc7-65f54ed4064mr1332868eaf.14.1767808301928;
-        Wed, 07 Jan 2026 09:51:41 -0800 (PST)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-3ffa4de8cbfsm3524574fac.3.2026.01.07.09.51.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Jan 2026 09:51:41 -0800 (PST)
-Date: Wed, 7 Jan 2026 11:51:40 -0600
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Xu Lu <luxu.kernel@bytedance.com>
-Cc: Jason Gunthorpe <jgg@nvidia.com>, Zong Li <zong.li@sifive.com>, 
-	Tomasz Jeznach <tjeznach@rivosinc.com>, joro@8bytes.org, Will Deacon <will@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Anup Patel <anup@brainfault.org>, atish.patra@linux.dev, 
-	Thomas Gleixner <tglx@linutronix.de>, alex.williamson@redhat.com, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Alexandre Ghiti <alex@ghiti.fr>, iommu@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, linux-riscv <linux-riscv@lists.infradead.org>, 
-	LKML <linux-kernel@vger.kernel.org>
-Subject: Re: Question about RISCV IOMMU irqbypass patch series
-Message-ID: <20260107-dc4b5f1d879db9afb00a4a87@orel>
-References: <CAPYmKFscKJ1ff470d6YmuMxLdJPSZ-ZmuGMMAFO83TT-vvV2JQ@mail.gmail.com>
+	Wed, 07 Jan 2026 17:51:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F163B43C66;
+	Wed,  7 Jan 2026 17:51:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 654FDC19422;
+	Wed,  7 Jan 2026 17:51:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767808304;
+	bh=EvfJl+USajo90pWhoSwMTyGP/X8mWv1NTXOWkDGByiw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XQ5yYqQSS39EtrC+ZAupv9l6DhoWvRqn/Qc29x02khw7rJCqK43fbKw3irDKzd3Zx
+	 efSkLDzw2YKn42etqwkrc4b/R/6XOPXf043Jq5JMuIEhjGGNEJjQDN75lzWS5nd84U
+	 2vf8IeisBsyGk+25s8HL2Pyb+ldOJbmMsyUVj7XY17eFDRaVqc1xumlgYFq6iMxktf
+	 t9uL69fC9mCULQ1Tt6dzoRaM3CZ6EOZmR5ZzpiSOmEyHg4UxDSXc58rBRKVY3jZCIU
+	 4E9kbWe1DKDhdEuWLVEZaM15NdF4rJWCKpZ2+IC4Ka7onAkhMWe0r3vWWDU1ovJWaF
+	 Sm4Lj7TnYfuKA==
+Date: Wed, 7 Jan 2026 18:51:41 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Encrow Thorne <jyc0019@gmail.com>
+Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, conor+dt@kernel.org, 
+	devicetree@vger.kernel.org, dlan@gentoo.org, guodong@riscstar.com, krzk+dt@kernel.org, 
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	p.zabel@pengutronix.de, palmer@dabbelt.com, pjw@kernel.org, robh@kernel.org, 
+	spacemit@lists.linux.dev, troy.mitchell@linux.spacemit.com, troymitchell988@gmail.com
+Subject: Re: [PATCH 3/3] riscv: dts: spacemit: add reset property
+Message-ID: <aV6c5-C9AOccl3vf@zenone.zhora.eu>
+References: <20251230-i2c-reset-v3-0-7500eb93b06e@gmail.com>
+ <20251230150653.42097-1-jyc0019@gmail.com>
+ <20251230150653.42097-3-jyc0019@gmail.com>
+ <aV5r8k4VKnXX_9Sw@zenone.zhora.eu>
+ <20260107162343.GA49546@hailin-HP-Pavilion-Laptop-14-dv0xxx>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAPYmKFscKJ1ff470d6YmuMxLdJPSZ-ZmuGMMAFO83TT-vvV2JQ@mail.gmail.com>
+In-Reply-To: <20260107162343.GA49546@hailin-HP-Pavilion-Laptop-14-dv0xxx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_095143_775309_BBC4907D 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20260107_095145_715616_0151D265 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,42 +79,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 06:01:26PM +0800, Xu Lu wrote:
-> Hi Andrew,
-> 
-> Thanks for your brilliant job on the RISCV IOMMU irqbypass patch
-> series[1]. I have rebased it on v6.18 and successfully passed through
-> a nvme device to VM. But I still have some questions about it.
-> 
-> 1. It seems "irqdomain->host_data->domain" can be NULL for blocking or
-> identity domain. So it's better to check whether it's NULL in
-> riscv_iommu_ir_irq_domain_alloc_irqs or
-> riscv_iommu_ir_irq_domain_free_irqs functions. Otherwise page fault
-> can happen.
+Hi Encrow,
 
-Indeed. Did you hit the NULL dereference in your testing?
+On Thu, Jan 08, 2026 at 12:23:43AM +0800, Encrow Thorne wrote:
+> On Wed, Jan 07, 2026 at 03:22:42PM +0100, Andi Shyti wrote:
+>   Hi Andi,
+> > Hi Encrow,
+> > 
+> > On Tue, Dec 30, 2025 at 11:06:53PM +0800, Encrow Thorne wrote:
+> > > Add resets property to K1 I2C node.
+> > > ---
+> > >  arch/riscv/boot/dts/spacemit/k1.dtsi | 8 ++++++++
+> > >  1 file changed, 8 insertions(+)
+> > 
+> > how is this patch formatted?
+> > 
+>   Sorry, I forgot to add the version number when I resent it.
 
-> 
-> 2. It seems you are using the first stage iommu page table even for
-> gpa->spa, what if a VM needs an vIOMMU? Or did I miss something?
+you also forgot the tag section :-)
 
-Unfortunately the IOMMU spec wasn't clear on the use of the MSI table
-when only stage1 is in use and now, after discussions with the spec
-author, it appears what I have written won't work. Additionally, Jason
-didn't like this new approach to IRQ_DOMAIN_FLAG_ISOLATED_MSI either,
-so there's a lot of rework that needs to be done for v3. I had had hopes
-to dedicate December to this but got distracted with other things and
-vacation. Now I hope to dedicate this month, but I still need to get
-started!
+No worries, I took patch 1 and 2 into i2c/i2c-host branch.
 
 Thanks,
-drew
-
-> 
-> [1] https://lore.kernel.org/all/20250920203851.2205115-20-ajones@ventanamicro.com/
-> 
-> Best regards,
-> Xu Lu
+Andi
 
 _______________________________________________
 linux-riscv mailing list
