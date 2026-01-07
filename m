@@ -4,62 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F62DD0D17C
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 23:14:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E1B4D0D17D
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 23:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=97L/LsJslg77lKSzatYyRzmYa5p3Jw0218C77PWUURw=; b=fxu4DhnLAJdBRV
-	kjn+zuWSRkJZ06o+MSGHxcWy5vr7zSB8P2xPNLSmL8I0DvmuQKTbWjuXckBqZOOQCPQBhnlbteYsb
-	1EiprpU2hB/iYDMyXQ0UFsOHWuU+UQJXYP4ViD5OUDUUpYG1h51qGdWTIDnUBpfe7j8mKpFrkv+Al
-	3iOEuw6/JKyALIk0LJAZLNGRBHFdibL9g0No7bXMZubB1zbpOTIq8iHnay805gw3oCQrokqTGIgSe
-	NHMvTfReCANhNDc1Xd8pwYxIj1R3jWy1Ou+bGt3TIrrQ2ji0ml+iST9Vn/YoaS3BZ0nCTeRr60Y0t
-	sAbipJkKz1tg5QCnEVfg==;
+	List-Owner; bh=oroGFOtBttgddnEMNyN7nO8h0qBhLMffffyq6pt1mY8=; b=CeO0DIL3SVYp5t
+	XTbmSCUZiKQn2dtEGDm6IDFJjVRkDjULOwYtm5FdWPn9oh/zTFOr2v5E+ETF1+NDwyNeMWK9W2pni
+	H+E+MZPZk4Yrdp88zDEyp59GrK1coRMe5DolleOE5A8+yMxU0HvIpZ+Ep2Xltf4ynOfCLRyeMqHTn
+	V/6iWSke+Yk0eCqmsc159BggxSocjXZGejMgXTGlHLeZQuwHKIzGzsrlzTQkjObwv5CflmHlU3OWJ
+	ZHsyprK6d1ugAn0BmtfdbyybTLtktdCSdwp3LkcV6Wye3U8W2FuZn42yjPXK+lj5sIkUNh+R8Hntp
+	8BnNaKS9HDna2ivvDEQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdcjA-0000000FjVu-1JAM;
-	Wed, 07 Jan 2026 23:14:08 +0000
-Received: from out-173.mta1.migadu.com ([2001:41d0:203:375::ad])
+	id 1vdcyg-0000000FkJB-2IJU;
+	Wed, 07 Jan 2026 23:30:10 +0000
+Received: from mail-oa1-x2d.google.com ([2001:4860:4864:20::2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdcj7-0000000FjTm-0M3k
+	id 1vdcyc-0000000FkIp-1svr
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jan 2026 23:14:06 +0000
-Date: Wed, 7 Jan 2026 23:12:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1767827632;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rR1fnvTTjB0CTE6RfkOtCAeY2jGW4kIZ+UMk8iaKGdI=;
-	b=u5Bh4aFM/DJ6EI3tKWN9ieFoB4g6EEjw1qSeYhK/tQ+6PGvPQrzcSVID7cPg1+zCvC6KFm
-	XbMjwJ3hL72SpmGfx9q0LV4fstFFuDLFPPm5Dw+mLKGD28qAisxn74YyTOvcRrbHUMU5DQ
-	sLtTKWYIAxdxWioTvQMqczCGjCOTVFs=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Yosry Ahmed <yosry.ahmed@linux.dev>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 16/21] KVM: selftests: Add support for nested NPTs
-Message-ID: <fj2wis2dluwtlaawrelfj25ldsk35dpbytytd2koemnv2va4np@feeu6in4gjjg>
-References: <20251230230150.4150236-1-seanjc@google.com>
- <20251230230150.4150236-17-seanjc@google.com>
+	Wed, 07 Jan 2026 23:30:07 +0000
+Received: by mail-oa1-x2d.google.com with SMTP id 586e51a60fabf-3e3dac349easo2247361fac.2
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Jan 2026 15:30:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1767828604; x=1768433404; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=DD3+WPugILA6AK9V3BgRQ69JbKdSsxscgzBr4aMHJyI=;
+        b=HZNJ7h/dxOon2Y2dreu5n/W+ZtDPZj9XAZlMLkfIhhdrBsODgt/wCGNR4lWq/cSM0I
+         +PvA0rQSZVVPCq5+XLwLfEJGh4W1BDs1HHXLwkEsNaGsw+skbfrRdym6uxxLTxbfNZpI
+         PLAdBTpgdfP0YeByw4hbT4xPXVqzo1Y/eppxt+Zsv3qUzJfS2pNglRi+SqfY0PGyoXZT
+         pbEO6tNpII1TRS5MAC5ti1sTRIG9OI8gVgJBgbxbxPFxRLmAt7lkdB3KL2i2XqgVtr42
+         Pz701RjKkp8sqSVsP2O1EMQVU6dNfnOvkoW54eLk3emeC6pnMUfCZvYHu/djHmroa75v
+         EmUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767828604; x=1768433404;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DD3+WPugILA6AK9V3BgRQ69JbKdSsxscgzBr4aMHJyI=;
+        b=ZR3lnYOWrqw3ysAGVQGS8Gf3kyoY30af41rIg41k0e3U3yUpcwsIXbSZ+2mQ5hxpok
+         Z2YqAmTralFaqyHGSPpFfMSblFQNDhvro5Xd4/luKg0pLkCcoV/2uopTipVY0nQx8GQS
+         jxNbf83go31HLwT1Octu85hZojxbrIIZ8nyiJIYvvB1rGk+Q0155GthmPvWTvj9dW6rv
+         wt9F9wd3UqPC8sO7r2mAkSs4mEfJ7dwJRRL2J1iNpvhI73SqieTfurT1fdjKW40eMPRA
+         KvNzJQDZ606U/VlahZlUhvwpPGlg6PnvssNWNKZ1n/r65JIpUjs1flDl4ZO1GRTQs/tM
+         0HDg==
+X-Forwarded-Encrypted: i=1; AJvYcCUROsEOSXlAqqeeLL5o9NxMJVLHwg3Oe/L/n0BZRnoXamIM0Ad0migNZefIV7R8QbOOL/rjXq08d+Z9Ew==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOYzZjOo1HAXbsVvYbtg7uW1cuiVUmewW3k9WSyUTYKD0ElKx0
+	16xVu3b9OwdcbkDEMZjMcglrvy/lLr+WvRAR3Fo1VxoJ92FMjgWFcyEuOzO/d3ptVio=
+X-Gm-Gg: AY/fxX7NDUSHwhTqdMj7E/ke/QQ8Gj72NDMD4gvzxBqctv7DSOyRTSHJFkp31r+GUT1
+	788xeUSHyY+/Eb/N2Nt1GED/mAyXFZWfV4RV1z7DJvIoPUrtOxj3+YC/jkQw6JS8G5u30ocU+wy
+	Y2AgqGHhZ+hV8mikOLYw1Tei5WMtTYRAQsWi+U+b8s5Zq4521mjFh0D3Sq5UFIZm60ErVV4Ux2N
+	GFCs28hmCMaW7wxuS08qL7F0RAv0vd3TiYWeTNkBWKiRouXq48EpTfNMunR6AAPIzPpgX2YpVTV
+	PqNrhOg3F80tIikcV4bMe9gNBVXtIjAI7wdOOPi8RlW0pnCoeO7XwNVUoxwlQp9bV1J+ZVanLtV
+	MbGR7AymTsRUCczdXBe8nronf/bz5F9y59v4l/21yoJwaY7uawXXpq681QkH9jxEIB8lwrfxBQa
+	Ce7nq1dnYQIz7iq4nAQIGfq1PPtYvI
+X-Google-Smtp-Source: AGHT+IEbrWosXtHfAjh0EHHCNxNQExF8ZdJBVaTpWjr+5/PED+E0A/kj02pUGytgAZFj/rBktqDFKw==
+X-Received: by 2002:a05:6870:934b:b0:3f5:aced:c441 with SMTP id 586e51a60fabf-3ffc0993d08mr2061071fac.4.1767828604589;
+        Wed, 07 Jan 2026 15:30:04 -0800 (PST)
+Received: from [100.64.0.1] ([170.85.11.118])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-3ffa4de8cbfsm4035171fac.3.2026.01.07.15.30.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 07 Jan 2026 15:30:04 -0800 (PST)
+Message-ID: <06ac0b87-d398-4cb0-a614-760bfe41cf7f@sifive.com>
+Date: Wed, 7 Jan 2026 17:30:02 -0600
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251230230150.4150236-17-seanjc@google.com>
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv, bpf: Emit fence.i for BPF_NOSPEC
+To: Luis Gerhorst <luis.gerhorst@fau.de>,
+ Lukas Gerlach <lukas.gerlach@cispa.de>
+Cc: ast@kernel.org, bjorn@kernel.org, bpf@vger.kernel.org,
+ daniel.weber@cispa.de, daniel@iogearbox.net, jo.vanbulck@kuleuven.be,
+ linux-riscv@lists.infradead.org, luke.r.nels@gmail.com,
+ marton.bognar@kuleuven.be, michael.schwarz@cispa.de, palmer@dabbelt.com,
+ pjw@kernel.org, xi.wang@gmail.com, cleger@rivosinc.com, palmer@rivosinc.com,
+ conor.dooley@microchip.com, andrew@sifive.com
+References: <87y0m996b2.fsf@fau.de>
+ <20260107095406.4082-1-lukas.gerlach@cispa.de> <87sechz4x3.fsf@fau.de>
+From: Samuel Holland <samuel.holland@sifive.com>
+Content-Language: en-US
+In-Reply-To: <87sechz4x3.fsf@fau.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_151405_271488_4A667BB2 
-X-CRM114-Status: GOOD (  25.74  )
+X-CRM114-CacheID: sfid-20260107_153006_531867_9E6CBEBA 
+X-CRM114-Status: GOOD (  34.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,205 +108,113 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 30, 2025 at 03:01:45PM -0800, Sean Christopherson wrote:
-> From: Yosry Ahmed <yosry.ahmed@linux.dev>
+On 2026-01-07 11:52 AM, Luis Gerhorst wrote:
+> Lukas Gerlach <lukas.gerlach@cispa.de> writes:
 > 
-> Implement nCR3 and NPT initialization functions, similar to the EPT
-> equivalents, and create common TDP helpers for enablement checking and
-> initialization. Enable NPT for nested guests by default if the TDP MMU
-> was initialized, similar to VMX.
+>> Regarding bpf_jit_bypass_spec_v1/v4(): currently this is per-architecture.
+>> What we need is per-processor granularity, so we can disable mitigations
+>> on in-order cores and keep them enabled on vulnerable out-of-order processors.
 > 
-> Reuse the PTE masks from the main MMU in the NPT MMU, except for the C
-> and S bits related to confidential VMs.
+> Yes, sorry this was unclear. I just wanted to point out that once you
+> have that infrastructure you can implement them as follows:
 > 
-> Signed-off-by: Yosry Ahmed <yosry.ahmed@linux.dev>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-
-Funny story, I missed a teeny tiny part here..
-
-diff --git a/tools/testing/selftests/kvm/lib/x86/svm.c b/tools/testing/selftests/kvm/lib/x86/svm.c
-index 18e9e9089643..2e5c480c9afd 100644
---- a/tools/testing/selftests/kvm/lib/x86/svm.c
-+++ b/tools/testing/selftests/kvm/lib/x86/svm.c
-@@ -46,6 +46,9 @@ vcpu_alloc_svm(struct kvm_vm *vm, vm_vaddr_t *p_svm_gva)
-        svm->msr_gpa = addr_gva2gpa(vm, (uintptr_t)svm->msr);
-        memset(svm->msr_hva, 0, getpagesize());
-
-+       if (vm->stage2_mmu.pgd_created)
-+               svm->ncr3_gpa = vm->stage2_mmu.pgd;
-+
-        *p_svm_gva = svm_gva;
-        return svm;
- }
-
----
-
-The good news is that the test still passes after we start ACTUALLY
-USING the nested NPT :)
-
-> ---
->  .../selftests/kvm/include/x86/processor.h     |  2 ++
->  .../selftests/kvm/include/x86/svm_util.h      |  9 ++++++++
->  .../testing/selftests/kvm/lib/x86/memstress.c |  4 ++--
->  .../testing/selftests/kvm/lib/x86/processor.c | 15 +++++++++++++
->  tools/testing/selftests/kvm/lib/x86/svm.c     | 21 +++++++++++++++++++
->  .../selftests/kvm/x86/vmx_dirty_log_test.c    |  4 ++--
->  6 files changed, 51 insertions(+), 4 deletions(-)
+> bpf_jit_bypass_spec_v1/v4() {
+>   if (RV_CPU_IN_ORDER())
+>     return true;
+>   else
+>     return false;
+> }
 > 
-> diff --git a/tools/testing/selftests/kvm/include/x86/processor.h b/tools/testing/selftests/kvm/include/x86/processor.h
-> index d134c886f280..deb471fb9b51 100644
-> --- a/tools/testing/selftests/kvm/include/x86/processor.h
-> +++ b/tools/testing/selftests/kvm/include/x86/processor.h
-> @@ -1477,6 +1477,8 @@ void __virt_pg_map(struct kvm_vm *vm, struct kvm_mmu *mmu, uint64_t vaddr,
->  void virt_map_level(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr,
->  		    uint64_t nr_bytes, int level);
->  
-> +void vm_enable_tdp(struct kvm_vm *vm);
-> +bool kvm_cpu_has_tdp(void);
->  void tdp_map(struct kvm_vm *vm, uint64_t nested_paddr, uint64_t paddr, uint64_t size);
->  void tdp_identity_map_default_memslots(struct kvm_vm *vm);
->  void tdp_identity_map_1g(struct kvm_vm *vm,  uint64_t addr, uint64_t size);
-> diff --git a/tools/testing/selftests/kvm/include/x86/svm_util.h b/tools/testing/selftests/kvm/include/x86/svm_util.h
-> index b74c6dcddcbd..5d7c42534bc4 100644
-> --- a/tools/testing/selftests/kvm/include/x86/svm_util.h
-> +++ b/tools/testing/selftests/kvm/include/x86/svm_util.h
-> @@ -27,6 +27,9 @@ struct svm_test_data {
->  	void *msr; /* gva */
->  	void *msr_hva;
->  	uint64_t msr_gpa;
-> +
-> +	/* NPT */
-> +	uint64_t ncr3_gpa;
->  };
->  
->  static inline void vmmcall(void)
-> @@ -57,6 +60,12 @@ struct svm_test_data *vcpu_alloc_svm(struct kvm_vm *vm, vm_vaddr_t *p_svm_gva);
->  void generic_svm_setup(struct svm_test_data *svm, void *guest_rip, void *guest_rsp);
->  void run_guest(struct vmcb *vmcb, uint64_t vmcb_gpa);
->  
-> +static inline bool kvm_cpu_has_npt(void)
-> +{
-> +	return kvm_cpu_has(X86_FEATURE_NPT);
-> +}
-> +void vm_enable_npt(struct kvm_vm *vm);
-> +
->  int open_sev_dev_path_or_exit(void);
->  
->  #endif /* SELFTEST_KVM_SVM_UTILS_H */
-> diff --git a/tools/testing/selftests/kvm/lib/x86/memstress.c b/tools/testing/selftests/kvm/lib/x86/memstress.c
-> index 3319cb57a78d..407abfc34909 100644
-> --- a/tools/testing/selftests/kvm/lib/x86/memstress.c
-> +++ b/tools/testing/selftests/kvm/lib/x86/memstress.c
-> @@ -82,9 +82,9 @@ void memstress_setup_nested(struct kvm_vm *vm, int nr_vcpus, struct kvm_vcpu *vc
->  	int vcpu_id;
->  
->  	TEST_REQUIRE(kvm_cpu_has(X86_FEATURE_VMX));
-> -	TEST_REQUIRE(kvm_cpu_has_ept());
-> +	TEST_REQUIRE(kvm_cpu_has_tdp());
->  
-> -	vm_enable_ept(vm);
-> +	vm_enable_tdp(vm);
->  	for (vcpu_id = 0; vcpu_id < nr_vcpus; vcpu_id++) {
->  		vcpu_alloc_vmx(vm, &vmx_gva);
->  
-> diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
-> index 29e7d172f945..a3a4c9a4cbcb 100644
-> --- a/tools/testing/selftests/kvm/lib/x86/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/x86/processor.c
-> @@ -8,7 +8,9 @@
->  #include "kvm_util.h"
->  #include "pmu.h"
->  #include "processor.h"
-> +#include "svm_util.h"
->  #include "sev.h"
-> +#include "vmx.h"
->  
->  #ifndef NUM_INTERRUPTS
->  #define NUM_INTERRUPTS 256
-> @@ -472,6 +474,19 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
->  	}
->  }
->  
-> +void vm_enable_tdp(struct kvm_vm *vm)
-> +{
-> +	if (kvm_cpu_has(X86_FEATURE_VMX))
-> +		vm_enable_ept(vm);
-> +	else
-> +		vm_enable_npt(vm);
-> +}
-> +
-> +bool kvm_cpu_has_tdp(void)
-> +{
-> +	return kvm_cpu_has_ept() || kvm_cpu_has_npt();
-> +}
-> +
->  void __tdp_map(struct kvm_vm *vm, uint64_t nested_paddr, uint64_t paddr,
->  	       uint64_t size, int level)
->  {
-> diff --git a/tools/testing/selftests/kvm/lib/x86/svm.c b/tools/testing/selftests/kvm/lib/x86/svm.c
-> index d239c2097391..8e4795225595 100644
-> --- a/tools/testing/selftests/kvm/lib/x86/svm.c
-> +++ b/tools/testing/selftests/kvm/lib/x86/svm.c
-> @@ -59,6 +59,22 @@ static void vmcb_set_seg(struct vmcb_seg *seg, u16 selector,
->  	seg->base = base;
->  }
->  
-> +void vm_enable_npt(struct kvm_vm *vm)
-> +{
-> +	struct pte_masks pte_masks;
-> +
-> +	TEST_ASSERT(kvm_cpu_has_npt(), "KVM doesn't supported nested NPT");
-> +
-> +	/*
-> +	 * NPTs use the same PTE format, but deliberately drop the C-bit as the
-> +	 * per-VM shared vs. private information is only meant for stage-1.
-> +	 */
-> +	pte_masks = vm->mmu.arch.pte_masks;
-> +	pte_masks.c = 0;
-> +
-> +	tdp_mmu_init(vm, vm->mmu.pgtable_levels, &pte_masks);
-> +}
-> +
->  void generic_svm_setup(struct svm_test_data *svm, void *guest_rip, void *guest_rsp)
->  {
->  	struct vmcb *vmcb = svm->vmcb;
-> @@ -102,6 +118,11 @@ void generic_svm_setup(struct svm_test_data *svm, void *guest_rip, void *guest_r
->  	vmcb->save.rip = (u64)guest_rip;
->  	vmcb->save.rsp = (u64)guest_rsp;
->  	guest_regs.rdi = (u64)svm;
-> +
-> +	if (svm->ncr3_gpa) {
-> +		ctrl->nested_ctl |= SVM_NESTED_CTL_NP_ENABLE;
-> +		ctrl->nested_cr3 = svm->ncr3_gpa;
-> +	}
->  }
->  
->  /*
-> diff --git a/tools/testing/selftests/kvm/x86/vmx_dirty_log_test.c b/tools/testing/selftests/kvm/x86/vmx_dirty_log_test.c
-> index 370f8d3117c2..032ab8bf60a4 100644
-> --- a/tools/testing/selftests/kvm/x86/vmx_dirty_log_test.c
-> +++ b/tools/testing/selftests/kvm/x86/vmx_dirty_log_test.c
-> @@ -93,7 +93,7 @@ static void test_vmx_dirty_log(bool enable_ept)
->  	/* Create VM */
->  	vm = vm_create_with_one_vcpu(&vcpu, l1_guest_code);
->  	if (enable_ept)
-> -		vm_enable_ept(vm);
-> +		vm_enable_tdp(vm);
->  
->  	vcpu_alloc_vmx(vm, &vmx_pages_gva);
->  	vcpu_args_set(vcpu, 1, vmx_pages_gva);
-> @@ -170,7 +170,7 @@ int main(int argc, char *argv[])
->  
->  	test_vmx_dirty_log(/*enable_ept=*/false);
->  
-> -	if (kvm_cpu_has_ept())
-> +	if (kvm_cpu_has_tdp())
->  		test_vmx_dirty_log(/*enable_ept=*/true);
->  
->  	return 0;
-> -- 
-> 2.52.0.351.gbe84eed79e-goog
+> But you are right that the definition of RV_CPU_IN_ORDER() is still
+> missing of course.
 > 
+>> Regarding fence.i being an extension: all RISC-V processors supported by the
+>> kernel that are vulnerable to these attacks support this instruction.
+> 
+> I am not sure if I misunderstand the "that are vulnerable to these
+> attacks".
+> 
+> If you mean that vulnerable CPUs always have fence.i: What if a CPU
+> still does not support the instruction (no matter if it is vulnerable or
+> not)?
+> 
+> If I understand the RISC-V JIT correctly, it will then still generate
+> fence.i with this patch. When this eBPF program is then invoked the
+> CPU will panic upon reaching the fence.i which is a invalid opcode as
+> far as this CPU is concerned. Or is there some ifdef I am missing here?
+> 
+> I would assume you need something like this:
+> 
+> case BPF_ST | BPF_NOSPEC:
+>   if (riscv_has_extension_likely(RISCV_ISA_EXT_ZIFENCEI))
+>     emit_fence_i(ctx);
+>   break;
+> 
+> Or is there some guarantee that this extension is always available? I
+> read [3] as implying that this is no longer the case with the 2.0
+> instruction set for unprivileged. Does this also mean it is an optional
+> extension for the privileged ISA?
+
+The Zifencei extension is no longer a mandatory part of the ISA, but it is
+mandatory for Linux. Linux requires at least "rv32ima or rv64ima, as defined by
+version 2.2 of the user ISA and version 1.10 of the privileged ISA".
+
+Notably, in version 2.2 of the user ISA, the Zifencei extension was still an
+unnamed subset of the I extension, so it is included in the above requirement.
+It was later removed from the I extension and given its own name, which is why
+we have weirdness like the code below. (You can see in arch/riscv/Makefile where
+we unconditionally add either ISA version 2.2 or Zifencei to CFLAGS.)
+
+> 
+> RISC-V cpufeature.c had this in [2]:
+> 
+> 		/*
+> 		 * Linux requires the following extensions, so we may as well
+> 		 * always set them.
+> 		 */
+> 		set_bit(RISCV_ISA_EXT_ZICSR, this_isa);
+> 		set_bit(RISCV_ISA_EXT_ZIFENCEI, this_isa);
+> 
+> But as of [1] it was changed to:
+> 
+> 		if (acpi_disabled) {
+> 			set_bit(RISCV_ISA_EXT_ZICSR, source_isa);
+> 			set_bit(RISCV_ISA_EXT_ZIFENCEI, source_isa);
+> 
+> So based on that I would assume fence.i may not always be supported.
+
+This is just a quirk of the parsing code. As mentioned in [1], older devicetrees
+were written while Zifencei was an implicit part of I, so we don't expect it to
+appear in the devicetree. The ACPI table definition was written after Zifencei
+was a separate extension, so we do expect Zifencei to appear on its own in the
+ACPI table. But it is still required. (We don't currently check that all
+extensions required by the kernel are actually present; this will be done as
+part of the RVA23 enablement.)
+
+> But I also found that 921ebd8f2c08 ("RISC-V: Allow userspace to flush
+> the instruction cache") seems to assume that fence.i always works (see
+> local_flush_icache_all() which I assume runs in the kernel).
+
+Yes, the kernel definitely won't run if fence.i is missing, so we don't need to
+worry about such hardware. We could probably document this better.
+
+Regards,
+Samuel
+
+> Even if the CPU is known vulnerable but does not support the extension,
+> it will be better not to generate the instruction. If we still want to
+> do something about these CPUs, maybe add a warning message to advise the
+> user that unpriv eBPF should definately be kept disabled on this CPU?
+> 
+> [1] https://lore.kernel.org/all/20230711224600.10879-1-palmer@rivosinc.com/
+> [2] https://lore.kernel.org/all/20230607-nest-collision-5796b6be8be6@spud/
+> [3] https://docs.riscv.org/reference/isa/unpriv/zifencei.html
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
 
 _______________________________________________
 linux-riscv mailing list
