@@ -4,55 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D07FD0D16F
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 20:05:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23611D0D171
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 20:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H0wdQAhwtwP4ntoLsQkhnKgkNdC3kQfl/0TlQcXh/RQ=; b=R+O/8ayToXQf+v
-	loh/FcQLIGjSdTcriybJz/cXA3nQySw+nNeCumVAwlxQIwK0pr6oKJI0VQY+0qa9753mbxVN3+KmB
-	wSZj/1urY1Ydv2NkDxIMW9PAmljqrdy0CQnjtdvaMVHV79TYYzPe61bGeoLfGxxSMkJWRqKvbSvN8
-	rrXkILqFiP3fwHYMuF5E1i+JD6j4/Wz6i9amBU8ZA8nLDrtbBr84SUzXP5fACv19gcSByo5Nq53C/
-	yy4KsHftzwsJj8+FgIQex8OEEu4ZcTHlOklTLZHKYJwCQYJ3xEs0dRhYh+NUF6JjoNuyceEkXNz+K
-	pjIQABeHqQlAEZvSpS2Q==;
+	List-Owner; bh=RNPrl7YanBtu7MTVdBuEKnYVe7Ove0aeNVtWHOVSHRg=; b=GUlTQxa5/EfOnw
+	0CNUWT/ISvHKU6A3/Hp1OPwUYhWs0tzVPh3+2j08771LBhuFUjSQ1Ab2ECU8i/4HyTM1x5wfEDPtq
+	iWwHr7D2g+GJonw4egoK9qJwk6U/velLJ55zG6ltLlbQQVbWKg29Jjue3wOc0nABbP6aYYCID7rfS
+	TAdd+FtM9rQnoKgRV+DzpIYEKX247OZdAaVcHAaPP2PslmRKs4qoICYDAE0CayDEx/mceB9hJMPpF
+	LUZyGaPwV08PZE5/G4mP/yG2Qo8egev8a0KZc0t51/1Ec7ZTgusHweCn2/1BFKeOgoT1GNoQ722+s
+	mGqLtfIG/o/dNZjbpByg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZmU-0000000FaeF-0f7j;
-	Wed, 07 Jan 2026 20:05:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vdaFH-0000000Fca9-12U9;
+	Wed, 07 Jan 2026 20:35:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZmT-0000000Fae8-0YbL
-	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jan 2026 20:05:21 +0000
+	id 1vdaFD-0000000FcZ4-3BJ8;
+	Wed, 07 Jan 2026 20:35:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3CD566000A;
-	Wed,  7 Jan 2026 20:05:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80A63C4CEF1;
-	Wed,  7 Jan 2026 20:05:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 523C841A19;
+	Wed,  7 Jan 2026 20:35:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EE70C4CEF1;
+	Wed,  7 Jan 2026 20:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767816319;
-	bh=jEtgHbvNWyLEoPqaBWoLLo5a+HGkQl1MtsX4PhinL2c=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=LyHM9ASrxDZI7FjA4L7iAmkmf49u0p7PXtyJNdGrzNr22issJo+lcPIxry1T7oRn2
-	 szSHSaLR5cgZfd6An6Xh8M6k+juTHfbf7KkQ629NAaQbRW+FHa4X76ZRQnfg9R5JBO
-	 x1xaNsnvIkpXIAwnqlTf0nYK9bOdC5rSEL8HkGeg0AMo9PoLckXrdc/ZnW/FeFH/or
-	 /XZnxTPcy3AllcjytpVIbCGfZFhfD9djCTkh4Z+8oSFteKCOQSBTBOS/AO5wWWHMzF
-	 1wWKWW7RbOUkG2X+78f41+hImFpnDjrl5AEsNrd8rMZ9x16Yka41/6KoAFma/fjb+N
-	 bBulu/n6wZ6lw==
-Date: Wed, 7 Jan 2026 13:05:16 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    palmer@dabbelt.com, pjw@kernel.org
-Subject: Re: [PATCH] riscv: cpu_ops_sbi: smp_processor_id() returns int, not
- unsigned int
-In-Reply-To: <20260102145839.657864-1-ben.dooks@codethink.co.uk>
-Message-ID: <872d9775-a510-a833-bea0-9cbd53664bb8@kernel.org>
-References: <20260102145839.657864-1-ben.dooks@codethink.co.uk>
+	s=k20201202; t=1767818101;
+	bh=vKhxxji3EawjSoSR0eYv3ESIoEzWRCnC8y7NrYlJoHw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DrImanlqQNEn8WqBqIPDAFwBghL1vkzPQ/Yb/fhl9jwCjpo9Bg2qJ2Kq56c0SOIJx
+	 XEq9YTZ4bNnlJ32sMsDOJyCAA415rqCFHPJ7Dq2SsLw42f/fMNCOIFsQbOa7OX1FO9
+	 cAXQtLJFygLKYp7EN85FvAo1cTsL5Ecvw0H3zHsLl5Yrwztkyk39kw0qOFSu/VrFZR
+	 MMPySeQMcrSYFQxLrUZAnxci5iKikOA5vfK8QjUZRpKaDP3xX2C8Q6OVKsFJOL6dBa
+	 vhyLQoEaQyvNP5SsYFkgsjtLwS9Zzx7yYNwFMHF4ryuQvbweSoz0KM95lJYISZHhOv
+	 9TjiuqgHfQufQ==
+Date: Wed, 7 Jan 2026 12:34:58 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Holger Dengler <dengler@linux.ibm.com>
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org,
+	Harald Freudenberger <freude@linux.ibm.com>,
+	linux-crypto@vger.kernel.org
+Subject: Re: [PATCH 15/36] lib/crypto: s390/aes: Migrate optimized code into
+ library
+Message-ID: <20260107203458.GA2200@quark>
+References: <20260105051311.1607207-1-ebiggers@kernel.org>
+ <20260105051311.1607207-16-ebiggers@kernel.org>
+ <167cbd49-e0ba-4b1d-a724-e64ab6ee863c@linux.ibm.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <167cbd49-e0ba-4b1d-a724-e64ab6ee863c@linux.ibm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260107_123503_819286_86DB39AD 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,18 +80,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2 Jan 2026, Ben Dooks wrote:
-
-> The print in sbi_cpu_stop() assumes smp_processor_id() returns an
-> unsigned int, when it is actually an int. Fix the format string to
-> avoid mismatch type warnings in rht pr_crit().
+On Wed, Jan 07, 2026 at 08:41:02AM +0100, Holger Dengler wrote:
+> Hi Eric,
 > 
-> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+> first of all: happy New Year! ANd thanks for the series.
+> 
+> On 05/01/2026 06:12, Eric Biggers wrote:
+> > Implement aes_preparekey_arch(), aes_encrypt_arch(), and 
+> > aes_decrypt_arch() using the CPACF AES instructions.
+> 
+> I'm not sure, it it makes sense to implement this on s390 at all. The CPACF
+> instructions cover full modes of operations and are  to process more
+> than one cipher-block-size (*). For single-block operations, the performance
+> might be worth than using the generic functions. I will look into it and do
+> some performance tests. If there is a possibility to plug-in to the level
+> where the modes of operation are implemented, it would make much more sense
+> for s390.
+> 
+> (*) Yes, it's a bit uncommon, but the CPACF instructions on s390 can process
+> multiple block with a single instruction call! They are so called long running
+> instructions.
 
-Thanks, queued for v6.19-rc.
+I'm happy to drop the CPACF single-block AES code if it's not
+worthwhile.  I included it only because arch/s390/crypto/ already has
+such code.  Since I'm making it so that the crypto_cipher API simply
+wraps the library API, if this code is not brought into the library it
+will effectively be dropped.  You had pushed back the last time I
+proposed dropping one of the s390 optimizations, even a fairly minor one
+(https://lore.kernel.org/linux-crypto/51fc91b6-3a6e-44f7-ae93-aef0bcb48964@linux.ibm.com/).
 
+But I have no way to test or benchmark the s390 code myself.  If the
+CPACF single-block AES en/decryption code isn't worthwhile, there's no
+reason to keep it, so I'll remove it.
 
-- Paul
+As for AES modes, later patchsets are going to introduce
+architecture-optimized AES modes into the library, and the traditional
+crypto API for those modes will similarly be reimplemented on top of it.
+This patchset just focuses on the existing library API for key expansion
+and single block en/decryption as a first step.  (As with the
+traditional API, single block en/decryption is needed as a fallback to
+handle any modes that don't have a standalone implementation.)
+
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
