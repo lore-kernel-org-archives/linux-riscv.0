@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40FE1D0D151
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 17:52:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EBF8D0D16A
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 18:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NL4UhFnGhD6PPVQLU/mbxczW6gvcdcNVrfS5+AL+QBk=; b=MO8OfmDvGRJfdH
-	EfRVsaHArWU5T0u0wEOb8NS4Aius4hp0Ri6fu2mpSSzUwyxWTdQaEA44jwJ2RXHN9GK4604MVaqkg
-	pZXFvbqn3r/wYYEb9Oo/70xy/svmXuvnyOsrdd5a2kH45NeFmByRi+lRPIAtHa67oNEn54ZXxHQpl
-	En3UV3Pxcw4rCzJr7EUe7L8jpxqfbmN1VpOfcz6XoHDhoc4BshhOI6TzuMEpzu+tSJY9KUUQNJffA
-	nFUywXdg4LsE5RySKWQOYCCwp49u/S6YNLv2EvH0+sfiYT3kOqIJ8guBNYdfmEiO1b91uWLj2oW2j
-	sOZOp5OQVc16+n7MGy+w==;
+	List-Owner; bh=UDbqABvolhr5XQ9LmJBdXqTGZWIIw+WxkrzeHumQcac=; b=yPSNqMbCbmxfqy
+	39G8KxSWLiF89OzW03r2PHWshKrAIRQnEjk5QkGkUl11zc2R3NTeZNuyxXdneBYtVCYAchAxOpVG6
+	SrmSfAdqQ3iq3yWhZlQi7SVD8p5ehiU9CcIZajx6HZFpyGcwYv3hptcwDed3a0c6ykZh4rnEXZY3o
+	R1gu8ZKn/C5l9WUuTk8XkeTLLtSOsbc6PZ26/XFW8AnOGnA1EGgLww0oSb0f0ZXCHpesTklLwIFxf
+	BKRd1+WOfq30mTEEloSnJP6AFIlvjiYMwid4DeJvuKPapCc5Rxl7WcC7yC5Kv/YWLGXCWweVqo0SK
+	uMEyqTDsk/wrJuxxxE0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdXhz-0000000FOzi-1FQ5;
-	Wed, 07 Jan 2026 17:52:35 +0000
-Received: from mx-rz-2.rrze.uni-erlangen.de ([131.188.11.21])
+	id 1vdYYr-0000000FUmE-0ZzI;
+	Wed, 07 Jan 2026 18:47:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdXhw-0000000FOyN-0TDv
+	id 1vdYYn-0000000FUlr-35Ie
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jan 2026 17:52:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
-	t=1767808348; bh=FEBbEJYjF9VeYuE/c6VI2LwqJ1VlZp1N2SisoMN0mzg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From:To:CC:
-	 Subject;
-	b=frVi5bsOpHQyFdBNg/aA4J73jE61+MYbzsrKroDpZBhxhbi0vauKHV5NrIACNrO5b
-	 dyMBdoXBaDAUxS9LZQjaF4Z9c1AjI8un16hnHb8G31qeuFwqWGbWizET+PWIioS7kp
-	 IVHr6UmC+vDQWrrM50QQIuZImmRpWP1rGgApKU05Xoj+yCE6dPIshlq+cSqZ50d1oh
-	 jcP8hRBen2TLlJyQXBfFIX/T6zyKV3lq41JLsMXYKoF5Q+5ilWviIxt20IsKo1Cb0X
-	 MPXbjPRN725V30meLJRVY2I0ci2/SlJ3/yoNyCkDO2gWlkEShVe5Nx34WZ4KJvVmup
-	 wQNDzMuCNmsPg==
-Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-rz-2.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4dmbGM6ssTzPkCM;
-	Wed,  7 Jan 2026 18:52:27 +0100 (CET)
-X-Virus-Scanned: amavisd-new at boeck2.rrze.uni-erlangen.de (RRZE)
-X-RRZE-Flag: Not-Spam
-X-RRZE-Submit-IP: 10.188.34.184
-Received: from localhost (i4laptop33.informatik.uni-erlangen.de [10.188.34.184])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: U2FsdGVkX19Sh7w1z3IDDyxOFeZshEUU57P0q9RJGdo=)
-	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4dmbGJ700vzPk7g;
-	Wed,  7 Jan 2026 18:52:24 +0100 (CET)
-From: Luis Gerhorst <luis.gerhorst@fau.de>
-To: Lukas Gerlach <lukas.gerlach@cispa.de>
-Cc: <ast@kernel.org>,  <bjorn@kernel.org>,  <bpf@vger.kernel.org>,
-  <daniel.weber@cispa.de>,  <daniel@iogearbox.net>,
-  <jo.vanbulck@kuleuven.be>,  <linux-riscv@lists.infradead.org>,
-  <luke.r.nels@gmail.com>,  <marton.bognar@kuleuven.be>,
-  <michael.schwarz@cispa.de>,  <palmer@dabbelt.com>,  <pjw@kernel.org>,
-  <xi.wang@gmail.com>, <cleger@rivosinc.com>, <palmer@rivosinc.com>,
- <conor.dooley@microchip.com>, <andrew@sifive.com>
-Subject: Re: [PATCH] riscv, bpf: Emit fence.i for BPF_NOSPEC
-In-Reply-To: <20260107095406.4082-1-lukas.gerlach@cispa.de> (Lukas Gerlach's
-	message of "Wed, 7 Jan 2026 10:54:05 +0100")
-References: <87y0m996b2.fsf@fau.de>
-	<20260107095406.4082-1-lukas.gerlach@cispa.de>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Wed, 07 Jan 2026 18:52:24 +0100
-Message-ID: <87sechz4x3.fsf@fau.de>
+	Wed, 07 Jan 2026 18:47:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 11A1840DA1;
+	Wed,  7 Jan 2026 18:47:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F672C4CEF1;
+	Wed,  7 Jan 2026 18:47:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767811627;
+	bh=4yPG+l5w/j0jWKQpiaGiOl5XoPWy4TQ2jbFaBEAm37g=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=byNly+xC4C6f7zXeBIXrz3hqx8lHaCN87ADcjy8AiWMYjewyNxjnpjm3C+suZIbFr
+	 ueRaCZHpEgYmZQLk6pzLf/pROq8hXnIdeun2zrvus/JMkexgJGGYJPl4ArKg3NgJRo
+	 ftOyrMB3tus/EvxTsYxpCRF6kNtJx7sFdPS4MhiXvX1knFHXWwHGznAIco0MXB1FJg
+	 VwASizKEQcE3S3g1QgmUGB7xv9tvFXsjDzyXeBRGYbUT2CAQq+qO35OwNjuhbWecBB
+	 zxUU92vuAOS1ziNK22FPDg9+eLGavknPzkbV69ZZh/cyRvN6w7x9O/R8sBBBMCDn2E
+	 W0wTSp9oflxLA==
+Date: Wed, 7 Jan 2026 11:47:03 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+cc: Guodong Xu <guodong@riscstar.com>, Rob Herring <robh@kernel.org>, 
+    Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+    Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+    Alexandre Ghiti <alex@ghiti.fr>, Paul Walmsley <paul.walmsley@sifive.com>, 
+    devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v2] dt-bindings: riscv: update ratified version of h,
+ svinval, svnapot, svpbmt
+In-Reply-To: <20260101-prong-carnage-bbb6272e23c1@spud>
+Message-ID: <fc4a3b44-3776-68fd-6e1d-876cf319c3eb@kernel.org>
+References: <20251225-h-description-v2-1-b0c66080c704@riscstar.com> <20260101-prong-carnage-bbb6272e23c1@spud>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_095232_302422_37615099 
-X-CRM114-Status: GOOD (  18.51  )
+X-CRM114-CacheID: sfid-20260107_104709_800610_CA4449EB 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,81 +77,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Lukas Gerlach <lukas.gerlach@cispa.de> writes:
+On Thu, 1 Jan 2026, Conor Dooley wrote:
 
-> Regarding bpf_jit_bypass_spec_v1/v4(): currently this is per-architecture.
-> What we need is per-processor granularity, so we can disable mitigations
-> on in-order cores and keep them enabled on vulnerable out-of-order processors.
+> On Thu, Dec 25, 2025 at 02:24:20PM +0800, Guodong Xu wrote:
+> > The descriptions for h, svinval, svnapot, and svpbmt extensions currently
+> > reference the "20191213 version of the privileged ISA specification".
+> > While an Unprivileged ISA document exists with that date, there is no
+> > corresponding ratified Privileged ISA specification.
+> > 
+> > These extensions were ratified in the RISC-V Instruction Set Manual,
+> > Volume II: Privileged Architecture, Version 20211203. Update the
+> > descriptions to reference the correct specification version.
+> > 
+> > RISC-V International hosts a website [1] for ratified specifications.
+> > Following the "Ratified ISA Specifications", historical versions of
+> > Volume II Privileged ISA can be found.
+> > 
+> > Link: https://riscv.org/specifications/ratified/ [1]
+> > Fixes: aeb71e42caae ("dt-bindings: riscv: deprecate riscv,isa")
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> > Signed-off-by: Guodong Xu <guodong@riscstar.com>
+> 
+> I've put this on my dt-fixes branch, but shout Paul if you'd rather this
+> went via you.
 
-Yes, sorry this was unclear. I just wanted to point out that once you
-have that infrastructure you can implement them as follows:
+Am happy to have you taking these!
 
-bpf_jit_bypass_spec_v1/v4() {
-  if (RV_CPU_IN_ORDER())
-    return true;
-  else
-    return false;
-}
 
-But you are right that the definition of RV_CPU_IN_ORDER() is still
-missing of course.
-
-> Regarding fence.i being an extension: all RISC-V processors supported by the
-> kernel that are vulnerable to these attacks support this instruction.
-
-I am not sure if I misunderstand the "that are vulnerable to these
-attacks".
-
-If you mean that vulnerable CPUs always have fence.i: What if a CPU
-still does not support the instruction (no matter if it is vulnerable or
-not)?
-
-If I understand the RISC-V JIT correctly, it will then still generate
-fence.i with this patch. When this eBPF program is then invoked the
-CPU will panic upon reaching the fence.i which is a invalid opcode as
-far as this CPU is concerned. Or is there some ifdef I am missing here?
-
-I would assume you need something like this:
-
-case BPF_ST | BPF_NOSPEC:
-  if (riscv_has_extension_likely(RISCV_ISA_EXT_ZIFENCEI))
-    emit_fence_i(ctx);
-  break;
-
-Or is there some guarantee that this extension is always available? I
-read [3] as implying that this is no longer the case with the 2.0
-instruction set for unprivileged. Does this also mean it is an optional
-extension for the privileged ISA?
-
-RISC-V cpufeature.c had this in [2]:
-
-		/*
-		 * Linux requires the following extensions, so we may as well
-		 * always set them.
-		 */
-		set_bit(RISCV_ISA_EXT_ZICSR, this_isa);
-		set_bit(RISCV_ISA_EXT_ZIFENCEI, this_isa);
-
-But as of [1] it was changed to:
-
-		if (acpi_disabled) {
-			set_bit(RISCV_ISA_EXT_ZICSR, source_isa);
-			set_bit(RISCV_ISA_EXT_ZIFENCEI, source_isa);
-
-So based on that I would assume fence.i may not always be supported.
-
-But I also found that 921ebd8f2c08 ("RISC-V: Allow userspace to flush
-the instruction cache") seems to assume that fence.i always works (see
-local_flush_icache_all() which I assume runs in the kernel).
-
-Even if the CPU is known vulnerable but does not support the extension,
-it will be better not to generate the instruction. If we still want to
-do something about these CPUs, maybe add a warning message to advise the
-user that unpriv eBPF should definately be kept disabled on this CPU?
-
-[1] https://lore.kernel.org/all/20230711224600.10879-1-palmer@rivosinc.com/
-[2] https://lore.kernel.org/all/20230607-nest-collision-5796b6be8be6@spud/
-[3] https://docs.riscv.org/reference/isa/unpriv/zifencei.html
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
