@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3016CCF6BE2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B4D4CF6BE7
 	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 02:36:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8vCHn9OzUNnUDgT5WIStIiAZ5z0I8H6VuVX2CBujmz0=; b=qzc1inT8daExE8
-	05XeamupmvsDzETl1gavmEIjjJxQx7KdcBRexguSnmEuosp95/Y2LkH+Bb7lSyaxEih8ZC+K08Zxq
-	quQ3wfIp4pfn2KWkcXcHmUaNlOMRCFhPDGdEBn2ZPczsYlKR9B6+j/CJdEZwj0pNPF48ug0M40OXs
-	s+lkOI8LPRzKky0ij2tqy4fH6yuUbi1oKNSebhAwQyhzN85M/naCH3+wPBYXy0z8QD1gOYZ+kF2Wp
-	9PkOTbetdHmSi+226JIK7TcQZVowYVzfgG5Ko11KM5T9kNjwtWkCaX51hhLcFoZJJ8cKQ+igvqURc
-	QrypKMGOaYBTTVJu8ARw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=te3SbJq0pgmcY4uMjavk2sXMtZYAWHwx4ymoLfS2Yvs=; b=xB/vbiUBoyCbWK
+	s803bGT7BHV9dIpKSszlNJ8ojAQ/AZdehIqL0GXXHbs+zbGDnwtwE4NyW06TFtJjNoYfXVumrbbI0
+	18ArmdzKhM2gx0pEuaJWQivmBNuDKTgiwBmHIq+xrDavtU5ZgR18TBG7eIEViMFagwdfEDYXi/oya
+	9TYbU3oHfGvB4oEs42uGBOueXYwsgMGbHp0vXZ3y96F7YUdyFIz7f4aCRSgKvv5CTWsVe+AuxLiiv
+	0pGvoOQqpsSB+ZfCdK1TrfL7Kc1oehqjJMTGp+MUKmb+McOwxMGwrl0e/Qb5R5M1bsYuSQGqs8DNB
+	j17jo6e0FoGa1ezhqz6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdJOq-0000000E4mD-3Hq2;
-	Wed, 07 Jan 2026 02:35:52 +0000
+	id 1vdJOj-0000000E4jg-3TgK;
+	Wed, 07 Jan 2026 02:35:45 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdJOm-0000000E4k1-3NAF
+	id 1vdJOh-0000000E4jM-1cSf
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jan 2026 02:35:50 +0000
-X-UUID: 90a791c8eb7111f0a38c85956e01ac42-20260107
+	Wed, 07 Jan 2026 02:35:45 +0000
+X-UUID: 8914bed6eb7111f0a38c85956e01ac42-20260107
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:d77e5da0-41d0-4a41-b6b5-cb4b40212f84,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:a9d874c,CLOUDID:27d82b16e5d76fef90ab30c08aab5f12,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
-	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
-	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-O-INFO: VERSION:1.3.6,REQID:b31f22fb-db5c-43ab-9dc1-e6ceed6df590,IP:0,UR
+	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:-5
+X-CID-META: VersionHash:a9d874c,CLOUDID:81179816ae89821601ad50a8f3b60a69,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|898,TC:nil,Content:0|15|50,EDM:-
+	3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,A
+	V:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 90a791c8eb7111f0a38c85956e01ac42-20260107
+X-UUID: 8914bed6eb7111f0a38c85956e01ac42-20260107
 X-User: jiangfeng@kylinos.cn
 Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
 	(envelope-from <jiangfeng@kylinos.cn>)
 	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 436526301; Wed, 07 Jan 2026 10:35:43 +0800
+	with ESMTP id 1792954441; Wed, 07 Jan 2026 10:35:31 +0800
 From: Feng Jiang <jiangfeng@kylinos.cn>
 To: pjw@kernel.org,
 	palmer@dabbelt.com,
@@ -66,16 +66,15 @@ To: pjw@kernel.org,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH 3/5] riscv: lib: add strnlen implementation
-Date: Wed,  7 Jan 2026 10:35:15 +0800
-Message-Id: <20260107023517.46840-4-jiangfeng@kylinos.cn>
+Subject: [PATCH 0/5] riscv: optimize string functions and add kunit tests
+Date: Wed,  7 Jan 2026 10:35:12 +0800
+Message-Id: <20260107023517.46840-1-jiangfeng@kylinos.cn>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260107023517.46840-1-jiangfeng@kylinos.cn>
-References: <20260107023517.46840-1-jiangfeng@kylinos.cn>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_183549_159566_FFBD5D74 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20260106_183543_737063_9972AD36 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,237 +91,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add strnlen() implementation for RISC-V with both generic and
-Zbb-optimized versions, derived from strlen.S.
+This series introduces optimized assembly implementations for several 
+string functions on the RISC-V architecture (strnlen, strchr, and strrchr). 
+To ensure correctness and prevent regressions, it also extends the 
+string_kunit test suite with new cases.
 
-Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
+The patchset is organized as follows:
+- Patches 1-2: Enhance lib/string_kunit.c with new test cases for 
+  strlen and strnlen to establish a baseline for verification.
+- Patches 3-5: Provide the RISC-V specific optimized implementations 
+  for strnlen, strchr, and strrchr.
+
+Testing:
+All patches have been verified using the KUnit framework on QEMU 
+virt machine (riscv64). All string-related tests passed.
+
+Changes:
+- v1: Initial submission.
+
 ---
- arch/riscv/include/asm/string.h |   3 +
- arch/riscv/lib/Makefile         |   1 +
- arch/riscv/lib/strnlen.S        | 164 ++++++++++++++++++++++++++++++++
- arch/riscv/purgatory/Makefile   |   5 +-
- 4 files changed, 172 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/lib/strnlen.S
 
-diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
-index 5ba77f60bf0b..16634d67c217 100644
---- a/arch/riscv/include/asm/string.h
-+++ b/arch/riscv/include/asm/string.h
-@@ -28,6 +28,9 @@ extern asmlinkage __kernel_size_t strlen(const char *);
- 
- #define __HAVE_ARCH_STRNCMP
- extern asmlinkage int strncmp(const char *cs, const char *ct, size_t count);
-+
-+#define __HAVE_ARCH_STRNLEN
-+extern asmlinkage __kernel_size_t strnlen(const char *, size_t);
- #endif
- 
- /* For those files which don't want to check by kasan. */
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index bbc031124974..0969d8136df0 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -7,6 +7,7 @@ ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
- lib-y			+= strcmp.o
- lib-y			+= strlen.o
- lib-y			+= strncmp.o
-+lib-y			+= strnlen.o
- endif
- lib-y			+= csum.o
- ifeq ($(CONFIG_MMU), y)
-diff --git a/arch/riscv/lib/strnlen.S b/arch/riscv/lib/strnlen.S
-new file mode 100644
-index 000000000000..4af0df9442f1
---- /dev/null
-+++ b/arch/riscv/lib/strnlen.S
-@@ -0,0 +1,164 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+
-+/*
-+ * Base on arch/riscv/lib/strlen.S
-+ *
-+ * Copyright (C) Feng Jiang <jiangfeng@kylinos.cn>
-+ */
-+
-+#include <linux/linkage.h>
-+#include <asm/asm.h>
-+#include <asm/alternative-macros.h>
-+#include <asm/hwcap.h>
-+
-+/* size_t strnlen(const char *s, size_t count) */
-+SYM_FUNC_START(strnlen)
-+
-+	__ALTERNATIVE_CFG("nop", "j strnlen_zbb", 0, RISCV_ISA_EXT_ZBB,
-+		IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
-+
-+
-+	/*
-+	 * Returns
-+	 *   a0 - String length
-+	 *
-+	 * Parameters
-+	 *   a0 - String to measure
-+	 *   a1 - Max length of string
-+	 *
-+	 * Clobbers
-+	 *   t0, t1, t2
-+	 */
-+	addi	t1, a0, -1
-+	add	t2, a0, a1
-+1:
-+	addi	t1, t1, 1
-+	beq	t1, t2, 2f
-+	lbu	t0, 0(t1)
-+	bnez	t0, 1b
-+2:
-+	sub	a0, t1, a0
-+	ret
-+
-+
-+/*
-+ * Variant of strnlen using the ZBB extension if available
-+ */
-+#if defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)
-+strnlen_zbb:
-+
-+#ifdef CONFIG_CPU_BIG_ENDIAN
-+# define CZ	clz
-+# define SHIFT	sll
-+#else
-+# define CZ	ctz
-+# define SHIFT	srl
-+#endif
-+
-+.option push
-+.option arch,+zbb
-+
-+	/*
-+	 * Returns
-+	 *   a0 - String length
-+	 *
-+	 * Parameters
-+	 *   a0 - String to measure
-+	 *   a1 - Max length of string
-+	 *
-+	 * Clobbers
-+	 *   t0, t1, t2, t3, t4
-+	 */
-+
-+	/* If maxlen is 0, return 0. */
-+	beqz	a1, 3f
-+
-+	/* Number of irrelevant bytes in the first word. */
-+	andi	t2, a0, SZREG-1
-+
-+	/* Align pointer. */
-+	andi	t0, a0, -SZREG
-+
-+	li	t3, SZREG
-+	sub	t3, t3, t2
-+	slli	t2, t2, 3
-+
-+	/* Aligned boundary. */
-+	add	t4, a0, a1
-+	andi	t4, t4, -SZREG
-+
-+	/* Get the first word.  */
-+	REG_L	t1, 0(t0)
-+
-+	/*
-+	 * Shift away the partial data we loaded to remove the irrelevant bytes
-+	 * preceding the string with the effect of adding NUL bytes at the
-+	 * end of the string's first word.
-+	 */
-+	SHIFT	t1, t1, t2
-+
-+	/* Convert non-NUL into 0xff and NUL into 0x00. */
-+	orc.b	t1, t1
-+
-+	/* Convert non-NUL into 0x00 and NUL into 0xff. */
-+	not	t1, t1
-+
-+	/*
-+	 * Search for the first set bit (corresponding to a NUL byte in the
-+	 * original chunk).
-+	 */
-+	CZ	t1, t1
-+
-+	/*
-+	 * The first chunk is special: compare against the number
-+	 * of valid bytes in this chunk.
-+	 */
-+	srli	a0, t1, 3
-+
-+	/* Limit the result by maxlen. */
-+	bleu	a1, a0, 3f
-+
-+	bgtu	t3, a0, 2f
-+
-+	/* Prepare for the word comparison loop. */
-+	addi	t2, t0, SZREG
-+	li	t3, -1
-+
-+	/*
-+	 * Our critical loop is 4 instructions and processes data in
-+	 * 4 byte or 8 byte chunks.
-+	 */
-+	.p2align 3
-+1:
-+	REG_L	t1, SZREG(t0)
-+	addi	t0, t0, SZREG
-+	orc.b	t1, t1
-+	bgeu	t0, t4, 4f
-+	beq	t1, t3, 1b
-+4:
-+	not	t1, t1
-+	CZ	t1, t1
-+	srli	t1, t1, 3
-+
-+	/* Get number of processed bytes. */
-+	sub	t2, t0, t2
-+
-+	/* Add number of characters in the first word.  */
-+	add	a0, a0, t2
-+
-+	/* Add number of characters in the last word.  */
-+	add	a0, a0, t1
-+
-+	/* Ensure the final result does not exceed maxlen. */
-+	bgeu	a0, a1, 3f
-+2:
-+	ret
-+3:
-+	mv	a0, a1
-+	ret
-+
-+.option pop
-+#endif
-+SYM_FUNC_END(strnlen)
-+SYM_FUNC_ALIAS(__pi_strnlen, strnlen)
-+EXPORT_SYMBOL(strnlen)
-diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-index 530e497ca2f9..d7c0533108be 100644
---- a/arch/riscv/purgatory/Makefile
-+++ b/arch/riscv/purgatory/Makefile
-@@ -2,7 +2,7 @@
- 
- purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o
- ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
--purgatory-y += strcmp.o strlen.o strncmp.o
-+purgatory-y += strcmp.o strlen.o strncmp.o strnlen.o
- endif
- 
- targets += $(purgatory-y)
-@@ -32,6 +32,9 @@ $(obj)/strncmp.o: $(srctree)/arch/riscv/lib/strncmp.S FORCE
- $(obj)/sha256.o: $(srctree)/lib/crypto/sha256.c FORCE
- 	$(call if_changed_rule,cc_o_c)
- 
-+$(obj)/strnlen.o: $(srctree)/arch/riscv/lib/strnlen.S FORCE
-+	$(call if_changed_rule,as_o_S)
-+
- CFLAGS_sha256.o := -D__DISABLE_EXPORTS -D__NO_FORTIFY
- CFLAGS_string.o := -D__DISABLE_EXPORTS
- CFLAGS_ctype.o := -D__DISABLE_EXPORTS
+Feng Jiang (5):
+  lib/string_kunit: add test case for strlen
+  lib/string_kunit: add test case for strnlen
+  riscv: lib: add strnlen implementation
+  riscv: lib: add strchr implementation
+  riscv: lib: add strrchr implementation
+
+ arch/riscv/include/asm/string.h |   9 ++
+ arch/riscv/lib/Makefile         |   3 +
+ arch/riscv/lib/strchr.S         |  35 +++++++
+ arch/riscv/lib/strnlen.S        | 164 ++++++++++++++++++++++++++++++++
+ arch/riscv/lib/strrchr.S        |  37 +++++++
+ arch/riscv/purgatory/Makefile   |  11 ++-
+ lib/tests/string_kunit.c        |  53 +++++++++++
+ 7 files changed, 311 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/lib/strchr.S
+ create mode 100644 arch/riscv/lib/strnlen.S
+ create mode 100644 arch/riscv/lib/strrchr.S
+
 -- 
 2.25.1
 
