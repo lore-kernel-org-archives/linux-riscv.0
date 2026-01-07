@@ -4,61 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E0A7D0D16D
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 19:56:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D07FD0D16F
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 20:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B0IL8Vh85yjCfWZhIWYTGAi8BIbErzV+24eAIeErrbs=; b=mTSIMwhDhMvMkZ
-	PmDfOyFKKudzdICRN8mbOzhQl3kIqg9ikOF2CS6dJjlY6kYTcSIRWno/DeBAbkui014iUb74ZMYCE
-	UJWul3WvdZbh9+XPFYrLkO9CMIu0HKCn16k0hnoDVsKaaYwu11G39Klb/h7N2YT30M2OVAYdnYrK+
-	8WjyAwxzP6JBAJgd0Q2KDqp/41EZpRYavcHGcTiEoEe2XIO3WPEw0DmLwG8BaSSm0MtOpvwxg9CJT
-	xF/Z6/r4iUbAVlRcNYL45Z3n8IzOfY+9TkNhkEbWopeLkHDndMnaztE82wlCDfuyGsTGBjfgYGqwU
-	DwuvrivCnGIu+vLsYGZQ==;
+	List-Owner; bh=H0wdQAhwtwP4ntoLsQkhnKgkNdC3kQfl/0TlQcXh/RQ=; b=R+O/8ayToXQf+v
+	loh/FcQLIGjSdTcriybJz/cXA3nQySw+nNeCumVAwlxQIwK0pr6oKJI0VQY+0qa9753mbxVN3+KmB
+	wSZj/1urY1Ydv2NkDxIMW9PAmljqrdy0CQnjtdvaMVHV79TYYzPe61bGeoLfGxxSMkJWRqKvbSvN8
+	rrXkILqFiP3fwHYMuF5E1i+JD6j4/Wz6i9amBU8ZA8nLDrtbBr84SUzXP5fACv19gcSByo5Nq53C/
+	yy4KsHftzwsJj8+FgIQex8OEEu4ZcTHlOklTLZHKYJwCQYJ3xEs0dRhYh+NUF6JjoNuyceEkXNz+K
+	pjIQABeHqQlAEZvSpS2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZdC-0000000FZkg-3mhR;
-	Wed, 07 Jan 2026 19:55:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vdZmU-0000000FaeF-0f7j;
+	Wed, 07 Jan 2026 20:05:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZd9-0000000FZkA-1m3b
+	id 1vdZmT-0000000Fae8-0YbL
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jan 2026 19:55:44 +0000
+	Wed, 07 Jan 2026 20:05:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 98F09434EE;
-	Wed,  7 Jan 2026 19:55:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D44A4C4CEF1;
-	Wed,  7 Jan 2026 19:55:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3CD566000A;
+	Wed,  7 Jan 2026 20:05:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80A63C4CEF1;
+	Wed,  7 Jan 2026 20:05:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767815742;
-	bh=fe3cNW+BgOW0g/Yj4JbAc2KxF5WEMbD8WPo88Bf5sCw=;
+	s=k20201202; t=1767816319;
+	bh=jEtgHbvNWyLEoPqaBWoLLo5a+HGkQl1MtsX4PhinL2c=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=d1ZQS4oC8x9+jsh0H9ADB1NoSNLDg8vTNJncoxJL7BYLjwD0ul4uInLq97s+AVmCc
-	 WF6tl9wEiy1jKZ3nUOjnu1ZTiaVyCInx6eq/97aSnHEQPHBCZhqQJl0JMxN3/1hD7I
-	 8JgHadKD74jst6z7vYGHU6mQ5o+wGFdhmfoZPkg2bDLV0aOgZdfuVU416FU3A7WA+O
-	 B1VbIlSwRaM7pdUTiF0znllayxKF8snf9iAPrT36VD3Y8v9Qqy2NmRs341+sgUAL9c
-	 GK8Dd5C7uwJrnou79MLIrxuqBfIZXh9MReIo4ldZzzFbOGT2PqcpCigF5dOXgbmS4c
-	 MNt9bybzQVJpg==
-Date: Wed, 7 Jan 2026 12:55:39 -0700 (MST)
+	b=LyHM9ASrxDZI7FjA4L7iAmkmf49u0p7PXtyJNdGrzNr22issJo+lcPIxry1T7oRn2
+	 szSHSaLR5cgZfd6An6Xh8M6k+juTHfbf7KkQ629NAaQbRW+FHa4X76ZRQnfg9R5JBO
+	 x1xaNsnvIkpXIAwnqlTf0nYK9bOdC5rSEL8HkGeg0AMo9PoLckXrdc/ZnW/FeFH/or
+	 /XZnxTPcy3AllcjytpVIbCGfZFhfD9djCTkh4Z+8oSFteKCOQSBTBOS/AO5wWWHMzF
+	 1wWKWW7RbOUkG2X+78f41+hImFpnDjrl5AEsNrd8rMZ9x16Yka41/6KoAFma/fjb+N
+	 bBulu/n6wZ6lw==
+Date: Wed, 7 Jan 2026 13:05:16 -0700 (MST)
 From: Paul Walmsley <pjw@kernel.org>
-To: Lukas Bulwahn <lbulwahn@redhat.com>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    linux-riscv@lists.infradead.org, kernel-janitors@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, Lukas Bulwahn <lukas.bulwahn@redhat.com>
-Subject: Re: [PATCH] riscv: configs: Clean up references to non-existing
- configs
-In-Reply-To: <20260107092425.24737-1-lukas.bulwahn@redhat.com>
-Message-ID: <e28b10d9-7974-020c-b558-197bd129363b@kernel.org>
-References: <20260107092425.24737-1-lukas.bulwahn@redhat.com>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+    palmer@dabbelt.com, pjw@kernel.org
+Subject: Re: [PATCH] riscv: cpu_ops_sbi: smp_processor_id() returns int, not
+ unsigned int
+In-Reply-To: <20260102145839.657864-1-ben.dooks@codethink.co.uk>
+Message-ID: <872d9775-a510-a833-bea0-9cbd53664bb8@kernel.org>
+References: <20260102145839.657864-1-ben.dooks@codethink.co.uk>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_115543_486219_BA172B58 
-X-CRM114-Status: UNSURE (   6.69  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,16 +69,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 7 Jan 2026, Lukas Bulwahn wrote:
+On Fri, 2 Jan 2026, Ben Dooks wrote:
 
-> From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+> The print in sbi_cpu_stop() assumes smp_processor_id() returns an
+> unsigned int, when it is actually an int. Fix the format string to
+> avoid mismatch type warnings in rht pr_crit().
 > 
->   - Drop 'CONFIG_I2C_COMPAT is not set' (removed in commit 7e722083fcc3
->     ("i2c: Remove I2C_COMPAT config symbol and related code"))
->   - Drop 'CONFIG_SCHED_DEBUG is not set' (removed in commit b52173065e0a
->     ("sched/debug: Remove CONFIG_SCHED_DEBUG"))
-> 
-> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
 
 Thanks, queued for v6.19-rc.
 
