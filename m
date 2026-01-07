@@ -4,84 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6AA0CD5822
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 10:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1582CD582A
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 10:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8KiQsQS+sr9YGiujlQvP2fbARY9XBjKNYWPpgiCmm5I=; b=CY5p6nsT4Rs/sX
-	MPZFkFyyEJqVGia0hL3Swx2rSAiuEDq1gIsFgAq6Q1Bgx7ZgcohQ9CKTxIT8+Z38HXg/lr7Iji7uI
-	jyrI45CDPZ6JBVMi04wLhAxzzcF4EvHfLcGV5jyP9THQFCcOiRmsojphIDWPe6sK7+25CyobTLJnw
-	ZT7+HIy/Tq1XEsSJLylre/0KyUWooWEpG3eiaqSilQKJqjnmomScWwVfFPzhjYJ04nW2ey8H3BgjR
-	553rjK8g18A4KXJTVZ7AR173rjhmnGLHNwV6ZqbAoy8eGPri84Nk8SD+n25pUl4OVyNKpKhWenwgM
-	KfaN4aMb4dGYALYcFAYg==;
+	List-Owner; bh=HlhBE9+DppXmppj5Sx6NwqxaWZLAGslePdZlkisL2JU=; b=tYJAA7rkvJ/YNt
+	NCGJQ1a3WDQ+HHQYLasnMhgZeNsbZ4mqllBD4pif6Tbtb+86M1GHV+Ao6lsFF6nTDtSOyHfAjQJxM
+	6KnPN68khxqr4cj6RnK/bqq3KgKsXaWQ+To6aUf4wNAHebxoj1SNMp0Y45V9Sh+j6SeDaNQiWz6N/
+	bRNavVl4qIMbPrOCjJh13xCy55GhYgUy0eLRkbqmOFHo89/cCbdsPqjepajR9As/lpYqojq6xQa8m
+	l+kchTO/sDLgeobMI4xdA0YegGmualFD4EZ+RBdMsQi/OWwHEWPgELYZvrAk9pvtGsLfzzsDj/wFg
+	4e7ECcxPKO5HOgSuMgsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQbz-0000000EgXZ-3c7r;
-	Wed, 07 Jan 2026 10:17:55 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1vdQel-0000000Egwh-1U5w;
+	Wed, 07 Jan 2026 10:20:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQbx-0000000EgX0-2IKD
-	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jan 2026 10:17:54 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-42fb5810d39so1034916f8f.2
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Jan 2026 02:17:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767781071; x=1768385871; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZCMvG6iuxDZ81zsXC7C9GnF47nzqraBg/3bYlAL4t8E=;
-        b=cJwQobm7qHLs3ZZtqp/LFeok3uG7TZmuoqB8GEtbUiguUaFX1KdOhKztcQNgVhZNaB
-         60/l8HjvW8XWAM/6/Tv+iLN87NU/iNeZoJsYChQwY13Ld2FweVA9Fhsd5uiYPj6GmcaV
-         EizfmLUbscajbpZjPKMEnhSWW3hlkpI/cGU5iUxds9r+vYL2G0oypdIQTJ/11TsnBDsq
-         YzUa6gmxN98a+U5Yrh+imU3+FCva1cVBwIRAVximEwwCvvonBfJynBd4MUYcNCFVXR4p
-         Rj38mOJiG2foWl7JQDfRMKisbCRy49S9ua7EyvZoRpDz3h52tT/dp5avixRvkGKUT4mH
-         h5UA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767781071; x=1768385871;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ZCMvG6iuxDZ81zsXC7C9GnF47nzqraBg/3bYlAL4t8E=;
-        b=HoQDxhBazTY1xKMFbKBMvBG5xmfzr7PISUGoEzuHkvBQ+XsH26J/WQQxhocAUwFD4q
-         NhDlv/z1CB5vAi7cP/HrSAuuSnmKMHXcRNhF7lUAcnVn3StFEGbNsJJEx11/zP9vgQws
-         w0oerGmYrYW13rDj2MMBA2/thaweXgc2AEzE1NGSt4AKcuw6PDS40ePt2pqs/rJF9iB2
-         3VMnnpibtKE46l03NqY5TvGzcjZydgeuZcMlaby9CZ33zw+ExofXYwUYqFhAcMAZQ+y4
-         BYo0bFGubfQY9gywh/a3AUxdYR3w6fLH4mLsn/t2jxEIpbffyZS8tzHAJslcpninZprP
-         gQ8A==
-X-Forwarded-Encrypted: i=1; AJvYcCXkZlsSpGfduEOp95tBTmYE+fMmhvASDdkKiElRiZYRydqCKXbvf83ItkS8i4mCR/gcI3orJCAeFnT/wg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yycv+m9ERtUL1VEipf4Oj8BPcUa9ZPD6rmrBe6PYRkDAx0AIJAW
-	Ud97UzRm+Y1tXuzMDSErv5aaa1zofqMmroqmFIvxXJ49ud7G5oiWq1UiX7julAySsEEWsWIsGlB
-	YGK+FYjBsFHUALOQUk+80zymZgsp1vC7vD18SQZo=
-X-Gm-Gg: AY/fxX48KnXyPmW0quoqLn3xkMW/VCHwM8beSrWfnLKl4S6qFAl1gKN/LFj93PcVbQ2
-	MZDl6jcfmCbPPNZSxhFGaz1p+zcGELr1BzPRTAf95v/FjmGWckTzhF8574sGIprwtaWrYxa+czV
-	IbzhxzMLWWN/aab5RKonI9vwn64Qx7TWL9KDcHCnPi8XprzfZFVYXF04HAVEaF7SOpT30e47esP
-	f7k4gSMqdYMW7IJKMjISyWBDoqsIxrcwxXlw710LKFI+dQIg9CF49TONQxAgsnhCxf+QYqlqMvg
-	Yubp86hk04pcT7kyilX+e3+1kOQViiaslzpKl/PS1XCy3ljcxEQeDrqaDdGTAQaHQTiZ
-X-Google-Smtp-Source: AGHT+IG4yiqNY3j/c1o4cPI3yoDt2b8Su6tTmfqpaMAj23CwdtGJYPv5zqlb5KN1i3QUtPovBUPxYNL3qThp37faruo=
-X-Received: by 2002:a05:6000:2085:b0:431:104:6dc2 with SMTP id
- ffacd0b85a97d-432c362811cmr1899709f8f.8.1767781070728; Wed, 07 Jan 2026
- 02:17:50 -0800 (PST)
+	id 1vdQej-0000000Egvw-26d3;
+	Wed, 07 Jan 2026 10:20:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3697D60007;
+	Wed,  7 Jan 2026 10:20:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 332F3C4CEF7;
+	Wed,  7 Jan 2026 10:20:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767781243;
+	bh=2N7QgaN9sMjltiFqaQG4UkyiWR5RDDQ2n4IgHLPouW4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HG3UgZmir72YPYFm/emlV/3aORPdbjLAnBvpX04p5XtFP762LStn/wPAzNuqOQyK8
+	 k7OnYBM5tMSwl6jbeHb8PLi19AGtC/53sTnfGuvHRwU1J5fTUCYLII+PuhChCRsuuP
+	 lesNvqozgo8UJHTVTNpJsDervk1O2VsPtftbzvVYNlT5k9C+Ou7zoWZDNLa9w7OL7l
+	 1I+dvThsPPRQrJPx2bNt/P7eQY786Hlh4y2DUZqzVomuI/Tc2vep7bqbTNymx1RDAb
+	 W1AWrPHPHnhn5oDQwiHOAOhH7g90DnMJIt+6Fqkfre323p/NzMyoEh/2zKKa/f4rTg
+	 6GL2C2ybj5rcA==
+Date: Wed, 7 Jan 2026 12:20:23 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Ritesh Harjani <ritesh.list@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Alex Shi <alexs@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>,
+	Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>,
+	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+	x86@kernel.org, linux-alpha@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-mm@kvack.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org
+Subject: Re: [PATCH v2 14/28] powerpc: introduce arch_zone_limits_init()
+Message-ID: <aV4zZ8D5eaLC6K-w@kernel.org>
+References: <20260102070005.65328-1-rppt@kernel.org>
+ <20260102070005.65328-15-rppt@kernel.org>
+ <87ldia9he1.ritesh.list@gmail.com>
 MIME-Version: 1.0
-References: <97d3d70e42832f4ffa3888bec792b692a7ab700f.1767719409.git.geert+renesas@glider.be>
-In-Reply-To: <97d3d70e42832f4ffa3888bec792b692a7ab700f.1767719409.git.geert+renesas@glider.be>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Wed, 7 Jan 2026 10:17:24 +0000
-X-Gm-Features: AQt7F2oRzXoo1lvR9gZ0e5H9kwZwfeoCpSlgBeiC7opN6cHuXLQiuxIcWTPQ17Y
-Message-ID: <CA+V-a8ufdEmF=Md7Ktb9L2XS7X5x=nSeAHnFZyvHPZ6sFOwRww@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv: dts: renesas: r9a07g043f: Move interrupt-parent
- to top node
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Magnus Damm <magnus.damm@gmail.com>, linux-renesas-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_021753_636114_5E489D4C 
-X-CRM114-Status: GOOD (  15.83  )
+Content-Disposition: inline
+In-Reply-To: <87ldia9he1.ritesh.list@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,40 +109,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKYW4gNiwgMjAyNiBhdCA1OjE14oCvUE0gR2VlcnQgVXl0dGVyaG9ldmVuCjxnZWVy
-dCtyZW5lc2FzQGdsaWRlci5iZT4gd3JvdGU6Cj4KPiBNb3ZlIHRoZSAiaW50ZXJydXB0LXBhcmVu
-dCA9IDwmcGxpYz4iIHByb3BlcnR5IGZyb20gdGhlIHNvYyBub2RlIHRvIHRoZQo+IHRvcCBub2Rl
-LCBmb3IgY29uc2lzdGVuY3kgd2l0aAo+IGFyY2gvYXJtNjQvYm9vdC9kdHMvcmVuZXNhcy9yOWEw
-N2cwNDN1LmR0c2kuCj4KPiBTaWduZWQtb2ZmLWJ5OiBHZWVydCBVeXR0ZXJob2V2ZW4gPGdlZXJ0
-K3JlbmVzYXNAZ2xpZGVyLmJlPgo+IC0tLQo+IFRvIGJlIHF1ZXVlZCBpbiByZW5lc2FzLWRldmVs
-IGZvciB2Ni4yMC4KPgo+IHYyOgo+ICAgLSBEcm9wIFJGQywgYXMgY29tbWl0IDFiMWYwNGQ4Mjcx
-ZTdiYTcgKCJvZi9pcnE6IElnbm9yZSBpbnRlcnJ1cHQKPiAgICAgcGFyZW50IGZvciBub2RlcyB3
-aXRob3V0IGludGVycnVwdHMiKSBpcyB1cHN0cmVhbSBhcyBvZiB2Ni4xOS1yYzEuCj4gLS0tCj4g
-IGFyY2gvcmlzY3YvYm9vdC9kdHMvcmVuZXNhcy9yOWEwN2cwNDNmLmR0c2kgfCAzICsrLQo+ICAx
-IGZpbGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCj4KUmV2aWV3ZWQt
-Ynk6IExhZCBQcmFiaGFrYXIgPHByYWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5yZW5lc2FzLmNv
-bT4KVGVzdGVkLWJ5OiBMYWQgUHJhYmhha2FyIDxwcmFiaGFrYXIubWFoYWRldi1sYWQucmpAYnAu
-cmVuZXNhcy5jb20+CgpDaGVlcnMsClByYWJoYWthcgoKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
-di9ib290L2R0cy9yZW5lc2FzL3I5YTA3ZzA0M2YuZHRzaSBiL2FyY2gvcmlzY3YvYm9vdC9kdHMv
-cmVuZXNhcy9yOWEwN2cwNDNmLmR0c2kKPiBpbmRleCBhOGJjYjI2ZjQyNzAwNjQ0Li41NzFkZTNj
-YWZhODIxNGU0IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvcmVuZXNhcy9yOWEw
-N2cwNDNmLmR0c2kKPiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3JlbmVzYXMvcjlhMDdnMDQz
-Zi5kdHNpCj4gQEAgLTEyLDYgKzEyLDggQEAKPiAgI2luY2x1ZGUgPGFybTY0L3JlbmVzYXMvcjlh
-MDdnMDQzLmR0c2k+Cj4KPiAgLyB7Cj4gKyAgICAgICBpbnRlcnJ1cHQtcGFyZW50ID0gPCZwbGlj
-PjsKPiArCj4gICAgICAgICBjcHVzIHsKPiAgICAgICAgICAgICAgICAgI2FkZHJlc3MtY2VsbHMg
-PSA8MT47Cj4gICAgICAgICAgICAgICAgICNzaXplLWNlbGxzID0gPDA+Owo+IEBAIC01Miw3ICs1
-NCw2IEBAICZwaW5jdHJsIHsKPgo+ICAmc29jIHsKPiAgICAgICAgIGRtYS1ub25jb2hlcmVudDsK
-PiAtICAgICAgIGludGVycnVwdC1wYXJlbnQgPSA8JnBsaWM+Owo+Cj4gICAgICAgICBpcnFjOiBp
-bnRlcnJ1cHQtY29udHJvbGxlckAxMTBhMDAwMCB7Cj4gICAgICAgICAgICAgICAgIGNvbXBhdGli
-bGUgPSAicmVuZXNhcyxyOWEwN2cwNDNmLWlycWMiOwo+IC0tCj4gMi40My4wCj4KPgo+IF9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi,
+
+On Wed, Jan 07, 2026 at 09:57:34AM +0530, Ritesh Harjani wrote:
+> Mike Rapoport <rppt@kernel.org> writes:
+> 
+> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> >
+> > Move calculations of zone limits to a dedicated arch_zone_limits_init()
+> > function.
+> >
+> > Later MM core will use this function as an architecture specific callback
+> > during nodes and zones initialization and thus there won't be a need to
+> > call free_area_init() from every architecture.
+> >
+> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> > ---
+> >  arch/powerpc/mm/mem.c | 22 ++++++++++++----------
+> >  1 file changed, 12 insertions(+), 10 deletions(-)
+> >
+> > diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
+> > index 3ddbfdbfa941..32c496bfab4f 100644
+> > --- a/arch/powerpc/mm/mem.c
+> > +++ b/arch/powerpc/mm/mem.c
+> > @@ -221,13 +221,23 @@ static int __init mark_nonram_nosave(void)
+> >   * anyway) will take a first dip into ZONE_NORMAL and get otherwise served by
+> >   * ZONE_DMA.
+> >   */
+> > -static unsigned long max_zone_pfns[MAX_NR_ZONES];
+> > +void __init arch_zone_limits_init(unsigned long *max_zone_pfns)
+> > +{
+> > +#ifdef CONFIG_ZONE_DMA
+> > +	max_zone_pfns[ZONE_DMA]	= min(zone_dma_limit, max_low_pfn - 1) + 1;
+> 
+> Hi Mike, 
+> 
+> This doesn't look correct. Isn't the zone_dma_limit value in bytes actually?
+> Shouldn't it be -
+> 
+>      max_zone_pfns[ZONE_DMA] = min((zone_dma_limit >> PAGE_SHIFT) + 1, max_low_pfn);
+
+You are right, I'll update it for v3. 
+ 
+> -ritesh
+
+-- 
+Sincerely yours,
+Mike.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
