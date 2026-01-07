@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D258D0D16C
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 19:37:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB64CD0D16C
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 19:38:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iXmXDXkoT2sAi01PRwQkEQARAPtJOMMKl2Bvx3pxFnw=; b=CoCaOduVeePhZo
-	HMlHPFNmjyXuAy0P47x1QZ0r8B7qTUBNxVvmVz6Awg8yf2WC5Hfq0UxONx02iQGuzDeLBAz8QwBtR
-	LcL0R6oe9CYVJhdnPeepcgQaVAJTMXd66vObtyhbFMMvIEYsEdp7guwJsDGwvHns5XEMfglgi0irZ
-	K8COuFyFNfKeKDAGVaco30OVjqTSQOv5GAoH7UF7H+wYOaWMoeKi6F4ol38Kalt+kcBeN0Wko+AGw
-	QiI7jI/+aY3FTlQzyeF0rxFF8YVGzaSd+ljEvjGVuMneDH1JPleaAveq6WZXmSk7v2SKz2SOVSiyv
-	hvlryrDEHCXdAFKppyjA==;
+	List-Owner; bh=2cLNMfxgjdPY425BG+Nys5SDIqW9MuLfWN9NVL2H7dA=; b=OqOVgWl3GJUU1e
+	v87DFbdc3ZIigkthY8bMX6T9iNgTcCKtMcR2ymQahc4Jt4z/IGmpZmLiBrhaiTpvFSSSAQMjp3YUJ
+	17I9URrTNXt7FWLv2bdoln8LnT2doQKSS4WB8kC0+bwWnSeQGc5Caenzn9ai1Oykj9bFmSSzvSitE
+	8QIPzwxhB82+pkKZgqbXoaPnrriIuazTQw8+lj/OG9Utqum+F+x9V9o7IneeDf/uLl+I6OomQ8wh6
+	/NEjo0TQOfOQYU2bgqeXz1SX77nNhMoEwnBu/bhsrQBdLEUiuFpEhjZ/0kV1uzdGzvG6Q34cL4D8V
+	WjfT5E4RfhokIwwbw/3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZL4-0000000FYJH-3tkR;
-	Wed, 07 Jan 2026 19:37:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdZM7-0000000FYdG-0YGz;
+	Wed, 07 Jan 2026 19:38:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZL1-0000000FYIe-1LAN;
-	Wed, 07 Jan 2026 19:37:01 +0000
+	id 1vdZM3-0000000FYbH-0j7V;
+	Wed, 07 Jan 2026 19:38:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 687C6441ED;
-	Wed,  7 Jan 2026 19:36:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0753C19422;
-	Wed,  7 Jan 2026 19:36:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 70B10434A1;
+	Wed,  7 Jan 2026 19:38:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEEA9C4CEF1;
+	Wed,  7 Jan 2026 19:38:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1767814618;
-	bh=wGXfb/h9dHEqo4OYJ7lobK5I8Wv+t9L3leil/n6O8Iw=;
+	s=korg; t=1767814682;
+	bh=dS7+wC/J/N4NPj+M59OGoF1CMuagn2uO6v6kqhKO6ig=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IgJxdSAeZ/7+lfhqGZ9rBlTXNIozisFIcAkxXqUcopcqhT47BBzZNAXGHXN2S1cuz
-	 sE3S/4D8e2LgW/CFYURXyeLn59O+LRgHFLBPpDv+3F5osve2zP01H3o5Q1WQsnXmQw
-	 djJgIz4O/wMvzdiDAuqVNLsW2SkI8XFnTtMPhuCo=
-Date: Wed, 7 Jan 2026 20:36:55 +0100
+	b=OWwGoY6hJdViSG6iRV0glBiuy0hzEzrSAYxm6pgvElxvQw7PIzyZb/3TT7AxcbhTo
+	 TUxKaXNtOp+EiCLr5CBCbmYKi4KjvNqm9irZBdjQQpOM7C0BhxucB3gNp4FqP6HjtL
+	 tRz/AcQeiIMh3m9H6LPQ5SxdQZC3lYyS8tWKHwl0=
+Date: Wed, 7 Jan 2026 20:37:59 +0100
 From: Greg KH <gregkh@linuxfoundation.org>
 To: joaopeixoto@osyx.tech
 Cc: linux-kernel@vger.kernel.org, ajd@linux.ibm.com, alex@ghiti.fr,
@@ -53,18 +53,17 @@ Cc: linux-kernel@vger.kernel.org, ajd@linux.ibm.com, alex@ghiti.fr,
 	neil.armstrong@linaro.org, palmer@dabbelt.com, pjw@kernel.org,
 	prabhakar.mahadev-lad.rj@bp.renesas.com, robh@kernel.org,
 	will@kernel.org
-Subject: Re: [PATCH 5/6] virt: bao: Move BAO_IPCSHMEM_HYPERCALL_ID to common
- header
-Message-ID: <2026010704-heaviness-quality-f543@gregkh>
+Subject: Re: [PATCH v2 0/6] virt: Add Bao hypervisor IPC and I/O dispatcher
+ drivers
+Message-ID: <2026010746-usual-rentable-4746@gregkh>
 References: <20251224135217.25350-1-joaopeixoto@osyx.tech>
  <20260107162829.416885-1-joaopeixoto@osyx.tech>
- <20260107162829.416885-6-joaopeixoto@osyx.tech>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260107162829.416885-6-joaopeixoto@osyx.tech>
+In-Reply-To: <20260107162829.416885-1-joaopeixoto@osyx.tech>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_113700_453704_44F84416 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20260107_113803_263351_5B11C863 
+X-CRM114-Status: GOOD (  25.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,44 +80,145 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 04:28:28PM +0000, joaopeixoto@osyx.tech wrote:
+On Wed, Jan 07, 2026 at 04:28:23PM +0000, joaopeixoto@osyx.tech wrote:
 > From: Jo=E3o Peixoto <joaopeixoto@osyx.tech>
 > =
 
-> Move the IPC shared-memory hypercall ID from architecture-specific
-> headers into include/linux/bao.h.
-
-That says _what_ you did, but not why you did it :(
-
-I have no idea why this is needed at all, sorry.
-
-> Signed-off-by: Jo=E3o Peixoto <joaopeixoto@osyx.tech>
-> ---
->  arch/arm/include/asm/bao.h           | 5 ++---
->  arch/arm64/include/asm/bao.h         | 5 ++---
->  arch/riscv/include/asm/bao.h         | 7 +++----
->  drivers/virt/bao/ipcshmem/ipcshmem.c | 5 +----
->  include/linux/bao.h                  | 3 +++
->  5 files changed, 11 insertions(+), 14 deletions(-)
+> This series introduces support for Bao hypervisor guest-side drivers
+> under drivers/virt/bao, along with the associated Device Tree bindings,
+> UAPI headers, and MAINTAINERS entries.
 > =
 
-> diff --git a/arch/arm/include/asm/bao.h b/arch/arm/include/asm/bao.h
-> index 5ece9ecb1455..7d13591fe669 100644
-> --- a/arch/arm/include/asm/bao.h
-> +++ b/arch/arm/include/asm/bao.h
-> @@ -16,14 +16,13 @@
->  #include <linux/arm-smccc.h>
->  #include <linux/bao.h>
->  =
+> Bao is a lightweight static-partitioning hypervisor for embedded and
+> safety-critical systems. This series adds:
+> - Bao IPC shared memory driver: Enables Linux guests to communicate
+> with each other via shared memory regions.
+> - Bao I/O Dispatcher driver: Allows Bao VMs to share I/O devices using
+> device paravirtualization (VirtIO).
+> =
 
-> -static inline unsigned long bao_ipcshmem_hypercall(unsigned long hyperca=
-ll_id,
-> -						   unsigned long ipcshmem_id)
-> +static inline unsigned long bao_ipcshmem_hypercall(unsigned long ipcshme=
-m_id)
+> Key updates in this version to align with upstream requirements:
+> 1. Switched to misc device API: Removed all cdev, class, and
+> alloc_chrdev_region code in favor of misc_register() for simpler,
+> standard device management.
+> 2. Clean kernel style and formatting: All code passes checkpatch.pl,
+> with consistent variable declaration, function naming, and comment style.
+> 3. Architecture abstraction: Consolidated ARM, ARM64, and RISC-V hypercall
+> logic into architecture-specific headers, removing in-driver #ifdefs.
+> 4. Commit messages: Now concise and Linux-kernel-style, describing
+> behavior and impact clearly.
+> 5. Device Tree compliance: Fixed all make dt_binding_check errors to
+> ensure DT binding correctness.
+> =
 
-This does not match what you said you were doing in the changelog :(
+> This series has been validated on Linux guests running under Bao
+> hypervisor, confirming correct initialization, IPC shared-memory
+> read/write operations, and I/O Dispatcher functionality for
+> backend VMs.
+> =
 
+> Feedback and review from maintainers of virtualization,
+> architecture-specific code (ARM, ARM64, RISC-V), Device Tree
+> bindings, and UAPI are welcome.
+> =
+
+> Jo=E3o Peixoto (6):
+>   dt-bindings: Add Bao IPC shared memory driver binding
+>   virt: bao: Add Bao IPC shared memory driver
+>   dt-bindings: Add Bao I/O dispatcher driver binding
+>   virt: bao: Add Bao I/O dispatcher driver
+>   virt: bao: Move BAO_IPCSHMEM_HYPERCALL_ID to common header
+>   MAINTAINERS: Add entries for Bao hypervisor drivers, headers, and DT
+>     bindings
+> =
+
+>  .../bindings/bao/bao,io-dispatcher.yaml       |  75 ++++
+>  .../devicetree/bindings/bao/bao,ipcshmem.yaml |  82 ++++
+>  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+>  .../userspace-api/ioctl/ioctl-number.rst      |   2 +
+>  MAINTAINERS                                   |  13 +
+>  arch/arm/include/asm/bao.h                    |  60 +++
+>  arch/arm64/include/asm/bao.h                  |  60 +++
+>  arch/riscv/include/asm/bao.h                  |  60 +++
+>  drivers/virt/Kconfig                          |   2 +
+>  drivers/virt/Makefile                         |   2 +
+>  drivers/virt/bao/Kconfig                      |   5 +
+>  drivers/virt/bao/Makefile                     |   4 +
+>  drivers/virt/bao/io-dispatcher/Kconfig        |  15 +
+>  drivers/virt/bao/io-dispatcher/Makefile       |   4 +
+>  drivers/virt/bao/io-dispatcher/bao_drv.h      | 361 ++++++++++++++++
+>  drivers/virt/bao/io-dispatcher/dm.c           | 405 ++++++++++++++++++
+>  drivers/virt/bao/io-dispatcher/driver.c       | 185 ++++++++
+>  drivers/virt/bao/io-dispatcher/intc.c         |  64 +++
+>  drivers/virt/bao/io-dispatcher/io_client.c    | 405 ++++++++++++++++++
+>  .../virt/bao/io-dispatcher/io_dispatcher.c    | 179 ++++++++
+>  drivers/virt/bao/io-dispatcher/ioeventfd.c    | 323 ++++++++++++++
+>  drivers/virt/bao/io-dispatcher/irqfd.c        | 314 ++++++++++++++
+>  drivers/virt/bao/ipcshmem/Kconfig             |   8 +
+>  drivers/virt/bao/ipcshmem/Makefile            |   3 +
+>  drivers/virt/bao/ipcshmem/ipcshmem.c          | 252 +++++++++++
+>  include/linux/bao.h                           |  44 ++
+>  include/uapi/linux/bao.h                      |  98 +++++
+>  27 files changed, 3027 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/bao/bao,io-dispatch=
+er.yaml
+>  create mode 100644 Documentation/devicetree/bindings/bao/bao,ipcshmem.ya=
+ml
+>  create mode 100644 arch/arm/include/asm/bao.h
+>  create mode 100644 arch/arm64/include/asm/bao.h
+>  create mode 100644 arch/riscv/include/asm/bao.h
+>  create mode 100644 drivers/virt/bao/Kconfig
+>  create mode 100644 drivers/virt/bao/Makefile
+>  create mode 100644 drivers/virt/bao/io-dispatcher/Kconfig
+>  create mode 100644 drivers/virt/bao/io-dispatcher/Makefile
+>  create mode 100644 drivers/virt/bao/io-dispatcher/bao_drv.h
+>  create mode 100644 drivers/virt/bao/io-dispatcher/dm.c
+>  create mode 100644 drivers/virt/bao/io-dispatcher/driver.c
+>  create mode 100644 drivers/virt/bao/io-dispatcher/intc.c
+>  create mode 100644 drivers/virt/bao/io-dispatcher/io_client.c
+>  create mode 100644 drivers/virt/bao/io-dispatcher/io_dispatcher.c
+>  create mode 100644 drivers/virt/bao/io-dispatcher/ioeventfd.c
+>  create mode 100644 drivers/virt/bao/io-dispatcher/irqfd.c
+>  create mode 100644 drivers/virt/bao/ipcshmem/Kconfig
+>  create mode 100644 drivers/virt/bao/ipcshmem/Makefile
+>  create mode 100644 drivers/virt/bao/ipcshmem/ipcshmem.c
+>  create mode 100644 include/linux/bao.h
+>  create mode 100644 include/uapi/linux/bao.h
+> =
+
+> -- =
+
+> 2.43.0
+> =
+
+
+Hi,
+
+This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
+a patch that has triggered this response.  He used to manually respond
+to these common problems, but in order to save his sanity (he kept
+writing the same thing over and over, yet to different people), I was
+created.  Hopefully you will not take offence and will fix the problem
+in your patch and resubmit it so that it can be accepted into the Linux
+kernel tree.
+
+You are receiving this message because of the following common error(s)
+as indicated below:
+
+- This looks like a new version of a previously submitted patch, but you
+  did not list below the --- line any changes from the previous version.
+  Please read the section entitled "The canonical patch format" in the
+  kernel file, Documentation/process/submitting-patches.rst for what
+  needs to be done here to properly describe this.
+
+If you wish to discuss this problem further, or you have questions about
+how to resolve this issue, please feel free to respond to this email and
+Greg will reply once he has dug out from the pending patches received
+from other developers.
+
+thanks,
+
+greg k-h's patch email bot
 
 _______________________________________________
 linux-riscv mailing list
