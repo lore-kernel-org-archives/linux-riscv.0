@@ -4,64 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9798CFD646
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 14:23:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA7ACFD647
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 14:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XfR0uDJg4ZskCDyWjHO7ONwA/j3azYMK53n/qNW29Z8=; b=ljN/sf+d7zlj/N
-	xOB8+8mmZXA0kKgPMxmM0v16tstUnebqLIPdxWMcGa2kqWvWY9CGyGKa1nHRsy2iP/Wd1KO3fsgLn
-	GEEYqnJwj0pBPLlGktnoG9fWcGPWc3jsqjfn7u08PsBbGzJLsFL8IwUVGOyLOHSszKjDOLp3FVY1c
-	4Ms8jyoLwnFZ62Dd8p4w+3DolmicgPP9It52va+Vy/zKufiqU0Ut7wuJN7q+pmWCXe0BBd+1wU9gW
-	PM9ndYndLNaq1E5rJzUSlD7G+3/B/XyknXWTF0O1Dg6JBC/fzyh5wMi6L0gDRRgGlIFrou4QocJEu
-	Jo9yataQEXX4pST7Joqg==;
+	List-Owner; bh=gCSphcq4J5gmSTtebY7ewtU4TR5qitKR5fgyWKz0bi4=; b=bVXE8hYRgIA1EZ
+	hmA68nIhHzxQ6cNkP6+CxsTeKhASDQXQmkWaeKPMp+io4HLB7D8epI9gTEPybwteYlfoBU5Kt7ut+
+	VXR1Fu6r/XKki8aStZe65y/uBCQ6seL3wJdtFkddJ8V2DH/vy508sMFbDH80etmsFYqMPa7wGs/IZ
+	eCcYOd6q1uvO7i16dC/ujcm2UuqVeDk/nFIQ1IS7zCYwHy8I2OWOAEAoI/mszxcQB8YMxkncXTvJ1
+	rCUNoLjmHFGcdh4lkUDgRSROzeLDaJ7DoynAc6+AqKdeOznZowxPuOAWd1+qABxcsTS8/ib0bwkCb
+	3BINDxs3rM9S1UEr8L2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdUR3-0000000F58q-0VrL;
-	Wed, 07 Jan 2026 14:22:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdUpZ-0000000F7bW-2uIa;
+	Wed, 07 Jan 2026 14:48:13 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdUR0-0000000F57z-1opH
-	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jan 2026 14:22:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 128A142BA4;
-	Wed,  7 Jan 2026 14:22:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C64A7C4CEF1;
-	Wed,  7 Jan 2026 14:22:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767795768;
-	bh=scgw9KKnio2Dqs8aqrCWQDiazUPc1M9tuCchtwuPKxs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pTDozbiwWTn7JBodqf5Xn1bOOBqTgf9JVgn9Kk9V7hPzYdOGqq0RHoDAajhvDp9+B
-	 8Ow0s0jjZjCJXQrIe6AssJli3QubWUYGjFWdqRIsmcFlLAqF2r1afxJ8LzuG/OPvvF
-	 NX0UeVyvZMxCILEr363geXmmM9wHD5CFhFfk8TOHmhagoMpB/H9vSIUPhVbq7RkBge
-	 7BzgQ+Xofx1bn8Hhj5MzSZnHYJzHwKWTl6ISsaKVNttcAWGAQQKpQf+fOpEv4T9Gpf
-	 lFm8rIQih68D5ja0l0rilgVr3nlNL2mth2jq7BYbNQCKKqilQIVqNGcsYv7lBocMm6
-	 ffbUxBm3LxIfg==
-Date: Wed, 7 Jan 2026 15:22:42 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Encrow Thorne <jyc0019@gmail.com>
-Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, conor+dt@kernel.org, 
-	devicetree@vger.kernel.org, dlan@gentoo.org, guodong@riscstar.com, krzk+dt@kernel.org, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	p.zabel@pengutronix.de, palmer@dabbelt.com, pjw@kernel.org, robh@kernel.org, 
-	spacemit@lists.linux.dev, troy.mitchell@linux.spacemit.com, troymitchell988@gmail.com
-Subject: Re: [PATCH 3/3] riscv: dts: spacemit: add reset property
-Message-ID: <aV5r8k4VKnXX_9Sw@zenone.zhora.eu>
-References: <20251230-i2c-reset-v3-0-7500eb93b06e@gmail.com>
- <20251230150653.42097-1-jyc0019@gmail.com>
- <20251230150653.42097-3-jyc0019@gmail.com>
+	id 1vdUpX-0000000F7aq-2Ult;
+	Wed, 07 Jan 2026 14:48:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=+xIhfMAtjHYjFTH+p76wSQ0KBZqEgJllYmQCn9tPHTw=; b=gfgvtMRN85Hh6ULIivj+/lsOiA
+	MybjhOoCgrIWL+bUF4ZEyrlnJ3BCKR4kow6Y6NDL92/3cFJxBWTaKb1rIOfGBe+Dw0TMz+F6hTAg8
+	Crnru+IpjVNRY8M3Yo5pEqYsNvsbroxjMFB+JLG+kn8JUv7wu/qgJNEaHLWZYnCI/h9377j2QaiDj
+	Wp4USeOE/onY3OPFlzQZveXDAm1UarU5jmZ6+7+4LDv4lZECvq9bRsaYpa+NQlBAndtaGIh51toTF
+	IydUvltqxiSopJRhJfdcYVF+WCRW6z7IOhoMVL5JAXrCp/2naH+s5TUY9eMaE3iE1xilEVS8ykNR8
+	zYY+BTvw==;
+Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdUpO-0000000DVbI-1rdl;
+	Wed, 07 Jan 2026 14:48:02 +0000
+Date: Wed, 7 Jan 2026 14:48:02 +0000
+From: Matthew Wilcox <willy@infradead.org>
+To: Alex Shi <seakeel@gmail.com>
+Cc: Mike Rapoport <rppt@kernel.org>, alexs@kernel.org,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Matt Turner <mattst88@gmail.com>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Nick Piggin <npiggin@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>, David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	"open list:ALPHA PORT" <linux-alpha@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>,
+	"moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
+	"open list:MMU GATHER AND TLB INVALIDATION" <linux-arch@vger.kernel.org>,
+	"open list:MMU GATHER AND TLB INVALIDATION" <linux-mm@kvack.org>,
+	"open list:C-SKY ARCHITECTURE" <linux-csky@vger.kernel.org>,
+	"open list:QUALCOMM HEXAGON ARCHITECTURE" <linux-hexagon@vger.kernel.org>,
+	"open list:LOONGARCH" <loongarch@lists.linux.dev>,
+	"open list:M68K ARCHITECTURE" <linux-m68k@lists.linux-m68k.org>,
+	"open list:MIPS" <linux-mips@vger.kernel.org>,
+	"open list:OPENRISC ARCHITECTURE" <linux-openrisc@vger.kernel.org>,
+	"open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
+	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+	"open list:SUPERH" <linux-sh@vger.kernel.org>,
+	"open list:USER-MODE LINUX (UML)" <linux-um@lists.infradead.org>
+Subject: Re: [PATCH] mm/pgtable: convert pgtable_t to ptdesc pointer
+Message-ID: <aV5yIuGi9Ni5YP5E@casper.infradead.org>
+References: <20260107064642.15771-1-alexs@kernel.org>
+ <aV4h5vQUNXn5cpMY@kernel.org>
+ <080e493a-e4f1-4c97-a3e1-f76f126b5213@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251230150653.42097-3-jyc0019@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_062250_489453_D45FFD04 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <080e493a-e4f1-4c97-a3e1-f76f126b5213@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,17 +124,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Encrow,
+On Wed, Jan 07, 2026 at 05:28:36PM +0800, Alex Shi wrote:
+> Right, I will fix this. and sent the 2nd version.
 
-On Tue, Dec 30, 2025 at 11:06:53PM +0800, Encrow Thorne wrote:
-> Add resets property to K1 I2C node.
-> ---
->  arch/riscv/boot/dts/spacemit/k1.dtsi | 8 ++++++++
->  1 file changed, 8 insertions(+)
-
-how is this patch formatted?
-
-Andi
+No, the patch is stupid and wrong.  Don't send a v2.  You seem to have a
+hairtrigger resend, so I'm trying to prevent a v2 being sent instead of
+sending a patient reply.
 
 _______________________________________________
 linux-riscv mailing list
