@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6819CEFD0C
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jan 2026 23:42:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67DC4C47BEB
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 00:06:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4tXyKmruLnwzHOIEiFXOpWIMn5S1TUblI4fDgKJ4/mw=; b=IagVxgUTZHlm/Y
-	ZostpffT8TzbZmyNJejHK3TekorEij3eJhqKAVon4XBYwkTjpc9GzSi9oSvn5gwaTiQTcxKr/DMNq
-	VckTExweWAOEPDhE6FxSSg1YLVvkbXzMgrMLRcEgrPnYTskTE/77oAOjwGat2FMRrbT3jfk/HsVrh
-	l7Vj/OmhHQwYWcZFEM+vfRc0Xga/EiFJ4kTGglOMbsj80rP5yYzy/JBubjgmFBzmTWlF1FiwdLw1o
-	3NpPKqU6f4vdWogWh8P9l8yB9tJacTbA/WR387RIxUa3nyXLrcK/e2wsrt6qKmsFdi/H4gJ2wbE+8
-	q7h6XjxF3c1cttwP8qvg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pcKx0wUw7rEOMSf4M371efggr532LWOTqh50GF81U70=; b=JYFtXF/o3YJI+i
+	ke92d/5wTlFkrSapAPwnqDANS793IHKIbIydbVQ7y0OfGwABhDGLl6s953cW53oN1cCFU7Mxn02H7
+	R7nPfH+52r5rh9qktVTD3oyFIxrKvA4P6afqOF3EFX0MiDSAeKw2SLgMyGIO69MiwEXjE2gcFpCnL
+	uWCI8JAmI4ZpSZya1DHQTdPKJUDM3sKMroMXbRrDT0DpkUNPHUaCrv+N61UwE0FtIkvs6OEBRAl4Q
+	juvrGep6SqPQoVc/RYfh6+7Y021aNmV75evFQTQopfslL51uwXWKlKYwIDyt0KychNoXx0DIBE0vg
+	sGmD9xzS5aOi91HjD0vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdGh9-0000000Dwzq-3cIb;
-	Tue, 06 Jan 2026 23:42:35 +0000
-Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
+	id 1vdH46-0000000DxXG-3Yfr;
+	Wed, 07 Jan 2026 00:06:18 +0000
+Received: from mail-oo1-xc44.google.com ([2607:f8b0:4864:20::c44])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdGh6-0000000DwzB-1zdQ
+	id 1vdH44-0000000DxWq-0lJa
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Jan 2026 23:42:33 +0000
-Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-88ffcb14e11so16456826d6.0
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Jan 2026 15:42:31 -0800 (PST)
+	Wed, 07 Jan 2026 00:06:17 +0000
+Received: by mail-oo1-xc44.google.com with SMTP id 006d021491bc7-6598413b604so905788eaf.0
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Jan 2026 16:06:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1767742951; x=1768347751; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=OfChIqKNcwmrZLIiAT7R5xSM6Gp2o3yGw0q++DE8G1k=;
-        b=eWV6kdVcL0YXz/g0r31xbF2tSgOTqsOS7FD83LQoidcrOB7iG3t+UufUxZ3RruCGpg
-         gZl/liS98+6+ggp2nUebGkkyH0tKQ73wTQ2rg52keUomMQq611Dfi2U668ia9jmxbcDx
-         efbHovfYznbsVWYx0UjLaxqHBpQeSS5udO7swZo9JjVLpBbxuIbs8L0qWXvWQsvhw1+P
-         yxqORU94d4T0uZOVN13OF0pBd8ZVf4/EKCmw2BmfPCX8Cl1YtjVHVoK8jmdAxxeFk9pN
-         BMVTqQPN/liH38hZ+u2CB9pTr0PCOcUIsRixZDi7WTKNcUe87Fzob88t1Tv03QJr2bRo
-         FnJw==
+        d=gmail.com; s=20230601; t=1767744374; x=1768349174; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tgq7GZjchn1EcjfHQ/Ha9eC2PJUmykLGV5Ks1aM6jX8=;
+        b=lptokCRO2raniJHgRpTbtpcTN5DUUqRlz78vVjmMytZcLOAD8PDAiVmChLCNAkqXbm
+         bDNjxyCqLnBRJUz8vgCsjWRYafqJmRY1B2/oj/L4dk2gaMcUXux2PqElZd0ycI+6Hszv
+         UUf5RC5R756LsLmODu9Lzf6A5V6LyCteGpqhEP8TXFwph+nJy0FILCersVHjHHZz2roE
+         eITnRFI4ttFbkQ6cC47zfOcUqYPfwYBhLaws1NwQWclncS8Q7GhEs5dzuvrI4dHusanz
+         nSryZYhfpYP5v5EPYAqf+qHxwIPcMQCaN9UT8XYNYaghG+fJT+CB8M74AY56XEWETRgj
+         S+zA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767742951; x=1768347751;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OfChIqKNcwmrZLIiAT7R5xSM6Gp2o3yGw0q++DE8G1k=;
-        b=SKdgbVL12VUfPF1RydLHx9geK/tP0fDo/OYc1WDQ+6X1iYOpPPPvplmOFFmnlGIm1q
-         aJlERGZ3003TneOiNojQvWn+kb5dWNV/ZQM2OWmyxg2kzNMzo3w8/+53vr7JlkUH7ZHg
-         8v1LTcI/c7wrVFFXh/Nwschtkt9aY+Kf4k60RAQPeLbubzVrb1oeH2eXv6avRNx7w5lB
-         YB2wKlzvK0mbtPOYjp+N/LiLfhU8eimkHbw1F+dfN7YAAC6AHLW2cLTvNp8xmKX9tnV6
-         Y2+1zT/gCMvUHZ5IpGfZ9caNLc2kyxo79QMAucDlS8tbMrpI/vEBadAGMlDvDWRiPBMd
-         1ang==
-X-Forwarded-Encrypted: i=1; AJvYcCXUFSwnZW4xre2CeFqyLYsSeXP/XQTxd/c3osczYLJkfjQ0ydyYYx19c5PtYZsMxU9nVnjIklUpu74BvQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyK4XnsStG9teLo1mAznof54kOTyqLq5yj5xTsAl8ov6gOwK8cK
-	HTZDmUGM9KRVBW9rV4G4g1X5wV7XRIq4anjfxHD0xDKHDcNZKkDfu+VTBjUnUx6wY48=
-X-Gm-Gg: AY/fxX4PxtGB4RnYunz+Z98hvS1KD7bcFffn36xTHl+fAmiuhgboTF1LTSLZe20A+BN
-	A7aR/Ybkts+GLkznB82CpTcLtHPw8lWZ6rARrUDzriT2RSy+Xw3fuXeaM2gRbUDYoZ86a3/vkRF
-	YFaSa030KPpVEDcTymKjg5gUmM/PUHqMd56Z5f/MlDtB8MmYWr09GxkqUGAkynGBJNWQzxThYPT
-	vR55jmYQmB83t9MHNoeMabdwgir9YPTiDyt/BxT+l6+/Ka5aMswFIJX/j6JNEF5xusJ5Reayosk
-	g9pjmRZgJqC344Et6L3dNIsoOT8TcbiD0HhoTsQ2F2KASSun+9ejfxTlWpXmXGdTUFsmHqbfaWB
-	ykDStPY85GoSs4+fzDMUo2g4kolJn1yaAlzzovZwHPOkOS1MjKFHCfpcWL33NLHy1Mgc/33prLe
-	nASKjrqnVx9DbuZI7zXTncyXUaX+Wg8uELssKcFTyoyUwgiMreo5s=
-X-Google-Smtp-Source: AGHT+IH1hw6SHnlsa+o57uQvBqGquCSnLrP81cZqJwz2JA/4lI4rccbRN4fom/VIn/Px/30MwTS1Zw==
-X-Received: by 2002:a05:6214:d49:b0:888:710a:1750 with SMTP id 6a1803df08f44-890841ae7eemr10031776d6.31.1767742950921;
-        Tue, 06 Jan 2026 15:42:30 -0800 (PST)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89077253305sm24209026d6.41.2026.01.06.15.42.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 Jan 2026 15:42:30 -0800 (PST)
-Message-ID: <255ff9c5-7662-47a4-b2b9-1fd740fc526d@riscstar.com>
-Date: Tue, 6 Jan 2026 17:42:28 -0600
+        d=1e100.net; s=20230601; t=1767744374; x=1768349174;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tgq7GZjchn1EcjfHQ/Ha9eC2PJUmykLGV5Ks1aM6jX8=;
+        b=asier+y0Q8dxZkgWb/DWPEw6lFv9B4GNJGpQ2WDc7dgthouoVzVK9UTwKvUjvDwS5b
+         qOHL0KcCNkMHFwhO9cP0XoPvxZUYAGG+3tmWRKyKnYwk/X0ZshqTZdzxOKWVHwfmXOnX
+         GxLkCEg8InB/dmzRTonr5k2trfjV92w9bepKWqxlfifHEqBAvdTKjkclyemXERUySNVr
+         Xrkrq9hSNf1bQizwAUMWRU8KFlLPTkJJeZZywOlWLruCNmx/daVj/JDCMBr0UYi2dxl5
+         yjcVu91IV9iwZrsnmI97FhohZQ6YSrY30+XK6iFSNXPTrs42dldkd398vMOGjHbE/jRM
+         R0Ew==
+X-Gm-Message-State: AOJu0Yzvx+fF2JmLIu/8Mwo8E6h1LhcarJVbjts1SQEW5Yp6hX8DUznx
+	maQgpX4GyNzaq19tiR3EZ9s1MZZaGYjHeENCoEbMu69/x09itwuWvsbtm0fDV5caZf8=
+X-Gm-Gg: AY/fxX5QcoxMGdCVZLxI20o3cv6tzZb4K+wIvMvwKUgJ2Vu+yPAkAoNTCy48xrwhFX9
+	cFQqB35F4Y7ADtqL332o/gkOdI9DoXKeKnS4bzLY5xzbS+eARpw5Jb66HlATHFHLeQCx6uAECMr
+	qL302Vj107U1sVvdfTyKV7OqdrD8/RQMt6XGGTpHKiKAxNGEGnrDpCmOl5i6AT6BOBQAuPnOS2/
+	Q4fHcAq1VzIQfvikrjsc8szoMHxImr8VSy156vZYBWK+poLkVSWemy0YhroqrX/BSxpU2d/rn8S
+	w0/xmKvdUFstxWaKov3R405uJa1k67tL+yDwlZmiWz48ZYop27aW1ZY/RgBIP/JxCEzGwm7FpAN
+	xj0CS77k+OSzQpTq1eGdRrwbAOF0lBGEWDogk8El7CMLCqgOQoTNcLYGn+IO7JhP5NgpLm2OMA/
+	sxmzD94kOnqnELRtDpouZmJlt9Ipqu
+X-Google-Smtp-Source: AGHT+IHZk6/5mjRHyYCN1+0jYjV5yZCr12a2Qvfp3DAWPnZ9X8yCdldjy8vhbzKeSmmfI2HWux74cA==
+X-Received: by 2002:a05:6820:7511:b0:659:9a49:904d with SMTP id 006d021491bc7-65f54eda43bmr210960eaf.24.1767744374064;
+        Tue, 06 Jan 2026 16:06:14 -0800 (PST)
+Received: from localhost.localdomain ([50.24.139.5])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-3ffbe3a6d8esm609612fac.15.2026.01.06.16.06.11
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 06 Jan 2026 16:06:12 -0800 (PST)
+From: Andy Chiu <andybnac@gmail.com>
+To: linux-riscv@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	pjw@kernel.org
+Cc: Andy Chiu <andybnac@gmail.com>,
+	Zihong Yao <zihong.plct@isrc.iscas.ac.cn>,
+	linux-kernel@vger.kernel.org,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	paul.walmsley@sifive.com,
+	greentime.hu@sifive.com,
+	nick.hu@sifive.com,
+	nylon.chen@sifive.com,
+	eric.lin@sifive.com,
+	vincent.chen@sifive.com,
+	zong.li@sifive.com,
+	yongxuan.wang@sifive.com,
+	samuel.holland@sifive.com
+Subject: [PATCH v1] Documentation: riscv: update Vector discovery for userspace
+Date: Tue,  6 Jan 2026 18:06:09 -0600
+Message-Id: <20260107000609.63892-1-andybnac@gmail.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-145)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] clk: spacemit: extract common ccu functions
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Guodong Xu <guodong@riscstar.com>,
- Inochi Amaoto <inochiama@gmail.com>, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, Yao Zi <me@ziyao.cc>
-References: <20260103-06-k1-clk-common-v3-0-6061d9f69eef@gentoo.org>
- <20260103-06-k1-clk-common-v3-2-6061d9f69eef@gentoo.org>
- <a198d2d2-0c82-4c9d-abca-d17221ef1453@riscstar.com>
- <20260106222753-GYA2092678@gentoo.org>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20260106222753-GYA2092678@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_154232_689619_68FF9D7D 
-X-CRM114-Status: GOOD (  19.96  )
+X-CRM114-CacheID: sfid-20260106_160616_233092_3B96B386 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,77 +104,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 1/6/26 4:27 PM, Yixun Lan wrote:
-> Hi Alex,
-> 
-> On 08:43 Tue 06 Jan     , Alex Elder wrote:
->> On 1/3/26 1:26 AM, Yixun Lan wrote:
->>> Refactor the probe function of SpacemiT's clock, and extract a common ccu
->>> file, so new clock driver added in the future can share the same code,
->>> which would lower the burden of maintenance. Since this commit changes the
->>> module name where the auxiliary device registered, the auxiliary device id
->>> need to be adjusted. Idea of the patch comes from the review of K3 clock
->>> driver, please refer to this disucssion[1] for more detail.
->>
->> Are all of the hunks of moved code moved without change (I
->> think so)?  If so I think it's worth mentioning that.  If
->> not, you should explain whatever differs, and why.  (I would
-> yes, no literal changes with this patch except probe() refactored,
-> and the real effective change is the module name changed which
-> I mentioned already
+Make it explicit that users may use both HWCAP and
+PR_RISCV_V_GET_CONTROL for checking the availability of Vector
+extensions. This addresses the ABI usage concern[1] arised from the user
+space community in supporting Vector sub-exts and multiversioning.
 
-Thanks for confirming.  No need to change your description,
-just consider this for future patches.
+[1]: https://bugzilla.kernel.org/show_bug.cgi?id=220795
 
->> expect the only thing that would have to change is making
->> spacemit_ccu_probe() public.)
-> to make spacemit_ccu_probe() public, we move SoC specific code
-> out of this function which should have no functionality change..
-> 
-> (I think the above commit message is ok, and would not plan to send
-> out another version if no serious comment incoming, unless you insist)
-> 
->>
->> I made one minor comment below.  I didn't verify, but I
->> assume this is all just moving the code around, and based
->> on that:
->>
->> Reviewed-by: Alex Elder <elder@riscstar.com>
->>
-> [snip]...
->>> diff --git a/drivers/clk/spacemit/ccu_common.c b/drivers/clk/spacemit/ccu_common.c
->>> index 4412c4104dab..5f05b17f8452 100644
->>> --- a/drivers/clk/spacemit/ccu_common.c
->>> +++ b/drivers/clk/spacemit/ccu_common.c
->>> @@ -1,6 +1,177 @@
->>>    // SPDX-License-Identifier: GPL-2.0-only
->>>    
->>> +#include <linux/clk-provider.h>
->>> +#include <linux/device/devres.h>
->>> +#include <linux/mfd/syscon.h>
->>>    #include <linux/module.h>
->>> +#include <linux/of.h>
->>> +#include <linux/slab.h>
->>> +#include <soc/spacemit/ccu.h>
->>> +
->>> +#include "ccu_common.h"
->>> +
->>> +static DEFINE_IDA(auxiliary_ids);
->>
->> I'd insert a space here to make the definition above stand out a
->> bit more.
->>
-> do you mean a blank line?
-> (I could do this while applying this patch since it's quite trivial..)
+Suggested-by: Zihong Yao <zihong.plct@isrc.iscas.ac.cn>
+Signed-off-by: Andy Chiu <andybnac@gmail.com>
+---
+ Documentation/arch/riscv/vector.rst | 49 +++++++++++++++++++++++------
+ 1 file changed, 39 insertions(+), 10 deletions(-)
 
-Yes that's what I mean, and yes, fine to add that when applying.
+diff --git a/Documentation/arch/riscv/vector.rst b/Documentation/arch/riscv/vector.rst
+index 3987f5f76a9d..1fde56ffe85b 100644
+--- a/Documentation/arch/riscv/vector.rst
++++ b/Documentation/arch/riscv/vector.rst
+@@ -13,13 +13,14 @@ order to support the use of the RISC-V Vector Extension.
+ Two new prctl() calls are added to allow programs to manage the enablement
+ status for the use of Vector in userspace. The intended usage guideline for
+ these interfaces is to give init systems a way to modify the availability of V
+-for processes running under its domain. Calling these interfaces is not
+-recommended in libraries routines because libraries should not override policies
+-configured from the parent process. Also, users must note that these interfaces
+-are not portable to non-Linux, nor non-RISC-V environments, so it is discourage
+-to use in a portable code. To get the availability of V in an ELF program,
+-please read :c:macro:`COMPAT_HWCAP_ISA_V` bit of :c:macro:`ELF_HWCAP` in the
+-auxiliary vector.
++for processes running under its domain. Changing Vector policy by calling
++:c:macro:`PR_RISCV_V_SET_CONTROL` is not recommended in library routines
++because libraries should not override policies configured by the parent process.
++Also, users must note that these interfaces are not portable to non-Linux,
++nor non-RISC-V environments, so their use is discouraged in portable code.
++To get the availability of V in an ELF program, user code may read the result of
++:c:macro:`PR_RISCV_V_GET_CONTROL`, or the :c:macro:`COMPAT_HWCAP_ISA_V` bit
++of :c:macro:`ELF_HWCAP` in the auxiliary vector.
+ 
+ * prctl(PR_RISCV_V_SET_CONTROL, unsigned long arg)
+ 
+@@ -91,9 +92,9 @@ auxiliary vector.
+     Gets the same Vector enablement status for the calling thread. Setting for
+     next execve() call and the inheritance bit are all OR-ed together.
+ 
+-    Note that ELF programs are able to get the availability of V for itself by
+-    reading :c:macro:`COMPAT_HWCAP_ISA_V` bit of :c:macro:`ELF_HWCAP` in the
+-    auxiliary vector.
++    Note that ELF programs are able to get the availability of the standard V
++    extension for itself by reading :c:macro:`COMPAT_HWCAP_ISA_V` bit of
++    :c:macro:`ELF_HWCAP` in the auxiliary vector.
+ 
+     Return value:
+         * a nonnegative value on success;
+@@ -138,3 +139,31 @@ As indicated by version 1.0 of the V extension [1], vector registers are
+ clobbered by system calls.
+ 
+ 1: https://github.com/riscv/riscv-v-spec/blob/master/calling-convention.adoc
++
++4.  Vector Extensions Discovery
++-------------------------------
++
++Existing kernel supports running Vector code in the user space on hardware
++that only implements zve32x subextension, or 0.7 version of the spec when
++compiled with c:macro:`RISCV_ISA_V && RISCV_ISA_XTHEADVECTOR`. When the kernel
++recognizes and supports an extension on a hardware implementation, the
++kernel indicates its existence on /proc/cpuinfo, and the corresponding bits
++obtained from riscv_hwprobe(2) is also set.
++
++The existence of an extension does not necessary guarantee its availibility to
++any given process. Traditionally, :c:macro:`ELF_HWCAP` is used for such
++availibility check. This remains useful for checking the availabilty for standard
++Vector extension, by referencing the :c:macro:`COMPAT_HWCAP_ISA_V` bit.
++
++However, though the kernel provides compatibility for flexible hardware
++configurations, the kernel does not report the availability of subextension, nor
++pre-standarized Vector in :c:macro:`ELF_HWCAP` to prevent exagerating the
++limited bit space.
++
++c:macro:`HWCAP` is designed to serve as a quick check to see if the standard
++Vector is both *pressence* and *available* to the process. For any non-standard
++Vector extensions, the ABI guaranteed way to identify their existence is by
++going through the hwprobe(2) interface. Then, the
++:c:macro:`prctl(PR_RISCV_V_GET_CONTROL)` serves as the availibility
++check to see if executing any Vector instructions is allowed by the runtime
++environment.
+-- 
+2.39.3 (Apple Git-145)
 
-					-Alex
 
 _______________________________________________
 linux-riscv mailing list
