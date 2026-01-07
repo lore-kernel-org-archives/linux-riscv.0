@@ -4,51 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C000D0D163
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 18:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D258D0D16C
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 19:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BHumQpFtoSAnUWCG2sKwmyowYGra9r+zGnCd+MjbZGA=; b=tjSW0LtxnX3+kO
-	xAyxZQ8/tSP3jfY77E5Z0NaHNe5DyDbFBDT4J1zGyXVXoZj+eulM2w3Yw0e2A5wOKpAoS+PkvMWI7
-	ZzTy/XcYZ+9rQ0cemaP2Hviiv3UIK0ulo7AO/giFEixFZ4O6A1CJ3hDTBDDwqoFtyO+qV/yaq//RQ
-	G3Ww67a3gJDbizR9HzWhT9VdC9Dcd10FK87hINgPISs7V6Fk7RrEm+JrWTRpwfoMpAXsw5M8T0yUP
-	oMLyTiO9x1Dc0johbhBZzWFyGEGQJZU5EDNdkRwLRN1h+Fuhy3gIy+pVhCVMuB9vvZy6PiqO2LGrW
-	DFq/kU5JoRdqMzBs/UAw==;
+	List-Owner; bh=iXmXDXkoT2sAi01PRwQkEQARAPtJOMMKl2Bvx3pxFnw=; b=CoCaOduVeePhZo
+	HMlHPFNmjyXuAy0P47x1QZ0r8B7qTUBNxVvmVz6Awg8yf2WC5Hfq0UxONx02iQGuzDeLBAz8QwBtR
+	LcL0R6oe9CYVJhdnPeepcgQaVAJTMXd66vObtyhbFMMvIEYsEdp7guwJsDGwvHns5XEMfglgi0irZ
+	K8COuFyFNfKeKDAGVaco30OVjqTSQOv5GAoH7UF7H+wYOaWMoeKi6F4ol38Kalt+kcBeN0Wko+AGw
+	QiI7jI/+aY3FTlQzyeF0rxFF8YVGzaSd+ljEvjGVuMneDH1JPleaAveq6WZXmSk7v2SKz2SOVSiyv
+	hvlryrDEHCXdAFKppyjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdYfj-0000000FV2d-1ZQn;
-	Wed, 07 Jan 2026 18:54:19 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdYff-0000000FV2K-03q8;
-	Wed, 07 Jan 2026 18:54:15 +0000
-Message-ID: <df12062e-27ef-454d-b35b-526a88b5c7fa@infradead.org>
-Date: Wed, 7 Jan 2026 10:54:13 -0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/6] virt: bao: Add Bao IPC shared memory driver
-To: joaopeixoto@osyx.tech, linux-kernel@vger.kernel.org
-Cc: ajd@linux.ibm.com, alex@ghiti.fr, aou@eecs.berkeley.edu,
- bagasdotme@gmail.com, catalin.marinas@arm.com, conor+dt@kernel.org,
- corbet@lwn.net, dan.j.williams@intel.com, davidmcerdeira@osyx.tech,
- devicetree@vger.kernel.org, dev@kael-k.io, gregkh@linuxfoundation.org,
- haren@linux.ibm.com, heiko@sntech.de, jose@osyx.tech,
- kever.yang@rock-chips.com, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-riscv@lists.infradead.org, maddy@linux.ibm.com, mani@kernel.org,
- nathan@kernel.org, neil.armstrong@linaro.org, palmer@dabbelt.com,
- pjw@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com, robh@kernel.org,
- will@kernel.org
+	id 1vdZL4-0000000FYJH-3tkR;
+	Wed, 07 Jan 2026 19:37:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdZL1-0000000FYIe-1LAN;
+	Wed, 07 Jan 2026 19:37:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 687C6441ED;
+	Wed,  7 Jan 2026 19:36:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0753C19422;
+	Wed,  7 Jan 2026 19:36:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1767814618;
+	bh=wGXfb/h9dHEqo4OYJ7lobK5I8Wv+t9L3leil/n6O8Iw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IgJxdSAeZ/7+lfhqGZ9rBlTXNIozisFIcAkxXqUcopcqhT47BBzZNAXGHXN2S1cuz
+	 sE3S/4D8e2LgW/CFYURXyeLn59O+LRgHFLBPpDv+3F5osve2zP01H3o5Q1WQsnXmQw
+	 djJgIz4O/wMvzdiDAuqVNLsW2SkI8XFnTtMPhuCo=
+Date: Wed, 7 Jan 2026 20:36:55 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: joaopeixoto@osyx.tech
+Cc: linux-kernel@vger.kernel.org, ajd@linux.ibm.com, alex@ghiti.fr,
+	aou@eecs.berkeley.edu, bagasdotme@gmail.com,
+	catalin.marinas@arm.com, conor+dt@kernel.org, corbet@lwn.net,
+	dan.j.williams@intel.com, davidmcerdeira@osyx.tech,
+	devicetree@vger.kernel.org, dev@kael-k.io, haren@linux.ibm.com,
+	heiko@sntech.de, jose@osyx.tech, kever.yang@rock-chips.com,
+	krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	maddy@linux.ibm.com, mani@kernel.org, nathan@kernel.org,
+	neil.armstrong@linaro.org, palmer@dabbelt.com, pjw@kernel.org,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, robh@kernel.org,
+	will@kernel.org
+Subject: Re: [PATCH 5/6] virt: bao: Move BAO_IPCSHMEM_HYPERCALL_ID to common
+ header
+Message-ID: <2026010704-heaviness-quality-f543@gregkh>
 References: <20251224135217.25350-1-joaopeixoto@osyx.tech>
  <20260107162829.416885-1-joaopeixoto@osyx.tech>
- <20260107162829.416885-3-joaopeixoto@osyx.tech>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20260107162829.416885-3-joaopeixoto@osyx.tech>
+ <20260107162829.416885-6-joaopeixoto@osyx.tech>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260107162829.416885-6-joaopeixoto@osyx.tech>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260107_113700_453704_44F84416 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,51 +76,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jan 07, 2026 at 04:28:28PM +0000, joaopeixoto@osyx.tech wrote:
+> From: Jo=E3o Peixoto <joaopeixoto@osyx.tech>
+> =
 
+> Move the IPC shared-memory hypercall ID from architecture-specific
+> headers into include/linux/bao.h.
 
-On 1/7/26 8:28 AM, joaopeixoto@osyx.tech wrote:
-> diff --git a/drivers/virt/bao/ipcshmem/Kconfig b/drivers/virt/bao/ipcshmem/Kconfig
-> new file mode 100644
-> index 000000000000..966bb75aa495
-> --- /dev/null
-> +++ b/drivers/virt/bao/ipcshmem/Kconfig
-> @@ -0,0 +1,8 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +config BAO_SHMEM
-> +	tristate "Bao hypervisor shared memory support"
-> +	help
-> +	This enables support for Bao shared memory communication.
-> +	It allows the kernel to interface with guests running under
-> +	the Bao hypervisor, providing a character device interface
-> +	for exchanging data through dedicated shared-memory regions.
+That says _what_ you did, but not why you did it :(
 
-Please follow Documentation/process/coding-style.rst:
+I have no idea why this is needed at all, sorry.
 
-10) Kconfig configuration files
--------------------------------
+> Signed-off-by: Jo=E3o Peixoto <joaopeixoto@osyx.tech>
+> ---
+>  arch/arm/include/asm/bao.h           | 5 ++---
+>  arch/arm64/include/asm/bao.h         | 5 ++---
+>  arch/riscv/include/asm/bao.h         | 7 +++----
+>  drivers/virt/bao/ipcshmem/ipcshmem.c | 5 +----
+>  include/linux/bao.h                  | 3 +++
+>  5 files changed, 11 insertions(+), 14 deletions(-)
+> =
 
-For all of the Kconfig* configuration files throughout the source tree,
-the indentation is somewhat different.  Lines under a ``config`` definition
-are indented with one tab, while help text is indented an additional two
-spaces.  Example::
+> diff --git a/arch/arm/include/asm/bao.h b/arch/arm/include/asm/bao.h
+> index 5ece9ecb1455..7d13591fe669 100644
+> --- a/arch/arm/include/asm/bao.h
+> +++ b/arch/arm/include/asm/bao.h
+> @@ -16,14 +16,13 @@
+>  #include <linux/arm-smccc.h>
+>  #include <linux/bao.h>
+>  =
 
-  config AUDIT
-	bool "Auditing support"
-	depends on NET
-	help
-	  Enable auditing infrastructure that can be used with another
-	  kernel subsystem, such as SELinux (which requires this for
-	  logging of avc messages output).  Does not do system-call
-	  auditing without CONFIG_AUDITSYSCALL.
+> -static inline unsigned long bao_ipcshmem_hypercall(unsigned long hyperca=
+ll_id,
+> -						   unsigned long ipcshmem_id)
+> +static inline unsigned long bao_ipcshmem_hypercall(unsigned long ipcshme=
+m_id)
 
-
--- 
-~Randy
+This does not match what you said you were doing in the changelog :(
 
 
 _______________________________________________
