@@ -4,100 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1582CD582A
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 10:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B08FFCD583B
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 11:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HlhBE9+DppXmppj5Sx6NwqxaWZLAGslePdZlkisL2JU=; b=tYJAA7rkvJ/YNt
-	NCGJQ1a3WDQ+HHQYLasnMhgZeNsbZ4mqllBD4pif6Tbtb+86M1GHV+Ao6lsFF6nTDtSOyHfAjQJxM
-	6KnPN68khxqr4cj6RnK/bqq3KgKsXaWQ+To6aUf4wNAHebxoj1SNMp0Y45V9Sh+j6SeDaNQiWz6N/
-	bRNavVl4qIMbPrOCjJh13xCy55GhYgUy0eLRkbqmOFHo89/cCbdsPqjepajR9As/lpYqojq6xQa8m
-	l+kchTO/sDLgeobMI4xdA0YegGmualFD4EZ+RBdMsQi/OWwHEWPgELYZvrAk9pvtGsLfzzsDj/wFg
-	4e7ECcxPKO5HOgSuMgsQ==;
+	List-Owner; bh=LvgybmO7ly8oXTcq/b3JhUObSY6wSY2o8U4fJ/6OJ+c=; b=xiaKMOry1gUrBt
+	b05qkCMJb9gwNHGWyJqs+tQgonNsGlc8R7A8mptGXM9AZH4/nvalrXuezeZuzTZi3WgP54CGzwQAZ
+	CPql3I1wixyprlkEDu2cTolWUMVBEazPx9wWG84hfr1dyjaFUvWm2P67odlqk9fNz0f2ZvASF2eoH
+	pokGuqVz8/uV6LXzr44jIHnCHhhEQGqZ/DM9TXNsXO/MhWMJPX90WQHXQh/o0NA5PaCMpYoh4AFZZ
+	UUR6jqMIoeJpaZRJFq8c542/itaLWWkRACixYxHFObzUu5fXCr0rmlmqjvSz70Zp6dqAH+lOeoZM0
+	s6pbiVUowWMEdKePJW/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQel-0000000Egwh-1U5w;
-	Wed, 07 Jan 2026 10:20:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdRjk-0000000EpaJ-03id;
+	Wed, 07 Jan 2026 11:30:00 +0000
+Received: from mail2.viabit.com ([65.246.80.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQej-0000000Egvw-26d3;
-	Wed, 07 Jan 2026 10:20:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3697D60007;
-	Wed,  7 Jan 2026 10:20:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 332F3C4CEF7;
-	Wed,  7 Jan 2026 10:20:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767781243;
-	bh=2N7QgaN9sMjltiFqaQG4UkyiWR5RDDQ2n4IgHLPouW4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HG3UgZmir72YPYFm/emlV/3aORPdbjLAnBvpX04p5XtFP762LStn/wPAzNuqOQyK8
-	 k7OnYBM5tMSwl6jbeHb8PLi19AGtC/53sTnfGuvHRwU1J5fTUCYLII+PuhChCRsuuP
-	 lesNvqozgo8UJHTVTNpJsDervk1O2VsPtftbzvVYNlT5k9C+Ou7zoWZDNLa9w7OL7l
-	 1I+dvThsPPRQrJPx2bNt/P7eQY786Hlh4y2DUZqzVomuI/Tc2vep7bqbTNymx1RDAb
-	 W1AWrPHPHnhn5oDQwiHOAOhH7g90DnMJIt+6Fqkfre323p/NzMyoEh/2zKKa/f4rTg
-	 6GL2C2ybj5rcA==
-Date: Wed, 7 Jan 2026 12:20:23 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Ritesh Harjani <ritesh.list@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Alex Shi <alexs@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
-	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>,
-	Muchun Song <muchun.song@linux.dev>,
-	Oscar Salvador <osalvador@suse.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>,
-	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
-	x86@kernel.org, linux-alpha@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org
-Subject: Re: [PATCH v2 14/28] powerpc: introduce arch_zone_limits_init()
-Message-ID: <aV4zZ8D5eaLC6K-w@kernel.org>
-References: <20260102070005.65328-1-rppt@kernel.org>
- <20260102070005.65328-15-rppt@kernel.org>
- <87ldia9he1.ritesh.list@gmail.com>
+	id 1vdRjh-0000000EpXt-2dU3
+	for linux-riscv@lists.infradead.org;
+	Wed, 07 Jan 2026 11:29:58 +0000
+Received: from mertle.michael.orlitzky.com (vpn1.metro-data.com [65.213.236.242])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail2.viabit.com (Postfix) with ESMTPSA id 4dmQml20MPz3wgB;
+	Wed, 07 Jan 2026 06:29:43 -0500 (EST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=orlitzky.com; s=mail2;
+	t=1767785384; bh=OPuueHmMVj3SNcW4TnjonoWNxcWCK8kzhB9Rxd5LFmE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=C5daeKu4Hu/tLjIVGWDyiuNDK2ZpoVmp/x2f4NVmBcoeVzgD6oXsxzmWgDCS4wOAl
+	 N9TzPa5c/+SzrD5rRhO6Blh5sJ+KQU5e9heRHvmmHwckwxceMExnlmmx4vtBVmYakg
+	 1J1GiCiGf1vLKAK4ngWwuHksJlOiSX9rFj5aBPnw=
+From: Michael Orlitzky <michael@orlitzky.com>
+To: unicorn_wang@outlook.com,
+	inochiama@gmail.com
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 1/1] riscv: dts: sophgo: enable hardware clock (RTC) on the Milk-V Pioneer
+Date: Wed,  7 Jan 2026 06:29:22 -0500
+Message-ID: <20260107112922.20013-2-michael@orlitzky.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260107112922.20013-1-michael@orlitzky.com>
+References: <20260107112922.20013-1-michael@orlitzky.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87ldia9he1.ritesh.list@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260107_032957_730623_F88ACD38 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,53 +79,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+These boards have a working hardware clock if you put a CR-1220
+battery in them. We enable it using information from a 6.1.x vendor
+kernel.
 
-On Wed, Jan 07, 2026 at 09:57:34AM +0530, Ritesh Harjani wrote:
-> Mike Rapoport <rppt@kernel.org> writes:
-> 
-> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> >
-> > Move calculations of zone limits to a dedicated arch_zone_limits_init()
-> > function.
-> >
-> > Later MM core will use this function as an architecture specific callback
-> > during nodes and zones initialization and thus there won't be a need to
-> > call free_area_init() from every architecture.
-> >
-> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > ---
-> >  arch/powerpc/mm/mem.c | 22 ++++++++++++----------
-> >  1 file changed, 12 insertions(+), 10 deletions(-)
-> >
-> > diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
-> > index 3ddbfdbfa941..32c496bfab4f 100644
-> > --- a/arch/powerpc/mm/mem.c
-> > +++ b/arch/powerpc/mm/mem.c
-> > @@ -221,13 +221,23 @@ static int __init mark_nonram_nosave(void)
-> >   * anyway) will take a first dip into ZONE_NORMAL and get otherwise served by
-> >   * ZONE_DMA.
-> >   */
-> > -static unsigned long max_zone_pfns[MAX_NR_ZONES];
-> > +void __init arch_zone_limits_init(unsigned long *max_zone_pfns)
-> > +{
-> > +#ifdef CONFIG_ZONE_DMA
-> > +	max_zone_pfns[ZONE_DMA]	= min(zone_dma_limit, max_low_pfn - 1) + 1;
-> 
-> Hi Mike, 
-> 
-> This doesn't look correct. Isn't the zone_dma_limit value in bytes actually?
-> Shouldn't it be -
-> 
->      max_zone_pfns[ZONE_DMA] = min((zone_dma_limit >> PAGE_SHIFT) + 1, max_low_pfn);
+Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
+Signed-off-by: Michael Orlitzky <michael@orlitzky.com>
+---
+ .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  | 21 +++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
-You are right, I'll update it for v3. 
+diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+index 54d8386bf9c0..ecf8c1e29079 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
++++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+@@ -52,6 +52,17 @@ &emmc {
+ 	status = "okay";
+ };
  
-> -ritesh
-
++&i2c0 {
++	pinctrl-0 = <&i2c0_cfg>;
++	pinctrl-names = "default";
++	status = "okay";
++
++	rtc: rtc@68 {
++		compatible = "dallas,ds1307";
++		reg = <0x68>;
++	};
++};
++
+ &i2c1 {
+ 	pinctrl-0 = <&i2c1_cfg>;
+ 	pinctrl-names = "default";
+@@ -89,6 +100,16 @@ sdhci-emmc-rst-pwr-pins {
+ 		};
+ 	};
+ 
++	i2c0_cfg: i2c0-cfg {
++		i2c0-pins {
++			pinmux = <PINMUX(PIN_IIC0_SDA, 0)>,
++				 <PINMUX(PIN_IIC0_SCL, 0)>;
++			bias-pull-up;
++			drive-strength-microamp = <26800>;
++			input-schmitt-enable;
++		};
++	};
++
+ 	i2c1_cfg: i2c1-cfg {
+ 		i2c1-pins {
+ 			pinmux = <PINMUX(PIN_IIC1_SDA, 0)>,
 -- 
-Sincerely yours,
-Mike.
+2.52.0
+
 
 _______________________________________________
 linux-riscv mailing list
