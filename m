@@ -4,110 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA7ACFD647
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 14:48:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B97CFD64F
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 15:10:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gCSphcq4J5gmSTtebY7ewtU4TR5qitKR5fgyWKz0bi4=; b=bVXE8hYRgIA1EZ
-	hmA68nIhHzxQ6cNkP6+CxsTeKhASDQXQmkWaeKPMp+io4HLB7D8epI9gTEPybwteYlfoBU5Kt7ut+
-	VXR1Fu6r/XKki8aStZe65y/uBCQ6seL3wJdtFkddJ8V2DH/vy508sMFbDH80etmsFYqMPa7wGs/IZ
-	eCcYOd6q1uvO7i16dC/ujcm2UuqVeDk/nFIQ1IS7zCYwHy8I2OWOAEAoI/mszxcQB8YMxkncXTvJ1
-	rCUNoLjmHFGcdh4lkUDgRSROzeLDaJ7DoynAc6+AqKdeOznZowxPuOAWd1+qABxcsTS8/ib0bwkCb
-	3BINDxs3rM9S1UEr8L2w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FxMMFVxQRa60KD8W+PJlli6cbbbvBRSxgElKi9Qgglg=; b=KNLrr5p1ODs2Nj
+	1pS4p76QTwDpw3WtFm9h7LWn4Iq65M8QXgPoeOuFKXAP3uRhErSIpMDwZ/NlmRAFziWTYifV/j54R
+	YNJVepkzHtpUzdeYaAKYLKOajqGY5UQPpaw8dJOQMK5h0ZHn83UVoHUXsBhL5MS7koxvj+5aT2IW3
+	74H2HTN7frgWqiY83zs5uAEVddDG1oGw+k8oOoQu68TraC6gNxbPnec2LwMHVlxIxcJb0uFoBx1xP
+	UtrHwS5rJZc6ZbF3D8CXkXRAs6Zx7zuHHh5vIeBPYaolIo0GWc80PxwTyac5IyVrb4lkUCzERVvPi
+	HyHJ/Fek1ip1kLEYs8sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdUpZ-0000000F7bW-2uIa;
-	Wed, 07 Jan 2026 14:48:13 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vdVAj-0000000F9Jj-2pDS;
+	Wed, 07 Jan 2026 15:10:05 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdUpX-0000000F7aq-2Ult;
-	Wed, 07 Jan 2026 14:48:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=+xIhfMAtjHYjFTH+p76wSQ0KBZqEgJllYmQCn9tPHTw=; b=gfgvtMRN85Hh6ULIivj+/lsOiA
-	MybjhOoCgrIWL+bUF4ZEyrlnJ3BCKR4kow6Y6NDL92/3cFJxBWTaKb1rIOfGBe+Dw0TMz+F6hTAg8
-	Crnru+IpjVNRY8M3Yo5pEqYsNvsbroxjMFB+JLG+kn8JUv7wu/qgJNEaHLWZYnCI/h9377j2QaiDj
-	Wp4USeOE/onY3OPFlzQZveXDAm1UarU5jmZ6+7+4LDv4lZECvq9bRsaYpa+NQlBAndtaGIh51toTF
-	IydUvltqxiSopJRhJfdcYVF+WCRW6z7IOhoMVL5JAXrCp/2naH+s5TUY9eMaE3iE1xilEVS8ykNR8
-	zYY+BTvw==;
-Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdUpO-0000000DVbI-1rdl;
-	Wed, 07 Jan 2026 14:48:02 +0000
-Date: Wed, 7 Jan 2026 14:48:02 +0000
-From: Matthew Wilcox <willy@infradead.org>
-To: Alex Shi <seakeel@gmail.com>
-Cc: Mike Rapoport <rppt@kernel.org>, alexs@kernel.org,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>,
-	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Nick Piggin <npiggin@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>, David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	"open list:ALPHA PORT" <linux-alpha@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>,
-	"moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
-	"open list:MMU GATHER AND TLB INVALIDATION" <linux-arch@vger.kernel.org>,
-	"open list:MMU GATHER AND TLB INVALIDATION" <linux-mm@kvack.org>,
-	"open list:C-SKY ARCHITECTURE" <linux-csky@vger.kernel.org>,
-	"open list:QUALCOMM HEXAGON ARCHITECTURE" <linux-hexagon@vger.kernel.org>,
-	"open list:LOONGARCH" <loongarch@lists.linux.dev>,
-	"open list:M68K ARCHITECTURE" <linux-m68k@lists.linux-m68k.org>,
-	"open list:MIPS" <linux-mips@vger.kernel.org>,
-	"open list:OPENRISC ARCHITECTURE" <linux-openrisc@vger.kernel.org>,
-	"open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
-	"open list:SUPERH" <linux-sh@vger.kernel.org>,
-	"open list:USER-MODE LINUX (UML)" <linux-um@lists.infradead.org>
-Subject: Re: [PATCH] mm/pgtable: convert pgtable_t to ptdesc pointer
-Message-ID: <aV5yIuGi9Ni5YP5E@casper.infradead.org>
-References: <20260107064642.15771-1-alexs@kernel.org>
- <aV4h5vQUNXn5cpMY@kernel.org>
- <080e493a-e4f1-4c97-a3e1-f76f126b5213@gmail.com>
+	id 1vdVAh-0000000F9JM-0OVr
+	for linux-riscv@lists.infradead.org;
+	Wed, 07 Jan 2026 15:10:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1767798599;
+	bh=rJaqvOB8/875SKmK7dTBqU4qyFZchqY4Kmbj5roEflw=;
+	h=From:Subject:Date:To:Cc:From;
+	b=LnmnRkXnQNe1UnB0hMqYpQRqFTI6QfwNN3MV5sH8fGUIQPJFt5Goe1ISJWNT5I48c
+	 0CUrGVe0NSoMAwjGGkwkvgUylrysHJq+bzq5gb+iMhRFHaMwRLdVZx1VDU7z1VSImH
+	 mHSCZISTSmr24CLvcNa0I5sdP4vFS+holZI3tcgDA7sCwtb4Ybg4c4H2tkiSRkTCX2
+	 ae8xmUWzSdOPoSg34EThmEzyjWOn1AhreRUsZHchab3/AfvulkkZ9YHHIG7LMdJfcS
+	 HJbWdCSybK/SQ5tCFnD8lLo4hiZ2yV8gxk4WklOp2UTmAGYVpop6yz5ciPnyPa8M+5
+	 B6hFEa1P6pe8g==
+Received: from [192.168.0.79] (unknown [IPv6:2804:14d:72b4:81ae:67c:16ff:fe57:b5a3])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dwlsalmeida)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id F2FB117E13D8;
+	Wed,  7 Jan 2026 16:09:54 +0100 (CET)
+From: Daniel Almeida <daniel.almeida@collabora.com>
+Subject: [PATCH v3 0/3] Clk improvements
+Date: Wed, 07 Jan 2026 12:09:51 -0300
+Message-Id: <20260107-clk-type-state-v3-0-77d3e3ee59c2@collabora.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <080e493a-e4f1-4c97-a3e1-f76f126b5213@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAD93XmkC/6WQzW7DIBCEX8XiXCoWjAk+9T2qHPhZGtTYJECtW
+ lHevSSu1Ko59jgrzbczcyEFc8RCxu5CMi6xxDQ3IZ464g5mfkMafdOEMy6ZZpq64zut6wlpqaY
+ idQyMUd5LCZ400yljiJ934Ou+6ZDTROsho/nBKP6AWYAC3enBSrGDISj74tLxaGzK5tml6UY+x
+ FJTXu9JF37j/4e29QH2YOWUUbBaOQBrBwF/rPvrVjLj+aONVbemxJrStkjTFOvYaeOwV1IY2b5
+ YxkGDlz3q4IMKGoVv151ES36PPHbfE/f3SAVnT8s6OypcMCr0CA75uIiW4PoFV/nla7YBAAA=
+X-Change-ID: 20250909-clk-type-state-c01aa7dd551d
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ Fu Wei <wefu@redhat.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Trevor Gross <tmgross@umich.edu>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org, 
+ linux-pwm@vger.kernel.org, linux-clk@vger.kernel.org, 
+ rust-for-linux@vger.kernel.org, 
+ Daniel Almeida <daniel.almeida@collabora.com>
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260107_071003_300921_541A95CC 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,12 +95,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 05:28:36PM +0800, Alex Shi wrote:
-> Right, I will fix this. and sent the 2nd version.
+This series contains a few improvements that simplifies clock handling for
+drivers.
 
-No, the patch is stupid and wrong.  Don't send a v2.  You seem to have a
-hairtrigger resend, so I'm trying to prevent a v2 being sent instead of
-sending a patient reply.
+Patch 1 implements the same typestate pattern that has been used
+successfully for Regulators. This is needed because otherwise drivers
+will be responsible for unpreparing and disabling clocks themselves and
+ultimately handling the reference counts on their own. This is
+undesirable. The patch automatically encodes this information using the
+type system so that no misuse can occur.
+
+Patch 2 makes things more convenient by offering devres-managed APIs. This
+lets drivers set clock parameters once and forget about lifetime
+management.
+
+Patch 3 converts clk.rs to the newer kernel-vertical style in order to make
+future changes easier.
+
+This depends on Alice Ryhl's series [0].
+
+[0]: https://lore.kernel.org/rust-for-linux/20251218-clk-send-sync-v3-0-e48b2e2f1eac@google.com/
+
+---
+Changes in v3:
+- Rebased on top of 6.19-rc4
+- Dropped patch 1 (from Alice), added her series as a dependency instead
+- Fixed Tyr, PWM_TH1520 drivers
+- Changed clk.rs imports to kernel-vertical style
+- Added support get_optional shortcut for Prepared and Enabled (i.e.:
+  Clk::<Enabled>::get_optional())
+- Fixed misplaced #[inline] tag
+
+Thanks, Danilo {
+  - Moved the devres changes into its own patch
+  - Require &Device<Bound> for all functions where a &Device is used
+  - Account for con_in in SAFETY comments where applicable
+  - Added backticks
+}
+
+- Link to v2: https://lore.kernel.org/r/20250910-clk-type-state-v2-0-1b97c11bb631@collabora.com
+
+Changes in v2:
+- Added Alice's patch as patch 1, since it is a dependency.
+- Added devm helpers (like we did for Regulator<T>)
+- Fixed missing clk_put() call in Drop (Danilo)
+- Fixed missing parenthesis and wrong docs (Viresh)
+- Removed extra "dev" parameter from "shutdown" example (Danilo)
+- Removed useless type annotation from example (Danilo)
+- Link to v1: https://lore.kernel.org/rust-for-linux/20250729-clk-type-state-v1-1-896b53816f7b@collabora.com/#r
+
+---
+Daniel Almeida (3):
+      rust: clk: use the type-state pattern
+      rust: clk: add devres-managed clks
+      rust: clk: use 'kernel vertical style' for imports
+
+ drivers/cpufreq/rcpufreq_dt.rs |   2 +-
+ drivers/gpu/drm/tyr/driver.rs  |  31 +--
+ drivers/pwm/pwm_th1520.rs      |  17 +-
+ rust/kernel/clk.rs             | 466 +++++++++++++++++++++++++++++------------
+ rust/kernel/cpufreq.rs         |   8 +-
+ 5 files changed, 346 insertions(+), 178 deletions(-)
+---
+base-commit: 9ace4753a5202b02191d54e9fdf7f9e3d02b85eb
+change-id: 20250909-clk-type-state-c01aa7dd551d
+prerequisite-change-id: 20250904-clk-send-sync-3cfa7f4e1ce2:v3
+prerequisite-patch-id: 13476f9e7e7c3bdbcab42912948953743381b1e0
+prerequisite-patch-id: 8f91583384bb4516afcac66d21ac08b3982747b2
+prerequisite-patch-id: b2ad5ecbd9a395b622bc04f891b5bb276f6f6b16
+
+Best regards,
+-- 
+Daniel Almeida <daniel.almeida@collabora.com>
+
 
 _______________________________________________
 linux-riscv mailing list
