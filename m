@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB64CD0D16C
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 19:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E0A7D0D16D
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 19:56:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2cLNMfxgjdPY425BG+Nys5SDIqW9MuLfWN9NVL2H7dA=; b=OqOVgWl3GJUU1e
-	v87DFbdc3ZIigkthY8bMX6T9iNgTcCKtMcR2ymQahc4Jt4z/IGmpZmLiBrhaiTpvFSSSAQMjp3YUJ
-	17I9URrTNXt7FWLv2bdoln8LnT2doQKSS4WB8kC0+bwWnSeQGc5Caenzn9ai1Oykj9bFmSSzvSitE
-	8QIPzwxhB82+pkKZgqbXoaPnrriIuazTQw8+lj/OG9Utqum+F+x9V9o7IneeDf/uLl+I6OomQ8wh6
-	/NEjo0TQOfOQYU2bgqeXz1SX77nNhMoEwnBu/bhsrQBdLEUiuFpEhjZ/0kV1uzdGzvG6Q34cL4D8V
-	WjfT5E4RfhokIwwbw/3Q==;
+	List-Owner; bh=B0IL8Vh85yjCfWZhIWYTGAi8BIbErzV+24eAIeErrbs=; b=mTSIMwhDhMvMkZ
+	PmDfOyFKKudzdICRN8mbOzhQl3kIqg9ikOF2CS6dJjlY6kYTcSIRWno/DeBAbkui014iUb74ZMYCE
+	UJWul3WvdZbh9+XPFYrLkO9CMIu0HKCn16k0hnoDVsKaaYwu11G39Klb/h7N2YT30M2OVAYdnYrK+
+	8WjyAwxzP6JBAJgd0Q2KDqp/41EZpRYavcHGcTiEoEe2XIO3WPEw0DmLwG8BaSSm0MtOpvwxg9CJT
+	xF/Z6/r4iUbAVlRcNYL45Z3n8IzOfY+9TkNhkEbWopeLkHDndMnaztE82wlCDfuyGsTGBjfgYGqwU
+	DwuvrivCnGIu+vLsYGZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZM7-0000000FYdG-0YGz;
-	Wed, 07 Jan 2026 19:38:07 +0000
+	id 1vdZdC-0000000FZkg-3mhR;
+	Wed, 07 Jan 2026 19:55:46 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZM3-0000000FYbH-0j7V;
-	Wed, 07 Jan 2026 19:38:05 +0000
+	id 1vdZd9-0000000FZkA-1m3b
+	for linux-riscv@lists.infradead.org;
+	Wed, 07 Jan 2026 19:55:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 70B10434A1;
-	Wed,  7 Jan 2026 19:38:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEEA9C4CEF1;
-	Wed,  7 Jan 2026 19:38:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1767814682;
-	bh=dS7+wC/J/N4NPj+M59OGoF1CMuagn2uO6v6kqhKO6ig=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OWwGoY6hJdViSG6iRV0glBiuy0hzEzrSAYxm6pgvElxvQw7PIzyZb/3TT7AxcbhTo
-	 TUxKaXNtOp+EiCLr5CBCbmYKi4KjvNqm9irZBdjQQpOM7C0BhxucB3gNp4FqP6HjtL
-	 tRz/AcQeiIMh3m9H6LPQ5SxdQZC3lYyS8tWKHwl0=
-Date: Wed, 7 Jan 2026 20:37:59 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: joaopeixoto@osyx.tech
-Cc: linux-kernel@vger.kernel.org, ajd@linux.ibm.com, alex@ghiti.fr,
-	aou@eecs.berkeley.edu, bagasdotme@gmail.com,
-	catalin.marinas@arm.com, conor+dt@kernel.org, corbet@lwn.net,
-	dan.j.williams@intel.com, davidmcerdeira@osyx.tech,
-	devicetree@vger.kernel.org, dev@kael-k.io, haren@linux.ibm.com,
-	heiko@sntech.de, jose@osyx.tech, kever.yang@rock-chips.com,
-	krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	maddy@linux.ibm.com, mani@kernel.org, nathan@kernel.org,
-	neil.armstrong@linaro.org, palmer@dabbelt.com, pjw@kernel.org,
-	prabhakar.mahadev-lad.rj@bp.renesas.com, robh@kernel.org,
-	will@kernel.org
-Subject: Re: [PATCH v2 0/6] virt: Add Bao hypervisor IPC and I/O dispatcher
- drivers
-Message-ID: <2026010746-usual-rentable-4746@gregkh>
-References: <20251224135217.25350-1-joaopeixoto@osyx.tech>
- <20260107162829.416885-1-joaopeixoto@osyx.tech>
+	by sea.source.kernel.org (Postfix) with ESMTP id 98F09434EE;
+	Wed,  7 Jan 2026 19:55:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D44A4C4CEF1;
+	Wed,  7 Jan 2026 19:55:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767815742;
+	bh=fe3cNW+BgOW0g/Yj4JbAc2KxF5WEMbD8WPo88Bf5sCw=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=d1ZQS4oC8x9+jsh0H9ADB1NoSNLDg8vTNJncoxJL7BYLjwD0ul4uInLq97s+AVmCc
+	 WF6tl9wEiy1jKZ3nUOjnu1ZTiaVyCInx6eq/97aSnHEQPHBCZhqQJl0JMxN3/1hD7I
+	 8JgHadKD74jst6z7vYGHU6mQ5o+wGFdhmfoZPkg2bDLV0aOgZdfuVU416FU3A7WA+O
+	 B1VbIlSwRaM7pdUTiF0znllayxKF8snf9iAPrT36VD3Y8v9Qqy2NmRs341+sgUAL9c
+	 GK8Dd5C7uwJrnou79MLIrxuqBfIZXh9MReIo4ldZzzFbOGT2PqcpCigF5dOXgbmS4c
+	 MNt9bybzQVJpg==
+Date: Wed, 7 Jan 2026 12:55:39 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: Lukas Bulwahn <lbulwahn@redhat.com>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    linux-riscv@lists.infradead.org, kernel-janitors@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, Lukas Bulwahn <lukas.bulwahn@redhat.com>
+Subject: Re: [PATCH] riscv: configs: Clean up references to non-existing
+ configs
+In-Reply-To: <20260107092425.24737-1-lukas.bulwahn@redhat.com>
+Message-ID: <e28b10d9-7974-020c-b558-197bd129363b@kernel.org>
+References: <20260107092425.24737-1-lukas.bulwahn@redhat.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260107162829.416885-1-joaopeixoto@osyx.tech>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_113803_263351_5B11C863 
-X-CRM114-Status: GOOD (  25.80  )
+X-CRM114-CacheID: sfid-20260107_115543_486219_BA172B58 
+X-CRM114-Status: UNSURE (   6.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,150 +70,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 04:28:23PM +0000, joaopeixoto@osyx.tech wrote:
-> From: Jo=E3o Peixoto <joaopeixoto@osyx.tech>
-> =
+On Wed, 7 Jan 2026, Lukas Bulwahn wrote:
 
-> This series introduces support for Bao hypervisor guest-side drivers
-> under drivers/virt/bao, along with the associated Device Tree bindings,
-> UAPI headers, and MAINTAINERS entries.
-> =
+> From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+> 
+>   - Drop 'CONFIG_I2C_COMPAT is not set' (removed in commit 7e722083fcc3
+>     ("i2c: Remove I2C_COMPAT config symbol and related code"))
+>   - Drop 'CONFIG_SCHED_DEBUG is not set' (removed in commit b52173065e0a
+>     ("sched/debug: Remove CONFIG_SCHED_DEBUG"))
+> 
+> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
 
-> Bao is a lightweight static-partitioning hypervisor for embedded and
-> safety-critical systems. This series adds:
-> - Bao IPC shared memory driver: Enables Linux guests to communicate
-> with each other via shared memory regions.
-> - Bao I/O Dispatcher driver: Allows Bao VMs to share I/O devices using
-> device paravirtualization (VirtIO).
-> =
-
-> Key updates in this version to align with upstream requirements:
-> 1. Switched to misc device API: Removed all cdev, class, and
-> alloc_chrdev_region code in favor of misc_register() for simpler,
-> standard device management.
-> 2. Clean kernel style and formatting: All code passes checkpatch.pl,
-> with consistent variable declaration, function naming, and comment style.
-> 3. Architecture abstraction: Consolidated ARM, ARM64, and RISC-V hypercall
-> logic into architecture-specific headers, removing in-driver #ifdefs.
-> 4. Commit messages: Now concise and Linux-kernel-style, describing
-> behavior and impact clearly.
-> 5. Device Tree compliance: Fixed all make dt_binding_check errors to
-> ensure DT binding correctness.
-> =
-
-> This series has been validated on Linux guests running under Bao
-> hypervisor, confirming correct initialization, IPC shared-memory
-> read/write operations, and I/O Dispatcher functionality for
-> backend VMs.
-> =
-
-> Feedback and review from maintainers of virtualization,
-> architecture-specific code (ARM, ARM64, RISC-V), Device Tree
-> bindings, and UAPI are welcome.
-> =
-
-> Jo=E3o Peixoto (6):
->   dt-bindings: Add Bao IPC shared memory driver binding
->   virt: bao: Add Bao IPC shared memory driver
->   dt-bindings: Add Bao I/O dispatcher driver binding
->   virt: bao: Add Bao I/O dispatcher driver
->   virt: bao: Move BAO_IPCSHMEM_HYPERCALL_ID to common header
->   MAINTAINERS: Add entries for Bao hypervisor drivers, headers, and DT
->     bindings
-> =
-
->  .../bindings/bao/bao,io-dispatcher.yaml       |  75 ++++
->  .../devicetree/bindings/bao/bao,ipcshmem.yaml |  82 ++++
->  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
->  .../userspace-api/ioctl/ioctl-number.rst      |   2 +
->  MAINTAINERS                                   |  13 +
->  arch/arm/include/asm/bao.h                    |  60 +++
->  arch/arm64/include/asm/bao.h                  |  60 +++
->  arch/riscv/include/asm/bao.h                  |  60 +++
->  drivers/virt/Kconfig                          |   2 +
->  drivers/virt/Makefile                         |   2 +
->  drivers/virt/bao/Kconfig                      |   5 +
->  drivers/virt/bao/Makefile                     |   4 +
->  drivers/virt/bao/io-dispatcher/Kconfig        |  15 +
->  drivers/virt/bao/io-dispatcher/Makefile       |   4 +
->  drivers/virt/bao/io-dispatcher/bao_drv.h      | 361 ++++++++++++++++
->  drivers/virt/bao/io-dispatcher/dm.c           | 405 ++++++++++++++++++
->  drivers/virt/bao/io-dispatcher/driver.c       | 185 ++++++++
->  drivers/virt/bao/io-dispatcher/intc.c         |  64 +++
->  drivers/virt/bao/io-dispatcher/io_client.c    | 405 ++++++++++++++++++
->  .../virt/bao/io-dispatcher/io_dispatcher.c    | 179 ++++++++
->  drivers/virt/bao/io-dispatcher/ioeventfd.c    | 323 ++++++++++++++
->  drivers/virt/bao/io-dispatcher/irqfd.c        | 314 ++++++++++++++
->  drivers/virt/bao/ipcshmem/Kconfig             |   8 +
->  drivers/virt/bao/ipcshmem/Makefile            |   3 +
->  drivers/virt/bao/ipcshmem/ipcshmem.c          | 252 +++++++++++
->  include/linux/bao.h                           |  44 ++
->  include/uapi/linux/bao.h                      |  98 +++++
->  27 files changed, 3027 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/bao/bao,io-dispatch=
-er.yaml
->  create mode 100644 Documentation/devicetree/bindings/bao/bao,ipcshmem.ya=
-ml
->  create mode 100644 arch/arm/include/asm/bao.h
->  create mode 100644 arch/arm64/include/asm/bao.h
->  create mode 100644 arch/riscv/include/asm/bao.h
->  create mode 100644 drivers/virt/bao/Kconfig
->  create mode 100644 drivers/virt/bao/Makefile
->  create mode 100644 drivers/virt/bao/io-dispatcher/Kconfig
->  create mode 100644 drivers/virt/bao/io-dispatcher/Makefile
->  create mode 100644 drivers/virt/bao/io-dispatcher/bao_drv.h
->  create mode 100644 drivers/virt/bao/io-dispatcher/dm.c
->  create mode 100644 drivers/virt/bao/io-dispatcher/driver.c
->  create mode 100644 drivers/virt/bao/io-dispatcher/intc.c
->  create mode 100644 drivers/virt/bao/io-dispatcher/io_client.c
->  create mode 100644 drivers/virt/bao/io-dispatcher/io_dispatcher.c
->  create mode 100644 drivers/virt/bao/io-dispatcher/ioeventfd.c
->  create mode 100644 drivers/virt/bao/io-dispatcher/irqfd.c
->  create mode 100644 drivers/virt/bao/ipcshmem/Kconfig
->  create mode 100644 drivers/virt/bao/ipcshmem/Makefile
->  create mode 100644 drivers/virt/bao/ipcshmem/ipcshmem.c
->  create mode 100644 include/linux/bao.h
->  create mode 100644 include/uapi/linux/bao.h
-> =
-
-> -- =
-
-> 2.43.0
-> =
+Thanks, queued for v6.19-rc.
 
 
-Hi,
-
-This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
-a patch that has triggered this response.  He used to manually respond
-to these common problems, but in order to save his sanity (he kept
-writing the same thing over and over, yet to different people), I was
-created.  Hopefully you will not take offence and will fix the problem
-in your patch and resubmit it so that it can be accepted into the Linux
-kernel tree.
-
-You are receiving this message because of the following common error(s)
-as indicated below:
-
-- This looks like a new version of a previously submitted patch, but you
-  did not list below the --- line any changes from the previous version.
-  Please read the section entitled "The canonical patch format" in the
-  kernel file, Documentation/process/submitting-patches.rst for what
-  needs to be done here to properly describe this.
-
-If you wish to discuss this problem further, or you have questions about
-how to resolve this issue, please feel free to respond to this email and
-Greg will reply once he has dug out from the pending patches received
-from other developers.
-
-thanks,
-
-greg k-h's patch email bot
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
