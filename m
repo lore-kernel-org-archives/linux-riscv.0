@@ -4,81 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6701ACD585A
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 11:34:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE61CD585F
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jan 2026 11:49:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xWfWKqt+Ls9wq41BlX6DiF1c0cRiIn5JMasrUgrK3Uw=; b=TtH8tV0GK4RgP5
-	OYbyZyOEK5aL/UxpqTib9SF5TvUanzMNOX08b/td6TMN9JJE2ZpYTnpow6ta9bncF+NhHDYDdlInB
-	fxTaCEikkOoldLb+AQB1fFHq+pSCFUVgSaNKbP1lVhY1GsV9+EsM6ZoEG8ORh00zKVj4wnXRp0fWX
-	5NtUqcQci/UnS9Mgva1E2pIfwwJ8nGJ1hYKX56F6ghtkimSzQ549Nlc3i3KezkFR/qELRze1qMGRF
-	Vg4ukTDVLwoqHYyCUiec9MIMW95Irdl5FOsdgwHNFJmMIqwt4BnbReKqdNtOerUejIK0qwN9s3Mft
-	5fx9HZ2MShneQFcOPkAw==;
+	List-Owner; bh=9QseCgthohLxctdTaPrwrZRQAXxhr0cTX3+pkbX+PhY=; b=bcsAfa/m/h+C1J
+	l6qJzc5WX2Zg5gaEWusglgTM2YIEpNfqtNs2k03entHzupTRQLlxlvsLiU36OTnuRlIBKHJjq4Afv
+	Z+yio0Pcy4gRH77LdnTYxz/Pjta2LjFfSLt9BZ2GXx6E+9BuK/VmQEVc+Yn9uMRQAOOeL+oXoUYam
+	Fced47/UAw/fVX5m+zgz7BYNpvYyRsAas8TJVkp8t+9bh3DOP2P5kzPOlAYoOuC75qUCk1eRXBfpP
+	jdF6Lo+/71YlDA+xs5yEPyo7NB5cfkbqaLDpIfmbx0YNxmEvGao8oIQ351dG3dr1egX6GmKtn7gIK
+	mygBrnnWThLxa9iYZZ8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdRnk-0000000EptB-36lz;
-	Wed, 07 Jan 2026 11:34:08 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1vdS2l-0000000EqnX-3M9r;
+	Wed, 07 Jan 2026 11:49:40 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdRne-0000000Epsc-41wk
+	id 1vdS2j-0000000EqnE-1F03
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jan 2026 11:34:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1767785643; x=1799321643;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=HF9bxW5ifEArR+IWBvYklBpsds/zxrsa+KeSijSZQAk=;
-  b=fPG7pbjzg011R7ec5EjeVxK+4fVMSKtieZF7x+T1DTevSxwJ9UhioNqc
-   24OkBIHUOVhpJ6OA3PXwQiNXvEMYycW3ltJsk63/9r5oulVTw4gxxDw9J
-   wRpWVBXCGPAU/prC9+5ExJe7eJA/NyMUlD7mrSAut50/TROerZAK8cbRb
-   POsDRnfTa2MqU2iT6NcMqTwNOCg0ssxmB2GyQKmJRPVGWYPuWW1QT/uVY
-   t28LpA1m8XY80mZZsN855NZTQSPZNN4A/ljgf0I4X9NsVoBAKI7KDDgZ0
-   52KdSAF2fg7KokwYAnh3xLZjsf3m0j/nAL+GFTfDXMiEUz9Uk8M6AfVAg
-   Q==;
-X-CSE-ConnectionGUID: ltySDGS/RCGiqAI3qPrOQA==
-X-CSE-MsgGUID: bJTUQObzRyCM9Tzxo0LCBA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11663"; a="79455972"
-X-IronPort-AV: E=Sophos;i="6.21,207,1763452800"; 
-   d="scan'208";a="79455972"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Jan 2026 03:34:02 -0800
-X-CSE-ConnectionGUID: aMlEGbLhQaCn10YQms/Y6A==
-X-CSE-MsgGUID: UtuIl78URiC4ji1cbweZXQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,207,1763452800"; 
-   d="scan'208";a="207053741"
-Received: from igk-lkp-server01.igk.intel.com (HELO 92b2e8bd97aa) ([10.211.93.152])
-  by orviesa003.jf.intel.com with ESMTP; 07 Jan 2026 03:33:58 -0800
-Received: from kbuild by 92b2e8bd97aa with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vdRnY-000000001Zw-1sIe;
-	Wed, 07 Jan 2026 11:33:56 +0000
-Date: Wed, 7 Jan 2026 12:33:26 +0100
-From: kernel test robot <lkp@intel.com>
-To: Andy Chiu <andybnac@gmail.com>, linux-riscv@lists.infradead.org,
-	linux-doc@vger.kernel.org, pjw@kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, Andy Chiu <andybnac@gmail.com>,
-	Zihong Yao <zihong.plct@isrc.iscas.ac.cn>,
-	linux-kernel@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>,
-	paul.walmsley@sifive.com, greentime.hu@sifive.com,
-	nick.hu@sifive.com, nylon.chen@sifive.com, eric.lin@sifive.com,
-	vincent.chen@sifive.com, zong.li@sifive.com,
-	yongxuan.wang@sifive.com, samuel.holland@sifive.com
-Subject: Re: [PATCH v1] Documentation: riscv: update Vector discovery for
- userspace
-Message-ID: <202601071253.83RmycAh-lkp@intel.com>
-References: <20260107000609.63892-1-andybnac@gmail.com>
+	Wed, 07 Jan 2026 11:49:38 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-b843e8a4fbfso177313766b.0
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Jan 2026 03:49:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767786575; x=1768391375; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HPH2guWiAa+jcLYFfZpcSb+e1N//ctcXTjzek0dZv4s=;
+        b=AdMuDRQjPbfC0wrTbeScLdijmsvf/YjL/5SavrbUbJ/ooPZTFEBiegW9L6S0KM/DAq
+         jSIjYMWb7peyiwsCpf9dFwRVYwjdl3QKfsAsVsiOwHJrt5Iik2iGDbNsE9mYb4AekBdI
+         ThJcjNIscYPiXsIYbFmqOZiYagny6SacI18cRp6DYgJRQL2bIpQBxAD6uFNl1a51rUKk
+         7UtvfV83xnYzqKN1AdANvzKs1X5dOKlzHGo07Dqr1XLbC2G+TvRBeC7GzRzIRAT7WowL
+         sAfKlZcYCKjK8C8Ib7JXCvu6SGpnNZzQrdnwxQaOxI69gek5IcZtHHLMlOJ9hapQkD31
+         swgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767786575; x=1768391375;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=HPH2guWiAa+jcLYFfZpcSb+e1N//ctcXTjzek0dZv4s=;
+        b=s0W9mU3uL1Gxss6t29LeDZEPOzrpRmn+VQlD9fyQCkGOszjj/x4+e7ZLxweNO8Mdyf
+         jkQj1Uuz5WuK7WwLztx3X87W1juYv5zppXiklkip2BP5QeS+lp9F+lcjOQjH/Up3W12M
+         aq6M3FYnDwD2X9871s4vTcHNfVwsRNd/tGciKuEjPHN0gvInf+fKQjwTOLfPqRj+trP9
+         GAMMr+6id8PdoK8MZIcOxSbZglCKomXmp3PkDTgAbjYO9fdUtU6CVbMLwMj6X48U+SL+
+         ikkngf9qpIKZ7gnWG84kyRz4di0L0qE+8wx6H1kOQuOigfGESFBPxRhHmZyjjqiHwnHF
+         FiHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU3TBldSe+BVTQ82GGVGXFArL3Nd6CvrMi2GCNhE94F6JKRWMUijBGQUcR6qV6rfBRYtn4KTqHeXaqZig==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUEsUENmX8ZqV1Wxt4zQO1zKft1lVZZE2/7TD5CwoboZh6X3P3
+	Ogw2tHwOTzXJlzsbnZWFdTOiIEGPvtn+lqO4BAz6MI3h0V/6pJgl2wrMJn9oh8mTkp4NsaV4Qve
+	0f/b0ivV1cJMosrAs6dlYX2Uf7PS2Em4=
+X-Gm-Gg: AY/fxX4LBDCC326yqSqfTYcu4fIim1BWlZOoYdS7STwN7Z7NgCg35qpjtDRNBtJp2dI
+	TVW2g9Gum6BKjtzoI1qtDN42aD8SzwRc3ajbv4cEAKo//MD7UwH5HJlqOvdSw0OryP0nz7iZ11y
+	7UntEHwucpNwm/HNvIZwfW1ZiwFsSfuaSqari3awcUXkegH8aH90Iie44tQ2XO8GFvnKEwdyTmn
+	ar+cfi8G6H+XVoL1ZWyoTWPTuv76+zb0Wbr7VjrQoLWhPebyXKW0ufN3+JHjjwtvUNzrcMkCDK+
+	k3cTaYnQw6rAsQCcC6cU6MO0HV4pTMqYNXdQDkCPww+c0B6V9qpggL5EHslDC3UadHQVvgk=
+X-Google-Smtp-Source: AGHT+IF0eTtEojjW317pKsViy7nHVgMW2wgHc/iJS9TlnBBJEpVv2fLQeCl2wFyqf1AwFn2vihQoXNdjYKby1QvzmuY=
+X-Received: by 2002:a17:907:98d:b0:b77:1a42:d5c0 with SMTP id
+ a640c23a62f3a-b844538b3e4mr237502766b.43.1767786574668; Wed, 07 Jan 2026
+ 03:49:34 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260107000609.63892-1-andybnac@gmail.com>
+References: <20260107023517.46840-1-jiangfeng@kylinos.cn> <20260107023517.46840-2-jiangfeng@kylinos.cn>
+In-Reply-To: <20260107023517.46840-2-jiangfeng@kylinos.cn>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Wed, 7 Jan 2026 13:48:58 +0200
+X-Gm-Features: AQt7F2omyxHUHHHa8EntYV0Gae54HsRPGifEgj5BFK566Dk5fjREMKueoWB4eVs
+Message-ID: <CAHp75VfPTwhfzaE0j5oYGpfdYoojPxqQh0AANiW583RaoijqEQ@mail.gmail.com>
+Subject: Re: [PATCH 1/5] lib/string_kunit: add test case for strlen
+To: Feng Jiang <jiangfeng@kylinos.cn>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	kees@kernel.org, andy@kernel.org, ebiggers@kernel.org, 
+	martin.petersen@oracle.com, Jason@zx2c4.com, conor.dooley@microchip.com, 
+	samuel.holland@sifive.com, charlie@rivosinc.com, ajones@ventanamicro.com, 
+	nathan@kernel.org, linus.walleij@linaro.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_033403_082921_31A28EF1 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20260107_034937_339681_5CC6FBC2 
+X-CRM114-Status: UNSURE (   5.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,55 +96,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
-
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on lwn/docs-next]
-[also build test WARNING on linus/master v6.19-rc4 next-20260107]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Andy-Chiu/Documentation-riscv-update-Vector-discovery-for-userspace/20260107-080917
-base:   git://git.lwn.net/linux.git docs-next
-patch link:    https://lore.kernel.org/r/20260107000609.63892-1-andybnac%40gmail.com
-patch subject: [PATCH v1] Documentation: riscv: update Vector discovery for userspace
-reproduce: (https://download.01.org/0day-ci/archive/20260107/202601071253.83RmycAh-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601071253.83RmycAh-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   Documentation/userspace-api/landlock:453: ./include/uapi/linux/landlock.h:45: ERROR: Unknown target name: "network flags". [docutils]
-   Documentation/userspace-api/landlock:453: ./include/uapi/linux/landlock.h:50: ERROR: Unknown target name: "scope flags". [docutils]
-   Documentation/userspace-api/landlock:453: ./include/uapi/linux/landlock.h:24: ERROR: Unknown target name: "filesystem flags". [docutils]
-   Documentation/userspace-api/landlock:462: ./include/uapi/linux/landlock.h:153: ERROR: Unknown target name: "filesystem flags". [docutils]
-   Documentation/userspace-api/landlock:462: ./include/uapi/linux/landlock.h:176: ERROR: Unknown target name: "network flags". [docutils]
->> Documentation/arch/riscv/vector.rst:163: WARNING: Unparseable C cross-reference: 'prctl(PR_RISCV_V_GET_CONTROL)'
-   Invalid C declaration: Expected end of definition. [error at 5]
-   prctl(PR_RISCV_V_GET_CONTROL)
-   -----^
-
-
-vim +163 Documentation/arch/riscv/vector.rst
-
-   162	
- > 163	c:macro:`HWCAP` is designed to serve as a quick check to see if the standard
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKYW4gNywgMjAyNiBhdCA0OjM14oCvQU0gRmVuZyBKaWFuZyA8amlhbmdmZW5nQGt5
+bGlub3MuY24+IHdyb3RlOgo+Cj4gQWRkIGEgS1VuaXQgdGVzdCBmb3Igc3RybGVuKCkgdG8gdmVy
+aWZ5IGNvcnJlY3RuZXNzIGFjcm9zcwo+IGRpZmZlcmVudCBzdHJpbmcgbGVuZ3RocyBhbmQgbWVt
+b3J5IGFsaWdubWVudHMuCgpJIGFzc3VtZSB5b3UgYWxzbyB3YW50ZWQgdGhlIG9wdGltaXNhdGlv
+biB0ZXN0cywgaS5lLiBzb21ldGhpbmcgdGhhdApkb2VzIHJhbmRvbSBmaWxsaW5nIGFuZCBtZWFz
+dXJlIHR3byBhbGdvcml0aG1zIGJ5IGV4ZWN1dGlvbiB0aW1lLgoKLS0gCldpdGggQmVzdCBSZWdh
+cmRzLApBbmR5IFNoZXZjaGVua28KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
