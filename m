@@ -4,71 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F3BD148AF
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 06:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D349AD148AF
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 06:56:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XpqgrfkZ86ZK+DkJ5QevNjVk//5B8x136gdmBUS9x5c=; b=LnH9HwhZJymv5R
-	1OdLg8nee3BRlUCz6HZgAAR2iwZnhMVKC9iMM/kG59S9KFExJHt1tloAcZlbRxLAm7pB0QgC7rcCY
-	8T1/E1rOdrFnucRqCmVF/dbA0tesxOFXgeQ01rJTaGCzufYh4fK7wCwtZZQKJ75sFWzzQWm1PQ1UY
-	tTy2kqudFeplG3i6kH7Ifqa62uHBdTJaOuhi1S2DlVw5qjt2gBBv19kADr47UQZvVqzJ7mz5SCV57
-	nTk2kQhlZjvfSxQSNDownctuz+3mJh3uQ4jS5mc6E/4GIjGi/aH6nye5WUegH/4nHdVNpYyRiqWx2
-	3lpnUmqlxtnkPNUhSsQA==;
+	List-Owner; bh=Njka8A8C9lux1e+u3VkC0sIMTubpUWQLLm3OHmUUtaw=; b=h1mQ05qka2xxv+
+	2s4ZWBGN/6Wkq6KzfwUPulRPS4fY7djvTi2cYT/6J/HgKSRvK+jN6uJNubwTETVpvjqHMFe5a2Xn9
+	iW0pQ0Wj51cTLopLMyPprr6Pr27USGOyii9E52HXTjKRuHL8mQdOYwQJcLODx6aogcM1H0xertlVY
+	RTsXSq0ZVwFjeHMyvjXbyDVvMazQAgIMUfnbulF76cbLnv07cduDcHlfU9MwYuuuPDu6lgj9qQ3oX
+	ZSOC5EW0aJNXboTGPy7liD2VRapv63xwaXAMVt67sPLwx13WDErAc52cuZkrGPLfnYLSFFHteKxjI
+	TDKPAMg3iU2d6NQhctIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdjv4-0000000G29b-0xBo;
-	Thu, 08 Jan 2026 06:54:54 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1vdjvz-0000000G2Sf-0V6A;
+	Thu, 08 Jan 2026 06:55:52 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdjv1-0000000G22W-3dlO
+	id 1vdjvq-0000000G2PW-1iFJ
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 08 Jan 2026 06:55:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=eQCJLsIB/71gsvi6bnKwRVwWdeeuHsPQ9cn3PgABLAY=; b=j5oCcpxEiDnj+P7GsmMBBy5e26
+	FX3mYI4gG84mI0ckjYH+QuHXij+F8dxl+uWQ5Byn9UTm9DuAnOwqY85Sp9vSd6GKP2E1MZAAanT9h
+	32hR/E+CF4+TziTHJhMm73enCsC9l8tg7G428to8X7Grj5PECv4izJAzeEErC2yyYHaYCjBZjfSAZ
+	+xkIKDK9cIsyBUU7SWIZuEeVtNUx692+r0U94t7T7a8kS62Al48m4054kZduR7+95g9f6POLDM4SY
+	BrsYauax6gkUq2gDfVx7NPIhgsuiuRHYbXe5ZW19A5tEhHfphoIdCvFareLmGrKD+o+KOP/cqBcPY
+	ngucKglQ==;
+Received: from mail-bjschn02on2124.outbound.protection.partner.outlook.cn ([139.219.17.124] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdjvk-0000000EYqD-1UrV
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Jan 2026 06:54:53 +0000
-X-UUID: d087ee76ec5e11f0a38c85956e01ac42-20260108
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:331afceb-032b-451e-8e83-fb7ac975119e,IP:0,UR
-	L:0,TC:0,Content:3,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:3
-X-CID-META: VersionHash:a9d874c,CLOUDID:0360f79b43531e3d0ae7c8a791c447d8,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:4|15|
-	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: d087ee76ec5e11f0a38c85956e01ac42-20260108
-X-User: jiangfeng@kylinos.cn
-Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 622215496; Thu, 08 Jan 2026 14:54:01 +0800
-Message-ID: <b419c6db-0f3f-4666-8f7c-156f7eda2b5b@kylinos.cn>
-Date: Thu, 8 Jan 2026 14:53:58 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] lib/string_kunit: add test case for strnlen
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- kees@kernel.org, andy@kernel.org, ebiggers@kernel.org,
- martin.petersen@oracle.com, Jason@zx2c4.com, conor.dooley@microchip.com,
- samuel.holland@sifive.com, charlie@rivosinc.com, ajones@ventanamicro.com,
- nathan@kernel.org, linus.walleij@linaro.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org
-References: <20260107023517.46840-1-jiangfeng@kylinos.cn>
- <20260107023517.46840-3-jiangfeng@kylinos.cn>
- <CAHp75VfxT+K1QRc5ayZGc4joB9vFJrk7kjQ4gAgUHOT1boFbmA@mail.gmail.com>
+	Thu, 08 Jan 2026 06:55:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=BVVhKeMplCtogZnQBfp6msEJ5EnrWv0+alyMO+byaNT10Ui+N1uWksts8aCcBfMUoUeOd7qRE3n3jXcUCk+Z3ew2VUHM9zV0pXxadMYDtAO3DmH/BEERAhBC75XpKuAOhRj5BkpSW6SlCrnIhG5L5CmXHCd1mAlQRPNh6IVByZL9P/rbcU8XwU/5+kelglhJwkqctebVf5UeY40rjT4ET2vXha5/H41zPFhn+VrOTUIvnSCPFJkT7QdaYBcgLrlz0fKF0DBHpUsb4RAUdZ3XlCZoM0UxzIOR/fevH4wHOhXvM2JHrV4RMStRC96284+wyziE1ICtPHXIIL0nU/ARjA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eQCJLsIB/71gsvi6bnKwRVwWdeeuHsPQ9cn3PgABLAY=;
+ b=XIzFZZ2Liw+5ZuJ6v10oKgdCibftNkGoJTnK5yCPCf1XAiyvExU7jJjx+1qxL8IAuzGpTA7pn3H9nDdRgHMhJBlx5ANrOTi6BmRg0VhAHovmdfptSGby30cpmj/mmYVlew7e42geC3eKCbXBgKV0R3OttgEO8RkPhcTSQtXsfAlzhWZtRF8xab/90P+BCnhrqSXH9+y8j8xtAes/PfzlAh3YeuZx0wZnHNOzOqFwf0cg+caWS/mX8bRNMtx0CbkSY6AshmEmsPNMcPIbuwhrYVDLXBNhGsGO66B8V3D1MJjxwznvxCBFN0NtFSun3cGiW69x9jUuwUHSb/raBE00Yw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:20::14) by SH0PR01MB0842.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:21::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.12; Thu, 8 Jan
+ 2026 06:48:07 +0000
+Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ ([fe80::81c4:2724:6a48:a18]) by SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ ([fe80::81c4:2724:6a48:a18%4]) with mapi id 15.20.9388.011; Thu, 8 Jan 2026
+ 06:48:06 +0000
+From: Joshua Yeong <joshua.yeong@starfivetech.com>
+To: Viresh Kumar <viresh.kumar@linaro.org>
+CC: "rahul@summations.net" <rahul@summations.net>, "anup@brainfault.org"
+	<anup@brainfault.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"pjw@kernel.org" <pjw@kernel.org>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "alex@ghiti.fr"
+	<alex@ghiti.fr>, "rafael@kernel.org" <rafael@kernel.org>, "sboyd@kernel.org"
+	<sboyd@kernel.org>, "jms@oss.tenstorrent.com" <jms@oss.tenstorrent.com>,
+	"darshan.prajapati@einfochips.com" <darshan.prajapati@einfochips.com>,
+	"charlie@rivosinc.com" <charlie@rivosinc.com>, "dfustini@oss.tenstorrent.com"
+	<dfustini@oss.tenstorrent.com>, "michal.simek@amd.com"
+	<michal.simek@amd.com>, "cyy@cyyself.name" <cyy@cyyself.name>,
+	"jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
+	"andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>
+Subject: RE: [PATCH 4/5] cpufreq: Add cpufreq driver for the RISC-V RPMI
+ performance service group
+Thread-Topic: [PATCH 4/5] cpufreq: Add cpufreq driver for the RISC-V RPMI
+ performance service group
+Thread-Index: AQHcfu35VvAr0fQuSkK4e06gnDRDPbVHn32AgAA3xQA=
+Date: Thu, 8 Jan 2026 06:48:06 +0000
+Message-ID: <SH0PR01MB084174DCDA011CDD9D6557FFF9852@SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn>
+References: <20260106092117.3727152-1-joshua.yeong@starfivetech.com>
+ <20260106092117.3727152-5-joshua.yeong@starfivetech.com>
+ <5nfljdaewlmafydt5a3jijjlr2krszbnadmjkpkgo7in364yzy@tiejhive2siv>
+In-Reply-To: <5nfljdaewlmafydt5a3jijjlr2krszbnadmjkpkgo7in364yzy@tiejhive2siv>
+Accept-Language: en-US
 Content-Language: en-US
-From: Feng Jiang <jiangfeng@kylinos.cn>
-In-Reply-To: <CAHp75VfxT+K1QRc5ayZGc4joB9vFJrk7kjQ4gAgUHOT1boFbmA@mail.gmail.com>
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SH0PR01MB0841:EE_|SH0PR01MB0842:EE_
+x-ms-office365-filtering-correlation-id: 8f83bf15-d8f4-444e-1fb0-08de4e81e117
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|41320700013|366016|1800799024|7416014|38070700021;
+x-microsoft-antispam-message-info: 5oolhL16zFdMQ0QWdgM//yZbTvozrDY2oLmQpxSqjiD2xm9U3p02844fwdF/gwnWJzLQyEEpil+IdJ39leaRlOJv4oNxfmM+lFB/g6m16nrEepbHoJOHs3VKSxkxMlcxd9O2DM2XeCBb9sNdgJ7rcezd9qNRFC8NCVo1UZfqfU0hQlQuzA4abUQ1y7YhhKwFC4vBWcwANOukkgQN5EhHETe9Lx2ZseTrvqriGg3JQjFRy6T/DlUwdk3mPNTFVEPNzllRZZC7YQQ6Fqru1WASnw4ZAjR/r6nKpppd3H/Wix3cLmzVH1GPZpRSZ/C+CuzdESilu3zcMv6z319tLU099w+2LZ5wO0UaEqWGpFnbUg6O3wOwdeAE0n9c11kTyjXQxdHTdyMWRzmjxi4EK0UymW8MHORsF3vM4IuA54Ozp9ggizul7KL0hwswaSV1D5bU5xaC4PVYK5+PNx8TvqHn10+69X0eICgwSdNSx6TxCzR0vV6aWg9Q4f6tzuo7KWgD4lALDP9gu9fRq707Hf+nrYI3vrfunsB1fVLeVnuM6dpQtHD321wFnWUl1WEHqFWN6vPht/iGGNADbL9RWDZ8zbjXkxbXJKguDP+XZljDZgQ=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(41320700013)(366016)(1800799024)(7416014)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?2n0fQCJ8tPuqnXAreHxEqrhqTRd/FE7NVJYnbA1RiGD5fIuZRAYlMCmI7lzJ?=
+ =?us-ascii?Q?+GKPNos6lscbpop0Nwv/c1K9yagigljuTMUTsXQzCx+So37QA0yyTOFUsztu?=
+ =?us-ascii?Q?VimracuAM+QPUNxg4E/Bbxmc5C8nJV5sJUNyyi6lWmEZx58KUE33dXkD01/a?=
+ =?us-ascii?Q?yedB8nyPkxkq/D4AeWhWdH1MhSNrM3F+187wfgg5F4OAJ6Dqmox3wCyDuMIv?=
+ =?us-ascii?Q?4CUBx08SPFkh2W58UCR9kBULvAgHaAHi71xD9Q3LM5/lRHXO4IQn8AuNKpd2?=
+ =?us-ascii?Q?LAsyKGTCoZeONYbEPkzGHWdyrBwABiLoyIok0O8jTW/xj3SEUXtthgBM9/hc?=
+ =?us-ascii?Q?kYpXUwfwcrCeRw9/fXSVWgYzf/S3PUzy12yhqf6Ad6VujQWrVk7N2Js1KuZX?=
+ =?us-ascii?Q?Ve6IHktXegAnsSa5RDvSwMf1h8Z4IfdNAsUyIMzw358+q4dd4bUqCXEfL+wu?=
+ =?us-ascii?Q?GtXVfYozeUG4siwhn/6rhqD+7LslcLLKRtfG/fnWrXlTSdP92Rqxscsjsvqm?=
+ =?us-ascii?Q?NBrHTA2RPrkc0bmyoSCep+t0mr8wd4nybFopUwLu9R3YjHA2bt1qbuG7hhg0?=
+ =?us-ascii?Q?j62+qNPTaVevpX3Dk1QmOGyTskwccEOpnJsd9KPP+OMQcqqAYM6/QYEbOPp/?=
+ =?us-ascii?Q?UbXBH8v3lMRVcLwrHol/fxJDRqnb3J3xVfhy5c8vW6cSPHAob4yK2TdJdVdt?=
+ =?us-ascii?Q?k8DhsJR/oESLLhdTxmBwtG/6BMmaIt88jC8UmlnOTqAWf+bIyr+0cOLhAOeY?=
+ =?us-ascii?Q?KpYdlkBun3H1ARrvm/hLp/QRukbrIq5vRDnHTqJQVY6vHcJvXQrZaUjv5Ql2?=
+ =?us-ascii?Q?Dx6LfWqrS+zjnA15ky6bX8yTa+Su3FfwoPP67wR0wSmg4vPCHcjA5fhI0zhI?=
+ =?us-ascii?Q?I01PLB7TiqlvieB3u1T82rooQ/KVVeDER4okbvtE/qXp0yRa53OHyK5CavRd?=
+ =?us-ascii?Q?yqsj/bDRuYdBYI8Q+U1B6kio747zgNDuGFghartPBBbqotfJ36pdZSmI2wAI?=
+ =?us-ascii?Q?BhHjCzIQTDwxERDwTge1wpm63S5h6cZfJY2aPcEmxleN54FAT00/p96s8t48?=
+ =?us-ascii?Q?qqvAU+JDrhD2nXlf6m0iFdKeYxQIiUlJqPWRFT+8aciNuaqwGiV3S8UtvEs6?=
+ =?us-ascii?Q?7h2ia3+GxuIzIZZnh9o6DzCtLvpqRoCBD+bAnWRvvzEMfL0zhV03Xp2MI4Fs?=
+ =?us-ascii?Q?p1VSwD2XWew1h53cq4s2/HbW5UErFjH4BgJD8CxPd4OpqO4XSBlmWpkVl7Qz?=
+ =?us-ascii?Q?zfJlIZ8JccLCTCLT2Jc0g69Soq2sU5I+jACEPxdPEhbFUu3mHt8CirXVAGod?=
+ =?us-ascii?Q?wEKaPBRgqN6ZdkQbC9KJomAS5XF+IxMXU8OaDqQ+44Tlak0qUH4dqoSHoDP1?=
+ =?us-ascii?Q?wpfg4BlHG1mncg1ek8YqDekcJnNhccpom/TWTuRmMRwq6RcRJsWRZkxmkeFe?=
+ =?us-ascii?Q?XaqR6xvFmUHWhiuAOLddcmiJ6RnNHFs9QIXeponVJnUL5Cm7qlzPAbA+SL6d?=
+ =?us-ascii?Q?GqxRywCNHHp79loGBAPYLHd9/c0/koLotrlOyijiI4Y4Xk1rxwd4jilIELZ2?=
+ =?us-ascii?Q?UCTTDZ400+fXNCcmIYU3vtWey/VSariSXYFG1Xb7V6QuMtvlepf18NSQ/Gyf?=
+ =?us-ascii?Q?mw=3D=3D?=
+MIME-Version: 1.0
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8f83bf15-d8f4-444e-1fb0-08de4e81e117
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Jan 2026 06:48:06.7030
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: S351Tiko76vMGiWF+hxn+ruFhu52+GwlvDTl2HdhrreLvKRwilEPa/DQmiHRz4XxW8fcaKT/8nUFsg71YIQCHu9O/DIf0YSrYfqMPqL05s4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SH0PR01MB0842
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_225452_332701_64657B1F 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260108_065537_581592_AF517C1E 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,28 +160,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNi8xLzcgMTk6NTYsIEFuZHkgU2hldmNoZW5rbyB3cm90ZToKPiBPbiBXZWQsIEphbiA3
-LCAyMDI2IGF0IDQ6MzXigK9BTSBGZW5nIEppYW5nIDxqaWFuZ2ZlbmdAa3lsaW5vcy5jbj4gd3Jv
-dGU6Cj4+Cj4+IEFkZCBhIEtVbml0IHRlc3QgZm9yIHN0cm5sZW4oKSB0byB2ZXJpZnkgY29ycmVj
-dG5lc3MgYWNyb3NzCj4+IGRpZmZlcmVudCBzdHJpbmcgbGVuZ3RocyBhbmQgbWVtb3J5IGFsaWdu
-bWVudHMuCj4gCj4gU2FtZSBjb21tZW50IGFzIHBlciBwYXRjaCAxIChpdCB3b3VsZCBwcm9iYWJs
-eSByZXF1aXJlIHRvIGNhbGwgZm9yCj4gYXJjaF9zdHJubGVuKCkgb3Igc29tZXRoaW5nIGxpa2Ug
-dGhpcykuCgpUaGFua3MsIG1ha2VzIHNlbnNlLgoKSSdsbCBhZGQgdGhlIHBlcmZvcm1hbmNlIGJl
-bmNobWFya2luZyAocmFuZG9tIGZpbGxpbmcgKyB0aW1pbmcpIGluIFYyLgoKU2luY2Ugc3RyaW5n
-IGZ1bmN0aW9ucyBhcmUgdHlwaWNhbGx5IGV4cG9ydGVkIGRpcmVjdGx5IGJ5IGVhY2ggYXJjaGl0
-ZWN0dXJlCndpdGhvdXQgYW4gYXJjaF8gcHJlZml4LCBJJ2xsIGludHJvZHVjZSBhIGdlbmVyaWNf
-c3RybmxlbigpIChiYXNlZCBvbgpsaWIvc3RyaW5nLmMpIHdpdGhpbiB0aGUgdGVzdCBmb3IgY29t
-cGFyaXNvbi4KCj4gLi4uCj4gCj4+ICsgICAgICAgZm9yIChvZmZzZXQgPSAwOyBvZmZzZXQgPCAx
-Njsgb2Zmc2V0KyspIHsKPj4gKyAgICAgICAgICAgICAgIGZvciAobGVuID0gMDsgbGVuIDw9IDEy
-ODsgbGVuKyspIHsKPiAKPiBZb3Ugd2FudCB0byBkZWZpbmUgdGhlc2UgdHdvIGxpbWl0cyB0byBh
-dm9pZCB0aGUgcG9zc2libGUgaXNzdWVzIGluCj4gdGhlIGZ1dHVyZSBpZiB0aGUgY29kZSBnZXRz
-IGNoYW5nZWQuCgpHb3QgaXQsIHdpbGwgZGVmaW5lIHRoZXNlIGxpbWl0cyBhcyBtYWNyb3MgaW4g
-VjIuIFRoYW5rcyEKCi0tIApXaXRoIEJlc3QgUmVnYXJkcywKRmVuZyBKaWFuZwoKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Thursday, January 8, 2026 11:27 AM, Viresh Kumar <viresh.kumar@linaro.org> wrote:
+
+> On 06-01-26, 17:21, Joshua Yeong wrote:
+> > diff --git a/drivers/cpufreq/Kconfig b/drivers/cpufreq/Kconfig index 
+> > 78702a08364f..9aaa1f71000e 100644
+> > --- a/drivers/cpufreq/Kconfig
+> > +++ b/drivers/cpufreq/Kconfig
+> > @@ -4,8 +4,8 @@ menu "CPU Frequency scaling"
+> >  config CPU_FREQ
+> >  	bool "CPU Frequency scaling"
+> >  	help
+> > -	  CPU Frequency scaling allows you to change the clock speed of 
+> > -	  CPUs on the fly. This is a nice method to save power, because 
+> > +	  CPU Frequency scaling allows you to change the clock speed of
+> > +	  CPUs on the fly. This is a nice method to save power, because
+> >  	  the lower the CPU clock speed, the less power the CPU consumes.
+> >  
+> >  	  Note that this driver doesn't automatically change the CPU @@ 
+> > -65,7 +65,7 @@ config CPU_FREQ_DEFAULT_GOV_USERSPACE
+> >  	select CPU_FREQ_GOV_USERSPACE
+> >  	help
+> >  	  Use the CPUFreq governor 'userspace' as default. This allows
+> > -	  you to set the CPU frequency manually or when a userspace 
+> > +	  you to set the CPU frequency manually or when a userspace
+> >  	  program shall be able to set the CPU dynamically without having
+> >  	  to enable the userspace governor manually.
+> >  
+> > @@ -134,7 +134,7 @@ config CPU_FREQ_GOV_USERSPACE
+> >  	help
+> >  	  Enable this cpufreq governor when you either want to set the
+> >  	  CPU frequency manually or when a userspace program shall
+> > -	  be able to set the CPU dynamically, like on LART 
+> > +	  be able to set the CPU dynamically, like on LART
+> >  	  <http://www.lartmaker.nl/>.
+> >  
+> >  	  To compile this driver as a module, choose M here: the @@ -147,11 
+> > +147,11 @@ config CPU_FREQ_GOV_ONDEMAND
+> >  	select CPU_FREQ_GOV_COMMON
+> >  	help
+> >  	  'ondemand' - This driver adds a dynamic cpufreq policy governor.
+> > -	  The governor does a periodic polling and 
+> > +	  The governor does a periodic polling and
+> >  	  changes frequency based on the CPU utilization.
+> >  	  The support for this governor depends on CPU capability to
+> >  	  do fast frequency switching (i.e, very low latency frequency
+> > -	  transitions). 
+> > +	  transitions).
+> >  
+> >  	  To compile this driver as a module, choose M here: the
+> >  	  module will be called cpufreq_ondemand.
+> > @@ -367,4 +367,18 @@ config ACPI_CPPC_CPUFREQ_FIE
+> >  
+> >  endif
+>
+> Unrelated changes ?
+
+Hi Viresh,
+
+Will remove the blank space in V2 patch.
+
+>
+> > +++ b/drivers/cpufreq/riscv-rpmi-cpufreq.c
+> > +static int rpmi_cpufreq_probe(struct platform_device *pdev) {
+>
+> > +fail_free_channel:
+> > +	mbox_free_channel(mpxy_ctx->chan);
+> > +
+> > +	return ret;
+> > +}
+> > +
+> > +static void rpmi_cpufreq_remove(struct platform_device *pdev) {
+> > +	cpufreq_unregister_driver(&rpmi_perf_cpufreq_driver);
+>
+> Don't need to free mpxy_ctx->chan ?
+>
+
+Ok will update this.
+
+> --
+> viresh
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
