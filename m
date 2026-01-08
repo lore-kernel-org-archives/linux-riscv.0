@@ -4,82 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C93C4D1D482
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 16:26:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B648D1D482
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 16:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+4dwt3qAXAdmOF9vOJnLSqKDOWOO6N9EMbAQiikpqRw=; b=yKUOH+i7/kKdy3
-	2oq/dM64EMfyTRWXsWN/Z7raaAj2uvs01Gu15mbuqhImpFBCZrDxQzJBDph+7JT3bNpe/x0hfUX1F
-	Ib3zLP/XMNnn+os6W3lfJ5jPilbieOji7fQhBRyAEM1Of3mVzKtJS4WrJhmD7NMi+pBPiR32RLxlY
-	x1dws7qaYnb9/ViysuejP0kQ9y4cNjz2droXbCyAcRz83LkqGL3ir0wWUH5tuh0K4t4S/W9s6XPiw
-	4WeEeLXcRdVBIasRun/ZDBkCtbKmFWnVqcRCP9jnyYtnlaJOroCUaLA1SwzWidqcK0XM1zNXpRgqt
-	z7OU8PJSfkm+U8cHf3mA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=RkBl++YMjwfbEhDDRjG/OgsEq5ibaTEAJjoqGNlGe0k=; b=Wo3xxgF3nXhPkFmxSHC49FXsHL
+	qd5A04M7Vwmq8vBzROCRAwfPkh7914+kYUTjNGIlTYJhKjix32/mH/AFcFHNxT4XeIdAR5wMs1CS3
+	g749iL4A3CnRwTm3U72w0EyLw2K6ctAa+pXHQKVmdkqEzkk52h5jrtASXdkJ3c9OoV8Dkg7zIEWD7
+	WXan7N35xxgaekmAyqG+bkLe+BK9BPilhPAPoB4mlEQ72gxG6Rd86na0/db/+D4uc5aoPeut4AOeK
+	aPIqi7spLnA+JLuhpOzpZrkbrml5corxqd8uO0WldrSIWtgt9OY8dOg3cRg6t6yhFZkvyyr122Vmu
+	CR7u7Htw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdspv-000000007oQ-0Hkm;
-	Thu, 08 Jan 2026 16:26:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdswM-000000009Qv-2Aqs;
+	Thu, 08 Jan 2026 16:32:50 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdspl-000000007mc-09n2
+	id 1vdswK-000000009Or-07SI
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Jan 2026 16:26:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6C9E86012B;
-	Thu,  8 Jan 2026 16:26:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A1C6C116C6;
-	Thu,  8 Jan 2026 16:25:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767889560;
-	bh=OQxDuNgfE6e5tF4qpwq4v6IWP64NBvnqK3wmGYcyRBU=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=XrjTyWmGlM9ynS+kE26WK4jWibbKKPLMLH4CBpcdhpleY8DPE45SA/UTzeXmERy24
-	 mJ+bBrcHNSnuJqBMo+ZxKOtxxbkobRs0QELFpHk2Z7U3owKAcH3fcdtz0syeOcU61U
-	 z6dikvGvgVC7qTCzSXkLBy2Gjmac25yXoX7s7Y79wP8niEBFgC87wv5ceryJMxvtbQ
-	 PbUU9O8SUola85nvSNQju0ZcS+8OELA8AVILAo1bGJJHXBHP7pwHVwU5R7IuZVsKeG
-	 5NT85m/20ljCZqQrzL3XnjHB59ocPhq3OMPbh0ThCl2b812NDixOgLf0NFWIUrBAwy
-	 ijChpFvHraCQQ==
-Date: Thu, 8 Jan 2026 09:25:53 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Deepak Gupta <debug@rivosinc.com>
-cc: Paul Walmsley <pjw@kernel.org>, x86@kernel.org, 
-    Paul Walmsley <paul.walmsley@sifive.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-    Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-    Christian Brauner <brauner@kernel.org>, 
-    Peter Zijlstra <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>, 
-    Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
-    Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
-    Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>, 
-    Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-    Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-    =?ISO-8859-15?Q?Bj=F6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-    Andreas Hindborg <a.hindborg@kernel.org>, 
-    Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-    Benno Lossin <lossin@kernel.org>, linux-kernel@vger.kernel.org, 
-    linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-    linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-    linux-arch@vger.kernel.org, linux-doc@vger.kernel.org, 
-    linux-kselftest@vger.kernel.org, alistair.francis@wdc.com, 
-    richard.henderson@linaro.org, jim.shu@sifive.com, 
-    Andy Chiu <andybnac@gmail.com>, kito.cheng@sifive.com, 
-    charlie@rivosinc.com, atishp@rivosinc.com, evan@rivosinc.com, 
-    cleger@rivosinc.com, alexghiti@rivosinc.com, samitolvanen@google.com, 
-    broonie@kernel.org, rick.p.edgecombe@intel.com, 
-    rust-for-linux@vger.kernel.org, Zong Li <zong.li@sifive.com>, 
-    Andreas Korb <andreas.korb@aisec.fraunhofer.de>, 
-    Valentin Haudiquet <valentin.haudiquet@canonical.com>, 
-    Charles Mirabile <cmirabil@redhat.com>, 
-    Jesse Huang <jesse.huang@sifive.com>
-Subject: Re: [PATCH v26 00/28] riscv control-flow integrity for usermode
-In-Reply-To: <CAKC1njQ-hS+kUJ0C_v0oqZW1EZw2zAXMp-SnnA-ZXh_H-SoVdQ@mail.gmail.com>
-Message-ID: <30f969d2-794f-937f-53b7-3af3f2b88ef7@kernel.org>
-References: <20251211-v5_user_cfi_series-v26-0-f0f419e81ac0@rivosinc.com> <e052745b-6bf0-c2a3-21b2-5ecd8b04ec70@kernel.org> <aTxf7IGlkGLgHgI2@debug.ba.rivosinc.com> <CAKC1njQ-hS+kUJ0C_v0oqZW1EZw2zAXMp-SnnA-ZXh_H-SoVdQ@mail.gmail.com>
-MIME-Version: 1.0
+	Thu, 08 Jan 2026 16:32:49 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-34c48a76e75so4191974a91.1
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Jan 2026 08:32:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1767889966; x=1768494766; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=P4weczJ0CflKmWmemkjVQLod+ZW9LM2QROk7btr2Pj0=;
+        b=26h3V6RNG8moPJqDL66leYTexGqEqD5/U7SCBUadHGKVY5pWJtt7XguJ1O3BzceDg1
+         M+RxNbl2thanzLi+w0WwmQ6MPiRb6OeQhhLCdHt3/7ELfDs9IJMBtnjQbzxyADyadj+y
+         BMH2uxpeErIBNIbellyoSDZG2iHAJV+ejwbkYZZCG/HBFWnEFgsbwF/aYKFX+nuF0vp4
+         4n9J+8k6WjjRXhcI8Sytt/2DrjaOl1WdhEHrH4MxtH/1WIA8f/y2MQc4FSz4wEUsMemW
+         PWVLVicqzDI8V8u7j+z6fZcD1cQrIpLhZBm8yfbNuRJFevyjaoI5DmcVKulQGZWFWbKQ
+         P4ow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767889966; x=1768494766;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=P4weczJ0CflKmWmemkjVQLod+ZW9LM2QROk7btr2Pj0=;
+        b=avlE+eCQzCl7KS6GHQP6Vo1anl9BJ/hpcr1BR+jIw7gzhfms0iKqgQxD5m/zphI4zt
+         hfBQFgLGP6fLP93q2zCznCS9mhMWyuiZ6CeNuDr8dsU1KUa6nllDyQ+BjqOE3ygzxmK5
+         H16zVHLjmnMuKlFinZmHQ+5TqZezoQ3S8UlRzuiZIm33nlL+i8x4tLvhqqeqB1S3lMhs
+         OlHP2Az2jeGBtK382cq42G929vrPbpWvG0kwssvbyAlKRw0LyZpvvVEIru4JLAodsrgc
+         /AOL6vzt4NiGEoepalfrckB3Nz4PUAAx9ibvkCjcBM0cvhu0GVAnWxw51tCsYOxoqh3B
+         0bFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWzof2lGzevn9/emrZZVMVf+UMnID9FSmOzIG6be7Lgc22gg/ED7Yoyyw2slTpL0d6Rdz7b+5y2m+Xzlg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwH/+1Vj7sWGYHRgu/CUBDwBkt04bGJQvK2SUNtN3L9HoqQWcat
+	tD5D+1+sJbGL2vzYHbeYz6GI2Zkt67sZh2NPSox5rn6XDHxCzCIntKs//ae6qz3Je9Zr/UJxCbn
+	gPVvdgA==
+X-Google-Smtp-Source: AGHT+IE52p68bfcsN1dFtZpJ3rbWKn9Teo6CB2P4bpjVKJkGE0poIQ7b/YVeU0+kM07hg/nx48xC5EXqdCA=
+X-Received: from pjbgk8.prod.google.com ([2002:a17:90b:1188:b0:340:7740:281c])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3852:b0:343:b610:901c
+ with SMTP id 98e67ed59e1d1-34f68cb9036mr7160126a91.26.1767889966231; Thu, 08
+ Jan 2026 08:32:46 -0800 (PST)
+Date: Thu, 8 Jan 2026 08:32:44 -0800
+In-Reply-To: <t7dcszq3quhqprdcqz7keykxbmqf62pdelqrkeilpbmsrnuji5@a3lplybmlbwf>
+Mime-Version: 1.0
+References: <20251230230150.4150236-1-seanjc@google.com> <20251230230150.4150236-22-seanjc@google.com>
+ <t7dcszq3quhqprdcqz7keykxbmqf62pdelqrkeilpbmsrnuji5@a3lplybmlbwf>
+Message-ID: <aV_cLAlz4v1VOkDt@google.com>
+Subject: Re: [PATCH v4 21/21] KVM: selftests: Test READ=>WRITE dirty logging
+ behavior for shadow MMU
+From: Sean Christopherson <seanjc@google.com>
+To: Yosry Ahmed <yosry.ahmed@linux.dev>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260108_083248_084753_12E39B47 
+X-CRM114-Status: GOOD (  39.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,22 +100,413 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Deepak,
-On Thu, 8 Jan 2026, Deepak Gupta wrote:
-
-> I have a bugfix for a bug reported by Jesse Huang (thanks Jesse) in riscv
-> implementation of `map_shadow_stack`.
+On Fri, Jan 02, 2026, Yosry Ahmed wrote:
+> On Tue, Dec 30, 2025 at 03:01:50PM -0800, Sean Christopherson wrote:
+> >  	WRITE_ONCE(*b, 1);
+> > -	GUEST_SYNC(true);
+> > +	GUEST_SYNC(2 | TEST_SYNC_WRITE_FAULT);
+> >  	WRITE_ONCE(*b, 1);
+> > -	GUEST_SYNC(true);
+> > -	GUEST_SYNC(false);
+> > +	GUEST_SYNC(2 | TEST_SYNC_WRITE_FAULT);
+> > +	READ_ONCE(*b);
+> > +	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
+> > +	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
 > 
-> Should I send a new series or only the bugfix-patch for implementation
-> of `map_shadow_stack`
+> Instead of hardcoding 0 and 2 here, which IIUC correspond to the
+> physical addresses 0xc0000000 and 0xc0002000, as well as indices in
+> host_test_mem, can we make the overall definitions a bit more intuitive?
+> 
+> For example:
+> 
+> #define GUEST_GPA_START		0xc0000000
+> #define GUEST_PAGE1_IDX		0
+> #define GUEST_PAGE2_IDX		1
+> #define GUEST_GPA_PAGE1		(GUEST_GPA_START + GUEST_PAGE1_IDX * PAGE_SIZE)
+> #define GUEST_GPA_PAGE2		(GUEST_GPA_START + GUEST_PAGE2_IDX * PAGE_SIZE)
+> 
+> /* Mapped to GUEST_GPA_PAGE1 and GUEST_GPA_PAGE2 */
+> #define GUEST_GVA_PAGE1		0xd0000000
+> #define GUEST_GVA_PAGE2		0xd0002000
+> 
+> /* Mapped to GUEST_GPA_PAGE1 and GUEST_GPA_PAGE2 using TDP in L1 */
+> #define GUEST_GVA_NESTED_PAGE1  0xd0001000
+> #define GUEST_GVA_NESTED_PAGE2	0xd0003000
+> 
+> Then in L2 code, we can explicitly take in the GVA of page1 and page2
+> and use the definitions above in the GUEST_SYNC() calls, for example:
+> 
+> static void l2_guest_code(u64 *page1_gva, u64 *page2_gva)
+> {
+>         READ_ONCE(*page1_gva);
+>         GUEST_SYNC(GUEST_PAGE1_IDX | TEST_SYNC_READ_FAULT);
+>         WRITE_ONCE(*page1_gva, 1);
+>         GUEST_SYNC(GUEST_PAGE1_IDX | TEST_SYNC_WRITE_FAULT);
+> 	...
+> }
+> 
+> and we can explicitly read page1 and page2 from the host (instead of
+> using host_test_mem).
+> 
+> Alternatively, we can pass in the guest GVA directly into GUEST_SYNC(),
+> and use the lower bits for TEST_SYNC_READ_FAULT, TEST_SYNC_WRITE_FAULT,
+> and TEST_SYNC_NO_FAULT.
+>
+> WDYT?
 
-If you just send the bugfix patch, I'll roll it in to the patches that I'm 
-applying.
+I fiddled with this a bunch and came up with the below.  It's more or less what
+you're suggesting, but instead of interleaving the aliases, it simply puts them
+at a higher base.  That makes pulling the page frame number out of the GVA much
+cleaner, as it's simply arithmetic instead of weird masking and shifting magic.
 
-Thanks for asking and happy new year,
+--
+From: Sean Christopherson <seanjc@google.com>
+Date: Wed, 7 Jan 2026 14:38:32 -0800
+Subject: [PATCH] KVM: selftests: Test READ=>WRITE dirty logging behavior for
+ shadow MMU
 
+Update the nested dirty log test to validate KVM's handling of READ faults
+when dirty logging is enabled.  Specifically, set the Dirty bit in the
+guest PTEs used to map L2 GPAs, so that KVM will create writable SPTEs
+when handling L2 read faults.  When handling read faults in the shadow MMU,
+KVM opportunistically creates a writable SPTE if the mapping can be
+writable *and* the gPTE is dirty (or doesn't support the Dirty bit), i.e.
+if KVM doesn't need to intercept writes in order to emulate Dirty-bit
+updates.
 
-- Paul
+To actually test the L2 READ=>WRITE sequence, e.g. without masking a false
+pass by other test activity, route the READ=>WRITE and WRITE=>WRITE
+sequences to separate L1 pages, and differentiate between "marked dirty
+due to a WRITE access/fault" and "marked dirty due to creating a writable
+SPTE for a READ access/fault".  The updated sequence exposes the bug fixed
+by KVM commit 1f4e5fc83a42 ("KVM: x86: fix nested guest live migration
+with PML") when the guest performs a READ=>WRITE sequence with dirty guest
+PTEs.
+
+Opportunistically tweak and rename the address macros, and add comments,
+to make it more obvious what the test is doing.  E.g. NESTED_TEST_MEM1
+vs. GUEST_TEST_MEM doesn't make it all that obvious that the test is
+creating aliases in both the L2 GPA and GVA address spaces, but only when
+L1 is using TDP to run L2.
+
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ .../selftests/kvm/include/x86/processor.h     |   1 +
+ .../testing/selftests/kvm/lib/x86/processor.c |   7 +
+ .../selftests/kvm/x86/nested_dirty_log_test.c | 188 +++++++++++++-----
+ 3 files changed, 145 insertions(+), 51 deletions(-)
+
+diff --git a/tools/testing/selftests/kvm/include/x86/processor.h b/tools/testing/selftests/kvm/include/x86/processor.h
+index ab29b1c7ed2d..8945c9eea704 100644
+--- a/tools/testing/selftests/kvm/include/x86/processor.h
++++ b/tools/testing/selftests/kvm/include/x86/processor.h
+@@ -1483,6 +1483,7 @@ bool kvm_cpu_has_tdp(void);
+ void tdp_map(struct kvm_vm *vm, uint64_t nested_paddr, uint64_t paddr, uint64_t size);
+ void tdp_identity_map_default_memslots(struct kvm_vm *vm);
+ void tdp_identity_map_1g(struct kvm_vm *vm,  uint64_t addr, uint64_t size);
++uint64_t *tdp_get_pte(struct kvm_vm *vm, uint64_t l2_gpa);
+ 
+ /*
+  * Basic CPU control in CR0
+diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
+index ab869a98bbdc..fab18e9be66c 100644
+--- a/tools/testing/selftests/kvm/lib/x86/processor.c
++++ b/tools/testing/selftests/kvm/lib/x86/processor.c
+@@ -390,6 +390,13 @@ static uint64_t *__vm_get_page_table_entry(struct kvm_vm *vm,
+ 	return virt_get_pte(vm, mmu, pte, vaddr, PG_LEVEL_4K);
+ }
+ 
++uint64_t *tdp_get_pte(struct kvm_vm *vm, uint64_t l2_gpa)
++{
++	int level = PG_LEVEL_4K;
++
++	return __vm_get_page_table_entry(vm, &vm->stage2_mmu, l2_gpa, &level);
++}
++
+ uint64_t *vm_get_pte(struct kvm_vm *vm, uint64_t vaddr)
+ {
+ 	int level = PG_LEVEL_4K;
+diff --git a/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c b/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c
+index 89d2e86a0db9..6f4f7a8209be 100644
+--- a/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c
++++ b/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c
+@@ -17,29 +17,53 @@
+ 
+ /* The memory slot index to track dirty pages */
+ #define TEST_MEM_SLOT_INDEX		1
+-#define TEST_MEM_PAGES			3
+ 
+-/* L1 guest test virtual memory offset */
+-#define GUEST_TEST_MEM			0xc0000000
++/*
++ * Allocate four pages total.  Two pages are used to verify that the KVM marks
++ * the accessed page/GFN as marked dirty, but not the "other" page.  Times two
++ * so that each "normal" page can be accessed from L2 via an aliased L2 GVA+GPA
++ * (when TDP is enabled), to verify KVM marks _L1's_ page/GFN as dirty (to
++ * detect failures, L2 => L1 GPAs can't be identity mapped in the TDP page
++ * tables, as marking L2's GPA dirty would get a false pass if L1 == L2).
++ */
++#define TEST_MEM_PAGES			4
+ 
+-/* L2 guest test virtual memory offset */
+-#define NESTED_TEST_MEM1		0xc0001000
+-#define NESTED_TEST_MEM2		0xc0002000
++#define TEST_MEM_BASE			0xc0000000
++#define TEST_MEM_ALIAS_BASE		0xc0002000
++
++#define TEST_GUEST_ADDR(base, idx)	((base) + (idx) * PAGE_SIZE)
++
++#define TEST_GVA(idx)			TEST_GUEST_ADDR(TEST_MEM_BASE, idx)
++#define TEST_GPA(idx)			TEST_GUEST_ADDR(TEST_MEM_BASE, idx)
++
++#define TEST_HVA(vm, idx)		addr_gpa2hva(vm, TEST_GPA(idx))
+ 
+ #define L2_GUEST_STACK_SIZE 64
+ 
+-static void l2_guest_code(u64 *a, u64 *b)
++/* Use the page offset bits to communicate the access+fault type. */
++#define TEST_SYNC_READ_FAULT		BIT(0)
++#define TEST_SYNC_WRITE_FAULT		BIT(1)
++#define TEST_SYNC_NO_FAULT		BIT(2)
++
++static void l2_guest_code(vm_vaddr_t base)
+ {
+-	READ_ONCE(*a);
+-	WRITE_ONCE(*a, 1);
+-	GUEST_SYNC(true);
+-	GUEST_SYNC(false);
++	vm_vaddr_t page0 = TEST_GUEST_ADDR(base, 0);
++	vm_vaddr_t page1 = TEST_GUEST_ADDR(base, 1);
+ 
+-	WRITE_ONCE(*b, 1);
+-	GUEST_SYNC(true);
+-	WRITE_ONCE(*b, 1);
+-	GUEST_SYNC(true);
+-	GUEST_SYNC(false);
++	READ_ONCE(*(u64 *)page0);
++	GUEST_SYNC(page0 | TEST_SYNC_READ_FAULT);
++	WRITE_ONCE(*(u64 *)page0, 1);
++	GUEST_SYNC(page0 | TEST_SYNC_WRITE_FAULT);
++	READ_ONCE(*(u64 *)page0);
++	GUEST_SYNC(page0 | TEST_SYNC_NO_FAULT);
++
++	WRITE_ONCE(*(u64 *)page1, 1);
++	GUEST_SYNC(page1 | TEST_SYNC_WRITE_FAULT);
++	WRITE_ONCE(*(u64 *)page1, 1);
++	GUEST_SYNC(page1 | TEST_SYNC_WRITE_FAULT);
++	READ_ONCE(*(u64 *)page1);
++	GUEST_SYNC(page1 | TEST_SYNC_NO_FAULT);
++	GUEST_SYNC(page1 | TEST_SYNC_NO_FAULT);
+ 
+ 	/* Exit to L1 and never come back.  */
+ 	vmcall();
+@@ -47,13 +71,22 @@ static void l2_guest_code(u64 *a, u64 *b)
+ 
+ static void l2_guest_code_tdp_enabled(void)
+ {
+-	l2_guest_code((u64 *)NESTED_TEST_MEM1, (u64 *)NESTED_TEST_MEM2);
++	/*
++	 * Use the aliased virtual addresses when running with TDP to verify
++	 * that KVM correctly handles the case where a page is dirtied via a
++	 * different GPA than would be used by L1.
++	 */
++	l2_guest_code(TEST_MEM_ALIAS_BASE);
+ }
+ 
+ static void l2_guest_code_tdp_disabled(void)
+ {
+-	/* Access the same L1 GPAs as l2_guest_code_tdp_enabled() */
+-	l2_guest_code((u64 *)GUEST_TEST_MEM, (u64 *)GUEST_TEST_MEM);
++	/*
++	 * Use the "normal" virtual addresses when running without TDP enabled,
++	 * in which case L2 will use the same page tables as L1, and thus needs
++	 * to use the same virtual addresses that are mapped into L1.
++	 */
++	l2_guest_code(TEST_MEM_BASE);
+ }
+ 
+ void l1_vmx_code(struct vmx_pages *vmx)
+@@ -72,9 +105,9 @@ void l1_vmx_code(struct vmx_pages *vmx)
+ 
+ 	prepare_vmcs(vmx, l2_rip, &l2_guest_stack[L2_GUEST_STACK_SIZE]);
+ 
+-	GUEST_SYNC(false);
++	GUEST_SYNC(TEST_SYNC_NO_FAULT);
+ 	GUEST_ASSERT(!vmlaunch());
+-	GUEST_SYNC(false);
++	GUEST_SYNC(TEST_SYNC_NO_FAULT);
+ 	GUEST_ASSERT_EQ(vmreadz(VM_EXIT_REASON), EXIT_REASON_VMCALL);
+ 	GUEST_DONE();
+ }
+@@ -91,9 +124,9 @@ static void l1_svm_code(struct svm_test_data *svm)
+ 
+ 	generic_svm_setup(svm, l2_rip, &l2_guest_stack[L2_GUEST_STACK_SIZE]);
+ 
+-	GUEST_SYNC(false);
++	GUEST_SYNC(TEST_SYNC_NO_FAULT);
+ 	run_guest(svm->vmcb, svm->vmcb_gpa);
+-	GUEST_SYNC(false);
++	GUEST_SYNC(TEST_SYNC_NO_FAULT);
+ 	GUEST_ASSERT_EQ(svm->vmcb->control.exit_code, SVM_EXIT_VMMCALL);
+ 	GUEST_DONE();
+ }
+@@ -106,12 +139,66 @@ static void l1_guest_code(void *data)
+ 		l1_svm_code(data);
+ }
+ 
++static void test_handle_ucall_sync(struct kvm_vm *vm, u64 arg,
++				   unsigned long *bmap)
++{
++	vm_vaddr_t gva = arg & ~(PAGE_SIZE - 1);
++	int page_nr, i;
++
++	/*
++	 * Extract the page number of underlying physical page, which is also
++	 * the _L1_ page number.  The dirty bitmap _must_ be updated based on
++	 * the L1 GPA, not L2 GPA, i.e. whether or not L2 used an aliased GPA
++	 * (i.e. if TDP enabled for L2) is irrelevant with respect to the dirty
++	 * bitmap and which underlying physical page is accessed.
++	 *
++	 * Note, gva will be '0' if there was no access, i.e. if the purpose of
++	 * the sync is to verify all pages are clean.
++	 */
++	if (!gva)
++		page_nr = 0;
++	else if (gva >= TEST_MEM_ALIAS_BASE)
++		page_nr = (gva - TEST_MEM_ALIAS_BASE) >> PAGE_SHIFT;
++	else
++		page_nr = (gva - TEST_MEM_BASE) >> PAGE_SHIFT;
++	TEST_ASSERT(page_nr == 0 || page_nr == 1,
++		    "Test bug, unexpected frame number '%u' for arg = %lx", page_nr, arg);
++	TEST_ASSERT(gva || (arg & TEST_SYNC_NO_FAULT),
++		    "Test bug, gva must be valid if a fault is expected");
++
++	kvm_vm_get_dirty_log(vm, TEST_MEM_SLOT_INDEX, bmap);
++
++	/*
++	 * Check all pages to verify the correct physical page was modified (or
++	 * not), and that all pages are clean/dirty as expected.
++	 *
++	 * If a fault of any kind is expected, the target page should be dirty
++	 * as the Dirty bit is set in the gPTE.  KVM should create a writable
++	 * SPTE even on a read fault, *and* KVM must mark the GFN as dirty
++	 * when doing so.
++	 */
++	for (i = 0; i < TEST_MEM_PAGES; i++) {
++		if (i == page_nr && arg & TEST_SYNC_WRITE_FAULT)
++			TEST_ASSERT(*(u64 *)TEST_HVA(vm, i) == 1,
++				    "Page %u incorrectly not written by guest", i);
++		else
++			TEST_ASSERT(*(u64 *)TEST_HVA(vm, i) == 0xaaaaaaaaaaaaaaaaULL,
++				    "Page %u incorrectly written by guest", i);
++
++		if (i == page_nr && !(arg & TEST_SYNC_NO_FAULT))
++			TEST_ASSERT(test_bit(i, bmap),
++				    "Page %u incorrectly reported clean on %s fault",
++				    i, arg & TEST_SYNC_READ_FAULT ? "read" : "write");
++		else
++			TEST_ASSERT(!test_bit(i, bmap),
++				    "Page %u incorrectly reported dirty", i);
++	}
++}
++
+ static void test_dirty_log(bool nested_tdp)
+ {
+ 	vm_vaddr_t nested_gva = 0;
+ 	unsigned long *bmap;
+-	uint64_t *host_test_mem;
+-
+ 	struct kvm_vcpu *vcpu;
+ 	struct kvm_vm *vm;
+ 	struct ucall uc;
+@@ -133,35 +220,50 @@ static void test_dirty_log(bool nested_tdp)
+ 
+ 	/* Add an extra memory slot for testing dirty logging */
+ 	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
+-				    GUEST_TEST_MEM,
++				    TEST_MEM_BASE,
+ 				    TEST_MEM_SLOT_INDEX,
+ 				    TEST_MEM_PAGES,
+ 				    KVM_MEM_LOG_DIRTY_PAGES);
+ 
+ 	/*
+-	 * Add an identity map for GVA range [0xc0000000, 0xc0002000).  This
++	 * Add an identity map for GVA range [0xc0000000, 0xc0004000).  This
+ 	 * affects both L1 and L2.  However...
+ 	 */
+-	virt_map(vm, GUEST_TEST_MEM, GUEST_TEST_MEM, TEST_MEM_PAGES);
++	virt_map(vm, TEST_MEM_BASE, TEST_MEM_BASE, TEST_MEM_PAGES);
+ 
+ 	/*
+-	 * ... pages in the L2 GPA range [0xc0001000, 0xc0003000) will map to
+-	 * 0xc0000000.
++	 * ... pages in the L2 GPA ranges [0xc0001000, 0xc0002000) and
++	 * [0xc0003000, 0xc0004000) will map to 0xc0000000 and 0xc0001000
++	 * respectively.
+ 	 *
+ 	 * When TDP is disabled, the L2 guest code will still access the same L1
+ 	 * GPAs as the TDP enabled case.
++	 *
++	 * Set the Dirty bit in the PTEs used by L2 so that KVM will create
++	 * writable SPTEs when handling read faults (if the Dirty bit isn't
++	 * set, KVM must intercept the next write to emulate the Dirty bit
++	 * update).
+ 	 */
+ 	if (nested_tdp) {
++		vm_vaddr_t gva0 = TEST_GUEST_ADDR(TEST_MEM_ALIAS_BASE, 0);
++		vm_vaddr_t gva1 = TEST_GUEST_ADDR(TEST_MEM_ALIAS_BASE, 1);
++
+ 		tdp_identity_map_default_memslots(vm);
+-		tdp_map(vm, NESTED_TEST_MEM1, GUEST_TEST_MEM, PAGE_SIZE);
+-		tdp_map(vm, NESTED_TEST_MEM2, GUEST_TEST_MEM, PAGE_SIZE);
++		tdp_map(vm, gva0, TEST_GPA(0), PAGE_SIZE);
++		tdp_map(vm, gva1, TEST_GPA(1), PAGE_SIZE);
++
++		*tdp_get_pte(vm, gva0) |= PTE_DIRTY_MASK(&vm->stage2_mmu);
++		*tdp_get_pte(vm, gva1) |= PTE_DIRTY_MASK(&vm->stage2_mmu);
++	} else {
++		*vm_get_pte(vm, TEST_GVA(0)) |= PTE_DIRTY_MASK(&vm->mmu);
++		*vm_get_pte(vm, TEST_GVA(1)) |= PTE_DIRTY_MASK(&vm->mmu);
+ 	}
+ 
+ 	bmap = bitmap_zalloc(TEST_MEM_PAGES);
+-	host_test_mem = addr_gpa2hva(vm, GUEST_TEST_MEM);
+ 
+ 	while (!done) {
+-		memset(host_test_mem, 0xaa, TEST_MEM_PAGES * PAGE_SIZE);
++		memset(TEST_HVA(vm, 0), 0xaa, TEST_MEM_PAGES * PAGE_SIZE);
++
+ 		vcpu_run(vcpu);
+ 		TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_IO);
+ 
+@@ -170,23 +272,7 @@ static void test_dirty_log(bool nested_tdp)
+ 			REPORT_GUEST_ASSERT(uc);
+ 			/* NOT REACHED */
+ 		case UCALL_SYNC:
+-			/*
+-			 * The nested guest wrote at offset 0x1000 in the memslot, but the
+-			 * dirty bitmap must be filled in according to L1 GPA, not L2.
+-			 */
+-			kvm_vm_get_dirty_log(vm, TEST_MEM_SLOT_INDEX, bmap);
+-			if (uc.args[1]) {
+-				TEST_ASSERT(test_bit(0, bmap), "Page 0 incorrectly reported clean");
+-				TEST_ASSERT(host_test_mem[0] == 1, "Page 0 not written by guest");
+-			} else {
+-				TEST_ASSERT(!test_bit(0, bmap), "Page 0 incorrectly reported dirty");
+-				TEST_ASSERT(host_test_mem[0] == 0xaaaaaaaaaaaaaaaaULL, "Page 0 written by guest");
+-			}
+-
+-			TEST_ASSERT(!test_bit(1, bmap), "Page 1 incorrectly reported dirty");
+-			TEST_ASSERT(host_test_mem[PAGE_SIZE / 8] == 0xaaaaaaaaaaaaaaaaULL, "Page 1 written by guest");
+-			TEST_ASSERT(!test_bit(2, bmap), "Page 2 incorrectly reported dirty");
+-			TEST_ASSERT(host_test_mem[PAGE_SIZE*2 / 8] == 0xaaaaaaaaaaaaaaaaULL, "Page 2 written by guest");
++			test_handle_ucall_sync(vm, uc.args[1], bmap);
+ 			break;
+ 		case UCALL_DONE:
+ 			done = true;
+
+base-commit: 3cd487701a911d0e317bf31e79fe07bba5fa9995
+--
 
 _______________________________________________
 linux-riscv mailing list
