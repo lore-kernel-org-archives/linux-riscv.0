@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 158FFD185C6
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 11:36:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77F50D185EC
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 12:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1sFARsp8MJbmbJskaM6TPqZlib6dJFnM2CmcRYJxGsA=; b=s/9h1n5sGh1Vaw
-	my8uz5eCf915ok39Q/ILjNhLEhgKS/IMElpkwWQ8XkzKsReEqeJiUiQfLOhy6mvAc605/1mCYiPX/
-	fLgO7lKYkviZVsS0mExclhzGjDNGv3nAzHZ6D0VG+J5tFkU+RTbLLuGzqavXJofKN81VFrHB6aTdd
-	4rzQF07ePw22051DxY8lGI4rxVpi1vHFmXqvPIGZGv5YCiaz2fcIDujTQgZ3skBCcuL8JPm9WwV9t
-	Iu7zD9okCdPmzymQWObfgVduiB2vy7YtE+eKkeDcaqbZm50rmtWug77jLCfneQ40PUH5GPA2NHnp/
-	3PAdiOBaep4dPBJEPnMA==;
+	List-Owner; bh=E3Ex8u2aWzaNTG73HRxExPF0FVUc0i02HLNwoz8Srmg=; b=Z6ADhy9B1+YKsR
+	GLRqVcY+YAwrZVek+zuolZ/wDtZrU/QcEkMO9BtdINVWQqgxPAaZTcz4Usdh3Ms7odzgppD2oFESd
+	5Cpw6i4mOy5Fxz5NJn/hDNZilPxxx7v+6uQ4UOQt2lq3g0Be6LLNAgIG4ZXobxlIK5oxLBPUlaD4C
+	K8+MbQmkP3Z3jPDEUzhqm2hF3BeEun8ZTDucJQ1X4Z9b3ff7UZDR8vbux1pU3YBsSDR2WPgWA4Eja
+	JvOBJ/o6UK0UV1Ps0vBPYSq+9Yaw3q/BRh6aZ4Qh99/a8jSeySzUW36BmeRsmdY2sGE4aFd1qQ8B4
+	iAfT99IAB7J0d5cLL0FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdoJM-0000000GrxR-0SI1;
-	Thu, 08 Jan 2026 11:36:16 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1vdp3v-0000000Gz5U-2PPw;
+	Thu, 08 Jan 2026 12:24:23 +0000
+Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdoJH-0000000GrwP-2YDA
+	id 1vdp3t-0000000Gz4k-0Oyg
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Jan 2026 11:36:14 +0000
+	Thu, 08 Jan 2026 12:24:22 +0000
 Received: from localhost (unknown [116.232.18.222])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 60F90342189;
-	Thu, 08 Jan 2026 11:36:09 +0000 (UTC)
-Date: Thu, 8 Jan 2026 19:36:05 +0800
+	by smtp.gentoo.org (Postfix) with ESMTPSA id A82FE340DF7;
+	Thu, 08 Jan 2026 12:24:17 +0000 (UTC)
+Date: Thu, 8 Jan 2026 20:24:13 +0800
 From: Yixun Lan <dlan@gentoo.org>
-To: Ze Huang <huang.ze@linux.dev>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Aurelien Jarno <aurelien@aurel32.net>
-Subject: Re: [PATCH v2 3/3] riscv: dts: spacemit: Enable USB3.0 on BananaPi-F3
-Message-ID: <20260108113605-GYA4052@gentoo.org>
-References: <20260107-k1-usb3dts-v2-v2-0-e659b0f8fe1a@linux.dev>
- <20260107-k1-usb3dts-v2-v2-3-e659b0f8fe1a@linux.dev>
- <20260108012157-GYA2355@gentoo.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Alex Elder <elder@riscstar.com>, Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Guodong Xu <guodong@riscstar.com>,
+	Inochi Amaoto <inochiama@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH v3 4/4] reset: spacemit: fix auxiliary device id
+Message-ID: <20260108122413-GYB4052@gentoo.org>
+References: <20260103-06-k1-clk-common-v3-0-6061d9f69eef@gentoo.org>
+ <20260103-06-k1-clk-common-v3-4-6061d9f69eef@gentoo.org>
+ <058d3911-ff2d-4151-b585-5bcb8810bedf@riscstar.com>
+ <e7fa69f1febc37062a59f566be97537a3a1e6ee0.camel@pengutronix.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260108012157-GYA2355@gentoo.org>
+In-Reply-To: <e7fa69f1febc37062a59f566be97537a3a1e6ee0.camel@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_033611_673077_DA307E83 
-X-CRM114-Status: GOOD (  26.37  )
+X-CRM114-CacheID: sfid-20260108_042421_163054_F46BF415 
+X-CRM114-Status: GOOD (  28.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,107 +71,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ze,
+Hi Philipp,
 
-I've done a quick check of the "regulator-always-on" issue, 
-it's ok to drop the one from hub, but not the vbus one..
-
-On 09:21 Thu 08 Jan     , Yixun Lan wrote:
-> Hi Ze,
-> 
->   thanks for your patch, I have few comments, see below..
-> 
-> On 20:05 Wed 07 Jan     , Ze Huang wrote:
-> > Enable the DWC3 USB 3.0 controller and its associated usbphy2 on the
-> > Banana Pi F3 board.
+On 12:07 Thu 08 Jan     , Philipp Zabel wrote:
+> On Di, 2026-01-06 at 08:43 -0600, Alex Elder wrote:
+> > On 1/3/26 1:26 AM, Yixun Lan wrote:
+> > > Due to the auxiliary register procedure moved to ccu common module where
+> > > the module name changed to spacemit_ccu, then the reset auxiliary device
+> > > register id also need to be adjusted in order to prepare for adding new
+> > > K3 reset driver, otherwise two reset drivers will claim to support same
+> > > "compatible" auxiliary device.
+> > > 
+> > > Signed-off-by: Yixun Lan <dlan@gentoo.org>
 > > 
-> > The board utilizes a VLI VL817 hub, which requires two separate power
-> > supplies: one VBUS and one for hub itself. Add two GPIO-controlled
-> > fixed-regulators to manage this.
+> > This would ideally be merged with the previous patch.  Maybe
+> > Philipp can negotiate with Stephen to have that happen.
 > > 
-> > Tested-by: Aurelien Jarno <aurelien@aurel32.net>
-> > Signed-off-by: Ze Huang <huang.ze@linux.dev>
-> > ---
-> >  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 48 +++++++++++++++++++++++++
-> >  1 file changed, 48 insertions(+)
+> > Reviewed-by: Alex Elder <elder@riscstar.com>
 > > 
-> > diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> > index 3f10efd925dc..013df91c6a4c 100644
-> > --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> > +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> > @@ -59,6 +59,26 @@ reg_vcc_4v: vcc-4v {
-> >  		regulator-always-on;
-> >  		vin-supply = <&reg_dc_in>;
-> >  	};
-> > +
-> > +	usb3_vbus: regulator-vbus-5v {
-> I've checked the schematics, the name is 5V_VBUS there, so for the consistency
-> with previous naming convention, let's change to:
-> 	usb3_vbus_5v: usb3-vbus-5v 
+> > > ---
+> > >   drivers/reset/reset-spacemit.c | 2 +-
+> > >   1 file changed, 1 insertion(+), 1 deletion(-)
+> > > 
+> > > diff --git a/drivers/reset/reset-spacemit.c b/drivers/reset/reset-spacemit.c
+> > > index e1272aff28f7..cc7fd1f8750d 100644
+> > > --- a/drivers/reset/reset-spacemit.c
+> > > +++ b/drivers/reset/reset-spacemit.c
+> > > @@ -278,7 +278,7 @@ static int spacemit_reset_probe(struct auxiliary_device *adev,
+> > >   
+> > >   #define K1_AUX_DEV_ID(_unit) \
+> > >   	{ \
+> > > -		.name = "spacemit_ccu_k1." #_unit "-reset", \
+> > > +		.name = "spacemit_ccu.k1-" #_unit "-reset", \
+> > >   		.driver_data = (kernel_ulong_t)&k1_ ## _unit ## _reset_data, \
+> > >   	}
+> > >   
 > 
-> > +		compatible = "regulator-fixed";
-> > +		regulator-name = "USB30_VBUS";
-> > +		regulator-min-microvolt = <5000000>;
-> > +		regulator-max-microvolt = <5000000>;
-> ..
-> > +		regulator-always-on;
-> do you think the "always-on" property really necessary? it indicate the
-> power regulator is critical, and should never been disabled even during
-> suspend/resume state, for the case of USB, I think it should be totally
-> fine to poweroff once the device is not used(suspended) or even disabled
+> Acked-by: Philipp Zabel <p.zabel@pengutronix.de>
 > 
-> besides, the regulator is designed with a gpio enabling/disabling control
-> which means it can be powered to on/off state?
-> 
-not ok to drop, see comment below at &usb_dwc3 
+thanks
 
-> > +		gpio = <&gpio K1_GPIO(97) GPIO_ACTIVE_HIGH>;
-> > +		enable-active-high;
-> > +	};
-> > +
-> > +	usb3_vhub: regulator-vhub-5v {
-> why use vhub, but not hub? where does this name come from?
+> to be merged via the clock tree.
 > 
-> and for same reason, the name in schematics is VCC5V0_HUB, so how about
-> change it to:
-> 	usb3_hub_5v: usb3-hub-5v 
+ok, got!
+
+and, here is my plan, I will prepare an immutable tag for the patch 4 -
+the change to reset driver ID, and merge it with the whole series,
+then send them along via clock tree.
+
+the tag would be useful if follow-up K3 reset patch[1] need to be merged, since
+both will change the reset driver, and with the tag, patch 4 can be pulled into
+both clock and reset subsystem, future reset patches can commit on top of it.
+even there is no price to pay if above doesn't happen.
+
+
+> Note that the commits for both patches 2 and 3 will fail to probe the
+> reset driver when bisecting.
+> If you don't want do merge the corresponding changes to K1_AUX_DEV_ID()
+> into those two patches, to make this series (runtime) bisectable, you
+no, I do not want to merge changes K1_AUX_DEV_ID() into patch 2/3
+
+> should add a warning to both their commit messages that the reset
+> driver will be adapted in the following patch 4.
+ok, I will send a new version and add a warning message
+
 > 
-> > +		compatible = "regulator-fixed";
-> > +		regulator-name = "USB30_VHUB";
->                                     ~~~need to fix too, if above is valid
-> > +		regulator-min-microvolt = <5000000>;
-> > +		regulator-max-microvolt = <5000000>;
-> ..
-> > +		regulator-always-on;
-> ditto
-ok to drop, as it's already handled at drivers/usb/misc/onboard_usb_dev.c
-which will explicitly request the regulator and enable it
+> regards
+> Philipp
 
-> > +		gpio = <&gpio K1_GPIO(123) GPIO_ACTIVE_HIGH>;
-> > +		enable-active-high;
-> > +	};
-> >  };
-> >  
-> >  &combo_phy {
-> > @@ -67,6 +87,34 @@ &combo_phy {
-> >  	status = "okay";
-> >  };
-> >  
-> ..
-> > +&usbphy2 {
-> > +	status = "okay";
-> > +};
-> > +
-> > +&usb_dwc3 {
-> > +	dr_mode = "host";
-> > +	vbus-supply = <&usb3_vbus>;
-due to drivers/usb/dwc3/dwc3-generic-plat.c has no handler to request regulator
-there will be problem if "regulator-always-on" property is removed..
-
-> > +	#address-cells = <1>;
-> > +	#size-cells = <0>;
-> > +	status = "okay";
-> > +
+Link: https://lore.kernel.org/all/20251229-k3-reset-v1-0-eda0747bded3@riscstar.com/ [1]
 
 -- 
 Yixun Lan (dlan)
