@@ -4,100 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F6B1D148AF
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 06:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F3BD148AF
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 06:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ot4DLDIUZQerKN06rwbQaukA7RgaOwafNFi8b64YOeg=; b=DuMDBRfANzgqGG
-	+cZ/DEx3ajQ54LxFXVOj538dc6UjKxKER1FKonUWsac7pmZtwxo5a8YZh23hfxA1c6VAOpn/7qKoq
-	ubs5bQKTzUMd+2a5VQB846rCBHQu8dUeYlwxxna2ax6sQkynZ02TiB1k4aAXhTAc319+lcdtf9MeK
-	+sZHWDuAhs0878MpoYHAxuNFuM1PczVPVd6rjYIiLEqIsHXarf3IPoTLZuPTZdxlBUGZ7OXvL10AY
-	HIz46h3tZmOgWzZI493slInPdmvLzwOKPn4BZv3LmSIrfJKznlMx+OtMCgqhPHEiqPgrLGw0h3eS2
-	Cu26yQdg77p5M6X8fsBg==;
+	List-Owner; bh=XpqgrfkZ86ZK+DkJ5QevNjVk//5B8x136gdmBUS9x5c=; b=LnH9HwhZJymv5R
+	1OdLg8nee3BRlUCz6HZgAAR2iwZnhMVKC9iMM/kG59S9KFExJHt1tloAcZlbRxLAm7pB0QgC7rcCY
+	8T1/E1rOdrFnucRqCmVF/dbA0tesxOFXgeQ01rJTaGCzufYh4fK7wCwtZZQKJ75sFWzzQWm1PQ1UY
+	tTy2kqudFeplG3i6kH7Ifqa62uHBdTJaOuhi1S2DlVw5qjt2gBBv19kADr47UQZvVqzJ7mz5SCV57
+	nTk2kQhlZjvfSxQSNDownctuz+3mJh3uQ4jS5mc6E/4GIjGi/aH6nye5WUegH/4nHdVNpYyRiqWx2
+	3lpnUmqlxtnkPNUhSsQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdjsl-0000000G1n4-3qqJ;
-	Thu, 08 Jan 2026 06:52:31 +0000
-Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
+	id 1vdjv4-0000000G29b-0xBo;
+	Thu, 08 Jan 2026 06:54:54 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdjsh-0000000G1mQ-3buS
+	id 1vdjv1-0000000G22W-3dlO
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Jan 2026 06:52:30 +0000
-Received: by mail-pj1-x1044.google.com with SMTP id 98e67ed59e1d1-34c24f4dfb7so1641112a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Jan 2026 22:52:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767855147; x=1768459947; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ui1md6GLIAbVR5qdoR2S2qe4tIaQfGaBLcdNaqS2s2A=;
-        b=lyE9xF4blLzlKpKLt3IkZ1YepneZJXO/ipGRTiwUlX+b7m6WMsTowrhuK7e3X7ZSsk
-         xFSiyaUKVnChJnMHrNc4Auql44FHXmigvUbC2Yy0bXrMTFaOvTdjYMNQ6pLgn7vpRNLa
-         LydAyf7riWW+FHEsOBHGCOShVq+GIZOSk1PEhW9a5UU1xxqmUj2IM7WtrH0hArdTi1QA
-         2tD0uNlPfuqP6qYdwaxn2ika8HmR0zrZxFUnG8OIKPWcutTIsiPVmD7tvO0d3nX1HiT5
-         revhkUuftPYIshec6o0Ogre2RMhy81mERGax0ul1ftrGfYMNbCqAW2Op+h9z1eGQ3brZ
-         ekKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767855147; x=1768459947;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ui1md6GLIAbVR5qdoR2S2qe4tIaQfGaBLcdNaqS2s2A=;
-        b=fOZVPQTY0XdrkprOfMxEahHS6T1CSvUjxleOUwFGsanXZiZ5UkD4Q4KxBISg39Bp37
-         q8rXc6AyT1h9Tj8LG0L1CP7oAoNQbGPFCal0b7tryc7bEcHAXREBFmVLQ6K8oKkloJTd
-         v62FhRGdCuUi5puLFTOz9b/5QjyD8lJarOrx4Gpv/9gQ2ZwJ3CilqL612+lXQyg9TijT
-         BemS7T2GsDJxYU3GwwdRkjzVDZ4jUex/vdv+k324hFbeXQQxAeKvOOOaJgcGn4jS/B0E
-         38eJ4RrvIKiccdF8q3i9XCur+u11OUxSPTK5j79eO2JuafL/xFqRAWggSrX1liV8nH84
-         sE8g==
-X-Forwarded-Encrypted: i=1; AJvYcCVMhQgjPgsLNo6/pz55H//p/OqstDiS0jS9uIDXN9kZaSzNJAhckuqQ8HUCEZL7Px0tzwrECfCyZtvGOQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGG8XnLpnin+0IF+LcglPCmTMNkVdoUpGjsw7mTv3mwM5cHHbS
-	pU24bWPgT2GGXlOtus4dLZKSG+ocOxwgv8akEuUQ1C9kWslieLhWug3TUGGss82NMKA=
-X-Gm-Gg: AY/fxX6yFDOw/YHBq8fzf/8MHPB1UW4DdHvGscIJULSrFwDJuip+ZNQTiBskrpiEyuY
-	nxfkz1pTAwDvls9YyI8T5PTNt4JBzGa/vWaFaX9Tjp7nC111kiVFKTlAxAXNrMqp3MllgVJnmSb
-	Rf9ZNS0MBVJe/qkGkcOqzU1Z30qGzQ6WPL5B4R3NwhZC9yNmuDdVeFatBN2KyR+mCifgZsz8Ubv
-	1M1p25CVkkZZNxElATi8dr8MaBRtPY6IpAbYxJgovaqu9ShMOIKH7Asl/hj6nH6exuydvuHP13W
-	3TP5zxiemgBoE6ml4CSomsNg68qqf9dW1gid0Fci15QIKX/Nrz9R+dCTseD662oMGucFGTK4GM2
-	7tvfHpAsvY99usdO6BGGTk/0UbyY71AIVab4e5maQic1VkrvcsjCpUFvsCv5OGw8YVjVAp6g3nQ
-	PTRcNxE4mzM+U=
-X-Google-Smtp-Source: AGHT+IHDhLngCXk0+vr5I8WQ83ajbpSXd1J3uu2NiCef0XJDNyI8VNxhq7B1GWkAhONpFP7xS/AZaQ==
-X-Received: by 2002:a17:90b:3e43:b0:34c:cb3c:f544 with SMTP id 98e67ed59e1d1-34f68c50868mr4787427a91.14.1767855146587;
-        Wed, 07 Jan 2026 22:52:26 -0800 (PST)
-Received: from localhost ([122.172.80.63])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-819c5302c61sm6658548b3a.42.2026.01.07.22.52.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Jan 2026 22:52:25 -0800 (PST)
-Date: Thu, 8 Jan 2026 12:22:23 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Joshua Yeong <joshua.yeong@starfivetech.com>
-Cc: "rahul@summations.net" <rahul@summations.net>, 
-	"anup@brainfault.org" <anup@brainfault.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, 
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "pjw@kernel.org" <pjw@kernel.org>, 
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, 
-	"alex@ghiti.fr" <alex@ghiti.fr>, "rafael@kernel.org" <rafael@kernel.org>, 
-	"sboyd@kernel.org" <sboyd@kernel.org>, "jms@oss.tenstorrent.com" <jms@oss.tenstorrent.com>, 
-	"darshan.prajapati@einfochips.com" <darshan.prajapati@einfochips.com>, "charlie@rivosinc.com" <charlie@rivosinc.com>, 
-	"dfustini@oss.tenstorrent.com" <dfustini@oss.tenstorrent.com>, "michal.simek@amd.com" <michal.simek@amd.com>, 
-	"cyy@cyyself.name" <cyy@cyyself.name>, "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>, 
-	"andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>
-Subject: Re: [PATCH 4/5] cpufreq: Add cpufreq driver for the RISC-V RPMI
- performance service group
-Message-ID: <paq3iilgrnuhf4aia7umhc6m26ghusyibptutvrpfm4wmoew3i@repcvxossgot>
-References: <20260106092117.3727152-1-joshua.yeong@starfivetech.com>
- <20260106092117.3727152-5-joshua.yeong@starfivetech.com>
- <5nfljdaewlmafydt5a3jijjlr2krszbnadmjkpkgo7in364yzy@tiejhive2siv>
- <SH0PR01MB084174DCDA011CDD9D6557FFF9852@SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn>
+	Thu, 08 Jan 2026 06:54:53 +0000
+X-UUID: d087ee76ec5e11f0a38c85956e01ac42-20260108
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:331afceb-032b-451e-8e83-fb7ac975119e,IP:0,UR
+	L:0,TC:0,Content:3,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:3
+X-CID-META: VersionHash:a9d874c,CLOUDID:0360f79b43531e3d0ae7c8a791c447d8,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:4|15|
+	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: d087ee76ec5e11f0a38c85956e01ac42-20260108
+X-User: jiangfeng@kylinos.cn
+Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <jiangfeng@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 622215496; Thu, 08 Jan 2026 14:54:01 +0800
+Message-ID: <b419c6db-0f3f-4666-8f7c-156f7eda2b5b@kylinos.cn>
+Date: Thu, 8 Jan 2026 14:53:58 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <SH0PR01MB084174DCDA011CDD9D6557FFF9852@SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] lib/string_kunit: add test case for strnlen
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ kees@kernel.org, andy@kernel.org, ebiggers@kernel.org,
+ martin.petersen@oracle.com, Jason@zx2c4.com, conor.dooley@microchip.com,
+ samuel.holland@sifive.com, charlie@rivosinc.com, ajones@ventanamicro.com,
+ nathan@kernel.org, linus.walleij@linaro.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20260107023517.46840-1-jiangfeng@kylinos.cn>
+ <20260107023517.46840-3-jiangfeng@kylinos.cn>
+ <CAHp75VfxT+K1QRc5ayZGc4joB9vFJrk7kjQ4gAgUHOT1boFbmA@mail.gmail.com>
+Content-Language: en-US
+From: Feng Jiang <jiangfeng@kylinos.cn>
+In-Reply-To: <CAHp75VfxT+K1QRc5ayZGc4joB9vFJrk7kjQ4gAgUHOT1boFbmA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_225227_917993_F3175821 
-X-CRM114-Status: GOOD (  24.15  )
+X-CRM114-CacheID: sfid-20260107_225452_332701_64657B1F 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,78 +80,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08-01-26, 06:48, Joshua Yeong wrote:
-> On Thursday, January 8, 2026 11:27 AM, Viresh Kumar <viresh.kumar@linaro.org> wrote:
-> 
-> > On 06-01-26, 17:21, Joshua Yeong wrote:
-> > > diff --git a/drivers/cpufreq/Kconfig b/drivers/cpufreq/Kconfig index 
-> > > 78702a08364f..9aaa1f71000e 100644
-> > > --- a/drivers/cpufreq/Kconfig
-> > > +++ b/drivers/cpufreq/Kconfig
-> > > @@ -4,8 +4,8 @@ menu "CPU Frequency scaling"
-> > >  config CPU_FREQ
-> > >  	bool "CPU Frequency scaling"
-> > >  	help
-> > > -	  CPU Frequency scaling allows you to change the clock speed of 
-> > > -	  CPUs on the fly. This is a nice method to save power, because 
-> > > +	  CPU Frequency scaling allows you to change the clock speed of
-> > > +	  CPUs on the fly. This is a nice method to save power, because
-> > >  	  the lower the CPU clock speed, the less power the CPU consumes.
-> > >  
-> > >  	  Note that this driver doesn't automatically change the CPU @@ 
-> > > -65,7 +65,7 @@ config CPU_FREQ_DEFAULT_GOV_USERSPACE
-> > >  	select CPU_FREQ_GOV_USERSPACE
-> > >  	help
-> > >  	  Use the CPUFreq governor 'userspace' as default. This allows
-> > > -	  you to set the CPU frequency manually or when a userspace 
-> > > +	  you to set the CPU frequency manually or when a userspace
-> > >  	  program shall be able to set the CPU dynamically without having
-> > >  	  to enable the userspace governor manually.
-> > >  
-> > > @@ -134,7 +134,7 @@ config CPU_FREQ_GOV_USERSPACE
-> > >  	help
-> > >  	  Enable this cpufreq governor when you either want to set the
-> > >  	  CPU frequency manually or when a userspace program shall
-> > > -	  be able to set the CPU dynamically, like on LART 
-> > > +	  be able to set the CPU dynamically, like on LART
-> > >  	  <http://www.lartmaker.nl/>.
-> > >  
-> > >  	  To compile this driver as a module, choose M here: the @@ -147,11 
-> > > +147,11 @@ config CPU_FREQ_GOV_ONDEMAND
-> > >  	select CPU_FREQ_GOV_COMMON
-> > >  	help
-> > >  	  'ondemand' - This driver adds a dynamic cpufreq policy governor.
-> > > -	  The governor does a periodic polling and 
-> > > +	  The governor does a periodic polling and
-> > >  	  changes frequency based on the CPU utilization.
-> > >  	  The support for this governor depends on CPU capability to
-> > >  	  do fast frequency switching (i.e, very low latency frequency
-> > > -	  transitions). 
-> > > +	  transitions).
-> > >  
-> > >  	  To compile this driver as a module, choose M here: the
-> > >  	  module will be called cpufreq_ondemand.
-> > > @@ -367,4 +367,18 @@ config ACPI_CPPC_CPUFREQ_FIE
-> > >  
-> > >  endif
-> >
-> > Unrelated changes ?
-> 
-> Will remove the blank space in V2 patch.
-
-You actually removed the unnecessary blank spaces at the end of many lines,
-which is a good change but in a wrong patch. If you want to fix that, send it
-separately.
-
--- 
-viresh
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjAyNi8xLzcgMTk6NTYsIEFuZHkgU2hldmNoZW5rbyB3cm90ZToKPiBPbiBXZWQsIEphbiA3
+LCAyMDI2IGF0IDQ6MzXigK9BTSBGZW5nIEppYW5nIDxqaWFuZ2ZlbmdAa3lsaW5vcy5jbj4gd3Jv
+dGU6Cj4+Cj4+IEFkZCBhIEtVbml0IHRlc3QgZm9yIHN0cm5sZW4oKSB0byB2ZXJpZnkgY29ycmVj
+dG5lc3MgYWNyb3NzCj4+IGRpZmZlcmVudCBzdHJpbmcgbGVuZ3RocyBhbmQgbWVtb3J5IGFsaWdu
+bWVudHMuCj4gCj4gU2FtZSBjb21tZW50IGFzIHBlciBwYXRjaCAxIChpdCB3b3VsZCBwcm9iYWJs
+eSByZXF1aXJlIHRvIGNhbGwgZm9yCj4gYXJjaF9zdHJubGVuKCkgb3Igc29tZXRoaW5nIGxpa2Ug
+dGhpcykuCgpUaGFua3MsIG1ha2VzIHNlbnNlLgoKSSdsbCBhZGQgdGhlIHBlcmZvcm1hbmNlIGJl
+bmNobWFya2luZyAocmFuZG9tIGZpbGxpbmcgKyB0aW1pbmcpIGluIFYyLgoKU2luY2Ugc3RyaW5n
+IGZ1bmN0aW9ucyBhcmUgdHlwaWNhbGx5IGV4cG9ydGVkIGRpcmVjdGx5IGJ5IGVhY2ggYXJjaGl0
+ZWN0dXJlCndpdGhvdXQgYW4gYXJjaF8gcHJlZml4LCBJJ2xsIGludHJvZHVjZSBhIGdlbmVyaWNf
+c3RybmxlbigpIChiYXNlZCBvbgpsaWIvc3RyaW5nLmMpIHdpdGhpbiB0aGUgdGVzdCBmb3IgY29t
+cGFyaXNvbi4KCj4gLi4uCj4gCj4+ICsgICAgICAgZm9yIChvZmZzZXQgPSAwOyBvZmZzZXQgPCAx
+Njsgb2Zmc2V0KyspIHsKPj4gKyAgICAgICAgICAgICAgIGZvciAobGVuID0gMDsgbGVuIDw9IDEy
+ODsgbGVuKyspIHsKPiAKPiBZb3Ugd2FudCB0byBkZWZpbmUgdGhlc2UgdHdvIGxpbWl0cyB0byBh
+dm9pZCB0aGUgcG9zc2libGUgaXNzdWVzIGluCj4gdGhlIGZ1dHVyZSBpZiB0aGUgY29kZSBnZXRz
+IGNoYW5nZWQuCgpHb3QgaXQsIHdpbGwgZGVmaW5lIHRoZXNlIGxpbWl0cyBhcyBtYWNyb3MgaW4g
+VjIuIFRoYW5rcyEKCi0tIApXaXRoIEJlc3QgUmVnYXJkcywKRmVuZyBKaWFuZwoKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
