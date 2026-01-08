@@ -4,65 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1AE6D1D478
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 18:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DE4D1D486
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 18:20:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KYmRrEH6LCrVgagWs8mRGPepA1460BRl97nj8DYNszE=; b=Fj/YPg9vydkJQ3
-	Qrd73G/1oGRMricKfGE8bxZ3x3UHJnohqcRydhQqBXBdN2VxhOg9UtKcZUkH5/Z79oy93O+QAqLlg
-	M1aWjQ7t94+5qN3e1njputYNI6uONe/thDfZ6X4bwIvLpRb3UmlVDQnqUdNzZGBIt3xOgEH2tq0by
-	zKeaveLBvrMZDNB3fqyiTsyJQ/2f8CPIvGqZM48/3I2xHkMsdkjzpDk4mCmD0rkyPcRtdYUbVFlYz
-	+q4sK7x99YQaJOvFlYbobC8ImNRsc6LA8kZKIZB+ymcxTAHffckvUZ5AEDf/yk2tu00lKzjVwgkrO
-	LOYhSIFvEI2iuV6FD7/Q==;
+	List-Owner; bh=s0uoYMUgtpVyJwtT76QnvH4JZurgcbvEbM3otPUOfe4=; b=JbvDAsRFJW/TpV
+	f3t5WX2+wYuWPWnfoZFxM1ndu1rTn/Zjau0d8mWBl/4QX60BkVJRnpT7it1dw/7VFDvUslgkbee1l
+	yP6PKaO97NlPZdvwOZO/Ta4oj2zC0NiV9RMBKzbdegkJNdDR0qtBl062mRGD7dTgzp++zzRiFi+Or
+	y0Pp1EdABlV/B5yV8QXt5DaHwW/OR0hvQFa2hTrA3iW+97U22M5tQZQE+yq/dKWQECCgxQ8kztw8+
+	tz6q3y3EW1EvYmTo94UiAdIlPEiHZF+y/vOsWg+jHinvb7Py/9bWkAKUL6nNGFZVa/nqFPfIR6Yl/
+	C/nMW73ZxPnpLAwlSHHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vduKc-00000000Xc6-3ZLd;
-	Thu, 08 Jan 2026 18:01:58 +0000
-Received: from out-170.mta1.migadu.com ([2001:41d0:203:375::aa])
+	id 1vduc7-00000000aaI-1KuD;
+	Thu, 08 Jan 2026 18:20:03 +0000
+Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vduKa-00000000Xan-0wsh
+	id 1vduc4-00000000aY6-2m7X
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Jan 2026 18:01:58 +0000
-Date: Thu, 8 Jan 2026 18:01:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1767895312;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mHJvd2lOsd2wbBTE/hRKRyHsP8VtLimAvA5l0WDsuuI=;
-	b=NNiC6X1eiOY1vt6ur7HKIpfzt3j34lWx44WxF9qrMQ5c0WFv9a2bOfOsrRs6zKXmr/lF6h
-	vtAYr4ZuDCheAMhLpUV9ZRWeQ7lEFkUNKHB27ih+ISXEEIjcAi84GXchAP8LsvKNkNsN3y
-	ANpKS595tEqqGM/bSu9MKaO2JENVkck=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Yosry Ahmed <yosry.ahmed@linux.dev>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 21/21] KVM: selftests: Test READ=>WRITE dirty logging
- behavior for shadow MMU
-Message-ID: <gzyjze3wszmrwxdwnudij6nfqdxzihm37uappfqxorfjy5vatf@hffzaobbm3g7>
-References: <20251230230150.4150236-1-seanjc@google.com>
- <20251230230150.4150236-22-seanjc@google.com>
- <t7dcszq3quhqprdcqz7keykxbmqf62pdelqrkeilpbmsrnuji5@a3lplybmlbwf>
- <aV_cLAlz4v1VOkDt@google.com>
+	Thu, 08 Jan 2026 18:20:01 +0000
+Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-45391956bfcso2529716b6e.3
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Jan 2026 10:20:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1767896399; x=1768501199; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Ohc2giVuVn3JULq4s35HjI1BOKvAGS8MZPmPZF1eTvM=;
+        b=ZQouD7TJLCeD8KRhPkqFoS4b2LUYG9VLgvxaIH7IS7AZGOoDTyXx2rsC11Eel3gSN8
+         3kIeZz8FxH+82WeHMRvK7MDBZdKgfPCU0Pz0EuAzr0WP34+vFGCXzk9H3ekp1j+GkNLD
+         CSExyj2nkTvvt059p+Syh9PWB1ToYIqbcbhkfRbmIdgqMNs0l/j4m/Y9/2KYCuX9ZxZQ
+         Ryh0Vzy3T7afmUgMf1ojNKciPxA0HV9YA4NctIyauvqozr2edKL4Sn60d41c0m5XCEi4
+         bLcY7gcHGOH3GFwlseo7fWNlDrdGIh0w0LG4zwIGSUcxpV9LASJ4ymmEPZOY0Eogxq/E
+         GAWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767896399; x=1768501199;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ohc2giVuVn3JULq4s35HjI1BOKvAGS8MZPmPZF1eTvM=;
+        b=iYTVxUWBw4XC9P4Dyv7YbRvXK/hU0P5n57T98qIgpTtxcJA5bnXcGNYmlmZn2erLKh
+         hpYhJxQbRxer8tPREKlDXW57T5pS2U3D44lExe5fqaBmgUokQdDpYVT2Lp+z/XxNFf5m
+         2CZE0ItyDipf3SEH8EDbTqgUdxJhr56ey/K6KW1lb5o6pNU8Lx3Ce442aeqBuwGxSoQ7
+         ebjy3pr/63ROjVyM8RrQ9lpkD9LE6gBhuWdTTcTbSeyktgqB+6konXPBrboNVDjhcKcL
+         z1KdDBX5hdhwv9bl7M0LMh+he2Atx8U0Szyll+dgdZqZuXewCL3OZtJhNLBOn7WoG7Ze
+         mXfg==
+X-Forwarded-Encrypted: i=1; AJvYcCUhAlsiDKhsUPFajLQf8dYgvCKigpWByyYK1m0sHXgu1hR0x04ArlfasKzwo9/qzGNq+eDUl9rHXeGQgw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwabQQBZYUYOtDkIlDBpa6LYhKM4G68/P/y+QqGFbHBY5FkeuQD
+	rLf6WCcdwj/6LxSDCSIW+XXRdQuLw8kZSfzhz0bUMvtpjjaPJ5iL0y2hvSxabLo0h50=
+X-Gm-Gg: AY/fxX4Imoqtn18IjEAk5X0mcynJ8pz9J2SBj7wmXecRqfzj/c1fjS5HQhX9GCP4y/p
+	X0Gy5K4hh+GPEuKLLMK3dx5gCTwtOWfJqFgSjHodfrOELX+5PXMNfzwGrBco+qliP1qiG8S824y
+	v6+8t6/D9dqIxf17wGvgCV2Ksd4FR0NSpTQbKP8XQO4PqIlyWF+kiIMeDxOfX9Y4kLZnjIjgs5z
+	j/OV8AEwQIcRbp5GXsAH+ZWtl6XZTW9m5ZesB5pFv8ijjnU/fY3NZiR6D3AO8ub9EsbvVO6Jb90
+	DFIQmCQsQbSNORQ7XQ2lIxNnnNDa3kYKq/Wzp1EsK2IDTBkJNwc2SBqPWt2TmDXYNo0WoCZD8zc
+	0MRxam12YQNo0H56+X7H6xYHp5luoHTVEViF9dSJ4sIKYGzwji9KJce3r3voMePFpYgMvfetqer
+	DwwuZJJpMpG5jwBRKWWZn9q1VuKqc=
+X-Google-Smtp-Source: AGHT+IG+bYw5aa5qXAocgfxdFotOTyw3i8NWk0A08WmZ4RTMKQzSHU4xstgqw3nYJD/MtZ0mMoVZ9w==
+X-Received: by 2002:a05:6808:6508:b0:453:746a:c61c with SMTP id 5614622812f47-45a6bf00314mr3342680b6e.66.1767896399198;
+        Thu, 08 Jan 2026 10:19:59 -0800 (PST)
+Received: from [100.64.0.1] ([170.85.11.86])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-45a5e2e8fb1sm3613666b6e.21.2026.01.08.10.19.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 08 Jan 2026 10:19:58 -0800 (PST)
+Message-ID: <77f9a001-7f0a-4c29-abcb-501e875da117@sifive.com>
+Date: Thu, 8 Jan 2026 12:19:56 -0600
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aV_cLAlz4v1VOkDt@google.com>
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 10/11] riscv: dts: spacemit: add initial device tree of
+ SpacemiT K3 SoC
+To: Guodong Xu <guodong@riscstar.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley
+ <conor@kernel.org>, Heinrich Schuchardt <xypron.glpk@gmx.de>,
+ Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
+ Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ spacemit@lists.linux.dev, linux-serial@vger.kernel.org,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@gentoo.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Anup Patel <anup@brainfault.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
+ Yangyu Chen <cyy@cyyself.name>
+References: <20260108-k3-basic-dt-v3-0-ed99eb4c3ad3@riscstar.com>
+ <20260108-k3-basic-dt-v3-10-ed99eb4c3ad3@riscstar.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+Content-Language: en-US
+In-Reply-To: <20260108-k3-basic-dt-v3-10-ed99eb4c3ad3@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_100156_760499_537E5C48 
-X-CRM114-Status: GOOD (  41.42  )
+X-CRM114-CacheID: sfid-20260108_102000_718083_0917DF46 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,215 +117,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 08, 2026 at 08:32:44AM -0800, Sean Christopherson wrote:
-> On Fri, Jan 02, 2026, Yosry Ahmed wrote:
-> > On Tue, Dec 30, 2025 at 03:01:50PM -0800, Sean Christopherson wrote:
-> > >  	WRITE_ONCE(*b, 1);
-> > > -	GUEST_SYNC(true);
-> > > +	GUEST_SYNC(2 | TEST_SYNC_WRITE_FAULT);
-> > >  	WRITE_ONCE(*b, 1);
-> > > -	GUEST_SYNC(true);
-> > > -	GUEST_SYNC(false);
-> > > +	GUEST_SYNC(2 | TEST_SYNC_WRITE_FAULT);
-> > > +	READ_ONCE(*b);
-> > > +	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
-> > > +	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
-> > 
-> > Instead of hardcoding 0 and 2 here, which IIUC correspond to the
-> > physical addresses 0xc0000000 and 0xc0002000, as well as indices in
-> > host_test_mem, can we make the overall definitions a bit more intuitive?
-> > 
-> > For example:
-> > 
-> > #define GUEST_GPA_START		0xc0000000
-> > #define GUEST_PAGE1_IDX		0
-> > #define GUEST_PAGE2_IDX		1
-> > #define GUEST_GPA_PAGE1		(GUEST_GPA_START + GUEST_PAGE1_IDX * PAGE_SIZE)
-> > #define GUEST_GPA_PAGE2		(GUEST_GPA_START + GUEST_PAGE2_IDX * PAGE_SIZE)
-> > 
-> > /* Mapped to GUEST_GPA_PAGE1 and GUEST_GPA_PAGE2 */
-> > #define GUEST_GVA_PAGE1		0xd0000000
-> > #define GUEST_GVA_PAGE2		0xd0002000
-> > 
-> > /* Mapped to GUEST_GPA_PAGE1 and GUEST_GPA_PAGE2 using TDP in L1 */
-> > #define GUEST_GVA_NESTED_PAGE1  0xd0001000
-> > #define GUEST_GVA_NESTED_PAGE2	0xd0003000
-> > 
-> > Then in L2 code, we can explicitly take in the GVA of page1 and page2
-> > and use the definitions above in the GUEST_SYNC() calls, for example:
-> > 
-> > static void l2_guest_code(u64 *page1_gva, u64 *page2_gva)
-> > {
-> >         READ_ONCE(*page1_gva);
-> >         GUEST_SYNC(GUEST_PAGE1_IDX | TEST_SYNC_READ_FAULT);
-> >         WRITE_ONCE(*page1_gva, 1);
-> >         GUEST_SYNC(GUEST_PAGE1_IDX | TEST_SYNC_WRITE_FAULT);
-> > 	...
-> > }
-> > 
-> > and we can explicitly read page1 and page2 from the host (instead of
-> > using host_test_mem).
-> > 
-> > Alternatively, we can pass in the guest GVA directly into GUEST_SYNC(),
-> > and use the lower bits for TEST_SYNC_READ_FAULT, TEST_SYNC_WRITE_FAULT,
-> > and TEST_SYNC_NO_FAULT.
-> >
-> > WDYT?
+On 2026-01-08 6:26 AM, Guodong Xu wrote:
+> SpacemiT K3 is equipped with 8 X100 cores, which are RVA23 compliant.
+> Add nodes of uarts, timer and interrupt-controllers.
 > 
-> I fiddled with this a bunch and came up with the below.  It's more or less what
-> you're suggesting, but instead of interleaving the aliases, it simply puts them
-> at a higher base.  That makes pulling the page frame number out of the GVA much
-> cleaner, as it's simply arithmetic instead of weird masking and shifting magic.
-> 
-> --
-> From: Sean Christopherson <seanjc@google.com>
-> Date: Wed, 7 Jan 2026 14:38:32 -0800
-> Subject: [PATCH] KVM: selftests: Test READ=>WRITE dirty logging behavior for
->  shadow MMU
-> 
-> Update the nested dirty log test to validate KVM's handling of READ faults
-> when dirty logging is enabled.  Specifically, set the Dirty bit in the
-> guest PTEs used to map L2 GPAs, so that KVM will create writable SPTEs
-> when handling L2 read faults.  When handling read faults in the shadow MMU,
-> KVM opportunistically creates a writable SPTE if the mapping can be
-> writable *and* the gPTE is dirty (or doesn't support the Dirty bit), i.e.
-> if KVM doesn't need to intercept writes in order to emulate Dirty-bit
-> updates.
-> 
-> To actually test the L2 READ=>WRITE sequence, e.g. without masking a false
-> pass by other test activity, route the READ=>WRITE and WRITE=>WRITE
-> sequences to separate L1 pages, and differentiate between "marked dirty
-> due to a WRITE access/fault" and "marked dirty due to creating a writable
-> SPTE for a READ access/fault".  The updated sequence exposes the bug fixed
-> by KVM commit 1f4e5fc83a42 ("KVM: x86: fix nested guest live migration
-> with PML") when the guest performs a READ=>WRITE sequence with dirty guest
-> PTEs.
-> 
-> Opportunistically tweak and rename the address macros, and add comments,
-> to make it more obvious what the test is doing.  E.g. NESTED_TEST_MEM1
-> vs. GUEST_TEST_MEM doesn't make it all that obvious that the test is
-> creating aliases in both the L2 GPA and GVA address spaces, but only when
-> L1 is using TDP to run L2.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
 > ---
->  .../selftests/kvm/include/x86/processor.h     |   1 +
->  .../testing/selftests/kvm/lib/x86/processor.c |   7 +
->  .../selftests/kvm/x86/nested_dirty_log_test.c | 188 +++++++++++++-----
->  3 files changed, 145 insertions(+), 51 deletions(-)
+> v3: Remove "supm" from the riscv,isa-extensions list.
+> v2: Remove aliases from k3.dtsi, they should be in board DTS.
+>     Updated riscv,isa-extensions with new extensions from the extensions.yaml
+> ---
+>  arch/riscv/boot/dts/spacemit/k3.dtsi | 548 +++++++++++++++++++++++++++++++++++
+>  1 file changed, 548 insertions(+)
 > 
-> diff --git a/tools/testing/selftests/kvm/include/x86/processor.h b/tools/testing/selftests/kvm/include/x86/processor.h
-> index ab29b1c7ed2d..8945c9eea704 100644
-> --- a/tools/testing/selftests/kvm/include/x86/processor.h
-> +++ b/tools/testing/selftests/kvm/include/x86/processor.h
-> @@ -1483,6 +1483,7 @@ bool kvm_cpu_has_tdp(void);
->  void tdp_map(struct kvm_vm *vm, uint64_t nested_paddr, uint64_t paddr, uint64_t size);
->  void tdp_identity_map_default_memslots(struct kvm_vm *vm);
->  void tdp_identity_map_1g(struct kvm_vm *vm,  uint64_t addr, uint64_t size);
-> +uint64_t *tdp_get_pte(struct kvm_vm *vm, uint64_t l2_gpa);
->  
->  /*
->   * Basic CPU control in CR0
-> diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
-> index ab869a98bbdc..fab18e9be66c 100644
-> --- a/tools/testing/selftests/kvm/lib/x86/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/x86/processor.c
-> @@ -390,6 +390,13 @@ static uint64_t *__vm_get_page_table_entry(struct kvm_vm *vm,
->  	return virt_get_pte(vm, mmu, pte, vaddr, PG_LEVEL_4K);
->  }
->  
-> +uint64_t *tdp_get_pte(struct kvm_vm *vm, uint64_t l2_gpa)
-
-nested_paddr is the name used by tdp_map(), maybe use that here as well
-(and in the header)?
-
-> +{
-> +	int level = PG_LEVEL_4K;
+> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..be9335fba32cb9e81915b2b91cf08c55a5e96809
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+> [...]
 > +
-> +	return __vm_get_page_table_entry(vm, &vm->stage2_mmu, l2_gpa, &level);
-> +}
+> +		simsic: interrupt-controller@e0400000 {
+> +			compatible = "spacemit,k3-imsics","riscv,imsics";
+
+style: missing space after comma
+
+> +			reg = <0x0 0xe0400000 0x0 0x00200000>;
+> +			interrupt-controller;
+> +			#interrupt-cells = <0>;
+> +			msi-controller;
+> +			#msi-cells = <0>;
+> +			interrupts-extended = <&cpu0_intc 9>, <&cpu1_intc 9>,
+> +					      <&cpu2_intc 9>, <&cpu3_intc 9>,
+> +					      <&cpu4_intc 9>, <&cpu5_intc 9>,
+> +					      <&cpu6_intc 9>, <&cpu7_intc 9>;
+> +			riscv,num-ids = <511>;
+> +			riscv,num-guest-ids = <511>;
+> +			riscv,hart-index-bits = <4>;
+> +			riscv,guest-index-bits = <6>;
+> +		};
 > +
->  uint64_t *vm_get_pte(struct kvm_vm *vm, uint64_t vaddr)
->  {
->  	int level = PG_LEVEL_4K;
-[..]
-> @@ -133,35 +220,50 @@ static void test_dirty_log(bool nested_tdp)
->  
->  	/* Add an extra memory slot for testing dirty logging */
->  	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
-> -				    GUEST_TEST_MEM,
-> +				    TEST_MEM_BASE,
->  				    TEST_MEM_SLOT_INDEX,
->  				    TEST_MEM_PAGES,
->  				    KVM_MEM_LOG_DIRTY_PAGES);
->  
->  	/*
-> -	 * Add an identity map for GVA range [0xc0000000, 0xc0002000).  This
-> +	 * Add an identity map for GVA range [0xc0000000, 0xc0004000).  This
->  	 * affects both L1 and L2.  However...
->  	 */
-> -	virt_map(vm, GUEST_TEST_MEM, GUEST_TEST_MEM, TEST_MEM_PAGES);
-> +	virt_map(vm, TEST_MEM_BASE, TEST_MEM_BASE, TEST_MEM_PAGES);
->  
->  	/*
-> -	 * ... pages in the L2 GPA range [0xc0001000, 0xc0003000) will map to
-> -	 * 0xc0000000.
-> +	 * ... pages in the L2 GPA ranges [0xc0001000, 0xc0002000) and
-> +	 * [0xc0003000, 0xc0004000) will map to 0xc0000000 and 0xc0001000
-> +	 * respectively.
+> +		saplic: interrupt-controller@e0804000 {
+> +			compatible = "spacemit,k3-aplic", "riscv,aplic";
+> +			reg = <0x0 0xe0804000 0x0 0x4000>;
+> +			msi-parent = <&simsic>;
+> +			#interrupt-cells = <2>;
+> +			interrupt-controller;
+> +			riscv,num-sources = <512>;
+> +		};
 
-Are these ranges correct? I thought L2 GPA range [0xc0002000,
-0xc0004000) will map to [0xc0000000, 0xc0002000).
+Does the chip also have M-mode IMSIC and APLIC instances? Those need to be
+represented in the devicetree as well, for M-mode firmware to access them, just
+like the CLINT below.
 
-Also, perhaps it's better to express those in terms of the macros?
-
-L2 GPA range [TEST_MEM_ALIAS_BASE, TEST_MEM_ALIAS_BASE + 2*PAGE_SIZE)
-will map to [TEST_MEM_BASE, TEST_MEM_BASE + 2*PAGE_SIZE)?
-
->  	 *
->  	 * When TDP is disabled, the L2 guest code will still access the same L1
->  	 * GPAs as the TDP enabled case.
-> +	 *
-> +	 * Set the Dirty bit in the PTEs used by L2 so that KVM will create
-> +	 * writable SPTEs when handling read faults (if the Dirty bit isn't
-> +	 * set, KVM must intercept the next write to emulate the Dirty bit
-> +	 * update).
->  	 */
->  	if (nested_tdp) {
-> +		vm_vaddr_t gva0 = TEST_GUEST_ADDR(TEST_MEM_ALIAS_BASE, 0);
-> +		vm_vaddr_t gva1 = TEST_GUEST_ADDR(TEST_MEM_ALIAS_BASE, 1);
-
-Why are these gvas? Should these be L2 GPAs?
-
-Maybe 'uint64_t l2_gpa0' or 'uint64_t nested_paddr0'?
-
-Also maybe add TEST_ALIAS_GPA() macro to keep things consistent?
+Regards,
+Samuel
 
 > +
->  		tdp_identity_map_default_memslots(vm);
-> -		tdp_map(vm, NESTED_TEST_MEM1, GUEST_TEST_MEM, PAGE_SIZE);
-> -		tdp_map(vm, NESTED_TEST_MEM2, GUEST_TEST_MEM, PAGE_SIZE);
-> +		tdp_map(vm, gva0, TEST_GPA(0), PAGE_SIZE);
-> +		tdp_map(vm, gva1, TEST_GPA(1), PAGE_SIZE);
-> +
-> +		*tdp_get_pte(vm, gva0) |= PTE_DIRTY_MASK(&vm->stage2_mmu);
-> +		*tdp_get_pte(vm, gva1) |= PTE_DIRTY_MASK(&vm->stage2_mmu);
-> +	} else {
-> +		*vm_get_pte(vm, TEST_GVA(0)) |= PTE_DIRTY_MASK(&vm->mmu);
-> +		*vm_get_pte(vm, TEST_GVA(1)) |= PTE_DIRTY_MASK(&vm->mmu);
->  	}
->  
->  	bmap = bitmap_zalloc(TEST_MEM_PAGES);
-> -	host_test_mem = addr_gpa2hva(vm, GUEST_TEST_MEM);
->  
->  	while (!done) {
-> -		memset(host_test_mem, 0xaa, TEST_MEM_PAGES * PAGE_SIZE);
-> +		memset(TEST_HVA(vm, 0), 0xaa, TEST_MEM_PAGES * PAGE_SIZE);
-> +
->  		vcpu_run(vcpu);
->  		TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_IO);
->  
-[..]
+> +		clint: timer@e081c000 {
+> +			compatible = "spacemit,k3-clint", "sifive,clint0";
+> +			reg = <0x0 0xe081c000 0x0 0x0004000>;
+> +			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
+> +					      <&cpu1_intc 3>, <&cpu1_intc 7>,
+> +					      <&cpu2_intc 3>, <&cpu2_intc 7>,
+> +					      <&cpu3_intc 3>, <&cpu3_intc 7>,
+> +					      <&cpu4_intc 3>, <&cpu4_intc 7>,
+> +					      <&cpu5_intc 3>, <&cpu5_intc 7>,
+> +					      <&cpu6_intc 3>, <&cpu6_intc 7>,
+> +					      <&cpu7_intc 3>, <&cpu7_intc 7>;
+> +		};
+> +	};
+> +};
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
