@@ -4,73 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7356ED185C6
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 11:32:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 158FFD185C6
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 11:36:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8WX5bTNCMJcfMqJRm1VcymKQq5i3yy0WNd2dUvYTn7M=; b=sccKA4Rb9KAQB8
-	aBN+F1eyWc48ZpQAz89KoNOlFSjssjIjNHYvM1m1yZXo84WNhsLpf2KKU9IUCrxGeCg+YrB9Psywt
-	5g/SlK86b/f5ayLkLftjp8BR4EvV7pC2SiMv7SYgEu2JBWeHkD7VYwoECSCTCEYOG5CwXs2P/KqKR
-	98xB3AaiiYH4R3rC8u0DWYECkS8KnAfZY5lhocxmeEd1WF3CRWzQQ/uQLSUps2o+lTnshRrVVm+xS
-	C0PoQYBcB44kdtoedBxVwnPNbbXcBCG1gelK2HfbsUEEB/R4t4mZpvO2mxhxP4ZChJ9HYJBfOMp2F
-	zxz1m0fCXMeM1vJbrcKQ==;
+	List-Owner; bh=1sFARsp8MJbmbJskaM6TPqZlib6dJFnM2CmcRYJxGsA=; b=s/9h1n5sGh1Vaw
+	my8uz5eCf915ok39Q/ILjNhLEhgKS/IMElpkwWQ8XkzKsReEqeJiUiQfLOhy6mvAc605/1mCYiPX/
+	fLgO7lKYkviZVsS0mExclhzGjDNGv3nAzHZ6D0VG+J5tFkU+RTbLLuGzqavXJofKN81VFrHB6aTdd
+	4rzQF07ePw22051DxY8lGI4rxVpi1vHFmXqvPIGZGv5YCiaz2fcIDujTQgZ3skBCcuL8JPm9WwV9t
+	Iu7zD9okCdPmzymQWObfgVduiB2vy7YtE+eKkeDcaqbZm50rmtWug77jLCfneQ40PUH5GPA2NHnp/
+	3PAdiOBaep4dPBJEPnMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdoFV-0000000Gr9E-3CHh;
-	Thu, 08 Jan 2026 11:32:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vdoJM-0000000GrxR-0SI1;
+	Thu, 08 Jan 2026 11:36:16 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdoFR-0000000Gr81-2vMN
+	id 1vdoJH-0000000GrwP-2YDA
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Jan 2026 11:32:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7B34B44168
-	for <linux-riscv@lists.infradead.org>; Thu,  8 Jan 2026 11:32:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A606C19425
-	for <linux-riscv@lists.infradead.org>; Thu,  8 Jan 2026 11:32:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767871932;
-	bh=pYfshooaQVx14ogaTwRBPlNZFkj/iWvrj8HN1katBFM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Tt8VmR3VshCgHL0sX0ZHoLqIfD0Rl3cLJfl1ZhoX+viQNalklsP3KEGhmpF2PQABL
-	 i/e4fQeEWCP3E8UrGxvJAz3JuiRdFBXe9UimxMdTmRlLsZNu/U5vTUEyP7Ks+4qkxU
-	 XxkejKAY6NBLbl/r1AsLAyAnuNWCjV0RjM7is+V+ou17Bcc2h2b/jwV3sTJ8RfZ0mU
-	 5QCe8I5A9kvK9DS1HJ9oD7trUK76a+ekfIJRJLeJFGPYGgEycSjFxndrstt2RPdvCq
-	 g0kCEYTkOBwHO0b6P+CdVWNXzaaTEiF2vxlnRRUwhG5MIv4f5YIZKepkz/7OWtnjS/
-	 F/DxUh7mTqQMQ==
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-34c565b888dso2684653a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Jan 2026 03:32:12 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVlIMAjeYnq3bPSECQ155U40lP3ZHUzD1+5aCWC8ElmXOfVc48ihmntTraJDZyc3snz7D67FqHdfklTvg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyU5u0rR8BT675DSNsDIYvg7dGSomh7t7icEMHAALt6qM0Jk8cq
-	CJM3HOPr4pW+XaBFClqSc42VX3mG3KrSNRF1wFyA2xU5Dvc0naBUCuHwpwf4JcAO3BjQ31Lr2Xl
-	MrfSPemltsri/WfwvmTLpkOxH1dAWYzg=
-X-Google-Smtp-Source: AGHT+IGDINyxTPkhAN4b7317PDsO1QtIqu1Y45mlnouNM/WvPFlwsh7kX9R86h9783kJT5r1JA/b7Ab2jLcoi2FXZJU=
-X-Received: by 2002:a17:90b:4c46:b0:34c:f92a:ad05 with SMTP id
- 98e67ed59e1d1-34f68b9a0ffmr5904349a91.11.1767871931935; Thu, 08 Jan 2026
- 03:32:11 -0800 (PST)
+	Thu, 08 Jan 2026 11:36:14 +0000
+Received: from localhost (unknown [116.232.18.222])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 60F90342189;
+	Thu, 08 Jan 2026 11:36:09 +0000 (UTC)
+Date: Thu, 8 Jan 2026 19:36:05 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Ze Huang <huang.ze@linux.dev>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Aurelien Jarno <aurelien@aurel32.net>
+Subject: Re: [PATCH v2 3/3] riscv: dts: spacemit: Enable USB3.0 on BananaPi-F3
+Message-ID: <20260108113605-GYA4052@gentoo.org>
+References: <20260107-k1-usb3dts-v2-v2-0-e659b0f8fe1a@linux.dev>
+ <20260107-k1-usb3dts-v2-v2-3-e659b0f8fe1a@linux.dev>
+ <20260108012157-GYA2355@gentoo.org>
 MIME-Version: 1.0
-References: <20260105051311.1607207-1-ebiggers@kernel.org>
-In-Reply-To: <20260105051311.1607207-1-ebiggers@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 8 Jan 2026 12:32:00 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXGRTfyXPD3+Ravr7O5ZUMAUeabQw455sW5g7aRy3BU+2Q@mail.gmail.com>
-X-Gm-Features: AQt7F2osJiUBFnBRtOlALeERCnUAMf6rielCvEbX7HMdjqJIXrz86eWJVpNeDcU
-Message-ID: <CAMj1kXGRTfyXPD3+Ravr7O5ZUMAUeabQw455sW5g7aRy3BU+2Q@mail.gmail.com>
-Subject: Re: [PATCH 00/36] AES library improvements
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	"Jason A . Donenfeld" <Jason@zx2c4.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	sparclinux@vger.kernel.org, x86@kernel.org, 
-	Holger Dengler <dengler@linux.ibm.com>, Harald Freudenberger <freude@linux.ibm.com>
+Content-Disposition: inline
+In-Reply-To: <20260108012157-GYA2355@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_033213_782092_2F41845F 
-X-CRM114-Status: GOOD (  25.56  )
+X-CRM114-CacheID: sfid-20260108_033611_673077_DA307E83 
+X-CRM114-Status: GOOD (  26.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,107 +71,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 5 Jan 2026 at 06:14, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> This series applies to libcrypto-next.  It can also be retrieved from:
->
->     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git aes-lib-v1
->
-> This series makes three main improvements to the kernel's AES library:
->
->   1. Make it use the kernel's existing architecture-optimized AES code,
->      including AES instructions, when available.  Previously, only the
->      traditional crypto API gave access to the optimized AES code.
->      (As a reminder, AES instructions typically make AES over 10 times
->      as fast as the generic code.  They also make it constant-time.)
->
->   2. Support preparing an AES key for only the forward direction of the
->      block cipher, using about half as much memory.  This is a helpful
->      optimization for many common AES modes of operation.  It also helps
->      keep structs small enough to be allocated on the stack, especially
->      considering potential future library APIs for AES modes.
->
->   3. Replace the library's generic AES implementation with a much faster
->      one that is almost as fast as "aes-generic", while still keeping
->      the table size reasonably small and maintaining some constant-time
->      hardening.  This allows removing "aes-generic", unifying the
->      current two generic AES implementations in the kernel tree.
->
+Hi Ze,
 
-Architectures that support memory operands will be impacted by
-dropping the pre-rotated lookup tables, especially if they have few
-GPRs.
+I've done a quick check of the "regulator-always-on" issue, 
+it's ok to drop the one from hub, but not the vbus one..
 
-I suspect that doesn't really matter in practice: if your pre-AESNI
-IA-32 workload has a bottleneck on "aes-generic", you would have
-probably moved it to a different machine by now. But the performance
-delta will likely be noticeable so it is something that deserves a
-mention.
+On 09:21 Thu 08 Jan     , Yixun Lan wrote:
+> Hi Ze,
+> 
+>   thanks for your patch, I have few comments, see below..
+> 
+> On 20:05 Wed 07 Jan     , Ze Huang wrote:
+> > Enable the DWC3 USB 3.0 controller and its associated usbphy2 on the
+> > Banana Pi F3 board.
+> > 
+> > The board utilizes a VLI VL817 hub, which requires two separate power
+> > supplies: one VBUS and one for hub itself. Add two GPIO-controlled
+> > fixed-regulators to manage this.
+> > 
+> > Tested-by: Aurelien Jarno <aurelien@aurel32.net>
+> > Signed-off-by: Ze Huang <huang.ze@linux.dev>
+> > ---
+> >  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 48 +++++++++++++++++++++++++
+> >  1 file changed, 48 insertions(+)
+> > 
+> > diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> > index 3f10efd925dc..013df91c6a4c 100644
+> > --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> > +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> > @@ -59,6 +59,26 @@ reg_vcc_4v: vcc-4v {
+> >  		regulator-always-on;
+> >  		vin-supply = <&reg_dc_in>;
+> >  	};
+> > +
+> > +	usb3_vbus: regulator-vbus-5v {
+> I've checked the schematics, the name is 5V_VBUS there, so for the consistency
+> with previous naming convention, let's change to:
+> 	usb3_vbus_5v: usb3-vbus-5v 
+> 
+> > +		compatible = "regulator-fixed";
+> > +		regulator-name = "USB30_VBUS";
+> > +		regulator-min-microvolt = <5000000>;
+> > +		regulator-max-microvolt = <5000000>;
+> ..
+> > +		regulator-always-on;
+> do you think the "always-on" property really necessary? it indicate the
+> power regulator is critical, and should never been disabled even during
+> suspend/resume state, for the case of USB, I think it should be totally
+> fine to poweroff once the device is not used(suspended) or even disabled
+> 
+> besides, the regulator is designed with a gpio enabling/disabling control
+> which means it can be powered to on/off state?
+> 
+not ok to drop, see comment below at &usb_dwc3 
 
-> (1) and (2) end up being interrelated: the existing
-> 'struct crypto_aes_ctx' does not work for either one (in general).
-> Thus, this series reworks the AES library to be based around new data
-> types 'struct aes_key' and 'struct aes_enckey'.
->
-> As has been the case for other algorithms, to achieve (1) without
-> duplicating the architecture-optimized code, it had to be moved into
-> lib/crypto/ rather than copied.  To allow actually removing the
-> arch-specific crypto_cipher "aes" algorithms, a consolidated "aes-lib"
-> crypto_cipher algorithm which simply wraps the library is also added.
-> That's most easily done with it replacing "aes-generic" too, so that is
-> done too.  (That's another reason for doing (3) at the same time.)
->
-> As usual, care is taken to support all the existing arch-optimized code.
-> This makes it possible for users of the traditional crypto API to switch
-> to the library API, which is generally much easier to use, without being
-> concerned about performance regressions.
->
-> That being said, this series only deals with the bare (single-block) AES
-> library.  Future patchsets are expected to build on this work to provide
-> architecture-optimized library APIs for specific AES modes of operation.
->
-> Eric Biggers (36):
->   crypto: powerpc/aes - Rename struct aes_key
->   lib/crypto: aes: Introduce improved AES library
->   crypto: arm/aes-neonbs - Use AES library for single blocks
->   crypto: arm/aes - Switch to aes_enc_tab[] and aes_dec_tab[]
->   crypto: arm64/aes - Switch to aes_enc_tab[] and aes_dec_tab[]
->   crypto: arm64/aes - Select CRYPTO_LIB_SHA256 from correct places
->   crypto: aegis - Switch from crypto_ft_tab[] to aes_enc_tab[]
->   crypto: aes - Remove aes-fixed-time / CONFIG_CRYPTO_AES_TI
->   crypto: aes - Replace aes-generic with wrapper around lib
->   lib/crypto: arm/aes: Migrate optimized code into library
->   lib/crypto: arm64/aes: Migrate optimized code into library
->   lib/crypto: powerpc/aes: Migrate SPE optimized code into library
->   lib/crypto: powerpc/aes: Migrate POWER8 optimized code into library
->   lib/crypto: riscv/aes: Migrate optimized code into library
->   lib/crypto: s390/aes: Migrate optimized code into library
->   lib/crypto: sparc/aes: Migrate optimized code into library
->   lib/crypto: x86/aes: Add AES-NI optimization
->   crypto: x86/aes - Remove the superseded AES-NI crypto_cipher
->   Bluetooth: SMP: Use new AES library API
->   chelsio: Use new AES library API
->   net: phy: mscc: macsec: Use new AES library API
->   staging: rtl8723bs: core: Use new AES library API
->   crypto: arm/ghash - Use new AES library API
->   crypto: arm64/ghash - Use new AES library API
->   crypto: x86/aes-gcm - Use new AES library API
->   crypto: ccp - Use new AES library API
->   crypto: chelsio - Use new AES library API
->   crypto: crypto4xx - Use new AES library API
->   crypto: drbg - Use new AES library API
->   crypto: inside-secure - Use new AES library API
->   crypto: omap - Use new AES library API
->   lib/crypto: aescfb: Use new AES library API
->   lib/crypto: aesgcm: Use new AES library API
->   lib/crypto: aes: Remove old AES en/decryption functions
->   lib/crypto: aes: Drop "_new" suffix from en/decryption functions
->   lib/crypto: aes: Drop 'volatile' from aes_sbox and aes_inv_sbox
->
+> > +		gpio = <&gpio K1_GPIO(97) GPIO_ACTIVE_HIGH>;
+> > +		enable-active-high;
+> > +	};
+> > +
+> > +	usb3_vhub: regulator-vhub-5v {
+> why use vhub, but not hub? where does this name come from?
+> 
+> and for same reason, the name in schematics is VCC5V0_HUB, so how about
+> change it to:
+> 	usb3_hub_5v: usb3-hub-5v 
+> 
+> > +		compatible = "regulator-fixed";
+> > +		regulator-name = "USB30_VHUB";
+>                                     ~~~need to fix too, if above is valid
+> > +		regulator-min-microvolt = <5000000>;
+> > +		regulator-max-microvolt = <5000000>;
+> ..
+> > +		regulator-always-on;
+> ditto
+ok to drop, as it's already handled at drivers/usb/misc/onboard_usb_dev.c
+which will explicitly request the regulator and enable it
 
-Nice cleanup
+> > +		gpio = <&gpio K1_GPIO(123) GPIO_ACTIVE_HIGH>;
+> > +		enable-active-high;
+> > +	};
+> >  };
+> >  
+> >  &combo_phy {
+> > @@ -67,6 +87,34 @@ &combo_phy {
+> >  	status = "okay";
+> >  };
+> >  
+> ..
+> > +&usbphy2 {
+> > +	status = "okay";
+> > +};
+> > +
+> > +&usb_dwc3 {
+> > +	dr_mode = "host";
+> > +	vbus-supply = <&usb3_vbus>;
+due to drivers/usb/dwc3/dwc3-generic-plat.c has no handler to request regulator
+there will be problem if "regulator-always-on" property is removed..
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+> > +	#address-cells = <1>;
+> > +	#size-cells = <0>;
+> > +	status = "okay";
+> > +
+
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
