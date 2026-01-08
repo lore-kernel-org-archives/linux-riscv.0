@@ -4,102 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FBE9D185F1
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 13:38:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C17CD185F8
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 13:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=slLS13r7VWOfoV6/W1i5Ak5bnyOUH2JaXDZJqpO9xSo=; b=U7ROUr/IdYaiMo
-	GdqcTySspiAfPp95Y3m4V+9yPNN/dLqGCuCOHs4uBFZIyhE0lt8asbwbeYbrtFfYZbq0qJ2TswmpS
-	9yOlGjYD3IaOSuS8MsN4JD0oet126tX7+XkAfGcyDaAY0zISR4vnwsQCsTSX6OekS9SVCba+LORR9
-	eqlKMy0t8oqC0Qj+5xeBfEZNC6t7UEJbE54A1zaP6/gbRqLz0/AsWpzNJhLym39KCuZ7X5DUWjQbZ
-	FB4MLnu/3j9DGV4g9wThfzPPvUO7shLndLQ1sMfeo0VTUf4DqQQ3mk1z0KJhK05rGCAWvbb2E4jrj
-	9FR7DWjaZQIYd2Rayx0A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GVZkzsY0S+gkseRZ1wDu0KLdpKUB3gj05X7pKATQ2mQ=; b=1g2bEhKzNOKdyc
+	om30Tsq01CpkvfDIAokyEyLD93eNAN9PDWrvb1zhuD6qgVqRII/bWIWJoYf04M2vBEasbSRTE2YvW
+	tt8xDK+BF1y+rb4OPbC7WVR5mFvSpQ25CVgVOT+JGQRcWSU0qWQFLR+qU/9xi4fbHxExJWx/5j8hj
+	Jz+vkKaKUgNFX4zEmxKDeCcA4F5x5aHTz0ZUhdeVWv3bQDq31o/neOy2iir2CyRDyDUgGwU0tjf/B
+	psAjMEDnkrwslpysPI7+akE1VUODwoT2DBYK6ODAeDNEGAUu3UjJCfJhnhLMnHsD9wwGqHub+nITN
+	dBcRI4AdJnjUA8ocY6vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdqDJ-0000000HBqq-49XA;
-	Thu, 08 Jan 2026 13:38:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdqFG-0000000HCI7-3bja;
+	Thu, 08 Jan 2026 13:40:10 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdqDI-0000000HBqN-1JSV;
-	Thu, 08 Jan 2026 13:38:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8F95860131;
-	Thu,  8 Jan 2026 13:38:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBE32C116C6;
-	Thu,  8 Jan 2026 13:37:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767879487;
-	bh=VJKhVx5DGpVLVYb2XKJ8mMHhMksRI4ZPi6UFAnGjOes=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lKSNSmMui9b0uWXSR001Pt88qSwhYL4W2bFV32qwFJ/6CmW/Ao5TYVAY3Z+59376e
-	 LGMD9MiGBnRAvJH8NMvzcia4RujNN/Ji55DA7R7FC9V5WsJbqtoAPJTAPUCr5atPUE
-	 poGy32Xu92IK7Q6/R8BLK5Dfhvm0ifmZuiuV3C9vgar8FlNP1ez1Sr09T2iAeyAOsS
-	 gk385QWtqNoWlz57jEfTxAmmfx4P4Mski6nsScaJkhVKadirubTC5FVXcq8viEItJc
-	 1AEPIPxLDV87+Z5JZ+lhld5Il8971MVKAXSlnW8bHrCKUMYsXlt6o7qcTWAv0XBwbd
-	 WP7HoXXSByWCw==
-Date: Thu, 8 Jan 2026 15:37:44 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Kalle Niemi <kaleposti@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Alex Shi <alexs@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
-	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>,
-	Muchun Song <muchun.song@linux.dev>,
-	Oscar Salvador <osalvador@suse.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>,
-	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
-	x86@kernel.org, linux-alpha@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org,
-	matti Vaittinen <mazziesaccount@gmail.com>
-Subject: Re: [PATCH v2 22/28] arch, mm: consolidate initialization of nodes,
- zones and memory map
-Message-ID: <aV-zKGYP6EUETaQ2@kernel.org>
-References: <20260102070005.65328-1-rppt@kernel.org>
- <20260102070005.65328-23-rppt@kernel.org>
- <5f9a0269-f9d5-4ee0-bf57-62148d762f7f@gmail.com>
+	id 1vdqFE-0000000HCHB-44t0
+	for linux-riscv@lists.infradead.org;
+	Thu, 08 Jan 2026 13:40:10 +0000
+Received: from [127.0.0.1] (unknown [116.232.18.222])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 60305341E78;
+	Thu, 08 Jan 2026 13:40:02 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+Subject: [PATCH v4 0/4] clk: spacemit: refactor common ccu driver
+Date: Thu, 08 Jan 2026 21:39:21 +0800
+Message-Id: <20260108-06-k1-clk-common-v4-0-badf635993d3@gentoo.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <5f9a0269-f9d5-4ee0-bf57-62148d762f7f@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAImzX2kC/23OQW6DMBAF0KsgrztoZmIMzir3qLpwwICVYLc2R
+ a0i7l4XWqlVsvxfmjf/JpKNziZxLG4i2sUlF3wO8qkQ7Wj8YMF1OQtGroipBlRwIWivF2jDNAU
+ PTUdtVWtdoaxFPnuNtncfG/n8sudo396zPO+lmGxKZpOPxY+rkbghXUqJumYgcD60ozOTOQ2Tc
+ dcyPxPf2ujSHOLntnehjdsJxvtpCwFC13Nj0GhSTKfB+jmEMsRh0xb+K6gHAmeBm3OlJTVn2fV
+ 3wuFXUEh4eCDkDhQq6nSvtLX/hXVdvwDMMO/EgwEAAA==
+X-Change-ID: 20251217-06-k1-clk-common-8d1c57995047
+To: Stephen Boyd <sboyd@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Alex Elder <elder@riscstar.com>, Guodong Xu <guodong@riscstar.com>, 
+ Inochi Amaoto <inochiama@gmail.com>, linux-kernel@vger.kernel.org, 
+ linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>, Yao Zi <me@ziyao.cc>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2481; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=MuM8y2Uhoh4FKJuIFjdGlqJrAk5DSEPIoFtnZoY3ULk=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpX7Oi7Ane3/Bmlr3fYDnKiV4OlduH7cJBiHlls
+ FV8m2galrGJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaV+zohsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+0KKw/+KMWHaB7O4bXGMBABaGHg8yx7uzzhCg1oaEIzE2Szl9psEi2UulqM8
+ XuSL+ohsKh+ZE3eH8FbKrhAIdYmM21Jn+ielMp9DRyO8LGTQRbAXg0D4X1DPGDJaMnlVndIi9lK
+ 9HwyyaWDphVOP3WAw7rI2bAD/Nn+d4+6+JpiOIqMpwDkDusG+Zr4vDoRWNMm3CH4VsUB4daq7Ps
+ czNtMqEmHPV6keftu1/jiC03Tro0dsj476kX7dVJQEEGtmMaFphm/mmrgU5MQ7eOACLFHTzMFzG
+ dArTDc7gjVQpOgJNWwzsjwXYtyYAEdxn6JPOjg7yBVAqtPij3bc8fyIKAApAU20vQfCX1izGAtC
+ CMrCaWex8hQWEKR+p+v31cFNBDiBydzp72rANvgsCmINA9WcOjCkakvVCQph0+M8H5hRTh7ItcE
+ HKq4l8QECge4PiaMNb6yzJ00RVJQxYxy4ULxF7d0K9j8ssS0OEnMNJHIkIYKPKkhco7nzG66AW0
+ MyL5K8iGu6bpWzpqDu7rmIZfE/wXrqFVlJLG6Mj0xcNA6FPQM9+CAuuu4RwbnEeTW2/46m7Nvp/
+ yUDC4V/9v8I/hbhKmazKr0cCq+4jYaXyUaz97/90fAiwmIbsrlKrfH23tC0etQUmLdomAIG1fwb
+ daXPDk7VKTgraiWRcwiom4N8kAZ47U=
+X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260108_054009_058568_22979769 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,29 +90,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The goal here is to refactor the clock driver to extract common part, and
+reuse it, so in the future, we can maximize the source code usage once
+adding new clock driver (specifically, for the SpacemiT K3 SoC here)
 
-On Thu, Jan 08, 2026 at 11:24:07AM +0200, Kalle Niemi wrote:
-> On 1/2/26 08:59, Mike Rapoport wrote:
-> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> > 
-> Hello,
-> 
-> This patch got bisected to cause BeagleBone Black boot failure in linux-next
-> version next-20260107.
+Since reset driver register via auxiliary bus which requires a adjustment
+of the auxiliary device id accordingly.
 
-Can you check if this patch fixes it?
+This patch will depend on Kconfig fix for building modules [1], and the idea
+come from K3 clock's review[2]
 
-https://lore.kernel.org/all/aVpWpLV4Dut5Muo2@kernel.org/
- 
-> At the moment I cannot provide any helpful information about this.
-> 
-> BR
-> Kalle
+Please note, Patch 1 is needed for both clock and reset driver, so extract it
+out as single independent patch. Then it can be pulled into both subsystem.
 
+Link: https://lore.kernel.org/all/20251219012819.440972-1-inochiama@gmail.com/ [1]
+Link: https://lore.kernel.org/all/aTo8sCPpVM1o9PKX@pie [2]
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
+---
+Changes in v4:
+- add runtime dependency message about the fix to reset break
+- collect tags
+- Link to v3: https://lore.kernel.org/r/20260103-06-k1-clk-common-v3-0-6061d9f69eef@gentoo.org
+
+Changes in v3:
+- drop reset macro, and have separate patch for changing reset name
+- extract common spacemit_ccu_probe(), leave SoC specific change out
+- improve commit message
+- Link to v2: https://lore.kernel.org/r/20251226-06-k1-clk-common-v2-0-28b59418b4df@gentoo.org
+
+Changes in v2:
+- extract common header file which shared by clock and reset
+- add SoC namespace to differentiate reset for auxiliary bus
+- Link to v1: https://lore.kernel.org/r/20251220-06-k1-clk-common-v1-0-df28a0a91621@gentoo.org
+
+---
+Yixun Lan (4):
+      clk: spacemit: prepare common ccu header
+      clk: spacemit: extract common ccu functions
+      clk: spacemit: add platform SoC prefix to reset name
+      reset: spacemit: fix auxiliary device id
+
+ drivers/clk/spacemit/ccu-k1.c     | 191 +++-----------------------------------
+ drivers/clk/spacemit/ccu_common.c | 171 ++++++++++++++++++++++++++++++++++
+ drivers/clk/spacemit/ccu_common.h |  10 ++
+ drivers/reset/reset-spacemit.c    |   2 +-
+ include/soc/spacemit/ccu.h        |  21 +++++
+ include/soc/spacemit/k1-syscon.h  |  12 +--
+ 6 files changed, 215 insertions(+), 192 deletions(-)
+---
+base-commit: 99735a742f7e9a3e7f4cb6c58edf1b38101e7657
+change-id: 20251217-06-k1-clk-common-8d1c57995047
+prerequisite-message-id: 20251219012819.440972-1-inochiama@gmail.com
+prerequisite-patch-id: df430730ed961011cee5c5d47b7ace84b3c5ebb7
+prerequisite-patch-id: 64003618c33be925602e46b7543f2c13d3f36474
+
+Best regards,
 -- 
-Sincerely yours,
-Mike.
+Yixun Lan
+
 
 _______________________________________________
 linux-riscv mailing list
