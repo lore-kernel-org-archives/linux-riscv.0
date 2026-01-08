@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C23B8CF6AB6
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 10:00:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB6A1CF6ABC
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 10:05:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=twVeYd9er2AJiBcxUlHRWGr1P/PuI3Z/Cgdsh57Bh/c=; b=ADisoFuB3uP4j+
-	s7skPHD9dckk9uLYTpQXoBGKklewCcfyfDc8hRnztYaGa89gWm8AgKcLstkWn5g2eW3F8SZVJjdij
-	rQFAAA12Y0G0lUGKx7MPr5AV80YIZyDyUwBmumYZGGe5p9FwaIDqGoTDt2PnSbHaUIphYme3w/e4y
-	Zvydo2NkapM7foV35ztKYL18zwLOsxntNf8Wtf9b3HHeybT+zaZAQMoAiJDD8R9BVnS35HJwvY3w0
-	XVYHz4PjhH3J1jFziaU0S1bte/T7PwgeAov59js3ajFQ419HDEp7BdVhUyJBPPeb8Q3wjfysMiYj0
-	kkY2bUvvJR8jY8da8mqA==;
+	List-Owner; bh=KnVzv9m9MKq34ql2FmiRnYRilnZWVplfqR6a97X/vMc=; b=p5NHvXog7C2GPQ
+	qp8dGHnwy/sdOJcs7xC0OZoTC4VcqHJUnOGi6q59aebZtwju5i7Vp3wjzYteYn9GDUHtmQ7qjrZXt
+	0I66JVcPPXdg5tSpC2oSRLXkkKJj16wHesRsGnmEfj3TDVy4TGcSD1w7PhqQOIJEFoMTBXWltGjz1
+	vw6o35WtvOUYrPejitECI90zwhk/Arg8xG1SVb5s7KuWEz8OzHuW/MkuSPUCXwt3b0buZX55swhy/
+	vh2NmG1zyPN0WJBldmSuPs3oBkJm71jlsrk7/thwIp5oOt31bhUkFReR2qsLuXaXqgJsddI2hxW2C
+	HZpRmnL6dbSqpfUfMJmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdmop-0000000GY0v-0S4s;
-	Thu, 08 Jan 2026 10:00:39 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1vdmtT-0000000GYjR-1dsk;
+	Thu, 08 Jan 2026 10:05:27 +0000
+Received: from mx-rz-3.rrze.uni-erlangen.de ([131.188.11.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdmom-0000000GXzh-10bx
+	id 1vdmtP-0000000GYgA-3Hh0
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Jan 2026 10:00:38 +0000
-X-UUID: d9ba585cec7811f0a38c85956e01ac42-20260108
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:92d9c349-e32f-4ee6-b4bd-7d53920b3c09,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:cd288c550dff6a7cd085b327586eb50b,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:0|15|
-	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: d9ba585cec7811f0a38c85956e01ac42-20260108
-X-User: jiangfeng@kylinos.cn
-Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 12501923; Thu, 08 Jan 2026 18:00:24 +0800
-Message-ID: <e02320c8-eff2-44af-a66c-a3c7ca9ca0ea@kylinos.cn>
-Date: Thu, 8 Jan 2026 18:00:21 +0800
+	Thu, 08 Jan 2026 10:05:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
+	t=1767866709; bh=pnpSM3+LZ7mt++O2dJV5Zv3nt3YFPeMMaAN43GJ9qSI=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From:To:CC:
+	 Subject;
+	b=TXRwanSqLD1caB7/z27CfdMl+01wFPEyCyYyER7hODQ7nfKk+4XAQ6n19GMWyCM8A
+	 nUbjG/WzLyx9YtxeG8ajPcVS0xlmB5XWF1qggMqc2p3T32fCJNy9sAI7/d31CFSwtK
+	 qR2HJY2B4tcQAziwErqszVK3Yu7Zl7eXvxGiYSPZfJwO1NoV12ffLKPQHDFhti7Ha1
+	 ix/1yVb+qbCPtuvZKaeee+siCZBJSKn27khqzRi5ZQDuEAMuUq0WyEwQQas41jITYO
+	 5sI8dXKMtI+ciJHNvZZ9fzJcdzAWx7i45PagAO/JWk+JVgzV8ZmIMQEOcIoH9eyIsB
+	 3xlb+iqxx+3Mg==
+Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-rz-3.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4dn0rj5vcVz1xwT;
+	Thu,  8 Jan 2026 11:05:09 +0100 (CET)
+X-Virus-Scanned: amavisd-new at boeck1.rrze.uni-erlangen.de (RRZE)
+X-RRZE-Flag: Not-Spam
+X-RRZE-Submit-IP: 10.188.34.184
+Received: from localhost (i4laptop33.informatik.uni-erlangen.de [10.188.34.184])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: U2FsdGVkX180WNKE5bNi5QBpRfXLZfhB6/uihbEZEPM=)
+	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4dn0rg0bYbz1y3L;
+	Thu,  8 Jan 2026 11:05:07 +0100 (CET)
+From: Luis Gerhorst <luis.gerhorst@fau.de>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: Lukas Gerlach <lukas.gerlach@cispa.de>,  ast@kernel.org,
+  bjorn@kernel.org,  bpf@vger.kernel.org,  daniel.weber@cispa.de,
+  daniel@iogearbox.net,  jo.vanbulck@kuleuven.be,
+  linux-riscv@lists.infradead.org,  luke.r.nels@gmail.com,
+  marton.bognar@kuleuven.be,  michael.schwarz@cispa.de,
+  palmer@dabbelt.com,  pjw@kernel.org,  xi.wang@gmail.com,
+  cleger@rivosinc.com,  palmer@rivosinc.com,  conor.dooley@microchip.com,
+  andrew@sifive.com
+Subject: Re: [PATCH] riscv, bpf: Emit fence.i for BPF_NOSPEC
+In-Reply-To: <06ac0b87-d398-4cb0-a614-760bfe41cf7f@sifive.com> (Samuel
+	Holland's message of "Wed, 7 Jan 2026 17:30:02 -0600")
+References: <87y0m996b2.fsf@fau.de>
+	<20260107095406.4082-1-lukas.gerlach@cispa.de> <87sechz4x3.fsf@fau.de>
+	<06ac0b87-d398-4cb0-a614-760bfe41cf7f@sifive.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Thu, 08 Jan 2026 11:05:06 +0100
+Message-ID: <875x9czagd.fsf@fau.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] lib/string_kunit: add test case for strnlen
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Andy Shevchenko <andy.shevchenko@gmail.com>, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, kees@kernel.org,
- andy@kernel.org, ebiggers@kernel.org, martin.petersen@oracle.com,
- Jason@zx2c4.com, conor.dooley@microchip.com, samuel.holland@sifive.com,
- charlie@rivosinc.com, ajones@ventanamicro.com, nathan@kernel.org,
- linus.walleij@linaro.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-References: <20260107023517.46840-1-jiangfeng@kylinos.cn>
- <20260107023517.46840-3-jiangfeng@kylinos.cn>
- <CAHp75VfxT+K1QRc5ayZGc4joB9vFJrk7kjQ4gAgUHOT1boFbmA@mail.gmail.com>
- <b419c6db-0f3f-4666-8f7c-156f7eda2b5b@kylinos.cn>
- <aV9cQ2QMA-jwFNUO@smile.fi.intel.com>
-Content-Language: en-US
-From: Feng Jiang <jiangfeng@kylinos.cn>
-In-Reply-To: <aV9cQ2QMA-jwFNUO@smile.fi.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_020036_594871_8831AE0D 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20260108_020524_260737_48178381 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,34 +87,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNi8xLzggMTU6MjYsIEFuZHkgU2hldmNoZW5rbyB3cm90ZToKPiBPbiBUaHUsIEphbiAw
-OCwgMjAyNiBhdCAwMjo1Mzo1OFBNICswODAwLCBGZW5nIEppYW5nIHdyb3RlOgo+PiBPbiAyMDI2
-LzEvNyAxOTo1NiwgQW5keSBTaGV2Y2hlbmtvIHdyb3RlOgo+Pj4gT24gV2VkLCBKYW4gNywgMjAy
-NiBhdCA0OjM14oCvQU0gRmVuZyBKaWFuZyA8amlhbmdmZW5nQGt5bGlub3MuY24+IHdyb3RlOgo+
-IAo+IC4uLgo+IAo+Pj4+IEFkZCBhIEtVbml0IHRlc3QgZm9yIHN0cm5sZW4oKSB0byB2ZXJpZnkg
-Y29ycmVjdG5lc3MgYWNyb3NzCj4+Pj4gZGlmZmVyZW50IHN0cmluZyBsZW5ndGhzIGFuZCBtZW1v
-cnkgYWxpZ25tZW50cy4KPj4+Cj4+PiBTYW1lIGNvbW1lbnQgYXMgcGVyIHBhdGNoIDEgKGl0IHdv
-dWxkIHByb2JhYmx5IHJlcXVpcmUgdG8gY2FsbCBmb3IKPj4+IGFyY2hfc3RybmxlbigpIG9yIHNv
-bWV0aGluZyBsaWtlIHRoaXMpLgo+Pgo+PiBUaGFua3MsIG1ha2VzIHNlbnNlLgo+Pgo+PiBJJ2xs
-IGFkZCB0aGUgcGVyZm9ybWFuY2UgYmVuY2htYXJraW5nIChyYW5kb20gZmlsbGluZyArIHRpbWlu
-ZykgaW4gVjIuCj4+Cj4+IFNpbmNlIHN0cmluZyBmdW5jdGlvbnMgYXJlIHR5cGljYWxseSBleHBv
-cnRlZCBkaXJlY3RseSBieSBlYWNoIGFyY2hpdGVjdHVyZQo+PiB3aXRob3V0IGFuIGFyY2hfIHBy
-ZWZpeCwgSSdsbCBpbnRyb2R1Y2UgYSBnZW5lcmljX3N0cm5sZW4oKSAoYmFzZWQgb24KPj4gbGli
-L3N0cmluZy5jKSB3aXRoaW4gdGhlIHRlc3QgZm9yIGNvbXBhcmlzb24uCj4gCj4gUHJvYmFibHkg
-eW91IHdhbnQgdG8gbWFrZSB0aGUgZXhpc3Rpbmcgb25lIHRvIGhhdmUgdGhhdCBuYW1lIGFuZCB1
-c2UgaXQgaW5zaWRlCj4gdGhlIHRlc3QgYW5kIGluIHRoZSBmYWxsYmFjayB3cmFwcGVyLiBXZSBk
-b24ndCB3YW50IHRvIGhhdmUgZHVwbGljYXRlIGNvZGUsIGl0Cj4gaXMgYmFkIGZyb20gbWFpbnRl
-bmFuY2UgcGVyc3BlY3RpdmUuCj4gCgpUaGFua3MgZm9yIHRoZSBzdWdnZXN0aW9ucyEKClRvIGF2
-b2lkIGNvZGUgZHVwbGljYXRpb24sIEknbGwgcmVuYW1lIHRoZSBnZW5lcmljIGltcGxlbWVudGF0
-aW9uIGluIGxpYi9zdHJpbmcuYwp0byBfX2dlbmVyaWNfc3RybmxlbigpIGFuZCBrZWVwIHRoZSBv
-cmlnaW5hbCBzdHJubGVuKCkgYXMgYSB3cmFwcGVyLiBUaGVuIEknbGwgdXNlCnRoZSBnZW5lcmlj
-IG9uZSBpbiB0aGUgS1VuaXQgdGVzdCBmb3IgY29tcGFyaXNvbi4KCkRvZXMgdGhpcyBhcHByb2Fj
-aCBsb29rIGdvb2QgdG8geW91PwoKLS0gCldpdGggQmVzdCBSZWdhcmRzLApGZW5nIEppYW5nCgoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Samuel Holland <samuel.holland@sifive.com> writes:
+
+> The Zifencei extension is no longer a mandatory part of the ISA, but it is
+> mandatory for Linux. Linux requires at least "rv32ima or rv64ima, as defined by
+> version 2.2 of the user ISA and version 1.10 of the privileged ISA".
+>
+> Notably, in version 2.2 of the user ISA, the Zifencei extension was still an
+> unnamed subset of the I extension, so it is included in the above requirement.
+> It was later removed from the I extension and given its own name, which is why
+> we have weirdness like the code below. (You can see in arch/riscv/Makefile where
+> we unconditionally add either ISA version 2.2 or Zifencei to CFLAGS.)
+>
+>> RISC-V cpufeature.c had this in [2]:
+>> 
+>> 		/*
+>> 		 * Linux requires the following extensions, so we may as well
+>> 		 * always set them.
+>> 		 */
+>> 		set_bit(RISCV_ISA_EXT_ZICSR, this_isa);
+>> 		set_bit(RISCV_ISA_EXT_ZIFENCEI, this_isa);
+>> 
+>> But as of [1] it was changed to:
+>> 
+>> 		if (acpi_disabled) {
+>> 			set_bit(RISCV_ISA_EXT_ZICSR, source_isa);
+>> 			set_bit(RISCV_ISA_EXT_ZIFENCEI, source_isa);
+>> 
+>> So based on that I would assume fence.i may not always be supported.
+>
+> This is just a quirk of the parsing code. As mentioned in [1], older devicetrees
+> were written while Zifencei was an implicit part of I, so we don't expect it to
+> appear in the devicetree. The ACPI table definition was written after Zifencei
+> was a separate extension, so we do expect Zifencei to appear on its own in the
+> ACPI table. But it is still required. (We don't currently check that all
+> extensions required by the kernel are actually present; this will be done as
+> part of the RVA23 enablement.)
+>
+>> But I also found that 921ebd8f2c08 ("RISC-V: Allow userspace to flush
+>> the instruction cache") seems to assume that fence.i always works (see
+>> local_flush_icache_all() which I assume runs in the kernel).
+>
+> Yes, the kernel definitely won't run if fence.i is missing, so we don't need to
+> worry about such hardware. We could probably document this better.
+
+Thanks for clarifying this! In that case the patch looks good to me.
+
+I assume some testing has been done to ensure the instruction coding
+works. (I think the eBPF CI does not have RISC-V yet but [1] previously
+worked fine for me.)
+
+Acked-by: Luis Gerhorst <luis.gerhorst@fau.de>
+
+[1] https://github.com/pulehui/riscv-bpf-vmtest
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
