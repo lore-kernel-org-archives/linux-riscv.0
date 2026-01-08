@@ -4,93 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91FA4D1D483
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 19:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9DD5D1D483
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jan 2026 19:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lDVh7XJuBhV70AVYH2ciTioqXnypePFbHBxce4dyu/4=; b=Wp0wJP+xkMRmqb
-	gnjcmmJ7NJzngLrZGJ39NORKm+HVIxGhTgEwJbdaIEDViTOQJTDclRU9NCiFASQcHYkFbe0gH8564
-	iu59LY2dIPZvCn4oUVyAkiJNLup4GRo2/pt4nEj8jK5HCPhVFIozdJ0mQGU9b1PzAdbK3/9wLi3Gc
-	PJHEWDk6qpHd1JeejUami7SNDOSj9bCQP4c5q/IhlYBOmj+n1O0N3UGvtgjUBFhruZsBwssloswmj
-	XssjM5T6jTSyvb/BH2IkWJoVIU1NzdmdH02WH18NIlV0o2AZ2i53PxTEWoci00KZOsgb8Av9Lm5+p
-	SGN+pS38maiEJgCBU+6Q==;
+	List-Owner; bh=8Vk1ExMP2F3g5qta+CuQ/Oh5CqpherVa0dvzQnMigJI=; b=tEMgVFxAiaW8hT
+	uw9S4d9cZEYg5wU33MgyQa6Ar3mO/0q4Z2bNC1g1gHTlsYDivX7PbP4gcwuL3lpZmjUQjYdhtTOF8
+	jYNEcmI5B7RZkEFATKp71UO/7PkoFfcFPOk6LU/b4aCbj5ybCL+fvTf7UBfkAw1sS/lRLRk+CUrnV
+	KIXb6RuSV0PvlZ2fjepFIN3Q213l2gweLm07l52e+5bAmKAgupibZ/gjOpvAxQ6gJlD+XRH8NDx29
+	/mPDfLVKJpAWRxHIM9gCb87TScrm3GvA0hC09QY+bRED808pbUFMVXnfUYIy40kBtzfdM62H4oHWf
+	YmqT5cI+Hivb5fel7rlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdvXa-00000000k2C-2tOA;
-	Thu, 08 Jan 2026 19:19:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdvaB-00000000kUP-1jJv;
+	Thu, 08 Jan 2026 19:22:07 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdvXX-00000000k1f-28ev;
-	Thu, 08 Jan 2026 19:19:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DD4D240732;
-	Thu,  8 Jan 2026 19:19:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEE9CC116C6;
-	Thu,  8 Jan 2026 19:19:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1767899961;
-	bh=fSg1rFUc7Lj8obCBDIiOBzwmsy2PDWnpS6aiVKuno6E=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=CVumgl5uYfQfaLqYgweLov8FT7OgO1ch7qHlwuZbONKicqb+bmGFoLIsYAxoWfRsr
-	 6BxVTZH+QFJx2xSpWVk0NUrA2Ddxjwu2/Wcc1JG/gPIWft2fVjXp2CIt9nEHIpeVml
-	 fnOoO4sO6q/7KPmJQudmyHeHcLC9E7nvlzSuO+ys=
-Date: Thu, 8 Jan 2026 11:19:19 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Klara Modin <klarasmodin@gmail.com>, Alex Shi <alexs@kernel.org>,
- Alexander Gordeev <agordeev@linux.ibm.com>, Andreas Larsson
- <andreas@gaisler.com>, Borislav Petkov <bp@alien8.de>, Brian Cain
- <bcain@kernel.org>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, "David S. Miller"
- <davem@davemloft.net>, Dave Hansen <dave.hansen@linux.intel.com>, David
- Hildenbrand <david@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>, Geert
- Uytterhoeven <geert@linux-m68k.org>, Guo Ren <guoren@kernel.org>, Heiko
- Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, Huacai Chen
- <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>, Johannes Berg
- <johannes@sipsolutions.net>, John Paul Adrian Glaubitz
- <glaubitz@physik.fu-berlin.de>, Jonathan Corbet <corbet@lwn.net>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, Lorenzo Stoakes
- <lorenzo.stoakes@oracle.com>, Magnus Lindholm <linmag7@gmail.com>, Matt
- Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>, Michael
- Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>, Michal Simek
- <monstr@monstr.eu>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador
- <osalvador@suse.de>, Palmer Dabbelt <palmer@dabbelt.com>, Pratyush Yadav
- <pratyush@kernel.org>, Richard Weinberger <richard@nod.at>, Russell King
- <linux@armlinux.org.uk>, Stafford Horne <shorne@gmail.com>, Suren
- Baghdasaryan <surenb@google.com>, Thomas Bogendoerfer
- <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, Vasily
- Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>, Vlastimil
- Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>, x86@kernel.org,
- linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-cxl@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-mm@kvack.org,
- linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-um@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- loongarch@lists.linux.dev, sparclinux@vger.kernel.org
-Subject: Re: [PATCH 3.5] arm: make initialization of zero page independent
- of the memory map (was Re: [PATCH v2 22/28] arch, mm: consolidate
- initialization of nodes, zones and memory map)
-Message-Id: <20260108111919.ac5f811132672e760f47fbab@linux-foundation.org>
-In-Reply-To: <aVpWpLV4Dut5Muo2@kernel.org>
-References: <20260102070005.65328-1-rppt@kernel.org>
-	<20260102070005.65328-23-rppt@kernel.org>
-	<aVhN2NgQEKe0yzva@soda.int.kasm.eu>
-	<aVll339wim7dCIaQ@kernel.org>
-	<aVlwOyicOLPB9SOa@parmesan.int.kasm.eu>
-	<aVpWpLV4Dut5Muo2@kernel.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	id 1vdva7-00000000kSg-17u1
+	for linux-riscv@lists.infradead.org;
+	Thu, 08 Jan 2026 19:22:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=YHcp+h2VUjdsQYxFOp8xnsLAusAj+PKGkVJ8VCEN8jQ=; b=QiMM6fk7P632nZXkeO0KqGp62r
+	2QojtTrOINRsRtIbq6JbxxBIUE2rCrOPx7fxx012UZLZxZYJXeJgFldzON2JVBOMtvtFaYbttjlZN
+	r0vYmusF+uUXaw5KAQWObMMc41MQul1ujrQa0H/azINTQDhM1n57eIg/b4vlrhOlcEVXegZEM7KuF
+	vhJ+AZoegJ+ZmZwAkh042+l4gYW6kVCYS/flMRHq/bbQZHhNIYG5Fv3TROSj3L0qU9q+UgSNyU/kV
+	cxKTU3yMvN45rA3v/2YrcijbWkfEWbHtsHyPs84RA3BBfxNDLTFnVqlYLoPs9N3CYAtH5cCF8pVWg
+	rbOZ8VVA==;
+Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1vdvZq-0000000GW09-34rS;
+	Thu, 08 Jan 2026 20:21:46 +0100
+Date: Thu, 8 Jan 2026 20:21:46 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Alex Elder <elder@riscstar.com>,
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	Troy Mitchell <troymitchell988@gmail.com>,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH v6 0/2] i2c: spacemit: introduce pio for k1
+Message-ID: <aWADytTOgMd9Bp6m@aurel32.net>
+Mail-Followup-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Alex Elder <elder@riscstar.com>,
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	Troy Mitchell <troymitchell988@gmail.com>,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+References: <20260108-k1-i2c-atomic-v6-0-41b132b70f68@linux.spacemit.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260108-k1-i2c-atomic-v6-0-41b132b70f68@linux.spacemit.com>
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_111923_616195_15DF1EE9 
-X-CRM114-Status: GOOD (  16.02  )
+X-CRM114-CacheID: sfid-20260108_112203_721724_12B60D27 
+X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,32 +86,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 4 Jan 2026 14:01:40 +0200 Mike Rapoport <rppt@kernel.org> wrote:
+Hi,
 
-> Can you please stick this between patch 3 (arm: introduce
-> arch_zone_limits_init()) and patch 4 (arm64: introduce
-> arch_zone_limits_init())?
-
-Did, thanks.  I made this a standalone patch rather than  a
-squashable -fix.
-
-> >From 35d016bbf5da7c08cc5c5547c85558fc50cb63aa Mon Sep 17 00:00:00 2001
-> From: Klara Modin <klarasmodin@gmail.com>
-> Date: Sat, 3 Jan 2026 20:40:09 +0200
-> Subject: [PATCH] arm: make initialization of zero page independent of the
->  memory map
+On 2026-01-08 15:52, Troy Mitchell wrote:
+> This patch introduces I2C PIO functionality for the Spacemit K1 SoC,
+> enabling the use of I2C in atomic context.
 > 
-> Unlike most architectures, arm keeps a struct page pointer to the
-> empty_zero_page and to initialize it requires conversion of a virtual
-> address to page which makes it necessary to have memory map initialized
-> before creating the empty_zero_page.
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> ---
+> Troy Mitchell (2):
+>       i2c: spacemit: move i2c_xfer_msg()
+>       i2c: spacemit: introduce pio for k1
 > 
-> Make empty_zero_page a stataic array in BSS to decouple it's
-> initialization from the initialization of the memory map.
-> 
-> This also aligns arm with vast majorty of architectures.
+>  drivers/i2c/busses/i2c-k1.c | 314 +++++++++++++++++++++++++++++++++-----------
+>  1 file changed, 237 insertions(+), 77 deletions(-)
+> ---
+> base-commit: 003e84792ce811256114dee4f4ecc1cafdab2b0d
+> change-id: 20250814-k1-i2c-atomic-f1a90cd34364
 
-Russell, can you please update us on your concerns with this change?
+Thanks for this new version. On my side I do not have further comments, 
+so both patches are:
+
+Tested-by: Aurelien Jarno <aurelien@aurel32.net>
+Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
+
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
