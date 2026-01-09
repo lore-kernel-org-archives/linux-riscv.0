@@ -4,96 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C64B2D232C5
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jan 2026 05:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D204D232DF
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jan 2026 05:37:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9/ylVdLhzYA6hjI2248HNx0JOORdDZWVip2H43o8mPg=; b=1ELCuf6ey3Bx/u
-	fnV9grDz5oYFPeNrA1oDrCrwQxu4qBtBb+Sor6lza012pIO5RJhkAoRXBlJPhhYDqGHhGGgWNwoFA
-	Q8B/O+5ndoU7TFTbZ60ZN6dbKp5ySVUuFwXRtTWB7c/CDElp5OzB9VMHeitS+PjDb7RqwNR6blVs1
-	V9f8ymExDxYJFtD8Xxktpo2P/y9Z+BmrqV+jWs99kb3+tf1OdChS0j6O6sEgGzM/nu8TsWCig8Plo
-	yqu3FenzrKluweSx2xhTMxe4JnLdEPSd45vIaCf/h6MczZiS8S7a8rX6t59Rrl5BmZWeGT+PXJfeL
-	4cYezDkMmw1BFC+dE69w==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=XDmpmKVd5EHPE0pKhGh6E/Lse/HeREvUlBaX+Hs5dPA=; b=24fNCe7fCR0B1/dT8RHZCeE9ru
+	KG4wrYzoCM99l8+P2o1ybbuj/z+yKYO/y08Md+cGqELwQhOqv1owrsl8f6zgy7WxIaNspsc9i1mr5
+	VCme4cAjpBe+l/tSLXchQqrZ2UREt9L3E/4MCTnCerIZag4jQYQ0mxW2fINksTmU7LXVje8vS/Jsc
+	7qeeIZ6cRd2udgBAM9l9lauUP93YUK3aUrSnaFldaa99XRN9XaivT5DsdgaZGYIEdHCHsqMqCX/ch
+	iuISPgZH2BxTAnI0ijzinKLhHFEB1bN3NTSp5mluk3mbo9DDTwwafIt5cqgIR5hu3slxXlToZ6m7n
+	jPMbjtAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve4wc-00000001PqX-3hHt;
-	Fri, 09 Jan 2026 05:21:54 +0000
-Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
+	id 1ve5BW-00000001S0N-3cwv;
+	Fri, 09 Jan 2026 05:37:18 +0000
+Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve4wa-00000001Ppv-2OtK
+	id 1ve5BS-00000001Ryt-0tjI
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 Jan 2026 05:21:53 +0000
-Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-7c75178c05fso1557498a34.0
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Jan 2026 21:21:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1767936110; x=1768540910; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2a7yb61gjMTGmEOfZ9bR3veEdxmzKhIWW1FkPKIznT4=;
-        b=U7wz/reXXYFP4jmuu7I6wss9oTJp06ZRGQ7JhL3jiukyNsjaAmu2Ub8zgshnluOhle
-         57Xx6Z+HCFGl22/FKeBOxdf9JCPgIvQGPQNNwV6i6qPpVR163ToAXAW6HhkGQpaZWhVm
-         ei5vFgD3MWofuN/ogDWstKQWrbBluv82W/+8hsRR8qwGFE2jHpOHDao3EQEIdYVB8FFU
-         utusUt8+XzDAvmEb0nGUF/Mu82kjLnEqrKThlLqYv0c+mdeXtjyyjj/ZvwSYDDmuyleb
-         tBKrMjaWmwHwWXj9jNMq14hrMK5IyO4WOREkxjEAzlNA9fxxNu/vCOap4GfN2Em8Hmis
-         Tj5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767936110; x=1768540910;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2a7yb61gjMTGmEOfZ9bR3veEdxmzKhIWW1FkPKIznT4=;
-        b=Jil+Zt9vu5J60DM4kawUg7R25F6XicKtKdsWiVfL9o5PBYfxybrFI3nDb9epKCdIvt
-         8/3QudmIMCzEeRxgcf3XQsIirBFJ71HqwPN6cU1dpya0HbqNh3uC5x+FORlbxQb7hlIl
-         DQgYmF1DlSRwQmjOIjP6RBN4+xIWp2PDnUcg0vOZqaVtMmLfMpGghEqqsawHtZ+kA5Ae
-         x4wIzjB0vAWqijookrkNDgbQMfyT5GUM68uWo8PLguPYOrNta96fFCTiroc0Qh2qZ7XB
-         bGoaNH5eicNVLaGEobUsFdsXQqKD8TNS+H+ldvi7IFrUwW4NtZaQKogdGA4PBi9S+9sE
-         P9/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXMuyjbvSozuNjiZkbKrmn09+ntViABtwC8gZHSr+oKulNYhtaIyZA/fCyICDwZG7TLgZVr1DUlNyswRw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4b2XCDlupA+7k3cQf1GCzCl3zySmJdCn7xFBN4MQYN/ljnEST
-	Gvld6R0/UvlojTgVamS59Vmls/3PCwwrYiBkoCrHErbJCVDxBPY9JN+CFk+wOjUPHTNE7TYDTt1
-	eWunO
-X-Gm-Gg: AY/fxX4IeiIKp1fPoclOzCt0m3hbeHjU/A/zPlfze+te9Jt4rG2rh7Ic0rNzGK60dTY
-	KoDEAlomA1qT7WrdNwi/xKSeyP3o3gV/7QN80x2bTYDRkWvS5rHX6CHGZ02JLNDqEhEqjgF2SS5
-	+1/6ttw9FBc8kldmCvnQhlsaHKFEh7zli1Kks/rwSiLax1i9jy7iWORrh+N6gIgOb9PsE42OodS
-	phfrRWFOLZMpzHR+zACPUFwMHAzu3f86j/nB6Or635JC9iRFm1VXZZNATgPYVlYnVsvubqkqn7F
-	0KB+rauTULYAoIyH472k9GbTWaxK3m7Fe81YJpHKIwn04dTvL1RiR4gTX/SPOw1VlmWj/K0EhBT
-	IE/zadmXd5nWqYroQrbA+oJ1dA5hUs5KhnQsUSUpPg/0wfQ8yVsVkuwA9Qvs1QxE3y1fNU5aq2J
-	RM82Fp6s/tz39hYW4hw1OaCPPdc2g=
-X-Google-Smtp-Source: AGHT+IGR9G9QsQo8PdDgYo3rev7ih0hABMziC59pD3OHlqcWicc9e+z0NWSuSaiPEPFAI2FDHSqogA==
-X-Received: by 2002:a05:6830:230c:b0:7c7:1c77:f107 with SMTP id 46e09a7af769-7ce50c0b0d5mr5519693a34.34.1767936110408;
-        Thu, 08 Jan 2026 21:21:50 -0800 (PST)
-Received: from [100.64.0.1] ([170.85.11.86])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7ce478d9f54sm7079938a34.23.2026.01.08.21.21.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 08 Jan 2026 21:21:49 -0800 (PST)
-Message-ID: <5c54077c-f9fd-40c9-84eb-54139db8aaa6@sifive.com>
-Date: Thu, 8 Jan 2026 23:21:48 -0600
+	Fri, 09 Jan 2026 05:37:16 +0000
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 37B367A0122;
+	Fri,  9 Jan 2026 00:37:10 -0500 (EST)
+Received: from phl-imap-17 ([10.202.2.105])
+  by phl-compute-01.internal (MEProxy); Fri, 09 Jan 2026 00:37:10 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1767937030;
+	 x=1768023430; bh=UHcT9QNQAYnFAiQhNlj6/BokZ8RBlhn9zduw09wu7Zw=; b=
+	aHfzTfyi9WWc/DDOcb2bb5+XpsKzlscvWXWZARQ3RcywLgqk9i7n/R7C9b9ZjRZT
+	ukBWewI3WVfKsnM4maecGWg6vpPxXP6K6iDPlt8E0yGs5+wni94+y41omD93O6gW
+	LmI9jRfQqL4F0ftBjoSu9oxzwNj/nRKBebrHkUNa32QJ9nQGnstNM37Y6qy2cYpA
+	yWLCFBqCK3mpG6jMflr8Aj3C6schJ6u95GMF/tIGyz2PaioalWK/nY5Es3LtCGs3
+	FvvpI+QuXW+uqioOQe+oPnY75ug1YK7+EjZwjH1++6WIrU9iTbVrGCeAhDUkWVx3
+	fiZ4sSaIkE6RKlGokwVRDw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1767937030; x=
+	1768023430; bh=UHcT9QNQAYnFAiQhNlj6/BokZ8RBlhn9zduw09wu7Zw=; b=O
+	tZ7UMkLUZUgyxjN0I+S+95xpQc5QyXV8NnajGq8SdMVcfOn24uOGwSli8BLLKbf6
+	U4S88tYEGrwZFMdbW0kZ81b7xX7xXo+lJ8xgKnVzD5BNMet2KOH828s45+2XBL61
+	hJRUnU3UPVnnkMlNgxnFxYV5364tf8hRRqnHRwUdOyW08dWI3GNSyPB+nditKLoY
+	RdR7rdE2PxKyKea+QRLS6wHjzwIV/H2Ulln8DKgH7eJmK3VaKzqHjrvZ8qpE9VWf
+	Tjge4QyAxa++089ciTMDFTbUmHiYRvarGdCusgurLS7oXebz6u2gptA1hwQy66mQ
+	c4Nib1Wy+F/yqgcSuctWg==
+X-ME-Sender: <xms:BJRgaV4PXYliab-2kGGZR37iLMBtjar0HawVbm77AFtmFE0BkmcZPA>
+    <xme:BJRgadvSpKK6UWYnX-fVEHe3b16CX9MFSWYTJbR-THqX3w9u8EhESFzqoKwvyfOCB
+    hIN6I0FuIgRMvLhcYdlJLp-qDf4CO0gYlQwbtxrT8WOn8w8OeJ9jeI>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddutdejleekucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedfufhtvghf
+    rghnucfqkdftvggrrhdfuceoshhorhgvrghrsehfrghsthhmrghilhdrtghomheqnecugg
+    ftrfgrthhtvghrnhepgfegfedtuefhfeeuffegleeiveelhfdujeffgeetffefueetjedv
+    fedvieduudetnecuffhomhgrihhnpehrihhstghvrdhorhhgnecuvehluhhsthgvrhfuih
+    iivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepshhorhgvrghrsehfrghsthhmrghi
+    lhdrtghomhdpnhgspghrtghpthhtohepudehpdhmohguvgepshhmthhpohhuthdprhgtph
+    htthhopegurghnihgvlhdrfigvsggvrhestghishhprgdruggvpdhrtghpthhtoheplhhu
+    khgrshdrghgvrhhlrggthhestghishhprgdruggvpdhrtghpthhtohepmhhitghhrggvlh
+    drshgthhifrghriiestghishhprgdruggvpdhrtghpthhtohepphgrlhhmvghrsegurggs
+    sggvlhhtrdgtohhmpdhrtghpthhtoheplhhuihhsrdhgvghrhhhorhhsthesfhgruhdrug
+    gvpdhrtghpthhtoheplhhukhgvrdhrrdhnvghlshesghhmrghilhdrtghomhdprhgtphht
+    thhopeigihdrfigrnhhgsehgmhgrihhlrdgtohhmpdhrtghpthhtohepuggrnhhivghlse
+    hiohhgvggrrhgsohigrdhnvghtpdhrtghpthhtoheprghstheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:BZRgaS9FRExT86q-yhEZ_YjVdccUJXZ1MqK8A4EcsE2Cbd0DOcbJjg>
+    <xmx:BZRgaTIiOIxFk-j5YizDFVgPF5zINsvjsJNaPEQ8652ZEuqGkoMo1A>
+    <xmx:BZRgaXzrmmVddyig6v4Wt-AR9lB4CxychJZ85EKWmKM_K0MKzD1Ptg>
+    <xmx:BZRgaW17aWdgcKrM6M5Vka7Ci6_IMv-JprOZqprND-S3KHxnNHZR3A>
+    <xmx:BpRgaXfow9VeVERx32sXnRvbTQarEGTLqpnOJWS6xidS3foqXnBOoJdr>
+Feedback-ID: i84414492:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id E4F66C40072; Fri,  9 Jan 2026 00:37:08 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] riscv: dts: spacemit: Enable USB3.0 on BananaPi-F3
-To: Ze Huang <huang.ze@linux.dev>, Yixun Lan <dlan@gentoo.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org, Aurelien Jarno <aurelien@aurel32.net>
-References: <20260107-k1-usb3dts-v2-v2-0-e659b0f8fe1a@linux.dev>
- <20260107-k1-usb3dts-v2-v2-3-e659b0f8fe1a@linux.dev>
- <20260108012157-GYA2355@gentoo.org> <20260108113605-GYA4052@gentoo.org>
- <aWB-6UkudFit3ZBX@monica.localdomain>
-From: Samuel Holland <samuel.holland@sifive.com>
-Content-Language: en-US
-In-Reply-To: <aWB-6UkudFit3ZBX@monica.localdomain>
+X-ThreadId: AWLaPGf1n143
+Date: Fri, 09 Jan 2026 00:36:48 -0500
+From: "Stefan O'Rear" <sorear@fastmail.com>
+To: tech-speculation-barriers@lists.riscv.org,
+ "Lukas Gerlach" <lukas.gerlach@cispa.de>, bpf@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Cc: =?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>,
+ "Alexei Starovoitov" <ast@kernel.org>,
+ "Daniel Borkmann" <daniel@iogearbox.net>, luke.r.nels@gmail.com,
+ xi.wang@gmail.com, "Palmer Dabbelt" <palmer@dabbelt.com>,
+ luis.gerhorst@fau.de, daniel.weber@cispa.de, marton.bognar@kuleuven.be,
+ jo.vanbulck@kuleuven.be, michael.schwarz@cispa.de
+Message-Id: <bc21940d-08ef-4d09-90e0-8611ebddc56d@app.fastmail.com>
+In-Reply-To: <702eb23c-7205-4de1-b56d-eedac6feae46@gmail.com>
+References: <20251228173753.56767-1-lukas.gerlach@cispa.de>
+ <702eb23c-7205-4de1-b56d-eedac6feae46@gmail.com>
+Subject: Re: [tech-speculation-barriers] [PATCH] riscv, bpf: Emit fence.i for
+ BPF_NOSPEC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_212152_720940_A2A01B78 
-X-CRM114-Status: GOOD (  26.06  )
+X-CRM114-CacheID: sfid-20260108_213714_696473_8B6B75E3 
+X-CRM114-Status: GOOD (  43.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,143 +123,194 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ze,
+On Thu, Jan 8, 2026, at 10:37 PM, Bo Gan via lists.riscv.org wrote:
+> Hi Lukas,
+>
+> Stefan and I have some doubts on fence.i's effectiveness as speculation
+> barrier. Flushing entire local instruction cache and instruction pipeline
+> is not absolutely necessary on impl having coherent I/D caches. Quoting
+> from Unprivileged SPEC ver. 20250508:
+>
+> "The FENCE.I instruction was designed to support a wide variety of
+>   implementations. A simple implementation can flush the local instruction
+>   cache and the instruction pipeline when the FENCE.I is executed. A more
+>   complex implementation might snoop the instruction (data) cache on every
+>   data (instruction) cache miss, or use an inclusive unified private L2
+>   cache to invalidate lines from the primary instruction cache when they
+>   are being written by a local store instruction. If instruction and data
+>   caches are kept coherent in this way, or if the memory system consists of
+>   only uncached RAMs, then just the fetch pipeline needs to be flushed at a
+>   FENCE.I"
 
-On 2026-01-08 10:07 PM, Ze Huang wrote:
-> On Thu, Jan 08, 2026 at 07:36:05PM +0800, Yixun Lan wrote:
->> Hi Ze,
->>
->> I've done a quick check of the "regulator-always-on" issue, 
->> it's ok to drop the one from hub, but not the vbus one..
->>
-> 
-> Thanks for your double check
-> 
->> On 09:21 Thu 08 Jan     , Yixun Lan wrote:
->>> Hi Ze,
->>>
->>>   thanks for your patch, I have few comments, see below..
->>>
->>> On 20:05 Wed 07 Jan     , Ze Huang wrote:
->>>> Enable the DWC3 USB 3.0 controller and its associated usbphy2 on the
->>>> Banana Pi F3 board.
->>>>
->>>> The board utilizes a VLI VL817 hub, which requires two separate power
->>>> supplies: one VBUS and one for hub itself. Add two GPIO-controlled
->>>> fixed-regulators to manage this.
->>>>
->>>> Tested-by: Aurelien Jarno <aurelien@aurel32.net>
->>>> Signed-off-by: Ze Huang <huang.ze@linux.dev>
->>>> ---
->>>>  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 48 +++++++++++++++++++++++++
->>>>  1 file changed, 48 insertions(+)
->>>>
->>>> diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
->>>> index 3f10efd925dc..013df91c6a4c 100644
->>>> --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
->>>> +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
->>>> @@ -59,6 +59,26 @@ reg_vcc_4v: vcc-4v {
->>>>  		regulator-always-on;
->>>>  		vin-supply = <&reg_dc_in>;
->>>>  	};
->>>> +
->>>> +	usb3_vbus: regulator-vbus-5v {
->>> I've checked the schematics, the name is 5V_VBUS there, so for the consistency
->>> with previous naming convention, let's change to:
->>> 	usb3_vbus_5v: usb3-vbus-5v 
->>>
->>>> +		compatible = "regulator-fixed";
->>>> +		regulator-name = "USB30_VBUS";
->>>> +		regulator-min-microvolt = <5000000>;
->>>> +		regulator-max-microvolt = <5000000>;
->>> ..
->>>> +		regulator-always-on;
->>> do you think the "always-on" property really necessary? it indicate the
->>> power regulator is critical, and should never been disabled even during
->>> suspend/resume state, for the case of USB, I think it should be totally
->>> fine to poweroff once the device is not used(suspended) or even disabled
->>>
->>> besides, the regulator is designed with a gpio enabling/disabling control
->>> which means it can be powered to on/off state?
->>>
-> 
-> 
->> not ok to drop, see comment below at &usb_dwc3 
-> 
->>
->>>> +		gpio = <&gpio K1_GPIO(97) GPIO_ACTIVE_HIGH>;
->>>> +		enable-active-high;
->>>> +	};
->>>> +
->>>> +	usb3_vhub: regulator-vhub-5v {
->>> why use vhub, but not hub? where does this name come from?
->>>
->>> and for same reason, the name in schematics is VCC5V0_HUB, so how about
->>> change it to:
->>> 	usb3_hub_5v: usb3-hub-5v 
->>>
->>>> +		compatible = "regulator-fixed";
->>>> +		regulator-name = "USB30_VHUB";
->>>                                     ~~~need to fix too, if above is valid
->>>> +		regulator-min-microvolt = <5000000>;
->>>> +		regulator-max-microvolt = <5000000>;
->>> ..
->>>> +		regulator-always-on;
->>> ditto
-> 
->> ok to drop, as it's already handled at drivers/usb/misc/onboard_usb_dev.c
->> which will explicitly request the regulator and enable it
-> 
->>
->>>> +		gpio = <&gpio K1_GPIO(123) GPIO_ACTIVE_HIGH>;
->>>> +		enable-active-high;
->>>> +	};
->>>>  };
->>>>  
->>>>  &combo_phy {
->>>> @@ -67,6 +87,34 @@ &combo_phy {
->>>>  	status = "okay";
->>>>  };
->>>>  
->>> ..
->>>> +&usbphy2 {
->>>> +	status = "okay";
->>>> +};
->>>> +
->>>> +&usb_dwc3 {
->>>> +	dr_mode = "host";
->>>> +	vbus-supply = <&usb3_vbus>;
->> due to drivers/usb/dwc3/dwc3-generic-plat.c has no handler to request regulator
->> there will be problem if "regulator-always-on" property is removed..
-> 
-> On the BananaPi-F3 and to Jupiter, the VL817 hub setup uses two distinct controls:
-> 
-> GPIO97  controls the physical VBUS supply.
-> GPIO123 controls the VCC5V0_HUB supply for the hub logic.
-> 
-> (Note: This differs from the Orange Pi RV2, where only GPIO123 is used to
-> control the VBUS supply).
-> 
-> dwc3-generic-plat can not currently handle the regulator request explicitly,
-> keeping "regulator-always-on" forces the VBUS to remain active even when
-> suspended, which consumes unnecessary power.
-> 
-> I prefer to drop regulator-always-on in the DTS to accurately describe the
-> hardware capability, and let the driver manage the VBUS state. This ensures
-> better power management.
-> 
-> If anyone have other ideas, please let me know.
+Note that this is non-normative text and the actual range of allowed
+implementations is wider than this.
 
-If a USB device requires board-level resources to function, then the USB device
-itself (not the controller) needs a DT node that references these resources.
-This is the purpose of the usb-device.yaml binding. For the VL817 hub, there is
-a specific binding that links the highspeed and superspeed hubs together. See
-Documentation/devicetree/bindings/usb/vialab,vl817.yaml. These nodes are matched
-with the Linux usb-onboard-hub driver.
+I'm particularly concerned that the security property we appear to need (I am
+more familiar with u-arch vulnerabilities than BPF ISA details) is an _issue
+barrier_, but correctness for FENCE.I as currently specified only requires
+a _retirement barrier_.
 
-Regards,
-Samuel
+FENCE.I requires that instructions after the FENCE.I in program order not
+retire unless the hart can verify that they were not overwritten in memory
+between the time they were fetched and the memory-order point of the FENCE.I.
+Simple implementations will probably achieve this by re-fetching and
+preventing retirement of all instructions after the FENCE.I, but if the
+instructions speculatively execute then it is not useful for a Spectre v1
+barrier. Issuing an instruction which cannot possibly retire wastes energy,
+but if FENCE.I is assumed to be an extremely rare operation this may not be
+a priority.
 
+Particularly complex implementations can go as far as to treat FENCE.I as a
+no-op if they snoop the reorder buffer as well as the instruction cache.
+
+> There's the question on overhead, too. Perhaps there's a more accurate and
+> lightweight insn available? I'm not an expert in u-arch. My gut feeling is
+> that we should not be dependent on specific impl's behavior and the riscv
+> SPEC should provide guidelines on speculation barrier instructions and how
+> to use them. Thus, I'm forwarding this to the Speculation Barriers Task-
+> Group, which I hope should be the perfect place to discuss such kind of
+> issues. @Speculation Barriers TG Please share your thoughts. Note that we
+> are dealing with existing HW, so we expect something to be working with
+> current SPEC and actual silicon. I'd be happy if I'm proven wrong, and
+> fence.i can actually be a speculation barrier. That's also a relief. Thank
+> you everyone.
+
+The JH7110 has 512 I-cache lines per core, all of which must be invalidated
+on a FENCE.I. I'm not sure how many cycles that takes for the invalidation,
+but some fraction of those will subsequently be needed before they would
+otherwise be evicted, which could add up to several thousand cycles of
+overhead depending on the cache miss latency, for a BPF program with a single
+BPF_NOSPEC. Compared to roughly one thousand cycles for a kernel entry and
+exit, it may be more practical to disable BPF and rely on userspace event
+processing for affected hardware, even if FENCE.I is otherwise useful as a
+speculation barrier.
+
+I don't think it's possible to define a set of speculation barriers that apply
+to all possible existing and future hardware with the current specifications,
+because the ratified specifications cannot be changed and other than Zkt/Zvkt
+do not constrain uarch side channels.
+
+The TG is defining a new specification which includes semantically rich
+barriers that can have optimal overhead on new hardware. If we find a set of
+speculation barriers that work on some or (optimistically) all existing
+hardware, we would need to define a retroactive specification which documents
+that behavior, much like Zkt/Zvkt or many of the extensions defined in the
+profiles specification.
+
+> BTW, per SPEC:
+>
+>   "The FENCE.I only synchronizes the local hart, and the OS can reschedule
+>    the user hart to a different physical hart after the FENCE.I. This would
+>    require the OS to execute an additional FENCE.I as part of every context
+>    migration"
+>
+> fence.i is local. I know some core does a broadcast and try to make it a
+> global fence.i, but this is not required by the SPEC.
+
+The speculation fences that are used on other architectures are all core-local
+operations so I don't think this is, itself, a problem.
+
+-s
+
+> Bo
+>
+> On 12/28/25 09:37, Lukas Gerlach wrote:
+>> The BPF verifier inserts BPF_NOSPEC instructions to create speculation
+>> barriers. However, the RISC-V BPF JIT emits nothing for this
+>> instruction, leaving programs vulnerable to speculative execution
+>> attacks.
+>> 
+>> Originally, BPF_NOSPEC was used only for Spectre v4 mitigation, programs
+>> containing potential Spectre v1 gadgets were rejected by the verifier.
+>> With the VeriFence changes, the verifier now accepts these
+>> programs and inserts BPF_NOSPEC barriers for Spectre v1 mitigation as
+>> well. On RISC-V, this means programs that were previously rejected are
+>> now accepted but left unprotected against both v1 and v4 attacks.
+>> 
+>> RISC-V lacks a dedicated speculation barrier instruction.
+>> This patch uses the fence.i instruction as a stopgap solution.
+>> However an alternative and safer approach would be to reject vulnerable bpf
+>> programs again.
+>> 
+>> Fixes: f5e81d111750 ("bpf: Introduce BPF nospec instruction for mitigating Spectre v4")
+>> Fixes: 5fcf896efe28 ("Merge branch 'bpf-mitigate-spectre-v1-using-barriers'")
+>> Signed-off-by: Lukas Gerlach <lukas.gerlach@cispa.de>
+>> ---
+>>   arch/riscv/net/bpf_jit.h        | 10 ++++++++++
+>>   arch/riscv/net/bpf_jit_comp32.c |  6 +++++-
+>>   arch/riscv/net/bpf_jit_comp64.c |  6 +++++-
+>>   3 files changed, 20 insertions(+), 2 deletions(-)
+>> 
+>> diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+>> index 632ced07bca4..e70b3bc19206 100644
+>> --- a/arch/riscv/net/bpf_jit.h
+>> +++ b/arch/riscv/net/bpf_jit.h
+>> @@ -619,6 +619,16 @@ static inline void emit_fence_rw_rw(struct rv_jit_context *ctx)
+>>   	emit(rv_fence(0x3, 0x3), ctx);
+>>   }
+>>   
+>> +static inline u32 rv_fence_i(void)
+>> +{
+>> +	return rv_i_insn(0, 0, 1, 0, 0x0f);
+>> +}
+>> +
+>> +static inline void emit_fence_i(struct rv_jit_context *ctx)
+>> +{
+>> +	emit(rv_fence_i(), ctx);
+>> +}
+>> +
+>>   static inline u32 rv_nop(void)
+>>   {
+>>   	return rv_i_insn(0, 0, 0, 0, 0x13);
+>> diff --git a/arch/riscv/net/bpf_jit_comp32.c b/arch/riscv/net/bpf_jit_comp32.c
+>> index 592dd86fbf81..d9a6f55a7e8e 100644
+>> --- a/arch/riscv/net/bpf_jit_comp32.c
+>> +++ b/arch/riscv/net/bpf_jit_comp32.c
+>> @@ -1248,8 +1248,12 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>>   			return -1;
+>>   		break;
+>>   
+>> -	/* speculation barrier */
+>> +	/*
+>> +	 * Speculation barrier using fence.i for pipeline serialization.
+>> +	 * RISC-V lacks a dedicated speculation barrier instruction.
+>> +	 */
+>>   	case BPF_ST | BPF_NOSPEC:
+>> +		emit_fence_i(ctx);
+>>   		break;
+>>   
+>>   	case BPF_ST | BPF_MEM | BPF_B:
+>> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+>> index 45cbc7c6fe49..fabafbebde0c 100644
+>> --- a/arch/riscv/net/bpf_jit_comp64.c
+>> +++ b/arch/riscv/net/bpf_jit_comp64.c
+>> @@ -1864,8 +1864,12 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>>   		break;
+>>   	}
+>>   
+>> -	/* speculation barrier */
+>> +	/*
+>> +	 * Speculation barrier using fence.i for pipeline serialization.
+>> +	 * RISC-V lacks a dedicated speculation barrier instruction.
+>> +	 */
+>>   	case BPF_ST | BPF_NOSPEC:
+>> +		emit_fence_i(ctx);
+>>   		break;
+>>   
+>>   	/* ST: *(size *)(dst + off) = imm */
+>
+>
+>
+> -=-=-=-=-=-=-=-=-=-=-=-
+> Links: You receive all messages sent to this group.
+> View/Reply Online (#19): 
+> https://lists.riscv.org/g/tech-speculation-barriers/message/19
+> Mute This Topic: https://lists.riscv.org/mt/117170030/7725087
+> Group Owner: tech-speculation-barriers+owner@lists.riscv.org
+> Unsubscribe: 
+> https://lists.riscv.org/g/tech-speculation-barriers/leave/14814957/7725087/301854996/xyzzy 
+> [sorear@fastmail.com]
+> -=-=-=-=-=-=-=-=-=-=-=-
 
 _______________________________________________
 linux-riscv mailing list
