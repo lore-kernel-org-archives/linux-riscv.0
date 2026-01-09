@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 198C0D232F6
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jan 2026 09:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E90FED232FC
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jan 2026 09:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x0AWHQpKwu0SyFpeSi7lGoIAcwym+kicQABVukhcWo4=; b=EifudBDfq1UVw1
-	K6YNJvWvWdKdTZxt+pXW9keiECDgyMvPylxjZnX2rdZEk2PQ10XcZ229Axgj5+pVr3UHSjhfSxITZ
-	CPBifj1e3+S4ui7Xc7ke8G5pqds5zX5p+mX+8mwrkqkydKK8bfjL026TLAKvcFpCVT5KDlZTMZ8tq
-	0cgacp5dvxemHS2A+03Ujr6BJ520zAOifHiCi3zqs5nOzaOFrelYEbl4SV7OZ0hBp37yGno9ONQ+O
-	yeFiIOWGZTY0f0KKgiqDIYfCSIfZpl4jMgBL1pzf0udRtqOfFgzXq/4+1vAZVfwGKsv/+O45pNGFi
-	/Li/Qh+dikJuNN1uetaA==;
+	List-Owner; bh=KoommZLhWumnYL8mdvNBXEWXMQJgPs10Pc0WMJi9RVg=; b=Y35VNRLQ/YM084
+	Obxdf18FCxzoCbFeg9m5QhYrz8SL74n6+HiOansaTJh1cNg04S8NbrBCKKOl5/M6rfNewvTeu2tGN
+	+X4896/8d1d1DKrWilYWjZn+cvgcGeD2JREScpCtGXuU4vKN8/3x+WtMExEDEG4/Nzdno81KLUmzR
+	9uQAHQvYfyK/a9mzQvmd7LaoPhFehQIi5//mfZGfGRhbYlr+BbZgJhLJ7Ye/xsVZVsiYpxt4TQ6br
+	PacO1u2ida5GBvD4FwqzKLYMqnQWWO72AUaG/PSda+PLKgjE9XcrDZsjJO2tsXzXGEzPDMMY5OaaX
+	8YF782NaQsDgis39dBSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve8Oi-00000001xQ3-2kIf;
-	Fri, 09 Jan 2026 09:03:08 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1ve8Oo-00000001xVV-49uF;
+	Fri, 09 Jan 2026 09:03:14 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve8Of-00000001xN9-43nc
+	id 1ve8Ol-00000001xS7-3leE
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 Jan 2026 09:03:07 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6091qSem3324804
-	for <linux-riscv@lists.infradead.org>; Fri, 9 Jan 2026 09:03:05 GMT
+	Fri, 09 Jan 2026 09:03:14 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6098Vr9Q3629791
+	for <linux-riscv@lists.infradead.org>; Fri, 9 Jan 2026 09:03:10 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=asLWQeaR4rF
-	QlIKMK2s38SWm7Eqp5rcJ/qvyglZlI+Y=; b=j9naqlU7FvOy/xPALLlXbSgEqH3
-	n9vTSdmk2dj0lEWOCOz8hG7TiXaBDugBCyDyE6a8HXeuIOAi2OYqXvwrrOn7MUJh
-	07XALIKMgcCv86VYtLSvU+wEzidral4Ejc0vPTx6pq+S/lBvYAHIazkLHKuWyBro
-	DEX3HhPVk49ZnIheyBZaTwBIfX6+coq60a7g+KvTmtxpPCuNVaF0Nk9FP5sbaSi4
-	bNt9wmwYL9KZatmrw/TeBEicrfN1+b8ZpwZx3nRw/AUneHycuZ0JrQF6rKCqIDs5
-	4FNf+Q9mlTC0VsNJeCveoWhxw91bIlNYZZTkXpKUeFTJPgaZfi9UydAuV0A==
+	:mime-version:references:subject:to; s=qcppdkim1; bh=Ibs2WMFWf8i
+	sMVsnKj6F0MrAqbp9ptOr31qv7TtrWfQ=; b=CxJMFgeANbWA3+z1HjSB5VWDvYz
+	fs9vDLWnzwlRty/+fHxvtipcPY+7ocykV1+5nStYHGcju7tubY89qejydect3Vz8
+	xC7fQbhjlGWG49ikob2QQ9CZRhqLIxSlM7M3vDIIe9VZm3HjJH06uYWeFxMS8Az5
+	8rM0PA21E1nuEUhWLrHYCESYFj3jmRFS3jtLViYMx3g9PSyY7wJkNk8SY8ci0RYk
+	U/yPK7KHyqbNIokW2W/61mWLrZVgsw3rJpzRjaZX8Oze9s0G8hwhMHywGhDMMLdc
+	/uS1i8wDj9d+Jm6OekWqJlg0ubtPv58TlF53k33DUz4V6B5nR2S2yMNeF8g==
 Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bjrd6h4vm-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bjj8j21ce-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Fri, 09 Jan 2026 09:03:05 +0000 (GMT)
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-815f9dc8f43so4564807b3a.3
-        for <linux-riscv@lists.infradead.org>; Fri, 09 Jan 2026 01:03:05 -0800 (PST)
+	for <linux-riscv@lists.infradead.org>; Fri, 09 Jan 2026 09:03:10 +0000 (GMT)
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-7d24bbb9278so7056548b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 09 Jan 2026 01:03:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767949385; x=1768554185; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1767949389; x=1768554189; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=asLWQeaR4rFQlIKMK2s38SWm7Eqp5rcJ/qvyglZlI+Y=;
-        b=SUxIbb0DLRV1Y4waYPn8jeKkzwS/KUqgO16qIWUF4RdrjOfoU0m+hxLY9fS6LJ+1Ou
-         VsxvGEE2UV/yOVzEChl6WfoENlAIqvfAlqQp2Mu+8/LccskfMRll76v/7pS2zjLfLPqD
-         Ec80zxC3CL1Wk4OrHdyfhPWLz1u9iZl8KU5GYiznjCX9j2FLSlm9QdQFO5dxj6CFmVKg
-         wIY8UF96mkvOpgRWd0MovgOL1yanIJ3+TgFJouuSu1qFzNh2UskSpzobDoEwUY+ifRZZ
-         2yGZZj30JvGDcc+Sb/9NCylAi8Fz9C0fERlBz4GpUh48VlWCGZPcoalW/sAq79J/SbU0
-         Bq6A==
+        bh=Ibs2WMFWf8isMVsnKj6F0MrAqbp9ptOr31qv7TtrWfQ=;
+        b=G7MTSjShv5LvkfcnT2JkcZJJ8CWirR7sOnjLTZ9XdwZ25oggPMZEa6h5mywwd9LUAx
+         5tUtOM8qalZRrCfJgy7nd4HdpPRo5/FC4jtakv+n/D6kSJY2tlXL48plIrVntK2ZztIU
+         dLRFIDIYWgw6RevIep6d1junL/+DKSk5vn81EE0R2HHKw/jGRfbqWulrIWb13yHlmVJZ
+         7zo9trKR/H2zMORkCprtuDOJcC0N5aaU+XCc/5ThfqbypoFnDRenkVJ6c70kpj8rysf0
+         I+Bi5KXzB6aWF22ngOkQrUWC3PGz6EmfLdX5wfsxlARpUiJdJP8pKB9qWt4a1sULzdRi
+         85jA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767949385; x=1768554185;
+        d=1e100.net; s=20230601; t=1767949389; x=1768554189;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=asLWQeaR4rFQlIKMK2s38SWm7Eqp5rcJ/qvyglZlI+Y=;
-        b=hP63WYs5f/AOmsNBGqIryruX60LiPmkw40PY9gA4g4LhuwnxsRDpd0y2kYOU/k6ItQ
-         /iquyUPcv4gZrQCU1hqgWKLwdSx1ZrMlWqWoIhDWKUgd+V/hW/NSwQsEmLpRUycFvfim
-         7+/iBa28diMbMgotHN+UrcWRzB42CZ206gEIAsx4dCRPjyIs9QjCI+KQcWJEIF8jjvDc
-         M5xMpkBGnqwPFT07/Shn7gVRuEVPGx5+W0FRI8zJJ1gfWf7l+Q5Vk/24V586iNBS68X1
-         iQKrCSIZA2OsVxxaC+d6Vov65/K6ebMZQJSzcu+uF0bujB8p2a21dh80pmfkkuWSEYkg
-         1OvQ==
-X-Gm-Message-State: AOJu0YwsKoaLk5K0IGLxng12XwrpobffAiLb4oNcZkoB6W7pwsJdxL75
-	MUriU/nOmwZCrzy0x2gTqzqn/X/hbmykDd+7R6y0e0qrqARpCmzyzY66BAXQmPbMWBPASXebSOD
-	yflcGAxLS6Er79ldKiGFT5sAW0Jz9C2pJxeF0JCo6+k00EZJ3QG5anbGJe7ENHna/H2749q+iPp
-	98bdg=
-X-Gm-Gg: AY/fxX4kg6XaP5UE2PZeqeHZRUnV6TxIi4XG8bxrdLMfPjPQ20GJAsa3C6gLWDWQA7d
-	EjqKGzxfoMaMcCUx/zH9cvuBfTsClbLEK15jVqU7MUiHXnlb0xmBvpKpp7V7Ciq3d+kU+dKoH6W
-	K08Yrbs7KaRZauocUOuDZ1bmNNm8CeaPT1E9OJtgtwBJt3/T4Ch/odtY22KaC+2F70WPW8rssFn
-	o/UvYECrAThFCGP/7e5idbbHMrjvE8sGElYX9aOMMdz9OY1CEY2lV1PHoTCSl3WZclQzKsIN/gj
-	+S1NPUbAGvAbO83UwpSjIioRCT1Jiqmt/fji17Wz6NIm9jWgAAn26tebmZRHTMK5Fhl4dGcQa6e
-	x7XmUNkjsG+TrF3gQmcMlRwLRVfB5fWR+Ky0IMPB/5i9Jt+rvBKWap3p5EoyG0fttq8oYs9iU5f
-	IhwnBPEHN2YI2PcfqPrK8vvS0xM/Sd3E9Aeg==
-X-Received: by 2002:aa7:808a:0:b0:81e:96c9:1335 with SMTP id d2e1a72fcca58-81e96c9166amr509862b3a.21.1767949384612;
-        Fri, 09 Jan 2026 01:03:04 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEQwj/yWlof0KqeGRkT5R3hBYh980k6Id0SZ+6+0ezp1wE4OVTwE/4kvoozGGXmSkIj0VWIKw==
-X-Received: by 2002:aa7:808a:0:b0:81e:96c9:1335 with SMTP id d2e1a72fcca58-81e96c9166amr509835b3a.21.1767949384107;
-        Fri, 09 Jan 2026 01:03:04 -0800 (PST)
+        bh=Ibs2WMFWf8isMVsnKj6F0MrAqbp9ptOr31qv7TtrWfQ=;
+        b=JqdEsz/YC7oM0hfRiHl9BkK2FjvtozUm0rGNjbUFtmfAGNr0gTWFkHKrfiy/xPbUb+
+         iiUT2bQSwRsayaB/KitfdI1koB1dIN+PxoVowx/HAYGz6Dy5vUP75P2OPIfq6E7UBVXl
+         cxy8rKoZWXiEYnI0CMrJAN4QM1OKTCxB3vBbMkzeV/IvF8on1O7vzsiNYgyfjmABwRbz
+         fn4kWZM9bTfNegaajQA0QBaqU88Vp48QxaGPpnS/Ejj9RGSxmXSgy5Xnuy2lGOTj5cXP
+         x/ZDgVeQVT3jBhIxJdR3K9yzyDxL+2qxpYSkADJ8Sa4qX3Pzd8O88cidnKe4i0cc0BE5
+         6GHw==
+X-Gm-Message-State: AOJu0YwSq+GnJmMl1Crk0sui/f/x74hjbwA45F+qndJ5LmwN3RnYeeU7
+	aWMwWiK0Yb87StZvnbolWuIL8gwzFYaEoLigs9iuFZpF9LSZ28y0efiW1RV7GBY3IcNt6cff4j3
+	E9N3R2cJjXtqUC0aTJwb3g0BujeWzsyC6plCekPYsqKYlXSsBWPEp1PmRDCZknUivFIhlOU9uBL
+	Ol1SU=
+X-Gm-Gg: AY/fxX40oQ2SOUB91NSJS0rp4U5AuZQZQsf3PU6uDkUZgph5jSrMHGXV64QZ2iDfSee
+	HjyX9GoFwOZ4JCxQtGhEmfYLk4BHvQaWJaiXxIfOBgITrIJ1QY9btnyhS9EXEOPb0uwSyWEeYpw
+	gx9RfQ9IMLtSZB9o47s+Ip/anbf2XfYhrTTqnhYIKdloSnpWqakFKfB/x+PS5RhhrNpSWbbH8+h
+	92SoQJDhLOXoRuOrcDJxWUmq1nu+0KAnCs9Gzw510+3ltxJfRZxhipFN3suR7jr+Hczm9UWSJJ8
+	C29LBxhx8YwNXIXatERtZtO/JR6HeGC7BBhf71/zN+XzJ+RgUJs10DyWlsTeBVgYVTXVGZAt5U5
+	8LGT9MJw3RVPMoaSprMwn7hmskiJwvG/p+bxpPvojVrPszhzfQ3XqWsPbe4blnbfa56ElzDCf/W
+	WoC3e9F/4fx5Hj0p3LM5IObObXxqHM3D6yTA==
+X-Received: by 2002:a05:6a00:4c81:b0:81e:b2ba:5b36 with SMTP id d2e1a72fcca58-81eb2ba5c17mr419406b3a.63.1767949389455;
+        Fri, 09 Jan 2026 01:03:09 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGejI7LmUB/luJhLPwMThP7DUoDGFXiiyakN6fBlGBN6FOHT6qVL/iPto6pXgjtHv9gY8I9Vw==
+X-Received: by 2002:a05:6a00:4c81:b0:81e:b2ba:5b36 with SMTP id d2e1a72fcca58-81eb2ba5c17mr419361b3a.63.1767949388939;
+        Fri, 09 Jan 2026 01:03:08 -0800 (PST)
 Received: from hu-himchau-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-819c59e826asm9831562b3a.54.2026.01.09.01.02.59
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-819c59e826asm9831562b3a.54.2026.01.09.01.03.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Jan 2026 01:03:03 -0800 (PST)
+        Fri, 09 Jan 2026 01:03:08 -0800 (PST)
 From: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
 To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
         linux-acpi@vger.kernel.org, linux-efi@vger.kernel.org,
@@ -98,39 +98,40 @@ To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
         cleger@rivosinc.com, robert.moore@intel.com, sunilvl@oss.qualcomm.com,
         anup.patel@oss.qualcomm.com
 Cc: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-Subject: [PATCH v3 07/10] riscv: Add RISC-V entries in processor type and ISA strings
-Date: Fri,  9 Jan 2026 14:32:21 +0530
-Message-ID: <20260109090224.3105465-8-himanshu.chauhan@oss.qualcomm.com>
+Subject: [PATCH v3 08/10] riscv: Introduce HEST SSE notification handlers
+Date: Fri,  9 Jan 2026 14:32:22 +0530
+Message-ID: <20260109090224.3105465-9-himanshu.chauhan@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260109090224.3105465-1-himanshu.chauhan@oss.qualcomm.com>
 References: <20260109090224.3105465-1-himanshu.chauhan@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA5MDA2NCBTYWx0ZWRfXx9CPnMCgPSGm
- rw1iuffyB6jn6l7a3w5C8jIyvEi7hjyN90PwbVxOxKyozcmMfM3Djc+UzCoS0jIAfzkQl5xxPbw
- ujhXQEBrMqGDX3TalqHzNCUam8O5W08HoVu34+Ed0DeGd6tsPdtPnss6uaPLTzuQZ37ihSDqeur
- hIhfIpiu4+JQJGACGoiiqPDRcXNHQfrj01Z0+/d85D9jSj+uhTJRDQJwtK8jBIw3VQagooSzWUe
- Ru9Wc7sHMEqboIynGdqRR2UXqejMi2rLQy3IU8P5g1q9esXmh6MADhJzACiXrbX4n8kw5ImjSei
- LvnZLryK1dG7xwE7HyejC/3G8xMBio1C0dg+hr8mRs+THS1Kc4DFBLWGy4CJ3CJbZ4dfsWmkLYb
- VVzqu+ywkhM+DtxYHlUm9hKzOXBCk5le+Kv2WUozQzd6xe1kLawjhYyQBZe+RscFcAtujbb5QqH
- STMxQDhDWFsQUwWPxWg==
-X-Proofpoint-GUID: R50vft3_kGG1A3UMfizAJ4V3lpxBEBLR
-X-Proofpoint-ORIG-GUID: R50vft3_kGG1A3UMfizAJ4V3lpxBEBLR
-X-Authority-Analysis: v=2.4 cv=Xtf3+FF9 c=1 sm=1 tr=0 ts=6960c449 cx=c_pps
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA5MDA2NCBTYWx0ZWRfX49m4nrzPZ68P
+ laQDXYlWvF0BYZzLrpd7Dts2QXGgE3Ksivv/QbGE4GXg0qh5aiN+iNYBA19fMRG59Ascq3jGho1
+ q7LvkQteFr0LSdHXXbsxe3Yy9R8EqYErXVhzdusaRVutD0WauHjlCurUkKpOzHXEspslrACXl+1
+ z9YLY/wtUbxfeRy6Y2HATbLkexlVXjnDL6WpCM4qG8s61W+JWb3VYX4pPX9c8w6BbbutNVZCTR5
+ NTsuDF/zNnkUgXf5sq7UA7gTHuSyI7ynfQM3eskBcSvi2Pt+kL7fPmHjigc7NkfOoXug6PPH7zJ
+ 3Al5hl0dLaSBsFyqKdozHfV6dga9y1VjpGsGoRGY7vxhFQE9W/dKuYKUtdmBmlVZE0zHO44jwft
+ JsQ34/fcE81rdT5waOflNyMDJNkSaYGNNOGmTYPnN+ymF43z0o2mTaBHk7S7j+GOe4PS/DyvYPh
+ y7sFHx4mH4m6mLuUn3A==
+X-Authority-Analysis: v=2.4 cv=JIs2csKb c=1 sm=1 tr=0 ts=6960c44e cx=c_pps
  a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
  a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=aZI88Kzba1cNDf5AQqoA:9 a=2VI0MkxyNR6bbpdq8BZq:22
+ a=EUspDBNiAAAA:8 a=QyXUC8HyAAAA:8 a=Eu4eB5ymJzOrEwSPfFIA:9
+ a=2VI0MkxyNR6bbpdq8BZq:22
+X-Proofpoint-GUID: ejA4NvQrC39t0KN_9RMlAPNErs44EqMe
+X-Proofpoint-ORIG-GUID: ejA4NvQrC39t0KN_9RMlAPNErs44EqMe
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2026-01-09_02,2026-01-08_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 priorityscore=1501 lowpriorityscore=0 impostorscore=0
- malwarescore=0 adultscore=0 clxscore=1015 suspectscore=0 spamscore=0
+ malwarescore=0 suspectscore=0 priorityscore=1501 lowpriorityscore=0
+ impostorscore=0 bulkscore=0 adultscore=0 spamscore=0 clxscore=1015
  phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
  definitions=main-2601090064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_010306_011756_210FD0D2 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20260109_010312_337961_F0B42B75 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,35 +148,186 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add RISCV and RISCV32/64 strings in the in processor type and ISA strings
-respectively. These are defined for cper records.
+Add config option to enable SSE in APEI. When it is enabled, functions
+to register/unregister a ghes entry with SSE are avilable along with
+low and high priority event handers. If a SSE notification type is
+determined, a ghes common handler to handle an error event is registered.
 
 Signed-off-by: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
 ---
- drivers/firmware/efi/cper.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/acpi/apei/Kconfig |   5 ++
+ drivers/acpi/apei/ghes.c  | 100 +++++++++++++++++++++++++++++++++-----
+ 2 files changed, 94 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/firmware/efi/cper.c b/drivers/firmware/efi/cper.c
-index 0232bd040f61..9d591a294327 100644
---- a/drivers/firmware/efi/cper.c
-+++ b/drivers/firmware/efi/cper.c
-@@ -170,6 +170,7 @@ static const char * const proc_type_strs[] = {
- 	"IA32/X64",
- 	"IA64",
- 	"ARM",
-+	"RISCV",
- };
+diff --git a/drivers/acpi/apei/Kconfig b/drivers/acpi/apei/Kconfig
+index 070c07d68dfb..ada95a50805f 100644
+--- a/drivers/acpi/apei/Kconfig
++++ b/drivers/acpi/apei/Kconfig
+@@ -46,6 +46,11 @@ config ACPI_APEI_SEA
+ 	depends on ARM64 && ACPI_APEI_GHES
+ 	default y
  
- static const char * const proc_isa_strs[] = {
-@@ -178,6 +179,8 @@ static const char * const proc_isa_strs[] = {
- 	"X64",
- 	"ARM A32/T32",
- 	"ARM A64",
-+	"RISCV32",
-+	"RISCV64",
- };
++config ACPI_APEI_SSE
++	bool
++	depends on RISCV && RISCV_SBI_SSE && ACPI_APEI_GHES
++	default y
++
+ config ACPI_APEI_MEMORY_FAILURE
+ 	bool "APEI memory error recovering support"
+ 	depends on ACPI_APEI && MEMORY_FAILURE
+diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+index 6fd84a1772c6..aa7dcd4069f9 100644
+--- a/drivers/acpi/apei/ghes.c
++++ b/drivers/acpi/apei/ghes.c
+@@ -17,6 +17,8 @@
+  *   Author: Huang Ying <ying.huang@intel.com>
+  */
  
- const char * const cper_proc_error_type_strs[] = {
++#include <linux/err.h>
++#include <linux/riscv_sbi_sse.h>
+ #include <linux/arm_sdei.h>
+ #include <linux/kernel.h>
+ #include <linux/moduleparam.h>
+@@ -99,6 +101,11 @@
+ #define FIX_APEI_GHES_SDEI_CRITICAL	__end_of_fixed_addresses
+ #endif
+ 
++#ifndef CONFIG_RISCV_SBI_SSE
++#define FIX_APEI_GHES_SSE_LOW_PRIORITY	__end_of_fixed_addresses
++#define FIX_APEI_GHES_SSE_HIGH_PRIORITY	__end_of_fixed_addresses
++#endif
++
+ static ATOMIC_NOTIFIER_HEAD(ghes_report_chain);
+ 
+ static inline bool is_hest_type_generic_v2(struct ghes *ghes)
+@@ -1561,6 +1568,63 @@ static int apei_sdei_unregister_ghes(struct ghes *ghes)
+ 	return sdei_unregister_ghes(ghes);
+ }
+ 
++#if defined(CONFIG_ACPI_APEI_SSE)
++/* SSE Handlers */
++static int __ghes_sse_callback(struct ghes *ghes,
++			       enum fixed_addresses fixmap_idx)
++{
++	if (!ghes_in_nmi_queue_one_entry(ghes, fixmap_idx)) {
++		irq_work_queue(&ghes_proc_irq_work);
++
++		return 0;
++	}
++
++	return -ENOENT;
++}
++
++/* Low priority */
++static int ghes_sse_lo_callback(u32 event_num, void *arg, struct pt_regs *regs)
++{
++	static DEFINE_RAW_SPINLOCK(ghes_notify_lock_sse_lo);
++	struct ghes *ghes = arg;
++	int err;
++
++	raw_spin_lock(&ghes_notify_lock_sse_lo);
++	err = __ghes_sse_callback(ghes, FIX_APEI_GHES_SSE_LOW_PRIORITY);
++	raw_spin_unlock(&ghes_notify_lock_sse_lo);
++
++	return err;
++}
++
++/* High priority */
++static int ghes_sse_hi_callback(u32 event_num, void *arg, struct pt_regs *regs)
++{
++	static DEFINE_RAW_SPINLOCK(ghes_notify_lock_sse_hi);
++	struct ghes *ghes = arg;
++	int err;
++
++	raw_spin_lock(&ghes_notify_lock_sse_hi);
++	err = __ghes_sse_callback(ghes, FIX_APEI_GHES_SSE_HIGH_PRIORITY);
++	raw_spin_unlock(&ghes_notify_lock_sse_hi);
++
++	return err;
++}
++
++static int apei_sse_register_ghes(struct ghes *ghes)
++{
++	return sse_register_ghes(ghes, ghes_sse_lo_callback,
++				 ghes_sse_hi_callback);
++}
++
++static int apei_sse_unregister_ghes(struct ghes *ghes)
++{
++	return sse_unregister_ghes(ghes);
++}
++#else /* CONFIG_ACPI_APEI_SSE */
++static int apei_sse_register_ghes(struct ghes *ghes) { return -EOPNOTSUPP; }
++static int apei_sse_unregister_ghes(struct ghes *ghes) { return -EOPNOTSUPP; }
++#endif
++
+ static int ghes_probe(struct platform_device *ghes_dev)
+ {
+ 	struct acpi_hest_generic *generic;
+@@ -1607,6 +1671,14 @@ static int ghes_probe(struct platform_device *ghes_dev)
+ 		pr_warn(GHES_PFX "Generic hardware error source: %d notified via local interrupt is not supported!\n",
+ 			generic->header.source_id);
+ 		goto err;
++	case ACPI_HEST_NOTIFY_SSE:
++		if (!IS_ENABLED(CONFIG_ACPI_APEI_SSE)) {
++			pr_warn(GHES_PFX "Generic hardware error source: %d notified via SSE is not supported\n",
++				generic->header.source_id);
++			rc = -EOPNOTSUPP;
++			goto err;
++		}
++		break;
+ 	default:
+ 		pr_warn(FW_WARN GHES_PFX "Unknown notification type: %u for generic hardware error source: %d\n",
+ 			generic->notify.type, generic->header.source_id);
+@@ -1670,6 +1742,18 @@ static int ghes_probe(struct platform_device *ghes_dev)
+ 		if (rc)
+ 			goto err;
+ 		break;
++
++	case ACPI_HEST_NOTIFY_SSE:
++		rc = apei_sse_register_ghes(ghes);
++		if (rc) {
++			pr_err(GHES_PFX "Failed to register for SSE notification"
++			       " on vector %d\n",
++			       generic->notify.vector);
++			goto err;
++		}
++		pr_err(GHES_PFX "Registered SSE notification on vector %d\n",
++		       generic->notify.vector);
++		break;
+ 	default:
+ 		BUG();
+ 	}
+@@ -1699,7 +1783,6 @@ static int ghes_probe(struct platform_device *ghes_dev)
+ 
+ static void ghes_remove(struct platform_device *ghes_dev)
+ {
+-	int rc;
+ 	struct ghes *ghes;
+ 	struct acpi_hest_generic *generic;
+ 
+@@ -1733,16 +1816,11 @@ static void ghes_remove(struct platform_device *ghes_dev)
+ 		ghes_nmi_remove(ghes);
+ 		break;
+ 	case ACPI_HEST_NOTIFY_SOFTWARE_DELEGATED:
+-		rc = apei_sdei_unregister_ghes(ghes);
+-		if (rc) {
+-			/*
+-			 * Returning early results in a resource leak, but we're
+-			 * only here if stopping the hardware failed.
+-			 */
+-			dev_err(&ghes_dev->dev, "Failed to unregister ghes (%pe)\n",
+-				ERR_PTR(rc));
+-			return;
+-		}
++		apei_sdei_unregister_ghes(ghes);
++		break;
++
++	case ACPI_HEST_NOTIFY_SSE:
++		apei_sse_unregister_ghes(ghes);
+ 		break;
+ 	default:
+ 		BUG();
 -- 
 2.43.0
 
