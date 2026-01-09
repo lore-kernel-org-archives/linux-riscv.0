@@ -4,90 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C335D232C6
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jan 2026 00:30:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AEC4D232CA
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jan 2026 01:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y/pA3DFPgHfMsyKTkEuC2f9tC6jSc5subulYgalrYBM=; b=Py38zMS1JY565F
-	4Xt8Q0QpI8fTHwkfp6+pRFK0QqW7O7Z7HND7yXlLhGWCDRgW/KqcmGc4K6QPOx2L7S8SB8ow/Kpgv
-	XqgtFJlMXu6Y1roKhS5f2GAnVw1ug/XLp5rE2WVedRCq9VcWGxXC63EEryGupZy8D6iGa2zufoHYv
-	dj5gH6qJHYhQCdO3TH12nrlQ8ZN1uYEGsxbLuoLcHuF4etVX8RJsJHAJRw1deZjfXjyWdMmJ5Meod
-	AUiJ/INZ8XfRJ5C9hJ8orUc1ccOMUlglIAqLEr8R9Hgpg6sD7O2pVIVK8y89mcrN5kkj2LkrcB+Qp
-	4LZ5dwunHpKEmPQWXuqA==;
+	List-Owner; bh=jl0A05z+WoLKCUIL+Kop6V6nDURRW2OKx0accalT5bM=; b=QCjwui1qH/ZOVa
+	iAmAs9dp+eR+5jXNvEfLnHOsWog2pbc5aeqFe3eNM87OrK0CH9BALNW2kkZSIdkV0qInSVBo1Jdeb
+	GzYem6McnjGRfQtTVhca1BJBn8qYqHd1Aoz8J3iFS52DM8wUYQIMvzj4MBE5ps4oR0EntyuV+raju
+	yyS9PPe9Xkizv7pNPKb872Q14Ix538FPt60jUDwDPaTPP5Rqthn3TT6YCr1Jhd4f79rJXHVj3upm4
+	s2Nzqs3kYBLZr1UWcK2oKhuD15u/3w/CqSDeFQr5khjxgeGc2WsALVyxomOBSWMDGf8G/yAiXBa2j
+	pLMyKEn5C2iJqtqc6QPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve0OD-0000000122k-28fT;
-	Fri, 09 Jan 2026 00:30:05 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1ve1Hb-000000014Tr-3j76;
+	Fri, 09 Jan 2026 01:27:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve0O9-0000000121m-3MPc;
-	Fri, 09 Jan 2026 00:30:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1767918602; x=1799454602;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=mX5XbuFq3oY1fgctrRQBbLXQxLXqk+y8wzPmf6LEIxk=;
-  b=mQRGtRWEPhOTQPz8rZnco+84Znv5BdJDJPqm30oUvsgzF77qnXKYN/D3
-   qvFKgse6rDrUZa1sRApJHn4A4/E0CFmcsE+DpViavbn1LSELYkUExGzoA
-   NAv+uY809/PoljHCwkwrvj+2lNEOYeuaOXN9O37ka+g9by3TDkUCNaFfu
-   Cjuzsk1BtrsjaTk1NxxYZR7IvQLAi6lAr8VG0c4TFkTaWYoUj7V9rnuSm
-   ZVJN7MxZawJ7itsxvSqpoT84ceYQHfiUbHIEnBNStm//t9xwUNqMsRgzQ
-   DvMrNZKZNVQajISC/FazvAKSwwrKR0ddZj2nUukOuaa7p0kfwqliF5FsQ
-   Q==;
-X-CSE-ConnectionGUID: +t9l5ZWsRp6CSE2IbNg5SA==
-X-CSE-MsgGUID: 9ZhvOYyTQbqks6IbstYD6A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11665"; a="86720688"
-X-IronPort-AV: E=Sophos;i="6.21,211,1763452800"; 
-   d="scan'208";a="86720688"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2026 16:30:00 -0800
-X-CSE-ConnectionGUID: +aM55RQfSiK4CVJ+HHZuLw==
-X-CSE-MsgGUID: FprPpiFKRD+vf2GC5TB/5g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,211,1763452800"; 
-   d="scan'208";a="203255856"
-Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.240.14]) ([10.124.240.14])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2026 16:29:52 -0800
-Message-ID: <a34caf32-a0e0-4bd1-a670-14ecb3756ae6@linux.intel.com>
-Date: Fri, 9 Jan 2026 08:29:50 +0800
+	id 1ve1HY-000000014Sl-165f;
+	Fri, 09 Jan 2026 01:27:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D95B7408AF;
+	Fri,  9 Jan 2026 01:27:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41AA3C116C6;
+	Fri,  9 Jan 2026 01:27:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767922034;
+	bh=sGamr4oDumUwof9ouQDHjPD2MuG2QwTZ+qmSKHHoRwI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nTm4iY/9PqHkmCfZPWUCsadXnM0N/kVK095TkUeZS2oGCRp411HnNcSPL1XPuxvrJ
+	 n6u5RSIEVWlKUR7qspcOO+E6TZ8758Z+uhEiw7eqTZKfR8isEktdfLVmWynZaasYdc
+	 8UJ8BS/h7OU7xxWaoReQp4gdEN+zBb3oIcZ0dJuoeZ2Gw6E2Chgyk2OGqSMMrO147m
+	 sYo+fPWiu1einrR19xgYEQiYvHmjGSVaMYzalWFkUQwpkqToFAdtco5KfIhZ9n1S18
+	 HLFhwCVAdWp4zTLRs+lJguGmPQTIZsUZ+NecGhG2BjT+cqMjoRX7UAZSWm0bnyZBSN
+	 8KHYCX6+zQ4tQ==
+Date: Fri, 9 Jan 2026 01:27:12 +0000
+From: Eric Biggers <ebiggers@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org,
+	Holger Dengler <dengler@linux.ibm.com>,
+	Harald Freudenberger <freude@linux.ibm.com>
+Subject: Re: [PATCH 00/36] AES library improvements
+Message-ID: <20260109012712.GA730896@google.com>
+References: <20260105051311.1607207-1-ebiggers@kernel.org>
+ <CAMj1kXGRTfyXPD3+Ravr7O5ZUMAUeabQw455sW5g7aRy3BU+2Q@mail.gmail.com>
+ <20260108202618.GA2687@sol>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 39/44] KVM: VMX: Bug the VM if either MSR auto-load
- list is full
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
- Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Mingwei Zhang <mizhang@google.com>, Xudong Hao <xudong.hao@intel.com>,
- Sandipan Das <sandipan.das@amd.com>,
- Xiong Zhang <xiong.y.zhang@linux.intel.com>,
- Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
-References: <20251206001720.468579-1-seanjc@google.com>
- <20251206001720.468579-40-seanjc@google.com>
- <04c70698-e523-43ae-9092-f360c848d797@linux.intel.com>
- <aWANuxukqWmo36N0@google.com>
-Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <aWANuxukqWmo36N0@google.com>
+Content-Disposition: inline
+In-Reply-To: <20260108202618.GA2687@sol>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_163001_978636_6B663EE9 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260108_172716_339898_D72EC38F 
+X-CRM114-Status: GOOD (  37.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,39 +79,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jan 08, 2026 at 12:26:18PM -0800, Eric Biggers wrote:
+> On Thu, Jan 08, 2026 at 12:32:00PM +0100, Ard Biesheuvel wrote:
+> > On Mon, 5 Jan 2026 at 06:14, Eric Biggers <ebiggers@kernel.org> wrote:
+> > >
+> > > This series applies to libcrypto-next.  It can also be retrieved from:
+> > >
+> > >     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git aes-lib-v1
+> > >
+> > > This series makes three main improvements to the kernel's AES library:
+> > >
+> > >   1. Make it use the kernel's existing architecture-optimized AES code,
+> > >      including AES instructions, when available.  Previously, only the
+> > >      traditional crypto API gave access to the optimized AES code.
+> > >      (As a reminder, AES instructions typically make AES over 10 times
+> > >      as fast as the generic code.  They also make it constant-time.)
+> > >
+> > >   2. Support preparing an AES key for only the forward direction of the
+> > >      block cipher, using about half as much memory.  This is a helpful
+> > >      optimization for many common AES modes of operation.  It also helps
+> > >      keep structs small enough to be allocated on the stack, especially
+> > >      considering potential future library APIs for AES modes.
+> > >
+> > >   3. Replace the library's generic AES implementation with a much faster
+> > >      one that is almost as fast as "aes-generic", while still keeping
+> > >      the table size reasonably small and maintaining some constant-time
+> > >      hardening.  This allows removing "aes-generic", unifying the
+> > >      current two generic AES implementations in the kernel tree.
+> > >
+> > 
+> > Architectures that support memory operands will be impacted by
+> > dropping the pre-rotated lookup tables, especially if they have few
+> > GPRs.
+> > 
+> > I suspect that doesn't really matter in practice: if your pre-AESNI
+> > IA-32 workload has a bottleneck on "aes-generic", you would have
+> > probably moved it to a different machine by now. But the performance
+> > delta will likely be noticeable so it is something that deserves a
+> > mention.
+> 
+> Sure.  I only claimed that the new implementation is "almost as fast" as
+> aes-generic, not "as fast".
+> 
+> By the way, these are the results I get for crypto_cipher_encrypt_one()
+> and crypto_cipher_decrypt_one() (averaged together) in a loop on an i386
+> kernel patched to not use AES-NI:
+> 
+>     aes-fixed-time: 77 MB/s
+>     aes-generic: 192 MB/s
+>     aes-lib: 185 MB/s
+> 
+> I'm not sure how relevant these are, considering that this was collected
+> on a modern CPU, not one of the (very) old ones that would actually be
+> running i386 non-AESNI code.  But if they are even vaguely
+> representative, this suggests the new code does quite well: little
+> slowdown over aes-generic, while adding some constant-time hardening
+> (which arguably was an undeserved shortcut to not include before) and
+> also using a lot less dcache.
+> 
+> At the same time, there's clearly a large speedup vs. aes-fixed-time.
+> So this will actually be a significant performance improvement on
+> systems that were using aes-fixed-time.  Many people may have been doing
+> that unintentionally, due to it being set to a higher priority than
+> aes-generic in the crypto_cipher API.
+> 
+> I'll also note that the state of the art for parallelizable AES modes on
+> CPUs without AES instructions is bit-slicing with vector registers.  The
+> kernel has such code for arm and arm64, but not for x86.  If x86 without
+> AES-NI was actually important, we should be adding that.  But it seems
+> clear that x86 CPUs have moved on, and hardly anyone cares anymore.  If
+> for now we can just provide something that's almost as fast as before
+> (and maybe even a lot faster in some cases!), that seems fine.
 
-On 1/9/2026 4:04 AM, Sean Christopherson wrote:
-> On Mon, Dec 08, 2025, Dapeng Mi wrote:
->> On 12/6/2025 8:17 AM, Sean Christopherson wrote:
->>> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
->>> index 38491962b2c1..2c50ebf4ff1b 100644
->>> --- a/arch/x86/kvm/vmx/vmx.c
->>> +++ b/arch/x86/kvm/vmx/vmx.c
->>> @@ -1098,6 +1098,7 @@ static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
->>>  {
->>>  	int i, j = 0;
->>>  	struct msr_autoload *m = &vmx->msr_autoload;
->>> +	struct kvm *kvm = vmx->vcpu.kvm;
->>>  
->>>  	switch (msr) {
->>>  	case MSR_EFER:
->>> @@ -1134,12 +1135,10 @@ static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
->>>  	i = vmx_find_loadstore_msr_slot(&m->guest, msr);
->>>  	j = vmx_find_loadstore_msr_slot(&m->host, msr);
->>>  
->>> -	if ((i < 0 && m->guest.nr == MAX_NR_LOADSTORE_MSRS) ||
->>> -	    (j < 0 &&  m->host.nr == MAX_NR_LOADSTORE_MSRS)) {
->>> -		printk_once(KERN_WARNING "Not enough msr switch entries. "
->>> -				"Can't add msr %x\n", msr);
->>> +	if (KVM_BUG_ON(i < 0 && m->guest.nr == MAX_NR_LOADSTORE_MSRS, kvm) ||
->>> +	    KVM_BUG_ON(j < 0 &&  m->host.nr == MAX_NR_LOADSTORE_MSRS, kvm))
->> nit: Remove one extra space before "m->host.nr".
-> Oh, that's intentional, so that the rest of the line is aligned with the "guest"
-> line above.
+It's also worth emphasizing that there are likely to be systems that
+support AES instructions but are not using them due to the corresponding
+kconfig options (e.g. CONFIG_CRYPTO_AES_NI_INTEL) not being set to 'y'.
+As we know, missing the crypto optimization kconfig options is a common
+mistake.  This series fixes that for single-block AES.
 
-Good to know. Thanks.
+So (in addition to the aes-fixed-time case) that's another case that
+just gets faster, and where the difference between aes-generic and the
+new generic code isn't actually relevant.
 
-
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
