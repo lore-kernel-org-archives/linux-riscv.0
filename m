@@ -4,65 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AEC4D232CA
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jan 2026 01:27:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5216ED232CA
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jan 2026 01:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jl0A05z+WoLKCUIL+Kop6V6nDURRW2OKx0accalT5bM=; b=QCjwui1qH/ZOVa
-	iAmAs9dp+eR+5jXNvEfLnHOsWog2pbc5aeqFe3eNM87OrK0CH9BALNW2kkZSIdkV0qInSVBo1Jdeb
-	GzYem6McnjGRfQtTVhca1BJBn8qYqHd1Aoz8J3iFS52DM8wUYQIMvzj4MBE5ps4oR0EntyuV+raju
-	yyS9PPe9Xkizv7pNPKb872Q14Ix538FPt60jUDwDPaTPP5Rqthn3TT6YCr1Jhd4f79rJXHVj3upm4
-	s2Nzqs3kYBLZr1UWcK2oKhuD15u/3w/CqSDeFQr5khjxgeGc2WsALVyxomOBSWMDGf8G/yAiXBa2j
-	pLMyKEn5C2iJqtqc6QPA==;
+	List-Owner; bh=vYFmQXgOOqvPKVlY7tOtMZ2buLABHk5NGGzTLYB7lYc=; b=qV8ewLgIIf4jrY
+	BVPrIbB7Nmny2jmO8VdBV9YZgTE3wIrA0kPgX21ZFAoZxCXUJaj0SEMrtjJKs2DkCAfl4B7Te070h
+	1THUj5yMhOYSEgPfg8T3bniZtbnj6gGgTRFbXYWY4wPmwKJyt1w1bPa9EwLb1x5pcK90Jk4Dv+/ZG
+	KpJKKGEGG0VCIGp+xut7MnsQJVvDZ8uUggtvapNf5z0ORqnVBxoP4tgIuIzHX3A8gkYVcKmXq5+Q5
+	WwxltnnDJNUf0K7doemxqQkFBn9UQRThjrlIskiWUuGHUieO+YQ5wpVQ4qf7+DX0UIo1lVTJuDL50
+	WBdQpSsS1Qw5+B+DUjFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve1Hb-000000014Tr-3j76;
-	Fri, 09 Jan 2026 01:27:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ve1My-000000014t6-3wWH;
+	Fri, 09 Jan 2026 01:32:52 +0000
+Received: from smtpbgau2.qq.com ([54.206.34.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve1HY-000000014Sl-165f;
-	Fri, 09 Jan 2026 01:27:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D95B7408AF;
-	Fri,  9 Jan 2026 01:27:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41AA3C116C6;
-	Fri,  9 Jan 2026 01:27:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767922034;
-	bh=sGamr4oDumUwof9ouQDHjPD2MuG2QwTZ+qmSKHHoRwI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nTm4iY/9PqHkmCfZPWUCsadXnM0N/kVK095TkUeZS2oGCRp411HnNcSPL1XPuxvrJ
-	 n6u5RSIEVWlKUR7qspcOO+E6TZ8758Z+uhEiw7eqTZKfR8isEktdfLVmWynZaasYdc
-	 8UJ8BS/h7OU7xxWaoReQp4gdEN+zBb3oIcZ0dJuoeZ2Gw6E2Chgyk2OGqSMMrO147m
-	 sYo+fPWiu1einrR19xgYEQiYvHmjGSVaMYzalWFkUQwpkqToFAdtco5KfIhZ9n1S18
-	 HLFhwCVAdWp4zTLRs+lJguGmPQTIZsUZ+NecGhG2BjT+cqMjoRX7UAZSWm0bnyZBSN
-	 8KHYCX6+zQ4tQ==
-Date: Fri, 9 Jan 2026 01:27:12 +0000
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Harald Freudenberger <freude@linux.ibm.com>
-Subject: Re: [PATCH 00/36] AES library improvements
-Message-ID: <20260109012712.GA730896@google.com>
-References: <20260105051311.1607207-1-ebiggers@kernel.org>
- <CAMj1kXGRTfyXPD3+Ravr7O5ZUMAUeabQw455sW5g7aRy3BU+2Q@mail.gmail.com>
- <20260108202618.GA2687@sol>
+	id 1ve1Mv-000000014rr-2ss0
+	for linux-riscv@lists.infradead.org;
+	Fri, 09 Jan 2026 01:32:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1767922294;
+	bh=Lte9il4oOh/PBkig0SIYcOonMssQ6T0eES7c3nlrvpU=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=geu7eSRGrVM4u4d3iLhYrFRdNHQCZ6k8MACmhV+Bj1G5lN5sjZ34R2rDTxwx0zvQX
+	 ++l1M0sszmXKP266LTEAxwmtzJ2P/Yr4RdF2thPnfowWM3MIH7wp1k5JOOk6T4sxa0
+	 qWZ9RlY7dCE8Sh5HHQpxyu+Ch0+P7V+qt4QbFFzM=
+X-QQ-mid: zesmtpgz9t1767922286t53ae930d
+X-QQ-Originating-IP: +461X0RnN79QDiEa+Js9FDVz3gMxkKWrRbCGmI76R8Y=
+Received: from = ( [120.239.196.107])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 09 Jan 2026 09:31:24 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 10842519875104114801
+EX-QQ-RecipientCnt: 15
+Date: Fri, 9 Jan 2026 09:31:24 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Yixun Lan <dlan@gentoo.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Linus Walleij <linusw@kernel.org>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] riscv: dts: spacemit: modify pinctrl node in dtsi
+Message-ID: <0AA43966D8DE9163+aWBabCQG8v4XzD2h@kernel.org>
+References: <20260108-kx-pinctrl-aib-io-pwr-domain-v2-0-6bcb46146e53@linux.spacemit.com>
+ <20260108-kx-pinctrl-aib-io-pwr-domain-v2-3-6bcb46146e53@linux.spacemit.com>
+ <20260108073722-GYA3634@gentoo.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260108202618.GA2687@sol>
+In-Reply-To: <20260108073722-GYA3634@gentoo.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: Mfqd7mLTdXCeBpi0VWs9wf9ecRPf3xaLpaxCoH50uLbuI2OtKIpbhGmh
+	ti0+J7kS53KflWmUciLJDYaHaidTaOoNlm/WwUpMQ8/wfd0H7At/6O6KrhQEJpGJc9hzIIw
+	NHQmLke1bzG00pj/dI4ljvPta2qoglfAGMSH+VR1cflP2nipNRSlSm5uYqqDiKEciaq895Y
+	U8oRW3VZRN43XawHT8DJzx6ZgV5VB/q9mVQwsh1vqJ3HH0CIVEJHOAP9mqo9nMCXFb1kTX3
+	aA72FUofmb1jGU9+mEyKz63+sFZ+FXIr36LjnlE9iTvLwszuklve4JQ3gisYeS5U+bMzTHe
+	gZrdYV+0lACymQHdv6A5QilO8Wi8JHbNjCsXV30h3QoTrhU82sAUTztnwk6QfY4iFU4Uwhv
+	OTCDLVvso3VHU2ohJwnvMjC4Q8wWjPsIkU0AHVAa84V2XG0bWO+Sn6shNwXaKs1TfcvBfNc
+	PWOyuk5K64s1lXBwIn2OQVt8iUuUEmsd4w9XDm+lpYDRC2ZaLGGvHQAEahHBgsGKpIHCfTp
+	JV0N5rmph8AXC7pQgLoLqnq8R6RBG7/WKofRkvMwfzTw06Gny7d6eDRwOoO6VgDhAvBB3mf
+	ZDFKOXnJwexTg+/ZzfVAq3/X2387hW0fV8lnENGt9yGbpNn0KPgf0wYhLOMQE5V7WASjXkU
+	9V2qSZLMsSO1RIFnteeFCRKX4JIF78DUDYXd7zF7Y/rTtPHBDUxCnyRQ2nGocjQf2b0yoZ6
+	U56y9ulVo9tyqy+B2i7u1tvNNZ11ouZ3EqiGWzLIHbwyRQMOGuiBbyqS0CLH8qqupERrKDV
+	MCgYKo1gOdNHwYatZza6T1hI4kVpplQdpWbtwzkZExkBLRLp0/UQNVJEcn/VrVSbSfJvhrp
+	UYJ+d1n5LXOZvxmVCHqyMjkmx+e8M9kYsbKsbrfUjueFRooCl08ogbKWRWB1+ra5SEar91a
+	wkIsrXM4n5lWgQli1Zl6exJDPKdii3CBJ3iaA9b+3zDkntq/JgEh6IWALVH/oYfX2iG01OV
+	gkIClh7v0/ayZwluEbNcnLCtSk1PaElVumOYj8Xs9d6A1x0bSDKAnN6BONAnn8TL1XgQ5dP
+	znhfFhlTt7YWpge0jGQJ5c=
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_172716_339898_D72EC38F 
-X-CRM114-Status: GOOD (  37.32  )
+X-CRM114-CacheID: sfid-20260108_173250_421848_97B477A4 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,89 +103,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 08, 2026 at 12:26:18PM -0800, Eric Biggers wrote:
-> On Thu, Jan 08, 2026 at 12:32:00PM +0100, Ard Biesheuvel wrote:
-> > On Mon, 5 Jan 2026 at 06:14, Eric Biggers <ebiggers@kernel.org> wrote:
-> > >
-> > > This series applies to libcrypto-next.  It can also be retrieved from:
-> > >
-> > >     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git aes-lib-v1
-> > >
-> > > This series makes three main improvements to the kernel's AES library:
-> > >
-> > >   1. Make it use the kernel's existing architecture-optimized AES code,
-> > >      including AES instructions, when available.  Previously, only the
-> > >      traditional crypto API gave access to the optimized AES code.
-> > >      (As a reminder, AES instructions typically make AES over 10 times
-> > >      as fast as the generic code.  They also make it constant-time.)
-> > >
-> > >   2. Support preparing an AES key for only the forward direction of the
-> > >      block cipher, using about half as much memory.  This is a helpful
-> > >      optimization for many common AES modes of operation.  It also helps
-> > >      keep structs small enough to be allocated on the stack, especially
-> > >      considering potential future library APIs for AES modes.
-> > >
-> > >   3. Replace the library's generic AES implementation with a much faster
-> > >      one that is almost as fast as "aes-generic", while still keeping
-> > >      the table size reasonably small and maintaining some constant-time
-> > >      hardening.  This allows removing "aes-generic", unifying the
-> > >      current two generic AES implementations in the kernel tree.
-> > >
-> > 
-> > Architectures that support memory operands will be impacted by
-> > dropping the pre-rotated lookup tables, especially if they have few
-> > GPRs.
-> > 
-> > I suspect that doesn't really matter in practice: if your pre-AESNI
-> > IA-32 workload has a bottleneck on "aes-generic", you would have
-> > probably moved it to a different machine by now. But the performance
-> > delta will likely be noticeable so it is something that deserves a
-> > mention.
+On Thu, Jan 08, 2026 at 03:37:22PM +0800, Yixun Lan wrote:
+> Hi Troy,
 > 
-> Sure.  I only claimed that the new implementation is "almost as fast" as
-> aes-generic, not "as fast".
+>   if there is one more iteration, I'd suggest to adjust the patch titile, 
+> to make it slightly more specific
 > 
-> By the way, these are the results I get for crypto_cipher_encrypt_one()
-> and crypto_cipher_decrypt_one() (averaged together) in a loop on an i386
-> kernel patched to not use AES-NI:
-> 
->     aes-fixed-time: 77 MB/s
->     aes-generic: 192 MB/s
->     aes-lib: 185 MB/s
-> 
-> I'm not sure how relevant these are, considering that this was collected
-> on a modern CPU, not one of the (very) old ones that would actually be
-> running i386 non-AESNI code.  But if they are even vaguely
-> representative, this suggests the new code does quite well: little
-> slowdown over aes-generic, while adding some constant-time hardening
-> (which arguably was an undeserved shortcut to not include before) and
-> also using a lot less dcache.
-> 
-> At the same time, there's clearly a large speedup vs. aes-fixed-time.
-> So this will actually be a significant performance improvement on
-> systems that were using aes-fixed-time.  Many people may have been doing
-> that unintentionally, due to it being set to a higher priority than
-> aes-generic in the crypto_cipher API.
-> 
-> I'll also note that the state of the art for parallelizable AES modes on
-> CPUs without AES instructions is bit-slicing with vector registers.  The
-> kernel has such code for arm and arm64, but not for x86.  If x86 without
-> AES-NI was actually important, we should be adding that.  But it seems
-> clear that x86 CPUs have moved on, and hardly anyone cares anymore.  If
-> for now we can just provide something that's almost as fast as before
-> (and maybe even a lot faster in some cases!), that seems fine.
+>   riscv: dts: spacemit: pinctrl: update register and IO power
+Thanks for you pointing it out.
+I'll use it if there is one more interation.
 
-It's also worth emphasizing that there are likely to be systems that
-support AES instructions but are not using them due to the corresponding
-kconfig options (e.g. CONFIG_CRYPTO_AES_NI_INTEL) not being set to 'y'.
-As we know, missing the crypto optimization kconfig options is a common
-mistake.  This series fixes that for single-block AES.
+But I just want to confirm, if there are no further iterations,
+you will be making the title change before applying it to your tree, right?
 
-So (in addition to the aes-fixed-time case) that's another case that
-just gets faster, and where the difference between aes-generic and the
-new generic code isn't actually relevant.
-
-- Eric
+                              - Troy
 
 _______________________________________________
 linux-riscv mailing list
