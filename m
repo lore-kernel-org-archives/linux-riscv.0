@@ -4,78 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A69A6D277D0
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Jan 2026 05:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38249D277CE
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Jan 2026 05:21:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VhasoogsumbNeA/BfoLzTQToYkBeKBXhkLFLtSKQYRk=; b=P0xj/3DEx1WqfU
-	kdkcJSUKsfx614GVKHZYLAqObvhcyz0SBiQaHjPMbkKjwZuhqq/7/7adEltURcBTlYB4gewVCF0L+
-	ytZctXm9Zud1MwLF+qkAWtnkNrSUD6Y67Pe/gjbHH/6Y9SyeT5S1Sz9Cc8OKroMNPribUMrm3rhbV
-	0e9eiCJWj1g5ac5Gh56aO+p0+WxFwShsc7CacQYMele3cqowVNd3rWEQNhDjH4zui4XRKETGLU2Kp
-	ZoBAiVErUkVbYxjz3TIfNTct4lcB6huyIPRkHC45leHb8GiRj5M4MP7f8br3IOib1QVs6D9qLYsj7
-	9qP9yQ9Xsma8aye9t2sA==;
+	List-Owner; bh=E3PDGQ4qT+/IJHmzrINmN24OqPj0EhvKUjDP2M42MwA=; b=fJqE/aOsFdn3bU
+	Xf5x3YqpEE5j/euTTNFxjZxQg/foUML2F6sjYD5FmJqLTyFE5kZ4V6SioJK2lJ3Y7YSkfF6wKHdIn
+	yo2Vu6Vb18KPqI4ng/gBly4FifNN6y/IBT/uXI1FQQv3f8o/rPXJsIQyKhzfjVvLWiq/6LSChIOlr
+	jW4LBFyVJpG+ugiQXCOMUuKBgLclxDoePpMfaLPLa87yUD1nW8bN4smomOmv4JNXJvsJh8ufs4Ih8
+	+A24kOELxLgCywt6stITrot8jyP4Xw+mTSRBU5uQVntyX6rViuMZMHVLHVC8CMwrHTZqjtAuL5eAo
+	9K3K2V48Ga8cBIHXL2Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veRP1-00000003GLH-005a;
-	Sat, 10 Jan 2026 05:20:43 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1veRP4-00000003GNl-1VVm;
+	Sat, 10 Jan 2026 05:20:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veROy-00000003GJe-10EW
+	id 1veRP3-00000003GMQ-1YR1
+	for linux-riscv@bombadil.infradead.org;
+	Sat, 10 Jan 2026 05:20:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=MnKLaktx0YitXAvKONWboruSzuMArssppl0GK0vv2ZI=; b=O2FXLgHz8sprV+3X0i17wI1Fc9
+	J3mUJLhbQDqdpeFlXos0ER3kL9o7K8hxSrCrepKXvvYpn6/PGpNZc7VT3cUUEShD59RIbKMDJNO6g
+	ugtvDaORv1v24su8Q60V4l7wO8UuOlvnWEeI59naQK0pbSaIAzpt66NcGAykMgePYpdFryJW7gQms
+	hDSCzvymG59JSsNposT2ZevRsKEb4VnCJphpiYXvqFw6nxeD2Y0d3TUndum9b2ES8rT3B8fwvEbuM
+	od+a3E8wBlVWeQm3V86ikAFqcCZm1U6fzeBw8NMwKQMWh5kZcSTXUN0ZPMDpGg2/8ua9NNVMYB2HY
+	YIjLZrbA==;
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1veROq-0000000GGa3-12OC
 	for linux-riscv@lists.infradead.org;
 	Sat, 10 Jan 2026 05:20:41 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2a081c163b0so34013565ad.0
-        for <linux-riscv@lists.infradead.org>; Fri, 09 Jan 2026 21:20:39 -0800 (PST)
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2a3e76d0f64so17132905ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 09 Jan 2026 21:20:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1768022439; x=1768627239; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1768022429; x=1768627229; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=wN8PVqzzAZZHRjxdINCBCNKySb3WeVOzy7dnQm8uUnI=;
-        b=BOt3rFppQeEv2Dze7LNnAgRGEOpzzovSXDbs+jV846uFRWN8eANbTgrg5pTjYrvu7W
-         7J/BkatomnVB6yuL+hwyUwmZ4gzARLmTYSHRlN3/tB5SO65GWqJgcVgD+6gployQOxqd
-         cPavTL4PRDk6eLi+Q5s2Ouownms0/1uF9EqohVY0DCBk27dutV5Ers7P/WmOq1rEP9Jo
-         0fqsq+zhTRmS8rTNNBP4vvKeAoZ5qgVEW69ft8GZ9rzEfakR//zN7JDeY/blY0LnCPwU
-         HfoqQ6lxktXyrlkjr1PmosykUCt5OBw1iR/oSgCzlXYI2wV9lQDhYibd2dyzXZpPgqmV
-         WvAQ==
+        bh=MnKLaktx0YitXAvKONWboruSzuMArssppl0GK0vv2ZI=;
+        b=zxWIsLj5/MkhVkunzB/b8tej6n2XX9LECNq23N/w7khJ7SLodS0yUrafh+nCvdEtGg
+         54DdcwuHeGoSXP37AZN/p4XYE7uCa5UiKHvf6Bcj2ckTu8xROX1LK+t1+5wsySr6GBXx
+         8yS3yGc/bn6qGQwzzuvpc7wv8BWEA4mSa9WPrzQYpOQY7d8KQJp8XnV/H4DJSJ4sxD5g
+         MHHzzc3jFn4q9TC1vz2u4zSgQ3jlSbbwD2nazNsjYsFZ1/kGU4V//r9xLHLb0vYD6l3S
+         61kAWDkrczMnvft2OxgnXxVHdUYhZwcqydv+2JtZvLoRlb6hTmTn+XLqaJPenBbIyFuE
+         cQfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768022439; x=1768627239;
+        d=1e100.net; s=20230601; t=1768022429; x=1768627229;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=wN8PVqzzAZZHRjxdINCBCNKySb3WeVOzy7dnQm8uUnI=;
-        b=q9pkqr5K0zyJY499KW60U8B+ktetcO1JSXZBM1tVaIp3ZXZS/NDaWGh3LJdKHTep4j
-         xAkPe73iFPLgM1br3pIfffDnJ/Q9ZqKz4vKxIVfTuqwuCSxBSXeWB5fo4lGvNscG/vA9
-         qZj5VaZaQSa1uKFjwyI/4JxDPZATBCpFoF1UKNuUTvrRGcY8GvJD+TqddH/rv4zy5jFj
-         DatskoE4Kt71wlKQ+BM/vzgHYbs/Vma8HwbAKy9+3iCXkHfgJKdydzCc32FGz/EtPPYU
-         jlxaFFQOe3UojDN/B2aHtZFAaBS6D9I9dh1LpvF9OPrnvDmodNu4k+24DrLAprnTPRuh
-         VuAg==
-X-Forwarded-Encrypted: i=1; AJvYcCWHgspoO/6nRW5Hnv/dDP32TieyyNjYJqqJ7Ab+pXZFAI5IJ92U0Rahmcrd2PTYNrfOcrqLRdpvuEi06g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfCVL0ecaX6AZGr+NwWm2HwRQJfnBQvN9MZ0+GhxBUyIe0z6ff
-	aP9Rkqe6qFqCqyiPL5DGa+xTiTcw08ek+gUzb5epQlXHmZw78sUAikcjCU4ziKw+pKI=
-X-Gm-Gg: AY/fxX4sT0A6F1F82Ollje37ty5XlFPM+liywJA1cYEWGexTB1jXjJ95ObEOfLgVkyQ
-	T6r9B8gjs0psk0UqABZZMnIFVJMJ8AMKyRH1C//RycOoSP0SPeRvcm1E9JIpYdvT68Gk9FGzX/q
-	+5ccNTN1NWFMc8ih5H0NJR1RJ9jg3xzVlSAEOC0st97gb4lQ9NGV7iMpX4Ly2rWK3QoahyvHlxz
-	DpYmEOo07FSiz/KXQwy6XK5r3wCh+onnwetbkiAWFr2WXlhiGOgsylMwM9j5vI2aU6QBLe3Vihh
-	Q6WHJk9UVBQZ28sSVMf84x9+5oYeIQfHS8/+UMyJbAtnB/JXyrmMTaTsGYnh3TO7+JtX+CkqcEl
-	OIMyJK63z85jXjYRSVOxsyLWkZkMGL5LxTxrH/Mvv8V3HHbKTrjbtL309GE4ZlRtwqHfYQob9xj
-	fFsR8LlJ+HIsv8y+EApnhm1Sj+qfkP2SXCv88r8AiJk38Pw8fmR8hziQ==
-X-Google-Smtp-Source: AGHT+IGZtSmMwR6cKIPymm7XZZ9fkMJA6J3bFnj8XPrkJ3tLZRy9i+zl/jYj9RHZFiRlyHqgY3b88A==
-X-Received: by 2002:a17:903:2341:b0:2a0:c1ed:c8c2 with SMTP id d9443c01a7336-2a3ee4b4497mr98060915ad.55.1768022439138;
-        Fri, 09 Jan 2026 21:20:39 -0800 (PST)
+        bh=MnKLaktx0YitXAvKONWboruSzuMArssppl0GK0vv2ZI=;
+        b=KxGEuak093Y829ASHdpnsm7TEBQ9V0U3kBSBkieOXzJlSpM/v3GxFMEZfugIb5uh5H
+         qrmu2/HKOHog59HQ7q69GUkaFT1yyRRB+Ny/7ohzEuiI5j1l2GvhC+mexGrc0zG6soTi
+         ufS5CMJ0lj68FQ5vyRLUIH3DwMBfBj3mehvinwH8ptC6h4h6afRnlHyBOfEGOx0mEtLk
+         idWfeR2B4XYGOTuTJXe2LaU6+llIiqmm/dW0wqKtcE7PzwWB7JCLUMUQwVkNurCXvisl
+         vGbadw5PHuBjNwWEJzghw/D74vdZ42XwLP9fcWcFRQW81Jkv8mhfP3HZcIlp/ao9w9wW
+         9BSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWoeKS9UXPJAsL8tM8OPY9MVrY6af/+oui+7v9bofyLNK/mLdoUIdm13GJnyOFTmQ+k9GUce9SVq0chkQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzH4l8UCUYHwJUb9z+LjJna4irCXFO0ERbTswgObkqiN8y9H/8T
+	Gdis88BOW+kw/mt2TOh1A4XsBYmqTZr1HWSKtehEO9WbcCY/Hvw+FNXBUhtvUPg78Mc=
+X-Gm-Gg: AY/fxX7wh1Ci+yAxet6wIgiwUCdbwQiwMAqGpHEa1ZUQUyx+5EUwJF1WRYPT048VFwo
+	Dit3Twr6IiTzaLLrsl0iJ76knuXCdbIj3hskEYiGOVEcTLUtK3MOTIvhCbP7sPqRxy5C+wKC4X3
+	RT246PlvKkaKfiPxbsntmJZogapsFG4Dgtf30RWMSj+jSWy/BNskEvZkhsCPgNnqbVAVkYyW1Ts
+	dBFCvsE3ujclVTlaDdtInOxRwgACW96JkviMKTF5Wk5Om69wk8627Qh9y5LqIPHAsDTCBnPz9bz
+	W75D75NoHiDmDVwMglInwxV5gdJORTTJj3oXccnydB2+3VavgsUMV++XRReArp592Yz0OXUaqeV
+	KQby+Ia7VLtylOgV+PVR8asFkbFpkQcZ3NTPA3V7ab7NLR25mxQdSvacKb0/iwXuH+qbIfR6Wxz
+	AB37E1rh7NgQqpWes1AZTpVutpTqcMyv/SnU+B8BTdm3kGt9AsXjPugA==
+X-Google-Smtp-Source: AGHT+IHLx1wPTjXjzAS2eGdh9903fjAPi7RCiCtnZZLH7PsVuIyVqtFb3O/Bml6wg2iKJ9agI1qtCA==
+X-Received: by 2002:a17:902:dacf:b0:299:bda7:ae45 with SMTP id d9443c01a7336-2a3e39edf19mr141059685ad.25.1768022428644;
+        Fri, 09 Jan 2026 21:20:28 -0800 (PST)
 Received: from [127.0.1.1] ([45.8.220.108])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3cc88cdsm118208265ad.73.2026.01.09.21.20.29
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3cc88cdsm118208265ad.73.2026.01.09.21.20.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Jan 2026 21:20:38 -0800 (PST)
+        Fri, 09 Jan 2026 21:20:28 -0800 (PST)
 From: Guodong Xu <guodong@riscstar.com>
-Date: Sat, 10 Jan 2026 13:18:22 +0800
-Subject: [PATCH v4 10/11] riscv: dts: spacemit: add initial device tree of
- SpacemiT K3 SoC
+Date: Sat, 10 Jan 2026 13:18:21 +0800
+Subject: [PATCH v4 09/11] dt-bindings: riscv: Add Sha and its comprised
+ extensions
 MIME-Version: 1.0
-Message-Id: <20260110-k3-basic-dt-v4-10-d492f3a30ffa@riscstar.com>
+Message-Id: <20260110-k3-basic-dt-v4-9-d492f3a30ffa@riscstar.com>
 References: <20260110-k3-basic-dt-v4-0-d492f3a30ffa@riscstar.com>
 In-Reply-To: <20260110-k3-basic-dt-v4-0-d492f3a30ffa@riscstar.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -98,8 +113,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  linux-serial@vger.kernel.org, Guodong Xu <guodong@riscstar.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_212040_318700_935488A7 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20260110_052037_152333_282AE66A 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,618 +131,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SpacemiT K3 is equipped with 8 X100 cores, which are RVA23 compliant.
-Add nodes of uarts, timer and interrupt-controllers.
+Add descriptions for the Sha extension and the seven extensions it
+comprises: Shcounterenw, Shgatpa, Shtvala, Shvsatpa, Shvstvala, Shvstvecd,
+and Ssstateen.
+
+Sha is ratified in the RVA23 Profiles Version 1.0 (commit 0273f3c921b6
+"rva23/rvb23 ratified") as a new profile-defined extension that captures
+the full set of features that are mandated to be supported along with
+the H extension.
+
+Extensions Shcounterenw, Shgatpa, Shtvala, Shvsatpa, Shvstvala, Shvstvecd,
+and Ssstateen are ratified in the RISC-V Profiles Version 1.0 (commit
+b1d806605f87 "Updated to ratified state").
+
+The requirement status for Sha and its comprised extension in RISC-V
+Profiles are:
+ - Sha: Mandatory in RVA23S64
+ - H: Optional in RVA22S64; Mandatory in RVA23S64
+ - Shcounterenw: Optional in RVA22S64; Mandatory in RVA23S64
+ - Shgatpa: Optional in RVA22S64; Mandatory in RVA23S64
+ - Shtvala: Optional in RVA22S64; Mandatory in RVA23S64
+ - Shvsatpa: Optional in RVA22S64; Mandatory in RVA23S64
+ - Shvstvala: Optional in RVA22S64; Mandatory in RVA23S64
+ - Shvstvecd: Optional in RVA22S64; Mandatory in RVA23S64
+ - Ssstateen: Optional in RVA22S64; Mandatory in RVA23S64
 
 Signed-off-by: Guodong Xu <guodong@riscstar.com>
 ---
-v4: Fix missing blank space after commas in compatible string.
-    Add m-mode imsic and aplic node.
-    Reorder properties in simsic, saplic, mimsic, and maplic nodes
-     to match DTS coding style.
-v3: Remove "supm" from the riscv,isa-extensions list.
-v2: Remove aliases from k3.dtsi, they should be in board DTS.
-    Updated riscv,isa-extensions with new extensions from the extensions.yaml.
+v4: No change.
+v3: Drop dependency check for Sha. Both Sha and the extensions it
+     implies are allowed to co-exist in DT.
+v2: New patch.
 ---
- arch/riscv/boot/dts/spacemit/k3.dtsi | 590 +++++++++++++++++++++++++++++++++++
- 1 file changed, 590 insertions(+)
+ .../devicetree/bindings/riscv/extensions.yaml      | 57 ++++++++++++++++++++++
+ 1 file changed, 57 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
-new file mode 100644
-index 000000000000..a815f85cf5a6
---- /dev/null
-+++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
-@@ -0,0 +1,590 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (c) 2025 SpacemiT (Hangzhou) Technology Co. Ltd
-+ * Copyright (c) 2025 Guodong Xu <guodong@riscstar.com>
-+ */
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index 900270e8d22e..41cb4aeb2667 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -129,6 +129,57 @@ properties:
+             Document Version 20211203.
+ 
+         # multi-letter extensions, sorted alphanumerically
++        - const: sha
++          description: |
++            The standard Sha extension for augmented hypervisor extension as
++            ratified in RVA23 Profiles Version 1.0, with commit 0273f3c921b6
++            ("rva23/rvb23 ratified").
 +
-+#include <dt-bindings/interrupt-controller/irq.h>
++            Sha captures the full set of features that are mandated to be
++            supported along with the H extension. Sha comprises the following
++            extensions: H, Shcounterenw, Shgatpa, Shtvala, Shvsatpa, Shvstvala,
++            Shvstvecd, and Ssstateen.
 +
-+/dts-v1/;
++        - const: shcounterenw
++          description: |
++            The standard Shcounterenw extension for support writable enables
++            in hcounteren for any supported counter, as ratified in RISC-V
++            Profiles Version 1.0, with commit b1d806605f87 ("Updated to
++            ratified state.")
 +
-+/ {
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+	model = "SpacemiT K3";
-+	compatible = "spacemit,k3";
++        - const: shgatpa
++          description: |
++            The standard Shgatpa extension indicates that for each supported
++            virtual memory scheme SvNN supported in satp, the corresponding
++            hgatp SvNNx4 mode must be supported. The hgatp mode Bare must
++            also be supported. It is ratified in RISC-V Profiles Version 1.0,
++            with commit b1d806605f87 ("Updated to ratified state.")
 +
-+	cpus: cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		timebase-frequency = <24000000>;
++        - const: shtvala
++          description: |
++            The standard Shtvala extension for htval be written with the
++            faulting guest physical address in all circumstances permitted by
++            the ISA. It is ratified in RISC-V Profiles Version 1.0, with
++            commit b1d806605f87 ("Updated to ratified state.")
 +
-+		cpu_0: cpu@0 {
-+			compatible = "spacemit,x100", "riscv";
-+			device_type = "cpu";
-+			reg = <0>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "sha", "shcounterenw", "shgatpa", "shtvala",
-+					       "shvsatpa", "shvstvala", "shvstvecd", "smaia",
-+					       "smstateen", "ssaia", "ssccptr", "sscofpmf",
-+					       "sscounterenw", "ssnpm", "ssstateen", "sstc",
-+					       "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt", "za64rs",
-+					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
-+					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
-+					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
-+					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
-+					       "zicond", "zicsr", "zifencei", "zihintntl",
-+					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
-+					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
-+					       "zvfhmin", "zvkb", "zvkg", "zvkn", "zvknc",
-+					       "zvkned", "zvkng", "zvknha", "zvknhb", "zvks",
-+					       "zvksc", "zvksed", "zvksg", "zvksh", "zvkt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <65536>;
-+			i-cache-sets = <256>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <65536>;
-+			d-cache-sets = <256>;
-+			next-level-cache = <&l2_cache0>;
-+			mmu-type = "riscv,sv39";
++        - const: shvsatpa
++          description: |
++            The standard Shvsatpa extension for vsatp supporting all translation
++            modes supported in satp, as ratified in RISC-V Profiles Version 1.0,
++            with commit b1d806605f87 ("Updated to ratified state.")
 +
-+			cpu0_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
++        - const: shvstvala
++          description: |
++            The standard Shvstvala extension for vstval provides all needed
++            values as ratified in RISC-V Profiles Version 1.0, with commit
++            b1d806605f87 ("Updated to ratified state.")
 +
-+		cpu_1: cpu@1 {
-+			compatible = "spacemit,x100", "riscv";
-+			device_type = "cpu";
-+			reg = <1>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "sha", "shcounterenw", "shgatpa", "shtvala",
-+					       "shvsatpa", "shvstvala", "shvstvecd", "smaia",
-+					       "smstateen", "ssaia", "ssccptr", "sscofpmf",
-+					       "sscounterenw", "ssnpm", "ssstateen", "sstc",
-+					       "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt", "za64rs",
-+					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
-+					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
-+					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
-+					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
-+					       "zicond", "zicsr", "zifencei", "zihintntl",
-+					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
-+					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
-+					       "zvfhmin", "zvkb", "zvkg", "zvkn", "zvknc",
-+					       "zvkned", "zvkng", "zvknha", "zvknhb", "zvks",
-+					       "zvksc", "zvksed", "zvksg", "zvksh", "zvkt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <65536>;
-+			i-cache-sets = <256>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <65536>;
-+			d-cache-sets = <256>;
-+			next-level-cache = <&l2_cache0>;
-+			mmu-type = "riscv,sv39";
++        - const: shvstvecd
++          description: |
++            The standard Shvstvecd extension for vstvec supporting Direct mode,
++            as ratified in RISC-V Profiles Version 1.0, with commit b1d806605f87
++            ("Updated to ratified state.")
 +
-+			cpu1_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
+         - const: smaia
+           description: |
+             The standard Smaia supervisor-level extension for the advanced
+@@ -187,6 +238,12 @@ properties:
+             ratified at commit d70011dde6c2 ("Update to ratified state")
+             of riscv-j-extension.
+ 
++        - const: ssstateen
++          description: |
++            The standard Ssstateen extension for supervisor-mode view of the
++            state-enable extension, as ratified in RISC-V Profiles Version 1.0,
++            with commit b1d806605f87 ("Updated to ratified state.")
 +
-+		cpu_2: cpu@2 {
-+			compatible = "spacemit,x100", "riscv";
-+			device_type = "cpu";
-+			reg = <2>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "sha", "shcounterenw", "shgatpa", "shtvala",
-+					       "shvsatpa", "shvstvala", "shvstvecd", "smaia",
-+					       "smstateen", "ssaia", "ssccptr", "sscofpmf",
-+					       "sscounterenw", "ssnpm", "ssstateen", "sstc",
-+					       "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt", "za64rs",
-+					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
-+					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
-+					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
-+					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
-+					       "zicond", "zicsr", "zifencei", "zihintntl",
-+					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
-+					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
-+					       "zvfhmin", "zvkb", "zvkg", "zvkn", "zvknc",
-+					       "zvkned", "zvkng", "zvknha", "zvknhb", "zvks",
-+					       "zvksc", "zvksed", "zvksg", "zvksh", "zvkt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <65536>;
-+			i-cache-sets = <256>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <65536>;
-+			d-cache-sets = <256>;
-+			next-level-cache = <&l2_cache0>;
-+			mmu-type = "riscv,sv39";
-+
-+			cpu2_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		cpu_3: cpu@3 {
-+			compatible = "spacemit,x100", "riscv";
-+			device_type = "cpu";
-+			reg = <3>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "sha", "shcounterenw", "shgatpa", "shtvala",
-+					       "shvsatpa", "shvstvala", "shvstvecd", "smaia",
-+					       "smstateen", "ssaia", "ssccptr", "sscofpmf",
-+					       "sscounterenw", "ssnpm", "ssstateen", "sstc",
-+					       "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt", "za64rs",
-+					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
-+					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
-+					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
-+					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
-+					       "zicond", "zicsr", "zifencei", "zihintntl",
-+					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
-+					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
-+					       "zvfhmin", "zvkb", "zvkg", "zvkn", "zvknc",
-+					       "zvkned", "zvkng", "zvknha", "zvknhb", "zvks",
-+					       "zvksc", "zvksed", "zvksg", "zvksh", "zvkt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <65536>;
-+			i-cache-sets = <256>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <65536>;
-+			d-cache-sets = <256>;
-+			next-level-cache = <&l2_cache0>;
-+			mmu-type = "riscv,sv39";
-+
-+			cpu3_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		cpu_4: cpu@4 {
-+			compatible = "spacemit,x100", "riscv";
-+			device_type = "cpu";
-+			reg = <4>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "sha", "shcounterenw", "shgatpa", "shtvala",
-+					       "shvsatpa", "shvstvala", "shvstvecd", "smaia",
-+					       "smstateen", "ssaia", "ssccptr", "sscofpmf",
-+					       "sscounterenw", "ssnpm", "ssstateen", "sstc",
-+					       "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt", "za64rs",
-+					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
-+					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
-+					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
-+					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
-+					       "zicond", "zicsr", "zifencei", "zihintntl",
-+					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
-+					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
-+					       "zvfhmin", "zvkb", "zvkg", "zvkn", "zvknc",
-+					       "zvkned", "zvkng", "zvknha", "zvknhb", "zvks",
-+					       "zvksc", "zvksed", "zvksg", "zvksh", "zvkt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <65536>;
-+			i-cache-sets = <256>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <65536>;
-+			d-cache-sets = <256>;
-+			next-level-cache = <&l2_cache1>;
-+			mmu-type = "riscv,sv39";
-+
-+			cpu4_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		cpu_5: cpu@5 {
-+			compatible = "spacemit,x100", "riscv";
-+			device_type = "cpu";
-+			reg = <5>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "sha", "shcounterenw", "shgatpa", "shtvala",
-+					       "shvsatpa", "shvstvala", "shvstvecd", "smaia",
-+					       "smstateen", "ssaia", "ssccptr", "sscofpmf",
-+					       "sscounterenw", "ssnpm", "ssstateen", "sstc",
-+					       "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt", "za64rs",
-+					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
-+					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
-+					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
-+					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
-+					       "zicond", "zicsr", "zifencei", "zihintntl",
-+					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
-+					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
-+					       "zvfhmin", "zvkb", "zvkg", "zvkn", "zvknc",
-+					       "zvkned", "zvkng", "zvknha", "zvknhb", "zvks",
-+					       "zvksc", "zvksed", "zvksg", "zvksh", "zvkt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <65536>;
-+			i-cache-sets = <256>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <65536>;
-+			d-cache-sets = <256>;
-+			next-level-cache = <&l2_cache1>;
-+			mmu-type = "riscv,sv39";
-+
-+			cpu5_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		cpu_6: cpu@6 {
-+			compatible = "spacemit,x100", "riscv";
-+			device_type = "cpu";
-+			reg = <6>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "sha", "shcounterenw", "shgatpa", "shtvala",
-+					       "shvsatpa", "shvstvala", "shvstvecd", "smaia",
-+					       "smstateen", "ssaia", "ssccptr", "sscofpmf",
-+					       "sscounterenw", "ssnpm", "ssstateen", "sstc",
-+					       "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt", "za64rs",
-+					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
-+					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
-+					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
-+					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
-+					       "zicond", "zicsr", "zifencei", "zihintntl",
-+					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
-+					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
-+					       "zvfhmin", "zvkb", "zvkg", "zvkn", "zvknc",
-+					       "zvkned", "zvkng", "zvknha", "zvknhb", "zvks",
-+					       "zvksc", "zvksed", "zvksg", "zvksh", "zvkt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <65536>;
-+			i-cache-sets = <256>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <65536>;
-+			d-cache-sets = <256>;
-+			next-level-cache = <&l2_cache1>;
-+			mmu-type = "riscv,sv39";
-+
-+			cpu6_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		cpu_7: cpu@7 {
-+			compatible = "spacemit,x100", "riscv";
-+			device_type = "cpu";
-+			reg = <7>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "sha", "shcounterenw", "shgatpa", "shtvala",
-+					       "shvsatpa", "shvstvala", "shvstvecd", "smaia",
-+					       "smstateen", "ssaia", "ssccptr", "sscofpmf",
-+					       "sscounterenw", "ssnpm", "ssstateen", "sstc",
-+					       "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt", "za64rs",
-+					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
-+					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
-+					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
-+					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
-+					       "zicond", "zicsr", "zifencei", "zihintntl",
-+					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
-+					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
-+					       "zvfhmin", "zvkb", "zvkg", "zvkn", "zvknc",
-+					       "zvkned", "zvkng", "zvknha", "zvknhb", "zvks",
-+					       "zvksc", "zvksed", "zvksg", "zvksh", "zvkt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <65536>;
-+			i-cache-sets = <256>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <65536>;
-+			d-cache-sets = <256>;
-+			next-level-cache = <&l2_cache1>;
-+			mmu-type = "riscv,sv39";
-+
-+			cpu7_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		l2_cache0: cache-controller-0 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-size = <4194304>;
-+			cache-sets = <4096>;
-+			cache-unified;
-+		};
-+
-+		l2_cache1: cache-controller-1 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-size = <4194304>;
-+			cache-sets = <4096>;
-+			cache-unified;
-+		};
-+
-+		cpu-map {
-+			cluster0 {
-+				core0 {
-+					cpu = <&cpu_0>;
-+				};
-+				core1 {
-+					cpu = <&cpu_1>;
-+				};
-+				core2 {
-+					cpu = <&cpu_2>;
-+				};
-+				core3 {
-+					cpu = <&cpu_3>;
-+				};
-+			};
-+
-+			cluster1 {
-+				core0 {
-+					cpu = <&cpu_4>;
-+				};
-+				core1 {
-+					cpu = <&cpu_5>;
-+				};
-+				core2 {
-+					cpu = <&cpu_6>;
-+				};
-+				core3 {
-+					cpu = <&cpu_7>;
-+				};
-+			};
-+		};
-+	};
-+
-+	soc: soc {
-+		compatible = "simple-bus";
-+		interrupt-parent = <&saplic>;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		dma-noncoherent;
-+		ranges;
-+
-+		uart0: serial@d4017000 {
-+			compatible = "spacemit,k3-uart", "intel,xscale-uart";
-+			reg = <0x0 0xd4017000 0x0 0x100>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clock-frequency = <14700000>;
-+			interrupts = <42 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			status = "disabled";
-+		};
-+
-+		uart2: serial@d4017100 {
-+			compatible = "spacemit,k3-uart", "intel,xscale-uart";
-+			reg = <0x0 0xd4017100 0x0 0x100>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clock-frequency = <14700000>;
-+			interrupts = <44 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			status = "disabled";
-+		};
-+
-+		uart3: serial@d4017200 {
-+			compatible = "spacemit,k3-uart", "intel,xscale-uart";
-+			reg = <0x0 0xd4017200 0x0 0x100>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clock-frequency = <14700000>;
-+			interrupts = <45 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			status = "disabled";
-+		};
-+
-+		uart4: serial@d4017300 {
-+			compatible = "spacemit,k3-uart", "intel,xscale-uart";
-+			reg = <0x0 0xd4017300 0x0 0x100>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clock-frequency = <14700000>;
-+			interrupts = <46 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			status = "disabled";
-+		};
-+
-+		uart5: serial@d4017400 {
-+			compatible = "spacemit,k3-uart", "intel,xscale-uart";
-+			reg = <0x0 0xd4017400 0x0 0x100>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clock-frequency = <14700000>;
-+			interrupts = <47 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			status = "disabled";
-+		};
-+
-+		uart6: serial@d4017500 {
-+			compatible = "spacemit,k3-uart", "intel,xscale-uart";
-+			reg = <0x0 0xd4017500 0x0 0x100>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clock-frequency = <14700000>;
-+			interrupts = <48 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			status = "disabled";
-+		};
-+
-+		uart7: serial@d4017600 {
-+			compatible = "spacemit,k3-uart", "intel,xscale-uart";
-+			reg = <0x0 0xd4017600 0x0 0x100>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clock-frequency = <14700000>;
-+			interrupts = <49 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			status = "disabled";
-+		};
-+
-+		uart8: serial@d4017700 {
-+			compatible = "spacemit,k3-uart", "intel,xscale-uart";
-+			reg = <0x0 0xd4017700 0x0 0x100>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clock-frequency = <14700000>;
-+			interrupts = <50 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			status = "disabled";
-+		};
-+
-+		uart9: serial@d4017800 {
-+			compatible = "spacemit,k3-uart", "intel,xscale-uart";
-+			reg = <0x0 0xd4017800 0x0 0x100>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clock-frequency = <14700000>;
-+			interrupts = <51 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			status = "disabled";
-+		};
-+
-+		uart10: serial@d401f000 {
-+			compatible = "spacemit,k3-uart", "intel,xscale-uart";
-+			reg = <0x0 0xd401f000 0x0 0x100>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clock-frequency = <14700000>;
-+			interrupts = <281 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			status = "disabled";
-+		};
-+
-+		simsic: interrupt-controller@e0400000 {
-+			compatible = "spacemit,k3-imsics", "riscv,imsics";
-+			reg = <0x0 0xe0400000 0x0 0x200000>;
-+			#interrupt-cells = <0>;
-+			#msi-cells = <0>;
-+			interrupt-controller;
-+			interrupts-extended = <&cpu0_intc 9>, <&cpu1_intc 9>,
-+					      <&cpu2_intc 9>, <&cpu3_intc 9>,
-+					      <&cpu4_intc 9>, <&cpu5_intc 9>,
-+					      <&cpu6_intc 9>, <&cpu7_intc 9>;
-+			msi-controller;
-+			riscv,guest-index-bits = <6>;
-+			riscv,hart-index-bits = <4>;
-+			riscv,num-guest-ids = <511>;
-+			riscv,num-ids = <511>;
-+		};
-+
-+		saplic: interrupt-controller@e0804000 {
-+			compatible = "spacemit,k3-aplic", "riscv,aplic";
-+			reg = <0x0 0xe0804000 0x0 0x4000>;
-+			#interrupt-cells = <2>;
-+			interrupt-controller;
-+			msi-parent = <&simsic>;
-+			riscv,num-sources = <512>;
-+		};
-+
-+		clint: timer@e081c000 {
-+			compatible = "spacemit,k3-clint", "sifive,clint0";
-+			reg = <0x0 0xe081c000 0x0 0x4000>;
-+			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
-+					      <&cpu1_intc 3>, <&cpu1_intc 7>,
-+					      <&cpu2_intc 3>, <&cpu2_intc 7>,
-+					      <&cpu3_intc 3>, <&cpu3_intc 7>,
-+					      <&cpu4_intc 3>, <&cpu4_intc 7>,
-+					      <&cpu5_intc 3>, <&cpu5_intc 7>,
-+					      <&cpu6_intc 3>, <&cpu6_intc 7>,
-+					      <&cpu7_intc 3>, <&cpu7_intc 7>;
-+		};
-+
-+		mimsic: interrupt-controller@f1000000 {
-+			compatible = "spacemit,k3-imsics", "riscv,imsics";
-+			reg = <0x0 0xf1000000 0x0 0x10000>;
-+			#interrupt-cells = <0>;
-+			#msi-cells = <0>;
-+			interrupt-controller;
-+			interrupts-extended = <&cpu0_intc 11>, <&cpu1_intc 11>,
-+					      <&cpu2_intc 11>, <&cpu3_intc 11>,
-+					      <&cpu4_intc 11>, <&cpu5_intc 11>,
-+					      <&cpu6_intc 11>, <&cpu7_intc 11>;
-+			msi-controller;
-+			riscv,guest-index-bits = <6>;
-+			riscv,hart-index-bits = <4>;
-+			riscv,num-guest-ids = <511>;
-+			riscv,num-ids = <511>;
-+
-+			status = "disabled";
-+		};
-+
-+		maplic: interrupt-controller@f1800000 {
-+			compatible = "spacemit,k3-aplic", "riscv,aplic";
-+			reg = <0x0 0xf1800000 0x0 0x4000>;
-+			#interrupt-cells = <2>;
-+			interrupt-controller;
-+			msi-parent = <&mimsic>;
-+			riscv,children = <&saplic>;
-+			riscv,delegate = <&saplic 1 512>;
-+			riscv,num-sources = <512>;
-+
-+			status = "disabled";
-+		};
-+	};
-+};
+         - const: sstc
+           description: |
+             The standard Sstc supervisor-level extension for time compare as
 
 -- 
 2.43.0
