@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 516AFD25032
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 Jan 2026 06:41:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A6D8D25032
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Jan 2026 06:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6JniaRpdbLkXkF/ufWoOwRlmzFyYUEvVyUcg4n3eIbk=; b=d5iWPO/kwe0YPv
-	2pelymF6bhMZyIXaxBVvc13UWEsUvSYYMIUK1WLesmO5MJOpw6Mil3uZMYQMIVYuUWitu1kHlmvAU
-	miY/G/oh2gKJbtrecmkDwba24MOcLf/EZw1y6ibAcy/XCRyjG/+WP7yB6vqZirc9MzmH/errYS73Q
-	gi3n7uz8Tdi0YBij98doQrW7MOn8Zqttb0yStCuEPmSbMtazEUpUxP1NTLyBv/uUJgC9JBT82NkIz
-	qVwk2H+0lOFaiBpRPPLPLj1lQN2oYnX4FdHJuxSBabhbIZS9mh/1zA0rbwIsdNQWctNlCN+cub70i
-	2bGJ5zTRx7sMfXqhQTpA==;
+	List-Owner; bh=aLKBfQxtRZyQEATPZ5knLBz/MTeZX0G2gbyBu+HA28k=; b=d9b5ycu8hg/ngD
+	WJdxyoJJcr3lAf7IC2hC+WhXxbEZMAHKDK1J4TZq99zqLeeCn+TWElGDvjs1UbLD+ZioQum6/QQRG
+	XnYq+bckHlPxTlWht5MqfqDMly1Y6CnAtD7d+QFFd5d2xjqXsHwQA24IdDcr4U4VTok6FSnHxOvyU
+	eMV6oxKwugG28R/LnmGcVhCC4rpEqxzFialDhPr8vWAC/6Uunw9IR04nqCv0JeB8cOFA82hxEWbCi
+	qXkty/whLD7gxdbFb2ElLfE9LZeFvH75PxnYkGzpoi8Sl9/VcUU3YNc6A8NjRIaXkRsEoATQDpi4+
+	kEUNQu/KMWchpHz/CDIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vep8l-00000003umV-27OD;
-	Sun, 11 Jan 2026 06:41:31 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1vep8z-00000003uow-0iVs;
+	Sun, 11 Jan 2026 06:41:45 +0000
+Received: from out-186.mta0.migadu.com ([91.218.175.186])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vep8i-00000003ulm-35X3
+	id 1vep8w-00000003uoO-1C16
 	for linux-riscv@lists.infradead.org;
-	Sun, 11 Jan 2026 06:41:30 +0000
+	Sun, 11 Jan 2026 06:41:43 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1768113685;
+	t=1768113699;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=566hMGT2wOOA5i+sdnfFimS5EhXjb0N0TBNQUsy89Yo=;
-	b=SaTvT6KrPH5cmadrgS7Fw5PtEBY2Fp8TWmc95KdgXXACnE3+nV98WMI40Rtc8iDsQOJu90
-	pzz+WIc0lVx9hE5Vkg+JEQmKP/CFjkdNNQ88RUi3SzE1DFtSadUuPKdwLrp+7O/LXrTFbN
-	IE7KN5FOmYdeIAv766qYJWHfNduDCCg=
+	bh=YsfMkNLcCSESV8XTR6/jGWPS+9Mk6DJvmsfeb5LRsCE=;
+	b=DWpZXBqrlpzInYX1mFIk3Dr9LS9kCGf5XIAaK7NPVvd85q2tWA0xSijDfqjO2P1kzktmQg
+	VwBlv42q1kEiNZGJphD7exVB+lyfRq4lKJh2JYG8RvqpYguhvOAR5kiohNUAQu4iluou5a
+	P9H7UClYyiBlbnSwk+9SYe3u/iRtdw0=
 From: Ze Huang <huang.ze@linux.dev>
-Date: Sun, 11 Jan 2026 14:41:02 +0800
-Subject: [PATCH v3 1/3] riscv: dts: spacemit: Add USB2 PHY node for K1
+Date: Sun, 11 Jan 2026 14:41:04 +0800
+Subject: [PATCH v3 3/3] riscv: dts: spacemit: Enable USB3.0 on BananaPi-F3
 MIME-Version: 1.0
-Message-Id: <20260111-k1-usb3dts-v2-v3-1-f5ebd546e904@linux.dev>
+Message-Id: <20260111-k1-usb3dts-v2-v3-3-f5ebd546e904@linux.dev>
 References: <20260111-k1-usb3dts-v2-v3-0-f5ebd546e904@linux.dev>
 In-Reply-To: <20260111-k1-usb3dts-v2-v3-0-f5ebd546e904@linux.dev>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -52,17 +52,17 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Ze Huang <huang.ze@linux.dev>, Aurelien Jarno <aurelien@aurel32.net>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768113671; l=1040;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768113671; l=2061;
  i=huang.ze@linux.dev; s=20250705; h=from:subject:message-id;
- bh=OkFD2HGSr1MsKeR9yPZO9Cd8GOid74MlNIlt7D1ODFU=;
- b=ndsEwPbqczy5gANhQyfrkhX4hlhszRxEsjVbIagDSAlfPx861WOm8rxEXFnEI7JkrtReHKy+n
- 6j4mXBz/0i2CubvJn7FtYfkpp4rRMXWQweG/ezrNo2Q89IK597lSwvi
+ bh=OV3HDtkXKdNdbyJh/87CD3+Y37+Ppb3KYEbRVI7Yw3g=;
+ b=7QmwbNwz411D6nDMUFDI2mnhaVs4CUMxhZAKO5UA9BbYQyRBTEXKxEAfL9vCH/BJ3wO7C+zpU
+ ff5orXGkRvbArelOjDwlkCHJ2BAN2GMdASK9l3ULe9qSoIYQe0e9jQQ
 X-Developer-Key: i=huang.ze@linux.dev; a=ed25519;
  pk=Kzc4PMu5PTo8eZZQ5xmTNL9jeXcQ9Wml0cs+vlQpBkg=
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260110_224128_915664_82E75C6B 
-X-CRM114-Status: UNSURE (   7.60  )
+X-CRM114-CacheID: sfid-20260110_224142_479022_CAA6951B 
+X-CRM114-Status: UNSURE (   7.81  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,37 +80,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-K1's DWC3 USB 3.0 controller requires two separate PHYs to function:
-the USB 3.0 combophy (for SuperSpeed) and a USB 2.0 PHY (for High-Speed,
-Full-Speed, etc.).
+Enable the DWC3 USB 3.0 controller and its associated usbphy2 on the
+Banana Pi F3 board.
 
-Add node for this second USB 2.0 PHY (usbphy2).
+The board utilizes a VLI VL817 hub, which requires two separate power
+supplies: one VBUS and one for hub itself. Add two GPIO-controlled
+fixed-regulators to manage this.
 
 Tested-by: Aurelien Jarno <aurelien@aurel32.net>
 Signed-off-by: Ze Huang <huang.ze@linux.dev>
 ---
- arch/riscv/boot/dts/spacemit/k1.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 46 +++++++++++++++++++++++++
+ 1 file changed, 46 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index 86d1db14e2ee..b44149f4f076 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -424,6 +424,14 @@ i2c5: i2c@d4013800 {
- 			status = "disabled";
- 		};
- 
-+		usbphy2: phy@c0a30000 {
-+			compatible = "spacemit,k1-usb2-phy";
-+			reg = <0x0 0xc0a30000 0x0 0x200>;
-+			clocks = <&syscon_apmu CLK_USB30>;
-+			#phy-cells = <0>;
-+			status = "disabled";
-+		};
+diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+index 3f10efd925dc..5971605754b3 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+@@ -59,6 +59,25 @@ reg_vcc_4v: vcc-4v {
+ 		regulator-always-on;
+ 		vin-supply = <&reg_dc_in>;
+ 	};
 +
- 		combo_phy: phy@c0b10000 {
- 			compatible = "spacemit,k1-combo-phy";
- 			reg = <0x0 0xc0b10000 0x0 0x1000>;
++	usb3-vbus-5v {
++		compatible = "regulator-fixed";
++		regulator-name = "USB30_VBUS";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-always-on;
++		gpio = <&gpio K1_GPIO(97) GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
++	usb3_hub_5v: usb3-hub-5v {
++		compatible = "regulator-fixed";
++		regulator-name = "USB30_HUB";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		gpio = <&gpio K1_GPIO(123) GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
+ };
+ 
+ &combo_phy {
+@@ -313,3 +332,30 @@ &uart0 {
+ 	pinctrl-0 = <&uart0_2_cfg>;
+ 	status = "okay";
+ };
++
++&usbphy2 {
++	status = "okay";
++};
++
++&usb_dwc3 {
++	dr_mode = "host";
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++
++	hub_2_0: hub@1 {
++		compatible = "usb2109,2817";
++		reg = <0x1>;
++		vdd-supply = <&usb3_hub_5v>;
++		peer-hub = <&hub_3_0>;
++		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
++	};
++
++	hub_3_0: hub@2 {
++		compatible = "usb2109,817";
++		reg = <0x2>;
++		vdd-supply = <&usb3_hub_5v>;
++		peer-hub = <&hub_2_0>;
++		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
++	};
++};
 
 -- 
 2.52.0
