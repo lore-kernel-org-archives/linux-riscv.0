@@ -4,198 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3135ED4662A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78292D4662F
 	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 20:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NZjo5D7OO69H4bZrgaEqGNE6q1+P8yI8HAujPFXbUOM=; b=2F+Std4LDbcYKQ
-	eviWKx8E0/GdxkOq5xFD5PoLjubMP3Dyp1nUC8wip6OshGr5c1+pc3tI44jaFwA35apj1Hsw1fkGt
-	1ZAwaxlSMMi1AXuy4SWSFARZiVR5Ohhx+MrrWiLrUPEBN8Fku8HTl7SWYgAdjn8rbetbaBqQfJq1k
-	TwO/CT4QN4w/U0juAcL4grzy4YCoTNCB6pzMR5UHayZZrs1IhEwfQwkCo2UOU0sKIP/cusmziuGJo
-	y/Ks0+Yi8TwX+q83b+ZyNApTfhy9jMqXjpIQqBjAg9CtsXQU32HpVjNeuadvhvA3UOdxpRl1SntCy
-	sWJSWYLApoBgUoKsXEKA==;
+	List-Owner; bh=gLwVJ1sm3xCNh+6Ns8Cn66ME0iCCHHuJUxcI6frWO+Y=; b=Z1VwmM88+MaVFk
+	gY4vvmOzkyJWcRkA4S6LfB0igpBkQ//wfht4lXElRNwsF0aWt8OpkKBwPnGPdLqEKsLpm0FNrUXgw
+	7+2OpELT0PxJoe3LesH+TARYZJRFMdMuC+lDY7g2XY5R3VoqQ3pKRn2/oHXyIOMR8m+Q2jfdUbp1G
+	p9l7Ig7QNXRIZLZJr7wp5TIyuqKKV847c01c+z+yjOO+8QTlS88te6c+59LfMsj31KAwj884Fb98G
+	i+IknKo9wW9g/P8o7p3rqrjcnRhXlA7cRUl2MAfwxl3fAxUtOFvwIlNPOCXX89vXv6r0EQ/U0gdvW
+	jj/6QXjjsun7m5JwiRAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgU1j-0000000D8pm-0qcK;
-	Thu, 15 Jan 2026 20:33:07 +0000
-Received: from smtpout2.mo529.mail-out.ovh.net ([79.137.123.220])
+	id 1vgU1l-0000000D8rz-0w7V;
+	Thu, 15 Jan 2026 20:33:09 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veKcb-000000033m5-1Dbr
-	for linux-riscv@lists.infradead.org;
-	Fri, 09 Jan 2026 22:06:20 +0000
-Received: from mxplan5.mail.ovh.net (unknown [10.109.231.114])
-	by mo529.mail-out.ovh.net (Postfix) with ESMTPS id 4dnwp12W8bz5yYQ;
-	Fri,  9 Jan 2026 22:06:01 +0000 (UTC)
-Received: from kaod.org (37.59.142.111) by DAG3EX1.mxp5.local (172.16.2.21)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.61; Fri, 9 Jan
- 2026 23:05:53 +0100
-Authentication-Results: garm.ovh; auth=pass (GARM-111S005528b6bf3-6b65-442a-a404-7c375edb9db0,
-                    E09514031C8F96F06A4508024BC0A168B8B405DC) smtp.auth=clg@kaod.org
-X-OVh-ClientIp: 82.64.250.170
-Message-ID: <c554baf7-cb61-4003-8f72-bd0c9b39f133@kaod.org>
-Date: Fri, 9 Jan 2026 23:05:52 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/4] spi: Drop duplicate of_node assignment
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mark Brown
-	<broonie@kernel.org>, Varshini Rajendran <varshini.rajendran@microchip.com>,
-	Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>, "AngeloGioacchino Del
- Regno" <angelogioacchino.delregno@collabora.com>, Sunny Luo
-	<sunny.luo@amlogic.com>, Janne Grunau <j@jannau.net>, Chin-Ting Kuo
-	<chin-ting_kuo@aspeedtech.com>, CL Wang <cl634@andestech.com>, "Manikandan
- Muralidharan" <manikandan.m@microchip.com>, David Lechner
-	<dlechner@baylibre.com>, Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonas Gorski <jonas.gorski@gmail.com>, Hang Zhou <929513338@qq.com>, Jun Guo
-	<jun.guo@cixtech.com>, Philipp Stanner <phasta@kernel.org>, Charles Keepax
-	<ckeepax@opensource.cirrus.com>, Bartosz Golaszewski <brgl@kernel.org>,
-	=?UTF-8?Q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, Shiji Yang
-	<yangshiji66@outlook.com>, James Clark <james.clark@linaro.org>, "Jonathan
- Marek" <jonathan@marek.ca>, Carlos Song <carlos.song@nxp.com>, Sakari Ailus
-	<sakari.ailus@linux.intel.com>, Huacai Chen <chenhuacai@kernel.org>, "Xianwei
- Zhao" <xianwei.zhao@amlogic.com>, Prajna Rajendra Kumar
-	<prajna.rajendrakumar@microchip.com>, Sergio Perez Gonzalez
-	<sperezglz@gmail.com>, Miquel Raynal <miquel.raynal@bootlin.com>, "Qianfeng
- Rong" <rongqianfeng@vivo.com>, Haibo Chen <haibo.chen@nxp.com>, Gabor Juhos
-	<j4g8y7@gmail.com>, Md Sadre Alam <quic_mdalam@quicinc.com>, Rosen Penev
-	<rosenp@gmail.com>, Luis de Arquer <luis.dearquer@inertim.com>, "Geert
- Uytterhoeven" <geert+renesas@glider.be>, Cosmin Tanislav
-	<cosmin-gabriel.tanislav.xa@renesas.com>, Tudor Ambarus
-	<tudor.ambarus@linaro.org>, Krzysztof Kozlowski <krzk@kernel.org>, Longbin Li
-	<looong.bin@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>,
-	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
-	"Alessandro Grassi" <alessandro.grassi@mailbox.org>, Chen-Yu Tsai
-	<wens@kernel.org>, Darshan R <rathod.darshan.0896@gmail.com>, Aaron Kling
-	<webgeek1234@gmail.com>, Vishwaroop A <va@nvidia.com>, Haixu Cui
-	<quic_haixcui@quicinc.com>, Darshan Rathod <darshanrathod475@gmail.com>,
-	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-amlogic@lists.infradead.org>,
-	<asahi@lists.linux.dev>, <linux-aspeed@lists.ozlabs.org>,
-	<openbmc@lists.ozlabs.org>, <linux-rpi-kernel@lists.infradead.org>,
-	<linux-sound@vger.kernel.org>, <patches@opensource.cirrus.com>,
-	<imx@lists.linux.dev>, <linux-arm-msm@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-rockchip@lists.infradead.org>, <linux-renesas-soc@vger.kernel.org>,
-	<linux-samsung-soc@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>, <linux-sunxi@lists.linux.dev>,
-	<linux-tegra@vger.kernel.org>, <virtualization@lists.linux.dev>
-CC: Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Lorenzo Bianconi <lorenzo@kernel.org>, Ray Liu <ray.liu@airoha.com>, "Sven
- Peter" <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, Joel Stanley
-	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Ryan Wanner
-	<ryan.wanner@microchip.com>, Michael Hennerich
-	<michael.hennerich@analog.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
-	<nuno.sa@analog.com>, Kamal Dasu <kamal.dasu@broadcom.com>, "Broadcom
- internal kernel review list" <bcm-kernel-feedback-list@broadcom.com>, Ray Jui
-	<rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, William Zhang
-	<william.zhang@broadcom.com>, Kursad Oney <kursad.oney@broadcom.com>, "Anand
- Gore" <anand.gore@broadcom.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?=
-	<rafal@milecki.pl>, David Rhodes <david.rhodes@cirrus.com>, "Richard
- Fitzgerald" <rf@opensource.cirrus.com>, Vladimir Oltean <olteanv@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>, Jean-Marie Verdun <verdun@hpe.com>, Nick Hawkins
-	<nick.hawkins@hpe.com>, Yang Shen <shenyang39@huawei.com>, Shawn Guo
-	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	"Lixu Zhang" <lixu.zhang@intel.com>, Yinbo Zhu <zhuyinbo@loongson.cn>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
-	<martin.blumenstingl@googlemail.com>, Conor Dooley
-	<conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>, Avi Fishman
-	<avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, Tali Perry
-	<tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, Nancy Yuen
-	<yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, Han Xu
-	<han.xu@nxp.com>, Yogesh Gaur <yogeshgaur.83@gmail.com>, Linus Walleij
-	<linusw@kernel.org>, Daniel Mack <daniel@zonque.org>, Haojian Zhuang
-	<haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, "Chris
- Packham" <chris.packham@alliedtelesis.co.nz>, Heiko Stuebner
-	<heiko@sntech.de>, Fabrizio Castro <fabrizio.castro.jz@renesas.com>, "Andi
- Shyti" <andi.shyti@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, "Paul
- Walmsley" <pjw@kernel.org>, Samuel Holland <samuel.holland@sifive.com>,
-	"Orson Zhai" <orsonzhai@gmail.com>, Baolin Wang
-	<baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, Alain Volmat <alain.volmat@foss.st.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Li-hao Kuo <lhjeff911@gmail.com>,
-	Masahisa Kojima <masahisa.kojima@linaro.org>, Jassi Brar
-	<jaswinder.singh@linaro.org>, "Laxman Dewangan" <ldewangan@nvidia.com>,
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter
-	<jonathanh@nvidia.com>, Sowjanya Komatineni <skomatineni@nvidia.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu
-	<mhiramat@kernel.org>, =?UTF-8?Q?Jonathan_Neusch=C3=A4fer?=
-	<j.neuschaefer@gmx.net>, Michal Simek <michal.simek@amd.com>, Max Filippov
-	<jcmvbkbc@gmail.com>
+	id 1vfGeo-00000005Irc-2gHV;
+	Mon, 12 Jan 2026 12:04:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768219467; x=1799755467;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5BiEA3YT3OvxJlu4+BexDLoaIF8cPC1fj4FQDGyymNA=;
+  b=DDjZfSNyxTncEYNcrrpaxY4o5VtVjcXdYOXq/x8lftRhErNZCpQ/Kzft
+   qAQlLZibtjd7ee65KFFe57SPs8Wb1MC+9/h685Fz+G563QhlG075o2ubE
+   Ls+guReaAN78mfXonpc/yp/dwU/T46JOVmA0YQgajSUBML807N63sbm13
+   fh/gDDdBj+osRUna6Zw1b4+hssbUCMLbT/T/ME09AU0pqJDNAU9bzjax1
+   gFgiyNsj69/P50pwKUQrpqADF7AV6qM7YCuLQTbifg4SHX5S5l5Ogl3nt
+   9vrUXgsCTBjLYSRgBp4XoTWzszvj6Q4zwg/1DSlMZxyTvvrxPN+EtHmrA
+   Q==;
+X-CSE-ConnectionGUID: AdYoFroKROCr1gdXFKEi0Q==
+X-CSE-MsgGUID: Tvur9Y6LQ0aVJ+MtM9AG3A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11669"; a="80597310"
+X-IronPort-AV: E=Sophos;i="6.21,219,1763452800"; 
+   d="scan'208";a="80597310"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jan 2026 04:04:25 -0800
+X-CSE-ConnectionGUID: XAibRldxTZ6xSE7cKV3erw==
+X-CSE-MsgGUID: kqm52HRnSw29im3jfiPOTw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,219,1763452800"; 
+   d="scan'208";a="208554124"
+Received: from dhhellew-desk2.ger.corp.intel.com (HELO localhost) ([10.245.245.37])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jan 2026 04:03:57 -0800
+Date: Mon, 12 Jan 2026 14:03:54 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Charles Keepax <ckeepax@opensource.cirrus.com>
+Cc: Mark Brown <broonie@kernel.org>, Varshini Rajendran <varshini.rajendran@microchip.com>, Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sunny Luo <sunny.luo@amlogic.com>, Janne Grunau <j@jannau.net>, Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, CL Wang <cl634@andestech.com>, Manikandan Muralidharan <manikandan.m@microchip.com>, David Lechner <dlechner@baylibre.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Jonas Gorski <jonas.gorski@gmail.com>, Hang Zhou <929513338@qq.com>, Jun Guo <jun.guo@cixtech.com>, Philipp Stanner <phasta@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, =?iso-8859-1?Q?Beno=EEt?= Monin <benoit.monin@bootlin.com>, Shiji Yang <yangshiji66@outlook.com>, James Clark <james.clark@linaro.org>, Jonathan Marek <jonathan@marek.ca>, Carlos Song <carlos.song@nxp.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, Huacai Chen <chenhuacai@kernel.org>, Xianwei Zhao <xianwei.zhao@amlogic.com>, Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>, Sergio Perez Gonzalez <sperezglz@gmail.com>, Miquel Raynal <miquel.raynal@bootlin.com>, Qianfeng Rong <rongqianfeng@vivo.com>, Haibo Chen <haibo.chen@nxp.com>, Gabor Juhos <j4g8y7@gmail.com>, Md Sadre Alam <quic_mdalam@quicinc.com>, Rosen Penev <rosenp@gmail.com>, Luis de Arquer <luis.dearquer@inertim.com>, Geert Uytterhoeven <geert+renesas@glider.be>, Cosmin Tanislav <cosmin-gabriel.tanislav.xa@renesas.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, Krzysztof Kozlowski <krzk@kernel.org>, Longbin Li <looong.bin@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>, =?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>, Alessandro Grassi <alessandro.grassi@mailbox.org>, Chen-Yu Tsai <wens@kernel.org>, Darshan R <rathod.darshan.0896@gmail.com>, Aaron Kling <webgeek1234@gmail.com>, Vishwaroop A <va@nvidia.com>, Haixu Cui <quic_haixcui@quicinc.com>, Darshan Rathod <darshanrathod475@gmail.com>, linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, asahi@lists.linux.dev, linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, linux-rpi-kernel@lists.infradead.org, linux-sound@vger.kernel.org, patches@opensource.cirrus.com, imx@lists.linux.dev, linux-arm-msm@vger.kernel.org, linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org, virtualization@lists.linux.dev, Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Lorenzo Bianconi <lorenzo@kernel.org>, Ray Liu <ray.liu@airoha.com>, Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, =?iso-8859-1?Q?C=E9dric?= Le Goater <clg@kaod.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Ryan Wanner <ryan.wanner@microchip.com>, Michael Hennerich <michael.hennerich@analog.com>, Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>, Kamal Dasu <kamal.dasu@broadcom.com>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, William Zhang <william.zhang@broadcom.com>, Kursad Oney <kursad.oney@broadcom.com>, Anand Gore <anand.gore@broadcom.com>, =?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, David Rhodes <david.rhodes@cirrus.com>, Richard Fitzgerald <rf@opensource.cirrus.com>, Vladimir Oltean <olteanv@gmail.com>, Frank Li <Frank.Li@nxp.com>, Jean-Marie Verdun <verdun@hpe.com>, Nick Hawkins <nick.hawkins@hpe.com>, Yang Shen <shenyang39@huawei.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Lixu Zhang <lixu.zhang@intel.com>, Yinbo Zhu <zhuyinbo@loongson.cn>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, Matthias Brugger <matthias.bgg@gmail.com>, Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, Han Xu <han.xu@nxp.com>, Yogesh Gaur <yogeshgaur.83@gmail.com>, Linus Walleij <linusw@kernel.org>, Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, Chris Packham <chris.packham@alliedtelesis.co.nz>, Heiko Stuebner <heiko@sntech.de>, Fabrizio Castro <fabrizio.castro.jz@renesas.com>, Andi Shyti <andi.shyti@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Paul Walmsley <pjw@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Orson Zhai <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Alain Volmat <alain.volmat@foss.st.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Li-hao Kuo <lhjeff911@gmail.com>, Masahisa Kojima <masahisa.kojima@linaro.org>, Jassi Brar <jaswinder.singh@linaro.org>, Laxman Dewangan <ldewangan@nvidia.com>, Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, Sowjanya Komatineni <skomatineni@nvidia.com>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, Jonathan =?iso-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>, Michal Simek <michal.simek@amd.com>, Max Filippov <jcmvbkbc@gmail.com>
+Subject: Re: [PATCH v1 1/4] spi: Propagate default fwnode to the SPI
+ controller device
+Message-ID: <aWTjKvbThxx9hSuL@smile.fi.intel.com>
 References: <20260108203004.3538449-1-andriy.shevchenko@linux.intel.com>
- <20260108203004.3538449-3-andriy.shevchenko@linux.intel.com>
-Content-Language: en-US, fr
-From: =?UTF-8?Q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>
-Autocrypt: addr=clg@kaod.org; keydata=
- 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
-In-Reply-To: <20260108203004.3538449-3-andriy.shevchenko@linux.intel.com>
-X-Originating-IP: [37.59.142.111]
-X-ClientProxiedBy: DAG1EX2.mxp5.local (172.16.2.2) To DAG3EX1.mxp5.local
- (172.16.2.21)
-X-Ovh-Tracer-GUID: ac34650a-c3e7-4870-b2af-217699de11a2
-X-Ovh-Tracer-Id: 8919379063107259280
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: dmFkZTFIzCn8bubMyUx+Fp4B1fyroBgO+OKelU3Mc9FUZok/wUq+5q5e5xOlBE7SQQn4ezSF4JcN3rRKTiRVL++JpNKqyddwvHSDnSv6pGThUA6a2OXaAlWqqdTjwwc8aykxpbVBHUfAW+j+YwgA5VShFD6pA55USsEbAOCh4LKhltiWsNYryEWkVdhJFvMaglbD35exfsOXU4+CQUWbQXLAGFm8Mw+avgKsiFy6JEKuDrFugY8ccCgJASbRDGhi2TEUomjck+JAQXjqsfyIFgPPNHhCRPaCO4fhvyffVLLUB3tUJ1AAFpSfLrKG1i2UhQK86O1PGP6Q5beDUbLb3mFFwVuvowmiPLu07Qa2529adnVPVvNt6SaNdWNbfMhEfPIkVRNuvJ0TQdYyB7K5xnOeWZuvxpW2F2ZHMbgOIadmOuRLm5bZ363tZHUsTB0D72Ea7CFTR9LfLRNdbRlrOrajTb/X4vXTPedUg4C/9KxLVEvzJ6vgGgthveUBW5TYQMkcECWAXgZbYjJ7oOiH9jblqAH4K0cyTl2TcngSUFO8hcSM8xDGEMrjw3+2CnCHxCEn0a0VEfI/3KP/pCo7xCho6ekg7GsDWgZ4dSGfx/xs0vuw28zfxj0t6B2SdSEpkU8hFqaWoyXoByy/COSvgANSnrQmFI1rduce3ZRVlaeAmVi6Xg
-DKIM-Signature: a=rsa-sha256; bh=B7zBPfBlYkBCkU0l7rWlyy9djFuW+bsZpdLfwqy8ego=;
- c=relaxed/relaxed; d=kaod.org; h=From; s=ovhmo393970-selector1;
- t=1767996370; v=1;
- b=tVoRIBvcS16uv6AGZO4IgZsz4eMv22iWK6JaCjU8W6kVGGgVfj3/Wkrq9NNxccGRPnUigiWr
- TeTYjjL7EoFnKCVdmHe4HFfVr1aOL8kuSOG2D9Q9X10oLhoQDYP7Z7f4t/K6A5zhsNoZ+zw2jYM
- bHeP8wSh6pSKAhVCZcH2mJWL/2beTYANLR38Qyz8CXYxZI2mvHde4X3rkDrCtQLz44J8OIIaZ1m
- jcAvEbrEZ+UCS3wTgb4shxLvW5pi44udF/MiUClF4q3+w9grStyJ/cQ6LzYFDnVkQfPt8Wd5UGJ
- YM1woORZEKO+SZU0T0sijrYf/t+a5CH4yKfvTiUvo4hdw==
+ <20260108203004.3538449-2-andriy.shevchenko@linux.intel.com>
+ <aWTgzqXrGMcdpFOr@opensource.cirrus.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <aWTgzqXrGMcdpFOr@opensource.cirrus.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_140618_153602_18B2C23B 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20260112_040426_720598_B9650B81 
+X-CRM114-Status: GOOD (  14.62  )
 X-Mailman-Approved-At: Thu, 15 Jan 2026 12:33:02 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -208,24 +84,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMS84LzI2IDIxOjIzLCBBbmR5IFNoZXZjaGVua28gd3JvdGU6Cj4gVGhlIFNQSSBjb3JlIHBy
-b3ZpZGVzIHRoZSBkZWZhdWx0IG9mX25vZGUgZm9yIHRoZSBjb250cm9sbGVyLAo+IGluaGVyaXRl
-ZCBmcm9tIHRoZSBhY3R1YWwgKHBhcmVudCkgZGV2aWNlLiBObyBuZWVkIHRvIHJlcGVhdCBpdAo+
-IGluIHRoZSBkcml2ZXIuCj4gCj4gU2lnbmVkLW9mZi1ieTogQW5keSBTaGV2Y2hlbmtvIDxhbmRy
-aXkuc2hldmNoZW5rb0BsaW51eC5pbnRlbC5jb20+Cj4gLS0tCj4gICBkcml2ZXJzL3NwaS9hdG1l
-bC1xdWFkc3BpLmMgICAgICAgICAgfCAxIC0KPiAgIGRyaXZlcnMvc3BpL3NwaS1hbHRlcmEtcGxh
-dGZvcm0uYyAgICB8IDIgLS0KPiAgIGRyaXZlcnMvc3BpL3NwaS1hbWxvZ2ljLXNwaWZjLWExLmMg
-ICB8IDEgLQo+ICAgZHJpdmVycy9zcGkvc3BpLWFtbG9naWMtc3Bpc2cuYyAgICAgIHwgMSAtCj4g
-ICBkcml2ZXJzL3NwaS9zcGktYXBwbGUuYyAgICAgICAgICAgICAgfCAxIC0KPiAgIGRyaXZlcnMv
-c3BpL3NwaS1hcjkzNHguYyAgICAgICAgICAgICB8IDEgLQo+ICAgZHJpdmVycy9zcGkvc3BpLWFy
-bWFkYS0zNzAwLmMgICAgICAgIHwgNCArLS0tCj4gICBkcml2ZXJzL3NwaS9zcGktYXNwZWVkLXNt
-Yy5jICAgICAgICAgfCAxIC0KRm9yIGFzcGVlZCwKClJldmlld2VkLWJ5OiBDw6lkcmljIExlIEdv
-YXRlciA8Y2xnQGthb2Qub3JnPgoKVGhhbmtzLAoKQy4KCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Mon, Jan 12, 2026 at 11:53:50AM +0000, Charles Keepax wrote:
+> On Thu, Jan 08, 2026 at 09:23:38PM +0100, Andy Shevchenko wrote:
+> > Most of the SPI controller drivers share the parent's fwnode
+> > by explicit assignment. Propagate the default by SPI core,
+> > so they may drop that in the code. Only corner cases may require
+> > a special treatment and we simply (re)assign the controller's
+> > fwnode explicitly (as it's done right now, no changes required
+> > for that).
+> 
+> Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+> Tested-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+
+Thank you very much! I'm now pretty much confident about the change.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
