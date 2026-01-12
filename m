@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E697FC9EC91
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 13:46:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 530E2C9EC90
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 13:55:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r1nWHe7hCCElVeXZq3SID+dmB3cv9nKD1pFlVOrnEnQ=; b=avy9AEe8cdjBBf
-	ScxoNceWwNvI4GLyv+AJY43gWbVDsph+PUqIgxEM3j2kgkTdJTi2RoCIN3C10TD7k659jdzKtwaWq
-	dB28i+firGIfT1lmbGtzTurUcq7COGgBl7FFYsRYx5Dogzh1mmwmm+5UlyeSPqMt5p8UfKaWQ9YGW
-	ERVZyYJqRJRsWS/2GYnbFDx7TsfUlmG0OK2zOvku+WW54DSUsrZXZfOE5wBc/EpxFqExSPS6xY41H
-	QAUMHX0lCoBivmQTER0y7Mb+nI1vVfAqa4ZlWoQs8QwIYjaVKUaunYjTn1aj66+sZbDB3BJ/tGNff
-	CW7weVTOIdATjBDYbrzA==;
+	List-Owner; bh=ZJUD1rpfKkqUysa2r1JRU8UJkau+2s77FbfjTqTWK3s=; b=pTFO6D62yVoavx
+	yOiMLoMDa9wnp8SJ7fYZuw1Svycevk3yoQPQOSDNlPSCNHNfEn7TbX7mksX7CrlSQH61zj1WahpxX
+	QY0r2rsMGTbZhLCSw6RhM2sRxfLGnlwYjPTXqYwPEpNtrjhn5V6AwmSAfWS+kTCljDgGmQqbpN0fF
+	4eJQa68NW6GOJ6L1wdrw1jDzHwZkCvjvWlOSSwL3IZONzYIzEdVjiFsYlZ85eXc68yqQOuNvQKyno
+	ZwvfpCNm1Zg1n/VnnoAzhhBIdv3VCFa3RL+eXi7j3X48dBPByfGcblqcJ8IS0AT4w8NcLF4E2xNcA
+	KsgphjCzUh5Y8MNVztmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfIFA-00000005R7c-3qvK;
-	Mon, 12 Jan 2026 13:46:04 +0000
+	id 1vfINx-00000005SsJ-3LwB;
+	Mon, 12 Jan 2026 13:55:09 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfIF6-00000005R6c-1aeT;
-	Mon, 12 Jan 2026 13:46:02 +0000
+	id 1vfINu-00000005SrV-1Y1i;
+	Mon, 12 Jan 2026 13:55:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=avW/KaDunIxQhrdj8bFjXOe630cKt3gLzoDikVOnoMk=; b=H9qsQLhCSyxngrQPIlGbslrcbE
-	2OOrhEs03G96dXGfTdBYTBgsUVSjvZbmqGOIaBWluGAQ14HdZTeQcYL+qDS+q3aXeRcZPLLohTFOn
-	2GrJmbWew8Uyv2bkFMHdbaO2fstI/zVW/oWoAj3+NtNf4lnG3VwRCbbZdWsNNCaCuRnI=;
+	bh=KcNdXwaHO43/aWmYkdmTrvgXq9snCOwCBSSp5/oIhoc=; b=kgNgbCQOQpcxZ/lVrAiQj4C4vu
+	YuAuThNoJKE1rGB2sQ0V+KcD41At13B/KCqU7SyakYddsVifUkzgIbx3P3ODIeF7OzhIWNvkduCQk
+	+KbVOi44ZIkmI3gQYtKR0mhMF4YOPb9FYqVFScnxbA9/FBnlGbYWwwudqEttD7PUJgGU=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1vfIDx-002Trp-OL; Mon, 12 Jan 2026 14:44:49 +0100
-Date: Mon, 12 Jan 2026 14:44:49 +0100
+	id 1vfIN8-002U0Q-Vs; Mon, 12 Jan 2026 14:54:18 +0100
+Date: Mon, 12 Jan 2026 14:54:18 +0100
 From: Andrew Lunn <andrew@lunn.ch>
 To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Cc: Bjorn Andersson <andersson@kernel.org>,
@@ -101,17 +101,17 @@ Cc: Bjorn Andersson <andersson@kernel.org>,
 	linux-renesas-soc@vger.kernel.org,
 	linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH RESEND net-next v6 2/7] net: stmmac: qcom-ethqos: use
- generic device properties
-Message-ID: <a2a610a3-aead-4e85-8a4c-7b83ccf276dc@lunn.ch>
+Subject: Re: [PATCH RESEND net-next v6 7/7] net: stmmac: qcom-ethqos: add
+ support for sa8255p
+Message-ID: <41b9a414-55a0-4602-9be5-54137a691d9f@lunn.ch>
 References: <20260112-qcom-sa8255p-emac-v6-0-86a3d4b2ad83@oss.qualcomm.com>
- <20260112-qcom-sa8255p-emac-v6-2-86a3d4b2ad83@oss.qualcomm.com>
+ <20260112-qcom-sa8255p-emac-v6-7-86a3d4b2ad83@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260112-qcom-sa8255p-emac-v6-2-86a3d4b2ad83@oss.qualcomm.com>
+In-Reply-To: <20260112-qcom-sa8255p-emac-v6-7-86a3d4b2ad83@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_054600_415047_9B4C144F 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20260112_055506_714374_E55E99D5 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,37 +128,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 11:15:41AM +0100, Bartosz Golaszewski wrote:
+On Mon, Jan 12, 2026 at 11:15:46AM +0100, Bartosz Golaszewski wrote:
 > From: Bartosz Golaszewski <brgl@kernel.org>
 > 
-> In order to drop the dependency on CONFIG_OF, convert all device property
-> getters from OF-specific to generic device properties and stop pulling
-> in any linux/of.h symbols.
+> Extend the driver to support a new model - sa8255p. Unlike the
+> previously supported variants, this one's power management is done in
+> the firmware using SCMI. This is modeled in linux using power domains so
+> add support for them.
 
-Is the intention to read these properties from ACPI tables?
+>  static const struct of_device_id qcom_ethqos_match[] = {
+>  	{ .compatible = "qcom,qcs404-ethqos", .data = &emac_qcs404_data},
+> +	{ .compatible = "qcom,sa8255p-ethqos", .data = &emac_sa8255p_data},
 
-If so, it would be nice to document these properties in
-Documentation/firmware-guide/acpi/dsd.
+Is this device being probed via DT or ACPI?
 
-> -	if (of_property_read_bool(np, "snps,tso"))
-> +	if (device_property_present(dev, "snps,tso"))
->  		plat_dat->flags |= STMMAC_FLAG_TSO_EN;
-
-Do you actually need this in the ACPI binding? Is there a reason not
-to just hard code it enabled? You don't need to worry about backwards
-compatibility here, because this is the first ACPI device.
-
-> -	if (of_device_is_compatible(np, "qcom,qcs404-ethqos"))
-> +	if (device_is_compatible(dev, "qcom,qcs404-ethqos"))
->  		plat_dat->flags |= STMMAC_FLAG_RX_CLK_RUNS_IN_LPI;
-
-What is your target hardware? Will qcom,qcs404-ethqos every use ACPI?
-
-Maybe this should actually stay as of_device_is_compatible, to make it
-clear this is an device tree only device? There is no need to mess up
-the ACPI binding with things which will never actually use ACPI.
-
-   Andrew
+	Andrew
 
 _______________________________________________
 linux-riscv mailing list
