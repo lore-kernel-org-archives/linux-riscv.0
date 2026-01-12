@@ -4,118 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF94CC9EC82
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 12:55:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE379C9EC8D
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 13:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=W3N1CQP+4DeL5Xv6KvLU8I5ycQUAQ570NbcuVK7oMvE=; b=qAD1x8LYBXGBK3
-	vs2ZWQIwrantMPpCiZUbqipfVwmUSPFfQX3d3hOBvnIs2+ZgNMc+oBgKKRpVtI0maIqoSYHDDfIFo
-	4NY4RW9qURsaJV2UVBKtFI17Uh7U0UV2g7kDjFEyIF2zIed3E2q3j71QpAmDma5h/1q/Q1NizrY2k
-	PwDPf0UbI9VhNy5hZ/6D+641BA3Ra0uzPzHUBo/B9fJ0uxsZ7IkDa52FfGL+y1HiOcElR7TlYWpdD
-	kSAatYMIiF+Hj7LIrqqKbjnni5dxG0UQzPG5YoWle8ri+TFbq3dci1PZScEku/dgGDZIXlDQMjgeS
-	601yoMTLUIl+NIYKU0LQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bbBw2AHD6RrMkrc0NUT9Nv4WIz7gqANGlkwRzLeNYt0=; b=arczlDeezLGykX
+	p0vJDHdAWpSigZS629WUPdmxSbrxc0CBckhWzOeJYolicKhF8CpnE/PlxsKOe+T/MtMDHTf3xrnUU
+	KAY3BhO6JFo5TazZynJbBu7NfwYxGhQokfJVtVsAUUXREbgQ9SHbji076g9FuOBZ/BsbVfXd/7kL9
+	7tb8U0dOBFVtJUgNVRG65AvjBP88HQaIYc5FrZ3vikhrKOBIPXwPYiNi+uySVrXVKI+Cw06hI52hH
+	tP886aRytUZUqDjFdu7JNwhm7T3cNqjEJIsKMQmEKOR2e+nj27rdqxjpuQgZhlBu3NJyyfrtdFR20
+	Qngk+OY3Pc5u3R9rdWNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfHSH-00000005MKZ-0WlR;
-	Mon, 12 Jan 2026 12:55:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vfI5q-00000005Q9K-394K;
+	Mon, 12 Jan 2026 13:36:26 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfHSE-00000005M7O-1u4A
+	id 1vfI5o-00000005Q8L-3Uxp
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Jan 2026 12:55:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1768222483;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=iKF0BzHe4DoMZWSEsankET3G7Dd2Xauwml8GRRGytpc=;
-	b=ExAuEuAcsD1oiA8r9Yl7BNekcNgkIKmQtIE8zH9/BypO8czs/3fY0SNw6a79zW5e+xjikT
-	gu/e5Ty8DvhTaBun7GfH/D/Nr3gHR+xVD/+UMBPiuInl9d+gct7Y3X/WwQsg5ySZSwa6nq
-	qp0XX+QhRSf1rNwuaT/I1kL7AssxDdM=
-Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com
- [209.85.218.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-532-z8be0owqNA6Hguu2rahxjQ-1; Mon, 12 Jan 2026 07:54:42 -0500
-X-MC-Unique: z8be0owqNA6Hguu2rahxjQ-1
-X-Mimecast-MFC-AGG-ID: z8be0owqNA6Hguu2rahxjQ_1768222481
-Received: by mail-ej1-f69.google.com with SMTP id a640c23a62f3a-b844098869cso649593066b.2
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Jan 2026 04:54:41 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768222481; x=1768827281;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+	Mon, 12 Jan 2026 13:36:25 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-430f5ecaa08so3025067f8f.3
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Jan 2026 05:36:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768224982; x=1768829782; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iKF0BzHe4DoMZWSEsankET3G7Dd2Xauwml8GRRGytpc=;
-        b=qNVNtf5+QmHunBBgHPxBekDD9Jk1Rdm23usI6c14kcN/TaAm6PtPO+SyOKTqDYJbBs
-         WMtRg83a9GWoZpOjUdId7O0EWwqxLSjJGxKMz/PfW7k4nQwz1z4aBg1lHDB5ag+Yajbb
-         F7PVgEiU03qFwGhyuSWkXmw1bAXSwDXDZ6XNxU00YWlFEDCKSVU3pjTDjKrQoI7voz3p
-         a6rbNzqeZVoh6+Bc1kIYbHXxci06gcSN5XcPwVEMHb/F/T/aoRkNXLg0MnfIMZxtwDMo
-         y1A19tq7K+5oN7NwNMFb47hw8EVyjKmfutFzZkow8DxyyrklY1qyIwQ7NwbE9CDKs9IH
-         l1FA==
-X-Forwarded-Encrypted: i=1; AJvYcCUTjHMEELrEHiG/lPZ+BD9BUo+guDm5kbChUOfkOORupCHZEv8FvykUwTwg5dmkx6vC6gm+c8VWcse+4w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpMDPWDOZ54awYcoLnDAaepsd3IBYDVZJG7BS9W2UW5M5Ki+80
-	IdPt4UDVqRYx/aDRRrQxcCb2nAaNHBM/IFZtQLbiG/usxlHn+qItkOUXLT8VqHoWYfMX4WjkQ38
-	nQJMqVeH5mOMlQwFkc5JJCWv96NBR7c2ZdEaUiNBjfL70bCBRyPG6fvQLTuZfC++AmTMxhg==
-X-Gm-Gg: AY/fxX6O0qnhKQPC+RM6xIb5ds48cVI63+lWvfFXGELVy8vQ2CjqjBlJaXRy+ktoNbL
-	zXhA5PtSNqV9cAEyOhq3l9dgV3QMiKud/4l2nrkhSd2Ckf/XqrHBtPiBiqCZkhzUpIAtHxsv70B
-	AQVzftFXjYJfCM6hhrSJIqVeUcoGx+ZXXmlLUn243QlZNHHFXkZ3vAa62Q3G2PAh9acgt02F204
-	ewWZMj2OiGRHyJNIKKs6YiIRvKsNa3ePQu8xBrRiUkIMg2ZD9NSUad/QP78bJS+ro9q6ZxHUfNY
-	ZnVL1K+dKfxDty3gI6kXFrGU8GRwZuxpqWFhpasyuM0lF6BBZELILxJGHujt0v9ensxCoQq3kSS
-	gqWwjamqdEXtQSQqMt2lW+/pxiM6JokN+Ik8GPnpgBrhmMdi7sY4kYbGSuiU=
-X-Received: by 2002:a17:907:a4a:b0:b83:8f35:773b with SMTP id a640c23a62f3a-b844501e49emr1772457066b.54.1768222480786;
-        Mon, 12 Jan 2026 04:54:40 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGSZz6AlBAsyDbYMyXJssyt5r14tT5j/dhOjPD0uwwtT32eYJd5F4wjSbE4zxf083DcjrlpEg==
-X-Received: by 2002:a17:907:a4a:b0:b83:8f35:773b with SMTP id a640c23a62f3a-b844501e49emr1772452766b.54.1768222480270;
-        Mon, 12 Jan 2026 04:54:40 -0800 (PST)
-Received: from lbulwahn-thinkpadx1carbongen12.rmtde.csb ([2a02:810d:7e01:ef00:ff56:9b88:c93b:ed43])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8706c2604bsm497062466b.16.2026.01.12.04.54.38
+        bh=bLo3Abz9wAwu25esY4s8FeJ9KMDvXVIZnqcKTN+SMTE=;
+        b=TsZan0AfKoP9fouLSi3y3hRgnc8Y/vjEK4Iv80aVF9RPIhxxmQr+gzZjiYCy3eLrts
+         IM849ZfGK/VDK6TXpb78ZCx/zeDe9ohlzePK0upJWZ/GQclCwpKry3leoBj3omcOosE0
+         94wOL/ZOXcVadBH3Ub4Nbxbl1p5236wvwOeSBeC4EhCKYL1qAXe01F22GSI4c5Dj5jfS
+         4qmQvgcl2VL91vXrbDq9kFEr+UdUZqMUQxpxUAlBzRxnwXiuoyyhkOZ3rrZUCg41XCwA
+         tgkF+t4UuKuUCTDvOGSSWsQrBRppZ+6cJZ3EQM13eYOXxj4ncsDgsfZpslfk5wrrhXGR
+         78OA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768224982; x=1768829782;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=bLo3Abz9wAwu25esY4s8FeJ9KMDvXVIZnqcKTN+SMTE=;
+        b=f4Jije6i/LwhAOJVlOZBZhnFgEXZT7Hy1PpY/VD0s+4X23x7WcZFeSSSXZp1nmOvtu
+         8DOLewRb7caFkVEdVDJadDeWGTmVg+hHcZLlSK0xIDfHeNWNPQ0bTI09c0bDRelT7RpZ
+         3GcOIjN/YwPFCSnM/PVKwUugMp3DOz6NhINBGPMhwiFI2zFPg8T+KOsXb6JaMe/7vbz6
+         a0ClkGnNXBQCFjwHkZpsm/tvTDVgGZeh6v67qbiFl9nUV0InpBMsqbR8hK0SGp3mQ9ri
+         grMQ8jkWk2zQo9vNlXKXaa1TskTSN+oiESloelaiQg1MAG9R56YnxI1B7vuFPY87rfDb
+         S1NA==
+X-Forwarded-Encrypted: i=1; AJvYcCXCZ2gTKnxxdin9ZxH815PYNs7jht/+S48i7bGrSpq5S9b96Fgojdi+zSC3H+ecxP/Qcc6Q2HhZpkAnZg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhUAmRUjTgCU75+zlBeI9z6wIfpasxPHzCoJadO8vcXffjUedp
+	xBjBTky/K9I/ENhhVj/HnerSStYy8COOkToGTx4/yK7qmPN1vkHFxPCD
+X-Gm-Gg: AY/fxX6qJTEl1SHpxCtYPBl+vlXI9/LzwqpQkK8H8O5bAAtycwQ7MXRSDFINm576MfN
+	jCyval4fZT0R3cCATzFeZObGyA/tNDRAkPX0bIck1/hxVgEY0HFLo3Dw9Wv6jFy0Q3ZnJQXDZkF
+	mwqzD9f4uVP4w/6g0wjzghzBk5K7FjP+vDzfysjpU1YAPAZqGPhWLoYjeXHN7gG9AQMyY8WNeZe
+	GCx6VK5VN/+zyd6FZYg+bNvUGI4ebrxsk6J4b1FzVgk7QEBx245AU4xFJe77PJ2O71GnhhOhSOS
+	KHa4VUWKZZmOskSH9XYKcuT3FVSqOV5IZDRPcL1pB6qLoJYLSKoVVBKCxHBjb1YcCBEmGxy2uSE
+	IhqAZ7Kh1HTz0/57tJd43a1JKWnfLyb3r0Pu5oC15XKzav+zvIOGa0FS96zkunY5bqG65bOfD6W
+	aG6VUuIDVqk2PbBfYUbeRN36zRAnlKNP+mUxqy3H0il4LCTPwR8tse
+X-Google-Smtp-Source: AGHT+IGyxiv2XFt49Pj+G/FCKb6Do+/qO1fvIxMUjWKWGTcpTcAtASoZtqcJMaJZUWyMrmC4TwCROg==
+X-Received: by 2002:a05:6000:40c9:b0:430:fafd:f1d2 with SMTP id ffacd0b85a97d-432c3628374mr22009793f8f.11.1768224982426;
+        Mon, 12 Jan 2026 05:36:22 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd5df9afsm41054434f8f.24.2026.01.12.05.36.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Jan 2026 04:54:39 -0800 (PST)
-From: Lukas Bulwahn <lbulwahn@redhat.com>
-X-Google-Original-From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
-To: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>,
-	Phil Sutter <phil@nwl.cc>,
-	David Ahern <dsahern@kernel.org>,
-	netdev@vger.kernel.org,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	linux-riscv@lists.infradead.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-s390@vger.kernel.org,
-	kernel-janitors@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Lukas Bulwahn <lukas.bulwahn@redhat.com>
-Subject: [RFC PATCH 0/5] net: make config options NF_LOG_{ARP,IPV4,IPV6} transitional
-Date: Mon, 12 Jan 2026 13:54:26 +0100
-Message-ID: <20260112125432.61218-1-lukas.bulwahn@redhat.com>
-X-Mailer: git-send-email 2.52.0
+        Mon, 12 Jan 2026 05:36:22 -0800 (PST)
+Date: Mon, 12 Jan 2026 13:36:20 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
+ <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
+ <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Thomas
+ Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, Kees Cook
+ <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, Arnd
+ Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>, "Jason A.
+ Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>, Jeremy
+ Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] randomize_kstack: Unify random source across
+ arches
+Message-ID: <20260112133620.2863e1d6@pumpkin>
+In-Reply-To: <09de87bc-d952-41e7-9657-852c2924aaa7@arm.com>
+References: <20260102131156.3265118-1-ryan.roberts@arm.com>
+	<20260102131156.3265118-4-ryan.roberts@arm.com>
+	<20260104230136.7aaf8886@pumpkin>
+	<20260107140533.2b3c46a1@pumpkin>
+	<09de87bc-d952-41e7-9657-852c2924aaa7@arm.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: l9BEFZYVmYoTPkEXg8IfPqM56xRcefTQUW1QiFHyPIM_1768222481
-X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_045530_565996_5D40E339 
-X-CRM114-Status: GOOD (  23.04  )
+X-CRM114-CacheID: sfid-20260112_053624_897026_B636D018 
+X-CRM114-Status: GOOD (  33.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,86 +118,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, 12 Jan 2026 12:26:26 +0000
+Ryan Roberts <ryan.roberts@arm.com> wrote:
 
-This RFC patch series makes the config options NF_LOG_{ARP,IPV4,IPV6}
-transitional. Recently, Kees Cook added a feature to kconfig to assist
-transitioning deprecated config options. Here is a first RFC patch to apply
-this feature for NF_LOG_{ARP,IPV4,IPV6}.
+> On 07/01/2026 14:05, David Laight wrote:
+> > On Sun, 4 Jan 2026 23:01:36 +0000
+> > David Laight <david.laight.linux@gmail.com> wrote:
+...
+> > I've trimmed the initialiser - it is very boring.
+> > The code to create the initialiser is actually slightly smaller than it is.
+> > Doable by hand provided you can do 128bit shift and xor without making
+> > any mistakes.
+> > 
+> > I've just done a quick search through the kernel sources and haven't found
+> > many uses of prandom_u32_state() outside of test code.
+> > There is sched_rng() which uses a per-cpu rng to throw a 1024 sized die.
+> > bpf also has a per-cpu one for 'unprivileged user space'.
+> > net/sched/sch_netem.c seems to use one - mostly for packet loss generation.
+> > 
+> > Since the randomize_kstack code is now using a per-task rng (initialised
+> > by clone?) that could be used instead of all the others provided they
+> > are run when 'current' is valid.
+> > 
+> > But the existing prandom_u32_state() needs a big health warning that
+> > four outputs leak the entire state.
+> > That is fixable by changing the last line to:
+> >         return state->s1 + state->s2 + state->s3 + state->s4;
+> > That only affects the output value, the period is unchanged.  
+> 
+> Hi David,
+> 
+> This all seems interesting, but I'm not clear that it is a blocker for this
+> series. As I keep saying, we only use 6 bits for offset randmization so it is
+> trival to brute force, regardless of how easy it is to recover the prng state.
+> 
+> Perhaps we can decouple these 2 things and make them independent:
+> 
+>  - this series, which is motivated by speeding up syscalls on arm64; given 6
+>    bits is not hard to brute force, spending a lot of cycles calculating those
+>    bits is unjustified.
+> 
+>  - Your observation that that the current prng could be improved to make
+>    recoving it's state harder.
+> 
+> What do you think?
 
-The plan is to mark all deprecated config options in net transitional, and
-update the kernel configurations in the kernel tree to not use those
-transitional config options. Then we leave these transitional config
-options for a year or two to allow users that only update from one LTS to
-the next to see that these config options are deprecated. After such a
-grace period, we can finally drop these transitional config options.
+They are separate.
+I should have a 'mostly written' patch series for prandom_u32_state().
 
-This patch series is the manifestation of that plan for the three
-deprecated options NF_LOG_{ARP,IPV4,IPV6}. If there is general agreement
-that this is how deprecated config options are to be handled, then please
-apply the patches 1 and 2 to the net-next tree.
+If you unconditionally add a per-task prng there are a few places that could
+use it instead of a per-cpu one.
+It could be 'perturbed' during task switch - eg by:
+	s->s1 = (s->s1 ^ something) | 2;
+(The 2 stops the new value being 0 or 1, losing 1 bit wont be significant.)
 
-Note that for the time being, as there is no dedicated kernel-wide Kconfig
-file for collecting transitional config options right now, so simply adding
-them at the end of the net/Kconfig file seems the best choice for now. 
+This one is much nearer 'ready' and has an obvious impact.
 
-The patches 3, 4 and 5 are added here to understand the complete treewide
-change to transition the deprecated config options; I expect the patches
-3, 4 and 5 to be applied by the corresponding arch maintainers, though.
-Note that all patches in this series can be applied independently from each
-other without causing any regression, i.e., if any patch 2 to 5 is applied
-without patch 1, the resulting kernel configurations still enable the same
-functionality as before as well as with patch 1 applied.
+	David
 
-Once the general approach and patches are accepted, I plan to send some
-further patch series to transition more net config options. My current
-investigation identified that these further config options in net can be
-transitioned:
-
-  IP_NF_MATCH_ECN -> NETFILTER_XT_MATCH_ECN
-  IP_NF_MATCH_TTL -> NETFILTER_XT_MATCH_HL
-  IP_NF_TARGET_MASQUERADE -> NETFILTER_XT_TARGET_MASQUERADE
-  IP_NF_TARGET_NETMAP -> NETFILTER_XT_TARGET_NETMAP
-  IP_NF_TARGET_REDIRECT -> NETFILTER_XT_TARGET_REDIRECT
-  IP_NF_TARGET_TTL -> NETFILTER_XT_TARGET_HL
-  NETFILTER_XT_TARGET_CONNMARK -> NETFILTER_XT_CONNMARK
-  NETFILTER_XT_TARGET_MARK -> NETFILTER_XT_MARK
-
-
-Lukas
-
-
-Lukas Bulwahn (5):
-  net: make configs NF_LOG_{ARP,IPV4,IPV6} transitional
-  selftests: net: replace deprecated NF_LOG configs by NF_LOG_SYSLOG
-  m68k: defconfig: replace deprecated NF_LOG configs by NF_LOG_SYSLOG
-  riscv: defconfig: replace deprecated NF_LOG configs by NF_LOG_SYSLOG
-  s390/configs: replace deprecated NF_LOG configs by NF_LOG_SYSLOG
-
- arch/m68k/configs/amiga_defconfig            |  3 +--
- arch/m68k/configs/apollo_defconfig           |  3 +--
- arch/m68k/configs/atari_defconfig            |  3 +--
- arch/m68k/configs/bvme6000_defconfig         |  3 +--
- arch/m68k/configs/hp300_defconfig            |  3 +--
- arch/m68k/configs/mac_defconfig              |  3 +--
- arch/m68k/configs/multi_defconfig            |  3 +--
- arch/m68k/configs/mvme147_defconfig          |  3 +--
- arch/m68k/configs/mvme16x_defconfig          |  3 +--
- arch/m68k/configs/q40_defconfig              |  3 +--
- arch/m68k/configs/sun3_defconfig             |  3 +--
- arch/m68k/configs/sun3x_defconfig            |  3 +--
- arch/riscv/configs/defconfig                 |  4 +---
- arch/s390/configs/debug_defconfig            |  2 +-
- arch/s390/configs/defconfig                  |  2 +-
- net/Kconfig                                  | 21 ++++++++++++++++++++
- net/ipv4/netfilter/Kconfig                   | 16 ---------------
- net/ipv6/netfilter/Kconfig                   |  8 --------
- net/netfilter/Kconfig                        |  1 +
- tools/testing/selftests/net/netfilter/config |  3 +--
- 20 files changed, 38 insertions(+), 55 deletions(-)
-
--- 
-2.52.0
+> 
+> Thanks,
+> Ryan
+> 
+> 
+> > 
+> > 	David
+> > 
+> >   
+> 
 
 
 _______________________________________________
