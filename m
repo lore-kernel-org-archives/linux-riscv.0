@@ -4,84 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C4DCF45B7
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 17:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46429CF45BF
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 18:00:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=3ec192ApXouPJ895tmqfswXO8wpOEBUwQP+HyogvEbA=; b=xrSnauNqr8XXpERNJSfVP8OfMj
-	ebbUG44I+kSyK/uZpyLMxTFKLu44tju24GNURXxVed4ApC5TtDZgAlenJzpkEGK7t0OqC/V1S1mb+
-	eO69aFUOhA2Yzan5ThQlKDtwhD7w2D7aT6R2JOlzhEv3j6Ou9pCUcS/Xevp8HGMm2CGdMDQJqoDT4
-	8ONZvYK1Uh6aahtKVAlGZ9eYaA31Q6BgGgOc18fI/SrsOZH+8hCCcpshtJYdLdRmv1JudsLh5nUfh
-	i5DnUv8uU1dmPtLQsoQt3esnQVW+oLKwRU/CoxBmNS+Y66SOF6NC+aAmedj/pA+KhVdPidbUk6S5s
-	2m389qAg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xKf+xxYKisZmgMfeLco85evcjwdkwWQ9SKXCiNRuOig=; b=YfscZX6hj3x1FO
+	STBCoFBiUcyBgC4SCw3MhibMfjJq1B4nkmBn4ThkVU9Ao4OplZnTUUMv6GQWGkb6RYyvZFmYhlQnI
+	cyMdzeev3+DO2sCeytX0OikBCG2Y7j9hTMVyl64xh9wJRlW+aIuHNW+FoumJCay8Mz3+JbUgt7R1N
+	Mh4bVsK6x+DbIS9Yv4y2WSIsOpimvbvTMDBkWqEY3tiETY8mjwrPPUQ3XK2GsXBhXyqpjEoWZtRst
+	womw/puirzuaT0VrOY30rXoGKoQqtokL4Ki6X7UJ7mwgA0PMHQXy84z1iy+opAxmtSNTval9x1ZAH
+	wFKjrxTEqDQ4DX8fjWjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfLum-00000005s60-3JIi;
-	Mon, 12 Jan 2026 17:41:16 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vfMD8-00000005tw3-2spx;
+	Mon, 12 Jan 2026 18:00:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfLuj-00000005s4O-3Xtu
-	for linux-riscv@lists.infradead.org;
-	Mon, 12 Jan 2026 17:41:15 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-34e5a9f0d6aso4981244a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Jan 2026 09:41:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1768239673; x=1768844473; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GjcQk0a1UAYd4d2F3ain9c0ugcRpjACAg8kxbdTJqns=;
-        b=J+729f5vRRuC/i+RHvoiRu4y+y6GuGkOZ/cv8eKI++t2CLUJxcpVGRg8AMAB/uXXEH
-         /GbGvWm8Fs21QTjtv5Q6abXgl90s4vdffCj62Fb2N2vi691qIUSCXmStyC7T8AIxLDKu
-         RcY/D7tsPx40OVYksFIwkbFeV30giYEJKCfzaiZn9wzZ0sNJ+QYD7PQlR6FKgERpaTgl
-         MB6zhBXUBSi8FPilUKr4xjgy2OnfEZgmOoPKnMRm5FBd2GwNzmHq+FXr7oJfqFzesx3N
-         E0dMx92LBHBXf5TDfFcEpRolMW6MElsqWpzFSMttLem9Wt8e460YQBv8K4PolvKlD3Bp
-         XbWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768239673; x=1768844473;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GjcQk0a1UAYd4d2F3ain9c0ugcRpjACAg8kxbdTJqns=;
-        b=lPxI30kQyYGH5WQb9MkeRzAOR4l1EOKhSYW+n33AaNSRuHa8+ZzEioq3V/5WbQgndF
-         tBI84UKPDpOuPdlXqLsld1oBTe7mQNV2kWT2yw8ZlctxdgIKGu4h0MI3akTYMsud5T1E
-         KsCo52kMuGfjxAdKu5fOjWB8G2FCRHHe6S23cVo11UTP0g2r4ttNqA5flS1lnjZv3SPj
-         xwOTM2VUGBGH9oXu9/k315oLUGTbtIKrM/3/i+0cnjMaulSi2QVU9Ns3hxsUQ+kSPzsL
-         vuYwdgGkAw0o2xZT8cezOG88S1bSaqs5DuzdDFTnE2K2zaKUDYeT6dScimbZgeL89KJ2
-         T8bw==
-X-Forwarded-Encrypted: i=1; AJvYcCX0lh9yEJc29nb0rDdQoPYmlSuSenE9dcSD48mUQhfa+jp3pCq5rm89zEhBKguHW451E0H0G2IsUOHHCg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyh94j/JBh3+ZoDHM5rYxUl34wn/Ew17/fDQBbZ1WSonoRmbal0
-	NxGqtFYGvShmaQjKhHa768frQ+0uSxtY4SLcfQ/UCfB+i2pru+HALa/pQgzTMR+UwaHFNvDnuUj
-	DP3YoCA==
-X-Received: from pjtz17.prod.google.com ([2002:a17:90a:cb11:b0:34e:6306:8cc1])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5105:b0:340:c094:fbff
- with SMTP id 98e67ed59e1d1-350fd17061fmr123119a91.10.1768239672675; Mon, 12
- Jan 2026 09:41:12 -0800 (PST)
-Date: Mon, 12 Jan 2026 09:38:50 -0800
-In-Reply-To: <20251230230150.4150236-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20251230230150.4150236-1-seanjc@google.com>
-X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <176823927928.1374831.6143260021717522522.b4-ty@google.com>
-Subject: Re: [PATCH v4 00/21] KVM: selftests: Add Nested NPT support
-From: Sean Christopherson <seanjc@google.com>
-To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, loongarch@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Yosry Ahmed <yosry.ahmed@linux.dev>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_094113_876697_C3984B6B 
-X-CRM114-Status: GOOD (  12.02  )
+	id 1vfMD7-00000005tva-2A6w;
+	Mon, 12 Jan 2026 18:00:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1BE3C60055;
+	Mon, 12 Jan 2026 18:00:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB923C16AAE;
+	Mon, 12 Jan 2026 18:00:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768240811;
+	bh=mGbofIjwnm9caXWlIFuD+vvkQiRMHg0CWCn2+iWjokQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=feB0lBBcPjMm6TcLwyV7ebbxAv/YTwcCPMIuU2dVmvhL5mGCrIawtev3cma1EX2dA
+	 gimcge4/rXibL+oI/bA4/8WLwnYBQjmUWgdqxGK+z6QcoubI5S8MGhmHsN6RGU3I0m
+	 bOaihftKwYyTpOxlZre+emHgYCTF4qUVx3nrUpVhTKwciuti+mwHDDCK+Uudv2JTSh
+	 R6RBys8rz+B/35nVnKrzi3MKeFCyoNWx7MF7/pgVShpqzu4mBxe+J9/cv0NwkEif1g
+	 VG+WPfM/JevSndphvgNzv7J2+6JAdWpT5GxWT+B4lRohyxUT14oeDlYMchDvMoo1+A
+	 VALVB9TuQpPSg==
+From: Jakub Kicinski <kuba@kernel.org>
+To: bartosz.golaszewski@oss.qualcomm.com
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	jbrunet@baylibre.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	devicetree@vger.kernel.org,
+	neil.armstrong@linaro.org,
+	unicorn_wang@outlook.com,
+	andrew+netdev@lunn.ch,
+	vkoul@kernel.org,
+	peppe.cavallaro@st.com,
+	jernej.skrabec@gmail.com,
+	samin.guo@starfivetech.com,
+	david.wu@rock-chips.com,
+	christophe.roullier@foss.st.com,
+	linux-amlogic@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	martin.blumenstingl@googlemail.com,
+	robh@kernel.org,
+	linux-imx@nxp.com,
+	andersson@kernel.org,
+	joabreu@synopsys.com,
+	s32@nxp.com,
+	swathi.ks@samsung.com,
+	konradybcio@kernel.org,
+	krzk+dt@kernel.org,
+	keguang.zhang@gmail.com,
+	kernel@pengutronix.de,
+	romain.gantois@bootlin.com,
+	brgl@kernel.org,
+	sophgo@lists.linux.dev,
+	netdev@vger.kernel.org,
+	xiaoning.wang@nxp.com,
+	imx@lists.linux.dev,
+	dfustini@tenstorrent.com,
+	davem@davemloft.net,
+	jan.petrous@oss.nxp.com,
+	magnus.damm@gmail.com,
+	lizhi2@eswincomputing.com,
+	linux-sunxi@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	vineetha.g.jaya.kumaran@intel.com,
+	matthew.gerlach@altera.com,
+	wefu@redhat.com,
+	geert+renesas@glider.be,
+	edumazet@google.com,
+	linux-kernel@vger.kernel.org,
+	Frank.Li@nxp.com,
+	conor+dt@kernel.org,
+	mripard@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@esmil.dk,
+	linux-renesas-soc@vger.kernel.org,
+	alexandre.torgue@foss.st.com,
+	inochiama@gmail.com,
+	minda.chen@starfivetech.com,
+	s.hauer@pengutronix.de,
+	nobuhiro.iwamatsu.x90@mail.toshiba,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	fustini@kernel.org,
+	richardcochran@gmail.com,
+	pabeni@redhat.com,
+	shawnguo@kernel.org,
+	wens@kernel.org,
+	heiko@sntech.de,
+	guoren@kernel.org,
+	weishangjuan@eswincomputing.com,
+	mcoquelin.stm32@gmail.com,
+	khilman@baylibre.com,
+	festevam@gmail.com,
+	liangshuang@eswincomputing.com,
+	krzysztof.kozlowski@oss.qualcomm.com,
+	linux-arm-msm@vger.kernel.org,
+	konrad.dybcio@oss.qualcomm.com,
+	linux-rockchip@lists.infradead.org,
+	samuel@sholland.org
+Subject: Re: [RESEND,net-next,v6,7/7] net: stmmac: qcom-ethqos: add support for sa8255p
+Date: Mon, 12 Jan 2026 10:00:05 -0800
+Message-ID: <20260112180005.4144056-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260112-qcom-sa8255p-emac-v6-7-86a3d4b2ad83@oss.qualcomm.com>
+References: <20260112-qcom-sa8255p-emac-v6-7-86a3d4b2ad83@oss.qualcomm.com>
+MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,68 +140,113 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 30 Dec 2025 15:01:29 -0800, Sean Christopherson wrote:
-> Yosry's series to add support for nested NPT, and extends vmx_dirty_log_test
-> and kvm_dirty_log_test (with -n, using memstress) to cover nested SVM.
-> 
-> Note, I'm mildly concerned the last patch to extend nested_dirty_log_test to
-> validate KVM's handling of READ faults could be flaky, e.g. maybe if someone
-> is running the test under heavy memory pressure and the to-be-access page is
-> swapped between the write-from-host and read-from-guest?  But unless someone
-> knows/shows it'll be flaky, I'm inclined to apply it and hope for the best.
-> 
-> [...]
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least pausible.
 
-Applied everything except the last patch to kvm-x86 selftests.  I'll post a new
-version separately since we've had a lot of back-and-forth on that one.
+For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
+---
+net: stmmac: qcom-ethqos: add support for sa8255p
 
-Oh, and I fixed up the ncr3_gpa goof in "Add support for nested NPTs".
+This commit adds support for the SA8255P SoC which uses power domains
+managed via SCMI firmware, rather than the traditional clock/phy-based
+power management used by other variants.
 
-[01/21] KVM: selftests: Make __vm_get_page_table_entry() static
-        https://github.com/kvm-x86/linux/commit/69e81ed5e6a5
-[02/21] KVM: selftests: Stop passing a memslot to nested_map_memslot()
-        https://github.com/kvm-x86/linux/commit/97dfbdfea405
-[03/21] KVM: selftests: Rename nested TDP mapping functions
-        https://github.com/kvm-x86/linux/commit/60de423781ad
-[04/21] KVM: selftests: Kill eptPageTablePointer
-        https://github.com/kvm-x86/linux/commit/b320c03d6857
-[05/21] KVM: selftests: Stop setting A/D bits when creating EPT PTEs
-        https://github.com/kvm-x86/linux/commit/3cd5002807be
-[06/21] KVM: selftests: Add "struct kvm_mmu" to track a given MMU instance
-        https://github.com/kvm-x86/linux/commit/9f073ac25b4c
-[07/21] KVM: selftests: Plumb "struct kvm_mmu" into x86's MMU APIs
-        https://github.com/kvm-x86/linux/commit/11825209f549
-[08/21] KVM: selftests: Add a "struct kvm_mmu_arch arch" member to kvm_mmu
-        https://github.com/kvm-x86/linux/commit/3d0e7595e810
-[09/21] KVM: selftests: Move PTE bitmasks to kvm_mmu
-        https://github.com/kvm-x86/linux/commit/6dd70757213f
-[10/21] KVM: selftests: Use a TDP MMU to share EPT page tables between vCPUs
-        https://github.com/kvm-x86/linux/commit/f00f519cebcd
-[11/21] KVM: selftests: Stop passing VMX metadata to TDP mapping functions
-        https://github.com/kvm-x86/linux/commit/e40e72fec0de
-[12/21] KVM: selftests: Add a stage-2 MMU instance to kvm_vm
-        https://github.com/kvm-x86/linux/commit/8296b16c0a2b
-[13/21] KVM: selftests: Reuse virt mapping functions for nested EPTs
-        https://github.com/kvm-x86/linux/commit/508d1cc3ca0a
-[14/21] KVM: selftests: Move TDP mapping functions outside of vmx.c
-        https://github.com/kvm-x86/linux/commit/07676c04bd75
-[15/21] KVM: selftests: Allow kvm_cpu_has_ept() to be called on AMD CPUs
-        https://github.com/kvm-x86/linux/commit/9cb1944f6bf0
-[16/21] KVM: selftests: Add support for nested NPTs
-        https://github.com/kvm-x86/linux/commit/753c0d5a507b
-[17/21] KVM: selftests: Set the user bit on nested NPT PTEs
-        https://github.com/kvm-x86/linux/commit/251e4849a79b
-[18/21] KVM: selftests: Extend vmx_dirty_log_test to cover SVM
-        https://github.com/kvm-x86/linux/commit/6794d916f87e
-[19/21] KVM: selftests: Extend memstress to run on nested SVM
-        https://github.com/kvm-x86/linux/commit/59eef1a47b8c
-[20/21] KVM: selftests: Rename vm_get_page_table_entry() to vm_get_pte()
-        https://github.com/kvm-x86/linux/commit/e353850499c7
-[21/21] KVM: selftests: Test READ=>WRITE dirty logging behavior for shadow MMU
- 	*** NOT APPLIED ***
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> index 8ba57bba3f2e..54f8ef3cfd7d 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
 
---
-https://github.com/kvm-x86/linux/tree/next
+[ ... ]
+
+> +static void ethqos_disable_serdes(void *data)
+> +{
+> +	struct qcom_ethqos *ethqos = data;
+> +
+> +	qcom_ethqos_domain_on(ethqos, ETHQOS_PD_SERDES);
+                          ^^
+
+Should this be qcom_ethqos_domain_off() instead of qcom_ethqos_domain_on()?
+
+This function is registered as a cleanup action via devm_add_action_or_reset()
+to undo the qcom_ethqos_domain_on(ETHQOS_PD_SERDES) call during probe. Using
+domain_on here would increment the PM runtime usage counter again rather than
+decrementing it. The serdes power domain would never be properly turned off
+on driver removal.
+
+Compare with qcom_ethqos_pd_serdes_powerdown() which correctly uses
+qcom_ethqos_domain_off().
+
+> +}
+
+[ ... ]
+
+> +static int qcom_ethqos_pd_init(struct device *dev, void *priv)
+> +{
+> +	struct qcom_ethqos *ethqos = priv;
+> +	int ret;
+> +
+> +	/*
+> +	 * Enable functional clock to prevent DMA reset after timeout due
+> +	 * to no PHY clock being enabled after the hardware block has been
+> +	 * power cycled. The actual configuration will be adjusted once
+> +	 * ethqos_fix_mac_speed() is called.
+> +	 */
+> +	ethqos_set_func_clk_en(ethqos);
+> +
+> +	ret = qcom_ethqos_domain_on(ethqos, ETHQOS_PD_CORE);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = qcom_ethqos_domain_on(ethqos, ETHQOS_PD_MDIO);
+> +	if (ret) {
+> +		qcom_ethqos_domain_off(ethqos, ETHQOS_PD_CORE);
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+
+[ ... ]
+
+>  	if (pm_data && pm_data->use_domains) {
+>  		ethqos->set_serdes_speed = ethqos_set_serdes_speed_pd;
+>
+> +		ret = devm_pm_domain_attach_list(dev, &pm_data->pd,
+> +						 &ethqos->pd.pd_list);
+> +		if (ret < 0)
+> +			return dev_err_probe(dev, ret, "Failed to attach power domains\n");
+> +
+> +		plat_dat->clks_config = ethqos_pd_clks_config;
+> +		plat_dat->serdes_powerup = qcom_ethqos_pd_serdes_powerup;
+> +		plat_dat->serdes_powerdown = qcom_ethqos_pd_serdes_powerdown;
+> +		plat_dat->exit = qcom_ethqos_pd_exit;
+> +		plat_dat->init = qcom_ethqos_pd_init;
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+
+> +		plat_dat->clk_ptp_rate = pm_data->clk_ptp_rate;
+> +
+> +		ret = qcom_ethqos_pd_init(dev, ethqos);
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Is qcom_ethqos_pd_init() being called twice?
+
+It is assigned to plat_dat->init above, and then called directly here. Later,
+devm_stmmac_pltfr_probe() -> stmmac_pltfr_probe() -> stmmac_dvr_probe() will
+call plat_dat->init() again (see stmmac_main.c stmmac_dvr_probe function).
+
+Each call to qcom_ethqos_pd_init() increments the PM runtime usage counter
+for ETHQOS_PD_CORE and ETHQOS_PD_MDIO via pm_runtime_resume_and_get(). With
+two calls, the refcount would be 2 for each domain, but qcom_ethqos_pd_exit()
+only decrements once per domain. This would leave the power domains with a
+dangling reference.
+
+Perhaps the direct call to qcom_ethqos_pd_init() here should be removed, and
+let stmmac_dvr_probe() invoke it through the plat_dat->init callback?
+
+> +		if (ret)
+> +			return ret;
+
+[ ... ]
 
 _______________________________________________
 linux-riscv mailing list
