@@ -4,126 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46429CF45BF
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 18:00:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D30FFCF45C4
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 18:28:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xKf+xxYKisZmgMfeLco85evcjwdkwWQ9SKXCiNRuOig=; b=YfscZX6hj3x1FO
-	STBCoFBiUcyBgC4SCw3MhibMfjJq1B4nkmBn4ThkVU9Ao4OplZnTUUMv6GQWGkb6RYyvZFmYhlQnI
-	cyMdzeev3+DO2sCeytX0OikBCG2Y7j9hTMVyl64xh9wJRlW+aIuHNW+FoumJCay8Mz3+JbUgt7R1N
-	Mh4bVsK6x+DbIS9Yv4y2WSIsOpimvbvTMDBkWqEY3tiETY8mjwrPPUQ3XK2GsXBhXyqpjEoWZtRst
-	womw/puirzuaT0VrOY30rXoGKoQqtokL4Ki6X7UJ7mwgA0PMHQXy84z1iy+opAxmtSNTval9x1ZAH
-	wFKjrxTEqDQ4DX8fjWjw==;
+	List-Owner; bh=8fEEhoJuKTsbL6HnTswgzdUoTbwcQDiSAGEULOIqBDw=; b=Y67BJizdRy/hNR
+	iaO1oi3T4VqA9FhijNED9A5qLd2NrDvUDb16KV/tIIMmsXmYWA3zRvagKZcb+wo57NcrLLRjKPLKq
+	PdY8ZHkNitwpve/xnS4z6eOuYyKJ7xJDigiWMVrA+QnwYNaibrhMo+GkxlFcXUJnZnlgxEg2C8FnH
+	ToNhH5q/pXZ1GTXB1ZPk/efEK8iVINEDtgcbhWQnDz9QHTj/JaT0XBd5wEq52X/Y8GQf7uUsKtkt3
+	UiaAh4aZNSD7LLEdKX0nVFiTvXWirWSM9UXOnvM1TfunhzJSa7gdpbgY1DT9YshUIvZJ6eyRKrkKs
+	s6zb1Di4wHD6+P1i74xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfMD8-00000005tw3-2spx;
-	Mon, 12 Jan 2026 18:00:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vfMed-00000005w3S-2K8y;
+	Mon, 12 Jan 2026 18:28:39 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfMD7-00000005tva-2A6w;
-	Mon, 12 Jan 2026 18:00:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1BE3C60055;
-	Mon, 12 Jan 2026 18:00:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB923C16AAE;
-	Mon, 12 Jan 2026 18:00:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768240811;
-	bh=mGbofIjwnm9caXWlIFuD+vvkQiRMHg0CWCn2+iWjokQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=feB0lBBcPjMm6TcLwyV7ebbxAv/YTwcCPMIuU2dVmvhL5mGCrIawtev3cma1EX2dA
-	 gimcge4/rXibL+oI/bA4/8WLwnYBQjmUWgdqxGK+z6QcoubI5S8MGhmHsN6RGU3I0m
-	 bOaihftKwYyTpOxlZre+emHgYCTF4qUVx3nrUpVhTKwciuti+mwHDDCK+Uudv2JTSh
-	 R6RBys8rz+B/35nVnKrzi3MKeFCyoNWx7MF7/pgVShpqzu4mBxe+J9/cv0NwkEif1g
-	 VG+WPfM/JevSndphvgNzv7J2+6JAdWpT5GxWT+B4lRohyxUT14oeDlYMchDvMoo1+A
-	 VALVB9TuQpPSg==
-From: Jakub Kicinski <kuba@kernel.org>
-To: bartosz.golaszewski@oss.qualcomm.com
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	jbrunet@baylibre.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	devicetree@vger.kernel.org,
-	neil.armstrong@linaro.org,
-	unicorn_wang@outlook.com,
-	andrew+netdev@lunn.ch,
-	vkoul@kernel.org,
-	peppe.cavallaro@st.com,
-	jernej.skrabec@gmail.com,
-	samin.guo@starfivetech.com,
-	david.wu@rock-chips.com,
-	christophe.roullier@foss.st.com,
-	linux-amlogic@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	martin.blumenstingl@googlemail.com,
-	robh@kernel.org,
-	linux-imx@nxp.com,
-	andersson@kernel.org,
-	joabreu@synopsys.com,
-	s32@nxp.com,
-	swathi.ks@samsung.com,
-	konradybcio@kernel.org,
-	krzk+dt@kernel.org,
-	keguang.zhang@gmail.com,
-	kernel@pengutronix.de,
-	romain.gantois@bootlin.com,
-	brgl@kernel.org,
-	sophgo@lists.linux.dev,
-	netdev@vger.kernel.org,
-	xiaoning.wang@nxp.com,
-	imx@lists.linux.dev,
-	dfustini@tenstorrent.com,
-	davem@davemloft.net,
-	jan.petrous@oss.nxp.com,
-	magnus.damm@gmail.com,
-	lizhi2@eswincomputing.com,
-	linux-sunxi@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	vineetha.g.jaya.kumaran@intel.com,
-	matthew.gerlach@altera.com,
-	wefu@redhat.com,
-	geert+renesas@glider.be,
-	edumazet@google.com,
-	linux-kernel@vger.kernel.org,
-	Frank.Li@nxp.com,
-	conor+dt@kernel.org,
-	mripard@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@esmil.dk,
-	linux-renesas-soc@vger.kernel.org,
-	alexandre.torgue@foss.st.com,
-	inochiama@gmail.com,
-	minda.chen@starfivetech.com,
-	s.hauer@pengutronix.de,
-	nobuhiro.iwamatsu.x90@mail.toshiba,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	fustini@kernel.org,
-	richardcochran@gmail.com,
-	pabeni@redhat.com,
-	shawnguo@kernel.org,
-	wens@kernel.org,
-	heiko@sntech.de,
-	guoren@kernel.org,
-	weishangjuan@eswincomputing.com,
-	mcoquelin.stm32@gmail.com,
-	khilman@baylibre.com,
-	festevam@gmail.com,
-	liangshuang@eswincomputing.com,
-	krzysztof.kozlowski@oss.qualcomm.com,
-	linux-arm-msm@vger.kernel.org,
-	konrad.dybcio@oss.qualcomm.com,
-	linux-rockchip@lists.infradead.org,
-	samuel@sholland.org
-Subject: Re: [RESEND,net-next,v6,7/7] net: stmmac: qcom-ethqos: add support for sa8255p
-Date: Mon, 12 Jan 2026 10:00:05 -0800
-Message-ID: <20260112180005.4144056-1-kuba@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260112-qcom-sa8255p-emac-v6-7-86a3d4b2ad83@oss.qualcomm.com>
-References: <20260112-qcom-sa8255p-emac-v6-7-86a3d4b2ad83@oss.qualcomm.com>
+	id 1vfMeb-00000005w2z-01KJ
+	for linux-riscv@lists.infradead.org;
+	Mon, 12 Jan 2026 18:28:38 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-81c72659e6bso4050266b3a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Jan 2026 10:28:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768242515; x=1768847315; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Ww8dTKlL8svqCEt09b6zV77XCKA9IZGYTWQfhZDLVCg=;
+        b=aZU31QDcwcItmTv006OYV51jYe+/fJycr1DUL0a49z6wJTlVOYPrfXSrE3XG/WG804
+         GilG6IpQd9ORHGYTOlCYs0U14hQm3m9eK9xrIZwoY2W6MyFHv58Y4eQZY0ogVD9a0mkv
+         CJTzOsD5UMl/7J44iiPgBsZq11emib7l/v4p0LQrDxFhepObo6J62U69/Clijc5N1Rn8
+         JZJQ7qzWNcvgCh3dyLF65gkXR/MXH7HvVlTHm8NIaAROxrjmcO3nCxkZ+aBQltHi2TdX
+         6ZuGNQ6bJ0ZkhWGMHrcmSptk4Ie/3YNb8zdjXyYvWMKAiKWesn+WA1sJAvr/iB2DfyKt
+         mJcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768242515; x=1768847315;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ww8dTKlL8svqCEt09b6zV77XCKA9IZGYTWQfhZDLVCg=;
+        b=R32GZDDK6RoVFH3w1wGQOabBNF/4rFAwdCNJtDjxUddrTUINbCYjuKrTUsdpWFygJQ
+         EUoT6dB+lYRweD5/JW1SCNf+PCql8SD4HngBOqbLcd1hyFMwqSROE3sshvREG1GBSbtg
+         guocQzBry/O73BANvH0ZB9RsT2I9e0MTZLUabPZuSAVJ6yaUx1iq/S4hpk4pTUJlA8N/
+         7ys/ggr7AdzHcLAqCTySLPGQXNljPMGw+IBgmJ4EoyZLq/7PiqmUG1zfGwfYnyUkGXt0
+         QfUrPu8Dz4eKinDH8LgX0ES6lSc67XGoECq/RZI6uiN/FSRuSebbaalowqLVE6XgnCQx
+         9tOA==
+X-Forwarded-Encrypted: i=1; AJvYcCW1TzM/y+0L3ojfRwmN1s9EvEeHpTms3ay9uMJ1zwFECNBZ5Q0RySCJsJ0CRikCyZrnliQh4evxGSIYlw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVVxnyi+GCjfICh4xm8l8k3Ay0zIIxAw/mcZpIk0OMRr3DNDwy
+	qbS7POpSX6DHvjxgwKjmBI9u4v6Btiwq7cR2qJgHLKuhxFaAbn66JWdz
+X-Gm-Gg: AY/fxX6MtwYBC2KPjoVsnlV/l74I0nZuCElL5X17lW8a3HXX9IxeCSDlF5MSpMvH/KI
+	pLFb/QX23df2CX+Gom9pmuPJq56BDmSHHbTbrbLqGCL40qT4SWrYJvkJtodefd/v8UY7thqxhVt
+	mcgcK8zf0mEGK94aU9HbcsED76vTrn6E2Qo7wTODSfMRQLTzuimD3onC68epuLCDLA751mRw0ma
+	xzLpMCzgWf+ph9xTrcUu3xLiTf78Cp+X1NtN0iwnZ6iKy42w6JQ50SUh34xhldsdlqWFKOkbZfQ
+	u1F2KE6dNI+/yjkXAHqzG1L8gasem8SaEoVnUs77E0Ds00NPWgxY4o0bcS6VwOjp0d6qzbNGL/y
+	Iq1VuGKSDb2gxDaQe/lLRo6EsxTtCQRfZdPBjh8vjQcnJluoytk9XAlXuxBLrhu5AYF+NC2hf8W
+	xvZlberQtguHbASWI=
+X-Google-Smtp-Source: AGHT+IFZO3R6LvzZZWvRh7XqITfngO5+nReNnVMEJVA3rCLts9qeDuKg3uj6KFcpivQl1tEiXHJ8jg==
+X-Received: by 2002:a05:6a00:909d:b0:81f:4f74:2246 with SMTP id d2e1a72fcca58-81f4f742549mr4264740b3a.16.1768242515448;
+        Mon, 12 Jan 2026 10:28:35 -0800 (PST)
+Received: from [172.16.233.96] ([118.143.118.249])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-81e6c8199f4sm6462596b3a.68.2026.01.12.10.28.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 Jan 2026 10:28:34 -0800 (PST)
+Message-ID: <b39e9af7-bdbf-4e02-ab7e-ec24626cada4@gmail.com>
+Date: Mon, 12 Jan 2026 10:33:00 -0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv, bpf: Emit fence.i for BPF_NOSPEC
+To: Lukas Gerlach <lukas.gerlach@cispa.de>, bpf@vger.kernel.org,
+ linux-riscv@lists.infradead.org, tech-speculation-barriers@lists.riscv.org
+Cc: bjorn@kernel.org, ast@kernel.org, daniel@iogearbox.net,
+ luke.r.nels@gmail.com, xi.wang@gmail.com, palmer@dabbelt.com,
+ luis.gerhorst@fau.de, daniel.weber@cispa.de, marton.bognar@kuleuven.be,
+ jo.vanbulck@kuleuven.be, michael.schwarz@cispa.de
+References: <20251228173753.56767-1-lukas.gerlach@cispa.de>
+Content-Language: en-US
+From: Bo Gan <ganboing@gmail.com>
+In-Reply-To: <20251228173753.56767-1-lukas.gerlach@cispa.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260112_102837_051626_68F76211 
+X-CRM114-Status: UNSURE (   6.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,118 +101,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least pausible.
+Hi Lukas,
 
-For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
----
-net: stmmac: qcom-ethqos: add support for sa8255p
+Please also check out Ved's response from the Speculation Barrier TG:
 
-This commit adds support for the SA8255P SoC which uses power domains
-managed via SCMI firmware, rather than the traditional clock/phy-based
-power management used by other variants.
+https://lists.riscv.org/g/tech-speculation-barriers/message/21
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index 8ba57bba3f2e..54f8ef3cfd7d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+I think the best way forward is to wait for the TG to clearly define
+speculation barrier instructions, and use them for future cores. For
+existing HW, emit a warning and do nothing. I don't want to see bpf
+doing fence.i universally for all riscv. Neither do I like it guessing
+this and that specific core implementation needing fence.i or not. We
+simply don't know how each vendor design their cores. Let the vendor
+tell us what's the best instruction to use for our existing HW. E.g.,
+for JH7110, it's really U74 from Sifive, so we can ask them to fill-in
+If we absolutely want fence.i as a best-effort kind of approach, then
+I strongly suggest we make it opt-in. I'd imagine it'd be a very loud
+noise if folks found the bpf perf on riscv suddenly regressed.
 
-[ ... ]
-
-> +static void ethqos_disable_serdes(void *data)
-> +{
-> +	struct qcom_ethqos *ethqos = data;
-> +
-> +	qcom_ethqos_domain_on(ethqos, ETHQOS_PD_SERDES);
-                          ^^
-
-Should this be qcom_ethqos_domain_off() instead of qcom_ethqos_domain_on()?
-
-This function is registered as a cleanup action via devm_add_action_or_reset()
-to undo the qcom_ethqos_domain_on(ETHQOS_PD_SERDES) call during probe. Using
-domain_on here would increment the PM runtime usage counter again rather than
-decrementing it. The serdes power domain would never be properly turned off
-on driver removal.
-
-Compare with qcom_ethqos_pd_serdes_powerdown() which correctly uses
-qcom_ethqos_domain_off().
-
-> +}
-
-[ ... ]
-
-> +static int qcom_ethqos_pd_init(struct device *dev, void *priv)
-> +{
-> +	struct qcom_ethqos *ethqos = priv;
-> +	int ret;
-> +
-> +	/*
-> +	 * Enable functional clock to prevent DMA reset after timeout due
-> +	 * to no PHY clock being enabled after the hardware block has been
-> +	 * power cycled. The actual configuration will be adjusted once
-> +	 * ethqos_fix_mac_speed() is called.
-> +	 */
-> +	ethqos_set_func_clk_en(ethqos);
-> +
-> +	ret = qcom_ethqos_domain_on(ethqos, ETHQOS_PD_CORE);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = qcom_ethqos_domain_on(ethqos, ETHQOS_PD_MDIO);
-> +	if (ret) {
-> +		qcom_ethqos_domain_off(ethqos, ETHQOS_PD_CORE);
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-
-[ ... ]
-
->  	if (pm_data && pm_data->use_domains) {
->  		ethqos->set_serdes_speed = ethqos_set_serdes_speed_pd;
->
-> +		ret = devm_pm_domain_attach_list(dev, &pm_data->pd,
-> +						 &ethqos->pd.pd_list);
-> +		if (ret < 0)
-> +			return dev_err_probe(dev, ret, "Failed to attach power domains\n");
-> +
-> +		plat_dat->clks_config = ethqos_pd_clks_config;
-> +		plat_dat->serdes_powerup = qcom_ethqos_pd_serdes_powerup;
-> +		plat_dat->serdes_powerdown = qcom_ethqos_pd_serdes_powerdown;
-> +		plat_dat->exit = qcom_ethqos_pd_exit;
-> +		plat_dat->init = qcom_ethqos_pd_init;
-                             ^^^^^^^^^^^^^^^^^^^^^^^
-
-> +		plat_dat->clk_ptp_rate = pm_data->clk_ptp_rate;
-> +
-> +		ret = qcom_ethqos_pd_init(dev, ethqos);
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Is qcom_ethqos_pd_init() being called twice?
-
-It is assigned to plat_dat->init above, and then called directly here. Later,
-devm_stmmac_pltfr_probe() -> stmmac_pltfr_probe() -> stmmac_dvr_probe() will
-call plat_dat->init() again (see stmmac_main.c stmmac_dvr_probe function).
-
-Each call to qcom_ethqos_pd_init() increments the PM runtime usage counter
-for ETHQOS_PD_CORE and ETHQOS_PD_MDIO via pm_runtime_resume_and_get(). With
-two calls, the refcount would be 2 for each domain, but qcom_ethqos_pd_exit()
-only decrements once per domain. This would leave the power domains with a
-dangling reference.
-
-Perhaps the direct call to qcom_ethqos_pd_init() here should be removed, and
-let stmmac_dvr_probe() invoke it through the plat_dat->init callback?
-
-> +		if (ret)
-> +			return ret;
-
-[ ... ]
+Bo
 
 _______________________________________________
 linux-riscv mailing list
