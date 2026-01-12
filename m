@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A650CF45C8
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 19:26:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48460CF45C5
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 19:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hsYQvQBuXtytdu8ySCEQGsJnFXqxoER1Zpq+SWWqiJs=; b=VQVRAcRBFeWDe1
-	UyZYoDO/PuftoRX82rgETFFmfJ0mmXvizezMCjlr9AlRtEwGmBb/GCZtg7ROxH1fNVbVnS45G1fHE
-	35eY8spmZPX2q2egw53oGlZAcPZfWxItTMCMjhgZtib+PKtH34C75onYpkiu1uKdixfc6MU7N9rub
-	W0uZ1i7SN1ue6n1BO8hdNT7cL3fRK82jzkDFPWZhydFqZnj2T9BA3lFx62CBR54kgjxOkX2h//twl
-	tz3l7JwY2L039Sngqwq06XM/x4J0Y92m3UyR5zTRGEuBDpBL/NcHWrxlBVj6N+iQvxawA/0eFpG2q
-	hRsGVTpwF6/gl4L28sSg==;
+	List-Owner; bh=3LZVB+sdv32Y46t5rlMh+Wexlzn5f+6GSkKfkZG5mZw=; b=nZLZMrLovsBqr4
+	wTDuR1dhkuLs0tCsMQdbek8HfJCmcMHyZ0Wc7gWkUU+M811WTRHhkGTrpE0/4r663T+aBmkyC5blK
+	Q9tihB24ddc7lTN7ZV575buxlxRFXgcJ371J9RwgNKOhda49qdny6Gm6ybVTbuRAhPVyaTGLoUOGg
+	AgvfO5jn81wwaVuwqi0l1MEowuipeCttonW3v/XwMq1mJvt0m5SaYzSwC+FwN319tb2xcGciV4zMZ
+	7Hn5/LcfttyFq/cCpg9KyeOLutj9WIBKvNSfonRh0WbQkuS/wC0Eo9mGaqafAzD7ZguR6Oqd5Y9+A
+	xIKfloJHZpfs3vNQEWaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNYG-000000062jN-15sY;
-	Mon, 12 Jan 2026 19:26:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vfNYJ-000000062qD-0U9x;
+	Mon, 12 Jan 2026 19:26:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNVl-00000005zAD-1NIq;
+	id 1vfNVl-00000005zAx-42gT;
 	Mon, 12 Jan 2026 19:23:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ED3F84438E;
-	Mon, 12 Jan 2026 19:23:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BE59C19425;
+	by sea.source.kernel.org (Postfix) with ESMTP id 80C4A443CE;
+	Mon, 12 Jan 2026 19:23:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF904C2BC86;
 	Mon, 12 Jan 2026 19:23:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768245812;
-	bh=7I4DcEvD7P+NyOF/LOh0qFaXJ6PJTspoaqEhJ+gX51o=;
+	s=k20201202; t=1768245813;
+	bh=GPQcbp+wkmbK7/Rcub4Dq0N8RBzNaIdUT4Zzk3rORWQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PymYATdtVCGHtK+IbBx3OFqORWyLECLJGtun3Jj0HzhwQUnp5PEQ2Z9S9x88kkdko
-	 jUXgwbgKhfLYl9+rn22YpJ6nMXJhRWGUZMMOnLkD1ttB7pCshIL8f6DatUASbcIJPh
-	 w3dt6U3TeqjuUwc+5wzfDRo2vDDVv1aQI42Oz6rzi6v2VG4qwgWSOEOiyhxKhUsghP
-	 qepcFLhDk7/7wRQCfEOZKxibmYmQeA/7sqB6KT5TTszT3MkOnTULUKSQI5UqSvt8mP
-	 juZKyxZVaIqSygbpdRTz8OnZqX0J+Gxb55kqte5mEeQyVUsERKFlNqc/04wqru1f7+
-	 pC3yvHkPsxIVQ==
+	b=SmkNXd0hD/a01rRbzRoTIUUxSVbiJvtS+SpBFPSqlginPRz7r1QpIVUkNBhUwlClB
+	 wu7xWBaWVGiKfKI9UnXxuZtlKeU8IiiMoqEFFelz3rk02+N6/Ank4/srRBvn70In9G
+	 TW3YnOBfyBvX8uDGz5ETCyjwSMU7T2kILTMPcTbBiDJx863zpNVbcPeU2e8YeqUDme
+	 OKVwnwn6rI4vz1BrTpM6yj2boVtQGcfUBLdrDX6PC76mEZZDQv8p+qcrg9dMkE9RcZ
+	 2/n/32QyL0RrxoLGdj2WxAIAMcosZ6xQGFyXIiGN3aSSA9+IaoKihFMAyf5aRVrEQR
+	 cNQ3vcNviQ8PQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,16 +56,16 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 27/35] crypto: chelsio - Use new AES library API
-Date: Mon, 12 Jan 2026 11:20:25 -0800
-Message-ID: <20260112192035.10427-28-ebiggers@kernel.org>
+Subject: [PATCH v2 28/35] crypto: crypto4xx - Use new AES library API
+Date: Mon, 12 Jan 2026 11:20:26 -0800
+Message-ID: <20260112192035.10427-29-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260112192035.10427-1-ebiggers@kernel.org>
 References: <20260112192035.10427-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_112333_438485_2A4DB584 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20260112_112334_042472_B162BB2F 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,83 +83,55 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Switch from the old AES library functions (which use struct
-crypto_aes_ctx) to the new ones (which use struct aes_key and struct
-aes_enckey).  In encryption-only use cases, this eliminates the
-unnecessary computation and caching of the decryption round keys.  The
-new AES en/decryption functions are also much faster and use AES
-instructions when supported by the CPU.
+crypto_aes_ctx) to the new ones (which use struct aes_enckey).  This
+eliminates the unnecessary computation and caching of the decryption
+round keys.  The new AES en/decryption functions are also much faster
+and use AES instructions when supported by the CPU.
 
 Note that in addition to the change in the key preparation function and
 the key struct type itself, the change in the type of the key struct
 results in aes_encrypt() (which is temporarily a type-generic macro)
-calling the new encryption function rather than the old one.  Likewise
-for decryption.
+calling the new encryption function rather than the old one.
 
 Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- drivers/crypto/chelsio/chcr_algo.c | 10 +++++-----
+ drivers/crypto/amcc/crypto4xx_alg.c | 10 +++++-----
  1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/crypto/chelsio/chcr_algo.c b/drivers/crypto/chelsio/chcr_algo.c
-index 22cbc343198a..6dec42282768 100644
---- a/drivers/crypto/chelsio/chcr_algo.c
-+++ b/drivers/crypto/chelsio/chcr_algo.c
-@@ -1026,11 +1026,11 @@ static int chcr_update_tweak(struct skcipher_request *req, u8 *iv,
- 			     u32 isfinal)
- {
- 	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
- 	struct ablk_ctx *ablkctx = ABLK_CTX(c_ctx(tfm));
- 	struct chcr_skcipher_req_ctx *reqctx = skcipher_request_ctx(req);
--	struct crypto_aes_ctx aes;
-+	struct aes_key aes;
- 	int ret, i;
- 	u8 *key;
- 	unsigned int keylen;
- 	int round = reqctx->last_req_len / AES_BLOCK_SIZE;
- 	int round8 = round / 8;
-@@ -1042,13 +1042,13 @@ static int chcr_update_tweak(struct skcipher_request *req, u8 *iv,
- 	/* For a 192 bit key remove the padded zeroes which was
- 	 * added in chcr_xts_setkey
- 	 */
- 	if (KEY_CONTEXT_CK_SIZE_G(ntohl(ablkctx->key_ctx_hdr))
- 			== CHCR_KEYCTX_CIPHER_KEY_SIZE_192)
--		ret = aes_expandkey(&aes, key, keylen - 8);
-+		ret = aes_preparekey(&aes, key, keylen - 8);
- 	else
--		ret = aes_expandkey(&aes, key, keylen);
-+		ret = aes_preparekey(&aes, key, keylen);
- 	if (ret)
- 		return ret;
- 	aes_encrypt(&aes, iv, iv);
- 	for (i = 0; i < round8; i++)
- 		gf128mul_x8_ble((le128 *)iv, (le128 *)iv);
-@@ -3404,11 +3404,11 @@ static int chcr_gcm_setkey(struct crypto_aead *aead, const u8 *key,
- {
- 	struct chcr_aead_ctx *aeadctx = AEAD_CTX(a_ctx(aead));
- 	struct chcr_gcm_ctx *gctx = GCM_CTX(aeadctx);
- 	unsigned int ck_size;
- 	int ret = 0, key_ctx_size = 0;
--	struct crypto_aes_ctx aes;
-+	struct aes_enckey aes;
+diff --git a/drivers/crypto/amcc/crypto4xx_alg.c b/drivers/crypto/amcc/crypto4xx_alg.c
+index 38e8a61e9166..3177dc4f5f7b 100644
+--- a/drivers/crypto/amcc/crypto4xx_alg.c
++++ b/drivers/crypto/amcc/crypto4xx_alg.c
+@@ -489,23 +489,23 @@ static int crypto4xx_aes_gcm_validate_keylen(unsigned int keylen)
+ }
  
- 	aeadctx->enckey_len = 0;
- 	crypto_aead_clear_flags(aeadctx->sw_cipher, CRYPTO_TFM_REQ_MASK);
- 	crypto_aead_set_flags(aeadctx->sw_cipher, crypto_aead_get_flags(aead)
- 			      & CRYPTO_TFM_REQ_MASK);
-@@ -3442,11 +3442,11 @@ static int chcr_gcm_setkey(struct crypto_aead *aead, const u8 *key,
- 						0, 0,
- 						key_ctx_size >> 4);
- 	/* Calculate the H = CIPH(K, 0 repeated 16 times).
- 	 * It will go in key context
- 	 */
--	ret = aes_expandkey(&aes, key, keylen);
-+	ret = aes_prepareenckey(&aes, key, keylen);
- 	if (ret) {
- 		aeadctx->enckey_len = 0;
- 		goto out;
+ static int crypto4xx_compute_gcm_hash_key_sw(__le32 *hash_start, const u8 *key,
+ 					     unsigned int keylen)
+ {
+-	struct crypto_aes_ctx ctx;
++	struct aes_enckey aes;
+ 	uint8_t src[16] = { 0 };
+ 	int rc;
+ 
+-	rc = aes_expandkey(&ctx, key, keylen);
++	rc = aes_prepareenckey(&aes, key, keylen);
+ 	if (rc) {
+-		pr_err("aes_expandkey() failed: %d\n", rc);
++		pr_err("aes_prepareenckey() failed: %d\n", rc);
+ 		return rc;
  	}
- 	memset(gctx->ghash_h, 0, AEAD_H_SIZE);
+ 
+-	aes_encrypt(&ctx, src, src);
++	aes_encrypt(&aes, src, src);
+ 	crypto4xx_memcpy_to_le32(hash_start, src, 16);
+-	memzero_explicit(&ctx, sizeof(ctx));
++	memzero_explicit(&aes, sizeof(aes));
+ 	return 0;
+ }
+ 
+ int crypto4xx_setkey_aes_gcm(struct crypto_aead *cipher,
+ 			     const u8 *key, unsigned int keylen)
 -- 
 2.52.0
 
