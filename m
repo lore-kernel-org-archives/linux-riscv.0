@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABB1DCF45CF
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 21:39:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BCBACF45CF
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 21:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OpXqRhK+4xA9KFuCHzEctWMfhWUhB3oXVJxDvJFq8rg=; b=LmpRe8H1J0oBh2Xpk/sgxikAqW
-	bzQJaV3XLajOHhkpV6K6/YjBuvqDQANX8NrR4Ed+LhTy6Md60ZZyoUog1nGxaBWgAcsJdFY83bSq7
-	T2OhKqQG0CD17mFKBfDg9veqTV/a0/1eD4Agoji7DAVYWyxMDMAto06z6Gvv9UcNCwkFJSAQP3VLb
-	g/cSKiVsMG6ycbbIwn1GYwP44IyU2fHI0k1FVQz87dDWcKqlGDWCIJEaUQzCQ5w9L0k7GuaghqKi2
-	Ez4W50pnZpfwRf5kz30Yui9oQ7JK2qq1MFhzgRx8OZDQiF+jiLCRGTnxzvLZstWJwcztDQBJy97BY
-	OPiXZs1A==;
+	bh=U4zfl9DmLC1iNxRzwboZuklvwL788VbaQngYqDKX2BU=; b=4KyidSrCyl5zJ49gV2mFYgGSIq
+	6diTmrupkz4UgnZB9jEPWUvzAUHF56yJOgifD0j6ypNczLN+9FBhghVVuWMEVL72hMWzS3ALYgH03
+	pT2cP7EcGP4SZ1HX3uLZRE2hr8+pU+tiCIQ005ZPQW8kTJAxDVucH9sizy7EULb6Mj/4E4gvIXOze
+	pbaZ+QSd1Br3o5NJ9PAmKYonUwSzgkq0Jj+zZuOaGfza6oOuCwnL8tEIG/B1NnSF+wb7zeSSbvlXp
+	g7uqG66p9IUiYZhNuj7dTCxiQ/RNBqKEXvHhEFICm7L2vJvRS8DZgwL/RHneHmaC5HapEWK/L93PP
+	N2jflxQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfPd9-00000006Drt-1XfV;
-	Mon, 12 Jan 2026 21:39:19 +0000
+	id 1vfPe6-00000006E0U-3KSp;
+	Mon, 12 Jan 2026 21:40:18 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfPd7-00000006Dr9-06BD
+	id 1vfPe4-00000006Dzu-2HhN
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Jan 2026 21:39:18 +0000
+	Mon, 12 Jan 2026 21:40:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 32079401AE;
-	Mon, 12 Jan 2026 21:39:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69929C116D0;
-	Mon, 12 Jan 2026 21:39:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 088C84372D;
+	Mon, 12 Jan 2026 21:40:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E10EC116D0;
+	Mon, 12 Jan 2026 21:40:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768253956;
-	bh=FWT3DFQ17PQuQNbf8lbPWQJloV82WeIIgcbUlhAjsg8=;
+	s=k20201202; t=1768254015;
+	bh=LOKmVbta3KTlWJmOJeErvVo/1aCGqs/kS5P/v8xIT3E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=juxH6ompWuZeMkJ77UnGSdBIltEPBSc+yJ5kAdENbdFosLqW2lC2vQgsIeATmSeQ7
-	 cvUyKea6+EfFWMnwIU28WIyNCMdN5T+hK2/OYJeQAudCNdzwJriCGNUgsnHZ55EaB7
-	 AhUOFn2YRbwdr1vv+DrNdjwLaaCkcOuYjmrDQcHp4mWiH3VB7zT3yTJWW8kHU0LaUD
-	 6I7EPK6SiN5lOnwkfOKag+MrnalmXO341xWD93ih6tYhsnioBWoRBQtUYJJIMJ9mb8
-	 Jr56Ld5AK0t5hmxSMZpVhMWbYf/k7ximjsXZ3e/VSODRp5nb2ey2VwAMFZ5Cdz325k
-	 eYsb0fVtV5k5Q==
-Date: Mon, 12 Jan 2026 21:39:09 +0000
+	b=dzc0zWr2W5aD2r0ZMy3D4N4/K56s2M41SGvIrHAqAQUNJeWnFJ9omfRoDK027cOs6
+	 fYegE+qhqx4F63n9SCSobEwwuJ75SVJ8HXzRa4tpYCD2qfEuE2EQjexGkqclkQlxu0
+	 mQnBH7p+JC7r0FZjrsXwBkzKsMwyEGdraQ3Zm0Ut2U+kRwwr7zHZZlVsvgFRf5HGqw
+	 uR51RPALmPAEn5CTUsyytKOKFLrQ/8na9dfe2yKseFjBanHd/rYC2DsfQIHJ5dwMcA
+	 irk8HGDi1bdFooC//9nT70kg5DPoZxO/lKullY6snbMaiyyl97oPNGyt+fAi9GM9BC
+	 2uvj/9iPPm/1w==
+Date: Mon, 12 Jan 2026 21:40:09 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Guodong Xu <guodong@riscstar.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -63,17 +63,16 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
 	spacemit@lists.linux.dev, linux-serial@vger.kernel.org
-Subject: Re: [PATCH v4 08/11] dt-bindings: riscv: Add Ssccptr, Sscounterenw,
- Sstvala, Sstvecd, Ssu64xl
-Message-ID: <20260112-diaphragm-verbose-142d6a60d33b@spud>
+Subject: Re: [PATCH v4 09/11] dt-bindings: riscv: Add Sha and its comprised
+ extensions
+Message-ID: <20260112-quintuple-reviver-7f5af13e6399@spud>
 References: <20260110-k3-basic-dt-v4-0-d492f3a30ffa@riscstar.com>
- <20260110-k3-basic-dt-v4-8-d492f3a30ffa@riscstar.com>
+ <20260110-k3-basic-dt-v4-9-d492f3a30ffa@riscstar.com>
 MIME-Version: 1.0
-In-Reply-To: <20260110-k3-basic-dt-v4-8-d492f3a30ffa@riscstar.com>
+In-Reply-To: <20260110-k3-basic-dt-v4-9-d492f3a30ffa@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_133917_085449_4788932C 
-X-CRM114-Status: UNSURE (   6.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260112_134016_622867_C3F3302E 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,38 +84,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5327925506426591939=="
+Content-Type: multipart/mixed; boundary="===============6186056820642027766=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5327925506426591939==
+--===============6186056820642027766==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+vzLOfp326l2Yqre"
+	protocol="application/pgp-signature"; boundary="OnOpPJV8XtrAgdMC"
 Content-Disposition: inline
 
 
---+vzLOfp326l2Yqre
+--OnOpPJV8XtrAgdMC
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sat, Jan 10, 2026 at 01:18:21PM +0800, Guodong Xu wrote:
+> Add descriptions for the Sha extension and the seven extensions it
+> comprises: Shcounterenw, Shgatpa, Shtvala, Shvsatpa, Shvstvala, Shvstvecd,
+> and Ssstateen.
+>=20
+> Sha is ratified in the RVA23 Profiles Version 1.0 (commit 0273f3c921b6
+> "rva23/rvb23 ratified") as a new profile-defined extension that captures
+> the full set of features that are mandated to be supported along with
+> the H extension.
+>=20
+> Extensions Shcounterenw, Shgatpa, Shtvala, Shvsatpa, Shvstvala, Shvstvecd,
+> and Ssstateen are ratified in the RISC-V Profiles Version 1.0 (commit
+> b1d806605f87 "Updated to ratified state").
+>=20
+> The requirement status for Sha and its comprised extension in RISC-V
+> Profiles are:
+>  - Sha: Mandatory in RVA23S64
+>  - H: Optional in RVA22S64; Mandatory in RVA23S64
+>  - Shcounterenw: Optional in RVA22S64; Mandatory in RVA23S64
+>  - Shgatpa: Optional in RVA22S64; Mandatory in RVA23S64
+>  - Shtvala: Optional in RVA22S64; Mandatory in RVA23S64
+>  - Shvsatpa: Optional in RVA22S64; Mandatory in RVA23S64
+>  - Shvstvala: Optional in RVA22S64; Mandatory in RVA23S64
+>  - Shvstvecd: Optional in RVA22S64; Mandatory in RVA23S64
+>  - Ssstateen: Optional in RVA22S64; Mandatory in RVA23S64
+>=20
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
---+vzLOfp326l2Yqre
+--OnOpPJV8XtrAgdMC
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaWVp/QAKCRB4tDGHoIJi
-0gvQAP0TUGTl1CYn4JsYoUUXRTUGAJN3oi7YgYIzDHYy8Bld4QEAuy3WfklDTJeL
-3AbHkMbLmB4OPplmtLOqGFoyUsmU5QE=
-=hgdS
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaWVqOAAKCRB4tDGHoIJi
+0kJIAPwMyqd17Gr0W0AzQIkInGX+fgrRE2t6v3qKpAOfalSyyQEA4En4SHB46aGG
+PPpEsCnL16wsGwrk2jfzVNeBYJouUwQ=
+=HvhX
 -----END PGP SIGNATURE-----
 
---+vzLOfp326l2Yqre--
+--OnOpPJV8XtrAgdMC--
 
 
---===============5327925506426591939==
+--===============6186056820642027766==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -127,5 +155,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5327925506426591939==--
+--===============6186056820642027766==--
 
