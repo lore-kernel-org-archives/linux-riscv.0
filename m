@@ -4,69 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12009C9EC98
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 14:59:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6DA5C9EC9C
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 16:20:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rw0SClmZvsUknfDvMmzaa9HvqhYGK7OZeRP65uIsPjQ=; b=22MqLR8VD0Pjja
-	6KbP56FJB3X5B5EsiUUstGBNzS3l3RnjFNISB/0d/2jhhbK90tO3aA1RxZDJTYWyQb96UjYW4LSdT
-	DonPFQOEG+Q40/ed5WPMFLRuMiXti5thbvqUVDWyis9X/z2hh/x2WRPxySMkJud+DQ+Gx9KTAirV8
-	XTOA4bCK83jxcUL2JaEpXVEVmtXOKWmBBVtg8Ff+N4hLd4epb4SQv4cn11D8Hk0tJt63dHlCjrlmt
-	FL9DKcF7/1OeDVMsISIXQGNIf7DybLzE8jLOd7AqHKC11xQ5GSGwAtCGoNLmGRyTDHLCWnZ8Z0Tsy
-	hXov92KX6magFpdlqcmg==;
+	List-Owner; bh=GcW4PH1e+jLq57kC25MmCtsJqSF8el7JuIJBn34CSUw=; b=MaY9WqG5v0BuJT
+	fZlJZBsboUDzT8ihizOA5ybooqhiufMJqPdstAMikO0pPo/00P/GOVCZkeUelnr580zcf58SEHMQv
+	dLe8FCi5ymLT8xis/Fz0ONv5o6+4tif11Q3DUmg3ntszCFBLX1aXK3ojzllDMjsO4uWK0vxSa6kOQ
+	6ZN315U/RmYFNiPHmxmf9KBSqDBevoBK0bg/b79y/amuDshcLYxH1g0/m5imKYFg0qkb4HX6rQvJA
+	jxqBvodeAtcDu3EPaR2hI44WOsxw0fjFFA+lGOWfsjLb9kboNk4Fx8TyP/Qs+XE4Ew0nhbUMICCL/
+	eU/tzDuTH5Gfx0uU6QSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfJNp-00000005b33-1m1w;
-	Mon, 12 Jan 2026 14:59:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vfKeN-00000005iRv-3BVZ;
+	Mon, 12 Jan 2026 16:20:15 +0000
+Received: from mx-rz-3.rrze.uni-erlangen.de ([131.188.11.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfJNn-00000005b2B-1oPq
+	id 1vfKeJ-00000005iQc-2Fau
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Jan 2026 14:59:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A701438BA;
-	Mon, 12 Jan 2026 14:59:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07E7FC16AAE;
-	Mon, 12 Jan 2026 14:59:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768229942;
-	bh=d/Hk7pYr4QRi+FKcMg9nhvQmJRSFfVO6mTcYAH99iTg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AJ9tKkVLiC3hcUnvnr2U/MBHaNOywYwFe6kRM5s/oZOUik6OQR9TUSM+2Ipezchjd
-	 ouO6/7+vVDPrk5jD3PIg2laoLsSaHPjJulfrThd2FOxDc1ANaiLFaXw09CEOvLVgf3
-	 scgwvcnA8gLVWM0hbUWyKc5Rr6l+5QmT8csmgwmnd+BBPYGUltpwZOrDsJ+YOzG5qd
-	 9H15ZR8PpC1FO6JmftE4hnQqpG0KyMg7QibKljVthUUcEERiV+J9jDCViT1DrqxWH/
-	 MWu2Au1Qasnm4ohsIVP35NmqmpJmoSO1nodosGaB3FMc9T6Dyis3PHnv7NL/3GPS++
-	 0ccFjHgERd1qQ==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Lukas Gerlach <lukas.gerlach@cispa.de>,
-	Paul Walmsley <pjw@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alexghiti@rivosinc.com,
-	cleger@rivosinc.com,
-	namcao@linutronix.de,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-6.12] riscv: Sanitize syscall table indexing under speculation
-Date: Mon, 12 Jan 2026 09:58:13 -0500
-Message-ID: <20260112145840.724774-12-sashal@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260112145840.724774-1-sashal@kernel.org>
-References: <20260112145840.724774-1-sashal@kernel.org>
+	Mon, 12 Jan 2026 16:20:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
+	t=1768234797; bh=RqX/vky+UNW9xKSctpg5nFA8rzq/cW5E6wMsBZvyU8Y=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From:To:CC:
+	 Subject;
+	b=ZHtdUA7uH3O9YWXDsMZ+YAwzejWDldOUMQ1X8LdSJvngxspuoaWwYlZrtL1FxbMW0
+	 WLr8eC1PMTtCIxFKdRISEUZKcFaqpKvAuqb4250m30XfBNaMRO4maO5XUlmoqA5aLD
+	 IpQiUQcvtSeKSoHL++LbfVwiZDtlB29xRCIBaa+H94v0Vjt7LXZpgncMYEN6XzKFw2
+	 KcbyzdamQfomqU0J0fkDysJLPXjYTSDQ8qxzDhQRy6wa2c3MgKXXw6IuM1RzUeoa1f
+	 R5S0S+VzJLasGEvuxqV9iNlOb+YjRlq5JxhHmAlbITvNu2B/3yH0qnjll1DckJUu0R
+	 +6MAwOFo/F1Mg==
+Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-rz-3.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4dqczK5Ghqz1xwY;
+	Mon, 12 Jan 2026 17:19:57 +0100 (CET)
+X-Virus-Scanned: amavisd-new at boeck2.rrze.uni-erlangen.de (RRZE)
+X-RRZE-Flag: Not-Spam
+X-RRZE-Submit-IP: 10.188.34.184
+Received: from localhost (i4laptop33.informatik.uni-erlangen.de [10.188.34.184])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: U2FsdGVkX187v+eh7YPaxIMjP2GckqUrelMzN9JbkRM=)
+	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4dqczG6ggBz20VM;
+	Mon, 12 Jan 2026 17:19:54 +0100 (CET)
+From: Luis Gerhorst <luis.gerhorst@fau.de>
+To: "Stefan O'Rear" <sorear@fastmail.com>,  "Lukas Gerlach"
+ <lukas.gerlach@cispa.de>
+Cc: tech-speculation-barriers@lists.riscv.org,  bpf@vger.kernel.org,
+  linux-riscv@lists.infradead.org,  =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>,
+  "Alexei Starovoitov" <ast@kernel.org>,  "Daniel Borkmann"
+ <daniel@iogearbox.net>,  luke.r.nels@gmail.com,  xi.wang@gmail.com,
+  "Palmer Dabbelt" <palmer@dabbelt.com>,  daniel.weber@cispa.de,
+  marton.bognar@kuleuven.be,  jo.vanbulck@kuleuven.be,
+  michael.schwarz@cispa.de
+Subject: Re: [tech-speculation-barriers] [PATCH] riscv, bpf: Emit fence.i
+ for BPF_NOSPEC
+In-Reply-To: <bc21940d-08ef-4d09-90e0-8611ebddc56d@app.fastmail.com> (Stefan
+	O'Rear's message of "Fri, 09 Jan 2026 00:36:48 -0500")
+References: <20251228173753.56767-1-lukas.gerlach@cispa.de>
+	<702eb23c-7205-4de1-b56d-eedac6feae46@gmail.com>
+	<bc21940d-08ef-4d09-90e0-8611ebddc56d@app.fastmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Mon, 12 Jan 2026 17:19:54 +0100
+Message-ID: <87zf6iiz11.fsf@fau.de>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.18.5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_065903_518287_34B45706 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20260112_082012_013442_8D932380 
+X-CRM114-Status: GOOD (  44.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,114 +89,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogTHVrYXMgR2VybGFjaCA8bHVrYXMuZ2VybGFjaEBjaXNwYS5kZT4KClsgVXBzdHJlYW0g
-Y29tbWl0IDI1ZmQ3ZWU3YmY1OGFjM2VjN2JlM2M5ZjgyY2VmZjE1MzQ1MTk0NmMgXQoKVGhlIHN5
-c2NhbGwgbnVtYmVyIGlzIGEgdXNlci1jb250cm9sbGVkIHZhbHVlIHVzZWQgdG8gaW5kZXggaW50
-byB0aGUKc3lzY2FsbCB0YWJsZS4gVXNlIGFycmF5X2luZGV4X25vc3BlYygpIHRvIGNsYW1wIHRo
-aXMgdmFsdWUgYWZ0ZXIgdGhlCmJvdW5kcyBjaGVjayB0byBwcmV2ZW50IHNwZWN1bGF0aXZlIG91
-dC1vZi1ib3VuZHMgYWNjZXNzIGFuZCBzdWJzZXF1ZW50CmRhdGEgbGVha2FnZSB2aWEgY2FjaGUg
-c2lkZSBjaGFubmVscy4KClNpZ25lZC1vZmYtYnk6IEx1a2FzIEdlcmxhY2ggPGx1a2FzLmdlcmxh
-Y2hAY2lzcGEuZGU+Ckxpbms6IGh0dHBzOi8vcGF0Y2gubXNnaWQubGluay8yMDI1MTIxODE5MTMz
-Mi4zNTg0OS0zLWx1a2FzLmdlcmxhY2hAY2lzcGEuZGUKU2lnbmVkLW9mZi1ieTogUGF1bCBXYWxt
-c2xleSA8cGp3QGtlcm5lbC5vcmc+ClNpZ25lZC1vZmYtYnk6IFNhc2hhIExldmluIDxzYXNoYWxA
-a2VybmVsLm9yZz4KLS0tCgpMTE0gR2VuZXJhdGVkIGV4cGxhbmF0aW9ucywgbWF5IGJlIGNvbXBs
-ZXRlbHkgYm9ndXM6CgojIyBDb21taXQgQW5hbHlzaXM6IHJpc2N2OiBTYW5pdGl6ZSBzeXNjYWxs
-IHRhYmxlIGluZGV4aW5nIHVuZGVyCnNwZWN1bGF0aW9uCgojIyMgMS4gQ09NTUlUIE1FU1NBR0Ug
-QU5BTFlTSVMKClRoZSBjb21taXQgbWVzc2FnZSBjbGVhcmx5IGRlc2NyaWJlcyBhICoqc2VjdXJp
-dHkgdnVsbmVyYWJpbGl0eSBmaXgqKjoKLSBVc2VyLWNvbnRyb2xsZWQgc3lzY2FsbCBudW1iZXJz
-IGFyZSB1c2VkIHRvIGluZGV4IGludG8gdGhlIHN5c2NhbGwKICB0YWJsZQotIFRoZSBmaXggcHJl
-dmVudHMgc3BlY3VsYXRpdmUgb3V0LW9mLWJvdW5kcyBhY2Nlc3MKLSBBZGRyZXNzZXMgZGF0YSBs
-ZWFrYWdlIHZpYSBjYWNoZSBzaWRlIGNoYW5uZWxzIChTcGVjdHJlIHYxLXN0eWxlCiAgYXR0YWNr
-KQoKS2V5IGluZGljYXRvcnM6ICJzcGVjdWxhdGl2ZSBvdXQtb2YtYm91bmRzIGFjY2VzcyIsICJk
-YXRhIGxlYWthZ2UiLAoiY2FjaGUgc2lkZSBjaGFubmVscyIgLSB0aGVzZSBhcmUgdW5taXN0YWth
-YmxlIHNlY3VyaXR5IHZ1bG5lcmFiaWxpdHkKZGVzY3JpcHRpb25zLgoKIyMjIDIuIENPREUgQ0hB
-TkdFIEFOQUxZU0lTCgpUaGUgY2hhbmdlIGlzIG1pbmltYWwgYW5kIHN1cmdpY2FsOgoKYGBgYwot
-IGlmIChzeXNjYWxsID49IDAgJiYgc3lzY2FsbCA8IE5SX3N5c2NhbGxzKQorICAgICAgICAgICAg
-ICAgaWYgKHN5c2NhbGwgPj0gMCAmJiBzeXNjYWxsIDwgTlJfc3lzY2FsbHMpIHsKKyAgICAgICAg
-ICAgICAgICAgICAgICAgc3lzY2FsbCA9IGFycmF5X2luZGV4X25vc3BlYyhzeXNjYWxsLApOUl9z
-eXNjYWxscyk7CiAgICAgICAgICAgICAgICAgICAgICAgIHN5c2NhbGxfaGFuZGxlcihyZWdzLCBz
-eXNjYWxsKTsKKyAgICAgICAgICAgICAgIH0KYGBgCgoqKlRlY2huaWNhbCBtZWNoYW5pc206KioK
-LSBUaGUgYm91bmRzIGNoZWNrIChgc3lzY2FsbCA+PSAwICYmIHN5c2NhbGwgPCBOUl9zeXNjYWxs
-c2ApIGlzCiAgcGVyZm9ybWVkIGF0IHJ1bnRpbWUKLSBIb3dldmVyLCBzcGVjdWxhdGl2ZSBleGVj
-dXRpb24gY2FuIGJ5cGFzcyB0aGlzIGNoZWNrIC0gdGhlIENQVSBtYXkKICBzcGVjdWxhdGl2ZWx5
-IGV4ZWN1dGUgYHN5c2NhbGxfaGFuZGxlcigpYCB3aXRoIGFuIG91dC1vZi1ib3VuZHMgaW5kZXgK
-ICBiZWZvcmUgdGhlIGJyYW5jaCBpcyByZXNvbHZlZAotIFRoaXMgc3BlY3VsYXRpdmUgYWNjZXNz
-IGxlYXZlcyB0cmFjZXMgaW4gdGhlIGNhY2hlIHRoYXQgY2FuIGJlCiAgbWVhc3VyZWQgdmlhIHRp
-bWluZyBhdHRhY2tzCi0gYGFycmF5X2luZGV4X25vc3BlYygpYCBjcmVhdGVzIGEgZGF0YSBkZXBl
-bmRlbmN5IHRoYXQgYXJjaGl0ZWN0dXJhbGx5CiAgY2xhbXBzIHRoZSBpbmRleCwgcHJldmVudGlu
-ZyBzcGVjdWxhdGl2ZSBPT0IgYWNjZXNzCgpUaGlzIGlzIHRoZSBzdGFuZGFyZCBTcGVjdHJlIHYx
-IChib3VuZHMgY2hlY2sgYnlwYXNzKSBtaXRpZ2F0aW9uIHBhdHRlcm4KdXNlZCBleHRlbnNpdmVs
-eSB0aHJvdWdob3V0IHRoZSBrZXJuZWwgc2luY2UgMjAxOC4KCiMjIyAzLiBDTEFTU0lGSUNBVElP
-TgoKKipUeXBlOioqIFNlY3VyaXR5IGZpeCAoc3BlY3VsYXRpdmUgZXhlY3V0aW9uIHNpZGUtY2hh
-bm5lbAp2dWxuZXJhYmlsaXR5KQoKVGhpcyBpcyBOT1Q6Ci0gQSBuZXcgZmVhdHVyZQotIEEgY29k
-ZSBjbGVhbnVwCi0gQW4gb3B0aW1pemF0aW9uCi0gQSByZWZhY3RvcmluZwoKVGhpcyBJUyBhIHNl
-Y3VyaXR5IGhhcmRlbmluZyBmaXggYWRkcmVzc2luZyBhIHdlbGwta25vd24gY2xhc3Mgb2YKdnVs
-bmVyYWJpbGl0aWVzLgoKIyMjIDQuIFNDT1BFIEFORCBSSVNLIEFTU0VTU01FTlQKCioqU2l6ZToq
-KiAyIGxpbmVzIG9mIGFjdHVhbCBjb2RlIGNoYW5nZQoqKkZpbGVzOioqIDEgZmlsZSAoYXJjaC9y
-aXNjdi9rZXJuZWwvdHJhcHMuYykKKipDb21wbGV4aXR5OioqIEV4dHJlbWVseSBsb3cgLSBzdGFu
-ZGFyZCBwYXR0ZXJuCgoqKlJpc2sgYW5hbHlzaXM6KioKLSBgYXJyYXlfaW5kZXhfbm9zcGVjKClg
-IGlzIGEgbWF0dXJlLCBiYXR0bGUtdGVzdGVkIG1hY3JvIGF2YWlsYWJsZQogIHNpbmNlIGtlcm5l
-bCA0LjE2KwotIFRoZSBsb2dpYyBmbG93IGlzIGlkZW50aWNhbCAtIG9ubHkgYWRkcyBzcGVjdWxh
-dGlvbiBiYXJyaWVyCi0gTm8gZnVuY3Rpb25hbCBiZWhhdmlvciBjaGFuZ2UKLSBaZXJvIHJlZ3Jl
-c3Npb24gcmlzayAtIHRoaXMgaXMgcHVyZWx5IGRlZmVuc2l2ZQoKIyMjIDUuIFVTRVIgSU1QQUNU
-CgoqKkFmZmVjdGVkIHVzZXJzOioqIEFsbCBSSVNDLVYga2VybmVsIHVzZXJzCgoqKlNldmVyaXR5
-OioqIEhpZ2ggLSB0aGlzIGlzIGEgc2VjdXJpdHkgdnVsbmVyYWJpbGl0eToKLSBBbGxvd3MgcG90
-ZW50aWFsIGtlcm5lbCBtZW1vcnkgZGlzY2xvc3VyZSB2aWEgdGltaW5nIHNpZGUtY2hhbm5lbHMK
-LSBTcGVjdHJlLWNsYXNzIHZ1bG5lcmFiaWxpdGllcyBoYXZlIHJlc3VsdGVkIGluIG51bWVyb3Vz
-IENWRXMKLSBUaGUgc3lzY2FsbCBwYXRoIGlzIG9uZSBvZiB0aGUgbW9zdCBjcml0aWNhbCBhdHRh
-Y2sgc3VyZmFjZXMgKHVzZXIg4oaSCiAga2VybmVsIHRyYW5zaXRpb24pCgoqKlJlYWwtd29ybGQg
-aW1wYWN0OioqIFdoaWxlIGV4cGxvaXRhdGlvbiByZXF1aXJlcyBzb3BoaXN0aWNhdGlvbiwKU3Bl
-Y3RyZSBhdHRhY2tzIGFyZSB3ZWxsLWRvY3VtZW50ZWQgYW5kIGFjdGl2ZWx5IGV4cGxvaXRlZC4g
-VGhpcwp2dWxuZXJhYmlsaXR5IGNsYXNzIGFmZmVjdHMgZXZlcnkgbWFqb3IgY2xvdWQgcHJvdmlk
-ZXIgYW5kIGlzIHRha2VuIHZlcnkKc2VyaW91c2x5LgoKIyMjIDYuIFNUQUJJTElUWSBJTkRJQ0FU
-T1JTCgotIEF1dGhvcmVkIGJ5IHJlc2VhcmNoZXIgZnJvbSBDSVNQQSAoSGVsbWhvbHR6IENlbnRl
-ciBmb3IgSW5mb3JtYXRpb24KICBTZWN1cml0eSkKLSBTaWduZWQtb2ZmIGJ5IFBhdWwgV2FsbXNs
-ZXkgKFJJU0MtViBtYWludGFpbmVyKQotIEZvbGxvd3MgZXN0YWJsaXNoZWQga2VybmVsIHNlY3Vy
-aXR5IHBhdHRlcm5zCi0gT3RoZXIgYXJjaGl0ZWN0dXJlcyAoeDg2LCBBUk02NCkgYWxyZWFkeSBo
-YXZlIGVxdWl2YWxlbnQgcHJvdGVjdGlvbnMKCiMjIyA3LiBERVBFTkRFTkNZIENIRUNLCgoqKmBh
-cnJheV9pbmRleF9ub3NwZWMoKWA6KiogVGhpcyBtYWNybyBoYXMgYmVlbiBpbiB0aGUga2VybmVs
-IHNpbmNlCmVhcmx5IDIwMTggKHY0LjE2KSBmb3IgU3BlY3RyZSBtaXRpZ2F0aW9ucy4gSXQgd2ls
-bCBiZSBwcmVzZW50IGluIGFsbAptYWludGFpbmVkIHN0YWJsZSB0cmVlcy4KCioqQ29kZSBjb250
-ZXh0OioqIFRoZSBgZG9fdHJhcF9lY2FsbF91KClgIGZ1bmN0aW9uIGluCmBhcmNoL3Jpc2N2L2tl
-cm5lbC90cmFwcy5jYCBpcyBhIGZ1bmRhbWVudGFsIHBhcnQgb2YgdGhlIFJJU0MtViBzeXNjYWxs
-CmhhbmRsaW5nIGFuZCBleGlzdHMgaW4gYWxsIHN0YWJsZSB0cmVlcyBzdXBwb3J0aW5nIFJJU0Mt
-Vi4KCk5vIG90aGVyIGNvbW1pdHMgYXJlIHJlcXVpcmVkIGFzIGRlcGVuZGVuY2llcy4KCiMjIyBT
-VEFCTEUgS0VSTkVMIFJVTEVTIEFTU0VTU01FTlQKCnwgQ3JpdGVyaWEgfCBBc3Nlc3NtZW50IHwK
-fC0tLS0tLS0tLS18LS0tLS0tLS0tLS0tfAp8IE9idmlvdXNseSBjb3JyZWN0IHwg4pyFIFVzZXMg
-c3RhbmRhcmQga2VybmVsIHBhdHRlcm4gfAp8IEZpeGVzIHJlYWwgYnVnIHwg4pyFIFNlY3VyaXR5
-IHZ1bG5lcmFiaWxpdHkgfAp8IEltcG9ydGFudCBpc3N1ZSB8IOKchSBJbmZvcm1hdGlvbiBkaXNj
-bG9zdXJlIHZpYSBzaWRlLWNoYW5uZWwgfAp8IFNtYWxsIGFuZCBjb250YWluZWQgfCDinIUgMiBs
-aW5lcywgMSBmaWxlIHwKfCBObyBuZXcgZmVhdHVyZXMgfCDinIUgUHVyZSBzZWN1cml0eSBoYXJk
-ZW5pbmcgfAp8IENhbiBhcHBseSBjbGVhbmx5IHwg4pyFIFNlbGYtY29udGFpbmVkIGNoYW5nZSB8
-CgojIyMgQ09OQ0xVU0lPTgoKVGhpcyBpcyBhbiBleGVtcGxhcnkgc3RhYmxlIGJhY2twb3J0IGNh
-bmRpZGF0ZToKCjEuICoqU2VjdXJpdHkgZml4KiogZm9yIGEgU3BlY3RyZSB2MS1jbGFzcyB2dWxu
-ZXJhYmlsaXR5IGluIHRoZSBSSVNDLVYKICAgc3lzY2FsbCBwYXRoCjIuICoqTWluaW1hbCBjaGFu
-Z2UqKiAtIDIgbGluZXMgdXNpbmcgd2VsbC1lc3RhYmxpc2hlZCBrZXJuZWwgc2VjdXJpdHkKICAg
-cHJpbWl0aXZlcwozLiAqKlplcm8gcmVncmVzc2lvbiByaXNrKiogLSBubyBmdW5jdGlvbmFsIGNo
-YW5nZSwgb25seSBzcGVjdWxhdGlvbgogICBiYXJyaWVyCjQuICoqSGlnaCB2YWx1ZSoqIC0gcHJv
-dGVjdHMgYWxsIFJJU0MtViB1c2VycyBmcm9tIHBvdGVudGlhbCBrZXJuZWwKICAgbWVtb3J5IGRp
-c2Nsb3N1cmUKNS4gKipCcmluZ3MgUklTQy1WIGluIGxpbmUqKiB3aXRoIG90aGVyIGFyY2hpdGVj
-dHVyZXMgdGhhdCBhbHJlYWR5IGhhdmUKICAgdGhpcyBwcm90ZWN0aW9uCgpUaGUgZml4IGlzIHNt
-YWxsLCBzdXJnaWNhbCwgYWRkcmVzc2VzIGEgcmVhbCBzZWN1cml0eSB2dWxuZXJhYmlsaXR5LAp1
-c2VzIGEgbWF0dXJlIG1pdGlnYXRpb24gcGF0dGVybiwgYW5kIGhhcyBlc3NlbnRpYWxseSBubyBy
-aXNrIG9mIGNhdXNpbmcKcmVncmVzc2lvbnMuIFRoaXMgbWVldHMgYWxsIHN0YWJsZSBrZXJuZWwg
-Y3JpdGVyaWEuCgoqKllFUyoqCgogYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYyB8IDQgKysrLQog
-MSBmaWxlIGNoYW5nZWQsIDMgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQoKZGlmZiAtLWdp
-dCBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5j
-CmluZGV4IDgwMjMwZGUxNjdkZWYuLjQ3YWZlYTRmZjFhOGQgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlz
-Y3Yva2VybmVsL3RyYXBzLmMKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYwpAQCAtMzM5
-LDggKzMzOSwxMCBAQCB2b2lkIGRvX3RyYXBfZWNhbGxfdShzdHJ1Y3QgcHRfcmVncyAqcmVncykK
-IAogCQlhZGRfcmFuZG9tX2tzdGFja19vZmZzZXQoKTsKIAotCQlpZiAoc3lzY2FsbCA+PSAwICYm
-IHN5c2NhbGwgPCBOUl9zeXNjYWxscykKKwkJaWYgKHN5c2NhbGwgPj0gMCAmJiBzeXNjYWxsIDwg
-TlJfc3lzY2FsbHMpIHsKKwkJCXN5c2NhbGwgPSBhcnJheV9pbmRleF9ub3NwZWMoc3lzY2FsbCwg
-TlJfc3lzY2FsbHMpOwogCQkJc3lzY2FsbF9oYW5kbGVyKHJlZ3MsIHN5c2NhbGwpOworCQl9CiAK
-IAkJLyoKIAkJICogVWx0aW1hdGVseSwgdGhpcyB2YWx1ZSB3aWxsIGdldCBsaW1pdGVkIGJ5IEtT
-VEFDS19PRkZTRVRfTUFYKCksCi0tIAoyLjUxLjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+"Stefan O'Rear" <sorear@fastmail.com> writes:
+
+> On Thu, Jan 8, 2026, at 10:37 PM, Bo Gan via lists.riscv.org wrote:
+>> Hi Lukas,
+>>
+>> Stefan and I have some doubts on fence.i's effectiveness as speculation
+>> barrier. Flushing entire local instruction cache and instruction pipeline
+>> is not absolutely necessary on impl having coherent I/D caches. Quoting
+>> from Unprivileged SPEC ver. 20250508:
+>>
+>> "The FENCE.I instruction was designed to support a wide variety of
+>>   implementations. A simple implementation can flush the local instruction
+>>   cache and the instruction pipeline when the FENCE.I is executed. A more
+>>   complex implementation might snoop the instruction (data) cache on every
+>>   data (instruction) cache miss, or use an inclusive unified private L2
+>>   cache to invalidate lines from the primary instruction cache when they
+>>   are being written by a local store instruction. If instruction and data
+>>   caches are kept coherent in this way, or if the memory system consists of
+>>   only uncached RAMs, then just the fetch pipeline needs to be flushed at a
+>>   FENCE.I"
+>
+> Note that this is non-normative text and the actual range of allowed
+> implementations is wider than this.
+>
+> I'm particularly concerned that the security property we appear to need (I am
+> more familiar with u-arch vulnerabilities than BPF ISA details) is an _issue
+> barrier_, but correctness for FENCE.I as currently specified only requires
+> a _retirement barrier_.
+
+> FENCE.I requires that instructions after the FENCE.I in program order not
+> retire unless the hart can verify that they were not overwritten in memory
+> between the time they were fetched and the memory-order point of the FENCE.I.
+> Simple implementations will probably achieve this by re-fetching and
+> preventing retirement of all instructions after the FENCE.I,
+
+Are you aware of any CPU implementation that works like this?
+
+> but if the
+> instructions speculatively execute then it is not useful for a Spectre v1
+> barrier.
+
+You are correct. However, I believe a retirement barrier would still
+already be useful as a stopgap solution as it should still reduce the
+success rate and therefore the bandwith of the exploit. Also, because
+the verifier currently adds barriers very early (it does not only add
+the barrier before the non-CT operation on a secret but already when
+anything that is not allowed architecturally happens), it might actually
+prevent some exploits. This does of course not offer full protection,
+but it still makes it harder to develop working exploits.
+
+> Issuing an instruction which cannot possibly retire wastes energy,
+> but if FENCE.I is assumed to be an extremely rare operation this may not be
+> a priority.
+>
+> Particularly complex implementations can go as far as to treat FENCE.I as a
+> no-op if they snoop the reorder buffer as well as the instruction cache.
+>
+>> There's the question on overhead, too. Perhaps there's a more accurate and
+>> lightweight insn available? I'm not an expert in u-arch. My gut feeling is
+>> that we should not be dependent on specific impl's behavior and the riscv
+>> SPEC should provide guidelines on speculation barrier instructions and how
+>> to use them. Thus, I'm forwarding this to the Speculation Barriers Task-
+>> Group, which I hope should be the perfect place to discuss such kind of
+>> issues. @Speculation Barriers TG Please share your thoughts. Note that we
+>> are dealing with existing HW, so we expect something to be working with
+>> current SPEC and actual silicon. I'd be happy if I'm proven wrong, and
+>> fence.i can actually be a speculation barrier. That's also a relief. Thank
+>> you everyone.
+>
+> The JH7110 has 512 I-cache lines per core, all of which must be invalidated
+> on a FENCE.I. I'm not sure how many cycles that takes for the invalidation,
+> but some fraction of those will subsequently be needed before they would
+> otherwise be evicted, which could add up to several thousand cycles of
+> overhead depending on the cache miss latency, for a BPF program with a single
+> BPF_NOSPEC. Compared to roughly one thousand cycles for a kernel entry and
+> exit, it may be more practical to disable BPF and rely on userspace event
+> processing for affected hardware, even if FENCE.I is otherwise useful as a
+> speculation barrier.
+
+Thank you very much. For JH7110 I think it would then be best to avoid
+adding anything unless there is any strong evidence showing this CPU is
+vulnerable to Spectre v1. (A quick search yielded no result but maybe
+someone else has more information on this.) Even if it is vulnerable,
+people might want performant unprivileged eBPF simply for compatibility
+reasons. As we can not know whether untrusted unprivileged users are
+actually a concern, a dmesg warning might be best then. Or maybe there
+is some other construct that achieves the desired effect on JH7110.
+
+> I don't think it's possible to define a set of speculation barriers that apply
+> to all possible existing and future hardware with the current specifications,
+> because the ratified specifications cannot be changed and other than Zkt/Zvkt
+> do not constrain uarch side channels.
+>
+> The TG is defining a new specification which includes semantically rich
+> barriers that can have optimal overhead on new hardware. If we find a set of
+> speculation barriers that work on some or (optimistically) all existing
+> hardware, we would need to define a retroactive specification which documents
+> that behavior, much like Zkt/Zvkt or many of the extensions defined in the
+> profiles specification.
+
+That would be very useful to eBPF.
+
+Are you aware of any existing RISC-V CPU implementations where FENCE.I,
+or any other instruction, does delay issueing/retirement by a few cycles
+(e.g., until concurrent stores have completed)? (I am aware that
+retirement is not sufficient formally, but it is better than nothing.)
+Anything like this might be preferable over simply filling up the
+reorder buffer with some NOP instruction. And even if a part of the CPU
+state may still be speculative, any such instruction would already be
+useful as a (partial) stopgap solution.
+
+Or does FENCE.I do this on any concrete CPU other than JH7110?
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
