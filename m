@@ -4,91 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB82C9EC77
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 11:59:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFF1CC9EC7D
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 12:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4J1nNK5/hmWUeHB7Z0/WG+9TxuH5T7Tu7OofKx+hMXs=; b=n1LL2Qkm/XGwD+
-	+ieSuKVGVGvGaTz/0lLaNb3P0erJsXz8wrvE9oYpPo01V/Da16CCmGaxZvdnhGEP5WXhi/+7hkFYD
-	7flbEGvE/U6Goitkkp8t88p4QshdbvNjApVuRvnQylZRHys00p8xmCoy4buc7vHabhpCf4bbC8MV/
-	OuucH4qDQpmwAC4kLtzREFjp7qDIzGoUs6Nk317hqPG71cATfwkkQtk2Va2iu3FaK8N4ZY28dgi8y
-	SNQ1tuvUhZqiOu7mFdBlqpm2M/7Qa3DbdBYZLELS6eqF9YxrAr8c0/X+gPPItHKxyZgHQn38KW0hV
-	8We6dFWa+BreCD10NbQg==;
+	List-Owner; bh=qV/ghX8Ta0Hxkj675ooVGhdYU4rODT4MtQX/AZ6ab/c=; b=sjfA6OwzKDlVki
+	Z2XxNoZ7iOq4ATDJvzeU7C7nJbaLgw/oJ9CT4IayD+k9S41MjR3tjMZup/cnUJgNOPZ1I4ws2+6wk
+	/QMGm9jcAkCaJGBas0GrZjmnLV8xpYAcAvNPDmNPuuFyMztZgO3m2/3Qbb5ACWKvStp0i1gqOs8g2
+	+W28/p+HW6dXk8iq9An7MJivlg1xZNyQphqE9rJCsxJL+Qhoo5e6syVzf9JcMvOf4npQVLIQDMu0A
+	C4a6Xs2RoMhBCcUMbbOFNceCeu68w+AOz6pMhefZEqGXIdmSIeO96Wz4qokg78ad9XvVo5jKDR2mU
+	h7XAXseGWRkM2vKeB8vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfGZT-00000005IHh-21J3;
-	Mon, 12 Jan 2026 11:58:55 +0000
-Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfGZR-00000005IHI-1PAM
-	for linux-riscv@lists.infradead.org;
-	Mon, 12 Jan 2026 11:58:54 +0000
-Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-3f9ebb269c3so2915974fac.3
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Jan 2026 03:58:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1768219131; x=1768823931; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/STUq3tlNYx1CRPqYo/MSQ91muzU5RYxKWjoD/GoBRc=;
-        b=gYfmxYmrY1156vW43DX3wR4z03tH52a0QADEh8Yp3Z2lZye/TaPwGSyW2o8RuG9dNE
-         od4R5TKRmoPoJDQvAEjQnHKKcgv7Kfubbko8LIS18H9+cZKieBwKdSBL5PALyOhAZk/o
-         LciLo+pHHuLisINHhh2QjUDcDCIcjs3tEONoTxpcMl5yi+XvdaOnEth5J8sUJrJqxKk2
-         81hOGRVpOWgAMLz8t0/ee9fihB3zf4bbMafIyJgI8plXCUKJyf5XxZoiOqQW0fqB8kQs
-         VempOM/j9gIgkmrRzl/I5PW8P2M+oBa9lKVDX8AMge6o3qvryNL2QhYisIXhtW4AkQhA
-         +aKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768219131; x=1768823931;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=/STUq3tlNYx1CRPqYo/MSQ91muzU5RYxKWjoD/GoBRc=;
-        b=wcBxvnpqKw4cBB6I/nuh+qRtASi9Iq6V6raAnn76UbYsscOcqEYiH1pwn+QPqyYMMT
-         Vm/DhaJC5I1Mo8hsaAUopuefgFh3ajnZrOR2g5DWiFJ/qD94v9gBelZhsvgW8FFf8b4c
-         czidpY5TjNPLkwkw3LH7ORjjq2cS7+vaxO00z9UMgjhSBFkFYE0VYbgijiNy8QqqKMl6
-         M3HtQejIxQ8ots8ajFJ0yDqbAz5SMak+ogvOO5x+Rx59/92p2v9EGPtJxLi/61X2ACwW
-         lOA2iFcAZfc0iIvLfKse/hJGLa71ZRZUYeVgbtZiq6BvCw0LW2gaUl+NNxN4n5dUDWxc
-         yEJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVmMs1WA5o+vemh0gO/JCUQappNSlAhVF11KbV5sGf7FsUYBlIJB+qcjegF2zTbqIcqZTWt8R0aaUL1GA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzb4fYVqAHEci+A8IqawRPkuGa8b2S4Tza0rEExzV6bU36LB8Ig
-	IQo6bn4VdbLcYxtKRWOpz98zSPbmxgE5I9LFLK8po8MM4wPjjZzT66B3iiK3NXylxVZDP1DomBk
-	VZ8JL7V6Mf0mK9sljvV+HnPYiDJO6JUd3NNUCp4bcuA==
-X-Gm-Gg: AY/fxX4gXEz9DTZo4Uw53eeyQrGMoyVsYbMRQ5TJznlsHU3BTr+VluPs2NjJVgBhwIC
-	lpuSxNjxZkOMDFNJALZzBmVd2g2efp8tMsY1Y7MH6m/QNR+K9AycKW3HjzzVcPy1fHnL4bgffYj
-	BZ6LWsykUUN8GHL2biY1SFCAGS8GqPX8J930yhBfYh1aiui8uIAZFEQWSe1oUxFBui3XLqGU12o
-	q3FSrO62cx9V6buoAZmVHBt4zEdBwpWBK1wVClisVHMSp/A/7VUu+m0UMzrHlLmih3OXu7Xpzy4
-	Zq84QyUeqDaWqipULOUFZw1duVPvDgf+sZVZNh1zoJ547JyS84K86Y2DDg==
-X-Google-Smtp-Source: AGHT+IF39t3pEDBTDiz8rtvG2ug4qMAL7z0aOTj1Od1tfioVHcOSk11OADaheOvt4o4y6lBRYQlM3myJcoiNTwzaEUw=
-X-Received: by 2002:a05:6820:625:b0:65f:6705:3f83 with SMTP id
- 006d021491bc7-65f6705421amr5066461eaf.28.1768219130936; Mon, 12 Jan 2026
- 03:58:50 -0800 (PST)
+	id 1vfH0I-00000005KKO-1xrR;
+	Mon, 12 Jan 2026 12:26:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfH0E-00000005KJm-313i;
+	Mon, 12 Jan 2026 12:26:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D88E497;
+	Mon, 12 Jan 2026 04:26:25 -0800 (PST)
+Received: from [10.57.95.123] (unknown [10.57.95.123])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E6C913F59E;
+	Mon, 12 Jan 2026 04:26:27 -0800 (PST)
+Message-ID: <09de87bc-d952-41e7-9657-852c2924aaa7@arm.com>
+Date: Mon, 12 Jan 2026 12:26:26 +0000
 MIME-Version: 1.0
-References: <20260106092117.3727152-1-joshua.yeong@starfivetech.com>
- <20260106092117.3727152-5-joshua.yeong@starfivetech.com> <CABdD5xmVVkQu6rYzF52V-JrsdL=NOQa9N9i8PsMgfaOh3GT-Bg@mail.gmail.com>
-In-Reply-To: <CABdD5xmVVkQu6rYzF52V-JrsdL=NOQa9N9i8PsMgfaOh3GT-Bg@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 12 Jan 2026 17:28:39 +0530
-X-Gm-Features: AZwV_QiG8kGYWz6U6xcjoWbaLPAqYlKLwNkT660rcNE0-IopoQC27BXEnEP-0xA
-Message-ID: <CAAhSdy17NphDM=bgyvM-eNA9DAGku6p56HSXv5hgZh5VmMfE7Q@mail.gmail.com>
-Subject: Re: [PATCH 4/5] cpufreq: Add cpufreq driver for the RISC-V RPMI
- performance service group
-To: Rahul Pathak <rahul@summations.net>
-Cc: Joshua Yeong <joshua.yeong@starfivetech.com>, leyfoon.tan@starfivetech.com, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, pjw@kernel.org, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, rafael@kernel.org, 
-	viresh.kumar@linaro.org, sboyd@kernel.org, jms@oss.tenstorrent.com, 
-	darshan.prajapati@einfochips.com, charlie@rivosinc.com, 
-	dfustini@oss.tenstorrent.com, michal.simek@amd.com, cyy@cyyself.name, 
-	jassisinghbrar@gmail.com, andriy.shevchenko@linux.intel.com, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] randomize_kstack: Unify random source across
+ arches
+Content-Language: en-GB
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Jeremy Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
+References: <20260102131156.3265118-1-ryan.roberts@arm.com>
+ <20260102131156.3265118-4-ryan.roberts@arm.com>
+ <20260104230136.7aaf8886@pumpkin> <20260107140533.2b3c46a1@pumpkin>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260107140533.2b3c46a1@pumpkin>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_035853_481092_A3F58909 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20260112_042634_877523_31D57A4F 
+X-CRM114-Status: GOOD (  40.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,58 +75,189 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKYW4gMTIsIDIwMjYgYXQgNDoxOOKAr1BNIFJhaHVsIFBhdGhhayA8cmFodWxAc3Vt
-bWF0aW9ucy5uZXQ+IHdyb3RlOgo+Cj4gPiArCj4gPiArc3RhdGljIGludCBycG1pX2NwdWZyZXFf
-cHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKPiA+ICt7Cj4gPiArICAgICAgIHN0
-cnVjdCBkZXZpY2UgKmRldiA9ICZwZGV2LT5kZXY7Cj4gPiArICAgICAgIHN0cnVjdCBycG1pX3Bl
-cmYgKm1weHlfcGVyZjsKPiA+ICsgICAgICAgc3RydWN0IHJwbWlfY3R4ICptcHh5X2N0eDsKPiA+
-ICsgICAgICAgaW50IG51bV9kb21haW5zID0gMDsKPiA+ICsgICAgICAgaW50IHJldCwgaTsKPiA+
-ICsKPiA+ICsgICAgICAgbXB4eV9jdHggPSBkZXZtX2t6YWxsb2MoJnBkZXYtPmRldiwgc2l6ZW9m
-KCptcHh5X2N0eCksIEdGUF9LRVJORUwpOwo+ID4gKyAgICAgICBpZiAoIW1weHlfY3R4KQo+ID4g
-KyAgICAgICAgICAgICAgIHJldHVybiAtRU5PTUVNOwo+ID4gKwo+ID4gKyAgICAgICAvKiBTZXR1
-cCBtYWlsYm94IGNsaWVudCAqLwo+ID4gKyAgICAgICBtcHh5X2N0eC0+Y2xpZW50LmRldiAgICAg
-ICAgICAgID0gZGV2Owo+ID4gKyAgICAgICBtcHh5X2N0eC0+Y2xpZW50LnJ4X2NhbGxiYWNrICAg
-ID0gTlVMTDsKPiA+ICsgICAgICAgbXB4eV9jdHgtPmNsaWVudC50eF9ibG9jayAgICAgICA9IGZh
-bHNlOwo+ID4gKyAgICAgICBtcHh5X2N0eC0+Y2xpZW50Lmtub3dzX3R4ZG9uZSAgID0gdHJ1ZTsK
-PiA+ICsgICAgICAgbXB4eV9jdHgtPmNsaWVudC50eF90b3V0ICAgICAgICA9IDA7Cj4gPiArCj4g
-PiArICAgICAgIC8qIFJlcXVlc3QgbWFpbGJveCBjaGFubmVsICovCj4gPiArICAgICAgIG1weHlf
-Y3R4LT5jaGFuID0gbWJveF9yZXF1ZXN0X2NoYW5uZWwoJm1weHlfY3R4LT5jbGllbnQsIDApOwo+
-ID4gKyAgICAgICBpZiAoSVNfRVJSKG1weHlfY3R4LT5jaGFuKSkKPiA+ICsgICAgICAgICAgICAg
-ICByZXR1cm4gUFRSX0VSUihtcHh5X2N0eC0+Y2hhbik7Cj4gPiArCj4gPiArICAgICAgIHJldCA9
-IHJwbWlfY3B1ZnJlcV9hdHRyX3NldHVwKGRldiwgbXB4eV9jdHgpOwo+ID4gKyAgICAgICBpZiAo
-cmV0KSB7Cj4gPiArICAgICAgICAgICAgICAgZGV2X2VycihkZXYsICJmYWlsZWQgdG8gdmVyaWZ5
-IFJQTUkgYXR0cmlidXRlIC0gZXJyOiVkXG4iLCByZXQpOwo+ID4gKyAgICAgICAgICAgICAgIGdv
-dG8gZmFpbF9mcmVlX2NoYW5uZWw7Cj4gPiArICAgICAgIH0KPiA+ICsKPiA+ICsgICAgICAgLyog
-R2V0IG51bWJlciBvZiBwZXJmb3JtYW5jZSBkb21haW4gKi8KPiA+ICsgICAgICAgcmV0ID0gcnBt
-aV9wZXJmX2dldF9udW1fZG9tYWlucyhtcHh5X2N0eCwgJm51bV9kb21haW5zKTsKPiA+ICsgICAg
-ICAgaWYgKHJldCkgewo+ID4gKyAgICAgICAgICAgICAgIGRldl9lcnIoZGV2LCAiaW52YWxpZCBu
-dW1iZXIgb2YgcGVyZiBkb21haW5zIC0gZXJyOiVkXG4iLCByZXQpOwo+ID4gKyAgICAgICAgICAg
-ICAgIGdvdG8gZmFpbF9mcmVlX2NoYW5uZWw7Cj4gPiArICAgICAgIH0KPgo+IFRoZSBkb21haW4g
-c3BhY2UgaW4gUlBNSSBwZXJmb3JtYW5jZSBmb3IgQ1BVIGFuZCBEZXZpY2UKPiBpcyBub3Qgc2Vw
-YXJhdGUgYW5kIGEgZG9tYWluIGNhbiBiZSBlaXRoZXIgQ1BVIG9yIGEgRGV2aWNlLgo+IEhvdyB0
-aGUgZHJpdmVyIHdpbGwgbWFrZSBzdXJlIHRoYXQgdGhlIGRvbWFpbnMgd2hpY2ggYXJlIHJldHVy
-bmVkCj4gYXJlIENQVSBvbmx5IGFuZCBub3QgdGhlIGRldmljZS4KPgo+ID4gK01PRFVMRV9ERVZJ
-Q0VfVEFCTEUob2YsIHJwbWlfY3B1ZnJlcV9vZl9tYXRjaCk7Cj4gPiArCj4gPiArc3RhdGljIHN0
-cnVjdCBwbGF0Zm9ybV9kcml2ZXIgcnBtaV9jcHVmcmVxX3BsYXRkcnYgPSB7Cj4gPiArICAgICAg
-IC5kcml2ZXIgPSB7Cj4gPiArICAgICAgICAgICAgICAgLm5hbWUgPSAicmlzY3YtcnBtaS1wZXJm
-b3JtYW5jZSIsCj4gPiArICAgICAgICAgICAgICAgLm9mX21hdGNoX3RhYmxlID0gcnBtaV9jcHVm
-cmVxX29mX21hdGNoLAo+ID4gKyAgICAgICB9LAo+ID4gKyAgICAgICAucHJvYmUgPSBycG1pX2Nw
-dWZyZXFfcHJvYmUsCj4gPiArICAgICAgIC5yZW1vdmUgPSBycG1pX2NwdWZyZXFfcmVtb3ZlLAo+
-ID4gK307Cj4gPiArCj4gPiArbW9kdWxlX3BsYXRmb3JtX2RyaXZlcihycG1pX2NwdWZyZXFfcGxh
-dGRydik7Cj4gPiArCj4gPiArTU9EVUxFX0FVVEhPUigiSm9zaHVhIFllb25nIDxqb3NodWEueWVv
-bmdAc3RhcmZpdmV0ZWNoLmNvbT4iKTsKPiA+ICtNT0RVTEVfREVTQ1JJUFRJT04oIkNQVUZyZXEg
-RHJpdmVyIGJhc2VkIG9uIFNCSSBNUFhZIGV4dGVuc2lvbiIpOwo+Cj4gTklUOiBDUFVGcmVxIGRy
-aXZlciBiYXNlZCBvbiBTQkkgTVBYWSBleHRlbnNpb24gYW5kIFJQTUkgcHJvdG9jb2wgICAtCj4g
-c29tZXRoaW5nIGxpa2UgdGhpcwoKQ3VycmVudGx5LCB0aGUgbWFpbGJveCBjb250cm9sbGVyIGlz
-IGJhc2VkIG9uIFNCSSBNUFhZIGJ1dCBpbgp0aGUgZnV0dXJlIG1haWxib3ggY29udHJvbGxlciBm
-b3Igc29tZSBvdGhlciBSUE1JIHRyYW5zcG9ydCBjYW4KYWxzbyBzaG93IHVwLgoKSW4gcmVhbGl0
-eSwgdGhlIGRyaXZlciBpcyBvbmx5IFJQTUkgYmFzZWQgc2luY2UgaXQgdXNlcyBtYWlsYm94IEFQ
-SXMuCgpSZWdhcmRzLApBbnVwCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+On 07/01/2026 14:05, David Laight wrote:
+> On Sun, 4 Jan 2026 23:01:36 +0000
+> David Laight <david.laight.linux@gmail.com> wrote:
+> 
+>> On Fri,  2 Jan 2026 13:11:54 +0000
+>> Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>
+>>> Previously different architectures were using random sources of
+>>> differing strength and cost to decide the random kstack offset. A number
+>>> of architectures (loongarch, powerpc, s390, x86) were using their
+>>> timestamp counter, at whatever the frequency happened to be. Other
+>>> arches (arm64, riscv) were using entropy from the crng via
+>>> get_random_u16().
+>>>
+>>> There have been concerns that in some cases the timestamp counters may
+>>> be too weak, because they can be easily guessed or influenced by user
+>>> space. And get_random_u16() has been shown to be too costly for the
+>>> level of protection kstack offset randomization provides.
+>>>
+>>> So let's use a common, architecture-agnostic source of entropy; a
+>>> per-cpu prng, seeded at boot-time from the crng. This has a few
+>>> benefits:
+>>>
+>>>   - We can remove choose_random_kstack_offset(); That was only there to
+>>>     try to make the timestamp counter value a bit harder to influence
+>>>     from user space.
+>>>
+>>>   - The architecture code is simplified. All it has to do now is call
+>>>     add_random_kstack_offset() in the syscall path.
+>>>
+>>>   - The strength of the randomness can be reasoned about independently
+>>>     of the architecture.
+>>>
+>>>   - Arches previously using get_random_u16() now have much faster
+>>>     syscall paths, see below results.
+>>>
+>>> There have been some claims that a prng may be less strong than the
+>>> timestamp counter if not regularly reseeded. But the prng has a period
+>>> of about 2^113. So as long as the prng state remains secret, it should
+>>> not be possible to guess. If the prng state can be accessed, we have
+>>> bigger problems.  
+>>
+>> If you have 128 bits of output from consecutive outputs I think you
+>> can trivially determine the full state using (almost) 'school boy' maths
+>> that could be done on pencil and paper.
+>> (Most of the work only has to be done once.)
+>>
+>> The underlying problem is that the TAUSWORTHE() transformation is 'linear'
+>> So that TAUSWORTHE(x ^ y) == TAUSWORTHE(x) ^ TAUSWORTHE(y).
+>> (This is true of a LFSR/CRC and TOUSWORTH() is doing some subset of CRCs.)
+>> This means that each output bit is the 'xor' of some of the input bits.
+>> The four new 'state' values are just xor of the the bits of the old ones.
+>> The final xor of the four states gives a 32bit value with each bit just
+>> an xor of some of the 128 state bits.
+>> Get four consecutive 32 bit values and you can solve the 128 simultaneous
+>> equations (by trivial substitution) and get the initial state.
+>> The solution gives you the 128 128bit constants for:
+>> 	u128 state = 0;
+>> 	u128 val = 'value returned from 4 calls';
+>> 	for (int i = 0; i < 128; i++)
+>> 		state |= parity(const128[i] ^ val) << i;
+>> You don't need all 32bits, just accumulate 128 bits.  
+>> So if you can get the 5bit stack offset from 26 system calls you know the
+>> value that will be used for all the subsequent calls.
+> 
+> Some of the state bits don't get used, so you only need 123 bits.
+> The stack offset is 6 bits - so you need the values from 19 calls.
+> 
+>> Simply changing the final line to use + not ^ makes the output non-linear
+>> and solving the equations a lot harder.
+>>
+>> I might sit down tomorrow and see if I can actually code it...
+> 
+> Finally done:
+> 
+> #include <stdio.h>
+> #include <unistd.h>
+> #include <fcntl.h>
+> 
+> typedef unsigned int u32;
+> typedef unsigned long long u64;
+> typedef unsigned __int128 u128;
+> 
+> struct rnd_state { u32 s1; u32 s2; u32 s3; u32 s4; };
+> u32 prandom_u32_state(struct rnd_state *state)
+> {
+> #define TAUSWORTHE(s, a, b, c, d) ((s & c) << d) ^ (((s << a) ^ s) >> b)
+>         state->s1 = TAUSWORTHE(state->s1,  6U, 13U, 4294967294U, 18U);
+>         state->s2 = TAUSWORTHE(state->s2,  2U, 27U, 4294967288U,  2U);
+>         state->s3 = TAUSWORTHE(state->s3, 13U, 21U, 4294967280U,  7U);
+>         state->s4 = TAUSWORTHE(state->s4,  3U, 12U, 4294967168U, 13U);
+> 
+>         return (state->s1 ^ state->s2 ^ state->s3 ^ state->s4);
+> }
+> 
+> #define X(n, hi, lo) [n] = (u128)0x##hi << 64 | 0x##lo
+> u128 map[128] = {
+>         X(  1, 23acb122e4a76, e206c3f6fe435cb6),
+> 	...
+>         X(127, 00d3276d8a76a, e560d1975675be24) };
+> 
+> u128 parity_128(u128 v)                 
+> {                               
+>         return __builtin_parityll(v) ^ __builtin_parityll(v >> 64);
+> }
+> 
+> int main(int argc, char **argv)
+> {
+>         struct rnd_state s = {};
+>         u128 s0, v, r = 0;
+> 
+>         read(open("/dev/urandom", O_RDONLY), &s, sizeof s);
+>         // Remove low bits that get masked by the (s & c) term.
+>         s.s1 &= ~1; s.s2 &= ~7; s.s3 &= ~15; s.s4 &= ~127;
+>         s0 = (((u128)s.s4 << 32 | s.s3) << 32 | s.s2) << 32 | s.s1;
+>         v = prandom_u32_state(&s);
+>         v |= (u128)prandom_u32_state(&s) << 32;
+>         v |= (u128)prandom_u32_state(&s) << 64;
+>         v |= (u128)prandom_u32_state(&s) << 96;
+> 
+>         for (int n = 0; n < 128; n++)
+>                 r |= parity_128(v & map[n]) << n;
+> 
+>         printf("%016llx%016llx\n", (u64)(s0 >> 64), (u64)s0);
+>         printf("values%s match\n", r == s0 ? "" : " do not");
+> 
+>         return r != s0;
+> }
+> 
+> I've trimmed the initialiser - it is very boring.
+> The code to create the initialiser is actually slightly smaller than it is.
+> Doable by hand provided you can do 128bit shift and xor without making
+> any mistakes.
+> 
+> I've just done a quick search through the kernel sources and haven't found
+> many uses of prandom_u32_state() outside of test code.
+> There is sched_rng() which uses a per-cpu rng to throw a 1024 sized die.
+> bpf also has a per-cpu one for 'unprivileged user space'.
+> net/sched/sch_netem.c seems to use one - mostly for packet loss generation.
+> 
+> Since the randomize_kstack code is now using a per-task rng (initialised
+> by clone?) that could be used instead of all the others provided they
+> are run when 'current' is valid.
+> 
+> But the existing prandom_u32_state() needs a big health warning that
+> four outputs leak the entire state.
+> That is fixable by changing the last line to:
+>         return state->s1 + state->s2 + state->s3 + state->s4;
+> That only affects the output value, the period is unchanged.
+
+Hi David,
+
+This all seems interesting, but I'm not clear that it is a blocker for this
+series. As I keep saying, we only use 6 bits for offset randmization so it is
+trival to brute force, regardless of how easy it is to recover the prng state.
+
+Perhaps we can decouple these 2 things and make them independent:
+
+ - this series, which is motivated by speeding up syscalls on arm64; given 6
+   bits is not hard to brute force, spending a lot of cycles calculating those
+   bits is unjustified.
+
+ - Your observation that that the current prng could be improved to make
+   recoving it's state harder.
+
+What do you think?
+
+Thanks,
+Ryan
+
+
+> 
+> 	David
+> 
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
