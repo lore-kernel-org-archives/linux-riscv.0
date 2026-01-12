@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BCA5C9EC86
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 12:55:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF94CC9EC82
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 12:55:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=virnbHPljD0H8AGrz9sAA4sp37OTBSX3zH0V/vXPd2I=; b=4aWCL6AlEkBCjY
-	DeLVOnbx4w8jxxc6N6uk6HOptU7146nvjx/p167SJAK+voEa6zchHNpfZe5IPbBwX1eOr+iQGqtl/
-	yXhNckCdkMrDIwdAxjp2vvhWx1CX7sFdJzlIgcGQP0TixwIVjOFGMLDOtOSHPESxGUPjwHrS6uY6x
-	F7HkUyvLEzPvZNE940Ap5oxhjFjwtfq+ljgiN6C7DVUSdTF07TWcQsu0cnlV2ePmJPzvHRpKfym+X
-	rkJHVlVjOzSVRdcdw1cbFLhUUtKNaxhXGZG14XOO+PdzGkksIVh3MDnZc9EDkSDMJXFfQfMu0uswp
-	WLAvQcvVSI/1/kt/94QA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=W3N1CQP+4DeL5Xv6KvLU8I5ycQUAQ570NbcuVK7oMvE=; b=qAD1x8LYBXGBK3
+	vs2ZWQIwrantMPpCiZUbqipfVwmUSPFfQX3d3hOBvnIs2+ZgNMc+oBgKKRpVtI0maIqoSYHDDfIFo
+	4NY4RW9qURsaJV2UVBKtFI17Uh7U0UV2g7kDjFEyIF2zIed3E2q3j71QpAmDma5h/1q/Q1NizrY2k
+	PwDPf0UbI9VhNy5hZ/6D+641BA3Ra0uzPzHUBo/B9fJ0uxsZ7IkDa52FfGL+y1HiOcElR7TlYWpdD
+	kSAatYMIiF+Hj7LIrqqKbjnni5dxG0UQzPG5YoWle8ri+TFbq3dci1PZScEku/dgGDZIXlDQMjgeS
+	601yoMTLUIl+NIYKU0LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfHRu-00000005MDv-3Q5H;
-	Mon, 12 Jan 2026 12:55:10 +0000
+	id 1vfHSH-00000005MKZ-0WlR;
+	Mon, 12 Jan 2026 12:55:33 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfHRs-00000005MD7-2ycn
+	id 1vfHSE-00000005M7O-1u4A
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Jan 2026 12:55:09 +0000
+	Mon, 12 Jan 2026 12:55:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1768222507;
+	s=mimecast20190719; t=1768222483;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rhxkLbdZYuCDIREBJ5aMnl1Pqa4kOCAZc2N2w1wi0pg=;
-	b=TNaknWhJL4CAG/bQRtmyuyEJyucrzaKHl5MfFz/T5nV/cXKdUg1JCutR23d6r3/Spr3kRT
-	mWV3QlMHuIM8CvD3WDQNG9QJ0cswRxVXV/aZZBJ3zbs/kVKuHxPrvTk6fTGHyf6+7zvkU5
-	uxCTyvj2pR0QymHOaOZeAZkXOyfTGmM=
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
- [209.85.218.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=iKF0BzHe4DoMZWSEsankET3G7Dd2Xauwml8GRRGytpc=;
+	b=ExAuEuAcsD1oiA8r9Yl7BNekcNgkIKmQtIE8zH9/BypO8czs/3fY0SNw6a79zW5e+xjikT
+	gu/e5Ty8DvhTaBun7GfH/D/Nr3gHR+xVD/+UMBPiuInl9d+gct7Y3X/WwQsg5ySZSwa6nq
+	qp0XX+QhRSf1rNwuaT/I1kL7AssxDdM=
+Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com
+ [209.85.218.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-296-sxus7SeZOLauba7IMpsUbg-1; Mon, 12 Jan 2026 07:54:59 -0500
-X-MC-Unique: sxus7SeZOLauba7IMpsUbg-1
-X-Mimecast-MFC-AGG-ID: sxus7SeZOLauba7IMpsUbg_1768222498
-Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-b872c88d115so44149166b.2
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Jan 2026 04:54:59 -0800 (PST)
+ us-mta-532-z8be0owqNA6Hguu2rahxjQ-1; Mon, 12 Jan 2026 07:54:42 -0500
+X-MC-Unique: z8be0owqNA6Hguu2rahxjQ-1
+X-Mimecast-MFC-AGG-ID: z8be0owqNA6Hguu2rahxjQ_1768222481
+Received: by mail-ej1-f69.google.com with SMTP id a640c23a62f3a-b844098869cso649593066b.2
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Jan 2026 04:54:41 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768222498; x=1768827298;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=rhxkLbdZYuCDIREBJ5aMnl1Pqa4kOCAZc2N2w1wi0pg=;
-        b=nu+TCi4a0TvlBrjZlpf+9KPoaxrILawdid7yCP1OCqaHNkGfM4MMITbM1vaY9W2O0v
-         oLAtBtE3XtRBOhi4fD0vqVF9+aWNo1O9rlEQY1kR2iJ0ahAiFvZVNXcOvUjr35mHaCrX
-         CCSb/BaAMuNA0MX9OCNq0VtzlpCRjlyX+QNqXj6GDkj/cB8Z03vicFXo3S1JnX1svB2A
-         azuqLtJyPmajSjj0cdIV/nH6LsILQypfS98lUE7VlkNFA52uc0sGchRKilAMnQME5NZ5
-         FGiR3tZB+7Lqx93/DDOf0WFy4Y7vsnghxQ09GgxqVvJ+jPlZVzEeGUk4ekmRcz0qBMiC
-         8o6A==
-X-Forwarded-Encrypted: i=1; AJvYcCXYC1Ca46/bFKPIoT3JB6DNZORq5AWJwpw7v2t/jHR+w+0wslULCHwRBdq9C4OZ3m/hEXupYZNZYe/VZQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBrWarK+CKhRc8SVM9Injq3/t9PT2a82I9/oDy+EpLzRvNdDZ5
-	GZpzWVfyS2in6Oo3wqtv4JhDoE0fUJeD1Mp0k9z8nbEyAguP+KA6Fa8IMe6zdPhzQsNvAKiCLgT
-	sncmO9DufA63dEB+AyGq71Y1eIcqjh4ttFTWU12n0kpgeBPcHR6nXT72UuSHoXxkluhsoLQ==
-X-Gm-Gg: AY/fxX5cSoLOHvdGrmxBt8mTStgsDqJx+lttWmi0Wg/HcIYRypCpzdO8aqcp0iftt9l
-	IUslW5tH+3s3RPfqsdJuIK9CPC+7AIY/rFpqn+phzpvHwK272g086KtYvx24mFn+7/5NRTOjSDJ
-	AnJ0F5UsXXNoT4KNHadF1RSJYzj1lk0oPboIyTSMPXQqDi+KdwWj5Huj8v+ybnlJNlT3wnxrz+F
-	fTw76E/ePIhPyWFk5KSdL41zmgmxRE68PNw9T+zFOLKPAvZIeqq90d1xI826CXcWEqBHCjg6+o4
-	XZK8HtytIz6/34Ni5SI04OPh6YnGpjnSJpDflVWpXQeU74ADlsPtMR2qeAW7f/csf9K19ImiDqe
-	tnAraAR+FFwb6PEHJFmo+rLVefVdpR5gUT6JY8QU+1KTphwQVyFi55oHYtXE=
-X-Received: by 2002:a17:907:26c7:b0:b73:a2ce:540f with SMTP id a640c23a62f3a-b8444c80f04mr1718743766b.17.1768222498460;
-        Mon, 12 Jan 2026 04:54:58 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHPr3dIgVWRsuP91OEnws2gf/Ukq1HmhAKZbz1wMFay2J0zyGKodjzzWjXpSeXa764C1KXgRg==
-X-Received: by 2002:a17:907:26c7:b0:b73:a2ce:540f with SMTP id a640c23a62f3a-b8444c80f04mr1718740366b.17.1768222497991;
-        Mon, 12 Jan 2026 04:54:57 -0800 (PST)
+        d=1e100.net; s=20230601; t=1768222481; x=1768827281;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iKF0BzHe4DoMZWSEsankET3G7Dd2Xauwml8GRRGytpc=;
+        b=qNVNtf5+QmHunBBgHPxBekDD9Jk1Rdm23usI6c14kcN/TaAm6PtPO+SyOKTqDYJbBs
+         WMtRg83a9GWoZpOjUdId7O0EWwqxLSjJGxKMz/PfW7k4nQwz1z4aBg1lHDB5ag+Yajbb
+         F7PVgEiU03qFwGhyuSWkXmw1bAXSwDXDZ6XNxU00YWlFEDCKSVU3pjTDjKrQoI7voz3p
+         a6rbNzqeZVoh6+Bc1kIYbHXxci06gcSN5XcPwVEMHb/F/T/aoRkNXLg0MnfIMZxtwDMo
+         y1A19tq7K+5oN7NwNMFb47hw8EVyjKmfutFzZkow8DxyyrklY1qyIwQ7NwbE9CDKs9IH
+         l1FA==
+X-Forwarded-Encrypted: i=1; AJvYcCUTjHMEELrEHiG/lPZ+BD9BUo+guDm5kbChUOfkOORupCHZEv8FvykUwTwg5dmkx6vC6gm+c8VWcse+4w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpMDPWDOZ54awYcoLnDAaepsd3IBYDVZJG7BS9W2UW5M5Ki+80
+	IdPt4UDVqRYx/aDRRrQxcCb2nAaNHBM/IFZtQLbiG/usxlHn+qItkOUXLT8VqHoWYfMX4WjkQ38
+	nQJMqVeH5mOMlQwFkc5JJCWv96NBR7c2ZdEaUiNBjfL70bCBRyPG6fvQLTuZfC++AmTMxhg==
+X-Gm-Gg: AY/fxX6O0qnhKQPC+RM6xIb5ds48cVI63+lWvfFXGELVy8vQ2CjqjBlJaXRy+ktoNbL
+	zXhA5PtSNqV9cAEyOhq3l9dgV3QMiKud/4l2nrkhSd2Ckf/XqrHBtPiBiqCZkhzUpIAtHxsv70B
+	AQVzftFXjYJfCM6hhrSJIqVeUcoGx+ZXXmlLUn243QlZNHHFXkZ3vAa62Q3G2PAh9acgt02F204
+	ewWZMj2OiGRHyJNIKKs6YiIRvKsNa3ePQu8xBrRiUkIMg2ZD9NSUad/QP78bJS+ro9q6ZxHUfNY
+	ZnVL1K+dKfxDty3gI6kXFrGU8GRwZuxpqWFhpasyuM0lF6BBZELILxJGHujt0v9ensxCoQq3kSS
+	gqWwjamqdEXtQSQqMt2lW+/pxiM6JokN+Ik8GPnpgBrhmMdi7sY4kYbGSuiU=
+X-Received: by 2002:a17:907:a4a:b0:b83:8f35:773b with SMTP id a640c23a62f3a-b844501e49emr1772457066b.54.1768222480786;
+        Mon, 12 Jan 2026 04:54:40 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGSZz6AlBAsyDbYMyXJssyt5r14tT5j/dhOjPD0uwwtT32eYJd5F4wjSbE4zxf083DcjrlpEg==
+X-Received: by 2002:a17:907:a4a:b0:b83:8f35:773b with SMTP id a640c23a62f3a-b844501e49emr1772452766b.54.1768222480270;
+        Mon, 12 Jan 2026 04:54:40 -0800 (PST)
 Received: from lbulwahn-thinkpadx1carbongen12.rmtde.csb ([2a02:810d:7e01:ef00:ff56:9b88:c93b:ed43])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8706c2604bsm497062466b.16.2026.01.12.04.54.56
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8706c2604bsm497062466b.16.2026.01.12.04.54.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Jan 2026 04:54:57 -0800 (PST)
+        Mon, 12 Jan 2026 04:54:39 -0800 (PST)
 From: Lukas Bulwahn <lbulwahn@redhat.com>
 X-Google-Original-From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
 To: "David S . Miller" <davem@davemloft.net>,
@@ -106,19 +105,17 @@ Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
 	kernel-janitors@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Lukas Bulwahn <lukas.bulwahn@redhat.com>
-Subject: [RFC PATCH 5/5] s390/configs: replace deprecated NF_LOG configs by NF_LOG_SYSLOG
-Date: Mon, 12 Jan 2026 13:54:31 +0100
-Message-ID: <20260112125432.61218-6-lukas.bulwahn@redhat.com>
+Subject: [RFC PATCH 0/5] net: make config options NF_LOG_{ARP,IPV4,IPV6} transitional
+Date: Mon, 12 Jan 2026 13:54:26 +0100
+Message-ID: <20260112125432.61218-1-lukas.bulwahn@redhat.com>
 X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260112125432.61218-1-lukas.bulwahn@redhat.com>
-References: <20260112125432.61218-1-lukas.bulwahn@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: uENVFhw81o1av_auPeaR620gjB8xg32-YOz9mHVDsjM_1768222498
+X-Mimecast-MFC-PROC-ID: l9BEFZYVmYoTPkEXg8IfPqM56xRcefTQUW1QiFHyPIM_1768222481
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_045508_820358_35287A71 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20260112_045530_565996_5D40E339 
+X-CRM114-Status: GOOD (  23.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,61 +132,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+Hi,
 
-The config options NF_LOG_{ARP,IPV4,IPV6} are deprecated and they only
-exist to ensure that older kernel configurations would enable the
-replacement config option NF_LOG_SYSLOG. To step towards eventually
-removing the definitions of these deprecated config options from the kernel
-tree, update the s390 kernel configurations to set NF_LOG_SYSLOG and drop
-the deprecated config options.
+This RFC patch series makes the config options NF_LOG_{ARP,IPV4,IPV6}
+transitional. Recently, Kees Cook added a feature to kconfig to assist
+transitioning deprecated config options. Here is a first RFC patch to apply
+this feature for NF_LOG_{ARP,IPV4,IPV6}.
 
-Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
----
- arch/s390/configs/debug_defconfig | 2 +-
- arch/s390/configs/defconfig       | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+The plan is to mark all deprecated config options in net transitional, and
+update the kernel configurations in the kernel tree to not use those
+transitional config options. Then we leave these transitional config
+options for a year or two to allow users that only update from one LTS to
+the next to see that these config options are deprecated. After such a
+grace period, we can finally drop these transitional config options.
 
-diff --git a/arch/s390/configs/debug_defconfig b/arch/s390/configs/debug_defconfig
-index 4be3a7540909..93721ca340c1 100644
---- a/arch/s390/configs/debug_defconfig
-+++ b/arch/s390/configs/debug_defconfig
-@@ -176,6 +176,7 @@ CONFIG_NETFILTER=y
- CONFIG_BRIDGE_NETFILTER=m
- CONFIG_NETFILTER_NETLINK_HOOK=m
- CONFIG_NF_CONNTRACK=m
-+CONFIG_NF_LOG_SYSLOG=m
- CONFIG_NF_CONNTRACK_SECMARK=y
- CONFIG_NF_CONNTRACK_ZONES=y
- CONFIG_NF_CONNTRACK_PROCFS=y
-@@ -327,7 +328,6 @@ CONFIG_IP_VS_FTP=m
- CONFIG_IP_VS_PE_SIP=m
- CONFIG_NFT_FIB_IPV4=m
- CONFIG_NF_TABLES_ARP=y
--CONFIG_NF_LOG_IPV4=m
- CONFIG_IP_NF_IPTABLES=m
- CONFIG_IP_NF_MATCH_AH=m
- CONFIG_IP_NF_MATCH_ECN=m
-diff --git a/arch/s390/configs/defconfig b/arch/s390/configs/defconfig
-index c064e0cacc98..7750f333a1ac 100644
---- a/arch/s390/configs/defconfig
-+++ b/arch/s390/configs/defconfig
-@@ -167,6 +167,7 @@ CONFIG_NETFILTER=y
- CONFIG_BRIDGE_NETFILTER=m
- CONFIG_NETFILTER_NETLINK_HOOK=m
- CONFIG_NF_CONNTRACK=m
-+CONFIG_NF_LOG_SYSLOG=m
- CONFIG_NF_CONNTRACK_SECMARK=y
- CONFIG_NF_CONNTRACK_ZONES=y
- CONFIG_NF_CONNTRACK_PROCFS=y
-@@ -318,7 +319,6 @@ CONFIG_IP_VS_FTP=m
- CONFIG_IP_VS_PE_SIP=m
- CONFIG_NFT_FIB_IPV4=m
- CONFIG_NF_TABLES_ARP=y
--CONFIG_NF_LOG_IPV4=m
- CONFIG_IP_NF_IPTABLES=m
- CONFIG_IP_NF_MATCH_AH=m
- CONFIG_IP_NF_MATCH_ECN=m
+This patch series is the manifestation of that plan for the three
+deprecated options NF_LOG_{ARP,IPV4,IPV6}. If there is general agreement
+that this is how deprecated config options are to be handled, then please
+apply the patches 1 and 2 to the net-next tree.
+
+Note that for the time being, as there is no dedicated kernel-wide Kconfig
+file for collecting transitional config options right now, so simply adding
+them at the end of the net/Kconfig file seems the best choice for now. 
+
+The patches 3, 4 and 5 are added here to understand the complete treewide
+change to transition the deprecated config options; I expect the patches
+3, 4 and 5 to be applied by the corresponding arch maintainers, though.
+Note that all patches in this series can be applied independently from each
+other without causing any regression, i.e., if any patch 2 to 5 is applied
+without patch 1, the resulting kernel configurations still enable the same
+functionality as before as well as with patch 1 applied.
+
+Once the general approach and patches are accepted, I plan to send some
+further patch series to transition more net config options. My current
+investigation identified that these further config options in net can be
+transitioned:
+
+  IP_NF_MATCH_ECN -> NETFILTER_XT_MATCH_ECN
+  IP_NF_MATCH_TTL -> NETFILTER_XT_MATCH_HL
+  IP_NF_TARGET_MASQUERADE -> NETFILTER_XT_TARGET_MASQUERADE
+  IP_NF_TARGET_NETMAP -> NETFILTER_XT_TARGET_NETMAP
+  IP_NF_TARGET_REDIRECT -> NETFILTER_XT_TARGET_REDIRECT
+  IP_NF_TARGET_TTL -> NETFILTER_XT_TARGET_HL
+  NETFILTER_XT_TARGET_CONNMARK -> NETFILTER_XT_CONNMARK
+  NETFILTER_XT_TARGET_MARK -> NETFILTER_XT_MARK
+
+
+Lukas
+
+
+Lukas Bulwahn (5):
+  net: make configs NF_LOG_{ARP,IPV4,IPV6} transitional
+  selftests: net: replace deprecated NF_LOG configs by NF_LOG_SYSLOG
+  m68k: defconfig: replace deprecated NF_LOG configs by NF_LOG_SYSLOG
+  riscv: defconfig: replace deprecated NF_LOG configs by NF_LOG_SYSLOG
+  s390/configs: replace deprecated NF_LOG configs by NF_LOG_SYSLOG
+
+ arch/m68k/configs/amiga_defconfig            |  3 +--
+ arch/m68k/configs/apollo_defconfig           |  3 +--
+ arch/m68k/configs/atari_defconfig            |  3 +--
+ arch/m68k/configs/bvme6000_defconfig         |  3 +--
+ arch/m68k/configs/hp300_defconfig            |  3 +--
+ arch/m68k/configs/mac_defconfig              |  3 +--
+ arch/m68k/configs/multi_defconfig            |  3 +--
+ arch/m68k/configs/mvme147_defconfig          |  3 +--
+ arch/m68k/configs/mvme16x_defconfig          |  3 +--
+ arch/m68k/configs/q40_defconfig              |  3 +--
+ arch/m68k/configs/sun3_defconfig             |  3 +--
+ arch/m68k/configs/sun3x_defconfig            |  3 +--
+ arch/riscv/configs/defconfig                 |  4 +---
+ arch/s390/configs/debug_defconfig            |  2 +-
+ arch/s390/configs/defconfig                  |  2 +-
+ net/Kconfig                                  | 21 ++++++++++++++++++++
+ net/ipv4/netfilter/Kconfig                   | 16 ---------------
+ net/ipv6/netfilter/Kconfig                   |  8 --------
+ net/netfilter/Kconfig                        |  1 +
+ tools/testing/selftests/net/netfilter/config |  3 +--
+ 20 files changed, 38 insertions(+), 55 deletions(-)
+
 -- 
 2.52.0
 
