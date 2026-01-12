@@ -4,217 +4,234 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77E69D46617
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D675D46624
 	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 20:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=la6SflDedRRScSY/evRD0XquchOrDN7JdPWM0sdfTeo=; b=mw83kO472TdmLO
-	8JFNFDhCqyunYhfy5I7H8psM7wQTsGhYoIrpj5IjEvX9BoCCHgRokc0+HS7X6mFzQWTQhSSWHzIM6
-	PE1yz3PzbZdFoCp54nGT9vFPFunk5HFI/WIsRSnmnRNg7umKCqEiC9kZmTpE4TRoZr51FXRmocqtt
-	iFYG8ZuMLSiX18bC/FBe/Ir9fJ6uJjJNDz8gy4lrSNa2//H2nW/H6i7uucWny+NgYH99dEQbUBpcc
-	2c1vOoRdlQ/Fa/wYw9HI7yLinUSLoFzP9R2bja588gyFpNN6BqQi6xWe0QOWhzF3hNzFGgMWZADAs
-	ICogkzQJGgHcJpsen3yw==;
+	List-Owner; bh=JBIn2I7OVRlmpXAmm4BUY2Hs5D5sm/SBcK9jGmnDTKs=; b=NO/jMfKFVtShcv
+	OqIISDHc42Q87zpn0D/vKkStR+Omp5rR8OFEQ4/hG/MQbys1RtOV80JAutb2dQdzD6GrNlT8y9xnp
+	P9CqbV4lw3FUAW6msI9h7/X6XI8sZSLTJNaXKp67G15H/NGjgr6IH6FzzoQHbvNh2vPdzF1m1VwA/
+	rsG8vhr+wHe9Tv67RbpLBsAtSWZYnxOBx+70tnG+0fNmSiOPziW+W3ycqXGsXgJlPzu69gayeu0uj
+	VBgkClrtdqPYyswL8KPx1teGXlHGV9vUyiinAoHYgkz6HMo0GFvGnDGluPJAoSRLeyuqWWm3e7a3P
+	VwLxxNK54OcVq807ONkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgU1h-0000000D8nq-1gYz;
-	Thu, 15 Jan 2026 20:33:05 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1vgU1k-0000000D8qo-0iOi;
+	Thu, 15 Jan 2026 20:33:08 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdweV-00000000po9-0vlT;
-	Thu, 08 Jan 2026 20:30:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1767904239; x=1799440239;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=XvoZK5lpHEsYrhjI8crr80zdiNNDdAfxUb3SyVtNmXE=;
-  b=AlAWo/hIO7dCiuuXANUNQGeN+KnhG0VrnbYWAGzvl19n0hTolJUy2sEi
-   Uiq0OHXhPbnrRPGN2mNP9INZVuE2xDutTnZuNzpI+UUr2Mlo7k4aUoJI/
-   fcML/7n8/6A2utxJGrrIo6vaYWN9eLmJRCuP8YPQeOqY6JVnf0FTTfZQR
-   iLRm4M9g3vQHpazSFG5isPb2YIMpm9tkuV/KdsvO9GUq7th54O+rQQQ3R
-   voMQMscpL3XyMsFGO9W/7qWVhT7dD7xwYJpqzluoktSXBU2CYQCWAeTy6
-   8H0zP7ckRVoDyuYuUPZ1Feg41LYo7ymimS3Nnkpeh9ppj/elGRy5WbgjG
-   A==;
-X-CSE-ConnectionGUID: 7MCL+0/kSoaox5XtIMHaoA==
-X-CSE-MsgGUID: YTTcZ2OgQRCsSnwTofyGAw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11665"; a="80737692"
-X-IronPort-AV: E=Sophos;i="6.21,211,1763452800"; 
-   d="scan'208";a="80737692"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2026 12:30:37 -0800
-X-CSE-ConnectionGUID: iWeoV+s2TmetS2UQtrQxIA==
-X-CSE-MsgGUID: 9CdsA1lwQjemwB4DZQd1hg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,211,1763452800"; 
-   d="scan'208";a="208135934"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa004.fm.intel.com with ESMTP; 08 Jan 2026 12:30:28 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id 715939D; Thu, 08 Jan 2026 21:30:19 +0100 (CET)
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Mark Brown <broonie@kernel.org>,
-	Varshini Rajendran <varshini.rajendran@microchip.com>,
-	Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sunny Luo <sunny.luo@amlogic.com>,
-	Janne Grunau <j@jannau.net>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>,
-	CL Wang <cl634@andestech.com>,
-	Manikandan Muralidharan <manikandan.m@microchip.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonas Gorski <jonas.gorski@gmail.com>,
-	Hang Zhou <929513338@qq.com>,
-	Jun Guo <jun.guo@cixtech.com>,
-	Philipp Stanner <phasta@kernel.org>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	=?UTF-8?q?Beno=C3=AEt=20Monin?= <benoit.monin@bootlin.com>,
-	Shiji Yang <yangshiji66@outlook.com>,
-	James Clark <james.clark@linaro.org>,
-	Jonathan Marek <jonathan@marek.ca>,
-	Carlos Song <carlos.song@nxp.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Xianwei Zhao <xianwei.zhao@amlogic.com>,
-	Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>,
-	Sergio Perez Gonzalez <sperezglz@gmail.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Qianfeng Rong <rongqianfeng@vivo.com>,
-	Haibo Chen <haibo.chen@nxp.com>,
-	Gabor Juhos <j4g8y7@gmail.com>,
-	Md Sadre Alam <quic_mdalam@quicinc.com>,
-	Rosen Penev <rosenp@gmail.com>,
-	Luis de Arquer <luis.dearquer@inertim.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Cosmin Tanislav <cosmin-gabriel.tanislav.xa@renesas.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Longbin Li <looong.bin@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	=?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <clement.legoffic@foss.st.com>,
-	Alessandro Grassi <alessandro.grassi@mailbox.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Darshan R <rathod.darshan.0896@gmail.com>,
-	Aaron Kling <webgeek1234@gmail.com>,
-	Vishwaroop A <va@nvidia.com>,
-	Haixu Cui <quic_haixcui@quicinc.com>,
-	Darshan Rathod <darshanrathod475@gmail.com>,
-	linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-amlogic@lists.infradead.org,
-	asahi@lists.linux.dev,
-	linux-aspeed@lists.ozlabs.org,
-	openbmc@lists.ozlabs.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-sound@vger.kernel.org,
-	patches@opensource.cirrus.com,
-	imx@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	virtualization@lists.linux.dev
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ray Liu <ray.liu@airoha.com>,
-	Sven Peter <sven@kernel.org>,
-	Neal Gompa <neal@gompa.dev>,
-	=?UTF-8?q?C=C3=A9dric=20Le=20Goater?= <clg@kaod.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Ryan Wanner <ryan.wanner@microchip.com>,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Kamal Dasu <kamal.dasu@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	William Zhang <william.zhang@broadcom.com>,
-	Kursad Oney <kursad.oney@broadcom.com>,
-	Anand Gore <anand.gore@broadcom.com>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
-	David Rhodes <david.rhodes@cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Jean-Marie Verdun <verdun@hpe.com>,
-	Nick Hawkins <nick.hawkins@hpe.com>,
-	Yang Shen <shenyang39@huawei.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Lixu Zhang <lixu.zhang@intel.com>,
-	Yinbo Zhu <zhuyinbo@loongson.cn>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>,
-	Patrick Venture <venture@google.com>,
-	Nancy Yuen <yuenn@google.com>,
-	Benjamin Fair <benjaminfair@google.com>,
-	Han Xu <han.xu@nxp.com>,
-	Yogesh Gaur <yogeshgaur.83@gmail.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Chris Packham <chris.packham@alliedtelesis.co.nz>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Li-hao Kuo <lhjeff911@gmail.com>,
-	Masahisa Kojima <masahisa.kojima@linaro.org>,
-	Jassi Brar <jaswinder.singh@linaro.org>,
-	Laxman Dewangan <ldewangan@nvidia.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Sowjanya Komatineni <skomatineni@nvidia.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	=?UTF-8?q?Jonathan=20Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>,
-	Michal Simek <michal.simek@amd.com>,
-	Max Filippov <jcmvbkbc@gmail.com>
-Subject: [PATCH v1 4/4] spi: Drop duplicate device_set_node() call
-Date: Thu,  8 Jan 2026 21:23:41 +0100
-Message-ID: <20260108203004.3538449-5-andriy.shevchenko@linux.intel.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260108203004.3538449-1-andriy.shevchenko@linux.intel.com>
-References: <20260108203004.3538449-1-andriy.shevchenko@linux.intel.com>
+	id 1vfC63-00000004rH2-2Olq;
+	Mon, 12 Jan 2026 07:12:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DiWjBw3NhX4cyS3lnH2JMD74N88jVMZeCHcUNTZ8zdAZq22MkAmlEy+wDn4fUqyzXbF8hhpiARDecpRSi+0gmlPdNLfrVIiAZ/HoP9cwDCD0WKlNz52Giz93YAC8RRZ9O5CgOgehwCvH7QZ1Satd0zchZpRTN2jzQPbm6KJ7wLTfDMwbk3Cr+Zo8hrLEIaKkC49M4gMAovVCSepFEL5dvpE3pkKRekOXmxgSeFORVYXy9BF0kgFJ1UHVl7tnh4b8swEhccsMePQ4n4DRm+E37Q9S8N/Yat8ObtRmqhXmd7QHmDKJk1SCRb5icIOyDKrDe/2XQw1ZKNitgOEwu0vhTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5sUtyRzyU2X/5L8qtvUfjHP+2SVXxP81mWDh1Of6sls=;
+ b=bV5+glcNenM4PLDhrF7n5PnEJaopUOIuXyx5YBokvhqC3SNaXqGN4BI7tdgs+RgeNdrKsGKHEywf3ReINzXlWWA2KJ1N2zZ5tUtWgsRZ4sJRw6Z+zHlc+JgfU3tl8KuMS8wxeruIT/RK19BdgTFgrmRUb+NXoK02kzGRuOFOJA2Cd6OHIzFOlB6G/nz/Y0jnDPYMkWyuXjzQDR8mwkhm/WoB0XmC0GsM65T9Q2arK9fFVr5WwgRWOnYrK1HgP8lWH6BFk08FSTWZlM0Nu48Lz2FIKZmE3fnbYEC4yZzsWJCr062agUgskdXTKLZ4qLU27oyg9gC/5BuyTOqIY0ym4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5sUtyRzyU2X/5L8qtvUfjHP+2SVXxP81mWDh1Of6sls=;
+ b=JWMiwXzNiqiOjlBD+gmAlAWXLcpT4kC4lRUGBL4iAJAF3opUQxylUVz2aB5dST+coYssMF5Fh6RgICWhlnG+eI9u/GR29pvJIEWZHly6urfoSrIaiMVHn5qkomUIbjGlNigrb4JnG8Dn2pimUVEb51h3qEksdlxylLVWM9uGu3u7ePfoQ1DuDbl/eqM4qd4vSl/37dZgqYgxzeetI+eJ6iUoYdn81VKto5ObDIYHOAJzvXJVtBwqxWzndSq3+kIrQBFLjJuZmtNUZEtkS4x3KqbTkz8TBhiErzrB7G16Ib0Eygv03/ufay4bu+fBX/KkM/FGCjuqSEnRWkNoXybo5A==
+Received: from DU7P250CA0026.EURP250.PROD.OUTLOOK.COM (2603:10a6:10:54f::9) by
+ VI1PR10MB3197.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:803:13c::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Mon, 12 Jan
+ 2026 07:12:04 +0000
+Received: from DU2PEPF00028D03.eurprd03.prod.outlook.com
+ (2603:10a6:10:54f:cafe::f) by DU7P250CA0026.outlook.office365.com
+ (2603:10a6:10:54f::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.7 via Frontend Transport; Mon,
+ 12 Jan 2026 07:12:04 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DU2PEPF00028D03.mail.protection.outlook.com (10.167.242.187) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.1 via Frontend Transport; Mon, 12 Jan 2026 07:12:02 +0000
+Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 12 Jan
+ 2026 08:13:26 +0100
+Received: from [10.48.86.129] (10.48.86.129) by STKDAG1NODE1.st.com
+ (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 12 Jan
+ 2026 08:11:57 +0100
+Message-ID: <faacf28a-7877-4500-9c2f-f60589462ed5@foss.st.com>
+Date: Mon, 12 Jan 2026 08:11:56 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 2/4] spi: Drop duplicate of_node assignment
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mark Brown
+	<broonie@kernel.org>, Varshini Rajendran <varshini.rajendran@microchip.com>,
+	Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>, "AngeloGioacchino Del
+ Regno" <angelogioacchino.delregno@collabora.com>, Sunny Luo
+	<sunny.luo@amlogic.com>, Janne Grunau <j@jannau.net>, Chin-Ting Kuo
+	<chin-ting_kuo@aspeedtech.com>, CL Wang <cl634@andestech.com>, "Manikandan
+ Muralidharan" <manikandan.m@microchip.com>, David Lechner
+	<dlechner@baylibre.com>, Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jonas Gorski <jonas.gorski@gmail.com>, Hang Zhou <929513338@qq.com>, Jun Guo
+	<jun.guo@cixtech.com>, Philipp Stanner <phasta@kernel.org>, Charles Keepax
+	<ckeepax@opensource.cirrus.com>, Bartosz Golaszewski <brgl@kernel.org>,
+	=?UTF-8?Q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, Shiji Yang
+	<yangshiji66@outlook.com>, James Clark <james.clark@linaro.org>, "Jonathan
+ Marek" <jonathan@marek.ca>, Carlos Song <carlos.song@nxp.com>, Sakari Ailus
+	<sakari.ailus@linux.intel.com>, Huacai Chen <chenhuacai@kernel.org>, "Xianwei
+ Zhao" <xianwei.zhao@amlogic.com>, Prajna Rajendra Kumar
+	<prajna.rajendrakumar@microchip.com>, Sergio Perez Gonzalez
+	<sperezglz@gmail.com>, Miquel Raynal <miquel.raynal@bootlin.com>, "Qianfeng
+ Rong" <rongqianfeng@vivo.com>, Haibo Chen <haibo.chen@nxp.com>, Gabor Juhos
+	<j4g8y7@gmail.com>, Md Sadre Alam <quic_mdalam@quicinc.com>, Rosen Penev
+	<rosenp@gmail.com>, Luis de Arquer <luis.dearquer@inertim.com>, "Geert
+ Uytterhoeven" <geert+renesas@glider.be>, Cosmin Tanislav
+	<cosmin-gabriel.tanislav.xa@renesas.com>, Tudor Ambarus
+	<tudor.ambarus@linaro.org>, Krzysztof Kozlowski <krzk@kernel.org>, Longbin Li
+	<looong.bin@gmail.com>, =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?=
+	<clement.legoffic@foss.st.com>, Alessandro Grassi
+	<alessandro.grassi@mailbox.org>, Chen-Yu Tsai <wens@kernel.org>, Darshan R
+	<rathod.darshan.0896@gmail.com>, Aaron Kling <webgeek1234@gmail.com>,
+	Vishwaroop A <va@nvidia.com>, Haixu Cui <quic_haixcui@quicinc.com>, "Darshan
+ Rathod" <darshanrathod475@gmail.com>, <linux-spi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-amlogic@lists.infradead.org>, <asahi@lists.linux.dev>,
+	<linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
+	<linux-rpi-kernel@lists.infradead.org>, <linux-sound@vger.kernel.org>,
+	<patches@opensource.cirrus.com>, <imx@lists.linux.dev>,
+	<linux-arm-msm@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-rockchip@lists.infradead.org>,
+	<linux-renesas-soc@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>, <linux-sunxi@lists.linux.dev>,
+	<linux-tegra@vger.kernel.org>, <virtualization@lists.linux.dev>
+CC: Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Lorenzo Bianconi <lorenzo@kernel.org>, Ray Liu <ray.liu@airoha.com>, "Sven
+ Peter" <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	=?UTF-8?Q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>, Joel Stanley
+	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Ryan Wanner
+	<ryan.wanner@microchip.com>, Michael Hennerich
+	<michael.hennerich@analog.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+	<nuno.sa@analog.com>, Kamal Dasu <kamal.dasu@broadcom.com>, "Broadcom
+ internal kernel review list" <bcm-kernel-feedback-list@broadcom.com>, Ray Jui
+	<rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, William Zhang
+	<william.zhang@broadcom.com>, Kursad Oney <kursad.oney@broadcom.com>, "Anand
+ Gore" <anand.gore@broadcom.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?=
+	<rafal@milecki.pl>, David Rhodes <david.rhodes@cirrus.com>, "Richard
+ Fitzgerald" <rf@opensource.cirrus.com>, Vladimir Oltean <olteanv@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>, Jean-Marie Verdun <verdun@hpe.com>, Nick Hawkins
+	<nick.hawkins@hpe.com>, Yang Shen <shenyang39@huawei.com>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	"Lixu Zhang" <lixu.zhang@intel.com>, Yinbo Zhu <zhuyinbo@loongson.cn>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
+	<martin.blumenstingl@googlemail.com>, Conor Dooley
+	<conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>, Avi Fishman
+	<avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, Tali Perry
+	<tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, Nancy Yuen
+	<yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, Han Xu
+	<han.xu@nxp.com>, Yogesh Gaur <yogeshgaur.83@gmail.com>, Linus Walleij
+	<linusw@kernel.org>, Daniel Mack <daniel@zonque.org>, Haojian Zhuang
+	<haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, "Chris
+ Packham" <chris.packham@alliedtelesis.co.nz>, Heiko Stuebner
+	<heiko@sntech.de>, Fabrizio Castro <fabrizio.castro.jz@renesas.com>, "Andi
+ Shyti" <andi.shyti@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, "Paul
+ Walmsley" <pjw@kernel.org>, Samuel Holland <samuel.holland@sifive.com>,
+	"Orson Zhai" <orsonzhai@gmail.com>, Baolin Wang
+	<baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, Alain Volmat <alain.volmat@foss.st.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Li-hao Kuo <lhjeff911@gmail.com>,
+	Masahisa Kojima <masahisa.kojima@linaro.org>, Jassi Brar
+	<jaswinder.singh@linaro.org>, "Laxman Dewangan" <ldewangan@nvidia.com>,
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter
+	<jonathanh@nvidia.com>, Sowjanya Komatineni <skomatineni@nvidia.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu
+	<mhiramat@kernel.org>, =?UTF-8?Q?Jonathan_Neusch=C3=A4fer?=
+	<j.neuschaefer@gmx.net>, Michal Simek <michal.simek@amd.com>, Max Filippov
+	<jcmvbkbc@gmail.com>
+References: <20260108203004.3538449-1-andriy.shevchenko@linux.intel.com>
+ <20260108203004.3538449-3-andriy.shevchenko@linux.intel.com>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20260108203004.3538449-3-andriy.shevchenko@linux.intel.com>
+X-Originating-IP: [10.48.86.129]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE1.st.com
+ (10.75.128.132)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PEPF00028D03:EE_|VI1PR10MB3197:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1d5c2bce-94d6-45d7-965b-08de51a9e2df
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|32650700017|36860700013|7053199007|921020|41080700001;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VnZWRDJoUC8rR0xOTER6aDdYSlN3bWdqOXJnelZzSlVLeXRscDI2ZURBOHBB?=
+ =?utf-8?B?dHg5YWRmZnpFVllnT2pBQjM1Wm52bVI3dUZmSHlibGcwWEQ2K2QxNEZKNFR1?=
+ =?utf-8?B?RmtuOU50Njc2dWhMbE1Ma3M1c2o4VUFreVNuVEQyR3dHTCtiaGM5aWJweUFG?=
+ =?utf-8?B?MUJGeldDYnRSUllrdGVKMUVVYUVCTlh2RVZCWDc0T1VQMWU5RmhKa1ZleUhK?=
+ =?utf-8?B?SkEwL3ZyT0djV3QrNEx6UlpqaTE0K2RJNFlRdERoZkQzQjhQM0hDOUhoUHZl?=
+ =?utf-8?B?Vy9GQys0QXhXbHRiVStlbURnczhLRUowTXl1Tk9XRzU3cjQzL3oxUGR2b1Bt?=
+ =?utf-8?B?WU9CdXVMVFdjenFuMDMxTk9URGRQc2s4RVVycVYwaGxtVlptUDZXcmw0MWhm?=
+ =?utf-8?B?S3VSNU1PUDkvM3dPaDVYNXJTVzE0aHUyY0o4U0FUZkV3Nm1CMDFSSk5HaS9m?=
+ =?utf-8?B?akpObmVSTDRFbXdyM0NPcHFGRVlqZW55ZHdma1dGVmZ6K2hKelU2WlFRazV0?=
+ =?utf-8?B?TWJLQm10dW1uRXVLV1FRU3A3V2pwbHFObTAxRVArcjI5aGZrelVYQW9SY1RR?=
+ =?utf-8?B?R2EzMUtGejdFSmkxdkluUTc1MUxzZzIxZFhvUUlpREMrYnM4TEFndmVadVps?=
+ =?utf-8?B?TnVZMlBtQmtSVmgxbTlzckpmd1c1YmhMWEJUdHpsOEtDM3ZDODh3OXhqNUVK?=
+ =?utf-8?B?MU1lcUFhTEQzTkdVQjBpSmFFSldnc21sTU4wRnQxaWhOaDNqSnZnTkVSZ2pu?=
+ =?utf-8?B?ZCt3TlBkQWZzL3Vtem1ZYzI2a05CcDk4RE12bUdBZUNta084ZnN1WXBUdXkr?=
+ =?utf-8?B?UTl3Q2F2WmdqVEV4dTRtY1ZXQU9HN3BSZitheGZYeDYxQUZLODFZSHNJWHEy?=
+ =?utf-8?B?UHNSY2VsQU4zNksrODd1T1dhYkY0b2dVeVEzTFcxUUlVaERQUlFwQko0L3A4?=
+ =?utf-8?B?SDVGeCt5Vks4RnlGMVZTZ0lsMGZqeGVtQmRoZjB5SWM5YVN1RUp0dWltRTZN?=
+ =?utf-8?B?bG9Dd0NxNVhhVlZQeVE0dGd5cmdibXk5VWVRblNYVE82QlVWaGgyUjNwblhD?=
+ =?utf-8?B?YkNVN082dnJoTzFRLzQ3RTZXdWVlWE9udjNYbUU1OE1IQWhJRzZWMnQwNzI0?=
+ =?utf-8?B?dE9Tc0hSTVNNbTZiem9OUUtqNi85QzhZS2wzUSs0cXBrNTZEaWZCZTl5ck0x?=
+ =?utf-8?B?UmlPK05YSDVKQmR0RzlMeXp5bnZFQlpVc1lwUTV3cWRHM2k4MXk5aWd0NE1P?=
+ =?utf-8?B?UHV4VXRRQ1krZmpZU0xJVVJBOE9lM2FtT2hpZHVXb1YwZFc2bi9rRU9oK2tP?=
+ =?utf-8?B?T0svRmZ3clFsYW9UZnNRY1BFNGJFRjBhalpPb1ZUdnpCOFVQWFpPRmRsd1NQ?=
+ =?utf-8?B?VlM3OEhyWTE4bjJ5UWJKV1p5MHZvYWlNcTFTKzhtU2VIWkJKbzZGcXM0ZjhR?=
+ =?utf-8?B?bXNkQ1hjeThtVzhWQ1ZzZ1prMFNBYmdoYkMrNU9NZ1VJOHVNaHhyMlRaRWhG?=
+ =?utf-8?B?bHRwVjVyc0p5Snl0aE42ZHN0bTIrYnVPVkNGM1lja2o1Q1o5cTJxOXpuZDFj?=
+ =?utf-8?B?NWlpSkliL0NIUG90dTBSSFVFZHgrYXEyVVRYK0JmRllDR1ExazJ2RDgySmk0?=
+ =?utf-8?B?UGNvQWxDdVFscXp3Vm5uUEpESEFjakEzQ2hEWVNjZDI0Qys5MHNmWkdHZWdj?=
+ =?utf-8?B?dUdTaGM2TUttMHorTVlxRW4wL2Y2MStVQUpQWGZEQVpFb0c0ZmVyMythU1dF?=
+ =?utf-8?B?ejlMcGQvZ01NdDRlMjB0QWhqK3lFWFozNTB2aTh3WTFLVCt5akgrMHVnSkht?=
+ =?utf-8?B?bEpWNFkzV1haMUtIRnY5S3lUcGhoQy9MZUFZSnpYcDF2SVM1MExvSllnb2JV?=
+ =?utf-8?B?a3o0WWtiRk50UVJnVFNLOUplcnNucndNb1AxVzBzMExaR0IxdUwyN0REMWtF?=
+ =?utf-8?B?UlVGOXVMSlVJSWt0VFE5WS9oSXpNUklhRHJBU3RtZzhSKzFWZjFkN1NXZzU1?=
+ =?utf-8?B?VGdYYjZJNCtEMUV1WXA2Z29JQlRQVVRzaFQyS2wxQnkrWHVnN0dUSGR4YSt3?=
+ =?utf-8?B?Uk5PNGcrYW94WDk1aXhQK1BydWFFalhoNXl2UUZNTTRmT28vZUZSenltaW5C?=
+ =?utf-8?B?K002UGkyL3BkcEQxa3MzSXdNUkVsZDR4RlAzdTFOakkzNFNMd09rUlowcURr?=
+ =?utf-8?B?QXc9PQ==?=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(32650700017)(36860700013)(7053199007)(921020)(41080700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: P6BK0ZgB8SUTDfdxaJ8c8uL2dwTw5IEdwkAzylPE9GisUNIQvtA5bN+iI85qmoZR8i60+K5BvP6ArNOViQn0ERimnfKEfjDW+qbxwC5iKX9HkBzfP2v7377aWnloj08itWVqr2QWGH2HO2l601gVnXYqiIk3J43SxEiqnn3aPUgWOvWR3PshG2P+DhiOony75p4grRcx/VJiH15Kpf+oekulACyL/ix2yRIW4Qcfqwmk8U+1U3yZF5kFs9V82SJ2JB9aXDJyxRy7dbiaaIf4DHIum/Mh5OcmsBMb6j0pqyBxRbCsFqrfj8VPj5ZW71yBpCNFxfGyFgprSD624xGOAe3LWUe6M4rXcIg6A4eIBSTkq3z+djWm+KQS94f2BNUYlBv95TTKNP651EKDI86sUgWoig0yBV2TuLLdTyvATXPghfUrXnq87/L9vl+TKbIONKtNb6EVBumKiP2oi9X7tdhuLMjtFuNfK8K33b9p0F60nVvHyaQbH9rl7PQ/eCrCi6P/WzSwWHUk5TgDE7xXdR7/BfUAEfXVvCas//cGrzr6edD8AGoxHAwls8yWjtmbtdvEqWLOoFhtD0k+txJuD0ofeWOyt6LAYwTWmtd96915CwgcqXxaekOrYWjKNn6C4RJJSQHBEXjXfwmajIxQGbgZ3rwY7epTWeybKuFvwrPk06eiGxF2YcrjI+amIA4b
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jan 2026 07:12:02.9802
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1d5c2bce-94d6-45d7-965b-08de51a9e2df
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D03.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB3197
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_123039_457685_09A6B5B6 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20260111_231216_089121_FD2E6EEF 
+X-CRM114-Status: UNSURE (   6.81  )
+X-CRM114-Notice: Please train this message.
 X-Mailman-Approved-At: Thu, 15 Jan 2026 12:33:02 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -232,247 +249,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SPI core provides the default fwnode for the controller,
-assigned by device_set_node(). No need to repeat it in the driver.
 
-Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
----
- drivers/spi/spi-airoha-snfi.c       | 1 -
- drivers/spi/spi-dln2.c              | 2 --
- drivers/spi/spi-dw-core.c           | 2 --
- drivers/spi/spi-ep93xx.c            | 1 -
- drivers/spi/spi-gpio.c              | 1 -
- drivers/spi/spi-ljca.c              | 1 -
- drivers/spi/spi-loongson-core.c     | 1 -
- drivers/spi/spi-mpc512x-psc.c       | 2 --
- drivers/spi/spi-mpc52xx-psc.c       | 2 --
- drivers/spi/spi-nxp-fspi.c          | 2 --
- drivers/spi/spi-pxa2xx.c            | 2 --
- drivers/spi/spi-realtek-rtl-snand.c | 1 -
- drivers/spi/spi-rzv2h-rspi.c        | 2 --
- drivers/spi/spi-rzv2m-csi.c         | 2 --
- drivers/spi/spi-sc18is602.c         | 2 --
- drivers/spi/spi-sunplus-sp7021.c    | 1 -
- drivers/spi/spi-virtio.c            | 2 --
- 17 files changed, 27 deletions(-)
 
-diff --git a/drivers/spi/spi-airoha-snfi.c b/drivers/spi/spi-airoha-snfi.c
-index 70327aebc26b..7b6c09f91fef 100644
---- a/drivers/spi/spi-airoha-snfi.c
-+++ b/drivers/spi/spi-airoha-snfi.c
-@@ -1124,7 +1124,6 @@ static int airoha_snand_probe(struct platform_device *pdev)
- 	ctrl->bits_per_word_mask = SPI_BPW_MASK(8);
- 	ctrl->mode_bits = SPI_RX_DUAL;
- 	ctrl->setup = airoha_snand_setup;
--	device_set_node(&ctrl->dev, dev_fwnode(dev));
- 
- 	err = airoha_snand_nfi_init(as_ctrl);
- 	if (err)
-diff --git a/drivers/spi/spi-dln2.c b/drivers/spi/spi-dln2.c
-index 2013bc56ded8..fac737e18ac5 100644
---- a/drivers/spi/spi-dln2.c
-+++ b/drivers/spi/spi-dln2.c
-@@ -689,8 +689,6 @@ static int dln2_spi_probe(struct platform_device *pdev)
- 	if (!host)
- 		return -ENOMEM;
- 
--	device_set_node(&host->dev, dev_fwnode(dev));
--
- 	platform_set_drvdata(pdev, host);
- 
- 	dln2 = spi_controller_get_devdata(host);
-diff --git a/drivers/spi/spi-dw-core.c b/drivers/spi/spi-dw-core.c
-index 9ebf244294f8..0d59c141beb0 100644
---- a/drivers/spi/spi-dw-core.c
-+++ b/drivers/spi/spi-dw-core.c
-@@ -936,8 +936,6 @@ int dw_spi_add_controller(struct device *dev, struct dw_spi *dws)
- 	if (!ctlr)
- 		return -ENOMEM;
- 
--	device_set_node(&ctlr->dev, dev_fwnode(dev));
--
- 	dws->ctlr = ctlr;
- 	dws->dma_addr = (dma_addr_t)(dws->paddr + DW_SPI_DR);
- 
-diff --git a/drivers/spi/spi-ep93xx.c b/drivers/spi/spi-ep93xx.c
-index e1d097091925..90d5f3ea6508 100644
---- a/drivers/spi/spi-ep93xx.c
-+++ b/drivers/spi/spi-ep93xx.c
-@@ -689,7 +689,6 @@ static int ep93xx_spi_probe(struct platform_device *pdev)
- 	/* make sure that the hardware is disabled */
- 	writel(0, espi->mmio + SSPCR1);
- 
--	device_set_node(&host->dev, dev_fwnode(&pdev->dev));
- 	error = devm_spi_register_controller(&pdev->dev, host);
- 	if (error) {
- 		dev_err(&pdev->dev, "failed to register SPI host\n");
-diff --git a/drivers/spi/spi-gpio.c b/drivers/spi/spi-gpio.c
-index c8dadb532c40..072127a38fad 100644
---- a/drivers/spi/spi-gpio.c
-+++ b/drivers/spi/spi-gpio.c
-@@ -351,7 +351,6 @@ static int spi_gpio_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	if (fwnode) {
--		device_set_node(&host->dev, fwnode);
- 		host->use_gpio_descriptors = true;
- 	} else {
- 		status = spi_gpio_probe_pdata(pdev, host);
-diff --git a/drivers/spi/spi-ljca.c b/drivers/spi/spi-ljca.c
-index 3f412cf8f1cd..0c6e6248d8ba 100644
---- a/drivers/spi/spi-ljca.c
-+++ b/drivers/spi/spi-ljca.c
-@@ -238,7 +238,6 @@ static int ljca_spi_probe(struct auxiliary_device *auxdev,
- 	controller->auto_runtime_pm = false;
- 	controller->max_speed_hz = LJCA_SPI_BUS_MAX_HZ;
- 
--	device_set_node(&ljca_spi->controller->dev, dev_fwnode(&auxdev->dev));
- 	auxiliary_set_drvdata(auxdev, controller);
- 
- 	ret = spi_register_controller(controller);
-diff --git a/drivers/spi/spi-loongson-core.c b/drivers/spi/spi-loongson-core.c
-index b46f072a0387..f50423c3db4c 100644
---- a/drivers/spi/spi-loongson-core.c
-+++ b/drivers/spi/spi-loongson-core.c
-@@ -210,7 +210,6 @@ int loongson_spi_init_controller(struct device *dev, void __iomem *regs)
- 	controller->unprepare_message = loongson_spi_unprepare_message;
- 	controller->set_cs = loongson_spi_set_cs;
- 	controller->num_chipselect = 4;
--	device_set_node(&controller->dev, dev_fwnode(dev));
- 	dev_set_drvdata(dev, controller);
- 
- 	spi = spi_controller_get_devdata(controller);
-diff --git a/drivers/spi/spi-mpc512x-psc.c b/drivers/spi/spi-mpc512x-psc.c
-index 3c1638ba5bee..a1aeb5403a74 100644
---- a/drivers/spi/spi-mpc512x-psc.c
-+++ b/drivers/spi/spi-mpc512x-psc.c
-@@ -480,8 +480,6 @@ static int mpc512x_psc_spi_of_probe(struct platform_device *pdev)
- 	host->use_gpio_descriptors = true;
- 	host->cleanup = mpc512x_psc_spi_cleanup;
- 
--	device_set_node(&host->dev, dev_fwnode(dev));
--
- 	tempp = devm_platform_get_and_ioremap_resource(pdev, 0, NULL);
- 	if (IS_ERR(tempp))
- 		return dev_err_probe(dev, PTR_ERR(tempp), "could not ioremap I/O port range\n");
-diff --git a/drivers/spi/spi-mpc52xx-psc.c b/drivers/spi/spi-mpc52xx-psc.c
-index 3bbeb8d5bfb8..73d2383461ca 100644
---- a/drivers/spi/spi-mpc52xx-psc.c
-+++ b/drivers/spi/spi-mpc52xx-psc.c
-@@ -319,8 +319,6 @@ static int mpc52xx_psc_spi_of_probe(struct platform_device *pdev)
- 	host->transfer_one_message = mpc52xx_psc_spi_transfer_one_message;
- 	host->cleanup = mpc52xx_psc_spi_cleanup;
- 
--	device_set_node(&host->dev, dev_fwnode(dev));
--
- 	mps->psc = devm_platform_get_and_ioremap_resource(pdev, 0, NULL);
- 	if (IS_ERR(mps->psc))
- 		return dev_err_probe(dev, PTR_ERR(mps->psc), "could not ioremap I/O port range\n");
-diff --git a/drivers/spi/spi-nxp-fspi.c b/drivers/spi/spi-nxp-fspi.c
-index 50a7e4916a60..320b3d93df57 100644
---- a/drivers/spi/spi-nxp-fspi.c
-+++ b/drivers/spi/spi-nxp-fspi.c
-@@ -1383,8 +1383,6 @@ static int nxp_fspi_probe(struct platform_device *pdev)
- 	else
- 		ctlr->mem_caps = &nxp_fspi_mem_caps;
- 
--	device_set_node(&ctlr->dev, fwnode);
--
- 	ret = devm_add_action_or_reset(dev, nxp_fspi_cleanup, f);
- 	if (ret)
- 		return ret;
-diff --git a/drivers/spi/spi-pxa2xx.c b/drivers/spi/spi-pxa2xx.c
-index ec7117a94d5f..78c399e95ef2 100644
---- a/drivers/spi/spi-pxa2xx.c
-+++ b/drivers/spi/spi-pxa2xx.c
-@@ -1290,8 +1290,6 @@ int pxa2xx_spi_probe(struct device *dev, struct ssp_device *ssp,
- 	drv_data->controller_info = platform_info;
- 	drv_data->ssp = ssp;
- 
--	device_set_node(&controller->dev, dev_fwnode(dev));
--
- 	/* The spi->mode bits understood by this driver: */
- 	controller->mode_bits = SPI_CPOL | SPI_CPHA | SPI_CS_HIGH | SPI_LOOP;
- 
-diff --git a/drivers/spi/spi-realtek-rtl-snand.c b/drivers/spi/spi-realtek-rtl-snand.c
-index 741cf2af3e91..7d5853d202c6 100644
---- a/drivers/spi/spi-realtek-rtl-snand.c
-+++ b/drivers/spi/spi-realtek-rtl-snand.c
-@@ -400,7 +400,6 @@ static int rtl_snand_probe(struct platform_device *pdev)
- 	ctrl->mem_ops = &rtl_snand_mem_ops;
- 	ctrl->bits_per_word_mask = SPI_BPW_MASK(8);
- 	ctrl->mode_bits = SPI_RX_DUAL | SPI_RX_QUAD | SPI_TX_DUAL | SPI_TX_QUAD;
--	device_set_node(&ctrl->dev, dev_fwnode(dev));
- 
- 	return devm_spi_register_controller(dev, ctrl);
- }
-diff --git a/drivers/spi/spi-rzv2h-rspi.c b/drivers/spi/spi-rzv2h-rspi.c
-index aae916882915..23f0e92ae208 100644
---- a/drivers/spi/spi-rzv2h-rspi.c
-+++ b/drivers/spi/spi-rzv2h-rspi.c
-@@ -797,8 +797,6 @@ static int rzv2h_rspi_probe(struct platform_device *pdev)
- 		controller->dma_rx = NULL;
- 	}
- 
--	device_set_node(&controller->dev, dev_fwnode(dev));
--
- 	ret = devm_spi_register_controller(dev, controller);
- 	if (ret)
- 		dev_err(dev, "register controller failed\n");
-diff --git a/drivers/spi/spi-rzv2m-csi.c b/drivers/spi/spi-rzv2m-csi.c
-index 7c0442883ac0..5d80939dddb5 100644
---- a/drivers/spi/spi-rzv2m-csi.c
-+++ b/drivers/spi/spi-rzv2m-csi.c
-@@ -634,8 +634,6 @@ static int rzv2m_csi_probe(struct platform_device *pdev)
- 	controller->use_gpio_descriptors = true;
- 	controller->target_abort = rzv2m_csi_target_abort;
- 
--	device_set_node(&controller->dev, dev_fwnode(dev));
--
- 	ret = devm_request_irq(dev, irq, rzv2m_csi_irq_handler, 0,
- 			       dev_name(dev), csi);
- 	if (ret)
-diff --git a/drivers/spi/spi-sc18is602.c b/drivers/spi/spi-sc18is602.c
-index 1627aa66c965..78c558e7228e 100644
---- a/drivers/spi/spi-sc18is602.c
-+++ b/drivers/spi/spi-sc18is602.c
-@@ -251,8 +251,6 @@ static int sc18is602_probe(struct i2c_client *client)
- 	if (!host)
- 		return -ENOMEM;
- 
--	device_set_node(&host->dev, dev_fwnode(dev));
--
- 	hw = spi_controller_get_devdata(host);
- 
- 	/* assert reset and then release */
-diff --git a/drivers/spi/spi-sunplus-sp7021.c b/drivers/spi/spi-sunplus-sp7021.c
-index 256ae07db6be..789b092fe8c0 100644
---- a/drivers/spi/spi-sunplus-sp7021.c
-+++ b/drivers/spi/spi-sunplus-sp7021.c
-@@ -419,7 +419,6 @@ static int sp7021_spi_controller_probe(struct platform_device *pdev)
- 		ctlr = devm_spi_alloc_host(dev, sizeof(*pspim));
- 	if (!ctlr)
- 		return -ENOMEM;
--	device_set_node(&ctlr->dev, dev_fwnode(dev));
- 	ctlr->bus_num = pdev->id;
- 	ctlr->mode_bits = SPI_CPOL | SPI_CPHA | SPI_CS_HIGH | SPI_LSB_FIRST;
- 	ctlr->auto_runtime_pm = true;
-diff --git a/drivers/spi/spi-virtio.c b/drivers/spi/spi-virtio.c
-index 6aad9f1fd016..9e66c917fb75 100644
---- a/drivers/spi/spi-virtio.c
-+++ b/drivers/spi/spi-virtio.c
-@@ -344,8 +344,6 @@ static int virtio_spi_probe(struct virtio_device *vdev)
- 	priv->vdev = vdev;
- 	vdev->priv = priv;
- 
--	device_set_node(&ctrl->dev, dev_fwnode(&vdev->dev));
--
- 	dev_set_drvdata(&vdev->dev, ctrl);
- 
- 	virtio_spi_read_config(vdev);
--- 
-2.50.1
+On 1/8/26 21:23, Andy Shevchenko wrote:
+> The SPI core provides the default of_node for the controller,
+> inherited from the actual (parent) device. No need to repeat it
+> in the driver.
+> 
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> ---
 
+>  drivers/spi/spi-stm32-ospi.c         | 1 -
+>  drivers/spi/spi-stm32-qspi.c         | 1 -
+> 
+
+Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
+
+Thanks
 
 _______________________________________________
 linux-riscv mailing list
