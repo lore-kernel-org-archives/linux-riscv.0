@@ -4,66 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFF1CC9EC7D
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 12:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB3DC9EC83
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 12:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qV/ghX8Ta0Hxkj675ooVGhdYU4rODT4MtQX/AZ6ab/c=; b=sjfA6OwzKDlVki
-	Z2XxNoZ7iOq4ATDJvzeU7C7nJbaLgw/oJ9CT4IayD+k9S41MjR3tjMZup/cnUJgNOPZ1I4ws2+6wk
-	/QMGm9jcAkCaJGBas0GrZjmnLV8xpYAcAvNPDmNPuuFyMztZgO3m2/3Qbb5ACWKvStp0i1gqOs8g2
-	+W28/p+HW6dXk8iq9An7MJivlg1xZNyQphqE9rJCsxJL+Qhoo5e6syVzf9JcMvOf4npQVLIQDMu0A
-	C4a6Xs2RoMhBCcUMbbOFNceCeu68w+AOz6pMhefZEqGXIdmSIeO96Wz4qokg78ad9XvVo5jKDR2mU
-	h7XAXseGWRkM2vKeB8vQ==;
+	List-Owner; bh=xKYPB4gDY/8yNHsDzLim1BO8iv5FYhLUU1aVLrgCHZw=; b=TRLiw71+eVP18W
+	UPQvXXSOqvl1O1CGgojnbp4XQtgXEBqBDG4SljvJIeKqb1m54Qcs9iB9FqT+vRajm4v29CJ5xNiCz
+	kMqLmwLQcek6VUp+WTUL9mXHTnuVTHkRArnPh9FTM5zqh/9VUE60PBqObLwChJLzldLP45tGHN3pT
+	RaMTMoUCECmkgeK+T01LGN6psJHo27VbFYmujKI0VwIlD0l/PvSmvowpMptB6bRcqTK+AkAmFj/2y
+	drhsQMobpBM3uDoz+PnyuSuLFB5+pdxD3J+lasEfwT4U19IiTutXw2zKb62lOaZI4nR1e2rc+65HP
+	OehwO++W1jPY/d/49K9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfH0I-00000005KKO-1xrR;
-	Mon, 12 Jan 2026 12:26:38 +0000
+	id 1vfHHF-00000005L2a-0sgW;
+	Mon, 12 Jan 2026 12:44:09 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfH0E-00000005KJm-313i;
-	Mon, 12 Jan 2026 12:26:36 +0000
+	id 1vfHHC-00000005L1h-3Snn
+	for linux-riscv@lists.infradead.org;
+	Mon, 12 Jan 2026 12:44:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D88E497;
-	Mon, 12 Jan 2026 04:26:25 -0800 (PST)
-Received: from [10.57.95.123] (unknown [10.57.95.123])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E6C913F59E;
-	Mon, 12 Jan 2026 04:26:27 -0800 (PST)
-Message-ID: <09de87bc-d952-41e7-9657-852c2924aaa7@arm.com>
-Date: Mon, 12 Jan 2026 12:26:26 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0F33497;
+	Mon, 12 Jan 2026 04:43:56 -0800 (PST)
+Received: from [10.57.48.115] (unknown [10.57.48.115])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B3C243F59E;
+	Mon, 12 Jan 2026 04:44:00 -0800 (PST)
+Message-ID: <03daf175-fcab-45a4-812b-9a338415565e@arm.com>
+Date: Mon, 12 Jan 2026 12:43:53 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] randomize_kstack: Unify random source across
- arches
+Subject: Re: [PATCH v2] dma-pool: don't allocate DMA32 pool if no 32-bit
+ memory
+To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, lkp@intel.com,
+ mick@ics.forth.gr, Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ akpm@linux-foundation.org, alex@ghiti.fr, aou@eecs.berkeley.edu,
+ hch@infradead.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com
+References: <202601120747.TAMpIDnI-lkp@intel.com>
+ <20260112065857.3137331-1-vladimir.kondratiev@mobileye.com>
+From: Robin Murphy <robin.murphy@arm.com>
 Content-Language: en-GB
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
- "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>,
- Jeremy Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
-References: <20260102131156.3265118-1-ryan.roberts@arm.com>
- <20260102131156.3265118-4-ryan.roberts@arm.com>
- <20260104230136.7aaf8886@pumpkin> <20260107140533.2b3c46a1@pumpkin>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20260107140533.2b3c46a1@pumpkin>
+In-Reply-To: <20260112065857.3137331-1-vladimir.kondratiev@mobileye.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_042634_877523_31D57A4F 
-X-CRM114-Status: GOOD (  40.59  )
+X-CRM114-CacheID: sfid-20260112_044406_905953_85DD4D2A 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,186 +65,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 07/01/2026 14:05, David Laight wrote:
-> On Sun, 4 Jan 2026 23:01:36 +0000
-> David Laight <david.laight.linux@gmail.com> wrote:
-> 
->> On Fri,  2 Jan 2026 13:11:54 +0000
->> Ryan Roberts <ryan.roberts@arm.com> wrote:
->>
->>> Previously different architectures were using random sources of
->>> differing strength and cost to decide the random kstack offset. A number
->>> of architectures (loongarch, powerpc, s390, x86) were using their
->>> timestamp counter, at whatever the frequency happened to be. Other
->>> arches (arm64, riscv) were using entropy from the crng via
->>> get_random_u16().
->>>
->>> There have been concerns that in some cases the timestamp counters may
->>> be too weak, because they can be easily guessed or influenced by user
->>> space. And get_random_u16() has been shown to be too costly for the
->>> level of protection kstack offset randomization provides.
->>>
->>> So let's use a common, architecture-agnostic source of entropy; a
->>> per-cpu prng, seeded at boot-time from the crng. This has a few
->>> benefits:
->>>
->>>   - We can remove choose_random_kstack_offset(); That was only there to
->>>     try to make the timestamp counter value a bit harder to influence
->>>     from user space.
->>>
->>>   - The architecture code is simplified. All it has to do now is call
->>>     add_random_kstack_offset() in the syscall path.
->>>
->>>   - The strength of the randomness can be reasoned about independently
->>>     of the architecture.
->>>
->>>   - Arches previously using get_random_u16() now have much faster
->>>     syscall paths, see below results.
->>>
->>> There have been some claims that a prng may be less strong than the
->>> timestamp counter if not regularly reseeded. But the prng has a period
->>> of about 2^113. So as long as the prng state remains secret, it should
->>> not be possible to guess. If the prng state can be accessed, we have
->>> bigger problems.  
->>
->> If you have 128 bits of output from consecutive outputs I think you
->> can trivially determine the full state using (almost) 'school boy' maths
->> that could be done on pencil and paper.
->> (Most of the work only has to be done once.)
->>
->> The underlying problem is that the TAUSWORTHE() transformation is 'linear'
->> So that TAUSWORTHE(x ^ y) == TAUSWORTHE(x) ^ TAUSWORTHE(y).
->> (This is true of a LFSR/CRC and TOUSWORTH() is doing some subset of CRCs.)
->> This means that each output bit is the 'xor' of some of the input bits.
->> The four new 'state' values are just xor of the the bits of the old ones.
->> The final xor of the four states gives a 32bit value with each bit just
->> an xor of some of the 128 state bits.
->> Get four consecutive 32 bit values and you can solve the 128 simultaneous
->> equations (by trivial substitution) and get the initial state.
->> The solution gives you the 128 128bit constants for:
->> 	u128 state = 0;
->> 	u128 val = 'value returned from 4 calls';
->> 	for (int i = 0; i < 128; i++)
->> 		state |= parity(const128[i] ^ val) << i;
->> You don't need all 32bits, just accumulate 128 bits.  
->> So if you can get the 5bit stack offset from 26 system calls you know the
->> value that will be used for all the subsequent calls.
-> 
-> Some of the state bits don't get used, so you only need 123 bits.
-> The stack offset is 6 bits - so you need the values from 19 calls.
-> 
->> Simply changing the final line to use + not ^ makes the output non-linear
->> and solving the equations a lot harder.
->>
->> I might sit down tomorrow and see if I can actually code it...
-> 
-> Finally done:
-> 
-> #include <stdio.h>
-> #include <unistd.h>
-> #include <fcntl.h>
-> 
-> typedef unsigned int u32;
-> typedef unsigned long long u64;
-> typedef unsigned __int128 u128;
-> 
-> struct rnd_state { u32 s1; u32 s2; u32 s3; u32 s4; };
-> u32 prandom_u32_state(struct rnd_state *state)
-> {
-> #define TAUSWORTHE(s, a, b, c, d) ((s & c) << d) ^ (((s << a) ^ s) >> b)
->         state->s1 = TAUSWORTHE(state->s1,  6U, 13U, 4294967294U, 18U);
->         state->s2 = TAUSWORTHE(state->s2,  2U, 27U, 4294967288U,  2U);
->         state->s3 = TAUSWORTHE(state->s3, 13U, 21U, 4294967280U,  7U);
->         state->s4 = TAUSWORTHE(state->s4,  3U, 12U, 4294967168U, 13U);
-> 
->         return (state->s1 ^ state->s2 ^ state->s3 ^ state->s4);
-> }
-> 
-> #define X(n, hi, lo) [n] = (u128)0x##hi << 64 | 0x##lo
-> u128 map[128] = {
->         X(  1, 23acb122e4a76, e206c3f6fe435cb6),
-> 	...
->         X(127, 00d3276d8a76a, e560d1975675be24) };
-> 
-> u128 parity_128(u128 v)                 
-> {                               
->         return __builtin_parityll(v) ^ __builtin_parityll(v >> 64);
-> }
-> 
-> int main(int argc, char **argv)
-> {
->         struct rnd_state s = {};
->         u128 s0, v, r = 0;
-> 
->         read(open("/dev/urandom", O_RDONLY), &s, sizeof s);
->         // Remove low bits that get masked by the (s & c) term.
->         s.s1 &= ~1; s.s2 &= ~7; s.s3 &= ~15; s.s4 &= ~127;
->         s0 = (((u128)s.s4 << 32 | s.s3) << 32 | s.s2) << 32 | s.s1;
->         v = prandom_u32_state(&s);
->         v |= (u128)prandom_u32_state(&s) << 32;
->         v |= (u128)prandom_u32_state(&s) << 64;
->         v |= (u128)prandom_u32_state(&s) << 96;
-> 
->         for (int n = 0; n < 128; n++)
->                 r |= parity_128(v & map[n]) << n;
-> 
->         printf("%016llx%016llx\n", (u64)(s0 >> 64), (u64)s0);
->         printf("values%s match\n", r == s0 ? "" : " do not");
-> 
->         return r != s0;
-> }
-> 
-> I've trimmed the initialiser - it is very boring.
-> The code to create the initialiser is actually slightly smaller than it is.
-> Doable by hand provided you can do 128bit shift and xor without making
-> any mistakes.
-> 
-> I've just done a quick search through the kernel sources and haven't found
-> many uses of prandom_u32_state() outside of test code.
-> There is sched_rng() which uses a per-cpu rng to throw a 1024 sized die.
-> bpf also has a per-cpu one for 'unprivileged user space'.
-> net/sched/sch_netem.c seems to use one - mostly for packet loss generation.
-> 
-> Since the randomize_kstack code is now using a per-task rng (initialised
-> by clone?) that could be used instead of all the others provided they
-> are run when 'current' is valid.
-> 
-> But the existing prandom_u32_state() needs a big health warning that
-> four outputs leak the entire state.
-> That is fixable by changing the last line to:
->         return state->s1 + state->s2 + state->s3 + state->s4;
-> That only affects the output value, the period is unchanged.
+On 2026-01-12 6:58 am, Vladimir Kondratiev wrote:
+> If system have no 32-bit memory, GFP_DMA32 pool allocation will
+> obviously fail, so skip it.
 
-Hi David,
-
-This all seems interesting, but I'm not clear that it is a blocker for this
-series. As I keep saying, we only use 6 bits for offset randmization so it is
-trival to brute force, regardless of how easy it is to recover the prng state.
-
-Perhaps we can decouple these 2 things and make them independent:
-
- - this series, which is motivated by speeding up syscalls on arm64; given 6
-   bits is not hard to brute force, spending a lot of cycles calculating those
-   bits is unjustified.
-
- - Your observation that that the current prng could be improved to make
-   recoving it's state harder.
-
-What do you think?
+Note that the rest of the code doesn't quite work right if 
+CONFIG_ZONE_DMA32 is enabled but atomic_pool_dma32 is NULL - seems such 
+a setup wasn't really anticipated. Funnily enough, I also recently wrote 
+a patch series to improve this more generally, but hadn't got round to 
+writing a cover letter yet - lemme finish that up and post it...
 
 Thanks,
-Ryan
+Robin.
 
-
+> Changes in v2: use arch-independent "memblock_start_of_DRAM" to get
+> DRAM base address
 > 
-> 	David
+> Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+> ---
+>   kernel/dma/pool.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
+> diff --git a/kernel/dma/pool.c b/kernel/dma/pool.c
+> index ee45dee33d49..ecd77a0272f2 100644
+> --- a/kernel/dma/pool.c
+> +++ b/kernel/dma/pool.c
+> @@ -209,7 +209,7 @@ static int __init dma_atomic_pool_init(void)
+>   		if (!atomic_pool_dma)
+>   			ret = -ENOMEM;
+>   	}
+> -	if (IS_ENABLED(CONFIG_ZONE_DMA32)) {
+> +	if (IS_ENABLED(CONFIG_ZONE_DMA32) && memblock_start_of_DRAM() < BIT_ULL(32)) {
+>   		atomic_pool_dma32 = __dma_atomic_pool_init(atomic_pool_size,
+>   						GFP_KERNEL | GFP_DMA32);
+>   		if (!atomic_pool_dma32)
 > 
+> base-commit: 7d0a66e4bb9081d75c82ec4957c50034cb0ea449
 
 
 _______________________________________________
