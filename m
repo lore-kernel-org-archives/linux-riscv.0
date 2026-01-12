@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE07DCF45C8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2695CF45CD
 	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 19:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yOzwqH7dfBezMevJdbyoHM//CmSE28kt2auna/X28+U=; b=ufWhzdYcMTmSof
-	PkhztkgSN7RbZilqz1c0nlTaZepvo4LirbLfODqNddBDVqjUqWM1UO5YFC0ObsiuCPSWo8Aeqwzrt
-	51HDsPz8yTo2HKTnJYZs+MPSdMHoJvK23TWMDIGLz9SMlsmNrKN6DHZKJozmCZdO0538tiHPykIBt
-	Y3csEyWkJ4QVTur+N98BzAhfjjlkdeCPAWXKJPgWOWqUP6UEzrabdabmhhQAuuLLE7yJ+Eh5C9fVH
-	o3WktWFtierCKK2qkUcJFL1oU2OZAOXJqz2k0Z5SSADH2r0ac+FOiq9RFdApvQrseRRcG4h+v4O1C
-	jEyTkl6sAZUGidU8KLWQ==;
+	List-Owner; bh=tBQbi7BXahf9cj3UtW1ciiJSO+J0rXEUwG9R2gUBc5Y=; b=EwwRFXRXnSvAMz
+	9XXb3A/j4RSU0B5Y57Abs+nvLNPkyolz7sV94SGYRFUHq2idZv2Y+oCMLzMrEuKTbdKc6Tj9oqAq4
+	GDtSOCmB1qz28Ht5YTk2IzH02rqJPQZaKaUitqJyyop70hYzFALrch+gRRvYzl5aEXZ8DvprZHtku
+	Y2xq4qpkb2VNkZUSdKV1V2SxbXAwdBRmuLc+aTDGZk9dt9y91yeXJZJ0mvng7rd9tXNr29fcHY6sB
+	Af04FFa/TlqL4Nki4RJ/MYgIzdSnP0v3H9fnvALgaj9K1h/RMp65Y9kh4ys1RO26pptGutSFuf2uN
+	f6hj7W1akDQUXp2pqHBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNXA-0000000611v-22DK;
-	Mon, 12 Jan 2026 19:25:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vfNXH-000000061B8-3p5g;
+	Mon, 12 Jan 2026 19:25:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNVi-00000005z6J-1QRr;
+	id 1vfNVi-00000005z5K-20MW;
 	Mon, 12 Jan 2026 19:23:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BFEB560125;
-	Mon, 12 Jan 2026 19:23:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 157D1C19422;
+	by tor.source.kernel.org (Postfix) with ESMTP id 5112060055;
+	Mon, 12 Jan 2026 19:23:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A322C2BC86;
 	Mon, 12 Jan 2026 19:23:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768245809;
-	bh=zZjTigRkrr+RJfey+6vJW4bfvWaLAxFdbVVJ4sVGLrw=;
+	s=k20201202; t=1768245810;
+	bh=wXdwY1WoVa5ZNu1Fe87Z9mILsLA3s28tZHNhWF6S8gw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qfFo8JDsoztKnqQM8LDVsG/RZYZxuwTk6m5qZdjQd/xXiyEc7egrbByJjtgR4sZdu
-	 RcpNZKXOvWe5RDLB7hOVlH6OXua6/OEZPnBLFISFOa3J9MSrW455FqrBKQI77CQJcs
-	 y9tlA15wqYgSNGZRxDqsKIsEYbUvlHRl/M6y7e+iul2Ov7gxDV2ezDzKhpNPivrM9P
-	 zwOHwRjPkvT69tX3CGSI6iww5CkwpdRRVVEkHnpxQ2h5oHalu2FfFBkGaWRFvW3rVB
-	 uvUHQfOkJvB3PC+Xs0dSKIdnrH6Xj+YQwsz98IhE5tYp8ma1ZcTvtU9SKRX/Kgvx9M
-	 vIGAYuZKdialA==
+	b=gj85ij8qJIew+bWKcniT1QlwS/ryjNF9CQBcnJ8+C99RNEOoBqERPk4+1FRbNhhw0
+	 FZGVIA1d56xRQ+5i2prmCgQ5T+K156MKnGC9hAtOYNu+5kRR2YT0qGwptAkoCBCf54
+	 rDdZRiy4YuiA9Tsxq+bEV3KDyjzv6XZto+e39v5MAzqLjDYypucU44X5+AGKiAuMm1
+	 gVy605yDG4qjxS5/wUd5S5E9WiRd3DZKQ3uVMlmVp9KBGAKsdjvi+/8jWGd1aisRvp
+	 db/Cr2lSi0DrDychLsRvaGIBD9agCrol/u3YT7AOB4sZgb0wbn1k5hbcfcWAHgexUs
+	 LUbeyOTiy34tg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,9 +56,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 21/35] net: phy: mscc: macsec: Use new AES library API
-Date: Mon, 12 Jan 2026 11:20:19 -0800
-Message-ID: <20260112192035.10427-22-ebiggers@kernel.org>
+Subject: [PATCH v2 22/35] staging: rtl8723bs: core: Use new AES library API
+Date: Mon, 12 Jan 2026 11:20:20 -0800
+Message-ID: <20260112192035.10427-23-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260112192035.10427-1-ebiggers@kernel.org>
 References: <20260112192035.10427-1-ebiggers@kernel.org>
@@ -93,37 +93,87 @@ calling the new encryption function rather than the old one.
 Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- drivers/net/phy/mscc/mscc_macsec.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/staging/rtl8723bs/core/rtw_security.c | 20 +++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/net/phy/mscc/mscc_macsec.c b/drivers/net/phy/mscc/mscc_macsec.c
-index 4f39ba63a9a9..9a38a29cf397 100644
---- a/drivers/net/phy/mscc/mscc_macsec.c
-+++ b/drivers/net/phy/mscc/mscc_macsec.c
-@@ -502,19 +502,19 @@ static u32 vsc8584_macsec_flow_context_id(struct macsec_flow *flow)
- 
- /* Derive the AES key to get a key for the hash autentication */
- static int vsc8584_macsec_derive_key(const u8 *key, u16 key_len, u8 hkey[16])
+diff --git a/drivers/staging/rtl8723bs/core/rtw_security.c b/drivers/staging/rtl8723bs/core/rtw_security.c
+index 2f941ffbd465..8ee5bed252bf 100644
+--- a/drivers/staging/rtl8723bs/core/rtw_security.c
++++ b/drivers/staging/rtl8723bs/core/rtw_security.c
+@@ -635,15 +635,15 @@ u32 rtw_tkip_decrypt(struct adapter *padapter, u8 *precvframe)
+ /* Performs a 128 bit AES encrypt with  */
+ /* 128 bit data.                        */
+ /****************************************/
+ static void aes128k128d(u8 *key, u8 *data, u8 *ciphertext)
  {
- 	const u8 input[AES_BLOCK_SIZE] = {0};
 -	struct crypto_aes_ctx ctx;
 +	struct aes_enckey aes;
+ 
+-	aes_expandkey(&ctx, key, 16);
+-	aes_encrypt(&ctx, ciphertext, data);
+-	memzero_explicit(&ctx, sizeof(ctx));
++	aes_prepareenckey(&aes, key, 16);
++	aes_encrypt(&aes, ciphertext, data);
++	memzero_explicit(&aes, sizeof(aes));
+ }
+ 
+ /************************************************/
+ /* construct_mic_iv()                           */
+ /* Builds the MIC IV from header fields and PN  */
+@@ -1404,17 +1404,17 @@ static void gf_mulx(u8 *pad)
+  * (SP) 800-38B.
+  */
+ static int omac1_aes_128_vector(u8 *key, size_t num_elem,
+ 				u8 *addr[], size_t *len, u8 *mac)
+ {
+-	struct crypto_aes_ctx ctx;
++	struct aes_enckey aes;
+ 	u8 cbc[AES_BLOCK_SIZE], pad[AES_BLOCK_SIZE];
+ 	u8 *pos, *end;
+ 	size_t i, e, left, total_len;
  	int ret;
  
--	ret = aes_expandkey(&ctx, key, key_len);
-+	ret = aes_prepareenckey(&aes, key, key_len);
+-	ret = aes_expandkey(&ctx, key, 16);
++	ret = aes_prepareenckey(&aes, key, 16);
  	if (ret)
- 		return ret;
+ 		return -1;
+ 	memset(cbc, 0, AES_BLOCK_SIZE);
  
--	aes_encrypt(&ctx, hkey, input);
+ 	total_len = 0;
+@@ -1434,16 +1434,16 @@ static int omac1_aes_128_vector(u8 *key, size_t num_elem,
+ 				pos = addr[e];
+ 				end = pos + len[e];
+ 			}
+ 		}
+ 		if (left > AES_BLOCK_SIZE)
+-			aes_encrypt(&ctx, cbc, cbc);
++			aes_encrypt(&aes, cbc, cbc);
+ 		left -= AES_BLOCK_SIZE;
+ 	}
+ 
+ 	memset(pad, 0, AES_BLOCK_SIZE);
+-	aes_encrypt(&ctx, pad, pad);
++	aes_encrypt(&aes, pad, pad);
+ 	gf_mulx(pad);
+ 
+ 	if (left || total_len == 0) {
+ 		for (i = 0; i < left; i++) {
+ 			cbc[i] ^= *pos++;
+@@ -1457,12 +1457,12 @@ static int omac1_aes_128_vector(u8 *key, size_t num_elem,
+ 		gf_mulx(pad);
+ 	}
+ 
+ 	for (i = 0; i < AES_BLOCK_SIZE; i++)
+ 		pad[i] ^= cbc[i];
+-	aes_encrypt(&ctx, pad, mac);
 -	memzero_explicit(&ctx, sizeof(ctx));
-+	aes_encrypt(&aes, hkey, input);
++	aes_encrypt(&aes, pad, mac);
 +	memzero_explicit(&aes, sizeof(aes));
  	return 0;
  }
  
- static int vsc8584_macsec_transformation(struct phy_device *phydev,
- 					 struct macsec_flow *flow,
+ /**
+  * omac1_aes_128 - One-Key CBC MAC (OMAC1) hash with AES-128 (aka AES-CMAC)
 -- 
 2.52.0
 
