@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC993CF45C8
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 19:26:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D75CF45C9
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 19:26:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RibfpYIYyesmNeJHTe1SmStQ6jusPOA81UcVEDlawR8=; b=s1vqn/pDa//N1e
-	QvynPDapInm37ZHMYhP801XXY5pdkm6leQXsJkMtm30ACplq0UeoleV/eFFbaBZ+n/3RaacjQBycO
-	ybT8DeuBDz/TH0KLSf7rd+S5SkvmcCI3l4gEztaqVmhmg7dWE5ODd4jv5flU3gRSRWRKTMm3jm6mO
-	tAmcnwpyjVYjeNmvQZzc7EBqzeIzTHsnjeIHBHPey0FUqlltHuuVy80RoPf8BeJHnWPdch00FPM6N
-	qfjn6UNj0np1ZM+n7ejshcQ//v5OgIY3RYUd7zd/2FgF8sHm/v9vj/t1+IpK2luGFi5cyaipGbtmD
-	W5AekglCaGLRSWHbBrjg==;
+	List-Owner; bh=UuEKxDpD19Xx2+tLoitp0fZC9BnwC2hRMNWJw6IL124=; b=OOWXqxL0RpIp22
+	V1u4UtEdJ3wCYZJ2VVghFQPEILCBcW2QbfvGTdlxREvxNlWAQFFc9MX1xYCIzuJvDfcIimwO6sEYd
+	VtYbYNCCgiZZkKS6vGQ0r08+14FsQyMIy/fJaracjv49sITT97xeLWiH12ZcXztKqTwVqCG7vzaoB
+	l3b+PFq3+r8jHfiIZRw7icL8osGjRuI92aIOYUpUp4JuvoMq8PmYNdY1gA8WSJ8iYXS00Odsk4gfI
+	mCYOMVvkCkc6jYzPBTe00qgQtlfj0T7FDvdnyjLE3E/b0HIj6wd9zDeXla9j3+z/7uuBDBBZfgYZX
+	sdUX9i58TKSpsrC0zBAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNYK-000000062t3-1Afc;
-	Mon, 12 Jan 2026 19:26:15 +0000
+	id 1vfNYT-0000000636J-1TxZ;
+	Mon, 12 Jan 2026 19:26:21 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNVo-00000005zEB-2J6X;
-	Mon, 12 Jan 2026 19:23:36 +0000
+	id 1vfNVq-00000005zGi-2P58;
+	Mon, 12 Jan 2026 19:23:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D3E3C600C3;
-	Mon, 12 Jan 2026 19:23:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27044C19424;
-	Mon, 12 Jan 2026 19:23:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7B91260130;
+	Mon, 12 Jan 2026 19:23:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF6FEC2BC87;
+	Mon, 12 Jan 2026 19:23:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768245815;
-	bh=JLs8bq0ROpmCEQjkpHCQ8d/SpuKsQOsr6NwPCgnihKU=;
+	s=k20201202; t=1768245817;
+	bh=b8+2isc/mWUmlO/3JdSbmkX86zq1F/K7GlRJMz6JOGg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=b0RBfUzQys2ZqJtm4Gnsyo+LFtO49H/4V1vBcG0UFdcL3d4er81g2SKeTPRBUfXlD
-	 m4M0CH0sjlKOMYmu5MKQUxxNNhgjBkXhlxsEJWsyOMNw/H5cz+0C/Ps+oieOmtIsnf
-	 42oOgGWrCU2dcQWgW9oaLQ2GOJT0MjnsdRT7AGxdEQdlwoJHzPSgRrGn+bi8VRh99V
-	 4KSB/CeMRewIeb8S1zLPd6/900w117IawjI2VbypbiXJ+dWaHngCbGCS57sol6Vy9F
-	 PmtGWO6L8nZLLtYShrJjmWS/Q0DYQ/3ba+J/FyOtwkWnRCotaa8rKeBIPbKmTpxzYr
-	 klHjBpXQvod3w==
+	b=a0KxQKZz4i1RsOIjwLOOJXRfsPl591C6xVTDsyPT/wulXI86KQAv8RU2kd7ep/SaL
+	 zQvgA1Gym7fI7zoT+USMG//U9qE9UXwwME2vdvVHXKVdXjAtx54Ohch2D7CMbhkA5/
+	 X6C0SH88Al9aHufVFNgjnGM96SggfDltB7624aEEJGCeq/fizRgyG19Oi5XUMRgsY3
+	 N5+7hHLYL3IuXtC2+uvsqfw8e5vT743c3gn+zrczsKCTpxZzMemonA8zrSunSiIagR
+	 D96qKtgMHNtpzT799tZxr8HGA0htwIxkqmMFBRFAiCEHlUA9gxLwDwC6SW2U2VaUuN
+	 x3lQpzaJ9SoXw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,9 +56,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 32/35] lib/crypto: aescfb: Use new AES library API
-Date: Mon, 12 Jan 2026 11:20:30 -0800
-Message-ID: <20260112192035.10427-33-ebiggers@kernel.org>
+Subject: [PATCH v2 35/35] lib/crypto: aes: Drop 'volatile' from aes_sbox and aes_inv_sbox
+Date: Mon, 12 Jan 2026 11:20:33 -0800
+Message-ID: <20260112192035.10427-36-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260112192035.10427-1-ebiggers@kernel.org>
 References: <20260112192035.10427-1-ebiggers@kernel.org>
@@ -79,220 +79,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Switch from the old AES library functions (which use struct
-crypto_aes_ctx) to the new ones (which use struct aes_enckey).  This
-eliminates the unnecessary computation and caching of the decryption
-round keys.  The new AES en/decryption functions are also much faster
-and use AES instructions when supported by the CPU.
-
-Note that in addition to the change in the key preparation function and
-the key struct type itself, the change in the type of the key struct
-results in aes_encrypt() (which is temporarily a type-generic macro)
-calling the new encryption function rather than the old one.
+The volatile keyword is no longer necessary or useful on aes_sbox and
+aes_inv_sbox, since the table prefetching is now done using a helper
+function that casts to volatile itself and also includes an optimization
+barrier.  Since it prevents some compiler optimizations, remove it.
 
 Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- drivers/char/tpm/tpm2-sessions.c | 10 +++++-----
- include/crypto/aes.h             |  4 ++--
- lib/crypto/aescfb.c              | 30 +++++++++++++++---------------
- 3 files changed, 22 insertions(+), 22 deletions(-)
+ lib/crypto/aes.c | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/char/tpm/tpm2-sessions.c b/drivers/char/tpm/tpm2-sessions.c
-index 4149379665c4..09df6353ef04 100644
---- a/drivers/char/tpm/tpm2-sessions.c
-+++ b/drivers/char/tpm/tpm2-sessions.c
-@@ -124,11 +124,11 @@ struct tpm2_auth {
- 	 * session_key and passphrase.
- 	 */
- 	u8 session_key[SHA256_DIGEST_SIZE];
- 	u8 passphrase[SHA256_DIGEST_SIZE];
- 	int passphrase_len;
--	struct crypto_aes_ctx aes_ctx;
-+	struct aes_enckey aes_key;
- 	/* saved session attributes: */
- 	u8 attrs;
- 	__be32 ordinal;
- 
- 	/*
-@@ -675,12 +675,12 @@ int tpm_buf_fill_hmac_session(struct tpm_chip *chip, struct tpm_buf *buf)
- 			  + auth->passphrase_len, "CFB", auth->our_nonce,
- 			  auth->tpm_nonce, AES_KEY_BYTES + AES_BLOCK_SIZE,
- 			  auth->scratch);
- 
- 		len = tpm_buf_read_u16(buf, &offset_p);
--		aes_expandkey(&auth->aes_ctx, auth->scratch, AES_KEY_BYTES);
--		aescfb_encrypt(&auth->aes_ctx, &buf->data[offset_p],
-+		aes_prepareenckey(&auth->aes_key, auth->scratch, AES_KEY_BYTES);
-+		aescfb_encrypt(&auth->aes_key, &buf->data[offset_p],
- 			       &buf->data[offset_p], len,
- 			       auth->scratch + AES_KEY_BYTES);
- 		/* reset p to beginning of parameters for HMAC */
- 		offset_p -= 2;
- 	}
-@@ -856,12 +856,12 @@ int tpm_buf_check_hmac_response(struct tpm_chip *chip, struct tpm_buf *buf,
- 			  + auth->passphrase_len, "CFB", auth->tpm_nonce,
- 			  auth->our_nonce, AES_KEY_BYTES + AES_BLOCK_SIZE,
- 			  auth->scratch);
- 
- 		len = tpm_buf_read_u16(buf, &offset_p);
--		aes_expandkey(&auth->aes_ctx, auth->scratch, AES_KEY_BYTES);
--		aescfb_decrypt(&auth->aes_ctx, &buf->data[offset_p],
-+		aes_prepareenckey(&auth->aes_key, auth->scratch, AES_KEY_BYTES);
-+		aescfb_decrypt(&auth->aes_key, &buf->data[offset_p],
- 			       &buf->data[offset_p], len,
- 			       auth->scratch + AES_KEY_BYTES);
- 	}
- 
-  out:
-diff --git a/include/crypto/aes.h b/include/crypto/aes.h
-index 4a56aed59973..4cb3c27d1bf5 100644
---- a/include/crypto/aes.h
-+++ b/include/crypto/aes.h
-@@ -341,11 +341,11 @@ void aes_decrypt_new(const struct aes_key *key, u8 out[at_least AES_BLOCK_SIZE],
- extern const u8 crypto_aes_sbox[];
- extern const u8 crypto_aes_inv_sbox[];
- extern const u32 aes_enc_tab[256];
- extern const u32 aes_dec_tab[256];
- 
--void aescfb_encrypt(const struct crypto_aes_ctx *ctx, u8 *dst, const u8 *src,
-+void aescfb_encrypt(const struct aes_enckey *key, u8 *dst, const u8 *src,
- 		    int len, const u8 iv[AES_BLOCK_SIZE]);
--void aescfb_decrypt(const struct crypto_aes_ctx *ctx, u8 *dst, const u8 *src,
-+void aescfb_decrypt(const struct aes_enckey *key, u8 *dst, const u8 *src,
- 		    int len, const u8 iv[AES_BLOCK_SIZE]);
- 
- #endif
-diff --git a/lib/crypto/aescfb.c b/lib/crypto/aescfb.c
-index 0f294c8cbf3c..147e5211728f 100644
---- a/lib/crypto/aescfb.c
-+++ b/lib/crypto/aescfb.c
-@@ -9,11 +9,11 @@
- #include <crypto/algapi.h>
+diff --git a/lib/crypto/aes.c b/lib/crypto/aes.c
+index b7ab2d0c4e59..b73e19f1bb95 100644
+--- a/lib/crypto/aes.c
++++ b/lib/crypto/aes.c
+@@ -9,15 +9,11 @@
+ #include <linux/crypto.h>
  #include <linux/export.h>
  #include <linux/module.h>
- #include <asm/irqflags.h>
+ #include <linux/unaligned.h>
  
--static void aescfb_encrypt_block(const struct crypto_aes_ctx *ctx, void *dst,
-+static void aescfb_encrypt_block(const struct aes_enckey *key, void *dst,
- 				 const void *src)
- {
- 	unsigned long flags;
- 
- 	/*
-@@ -23,31 +23,31 @@ static void aescfb_encrypt_block(const struct crypto_aes_ctx *ctx, void *dst,
- 	 * extent by pulling the entire S-box into the caches before doing any
- 	 * substitutions, but this strategy is more effective when running with
- 	 * interrupts disabled.
- 	 */
- 	local_irq_save(flags);
--	aes_encrypt(ctx, dst, src);
-+	aes_encrypt(key, dst, src);
- 	local_irq_restore(flags);
- }
- 
- /**
-  * aescfb_encrypt - Perform AES-CFB encryption on a block of data
-  *
-- * @ctx:	The AES-CFB key schedule
-+ * @key:	The AES-CFB key schedule
-  * @dst:	Pointer to the ciphertext output buffer
-  * @src:	Pointer the plaintext (may equal @dst for encryption in place)
-  * @len:	The size in bytes of the plaintext and ciphertext.
-  * @iv:		The initialization vector (IV) to use for this block of data
-  */
--void aescfb_encrypt(const struct crypto_aes_ctx *ctx, u8 *dst, const u8 *src,
-+void aescfb_encrypt(const struct aes_enckey *key, u8 *dst, const u8 *src,
- 		    int len, const u8 iv[AES_BLOCK_SIZE])
- {
- 	u8 ks[AES_BLOCK_SIZE];
- 	const u8 *v = iv;
- 
- 	while (len > 0) {
--		aescfb_encrypt_block(ctx, ks, v);
-+		aescfb_encrypt_block(key, ks, v);
- 		crypto_xor_cpy(dst, src, ks, min(len, AES_BLOCK_SIZE));
- 		v = dst;
- 
- 		dst += AES_BLOCK_SIZE;
- 		src += AES_BLOCK_SIZE;
-@@ -59,31 +59,31 @@ void aescfb_encrypt(const struct crypto_aes_ctx *ctx, u8 *dst, const u8 *src,
- EXPORT_SYMBOL(aescfb_encrypt);
- 
- /**
-  * aescfb_decrypt - Perform AES-CFB decryption on a block of data
-  *
-- * @ctx:	The AES-CFB key schedule
-+ * @key:	The AES-CFB key schedule
-  * @dst:	Pointer to the plaintext output buffer
-  * @src:	Pointer the ciphertext (may equal @dst for decryption in place)
-  * @len:	The size in bytes of the plaintext and ciphertext.
-  * @iv:		The initialization vector (IV) to use for this block of data
-  */
--void aescfb_decrypt(const struct crypto_aes_ctx *ctx, u8 *dst, const u8 *src,
-+void aescfb_decrypt(const struct aes_enckey *key, u8 *dst, const u8 *src,
- 		    int len, const u8 iv[AES_BLOCK_SIZE])
- {
- 	u8 ks[2][AES_BLOCK_SIZE];
- 
--	aescfb_encrypt_block(ctx, ks[0], iv);
-+	aescfb_encrypt_block(key, ks[0], iv);
- 
- 	for (int i = 0; len > 0; i ^= 1) {
- 		if (len > AES_BLOCK_SIZE)
- 			/*
- 			 * Generate the keystream for the next block before
- 			 * performing the XOR, as that may update in place and
- 			 * overwrite the ciphertext.
- 			 */
--			aescfb_encrypt_block(ctx, ks[!i], src);
-+			aescfb_encrypt_block(key, ks[!i], src);
- 
- 		crypto_xor_cpy(dst, src, ks[i], min(len, AES_BLOCK_SIZE));
- 
- 		dst += AES_BLOCK_SIZE;
- 		src += AES_BLOCK_SIZE;
-@@ -212,34 +212,34 @@ static struct {
+-/*
+- * Emit the sbox as volatile const to prevent the compiler from doing
+- * constant folding on sbox references involving fixed indexes.
+- */
+-static volatile const u8 ____cacheline_aligned aes_sbox[] = {
++static const u8 ____cacheline_aligned aes_sbox[] = {
+ 	0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5,
+ 	0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76,
+ 	0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0,
+ 	0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72, 0xc0,
+ 	0xb7, 0xfd, 0x93, 0x26, 0x36, 0x3f, 0xf7, 0xcc,
+@@ -48,11 +44,11 @@ static volatile const u8 ____cacheline_aligned aes_sbox[] = {
+ 	0x9b, 0x1e, 0x87, 0xe9, 0xce, 0x55, 0x28, 0xdf,
+ 	0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68,
+ 	0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16,
  };
  
- static int __init libaescfb_init(void)
- {
- 	for (int i = 0; i < ARRAY_SIZE(aescfb_tv); i++) {
--		struct crypto_aes_ctx ctx;
-+		struct aes_enckey key;
- 		u8 buf[64];
+-static volatile const u8 ____cacheline_aligned aes_inv_sbox[] = {
++static const u8 ____cacheline_aligned aes_inv_sbox[] = {
+ 	0x52, 0x09, 0x6a, 0xd5, 0x30, 0x36, 0xa5, 0x38,
+ 	0xbf, 0x40, 0xa3, 0x9e, 0x81, 0xf3, 0xd7, 0xfb,
+ 	0x7c, 0xe3, 0x39, 0x82, 0x9b, 0x2f, 0xff, 0x87,
+ 	0x34, 0x8e, 0x43, 0x44, 0xc4, 0xde, 0xe9, 0xcb,
+ 	0x54, 0x7b, 0x94, 0x32, 0xa6, 0xc2, 0x23, 0x3d,
+@@ -428,11 +424,11 @@ static void __maybe_unused aes_decrypt_generic(const u32 inv_rndkeys[],
+ 		w[1] = w1;
+ 		w[2] = w2;
+ 		w[3] = w3;
+ 	} while (--n);
  
--		if (aes_expandkey(&ctx, aescfb_tv[i].key, aescfb_tv[i].klen)) {
--			pr_err("aes_expandkey() failed on vector %d\n", i);
-+		if (aes_prepareenckey(&key, aescfb_tv[i].key, aescfb_tv[i].klen)) {
-+			pr_err("aes_prepareenckey() failed on vector %d\n", i);
- 			return -ENODEV;
- 		}
- 
--		aescfb_encrypt(&ctx, buf, aescfb_tv[i].ptext, aescfb_tv[i].len,
-+		aescfb_encrypt(&key, buf, aescfb_tv[i].ptext, aescfb_tv[i].len,
- 			       aescfb_tv[i].iv);
- 		if (memcmp(buf, aescfb_tv[i].ctext, aescfb_tv[i].len)) {
- 			pr_err("aescfb_encrypt() #1 failed on vector %d\n", i);
- 			return -ENODEV;
- 		}
- 
- 		/* decrypt in place */
--		aescfb_decrypt(&ctx, buf, buf, aescfb_tv[i].len, aescfb_tv[i].iv);
-+		aescfb_decrypt(&key, buf, buf, aescfb_tv[i].len, aescfb_tv[i].iv);
- 		if (memcmp(buf, aescfb_tv[i].ptext, aescfb_tv[i].len)) {
- 			pr_err("aescfb_decrypt() failed on vector %d\n", i);
- 			return -ENODEV;
- 		}
- 
- 		/* encrypt in place */
--		aescfb_encrypt(&ctx, buf, buf, aescfb_tv[i].len, aescfb_tv[i].iv);
-+		aescfb_encrypt(&key, buf, buf, aescfb_tv[i].len, aescfb_tv[i].iv);
- 		if (memcmp(buf, aescfb_tv[i].ctext, aescfb_tv[i].len)) {
- 			pr_err("aescfb_encrypt() #2 failed on vector %d\n", i);
- 
- 			return -ENODEV;
- 		}
+-	aes_prefetch((const void *)aes_inv_sbox, sizeof(aes_inv_sbox));
++	aes_prefetch(aes_inv_sbox, sizeof(aes_inv_sbox));
+ 	put_unaligned_le32(declast_quarterround(w, 0, *rkp++), &out[0]);
+ 	put_unaligned_le32(declast_quarterround(w, 1, *rkp++), &out[4]);
+ 	put_unaligned_le32(declast_quarterround(w, 2, *rkp++), &out[8]);
+ 	put_unaligned_le32(declast_quarterround(w, 3, *rkp++), &out[12]);
+ }
 -- 
 2.52.0
 
