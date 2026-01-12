@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F019CCF45C8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E067CF45C9
 	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 19:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vrscYl+VHx76mFPOIi85rnHf9JbyBrMDkfn1e5J0li4=; b=5DqirINep+Auz9
-	inNYAHFvQhiadkyf2HK/F5KzF/yqghZ8BEBBnqBpp2u6jd7pvx2Rkb4SWv3j3uLse+JLUMKrz21/b
-	bThYqHRf3Oa0zgMmRpQwAQh1zBLjJFa2bObtBuG0oLDap+X9gFDPCkBomEFaSQgnG8StYIjfa4ljk
-	7Cp41nzZ6zQUJERd4vLN99OhRMTudewroKgUm2u1cphSX6Vq/w+NRIo6ihb3x+9FcuN7EHEIudn0j
-	yCj3vwppVFBbAFf04nl6ZP/mE1XadhPGCf9yw4CWDuGGgmohEI3FUcGgySnFRf8go68sce3xOd7YN
-	wq8XaCaHwQDkpuTgiWAQ==;
+	List-Owner; bh=6S8bEgbgsJQcUb9TQcwQln56PUx4Z7stU8AcMuY+d4A=; b=WepIct1Joxu/jZ
+	uwIcQoOxDceGzR2SPfvd8/QqGoQXPZ2vQFKO5MYlOcq7lxomx8tq+AwIkX4uiiwZ7V5YXcB8p3NB2
+	mI6GUf4OFGHk8GKFrvhG9oPwoWbTtfA4aG78LNpmRh5WfmRaFB4k3ayQntfVP6bgsrFrnx+n/V0X3
+	0BmdQWHz05XeDCDn6k5ROlchuU3XMq2ZSKG2hTy1a0CwRe7FnzQa/AcQ/IKhUAmry+wEpsAU2w4tk
+	skw4zsuPwpCFtrartWfgWXzievWMA8RuKEdws9LVSMf8ZOsHkaUBO+I9zVmmfO/GW8hi7Av9Jrkga
+	ZFitT24LlfqtMwN75n+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNVs-00000005zJJ-185F;
-	Mon, 12 Jan 2026 19:23:40 +0000
+	id 1vfNVo-00000005zEs-2ge9;
+	Mon, 12 Jan 2026 19:23:36 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNVa-00000005yxG-05yO;
-	Mon, 12 Jan 2026 19:23:23 +0000
+	id 1vfNVZ-00000005yvl-1cWz;
+	Mon, 12 Jan 2026 19:23:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B1BC944357;
-	Mon, 12 Jan 2026 19:23:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32846C16AAE;
-	Mon, 12 Jan 2026 19:23:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9E66E443AD;
+	Mon, 12 Jan 2026 19:23:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E026C16AAE;
+	Mon, 12 Jan 2026 19:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768245801;
-	bh=jJvi3oRvsSqQATN4nKRbSiVsFU5R9KYuCOE+SKfl3jE=;
+	s=k20201202; t=1768245800;
+	bh=gKPegVOdOTFBLkcvg5JmDNGwdQNryqhr4ZKUObZBWW0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=iMQOCeyeqHFoWDrkaKFAaWbq6Fb/zXU54onwz2J8yL/esdgXjUEMqJXLLsFJRF04R
-	 VFto64arPPmT75ndJyPrLDNUFnejCIySLkR3CEwWS7fb8kcQ9ykcVaCABqer3PeKwF
-	 4J1/KYbKvThzi7RJ7LanIPEii0m2gP/GiJ4AWHCJ2bf7VgybaQwSL781G5hr7ZqqRe
-	 Nwd5GfZCh27dQLc+pIXSbtsz8WoApF+jj7aJS7fncV9YXV4pdY/Hozs3zVy7lhnL98
-	 p4L5Z9iYRnMc9t2l9XJjP7yuF5IU/Rx4wEAisPCEEKxTzwNFJSP2wVr4CBbCQqde8O
-	 yXWWj8rqnU/TQ==
+	b=GNPns4AUB6IFYkxnPq0QTR0KPVOq3rh9saC/xeXyfAgv9l7GY6JKe+/ai5CwNlIPR
+	 iGV6sf7GOMCBBOYUb6H3OemOH4f0g6N9AG2nXiw8MnO+tA3tugcAtvxQqKnV3wluci
+	 CNlzp0Ma1shaRGZYoPxW2/PCGl2HlkvDHX5GMsHR2vVw459z2L4rOsXmc2FKKbdEhI
+	 +ewZn43Ewtf0TB04PGOvVXvALgW7sfw7QjVuX3tpNLWP5O3XRs1n6498AkFf8vKHKm
+	 UGJ/3SARiNeXl8ArBO42WR5Nd43Lsq6qn6Kov12nIGPBMpG3+ccumgdWyzNVCVnU7I
+	 PAhpO3zmzFy3w==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,16 +56,16 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 07/35] crypto: aegis - Switch from crypto_ft_tab[] to aes_enc_tab[]
-Date: Mon, 12 Jan 2026 11:20:05 -0800
-Message-ID: <20260112192035.10427-8-ebiggers@kernel.org>
+Subject: [PATCH v2 05/35] crypto: arm64/aes - Switch to aes_enc_tab[] and aes_dec_tab[]
+Date: Mon, 12 Jan 2026 11:20:03 -0800
+Message-ID: <20260112192035.10427-6-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260112192035.10427-1-ebiggers@kernel.org>
 References: <20260112192035.10427-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_112322_089362_F8A9A015 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20260112_112321_448861_0AF92153 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,51 +82,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Instead of crypto_ft_tab[0] from aes_generic.c, use aes_enc_tab from
-lib/crypto/aes.c.  These contain the same data, so the result is the
-same.  This will allow aes_generic.c to eventually be removed.
+Instead of crypto_ft_tab and crypto_it_tab from aes_generic.c, use
+aes_enc_tab and aes_dec_tab from lib/crypto/aes.c.  These contain the
+same data in the first 1024 bytes (which is the part that this code
+uses), so the result is the same.  This will allow aes_generic.c to
+eventually be removed.
 
 Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- crypto/Kconfig | 2 +-
- crypto/aegis.h | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/crypto/aes-cipher-core.S | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/crypto/Kconfig b/crypto/Kconfig
-index 12a87f7cf150..443fe8e016fd 100644
---- a/crypto/Kconfig
-+++ b/crypto/Kconfig
-@@ -764,11 +764,11 @@ endmenu
- menu "AEAD (authenticated encryption with associated data) ciphers"
+diff --git a/arch/arm64/crypto/aes-cipher-core.S b/arch/arm64/crypto/aes-cipher-core.S
+index c9d6955f8404..651f701c56a8 100644
+--- a/arch/arm64/crypto/aes-cipher-core.S
++++ b/arch/arm64/crypto/aes-cipher-core.S
+@@ -121,12 +121,12 @@ CPU_BE(	rev		w7, w7		)
+ 	stp		w6, w7, [out, #8]
+ 	ret
+ 	.endm
  
- config CRYPTO_AEGIS128
- 	tristate "AEGIS-128"
- 	select CRYPTO_AEAD
--	select CRYPTO_AES  # for AES S-box tables
-+	select CRYPTO_LIB_AES  # for AES S-box tables
- 	help
- 	  AEGIS-128 AEAD algorithm
+ SYM_FUNC_START(__aes_arm64_encrypt)
+-	do_crypt	fround, crypto_ft_tab, crypto_ft_tab + 1, 2
++	do_crypt	fround, aes_enc_tab, aes_enc_tab + 1, 2
+ SYM_FUNC_END(__aes_arm64_encrypt)
  
- config CRYPTO_AEGIS128_SIMD
- 	bool "AEGIS-128 (arm NEON, arm64 NEON)"
-diff --git a/crypto/aegis.h b/crypto/aegis.h
-index 6ef9c174c973..ffcf8e85ea69 100644
---- a/crypto/aegis.h
-+++ b/crypto/aegis.h
-@@ -60,11 +60,11 @@ static __always_inline void crypto_aegis_block_and(union aegis_block *dst,
- static __always_inline void crypto_aegis_aesenc(union aegis_block *dst,
- 						const union aegis_block *src,
- 						const union aegis_block *key)
- {
- 	const u8  *s  = src->bytes;
--	const u32 *t = crypto_ft_tab[0];
-+	const u32 *t = aes_enc_tab;
- 	u32 d0, d1, d2, d3;
- 
- 	d0 = t[s[ 0]] ^ rol32(t[s[ 5]], 8) ^ rol32(t[s[10]], 16) ^ rol32(t[s[15]], 24);
- 	d1 = t[s[ 4]] ^ rol32(t[s[ 9]], 8) ^ rol32(t[s[14]], 16) ^ rol32(t[s[ 3]], 24);
- 	d2 = t[s[ 8]] ^ rol32(t[s[13]], 8) ^ rol32(t[s[ 2]], 16) ^ rol32(t[s[ 7]], 24);
+ 	.align		5
+ SYM_FUNC_START(__aes_arm64_decrypt)
+-	do_crypt	iround, crypto_it_tab, crypto_aes_inv_sbox, 0
++	do_crypt	iround, aes_dec_tab, crypto_aes_inv_sbox, 0
+ SYM_FUNC_END(__aes_arm64_decrypt)
 -- 
 2.52.0
 
