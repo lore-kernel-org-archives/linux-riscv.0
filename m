@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35ECACF45C5
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 19:25:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D79C1CF45C9
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 19:26:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zyXRMOv6I2BJhruDAIY5Pp2U+3ObOzyq0TI9LPGPoCQ=; b=jSARhGqQ/pevoW
-	PnwmQy6USfQSvx2oGXLtL4UDfT3IRrJD6pNdcxV2x3MvOo06DV985yJHn1KzKYVTHq65CiiC0pM4s
-	fkWLaxkjSQ3tnLZYMlyNA0PBEK2oUuntVKlLMtfUoMwi2mE041F7rr2BC9GmuNJFuAu3pW6CH7z7E
-	lr1qenBeEVHVKAnP8pIdiXmBMesAuwsjjvtifH6R/BL5op4H26elCnFhJbZh5ibfg7h/nDy/hUQ8Q
-	GMfvaRVVHiyVW9vs150sl9lre5dCVmrSIBt3Ksvwg62dsLaB8qJdTS3MfsnfSoiC9UtZlVLj7ff0p
-	EhetNaelQ9q9gUXvOZtw==;
+	List-Owner; bh=P47U95UTcRCNywiZygfQtnIKUoFt2S3ARB3NPZ4tOsk=; b=U/AGgnGwbZtdBT
+	0lvVFAkS6lFsVqrFebQX2aZWRT01/8Mgw8/qsqqEgmR1ulBd3LAvcjz0chcydZgBcxk1v0ZGpGS99
+	b76ZQSXKdx2fPy688GkdvGJWEm2xrdHS74XFdZ3qsOeHYLIJnFUacjHtA8ioh9SPum4ElTKrVUsmQ
+	0kmp8LgWK2tYWIuO6849VE60jRyENOapZccdosFd87ycYzBxvEgGB+eRzmAZ3RJ7bR8eNplB3okvA
+	pHCJAvBQhJMEJNBRcH1MM4efPtzswWHf/1KgagReRC/tVPG+ulsasGKyzRRk1k552/02UWfehzdrD
+	WwSoYuHa353oVgsyG4/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNXi-000000061vW-2Mob;
-	Mon, 12 Jan 2026 19:25:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vfNYC-000000062bm-1y8O;
+	Mon, 12 Jan 2026 19:26:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNVk-00000005z98-3Gc8;
-	Mon, 12 Jan 2026 19:23:34 +0000
+	id 1vfNVn-00000005zCR-1Te4;
+	Mon, 12 Jan 2026 19:23:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 677B943483;
-	Mon, 12 Jan 2026 19:23:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D27E5C2BC86;
-	Mon, 12 Jan 2026 19:23:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B8095600AE;
+	Mon, 12 Jan 2026 19:23:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EEABC16AAE;
+	Mon, 12 Jan 2026 19:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768245812;
-	bh=WLZZawaQBX35WPW58Hz//ngE+4DAJvp0HQ0I1HlTY/o=;
+	s=k20201202; t=1768245814;
+	bh=2yX1SAnAgKA7xbLH25xiQD42E7Ke51oKK+KgmtTec0s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=c1uZHKeto0AfyTDnkpw+maKdeM0KeDm2Q70XvXQU/RpOQN8SKGIlrpmf3qjxTie86
-	 HCNSg4+UvVX3xUSdbQVP8xeeOQMJoQg1DuN+j3Q7uMn1pi8833mHKQsAMJKHJ/r0co
-	 Cp9t7NfmIB9UcWHN7L1swZLb2Bt1wDVrX1d7fqpuqdvA8b11taUYiaKgJY13HpgOwo
-	 UqE27wAEUeCRcKwzQPZMRSqiSF3OIPD11Gu7aUrpUal/Qv2Wf/u6wG8DO8SrVskdHr
-	 mp5bV4KfXC90NInEuREpltxcfpeZYFO7VWCjJqaaviHvltHYdOmLgxI6z8RRKbwvRF
-	 Fm8EGShrZgCLg==
+	b=JGAY+SvhLYay2TgvMrif+ANkVrcmyC25n1wXaObgxPNPKPgRoxlQESdodwyIlX2O1
+	 Q7V+wgk/nfCRxUZyBdqtJpnEkJt9FZOZmB5On9rs+UHN8bgEQHxrp9E0K0lczA7srL
+	 6eJ9tBw9XF+0C2b1m7/xwczEdD9UCDYr7j5hz8+y1XDiwjnH7f+y/CNqvw8lACWblO
+	 sYUtSTxUN4kpurSKzm1oIDucrgK73G2ZVnm6TjcmdGSV0lvQyV+gFkFKri+6p6T7cv
+	 NYuvcNGcXlDvOweSxvKR6G27MBmsS4uZWPAbKl9rJo5b+3MJJrWYwA+f9oIUhjDU+a
+	 /ht13DAlXfpLg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,16 +56,13 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 26/35] crypto: ccp - Use new AES library API
-Date: Mon, 12 Jan 2026 11:20:24 -0800
-Message-ID: <20260112192035.10427-27-ebiggers@kernel.org>
+Subject: [PATCH v2 30/35] crypto: inside-secure - Use new AES library API
+Date: Mon, 12 Jan 2026 11:20:28 -0800
+Message-ID: <20260112192035.10427-31-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260112192035.10427-1-ebiggers@kernel.org>
 References: <20260112192035.10427-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_112332_860301_6B80F838 
-X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,42 +90,125 @@ the key struct type itself, the change in the type of the key struct
 results in aes_encrypt() (which is temporarily a type-generic macro)
 calling the new encryption function rather than the old one.
 
+This driver used crypto_aes_ctx::key_enc, but only to access the copy of
+the raw key that is stored at the beginning of the expanded key.  To
+eliminate the dependency on this field, instead just access the raw key
+directly, which is already available in the relevant functions.
+
 Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- drivers/crypto/ccp/ccp-crypto-aes-cmac.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/crypto/inside-secure/safexcel_cipher.c | 12 +++++-------
+ drivers/crypto/inside-secure/safexcel_hash.c   | 14 +++++++-------
+ 2 files changed, 12 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/crypto/ccp/ccp-crypto-aes-cmac.c b/drivers/crypto/ccp/ccp-crypto-aes-cmac.c
-index d8426bdf3190..71480f7e6f6b 100644
---- a/drivers/crypto/ccp/ccp-crypto-aes-cmac.c
-+++ b/drivers/crypto/ccp/ccp-crypto-aes-cmac.c
-@@ -259,11 +259,11 @@ static int ccp_aes_cmac_setkey(struct crypto_ahash *tfm, const u8 *key,
- 	struct ccp_ctx *ctx = crypto_ahash_ctx_dma(tfm);
- 	struct ccp_crypto_ahash_alg *alg =
- 		ccp_crypto_ahash_alg(crypto_ahash_tfm(tfm));
- 	u64 k0_hi, k0_lo, k1_hi, k1_lo, k2_hi, k2_lo;
- 	u64 rb_hi = 0x00, rb_lo = 0x87;
+diff --git a/drivers/crypto/inside-secure/safexcel_cipher.c b/drivers/crypto/inside-secure/safexcel_cipher.c
+index 919e5a2cab95..27b180057417 100644
+--- a/drivers/crypto/inside-secure/safexcel_cipher.c
++++ b/drivers/crypto/inside-secure/safexcel_cipher.c
+@@ -2505,31 +2505,29 @@ static int safexcel_aead_gcm_setkey(struct crypto_aead *ctfm, const u8 *key,
+ 				    unsigned int len)
+ {
+ 	struct crypto_tfm *tfm = crypto_aead_tfm(ctfm);
+ 	struct safexcel_cipher_ctx *ctx = crypto_tfm_ctx(tfm);
+ 	struct safexcel_crypto_priv *priv = ctx->base.priv;
 -	struct crypto_aes_ctx aes;
 +	struct aes_enckey aes;
- 	__be64 *gk;
- 	int ret;
+ 	u32 hashkey[AES_BLOCK_SIZE >> 2];
+ 	int ret, i;
  
- 	switch (key_len) {
- 	case AES_KEYSIZE_128:
-@@ -282,11 +282,11 @@ static int ccp_aes_cmac_setkey(struct crypto_ahash *tfm, const u8 *key,
+-	ret = aes_expandkey(&aes, key, len);
+-	if (ret) {
+-		memzero_explicit(&aes, sizeof(aes));
++	ret = aes_prepareenckey(&aes, key, len);
++	if (ret)
+ 		return ret;
+-	}
  
- 	/* Set to zero until complete */
- 	ctx->u.aes.key_len = 0;
+ 	if (priv->flags & EIP197_TRC_CACHE && ctx->base.ctxr_dma) {
+ 		for (i = 0; i < len / sizeof(u32); i++) {
+-			if (le32_to_cpu(ctx->key[i]) != aes.key_enc[i]) {
++			if (ctx->key[i] != get_unaligned((__le32 *)key + i)) {
+ 				ctx->base.needs_inv = true;
+ 				break;
+ 			}
+ 		}
+ 	}
  
- 	/* Set the key for the AES cipher used to generate the keys */
--	ret = aes_expandkey(&aes, key, key_len);
-+	ret = aes_prepareenckey(&aes, key, key_len);
+ 	for (i = 0; i < len / sizeof(u32); i++)
+-		ctx->key[i] = cpu_to_le32(aes.key_enc[i]);
++		ctx->key[i] = get_unaligned((__le32 *)key + i);
+ 
+ 	ctx->key_len = len;
+ 
+ 	/* Compute hash key by encrypting zeroes with cipher key */
+ 	memset(hashkey, 0, AES_BLOCK_SIZE);
+diff --git a/drivers/crypto/inside-secure/safexcel_hash.c b/drivers/crypto/inside-secure/safexcel_hash.c
+index ef0ba4832928..e534b7a200cf 100644
+--- a/drivers/crypto/inside-secure/safexcel_hash.c
++++ b/drivers/crypto/inside-secure/safexcel_hash.c
+@@ -28,11 +28,11 @@ struct safexcel_ahash_ctx {
+ 	bool cbcmac;
+ 	bool do_fallback;
+ 	bool fb_init_done;
+ 	bool fb_do_setkey;
+ 
+-	struct crypto_aes_ctx *aes;
++	struct aes_enckey *aes;
+ 	struct crypto_ahash *fback;
+ 	struct crypto_shash *shpre;
+ 	struct shash_desc *shdesc;
+ };
+ 
+@@ -1974,11 +1974,11 @@ static int safexcel_xcbcmac_setkey(struct crypto_ahash *tfm, const u8 *key,
+ {
+ 	struct safexcel_ahash_ctx *ctx = crypto_tfm_ctx(crypto_ahash_tfm(tfm));
+ 	u32 key_tmp[3 * AES_BLOCK_SIZE / sizeof(u32)];
+ 	int ret, i;
+ 
+-	ret = aes_expandkey(ctx->aes, key, len);
++	ret = aes_prepareenckey(ctx->aes, key, len);
  	if (ret)
  		return ret;
  
- 	/* Encrypt a block of zeroes - use key area in context */
- 	memset(ctx->u.aes.key, 0, sizeof(ctx->u.aes.key));
+ 	/* precompute the XCBC key material */
+ 	aes_encrypt(ctx->aes, (u8 *)key_tmp + 2 * AES_BLOCK_SIZE,
+@@ -1988,13 +1988,13 @@ static int safexcel_xcbcmac_setkey(struct crypto_ahash *tfm, const u8 *key,
+ 	aes_encrypt(ctx->aes, (u8 *)key_tmp + AES_BLOCK_SIZE,
+ 		    "\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3");
+ 	for (i = 0; i < 3 * AES_BLOCK_SIZE / sizeof(u32); i++)
+ 		ctx->base.ipad.word[i] = swab32(key_tmp[i]);
+ 
+-	ret = aes_expandkey(ctx->aes,
+-			    (u8 *)key_tmp + 2 * AES_BLOCK_SIZE,
+-			    AES_MIN_KEY_SIZE);
++	ret = aes_prepareenckey(ctx->aes,
++				(u8 *)key_tmp + 2 * AES_BLOCK_SIZE,
++				AES_MIN_KEY_SIZE);
+ 	if (ret)
+ 		return ret;
+ 
+ 	ctx->alg    = CONTEXT_CONTROL_CRYPTO_ALG_XCBC128;
+ 	ctx->key_sz = AES_MIN_KEY_SIZE + 2 * AES_BLOCK_SIZE;
+@@ -2060,16 +2060,16 @@ static int safexcel_cmac_setkey(struct crypto_ahash *tfm, const u8 *key,
+ 	u64 _const[2];
+ 	u8 msb_mask, gfmask;
+ 	int ret, i;
+ 
+ 	/* precompute the CMAC key material */
+-	ret = aes_expandkey(ctx->aes, key, len);
++	ret = aes_prepareenckey(ctx->aes, key, len);
+ 	if (ret)
+ 		return ret;
+ 
+ 	for (i = 0; i < len / sizeof(u32); i++)
+-		ctx->base.ipad.word[i + 8] = swab32(ctx->aes->key_enc[i]);
++		ctx->base.ipad.word[i + 8] = get_unaligned_be32(&key[4 * i]);
+ 
+ 	/* code below borrowed from crypto/cmac.c */
+ 	/* encrypt the zero block */
+ 	memset(consts, 0, AES_BLOCK_SIZE);
+ 	aes_encrypt(ctx->aes, (u8 *)consts, (u8 *)consts);
 -- 
 2.52.0
 
