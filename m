@@ -4,81 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE3ED25039
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 06:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADBABD2503C
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jan 2026 07:03:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N2fBeliUj5Tj5XMc5fXBI55qI93x3OuRMrgOY+Nq1HE=; b=R4vTE7ocFGTYRn
-	Y2Rxpr8v52PhZpMlBLypnFUc/4VYnYpM9JP3oqN9q5LZfx1CJB3885vO1oijP8qF8YknAKfBwu5Ln
-	JwsssNeouzEYxXBlU+0PaFHo85aQ94hObR1hCVQ6e96uIGGmKahIiLYGcIPsFmw4kzSxO+KnMju2y
-	FcwmaBU44WVff4NpPgTMUwKx4bwxhdyjVYuL/Zgh1pgp0PczOsBqewA/cnTsXPFVpjA4ntu2bAZRe
-	gJt1qkeS2nQSYxmd0I6DtS0fT1k3cB/Lsm4rhAJZj4bv4C97Pjdfz6Fv+2eZOhQ83Qjvnf/xCwyAt
-	T6qrxdFemj92GgP+ayLA==;
+	List-Owner; bh=8rPNB1hXuLvWF4KJDy3hN2jfI6Zs+jdO7dxyJitesmE=; b=KFTHq9Au4khsZn
+	3BmuqeAHt1TobrY13r8ts7CxqFnqbPcsBdog5xIOkoIwn5artDMZOpgLNCVl5TlzmiBCyUTiXT8d9
+	uSjWzNsbUlg5bdH+Dee/h95cWuN5BhJSHCM/sbGSazZkDi62TpTwMtRfseCypSbPDwcDeZv68A0QD
+	DbqUU8zHiyd4Uifn1c4QMTwOPWt9HiknuIz8w38QFOMqVZNGMnjLeIi/Atw+DG1xjqYDnuSBG7oGz
+	oh2EyYpKUYf2tbi/fMdqn1oDbcicHI4UdO3KwmlIewtp0AG+IxiRtbhUyftZ5RGrp3sPWD2EN1nkU
+	Zwjto6DQaDFsJJEOE55w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfBtl-00000004qVv-3gVd;
-	Mon, 12 Jan 2026 06:59:33 +0000
-Received: from esa1.hc555-34.eu.iphmx.com ([23.90.104.144])
+	id 1vfBxY-00000004qlB-3AL4;
+	Mon, 12 Jan 2026 07:03:28 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfBth-00000004qVK-2tKO
-	for linux-riscv@lists.infradead.org;
-	Mon, 12 Jan 2026 06:59:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1768201169; x=1799737169;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=S86iPthB8Mz0CkECZazPVHa80rEM1013uyEDwE2IV5A=;
-  b=Z8SonNeHzz+dz1Ke/vWL6sWo0evkUlF4oQvSx+xrUho+E0G0hBhCpD04
-   JZQPKbwEWbWXfe5mIibFyucQ23SM39Og34xjPAeOA/6oPU4fcnJfy5+0p
-   2g4FddbmG/cibus8cSgsgJOqvOucAZvqwWySLLcLhsOu6afyIveqPiHPe
-   Ss7J9ODQeuY09b3SeSxjru6e/6zzLaWlmg+A5G+udE5OWik4OvAHFQOas
-   fFhgrWYlwBMK8bL8hreEAiKbq0d+2BwYMBw93vFOCyAPPOdVUaOkn5Zdo
-   0cWiSp58WiQoNwUw9AJC18uRnTkZMB/EgdOQDgimFwTwmZl6cb0okiIOD
-   A==;
-X-CSE-ConnectionGUID: BFmpUzc5RUCL7usDFXN6FQ==
-X-CSE-MsgGUID: oUc5HCzQS9yTWs1GiycC+w==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces02_data.me-corp.lan) ([146.255.191.134])
-  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jan 2026 08:59:25 +0200
-X-CSE-ConnectionGUID: EsrqnE3ATQuiZ4VSoKzRGg==
-X-CSE-MsgGUID: qZ26/BZARpCbFJcbJb1pDQ==
-Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.6])
-  by ces02_data.me-corp.lan with SMTP; 12 Jan 2026 09:01:12 +0200
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Mon, 12 Jan 2026 08:59:24 +0200
-From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-To: lkp@intel.com,
-	mick@ics.forth.gr,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>
-Cc: iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev,
-	oe-kbuild-all@lists.linux.dev,
-	vladimir.kondratiev@mobileye.com,
-	Vladimir.Kondratiev@mobileye.com,
-	akpm@linux-foundation.org,
-	alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
-	hch@infradead.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com
-Subject: [PATCH v2] dma-pool: don't allocate DMA32 pool if no 32-bit memory
-Date: Mon, 12 Jan 2026 08:58:56 +0200
-Message-ID: <20260112065857.3137331-1-vladimir.kondratiev@mobileye.com>
-In-Reply-To: <202601120747.TAMpIDnI-lkp@intel.com>
-References: <202601120747.TAMpIDnI-lkp@intel.com>
+	id 1vfBxV-00000004qkN-2Rw5;
+	Mon, 12 Jan 2026 07:03:26 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 60B8SDe5007270;
+	Mon, 12 Jan 2026 07:03:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=DaR8QIrJoPyGAUdK2XoR50gjX3a8Jt
+	Q3y3ZpcU0sC3M=; b=FnlWHg7yF0EhltIiIn9ZnFKG/nvLKG/pF1swSGpJYPCijY
+	W3Rmt5GG9EndclJOkAjsYj7aziAqVbObyNXQkmpQybP1JTD40KYizrnejvBH5N0R
+	uxWhc470C1N521DLBDW/4DIyhAp6m6ddM4POUpDrVis1Hlh6nnlYKZ+MBCseQRuL
+	2/T+gL9VYGZJLh0qjYX71ULRHWwG39FOsJ/hdlnDgOBY/V7LzQa8RoX1JtXisNa8
+	CSva6dlpDA66CEU6Mn19ZO4lOZMC2xpo5csLamqkyzMu14mWfv6OS/UZ3RdAJtGZ
+	P+oSF809jDQ8YtKfRtAb1iHfsp5syvvLc4So3efA==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bkd6dwpng-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 12 Jan 2026 07:03:00 +0000 (GMT)
+Received: from m0353725.ppops.net (m0353725.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 60C72xtd026579;
+	Mon, 12 Jan 2026 07:02:59 GMT
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bkd6dwpne-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 12 Jan 2026 07:02:59 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 60C5F3XY014244;
+	Mon, 12 Jan 2026 07:02:58 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4bm1fxvq99-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 12 Jan 2026 07:02:58 +0000
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 60C72r9n41288168
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 12 Jan 2026 07:02:53 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C7F1020040;
+	Mon, 12 Jan 2026 07:02:53 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4E39620043;
+	Mon, 12 Jan 2026 07:02:50 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.87.151.31])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon, 12 Jan 2026 07:02:50 +0000 (GMT)
+Date: Mon, 12 Jan 2026 08:02:48 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Alex Shi <alexs@kernel.org>,
+        Andreas Larsson <andreas@gaisler.com>, Borislav Petkov <bp@alien8.de>,
+        Brian Cain <bcain@kernel.org>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        David Hildenbrand <david@kernel.org>,
+        Dinh Nguyen <dinguyen@kernel.org>,
+        Geert Uytterhoeven <geert@linux-m68k.org>, Guo Ren <guoren@kernel.org>,
+        Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+        Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+        Johannes Berg <johannes@sipsolutions.net>,
+        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+        Jonathan Corbet <corbet@lwn.net>, Klara Modin <klarasmodin@gmail.com>,
+        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+        Magnus Lindholm <linmag7@gmail.com>, Matt Turner <mattst88@gmail.com>,
+        Max Filippov <jcmvbkbc@gmail.com>,
+        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+        Michal Simek <monstr@monstr.eu>, Muchun Song <muchun.song@linux.dev>,
+        Oscar Salvador <osalvador@suse.de>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Pratyush Yadav <pratyush@kernel.org>,
+        Richard Weinberger <richard@nod.at>,
+        Ritesh Harjani <ritesh.list@gmail.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Stafford Horne <shorne@gmail.com>,
+        Suren Baghdasaryan <surenb@google.com>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Thomas Gleixner <tglx@linutronix.de>,
+        Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>,
+        Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+        x86@kernel.org, linux-alpha@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+        linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+        linux-mm@kvack.org, linux-openrisc@vger.kernel.org,
+        linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
+        linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+        sparclinux@vger.kernel.org
+Subject: Re: [PATCH v3 17/29] s390: introduce arch_zone_limits_init()
+Message-ID: <b211f877-f9bb-4892-b67c-d2610048575a-agordeev@linux.ibm.com>
+References: <20260111082105.290734-1-rppt@kernel.org>
+ <20260111082105.290734-18-rppt@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260111082105.290734-18-rppt@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: bCS-OSZblyIq8lvlPyjEILoO8GzzpHGN
+X-Authority-Analysis: v=2.4 cv=LLxrgZW9 c=1 sm=1 tr=0 ts=69649ca4 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=kj9zAlcOel0A:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=7WlQhDu6A2usLaOTEWYA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTEyMDA1MSBTYWx0ZWRfX59mP2KNE13j0
+ a6aegnon1oN4dcuG8YaVOaJhcRG6s3uUJFEsmdkW+MZ5sZ09v9vfZ00cHaM+sNVIGfNSGFA6TA/
+ amYWC8VtNTQv0JRk3gc5rBBltZHgc72KTXGu3prlXckbdY0t0zp5Lo5Yhjr8IF/vYaYhc4GEfSU
+ Qn3vnNEGmBOVemoTnAoVuUgIbpnnLrr8prY2Jcsedc9458fa4aIErXN9hSBcQEeZAjafXeGIs3U
+ PkSTvWywRsb27htzKZSu/lI9i25vaLSZKrrQYY6kqWC0MKkmjKSiCkMGVZp7eE7xKVafOgrDfKv
+ /IgXdjJYtIVn8udUlyOpA1x4MgwEQYsjb20V4FINx3F9Zvbn5I4upMwVWMuGSRYRH4uAOicy3EX
+ 58rNjYtR0Ljy4P0wI73tlEk2VHClT7wveMeVEf9wv8ox2a4bReXLiwz96iuRvRG4P5usk/SQFvy
+ YK5patORVNK5OiJVC/A==
+X-Proofpoint-ORIG-GUID: Mt_xEhUTi_ZaKY8BdbSWDFf-6SwyebPB
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-12_02,2026-01-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 clxscore=1011 spamscore=0 impostorscore=0
+ malwarescore=0 phishscore=0 adultscore=0 lowpriorityscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2512120000 definitions=main-2601120051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_225930_264432_43B255C7 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20260111_230325_743401_588A0C44 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,35 +165,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If system have no 32-bit memory, GFP_DMA32 pool allocation will
-obviously fail, so skip it.
+On Sun, Jan 11, 2026 at 10:20:51AM +0200, Mike Rapoport wrote:
 
-Changes in v2: use arch-independent "memblock_start_of_DRAM" to get
-DRAM base address
+Hi Mike,
 
-Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
----
- kernel/dma/pool.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+...
+> +void __init arch_zone_limits_init(unsigned long *max_zone_pfns)
+> +{
+> +	max_zone_pfns[ZONE_DMA] = virt_to_pfn(MAX_DMA_ADDRESS);
+> +	max_zone_pfns[ZONE_NORMAL] = max_low_pfn;
+> +}
+> +
+>  /*
+>   * paging_init() sets up the page tables
+>   */
+> @@ -97,8 +103,7 @@ void __init paging_init(void)
+>  	sparse_init();
+>  	zone_dma_limit = DMA_BIT_MASK(31);
+>  	memset(max_zone_pfns, 0, sizeof(max_zone_pfns));
+> -	max_zone_pfns[ZONE_DMA] = virt_to_pfn(MAX_DMA_ADDRESS);
+> -	max_zone_pfns[ZONE_NORMAL] = max_low_pfn;
+> +	arch_zone_limits_init(max_zone_pfns);
 
-diff --git a/kernel/dma/pool.c b/kernel/dma/pool.c
-index ee45dee33d49..ecd77a0272f2 100644
---- a/kernel/dma/pool.c
-+++ b/kernel/dma/pool.c
-@@ -209,7 +209,7 @@ static int __init dma_atomic_pool_init(void)
- 		if (!atomic_pool_dma)
- 			ret = -ENOMEM;
- 	}
--	if (IS_ENABLED(CONFIG_ZONE_DMA32)) {
-+	if (IS_ENABLED(CONFIG_ZONE_DMA32) && memblock_start_of_DRAM() < BIT_ULL(32)) {
- 		atomic_pool_dma32 = __dma_atomic_pool_init(atomic_pool_size,
- 						GFP_KERNEL | GFP_DMA32);
- 		if (!atomic_pool_dma32)
+You move initialization of max_zone_pfns[] to a function, name the
+function arch_zone_limits_init(), but leave the initializatio of
+max_zone_pfns[] to zeroes outside. Should not it be brought along?
 
-base-commit: 7d0a66e4bb9081d75c82ec4957c50034cb0ea449
--- 
-2.43.0
+>  	free_area_init(max_zone_pfns);
+>  }
 
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
