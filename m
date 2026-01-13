@@ -4,102 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 528C7CF45DF
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jan 2026 02:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3D2BCF45D4
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jan 2026 02:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ENhY9vtwzVJimHCQ2n90RIGiQyF97bCk5Pkv7boPzz0=; b=eE/7M6r18tdkh0
-	C9s4jND2dKoVYLfi0EB5dHJWE8Kpde+s/L7sBgxfWGwtQVuVr+GTtdmoAbqd+souAOTstAijHX9AG
-	5JngGSxMd5W9x1t0tpo3/f0m6SX+EZacOUXaih+W8/dML+LvPd6ph6DLfWosaDHqaNblr93w4cC8Z
-	ypWaG/gwGww9BJxZt5VzkyITs6oNUjuSunN/iw0X9ifwLaEcDq31UbaAwN/J+Rxg6AZwPQSwTgUER
-	klt1LUg6wvclinRWVMkYUqkCRvq8O+r0+VCT60f8kXodqYWvyqLa9kQk09TAzsDhf+ULw2siqr6tE
-	OYea/HEK+asilJs+GUVg==;
+	List-Owner; bh=lvE06pzazrhSqy5c85l1usWlv856/DTvckBgEJkuuWE=; b=OlirGATRU22hh5
+	U2r09XsGle/37N1BDIofJWGyQ52JycqArHrSwOM0wR9cYWsar3rilCx4xDJvzhRuk/GsYzixefCz1
+	YMqLoN/odTD9H9ubcECdbiUNe3lDY49iD0EDOgTxM6HLaae4UOVWH97jZNBhCfUHpfgojBXpg6oN8
+	iRYwRBJC7JNkP/mpqim9jKhbNKcBvysvfPSReVXGV5I9yxusnvAjTd9mMFi3e4xVmj9RlHloEV/7+
+	/61gtpZxw8gWjdJKQm+GlrfWdr+iW2Iwyp/sB0dLibATOdGRhg9VDdP1FT3zksaNiORxuERvYyGyI
+	IDaMiSpeXQfoDfXmPzjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfUML-00000006RnL-0SOK;
-	Tue, 13 Jan 2026 02:42:17 +0000
-Received: from mail-dy1-x1331.google.com ([2607:f8b0:4864:20::1331])
+	id 1vfUOl-00000006S4O-2rTM;
+	Tue, 13 Jan 2026 02:44:47 +0000
+Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfUMJ-00000006Rmf-1mKB
+	id 1vfUOi-00000006S3u-2O3H
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Jan 2026 02:42:16 +0000
-Received: by mail-dy1-x1331.google.com with SMTP id 5a478bee46e88-2ae38f81be1so7482520eec.0
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Jan 2026 18:42:15 -0800 (PST)
+	Tue, 13 Jan 2026 02:44:45 +0000
+Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-78e6dc6d6d7so32993887b3.3
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Jan 2026 18:44:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768272134; x=1768876934; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1768272283; x=1768877083; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ta0lLAJ+DUwOWY7C9ZVK7vK19fEvpHZQw6/OXGKH8sQ=;
-        b=FFn45N8xvPWhO1KRzxZajOY9CLfodQLVdA1SKLIufd0Iq9Hv6TqcXAugXDmeM6D2iA
-         tFrTZT5WpPACf9ORGxe0ZcDubrgGCVETue42DZ+FvFy/JDX82Gft4GdsMmGrYNZvrKQx
-         2y+NfoLWogbu6Dxk15IUR9aGKpes9GhsKJff6/1v2izSBMQZMrty1XEoOVgdixQTTdes
-         A1GnAMewPFCXPcQ5f4gYIFIFfu5ymxHV6Hv0z/qaM8JjN/b3QasDF3Dq/jxvJR0ZYDMf
-         BukWpsfsSG0o8ioNbBXFE6n9dGn0idy7ujvAq+eKbO9AmJ8ZRwyIHFYJ5qT1OL+g9wRf
-         Qf1g==
+        bh=AXpazA6SgKTW1vhNzpqG3QrGSTso7uVz9zzI2iC/vyg=;
+        b=n13Pg+9/2p2whlzQfo8jM8pgy8pm0bp0P8WCj4mUnW0nqCrTedx3yJsnYkH1uaggoK
+         lGuqUf+YaKEt6QqKnCw9LWkkfBMcNT2B9L0cFl7kTBPtgJn/WRSh8cc1HDvUpJGWfeTC
+         rTH69lX6aNmKufjgCsLLikBqqKjTfFyvSL7Hzmr8IJVYw5kDPguJbTPdGq15mWnXIfk7
+         k7AehdX+7xZSmJ+7z2yuJS2OkoaskuWY3+x4xjpIaYyhDznoh2Bi2g5mo3Tl741TTiP5
+         Qjwi9+UNPZe+D+yT3Is4vBcvghTSEtHuR+J7PNv8uzC6Slj1fd7SfUH1KChis1ZYfOpp
+         owyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768272134; x=1768876934;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20230601; t=1768272283; x=1768877083;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=ta0lLAJ+DUwOWY7C9ZVK7vK19fEvpHZQw6/OXGKH8sQ=;
-        b=QIOrHl1hsA4+EEEsmUSLVi05LUeDBsDSh3HZe2Rvm1RzdjGgTjIBRvC6pUWyUAN8es
-         DlIcayKdwSANgYq9jZknTufQFGof1Wnj9rwX2w5ajLR5m4SRrQSuDszO4OerPcLKAqpe
-         0cxplwg2EdHITb+VZFHRRQ1w7TCTvebCKdxCyMMhFlNzDQ18dV0y7Zvzf50EOCgfx1Ui
-         Bb19x0iLmQ3vmimvq51CnLw7Yll7WPozeislHC0/ukHnjlOkDwrX0mXLhttBqnpUxOBc
-         fRcNdUrAFu5nA3WprvjBglQbSNIstZD0A/pUyrTrVOf3lneAWUtenQkIHQnjVc1A8rul
-         RARg==
-X-Forwarded-Encrypted: i=1; AJvYcCXLtx85XvYhHeqUcogEczzk+RSJfWtmg/TLz2OlFSdFyrxYq5oP6HqIX0C8o9mvGKbWJuxyZncDSbVi3w==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzw/E+9UUDleiRWCdf/P7wpOLe9A90QqOfG19yZExqm+Nt63X77
-	WSkGcd08R8zMBt/6V3R94OB2VPv6OCQ8fOYOAAl5P/TslAjYuU4rsNLi
-X-Gm-Gg: AY/fxX5Ho4KG0Cn00pVcVPaAEneiWd2t+1SmEwub0T/tVE01WLwAjdWI7038viUec+B
-	FvZi/BwGtnrYUB1Te9QeGo40ndTG43EWHSSy5kCss3bbQ3+OgaMAbvu4aAMIr9PKlOjqv2Akyi2
-	BVIYcX1M37Ltm2tMpBzTckbQ3N8UW6OQKqJq4Ql8UseAxzPoNumCRd/vFQ0+hpTbQhfLdJB9RZF
-	wUCn1FaDEhWXndRpMLtI5iUkOqTxtR9D7/RTKRY0UEMIwLv/NIrHPfWviQIGVX244HdX1QVn9ld
-	oIQBG/JQCV5jf1iPbCmo80GN0Yg/4SlS9V//r9L8nzooeDlg0X4s6ukPlx4p6wCy2W8r+spErcM
-	S7qHP/z+aMl9B1Ra6qGP7BwkgqxUEM2NE4ovQp8Ta+4yMfkW9c7/s4ohV5f8L9bnBQtb6iS63B1
-	IbQmHeIh2now==
-X-Google-Smtp-Source: AGHT+IH4Km9ntJv/V5juZZRPb4CWcmWHAyBALsS6npHeTLuLmd+WrofVWrZd4uuaYzWfcyskRChBgQ==
-X-Received: by 2002:a05:7022:43a0:b0:119:e569:f609 with SMTP id a92af1059eb24-121f8afbcfemr17090235c88.2.1768272134480;
-        Mon, 12 Jan 2026 18:42:14 -0800 (PST)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-121f243ed62sm26993899c88.5.2026.01.12.18.42.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Jan 2026 18:42:14 -0800 (PST)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Han Gao <rabenda.cn@gmail.com>,
-	Nutty Liu <liujingqi@lanxincomputing.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Zixian Zeng <sycamoremoon376@gmail.com>
-Cc: devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH 2/2] riscv: dts: sophgo: fix the node order of SG2042 peripheral
-Date: Tue, 13 Jan 2026 10:38:27 +0800
-Message-ID: <20260113023828.790136-2-inochiama@gmail.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260113023828.790136-1-inochiama@gmail.com>
-References: <20260113023828.790136-1-inochiama@gmail.com>
+        bh=AXpazA6SgKTW1vhNzpqG3QrGSTso7uVz9zzI2iC/vyg=;
+        b=YkYSb51IdLXwa52+4qZSZYZSPwfJXYyq65DAwY6uWmm+t+2ltPllp7at/yRHhcwm+n
+         yi3UXNRW7NjKJwLW5ar2aq/VzwP0BmS/d9dg270lz0DQDnd57eqlC8ozjURJ7taausVc
+         jmxhFA5uaJkvIdrvNuxBmWBS7m83datBh12lMJrRKiLwffxQWec0eRtHnbJxGouyIcuT
+         jCnc800Ty9YPP3+ekq2vPfTXClCStsy8l3XDJoGRhJTqULP84nIcn1XPWxTgfmFWvoKk
+         SVORGuePLMhYkcwj/TaLcY09OnhnBdEzkY1HkHHIqVttJw9qCh2wwgYvLT4sOAR0Wd2o
+         nAXg==
+X-Forwarded-Encrypted: i=1; AJvYcCXF+vf1NZInoFJq3a6wAuFLkWg43KbI/V7ATvbqCvyCW451sInKpSs1pudj2BmDh38jlAVwHO09H4oCBg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7HoJ4hWS3QOwAxnV1ppnAe48MF68A8RNVzkAl3CGJoFalXzcH
+	x9k4kaBAwCvVi6+tPj4Fi5Lkma4p+pXqagJqzCjsV0RdQ2Qpz2LzOhtZtGVs3te3gqECoT5IGkd
+	zAddp92NnO75cXtIjl/LVhC6Bqm2N04LfBZZaNxPtww==
+X-Gm-Gg: AY/fxX5M1/X6JVgeWd767bClJJ0fDHKb/D+qy4p+f97OeA5nu2lsy56RAY8Zq3pfzG4
+	KU43pyH/v2U6mg7FRNiskpR9b11TFDJrT5Rgl62Yqc20wNs+m5ujoLpTJi0Sodysv3zWtDGy/f9
+	b7Is/l380UZH+aILa9dpr0jMaT7isHBp0vnN1At6w0AL5kCwXC4NwnRDe3s+49x4S2uhA/lHAbM
+	U6Pklg4lsKkfBUElvjxEi1KG/o9PskoRyCX3Umni4RYPVnxmHWJLvSkJBcliO8r6KGL1vllcMZI
+	vm9GiVah6DQPpeKxpX9bKO1XkHBlsxS3qF/7BQ==
+X-Google-Smtp-Source: AGHT+IHj3ypPU/NNMfpdHkNAGLFnFzOTMM7fMEliuRPTtrZJWbtlqHPi8+SGGYOwkosOTrtDx//q+fuT7Iu+SWMNFCA=
+X-Received: by 2002:a05:690e:14c7:b0:641:f5bc:6991 with SMTP id
+ 956f58d0204a3-64716c6e1admr15279346d50.77.1768272283353; Mon, 12 Jan 2026
+ 18:44:43 -0800 (PST)
 MIME-Version: 1.0
+References: <20260110-k3-basic-dt-v4-0-d492f3a30ffa@riscstar.com>
+ <20260110-k3-basic-dt-v4-6-d492f3a30ffa@riscstar.com> <20260112-veal-retaliate-7cf9a2981aaf@spud>
+In-Reply-To: <20260112-veal-retaliate-7cf9a2981aaf@spud>
+From: Guodong Xu <guodong@riscstar.com>
+Date: Tue, 13 Jan 2026 10:44:31 +0800
+X-Gm-Features: AZwV_Qgw5WUVzIip-0vximPTfFaT5zWrcbo35d-VZT71kic6QgdIU7i9b69aOEs
+Message-ID: <CAH1PCMYgGVm1uJMjoxVkOMvPeRLsvybi7PW9k3sWyj3ij8c4Vg@mail.gmail.com>
+Subject: Re: [PATCH v4 06/11] dt-bindings: riscv: Add B ISA extension description
+To: Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@gentoo.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Samuel Holland <samuel.holland@sifive.com>, Anup Patel <anup@brainfault.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Lubomir Rintel <lkundrak@v3.sk>, Yangyu Chen <cyy@cyyself.name>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Heinrich Schuchardt <xypron.glpk@gmx.de>, 
+	Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, Andrew Jones <ajones@ventanamicro.com>, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, spacemit@lists.linux.dev, 
+	linux-serial@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_184215_464855_D15AB80F 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20260112_184444_862549_83E32140 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,217 +103,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In sg2042.dtsi, some peripheral device node does not follow the
-address order. Reorder them in ascending order by address.
-
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
----
- arch/riscv/boot/dts/sophgo/sg2042.dtsi | 176 ++++++++++++-------------
- 1 file changed, 88 insertions(+), 88 deletions(-)
-
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-index e6891f95d479..9fddf3f0b3b9 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-@@ -264,94 +264,6 @@ clkgen: clock-controller@7030012000 {
- 			#clock-cells = <1>;
- 		};
- 
--		pcie_rc0: pcie@7060000000 {
--			compatible = "sophgo,sg2042-pcie-host";
--			device_type = "pci";
--			reg = <0x70 0x60000000  0x0 0x00800000>,
--			      <0x40 0x00000000  0x0 0x00001000>;
--			reg-names = "reg", "cfg";
--			linux,pci-domain = <0>;
--			#address-cells = <3>;
--			#size-cells = <2>;
--			ranges = <0x01000000 0x0  0x00000000  0x40 0xc0000000  0x0 0x00400000>,
--				 <0x42000000 0x0  0xd0000000  0x40 0xd0000000  0x0 0x10000000>,
--				 <0x02000000 0x0  0xe0000000  0x40 0xe0000000  0x0 0x20000000>,
--				 <0x43000000 0x42 0x00000000  0x42 0x00000000  0x2 0x00000000>,
--				 <0x03000000 0x41 0x00000000  0x41 0x00000000  0x1 0x00000000>;
--			bus-range = <0x0 0xff>;
--			vendor-id = <0x1f1c>;
--			device-id = <0x2042>;
--			cdns,no-bar-match-nbits = <48>;
--			msi-parent = <&msi>;
--			status = "disabled";
--		};
--
--		pcie_rc1: pcie@7060800000 {
--			compatible = "sophgo,sg2042-pcie-host";
--			device_type = "pci";
--			reg = <0x70 0x60800000  0x0 0x00800000>,
--			      <0x44 0x00000000  0x0 0x00001000>;
--			reg-names = "reg", "cfg";
--			linux,pci-domain = <1>;
--			#address-cells = <3>;
--			#size-cells = <2>;
--			ranges = <0x01000000 0x0  0x00000000  0x44 0xc0400000  0x0 0x00400000>,
--				 <0x42000000 0x0  0xd0000000  0x44 0xd0000000  0x0 0x10000000>,
--				 <0x02000000 0x0  0xe0000000  0x44 0xe0000000  0x0 0x20000000>,
--				 <0x43000000 0x46 0x00000000  0x46 0x00000000  0x2 0x00000000>,
--				 <0x03000000 0x45 0x00000000  0x45 0x00000000  0x1 0x00000000>;
--			bus-range = <0x0 0xff>;
--			vendor-id = <0x1f1c>;
--			device-id = <0x2042>;
--			cdns,no-bar-match-nbits = <48>;
--			msi-parent = <&msi>;
--			status = "disabled";
--		};
--
--		pcie_rc2: pcie@7062000000 {
--			compatible = "sophgo,sg2042-pcie-host";
--			device_type = "pci";
--			reg = <0x70 0x62000000  0x0 0x00800000>,
--			      <0x48 0x00000000  0x0 0x00001000>;
--			reg-names = "reg", "cfg";
--			linux,pci-domain = <2>;
--			#address-cells = <3>;
--			#size-cells = <2>;
--			ranges = <0x01000000 0x0  0x00000000  0x48 0xc0800000  0x0 0x00400000>,
--				 <0x42000000 0x0  0xd0000000  0x48 0xd0000000  0x0 0x10000000>,
--				 <0x02000000 0x0  0xe0000000  0x48 0xe0000000  0x0 0x20000000>,
--				 <0x03000000 0x49 0x00000000  0x49 0x00000000  0x1 0x00000000>,
--				 <0x43000000 0x4a 0x00000000  0x4a 0x00000000  0x2 0x00000000>;
--			bus-range = <0x0 0xff>;
--			vendor-id = <0x1f1c>;
--			device-id = <0x2042>;
--			cdns,no-bar-match-nbits = <48>;
--			msi-parent = <&msi>;
--			status = "disabled";
--		};
--
--		pcie_rc3: pcie@7062800000 {
--			compatible = "sophgo,sg2042-pcie-host";
--			device_type = "pci";
--			reg = <0x70 0x62800000  0x0 0x00800000>,
--			      <0x4c 0x00000000  0x0 0x00001000>;
--			reg-names = "reg", "cfg";
--			linux,pci-domain = <3>;
--			#address-cells = <3>;
--			#size-cells = <2>;
--			ranges = <0x01000000 0x0  0x00000000  0x4c 0xc0c00000  0x0 0x00400000>,
--				 <0x42000000 0x0  0xf8000000  0x4c 0xf8000000  0x0 0x04000000>,
--				 <0x02000000 0x0  0xfc000000  0x4c 0xfc000000  0x0 0x04000000>,
--				 <0x43000000 0x4e 0x00000000  0x4e 0x00000000  0x2 0x00000000>,
--				 <0x03000000 0x4d 0x00000000  0x4d 0x00000000  0x1 0x00000000>;
--			bus-range = <0x0 0xff>;
--			vendor-id = <0x1f1c>;
--			device-id = <0x2042>;
--			cdns,no-bar-match-nbits = <48>;
--			msi-parent = <&msi>;
--			status = "disabled";
--		};
--
- 		rstgen: reset-controller@7030013000 {
- 			compatible = "sophgo,sg2042-reset";
- 			reg = <0x00000070 0x30013000 0x00000000 0x0000000c>;
-@@ -486,5 +398,93 @@ sd: mmc@704002b000 {
- 				      "timer";
- 			status = "disabled";
- 		};
-+
-+		pcie_rc0: pcie@7060000000 {
-+			compatible = "sophgo,sg2042-pcie-host";
-+			device_type = "pci";
-+			reg = <0x70 0x60000000  0x0 0x00800000>,
-+			      <0x40 0x00000000  0x0 0x00001000>;
-+			reg-names = "reg", "cfg";
-+			linux,pci-domain = <0>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			ranges = <0x01000000 0x0  0x00000000  0x40 0xc0000000  0x0 0x00400000>,
-+				 <0x42000000 0x0  0xd0000000  0x40 0xd0000000  0x0 0x10000000>,
-+				 <0x02000000 0x0  0xe0000000  0x40 0xe0000000  0x0 0x20000000>,
-+				 <0x43000000 0x42 0x00000000  0x42 0x00000000  0x2 0x00000000>,
-+				 <0x03000000 0x41 0x00000000  0x41 0x00000000  0x1 0x00000000>;
-+			bus-range = <0x0 0xff>;
-+			vendor-id = <0x1f1c>;
-+			device-id = <0x2042>;
-+			cdns,no-bar-match-nbits = <48>;
-+			msi-parent = <&msi>;
-+			status = "disabled";
-+		};
-+
-+		pcie_rc1: pcie@7060800000 {
-+			compatible = "sophgo,sg2042-pcie-host";
-+			device_type = "pci";
-+			reg = <0x70 0x60800000  0x0 0x00800000>,
-+			      <0x44 0x00000000  0x0 0x00001000>;
-+			reg-names = "reg", "cfg";
-+			linux,pci-domain = <1>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			ranges = <0x01000000 0x0  0x00000000  0x44 0xc0400000  0x0 0x00400000>,
-+				 <0x42000000 0x0  0xd0000000  0x44 0xd0000000  0x0 0x10000000>,
-+				 <0x02000000 0x0  0xe0000000  0x44 0xe0000000  0x0 0x20000000>,
-+				 <0x43000000 0x46 0x00000000  0x46 0x00000000  0x2 0x00000000>,
-+				 <0x03000000 0x45 0x00000000  0x45 0x00000000  0x1 0x00000000>;
-+			bus-range = <0x0 0xff>;
-+			vendor-id = <0x1f1c>;
-+			device-id = <0x2042>;
-+			cdns,no-bar-match-nbits = <48>;
-+			msi-parent = <&msi>;
-+			status = "disabled";
-+		};
-+
-+		pcie_rc2: pcie@7062000000 {
-+			compatible = "sophgo,sg2042-pcie-host";
-+			device_type = "pci";
-+			reg = <0x70 0x62000000  0x0 0x00800000>,
-+			      <0x48 0x00000000  0x0 0x00001000>;
-+			reg-names = "reg", "cfg";
-+			linux,pci-domain = <2>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			ranges = <0x01000000 0x0  0x00000000  0x48 0xc0800000  0x0 0x00400000>,
-+				 <0x42000000 0x0  0xd0000000  0x48 0xd0000000  0x0 0x10000000>,
-+				 <0x02000000 0x0  0xe0000000  0x48 0xe0000000  0x0 0x20000000>,
-+				 <0x03000000 0x49 0x00000000  0x49 0x00000000  0x1 0x00000000>,
-+				 <0x43000000 0x4a 0x00000000  0x4a 0x00000000  0x2 0x00000000>;
-+			bus-range = <0x0 0xff>;
-+			vendor-id = <0x1f1c>;
-+			device-id = <0x2042>;
-+			cdns,no-bar-match-nbits = <48>;
-+			msi-parent = <&msi>;
-+			status = "disabled";
-+		};
-+
-+		pcie_rc3: pcie@7062800000 {
-+			compatible = "sophgo,sg2042-pcie-host";
-+			device_type = "pci";
-+			reg = <0x70 0x62800000  0x0 0x00800000>,
-+			      <0x4c 0x00000000  0x0 0x00001000>;
-+			reg-names = "reg", "cfg";
-+			linux,pci-domain = <3>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			ranges = <0x01000000 0x0  0x00000000  0x4c 0xc0c00000  0x0 0x00400000>,
-+				 <0x42000000 0x0  0xf8000000  0x4c 0xf8000000  0x0 0x04000000>,
-+				 <0x02000000 0x0  0xfc000000  0x4c 0xfc000000  0x0 0x04000000>,
-+				 <0x43000000 0x4e 0x00000000  0x4e 0x00000000  0x2 0x00000000>,
-+				 <0x03000000 0x4d 0x00000000  0x4d 0x00000000  0x1 0x00000000>;
-+			bus-range = <0x0 0xff>;
-+			vendor-id = <0x1f1c>;
-+			device-id = <0x2042>;
-+			cdns,no-bar-match-nbits = <48>;
-+			msi-parent = <&msi>;
-+			status = "disabled";
-+		};
- 	};
- };
--- 
-2.52.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIENvbm9yCgpPbiBUdWUsIEphbiAxMywgMjAyNiBhdCA1OjQx4oCvQU0gQ29ub3IgRG9vbGV5
+IDxjb25vckBrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIFNhdCwgSmFuIDEwLCAyMDI2IGF0IDAx
+OjE4OjE4UE0gKzA4MDAsIEd1b2RvbmcgWHUgd3JvdGU6Cj4gPiBBZGQgZGVzY3JpcHRpb24gb2Yg
+dGhlIHNpbmdsZS1sZXR0ZXIgQiBleHRlbnNpb24gZm9yIEJpdCBNYW5pcHVsYXRpb24uCj4gPiBC
+IGlzIG1hbmRhdG9yeSBmb3IgUlZBMjNVNjQuCj4gPgo+ID4gVGhlIEIgZXh0ZW5zaW9uIGlzIHJh
+dGlmaWVkIGluIHRoZSAyMDI0MDQxMSB2ZXJzaW9uIG9mIHRoZSB1bnByaXZpbGVnZWQKPiA+IElT
+QSBzcGVjaWZpY2F0aW9uLiBBY2NvcmRpbmcgdG8gdGhlIHJhdGlmaWVkIHNwZWMsIHRoZSBCIHN0
+YW5kYXJkCj4gPiBleHRlbnNpb24gY29tcHJpc2VzIGluc3RydWN0aW9ucyBwcm92aWRlZCBieSB0
+aGUgWmJhLCBaYmIsIGFuZCBaYnMKPiA+IGV4dGVuc2lvbnMuCj4gPgo+ID4gQWRkIHR3by13YXkg
+ZGVwZW5kZW5jeSBjaGVjayB0byBlbmZvcmNlIHRoYXQgQiBpbXBsaWVzIFpiYS9aYmIvWmJzOyBh
+bmQKPiA+IHdoZW4gWmJhL1piYi9aYnMgKGFsbCBvZiB0aGVtKSBhcmUgc3BlY2lmaWVkLCB0aGVu
+IEIgbXVzdCBiZSBhZGRlZCB0b28uCj4gPgo+ID4gVGhlIHJlYXNvbiB3aHkgQi9aYmEvWmJiL1pi
+cyBtdXN0IGNvZXhpc3QgYXQgdGhlIHNhbWUgdGltZSBpcyB0aGF0Cj4gPiB1bmxpa2Ugb3RoZXIg
+c2luZ2xlLWxldHRlciBleHRlbnNpb25zLCBCIHdhcyByYXRpZmllZCAoQXByLzIwMjQpIG11Y2gK
+PiA+IGxhdGVyIHRoYW4gaXRzIGNvbXBvbmVudCBleHRlbnNpb25zIFpiYS9aYmIvWmJzIChKdW4v
+MjAyMSkuCj4gPgo+ID4gV2hlbiAiYiIgaXMgc3BlY2lmaWVkLCB6YmEvemJiL3picyBtdXN0IGJl
+IHByZXNlbnQgdG8gZW5zdXJlCj4gPiBiYWNrd2FyZCBjb21wYXRpYmlsaXR5IHdpdGggZXhpc3Rp
+bmcgc29mdHdhcmUgYW5kIGtlcm5lbHMgdGhhdCBvbmx5Cj4gPiBsb29rIGZvciB0aGUgZXhwbGlj
+aXQgY29tcG9uZW50IHN0cmluZ3MuCj4gPgo+ID4gV2hlbiBhbGwgdGhyZWUgY29tcG9uZW50cyB6
+YmEvemJiL3picyBhcmUgc3BlY2lmaWVkLCAiYiIgc2hvdWxkIGFsc28gYmUKPiA+IHByZXNlbnQu
+IE1ha2luZyAiYiIgbWFuZGF0b3J5IHdoZW4gYWxsIHRocmVlIGNvbXBvbmVudHMgYXJlIHByZXNl
+bnQuCj4KPiA+IEV4aXN0aW5nIGRldmljZXRyZWVzIHdpdGggemJhL3piYi96YnMgYnV0IHdpdGhv
+dXQgImIiIHdpbGwgZ2VuZXJhdGUKPiA+IHdhcm5pbmdzIHRoYXQgY2FuIGJlIGZpeGVkIGluIGZv
+bGxvdy11cCBwYXRjaGVzLgo+Cj4gQXJlIHlvdSBnb2luZyB0byBzZW5kIHRoZXNlIGZpeHVwIHBh
+dGNoZXMgZm9yIG90aGVyIGRldmljZXRyZWVzPyBUaGUKPiBtYWpvcml0eSBhcHBlYXIgdG8gYmUg
+b3RoZXIgc3BhY2VtaXQgZGV2aWNlcy4KClllcywgSSB3aWxsLiBNeSBjaGVjayBzaG93cyB0aGF0
+IHRoZXNlIHRocmVlIGR0c2kgZmlsZXMgbmVlZCB0byBiZSB1cGRhdGVkIHRvCmluY2x1ZGUgdGhl
+IG5ld2x5IHJhdGlmaWVkICJiIiBleHRlbnNpb246CgphcmNoL3Jpc2N2L2Jvb3QvZHRzL2FubG9n
+aWMvZHIxdjkwLmR0c2kKYXJjaC9yaXNjdi9ib290L2R0cy9zb3BoZ28vc2cyMDQ0LWNwdXMuZHRz
+aQphcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLmR0c2kKCkkgd2lsbCBzdGFydCBhIGZv
+bGxvdyB1cCBwYXRjaCB0byB1cGRhdGUgdGhlc2UgZHRzaSBmaWxlcy4gQmFzaWNhbGx5LCBhZGRp
+bmcKImIiIGludG8gYm90aCB0aGUgInJpc2N2LGlzYS1leHRlbnNpb25zIiBhbmQgInJpc2N2LGlz
+YSIgKHdoZW4gYXZhaWxhYmxlKQpmaWVsZHMuCgpUaGFuayB5b3UgZm9yIHlvdXIgcmV2aWV3LgoK
+QmVzdCByZWdhcmRzLApHdW9kb25nIFh1CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
