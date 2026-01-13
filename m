@@ -4,125 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D70AD29DD5
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jan 2026 06:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB324D29DE0
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jan 2026 07:46:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jp5UXR3sbAPulpPKPvIddcvKLYRoug7Wb3PaunItcaM=; b=w7pQeex+n+sBUc
-	ItVCoGg34hRV2zBupLbUiHx5Mo7orimbv6CY6NyN6z6AFZ6/sOPfESekvzjHhfdl9Hra0WDYGD1gf
-	FSfni13RTiBBh5mcwGG4RcPT7fnaibqEtt32XVd7LgCEGkqmSH9Blstn4Jcor4R+ijL1Gh36wkpEM
-	6VjgXdabGmFwl//ROcAdEhLFZPTYMyeZ82VzOq8TeTU4fs6BxF/XMYPoMAt82718kecHHXxZBg6v5
-	HSdaTmV4O+bPZDqLaK+3TQlDz+jI6TBHApSVEji7nGozBJO7s0IVk1FqA2f3R57xtBplni98xEu04
-	W+3Sd5q9VmGqmFN52yKg==;
+	List-Owner; bh=pG+Ydiiy0WkE0DdbccSY/GaW7kYsR/6UUnF/Ut9P4Z0=; b=o/ppa8QyHu4NJe
+	r0qUof4Kk+JVHWL98SEoQaoEa6i2u12mFcekSm5zrEVCLxRE+COvGm/ReEw7MJSubU7dBwQKhjTxG
+	RZvTCtUmIUku1tgYmsG+Q5UsTrYzkftxsQowv8rccA1cCfxaey/+LshuQ8tYg2ZGjG9/zgxz7fLJM
+	b7Sc1eXWZvR31ubzGVPztCprkofYJe9BvMGK0MMx+ZnldfMxq5lYqfF1m2plzDKuLOsbalQJ9ylby
+	p+C3MJWThvPX31BaM2Z94W0Sy/oBL6zZcPFCoAZ1bc4Hd+SDqVzzLsXReBSGLLbCy5eiNP1Pnqsic
+	APwzhMpYwUu/jYVZi8DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfYEy-00000006cJU-0IMb;
-	Tue, 13 Jan 2026 06:50:56 +0000
-Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
+	id 1vfZ6n-00000006fzz-1WBQ;
+	Tue, 13 Jan 2026 07:46:33 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfYEv-00000006cI8-1g6O
+	id 1vfZ6a-00000006fxv-0k9t
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Jan 2026 06:50:54 +0000
-Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-88a32bf0248so58459496d6.0
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Jan 2026 22:50:52 -0800 (PST)
+	Tue, 13 Jan 2026 07:46:27 +0000
+Received: by mail-pl1-x642.google.com with SMTP id d9443c01a7336-2a12ed4d205so46230545ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Jan 2026 23:46:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768287051; x=1768891851; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=vX59/flKMUDb8zjb/CqTAfKlTuGyJwgf2lJ9POWv81Y=;
-        b=dYgF0Sad+e/3ei1BsxSG9JGFeU41ISDCNWE1e16g1VDfh6Hq6VdXaDQNiH3EUzKSWr
-         PhzixEPFueJRzQ++/5euIVDkSNbbr1+kCQHEO0jnoPPgaoz8TdGXuI+ENV/wiRU7dC4h
-         6FhoxFsv+Pw8I8Rwx+MQg0JNfazblufsZK9voMQXk/08qGd/Pqa4CqotHjRTNOZAF5oa
-         u2b/Azo17ZubUElFE6ZAcuO9EydBIlcQNiaQiriA6W0H2rOAMH8A8J/6oqOtAFCIcMYf
-         gCJ/FoEQBnuuudNy9YCRrAcSPtSU4hHMI9YBJR8YgIEdDgpgzfj0/hPzw0ViUziK16IP
-         lxPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768287051; x=1768891851;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1768290379; x=1768895179; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vX59/flKMUDb8zjb/CqTAfKlTuGyJwgf2lJ9POWv81Y=;
-        b=bdq5lrGvAC9ed75RRJNGNIPnZZaJs66SwVvsDa9W/8j8CKX34ZVqlv9ptAf9/IT3NP
-         kVHe+JW4CVWqWrmCfLsKJab5iVLtkVSycZydoMC+ExyPOM2MOKHp4Bnw26tZS4T9bFbe
-         vUYgFAUbMzoqq2ngt1h+Gectui+8bjcBqJd3/er5yD6oR1kqDP5SWmhpwXHe0OYfwpgN
-         u+nBhq1nrhPH4h4e0MrfeqpWnk6TDk2rZTJ0HjozyHhkUl2LjZZo1d5MeW/Uuc4DRaQE
-         HUQPylgTx4IVReQi+H/oiJk4npuR1BDkU2jc4/T4PIaXfHPOEfhLd+2xt0ZOsRB7V0ba
-         0hEg==
-X-Forwarded-Encrypted: i=1; AJvYcCUt3UtQkmYBRya9Q1V4dzLmMNnjazmzutYLs3k4wbU6k3Lf/VZUOkEqkTtqkV46j1lpOWWbXlIFxQevHQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyB+7kHEM6GcY8v8CODbw2hX3VfeGVWnsgnNxXm42D2Gnf5f5ad
-	b9GIQUP/XcGCeZbHvhjNinfmfvmk+igxQDYF31XLAXeNmB7/u1hcGeDR
-X-Gm-Gg: AY/fxX78XTmTsw/jA0+nv1KRK2MkfLeUNCNLV6q9la/BqARzMpVQpJmuW/a45mw2gnm
-	nR7PpBF/D63dKkz4T12ACjpbvHS+GjJafqxoeGpTKLLvFGLyq8hqOpaN/MOpW4/cnfRNKrP9viH
-	QRYtrdeCUtJl+VyOlEGO0RV+eC+mLvLYerIOdkXh0qJtUQGhySi+suIOudu57F16cltVsuGgho+
-	x+pab1iCFBsd+l8Ffz4OFq+xEgjEkTnFkOBQdEku4zbcG2jnevvcQQ2Fg8aTbWqqtoLl/E/dObu
-	4arKtvhPRTRbRN+/jjZ6/NyULOSNoq1f6HU7twwzhUSS4j+D+hwKAV8pnJzUNpF6lkOEXfdyg9r
-	p+PtBx88lhWekNuIsKZpKAXuincYLZWlJwuW7bpMuEjF8vuPMaAoS3iI1DQqZ0utDsG6PqWpg9r
-	88DgbqesisBlD9SqTBEMt/NdyhBfPESTs4Ai8JoKCVjbqsoWP2yfpa2i+DgQ==
-X-Google-Smtp-Source: AGHT+IFA85MjM1cnTGL5nks8UTBaUTRvSeGOw/MqVWENdA/8we2okwkLgNeF33lCoaLlOIlw7RP7mg==
-X-Received: by 2002:a05:6214:4291:b0:888:81f1:a05e with SMTP id 6a1803df08f44-890842d1be9mr273660036d6.60.1768287051243;
-        Mon, 12 Jan 2026 22:50:51 -0800 (PST)
-Received: from [172.20.10.9] (mobile-access-c1d2ca-216.dhcp.inet.fi. [193.210.202.216])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-890770cdfb0sm152433806d6.6.2026.01.12.22.50.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Jan 2026 22:50:50 -0800 (PST)
-Message-ID: <86b974d7-cabd-4913-b5f2-5b62b520e023@gmail.com>
-Date: Tue, 13 Jan 2026 08:50:33 +0200
+        bh=fNeknCfa8wEEbV/WEcBxY/dqGiWsyOavd00Bwdi/7Iw=;
+        b=JrNg/f1JuRVer3nxnuA/CEgwup7UCJVuQytSK75W/0trersu/l2auotHSKMazDva+k
+         +8zhXFjvy2S2yMrWafCWlvw7OBECz57ex5adA2tLJB6/HQU/AVFlIBjnCexdV/g6khC3
+         6G94ZWJINMFG/r9awV5VVoXbylAZCguy8wy66W3/Q9EUWBO2Fy9RasazHMgrZsVQNngn
+         eOuZuKhnNGggDlo/KU7gYDQhnb01PqD68zqzr5p9cOGTJCw2UzR3vobvtQ8iScFrTKtn
+         2AqrJ59Ck9v64CqwJCrJl5AGVcDM7E9GFNwvKQpFLHm3zyEvY5CCjBzQKYVXbecuKwqN
+         +hVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768290379; x=1768895179;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=fNeknCfa8wEEbV/WEcBxY/dqGiWsyOavd00Bwdi/7Iw=;
+        b=KyxDFD5VKUFDCQGb9pE32bO+p2FZLv9loTWDS1J5yB7jY1s96XSAgbHXIzEk7JmudP
+         niMgjBKJ80fUdMMQ6hEIF6pIngmiwXMVGn8SSSxNkW70SFACzBK0oXirtOE7y6pV3LcV
+         ow/SzxA2LBXT45GeUmcrueS7xzNCQ69qKLV/g6pwtq6LlpdfK/vyySYVnBK+SLGxjiSO
+         3Yt4qtmrzj9y6tuzCQT7efQGK+V5jMbzqnIlNiDxL2/gb0B61llWXHGbzhBFo18EgK+C
+         FAlDw6cfP4PTGcGcoDyboOGgpsyqh8bLhFPOZ2dWUpeOgbOsPsJEbNK8W2GnmvazTHLv
+         ut3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUhy0mxuS07zR4Ag6+nAlnJi0xpCDZXjWlWEyZp54IqAOWM0eNTOdz9mCmBWjQP4NnzaK8+8dGchykvPg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3BcT/zomnPKJcU8uvuEOOXJliUPmofytbhNmGnYf+Sq+n1041
+	I9StF9VlzKbMSPyFC7gL/GcS/itPKMf5feKtmnAB0asHtiyuS+w4dHBBh5o7WMqDBbw=
+X-Gm-Gg: AY/fxX6UOHt8ODldDuO6WXxYQK1xHP1c1XKnK4XXI7lS38G3aqmB8BLyJAK4kjpvMxE
+	3mgvsKdIDHkveNGCyKAGgaN6ePmyyz5F/2z/DU4GNbQcb2XL896K/omScdQSbUzcfipwOYsspTY
+	eB0/0Ixoc7fDMR9IQU9E2EZW1k9/3u1GsEBz/z60HT1XEVtzSribjJJpOR7zeuntWGHeaxDHwwB
+	cPKKFYz/Iw4qEYBZWslT00AOOYmd9nhGZ3j0awdCsNMHl/aAdq4I+5lhylhpX63J31/QIyZto8x
+	BMbrFBG7yCEVI06Z2t1ZmlLvUxZZq/wqBV1TpUq/c9F1V7o5YYa2PJVaoEh4ByGq66sdnnOGEmP
+	7/uYF10ZB23fnaSAt8W6h+FiQ7FDi/RoK5wbSTUvR1dF1hOHbzXBK0xExqKVpVWicpXvGJfqSaO
+	V8rFQvneYxU+yv9ZCnc+z+XLV7CGtowstrbumf5vu7u6FjtQCRUwGqWAco9D8U1lQn
+X-Google-Smtp-Source: AGHT+IGrssuTQycrsW+2hCknhmQdMnpg0esEoKPvLFi/81f/ttHiYeTe2gILmVWkDFy41Vy2Qxe06w==
+X-Received: by 2002:a17:902:f547:b0:295:8a21:155a with SMTP id d9443c01a7336-2a3ee48ff6cmr185468915ad.35.1768290378939;
+        Mon, 12 Jan 2026 23:46:18 -0800 (PST)
+Received: from [127.0.1.1] ([45.8.220.151])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3cd4bd8sm190956165ad.102.2026.01.12.23.46.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Jan 2026 23:46:18 -0800 (PST)
+From: Guodong Xu <guodong@riscstar.com>
+Date: Tue, 13 Jan 2026 15:45:53 +0800
+Subject: [PATCH 1/2] Documentation: riscv: uabi: Clarify ISA spec version
+ for canonical order
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/29] arch, mm: consolidate hugetlb early reservation
-To: Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
-Cc: Alex Shi <alexs@kernel.org>, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>, Borislav Petkov <bp@alien8.de>,
- Brian Cain <bcain@kernel.org>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- "David S. Miller" <davem@davemloft.net>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Guo Ren <guoren@kernel.org>,
- Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
- Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- Jonathan Corbet <corbet@lwn.net>, Klara Modin <klarasmodin@gmail.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Magnus Lindholm <linmag7@gmail.com>, Matt Turner <mattst88@gmail.com>,
- Max Filippov <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>,
- Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>,
- Palmer Dabbelt <palmer@dabbelt.com>, Pratyush Yadav <pratyush@kernel.org>,
- Richard Weinberger <richard@nod.at>, Ritesh Harjani <ritesh.list@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Stafford Horne <shorne@gmail.com>,
- Suren Baghdasaryan <surenb@google.com>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>,
- Vineet Gupta <vgupta@kernel.org>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, x86@kernel.org, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
- sparclinux@vger.kernel.org
-References: <20260111082105.290734-1-rppt@kernel.org>
- <20260112142323.495fc43e662e7d276b0fa371@linux-foundation.org>
-Content-Language: en-US
-From: Kalle Niemi <kaleposti@gmail.com>
-In-Reply-To: <20260112142323.495fc43e662e7d276b0fa371@linux-foundation.org>
+Message-Id: <20260113-adding-b-dtsi-v1-1-22d6e55d19df@riscstar.com>
+References: <20260113-adding-b-dtsi-v1-0-22d6e55d19df@riscstar.com>
+In-Reply-To: <20260113-adding-b-dtsi-v1-0-22d6e55d19df@riscstar.com>
+To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Conor Dooley <conor.dooley@microchip.com>, 
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+ Yixun Lan <dlan@gentoo.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, 
+ Junhui Liu <junhui.liu@pigmoral.tech>, linux-doc@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
+ spacemit@lists.linux.dev, Guodong Xu <guodong@riscstar.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_225053_451575_6BD15349 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20260112_234621_502208_D4DF2FD0 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,34 +105,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 1/13/26 00:23, Andrew Morton wrote:
-> On Sun, 11 Jan 2026 10:20:34 +0200 Mike Rapoport <rppt@kernel.org> wrote:
-> 
->> v3 changes:
->> * fix empty_zero_page initialization on arm
->> * fix ZONE_DMA limit calculation on powerpc
->> * add Acks
-> 
-> updated, thanks.  I'll suppress the ensuing email flood.
-> 
-> Kalle, can you please retest sometime, see if the BeagleBone Black boot
-> failure was fixed?
-> 
-> Seems we haven't heard back from rmk regarding
-> https://lkml.kernel.org/r/aVrUDeSkqqY9ZCtS@shell.armlinux.org.uk.
+Specify that chapter 27 refers to version 20191213 of the RISC-V ISA
+Unprivileged Architecture. The chapter numbering differs across
+specification versions - for example, in version 20250508, the ISA
+Extension Naming Conventions is chapter 36, not chapter 27.
 
-Hello!
+Historical versions of the RISC-V specification can be found via Link [1].
 
-I will test this v3 patch ASAP and reply results here.
-Collective sorry for the delay; I have been busy!
+Link: https://riscv.org/specifications/ratified/ [1]
+Fixes: f07b2b3f9d47 ("Documentation: riscv: add a section about ISA string ordering in /proc/cpuinfo")
+Signed-off-by: Guodong Xu <guodong@riscstar.com>
+---
+ Documentation/arch/riscv/uabi.rst | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-BR
-Kalle
+diff --git a/Documentation/arch/riscv/uabi.rst b/Documentation/arch/riscv/uabi.rst
+index 243e40062e34ed5057e3e79ad61311f94b7dd404..0c5299e007622a123d64cfd36ac1491b22d4255b 100644
+--- a/Documentation/arch/riscv/uabi.rst
++++ b/Documentation/arch/riscv/uabi.rst
+@@ -7,7 +7,9 @@ ISA string ordering in /proc/cpuinfo
+ ------------------------------------
+ 
+ The canonical order of ISA extension names in the ISA string is defined in
+-chapter 27 of the unprivileged specification.
++Chapter 27 of the RISC-V Instruction Set Manual Volume I Unprivileged ISA
++(Document Version 20191213).
++
+ The specification uses vague wording, such as should, when it comes to ordering,
+ so for our purposes the following rules apply:
+ 
+
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
