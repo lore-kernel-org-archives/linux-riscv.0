@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF292D29DEB
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jan 2026 08:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E26CCD29DED
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jan 2026 08:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HBeIfRKtDRV+bV9PN7GBhs5YMOicFVWDthy+yRSB6Qs=; b=Xhj/RrvOdphmEa
-	eBqWGs0xNTYK7LmUYeQSsSyyMQZ/ho4l6zN1jRLSEXAmcZqWsuQ/SxIgjbCW3Bu1m82qABFrEgjmm
-	H/1RpOm+zDEb+EO1ghUyuixZWvPWxGYZA5wFCf5vmDSeLnmboct+0TSoHzs5WiqNqczylystWn/0C
-	Sx9WuLrrjIeAyvhGd8DBRgRajapNdYZRDUumJL0qv+zqYf5sJGjl/+FlBmYGFPFgZwRiOEDe4lAWK
-	WKMVG9gSUfbq6pzmfC7zelZc1DdssFLx3KaalkqpKFIdWpy0EomQCcH68nT3+BAIEWwnT2ZkWedv+
-	boLlcl1NasAidWJ6puKA==;
+	List-Owner; bh=2fD+YiK1CabQLlOHeqIjgB8AgzHfih7iTQIv4QRE0B4=; b=QdFjSvRWzjGdhi
+	KzvT8er6wsEOyUqdqYq1O/uSfN1lyBVAmZAS6JCVbMd9AJ7dzVS4kiu8+YMlh0bQ26UwK2mBCoovp
+	C0icPBtOa9SXDdhke9TKkOCdThQGUBI8zn7HO6pnaj5O7qlihBKj4h7mgEHRh9nuK4HxzfYiVH7lt
+	jP7VdriF692ADLNZNnLBxgyBlMLx5/fCgyqFvqpgqzvDeplTmDS7+ZojYrWSuRdE0Fft73Hi0n//F
+	qaP/92SSqoUZkH+h0hrThYXLg8oY3p2y/LxDlgxNz5SafXfgPj5LS45GaaQ+mys1aUPY2kyBChn/E
+	ePCkGxwnVJshKl2V+c/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfZlX-00000006jp5-28jP;
-	Tue, 13 Jan 2026 08:28:39 +0000
+	id 1vfZlZ-00000006jsa-2nL1;
+	Tue, 13 Jan 2026 08:28:42 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfZlT-00000006jko-1jYG
+	id 1vfZlW-00000006jmt-1OMf
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Jan 2026 08:28:37 +0000
-X-UUID: d6ae1ddaf05911f0a38c85956e01ac42-20260113
+	Tue, 13 Jan 2026 08:28:39 +0000
+X-UUID: d9845f42f05911f0a38c85956e01ac42-20260113
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:0e4d3c4f-a374-47d5-9fb6-8c45f2790522,IP:0,UR
+X-CID-O-INFO: VERSION:1.3.6,REQID:92f5d7f6-195d-4090-835b-3de0df47975e,IP:0,UR
 	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
 	:release,TS:-25
-X-CID-META: VersionHash:a9d874c,CLOUDID:d528e2ec9eed477e95c28352806b8da3,BulkI
+X-CID-META: VersionHash:a9d874c,CLOUDID:45b9916ce57b837e6c90bded6d5c2a3c,BulkI
 	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
 	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
 	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -40,12 +40,12 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: d6ae1ddaf05911f0a38c85956e01ac42-20260113
+X-UUID: d9845f42f05911f0a38c85956e01ac42-20260113
 X-User: jiangfeng@kylinos.cn
 Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
 	(envelope-from <jiangfeng@kylinos.cn>)
 	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1386593411; Tue, 13 Jan 2026 16:28:29 +0800
+	with ESMTP id 1937285911; Tue, 13 Jan 2026 16:28:34 +0800
 From: Feng Jiang <jiangfeng@kylinos.cn>
 To: pjw@kernel.org,
 	palmer@dabbelt.com,
@@ -66,16 +66,16 @@ To: pjw@kernel.org,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH v2 10/14] lib/string_kunit: add performance benchmark for strchr()
-Date: Tue, 13 Jan 2026 16:27:44 +0800
-Message-Id: <20260113082748.250916-11-jiangfeng@kylinos.cn>
+Subject: [PATCH v2 14/14] riscv: lib: add strrchr implementation
+Date: Tue, 13 Jan 2026 16:27:48 +0800
+Message-Id: <20260113082748.250916-15-jiangfeng@kylinos.cn>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260113082748.250916-1-jiangfeng@kylinos.cn>
 References: <20260113082748.250916-1-jiangfeng@kylinos.cn>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_002835_774059_AA34F0DE 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20260113_002838_754288_892BE7D7 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,89 +92,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce a benchmark to compare the architecture-optimized strchr()
-implementation against the generic C version (__generic_strchr).
+Add a basic assembly implementation of strrchr() for RISC-V.
+This provides a functional byte-by-byte version as a foundation
+for future optimizations.
 
-Suggested-by: Andy Shevchenko <andy@kernel.org>
 Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
 ---
- lib/tests/string_kunit.c | 49 +++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 48 insertions(+), 1 deletion(-)
+ arch/riscv/include/asm/string.h |  3 +++
+ arch/riscv/lib/Makefile         |  1 +
+ arch/riscv/lib/strrchr.S        | 37 +++++++++++++++++++++++++++++++++
+ arch/riscv/purgatory/Makefile   |  5 ++++-
+ 4 files changed, 45 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/lib/strrchr.S
 
-diff --git a/lib/tests/string_kunit.c b/lib/tests/string_kunit.c
-index 6578b36213bc..e8d527336030 100644
---- a/lib/tests/string_kunit.c
-+++ b/lib/tests/string_kunit.c
-@@ -20,7 +20,8 @@
- #define STRING_TEST_MAX_LEN	128
- #define STRING_TEST_MAX_OFFSET	16
+diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
+index ca3ade82b124..764ffe8f6479 100644
+--- a/arch/riscv/include/asm/string.h
++++ b/arch/riscv/include/asm/string.h
+@@ -34,6 +34,9 @@ extern asmlinkage __kernel_size_t strnlen(const char *, size_t);
  
--#if defined(__HAVE_ARCH_STRLEN) || defined(__HAVE_ARCH_STRNLEN)
-+#if defined(__HAVE_ARCH_STRLEN) || defined(__HAVE_ARCH_STRNLEN) || \
-+	defined(__HAVE_ARCH_STRCHR)
- #define STRING_BENCH_ENABLED
+ #define __HAVE_ARCH_STRCHR
+ extern asmlinkage char *strchr(const char *, int);
++
++#define __HAVE_ARCH_STRRCHR
++extern asmlinkage char *strrchr(const char *, int);
  #endif
  
-@@ -367,6 +368,49 @@ static void string_test_strrchr(struct kunit *test)
- 	}
- }
+ /* For those files which don't want to check by kasan. */
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index b7f804dce1c3..735d0b665536 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -9,6 +9,7 @@ lib-y			+= strlen.o
+ lib-y			+= strncmp.o
+ lib-y			+= strnlen.o
+ lib-y			+= strchr.o
++lib-y			+= strrchr.o
+ endif
+ lib-y			+= csum.o
+ ifeq ($(CONFIG_MMU), y)
+diff --git a/arch/riscv/lib/strrchr.S b/arch/riscv/lib/strrchr.S
+new file mode 100644
+index 000000000000..ac58b20ca21d
+--- /dev/null
++++ b/arch/riscv/lib/strrchr.S
+@@ -0,0 +1,37 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++/*
++ * Copyright (C) 2025 Feng Jiang <jiangfeng@kylinos.cn>
++ */
++
++#include <linux/linkage.h>
++#include <asm/asm.h>
++
++/* char *strrchr(const char *s, int c) */
++SYM_FUNC_START(strrchr)
++	/*
++	 * Parameters
++	 *	a0 - The string to be searched
++	 *	a1 - The character to seaerch for
++	 *
++	 * Returns
++	 *	a0 - Address of last occurrence of 'c' or 0
++	 *
++	 * Clobbers
++	 *	t0, t1
++	 */
++	andi	a1, a1, 0xff
++	mv	t1, a0
++	li	a0, 0
++1:
++	lbu	t0, 0(t1)
++	bne	t0, a1, 2f
++	mv	a0, t1
++2:
++	addi	t1, t1, 1
++	bnez	t0, 1b
++	ret
++SYM_FUNC_END(strrchr)
++
++SYM_FUNC_ALIAS_WEAK(__pi_strrchr, strrchr)
++EXPORT_SYMBOL(strrchr)
+diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
+index e7b3d748c913..b0358a78f11a 100644
+--- a/arch/riscv/purgatory/Makefile
++++ b/arch/riscv/purgatory/Makefile
+@@ -2,7 +2,7 @@
  
-+#ifdef __HAVE_ARCH_STRCHR
-+static void string_test_strchr_bench(struct kunit *test)
-+{
-+	char *buf;
-+	size_t buf_len, iters;
-+	ktime_t start, end;
-+	u64 time_arch, time_generic;
+ purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o
+ ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
+-purgatory-y += strcmp.o strlen.o strncmp.o strnlen.o strchr.o
++purgatory-y += strcmp.o strlen.o strncmp.o strnlen.o strchr.o strrchr.o
+ endif
+ 
+ targets += $(purgatory-y)
+@@ -38,6 +38,9 @@ $(obj)/strnlen.o: $(srctree)/arch/riscv/lib/strnlen.S FORCE
+ $(obj)/strchr.o: $(srctree)/arch/riscv/lib/strchr.S FORCE
+ 	$(call if_changed_rule,as_o_S)
+ 
++$(obj)/strrchr.o: $(srctree)/arch/riscv/lib/strrchr.S FORCE
++	$(call if_changed_rule,as_o_S)
 +
-+	buf_len = get_max_bench_len(bench_cases, ARRAY_SIZE(bench_cases)) + 1;
-+
-+	buf = kunit_kzalloc(test, buf_len, GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, buf);
-+
-+	for (size_t i = 0; i < ARRAY_SIZE(bench_cases); i++) {
-+		get_random_nonzero_bytes(buf, bench_cases[i].len);
-+		buf[bench_cases[i].len] = '\0';
-+
-+		iters = bench_cases[i].iterations;
-+
-+		/* 1. Benchmark the architecture-optimized version */
-+		start = ktime_get();
-+		for (unsigned int j = 0; j < iters; j++) {
-+			OPTIMIZER_HIDE_VAR(buf);
-+			(void)strchr(buf, '\0');
-+		}
-+		end = ktime_get();
-+		time_arch = ktime_to_ns(ktime_sub(end, start));
-+
-+		/* 2. Benchmark the generic C version */
-+		start = ktime_get();
-+		for (unsigned int j = 0; j < iters; j++) {
-+			OPTIMIZER_HIDE_VAR(buf);
-+			(void)__generic_strchr(buf, '\0');
-+		}
-+		end = ktime_get();
-+		time_generic = ktime_to_ns(ktime_sub(end, start));
-+
-+		string_bench_report(test, "strchr", &bench_cases[i],
-+				time_arch, time_generic);
-+	}
-+}
-+#endif
-+
- static void string_test_strnchr(struct kunit *test)
- {
- 	const char *test_string = "abcdefghijkl";
-@@ -867,6 +911,9 @@ static struct kunit_case string_test_cases[] = {
- 	KUNIT_CASE(string_test_strnlen_bench),
- #endif
- 	KUNIT_CASE(string_test_strchr),
-+#ifdef __HAVE_ARCH_STRCHR
-+	KUNIT_CASE(string_test_strchr_bench),
-+#endif
- 	KUNIT_CASE(string_test_strnchr),
- 	KUNIT_CASE(string_test_strrchr),
- 	KUNIT_CASE(string_test_strspn),
+ CFLAGS_sha256.o := -D__DISABLE_EXPORTS -D__NO_FORTIFY
+ CFLAGS_string.o := -D__DISABLE_EXPORTS
+ CFLAGS_ctype.o := -D__DISABLE_EXPORTS
 -- 
 2.25.1
 
