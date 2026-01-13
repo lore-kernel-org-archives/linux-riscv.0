@@ -4,78 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E26CCD29DED
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jan 2026 08:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF41CD29DE2
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jan 2026 08:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2fD+YiK1CabQLlOHeqIjgB8AgzHfih7iTQIv4QRE0B4=; b=QdFjSvRWzjGdhi
-	KzvT8er6wsEOyUqdqYq1O/uSfN1lyBVAmZAS6JCVbMd9AJ7dzVS4kiu8+YMlh0bQ26UwK2mBCoovp
-	C0icPBtOa9SXDdhke9TKkOCdThQGUBI8zn7HO6pnaj5O7qlihBKj4h7mgEHRh9nuK4HxzfYiVH7lt
-	jP7VdriF692ADLNZNnLBxgyBlMLx5/fCgyqFvqpgqzvDeplTmDS7+ZojYrWSuRdE0Fft73Hi0n//F
-	qaP/92SSqoUZkH+h0hrThYXLg8oY3p2y/LxDlgxNz5SafXfgPj5LS45GaaQ+mys1aUPY2kyBChn/E
-	ePCkGxwnVJshKl2V+c/A==;
+	List-Owner; bh=9aj/6JwRGIiK7wFt3VU1sdh4HlozCo4S9FcmIgKx4Co=; b=NX6f6kB4eudj/8
+	eougQeWB1gX9neY3k2Ad2Kfllx+iJE+r3wF1nF6q87K3fbk/NPdbUSSD1qFgSPQO1rWAapHumO6ab
+	WuyOoovDSKjBy6fP6hN4Jv8e7H+AOMrMNbGLdWjLOTGMiEPRaPyzZ4PeY0EcXpLXyFZZcOR26juLA
+	W5V19fowIAKtOss0mbuNMlaHvKdA8sSCTa5HeX+/DaBuFs7lrJB8uk/wxwV8Tsg3cuOIjtezGKZyJ
+	z6+N2XCrnDNFrg3MOPWhVJlWSVtxRFNYqjEPpu32gCQc9qmu2ovxZ6OnJZOJPO/dGIwa3av1A/CKQ
+	UgdtSdYC5FRhYo8Y7SZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfZlZ-00000006jsa-2nL1;
-	Tue, 13 Jan 2026 08:28:42 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1vfZqd-00000006l94-2bTk;
+	Tue, 13 Jan 2026 08:33:55 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfZlW-00000006jmt-1OMf
+	id 1vfZqa-00000006l8j-37su
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Jan 2026 08:28:39 +0000
-X-UUID: d9845f42f05911f0a38c85956e01ac42-20260113
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:92f5d7f6-195d-4090-835b-3de0df47975e,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:a9d874c,CLOUDID:45b9916ce57b837e6c90bded6d5c2a3c,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
-	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
-	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: d9845f42f05911f0a38c85956e01ac42-20260113
-X-User: jiangfeng@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1937285911; Tue, 13 Jan 2026 16:28:34 +0800
-From: Feng Jiang <jiangfeng@kylinos.cn>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	kees@kernel.org,
-	andy@kernel.org,
-	akpm@linux-foundation.org,
-	jiangfeng@kylinos.cn,
-	ebiggers@kernel.org,
-	martin.petersen@oracle.com,
-	ardb@kernel.org,
-	ajones@ventanamicro.com,
-	conor.dooley@microchip.com,
-	samuel.holland@sifive.com,
-	linus.walleij@linaro.org,
-	nathan@kernel.org
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: [PATCH v2 14/14] riscv: lib: add strrchr implementation
-Date: Tue, 13 Jan 2026 16:27:48 +0800
-Message-Id: <20260113082748.250916-15-jiangfeng@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260113082748.250916-1-jiangfeng@kylinos.cn>
+	Tue, 13 Jan 2026 08:33:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768293233; x=1799829233;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=RfLPpuK/xE7+cwBI1b9GZkSf4/NJpfjShFhEo3OgYHY=;
+  b=B8206FpmNA842ijXy8b3nHlO5+47mVLpRCsUlrb4G5ZDndSnj3rZEInF
+   bBPbi1lHVgrHmPv9wAU1Ujns/vJ319TNnD8IhPsLBVOckCbRbIJzfMcZi
+   CUyWSeXCHiOfBI/J+y3YqyRo2LIxaFB+7Src0hGODRqS5nj0/VjhLSEqr
+   +UV4PEFsSZLiVzayGafFwpTkYOWuQpJgpjJ7H8S3Az5jGc5MZ4odKqEXY
+   cgT3CLprIhLmx/i2BHPKLoqmUjQzi54mA0wnRX1EDKHZzUf8rgR87xDhd
+   s5OIN/rUYmJYVfzCH8uMcV3vMeLMN6AWpUZCi8LL2TNY4oXEr2EA3Jz3X
+   A==;
+X-CSE-ConnectionGUID: 6TMJbAQ5QsSP7+j5aUMWhw==
+X-CSE-MsgGUID: iayRgIyMQQq1OrGJFxjD9g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11669"; a="69626328"
+X-IronPort-AV: E=Sophos;i="6.21,222,1763452800"; 
+   d="scan'208";a="69626328"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2026 00:33:43 -0800
+X-CSE-ConnectionGUID: W9lBRYe6R0SBLa8X6E4qkw==
+X-CSE-MsgGUID: /AZrUJsHQ9+3DfAOZclyHA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,222,1763452800"; 
+   d="scan'208";a="209156424"
+Received: from dhhellew-desk2.ger.corp.intel.com (HELO localhost) ([10.245.245.177])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2026 00:33:39 -0800
+Date: Tue, 13 Jan 2026 10:33:37 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Feng Jiang <jiangfeng@kylinos.cn>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, kees@kernel.org, andy@kernel.org,
+	akpm@linux-foundation.org, ebiggers@kernel.org,
+	martin.petersen@oracle.com, ardb@kernel.org,
+	ajones@ventanamicro.com, conor.dooley@microchip.com,
+	samuel.holland@sifive.com, linus.walleij@linaro.org,
+	nathan@kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 01/14] lib/string: extract generic strlen() into
+ __generic_strlen()
+Message-ID: <aWYDYRVmad6k14fZ@smile.fi.intel.com>
 References: <20260113082748.250916-1-jiangfeng@kylinos.cn>
+ <20260113082748.250916-2-jiangfeng@kylinos.cn>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260113082748.250916-2-jiangfeng@kylinos.cn>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_002838_754288_892BE7D7 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20260113_003352_796780_E599D846 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,113 +95,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a basic assembly implementation of strrchr() for RISC-V.
-This provides a functional byte-by-byte version as a foundation
-for future optimizations.
+On Tue, Jan 13, 2026 at 04:27:35PM +0800, Feng Jiang wrote:
+> To support performance benchmarking in KUnit tests, extract the
+> generic C implementation of strlen() into a standalone function
+> __generic_strlen(). This allows tests to compare architecture-optimized
+> versions against the generic baseline without duplicating code.
 
-Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
----
- arch/riscv/include/asm/string.h |  3 +++
- arch/riscv/lib/Makefile         |  1 +
- arch/riscv/lib/strrchr.S        | 37 +++++++++++++++++++++++++++++++++
- arch/riscv/purgatory/Makefile   |  5 ++++-
- 4 files changed, 45 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/lib/strrchr.S
+...
 
-diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
-index ca3ade82b124..764ffe8f6479 100644
---- a/arch/riscv/include/asm/string.h
-+++ b/arch/riscv/include/asm/string.h
-@@ -34,6 +34,9 @@ extern asmlinkage __kernel_size_t strnlen(const char *, size_t);
- 
- #define __HAVE_ARCH_STRCHR
- extern asmlinkage char *strchr(const char *, int);
-+
-+#define __HAVE_ARCH_STRRCHR
-+extern asmlinkage char *strrchr(const char *, int);
- #endif
- 
- /* For those files which don't want to check by kasan. */
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index b7f804dce1c3..735d0b665536 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -9,6 +9,7 @@ lib-y			+= strlen.o
- lib-y			+= strncmp.o
- lib-y			+= strnlen.o
- lib-y			+= strchr.o
-+lib-y			+= strrchr.o
- endif
- lib-y			+= csum.o
- ifeq ($(CONFIG_MMU), y)
-diff --git a/arch/riscv/lib/strrchr.S b/arch/riscv/lib/strrchr.S
-new file mode 100644
-index 000000000000..ac58b20ca21d
---- /dev/null
-+++ b/arch/riscv/lib/strrchr.S
-@@ -0,0 +1,37 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+
-+/*
-+ * Copyright (C) 2025 Feng Jiang <jiangfeng@kylinos.cn>
-+ */
-+
-+#include <linux/linkage.h>
-+#include <asm/asm.h>
-+
-+/* char *strrchr(const char *s, int c) */
-+SYM_FUNC_START(strrchr)
-+	/*
-+	 * Parameters
-+	 *	a0 - The string to be searched
-+	 *	a1 - The character to seaerch for
-+	 *
-+	 * Returns
-+	 *	a0 - Address of last occurrence of 'c' or 0
-+	 *
-+	 * Clobbers
-+	 *	t0, t1
-+	 */
-+	andi	a1, a1, 0xff
-+	mv	t1, a0
-+	li	a0, 0
-+1:
-+	lbu	t0, 0(t1)
-+	bne	t0, a1, 2f
-+	mv	a0, t1
-+2:
-+	addi	t1, t1, 1
-+	bnez	t0, 1b
-+	ret
-+SYM_FUNC_END(strrchr)
-+
-+SYM_FUNC_ALIAS_WEAK(__pi_strrchr, strrchr)
-+EXPORT_SYMBOL(strrchr)
-diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-index e7b3d748c913..b0358a78f11a 100644
---- a/arch/riscv/purgatory/Makefile
-+++ b/arch/riscv/purgatory/Makefile
-@@ -2,7 +2,7 @@
- 
- purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o
- ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
--purgatory-y += strcmp.o strlen.o strncmp.o strnlen.o strchr.o
-+purgatory-y += strcmp.o strlen.o strncmp.o strnlen.o strchr.o strrchr.o
- endif
- 
- targets += $(purgatory-y)
-@@ -38,6 +38,9 @@ $(obj)/strnlen.o: $(srctree)/arch/riscv/lib/strnlen.S FORCE
- $(obj)/strchr.o: $(srctree)/arch/riscv/lib/strchr.S FORCE
- 	$(call if_changed_rule,as_o_S)
- 
-+$(obj)/strrchr.o: $(srctree)/arch/riscv/lib/strrchr.S FORCE
-+	$(call if_changed_rule,as_o_S)
-+
- CFLAGS_sha256.o := -D__DISABLE_EXPORTS -D__NO_FORTIFY
- CFLAGS_string.o := -D__DISABLE_EXPORTS
- CFLAGS_ctype.o := -D__DISABLE_EXPORTS
+> +size_t strlen(const char *s)
+> +{
+> +	return __generic_strlen(s);
+> +}
+>  EXPORT_SYMBOL(strlen);
+
+There is no point anymore to have this as an exported function, right? So it can
+be moved to string.h as static inline.
+
 -- 
-2.25.1
+With Best Regards,
+Andy Shevchenko
+
 
 
 _______________________________________________
