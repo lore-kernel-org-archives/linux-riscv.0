@@ -4,58 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A012CF45D4
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jan 2026 01:52:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D4BACF45D4
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jan 2026 02:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QSnvo9iTTMZgbW83i2sv28ivDl7jYcybSyDbkojyjm0=; b=NvSEcXiI+O3GIQ
-	Sv2WIMSjRWR8nG5bP/60W2keVQZWji4ppEsZWhpLemO7OTdY4zMkzjJkm2cbQCbp8dFSRTase36El
-	gwkrxeGgr25P5YCbBhNQYosqN3ZRLZIWjBuDuZ11mVybF4Z4lybqH9RrWVvYPn8aVqyRIUNuoY6Zd
-	en0UchtLNZ3B95pFjeMaMjL5XleFtW8sUmqjMPzz6sHDYim2EaVavOVUImLw0dcVpSsp9ADx3tjmv
-	HcsCfiYhIM4z8iP8ht0ezCWtBUNij0cMKwfiZpBC7CYSGi0vfwWJncXQ/0DjmbeT44F8+Wz20KVV/
-	vQIJ4yAgcXzs2myOr5nw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fB6VCmfa016DOwP/hBYWkoTY1LnXPxjRQZSbrmw6syw=; b=yNWFHm4iJTyPhl
+	rRj5SO2po5HvvaMa+mI/YZ+jYol5HAPX19SMUJ/af1csmJoY9YQPDMWCQHBJMgCjUDo3ZINgS58dJ
+	GAQmKHxM6FLGwhkDLbAGxft+PTwGQfs94HqaYebBv40iN37LCjJaToKDjFPTX9CtCxzntd+IQ1qP8
+	M0j/jCOUeLykOYFwHjgYgMuRLS6bxP8cLAx6kMvtFg9l/EkyUF+k50kS9N+nPCaIqrzr3mPrq6W+1
+	I39D8WiJN27J++vcG7uhdYKGIY/Nnjuds2RIPdCz+G9R1N7UAFL+o7wjCOXvZUN+knfzUCUvvOoZG
+	6/We2ehc39iY1KuSzHUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfTZa-00000006Ovn-3aWl;
-	Tue, 13 Jan 2026 01:51:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vfUEn-00000006QlF-3bQt;
+	Tue, 13 Jan 2026 02:34:30 +0000
+Received: from smtpbg154.qq.com ([15.184.224.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfTZZ-00000006Ovg-1mu6
+	id 1vfUEk-00000006Qiw-20PY
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Jan 2026 01:51:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 602046001D;
-	Tue, 13 Jan 2026 01:51:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 168AAC116D0;
-	Tue, 13 Jan 2026 01:51:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768269112;
-	bh=jqyuwK6rVatG5SgEyHj8Jgxvss1mk94ml+mkdOlelwI=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=U0WmTyuSCqAnqH3aFvsMV5z9wqf8M8aCsqMf1cZJMztZ83fyCz4dkS4vedTwKjkBE
-	 JOFzYZ94+KvLMSHCzaS0X/+UT0EmbcG6X6kyQcKN1TQ7B5x1x3dZ/lkEYeLUeIhlre
-	 qpI5ED79kAwui4V7xdCpcul+EQmlzMEE5PNk+/GxmBVZC7FPBN36kiSgnjtD3pEF2D
-	 O/hVXLuc6MM+8LNP1MTJSpS3S5Nv0fyKir9FsrPJF9NdOzMfm5e3x/bq/QCt3sbgTj
-	 QFsUbr/I4LyZsew56MA0m7bzsC4HP3wjjKySpVhjoMNpOaV2DPkeGLvZNlurJIX2ud
-	 fRc5A12MdKtuA==
-Date: Mon, 12 Jan 2026 18:51:48 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Bo Gan <ganboing@gmail.com>
-cc: Lukas Gerlach <lukas.gerlach@cispa.de>, bpf@vger.kernel.org, 
-    linux-riscv@lists.infradead.org, tech-speculation-barriers@lists.riscv.org, 
-    bjorn@kernel.org, ast@kernel.org, daniel@iogearbox.net, 
-    luke.r.nels@gmail.com, xi.wang@gmail.com, palmer@dabbelt.com, 
-    luis.gerhorst@fau.de, daniel.weber@cispa.de, marton.bognar@kuleuven.be, 
-    jo.vanbulck@kuleuven.be, michael.schwarz@cispa.de
-Subject: Re: [PATCH] riscv, bpf: Emit fence.i for BPF_NOSPEC
-In-Reply-To: <b39e9af7-bdbf-4e02-ab7e-ec24626cada4@gmail.com>
-Message-ID: <65f1b958-e420-c517-9a60-86f9085de702@kernel.org>
-References: <20251228173753.56767-1-lukas.gerlach@cispa.de> <b39e9af7-bdbf-4e02-ab7e-ec24626cada4@gmail.com>
+	Tue, 13 Jan 2026 02:34:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1768271563;
+	bh=8OGm56BnNU/xjbkupYm2Nu9TvcJ721VGVaRdZdzerGo=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=akUeUs4rsNN++0aI6+L8wU1tSmXNOlJyg1khp6asNN+b/aTFscWjwsaJsV5atER6q
+	 pCoI+ZMmJjWlGJVwiMVxltPwB1lcGXGlCYoVPdQbMulsPAhA4mtWV15v3QaDYstrEC
+	 7j8Nm36ri758sZ1xiGj8v3MQCpM99guCq6PlkDxY=
+X-QQ-mid: esmtpgz12t1768271554t4138d555
+X-QQ-Originating-IP: hxT0YY0pelbElcL0hcdNSCii+H590ZFHp4LoAnEKDu4=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 13 Jan 2026 10:32:33 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 11578108700935340498
+EX-QQ-RecipientCnt: 9
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Date: Tue, 13 Jan 2026 10:32:21 +0800
+Subject: [PATCH] riscv: sbi: vendorid_list: Add SpacemiT Technology to the
+ vendor list
 MIME-Version: 1.0
+Message-Id: <20260113-spacemit-vendor-id-v1-1-f9650fb8acbc@linux.spacemit.com>
+X-B4-Tracking: v=1; b=H4sIALSuZWkC/x2MQQqAIBAAvxJ7TtCSkL4SHcpdaw9ZuBGB+Pek4
+ zDMZBBKTAJjkyHRw8JnrGDaBvy+xI0UY2XodDdoY3ol1+Lp4Fs9FPFMVStnDaHHsAbroIZXosD
+ vP53mUj6rzQpmZAAAAA==
+X-Change-ID: 20260113-spacemit-vendor-id-841edcdfbf48
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Yixun Lan <dlan@gentoo.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ spacemit@lists.linux.dev, Troy Mitchell <troy.mitchell@linux.spacemit.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768271552; l=874;
+ i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
+ bh=yhhPlPoErkV7U1OZygKFQp5vWYV/hKg6zzSze51YuvE=;
+ b=S/JY50cA4FFYl6PPTHC1S2/6TSvubMHtzhNzvHUKQ16CCghxnvKkpn/03h4ex6Yz6TAQnFF3T
+ Jz4jyId7r5NBmm8xPRLzSxEXHTDOdT2g0B+bdq4MdkD3EALH+0vJ7hv
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NPhoNcGPHxa8PhYYAfOGfMS9xbdxhzsPRKsW6ItxDlFElKzYUWoYFZ6S
+	rfnl0JD55QK/5WpiJclx7hls6hA97oZTTXMYjC+juzIFbTYugFYP6IErG8yZwGRTNPBs95X
+	ze5wXp3jYPiYn6qQILwQvSwTr3ZPsaS/QWcTbBoovkIdbC+v/muEYNy6s6fcNMSXGv0iAt3
+	KCisZUcHA4yqRj2dGjMZNWt595j5F52oGGL4oCSUMsQ3jd3kAWOvXhGkWmcorpLsnsLd9sx
+	hQBjfI5Uc7jZQ1LUV539THtK9ofH8OttCFSPgG+8FP15bTcbnrWJtshEsu2hoTaFDX3PkXT
+	8RrwzUdc5Ema2mk0AeaKGJgM8c0f9Fni5tpa5sbtVBBannySQODCt1A5IQQzFaxGbjBxd+U
+	Txgxu0YVeKt9laV/qzCM9njKYbByx0Nc5CQPU+HxJqlIQqbiB2GixFyjv66FCRMHKnury/U
+	1QnQzVMPD073plYq0kSBcg0q0Q5XGeZP913tSf42AWc8o3Qf2VSkWeDkK1RgysanK3qplEi
+	1KiaFSDCaXG1RjkbWyHoUd0L5Oh0nVuSflsUqakhYlWwaKuomP0vDVDbsIpqS3MUJ5jq2f5
+	fmMENeNGx+YhZqT0MXtWQqkhFU1Sm0T5yeLkx6sqnZ8UKgBgx9uURgMXwzJcfx89J3IKTwH
+	pbEpIas+1Jzr+qp61eDoQmRe+XLV05SUOjvcrxwZasFbKEBQLKd08ba23XCZ72kr9a8VOkz
+	xKO9OK0xiwoMyxPmZYgaMQr1QdJKuRnK1bpUhTwo/v14phk8kZG3f4+zE+c0HpBEJvWi8um
+	OhW5jAjJ9QvRAU1r2/VXV3fLEVsNI3DxOQBFoSB56ySdPDjUyDqbc0Ccn2p7EYAQbP7IfMw
+	OCH3FkCmpwXscH9p2G2VZYL5hMWAXnYKEqOcaCidlQkEslJzIOS0j/QhJ4i4nsv9QgdVJIW
+	3A3pruZI11RInIizPTY16cfKvzoXvLZCPWAG9a/XJaA1LQQiTJAIn0Pl48QGW2Tms6o/fAh
+	4Fxmg5bXl9foCYRgYEoAhZ1B+1nH2w8QgJFfm8IuevZMdX7ErVNgThXX8Q++dLPJ8hkcoKr
+	eidKwRTmA2wj0bUBNCD0k23mwXQ8SlUoQ==
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260112_183427_650080_B038C9B7 
+X-CRM114-Status: UNSURE (   5.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,54 +107,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add SpacemiT Technology to the RISC-V vendor list.
 
-On Mon, 12 Jan 2026, Bo Gan wrote:
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+---
+ arch/riscv/include/asm/vendorid_list.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-> Please also check out Ved's response from the Speculation Barrier TG:
-> 
-> https://lists.riscv.org/g/tech-speculation-barriers/message/21
-> 
-> I think the best way forward is to wait for the TG to clearly define
-> speculation barrier instructions, and use them for future cores. 
+diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
+index 7f5030ee1fcf830b17c6529e9c430fe19ac68b05..5f75408ddee75d1e45c2c72207c66c5905f9b84d 100644
+--- a/arch/riscv/include/asm/vendorid_list.h
++++ b/arch/riscv/include/asm/vendorid_list.h
+@@ -9,6 +9,7 @@
+ #define MICROCHIP_VENDOR_ID	0x029
+ #define MIPS_VENDOR_ID		0x127
+ #define SIFIVE_VENDOR_ID	0x489
++#define SPACEMIT_VENDOR_ID	0x710
+ #define THEAD_VENDOR_ID		0x5b7
+ 
+ #endif
 
-Waiting for the speculation barriers TG to complete their work is 
-unfortunately a non-starter.  It seems unlikely to do so for quite some 
-time.  Even once the extension is ratified, it's likely to take years 
-before these instructions enter silicon and are widely available.  
-Meanwhile, there are already newer designs in silicon targeting use cases 
-that will need mitigations.
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20260113-spacemit-vendor-id-841edcdfbf48
 
-> For existing HW, emit a warning and do nothing. 
+Best regards,
+-- 
+Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
-Can we really assume that this use case is the same as everyone else's?  
-So far the Linux approach to microarchitectural attacks is to implement 
-mitigations, with the expensive ones switchable, and then to give users 
-the choice as to whether to disable mitigations for their use case.  Is 
-there a reason for arch/riscv to take a substantially different approach?
-
-> I don't want to see bpf doing fence.i universally for all riscv.
-
-I think there's already agreement here - 
-
-  https://lore.kernel.org/linux-riscv/20260106084410.94496-1-lukas.gerlach@cispa.de/
-
-> Neither do I like it guessing this and that specific core implementation 
-> needing fence.i or not. We simply don't know how each vendor design 
-> their cores. Let the vendor tell us what's the best instruction to use 
-> for our existing HW.  E.g., for JH7110, it's really U74 from Sifive, so 
-> we can ask them to fill-in
-
-We should make sure that the sequence used can be determined per- 
-microarchitecture.  But if there's no guidance from the vendor, then the 
-community should implement something that seems to work.  This should also 
-encourage vendors to engage with us to make sure that the most efficient 
-workarounds or mitigations are implemented.  That hopefully should also 
-encourage vendors to design hardware that don't have these known 
-vulnerabilities.
-
-
-- Paul
 
 _______________________________________________
 linux-riscv mailing list
