@@ -4,87 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 540A6CF45D4
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jan 2026 02:37:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9318ACF45D4
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jan 2026 02:39:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MSFhpf2e7AL6Mz1wMtUFcWk++v73yH9iurHSXc1jiXc=; b=fbDkDIDjMIESED
-	HB6w0CIkNXuXHBV0qff4SmNMBXYGBYEPiV+nWJ/cbl+P3Oh/J9aEqYjyAGDUw4am51QHdB3f0rYpP
-	3Bf9jaPvN0PbUafoI9dTtcAIx4eHYp074lAWwtatCZvee3Po5bFmLCoCdM74D5USq3H1klTQ9wHlS
-	GIaN6Q1dH7764ncJqSXyJJ/qSMGwnwLX8CsLSl92biSDQYenWDJLxbTRyYBfxMaEvQHD0EryFZvrW
-	m6TjfvDF83GcdeaMe6zrAYDQmlgkg1YiobZ12wQrHrIE79roCnB5ucGe7YHmNboMYt1yVzimVObs7
-	dTKbVIx4/RbuiIr0p6ZA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=R+0qoWTtWHElXTZEAkZQZh8fBOY9nD6wWR8pXGL5IMY=; b=AQ7Tzy66lz6NF+
+	ajls+TMI0Fmxirr/UXbJ5XXP4cePdwjEZ3LFGFXLySE/G+WpGE54KwGvZgP74MRzcZMpq4YKkZIuw
+	uIx7f5HSEfZ0ssXxBBDtK8H8s7oVSsdhP4j0G/u+7+zdT3qqOtlz2Hpl2IS5vg8Umt2yH+f3aayh8
+	XbWRNGJcMYMRDGHKHdYQDc03OYf2IT/+n8kGfV7tXfF+ISABBx8Kh7xWLSu9CgqLNc9P5Wj43oXRK
+	hqVWAqZFYNqwvZrNGRX6k+JfenzRBxOyigjaL0Lw/KnqVnhhcNAUpKhHEf81zzzJBoR/NXElAGYG0
+	WeG5FNak8n+adUP1K8cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfUHE-00000006R1c-0837;
-	Tue, 13 Jan 2026 02:37:00 +0000
-Received: from mail-dl1-x1232.google.com ([2607:f8b0:4864:20::1232])
+	id 1vfUJ3-00000006RV4-3ct0;
+	Tue, 13 Jan 2026 02:38:53 +0000
+Received: from mail-dy1-x1331.google.com ([2607:f8b0:4864:20::1331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfUHA-00000006R0z-2Zwv
+	id 1vfUJ1-00000006RUB-1xQL
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Jan 2026 02:36:59 +0000
-Received: by mail-dl1-x1232.google.com with SMTP id a92af1059eb24-11f3a10dcbbso6401028c88.1
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Jan 2026 18:36:56 -0800 (PST)
+	Tue, 13 Jan 2026 02:38:52 +0000
+Received: by mail-dy1-x1331.google.com with SMTP id 5a478bee46e88-2ae38f81be1so7480704eec.0
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Jan 2026 18:38:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768271815; x=1768876615; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6ySOV1qaMnTkxAOEjKtqV21Yq3qmzkn5kZVxToJlMeM=;
-        b=TICIcE/zkQ7cn+b9jyBk4+zMLNXaK15uA8R41Eo8wXoqOf5YL9A+xv6pi5a0kynqwZ
-         L3He5KBStwcSNp5Jq9n2oXVP/GPk7t7Vl1ecFg0LPu9tCxZfxNV3tGIEma/aLbmVD4ga
-         AsqHZNteyWOsdmCfDceRWaO8jQ8RB+ceJGH4PRtHyxHubCPwfUaWu7YcRwSwjRMnoRDC
-         /SsXCNT+N7QqnyBSBJGUo4aAwIOuiKv1O3qzqpuOohzg6V8YBTeuGsxclB0KGKTheR1t
-         WlhRIkgESGqUgTam8d192t3xBwPbTnsBXfmQrhH/Fg23wTattgKdWYwtSgz7UKDBca4R
-         mjoA==
+        d=gmail.com; s=20230601; t=1768271930; x=1768876730; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zaugnEXkJ4FHEBN7EdBhUTyRr4Jomj8G8+aRLmhsbAU=;
+        b=jZqHhHA8NC8FXIRv5Q0FqnCc864xOlGe5FsJfvHLIlPT1fTbOEdBkOgbTVJbYKa0Aa
+         2XWpPAEognZsTLI+jcB9jzn5mXDcj3YPkmKzEir0wLBJH5EXDl+fs7ZGPdjSm4Nj8fPU
+         /2cyWYx/3Mm8vJbkm9HfSQMm2rt0Bsd6tQo8uUlUq3I/WxQrGkH8tC+KSjQUwypposKB
+         pTqSYI6T77/QwIvHZmD8X6oAE3Pi5RoHv3c1vpBRchNe2IjiQcih7pptQhTm4HTgKkWv
+         XCfeYrKuHH/gWuET2RRx/lZ51u86zeE3zC/aCyKOhJoZCEHeQLn7V5nuBajaGcFxAFEP
+         Ku8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768271815; x=1768876615;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6ySOV1qaMnTkxAOEjKtqV21Yq3qmzkn5kZVxToJlMeM=;
-        b=ut+G34MSbmsRftKHpovk0scfpJQuBKKKN0jd1jUoF9BNcsEPjGEDMmngXEZEq9CWet
-         saPflT5l+ZjR+ft/B1BtRl8U8l4BwJJOLc5n40eW/Q/zJRzVYdPPT3W7OiDA5t+t3wMw
-         lnxphKyIeBFHlkYLfXgPp/TSBRm4GiGejeu/EDTqdVJh5e1pFIT+1fuIPr2EBi6Mb2GE
-         ypHO9aOx9Uosx/XmS4xGENylHVsPVVtcoIgvlk5HTd5SjwHOcdPWYlbtVCwDMrL5KNU0
-         Uln9TdW6ab3NkFbOkiSl3AklB6c4UKSABj2xEcK165dbOuAGBEukl2iW+6TMpXtUi+Av
-         V6Hg==
-X-Gm-Message-State: AOJu0Yws9R+mziCZxZWpQkAmPnPYPHxcaOY4nSK8IxJrjgCSrU7jQCke
-	V/19sKdUltGeC9bHWWbT/x2ivShb5lHM8FTu0ikMs141pWWZjeTS6M9l
-X-Gm-Gg: AY/fxX5a6UA7q8QomdigyjTb0xGWwW5+QEW6p2/80c77r+6QSJRZecUvamekrTBeLSJ
-	MYTNxdP0sJHLidwIEmMJRXybfN7luqEMmTe/TwQtf48TyQiVLKYIa6Dlb5Vx4Bc2aHbQ3XfXjeg
-	cHaxL0Y8FtUiNcmCwzEJAHxVKHFHPA+20jNOIW8s2IetAqrhkzjw4suWX8P/ZmePNu+VB8TsmFW
-	VwovsN8L7GvmnkketJPTP0lrOVUcZSeKxgQm/KTLI84CsAixGrrcuLoENO4Fb/2iNzDzxd9yD4D
-	AcwUjGCz+7Fth5uE75NGU1pZH12+Ryg34xfs3vAKKyRgXW1R3VPCotvQLHv0GnqIfrxwjBy0+IN
-	vDOPzzzCtYVFMZP5g9unyahnSJC4qDzKGXIe041RvQ+w4fyum1H6wgVSehFzAUNPxf1Z4tma5Ei
-	VIgeqiStPeTg==
-X-Google-Smtp-Source: AGHT+IGpFCitrEaTw4etF3DikT7lkfaNYnJTI14jlBptzrIbvJlxQxJoE7rmbUdEP06y3VG97kDZXw==
-X-Received: by 2002:a05:7022:6096:b0:122:415:25ed with SMTP id a92af1059eb24-1220415265amr14083544c88.49.1768271815354;
-        Mon, 12 Jan 2026 18:36:55 -0800 (PST)
+        d=1e100.net; s=20230601; t=1768271930; x=1768876730;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zaugnEXkJ4FHEBN7EdBhUTyRr4Jomj8G8+aRLmhsbAU=;
+        b=acBy90OR9cKFPEer5LJOTloOQMZvhP7Iuf4ijOclSAiJHqJWopwZGboG0abMjaSKwd
+         Ix9fimLuLjCAtENi6Lr7UzbAgfx2H6UMUqxBOm+Anc5U0UUdceMP0lEm99/7L96iEaqX
+         +5Q33fS/jSzEGfKbhFhghGMm4M6TyzbpF0cCKbvgzEfu2VtEGw2/Xc61Xol2DcM49JPt
+         LVp/TCY0s53JcFILUf4ZfJaaN4jidp24TzinFhinWl0a6xbbIFzFO2Pwj80YcZRiQCbG
+         J9j0keaHtY3bYoccQMnQWyxdgIg/c5NFWVJFXKtW7ej+/DTVRSJMFor1nmd1XEP3HbRA
+         lAcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXCk08+qJlQzoq9lLcntrHIe1c/u3EHiAZHhnPaOfKakVvVrwaoB9EVd3Lytcud0Nr7ZD7+s7bUc3IqfA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVsMxQDc9IKIAI0zwgj/yFZujaBkvPLsID2jm961Y6LykaNUJr
+	OkU/+PLaoKGOLHM13OaBX8Ct62Lub/V39xlE4CZa4idM0/V3DkNLDS8h
+X-Gm-Gg: AY/fxX6K3Sd1f2QXXmLePCIMGdqMNhXJQ31KKNpr+DlwAyOpnGWtUhi0mh8IJLQnDSe
+	j1dX/dowLZKubJ3Q3F7Sdy/qfV3pg53n9Zpc+mLTYwjeRmKTgVwcELvek7PTTniDlwyfUcs4OCj
+	5Tf6puL9Fr4CucWNnFgsd1/oj+3Xdty0kG+xR3h2XfGFm2AiBtU5DmjKzrjzXUuj7xG/+vH6gAo
+	jjxysvjUs7NNmunyrD+KdHzRYSJnLcKrDmnkjyNGcKtI1I/lDQ0DoZCas+yRGE9ahAdYkF5HPMO
+	xKlGwNeqj6vba3EF1XeYZuv4xCbZygMbNq8KGftOTWQmoWVBR2WJagXbxat9zPrPmcm0Ob8NfB7
+	p6CIwwewOvBAb4FRN+LeYy2ssZFOYefMJbJ8EQ2F3Ovsat/XObWpMnmp/iASU4loDY+MtRbJ3Xb
+	FSiopOULr9NA==
+X-Google-Smtp-Source: AGHT+IEtl62dhN66DhCG+WF6azqNl63QKTI7bvsDHcyl7gACwNp7rI2a39SpBrCCB5NRZG/O6ahbrQ==
+X-Received: by 2002:a05:7300:8182:b0:2b0:4e86:815a with SMTP id 5a478bee46e88-2b17d29cf3fmr15523593eec.27.1768271930242;
+        Mon, 12 Jan 2026 18:38:50 -0800 (PST)
 Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-121f248c16fsm26823274c88.10.2026.01.12.18.36.54
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b170673b2esm17339163eec.6.2026.01.12.18.38.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Jan 2026 18:36:54 -0800 (PST)
-Date: Tue, 13 Jan 2026 10:36:34 +0800
+        Mon, 12 Jan 2026 18:38:49 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@gentoo.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH] riscv: sbi: vendorid_list: Add SpacemiT Technology to
- the vendor list
-Message-ID: <aWWvhPHH0_VUbeUY@inochi.infowork>
-References: <20260113-spacemit-vendor-id-v1-1-f9650fb8acbc@linux.spacemit.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Han Gao <rabenda.cn@gmail.com>,
+	Nutty Liu <liujingqi@lanxincomputing.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Zixian Zeng <sycamoremoon376@gmail.com>
+Cc: devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	sophgo@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH 1/2] riscv: dts: sophgo: Move PLIC and CLINT node into CPU dtsi
+Date: Tue, 13 Jan 2026 10:38:26 +0800
+Message-ID: <20260113023828.790136-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260113-spacemit-vendor-id-v1-1-f9650fb8acbc@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_183656_653070_4CBF00D9 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20260112_183851_526764_4A0C5F5C 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,43 +114,648 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 13, 2026 at 10:32:21AM +0800, Troy Mitchell wrote:
-> Add SpacemiT Technology to the RISC-V vendor list.
-> 
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> ---
->  arch/riscv/include/asm/vendorid_list.h | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
-> index 7f5030ee1fcf830b17c6529e9c430fe19ac68b05..5f75408ddee75d1e45c2c72207c66c5905f9b84d 100644
-> --- a/arch/riscv/include/asm/vendorid_list.h
-> +++ b/arch/riscv/include/asm/vendorid_list.h
-> @@ -9,6 +9,7 @@
->  #define MICROCHIP_VENDOR_ID	0x029
->  #define MIPS_VENDOR_ID		0x127
->  #define SIFIVE_VENDOR_ID	0x489
-> +#define SPACEMIT_VENDOR_ID	0x710
->  #define THEAD_VENDOR_ID		0x5b7
->  
->  #endif
-> 
-> ---
-> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> change-id: 20260113-spacemit-vendor-id-841edcdfbf48
-> 
-> Best regards,
-> -- 
-> Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> 
-> 
+As we have a separate CPU dtsi file, move the PLIC and CLINT
+node to the CPU dtsi file. This will make the sg2042.dtsi force
+peripheral devices, and make the CPU dtsi force CPU related
+devices.
 
-I see no usage, this patch is useless.
-Please submit this code with the patch that uses
-this ID. Thanks
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi | 305 ++++++++++++++++++++
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi      | 303 -------------------
+ 2 files changed, 305 insertions(+), 303 deletions(-)
 
-Regards,
-Inochi
+diff --git a/arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi b/arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
+index 94a4b71acad3..509488eee432 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
++++ b/arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
+@@ -2189,4 +2189,309 @@ l2_cache15: cache-controller-15 {
+ 			cache-unified;
+ 		};
+ 	};
++
++	soc {
++		intc: interrupt-controller@7090000000 {
++			compatible = "sophgo,sg2042-plic", "thead,c900-plic";
++			#address-cells = <0>;
++			#interrupt-cells = <2>;
++			reg = <0x00000070 0x90000000 0x00000000 0x04000000>;
++			interrupt-controller;
++			interrupts-extended =
++				<&cpu0_intc 11>,  <&cpu0_intc 9>,
++				<&cpu1_intc 11>,  <&cpu1_intc 9>,
++				<&cpu2_intc 11>,  <&cpu2_intc 9>,
++				<&cpu3_intc 11>,  <&cpu3_intc 9>,
++				<&cpu4_intc 11>,  <&cpu4_intc 9>,
++				<&cpu5_intc 11>,  <&cpu5_intc 9>,
++				<&cpu6_intc 11>,  <&cpu6_intc 9>,
++				<&cpu7_intc 11>,  <&cpu7_intc 9>,
++				<&cpu8_intc 11>,  <&cpu8_intc 9>,
++				<&cpu9_intc 11>,  <&cpu9_intc 9>,
++				<&cpu10_intc 11>, <&cpu10_intc 9>,
++				<&cpu11_intc 11>, <&cpu11_intc 9>,
++				<&cpu12_intc 11>, <&cpu12_intc 9>,
++				<&cpu13_intc 11>, <&cpu13_intc 9>,
++				<&cpu14_intc 11>, <&cpu14_intc 9>,
++				<&cpu15_intc 11>, <&cpu15_intc 9>,
++				<&cpu16_intc 11>, <&cpu16_intc 9>,
++				<&cpu17_intc 11>, <&cpu17_intc 9>,
++				<&cpu18_intc 11>, <&cpu18_intc 9>,
++				<&cpu19_intc 11>, <&cpu19_intc 9>,
++				<&cpu20_intc 11>, <&cpu20_intc 9>,
++				<&cpu21_intc 11>, <&cpu21_intc 9>,
++				<&cpu22_intc 11>, <&cpu22_intc 9>,
++				<&cpu23_intc 11>, <&cpu23_intc 9>,
++				<&cpu24_intc 11>, <&cpu24_intc 9>,
++				<&cpu25_intc 11>, <&cpu25_intc 9>,
++				<&cpu26_intc 11>, <&cpu26_intc 9>,
++				<&cpu27_intc 11>, <&cpu27_intc 9>,
++				<&cpu28_intc 11>, <&cpu28_intc 9>,
++				<&cpu29_intc 11>, <&cpu29_intc 9>,
++				<&cpu30_intc 11>, <&cpu30_intc 9>,
++				<&cpu31_intc 11>, <&cpu31_intc 9>,
++				<&cpu32_intc 11>, <&cpu32_intc 9>,
++				<&cpu33_intc 11>, <&cpu33_intc 9>,
++				<&cpu34_intc 11>, <&cpu34_intc 9>,
++				<&cpu35_intc 11>, <&cpu35_intc 9>,
++				<&cpu36_intc 11>, <&cpu36_intc 9>,
++				<&cpu37_intc 11>, <&cpu37_intc 9>,
++				<&cpu38_intc 11>, <&cpu38_intc 9>,
++				<&cpu39_intc 11>, <&cpu39_intc 9>,
++				<&cpu40_intc 11>, <&cpu40_intc 9>,
++				<&cpu41_intc 11>, <&cpu41_intc 9>,
++				<&cpu42_intc 11>, <&cpu42_intc 9>,
++				<&cpu43_intc 11>, <&cpu43_intc 9>,
++				<&cpu44_intc 11>, <&cpu44_intc 9>,
++				<&cpu45_intc 11>, <&cpu45_intc 9>,
++				<&cpu46_intc 11>, <&cpu46_intc 9>,
++				<&cpu47_intc 11>, <&cpu47_intc 9>,
++				<&cpu48_intc 11>, <&cpu48_intc 9>,
++				<&cpu49_intc 11>, <&cpu49_intc 9>,
++				<&cpu50_intc 11>, <&cpu50_intc 9>,
++				<&cpu51_intc 11>, <&cpu51_intc 9>,
++				<&cpu52_intc 11>, <&cpu52_intc 9>,
++				<&cpu53_intc 11>, <&cpu53_intc 9>,
++				<&cpu54_intc 11>, <&cpu54_intc 9>,
++				<&cpu55_intc 11>, <&cpu55_intc 9>,
++				<&cpu56_intc 11>, <&cpu56_intc 9>,
++				<&cpu57_intc 11>, <&cpu57_intc 9>,
++				<&cpu58_intc 11>, <&cpu58_intc 9>,
++				<&cpu59_intc 11>, <&cpu59_intc 9>,
++				<&cpu60_intc 11>, <&cpu60_intc 9>,
++				<&cpu61_intc 11>, <&cpu61_intc 9>,
++				<&cpu62_intc 11>, <&cpu62_intc 9>,
++				<&cpu63_intc 11>, <&cpu63_intc 9>;
++			riscv,ndev = <224>;
++		};
++
++		clint_mswi: interrupt-controller@7094000000 {
++			compatible = "sophgo,sg2042-aclint-mswi", "thead,c900-aclint-mswi";
++			reg = <0x00000070 0x94000000 0x00000000 0x00004000>;
++			interrupts-extended = <&cpu0_intc 3>,
++					      <&cpu1_intc 3>,
++					      <&cpu2_intc 3>,
++					      <&cpu3_intc 3>,
++					      <&cpu4_intc 3>,
++					      <&cpu5_intc 3>,
++					      <&cpu6_intc 3>,
++					      <&cpu7_intc 3>,
++					      <&cpu8_intc 3>,
++					      <&cpu9_intc 3>,
++					      <&cpu10_intc 3>,
++					      <&cpu11_intc 3>,
++					      <&cpu12_intc 3>,
++					      <&cpu13_intc 3>,
++					      <&cpu14_intc 3>,
++					      <&cpu15_intc 3>,
++					      <&cpu16_intc 3>,
++					      <&cpu17_intc 3>,
++					      <&cpu18_intc 3>,
++					      <&cpu19_intc 3>,
++					      <&cpu20_intc 3>,
++					      <&cpu21_intc 3>,
++					      <&cpu22_intc 3>,
++					      <&cpu23_intc 3>,
++					      <&cpu24_intc 3>,
++					      <&cpu25_intc 3>,
++					      <&cpu26_intc 3>,
++					      <&cpu27_intc 3>,
++					      <&cpu28_intc 3>,
++					      <&cpu29_intc 3>,
++					      <&cpu30_intc 3>,
++					      <&cpu31_intc 3>,
++					      <&cpu32_intc 3>,
++					      <&cpu33_intc 3>,
++					      <&cpu34_intc 3>,
++					      <&cpu35_intc 3>,
++					      <&cpu36_intc 3>,
++					      <&cpu37_intc 3>,
++					      <&cpu38_intc 3>,
++					      <&cpu39_intc 3>,
++					      <&cpu40_intc 3>,
++					      <&cpu41_intc 3>,
++					      <&cpu42_intc 3>,
++					      <&cpu43_intc 3>,
++					      <&cpu44_intc 3>,
++					      <&cpu45_intc 3>,
++					      <&cpu46_intc 3>,
++					      <&cpu47_intc 3>,
++					      <&cpu48_intc 3>,
++					      <&cpu49_intc 3>,
++					      <&cpu50_intc 3>,
++					      <&cpu51_intc 3>,
++					      <&cpu52_intc 3>,
++					      <&cpu53_intc 3>,
++					      <&cpu54_intc 3>,
++					      <&cpu55_intc 3>,
++					      <&cpu56_intc 3>,
++					      <&cpu57_intc 3>,
++					      <&cpu58_intc 3>,
++					      <&cpu59_intc 3>,
++					      <&cpu60_intc 3>,
++					      <&cpu61_intc 3>,
++					      <&cpu62_intc 3>,
++					      <&cpu63_intc 3>;
++		};
++
++		clint_mtimer0: timer@70ac004000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac004000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu0_intc 7>,
++					      <&cpu1_intc 7>,
++					      <&cpu2_intc 7>,
++					      <&cpu3_intc 7>;
++		};
++
++		clint_mtimer1: timer@70ac014000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac014000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu4_intc 7>,
++					      <&cpu5_intc 7>,
++					      <&cpu6_intc 7>,
++					      <&cpu7_intc 7>;
++		};
++
++		clint_mtimer2: timer@70ac024000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac024000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu8_intc 7>,
++					      <&cpu9_intc 7>,
++					      <&cpu10_intc 7>,
++					      <&cpu11_intc 7>;
++		};
++
++		clint_mtimer3: timer@70ac034000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac034000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu12_intc 7>,
++					      <&cpu13_intc 7>,
++					      <&cpu14_intc 7>,
++					      <&cpu15_intc 7>;
++		};
++
++		clint_mtimer4: timer@70ac044000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac044000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu16_intc 7>,
++					      <&cpu17_intc 7>,
++					      <&cpu18_intc 7>,
++					      <&cpu19_intc 7>;
++		};
++
++		clint_mtimer5: timer@70ac054000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac054000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu20_intc 7>,
++					      <&cpu21_intc 7>,
++					      <&cpu22_intc 7>,
++					      <&cpu23_intc 7>;
++		};
++
++		clint_mtimer6: timer@70ac064000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac064000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu24_intc 7>,
++					      <&cpu25_intc 7>,
++					      <&cpu26_intc 7>,
++					      <&cpu27_intc 7>;
++		};
++
++		clint_mtimer7: timer@70ac074000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac074000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu28_intc 7>,
++					      <&cpu29_intc 7>,
++					      <&cpu30_intc 7>,
++					      <&cpu31_intc 7>;
++		};
++
++		clint_mtimer8: timer@70ac084000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac084000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu32_intc 7>,
++					      <&cpu33_intc 7>,
++					      <&cpu34_intc 7>,
++					      <&cpu35_intc 7>;
++		};
++
++		clint_mtimer9: timer@70ac094000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac094000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu36_intc 7>,
++					      <&cpu37_intc 7>,
++					      <&cpu38_intc 7>,
++					      <&cpu39_intc 7>;
++		};
++
++		clint_mtimer10: timer@70ac0a4000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac0a4000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu40_intc 7>,
++					      <&cpu41_intc 7>,
++					      <&cpu42_intc 7>,
++					      <&cpu43_intc 7>;
++		};
++
++		clint_mtimer11: timer@70ac0b4000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac0b4000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu44_intc 7>,
++					      <&cpu45_intc 7>,
++					      <&cpu46_intc 7>,
++					      <&cpu47_intc 7>;
++		};
++
++		clint_mtimer12: timer@70ac0c4000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac0c4000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu48_intc 7>,
++					      <&cpu49_intc 7>,
++					      <&cpu50_intc 7>,
++					      <&cpu51_intc 7>;
++		};
++
++		clint_mtimer13: timer@70ac0d4000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac0d4000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu52_intc 7>,
++					      <&cpu53_intc 7>,
++					      <&cpu54_intc 7>,
++					      <&cpu55_intc 7>;
++		};
++
++		clint_mtimer14: timer@70ac0e4000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac0e4000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu56_intc 7>,
++					      <&cpu57_intc 7>,
++					      <&cpu58_intc 7>,
++					      <&cpu59_intc 7>;
++		};
++
++		clint_mtimer15: timer@70ac0f4000 {
++			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x00000070 0xac0f4000 0x00000000 0x0000c000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu60_intc 7>,
++					      <&cpu61_intc 7>,
++					      <&cpu62_intc 7>,
++					      <&cpu63_intc 7>;
++		};
++	};
+ };
+diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+index ec99da39150f..e6891f95d479 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
++++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+@@ -352,309 +352,6 @@ pcie_rc3: pcie@7062800000 {
+ 			status = "disabled";
+ 		};
+ 
+-		clint_mswi: interrupt-controller@7094000000 {
+-			compatible = "sophgo,sg2042-aclint-mswi", "thead,c900-aclint-mswi";
+-			reg = <0x00000070 0x94000000 0x00000000 0x00004000>;
+-			interrupts-extended = <&cpu0_intc 3>,
+-					      <&cpu1_intc 3>,
+-					      <&cpu2_intc 3>,
+-					      <&cpu3_intc 3>,
+-					      <&cpu4_intc 3>,
+-					      <&cpu5_intc 3>,
+-					      <&cpu6_intc 3>,
+-					      <&cpu7_intc 3>,
+-					      <&cpu8_intc 3>,
+-					      <&cpu9_intc 3>,
+-					      <&cpu10_intc 3>,
+-					      <&cpu11_intc 3>,
+-					      <&cpu12_intc 3>,
+-					      <&cpu13_intc 3>,
+-					      <&cpu14_intc 3>,
+-					      <&cpu15_intc 3>,
+-					      <&cpu16_intc 3>,
+-					      <&cpu17_intc 3>,
+-					      <&cpu18_intc 3>,
+-					      <&cpu19_intc 3>,
+-					      <&cpu20_intc 3>,
+-					      <&cpu21_intc 3>,
+-					      <&cpu22_intc 3>,
+-					      <&cpu23_intc 3>,
+-					      <&cpu24_intc 3>,
+-					      <&cpu25_intc 3>,
+-					      <&cpu26_intc 3>,
+-					      <&cpu27_intc 3>,
+-					      <&cpu28_intc 3>,
+-					      <&cpu29_intc 3>,
+-					      <&cpu30_intc 3>,
+-					      <&cpu31_intc 3>,
+-					      <&cpu32_intc 3>,
+-					      <&cpu33_intc 3>,
+-					      <&cpu34_intc 3>,
+-					      <&cpu35_intc 3>,
+-					      <&cpu36_intc 3>,
+-					      <&cpu37_intc 3>,
+-					      <&cpu38_intc 3>,
+-					      <&cpu39_intc 3>,
+-					      <&cpu40_intc 3>,
+-					      <&cpu41_intc 3>,
+-					      <&cpu42_intc 3>,
+-					      <&cpu43_intc 3>,
+-					      <&cpu44_intc 3>,
+-					      <&cpu45_intc 3>,
+-					      <&cpu46_intc 3>,
+-					      <&cpu47_intc 3>,
+-					      <&cpu48_intc 3>,
+-					      <&cpu49_intc 3>,
+-					      <&cpu50_intc 3>,
+-					      <&cpu51_intc 3>,
+-					      <&cpu52_intc 3>,
+-					      <&cpu53_intc 3>,
+-					      <&cpu54_intc 3>,
+-					      <&cpu55_intc 3>,
+-					      <&cpu56_intc 3>,
+-					      <&cpu57_intc 3>,
+-					      <&cpu58_intc 3>,
+-					      <&cpu59_intc 3>,
+-					      <&cpu60_intc 3>,
+-					      <&cpu61_intc 3>,
+-					      <&cpu62_intc 3>,
+-					      <&cpu63_intc 3>;
+-		};
+-
+-		clint_mtimer0: timer@70ac004000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac004000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu0_intc 7>,
+-					      <&cpu1_intc 7>,
+-					      <&cpu2_intc 7>,
+-					      <&cpu3_intc 7>;
+-		};
+-
+-		clint_mtimer1: timer@70ac014000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac014000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu4_intc 7>,
+-					      <&cpu5_intc 7>,
+-					      <&cpu6_intc 7>,
+-					      <&cpu7_intc 7>;
+-		};
+-
+-		clint_mtimer2: timer@70ac024000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac024000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu8_intc 7>,
+-					      <&cpu9_intc 7>,
+-					      <&cpu10_intc 7>,
+-					      <&cpu11_intc 7>;
+-		};
+-
+-		clint_mtimer3: timer@70ac034000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac034000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu12_intc 7>,
+-					      <&cpu13_intc 7>,
+-					      <&cpu14_intc 7>,
+-					      <&cpu15_intc 7>;
+-		};
+-
+-		clint_mtimer4: timer@70ac044000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac044000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu16_intc 7>,
+-					      <&cpu17_intc 7>,
+-					      <&cpu18_intc 7>,
+-					      <&cpu19_intc 7>;
+-		};
+-
+-		clint_mtimer5: timer@70ac054000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac054000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu20_intc 7>,
+-					      <&cpu21_intc 7>,
+-					      <&cpu22_intc 7>,
+-					      <&cpu23_intc 7>;
+-		};
+-
+-		clint_mtimer6: timer@70ac064000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac064000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu24_intc 7>,
+-					      <&cpu25_intc 7>,
+-					      <&cpu26_intc 7>,
+-					      <&cpu27_intc 7>;
+-		};
+-
+-		clint_mtimer7: timer@70ac074000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac074000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu28_intc 7>,
+-					      <&cpu29_intc 7>,
+-					      <&cpu30_intc 7>,
+-					      <&cpu31_intc 7>;
+-		};
+-
+-		clint_mtimer8: timer@70ac084000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac084000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu32_intc 7>,
+-					      <&cpu33_intc 7>,
+-					      <&cpu34_intc 7>,
+-					      <&cpu35_intc 7>;
+-		};
+-
+-		clint_mtimer9: timer@70ac094000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac094000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu36_intc 7>,
+-					      <&cpu37_intc 7>,
+-					      <&cpu38_intc 7>,
+-					      <&cpu39_intc 7>;
+-		};
+-
+-		clint_mtimer10: timer@70ac0a4000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac0a4000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu40_intc 7>,
+-					      <&cpu41_intc 7>,
+-					      <&cpu42_intc 7>,
+-					      <&cpu43_intc 7>;
+-		};
+-
+-		clint_mtimer11: timer@70ac0b4000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac0b4000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu44_intc 7>,
+-					      <&cpu45_intc 7>,
+-					      <&cpu46_intc 7>,
+-					      <&cpu47_intc 7>;
+-		};
+-
+-		clint_mtimer12: timer@70ac0c4000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac0c4000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu48_intc 7>,
+-					      <&cpu49_intc 7>,
+-					      <&cpu50_intc 7>,
+-					      <&cpu51_intc 7>;
+-		};
+-
+-		clint_mtimer13: timer@70ac0d4000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac0d4000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu52_intc 7>,
+-					      <&cpu53_intc 7>,
+-					      <&cpu54_intc 7>,
+-					      <&cpu55_intc 7>;
+-		};
+-
+-		clint_mtimer14: timer@70ac0e4000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac0e4000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu56_intc 7>,
+-					      <&cpu57_intc 7>,
+-					      <&cpu58_intc 7>,
+-					      <&cpu59_intc 7>;
+-		};
+-
+-		clint_mtimer15: timer@70ac0f4000 {
+-			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+-			reg = <0x00000070 0xac0f4000 0x00000000 0x0000c000>;
+-			reg-names = "mtimecmp";
+-			interrupts-extended = <&cpu60_intc 7>,
+-					      <&cpu61_intc 7>,
+-					      <&cpu62_intc 7>,
+-					      <&cpu63_intc 7>;
+-		};
+-
+-		intc: interrupt-controller@7090000000 {
+-			compatible = "sophgo,sg2042-plic", "thead,c900-plic";
+-			#address-cells = <0>;
+-			#interrupt-cells = <2>;
+-			reg = <0x00000070 0x90000000 0x00000000 0x04000000>;
+-			interrupt-controller;
+-			interrupts-extended =
+-				<&cpu0_intc 11>,  <&cpu0_intc 9>,
+-				<&cpu1_intc 11>,  <&cpu1_intc 9>,
+-				<&cpu2_intc 11>,  <&cpu2_intc 9>,
+-				<&cpu3_intc 11>,  <&cpu3_intc 9>,
+-				<&cpu4_intc 11>,  <&cpu4_intc 9>,
+-				<&cpu5_intc 11>,  <&cpu5_intc 9>,
+-				<&cpu6_intc 11>,  <&cpu6_intc 9>,
+-				<&cpu7_intc 11>,  <&cpu7_intc 9>,
+-				<&cpu8_intc 11>,  <&cpu8_intc 9>,
+-				<&cpu9_intc 11>,  <&cpu9_intc 9>,
+-				<&cpu10_intc 11>, <&cpu10_intc 9>,
+-				<&cpu11_intc 11>, <&cpu11_intc 9>,
+-				<&cpu12_intc 11>, <&cpu12_intc 9>,
+-				<&cpu13_intc 11>, <&cpu13_intc 9>,
+-				<&cpu14_intc 11>, <&cpu14_intc 9>,
+-				<&cpu15_intc 11>, <&cpu15_intc 9>,
+-				<&cpu16_intc 11>, <&cpu16_intc 9>,
+-				<&cpu17_intc 11>, <&cpu17_intc 9>,
+-				<&cpu18_intc 11>, <&cpu18_intc 9>,
+-				<&cpu19_intc 11>, <&cpu19_intc 9>,
+-				<&cpu20_intc 11>, <&cpu20_intc 9>,
+-				<&cpu21_intc 11>, <&cpu21_intc 9>,
+-				<&cpu22_intc 11>, <&cpu22_intc 9>,
+-				<&cpu23_intc 11>, <&cpu23_intc 9>,
+-				<&cpu24_intc 11>, <&cpu24_intc 9>,
+-				<&cpu25_intc 11>, <&cpu25_intc 9>,
+-				<&cpu26_intc 11>, <&cpu26_intc 9>,
+-				<&cpu27_intc 11>, <&cpu27_intc 9>,
+-				<&cpu28_intc 11>, <&cpu28_intc 9>,
+-				<&cpu29_intc 11>, <&cpu29_intc 9>,
+-				<&cpu30_intc 11>, <&cpu30_intc 9>,
+-				<&cpu31_intc 11>, <&cpu31_intc 9>,
+-				<&cpu32_intc 11>, <&cpu32_intc 9>,
+-				<&cpu33_intc 11>, <&cpu33_intc 9>,
+-				<&cpu34_intc 11>, <&cpu34_intc 9>,
+-				<&cpu35_intc 11>, <&cpu35_intc 9>,
+-				<&cpu36_intc 11>, <&cpu36_intc 9>,
+-				<&cpu37_intc 11>, <&cpu37_intc 9>,
+-				<&cpu38_intc 11>, <&cpu38_intc 9>,
+-				<&cpu39_intc 11>, <&cpu39_intc 9>,
+-				<&cpu40_intc 11>, <&cpu40_intc 9>,
+-				<&cpu41_intc 11>, <&cpu41_intc 9>,
+-				<&cpu42_intc 11>, <&cpu42_intc 9>,
+-				<&cpu43_intc 11>, <&cpu43_intc 9>,
+-				<&cpu44_intc 11>, <&cpu44_intc 9>,
+-				<&cpu45_intc 11>, <&cpu45_intc 9>,
+-				<&cpu46_intc 11>, <&cpu46_intc 9>,
+-				<&cpu47_intc 11>, <&cpu47_intc 9>,
+-				<&cpu48_intc 11>, <&cpu48_intc 9>,
+-				<&cpu49_intc 11>, <&cpu49_intc 9>,
+-				<&cpu50_intc 11>, <&cpu50_intc 9>,
+-				<&cpu51_intc 11>, <&cpu51_intc 9>,
+-				<&cpu52_intc 11>, <&cpu52_intc 9>,
+-				<&cpu53_intc 11>, <&cpu53_intc 9>,
+-				<&cpu54_intc 11>, <&cpu54_intc 9>,
+-				<&cpu55_intc 11>, <&cpu55_intc 9>,
+-				<&cpu56_intc 11>, <&cpu56_intc 9>,
+-				<&cpu57_intc 11>, <&cpu57_intc 9>,
+-				<&cpu58_intc 11>, <&cpu58_intc 9>,
+-				<&cpu59_intc 11>, <&cpu59_intc 9>,
+-				<&cpu60_intc 11>, <&cpu60_intc 9>,
+-				<&cpu61_intc 11>, <&cpu61_intc 9>,
+-				<&cpu62_intc 11>, <&cpu62_intc 9>,
+-				<&cpu63_intc 11>, <&cpu63_intc 9>;
+-			riscv,ndev = <224>;
+-		};
+-
+ 		rstgen: reset-controller@7030013000 {
+ 			compatible = "sophgo,sg2042-reset";
+ 			reg = <0x00000070 0x30013000 0x00000000 0x0000000c>;
+-- 
+2.52.0
+
 
 _______________________________________________
 linux-riscv mailing list
