@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D181FD2D0E8
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jan 2026 12:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6B20D2D0E7
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jan 2026 12:43:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WEEtxk8Cwr/3Ax3WM7c+hKIOUWcR3v1vncXJ+J34Y+Q=; b=EMjyaNRgFulzLD
-	RfDEDFtpprvJ9UjuloK74L0J5Bxs4CwnlbNBzf0tBav7qRrj/wWCWPkPEHEoMoJdhNT7DC8grYOux
-	fFPIWFj6OeZ9Hv6MIQ11A/GtSOWSviuvc6VP1gKqRGuB0dt769JfkuZywyZW7AakGpISTPX2yvxfq
-	MNGM5R2mFpdeNiKflMlkl3UORM/5qpVfGKA1+iZRfVhuV0IKmh+5jDTxqNcbSMp3Q+sykfOcA+Oxt
-	7RCdUtF/iBtSEQi5WvTcDp/f6SZZ0g5mC2dLZlEg0bIaYrsJGJ75gGFoTShRYHdw6PwAK1mR47Pk4
-	O+VlkQqsRit660NC+9kw==;
+	List-Owner; bh=Enc9EzXkk+DJBQ4f2N6uTQvpPRx+TjqjdrAkU4cleAA=; b=3SkRlghQNbHcdo
+	Xe4sU/nHELKIN5Kc4oIJDWcwQOl48E2TuYeabUACnSU8l7xkQEgkVMUSSPT5KNzHG88bpgod5V/+x
+	Ld8G6GxQA5GFhCXW5zEs7ZBL1mypo2YGeCFsejs9kVNstqpQzXfOjgVEEittsXdATPHpSIVN2e+y8
+	RZcMOwpplNNfW0G0RBGHtEWrChMXPPzVrb/2hTj3rtwjWqExL8EIiI4s5R3AbWNeC0FTEfvJDqE/Z
+	8kceBdNL2RILD+XoO8jG0n41D2QFi5d4veT4E78YEa2bduwnUxTkqua9Pee/afP445w9Ce5H7ptgA
+	quzD4D3rjcxnjH8HYDng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfdk2-000000076aX-2urh;
-	Tue, 13 Jan 2026 12:43:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfdk1-000000076Zf-0nmI
-	for linux-riscv@lists.infradead.org;
+	id 1vfdk1-000000076Zn-1DKw;
 	Tue, 13 Jan 2026 12:43:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfdjz-000000076YP-1Bpb
+	for linux-riscv@lists.infradead.org;
+	Tue, 13 Jan 2026 12:43:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A0BBC600CB;
-	Tue, 13 Jan 2026 12:43:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D97B0C2BC86;
+	by sea.source.kernel.org (Postfix) with ESMTP id 80907440FA;
 	Tue, 13 Jan 2026 12:43:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68582C16AAE;
+	Tue, 13 Jan 2026 12:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768308200;
-	bh=uVtGUyIWHyjoUK8L0H3DB3EX/vfhDouF0fbHo6dDlXk=;
+	s=k20201202; t=1768308198;
+	bh=jy33/Tc52BzbW3MkRv/+6XiOGSKTPkOy55r39xq3KKA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lEefDc4ZMT1K6SasPRUSeFTJQq1vgaHpTZQxxl61W2ga8c/33ual9q6qDBFuBXtJH
-	 6JtbR3fTxvP6zAEzzC3J/qXE7SRbE5kHbTba/g7Hyu5omNjM1F9mvOc6ISNysLP2fr
-	 FwmgVjaWiKZ4RUm6l6GnUFvzLIa+kLI3+KVO6geE9TLx9LjKFcqNX4ddQLS3f70M+O
-	 x8xYQ9ChMzNTl4vO/RA+az/2Xg0zgygRp13k9oAOgyC+tlkXMZaw+SPj0+PYjl00uD
-	 Ar9o4vZtRCOvjQZJ+LHA6jY9Oigu95NFwiIEmjkpw8UsqJ8dcb6pZY8GxuCI+WbliG
-	 WefgteHpR+7jw==
+	b=uG9oa/Hxj5wlTi9C1TTXNuar1ADxBHwTZ9/+NKGpAPP0iWkeGAQC0MD0s7ueD369n
+	 rmxQny8MbrK8k202M8b+53cwRA9XBgV+14xrR6C5n6Ucrr+8KHSHyYQy+IIT260BTI
+	 1mR6Em0EXndaYD8d52tQ5uzCkCzOwCipUYiQdIXs5+dw1EiBZULKL5TTJ0wBv+muc3
+	 SX2Nl1h/Zc+DR4XhEczZhsbsINYwsA/YBWNRbyYWUV7PpwXEDMQQ7mbwy4MK7oefAn
+	 wR4EWBYHiTqspb4vIpDxlYu4yOxgwqFwbVmPIU9ekDXPSIEKFl0m14pDbDUOumyLXp
+	 F8sh41y6Erkxg==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -49,13 +49,16 @@ To: Paul Walmsley <pjw@kernel.org>,
 	Alexandre Ghiti <alex@ghiti.fr>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] riscv: word-at-a-time: improve find_zero() for Zbb
-Date: Tue, 13 Jan 2026 20:24:57 +0800
-Message-ID: <20260113122457.27507-4-jszhang@kernel.org>
+Subject: [PATCH 2/3] riscv: word-at-a-time: improve find_zero() without Zbb
+Date: Tue, 13 Jan 2026 20:24:56 +0800
+Message-ID: <20260113122457.27507-3-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260113122457.27507-1-jszhang@kernel.org>
 References: <20260113122457.27507-1-jszhang@kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260113_044319_346549_837F6D0B 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,91 +75,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In commit f915a3e5b018 ("arm64: word-at-a-time: improve byte count
-calculations for LE"), Linus improved the find_zero() for arm64 LE.
-Do the same optimization as he did: "do __ffs() on the intermediate value
-that found whether there is a zero byte, before we've actually computed
-the final byte mask.", so that we share the similar improvements:
+Previous commit improved the find_zero() performance for !RISCV_ISA_ZBB.
+What about RISCV_ISA_ZBB=y but the HW doesn't support Zbb? We have the
+same heavy generic fls64() issue.
 
-"The difference between the old and the new implementation is that
-"count_zero()" ends up scheduling better because it is being done on a
-value that is available earlier (before the final mask).
+Let's improve this situation by checking Zbb extension and fall back
+to generic count_masked_bytes() if Zbb isn't supported.
 
-But more importantly, it can be implemented without the insane semantics
-of the standard bit finding helpers that have the off-by-one issue and
-have to special-case the zero mask situation."
+To remove non-necessary zero bits couting on RV32, we also replace the
+'fls64(mask) >> 3' with '!mask ? 0 : ((__fls(mask) + 1) >> 3);'
 
-Before the patch:
-0000000000000000 <find_zero>:
-   0:	c909                	beqz	a0,12 <.L1>
-   2:	60051793          	clz	a5,a0
-   6:	03f00513          	li	a0,63
-   a:	8d1d                	sub	a0,a0,a5
-   c:	2505                	addiw	a0,a0,1
-   e:	4035551b          	sraiw	a0,a0,0x3
-
-0000000000000012 <.L1>:
-  12:	8082                	ret
-
-After the patch:
-
-0000000000000000 <find_zero>:
-   0:	60151513          	ctz	a0,a0
-   4:	810d                	srli	a0,a0,0x3
-   6:	8082                	ret
-
-7 instructions vs 3 instructions!
-
-As can be seen, on RV64 w/ Zbb, the new "find_zero()" ends up just
-"ctz" plus the shift right that then ends up being subsumed by the
-"add to final length".
-
-But I have no HW platform which supports Zbb, so I can't get the
-performance improvement numbers by the last patch, only built and
-tested the patch on QEMU.
+We will get similar performance improvement as previous commit for
+RISCV_ISA_ZBB=y but HW doesn't support Zbb.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- arch/riscv/include/asm/word-at-a-time.h | 15 ++++++++++++---
- 1 file changed, 12 insertions(+), 3 deletions(-)
+ arch/riscv/include/asm/word-at-a-time.h | 29 ++++++++++++++++++++++++-
+ 1 file changed, 28 insertions(+), 1 deletion(-)
 
 diff --git a/arch/riscv/include/asm/word-at-a-time.h b/arch/riscv/include/asm/word-at-a-time.h
-index ca3d30741ed1..8c5ac6a72f7f 100644
+index 0c8a9b337f93..ca3d30741ed1 100644
 --- a/arch/riscv/include/asm/word-at-a-time.h
 +++ b/arch/riscv/include/asm/word-at-a-time.h
-@@ -38,6 +38,9 @@ static inline unsigned long prep_zero_mask(unsigned long val,
- 
- static inline unsigned long create_zero_mask(unsigned long bits)
- {
-+	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBB))
-+		return bits;
-+
- 	bits = (bits - 1) & ~bits;
+@@ -42,9 +42,36 @@ static inline unsigned long create_zero_mask(unsigned long bits)
  	return bits >> 7;
  }
-@@ -69,13 +72,19 @@ static inline long count_masked_bytes(long mask)
+ 
++#ifdef CONFIG_64BIT
++/*
++ * Jan Achrenius on G+: microoptimized version of
++ * the simpler "(mask & ONEBYTES) * ONEBYTES >> 56"
++ * that works for the bytemasks without having to
++ * mask them first.
++ */
++static inline long count_masked_bytes(unsigned long mask)
++{
++	return mask*0x0001020304050608ul >> 56;
++}
++
++#else	/* 32-bit case */
++
++/* Carl Chatfield / Jan Achrenius G+ version for 32-bit */
++static inline long count_masked_bytes(long mask)
++{
++	/* (000000 0000ff 00ffff ffffff) -> ( 1 1 2 3 ) */
++	long a = (0x0ff0001+mask) >> 23;
++	/* Fix the 1 for 00 case */
++	return a & mask;
++}
++#endif
++
  static inline unsigned long find_zero(unsigned long mask)
  {
- 	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBB))
--		return !mask ? 0 : ((__fls(mask) + 1) >> 3);
-+		return __ffs(mask) >> 3;
- 
- 	return count_masked_bytes(mask);
+-	return fls64(mask) >> 3;
++	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBB))
++		return !mask ? 0 : ((__fls(mask) + 1) >> 3);
++
++	return count_masked_bytes(mask);
  }
  
--/* The mask we created is directly usable as a bytemask */
--#define zero_bytemask(mask) (mask)
-+static inline unsigned long zero_bytemask(unsigned long bits)
-+{
-+	if (!riscv_has_extension_likely(RISCV_ISA_EXT_ZBB))
-+		return bits;
-+
-+	bits = (bits - 1) & ~bits;
-+	return bits >> 7;
-+}
- 
- #endif /* !(defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)) */
- 
+ /* The mask we created is directly usable as a bytemask */
 -- 
 2.51.0
 
