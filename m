@@ -4,73 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5229BD31A05
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jan 2026 02:14:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7222D31A06
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jan 2026 02:34:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2ueA5LxUEZn0SFqdFhHaAxa6oDiC1E3qxiGlelkzMa8=; b=dXqto0V7v8LLrL
-	RDlX2USOLqONy9iPNtL9Ew3dZqLPdI0T8n+LSvdu4gDqx2Qqmvii9MEv75zzmter5c1kOVKzq/Axr
-	yKHC/UyMVl7mx9V0EOFYtBiZ2GRhZpVh6JI2hdwVk9yPFDtC1+Gk6zDpsro5j3JJCYlWbKjijt5w/
-	9idYhlqoA6UGkpRcpWIUKM5YsPTeOWz5py3O1Kd0OM4lN++DXHSJrke2+WQhOjQYtXUsYTt3dv+hv
-	bDYD5AC3WLb+MVyFYD05+DVhxJD09QcIrb3IBFget4QzCYbYITJYcSqCzP9WxAUXNVa8zVwPUdMiG
-	4f0PAE1cbBCyDbD06oLQ==;
+	List-Owner; bh=pG8Ii+QXnrc7RoqkLbWL67l/MI+uVfYgiiTwX8d7fpc=; b=uFHNJhtgE6WRU6
+	72NjeTnxj2L3BplDPd1JzF3gGxSPeL85fPe7VtA5SxpD1WacGoKpub6r7geD1lblhWJH8RL6F97k4
+	qLxi5XKrd/VC5rCi0T06l+i3yUiOinE4mYIDyu8usEV3P+bKUy7TpF8DYmKUB1CdB81mhIjUR64Di
+	epQqMv8zctGw5hi6nSCurX2EAPf5bDCBaLPjv5UgMOIedNPPwZLL4BK02py+DxTqE6p58lfzZaIIO
+	nHkeJORXR3Sd1p2yPuYyrz6x9jWFIz8y1jrN9xINpRlCiSmX+1mdC/xcs0jvV9OIqwrbV3ypEL2gU
+	qhJ56P0ZoY1iyMz+Hfxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfqOl-00000007z0o-2T52;
-	Wed, 14 Jan 2026 02:14:15 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1vfqhh-00000007zlS-2PjC;
+	Wed, 14 Jan 2026 02:33:49 +0000
+Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfqOi-00000007z0T-3fj0
+	id 1vfqhe-00000007zl3-3qTO
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Jan 2026 02:14:14 +0000
-Received: from localhost (unknown [116.232.18.222])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id DA74C341030;
-	Wed, 14 Jan 2026 02:14:09 +0000 (UTC)
-Date: Wed, 14 Jan 2026 10:14:05 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Conor Dooley <conor@kernel.org>, Paul Walmsley <pjw@kernel.org>
-Cc: Guodong Xu <guodong@riscstar.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
-	Yangyu Chen <cyy@cyyself.name>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Heinrich Schuchardt <xypron.glpk@gmx.de>,
-	Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
-	Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	spacemit@lists.linux.dev, linux-serial@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v4 00/11] riscv: spacemit: Add SpacemiT K3 SoC and K3
- Pico-ITX board
-Message-ID: <20260114021405-GYB25466@gentoo.org>
-References: <20260110-k3-basic-dt-v4-0-d492f3a30ffa@riscstar.com>
- <20260112-shrivel-sarcastic-36d9acd2d96a@spud>
- <20260113002123-GYA19926@gentoo.org>
- <20260113-swarm-mama-cbd7d0546578@spud>
+	Wed, 14 Jan 2026 02:33:48 +0000
+Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-7927b1620ddso7635957b3.0
+        for <linux-riscv@lists.infradead.org>; Tue, 13 Jan 2026 18:33:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1768358025; x=1768962825; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QJBLmrBE8O9239tGEOrHnRxNLRDKlAcLOjCyimagURs=;
+        b=nHSIb1WVnIMePHF0rgcHD1udueaFqIEYTE543msAYjixGnTnHDfLsc8kuOSZJh+C7T
+         fc0DKpOkYuC6LZwqibL9TDro4cVmfA7iORGvZgaBQIE31fzHplTDUSNug16RkIBlU7Id
+         joZ2HdIExe54J1c3jh1iYUeWbj+jA1Cam3aBPGOQ9ZVgPXC+Zp5UwE2vsLA10HBhVWwQ
+         hksoulMwMnoAkjZ6yRJGfXV83zkwxzymgpIaTItUEVGpRkYwU4sH91YQ0NLeaTsnOZ2g
+         m8zjYo/AjDJFQeRs8Jxx38zxiIITV5uRDtPiIxcLdOP1Jv/GuJaBwwHI+O+gNP4YYRyN
+         Iz2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768358025; x=1768962825;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=QJBLmrBE8O9239tGEOrHnRxNLRDKlAcLOjCyimagURs=;
+        b=FLtEp4j9sfhDsZekGa9vdMCJh5DiLNaEoDrfiz0Khsuis5uTz0Apj6RC3XlI/n7WhW
+         7pDFLm3AdePuOH3TIZRBkZEtkVd5eay/o0ngXKQIGWqKVmJ4mIt/dwqjzJZtRglRbthx
+         xbvIfQJEkvNQvQ7AAhRHfC07vJa+OhUD1zdhBeq0nDdR4HpS+9KirCF9OoeFgBRFF/qR
+         1Yn4qyDiTcR64EvTR6XVeabGtVGYyPyWwP/yx2uC5P8g2prW+vnhgDQbERj5TM7eIa/1
+         6bZnhzvVqLAZs3FvpaY/ab/gRE06exMZS6LJ0DHfiERz6ZhDQZhEWrmn/19Vo6iI+BTA
+         LP7w==
+X-Forwarded-Encrypted: i=1; AJvYcCUzBdnAd+AYdald3AWXimwIOfuVaq4OkZWchQ+9kCIsS4fg9AXTk7u7OHZlOWgx5PyPk+zZ5TISYAAnUg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9V0gC9lnp58KXZGun6FWHDhb8Ox2rNe0JgHPOjqRPE7m+lr+Q
+	L+FxYdWybuC+BlV8VwUwxa7/8wv8O5ABs0gjMy8llTVNXM1g+cPz7S7jbb6j3yGGPpIfWPd+Cov
+	h2j63rQe6gpYecCyW79uc0f0PVkbiXxAz32jVTBEwQA==
+X-Gm-Gg: AY/fxX5CvM0zlZ6bv/uWS8sJ0Xkf5vumSOen8IORN1jSVg01brZctMBsvUo19crwALa
+	O77zNfFU9/5lVy26wMFtXIHwe5jwZNb+sKsw2HB2lOWSsW4gYTacb7QDxbgGfw6UVSW8FINVGLg
+	UPJH+i13gTquKPjzB9pk3CRNKuOiOq3k3XzxLqacskumirM5JEvoUhdZyua/B0/Wj36MftwC9kZ
+	qps9n6iGEt0UkC51Xx7klHD+xirCqTsAku/0mjJGJyWCkT+OOs71UcGRmO5vum3GvzI+XvRL5BD
+	vaJeNEyVIUDCdbdrkrM2878Z6Om+jDE5vxnadA==
+X-Received: by 2002:a05:690e:d45:b0:63e:1563:4801 with SMTP id
+ 956f58d0204a3-649023ff038mr916948d50.22.1768358025225; Tue, 13 Jan 2026
+ 18:33:45 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260113-swarm-mama-cbd7d0546578@spud>
+References: <20260113-adding-b-dtsi-v1-0-22d6e55d19df@riscstar.com>
+ <20260113-adding-b-dtsi-v1-2-22d6e55d19df@riscstar.com> <20260113075339-GYA25466@gentoo.org>
+In-Reply-To: <20260113075339-GYA25466@gentoo.org>
+From: Guodong Xu <guodong@riscstar.com>
+Date: Wed, 14 Jan 2026 10:33:34 +0800
+X-Gm-Features: AZwV_QiwlJO3ZADv09NVm7VZL0Pi5fI-J1pRA-OmeKisX5gdDwuQlnWQ0Nwjwhc
+Message-ID: <CAH1PCMarzrZJ072iyAQthB-i-LHFCSJ+tZLx6HcWiVcUrQeafw@mail.gmail.com>
+Subject: Re: [PATCH 2/2] riscv: dts: Add "b" ISA extension to existing devicetrees
+To: Conor Dooley <conor@kernel.org>, Yixun Lan <dlan@gentoo.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Conor Dooley <conor.dooley@microchip.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
+	Inochi Amaoto <inochiama@gmail.com>, Junhui Liu <junhui.liu@pigmoral.tech>, 
+	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	sophgo@lists.linux.dev, spacemit@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_181412_958405_21613D0F 
-X-CRM114-Status: GOOD (  30.51  )
+X-CRM114-CacheID: sfid-20260113_183347_084083_3C5396B6 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,81 +97,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 22:17 Tue 13 Jan     , Conor Dooley wrote:
-> On Tue, Jan 13, 2026 at 08:21:23AM +0800, Yixun Lan wrote:
-> > Hi Conor,
-> > 
-> > On 21:45 Mon 12 Jan     , Conor Dooley wrote:
-> > > On Sat, Jan 10, 2026 at 01:18:12PM +0800, Guodong Xu wrote:
-> > > 
-> > > > Hi, Conor
-> > > > 
-> > > > For the binding riscv/extensions.ymal, here's what changed in v3 (no
-> > > > change in v4):
-> > > > 
-> > > >  1. Dropped the patch of adding "supm" into extensions.yaml. At the same
-> > > >     time, I will start another patchset which implements the strategy
-> > > >     outlined by Conor in Link [2] and by Samuel in Link [3].
-> > > 
-> > > Okay, that seems reasonable to separate out.
-> > > 
-> > > > 
-> > > >  2. Dropped the dependency checks for "sha" on "h", "shcounterenw", and
-> > > >     6 others. "sha" implies these extensions, and it should be allowed
-> > > >     to be declared independently. Like "a" implies "zaamo" and "zalrsc".
-> > > > 
-> > > >  3. Enchanced the dependency check of "ziccamoa" on "a". Specifically,
-> > > >      - added the dependency check of "ziccamoa" on "zaamo" or on "a".
-> > > >      - added the dependency check of "za64rs" on "zalrsc" or on "a".
-> > > >      - added the dependency check of "ziccrse" on "zalrsc" or "a".
-> > > >     The commit message of this patch is updated too, to better explain the
-> > > >     relationship  between "ziccamoa", "za64rs", "ziccrse" and "a".
-> > > > 
-> > > >  4. Enhanced checking dependency of "b" and "zba", "zbb", "zbs", making the
-> > > >     dependency check in both directions, as discussed in [4]. Since "b"
-> > > >     was ratified much later than its component extensions (zba/zbb/zbs),
-> > > >     existing software and kernels expect these explicit strings. This
-> > > >     bidirectional check ensures cores declaring "b" remain compatible
-> > > >     with older software that only recognizes zba/zbb/zbs.
-> > > 
-> > > This I asked about in the relevant patch, I would like to know what your
-> > > plan for adding the "b"s is.
-> > > 
-> > ..
-> > > Spacemit folks, I assume you weren't planning on taking the
-> > > extensions.yaml stuff via your tree? If you weren't, I'll grab it once
-> > > the question about b is answered.
-> > 
-> > sure, please take extension stuff which are patches 6-9, for 1-5, it's
-> > all about adding support for SpacemiT K3 SoC, to avoid petential conflicts,
-> > I wouldn't mind if you also taking them? then I can handle the rest 10,11 for DT
-> 
-> Stuff for spacemit is either for you or for the relevant subsystem
-> maintainers. You're probably safe enough taking the
-> timer/interrupt-controller stuff if the maintainers don't apply it in a
-> reasonable period, it's not abnormal for those in particular to go via
-> the platform maintainer in my experience. Just be clear that you have
-> done so. I'm only interested in taking 6-9.
-Hi Conor,
-  Ok, I got, thank you!
-
-Hi Paul Walmsley,
-  I assume you're responsible for more general riscv stuff with your
-effective maintainer hat, so do you mind if I take patches 1-5 via SpacemiT
-SoC tree? I think the potential conflicts should be low and easy to fix.
-  Or, in the other hand, just let me know which patches you would like
-to take, then I will handle the rest. Thanks
-
--- 
-Yixun Lan (dlan)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIENvbm9yLCBZaXh1bgoKT24gVHVlLCBKYW4gMTMsIDIwMjYgYXQgMzo1M+KAr1BNIFlpeHVu
+IExhbiA8ZGxhbkBnZW50b28ub3JnPiB3cm90ZToKPgo+IEhpIEd1b2RvbmcsCj4KPgo+IE9uIDE1
+OjQ1IFR1ZSAxMyBKYW4gICAgICwgR3VvZG9uZyBYdSB3cm90ZToKPiA+ICJiIiBpcyByYXRpZmll
+ZCAoQXByLzIwMjQpIG11Y2ggbGF0ZXIgdGhhbiBpdHMgY29tcG9uZW50cyB6YmEvemJiL3picwo+
+ID4gKEp1bi8yMDIxKS4gV2l0aCAiYiIgYWRkZWQgaW50byByaXNjdi9leHRlbnNpb25zLnlhbWws
+IGEgZGVwZW5kZW5jeQo+ID4gY2hlY2tpbmcgcnVsZSBpcyBub3cgZW5mb3JjZWQsIHdoaWNoIHJl
+cXVpcmVzIHRoYXQgd2hlbiB6YmEsIHpiYiwgYW5kIHpicwo+ID4gYXJlIGFsbCBzcGVjaWZpZWQs
+ICJiIiBtdXN0IGJlIGFkZGVkIGFzIHdlbGwuIEZhaWxpbmcgdG8gZG8gdGhpcyB3aWxsCj4gPiBj
+YXVzZSBkdGJzX2NoZWNrIHNjaGVtYSBjaGVjayB3YXJuaW5ncy4KPiA+Cj4gPiBBY2NvcmRpbmcg
+dG8gdWFiaS5yc3QsIGFzIGEgc2luZ2xlLWxldHRlciBleHRlbnNpb24sICJiIiBzaG91bGQgYmUg
+YWRkZWQKPiA+IGFmdGVyICJjIiBpbiBjYW5vbmljYWwgb3JkZXIuCj4gPgo+ID4gVXBkYXRlIGV4
+aXN0aW5nIGRldmljZXRyZWUgZmlsZXMgdG8gY29uZm9ybSB0byB0aGlzIHJ1bGUuIExpbmUgYmFs
+YW5jaW5nCj4gPiBpcyBwZXJmb3JtZWQgd2hlcmUgbmVlZGVkIHRvIGltcHJvdmUgcmVhZGFiaWxp
+dHkuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogR3VvZG9uZyBYdSA8Z3VvZG9uZ0ByaXNjc3Rhci5j
+b20+Cj4gPiAtLS0KPiA+ICBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FubG9naWMvZHIxdjkwLmR0c2kg
+ICAgIHwgICA1ICstCj4gPiAgYXJjaC9yaXNjdi9ib290L2R0cy9zb3BoZ28vc2cyMDQ0LWNwdXMu
+ZHRzaSB8IDI1NiArKysrKysrKysrKysrKy0tLS0tLS0tLS0tLS0tCj4gPiAgYXJjaC9yaXNjdi9i
+b290L2R0cy9zcGFjZW1pdC9rMS5kdHNpICAgICAgICB8ICAzMiArKy0tCj4gPiAgMyBmaWxlcyBj
+aGFuZ2VkLCAxNDcgaW5zZXJ0aW9ucygrKSwgMTQ2IGRlbGV0aW9ucygtKQo+IHBsZWFzZSBoYXZl
+IHNlcGFyYXRlZCBwYXRjaCBmb3IgZGlmZmVyZW50IFNvQ3MsIHNvIHRoZXkgY2FuIGdvIHZpYQoK
+VW5kZXJzdGFuZCB5b3VyIGNvbmNlcm4uCgo+IHRoZWlyIG93biBTb0MgdHJlZS4uIHRoYW5rcwoK
+Q29ub3IsIGlzIGl0IHBvc3NpYmxlIHRvIHRha2UgdGhpcyBhcyBvbmUgcGF0Y2ggaW5zdGVhZD8K
+Ckl0IGZpeGVzIHRoZSBzYW1lIGR0YnNfY2hlY2sgd2FybmluZ3MgZnJvbSByaXNjdi9leHRlbnNp
+b25zLnlhbWwgYWNyb3NzIHRocmVlClNvQ3MuIEtlZXBpbmcgdGhlbSB0b2dldGhlciBtYWludGFp
+bnMgcmVhZGFiaWxpdHkgYW5kIGNsZWFyIHRyYWNraW5nLCBJTUhPLgoKSGFwcHkgdG8gc3BsaXQg
+aWYgbmVlZGVkLCBidXQgd2FudGVkIHRvIGNoZWNrIGZpcnN0LgoKVGhhbmtzLApHdW9kb25nCgo+
+Cj4gLS0KPiBZaXh1biBMYW4gKGRsYW4pCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
