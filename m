@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A569D3CC84
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jan 2026 23:19:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1292D3CC84
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jan 2026 23:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PRly1NObchwgt0eTujZVH3nalmKEG7ofVtoD5EzUUZY=; b=xUMSv1NRsRwQe1
-	4PDuSafws7D9l68fDXdj6uojZ9eNWRFtN9RIh7uHLwjcT0wiyJhvhwLdBLSVu/zPQWevxLdhCU4gQ
-	TDktiP3qMqQCg3iXfjY6rrVOVd+08PqKduF6QvOok2BeVoy1LXIsXJY8ihFZRhV+aLwzSqGP79JsC
-	jiWihhtpnSExe/iRyRB6WWpMRmntrqchut3UH5hJece9gtgWwaGtcxV020fwEvNChMoxSr53s1D41
-	bSvioZDzMOS5wcgCXi6yVqrabY4twwwTzbg6IF9GBghQ/b83q4Z7qUxGVPeka+uv73Ii/YzceK2F1
-	KUdb5A5A6mq95eschUiw==;
+	List-Owner; bh=tYmNSvUx6+Ee+O9zeQFOSTFyRLJWF/LoLD4afnzvVIs=; b=lvyXvNipSdavN1
+	RJRsnXwUqwDusJ6x9CG+tfT5EBGqdUvUmcR066iyO+j5lK9CcZSkV/6Xk27UdCB4gPPP5KZR5lOaj
+	S7zoVNYqyWD1jVyvTjnmB4PTnTRGUCVVlPqV3hMa5ke8QV/GgxvqcHPc9YyuiXFM/O0kK5T4JDZWH
+	t+uwdRbt5PMYLGxwjf+rG7gs22EEpfg4YAXFj9ba0nnPanZyqeey7243RErVB+lL8+LClSpBaxM4E
+	O2K3/q7IGHBXqlp28f/b2IDraxIiGncpmD3+bAtXszq4YS6yq3PBF1UrTBU0Drn19vbX1mYEnMSpI
+	C1+CB1cYCwekOw3o6sxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgA94-0000000B48i-46Rx;
-	Wed, 14 Jan 2026 23:19:22 +0000
-Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
+	id 1vgA98-0000000B4Bc-19FK;
+	Wed, 14 Jan 2026 23:19:26 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgA8z-0000000B468-1Qcv
+	id 1vgA95-0000000B494-3RMb
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Jan 2026 23:19:21 +0000
-Received: by mail-pl1-x641.google.com with SMTP id d9443c01a7336-2a07fac8aa1so2668315ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Jan 2026 15:19:17 -0800 (PST)
+	Wed, 14 Jan 2026 23:19:24 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2a0d5c365ceso2542575ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Jan 2026 15:19:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1768432756; x=1769037556; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1768432763; x=1769037563; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Nbmp2d0HgOyIl8jX1BIaQZ3qrfCn/EZHa3mK+NXd3sU=;
-        b=xzTyM5c8VYo5ate3graLSfjBBJJerI3O68Lx+ROueIqzRCzPL2J9Jv+2mgaSqLWndg
-         OVjkvXHItKixwi3PDfqnNDvRPIiU/qvDSkjLCpkv8p4GMIga4vXT1IFEXbAEx30PnU40
-         xiXJmGhJI3y+3BLmhe0vpu413cfLoOrz22LPUKN/eMxK/jrCxm9EsarhWZeXp8xgV3Gl
-         7NIuNfFghSHmmuK3dGtnNKhFS9INWhC0zZeJsD3hTKTDzaW0TaUGRzbqdCWy7dHQUbHb
-         mn8pa2DAqnVrTEWpbLAjz/VjF4Zz6F24uOPC1UbFT2m97RkdPrpwt88nL7i5dhADL/9N
-         YYxA==
+        bh=kaSWKwxLaghni7N9hjcOEG+LzgsthN0XWKW1He+SYHg=;
+        b=MPSgMX43EZExzlagYga0YGqD4LBkVaxrUpfGuaLylGHoxD9FXnly+5Gau1U3k9Vz1I
+         t6KnPKTN6fZDrJ+dEBQ2DYR1AXIzrUmx6A5474lHU2/aTJUGxDZwAsgBYipIzZDH3Jon
+         OBV/ZHAdsMUUjOYfCQ1DvfNwYGuXeF/wKqQQN5194hzDIogwdnivMmVVhNgChXD6vmxz
+         w12dp0EQfxEwj2TkAX6A+XMHHaycvWXB9xO8SfMBQ2cqDIltC925FMLDKtmBKFtudY/H
+         bw7mKVfT35zcY1Dn8wZPymuSDMkEHZp95rd23CTKuWzB4eiJ4lai987pgiEIF3dI33dR
+         Ee7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768432756; x=1769037556;
+        d=1e100.net; s=20230601; t=1768432763; x=1769037563;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=Nbmp2d0HgOyIl8jX1BIaQZ3qrfCn/EZHa3mK+NXd3sU=;
-        b=guZGcd6lSenn+UDYY142vspxuDwWmdshJ/G1jBZhkUKWIKWZM4C5k993n5IbVInp8Z
-         iprB318Adz/+gxwwa+5PapXlQR40l+CmFB1hDeeKXFa3Ewg1+O/MuCRWZoe+jJ1rKaWy
-         71STECX2p6gRpCc0pyz9uh0RSrgfgWB0/T4MQuipsGaWyQsnGt+CxY9cKep1jpDDOpmX
-         BkNpJF8piNtNe6ZoxnAxZ2AN8YCAPl41iFDX2CYXpaDjdFGRVG3+0lRxgeRAuxvpEMMw
-         cDkGT8OKQXpUNu46RNbEbSXQh+ndotoef0bVPudRzh8fgbm/32fgJJBSn4odiZdP4IbU
-         2I1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXvoQj7J4W6rzE0KTXOnizoCB+PqhultgwoPLRzWG0HoJD/1Nvz1SRjJF3nAG1y/lE6nS/4cfG/proI9g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHDofIBNvQZPcwFmF78bFSqDRNWOfJtdv6CZpRtibrLfkCamYJ
-	utpKBLo4dmX6cp3a0Sr8IPislqKI5cK18mA+/u0fyKkOcHgauynV1vttct1D7FpNdxs=
-X-Gm-Gg: AY/fxX4bId5fPdrxvrX/HlgbWR5LYS9L61IyVXf2vUc6XTkEWRizdOUlpU5HMUZC5fc
-	c8+VOuwG76f1OqIdC9nWc1DCEyiAtzKgwzsh49ZF5NcaH+1KoB52pytARbPRQdlPvoFdZb3yPh1
-	xo8XSVOiRgX1yzYdudRzk+Qs0UJ5R/IQ+P2YIdDBmIcy31HUUSWDDDFxn39BXR+Zp2btlxL07eo
-	zUXNFhgKa82fN5Sw7cLlD5gksjK4FGr+YnP+l5LeWoNepTjq0WcVJup0HkLMEgM3QmP2ePC5Uvq
-	bP9DgX8y4cLBCyVg88er/4PjxKbMcDg4t2lePpAz21mPN2r3ZbgzgfS/BX0Leg3Zux9FW9XfGrb
-	Lq1Mm7g2ND4Eb+c+05oqgeYiPvL+DbseinZqdxzueHrbzm6Z+VtQx8Tq4rnR+fhc0+ETpzQoE5P
-	iaTMBp5SyNA6HADDwoWauHkbRF3nSlVvxSzcWDbg4v8k96w4ZmxVtDBEPrf4qXMgLI
-X-Received: by 2002:a17:903:3bad:b0:295:3584:1bbd with SMTP id d9443c01a7336-2a599e8edb4mr40339635ad.41.1768432756448;
-        Wed, 14 Jan 2026 15:19:16 -0800 (PST)
+        bh=kaSWKwxLaghni7N9hjcOEG+LzgsthN0XWKW1He+SYHg=;
+        b=qiKm9iRl7CkkUpepNGsZ7nzDoNLjYHnTjGkD64PQxIzsQBFpTw3BWFSGIprMiqUR75
+         FU3iNcAfuWZXRd21s66FSvhDPeWNF77J/01e5KkhPgR8qYcVuGd4fl7uIIE6PbT7oVvI
+         ErWbl8z4MMJMfKJ0vbueEaWyJTjo8e0QnhY4Zzj3ty9LavB+I7cEBry7LRXNE/YohrtL
+         3pDjKdwbvkxrDiTTK8HbGF/XYFGeq0VfW4B86bEfHQnPEnYevAdJOMhCwA+WbRXyKsFB
+         7bMBWdaJHJJPRc64YOVpPD4+AexQDR5ljATta3XT/oqDcctflYQdWiz0h22jXDy0zw4A
+         CY6g==
+X-Forwarded-Encrypted: i=1; AJvYcCUXJyoZ9ljArDrVo+XDkslIlrxWrSw9+IsvSLVYh9mK+GyXS/56mJ+5FvAYPzsk1hNma1PFaBJXQcYwsw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmV6+AahbSGop8hZckv13a7i5F+VS7sHm+UFVqaW2fj6Fzg+xE
+	uON2C8uwZJIiSfX4uqrd+Y1q7vc8xV7rhGgKCpPY5D49U7xTKNsiODjGMijeGgRAuEc=
+X-Gm-Gg: AY/fxX4d7ALFBK7Ntb5CncNZEZeOv4eTerDJm8Yd62SLOdsOQeHF8Gj3Wkpsk/DGIlL
+	hqEqLiYSQFaiHbNRnmJslrpjd7GokomFtLNub8RKGRqviifBCYlI2Ay0IltpQ+u3W0iBmN9JnyJ
+	KQIWi7EOwomdeULcOLPO3mHxYRiRw0LTgrIlKrbTglYcn7Y7h9G2t1xchYSFsmOp7QqVBLpIW62
+	25HcXSgczJ317fEUzuwBPHmHeQP/qFaOuwsQJ6QXYojdQj4+qbWqmcv7U3oDMwXpeWoISsfMYIX
+	jE1PmEaivxXffpZA/77NN1FZRtsR7y7uC227EJODIydEe2MHKwXos/w2PZn/OirhkjiJC39zC4O
+	GvNPCUQBRClkXpCAUVYjcXSf4oHSH0dL8zYkc2chk1SYnOUC61qBjdGr7NkS7zc1SH+oUJuULXk
+	LFYqnB1CabXOtAbHX2BE/jDkCZty4cAZLFMhRA1Y5in5iOON+5PC+1Lg==
+X-Received: by 2002:a17:902:fc8e:b0:297:f09a:51cd with SMTP id d9443c01a7336-2a599daf6afmr44260145ad.14.1768432762876;
+        Wed, 14 Jan 2026 15:19:22 -0800 (PST)
 Received: from [127.0.1.1] ([45.8.220.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3cb2d6csm238591755ad.64.2026.01.14.15.19.10
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3cb2d6csm238591755ad.64.2026.01.14.15.19.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Jan 2026 15:19:16 -0800 (PST)
+        Wed, 14 Jan 2026 15:19:22 -0800 (PST)
 From: Guodong Xu <guodong@riscstar.com>
-Date: Thu, 15 Jan 2026 07:18:57 +0800
-Subject: [PATCH v2 1/4] Documentation: riscv: uabi: Clarify ISA spec
- version for canonical order
+Date: Thu, 15 Jan 2026 07:18:58 +0800
+Subject: [PATCH v2 2/4] riscv: dts: anlogic: dr1v90: Add "b" ISA extension
 MIME-Version: 1.0
-Message-Id: <20260115-adding-b-dtsi-v2-1-254dd61cf947@riscstar.com>
+Message-Id: <20260115-adding-b-dtsi-v2-2-254dd61cf947@riscstar.com>
 References: <20260115-adding-b-dtsi-v2-0-254dd61cf947@riscstar.com>
 In-Reply-To: <20260115-adding-b-dtsi-v2-0-254dd61cf947@riscstar.com>
 To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <pjw@kernel.org>, 
@@ -90,8 +89,8 @@ Cc: Junhui Liu <junhui.liu@pigmoral.tech>, linux-doc@vger.kernel.org,
  spacemit@lists.linux.dev, Guodong Xu <guodong@riscstar.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_151919_856276_E697D5AA 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20260114_151923_866441_77C5E4D4 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,38 +107,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Specify that chapter 27 refers to version 20191213 of the RISC-V ISA
-Unprivileged Architecture. The chapter numbering differs across
-specification versions - for example, in version 20250508, the ISA
-Extension Naming Conventions is chapter 36, not chapter 27.
+"b" is ratified (Apr/2024) much later than its components zba/zbb/zbs
+(Jun/2021). With "b" added into riscv/extensions.yaml, a dependency
+checking rule is now enforced, which requires that when zba, zbb, and zbs
+are all specified, "b" must be added as well. Failing to do this will
+cause dtbs_check schema check warnings.
 
-Historical versions of the RISC-V specification can be found via Link [1].
+According to uabi.rst, as a single-letter extension, "b" should be added
+after "c" in canonical order.
 
-Acked-by: Paul Walmsley <pjw@kernel.org>
-Link: https://riscv.org/specifications/ratified/ [1]
-Fixes: f07b2b3f9d47 ("Documentation: riscv: add a section about ISA string ordering in /proc/cpuinfo")
+Update dr1v90.dtsi to conform to this rule. Line balancing is performed
+to improve readability.
+
 Signed-off-by: Guodong Xu <guodong@riscstar.com>
 ---
-v2: Add Acked-by from Paul.
+v2: New patch, a split from the Patch 2 in v1. This patch is for
+    Anlogic dr1v90.
 ---
- Documentation/arch/riscv/uabi.rst | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/riscv/boot/dts/anlogic/dr1v90.dtsi | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/arch/riscv/uabi.rst b/Documentation/arch/riscv/uabi.rst
-index 243e40062e34..0c5299e00762 100644
---- a/Documentation/arch/riscv/uabi.rst
-+++ b/Documentation/arch/riscv/uabi.rst
-@@ -7,7 +7,9 @@ ISA string ordering in /proc/cpuinfo
- ------------------------------------
+diff --git a/arch/riscv/boot/dts/anlogic/dr1v90.dtsi b/arch/riscv/boot/dts/anlogic/dr1v90.dtsi
+index a5d0765ade32..9fe183f5f5c8 100644
+--- a/arch/riscv/boot/dts/anlogic/dr1v90.dtsi
++++ b/arch/riscv/boot/dts/anlogic/dr1v90.dtsi
+@@ -27,8 +27,9 @@ cpu@0 {
+ 			mmu-type = "riscv,sv39";
+ 			reg = <0>;
+ 			riscv,isa-base = "rv64i";
+-			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zba", "zbb", "zbc",
+-					       "zbkc", "zbs", "zicntr", "zicsr", "zifencei",
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b",
++					       "zba", "zbb", "zbc", "zbkc", "zbs",
++					       "zicntr", "zicsr", "zifencei",
+ 					       "zihintpause", "zihpm";
  
- The canonical order of ISA extension names in the ISA string is defined in
--chapter 27 of the unprivileged specification.
-+Chapter 27 of the RISC-V Instruction Set Manual Volume I Unprivileged ISA
-+(Document Version 20191213).
-+
- The specification uses vague wording, such as should, when it comes to ordering,
- so for our purposes the following rules apply:
- 
+ 			cpu0_intc: interrupt-controller {
 
 -- 
 2.43.0
