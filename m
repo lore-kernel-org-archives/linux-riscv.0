@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0C65D37E37
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jan 2026 13:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52621D37E37
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jan 2026 13:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vmgRWNG4dqfzwNtyL8nGM6FmqBDQj1COGm4o7o9xsME=; b=chk16RoncoZzNn
-	GGNc6uJabZVhngYf2IwwskIR8j7Bagn/6bZ+JvXlZD2Xm9XcZkwaTmKhvzxvjJlGep4J6lDc6+oVp
-	cNrDB/EGl6qVD4uKjK4PPpOIDPyT9G4IkEL6hgUYIVxQ6vKAkUNfD4eAHtna4eKaG6P+qRhMpLGeU
-	hKQr/bE7iQLomCbsOfHDk4Al5gG5VBtrPsxb+kNQMgO62M5dwR9XG/Ys/j169ow/VGlxGqIt3Hct/
-	i4ZTkWNig43rydMVcjNLMJL5THxEHflk4N+3UeI+ob/l0xLbjzUjLT+NG3fyX1u22Xrgd3t0hbTKb
-	Do3MGv63tIq2hZ74BNqQ==;
+	List-Owner; bh=lXCUsEHqx3EJFK16S/uHvvr14MtR1h2VyQu8eYsXwFo=; b=gMGd7JowR82wt4
+	yZ4G+BX+eBmvXIpss/IGuhPTjzLTxfVvn3mE2jNkS4Wsh9M8li43O3vXy3f9f8vZLVd1qvDLwy+01
+	Ozyw5Y7aXuNQ1sOUPAnhs1uhtgycKEXEraZ91fkalkdbDt0rqPKG9jEVt0fZ9rGULij5S9kpBKp/A
+	NG4DZmW2qRqpq+jrGRbMp1Tr7yRLVqG/z/+II9TtLpIFY844eKdZlF7FJrWo3Zr0vJ/KTVw9zAwEi
+	UTzdICqMyVXiq+sCNdlioiBEl7L8K5gYFHbmbw7qjo/8VnEi0ybaV5NAB35FaAD77pCWqiOKcNAE6
+	boK8KVmh7NSWWfO4vLrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg1DE-00000009Nlj-3T2Y;
-	Wed, 14 Jan 2026 13:47:04 +0000
-Received: from fra-out-015.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([18.158.153.154])
+	id 1vg1DM-00000009NqM-00qw;
+	Wed, 14 Jan 2026 13:47:12 +0000
+Received: from fra-out-008.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([35.158.23.94])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg1DB-00000009Ni8-1nBh;
-	Wed, 14 Jan 2026 13:47:03 +0000
+	id 1vg1DG-00000009Nli-1f4b;
+	Wed, 14 Jan 2026 13:47:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
-  s=amazoncorp2; t=1768398421; x=1799934421;
+  s=amazoncorp2; t=1768398426; x=1799934426;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-transfer-encoding:mime-version;
-  bh=qRcHHdR+Sn0Hgnqc4EhM391wkU6kJqHm858dZaM0mYM=;
-  b=o9bkC1ylKMvVkE3mkEsSsUI182242YUhBdTnYBfzyfflOspzjTtEgYRH
-   mfQ5Rw68l1QOBY7QaMAT67p/Gj+UIac55wDfj3RKbzK1a1MIN6SfXWEnf
-   jduKBQLdCPP5rEoTYTgMkotyxUI9jAEgue1um4pAmMT8H+i65LYpbDLzH
-   NzZIKrXvt0hK7uvjsL+HQ54NNVUljRzR8ES+vTB+7//OF4MQtdpJHNDmT
-   83bNkmEWUeoAmMvmpmIm2nwoC4SLl1r4kqmvtG8CIPXhzZDFKxnLEcJgJ
-   vSTK3kII69gw3+CKV3QHdsG1QrzyocrkpWRc6kLfRwtAhhv8Ic0TBfPo2
+  bh=CWGOx1LJU1Lp2rVsMU/Gh8xhbQtWU2hA9WJ9kcqa2lY=;
+  b=AwmB3YhT3g+8dk1EmxwkuGFnynMj9QJFqv/zTg79CQUpqIqB8ygOsTev
+   e89ZRmi8WM/YqPFWApy01QjV3kRTLK4bXVOoh+VRsgH9CEvkNEipvGfh4
+   bC/n8jX/jcDSJG0i2jK+SD/C9g52dHrawMmW0nQoL+qjCs6QVWeGFWW1z
+   RnZ08joO5dWxAbLr55UsVDNpJHNmCxCMX8NyNXEGA14olWHrzv+MJQV/P
+   PQyDTeJrAq7A/xu0YHVEukpUs8qmKqTo06nN35NTEyjB3YHzKMRUnNhmy
+   wowGPcTsMuPOtztvv9+NOI3N4Yu12qY/Feo9w5mZSULDhDo3tcRtNxZ7S
    g==;
-X-CSE-ConnectionGUID: 0qnMa+tjQOGP5gLNlGr2Aw==
-X-CSE-MsgGUID: 85z4WXisQOGrm511UAqrdQ==
+X-CSE-ConnectionGUID: iTt0B4IHSDaCGzQ9nlsl9A==
+X-CSE-MsgGUID: jTOkRRiHReefkTYovpvvUA==
 X-IronPort-AV: E=Sophos;i="6.21,225,1763424000"; 
-   d="scan'208";a="7780439"
-Received: from ip-10-6-6-97.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.6.97])
-  by internal-fra-out-015.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2026 13:46:41 +0000
-Received: from EX19MTAEUA002.ant.amazon.com [54.240.197.232:7299]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.30.60:2525] with esmtp (Farcaster)
- id 878e6f71-dbb9-456a-8c30-1d51432bc172; Wed, 14 Jan 2026 13:46:41 +0000 (UTC)
-X-Farcaster-Flow-ID: 878e6f71-dbb9-456a-8c30-1d51432bc172
+   d="scan'208";a="7899958"
+Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
+  by internal-fra-out-008.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2026 13:46:47 +0000
+Received: from EX19MTAEUB001.ant.amazon.com [54.240.197.234:17772]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.21.80:2525] with esmtp (Farcaster)
+ id 0c488258-2290-44a1-aa69-8f4549c0a34d; Wed, 14 Jan 2026 13:46:47 +0000 (UTC)
+X-Farcaster-Flow-ID: 0c488258-2290-44a1-aa69-8f4549c0a34d
 Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
- EX19MTAEUA002.ant.amazon.com (10.252.50.124) with Microsoft SMTP Server
+ EX19MTAEUB001.ant.amazon.com (10.252.51.26) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Wed, 14 Jan 2026 13:46:33 +0000
+ Wed, 14 Jan 2026 13:46:44 +0000
 Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
  EX19D005EUB003.ant.amazon.com (10.252.51.31) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Wed, 14 Jan 2026 13:46:32 +0000
+ Wed, 14 Jan 2026 13:46:43 +0000
 Received: from EX19D005EUB003.ant.amazon.com ([fe80::b825:becb:4b38:da0c]) by
  EX19D005EUB003.ant.amazon.com ([fe80::b825:becb:4b38:da0c%3]) with mapi id
- 15.02.2562.035; Wed, 14 Jan 2026 13:46:32 +0000
+ 15.02.2562.035; Wed, 14 Jan 2026 13:46:43 +0000
 From: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
 To: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org"
 	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
@@ -127,12 +127,11 @@ CC: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net"
 	<jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>,
 	"Manwaring, Derek" <derekmn@amazon.com>, "Cali, Marco"
 	<xmarcalx@amazon.co.uk>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
-Subject: [PATCH v9 07/13] KVM: guest_memfd: Add flag to remove from direct map
-Thread-Topic: [PATCH v9 07/13] KVM: guest_memfd: Add flag to remove from
- direct map
-Thread-Index: AQHchVwxUHbiw0Os6UOagV6OHUZMMQ==
-Date: Wed, 14 Jan 2026 13:46:32 +0000
-Message-ID: <20260114134510.1835-8-kalyazin@amazon.com>
+Subject: [PATCH v9 08/13] KVM: selftests: load elf via bounce buffer
+Thread-Topic: [PATCH v9 08/13] KVM: selftests: load elf via bounce buffer
+Thread-Index: AQHchVw3daaZpEULYUqipVucRFdzxQ==
+Date: Wed, 14 Jan 2026 13:46:43 +0000
+Message-ID: <20260114134510.1835-9-kalyazin@amazon.com>
 References: <20260114134510.1835-1-kalyazin@amazon.com>
 In-Reply-To: <20260114134510.1835-1-kalyazin@amazon.com>
 Accept-Language: en-GB, en-US
@@ -142,8 +141,8 @@ X-MS-TNEF-Correlator:
 x-originating-ip: [172.19.103.116]
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_054701_907287_D60A1A59 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20260114_054706_722223_935D2D41 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,228 +161,104 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Patrick Roy <patrick.roy@linux.dev>
 
-Add GUEST_MEMFD_FLAG_NO_DIRECT_MAP flag for KVM_CREATE_GUEST_MEMFD()
-ioctl. When set, guest_memfd folios will be removed from the direct map
-after preparation, with direct map entries only restored when the folios
-are freed.
-
-To ensure these folios do not end up in places where the kernel cannot
-deal with them, set AS_NO_DIRECT_MAP on the guest_memfd's struct
-address_space if GUEST_MEMFD_FLAG_NO_DIRECT_MAP is requested.
-
-Note that this flag causes removal of direct map entries for all
-guest_memfd folios independent of whether they are "shared" or "private"
-(although current guest_memfd only supports either all folios in the
-"shared" state, or all folios in the "private" state if
-GUEST_MEMFD_FLAG_MMAP is not set). The usecase for removing direct map
-entries of also the shared parts of guest_memfd are a special type of
-non-CoCo VM where, host userspace is trusted to have access to all of
-guest memory, but where Spectre-style transient execution attacks
-through the host kernel's direct map should still be mitigated.  In this
-setup, KVM retains access to guest memory via userspace mappings of
-guest_memfd, which are reflected back into KVM's memslots via
-userspace_addr. This is needed for things like MMIO emulation on x86_64
-to work.
-
-Direct map entries are zapped right before guest or userspace mappings
-of gmem folios are set up, e.g. in kvm_gmem_fault_user_mapping() or
-kvm_gmem_get_pfn() [called from the KVM MMU code]. The only place where
-a gmem folio can be allocated without being mapped anywhere is
-kvm_gmem_populate(), where handling potential failures of direct map
-removal is not possible (by the time direct map removal is attempted,
-the folio is already marked as prepared, meaning attempting to re-try
-kvm_gmem_populate() would just result in -EEXIST without fixing up the
-direct map state). These folios are then removed form the direct map
-upon kvm_gmem_get_pfn(), e.g. when they are mapped into the guest later.
+If guest memory is backed using a VMA that does not allow GUP (e.g. a
+userspace mapping of guest_memfd when the fd was allocated using
+GUEST_MEMFD_FLAG_NO_DIRECT_MAP), then directly loading the test ELF
+binary into it via read(2) potentially does not work. To nevertheless
+support loading binaries in this cases, do the read(2) syscall using a
+bounce buffer, and then memcpy from the bounce buffer into guest memory.
 
 Signed-off-by: Patrick Roy <patrick.roy@linux.dev>
 Signed-off-by: Nikita Kalyazin <kalyazin@amazon.com>
 ---
- Documentation/virt/kvm/api.rst | 22 ++++++++------
- include/linux/kvm_host.h       | 12 ++++++++
- include/uapi/linux/kvm.h       |  1 +
- virt/kvm/guest_memfd.c         | 54 ++++++++++++++++++++++++++++++++++
- 4 files changed, 80 insertions(+), 9 deletions(-)
+ .../testing/selftests/kvm/include/test_util.h |  1 +
+ tools/testing/selftests/kvm/lib/elf.c         |  8 +++----
+ tools/testing/selftests/kvm/lib/io.c          | 23 +++++++++++++++++++
+ 3 files changed, 28 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index 01a3abef8abb..c5f54f1370c8 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -6440,15 +6440,19 @@ a single guest_memfd file, but the bound ranges must not overlap).
- The capability KVM_CAP_GUEST_MEMFD_FLAGS enumerates the `flags` that can be
- specified via KVM_CREATE_GUEST_MEMFD.  Currently defined flags:
+diff --git a/tools/testing/selftests/kvm/include/test_util.h b/tools/testing/selftests/kvm/include/test_util.h
+index b4872ba8ed12..8140e59b59e5 100644
+--- a/tools/testing/selftests/kvm/include/test_util.h
++++ b/tools/testing/selftests/kvm/include/test_util.h
+@@ -48,6 +48,7 @@ do {								\
  
--  ============================ ================================================
--  GUEST_MEMFD_FLAG_MMAP        Enable using mmap() on the guest_memfd file
--                               descriptor.
--  GUEST_MEMFD_FLAG_INIT_SHARED Make all memory in the file shared during
--                               KVM_CREATE_GUEST_MEMFD (memory files created
--                               without INIT_SHARED will be marked private).
--                               Shared memory can be faulted into host userspace
--                               page tables. Private memory cannot.
--  ============================ ================================================
-+  ============================== ================================================
-+  GUEST_MEMFD_FLAG_MMAP          Enable using mmap() on the guest_memfd file
-+                                 descriptor.
-+  GUEST_MEMFD_FLAG_INIT_SHARED   Make all memory in the file shared during
-+                                 KVM_CREATE_GUEST_MEMFD (memory files created
-+                                 without INIT_SHARED will be marked private).
-+                                 Shared memory can be faulted into host userspace
-+                                 page tables. Private memory cannot.
-+  GUEST_MEMFD_FLAG_NO_DIRECT_MAP The guest_memfd instance will behave similarly
-+                                 to memfd_secret, and unmaps the memory backing
-+                                 it from the kernel's address space before
-+                                 being passed off to userspace or the guest.
-+  ============================== ================================================
+ ssize_t test_write(int fd, const void *buf, size_t count);
+ ssize_t test_read(int fd, void *buf, size_t count);
++ssize_t test_read_bounce(int fd, void *buf, size_t count);
+ int test_seq_read(const char *path, char **bufp, size_t *sizep);
  
- When the KVM MMU performs a PFN lookup to service a guest fault and the backing
- guest_memfd has the GUEST_MEMFD_FLAG_MMAP set, then the fault will always be
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 27796a09d29b..d4d5306075bf 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -738,10 +738,22 @@ static inline u64 kvm_gmem_get_supported_flags(struct kvm *kvm)
- 	if (!kvm || kvm_arch_supports_gmem_init_shared(kvm))
- 		flags |= GUEST_MEMFD_FLAG_INIT_SHARED;
+ void __printf(5, 6) test_assert(bool exp, const char *exp_str,
+diff --git a/tools/testing/selftests/kvm/lib/elf.c b/tools/testing/selftests/kvm/lib/elf.c
+index f34d926d9735..e829fbe0a11e 100644
+--- a/tools/testing/selftests/kvm/lib/elf.c
++++ b/tools/testing/selftests/kvm/lib/elf.c
+@@ -31,7 +31,7 @@ static void elfhdr_get(const char *filename, Elf64_Ehdr *hdrp)
+ 	 * the real size of the ELF header.
+ 	 */
+ 	unsigned char ident[EI_NIDENT];
+-	test_read(fd, ident, sizeof(ident));
++	test_read_bounce(fd, ident, sizeof(ident));
+ 	TEST_ASSERT((ident[EI_MAG0] == ELFMAG0) && (ident[EI_MAG1] == ELFMAG1)
+ 		&& (ident[EI_MAG2] == ELFMAG2) && (ident[EI_MAG3] == ELFMAG3),
+ 		"ELF MAGIC Mismatch,\n"
+@@ -79,7 +79,7 @@ static void elfhdr_get(const char *filename, Elf64_Ehdr *hdrp)
+ 	offset_rv = lseek(fd, 0, SEEK_SET);
+ 	TEST_ASSERT(offset_rv == 0, "Seek to ELF header failed,\n"
+ 		"  rv: %zi expected: %i", offset_rv, 0);
+-	test_read(fd, hdrp, sizeof(*hdrp));
++	test_read_bounce(fd, hdrp, sizeof(*hdrp));
+ 	TEST_ASSERT(hdrp->e_phentsize == sizeof(Elf64_Phdr),
+ 		"Unexpected physical header size,\n"
+ 		"  hdrp->e_phentsize: %x\n"
+@@ -146,7 +146,7 @@ void kvm_vm_elf_load(struct kvm_vm *vm, const char *filename)
  
-+	if (kvm_arch_gmem_supports_no_direct_map())
-+		flags |= GUEST_MEMFD_FLAG_NO_DIRECT_MAP;
-+
- 	return flags;
- }
- #endif
+ 		/* Read in the program header. */
+ 		Elf64_Phdr phdr;
+-		test_read(fd, &phdr, sizeof(phdr));
++		test_read_bounce(fd, &phdr, sizeof(phdr));
  
-+#ifdef CONFIG_KVM_GUEST_MEMFD
-+#ifndef kvm_arch_gmem_supports_no_direct_map
-+static inline bool kvm_arch_gmem_supports_no_direct_map(void)
-+{
-+	return false;
-+}
-+#endif
-+#endif /* CONFIG_KVM_GUEST_MEMFD */
-+
- #ifndef kvm_arch_has_readonly_mem
- static inline bool kvm_arch_has_readonly_mem(struct kvm *kvm)
- {
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index dddb781b0507..60341e1ba1be 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -1612,6 +1612,7 @@ struct kvm_memory_attributes {
- #define KVM_CREATE_GUEST_MEMFD	_IOWR(KVMIO,  0xd4, struct kvm_create_guest_memfd)
- #define GUEST_MEMFD_FLAG_MMAP		(1ULL << 0)
- #define GUEST_MEMFD_FLAG_INIT_SHARED	(1ULL << 1)
-+#define GUEST_MEMFD_FLAG_NO_DIRECT_MAP	(1ULL << 2)
- 
- struct kvm_create_guest_memfd {
- 	__u64 size;
-diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-index 92e7f8c1f303..43f64c11467a 100644
---- a/virt/kvm/guest_memfd.c
-+++ b/virt/kvm/guest_memfd.c
-@@ -7,6 +7,9 @@
- #include <linux/mempolicy.h>
- #include <linux/pseudo_fs.h>
- #include <linux/pagemap.h>
-+#include <linux/set_memory.h>
-+
-+#include <asm/tlbflush.h>
- 
- #include "kvm_mm.h"
- 
-@@ -76,6 +79,43 @@ static int __kvm_gmem_prepare_folio(struct kvm *kvm, struct kvm_memory_slot *slo
- 	return 0;
- }
- 
-+#define KVM_GMEM_FOLIO_NO_DIRECT_MAP BIT(0)
-+
-+static bool kvm_gmem_folio_no_direct_map(struct folio *folio)
-+{
-+	return ((u64) folio->private) & KVM_GMEM_FOLIO_NO_DIRECT_MAP;
-+}
-+
-+static int kvm_gmem_folio_zap_direct_map(struct folio *folio)
-+{
-+	u64 gmem_flags = GMEM_I(folio_inode(folio))->flags;
-+	int r = 0;
-+
-+	if (kvm_gmem_folio_no_direct_map(folio) || !(gmem_flags & GUEST_MEMFD_FLAG_NO_DIRECT_MAP))
-+		goto out;
-+
-+	folio->private = (void *)((u64)folio->private | KVM_GMEM_FOLIO_NO_DIRECT_MAP);
-+	r = folio_zap_direct_map(folio);
-+
-+out:
-+	return r;
-+}
-+
-+static void kvm_gmem_folio_restore_direct_map(struct folio *folio)
-+{
-+	/*
-+	 * Direct map restoration cannot fail, as the only error condition
-+	 * for direct map manipulation is failure to allocate page tables
-+	 * when splitting huge pages, but this split would have already
-+	 * happened in folio_zap_direct_map() in kvm_gmem_folio_zap_direct_map().
-+	 * Thus folio_restore_direct_map() here only updates prot bits.
-+	 */
-+	if (kvm_gmem_folio_no_direct_map(folio)) {
-+		WARN_ON_ONCE(folio_restore_direct_map(folio));
-+		folio->private = (void *)((u64)folio->private & ~KVM_GMEM_FOLIO_NO_DIRECT_MAP);
-+	}
-+}
-+
- static inline void kvm_gmem_mark_prepared(struct folio *folio)
- {
- 	folio_mark_uptodate(folio);
-@@ -398,6 +438,7 @@ static vm_fault_t kvm_gmem_fault_user_mapping(struct vm_fault *vmf)
- 	struct inode *inode = file_inode(vmf->vma->vm_file);
- 	struct folio *folio;
- 	vm_fault_t ret = VM_FAULT_LOCKED;
-+	int err;
- 
- 	if (((loff_t)vmf->pgoff << PAGE_SHIFT) >= i_size_read(inode))
- 		return VM_FAULT_SIGBUS;
-@@ -423,6 +464,12 @@ static vm_fault_t kvm_gmem_fault_user_mapping(struct vm_fault *vmf)
- 		kvm_gmem_mark_prepared(folio);
+ 		/* Skip if this header doesn't describe a loadable segment. */
+ 		if (phdr.p_type != PT_LOAD)
+@@ -187,7 +187,7 @@ void kvm_vm_elf_load(struct kvm_vm *vm, const char *filename)
+ 				"  expected: 0x%jx",
+ 				n1, errno, (intmax_t) offset_rv,
+ 				(intmax_t) phdr.p_offset);
+-			test_read(fd, addr_gva2hva(vm, phdr.p_vaddr),
++			test_read_bounce(fd, addr_gva2hva(vm, phdr.p_vaddr),
+ 				phdr.p_filesz);
+ 		}
  	}
+diff --git a/tools/testing/selftests/kvm/lib/io.c b/tools/testing/selftests/kvm/lib/io.c
+index fedb2a741f0b..74419becc8bc 100644
+--- a/tools/testing/selftests/kvm/lib/io.c
++++ b/tools/testing/selftests/kvm/lib/io.c
+@@ -155,3 +155,26 @@ ssize_t test_read(int fd, void *buf, size_t count)
  
-+	err = kvm_gmem_folio_zap_direct_map(folio);
-+	if (err) {
-+		ret = vmf_error(err);
-+		goto out_folio;
-+	}
-+
- 	vmf->page = folio_file_page(folio, vmf->pgoff);
- 
- out_folio:
-@@ -533,6 +580,8 @@ static void kvm_gmem_free_folio(struct folio *folio)
- 	kvm_pfn_t pfn = page_to_pfn(page);
- 	int order = folio_order(folio);
- 
-+	kvm_gmem_folio_restore_direct_map(folio);
-+
- 	kvm_arch_gmem_invalidate(pfn, pfn + (1ul << order));
+ 	return num_read;
  }
- 
-@@ -596,6 +645,9 @@ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
- 	/* Unmovable mappings are supposed to be marked unevictable as well. */
- 	WARN_ON_ONCE(!mapping_unevictable(inode->i_mapping));
- 
-+	if (flags & GUEST_MEMFD_FLAG_NO_DIRECT_MAP)
-+		mapping_set_no_direct_map(inode->i_mapping);
 +
- 	GMEM_I(inode)->flags = flags;
- 
- 	file = alloc_file_pseudo(inode, kvm_gmem_mnt, name, O_RDWR, &kvm_gmem_fops);
-@@ -807,6 +859,8 @@ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
- 	if (!is_prepared)
- 		r = kvm_gmem_prepare_folio(kvm, slot, gfn, folio);
- 
-+	kvm_gmem_folio_zap_direct_map(folio);
++/* Test read via intermediary buffer
++ *
++ * Same as test_read, except read(2)s happen into a bounce buffer that is memcpy'd
++ * to buf. For use with buffers that cannot be GUP'd (e.g. guest_memfd VMAs if
++ * guest_memfd was created with GUEST_MEMFD_FLAG_NO_DIRECT_MAP).
++ */
++ssize_t test_read_bounce(int fd, void *buf, size_t count)
++{
++	void *bounce_buffer;
++	ssize_t num_read;
 +
- 	folio_unlock(folio);
- 
- 	if (!r)
++	TEST_ASSERT(count >= 0, "Unexpected count, count: %li", count);
++
++	bounce_buffer = malloc(count);
++	TEST_ASSERT(bounce_buffer != NULL, "Failed to allocate bounce buffer");
++
++	num_read = test_read(fd, bounce_buffer, count);
++	memcpy(buf, bounce_buffer, num_read);
++	free(bounce_buffer);
++
++	return num_read;
++}
 -- 
 2.50.1
 
