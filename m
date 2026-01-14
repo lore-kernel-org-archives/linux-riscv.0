@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA210D30CF4
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jan 2026 00:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C93AD30CDB
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jan 2026 00:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
 	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xZV2dCpu+M9y8EeUsKBvMEJy8x1DR7L8VGFDJag1SFg=; b=eA8xKPckI9WEd9
-	hac+0UqEntm2QllJ60BHig+7SqymTHe0T3Ai5bLQyICF7Q2umDT74YxBZY40CELkC9LArfOaF8B+T
-	us0COUyeeUglMq5lDCLhtqx5BQ5MhTLHleL14RB6Qb+lDBpxo/RbRksPywHVdFro+5v8FwWrKrL7b
-	7RpXXvRznEyYgwUL0Wrk19j+ls+ujO8ZvCiTnXgb0TWtox4KX0PRoz1cfjAWqTroqtoE9Plq7VCq+
-	lSYNA0TgGG81I+pABbF0vj6/zCWURFiac6TsH5IAGlYe1ElnmcaXj9BnO1dj61zfGGMoqskKaF+n1
-	glyEcO/49TKPH4hoihfQ==;
+	List-Owner; bh=VyPKtZBdc0I0Hl2Ha1soFYl+v7O9dkw+CY8HHF8n55I=; b=Q4NuVUGYjD9i7T
+	ml/pkXiB5Y82xlB0QKIl5E16ksA/5aQq9TFjEVMYYgfxSur2P0UUGd7Lu1j39o4zo5oaKS+2WUbDk
+	p8eK6JR2cQGmoLPj/82NsbZH/Jd+4Q4CH2+7buO4KYnct+OdzlGGkBH575tR89zc3bMU6kOLlXDvU
+	kmLlnoR3XNGtCnm79uGDFzpImRt1MJzvZ7uWcSwX87z181xmnLGuV5WmEBIaV0kA03RIKfCbUUkEm
+	i8JXZlX0ArlNuXe7e7KjaJ3bn5K6j04bUlxjZl2ViOJFp2UGXdJsR8dV8b8ov5cMMimfWbA1zaAwf
+	1ILOInEiz4PC2Dm3mlzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfoSa-00000007tXb-2kZz;
-	Wed, 14 Jan 2026 00:10:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vfoaG-00000007tzQ-3yKE;
+	Wed, 14 Jan 2026 00:18:00 +0000
+Received: from dev.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfoSZ-00000007tXV-1efT
+	id 1vfoaE-00000007tyW-49qG
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Jan 2026 00:10:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 73E6D6000A;
-	Wed, 14 Jan 2026 00:10:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB275C116C6;
-	Wed, 14 Jan 2026 00:09:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768349402;
-	bh=FqAUsQaVDifqu95hEwBwnKuQrXIGCxdQT3cHv99z/q4=;
-	h=From:Date:Subject:To:Cc:From;
-	b=VR6isYXew7zPNstUqBkqi48WXDU2g4OaJAfnkuScUOQywMP/Zj81UUQ0cdC2K+tVG
-	 WrB4PymuL7vpkeep8qmLCBwyfuOqnmxhvUpxdwsObxG3aid9pEH2gqZkDd/RNI+Yyt
-	 Q7b+vGjUfo/POLAs4lN8RDY5Fwuz2m5061HydE/5j6gbeX5DFRC3Hclt0tQoC1m6vz
-	 cfmrdC7Y2NueQzrn4wBY7DVTpiopJ+3IhG+t6MPQq6Tl+T1j6VNcGrWAokWO36RK7i
-	 gH2imcA2NMFkzCbeXYy4Zm52Z4IFq718H/Nk5UbzRUhs61HWBYS8ULPW7SzEdkVz+p
-	 gp34Zp8ATlLdw==
-From: Nathan Chancellor <nathan@kernel.org>
-Date: Tue, 13 Jan 2026 17:09:50 -0700
-Subject: [PATCH RFC v2] riscv: Use 64-bit variable for output in
- __get_user_asm
+	Wed, 14 Jan 2026 00:18:00 +0000
+Received: from ofovo.local (unknown [116.232.18.222])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id AAA5034102F;
+	Wed, 14 Jan 2026 00:17:52 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+Date: Wed, 14 Jan 2026 08:17:42 +0800
+Subject: [PATCH v2] dt-bindings: pinctrl: spacemit: k3: fix drive-strength
+ doc
 MIME-Version: 1.0
-Message-Id: <20260113-riscv-wa-llvm-asm-goto-outputs-assertion-failure-v2-1-e04aba2e1f9f@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/52OQQ6CMBBFr0Jm7RhbIoIrExMP4NawaOsAE4GSt
- lQN4e42HMHlfz95/y/gyTF5OGcLOIrs2Y4pyF0GplNjS8jPlEEe5PFQCoGOvYn4Vtj3cUDlB2x
- tsGjnMM3BJ5CEIUmwUdzPjrBQ1ChZ5HlpDCTt5Kjhzzb5gPvtCnWCHftg3Xe7EcVW/b8YBQo8a
- V2aymhdSX15kRup31vXQr2u6w82YyCS9gAAAA==
-X-Change-ID: 20250811-riscv-wa-llvm-asm-goto-outputs-assertion-failure-6aefa26338cc
-To: Paul Walmsley <pjw@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, 
- Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- Craig Topper <craig.topper@sifive.com>, linux-riscv@lists.infradead.org, 
- llvm@lists.linux.dev, patches@lists.linux.dev, 
- Nathan Chancellor <nathan@kernel.org>
+Message-Id: <20260114-k3-pinctrl-io-doc-fix-v2-1-025b05f9e65a@gentoo.org>
+X-B4-Tracking: v=1; b=H4sIAKbgZmkC/4WNTQqDMBBGryKz7pQkij9deY/iwsZJHFoykoi0i
+ Hdv6gW6fA++9+2QKDIluBU7RNo4sYQM5lKAncfgCXnKDEaZWmmt8FniwsGu8YUsOIlFx28cu1F
+ VJZmq1h3k7RIp67N7HzLPnFaJn/Nm0z/7r7hp1Ni0jXFUk3u0qvcUVpGrRA/DcRxfabMNz7sAA
+ AA=
+X-Change-ID: 20260110-k3-pinctrl-io-doc-fix-a9a043e24619
+To: Linus Walleij <linusw@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Guodong Xu <guodong@riscstar.com>, 
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Yixun Lan <dlan@gentoo.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2746; i=nathan@kernel.org;
- h=from:subject:message-id; bh=FqAUsQaVDifqu95hEwBwnKuQrXIGCxdQT3cHv99z/q4=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDJlp9653BZ5yqA1o5C467XT4vlg9W8qN6JO3z84wae+R3
- LHQ4JJXRykLgxgXg6yYIkv1Y9XjhoZzzjLeODUJZg4rE8gQBi5OAZgIy1OGPxwqC25oOM+ff+L6
- 6a6HE1/5bDWxytofbbqw49B1r+X7U58y/Hd8PJPfoIr1t3zpum+Mm6YEOTrynp/lt6Cnded6DSE
- THT4A
-X-Developer-Key: i=nathan@kernel.org; a=openpgp;
- fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1547; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=orpaLPZIhB6o0YIirbSoKahJaSFWRpyVsDsGAJa9c/s=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpZuCtbNOFt9HYFmHL9qwVSgNlpjEqetUNg9x3H
+ gGAVmMeiriJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaWbgrRsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+1uyw//T+tPDn0Hytjj/Xe+0H0zwyDbgdSccSl8FQSBfkZsQu6mX7h/MHcdx
+ km4joFbr/IyCqdfXGJRuYZS0Ex4mUeCap/PM3x40sYp11cfdOmlElypq1s25wFKOUXyP2We1HQn
+ VLzNbXwC1s4pki0lrtwqCHhRYdJGyqJsi6C1F5nVN2N5hYdQ7jc4TJMFm6EE4vqVz31F31MXea1
+ jg1tZfp1qXqoZTjVljGXveEderwTvf9fB8JdNg0f/UF7C1FNDB0HD0RMImso8LTBmdWqvmLAr70
+ fOhD4qMO4rjmphaGIUK+Zi1Xl+1TpPhTHgJlZFqL5nGQ+bExlhbFK7jcyAEXRoxbDefFBvknyfr
+ /3QY4h+eHkCkyrjldWkQ+4F5Fpqmq8qkhi+5HIGQ5bMiTb3//3rivdoPnlQrX41hdQjoisN3gpK
+ pXaiOXQRPABTaR3mOlu98bLac/fw6Y4hZRfFZ2y/Ws95i9yRCQhFCvmf78mWe8ynf6QXauxWkep
+ CBTBmKueOubvgEqOieoepK5zf5OU3qRhyF1U5Aa5Z3VZtwEvjbU4LlYal87caZ+rUdcCvbfDW+V
+ T1TnMpp9Ei32EqyVdkEiu5PsTFfwR8i2I+v+7r7E9dk27qzZDGRqpf6sezZvnBex32iRSeQA0EP
+ QJ0yuJF7sVN5zNZQBlrve5SJmkZdYU=
+X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260113_161759_088705_EE4905AA 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,71 +92,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-After commit f6bff7827a48 ("riscv: uaccess: use 'asm_goto_output' for
-get_user()"), which was the first commit that started using asm goto
-with outputs on RISC-V, builds of clang built with assertions enabled
-start crashing in certain files that use get_user() with:
+Fix a typo in DT documentation, it should describe the 3.3V drive strength
+table of SpacemiT k3 SoC.
 
-  clang: llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp:12743: Register FollowCopyChain(MachineRegisterInfo &, Register): Assertion `MI->getOpcode() == TargetOpcode::COPY && "start of copy chain MUST be COPY"' failed.
-
-Internally, LLVM generates an addiw instruction when the output of the
-inline asm (which may be any scalar type) needs to be sign extended for
-ABI reasons, such as a later function call, so that basic block does not
-have to do it.
-
-Use a temporary 64-bit variable as the output of the inline assembly in
-__get_user_asm() and explicitly cast it to truncate it if necessary,
-avoiding the addiw that triggers the assertion.
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/2092
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+Fixes: 5adaa1a8c088 ("dt-bindings: pinctrl: spacemit: add K3 SoC support")
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
+---
+Hi Linus,
+  Can you also queue this for-next? thanks
 ---
 Changes in v2:
-- Rebase on 6.19-rc5
-- Send to updated addresses
-- Link to v1: https://lore.kernel.org/r/20250811-riscv-wa-llvm-asm-goto-outputs-assertion-failure-v1-1-7bb8c9cbb92b@kernel.org
+- fix >75 lines of commit message
+- collect Ack tags
+- Link to v1: https://lore.kernel.org/r/20260110-k3-pinctrl-io-doc-fix-v1-1-7872fe6efb80@gentoo.org
 ---
-I did this unconditionally but I did not do much investigation into how
-the code generation changes, as I never have good luck with figuring out
-what is real vs. noise. If this is a worry, I can just duplicate this
-under a CONFIG_CC_IS_CLANG block. Alternatively, we could mark
-CONFIG_CC_HAS_ASM_GOTO_OUTPUT as broken with clang when targeting
-RISC-V.
----
- arch/riscv/include/asm/uaccess.h | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index 36bba6720c26..2ccf93f746f0 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -98,12 +98,16 @@ static inline unsigned long __untagged_addr_remote(struct mm_struct *mm, unsigne
+diff --git a/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
+index 9a76cffcbaee..f009fed87e6b 100644
+--- a/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
+@@ -87,7 +87,7 @@ patternProperties:
+                 description: For K3 SoC, 1.8V voltage output
  
- #ifdef CONFIG_CC_HAS_ASM_GOTO_OUTPUT
- #define __get_user_asm(insn, x, ptr, label)			\
-+do {								\
-+	u64 __tmp;						\
- 	asm_goto_output(					\
- 		"1:\n"						\
- 		"	" insn " %0, %1\n"			\
- 		_ASM_EXTABLE_UACCESS_ERR(1b, %l2, %0)		\
--		: "=&r" (x)					\
--		: "m" (*(ptr)) : : label)
-+		: "=&r" (__tmp)					\
-+		: "m" (*(ptr)) : : label);			\
-+	(x) = (__typeof__(x))__tmp;				\
-+} while (0)
- #else /* !CONFIG_CC_HAS_ASM_GOTO_OUTPUT */
- #define __get_user_asm(insn, x, ptr, label)			\
- do {								\
+               - enum: [ 3, 5, 7, 9, 11, 13, 15, 17, 25, 27, 29, 31, 33, 35, 37, 38 ]
+-                description: For K3 SoC, 1.8V voltage output
++                description: For K3 SoC, 3.3V voltage output
+ 
+           input-schmitt:
+             description: |
 
 ---
-base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
-change-id: 20250811-riscv-wa-llvm-asm-goto-outputs-assertion-failure-6aefa26338cc
+base-commit: 3f20bdf7151834547a85231c28538f49601481ee
+change-id: 20260110-k3-pinctrl-io-doc-fix-a9a043e24619
 
 Best regards,
 -- 
-Nathan Chancellor <nathan@kernel.org>
+Yixun Lan <dlan@gentoo.org>
 
 
 _______________________________________________
