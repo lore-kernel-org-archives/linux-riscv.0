@@ -4,57 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD331D3CC88
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jan 2026 23:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED512D3CC84
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jan 2026 23:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=608k6xUlrEoqehdm0OWYE9GaMZkSC+0hcz5jR1LQj1w=; b=SLKJFi7z7gjK+0
-	biXindkdi2UIL0yhYV+vejsX/f+McW0MXbw1j+tehGA8UCkf/iMKRgw4rA4SWpX4tH4dKDEcFLYMl
-	p6gTmjqAORFRKQPFN8YFF/mIPkya4poDk7/+89Eaw6N9b64wNXKy93CRQKc3ZFsjnuHL50Msw/DBp
-	oWwZl4p25nj/hnzUJZqB2V23n+1g5v2NPkPQhxLM2YdjA9u0R/58zZtx8M8xTpPTWZksAAcPugzpk
-	vGD3W5raQjb17b4rm1VqUclevd0dTBke+fFV5pWOgXq+MFD914zmB8q0adiXHgqENPUBTjrMj330Z
-	mwX9V7mx+HrfzVaeeIqg==;
+	List-Owner; bh=iHCr0xPiBI8OoGuuRFK00AscJCrauj4Qaafi80qW7E0=; b=fibPGj5XcAvXNd
+	9M0oHdRO2evQCXXQegBVFtWs4IhO4z9LKx57owLRFSD7ipcO2YYbJisr1NCwjWtGJvSfCMPi+qu89
+	ECwT/a2DsOegYPVF2tH2Aen2TnPYG2gIfwQzgXX++yiW9bBedwzagNMbu6I0bXZDjf1QmL10Tt7at
+	kjuvTw2HIydhMLM+s5KyGcxmos7bbnK8Psze4r4H3ubpy0SzHMMxvni1CXH5mafpWrOmdeiLfYGQQ
+	NMxEDOd6aZC5FFh6DFfY9zDzny2o5KQ581q7EPCIPBENFg3+sv/dIeM7XHPoEJ7rvh6ItWtcjiuks
+	E6s/Jh4XCC8ynElzlRVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgA20-0000000B2tE-2Idp;
-	Wed, 14 Jan 2026 23:12:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vgA7R-0000000B3iD-19ki;
+	Wed, 14 Jan 2026 23:17:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgA1z-0000000B2sz-2Pgy
+	id 1vgA7M-0000000B3gy-0d2h
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Jan 2026 23:12:03 +0000
+	Wed, 14 Jan 2026 23:17:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A27B46000A;
-	Wed, 14 Jan 2026 23:12:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDEA2C4CEF7;
-	Wed, 14 Jan 2026 23:12:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 28B6A4430D;
+	Wed, 14 Jan 2026 23:17:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F9B3C4CEF7;
+	Wed, 14 Jan 2026 23:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768432322;
-	bh=8XB/D0JpDRvXAyzgdBb/JfDqdJiGXftcDUQwxJ04rPo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QuV9cC2CK8duvwodyE54LG+CRRkbGlXLREFuC01kExri9o5MzWHUrEzRLFD/U+XSE
-	 497twA6+72SKM8ZKtMSWE1+72C4yp/WGvAjKKS1vr5zlit+ILYw+YeocEdMykmNHFe
-	 86RXvU0MRZBT+ods2QEzS5Zuq3/fXFahVq7JYNjbAGv2P5u+z1xLCGMXk6xKWTSi2m
-	 hOmzSJtSafrX7fznyVMZGQm5QzN8LmZgU+GKQsvlu30YbaPHKxtcK/1qw6nIyo2/P2
-	 gX/073RNK10Xs1wygvKThcjkI9Y1Hg5iG41rGKfb+SbkYmaQWHsGphlM60tn7kFllA
-	 2O5akDjfHVy1Q==
-Date: Thu, 15 Jan 2026 00:11:57 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Yixun Lan <dlan@gentoo.org>, Alex Elder <elder@riscstar.com>, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH v5 1/3] i2c: spacemit: drop useless spaces
-Message-ID: <aWgiV4E-KtVG3uDl@zenone.zhora.eu>
-References: <20251226-k1-i2c-ilcr-v5-0-b5807b7dd0e6@linux.spacemit.com>
- <20251226-k1-i2c-ilcr-v5-1-b5807b7dd0e6@linux.spacemit.com>
+	s=k20201202; t=1768432655;
+	bh=yiZaT2+yUxyzhmN9BLG28Zi7rtf5bP+HzkcRffYh+5w=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=s/e0wuaVujPJ1SdsmwMkhm3Ij1DfE1MgW3bPGlVytD562/c2dbAEJhmCsodwRlcVC
+	 AoWp/x/ep8hA2D3AUmd99Nzz/nMxJ2c3YsqiEWLGzmw8pHnTxvlb7YADZ49Q3n1h6u
+	 FumOYq6cMf6O/kS3fDkB1PWUsqrUCFJTVAqGBve1QyueuC+UtTUMDtvAbsN8y911BK
+	 m1+gta1U34OtyMzjo3wbDvhqarDbs37HFqXzVeVKGibJYZJh+bYL1dgaKhj1C4CW2E
+	 gbEbXSbXVMLN7fs3xQ/ByFOc5p06RAEe3mfTUVpWRehrll28lZIeo8eaOtVrB8xr4a
+	 MA6EoF2XZ5kcg==
+Date: Wed, 14 Jan 2026 16:17:32 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: Guodong Xu <guodong@riscstar.com>
+cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+    Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+    Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@gentoo.org>, 
+    Daniel Lezcano <daniel.lezcano@linaro.org>, 
+    Thomas Gleixner <tglx@linutronix.de>, 
+    Samuel Holland <samuel.holland@sifive.com>, 
+    Anup Patel <anup@brainfault.org>, 
+    Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+    Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>, 
+    Yangyu Chen <cyy@cyyself.name>, Paul Walmsley <paul.walmsley@sifive.com>, 
+    Conor Dooley <conor@kernel.org>, Heinrich Schuchardt <xypron.glpk@gmx.de>, 
+    Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, 
+    Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+    spacemit@lists.linux.dev, linux-serial@vger.kernel.org, 
+    Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+    Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Subject: Re: [PATCH v3 01/11] dt-bindings: riscv: add SpacemiT X100 CPU
+ compatible
+In-Reply-To: <20260108-k3-basic-dt-v3-1-ed99eb4c3ad3@riscstar.com>
+Message-ID: <d15c3e1a-509b-0e99-c408-976fa4cf8e32@kernel.org>
+References: <20260108-k3-basic-dt-v3-0-ed99eb4c3ad3@riscstar.com> <20260108-k3-basic-dt-v3-1-ed99eb4c3ad3@riscstar.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251226-k1-i2c-ilcr-v5-1-b5807b7dd0e6@linux.spacemit.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_151738_262597_FC52A9AB 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,43 +89,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Troy,
+On Thu, 8 Jan 2026, Guodong Xu wrote:
 
-On Fri, Dec 26, 2025 at 04:31:59PM +0800, Troy Mitchell wrote:
-> Previously, the I2C driver had an extra leading space in column 0 of
-> included header lines. This commit removes the redundant whitespace.
+> Add compatible string for the SpacemiT X100 core. [1]
 > 
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-
-I merged just this patch to i2c/i2c-host so that you don't need
-to carry it around.
-
-> - #include <linux/clk.h>
-> - #include <linux/i2c.h>
-> - #include <linux/iopoll.h>
-> - #include <linux/module.h>
-> - #include <linux/of_address.h>
-> - #include <linux/platform_device.h>
-
-There was a little conflict here which was easy to fix because
-linux/reset.h has been included in the meantime.
-
-Thanks,
-Andi
-
-> +#include <linux/clk.h>
-> +#include <linux/i2c.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/module.h>
-> +#include <linux/of_address.h>
-> +#include <linux/platform_device.h>
->  
->  /* spacemit i2c registers */
->  #define SPACEMIT_ICR		 0x0		/* Control register */
+> The X100 is a 64-bit RVA23-compliant RISC-V core from SpacemiT. X100
+> supports the RISC-V vector and hypervisor extensions and all mandatory
+> extersions as required by the RVA23U64 and RVA23S64 profiles, per the
+> definition in 'RVA23 Profile, Version 1.0'. [2]
 > 
-> -- 
-> 2.52.0
+> >From a microarchieture viewpoint, the X100 features a 4-issue
+> out-of-order pipeline.
 > 
+> X100 is used in SpacemiT K3 SoC.
+> 
+> Link: https://www.spacemit.com/en/spacemit-x100-core/ [1]
+> Link: https://docs.riscv.org/reference/profiles/rva23/_attachments/rva23-profile.pdf [2]
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Reviewed-by: Yixun Lan <dlan@gentoo.org>
+> Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
+
+I think Yixun Lan is going to pick this up, so 
+
+Acked-by: Paul Walmsley <pjw@kernel.org>
+
+
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
