@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAAB5D4663B
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 23:43:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95300D4662F
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 23:43:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0KtnVbzNtOaFyk2ctBfdeJlT2ACN5maEZt/ZPC9P/VQ=; b=OjsaNBUUs1REzn
-	vpyjSPPg1d1VdgCes6g9GHM3qwndBpSg7Eda8FSkKEUgESg+UoukUz2mCSGNRf7H1pbb2LW95Bpjl
-	Zk3v9gdUqB7dn3V2TLywmYPxfz37poT57l04Do8acLS7HA+FKP7ww1kz6SNpcNx5tVBXO++bIljq0
-	zuIfTiowbHaOaqq0/MCzQ9tMA6rw1pAAmCKXVJhvgHf7kIsehb3govICJ9tyYNy0awxts102m+7WS
-	M1QkBzeZ3+oRTWsewjV8yz7lfkKF8qBhd+WykvByxqVhyzrti0aIoltHvjkAqgBLKFTneGzm+uPwR
-	6L2VFQ4qOez8AbOXEsWw==;
+	List-Owner; bh=El0NF+pj+otAaFHz7ABR4apsZMCfFHKe1yhfhLv7jh8=; b=oKq3nrhpUqtPSF
+	XtDOGTyggLNM64gJFyUZfYos48Fx1AUAAksQNPSrBJuPmW+PzLkne31nRG+9eGKMYZBOx5rsZtS3E
+	Ba46RyS4IpQkqQzEvy7iWbUIYpc2jaB89FYRmOJYzmUDe3e3BBEkp5ZHddl/oJQz+bVFcicTKCiML
+	Pk7CxYn7Wi2iDouUCi9eBPco4KaDIWxC9NwaoHvBxkxPWwjVimD0izFadwUUMTxFgUjAWat8LTlzH
+	BDTEMwvYttZ7HubDqGyAvkf7abRCmTVUct+85mmaSpnpiskYB6LOhpD/lOyEXOcHnrrAOY8IZS57Q
+	FIEDYBr7UZAnVcHuiRCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgWzS-0000000DKME-3vHh;
+	id 1vgWzS-0000000DKLq-2Gly;
 	Thu, 15 Jan 2026 23:42:58 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgWzR-0000000DKKv-0744
+	id 1vgWzR-0000000DKKw-08fo
 	for linux-riscv@bombadil.infradead.org;
 	Thu, 15 Jan 2026 23:42:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=ZgauUMDVjNkmmnUZThthivYhABO9DN7YXuMbhZ6n408=; b=aNd5YASfm6QJSU0hLY42vtUBNN
-	3oT8lIeDoHILjkde5d+3XvBWj3YOy13/jn81Us1qTta/oX4MZSNUGHzl2k7vxahtZUWq5zPRrMyPw
-	sL+HBraKLkaj2ztgKxUIijzx4edSawmcrKlAggi/Gyj/oA/4YzEVzU8tMJInjXxj9J/Sy0mh0uynb
-	Z2gPBdOhtg0wZjq/XjInzdWEtkfduMpfvOuWhQxYRaTGTbBMR8ReXdyZ03+hlXGcJvuR6PD2/zc2w
-	MdZCR+DxsmiEZey3Q54mbQJn9o4vvyiE7KQ2h3qW4C3AI93xarQ8CP+NF70f1+3aLpUjaFHVvbJr3
-	0Fs5Jejw==;
-Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
+	bh=FhfgD4MLmYb5AUeJY2eVc/fXqLoD7qd7hkr+2xTsRcM=; b=CKcrGGaQ1o86sEByewJJ7EPCkI
+	lEZapqu2kLa6jhRN5eyodSbQLF9GAc3UxuEijRrjhimyVa/7TvDghqX8jYUu9hwE6aVTTYs6pSusN
+	h69T7DYvm+owXwNDsT4f0PMoFuRPx4/6ytXNTOXYKXuU0A7KBYm1cABN+1XWbHbbpyPfUr5y6R8OF
+	EUnfyDAS4MJPNWemeEdsEVIAWIAAIe53l3hXDfEJ8OrEeioNLwqz5TiQiXpkwwYkHEJR7cgzg0Vic
+	n7T/o3jt7MeRFbfLICCXZHfRw4rO0Y5yy5uMEFptym5TUy5vqAFTWgrBL8P7mBM6xqbvLDPnF5stl
+	gkQ6UTdg==;
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgWzK-00000007o5k-2nOH
+	id 1vgWzI-00000007o5Z-3DBX
 	for linux-riscv@lists.infradead.org;
 	Thu, 15 Jan 2026 23:42:55 +0000
-Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-78fb9a67b06so14328577b3.1
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 15:42:50 -0800 (PST)
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-790b7b3e594so13792217b3.3
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 15:42:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1768520568; x=1769125368; darn=lists.infradead.org;
+        d=tenstorrent.com; s=google; t=1768520566; x=1769125366; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ZgauUMDVjNkmmnUZThthivYhABO9DN7YXuMbhZ6n408=;
-        b=IZYGdnKNCriRu2RRfK/XzK5rEfEyzswCuE/zxm9/ipf8EYa9I+vfuMd4Lf7+gS13zX
-         s3TjsH9GLMv521r56WpEm+1SBLvKWOBjPGOPs0RULsAuht6eFxz3ZGwycwHu0WkhwdJB
-         DhCjd3bVfL5vbwF8Aynymt/vhwD/S3NZoAeskfhdmPG0Pu3j1o8THT+csLrfzFTniEXn
-         P0Xeic8cYqWlfJthjVXahQaQG02O272ELYehrx1qa0YFMUEq/Ku3hxmc0ehaUYu6tot4
-         ZhqwzLMRsOwNUXWPMnEqlbhNLF286SiRAFaO5GJ8HXtIpOpZHIOSplA14qGvmIPoSCgI
-         5I5A==
+        bh=FhfgD4MLmYb5AUeJY2eVc/fXqLoD7qd7hkr+2xTsRcM=;
+        b=IZrgZeV1aom9n5u9ciLbNNjI7LGnBglPt5gxTdaXraWrIUrD6Noiti4YdR7qZyqcnq
+         uXsMq2HfovLgRhk//Bp4ZlzE+7YY9p7ss63EdhY5676jcEalpCsqeD5e0rWq4ESvi6ze
+         VhscNUbajhsijQtkv6vyo7dG9i8rEbEdv/Rm1A/u6wdXm0+Qds2UpjkwGLK/ZmUlLTxL
+         E8dW2EhX6ABIAi9PVzrt7lVwXfycwEqq8QzyWqraJjWGFeo2l0yF/E/DBuocCljGztw0
+         vV48DXmSDfUoE+sh/D8mqtVzh+LE5V9kt2Yc4SLS9c4WcMp41lRf6blj8BIdYrj5eERj
+         QsmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768520568; x=1769125368;
+        d=1e100.net; s=20230601; t=1768520566; x=1769125366;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=ZgauUMDVjNkmmnUZThthivYhABO9DN7YXuMbhZ6n408=;
-        b=CbrM1EgT9wNExOC2K+Amc39PgIY/+afLLEFy6XdBZw14BsBP4YyqtgAZIkPR6bpFdF
-         M9Mvi/dyDPEAjjcv0hTMDe8/wKcVbOff3czV+sejRfV0ADZjS2bz9NF/1Ai3b2DNz/EI
-         KC91DXpxDOtp9R8QkXICnu15Tj6X/DEizgvdFfEnRvEa/GFeRbvX62Cctw13vZBI7hbj
-         4yTrcgR2Drav9mXe6pF/hkn6Jv2Wd50IUw3i/KZq8uJG7xLWgnAag7LiLBqHo2Zujxaz
-         uyof/S6rBP62c+wGukPrNoUPGs79RTUdCeIMBpTl06/HoI8Aj0g7XCoBlmAnyBVrmdVl
-         0lQw==
-X-Gm-Message-State: AOJu0YxO3fQt+Y1/oR+QymJp/z0Dq/SqRZer02pa+cQKR9VB0JAP20jL
-	Xlrh/uX9CXk//d3QMUU1Tbk5bNt7OVv2+QGpMjQSDDiGgE7MnVMmS3BAXDhPVOvrMos=
-X-Gm-Gg: AY/fxX4foNF0DKu1Q/Elit/tjqUMBTop/dySgseL7XhTZrQVPzv/ng8UFL5yjAi8QH9
-	seao1B/uBDS/HqXbLDmtX7fI5ewJQangmCfwQz3Cwk27Kyfw12GOGCc7NVM6dygD35dIo09xnQx
-	9yyHTbJYfzXnOCBSNWomzR2RSb7f0BydkZ0qpCaZNXPhot+RvaQFW/vGvLCPMMcjmpOiSD9ibsY
-	Kx2MWLhr83DWPaA8Z8sTS060EDZ4+FKQa1f37CGtIkBMwEG25ZXHnSU07Znd9GecYnMj/uCXmEt
-	OOGMohDByruueJbUeQUk0h+/hKfSwXYJDmW9oc9QMMPCBfteMQSxQKupPR4gC3YbZSqvzYHsDAP
-	hibJcUTTR2p/alpz6TGVSc78tPdT0vlBGGKUhd3Fg+iMKalOTR7ZprlXJn/TDJBHzr1XnFgMjgR
-	r6J9rG6ftCpbNvD3jENrHtreU5IVpg5apVtp3j/wu03bAjPZkZ1noKP3WIknUGcf3XMZkG7eg=
-X-Received: by 2002:a05:690c:6e0b:b0:793:bbd2:5675 with SMTP id 00721157ae682-793c67f7993mr7567597b3.44.1768520568667;
-        Thu, 15 Jan 2026 15:42:48 -0800 (PST)
+        bh=FhfgD4MLmYb5AUeJY2eVc/fXqLoD7qd7hkr+2xTsRcM=;
+        b=f17tHMownvJ5IuKZXr+JNijm8Sw7/4Bx+2RyOMT8LVke2RGzKyLxxndEv33pO6Iv92
+         Fxei9WW78XXdd6y455O2R4+fT+mg/yFawSz+uZHjc/Tuqcc4Sg2ZCBm7FRKVw+jgfBLZ
+         EBfx3WJ79X+IGzwbu/iHlFWDLUWBFQnJtSaH5U4kZH8chIkirvMcR54FrMp5bN5sFSEu
+         AuO0f0Gk02H6X/S4TWVO1eYo8KlnYSKXtZtBQUeVw5Euhk1QqfwGPQO1hR1bYufHbYj2
+         LJY3Ap80pR9ZRlvfpTb8N0cq2DIkW30FXIQOsbkorwBKPp0J8eslQ/70o6llXbemYaZR
+         uaBg==
+X-Gm-Message-State: AOJu0Yx/JzB8J2b5i90eSwmdPI9Pon4e0P4IRfL9dOOqXxkLCUuHVkwD
+	hkzVfnaGtbN3ivZGG4/dKzbvndXBmoVCSjeT3F4vtzUAPvupfcnwOgrfSVrn4wivx/M=
+X-Gm-Gg: AY/fxX6ZipA5EwgwcF/DnKrKNegI46NHCd26KsOL7VbcmcU3rtXDySIION1zh1Q9+no
+	MZAvoCezi0CSmOpas2NXxcBt1Fg/f7gRCOv0xrzLD3h+3v3LeW+iIDp3Ygj8J5+5aKj3mItLNch
+	RccxI6HCjxxlSOTvHzwaWSLOhSduAUJiKGtGvPnEwWY36n2M1lXh49BQ/w4hlwEEUirzw8ix09z
+	gf6O/qbRRRPPvjKui4bndFsgqadBLJI6lGn9jToMJuYR24fsXTQ58VJBmlkz3sE3OtqF15W06U6
+	9RTR++ewt6AOor1jzbUw2EbbWBErxB+PjLA9JiRXAM31PgWC3bmui5TMwI8WC/n42N5wSek8i12
+	06Zffcdwbkh1e189BWQQuDioH0tNuXOALWagKGyWP8Be6o4MDW0jIyuDxQ5pG8FuFYS8VvxEiJe
+	Qt7p5ERuliXRAMpGwzsVLIAeOcKgXUV2ewed41DH3SuDY5zS0wO+r+MlkY+k5eeWZ21DqDrk8/3
+	rvBByCZ1g==
+X-Received: by 2002:a05:690c:b0b:b0:788:c22:1f0 with SMTP id 00721157ae682-793c53c4539mr12329207b3.54.1768520566220;
+        Thu, 15 Jan 2026 15:42:46 -0800 (PST)
 Received: from [192.168.5.15] ([68.95.197.245])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-793c66c72aesm3027117b3.11.2026.01.15.15.42.47
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-793c66c72aesm3027117b3.11.2026.01.15.15.42.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 15:42:48 -0800 (PST)
+        Thu, 15 Jan 2026 15:42:45 -0800 (PST)
 From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Date: Thu, 15 Jan 2026 17:42:03 -0600
-Subject: [PATCH 4/8] dt-bindings: soc: tenstorrent: Add atlantis resets
+Date: Thu, 15 Jan 2026 17:42:01 -0600
+Subject: [PATCH 2/8] soc: tenstorrent: Add header with Atlantis syscon
+ register offsets
 MIME-Version: 1.0
-Message-Id: <20260115-atlantis-clocks-v1-4-7356e671f28b@oss.tenstorrent.com>
+Message-Id: <20260115-atlantis-clocks-v1-2-7356e671f28b@oss.tenstorrent.com>
 References: <20260115-atlantis-clocks-v1-0-7356e671f28b@oss.tenstorrent.com>
 In-Reply-To: <20260115-atlantis-clocks-v1-0-7356e671f28b@oss.tenstorrent.com>
 To: Drew Fustini <dfustini@oss.tenstorrent.com>, 
@@ -104,8 +106,8 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  npiggin@oss.tenstorrent.com, agross@kernel.org, agross@oss.tenstorrent.com
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_234251_167524_B9E0005C 
-X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-CacheID: sfid-20260115_234249_383770_CB47BA53 
+X-CRM114-Status: UNSURE (   9.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -123,83 +125,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document resets from RCPU syscon for atlantis.
+Document register offsets used for controlling clocks in Atlantis
 
 Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 ---
- .../tenstorrent/tenstorrent,atlantis-syscon.yaml   |  5 ++++
- .../clock/tenstorrent,atlantis-syscon.h            | 34 ++++++++++++++++++++++
+ MAINTAINERS                               |  1 +
+ include/soc/tenstorrent/atlantis-syscon.h | 38 +++++++++++++++++++++++++++++++
  2 files changed, 39 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/tenstorrent/tenstorrent,atlantis-syscon.yaml b/Documentation/devicetree/bindings/soc/tenstorrent/tenstorrent,atlantis-syscon.yaml
-index 3915d78dfeda..7e9c8d85ba9e 100644
---- a/Documentation/devicetree/bindings/soc/tenstorrent/tenstorrent,atlantis-syscon.yaml
-+++ b/Documentation/devicetree/bindings/soc/tenstorrent/tenstorrent,atlantis-syscon.yaml
-@@ -31,11 +31,15 @@ properties:
-     description:
-       See <dt-bindings/clock/tenstorrent,atlantis-syscon.h> for valid indices.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 19a98b1fa456..4a2017d647b0 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22538,6 +22538,7 @@ F:	Documentation/devicetree/bindings/riscv/tenstorrent.yaml
+ F:	Documentation/devicetree/bindings/soc/tenstorrent/tenstorrent,atlantis-syscon.yaml
+ F:	arch/riscv/boot/dts/tenstorrent/
+ F:	include/dt-bindings/clock/tenstorrent,atlantis-syscon.h
++F:	include/soc/tenstorrent/
  
-+  "#reset-cells":
-+    const: 1
+ RISC-V THEAD SoC SUPPORT
+ M:	Drew Fustini <fustini@kernel.org>
+diff --git a/include/soc/tenstorrent/atlantis-syscon.h b/include/soc/tenstorrent/atlantis-syscon.h
+new file mode 100644
+index 000000000000..b15dabfb42b5
+--- /dev/null
++++ b/include/soc/tenstorrent/atlantis-syscon.h
+@@ -0,0 +1,38 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (c) 2026 Tenstorrent
++ */
++#ifndef __SOC_ATLANTIS_SYSCON_H__
++#define __SOC_ATLANTIS_SYSCON_H__
 +
- required:
-   - compatible
-   - reg
-   - clocks
-   - "#clock-cells"
-+  - "#reset-cells"
- 
- additionalProperties: false
- 
-@@ -55,4 +59,5 @@ examples:
-       reg = <0x0 0xa8000000 0x0 0x10000>;
-       clocks = <&osc_24m>;
-       #clock-cells = <1>;
-+      #reset-cells = <1>;
-     };
-diff --git a/include/dt-bindings/clock/tenstorrent,atlantis-syscon.h b/include/dt-bindings/clock/tenstorrent,atlantis-syscon.h
-index a8518319642a..ac6afc95b224 100644
---- a/include/dt-bindings/clock/tenstorrent,atlantis-syscon.h
-+++ b/include/dt-bindings/clock/tenstorrent,atlantis-syscon.h
-@@ -64,4 +64,38 @@
- #define CLK_CAN0_TIMER_CLK 52
- #define CLK_CAN1_TIMER_CLK 53
- 
-+/* RCPU domain reset */
-+#define RST_SMNDMA0  0
-+#define RST_SMNDMA1  1
-+#define RST_WDT0     2
-+#define RST_WDT1     3
-+#define RST_TMR      4
-+#define RST_PVTC     5
-+#define RST_PMU      6
-+#define RST_MAILBOX  7
-+#define RST_SPACC    8
-+#define RST_OTP      9
-+#define RST_TRNG     10
-+#define RST_CRC      11
-+#define RST_QSPI     12
-+#define RST_I2C0     13
-+#define RST_I2C1     14
-+#define RST_I2C2     15
-+#define RST_I2C3     16
-+#define RST_I2C4     17
-+#define RST_UART0    18
-+#define RST_UART1    19
-+#define RST_UART2    20
-+#define RST_UART3    21
-+#define RST_UART4    22
-+#define RST_SPI0     23
-+#define RST_SPI1     24
-+#define RST_SPI2     25
-+#define RST_SPI3     26
-+#define RST_GPIO     27
-+#define RST_CAN0     28
-+#define RST_CAN1     29
-+#define RST_I2S0     30
-+#define RST_I2S1     31
++#include <linux/bits.h>
++#include <linux/types.h>
 +
- #endif /* _DT_BINDINGS_ATLANTIS_SYSCON_H */
++/* RCPU Clock Register Offsets */
++#define RCPU_PLL_CFG_REG 0x0000
++#define RCPU_NOCC_PLL_CFG_REG 0x0004
++#define RCPU_NOCC_CLK_CFG_REG 0x0008
++#define RCPU_DIV_CFG_REG 0x000C
++#define RCPU_BLK_CG_REG 0x0014
++#define LSIO_BLK_CG_REG 0x0018
++#define PLL_RCPU_EN_REG 0x11c
++#define PLL_NOCC_EN_REG 0x120
++#define BUS_CG_REG 0x01FC
++
++/* PLL Bit Definitions */
++#define PLL_CFG_EN_BIT BIT(0)
++#define PLL_CFG_BYPASS_BIT BIT(1)
++#define PLL_CFG_REFDIV_MASK GENMASK(7, 2)
++#define PLL_CFG_REFDIV_SHIFT 2
++#define PLL_CFG_POSTDIV1_MASK GENMASK(10, 8)
++#define PLL_CFG_POSTDIV1_SHIFT 8
++#define PLL_CFG_POSTDIV2_MASK GENMASK(13, 11)
++#define PLL_CFG_POSTDIV2_SHIFT 11
++#define PLL_CFG_FBDIV_MASK GENMASK(25, 14)
++#define PLL_CFG_FBDIV_SHIFT 14
++#define PLL_CFG_LKDT_BIT BIT(30)
++#define PLL_CFG_LOCK_BIT BIT(31)
++#define PLL_LOCK_TIMEOUT_US 1000
++#define PLL_BYPASS_WAIT_US 500
++
++#endif
 
 -- 
 2.43.0
