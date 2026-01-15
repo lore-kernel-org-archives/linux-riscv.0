@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D012D3CCAF
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 06:24:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D22FD3CCB2
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 06:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lHgZnLT2X1LQy8PLFv8Tj9vET93ihXz0SftRAM0kjDo=; b=DhdGxJV66KHO3K
-	XP2wLr/jMdht/CsCPvlsc4JenChy7EPSoqgDJ6DPg1oai+2LpfcBZ02IPJRL4bwNrPw4fsm7Y/6uz
-	XnOl8rBmpdRjT/jnSPf8iwgS2w7yxrfDKewD58afKFphF57lILPhL5xFR8vc80cT3+eH5zEXAspCP
-	xQMoLCckuNyS7/D9Ru1+MA4SbBrmTNZBpU1JX/okElZJ86WY2PckG79Em+i+l0J/M6JrHQRNgxut4
-	DZR3quIRXzJIJfx5QLpRI1Se+U2rZNUjBjCvAGVPpFi6uZzoAx15OMfX3Xlk0x0uFvzHj2mivtFj/
-	OPSau28fUj/0FaDkSTSA==;
+	List-Owner; bh=oorNXfN7BlDU/S4nzxIewXz+XdHdB3LJfWt7ats1Cus=; b=E2pQiAxMNww+J1
+	VTstvOmDhyO/L0IuTvAFYAtLL2BUyDieuEX6T6rW7Lgkhd8Pk7EmdHyJ10+xbrRuZ0kczIzpGMGmN
+	lip08PRr0WpGGwxsaJL+mA6l5wl65qS6TLWawncIdRONZNP+GXj8BVl6flTaN6y6d59KrxnIZMmca
+	9tWwkjOrcBMXuko5i6qnbVo5SezalNW6mq3zUwUmVijjIUhIaTLYQeP3t5GQ0blZRiFx2o8gTMpgM
+	8KNUNEcNAW1xn5/6n038nueNvi8NRbxaFThuA11jJnNEhIAV8xkUQQeXOHPwBNY15XvKxeYdlf4T8
+	SYkf1UgqN3vUXdAeLieA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgGmU-0000000Bqht-2Oxu;
-	Thu, 15 Jan 2026 06:24:30 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1vgGzy-0000000Brbp-1kLV;
+	Thu, 15 Jan 2026 06:38:26 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgGmQ-0000000BqhX-3mso
+	id 1vgGzv-0000000BrbS-4AUL
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 06:24:29 +0000
-X-UUID: d38f05cef1da11f0a38c85956e01ac42-20260115
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:bd996bec-d0ac-4cce-8dea-6c4c2f17250a,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:bd62760e38b3a72db32bb66bf6da7889,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:0|15|
-	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: d38f05cef1da11f0a38c85956e01ac42-20260115
-X-User: jiangfeng@kylinos.cn
-Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 1957358825; Thu, 15 Jan 2026 14:24:20 +0800
-Message-ID: <8bf4c689-fee5-4f6b-b79e-854249a897d0@kylinos.cn>
-Date: Thu, 15 Jan 2026 14:24:16 +0800
+	Thu, 15 Jan 2026 06:38:25 +0000
+Received: from duge-virtual-machine (unknown [223.160.207.69])
+	by APP-01 (Coremail) with SMTP id qwCowADXgW1Xi2hpdYHDBA--.1078S2;
+	Thu, 15 Jan 2026 14:38:17 +0800 (CST)
+Date: Thu, 15 Jan 2026 14:38:14 +0800
+From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+To: linusw@kernel.org
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux-gpio@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	gaohan@iscas.ac.cn, me@ziyao.cc
+Subject: Re: [PATCH v2] pinctrl: canaan: k230: Fix NULL pointer dereference
+ when parsing devicetree
+Message-ID: <aWiLFFnk9aAiMMJI@duge-virtual-machine>
+References: <20251228154947.194684-1-jiayu.riscv@isrc.iscas.ac.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/14] lib/string_kunit: add performance benchmark for
- strlen()
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, kees@kernel.org,
- andy@kernel.org, akpm@linux-foundation.org, ebiggers@kernel.org,
- martin.petersen@oracle.com, ardb@kernel.org, ajones@ventanamicro.com,
- conor.dooley@microchip.com, samuel.holland@sifive.com,
- linus.walleij@linaro.org, nathan@kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org
-References: <20260113082748.250916-1-jiangfeng@kylinos.cn>
- <20260113082748.250916-9-jiangfeng@kylinos.cn>
- <aWYGWLEekWh3jJVf@smile.fi.intel.com>
- <b06e4a63-85c2-4420-8077-f4c059ef33fb@kylinos.cn>
- <a58e97ad-a69e-498d-9382-2be4914569b0@kylinos.cn>
- <20260114102154.251082c6@pumpkin>
-Content-Language: en-US
-From: Feng Jiang <jiangfeng@kylinos.cn>
-In-Reply-To: <20260114102154.251082c6@pumpkin>
+Content-Disposition: inline
+In-Reply-To: <20251228154947.194684-1-jiayu.riscv@isrc.iscas.ac.cn>
+X-CM-TRANSID: qwCowADXgW1Xi2hpdYHDBA--.1078S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7uF1xZrykKrWkuw47ZF4fXwb_yoW8KF48pF
+	WfGa95Kr4UJr4kWw1rZa1UZFya9an2y34rC347t39Yg3Z8tryDX3W5WFWUZws5CrZ3Ar15
+	tr4YyFyj9w4DXr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjxUqX_TUUUUU
+X-Originating-IP: [223.160.207.69]
+X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_222427_283900_700DABE5 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20260114_223824_404978_DE1072B2 
+X-CRM114-Status: GOOD (  21.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,70 +82,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026/1/14 18:21, David Laight wrote:
-> On Wed, 14 Jan 2026 15:04:58 +0800
-> Feng Jiang <jiangfeng@kylinos.cn> wrote:
+On Sun, Dec 28, 2025 at 11:49:47PM +0800, Jiayu Du wrote:
+> When probing the k230 pinctrl driver, the kernel triggers a NULL pointer
+> dereference. The crash trace showed:
+> [    0.732084] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000068
+> [    0.740737] ...
+> [    0.776296] epc : k230_pinctrl_probe+0x1be/0x4fc
 > 
->> On 2026/1/14 14:14, Feng Jiang wrote:
->>> On 2026/1/13 16:46, Andy Shevchenko wrote:  
->>>> On Tue, Jan 13, 2026 at 04:27:42PM +0800, Feng Jiang wrote:  
->>>>> Introduce a benchmark to compare the architecture-optimized strlen()
->>>>> implementation against the generic C version (__generic_strlen).
->>>>>
->>>>> The benchmark uses a table-driven approach to evaluate performance
->>>>> across different string lengths (short, medium, and long). It employs
->>>>> ktime_get() for timing and get_random_bytes() followed by null-byte
->>>>> filtering to generate test data that prevents early termination.
->>>>>
->>>>> This helps in quantifying the performance gains of architecture-specific
->>>>> optimizations on various platforms.  
-> ...
->> Preliminary results with this change look much more reasonable:
->>
->>     ok 4 string_test_strlen
->>     # string_test_strlen_bench: strlen performance (short, len: 8, iters: 100000):
->>     # string_test_strlen_bench:   arch-optimized: 4767500 ns
->>     # string_test_strlen_bench:   generic C:      5815800 ns
->>     # string_test_strlen_bench:   speedup:        1.21x
->>     # string_test_strlen_bench: strlen performance (medium, len: 64, iters: 100000):
->>     # string_test_strlen_bench:   arch-optimized: 6573600 ns
->>     # string_test_strlen_bench:   generic C:      16342500 ns
->>     # string_test_strlen_bench:   speedup:        2.48x
->>     # string_test_strlen_bench: strlen performance (long, len: 2048, iters: 10000):
->>     # string_test_strlen_bench:   arch-optimized: 7931000 ns
->>     # string_test_strlen_bench:   generic C:      35347300 ns
+> In k230_pinctrl_parse_functions(), we attempt to retrieve the device
+> pointer via info->pctl_dev->dev, but info->pctl_dev is only initialized
+> after k230_pinctrl_parse_dt() completes.
 > 
-> That is far too long.
-> In 35ms you are including a lot of timer interrupts.
-> You are also just testing the 'hot cache' case.
-> The kernel runs 'cold cache' a lot of the time - especially for instructions.
+> At the time of DT parsing, info->pctl_dev is still NULL, leading to
+> the invalid dereference of info->pctl_dev->dev.
 > 
-> To time short loops (or even single passes) you need a data dependency
-> between the 'start time' and the code being tested (easy enough, just add
-> (time & non_compile_time_zero) to a parameter), and between the result of
-> the code and the 'end time' - somewhat harder (doable in x86 if you use
-> the pmc cycle counter).
+> Use the already available device pointer from platform_device
+> instead of accessing through uninitialized pctl_dev.
+> 
+> Fixes: d94a32ac688f ("pinctrl: canaan: k230: Fix order of DT parse and pinctrl register")
+> Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+> ---
+>  drivers/pinctrl/pinctrl-k230.c | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/pinctrl/pinctrl-k230.c b/drivers/pinctrl/pinctrl-k230.c
+> index d716f23d837f..20f7c0f70eb7 100644
+> --- a/drivers/pinctrl/pinctrl-k230.c
+> +++ b/drivers/pinctrl/pinctrl-k230.c
+> @@ -65,6 +65,7 @@ struct k230_pmx_func {
+>  };
+>  
+>  struct k230_pinctrl {
+> +	struct device		*dev;
+>  	struct pinctrl_desc	pctl;
+>  	struct pinctrl_dev	*pctl_dev;
+>  	struct regmap		*regmap_base;
+> @@ -470,7 +471,7 @@ static int k230_pinctrl_parse_groups(struct device_node *np,
+>  				     struct k230_pinctrl *info,
+>  				     unsigned int index)
+>  {
+> -	struct device *dev = info->pctl_dev->dev;
+> +	struct device *dev = info->dev;
+>  	const __be32 *list;
+>  	int size, i, ret;
+>  
+> @@ -511,7 +512,7 @@ static int k230_pinctrl_parse_functions(struct device_node *np,
+>  					struct k230_pinctrl *info,
+>  					unsigned int index)
+>  {
+> -	struct device *dev = info->pctl_dev->dev;
+> +	struct device *dev = info->dev;
+>  	struct k230_pmx_func *func;
+>  	struct k230_pin_group *grp;
+>  	static unsigned int idx, i;
+> @@ -596,6 +597,8 @@ static int k230_pinctrl_probe(struct platform_device *pdev)
+>  	if (!info)
+>  		return -ENOMEM;
+>  
+> +	info->dev = dev;
+> +
+>  	pctl = &info->pctl;
+>  
+>  	pctl->name	= "k230-pinctrl";
+> -- 
+> 2.52.0
+> 
 
-Hi David,
+Hi Linus, could you please take a look at this patch? Thanks for
+your time.
 
-I appreciate the feedback! You're absolutely right that 35ms is quite long; it
-was measured in a TCG environment, and on real hardware (ARM64 KVM), it's
-actually an order of magnitude faster. I'll definitely tighten the iterations
-in v3 to avoid potential noise.
-
-For the more advanced suggestions like cold cache and data dependency, I can
-see how they would make the benchmark much more rigorous. My plan is to follow
-the pattern in crc_benchmark() to refine the logic, as I feel this approach is
-simple, easy to maintain, and provides a good enough baseline for our needs.
-
-While I understand that simulating a cold cache would be more precise, I'm
-concerned it might introduce significant complexity at this stage. I hope the
-current focus on hot-path throughput is a reasonable starting point for a
-general KUnit test.
-
--- 
-With Best Regards,
-Feng Jiang
+Regards,
+Jiayu Du
 
 
 _______________________________________________
