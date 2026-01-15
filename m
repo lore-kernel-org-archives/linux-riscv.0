@@ -4,64 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 386D8D4117B
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 12:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DE81D41178
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 12:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vVQJrUJEsJq9j88cpGbZuLYQVGCxmJMp0bs3GSVKNzs=; b=XbPh741tXRCEZh
-	Srq226DlDCiYHkfi18A85lx9BLYE9BqJF0Q1TyddKeFQnAIjQbfpymIgLTJIwuiY/8rDIszEw9xtu
-	f6y988x4A7adq/AyEJ6lhgbIhY4D0smjIgSMzLzJDHHLt46e+x2o/zrStB4jh4zPWkydYDHDuDrtE
-	qUygWVff+d+i33NFYW5RC4Gv0Wa0WwZZZBL727EL+l2AUxZFEhvwDpquNv6aOAB2EhMuHalzu23CS
-	/OdlVT3uuuVIzwgynXDbOX7GCi7aTMtLgrtToOS+vjth2ktE/lyQWCkcAUomVHdeIq/RDk/lCLWi9
-	19d9FblWx5qB4BA/qlRg==;
+	List-Owner; bh=YpvSF3hjqxDC4oz3j/8ZVSBgwch5afaxXOR0HT/1tOE=; b=bxbzouhzNew3SQ
+	HDwprdCnWhdtoGnwe6kslRzpn20dT3XqyBgYr9OEc8u2S1yfB+WpCwLXh1FeFyu1Bg8eUpvPqe05N
+	Aw2X9n/cIDutf2SSFHXrjp5cL13hchZGwFz8TATvanoyehJ09KPvdVsDTMr7SOseqcKMk6hvp0Cjw
+	CS3Lp3MsNHsq8OzwSgyg5J4UzHoU5CUhnxwE9cI5k6s2ceneC/zHkqa1DovojkWsIsoXxJPR2xXUb
+	lCwLYL8SGPtXhQ/XuLiL1XdgRbcyR3RRs6nKSuRniPvSGGwAVMRxba5j3M0z53Hkcpy7YgYXMi84b
+	etRzNJC5MIFoEa+Wx+yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgM6v-0000000CIBr-1Jp1;
-	Thu, 15 Jan 2026 12:05:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vgMEL-0000000CJD0-4A9B;
+	Thu, 15 Jan 2026 12:13:38 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgM6t-0000000CIBC-1Rwa;
-	Thu, 15 Jan 2026 12:05:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 732024382C;
-	Thu, 15 Jan 2026 12:05:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96987C116D0;
-	Thu, 15 Jan 2026 12:05:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768478752;
-	bh=gyEcUiyPUyExWka3HAxwmztaJczxw+a1BT05wunTPkU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UEkSErFNcunZoacCd9uro5tSYp9gBbvzRrbtzj+hB1FU9Srw2ig44fCLEcDduLYNm
-	 HF3igZ69i5imQEaAjZPfl3/3onhQWzn8qyJNdd50Z821iJ7BKC/fhmRr8a9m+vA+Og
-	 ocfbCmuIFwdk81Qn+TjlkHxexg2n3Sp1Eqq3ssZSAV8JgbXxLhojez3UHFWbGzhswN
-	 mzvTq+qBU79Muu6k2YfzqyQS8ZjbqWC5kec2c6WPX1dZ3X1LGDNOkB9F3LvYD1CHZY
-	 1CHueLYlmiUG4ty5Xw2FQ/lX+Io/DhIYt5iDKf+UYMlhyNm0lPlcU80G7ku+OeDadt
-	 aGHrxrReyrmEA==
-Date: Thu, 15 Jan 2026 17:35:48 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-Cc: conor@kernel.org, neil.armstrong@linaro.org, gregkh@linuxfoundation.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, 18771902331@163.com, cyy@cyyself.name,
-	TroyMitchell988@gmail.com, kingxukai@zohomail.com,
-	linux-phy@lists.infradead.org, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, gaohan@iscas.ac.cn
-Subject: Re: [PATCH v2 3/4] phy: usb: Add driver for Canaan K230 USB 2.0 PHY
-Message-ID: <aWjYHK1cTj8Dbz2B@vaman>
-References: <20260115064223.21926-1-jiayu.riscv@isrc.iscas.ac.cn>
- <20260115064223.21926-4-jiayu.riscv@isrc.iscas.ac.cn>
+	id 1vgMEJ-0000000CJCP-2IAU;
+	Thu, 15 Jan 2026 12:13:36 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 60FBh0Lo026299;
+	Thu, 15 Jan 2026 12:12:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=Ltc+hcjxizM3P3QQBHE8tMO8jkD4Ax
+	QpYmpFhYGG4/w=; b=cuKu8ya/gJARYizZ+g/vHOY4PzDBHZF7Wwq1mv4V5AdCv1
+	XtCNos0bxbpmqKnKdLi4H5IdfKb9s7ch6G1geIanNdWa/X3K6YkKRecaAPokUfb2
+	1x4mgLqPN16fB0/D0Pkm6U/pb59Ogtc3eOpM1B44xD2ehHe+glr2xrd1WVELSucC
+	w1jyKp86zhqkdOnALb30dL2/ACSyMp7uPc3x6mqSdi/3nwslJn8vSQg4Ja6SAUY9
+	GldKPVt66qLjpOUIAyutPLXE6dH9uWTlCr+0Z+SnIyuknO5Dx7wiiH3LkchHwh+j
+	RNdQcJfkXvDGCHWjOidfiUORs+UGEwXKLPICprOA==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bpja4k093-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 15 Jan 2026 12:12:17 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 60FBW8mI025858;
+	Thu, 15 Jan 2026 12:12:16 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4bm2kkqtyb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 15 Jan 2026 12:12:15 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 60FCCBvg36634880
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 15 Jan 2026 12:12:11 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B634A2004D;
+	Thu, 15 Jan 2026 12:12:11 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B8BAA20040;
+	Thu, 15 Jan 2026 12:12:10 +0000 (GMT)
+Received: from osiris (unknown [9.52.214.206])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu, 15 Jan 2026 12:12:10 +0000 (GMT)
+Date: Thu, 15 Jan 2026 13:12:09 +0100
+From: Heiko Carstens <hca@linux.ibm.com>
+To: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
+Cc: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>, "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>, "kernel@xen0n.name" <kernel@xen0n.name>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>, "tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>, "luto@kernel.org" <luto@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "willy@infradead.org" <willy@infradead.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "david@kernel.org" <david@kernel.org>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "vbabka@suse.cz" <vbabka@suse.cz>, "rppt@kernel.org" <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>, "martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>, "jannh@google.com" <jannh@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>, "shuah@kernel.org" <shuah@kernel.org>, "riel@surriel.com" <riel@surriel.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jgross@suse.com" <jgross@suse.com>, "yu-cheng.yu@intel.com" <yu-cheng.yu@intel.com>, "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com" <coxu@redhat.com>, "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>, "ackerleytng@google.com" <ackerleytng@google.com>, "maobibo@loongson.cn" <maobibo@loongson.cn>, "prsampat@amd.com" <prsampat@amd.com>, "mlevitsk@redhat.com" <mlevitsk@redhat.com>, "jmattson@google.com" <jmattson@google.com>, "jthoughton@google.com" <jthoughton@google.com>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "dev.jain@arm.com" <dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "Jonathan.Cameron@huawei.com" <Jonathan.Cameron@huawei.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>, "shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "thuth@redhat.com" <thuth@redhat.com>, "wyihan@google.com" <wyihan@google.com>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com" <jackmanb@google.com>, "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>,
+ "patrick.roy@linux.dev" <patrick.roy@linux.dev>, "Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>, "Manwaring, Derek" <derekmn@amazon.com>, "Cali, Marco" <xmarcalx@amazon.co.uk>
+Subject: Re: [PATCH v9 01/13] set_memory: add folio_{zap,restore}_direct_map
+ helpers
+Message-ID: <20260115121209.7060B42-hca@linux.ibm.com>
+References: <20260114134510.1835-1-kalyazin@amazon.com>
+ <20260114134510.1835-2-kalyazin@amazon.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260115064223.21926-4-jiayu.riscv@isrc.iscas.ac.cn>
+In-Reply-To: <20260114134510.1835-2-kalyazin@amazon.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE1MDA4NiBTYWx0ZWRfX8xuvdIWONZns
+ NVj8BAvAH4TNQ9O0kDyAmsAi7jrDlvBlIX5lrVtDjlKsAykqSak61W2NzOEE/mTeTapMZAxp4BE
+ Kg5JlEQ4oCZWkWECJyrK2hjes04NLm7FAxGCZLFEpSOLNK1+igAOkLJOHY9GXNAN7bkVCl9xtfU
+ qXDykXOjQUTOWBz25zMoy3olki99jMxOPUC0PwGY/k8vF3D7ujIT5mkzaC/zsmark/FqUFuC91E
+ +10vy+dh49wFMZRjzJA1LX+EM18nWBc15kk/7b4DHobAhio5bH3z57/Jt8du8sRGsMSFOrV8v9q
+ 1gZM94iCNVVUgv/wFLJNo3sZMr4MvSRNs611NG5Gl6uaOxxj0gsx1F0GA9AWcV2yHhAJAOQjPhG
+ ywiloEVRKAUYbQRI1zQhnfFyDO73c8tnH757E4fEE+iW/HO5M2Mf9Wc16eZZ8naIw0Qe3IcZlBk
+ 4FgoOq0SpQYiKqDUr5w==
+X-Proofpoint-ORIG-GUID: SiTgUlerDfUVs79tMKJhCw9rSIvAm_ra
+X-Proofpoint-GUID: SiTgUlerDfUVs79tMKJhCw9rSIvAm_ra
+X-Authority-Analysis: v=2.4 cv=U4afzOru c=1 sm=1 tr=0 ts=6968d9a1 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=kj9zAlcOel0A:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=vggBfdFIAAAA:8 a=3DJOwtP4az6VclhYBKkA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-15_03,2026-01-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 clxscore=1011 priorityscore=1501 lowpriorityscore=0 adultscore=0
+ malwarescore=0 bulkscore=0 phishscore=0 suspectscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2512120000 definitions=main-2601150086
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_040555_405786_4EE8FFD3 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20260115_041335_596859_597AF3CB 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +117,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15-01-26, 14:42, Jiayu Du wrote:
+On Wed, Jan 14, 2026 at 01:45:23PM +0000, Kalyazin, Nikita wrote:
+> From: Nikita Kalyazin <kalyazin@amazon.com>
+> 
+> These allow guest_memfd to remove its memory from the direct map.
+> Only implement them for architectures that have direct map.
+> In folio_zap_direct_map(), flush TLB on architectures where
+> set_direct_map_valid_noflush() does not flush it internally.
 
-> +static struct phy *k230_usb_phy_xlate(struct device *dev,
-> +				      const struct of_phandle_args *args)
+...
+
+> diff --git a/arch/s390/mm/pageattr.c b/arch/s390/mm/pageattr.c
+> index d3ce04a4b248..df4a487b484d 100644
+> --- a/arch/s390/mm/pageattr.c
+> +++ b/arch/s390/mm/pageattr.c
+> @@ -412,6 +412,24 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
+>  	return __set_memory((unsigned long)page_to_virt(page), nr, flags);
+>  }
+>  
+> +int folio_zap_direct_map(struct folio *folio)
 > +{
-> +	struct k230_usb_phy_global *global = dev_get_drvdata(dev);
-> +	struct k230_usb_phy_instance *phy_inst;
-> +	struct phy *phy;
+> +	unsigned long addr = (unsigned long)folio_address(folio);
+> +	int ret;
 > +
-> +	if (args->args[0] >= MAX_PHYS)
-> +		return ERR_PTR(-EINVAL);
+> +	ret = set_direct_map_valid_noflush(folio_page(folio, 0),
+> +					   folio_nr_pages(folio), false);
+> +	flush_tlb_kernel_range(addr, addr + folio_size(folio));
 > +
-> +	phy_inst = devm_kzalloc(dev, sizeof(*phy_inst), GFP_KERNEL);
-> +	if (!phy_inst)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	phy_inst->global = global;
-> +	phy_inst->index = args->args[0];
-> +
-> +	phy = devm_phy_create(dev, NULL, &k230_usb_phy_ops);
-> +	if (IS_ERR(phy))
-> +		return ERR_PTR(PTR_ERR(phy));
-> +
-> +	phy_set_drvdata(phy, phy_inst);
-
-This seems wrong place, why is this not done in the driver probe?
-
-> +
-> +	return phy;
+> +	return ret;
 > +}
-> +
-> +static int k230_usb_phy_probe(struct platform_device *pdev)
-> +{
-> +	struct k230_usb_phy_global *global;
-> +	struct device *dev = &pdev->dev;
-> +	struct phy_provider *provider;
-> +
-> +	global = devm_kzalloc(dev, sizeof(*global), GFP_KERNEL);
-> +	if (!global)
-> +		return -ENOMEM;
-> +	dev_set_drvdata(dev, global);
-> +
-> +	global->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(global->base))
-> +		return dev_err_probe(dev, PTR_ERR(global->base),
-> +				     "ioremap failed\n");
-> +
-> +	global->reg_test_offset[0] = 0x70;
-> +	global->reg_ctl_offset[0] = 0xb0;
-> +	global->reg_test_offset[1] = 0x90;
-> +	global->reg_ctl_offset[1] = 0xb8;
 
-Where are these magic values coming from?
-
--- 
-~Vinod
+The instructions used in the s390 implementation of
+set_direct_map_valid_noflush() do flush TLB entries.
+The extra flush_tlb_kernel_range() is not required.
 
 _______________________________________________
 linux-riscv mailing list
