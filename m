@@ -4,63 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE768D3CCA0
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 02:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85DDCD3CCA3
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 02:26:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=c1AfoNywq8fQHQsr981BTW9jt8un127HsoxS62ISNKA=; b=r4Y+S/8TeK4o7i
-	ojNaMWE79nxke6GEdjxSkJa3BvwSwlyMEOmoJRXsYpkcUdQacrhRd3m9U3sv+5DkJeeUYvYrAXZzv
-	4/fD8K8Pwe9qZWyISH6VLtanu+kSmcrpdq/Qahe2qd5aSOQXiR8Lbq3MoVuGFj/II7ZShsZlOFG9E
-	86OEzFC1I9z6zNwn4ChHiTRae8NWxoUoEobO9VCNDlDqogMCYBeRM/36jMJkkT3IZ+0+ioxY0fcrk
-	Azo6uL/C8MwMZaXa1YK1kcJupOcPeq14qWwo9D9XVzm3pQDGTHEIRbf5CGB8rV+e6YSsWcuGSxNkS
-	dydL94BAK3Cqz9nuyuBQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=r5uaajhN6Eu2NA1eIJqkkFHCFOTua4qapHJLctCQj68=; b=XxhWYUq0MbPNHm
+	PoGMAmXzJ89XflEJ8/XiXjsbmZzWor+TgXgE0Wu01yGvvz1GB73q4NM9KGuWgIA9LP3enH16/vSEK
+	Dpe7bqg+OCZ1yUeZKj9vbj16uU3wr9nNSHjlnpKvnEa4vriW1KID1CfPfSqWs83H8tm7poK3dI8dG
+	uQqOchf/LxP6eUSh9DbaTxwOW5dFIL4/j0+4v8YXT3XnAyacGXqMH8RZx8YppWQmyGLfqC7tylsbH
+	ejGO/KVTod5yP6SKTGY7VqsdWgMtnU91knmpM+QyTMRaSGyAAGGuHErEgVMAXFrIvi6W28oshe679
+	WIudfl/CPi6YZ7dXfpXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgCiG-0000000BUPY-3MZi;
-	Thu, 15 Jan 2026 02:03:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vgD3d-0000000BXQB-2jUu;
+	Thu, 15 Jan 2026 02:25:57 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgCiD-0000000BUOp-3M8E
+	id 1vgD3a-0000000BXOl-2vmo
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 02:03:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0A54040103
-	for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 02:03:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACC19C4CEF7;
-	Thu, 15 Jan 2026 02:03:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768442627;
-	bh=01/BcMefdiQJAFqcbKBCElf2up5LTOkivGiQ1oLjw8U=;
-	h=From:To:Cc:Subject:Date:From;
-	b=VVn8fEIA0P2SRgOgkH9L9xDnNrFMwSMr+FuTiVabG/Cdb0/fC+lXl31t27L0XMF9r
-	 wUcwVaavEX9Jx1gkCtnOKvybhVsLKNfNZsXG7+zWhSsh9jp2xj7QRNPY6Vtr6S9jNP
-	 QOF01QFmkGXT3gcQiqm/KOzcXTMVg7n2u8gbBzGTGP1j7L/VKYWpDo4bRGoXsGjZCq
-	 OGNT4cFmUE45ETlIKcWHDGxSFPXIqaD++f9Pjjn5PSbpT6TYhB3sY4CtnDaDSJpbvc
-	 uWDmI+0hZi6oltmQM/lADkEDKCDVydRFbhGsbEk8Jy8PhDovfFXCrbtuMqP5/C6u2+
-	 PZjgfQyH19yXQ==
-From: Yixun Lan <dlan@kernel.org>
-To: spacemit@lists.linux.dev
-Cc: Yixun Lan <dlan@kernel.org>,
-	soc@kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] MAINTAINERS: update email address for Yixun Lan
-Date: Thu, 15 Jan 2026 10:03:35 +0800
-Message-ID: <20260115-11-maintainer-dlan-v1-1-64bb698da846@kernel.org>
-X-Mailer: git-send-email 2.52.0
-MIME-Version: 1.0
-X-Change-ID: 20260115-11-maintainer-dlan-59b2ed54999e
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1535; i=dlan@kernel.org; h=from:subject:message-id; bh=01/BcMefdiQJAFqcbKBCElf2up5LTOkivGiQ1oLjw8U=; b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpaErM36niadQaWqw5X0frjrYPjc3l8ULtEaMp9 27u05vS4WaJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaWhKzBsUgAAAAAAEAA5t YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5 maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU QACgkQMarqR1lNu+3+WA//Y7GmKsRetgi8aRvMXT/Aua6pHOk+QCRE6HwEt/KuzCX1BSVcyRlfG VMKZCuyhXv9bZk3MIFofsxuf7MHT22sw03IN5+njd7s/Ln6QWkaLRSbgcuNgGXW7eiqbZt7xre7 H4mTHV76lVZRdL5p+341Z2/0dD1b2U1Gmzi7j4HVc3f57BtUJlxb+myMdrNbgcTJMJcSwJhdaia rWk7+59EusrC1QvveFPV603NGzVIh+hs17xL/7pAfumLiyQ3TVVgoNBjtI6i3SevofQ63cUroHI QUmrzFKb0g897pirSMrvL9xj5AxhNv7/k2tCk1sKmlrORAaS8uqgZ9hX+4krLYTV/stuyppVN2v TeaGP6UJ9SIKYGBU+YpowJvPyitAQOO9+KW0k/amm2hh5Nnsp3MxLIRoL8LbPBbZkXpDTzAEAIb M/lx9Au8MWj+F/Z82R1m4IS8OezDCyyV1Fr4ii4QRAU8koCeVzazigBInQUCfipRVsY+szRVE49 J33q2hVE7udSP
- lhrcBZ/UwGBurfeUPVZxxYz7OYf20UvsvN7idsph5JJIFXlcnid3fcdRjU4RaC rEVHWBpzQ10irMr/+QwZ5zhz/zXVNobNJW16IvNP8fWszT5iJDfhwG2VULebb9xt0ShVZxi35hD dbo48wuamlAFwo32yMG02jR6T8NT10=
-X-Developer-Key: i=dlan@kernel.org; a=openpgp; fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+	Thu, 15 Jan 2026 02:25:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1768443924; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=SdLcgS0AKYw1OM2EI9pNozj2r+kFAtlgo6Uqeb5bGJak3M13Xbjtt9GAIv8taXGsvwD9hqRZCQtrJn/kD9n2rLrqUe12OgbcWutH1etf4THXoQyKyh8uLqCDFaqFsRHkEPDjuRfjuZB/uXDXVFMdznjgStlfuEFhlXysJuqFgAc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1768443924; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=KjWm5wOna2WpOISnzqb2AoOrQZWydDdpwEHC+FBfdSA=; 
+	b=nZRh5JKIGp26Qewfw2ZYTcghWJC1miR80JyBZepVkCLnG+QRvpLmiWLzTik0FxagH7+1O1KUhs6lBVtz2aMdBtwhkCrfwnI+wIx2MYuuPH/zk530wSzSKYNkAn8jT0YiMZk/9NqyVWoZ7ibRmMNwDMYr3Ke120MuabO06E/b+hQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768443924;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Subject:Subject:From:From:To:To:Cc:Cc:References:In-Reply-To:Reply-To;
+	bh=KjWm5wOna2WpOISnzqb2AoOrQZWydDdpwEHC+FBfdSA=;
+	b=Xa1+brfskQG59Bvab67yVX4GtVvPUI0BEyPcgTJ4qigru7KoXIDh5HNrGjnzwZpA
+	O5KGuVymC/ztAQgtajaoGgLs3D+qQiN7PkoiKYuoGZczMbwWmMMwlp5qfmM9MtryEyF
+	/NQdagYfzoJLhUNrTY43Irjd02Q6/ErceX1uUuto=
+Received: by mx.zohomail.com with SMTPS id 1768443921940306.07558282338914;
+	Wed, 14 Jan 2026 18:25:21 -0800 (PST)
+Mime-Version: 1.0
+Date: Thu, 15 Jan 2026 10:25:09 +0800
+Message-Id: <DFOT1OLHTY6Q.1TKU3R1DDM5SR@pigmoral.tech>
+Subject: Re: [PATCH v2 2/4] riscv: dts: anlogic: dr1v90: Add "b" ISA
+ extension
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Guodong Xu" <guodong@riscstar.com>, "Jonathan Corbet" <corbet@lwn.net>,
+ "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
+ "Conor Dooley" <conor.dooley@microchip.com>, "Conor Dooley"
+ <conor@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Chen Wang" <unicorn_wang@outlook.com>, "Inochi
+ Amaoto" <inochiama@gmail.com>, "Yixun Lan" <dlan@gentoo.org>, "Conor
+ Dooley" <conor+dt@kernel.org>
+Cc: "Junhui Liu" <junhui.liu@pigmoral.tech>, <linux-doc@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <sophgo@lists.linux.dev>,
+ <spacemit@lists.linux.dev>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260115-adding-b-dtsi-v2-0-254dd61cf947@riscstar.com>
+ <20260115-adding-b-dtsi-v2-2-254dd61cf947@riscstar.com>
+In-Reply-To: <20260115-adding-b-dtsi-v2-2-254dd61cf947@riscstar.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_180349_881869_10D0DD6B 
-X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-CacheID: sfid-20260114_182555_114416_24A19C24 
+X-CRM114-Status: UNSURE (   7.18  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,51 +90,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Switch my email address to kernel.org account for more convenience.
-Also add entries to the mailmap.
+Hi Guodong,
 
-Signed-off-by: Yixun Lan <dlan@kernel.org>
----
-I will send it along with PR to SoC maintainer via SpacemiT's SoC tree
----
- .mailmap    | 2 ++
- MAINTAINERS | 2 +-
- 2 files changed, 3 insertions(+), 1 deletion(-)
+On Thu Jan 15, 2026 at 7:18 AM CST, Guodong Xu wrote:
+> "b" is ratified (Apr/2024) much later than its components zba/zbb/zbs
+> (Jun/2021). With "b" added into riscv/extensions.yaml, a dependency
+> checking rule is now enforced, which requires that when zba, zbb, and zbs
+> are all specified, "b" must be added as well. Failing to do this will
+> cause dtbs_check schema check warnings.
+>
+> According to uabi.rst, as a single-letter extension, "b" should be added
+> after "c" in canonical order.
+>
+> Update dr1v90.dtsi to conform to this rule. Line balancing is performed
+> to improve readability.
+>
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
 
-diff --git a/.mailmap b/.mailmap
-index 84309a39d329..fa9296de463e 100644
---- a/.mailmap
-+++ b/.mailmap
-@@ -868,6 +868,8 @@ Wolfram Sang <wsa@kernel.org> <wsa@the-dreams.de>
- Yakir Yang <kuankuan.y@gmail.com> <ykk@rock-chips.com>
- Yanteng Si <si.yanteng@linux.dev> <siyanteng@loongson.cn>
- Ying Huang <huang.ying.caritas@gmail.com> <ying.huang@intel.com>
-+Yixun Lan <dlan@kernel.org> <dlan@gentoo.org>
-+Yixun Lan <dlan@kernel.org> <yixun.lan@amlogic.com>
- Yosry Ahmed <yosry.ahmed@linux.dev> <yosryahmed@google.com>
- Yu-Chun Lin <eleanor.lin@realtek.com> <eleanor15x@gmail.com>
- Yusuke Goda <goda.yusuke@renesas.com>
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 5b11839cba9d..8417c0c8cc72 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22518,7 +22518,7 @@ F:	drivers/mailbox/riscv-sbi-mpxy-mbox.c
- F:	include/linux/mailbox/riscv-rpmi-message.h
- 
- RISC-V SPACEMIT SoC Support
--M:	Yixun Lan <dlan@gentoo.org>
-+M:	Yixun Lan <dlan@kernel.org>
- L:	linux-riscv@lists.infradead.org
- L:	spacemit@lists.linux.dev
- S:	Maintained
+Reviewed-by: Junhui Liu <junhui.liu@pigmoral.tech>
 
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20260115-11-maintainer-dlan-59b2ed54999e
-
-Best regards,
 -- 
-Yixun Lan <dlan@kernel.org>
+Best regards,
+Junhui Liu
 
 
 _______________________________________________
