@@ -4,68 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED1BD3CC8B
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 00:10:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CAA0D3CC84
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 00:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IuIGOrhODlWqE+vlDsRKQMvkpzn+xr4vATbvD00Uac4=; b=F0bNmNLhl6Me/z
-	ojOPNKuCabGPCoyCM04rSblp6g5qt6riTxeK82z4D0Y68DtVOckq6awJvKaKy1LRgzDnve6UipeuL
-	8d1EOhXey2lhZpflStl82k67bwgNbPFpMBr6Bly9+gCbt60ENEwTze6aFE816K705UTAjxhq2TKgq
-	gqdLDxic76kWxp4/7e3Kv8ORB5hKgBN8w5oLawmRtvTN0o8o2+WYy1cIgnER7rfB4a7gkAtTA0xOh
-	z/r62LH+IA7onwkV53o56RcwndwjqS2B+b+pqKGqOqJ2fUDXMimjT+PKO8Tt9UnsdvU/nN1R3NBvb
-	SFBUPJoFQ0znccVfrNeA==;
+	List-Owner; bh=BOUqigYQPNsqjHcBhSuNWLhRla2a2vOIr8ebX/afxCY=; b=c3TXVT3UXP0uV3
+	9jKNOqujtt8KXFJ1Jw64rfphORG4DGCRjXYGQsVTibAtsOpKRczNrDBJeJAXxbSz2v0BVgicD7p/E
+	IFyof+SnQZDinN6a8lGBmvn6do9mHb9uhzmtTwiIy1ju52qp15QEKl4hBf08FAYrI6FEuATw/+Mcg
+	1J8OdwSQWDsH0h8HwV+Ebtl7gXdS56hSIe0WgK3yYMne/4WVNcGdw4P/0Ly7urD00dcoy74co/Svn
+	de2/mb+w1174vVcHL0IcLmOobz3d+1l9swrBeJB9vm2x9a9DKv2w+0NmHQ2mrtIp5eb3HbCzOuuil
+	q2LgixlMP9FKWrbx3znA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgAwR-0000000BBD9-0nAj;
-	Thu, 15 Jan 2026 00:10:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vgB5o-0000000BCnj-0NkL;
+	Thu, 15 Jan 2026 00:20:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgAwN-0000000BBCH-42W7
+	id 1vgB5m-0000000BCnb-1j3i
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 00:10:21 +0000
+	Thu, 15 Jan 2026 00:20:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2D02D41E63;
-	Thu, 15 Jan 2026 00:10:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA41BC4CEF7;
-	Thu, 15 Jan 2026 00:10:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6DC3D6000A;
+	Thu, 15 Jan 2026 00:20:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99073C4CEF7;
+	Thu, 15 Jan 2026 00:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768435819;
-	bh=Ljq6Ev0VUg/ATfRNcevTlJY9Y7DmUPF+pSGl3zMERsM=;
+	s=k20201202; t=1768436401;
+	bh=2sEhA2J32gRYLjlaKzp2VoItieVdGTof+LBqHBRNaFc=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=fdxvhVmgH7t0NVfxCuVG+vg+FymTORumEusFnBforAlYl+P3hnT9yqLNlRZsFMOxc
-	 v3H3ocYBGnsOr7zTmBl7nx2Rd5fM9rWVIjcqxqNl4MpZBGXlQnS8ZIXEqKoQQA/lh5
-	 5jBABtjkfgJoStX8ElTEdd7sTNmhmFsyqaR3TkyDixyU2mrFzY7NNTjkVTEUWQF+Bm
-	 dQStxJ2ezwVQWZqOoGQVGslxj7GCorF0SRKLWDXxyogzRAz5/e8R/1oZ7A4Vrg1gPq
-	 kdJhffdkwhlexCUB932WeIpKRXJZD9BHZ3dEpXGk6FvPCcqEivYmXn0yBaSSEIcBXA
-	 TYl7+oTaBROAg==
-Date: Wed, 14 Jan 2026 17:10:16 -0700 (MST)
+	b=i9JITMSuW+iJ2XKztzLyY/cUbvn18pN+iGQyTK1b6uaEVN/sn6oGJK6+KsTqOyltD
+	 B8eGPCGUc09KdFq4GahQdX7YPz2tdCVToEOcht+dxEXX8mmDdDSmNfvL7dtS078+gN
+	 +rdZHP83ZhxmA0v/n6U8/mJBTn6CRnwwRHf9xJ8OuJ930MgSJmLLFXkLiR6hEL24oh
+	 6BtVqrCvQvC9sWyqdYIRdDk0sGr/yqZw/SXwk3WyybArDwEsaky+FVQU9wMdSns9Mm
+	 WcaTPh8A+2zTceO24vMyW8+CSPWq4Vtu9mn6Emn9qjCJ07vwJd1h8l6ndsJ9D1K/b/
+	 xfYZLER9vk7/Q==
+Date: Wed, 14 Jan 2026 17:19:57 -0700 (MST)
 From: Paul Walmsley <pjw@kernel.org>
-To: Guodong Xu <guodong@riscstar.com>
-cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <pjw@kernel.org>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Alexandre Ghiti <alex@ghiti.fr>, Conor Dooley <conor.dooley@microchip.com>, 
-    Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-    Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-    Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-    Yixun Lan <dlan@gentoo.org>, Conor Dooley <conor+dt@kernel.org>, 
-    Junhui Liu <junhui.liu@pigmoral.tech>, linux-doc@vger.kernel.org, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
-    spacemit@lists.linux.dev
-Subject: Re: [PATCH v2 1/4] Documentation: riscv: uabi: Clarify ISA spec
- version for canonical order
-In-Reply-To: <20260115-adding-b-dtsi-v2-1-254dd61cf947@riscstar.com>
-Message-ID: <e91054c8-d7fc-5b0f-2821-9926561f64d5@kernel.org>
-References: <20260115-adding-b-dtsi-v2-0-254dd61cf947@riscstar.com> <20260115-adding-b-dtsi-v2-1-254dd61cf947@riscstar.com>
+To: Javier Carrasco <javier.carrasco.cruz@gmail.com>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: defconfig: enable NLS_ISO8859_1
+In-Reply-To: <20260111-nls_iso8859_1_y_riscv-v1-1-2c992bb2c00d@gmail.com>
+Message-ID: <345da49c-b8b5-8538-6231-c614792c9092@kernel.org>
+References: <20260111-nls_iso8859_1_y_riscv-v1-1-2c992bb2c00d@gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_161020_029297_A8DE0B4F 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,21 +70,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 Jan 2026, Guodong Xu wrote:
+On Sun, 11 Jan 2026, Javier Carrasco wrote:
 
-> Specify that chapter 27 refers to version 20191213 of the RISC-V ISA
-> Unprivileged Architecture. The chapter numbering differs across
-> specification versions - for example, in version 20250508, the ISA
-> Extension Naming Conventions is chapter 36, not chapter 27.
+> NLS_ISO8859_1 was enabled as a module with commit efe1e08bca9a ("riscv:
+> defconfig: enable NLS_CODEPAGE_437, NLS_ISO8859_1"), but the
+> NLS_CODEPAGE_437 counterpart is selected as built-in. The commit does
+> not explain the reason behind, and it is not consistent with the
+> defconfig for ARM64 that also enables these modules to mount EFI system
+> partitions.
 > 
-> Historical versions of the RISC-V specification can be found via Link [1].
+> Select NLS_ISO8859_1 as built-in to provide both requirements within the
+> kernel image.
 > 
-> Acked-by: Paul Walmsley <pjw@kernel.org>
-> Link: https://riscv.org/specifications/ratified/ [1]
-> Fixes: f07b2b3f9d47 ("Documentation: riscv: add a section about ISA string ordering in /proc/cpuinfo")
-> Signed-off-by: Guodong Xu <guodong@riscstar.com>
+> Signed-off-by: Javier Carrasco <javier.carrasco.cruz@gmail.com>
+> ---
+> I stumbled upon this while scripting commands to launch
+> qemu-system-aarch64 and qemu-system-riscv64 with debian no-cloud images
+> and -kernel to provide a defconfig kernel in both cases. I expected the
+> same behavior to mount the EFI partition, but it failed for riscv unless
+> the modules were installed/provided. That didn't happen for arm64 as
+> NLS_ISO8859_1 is built-in.
+> 
+> If there are no good reasons to keep these configurations differently
+> for these architectures and only have NLS_CODEPAGE_437 bult-in, having
+> NLS_ISO8859_1 built-in is more consistent and the EFI partitions are
+> mounted more easily. This is the only configuration that had to be
+> modified to boot Debian 12 and 13.
 
-Thanks, queued for v6.19-rc fixes.
+Thanks, queued for v6.20.
 
 
 - Paul
