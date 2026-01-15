@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71EDBD4663D
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 23:43:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C863AD4663C
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 23:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hwf4XSLGTB3/sCjgtPxtHWzONtqXUHM3nJBNkjXcMHQ=; b=f58VMm1hH8wGjT
-	oFztqhiKZ7WEb2qJwlAxlIxLsYbdJ41Dz6X8idjy+wzhFH2As62MAeR9Vzqu32nCdbuDujdxVeJUO
-	3uSBlGLAdRaagOx097BS2bOSo+RMJV/TAXsJep1YqrVTkXUhry0sGX6cMf1GGt5XdppqlMZawv588
-	l6ZH9gkzJPX+BQxCax84S2PJk5E6Rr2TqGqVE7BL420S7kES7Cw5UXlNJqOLEUrprI+xKuBFJgLVn
-	69WXIN2i0Bw6XLFRBd30IlyTJohIr7l9gqsKAQ2TJM9OD5d4DObMObKU3D14hqKOj3GRUcSLB5OSv
-	QycIukzYBFUgv9wWEpTg==;
+	List-Owner; bh=RCuWnq1VqSe8MRkn0YhIU8KhkWZwnqljza7tmEZndcI=; b=uctaLVbahQsyhP
+	Yv/16EiDFlGvffsBncE6DPwP4KL9Zl07yI6GTI2IWpVdAXfW+qlZHDtPKuCxTckd0QvRDa2fIp3tu
+	8pU6Okn7AAQ1LxVYrv43QX/inVgIUAnjk7XeAGBOkKTDWC7J7Bb+BfUAGuZ05BexQJEi0Kug/O5on
+	6jFcn7q7pT44y/5RreBi/4ZdFBIfLM/a2yTD1vPpbLAj9NCvJZJRyH89PrOWyMhpO9HWO/lcvMB9J
+	tsQmEBc5efWxNEc0UOjmnuAy1J/gbHFg2N8sdYNXhfB/FbH40qDfZ2yI0FtVAuyQZYq50qrCD4GjJ
+	L5TP2uIXBOkrLdgWkmvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgWzO-0000000DKK9-2Q8G;
-	Thu, 15 Jan 2026 23:42:54 +0000
-Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
+	id 1vgWzP-0000000DKKY-3kJg;
+	Thu, 15 Jan 2026 23:42:55 +0000
+Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgWzL-0000000DKIS-3bY8
+	id 1vgWzM-0000000DKJI-474h
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 23:42:52 +0000
-Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-78e7ba9fc29so14819507b3.2
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 15:42:51 -0800 (PST)
+	Thu, 15 Jan 2026 23:42:54 +0000
+Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-79275e61c2cso15934767b3.3
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 15:42:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1768520571; x=1769125371; darn=lists.infradead.org;
+        d=tenstorrent.com; s=google; t=1768520572; x=1769125372; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=6iZRWuyORG3HiSopQBMtG8viyXNEvTSjWImQZ3xz+Po=;
-        b=JbsfbNSkq6DvMvvnayhpdVnfWfK3/ygifZOPbK75RenJB5fXoB4DLNI9EJukmYiNMu
-         LifvLGw5Hz+vOyJfWhmAQOyMjaZ93n16t8a8lO/hbiZRQ1FHb/g+rG6KEk7S6Lb+xdgr
-         PENXz6uX3IHueNwZVImUXtfKhlFe6KooPz6fZm5cmI00sCwQmi3D/dClXDMKUqeca478
-         N8pcRRtV9U8gi+wScnRIQDmxaX1fWMtPxKA2xkVkrgEHMUmAnu1JtycDP7u2eiSghfLx
-         FOPR34gcGIvakXZJ4+a1/i83Q6BeREz38bj91IMAjxN5q6WMTwwIui0EKoW6RbzFQKOo
-         vH9A==
+        bh=YuXosatL7jUspS52kKMFA09e6GoDFcrqO+bX2qZbTEM=;
+        b=gzwDPs7QJizWb58q69U8or+j+DPvnspqDkEq3f4yIKHQN5jwxmTwoWaSUICCqc7LiT
+         sfWxAXSwkhzp9hKNVglZa1SqzTWqZNtolnxRIC4qakF2wMrUQXiqcbBOgOqTicKYbE7F
+         dsP1c9Jy/Aj6yVvnHprNIQT7T3yV53kOsNROtQLvreAfqjpYIsyF+cR/m5Yngl/uaPYw
+         5RWMiU1EdW5MLShk7ABilw4VhdA1MhaZnMEqy0QzY59fwLFK8T8TpA/pEhgx6qjlHP17
+         6/wCbMo/LG5S9FvIdNrFqb0E9PnNiXUvWy/6MUwn37kmcN0QhQ9PwFSU9RzfHX+4Yrto
+         u5iA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768520571; x=1769125371;
+        d=1e100.net; s=20230601; t=1768520572; x=1769125372;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=6iZRWuyORG3HiSopQBMtG8viyXNEvTSjWImQZ3xz+Po=;
-        b=h1ccb9MX958fHiMAbZC1fwAT7tUmJuUXcSBr5wWOq+JpLGq0ZeCF3hylL0qk+69fJ4
-         /bHOosP8HNYf5VRUrE5igf9ZAoQQVPodNodeNUh2XAneAh2K8c9gvZXJ1+RTa2Hv3W1m
-         d/gWouu5lAPvPDzDsz6x4yYvzfFhCarEi+Tipay0v1lB/02mFgt87KESGPiB5/9N7wJ0
-         eKs3jLPbu8tXhMVhhDP+g6+OldhrjK/lzQ6+zf5ewI2zIKZK+Pj92TOG4FdpoWWXPLT4
-         c9+eqK1CnGRqdZztzQDvwG4Iro8JhqmM+2SMysuuZ32S4WppQbn7Y3FMgHLSMNDO1xxI
-         pb0A==
-X-Gm-Message-State: AOJu0Yw1GFp7+ADbYf3NO/KfH3sjs1ZfBjEmnTFdnyg0Y/QQfpyfR203
-	B9S5ohXpacfiC2aJb8I+W4IGbCdCOdjUfvI+uWBCUbVEiF9QHsM7GNva1790OPcdmxU=
-X-Gm-Gg: AY/fxX6FBAJ0j2iwBe6S29zkZqVTNjLQ6mnQ3Hqh2kKm58B1YMp8eLvF3lX00jwpc/L
-	Fs9Bn0zB/nWrCq2ZZWIbxt465xJgmHUKNaqDyFW58d9+FSFTLtSoJk1ZoL0x2ZUfkqBy8VqM2V1
-	GxhAHozf2ScFCER5gWohrm7YwtdzlrmisdYGwiATlaF03cDkc0VhZXBOpVr2aOrHowQkhwZNOAU
-	Jy7aE+DlBQj6ryWpESBjMF4aietKuCSz3ux/Ur1d4KvAgQ8djU3wGEUOd+2R+53/C09NrpVoasp
-	DvElk3bXhvju30fcciQ4usDdvy0pGh8lYkfUFMR8PHA2ilk9JZiR3L25JfhCDglpEQV9ubel5++
-	9mPfY42P25reY6EOBTncgjei0ekrXagdnQbndB39pkH4/PjGJIF5QVTMdctj819sDavQ1DJGjym
-	IJIcHM9+W2RSgrwBQVTRlv9T1Opjfv3Fcnboy8fh1kJ7X3PO5Y1JwNLtmaTtueBSCgamYgapM=
-X-Received: by 2002:a05:690c:46ca:b0:787:1aba:3081 with SMTP id 00721157ae682-793c683dcafmr8332397b3.58.1768520570793;
-        Thu, 15 Jan 2026 15:42:50 -0800 (PST)
+        bh=YuXosatL7jUspS52kKMFA09e6GoDFcrqO+bX2qZbTEM=;
+        b=k8tj7o9TTOT2O2PecOus/JWvW0zOs1ecsai+NYED8sSxaHj8ajEy2VcvxZcOScjgXP
+         f47wSBgYtwft++vUwD3KcXImet3i9vOCMEpsVtBSRQtOZWWwmsmdgtqwArhdgoKgcLwK
+         Wk0Pwer3JobtqMqkVMTtFX2iQCLYTDFB/ToKyKW5S8Z93sxFcX4nKA+u5z+PKvoDFAtW
+         8rW3xxF0YByiNsTutEbsJH1p5LpUNpIyf9awPJx3dNx/hQR8Cek1UZKZB02mLBaqjk7M
+         BKZKDLZVd+V04w/Pg9Quj9Xu0F1ePYaMNN42HlNzxgN5H5jwV6oMHeLpU9uitcYeWiG2
+         6ILg==
+X-Gm-Message-State: AOJu0Yze97ZbWIvrmhSQhmTAxs1/X9ax+qNA87vOj7046EdVnIurrFxt
+	+4dddN0v7zTFa0+j0HSLek8nXQe5vuJO8d0fT9qJNr9hX8lhciSiM4L5qneyVWR+AAY=
+X-Gm-Gg: AY/fxX6Jg6xloPlqoub8U8dDcQucePuovNzOTVxy3J+wkNghLYbYaI15pJKJis0y5fU
+	hmGB0j1kdURGHXfFpyNhAXmq/yvzGVQvqjpfuoTXxtTEHHFycLGto9YPypsMJdF1AmzHB1c3Okv
+	Q2xQ9iaGTbC61cQiU/s7xLGshUtA244N8cH1p6NjqqBkKIhEgzDTOApu2xS5CstIsi0INP6ChPI
+	r/wpeha4GBO7g7bXnZO6oKKd+vRy4Tb5V5ofzOP2lbq+WiIcvMT9sisKA1fdzsqAKkRqMugixIJ
+	rHhnLVqoP+R7nVi+nww//Ph/T5SRDBtYb9QURRkv+ZLlet1ljYdESGSbMrULAzI8WFxMuRJpnMd
+	sQ6PS/E/pB3VAk18D3QDa1ildzLW7E1O+GPtRciGxZcZZZExHOIe/EBx9C+FhwHeatTPZ9lY+LZ
+	4sJW6Caahb10rz3bKvi1te7Xoyg60oT/ZwMw83Lzpa1kfjuUqjsPDS9fQGGrFAh8WsNEMhPq4=
+X-Received: by 2002:a05:690c:e3e9:b0:792:7374:7ff4 with SMTP id 00721157ae682-793c66ac5e1mr8413757b3.11.1768520571893;
+        Thu, 15 Jan 2026 15:42:51 -0800 (PST)
 Received: from [192.168.5.15] ([68.95.197.245])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-793c66c72aesm3027117b3.11.2026.01.15.15.42.49
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-793c66c72aesm3027117b3.11.2026.01.15.15.42.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 15:42:50 -0800 (PST)
+        Thu, 15 Jan 2026 15:42:51 -0800 (PST)
 From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Date: Thu, 15 Jan 2026 17:42:05 -0600
-Subject: [PATCH 6/8] soc: tenstorrent: Add auxiliary device definitions for
- Atlantis
+Date: Thu, 15 Jan 2026 17:42:06 -0600
+Subject: [PATCH 7/8] reset: tenstorrent: Add reset controller for Atlantis
 MIME-Version: 1.0
-Message-Id: <20260115-atlantis-clocks-v1-6-7356e671f28b@oss.tenstorrent.com>
+Message-Id: <20260115-atlantis-clocks-v1-7-7356e671f28b@oss.tenstorrent.com>
 References: <20260115-atlantis-clocks-v1-0-7356e671f28b@oss.tenstorrent.com>
 In-Reply-To: <20260115-atlantis-clocks-v1-0-7356e671f28b@oss.tenstorrent.com>
 To: Drew Fustini <dfustini@oss.tenstorrent.com>, 
@@ -90,9 +89,8 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  npiggin@oss.tenstorrent.com, agross@kernel.org, agross@oss.tenstorrent.com
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_154251_912553_B407EFD0 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260115_154253_046691_C487FF3C 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,35 +107,234 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reset shares the same registers as the Clock Controller, so it is
-implemented as an auxiliary device of the Clock Controller.
-
-This commit adds the auxiliary device definitions needed for this.
+Implement reset controller as an auxiliary device of the clock
+controller, sharing the same regmap interface. This version of the
+driver covers resets from the RCPU syscon.
 
 Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 ---
- include/soc/tenstorrent/atlantis-syscon.h | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ MAINTAINERS                                |   1 +
+ drivers/reset/Kconfig                      |  11 ++
+ drivers/reset/Makefile                     |   1 +
+ drivers/reset/reset-tenstorrent-atlantis.c | 164 +++++++++++++++++++++++++++++
+ 4 files changed, 177 insertions(+)
 
-diff --git a/include/soc/tenstorrent/atlantis-syscon.h b/include/soc/tenstorrent/atlantis-syscon.h
-index f1dc6ad33c6d..972a9b7da596 100644
---- a/include/soc/tenstorrent/atlantis-syscon.h
-+++ b/include/soc/tenstorrent/atlantis-syscon.h
-@@ -8,6 +8,14 @@
- #include <linux/bits.h>
- #include <linux/types.h>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 93d941d2886b..31c3e5bcb32d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22538,6 +22538,7 @@ F:	Documentation/devicetree/bindings/riscv/tenstorrent.yaml
+ F:	Documentation/devicetree/bindings/soc/tenstorrent/tenstorrent,atlantis-syscon.yaml
+ F:	arch/riscv/boot/dts/tenstorrent/
+ F:	drivers/clk/tenstorrent/
++F:	drivers/reset/reset-tenstorrent-atlantis.c
+ F:	include/dt-bindings/clock/tenstorrent,atlantis-syscon.h
+ F:	include/soc/tenstorrent/
  
-+struct atlantis_ccu_adev {
-+	struct auxiliary_device adev;
+diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+index 6e5d6deffa7d..cade77717492 100644
+--- a/drivers/reset/Kconfig
++++ b/drivers/reset/Kconfig
+@@ -324,6 +324,17 @@ config RESET_SUNXI
+ 	help
+ 	  This enables the reset driver for Allwinner SoCs.
+ 
++config RESET_TENSTORRENT_ATLANTIS
++	tristate "Tenstorrent atlantis reset driver"
++	depends on ARCH_TENSTORRENT || COMPILE_TEST
++	select AUXILIARY_BUS
++	default ARCH_TENSTORRENT
++	help
++	  This enables the driver for the reset controller
++	  present in the Tenstorrent Atlantis SoC.
++	  Enable this option to be able to use hardware
++	  resets on Atalantis based systems.
++
+ config RESET_TH1520
+ 	tristate "T-HEAD TH1520 reset controller"
+ 	depends on ARCH_THEAD || COMPILE_TEST
+diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
+index 9c3e484dfd81..a31959da0a88 100644
+--- a/drivers/reset/Makefile
++++ b/drivers/reset/Makefile
+@@ -41,6 +41,7 @@ obj-$(CONFIG_RESET_SOCFPGA) += reset-socfpga.o
+ obj-$(CONFIG_RESET_SPACEMIT) += reset-spacemit.o
+ obj-$(CONFIG_RESET_SUNPLUS) += reset-sunplus.o
+ obj-$(CONFIG_RESET_SUNXI) += reset-sunxi.o
++obj-$(CONFIG_RESET_TENSTORRENT_ATLANTIS) += reset-tenstorrent-atlantis.o
+ obj-$(CONFIG_RESET_TH1520) += reset-th1520.o
+ obj-$(CONFIG_RESET_TI_SCI) += reset-ti-sci.o
+ obj-$(CONFIG_RESET_TI_SYSCON) += reset-ti-syscon.o
+diff --git a/drivers/reset/reset-tenstorrent-atlantis.c b/drivers/reset/reset-tenstorrent-atlantis.c
+new file mode 100644
+index 000000000000..b1e934a5b054
+--- /dev/null
++++ b/drivers/reset/reset-tenstorrent-atlantis.c
+@@ -0,0 +1,164 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2026 Tenstorrent
++ */
++
++#include <linux/auxiliary_bus.h>
++#include <linux/device.h>
++#include <linux/io.h>
++#include <linux/of.h>
++#include <linux/module.h>
++#include <linux/reset-controller.h>
++#include <linux/regmap.h>
++
++#include <soc/tenstorrent/atlantis-syscon.h>
++#include <dt-bindings/clock/tenstorrent,atlantis-syscon.h>
++
++struct atlantis_reset_data {
++	u8 bit;
++	u16 reg;
++	bool active_low;
++};
++
++struct atlantis_reset_controller_data {
++	const struct atlantis_reset_data *reset_data;
++	size_t count;
++};
++
++struct atlantis_reset_controller {
++	struct reset_controller_dev rcdev;
++	const struct atlantis_reset_controller_data *data;
 +	struct regmap *regmap;
 +};
 +
-+#define to_atlantis_ccu_adev(_adev) \
-+	container_of((_adev), struct atlantis_ccu_adev, adev)
++#define to_atlantis_reset_controller(_rcdev) \
++	container_of((_rcdev), struct atlantis_reset_controller, rcdev)
 +
- /* RCPU Clock Register Offsets */
- #define RCPU_PLL_CFG_REG 0x0000
- #define RCPU_NOCC_PLL_CFG_REG 0x0004
++#define RESET_DATA(_reg, _bit, _active_low)                          \
++	{                                                            \
++		.bit = _bit, .reg = _reg, .active_low = _active_low, \
++	}
++
++static const struct atlantis_reset_data atlantis_rcpu_resets[] = {
++	[RST_SMNDMA0] = RESET_DATA(RCPU_BLK_RST_REG, 0, true),
++	[RST_SMNDMA1] = RESET_DATA(RCPU_BLK_RST_REG, 1, true),
++	[RST_WDT0] = RESET_DATA(RCPU_BLK_RST_REG, 2, true),
++	[RST_WDT1] = RESET_DATA(RCPU_BLK_RST_REG, 3, true),
++	[RST_TMR] = RESET_DATA(RCPU_BLK_RST_REG, 4, true),
++	[RST_PVTC] = RESET_DATA(RCPU_BLK_RST_REG, 12, true),
++	[RST_PMU] = RESET_DATA(RCPU_BLK_RST_REG, 13, true),
++	[RST_MAILBOX] = RESET_DATA(RCPU_BLK_RST_REG, 14, true),
++	[RST_SPACC] = RESET_DATA(RCPU_BLK_RST_REG, 26, true),
++	[RST_OTP] = RESET_DATA(RCPU_BLK_RST_REG, 28, true),
++	[RST_TRNG] = RESET_DATA(RCPU_BLK_RST_REG, 29, true),
++	[RST_CRC] = RESET_DATA(RCPU_BLK_RST_REG, 30, true),
++
++	[RST_QSPI] = RESET_DATA(LSIO_BLK_RST_REG, 0, true),
++	[RST_I2C0] = RESET_DATA(LSIO_BLK_RST_REG, 1, true),
++	[RST_I2C1] = RESET_DATA(LSIO_BLK_RST_REG, 2, true),
++	[RST_I2C2] = RESET_DATA(LSIO_BLK_RST_REG, 3, true),
++	[RST_I2C3] = RESET_DATA(LSIO_BLK_RST_REG, 4, true),
++	[RST_I2C4] = RESET_DATA(LSIO_BLK_RST_REG, 5, true),
++	[RST_UART0] = RESET_DATA(LSIO_BLK_RST_REG, 6, true),
++	[RST_UART1] = RESET_DATA(LSIO_BLK_RST_REG, 7, true),
++	[RST_UART2] = RESET_DATA(LSIO_BLK_RST_REG, 8, true),
++	[RST_UART3] = RESET_DATA(LSIO_BLK_RST_REG, 9, true),
++	[RST_UART4] = RESET_DATA(LSIO_BLK_RST_REG, 10, true),
++	[RST_SPI0] = RESET_DATA(LSIO_BLK_RST_REG, 11, true),
++	[RST_SPI1] = RESET_DATA(LSIO_BLK_RST_REG, 12, true),
++	[RST_SPI2] = RESET_DATA(LSIO_BLK_RST_REG, 13, true),
++	[RST_SPI3] = RESET_DATA(LSIO_BLK_RST_REG, 14, true),
++	[RST_GPIO] = RESET_DATA(LSIO_BLK_RST_REG, 15, true),
++	[RST_CAN0] = RESET_DATA(LSIO_BLK_RST_REG, 17, true),
++	[RST_CAN1] = RESET_DATA(LSIO_BLK_RST_REG, 18, true),
++	[RST_I2S0] = RESET_DATA(LSIO_BLK_RST_REG, 19, true),
++	[RST_I2S1] = RESET_DATA(LSIO_BLK_RST_REG, 20, true),
++
++};
++
++static const struct atlantis_reset_controller_data atlantis_rcpu_reset_data = {
++	.reset_data = atlantis_rcpu_resets,
++	.count = ARRAY_SIZE(atlantis_rcpu_resets),
++};
++
++static int atlantis_reset_update(struct reset_controller_dev *rcdev,
++				 unsigned long id, bool assert)
++{
++	unsigned int val;
++	struct atlantis_reset_controller *rst =
++		to_atlantis_reset_controller(rcdev);
++	const struct atlantis_reset_data *data = &rst->data->reset_data[id];
++	unsigned int mask = BIT(data->bit);
++	struct regmap *regmap = rst->regmap;
++
++	if (data->active_low ^ assert)
++		val = mask;
++	else
++		val = ~mask;
++
++	return regmap_update_bits(regmap, data->reg, mask, val);
++}
++
++static int atlantis_reset_assert(struct reset_controller_dev *rcdev,
++				 unsigned long id)
++{
++	return atlantis_reset_update(rcdev, id, true);
++}
++
++static int atlantis_reset_deassert(struct reset_controller_dev *rcdev,
++				   unsigned long id)
++{
++	return atlantis_reset_update(rcdev, id, false);
++}
++
++static const struct reset_control_ops atlantis_reset_control_ops = {
++	.assert = atlantis_reset_assert,
++	.deassert = atlantis_reset_deassert,
++};
++
++static int
++atlantis_reset_controller_register(struct device *dev,
++				   struct atlantis_reset_controller *controller)
++{
++	struct reset_controller_dev *rcdev = &controller->rcdev;
++
++	rcdev->ops = &atlantis_reset_control_ops;
++	rcdev->owner = THIS_MODULE;
++	rcdev->of_node = dev->of_node;
++	rcdev->nr_resets = controller->data->count;
++
++	return devm_reset_controller_register(dev, &controller->rcdev);
++}
++static int atlantis_reset_probe(struct auxiliary_device *adev,
++				const struct auxiliary_device_id *id)
++{
++	struct atlantis_ccu_adev *rdev = to_atlantis_ccu_adev(adev);
++	struct atlantis_reset_controller *controller;
++	struct device *dev = &adev->dev;
++
++	controller = devm_kzalloc(dev, sizeof(*controller), GFP_KERNEL);
++	if (!controller)
++		return -ENOMEM;
++	controller->data =
++		(const struct atlantis_reset_controller_data *)id->driver_data;
++	controller->regmap = rdev->regmap;
++
++	return atlantis_reset_controller_register(dev, controller);
++}
++
++static const struct auxiliary_device_id atlantis_reset_ids[] = {
++	{ .name = "atlantis_ccu.rcpu-reset",
++	  .driver_data = (kernel_ulong_t)&atlantis_rcpu_reset_data },
++	{},
++};
++MODULE_DEVICE_TABLE(auxiliary, atlantis_reset_ids);
++
++static struct auxiliary_driver atlantis_reset_driver = {
++	.probe = atlantis_reset_probe,
++	.id_table = atlantis_reset_ids,
++};
++module_auxiliary_driver(atlantis_reset_driver);
++
++MODULE_AUTHOR("Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>");
++MODULE_DESCRIPTION("Atlantis reset controller driver");
++MODULE_LICENSE("GPL");
 
 -- 
 2.43.0
