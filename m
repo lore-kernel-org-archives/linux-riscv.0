@@ -4,74 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F221D3CCB3
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 06:09:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE692D3CCB3
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 06:14:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bx1cIwcRgQF6VqNllpSNHbqsuZA6Hx6+IqgReMud0Z0=; b=F5t7w+D9AyJnO9
-	cl3T7KeF8AMKjmI7ft2+fUb7fMmOQGyZXUSBSJ5PKyeiSN4hWXKsXo4F4+fjz/jPiU6+xW7h7Lq9X
-	EXG3B/mtf0AGPrfIVNdJYIhgkTPHXIiq81kFbIXOqn5K/WCtQgORH/ybPcZ2Ow0Xaa8/beY1X9z5f
-	Yl/SdGsN/nrBRkSvjH2tQDnYuSnidyGvPQAnLcMsL3mqTjx5uxkJg6atPG+UJntIbUnDsKeAGy2km
-	3PK2DIrRgXdFm5x6rHPDZM4KTyiARjODlI/wDmhkyC0TafLmKpWodM9St8W0gayV8nu9JDcT3Yng1
-	3fTSK3gAucWu21VoHdyQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=o5WtRove0NJAlO9684APZSvhEmULa9tLmuDSYenbXFM=; b=V0dzhN1webqHNn
+	nqDFOdNHc8o4/K/pG0e19Zvizfq388JnXDcKcbeiWoDSSfzOKeMzz/fVxsh/21ToLrS7myV4S7p1Z
+	o5dLYx5Ee5/hrKKXxOEY3m0CS3k8h0q/eSttedQmdmaolBuSl65S0WprjhiG6gyiqTD59hGeOV4ws
+	V2Q9lIttp6CleoKMemEhSyIfNxbjNy1tUR/j6AVa2VwFc2n+oHYcu24jwQY6a6qIvu9/2GwyVwdsQ
+	WjOFp8c7041bGGJO9auIzXO2jHc9+33DYN1fP1EZFFz7UIFFNFFGqg/nAKxvGwusLaXo4MOaKk4lj
+	MHqcoIYLoBc3WEjHGi8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgGX0-0000000BpJi-3ZAF;
-	Thu, 15 Jan 2026 06:08:30 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vgGc9-0000000BpkY-19kh;
+	Thu, 15 Jan 2026 06:13:49 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgGWw-0000000BpIi-0IJa
-	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 06:08:29 +0000
-Received: from duge-virtual-machine (unknown [223.160.207.69])
-	by APP-01 (Coremail) with SMTP id qwCowABH7mlMhGhpXOHCBA--.37756S2;
-	Thu, 15 Jan 2026 14:08:14 +0800 (CST)
-From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-To: conor@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	jiayu.riscv@isrc.iscas.ac.cn,
-	cyy@cyyself.name,
-	dlemoal@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	gaohan@iscas.ac.cn
-Subject: [PATCH v3 0/2] Initial support for 100ask CanMV-K230 DshanPi
-Date: Thu, 15 Jan 2026 14:07:59 +0800
-Message-ID: <20260115060801.16819-1-jiayu.riscv@isrc.iscas.ac.cn>
-X-Mailer: git-send-email 2.52.0
+	id 1vgGc6-0000000Bpk5-3vx6;
+	Thu, 15 Jan 2026 06:13:48 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 60F0GKV4004876;
+	Thu, 15 Jan 2026 06:13:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=gFjWdO
+	1Kr7nTH1rvXfR75t9SJ08y/Dca1mE8vULWp3A=; b=ifeEmi/XL7ojfXZkMHcjw5
+	2XT3BUZIK+ze+KC6Dgtm0PFYhYa5rdZNPSG5rlppZoKqAcfp/tzCSuq5nD5bsr15
+	vekI1/9vh208hoezzbOp+AnDzJ85eFOzAsWDkO/GLz2W070bQ5sL1XsfaQfVMPcm
+	uyyQSEY8nJiGP4A2kvfsJ293a0IThT44VrmuFMdPhJkX/UJbQ/JPIc6MuptSHm3o
+	8wuioXgC1oe0K+rDQi4HP4CW1QbR8Itc1HnfWeI3s4kM8yryz8OtjekqyCl9yOQS
+	yPhckJj60F+C+R44/GrM1TeqYYAm1Sdgo6xtwsVZOwfZTtbIaRwuuGJenKr+DvsQ
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bkedt4mck-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 15 Jan 2026 06:13:36 +0000 (GMT)
+Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 60F64Wro029529;
+	Thu, 15 Jan 2026 06:13:36 GMT
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bkedt4mcg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 15 Jan 2026 06:13:35 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 60F4icPp030146;
+	Thu, 15 Jan 2026 06:13:35 GMT
+Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4bm3ajx75t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 15 Jan 2026 06:13:35 +0000
+Received: from smtpav03.dal12v.mail.ibm.com (smtpav03.dal12v.mail.ibm.com [10.241.53.102])
+	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 60F6DF1Y11207328
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 15 Jan 2026 06:13:15 GMT
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3DAA15805A;
+	Thu, 15 Jan 2026 06:13:33 +0000 (GMT)
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id EDC9E5803F;
+	Thu, 15 Jan 2026 06:13:27 +0000 (GMT)
+Received: from jarvis.ozlabs.ibm.com (unknown [9.90.171.232])
+	by smtpav03.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 15 Jan 2026 06:13:27 +0000 (GMT)
+Message-ID: <cc97397d3c75d796ee71081cc842c867a62ce39a.camel@linux.ibm.com>
+Subject: Re: [PATCH v18 00/12] Support page table check on PowerPC
+From: Andrew Donnellan <ajd@linux.ibm.com>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Pasha Tatashin
+	 <pasha.tatashin@soleen.com>
+Cc: linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org,
+        Andrew Morton	
+ <akpm@linux-foundation.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Nicholas Piggin <npiggin@gmail.com>, Rohan McLure <rmclure@nvidia.com>,
+        Alexandre Ghiti <alex@ghiti.fr>, x86@kernel.org,
+        Nicholas Miehlbradt
+ <nicholas@linux.ibm.com>,
+        Sweet Tea Dorminy	 <sweettea-kernel@dorminy.me>,
+        Andrew Donnellan <andrew+kernel@donnellan.id.au>,
+        Srish Srinivasan
+ <ssrish@linux.ibm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org
+Date: Thu, 15 Jan 2026 17:13:26 +1100
+In-Reply-To: <b6c39059-faed-41a8-80b2-addaa229c143@kernel.org>
+References: <20251219-pgtable_check_v18rebase-v18-0-755bc151a50b@linux.ibm.com>
+	 <CA+CK2bBjoQmheEstv1MacGev_srdx=m5v=hwxdyfAKogbpG3FA@mail.gmail.com>
+	 <bf0def77b07a34c00928cedb46030ea17be4fceb.camel@linux.ibm.com>
+	 <b6c39059-faed-41a8-80b2-addaa229c143@kernel.org>
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABH7mlMhGhpXOHCBA--.37756S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Zw4ftFy8JF4kJr1xtr4ruFg_yoW8XF4kp3
-	y7uFsxGrZrKr1I9F4S9w48Wr15Zwn5Jr1rWw13X3srArWYvry8Crnagw45X34UXr17Cw10
-	va15Kry0grWjyaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
-X-Originating-IP: [223.160.207.69]
-X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE1MDAzNSBTYWx0ZWRfX53I7DiMu6h3z
+ raXZ/+frnSM8CMCW6s6EycApm3s6hEGJYKo4nVxjhzW2dpvC/SLuvXwOt2bFBxnDU2o8HyeArEP
+ KgqH3dyQwLP6m+aU6EMMPgT7xOMlk4XQygjZ3zRSFtE5O3/2hzrHiyzeLjD6xCJngU5YVP1Y2DT
+ M4oOYAvD+GbWzvH+yn69QZZex6VaPw03MenupSF6+0KKMyiJMfTGamOtrUz5U5OeL4yE7ACOpax
+ 1V8Bm9LBMmtQsGTbCTGGGhgIOoJlbp/8o+p+pCMkCtiFQ4KW0rqOTgOdVYjIRjzAS2GCYw4Xb2T
+ dYscTh1Jr06MtPwi5UgOTV/7Za1UdB4jl0ciUkhgXmHH2jej+be2xLWsydOaEreH/y8qTjgm1Hd
+ 6XW+9NYpu5bD/aXhf59z6H/VZnDjoETDJhvhkp2Y6kFxg5AC1B5HfLqjKMyh6ewlpPtTA2XNRZp
+ JF93iBCdf7rwfjpdlhg==
+X-Proofpoint-GUID: fME1BWB4YoztfUCI-TzSeij8lia_ZbwX
+X-Authority-Analysis: v=2.4 cv=WLJyn3sR c=1 sm=1 tr=0 ts=69688590 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VnNF1IyMAAAA:8 a=U6BpzXCMtsgkVx3qoqkA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: e7mbieSo6rWsEOFCa9zukzvR3P93ImOy
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-15_01,2026-01-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 adultscore=0 malwarescore=0 phishscore=0 suspectscore=0
+ priorityscore=1501 bulkscore=0 clxscore=1015 impostorscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2512120000
+ definitions=main-2601150035
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_220826_487944_E28CE470 
-X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-CacheID: sfid-20260114_221347_097423_98E5EC5E 
+X-CRM114-Status: UNSURE (   9.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,43 +142,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds initial support for the 100ask CanMV-K230 DshanPi
-board based on Canaan K230 RISC-V SoC. There is a module on this
-development board.
+On Wed, 2026-01-14 at 10:34 +0100, Christophe Leroy (CS GROUP) wrote:
+> What is the merge plan ? I see all powerpc commits are acked by Maddy, 
+> will the series be merged by Andrew into the mm tree ?
 
-The board and module are documented, the basic board/module devicetrees
-are added.
-
-This series is based on the K230 clock series[1] and the patch 3 of the
-k230 pinctrl series[2].
-
-Link:  https://lore.kernel.org/all/20251127-b4-k230-clk-v9-0-3aa09e17faf5@zohomail.com/ [1]
-Link:  https://lore.kernel.org/all/20240926-k230-pinctrl-v2-3-a9a36fba4b34@163.com/ [2]
-
-Changes in v3:
-- Delet the model and compatible of the root node in the dtsi file.
-- Use clock-50000000 as the node name.
-- Link to v2: https://lore.kernel.org/all/20260104070911.219588-1-jiayu.riscv@isrc.iscas.ac.cn/
-
-Changes in v2:
-- Add a minus sign before items.
-- Link to v1: https://lore.kernel.org/all/20251229061318.16756-1-jiayu.riscv@isrc.iscas.ac.cn/
-
-Jiayu Du (2):
-  dt-bindings: riscv: canaan: add 100ask K230 boards compatible strings
-  riscv: dts: canaan: Add initial dshanpi board DT files
-
- .../devicetree/bindings/riscv/canaan.yaml     |  5 ++
- arch/riscv/boot/dts/canaan/Makefile           |  1 +
- .../boot/dts/canaan/k230-canmv-dshanpi.dts    | 82 +++++++++++++++++++
- .../dts/canaan/k230-canmv-module-dshanpi.dtsi | 26 ++++++
- 4 files changed, 114 insertions(+)
- create mode 100644 arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts
- create mode 100644 arch/riscv/boot/dts/canaan/k230-canmv-module-dshanpi.dtsi
+This is what I was expecting - this revision is rebased on mm-new as it stood
+around when I sent it.
 
 -- 
-2.52.0
-
+Andrew Donnellan    OzLabs, ADL Canberra
+ajd@linux.ibm.com   IBM Australia Limited
 
 _______________________________________________
 linux-riscv mailing list
