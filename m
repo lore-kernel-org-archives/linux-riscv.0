@@ -4,111 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AFDAD4663D
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 23:43:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A094D47CAA
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 23:56:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SUWENuN2ZPLU6q2znbOX5fBt+qWoriAoN5nWQlaF7vI=; b=0KL+fazBXTu1VW
-	/Q0uKUDbpJooNDAFu+R2WJJU/o8FO7HJ7tTVNrWGVwH6CQnRwjPfnil9b1jKrTixkVylhe+fPvtDL
-	xwfaSRb5JbJGt4dQC+9LN7DNl9hMCazNDRJChDq0+rbH0oQ7l/J8OGwFnMtsXMTN3rKEUIzpOgnRW
-	9ZbHKFgA0KmnxZ4ys2V6QLJY6kYvQB9g8ZTb9bOZYRBxIo/7omTN8upgsL0rfG91D5ZYXGzdQG6a/
-	TtFL+xpibT7d/fF4FY3k+TRR1LEfBlJaNvnedqrKgWmOCwPZsG8ymCHD3H00wEKY1yCO8oY+WOyBJ
-	Hy4Nlb4h+MN443VB+SQQ==;
+	List-Owner; bh=IsMpqQ1RmSDouqUt6dTNYj9EXghE3eAGEZvgR89gPjs=; b=k8a8auI8nMeomZ
+	WeexZjoQNTkdTtbs1sPijdm3R5aN4ctdFVCVmVlPqRKueqWP+vA3FGyfIq4vmTEPljBRIg+i/HoDR
+	y7ZkYiI879ZeYFrvG00OvCJjsr8+6oIP/60qteVfjI1f56A0F1obGQghQOkKuLGBTQ1BpSvkU3peS
+	DgJjFpZC0fi6hAQ7ZVbSqQR6LN8KK5hC63aVc/H1TEjJVR3HP9MDK+1JJiF8nfOhyB33KoaCAdl0S
+	GnlRU1eMNxqTOMWE40AU4o4rXcGkSs6GdMP9NVbvdGS7iPpCqP9KAVJZJoFl47nXuXgxAiLF4SVaf
+	9yvgWOtyNeVYfbWTm8Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgWzU-0000000DKMb-12vW;
-	Thu, 15 Jan 2026 23:43:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vgXCf-0000000DLUC-3IOw;
+	Thu, 15 Jan 2026 23:56:37 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgWzS-0000000DKLZ-2Hmu
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 15 Jan 2026 23:42:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=mr+DET/MCWrJ44Xgox+RvCv0LCqYSg+k7ueyqWHNGvw=; b=U3qfVeYIuwxMXcLFuFZ/56YYF9
-	EvVT2JxVMxj/Ehbu0Vjk0P9JDxHwc/F0oKCkxwOCnd0sVnIMKgHnUIL4uhq7FpWW+dRDHVPqqwGCS
-	mBqd+Wf4fYHDYMkXRKhIATfNbWjERXD0XRkcgUELWrDgGQzUK3o8vDwlMXjl+HwMbeACvDneYzsIG
-	I/DCu5LC09sJMxexXpz2jF5PfE2NY5l5NoDbTIcJ75JRU7MHlrSugB7RbR31+9KT9Ee/TVrqLyQ9R
-	J2dls3bGLXzNStilXZOoKgWFTQcI4HkuHqXBl07AL2jvFtuh8o0bLM/sQP6OUlXIHIMTKY8JyM6lp
-	NVnbB5/w==;
-Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgWzL-00000007o5l-1zux
+	id 1vgXCd-0000000DLTY-25xT
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 23:42:57 +0000
-Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-79088484065so15928727b3.1
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 15:42:51 -0800 (PST)
+	Thu, 15 Jan 2026 23:56:36 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60FMkwQD3892932
+	for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 23:56:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=irBiMr6CSbVRpYyOwfv82LqW
+	psqYNDBdD+tqHLqBSZI=; b=gF08ylFAUxFHsYjFUuZnr3tqhwjYRsGlydrkv9zD
+	T9KmNe4vJh1QQrR2XB3754hRbNcmNUgPRPKBjKt7fCkH2Ku+xLQcurfjxmfgbvVc
+	uch+M13GWIyx8I+zqAkW3d4RB+Wr3iQ2lcIecrQFTJk8Rg/qv7ocCNt/4pcJKGCW
+	oEx9KTImWDV3+otwOk3hGhbbT9aUlBO676aBU3vfqLCd3juPi4w5KToneoMMtvZQ
+	1Ab7FOU9ujAcmPWLd9ENyXyg7bKINiWycPyzT6EQqxMZl/Vd8SE0tTTn67Hzi6o3
+	4HNvX229swWpxSB9XVcR67SlnlUtNtZpX/xg7C1eh7CVNw==
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bq9b08467-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 23:56:34 +0000 (GMT)
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1219f27037fso5318492c88.1
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 15:56:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1768520570; x=1769125370; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mr+DET/MCWrJ44Xgox+RvCv0LCqYSg+k7ueyqWHNGvw=;
-        b=cGY9PCHxmUCofx4h7YT/9lOq8tpJCfEXHKAaewoTiufwNwA9CvuRKoOcdx5CwxN+H6
-         hT8KzOWR+TYIe99JpXOA6/SynRlj5HeJYtCsRghiWQJbK1jgSoct0CyqZD4/0oDC/8hj
-         cOtZLwN74EXINbkuwMmQ/wuMyyp1KB8f2HMCxKVOfLWycH7Owg70LzYN2AL4ZRtLdWc1
-         QoTfbQsSeUhfLWSg/43bz1oDdW7sM/DRnhwuqYkSBWWfgsUWsYbUi844al6elpyvVn1F
-         81nCG1wbg9LI0/jvjyaWEWN9IRsikr01O7ufL5LxdIRg9bYa4di484H2hREdbWieFIk3
-         AtnQ==
+        d=oss.qualcomm.com; s=google; t=1768521394; x=1769126194; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=irBiMr6CSbVRpYyOwfv82LqWpsqYNDBdD+tqHLqBSZI=;
+        b=LsSfmo1hJhwbcjeOAFBhfCH7+IgM1hF0pzFgXnsz3+rKD7CPBDC7F4oeRp+Qqfstme
+         6iTF6ccjz3v5Di3rmagImoUFWs2iBLne06PKa9Zd2Llqb3kEh4YaS18Vp1tHALzS15e+
+         AJFN/Q9FCVAFyh4//HmP+ube5+eDGlQKx30rqD0GHSdynarumQa/JEy0q3xUJCu7aYl/
+         nBhoVuApbjSHAeytSaxmdtBohTKWAWC3ZmMm03T2EwH6X3TUYZT72zLaXrS8SqlO0l4E
+         ym2mMl9B0SmRvSPIokmTOFhUIkcwn1FImen6ukgLVKFUQ420B8HscMFuTrNGHILIEbdu
+         iRjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768520570; x=1769125370;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=mr+DET/MCWrJ44Xgox+RvCv0LCqYSg+k7ueyqWHNGvw=;
-        b=koWjFgFoOLoh+2Iv/oyPeYu6xl6hJoxDYxsMZ9y8BxYv5PmGmXLSEO1wk9f2xEBmu+
-         6q11fws7UxelVb/AyLt1udwCAKL5erbPka1OJJcHOLWjTtyMlNq4rm0wpJ9/Wm4V91JD
-         dRM0K4Cwa3h+MD8VB2xqMarljSzFwXYm1YuR3Pw0YsGyX/oGBva6ZouX1RemV1Jv3lP/
-         mcry5UixiDDyfPvwIjLh4RxByQ9kT3lY4M1IGUgkWJIWiTvMjuhH4COlQvnAcKU5LJoM
-         5kgoHLyqtQMx8T4Uk61GiGb37WZ+41JfGkd4ezGy4LidyFxMuRluPJceWI1jJ9UsFznE
-         VUnA==
-X-Gm-Message-State: AOJu0Yzbitrah1ZuJmQkYLVBuNCyj/igRwogT7p05cRLDVS3/+2DWNUz
-	qFOhW7hd30z57GDrhHMDsjm+Kz3B00/77wffgL9d6qDujkR155VkB4qCgGoXCjbL4jk=
-X-Gm-Gg: AY/fxX7RkOpuIMtDTWtzrSFrBzC02gwWGJ+sNe7GgAlCXvTPmlWc4bomncQFvq7cgrh
-	zmvTWqMyvRyNohLKl3lFjJSgN8gHcf2C0l5eZVg8EuHnNFGCn3vARwqzyfyWxWj0gHLJZDmM9Dx
-	Mq9gnwgfyIqjhPzuT9OypkNVutEYBEOMRhVG+jHt3b5o5/McwX4Bz0mGNzkl9iVGHAt/vyv+mJO
-	WDjPpsLSacKhw3SDpWLOw5xaqthvp6GeUluQqVxpRr8kzMXDMekuOctLWnuiM3QXAi56sAUELQi
-	vkKCJLMJ2jB1Cz1vxfYfr3pMQ25agB9r8g6ZtvFprOHnbmEviCJ7HY2tGq/j2jMShp/tWuirVHQ
-	4+Hvg1RpNhUUzyWd08PA02BZPOuWastQ1vZDHlmGj/djy4cUn6u3Ma9obpltk2HXi9TGdVhDk2T
-	o33PeT1L/ZMsbMSRPV2W7DlIF6jE9wZY9RFoqzIaqJPtttj7G4Bef95qaAVtLzGnn/xCz6zddzM
-	fLMjoTvAg==
-X-Received: by 2002:a05:690c:e3cc:b0:78f:b820:f2f3 with SMTP id 00721157ae682-793c523ce6dmr26018967b3.12.1768520569702;
-        Thu, 15 Jan 2026 15:42:49 -0800 (PST)
-Received: from [192.168.5.15] ([68.95.197.245])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-793c66c72aesm3027117b3.11.2026.01.15.15.42.48
+        d=1e100.net; s=20230601; t=1768521394; x=1769126194;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=irBiMr6CSbVRpYyOwfv82LqWpsqYNDBdD+tqHLqBSZI=;
+        b=trUq0L9PXTM2mMAgzjJPpjDfyhNS0DTswYC/y+vsu8vBZSTF732cib6QIsKXBX6aW3
+         8uoCLrG6odJcFXlM5vNpp8TUJdBxoXkI+uNW0c+ry+lgd2r21la0b/42gzZKg+gFRjJ8
+         /lEBBUywsaLpwF1fXNNC6qFrZrOVlxZJn+4PowNY0tqtX/3RXfwoSFaL5p+ErIiRDMTM
+         mLmYzDYdKFknzWMwYW71kKbFQ4OIyvppQShTK8FlJgb5ut0/QtQ5CIICbSoR6lWcRDNG
+         Q1FqEQ4qjZIflP2IY6VaA5o9yyjkg+QO8JgSO2E4GDcP22sCUngXdDSssTMXkkYlA3p1
+         rVrA==
+X-Forwarded-Encrypted: i=1; AJvYcCXzVmnrCKWVPoFOdPUZslJsBQ0tBb3O79LUNV9e5EDak82SCbZDAxEmtVV3KwraL9RAgU+EBVFhhiBEzw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHRv1CAd0dtvBQqUBw6GnQVtLPthxN+QrKnbm43TZiu8CERshJ
+	Vrq3pzPqPtqfInJ7NFluNhV39PWVlcjAUqjDn+CnZ1kMmp+vsG1AGqX405oYhuHNC/pZLIRXiqI
+	YpOkSsXU0LasTeQESlWKRIRMbo1irYB2fnn8uBmIbl7Wljo6c8ViMNs1BhWKu1dtujR3UWp0=
+X-Gm-Gg: AY/fxX7pW6FXG4SWDapnBUvXee0NHW+Tl87iUkpQWoatsgx4SzlW0f/HvO7QOZzOVi0
+	9ph868mrnvw2+B2AVITGoEGUFN4nLKfkuAFVmqaAyEl/K8M2NPQuoB5BC1tlVPgOXN67mJgN065
+	IoAdO336kwiKi05zoxbf41oMHJME0J4xzTNHorNdy5GqEWPgtmDNZ/hl9xi+0IXff8RT3HBllyP
+	ouWNsWXFf/cnGyDilL0Xmd2xw7DVCkeNl+kx4MeaT5WWdWJhgnVEpcGBIl3ODc6/cNUCGVK82Dd
+	VXgUpdzsGS/mSQfa8l+xLk/oBMwz0CSQYC+NgFqPj61+TJDa90eTDU1hq2IBvMM4Gp+NCPPrsiM
+	LQf18VsCCn0MoTIMbggY=
+X-Received: by 2002:a05:7022:6286:b0:11d:f44c:afbc with SMTP id a92af1059eb24-1244a74fb80mr1753402c88.37.1768521393924;
+        Thu, 15 Jan 2026 15:56:33 -0800 (PST)
+X-Received: by 2002:a05:7022:6286:b0:11d:f44c:afbc with SMTP id a92af1059eb24-1244a74fb80mr1753378c88.37.1768521393394;
+        Thu, 15 Jan 2026 15:56:33 -0800 (PST)
+Received: from localhost ([140.82.166.162])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1244af10c3csm879911c88.15.2026.01.15.15.56.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 15:42:49 -0800 (PST)
-From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Date: Thu, 15 Jan 2026 17:42:04 -0600
-Subject: [PATCH 5/8] soc: tenstorrent: Add rcpu syscon reset register
- definitions
+        Thu, 15 Jan 2026 15:56:32 -0800 (PST)
+Date: Thu, 15 Jan 2026 17:56:31 -0600
+From: Andrew Jones <andrew.jones@oss.qualcomm.com>
+To: fangyu.yu@linux.alibaba.com
+Cc: pbonzini@redhat.com, corbet@lwn.net, anup@brainfault.org,
+        atish.patra@linux.dev, pjw@kernel.org, palmer@dabbelt.com,
+        aou@eecs.berkeley.edu, alex@ghiti.fr, guoren@kernel.org,
+        ajones@ventanamicro.com, rkrcmar@ventanamicro.com,
+        linux-doc@vger.kernel.org, kvm@vger.kernel.org,
+        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] RISC-V: KVM: add KVM_CAP_RISCV_SET_HGATP_MODE
+Message-ID: <dfhacs3uppweqmw5t6gwli2iy3b7l5oj6saykogjb5qkadl4rc@bi7mvnezkd2m>
+References: <20260105143232.76715-1-fangyu.yu@linux.alibaba.com>
+ <20260105143232.76715-3-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
-Message-Id: <20260115-atlantis-clocks-v1-5-7356e671f28b@oss.tenstorrent.com>
-References: <20260115-atlantis-clocks-v1-0-7356e671f28b@oss.tenstorrent.com>
-In-Reply-To: <20260115-atlantis-clocks-v1-0-7356e671f28b@oss.tenstorrent.com>
-To: Drew Fustini <dfustini@oss.tenstorrent.com>, 
- Joel Stanley <jms@oss.tenstorrent.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, 
- Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, joel@jms.id.au, 
- fustini@kernel.org, mpe@kernel.org, mpe@oss.tenstorrent.com, 
- npiggin@oss.tenstorrent.com, agross@kernel.org, agross@oss.tenstorrent.com
-X-Mailer: b4 0.14.3
+Content-Disposition: inline
+In-Reply-To: <20260105143232.76715-3-fangyu.yu@linux.alibaba.com>
+X-Proofpoint-GUID: HvtcuS329juvRiUE-8N5Pr0MqN8UPjFc
+X-Proofpoint-ORIG-GUID: HvtcuS329juvRiUE-8N5Pr0MqN8UPjFc
+X-Authority-Analysis: v=2.4 cv=TcmbdBQh c=1 sm=1 tr=0 ts=69697eb2 cx=c_pps
+ a=SvEPeNj+VMjHSW//kvnxuw==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
+ a=kj9zAlcOel0A:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=SRrdq9N9AAAA:8 a=SurXiuQvfP0cLrRCYjkA:9
+ a=CjuIK1q_8ugA:10 a=Kq8ClHjjuc5pcCNDwlU0:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE1MDE5MCBTYWx0ZWRfX8npE7yoOiLDE
+ PfGFL+1R99WmoYvfe6pP+6oQq4Fr3uEMBtFwFz+uBTeOcH6Gp2/C8Y9xXIMYWLBK35cjMSQHafv
+ ApZiAiYrYxgbsk4IymnCgB1ty7ldFF+hQpPyWZw92FiJr8Iz4tbfTgdp+E4pnlKmQfgj4lCAqbm
+ 4/TJJFnEFa0ydW2M+dlY60apn4DfUM/3C0N5fJUlTxbWry3PPsORTKfQlJY5aJ+bm2KCtkiBJky
+ Pkbz/bmUOglBjaJGvHq8Ar+oqe6UosRcdFJwPb/O1lyA0Z3Stg43tgT1UFJEE9AhPJwiujslRtB
+ yC1HYfHUyUhCaVvRjTqW4r2Zf9ayjANkWVAK0VuE9Xn7NzyFf1Z5gaYBwhCVzlEwtRPPQFMEGoc
+ l+VtTr99MNj80XPK0/1NhZO6K2rsMjgWPp8WJs1dKkuBMnpDhi0i2f5GEqn+mcweI229fq1fN7i
+ AXxwAwF1o+pqXQkmTpQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-15_07,2026-01-15_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 spamscore=0 bulkscore=0 suspectscore=0 lowpriorityscore=0
+ adultscore=0 clxscore=1015 priorityscore=1501 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601150190
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_234252_009598_09F8ACA9 
-X-CRM114-Status: UNSURE (   7.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260115_155635_557616_01B0F6AE 
+X-CRM114-Status: GOOD (  30.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,35 +145,135 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document register offsets used for resets in Atlantis
+On Mon, Jan 05, 2026 at 10:32:32PM +0800, fangyu.yu@linux.alibaba.com wrote:
+> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+> 
+> This capability allows userspace to explicitly select the HGATP mode
+> for the VM. The selected mode must be less than or equal to the max
+> HGATP mode supported by the hardware. This capability must be enabled
+> before creating any vCPUs, and can only be set once per VM.
+> 
+> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+> ---
+>  Documentation/virt/kvm/api.rst | 14 ++++++++++++++
+>  arch/riscv/kvm/vm.c            | 26 ++++++++++++++++++++++++--
+>  include/uapi/linux/kvm.h       |  1 +
+>  3 files changed, 39 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> index 01a3abef8abb..9e17788e3a9d 100644
+> --- a/Documentation/virt/kvm/api.rst
+> +++ b/Documentation/virt/kvm/api.rst
+> @@ -8765,6 +8765,20 @@ helpful if user space wants to emulate instructions which are not
+>  This capability can be enabled dynamically even if VCPUs were already
+>  created and are running.
+>  
+> +7.47 KVM_CAP_RISCV_SET_HGATP_MODE
+> +---------------------------------
+> +
+> +:Architectures: riscv
+> +:Type: VM
+> +:Parameters: args[0] contains the requested HGATP mode
+> +:Returns: 0 on success, -EINVAL if arg[0] is outside the range of hgatp
+> +          modes supported by the hardware.
+> +
+> +This capability allows userspace to explicitly select the HGATP mode for
+> +the VM. The selected mode must be less than or equal to the maximum HGATP
+> +mode supported by the hardware. This capability must be enabled before
+> +creating any vCPUs, and can only be set once per VM.
 
-Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
----
- include/soc/tenstorrent/atlantis-syscon.h | 7 +++++++
- 1 file changed, 7 insertions(+)
+I think I would prefer a KVM_CAP_RISCV_SET_MAX_GPA type of capability. The
+reason is because, while one of the results of the max-gpa being set will
+be to set hgatp, there may be other reasons to track the guest's maximum
+physical address too and kvm userspace shouldn't need to think about each
+individually.
 
-diff --git a/include/soc/tenstorrent/atlantis-syscon.h b/include/soc/tenstorrent/atlantis-syscon.h
-index b15dabfb42b5..f1dc6ad33c6d 100644
---- a/include/soc/tenstorrent/atlantis-syscon.h
-+++ b/include/soc/tenstorrent/atlantis-syscon.h
-@@ -19,6 +19,13 @@
- #define PLL_NOCC_EN_REG 0x120
- #define BUS_CG_REG 0x01FC
- 
-+/* RCPU Reset Register Offsets */
-+#define RCPU_BLK_RST_REG 0x1c
-+#define LSIO_BLK_RST_REG 0x20
-+#define HSIO_BLK_RST_REG 0x0c
-+#define PCIE_SUBS_RST_REG 0x00
-+#define MM_RSTN_REG 0x14
-+
- /* PLL Bit Definitions */
- #define PLL_CFG_EN_BIT BIT(0)
- #define PLL_CFG_BYPASS_BIT BIT(1)
+> +
+>  8. Other capabilities.
+>  ======================
+>  
+> diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
+> index 4b2156df40fc..e9275023a73a 100644
+> --- a/arch/riscv/kvm/vm.c
+> +++ b/arch/riscv/kvm/vm.c
+> @@ -202,6 +202,13 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>  	case KVM_CAP_VM_GPA_BITS:
+>  		r = kvm_riscv_gstage_gpa_bits(&kvm->arch);
+>  		break;
+> +	case KVM_CAP_RISCV_SET_HGATP_MODE:
+> +#ifdef CONFIG_64BIT
+> +		r = 1;
+> +#else/* CONFIG_32BIT */
+> +		r = 0;
+> +#endif
 
--- 
-2.43.0
+ r = IS_ENABLED(CONFIG_64BIT) ? 1 : 0;
 
+> +		break;
+>  	default:
+>  		r = 0;
+>  		break;
+> @@ -212,12 +219,27 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>  
+>  int kvm_vm_ioctl_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap)
+>  {
+> +	if (cap->flags)
+> +		return -EINVAL;
+
+add blank line
+
+>  	switch (cap->cap) {
+>  	case KVM_CAP_RISCV_MP_STATE_RESET:
+> -		if (cap->flags)
+> -			return -EINVAL;
+>  		kvm->arch.mp_state_reset = true;
+>  		return 0;
+> +	case KVM_CAP_RISCV_SET_HGATP_MODE:
+> +#ifdef CONFIG_64BIT
+> +		if (cap->args[0] < HGATP_MODE_SV39X4 ||
+> +			cap->args[0] > kvm_riscv_gstage_max_mode)
+> +			return -EINVAL;
+> +		if (kvm->arch.gstage_mode_initialized)
+> +			return 0;
+
+I think we want to return -EBUSY here and it should be documented where it
+already states "...can only be set once per VM"
+
+> +		kvm->arch.gstage_mode_initialized = true;
+
+In the previous patch I thought we were missing this, but I see now it
+means "user initialized". Let's rename it as such,
+
+ gstage_mode_user_initialized
+
+> +		kvm->arch.kvm_riscv_gstage_mode = cap->args[0];
+> +		kvm->arch.kvm_riscv_gstage_pgd_levels = 3 +
+> +		    kvm->arch.kvm_riscv_gstage_mode - HGATP_MODE_SV39X4;
+> +		kvm_info("using SV%lluX4 G-stage page table format\n",
+> +			39 + (cap->args[0] - HGATP_MODE_SV39X4) * 9);
+> +#endif
+> +		return 0;
+>  	default:
+>  		return -EINVAL;
+>  	}
+> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+> index dddb781b0507..00c02a880518 100644
+> --- a/include/uapi/linux/kvm.h
+> +++ b/include/uapi/linux/kvm.h
+> @@ -974,6 +974,7 @@ struct kvm_enable_cap {
+>  #define KVM_CAP_GUEST_MEMFD_FLAGS 244
+>  #define KVM_CAP_ARM_SEA_TO_USER 245
+>  #define KVM_CAP_S390_USER_OPEREXEC 246
+> +#define KVM_CAP_RISCV_SET_HGATP_MODE 247
+>  
+>  struct kvm_irq_routing_irqchip {
+>  	__u32 irqchip;
+> -- 
+> 2.50.1
+>
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
