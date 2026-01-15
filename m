@@ -4,59 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F7AD3CC88
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 01:03:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23916D3CC88
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 01:11:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GrG2bvJSKKPUZQ/9iM8iro9ft5tR1Q+fxzfreUQwQIw=; b=HLt9I8RHdG6N0o
-	2rWsQkW0R/EfvP/sBobSTpjDDcUUKageVICPJkIZveonqugcFdVC1pz4ra1d79QVS0aMm5z68Tq7r
-	Qwo9QY9xMBeMnzxxTGtqNxot2aVVYoi4wLhSv3ov6LHWGAOoXP1bf3q5YCxuU9FRWTeCJiWcolhEP
-	/xCU6AxnKKQkyCld85FtpLgU4hi0cvLoFhFlJxedMPJNxeFkzWjyRLaH2JRIiIGsXRYrFNcm9R35T
-	SqWU/yt3E53lahH8mVy1YxDmx3W6qoJWdf3u16qO4QtrICZxaWmurWN8lQhcEV55iu0BZq6qFBB1P
-	Fj9QWxTndbqu33Cv4jnw==;
+	List-Owner; bh=GDhtapS2S0TfiK5SpJA/wIVJYvaXeY5PtoWw5KOd5JQ=; b=BZzxxWvrNqFr+V
+	8MCs27jWsrYSTrBpALemP+Gry8iRGcofbUnLa43kLdo+hbd8NkRNyrfomJLpAhNVPeQa+l56TbP85
+	oBjYnvZAMEgwND9wx8JxXNFj78/vDTnIh6Twml/Px54JuUJxDm/AUjzQIa9TZWEpAUVq3AOETB1n2
+	DkYgzbEf2I7S21+b475CxYe5v2K2Eb/HpAHgNleIQwpYcoLvr4yFQyrGmyUV0R8XrjA2S2Qm9jDCl
+	s5hjdNOzxJA+I1YHbSdBI4kGj82NgEpM+Lky547eJ58lrujmbqkdHcQyFNp1G5nOxQYFl4yJaIl+r
+	zCl0iXmGLSnvDKOkv/sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgBlH-0000000BJxS-2q0y;
-	Thu, 15 Jan 2026 01:02:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vgBtV-0000000BLN8-0qez;
+	Thu, 15 Jan 2026 01:11:25 +0000
+Received: from mail-vk1-xa2b.google.com ([2607:f8b0:4864:20::a2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgBlF-0000000BJwh-3Sm2
+	id 1vgBtS-0000000BLLp-04k3
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 01:02:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6AE3F6000A;
-	Thu, 15 Jan 2026 01:02:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 721FBC4CEF7;
-	Thu, 15 Jan 2026 01:02:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768438971;
-	bh=jVBqlcLqSYseOgAHYybbgxO53XS2Bsh6/8CM4GtShzE=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=kDvTK8d4hpQPa0CO4skL5dFMNKYiupT4QYHsMg2RDLscHlG/jv8ca+2pzZIupkQDt
-	 VNOFC9PANKfgV4+2yQc1IEHyC5+cROm2GPysCuPLvU300v3hfYgFiX0HuQ7J55ANk4
-	 MYuDm8q17bwnl6Gsn71BtEVZLw+oA2R8KQDtOLNIwhY+AKdRJ+Fw9pLB34V87wDwQ0
-	 K/mHwgGBAwBnucAXu35LMkTfcz1PvqeiLpYKFsj8LIFzDDVmn/733duDo73i4Uiuqe
-	 70YXVSGcyDfuyY5lEOn5F0gCTmt88Tmu22M2Mfp3obPLLf0l2MauV84ADS0zZUYIKa
-	 dvZTzciYsKkRA==
-Date: Wed, 14 Jan 2026 18:02:46 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-cc: Paul Walmsley <pjw@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, 
-    Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
-    Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-    Craig Topper <craig.topper@sifive.com>, linux-riscv@lists.infradead.org, 
-    llvm@lists.linux.dev, patches@lists.linux.dev
-Subject: Re: [PATCH RFC v2] riscv: Use 64-bit variable for output in
- __get_user_asm
-In-Reply-To: <20260113-riscv-wa-llvm-asm-goto-outputs-assertion-failure-v2-1-e04aba2e1f9f@kernel.org>
-Message-ID: <7bc39d4d-6e2d-f0af-9787-5fd2c92bfd4e@kernel.org>
-References: <20260113-riscv-wa-llvm-asm-goto-outputs-assertion-failure-v2-1-e04aba2e1f9f@kernel.org>
+	Thu, 15 Jan 2026 01:11:23 +0000
+Received: by mail-vk1-xa2b.google.com with SMTP id 71dfb90a1353d-56373f07265so338949e0c.0
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Jan 2026 17:11:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768439480; x=1769044280; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uWEmSPSV/4aq+tGwuGvE1EWZPGM77eZ+/59U3WROy80=;
+        b=Wf/A7vaWJM8HAYuoQjVdVfhmeoKcT/UcbojvZo4X68FF14Qpqk9jM3fApBIHe9S/x6
+         zdoEGMP4eg/IHp/Y2vV4O2gqQYtT44EARE7rb+TXmMTW+JcJ1wNLAFmOBghISbpTkGPb
+         Zp+MeBYjeyx7G5rabxi1Y9aoZHjUGyqgWlGFuAcVPB+dNiXiuCv1jXwf9HMmvCXZc5x5
+         vFDMU6BlHLruN2fOqQ03M6jF3MzWjddWAAqw+cV5W9hsBld+qTdt2MFf3fLUffZcYKRd
+         mmVKgZ/BWi4durXb4gV/JyXcWlZWvYvOjPwJ99fY+VyOSND5jXlCCqotFHCBiXpdIkw4
+         Y8nQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768439480; x=1769044280;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=uWEmSPSV/4aq+tGwuGvE1EWZPGM77eZ+/59U3WROy80=;
+        b=H5PtQLqS+8jbDQyL/8iOms3a7YcxlXoLXkTnVj8Q1byQL0PCVOElrH/XB/rriENH8h
+         WHDSAfOPb4/Bm/nXK8s9jSSKuXELusxDjJBvo2XjNtMZksVTI+hdfPAg/tryaY/0nKiq
+         MNl0M+qnKtcLyvJnAkgqlROjPX+D7K14cnDZ0hZBNh4hsqwbtRqBK69VIDH+mwbENVn4
+         14IM+1yHdjYja15tkH68qcR9pCqMyDUMqeIodiKODnR1uehLdPEzGhQ3+qljl2nbQjSB
+         FQ2hEpdMcwg725D5wW9L0kcIQiQYNHNr9dXQBsK3i3cBpUXcv5B2OgrW4657BALyQA5I
+         M0Vw==
+X-Forwarded-Encrypted: i=1; AJvYcCV29LFuc6RHt4+z95jOtSlVM8qkKZCbppg5vOdxGpwSLi8cHTxV17Bd+b+yM0dHh1K2OCWsxNqqKO+Bvg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYC6CI8zgJD3YFterPSEwpPd5k0lKsaykUrQ5ys6SlbslvCBYW
+	W8BKHnP78RKYHKY0eyLuedS9fO+ATW7GVIBKhJajcjr3U9JiFhLiOtJkJ9chx//6apyll3ylgNx
+	l00YSS2gdwgBZ3tsvHMPisRcBaUxDse0=
+X-Gm-Gg: AY/fxX7OLsYdq1Mef7Ilrj597s6+L11tHNUVirVFp8q/9NAMgqpT8zzIc2Ewu1sSOuX
+	uAY0sYicF7iPu6SXStkc9XzMXWH/vJyHbxmFHHdl7R2Jmo+mNRNqJxRuIHvpvf59SZwHoW4NaGt
+	bZ6E5RJFrwxLSpwdtZkT1cPQNvjRDCszY/iOaeewt/gpp5LBCrwQpFwfWtN5HLB+HFpw3rlBOCt
+	GSJMJplo/EvENHnPUZoGEiuN3A6On3Sq5FwQ8yTVVEHbZjy9JDroTf9h/qUeRTcTg6BRK6Vvw==
+X-Received: by 2002:a05:6102:26d3:b0:5db:f615:1821 with SMTP id
+ ada2fe7eead31-5f1838c16bamr1746719137.10.1768439478555; Wed, 14 Jan 2026
+ 17:11:18 -0800 (PST)
 MIME-Version: 1.0
+References: <20260104135938.524-1-naohiko.shimizu@gmail.com> <10a102b9-1dd1-c5ca-66e4-f02794a84a93@kernel.org>
+In-Reply-To: <10a102b9-1dd1-c5ca-66e4-f02794a84a93@kernel.org>
+From: Naohiko Shimizu <naohiko.shimizu@gmail.com>
+Date: Thu, 15 Jan 2026 10:11:09 +0900
+X-Gm-Features: AZwV_QgNY9cbiPSf-Pg_buhTiH9o3_E8wCotzHaSqbEA_BVUDA10Wv_icM50ON8
+Message-ID: <CAA7_YY-3iVLzBJgntPkzMBZFe=uwQnkYUfJzW7rZ-i=Rw5sUKQ@mail.gmail.com>
+Subject: Re: [PATCH v3 0/3] riscv: fix timer update hazards on RV32
+To: Paul Walmsley <pjw@kernel.org>
+Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	anup@brainfault.org, atish.patra@linux.dev, daniel.lezcano@linaro.org, 
+	tglx@linutronix.de, nick.hu@sifive.com, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_171122_062495_86A22299 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,58 +92,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nathan,
-
-On Tue, 13 Jan 2026, Nathan Chancellor wrote:
-
-> After commit f6bff7827a48 ("riscv: uaccess: use 'asm_goto_output' for
-> get_user()"), which was the first commit that started using asm goto
-> with outputs on RISC-V, builds of clang built with assertions enabled
-> start crashing in certain files that use get_user() with:
-> 
->   clang: llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp:12743: Register FollowCopyChain(MachineRegisterInfo &, Register): Assertion `MI->getOpcode() == TargetOpcode::COPY && "start of copy chain MUST be COPY"' failed.
-> 
-> Internally, LLVM generates an addiw instruction when the output of the
-> inline asm (which may be any scalar type) needs to be sign extended for
-> ABI reasons, such as a later function call, so that basic block does not
-> have to do it.
-> 
-> Use a temporary 64-bit variable as the output of the inline assembly in
-> __get_user_asm() and explicitly cast it to truncate it if necessary,
-> avoiding the addiw that triggers the assertion.
-> 
-> Link: https://github.com/ClangBuiltLinux/linux/issues/2092
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
-> Changes in v2:
-> - Rebase on 6.19-rc5
-> - Send to updated addresses
-> - Link to v1: https://lore.kernel.org/r/20250811-riscv-wa-llvm-asm-goto-outputs-assertion-failure-v1-1-7bb8c9cbb92b@kernel.org
-> ---
-> I did this unconditionally but I did not do much investigation into how
-> the code generation changes, as I never have good luck with figuring out
-> what is real vs. noise. If this is a worry, I can just duplicate this
-> under a CONFIG_CC_IS_CLANG block. Alternatively, we could mark
-> CONFIG_CC_HAS_ASM_GOTO_OUTPUT as broken with clang when targeting
-> RISC-V.
-
-I'm assuming this would be a temporary patch, and that we might be able to 
-remove it at some point (years, I guess?)
-
-Might be worth adding a comment in the code to explain why a temporary 
-variable is needed.
-
-
-thanks for the patch,
-
-- Paul
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhhbmsgeW91IHZlcnkgbXVjaCwgUGF1bC4KSSByZWFsbHkgYXBwcmVjaWF0ZSB5b3VyIHF1aWNr
+IGhhbmRsaW5nLgoKTmFvaGlrbwoKT24gVGh1LCBKYW4gMTUsIDIwMjYgYXQgOTozOeKAr0FNIFBh
+dWwgV2FsbXNsZXkgPHBqd0BrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIFN1biwgNCBKYW4gMjAy
+NiwgTmFvaGlrbyBTaGltaXp1IHdyb3RlOgo+Cj4gPiBUaGlzIHBhdGNoIHNlcmllcyBmaXhlcyB0
+aW1lciByZWdpc3RlciB1cGRhdGUgaGF6YXJkcyBvbiBSVjMyIGZvcgo+ID4gY2xvY2tzb3VyY2Us
+IEtWTSwgYW5kIHN1c3BlbmQvcmVzdW1lIHBhdGhzIGJ5IGFkb3B0aW5nIHRoZSAzLXN0ZXAKPiA+
+IHVwZGF0ZSBzZXF1ZW5jZSByZWNvbW1lbmRlZCBieSB0aGUgUklTQy1WIFByaXZpbGVnZWQgU3Bl
+Y2lmaWNhdGlvbi4KPiA+Cj4gPiBDaGFuZ2VzIGluIHYzOgo+ID4gLSBEcm9wcGVkIHJlZHVuZGFu
+dCBzdWJqZWN0IGxpbmUgZnJvbSBjb21taXQgZGVzY3JpcHRpb25zLgo+ID4gLSBBZGRlZCBGaXhl
+cyB0YWdzIGZvciBhbGwgcGF0Y2hlcy4KPiA+IC0gTW92ZWQgU2lnbmVkLW9mZi1ieSB0YWdzIHRv
+IHRoZSBlbmQgb2YgY29tbWl0IG1lc3NhZ2VzLgo+ID4KPiA+IENoYW5nZXMgaW4gdjI6Cj4gPiAt
+IEFkZGVkIGRldGFpbGVkIGFyY2hpdGVjdHVyYWwgYmFja2dyb3VuZCB0byBjb21taXQgbWVzc2Fn
+ZXMuCj4gPiAtIEFkZGVkIEtWTSBhbmQgc3VzcGVuZC9yZXN1bWUgY2FzZXMuCj4gPgo+ID4gTmFv
+aGlrbyBTaGltaXp1ICgzKToKPiA+ICAgcmlzY3Y6IGNsb2Nrc291cmNlOiBGaXggc3RpbWVjbXAg
+dXBkYXRlIGhhemFyZCBvbiBSVjMyCj4gPiAgIHJpc2N2OiBrdm06IEZpeCB2c3RpbWVjbXAgdXBk
+YXRlIGhhemFyZCBvbiBSVjMyCj4gPiAgIHJpc2N2OiBzdXNwZW5kOiBGaXggc3RpbWVjbXAgdXBk
+YXRlIGhhemFyZCBvbiBSVjMyCj4gPgo+ID4gIGFyY2gvcmlzY3Yva2VybmVsL3N1c3BlbmQuYyAg
+ICAgICB8IDMgKystCj4gPiAgYXJjaC9yaXNjdi9rdm0vdmNwdV90aW1lci5jICAgICAgIHwgNiAr
+KysrLS0KPiA+ICBkcml2ZXJzL2Nsb2Nrc291cmNlL3RpbWVyLXJpc2N2LmMgfCAzICsrLQo+ID4g
+IDMgZmlsZXMgY2hhbmdlZCwgOCBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQo+Cj4gVGhh
+bmtzLCBxdWV1ZWQgZm9yIHY2LjE5LXJjLgo+Cj4KPiAtIFBhdWwKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
