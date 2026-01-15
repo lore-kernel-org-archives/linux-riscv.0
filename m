@@ -4,82 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB3C4D44C59
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 15:08:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 273AFD44C66
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 15:26:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7rbmDdh5c6uxeXB3YAiymiC5L+/zrXHKt+jw2hsUVJI=; b=Ph4s/aKtbukB4W
-	zwCE+xyRZNiUCI9BjFmfiYf52jY8bxsMZaLTjppvqmZwr716RDvtF2PC0AwEKjmas+7rH9rauDPCd
-	R13SjELwFt6+mo7Fuw1VdGCc7eAMUfYYERZExm1w3ZOlxl4elQDCrOLgkLN/vsLLqmflxiG6ebFbD
-	Fbp2pjnM0olxXCuDEVgmg+hA3qo2Q8zFcVoEqq1YQ1BxiKC73ZA6jileE+2aF6Y1SMdFqaPAa6Khf
-	JCNMklkKklJe7Zqpx8BBg8G+oHEzZc2TfLVuWccOrIquyXZnLQ9BcUB6NRtjCkejuG7uIfiOWI/ws
-	sjWpv4Bv5GiwDbHLk6xQ==;
+	List-Owner; bh=hcdrdSTg5pGCewrLfi5q1H/yEk5FkeMrIap/LiH7Os0=; b=e3vxwq8pYtNCu3
+	eNt0IisrS3b5iOOhDBa0sTm9TI7oAeJuqs0S0iwcIq/h8trpRBHYKEx7+YYbiPRVuDkk/JXYJ+uLA
+	fsEQwZVaHZB9TkHb2eXpiku2yP4/DfXmL8Ime9NDz86HDgttZkdVdfJDMaTWLN9doMtuGMDSpnyC0
+	S+qVrx/0+jxCMspv7/RBez7XBa4M3qdj7vUnRS/Vz5bcTUtwD8Mweywh4BEP71Sxkb4BFJnGXQAPl
+	jBPPd4rjSnibVyh+DH5DEHpho51zXhNya/p3R2U7E5q5k3HvykhQ80qamUiEvBEjSq1GATOKdjEuW
+	fjbfjUfGmFy51YwZtiig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgOxM-0000000CZCT-08Ek;
-	Thu, 15 Jan 2026 15:08:16 +0000
-Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
+	id 1vgPEW-0000000Cav6-1WZM;
+	Thu, 15 Jan 2026 15:26:00 +0000
+Received: from fra-out-001.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([18.156.205.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgOxJ-0000000CZC5-0DVN
-	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 15:08:14 +0000
-Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-661106487f9so741641eaf.3
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 07:08:12 -0800 (PST)
+	id 1vgPET-0000000Cat3-1G0P;
+	Thu, 15 Jan 2026 15:25:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1768489692; x=1769094492; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/WDAGTa7lxdI346CUZNtUqntdwekcJCSjKlDS2a7yaE=;
-        b=Dgae9g9dqEzvblxY6Y00dNhnsC4m3PWjhtqHaUA80bq6vjUj13d++A5XwCV6KWwnDb
-         iI3RH/5jK77ZXgRaxbIXT7apG/+4K+3IOgoowhxNwBVHWrs8bdzY/1bXjQBz372cRqn7
-         ngOKjGww5NPDhvaZHebEHAX0xwdNt8IqGXxTLDtlAf03QvBQ9aOhqkU+wW+f3u1XALqe
-         Mxy7ho+mpdgvns72gQrFz3ucSaYNtBAbSr27MWqMtPirHyDRImxFItvemRHBprRcgPDp
-         Ty1eunoA9jcXFdHUhKTD2fHJo0x3jaHzesQ6czWm+vGHAVl4u7FOVPdxrgHHeMAspeH/
-         +gEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768489692; x=1769094492;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=/WDAGTa7lxdI346CUZNtUqntdwekcJCSjKlDS2a7yaE=;
-        b=qTHBSadoWHPgi8nmjH7smyQJjxCvECfgTFRB96sRjVlQSWk42moAzA35TtHt0CAybw
-         70v8CHzLcUSZ6uGsozjZc7vgqvp8ZAJfw+fKfxnO9nqKPXpfkzrG2NTRn7UIiXAKrTaS
-         CjTZCZG7GPhULg16SkYel/SDeOHLs995pngfpQ+Qx14oBy6q4eZsv7GOYLblUMImAeuu
-         UPZZokkGgEsRO9YcBrNtKDxwL+lMm/ERjNXS5uzgwHOJBt+a3xH6h7FHzU/iiNlGOlSa
-         sk6K3OpavBhKziK2bxrFNl/zGexC6PQbHWbXkVYIbekxVS5keXHP/jnvQJf1H+j61sR+
-         EwQg==
-X-Forwarded-Encrypted: i=1; AJvYcCUNVXHUzs+QfR7m4daJhCjXToU/vTDuZGC6C/Ya/gprguVGIlCQWpXVRT5emXUL1VhwDkjbliFAphsSJw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEU9rDn4R3W2SbQi3MFwM4zvh4ehxwplI/+1//jYsOwCf3Xxsx
-	xfjeeBMpqPF6dAN5+P4U+hY5f4wGYf2T86+PLPobEYs4HRqj/gJbv0o/Trks9kkqCYTEjWqOwNr
-	cDhmsTumNf8d6TXDWB6otTx5iVrfpTHLaRYBIVUe2+g==
-X-Gm-Gg: AY/fxX4AXZqBTEkJxtYluB9K5e7eF0F82CywhY0DkQxOALwIzfPpsGCSqiovKg7ymDO
-	wI5vtv4rRKKMCdtHhUhOzgzlzKJ3sdSjkWj9+H/MaBTsNO+4p2ZgP7Qh1dx4nSTIq0gJLvyn6ne
-	+7p7P0LcVEnLdDkDi7e1Q+Ri/PBSNa4ArSh2rbccTLrVJpo8CS2rMpuHgLP1tagsr/KCrbmTKXF
-	5pgOnWoaAiqoXOaWPcOdTqLUKDK1CgqPrOpPGnWbaCrc9tFgY5IIdgmoCyXoUXIQpuA2Fztu2Mz
-	jDtUuFuVumIeFloIR9pMaG44SlQXdwvmO1TtKLa7BDx5315RpujRz/S0ug==
-X-Received: by 2002:a05:6820:f015:b0:659:9a49:8f57 with SMTP id
- 006d021491bc7-6611796eb8dmr26603eaf.28.1768489691647; Thu, 15 Jan 2026
- 07:08:11 -0800 (PST)
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1768490757; x=1800026757;
+  h=message-id:date:mime-version:reply-to:subject:to:cc:
+   references:from:in-reply-to:content-transfer-encoding;
+  bh=ErA/nUzcQBK9RfXLPHVY+KZIrd4BxzBjllIcAZaOcaQ=;
+  b=BEDCIdnXQ6iCt7lkU8Ts2NZkpexwaijUmInke0GQo4krtl/J2wR+Yu0I
+   AP6UD+iuXNgC5Gau99+kjiGBnwPjMv1orOGFBBS93GpjcTsW4Q7vp1YtD
+   sUJmeFb8eeQCo5dL/tAewb0/gWvkZ30D0U3oL0u4AEAZTW7U3T1EvI7+U
+   eYdnvl91Hm+JTj+FW38/xhbyqrRvAc5C7/HLlOaXFHwOTqZB/heXOr7X7
+   tQE1CaUKRYFKAa0TIKtNmkxa6rDZD1BieYiFLHy/baQB91OC2JK0csQZz
+   ebwHzc9vbUhnMMldGGEj7yvc/BIDx9nYiZX5f9qffUUJj+KxnCp/yaFMU
+   g==;
+X-CSE-ConnectionGUID: JEI06koAS36Pqlka9p/LFg==
+X-CSE-MsgGUID: fziZ5aPzRHWEX3iC92dDgA==
+X-IronPort-AV: E=Sophos;i="6.21,228,1763424000"; 
+   d="scan'208";a="7652838"
+Received: from ip-10-6-11-83.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.11.83])
+  by internal-fra-out-001.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2026 15:25:39 +0000
+Received: from EX19MTAEUA001.ant.amazon.com [54.240.197.233:3758]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.6.3:2525] with esmtp (Farcaster)
+ id 78f75ae8-5037-4d9b-ae68-7dfcd2a25e3c; Thu, 15 Jan 2026 15:25:39 +0000 (UTC)
+X-Farcaster-Flow-ID: 78f75ae8-5037-4d9b-ae68-7dfcd2a25e3c
+Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
+ EX19MTAEUA001.ant.amazon.com (10.252.50.50) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
+ Thu, 15 Jan 2026 15:25:32 +0000
+Received: from [192.168.15.69] (10.106.82.11) by EX19D005EUB003.ant.amazon.com
+ (10.252.51.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35; Thu, 15 Jan 2026
+ 15:25:28 +0000
+Message-ID: <094591b6-97eb-4cae-aa08-fececcba4ba1@amazon.com>
+Date: Thu, 15 Jan 2026 15:25:27 +0000
 MIME-Version: 1.0
-References: <056a7d9af85a20633e54602b2c4d2c3bbbaadd78.1768486684.git.geert+renesas@glider.be>
-In-Reply-To: <056a7d9af85a20633e54602b2c4d2c3bbbaadd78.1768486684.git.geert+renesas@glider.be>
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 15 Jan 2026 20:37:59 +0530
-X-Gm-Features: AZwV_QirfT0INJ_014FBj-iJZznt1dR8JjUdTooqlAOxrA58ebArJpuY48PF8ik
-Message-ID: <CAAhSdy2jBPv1oHNMExddwkOxy8OsEfnWxOU_L+=NpbG+Eqb7MQ@mail.gmail.com>
-Subject: Re: [PATCH v2] mailbox: Improve RISCV_SBI_MPXY_MBOX guidance
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>, Anup Patel <apatel@ventanamicro.com>, 
-	Rahul Pathak <rpathak@ventanamicro.com>, Paul Walmsley <pjw@kernel.org>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 01/13] set_memory: add folio_{zap, restore}_direct_map
+ helpers
+To: Heiko Carstens <hca@linux.ibm.com>, "Kalyazin, Nikita"
+	<kalyazin@amazon.co.uk>
+CC: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>, "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>, "kernel@xen0n.name" <kernel@xen0n.name>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>, "tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>, "luto@kernel.org" <luto@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "willy@infradead.org" <willy@infradead.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "david@kernel.org" <david@kernel.org>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "vbabka@suse.cz" <vbabka@suse.cz>, "rppt@kernel.org" <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>, "martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>, "jannh@google.com" <jannh@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>, "shuah@kernel.org" <shuah@kernel.org>, "riel@surriel.com" <riel@surriel.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jgross@suse.com" <jgross@suse.com>, "yu-cheng.yu@intel.com" <yu-cheng.yu@intel.com>, "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com" <coxu@redhat.com>, "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>, "ackerleytng@google.com" <ackerleytng@google.com>, "maobibo@loongson.cn" <maobibo@loongson.cn>, "prsampat@amd.com" <prsampat@amd.com>, "mlevitsk@redhat.com" <mlevitsk@redhat.com>, "jmattson@google.com" <jmattson@google.com>, "jthoughton@google.com" <jthoughton@google.com>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "dev.jain@arm.com" <dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "Jonathan.Cameron@huawei.com" <Jonathan.Cameron@huawei.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>, "shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "thuth@redhat.com" <thuth@redhat.com>, "wyihan@google.com" <wyihan@google.com>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com" <jackmanb@google.com>,
+ "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>, "patrick.roy@linux.dev" <patrick.roy@linux.dev>, "Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>, "Manwaring, Derek" <derekmn@amazon.com>, "Cali, Marco" <xmarcalx@amazon.co.uk>
+References: <20260114134510.1835-1-kalyazin@amazon.com>
+ <20260114134510.1835-2-kalyazin@amazon.com>
+ <20260115121209.7060B42-hca@linux.ibm.com>
+Content-Language: en-US
+From: Nikita Kalyazin <kalyazin@amazon.com>
+Autocrypt: addr=kalyazin@amazon.com; keydata=
+ xjMEY+ZIvRYJKwYBBAHaRw8BAQdA9FwYskD/5BFmiiTgktstviS9svHeszG2JfIkUqjxf+/N
+ JU5pa2l0YSBLYWx5YXppbiA8a2FseWF6aW5AYW1hem9uLmNvbT7CjwQTFggANxYhBGhhGDEy
+ BjLQwD9FsK+SyiCpmmTzBQJnrNfABQkFps9DAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQr5LK
+ IKmaZPOpfgD/exazh4C2Z8fNEz54YLJ6tuFEgQrVQPX6nQ/PfQi2+dwBAMGTpZcj9Z9NvSe1
+ CmmKYnYjhzGxzjBs8itSUvWIcMsFzjgEY+ZIvRIKKwYBBAGXVQEFAQEHQCqd7/nb2tb36vZt
+ ubg1iBLCSDctMlKHsQTp7wCnEc4RAwEIB8J+BBgWCAAmFiEEaGEYMTIGMtDAP0Wwr5LKIKma
+ ZPMFAmes18AFCQWmz0MCGwwACgkQr5LKIKmaZPNTlQEA+q+rGFn7273rOAg+rxPty0M8lJbT
+ i2kGo8RmPPLu650A/1kWgz1AnenQUYzTAFnZrKSsXAw5WoHaDLBz9kiO5pAK
+In-Reply-To: <20260115121209.7060B42-hca@linux.ibm.com>
+X-Originating-IP: [10.106.82.11]
+X-ClientProxiedBy: EX19D012EUC004.ant.amazon.com (10.252.51.220) To
+ EX19D005EUB003.ant.amazon.com (10.252.51.31)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_070813_358173_462102EC 
-X-CRM114-Status: GOOD (  18.58  )
+X-CRM114-CacheID: sfid-20260115_072557_670094_25704476 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,40 +99,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: kalyazin@amazon.com
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKYW4gMTUsIDIwMjYgYXQgNzo0OeKAr1BNIEdlZXJ0IFV5dHRlcmhvZXZlbgo8Z2Vl
-cnQrcmVuZXNhc0BnbGlkZXIuYmU+IHdyb3RlOgo+Cj4gUklTQy1WIFNCSSBNZXNzYWdlIFByb3h5
-IChNUFhZKSBNYWlsYm94IHN1cHBvcnQgZGVmYXVsdHMgdG8gZW5hYmxlZCwgYnV0Cj4gdGhlIGhl
-bHAgdGV4dCBzdGF0ZXMgIklmIHVuc3VyZSBzYXkgTiIuCj4KPiBSZWNvbW1lbmQgZW5hYmxpbmcg
-dGhpcyBkcml2ZXIsIGFzIGl0IGlzIGEgdmVyeSBjcml0aWNhbCBSSVNDLVYgZHJpdmVyCj4gcHJv
-dmlkaW5nIG1haWxib3ggY2hhbm5lbHMgdG8gb3RoZXIgZHJpdmVycyBzdWNoIGFzIGNsb2NrLCBz
-eXN0ZW0gTVNJcywKPiBldGMuCj4KPiBGaXhlczogYmYzMDIyYTRlYjExOWM2YiAoIm1haWxib3g6
-IEFkZCBSSVNDLVYgU0JJIG1lc3NhZ2UgcHJveHkgKE1QWFkpIGJhc2VkIG1haWxib3ggZHJpdmVy
-IikKPiBTdWdnZXN0ZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+Cj4gU2ln
-bmVkLW9mZi1ieTogR2VlcnQgVXl0dGVyaG9ldmVuIDxnZWVydCtyZW5lc2FzQGdsaWRlci5iZT4K
-CkxHVE0uCgpSZXZpZXdlZC1ieTogQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4KClRo
-YW5rcywKQW51cAoKPiAtLS0KPiBUaGlzIGlzIHYyIG9mICJbUEFUQ0hdIG1haWxib3g6IFJJU0NW
-X1NCSV9NUFhZX01CT1ggc2hvdWxkIGJlIGRpc2FibGVkCj4gYnkgZGVmYXVsdCIuCj4KPiB2MjoK
-PiAgIC0gQ2hhbmdlIHRoZSBjb25maWcgZGVzY3JpcHRpb24gaW5zdGVhZCBvZiBjaGFuZ2luZyB0
-byBub3QgZW5hYmxlZCBieQo+ICAgICBkZWZhdWx0LCBhcyByZXF1ZXN0ZWQgYnkgQW51cC4KPiAt
-LS0KPiAgZHJpdmVycy9tYWlsYm94L0tjb25maWcgfCA0ICsrLS0KPiAgMSBmaWxlIGNoYW5nZWQs
-IDIgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9kcml2ZXJz
-L21haWxib3gvS2NvbmZpZyBiL2RyaXZlcnMvbWFpbGJveC9LY29uZmlnCj4gaW5kZXggZTQ3Y2I2
-ODk4OTI2Nzg4MS4uYzI3YzEwOTdkYjIxYmUyNyAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL21haWxi
-b3gvS2NvbmZpZwo+ICsrKyBiL2RyaXZlcnMvbWFpbGJveC9LY29uZmlnCj4gQEAgLTM4Nyw3ICsz
-ODcsNyBAQCBjb25maWcgUklTQ1ZfU0JJX01QWFlfTUJPWAo+ICAgICAgICAgICBNYWlsYm94IGRy
-aXZlciBpbXBsZW1lbnRhdGlvbiBmb3IgUklTQy1WIFNCSSBNZXNzYWdlIFByb3h5IChNUFhZKQo+
-ICAgICAgICAgICBleHRlbnNpb24uIFRoaXMgbWFpbGJveCBkcml2ZXIgaXMgdXNlZCB0byBzZW5k
-IG1lc3NhZ2VzIHRvIHRoZQo+ICAgICAgICAgICByZW1vdGUgcHJvY2Vzc29yIHRocm91Z2ggdGhl
-IFNCSSBpbXBsZW1lbnRhdGlvbiAoTS1tb2RlIGZpcm13YXJlCj4gLSAgICAgICAgIG9yIEhTLW1v
-ZGUgaHlwZXJ2aXNvcikuIFNheSBZIGhlcmUgaWYgeW91IHdhbnQgdG8gaGF2ZSB0aGlzIHN1cHBv
-cnQuCj4gLSAgICAgICAgIElmIHVuc3VyZSBzYXkgTi4KPiArICAgICAgICAgb3IgSFMtbW9kZSBo
-eXBlcnZpc29yKS4gU2F5IFkgaGVyZSwgdW5sZXNzIHlvdSBhcmUgc3VyZSB5b3UgZG8gbm90Cj4g
-KyAgICAgICAgIG5lZWQgdGhpcy4KPgo+ICBlbmRpZgo+IC0tCj4gMi40My4wCj4KCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+
+On 15/01/2026 12:12, Heiko Carstens wrote:
+> On Wed, Jan 14, 2026 at 01:45:23PM +0000, Kalyazin, Nikita wrote:
+>> From: Nikita Kalyazin <kalyazin@amazon.com>
+>>
+>> These allow guest_memfd to remove its memory from the direct map.
+>> Only implement them for architectures that have direct map.
+>> In folio_zap_direct_map(), flush TLB on architectures where
+>> set_direct_map_valid_noflush() does not flush it internally.
+> 
+> ...
+> 
+>> diff --git a/arch/s390/mm/pageattr.c b/arch/s390/mm/pageattr.c
+>> index d3ce04a4b248..df4a487b484d 100644
+>> --- a/arch/s390/mm/pageattr.c
+>> +++ b/arch/s390/mm/pageattr.c
+>> @@ -412,6 +412,24 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
+>>        return __set_memory((unsigned long)page_to_virt(page), nr, flags);
+>>   }
+>>
+>> +int folio_zap_direct_map(struct folio *folio)
+>> +{
+>> +     unsigned long addr = (unsigned long)folio_address(folio);
+>> +     int ret;
+>> +
+>> +     ret = set_direct_map_valid_noflush(folio_page(folio, 0),
+>> +                                        folio_nr_pages(folio), false);
+>> +     flush_tlb_kernel_range(addr, addr + folio_size(folio));
+>> +
+>> +     return ret;
+>> +}
+> 
+> The instructions used in the s390 implementation of
+> set_direct_map_valid_noflush() do flush TLB entries.
+> The extra flush_tlb_kernel_range() is not required.
+
+Thanks, Heiko.  Will update in the next version.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
