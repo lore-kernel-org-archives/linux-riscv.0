@@ -4,89 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5CFBD4660D
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 18:46:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC29CD4660D
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 19:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HQtJCqvPUlMvfW9Yujqv9kHYII6KLHLKGbFyjTrD2vk=; b=dLFsotwUlju7vg
-	xPQOp7lZukuu8I+HuegB/4u8kRJLHOWZ8R9GHdtW947Cfb/SpZEaMtWUKkWyAEDoMoolt2Qzk4DIs
-	ZqiNtSqHMtFcfb0sKEXJMdlRS9zzw3Lgs/Oc/1SE/HwvTRwyoQBQkm2pvXAics0JiwXVPsHj6wUmW
-	J+43r0skofTrzmI2xO+gNSAnfet69lQXAfzSHg+NIUkd9O9Mn2zlpKwSvWO8uzxn6+YhlGLFgDlbv
-	Yw1Wcs9mltoEV4o2978R7VmocO0msyUzIskHdBeDAXep3LdM1tl9XlnDkKmyLa9AWMDKC1JeY+LDg
-	dNZM0nzpss525BScQRyg==;
+	List-Owner; bh=A+oXfNgN1aL9wIDHDpxBWzy6BNxmwhG0t7lqHPSzakg=; b=RHNqMr8hm/sLd+
+	XtLxEpvACpZCkiM5ka1WxGGnF8rKWOM1p90+WrgaoJpyCAIMcE2PUIcHwHXEwyzMY4pmbVDiGjpyJ
+	Wsan0x3Tk2oEVJBMHXXI/8fm6jhflOqgHX69w1n5GXC8K3ZB/8NdNaWTmCOmgJahmLtfBL4AGL+My
+	Y+vyAjA4rUxNk7GjBIVus50QWcptQp2L8xSmHlzbXvDFNrhSk13QoeFpIVVz+Ze95S+wt9DW+x6rh
+	EIEZ4loM/rP9HW4rN9NumB34CP+g5A8/BrcY/6ni/ISLD4gmTqZZz/Z75IFu8wqo+nzEcy4OiJML7
+	GDEs7iGrd3bJUkefsG0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgSMW-0000000CztJ-1RKD;
-	Thu, 15 Jan 2026 18:46:28 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1vgScr-0000000D0z7-3kde;
+	Thu, 15 Jan 2026 19:03:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgSMR-0000000CzsO-12is
+	id 1vgScp-0000000D0ym-0Q6h
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 18:46:26 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-42fbc305914so824450f8f.0
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 10:46:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768502781; x=1769107581; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=y01hcEYTZNFeQclPQMnDmXUrt0mXOtnGHL4WtYQ+0+U=;
-        b=U9tve7EEXdvHLfJCxF5+OEi6hbqLpDTTA/x1far5UickilGqpF+kmwaAIuvtlsPxCj
-         m57mKffshF+to8TH7R1jld9/LenAQLetuBo+x9frsrojxP2JZ1N1NiRFo6jrKmGHuKFt
-         EZGlw1ezHsvqbNGW6i17+ouM2wIBGxpy7hyK5R/KpwahhQHu6yGi1476rfu0FJJrYZeI
-         u4qAvhUBhnWEVPt6I1xL9a1mT2Bo5WCX4n/cpYAk+aPECA1Y1N8jzsJqhdySjne8fG9B
-         ca+JZbYVzJUr3uQ/k5vp99pqkLdHoFRrFwA6QPl8YKZKnluNdorR2qzQ1FqUX4u3HpED
-         aL9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768502781; x=1769107581;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=y01hcEYTZNFeQclPQMnDmXUrt0mXOtnGHL4WtYQ+0+U=;
-        b=NUcsd5jxYY5KqO6tn2cj/+Anxz8/7cFzZUVRpdo6TM0UxijninZ1JRDFqhAKz55cfa
-         9IKq/G/+LLw0oRZCdVi6xrGxvwqisYMQzp+jz9P3EZ+0Q5NcnqP1Z0v4K1Wd0Wef4s1X
-         InRpgVWll+lgYMTBwK29cTuawFbHoqT/WxDeV6aX3L8abFU4McnRPep30RkEN7SPymsV
-         i3d3e2RqkE9QJ01OFhpJLufNOy3Lfng0Jg4yGppZlU99PkjuAG1Bpj9lbbwOpcT+WaXD
-         S+12efHgVJuXS4j0TgeE9PkP+UNnuS1clBFg7FaL+F7Xlsb1EtQL1fWUmTZyUSoSjKVR
-         TBJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVghyIgP8xCZjLReUyV1Ovq9bS6LPJSUbkDBoRSYYIWJS1mW4xpv0jWUsfHkEBETDrPglFwY+LF6aPMwg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlOUSljVJ4yattjl7SkkZo49tMW9+6yBUh6jwNU3I15uTvQtYZ
-	hVJdbIOiPe3XP9lQWyL84IWAfPYncx1z2XlnNpGf2j5fZ1ESLjWvw6Vc
-X-Gm-Gg: AY/fxX6RhXbE6ByaPm7OXVMhUoQ/w9hG0r9KckSG48i5z6RL9Ik1O1N8ycQBe5FHkaf
-	GEPvTaMGWMVYPZxCgFyNGrSw/5rJQaMvRPMtPzvxKJWl++CaLdMeS1Z3iR/pSmjNzTEZwAPGF9N
-	G/HfvwJlTUAnG0Cj9oi0QayQQELdcRPeHajXS0PpSkoa72VMZeoQvav2ng4UAt4oMS5J7mHAKM+
-	j6cxt8khMYbdsgPp0VwfuQWh47Z2gk04zMj/PsjImVOp696/yIqQzs/qdaEQbRL8SDwyplHaT5o
-	17WFlV71EBBFrs86Hs3cnrYla6xF7kS4MXjPVnFyG9+O+ABg97FcIZW9ysu/8fwj4tFbObef7zO
-	NmCQH6+X8Xiw+nhymRBkU7tgkqUaS51HOSmCmW3DY1ULY81mkPaf2WpDyS2+F6M9gt4aT28xAuI
-	VwSCsvJMfHJWDMT3PMZX2DmTsdLOOimwykelbz5ubOmnEv08RFw6qP
-X-Received: by 2002:a05:6000:200f:b0:432:c0b8:ee58 with SMTP id ffacd0b85a97d-435699173f5mr400692f8f.0.1768502781108;
-        Thu, 15 Jan 2026 10:46:21 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4356997e6cdsm488913f8f.31.2026.01.15.10.46.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 10:46:20 -0800 (PST)
-Date: Thu, 15 Jan 2026 18:46:19 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>
-Cc: Feng Jiang <jiangfeng@kylinos.cn>, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, samuel.holland@sifive.com,
- charlie@rivosinc.com, conor.dooley@microchip.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: lib: optimize strlen loop efficiency
-Message-ID: <20260115184619.574f1b36@pumpkin>
-In-Reply-To: <20260115111947.54929ed0@pumpkin>
-References: <20251218032614.57356-1-jiangfeng@kylinos.cn>
-	<d356705a-843c-06dc-38a3-77eae7d2ef59@kernel.org>
-	<20260115111947.54929ed0@pumpkin>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Thu, 15 Jan 2026 19:03:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4D59C40DDA;
+	Thu, 15 Jan 2026 19:03:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10D5FC16AAE;
+	Thu, 15 Jan 2026 19:03:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768503798;
+	bh=cAzv/LU+oeabYJ4VWS6ngaY4OY/wwq3rm7xmVI/ASeI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PPR/OuglugWWQwVMTspqVz+y+geAyS7upHs5SIem+PhSqI3gKPE5gia8sPilwLAKd
+	 UqP8AhA6hgR0nk9MNCNpLNsL0MlBLPPdntAQtg9aZEypc5egPSWkTteW96IUd5lWyM
+	 4JmFQ9Iuq8OiSg+36T3KQK0nSmmwk4j0iIngQ4RO2Rr3n23UX8xE84K0vm9dgkP9ES
+	 db/Yvc7rAm+WhLPSEUdGvoW5+f09SeonNBlnxscJqj6UFG9icAceYEiU7fzChidSSC
+	 YS3O5dxU6cVrGyqMFidzrVI6KIw2PiUnm/P0D6JB/ABERwY9qL306dmygsGQr2hfDo
+	 zWOyjQ/mZyTUg==
+Date: Thu, 15 Jan 2026 11:03:16 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Thomas Gerner <thomas.gerner@muenchen-mail.de>
+Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Linus Walleij <linusw@kernel.org>, linux-riscv@lists.infradead.org
+Subject: Re: Typo in pinctrl-th1520.c
+Message-ID: <aWk59MT8yWcxiYKr@x1>
+References: <029e5e79-ae9c-4d31-b75f-8f48f359d539@muenchen-mail.de>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <029e5e79-ae9c-4d31-b75f-8f48f359d539@muenchen-mail.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_104625_353014_BDBCBD0F 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20260115_110319_160523_0F2D4B9C 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,97 +67,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 Jan 2026 11:19:47 +0000
-David Laight <david.laight.linux@gmail.com> wrote:
+On Wed, Jan 14, 2026 at 04:20:17PM +0100, Thomas Gerner wrote:
+> Hello,
+> =
 
-> For 64bit you can do a lot better (in C) by loading 64bit words and doing
-> the correct 'shift and mask' sequence to detect a zero byte.
-> It usually isn't worth in for 32bit.
-> 
-> Does need to handle a mis-aligned base - eg by masking the bits off
-> the base pointer and or'ing in non-zero values to the value read from
-> the base pointer.
-> 
-> 	David
+> in the pincontrol file for the TH1520 SOC a pad is named wrong. According=
+ to
+> TH1520 System User Manual, chapter 3.2.1 (page 38) pad 8 in pad group 3 is
+> named QSPI0_D3_HOLD. With the wrong name QSPI1_D3_HOLD one cannot select =
+the
+> right pad in a device tree because the name is not unique.=A0QSPI1_D3_HOL=
+D is
+> defined in pad group 2. This patch fixes the the pad name.
+> =
 
-The version below seems to work https://www.godbolt.org/z/sME3Ts6vW
-It actually looks ok for x86-32, the loop is 8 instructions plus the branch
-but the 'register dependency chain' is only 4 instructions.
-So maybe better than byte compares for moderate to long strings.
-(Especially if the cpu starts speculatively executing the next loop
-iteration.)
+> diff --git a/drivers/pinctrl/pinctrl-th1520.c
+> b/drivers/pinctrl/pinctrl-th1520.c
+> index e641bad6728c..83e9c9f77370 100644
+> --- a/drivers/pinctrl/pinctrl-th1520.c
+> +++ b/drivers/pinctrl/pinctrl-th1520.c
+> @@ -287,7 +287,7 @@ static const struct pinctrl_pin_desc
+> th1520_group3_pins[] =3D {
+> =A0 =A0 =A0 =A0 TH1520_PAD(5,=A0 QSPI0_D0_MOSI, QSPI, PWM,=A0 I2S,=A0 GPI=
+O, ____, ____,
+> 0),
+> =A0 =A0 =A0 =A0 TH1520_PAD(6,=A0 QSPI0_D1_MISO, QSPI, PWM,=A0 I2S,=A0 GPI=
+O, ____, ____,
+> 0),
+> =A0 =A0 =A0 =A0 TH1520_PAD(7,=A0 QSPI0_D2_WP,=A0 =A0QSPI, PWM,=A0 I2S,=A0=
+ GPIO, ____, ____,
+> 0),
+> -=A0 =A0 =A0 =A0TH1520_PAD(8,=A0 QSPI1_D3_HOLD, QSPI, ____, I2S,=A0 GPIO,=
+ ____, ____,
+> 0),
+> +=A0 =A0 =A0 =A0TH1520_PAD(8,=A0 QSPI0_D3_HOLD, QSPI, ____, I2S,=A0 GPIO,=
+ ____, ____,
+> 0),
+> =A0 =A0 =A0 =A0 TH1520_PAD(9,=A0 I2C2_SCL,=A0 =A0 =A0 I2C,=A0 UART, ____,=
+ GPIO, ____, ____,
+> 0),
+> =A0 =A0 =A0 =A0 TH1520_PAD(10, I2C2_SDA,=A0 =A0 =A0 I2C,=A0 UART, ____, G=
+PIO, ____, ____,
+> 0),
+> =A0 =A0 =A0 =A0 TH1520_PAD(11, I2C3_SCL,=A0 =A0 =A0 I2C,=A0 ____, ____, G=
+PIO, ____, ____,
+> 0),
+> ---
+> =
 
-The OPTIMIZER_HIDE_VAR() helps a lot on (eg) MIPS-64 and a bit elsewhere
-since most 64bit cpu can't load 64bit immediates.
+> Best regards
+> Thomas
 
-I can't get gcc and clang to reliably have a loop with a conditional
-jump at the bottom, especially with an unconditional jump into the
-loop (to remove the '| mask' from the loop body).
+Hello, thank you catching this and providing a fix. The change looks
+correct me, but I believe there is something wrong with the patch.
 
-Also KASAN (or one of its friends) wont like the code reading entire
-words that hold the string.
+Did you just paste a diff into an email?
 
-And it does need ffs/clz instructions - or a different loop bottom.
-(For BE one with clzl() returning 0 will work.) 
+I would suggest using git send-email. KernelNewbies [1] has some good
+tips as well as Nick's guide [2].
 
-While I suspect the per-byte cost is 'two bytes/clock' on x86-64
-the fixed cost may move the break-even point above the length of the
-average strlen() in the kernel.
-Of course, x86 probably falls back to 'rep scasb' at (maybe)
-(40 + 2n) clocks for 'n' bytes.
-A carefully written slightly unrolled asm loop might manage one
-byte per clock!
-I could spend weeks benchmarking different versions.
+Thanks,
+Drew
 
-	David
-
-#define OPTIMIZER_HIDE_VAR(var)                                         \
-        __asm__ ("" : "=r" (var) : "0" (var))
-
-/* Set BE to test big-endian on little-endian.
- * For real BE either do a byteswapping read or use the BE code. */
-#ifdef BE
-#define SWP(x) __builtin_bswap64(x)
-#define SHIFT <<
-#else
-#define SWP(x) (x)
-#define SHIFT >>
-#endif
-
-unsigned long my_strlen(const char *s)
-{
-        unsigned int off = (unsigned long)s % sizeof (long);
-        const unsigned long *p = (void *)(s - off);
-        unsigned long val;
-        unsigned long mask;
-        unsigned long ones = 0x01010101;
-        /* Force the compiler to generate the related constants sanely. */
-        OPTIMIZER_HIDE_VAR(ones);
-        ones |= ones << 16 << 16;
-
-        mask = ((~0ul SHIFT 8) SHIFT 8 * (sizeof (long) - 1 - off));
-        do {
-                val = SWP(*p++) | mask;
-                mask = (val - ones) & ~val & ones << 7;
-        } while (!mask);
-
-#ifdef BE
-        off = __builtin_clzl(mask);
-        /* Correct for "...\x01" */
-        val <<= off;
-        for (off /= 8; val > (~0ul >> 8); off++)
-                val <<= 8;
-#else
-        off = (__builtin_ffsl(mask) - 1)/8;
-#endif
-
-        return (const char *)(p - 1) + off - s;
-}
+[1] https://kernelnewbies.org/FirstKernelPatch
+[2] https://nickdesaulniers.github.io/blog/2017/05/16/submitting-your-first=
+-patch-to-the-linux-kernel-and-responding-to-feedback/
 
 _______________________________________________
 linux-riscv mailing list
