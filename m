@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA88D47CAD
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 01:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA4AD47CA3
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 01:18:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6aCmt2Kur8T/ucTl1VPDAsL/HeGNb39ce7HQr4SRElg=; b=2qhBWuDCtHUEMq
-	gfo/hh3S4M/8Gg6T4XAHCUByHqgwE8wIa1yvGmsne51ULPcHB3g/SY0wmJTXf+1PmT65b6MBxd3C6
-	dNbCxjmu6KYu8I26PQT2MpNSI+zU9xP6Awh6NPlr6gr0Mep5E9hV6EaQR/QzavdUNHAU7x3SM4Ld4
-	NwqXltnNgLvA/1MGp5+LVZMEL5qgg6hf6g4XVwDGhWVzKKjc7xgxwSzgf74PDtILgXKjsDmLqIJ3l
-	1QUWVmnB7nK7f9GWtj1Hl25yX1ddJGFFvQSxG77zgVCf4fwuv7VKuaG8XJ4zvt0nj49Z6S4XYB5xx
-	onUWoDfAXj5VABziaEWA==;
+	List-Owner; bh=7HOQpFEjZxOIr/QeQS7Xp6UBV/2djj1LqKD9XYo4hNc=; b=omGo6E3KEFCqB9
+	yGfw6jHk4cXi6GzLgn1S4TwCgaqWgmmjbm2NP8A/MLrmoATejH6PhI60MN13GDG3MG3JZOS3Vv44a
+	J3yTlMS37NHPgXuxeteo02w5R1KVMtefXf7coKsFbtjANMU0+eF2UXqi61bOwH+2/i4iZ3SVKajnu
+	RhkHxyo3nbSqa/5LzePjxZqThrlEfspo/QoDd8w7aIHIT4Wb7ek77DR1ThkZiR8XVZE6mCeWhUr2d
+	MMsX06QIYr/cgmSzhE58ueP+IZ5HA6T8f1uXhwKH2GLzNuOZt3JYFd/U1O6UJ4LjRHyluxUnrMb96
+	dBra9eqU13Nl1r31y1JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgYIU-0000000DOwI-0zuV;
-	Fri, 16 Jan 2026 01:06:42 +0000
-Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
+	id 1vgYTf-0000000DPZK-24aq;
+	Fri, 16 Jan 2026 01:18:15 +0000
+Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgYIR-0000000DOvy-2AJw
+	id 1vgYTc-0000000DPXJ-2EbN
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jan 2026 01:06:40 +0000
-Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-7cfdf0c8908so286489a34.0
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 17:06:38 -0800 (PST)
+	Fri, 16 Jan 2026 01:18:14 +0000
+Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-8907f0b447aso18836666d6.0
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 17:18:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768525598; x=1769130398; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1768526291; x=1769131091; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=wFG3gVNxJD7Ap7fJ1CZDygWmut6qTFwFZjaDYw553m8=;
-        b=LhFYYdoL1dB/WNPXmzLYYjXm930hSBvHU9tLrr1lBRi9PifQSadOvV0wB1M8OqGp68
-         1FMZP1r1DWXSdMP6sPA1kV6EG+EQaBMl5udMjLZWBBsomhS8B80Ksx0f1+LrmzaUq5CS
-         CiUGefCYJ4hkT+1P5kmLg5pZSvNHyvityk0HU6n1p6Bf7h81S337rwhibumXbPqJV2jD
-         34AlqEpCLHFjGce+sH1eEz4+rmENIVC2aReBKO97AFGd/Krzm/vNVE/YbyE/f9c703s5
-         yeQj4AP3e40QPW7oX7p1SIkP91qake8ShJQdgV/zlRKxVKXNhLhduwmRpF7Q21bj4+v7
-         DgMQ==
+        bh=K1PuIc2lRMstuB52aa6xr0OJ5o8vdZJx7Gp6DDwvECc=;
+        b=ZXHjSIiWSD07fbvU3e3bO71mMML7TzSY1Ag6Ixil9zTa0YJHE1pMUAzwfbGyz/PIDr
+         ka4Onr6YfMqAav6s8ULRmTAOIJBOoQ8s5qWOedIAi7G/VrWOV45ud0neNRgLq+9y6Sgu
+         txnfrAg6SGpdNnGQ+VkAgSmTzfswBverEx9iL5Oo1i29YyKsJLMVGkPmQpgLq21d0KNM
+         CV4tikmo/iT3ivGwJCUsXUAIVlGp1H/c/6A1QyQf/Inh0QcbZZLhyxN8OhkeW+Q1sEQY
+         p8NLeUhrQgrXQAGufTe1rdMDUxSK0lvdZneslt2ZzEzGWqckcUjnAWGYhUSULoLB0+3/
+         1Nzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768525598; x=1769130398;
+        d=1e100.net; s=20230601; t=1768526291; x=1769131091;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wFG3gVNxJD7Ap7fJ1CZDygWmut6qTFwFZjaDYw553m8=;
-        b=l5DODJeBHmpEjqZl+7O5UFh68nbZBI1piZQHHcssRqmSbXGDyCm1RkvlNyqt3heG3G
-         fFNkGVQOOHOlXaT/vBRMOa07bidjN8dmXpnMQL23yhs2rsS023BwdNHTNWtsWoCqP05I
-         1MAOi9e2UAJ3YmEJVXBHVwl7Yv1zA1WQjJLBrKcFKhgjEti5G0vRzb1bL+Xc68/7fwTL
-         OnXTFTXi7lrHbKBtrBFFQ78cY0ffJlD+9ytuJgtqOr//nn4eBEIWeuHdZeWGqyXIGNf/
-         9sij/tfDCFxnWJePNYv6gAmwI7utiqKRTniJ1+t2+ID7IsnOYN90EUPrJp++mUO7sbKy
-         4S/w==
-X-Forwarded-Encrypted: i=1; AJvYcCUxhu/aHkw0eLvyhoWKrgkNRlnaJZJaZS+VYYZYK7n8cyI//f3vHekTrkIkn57INuZjYTMOXgrvtV7kEw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyiGPA3b/ZYIiqte9IfDdLWY7pqHiF7p/zqCPHkO+JctAUTLJCr
-	9MjRKUh/pfR9xjdUY/qWV1/45aptDDz2qbLYIzvsH9c6B7feUXWrfP5aA/c+ojsjseI=
-X-Gm-Gg: AY/fxX45sNKrPpBJB7H6sZZo8+x5j7oLyykezNlMInX0ifY7lrg65uCuCyr4jBc9uja
-	Q1KiVfQhKTXYQk3d4az4CWMT+yvNHxq+mXrCQkBEcE8wNe3vMC3tVS4TlM9PlTNx9bPDAPDaUiz
-	8La+6O3Rz8KB4K1mS1hQg2g7ZH35jjfYaAy8xRC73Zj+BPUT3buMoyP0inihL3MbTQu0V3NxV4M
-	O1sBcxJqR9VRx3IO6ItlY53MBaw+chKJaYIkHJwitssQsypB+O0Ixr33BQeSppEWut0HBM707er
-	/9pIDthJMTszNzgh/TDGpQoTQFDy/wdk4tIMaKrJGC1zULby3lNSt2yirdfV2CBEVfSw7fAsaFa
-	Hr9a0uC8IMH7VdbrzeiPxBwG1dGnVfwfZ0pjqMmlId9dC1qUeasvdC0i/TH6PNTulqP6FB4l3lC
-	ZdqITbpQHCEA==
-X-Received: by 2002:a05:7300:6ca1:b0:2b0:5079:d3c8 with SMTP id 5a478bee46e88-2b6b3f139f5mr1020729eec.4.1768520046558;
-        Thu, 15 Jan 2026 15:34:06 -0800 (PST)
+        bh=K1PuIc2lRMstuB52aa6xr0OJ5o8vdZJx7Gp6DDwvECc=;
+        b=fsiIfpYxb1FAHsD17OmsQH8gHhta7oIQHsjZppyQhlLpoybch1x773W74WN9tgthyj
+         K0pZ0KfXIwz564xMELiqH9bFxNualwP+Ic3Ggl1muwWxqRjRBFnjNIP+ZZIhAFgax9EL
+         QuLafg2KzdG8wyUvyXdWMJkSDiCG5JjZkDmdbJ+U5n6Kz7BcsxtYRByGWQtiAaq0pdHa
+         6grLPIxgLksTPirlUfYSmW0fIioC3IgQ4ezZppah9X1VcrbORVcaJgMdWwCUxza0BwR8
+         9f1D9UGOO3nGFaSTK/GgxuWQprS+WTGC9prW6zUwX6uU+3KMOhL9T/lAUBIXHBdNLVfD
+         0sCw==
+X-Forwarded-Encrypted: i=1; AJvYcCVOZSwhrnoRtWN4UW4e2TANRWhuAo3PgFuTDj/IdsP+PZBRZP3jhsPsvi9Yaz8tMQ/YGHQcf86e/2pumA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHb7KWfF8Mqj7xZi1Q51hNC33gMIPFZgmd1iCVEs7Vl6Ggfpeo
+	1DZtipj8PWJuzz2fqvvktj0oAd/sdEkfF1nZ054/Rs6D1/oaUsyH89m22vJyQauf5G8=
+X-Gm-Gg: AY/fxX7gA5wRNIBITAwwgDVUR+nSbwOkXZS9H1XMmeAQ05FuajuAdD3V7MXgu5k8EFX
+	GvZT5Rxignq1jcDmdnYpD0Iprm4DSxcRw/xq83mXyJfEyHru8F+KrT+xn5epg2XWLbXA8xhobZV
+	iUw7uzLyZKlHZETTwUujW6z5cequCYtkrHnb1jrSPrYX1jowB0/qKzwP6tGUotPXnIWTF77WPxQ
+	hpLNIR5gpNFfq0k8/gkP5d2Gwv3cloJYIkNZZs4czH6klTP2dS8CDVKq+h2BjKgqZ9jVqt1LyFz
+	01B7R+a++HKo86fu31sadrQfC1YlG+phj0UOdcplcS6NKEByRVK90CG3rBaTGZ1eOCaAvZTDzUK
+	i0GgbWigGNJPoKyzG2lSoaxx0QidJxNlqkQW6tKp1OwWqLZXkjdwlQOzSiBRZPhtldZ3HNxgmke
+	cgAsQRqchydg==
+X-Received: by 2002:a05:7301:fa0d:b0:2ae:5076:b6a with SMTP id 5a478bee46e88-2b6b48115f4mr1246860eec.19.1768520118610;
+        Thu, 15 Jan 2026 15:35:18 -0800 (PST)
 Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b6b3696f40sm696762eec.35.2026.01.15.15.34.05
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b6b3651f39sm728550eec.24.2026.01.15.15.35.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 15:34:06 -0800 (PST)
-Date: Fri, 16 Jan 2026 07:34:01 +0800
+        Thu, 15 Jan 2026 15:35:18 -0800 (PST)
+Date: Fri, 16 Jan 2026 07:35:13 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
 To: "Anton D. Stavinskii" <stavinsky@gmail.com>, 
 	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -79,15 +79,16 @@ To: "Anton D. Stavinskii" <stavinsky@gmail.com>,
 	Alexandre Ghiti <alex@ghiti.fr>
 Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
 	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 0/8] ASoC: sophgo: add CV1800 AIAO mux and I2S support
-Message-ID: <aWl4fvKsUZDg9dwj@inochi.infowork>
+Subject: Re: [PATCH 8/8] riscv: dts: sophgo: add Milk-V Duo 256M board dts
+Message-ID: <aWl5fZKayAHmoES4@inochi.infowork>
 References: <20260115-cv1800b-i2s-driver-v1-0-e8b22b8578ab@gmail.com>
+ <20260115-cv1800b-i2s-driver-v1-8-e8b22b8578ab@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260115-cv1800b-i2s-driver-v1-0-e8b22b8578ab@gmail.com>
+In-Reply-To: <20260115-cv1800b-i2s-driver-v1-8-e8b22b8578ab@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_170639_624329_D2CEF755 
-X-CRM114-Status: GOOD (  25.96  )
+X-CRM114-CacheID: sfid-20260115_171812_594877_4A42E1A2 
+X-CRM114-Status: GOOD (  25.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,81 +105,292 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 15, 2026 at 11:17:37PM +0400, Anton D. Stavinskii wrote:
-> This patch series adds basic audio support for Sophgo CV1800B, 
-> as used on boards such as the Milk-V Duo. 
-> The series introduces an AIAO audio mux driver, 
-> an I2S controller driver, corresponding DT bindings, 
-> and DTS updates to wire the components together.
+On Thu, Jan 15, 2026 at 11:17:45PM +0400, Anton D. Stavinskii wrote:
+> Example of usage internal dac/adc and external I2S mic
+> The example shows how to use the card and
+> will actually work other boards.
+> Fixed clocks needed to make simple card make
+> initial .set_sysclk with proper clock rates.
+> Same for DAC. I2S3 has to be started not only
+> for DAC but for the ADC also because it
+> provides mclk for both.
 > 
-
-I haven't see your mux driver, is it missed?
-
-> The implementation is based on vendor documentation 
-> and testing on real hardware.  This series relies on 
-> recent fixes in the DesignWare AXI DMA support; 
-> in particular, correct operation depends on 
-> the DMA changes discussed at:
-> https://lore.kernel.org/all/20251214224601.598358-1-inochiama@gmail.com/ 
-> The current driver implementation supports a fixed audio configuration 
-> of 48 kHz sample rate.  The series has been tested on the 
-> Milk-V Duo 256M board using the Sophgo SG2002 SoC. 
-> The implementation is expected to also work on Milk-V Duo and Milk-V Module 
-> boards based on the SG2000 SoC, as the audio 
-> and DMA blocks are closely related.
-> 
-> Known hardware limitation:
-> On CV1800B / SG2002, the I2S2 output pins cannot be enabled via pinctrl alone.
-> Due to SoC design constraints, the output path becomes functional only after 
-> additional vendor-specific register programming. 
-> This series makes the limitation explicit and does not attempt to work around 
-> it implicitly via pinctrl or undocumented behavior.
+> dai-link@2 will only work if registers
+> are set according to this issue
+> https://github.com/sophgo/sophgo-doc/issues/174#event-21395297524
+> in other case i2s2 will not output clocks and data.
+> Those changes are not connected to the driver itself,
+> but for another subsystem which is not yet ipmlemented.
+> The following config properly works for MilkV Duo/256Mm, Module.
+> Basically everything with sg2000/sg2002 but on some boards
+> i2s2 output pins are soldered to Ethernet module.
+> In Milk 256M they are free to use as external DAC/ADC.
 > 
 > Signed-off-by: Anton D. Stavinskii <stavinsky@gmail.com>
 > ---
-> Anton D. Stavinskii (8):
->       dt-bindings: sound: sophgo: add CV1800B I2S/TDM controller binding
->       ASoC: sophgo: add CV1800B I2S/TDM controller driver
->       dt-bindings: sound: sophgo: add CV1800B internal ADC codec
->       ASoC: sophgo: add CV1800B internal ADC codec driver
->       dt-bindings: sound: sophgo: add CV1800B internal DAC codec
->       ASoC: sophgo: add CV1800B internal DAC codec driver
->       riscv: dts: sophgo: dts nodes for i2s tdm modules
->       riscv: dts: sophgo: add Milk-V Duo 256M board dts
-> 
->  .../bindings/sound/sophgo,cv1800b-i2s.yaml         |  75 +++
->  .../bindings/sound/sophgo,cv1800b-sound-adc.yaml   |  43 ++
->  .../bindings/sound/sophgo,cv1800b-sound-dac.yaml   |  43 ++
 >  arch/riscv/boot/dts/sophgo/Makefile                |   1 +
->  arch/riscv/boot/dts/sophgo/cv180x-dmamux.h         |  57 ++
->  arch/riscv/boot/dts/sophgo/cv180x.dtsi             |  49 ++
->  .../boot/dts/sophgo/sg2002-milkv-duo-256m.dts      | 231 +++++++
->  sound/soc/Kconfig                                  |   1 +
->  sound/soc/Makefile                                 |   1 +
->  sound/soc/sophgo/Kconfig                           |  41 ++
->  sound/soc/sophgo/Makefile                          |   5 +
->  sound/soc/sophgo/cv1800b-sound-adc.c               | 322 ++++++++++
->  sound/soc/sophgo/cv1800b-sound-dac.c               | 204 ++++++
->  sound/soc/sophgo/cv1800b-tdm.c                     | 714 +++++++++++++++++++++
->  14 files changed, 1787 insertions(+)
-> ---
-> base-commit: 7a52965b6976c936f413eebeee3f78c6faf09012
-> change-id: 20260115-cv1800b-i2s-driver-4f17836dec56
+>  .../boot/dts/sophgo/sg2002-milkv-duo-256m.dts      | 231 +++++++++++++++++++++
+>  2 files changed, 232 insertions(+)
 > 
-> Best regards,
-> -- 
-> Anton D. Stavinskii <stavinsky@gmail.com>
-> 
+> diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
+> index 6f65526d4193..c8901ff680cb 100644
+> --- a/arch/riscv/boot/dts/sophgo/Makefile
+> +++ b/arch/riscv/boot/dts/sophgo/Makefile
+> @@ -6,3 +6,4 @@ dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-milkv-pioneer.dtb
+>  dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-evb-v1.dtb
+>  dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-evb-v2.dtb
+>  dtb-$(CONFIG_ARCH_SOPHGO) += sg2044-sophgo-srd3-10.dtb
+> +dtb-$(CONFIG_ARCH_SOPHGO) += sg2002-milkv-duo-256m.dtb
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo-256m.dts b/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo-256m.dts
+> new file mode 100644
+> index 000000000000..cc33c4355969
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo-256m.dts
+> @@ -0,0 +1,231 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2024 Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "sg2002.dtsi"
+> +
+> +/ {
+> +	model = "Milk-V duo 256M";
+> +	compatible = "milkv,duo-256m",
+> +	"sipeed,licheerv-nano",
+> +	"sophgo,sg2002";
+> +
+> +	aliases {
+> +		gpio0 = &gpio0;
+> +		gpio1 = &gpio1;
+> +		gpio2 = &gpio2;
+> +		gpio3 = &gpio3;
+> +		serial0 = &uart0;
+> +		serial1 = &uart1;
+> +		serial2 = &uart2;
+> +		serial3 = &uart3;
+> +		serial4 = &uart4;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +};
+> +
+> +&osc {
+> +	clock-frequency = <25000000>;
+> +};
+> +
+> +&pinctrl {
+> +	uart0_cfg: uart0-cfg {
+> +		uart0-pins {
+> +			pinmux = <PINMUX(PIN_UART0_TX, 0)>,
+> +			<PINMUX(PIN_UART0_RX, 0)>;
+> +			bias-pull-up;
+> +			drive-strength-microamp = <10800>;
+> +			power-source = <3300>;
+> +		};
+> +	};
+> +
+> +	sdhci0_cfg: sdhci0-cfg {
+> +		sdhci0-clk-pins {
+> +			pinmux = <PINMUX(PIN_SD0_CLK, 0)>;
+> +			bias-pull-up;
+> +			drive-strength-microamp = <16100>;
+> +			power-source = <3300>;
+> +		};
+> +
+> +		sdhci0-cmd-pins {
+> +			pinmux = <PINMUX(PIN_SD0_CMD, 0)>;
+> +			bias-pull-up;
+> +			drive-strength-microamp = <10800>;
+> +			power-source = <3300>;
+> +		};
+> +
+> +		sdhci0-data-pins {
+> +			pinmux = <PINMUX(PIN_SD0_D0, 0)>,
+> +			<PINMUX(PIN_SD0_D1, 0)>,
+> +			<PINMUX(PIN_SD0_D2, 0)>,
+> +			<PINMUX(PIN_SD0_D3, 0)>;
+> +			bias-pull-up;
+> +			drive-strength-microamp = <10800>;
+> +			power-source = <3300>;
+> +		};
+> +
+> +		sdhci0-cd-pins {
+> +			pinmux = <PINMUX(PIN_SD0_CD, 0)>;
+> +			bias-pull-up;
+> +			drive-strength-microamp = <10800>;
+> +			power-source = <3300>;
+> +		};
+> +	};
+> +};
+> +
+> +&sdhci0 {
+> +	pinctrl-0 = <&sdhci0_cfg>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +	bus-width = <4>;
+> +	no-1-8-v;
+> +	no-mmc;
+> +	no-sdio;
+> +	disable-wp;
+> +};
+> +
+> +&usb {
+> +	dr_mode = "peripheral";
+> +	status = "okay";
+> +	g-rx-fifo-size = <1536>;
+> +	g-tx-fifo-size = <128 128 64 64 64 64 32 32>;
+> +};
+> +
+> +&uart0 {
+> +	pinctrl-0 = <&uart0_cfg>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +};
+> +
+> +&dmac {
+> +	status = "okay";
+> +};
+> +
+> +&dmamux {
+> +	status = "okay";
+> +};
+> +
+> +&pinctrl {
+> +	i2s2_cfg: i2s2-cfg {
+> +		i2s2-out-pins {
+> +			pinmux = <PINMUX(PIN_ETH_TXM, 7)>,
+> +			<PINMUX(PIN_ETH_RXP,  7)>,
+> +			<PINMUX(PIN_ETH_RXM,  7)>;
+> +
+> +			drive-strength-microamp = <15700>;
+> +			power-source = <1800>;
+> +		};
+> +
+> +		i2s2-in-pins {
+> +			pinmux = <PINMUX(PIN_ETH_TXP, 7)>;
+> +			power-source = <1800>;
+> +		};
+> +	};
+> +};
+> +
+> +&i2s0 {
+> +	#sound-dai-cells = <0>;
+> +	status = "okay";
+> +};
+> +
+> +&i2s2 {
+> +	pinctrl-0 = <&i2s2_cfg>;
+> +	pinctrl-names = "default";
+> +	#sound-dai-cells = <0>;
+> +	status = "okay";
+> +};
+> +
+> +&i2s3 {
+> +	#sound-dai-cells = <0>;
+> +	status = "okay";
+> +};
+> +
+> +/ {
 
-Thanks for your patch, for all the patchs, I hope you write a
-meaningful comment for the patch, at least for now I found it
-is nothing in your comment.
+> +	int_adc: codec@300a100 {
+> +		compatible = "sophgo,cv1800b-sound-adc";
+> +		#sound-dai-cells = <0>;
+> +		reg = <0x300a100 0x100>;
+> +	};
+> +
+> +	int_dac: codec@300a000 {
+> +		compatible = "sophgo,cv1800b-sound-dac";
+> +		#sound-dai-cells = <0>;
+> +		reg = <0x300a000 0x100>;
+> +	};
+> +
 
-Also, the patch 8 should not in this patch and should be a
-separate patch.
+Move these two nodes into cv180x.dtsi, others are not allowed
+in this patch series, use a separate patch instead.
 
 Regards,
 Inochi
+
+
+> +	ext_adc: my-ext-adc {
+> +		compatible = "invensense,ics43432";
+> +		#sound-dai-cells = <0>;
+> +	};
+> +
+> +	sound {
+> +		compatible = "simple-audio-card";
+> +		simple-audio-card,name = "cv1800b card";
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		simple-audio-card,dai-link@0 {
+> +			reg = <0>;
+> +			format = "i2s";
+> +			bitclock-master = <&clock_master0>;
+> +			frame-master = <&clock_master0>;
+> +
+> +			codec {
+> +				sound-dai = <&int_dac>;
+> +			};
+> +
+> +			clock_master0: cpu {
+> +				system-clock-frequency = <12288000>;
+> +				system-clock-fixed;
+> +				system-clock-direction-out;
+> +				mclk-fs = <256>;
+> +				sound-dai = <&i2s3>;
+> +			};
+> +		};
+> +
+> +		simple-audio-card,dai-link@1 {
+> +			reg = <1>;
+> +			format = "i2s";
+> +			bitclock-master = <&clock_master1>;
+> +			frame-master = <&clock_master1>;
+> +
+> +			clock_master1: codec {
+> +				mclk-fs = <256>;
+> +				system-clock-frequency = <12288000>;
+> +				system-clock-fixed;
+> +				sound-dai = <&int_adc>;
+> +			};
+> +
+> +			cpu {
+> +				mclk-fs = <256>;
+> +				system-clock-frequency = <12288000>;
+> +				system-clock-fixed;
+> +				sound-dai = <&i2s0>;
+> +			};
+> +		};
+> +
+> +		simple-audio-card,dai-link@2 {
+> +			reg = <2>;
+> +			format = "i2s";
+> +			bitclock-master = <&clock_master2>;
+> +			frame-master = <&clock_master2>;
+> +
+> +			codec {
+> +				sound-dai = <&ext_adc>;
+> +			};
+> +
+> +			clock_master2: cpu {
+> +				mclk-fs = <256>;
+> +				system-clock-frequency = <12288000>;
+> +				system-clock-fixed;
+> +				sound-dai = <&i2s2>;
+> +			};
+> +		};
+> +	};
+> +};
+> 
+> -- 
+> 2.43.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
