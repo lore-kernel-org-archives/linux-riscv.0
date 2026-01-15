@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 717A0D4662B
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 21:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFDE3D4662B
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 21:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,70 +13,85 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=9+iDgiV6xeBeuvsM5Kcei/upqvYlO+cD8hqbD8R4DDk=; b=yS2dt8KdyrlqH7PIP45GbnFk42
-	YSvZcvFQW54I+p1wYZW+nfdZy6LfP4nhs1Ftr28MDlCdMkMO+ixl2ZmLQQpLr9DmHPhDk+JwdnmEO
-	ayNUUfqDEHY9aXnsMgC+fORcCElshEH2Zyw8FlLjR4P5dZxHeRYNvvcqf4cS14+6oVt7cX4GNvZJK
-	jMKBCsrAEiq+RuE6U+Gpv/H7tZyxZT9oSYKBn+FqolbP7qCAPOqYKeHDcadWvYPtz1Pf9PQ/Lz/Rw
-	Znj72YWJz+K87kFb6LPAnHla++29rtxP2P1dtQb1fI73z/wOrwj6WHbJcBQh5Nwi+iKOSozp1LobL
-	EzWn5TeA==;
+	bh=aoCuzsSiFtRMoM8r946ivDZ1iumTRPuQwzBbwixmUvQ=; b=d7hY38EtdmtYPgp3WJQjeqlwo0
+	jQULGok7RGa342rCJS468HbtYHvGbKvs4na5/tVTCBaIGHIb+yjDmWTwJbXqHQlMf9IYUVVkfwM2i
+	YhPuy7m1PGEKdikL0iE4ynLXLxDcJknoahbkG8A7LHbna/+IzArKB8ZMKJTaQb9jvq+dPz9YtWJZb
+	PO2GbUiQroe/f7hUP94BGgVwh4G7sKLnHrbV+hElqkeBS8fGilgkZ72o2bKsWAlVFz4me7m9ve8fb
+	I4lA9ZKrmJQwsZFBmb3sGz7vVlkYCtNpGcrObep+XX8k22xNHTtO+AAt79xAbr8NTnWNJKFDNpw2N
+	sIgcLnpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgVBl-0000000DEcD-4538;
-	Thu, 15 Jan 2026 21:47:33 +0000
-Received: from mail-vk1-xa29.google.com ([2607:f8b0:4864:20::a29])
+	id 1vgVCU-0000000DEj7-2q9v;
+	Thu, 15 Jan 2026 21:48:18 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgVBj-0000000DEbU-0TVT
+	id 1vgVCT-0000000DEiX-0CiH
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 15 Jan 2026 21:48:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:MIME-Version:References:In-Reply-To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=z1tpnpSOuS/Js87YOF2H5fRocDrhGRoFky0mpImVftk=; b=Jj5Ef/XCXSXPNtOTMyZa+qz30q
+	bc7B2E2RjZ/aG6J26n6Me2PnsPJy6F8eZqBB9cjf1mdtDqjPRcI9r1VQittT1jw0rxJS7LZZKyRO7
+	b8HgYP27cnoynUt9LxfKX2n9M81ZA3faa6+KDLyRTZDXZ0ug85xtuQT4E1c+ausZFbm1HQeZeVki1
+	QI8NphnUAjnNB6dEBNu9Ha3GvZTKUPkybxZmN4VAa+M55UQYzH5uLUg8NBQtybxEccZ3ldk1GAD0u
+	XfoxbXbHesU3Lv0Zbw3/CMFcwyF6BijyUB+z49Vch1so5EECLkFoVC/wGifxvlsbrFpm7iPwKUNRF
+	1r9TIV6A==;
+Received: from mail-vs1-xe2f.google.com ([2607:f8b0:4864:20::e2f])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vgVCO-00000008VSJ-1nc4
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 21:47:32 +0000
-Received: by mail-vk1-xa29.google.com with SMTP id 71dfb90a1353d-5636274b338so1154829e0c.1
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 13:47:30 -0800 (PST)
+	Thu, 15 Jan 2026 21:48:15 +0000
+Received: by mail-vs1-xe2f.google.com with SMTP id ada2fe7eead31-5ef31a77afbso1723981137.0
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 13:48:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1768513650; x=1769118450; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1768513690; x=1769118490; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
          :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=YBmCHfpLlL8iGEYc8icjykZfZHQFfzihdrkSCqexEsw=;
-        b=3QXCIxAkVPRe2AUcHetD0V0wGREHecr1Pd9peO7ihArwDi8qPjR48iKl3RdXfGCO8x
-         37zlvbIEhlLzTyk9W3UmRpr15zsoumF7REpyaGO+zCJnlhnZYO7nuXxsnL/GElZNcYmn
-         RT2cRVZqfvmRos1pp9XeQHFgTY0qZQOf/Rc/3iAdeN8ebzxVL4yrdiU+4lKHizAtOjE2
-         wQBX21hBNfDxTZeSWQkCXbNtLsNU0XnthcOyDTz7BNS+3THauXrcGwrzEi0bnvF4EN/d
-         PYGdjFlYNU5MmvJE5q1qXKhloHzV+IVavR+SheaEYgMvWEhNnRARzy9ICr8xIRiCp/A8
-         hmCw==
+        bh=z1tpnpSOuS/Js87YOF2H5fRocDrhGRoFky0mpImVftk=;
+        b=JRty/CXw8HIK3qNWhRo5MKFBLW76ZLDFo9TBfr/gZVYc+XibH0F+EtHyUYEcRL77Cb
+         myUfm9vmNje2r1+LzNIbKvvsaswfEmppIeqEuHZdafiOzRL4sEr1xZwgbNCvR0O7DP3z
+         amK2qMJHwxcOT1pG4XUs0LPj0u3wMOeMVlQwgL8ep3iRIqRc5wcb7sFR3Bm3s7rE3dlf
+         e4jMOk7i9B5L2pn/ZwV5xGKWjhsceCuwz8I2xBqNBOigL0ipwtCtW+iNqWCjpO5GGoa2
+         YG0/6QdyK5d2BHc2Cy/z6zDl7xRta3ty/8a1oKvo9bCBW2hm6iqPN6v5YmuQWP63sNdF
+         XZtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768513650; x=1769118450;
+        d=1e100.net; s=20230601; t=1768513690; x=1769118490;
         h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
          :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=YBmCHfpLlL8iGEYc8icjykZfZHQFfzihdrkSCqexEsw=;
-        b=G75FnyL14cbIv17HN6qOt5wPpcdB+/910KFrEj04kcE6q2aT1SldtvRHrkauP01dq+
-         x33rLj1gR6YQUeep3Him0vHbsZDbdH0lZhd1S8pATp4fLHYiGmeZ5zjl1of3k6NIUF1Y
-         rEsXX5GiPgwVPF7haGFZBUFw2qAU6E+vT9gl+Ow7WjQde1u21vBcIeuZCZWJw/jTB9iS
-         Dc80JDbXtzB57/GHZ2lRMGVsOZ/F3JOmf7PyTGFJ2VGgbxeDCGP4zw1x5/ZoRbo1iz/T
-         sVXzCSeB1AZZV04lAo803t99A6LrWGY7dd8w/Asbg/pgAojeo2bKbweFCPYyfb+6cP+N
-         i1Wg==
-X-Forwarded-Encrypted: i=1; AJvYcCXU73jcjZ1bloaixIjcU05TTDWyEr5OWBxaZWyfzgsF4EZ0Btk5rv879o1OMVRW9rJtj6Q2TMmQsX1aPQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YziqTElcrUrnQ+gHW0SDCFSHUogmNtlOFZjzrYQkYA3KvvwsCxh
-	InsH9LOuIRKCfDt94yowc48r1tu7jA9TGOBqSemaNVkPd6GeU/BN3lcZcQfA+itQ3TwDbXIgAyp
-	WeJZt4iAUumAd2NkmWRHt5IoPqpyOqdbmrSdg810G
-X-Gm-Gg: AY/fxX7n9d2TKvTj4zhEgYi7r1ZDPlqHhLex0xRwqCTe1povmzQfVss8WLi4U2DgtcL
-	/fN9Ulq0m10H6dL2tJ3fUGLgsnSKK/cBTh4j5lgDU0mvuJVZuIlv9ISVKnGxnaJnkWaCRMiRawX
-	4Ka1DTLJcHtiQ6e62xVjx1TmbNgK29hiNOpclMvy880wUsVSi4HNDbBqVGFRuuedyzrq6IA+jV5
-	ftQlMAG6SuvaJJPHzx5YUfapY+NQVJt88eM/aXm2krR2vcxf+At/S3KPwOutfKZCCL49AtcFlis
-	QeBT3kEbvLOji6QchhOtWGXoIQ==
-X-Received: by 2002:a05:6122:500a:b0:563:466c:2 with SMTP id
- 71dfb90a1353d-563aa9aae66mr1528951e0c.5.1768513649399; Thu, 15 Jan 2026
- 13:47:29 -0800 (PST)
+        bh=z1tpnpSOuS/Js87YOF2H5fRocDrhGRoFky0mpImVftk=;
+        b=sikRZ6EAPZ9s+ndvWSU2UGZuXU3y+/TFp+ssBeMk3aPyZQ8cob9nNSBWEKr5h/zOXE
+         9bkH/P0Ktg5WLEjnzBPTfFXRaaBXsRZMg2eYkQgN8YMCK/Do6x7CPZ/IBve0XVv0KBjG
+         u+yU6RXyjL9VJ0Hl2PK4YsQXQ4O+xvkx+OzhOIIhoidZrwSlSoyzr48DRdu3LBLlEu7J
+         ZPUaZbZ4tYhpHjb3709DCY1ycPZHcqZHwNm9I2LGnJQngX4H36l9p4yjVC1pI4FiYnOm
+         tNdekhJSvguwb7+9hT3WpJmgZbkMxgBrsJjYyLklrl0Hru6fUglph9cRlcmuYDeXz78x
+         1CCA==
+X-Forwarded-Encrypted: i=1; AJvYcCU9Ox1K3q2pOFgFfR7xi2OLPIGUH3AeJgwmUzoIii2pCUoRWuO3fb2IDqyKTB+5mIZ7SrShBump+bJ5gw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/1nE7xteYxmpqIuXQzG/a+TIou9xJmAA2595bvAR12vC3+v6/
+	AyThyVYTX69bkbdH8PJW1IWURGf7335w2JGZBcLGi3P+D/2YJbGFPcj3LH7rchRRxCj6jWLwMYl
+	z/GQk7RenSz+GztPNVIP7Mt5HRoXWoAKiCssvKe8J
+X-Gm-Gg: AY/fxX56qcA0fel8NT9uNbIB8FNbsL3Om9E3nE7Rkk33zwkSudZsRrnc/CuJxTbGWEM
+	Ap1STC/DqO2//ehp1oscCkCncOO786ZarO3Ie6df1IE9EdHjB1viTVxoAMO9MgOwfckBWioDZqQ
+	ZcZ2nxpwhlngcai6RZDF0dyl9gEEoJgc5VwykVWxaPfhz82nIxaY/N/H6H0W8C/wUE7MpnbTVgy
+	ivA+owhl7xo78lQBLOc05KR4lLL60afXGBssxPRgCQhveHjnfN2jWvL9OHoMPnQjvW0Hisex1jI
+	xCc30wID4kcV9tP29HOc/TLNUNxO6sPN4S6a
+X-Received: by 2002:a05:6102:f13:b0:5ec:3107:6b71 with SMTP id
+ ada2fe7eead31-5f192508297mr1821684137.14.1768513689093; Thu, 15 Jan 2026
+ 13:48:09 -0800 (PST)
 Received: from 176938342045 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 15 Jan 2026 13:47:28 -0800
+ HTTPREST; Thu, 15 Jan 2026 13:48:08 -0800
 Received: from 176938342045 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 15 Jan 2026 13:47:28 -0800
+ HTTPREST; Thu, 15 Jan 2026 13:48:08 -0800
 From: Ackerley Tng <ackerleytng@google.com>
-In-Reply-To: <20260114134510.1835-5-kalyazin@amazon.com>
-References: <20260114134510.1835-1-kalyazin@amazon.com> <20260114134510.1835-5-kalyazin@amazon.com>
+In-Reply-To: <20260114134510.1835-6-kalyazin@amazon.com>
+References: <20260114134510.1835-1-kalyazin@amazon.com> <20260114134510.1835-6-kalyazin@amazon.com>
 MIME-Version: 1.0
-Date: Thu, 15 Jan 2026 13:47:28 -0800
-X-Gm-Features: AZwV_QiX95-0WFEZIhu3a0jzKlg7ft8DnUjTu2uxi7sdZ3xYcaUb3m6pe5q87wE
-Message-ID: <CAEvNRgFihTZg_-R8yEytDLVxbiF34nFgTEsghMp6tzBvazVqoA@mail.gmail.com>
-Subject: Re: [PATCH v9 04/13] KVM: guest_memfd: Add stub for kvm_arch_gmem_invalidate
+Date: Thu, 15 Jan 2026 13:48:08 -0800
+X-Gm-Features: AZwV_QhGkMBioMKFssSOB50hq7Zm3qSZq1aP9Of9c8wem-vUHGjRo2vWaCWRwKU
+Message-ID: <CAEvNRgEhcTE70RLiQo2C_XUdF31qSkQ6yHwpUiXPWb6+6mmA0A@mail.gmail.com>
+Subject: Re: [PATCH v9 05/13] KVM: x86: define kvm_arch_gmem_supports_no_direct_map()
 To: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
 	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, 
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
@@ -131,8 +146,8 @@ Cc: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net" <corbet@lwn.ne
 	"Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>, 
 	"Manwaring, Derek" <derekmn@amazon.com>, "Cali, Marco" <xmarcalx@amazon.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_134731_193468_743C2575 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20260115_214812_497738_B250F0A3 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,66 +168,42 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 > From: Patrick Roy <patrick.roy@linux.dev>
 >
-> Add a no-op stub for kvm_arch_gmem_invalidate if
-> CONFIG_HAVE_KVM_ARCH_GMEM_INVALIDATE=n. This allows defining
-> kvm_gmem_free_folio without ifdef-ery, which allows more cleanly using
-> guest_memfd's free_folio callback for non-arch-invalidation related
-> code.
+> x86 supports GUEST_MEMFD_FLAG_NO_DIRECT_MAP whenever direct map
+> modifications are possible (which is always the case).
 >
-> Acked-by: David Hildenbrand (Red Hat) <david@kernel.org>
 > Signed-off-by: Patrick Roy <patrick.roy@linux.dev>
-> Acked-by: Vlastimil Babka <vbabka@suse.cz>
 > Signed-off-by: Nikita Kalyazin <kalyazin@amazon.com>
 > ---
->  include/linux/kvm_host.h | 2 ++
->  virt/kvm/guest_memfd.c   | 4 ----
->  2 files changed, 2 insertions(+), 4 deletions(-)
+>  arch/x86/include/asm/kvm_host.h | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 >
-> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> index d93f75b05ae2..27796a09d29b 100644
-> --- a/include/linux/kvm_host.h
-> +++ b/include/linux/kvm_host.h
-> @@ -2589,6 +2589,8 @@ long kvm_gmem_populate(struct kvm *kvm, gfn_t gfn, void __user *src, long npages
+> diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+> index 5a3bfa293e8b..68bd29a52f24 100644
+> --- a/arch/x86/include/asm/kvm_host.h
+> +++ b/arch/x86/include/asm/kvm_host.h
+> @@ -28,6 +28,7 @@
+>  #include <linux/sched/vhost_task.h>
+>  #include <linux/call_once.h>
+>  #include <linux/atomic.h>
+> +#include <linux/set_memory.h>
 >
->  #ifdef CONFIG_HAVE_KVM_ARCH_GMEM_INVALIDATE
->  void kvm_arch_gmem_invalidate(kvm_pfn_t start, kvm_pfn_t end);
-> +#else
-> +static inline void kvm_arch_gmem_invalidate(kvm_pfn_t start, kvm_pfn_t end) { }
->  #endif
->
->  #ifdef CONFIG_KVM_GENERIC_PRE_FAULT_MEMORY
-> diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-> index fdaea3422c30..92e7f8c1f303 100644
-> --- a/virt/kvm/guest_memfd.c
-> +++ b/virt/kvm/guest_memfd.c
-> @@ -527,7 +527,6 @@ static int kvm_gmem_error_folio(struct address_space *mapping, struct folio *fol
->  	return MF_DELAYED;
+>  #include <asm/apic.h>
+>  #include <asm/pvclock-abi.h>
+> @@ -2481,4 +2482,12 @@ static inline bool kvm_arch_has_irq_bypass(void)
+>  	return enable_device_posted_irqs;
 >  }
 >
-> -#ifdef CONFIG_HAVE_KVM_ARCH_GMEM_INVALIDATE
->  static void kvm_gmem_free_folio(struct folio *folio)
->  {
->  	struct page *page = folio_page(folio, 0);
-> @@ -536,15 +535,12 @@ static void kvm_gmem_free_folio(struct folio *folio)
->
->  	kvm_arch_gmem_invalidate(pfn, pfn + (1ul << order));
->  }
-> -#endif
->
->  static const struct address_space_operations kvm_gmem_aops = {
->  	.dirty_folio = noop_dirty_folio,
->  	.migrate_folio	= kvm_gmem_migrate_folio,
->  	.error_remove_folio = kvm_gmem_error_folio,
-> -#ifdef CONFIG_HAVE_KVM_ARCH_GMEM_INVALIDATE
->  	.free_folio = kvm_gmem_free_folio,
-> -#endif
->  };
->
->  static int kvm_gmem_setattr(struct mnt_idmap *idmap, struct dentry *dentry,
+> +#ifdef CONFIG_KVM_GUEST_MEMFD
+> +static inline bool kvm_arch_gmem_supports_no_direct_map(void)
+> +{
+> +	return can_set_direct_map();
+> +}
+> +#define kvm_arch_gmem_supports_no_direct_map kvm_arch_gmem_supports_no_direct_map
+> +#endif /* CONFIG_KVM_GUEST_MEMFD */
+> +
+>  #endif /* _ASM_X86_KVM_HOST_H */
 > --
 > 2.50.1
-
-Like this change, thanks!
 
 Reviewed-by: Ackerley Tng <ackerleytng@google.com>
 
