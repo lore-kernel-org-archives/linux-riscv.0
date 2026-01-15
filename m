@@ -4,63 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE75DD44C48
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 13:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A10BD44C48
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 14:19:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BDV/VZ0VjlU1t5A1mW9w13XbSuuMvGJIWOfk3BuBjfQ=; b=LctB05tVn0lS8c
-	/7Uu3nlXBD48OMZd7s1pBgA3RXdA2nCRkBREF0mNBoksGSgUKD9yLxBn89hQYaoLUfXLVoM53iJEN
-	uxwmbKXK3hD5nxVWlwA/iQzmSuOdxE9Dqggvz+PzIMzVjSWZpbIUPim8hI6IjrKh65QyqqS63epLJ
-	Zh+wDPT257gUmJOQ0T59saaA+dPJslscTBauNVIcpm1XWUmC8H0C+F5SiQeJvosLHO0GMzL7HI5hD
-	oreSwI9qghCGLvyiiLFLNlAio3YhZiPPisiA1zzB+O93aK2AL1BbdRTsw/iR/9jozqjff2JXu0JRZ
-	m04KrJNYmo4dW8GEvO3A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eL2M122A9goX9STrshrJ+BzHZcPMHl8fTS4UzYwYL6k=; b=kDviSMWopboPhM
+	u9qrbZwaaXfB9vOxgrRc41s8b5fQ5pkK5yW28+/YllDcunkKO6fpETWr56NN6eroyLkLT83+UUty8
+	lEbUbFeRDGWMWpLjIaKC2jgejsND7cK8T6/OE3aEgLTL8CG7W3g7xZl2b3O/8eOSKiWm+clYXiMCj
+	i90rMs/41/7YOR2UPDByeXYL4SiH5lLQGNGeoa1p9uCxwnztINqdfO6x+ewFmPUhU5+3BO6FMbbaD
+	yFw8+ONRBmho+zLXl+3d1O73NonhLCgp0bYlvwAoj1UHKNLl3ts4Ogm392XUyLONCg3Ji+VsisLpR
+	e7UUlw2Ve8LM3PZxY5QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgNOt-0000000CQ8E-3RPI;
-	Thu, 15 Jan 2026 13:28:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vgOBz-0000000CTFJ-1vO7;
+	Thu, 15 Jan 2026 14:19:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgNOs-0000000CQ86-2VjH
+	id 1vgOBw-0000000CTEN-1tDU
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 13:28:34 +0000
+	Thu, 15 Jan 2026 14:19:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF21C601D5;
-	Thu, 15 Jan 2026 13:28:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B34A3C16AAE;
-	Thu, 15 Jan 2026 13:28:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768483713;
-	bh=KkguYVdhvZYXRcg/IO6o4pzafy0TJxYwSM1Upcj7g1A=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=koAXMGkFOUqcNCjLP3cQMW7EarvWVDLzAWDpHjePVFKOj9a5RgGs4T00AnPTMzQ00
-	 //ahHQPUMq+evkJe8Y4IJBdFwuPJEPlW+kdw1hvuS48Tz6EJ5E2PfTOE+PpF4fF2Ao
-	 mBYoJTzyIZ0+YhtHrocnIB28PCyLe8/+SCY3JGAalOh/eSv/4TE2BeTQBSI5zAjZcI
-	 7U2bjN0WTb4sFvFebyXPU65TXogFcgPH53bvFAC/LvOft8ux9wthiGIpFQnC3x0xeg
-	 Y2aZMHZQHexB/UeeDPtxAfyPueDAL5Chz9mHW5YEAFb1whWAeW6qiHTUplLL4SYHbo
-	 y+Hkmite6mQow==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Yicong Yang <yang.yicong@picoheart.com>, Anup Patel
- <apatel@ventanamicro.com>
-Cc: yang.yicong@picoheart.com, anup@brainfault.org, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- geshijian@picoheart.com, weidong.wd@picoheart.com, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH] irqchip/riscv-aplic: Register the driver prior to
- device creation
-In-Reply-To: <e30ee004-64f9-4003-8907-c407a76fc244@picoheart.com>
-References: <20260114063730.78009-1-yang.yicong@picoheart.com>
- <CAK9=C2XrExRLihwveMxs-Ourr+8bXja5UAmN_muAJz5FSpFW8A@mail.gmail.com>
- <7b859dd5-9262-4d68-9a8e-e0be0c24ac4a@picoheart.com> <877btkht2v.ffs@tglx>
- <e30ee004-64f9-4003-8907-c407a76fc244@picoheart.com>
-Date: Thu, 15 Jan 2026 14:28:29 +0100
-Message-ID: <87y0lz2ef6.ffs@tglx>
+	by sea.source.kernel.org (Postfix) with ESMTP id ABBE5409EA;
+	Thu, 15 Jan 2026 14:19:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC355C116D0;
+	Thu, 15 Jan 2026 14:19:13 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Jassi Brar <jassisinghbrar@gmail.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Rahul Pathak <rpathak@ventanamicro.com>,
+	Paul Walmsley <pjw@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Anup Patel <anup@brainfault.org>
+Subject: [PATCH v2] mailbox: Improve RISCV_SBI_MPXY_MBOX guidance
+Date: Thu, 15 Jan 2026 15:19:11 +0100
+Message-ID: <056a7d9af85a20633e54602b2c4d2c3bbbaadd78.1768486684.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260115_061916_507408_594056DE 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,27 +65,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 15 2026 at 16:31, Yicong Yang wrote:
-> so based on above, if we use async_wq (with async_schedule* APIs) in
-> acpi_scan_clear_dep_queue() for creating these devices, the issue
-> could be solved since we're sure to have these devices before entering
-> userspace, since the barrier of async_synchronize_full(). This should be
-> a solution with a conceptual support and I did a quick test on our
-> platform it solves the issue.
+RISC-V SBI Message Proxy (MPXY) Mailbox support defaults to enabled, but
+the help text states "If unsure say N".
 
-Sounds about right to me. The drivers core and ACPI folks might have
-opinions though :)
+Recommend enabling this driver, as it is a very critical RISC-V driver
+providing mailbox channels to other drivers such as clock, system MSIs,
+etc.
 
-> As for the order of console_on_rootfs()/async_synchronize_full(),
-> though our issue is not directly caused by it, it will cause the
-> same issue (by the console open time the async probing maybe not
-> finised) theoretically and needs to be fixed, is it?
+Fixes: bf3022a4eb119c6b ("mailbox: Add RISC-V SBI message proxy (MPXY) based mailbox driver")
+Suggested-by: Anup Patel <anup@brainfault.org>
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+This is v2 of "[PATCH] mailbox: RISCV_SBI_MPXY_MBOX should be disabled
+by default".
 
-Yes, that should move past the synchronization point.
+v2:
+  - Change the config description instead of changing to not enabled by
+    default, as requested by Anup.
+---
+ drivers/mailbox/Kconfig | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Thanks,
-
-        tglx
+diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
+index e47cb68989267881..c27c1097db21be27 100644
+--- a/drivers/mailbox/Kconfig
++++ b/drivers/mailbox/Kconfig
+@@ -387,7 +387,7 @@ config RISCV_SBI_MPXY_MBOX
+ 	  Mailbox driver implementation for RISC-V SBI Message Proxy (MPXY)
+ 	  extension. This mailbox driver is used to send messages to the
+ 	  remote processor through the SBI implementation (M-mode firmware
+-	  or HS-mode hypervisor). Say Y here if you want to have this support.
+-	  If unsure say N.
++	  or HS-mode hypervisor). Say Y here, unless you are sure you do not
++	  need this.
+ 
+ endif
+-- 
+2.43.0
 
 
 _______________________________________________
