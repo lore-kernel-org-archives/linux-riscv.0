@@ -4,90 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8FB6D46607
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 17:46:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5CFBD4660D
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 18:46:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FqbuzCcLuxqPfl1y4nwZkPIwxTAZ6UPQoqs+p0Q2bk4=; b=xDd/xzrUQpJ+oN
-	KIVeDbCzy0F9N4/Tc479RsTn7vWEPSOXdXbKvfbbzdmR/yDEnuBn6fX+8Ozdp++R9IDMNtKPSm20u
-	1gWp1o5/gGh5srYmlQ2iqmkv25CUn6hczXvot+LtLF73nstTQg1r4O1Xr1+wKBMtEhoLkkXE7qtEl
-	27L/xNm+39IpTXZPX0OWkJQqCYi94NUg6qEa5hazvniFhv6gH7Uzm6AJv90/mphNLIwjRkOTgQYFt
-	xLypIzbHXBz1wF2H5VVwzs8f5vSzl1YpD51VnY1+8y0O2/dbEtJ+sloCcJXmHXIqaSWrFLoL5mDuz
-	sZ8egK/DBqGYgXJSaw1A==;
+	List-Owner; bh=HQtJCqvPUlMvfW9Yujqv9kHYII6KLHLKGbFyjTrD2vk=; b=dLFsotwUlju7vg
+	xPQOp7lZukuu8I+HuegB/4u8kRJLHOWZ8R9GHdtW947Cfb/SpZEaMtWUKkWyAEDoMoolt2Qzk4DIs
+	ZqiNtSqHMtFcfb0sKEXJMdlRS9zzw3Lgs/Oc/1SE/HwvTRwyoQBQkm2pvXAics0JiwXVPsHj6wUmW
+	J+43r0skofTrzmI2xO+gNSAnfet69lQXAfzSHg+NIUkd9O9Mn2zlpKwSvWO8uzxn6+YhlGLFgDlbv
+	Yw1Wcs9mltoEV4o2978R7VmocO0msyUzIskHdBeDAXep3LdM1tl9XlnDkKmyLa9AWMDKC1JeY+LDg
+	dNZM0nzpss525BScQRyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgRQM-0000000CsEa-48lb;
-	Thu, 15 Jan 2026 17:46:23 +0000
-Received: from fra-out-010.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([63.178.143.178])
+	id 1vgSMW-0000000CztJ-1RKD;
+	Thu, 15 Jan 2026 18:46:28 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgRQG-0000000CsE7-0TjB;
-	Thu, 15 Jan 2026 17:46:21 +0000
+	id 1vgSMR-0000000CzsO-12is
+	for linux-riscv@lists.infradead.org;
+	Thu, 15 Jan 2026 18:46:26 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-42fbc305914so824450f8f.0
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 10:46:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1768499176; x=1800035176;
-  h=message-id:date:mime-version:reply-to:subject:to:cc:
-   references:from:in-reply-to:content-transfer-encoding;
-  bh=m/H+6KLBn2aGntJJ8JBW+O36kdoVRhTXFh0DlSdS7kQ=;
-  b=qB+41U6qnQEH/k8iSLvNEvt4qCnhYF/jLgKeWaqqeHFZsvx8SvTNdVu2
-   8rLkmKHSXC3Vn2xen1KZjXd6oL3mZbndImFfiPBnXsBZ60Clz4tA+nq4m
-   FXHFFw9gKztAf+AhMdZKPlVT74KI9LzV9PmRIV/mCgWIRD5+fiHxXhB3J
-   5039ZHp6UansEQCJuKeeQv60f2FNMUnO20U/9QIJLD+zbquTSHFIvpsM+
-   EWHQwyfbQoGvENkbepoRtLgvg+7fFX0oJV/mwbtboR/RafyDgitiou16v
-   LgngTYrTmfDx0nTmfA/Kitt12o1wD1fjdDHDN2fXV73fiyOu7D2VhGIgk
-   Q==;
-X-CSE-ConnectionGUID: UZboAnEGTqq8ocdnm/l8TA==
-X-CSE-MsgGUID: oh7w6HfgSl2x9siR+geNHw==
-X-IronPort-AV: E=Sophos;i="6.21,228,1763424000"; 
-   d="scan'208";a="7872674"
-Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
-  by internal-fra-out-010.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2026 17:45:56 +0000
-Received: from EX19MTAEUC001.ant.amazon.com [54.240.197.233:5968]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.2.33:2525] with esmtp (Farcaster)
- id df1a6986-76b5-4a71-8d9f-e42e7d836f1e; Thu, 15 Jan 2026 17:45:56 +0000 (UTC)
-X-Farcaster-Flow-ID: df1a6986-76b5-4a71-8d9f-e42e7d836f1e
-Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
- EX19MTAEUC001.ant.amazon.com (10.252.51.155) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 15 Jan 2026 17:45:53 +0000
-Received: from [192.168.15.69] (10.106.82.11) by EX19D005EUB003.ant.amazon.com
- (10.252.51.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35; Thu, 15 Jan 2026
- 17:45:49 +0000
-Message-ID: <34b246e9-0f7a-4ed6-9e43-845c4238bf41@amazon.com>
-Date: Thu, 15 Jan 2026 17:45:48 +0000
+        d=gmail.com; s=20230601; t=1768502781; x=1769107581; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=y01hcEYTZNFeQclPQMnDmXUrt0mXOtnGHL4WtYQ+0+U=;
+        b=U9tve7EEXdvHLfJCxF5+OEi6hbqLpDTTA/x1far5UickilGqpF+kmwaAIuvtlsPxCj
+         m57mKffshF+to8TH7R1jld9/LenAQLetuBo+x9frsrojxP2JZ1N1NiRFo6jrKmGHuKFt
+         EZGlw1ezHsvqbNGW6i17+ouM2wIBGxpy7hyK5R/KpwahhQHu6yGi1476rfu0FJJrYZeI
+         u4qAvhUBhnWEVPt6I1xL9a1mT2Bo5WCX4n/cpYAk+aPECA1Y1N8jzsJqhdySjne8fG9B
+         ca+JZbYVzJUr3uQ/k5vp99pqkLdHoFRrFwA6QPl8YKZKnluNdorR2qzQ1FqUX4u3HpED
+         aL9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768502781; x=1769107581;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=y01hcEYTZNFeQclPQMnDmXUrt0mXOtnGHL4WtYQ+0+U=;
+        b=NUcsd5jxYY5KqO6tn2cj/+Anxz8/7cFzZUVRpdo6TM0UxijninZ1JRDFqhAKz55cfa
+         9IKq/G/+LLw0oRZCdVi6xrGxvwqisYMQzp+jz9P3EZ+0Q5NcnqP1Z0v4K1Wd0Wef4s1X
+         InRpgVWll+lgYMTBwK29cTuawFbHoqT/WxDeV6aX3L8abFU4McnRPep30RkEN7SPymsV
+         i3d3e2RqkE9QJ01OFhpJLufNOy3Lfng0Jg4yGppZlU99PkjuAG1Bpj9lbbwOpcT+WaXD
+         S+12efHgVJuXS4j0TgeE9PkP+UNnuS1clBFg7FaL+F7Xlsb1EtQL1fWUmTZyUSoSjKVR
+         TBJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVghyIgP8xCZjLReUyV1Ovq9bS6LPJSUbkDBoRSYYIWJS1mW4xpv0jWUsfHkEBETDrPglFwY+LF6aPMwg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlOUSljVJ4yattjl7SkkZo49tMW9+6yBUh6jwNU3I15uTvQtYZ
+	hVJdbIOiPe3XP9lQWyL84IWAfPYncx1z2XlnNpGf2j5fZ1ESLjWvw6Vc
+X-Gm-Gg: AY/fxX6RhXbE6ByaPm7OXVMhUoQ/w9hG0r9KckSG48i5z6RL9Ik1O1N8ycQBe5FHkaf
+	GEPvTaMGWMVYPZxCgFyNGrSw/5rJQaMvRPMtPzvxKJWl++CaLdMeS1Z3iR/pSmjNzTEZwAPGF9N
+	G/HfvwJlTUAnG0Cj9oi0QayQQELdcRPeHajXS0PpSkoa72VMZeoQvav2ng4UAt4oMS5J7mHAKM+
+	j6cxt8khMYbdsgPp0VwfuQWh47Z2gk04zMj/PsjImVOp696/yIqQzs/qdaEQbRL8SDwyplHaT5o
+	17WFlV71EBBFrs86Hs3cnrYla6xF7kS4MXjPVnFyG9+O+ABg97FcIZW9ysu/8fwj4tFbObef7zO
+	NmCQH6+X8Xiw+nhymRBkU7tgkqUaS51HOSmCmW3DY1ULY81mkPaf2WpDyS2+F6M9gt4aT28xAuI
+	VwSCsvJMfHJWDMT3PMZX2DmTsdLOOimwykelbz5ubOmnEv08RFw6qP
+X-Received: by 2002:a05:6000:200f:b0:432:c0b8:ee58 with SMTP id ffacd0b85a97d-435699173f5mr400692f8f.0.1768502781108;
+        Thu, 15 Jan 2026 10:46:21 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4356997e6cdsm488913f8f.31.2026.01.15.10.46.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Jan 2026 10:46:20 -0800 (PST)
+Date: Thu, 15 Jan 2026 18:46:19 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: Feng Jiang <jiangfeng@kylinos.cn>, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, samuel.holland@sifive.com,
+ charlie@rivosinc.com, conor.dooley@microchip.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: lib: optimize strlen loop efficiency
+Message-ID: <20260115184619.574f1b36@pumpkin>
+In-Reply-To: <20260115111947.54929ed0@pumpkin>
+References: <20251218032614.57356-1-jiangfeng@kylinos.cn>
+	<d356705a-843c-06dc-38a3-77eae7d2ef59@kernel.org>
+	<20260115111947.54929ed0@pumpkin>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 01/13] set_memory: add folio_{zap, restore}_direct_map
- helpers
-To: Matthew Wilcox <willy@infradead.org>, "Kalyazin, Nikita"
-	<kalyazin@amazon.co.uk>
-CC: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>, "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>, "kernel@xen0n.name" <kernel@xen0n.name>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>, "tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>, "luto@kernel.org" <luto@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "david@kernel.org" <david@kernel.org>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "vbabka@suse.cz" <vbabka@suse.cz>, "rppt@kernel.org" <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>, "martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>, "jannh@google.com" <jannh@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>, "shuah@kernel.org" <shuah@kernel.org>, "riel@surriel.com" <riel@surriel.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jgross@suse.com" <jgross@suse.com>, "yu-cheng.yu@intel.com" <yu-cheng.yu@intel.com>, "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com" <coxu@redhat.com>, "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>, "ackerleytng@google.com" <ackerleytng@google.com>, "maobibo@loongson.cn" <maobibo@loongson.cn>, "prsampat@amd.com" <prsampat@amd.com>, "mlevitsk@redhat.com" <mlevitsk@redhat.com>, "jmattson@google.com" <jmattson@google.com>, "jthoughton@google.com" <jthoughton@google.com>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "dev.jain@arm.com" <dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "hca@linux.ibm.com" <hca@linux.ibm.com>, "Jonathan.Cameron@huawei.com" <Jonathan.Cameron@huawei.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>, "shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "thuth@redhat.com" <thuth@redhat.com>, "wyihan@google.com" <wyihan@google.com>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com" <jackmanb@google.com>, "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>,
- "patrick.roy@linux.dev" <patrick.roy@linux.dev>, "Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>, "Manwaring, Derek" <derekmn@amazon.com>, "Cali, Marco" <xmarcalx@amazon.co.uk>
-References: <20260114134510.1835-1-kalyazin@amazon.com>
- <20260114134510.1835-2-kalyazin@amazon.com>
- <aWkN4yzwPtotaTeq@casper.infradead.org>
-Content-Language: en-US
-From: Nikita Kalyazin <kalyazin@amazon.com>
-Autocrypt: addr=kalyazin@amazon.com; keydata=
- xjMEY+ZIvRYJKwYBBAHaRw8BAQdA9FwYskD/5BFmiiTgktstviS9svHeszG2JfIkUqjxf+/N
- JU5pa2l0YSBLYWx5YXppbiA8a2FseWF6aW5AYW1hem9uLmNvbT7CjwQTFggANxYhBGhhGDEy
- BjLQwD9FsK+SyiCpmmTzBQJnrNfABQkFps9DAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQr5LK
- IKmaZPOpfgD/exazh4C2Z8fNEz54YLJ6tuFEgQrVQPX6nQ/PfQi2+dwBAMGTpZcj9Z9NvSe1
- CmmKYnYjhzGxzjBs8itSUvWIcMsFzjgEY+ZIvRIKKwYBBAGXVQEFAQEHQCqd7/nb2tb36vZt
- ubg1iBLCSDctMlKHsQTp7wCnEc4RAwEIB8J+BBgWCAAmFiEEaGEYMTIGMtDAP0Wwr5LKIKma
- ZPMFAmes18AFCQWmz0MCGwwACgkQr5LKIKmaZPNTlQEA+q+rGFn7273rOAg+rxPty0M8lJbT
- i2kGo8RmPPLu650A/1kWgz1AnenQUYzTAFnZrKSsXAw5WoHaDLBz9kiO5pAK
-In-Reply-To: <aWkN4yzwPtotaTeq@casper.infradead.org>
-X-Originating-IP: [10.106.82.11]
-X-ClientProxiedBy: EX19D004EUC003.ant.amazon.com (10.252.51.249) To
- EX19D005EUB003.ant.amazon.com (10.252.51.31)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_094616_476030_2F48D0FA 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20260115_104625_353014_BDBCBD0F 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,35 +98,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: kalyazin@amazon.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, 15 Jan 2026 11:19:47 +0000
+David Laight <david.laight.linux@gmail.com> wrote:
 
-
-On 15/01/2026 15:55, Matthew Wilcox wrote:
-> On Wed, Jan 14, 2026 at 01:45:23PM +0000, Kalyazin, Nikita wrote:
->> +int folio_zap_direct_map(struct folio *folio)
->> +{
->> +     return set_direct_map_valid_noflush(folio_page(folio, 0),
->> +                                         folio_nr_pages(folio), false);
->> +}
+> For 64bit you can do a lot better (in C) by loading 64bit words and doing
+> the correct 'shift and mask' sequence to detect a zero byte.
+> It usually isn't worth in for 32bit.
 > 
-> The implementation isn't the greatest.  None of the implementations
-> of set_direct_map_valid_noflush() actually do anything with the struct
-> page; they all call page_address() or page_to_virt() (fundamentally the
-> same thing).  So converting folio->page->address is a bit inefficient.
+> Does need to handle a mis-aligned base - eg by masking the bits off
+> the base pointer and or'ing in non-zero values to the value read from
+> the base pointer.
 > 
-> It feels like we should change set_direct_map_valid_noflush() to take a
-> const void * and pass either page_address() or folio_address(), depending
-> whether the caller has a page or a folio.  What do you think?
+> 	David
 
-I have nothing against that.  execmem_set_direct_map_valid() appears to 
-be the only other user of set_direct_map_valid_noflush() so it isn't 
-going to be a broad change.
+The version below seems to work https://www.godbolt.org/z/sME3Ts6vW
+It actually looks ok for x86-32, the loop is 8 instructions plus the branch
+but the 'register dependency chain' is only 4 instructions.
+So maybe better than byte compares for moderate to long strings.
+(Especially if the cpu starts speculatively executing the next loop
+iteration.)
 
+The OPTIMIZER_HIDE_VAR() helps a lot on (eg) MIPS-64 and a bit elsewhere
+since most 64bit cpu can't load 64bit immediates.
+
+I can't get gcc and clang to reliably have a loop with a conditional
+jump at the bottom, especially with an unconditional jump into the
+loop (to remove the '| mask' from the loop body).
+
+Also KASAN (or one of its friends) wont like the code reading entire
+words that hold the string.
+
+And it does need ffs/clz instructions - or a different loop bottom.
+(For BE one with clzl() returning 0 will work.) 
+
+While I suspect the per-byte cost is 'two bytes/clock' on x86-64
+the fixed cost may move the break-even point above the length of the
+average strlen() in the kernel.
+Of course, x86 probably falls back to 'rep scasb' at (maybe)
+(40 + 2n) clocks for 'n' bytes.
+A carefully written slightly unrolled asm loop might manage one
+byte per clock!
+I could spend weeks benchmarking different versions.
+
+	David
+
+#define OPTIMIZER_HIDE_VAR(var)                                         \
+        __asm__ ("" : "=r" (var) : "0" (var))
+
+/* Set BE to test big-endian on little-endian.
+ * For real BE either do a byteswapping read or use the BE code. */
+#ifdef BE
+#define SWP(x) __builtin_bswap64(x)
+#define SHIFT <<
+#else
+#define SWP(x) (x)
+#define SHIFT >>
+#endif
+
+unsigned long my_strlen(const char *s)
+{
+        unsigned int off = (unsigned long)s % sizeof (long);
+        const unsigned long *p = (void *)(s - off);
+        unsigned long val;
+        unsigned long mask;
+        unsigned long ones = 0x01010101;
+        /* Force the compiler to generate the related constants sanely. */
+        OPTIMIZER_HIDE_VAR(ones);
+        ones |= ones << 16 << 16;
+
+        mask = ((~0ul SHIFT 8) SHIFT 8 * (sizeof (long) - 1 - off));
+        do {
+                val = SWP(*p++) | mask;
+                mask = (val - ones) & ~val & ones << 7;
+        } while (!mask);
+
+#ifdef BE
+        off = __builtin_clzl(mask);
+        /* Correct for "...\x01" */
+        val <<= off;
+        for (off /= 8; val > (~0ul >> 8); off++)
+                val <<= 8;
+#else
+        off = (__builtin_ffsl(mask) - 1)/8;
+#endif
+
+        return (const char *)(p - 1) + off - s;
+}
 
 _______________________________________________
 linux-riscv mailing list
