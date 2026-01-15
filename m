@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1271D3CCA0
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 03:12:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9FE0D3CCA7
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 03:24:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Uz5KhUlmDQriOrmFFrsuL5uq1XXDDo/xa4Od+4t58Ow=; b=wFe97W0XJIlt/G
-	GwNuSREaH2yEeOp26p163hMHwUH3GiRcQJTcabmm6xS1U+1o+1T15pzOdylg8MkWiTs1LcTnS7QCQ
-	csno5pbLguDy92jIH/W7/9YEo/9H8PRfVfZH3AV/UU+Tg0HZ972Uog/dNf08RBiAtcIk8Yxibboon
-	xLVNY0CaJWz4hzCnFZm0Ujtnpbtsi3exDwM+LX6VZnJP6IAvc4Dqyo5aRieWiqcfnSJhhZdH8ylTu
-	Xky8xOZbybJf+rbKsHjzn6XdV/UjYQLdEpPRhkJhjmhxzx6qwaiRUPV4jRHx/+fWb5FPop3bTmRzx
-	3kNYbwMIqg92pVKP5y3g==;
+	List-Owner; bh=5ghzuKuwrl3DCH0rrTSvvDHBwAwzdkMj4NNfpB1E8Ac=; b=lQvS9qForqGIbq
+	GS0bUQqF69X05nhBqOMxGNVODPLxY6h+phqZgldXRD+UPIAyfk5tiFdh0+vOtktqWY4ZQK4DnNlA6
+	Gup50wmTIMKCQQ2NhFT/dUaoRZsVS3lr+7BUGM1oMSbU8m3MtQqHKlWLHMKFbIlMV/rxZd7leW0g9
+	3E65nehYBTgZfjiDt+Llfli2QHp/hBOHnx0J+wHGCHnILQES5TfsgLqBhFkUosDOumaFRNJ+xQ/kz
+	qohxxiAOxm0c8JnqDoeH3S//MJG+etwxz28OCeG6wWhX5y04KGTNdRqz7SugO4lN21Bj47CzcOVjZ
+	GZdvbvuq14GHrDOFDe6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgDmF-0000000Bdwl-3jpI;
-	Thu, 15 Jan 2026 03:12:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vgDxi-0000000BfaK-0qaX;
+	Thu, 15 Jan 2026 03:23:54 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgDmD-0000000BdwR-43do
+	id 1vgDxW-0000000BfWp-25IF
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 03:12:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E882F6013D;
-	Thu, 15 Jan 2026 03:12:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2C37C4CEF7;
-	Thu, 15 Jan 2026 03:11:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768446720;
-	bh=Gk/osH7DfvUyCVOdPI7ZwI4Yhgby74VLmpmAMH87lg4=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=eMpEibgLnCCoCpngPx1LjqAwoqkiMOK1O4Pv6xFoiICf5Rumtl6OjcBtchzbPzV4f
-	 fOrU3PDXtnHoFLULkmJ/EZqFFePw0CC8HldneMcrfYufeIQNp0HY07Vp5aHrp9IHkd
-	 nq3R60jTiiN+shKdZGDZMryPH7AwCtKRTq/4XKMRhdBkC2k5bVNToMndvjt7czfLar
-	 x/fNxwwiNZk1fqNCF6QXd4rCKWEMN/I5M7C9Cj3EXWXZgtlkLHJyt49efPTSWgzc7A
-	 eZ765DSqUt+KUoiHEilrTQ4oXDTqCKP0wfcjXMwg2eLnQOGC//VRCZKowDLG0/42aI
-	 VeqGUU4KYI+uA==
-Date: Wed, 14 Jan 2026 20:11:56 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Deepak Gupta <debug@rivosinc.com>
-cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-    Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
-    x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-    Andrew Morton <akpm@linux-foundation.org>, 
-    "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
-    Vlastimil Babka <vbabka@suse.cz>, 
-    Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-    Paul Walmsley <paul.walmsley@sifive.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-    Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-    Christian Brauner <brauner@kernel.org>, 
-    Peter Zijlstra <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>, 
-    Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
-    Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
-    Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>, 
-    linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-    linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
-    devicetree@vger.kernel.org, linux-arch@vger.kernel.org, 
-    linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-    alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com, 
-    andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
-    atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
-    alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
-    rick.p.edgecombe@intel.com
-Subject: Re: [PATCH v9 02/26] dt-bindings: riscv: zicfilp and zicfiss in
- dt-bindings (extensions.yaml)
-In-Reply-To: <20250204-v5_user_cfi_series-v9-2-b37a49c5205c@rivosinc.com>
-Message-ID: <9b663e94-696c-4678-829a-6471e7022895@kernel.org>
-References: <20250204-v5_user_cfi_series-v9-0-b37a49c5205c@rivosinc.com> <20250204-v5_user_cfi_series-v9-2-b37a49c5205c@rivosinc.com>
+	Thu, 15 Jan 2026 03:23:53 +0000
+X-UUID: 8851a17af1c111f0a38c85956e01ac42-20260115
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:c0293880-8b00-4261-a334-65a3d9114a0d,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:009b8ae79b83875bbcad982954435b30,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:0|15|
+	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 8851a17af1c111f0a38c85956e01ac42-20260115
+X-User: jiangfeng@kylinos.cn
+Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <jiangfeng@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 2035956542; Thu, 15 Jan 2026 11:23:16 +0800
+Message-ID: <581a8707-cb16-46d9-b6b5-8fa267383318@kylinos.cn>
+Date: Thu, 15 Jan 2026 11:23:13 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: lib: optimize strlen loop efficiency
+To: Paul Walmsley <pjw@kernel.org>
+Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ samuel.holland@sifive.com, charlie@rivosinc.com, conor.dooley@microchip.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251218032614.57356-1-jiangfeng@kylinos.cn>
+ <d356705a-843c-06dc-38a3-77eae7d2ef59@kernel.org>
+Content-Language: en-US
+From: Feng Jiang <jiangfeng@kylinos.cn>
+In-Reply-To: <d356705a-843c-06dc-38a3-77eae7d2ef59@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_192342_848734_3AB8AFB8 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,65 +80,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 4 Feb 2025, Deepak Gupta wrote:
-
-> Make an entry for cfi extensions in extensions.yaml.
+On 2026/1/15 10:03, Paul Walmsley wrote:
+> On Thu, 18 Dec 2025, Feng Jiang wrote:
 > 
-> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+>> Optimize the generic strlen implementation by using a pre-decrement
+>> pointer. This reduces the loop body from 4 instructions to 3 and
+>> eliminates the unconditional jump ('j').
+>>
+>> Old loop (4 instructions, 2 branches):
+>>   1: lbu t0, 0(t1); beqz t0, 2f; addi t1, t1, 1; j 1b
+>>
+>> New loop (3 instructions, 1 branch):
+>>   1: addi t1, t1, 1; lbu t0, 0(t1); bnez t0, 1b
+>>
+>> This change improves execution efficiency and reduces branch pressure
+>> for systems without the Zbb extension.
+> 
+> Looks reasonable; do you have any benchmarks on hardware that you can 
+> share?  Any reason why this patch stands alone and isn't rolled up as part 
+> of your "optimize string function" series?
 
-Here's what I'm planning to queue; please let me know if you want to 
-change anything.
+Thanks for the feedback.
 
+This patch predates the rest of the series, which is why it wasn't included
+in the 'optimize string function' rollup. At the time, I focused on correctness
+testing and observed the improvement through rdcycle instruction counts.
 
-- Paul
+Since the series still needs further refinement and may take a longer time to
+complete, I was hoping this standalone optimization could be considered independently.
+However, I am also happy to roll it into the series if you prefer.
 
-
-From: Deepak Gupta <debug@rivosinc.com>
-Date: Wed, 19 Nov 2025 09:55:05 -0700
-
-dt-bindings: riscv: document zicfilp and zicfiss in extensions.yaml
-
-Make an entry for cfi extensions in extensions.yaml.
-
-Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Tested-by: Andreas Korb <andreas.korb@aisec.fraunhofer.de> # QEMU, custom CVA6
-Tested-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
-Link: https://patch.msgid.link/20251112-v5_user_cfi_series-v23-2-b55691eacf4f@rivosinc.com
-[pjw@kernel.org: updated subject]
-Signed-off-by: Paul Walmsley <pjw@kernel.org>
----
- .../devicetree/bindings/riscv/extensions.yaml      | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 5bab356addc8..1aeff17c7f24 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -469,6 +469,20 @@ properties:
-             The standard Zicboz extension for cache-block zeroing as ratified
-             in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
- 
-+        - const: zicfilp
-+          description: |
-+            The standard Zicfilp extension for enforcing forward edge
-+            control-flow integrity as ratified in commit 3f8e450 ("merge
-+            pull request #227 from ved-rivos/0709") of riscv-cfi
-+            github repo.
-+
-+        - const: zicfiss
-+          description: |
-+            The standard Zicfiss extension for enforcing backward edge
-+            control-flow integrity as ratified in commit 3f8e450 ("merge
-+            pull request #227 from ved-rivos/0709") of riscv-cfi
-+            github repo.
-+
-         - const: zicntr
-           description:
-             The standard Zicntr extension for base counters and timers, as
 -- 
-2.51.0
+With Best Regards,
+Feng Jiang
 
 
 _______________________________________________
