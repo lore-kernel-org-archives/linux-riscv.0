@@ -4,88 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B66C7D41173
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 11:20:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D679D41173
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 11:25:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VNmO5bulGJkAkHEXBSRZDgOTTguHReWE+bdPKY3BSHU=; b=IEbzTva0sNTiOO
-	6xWhVEVFS6IVqwEF5XFN3fMO+MWstrB/YZysc8lZcGDNohJVBqRpObSwjg+DMGBbrdCR5hxGKoD5Z
-	0LZYP2P6oiM0ebQNhfzNb6YP57toXF/bJTNRYrjUrL4rEbKDjF5wHkysFa5BGXXbVlkJ/EBAyYfAp
-	oh/czujHP6S0LKKLhbqMAk21xZOkYWFQLJWbvJSQ68/TDGNip2bVTOY6Qvg34bGg1nlOgJLXQdZIn
-	gJyvXAWAS+Sn3YIQJI2mpNhtF5bP25qUX4HRw5POBkKoOEDmQn355X7wwQOlP6Tr7R1yiwLBYsOgp
-	5ZozOIWucx1IvgQ6j48w==;
+	List-Owner; bh=h9T7B7/Q6gl8K4lEeZRLWkiDkXyFH/bfY6pdmKfQIzM=; b=RC3evyPSadQl5E
+	f/Tt6QHNkm10SZB7Z7eIrU2n4S4eBxyOQeo5kfImcCU1lccEw/Tge4lOtm9FjfFBuw06tEp0hH4kZ
+	JV/wV5letxdiJfwtrFjHfzWMT/TTHyNn89QPWkwzv96iM77Hpz8S3L/XhpTIokAMW8cF+hYeiMnhM
+	EqSRQKdcnXjbJD8XSbdBcO7NpzaA/5VYKjQfOWrOEpQiAZCoEYQCjbNvpSvVjjA+sGL7fCprp4UrO
+	tIYau7rAoFnAoL4HtFMmClO9antSfi7HZkeeWupiSZ2IHdI6jrV3P2na+e7O0ywSE1tv56aAsEpuS
+	qF6xsmfZhPPWN6oMlEjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgLOL-0000000CDNu-2XdN;
-	Thu, 15 Jan 2026 11:19:53 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vgLTc-0000000CDhv-1dxk;
+	Thu, 15 Jan 2026 11:25:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgLOI-0000000CDNY-47LW
+	id 1vgLTb-0000000CDhn-3Ecv
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 11:19:52 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-47fedb7c68dso4342495e9.2
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 03:19:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768475989; x=1769080789; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3n5Iwv4OpzY/oyHRbv26E5R+0lDzShBgLxDUSDNn/6k=;
-        b=Ys+BY8t2Ql6Nhar4IknwALfGB3vcYFQm428jaewplMDMZalbw+KgypAKd9gVNFAyMA
-         CVve28Ff6d85vFVTOzEdbMHWMgXyEp5hpsbhoS+45fVezJGkahOF5U5dWgyjYthJY9/I
-         /Cky6/4D0S7BPtWXNbcbbldy5Sw/Eo6FPLo31t04mKWGxezxKLqjoYXHSdusmXEDJsV2
-         9ZTbaUsh6fU7ur1rCNOT6t5z5QMGjtv1ZWx6/cRCfNKho7xnp+Pp4DwO90ic7kcKI9Cp
-         p14SxIr/N1l9HLgv0AQ3MQDWOC/vXFyOg8aUk57Y+47W9GF0qcwBtOZq4Cd1gCCGz7qn
-         /zRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768475989; x=1769080789;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=3n5Iwv4OpzY/oyHRbv26E5R+0lDzShBgLxDUSDNn/6k=;
-        b=wNy3wJT3Yk/DqpghacLj7uV5OyWLrVmzdhIK1UMuNzpEHxXMN+dlaiT67NHabP+78W
-         /hYjLG9dZ9s7Ya4rmtVhQjGy9pkf/o8a2kocftQdKjHt8NwcPBvT+c0bZy+l4uuwK76o
-         /41pUXFOy7kfqKj3XBkIioO8gY7qdqWvKgUeSWcJg4Qz2zJ5JHXPKlEGX8IKDn7UXAmU
-         NpgFv2O3VKcaBBsIIaK9N25jb248ggGn2aPPYTczcz+7QdJxohEvLqVE+yeKlLg+gwQs
-         rwKgu5PlbeBpMlaiOGOxY71Pr/mK81qkQNv98mk4WeK1VlrF3RVmmtjRjITuvnMap9VV
-         tflQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUPrTB/KVJfuEGM+NbopMyZMPQeR4BpM+D8NkalYeBFnpH7vSWvig/4A/lSYxYLwiE7DOFmOX2mMTLeDg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhIE0ko4AsazHdoto+jtG33pqBgMctNPdPEY3x9pALOWmVDgfA
-	dk5Jr0XQnknbv8akNSBd8Xtsfk8PKqHoYokFSnFN9zU/jUPgW+yT8VZ+
-X-Gm-Gg: AY/fxX7qycyst3l0wVv3wOXPGVv1Fezrkg1LHN6QJ8xerbbCFoexI5e+mTqRJxJFpqa
-	0ZB1kc9khAYVf6uvHRi6BuPYcYRO/IrPbOnLvkBwuBr+4WZ8WZ5Q+6AZ1kDg5r1RYNt1bSGSeTp
-	ONiO/sCjhcnioOhBuvOL9jiwLI8FSCEvPUstSpxHq6wVser9fTj6TAEzjq180cKcpi0w2hu7cEY
-	YVBG9fhrCmphjuiJVRR8nkMmFv0cBdB7wua581ZvNxJea9nTIUWoEpqEYwoShrLngisuCPsLYtp
-	I5iOwuJXf5CUyoNi7Xms6YTC4pSqIxMkMH881wWe02Sb+umVohB1d6/J4bzPhYBnVC/L8Stfcp4
-	ZtLLdKoq+Et7Ru+yTwPVJ8WctWh9W94Q6c7PiMMuEnjK8IkeF87KAYDHb5tciWLKL+OU/nkf0hK
-	pw9H9JEkIcN/FKQ/pqgjpEvL+NqJ8aBj3ekD8OgU+l9dA/CfvYLeP7
-X-Received: by 2002:a05:600c:3b0c:b0:477:73e9:dbe7 with SMTP id 5b1f17b1804b1-47ee33b0db8mr58272745e9.35.1768475989020;
-        Thu, 15 Jan 2026 03:19:49 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47ee2814587sm40841935e9.10.2026.01.15.03.19.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 03:19:48 -0800 (PST)
-Date: Thu, 15 Jan 2026 11:19:47 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>
-Cc: Feng Jiang <jiangfeng@kylinos.cn>, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, samuel.holland@sifive.com,
- charlie@rivosinc.com, conor.dooley@microchip.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: lib: optimize strlen loop efficiency
-Message-ID: <20260115111947.54929ed0@pumpkin>
-In-Reply-To: <d356705a-843c-06dc-38a3-77eae7d2ef59@kernel.org>
-References: <20251218032614.57356-1-jiangfeng@kylinos.cn>
-	<d356705a-843c-06dc-38a3-77eae7d2ef59@kernel.org>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Thu, 15 Jan 2026 11:25:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D295D601B9;
+	Thu, 15 Jan 2026 11:25:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7565AC16AAE;
+	Thu, 15 Jan 2026 11:25:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768476318;
+	bh=B7PuUbXLWy7tl2Fur0m21K5Rid4K0ANkn6cmSohDoGg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=IfVg6P0plvu0QThEcQfXdt0D50Ofu64z4L2RBMAAv9Wv6AmF+p8KbaqmqiVTCuts9
+	 M5INO265jFD8nMLXeEIp5xA+PerY3+Rjqdl2pkIVhe8z3KGPPcuLRFk1TLqJwQfbiW
+	 lJKcFJ7+kqdTuzsBffFhWdIbfdTbJAlZHRRhPepR0+x5dKYJNRbR54oxHRm6C3otvK
+	 gLmoVvU1QmC0eJAINslSSK/ZWRUmrezlOrcKd06OjJaa7vyA+r2cXhMtYQU9kPlQ7n
+	 KNJi1JmYG9cJ/7EGhRcUO8j4pQx4qI+KPyMB2XHPGjGRnCrsnVPTa9Rx8NejK3u2lt
+	 LmXH+VUkOud7A==
+From: Yixun Lan <dlan@kernel.org>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Yixun Lan <dlan@gentoo.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Guodong Xu <guodong@riscstar.com>
+Cc: Yixun Lan <dlan@kernel.org>,
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev,
+	spacemit@lists.linux.dev
+Subject: Re: (subset) [PATCH v2 0/4] riscv: dts: Add "b" ISA extension to existing devicetrees
+Date: Thu, 15 Jan 2026 19:24:51 +0800
+Message-ID: <176847501553.23847.653353060495870563.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260115-adding-b-dtsi-v2-0-254dd61cf947@riscstar.com>
+References: <20260115-adding-b-dtsi-v2-0-254dd61cf947@riscstar.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_031951_058596_AF1225F1 
-X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +88,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 14 Jan 2026 19:03:17 -0700 (MST)
-Paul Walmsley <pjw@kernel.org> wrote:
 
-> On Thu, 18 Dec 2025, Feng Jiang wrote:
+On Thu, 15 Jan 2026 07:18:56 +0800, Guodong Xu wrote:
+> The RISC-V "b" (Bit-manipulation) extension was ratified in April 2024,
+> much later than its component extensions zba/zbb/zbs (June 2021). Recent
+> updates to the device tree bindings [2] enforce that when all three
+> component extensions are present, "b" must also be specified. Related
+> discussion can also be found in [1].
 > 
-> > Optimize the generic strlen implementation by using a pre-decrement
-> > pointer. This reduces the loop body from 4 instructions to 3 and
-> > eliminates the unconditional jump ('j').
-> > 
-> > Old loop (4 instructions, 2 branches):
-> >   1: lbu t0, 0(t1); beqz t0, 2f; addi t1, t1, 1; j 1b
-> > 
-> > New loop (3 instructions, 1 branch):
-> >   1: addi t1, t1, 1; lbu t0, 0(t1); bnez t0, 1b
-
-Is that a change to the generic C code?
-Testing (++sc)[-1] might do the trick without requiring the extra read
-of the first location.
-
-> > 
-> > This change improves execution efficiency and reduces branch pressure
-> > for systems without the Zbb extension.
+> Patch 1 clarifies the ISA spec version for canonical ordering in uabi.rst.
+> It is a trivial update, but can help readers reference the correct
+> document version. Acked-by Paul Walmsley in v1.
 > 
-> Looks reasonable; do you have any benchmarks on hardware that you can 
-> share?  Any reason why this patch stands alone and isn't rolled up as part 
-> of your "optimize string function" series?
+> [...]
 
-For 64bit you can do a lot better (in C) by loading 64bit words and doing
-the correct 'shift and mask' sequence to detect a zero byte.
-It usually isn't worth in for 32bit.
+Applied, thanks!
 
-Does need to handle a mis-aligned base - eg by masking the bits off
-the base pointer and or'ing in non-zero values to the value read from
-the base pointer.
+[4/4] riscv: dts: spacemit: k1: Add "b" ISA extension
+      https://github.com/spacemit-com/linux/commit/eb241eb29bad28cd17c5a4b9c355645e96094713
 
-	David
+Best regards,
+-- 
+Yixun Lan <dlan@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
