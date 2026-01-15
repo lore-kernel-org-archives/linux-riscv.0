@@ -4,83 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D390D41173
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 11:26:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24114D41175
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 11:39:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8CYD812/z9bF4DK5od4oi7QaMd47wOsDP+rxniy7ViU=; b=j69jN2ezEXYGv3
-	j8O/cA7xDYd+kLuKq6KxtP6OK+FvR2JxYbZznqDZ36ATtiOU9G3C/QP78aW3d3esxsAX4+15wFjY+
-	wJBdSGQQfr3fuoHeh2zAHgDmXN0NLQDWDtdavZZqyx6QoGxjmPnBWt6NHP7Y++ktF2G3MTbR+l2TR
-	PiY3J1FrNuKukbcOgtN5VumeIiugJV4mCgjQH0AhDpQ3GBDUwTbXxf/MZu18BtWbfTnYUDgW2kDR9
-	7A/Yzdj48zhJGj/2XHpl0tisD3PZxNQcP3Kf0TyWdjzmsuJfrBuxirOSgqmLnHVc/kZQ5px4bFZqd
-	LRJiOpZmdEpqhltjiaPw==;
+	List-Owner; bh=buVKmWagkTJkGO7puwvFGovV0O4T1T53PukuEZhNR64=; b=LyGX59hC9Ve+6d
+	eJALAIWXmTS3IQKk7LLQ9uWfglYnJq9wbKLW+rz43iodD0kH6F+F6ZnORKph4j2/kSOeqHHgNFAbz
+	eIADYlvVdIyE1Wf03rrHkZjgav93S8Nis7cQhhkjnDQI44qJfi3W9gyHY2FQPo/BuIuwTuklFs2gP
+	WFde/EiVCxOgt1C5fti/ukt3YZnQgHv1ACmoVJSvO/4UgN809urrEGUDv8f1y/ibBn0nJ9q4LiotY
+	jB7gaPEGbeLlsc2s5ThrjqGUcU0Rdo1MFK7HD5tWDfAkZFrGDIhVLRA/aSemfe2WC8TYPIL1qPNHp
+	HHZKBCYZzFnJfVraVHmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgLU9-0000000CDkq-2zqI;
-	Thu, 15 Jan 2026 11:25:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vgLhM-0000000CEst-2F4P;
+	Thu, 15 Jan 2026 11:39:32 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgLU8-0000000CDkc-1WQC
-	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 11:25:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 77ED9601AF;
-	Thu, 15 Jan 2026 11:25:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2694C116D0;
-	Thu, 15 Jan 2026 11:25:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768476351;
-	bh=tsiMe+WrOUZswY8BkAD7/xBsL195aghvXVpZPqnWwZk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dr6wYN62OrUcJSPDnzxsah1HEBpAn7LBQ1KMVqhxtlFUx1CkTyjB0MQFHBgVqSk5t
-	 JPJDq6807eNbjq9cIfYsMjh+9xNza/phqCCGLMbCc7aaH4YFI6oe4kb0iT0qWYKulN
-	 JXaNzBBHzOIpIeQThqjNHIvDN7EEeHbRasHUB9AREfgcK2fy6VyW3Qe7aF90CIootQ
-	 SpfJmC8D1M7mUM5Rt7zB/jv9T0GC48auygRnEMBC/zbltlzHIxjCJum6Wt2BcJGbpv
-	 O1AklQSrNCbcDau03UBKIcCSH55Xh9Ti1sBJypa1ucWPj6S6OJ7DL0Abdttk4Hj2M+
-	 6u/G/JDJfjauA==
-From: Yixun Lan <dlan@kernel.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@gentoo.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Lubomir Rintel <lkundrak@v3.sk>,
-	Yangyu Chen <cyy@cyyself.name>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Guodong Xu <guodong@riscstar.com>
-Cc: Yixun Lan <dlan@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Conor Dooley <conor@kernel.org>,
-	Heinrich Schuchardt <xypron.glpk@gmx.de>,
-	Kevin Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	spacemit@lists.linux.dev,
-	linux-serial@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v5 0/7] riscv: spacemit: Add SpacemiT K3 SoC and K3 Pico-ITX board
-Date: Thu, 15 Jan 2026 19:25:29 +0800
-Message-ID: <176847617342.31179.10475730577206315668.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260115-k3-basic-dt-v5-0-6990ac9f4308@riscstar.com>
-References: <20260115-k3-basic-dt-v5-0-6990ac9f4308@riscstar.com>
+	id 1vgLhJ-0000000CEsP-0eUE;
+	Thu, 15 Jan 2026 11:39:31 +0000
+Received: from duge-virtual-machine (unknown [183.192.221.134])
+	by APP-05 (Coremail) with SMTP id zQCowAB3zhHf0Whp6EcVBQ--.27569S2;
+	Thu, 15 Jan 2026 19:39:13 +0800 (CST)
+Date: Thu, 15 Jan 2026 19:39:11 +0800
+From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: vkoul@kernel.org, linux-usb@vger.kernel.org, conor+dt@kernel.org,
+	krzk+dt@kernel.org, linux-kernel@vger.kernel.org, cyy@cyyself.name,
+	alex@ghiti.fr, pjw@kernel.org, kingxukai@zohomail.com,
+	conor@kernel.org, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	neil.armstrong@linaro.org, gaohan@iscas.ac.cn,
+	linux-phy@lists.infradead.org, gregkh@linuxfoundation.org,
+	18771902331@163.com, devicetree@vger.kernel.org,
+	TroyMitchell988@gmail.com
+Subject: Re: [PATCH v2 2/4] dt-bindings: usb: dwc2: Add support for Canaan
+ K230 SoC
+Message-ID: <aWjR3zQqgi7ZHUEZ@duge-virtual-machine>
+References: <20260115064223.21926-1-jiayu.riscv@isrc.iscas.ac.cn>
+ <20260115064223.21926-3-jiayu.riscv@isrc.iscas.ac.cn>
+ <176846580373.38125.3306033410225962520.robh@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <176846580373.38125.3306033410225962520.robh@kernel.org>
+X-CM-TRANSID: zQCowAB3zhHf0Whp6EcVBQ--.27569S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7AF1UZFW8ArWxGFy3uryUJrb_yoW8WFW8pa
+	y2ka9I9FZ0gFy3J397tr97KFy5Xrs3A3yftr1Ygr9rtF15X3W0q3ySgw4j9F1UWr4rA3W2
+	vrWa934xGrW2yFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
+	MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
+	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
+	67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
+	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
+	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvj
+	DU0xZFpf9x07bIBTOUUUUU=
+X-Originating-IP: [183.192.221.134]
+X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260115_033929_591549_766C21A9 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,38 +88,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 15 Jan 2026 14:51:39 +0800, Guodong Xu wrote:
-> This series introduces basic support for the SpacemiT K3 SoC and the
-> K3 Pico-ITX evaluation board.
+On Thu, Jan 15, 2026 at 02:30:03AM -0600, Rob Herring (Arm) wrote:
 > 
-> In v5, patches 6-9 (dt-bindings) have been dropped as they were accepted
-> by Conor and applied to riscv-dt-for-next.
+> On Thu, 15 Jan 2026 14:42:20 +0800, Jiayu Du wrote:
+> > Add 'canaan,k230-usb' compatible string with 'snps,dwc2' as fallback
+> > for the DWC2 IP which is used by Canaan K230.
+> > 
+> > Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+> > ---
+> >  Documentation/devicetree/bindings/usb/dwc2.yaml | 3 +++
+> >  1 file changed, 3 insertions(+)
+> > 
 > 
-> The series has been rebased on linux-next tag: next-20260114.
+> My bot found errors running 'make dt_binding_check' on your patch:
 > 
-> [...]
+> yamllint warnings/errors:
+> 
+> dtschema/dtc warnings/errors:
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.example.dtb: usb-phy@91585000 (canaan,k230-usb-phy): reg: [[0, 2438483968], [0, 1024]] is too long
+> 	from schema $id: http://devicetree.org/schemas/phy/canaan,k230-usb-phy.yaml
+> 
+> doc reference errors (make refcheckdocs):
+> 
+> See https://patchwork.kernel.org/project/devicetree/patch/20260115064223.21926-3-jiayu.riscv@isrc.iscas.ac.cn
+> 
+> The base for the series is generally the latest rc1. A different dependency
+> should be noted in *this* patch.
+> 
+> If you already ran 'make dt_binding_check' and didn't see the above
+> error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> date:
+> 
+> pip3 install dtschema --upgrade
+> 
+> Please check and re-submit after running the above command yourself. Note
+> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+> your schema. However, it must be unset to test all examples with your schema.
+I will run the make dt_binding_check, and then fix it in v3.
 
-Applied, thanks!
+Regards,
+Jiayu Du
 
-[1/7] dt-bindings: riscv: add SpacemiT X100 CPU compatible
-      https://github.com/spacemit-com/linux/commit/14f77777687e182aa782db86220409f4c149e0b8
-[2/7] dt-bindings: timer: add SpacemiT K3 CLINT
-      https://github.com/spacemit-com/linux/commit/b647b5e6a7e6533c2974f9aa3255aa7879a7b5f4
-[3/7] dt-bindings: interrupt-controller: add SpacemiT K3 APLIC
-      https://github.com/spacemit-com/linux/commit/23b3bd93e1e14c1cf7146166c39bdb24e7d713c7
-[4/7] dt-bindings: interrupt-controller: add SpacemiT K3 IMSIC
-      https://github.com/spacemit-com/linux/commit/5c414d0c0987b95cc985b23e532f1341371eef86
-[5/7] dt-bindings: riscv: spacemit: add K3 and Pico-ITX board bindings
-      https://github.com/spacemit-com/linux/commit/66041d5fd564d94249d41bb6aa004ff1e3f25787
-[6/7] riscv: dts: spacemit: add initial support for K3 SoC
-      https://github.com/spacemit-com/linux/commit/0ef9a718421fbc464edb6e5f6d483e0915e18599
-[7/7] riscv: dts: spacemit: add K3 Pico-ITX board support
-      https://github.com/spacemit-com/linux/commit/8e149fcd4854204bbb82ee037cdfb62a9978587f
-
-Best regards,
--- 
-Yixun Lan <dlan@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
