@@ -4,56 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58639D3CCA0
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 02:03:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE768D3CCA0
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 02:04:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jnR9JOhUb9Z6k0vjTb7WW46DPxSsa6IAI1Utd3NXlTU=; b=iOA3M/MKV5WUvR
-	mXbEa1/3g0r6DTuBtt0hPQG2+ntJam+7fRTp6/15uny9PRP1jhnGQYrzMK1aph7IBqOJ9drELzRx5
-	5n0bwIyzYIrYjivIaxtC1jDpudnvLyHERY+ubYtBfSiiahdze/YpyD8p+sqcQOA/TFcU7ssqadbo1
-	bDB0q6x3kxcAsFIw7BFyuR8tFf6abRRV/wGCO/fNgEVHvQhRhw3hVw0fiBG3NoyegA0oJXDSo1hOF
-	dnSpG0mhdxBHojO6NKrr4ZZrwCMZqlmZVV2iHpFgQJ+YCLcnU4mx6EMIr3NcLffgTfWOMkE24az5r
-	iS76txCfKFtnXtWk8YxQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=c1AfoNywq8fQHQsr981BTW9jt8un127HsoxS62ISNKA=; b=r4Y+S/8TeK4o7i
+	ojNaMWE79nxke6GEdjxSkJa3BvwSwlyMEOmoJRXsYpkcUdQacrhRd3m9U3sv+5DkJeeUYvYrAXZzv
+	4/fD8K8Pwe9qZWyISH6VLtanu+kSmcrpdq/Qahe2qd5aSOQXiR8Lbq3MoVuGFj/II7ZShsZlOFG9E
+	86OEzFC1I9z6zNwn4ChHiTRae8NWxoUoEobO9VCNDlDqogMCYBeRM/36jMJkkT3IZ+0+ioxY0fcrk
+	Azo6uL/C8MwMZaXa1YK1kcJupOcPeq14qWwo9D9XVzm3pQDGTHEIRbf5CGB8rV+e6YSsWcuGSxNkS
+	dydL94BAK3Cqz9nuyuBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgChq-0000000BUME-1uM0;
-	Thu, 15 Jan 2026 02:03:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vgCiG-0000000BUPY-3MZi;
+	Thu, 15 Jan 2026 02:03:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgChm-0000000BULg-3K9I
+	id 1vgCiD-0000000BUOp-3M8E
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 02:03:22 +0000
+	Thu, 15 Jan 2026 02:03:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DA50B6012B;
-	Thu, 15 Jan 2026 02:03:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E69DFC4CEF7;
-	Thu, 15 Jan 2026 02:03:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0A54040103
+	for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 02:03:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACC19C4CEF7;
+	Thu, 15 Jan 2026 02:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768442600;
-	bh=O7klGUKze+JmEoVWfPW64zehXyQ9vx/NEeQSIvzysoo=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=jSCSXaUWHa4wn6LLzvefUJ/dDd3nhwq7Dm1CTj97CClkvihy4hZ6tg/zFiCeGg5Se
-	 Qqlaq1MHlOyAWgvS3Kh4vnJcJ14JKHInzdpdQ6MWXstaTTbUQM3Yk7RnWL3vLYHXil
-	 kGDXatKy4yxMzCkw0/TkbDocXEI0qC3CA7nFYjW2NNUD/mjQJACekmv2di7Hz//apK
-	 8A+o+POj1XQoOaqKmECpdydI0wZ0oPZwf6KFLLaQSeR3mWSddgGhyHiCzXwixnE5uG
-	 4WXj+ZN5o/NDHIoCZrPu2L/79b4j10kwWjBsTg1+031Reb7bUpbgfGpsQjQVYOj0BF
-	 /71iiDlpFOIBQ==
-Date: Wed, 14 Jan 2026 19:03:17 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Feng Jiang <jiangfeng@kylinos.cn>
-cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-    samuel.holland@sifive.com, charlie@rivosinc.com, 
-    conor.dooley@microchip.com, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: lib: optimize strlen loop efficiency
-In-Reply-To: <20251218032614.57356-1-jiangfeng@kylinos.cn>
-Message-ID: <d356705a-843c-06dc-38a3-77eae7d2ef59@kernel.org>
-References: <20251218032614.57356-1-jiangfeng@kylinos.cn>
+	s=k20201202; t=1768442627;
+	bh=01/BcMefdiQJAFqcbKBCElf2up5LTOkivGiQ1oLjw8U=;
+	h=From:To:Cc:Subject:Date:From;
+	b=VVn8fEIA0P2SRgOgkH9L9xDnNrFMwSMr+FuTiVabG/Cdb0/fC+lXl31t27L0XMF9r
+	 wUcwVaavEX9Jx1gkCtnOKvybhVsLKNfNZsXG7+zWhSsh9jp2xj7QRNPY6Vtr6S9jNP
+	 QOF01QFmkGXT3gcQiqm/KOzcXTMVg7n2u8gbBzGTGP1j7L/VKYWpDo4bRGoXsGjZCq
+	 OGNT4cFmUE45ETlIKcWHDGxSFPXIqaD++f9Pjjn5PSbpT6TYhB3sY4CtnDaDSJpbvc
+	 uWDmI+0hZi6oltmQM/lADkEDKCDVydRFbhGsbEk8Jy8PhDovfFXCrbtuMqP5/C6u2+
+	 PZjgfQyH19yXQ==
+From: Yixun Lan <dlan@kernel.org>
+To: spacemit@lists.linux.dev
+Cc: Yixun Lan <dlan@kernel.org>,
+	soc@kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] MAINTAINERS: update email address for Yixun Lan
+Date: Thu, 15 Jan 2026 10:03:35 +0800
+Message-ID: <20260115-11-maintainer-dlan-v1-1-64bb698da846@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
+X-Change-ID: 20260115-11-maintainer-dlan-59b2ed54999e
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1535; i=dlan@kernel.org; h=from:subject:message-id; bh=01/BcMefdiQJAFqcbKBCElf2up5LTOkivGiQ1oLjw8U=; b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpaErM36niadQaWqw5X0frjrYPjc3l8ULtEaMp9 27u05vS4WaJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaWhKzBsUgAAAAAAEAA5t YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5 maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU QACgkQMarqR1lNu+3+WA//Y7GmKsRetgi8aRvMXT/Aua6pHOk+QCRE6HwEt/KuzCX1BSVcyRlfG VMKZCuyhXv9bZk3MIFofsxuf7MHT22sw03IN5+njd7s/Ln6QWkaLRSbgcuNgGXW7eiqbZt7xre7 H4mTHV76lVZRdL5p+341Z2/0dD1b2U1Gmzi7j4HVc3f57BtUJlxb+myMdrNbgcTJMJcSwJhdaia rWk7+59EusrC1QvveFPV603NGzVIh+hs17xL/7pAfumLiyQ3TVVgoNBjtI6i3SevofQ63cUroHI QUmrzFKb0g897pirSMrvL9xj5AxhNv7/k2tCk1sKmlrORAaS8uqgZ9hX+4krLYTV/stuyppVN2v TeaGP6UJ9SIKYGBU+YpowJvPyitAQOO9+KW0k/amm2hh5Nnsp3MxLIRoL8LbPBbZkXpDTzAEAIb M/lx9Au8MWj+F/Z82R1m4IS8OezDCyyV1Fr4ii4QRAU8koCeVzazigBInQUCfipRVsY+szRVE49 J33q2hVE7udSP
+ lhrcBZ/UwGBurfeUPVZxxYz7OYf20UvsvN7idsph5JJIFXlcnid3fcdRjU4RaC rEVHWBpzQ10irMr/+QwZ5zhz/zXVNobNJW16IvNP8fWszT5iJDfhwG2VULebb9xt0ShVZxi35hD dbo48wuamlAFwo32yMG02jR6T8NT10=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp; fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_180349_881869_10D0DD6B 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,27 +78,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Dec 2025, Feng Jiang wrote:
+Switch my email address to kernel.org account for more convenience.
+Also add entries to the mailmap.
 
-> Optimize the generic strlen implementation by using a pre-decrement
-> pointer. This reduces the loop body from 4 instructions to 3 and
-> eliminates the unconditional jump ('j').
-> 
-> Old loop (4 instructions, 2 branches):
->   1: lbu t0, 0(t1); beqz t0, 2f; addi t1, t1, 1; j 1b
-> 
-> New loop (3 instructions, 1 branch):
->   1: addi t1, t1, 1; lbu t0, 0(t1); bnez t0, 1b
-> 
-> This change improves execution efficiency and reduces branch pressure
-> for systems without the Zbb extension.
+Signed-off-by: Yixun Lan <dlan@kernel.org>
+---
+I will send it along with PR to SoC maintainer via SpacemiT's SoC tree
+---
+ .mailmap    | 2 ++
+ MAINTAINERS | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
-Looks reasonable; do you have any benchmarks on hardware that you can 
-share?  Any reason why this patch stands alone and isn't rolled up as part 
-of your "optimize string function" series?
+diff --git a/.mailmap b/.mailmap
+index 84309a39d329..fa9296de463e 100644
+--- a/.mailmap
++++ b/.mailmap
+@@ -868,6 +868,8 @@ Wolfram Sang <wsa@kernel.org> <wsa@the-dreams.de>
+ Yakir Yang <kuankuan.y@gmail.com> <ykk@rock-chips.com>
+ Yanteng Si <si.yanteng@linux.dev> <siyanteng@loongson.cn>
+ Ying Huang <huang.ying.caritas@gmail.com> <ying.huang@intel.com>
++Yixun Lan <dlan@kernel.org> <dlan@gentoo.org>
++Yixun Lan <dlan@kernel.org> <yixun.lan@amlogic.com>
+ Yosry Ahmed <yosry.ahmed@linux.dev> <yosryahmed@google.com>
+ Yu-Chun Lin <eleanor.lin@realtek.com> <eleanor15x@gmail.com>
+ Yusuke Goda <goda.yusuke@renesas.com>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 5b11839cba9d..8417c0c8cc72 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22518,7 +22518,7 @@ F:	drivers/mailbox/riscv-sbi-mpxy-mbox.c
+ F:	include/linux/mailbox/riscv-rpmi-message.h
+ 
+ RISC-V SPACEMIT SoC Support
+-M:	Yixun Lan <dlan@gentoo.org>
++M:	Yixun Lan <dlan@kernel.org>
+ L:	linux-riscv@lists.infradead.org
+ L:	spacemit@lists.linux.dev
+ S:	Maintained
 
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20260115-11-maintainer-dlan-59b2ed54999e
 
-- Paul
+Best regards,
+-- 
+Yixun Lan <dlan@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
