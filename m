@@ -4,74 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC07D44C7E
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 16:40:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4857BD46602
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 17:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EISCRf9EYHjBZPonvhpqOj2TrNtuWoH+E9xL6UH1kuk=; b=tnLDsnvvNI7P0C
-	TDchfF/u/rXkRB6LZTE9UlrdXlLRc6H5xzxqB7E0izG4ppbgb2xb7US0qTcZHvtTuxqdmaeRVV7wg
-	2LiTYcgn+HcJcPMNpiIHOf0SDCoSsaHWArAzXuylyFW9RaU8APag+Ixy6xaYGCNqYmCGihhUdsj/y
-	ym+EV0IvbpHupwLCMOhSPwWexY8FRBwgAhKkaCiRM6mFn4fREUMpOx2wdCWBxejMWEOq+aAyyo8v+
-	3lQJt0aa0IYI5IUNPlpVvsmBXjZliGQEuK+g23JgtRF8zlHBGZMAEciEdwk/xyaVwbmflIFMOOpS9
-	RUS6ikFOzmf8dDgKyyAQ==;
+	List-Owner; bh=bC8BSFcDaRn6+wg2h68Vz8T/A2MGhINV/CKz/QxvPPA=; b=N2HtmzZrFEAkBr
+	W2KO6a+RrMS2Fuc6MzFn8fUoBDCHdnrciP1B960e0/BOvsePIZ5qrMKAMLhXuD+nImNjLHqoNrFp0
+	PNPzjf/XTadvxatb85ViTxbiJdZ+Tb3sxb9LAmytChcl7uRVefR2dcndAZVUqh4V9m9tJRdJ1Gmh5
+	1gTEGkbaXvlXmvq2SUdWCMgPQpCgjpRQgXRgshCnenbbUD6QYdAOxtlCgfbzQej0228v48TEEG3Kf
+	LDgkRaMkBRCJ2mjvh3b5nhQCH34RK32F2ocEAS6F1ADgWjHJ8CCCQBioZLoWCVJKaVgrUvc5g916x
+	hBKPe2nkEpsokDv+5+7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgQOM-0000000CnNe-377v;
-	Thu, 15 Jan 2026 16:40:14 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1vgQjt-0000000Copg-1E6T;
+	Thu, 15 Jan 2026 17:02:29 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgQOI-0000000CnMd-23RO
+	id 1vgQjp-0000000Coox-1IFx
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 16:40:12 +0000
-Received: from duge-virtual-machine (unknown [183.192.221.134])
-	by APP-05 (Coremail) with SMTP id zQCowADHWQ1aGGlpltIZBQ--.29159S2;
-	Fri, 16 Jan 2026 00:39:56 +0800 (CST)
-Date: Fri, 16 Jan 2026 00:39:54 +0800
-From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-To: Conor Dooley <conor@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, robh@kernel.org,
-	krzk+dt@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, cyy@cyyself.name,
-	dlemoal@kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	gaohan@iscas.ac.cn
-Subject: Re: [PATCH v3 1/2] dt-bindings: riscv: canaan: add 100ask K230
- boards compatible strings
-Message-ID: <aWkYWlODTKVw4bH9@duge-virtual-machine>
-References: <20260115060801.16819-1-jiayu.riscv@isrc.iscas.ac.cn>
- <20260115060801.16819-2-jiayu.riscv@isrc.iscas.ac.cn>
- <20260115-muscular-oxpecker-of-typhoon-bbe46f@quoll>
- <aWjTl2g11WNc3gvT@duge-virtual-machine>
- <20260115-vending-statistic-9db5bd1829ec@spud>
+	Thu, 15 Jan 2026 17:02:27 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-8c5320536bfso132736185a.1
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 09:02:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1768496541; x=1769101341; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=9lmL4wVgyCel4RaZm/YDnYaY71CyzahaKuw46/jDcwA=;
+        b=dNNUx/Sk9dFuijzDpDMHLX4mPnO7AjNoMPfZ+viyHRoq06NRfS1yf4IpXRGGaeRT0y
+         AtImexYxAY+19e5uMXd/qCOTUaJdGnEWfnmo6poWfIiYCrJ9yRm650d0PPw2qrgIbTwy
+         rcBWN+mJplBrQrG+JE2qKQfa/OIkhbkcnMDB32+VbtF/PpehNMoQofcP5UN37NAZmUXS
+         0m17roHCqdZE8xPWKH9cpvawfSuBqxl1/x9MOM5xjMSUI9bT5dePUd4BrEI32zShHwgD
+         D+lw/6KkXXdUnla8yahzr3AdSUOLvfLCweBXJAnGwfmZ04qVhl7eHJJ4A1OOkbr2LbMw
+         tppQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768496541; x=1769101341;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9lmL4wVgyCel4RaZm/YDnYaY71CyzahaKuw46/jDcwA=;
+        b=KCd1gOP3FGKddnvUB5rxQg/o1X9JhVz6/zfYt5pFQ5fDdhZlooon3Le2I91I9kLOID
+         grU8QDaW6ahm+dXbaWV/RywEzrg7Zp8czoki0KCBClEwkx1KHt8KjomzYkQ9LeSkkI4R
+         ig98M8X14M6QAn3S+06rA9qR+Xn3L1Kv3VuAaZRgi0SJrERgCwtCYSvyidfNSc84orBk
+         h/ys32iSMJd3orKywxs7LG+Qds4Oha4tCAkBd2vNuWv1y8wPrYzfwgXdFtlJRhecXH0X
+         wTnzKmASlt71HoyNthhtdrf0QCDyEDXEUrO3t439mnI79Xv4n2a/oXEjET6Z1l4f8KKn
+         ZJ2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWG2NoPGx51DpqzJwdgz12DVHloV76WyDcQOn5CfX4j6XIfWewOmQEwqs2Xlj77E6lVphMg2X73mrXFug==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw38AMecl2uWHFffssF1uEZshQRWIhR22tfB/2iJ6AgqLI8ARvH
+	6AMPevvvcs5XGjYzn1sQ1VROsHm6X5UYHdizkDxhceAPO9+2jMdixqvIIxzxGPrdCjc=
+X-Gm-Gg: AY/fxX5YK3eF20eMz83ExDelbgu+2X6GStBjzRcIvDrj5iNorLVy6Fl+pOkXrSWTS7w
+	IX7oYyZDd706JBVqxrOmTvz9mvhIhl+TmC8Ac6XJ1/YfIZhw9c7aIljdlgTMHGwM34KmIsXrBB7
+	HCYl74cS7p8xieKV5J4ydJ7w7WGHB4eCkruiFWV6tf/YcLIeiRpeU1xosCInmat3qg/mpPqsIqP
+	fdAGXZt1geF1oZPuEwVB+Yzp4F90Zsj5SbTwdiPNf+zgOe+q+G4hLQ2E3DeJ0FNwr4ZWRlXLM/k
+	oNpY7cdLM4lIANBlZ2jz+DDt1o5fXs38WAtUyoUBjnVoUkU9oX0VR6/6rpBaCrUu9yc23XyatK+
+	pYdITNBteYbbvHrGC0ZPRaNBLSFox/UKBD1xwGjvZU8OlSwh7ZQkYEtfpGweT3gfJI5TBuHiWdO
+	Rg8fJ6UL7jyASN3/HYqCWaoKGSg6xh/XIAJEJpIzZAwxYgvDMBy3d/
+X-Received: by 2002:a05:620a:700b:b0:8c5:3376:3326 with SMTP id af79cd13be357-8c6a67c857amr5981285a.80.1768496540568;
+        Thu, 15 Jan 2026 09:02:20 -0800 (PST)
+Received: from [172.22.22.234] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c530b74bc4sm455422485a.32.2026.01.15.09.02.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 Jan 2026 09:02:20 -0800 (PST)
+Message-ID: <00f42b6c-857b-4eef-a0da-83053998135a@riscstar.com>
+Date: Thu, 15 Jan 2026 11:02:17 -0600
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260115-vending-statistic-9db5bd1829ec@spud>
-X-CM-TRANSID: zQCowADHWQ1aGGlpltIZBQ--.29159S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrKFyxCr17Zr45Zw1fJr13urg_yoWfAFgEgr
-	Wvkwn2kw4DJryDA3Z5trZ3JrZFgwnrt345X3s5Xwn8X3s8Ga4vy34kWrn3t3W5tF47Gryx
-	ur13XF4UG3sIgjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbsxYjsxI4VWkCwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
-	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0
-	cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z2
-	80aVCY1x0267AKxVW8JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
-	1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
-	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
-	wI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
-	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
-	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0x
-	ZFpf9x07j0fOwUUUUU=
-X-Originating-IP: [183.192.221.134]
-X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/2] i2c: spacemit: introduce pio for k1
+To: Andi Shyti <andi.shyti@kernel.org>,
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Yixun Lan <dlan@gentoo.org>, Aurelien Jarno <aurelien@aurel32.net>,
+ Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+ Troy Mitchell <troymitchell988@gmail.com>, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev
+References: <20260108-k1-i2c-atomic-v6-0-41b132b70f68@linux.spacemit.com>
+ <20260108-k1-i2c-atomic-v6-2-41b132b70f68@linux.spacemit.com>
+ <aWeyT8gb8Z31S_V9@zenone.zhora.eu>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <aWeyT8gb8Z31S_V9@zenone.zhora.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_084010_910147_B66FF193 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20260115_090225_498970_3EAD0C9C 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,36 +102,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 15, 2026 at 03:27:28PM +0000, Conor Dooley wrote:
-> On Thu, Jan 15, 2026 at 07:46:31PM +0800, Jiayu Du wrote:
-> > On Thu, Jan 15, 2026 at 10:30:35AM +0100, Krzysztof Kozlowski wrote:
-> > > On Thu, Jan 15, 2026 at 02:08:00PM +0800, Jiayu Du wrote:
-> > > > K230 CANMV DSHANPI is a development board produced by 100ASK.
-> > > > 
-> > > > Add compatible string for the board and its SoM.
-> > > > 
-> > > > Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-> > > > ---
-> > > >
-> > > 
-> > > <form letter>
-> > > This is a friendly reminder during the review process.
-> > > 
-> > > It looks like you received a tag and forgot to add it.
-> > 
-> > I will add the Acked-by/Reviewed-by/Tested-by tags in v4 version.
+On 1/14/26 9:47 AM, Andi Shyti wrote:
+> Hi Troy,
 > 
-> I'll go fetch them, unless you have to send a v4 for some other reason.
-I don't need to send v4 anymore. Then I want to confirm if both patches
-of this series are in good condition, or did you only fetch patch 1?
+> ...
+> 
+>> @@ -171,6 +176,16 @@ static int spacemit_i2c_handle_err(struct spacemit_i2c_dev *i2c)
+>>   	return i2c->status & SPACEMIT_SR_ACKNAK ? -ENXIO : -EIO;
+>>   }
+>>   
+>> +static inline void spacemit_i2c_delay(struct spacemit_i2c_dev *i2c,
+>> +				      unsigned int min_us,
+>> +				      unsigned int max_us)
+>> +{
+>> +	if (i2c->use_pio)
+>> +		udelay(max_us);
+> 
+> We need some control on how much we want to sleep in atomic. This
+> can have effects on the whole system.
+> 
+>> +	else
+>> +		usleep_range(min_us, max_us);
+> 
+> If we assume that max_us = min_us * 2 we don't need to pass it as
+> a parameter. Even better you can use fsleep here which does it
+> for you.
 
-Regards,
-Jiayu Du
+I agree with both of these comments/suggestions.
+
+And if fsleep() were used, spacemit_i2c_delay() might be able
+to just go away.  (The range used in fsleep() isn't quite the
+same as what you're using, but this is heuristic anyway.)
+
+However the delay used in spacemit_i2c_check_bus_release() is
+90-150 microseconds, which would lead to sleeping in fsleep().
+Is there any chance 10 microseconds (or less) could be used
+for all delays?  Even if not, fsleep() might help here.
+
+>> +}
+> 
+> ...
+
+. . .
+
+>> -	if (i2c->state != SPACEMIT_STATE_IDLE) {
+>> -		val |= SPACEMIT_CR_TB | SPACEMIT_CR_ALDIE;
+>> -
+>> -		if (spacemit_i2c_is_last_msg(i2c)) {
+>> -			/* trigger next byte with stop */
+>> -			val |= SPACEMIT_CR_STOP;
+>> -
+>> -			if (i2c->read)
+>> -				val |= SPACEMIT_CR_ACKNAK;
+>> -		}
+>> -		writel(val, i2c->base + SPACEMIT_ICR);
+>> -	}
+>> +	spacemit_i2c_handle_state(i2c);
+> 
+> Next time this can be on a separate patch as a preparatory patch
+> to make the review of this one a bit easier.
+
+Yes!  It's a next-level skill:  beyond just changing the
+code, breaking the change into good, independent pieces
+that build on each other, to facilitate review.
+
+Thanks!
+					-Alex
+
+> 
+>>   
+>> -err_out:
+>> -	spacemit_i2c_err_check(i2c);
+>>   	return IRQ_HANDLED;
+>>   }
+> 
+> Thanks,
+> Andi
 
 
 _______________________________________________
