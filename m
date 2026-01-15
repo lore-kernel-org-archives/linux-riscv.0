@@ -4,74 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E361D4116C
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 11:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B66C7D41173
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 11:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6Uu3sKWE9LzxnE9xFqbRnGXVMKVSEQ7hnnIJDpGU+18=; b=Byo10iQSF5xy0c
-	0hHQvO1qBN1JxmrK6uDjCEEj+Gr4DCwt/LGd0ZKpvURPRZSMy0W8GHQ2Sn1Nw0sJ7BLpX4SQpmhS6
-	HBIA3SxYChy+jihFn6X/PY2wergw2bra1IC/AnQeODTWKa/CStrUYZb0hAq9CfVuOI5ExNuKECE2I
-	GFu9JQFJ1IJNCY9ndM1Rf/pfQoGlhA3Yag4h4grCaiWTyfny3aSnJPhmjOtCL4RWXYl5UsxJeqT/6
-	DJoJ1QxG6F0APZLq+MYqR/n3GT+PSuzVveOsSTk/q3e5q7dNyPdCaDg9MZjz6mV50SjBfjdL2tXYI
-	4S5Q2AY/R1lOixz+AjtA==;
+	List-Owner; bh=VNmO5bulGJkAkHEXBSRZDgOTTguHReWE+bdPKY3BSHU=; b=IEbzTva0sNTiOO
+	6xWhVEVFS6IVqwEF5XFN3fMO+MWstrB/YZysc8lZcGDNohJVBqRpObSwjg+DMGBbrdCR5hxGKoD5Z
+	0LZYP2P6oiM0ebQNhfzNb6YP57toXF/bJTNRYrjUrL4rEbKDjF5wHkysFa5BGXXbVlkJ/EBAyYfAp
+	oh/czujHP6S0LKKLhbqMAk21xZOkYWFQLJWbvJSQ68/TDGNip2bVTOY6Qvg34bGg1nlOgJLXQdZIn
+	gJyvXAWAS+Sn3YIQJI2mpNhtF5bP25qUX4HRw5POBkKoOEDmQn355X7wwQOlP6Tr7R1yiwLBYsOgp
+	5ZozOIWucx1IvgQ6j48w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgLFw-0000000CCOW-3BXu;
-	Thu, 15 Jan 2026 11:11:12 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1vgLOL-0000000CDNu-2XdN;
+	Thu, 15 Jan 2026 11:19:53 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgLFu-0000000CCO6-2zmu
+	id 1vgLOI-0000000CDNY-47LW
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 11:11:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1768475464; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=N21EVSrgriQGJH6wCJzJaT6FgfmWPn68Cg7ViNdQJz+OmKwxjHg+yzRyq2kWwPCIN5eFXKQ+qQ0YQN/SKVqYiuJYYqOhl/hj7lfM43xEBsAt2/6RhZasl/xOR1hFbnFNw+cr1chT4F1WDk8pwNMwxIEy5RX2rryDicKC7kws9ao=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1768475464; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=0ZzcyUUnaf+p4JILgIfwq7VVSI4bHuKOX3hx4ktkbXc=; 
-	b=fUR4+d5dgK6OPD78TNYN6AAlfFkUr//HPe9luZt2z8iY6QqcXGkBDyPWyzpqMntfiPOWpU5oV4sZAy+nQeekZenB3v9NCuN0E5U2QSjAT/sn675JTx2jQ+0SHm6eVUGjQptL06LjsSB1q9ZOIwNGkYPzGsZzRUJPmLwfr1uM4/Y=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768475464;
-	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:Content-Transfer-Encoding:In-Reply-To:Message-Id:Reply-To;
-	bh=0ZzcyUUnaf+p4JILgIfwq7VVSI4bHuKOX3hx4ktkbXc=;
-	b=lSl6y+QHI1IDPk+M9q2rhxEssQ9i9FMYCkMyaDzwpKQOqwD23zPEOdpKWTs/HmXp
-	2cO8FHPCCYPgVvAso/R+eptsbcyGkr8CqZdLZP5dyabKqf4/ONIILAHjQ8GV57bOrJt
-	g7MCmiqPMzbSbcBFyvkQg+H/TLYhqgAAWbDfFt+Y=
-Received: by mx.zohomail.com with SMTPS id 1768475462679109.26630067242331;
-	Thu, 15 Jan 2026 03:11:02 -0800 (PST)
-Date: Thu, 15 Jan 2026 11:10:41 +0000
-From: Yao Zi <me@ziyao.cc>
-To: Paul Walmsley <pjw@kernel.org>, Han Gao <rabenda.cn@gmail.com>,
-	guoren@kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, palmer@dabbelt.com,
-	conor@kernel.org, paul.walmsley@sifive.com, bjorn@rivosinc.com,
-	eobras@redhat.com, corbet@lwn.net, peterlin@andestech.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Leonardo Bras <leobras@redhat.com>
-Subject: Re: [PATCH V2 2/2] riscv: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
-Message-ID: <aWjLMYZ10iNxs1i6@pie>
-References: <20250713155321.2064856-1-guoren@kernel.org>
- <20250713155321.2064856-3-guoren@kernel.org>
- <1cfdf6c1-a384-43ad-9588-284335d073f7@ghiti.fr>
- <CAAT7Ki9_Vm0+v9RHpa2w-Bg3agJy2Tp4d6+tcPJ=M7XX3GV-7Q@mail.gmail.com>
- <CAHVXubgrbjHXAPSLjk6uZmUoa52fTYBvutk4q0GFYJPQ0swrGA@mail.gmail.com>
- <6c45ed33-d6f8-d385-8b89-9caf2ec18c77@kernel.org>
+	Thu, 15 Jan 2026 11:19:52 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-47fedb7c68dso4342495e9.2
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 03:19:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768475989; x=1769080789; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3n5Iwv4OpzY/oyHRbv26E5R+0lDzShBgLxDUSDNn/6k=;
+        b=Ys+BY8t2Ql6Nhar4IknwALfGB3vcYFQm428jaewplMDMZalbw+KgypAKd9gVNFAyMA
+         CVve28Ff6d85vFVTOzEdbMHWMgXyEp5hpsbhoS+45fVezJGkahOF5U5dWgyjYthJY9/I
+         /Cky6/4D0S7BPtWXNbcbbldy5Sw/Eo6FPLo31t04mKWGxezxKLqjoYXHSdusmXEDJsV2
+         9ZTbaUsh6fU7ur1rCNOT6t5z5QMGjtv1ZWx6/cRCfNKho7xnp+Pp4DwO90ic7kcKI9Cp
+         p14SxIr/N1l9HLgv0AQ3MQDWOC/vXFyOg8aUk57Y+47W9GF0qcwBtOZq4Cd1gCCGz7qn
+         /zRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768475989; x=1769080789;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=3n5Iwv4OpzY/oyHRbv26E5R+0lDzShBgLxDUSDNn/6k=;
+        b=wNy3wJT3Yk/DqpghacLj7uV5OyWLrVmzdhIK1UMuNzpEHxXMN+dlaiT67NHabP+78W
+         /hYjLG9dZ9s7Ya4rmtVhQjGy9pkf/o8a2kocftQdKjHt8NwcPBvT+c0bZy+l4uuwK76o
+         /41pUXFOy7kfqKj3XBkIioO8gY7qdqWvKgUeSWcJg4Qz2zJ5JHXPKlEGX8IKDn7UXAmU
+         NpgFv2O3VKcaBBsIIaK9N25jb248ggGn2aPPYTczcz+7QdJxohEvLqVE+yeKlLg+gwQs
+         rwKgu5PlbeBpMlaiOGOxY71Pr/mK81qkQNv98mk4WeK1VlrF3RVmmtjRjITuvnMap9VV
+         tflQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUPrTB/KVJfuEGM+NbopMyZMPQeR4BpM+D8NkalYeBFnpH7vSWvig/4A/lSYxYLwiE7DOFmOX2mMTLeDg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhIE0ko4AsazHdoto+jtG33pqBgMctNPdPEY3x9pALOWmVDgfA
+	dk5Jr0XQnknbv8akNSBd8Xtsfk8PKqHoYokFSnFN9zU/jUPgW+yT8VZ+
+X-Gm-Gg: AY/fxX7qycyst3l0wVv3wOXPGVv1Fezrkg1LHN6QJ8xerbbCFoexI5e+mTqRJxJFpqa
+	0ZB1kc9khAYVf6uvHRi6BuPYcYRO/IrPbOnLvkBwuBr+4WZ8WZ5Q+6AZ1kDg5r1RYNt1bSGSeTp
+	ONiO/sCjhcnioOhBuvOL9jiwLI8FSCEvPUstSpxHq6wVser9fTj6TAEzjq180cKcpi0w2hu7cEY
+	YVBG9fhrCmphjuiJVRR8nkMmFv0cBdB7wua581ZvNxJea9nTIUWoEpqEYwoShrLngisuCPsLYtp
+	I5iOwuJXf5CUyoNi7Xms6YTC4pSqIxMkMH881wWe02Sb+umVohB1d6/J4bzPhYBnVC/L8Stfcp4
+	ZtLLdKoq+Et7Ru+yTwPVJ8WctWh9W94Q6c7PiMMuEnjK8IkeF87KAYDHb5tciWLKL+OU/nkf0hK
+	pw9H9JEkIcN/FKQ/pqgjpEvL+NqJ8aBj3ekD8OgU+l9dA/CfvYLeP7
+X-Received: by 2002:a05:600c:3b0c:b0:477:73e9:dbe7 with SMTP id 5b1f17b1804b1-47ee33b0db8mr58272745e9.35.1768475989020;
+        Thu, 15 Jan 2026 03:19:49 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47ee2814587sm40841935e9.10.2026.01.15.03.19.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Jan 2026 03:19:48 -0800 (PST)
+Date: Thu, 15 Jan 2026 11:19:47 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: Feng Jiang <jiangfeng@kylinos.cn>, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, samuel.holland@sifive.com,
+ charlie@rivosinc.com, conor.dooley@microchip.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: lib: optimize strlen loop efficiency
+Message-ID: <20260115111947.54929ed0@pumpkin>
+In-Reply-To: <d356705a-843c-06dc-38a3-77eae7d2ef59@kernel.org>
+References: <20251218032614.57356-1-jiangfeng@kylinos.cn>
+	<d356705a-843c-06dc-38a3-77eae7d2ef59@kernel.org>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <6c45ed33-d6f8-d385-8b89-9caf2ec18c77@kernel.org>
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_031110_856193_54262925 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20260115_031951_058596_AF1225F1 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,26 +97,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBPY3QgMTQsIDIwMjUgYXQgMDk6Mzc6NDdQTSAtMDYwMCwgUGF1bCBXYWxtc2xleSB3
-cm90ZToKPiBIZWxsbyBIYW4gR2FvLCBHdW8gUmVuLAo+IAo+IFNvcnJ5IGZvciB0aGUgZGVsYXkg
-aW4gcmVzcG9uZGluZyAtCj4gCj4gT24gVHVlLCBPY3QgNywgMjAyNSBhdCAxMTozNuKAr1BNIEhh
-biBHYW8gPHJhYmVuZGEuY25AZ21haWwuY29tPiB3cm90ZToKPiAKPiA+ICAgICAgVGhpcyBwYXRj
-aCBpcyBpbmNsdWRlZCBpbiB0aGUgNi4xNyBtZXJnZSB3aW5kb3cgYnV0IG5vdCBpbiB0aGUKPiA+
-IDYuMTggbWVyZ2Ugd2luZG93Lgo+ID4gICAgICBJcyBpdCBwb3NzaWJsZSB0aGF0IHRoZSBwYXRj
-aCB3YXMgbWlzc2VkPwo+IAo+IFRoaXMgd2FzIGFsbW9zdCBzZW50IHVwc3RyZWFtIGFzIHBhcnQg
-b2YgdGhlIHY2LjE4IG1lcmdlIHdpbmRvdywgYnV0IGdpdmVuIAo+IHRoYXQgaXQgYWRkcyB0aGUg
-YWJpbGl0eSBmb3IgYXJjaGl0ZWN0dXJlcyB0byBvdmVycmlkZSBXUklURV9PTkNFLCBJIHRoaW5r
-IAo+IGl0IG5lZWRzIG9uZSBtb3JlIGF0dGVtcHQgYXQgZ2F0aGVyaW5nIGZlZWRiYWNrIGJlZm9y
-ZSB3ZSBkby4gIEknbGwgc2VuZCAKPiB0aGF0IG91dCB0aGlzIHdlZWsuCj4gCj4gdGhhbmtzIGZv
-ciB5b3VyIHBhdGllbmNlLAoKSGkgUGF1bCwKCkNvdWxkIHRoaXMgc2VyaWVzIGJlIHF1ZXVlZCBm
-b3IgNi4yMD8gSXQgaGFzIGJlZW4gbW9yZSB0aGFuIHR3byBtb250aHMsCmFuZCBzZWVtcyBubyBt
-b3JlIGZlZWRiYWNrIGhhcyBjb21lIHVwLiBUaGFua3MgZm9yIHlvdXIgd29yayEKCj4gLSBQYXVs
-CgpCZXN0IHJlZ2FyZHMsCllhbyBaaQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+On Wed, 14 Jan 2026 19:03:17 -0700 (MST)
+Paul Walmsley <pjw@kernel.org> wrote:
+
+> On Thu, 18 Dec 2025, Feng Jiang wrote:
+> 
+> > Optimize the generic strlen implementation by using a pre-decrement
+> > pointer. This reduces the loop body from 4 instructions to 3 and
+> > eliminates the unconditional jump ('j').
+> > 
+> > Old loop (4 instructions, 2 branches):
+> >   1: lbu t0, 0(t1); beqz t0, 2f; addi t1, t1, 1; j 1b
+> > 
+> > New loop (3 instructions, 1 branch):
+> >   1: addi t1, t1, 1; lbu t0, 0(t1); bnez t0, 1b
+
+Is that a change to the generic C code?
+Testing (++sc)[-1] might do the trick without requiring the extra read
+of the first location.
+
+> > 
+> > This change improves execution efficiency and reduces branch pressure
+> > for systems without the Zbb extension.
+> 
+> Looks reasonable; do you have any benchmarks on hardware that you can 
+> share?  Any reason why this patch stands alone and isn't rolled up as part 
+> of your "optimize string function" series?
+
+For 64bit you can do a lot better (in C) by loading 64bit words and doing
+the correct 'shift and mask' sequence to detect a zero byte.
+It usually isn't worth in for 32bit.
+
+Does need to handle a mis-aligned base - eg by masking the bits off
+the base pointer and or'ing in non-zero values to the value read from
+the base pointer.
+
+	David
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
