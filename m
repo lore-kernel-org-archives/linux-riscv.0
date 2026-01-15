@@ -4,56 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F113BD3CC92
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 00:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0A5D3CC92
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 00:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QziYLMkDxdCiY53RBapfzrGrNoFQDSSnTEegn4dVamM=; b=DWkxLO2R82K5qd
-	FlRy46bYBaYVINUyhhy4576eojndUPw6vlt+Ej3uLG8CujsX5IGC8chjLVVahHashaJSBnm2bXEKv
-	SoLU6E9ACxMciBwtu1NbwsHW5aDF1PQH4/Lc7NPMMIHEqef2IBnF9nKVpYQYl1AOTxTTmJxXuWzFU
-	6ouNQ2KXEGtaffGlYKLpxL9piOPB4A8vMIZmLtnEkhvPmKzwg2nt/oiIUDoys2QCPQm4yn97vALUw
-	2gA72zZwqEz8rLd39X+J5lFcay5jOaMNnlryOrNV9B0QhUmmNOMbODoqPFxaZcQ/KPmpotj1DOWgo
-	SbhdpPd1SuEhwlZ49bXw==;
+	List-Owner; bh=Gf3NQch0knuWipIOK+R9+pSp14il3lrPbdyNfMy4Qes=; b=OzFw7ikQFmr4IV
+	qZANqbPr41gIWTIB/N/Q0MMxWh+kpAwJGuUfhp/uxKPrlr4pttyN+dT4Ap4ZGR1/pLZqNQKrqZ3YH
+	Ly4fZd2pMrBDgBSfSF8E3HEUOCIOIrasFH7RX7aCutzakZwWT5HSkZawNfgBak5UV5gUQ/HEpx2CI
+	j6jbldL1uUyc3W4A0uj4Ff+rt7G02vmFI4TjxqBgq1jPXf25BY82C+d1onHhP73cDlvM2FlMkbrVs
+	RjCiGg1uoq84QgUkqM8VkgXPiAp6obyVDH6JeyB4ifD51cx/kbREVXDTX4VCalHybSzvpfKpI43ob
+	2CZO6/gEHhYDrKl+AflA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgBOF-0000000BFsh-0kvH;
-	Thu, 15 Jan 2026 00:39:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vgBOl-0000000BG1K-284H;
+	Thu, 15 Jan 2026 00:39:39 +0000
+Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgBOD-0000000BFs3-28Kj;
-	Thu, 15 Jan 2026 00:39:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 754836000A;
-	Thu, 15 Jan 2026 00:39:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E154C4CEF7;
-	Thu, 15 Jan 2026 00:39:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768437544;
-	bh=WS7t3IYx3J3S2sfRX9DCoDfu6yOLG0lLMoSGMRG7+X4=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=ltACZlYZs2UDJYv8s8k9TlXywIYpZWNHCwvgHAMfYZqY/R8Zaf7wpMh88m1HkBydD
-	 Gc7hETrNO7iT1cYc7OagiSyMjsRJ77uUw9qPO6HpoXRCowImjF6KhRZ3C7F0bYHxqK
-	 mot6FcZOOI4FzhB+kqOiO11LiDVSQaIHv8G97KZM04TNUIHW9Wsh97cAYTQkE3ledh
-	 NRjJlxqbRl3w6y25gsMgqfFQU+1AMjovYcvcVNBPGIyGQk065QELZC3CWTDnmMIgOY
-	 9yRMzcoikBMnjMZWmV6weqdItRB/uxRlL5Mr37OUto7XLBbzVacovEdjMlMxudkSkp
-	 SWxD4U47bZi4w==
-Date: Wed, 14 Jan 2026 17:39:02 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Naohiko Shimizu <naohiko.shimizu@gmail.com>
-cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-    anup@brainfault.org, atish.patra@linux.dev, daniel.lezcano@linaro.org, 
-    tglx@linutronix.de, nick.hu@sifive.com, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-    kvm-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 0/3] riscv: fix timer update hazards on RV32
-In-Reply-To: <20260104135938.524-1-naohiko.shimizu@gmail.com>
-Message-ID: <10a102b9-1dd1-c5ca-66e4-f02794a84a93@kernel.org>
-References: <20260104135938.524-1-naohiko.shimizu@gmail.com>
+	id 1vgBOj-0000000BFzz-3cPL
+	for linux-riscv@lists.infradead.org;
+	Thu, 15 Jan 2026 00:39:39 +0000
+Received: from localhost (unknown [116.232.18.222])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 36B89340FC6;
+	Thu, 15 Jan 2026 00:39:32 +0000 (UTC)
+Date: Thu, 15 Jan 2026 08:39:29 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Guodong Xu <guodong@riscstar.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Junhui Liu <junhui.liu@pigmoral.tech>, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, sophgo@lists.linux.dev,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH v2 4/4] riscv: dts: spacemit: k1: Add "b" ISA extension
+Message-ID: <20260115003929-GYA33650@gentoo.org>
+References: <20260115-adding-b-dtsi-v2-0-254dd61cf947@riscstar.com>
+ <20260115-adding-b-dtsi-v2-4-254dd61cf947@riscstar.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260115-adding-b-dtsi-v2-4-254dd61cf947@riscstar.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_163937_931924_34C3530E 
+X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,35 +77,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 4 Jan 2026, Naohiko Shimizu wrote:
+Hi Guodong,
 
-> This patch series fixes timer register update hazards on RV32 for
-> clocksource, KVM, and suspend/resume paths by adopting the 3-step
-> update sequence recommended by the RISC-V Privileged Specification.
+On 07:19 Thu 15 Jan     , Guodong Xu wrote:
+> "b" is ratified (Apr/2024) much later than its components zba/zbb/zbs
+> (Jun/2021). With "b" added into riscv/extensions.yaml, a dependency
+> checking rule is now enforced, which requires that when zba, zbb, and zbs
+> are all specified, "b" must be added as well. Failing to do this will
+> cause dtbs_check schema check warnings.
 > 
-> Changes in v3:
-> - Dropped redundant subject line from commit descriptions.
-> - Added Fixes tags for all patches.
-> - Moved Signed-off-by tags to the end of commit messages.
+> According to uabi.rst, as a single-letter extension, "b" should be added
+> after "c" in canonical order.
 > 
-> Changes in v2:
-> - Added detailed architectural background to commit messages.
-> - Added KVM and suspend/resume cases.
+> Update k1.dtsi to conform to this rule.
 > 
-> Naohiko Shimizu (3):
->   riscv: clocksource: Fix stimecmp update hazard on RV32
->   riscv: kvm: Fix vstimecmp update hazard on RV32
->   riscv: suspend: Fix stimecmp update hazard on RV32
-> 
->  arch/riscv/kernel/suspend.c       | 3 ++-
->  arch/riscv/kvm/vcpu_timer.c       | 6 ++++--
->  drivers/clocksource/timer-riscv.c | 3 ++-
->  3 files changed, 8 insertions(+), 4 deletions(-)
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
 
-Thanks, queued for v6.19-rc. 
+Reviewed-by: Yixun Lan <dlan@gentoo.org>
 
-
-- Paul
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
