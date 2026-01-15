@@ -4,64 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22914D3CCA5
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 02:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DA6D3CCA3
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 02:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nSSc9iHhwyV5y/b0CZk+DnB17VZgkkah8xtRCxWBrTU=; b=rSubV6CwNACbgD
-	4umBp5qw+Qy4ohg3BflNTtTeW/jbZRLKggu0RjOt0o6ZkwmvlWUE8ZalVRzmctS99vSqR/zISFlig
-	owoLWHa4/5MGgV6xgJ9+QHTB0BR/fVw7kbyyfsyjfTy4PnM1A9Rh9dn12QJp20mTpWgjf0/Cl0hBx
-	91srI3xpJQa/Y5DXdGccoCM91Awej5mBnUfJ+gobyOPTxSMJPv8RsO63vrF+E0ss/GMmhnqsXzsUk
-	heDWWQ1golFTYUZamp8pGNIlt1Zq34mGb5/TWqYsNgnzE45qO7irg30prr5x0rbCWwbKdvlOfqOba
-	P1dqp5kjhW6ftsvYrsew==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pAif7b+NkT/dy97cqxTL1/F9k5iRxdJdovefIcCAl1E=; b=DtEJ/xySX41dwY
+	OKZ7x6N+UGcDbuOKu7gyEUtTQlhKUGahLitPdeB6TrWW/6hJmXPHUaIaZC3s7aEU6G/pjIY4m8FE/
+	UQw9tLbsPKXuhkaaZCLgWJeRoiL5r0SdqxgXtsJXl2oQgtfXBlvlHbJ833Ww39+tyI6ntEZR8Wpks
+	jwQ8H1VgjFUWvU9qOkh9L72brh+VAx5Ls9DCyJ3Ga28RbakCvQcxnlpNUPaDMM0eziSSPn/nYmXh3
+	Ow+rliHCK5+XW7SGeMsG8yuRNCVHL9xJFKRsK20L4LUQIrKjbfmZdmCCeRkzsXp2JrgqpGaVL011q
+	ZkeC8zrT/5TVHGmvutaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgDQB-0000000BaY7-0fEH;
-	Thu, 15 Jan 2026 02:49:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vgDY6-0000000Bbib-2TvG;
+	Thu, 15 Jan 2026 02:57:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgDQ7-0000000BaXM-2UlS
+	id 1vgDY5-0000000BbiD-07c9
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 02:49:11 +0000
+	Thu, 15 Jan 2026 02:57:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A408C60141;
-	Thu, 15 Jan 2026 02:49:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D4D2C4CEF7;
-	Thu, 15 Jan 2026 02:49:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D66D86013D;
+	Thu, 15 Jan 2026 02:57:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B73CC4CEF7;
+	Thu, 15 Jan 2026 02:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768445350;
-	bh=Gdl7RMwiGHYUfkVy01tC/Zcmn5FI7OUbWkR9ludCO74=;
-	h=From:To:Cc:Subject:Date:From;
-	b=NBlkTZO/hktFc+hqzzwkoP5o8dDhwBTov+JRn5GpjUf/QeF2aYUnNk76hUPs1xrwV
-	 ji4A3lXqrCwmqnBCOXmRYsVPHN+OlI83yc0yqg4QjpkqssmdEHjs4Vj6BngHo+epG8
-	 CkWlnV32+EPl+WOVoSoy/MqZCruyROpzbUsmUVfzch1tvV6QzTp67xS3Tw8RJz08Le
-	 qaGUerOjUFLEUHE9thZoTxzX51b9byh954OjHLWHCu6wyOHDeadWe171w9C2vTiNAu
-	 +SM+a7uf2cwF2G8GiEqVbpAAPOoNdNp4+XA1UNOHAQu1DTbMym8IZWgJPiX+w6nzwO
-	 /vBSqXTuivj8Q==
-From: Yixun Lan <dlan@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Yixun Lan <dlan@kernel.org>,
-	Conor Dooley <conor@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	spacemit@lists.linux.dev
-Subject: [PATCH] riscv: defconfig: spacemit: k3: enable clock support
-Date: Thu, 15 Jan 2026 10:48:55 +0800
-Message-ID: <20260115-06-k3-clk-defconfig-v1-1-646a0711dc00@kernel.org>
-X-Mailer: git-send-email 2.52.0
+	s=k20201202; t=1768445843;
+	bh=vZY5zsWBaO65aRDg0tkCt053druTmj76dpqw1tJ3uPM=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=pM66J1BT0I09Nyr/Aavbh2/YXOpVUtzg4+16ZMMkcG/CGlwUiklJ+lVzqZBscIBdU
+	 8ONmNeBh29X6tFzTRjYZ67byWpAtquhTNeJf40Gj1cF/3mO+w7aNCDUqUof73dejXu
+	 Z0vTCdrQNinKd7int+v6pgxUlZe2ABvJQ2ug74fxQEaBUaVo8+rJV+VuDbIzv9QmH0
+	 jqn5ZDnghY8isJPSQrfcHJrleudDgapDvp0PqE5rEKfcPyjARADnPcZ3eAierGTh55
+	 wiDpqcriAzAtQ4Ibc9OHIb6pgPIoIKJt9Zg3inBL7ArklI0ilNQB+tIPdwGpWRKbde
+	 pny0nDjTkCWUw==
+Date: Wed, 14 Jan 2026 19:57:19 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: Deepak Gupta <debug@rivosinc.com>
+cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+    Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+    x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+    Andrew Morton <akpm@linux-foundation.org>, 
+    "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+    Vlastimil Babka <vbabka@suse.cz>, 
+    Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+    Paul Walmsley <paul.walmsley@sifive.com>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+    Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+    Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+    Christian Brauner <brauner@kernel.org>, 
+    Peter Zijlstra <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>, 
+    Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
+    Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
+    Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>, 
+    Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+    Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+    =?ISO-8859-15?Q?Bj=F6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+    Andreas Hindborg <a.hindborg@kernel.org>, 
+    Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+    Benno Lossin <lossin@kernel.org>, linux-kernel@vger.kernel.org, 
+    linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+    linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+    linux-arch@vger.kernel.org, linux-doc@vger.kernel.org, 
+    linux-kselftest@vger.kernel.org, alistair.francis@wdc.com, 
+    richard.henderson@linaro.org, jim.shu@sifive.com, andybnac@gmail.com, 
+    kito.cheng@sifive.com, charlie@rivosinc.com, atishp@rivosinc.com, 
+    evan@rivosinc.com, cleger@rivosinc.com, alexghiti@rivosinc.com, 
+    samitolvanen@google.com, broonie@kernel.org, rick.p.edgecombe@intel.com, 
+    rust-for-linux@vger.kernel.org, Zong Li <zong.li@sifive.com>, 
+    David Hildenbrand <david@redhat.com>, 
+    Andreas Korb <andreas.korb@aisec.fraunhofer.de>, 
+    Valentin Haudiquet <valentin.haudiquet@canonical.com>
+Subject: Re: [PATCH v26 01/28] mm: VM_SHADOW_STACK definition for riscv
+In-Reply-To: <20251211-v5_user_cfi_series-v26-1-f0f419e81ac0@rivosinc.com>
+Message-ID: <68e1702e-f803-2db2-0e16-53ecef4d9eb6@kernel.org>
+References: <20251211-v5_user_cfi_series-v26-0-f0f419e81ac0@rivosinc.com> <20251211-v5_user_cfi_series-v26-1-f0f419e81ac0@rivosinc.com>
 MIME-Version: 1.0
-X-Change-ID: 20260115-06-k3-clk-defconfig-e4b3e4344d07
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1119; i=dlan@kernel.org; h=from:subject:message-id; bh=Gdl7RMwiGHYUfkVy01tC/Zcmn5FI7OUbWkR9ludCO74=; b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpaFVX3Hw23kCZw+6imSGIGB1Vz2LDe6eKVblTC 7k87bRRCi6JAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaWhVVxsUgAAAAAAEAA5t YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5 maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU QACgkQMarqR1lNu+0V1Q/+MnpmHP/jZ7Y3kJeZfZ3BErXEF8p864fT6teYOs1v9wyISMrfbs4G1 Stsq0TA+KBo+72GsPwm3yzXYqQUKMMMe7onY72blGHL63CD1HVUkoGLTuv6IbBwsKnyYKhHOyGN 7VqRB26SoCB2LH7FiRiKKDcPF1z0W6nXc9445jSfhm04XJdmB2NqILKjqPmWj9wvsY3SaF1wjIY eA3zGBWRA5wGgNAy33X4i/GSz/MqsCVphzE/uvsMbydRN55VC9qt98t5hfwM1+2Zv3fKG7m/Bxo dOMoXk6JkkJ/8aoFHrR66ww6ups6uboz1fhPVaNtrzk2LXFoIdeN31WozAqqjPPx6wk+CU3qRtv i64dO+8fZPyIKwwk6u/CnerWwRxeuoCSu9DZtPk/Hd692yACkqa8+qwYdvob/rCgU/b78Owjd+O mfQIw3xb0qtXa/Mk7PZk/Cx+HoxfiF/VBIhg5MTAoHvgxqC94gc4UyspxdwnRH1h5rZQCw59CXp ocb96i0YVds01
- yhT+oxazVJD8EIUFnmU/vXoN3NnUsT2uTYlwREBPNp4GOWKMwhL2fxTypXH5xC weJETDzBDu46hOcsY2UTmYt08NrwVy6m0yzSBzb3WScjsmHzJR5L5PVS680iUKGUE+OP5aqM7pX T1jYhSFnbY4CYS5aNVu7paoNZCNnxo=
-X-Developer-Key: i=dlan@kernel.org; a=openpgp; fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,41 +100,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable the clock driver support for SpacemiT K3 SoC, configure it as
-built-in by default. Users should be able to change to build as kernel
-module if needed.
+On Thu, 11 Dec 2025, Deepak Gupta via B4 Relay wrote:
 
-Signed-off-by: Yixun Lan <dlan@kernel.org>
+> From: Deepak Gupta <debug@rivosinc.com>
+> 
+> VM_HIGH_ARCH_5 is used for riscv
+> 
+> Reviewed-by: Zong Li <zong.li@sifive.com>
+> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Acked-by: David Hildenbrand <david@redhat.com>
+> Tested-by: Andreas Korb <andreas.korb@aisec.fraunhofer.de>
+> Tested-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+
+Here's what I'm planning to queue, after updating it after Lorenzo's mm 
+changes.  Please let me know if you want to change anything.
+
+
+- Paul
+
+From: Deepak Gupta <debug@rivosinc.com>
+Date: Wed, 19 Nov 2025 09:55:05 -0700
+
+mm: add VM_SHADOW_STACK definition for riscv
+
+VM_HIGH_ARCH_5 is used for riscv.
+
+Reviewed-by: Zong Li <zong.li@sifive.com>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Acked-by: David Hildenbrand <david@redhat.com>
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+Tested-by: Andreas Korb <andreas.korb@aisec.fraunhofer.de> # QEMU, custom CVA6
+Tested-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
+Link: https://patch.msgid.link/20251112-v5_user_cfi_series-v23-1-b55691eacf4f@rivosinc.com
+[pjw@kernel.org: clarify subject; update to apply]
+Signed-off-by: Paul Walmsley <pjw@kernel.org>
 ---
-This patch depend on clock PR[1], it can be merged once the PR is accepted.
+ include/linux/mm.h | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-Link: https://lore.kernel.org/spacemit/20260114092742-GYC7933267@gentoo.org/ 
----
- arch/riscv/configs/defconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index cd736a1d657e..6ce600081a6b 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -255,8 +255,8 @@ CONFIG_CLK_SOPHGO_CV1800=y
- CONFIG_CLK_SOPHGO_SG2042_PLL=y
- CONFIG_CLK_SOPHGO_SG2042_CLKGEN=y
- CONFIG_CLK_SOPHGO_SG2042_RPGATE=y
--CONFIG_SPACEMIT_CCU=y
- CONFIG_SPACEMIT_K1_CCU=y
-+CONFIG_SPACEMIT_K3_CCU=y
- CONFIG_SUN8I_DE2_CCU=m
- CONFIG_SUN50I_IOMMU=y
- CONFIG_RPMSG_CHAR=y
-
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20260115-06-k3-clk-defconfig-e4b3e4344d07
-
-Best regards,
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 15076261d0c2..de912272c5f9 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -359,7 +359,7 @@ enum {
+ 	DECLARE_VMA_BIT_ALIAS(PKEY_BIT2, HIGH_ARCH_2),
+ 	DECLARE_VMA_BIT_ALIAS(PKEY_BIT3, HIGH_ARCH_3),
+ 	DECLARE_VMA_BIT_ALIAS(PKEY_BIT4, HIGH_ARCH_4),
+-#if defined(CONFIG_X86_USER_SHADOW_STACK)
++#if defined(CONFIG_X86_USER_SHADOW_STACK) || defined(CONFIG_RISCV_USER_CFI)
+ 	/*
+ 	 * VM_SHADOW_STACK should not be set with VM_SHARED because of lack of
+ 	 * support core mm.
+@@ -460,7 +460,8 @@ enum {
+ #define VM_PKEY_BIT4  VM_NONE
+ #endif /* CONFIG_ARCH_PKEY_BITS > 4 */
+ #endif /* CONFIG_ARCH_HAS_PKEYS */
+-#if defined(CONFIG_X86_USER_SHADOW_STACK) || defined(CONFIG_ARM64_GCS)
++#if defined(CONFIG_X86_USER_SHADOW_STACK) || defined(CONFIG_ARM64_GCS) || \
++	defined(CONFIG_RISCV_USER_CFI)
+ #define VM_SHADOW_STACK	INIT_VM_FLAG(SHADOW_STACK)
+ #else
+ #define VM_SHADOW_STACK	VM_NONE
 -- 
-Yixun Lan <dlan@kernel.org>
+2.51.0
+
+
+
 
 
 _______________________________________________
