@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E93E4D44C41
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 13:14:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE75DD44C48
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jan 2026 13:28:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k4fWm8EZPnwC+okNcpLboXed9vo9t0yD71nE0LJuuYU=; b=OG/zKyrYAgQNJ6
-	JbVybzoZBgkxSs2+IUe1f7WU3Uth8XO2hpywBS6+uHLgltk0LxVf/RU5H5aVs+/ECNVJKwbWPJWsm
-	hwG6Z/Lml8850zlCdmHZa+iZlE1OTnxH6+Ge+xGVn0L4ez06s2hd48fXKQV2hMqyf/JPsT9KtCENV
-	9zlLClnsuiIU7hIfgo4Uykvuj/mUVEcSw0gMMs3NEngdKfzW+VzP7eTd1sTp16RcwdL0yG8aIi4RP
-	KK1N5wXWjl8jZ8RqYrhN4rrQWlwE+5BR7CK7PYsrHnHDqUJQ3G2cLVBhL8NSn6Aq13qZon6kfMitI
-	jSAElg5OW1WXr/0LMXYA==;
+	List-Owner; bh=BDV/VZ0VjlU1t5A1mW9w13XbSuuMvGJIWOfk3BuBjfQ=; b=LctB05tVn0lS8c
+	/7Uu3nlXBD48OMZd7s1pBgA3RXdA2nCRkBREF0mNBoksGSgUKD9yLxBn89hQYaoLUfXLVoM53iJEN
+	uxwmbKXK3hD5nxVWlwA/iQzmSuOdxE9Dqggvz+PzIMzVjSWZpbIUPim8hI6IjrKh65QyqqS63epLJ
+	Zh+wDPT257gUmJOQ0T59saaA+dPJslscTBauNVIcpm1XWUmC8H0C+F5SiQeJvosLHO0GMzL7HI5hD
+	oreSwI9qghCGLvyiiLFLNlAio3YhZiPPisiA1zzB+O93aK2AL1BbdRTsw/iR/9jozqjff2JXu0JRZ
+	m04KrJNYmo4dW8GEvO3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgNAp-0000000COSn-4BTb;
-	Thu, 15 Jan 2026 13:14:04 +0000
-Received: from mailer.gwdg.de ([134.76.10.26])
+	id 1vgNOt-0000000CQ8E-3RPI;
+	Thu, 15 Jan 2026 13:28:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgNAn-0000000COS6-3INV
+	id 1vgNOs-0000000CQ86-2VjH
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jan 2026 13:14:03 +0000
-Received: from mbx19-sub-05.um.gwdg.de ([10.108.142.70] helo=email.gwdg.de)
-	by mailer.gwdg.de with esmtps (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
-	(GWDG Mailer)
-	(envelope-from <lukas.gerlach@cispa.de>)
-	id 1vgNAY-000WhK-0w;
-	Thu, 15 Jan 2026 14:13:46 +0100
-Received: from Mac.lan (10.250.9.200) by MBX19-SUB-05.um.gwdg.de
- (10.108.142.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.35; Thu, 15 Jan
- 2026 14:13:45 +0100
-From: Lukas Gerlach <lukas.gerlach@cispa.de>
-To: <pjw@kernel.org>
-CC: <ast@kernel.org>, <bjorn@kernel.org>, <bpf@vger.kernel.org>,
-	<daniel.weber@cispa.de>, <daniel@iogearbox.net>, <ganboing@gmail.com>,
-	<jo.vanbulck@kuleuven.be>, <linux-riscv@lists.infradead.org>,
-	<luis.gerhorst@fau.de>, <lukas.gerlach@cispa.de>, <luke.r.nels@gmail.com>,
-	<marton.bognar@kuleuven.be>, <michael.schwarz@cispa.de>,
-	<palmer@dabbelt.com>, <tech-speculation-barriers@lists.riscv.org>,
-	<xi.wang@gmail.com>
-Subject: Re: [PATCH] riscv, bpf: Emit fence.i for BPF_NOSPEC
-Date: Thu, 15 Jan 2026 14:13:39 +0100
-Message-ID: <20260115131339.16372-1-lukas.gerlach@cispa.de>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <65f1b958-e420-c517-9a60-86f9085de702@kernel.org>
-References: <65f1b958-e420-c517-9a60-86f9085de702@kernel.org>
+	Thu, 15 Jan 2026 13:28:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AF21C601D5;
+	Thu, 15 Jan 2026 13:28:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B34A3C16AAE;
+	Thu, 15 Jan 2026 13:28:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768483713;
+	bh=KkguYVdhvZYXRcg/IO6o4pzafy0TJxYwSM1Upcj7g1A=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=koAXMGkFOUqcNCjLP3cQMW7EarvWVDLzAWDpHjePVFKOj9a5RgGs4T00AnPTMzQ00
+	 //ahHQPUMq+evkJe8Y4IJBdFwuPJEPlW+kdw1hvuS48Tz6EJ5E2PfTOE+PpF4fF2Ao
+	 mBYoJTzyIZ0+YhtHrocnIB28PCyLe8/+SCY3JGAalOh/eSv/4TE2BeTQBSI5zAjZcI
+	 7U2bjN0WTb4sFvFebyXPU65TXogFcgPH53bvFAC/LvOft8ux9wthiGIpFQnC3x0xeg
+	 Y2aZMHZQHexB/UeeDPtxAfyPueDAL5Chz9mHW5YEAFb1whWAeW6qiHTUplLL4SYHbo
+	 y+Hkmite6mQow==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Yicong Yang <yang.yicong@picoheart.com>, Anup Patel
+ <apatel@ventanamicro.com>
+Cc: yang.yicong@picoheart.com, anup@brainfault.org, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ geshijian@picoheart.com, weidong.wd@picoheart.com, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Danilo Krummrich <dakr@kernel.org>
+Subject: Re: [PATCH] irqchip/riscv-aplic: Register the driver prior to
+ device creation
+In-Reply-To: <e30ee004-64f9-4003-8907-c407a76fc244@picoheart.com>
+References: <20260114063730.78009-1-yang.yicong@picoheart.com>
+ <CAK9=C2XrExRLihwveMxs-Ourr+8bXja5UAmN_muAJz5FSpFW8A@mail.gmail.com>
+ <7b859dd5-9262-4d68-9a8e-e0be0c24ac4a@picoheart.com> <877btkht2v.ffs@tglx>
+ <e30ee004-64f9-4003-8907-c407a76fc244@picoheart.com>
+Date: Thu, 15 Jan 2026 14:28:29 +0100
+Message-ID: <87y0lz2ef6.ffs@tglx>
 MIME-Version: 1.0
-X-Originating-IP: [10.250.9.200]
-X-ClientProxiedBy: MBX19-FMZ-05.um.gwdg.de (10.108.142.64) To
- MBX19-SUB-05.um.gwdg.de (10.108.142.70)
-X-Virus-Scanned: (clean) by clamav
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_051401_822931_80286667 
-X-CRM114-Status: UNSURE (   5.16  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,26 +77,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thanks for the discussion.
+On Thu, Jan 15 2026 at 16:31, Yicong Yang wrote:
+> so based on above, if we use async_wq (with async_schedule* APIs) in
+> acpi_scan_clear_dep_queue() for creating these devices, the issue
+> could be solved since we're sure to have these devices before entering
+> userspace, since the barrier of async_synchronize_full(). This should be
+> a solution with a conceptual support and I did a quick test on our
+> platform it solves the issue.
 
-I agree with Paul that waiting for the TG to complete is not practical
-given the timeline. There are vulnerable cores in silicon now.
+Sounds about right to me. The drivers core and ACPI folks might have
+opinions though :)
 
-On fence.i's effectiveness: Stefan and Ved are correct that it only
-architecturally guarantees a retirement barrier. However, we tested
-fence.i on C910/C920 and P550 and found it does prevent Spectre-PHT
-attacks on these cores because they drain the pipeline.
+> As for the order of console_on_rootfs()/async_synchronize_full(),
+> though our issue is not directly caused by it, it will cause the
+> same issue (by the console open time the async probing maybe not
+> finised) theoretically and needs to be fixed, is it?
 
-On performance: on the cores we tested, fence.i flushes the instruction
-cache, so the overhead is significant. The barrier should be configurable
-per-microarchitecture. In-order cores like U74 and C906 are not vulnerable
-and don't need it.
+Yes, that should move past the synchronization point.
 
-More broadly, getting selectable per-microarchitecture mitigations in
-place for RISC-V now seems valuable. Implementations vary significantly
-and will likely need different mitigation strategies going forward.
+Thanks,
 
-Lukas
+        tglx
+
 
 _______________________________________________
 linux-riscv mailing list
