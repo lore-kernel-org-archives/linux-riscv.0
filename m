@@ -4,107 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A00B0D4A5E2
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 02:06:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C52DD4A5E4
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 02:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0CwpJj+NSjUlfvtv1SH8aPQproMhdbHltdsazwGuCyQ=; b=2HSV7WgAuuLfdC
-	NTRATiljrk/Mp3dUDM7Pk9sbb9e9DCYAWhPGoonNiLDYJr+Jdz9RudGpRubQ47JnTQxomgYJLV0tr
-	7eAor9CX6sspx5YA/bj1uVUO5LHdCLbAd0IzXt5RQ0YkVoEXeSKBsCpWLzD7uH52hyQCOHqfkIC8d
-	GFnzadu2EMipsC3sbmS51RjcOcBVihAJV1OHkA+FMm9Bay/mPzawBU6cWew6vMBx2FwgqcKHPPytP
-	rfPDKioF/ltDA/SORIzB24eB6aIg/HlgePgCghloNQ8reQv6HbxTTFxDvjHD7CihkKcc32F+xogNi
-	gPPdepIC4lQYauiJPpdQ==;
+	List-Owner; bh=7MN6QXul6lw4PI25SkOVI27Xj63iebSqDSq0ZIoQGug=; b=ftM1C7IPqMsAxr
+	mK6M1lDIu5edUrClzVDCvCc80wKEBQorctKO+UoFMLj0pvUELTTrXozc+b1euiz1j4T6gql4sNcb+
+	SX3i5/09D+T05hfBE7++MtzHiaVzLSfd73ww6D0MJMwhrYQc+7Gf1/4jwwGPmcBAyAR7DFCyPukd5
+	GNw11dyTqOpxJi1lBO7cK9Yr2075rXA8aj4MdDs5OH2Gv0Ji9MZD24Ofb9siUoZ9ofmMFn6/tbkBg
+	RTRBsh+ZIpnVuIIrLfztE1pUTeFlr2IlNEDGWA83EajDnqrMM11Ru4hfuXVSAhhdfKGgsvrxtVz+9
+	v815u7qP0+Mj7TvP5B2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgZDf-0000000DRg9-28YY;
-	Fri, 16 Jan 2026 02:05:47 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vgZIn-0000000DRtq-1QGg;
+	Fri, 16 Jan 2026 02:11:05 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgZDc-0000000DRfb-1Mj7
+	id 1vgZIg-0000000DRsi-16ln
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jan 2026 02:05:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1768529142;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gG1D0fzVJ1vGqbm/rZq2UIHNeWOawXntGG6W46KCvjs=;
-	b=g/Plv7a7Js2SDQ4nhkM/TFiYoqvA6zAzJxguBC3bpwGqx0lcULT9sHQb3PyrGWa90sB09L
-	u/ks0+GqE8NVrTx5vMpPnF9ZYPMzWq/B8cn2TlDm5S4PJl1XA7MrJ3ek1pLG+NOeibQxjp
-	cfOPeZJUM5O1tT66q4Ws5OiftcQM+SA=
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
- [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-156-DdBc97bENEaEoO4qFoqnHg-1; Thu, 15 Jan 2026 21:05:41 -0500
-X-MC-Unique: DdBc97bENEaEoO4qFoqnHg-1
-X-Mimecast-MFC-AGG-ID: DdBc97bENEaEoO4qFoqnHg_1768529140
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8c5311864d9so350237085a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 18:05:40 -0800 (PST)
+	Fri, 16 Jan 2026 02:11:02 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-bcfd82f55ebso1105089a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 18:10:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1768529457; x=1769134257; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3qBoetBmeJm3JJ7+522wExgCek3WhGfFdkGVZeCPvt8=;
+        b=YFTJakx5pW1fwqEXgCXTxSZ1BUox9gkGxof1wlf7fQwYuJUofXCd+mISrEGSYdvTBP
+         NGGyO0EakvMWlfUIUX4FZaRUzTXSOY0+cZ8+hPOv4m7lrOY4uCXcJIlNzfcm+2FsoTVX
+         UtwAs1+dCEoy6vdQYlMXTXRh7IpQsuDGpYONIvy304Ztz/2GgxGa6BYZ6QTWSeWBaWdQ
+         9yvBARLt45uMAh1lsxCO9k7v5fhC5QlvUOymUtFxGgZ69hRPoHQrXqLG3amxrCTw7gem
+         2HCgPUixiuGUzj5Q0s53ezmq0rjmPul1K21LhRvONxl2CCwOFrWoJrd6+DUDrRcaN/49
+         BjTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768529140; x=1769133940;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=gG1D0fzVJ1vGqbm/rZq2UIHNeWOawXntGG6W46KCvjs=;
-        b=jOxNqHtPi1IJA9YL6bqZOwaybohHuzdONdj1KWFVB9NN+gQAWeRdjwzvAoda6vW9J4
-         H//B/MHIZH2N0AL3hEg6FDFUH0D3Tu55RCh5MMBRDB+8UsZvt7Gw77mHGT3ERzUKdoEX
-         lPT71RP1DbDh3D5K9E4Nfg1Msda4vzApcc/e9tDXMYW9bBLsHRo/v7dki7H+wu8TD17M
-         OvsyMUsKUGhyHq4nJFV7bUbtGXc3IPSbRcRlZcmGyrV2LpygLw2ooquWBzoXLIShrT0N
-         g4dQNxXFdO5nnxCjb3V27WFF7riXZ0iuVvH5y4mEDUnk/0f0+ELqO4K5S203naAr77kZ
-         3Z2w==
-X-Forwarded-Encrypted: i=1; AJvYcCVxI02cMdfgqxZ462KbfbYUukGPAnMFbGHhdTGaTv8rQankF4N38wrWBMvzSmCyM1lMSAFpH88D161yAQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIIC+oI6abovJQJplnXkY+pGrac81fAop44FGcCgYAX7h0kGsh
-	XZKxgtSfsmi5OP9XqD2O4tVp65SAkcIJHIVbDezGR3XifKBRnr5oBjwddPM1UAG+SzGP0WgQPE+
-	WHlBE/Dh7YWtnJszSvNN4u4GM4LA7ElBlTDh8hpTMh6bTYB03aE8gABYenPc2aw2fB2vD/A==
-X-Gm-Gg: AY/fxX7QhpXDHXyJb0aSRHkhCJaDxCMgpEE2tRXcF9kyh/ANFpIM7aDBlpevQDp2YFg
-	CgUU/nkLoBizVzjuu6vRPSZxOuDOr21P/iOA9KDyUb1GcwPjM1qoengaVSO+1C8XzEn+uQDKAD6
-	w0KzXulEdV58SQUhknFf+EkqC03d6NNw+njnbNPxXiHOfxbZtzAZPAXXeW2fbiXguOAYCeJt0uF
-	6suEJuSMJISMeNr72/vujsfQQlB7u/izI+WH9/wf2YEuCKIF5qb4/Hto737tZRLeDQ9ViFalFUi
-	05EYFYNyaqnWigAQNgS+NdLs7TbWf75qEbiyaZhLmqDj6IA2BHgIXPVL8oNZgRMZE8YAgVBidF8
-	IeByyOaAuo+r+iZgPpqzNWvLVPU1SRoaXHGiQJwbCmG4h
-X-Received: by 2002:a05:620a:710c:b0:89e:b0bd:ced9 with SMTP id af79cd13be357-8c6a6770539mr238137985a.43.1768529140446;
-        Thu, 15 Jan 2026 18:05:40 -0800 (PST)
-X-Received: by 2002:a05:620a:710c:b0:89e:b0bd:ced9 with SMTP id af79cd13be357-8c6a6770539mr238134985a.43.1768529139939;
-        Thu, 15 Jan 2026 18:05:39 -0800 (PST)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c6a71c06e5sm106501685a.16.2026.01.15.18.05.36
+        d=1e100.net; s=20230601; t=1768529457; x=1769134257;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=3qBoetBmeJm3JJ7+522wExgCek3WhGfFdkGVZeCPvt8=;
+        b=HIaNcXZTwjZh/8LfijRBwC8dzGutTDtNUpYY8dOZLCXFnoxMwW9UpCJ3sYGf30VChv
+         KbEak7CzJ6CJguWt/ZZux7vTLIa7SCOdIVApHvGMKwgwHszI/jRjAlYmE3RAexvixbcO
+         d3fxvBl6oST+dccbOLJy39jAzvD0vwrp3jETLtNhGJu3F3XLiaG3SjayYQwiu1jo3mCW
+         K/zEW14ILgGP2XYpoHTmk+v69i0teHRkZ7eE/6opgbfidJZe0ZsQ4KOpiryzztw+mxGi
+         +jA6VWNIw+DYHqNWJjwr6vkvb2RDq2EVwLaCDuwl5/5PWKirVb7IV4h9IIMms9uOVfqV
+         g4SA==
+X-Forwarded-Encrypted: i=1; AJvYcCWJJmLjKu43SIvWh9HWTwkmkXXdXLKrerQqbPR+q4LSraoD+5k+Weh5ltXMl5AAS9SV7ClZukPNlWon6A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyiW4yI1rQ2tfy0fWfVjHCyvxJdMdZcHSwHo/HxbRMbzkd25svP
+	ep4+4qYOBxPCromZOmsf01WIBHeV6EW7mFxPXMeTX58Q7qi9hLVt4q1zDWlC9E652cQ=
+X-Gm-Gg: AY/fxX55W0VKqWLNQWl3OPsZWqSpSzhUFGhiIlRrzEDtq1xLb1SgeU+38RG6Xs35ggR
+	rWK9JU6j1+HIZAro2lnzL4Y8yPyQQTqpTLJkY33E57BdB1EEr9K7Ket3rimONhwN5Ysh4BtOtqD
+	pldeR6VCUCu+SiGExOSoopRYdaJ1SCqoQPnhVHhrd0Vrbn55GvsduAEL35J84qkzY7Z+Gm3XlCs
+	Tkbzy4cXNDUhoJGQqsRyhvHUwhyDjNIjgNvOqXRfOhaLsB2ZpR8Ki0/7SD5txpSIhezi1bAkbW0
+	VsPuxeQCzKisGb95IYw4BgEyuSTigR/3OU3naOyjt9XOwIF7u5NKk2iehU/iJrgqbRdxXIuEZqG
+	YHQLM38pKlFPSZ3DR+tAIBHXkdsca52KGErqaWeZZk0eT4FyPUmSh/KagO1S3EV9vJ8WPyLNPmx
+	EB6e49v+NW+8D/AUGFM/wrnh84r0D5Zk6d8tPt28y+jItgUisFxxXYaw==
+X-Received: by 2002:a17:90b:58ec:b0:340:8d99:49d4 with SMTP id 98e67ed59e1d1-352677ed61bmr4296095a91.1.1768529457188;
+        Thu, 15 Jan 2026 18:10:57 -0800 (PST)
+Received: from [127.0.1.1] ([45.8.220.151])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35273298968sm364317a91.0.2026.01.15.18.10.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 18:05:39 -0800 (PST)
-Date: Thu, 15 Jan 2026 21:05:35 -0500
-From: Brian Masney <bmasney@redhat.com>
-To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Cc: Drew Fustini <dfustini@oss.tenstorrent.com>,
-	Joel Stanley <jms@oss.tenstorrent.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	joel@jms.id.au, fustini@kernel.org, mpe@kernel.org,
-	mpe@oss.tenstorrent.com, npiggin@oss.tenstorrent.com,
-	agross@kernel.org, agross@oss.tenstorrent.com
-Subject: Re: [PATCH 3/8] clk: tenstorrent: Add Atlantis clock controller
- driver
-Message-ID: <aWmc73irBAM8DZwF@redhat.com>
-References: <20260115-atlantis-clocks-v1-0-7356e671f28b@oss.tenstorrent.com>
- <20260115-atlantis-clocks-v1-3-7356e671f28b@oss.tenstorrent.com>
+        Thu, 15 Jan 2026 18:10:56 -0800 (PST)
+From: Guodong Xu <guodong@riscstar.com>
+Date: Fri, 16 Jan 2026 10:10:31 +0800
+Subject: [PATCH 1/3] dt-bindings: riscv: Add Supm extension description
 MIME-Version: 1.0
-In-Reply-To: <20260115-atlantis-clocks-v1-3-7356e671f28b@oss.tenstorrent.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: eEfSL9X_UvioVmjRmEFIeHkXbInA0oDG2d4uLWA9eyk_1768529140
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+Message-Id: <20260116-supm-ext-id-v1-1-5fcf778ba4a6@riscstar.com>
+References: <20260116-supm-ext-id-v1-0-5fcf778ba4a6@riscstar.com>
+In-Reply-To: <20260116-supm-ext-id-v1-0-5fcf778ba4a6@riscstar.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Evan Green <evan@rivosinc.com>, Andrew Jones <ajones@ventanamicro.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Guodong Xu <guodong@riscstar.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_180544_473338_B617C236 
-X-CRM114-Status: GOOD (  25.59  )
+X-CRM114-CacheID: sfid-20260115_181059_790535_A0AA32FD 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,239 +108,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anirudh,
+Add description for the Supm extension. Supm indicates support for pointer
+masking in user mode. Supm is mandatory for RVA23S64.
 
-Thanks for the patch!
+The Supm extension is ratified in commit d70011dde6c2 ("Update to ratified
+state") of riscv-j-extension.
 
-On Thu, Jan 15, 2026 at 05:42:02PM -0600, Anirudh Srinivasan wrote:
-> Add driver for syscon block in Tenstorrent Atlantis SoC. This version of
-> the driver coves clocks from RCPU syscon.
-> 
-> 5 types of clocks generated by this controller: PLLs (PLLs
-> with bypass functionality and an additional Gate clk at output), Shared
-> Gates (Multiple Gate clks that share an enable bit), standard Muxes,
-> Dividers and Gates. All clocks are derived from a 24 Mhz oscillator.
-> 
-> Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-> ---
-> diff --git a/drivers/clk/tenstorrent/atlantis-ccu.c b/drivers/clk/tenstorrent/atlantis-ccu.c
-> new file mode 100644
-> index 000000000000..f3a2ea49a82e
-> --- /dev/null
-> +++ b/drivers/clk/tenstorrent/atlantis-ccu.c
-> @@ -0,0 +1,932 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (c) 2026 Tenstorrent
-> + */
-> +
-> +#include <linux/array_size.h>
-> +#include <linux/auxiliary_bus.h>
-> +#include <linux/clk-provider.h>
-> +#include <linux/delay.h>
-> +#include <linux/idr.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/minmax.h>
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/slab.h>
-> +
-> +#include <soc/tenstorrent/atlantis-syscon.h>
-> +
-> +#include <dt-bindings/clock/tenstorrent,atlantis-syscon.h>
-> +#include <linux/regmap.h>
-> +#include <linux/clk-provider.h>
-> +#include <linux/math.h>
-> +#include <linux/bitfield.h>
+Signed-off-by: Guodong Xu <guodong@riscstar.com>
+---
+ Documentation/devicetree/bindings/riscv/extensions.yaml | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-Please sort the headers. clk-provider.h is listed twice. Remove the
-unnecessary newlines.
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index 4ffd61926505..1922dff03787 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -262,6 +262,23 @@ properties:
+             ratified in RISC-V Profiles Version 1.0, with commit b1d806605f87
+             ("Updated to ratified state.")
+ 
++        - const: supm
++          description: |
++            The standard Supm extension for pointer masking support in user
++            mode (U-mode) as ratified at commit d70011dde6c2 ("Update to
++            ratified state") of riscv-j-extension.
++
++            Supm represents a combination of underlying hardware capability
++            (Smnpm or Ssnpm), U-mode consumer privilege level, and M/S-mode
++            software configuration that enables pointer masking for U-mode.
++
++            DO NOT include this property in device trees targeting privileged
++            system software (S-mode or M-mode).
++
++            This property is only appropriate in device trees provided to
++            U-mode software where the next-higher-privilege-mode supports
++            Smnpm or Ssnpm and enables it for U-mode.
++
+         - const: svade
+           description: |
+             The standard Svade supervisor-level extension for SW-managed PTE A/D
 
-> +static void atlantis_ccu_lock(void *_lock)
-> +{
-> +	spinlock_t *lock = _lock;
-> +
-> +	spin_lock(lock);
-> +}
-> +
-> +static void atlantis_ccu_unlock(void *_lock)
-> +{
-> +	spinlock_t *lock = _lock;
-> +
-> +	spin_unlock(lock);
-> +}
-
-Are these abstractions really needed? Why not just call spin_lock/unlock
-directly?
-
-> +static int atlantis_ccu_clocks_register(struct device *dev,
-> +					struct atlantis_ccu *ccu,
-> +					const struct atlantis_ccu_data *data)
-> +{
-> +	struct regmap *regmap = ccu->regmap;
-> +	struct clk_hw_onecell_data *clk_data;
-> +	int i, ret;
-> +	size_t num_clks = data->num;
-> +
-> +	clk_data = devm_kzalloc(dev, struct_size(clk_data, hws, data->num),
-> +				GFP_KERNEL);
-> +	if (!clk_data)
-> +		return -ENOMEM;
-> +
-> +	ccu->clk_data = clk_data;
-> +
-> +	for (i = 0; i < data->num; i++) {
-> +		struct clk_hw *hw = data->hws[i];
-> +		const char *name = hw->init->name;
-> +		struct atlantis_clk_common *common =
-> +			hw_to_atlantis_clk_common(hw);
-> +		common->regmap = regmap;
-> +
-> +		/* Fixup missing handle to parent for gates/muxes/dividers */
-> +		if (hw->init->parent_hws && hw->init->num_parents == 1) {
-> +			const struct atlantis_clk_common *parent =
-> +				hw_to_atlantis_clk_common(
-> +					hw->init->parent_hws[0]);
-> +			hw->init->parent_hws[0] = clk_data->hws[parent->clkid];
-> +		}
-> +
-> +		switch (common->clk_type) {
-> +		case ATLANTIS_CLK_MUX:
-> +			struct atlantis_clk_mux *mux =
-> +				hw_to_atlantis_clk_mux(hw);
-> +
-> +			hw = devm_clk_hw_register_mux_parent_data_table(
-> +				ccu->dev, name, hw->init->parent_data,
-> +				hw->init->num_parents, hw->init->flags,
-> +				ccu->base + mux->config.reg_offset,
-> +				mux->config.shift, mux->config.width, 0, NULL,
-> +				&lock);
-> +
-> +			if (IS_ERR(hw)) {
-> +				dev_err(dev, "Cannot register clock %d - %s\n",
-> +					i, name);
-> +				return ret;
-
-return PTR_ERR(hw);
-
-> +			}
-> +
-> +			if (data == &atlantis_ccu_rcpu_data) {
-> +				switch (common->clkid) {
-> +				case CLK_RCPU_ROOT:
-> +					ret = clk_hw_set_parent(
-> +						hw,
-> +						clk_data->hws[CLK_RCPU_PLL]);
-
-Should the parent be defined in device tree instead of statically in the
-driver? devm_of_clk_add_hw_provider() is called below, and it calls
-of_clk_set_defaults(), which will allow the use of the
-assigned-clock-parents and assigned-clocks properties.
-
-> +					if (ret)
-> +						dev_err(ccu->dev,
-> +							"Failed to set RCPU ROOT MUX parent: %d\n",
-> +							ret);
-> +					break;
-> +				case CLK_NOCC_CLK:
-> +					ret = clk_hw_set_parent(
-> +						hw, clk_data->hws[CLK_NOC_PLL]);
-> +					if (ret)
-> +						dev_err(ccu->dev,
-> +							"Failed to set NOCC Mux parent: %d\n",
-> +							ret);
-> +					break;
-> +				}
-> +			}
-> +			break;
-> +		case ATLANTIS_CLK_DIVIDER:
-> +			struct atlantis_clk_divider *div =
-> +				hw_to_atlantis_clk_divider(hw);
-> +
-> +			hw = devm_clk_hw_register_divider_parent_hw(
-> +				ccu->dev, name, common->hw.init->parent_hws[0],
-> +				div->common.hw.init->flags,
-> +				ccu->base + div->config.reg_offset,
-> +				div->config.shift, div->config.width,
-> +				div->config.flags, &lock);
-> +
-> +			if (IS_ERR(hw)) {
-> +				dev_err(dev, "Cannot register clock %d - %s\n",
-> +					i, name);
-> +				return ret;
-> +			}
-> +
-> +			break;
-> +		case ATLANTIS_CLK_GATE:
-> +			struct atlantis_clk_gate *gate =
-> +				hw_to_atlantis_clk_gate(hw);
-> +
-> +			hw = devm_clk_hw_register_gate_parent_hw(
-> +				ccu->dev, name, common->hw.init->parent_hws[0],
-> +				hw->init->flags,
-> +				ccu->base + gate->config.reg_offset,
-> +				ffs(gate->config.enable) - 1, 0, &lock);
-> +
-> +			if (IS_ERR(hw)) {
-> +				dev_err(dev, "Cannot register clock %d - %s\n",
-> +					i, name);
-> +				return ret;
-
-return PTR_ERR(hw);
-
-> +			}
-> +
-> +			break;
-> +		case ATLANTIS_CLK_FIXED_FACTOR:
-> +			struct atlantis_clk_fixed_factor *factor =
-> +				hw_to_atlantis_clk_fixed_factor(hw);
-> +
-> +			if (hw->init->parent_data) {
-> +				hw = devm_clk_hw_register_fixed_factor_index(
-> +					dev, name,
-> +					hw->init->parent_data[0].index,
-> +					hw->init->flags, factor->config.mult,
-> +					factor->config.div);
-> +			} else {
-> +				hw = devm_clk_hw_register_fixed_factor_parent_hw(
-> +					dev, name, hw->init->parent_hws[0],
-> +					hw->init->flags, factor->config.mult,
-> +					factor->config.div);
-> +			}
-> +			if (IS_ERR(hw)) {
-> +				dev_err(dev, "Cannot register clock %d - %s\n",
-> +					i, name);
-> +				return ret;
-
-return PTR_ERR(hw);
-
-> +			}
-> +			break;
-> +		case ATLANTIS_CLK_GATE_SHARED:
-> +			struct atlantis_clk_gate_shared *gate_shared =
-> +				hw_to_atlantis_clk_gate_shared(hw);
-> +			gate_shared->config.refcount_lock = &refcount_lock;
-> +
-> +			ret = devm_clk_hw_register(dev, hw);
-> +
-
-Unnecessary newline
-
-> +			if (ret) {
-> +				dev_err(dev, "Cannot register clock %d - %s\n",
-> +					i, name);
-> +				return ret;
-> +			}
-> +
-> +			break;
-> +		default:
-> +
-> +			ret = devm_clk_hw_register(dev, hw);
-> +
-
-Unnecessary newline
-
-Brian
+-- 
+2.43.0
 
 
 _______________________________________________
