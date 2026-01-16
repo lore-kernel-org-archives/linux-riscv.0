@@ -4,56 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7289DD4A5FD
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 04:50:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ADF6D4A5FF
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 05:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n2zAKvd7AVViGwvw4cGU+6ll1Nw4PAqoa7rYhzZsyZk=; b=X1mql/hVUeLzuqf7QmBiVFmjSj
-	YPMCAEQE4Mlp6+67AC+AbiBKBO0NAovYZqT3XQQardBZCt8Ln/oFsrabh/HHIvLRlWadBeRxxfILy
-	j4VqatHB6T1XJDlDBvqzNeJECVh0CTBVYL/qO67V6k43syQV2G9Pl98Mwk/JiIkAR8DXpGDthyqll
-	21M+a6QvoXtiRSKJ+OspgF8PN/R4jC4XsmDIlZyO0lamFWiLFNIow2ifyraqEeWF7ZLCclKRiB5JK
-	9R4imB0aAOsjgkgaCklgofz69g3IrTvu8U28sEMrA0m+VYiuYlFRNtuphvjzrrOYihnPZIUe8D31V
-	miwNfGNw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kFhsHiFWCa64fKrWXeJ9wKaQWjAmvYIAf6O7GMZMchA=; b=fivouwJTjvjQmD
+	dll33ZbYYLL+cZAqBkgvBlAWL1UyG/+BdHMJHLnppy+T8Zq4zv1UUJxo+YjtJp+NnnSnzRVna7VdY
+	6utPl2xtunxXHTRErc8eE0lUbpquFu39JjkXJv3+KkeDC4FCY6DBdqY59QjJxsWVAVNcHUDk4xGd1
+	AFgMnaaWQzdAWeHfMchPnProEkvMk49BWfQZaS/GdWR77zQEkI7VAQs5YqDTpaR29amM6Wgb+E98M
+	vJUHKLtbpAEktUe1ZHrCXwAV+2c4LoUhyi/9KUpQJfFw1MKFXs09el3Cj9PTxjP9TfPr72OTsHesw
+	Vvdz8o7nyPpBFyDeW1gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgbn2-0000000DazM-1Snt;
-	Fri, 16 Jan 2026 04:50:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vgc6H-0000000DbYR-2Jj6;
+	Fri, 16 Jan 2026 05:10:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgbn0-0000000DazF-3mGh
+	id 1vgc6D-0000000DbY2-0ryF
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jan 2026 04:50:27 +0000
+	Fri, 16 Jan 2026 05:10:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0545E60167;
-	Fri, 16 Jan 2026 04:50:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A9F3C116C6;
-	Fri, 16 Jan 2026 04:50:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E016C417A0;
+	Fri, 16 Jan 2026 05:10:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1EFDC116C6;
+	Fri, 16 Jan 2026 05:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768539025;
-	bh=kiycUkgYcgP1rwT2HKpckX+ZMBlhPbMFV0u9l5UBtVA=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=M1HAIxiaNSgnnbYVvX2rbeJoR1ZrmdFrSF0BZoVYznoedvnk1t8YFNHgtCemyMQSX
-	 +KJ9gP08uqGsXTTby4RjAwcJdv5Ga7fxMJSSidWJlUCboGintOutstXE96HDpXrU3Z
-	 6g+B7vDMTAyWUL/jNMsX+ps2XH49D9IWWcOA8Fn6SRWgKJby0JVaB66M3yf9GhNCIJ
-	 ZoOEW75IRfJkOpTbGY4I7qqSNc/XwjqY/yJ3hAMPEA6Mrz0+H5CMRBk5png7XO5uFG
-	 uLJXbFcnKt25JYpHIfBNGNRCpSmULQXLbyIoXI/W9QkdAD6HNVo8cDOxYT0KzkWs4F
-	 WksLORM4so+fw==
-Date: Thu, 15 Jan 2026 21:50:20 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: =?ISO-8859-15?Q?Thomas_Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Implement ARCH_HAS_CC_CAN_LINK
-In-Reply-To: <20251222-cc-can-link-riscv-v1-1-633e39e4a60d@linutronix.de>
-Message-ID: <74cdaaf4-598d-29f8-584a-3c6a242adee1@kernel.org>
-References: <20251222-cc-can-link-riscv-v1-1-633e39e4a60d@linutronix.de>
+	s=k20201202; t=1768540215;
+	bh=HZzHW7YHZPFUQKO1dKDsA0Pg/kpBIfBQhMpeukAM8II=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Het7nqjiBCR4dN8g3EHFcpM9lAzrF60K0/j1XIY6YjUPMhPtRmD6t5xGxbngzHAV2
+	 /RMwlWIc2Y6ZymJ73u4Lv3IaFocowX+CRqTyOkx8+Q52QoK1AN1tKprDXos4BXBH5S
+	 rEmmXD5qf3HeTNQfgCn3o6gioZzNbEGkcJk4PsqlB53DAzVe1eB3Q25dEVDFqUX7bc
+	 dfHhhuuqzXSxjvegYtSkfxiY5g2ZC11GXt4YimMK3vJiuOVlCYteH41RevpMgWvvba
+	 m1DXZ5QT52HlbQX3zkfjbSwuczYwQ8wCRRzDPTJrb+BQEXiPSnI1airiKQbzelXmEc
+	 14Cef03trdThA==
+Date: Thu, 15 Jan 2026 22:10:11 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Craig Topper <craig.topper@sifive.com>,
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
+	patches@lists.linux.dev
+Subject: Re: [PATCH RFC v2] riscv: Use 64-bit variable for output in
+ __get_user_asm
+Message-ID: <20260116051011.GB1452322@ax162>
+References: <20260113-riscv-wa-llvm-asm-goto-outputs-assertion-failure-v2-1-e04aba2e1f9f@kernel.org>
+ <7bc39d4d-6e2d-f0af-9787-5fd2c92bfd4e@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-984989649-1768539025=:2705266"
+Content-Disposition: inline
+In-Reply-To: <7bc39d4d-6e2d-f0af-9787-5fd2c92bfd4e@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260115_211017_270227_AA4C0CA3 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,73 +74,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+On Wed, Jan 14, 2026 at 06:02:46PM -0700, Paul Walmsley wrote:
+> I'm assuming this would be a temporary patch, and that we might be able to 
+> remove it at some point (years, I guess?)
 
---8323329-984989649-1768539025=:2705266
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8BIT
+Yes, ideally this would be short lived but unfortunately, I am not
+really sure what the plan to fix this on the LLVM side is :/ Maybe Craig
+or Bill can comment on that.
 
-Hi,
+> Might be worth adding a comment in the code to explain why a temporary 
+> variable is needed.
 
-On Mon, 22 Dec 2025, Thomas Weißschuh wrote:
+I will insert:
 
-> The generic CC_CAN_LINK detection relies on -m32/-m64 compiler flags.
-> These are not supported by riscv compilers.
-> 
-> Use architecture-specific logic using -mabi instead.
-> 
-> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
-> ---
->  arch/riscv/Kconfig | 11 +++++++++++
->  1 file changed, 11 insertions(+)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 6b39f37f769a..b4c1f922eed5 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -25,6 +25,7 @@ config RISCV
->  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
->  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
->  	select ARCH_HAS_BINFMT_FLAT
-> +	select ARCH_HAS_CC_CAN_LINK
->  	select ARCH_HAS_CURRENT_STACK_POINTER
->  	select ARCH_HAS_DEBUG_VIRTUAL if MMU
->  	select ARCH_HAS_DEBUG_VM_PGTABLE
-> @@ -1351,6 +1352,16 @@ config PORTABLE
->  config ARCH_PROC_KCORE_TEXT
->  	def_bool y
->  
-> +config ARCH_CC_CAN_LINK
-> +	bool
-> +	default $(cc_can_link_user,-mabi=lp64d) if 64BIT
-> +	default $(cc_can_link_user,-mabi=ilp32d)
-> +
-> +config ARCH_USERFLAGS
-> +	string
-> +	default "-mabi=lp64d" if 64BIT
-> +	default "-mabi=ilp32d"
-> +
+/*
+ * Use a temporary variable for the output of the asm goto to avoid a
+ * triggering an LLVM assertion due to sign extending the output when
+ * it is used in function calls:
+ * https://github.com/llvm/llvm-project/issues/143795
+ */
 
-Any reason why this patch shouldn't use the non-d ABI variants, as the 
-rest of arch/riscv/Kconfig does?  I suspect this may not work for 
-!CONFIG_FPU builds.
+I will send v3 either tomorrow or Monday.
 
-
-- Paul
---8323329-984989649-1768539025=:2705266
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-984989649-1768539025=:2705266--
-
