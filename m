@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85473D4A5E6
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 02:11:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B02D4A5E4
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 02:11:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NADhHY26Mhg58+UICMPO42L7KP8GsOQm6SeuCQ8GweI=; b=hNjc8HAUlJn421
-	c68W29yH2xUax1X4tU8Jx7T3PZh7OUw8hSx1piuu6v00ygmDtOO+Xojn4iE63XvUhYwRpibfxELsf
-	i4hFPyp/ONNCO4FHpwyPTFrl4FIHOf5bE/5zpITkO73Lr8SLvWxRsu+ISCr3IS7wCT0fmUMJI5oyA
-	LUpFMjbTKgNRr9tz/5FdbqvrQ7tWclL0YkAGj6MvonJPRzhnPNnusC4rd87cUr0+m5x/lX4kMX5LU
-	vcmeZpJjTG6pJaeGPSEeHxqgE4P3zofq28EXBFKKjpqZ9M3tm8ccFDTxHijdi/uLGQWJjt6ZYmdAK
-	c0oj91vKKbepntNMWEWA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=N74OVycZQ9PzfFPQhK2bX4ClxCiPeZMHHrW6bDdVsxo=; b=1ynOgMM5b0SQy3
+	q4qOjVak6UxEsqk4x2cEyqcWK4nHtLJcn+ymbrOflEVF35aMgTzA4uPxO9ciHlZtyM1z7zOEfP6QJ
+	kt+FcGUoP+srSBa3GW6p3WATiSyESWATPBjZu8Sq2Jo28Nja75jiTEtyJAx9IAH3ApOgRQtCvEp6o
+	vGtGkWnd39KpCfpw/ZfF1k8ZXl1ACdy3DjdgFHQEgJEX2bhgDTVHFdsFpsIKTWAiAXv/GgRL9vB9Q
+	TAUYgk8x4EYB8CzDFnrjiN1dsk/h27dXxeU3FgFI8wqb1ymzRN/Ztb+GNxzKeyO8pm4rP8uLAn25U
+	82Cn4ieAi/dUae/h+hfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgZIi-0000000DRsv-2c9j;
-	Fri, 16 Jan 2026 02:11:02 +0000
-Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
+	id 1vgZIq-0000000DRuj-2gHX;
+	Fri, 16 Jan 2026 02:11:08 +0000
+Received: from mail-pj1-x1041.google.com ([2607:f8b0:4864:20::1041])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgZIb-0000000DRsO-2DYu
+	id 1vgZIl-0000000DRtI-3LMA
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jan 2026 02:10:57 +0000
-Received: by mail-pj1-x1043.google.com with SMTP id 98e67ed59e1d1-34ccbf37205so689412a91.2
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 18:10:53 -0800 (PST)
+	Fri, 16 Jan 2026 02:11:05 +0000
+Received: by mail-pj1-x1041.google.com with SMTP id 98e67ed59e1d1-34c2f52585fso804587a91.1
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 18:11:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1768529452; x=1769134252; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=d0RqvDSTLRy5sun+KFOAz+29pO93gB9/JlJnbr30Zhk=;
-        b=N5ttp6wIr4ne5qJ5OLn2UDdhFEhgn9BHHf1yvrVXDExSxD26vZw6HHAJvZ/JqPgFf6
-         0zbniCOCvErQmGWLbeGL8E0NWaKGN5x4H99fzDBvxJL9xKCvx7jWx6vCGlMAuUan/ROM
-         qbWw/gEefSgvtjpzNdlWuWovHrdpLEhZdCkZlxlWFn1qPUlrWg2LYaJVzdxYlG1cnxZi
-         hGPr7Zhq4n8L9IGSpK3ig4CobhE1uyABoI6UxW0PWnBjIE/2W5nAlrmmhYke8lqEF+7h
-         HhJEt3NbJAjZLzSiC92/mlSqdeOCaYcAbhRPRa3lsdLyRM0Hg1ybbF+Oba8gZU77v9B1
-         hVgA==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1768529463; x=1769134263; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BXny++fuaUYh/9d0tAiw1EejR1b07lFNBxlkkPwo9D4=;
+        b=dTvDE/3+qMOWjP3jqKgrHov9xJBlfJIV7VFoI8wfCs5i6ibIQeazj79sqGEgsHxoZu
+         6UfgnG6IaMm5DPv8Vidb0jk/n8uqXL8X5tymtPsmWCMOB9UKkcdNS+k3l1ICkdBbBlow
+         +S5HBV30RUeGZK9q78EhylgewIIamQDl4EjzHEKsq6v4a29WaPOkKdgfV4VZmkg0hOA3
+         +HThleLoTNv+9nhcsIbRRsQN8GW62Sg+V4WQL44FnHxfidyn90E0QBB/SLTyq1C50aKq
+         AQ0SskVz6UHItCyLiLMVI+Bjwz9hgLgLoZPwFO/V0R74ubu/bebb24mQccWgForXKzmy
+         mB7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768529452; x=1769134252;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=d0RqvDSTLRy5sun+KFOAz+29pO93gB9/JlJnbr30Zhk=;
-        b=NBugig4wP/BMIroR55+FKy9mFYWdIGSKBRmNVMlc/MNf6Xa9YojbY3WAc4s/CceW6p
-         HXabXPybDwHaeKe1oKdJbNqYrvOcLm4olBX7kVX9BRhWMPcTrs1Dv8LyOBjWGcRGp5w/
-         6Yg4co8QLUS+ttTCaZvw45dJ0eSNLvre9ENIWDlY1rdW1JHDH2P9zodaGY3x9mX+oy6F
-         XhFD2LNv/nYTx7ng/AWxJ8sbjfEnVTTk+3yGWwv5yeHuB7QmYS7A4NPp6eWRpxoqiTiC
-         FDwuzj+upTJvjgJj/FgifjUybNsx59ouelkHpdv/GGv6PlKZs0tEaITHWc/aU+vGwJSk
-         ManA==
-X-Forwarded-Encrypted: i=1; AJvYcCWWHirQs/ccXnm/TAsIzvG+gteGhHXvqZEOv//1CzekClNWk7r0e1rWn9YthRyt0yP3k7GUbSdPKZcjvw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywmmw22X6SY5+fd9vCi1jQiZmikVoy7Q6zIK7Z2xqbXl2ZES6pC
-	roEbyQZzUJOXZ1Hi7r4MoLb0aLFhsM8lL8XsRp6THDMcszdlGPklowhiZlsCwMcIw2M=
-X-Gm-Gg: AY/fxX6Qs/Hd+RFM3jwQDrvW9OkBLCQhR7hLy27w9oGzj/V8E+w3i+42F5qAeDZpuQ4
-	jVBz5oUKiOX0E1i0N0D94prCb6CmKlrswQRRkvz9li/NFYtPQym176FsvOj3NTvJsbSxqOFr2cy
-	mR2RSx0gP+BR/NP7wkBM36psjbJql/cbcxWcckKMlJS6jp0xQwHIiYg4V8ysnzrdQRMAzfcKwk1
-	yhuydyLDYupzzBVwkRAhojZq7SM87ZgjVM7PhKtifLZCDqDexmuI6hksikc7C9Xfs9cdxD3cwJ0
-	f9o2n0N6XY7tDG4QS6/t3xpyQZTC4hroawjXBTPBSPLZi79C1qxB7UXjZYEJSUit730UzVW1tg7
-	nWW+ui3Twc3ib3JM+hynx9P4AVrxM3oXYD3CTgPQT6AzLuhTy/n6QyiOHgViPEFINiJ6JNiIzhi
-	i+ZJ5pRL225UuF64Lgj5QerikpDCVVQ60Q+JqPeCMYvSWzXD7yvYiGdo+g0oIXP6Tr
-X-Received: by 2002:a17:90b:570f:b0:330:bca5:13d9 with SMTP id 98e67ed59e1d1-352732775a8mr1013354a91.32.1768529452084;
-        Thu, 15 Jan 2026 18:10:52 -0800 (PST)
+        d=1e100.net; s=20230601; t=1768529463; x=1769134263;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=BXny++fuaUYh/9d0tAiw1EejR1b07lFNBxlkkPwo9D4=;
+        b=sL2xbz4xEOKvq9cqd9r3CdKfMLyBzczuQljx+MsTqgt5yoWtmG1n2lSTy7cobklwmj
+         bWThSPpE3BOehbHJjiEJe4A52PBTZ+csWVuNpAv6FWZqZEIb/5sdX1JuUP4uDFNvFkdE
+         2m4gVSO/zlPAdscJaE/5IOKsQFeoG/utA+EsuAusQKiPCFJx8z5omfcgk84d75x3VPjl
+         7SI83t6FN8VkqcfpFu3Q2XBfsZ17OYrnIarM28a6VJ3UVmJLf/1RfZEkPFU0EBliFNWJ
+         JyDLqlyyHKHeDS0j9F+WfKH1P3q9aNp1mMR9bBOoxTyrF6epnAFLuH1vQYHUMPXK6S4/
+         QdRw==
+X-Forwarded-Encrypted: i=1; AJvYcCXS1kZEagqZfRJ3bvAMYFKu20hWTyJgIG554ruPo+hoMiaY3MTBSQCqYZ0Y48qV6yp4Lk2GW4uhDq38/A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXlRPR7oLt/1LppciqX3fJgU5WYx/9MfRcBtsKVD772HrZER9y
+	s1KtFHURL+6s/fbwXVeBGgBy0ilGq8MKmp6fRqCW7SqkRQ0FpvTajRO0rmTo86TrAyPHQEhmvnq
+	xlo5v5m/9IA==
+X-Gm-Gg: AY/fxX64mUjAZPiVhdlqtdQowT0LzapV6ybnyEeLWzRmHGYbzhsu1fkeMsqv5Jjd+cI
+	uT6Y/eoyQM9LiyI+k2OvHP1OohCmPA0b7gmOL+bf/41NtsbkChLWK8pOF+7GJI7rpxKXR3MROsK
+	D90136KixdQO34C6kA7NR41gDdCBSsfSCnw4rLjQVFE5WJASF1JHTP6Agm9bCBjIzF+W1/mpwoJ
+	Z3AcfqHPLuqObE0usVBBGTNkjuLw/0r6zHuGPyPzjg6lrydXy1L94A91PGdbEGXdveRLuCOlcKb
+	S6ix2fC8dB9WN2uxkmaU9wRxmFWwdTIZtycZjqjP+m470Y1mQOQFXCZOIqHBUa+LuyuTs4QWdwr
+	pKPD0oDZ4RIat2oQE3nJM66NVyZq+GfpgryMUDsU5l8OAPpMeOXOCxKDtDs9zdyquSlhPe2gHsy
+	dfMjWu0Vxkx/XgczcFs1EFfBb5zzxIxvmgIJjGDgmTRJf/z0rpChV3pQ==
+X-Received: by 2002:a17:90b:1e0b:b0:34c:f5b5:c1b6 with SMTP id 98e67ed59e1d1-35272f028a0mr1410360a91.12.1768529462750;
+        Thu, 15 Jan 2026 18:11:02 -0800 (PST)
 Received: from [127.0.1.1] ([45.8.220.151])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35273298968sm364317a91.0.2026.01.15.18.10.47
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35273298968sm364317a91.0.2026.01.15.18.10.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 18:10:51 -0800 (PST)
+        Thu, 15 Jan 2026 18:11:02 -0800 (PST)
 From: Guodong Xu <guodong@riscstar.com>
-Subject: [PATCH 0/3] riscv: cpufeature: Add Supm extension id and
- validation
-Date: Fri, 16 Jan 2026 10:10:30 +0800
-Message-Id: <20260116-supm-ext-id-v1-0-5fcf778ba4a6@riscstar.com>
+Date: Fri, 16 Jan 2026 10:10:32 +0800
+Subject: [PATCH 2/3] riscv: cpufeature: Add ISA extension parsing for Supm
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIABeeaWkC/y3MQQqDMBCF4auEWTdgggbxKsVFjGM7i0SbiSKId
- +9Uu/wfvO8AxkzI0KkDMm7ENCcJ81AQ3j69UNMoDbayrjLGaV6XqHEvsuvWOmxHX4d6aEAeS8a
- J9kt79ndn/KyClnuEwTPqMMdIpVPpx/zhBvrz/AKCG7PUjgAAAA==
-X-Change-ID: 20260116-supm-ext-id-826e8da4c4b5
+Message-Id: <20260116-supm-ext-id-v1-2-5fcf778ba4a6@riscstar.com>
+References: <20260116-supm-ext-id-v1-0-5fcf778ba4a6@riscstar.com>
+In-Reply-To: <20260116-supm-ext-id-v1-0-5fcf778ba4a6@riscstar.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Samuel Holland <samuel.holland@sifive.com>, 
@@ -91,9 +90,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  Guodong Xu <guodong@riscstar.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_181053_845362_C67B2E90 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260115_181104_203012_2012572D 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,45 +108,121 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Supm as an extension indicates pointer-masking support for user mode
-(U-mode). It relies on Ssnpm or Smnpm for the underlying hardware
-implementation.
+Supm has been ratified in the RISC-V Pointer Masking specification
+(Version 1.0, 10/2024) and is mandated in RVA23 Profiles (Version 1.0,
+2024-10-17) for RVA23U64. Supm indicates userspace pointer masking
+support.
 
-As a ratified feature, define a dedicated RISCV_ISA_EXT_ id for Supm.
-However, since Supm is targeting U-mode, it should not be added into
-devicetrees that describe hardware running privileged system softwares.
+Remove the previous macro aliasing of Supm to Ssnpm/Smnpm in hwcap.h,
+treating Supm as a distinct RISC-V ISA extension ID.
 
-Supm is implied by Ssnpm (S-mode) or Smnpm (M-mode). Add parsing logic
-and validation to ensure this dependency.
+Add ISA parsing logic for Supm, and implement a validator to ensure
+that Supm is only reported as available if Kconfig allows it and the
+underlying Ssnpm (for supervisor mode) or Smnpm (for machine mode)
+extension is present. Supm relies on Ssnpm or Smnpm to provide the
+underlying hardware implementation.
 
-When CONFIG_RISCV_ISA_SUPM is disabled, Supm validation will fail
-regardless of whether Ssnpm or Smnpm exist. This patchset doesn't change
-this behavior.
-
-Prior discussions about how Supm should be handled can be found in Links
-[1] and [2].
+With this change, "supm" will be reported (when available) in
+/proc/cpuinfo as part of the "isa" and "hart isa" string.
 
 Link: https://lore.kernel.org/lkml/20260101-legume-engraved-0fae8282cfbe@spud/#r [1]
 Link: https://lore.kernel.org/all/4ebbe14b-2579-4ba6-808d-d50c24641d04@sifive.com/#r [2]
-
 Signed-off-by: Guodong Xu <guodong@riscstar.com>
 ---
-Guodong Xu (3):
-      dt-bindings: riscv: Add Supm extension description
-      riscv: cpufeature: Add ISA extension parsing for Supm
-      riscv: cpufeature: Clarify ISA spec version for canonical order
+ arch/riscv/include/asm/hwcap.h |  3 +--
+ arch/riscv/kernel/cpufeature.c | 35 +++++++++++++++++++++++++++++++++--
+ 2 files changed, 34 insertions(+), 4 deletions(-)
 
- .../devicetree/bindings/riscv/extensions.yaml      | 17 ++++++++++
- arch/riscv/include/asm/hwcap.h                     |  3 +-
- arch/riscv/kernel/cpufeature.c                     | 38 ++++++++++++++++++++--
- 3 files changed, 53 insertions(+), 5 deletions(-)
----
-base-commit: ef41e6187f77b52e4b17ab9637be8f878e1f7a5b
-change-id: 20260116-supm-ext-id-826e8da4c4b5
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 4369a2338541..7653e5cff9ae 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -110,6 +110,7 @@
+ #define RISCV_ISA_EXT_ZALASR		101
+ #define RISCV_ISA_EXT_ZILSD		102
+ #define RISCV_ISA_EXT_ZCLSD		103
++#define RISCV_ISA_EXT_SUPM		104
+ 
+ #define RISCV_ISA_EXT_XLINUXENVCFG	127
+ 
+@@ -118,10 +119,8 @@
+ 
+ #ifdef CONFIG_RISCV_M_MODE
+ #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SMAIA
+-#define RISCV_ISA_EXT_SUPM		RISCV_ISA_EXT_SMNPM
+ #else
+ #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SSAIA
+-#define RISCV_ISA_EXT_SUPM		RISCV_ISA_EXT_SSNPM
+ #endif
+ 
+ #endif /* _ASM_RISCV_HWCAP_H */
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index fa591aff9d33..39680280f858 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -296,6 +296,27 @@ static int riscv_ext_svadu_validate(const struct riscv_isa_ext_data *data,
+ 	return 0;
+ }
+ 
++static int riscv_ext_supm_validate(const struct riscv_isa_ext_data *data,
++				   const unsigned long *isa_bitmap)
++{
++	if (!IS_ENABLED(CONFIG_RISCV_ISA_SUPM))
++		return -EINVAL;
++
++	/*
++	 * Supm requires Ssnpm for S-mode or Smnpm for M-mode to provide
++	 * pointer masking for the U-mode execution environment.
++	 */
++	if (IS_ENABLED(CONFIG_RISCV_M_MODE)) {
++		if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_SMNPM))
++			return 0;
++	} else {
++		if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_SSNPM))
++			return 0;
++	}
++
++	return -EPROBE_DEFER;
++}
++
+ static const unsigned int riscv_a_exts[] = {
+ 	RISCV_ISA_EXT_ZAAMO,
+ 	RISCV_ISA_EXT_ZALRSC,
+@@ -429,6 +450,15 @@ static const unsigned int riscv_c_exts[] = {
+ 	RISCV_ISA_EXT_ZCD,
+ };
+ 
++/*
++ * Smnpm and Ssnpm provide pointer masking for the next lower privilege mode
++ * (U-mode), thus enabling Supm. Both extensions imply the same subset.
++ */
++static const unsigned int riscv_supm_exts[] = {
++	RISCV_ISA_EXT_XLINUXENVCFG,
++	RISCV_ISA_EXT_SUPM
++};
++
+ /*
+  * The canonical order of ISA extension names in the ISA string is defined in
+  * chapter 27 of the unprivileged specification.
+@@ -552,12 +582,13 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_DATA_VALIDATE(zvkt, RISCV_ISA_EXT_ZVKT, riscv_ext_vector_crypto_validate),
+ 	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
+ 	__RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
+-	__RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinuxenvcfg_exts),
++	__RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_supm_exts),
+ 	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
+ 	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
+ 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+-	__RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_xlinuxenvcfg_exts),
++	__RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_supm_exts),
+ 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
++	__RISCV_ISA_EXT_DATA_VALIDATE(supm, RISCV_ISA_EXT_SUPM, riscv_ext_supm_validate),
+ 	__RISCV_ISA_EXT_DATA(svade, RISCV_ISA_EXT_SVADE),
+ 	__RISCV_ISA_EXT_DATA_VALIDATE(svadu, RISCV_ISA_EXT_SVADU, riscv_ext_svadu_validate),
+ 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
 
-Best regards,
 -- 
-Guodong Xu <guodong@riscstar.com>
+2.43.0
 
 
 _______________________________________________
