@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBACCD4A605
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 06:06:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED413D4A603
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 06:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:References:In-Reply-To:
+	Mime-Version:Date:From:Cc:To:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fCO8ITPDTaEW2zvzHPlh53D8CbTXIECiUROf/wdeivI=; b=4yYKVNOC+IjzpT
-	y24yBM1V7nxVYXW0PTxpC06/JdK0KmKXMK2TNdHwTf6vmt96G0YO48rQpUDxVknHUGypAaEU4aO2c
-	V9OvOCOhcY24ii777/DlCrmEia1uwXUAuYaLbz7anAHc9hREnxArwBjjWggT58U4kUQcvdiWEPpMv
-	qC79cgQftngJZ9HbpQ6+Z/dBlOHP6MXvGUuHImIRCatslp8qTvzCil/6r4uX6FYCIQrfamRu3SHQm
-	Mi0It1gJwzu68jpXPZMxOUgPZHWq+DI2c/150Vb4qaLNBPBM4Q1Y7Op82MXy0F5PxkvgviWXDyXIN
-	aTbO49bTXeafLFk9Oe/A==;
+	List-Owner; bh=Q3nDsuHtu+Kw3Gh6AtBCXV0gttPqS77+2xL/dx/DZt0=; b=AglT6P2UjfPKVN
+	mNLSLo2ceR5VBcqjH5jYEDqWGigTWsOfi/iREaxy/zGEtF/g+pydQoMW6y12HTuQTfXMmZ30fwMVx
+	eSQELb3Qpygly8uNch7j27okgRCJl6o51rOnqO41p6W0oX0cDw128NG6IYzSaqpoXyL5OH1w1HLw6
+	Zd5HpJxG2GPoU0MyHMOzq1ZP3C+PJeKLtvDOCIERN/FCk+1Rntv0yEjMEdUS5eAyhbS7p42P+I+rT
+	hzVsSW2hFBqASMlMxykYGqZcPc4MwhOI9sIAsv7KQBzd0ppL+ItY6vVI1wbTDf8o27hWPdd0vPu5C
+	coogWp8hEILmdtR+vX9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgcxw-0000000DdxC-3pRn;
-	Fri, 16 Jan 2026 06:05:48 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vgd8X-0000000DeLn-0AYH;
+	Fri, 16 Jan 2026 06:16:45 +0000
+Received: from sg-1-38.ptr.blmpb.com ([118.26.132.38])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgcxs-0000000Ddwd-0dQU
+	id 1vgd8U-0000000DeLP-3hEj
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jan 2026 06:05:45 +0000
-Date: Fri, 16 Jan 2026 07:05:39 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1768543539;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JeJ1NpG9pEP9v5X+c5s9Iawpn/8GKOVrJ32G4YJqViE=;
-	b=QHH5FxhPzYGEddItckzsFRjhRxjYfZqGQzwxeZSkDetjDho35ZkZwR6umybkZG1rgNDIZV
-	cwmSvwHiIRvgyrbWD4J3GErdd+2VqeGWGUlZnZvcrWeyPuY5jZKebDA5IY41WHXshC6853
-	Mini9O9jfd3AO+NpK9XOOl+rg90QV2jxy0+3n453hKSdOWVsJk3/NnmMdcnSE9Xs2nf5yg
-	++ROIiw4qBZg5nijwromYfWLLxMCCex6aIckfcKVUpchkQ40iuLBT7drmVUUK7jQXElRmC
-	gYLZH3+qMfERrpFsbtq7bdQRynSfNc5vibjE800050mZtJoTRt86IqrEW8wVzA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1768543539;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JeJ1NpG9pEP9v5X+c5s9Iawpn/8GKOVrJ32G4YJqViE=;
-	b=b7k1mUY1GKl83MZEvAiJ8Ik6UKyPlTPKz0jctIq+M6vocxbgdFLFcpFQEsxEvWWZigmfYU
-	HjMOx36BZgJTrAAQ==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Paul Walmsley <pjw@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Implement ARCH_HAS_CC_CAN_LINK
-Message-ID: <20260116065400-9deb9bae-1621-4e3a-b12a-22e34906cb85@linutronix.de>
-References: <20251222-cc-can-link-riscv-v1-1-633e39e4a60d@linutronix.de>
- <74cdaaf4-598d-29f8-584a-3c6a242adee1@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <74cdaaf4-598d-29f8-584a-3c6a242adee1@kernel.org>
+	Fri, 16 Jan 2026 06:16:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=picoheart-com.20200927.dkim.feishu.cn; t=1768544186;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=nS5l9OAFjCcF/gbstrCS5nqFISTWoTR1nrXzxjnaQUU=;
+ b=oT0QByLlw9Cggxrp7kZ0B4hN6wKLPmW6xK5q/9L6vB8mfhRcu6Z6ZGH+6IxogweQ/F24zi
+ U9krz/B79L6iXphLKeV8hkcX/ycChfhYr0M5qvj6Vjm6Lp5vD6Kou2mxiK/B3IpgUd58J1
+ yDVKci1m2kutxwUTpTYzdj5APCrqQMKMssmUhKQgagEze/RU6GdHVHKad7fGIW07mW4KGW
+ gWf9Ump2eFRe7HqrbhzCiZiXAn75fDGS5L+Axezf4lmQA8xG5YvEe/Vcphv5TMZR/lEXFS
+ eARvgSYtrLtG1kgN8KPGoC4q2WqAlLqfuO8Qg4Qjiq54ypCTIR3/tnXRu2u3lg==
+Subject: Re: [PATCH] irqchip/riscv-aplic: Register the driver prior to device creation
+Received: from [172.16.153.176] ([58.250.122.114]) by smtp.feishu.cn with ESMTPS; Fri, 16 Jan 2026 14:16:24 +0800
+To: "Thomas Gleixner" <tglx@kernel.org>, 
+	"Anup Patel" <apatel@ventanamicro.com>
+Cc: <yang.yicong@picoheart.com>, <anup@brainfault.org>, <pjw@kernel.org>, 
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, 
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
+	<geshijian@picoheart.com>, <weidong.wd@picoheart.com>, 
+	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, 
+	"Danilo Krummrich" <dakr@kernel.org>
+From: "Yicong Yang" <yang.yicong@picoheart.com>
+Date: Fri, 16 Jan 2026 14:16:21 +0800
+X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
+Content-Language: en-US
+User-Agent: Mozilla Thunderbird
+Mime-Version: 1.0
+X-Lms-Return-Path: <lba+26969d7b8+dfc8cf+lists.infradead.org+yang.yicong@picoheart.com>
+In-Reply-To: <87y0lz2ef6.ffs@tglx>
+References: <20260114063730.78009-1-yang.yicong@picoheart.com> <CAK9=C2XrExRLihwveMxs-Ourr+8bXja5UAmN_muAJz5FSpFW8A@mail.gmail.com> <7b859dd5-9262-4d68-9a8e-e0be0c24ac4a@picoheart.com> <877btkht2v.ffs@tglx> <e30ee004-64f9-4003-8907-c407a76fc244@picoheart.com> <87y0lz2ef6.ffs@tglx>
+Message-Id: <b2eb7f70-8ee9-43f6-b086-f0c17b1f9e39@picoheart.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_220544_333305_DB7BF57B 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20260115_221643_205990_637783E9 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,77 +72,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+On 1/15/26 9:28 PM, Thomas Gleixner wrote:
+> On Thu, Jan 15 2026 at 16:31, Yicong Yang wrote:
+>> so based on above, if we use async_wq (with async_schedule* APIs) in
+>> acpi_scan_clear_dep_queue() for creating these devices, the issue
+>> could be solved since we're sure to have these devices before entering
+>> userspace, since the barrier of async_synchronize_full(). This should be
+>> a solution with a conceptual support and I did a quick test on our
+>> platform it solves the issue.
+> 
+> Sounds about right to me. The drivers core and ACPI folks might have
+> opinions though :)
+> 
 
-On Thu, Jan 15, 2026 at 09:50:20PM -0700, Paul Walmsley wrote:
-> On Mon, 22 Dec 2025, Thomas Wei=DFschuh wrote:
-> =
+sure I'll wait a bit to see if there's further comment before sending out
+next version.
 
-> > The generic CC_CAN_LINK detection relies on -m32/-m64 compiler flags.
-> > These are not supported by riscv compilers.
-> > =
+>> As for the order of console_on_rootfs()/async_synchronize_full(),
+>> though our issue is not directly caused by it, it will cause the
+>> same issue (by the console open time the async probing maybe not
+>> finised) theoretically and needs to be fixed, is it?
+> 
+> Yes, that should move past the synchronization point.
+> 
 
-> > Use architecture-specific logic using -mabi instead.
-> > =
+will include this fix as a separate patch since they're two separate issue.
 
-> > Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
-> > ---
-> >  arch/riscv/Kconfig | 11 +++++++++++
-> >  1 file changed, 11 insertions(+)
-> > =
+thanks a lot for the useful discussion to help find a better solution :)
 
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index 6b39f37f769a..b4c1f922eed5 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -25,6 +25,7 @@ config RISCV
-> >  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
-> >  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
-> >  	select ARCH_HAS_BINFMT_FLAT
-> > +	select ARCH_HAS_CC_CAN_LINK
-> >  	select ARCH_HAS_CURRENT_STACK_POINTER
-> >  	select ARCH_HAS_DEBUG_VIRTUAL if MMU
-> >  	select ARCH_HAS_DEBUG_VM_PGTABLE
-> > @@ -1351,6 +1352,16 @@ config PORTABLE
-> >  config ARCH_PROC_KCORE_TEXT
-> >  	def_bool y
-> >  =
-
-> > +config ARCH_CC_CAN_LINK
-> > +	bool
-> > +	default $(cc_can_link_user,-mabi=3Dlp64d) if 64BIT
-> > +	default $(cc_can_link_user,-mabi=3Dilp32d)
-> > +
-> > +config ARCH_USERFLAGS
-> > +	string
-> > +	default "-mabi=3Dlp64d" if 64BIT
-> > +	default "-mabi=3Dilp32d"
-> > +
-> =
-
-> Any reason why this patch shouldn't use the non-d ABI variants, as the =
-
-> rest of arch/riscv/Kconfig does?  I suspect this may not work for =
-
-> !CONFIG_FPU builds.
-
-Toolchains tend to only provide a libc for the 'd' ABI variants.
-At least the ones I checked in Debian, Arch Linux and
-https://toolchains.bootlin.com/. So I'd like to prefer those to increase
-the chance of CONFIG_CC_CAN_LINK=3Dy.
-
-I'll add dedicated clauses for FPU=3Dn in the next revision.
-
-It would also be possible to have non-d as a fallback for FPU=3Dy, but it
-is slightly more complex to represent and will probably never be used.
-
-
-Thomas
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
