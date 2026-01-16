@@ -4,80 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99951D4A5FB
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 04:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7289DD4A5FD
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 04:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oXOP2y/L2dCYltLW6C3i/aHmcqU3U/Jnn3v1R4Wacdo=; b=qU+SWGm4RfcuMx
-	xNLBhCYvJitUczQBz4PDo7xLQYRXJHny0oeo+Oomv4rrxc1fvL+e0/5cTR82exdgDA8SZQjQH4LU/
-	hLWfVkYZD+3YgIdl+LqVc6bOuPdXbbArVJSMvyAp4iYrULbCKMLTEgHyxKG9kg4GEBLhyezKh+uNB
-	Z53JYJ4MJVNhba71tWZ+1QsWWRwYbMPZ6GsPf5k6XyW4mNzSIv3T17VfMnr3nZlJktTJsCvprULAh
-	hn3e4m1PYixEyg5GlGg1RLVEssotKhDc5YfrzUvlv5tKtbQ4+b2c5+cExOkbix8hWvRZ1JwUjbhJX
-	W46oAFAho3BjYVVJs8jg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n2zAKvd7AVViGwvw4cGU+6ll1Nw4PAqoa7rYhzZsyZk=; b=X1mql/hVUeLzuqf7QmBiVFmjSj
+	YPMCAEQE4Mlp6+67AC+AbiBKBO0NAovYZqT3XQQardBZCt8Ln/oFsrabh/HHIvLRlWadBeRxxfILy
+	j4VqatHB6T1XJDlDBvqzNeJECVh0CTBVYL/qO67V6k43syQV2G9Pl98Mwk/JiIkAR8DXpGDthyqll
+	21M+a6QvoXtiRSKJ+OspgF8PN/R4jC4XsmDIlZyO0lamFWiLFNIow2ifyraqEeWF7ZLCclKRiB5JK
+	9R4imB0aAOsjgkgaCklgofz69g3IrTvu8U28sEMrA0m+VYiuYlFRNtuphvjzrrOYihnPZIUe8D31V
+	miwNfGNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgbbb-0000000DZlu-10E7;
-	Fri, 16 Jan 2026 04:38:39 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vgbn2-0000000DazM-1Snt;
+	Fri, 16 Jan 2026 04:50:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgbbW-0000000DZk8-0J94
+	id 1vgbn0-0000000DazF-3mGh
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jan 2026 04:38:36 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.103.83])
-	by APP-01 (Coremail) with SMTP id qwCowADXfWmwwGlp9QjYBA--.45984S4;
-	Fri, 16 Jan 2026 12:38:16 +0800 (CST)
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>
-Subject: [PATCH v5 2/9] dt-bindings: display: add verisilicon,dc
-Date: Fri, 16 Jan 2026 12:37:39 +0800
-Message-ID: <20260116043746.336328-3-zhengxingda@iscas.ac.cn>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260116043746.336328-1-zhengxingda@iscas.ac.cn>
-References: <20260116043746.336328-1-zhengxingda@iscas.ac.cn>
+	Fri, 16 Jan 2026 04:50:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0545E60167;
+	Fri, 16 Jan 2026 04:50:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A9F3C116C6;
+	Fri, 16 Jan 2026 04:50:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768539025;
+	bh=kiycUkgYcgP1rwT2HKpckX+ZMBlhPbMFV0u9l5UBtVA=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=M1HAIxiaNSgnnbYVvX2rbeJoR1ZrmdFrSF0BZoVYznoedvnk1t8YFNHgtCemyMQSX
+	 +KJ9gP08uqGsXTTby4RjAwcJdv5Ga7fxMJSSidWJlUCboGintOutstXE96HDpXrU3Z
+	 6g+B7vDMTAyWUL/jNMsX+ps2XH49D9IWWcOA8Fn6SRWgKJby0JVaB66M3yf9GhNCIJ
+	 ZoOEW75IRfJkOpTbGY4I7qqSNc/XwjqY/yJ3hAMPEA6Mrz0+H5CMRBk5png7XO5uFG
+	 uLJXbFcnKt25JYpHIfBNGNRCpSmULQXLbyIoXI/W9QkdAD6HNVo8cDOxYT0KzkWs4F
+	 WksLORM4so+fw==
+Date: Thu, 15 Jan 2026 21:50:20 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: =?ISO-8859-15?Q?Thomas_Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Implement ARCH_HAS_CC_CAN_LINK
+In-Reply-To: <20251222-cc-can-link-riscv-v1-1-633e39e4a60d@linutronix.de>
+Message-ID: <74cdaaf4-598d-29f8-584a-3c6a242adee1@kernel.org>
+References: <20251222-cc-can-link-riscv-v1-1-633e39e4a60d@linutronix.de>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowADXfWmwwGlp9QjYBA--.45984S4
-X-Coremail-Antispam: 1UD129KBjvJXoWxur17uw4fuw47tF1fArWkWFg_yoWrZF45pa
-	n3AFWxtF4ktF13Xws3JFyIgw4rtan5Ar10gryxXw1jyan0gFy0qw4akr98ZasrGF97Zay7
-	WFWj9r4Ikw1IyaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmY14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
-	8EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
-	xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
-	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
-	kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY
-	6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42
-	IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIev
-	Ja73UjIFyTuYvjTRNiSHDUUUU
-X-Originating-IP: [112.94.103.83]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_203834_477619_50B831E7 
-X-CRM114-Status: GOOD (  15.90  )
+Content-Type: multipart/mixed; boundary="8323329-984989649-1768539025=:2705266"
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,182 +65,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Philipp Zabel <p.zabel@pengutronix.de>, Han Gao <rabenda.cn@gmail.com>, Michal Wilczynski <m.wilczynski@samsung.com>, linux-riscv@lists.infradead.org, Luca Ceresoli <luca.ceresoli@bootlin.com>, Dmitry Baryshkov <lumag@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Icenowy Zheng <uwu@icenowy.me>
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-Verisilicon has a series of display controllers prefixed with DC and
-with self-identification facility like their GC series GPUs.
+--8323329-984989649-1768539025=:2705266
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8BIT
 
-Add a device tree binding for it.
+Hi,
 
-Depends on the specific DC model, it can have either one or two display
-outputs, and each display output could be set to DPI signal or "DP"
-signal (which seems to be some plain parallel bus to HDMI controllers).
+On Mon, 22 Dec 2025, Thomas Weißschuh wrote:
 
-Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
----
-Changes in v5:
-- Dropped the requirement of port@0.
-- Dropped the if clause for TH1520, which seems to be not needed because
-  of implicit DT binding rules.
+> The generic CC_CAN_LINK detection relies on -m32/-m64 compiler flags.
+> These are not supported by riscv compilers.
+> 
+> Use architecture-specific logic using -mabi instead.
+> 
+> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+> ---
+>  arch/riscv/Kconfig | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 6b39f37f769a..b4c1f922eed5 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -25,6 +25,7 @@ config RISCV
+>  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+>  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+>  	select ARCH_HAS_BINFMT_FLAT
+> +	select ARCH_HAS_CC_CAN_LINK
+>  	select ARCH_HAS_CURRENT_STACK_POINTER
+>  	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+>  	select ARCH_HAS_DEBUG_VM_PGTABLE
+> @@ -1351,6 +1352,16 @@ config PORTABLE
+>  config ARCH_PROC_KCORE_TEXT
+>  	def_bool y
+>  
+> +config ARCH_CC_CAN_LINK
+> +	bool
+> +	default $(cc_can_link_user,-mabi=lp64d) if 64BIT
+> +	default $(cc_can_link_user,-mabi=ilp32d)
+> +
+> +config ARCH_USERFLAGS
+> +	string
+> +	default "-mabi=lp64d" if 64BIT
+> +	default "-mabi=ilp32d"
+> +
 
-Changes in v4:
-- Added a comment for "verisilicon,dc" that says the ID/revision is
-  discoverable via registers.
-- Removed clock minItems constraint w/o specific compatible strings.
+Any reason why this patch shouldn't use the non-d ABI variants, as the 
+rest of arch/riscv/Kconfig does?  I suspect this may not work for 
+!CONFIG_FPU builds.
 
-Changes in v3:
-- Added SoC-specific compatible string, and arm the binding with clock /
-  port checking for the specific SoC (with a 2-output DC).
 
-Changes in v2:
-- Fixed misspelt "versilicon" in title.
-- Moved minItems in clock properties to be earlier than items.
-- Re-aligned multi-line clocks and resets in example.
-
- .../bindings/display/verisilicon,dc.yaml      | 122 ++++++++++++++++++
- 1 file changed, 122 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-
-diff --git a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-new file mode 100644
-index 0000000000000..9dc35ab973f20
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-@@ -0,0 +1,122 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/verisilicon,dc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Verisilicon DC-series display controllers
-+
-+maintainers:
-+  - Icenowy Zheng <uwu@icenowy.me>
-+
-+properties:
-+  $nodename:
-+    pattern: "^display@[0-9a-f]+$"
-+
-+  compatible:
-+    items:
-+      - enum:
-+          - thead,th1520-dc8200
-+      - const: verisilicon,dc # DC IPs have discoverable ID/revision registers
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: DC Core clock
-+      - description: DMA AXI bus clock
-+      - description: Configuration AHB bus clock
-+      - description: Pixel clock of output 0
-+      - description: Pixel clock of output 1
-+
-+  clock-names:
-+    items:
-+      - const: core
-+      - const: axi
-+      - const: ahb
-+      - const: pix0
-+      - const: pix1
-+
-+  resets:
-+    items:
-+      - description: DC Core reset
-+      - description: DMA AXI bus reset
-+      - description: Configuration AHB bus reset
-+
-+  reset-names:
-+    items:
-+      - const: core
-+      - const: axi
-+      - const: ahb
-+
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+
-+    properties:
-+      port@0:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: The first output channel , endpoint 0 should be
-+          used for DPI format output and endpoint 1 should be used
-+          for DP format output.
-+
-+      port@1:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: The second output channel if the DC variant
-+          supports. Follow the same endpoint addressing rule with
-+          the first port.
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - ports
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
-+    #include <dt-bindings/reset/thead,th1520-reset.h>
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      display@ffef600000 {
-+        compatible = "thead,th1520-dc8200", "verisilicon,dc";
-+        reg = <0xff 0xef600000 0x0 0x100000>;
-+        interrupts = <93 IRQ_TYPE_LEVEL_HIGH>;
-+        clocks = <&clk_vo CLK_DPU_CCLK>,
-+                 <&clk_vo CLK_DPU_ACLK>,
-+                 <&clk_vo CLK_DPU_HCLK>,
-+                 <&clk_vo CLK_DPU_PIXELCLK0>,
-+                 <&clk_vo CLK_DPU_PIXELCLK1>;
-+        clock-names = "core", "axi", "ahb", "pix0", "pix1";
-+        resets = <&rst TH1520_RESET_ID_DPU_CORE>,
-+                 <&rst TH1520_RESET_ID_DPU_AXI>,
-+                 <&rst TH1520_RESET_ID_DPU_AHB>;
-+        reset-names = "core", "axi", "ahb";
-+
-+        ports {
-+          #address-cells = <1>;
-+          #size-cells = <0>;
-+
-+          port@1 {
-+            reg = <1>;
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            dpu_out_dp1: endpoint@1 {
-+              reg = <1>;
-+              remote-endpoint = <&hdmi_in>;
-+            };
-+          };
-+        };
-+      };
-+    };
--- 
-2.52.0
-
+- Paul
+--8323329-984989649-1768539025=:2705266
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--8323329-984989649-1768539025=:2705266--
+
