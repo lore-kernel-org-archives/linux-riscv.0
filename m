@@ -4,87 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54448D48986
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 11:57:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 130A9D4899D
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 13:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KoAbJCiueTHetCNODycGIFPnb+3ovxWP5i1XIG6u/4Q=; b=pv4qjzWp7XGav6
-	cTlDhvh8d43R4u6MZdv1u8ydDEAuy6n+5r9JVjivqybZGzbnM+eukMzN0YSytou0g+SHv3WVZim38
-	6d6b4/PY3pVW7Pd9Q1wiWK2fHibIUcZf25/lglMSg2ZBnnIio0vn6SWvXq4kL00h655/d5ysd9YPJ
-	unFWnrs0iqlTMB5/R2zqIr7/tReI/VBBoci+FvNjgonp/N1k8L5zO8sB42gIN94Flt4SCQNVi3mFD
-	q7nVCdl5cr6ijKwNi0dRpqNRP0XnWSjahj2yiN3f3akIYEj+/tc0O4U1AepU284/179BRoLw0AH6X
-	CkRvYT46JuY2wTKObaaw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=23oFEI10NISoUAnyjgPLyb2sn4KsJfdNUAhJUO3aYwE=; b=uRYok0VlsW2I0R
+	uz1crJTWbvmsVCooPl4vHv4SduXlDhOxJ+H3XzHnZydJIFf2pnPyTmOG9QL124eEKhmGUU6J+W1pA
+	lWsBzw/gomDf39dNMZFXL0XgJGYdBv/OiT09UtgeJ45Lym11KHhteCyiYaKl7iKtToS4oHPeB+gFe
+	L1yl4utSOFGcwLjbJ5g9KNMP5DLGjPlWn85jUy31DgGIwLtr74NwIDD0kknCmHByt+k5b0AXKnV/5
+	dxZVVflKQcG4/+dkywNx6Wy02QBdSko8ufN2xf3M+Uf9kzFHlE+IeFs0jILW88YIX4+phk1nMLuJf
+	OLy/g/IUfFyM+YeZnEag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgiRw-0000000E4p8-45Ly;
-	Fri, 16 Jan 2026 11:57:08 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1vgjrn-0000000EBV4-3slP;
+	Fri, 16 Jan 2026 13:27:55 +0000
+Received: from sender4-pp-o94.zoho.com ([136.143.188.94])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgiRt-0000000E4oU-45zW
+	id 1vgjrP-0000000EBUV-1GdN
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jan 2026 11:57:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768564625; x=1800100625;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=1GlgSbn/pQ5C9Qm6aV11sSWl3mVMardfOsZ+NnSUPVo=;
-  b=nqJo2e7/PQ9qIGwbdI1olargOBOMBMHYtAfz1qiqN0/xgEXKHi3PmGLA
-   IlrX0klE4mpNIeGXcPWpFG1B99fQdwyCZC/vXACPQQTLlBfI2FUvEgf3E
-   OOjW7Hb6WJSJv3j0luXWoQMkFB/j6RgC6yO3wQ/ed6z880xBvw05OVsC5
-   tBM/1MzOd7MGaqewXSUeyiL2wvZMqnfpckAhOyO5LnwUNDwn2daTToY1r
-   U4Tj33Op6Ef0ge42j7vlhjWZDunKvHQefPpzPjrCvTx1AS3/dVmwKMxGS
-   MQQcTF7MXqxm2Xyb/MDzYw3VEmIYwk5bAGNLG/3gXwsbaoeV501z4Ckkd
-   Q==;
-X-CSE-ConnectionGUID: 2WmLIAhJRCa8F0tY6Z6S0w==
-X-CSE-MsgGUID: n2r0iqkhSDKj7Mpw3mUsgw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11672"; a="80182888"
-X-IronPort-AV: E=Sophos;i="6.21,231,1763452800"; 
-   d="scan'208";a="80182888"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jan 2026 03:57:01 -0800
-X-CSE-ConnectionGUID: vw4YWlMnRGO/n9dWQLrVig==
-X-CSE-MsgGUID: grzFcJIMQfWluXvmgN3lkg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,231,1763452800"; 
-   d="scan'208";a="236487248"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 16 Jan 2026 03:56:57 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vgiRi-00000000Kns-3yzE;
-	Fri, 16 Jan 2026 11:56:54 +0000
-Date: Fri, 16 Jan 2026 19:56:14 +0800
-From: kernel test robot <lkp@intel.com>
-To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
-	Drew Fustini <dfustini@oss.tenstorrent.com>,
-	Joel Stanley <jms@oss.tenstorrent.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, joel@jms.id.au, fustini@kernel.org,
-	mpe@kernel.org, mpe@oss.tenstorrent.com,
-	npiggin@oss.tenstorrent.com, agross@kernel.org,
-	agross@oss.tenstorrent.com
-Subject: Re: [PATCH 3/8] clk: tenstorrent: Add Atlantis clock controller
- driver
-Message-ID: <202601161951.u4TyUnmn-lkp@intel.com>
-References: <20260115-atlantis-clocks-v1-3-7356e671f28b@oss.tenstorrent.com>
+	Fri, 16 Jan 2026 13:27:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1768570046; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=MW4TShP6D87B6mlJvYWRor7UJfzM/WZ9MOtTYWHc3iMhW2daHa3YNpLfbxCGqqS9JQ0FmdkBLA84Q9s0CuDWpwns98FmmuT58ilaD7ew74GpZL6itw/tYg5n1YieMldOX52Scome0O7mFIr74stSNCFF41qZv4tGawqlXW00C0c=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1768570046; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=DLGG1fTG56kneP3ZvhpcTVXNWuTPcfoKprdvQhYRYb0=; 
+	b=M3oUQHRmHw/RMNZP3gqi+LIt6vIxN34pakzUXmRQFWdQNvJ1ZGndNHp5mxB+T1H0TlJ6nfRkrYUHu9ae6S+6MlSo0cpqLhheItVLzldqKp+P4uIrb9u49NaaM8znJeGO3ChXinljWDYOYXq1cJef2KIwsLj/Nt0egYTRaKVWaA0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
+	dmarc=pass header.from=<kingxukai@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768570046;
+	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Feedback-ID:Reply-To;
+	bh=DLGG1fTG56kneP3ZvhpcTVXNWuTPcfoKprdvQhYRYb0=;
+	b=X91oc/otvByUhGfgVwQWwm0gzmYkcomlB7uZ1oSuHOwxRa5YbS2935+6qe9fyLL1
+	rZYvJr8IaPkcIJ9WLsNXI4ZhOCVe3EDrfk0Bgzlocw+8XQsbd2kozGtnIgur1hg9I1n
+	AYGjCtdQTu61/4deOsVww+g3mKow5BdaG1MolAJ0=
+Received: by mx.zohomail.com with SMTPS id 1768570039679419.2090071205788;
+	Fri, 16 Jan 2026 05:27:19 -0800 (PST)
+From: Xukai Wang <kingxukai@zohomail.com>
+Subject: [PATCH v10 0/3] riscv: canaan: Add support for K230 clock
+Date: Fri, 16 Jan 2026 21:26:18 +0800
+Message-Id: <20260116-b4-k230-clk-v10-0-de59033c5d30@zohomail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260115-atlantis-clocks-v1-3-7356e671f28b@oss.tenstorrent.com>
+X-B4-Tracking: v=1; b=H4sIAHo8amkC/3XSwXLbIBAG4Ffx6Fx1YJdlwae+R6aH1QK1JnGUS
+ o6nbcbvXuS0dSSrOglGH/8P4q2Z8tjnqdnv3poxn/upH57rwJpPu0YP8vwtt32qEw0YcBaMbzv
+ XPgKaVp8e2whUEEtOXqGp4mXMpf9xXe7h6/t4zN9f66qn98mmkym3OhyP/Wm/Qwnem8AhYCwiq
+ XPFik+JQdFyVJsKeQ58XVpOeqhd9ruUk6A6hmLqU0pyRlNFWnzCjjIkTsJJm7nBoZ9Ow/jzur8
+ zXiv82QkvdnLGtr50NZVsCJn5y6/hMBylf/pc284FKiNjAe5ZVwoTiUYtus3A4D1DD8rRgiOGJ
+ ZuLn92HstYtuavcqokqvkMX5D+plu8ZSSRBR8FHu5FqP6RCXHJbOYCVaDkHk9MGh7+8HpUJSw4
+ z5w6NgArBFqcbx/WRUeXsQqqnAQEzbu8Zwdwzk2MyISq5EDZS/S3VWVpyP6eWFGJxwPWDDc43z
+ rhK5/lWEdd72VHEhBs83Hg0q/RQefQqYiCRg63y8R+3Flb/O863rOKYLRcptOKXy+U3GpqnFAA
+ EAAA=
+X-Change-ID: 20241206-b4-k230-clk-925f33fed6c2
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Xukai Wang <kingxukai@zohomail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor@kernel.org>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Troy Mitchell <TroyMitchell988@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+Feedback-ID: rr080112270fd96f9d29ac845b275e41ca00009f830f776511f8ab3726c700ecc89220c40ab2598296a89876:zu08011227f18d624a5c736ce88c3c42a3000082b396b04e389bcde4d169d16dbcc95ae21d018734df5173a2:rf0801122d4d9111ca42d76863efaad8ea000028aa164f7e4144a78b8189821bd9ef66300b43cbce44227bdd9a2916f649c0:ZohoMail
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_035706_103105_0DF420CB 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20260116_052731_372287_E74D110A 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,226 +91,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anirudh,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on 9448598b22c50c8a5bb77a9103e2d49f134c9578]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Anirudh-Srinivasan/dt-bindings-soc-tenstorrent-Add-tenstorrent-atlantis-syscon/20260116-074618
-base:   9448598b22c50c8a5bb77a9103e2d49f134c9578
-patch link:    https://lore.kernel.org/r/20260115-atlantis-clocks-v1-3-7356e671f28b%40oss.tenstorrent.com
-patch subject: [PATCH 3/8] clk: tenstorrent: Add Atlantis clock controller driver
-config: s390-randconfig-r132-20260116 (https://download.01.org/0day-ci/archive/20260116/202601161951.u4TyUnmn-lkp@intel.com/config)
-compiler: s390-linux-gcc (GCC) 10.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260116/202601161951.u4TyUnmn-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601161951.u4TyUnmn-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/clk/tenstorrent/atlantis-ccu.c: In function 'atlantis_ccu_clocks_register':
->> drivers/clk/tenstorrent/atlantis-ccu.c:744:4: error: a label can only be part of a statement and a declaration is not a statement
-     744 |    struct atlantis_clk_mux *mux =
-         |    ^~~~~~
-   drivers/clk/tenstorrent/atlantis-ccu.c:783:4: error: a label can only be part of a statement and a declaration is not a statement
-     783 |    struct atlantis_clk_divider *div =
-         |    ^~~~~~
-   drivers/clk/tenstorrent/atlantis-ccu.c:801:4: error: a label can only be part of a statement and a declaration is not a statement
-     801 |    struct atlantis_clk_gate *gate =
-         |    ^~~~~~
-   drivers/clk/tenstorrent/atlantis-ccu.c:818:4: error: a label can only be part of a statement and a declaration is not a statement
-     818 |    struct atlantis_clk_fixed_factor *factor =
-         |    ^~~~~~
-   drivers/clk/tenstorrent/atlantis-ccu.c:840:4: error: a label can only be part of a statement and a declaration is not a statement
-     840 |    struct atlantis_clk_gate_shared *gate_shared =
-         |    ^~~~~~
-
-
-vim +744 drivers/clk/tenstorrent/atlantis-ccu.c
-
-   710	
-   711	static int atlantis_ccu_clocks_register(struct device *dev,
-   712						struct atlantis_ccu *ccu,
-   713						const struct atlantis_ccu_data *data)
-   714	{
-   715		struct regmap *regmap = ccu->regmap;
-   716		struct clk_hw_onecell_data *clk_data;
-   717		int i, ret;
-   718		size_t num_clks = data->num;
-   719	
-   720		clk_data = devm_kzalloc(dev, struct_size(clk_data, hws, data->num),
-   721					GFP_KERNEL);
-   722		if (!clk_data)
-   723			return -ENOMEM;
-   724	
-   725		ccu->clk_data = clk_data;
-   726	
-   727		for (i = 0; i < data->num; i++) {
-   728			struct clk_hw *hw = data->hws[i];
-   729			const char *name = hw->init->name;
-   730			struct atlantis_clk_common *common =
-   731				hw_to_atlantis_clk_common(hw);
-   732			common->regmap = regmap;
-   733	
-   734			/* Fixup missing handle to parent for gates/muxes/dividers */
-   735			if (hw->init->parent_hws && hw->init->num_parents == 1) {
-   736				const struct atlantis_clk_common *parent =
-   737					hw_to_atlantis_clk_common(
-   738						hw->init->parent_hws[0]);
-   739				hw->init->parent_hws[0] = clk_data->hws[parent->clkid];
-   740			}
-   741	
-   742			switch (common->clk_type) {
-   743			case ATLANTIS_CLK_MUX:
- > 744				struct atlantis_clk_mux *mux =
-   745					hw_to_atlantis_clk_mux(hw);
-   746	
-   747				hw = devm_clk_hw_register_mux_parent_data_table(
-   748					ccu->dev, name, hw->init->parent_data,
-   749					hw->init->num_parents, hw->init->flags,
-   750					ccu->base + mux->config.reg_offset,
-   751					mux->config.shift, mux->config.width, 0, NULL,
-   752					&lock);
-   753	
-   754				if (IS_ERR(hw)) {
-   755					dev_err(dev, "Cannot register clock %d - %s\n",
-   756						i, name);
-   757					return ret;
-   758				}
-   759	
-   760				if (data == &atlantis_ccu_rcpu_data) {
-   761					switch (common->clkid) {
-   762					case CLK_RCPU_ROOT:
-   763						ret = clk_hw_set_parent(
-   764							hw,
-   765							clk_data->hws[CLK_RCPU_PLL]);
-   766						if (ret)
-   767							dev_err(ccu->dev,
-   768								"Failed to set RCPU ROOT MUX parent: %d\n",
-   769								ret);
-   770						break;
-   771					case CLK_NOCC_CLK:
-   772						ret = clk_hw_set_parent(
-   773							hw, clk_data->hws[CLK_NOC_PLL]);
-   774						if (ret)
-   775							dev_err(ccu->dev,
-   776								"Failed to set NOCC Mux parent: %d\n",
-   777								ret);
-   778						break;
-   779					}
-   780				}
-   781				break;
-   782			case ATLANTIS_CLK_DIVIDER:
-   783				struct atlantis_clk_divider *div =
-   784					hw_to_atlantis_clk_divider(hw);
-   785	
-   786				hw = devm_clk_hw_register_divider_parent_hw(
-   787					ccu->dev, name, common->hw.init->parent_hws[0],
-   788					div->common.hw.init->flags,
-   789					ccu->base + div->config.reg_offset,
-   790					div->config.shift, div->config.width,
-   791					div->config.flags, &lock);
-   792	
-   793				if (IS_ERR(hw)) {
-   794					dev_err(dev, "Cannot register clock %d - %s\n",
-   795						i, name);
-   796					return ret;
-   797				}
-   798	
-   799				break;
-   800			case ATLANTIS_CLK_GATE:
-   801				struct atlantis_clk_gate *gate =
-   802					hw_to_atlantis_clk_gate(hw);
-   803	
-   804				hw = devm_clk_hw_register_gate_parent_hw(
-   805					ccu->dev, name, common->hw.init->parent_hws[0],
-   806					hw->init->flags,
-   807					ccu->base + gate->config.reg_offset,
-   808					ffs(gate->config.enable) - 1, 0, &lock);
-   809	
-   810				if (IS_ERR(hw)) {
-   811					dev_err(dev, "Cannot register clock %d - %s\n",
-   812						i, name);
-   813					return ret;
-   814				}
-   815	
-   816				break;
-   817			case ATLANTIS_CLK_FIXED_FACTOR:
-   818				struct atlantis_clk_fixed_factor *factor =
-   819					hw_to_atlantis_clk_fixed_factor(hw);
-   820	
-   821				if (hw->init->parent_data) {
-   822					hw = devm_clk_hw_register_fixed_factor_index(
-   823						dev, name,
-   824						hw->init->parent_data[0].index,
-   825						hw->init->flags, factor->config.mult,
-   826						factor->config.div);
-   827				} else {
-   828					hw = devm_clk_hw_register_fixed_factor_parent_hw(
-   829						dev, name, hw->init->parent_hws[0],
-   830						hw->init->flags, factor->config.mult,
-   831						factor->config.div);
-   832				}
-   833				if (IS_ERR(hw)) {
-   834					dev_err(dev, "Cannot register clock %d - %s\n",
-   835						i, name);
-   836					return ret;
-   837				}
-   838				break;
-   839			case ATLANTIS_CLK_GATE_SHARED:
-   840				struct atlantis_clk_gate_shared *gate_shared =
-   841					hw_to_atlantis_clk_gate_shared(hw);
-   842				gate_shared->config.refcount_lock = &refcount_lock;
-   843	
-   844				ret = devm_clk_hw_register(dev, hw);
-   845	
-   846				if (ret) {
-   847					dev_err(dev, "Cannot register clock %d - %s\n",
-   848						i, name);
-   849					return ret;
-   850				}
-   851	
-   852				break;
-   853			default:
-   854	
-   855				ret = devm_clk_hw_register(dev, hw);
-   856	
-   857				if (ret) {
-   858					dev_err(dev, "Cannot register clock %d - %s\n",
-   859						i, name);
-   860					return ret;
-   861				}
-   862	
-   863				break;
-   864			}
-   865			clk_data->hws[common->clkid] = hw;
-   866		}
-   867	
-   868		clk_data->num = num_clks;
-   869	
-   870		ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
-   871		if (ret)
-   872			dev_err(dev, "failed to add clock hardware provider (%d)\n",
-   873				ret);
-   874	
-   875		return ret;
-   876	}
-   877	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhpcyBwYXRjaCBzZXJpZXMgYWRkcyBjbG9jayBjb250cm9sbGVyIHN1cHBvcnQgZm9yIHRoZSBD
+YW5hYW4gS2VuZHJ5dGUKSzIzMCBTb0MuIFRoZSBLMjMwIFNvQyBpbmNsdWRlcyBhbiBleHRlcm5h
+bCAyNE1IeiBPU0MsIDQgaW50ZXJuYWwKUExMcyBhbmQgYW4gZXh0ZXJuYWwgcHVsc2UgaW5wdXQs
+IHdpdGggdGhlIGNvbnRyb2xsZXIgbWFuYWdpbmcgdGhlc2UKc291cmNlcyBhbmQgdGhlaXIgZGVy
+aXZlZCBjbG9ja3MuCgpUaGUgY2xvY2sgdHJlZSBhbmQgaGFyZHdhcmUtc3BlY2lmaWMgZGVmaW5p
+dGlvbiBjYW4gYmUgZm91bmQgaW4gdGhlCnZlbmRvcidzIERUUyBbMV0sCmFuZCB0aGlzIHNlcmll
+cyBpcyBiYXNlZCBvbiB0aGUgSzIzMCBpbml0aWFsIHNlcmllcyBbMl0uCgpMaW5rOiBodHRwczov
+L2dpdGh1Yi5jb20vcnV5aXNkay9saW51eC14dWFudGllLWtlcm5lbC9ibG9iL2xpbnV4LTYuNi4z
+Ni9hcmNoL3Jpc2N2L2Jvb3QvZHRzL2NhbmFhbi9rMjMwX2Nsb2NrX3Byb3ZpZGVyLmR0c2kgWzFd
+Ckxpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LWNsay90ZW5jZW50X0Y3NkVCOEQ3
+MzFDNTIxQzE4RDVEN0M0RjgyMjlEQUE1OEUwOEBxcS5jb20vIFsyXQoKQ28tZGV2ZWxvcGVkLWJ5
+OiBUcm95IE1pdGNoZWxsIDxUcm95TWl0Y2hlbGw5ODhAZ21haWwuY29tPgpTaWduZWQtb2ZmLWJ5
+OiBUcm95IE1pdGNoZWxsIDxUcm95TWl0Y2hlbGw5ODhAZ21haWwuY29tPgpTaWduZWQtb2ZmLWJ5
+OiBYdWthaSBXYW5nIDxraW5neHVrYWlAem9ob21haWwuY29tPgoKLS0tCkNoYW5nZXMgaW4gdjEw
+OgotIERyb3AgY2xvY2sgbm9kZTogY3B1MV9hcGJfcmF0ZS4KLSBSZW5hbWUgaHNfb3NwaV9zcmMg
+dG8gaHNfc3NpMC4KLSBSZW5hbWUgZml4ZWQgY2xvY2tzIGZvcm1hdCBpbiBkdHMuCi0gRml4IG1p
+c3NpbmcgY2xrIG1lbWJlciByZWdpc3RyYXRpb24gaW4gZHJpdmVyLgotIEZpeCBpbmNvcnJlY3Qg
+Y2xrIElEOiBrMjMwX2NwdTFfc3JjX3JhdGUg4oaSIEsyMzBfQ1BVMV9TUkNfUkFURS4KLSBGaXgg
+Yml0IGluZGV4IG9mIGhzX2hjbGtfc3JjX2dhdGU6IDEg4oaSIDAuCi0gQWRkIENMS19JU19DUklU
+SUNBTCB0byBDUFUtcmVsYXRlZCBnYXRlIGNsb2Nrcy4KLSBVcGRhdGUgcGFyZW50IGNsb2Nrczog
+ZGlzcGxheV9jbGtleHRfcmF0ZSwgc2VjX2FwYl9nYXRlLCBhaV9heGlfZ2F0ZSwKY3B1MV9zcmNf
+bXV4IGFuZCBoc19zZF9jYXJkX3NyY19yYXRlLgotIExpbmsgdG8gdjk6IGh0dHBzOi8vbG9yZS5r
+ZXJuZWwub3JnL3IvMjAyNTExMjctYjQtazIzMC1jbGstdjktMC0zYWEwOWUxN2ZhZjVAem9ob21h
+aWwuY29tCgpDaGFuZ2VzIGluIHY5OgotIFJlYmFzZSBiYXNlLWNvbW1pdCB0byB2Ni4xOC1yYzEK
+LSBTaW1wbGlmaWVkIFBMTCBmaWVsZCBleHRyYWN0aW9uIHdpdGggRklFTERfR0VUKCkgbWFjcm8K
+LSBEcm9wIE1PRFVMRV9ERVZJQ0VfVEFCTEUgZm9yIGsyMzBfY2xrX2lkcwotIFJlcGxhY2UgazIz
+MF9jbGtfZmluZF9hcHByb3hpbWF0ZV9tdWxfZGl2J3Mgc3RlcCB3aXRoCiAgUmF0aW9uYWxfYmVz
+dF9hcHByb3hpbWF0aW9uCi0gUmVvcmRlciBkZWNsYXJhdGlvbiBhbmQgZGVmaW5hdGlvbiBmb3Ig
+Y2xrX29wcwotIExpbmsgdG8gdjg6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNTA5MDUt
+YjQtazIzMC1jbGstdjgtMC05NmNhYTAyZDU0MjhAem9ob21haWwuY29tCgpDaGFuZ2VzIGluIHY4
+OgotIFJlbmFtZSBkdHMgbm9kZSBuYW1lICJ0aW1lcl9wdWxzZV9pbiIgdG8gImNsb2NrLTUwbSIK
+LSBEcm9wIHJlZHVuZGFudCBjb21tZW50IGFuZCAnbWluSXRlbXMnIG9mIGhhcmR3YXJlIGluIGR0
+LWJpbmRpbmcuCi0gTGluayB0byB2NzogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI1MDcz
+MC1iNC1rMjMwLWNsay12Ny0wLWM1N2QzYmI1OTNkM0B6b2hvbWFpbC5jb20KCkNoYW5nZXMgaW4g
+djc6Ci0gUmVuYW1lIEsyMzBfUExMX1NUQVRVU19NQVNLIHRvIEsyMzBfUExMX0xPQ0tfU1RBVFVT
+X01BU0sKLSBBZGQgY2xrZGV2IGZvciBQTExzIHRvIHJlZ2lzdGVyIGxvb2t1cAotIEFkZCBtYWNy
+b3MgdG8gZ2VuZXJhdGUgcmVwZWF0IHZhcmlhYmxlcyBkZWZpbml0aW9uCi0gUmVmaW5lIHRoZSBk
+ZWZpbml0aW9ucyBvZiBrMjMwIGNsb2NrcwotIFNwbGl0IGNvbXBvc2l0ZSBjbGtzIGludG8gcmF0
+ZSwgZ2F0ZSwgbXV4LCBmaXhlZF9mYWN0b3IgY2xrCi0gUmVwbGFjZSBrMjMwX2Nsa19od19vbmVj
+ZWxsX2dldCB3aXRoIG9mX2Nsa19od19vbmVjZWxsX2dldCBmb3IKICBjbG9jayBwcm92aWRlcgot
+IERyb3AgazIzMF9zeXNjbGsgYW5kIHVzZSBjbGtfbXV4LCBjbGtfZ2F0ZSBhbmQgY2xrX2ZpeGVk
+X2ZhY3RvcgogIGFzIHRoZSBkYXRhIHN0cnVjdHVyZXMuCi0gUmVwbGFjZSBvbmUgbG9vcCByZWdp
+c3RyYXRpb24gd2l0aCBpbmRpdmlkdWFsIHJlZ2lzdHJhdGlvbiBmb3IKICBlYWNoIHR5cGUuCi0g
+TGluayB0byB2NjogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI1MDQxNS1iNC1rMjMwLWNs
+ay12Ni0wLTdmZDg5ZjQyNzI1MEB6b2hvbWFpbC5jb20KCkNoYW5nZXMgaW4gdjY6Ci0gUmVtb3Zl
+IHNvbWUgcmVkdW5kYW50IGNvbW1lbnRzIGluIHN0cnVjdCBkZWNsYXJhdGlvbi4KLSBSZXBsYWNl
+IHRoZSBWZW5kb3IncyBjb2RlIHNvdXJjZSBsaW5rIHdpdGggYSBuZXcgb25lLgotIExpbmsgdG8g
+djU6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNTAzMjAtYjQtazIzMC1jbGstdjUtMC0w
+ZTlkMDg5YzU0ODhAem9ob21haWwuY29tCgpDaGFuZ2VzIGluIHY1OgotIEZpeCBpbmNvcnJlY3Qg
+YmFzZS1jb21taXQgYW5kIGFkZCBwcmVyZXF1aXNpdGUtcGF0Y2gtaWQuCi0gUmVwbGFjZSBkdW1t
+eSBhcGJfY2xrIHdpdGggcmVhbCBvbmVzIGZvciBVQVJUcy4KLSBBZGQgSURzIG9mIFVBUlRzIGNs
+b2NrIGFuZCBETUEgY2xvY2tzIGluIHRoZSBiaW5kaW5nIGhlYWRlci4KLSBSZXBsYWNlIGsyMzBf
+Y2xrX2NmZ3NbXSBhcnJheSB3aXRoIGNvcnJlc3BvbmRpbmcgbmFtZWQgdmFyaWFibGVzLgotIFJl
+bW92ZSBzb21lIHJlZHVuZGFudCBjaGVja3MgaW4gY2xrX29wcy4KLSBEcm9wIHRoZSB1bm5lY2Vz
+c2FyeSBwYXJlbnRoZXNpcyBhbmQgdHlwZSBjYXN0cy4KLSBNb2RpZnkgcmV0dXJuIHZhbHVlIGhh
+bmRsaW5nIGluIHByb2JlIHBhdGggdG8gYXZvaWQgcmVkdW5kYW50IHByaW50LgotIExpbmsgdG8g
+djQ6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNTAyMTctYjQtazIzMC1jbGstdjQtMC01
+YTk1YTM0NTg2OTFAem9ob21haWwuY29tCgpDaGFuZ2VzIGluIHY0OgotIFJlbW92ZSByZWR1bmRh
+bnQgb25lY2VsbF9nZXQgY2FsbGJhY2sgYW5kIGFkZF9wcm92aWRlciBmdW5jdGlvbgpmb3IgcGxs
+X2RpdnMuCi0gTW9kaWZ5IHRoZSBiYXNlLWNvbW1pdCBpbiBjb3ZlciBsZXR0ZXIuCi0gTGluayB0
+byB2MzogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI1MDIwMy1iNC1rMjMwLWNsay12My0w
+LTM2MmM3OTEyNDU3MkB6b2hvbWFpbC5jb20KCkNoYW5nZXMgaW4gdjM6Ci0gUmVvcmRlciB0aGUg
+ZGVmaW5hdGlvbiBhbmQgZGVjbGFyYXRpb24gaW4gZHJpdmVycyBjb2RlLgotIFJlb3JkZXIgdGhl
+IHByb3BlcnRpZXMgaW4gZHRzIG5vZGUuCi0gUmVwbGFjZSBnbG9iYWwgdmFyaWFibGUgYGsyMzBf
+c3lzY2xrYCB3aXRoIGR5bmFtaWMgbWVtb3J5IGFsbG9jYXRpb24uCi0gUmVuYW1lIHRoZSBtYWNy
+byBLMjMwX05VTV9DTEtTIHRvIEsyMzBfQ0xLX05VTS4KLSBVc2UgZGV2X2Vycl9wcm9iZSBmb3Ig
+ZXJyb3IgaGFuZGxpbmcuCi0gUmVtb3ZlIHVudXNlZCBpbmNsdWRlcy4KLSBMaW5rIHRvIHYyOiBo
+dHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjUwMTA4LWI0LWsyMzAtY2xrLXYyLTAtMjdiMzBh
+MmNhNTJkQHpvaG9tYWlsLmNvbQoKQ2hhbmdlcyBpbiB2MjoKLSBBZGQgaXRlbXMgYW5kIGRlc2Ny
+aXB0aW9uLgotIFJlbmFtZSBrMjMwLWNsay5oIHRvIGNhbmFhbixrMjMwLWNsay5oCi0gTGluayB0
+byB2MTogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI0MTIyOS1iNC1rMjMwLWNsay12MS0w
+LTIyMWE5MTdlODBlZEB6b2hvbWFpbC5jb20KCi0tLQpYdWthaSBXYW5nICgzKToKICAgICAgZHQt
+YmluZGluZ3M6IGNsb2NrOiBBZGQgYmluZGluZ3MgZm9yIENhbmFhbiBLMjMwIGNsb2NrIGNvbnRy
+b2xsZXIKICAgICAgY2xrOiBjYW5hYW46IEFkZCBjbG9jayBkcml2ZXIgZm9yIENhbmFhbiBLMjMw
+CiAgICAgIHJpc2N2OiBkdHM6IGNhbmFhbjogQWRkIGNsb2NrIGRlZmluaXRpb24gZm9yIEsyMzAK
+CiAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9jbG9jay9jYW5hYW4sazIzMC1jbGsueWFtbCB8ICAg
+NTkgKwogYXJjaC9yaXNjdi9ib290L2R0cy9jYW5hYW4vazIzMC1jYW5tdi5kdHMgICAgICAgICAg
+fCAgIDExICsKIGFyY2gvcmlzY3YvYm9vdC9kdHMvY2FuYWFuL2syMzAtZXZiLmR0cyAgICAgICAg
+ICAgIHwgICAxMSArCiBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2NhbmFhbi9rMjMwLmR0c2kgICAgICAg
+ICAgICAgICB8ICAgMjYgKy0KIGRyaXZlcnMvY2xrL0tjb25maWcgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIHwgICAgNiArCiBkcml2ZXJzL2Nsay9NYWtlZmlsZSAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgIDEgKwogZHJpdmVycy9jbGsvY2xrLWsyMzAuYyAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgfCAyNDM0ICsrKysrKysrKysrKysrKysrKysrCiBpbmNsdWRl
+L2R0LWJpbmRpbmdzL2Nsb2NrL2NhbmFhbixrMjMwLWNsay5oICAgICAgICB8ICAyMjEgKysKIDgg
+ZmlsZXMgY2hhbmdlZCwgMjc2MSBpbnNlcnRpb25zKCspLCA4IGRlbGV0aW9ucygtKQotLS0KYmFz
+ZS1jb21taXQ6IDNhODY2MDg3ODgzOWZhYWRiNGYxYTZkZDcyYzMxNzljMWRmNTY3ODcKY2hhbmdl
+LWlkOiAyMDI0MTIwNi1iNC1rMjMwLWNsay05MjVmMzNmZWQ2YzIKcHJlcmVxdWlzaXRlLXBhdGNo
+LWlkOiBkZWRhM2M0NzJmMDAwMGZmZDQwY2RkZDdjZjZkM2I1ZTJkN2RhN2RjCgpCZXN0IHJlZ2Fy
+ZHMsCi0tIApYdWthaSBXYW5nIDxraW5neHVrYWlAem9ob21haWwuY29tPgoKCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
