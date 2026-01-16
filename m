@@ -4,96 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A86FAD4A605
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 06:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F044D4A607
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 06:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZP0HPrDlTvI6k4Tw6e4vrPD0noW6sI/oUeVDHAfkiAc=; b=zvhQlf1i5dcZnr
-	6Gipr0T/C2UNTwxE0PsZDeWaVcnQI8agp/NW9LN0Ejy0KDwIWHv0AhbIg6evRIplxtyIGQBYutSK1
-	XksOdVI3bvmaoUP4sMfCplYKVyS9YZOnNmT/XxaZrd9+wPeIyN0KT+NSSGABy6aP+VBzx3BJFrRJU
-	kpq9krzl/bn/g4lLX6eEJToTi4KldIHQX2es3p28gAFKQmZ869LvyXG3H1EYAkyjuIbXxNCKnyebz
-	6LzCxX0GkSEJgpszMnV2QfEZUNT/50esRX3i9LE0JoGbFKTvhlt35DFP1iC9Iwe37YuCart7rKRsw
-	Riby+6rwmND3S7LV7L3w==;
+	List-Owner; bh=+9Xpn2qCwcdATO1A3VS4fUrfdqFdEYR1e5JjWTNdlLQ=; b=DvaLarf67aVlEq
+	4kP7xilwK/Sd2GMSuJbzTiOU/YqEaPi6Di5XdYTPSapE+k64mrmAKzAnYpqc352UNnHkDTQcy7HDJ
+	3uLLWS8yn4wwt74FG5loppuYi2c036wmHkjhI3XdjORsb7KBCUcNVqZfejKGAF6S6lg4bndtQJbYT
+	niS9iF+Mgf8uP+esLsjlWg9K0g6oD6oV5Yxa/uG2IhWWBicAIaxSGL464ghEo7GMKR93qcxUGglwJ
+	A7QijLcZL3si/9izIm+NIvNNLKL22BmyvSQVG8TLd7rtOhBnx1KSM0JsPuYP7jQ0bPrhtGqyykIdy
+	FpZylV41Ocl7bpEbjoVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgdiC-0000000DfrD-0ceB;
-	Fri, 16 Jan 2026 06:53:36 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vgdic-0000000Dfsu-2D01;
+	Fri, 16 Jan 2026 06:54:02 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgdi9-0000000Dfqu-1fnf
+	id 1vgdia-0000000DfsO-0urS
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jan 2026 06:53:34 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4801d98cf39so4842955e9.1
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 22:53:32 -0800 (PST)
+	Fri, 16 Jan 2026 06:54:01 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-480142406b3so7509395e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Jan 2026 22:53:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1768546411; x=1769151211; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1768546438; x=1769151238; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=CZBgjJWFOo/Oc5syADkh6oxfyzw6Z60jrJfIeTvBdx0=;
-        b=ZOtDeJvRvnyM2nywUjH1rR4lB+m9pAOR8NVL3Llepu20NDMOOlLi5f+dPKCXOLrneo
-         0fLd7S4KYc4QYcOxNip30sikkoO5ceReUoZarkHrPMXjyW1XgGaElVZ6gVNaJlUfEwBQ
-         x7bd/5AwOudOHmcWEhvzBrxOC/XuXDp8y4KmoHk+bE/X3ME2kmgUVict/sREjRAavejw
-         Ce84iPg1L4FXxfXms43va19MV1Ef1xsX0iQ/bLTMR89RMIg/rL/ZHyc1rEwvrVOFcb5y
-         wKS0u7f9a8nwIEOReQEBsb2ndHQzfsG9USRLh6mNILCYx5HsWLwOruf1Yq4i1ZaQvpKy
-         HnAw==
+        bh=slZGbouLqbJpfaVGGnHBou19vIILt1Y3clst8iE34bA=;
+        b=JiVnhqsHhneHLts7ziM25nh8beT8oqefg08eYjzoJ9zcFiixCJc0omubG7QwRYlU6D
+         ORYNNC0Qw8WPcFx/qzWrABOHSLKreUcmMzfbiJIZ8psYujQslUOXh1QsIty2daK2Ob64
+         R+Mhxpk9G33h9m0HsarMa32po1moceoUpQly8/gVupujp1+PiGzIs2t2tLvtY5HURiB+
+         Wg0o+l/GH3bjfyxFbX07axotYUdVoBTUa8MlffCcTUjAyb5ojOuhMIGKs1QySzmwx2DI
+         TqGhDuZNZT5l8EAyGW1QVBhpRMYR7sx9holqtWD+1rJdSKIAMSTCLVp/5Un+OQPfPjeh
+         Z+eA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768546411; x=1769151211;
+        d=1e100.net; s=20230601; t=1768546438; x=1769151238;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=CZBgjJWFOo/Oc5syADkh6oxfyzw6Z60jrJfIeTvBdx0=;
-        b=kwI4LnQZEHvZ6OXvm1/3PNwMJqdBGijPjXUcfyyYzEt4hVVKHGPOYoDyHbvikBmY75
-         XdEFw7qszebnr1GdiI1bP/CXmkpRwuB6n8H557UBxfnzAKYSg5wwjrGPcRC2MmmD0Sf9
-         wtmrJ8oAVImTHm3etk8x57p3iKNwdotuUGeOkpuxYitSMcoVKDv4fT43SOndX/gGR/YR
-         x79EbIAuT8RFCm1+q3JjPdSthHE2I9WReDKYCkloC4WNLBLMkRzaGfdg+71xAMNvWpPc
-         O75AdfW6BsjdwpNyl5wX5tUGlkC7cz8UImVj//xKvgmlfHDIOZArt/+ynD8aRcqesml2
-         a+cg==
-X-Forwarded-Encrypted: i=1; AJvYcCV3IyuVPKXluaKNKtiLHEBruiIx88XQ0u0PoOPYUVGpToXbW9FRKudp1k0fWFbz81MQZIHFq7QVqbIvMg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZcPShM0i3ryyEtTpzPVd0u9Y966f1aGix7/rO5TaFnruqYidM
-	FKwbEDwaMBFie+vAYvSVe90U0taezH8ddKd0BVEycAfQ9foUIc+Xmz/cnI2CudpZRUlc3Nk+HX7
-	Jy7GO
-X-Gm-Gg: AY/fxX7gOZdvNPszr/zdCcaY5PZh3jD0Pb9hIMJho66L5nnu1ySF9ICqWiknjfivFSW
-	uKKTbME1dZEV1+dgF2IUmicwn66Tw0LiqIVvEMJIhBWPSR+M10FT0KWT4YqfqdDoYFaq3HLSTTS
-	jSYs570HRLaZoT+jHv2kUbg9VW1w96pXxZtGClW3mKN33Sm8hSaGdyr4jQ5XBFibl1g0xLN0rGa
-	JC0qdK45+DdaK78aiEmawwSK5ln7SYPTh6eimfWs4AlesIh3OTgVMx/pIgnSQASwsRxyhzI1oN5
-	8mNSMg3SMwUOUaWrl7QgQa3CVvoiUi1AnUVJy0Bz1SOiNpmr2JH6DXFP7wzLDiqkhZmgDspG9Nx
-	ifOLWaXwx6GECcM4Z+Og0xa/C6u5GlMsky81rGDms013NHOFsFamajNaOEvjDtTgUzA56fzc2ur
-	dQl2mMlAp0D/c2Yr3565eTwW3mfOXi
-X-Received: by 2002:a05:600c:35c3:b0:47a:81b7:9a20 with SMTP id 5b1f17b1804b1-4801eac0617mr16897055e9.9.1768546410639;
-        Thu, 15 Jan 2026 22:53:30 -0800 (PST)
+        bh=slZGbouLqbJpfaVGGnHBou19vIILt1Y3clst8iE34bA=;
+        b=Vn9azEIWIHQNXTuiHqcxnJ9gZE3EKUtqzi/Pov5jYrNt/1pe7aSA47hO4x5bM7bewU
+         zeewKvXLmm80uLxyKjnLt4rKTOmo4NCeeQl7wqltwHiKl5C3BpNOCWVerkCAR+vGhNVK
+         9DciAIaM5SnCscJQeNnKaR0bGxBByUsPdBU6yCPCjGNhkUeI7zOzNIOa9oueWaObq4MV
+         KCLbavBIhdPnCMsbuYbMtxlD2Bctpe8dGxhJO+Vy6KYNFa6kg/rX+k8AWuydH9ivBeiz
+         i56f8EDUOV0eZU4fIXuA+qBW7oPXiriLsw9jV/dgR+yDCKj0MYPefaeNYnL7rdjoFw/w
+         Ti3w==
+X-Forwarded-Encrypted: i=1; AJvYcCWNrbGKWYDcnxk6dCcSvIt7k7TjISpJYeT327FK5O6iRWSsO5hFCN8JmZYo394iuwI3Usk06Jl/YD9seQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRsFSs41EvoH6OM1izkSUuE82OiT4qpGSjHrvM/yenEj3PATNt
+	S1y6M8RpFS1QSwFiqpoRJMpJD3EvXMTlhqp84N+5NUtjmOd8+kNG9HquVi3Yo1Oeo20=
+X-Gm-Gg: AY/fxX7DYaEUHe2SepiSJ5+NXjy+5OMmNRW6MutNxrcNGfnNEJLpIYkWeQm6anoA+2c
+	2LdIa0spf56LYcow9j+M6usF4HBFVQVc/FzS1IDjWk8bFYq4DfLxthZxT6DRv1udkZMz2QVDCVY
+	h6ehRqJoOsm+2fGQkdvoJFGfG0XCODVEiwDGblnqFbNpGEnBWL3i1v1tRnsXN3V6CWvrd69YsqW
+	/CNLwDckgaKg9gq0GSSwRfyKyknojjNBOlnegBAntsuV2ujJOI39ZnXmjexbNtbZJNHfimQAuT5
+	TsxKcKFJ+J3bO19eq3YXnljwEILvjbj/BOg8S3IQdOngfaM0Y5Pbx8vlPM2QEiRu+ORFAhINTCA
+	SONq5D8eA/NaWECSwAUp9ePH4+Glp9YECwkRfVK2wqvCvDI1W+nnt0nAjbeM5SPTYo8IFG75uYw
+	6GVmyodgfsCR86ApYCsQ==
+X-Received: by 2002:a05:600c:3ba8:b0:479:35e7:a0e3 with SMTP id 5b1f17b1804b1-4801e34651dmr21491475e9.30.1768546438260;
+        Thu, 15 Jan 2026 22:53:58 -0800 (PST)
 Received: from [10.31.13.216] ([82.77.28.160])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4801e8c0475sm33584445e9.10.2026.01.15.22.53.29
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4356992201csm3448860f8f.2.2026.01.15.22.53.57
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 15 Jan 2026 22:53:30 -0800 (PST)
-Message-ID: <6113b444-329e-455c-aeb9-71025746d44c@tuxon.dev>
-Date: Fri, 16 Jan 2026 08:53:27 +0200
+        Thu, 15 Jan 2026 22:53:57 -0800 (PST)
+Message-ID: <a35f22bb-efaf-42c1-9e14-1f9ba32a3a7b@tuxon.dev>
+Date: Fri, 16 Jan 2026 08:53:55 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] dt-bindings: clock: mpfs-clkcfg: Add pic64gx
- compatibility
+Subject: Re: [PATCH v3 0/3] pic64gx clk kconfig/binding changes
 To: Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org
 Cc: Conor Dooley <conor.dooley@microchip.com>,
  Daire McNamara <daire.mcnamara@microchip.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org
 References: <20260113-snagged-blemish-52af3d00d88e@spud>
- <20260113-glue-justifier-566ffab2ffd3@spud>
 Content-Language: en-US
 From: claudiu beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260113-glue-justifier-566ffab2ffd3@spud>
+In-Reply-To: <20260113-snagged-blemish-52af3d00d88e@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_225333_610779_F84FAC7A 
-X-CRM114-Status: UNSURE (   7.07  )
+X-CRM114-CacheID: sfid-20260115_225400_270133_9FDF9CEA 
+X-CRM114-Status: UNSURE (   4.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,42 +106,17 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Conor,
+
 
 On 1/14/26 00:11, Conor Dooley wrote:
-> From: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
+> Conor Dooley (1):
+>    clk: microchip: drop POLARFIRE from ARCH_MICROCHIP_POLARFIRE
 > 
-> pic64gx has a clock controller compatible with mpfs-clkcfg. Don't permit
-> the deprecated configuration that was never supported for this SoC.
-> 
-> Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
-> Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
+> Pierre-Henry Moussay (2):
+>    dt-bindings: clock: mpfs-ccc: Add pic64gx compatibility
+>    dt-bindings: clock: mpfs-clkcfg: Add pic64gx compatibility
 
- From Checkpatch:
-
-WARNING: Co-developed-by: must be immediately followed by Signed-off-by:
-
-I moved the Co-developed-by: tag before you SoB.
-
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-
-Here.
-
-Now, the full chain of trust is as follows:
-
-     Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
-     Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-     Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-     Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
-     Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-Let me know you have anything against.
-
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thank you,
-Claudiu
+Applied to clk-microchip, thanks!
 
 _______________________________________________
 linux-riscv mailing list
