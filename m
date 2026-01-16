@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 906EAD4660C
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 09:58:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4425ED4A619
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 10:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=K6CC+wFTihGhTrZIXHjprPn1gtla8pFbRzbgGuNfE+Y=; b=QdFRvOpNcF9gj7
-	Dp7vm4BaxbKCLxlIwx2b4Xf75HPqEXMnmGbjLOk/QSsP4RZ3siaS0Nf+5uto7/9s9gR2rf+2gYQ6e
-	2qpNH+wgd3jDENvNn7OObElApVuhhz0zfllBAG7Lr81W9J5Mc6kN1fc1VLt4hyn5xngNNA6js0M1x
-	ygNF3ywfyTfhjdrlMnqZMzQtLT9GoEMDY2Ajqu0jgHnRCbPT3FhuNLEc2oQxXqPJyBs0hfDofwH/J
-	pZVNgr55s3Gsto0IxlBx2kAG90hi4Alp6raFED6JxNghKt4w3NHpHmptIza2amevKSqp3LCo4YPEq
-	RpdGyggQYGguQC3QC5GA==;
+	List-Owner; bh=YVuU0n6EGacxp5F+gOZYsOxfb4rXizlrUW3DnU02yD0=; b=K67+nwhNSvU9PU
+	a1YmVlb0o9/sjHFSZpErGERUrkTCphDAmUnvAfEMhINtS/kGqMtQL8aNGnwOYnmltrjfRgvdWpZVD
+	DX2SBK8hwf2ts1PwvATAA83cijmbtXv1WI0mdMN3d/iETGtWAOzCPAizyT2rtTWVxBwnqqAZ76yMw
+	lb+VbUQ4/eZLaQjyAB1QyCmpYkeDHgTE5TP/hECxytw0lWxDrAT/NIF+N2mNoqWwcvRkvpgBoF0R8
+	IlY47c9uqYhAanmuwkXbDZ0DCxii188RD1ATR1Nz7ag7IzQRKZxMkpV1u5KhBqG6AWxQrD5r7k5fL
+	asGExD2YDN6ntVcpFpkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vggaR-0000000DtQf-0lUC;
-	Fri, 16 Jan 2026 09:57:47 +0000
-Received: from mailer.gwdg.de ([134.76.10.26])
+	id 1vggd6-0000000DtfI-18P9;
+	Fri, 16 Jan 2026 10:00:32 +0000
+Received: from mail-m49197.qiye.163.com ([45.254.49.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vggaO-0000000DtQ4-2cD0;
-	Fri, 16 Jan 2026 09:57:45 +0000
-Received: from mbx19-sub-05.um.gwdg.de ([10.108.142.70] helo=email.gwdg.de)
-	by mailer.gwdg.de with esmtps (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
-	(GWDG Mailer)
-	(envelope-from <lukas.gerlach@cispa.de>)
-	id 1vggaI-0004Pd-03;
-	Fri, 16 Jan 2026 10:57:38 +0100
-Received: from Mac (10.250.9.200) by MBX19-SUB-05.um.gwdg.de (10.108.142.70)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.35; Fri, 16 Jan
- 2026 10:57:37 +0100
-From: Lukas Gerlach <lukas.gerlach@cispa.de>
-To: <anup@brainfault.org>, <atish.patra@linux.dev>
-CC: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<alex@ghiti.fr>, <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <daniel.weber@cispa.de>,
-	<marton.bognar@kuleuven.be>, <jo.vanbulck@kuleuven.be>,
-	<michael.schwarz@cispa.de>, Lukas Gerlach <lukas.gerlach@cispa.de>
-Subject: [PATCH] KVM: riscv: Fix Spectre-v1 in APLIC interrupt handling
-Date: Fri, 16 Jan 2026 10:57:31 +0100
-Message-ID: <20260116095731.24555-1-lukas.gerlach@cispa.de>
-X-Mailer: git-send-email 2.51.0
+	id 1vggd3-0000000Dtdc-2T3f
+	for linux-riscv@lists.infradead.org;
+	Fri, 16 Jan 2026 10:00:31 +0000
+Received: from localhost.localdomain (unknown [116.25.94.194])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 30e8ca646;
+	Fri, 16 Jan 2026 18:00:17 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	spacemit@lists.linux.dev,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: [PATCH 1/2] riscv: dts: spacemit: add common board dtsi for OrangePi
+Date: Fri, 16 Jan 2026 18:00:00 +0800
+Message-Id: <20260116100001.208334-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-Originating-IP: [10.250.9.200]
-X-ClientProxiedBy: MBX19-GWD-08.um.gwdg.de (10.108.142.61) To
- MBX19-SUB-05.um.gwdg.de (10.108.142.70)
-X-Virus-Scanned: (clean) by clamav
+X-HM-Tid: 0a9bc63fa1e003a2kunm651e977725ca48
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDH0NMVkkYHR8fGR1CHUtISFYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSk1VSU5VQk9VSkJPWVdZFhoPEhUdFFlBWU9LSFVKS0hKTkxOVUpLS1VKQk
+	tLWQY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_015744_667144_FED2DCA2 
-X-CRM114-Status: UNSURE (   7.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260116_020029_847827_357DF283 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,133 +73,279 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Guests can control IRQ indices via MMIO. Sanitize them with
-array_index_nospec() to prevent speculative out-of-bounds access
-to the aplic->irqs[] array.
+The OrangePi R2S and OrangePi RV2 boards share many similarities, the
+difference being that the RV2 board has more peripherals, such as HDMI
+and Wi-Fi. Create a dtsi for shared parts to reduce duplication.
 
-Similar to arm64 commit 41b87599c743 ("KVM: arm/arm64: vgic: fix possible
-spectre-v1 in vgic_get_irq()") and x86 commit 8c86405f606c ("KVM: x86:
-Protect ioapic_read_indirect() from Spectre-v1/L1TF attacks").
-
-Fixes: 74967aa208e2 ("RISC-V: KVM: Add in-kernel emulation of AIA APLIC")
-Signed-off-by: Lukas Gerlach <lukas.gerlach@cispa.de>
+Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
 ---
- arch/riscv/kvm/aia_aplic.c | 23 ++++++++++++-----------
- 1 file changed, 12 insertions(+), 11 deletions(-)
+ .../boot/dts/spacemit/k1-orangepi-r2s.dts     | 69 +----------------
+ .../boot/dts/spacemit/k1-orangepi-rv2.dts     | 69 +----------------
+ arch/riscv/boot/dts/spacemit/k1-orangepi.dtsi | 76 +++++++++++++++++++
+ 3 files changed, 78 insertions(+), 136 deletions(-)
+ create mode 100644 arch/riscv/boot/dts/spacemit/k1-orangepi.dtsi
 
-diff --git a/arch/riscv/kvm/aia_aplic.c b/arch/riscv/kvm/aia_aplic.c
-index f59d1c0c8c43..a2b831e57ecd 100644
---- a/arch/riscv/kvm/aia_aplic.c
-+++ b/arch/riscv/kvm/aia_aplic.c
-@@ -10,6 +10,7 @@
- #include <linux/irqchip/riscv-aplic.h>
- #include <linux/kvm_host.h>
- #include <linux/math.h>
-+#include <linux/nospec.h>
- #include <linux/spinlock.h>
- #include <linux/swab.h>
- #include <kvm/iodev.h>
-@@ -45,7 +46,7 @@ static u32 aplic_read_sourcecfg(struct aplic *aplic, u32 irq)
-
- 	if (!irq || aplic->nr_irqs <= irq)
- 		return 0;
--	irqd = &aplic->irqs[irq];
-+	irqd = &aplic->irqs[array_index_nospec(irq, aplic->nr_irqs)];
-
- 	raw_spin_lock_irqsave(&irqd->lock, flags);
- 	ret = irqd->sourcecfg;
-@@ -61,7 +62,7 @@ static void aplic_write_sourcecfg(struct aplic *aplic, u32 irq, u32 val)
-
- 	if (!irq || aplic->nr_irqs <= irq)
- 		return;
--	irqd = &aplic->irqs[irq];
-+	irqd = &aplic->irqs[array_index_nospec(irq, aplic->nr_irqs)];
-
- 	if (val & APLIC_SOURCECFG_D)
- 		val = 0;
-@@ -81,7 +82,7 @@ static u32 aplic_read_target(struct aplic *aplic, u32 irq)
-
- 	if (!irq || aplic->nr_irqs <= irq)
- 		return 0;
--	irqd = &aplic->irqs[irq];
-+	irqd = &aplic->irqs[array_index_nospec(irq, aplic->nr_irqs)];
-
- 	raw_spin_lock_irqsave(&irqd->lock, flags);
- 	ret = irqd->target;
-@@ -97,7 +98,7 @@ static void aplic_write_target(struct aplic *aplic, u32 irq, u32 val)
-
- 	if (!irq || aplic->nr_irqs <= irq)
- 		return;
--	irqd = &aplic->irqs[irq];
-+	irqd = &aplic->irqs[array_index_nospec(irq, aplic->nr_irqs)];
-
- 	val &= APLIC_TARGET_EIID_MASK |
- 	       (APLIC_TARGET_HART_IDX_MASK << APLIC_TARGET_HART_IDX_SHIFT) |
-@@ -116,7 +117,7 @@ static bool aplic_read_pending(struct aplic *aplic, u32 irq)
-
- 	if (!irq || aplic->nr_irqs <= irq)
- 		return false;
--	irqd = &aplic->irqs[irq];
-+	irqd = &aplic->irqs[array_index_nospec(irq, aplic->nr_irqs)];
-
- 	raw_spin_lock_irqsave(&irqd->lock, flags);
- 	ret = (irqd->state & APLIC_IRQ_STATE_PENDING) ? true : false;
-@@ -132,7 +133,7 @@ static void aplic_write_pending(struct aplic *aplic, u32 irq, bool pending)
-
- 	if (!irq || aplic->nr_irqs <= irq)
- 		return;
--	irqd = &aplic->irqs[irq];
-+	irqd = &aplic->irqs[array_index_nospec(irq, aplic->nr_irqs)];
-
- 	raw_spin_lock_irqsave(&irqd->lock, flags);
-
-@@ -170,7 +171,7 @@ static bool aplic_read_enabled(struct aplic *aplic, u32 irq)
-
- 	if (!irq || aplic->nr_irqs <= irq)
- 		return false;
--	irqd = &aplic->irqs[irq];
-+	irqd = &aplic->irqs[array_index_nospec(irq, aplic->nr_irqs)];
-
- 	raw_spin_lock_irqsave(&irqd->lock, flags);
- 	ret = (irqd->state & APLIC_IRQ_STATE_ENABLED) ? true : false;
-@@ -186,7 +187,7 @@ static void aplic_write_enabled(struct aplic *aplic, u32 irq, bool enabled)
-
- 	if (!irq || aplic->nr_irqs <= irq)
- 		return;
--	irqd = &aplic->irqs[irq];
-+	irqd = &aplic->irqs[array_index_nospec(irq, aplic->nr_irqs)];
-
- 	raw_spin_lock_irqsave(&irqd->lock, flags);
- 	if (enabled)
-@@ -205,7 +206,7 @@ static bool aplic_read_input(struct aplic *aplic, u32 irq)
-
- 	if (!irq || aplic->nr_irqs <= irq)
- 		return false;
--	irqd = &aplic->irqs[irq];
-+	irqd = &aplic->irqs[array_index_nospec(irq, aplic->nr_irqs)];
-
- 	raw_spin_lock_irqsave(&irqd->lock, flags);
-
-@@ -254,7 +255,7 @@ static void aplic_update_irq_range(struct kvm *kvm, u32 first, u32 last)
- 	for (irq = first; irq <= last; irq++) {
- 		if (!irq || aplic->nr_irqs <= irq)
- 			continue;
--		irqd = &aplic->irqs[irq];
-+		irqd = &aplic->irqs[array_index_nospec(irq, aplic->nr_irqs)];
-
- 		raw_spin_lock_irqsave(&irqd->lock, flags);
-
-@@ -283,7 +284,7 @@ int kvm_riscv_aia_aplic_inject(struct kvm *kvm, u32 source, bool level)
-
- 	if (!aplic || !source || (aplic->nr_irqs <= source))
- 		return -ENODEV;
--	irqd = &aplic->irqs[source];
-+	irqd = &aplic->irqs[array_index_nospec(source, aplic->nr_irqs)];
- 	ie = (aplic->domaincfg & APLIC_DOMAINCFG_IE) ? true : false;
-
- 	raw_spin_lock_irqsave(&irqd->lock, flags);
---
-2.51.0
+diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
+index 58098c4a2aab..393270641b04 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
+@@ -5,22 +5,11 @@
+ 
+ /dts-v1/;
+ 
+-#include "k1.dtsi"
+-#include "k1-pinctrl.dtsi"
++#include "k1-orangepi.dtsi"
+ 
+ / {
+ 	model = "OrangePi R2S";
+ 	compatible = "xunlong,orangepi-r2s", "spacemit,k1";
+-
+-	aliases {
+-		serial0 = &uart0;
+-		ethernet0 = &eth0;
+-		ethernet1 = &eth1;
+-	};
+-
+-	chosen {
+-		stdout-path = "serial0";
+-	};
+ };
+ 
+ &emmc {
+@@ -32,59 +21,3 @@ &emmc {
+ 	no-sdio;
+ 	status = "okay";
+ };
+-
+-&eth0 {
+-	phy-handle = <&rgmii0>;
+-	phy-mode = "rgmii-id";
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac0_cfg>;
+-	rx-internal-delay-ps = <0>;
+-	tx-internal-delay-ps = <0>;
+-	status = "okay";
+-
+-	mdio-bus {
+-		#address-cells = <0x1>;
+-		#size-cells = <0x0>;
+-
+-		reset-gpios = <&gpio K1_GPIO(110) GPIO_ACTIVE_LOW>;
+-		reset-delay-us = <10000>;
+-		reset-post-delay-us = <100000>;
+-
+-		rgmii0: phy@1 {
+-			reg = <0x1>;
+-		};
+-	};
+-};
+-
+-&eth1 {
+-	phy-handle = <&rgmii1>;
+-	phy-mode = "rgmii-id";
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac1_cfg>;
+-	rx-internal-delay-ps = <0>;
+-	tx-internal-delay-ps = <250>;
+-	status = "okay";
+-
+-	mdio-bus {
+-		#address-cells = <0x1>;
+-		#size-cells = <0x0>;
+-
+-		reset-gpios = <&gpio K1_GPIO(115) GPIO_ACTIVE_LOW>;
+-		reset-delay-us = <10000>;
+-		reset-post-delay-us = <100000>;
+-
+-		rgmii1: phy@1 {
+-			reg = <0x1>;
+-		};
+-	};
+-};
+-
+-&pdma {
+-	status = "okay";
+-};
+-
+-&uart0 {
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&uart0_2_cfg>;
+-	status = "okay";
+-};
+diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+index 41dc8e35e6eb..e53f52e27477 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+@@ -6,23 +6,12 @@
+ 
+ /dts-v1/;
+ 
+-#include "k1.dtsi"
+-#include "k1-pinctrl.dtsi"
++#include "k1-orangepi.dtsi"
+ 
+ / {
+ 	model = "OrangePi RV2";
+ 	compatible = "xunlong,orangepi-rv2", "spacemit,k1";
+ 
+-	aliases {
+-		serial0 = &uart0;
+-		ethernet0 = &eth0;
+-		ethernet1 = &eth1;
+-	};
+-
+-	chosen {
+-		stdout-path = "serial0";
+-	};
+-
+ 	leds {
+ 		compatible = "gpio-leds";
+ 
+@@ -34,59 +23,3 @@ led1 {
+ 		};
+ 	};
+ };
+-
+-&eth0 {
+-	phy-handle = <&rgmii0>;
+-	phy-mode = "rgmii-id";
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac0_cfg>;
+-	rx-internal-delay-ps = <0>;
+-	tx-internal-delay-ps = <0>;
+-	status = "okay";
+-
+-	mdio-bus {
+-		#address-cells = <0x1>;
+-		#size-cells = <0x0>;
+-
+-		reset-gpios = <&gpio K1_GPIO(110) GPIO_ACTIVE_LOW>;
+-		reset-delay-us = <10000>;
+-		reset-post-delay-us = <100000>;
+-
+-		rgmii0: phy@1 {
+-			reg = <0x1>;
+-		};
+-	};
+-};
+-
+-&eth1 {
+-	phy-handle = <&rgmii1>;
+-	phy-mode = "rgmii-id";
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac1_cfg>;
+-	rx-internal-delay-ps = <0>;
+-	tx-internal-delay-ps = <250>;
+-	status = "okay";
+-
+-	mdio-bus {
+-		#address-cells = <0x1>;
+-		#size-cells = <0x0>;
+-
+-		reset-gpios = <&gpio K1_GPIO(115) GPIO_ACTIVE_LOW>;
+-		reset-delay-us = <10000>;
+-		reset-post-delay-us = <100000>;
+-
+-		rgmii1: phy@1 {
+-			reg = <0x1>;
+-		};
+-	};
+-};
+-
+-&pdma {
+-	status = "okay";
+-};
+-
+-&uart0 {
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&uart0_2_cfg>;
+-	status = "okay";
+-};
+diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi.dtsi b/arch/riscv/boot/dts/spacemit/k1-orangepi.dtsi
+new file mode 100644
+index 000000000000..b4808f258adf
+--- /dev/null
++++ b/arch/riscv/boot/dts/spacemit/k1-orangepi.dtsi
+@@ -0,0 +1,76 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
++ * Copyright (C) 2025 Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
++ */
++
++#include "k1.dtsi"
++#include "k1-pinctrl.dtsi"
++
++/ {
++	aliases {
++		ethernet0 = &eth0;
++		ethernet1 = &eth1;
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0";
++	};
++};
++
++&eth0 {
++	phy-handle = <&rgmii0>;
++	phy-mode = "rgmii-id";
++	pinctrl-names = "default";
++	pinctrl-0 = <&gmac0_cfg>;
++	rx-internal-delay-ps = <0>;
++	tx-internal-delay-ps = <0>;
++	status = "okay";
++
++	mdio-bus {
++		#address-cells = <0x1>;
++		#size-cells = <0x0>;
++
++		reset-gpios = <&gpio K1_GPIO(110) GPIO_ACTIVE_LOW>;
++		reset-delay-us = <10000>;
++		reset-post-delay-us = <100000>;
++
++		rgmii0: phy@1 {
++			reg = <0x1>;
++		};
++	};
++};
++
++&eth1 {
++	phy-handle = <&rgmii1>;
++	phy-mode = "rgmii-id";
++	pinctrl-names = "default";
++	pinctrl-0 = <&gmac1_cfg>;
++	rx-internal-delay-ps = <0>;
++	tx-internal-delay-ps = <250>;
++	status = "okay";
++
++	mdio-bus {
++		#address-cells = <0x1>;
++		#size-cells = <0x0>;
++
++		reset-gpios = <&gpio K1_GPIO(115) GPIO_ACTIVE_LOW>;
++		reset-delay-us = <10000>;
++		reset-post-delay-us = <100000>;
++
++		rgmii1: phy@1 {
++			reg = <0x1>;
++		};
++	};
++};
++
++&pdma {
++	status = "okay";
++};
++
++&uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0_2_cfg>;
++	status = "okay";
++};
+-- 
+2.25.1
 
 
 _______________________________________________
