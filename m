@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED413D4A603
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 06:17:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C441D4A604
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 06:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:References:In-Reply-To:
-	Mime-Version:Date:From:Cc:To:Subject:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q3nDsuHtu+Kw3Gh6AtBCXV0gttPqS77+2xL/dx/DZt0=; b=AglT6P2UjfPKVN
-	mNLSLo2ceR5VBcqjH5jYEDqWGigTWsOfi/iREaxy/zGEtF/g+pydQoMW6y12HTuQTfXMmZ30fwMVx
-	eSQELb3Qpygly8uNch7j27okgRCJl6o51rOnqO41p6W0oX0cDw128NG6IYzSaqpoXyL5OH1w1HLw6
-	Zd5HpJxG2GPoU0MyHMOzq1ZP3C+PJeKLtvDOCIERN/FCk+1Rntv0yEjMEdUS5eAyhbS7p42P+I+rT
-	hzVsSW2hFBqASMlMxykYGqZcPc4MwhOI9sIAsv7KQBzd0ppL+ItY6vVI1wbTDf8o27hWPdd0vPu5C
-	coogWp8hEILmdtR+vX9g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qMxQqWZOWabbDsBL2FKkMCcrz/cTaodn71wmfqCuAnE=; b=r9eE0ZZB6cOzF9
+	R8fUo01Mvls+byPoS4190xzmCi8DXqJCyiWbghuBuIDtEnu7olwmE7wkJp1mOGZbF/cZHr6PQag6q
+	fauSglL9sUIo63QD3zSlDAG83/xqnKNWm9ufUymFxbZyC4UYtQEBS7aMBuUCSSkAjnALYe5jrjeUP
+	a7FCBRPmYOI1eyJFHsrPkhNrKS86i+SUO+JhrCNz594X2J4Fagjj6enuaUiudakzcQJ4PheedTX5q
+	M8mdUcEjMxD+b/xhvBAH/VWQmb4FIBAzAECizGog2YdwhED+HmX9SrOr2hZW+PLbFhsVqEmYBPTWE
+	To2rfEUuWfnzVAdFIOcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgd8X-0000000DeLn-0AYH;
-	Fri, 16 Jan 2026 06:16:45 +0000
-Received: from sg-1-38.ptr.blmpb.com ([118.26.132.38])
+	id 1vgdBH-0000000Desm-2pUP;
+	Fri, 16 Jan 2026 06:19:35 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgd8U-0000000DeLP-3hEj
+	id 1vgdBB-0000000Derw-0yE5
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jan 2026 06:16:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=picoheart-com.20200927.dkim.feishu.cn; t=1768544186;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=nS5l9OAFjCcF/gbstrCS5nqFISTWoTR1nrXzxjnaQUU=;
- b=oT0QByLlw9Cggxrp7kZ0B4hN6wKLPmW6xK5q/9L6vB8mfhRcu6Z6ZGH+6IxogweQ/F24zi
- U9krz/B79L6iXphLKeV8hkcX/ycChfhYr0M5qvj6Vjm6Lp5vD6Kou2mxiK/B3IpgUd58J1
- yDVKci1m2kutxwUTpTYzdj5APCrqQMKMssmUhKQgagEze/RU6GdHVHKad7fGIW07mW4KGW
- gWf9Ump2eFRe7HqrbhzCiZiXAn75fDGS5L+Axezf4lmQA8xG5YvEe/Vcphv5TMZR/lEXFS
- eARvgSYtrLtG1kgN8KPGoC4q2WqAlLqfuO8Qg4Qjiq54ypCTIR3/tnXRu2u3lg==
-Subject: Re: [PATCH] irqchip/riscv-aplic: Register the driver prior to device creation
-Received: from [172.16.153.176] ([58.250.122.114]) by smtp.feishu.cn with ESMTPS; Fri, 16 Jan 2026 14:16:24 +0800
-To: "Thomas Gleixner" <tglx@kernel.org>, 
-	"Anup Patel" <apatel@ventanamicro.com>
-Cc: <yang.yicong@picoheart.com>, <anup@brainfault.org>, <pjw@kernel.org>, 
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, 
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
-	<geshijian@picoheart.com>, <weidong.wd@picoheart.com>, 
-	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, 
-	"Danilo Krummrich" <dakr@kernel.org>
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-Date: Fri, 16 Jan 2026 14:16:21 +0800
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-Content-Language: en-US
-User-Agent: Mozilla Thunderbird
-Mime-Version: 1.0
-X-Lms-Return-Path: <lba+26969d7b8+dfc8cf+lists.infradead.org+yang.yicong@picoheart.com>
-In-Reply-To: <87y0lz2ef6.ffs@tglx>
-References: <20260114063730.78009-1-yang.yicong@picoheart.com> <CAK9=C2XrExRLihwveMxs-Ourr+8bXja5UAmN_muAJz5FSpFW8A@mail.gmail.com> <7b859dd5-9262-4d68-9a8e-e0be0c24ac4a@picoheart.com> <877btkht2v.ffs@tglx> <e30ee004-64f9-4003-8907-c407a76fc244@picoheart.com> <87y0lz2ef6.ffs@tglx>
-Message-Id: <b2eb7f70-8ee9-43f6-b086-f0c17b1f9e39@picoheart.com>
+	Fri, 16 Jan 2026 06:19:34 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1768544367;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=flwjYtqlrMALIXZXtKpSQ7iMAml1HwYFImYMXwos3ec=;
+	b=B4g63FGDMoWQRlfIoJKDPDTjb38sC0GwbLcsjCZz8Hvbktc16Pol1CSwckNbX5ryQgkBXG
+	UT1n4tPSX/thqMsFEfXNnd1rJKRPYVGA+HNjq2ujooTnY54kThxIdI2yuo6zHZHOWhzqN2
+	wgVqxLN5OWR30vYd7hmwTIAo3igT3i3UvJNg5O/gTVgJa1UoWqgRPkugd4kyxEpu3kVhsl
+	g8fv5P/al4bTP7QNGO6S6Z7N2bgpTsukX/G2ELn3144vwEyJbw6MgSqi5HBj8YXqpafbXn
+	pFkvsP/qh4h7aJowpmvg+4y/MxxM+qcEjzNXji3pnC3QRgyyUE0zDQTv0/PyOQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1768544367;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=flwjYtqlrMALIXZXtKpSQ7iMAml1HwYFImYMXwos3ec=;
+	b=VRmUi2Glr8EqDBOnL9vubwKSi5M9T+6FBpGt2aFvTL99g+2FOeBLtAQHUWtgNyXT3SyTiu
+	s4YEgfYCBdmE1uBQ==
+Date: Fri, 16 Jan 2026 07:19:24 +0100
+Subject: [PATCH v2] riscv: Implement ARCH_HAS_CC_CAN_LINK
+MIME-Version: 1.0
+Message-Id: <20260116-cc-can-link-riscv-v2-1-eaf362d74c90@linutronix.de>
+X-B4-Tracking: v=1; b=H4sIAGvYaWkC/32NQQ6CMBBFr0Jm7Zh2ihhdcQ/DgkwHmWiKabHBE
+ O5u5QAu3//576+QJKokuFYrRMmadAoF6FABj324C6ovDGToZIkImZH7gE8ND4yaOKNn40zt6cx
+ DDWX3ijLosjtvXeFR0zzFz36R7S/9Z8sWLTbOibtI3TfGt6V8z3EKuhy9QLdt2xfKnz4ctgAAA
+ A==
+X-Change-ID: 20251222-cc-can-link-riscv-dc0304d27cf4
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768544366; l=1847;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=YsZODejPaMJUcZSBq/h58xHb2HRtC/WNXB0PXS59kuU=;
+ b=H9mOViyKCBg8gXI4naBTJ26ZDk6c98aTE/8zMcuL/c2UMleqawTjUyTOLGOu+tPwgKbDv5d9x
+ ZQB7zioBRBlCMAxr/nyJU/qllTmg7x0Tijq5ECCv1JDJEn447xStT37
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_221643_205990_637783E9 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20260115_221930_793953_EAD1B572 
+X-CRM114-Status: UNSURE (   5.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,42 +82,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 1/15/26 9:28 PM, Thomas Gleixner wrote:
-> On Thu, Jan 15 2026 at 16:31, Yicong Yang wrote:
->> so based on above, if we use async_wq (with async_schedule* APIs) in
->> acpi_scan_clear_dep_queue() for creating these devices, the issue
->> could be solved since we're sure to have these devices before entering
->> userspace, since the barrier of async_synchronize_full(). This should be
->> a solution with a conceptual support and I did a quick test on our
->> platform it solves the issue.
-> 
-> Sounds about right to me. The drivers core and ACPI folks might have
-> opinions though :)
-> 
-
-sure I'll wait a bit to see if there's further comment before sending out
-next version.
-
->> As for the order of console_on_rootfs()/async_synchronize_full(),
->> though our issue is not directly caused by it, it will cause the
->> same issue (by the console open time the async probing maybe not
->> finised) theoretically and needs to be fixed, is it?
-> 
-> Yes, that should move past the synchronization point.
-> 
-
-will include this fix as a separate patch since they're two separate issue.
-
-thanks a lot for the useful discussion to help find a better solution :)
-
-Thanks.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhlIGdlbmVyaWMgQ0NfQ0FOX0xJTksgZGV0ZWN0aW9uIHJlbGllcyBvbiAtbTMyLy1tNjQgY29t
+cGlsZXIgZmxhZ3MuClRoZXNlIGFyZSBub3Qgc3VwcG9ydGVkIGJ5IHJpc2N2IGNvbXBpbGVycy4K
+ClVzZSBhcmNoaXRlY3R1cmUtc3BlY2lmaWMgbG9naWMgdXNpbmcgLW1hYmkgaW5zdGVhZC4KClBy
+ZWZlciB0aGUgJ2QnIEFCSSB2YXJpYW50IHdoZW4gcG9zc2libGUgYXMgdG9kYXlzIHRvb2xjaGFp
+bnMgYXJlIG1vc3QKbGlrZWx5IHRvIHByb3ZpZGUgYSBsaWJjIGZvciB0aGF0IG9uZS4KClNpZ25l
+ZC1vZmYtYnk6IFRob21hcyBXZWnDn3NjaHVoIDx0aG9tYXMud2Vpc3NzY2h1aEBsaW51dHJvbml4
+LmRlPgotLS0KQ2hhbmdlcyBpbiB2MjoKLSBBbHNvIGhhbmRsZSAhRlBVIGNhc2UuCi0gRXh0ZW5k
+IGNvbW1pdCBtZXNzYWdlLgotIExpbmsgdG8gdjE6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3Iv
+MjAyNTEyMjItY2MtY2FuLWxpbmstcmlzY3YtdjEtMS02MzNlMzllNGE2MGRAbGludXRyb25peC5k
+ZQotLS0KIGFyY2gvcmlzY3YvS2NvbmZpZyB8IDE1ICsrKysrKysrKysrKysrKwogMSBmaWxlIGNo
+YW5nZWQsIDE1IGluc2VydGlvbnMoKykKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcg
+Yi9hcmNoL3Jpc2N2L0tjb25maWcKaW5kZXggNmIzOWYzN2Y3NjlhLi4xYzYzNjExN2I3ZTQgMTAw
+NjQ0Ci0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZworKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKQEAg
+LTI1LDYgKzI1LDcgQEAgY29uZmlnIFJJU0NWCiAJc2VsZWN0IEFSQ0hfRU5BQkxFX1NQTElUX1BN
+RF9QVExPQ0sgaWYgUEdUQUJMRV9MRVZFTFMgPiAyCiAJc2VsZWN0IEFSQ0hfRU5BQkxFX1RIUF9N
+SUdSQVRJT04gaWYgVFJBTlNQQVJFTlRfSFVHRVBBR0UKIAlzZWxlY3QgQVJDSF9IQVNfQklORk1U
+X0ZMQVQKKwlzZWxlY3QgQVJDSF9IQVNfQ0NfQ0FOX0xJTksKIAlzZWxlY3QgQVJDSF9IQVNfQ1VS
+UkVOVF9TVEFDS19QT0lOVEVSCiAJc2VsZWN0IEFSQ0hfSEFTX0RFQlVHX1ZJUlRVQUwgaWYgTU1V
+CiAJc2VsZWN0IEFSQ0hfSEFTX0RFQlVHX1ZNX1BHVEFCTEUKQEAgLTEzNTEsNiArMTM1MiwyMCBA
+QCBjb25maWcgUE9SVEFCTEUKIGNvbmZpZyBBUkNIX1BST0NfS0NPUkVfVEVYVAogCWRlZl9ib29s
+IHkKIAorY29uZmlnIEFSQ0hfQ0NfQ0FOX0xJTksKKwlib29sCisJZGVmYXVsdCAkKGNjX2Nhbl9s
+aW5rX3VzZXIsLW1hYmk9bHA2NGQpIGlmIDY0QklUICYmIEZQVQorCWRlZmF1bHQgJChjY19jYW5f
+bGlua191c2VyLC1tYWJpPWxwNjQpIGlmIDY0QklUCisJZGVmYXVsdCAkKGNjX2Nhbl9saW5rX3Vz
+ZXIsLW1hYmk9aWxwMzJkKSBpZiBGUFUKKwlkZWZhdWx0ICQoY2NfY2FuX2xpbmtfdXNlciwtbWFi
+aT1pbHAzMikKKworY29uZmlnIEFSQ0hfVVNFUkZMQUdTCisJc3RyaW5nCisJZGVmYXVsdCAiLW1h
+Ymk9bHA2NGQiIGlmIDY0QklUICYmIEZQVQorCWRlZmF1bHQgIi1tYWJpPWxwNjQiIGlmIDY0QklU
+CisJZGVmYXVsdCAiLW1hYmk9aWxwMzJkIiBpZiBGUFUKKwlkZWZhdWx0ICItbWFiaT1pbHAzMiIK
+KwogbWVudSAiUG93ZXIgbWFuYWdlbWVudCBvcHRpb25zIgogCiBzb3VyY2UgImtlcm5lbC9wb3dl
+ci9LY29uZmlnIgoKLS0tCmJhc2UtY29tbWl0OiA4ZjBiNGNjZTQ0ODFmYjIyNjUzNjk3Y2NlZDhk
+MGQwNDAyN2NiMWU4CmNoYW5nZS1pZDogMjAyNTEyMjItY2MtY2FuLWxpbmstcmlzY3YtZGMwMzA0
+ZDI3Y2Y0CgpCZXN0IHJlZ2FyZHMsCi0tIApUaG9tYXMgV2Vpw59zY2h1aCA8dGhvbWFzLndlaXNz
+c2NodWhAbGludXRyb25peC5kZT4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
