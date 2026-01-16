@@ -4,154 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EAADC982C4
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 15:03:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E21C982CA
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 15:33:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NgSg1TZ99MF714T7Bq0j5KBHavGvzJLOEjBwBVGmD3w=; b=xnkvvS2G6SIkuT
-	EqXgEb2Xn+p+M223D8QnEdv5x7t+RROqBoQpDpHAwNJQSrtx/T4Kjhp+Sm/91rAhkxwu3e7YBr670
-	Vrt/wCs4GfBDXnTR9Dq0P4sHq3N7A2FdM505MexrPxBpywkA6DBPkyQti07Tn+Fbf1qo8eqW1qw+p
-	iFz0dKd98o6h4IPeZcjyIfbw/fw3H+QdZ5pVx4MeOtOkESA+o+udJv6pOmoiUjazbNHyo1F34Nlgq
-	kWRgoamy+tqg1QnD1PLJYJUyu6pRC8ReZA+TzQxIPkAPkYIDgZoIy/Bdxex3hkZWgDCwD3R+n0ktn
-	AvuMWZvqfimCPGUukpug==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=yZBiyPKhFNmdeYCRH3EYO3srxVXtTojZj9jmxA1oC1w=; b=PTId6Abl8pB2LhdWzBcOUY/+MF
+	kM/nJTHaBbcyVC/xnzNcBuSDWrmV1y4olyUEbd3hXy2tcUscPpK7PujwKldQxnB4FmAsrOy3/gVQT
+	gSknRT0cXbeSx+HsiYehlYQexwCnTCYnnB6u8GtuA+3exzAm/wlavS95d/lCFTmGSBxelcE8bpcDB
+	IaWXUQFG/KBELfOjf4S8PT7rLjvSDpja4Wp0SzGYWQUeKLzqIo/MoqcH4PF9KsHWTSKAQ1W4glF1O
+	KaPGmeuhlWd+jzce8G1pk0iVkmvWmba0gcsQDcv/Yd272I0IdKRjh0+doP7+QxYtLiWMzVIfGilMh
+	yf0ivGAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vglLd-0000000EJGS-3jrI;
-	Fri, 16 Jan 2026 15:02:49 +0000
-Received: from fra-out-014.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([18.199.210.3])
+	id 1vglpM-0000000EMua-05R9;
+	Fri, 16 Jan 2026 15:33:32 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vglLb-0000000EJFl-1D25;
-	Fri, 16 Jan 2026 15:02:48 +0000
+	id 1vglpI-0000000EMsv-2ac3
+	for linux-riscv@lists.infradead.org;
+	Fri, 16 Jan 2026 15:33:30 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-34c2f670a06so1810352a91.3
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Jan 2026 07:33:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1768575767; x=1800111767;
-  h=message-id:date:mime-version:reply-to:subject:to:cc:
-   references:from:in-reply-to:content-transfer-encoding;
-  bh=vgEOcPvSDFlnojIEi9fDkTiU/IY1eXjcDPZz2p9VuaI=;
-  b=qD/fDS5PfUjzdz+bCJJvJQAtjwsoTfocr0iBonUrkMprfmawFZ6VBdy7
-   JJub6/fgnqt39BMpRhqsUOLSoFGmIXAMiRK/4eb9cPFEuaamtLUtHnJ2a
-   WWe7Ry5w1GIEc1Bu9FZ5wEs7pYVVyBZq+XWSBrnsyMhKHzYnoWajG1uGw
-   viWxqEN0iVojTyuwr+NhgdKzieR5PP2C8fAW4V1MAZBtg7uZI0ZMB4tW5
-   cCGRoKiJRTI1v/NeOBC8ovCnqzJfQt6Wuv+l+Y4kegc2sdFnjzQgUo9/5
-   7TDQjl/HC4wQBg4VOX9LesHW+cqVatjYdc/MUMBrjOCSBqraDpCd54e28
-   w==;
-X-CSE-ConnectionGUID: 8rdRYcCTR8imomIXxqbd0Q==
-X-CSE-MsgGUID: EJyP+fC3R0m9epUUPjXDgw==
-X-IronPort-AV: E=Sophos;i="6.21,231,1763424000"; 
-   d="scan'208";a="7920549"
-Received: from ip-10-6-6-97.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.6.97])
-  by internal-fra-out-014.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jan 2026 15:02:45 +0000
-Received: from EX19MTAEUB002.ant.amazon.com [54.240.197.232:4746]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.8.163:2525] with esmtp (Farcaster)
- id d396bcea-2275-4311-8348-ff7e15490f17; Fri, 16 Jan 2026 15:02:45 +0000 (UTC)
-X-Farcaster-Flow-ID: d396bcea-2275-4311-8348-ff7e15490f17
-Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
- EX19MTAEUB002.ant.amazon.com (10.252.51.59) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Fri, 16 Jan 2026 15:02:34 +0000
-Received: from [192.168.12.13] (10.106.82.9) by EX19D005EUB003.ant.amazon.com
- (10.252.51.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35; Fri, 16 Jan 2026
- 15:02:30 +0000
-Message-ID: <208b151b-f458-4327-94bc-eb3f32d20a68@amazon.com>
-Date: Fri, 16 Jan 2026 15:02:29 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 07/13] KVM: guest_memfd: Add flag to remove from direct
- map
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"kalyazin@amazon.co.uk" <kalyazin@amazon.co.uk>, "kernel@xen0n.name"
-	<kernel@xen0n.name>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
-	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvm@vger.kernel.org"
-	<kvm@vger.kernel.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>
-CC: "david@kernel.org" <david@kernel.org>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"svens@linux.ibm.com" <svens@linux.ibm.com>, "jgross@suse.com"
-	<jgross@suse.com>, "surenb@google.com" <surenb@google.com>,
-	"riel@surriel.com" <riel@surriel.com>, "pfalcato@suse.de" <pfalcato@suse.de>,
-	"peterx@redhat.com" <peterx@redhat.com>, "x86@kernel.org" <x86@kernel.org>,
-	"rppt@kernel.org" <rppt@kernel.org>, "thuth@redhat.com" <thuth@redhat.com>,
-	"maz@kernel.org" <maz@kernel.org>, "dave.hansen@linux.intel.com"
-	<dave.hansen@linux.intel.com>, "ast@kernel.org" <ast@kernel.org>,
-	"vbabka@suse.cz" <vbabka@suse.cz>, "Annapurve, Vishal"
-	<vannapurve@google.com>, "borntraeger@linux.ibm.com"
-	<borntraeger@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>,
-	"pjw@kernel.org" <pjw@kernel.org>, "tglx@linutronix.de" <tglx@linutronix.de>,
-	"willy@infradead.org" <willy@infradead.org>, "hca@linux.ibm.com"
-	<hca@linux.ibm.com>, "wyihan@google.com" <wyihan@google.com>,
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jolsa@kernel.org"
-	<jolsa@kernel.org>, "yang@os.amperecomputing.com"
-	<yang@os.amperecomputing.com>, "jmattson@google.com" <jmattson@google.com>,
-	"luto@kernel.org" <luto@kernel.org>, "aneesh.kumar@kernel.org"
-	<aneesh.kumar@kernel.org>, "haoluo@google.com" <haoluo@google.com>,
-	"patrick.roy@linux.dev" <patrick.roy@linux.dev>, "akpm@linux-foundation.org"
-	<akpm@linux-foundation.org>, "coxu@redhat.com" <coxu@redhat.com>,
-	"mhocko@suse.com" <mhocko@suse.com>, "mlevitsk@redhat.com"
-	<mlevitsk@redhat.com>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "hpa@zytor.com"
-	<hpa@zytor.com>, "song@kernel.org" <song@kernel.org>, "oupton@kernel.org"
-	<oupton@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>,
-	"maobibo@loongson.cn" <maobibo@loongson.cn>, "lorenzo.stoakes@oracle.com"
-	<lorenzo.stoakes@oracle.com>, "Liam.Howlett@oracle.com"
-	<Liam.Howlett@oracle.com>, "jthoughton@google.com" <jthoughton@google.com>,
-	"martin.lau@linux.dev" <martin.lau@linux.dev>, "jhubbard@nvidia.com"
-	<jhubbard@nvidia.com>, "Yu, Yu-cheng" <yu-cheng.yu@intel.com>,
-	"Jonathan.Cameron@huawei.com" <Jonathan.Cameron@huawei.com>,
-	"eddyz87@gmail.com" <eddyz87@gmail.com>, "yonghong.song@linux.dev"
-	<yonghong.song@linux.dev>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>,
-	"shuah@kernel.org" <shuah@kernel.org>, "prsampat@amd.com" <prsampat@amd.com>,
-	"kevin.brodsky@arm.com" <kevin.brodsky@arm.com>,
-	"shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "itazur@amazon.co.uk"
-	<itazur@amazon.co.uk>, "pbonzini@redhat.com" <pbonzini@redhat.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "dev.jain@arm.com"
-	<dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>,
-	"jackabt@amazon.co.uk" <jackabt@amazon.co.uk>, "daniel@iogearbox.net"
-	<daniel@iogearbox.net>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>,
-	"andrii@kernel.org" <andrii@kernel.org>, "mingo@redhat.com"
-	<mingo@redhat.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>, "derekmn@amazon.com"
-	<derekmn@amazon.com>, "xmarcalx@amazon.co.uk" <xmarcalx@amazon.co.uk>,
-	"kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me"
-	<sdf@fomichev.me>, "jackmanb@google.com" <jackmanb@google.com>,
-	"bp@alien8.de" <bp@alien8.de>, "corbet@lwn.net" <corbet@lwn.net>,
-	"ackerleytng@google.com" <ackerleytng@google.com>, "jannh@google.com"
-	<jannh@google.com>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>,
-	"kas@kernel.org" <kas@kernel.org>, "will@kernel.org" <will@kernel.org>,
-	"seanjc@google.com" <seanjc@google.com>
-References: <20260114134510.1835-1-kalyazin@amazon.com>
- <20260114134510.1835-8-kalyazin@amazon.com>
- <ed01838830679880d3eadaf6f11c539b9c72c22d.camel@intel.com>
-Content-Language: en-US
-From: Nikita Kalyazin <kalyazin@amazon.com>
-Autocrypt: addr=kalyazin@amazon.com; keydata=
- xjMEY+ZIvRYJKwYBBAHaRw8BAQdA9FwYskD/5BFmiiTgktstviS9svHeszG2JfIkUqjxf+/N
- JU5pa2l0YSBLYWx5YXppbiA8a2FseWF6aW5AYW1hem9uLmNvbT7CjwQTFggANxYhBGhhGDEy
- BjLQwD9FsK+SyiCpmmTzBQJnrNfABQkFps9DAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQr5LK
- IKmaZPOpfgD/exazh4C2Z8fNEz54YLJ6tuFEgQrVQPX6nQ/PfQi2+dwBAMGTpZcj9Z9NvSe1
- CmmKYnYjhzGxzjBs8itSUvWIcMsFzjgEY+ZIvRIKKwYBBAGXVQEFAQEHQCqd7/nb2tb36vZt
- ubg1iBLCSDctMlKHsQTp7wCnEc4RAwEIB8J+BBgWCAAmFiEEaGEYMTIGMtDAP0Wwr5LKIKma
- ZPMFAmes18AFCQWmz0MCGwwACgkQr5LKIKmaZPNTlQEA+q+rGFn7273rOAg+rxPty0M8lJbT
- i2kGo8RmPPLu650A/1kWgz1AnenQUYzTAFnZrKSsXAw5WoHaDLBz9kiO5pAK
-In-Reply-To: <ed01838830679880d3eadaf6f11c539b9c72c22d.camel@intel.com>
-X-Originating-IP: [10.106.82.9]
-X-ClientProxiedBy: EX19D013EUB001.ant.amazon.com (10.252.51.116) To
- EX19D005EUB003.ant.amazon.com (10.252.51.31)
+        d=google.com; s=20230601; t=1768577606; x=1769182406; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=MFDMwcUB+g0lr3+O0uNE+y+KlNYemC0Uyu3/6hhSiCE=;
+        b=rEcuTnHOWXE+0bznCPKmFJdxOXxH2MsDxckAY5qwABabLEuD4uImgUvK5F4UHAPiKl
+         rJXfskiMDy+fpJPsBYQmGwsGYwz8OrAZS59OCoO6AG/7W4UMOXpJeOYaPD3V80zUXg9s
+         V0rAU05aBtKCydHI/mdGYbNo+DETw6S6BPZNUgucWeWpi068DkyRN4Bn4/Xrm4/OEzGT
+         S8YUrDVvM1nmQ1fcXrE0ROHg6YV6u/ozyJb++YxQNVA1atJ3fWarhU5E3S4OdsnUYsHu
+         f2wgQbHu4Gs1PW9dujPaIY2Om2hu0zK+4VDr6OZkOocKlPFBaK510ITLTEB95J0+5PPi
+         5U7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768577606; x=1769182406;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MFDMwcUB+g0lr3+O0uNE+y+KlNYemC0Uyu3/6hhSiCE=;
+        b=l2+5rwQo6unBONHvvQaJJpItXeB1a0tF82E6AYCl/LfMQVY6MEh7GweLCL9cUUx9Gk
+         BV/tjcmwoUFrR2MCgRct5G3INoeusSvjGE7dShtTwaNoMhvls80pWhROPF4zMlcG925p
+         qMaCoWOHHV+gR9NZUQjqQxUXqEdyVlOm+cf3RNByv48ODC3wex2SiwJy2vG+ic/8oloV
+         J/rbZNlXJsn1N55eitCRQUfmT8jHqDCYpWveqcWLHf1+U0z8Z/5Wvv5fXyzDd8qhk7i9
+         6jdQSzascLrZsaQkpKOHVIb/MAzPGJ5H2JQNinxwdCMlqOtORcoJP9nj+lJXKpjpyQ0E
+         LbJA==
+X-Forwarded-Encrypted: i=1; AJvYcCVM1ykNrwx4Mjj0MFv+/lp5+/+ljyXnE/weU6fx425UuXlhWJzQAXfk7kqv549HXgbPCHdHPDyR1xSdMg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrlIon4cyv40OJfv/bJujj/ua3cFlkrB8iokBWdN3QnvSXlBlG
+	Y9fxtjYYSRUMTwl6j5HJt1l7iGkYm99ABSg5F7ZYcqV5QE/jWpT1nlfsbkl+0mY/iGl/2i0g5HL
+	a5gkL3w==
+X-Received: from pjbsh12.prod.google.com ([2002:a17:90b:524c:b0:34c:2156:9de7])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5803:b0:32e:3829:a71c
+ with SMTP id 98e67ed59e1d1-35272efcc92mr2558426a91.16.1768577606439; Fri, 16
+ Jan 2026 07:33:26 -0800 (PST)
+Date: Fri, 16 Jan 2026 07:32:47 -0800
+In-Reply-To: <20251206001720.468579-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20251206001720.468579-1-seanjc@google.com>
+X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
+Message-ID: <176857711424.940905.14821355548518788463.b4-ty@google.com>
+Subject: Re: [PATCH v6 00/44] KVM: x86: Add support for mediated vPMUs
+From: Sean Christopherson <seanjc@google.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, Mingwei Zhang <mizhang@google.com>, 
+	Xudong Hao <xudong.hao@intel.com>, Sandipan Das <sandipan.das@amd.com>, 
+	Dapeng Mi <dapeng1.mi@linux.intel.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
+	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_070247_618391_DB9F3100 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20260116_073328_678298_9E45836B 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,51 +97,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: kalyazin@amazon.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 15/01/2026 23:04, Edgecombe, Rick P wrote:
-> On Wed, 2026-01-14 at 13:46 +0000, Kalyazin, Nikita wrote:
->> Add GUEST_MEMFD_FLAG_NO_DIRECT_MAP flag for KVM_CREATE_GUEST_MEMFD()
->> ioctl. When set, guest_memfd folios will be removed from the direct map
->> after preparation, with direct map entries only restored when the folios
->> are freed.
->>
->> To ensure these folios do not end up in places where the kernel cannot
->> deal with them, set AS_NO_DIRECT_MAP on the guest_memfd's struct
->> address_space if GUEST_MEMFD_FLAG_NO_DIRECT_MAP is requested.
->>
->> Note that this flag causes removal of direct map entries for all
->> guest_memfd folios independent of whether they are "shared" or "private"
->> (although current guest_memfd only supports either all folios in the
->> "shared" state, or all folios in the "private" state if
->> GUEST_MEMFD_FLAG_MMAP is not set). The usecase for removing direct map
->> entries of also the shared parts of guest_memfd are a special type of
->> non-CoCo VM where, host userspace is trusted to have access to all of
->> guest memory, but where Spectre-style transient execution attacks
->> through the host kernel's direct map should still be mitigated.  In this
->> setup, KVM retains access to guest memory via userspace mappings of
->> guest_memfd, which are reflected back into KVM's memslots via
->> userspace_addr. This is needed for things like MMIO emulation on x86_64
->> to work.
+On Fri, 05 Dec 2025 16:16:36 -0800, Sean Christopherson wrote:
+> This series is based on 'https://github.com/kvm-x86/linux next', but except
+> for one minor conflict in perf should apply on Linus' tree once the KVM 6.19
+> pull request lands.  I considered waiting until 6.19-rc1 to post this, but
+> I've had this in a "ready" state for a few weeks and want to get it out there.
 > 
-> TDX does some clearing at the direct map mapping for pages that comes from gmem,
-> using a special instruction. It also does some clflushing at the direct map
-> address for these pages. So I think we need to make sure TDs don't pull from
-> gmem fds with this flag.
-
-Would you be able to give a pointer on how we can do that?  I'm not very 
-familiar with the TDX code.
-
+> My hope/plan is that the perf changes will go through the tip tree with a
+> stable tag/branch, and the KVM changes will go the kvm-x86 tree.
 > 
-> Not that there would be any expected use of the flag for TDs, but it could cause
-> a crash.
+> [...]
 
+Applied the KVM patches to kvm-x86 pmu, thanks!
+
+[14/44] KVM: Add a simplified wrapper for registering perf callbacks
+        https://github.com/kvm-x86/linux/commit/4b24910c0569
+[15/44] KVM: Add a simplified wrapper for registering perf callbacks
+        [DROPPED - already merged (and then fixed)]
+[16/44] KVM: x86/pmu: Start stubbing in mediated PMU support
+        https://github.com/kvm-x86/linux/commit/3e51822b2fdf
+[17/44] KVM: x86/pmu: Implement Intel mediated PMU requirements and constraints
+        https://github.com/kvm-x86/linux/commit/bfee4f07d880
+[18/44] KVM: x86/pmu: Implement AMD mediated PMU requirements
+        https://github.com/kvm-x86/linux/commit/9ba0bb4ae76a
+[19/44] KVM: x86/pmu: Register PMI handler for mediated vPMU
+        https://github.com/kvm-x86/linux/commit/1c4ba7286afb
+[20/44] KVM: x86/pmu: Disable RDPMC interception for compatible mediated vPMU
+        https://github.com/kvm-x86/linux/commit/80624272129e
+[21/44] KVM: x86/pmu: Load/save GLOBAL_CTRL via entry/exit fields for mediated PMU
+        https://github.com/kvm-x86/linux/commit/d3ba32d1ff2a
+[22/44] KVM: x86/pmu: Disable interception of select PMU MSRs for mediated vPMUs
+        https://github.com/kvm-x86/linux/commit/2904df6692f4
+[23/44] KVM: x86/pmu: Bypass perf checks when emulating mediated PMU counter accesses
+        https://github.com/kvm-x86/linux/commit/0ea0d6314870
+[24/44] KVM: x86/pmu: Introduce eventsel_hw to prepare for pmu event filtering
+        https://github.com/kvm-x86/linux/commit/02918f007792
+[25/44] KVM: x86/pmu: Reprogram mediated PMU event selectors on event filter updates
+        https://github.com/kvm-x86/linux/commit/3db871fe185b
+[26/44] KVM: x86/pmu: Always stuff GuestOnly=1,HostOnly=0 for mediated PMCs on AMD
+        https://github.com/kvm-x86/linux/commit/a2f4ba534cc5
+[27/44] KVM: x86/pmu: Load/put mediated PMU context when entering/exiting guest
+        https://github.com/kvm-x86/linux/commit/56bb27369750
+[28/44] KVM: x86/pmu: Disallow emulation in the fastpath if mediated PMCs are active
+        https://github.com/kvm-x86/linux/commit/f7a65e58d643
+[29/44] KVM: x86/pmu: Handle emulated instruction for mediated vPMU
+        https://github.com/kvm-x86/linux/commit/283a5aa57b22
+[30/44] KVM: nVMX: Add macros to simplify nested MSR interception setting
+        https://github.com/kvm-x86/linux/commit/cb58327c4c8a
+[31/44] KVM: nVMX: Disable PMU MSR interception as appropriate while running L2
+        https://github.com/kvm-x86/linux/commit/88ebc2a3199c
+[32/44] KVM: nSVM: Disable PMU MSR interception as appropriate while running L2
+        https://github.com/kvm-x86/linux/commit/3b36160d9406
+[33/44] KVM: x86/pmu: Expose enable_mediated_pmu parameter to user space
+        https://github.com/kvm-x86/linux/commit/860bcb1021f5
+[34/44] KVM: x86/pmu: Elide WRMSRs when loading guest PMCs if values already match
+        https://github.com/kvm-x86/linux/commit/b0b6a8d3be16
+[35/44] KVM: VMX: Drop intermediate "guest" field from msr_autostore
+        https://github.com/kvm-x86/linux/commit/462f092dc55c
+[36/44] KVM: nVMX: Don't update msr_autostore count when saving TSC for vmcs12
+        https://github.com/kvm-x86/linux/commit/58f21a01417f
+[37/44] KVM: VMX: Dedup code for removing MSR from VMCS's auto-load list
+        https://github.com/kvm-x86/linux/commit/0bd29379114b
+[38/44] KVM: VMX: Drop unused @entry_only param from add_atomic_switch_msr()
+        https://github.com/kvm-x86/linux/commit/84ac00042a28
+[39/44] KVM: VMX: Bug the VM if either MSR auto-load list is full
+        https://github.com/kvm-x86/linux/commit/2ed57bb89976
+[40/44] KVM: VMX: Set MSR index auto-load entry if and only if entry is "new"
+        https://github.com/kvm-x86/linux/commit/0c4ff0866fc1
+[41/44] KVM: VMX: Compartmentalize adding MSRs to host vs. guest auto-load list
+        https://github.com/kvm-x86/linux/commit/2239d137a71d
+[42/44] KVM: VMX: Dedup code for adding MSR to VMCS's auto list
+        https://github.com/kvm-x86/linux/commit/c3d6a7210a4d
+[43/44] KVM: VMX: Initialize vmcs01.VM_EXIT_MSR_STORE_ADDR with list address
+        https://github.com/kvm-x86/linux/commit/9757a5aebcd6
+[44/44] KVM: VMX: Add mediated PMU support for CPUs without "save perf global ctrl"
+        https://github.com/kvm-x86/linux/commit/d374b89edbb9
+
+--
+https://github.com/kvm-x86/linux/tree/next
 
 _______________________________________________
 linux-riscv mailing list
