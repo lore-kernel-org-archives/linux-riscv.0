@@ -4,99 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C979C982DE
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 17:26:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9952FC982DB
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 17:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vbR782XgEjzjJDr49U5PWeTWa+QrSPqbRpmXVwaKZog=; b=OjLNqHO90WH6vk
-	QRkDMXHQWxLrp5ZLgaEiFyvW5MTuduATdJIl5vKDBHklX6FjxFkRzEwgnvnAeaWHKh11d3TjJZ1Zu
-	iOuw2hq37IiF9XLyZOaDaIYlShUctM5uhidCloXQmYDuy6vGHeM4XbAIcHnEf+MGwTe3EI7zqsvHd
-	bPzI22R8GcsrPhSWXRZiSQORlPcusd8ruyuJpxJlI/CaDkwpnePdddLZ/2fC6y8AFEN2LHncuXEiz
-	m0DnIt/h17HclOHlEtFSeggJNqxpl6mkx5OfvZZBYozjvXhYm+qrkpjhp7De7/ipA0M1fwvPU56+j
-	TfprJpU+clyy7znTS1lQ==;
+	List-Owner; bh=lddEKirc+GgXOy52ZIuR6jJL4q3DfLsvvY5M5WAeIp4=; b=hQcMKtpMbrZeeM
+	15XddL5l569G7s2Sel+GYxDHTdhbCg8JqfKGRuRIHb6rDgcfcxx8obs2J/wM0wpGVzHNywMp17pBQ
+	SlflbTE21Nzwy4lzNGoL6M1HndUeZRhoBErWN3WauM49MFAQ15tPr6HHpxXov91eYmyHw5V63XVqA
+	ZGcW/zaGQl59unf62b2u0yk2y6fpMABGnRtydBe/mfxhT8PJMwkb7Yq7f+GjWGnkOPJUZrao3gfGa
+	GUFaoEIu77AVJYkXUpNEsZFu7lTmNb7O1YaRd4kSeBn1QRfmRA8FLfZAtXmLS9ROw7hPUULza6wjv
+	ESK9UoUYAzlfVw4/bQQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnaD-0000000EZhf-2C0A;
-	Fri, 16 Jan 2026 17:26:01 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1vgnch-0000000EZyg-1c0l;
+	Fri, 16 Jan 2026 17:28:35 +0000
+Received: from fra-out-010.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([63.178.143.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnaA-0000000EZhB-2Gm9
-	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jan 2026 17:25:59 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-43284ed32a0so1310426f8f.3
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Jan 2026 09:25:57 -0800 (PST)
+	id 1vgnce-0000000EZy9-1goJ;
+	Fri, 16 Jan 2026 17:28:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768584356; x=1769189156; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=guLdPSMspTYOQSTOoD0vgqQiAA/YDtF0X8jjlbY9les=;
-        b=Y+hYTWXPsAUM2Hbs/N2FAgANxtPMHeWJO4FqiC6zRTj+Auyl4gy7T2tmSibLrL+HpS
-         oW/O7q6eHj2Rt8BB7OguSqobN054Am5wZcSwaGIGWLSAmdj0JAxXO13DMfFVJFZ6jgYT
-         5dYOWn8xA4m8APvvttCHJVrL+rAS/B+B5BUyA0QkEJkh+X0eC5rDjC2nGUMjeAykFraF
-         x/kw2RGCjnSt0bNGSWu87AX3i2iH7LqlI8TIJpiUTSqHukLqxHVXyr5P/FYx08MurCbU
-         p26F0ggSVBWKuc18VIdI8lv+1pSY5EZbB9XL+LmWgLzvPFfpMNPglpW1GjrXv92sktYL
-         3P9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768584356; x=1769189156;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=guLdPSMspTYOQSTOoD0vgqQiAA/YDtF0X8jjlbY9les=;
-        b=FZ8EAkcrVrI24DYqQ7Z6CDjzmWY5qiwR+kfcLcBmHJrwjjoEdp0URWigtjea9qV1MK
-         1h5MClIlj+3DtG7n8WHO5/XsMhXY7K1ywtnWF2oVZ98Z4J1NUiExK7HpLlPJmhH8/jK7
-         R5kk3AX89QAneKjseSgpW4/3RWa9petxGT6Jlb6RVH7e4UIWK7WiTRANJhNI1SapZU6P
-         +iKZ5HlFMU6GdlL0+sdvdiJB0u/gTf6UcZdgUhbr1dUtjAuW2lV40j3z3ypobG0WawBs
-         +yKErSrc+HW0ofgzZkOI9rUkvrfOi38dg2yAnUGyFeMZ9Y10paXdkE7ROUk7QBG8REaY
-         WMqg==
-X-Forwarded-Encrypted: i=1; AJvYcCXZCSfe0joUkZwagq3bdxHvk8lNd7FYH7P/yUgtd/9YP4Zu+UC6T+hHW8NUFgX8IukD19Jum6rdX/MdQw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxehHkqa7m3otavFnHMPXnM7Vif0zpzD4v5+RqXr1d3M+q9r6tB
-	cmJvTVkG+eBlVlfBUkbL3orwCDPgOwz05w+xjxSODPny8BXcOE5IDvFm
-X-Gm-Gg: AY/fxX4lp8NrHyvetOJNpDIu6rIczsgUhUvAIwPfjO4H3AlaPNXY9xCdg2/XeBsScf1
-	+/q97IkNiPfHcyUOw8Y1WTaG8UHwbRcqvKUQri+DNtHNYhdDsFw16jZibVc1NjgH/s8woG6zOjo
-	x21ENb3Z8klkunU6fv39uzcRl/6V8F0NkHqes2K3q6m7KRKputzSXP6aQHqbZAnyn9FkLWeqcEK
-	zTZIDZSUPQWd7sFhLKOO/cUFcV4QvY3uSUNLrj91vFu9m6EWdJ0bJJgzCaPnuN0j6znbp2tZICk
-	VmEA+fivib6b8JU7KGhXeh4WBbtxdHOIswGBVLQaX4sLQzCim9/KA8l6C+uUx3+2eafT/QLdKs8
-	ehKOaoKRpn7RPf1V+rp3MknIAqARg5SuQR0wjWAOr2d0p1vl5w6eG7c84BKRJ+QLkoPxYC3Mibe
-	NVpip2SNEthO+DQCnkiqb5/TJ0bEh/sfuj+f2lGaJjWrh9t6c3z1ZyYG0=
-X-Received: by 2002:a05:6000:3105:b0:430:f622:8cca with SMTP id ffacd0b85a97d-43569bd2aa3mr4952607f8f.56.1768584356323;
-        Fri, 16 Jan 2026 09:25:56 -0800 (PST)
-Received: from anton.local (bba-94-59-215-181.alshamil.net.ae. [94.59.215.181])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43569998240sm6098837f8f.43.2026.01.16.09.25.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Jan 2026 09:25:56 -0800 (PST)
-Date: Fri, 16 Jan 2026 21:25:51 +0400
-From: "Anton D. Stavinskii" <stavinsky@gmail.com>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 0/8] ASoC: sophgo: add CV1800 AIAO mux and I2S support
-Message-ID: <aWpyLQ6FR8_RsD1n@anton.local>
-Mail-Followup-To: Inochi Amaoto <inochiama@gmail.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-sound@vger.kernel.org, 
-	devicetree@vger.kernel.org, sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-References: <20260115-cv1800b-i2s-driver-v1-0-e8b22b8578ab@gmail.com>
- <aWl4fvKsUZDg9dwj@inochi.infowork>
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1768584512; x=1800120512;
+  h=message-id:date:mime-version:reply-to:subject:to:cc:
+   references:from:in-reply-to:content-transfer-encoding;
+  bh=iixAuY6QcleXCDLiS0osecYXCL2wD+IcnkmdhMNMceE=;
+  b=ZLRsFVDjzKyBWAmAa9raNcUxUdC3DS4qoix1Ox/WxUWZ+Xc73vJBkpQu
+   K+6Hq8H+N9Et1PLf0A+jOAU2uZg04cgglcjqROJ9rvBG7R+u7PyxFA5mS
+   3E3F1h99dHlf85Q+APayS1FpOFl2Z67EjkGdpdyexCuM9UnrZ+wjUN80x
+   zI8mKFTLPsEQP3sYG3K0wQrpRR/IPLeXwy9652Ik3lv4YOgCBZNSCHYL8
+   1wr8+bV/ShsSeUzP2sEAFSc3HZSJkpS7Jyc/6xC/Kq9+UzZgC9lQYE7ed
+   DNRx4jjFSXWabspNKcowIW7g/QqIHj56QzIWKctqDqqxqmKy4T7RSKA/M
+   Q==;
+X-CSE-ConnectionGUID: Qy9RLilmSb6mwlMCH/r26Q==
+X-CSE-MsgGUID: FqlFUMb2T4mzbA9VY5PHdA==
+X-IronPort-AV: E=Sophos;i="6.21,231,1763424000"; 
+   d="scan'208";a="7924510"
+Received: from ip-10-6-6-97.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.6.97])
+  by internal-fra-out-010.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jan 2026 17:28:13 +0000
+Received: from EX19MTAEUC002.ant.amazon.com [54.240.197.236:17818]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.21.80:2525] with esmtp (Farcaster)
+ id 2ee969a8-f047-4c24-83b9-0d6192b592bb; Fri, 16 Jan 2026 17:28:13 +0000 (UTC)
+X-Farcaster-Flow-ID: 2ee969a8-f047-4c24-83b9-0d6192b592bb
+Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
+ EX19MTAEUC002.ant.amazon.com (10.252.51.245) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
+ Fri, 16 Jan 2026 17:28:13 +0000
+Received: from [192.168.12.13] (10.106.82.9) by EX19D005EUB003.ant.amazon.com
+ (10.252.51.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35; Fri, 16 Jan 2026
+ 17:28:08 +0000
+Message-ID: <318407ba-ecb6-4691-8911-645fb8c20250@amazon.com>
+Date: Fri, 16 Jan 2026 17:28:06 +0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aWl4fvKsUZDg9dwj@inochi.infowork>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 07/13] KVM: guest_memfd: Add flag to remove from direct
+ map
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>, "kalyazin@amazon.co.uk"
+	<kalyazin@amazon.co.uk>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"kernel@xen0n.name" <kernel@xen0n.name>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"bpf@vger.kernel.org" <bpf@vger.kernel.org>, "loongarch@lists.linux.dev"
+	<loongarch@lists.linux.dev>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>
+CC: "david@kernel.org" <david@kernel.org>, "svens@linux.ibm.com"
+	<svens@linux.ibm.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "jgross@suse.com"
+	<jgross@suse.com>, "surenb@google.com" <surenb@google.com>, "vbabka@suse.cz"
+	<vbabka@suse.cz>, "riel@surriel.com" <riel@surriel.com>, "pfalcato@suse.de"
+	<pfalcato@suse.de>, "x86@kernel.org" <x86@kernel.org>, "rppt@kernel.org"
+	<rppt@kernel.org>, "thuth@redhat.com" <thuth@redhat.com>,
+	"borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "maz@kernel.org"
+	<maz@kernel.org>, "peterx@redhat.com" <peterx@redhat.com>, "ast@kernel.org"
+	<ast@kernel.org>, "Annapurve, Vishal" <vannapurve@google.com>,
+	"pjw@kernel.org" <pjw@kernel.org>, "alex@ghiti.fr" <alex@ghiti.fr>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"tglx@linutronix.de" <tglx@linutronix.de>, "hca@linux.ibm.com"
+	<hca@linux.ibm.com>, "willy@infradead.org" <willy@infradead.org>,
+	"wyihan@google.com" <wyihan@google.com>, "ryan.roberts@arm.com"
+	<ryan.roberts@arm.com>, "yang@os.amperecomputing.com"
+	<yang@os.amperecomputing.com>, "jolsa@kernel.org" <jolsa@kernel.org>,
+	"jmattson@google.com" <jmattson@google.com>, "luto@kernel.org"
+	<luto@kernel.org>, "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>,
+	"haoluo@google.com" <haoluo@google.com>, "patrick.roy@linux.dev"
+	<patrick.roy@linux.dev>, "akpm@linux-foundation.org"
+	<akpm@linux-foundation.org>, "coxu@redhat.com" <coxu@redhat.com>,
+	"mhocko@suse.com" <mhocko@suse.com>, "mlevitsk@redhat.com"
+	<mlevitsk@redhat.com>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "hpa@zytor.com"
+	<hpa@zytor.com>, "song@kernel.org" <song@kernel.org>,
+	"Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "maobibo@loongson.cn"
+	<maobibo@loongson.cn>, "peterz@infradead.org" <peterz@infradead.org>,
+	"oupton@kernel.org" <oupton@kernel.org>, "lorenzo.stoakes@oracle.com"
+	<lorenzo.stoakes@oracle.com>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>,
+	"martin.lau@linux.dev" <martin.lau@linux.dev>, "jthoughton@google.com"
+	<jthoughton@google.com>, "Jonathan.Cameron@huawei.com"
+	<Jonathan.Cameron@huawei.com>, "Yu, Yu-cheng" <yu-cheng.yu@intel.com>,
+	"eddyz87@gmail.com" <eddyz87@gmail.com>, "yonghong.song@linux.dev"
+	<yonghong.song@linux.dev>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>,
+	"shuah@kernel.org" <shuah@kernel.org>, "prsampat@amd.com" <prsampat@amd.com>,
+	"kevin.brodsky@arm.com" <kevin.brodsky@arm.com>,
+	"shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>,
+	"itazur@amazon.co.uk" <itazur@amazon.co.uk>, "suzuki.poulose@arm.com"
+	<suzuki.poulose@arm.com>, "pbonzini@redhat.com" <pbonzini@redhat.com>,
+	"dev.jain@arm.com" <dev.jain@arm.com>, "yuzenghui@huawei.com"
+	<yuzenghui@huawei.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>,
+	"jackabt@amazon.co.uk" <jackabt@amazon.co.uk>, "daniel@iogearbox.net"
+	<daniel@iogearbox.net>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>,
+	"andrii@kernel.org" <andrii@kernel.org>, "mingo@redhat.com"
+	<mingo@redhat.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>, "derekmn@amazon.com"
+	<derekmn@amazon.com>, "xmarcalx@amazon.co.uk" <xmarcalx@amazon.co.uk>,
+	"kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me"
+	<sdf@fomichev.me>, "jackmanb@google.com" <jackmanb@google.com>,
+	"bp@alien8.de" <bp@alien8.de>, "corbet@lwn.net" <corbet@lwn.net>,
+	"ackerleytng@google.com" <ackerleytng@google.com>, "jannh@google.com"
+	<jannh@google.com>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>,
+	"kas@kernel.org" <kas@kernel.org>, "will@kernel.org" <will@kernel.org>,
+	"seanjc@google.com" <seanjc@google.com>
+References: <20260114134510.1835-1-kalyazin@amazon.com>
+ <20260114134510.1835-8-kalyazin@amazon.com>
+ <e619ded526a2f9a4cec4f74383cef31519624935.camel@intel.com>
+ <294bca75-2f3e-46db-bb24-7c471a779cc1@amazon.com>
+ <bb58a21f91113ca39f8888d718d4450a5fd72808.camel@intel.com>
+Content-Language: en-US
+From: Nikita Kalyazin <kalyazin@amazon.com>
+Autocrypt: addr=kalyazin@amazon.com; keydata=
+ xjMEY+ZIvRYJKwYBBAHaRw8BAQdA9FwYskD/5BFmiiTgktstviS9svHeszG2JfIkUqjxf+/N
+ JU5pa2l0YSBLYWx5YXppbiA8a2FseWF6aW5AYW1hem9uLmNvbT7CjwQTFggANxYhBGhhGDEy
+ BjLQwD9FsK+SyiCpmmTzBQJnrNfABQkFps9DAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQr5LK
+ IKmaZPOpfgD/exazh4C2Z8fNEz54YLJ6tuFEgQrVQPX6nQ/PfQi2+dwBAMGTpZcj9Z9NvSe1
+ CmmKYnYjhzGxzjBs8itSUvWIcMsFzjgEY+ZIvRIKKwYBBAGXVQEFAQEHQCqd7/nb2tb36vZt
+ ubg1iBLCSDctMlKHsQTp7wCnEc4RAwEIB8J+BBgWCAAmFiEEaGEYMTIGMtDAP0Wwr5LKIKma
+ ZPMFAmes18AFCQWmz0MCGwwACgkQr5LKIKmaZPNTlQEA+q+rGFn7273rOAg+rxPty0M8lJbT
+ i2kGo8RmPPLu650A/1kWgz1AnenQUYzTAFnZrKSsXAw5WoHaDLBz9kiO5pAK
+In-Reply-To: <bb58a21f91113ca39f8888d718d4450a5fd72808.camel@intel.com>
+X-Originating-IP: [10.106.82.9]
+X-ClientProxiedBy: EX19D004EUC001.ant.amazon.com (10.252.51.190) To
+ EX19D005EUB003.ant.amazon.com (10.252.51.31)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_092558_598600_107B9EEC 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20260116_092832_736372_FE6E5061 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,42 +164,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Reply-To: kalyazin@amazon.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On Thu, Jan 15, 2026 at 11:17:37PM +0400, Anton D. Stavinskii wrote:
-> > This patch series adds basic audio support for Sophgo CV1800B, 
-> > as used on boards such as the Milk-V Duo. 
-> > The series introduces an AIAO audio mux driver, 
-> > an I2S controller driver, corresponding DT bindings, 
-> > and DTS updates to wire the components together.
-> > 
+
+
+On 16/01/2026 15:34, Edgecombe, Rick P wrote:
+> On Fri, 2026-01-16 at 15:00 +0000, Nikita Kalyazin wrote:
+>>> Does this assume the folio would not have been split after it was
+>>> zapped? As in, if it was zapped at 2MB granularity (no 4KB direct
+>>> map split required) but then restored at 4KB (split required)? Or
+>>> it gets merged somehow before this?
+>>
+>> AFAIK it can't be zapped at 2MB granularity as the zapping code will
+>> inevitably cause splitting because guest_memfd faults occur at the
+>> base page granularity as of now.
 > 
-> I haven't see your mux driver, is it missed?
+> Ah, right since there are no huge pages currently. Then the huge page
+> series will need to keep this in mind and figure out some solution.
+> Probably worth a comment on that assumption to help anyone that changes
+> it.
 
-That was bad copy paste from original version. 
-Thanks for noticing this. Will update the cover letter.
-I want to not overcomplicate already big patch series.
-So multiplexing will be done later. 
+Makes sense.  I'll leave a comment.
+
 > 
+> I imagine this feature is really targeted towards machines running a
+> bunch of untrusted VMs, so cloud hypervisors really. In that case the
+> direct map will probably be carved up pretty quick. Did you consider
+> just breaking the full direct map to 4k at the start when it's in use?
 
-> Thanks for your patch, for all the patchs, I hope you write a
-> meaningful comment for the patch, at least for now I found it
-> is nothing in your comment.
-
-Thank you for a great help with that series. Do you mean
-I need to add more meaningful comments for each commit or the 
-cover letter is not describing everything clear enough? 
-Anyway will do my best in the second version. 
-> 
-> Also, the patch 8 should not in this patch and should be a
-> separate patch.
-
-Yes I've missed this thing. I will remove the last commit 
-and move codecs nodes to the base dtsi file. 
-
+That's an interesting point, I haven't thought about it from this 
+perspective.  We should run some tests internally to see if it'd help. 
+This will likely change with support for huge pages coming in though.
 
 _______________________________________________
 linux-riscv mailing list
