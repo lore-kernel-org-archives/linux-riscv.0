@@ -4,167 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B449C98315
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jan 2026 15:44:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5908DC9832A
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jan 2026 20:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BjGuVaqhheHbyBby+/j3zBPN7mz80Bl3vHdfFi0mN+E=; b=tGGUtdnfOK0mev
-	8AOEtATV6+yWIWvDTsE7dkgFBn311YhB218BPbYtuvLMXOjnslledvb+gUX7fre98Y4wM1fdZBIcq
-	R2fD21JWb0uPjbNQwODlK9196JKRMD9DZt0u5f0BUoF/FqPfYTMke83gJ1b6n99Y2JnLUybtM7j5T
-	WhzSyTeofp8zcR2HK1T4X/SqftTLDd4/LsruxbjH+WwSKSuCD2ArzITvHWO2L3z+Bm9L9Dj3CpX4p
-	ii7iLEE7Ubwy2Do13HirBWkW7rAazrukPadVq6dNPkpBjRIPfoGKVChrpKJKs/qfzKr3mLnNVFKrJ
-	6UdBtmAC1nVWJNjJCn3w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IDPc21VQoT2S1QLO4uXdMIooBbp3bSc3xBLXGLZ9ThE=; b=hRV+IdXXkocEPT
+	iFjp+w++jjvhusc5UN2hrf3MfWHNrwN6nVWjmTngJZv0U/1/O4blGHcWlkZncwjOxyWBp8QoxUYjZ
+	1/H66/FqW5RIfJT+c8K5kPOvzUHvYVzUF6XelFrRAE96GZJkKCux4BuM1LJAS95ELpEnDHL+vUArx
+	zj4U/F2ASbuapHjkLYPm8dXzyJZePWwLYyurZXP8mfkJlm/vjfEg9+16GTHk/YCwxXfSquJeJ0pxT
+	jKHsb2J/LvkgrtRxK0fo4eYlJReaBgwhnsV7qyTM+LeTPC3PAa6q0KyBdOuUaWn+m+wbniR255SPB
+	FjO2W+UEDQ46+Yd6nZ9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vh8T1-0000000FdLL-0jzc;
-	Sat, 17 Jan 2026 15:43:59 +0000
-Received: from mail-eastusazon11012044.outbound.protection.outlook.com ([52.101.53.44] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1vhCle-0000000FtO3-0p9q;
+	Sat, 17 Jan 2026 20:19:30 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vh8Sy-0000000FdKw-0R1c
+	id 1vhCla-0000000FtNR-3Kaz
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Jan 2026 15:43:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JDmZb+nF4E2XPOFAi0rQ1foPs3SO0N0cUsIQhuryPDE4RCdUfnq0Nps4NAsuyfnVkePm4vLGuZwaTeGv0LrbiFz1/GJDEY6e0vHILEqjfWDkdyHkPjN3hQsWQethYRIVNecP9RmsWkRAY7L3YLJmrk0j8PAAGLyElhHoEZJRggRQ6pARI5I29RFe2QgcDRJeDsTpm3GZxxlohYlY6C4G6pXRw9xwZyv+1gFztrgBp3vh+jhP3DF6nGSN7C8sU8KsDnZc6hx/pxJM4clarNlgToht8/GsjqcK//GQjDZka+1ykowT8Droo68iE69BLOEmEMBHmVaZQeMQO6qRqwvcSA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WYch5h5I+JPTNkQahRmSqa+yJQx5X/orG8YXXopMePs=;
- b=vFkLUxk/suF0m04zB0HRafsT+qBhG1TdAaxcgBl8QpxkOdmKcysDOk8/09BiNghil/knBl80tFzPYUQCeBlvfYA5pSR7x/JSSmFh3mrp5Z9XMTV2/SiTSjMQ6YQ6E/MtOlwGOn9/ZfgvR7IeMRzNxenorGbWQ1QjG/frY584stXEX+/6CbUDje+5B6Tkt6wStj88kb3LJaFvQ7zoNsoYq3vQc6G8BcjO/T5DIcAqbsWaSZ8nrOFibVuGkMGx6S8Dcgnj8lq+FWtY/dtOtYjzBqaPEcO99ZMMbrCAkYGgPV6x6ghOdEQJCvtGc0JKj/xZ1J/yW3jihQ/M3o3RGPYPQA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WYch5h5I+JPTNkQahRmSqa+yJQx5X/orG8YXXopMePs=;
- b=gEG2orL9+Qetfm9xfp0XovyMjtq8tX6nWKZ3lK8p+8mrgHVoDWSuCyjDFoE33tLc5TW2mmfuLUXR8vinJgHqDmeodX0PGou2DcaESWgdtMijsObjGg3UtY3+ifqH68BIyf/YHNYFe8Sdtt6mx+bUdnYc2OEfAwLhSXg+xx7MNSqFCYu/5BQsNE3KTU8/xtPo+E/cO7lzpWpgITT4KV3v7J2ZiqW1FTBqPTRv9BCfv69V5QFJd/kN+uFzwYyuHh9VKIhfQoh1gqtKqLg5TqW+80ocZ7Q+dLvCmBbecUoXNEIJHTHFP/kTPKwOCTJbDc6zGWiXh/+nD1YQ3Ksw+61yNg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by DS0PR12MB7560.namprd12.prod.outlook.com (2603:10b6:8:133::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.5; Sat, 17 Jan
- 2026 15:43:48 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9520.005; Sat, 17 Jan 2026
- 15:43:48 +0000
-Date: Sat, 17 Jan 2026 11:43:47 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alexey Kardashevskiy <aik@amd.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
-	Justin Stitt <justinstitt@google.com>, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev, Bill Wendling <morbo@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Shuah Khan <shuah@kernel.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Will Deacon <will@kernel.org>,
-	Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
-	James Gowans <jgowans@amazon.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Michael Roth <michael.roth@amd.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Vasant Hegde <vasant.hegde@amd.com>
-Subject: Re: [PATCH v8 07/15] iommupt: Add map_pages op
-Message-ID: <20260117154347.GF1134360@nvidia.com>
-References: <7-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
- <fc4f0354-4e6d-452d-abfb-fe24e53253a2@amd.com>
-Content-Disposition: inline
-In-Reply-To: <fc4f0354-4e6d-452d-abfb-fe24e53253a2@amd.com>
-X-ClientProxiedBy: BL1PR13CA0409.namprd13.prod.outlook.com
- (2603:10b6:208:2c2::24) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Sat, 17 Jan 2026 20:19:28 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-47ee3a63300so28787415e9.2
+        for <linux-riscv@lists.infradead.org>; Sat, 17 Jan 2026 12:19:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768681164; x=1769285964; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XuMp3/hIeMrlP0ISwR7NIwGJWIBA2lBFXolUkLdtvk0=;
+        b=e5rzZHy3ocEJ9oQtlDV0pRs3yZfbeHvggajkGlnMG0s1CLHzRye0FAYQR0UWmTmgEM
+         6f1e4vAU+0SjGsPPDei1lxuR3F/sZhCaqIFBesj7oRGWBG5T8HQeWSFqWnpDZ3bWKEXm
+         FTa7fxbVen1y0rZ0HqYnenrKTF8J2Lrn4wMRtAi4RSqm8ck3eXy8mujrqfWLO7sCp26g
+         VnvDgwwZPULbtNlf6MBdna/ltQPpoTPujQJwDPtSnNFElPUxJqJUgrYuEK42zCCYV15g
+         kInI2qHtl6iji+/BWjzF1/bshop7fHiUifHH+7SU26xvRv1g3YQOrijaLndKHgOsScdl
+         aveg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768681164; x=1769285964;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XuMp3/hIeMrlP0ISwR7NIwGJWIBA2lBFXolUkLdtvk0=;
+        b=HPDNY/JIEF+Zc0WcUuuv8UoJwpGC1BiOcVTp0RW9kZ9gSvkdr+TQ3n6VuMklSyb41a
+         GIvVw23XB+x/A4NiPqayx3lBsfiKc52BirBOsLMSqsXtCPYR1hEG32x6itFFk/vVO/Ye
+         QoXcp1KjTpunuF0F3/vsHf6AkB4iltLezptAM7XH9/t9sr5QM4reeWsuQGHyk5swE6Zq
+         YlKOh8JBKrlFnLpxKgLYeEp9Pnq8tiKjXHrkrb/g0vOSMtzyn9g2Hvch7Ym9GPTesz5H
+         j99biDKyhFH7Sy/38Ez4uie+NEO/jQOlD/w1XrFfkwBwfnsmBGw62hYmCFtXNkerB2aS
+         vRFA==
+X-Forwarded-Encrypted: i=1; AJvYcCVeXiCZZH3E3gq7hV8UepbfgnpnQbpclY8JsebrJ6y5r4Zfd8TFxovP5xZErRLp8LEJ66HphY4gUVhsCg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHqlrxBKCute+FYuwb6iOuKagLbdGWgAaT0OpekzNIpyE6YWLU
+	upqu+JozOUsVN5wvs3Nsy22j97sGoZv/V5putQIKFB2eDOj+jGiMNAUq
+X-Gm-Gg: AY/fxX4VNE9qBnJw7mGdLLO03gXjq6wLZc/MbTBcar3UURzgAorCVwCKMg8OP13zHM+
+	XUW3LGwiLYGiTgaXvGX1S7SOqTELGEW0eih7IZGUyzSQLHKB1otoqsVxnzGt759HRLQKtfyVILR
+	RYyIC8jzo75wPEi3oDYYcHrytMLZWpFykMPoa/yK9bva59dEwHUjFQcLipRJyTXF98HaJmRco41
+	CKAocOQomrILjnqSVjrhCiXbaM/uVXLvuNmSwQpoHf54uoVJflMUUBaplyo0jQTI0V7u4EoM6HU
+	gVxK552NLdDAk1j8Sc6wIo2uPKl19fqOsTuYBf9pTAAPGl97m5Z6Ixbbi2CyC9X6jVTpjM+q2Ze
+	BUXcItM9FTZAScz9O4qqpjP2c+NqBkvCORvlXIY3KGVi/3KL1gl8UycgNmsW28VV9x05j1DUXLR
+	nJBtXoo3aTy8AT0KxookTSaVZIn7yeznSVu1mUUCaYKGHl
+X-Received: by 2002:a05:600c:6612:b0:47e:dddc:3369 with SMTP id 5b1f17b1804b1-4801e3530b7mr88935485e9.35.1768681163751;
+        Sat, 17 Jan 2026 12:19:23 -0800 (PST)
+Received: from [127.0.1.1] (bba-94-59-215-181.alshamil.net.ae. [94.59.215.181])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4801e879542sm112402295e9.4.2026.01.17.12.19.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 17 Jan 2026 12:19:23 -0800 (PST)
+From: "Anton D. Stavinskii" <stavinsky@gmail.com>
+Subject: [PATCH v2 0/7] ASoC: sophgo: add CV1800 I2S controllers support
+Date: Sun, 18 Jan 2026 00:18:52 +0400
+Message-Id: <20260118-cv1800b-i2s-driver-v2-0-d10055f68368@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DS0PR12MB7560:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1a4b01dc-1a10-4242-911a-08de55df349c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5Ooo152aCdKdA45rCC0bPAYOwShFVT9+qmA45XPIQmgDjspYNvkCga5EAn9W?=
- =?us-ascii?Q?eqaMciLcdRwxyqOZyEbYYyq8HuhvwIJvlIZggyyDtHaND4W5nXmiZGuyeUmL?=
- =?us-ascii?Q?ARrVvAw3lx74GohQ5O6MUPpcdhv682b1id2QVAC0fH8TNX7LUahU43D1V3Us?=
- =?us-ascii?Q?57bwWuc1egeNMZSm8ny5UE4tums/3FSqXLebbAAwJSDN2VC4AfN+Jbr6Gn3g?=
- =?us-ascii?Q?/MiSJ33rx5UWUNSraoHHiE+WDaHnSBw/9+AXgEpF5SRDPe017cSzrxTSJ6gJ?=
- =?us-ascii?Q?CY6+wBX2GKignSsOd7Et/7Ao2DvOBH1PNhGt6ECXK6gnbB5RccM9Ii6KKfSw?=
- =?us-ascii?Q?v4GcQn6f72yh80gx7Hr70pZ5wPmcXfXdnP68/VpavQNVSk2gutBCSJHIZchQ?=
- =?us-ascii?Q?cF8eD4peRv3GVflybjcxINcydtlFYh3P1B1iEq1bUGJMYUp4y56pn4Cqds9v?=
- =?us-ascii?Q?Wg/gCqJfAoudp4eRMczop7vw2DCtzG7/a+00UY05eiWqrt2R5ktGf6iGwAlh?=
- =?us-ascii?Q?sd0PETzYov6VHwE2BhZBSsbyBl96GvVCPibejai0kDbW2KzOM1e//Xp5OEhv?=
- =?us-ascii?Q?WodHWZb49CWS08ynC5yMHLda2pemBgN5qOhFbGrQtVV0gT8M01ttDZGIr+Ca?=
- =?us-ascii?Q?FkWvYLvPGKG/Pu9Hfx7EN+P84y3wXia8qBKPi6syV5C/SMSsR9/C9FBaK4hS?=
- =?us-ascii?Q?3FScxoxaMmyrndSLIGnPvzcB9VOAyt205k2irZzOZgqPr9I2e2MhJneuTSkD?=
- =?us-ascii?Q?RkXEIbfpLhuRwEh6p5cY9K70YuQfxENvfGcyFN9chAijWSSQXgHFquN7dE6J?=
- =?us-ascii?Q?02KDMbAVwRktMHNLoXMsZUStHO2h3SB2VmSvb7TimzqllzrJs48d1mlT+hkb?=
- =?us-ascii?Q?ip0T6x2p/dQk5KSTsTAOofvXTa+7WGTatzBo63lXKAco9Zw4MPWJO08rjjFC?=
- =?us-ascii?Q?3rScG8cunWLWLcT4I1M6eIuOvKpFfTBklSAQHAtRj543reNpdLTTGwyt0hux?=
- =?us-ascii?Q?9Vk2x5TkI6iq/V5m7MT5ZnmsLZiURjDl/P756HR2CgVVw0Xdk9RQ+li5yylk?=
- =?us-ascii?Q?LIy+A9/+UiftjEQTXrDlCwKOGBh2C8ZMa0nmtSObxkrDaOVJsVjgVD7SAmRd?=
- =?us-ascii?Q?SwsWcj2CCMcIpVeSC1PM4x48zkQjYD2eqESIQFJcF7l6U55xqw9XBFlz2cAr?=
- =?us-ascii?Q?xTOTPmcXNrzS2k4X2eKPwrBv6ZgKjFRKXrBc4d0OrRrHME13JwXdp3TP9I7Y?=
- =?us-ascii?Q?UCvZ1io+h0saDEr9NDWI5gW/meBW7smz1la5HyrVtkwi7RHKC+GsMgyHpjAa?=
- =?us-ascii?Q?QUK91ASyhGiGRi09QU/OhcSCAplfF2YyJENrDjrtNFkefcjEUkMz2s239o/y?=
- =?us-ascii?Q?atALdMkZyX9VODT7Hk5TXzce3sOy22B7A52q/ErYV7pUSN07TA6eGnT6CKnI?=
- =?us-ascii?Q?Dr6nTEBvEDHQrU9zKRLiCF0FX2I6jRHnQSbGZykgTCdri2r3G5lFIfmSV0UL?=
- =?us-ascii?Q?f/pN7MMBp1hTE8y+/W8oSW5jH8OzPX/pWd44uMspPxX3v/m2N/ZJmAgLDP8M?=
- =?us-ascii?Q?DjwpED+uwWjFx4sro+E=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lNe2nZ/YQXMagzNihui9HtaXUJbMWSo1wgIQQb+XPjENdeodLUa9a798dIBu?=
- =?us-ascii?Q?vDV+XwBpvbWiVRQ/XpY8vvIxOxxdZEppdfEitkNf4AidIhL05bpoq1EqQgE3?=
- =?us-ascii?Q?v6NYzQ4b7I3ReRmKOst5P8SAJfNidplyIPdBZZcKjlgkOzl3QaWvxrrjd19Z?=
- =?us-ascii?Q?Kl8geUgJldm9u5fUgHWI+JcIAhwshsysF/sxcHhVSRJ79KU0K3mnx9P9GTDN?=
- =?us-ascii?Q?7pINcVY7Xi540WmigdUJjA4lZOUYCHDvSNSxUc9apHlP4NcG+hUVbujU084e?=
- =?us-ascii?Q?TmxAbkUFyK2jmilX4GnUHbSPmVJ0zWvW5i8haP+6ifnwlF8diRAtdeFmAEb2?=
- =?us-ascii?Q?mFlaAN0MwdLP0dLCfNKEfUZWKOH1nvcjc6h8xOFCE2pmMyJC0Nx1OT6uzvAj?=
- =?us-ascii?Q?MaqOvoUnLV0d08GSEmhAosYoleLE93vLv1/3rvpiRdHlzqjiBymOIiaQ0Y6L?=
- =?us-ascii?Q?bzvbMsUHlKMW2TdrKRTBDPC8Yn9eq0uhKqdGoFIiGbo2OT3qzkXRoGtTyxmU?=
- =?us-ascii?Q?k9fc6mEYunCNYKOPRmQuapNGeYRLUFbatFk75mRrndrpsLYUtLQK/KZW+crq?=
- =?us-ascii?Q?dHduAxeTRQnN1/4EDjmhQFpczaf0XBzvG31JibmPAMReKyAL4fOFqKf2UBks?=
- =?us-ascii?Q?OmR7i/s/NsBZi0hs0sKVCKmG5GDdCkRD/dlifktJSpckKsQMxDNJjugaD1SP?=
- =?us-ascii?Q?z6Rz7XghsT5uHBS2GMj5PAC3AZjft1bATfkebCIEF2VwGKWUkerygLCeUvG7?=
- =?us-ascii?Q?4yepioEZ/66ABtmXcZ/bIngBAJMTzmx9I+DlrModfSyiPnLdB4ES9qvI/JbF?=
- =?us-ascii?Q?q1o/chtpkCAZmmNYTCO3JYVH6g1v+G8/hkKoNyg+1Sp1soVFHSFzuOo+pPsN?=
- =?us-ascii?Q?QC+MBfNQ0RHQnrzqPKM8Tj70weY8/hzhJE2DZYPIE5JDCOB6fXGedKBoVpDX?=
- =?us-ascii?Q?daV0ufKwwNzJARTPgd/vrwH4yTy9nzW1ZdI/fxKyoLDr3QcMPsfNHpsfA3z3?=
- =?us-ascii?Q?qkEMcLvzclQEWVhl2/nehBH7/2MQuiOi/gAPghJ8DeCRpNK1gvkMt4oTL4Ss?=
- =?us-ascii?Q?0NZQlaOWR7b886VVJof+c2wl3m8IMWXRzdaIXO7egfBXDXoDggoihjnr+Vly?=
- =?us-ascii?Q?e8YVXfz3h2I8lgKa/q6/ULOzyzR41xCKyFLIi85asAttvp2kt8m3ABlXYRDU?=
- =?us-ascii?Q?Tx1guhaahppnLO5awtPj6jhIL2Hh7hrO2W5I/T/vwdHcurwHGT2INZNAZCxW?=
- =?us-ascii?Q?Pa+U0w6wO9d7doarZCUOYINi03/EcDR8/Pc809G2t7cLRJtRe5ewLQ6ndVsj?=
- =?us-ascii?Q?SNyCaDNwBOUfVL9RvB0m/Fa7Wf9zb0gMRu+fGqnYajJuRAPYIvN2aTDNJc5H?=
- =?us-ascii?Q?f8GDk1+Ns5tdO1pwKLuBXx1jqPsgdPfJPKpDn1KBreQRKXaEoqsioxe5svV1?=
- =?us-ascii?Q?CJLUxoQitAukuNsft53HkXlpyt404Nlv2Aqs48l0qsmrjYbf8iHgJuZDkHIO?=
- =?us-ascii?Q?Oe2moq13daCPrQgZ9TdP0FWvZK3hLjeHxJXl35rQ+E6BRP4x2AW4tBbz3sZ5?=
- =?us-ascii?Q?AdAwncmstSLpkVDTTBPr+8jycPaVrhacTDtJIujP5ugkolQWWetvkgkbNNaK?=
- =?us-ascii?Q?BJcgQr/Vu/GhzduF7urbXaPVfDIpDtySxuHA8qV3Z3cCAd5r7jPLGRRX3rmM?=
- =?us-ascii?Q?GAEnD1k6rHXt3NPeT/iuEVmCCsoEkIc5+yOWZtB09YmBRcKPnjxff0LbXfYj?=
- =?us-ascii?Q?ifLjtEe+nw=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1a4b01dc-1a10-4242-911a-08de55df349c
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2026 15:43:48.3879
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pZAtciGKEtkQ9P1QwfpBoDdX6NhrgaOYOS0M7Edei84J9/RIlDRxcYVkyD3FsNaQ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7560
+X-B4-Tracking: v=1; b=H4sIAKzua2kC/32NTQ6CMBBGr0Jm7Zi2SmlceQ/Doj8DTCKUtKbRE
+ O5u5QAu30u+922QKTFluDUbJCqcOS4V1KkBP9llJORQGZRQWkjZoi/SCOGQVcaQuFDC6yA7c9G
+ BfKuhDtdEA7+P6KOvPHF+xfQ5Por82b+5IlEgGaeUM21nrLuPs+Xn2ccZ+n3fvw8+qGa0AAAA
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
+ Inochi Amaoto <inochiama@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, 
+ "Anton D. Stavinskii" <stavinsky@gmail.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768681160; l=3154;
+ i=stavinsky@gmail.com; s=20260115; h=from:subject:message-id;
+ bh=RuCJDqbjt4/1OjYPNQx7uliq1cjVd/YITyDYhrLPVMg=;
+ b=1sf6uqdI6XFVuR4O9E1Fi/GEDfhDfMyI4KYTNmqVXwV9EUQcZwt+LnKRH31/TxkYLA+qjYA1p
+ 9fVzB584N/fAAsluT+aHjZKfHFVVdKwhjHXHDQuufchXrgVWf62VfYx
+X-Developer-Key: i=stavinsky@gmail.com; a=ed25519;
+ pk=2WxGZ1zd1vQwSPFCSks6zrADqUDBUdtq39lElk4ZE7Q=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260117_074356_181663_D2B546E1 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20260117_121926_870889_36B332B6 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,71 +114,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 17, 2026 at 03:54:52PM +1100, Alexey Kardashevskiy wrote:
+This patch series adds basic audio support for Sophgo CV1800B,
+as used on boards such as the Milk-V Duo.
+The series introduces the I2S controller driver,
+the DAC and ADC codec drivers, corresponding DT bindings,
+and DTS updates to wire the components together.
 
-> I am trying this with TEE-IO on AMD SEV and hitting problems. 
+The implementation is based on vendor documentation
+and testing on real hardware.  This series relies on
+recent fixes in the DesignWare AXI DMA support;
+in particular, correct operation depends on
+the DMA changes discussed at:
+https://lore.kernel.org/all/20251214224601.598358-1-inochiama@gmail.com/
+The current driver implementation supports a fixed audio configuration
+of 48 kHz sample rate and only I2S protocol which is used in codecs.
+The series has been tested on the Milk-V Duo 256M board using
+the Sophgo SG2002 SoC. The implementation is expected to also work on
+Milk-V Duo and Milk-V Module boards based on the SG2000 SoC,
+as the audio and DMA blocks are closely related.
 
-My understanding is that if you want to use SEV today you also have to
-use the kernel command line parameter to force 4k IOMMU pages?
+Known hardware limitation:
+On CV1800B / SG2002, the I2S2 output pins cannot be enabled via pinctrl alone.
+Due to SoC design constraints, the output path becomes functional only after
+additional vendor-specific register programming.
+This series makes the limitation explicit and does not attempt to work around
+it implicitly via pinctrl or undocumented behavior.
 
-So, I think your questions are about trying to enhance this to get
-larger pages in the IOMMU when possible?
+Signed-off-by: Anton D. Stavinskii <stavinsky@gmail.com>
+---
+Changes in v2:
+- Updated cover letter.
+- codec nodes moved to cv1800x.dtsi with status=disabled
+- the commit with dts example for 256M board was removed
+- added details in commit messages
 
-> Now, from time to time the guest will share 4K pages which makes the
-> host OS smash NPT's 2MB PDEs to 4K PTEs, and 2M RMP entries to 4K
-> RMP entries, and since the IOMMU performs RMP checks - IOMMU PDEs
-> have to use the same granularity as NPT and RMP.
+- Link to v1: https://lore.kernel.org/r/20260115-cv1800b-i2s-driver-v1-0-e8b22b8578ab@gmail.com
 
-IMHO this is a bad hardware choice, it is going to make some very
-troublesome software, so sigh.
+---
+Anton D. Stavinskii (7):
+      dt-bindings: sound: sophgo: add CV1800B I2S/TDM controller binding
+      ASoC: sophgo: add CV1800B I2S/TDM controller driver
+      dt-bindings: sound: sophgo: add CV1800B internal ADC codec
+      ASoC: sophgo: add CV1800B internal ADC codec driver
+      dt-bindings: sound: sophgo: add CV1800B internal DAC codec
+      ASoC: sophgo: add CV1800B internal DAC codec driver
+      riscv: dts: sophgo: dts nodes for i2s tdm modules
 
-> So I end up in a situation when QEMU asks to map, for example, 2GB
-> of guest RAM and I want most of it to be 2MB mappings, and only
-> handful of 2MB pages to be split into 4K pages. But it appears so
-> that the above enforces the same page size for entire range.
+ .../bindings/sound/sophgo,cv1800b-i2s.yaml         |  75 +++
+ .../bindings/sound/sophgo,cv1800b-sound-adc.yaml   |  43 ++
+ .../bindings/sound/sophgo,cv1800b-sound-dac.yaml   |  43 ++
+ arch/riscv/boot/dts/sophgo/cv180x-dmamux.h         |  57 ++
+ arch/riscv/boot/dts/sophgo/cv180x.dtsi             |  63 ++
+ sound/soc/Kconfig                                  |   1 +
+ sound/soc/Makefile                                 |   1 +
+ sound/soc/sophgo/Kconfig                           |  41 ++
+ sound/soc/sophgo/Makefile                          |   5 +
+ sound/soc/sophgo/cv1800b-sound-adc.c               | 322 ++++++++++
+ sound/soc/sophgo/cv1800b-sound-dac.c               | 204 ++++++
+ sound/soc/sophgo/cv1800b-tdm.c                     | 714 +++++++++++++++++++++
+ 12 files changed, 1569 insertions(+)
+---
+base-commit: 7a52965b6976c936f413eebeee3f78c6faf09012
+change-id: 20260115-cv1800b-i2s-driver-4f17836dec56
 
-> In the old IOMMU code, I handled it like this:
-> 
-> https://github.com/AMDESE/linux-kvm/commit/0a40130987b7b65c367390d23821cc4ecaeb94bd#diff-f22bea128ddb136c3adc56bc09de9822a53ba1ca60c8be662a48c3143c511963L341
-> 
-> tl;dr: I constantly re-calculate the page size while mapping.
+Best regards,
+-- 
+Anton D. Stavinskii <stavinsky@gmail.com>
 
-Doing it at mapping time doesn't seem right to me, AFAICT the RMP can
-change dynamically whenever the guest decides to change the
-private/shared status of memory?
-
-My expectation for AMD was that the VMM would be monitoring the RMP
-granularity and use cut or "increase/decrease page size" through
-iommupt to adjust the S2 mapping so it works with these RMP
-limitations.
-
-Those don't fully exist yet, but they are in the plans.
-
-It assumes that the VMM is continually aware of what all the RMP PTEs
-look like and when they are changing so it can make the required
-adjustments.
-
-The flow would be some thing like..
- 1) Create an IOAS
- 2) Create a HWPT. If there is some known upper bound on RMP/etc page
-    size then limit the HWPT page size to the upper bound
- 3) Map stuff into the ioas
- 4) Build the RMP/etc and map ranges of page granularity
- 5) Call iommufd to adjust the page size within ranges
- 6) Guest changes encrypted state so RMP changes
- 7) VMM adjusts the ranges of page granularity and calls iommufd with
-    the updates
- 8) iommput code increases/decreases page size as required.
-
-Does this seem reasonable?
-
-> I know, ideally we would only share memory in 2MB chunks but we are
-> not there yet as I do not know the early boot stage on x86 enough to
-
-Even 2M is too small, I'd expect realy scenarios to want to get up to
-1GB ??
-
-Jason
 
 _______________________________________________
 linux-riscv mailing list
