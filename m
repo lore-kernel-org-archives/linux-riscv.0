@@ -4,64 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A8A3C9830E
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jan 2026 01:50:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47DC7C9830E
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jan 2026 02:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z5QZNybBrXpG2EplgxzMVr/zI9bsJvsV7Kc7aiU4/wE=; b=eZBDwTmSYb0Jwr
-	Xnh7srVOVVBUQxn4vgUIAob+xx0Agdo3eg9qRorGb0QM5nM0KzaRI9fCurf3du9ChfvVctGLkoFZt
-	fuAvcfcvT3vogYgej3x9eC103fWdtUZpkANb4t4t46r6d/QsUF81RT3U/D4jWO4G3qFTYrECCyLFR
-	ZW+HZTrxjMY40txEFWDbLl07fkRbmMbb25kds5TeSe+u0YFpEGsGRtyhi399Z07+IlNYhGsXGAWTw
-	U8yb8IgLUspWtguYLelkkqlle6xgtgVr0G7Qtg85l6OsLFW2vXBjwvxiz77/0KA6QROunpejnjvem
-	Vdcdu6CJZlVyxuceeO8Q==;
+	List-Owner; bh=RF51OTx4/YaS6VUmpAo5ZY7LPhEGweEWRzKeNKoek4U=; b=UcH3UoBHtjKT9Z
+	KHO8o+e83eC+FsKe0vY5tCRz+CgzE3xtJFsmtog1Z2XsnEE54RSkJMJ/Q8IAz7j4iHd5w4okAKTZT
+	7nlysW+uZWJgKXJV7iWaOdzSU0a+XlPwrnrzza8DoZvzayQINiBLOsCRwW7+3YT/7ThrAePOzMGOZ
+	KguzZGcmf89zfwFanLcOfPQ6lI0xY3CU9vhDmj+BeGe+ovneKspShcAq0jbhVjRPttGBiOer9R/1G
+	DkK67UzGGC81ZVlAT1vKRfT+c52C6BuP03aL9micGLSR4oejYu2nf5OFKKBHQk0kWEii/JChIW18P
+	h9yhnAQzf9fE0W0qSbIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgvSG-0000000F6gB-49Os;
-	Sat, 17 Jan 2026 01:50:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vgw3L-0000000F8Ii-11zW;
+	Sat, 17 Jan 2026 02:28:39 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgvSF-0000000F6g4-1vvF
+	id 1vgw3I-0000000F8IN-228L
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Jan 2026 01:50:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 87AE060127;
-	Sat, 17 Jan 2026 01:50:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16477C116C6;
-	Sat, 17 Jan 2026 01:50:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768614618;
-	bh=HHh9ZV1eeKj6Trg9Xh2+VW3se7+1zby2EC8XLucq688=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=AWypVmm5pwqFAv2V3e/333t+Ir+t/lcrorNRjhvzfDOryD1wRmvKvyk3SKQIbNMaQ
-	 1vnVtpJohJKIarJxJpFEd1AwRsHxFzX2k+7DM7/aRtoBJI9WeSsvwQIiJ7J3INHr8p
-	 cyu6TK5x3KS+4OP+iYvFATB/+KQHX4qAteNgH+sDEUcI+IXN4z6qXAnr/zx/JpBEhH
-	 C9yfNm2E07VcrvDv2vi0diAE1cqloKcYLgGQGVuisLacwr6bV/ShKrPcRP1pxgCG4c
-	 HhX/YR4NoSpSnTcCcoFAbiT2jVxgC9+bnX8ezrGRnjNH1lQ9XhclKsa0I23ODWM1tt
-	 1ivln/KfkzNgw==
-Date: Fri, 16 Jan 2026 18:50:14 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>
-cc: Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-    Boqun Feng <boqun.feng@gmail.com>, Mark Rutland <mark.rutland@arm.com>, 
-    Gary Guo <gary@garyguo.net>, Paul Walmsley <pjw@kernel.org>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Yury Norov <yury.norov@gmail.com>, 
-    Rasmus Villemoes <linux@rasmusvillemoes.dk>, Chao-ying Fu <cfu@mips.com>, 
-    Aleksandar Rikalo <arikalo@gmail.com>, 
-    Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, 
-    linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-    torvalds@linux-foundation.org, olof@lixom.net
-Subject: Re: [PATCH] riscv: support CPUs having only "zalrsc" but no
- "zaamo"
-In-Reply-To: <20260114072552.731974-1-vladimir.kondratiev@mobileye.com>
-Message-ID: <8afa0702-4d30-86e2-5afb-a7c113a92dec@kernel.org>
-References: <20260114072552.731974-1-vladimir.kondratiev@mobileye.com>
+	Sat, 17 Jan 2026 02:28:37 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-8c6a50c17fdso175375985a.2
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Jan 2026 18:28:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768616914; x=1769221714; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=dta8pivS2rued3Q3ChMqGgKi/kS9yYaS8vWr9CkDH7o=;
+        b=g6yG/4fKca0aAgFSIle7t3jlOstFkGeiZ8iJ0V/GxLNXgQGKRGPHifeOReoQwywJ0D
+         lVnTA7zSJADUwgjgFuN5Ih74yF4hoLJtQA6EMz6MCQLQyD2MCBPGxiQ9zVPb4GWxFLRF
+         w6anUpcqQtOSsQEw2DStop5DjeyALA7l/WFyt6qKYxQMvd3URqebS/bxd3ZI9Uow6Ry1
+         wzqQviK2o+EGkmUsdW9yQjSc8zC3b+QRlKK3orxpxqNUfDI3SYevbstzQGSANy5gM8bv
+         yagSSDNeEVT6XU/mgIIoTp0tGLsJvdEJnUTpJnEACknXQ50y/Z6nsMnvOAu5WXuG3txg
+         oppA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768616914; x=1769221714;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dta8pivS2rued3Q3ChMqGgKi/kS9yYaS8vWr9CkDH7o=;
+        b=N9VB3ASiyDaH1xmoVhv9w+uazLpzOMlBkDt6gtSNoL78xYYUdFgNmsJ+ZHb/0VZi/9
+         Yc3vNUcD7trxPPdT1vGv4D0Wgsm6O9Jk3hocKiZHrJb7aa0HqlMbWYYG01mZjnm4L3QL
+         hRhQr2hmY6423vaHEwcOBgLVqq+WVHt8eXY+oO/gGxJsHvdjyZG1UDFFprJbDHHTCznl
+         dBziWKPxl8Yw5egHPE3LvD7Ly7vkZODGhda9tRg5yRCzkP3JglyG8N0y/mZ48cgqkDHp
+         8bxYuoDH+mkaTicZ4mh0yX8tCKCKL4NIMl3B6uEchBq38OmCd2pTMs1QDmBFNU/A6AtD
+         ZanQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXtxq0kVDafH/XNFSXtqYXqP+iI4JGcic8fin4F2Gj1vzwUIL97tySXJHKznSoaFqKHMmvLZAN4L0zjpg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YymhOGSy563d56/e3/OX4bH5F0PDAnbzMIFDRnEsKrjkHNgn2q4
+	kT5EZV1lhJZuJ76fqr9VmHDRNQ7ce8e8qxFBVheqT73V88RP3WS5PWG1bTVKN7Wn/Hs=
+X-Gm-Gg: AY/fxX7XVnICaEq45QRK0L/weW4zzkesgoT4ophJLTg2W6GmfxIB2gH9ndgZUbxmKTa
+	LwC0IduC9l/ASnaBrDiGM3hk256rhAQ/Tr7vkoEhhOhPtanzDIikoVQAu4Y03r1CLIHkrSj8coX
+	JRXF3JVtnsF1K3ho3IuTTbhwsvb3L1htkWwrOP0A5KTuQm5Q6+ooM9wuUzRW3p/wO+QXcF3QA9X
+	vNeck8jEd2kkXRb2iA3b4Hys5o7AxNgKQlcGqG/FRNxJv+qR4ese3njUOMfNi/8/7VerMSF0xr2
+	bAq1N8b4P2tyjPhJeyddR8+Ll8NHaxqchHkSVntLDyZE5NOP0qUzf5Wju/e4SrvjtnIeBnkfKAG
+	mvtQen283fvX0jnNG3evioyJdp+tptHhO5FsSjUUkCQoVwLXbXJGzCIGKCHtlVU584M1WVzWyrz
+	v4qicq6316OQ==
+X-Received: by 2002:a05:7022:4588:b0:123:3bba:fc4c with SMTP id a92af1059eb24-1244b381373mr3575104c88.38.1768609928525;
+        Fri, 16 Jan 2026 16:32:08 -0800 (PST)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1244ad740c5sm5332461c88.8.2026.01.16.16.32.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Jan 2026 16:32:08 -0800 (PST)
+Date: Sat, 17 Jan 2026 08:32:02 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Frank Li <Frank.li@nxp.com>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
+	Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Chen Wang <unicorn_wang@outlook.com>, Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
+	Longbin Li <looong.bin@gmail.com>, Ze Huang <huangze@whut.edu.cn>, 
+	"Anton D . Stavinskii" <stavinsky@gmail.com>, dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, sophgo@lists.linux.dev, 
+	Yixun Lan <dlan@gentoo.org>
+Subject: Re: [PATCH v2 3/3] riscv: dts: sophgo: cv180x: Allow the DMA
+ multiplexer to set channel number for DMA controller
+Message-ID: <aWrYSw94WjqPrUkK@inochi.infowork>
+References: <20251214224601.598358-1-inochiama@gmail.com>
+ <20251214224601.598358-4-inochiama@gmail.com>
+ <aWpcfqHDFaq8Lsv5@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <aWpcfqHDFaq8Lsv5@lizhi-Precision-Tower-5810>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260116_182836_568929_F7DD7CCC 
+X-CRM114-Status: GOOD (  17.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,84 +109,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Wed, 14 Jan 2026, Vladimir Kondratiev wrote:
-
-> riscv have 3 instruction set extensions related to atomic operations:
-> - "zaamo": atomic instructions like AMOADD
-> - "zalrsc": LR and SC instructions
-> - "a" that is "zaamo" + "zalrsc"
+On Fri, Jan 16, 2026 at 10:42:54AM -0500, Frank Li wrote:
+> On Mon, Dec 15, 2025 at 06:46:00AM +0800, Inochi Amaoto wrote:
+> > Change the DMA controller compatible to the sophgo,cv1800b-axi-dma,
+> > which supports setting DMA channel number in DMA phandle args.
 > 
-> Historically, "a" was first, and Linux was relying on "a";
-> then "zaamo"/"zalrsc" was introduced. It is possible to implement
-> most atomic operations with either AMO or LR/SC. AMO if more efficient
-> however more complex flows are possible with LR/SC only.
 > 
-> Platforms supporting only part of atomics starting to appear.
-> Notable is MIPS P8700 CPU [1] having only "zalrsc".
-
-Are there any others?
-
-Are development boards available yet for these kinds of designs?
-
-> CPU reports ISA extensions supported in the "riscv,isa-extensions"
-> property of the CPU OF node. Platform supporting "zalrsc" only should
-> report "zalrsc" but no "a" in this property.
+> Does it need update DMA comsumer?
 > 
-> For the early stages of execution, before alternatives applied,
-> (ex: head.S) CPUs having no "zaamo" extension rely on firmware
-> emulating AMO through "invalid instruction" trap to the M-mode.
-> 
-> Speed-up the rest of execution using ALTERNATIVE,
-> replacing AMO versions with LR/SC ones
-> 
-> Implementation is generic, inspired by the patch [2]
-> by developers listed below, implementing similar patch as errata
-> for the MIPS P8700 CPU
-
-This doesn't look like an erratum.  The designers of this core just chose 
-not to implement A support in this CPU, and that's why that AMO_II bit 
-exists in the mipsconfig6 register, correct?
-
-> [1] https://mips.com/products/hardware/p8700/
-> [2] https://lore.kernel.org/all/20251014-p8700-zalrsc-v3-1-9d81bd8093e0@htecgroup.com/
-> 
-> Suggested-by: Chao-ying Fu <cfu@mips.com>
-> Suggested-by: Aleksandar Rikalo <arikalo@gmail.com>
-> Suggested-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-> Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-
-I guess the proposal here is for the upstream kernel community to weaken 
-our A support requirement to support these special cores that only support 
-LR/SC?  
-
-If so, I suppose the question is, should anyone in the upstream kernel 
-community care about this case?  It wouldn't be enough for the kernel 
-alone to support this.  A special userspace would also be needed.
-
-This looks like a variant of the big-endian issue discussed earlier, 
- 
-  https://lore.kernel.org/linux-riscv/CAHk-=wgfpswvq0TypePyjv3dofO5YaUC_fSd_MjzY7jogCUnCg@mail.gmail.com/
-
-If we take these changes, it increases the complexity of the upstream 
-kernel, and increases our testing matrix as maintainers (and, in theory, 
-for any patch submitters, who should theoretically be testing their work 
-on the configurations that we support).  It's not clear what the gain 
-would be for the broader community.  As maintainers, we're already 
-considering stripping out other code that doesn't seem to have significant 
-community support, like no-MMU, for similar reasons.
-
-On the other hand, if boards with Zalrsc-only cores seemed popular in the 
-marketplace, and some sort of support existed in common userspaces, such 
-that we could be sure that there was some sort of commitment to maintain 
-this across the entire ecosystem, the discussion could be more favorable, 
-I guess?
-
-Palmer might have some other thoughts here.
+> Frank
 
 
-- Paul
+Not needed, this is handle by the dmamux driver, it is allocate and
+configure the DMA channel dynamicly.
+
+Regards,
+Inochi
+
+> >
+> > Fixes: 514951a81a5e ("riscv: dts: sophgo: cv18xx: add DMA controller")
+> > Reported-by: Anton D. Stavinskii <stavinsky@gmail.com>
+> > Closes: https://github.com/sophgo/linux/issues/9
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > ---
+> >  arch/riscv/boot/dts/sophgo/cv180x.dtsi | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/riscv/boot/dts/sophgo/cv180x.dtsi b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
+> > index 1b2b1969a648..e1b515b46466 100644
+> > --- a/arch/riscv/boot/dts/sophgo/cv180x.dtsi
+> > +++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
+> > @@ -417,7 +417,7 @@ sdhci1: mmc@4320000 {
+> >  		};
+> >
+> >  		dmac: dma-controller@4330000 {
+> > -			compatible = "snps,axi-dma-1.01a";
+> > +			compatible = "sophgo,cv1800b-axi-dma";
+> >  			reg = <0x04330000 0x1000>;
+> >  			interrupts = <SOC_PERIPHERAL_IRQ(13) IRQ_TYPE_LEVEL_HIGH>;
+> >  			clocks = <&clk CLK_SDMA_AXI>, <&clk CLK_SDMA_AXI>;
+> > --
+> > 2.52.0
+> >
 
 _______________________________________________
 linux-riscv mailing list
