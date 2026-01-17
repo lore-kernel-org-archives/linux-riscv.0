@@ -4,83 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ACA9D4A5F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jan 2026 05:31:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40F6CC9830E
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jan 2026 05:31:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:References:
 	Mime-Version:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=taGK9vtWxEUbCvxXsajQIB7Hjeq6C13ymb6jZRpAKdg=; b=ZVUeuB3aYTLCas
-	400jEt0T4RS4PBVhUf6qsoj39QqG0cg5R12YkjKzMAWFBzsZjF+VWkj9Gqu+heDvNMwDyikxaWFI3
-	RcKQBhba9DF32niYG8t5SGBAIui2bzxflV2sKeOs0h/1x54i+Ol7c2Ff60TNgNuwdmoDvCaCMmJJS
-	XUio+eygOyufNYodxunDGQGlhj+WQmlC7U9u/37jBm/8/ikx5yAl47DzyL2yi03a92d5FgEvXn4jx
-	c3+SCcgC8JrxWdAj/K8O7iw8PeaYatszOXUy9ak3NX1HhIhZVw6Ox8tSB1gY+FUwQZuh10qBniQ6R
-	cXUIi9WWMqbyGm7XdIhA==;
+	List-Owner; bh=AqlJtboPWJf7KKkbpK3mewZndX/NKzpTN6u0eewcLJc=; b=SHn2RLYr7rqd9N
+	zh4uqtPNylS7t/A+t9sOwjqLhk+Iy3mbrJ5pWmite/QwG5VkItfo+gAIrpG+VRAkxRDJOUdsAoYQp
+	ReYP9hRIC/ZbO1JArlfo72Sp59aMzoxUDLItKfXMFRUbu3ttGcWC205vSl5iNwCqWTDvV1+g51t6a
+	xjz0V150vl6THn1+CTOBvzOn6osA/UQrf8/6W1OZ0xWLhKg9h7eJm65J37qRFkKqjl4mpOd0eUpVy
+	GaGHmCD8tCyqSC6bgWwacgEsw0+U8BAGF51EmAuzcJPmBoPwuTTd1Ty57DLN5cOPVA3u06Q8C8plO
+	3EZ1wRcneltCcrxZYF2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgytu-0000000FGG7-1lVd;
-	Sat, 17 Jan 2026 05:31:06 +0000
+	id 1vgytr-0000000FGBa-2nmJ;
+	Sat, 17 Jan 2026 05:31:03 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgysw-0000000FF48-0Sgw
+	id 1vgysz-0000000FF8T-2xdh
 	for linux-riscv@bombadil.infradead.org;
-	Sat, 17 Jan 2026 05:30:06 +0000
+	Sat, 17 Jan 2026 05:30:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=w/cI6wzc88dPba4Z3EWyEhx9YKJRNqyLJPumk+e8HfU=; b=SIu4r9EcRkrVpdUI4BpUS+OQr0
-	/A7d8cCH9lVH+g1M/C+mWdTYmRegeQ8ZQbOCUDpqlEE/fOxxlO169toRrXYdCkuaJsE1SXWJuiQ69
-	JBCOny4d73JiX74qB3m6V7wucwsZABx5BfjaOnLHmbNGrrnlGMN4tw5Mf/bDJSuzNf4tqbyIM+oSe
-	5QK+gS4Sci5GzVLgcxn8uqvQ2hK/vsGFzbHiRU4/Ojes+CvsVrm+BN43tpJhK5k1I/+qUdVTXJAEN
-	ThDl6Vs3dIzX4yzpSlNCp6OY3YF3LK+reRQLLk5mHJKgU3TLGHPHSRSxW7gcDDPNpGLHN+15R/gSI
-	Hcwtb24A==;
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	bh=qJFJ/K9bRhHbh9aObqDCWyeE1pcCmkJcXdgq+xqodbk=; b=LyTZBXnOoNNr0oVVRazCSBjUas
+	bT57US8ZZpmCyIW7f0nFzDUimU7Bqditk3xkJJWDET4C+KyAYCZEVKVGE0ps4sQfrUsxlcf7vE9sf
+	dIx7I4xo6oBCi5FXqzL4Eeh/JYwr1RAbr+IFH9kaqh0qKCGEYiFQuNnBQrRkK5tWPUHGDCbFYFodf
+	qBEeS8efIRIJahKPlRbYRjXycdMMjskJ80ljSCKOYFJ9i0sspHWXN2WvDpM92axjYO57WYilHUmAf
+	2M43E4xiuMOJ7Ta47WFFcqy1ivIq1ibdvGYl/O1ZLN1FaThVIc8Yz/aRXtJpICSQOiKTKYuMydwvz
+	9SKp5qCQ==;
+Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
 	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgyss-0000000ALc6-1ay0
+	id 1vgysv-0000000ALdp-3glq
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Jan 2026 05:30:04 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2b6a8afb513so3064657eec.0
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Jan 2026 21:30:01 -0800 (PST)
+	Sat, 17 Jan 2026 05:30:08 +0000
+Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12339eea50bso15301100c88.1
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Jan 2026 21:30:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1768627799; x=1769232599; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1768627803; x=1769232603; darn=lists.infradead.org;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=w/cI6wzc88dPba4Z3EWyEhx9YKJRNqyLJPumk+e8HfU=;
-        b=kFfcMLa4xETPIU7FwTNusi/PFYhaXvixvszeOb45mwzdsWEtDzyZy1pPJmkh7IRdgj
-         +KvT0pI25E5jhPj5+5lugnUdAX/HOHbKgRwYBXMrvw4kGZb85RdJHJs3MSxGOzuX/wJN
-         0v+Lv8mNNxNIRRURRhFP+MX1H4Sa8TA49vJb47EMHQLruPYYkpmGGXQlFt441mgYHSkI
-         pSbhso5tAvaR2L3VvB1V0pDqbRsNzWFuab5in/X53Si5rUD0rANVUPCDUCjDakiuPCeo
-         gUEGbigZZL6kPdyQzmMKrQL3jCjiAajo40Q2rfRMI+vfbt5vDeM4YzK+P7WW8a5LjK9A
-         OUXA==
+        bh=qJFJ/K9bRhHbh9aObqDCWyeE1pcCmkJcXdgq+xqodbk=;
+        b=px1xCB62YQs3CBCF4X02JRc5LVHFF6ilAFRtWrTUiVQZmc5xQLEBlJEPS6nzfsLTWj
+         bqxRxKVHzI72xYSLP425glGME+kcEJIUCM3t9oN0L/V3VMsDZGXGrYblPEUyY4YR3NUS
+         Xe3qBsQCrBS2j76OFqpzxpJVyUmwunc2abBBwTdDdz0Dco1ybGL2xroi8QKsnerfZmMc
+         6NR3X2M7JwEcUtuf8Ik2Q1VK+4Te7WDylNyaOjCYYHWv9vmf8qsofTku6sgI2Phtc21k
+         +gL+K/hP/a3tCkaHQKUd5joVGgZ/o4r8DcL3PYAos5hd/DNHthG8EIulXldOZc3jz7eY
+         0vng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768627799; x=1769232599;
+        d=1e100.net; s=20230601; t=1768627803; x=1769232603;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=w/cI6wzc88dPba4Z3EWyEhx9YKJRNqyLJPumk+e8HfU=;
-        b=bPntpGxWO7XiroWsxPmuxXogksM7DdMlmPozyuxIPkqEmc17HogFcgSK6uZqDmb3Ex
-         GiJd+xcVOPgHcLRrBlA5KCV8GIU2JBuYpXw7IkMcl8LUKr4P4Qv8uOgiSLqTdS1ui6/0
-         Ig2K4Q+znhj9ArsuRxkiVuMwjSduOzSCNmQqBbpwahQ3hf2xsidIOcWqot3exqjPYalY
-         cvX+c7HcksV0w+91Re5yfLZtVe34kV4iu6s+y9oVu06BsR7/no/1LRy+TUVmkdZe11vE
-         DF2udK16PdYhZoBeYRyb2Gtf8jpqSU6jK63VIjWwCrhr69J1GgZWTlIisp2yS8J0VbLn
-         fiYg==
-X-Forwarded-Encrypted: i=1; AJvYcCWJqDA0kk9uz9WN00v2l9Tmg/4DKfKo7O6EhUWIW9Xn6zTLkhLekGNCDrURHYvvb0TCqJKQp8/l+FeKpQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXv6OQ7/p8PeGjP5v7TAcTpdAwh0WxVL1t8swq0sB+gwFtrmFH
-	NbnHdE8XrM8lNUHhG8mKu+JSrqED6Q741Gn7lA4oxAeLO1ji53Yp8SbIBscRspENARQC/Uvg3EA
-	EC0+d8d/ivg==
-X-Received: from dybmj1.prod.google.com ([2002:a05:7301:e01:b0:2ac:3545:743c])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:6d1f:b0:2b0:4e86:8157
- with SMTP id 5a478bee46e88-2b6b46eb100mr4487390eec.17.1768627798660; Fri, 16
- Jan 2026 21:29:58 -0800 (PST)
-Date: Fri, 16 Jan 2026 21:28:47 -0800
+        bh=qJFJ/K9bRhHbh9aObqDCWyeE1pcCmkJcXdgq+xqodbk=;
+        b=JjpaKP154kktUiA/wMdk1F3jzKY+zIx6I1mALKxnVcXMxKKsoOI533X8P9iZ9JbFgY
+         j22L8MSXhfMWksHwZG9ef18cA4ym4Lf5xuQiykhFTRIgNMmwBslst3LfBTAWOWF3ByRZ
+         Ep+9R+9jeXTRpaz+BpyCSRER2JShL7muz9r1BX60BZ+MH4iNyi2FfMnAC6gSdo8nF0Ml
+         J89iAgf0Ctabo4oSkjMAGPBvsh3/eSuecWAtrZVVF+WNL+AsizNc1gAGOZkiAXoFACcd
+         a5mnDysVHAgqTD8tHhis1xKmdcf08nAWp4JJdeQOzutBjSxqZUL/Q0GFkEe8+e6nlEG2
+         jMSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUduyZL7ae1doz6BGBQUqeSKAwnCnYRqcOCYwilemYc80v0SFJ7ykDMWjcz7eUXh50Cj1D7BG9r2wkLTQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzM7jSU+6ShXxOOEJLNqYJKyN4TjZT59NaYf5RciL6TYa1csfZX
+	klxH53vCDXl83pZWo70FzaMXeluY4/aeGT+9sTBr7Ltaz0C17ugjqDqcV2pOLvdOaAp31Bph9/b
+	uuDUHQGAkZw==
+X-Received: from dlbqc7.prod.google.com ([2002:a05:7023:a87:b0:11d:cfa0:5ddf])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6886:b0:11b:9386:a3c3
+ with SMTP id a92af1059eb24-1244b395f30mr4327064c88.46.1768627802526; Fri, 16
+ Jan 2026 21:30:02 -0800 (PST)
+Date: Fri, 16 Jan 2026 21:28:49 -0800
 In-Reply-To: <20260117052849.2205545-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260117052849.2205545-1-irogers@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260117052849.2205545-22-irogers@google.com>
-Subject: [PATCH v1 21/23] perf build: Remove NO_LIBDW_DWARF_UNWIND option
+Message-ID: <20260117052849.2205545-24-irogers@google.com>
+Subject: [PATCH v1 23/23] perf machine: Add inline information to frame
+ pointer and LBR callchains
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
@@ -100,8 +101,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	Mark Wielaard <mark@klomp.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260117_053002_443305_AFFE9475 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20260117_053005_971268_BB01607F 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,115 +119,207 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Libdw unwinding support is present for every architecture that has a
-perf_regs.h - perf registers are needed for the initial frame to
-unwind. Elfutils also supports sparc, arc and m68k but there is no
-support in the Linux kernel for perf registers on these
-architectures. As the perf supported dwarf unwinding architectures are
-a subset of the elfutils ones, remove NO_LIBDW_DWARF_UNWIND as there
-isn't a case of elfutils lacking the support need for perf.
+Use append_inlines in frame pointer and LBR cases. Update the
+addr2line test to also test frame pointers. LBR is also updated but
+inaccuracy in the branched to IP means the inline information is
+missing in the leaf. Leave LBR callchains untested for now.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/Makefile.config | 19 +------------------
- tools/perf/tests/make      |  3 +--
- tools/perf/util/Build      |  3 +--
- 3 files changed, 3 insertions(+), 22 deletions(-)
+ tools/perf/tests/shell/addr2line_inlines.sh |  31 +++++-
+ tools/perf/util/machine.c                   | 104 +++++++++++---------
+ 2 files changed, 86 insertions(+), 49 deletions(-)
 
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 6f2c7bd36e74..5e4ae775987f 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -118,14 +118,6 @@ ifeq ($(ARCH),mips)
-   endif
- endif
+diff --git a/tools/perf/tests/shell/addr2line_inlines.sh b/tools/perf/tests/shell/addr2line_inlines.sh
+index 4a5b6f5be23d..ce30d9c7e0bf 100755
+--- a/tools/perf/tests/shell/addr2line_inlines.sh
++++ b/tools/perf/tests/shell/addr2line_inlines.sh
+@@ -21,8 +21,28 @@ trap_cleanup() {
+ }
+ trap trap_cleanup EXIT TERM INT
  
--# So far there's only x86 and arm libdw unwind support merged in perf.
--# Disable it on all other architectures in case libdw unwind
--# support is detected in system. Add supported architectures
--# to the check.
--ifneq ($(SRCARCH),$(filter $(SRCARCH),x86 arm arm64 powerpc s390 csky riscv loongarch))
--  NO_LIBDW_DWARF_UNWIND := 1
--endif
+-test_inlinedloop() {
+-    echo "Inline unwinding verification test"
++test_fp() {
++    echo "Inline unwinding fp verification test"
++    # Record data. Currently only dwarf callchains support inlined functions.
++    perf record --call-graph fp -e task-clock:u -o "${perf_data}" -- perf test -w inlineloop 1
++
++    # Check output with inline (default) and srcline
++    perf script -i "${perf_data}" --fields +srcline > "${perf_script_txt}"
++
++    # Expect the leaf and middle functions to occur on lines in the 20s, with
++    # the non-inlined parent function on a line in the 30s.
++    if grep -q "inlineloop.c:2. (inlined)" "${perf_script_txt}" &&
++       grep -q "inlineloop.c:3.$" "${perf_script_txt}"
++    then
++        echo "Inline unwinding fp verification test [Success]"
++    else
++        echo "Inline unwinding fp verification test [Failed missing inlined functions]"
++        err=1
++    fi
++}
++
++test_dwarf() {
++    echo "Inline unwinding dwarf verification test"
+     # Record data. Currently only dwarf callchains support inlined functions.
+     perf record --call-graph dwarf -e task-clock:u -o "${perf_data}" -- perf test -w inlineloop 1
+ 
+@@ -34,14 +54,15 @@ test_inlinedloop() {
+     if grep -q "inlineloop.c:2. (inlined)" "${perf_script_txt}" &&
+        grep -q "inlineloop.c:3.$" "${perf_script_txt}"
+     then
+-        echo "Inline unwinding verification test [Success]"
++        echo "Inline unwinding dwarf verification test [Success]"
+     else
+-        echo "Inline unwinding verification test [Failed missing inlined functions]"
++        echo "Inline unwinding dwarf verification test [Failed missing inlined functions]"
+         err=1
+     fi
+ }
+ 
+-test_inlinedloop
++test_fp
++test_dwarf
+ 
+ cleanup
+ exit $err
+diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
+index 841b711d970e..30d606fbf040 100644
+--- a/tools/perf/util/machine.c
++++ b/tools/perf/util/machine.c
+@@ -2090,6 +2090,59 @@ struct iterations {
+ 	u64 cycles;
+ };
+ 
++static int append_inlines(struct callchain_cursor *cursor, struct map_symbol *ms, u64 ip,
++			bool branch, struct branch_flags *flags, int nr_loop_iter,
++			u64 iter_cycles, u64 branch_from)
++{
++	struct symbol *sym = ms->sym;
++	struct map *map = ms->map;
++	struct inline_node *inline_node;
++	struct inline_list *ilist;
++	struct dso *dso;
++	u64 addr;
++	int ret = 1;
++	struct map_symbol ilist_ms;
++	bool first = true;
++
++	if (!symbol_conf.inline_name || !map || !sym)
++		return ret;
++
++	addr = map__dso_map_ip(map, ip);
++	addr = map__rip_2objdump(map, addr);
++	dso = map__dso(map);
++
++	inline_node = inlines__tree_find(dso__inlined_nodes(dso), addr);
++	if (!inline_node) {
++		inline_node = dso__parse_addr_inlines(dso, addr, sym);
++		if (!inline_node)
++			return ret;
++		inlines__tree_insert(dso__inlined_nodes(dso), inline_node);
++	}
++
++	ilist_ms = (struct map_symbol) {
++		.maps = maps__get(ms->maps),
++		.map = map__get(map),
++	};
++	list_for_each_entry(ilist, &inline_node->val, list) {
++		ilist_ms.sym = ilist->symbol;
++		if (first) {
++			ret = callchain_cursor_append(cursor, ip, &ilist_ms,
++						      branch, flags, nr_loop_iter,
++						      iter_cycles, branch_from, ilist->srcline);
++		} else {
++			ret = callchain_cursor_append(cursor, ip, &ilist_ms, false,
++						      NULL, 0, 0, 0, ilist->srcline);
++		}
++		first = false;
++
++		if (ret != 0)
++			return ret;
++	}
++	map_symbol__exit(&ilist_ms);
++
++	return ret;
++}
++
+ static int add_callchain_ip(struct thread *thread,
+ 			    struct callchain_cursor *cursor,
+ 			    struct symbol **parent,
+@@ -2170,6 +2223,11 @@ static int add_callchain_ip(struct thread *thread,
+ 	ms.maps = maps__get(al.maps);
+ 	ms.map = map__get(al.map);
+ 	ms.sym = al.sym;
++
++	if (append_inlines(cursor, &ms, ip, branch, flags, nr_loop_iter,
++			   iter_cycles, branch_from) == 0)
++		goto out;
++
+ 	srcline = callchain_srcline(&ms, al.addr);
+ 	err = callchain_cursor_append(cursor, ip, &ms,
+ 				      branch, flags, nr_loop_iter,
+@@ -2888,49 +2946,6 @@ static int thread__resolve_callchain_sample(struct thread *thread,
+ 	return 0;
+ }
+ 
+-static int append_inlines(struct callchain_cursor *cursor, struct map_symbol *ms, u64 ip)
+-{
+-	struct symbol *sym = ms->sym;
+-	struct map *map = ms->map;
+-	struct inline_node *inline_node;
+-	struct inline_list *ilist;
+-	struct dso *dso;
+-	u64 addr;
+-	int ret = 1;
+-	struct map_symbol ilist_ms;
 -
- ifneq ($(LIBUNWIND),1)
-   NO_LIBUNWIND := 1
- endif
-@@ -456,7 +448,6 @@ endif
- ifdef NO_LIBELF
-   NO_LIBDW := 1
-   NO_LIBUNWIND := 1
--  NO_LIBDW_DWARF_UNWIND := 1
-   NO_LIBBPF := 1
-   NO_JVMTI := 1
- else
-@@ -504,10 +495,6 @@ ifeq ($(feature-libaio), 1)
-   endif
- endif
- 
--ifdef NO_LIBDW
--  NO_LIBDW_DWARF_UNWIND := 1
--endif
+-	if (!symbol_conf.inline_name || !map || !sym)
+-		return ret;
 -
- ifeq ($(feature-scandirat), 1)
-   # Ignore having scandirat with memory sanitizer that lacks an interceptor.
-   ifeq ($(filter s% -fsanitize=memory%,$(EXTRA_CFLAGS),),)
-@@ -757,7 +744,7 @@ dwarf-post-unwind-text := BUG
+-	addr = map__dso_map_ip(map, ip);
+-	addr = map__rip_2objdump(map, addr);
+-	dso = map__dso(map);
+-
+-	inline_node = inlines__tree_find(dso__inlined_nodes(dso), addr);
+-	if (!inline_node) {
+-		inline_node = dso__parse_addr_inlines(dso, addr, sym);
+-		if (!inline_node)
+-			return ret;
+-		inlines__tree_insert(dso__inlined_nodes(dso), inline_node);
+-	}
+-
+-	ilist_ms = (struct map_symbol) {
+-		.maps = maps__get(ms->maps),
+-		.map = map__get(map),
+-	};
+-	list_for_each_entry(ilist, &inline_node->val, list) {
+-		ilist_ms.sym = ilist->symbol;
+-		ret = callchain_cursor_append(cursor, ip, &ilist_ms, false,
+-					      NULL, 0, 0, 0, ilist->srcline);
+-
+-		if (ret != 0)
+-			return ret;
+-	}
+-	map_symbol__exit(&ilist_ms);
+-
+-	return ret;
+-}
+-
+ static int unwind_entry(struct unwind_entry *entry, void *arg)
+ {
+ 	struct callchain_cursor *cursor = arg;
+@@ -2940,7 +2955,8 @@ static int unwind_entry(struct unwind_entry *entry, void *arg)
+ 	if (symbol_conf.hide_unresolved && entry->ms.sym == NULL)
+ 		return 0;
  
- # setup DWARF post unwinder
- ifdef NO_LIBUNWIND
--  ifdef NO_LIBDW_DWARF_UNWIND
-+  ifdef NO_LIBDW
-     $(warning Disabling post unwind, no support found.)
-     dwarf-post-unwind := 0
-   else
-@@ -767,10 +754,6 @@ ifdef NO_LIBUNWIND
- else
-   dwarf-post-unwind-text := libunwind
-   $(call detected,CONFIG_LIBUNWIND)
--  # Enable libunwind support by default.
--  ifndef NO_LIBDW_DWARF_UNWIND
--    NO_LIBDW_DWARF_UNWIND := 1
--  endif
- endif
+-	if (append_inlines(cursor, &entry->ms, entry->ip) == 0)
++	if (append_inlines(cursor, &entry->ms, entry->ip, /*branch=*/false, /*branch_flags=*/NULL,
++			   /*nr_loop_iter=*/0, /*iter_cycles=*/0, /*branch_from=*/0) == 0)
+ 		return 0;
  
- ifeq ($(dwarf-post-unwind),1)
-diff --git a/tools/perf/tests/make b/tools/perf/tests/make
-index 36411b4b6d2b..767ad9e147a8 100644
---- a/tools/perf/tests/make
-+++ b/tools/perf/tests/make
-@@ -83,7 +83,6 @@ make_no_demangle    := NO_DEMANGLE=1
- make_no_libelf      := NO_LIBELF=1
- make_no_libdw       := NO_LIBDW=1
- make_libunwind      := LIBUNWIND=1
--make_no_libdw_dwarf_unwind := NO_LIBDW_DWARF_UNWIND=1
- make_no_backtrace   := NO_BACKTRACE=1
- make_no_libcapstone := NO_CAPSTONE=1
- make_no_libnuma     := NO_LIBNUMA=1
-@@ -120,7 +119,7 @@ make_static         := LDFLAGS=-static NO_PERF_READ_VDSO32=1 NO_PERF_READ_VDSOX3
- make_minimal        := NO_LIBPYTHON=1 NO_GTK2=1
- make_minimal        += NO_DEMANGLE=1 NO_LIBELF=1 NO_BACKTRACE=1
- make_minimal        += NO_LIBNUMA=1 NO_LIBBIONIC=1 NO_LIBDW=1
--make_minimal        += NO_LIBDW_DWARF_UNWIND=1 NO_LIBBPF=1
-+make_minimal        += NO_LIBBPF=1
- make_minimal        += NO_SDT=1 NO_JVMTI=1 NO_LIBZSTD=1
- make_minimal        += NO_LIBCAP=1 NO_CAPSTONE=1
- 
-diff --git a/tools/perf/util/Build b/tools/perf/util/Build
-index 3cb1edd263cf..c30ff257f8b4 100644
---- a/tools/perf/util/Build
-+++ b/tools/perf/util/Build
-@@ -223,9 +223,8 @@ perf-util-$(CONFIG_LIBDW) += dwarf-regs-arch/
- perf-util-$(CONFIG_LIBDW) += debuginfo.o
- perf-util-$(CONFIG_LIBDW) += annotate-data.o
- perf-util-$(CONFIG_LIBDW) += libdw.o
-+perf-util-$(CONFIG_LIBDW) += unwind-libdw.o
- 
--perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
--perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-arch/
- perf-util-$(CONFIG_LOCAL_LIBUNWIND)    += unwind-libunwind-local.o
- perf-util-$(CONFIG_LIBUNWIND)          += unwind-libunwind.o
- perf-util-$(CONFIG_LIBUNWIND_X86)      += libunwind/x86_32.o
+ 	/*
 -- 
 2.52.0.457.g6b5491de43-goog
 
