@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C98C98338
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jan 2026 20:19:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C35A5CA5FE0
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jan 2026 20:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GC46CvZ4/WyUD6gTPZd+p6vSF6ZTwk7V/DgX+rVhNLM=; b=ApzcZqieWD1435
-	Vt7Zoi8xl7fcomFJxbhTq3bWGoi7dUKNMMV5WivJIck6OHQJGNE3/EPsW1hgQuqv8jURamsRtEJlp
-	gIzcZ7agzJbC0gQARbrSajCVg5mlI0SP5eO3X6JBfuqQVBDnGt3MlH0FuKSKNv1Odjs3/HsSU8Uxf
-	bdpe6Zfnf78XkR5CiUAXvPyWDpOBNQU5tGC96aW7hTI+Q7LB2/TiESYrHko5x88l5eB6Sn3BoE3By
-	bEO3xDD5p8/9PcJECs2jSAtoyH3Lsam+LUyxa1H8HPFyHyQ5h2QPOTmMjqsd7lT1GcCFq34XrkkMv
-	1auk9LCjyoWXnG2HJ7Fw==;
+	List-Owner; bh=4r6KYCpdBW47unqtZN9XyXkSQvJZujvRPjkblU1P+Bc=; b=ZSukH4wfi4eaRa
+	dkSlHJuDqwyGLnrxnKPiM9fYiw5RgsOemxxYVstURkk/+uilh7o43Gd8sBMtw09V30JQbUPWWvk+T
+	3wr2EL3N1EREzLkMSOt/CwmWFuoq5dIIvCJBf0HpWqlwTzgjkK7fv0QXXQ/OhW0cDYop4L0/x3Vx3
+	liKjp7C2RunvNKfD/EwWdcotxSvWD4Et2bOBn0LEMN5jJRpYFwQht8HuNSFTdZDBfy8O6tg6BeiP2
+	rJ5lgqifJEgRQqSephH3SjEiLZyU5W9Mff7WktzkjQnWxJhdRkb9gmTMwCAS3TmXCaobQgh5JM/tl
+	9JNAvA//1li+9fJ8fUIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhCli-0000000FtPO-3VVH;
-	Sat, 17 Jan 2026 20:19:34 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1vhClo-0000000FtRB-20Bk;
+	Sat, 17 Jan 2026 20:19:40 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhClg-0000000FtOE-118z
+	id 1vhClm-0000000FtQA-3FIV
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Jan 2026 20:19:33 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-47edd6111b4so26636025e9.1
-        for <linux-riscv@lists.infradead.org>; Sat, 17 Jan 2026 12:19:31 -0800 (PST)
+	Sat, 17 Jan 2026 20:19:40 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4801d98cf39so11815745e9.1
+        for <linux-riscv@lists.infradead.org>; Sat, 17 Jan 2026 12:19:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768681170; x=1769285970; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1768681177; x=1769285977; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=qdtTggWtSnqWuzAEcucgKQmIhwVjy7+q/2HYsV8qzdU=;
-        b=iFSH/hF0su01uI8wE9RDVZMmlCAfi1NJil0UUKGdc3eH0tsxJUX4/igBbcbGCV3tAN
-         GZ8kOiqvempJwSJ+GCu8Z/r8AF0927ciMtwi+xooxCIDq0aDYyZCeeHAWAydFUr0xril
-         IUmOL6nuiEixcheQvpdDpGrrbRfBsnpUYO9NaV6cDFVZYAeCh9+QUQ8uWgR5MS43tKql
-         /v/VSJxgzmxLWmb9zeNM+/VEJZTuySK2xyGiHXKnkjW7cOntCZi1yWBBGkAxC1l0ymWC
-         VGZa6X+cJNz8wZ980GWutQo9seV9hjMqs9A4Vb7i2VZVd+gr6GfQGb/cEOnOOOuBunuc
-         LZZw==
+        bh=M+UkR1HZFum2uQlZYRs91yhhWbIXUBFNThSz2GGApOk=;
+        b=eUvhPZ6nok+wH1ijiKFoxhA9lbc+lIB5bPhgwf7sLjRaZIfAfRMBOwbZZ51HL0g1jQ
+         qcTg17QWkU3rR/nuV7iNHuzxFqhA6mjAmSTYBMb/I1ZskE6yH+onymTBbxWKsr656Sdp
+         sjoIL+X6CH336GKnOq2eIkyBZGJy0Bz6nQg6kQlxLXaeur4Kb9N4btledCTN3w+je3ee
+         b1QXXbONZfRa+Okc5cuXSqvXubqaaxA7nVdDqoQQ8UZiovEvqdi2l0fQC72At+75ndGH
+         LBMvoSZfwJgUfW3ADxcEyTzMFJUH0awXMSursnDz8p36Bg8J0Wjmz8pcvwCeWXhI4TSS
+         rbXg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768681170; x=1769285970;
+        d=1e100.net; s=20230601; t=1768681177; x=1769285977;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=qdtTggWtSnqWuzAEcucgKQmIhwVjy7+q/2HYsV8qzdU=;
-        b=uRTIFtxu0Oe5aIJBildXu3n3VmVe6XyGR9UsSY4Ci5C7Wtf7K6hr4VPB6JSXu+3kXV
-         UpO3TB8+fke7+9L6r2yAOLy/b4bx0xYU3Ra9ICgohkUPc9FjJ6TqCvZYGme7YpjFow/A
-         yvpruMRTmZ53PqlePu1qkVT1qm+E5cxm/HZK5n7nWl3wb9ga4+m6Zx9dBJ7Vg/zP0+Br
-         S+iA/ylEolqtu1YZYzEnDukYNrgTVCiQp6ZEla7IaWoL6BCeW0I8gmHldnh/1W3Yt8rY
-         vDCpuXrPkU9ijpNjr6EmlbWzrSXYKJQnY6wiSL4xr1AY/6rZ4zWIUyFsGp1rH1oGc1Ii
-         ZAnw==
-X-Forwarded-Encrypted: i=1; AJvYcCXaHmzNkHmUP6RP+WwgBdiU/5EwcHvs26H2hUCXY6lwUI4+sMSmvkjOjtRlqbdrUfCpqKAQe2FkXx8hYw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz629G2gnmvPnQ7sJUCUD1fbf9Q/parkRyGG3/+fy/nJ8L1+WO2
-	7UXAjxVLKE5nQ6OHQtMFSng8f1I8KWohx1aFC7xLL1gAv0JgsLddXFfP
-X-Gm-Gg: AY/fxX5hKRdmAG1DBXEGJEv3bSwLlMLgjt+HQm/4L/rCHGygi/Dy7dfI79UHsatDp5s
-	x98HPt6eatKcRhjCCnEDt/0UGEKE2DteCCAFE0+C4LIkO+5orUMXMnd9bnPIj3XekZI6W4UYG6z
-	bFTzw4Ew+NRLRghWEzFr1SteQXqInj0MFl+DUExh/6I2we0HEDTfxMjykDsPNwCT6fBCKuEH9U0
-	iWEx/mYrNa+MqXkOAhXVWdcptgGIWNiR79bVVy33M+cD1LIlHrox0Zg6+sGniIdRNesW7kHwQLo
-	7E5ng+IY5rzNgA8pqRdb9+wTxzubReMeYg3L3K9XoYCZITQ0Elbcyt6MrNJukVs3W+vklgBwa8l
-	qS8/pV4sLPr57R1JhDn3P7FmkiWeRYj3ZS/avztipNKMH+IN8+QYVT/gX2Oi1Ivs4vFKnYO+hoO
-	hwUUp2fGDUxxH8xTwvJIUu18MxvgrUMqwSmgqdEkQd8TsI
-X-Received: by 2002:a05:600c:4695:b0:477:b734:8c52 with SMTP id 5b1f17b1804b1-4801e2fec26mr94737935e9.14.1768681170061;
-        Sat, 17 Jan 2026 12:19:30 -0800 (PST)
+        bh=M+UkR1HZFum2uQlZYRs91yhhWbIXUBFNThSz2GGApOk=;
+        b=AiZ+5eMzUhZ2DrLHKA8mjmIhTaB2J7sk0zZfd17LN8cWcdqeft9Q/Pxqpo7Y0DXLO7
+         54IsXSzVDsP+Ia8RmLiyNZ+KOxH4hA18AdyvrWM7RC0zX2nFSjfVTYoMJA4NMxJkY/C7
+         U2nyG6gKO3bBslVT15TbRTNt4dnxBjwIrsiCbYf4il+MW3Ty5sEYQbcazi9Lv7aPaOEY
+         PtR5VqZgHOJXcyTEEk1vw67ELRYjx4kISHjSuoqkNHoaUuOD77luTiCk8BwLHcfWdwkr
+         B/g9pWXPov8GxxczDKbNsQeIwdTWV3Ol1kjAC9OR8POoZ4rAg4s1SaLp9PUA0hmMWKz6
+         9bQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVAjKWH5CwhGd4YrV7ec4CpmadYc4OmK7zBqIWX085oStoSTu/X0mCl9rr32pLxFX8btXg5dkvAZ/ZeHQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YynPTjuuvXdIFST1JvavNMUdMHWItKe1sIMmMLFC3SncPQeRC5y
+	pQFF8S3CFptJFW5RgkmU9AL7Wp39ZcqHvv3vPZZ5LMupzHaXawH8NYvq
+X-Gm-Gg: AY/fxX7v56kIo7nypadn6XqmYncCGIG1BHsyLCUpwGn7ozFqpCRXGyFycbwZK+u9Ip9
+	PXaMy53Y9w91jPqEIAkIls9gMteDUwMucpuT+QnfgrodD1eDLXnLqxBNbRxJ7ZfePOzZlNgPq0g
+	juDj06m2hxII5Pzlt0BQ9hzVuRTbyM7inwuJhM4oKY1ROIl9d+Fk5ERpdLsMUGJcgtm6ABRCsSE
+	KZyjByqKI1pOaea6xASvDLbLOhOv4ediVig8a4nrbnCX2Tklw86eXWc/vM10LYOA+rQ3tsOeyw2
+	nJr1V5eI7/jhpDJpM83dL2N3JfvDPiHZl8K0SkPMFjlGRtNl5eA8fSIyVjgmb6nFesHmF7ObEwX
+	T2RfMKo/9tL2mZ8iEV//wmg2hobtxlwaG588yyW1ATHP4Upui3EVhEy33MlT9noTEH3oZh7E6J0
+	QQGWA+LH/t0TrCSNwRjoSF29T7U/QVNCrbOQW5uQblxU+y6CfVNItUDlQ=
+X-Received: by 2002:a05:600c:a009:b0:475:dd9a:f791 with SMTP id 5b1f17b1804b1-4801eb0ef0bmr62487135e9.28.1768681176483;
+        Sat, 17 Jan 2026 12:19:36 -0800 (PST)
 Received: from [127.0.1.1] (bba-94-59-215-181.alshamil.net.ae. [94.59.215.181])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4801e879542sm112402295e9.4.2026.01.17.12.19.27
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4801e879542sm112402295e9.4.2026.01.17.12.19.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Jan 2026 12:19:29 -0800 (PST)
+        Sat, 17 Jan 2026 12:19:36 -0800 (PST)
 From: "Anton D. Stavinskii" <stavinsky@gmail.com>
-Date: Sun, 18 Jan 2026 00:18:54 +0400
-Subject: [PATCH v2 2/7] ASoC: sophgo: add CV1800B I2S/TDM controller driver
+Date: Sun, 18 Jan 2026 00:18:56 +0400
+Subject: [PATCH v2 4/7] ASoC: sophgo: add CV1800B internal ADC codec driver
 MIME-Version: 1.0
-Message-Id: <20260118-cv1800b-i2s-driver-v2-2-d10055f68368@gmail.com>
+Message-Id: <20260118-cv1800b-i2s-driver-v2-4-d10055f68368@gmail.com>
 References: <20260118-cv1800b-i2s-driver-v2-0-d10055f68368@gmail.com>
 In-Reply-To: <20260118-cv1800b-i2s-driver-v2-0-d10055f68368@gmail.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
@@ -88,16 +88,16 @@ Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, 
  "Anton D. Stavinskii" <stavinsky@gmail.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768681160; l=24524;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768681160; l=11247;
  i=stavinsky@gmail.com; s=20260115; h=from:subject:message-id;
- bh=YK8sOyjxEj2clVOTBQVKHJUKu6xazJnb6+5ewohsv7w=;
- b=JKBx/zbgf8UC7YFMY6pof1lkp3fPalOXNP33M97Zu70ELTqjnOFe8pMEWQYPJ/VYGQjSCHaS3
- eJuEFxTd5jQCm3aIS074BOqLrjdKZuchNPgam0rZBvouD2zxktPSUU5
+ bh=yoqDZc5ZVlZgdU+bd4E5tzHezHO66wUqbgpf8bFY4E4=;
+ b=Kh3fdLaX4mnHZSrSNmx5C/yL+afTAzTi84PHGn/Q2uCiR3cSfuRe7KJiZvTBMw0s+/RANKNEz
+ qLuXaWzmsl8CQcS8U2Xh8OCgN/Ht/G5jgeywp1j+hpJtSs2i2nBGF5Y
 X-Developer-Key: i=stavinsky@gmail.com; a=ed25519;
  pk=2WxGZ1zd1vQwSPFCSks6zrADqUDBUdtq39lElk4ZE7Q=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260117_121932_485461_497F1D68 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20260117_121938_881243_355F58BD 
+X-CRM114-Status: GOOD (  23.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,800 +114,376 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The actual CPU DAI controller. The driver can be used with
-simple-audio-card. It respects fixed clock configuration
-from simple-audio-card. The card driver can request direction out,
-this will be interpreted as mclk out, the clock which can be used
-in other CPU or codecs. For example I2S3 generates clock for ADC.
-I2S was tested in S24_32 and S16 dual channel formats.
+Codec DAI endpoint for RXADC + basic controls.
+THe codec have basic volume control. Which is
+imlemented by lookup table for simplicity.
+The codec expects set_sysclk callback to
+adjust internal mclk divider.
 
 Signed-off-by: Anton D. Stavinskii <stavinsky@gmail.com>
 ---
- sound/soc/Kconfig              |   1 +
- sound/soc/Makefile             |   1 +
- sound/soc/sophgo/Kconfig       |  20 ++
- sound/soc/sophgo/Makefile      |   3 +
- sound/soc/sophgo/cv1800b-tdm.c | 714 +++++++++++++++++++++++++++++++++++++++++
- 5 files changed, 739 insertions(+)
+ sound/soc/sophgo/Kconfig             |  12 ++
+ sound/soc/sophgo/Makefile            |   1 +
+ sound/soc/sophgo/cv1800b-sound-adc.c | 322 +++++++++++++++++++++++++++++++++++
+ 3 files changed, 335 insertions(+)
 
-diff --git a/sound/soc/Kconfig b/sound/soc/Kconfig
-index 36e0d443ba0e..edfdcbf734fe 100644
---- a/sound/soc/Kconfig
-+++ b/sound/soc/Kconfig
-@@ -127,6 +127,7 @@ source "sound/soc/renesas/Kconfig"
- source "sound/soc/rockchip/Kconfig"
- source "sound/soc/samsung/Kconfig"
- source "sound/soc/sdca/Kconfig"
-+source "sound/soc/sophgo/Kconfig"
- source "sound/soc/spacemit/Kconfig"
- source "sound/soc/spear/Kconfig"
- source "sound/soc/sprd/Kconfig"
-diff --git a/sound/soc/Makefile b/sound/soc/Makefile
-index 8c0480e6484e..21d8406767fc 100644
---- a/sound/soc/Makefile
-+++ b/sound/soc/Makefile
-@@ -70,6 +70,7 @@ obj-$(CONFIG_SND_SOC)	+= rockchip/
- obj-$(CONFIG_SND_SOC)	+= samsung/
- obj-$(CONFIG_SND_SOC)	+= sdca/
- obj-$(CONFIG_SND_SOC)	+= sof/
-+obj-$(CONFIG_SND_SOC)   += sophgo/
- obj-$(CONFIG_SND_SOC)	+= spacemit/
- obj-$(CONFIG_SND_SOC)	+= spear/
- obj-$(CONFIG_SND_SOC)	+= sprd/
 diff --git a/sound/soc/sophgo/Kconfig b/sound/soc/sophgo/Kconfig
-new file mode 100644
-index 000000000000..70f07d46c810
---- /dev/null
+index 70f07d46c810..813ab30d6da3 100644
+--- a/sound/soc/sophgo/Kconfig
 +++ b/sound/soc/sophgo/Kconfig
-@@ -0,0 +1,20 @@
-+menu "Sophgo"
-+	depends on COMPILE_TEST || ARCH_SOPHGO
-+
-+config SND_SOC_CV1800B_TDM
-+	tristate "Sophgo CV1800B I2S/TDM support"
-+	depends on SND_SOC && OF
-+	select SND_SOC_GENERIC_DMAENGINE_PCM
+@@ -17,4 +17,16 @@ config SND_SOC_CV1800B_TDM
+ 	  To compile the driver as a module, choose M here: the module will
+ 	  be called cv1800b_tdm.
+ 
++config SND_SOC_CV1800B_ADC_CODEC
++	tristate "Sophgo CV1800B/SG2002 internal ADC codec"
++	depends on SND_SOC
 +	help
-+	  This option enables the I2S/TDM audio controller found in Sophgo
-+	  CV1800B / SG2002 SoCs. The controller supports standard I2S
-+	  audio modes for playback and capture.
++	  This driver provides an ASoC codec DAI for capture and basic
++	  control of the RXADC registers.
 +
-+	  The driver integrates with the ASoC framework and uses the DMA
-+	  engine for audio data transfer. It is intended to be configured
-+	  via Device Tree along with simple-audio-card module.
++	  Say Y or M to build support for the Sophgo CV1800B
++	  internal analog ADC codec block (RXADC).
++	  The module will be called cv1800b-sound-adc
 +
-+	  To compile the driver as a module, choose M here: the module will
-+	  be called cv1800b_tdm.
 +
-+endmenu
+ endmenu
 diff --git a/sound/soc/sophgo/Makefile b/sound/soc/sophgo/Makefile
-new file mode 100644
-index 000000000000..3f9f1d07227a
---- /dev/null
+index 3f9f1d07227a..c654d6059cbd 100644
+--- a/sound/soc/sophgo/Makefile
 +++ b/sound/soc/sophgo/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0
-+# Sophgo Platform Support
-+obj-$(CONFIG_SND_SOC_CV1800B_TDM) += cv1800b-tdm.o
-diff --git a/sound/soc/sophgo/cv1800b-tdm.c b/sound/soc/sophgo/cv1800b-tdm.c
+@@ -1,3 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0
+ # Sophgo Platform Support
+ obj-$(CONFIG_SND_SOC_CV1800B_TDM) += cv1800b-tdm.o
++obj-$(CONFIG_SND_SOC_CV1800B_ADC_CODEC) += cv1800b-sound-adc.o
+diff --git a/sound/soc/sophgo/cv1800b-sound-adc.c b/sound/soc/sophgo/cv1800b-sound-adc.c
 new file mode 100644
-index 000000000000..5bd9236ef3b9
+index 000000000000..794030b713e9
 --- /dev/null
-+++ b/sound/soc/sophgo/cv1800b-tdm.c
-@@ -0,0 +1,714 @@
++++ b/sound/soc/sophgo/cv1800b-sound-adc.c
+@@ -0,0 +1,322 @@
 +// SPDX-License-Identifier: GPL-2.0
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/io.h>
++/*
++ * Internal adc codec for cv1800b compatible SoC
++ *
++ */
 +#include <linux/module.h>
-+#include <linux/of.h>
 +#include <linux/platform_device.h>
-+#include <sound/dmaengine_pcm.h>
-+#include <sound/pcm_params.h>
 +#include <sound/soc.h>
-+#include <linux/string.h>
-+#include <linux/dev_printk.h>
-+
 +#include <linux/bitfield.h>
 +#include <linux/bits.h>
-+#include <linux/limits.h>
++#include <sound/tlv.h>
++#include <sound/soc-component.h>
++#include <sound/control.h>
++#include <linux/io.h>
++#include <linux/kernel.h>
++#include <linux/bitops.h>
 +
-+#define TX_FIFO_SIZE (1024)
-+#define RX_FIFO_SIZE (1024)
-+#define TX_MAX_BURST (8)
-+#define RX_MAX_BURST (8)
++#define CV1800B_RXADC_WORD_LEN 16
++#define CV1800B_RXADC_CHANNELS 2
 +
-+#define CV1800B_DEF_FREQ          24576000
-+#define CV1800B_DEF_MCLK_FS_RATIO 256
++#define CV1800B_RXADC_CTRL0    0x00
++#define CV1800B_RXADCC_CTRL1   0x04
++#define CV1800B_RXADC_STATUS   0x08
++#define CV1800B_RXADC_CLK      0x0c
++#define CV1800B_RXADC_ANA0     0x10
++#define CV1800B_RXADC_ANA1     0x14
++#define CV1800B_RXADC_ANA2     0x18
++#define CV1800B_RXADC_ANA3     0x1c
++#define CV1800B_RXADC_ANA4     0x20
 +
-+/* tdm registers */
-+#define CV1800B_BLK_MODE_SETTING  0x000
-+#define CV1800B_FRAME_SETTING     0x004
-+#define CV1800B_SLOT_SETTING1     0x008
-+#define CV1800B_SLOT_SETTING2     0x00C
-+#define CV1800B_DATA_FORMAT       0x010
-+#define CV1800B_BLK_CFG           0x014
-+#define CV1800B_I2S_ENABLE        0x018
-+#define CV1800B_I2S_RESET         0x01C
-+#define CV1800B_I2S_INT_EN        0x020
-+#define CV1800B_I2S_INT           0x024
-+#define CV1800B_FIFO_THRESHOLD    0x028
-+#define CV1800B_LRCK_MASTER       0x02C /* special clock only mode */
-+#define CV1800B_FIFO_RESET        0x030
-+#define CV1800B_RX_STATUS         0x040
-+#define CV1800B_TX_STATUS         0x048
-+#define CV1800B_CLK_CTRL0         0x060
-+#define CV1800B_CLK_CTRL1         0x064
-+#define CV1800B_PCM_SYNTH         0x068
-+#define CV1800B_RX_RD_PORT        0x080
-+#define CV1800B_TX_WR_PORT        0x0C0
++/* CV1800B_RXADC_CTRL0 */
++#define REG_RXADC_EN                   GENMASK(0, 0)
++#define REG_I2S_TX_EN                  GENMASK(1, 1)
 +
-+/* CV1800B_BLK_MODE_SETTING (0x000) */
-+#define BLK_TX_MODE_MASK                   GENMASK(0, 0)
-+#define BLK_MASTER_MODE_MASK               GENMASK(1, 1)
-+#define BLK_DMA_MODE_MASK                  GENMASK(7, 7)
++/* CV1800B_RXADCC_CTRL1 */
++#define REG_RXADC_CIC_OPT              GENMASK(1, 0)
++#define REG_RXADC_IGR_INIT             GENMASK(8, 8)
 +
-+/* CV1800B_CLK_CTRL1 (0x064) */
-+#define CLK_MCLK_DIV_MASK                  GENMASK(15, 0)
-+#define CLK_BCLK_DIV_MASK                  GENMASK(31, 16)
++/* CV1800B_RXADC_ANA0 */
++#define REG_GSTEPL_RXPGA               GENMASK(12, 0)
++#define REG_G6DBL_RXPGA                GENMASK(13, 13)
++#define REG_GAINL_RXADC                GENMASK(15, 14)
++#define REG_GSTEPR_RXPGA               GENMASK(28, 16)
++#define REG_G6DBR_RXPGA                GENMASK(29, 29)
++#define REG_GAINR_RXADC                GENMASK(31, 30)
++#define REG_COMB_LEFT_VOLUME           GENMASK(15, 0)
++#define REG_COMB_RIGHT_VOLUME          GENMASK(31, 16)
 +
-+/* CV1800B_CLK_CTRL0 (0x060) */
-+#define CLK_AUD_CLK_SEL_MASK               GENMASK(0, 0)
-+#define CLK_BCLK_OUT_CLK_FORCE_EN_MASK     GENMASK(6, 6)
-+#define CLK_MCLK_OUT_EN_MASK               GENMASK(7, 7)
-+#define CLK_AUD_EN_MASK                    GENMASK(8, 8)
++/* CV1800B_RXADC_ANA2 */
++#define REG_MUTEL_RXPGA                GENMASK(0, 0)
++#define REG_MUTER_RXPGA                GENMASK(1, 1)
 +
-+/* CV1800B_I2S_RESET (0x01C) */
-+#define RST_I2S_RESET_RX_MASK              GENMASK(0, 0)
-+#define RST_I2S_RESET_TX_MASK              GENMASK(1, 1)
++/* CV1800B_RXADC_CLK */
++#define REG_RXADC_CLK_INV              GENMASK(0, 0)
++#define REG_RXADC_SCK_DIV              GENMASK(15, 8)
++#define REG_RXADC_DLYEN                GENMASK(23, 16)
 +
-+/* CV1800B_FIFO_RESET (0x030) */
-+#define FIFO_RX_RESET_MASK                 GENMASK(0, 0)
-+#define FIFO_TX_RESET_MASK                 GENMASK(16, 16)
-+
-+/* CV1800B_I2S_ENABLE (0x018) */
-+#define I2S_ENABLE_MASK                    GENMASK(0, 0)
-+
-+/* CV1800B_BLK_CFG (0x014) */
-+#define BLK_AUTO_DISABLE_WITH_CH_EN_MASK   GENMASK(4, 4)
-+#define BLK_RX_BLK_CLK_FORCE_EN_MASK       GENMASK(8, 8)
-+#define BLK_RX_FIFO_DMA_CLK_FORCE_EN_MASK  GENMASK(9, 9)
-+#define BLK_TX_BLK_CLK_FORCE_EN_MASK       GENMASK(16, 16)
-+#define BLK_TX_FIFO_DMA_CLK_FORCE_EN_MASK  GENMASK(17, 17)
-+
-+/* CV1800B_FRAME_SETTING (0x004) */
-+#define FRAME_LENGTH_MASK                  GENMASK(8, 0)
-+#define FS_ACTIVE_LENGTH_MASK              GENMASK(23, 16)
-+
-+/* CV1800B_I2S_INT_EN (0x020) */
-+#define INT_I2S_INT_EN_MASK                GENMASK(8, 8)
-+
-+/* CV1800B_SLOT_SETTING2 (0x00C) */
-+#define SLOT_EN_MASK                       GENMASK(15, 0)
-+
-+/* CV1800B_LRCK_MASTER (0x02C) */
-+#define LRCK_MASTER_ENABLE_MASK            GENMASK(0, 0)
-+
-+/* CV1800B_DATA_FORMAT (0x010) */
-+#define DF_WORD_LENGTH_MASK	           GENMASK(2, 1)
-+#define DF_TX_SOURCE_LEFT_ALIGN_MASK       GENMASK(6, 6)
-+
-+/* CV1800B_FIFO_THRESHOLD (0x028) */
-+#define FIFO_RX_THRESHOLD_MASK	           GENMASK(4, 0)
-+#define FIFO_TX_THRESHOLD_MASK	           GENMASK(20, 16)
-+#define FIFO_TX_HIGH_THRESHOLD_MASK        GENMASK(28, 24)
-+
-+/* CV1800B_SLOT_SETTING1 (0x008) */
-+#define SLOT_NUM_MASK                      GENMASK(3, 0)
-+#define SLOT_SIZE_MASK                     GENMASK(13, 8)
-+#define DATA_SIZE_MASK                     GENMASK(20, 16)
-+#define FB_OFFSET_MASK                     GENMASK(28, 24)
-+
-+enum cv1800b_tdm_word_length {
-+	CV1800B_WORD_LENGTH_8_BIT = 0,
-+	CV1800B_WORD_LENGTH_16_BIT = 1,
-+	CV1800B_WORD_LENGTH_32_BIT = 2,
++enum decimation_values {
++	DECIMATION_64 = 0,
++	DECIMATION_128,
++	DECIMATION_256,
++	DECIMATION_512,
 +};
 +
-+struct cv1800b_i2s {
-+	void __iomem *base;
-+	struct clk *clk;
-+	struct clk *sysclk;
++static const u32 cv1800b_gains[] = {
++	0x0001, /* 0dB */
++	0x0002, /* 2dB */
++	0x0004, /* 4dB */
++	0x0008, /* 6dB */
++	0x0010, /* 8dB */
++	0x0020, /* 10dB */
++	0x0040, /* 12dB */
++	0x0080, /* 14dB */
++	0x0100, /* 16dB */
++	0x0200, /* 18dB */
++	0x0400, /* 20dB */
++	0x0800, /* 22dB */
++	0x1000, /* 24dB */
++	0x2400, /* 26dB */
++	0x2800, /* 28dB */
++	0x3000, /* 30dB */
++	0x6400, /* 32dB */
++	0x6800, /* 34dB */
++	0x7000, /* 36dB */
++	0xA400, /* 38dB */
++	0xA800, /* 40dB */
++	0xB000, /* 42dB */
++	0xE400, /* 44dB */
++	0xE800, /* 46dB */
++	0xF000, /* 48dB */
++};
++
++struct cv1800b_priv {
++	void __iomem *regs;
 +	struct device *dev;
-+	struct snd_dmaengine_dai_dma_data playback_dma;
-+	struct snd_dmaengine_dai_dma_data capture_dma;
-+	u32 mclk_rate;
-+	bool bclk_ratio_fixed;
-+	u32 bclk_ratio;
-+
++	unsigned int mclk_rate;
 +};
 +
-+static void cv1800b_setup_dma_struct(struct cv1800b_i2s *i2s,
-+				     phys_addr_t phys_base)
-+{
-+	i2s->playback_dma.addr = phys_base + CV1800B_TX_WR_PORT;
-+	i2s->playback_dma.addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
-+	i2s->playback_dma.fifo_size = TX_FIFO_SIZE;
-+	i2s->playback_dma.maxburst = TX_MAX_BURST;
-+
-+	i2s->capture_dma.addr = phys_base + CV1800B_RX_RD_PORT;
-+	i2s->capture_dma.addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
-+	i2s->capture_dma.fifo_size = RX_FIFO_SIZE;
-+	i2s->capture_dma.maxburst = RX_MAX_BURST;
-+}
-+
-+static const struct snd_dmaengine_pcm_config cv1800b_i2s_pcm_config = {
-+	.prepare_slave_config = snd_dmaengine_pcm_prepare_slave_config,
-+};
-+
-+static void cv1800b_reset_fifo(struct cv1800b_i2s *i2s)
++static int cv1800b_adc_setbclk_div(struct cv1800b_priv *priv, unsigned int rate)
 +{
 +	u32 val;
-+
-+	val = readl(i2s->base + CV1800B_FIFO_RESET);
-+	val = u32_replace_bits(val, 1, FIFO_RX_RESET_MASK);
-+	val = u32_replace_bits(val, 1, FIFO_TX_RESET_MASK);
-+	writel(val, i2s->base + CV1800B_FIFO_RESET);
-+
-+	usleep_range(10, 20);
-+
-+	val = readl(i2s->base + CV1800B_FIFO_RESET);
-+	val = u32_replace_bits(val, 0, FIFO_RX_RESET_MASK);
-+	val = u32_replace_bits(val, 0, FIFO_TX_RESET_MASK);
-+	writel(val, i2s->base + CV1800B_FIFO_RESET);
-+}
-+
-+static void cv1800b_reset_i2s(struct cv1800b_i2s *i2s)
-+{
-+	u32 val;
-+
-+	val = readl(i2s->base + CV1800B_I2S_RESET);
-+	val = u32_replace_bits(val, 1, RST_I2S_RESET_RX_MASK);
-+	val = u32_replace_bits(val, 1, RST_I2S_RESET_TX_MASK);
-+	writel(val, i2s->base + CV1800B_I2S_RESET);
-+
-+	usleep_range(10, 20);
-+
-+	val = readl(i2s->base + CV1800B_I2S_RESET);
-+	val = u32_replace_bits(val, 0, RST_I2S_RESET_RX_MASK);
-+	val = u32_replace_bits(val, 0, RST_I2S_RESET_TX_MASK);
-+	writel(val, i2s->base + CV1800B_I2S_RESET);
-+}
-+
-+static void cv1800b_set_mclk_div(struct cv1800b_i2s *i2s, u32 mclk_div)
-+{
-+	u32 val;
-+
-+	val = readl(i2s->base + CV1800B_CLK_CTRL1);
-+	val = u32_replace_bits(val, mclk_div, CLK_MCLK_DIV_MASK);
-+	writel(val, i2s->base + CV1800B_CLK_CTRL1);
-+	dev_dbg(i2s->dev, "mclk_div is set to %u\n", mclk_div);
-+}
-+
-+static void cv1800b_set_tx_mode(struct cv1800b_i2s *i2s, bool is_tx)
-+{
-+	u32 val;
-+
-+	val = readl(i2s->base + CV1800B_BLK_MODE_SETTING);
-+	val = u32_replace_bits(val, is_tx, BLK_TX_MODE_MASK);
-+	writel(val, i2s->base + CV1800B_BLK_MODE_SETTING);
-+	dev_dbg(i2s->dev, "tx_mode is set to %u\n", is_tx);
-+}
-+
-+static int cv1800b_set_bclk_div(struct cv1800b_i2s *i2s, u32 bclk_div)
-+{
-+	u32 val;
-+
-+	if (bclk_div == 0 || bclk_div > 0xFFFF)
-+		return -EINVAL;
-+
-+	val = readl(i2s->base + CV1800B_CLK_CTRL1);
-+	val = u32_replace_bits(val, bclk_div, CLK_BCLK_DIV_MASK);
-+	writel(val, i2s->base + CV1800B_CLK_CTRL1);
-+	dev_dbg(i2s->dev, "bclk_div is set to %u\n", bclk_div);
-+	return 0;
-+}
-+
-+/* set memory width of audio data , reg word_length */
-+static int cv1800b_set_word_length(struct cv1800b_i2s *i2s,
-+				   unsigned int physical_width)
-+{
-+	u8 word_length_val;
-+	u32 val;
-+
-+	switch (physical_width) {
-+	case 8:
-+		word_length_val = CV1800B_WORD_LENGTH_8_BIT;
-+		break;
-+	case 16:
-+		word_length_val = CV1800B_WORD_LENGTH_16_BIT;
-+		break;
-+	case 32:
-+		word_length_val = CV1800B_WORD_LENGTH_32_BIT;
-+		break;
-+	default:
-+		dev_dbg(i2s->dev, "can't set word_length field\n");
-+		return -EINVAL;
-+	}
-+
-+	val = readl(i2s->base + CV1800B_DATA_FORMAT);
-+	val = u32_replace_bits(val, word_length_val, DF_WORD_LENGTH_MASK);
-+	writel(val, i2s->base + CV1800B_DATA_FORMAT);
-+	return 0;
-+}
-+
-+static void cv1800b_enable_clocks(struct cv1800b_i2s *i2s, bool enabled)
-+{
-+	u32 val;
-+
-+	val = readl(i2s->base + CV1800B_CLK_CTRL0);
-+	val = u32_replace_bits(val, enabled, CLK_AUD_EN_MASK);
-+	writel(val, i2s->base + CV1800B_CLK_CTRL0);
-+}
-+
-+static int cv1800b_set_slot_settings(struct cv1800b_i2s *i2s, u32 slots,
-+				     u32 physical_width, u32 data_size)
-+{
-+	u32 slot_num;
-+	u32 slot_size;
-+	u32 frame_length;
-+	u32 frame_active_length;
-+	u32 val;
-+
-+	if (!slots || !physical_width || !data_size) {
-+		dev_err(i2s->dev, "frame or slot settings are not valid\n");
-+		return -EINVAL;
-+	}
-+	if (slots > 16 || physical_width > 64 || data_size > 32) {
-+		dev_err(i2s->dev, "frame or slot settings are not valid\n");
-+		return -EINVAL;
-+	}
-+
-+	slot_num = slots - 1;
-+	slot_size = physical_width - 1;
-+	frame_length = (physical_width * slots) - 1;
-+	frame_active_length = physical_width - 1;
-+
-+	if (frame_length > 511 || frame_active_length > 255) {
-+		dev_err(i2s->dev, "frame or slot settings are not valid\n");
-+		return -EINVAL;
-+	}
-+
-+	val = readl(i2s->base + CV1800B_SLOT_SETTING1);
-+	val = u32_replace_bits(val, slot_size, SLOT_SIZE_MASK);
-+	val = u32_replace_bits(val, data_size - 1, DATA_SIZE_MASK);
-+	val = u32_replace_bits(val, slot_num, SLOT_NUM_MASK);
-+	writel(val, i2s->base + CV1800B_SLOT_SETTING1);
-+
-+	val = readl(i2s->base + CV1800B_FRAME_SETTING);
-+	val = u32_replace_bits(val, frame_length, FRAME_LENGTH_MASK);
-+	val = u32_replace_bits(val, frame_active_length, FS_ACTIVE_LENGTH_MASK);
-+	writel(val, i2s->base + CV1800B_FRAME_SETTING);
-+
-+	dev_dbg(i2s->dev, "slot settings num: %u width: %u\n", slots, physical_width);
-+	return 0;
-+}
-+
-+/*
-+ * calculate mclk_div.
-+ * if requested value is bigger than optimal
-+ * leave mclk_div as 1. cff clock is capable
-+ * to handle it
-+ */
-+static int cv1800b_calc_mclk_div(unsigned int target_mclk, u32 *mclk_div)
-+{
-+	*mclk_div = 1;
-+
-+	if (target_mclk == 0)
-+		return -EINVAL;
-+
-+	/* optimal parent frequency is close to CV1800B_DEF_FREQ */
-+	if (target_mclk < CV1800B_DEF_FREQ) {
-+		*mclk_div = DIV_ROUND_CLOSEST(CV1800B_DEF_FREQ, target_mclk);
-+		if (!*mclk_div || *mclk_div > 0xFFFF)
-+			return -EINVAL;
-+	}
-+	return 0;
-+}
-+
-+/*
-+ * set CCF clock and divider for this clock
-+ * mclk_clock = ccf_clock / mclk_div
-+ */
-+static int cv1800b_i2s_set_rate_for_mclk(struct cv1800b_i2s *i2s,
-+					 unsigned int target_mclk)
-+{
-+	u32 mclk_div = 1;
++	u32 bclk_div;
 +	u64 tmp;
-+	int ret;
-+	unsigned long clk_rate;
-+	unsigned long actual;
 +
-+	ret = cv1800b_calc_mclk_div(target_mclk, &mclk_div);
-+	if (ret) {
-+		dev_dbg(i2s->dev, "can't calc mclk_div for freq %u\n",
-+			target_mclk);
-+		return ret;
++	if (!priv->mclk_rate || !rate)
++		return -EINVAL;
++
++	tmp = priv->mclk_rate;
++	tmp /= CV1800B_RXADC_WORD_LEN;
++	tmp /= CV1800B_RXADC_CHANNELS;
++	tmp /= rate;
++	tmp /= 2;
++
++	if (!tmp) {
++		dev_err(priv->dev, "computed BCLK divider is zero\n");
++		return -EINVAL;
 +	}
 +
-+	tmp = (u64)target_mclk * mclk_div;
-+	if (tmp > ULONG_MAX) {
-+		dev_err(i2s->dev, "clk_rate overflow: freq=%u div=%u\n",
-+			target_mclk, mclk_div);
-+		return -ERANGE;
++	if (tmp > 256) {
++		dev_err(priv->dev, "BCLK divider %llu out of range\n", tmp);
++		return -EINVAL;
 +	}
 +
-+	clk_rate = (unsigned long)tmp;
-+
-+	cv1800b_enable_clocks(i2s, false);
-+
-+	ret = clk_set_rate(i2s->sysclk, clk_rate);
-+	if (ret)
-+		return ret;
-+
-+	actual = clk_get_rate(i2s->sysclk);
-+	if (clk_rate != actual) {
-+		dev_err_ratelimited(i2s->dev,
-+				    "clk_set_rate failed %lu, actual is %lu\n",
-+				    clk_rate, actual);
-+	}
-+
-+	cv1800b_set_mclk_div(i2s, mclk_div);
-+	cv1800b_enable_clocks(i2s, true);
++	bclk_div = tmp - 1;
++	val = readl(priv->regs + CV1800B_RXADC_CLK);
++	val = u32_replace_bits(val, bclk_div, REG_RXADC_SCK_DIV);
++	/* Vendor value for 48kHz, tested on SG2000/SG2002 */
++	val = u32_replace_bits(val, 0x19, REG_RXADC_DLYEN);
++	writel(val, priv->regs + CV1800B_RXADC_CLK);
 +
 +	return 0;
 +}
 +
-+static int cv1800b_i2s_hw_params(struct snd_pcm_substream *substream,
++static void cv1800b_adc_enable(struct cv1800b_priv *priv, bool enable)
++{
++	u32 val;
++
++	val = readl(priv->regs + CV1800B_RXADC_CTRL0);
++	val = u32_replace_bits(val, enable, REG_RXADC_EN);
++	val = u32_replace_bits(val, enable, REG_I2S_TX_EN);
++	writel(val, priv->regs + CV1800B_RXADC_CTRL0);
++}
++
++static unsigned int cv1800b_adc_calc_db(u32 ana0, bool right)
++{
++	u32 step_mask = right ? FIELD_GET(REG_GSTEPR_RXPGA, ana0) :
++				FIELD_GET(REG_GSTEPL_RXPGA, ana0);
++	u32 coarse = right ? FIELD_GET(REG_GAINR_RXADC, ana0) :
++			     FIELD_GET(REG_GAINL_RXADC, ana0);
++	bool g6db = right ? FIELD_GET(REG_G6DBR_RXPGA, ana0) :
++			    FIELD_GET(REG_G6DBL_RXPGA, ana0);
++
++	u32 step = step_mask ? __ffs(step_mask) : 0;
++
++	step = min(step, 12U);
++	coarse = min(coarse, 3U);
++
++	return 2 * step + 6 * coarse + (g6db ? 6 : 0);
++}
++
++static int cv1800b_adc_hw_params(struct snd_pcm_substream *substream,
 +				 struct snd_pcm_hw_params *params,
 +				 struct snd_soc_dai *dai)
 +{
-+	struct cv1800b_i2s *i2s = snd_soc_dai_get_drvdata(dai);
++	struct cv1800b_priv *priv = snd_soc_dai_get_drvdata(dai);
 +	unsigned int rate = params_rate(params);
-+	unsigned int channels = params_channels(params);
-+	unsigned int physical_width = params_physical_width(params);
-+	int data_width = params_width(params);
-+	bool tx_mode = (substream->stream == SNDRV_PCM_STREAM_PLAYBACK) ? 1 : 0;
++	u32 val;
 +	int ret;
-+	u32 bclk_div;
-+	u32 bclk_ratio;
-+	u32 mclk_rate;
-+	u64 tmp;
 +
-+	if (data_width < 0)
-+		return data_width;
-+
-+	if (!channels || !rate || !physical_width)
-+		return -EINVAL;
-+
-+	ret = cv1800b_set_slot_settings(i2s, channels, physical_width, data_width);
-+	if (ret)
++	ret = cv1800b_adc_setbclk_div(priv, rate);
++	if (ret) {
++		dev_err(priv->dev,
++			"could not set rate, check DT node for fixed clock\n");
 +		return ret;
-+
-+	if (i2s->mclk_rate) {
-+		mclk_rate = i2s->mclk_rate;
-+	} else {
-+		dev_dbg(i2s->dev, "mclk is not set by machine driver\n");
-+		ret = cv1800b_i2s_set_rate_for_mclk(i2s,
-+						    rate * CV1800B_DEF_MCLK_FS_RATIO);
-+		if (ret)
-+			return ret;
-+		mclk_rate = rate * CV1800B_DEF_MCLK_FS_RATIO;
 +	}
 +
-+	bclk_ratio = (i2s->bclk_ratio_fixed) ? i2s->bclk_ratio :
-+					       (physical_width * channels);
-+
-+	tmp = (u64)rate * bclk_ratio;
-+	if (!tmp)
-+		return -EINVAL;
-+	if (mclk_rate % tmp)
-+		dev_warn(i2s->dev, "mclk rate is not aligned to bclk or rate\n");
-+
-+	bclk_div = DIV_ROUND_CLOSEST((u64)mclk_rate, tmp);
-+
-+	ret = cv1800b_set_bclk_div(i2s, bclk_div);
-+	if (ret)
-+		return ret;
-+
-+	ret = cv1800b_set_word_length(i2s, physical_width);
-+	if (ret)
-+		return ret;
-+
-+	cv1800b_set_tx_mode(i2s, tx_mode);
-+
-+	cv1800b_reset_fifo(i2s);
-+	cv1800b_reset_i2s(i2s);
++	/* init adc */
++	val = readl(priv->regs + CV1800B_RXADCC_CTRL1);
++	val = u32_replace_bits(val, 1, REG_RXADC_IGR_INIT);
++	val = u32_replace_bits(val, DECIMATION_64, REG_RXADC_CIC_OPT);
++	writel(val, priv->regs + CV1800B_RXADCC_CTRL1);
 +	return 0;
 +}
 +
-+static int cv1800b_i2s_trigger(struct snd_pcm_substream *substream, int cmd,
-+			       struct snd_soc_dai *dai)
++static int cv1800b_adc_dai_trigger(struct snd_pcm_substream *substream, int cmd,
++				   struct snd_soc_dai *dai)
 +{
-+	struct cv1800b_i2s *i2s = snd_soc_dai_get_drvdata(dai);
-+	u32 val;
-+
-+	val = readl(i2s->base + CV1800B_I2S_ENABLE);
++	struct cv1800b_priv *priv = snd_soc_dai_get_drvdata(dai);
 +
 +	switch (cmd) {
 +	case SNDRV_PCM_TRIGGER_START:
 +	case SNDRV_PCM_TRIGGER_RESUME:
 +	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
-+		val = u32_replace_bits(val, 1, I2S_ENABLE_MASK);
++		cv1800b_adc_enable(priv, true);
 +		break;
-+
 +	case SNDRV_PCM_TRIGGER_STOP:
 +	case SNDRV_PCM_TRIGGER_SUSPEND:
 +	case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
-+		val = u32_replace_bits(val, 0, I2S_ENABLE_MASK);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+	writel(val, i2s->base + CV1800B_I2S_ENABLE);
-+	return 0;
-+}
-+
-+static int cv1800b_i2s_startup(struct snd_pcm_substream *substream,
-+			       struct snd_soc_dai *dai)
-+{
-+	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
-+	struct cv1800b_i2s *i2s = snd_soc_dai_get_drvdata(dai);
-+	struct snd_soc_dai_link *dai_link = rtd->dai_link;
-+
-+	dev_dbg(i2s->dev, "%s: dai=%s substream=%d\n", __func__, dai->name,
-+		substream->stream);
-+	/**
-+	 * Ensure DMA is stopped before DAI
-+	 * shutdown (prevents DW AXI DMAC stop/busy on next open).
-+	 */
-+	dai_link->trigger_stop = SND_SOC_TRIGGER_ORDER_LDC;
-+	return 0;
-+}
-+
-+static int cv1800b_i2s_dai_probe(struct snd_soc_dai *dai)
-+{
-+	struct cv1800b_i2s *i2s = snd_soc_dai_get_drvdata(dai);
-+
-+	if (!i2s) {
-+		dev_err(dai->dev, "no drvdata in DAI probe\n");
-+		return -ENODEV;
-+	}
-+
-+	snd_soc_dai_init_dma_data(dai, &i2s->playback_dma, &i2s->capture_dma);
-+	return 0;
-+}
-+
-+static int cv1800b_i2s_dai_set_fmt(struct snd_soc_dai *dai, unsigned int fmt)
-+{
-+	struct cv1800b_i2s *i2s = snd_soc_dai_get_drvdata(dai);
-+	u32 val;
-+	u32 master;
-+
-+	/* only i2s format is supported */
-+	if ((fmt & SND_SOC_DAIFMT_FORMAT_MASK) != SND_SOC_DAIFMT_I2S)
-+		return -EINVAL;
-+
-+	switch (fmt & SND_SOC_DAIFMT_MASTER_MASK) {
-+	case SND_SOC_DAIFMT_CBP_CFP:
-+		dev_dbg(i2s->dev, "set to master mode\n");
-+		master = 1;
-+		break;
-+
-+	case SND_SOC_DAIFMT_CBC_CFC:
-+		dev_dbg(i2s->dev, "set to slave mode\n");
-+		master = 0;
++		cv1800b_adc_enable(priv, false);
 +		break;
 +	default:
 +		return -EINVAL;
 +	}
 +
-+	val = readl(i2s->base + CV1800B_BLK_MODE_SETTING);
-+	val = u32_replace_bits(val, master, BLK_MASTER_MODE_MASK);
-+	writel(val, i2s->base + CV1800B_BLK_MODE_SETTING);
 +	return 0;
 +}
 +
-+static int cv1800b_i2s_dai_set_bclk_ratio(struct snd_soc_dai *dai,
-+					  unsigned int ratio)
-+{
-+	struct cv1800b_i2s *i2s = snd_soc_dai_get_drvdata(dai);
-+
-+	if (ratio == 0)
-+		return -EINVAL;
-+	i2s->bclk_ratio = ratio;
-+	i2s->bclk_ratio_fixed = true;
-+	return 0;
-+}
-+
-+static int cv1800b_i2s_dai_set_sysclk(struct snd_soc_dai *dai, int clk_id,
++static int cv1800b_adc_dai_set_sysclk(struct snd_soc_dai *dai, int clk_id,
 +				      unsigned int freq, int dir)
 +{
-+	struct cv1800b_i2s *i2s = snd_soc_dai_get_drvdata(dai);
-+	int ret;
-+	u32 val;
-+	bool output_enable = (dir == SND_SOC_CLOCK_OUT) ? true : false;
++	struct cv1800b_priv *priv = snd_soc_dai_get_drvdata(dai);
 +
-+	dev_dbg(i2s->dev, "%s called with %u\n", __func__, freq);
-+	ret = cv1800b_i2s_set_rate_for_mclk(i2s, freq);
-+	if (ret)
-+		return ret;
-+
-+	val = readl(i2s->base + CV1800B_CLK_CTRL0);
-+	val = u32_replace_bits(val, output_enable, CLK_MCLK_OUT_EN_MASK);
-+	writel(val, i2s->base + CV1800B_CLK_CTRL0);
-+
-+	i2s->mclk_rate = freq;
++	priv->mclk_rate = freq;
++	dev_dbg(priv->dev, "mclk is set to %u\n", freq);
 +	return 0;
 +}
 +
-+static const struct snd_soc_dai_ops cv1800b_i2s_dai_ops = {
-+	.probe = cv1800b_i2s_dai_probe,
-+	.startup = cv1800b_i2s_startup,
-+	.hw_params = cv1800b_i2s_hw_params,
-+	.trigger = cv1800b_i2s_trigger,
-+	.set_fmt = cv1800b_i2s_dai_set_fmt,
-+	.set_bclk_ratio = cv1800b_i2s_dai_set_bclk_ratio,
-+	.set_sysclk = cv1800b_i2s_dai_set_sysclk,
++static const struct snd_soc_dai_ops cv1800b_adc_dai_ops = {
++	.hw_params = cv1800b_adc_hw_params,
++	.set_sysclk = cv1800b_adc_dai_set_sysclk,
++	.trigger = cv1800b_adc_dai_trigger,
 +};
 +
-+static struct snd_soc_dai_driver cv1800b_i2s_dai_template = {
-+	.name = "cv1800b-i2s",
-+	.playback = {
-+		.stream_name = "Playback",
-+		.channels_min = 1,
-+		.channels_max = 2,
-+		.rates = SNDRV_PCM_RATE_8000_192000,
-+		.formats = SNDRV_PCM_FMTBIT_S24_LE | SNDRV_PCM_FMTBIT_S16_LE,
-+	},
-+	.capture = {
-+		.stream_name = "Capture",
-+		.channels_min = 1,
-+		.channels_max = 2,
-+		.rates = SNDRV_PCM_RATE_8000_192000,
-+		.formats = SNDRV_PCM_FMTBIT_S24_LE | SNDRV_PCM_FMTBIT_S16_LE,
-+	},
-+	.ops = &cv1800b_i2s_dai_ops,
++static struct snd_soc_dai_driver cv1800b_adc_dai = {
++	.name = "adc-hifi",
++	.capture = { .stream_name = "ADC Capture",
++		     .channels_min = 1,
++		     .channels_max = 2,
++		     .rates = SNDRV_PCM_RATE_48000,
++		     .formats = SNDRV_PCM_FMTBIT_S16_LE },
++	.ops = &cv1800b_adc_dai_ops,
 +};
 +
-+static const struct snd_soc_component_driver cv1800b_i2s_component = {
-+	.name = "cv1800b-i2s",
-+};
-+
-+static void cv1800b_i2s_hw_disable(struct cv1800b_i2s *i2s)
++static int cv1800b_adc_volume_get(struct snd_kcontrol *kcontrol,
++				  struct snd_ctl_elem_value *ucontrol)
 +{
-+	u32 val;
++	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
++	struct cv1800b_priv *priv = snd_soc_component_get_drvdata(component);
++	u32 ana0 = readl(priv->regs + CV1800B_RXADC_ANA0);
 +
-+	val = readl(i2s->base + CV1800B_I2S_ENABLE);
-+	val = u32_replace_bits(val, 0, I2S_ENABLE_MASK);
-+	writel(val, i2s->base + CV1800B_I2S_ENABLE);
++	unsigned int left = cv1800b_adc_calc_db(ana0, false);
++	unsigned int right = cv1800b_adc_calc_db(ana0, true);
 +
-+	val = readl(i2s->base + CV1800B_CLK_CTRL0);
-+	val = u32_replace_bits(val, 0, CLK_AUD_EN_MASK);
-+	val = u32_replace_bits(val, 0, CLK_MCLK_OUT_EN_MASK);
-+	writel(val, i2s->base + CV1800B_CLK_CTRL0);
-+
-+	val = readl(i2s->base + CV1800B_I2S_RESET);
-+	val = u32_replace_bits(val, 1, RST_I2S_RESET_RX_MASK);
-+	val = u32_replace_bits(val, 1, RST_I2S_RESET_TX_MASK);
-+	writel(val, i2s->base + CV1800B_I2S_RESET);
-+
-+	val = readl(i2s->base + CV1800B_FIFO_RESET);
-+	val = u32_replace_bits(val, 1, FIFO_RX_RESET_MASK);
-+	val = u32_replace_bits(val, 1, FIFO_TX_RESET_MASK);
-+	writel(val, i2s->base + CV1800B_FIFO_RESET);
++	ucontrol->value.integer.value[0] = min(left / 2, 24U);
++	ucontrol->value.integer.value[1] = min(right / 2, 24U);
++	return 0;
 +}
 +
-+static void cv1800b_i2s_setup_tdm(struct cv1800b_i2s *i2s)
++static int cv1800b_adc_volume_set(struct snd_kcontrol *kcontrol,
++				  struct snd_ctl_elem_value *ucontrol)
 +{
++	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
++	struct cv1800b_priv *priv = snd_soc_component_get_drvdata(component);
++
++	u32 v_left = clamp_t(u32, ucontrol->value.integer.value[0], 0, 24);
++	u32 v_right = clamp_t(u32, ucontrol->value.integer.value[1], 0, 24);
 +	u32 val;
 +
-+	val = readl(i2s->base + CV1800B_BLK_MODE_SETTING);
-+	val = u32_replace_bits(val, 1, BLK_DMA_MODE_MASK);
-+	writel(val, i2s->base + CV1800B_BLK_MODE_SETTING);
++	val = readl(priv->regs + CV1800B_RXADC_ANA0);
++	val = u32_replace_bits(val, cv1800b_gains[v_left],
++			       REG_COMB_LEFT_VOLUME);
++	val = u32_replace_bits(val, cv1800b_gains[v_right],
++			       REG_COMB_RIGHT_VOLUME);
++	writel(val, priv->regs + CV1800B_RXADC_ANA0);
 +
-+	val = readl(i2s->base + CV1800B_CLK_CTRL0);
-+	val = u32_replace_bits(val, 0, CLK_AUD_CLK_SEL_MASK);
-+	val = u32_replace_bits(val, 0, CLK_MCLK_OUT_EN_MASK);
-+	val = u32_replace_bits(val, 0, CLK_AUD_EN_MASK);
-+	writel(val, i2s->base + CV1800B_CLK_CTRL0);
-+
-+	val = readl(i2s->base + CV1800B_FIFO_THRESHOLD);
-+	val = u32_replace_bits(val, 4, FIFO_RX_THRESHOLD_MASK);
-+	val = u32_replace_bits(val, 4, FIFO_TX_THRESHOLD_MASK);
-+	val = u32_replace_bits(val, 4, FIFO_TX_HIGH_THRESHOLD_MASK);
-+	writel(val, i2s->base + CV1800B_FIFO_THRESHOLD);
-+
-+	val = readl(i2s->base + CV1800B_I2S_ENABLE);
-+	val = u32_replace_bits(val, 0, I2S_ENABLE_MASK);
-+	writel(val, i2s->base + CV1800B_I2S_ENABLE);
++	return 0;
 +}
 +
-+static int cv1800b_i2s_probe(struct platform_device *pdev)
++static DECLARE_TLV_DB_SCALE(cv1800b_volume_tlv, 0, 200, 0);
++
++static const struct snd_kcontrol_new cv1800b_adc_controls[] = {
++	SOC_DOUBLE_EXT_TLV("Internal I2S Capture Volume", SND_SOC_NOPM, 0, 16, 24, false,
++			   cv1800b_adc_volume_get, cv1800b_adc_volume_set,
++			   cv1800b_volume_tlv),
++};
++
++static const struct snd_soc_component_driver cv1800b_adc_component = {
++	.name = "cv1800b-adc-codec",
++	.controls = cv1800b_adc_controls,
++	.num_controls = ARRAY_SIZE(cv1800b_adc_controls),
++};
++
++static int cv1800b_adc_probe(struct platform_device *pdev)
 +{
 +	struct device *dev = &pdev->dev;
-+	struct cv1800b_i2s *i2s;
-+	struct resource *res;
-+	void __iomem *regs;
-+	struct snd_soc_dai_driver *dai;
-+	int ret;
++	struct cv1800b_priv *priv;
 +
-+	i2s = devm_kzalloc(dev, sizeof(*i2s), GFP_KERNEL);
-+	if (!i2s)
++	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
 +		return -ENOMEM;
 +
-+	regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(regs))
-+		return PTR_ERR(regs);
-+	i2s->dev = &pdev->dev;
-+	i2s->base = regs;
++	priv->dev = dev;
++	priv->regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(priv->regs))
++		return PTR_ERR(priv->regs);
 +
-+	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	if (!res)
-+		return -ENODEV;
-+	cv1800b_setup_dma_struct(i2s, res->start);
-+
-+	i2s->clk = devm_clk_get_enabled(dev, "i2s");
-+	if (IS_ERR(i2s->clk))
-+		return dev_err_probe(dev, PTR_ERR(i2s->clk),
-+				     "failed to get+enable i2s\n");
-+	i2s->sysclk = devm_clk_get_enabled(dev, "mclk");
-+	if (IS_ERR(i2s->sysclk))
-+		return dev_err_probe(dev, PTR_ERR(i2s->sysclk),
-+				     "failed to get+enable mclk\n");
-+
-+	platform_set_drvdata(pdev, i2s);
-+	cv1800b_i2s_setup_tdm(i2s);
-+
-+	dai = devm_kmemdup(dev, &cv1800b_i2s_dai_template, sizeof(*dai),
-+			   GFP_KERNEL);
-+	if (!dai)
-+		return -ENOMEM;
-+
-+	ret = devm_snd_soc_register_component(dev, &cv1800b_i2s_component, dai,
-+					      1);
-+	if (ret)
-+		return ret;
-+
-+	ret = devm_snd_dmaengine_pcm_register(dev, &cv1800b_i2s_pcm_config, 0);
-+	if (ret) {
-+		dev_err(dev, "dmaengine_pcm_register failed: %d\n", ret);
-+		return ret;
-+	}
-+
-+	dev_dbg(dev, "cv1800b I2S probed:\n");
-+	return 0;
++	platform_set_drvdata(pdev, priv);
++	return devm_snd_soc_register_component(&pdev->dev,
++					       &cv1800b_adc_component,
++					       &cv1800b_adc_dai, 1);
 +}
 +
-+static void cv1800b_i2s_remove(struct platform_device *pdev)
-+{
-+	struct cv1800b_i2s *i2s = platform_get_drvdata(pdev);
-+
-+	if (!i2s)
-+		return;
-+	cv1800b_i2s_hw_disable(i2s);
-+}
-+
-+static const struct of_device_id cv1800b_i2s_of_match[] = {
-+	{ .compatible = "sophgo,cv1800b-i2s" },
++static const struct of_device_id cv1800b_adc_of_match[] = {
++	{ .compatible = "sophgo,cv1800b-sound-adc" },
 +	{ /* sentinel */ }
 +};
 +
-+MODULE_DEVICE_TABLE(of, cv1800b_i2s_of_match);
++MODULE_DEVICE_TABLE(of, cv1800b_adc_of_match);
 +
-+static struct platform_driver cv1800b_i2s_driver = {
-+	.probe = cv1800b_i2s_probe,
-+	.remove = cv1800b_i2s_remove,
++static struct platform_driver cv1800b_adc_driver = {
++	.probe = cv1800b_adc_probe,
 +	.driver = {
-+		.name = "cv1800b-i2s",
-+		.of_match_table = cv1800b_i2s_of_match,
++		.name = "cv1800b-sound-adc",
++		.of_match_table = cv1800b_adc_of_match,
 +	},
 +};
-+module_platform_driver(cv1800b_i2s_driver);
 +
-+MODULE_DESCRIPTION("Sophgo cv1800b I2S/TDM driver");
-+MODULE_AUTHOR("Anton D. Stavinsky <stavinsky@gmail.com>");
++module_platform_driver(cv1800b_adc_driver);
++
++MODULE_DESCRIPTION("ADC codec for CV1800B");
++MODULE_AUTHOR("Anton D. Stavinskii <stavinsky@gmail.com>");
 +MODULE_LICENSE("GPL");
 
 -- 
