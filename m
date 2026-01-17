@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90D37C9830E
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jan 2026 05:29:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0555DC982C5
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jan 2026 05:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:Mime-Version
-	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TdtVxzkeXAohrR2kkqpnvmqgJtigFVOGeB947gR62iU=; b=KH6CiycbYGx3dX
-	Hy4obeyPgJCqK3KNJCkXpUG65OvzUv7kerwmLH75kZUgvtzzlSr2hymOGq7f99ry1V2TJIghcrazC
-	LdgevWul9TfiriLCpM9XlpoeeRblAyBS46EVKqMv9BSqwLQRORQDtRHI9rkLbJoDK8c8U1Rmcy3WD
-	u32+7P0bHuhbay2M3as1FmbfRTqwMO79xm+lNqLS2+NV9b+zrpTwIJExS/gwEGTUJy7gnAjjHLBWz
-	VYfvEhzaiJWUSYNq9NJjWCnaMToVJzhKFLLmUDeMzSToEItBpNDhgRoedL75+rpVQwV7sfniZHfqT
-	TndVRIyEkw0qHWhkpw6g==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:References:
+	Mime-Version:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=x2J0WhVxVmJ2SgnTabaWiYQAB14CElqJPRCMq2eEcIg=; b=GgjsvG11/PX0hX
+	SXaki7+of8ZYD4iA587Tzg+kB7dtlf1fhI9aOLd1NSyW1V9HbRkodlt52irFZMguUfbSM/iBg2cHV
+	hZPq+t/Fq6JxxOKGBmrkumw2d3wMuAbP3P9Ytnn+9tdHWFaQK4SFeIzEFvrzAIALmj+dTh1QJYon5
+	R5AslJt8jgUmE8q910+gNTCsbmBXMaBikPGawrJ+WxoH0Uu88kupGhPjSU4/FIoI/j7QyNX5bMdR0
+	7ElAbR5xYAZrRt7MfLJtzr7CacXEKaUbSCcFlCKcL91zkz9aX/S9Z+vEq6oTLztyI71regGEREXv0
+	C7FnCkjX40NzsxuEvAoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgysF-0000000FEKD-3XVe;
-	Sat, 17 Jan 2026 05:29:23 +0000
-Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
+	id 1vgysK-0000000FENb-1QBr;
+	Sat, 17 Jan 2026 05:29:28 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgysD-0000000FEIl-1E6u
+	id 1vgysG-0000000FEJz-2Qic
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Jan 2026 05:29:22 +0000
-Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-1232dd9a256so3316703c88.1
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Jan 2026 21:29:20 -0800 (PST)
+	Sat, 17 Jan 2026 05:29:25 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2a0fe4ade9eso25319845ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Jan 2026 21:29:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1768627759; x=1769232559; darn=lists.infradead.org;
-        h=to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=1/DlDzZKFpcROxVmgO7qkeA6G7xHNFkkZDHlcU3Uce8=;
-        b=JHPjdiNEMMCIWE4ol20b+4FY/7YPGTKozCFXRTlGOkYv4XTLWG0FRjkGiuKBiziUkW
-         aEwQW4GcZd2FwLX6leLievmJENoD8aNQZcHOrsC3a6D4emQM4nmd7FE5/bgY5oZygQVL
-         ShqoeJJRIAOAmHf3pLOlj3wvAQ+ED1MTC0U55xdBSppDF90S1RsVkbOxRj86XOM4VXYu
-         xZVXEBJNyCKwhda/glt3JKg0ZHz7Lp1qUxpSyUnpr7eCvK+la5YCpVck2ESCVYHqZdpF
-         fIkm48gJ/ST877qXI921/FfELxevrU+38LpZaH5GIl4sRaU42U0DNZi/aYVY/16UBVLl
-         yfUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768627759; x=1769232559;
-        h=to:from:subject:message-id:mime-version:date:x-gm-message-state
+        d=google.com; s=20230601; t=1768627763; x=1769232563; darn=lists.infradead.org;
+        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=1/DlDzZKFpcROxVmgO7qkeA6G7xHNFkkZDHlcU3Uce8=;
-        b=T6n57i09mRvm6gwt3iH7w43ms3xUiIIfW1Ab09aNX0zTa8xfvWhHEfcazrkoYVyzbm
-         +4KWlfUIL92Kj4H5HiY3qH9/GJub8j5hUc1uz7/GHsBst2DHKlzuN/Mlq6enDRvv54Ai
-         PeNkcELGUNHthFs+1jQkw5dxkkYzkrgz1i6mS6OVJg6QCh1Xxv/rBosN0RvxUtnEpv3a
-         76yxfRvjjUTewGXPy6lkTnSaAcKdWMkR45LzvlK85xfWBBWYTsORTiipQKxhgNzBPv1+
-         siyo7Q2d2L43MpqiNFeXod6QxEf37zloZXPrh1NEmhtcj3n8fTBEutv3G+EBt0r1m7Rm
-         A8gA==
-X-Forwarded-Encrypted: i=1; AJvYcCWXs/OiTt0tgEL+RCSCOCktdiHbwWmos6m+J4rmCB6kBAFEzjixQF4ZEFQxKCqSWFfYoN77nvX+GEo0Yw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5emBcAfZFrxazv2DgIXPgSYosGkPG6CNgT5anMcwDjSbsS4FE
-	nPJGA3rSShzWXXF5mdoUrmBe1XBpo9aZIgQwBmRME6AYCJvImeyq/Y0pkAUFpRPbbhr8AKQ4Kj0
-	GxeQROJiHFA==
-X-Received: from dlbto2.prod.google.com ([2002:a05:7022:3b02:b0:119:9f33:34ae])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:458d:b0:123:3b91:fbe8
- with SMTP id a92af1059eb24-1233ce7a8acmr9381417c88.0.1768627759274; Fri, 16
- Jan 2026 21:29:19 -0800 (PST)
-Date: Fri, 16 Jan 2026 21:28:26 -0800
+        bh=kK4WpTbjYTQ30LMox0FYXGUlgDkXshdRvemGVnSiQqs=;
+        b=SHVRBc/qvKqs70Juc9Z+vgS4OrlDgZWUXQ3xhdAPx0eRpJByXiLcuWP5FErulpfOpb
+         xge38Mn8HSgfW49s6+w291MzvTp2bMxGgn2eit/qAV86K09ZtuQ0FvT7rherWjNDXThK
+         oXiyJE1/6q0j74LduitieEovRVwp7OLKJxApY9XsSV/inO7uoLMP0IyEsMGF4vcWpXs6
+         10KCPgXeIhNDaNKR9f8ull90OF5yFvhdAeRoUg0HOWYHYDSOosrLEBb8iZaxGrDeC08k
+         HQM9kGiBgpmtMHGoJlxisnNRO8qTMcf3N1xeeNIO4YSpzUQVy5zox/YgDUpecfa5q7PR
+         rY9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768627763; x=1769232563;
+        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kK4WpTbjYTQ30LMox0FYXGUlgDkXshdRvemGVnSiQqs=;
+        b=nhW5XgsdLrJEZWeVbSXpGcda+4t1Obfosec5s8oLC2BOtS7rvECh8blTRvgnKZbvFH
+         Xvza+hcwv4kk7mJeIl8DaMn1Ynh+1JPnLskLaFWPKTCvTFiy5eaTLuXDnDs9xb10F6sV
+         wC3ySly0GSF2tKa48RLvK2Tg9xvj24uwjn/uxsVeagaJcA15b/zWbQcU+o91Jh6TcnxR
+         hO7C6cGbxT7fG71PKOGS7ArV2kSr1KZ9ICsVF/2XshyDHMW1Q5sVDIDUGh3gksVfsNkp
+         jCQh397+uCHS0h5VycoOfqIm0s3/4WlnwuCuZTgOWI7KZmAW61hdmZpS/dp6c/axyTb9
+         oayQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWrDthX+JRU8xxLwTmjosxVot3+h2ai3s1L6GeYD+Eqqm1M0V2iAOVH82GiRS7n7Q1biPDcIsYijnVy6w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxylq/DhuYZWhsrMBPlwBtonS+YaasSr9tK2F0E7xW6cPKYXvBM
+	J/itBunOjVongA1mxenh6TVuhYU/rq5m5CvO8LBi2wSqVWhJPoFlB1gVBSF8hkbhBYbYct/xsdJ
+	pys/d62J8xw==
+X-Received: from plov5.prod.google.com ([2002:a17:902:8d85:b0:29d:7778:2d65])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2f8a:b0:2a2:f0cb:dfa2
+ with SMTP id d9443c01a7336-2a71754509fmr50340175ad.13.1768627762755; Fri, 16
+ Jan 2026 21:29:22 -0800 (PST)
+Date: Fri, 16 Jan 2026 21:28:28 -0800
+In-Reply-To: <20260117052849.2205545-1-irogers@google.com>
 Mime-Version: 1.0
+References: <20260117052849.2205545-1-irogers@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260117052849.2205545-1-irogers@google.com>
-Subject: [PATCH v1 00/23] perf dwarf/libdw extra support, speed and clean ups
+Message-ID: <20260117052849.2205545-3-irogers@google.com>
+Subject: [PATCH v1 02/23] perf dso: Extra validity checks that e_machine is valid
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
@@ -83,8 +85,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	Mark Wielaard <mark@klomp.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_212921_329276_DB8CA159 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20260116_212924_619283_578007A5 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,150 +103,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The first 6 patches are minor tweaks addressing a memory leak,
-correctness and performance. Patch 5 incorportes the reviewed patch by
-Shimin Guo [1] that makes the libdw unwinding support cross
-architecture. The cross architecture files will be refactored in this
-series.
+Better ensure a read e_machine is valid by checking the file appears
+like an ELF file and the read e_machine value is less than
+EM_NUM. This better avoids spurious e_machine values when looking for
+an e_machine in say a thread.
 
-Patch 7 unifies the dwfl for dsos and addr2line with that for the
-powerpc skip-callchain-idx. An issue described in:
-https://lore.kernel.org/lkml/CAP-5=fX+zw-CUEYEtrPA6vYUKqpp4LZp-p==QsbZaNwLcX0Whw@mail.gmail.com/
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ tools/perf/util/dso.c | 31 +++++++++++++++++++++----------
+ 1 file changed, 21 insertions(+), 10 deletions(-)
 
-Patch 8 migrates the perf regs code away from using an architecture
-substring to using the ELF machine, which is both more efficient and
-more accurate.
-
-Patches 9 to 21 clean up the libdw and dwarf register code removing
-the need for different libdw dwarf register initialization routines by
-introducing a perf reg to dwarf register mapping function. This
-function is added for all perf register supporting architectures.
-
-Patch 22 avoids discarding the dwfl for every libdw unwind, it can
-speed up perf report by amounts like 18x.
-
-Patch 23 adds inline information for frame pointers, an issue
-described here:
-https://lore.kernel.org/lkml/CAP-5=fWh5=AWq_Mav7B9nsuZ0TS2qPMMAwYhQKpt_BYFJRnf2w@mail.gmail.com/
-
-[1] https://lore.kernel.org/lkml/20260107-cross-arch-unwind-v3-1-db0e37c8a652@skydio.com/
-
-Ian Rogers (22):
-  perf symbol-elf: Fix leak of ELF files with GNU debugdata
-  perf dso: Extra validity checks that e_machine is valid
-  perf record: Disable inline frames when marking build IDs
-  perf libdw_addr2line: Fixes to srcline memory allocation
-  perf unwind-libdw: Correct argument to dwfl_attach_state
-  perf powerpc: Unify the skip-callchain-idx libdw with that for
-    addr2line
-  perf perf_regs: Switch from arch string to int e_machine
-  perf dwarf-regs: Add util/dwarf-regs-arch for consistency with
-    perf-regs
-  perf dwarf-regs: Remove get_arch_regnum
-  perf dwarf-regs: Clean up x86 dwarf_regnum code
-  perf dwarf-regs: Add get_dwarf_regnum_for_perf_regnum and use for x86
-    unwinding
-  perf dwarf-regs: Add basic get_dwarf_regnum for most architectures
-  perf dwarf-regs: Add ARM perf to dwarf register number mapping
-    functions
-  perf dwarf-regs: Add csky perf to dwarf register number mapping
-    functions
-  perf dwarf-regs: Add loongarch perf to dwarf register number mapping
-    functions
-  perf dwarf-regs: Add powerpc perf to dwarf register number mapping
-    functions
-  perf dwarf-regs: Add RISC-V perf to dwarf register number mapping
-    functions
-  perf dwarf-regs: Add S390 perf to dwarf register number mapping
-    functions
-  perf dwarf-regs: Add MIPS perf to dwarf register number mapping
-    functions
-  perf build: Remove NO_LIBDW_DWARF_UNWIND option
-  perf unwind-libdw: Don't discard loaded ELF/Dwarf after every unwind
-  perf machine: Add inline information to frame pointer and LBR
-    callchains
-
-Shimin Guo (1):
-  perf unwind-libdw: fix a cross-arch unwinding bug
-
- tools/perf/Makefile.config                    |  19 +-
- tools/perf/arch/arm/util/Build                |   1 -
- tools/perf/arch/arm/util/unwind-libdw.c       |  39 ---
- tools/perf/arch/arm64/util/Build              |   1 -
- tools/perf/arch/arm64/util/unwind-libdw.c     |  61 ----
- tools/perf/arch/csky/util/Build               |   2 -
- tools/perf/arch/csky/util/unwind-libdw.c      |  78 ------
- tools/perf/arch/loongarch/util/unwind-libdw.c |  57 ----
- tools/perf/arch/powerpc/util/Build            |   1 -
- .../arch/powerpc/util/skip-callchain-idx.c    |  52 +---
- tools/perf/arch/powerpc/util/unwind-libdw.c   |  76 -----
- tools/perf/arch/riscv/util/Build              |   1 -
- tools/perf/arch/riscv/util/unwind-libdw.c     |  58 ----
- tools/perf/arch/s390/util/Build               |   2 -
- tools/perf/arch/s390/util/unwind-libdw.c      |  65 -----
- tools/perf/arch/x86/util/Build                |   1 -
- tools/perf/arch/x86/util/unwind-libdw.c       |  54 ----
- tools/perf/builtin-record.c                   |   3 +-
- tools/perf/builtin-script.c                   |  17 +-
- tools/perf/tests/make                         |   3 +-
- tools/perf/tests/shell/addr2line_inlines.sh   |  31 ++-
- tools/perf/util/Build                         |   6 +-
- tools/perf/util/dso.c                         |  33 ++-
- tools/perf/util/dso.h                         |  23 +-
- tools/perf/util/dwarf-regs-arch/Build         |   9 +
- .../util/dwarf-regs-arch/dwarf-regs-arm.c     |  12 +
- .../util/dwarf-regs-arch/dwarf-regs-arm64.c   |  12 +
- .../util/dwarf-regs-arch/dwarf-regs-csky.c    | 126 +++++++++
- .../dwarf-regs-arch/dwarf-regs-loongarch.c    |  12 +
- .../util/dwarf-regs-arch/dwarf-regs-mips.c    |  14 +
- .../util/dwarf-regs-arch/dwarf-regs-powerpc.c | 136 +++++++++
- .../util/dwarf-regs-arch/dwarf-regs-riscv.c   |  12 +
- .../util/dwarf-regs-arch/dwarf-regs-s390.c    |  53 ++++
- .../util/dwarf-regs-arch/dwarf-regs-x86.c     | 260 ++++++++++++++++++
- tools/perf/util/dwarf-regs-csky.c             |  50 ----
- tools/perf/util/dwarf-regs-powerpc.c          |  61 ----
- tools/perf/util/dwarf-regs-x86.c              |  50 ----
- tools/perf/util/dwarf-regs.c                  | 151 +++++++++-
- tools/perf/util/evsel.c                       |  14 +-
- tools/perf/util/include/dwarf-regs.h          |  28 +-
- tools/perf/util/libdw.c                       | 115 ++++----
- tools/perf/util/libdw.h                       |  12 +-
- tools/perf/util/machine.c                     | 104 ++++---
- tools/perf/util/maps.c                        |  36 ++-
- tools/perf/util/maps.h                        |   4 +
- tools/perf/util/perf_regs.c                   | 105 ++++---
- tools/perf/util/perf_regs.h                   |  10 +-
- .../scripting-engines/trace-event-python.c    |  21 +-
- tools/perf/util/session.c                     |  65 +++--
- tools/perf/util/session.h                     |   1 +
- tools/perf/util/srcline.c                     |   2 +-
- tools/perf/util/symbol-elf.c                  |   2 +-
- tools/perf/util/unwind-libdw.c                | 154 +++++++++--
- tools/perf/util/unwind-libdw.h                |  10 +-
- tools/perf/util/unwind-libunwind-local.c      |   7 +-
- 55 files changed, 1347 insertions(+), 985 deletions(-)
- delete mode 100644 tools/perf/arch/arm/util/unwind-libdw.c
- delete mode 100644 tools/perf/arch/arm64/util/unwind-libdw.c
- delete mode 100644 tools/perf/arch/csky/util/unwind-libdw.c
- delete mode 100644 tools/perf/arch/loongarch/util/unwind-libdw.c
- delete mode 100644 tools/perf/arch/powerpc/util/unwind-libdw.c
- delete mode 100644 tools/perf/arch/riscv/util/unwind-libdw.c
- delete mode 100644 tools/perf/arch/s390/util/unwind-libdw.c
- delete mode 100644 tools/perf/arch/x86/util/unwind-libdw.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/Build
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-arm.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-arm64.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-csky.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-loongarch.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-mips.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-powerpc.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-riscv.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-s390.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-x86.c
- delete mode 100644 tools/perf/util/dwarf-regs-csky.c
- delete mode 100644 tools/perf/util/dwarf-regs-powerpc.c
- delete mode 100644 tools/perf/util/dwarf-regs-x86.c
-
+diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
+index 18e656712f5a..143720d1ecb1 100644
+--- a/tools/perf/util/dso.c
++++ b/tools/perf/util/dso.c
+@@ -1236,17 +1236,28 @@ uint16_t dso__e_machine(struct dso *dso, struct machine *machine)
+ 	try_to_open_dso(dso, machine);
+ 	fd = dso__data(dso)->fd;
+ 	if (fd >= 0) {
+-		_Static_assert(offsetof(Elf32_Ehdr, e_machine) == 18, "Unexpected offset");
+-		_Static_assert(offsetof(Elf64_Ehdr, e_machine) == 18, "Unexpected offset");
+-		if (dso__needs_swap(dso) == DSO_SWAP__UNSET) {
+-			unsigned char eidata;
+-
+-			if (pread(fd, &eidata, sizeof(eidata), EI_DATA) == sizeof(eidata))
+-				dso__swap_init(dso, eidata);
++		unsigned char e_ident[EI_NIDENT];
++
++		_Static_assert(offsetof(Elf32_Ehdr, e_ident) == 0, "Unexpected offset");
++		_Static_assert(offsetof(Elf64_Ehdr, e_ident) == 0, "Unexpected offset");
++		if (pread(fd, &e_ident, sizeof(e_ident), 0) == sizeof(e_ident) &&
++		    memcmp(e_ident, ELFMAG, SELFMAG) == 0 &&
++		    e_ident[EI_CLASS] > ELFCLASSNONE && e_ident[EI_CLASS] < ELFCLASSNUM &&
++		    e_ident[EI_DATA] > ELFDATANONE && e_ident[EI_DATA] < ELFDATANUM &&
++		    e_ident[EI_VERSION] == EV_CURRENT) {
++			_Static_assert(offsetof(Elf32_Ehdr, e_machine) == 18, "Unexpected offset");
++			_Static_assert(offsetof(Elf64_Ehdr, e_machine) == 18, "Unexpected offset");
++
++			if (dso__needs_swap(dso) == DSO_SWAP__UNSET)
++				dso__swap_init(dso, e_ident[EI_DATA]);
++
++			if (dso__needs_swap(dso) != DSO_SWAP__UNSET &&
++			    pread(fd, &e_machine, sizeof(e_machine), 18) == sizeof(e_machine) &&
++			    e_machine < EM_NUM)
++				e_machine = DSO__SWAP(dso, uint16_t, e_machine);
++			else
++				e_machine = EM_NONE;
+ 		}
+-		if (dso__needs_swap(dso) != DSO_SWAP__UNSET &&
+-		    pread(fd, &e_machine, sizeof(e_machine), 18) == sizeof(e_machine))
+-			e_machine = DSO__SWAP(dso, uint16_t, e_machine);
+ 	}
+ 	mutex_unlock(dso__data_open_lock());
+ 	return e_machine;
 -- 
 2.52.0.457.g6b5491de43-goog
 
