@@ -4,73 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B36EC98308
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jan 2026 22:45:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9A14C9830C
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jan 2026 00:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hj6GAHYZIh6gVXIA3yP+f3HA1C7zHijVPadEXcYQcOE=; b=mvVOzmzAeG2J3g
-	kI0O26SYWGv0U72gaIp+YUQiErWj0RsMYd5ah3DMAfZxMU29+q/BraBlY1+CsXX6i9wcfMZ2iZm62
-	fRntmSRoB7C4K6fnJACQApqC5Hy8MnTo6ha4jRTt0L56JCDTb+XPu8SKvvcm7OpB1IoyoQCcaI0f8
-	H2u0Si5RCutyDs7RcpLZdoMrrPhYNJF70xCYdLNgrDo7ORXVCINw77em2bHE4FMHh7eLxMvCd1NZA
-	pWf//mim2fS/IicUSPOHcPg8jqz5kXHZvQUDjngjZUKicsCht/oX6HPgBzZX8SOBvaNcz2mD9/Wjx
-	Q6oVpXmzp/GJgBRV4Slw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fgrqAwhjaHBonKZMYKzAXV/0gFhA68UEIRmgX8rimVg=; b=oBzNJ7jZAtddU+
+	meT5diw0z0J1bJRdcpYXJFG1xcurKcdF9+4LwrvhFykrIN9+fkwz+APJjkCNL99DmizUgQRkUpQKo
+	uFaC8i9iWxOVpc+oDl5sO8NtBcxpBFqs1my1Av4o5aWHrbVDqw0g8I+xrvwCMa0PCVpZt3PZf7Blt
+	9akMi6gVgKPOnu41uwVIZlzscLlO3+8Af7/Uqf7JazUhvgyqMtdGQznF/MSo2/r1xBrnSeoRg/SpJ
+	5ERQSR0de2FS9eC7CFO8gLvexnSUbgIlTKxwGWTsL77kX/ZigNCKA5TMd4DiUGh10+JJJvlfh8no7
+	+1MZ09wDD86dpS02Pn+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgsYv-0000000Ez5A-3HBa;
-	Fri, 16 Jan 2026 22:45:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vguBn-0000000F3Jc-3Y82;
+	Sat, 17 Jan 2026 00:29:15 +0000
+Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgsYt-0000000Ez4V-13GA
+	id 1vguBl-0000000F3JH-1Lgx
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jan 2026 22:45:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB23C4412E;
-	Fri, 16 Jan 2026 22:44:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC27AC116C6;
-	Fri, 16 Jan 2026 22:44:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768603498;
-	bh=gjvrPL9/wzh4AalQEt+FlL5xbebbIKh0iM8Gwb+H4Uw=;
-	h=From:Date:Subject:To:Cc:From;
-	b=eq/IMixjH6fWBH6DyiJOwY+q6q0xKMIpw4uP3fY/ZGGHBV+Mg5xPh8p/nGdQJguUH
-	 5JmB6PUrzXSJT7BoBg7KMCvvwhPDAouKqpaCpiXql3Shjy56dR4XBSHsvTkhgPp3Fl
-	 Y62nygglr3ELpR8Ewwj825CyWjj0TW0hZobR3Vhsl4seNMO6xaxZQSqPG6RQnpHXYj
-	 BtLGqR/rRwvsGNaJ8eAXoZMDI4QYX7M9dv6BoYkw/bKFFjrqg+DfgJnx9CgvIQhPJM
-	 GsQeY2+CdIbUjZDRHF+Ub8QLOQZzQ2hv5T5TSLXsrNuGz0IDStaa6SU7N7flrpL0zA
-	 1gkTTNP7VvmHg==
-From: Nathan Chancellor <nathan@kernel.org>
-Date: Fri, 16 Jan 2026 15:44:34 -0700
-Subject: [PATCH v3] riscv: Use 64-bit variable for output in __get_user_asm
+	Sat, 17 Jan 2026 00:29:14 +0000
+Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-1233b172f02so3229924c88.0
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Jan 2026 16:29:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768609752; x=1769214552; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mGO1cK4mQ9XzEnYxq1fxs9vwo2P1CEDeSbovMGFFZdo=;
+        b=lDa5zoZgXtt8eN1HijWmpVKi1RE9h8wQ8zt2gg98Y/nFMukcJXR1LvkuAZ7gE6kO7n
+         lLPkVVDZM9T+s2A51ntaYPRn0YWpQ3aLeNXY4d/fnYRhIiuub8670FX5aUH9zL4YbVzx
+         4OeGaUZvHX9bFsSvfAMyRRqw6TWhFycvrr5Ap3L1aD1XSjPqETM4sQn48t0SOng76kQd
+         68SM2O8vi0m2wr739C0Ln25tMjbjf64bpAQ06Ir57W4AwhpSaF2UEoiVbJGBu4nxkkBm
+         Uxkw9DyRrKD2g2AG1dyTurFBYEK4NIuhy+KywO52cR59PMwPLpJKrWgAhNeQqKrtwZ92
+         Gd8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768609752; x=1769214552;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=mGO1cK4mQ9XzEnYxq1fxs9vwo2P1CEDeSbovMGFFZdo=;
+        b=q8240QrEa+H1tfPbqyaAhwlxiG5YJ7hEef6CIEkHPfGeMHv2IMruiq1KVQP3HKTLZJ
+         M87NmI7nwMWTwvpHd8+2L4EFymkKfGl6ukUUQ9gcsaqj2wVzwvUzVNewhVWxPadntayl
+         tAhE8fxbHdNe3ZBLIKbY84UMucRPW+s8U51iKkCmQ3+uBrpOfeYUS+HWrSUj+LDY6lrR
+         v/CvW2rutz84uH/LY2RKhBth8PstIVJR0vy1tcProDnk0ppw58Vc/4TGd6HA548c14OD
+         ss1b5eKoJPNHDIU7tUUNyn8rgVANK3o0i6ZY0B8qdVcYCyTdvBKd/GHz2Mv43G50Fner
+         Ouvg==
+X-Forwarded-Encrypted: i=1; AJvYcCVr78hD95wUi8OBLeB7DKE0keRJG4XOtS8hznkBtIToX8q8QNdpFcO9qBUnHMvXBkHz3VGckzuhclZBDw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHmWjQyZAAlxWkyGx11jH04NV/7+axkOq4JA50Dhc5gXLAvXi+
+	hNRNlwOmsIidTp9l1y+Z9NKoWSW0VMa+f7xCVW+GkCkkzDPRgBpU1u7Q
+X-Gm-Gg: AY/fxX4/KoX93zPRW+Y3hyJr3L8uWlFM4bO46EdQKpIKNOeJ5pEoTGDR6UXYvuu4zNx
+	YDhZnjjjOLYfsjuk52QzlUr4VmF8OKvCoiCl+dZQ3PXhQUOOpvSWoZyPomC/SbtmjKMvUd61N9i
+	O/2+XjOWmcoYFWYI+j3v/glxb70gfvN8fMRz+KmdWT+oTqo/VwnVCBkGgu5bDKETuCskHHxLcVm
+	scMwn8nUBs6SGmz1E5jO2JF3TSNdxm1FrZ52iIh7Gc22KlGRf1niUxUsKo5Pc5hQzo9txi0ha2t
+	vJ1rq1CDFtq1DQSWZBw8lSTRE8+9uM0PhfQP+J5KLU28SQU0uKyVMQ68vDed+V3UPeMxaJyEu/z
+	ksldAgeRcj9IBIgZ5pBSVSfOfMuJnEaEvYKvTgye/dWfcYaLYc+0cFnlaJBGyx8eV2M0kOkMEj6
+	AAldK0YASiXg==
+X-Received: by 2002:a05:7022:4181:b0:11b:2138:4758 with SMTP id a92af1059eb24-1244a6f4633mr4974776c88.21.1768609752297;
+        Fri, 16 Jan 2026 16:29:12 -0800 (PST)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1244ac58140sm4235676c88.4.2026.01.16.16.29.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Jan 2026 16:29:11 -0800 (PST)
+Date: Sat, 17 Jan 2026 08:29:06 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Inochi Amaoto <inochiama@gmail.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-sound@vger.kernel.org, 
+	devicetree@vger.kernel.org, sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 0/8] ASoC: sophgo: add CV1800 AIAO mux and I2S support
+Message-ID: <aWrXr1aXB3YUPisg@inochi.infowork>
+References: <20260115-cv1800b-i2s-driver-v1-0-e8b22b8578ab@gmail.com>
+ <aWl4fvKsUZDg9dwj@inochi.infowork>
+ <aWpyLQ6FR8_RsD1n@anton.local>
 MIME-Version: 1.0
-Message-Id: <20260116-riscv-wa-llvm-asm-goto-outputs-assertion-failure-v3-1-55b5775f989b@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6XOTQ6CMBQE4KuYrn2mP4rgynsYF219hUagpC1VQ
- 7i7hcSFW13OLOabiQT0FgM5bSbiMdlgXZ+D2G6IbmRfI9hbzoRTfqAlY+Bt0AkeEto2dSBDB7W
- LDtwYhzGGXOTBmEfASNuOHqGQaCQvhCi1Jnl28GjscyUv15wbG6Lzr/VBYkv7B5YYMDgqVepKK
- 1Vxdb6j77HdOV+TRUv8IxSUMfGDwLOAdC+V5MhMZb6EeZ7fEee3bFMBAAA=
-X-Change-ID: 20250811-riscv-wa-llvm-asm-goto-outputs-assertion-failure-6aefa26338cc
-To: Paul Walmsley <pjw@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, 
- Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- Craig Topper <craig.topper@sifive.com>, linux-riscv@lists.infradead.org, 
- llvm@lists.linux.dev, patches@lists.linux.dev, 
- Nathan Chancellor <nathan@kernel.org>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2859; i=nathan@kernel.org;
- h=from:subject:message-id; bh=gjvrPL9/wzh4AalQEt+FlL5xbebbIKh0iM8Gwb+H4Uw=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDJlZ+zMChCv5IkOs+bnErGsOdwb9ezsvn0dh37ufd8S4i
- 2XTj57sKGVhEONikBVTZKl+rHrc0HDOWcYbpybBzGFlAhnCwMUpABPZZs3wP6N7e4QnW9ILc25T
- bn/lE7Ktzjqd0xRLfZ/uLtqXqVTlzciw9MDPJVNsV8ieuvc1xq1u/ulvCWccd509PWFJh4r/jIg
- ebgA=
-X-Developer-Key: i=nathan@kernel.org; a=openpgp;
- fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+Content-Disposition: inline
+In-Reply-To: <aWpyLQ6FR8_RsD1n@anton.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_144459_353162_F102EFDA 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20260116_162913_362189_94B1477B 
+X-CRM114-Status: GOOD (  24.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,76 +105,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-After commit f6bff7827a48 ("riscv: uaccess: use 'asm_goto_output' for
-get_user()"), which was the first commit that started using asm goto
-with outputs on RISC-V, builds of clang built with assertions enabled
-start crashing in certain files that use get_user() with:
+On Fri, Jan 16, 2026 at 09:25:51PM +0400, Anton D. Stavinskii wrote:
+> > On Thu, Jan 15, 2026 at 11:17:37PM +0400, Anton D. Stavinskii wrote:
+> > > This patch series adds basic audio support for Sophgo CV1800B, 
+> > > as used on boards such as the Milk-V Duo. 
+> > > The series introduces an AIAO audio mux driver, 
+> > > an I2S controller driver, corresponding DT bindings, 
+> > > and DTS updates to wire the components together.
+> > > 
+> > 
+> > I haven't see your mux driver, is it missed?
+> 
+> That was bad copy paste from original version. 
+> Thanks for noticing this. Will update the cover letter.
+> I want to not overcomplicate already big patch series.
+> So multiplexing will be done later. 
+> > 
+> 
+> > Thanks for your patch, for all the patchs, I hope you write a
+> > meaningful comment for the patch, at least for now I found it
+> > is nothing in your comment.
+> 
+> Thank you for a great help with that series. Do you mean
+> I need to add more meaningful comments for each commit or the 
+> cover letter is not describing everything clear enough? 
+> Anyway will do my best in the second version. 
 
-  clang: llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp:12743: Register FollowCopyChain(MachineRegisterInfo &, Register): Assertion `MI->getOpcode() == TargetOpcode::COPY && "start of copy chain MUST be COPY"' failed.
+For each commit, the cover letter is OK.
 
-Internally, LLVM generates an addiw instruction when the output of the
-inline asm (which may be any scalar type) needs to be sign extended for
-ABI reasons, such as a later function call, so that basic block does not
-have to do it.
+Regards,
+Inochi
 
-Use a temporary 64-bit variable as the output of the inline assembly in
-__get_user_asm() and explicitly cast it to truncate it if necessary,
-avoiding the addiw that triggers the assertion.
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/2092
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
----
-Changes in v3:
-- Add a comment around why a temporary variable is used (Paul)
-- Link to v2: https://patch.msgid.link/20260113-riscv-wa-llvm-asm-goto-outputs-assertion-failure-v2-1-e04aba2e1f9f@kernel.org
-
-Changes in v2:
-- Rebase on 6.19-rc5
-- Send to updated addresses
-- Link to v1: https://lore.kernel.org/r/20250811-riscv-wa-llvm-asm-goto-outputs-assertion-failure-v1-1-7bb8c9cbb92b@kernel.org
----
- arch/riscv/include/asm/uaccess.h | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index 36bba6720c26..53a643c0f6fe 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -97,13 +97,23 @@ static inline unsigned long __untagged_addr_remote(struct mm_struct *mm, unsigne
-  */
- 
- #ifdef CONFIG_CC_HAS_ASM_GOTO_OUTPUT
-+/*
-+ * Use a temporary variable for the output of the asm goto to avoid a
-+ * triggering an LLVM assertion due to sign extending the output when
-+ * it is used in later function calls:
-+ * https://github.com/llvm/llvm-project/issues/143795
-+ */
- #define __get_user_asm(insn, x, ptr, label)			\
-+do {								\
-+	u64 __tmp;						\
- 	asm_goto_output(					\
- 		"1:\n"						\
- 		"	" insn " %0, %1\n"			\
- 		_ASM_EXTABLE_UACCESS_ERR(1b, %l2, %0)		\
--		: "=&r" (x)					\
--		: "m" (*(ptr)) : : label)
-+		: "=&r" (__tmp)					\
-+		: "m" (*(ptr)) : : label);			\
-+	(x) = (__typeof__(x))__tmp;				\
-+} while (0)
- #else /* !CONFIG_CC_HAS_ASM_GOTO_OUTPUT */
- #define __get_user_asm(insn, x, ptr, label)			\
- do {								\
-
----
-base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
-change-id: 20250811-riscv-wa-llvm-asm-goto-outputs-assertion-failure-6aefa26338cc
-
-Best regards,
---  
-Nathan Chancellor <nathan@kernel.org>
-
+> > 
+> > Also, the patch 8 should not in this patch and should be a
+> > separate patch.
+> 
+> Yes I've missed this thing. I will remove the last commit 
+> and move codecs nodes to the base dtsi file. 
+> 
 
 _______________________________________________
 linux-riscv mailing list
