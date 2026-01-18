@@ -4,112 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EF51D4A5F4
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jan 2026 17:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CB24D4A5F4
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jan 2026 17:56:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XXWF9UOwdFcNGYu8iq+9ANDjDWF74SjSwwwLJcS6qpQ=; b=0YYhRP/Q1BGy9e
-	rlhGw4aozJP38mZhlx+pS8cQbySyGQUe3po8UW8iXah+N3sBt5oSGIJ3TeZMlykVGL7xkOZzICqHj
-	mKPgu5cTBZq8HvS3J4VvXf/Fap8nSBEd1xrCq7J/Oxrwbb2t/LzNtdebE8I5w3qa+p7EVhvnu0j5z
-	fD9aEzAm919YTAI8T02LptgrhSMtxdEq2B3Vvkmei3rg6D6ga0+669peKhx7avMjUPO7BmdZfd0Ii
-	zoOZE6Ohee9m6+3xwxUe241CQx++Y67OQ9Cedmnn7Nr9X6/Z2Xhb4cBR3YNNJfT+TYFRvj77n9F+I
-	+OJAs5dc66Vm6Vv8+WzQ==;
+	List-Owner; bh=3BpP5uidqLVTkbKpLqwIMCBdY4lYjRI2IiSCI4y01qs=; b=DMVZcbFCcG0PjB
+	JrDLLeInGoADdPJv7DtW98+qGCZPrH9PTNezk9UJ3ANfCtixu56/KCL/BisIppBmJKPREtdK+7qwn
+	dArp+SS8VIbHDB/GCCQahPOfjbzcMgmt+9ivkkRbUNhAWfHsGTcV1aEa17BgZwD807IcqY/kmbD3P
+	Vlx8Jy472WRxV+KE5uU+DtgM+foizt3IhBhh02pMs6Qi2s6vfFO1WQ0M3nltd8yAa7c+i232Xh5J8
+	SNpX3xGi7fJcaE+eFoYIweWa976D00ysKoMKEBDh0WP6sww5o++U7bjHyBFfTr8tNK92e9qkx0hZI
+	uiiat1eA4RzaFHiiUxBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhWde-00000000bnw-0pM5;
-	Sun, 18 Jan 2026 17:32:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vhX0R-00000000e0V-0gB9;
+	Sun, 18 Jan 2026 17:56:07 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhWdb-00000000bn8-2kp6
+	id 1vhX0L-00000000dzN-2Fmm
 	for linux-riscv@lists.infradead.org;
-	Sun, 18 Jan 2026 17:32:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8455A409E3;
-	Sun, 18 Jan 2026 17:32:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 312E8C116D0;
-	Sun, 18 Jan 2026 17:32:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768757550;
-	bh=0kTRKH5PaljDGxLy90Sgh1dSRT8to08dWqQtVquwlcM=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=oMhudOhryWaF5MpCw884aJNkuQw5mQs4S9WtpwCqG2nypQto5ph3aqhjsOiOQlt91
-	 oru67127ULWlaMjJsji8ktKOhi6sPL5RNIeb3kcgjUNv0FEwDbpJDIllAiP6nHia/z
-	 oQnR9ueYqJ3zEEQBUtCdk4xYdrEjL2jWOj6etESn/DRgxxV3lbAGEUMi7BLbAQqyh6
-	 Siv/J/SNvJLNLTH+r8jBxHMT78Di97kyImEgZ0IVK/qk6diH00/C0elNsl9DDWMKaM
-	 LB09Tw6VqNvA+8YWwCIt7cF4QTDLlYtgJvqEbm8KHlx80BdHWowt9rX0RW5oC28GtJ
-	 z5ca0d+IR78+w==
-Message-ID: <37bbd795-a0b1-462b-bf0a-2713f79ef2b8@kernel.org>
-Date: Sun, 18 Jan 2026 18:32:24 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	Sun, 18 Jan 2026 17:56:05 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-47ee937ecf2so25513805e9.0
+        for <linux-riscv@lists.infradead.org>; Sun, 18 Jan 2026 09:56:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768758959; x=1769363759; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JmufyVTFi2Nm8r9yuM1MA+Nz0GRNSPj6jIbhD8ad9xY=;
+        b=R3iNpo6yPqeRHKRzm6sDhw9Ab0eu7uI68by4eihiL9Gg2KOYuF4Li0NHD+RQj9wMCS
+         GRl4KoqOqLDIkl0+GxmAfDKIwttsn4VPnXiAK8qmER9KU0mP91WyB3j6RfA5EKav4luC
+         tJ0iLsjp3o1hsUxCzS82nGkIN+TY4bZpAMdQBwG8UA51aCWFau0nYrx4Zgf/6pOBkRMC
+         J8/kiOnwPifFMPt9H9MfnyL6wqV4Ugx/7dwff3PypIu6NplOKKKrUGXe3BXK1mAxytEu
+         DQGREFGxmy3EKATGrNW0YEiYvU1tqHHbwI0HNC2/o1oZTTwsQsrKdqbcuUk57gK6tIOP
+         kGFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768758959; x=1769363759;
+        h=in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=JmufyVTFi2Nm8r9yuM1MA+Nz0GRNSPj6jIbhD8ad9xY=;
+        b=AEZaZcu2lfzLVOB8BuiqIt0OOPvFGyKahCTTdC3q1L4U67xKYnar9+ldlTYF36v0lU
+         B7E3a1F1Q3D0n/4R0mjykwJ329lbKGVsRkhI4C2cAC+YO8vcqNucM8CjZshOVH+Qwgel
+         EzZ7Qz22sjOtAgmhhMQTnBiaAKvd0I0Mu71cDeMZzanMUlJTjYRqFgjxWbT9IKAh1w6k
+         Q2eM6nPZSywL+0grrDVNUaq1GDBdWegNQYLqmpztvQ2TTNNu8lMUX8/Yi8kzsq1ZX5gP
+         t5/PszMs2uMiyUME462kb0yJKNPAjne5uXowxLwRAIaq3dICD65/Rt31fldMan6mzYva
+         ZEvA==
+X-Forwarded-Encrypted: i=1; AJvYcCWEu8/D2A10BnYY8QUPQ/EIWFbqSStGJTTQDhf3r7aeiLiEzBwZ866g1iTRz3Q3xz+oSRF8hScx5aSvoA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfB46EE0PIqO2isNg0YZXZzcoOWIMbmSlQA3L3D2dZx+XcYZOr
+	yiBn4w8QMPeUKY0PBaAht9IZG7levQl0vCJY85VqgkDITnAAg2tgqODG
+X-Gm-Gg: AY/fxX4R4r/8TA2Zmr+jU7Q7whFuUgxl7Ovz0tuTpQeuBpXZAVObZ+mPclNA2Jl9mtk
+	bAnx9/gaF6ionxlflgVdMyOImH/5Sd2+/l0E32bI1HCDFL3D0g2BLyNAqaiTrSgnSYZJpPP2rJu
+	M6SVw+PaizewCxtoX9teGKhi7Ouao3VyhvmkaNutKF7GZw+Wk6qHzc+eENiWoPFK/yZ6z+lEn3M
+	buIl4/KVc8VY/HSrInAmblyYbYX155cRuBghuEnqdM1869HXAk7xEAlM8SLC5mzVbux6Z0M1GeS
+	Wz2u4w3RJh2e7t1y/y6XRQZsGHuSLVsxyTwj+jgEYxwJXU9Q3rOpBxM0zNt0jL54OCTt4cy2h4g
+	ht7FZvgrvFsqTyCkkolzTMJW9prbRfvpe05Dt/B+aMu+wA9X2Ji/6Pgxj99mTtXx28fhJDIIODp
+	tT3UlI+ITLDlbzAoK3u70pZAl0LCG+2UMDNVQY7xRsybA=
+X-Received: by 2002:a05:600c:1c24:b0:47e:e2b8:66e6 with SMTP id 5b1f17b1804b1-4802590e305mr97146725e9.14.1768758958917;
+        Sun, 18 Jan 2026 09:55:58 -0800 (PST)
+Received: from anton.local (vps-58d0fbce.vps.ovh.net. [51.178.29.162])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4801e8d90b3sm154086955e9.15.2026.01.18.09.55.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 18 Jan 2026 09:55:58 -0800 (PST)
+Date: Sun, 18 Jan 2026 21:55:53 +0400
+From: "Anton D. Stavinskii" <stavinsky@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
+	Inochi Amaoto <inochiama@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-sound@vger.kernel.org, 
+	devicetree@vger.kernel.org, sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 Subject: Re: [PATCH v2 1/7] dt-bindings: sound: sophgo: add CV1800B I2S/TDM
  controller binding
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
- Inochi Amaoto <inochiama@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, linux-sound@vger.kernel.org,
- devicetree@vger.kernel.org, sophgo@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Message-ID: <aW0a9e8Lyv1tu-mZ@anton.local>
+Mail-Followup-To: Krzysztof Kozlowski <krzk@kernel.org>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <20260118-cv1800b-i2s-driver-v2-0-d10055f68368@gmail.com>
  <20260118-cv1800b-i2s-driver-v2-1-d10055f68368@gmail.com>
  <20260118-famous-magnificent-peccary-474ba8@quoll>
  <aW0SikDtd0HIrT4v@anton.local>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aW0SikDtd0HIrT4v@anton.local>
+ <37bbd795-a0b1-462b-bf0a-2713f79ef2b8@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <37bbd795-a0b1-462b-bf0a-2713f79ef2b8@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_093231_764787_E68A4B68 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20260118_095601_866614_436324E7 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,72 +118,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18/01/2026 18:07, Anton D. Stavinskii wrote:
-> On Sun, Jan 18, 2026 at 11:14:34AM +0400, Krzysztof Kozlowski wrote:
->>
->> Please use subject prefixes matching the subsystem. You can get them for
->> example with 'git log --oneline -- DIRECTORY_OR_FILE' on the directory
->> your patch is touching. For bindings, the preferred subjects are
->> explained here:
->> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+On Sun, Jan 18, 2026 at 06:32:24PM +0400, Krzysztof Kozlowski wrote:
+> On 18/01/2026 18:07, Anton D. Stavinskii wrote:
+> > On Sun, Jan 18, 2026 at 11:14:34AM +0400, Krzysztof Kozlowski wrote:
+> >>
+> >> Please use subject prefixes matching the subsystem. You can get them for
+> >> example with 'git log --oneline -- DIRECTORY_OR_FILE' on the directory
+> >> your patch is touching. For bindings, the preferred subjects are
+> >> explained here:
+> >> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+> > 
+> > dt-bindings: sound: sophgo,cv1800b: add I2S/TDM controller
 > 
-> dt-bindings: sound: sophgo,cv1800b: add I2S/TDM controller
-
-No. Read again, I even gave you DIRECT doc link!
-
+> No. Read again, I even gave you DIRECT doc link!
 > 
-> Is this anyhow better? Also in the documentation directory should go
-> first but I didn't find such examples in git follow. 
+> > 
+> > Is this anyhow better? Also in the documentation directory should go
+> > first but I didn't find such examples in git follow. 
+> 
+> Huh? How so? Where are you looking? 99% of commits have correct prefix.
+> Where do you see sound:
+> 
+> b7d53fe53cb5 ASoC: dt-bindings: rtq9128: Add rtq9154 backward compatible
+> 35bffbe49dfd ASoC: dt-bindings: Convert realtek,rt5651 to DT schema
+> 70d95c5d2081 ASoC: dt-bindings: rockchip-spdif: Allow "port" node
+> f66e7da2a6b1 ASoC: dt-bindings: realtek,rt5640: Allow 7 for
+> 101b982654ac ASoC: dt-bindings: realtek,rt5640: Add missing properties/
+> b540b4e157c4 ASoC: dt-bindings: realtek,rt5640: Document port node
+> 25b858474497 ASoC: dt-bindings: realtek,rt5640: Update jack-detect
+> 66b47b9c069f ASoC: dt-bindings: realtek,rt5640: Document mclk
 
-Huh? How so? Where are you looking? 99% of commits have correct prefix.
-Where do you see sound:
+Sorry I'm new to this and learning. For some reason I thought that "binding dir" 
+in "<binding dir>: dt-bindings: ..." is actual directory of introduced
+file. That is why I said  couldn't find any example because I didn't
+find anything with "sound:". Thank you for clarification. 
 
-b7d53fe53cb5 ASoC: dt-bindings: rtq9128: Add rtq9154 backward compatible
-35bffbe49dfd ASoC: dt-bindings: Convert realtek,rt5651 to DT schema
-70d95c5d2081 ASoC: dt-bindings: rockchip-spdif: Allow "port" node
-f66e7da2a6b1 ASoC: dt-bindings: realtek,rt5640: Allow 7 for
-101b982654ac ASoC: dt-bindings: realtek,rt5640: Add missing properties/
-b540b4e157c4 ASoC: dt-bindings: realtek,rt5640: Document port node
-25b858474497 ASoC: dt-bindings: realtek,rt5640: Update jack-detect
-66b47b9c069f ASoC: dt-bindings: realtek,rt5640: Document mclk
-9ebc914acd32 ASoC: ES8389: Add some members and update
-fd9a14d233fb ASoC: dt-bindings: everest,es8316: Add interrupt support
-af4c0b951b18 ASoC: dt-bindings: realtek,rt5575: add support for ALC5575
-85a6544777e0 ALSA: hda: dt-bindings: add CIX IPBLOQ HDA controller
-270d32cd0efc ASoC: dt-bindings: cirrus,cs42xx8: Reference common DAI
-bb52dc1d0342 ASoC: dt-bindings: ti,tas2781: Add
-4980df101676 ASoC: dt-bindings: mediatek,mt8189-nau8825: add mt8189-
-22e9bd51e518 ASoC: dt-bindings: mediatek,mt8189-afe-pcm: add audio afe
-0b2333183ade dt-bindings: Remove extra blank lines
-bcc357c8e061 dt-bindings: Update Krzysztof Kozlowski's email
-c2561572031a ASoC: codecs: lpass-macro: complete sm6115 support
-675f41b8d167 ASoC: dt-bindings: qcom,lpass-va-macro: Add sm6115 LPASS VA
-5a0438622b49 ASoC: dt-bindings: qcom,lpass-va-macro: re-arrange clock-
-65d03e84d8b8 ASoC: dt-bindings: qcom,lpass-rx-macro: Add sm6115 LPASS RX
-4acbfcf11cbe ASoC: dt-bindings: consolidate simple audio codec to
-7a381e373a42 ASoC: qcom: q6dsp: fixes and updates
-aa897ffc396b ASoC: dt-bindings: ti,pcm1862: convert to dtschema
-c4e68959af66 ASoC: dt-bindings: ti,tas2781: Add TAS5822 support
-3cd523ba2706 ASoC: dt-bindings: cirrus,cs4271: Document mclk clock
-5e5c8aa73d99 ASoC: dt-bindings: pm4125-sdw: correct number of soundwire
-6ddcd78aa7f8 ASoC: dt-bindings: allwinner,sun4i-a10-spdif: Add
-67e4b0dfcc67 ASoC: dt-bindings: allwinner,sun4i-a10-i2s: Add compatible
-bb65cb96f64e ASoC: dt-bindings: sound: cirrus: cs530x: Add SPI bus
-9957614d2b79 ASoC: dt-bindings: sound: cirrus: cs530x: Add cs530x
-ee4407e1288a ASoC: dt-bindings: qcom,sm8250: add QRB2210 soundcard
-8c465b1669bf ASoC: spacemit: add i2s support to K1 SoC
-2880c42a0de6 ASoC: amd: ps: Propagate the PCI subsystem Vendor and
-6a4f29bc6629 ASoC: dt-bindings: don't check node names
-73978d274eba ASoC: dt-bindings: Add bindings for SpacemiT K1
-15afe57a874e ASoC: dt-bindings: qcom: Add Kaanapali LPASS macro codecs
-367ca0688e42 ASoC: dt-bindings: qcom,sm8250: Add kaanapali sound card
-62ef9b2a01a0 ASoC: Add QCS615 sound card support
-fcd298fdc2a3 ASoC: dt-bindings: Add compatible string fsl,imx-audio-
+Got it now(I hope so). Removing sound, adding ASoC. 
+Also the word binding removed as you told me
 
+ASoC: dt-bindings: sophgo,cv1800b: add I2S/TDM controller
 
-
-Best regards,
-Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
