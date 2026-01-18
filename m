@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C11F3C9832F
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jan 2026 12:28:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC93D4A5F4
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jan 2026 12:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1HQSyzMqYjtFExpAgji1I8ssYsiYHPKp9sbQI42wjP8=; b=gG/Vh+hDBYiY4y
-	Eh7i6GXy3D+/0Y+VI1jLCMepV8BoUXD5nNLe/XuGOCCbkwewLdPwOr87lT4WHcR6zd2I6Vn/VEZ37
-	TBbqco5GlklY25MlxN8WNYfZv6AdNRggyehH8xRxeWoXdjBzMlQiREAO/Y0cslg9MwiInchsAY8I5
-	WN9MxZuBHvWv3RkB6ovBocBs2BpCyHvHIBABsrRupbwd474E5wXxfF2jncwMMHwE4j9Q483QC5byc
-	x1/oQgOYWIwq9bre4VCdIbUlWiR7+5uDT1sb93GVa7mhUImPHwKKvZiiDrm+V2LYPL78pLy5Cdfkw
-	vkmOhXTLScvpGqH2vYOw==;
+	List-Owner; bh=NRMyIBI5Jdl7HeF30c9QK11mtjBSQHkgrwAG/eRj7Hk=; b=Lmr9hEinWimmEE
+	c6ywD+eC7g+Hh5bWXOnYgS6ZDBBaszkdRohKJk3Qo7NIQiWrLHkm32kfY7COeHRx6MjA8+D+JiZtf
+	eFQnrvVgfAnHpUgW8k8O2X4bCgLY+P7LGxcULEyGoiFnmvIDMUZ59RP5DwuaIr91JZylCM7igIBtj
+	ju4zQtXaxyrBoD6JELAbDWjV7xShQzqWONNDGF60ZRLfNNYZzeLXDt9xlZ7PsbXt/H6/Y8jLOZPsH
+	WTFRGYU76Rhwq9Cp+LZfpZ5fG+BEHKIAjJ6XMwDQI8JZQf3ZIV3oGVX+7OGcl9Aee0+eh5gAU7pkf
+	I5FkugKl/rmyQcLciehg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhRsi-0000000HZtg-1uko;
-	Sun, 18 Jan 2026 12:27:48 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vhS2v-0000000Hb0c-2SkA;
+	Sun, 18 Jan 2026 12:38:21 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhRsf-0000000HZsw-0VtC
+	id 1vhS2t-0000000Hazq-027S
 	for linux-riscv@lists.infradead.org;
-	Sun, 18 Jan 2026 12:27:46 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4801c1ad878so23143765e9.1
-        for <linux-riscv@lists.infradead.org>; Sun, 18 Jan 2026 04:27:44 -0800 (PST)
+	Sun, 18 Jan 2026 12:38:20 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4801bc328easo25951425e9.3
+        for <linux-riscv@lists.infradead.org>; Sun, 18 Jan 2026 04:38:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768739263; x=1769344063; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1768739897; x=1769344697; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references
          :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=t9h5PT98oehXGGTuTpwmqI77fU/XEwWQyJVUHxiP7aU=;
-        b=k//2r5sKq7RuIbhglG1oMBGJ3W3xM4myI9BcO0/0JepSj0S6hs7ooe2Qs9fAp7oOLy
-         IJu4anuBASfw4uuf9LMRZHk2rfp9kicNzmyATlN4CHqCa1px/MK0s/xinO7+dsADHLSx
-         4+xRCcvByydeN3nrORyaWyTeufGslmK4wKZPHqlXvgguqnQWOlNIFg4OrCSGeyKSPttF
-         Z8+Qh9XTxumDwZBd9QGh44zN6n0uqYsR6apY655zBZIJE2HAQLbjP/Ln8cLDvLErm93R
-         1u05pygN9exzIDJBbqt+SPoJhZpThYMbNEOWMc0StqMpJTGkmpLkCN3vKX1SgGGSaiit
-         YdWQ==
+        bh=Suqn9RTje01PunnIGGFhUEA52WhKnlG0PrdrAwNU83A=;
+        b=HqqndtkHH2j871K7s3FVKLlj+QyLPNjLieeyzgHKxNIqcmHNnfoXKOrUytuRqVX34o
+         29DWd5HMZ6Trja1AXXnVeAXU3W92UXCROmHyTlRwu4J9BlX4ZW+Qb0hONvjjx5UwtUyt
+         kaGBxOzkKUsBBadtBWRhkz0vwjOWw7Wsq8R0Ztr61rV75gMrswAUlWggW7j9CcR5qEDm
+         90RWQKaPF7eS6yja1qlbfNEBp8WlbZ8NXdWoirnmRGUx9Qo3i2FPpElmXEDaJUgm58rb
+         tLBWkR+aMUE9fce84njbtpEkJ/IZ4u1hjTkfqOfLeDW6cwsu/KwNINyURQWySZtNcglO
+         4C7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768739263; x=1769344063;
+        d=1e100.net; s=20230601; t=1768739897; x=1769344697;
         h=in-reply-to:content-disposition:mime-version:references
          :mail-followup-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=t9h5PT98oehXGGTuTpwmqI77fU/XEwWQyJVUHxiP7aU=;
-        b=iog7aemMiAiJhZazIhn22VZdokiS4qeLbGKd+Q6p9owXb3axN92/9ALIdILgynLuVU
-         7EvIAUFxx1Mahwiu9ptV87oq51t819RwtnKTa69ncP/hEeUDwKEwoTdhKWNQ4DfgYVSZ
-         aPrSXe2Hc8laU6EtaS4Ak3JrwRuU3rEUkA56O5tIi1U8qLkfEf/+zod8MIK+Q5yHPqFL
-         X/yIGXlz76FHzx0X3rhwIgr+IXSn7ZrRxLTlvCJ2TdRNDMy2QdjkSFoDLjmkA72OkhkE
-         NtihJ9ODjvfnsnhO2lSN6owMbcX244ON2LcIQEzlPvtDUNOwIJ7EtjT4OKogndd/c9+W
-         qogg==
-X-Forwarded-Encrypted: i=1; AJvYcCWAJtovUU/I4wWVHwitBm7w1BIZwhagMlGmNhJPrrpirz53UUWY91NuxLB1lANHwFhxsBTFbIjj8I7w8g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzsveOFr6X/QcxCX7oPM2JskN/4u5tQgqWPruQZsABPc6mRlYv
-	VTmls8msoc8wcgAs/VPDl7Yj7ViNkIPrs9CAXRjyXL7fTc984aRnWH1V
-X-Gm-Gg: AY/fxX7bZn7dvxRiCEF/iDID5fEOD0mTxeMJXmKH9uawQT7NzMpyp5VvbSgoCPzD+nu
-	PjR5I2OVVzL6lPeH21W4m/0P6/f0HtKsq+Pnn1Fx0xaJ//JcQfGYLa+DA6ylcJoMgupdDzU/0gx
-	yY+Mi4zVHlB3cvE4zI09WHUSrPEqe1SIWSqD1RvznVK3uACRAmaYdMhar7tgreGX/vFrgO7pZap
-	aXYVoVqS+NfPP7W/OKkUaL9UVnqKyihMk5qu9jCTqdToXbMhTFffmJbA+Tt1PxCP+sFUNcK8PPf
-	EjZ0ZvW+tGnnBSwYuWK+a9y+FVfDfFPa3uUwjLeVE8Bz3wLh+tYNl3mmrGXEDW99GbCO094IVhv
-	3esHeYluXrA27pSWBPHyweMTD7S6tjMqabSAFGhL80/KjBzOujGhUb0pp7sf2mMbNFFJ6gCuu6s
-	JJKyVvj282bbaexwoapPsc3uywpTBnEgj1YaMlE9LkEeU=
-X-Received: by 2002:a05:600c:820d:b0:477:58:7cf4 with SMTP id 5b1f17b1804b1-4802a29f85bmr44396165e9.4.1768739262625;
-        Sun, 18 Jan 2026 04:27:42 -0800 (PST)
+        bh=Suqn9RTje01PunnIGGFhUEA52WhKnlG0PrdrAwNU83A=;
+        b=Tbgu2kBw4rJBwg7UfItWnQGosjUBhT71avV61fXNO7Uby/5IfkDBWYVBNoiHnL4N0g
+         3MhAYJxEWr/5jTGbetLoVHthV0nEebsK7fqPxwnuRS0e7DY9yHqRCkPsWEdgWUljQro4
+         qFMorYOa3oEzTMXo32v3l5crDfwKY8wGT0TtB+29c5WR3dYODTaz57xwqh5SFJgvWmo1
+         mZLVTBtRfenkV8Jd5XsUyvg1Pq64r/9OLLJ8a9fBqJyQ32JVPWAv4WE2/5f6QVJfVvjl
+         hPnBSvLVlrX89VcsWnykUgY0Sxrc162fuBpfOYhkRkDLQrltdu2KeDxeW+tD4yOK4kii
+         X7SQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWCPGvdhzUjZ+Ji+daJ8DviuAHux+hJp5mGX6pBOAurNMrwP914apA62ZYL4dQJ/zlZdx2Iw4c3OlWXfA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YytjFx2uNf89+nXbFMy/PqfghG7lsbdRwbR9VxP1IDIrqZm5NKG
+	9cFKMZCvXuDK5JWkT03bweDEe5wLm9u14jN/DLdoh09wEsuC4LRv9ExN
+X-Gm-Gg: AY/fxX6kQenCuKmSEcewK1TIKT6RLdPyQuI/jCRezvBcnqfuyfUi3NzbrtyZl37DKrD
+	l1lU0n0PIoisfL8Mlec/b6moJTTxTLkMxLadexTA8n14/0D7v+qDfwDetB0T949dVNIfrluNNoZ
+	N1NafQkEcZ+GpVks+G/ouQGMbSgTTUt1yVRj04hc62ppZs8TXY4D7DpwzbsdbHNrRNwjWPKixiX
+	krH9CF7xdXt+RFjse6zfexmkM/EcuD3TLkDE6P3x6vu+99iQpRcDdZZS/Ib8I33D2V+Abnh1vA1
+	LrDcABHo8Ps/pMAm8c9S794hWKhSgGUHE8CAzLgveg8lfHjaXbsruRmQZBr451qAKwLwqWgop7w
+	Jg11enVfTlD1r4HR0ZHBsXfUbswyGHIMbzaIpPHVyOltkDxowQF81ymrO1A5S4pvLDYPJhhj5cc
+	fmjY5LAyJkILoYrB0H6Fozl+hOQ3bduKtfQqVQxBFeLm1EGF5QjlQW7g==
+X-Received: by 2002:a05:600c:3107:b0:480:1a3a:5ce6 with SMTP id 5b1f17b1804b1-4801eabf6b4mr95429315e9.14.1768739896538;
+        Sun, 18 Jan 2026 04:38:16 -0800 (PST)
 Received: from anton.local (vps-58d0fbce.vps.ovh.net. [51.178.29.162])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4801e8c0475sm169474355e9.10.2026.01.18.04.27.39
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4801e8caceesm138596495e9.13.2026.01.18.04.38.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 18 Jan 2026 04:27:42 -0800 (PST)
-Date: Sun, 18 Jan 2026 16:27:37 +0400
+        Sun, 18 Jan 2026 04:38:15 -0800 (PST)
+Date: Sun, 18 Jan 2026 16:38:09 +0400
 From: "Anton D. Stavinskii" <stavinsky@gmail.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>
 Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
@@ -80,9 +80,9 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-sound@vger.kernel.org, 
 	devicetree@vger.kernel.org, sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 2/7] ASoC: sophgo: add CV1800B I2S/TDM controller
- driver
-Message-ID: <aWzP-rRNKPHlWaWO@anton.local>
+Subject: Re: [PATCH v2 5/7] dt-bindings: sound: sophgo: add CV1800B internal
+ DAC codec
+Message-ID: <aWzS4y82qkzJ-xkI@anton.local>
 Mail-Followup-To: Krzysztof Kozlowski <krzk@kernel.org>, 
 	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
@@ -92,14 +92,14 @@ Mail-Followup-To: Krzysztof Kozlowski <krzk@kernel.org>,
 	Alexandre Ghiti <alex@ghiti.fr>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
 	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <20260118-cv1800b-i2s-driver-v2-0-d10055f68368@gmail.com>
- <20260118-cv1800b-i2s-driver-v2-2-d10055f68368@gmail.com>
- <20260118-pastoral-resourceful-mandrill-47bda6@quoll>
+ <20260118-cv1800b-i2s-driver-v2-5-d10055f68368@gmail.com>
+ <20260118-magnificent-horse-of-warranty-e5fdac@quoll>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260118-pastoral-resourceful-mandrill-47bda6@quoll>
+In-Reply-To: <20260118-magnificent-horse-of-warranty-e5fdac@quoll>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_042745_595790_6C10CF2A 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20260118_043819_100649_CC050202 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,131 +116,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> > +++ b/sound/soc/sophgo/Kconfig
-> > @@ -0,0 +1,20 @@
-> > +menu "Sophgo"
+On Sun, Jan 18, 2026 at 11:16:15AM +0400, Krzysztof Kozlowski wrote:
+> On Sun, Jan 18, 2026 at 12:18:57AM +0400, Anton D. Stavinskii wrote:
+> > Document the internal DAC audio codec integrated in the Sophgo
+> > CV1800B SoC.
 > 
-> Missing SPDX. Did you run checkpatch?
-
-Actually I did. I will add SPDX and recheck again. 
-Also I will take a look why checkpatch missed this. 
-
+> Squash the binding into previous binding.
 > 
-> > +	depends on COMPILE_TEST || ARCH_SOPHGO
-> > +
-> > +config SND_SOC_CV1800B_TDM
-> > +	tristate "Sophgo CV1800B I2S/TDM support"
-> > +	depends on SND_SOC && OF
-> > +	select SND_SOC_GENERIC_DMAENGINE_PCM
-> > +	help
-> > +	  This option enables the I2S/TDM audio controller found in Sophgo
-> > +	  CV1800B / SG2002 SoCs. The controller supports standard I2S
-> > +	  audio modes for playback and capture.
-> > +
-> > +	  The driver integrates with the ASoC framework and uses the DMA
-> > +	  engine for audio data transfer. It is intended to be configured
-> > +	  via Device Tree along with simple-audio-card module.
-> > +
-> > +	  To compile the driver as a module, choose M here: the module will
-> > +	  be called cv1800b_tdm.
-> > +
+> > The codec doesn't have any special configuration at the moment.
 > 
-> ...
+> At the moment? Hardware is done. It does not evolve.
+Will reprhase, thanks. 
+For sure hardware is done, but I'm afraid I could miss some
+functionality because I have access only to public documentation and it
+is not full enough. For example there is some kind of amplification
+limiter register field but there is no information for now how it should
+be used. 
 > 
-> > +static const struct snd_soc_dai_ops cv1800b_i2s_dai_ops = {
-> > +	.probe = cv1800b_i2s_dai_probe,
-> > +	.startup = cv1800b_i2s_startup,
-> > +	.hw_params = cv1800b_i2s_hw_params,
-> > +	.trigger = cv1800b_i2s_trigger,
-> > +	.set_fmt = cv1800b_i2s_dai_set_fmt,
-> > +	.set_bclk_ratio = cv1800b_i2s_dai_set_bclk_ratio,
-> > +	.set_sysclk = cv1800b_i2s_dai_set_sysclk,
-> > +};
-> > +
-> > +static struct snd_soc_dai_driver cv1800b_i2s_dai_template = {
-> 
-> Missing const
-> 
-> > +	.name = "cv1800b-i2s",
-> > +	.playback = {
-> > +		.stream_name = "Playback",
-> > +		.channels_min = 1,
-> > +		.channels_max = 2,
-> > +		.rates = SNDRV_PCM_RATE_8000_192000,
-> > +		.formats = SNDRV_PCM_FMTBIT_S24_LE | SNDRV_PCM_FMTBIT_S16_LE,
-> > +	},
-> > +	.capture = {
-> > +		.stream_name = "Capture",
-> > +		.channels_min = 1,
-> > +		.channels_max = 2,
-> > +		.rates = SNDRV_PCM_RATE_8000_192000,
-> > +		.formats = SNDRV_PCM_FMTBIT_S24_LE | SNDRV_PCM_FMTBIT_S16_LE,
-> > +	},
-> > +	.ops = &cv1800b_i2s_dai_ops,
-> > +};
-> 
-> ....
-> 
-> > +static int cv1800b_i2s_probe(struct platform_device *pdev)
-> > +{
-> > +	struct device *dev = &pdev->dev;
-> > +	struct cv1800b_i2s *i2s;
-> > +	struct resource *res;
-> > +	void __iomem *regs;
-> > +	struct snd_soc_dai_driver *dai;
-> > +	int ret;
-> > +
-> > +	i2s = devm_kzalloc(dev, sizeof(*i2s), GFP_KERNEL);
-> > +	if (!i2s)
-> > +		return -ENOMEM;
-> > +
-> > +	regs = devm_platform_ioremap_resource(pdev, 0);
-> > +	if (IS_ERR(regs))
-> > +		return PTR_ERR(regs);
-> > +	i2s->dev = &pdev->dev;
-> > +	i2s->base = regs;
-> > +
-> > +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> > +	if (!res)
-> > +		return -ENODEV;
-> > +	cv1800b_setup_dma_struct(i2s, res->start);
-> > +
-> > +	i2s->clk = devm_clk_get_enabled(dev, "i2s");
-> > +	if (IS_ERR(i2s->clk))
-> > +		return dev_err_probe(dev, PTR_ERR(i2s->clk),
-> > +				     "failed to get+enable i2s\n");
-> > +	i2s->sysclk = devm_clk_get_enabled(dev, "mclk");
-> > +	if (IS_ERR(i2s->sysclk))
-> > +		return dev_err_probe(dev, PTR_ERR(i2s->sysclk),
-> > +				     "failed to get+enable mclk\n");
-> > +
-> > +	platform_set_drvdata(pdev, i2s);
-> > +	cv1800b_i2s_setup_tdm(i2s);
-> > +
-> > +	dai = devm_kmemdup(dev, &cv1800b_i2s_dai_template, sizeof(*dai),
-> > +			   GFP_KERNEL);
-> > +	if (!dai)
-> > +		return -ENOMEM;
-> > +
-> > +	ret = devm_snd_soc_register_component(dev, &cv1800b_i2s_component, dai,
-> > +					      1);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	ret = devm_snd_dmaengine_pcm_register(dev, &cv1800b_i2s_pcm_config, 0);
-> > +	if (ret) {
-> > +		dev_err(dev, "dmaengine_pcm_register failed: %d\n", ret);
-> > +		return ret;
-> > +	}
-> > +
-> > +	dev_dbg(dev, "cv1800b I2S probed:\n");
-> 
-> Drop, drivers should be silent and probe success message does not
-> warrant even debug. What are you debugging - that you wrote correct DTS?
-> You can check in sysfs that device probed.
-
-Will do, thanks. 
-
+> Write complete bindings, see writing-bindings document.
 > 
 > Best regards,
 > Krzysztof
