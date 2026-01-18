@@ -4,109 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D134D4A5F4
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jan 2026 16:14:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB80C9832F
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jan 2026 16:19:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vFuH65kYQRrP90IZVbpvrJRMdRmaj3CTRHR+8ACJ9YM=; b=ll7jl8yugYZso4
-	mus9Ilxpx1LNJTgtCl92Y+cRWUzT4Jgg8imInIGKbYLTdomigtApBOlaH7QTliumCqW88kZEOiXCg
-	vzix7BNJ2/Z0mvx7Za5dxCtSjLzi0ylxsMpbKm+2nxlgtqQwPD1sAj6Ah/1F5TMytbqGITfwmZk1x
-	k3vpHxwrRKfoIBFmnT5uxDFWOUVhd2w9R1WqLAlI2YoX2oSdtqiiOwH5QiUpT1by4hbxAoMvTcuWh
-	1A5bYrEQLLKwQO1T9N5iyeZC+Zk/C8P7pWJhlLlVT164UXMPie5984C25Q0+8NEMbo2H+5ICJgJGu
-	806SiLOibFYQ2Hc7R25A==;
+	List-Owner; bh=E2WnHhxvLeCiyc9Avd1Ge0qZsRocSkzrOMHGWJWXCG4=; b=fOAHDSKZ2l1Xha
+	K+wK31+IUbmrbaBcjTlJT5K9EnXrJ+vH3PJ0ppzFuH+FLyGWTcUQvofGa6qsFv9GnoZ4pfQg4AB4h
+	y0cAB07Juw8eObssChej5vwr+mgaxKzneKZl1+BcrDt4Rvu+jtxX8in/XpGixV6VC5AUpJNvGW6do
+	9UA2u+zoKyPh9f0nk4Gcl8TvAM9faiLY7U+u4Hhvs8JdfDfO7w3upV21aF9FQVKXktC7dBeFBQZz5
+	tNn4VkcPngEp26oKtfM0iGG2019iZKt/JzUlgQQ139rPmUhBILU9WJkuY+Mzf5jPQIuiDhFaWZ+ki
+	k/NXgz1eqxegoYzLvOgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhVPp-00000000RI0-0IEb;
-	Sun, 18 Jan 2026 16:14:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vhVV4-00000000S5g-3y8x;
+	Sun, 18 Jan 2026 16:19:38 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhVPn-00000000RHh-0psW
+	id 1vhVV0-00000000S4f-0kIh
 	for linux-riscv@lists.infradead.org;
-	Sun, 18 Jan 2026 16:14:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 499D760010;
-	Sun, 18 Jan 2026 16:14:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BB08C116D0;
-	Sun, 18 Jan 2026 16:14:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768752850;
-	bh=Zy4RwdRBecSYNBHVAUsvMYNacGxjiMO3O0gqSFdG42Q=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=JHUaDfsSYoMMRKf6F/idu6Lffq1gx1UqksMFoa7krShplmF9nZwDgoEiDt5aRJnfe
-	 qrqZhcEPyOt1YTMGmNDlWIxwW5xoKYKtpP+1QJCkpgPE4SY50DOQ2R3fXcsE6KMCS8
-	 lnhePfol/gPNEGEybTpokW/dfUYIHOknSE97b/RoIeQwlOQnrt80YxEwL/Ubaou6kj
-	 Mm+JXjQx0+H7LbgbQGV8jqccpBBLt8wNtBB5Ms+/yG8w1ZbSWP9toCsZ+p8YsbYAo0
-	 dSgAIbz+5xVK31ZS7ArmE4jfG0gWVRWYonOnYiSp12dgB/tow8LN3H30nYRmZAnTiZ
-	 aqk0inMjh6nBg==
-Message-ID: <5248fe03-7e77-4c5d-ad05-e182b3068e66@kernel.org>
-Date: Sun, 18 Jan 2026 17:14:04 +0100
+	Sun, 18 Jan 2026 16:19:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=H5HJXUwqIdvCMxkNpGmqIKMuEfnbyUKuPXOj3lNiwF8=; b=VOz+D9DB+Je0+GUUx1VGDZeu1i
+	WEndDPhS7lPav4Z/2raVz1tWppaaFUqKn6tR6oQquy7sh4N+KDk830AmwZEvG2Vg/RKjP+QMFZcOh
+	jcKfQEMkKSHuYmOyPnvLlDL8C8ePCOqexoCo/6qs8G2HAQD6ooJ+sdU+4Lvw7QBckEmA=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vhVUS-003Mo7-Ui; Sun, 18 Jan 2026 17:19:00 +0100
+Date: Sun, 18 Jan 2026 17:19:00 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Vivian Wang <wangruikang@iscas.ac.cn>, Yixun Lan <dlan@gentoo.org>,
+	Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	spacemit@lists.linux.dev, netdev@vger.kernel.org
+Subject: Re: [PATCH 1/1] net: spacemit: Check netif_carrier_ok when reading
+ stats
+Message-ID: <3659a81b-4393-4a8d-bc8d-6ab89396353d@lunn.ch>
+References: <20260118100000.224793-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/7] dt-bindings: sound: sophgo: add CV1800B I2S/TDM
- controller binding
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
- Inochi Amaoto <inochiama@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, linux-sound@vger.kernel.org,
- devicetree@vger.kernel.org, sophgo@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20260118-cv1800b-i2s-driver-v2-0-d10055f68368@gmail.com>
- <20260118-cv1800b-i2s-driver-v2-1-d10055f68368@gmail.com>
- <20260118-famous-magnificent-peccary-474ba8@quoll>
- <aWzMvqzh-QXWRTWP@anton.local>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aWzMvqzh-QXWRTWP@anton.local>
+Content-Disposition: inline
+In-Reply-To: <20260118100000.224793-1-amadeus@jmu.edu.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260118_081934_221303_10454DE8 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,32 +75,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18/01/2026 13:18, Anton D. Stavinskii wrote:
->>
->> Again, messed constraints.
->>
->>> +    items:
->>> +      enum: [rx, tx]
->>
->> No, it has to be a specific/fixed list.
+On Sun, Jan 18, 2026 at 06:00:00PM +0800, Chukun Pan wrote:
+> Currently, when the interface is not linked up, reading the interface
+> stats will print several timeout logs. Add a netif_carrier_ok check to
+> the emac_stats_update function to avoid this situation:
 > 
-> Here is the question. Can you please help to understand how to describe
-> this properly. The idea is that TDM module is usable even without
-> specified dmas. Each TDM can work as clock source, only rx only tx or
-> both. I can force to use both channels but the user probably will want 
-> to not consume all the channels for if it is not needed. DMA can provide
-> channels for something else like SPI/I2C/UART etc. I'm asking because
-> I'm afraid I will do some mess again here.
+> root@OpenWrt:~# ubus call network.device status
+> [  120.365060] k1_emac cac81000.ethernet eth1: Read stat timeout
 
-If any combination is valid in hardware, then:
+What is the real issue here? That a clock is disabled? Can you test
+the status of the clock, rather than adding yet more conditions to
+this if ()?
 
-minItems: 1
-items:
-  - enum: [rx, tx]
-  - const: tx
-
-Best regards,
-Krzysztof
+     Andrew
 
 _______________________________________________
 linux-riscv mailing list
