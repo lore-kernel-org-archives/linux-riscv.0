@@ -4,77 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE523D4A5F4
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jan 2026 14:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3920D4A5F4
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jan 2026 14:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lAq+QduPtl2NzAgjlzcKw36EGuv9/gA40dKPxTlfrcE=; b=m1xLEguwBzDlYO
-	986dq04RrBZIx9M5h8aJDuAwoYivWn0nU1lMWVUoYa2O72M5VqqOnH93lxbtw7ubO8Psh/G+XuOMO
-	6+UnjAgXhlMjzeLKrPKxr9Fwr1g9S6yv4B0wXLbYsWUnvbyEYa7N/fGQ7h3Cz3DlbDoNL5iyTH1ii
-	86GIYAFlabbfcSZBo6aB2bbi7KZFBMPL6ToirTPdEii/7k3JEWQIXjBa8YGsNoq5nBGx9FArzCJXd
-	J9fRdSkcvyz2BQjRElnnZColhZmBNYx615jqY4pDitrmseGjCqAzjST6W3ycUawXX1ocb1lhp0MUZ
-	GkEoz2DR4tfTpa/8CkPA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9UpwwXdg0IDiLHeBhHOx1Ar6Nwy6se7xQ73pYRFOHo8=; b=fuPaod7Id97F36nhsDho/r6sy2
+	7nS3c8D3GEmQ9oPpQonQn/WNXbN7Bs8caLlwbXjaWdR31/5Mil/jwpSOQEXhEO5J86Xz9M9V1Q1tU
+	EIaaMLHou6j+a5glHT9MrI7c6B1j8Ojg3VVsVF0U2NJwGFhBuXcZPJhRCitwhpNMb/+PWWeZra+kf
+	enlBeGCvoyYFVi4uj02cO5sO8EaxB0zuVTGcFYcy2K55aqbP5Z+KHAER578xvO4Mbo0DxdDzeoGBJ
+	jHx/5Mv5m7W6T2uyMriou2bM4AqjzszIbN2AiU+dsXrFZ4g3sd3F8tFjTllrpFsI0sNZYy3tpfFJj
+	8YGLSe+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhTjP-00000000F9u-2nRv;
-	Sun, 18 Jan 2026 14:26:19 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1vhTqV-00000000G7c-44TM;
+	Sun, 18 Jan 2026 14:33:39 +0000
+Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhTjE-00000000F7v-0O9y
+	id 1vhTqS-00000000G55-12Pe
 	for linux-riscv@lists.infradead.org;
-	Sun, 18 Jan 2026 14:26:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1768746364; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=SH/mBlnE9Q83qr6IqlYb4lUWXDGSgxADDTA3VtIxpy3UXKjrysJ3QQBW1UnQ32iamZMRNy2NXPQkBpRHf/3k2X9IzPFz35LQugjKYCrFLC+k8bZGTZJuOy0L3GLI2uG1aw53JjPHdri/OwtiuZgLMrPVmL0Auz58qwNyBk5x3i0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1768746364; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=cIbPtT78mcjstGf1Y3m9nRtHPOd+0Pk3EGb62HGCGxc=; 
-	b=lMYTLm2DpgR8YGJUx8ucI5+tfX1aRxEaNCkLX4aphK0jeD1t8szCFHk+9tZnaE++1xQCoiezpyVZUAl6G73QskeQp549yJKviJQ8XGmohG00lAvsydeW5Bme1vTo7V+2jFiAzfmxBGdy9VqugSmI1zwbVcORGJQ45Lg/ne51Q/4=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768746363;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Cc:Cc:Reply-To;
-	bh=cIbPtT78mcjstGf1Y3m9nRtHPOd+0Pk3EGb62HGCGxc=;
-	b=PnRa8N6jIwImc77Ho/PSQk4Pdu9Gvhzh839L234118mnZKxDpQb6g000ViV9b/s7
-	bF2bP5HiE0Bb9rrfmTQD78pSLq/Yb68/AsdM3MsfYFVgl9rz6bI314sRlhrASObu3g9
-	nBaPp2wURV1UaAR6ctlHjwi+XMTFUZ/pVR/PlJ9w=
-Received: by mx.zohomail.com with SMTPS id 1768746360351543.6650268721444;
-	Sun, 18 Jan 2026 06:26:00 -0800 (PST)
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Sun, 18 Jan 2026 22:25:07 +0800
-Subject: [PATCH] riscv: dts: canaan: k230: Add "b" ISA extension
+	Sun, 18 Jan 2026 14:33:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1768746798; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
+	bh=iCz/1vk1Ei2IWAYd4SZ6Ak/RPBfeSYsHibOQYewCZg0=;
+	b=Fx1eFvS5dpbFf5c1i032zOrnmlXKQcfb8uVQ4TyELifMz+QpAb1psq1xxpO2Pe0EQhGGCZ33XYIeRTcg6L9oZLn5WPxPvlc31rjRtVJHwr0eMQ5C+bhuIfIGymCRr9HROoj2HdOQ3ODrfQ+DDp91orixQT0LQXpEy5quY0YoWno=
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0WxG4hj5_1768746789 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sun, 18 Jan 2026 22:33:11 +0800
+From: fangyu.yu@linux.alibaba.com
+To: guoren@kernel.org
+Cc: ajones@ventanamicro.com,
+	alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	fangyu.yu@linux.alibaba.com,
+	iommu@lists.linux.dev,
+	joro@8bytes.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robin.murphy@arm.com,
+	tjeznach@rivosinc.com,
+	will@kernel.org
+Subject: Re: Re: [PATCH] iommu/riscv: Add IOTINVAL after updating DDT/PDT entries
+Date: Sun, 18 Jan 2026 22:33:09 +0800
+Message-Id: <20260118143309.94209-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <CAJF2gTQj-mtbg8Q9fN6=EprfV0XaXy-X=auP9iwrF-nLAJ4Ovg@mail.gmail.com>
+References: <CAJF2gTQj-mtbg8Q9fN6=EprfV0XaXy-X=auP9iwrF-nLAJ4Ovg@mail.gmail.com>
 MIME-Version: 1.0
-Message-Id: <20260118-k230-ext-b-v1-1-6a63616b11cc@pigmoral.tech>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDQ0ML3WwjYwPd1IoS3SRdgxTzVPNkc/NkY4s0JaCGgqLUtMwKsGHRsbW
- 1AH1Y7XZcAAAA
-X-Change-ID: 20260118-k230-ext-b-0d7e7c77c38f
-To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768746344; l=1939;
- i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
- bh=BvWaQkUJBvXg9RkiY/LFSvINZsVIPdXwcgP3Ppmyk8w=;
- b=IaCH2tmViS4CQfeksoNrNF8X5ZolFJl8pCbzGa8e3HsTadaJpgRxclYLdJgnnYmhhNIwn9QwH
- wePvvUWzNciBZ/b3lmo9ZvgQvXIvszNjnpkzeNHo9kSJ7fWqrEvk24B
-X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
- pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_062608_663476_3449D21B 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260118_063336_830968_591FED2E 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,60 +71,198 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3553259018674569475=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-"b" is ratified (Apr/2024) much later than its components zba/zbb/zbs
-(Jun/2021). With "b" added into riscv/extensions.yaml, a dependency
-checking rule is now enforced, which requires that when zba, zbb, and zbs
-are all specified, "b" must be added as well. Failing to do this will
-cause dtbs_check schema check warnings.
+--===============3553259018674569475==
+Content-Type: text/plain; charset=y
+Content-Transfer-Encoding: 8bit
 
-According to uabi.rst, as a single-letter extension, "b" should be added
-after "c" in canonical order.
+>Hi fangyu,
+>
+>On Thu, Jan 8, 2026 at 9:49 PM <fangyu.yu@linux.alibaba.com> wrote:
+>>
+>> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>>
+>> Add riscv_iommu_iodir_iotinval() to perform required TLB and context cache
+>> invalidations after updating DDT or PDT entries, as mandated by the RISC-V
+>> IOMMU specification (Section 6.3.1 and 6.3.2).
+>>
+>> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>> ---
+>>  drivers/iommu/riscv/iommu.c | 85 +++++++++++++++++++++++++++++++++++++
+>>  1 file changed, 85 insertions(+)
+>>
+>> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+>> index d9429097a2b5..2900170133fc 100644
+>> --- a/drivers/iommu/riscv/iommu.c
+>> +++ b/drivers/iommu/riscv/iommu.c
+>> @@ -996,7 +996,82 @@ static void riscv_iommu_iotlb_inval(struct riscv_iommu_domain *domain,
+>>  }
+>>
+>>  #define RISCV_IOMMU_FSC_BARE 0
+>> +/*
+>> + * This function sends IOTINVAL commands as required by the RISC-V
+>> + * IOMMU specification (Section 6.3.1 and 6.3.2 in 1.0 spec version)
+>> + * after modifying DDT or PDT entries
+>> + */
+>> +static void riscv_iommu_iodir_iotinval(struct riscv_iommu_device *iommu,
+>> +                                   bool inval_pdt, unsigned long iohgatp,
+>> +                                   struct riscv_iommu_dc *dc, struct riscv_iommu_pc *pc)
+>> +{
+>> +       struct riscv_iommu_command cmd;
+>>
+>> +       if (FIELD_GET(RISCV_IOMMU_DC_IOHGATP_MODE, iohgatp) ==
+>> +               RISCV_IOMMU_DC_IOHGATP_MODE_BARE) {
+>> +               if (inval_pdt) {
+>> +                       /*
+>> +                        * IOTINVAL.VMA with GV=AV=0, and PSCV=1, and
+>> +                        * PSCID=PC.PSCID
+>> +                        */
+>> +                       riscv_iommu_cmd_inval_vma(&cmd);
+>> +                       riscv_iommu_cmd_inval_set_pscid(&cmd,
+>> +                               FIELD_GET(RISCV_IOMMU_PC_TA_PSCID, pc->ta));
+>> +               } else {
+>> +                       if (FIELD_GET(RISCV_IOMMU_DC_TC_PDTV, dc->tc) || (
+>> +                                   FIELD_GET(RISCV_IOMMU_DC_FSC_MODE, dc->fsc) ==
+>> +                                   RISCV_IOMMU_DC_FSC_MODE_BARE)) {
+>> +                               /* IOTINVAL.VMA with GV=AV=PSCV=0 */
+>> +                               riscv_iommu_cmd_inval_vma(&cmd);
+>> +                       } else {
+>> +                               /*
+>> +                                * IOTINVAL.VMA with GV=AV=0, and PSCV=1, and
+>> +                                * PSCID=DC.ta.PSCID
+>> +                                */
+>> +                               riscv_iommu_cmd_inval_vma(&cmd);
+>> +                               riscv_iommu_cmd_inval_set_pscid(&cmd,
+>> +                                       FIELD_GET(RISCV_IOMMU_DC_TA_PSCID, dc->ta));
+>> +                       }
+>> +               }
+>> +       } else {
+>> +               if (inval_pdt) {
+>> +                       /*
+>> +                        * IOTINVAL.VMA with GV=1, AV=0, and PSCV=1, and
+>> +                        * GSCID=DC.iohgatp.GSCID, PSCID=PC.PSCID
+>> +                        */
+>> +                       riscv_iommu_cmd_inval_vma(&cmd);
+>> +                       riscv_iommu_cmd_inval_set_gscid(&cmd,
+>> +                               FIELD_GET(RISCV_IOMMU_DC_IOHGATP_GSCID, iohgatp));
+>> +                       riscv_iommu_cmd_inval_set_pscid(&cmd,
+>> +                               FIELD_GET(RISCV_IOMMU_PC_TA_PSCID, pc->ta));
+>The riscv_iommu_cmd_inval_vma() and riscv_iommu_cmd_inval_set_pscid()
+>could be moved out to prevent duplicate code.
 
-Update k230.dtsi to conform to this rule. Also synchronize "riscv,isa"
-with "riscv,isa-extensions".
+Thanks, Agreed on reducing duplication.
 
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
----
-Based on Conor's k230-basic branch and rebased to riscv-dt-for-next.
+I'll move riscv_iommu_cmd_inval_vma() to a common path (build the VMA command
+once), and only conditionally call riscv_iommu_cmd_inval_set_pscid() when
+PSCV=1 is required by the spec.
 
-The commit message and implementation are adapted from Guodong's patch
-for adding the "b" ISA extension to multiple dtsi files.
----
- arch/riscv/boot/dts/canaan/k230.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+>
+>> +               } else {
+>> +                       /*
+>> +                        * IOTINVAL.VMA with GV=1,AV=PSCV=0,and
+>> +                        * GSCID=DC.iohgatp.GSCID
+>> +                        */
+>> +                       riscv_iommu_cmd_inval_vma(&cmd);
+>> +                       riscv_iommu_cmd_inval_set_gscid(&cmd,
+>> +                               FIELD_GET(RISCV_IOMMU_DC_IOHGATP_GSCID, iohgatp));
+>> +
+>> +                       /*
+>> +                        * IOTINVAL.GVMA with GV=1,AV=0,and
+>> +                        * GSCID=DC.iohgatp.GSCID
+>> +                        */
+>> +                       /*
+>> +                        * For now, the Second-Stage feature have not yet been merged, so
+>> +                        * let's comment out the code first.
+>> +                        */
+>> +#if 0
+>> +                       riscv_iommu_cmd_send(iommu, &cmd);
+>> +                       memset(&cmd, 0, sizeof(cmd));
+>> +                       riscv_iommu_cmd_inval_gvma(&cmd);
+>> +                       riscv_iommu_cmd_inval_set_gscid(&cmd,
+>> +                               FIELD_GET(RISCV_IOMMU_DC_IOHGATP_GSCID, iohgatp));
+>> +#endif
+>All the above should be removed from the patch; we don't need draft code.
 
-diff --git a/arch/riscv/boot/dts/canaan/k230.dtsi b/arch/riscv/boot/dts/canaan/k230.dtsi
-index 5a1bf8a15abe..041c9947a8fa 100644
---- a/arch/riscv/boot/dts/canaan/k230.dtsi
-+++ b/arch/riscv/boot/dts/canaan/k230.dtsi
-@@ -21,9 +21,9 @@ cpu@0 {
- 			compatible = "thead,c908", "riscv";
- 			device_type = "cpu";
- 			reg = <0>;
--			riscv,isa = "rv64imafdcv_zicbom_zicbop_zicboz_zfh_zba_zbb_zbc_zbs_zvfh_svpbmt";
-+			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicsr_zifencei_zihpm_zfh_zba_zbb_zbc_zbs_zvfh_svpbmt";
- 			riscv,isa-base = "rv64i";
--			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zicbom",
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
- 					       "zicbop", "zicboz", "zicntr", "zicsr", "zifencei",
- 					       "zihpm", "zfh", "zba", "zbb", "zbc", "zbs", "zvfh",
- 					       "svpbmt";
+Agreed, I will drop the entire #if 0 draft block and add a TODO here.
 
----
-base-commit: 99a8c0e33dbf0117710b7f0c5cd1cb39638235ab
-change-id: 20260118-k230-ext-b-0d7e7c77c38f
+>
+>> +               }
+>> +       }
+>> +       riscv_iommu_cmd_send(iommu, &cmd);
+>> +}
+>>  /*
+>>   * Update IODIR for the device.
+>>   *
+>> @@ -1031,6 +1106,11 @@ static void riscv_iommu_iodir_update(struct riscv_iommu_device *iommu,
+>>                 riscv_iommu_cmd_iodir_inval_ddt(&cmd);
+>>                 riscv_iommu_cmd_iodir_set_did(&cmd, fwspec->ids[i]);
+>>                 riscv_iommu_cmd_send(iommu, &cmd);
+>> +               /*
+>> +                * For now, the SVA and PASID features have not yet been merged, the
+>> +                * default configuration is inval_pdt=false and pc=NULL.
+>> +                */
+>> +               riscv_iommu_iodir_iotinval(iommu, false, dc->iohgatp, dc, NULL);
+>The riscv_iommu_iodir_iotinval() is the same level as
+>riscv_iommu_iodir_update(). Could we move it out and put it after
+>riscv_iommu_iodir_update()?
 
-Best regards,
--- 
-Junhui Liu <junhui.liu@pigmoral.tech>
+In riscv_iommu_iodir_update() we first clear the valid bit in dc->tc, an
+IOTINVAL is required immediately after modifying the DDT/PDT entry to make
+the change effective.
 
+So riscv_iommu_iodir_iotinval() is paired with the DDT/PDT update sequence at the
+same level as riscv_iommu_cmd_iodir_inval_ddt(), and keeping it adjacent preserves
+the required ordering and avoids a window where stale cached context could be used.
+>
+>>                 sync_required = true;
+>>         }
+>>
+>> @@ -1055,6 +1135,11 @@ static void riscv_iommu_iodir_update(struct riscv_iommu_device *iommu,
+>Why do you have two riscv_iommu_iodir_update() function definitions?
+>
+>>                 /* Invalidate device context after update */
+>>                 riscv_iommu_cmd_iodir_inval_ddt(&cmd);
+>>                 riscv_iommu_cmd_iodir_set_did(&cmd, fwspec->ids[i]);
+>> +               /*
+>> +                * For now, the SVA and PASID features have not yet been merged, the
+>> +                * default configuration is inval_pdt=false and pc=NULL.
+>> +                */
+>> +               riscv_iommu_iodir_iotinval(iommu, false, dc->iohgatp, dc, NULL);
+>If IOTLB invalidation occurs before DDT_CACHE invalidation, the IOTLB
+>may use DDT_CACHE's stall info, which may cause IOTLB invalidation to
+>fail.
+
+You're right. I placed riscv_iommu_iodir_iotinval() before riscv_iommu_cmd_send()
+by mistake, I’ll fix the ordering in v2.
+
+>
+>>                 riscv_iommu_cmd_send(iommu, &cmd);
+>>         }
+>>
+>> --
+>> 2.50.1
+>>
+>
+>-- 
+>Best Regards
+> Guo Ren
+
+Thanks,
+Fangyu
+
+
+--===============3553259018674569475==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3553259018674569475==--
