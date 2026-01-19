@@ -4,72 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D1ECCF2D2
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 09:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE123CCF2D4
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 09:39:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FZwKvbeTIImD9qgBppJfWncxlnxoY0rQvglNP7kShMw=; b=Ra9HUAFUt3cWv7
-	uZj04/zaMOAObOJi9pdbtbK33T+3sWnIwszfCnVc6RcmemFh74EGndHfTMnRzlqFAeWzrBkQAEZkB
-	bguXDubrUarOo83hlYQazVqLI8rKhNJQAOcVKb0Myx3lCX+4UWrwtyaH9rsajaaoahFGu6HG04btM
-	jgacF5AJvr/kZ8cDvnWVTmmoPOJ0N/GscjwB5AF+yfac9Z1u1HqSCrRfGqriIX5FvoyHgA+ro68j8
-	R9DXu4l8lZKouBjBUE3PEUZurOGmFaqZK/Cmk8zGswDpdoNwTvTkuxujt2oWLxiUjsNVPnqi0/fM2
-	UTV8zfapyPL2jhhKYYEQ==;
+	List-Owner; bh=47SDCe/HOjpz01rLsOJvyHOSjQp+vvYVHVMvHMSzptY=; b=iFxUv62cIojXvJ
+	ju5zCy4TJjZxeL+rEB/pBGGp66gsxI2PhrvYrroLGNGbOKUzlqOAxdC6MqSxqsY9/Gu+OhKY4+iMl
+	Mp1Qp+4Fs8upVLqKNXj9+CJxd7QXLQjlWnCWGUTxENSTdJ5qzTMFlbD3dRnPXwHMGJBZjidvIo1Gw
+	Q8J2j8X/7xIjCmMYdTlbIKeUt1xdieCSuApbpeZNfvjRfegZx7LblqfJpEf5u9k5Xrcbsfb26rPSf
+	xSwkd7XxWjTvYS9NOWDeIe1aBrXr500ElG6Q5KftyF6B50IhLs2q8G0kWpXX8yqDgl5yIU7fd2XGM
+	CxajH0hoxdlbhgZy+lnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhlVT-00000001dHi-3joQ;
-	Mon, 19 Jan 2026 09:25:07 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1vhliw-00000001eBN-0Ym0;
+	Mon, 19 Jan 2026 09:39:02 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhlVQ-00000001dH0-2Esr
-	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jan 2026 09:25:06 +0000
-X-UUID: b6c1495cf51811f0b0f03b4cfa9209d1-20260119
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:856d4e8e-050a-41bd-a991-c28f59ac7069,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:27605276af80639d37ed3d12c814a6b5,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:0|15|
-	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: b6c1495cf51811f0b0f03b4cfa9209d1-20260119
-X-User: jiangfeng@kylinos.cn
-Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 1072398959; Mon, 19 Jan 2026 17:24:54 +0800
-Message-ID: <298c3f7c-42d3-4514-864a-104d64363cd8@kylinos.cn>
-Date: Mon, 19 Jan 2026 17:24:50 +0800
+	id 1vhlio-00000001e7e-3wGk;
+	Mon, 19 Jan 2026 09:38:57 +0000
+Received: from duge-virtual-machine (unknown [223.160.206.18])
+	by APP-01 (Coremail) with SMTP id qwCowAA3o26d+21pCk5LBQ--.13995S3;
+	Mon, 19 Jan 2026 17:38:42 +0800 (CST)
+From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+To: vkoul@kernel.org,
+	gregkh@linuxfoundation.org,
+	conor@kernel.org
+Cc: neil.armstrong@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	jiayu.riscv@isrc.iscas.ac.cn,
+	linux-phy@lists.infradead.org,
+	linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 1/4] dt-bindings: phy: Add Canaan K230 USB PHY
+Date: Mon, 19 Jan 2026 17:38:32 +0800
+Message-ID: <20260119093836.316007-2-jiayu.riscv@isrc.iscas.ac.cn>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260119093836.316007-1-jiayu.riscv@isrc.iscas.ac.cn>
+References: <20260119093836.316007-1-jiayu.riscv@isrc.iscas.ac.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/14] riscv: optimize string functions and add kunit
- tests
-To: Joel Stanley <joel@jms.id.au>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- kees@kernel.org, andy@kernel.org, akpm@linux-foundation.org,
- ebiggers@kernel.org, martin.petersen@oracle.com, ardb@kernel.org,
- ajones@ventanamicro.com, conor.dooley@microchip.com,
- samuel.holland@sifive.com, linus.walleij@linaro.org, nathan@kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org,
- "dfustini@oss.tenstorrent.com" <dfustini@oss.tenstorrent.com>,
- Michael Ellerman <mpe@oss.tenstorrent.com>
-References: <20260113082748.250916-1-jiangfeng@kylinos.cn>
- <CACPK8Xc2inE8=mbPFt+iTtgOqF_1U9m+76014aDaQxVyTYy2UQ@mail.gmail.com>
-Content-Language: en-US
-From: Feng Jiang <jiangfeng@kylinos.cn>
-In-Reply-To: <CACPK8Xc2inE8=mbPFt+iTtgOqF_1U9m+76014aDaQxVyTYy2UQ@mail.gmail.com>
+X-CM-TRANSID: qwCowAA3o26d+21pCk5LBQ--.13995S3
+X-Coremail-Antispam: 1UD129KBjvJXoW7CrWrJw4fCr18KrWUtryrZwb_yoW8GF1xpa
+	s7uF9FgrsagF4ayws3KF18Ca43ArWkCFyfKr13t34UKr1DW3WYv3yakry5Zw1UJFs7CFWj
+	vFZa9Fy7Kr4qyw7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUQFb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUGwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
+	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0cI8IcV
+	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z280aVCY
+	1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c
+	02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE
+	4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4
+	IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48J
+	MxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwV
+	AFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv2
+	0xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4
+	v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AK
+	xVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0pEnYFtUUUUU=
+X-Originating-IP: [223.160.206.18]
+X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_012504_910601_4DE77276 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20260119_013855_360097_60977734 
+X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,41 +93,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026/1/15 12:43, Joel Stanley wrote:
-> On Tue, 13 Jan 2026 at 18:58, Feng Jiang <jiangfeng@kylinos.cn> wrote:
->>
->> This series introduces optimized assembly implementations for strnlen,
->> strchr, and strrchr on the RISC-V architecture. To support a rigorous
->> verification process, the series also significantly expands the
->> string_kunit test suite with both functional correctness tests and
->> performance benchmarks.
-> 
-> I ran the kunit tests on Ascalon, a RVA23 CPU, in emulation. The arch
-> optimised version showed significant improvements over the plain
-> version.
-> 
-> I didn't have time to investigate if the numbers made sense. As Andy
-> noted, the 'long' benchmark had a much higher ratio improvement than
-> the short and medium.
-> 
-> Tested-by: Joel Stanley <joel@jms.id.au>
-> 
+K230 SoC USB PHY requires configuring registers for control and
+configuration. Add USB phy bindings for K230 SoC.
 
-Thank you very much for your time and the test results.
+Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+---
+ .../bindings/phy/canaan,k230-usb-phy.yaml     | 35 +++++++++++++++++++
+ 1 file changed, 35 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml
 
-You were absolutely right to question the numbers. I've realized there were
-some flaws in the previous benchmark logic that led to those inconsistent
-ratios. I am sincerely sorry for the confusion this may have caused.
-
-I am currently refining the implementation for v3 to ensure much more
-accurate and reliable measurements. I'll send out the updated series
-once it's ready.
-
-Thanks again for helping me catch this!
-
+diff --git a/Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml b/Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml
+new file mode 100644
+index 000000000000..b959b381c44c
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml
+@@ -0,0 +1,35 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/canaan,k230-usb-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Canaan K230 USB2.0 PHY
++
++maintainers:
++  - Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
++
++properties:
++  compatible:
++    const: canaan,k230-usb-phy
++
++  reg:
++    maxItems: 1
++
++  "#phy-cells":
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - "#phy-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    usbphy: usb-phy@91585000 {
++        compatible = "canaan,k230-usb-phy";
++        reg = <0x91585000 0x400>;
++        #phy-cells = <1>;
++    };
 -- 
-With Best Regards,
-Feng Jiang
+2.52.0
 
 
 _______________________________________________
