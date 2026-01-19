@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0115DD29C2F
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 14:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E0CD29C30
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 14:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gZOwatbtYzS6ysbe7ibfvTgQ8ew3IS+80vjaw2grq94=; b=ZEdGhRjyDLyqzL
-	DPpjwWCdC0UFh8Xh+wZeuxT8GtugiEgIYjoDwl7eScZdTnywJ7V0wv+XMh/cBTy7S6s75FFcQCuqE
-	1h+mOZogUnGuORvkYu83DFtHwZtzLi4S1Rzr/egsnlwJVCMTggQzbGfZyTw0wkGF1QW1C6CqZlRmB
-	vNsf6bWbrn5cd2VEc2obvQiwqKQ+baDFFJMcYCnWDo8Rc3xZT+9/wIxLqysxHvGsFJkThKl8p+s1T
-	fAR3K04abw3tDcW031pr2U2D9xVV4/3xUNirqUF2E5MhfhRlt8ySpBQSBd1MSR8qDoQHHn4a8Rh24
-	+fFa4Yx+CGPZgpoqk+Lg==;
+	List-Owner; bh=gkt7hdTwwsKaapIcX9SM3/HLNETWFWXTC2j/QC/QjCo=; b=QD4bKu20tBjmXz
+	iPPLnXPxVlr+YuYYYV486bHjp/B0B/1SZsNeH4rUBz3tSOuO06pTqhqBHPeDjeM2FSYiJ5SfUp/uE
+	JRHTZGfzM7ZLg7LllcMoefneW+DLDFwGj/RnF3bqUhTtSFaXDHQLaZpF3X9wHkmXhvX3DztxNzXnV
+	4DKiWN65ViSn3uPFIqBW7xmVhtA+SQHzdVc+MybEYnAZhYULYfvajIky15cM1yOlKA6cA0A2FiQqC
+	elJE9Q5eQAM8D8c1s5OlhSwqE12Ud7F7movqYwhd0cTXJZqODIpcjX/vlD/CLqjzEreQFwDi4ku/L
+	rieJe/KPQnkTgJCN87xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhqBd-00000002FOL-1pa9;
-	Mon, 19 Jan 2026 14:24:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vhqBj-00000002FQl-1Vsl;
+	Mon, 19 Jan 2026 14:25:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhqBc-00000002FOD-2SxX
-	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jan 2026 14:24:56 +0000
+	id 1vhqBf-00000002FOv-3Mwg;
+	Mon, 19 Jan 2026 14:24:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 09F0760054;
-	Mon, 19 Jan 2026 14:24:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF7B6C116C6;
-	Mon, 19 Jan 2026 14:24:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BD99060131;
+	Mon, 19 Jan 2026 14:24:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E947C116C6;
+	Mon, 19 Jan 2026 14:24:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768832695;
-	bh=9kLnJHBpne2891DdEPoyhbjvuay1mdtqo+YzKVstwlQ=;
+	s=k20201202; t=1768832698;
+	bh=v1sciITZqN0hNvGR0YzBR4kuRnBvQjIP+4ux4WD5CyU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=R6jamMd4+CQe5SUkc6mNBELdpffvqL0sViD3g9nwHKhLUhnomtTCyLeaFrExBDymB
-	 NlpEBkhCUQi8jfG73YXwgtGHjDIYNP6sXfAK5GCYDMU6P+kKt+yVDZ7gT209TJ+yD0
-	 z7epdeXjsG6q17nfMYdeyFedDmeC6zWqBu46W/WT03H7v+C2gdqrtk5RQofdTSo7lF
-	 JkC7lRiX8sY/8PnmfADKVF8qwH+GyKf9wMKka5q7R+fpD893Igbv7XaTXuPJK29Yij
-	 Z/lC8u9JTM/SYsPIJvA9ej9E9II41DIdsMisE6M9yOFVPDScfHuJp9zddL64udtTwP
-	 jXMXSBtYcqLEg==
+	b=KEOB9ZqKNWr/46rFUwYztJpvzzegFANcAGg4i+uPBerrQW/9MFwcaxg93QkKgwX2A
+	 RorMQMZWLGF3y/InfycmU3zNtLYf8EhHFQEu4qOZ40M0tcCjQ8TqSnwPVenb4pQDpA
+	 2xU4/vQhjDW81pcmCn0ETs252dA5xp/DzdVPnQPL/eiKLTFwpktN9OoHddyb0lh8bj
+	 vk/cJRz9Ez7+fCJjEvKajofyfEeGLDjTEPh7KLGv48J0XLdo+noiHj/NmKJhMW7QZT
+	 QJAMdaMU4dJQHL1xj5wt0mzB5oxF8xlKqe4UkvDK72lD+TOqbwgHJHUCY0/8rtjXDm
+	 ZMPZa6HJwpb3Q==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B5B373A55FAF;
-	Mon, 19 Jan 2026 14:21:26 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 788633A55FAF;
+	Mon, 19 Jan 2026 14:21:29 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/2] riscv: Fix missing select CACHEMAINT_FOR_DMA
+Subject: Re: [PATCH] Revert "irqchip/riscv-imsic: Embed the vector array in
+ lpriv"
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176883248553.1426077.13963011396978260082.git-patchwork-notify@kernel.org>
-Date: Mon, 19 Jan 2026 14:21:25 +0000
-References: <20251210160047.201379-1-Jonathan.Cameron@huawei.com>
-In-Reply-To: <20251210160047.201379-1-Jonathan.Cameron@huawei.com>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: linux-riscv@lists.infradead.org, conor.dooley@microchip.com,
- geert+renesas@glider.be, magnus.damm@gmail.com, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, paul@pgazz.com,
- fazilyildiran@gmail.com, linux-renesas-soc@vger.kernel.org,
- linuxarm@huawei.com, arnd@arndb.de
+Message-Id: <176883248829.1426077.16023211489280922945.git-patchwork-notify@kernel.org>
+Date: Mon, 19 Jan 2026 14:21:28 +0000
+References: <20251223143544.1504217-1-anup.patel@oss.qualcomm.com>
+In-Reply-To: <20251223143544.1504217-1-anup.patel@oss.qualcomm.com>
+To: Anup Patel <anup.patel@oss.qualcomm.com>
+Cc: linux-riscv@lists.infradead.org, tglx@linutronix.de, palmer@dabbelt.com,
+ pjw@kernel.org, alex@ghiti.fr, sunilvl@oss.qualcomm.com,
+ atish.patra@linux.dev, andrew.jones@oss.qualcomm.com,
+ samuel.holland@sifive.com, anup@brainfault.org,
+ kvm-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,28 +76,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Paul Walmsley <pjw@kernel.org>:
+This patch was applied to riscv/linux.git (fixes)
+by Thomas Gleixner <tglx@kernel.org>:
 
-On Wed, 10 Dec 2025 16:00:45 +0000 you wrote:
-> The drivers/cache/Kconfig menu was changed to a menuconfig so as to be able
-> to hide the menu for non RISCV. The select of drivers under the original
-> menu were broken as the menuconfig itself could be disabled.  Fix this by
-> adding SELECT CACHEMAINT_FOR_DMA alongside the driver specific symbol
-> selects.
+On Tue, 23 Dec 2025 20:05:44 +0530 you wrote:
+> The __alloc_percpu() fails when the number of IDs are greater than 959
+> because size parameter of __alloc_percpu() must be less than 32768 (aka
+> PCPU_MIN_UNIT_SIZE). This failure is observed with KVMTOOL when AIA is
+> trap-n-emulated by in-kernel KVM because in this case KVM guest has 2047
+> interrupt IDs.
 > 
-> Jonathan Cameron (2):
->   riscv: ERRATA_STARFIVE_JH7100: Fix missing dependency on new
->     CONFIG_CACHEMAINT_FOR_DMA
->   soc: renesas: Fix missing dependency on new CONFIG_CACHEMAINT_FOR_DMA
+> To address this issue, don't embed vector array in struct imsic_local_priv
+> until __alloc_percpu() support size parameter greater than 32768.
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/2] riscv: ERRATA_STARFIVE_JH7100: Fix missing dependency on new CONFIG_CACHEMAINT_FOR_DMA
-    https://git.kernel.org/riscv/c/521cadb4b69e
-  - [2/2] soc: renesas: Fix missing dependency on new CONFIG_CACHEMAINT_FOR_DMA
-    https://git.kernel.org/riscv/c/8fdc61faa730
+  - Revert "irqchip/riscv-imsic: Embed the vector array in lpriv"
+    https://git.kernel.org/riscv/c/a33d16dc874a
 
 You are awesome, thank you!
 -- 
