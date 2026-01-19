@@ -4,80 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C88A0D29C30
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 14:37:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EAB6D29C33
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 15:09:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc:Subject:
-	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=erxfulKdfWnqyc+mulwufK2JOhM59vx/HNeIfnzmOn8=; b=InQHJq8uZ16xkY
-	SzvHOtvowofzApSLJOdva8a/CuXyiiPjskL8WMz3UanW7fq+HKTbblBdHQbMg0syrfT2V13RpWwGt
-	Eh4irGhHdZuFFIJ9wTrQc7cKCAmYzQbiChWaFEHtOoVxDhKQ3uqQD3SGjIgWwfIXG+SuYij7oLgAe
-	Rz9qMj+fyA4PPX5hbexcT3p7KDmsz0Q3aFMMg9BYj8jR3iYg/sgcdRQqiSAb2Faj+JumujUGhUROw
-	a85cHakUm792A2I8WvLAogZV47dErFgzJCiMsbXMweDml9THL8SIhvppNy5vvBcee7mcbEYH5w3Oj
-	q64j2jwT3G+BJ0Nzsyzg==;
+	List-Owner; bh=Xo+yaPr7AMdpAvv2/p8gHXVIEEl2e2VlO4155STpWVo=; b=NzmHgEH3izGAGG
+	eJtAl3z0IkdX8YdMCHnb8zlKSuWjNmn1SRWxaDYzDHNWcGkhhedHJEaiko5E8qpb4WqahWghdPjR0
+	RIff0JwFm4MaxMVX37qS4NYpvL66VyXFc8peVEMEixoaWAHJ/K0cVb9CDv4Mnu7wXM07dHzke87HS
+	Q9SkeZSWUfsNVFAqwQrXojHEWS3/jaNiEH1XIaiqxFlQyXLUetQZnwCou08se2ozl05cd/eFC/K9w
+	5Wx4Dw3S0eTiQF3c/jnyQt6JtP2PyCSi9yBxHEXx+IDHZHAcQ03fhB3GcSYT3VjqW39BwqjLw72KT
+	stT/ZofwNhZMHFg4wReQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhqNl-00000002HK8-25K0;
-	Mon, 19 Jan 2026 14:37:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vhqso-00000002Jro-1uLA;
+	Mon, 19 Jan 2026 15:09:34 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhqNg-00000002HJW-3mCq
+	id 1vhqsl-00000002Jqw-39aE
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jan 2026 14:37:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D1C841AD3;
-	Mon, 19 Jan 2026 14:37:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B64A4C116C6;
-	Mon, 19 Jan 2026 14:37:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768833444;
-	bh=CSTmPBA6jWnROZuwiJTIQySlhBcVu9NnVrQTCL3GAR4=;
-	h=Date:From:Subject:Cc:To:References:In-Reply-To:From;
-	b=g+EN7LOJd5DlifzhjK5E3WGKGFyat9PZSAr8WAdmz92XyVQwA0sE/+zXvsfHrjksQ
-	 OzdVmrMR3A/aRfcu/3/a0yumSxnw0rPX+iBlowxF1yAGR8zh/F1xYC90p+YvxlsH3O
-	 wMLpMieaxjyyQMQeCeBS1XOvZKPKITy9j2MgViu9ZHZow3Ud3u7Gv8+AziAiCXF8so
-	 En3otoLhwMVyrfC6vukQRGMfXLyhBp3d5j6ey6aacwOFGcn+gDlSVGFgm1iS1mX6DW
-	 e7vP5v4tJCpBSILrj/cOdTfMrqHDnqSUfdzt0XVst1ej3wx6AJUgrv8QMkU5OLUF5/
-	 HWAhYAbPvnOuw==
-Mime-Version: 1.0
-Date: Mon, 19 Jan 2026 15:37:17 +0100
-Message-Id: <DFSN4FDCYHMW.3J3237PEBV2ZP@kernel.org>
-From: "Danilo Krummrich" <dakr@kernel.org>
-Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
-Cc: "Daniel Almeida" <daniel.almeida@collabora.com>, "Alice Ryhl"
- <aliceryhl@google.com>, "Rafael J. Wysocki" <rafael@kernel.org>, "Viresh
- Kumar" <viresh.kumar@linaro.org>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Thomas Zimmermann"
- <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>, "Simona Vetter"
- <simona@ffwll.ch>, "Drew Fustini" <fustini@kernel.org>, "Guo Ren"
- <guoren@kernel.org>, "Fu Wei" <wefu@redhat.com>,
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>,
- "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng" <boqun.feng@gmail.com>,
- "Gary Guo" <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
- Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
- <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <dri-devel@lists.freedesktop.org>, <linux-riscv@lists.infradead.org>,
- <linux-pwm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
- <rust-for-linux@vger.kernel.org>
-To: "Maxime Ripard" <mripard@kernel.org>
-References: <20260107-clk-type-state-v3-0-77d3e3ee59c2@collabora.com>
- <20260107-clk-type-state-v3-1-77d3e3ee59c2@collabora.com>
- <20260108-delectable-fennec-of-sunshine-ffca19@houat>
- <98CD0BF6-3350-40B9-B8A9-F569AE3E3220@collabora.com>
- <20260119-thundering-tested-robin-4be817@houat>
- <aW4lCfUyumOKRRJm@google.com>
- <518D8B09-B9A1-4DB4-85CD-37A2DD3D5FB1@collabora.com>
- <DFSLCI9U4NCW.2HI2UPUI7G134@kernel.org>
- <20260119-weightless-pelican-of-anger-190db0@houat>
-In-Reply-To: <20260119-weightless-pelican-of-anger-190db0@houat>
+	Mon, 19 Jan 2026 15:09:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=34ElnxDRQbNZrGi1RSpU0QbjEZAsJP9D0opkzbG1cjM=; b=MC4ly2iXpNquh53DTz2ysfgs+h
+	krl7wIQO0oWIql0odQRzCSD1domNspeN+8kqQEA4dez2UFKN/DZDiDQVHb/DZSyuRqETDW1H2MYMi
+	HLMUq0zmRseIN3UQhmAdpsug8euvRvmc96ilA8C9pnCeVmaeZ4WosWPTg7WE2YzMjSCA=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vhqsT-003W6M-VF; Mon, 19 Jan 2026 16:09:13 +0100
+Date: Mon, 19 Jan 2026 16:09:13 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: wangruikang@iscas.ac.cn, andrew+netdev@lunn.ch, davem@davemloft.net,
+	dlan@gentoo.org, edumazet@google.com, kuba@kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	netdev@vger.kernel.org, pabeni@redhat.com, spacemit@lists.linux.dev
+Subject: Re: [PATCH 1/1] net: spacemit: Check netif_carrier_ok when reading
+ stats
+Message-ID: <48757af2-bbea-4185-8cc9-2ef51dbc8373@lunn.ch>
+References: <e3890633-351d-401d-abb1-5b2625c2213b@iscas.ac.cn>
+ <20260119141620.1318102-1-amadeus@jmu.edu.cn>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260119141620.1318102-1-amadeus@jmu.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_063726_262243_499F0C76 
-X-CRM114-Status: GOOD (  20.37  )
+X-CRM114-CacheID: sfid-20260119_070931_811713_E7DAEC32 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,47 +72,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon Jan 19, 2026 at 3:18 PM CET, Maxime Ripard wrote:
-> On Mon, Jan 19, 2026 at 02:13:48PM +0100, Danilo Krummrich wrote:
->> On Mon Jan 19, 2026 at 1:54 PM CET, Daniel Almeida wrote:
->> >> On 19 Jan 2026, at 09:35, Alice Ryhl <aliceryhl@google.com> wrote:
->> >> I think that if you still want an API where you just call enable/disable
->> >> directly on it with no protection against unbalanced calls, then that
->> >> should be the special API. Probably called RawClk and functions marked
->> >> unsafe. Unbalanced calls seem really dangerous and use should not be
->> >> encouraged.
->> 
->> +1; and unless there is a use-case that requires otherwise, it should not even
->> be possible to do this at all -- at least for driver code.
->
-> I mean, it's great, it's safe, etc. but it's also suboptimal from a PM
-> perspective on many platforms. It's totally fine to provide nice, safe,
-> ergonomic wrappers for the drivers that don't care (or can't, really),
-> but treating a legitimate optimisation as something we should consider
-> impossible to do is just weird to me.
+> root@OpenWrt:~# ethtool -S eth1
+> [   71.725539] k1_emac cac81000.ethernet eth1: Read stat timeout
+> NIC statistics:
+>      rx_drp_fifo_full_pkts: 0
+>      rx_truncate_fifo_full_pkts: 0
+> 
+> I just discovered that adding "motorcomm,auto-sleep-disabled" to disable
+> the sleep mode of the MotorComm PHY prevents the problem from occurring.
 
-I said that an unsafe API with potentially unbalanced calls is something we
-should clearly avoid for drivers. This is *not* equivalent to "treating a
-legitimate optimisation as something we should consider impossible".
+This suggests that when the PHY stops the reference clock, the MAC
+hardware stops working. It needs that clock to access
+statistics. Keeping the clock ticking will increase power usage a
+little.
 
-If we discover use-cases where the current API doesn't work well, we can
-invenstigate further.
+I wounder if anything else stops working? There are some MACs whos DMA
+engine stop working without the reference clock. That can cause
+problems during both probe and remove, or open and close.
 
->> > I think we should discourage RawClk if at all possible. But if the consensus
->> > is that we *really* need this easily-abused thing, I can provide a follow-up.
->> 
->> I think we should only do this if there are use-case with no alternative, so far
->> there haven't been any AFAIK.
->
-> I don't really care about which alternative we come up with, but look at
-> devm_regmap_init_mmio_clk for example. It is a valid use-case that
-> already exists today, and has had for more than a decade at this point.
+So it would be nice to have a better understanding of this. If this
+turns out to be true, maybe a comment by this poll_read_timeout()
+indicating if it does timeout, the PHY might be the problem.
 
-I don't see the issue with devm_regmap_init_mmio_clk()? It takes a reference
-count of the clock and prepares it when called and unprepares the clk in drops
-its reference in regmap_mmio_free_context() called from the devres callback.
-
-That something we can easily do with the current API, no?
+	   Andrew
 
 _______________________________________________
 linux-riscv mailing list
