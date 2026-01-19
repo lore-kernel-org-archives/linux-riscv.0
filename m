@@ -4,53 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D37EC9830C
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 00:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 317A3C9830C
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 01:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DkNgfJ12BFDsGqHnIPGrALLocG8wN44PbivlV1ZD+Bo=; b=Fx05+X+OPT0b/D
-	UhmSJ3WAkEPGPuieu2U6TRLt4qg7LsbSMh8kU3RkQlzPhltTqk1allsg3jv3MqCnyXTau6vrS59A9
-	p0DP2mFOG5kJ+mAHICfw41MK+zv0DKtGhykKiRY89HutXpmqncqK0XXdwoAjSaUkJXtjuoal9ngfX
-	tNuAetnolWAnie3VwstaVZn4gJVjtMyokMdGZz3piJWSGB+fRqHbLrbipNhvz2qHxawSreYcvHYBU
-	tcAfd0tEQLXS5/0QuxrbPO5c2aGEUDviYB75yUSb9yt++TG6YQBn3X7YNQZJXHfrePbgg9jYGhiI7
-	wDMVE3OwxO/Z/5a7ccsw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wQisSWJrXZrRVg9eYHuEt6cmWAgLfUCsCItwenDCR1M=; b=pohfcEvnD5zuGeB6Yj0bPUmM/n
+	69AYUwCsdXEJx8UjVdMRirCY2D+0SqMGIhHKAsNDyST00qVEo7Y8If3YWVlF8P5C1gWBuB6TaOw2k
+	4EOlIUSuNB4a/qL9iFC6uYngI8blkV3f9heywQB+EIS4qnRITZ05gczCWautde1LSHNOAKVEEkWOP
+	fhZCR5RPjg5u5/jKY5jmhl86/6VzjohPgDh/5jVK96HTSWX3MBTYPqzdfkhdr1KjRtNMFACvs5Df6
+	y8Bi2Yjh+HcTPEUukIorVN9PB5rG32wY4XBzHSRyVBuOtowerQTwU6PH1rghny3JLD3hp5L1QTtk/
+	x8OU0Gmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhd5v-00000001CkI-0uuQ;
-	Mon, 19 Jan 2026 00:26:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vhdsG-00000001Ds8-2jMR;
+	Mon, 19 Jan 2026 01:16:08 +0000
+Received: from mail-westus3azon11012069.outbound.protection.outlook.com ([40.107.209.69] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhd5t-00000001Cjm-3jFM
+	id 1vhdsD-00000001Drk-1DcR
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jan 2026 00:26:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2CC5560010;
-	Mon, 19 Jan 2026 00:26:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4673AC116D0;
-	Mon, 19 Jan 2026 00:26:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768782366;
-	bh=8ID4Q1m9qDGUGkPnIEeNb6bpYLy7uACThcXTaJcvmZo=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=eGylsrO8QvkEEPTH62wzoPKIpC//F0nRVSFLv5eCd7qiBTJbVy2KiVQQcvB527Db/
-	 9w4PNZoNu6ZxWfaEjipRd35NuOrL2GtmChUL3nEcfvO1r2WO7mgaPmdgW1iOKAhzwR
-	 evrZfvIx094YqzhOArjjuMpm54M/YQRv2yrCkrp4rsDR7jDohmRJWH6cA3L7TR5orf
-	 11AhkJU8Iyy998rGYiDnh1g4YFucXNC4vwyT7m+iZemG8NOREV0PYXi9qw4mQdolQe
-	 TRP4pnVJNGhNyIlJu3QZCie0w5D+vaP9muNXhWoWL87ue2Y2Z1gzO19E7r3kPxxMS3
-	 bYZnMX5vTpi3w==
-Date: Sun, 18 Jan 2026 17:26:03 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Andrew Jones <andrew.jones@oss.qualcomm.com>
-cc: Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org
-Subject: Re: riscv: hwprobe: add support for RISCV_HWPROBE_KEY_IMA_EXT_1
-In-Reply-To: <tfte4r4yucp2fmphlag3odxbxv2yg6h7nvx6oasra2kczv2rkp@h6r6s5gquxsn>
-Message-ID: <7e525f25-7106-8a3b-0792-4002e354f6c4@kernel.org>
-References: <127dab2c-a77b-c1ae-7c36-2144e9203cc3@kernel.org> <tfte4r4yucp2fmphlag3odxbxv2yg6h7nvx6oasra2kczv2rkp@h6r6s5gquxsn>
+	Mon, 19 Jan 2026 01:16:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=neHH5C0fycOyapWj05vq9jO/Uwe1pGyWGKgNxUso556fJnf2mE/Sgq4JYPRV/fri4VF/fRfh08YFbqTZWkPTzTJkdcyIEwmGOKuPNWUD+fXHC/4V6Rb736izUzToiPic/717VzYD0PFjTCYnzkleEHmJn9Z5yQvjEoIwcmDSiXPsPMgz/eaa5zc+OosAfjAdggQR759bmHCmpr458ScgBDDTZGGXmkxpmY1GWuXJI+0+9lNJJmtt3P6JbNw0aFpMG3ILk3d+Rlic9XoaLGr+BptUTmac4/HLGN3VbrgLBkhFoqvYfiEzlmf2nhEFWK5obRsDGs7Y0XOr3fgYVoWP1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RsOVGdEeRIfKvwx5Fbs7466tMEZxcXUJWyGaAB9BlIM=;
+ b=DLt2StKp7NnZuypFelLgYP9zVTH1L32ne8tjWouSonJqgk85/HGaMordZUOLeS/HPzB7vJfdY3jiZR4U7twCmBy9ypmVZKUGi6wm360b5eNIMSkTAp22JsLLTIbvL/rm0015OzvKMpq7W5a+RNx4C64pdfjLC+aoREx7Tdol5ZjH/mQRHFLdOgdEbG8CRlFd/7hq7AwOdSIKvk4m7csY7iGaYjm7QuVKvCPgVfW6NsEvc3SRldTlNwsExnI9vlwGCQqbd+iqvTAU2wnBESUBAcvY+GH5dZmEbDvMOpK0AtdB0B6PKJ+7P57EBqGq8Vn0Bb/JdUBTwM3u0Lm48a53Dw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RsOVGdEeRIfKvwx5Fbs7466tMEZxcXUJWyGaAB9BlIM=;
+ b=rEVQRj8BwdizYvb9YzcfSd+xGWqozCHDo4QGqrvKBbeagiPrZowDwb/cderJThhHFtdwmPgtEg8BN5okfUcuzivPNGugGknFs8cmMcEn18BYb7oePV671PZx+RaD2b/I5cMc60BVfpEgE++acgVCV+J4tSZTHxcPzgO43+8IJtU=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CH3PR12MB9194.namprd12.prod.outlook.com (2603:10b6:610:19f::7)
+ by BL1PR12MB5897.namprd12.prod.outlook.com (2603:10b6:208:395::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Mon, 19 Jan
+ 2026 01:01:02 +0000
+Received: from CH3PR12MB9194.namprd12.prod.outlook.com
+ ([fe80::1e6b:ca8b:7715:6fee]) by CH3PR12MB9194.namprd12.prod.outlook.com
+ ([fe80::1e6b:ca8b:7715:6fee%4]) with mapi id 15.20.9520.009; Mon, 19 Jan 2026
+ 01:01:01 +0000
+Message-ID: <e0514ec6-b428-4367-9e0d-cfb53cc64379@amd.com>
+Date: Mon, 19 Jan 2026 12:00:47 +1100
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH v8 07/15] iommupt: Add map_pages op
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
+ iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
+ Justin Stitt <justinstitt@google.com>, linux-doc@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
+ llvm@lists.linux.dev, Bill Wendling <morbo@google.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Miguel Ojeda <ojeda@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Shuah Khan <shuah@kernel.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Will Deacon <will@kernel.org>,
+ Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
+ James Gowans <jgowans@amazon.com>, Kevin Tian <kevin.tian@intel.com>,
+ Michael Roth <michael.roth@amd.com>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+ Samiullah Khawaja <skhawaja@google.com>, Vasant Hegde <vasant.hegde@amd.com>
+References: <7-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
+ <fc4f0354-4e6d-452d-abfb-fe24e53253a2@amd.com>
+ <20260117154347.GF1134360@nvidia.com>
+From: Alexey Kardashevskiy <aik@amd.com>
+Content-Language: en-US
+In-Reply-To: <20260117154347.GF1134360@nvidia.com>
+X-ClientProxiedBy: SY6PR01CA0155.ausprd01.prod.outlook.com
+ (2603:10c6:10:1ba::9) To CH3PR12MB9194.namprd12.prod.outlook.com
+ (2603:10b6:610:19f::7)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB9194:EE_|BL1PR12MB5897:EE_
+X-MS-Office365-Filtering-Correlation-Id: 383f7190-c7c3-4707-5887-08de56f636ce
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?L3lwWDZwVWo1dlhvcDdsQS9RME5SdWFiSm9tZE9GTW5ZT3ZreDBTK0dQUjdD?=
+ =?utf-8?B?R3B2c0dJRjVidkZxWVM5TXI4K2hXb0ttR2dXU0hmTEtxOU83Rk0xSzZyS1dR?=
+ =?utf-8?B?a3pJVWFIU2tPU2ZCL0FDSjgzKzR4NmhWV0FUbDk5QkVXRm9RcmM1RXNlUzlO?=
+ =?utf-8?B?NVJwaGhhcDdEMGN2MmxDa0tTV0NOanFra1JwV2hkZmUzd0NmVzYvUXBQa2E1?=
+ =?utf-8?B?QURHNnFoRzlZRmhsMVN6WVVBck1NeGR4RnFIYVN6cVk1T05sR1EwQ3F4bVQ4?=
+ =?utf-8?B?UGRRZndOcFRoVHZuSnJFMGUrS3AyWVFkdFZsc3lqOGlidVVsUEV6SENHY0Nu?=
+ =?utf-8?B?ZjZBWkNxbXFLczJpY2dnbDhzWW1jelh1MkdDUy96Z3p1VnJuN3lteFdoSXB0?=
+ =?utf-8?B?WVA4UFJHVEg2WDJSSDlEVS85NnV1WjVibEJGa0FaR0h1M1ZtUEN6WmptQStX?=
+ =?utf-8?B?cEltWThuT05KdzB2dFJMRTBsV3NjZ2ZhczRDVWdrUmM4VHJ4cSs1UWVkT3Vh?=
+ =?utf-8?B?dFVHWlZvK1BIY2MzYnBnOUxOL3d3dDRnQ3hCQm1GY0IxNFVha0hhN0R0RVEr?=
+ =?utf-8?B?K1VpbitwSEsyeDI5c2tMKzVNQy9pUWR6NXpWUi9IYmluOHU2bTFsdGhJQVJi?=
+ =?utf-8?B?cy9PYkZBWjBvcVg1bWN0K3dxaUQ2ZmZNTjR6NGFzVnl0eDRBWUIyak81VUdY?=
+ =?utf-8?B?WEpEMExLd1A1NEVhWWdFemhObitRbDNRa1RhTkJKVUI1Z0o3MUl3dDBBNzRm?=
+ =?utf-8?B?eG9LQnMxY1lYVGgyVklkTmNLL3hEamRueWRuS2VwN2VxNXhIcGV2OGRQLzBO?=
+ =?utf-8?B?YnNPMWZXb1hKT25zb0p0VVFHSkJHajN0Skpvc2Q4dUV1WHRvQmx5RmExcTNR?=
+ =?utf-8?B?aVNlZGExeUZkazhJdjRUNS8wNi9VRVAvSk9YaXBsZVlEeTlUbG91NE1VQWp2?=
+ =?utf-8?B?RzEycWRRbEM3dU9ibjA1N3loaTRoalBlTE5rTkwyNkxiVVE1TzJ1Q2Y2V09l?=
+ =?utf-8?B?ZlFEZDFxNS9NRXVzMVlNSlNrYVRjcmtaTUNTdGR4UXpycEE0Mmlrd0kxdnZi?=
+ =?utf-8?B?L3pjZ1lzd3ZxbkxQSkY3Zm5TYS91UUZxWWtja1RpSkJ4TW1YRlBHdmhmTUcv?=
+ =?utf-8?B?TnRGaHZZOTkzeVF2OEh5UlNtSkZORko1UUZ5Y1U1RklpNEdhT1FTSzZYM1VO?=
+ =?utf-8?B?TXZldDROV2lqY2Z6dHphZXNpSjJUUnJ2SG96YWVWeklPUm03anNNY1k0YkRO?=
+ =?utf-8?B?SlBvSGxqREFpaEVXcVJuV2VqWmhMTGxqUkZQZ2lmNHhlTHpjWVhLeDUvOXNZ?=
+ =?utf-8?B?d09lWHFKOXRqMVB3ZnB3dnB1SWZMWU5lYjJqeG1hMXJ5bkNIVkdkaTRsODE0?=
+ =?utf-8?B?Y1ZOVlh5Wi83RUZqUyt0SVFFT085YStPQllpYno5SFBoR0pZQWF4SFdXa1FW?=
+ =?utf-8?B?WDMwbUloSlpyRTFkQjdNUlBUSUMxZVdiV1RSdzNwL05jeDRZWDZ3Y09HK1V2?=
+ =?utf-8?B?TVA4Rm42cHAzeFFaTVk5NnZFZzdDaXpmdEtxSEJvQVd6TXhHc0dlZUlxNDdt?=
+ =?utf-8?B?a1BYclNad2xBLytiQnFFQmhxeXVRajhHSEhZQm1tUXdhRFA0R0pGZ21aeHor?=
+ =?utf-8?B?VXZuUXV3YTFEeU1tRUF6UzV1ZXRzc2V4MHRrM0lQd0NRaVp4R1psbWNhclZW?=
+ =?utf-8?B?NXRWQllMZ1FGc2RuS0lYUGwzT01Hc1pKeHVVOC81dGQxTTdLSFB0RTgzYXBC?=
+ =?utf-8?B?TUQ1MlBDTWtZNjBHTEZuakE2ZEdvdDFBUWt6cGQwa0NERllkTzl1aXlkaFBy?=
+ =?utf-8?B?WTVUbGsybk9qd1hvRjZFcSsvdE96aVBpZmdpUmYyOVJEa0dMb1VtM3Rxb2xv?=
+ =?utf-8?B?bVcwazkwWGlwdVI2TDVscGwyaHdHSm1maFFUVFpOZElqaC9aNEtCSmJpdzg0?=
+ =?utf-8?B?c3U5M2tsT05aVnlZQlpFVkdTZHJHQW9VL0MwNWp6b2RXNXRrOW1aZlh1a0sz?=
+ =?utf-8?B?WmVyQ010OUw0V2Iydm9XZnBySXgvN0o2MUJ2L1BLWURkNkR5czdqc2JVbU4v?=
+ =?utf-8?B?L0pqcXNYVGFlV3RlWkxPLzNsb29nZm1sUzIyOTdMZldIOXpBLzhsVSt5UHlL?=
+ =?utf-8?Q?Drqw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB9194.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TjE3cHY3UXczV2JMemlLWTJCNlhiWUhXR2dZMkxTdUlMUXlYbGY2QW1KbjR5?=
+ =?utf-8?B?Z1VxYm1GRXo2OC8xWWtRRWMvYTNRUE03YU4wanhpRVRHZzYzTEJwdW9hR1pp?=
+ =?utf-8?B?VUNQV1crTDhMOU5PcHRwcmhSZHpHSUlTcjd2V25BWElkaGN6N1J3Vko5Q3Mw?=
+ =?utf-8?B?SXhTSXNnZHJNaWZTVm9rYmcrbmVRUzhyTmVoUlgrM1JjSGR1Ry9HZU9ndXFI?=
+ =?utf-8?B?dElpc2p3c0FZd3ZvTTBmVUN6cndQZzNwS2JKRkdEMHNUSk9UbU5LeTJxaWh4?=
+ =?utf-8?B?VHJjVVlpZXBCN1hMMkVwVExhSmVQcFRQOVRyeDdwK0svZWJoNWZSOUF5YjBW?=
+ =?utf-8?B?R0pxdVFNdW9mZkU0YlpwOFc3Ukpta21xMlA5eDJsR082S21LVnRtbFI3OVpL?=
+ =?utf-8?B?MDNqWlkwU3R3akhiRVpFMXNveVV6REZuVW1BNWdkTkpZR1QzV0R4d1c5N0g5?=
+ =?utf-8?B?R3hjR3F2WWdyaW9KaFBLbHlZOXlReFIveklrRFF1MzFRYUt3VnlJSDZRanJW?=
+ =?utf-8?B?dWFEQ0FTcFV4VDlPTENaZmxxcmtHUnlGQ2hqRUxzOW5lN28wL3VCWS9MWlR2?=
+ =?utf-8?B?WDJqWjIrMjZmaHE1eGU5VndDRWpOMTlSNWxHcnZCS2IrOWhHSllyLzk3TVhi?=
+ =?utf-8?B?UnhscFhKNFl4N3N1TTVnSGd0QUlBd0w0dXhtWmx3RmtheUFOTkpwbU4zc1li?=
+ =?utf-8?B?dWxocERsWWt0VEFrUWtCU3VPTXNLNE16RXFPRDdSSGg2TGtFL05HQ00vQ0NO?=
+ =?utf-8?B?UUJ3UThCRDdmdXloRW1IL2hMYml2bTkvS3JZVnFSZUxLSEZrUVRIalFxNFZs?=
+ =?utf-8?B?MHBBVXRVbTE1QmtCMVNHT0tIN3JyeC9mV3o2cUVzUEpubDgrZk1qVnBWTSth?=
+ =?utf-8?B?d1NlNXdSRXpvaUsvaVdzTTdPSFFFQnJZbHhPNFc5SWg0Yi9JTjAyNGs2ZHlx?=
+ =?utf-8?B?aDhFaGtmM1AxR0phZnBNMVNlVXp3ZmxYeXNreC83ang4dE5JeDRlZlJYQWNH?=
+ =?utf-8?B?aTQ4YXdmamNSQUFGUVhUM3EzQ0JWVys1V00rNmgyZktKeVhoSzRYdmZOSEZq?=
+ =?utf-8?B?OUdHTzhndklVQWdSNU8zUFZlV1FwLzJhU0lrUmRtYWY3a1gxcmhMZkdwUFRK?=
+ =?utf-8?B?REJtcVpYcU9nSGlZVHNJY0Y3dHAvcW9leE1pUjh0SkYvSUg4OC9DSUJQU01w?=
+ =?utf-8?B?MmJtYUwwUWFyV0s4Q1VOM29SU2dtaUpBVGRFUUN1R0lnWGw2cTkzRWtmc2dB?=
+ =?utf-8?B?NEJYQW9JYm05R3l1QmxSUFRKQWhqUC9SSXZJaVhGYmtPL2VKM1NPbmUyWkZz?=
+ =?utf-8?B?V3dBSlZyZ2FKRGVlU3dYd2tuaDRlMHAycEdlaWtNVVI2MGpuSW1SOTNnOHJS?=
+ =?utf-8?B?OXE1bUFKblVSYU41VndKZlBYRzBZd1dZdVpYdDMrbDdRSExSWmNlNmNjbkV2?=
+ =?utf-8?B?Z0N1MnhzV0lGK0VhTUJNSDVQeGsrb0E3clhZVzVFUTZTd2tNNllLdUhnT0li?=
+ =?utf-8?B?MWZISVA4eXY1ZUpRZHpFK1lPS3h3M2dKa1J3aXFRbHIzazRVMXdHRWJtZFk0?=
+ =?utf-8?B?R3EvR0gzaUtMMEN4c1pkQnM3UGFnY1JYK2NNaEc4MkhtMXNaR1Q0RUwzck5v?=
+ =?utf-8?B?dzZoYk9RaVNYcytMZVNpclhhZmRPZEhzdHdkaDdaaGlncWxvSkVvZGxtbWJn?=
+ =?utf-8?B?YUtqK1NQeXY1a3RUU1pwa3VyU0dEL1MzWk5UR0trZkxzbFhLUnN1WkRPbnVT?=
+ =?utf-8?B?MjhvN0ZjdUsrMGZHVEtRWWN3RUtoWGZUaXJzTkFIYktBdzh5VDhFZFZqdzRn?=
+ =?utf-8?B?WWNHQW5xY3hKSzlZQWlyRmw1QjRYeC8vTk5tdGI1dHp4bEhCcXV0TjZMcUtO?=
+ =?utf-8?B?eFNFVmVzMGJKV05ndGlBSnh5b2s5SWhDQURiUjJ6aTlPeVVHME1INnhTSDds?=
+ =?utf-8?B?c3NCRThmTDdZanBxaEZRMGRXOHdnUzZGZTJTUkMwbXMxWHFXNXVJY1BmZ01p?=
+ =?utf-8?B?YzU1Nk5rM2NnTXR3VEVNc2cvb3BwWG05M3VJOVZRa1dGRXJiWFJScTl5T09Q?=
+ =?utf-8?B?bXQ1Q2xRWjd1SWZ5SEZnbExaZ3FBL1dOLzQybWo4NU9KN3FkNjBRVFkxRWxh?=
+ =?utf-8?B?OWZnSndyRDlFOWF2L2UrR1pLTmpGOVVDY25mRFBxUXJvQ3k4LzhqZEdnUTBr?=
+ =?utf-8?B?QjJEUlBZbHhrMDR6d2tlcU05RHNONFZKRWpMRTk5MHluR1FKdG5Ha1hMTTFQ?=
+ =?utf-8?B?bzZYdndSRW8wT1drUDJieVYzdFV4SHNIS21qNGdMTHZhWkdENkxSamFNWnFz?=
+ =?utf-8?Q?Q5qUrg/dDcbJFknFYY?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 383f7190-c7c3-4707-5887-08de56f636ce
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB9194.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jan 2026 01:01:01.7714
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nmGIGIozDeXhGtKvR9SmLE06VgELqt2HkXyYgPyxro5h21rd+RVBrhzl4gLlN3GIk3CUbcmYMzPWAhWG2hj1jQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5897
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260118_171605_351525_335A1808 
+X-CRM114-Status: GOOD (  37.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,373 +193,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 16 Jan 2026, Andrew Jones wrote:
 
-> On Thu, Nov 27, 2025 at 01:23:35AM -0700, Paul Walmsley wrote:
-> > We've run out of bits to describe RISC-V ISA extensions in our initial
-> > hwprobe key, RISCV_HWPROBE_KEY_IMA_EXT_0.  So, let's add
-> > RISCV_HWPROBE_KEY_IMA_EXT_1, along with the framework to set the
-> > appropriate hwprobe tuple, and add testing for it.
-> > 
-> > Signed-off-by: Paul Walmsley <pjw@kernel.org>
+
+On 18/1/26 02:43, Jason Gunthorpe wrote:
+> On Sat, Jan 17, 2026 at 03:54:52PM +1100, Alexey Kardashevskiy wrote:
 > 
-> Can we also change the documentation for RISCV_HWPROBE_KEY_IMA_EXT_0
-> to remove the word 'the' before extensions, i.e. just '...containing
-> extensions...' rather than '...containing the extensions...'?
+>> I am trying this with TEE-IO on AMD SEV and hitting problems.
+> 
+> My understanding is that if you want to use SEV today you also have to
+> use the kernel command line parameter to force 4k IOMMU pages?
 
-Thanks for the suggestion and the Reviewed-by:.  I updated the patch 
-accordingly (see below).
+No, not only 4K. I do not enforce any page size by default so it is "everything but 512G", only when the device is "accepted" - I unmap everything in  QEMU, "accept" the device, then map everything again but this time IOMMU uses the (4K|2M) pagemask and takes RMP entry sizes into account.
+
+> So, I think your questions are about trying to enhance this to get
+> larger pages in the IOMMU when possible?
+
+I did test my 6 month old stuff with 2MB pages + runtime smashing, works fine, although ugly as it uses that page size recalculating hack I mentioned before.
+
+>> Now, from time to time the guest will share 4K pages which makes the
+>> host OS smash NPT's 2MB PDEs to 4K PTEs, and 2M RMP entries to 4K
+>> RMP entries, and since the IOMMU performs RMP checks - IOMMU PDEs
+>> have to use the same granularity as NPT and RMP.
+> 
+> IMHO this is a bad hardware choice, it is going to make some very
+> troublesome software, so sigh.
+
+afaik the Other OS is still not using 2MB pages (or does but not much?) and runs on the same hw :)
+
+Sure we can force some rules in Linux to make the sw simpler though.
+
+>> So I end up in a situation when QEMU asks to map, for example, 2GB
+>> of guest RAM and I want most of it to be 2MB mappings, and only
+>> handful of 2MB pages to be split into 4K pages. But it appears so
+>> that the above enforces the same page size for entire range.
+> 
+>> In the old IOMMU code, I handled it like this:
+>>
+>> https://github.com/AMDESE/linux-kvm/commit/0a40130987b7b65c367390d23821cc4ecaeb94bd#diff-f22bea128ddb136c3adc56bc09de9822a53ba1ca60c8be662a48c3143c511963L341
+>>
+>> tl;dr: I constantly re-calculate the page size while mapping.
+> 
+> Doing it at mapping time doesn't seem right to me, AFAICT the RMP can
+> change dynamically whenever the guest decides to change the
+> private/shared status of memory?
+
+The guest requests page state conversion which makes KVM change RMPs and potentially smash huge pages, the guest only (in)validates the RMP entry but does not change ASID+GPA+otherbits, the host does. But yeah a race is possible here.
 
 
-- Paul
+> My expectation for AMD was that the VMM would be monitoring the RMP
+> granularity and use cut or "increase/decrease page size" through
+> iommupt to adjust the S2 mapping so it works with these RMP
+> limitations.
+> 
+> Those don't fully exist yet, but they are in the plans.
 
-From: Paul Walmsley <pjw@kernel.org>
-Date: Wed, 26 Nov 2025 21:35:25 -0700
-Subject: [PATCH] riscv: hwprobe: add support for RISCV_HWPROBE_KEY_IMA_EXT_1
+I remember the talks about hitless smashing but in case of RMPs atomic xchg is not enough (we have a HW engine for that).
 
-We've run out of bits to describe RISC-V ISA extensions in our initial
-hwprobe key, RISCV_HWPROBE_KEY_IMA_EXT_0.  So, let's add
-RISCV_HWPROBE_KEY_IMA_EXT_1, along with the framework to set the
-appropriate hwprobe tuple, and add testing for it.
+> It assumes that the VMM is continually aware of what all the RMP PTEs
+> look like and when they are changing so it can make the required
+> adjustments.
+> 
+> The flow would be some thing like..
+>   1) Create an IOAS
+>   2) Create a HWPT. If there is some known upper bound on RMP/etc page
+>      size then limit the HWPT page size to the upper bound
+>   3) Map stuff into the ioas
+>   4) Build the RMP/etc and map ranges of page granularity
+>   5) Call iommufd to adjust the page size within ranges
 
-Based on a suggestion from Andrew Jones <andrew.jones@oss.qualcomm.com>,
-also fix the documentation for RISCV_HWPROBE_KEY_IMA_EXT_0.
+Say, I hotplug a device into a VM with a mix of 4K and 2M RMPs. QEMU will ask iommufd to map everything (and that would be 2M/1G), should then QEMU ask KVM to walk through ranges and call iommufd directly to make IO PDEs/PTEs match RMPs?
 
-Reviewed-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
-Signed-off-by: Paul Walmsley <pjw@kernel.org>
----
- Documentation/arch/riscv/hwprobe.rst          |   6 +-
- arch/riscv/include/asm/hwprobe.h              |   3 +-
- arch/riscv/include/uapi/asm/hwprobe.h         |   1 +
- arch/riscv/kernel/sys_hwprobe.c               | 169 +++++++++++-------
- .../selftests/riscv/hwprobe/which-cpus.c      |  18 +-
- 5 files changed, 121 insertions(+), 76 deletions(-)
+I mean, I have to do the KVM->iommufd part anyway when 2M->4K smashing happens in runtime but the initial mapping could be simpler if iommufd could check RMP.
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index 641ec4abb906..c420a8349bc6 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -67,7 +67,7 @@ The following keys are defined:
-       programs (it may still be executed in userspace via a
-       kernel-controlled mechanism such as the vDSO).
- 
--* :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0`: A bitmask containing the extensions
-+* :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0`: A bitmask containing extensions
-   that are compatible with the :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_IMA`:
-   base system behavior.
- 
-@@ -387,3 +387,7 @@ The following keys are defined:
- 
- * :c:macro:`RISCV_HWPROBE_KEY_ZICBOP_BLOCK_SIZE`: An unsigned int which
-   represents the size of the Zicbop block in bytes.
-+
-+* :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_1`: A bitmask containing additional
-+  extensions that are compatible with the
-+  :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_IMA`: base system behavior.
-diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-index 8c572a464719..8b9f5e1cf4cb 100644
---- a/arch/riscv/include/asm/hwprobe.h
-+++ b/arch/riscv/include/asm/hwprobe.h
-@@ -8,7 +8,7 @@
- 
- #include <uapi/asm/hwprobe.h>
- 
--#define RISCV_HWPROBE_MAX_KEY 15
-+#define RISCV_HWPROBE_MAX_KEY		16
- 
- static inline bool riscv_hwprobe_key_is_valid(__s64 key)
- {
-@@ -20,6 +20,7 @@ static inline bool hwprobe_key_is_bitmask(__s64 key)
- 	switch (key) {
- 	case RISCV_HWPROBE_KEY_BASE_BEHAVIOR:
- 	case RISCV_HWPROBE_KEY_IMA_EXT_0:
-+	case RISCV_HWPROBE_KEY_IMA_EXT_1:
- 	case RISCV_HWPROBE_KEY_CPUPERF_0:
- 	case RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0:
- 	case RISCV_HWPROBE_KEY_VENDOR_EXT_MIPS_0:
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index cd3c126730c3..ed2621a5a47d 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -113,6 +113,7 @@ struct riscv_hwprobe {
- #define RISCV_HWPROBE_KEY_VENDOR_EXT_SIFIVE_0	13
- #define RISCV_HWPROBE_KEY_VENDOR_EXT_MIPS_0	14
- #define RISCV_HWPROBE_KEY_ZICBOP_BLOCK_SIZE	15
-+#define RISCV_HWPROBE_KEY_IMA_EXT_1		16
- /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
- 
- /* Flags */
-diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index e6787ba7f2fc..53731ace7984 100644
---- a/arch/riscv/kernel/sys_hwprobe.c
-+++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -24,6 +24,14 @@
- #include <vdso/vsyscall.h>
- 
- 
-+#define EXT_KEY(isa_arg, ext, pv, missing)					\
-+	do {										\
-+		if (__riscv_isa_extension_available(isa_arg, RISCV_ISA_EXT_##ext))	\
-+			pv |= RISCV_HWPROBE_EXT_##ext;				\
-+		else									\
-+			missing |= RISCV_HWPROBE_EXT_##ext;				\
-+	} while (false)
-+
- static void hwprobe_arch_id(struct riscv_hwprobe *pair,
- 			    const struct cpumask *cpus)
- {
-@@ -93,90 +101,109 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
- 	for_each_cpu(cpu, cpus) {
- 		struct riscv_isainfo *isainfo = &hart_isa[cpu];
- 
--#define EXT_KEY(ext)									\
--	do {										\
--		if (__riscv_isa_extension_available(isainfo->isa, RISCV_ISA_EXT_##ext))	\
--			pair->value |= RISCV_HWPROBE_EXT_##ext;				\
--		else									\
--			missing |= RISCV_HWPROBE_EXT_##ext;				\
--	} while (false)
--
- 		/*
- 		 * Only use EXT_KEY() for extensions which can be exposed to userspace,
- 		 * regardless of the kernel's configuration, as no other checks, besides
- 		 * presence in the hart_isa bitmap, are made.
- 		 */
--		EXT_KEY(ZAAMO);
--		EXT_KEY(ZABHA);
--		EXT_KEY(ZACAS);
--		EXT_KEY(ZALASR);
--		EXT_KEY(ZALRSC);
--		EXT_KEY(ZAWRS);
--		EXT_KEY(ZBA);
--		EXT_KEY(ZBB);
--		EXT_KEY(ZBC);
--		EXT_KEY(ZBKB);
--		EXT_KEY(ZBKC);
--		EXT_KEY(ZBKX);
--		EXT_KEY(ZBS);
--		EXT_KEY(ZCA);
--		EXT_KEY(ZCB);
--		EXT_KEY(ZCLSD);
--		EXT_KEY(ZCMOP);
--		EXT_KEY(ZICBOM);
--		EXT_KEY(ZICBOP);
--		EXT_KEY(ZICBOZ);
--		EXT_KEY(ZICNTR);
--		EXT_KEY(ZICOND);
--		EXT_KEY(ZIHINTNTL);
--		EXT_KEY(ZIHINTPAUSE);
--		EXT_KEY(ZIHPM);
--		EXT_KEY(ZILSD);
--		EXT_KEY(ZIMOP);
--		EXT_KEY(ZKND);
--		EXT_KEY(ZKNE);
--		EXT_KEY(ZKNH);
--		EXT_KEY(ZKSED);
--		EXT_KEY(ZKSH);
--		EXT_KEY(ZKT);
--		EXT_KEY(ZTSO);
-+		EXT_KEY(isainfo->isa, ZAAMO, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZABHA, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZACAS, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZALASR, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZALRSC, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZAWRS, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZBA, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZBB, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZBC, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZBKB, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZBKC, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZBKX, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZBS, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZCA, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZCB, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZCLSD, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZCMOP, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZICBOM, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZICBOP, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZICBOZ, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZICNTR, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZICOND, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZIHINTNTL, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZIHINTPAUSE, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZIHPM, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZILSD, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZIMOP, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZKND, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZKNE, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZKNH, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZKSED, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZKSH, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZKT, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZTSO, pair->value, missing);
- 
- 		/*
- 		 * All the following extensions must depend on the kernel
- 		 * support of V.
- 		 */
- 		if (has_vector()) {
--			EXT_KEY(ZVBB);
--			EXT_KEY(ZVBC);
--			EXT_KEY(ZVE32F);
--			EXT_KEY(ZVE32X);
--			EXT_KEY(ZVE64D);
--			EXT_KEY(ZVE64F);
--			EXT_KEY(ZVE64X);
--			EXT_KEY(ZVFBFMIN);
--			EXT_KEY(ZVFBFWMA);
--			EXT_KEY(ZVFH);
--			EXT_KEY(ZVFHMIN);
--			EXT_KEY(ZVKB);
--			EXT_KEY(ZVKG);
--			EXT_KEY(ZVKNED);
--			EXT_KEY(ZVKNHA);
--			EXT_KEY(ZVKNHB);
--			EXT_KEY(ZVKSED);
--			EXT_KEY(ZVKSH);
--			EXT_KEY(ZVKT);
-+			EXT_KEY(isainfo->isa, ZVBB, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVBC, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVE32F, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVE32X, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVE64D, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVE64F, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVE64X, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVFBFMIN, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVFBFWMA, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVFH, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVFHMIN, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVKB, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVKG, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVKNED, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVKNHA, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVKNHB, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVKSED, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVKSH, pair->value, missing);
-+			EXT_KEY(isainfo->isa, ZVKT, pair->value, missing);
- 		}
- 
--		EXT_KEY(ZCD);
--		EXT_KEY(ZCF);
--		EXT_KEY(ZFA);
--		EXT_KEY(ZFBFMIN);
--		EXT_KEY(ZFH);
--		EXT_KEY(ZFHMIN);
-+		EXT_KEY(isainfo->isa, ZCD, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZCF, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZFA, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZFBFMIN, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZFH, pair->value, missing);
-+		EXT_KEY(isainfo->isa, ZFHMIN, pair->value, missing);
- 
- 		if (IS_ENABLED(CONFIG_RISCV_ISA_SUPM))
--			EXT_KEY(SUPM);
--#undef EXT_KEY
-+			EXT_KEY(isainfo->isa, SUPM, pair->value, missing);
-+	}
-+
-+	/* Now turn off reporting features if any CPU is missing it. */
-+	pair->value &= ~missing;
-+}
-+
-+static void hwprobe_isa_ext1(struct riscv_hwprobe *pair,
-+			     const struct cpumask *cpus)
-+{
-+	int cpu;
-+	u64 missing = 0;
-+
-+	pair->value = 0;
-+
-+	/*
-+	 * Loop through and record extensions that 1) anyone has, and 2) anyone
-+	 * doesn't have.
-+	 */
-+	for_each_cpu(cpu, cpus) {
-+		/* struct riscv_isainfo *isainfo = &hart_isa[cpu]; */
-+
-+		/*
-+		 * Only use EXT_KEY() for extensions which can be
-+		 * exposed to userspace, regardless of the kernel's
-+		 * configuration, as no other checks, besides presence
-+		 * in the hart_isa bitmap, are made.
-+		 */
-+		/* Nothing here yet */
- 	}
- 
- 	/* Now turn off reporting features if any CPU is missing it. */
-@@ -287,6 +314,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
- 		hwprobe_isa_ext0(pair, cpus);
- 		break;
- 
-+	case RISCV_HWPROBE_KEY_IMA_EXT_1:
-+		hwprobe_isa_ext1(pair, cpus);
-+		break;
-+
- 	case RISCV_HWPROBE_KEY_CPUPERF_0:
- 	case RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF:
- 		pair->value = hwprobe_misaligned(cpus);
-diff --git a/tools/testing/selftests/riscv/hwprobe/which-cpus.c b/tools/testing/selftests/riscv/hwprobe/which-cpus.c
-index 3ab53067e8dd..587feb198c04 100644
---- a/tools/testing/selftests/riscv/hwprobe/which-cpus.c
-+++ b/tools/testing/selftests/riscv/hwprobe/which-cpus.c
-@@ -83,9 +83,9 @@ static void do_which_cpus(int argc, char **argv, cpu_set_t *cpus)
- 
- int main(int argc, char **argv)
- {
--	struct riscv_hwprobe pairs[2];
-+	struct riscv_hwprobe pairs[3];
- 	cpu_set_t cpus_aff, cpus;
--	__u64 ext0_all;
-+	__u64 ext0_all, ext1_all;
- 	long rc;
- 
- 	rc = sched_getaffinity(0, sizeof(cpu_set_t), &cpus_aff);
-@@ -112,6 +112,11 @@ int main(int argc, char **argv)
- 	assert(rc == 0 && pairs[0].key == RISCV_HWPROBE_KEY_IMA_EXT_0);
- 	ext0_all = pairs[0].value;
- 
-+	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_1, };
-+	rc = riscv_hwprobe(pairs, 1, 0, NULL, 0);
-+	assert(rc == 0 && pairs[0].key == RISCV_HWPROBE_KEY_IMA_EXT_1);
-+	ext1_all = pairs[0].value;
-+
- 	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
- 	CPU_ZERO(&cpus);
- 	rc = riscv_hwprobe(pairs, 1, 0, (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
-@@ -134,20 +139,23 @@ int main(int argc, char **argv)
- 
- 	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
- 	pairs[1] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_0, .value = ext0_all, };
-+	pairs[2] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_1, .value = ext1_all, };
- 	CPU_ZERO(&cpus);
--	rc = riscv_hwprobe(pairs, 2, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
-+	rc = riscv_hwprobe(pairs, 3, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
- 	ksft_test_result(rc == 0 && CPU_COUNT(&cpus) == sysconf(_SC_NPROCESSORS_ONLN), "set all cpus\n");
- 
- 	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
- 	pairs[1] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_0, .value = ext0_all, };
-+	pairs[2] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_1, .value = ext1_all, };
- 	memcpy(&cpus, &cpus_aff, sizeof(cpu_set_t));
--	rc = riscv_hwprobe(pairs, 2, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
-+	rc = riscv_hwprobe(pairs, 3, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
- 	ksft_test_result(rc == 0 && CPU_EQUAL(&cpus, &cpus_aff), "set all affinity cpus\n");
- 
- 	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
- 	pairs[1] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_0, .value = ~ext0_all, };
-+	pairs[2] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_1, .value = ~ext1_all, };
- 	memcpy(&cpus, &cpus_aff, sizeof(cpu_set_t));
--	rc = riscv_hwprobe(pairs, 2, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
-+	rc = riscv_hwprobe(pairs, 3, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
- 	ksft_test_result(rc == 0 && CPU_COUNT(&cpus) == 0, "clear all cpus\n");
- 
- 	ksft_finished();
+
+>   6) Guest changes encrypted state so RMP changes
+>   7) VMM adjusts the ranges of page granularity and calls iommufd with
+>      the updates
+>   8) iommput code increases/decreases page size as required.
+> 
+> Does this seem reasonable?
+
+It does.
+
+For the time being I do bypass IOMMU and make KVM call another FW+HW DMA engine to smash IOPDEs.
+
+
+>> I know, ideally we would only share memory in 2MB chunks but we are
+>> not there yet as I do not know the early boot stage on x86 enough to
+> 
+> Even 2M is too small, I'd expect realy scenarios to want to get up to
+> 1GB ??
+
+Except SWIOTLB, afaict there is really no good reason to share more than half a MB of memory ever, 1GB is just way too much waste imho. The biggest RMP entry size is 2M, the 1G RMP optimization is done quite differently. Thanks,
+
+
+ps. I am still curious about:
+
+> btw just realized - does the code check that the folio_size matches IO pagesize? Or batch_to_domain() is expected to start a new batch if the next page size is not the same as previous? With THP, we can have a mix of page sizes"
+
+
+> Jason
+
 -- 
-2.51.0
+Alexey
 
 
 _______________________________________________
