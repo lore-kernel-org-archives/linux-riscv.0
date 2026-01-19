@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81AD7CA6007
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 08:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C35B8CCF2C5
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 09:00:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gmPwx1aSTuLGHMTR1NXsA4YCFvEom6tpFukWjhJdnjQ=; b=nnXZbHGE5Z+WHB
-	aUTlPGgInvloeJfZDqzkYdlG/+KN6g+sFdTfupqjhyEHTOJaiTnqfCHxS3E4EaJ1gsHixr9/5YFgu
-	c/ucTQHCZO6LQnZiK8sfoYWbp5iv0g1ewm0+BsDNBKJoUnlUlSZ/kAXIgf0kscOO13DbwPav65/s4
-	66NeOC9mF63O++dTKC26XIQYU/gC7ZvQz/zNVZQDQT+eofnCW/ynpYPjeFC1sIogNkeBQOWanYdaw
-	II+7pJUMCytwGkjNJLCxGEOLQUoEn8cD0Nrf8X5fAJGptYftPZYfdXbLPJmfcAJrvbQOcb5V5NqRd
-	Ndk9sOM//ATlAyn19QNw==;
+	List-Owner; bh=AV4By7QD94KHY6cpSrEBaKDiWbWDKst6y+WDwoAyUc8=; b=LXbiy0G/Pgb0Lv
+	TXjCdKt2eaPoAvQEBIaA/gD8TMQH+Usbn01MYbYcYoY41QOeJ5d/NP8v44ILEu7EPLJ8kx8M4ZFWW
+	pCmfuVUNNTWlBY7SMlXwtGgwyGsyjGJwp/1yqJrKFCeT73pHvr+5mrHUjvMlvn1IuGr47PuNsDEGz
+	9a8jdGZ7a14sJzKf9JozkKPzindTj2SqGuIzwcNRuoMa6dIBvCcXBNlr2+1P17ny09dHb6Gq2YxIP
+	BLCwpAmUnWMba9n+ooslftekemiOW1+yx1PV3VBLfO8NBZGzaXF37h3T5Kn3mUD6y+lqICe4kuT5G
+	WkPX6Dl4W2i0/3FlCpqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhkTs-00000001XwJ-0YAq;
-	Mon, 19 Jan 2026 08:19:24 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1vhl7X-00000001b32-0zpS;
+	Mon, 19 Jan 2026 09:00:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhkTk-00000001Xvq-39Tu
+	id 1vhl7T-00000001b2b-1Lkl
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jan 2026 08:19:19 +0000
-Received: from duge-virtual-machine (unknown [223.160.206.18])
-	by APP-05 (Coremail) with SMTP id zQCowADXZwv46G1p2zmUBQ--.61720S2;
-	Mon, 19 Jan 2026 16:19:07 +0800 (CST)
-Date: Mon, 19 Jan 2026 16:18:59 +0800
-From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-To: Xukai Wang <kingxukai@zohomail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Troy Mitchell <TroyMitchell988@gmail.com>
-Subject: Re: [PATCH v10 2/3] clk: canaan: Add clock driver for Canaan K230
-Message-ID: <aW3o8xVziqb9iRBN@duge-virtual-machine>
-References: <20260116-b4-k230-clk-v10-0-de59033c5d30@zohomail.com>
- <20260116-b4-k230-clk-v10-2-de59033c5d30@zohomail.com>
+	Mon, 19 Jan 2026 09:00:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A556F43ABE
+	for <linux-riscv@lists.infradead.org>; Mon, 19 Jan 2026 09:00:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85670C16AAE
+	for <linux-riscv@lists.infradead.org>; Mon, 19 Jan 2026 09:00:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768813218;
+	bh=b4DKBljiuvLP2VvxJczezy8Zoho9aAPyQ5HTEMJLwpc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=KmR5CeMmwQPLkLqj4otLvIuU8O5zW8CnNwPjRVWZNnqnPbyiP7YQW/I/h6DweORwp
+	 B+V9uabzHdzN+6WR8AU3Ipk6MBhcgKT3RfSN3L6RQksguUBkEeCGQMCr9xKCLXHFBK
+	 fZN9++TjMNPVJx3YkVTefeLStzgMScJ3OIfyNlPB3ep8beiwc6DA6UtEp/X2QoGbMd
+	 eb81YNGxgls8FPgqLBtrvH+CN995ta9vGXm21u7v6M5wUXOuUzVc8U2mPHgdgaQZIE
+	 M9QjsVvXwOiiwnlh6KAE522erRloaj0zp8FyjJdjwgzZGe6jNR/+4F/ll1hmaxn5n+
+	 nTub6wCdFuG9A==
+Received: by mail-yx1-f41.google.com with SMTP id 956f58d0204a3-64924c40e8eso983323d50.2
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Jan 2026 01:00:18 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCU2dXesujtYrBb+VQHGzmdt5ddW3LwhUdITQEZC+Amwm3VEnRTbMnrHoDTwM9LseDgWA99PF82vsL1mlA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcvLYHra4FS/bwezhmagDnocIlUDuYXZlgy3ZqXivHrDeq3uQj
+	2JGS/IcfSUinwcVEdvN1k0rr5nfGZ7nYqdGTsxoLoOxh8zXyJ/PsvZeou5ycRK9Pd2mWliPm3qQ
+	EG/2UA+e5K9VPFzQCrdvljuGswWTOnpM=
+X-Received: by 2002:a05:690e:4092:b0:649:1463:c983 with SMTP id
+ 956f58d0204a3-64917722e2emr7655356d50.62.1768813217893; Mon, 19 Jan 2026
+ 01:00:17 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260116-b4-k230-clk-v10-2-de59033c5d30@zohomail.com>
-X-CM-TRANSID: zQCowADXZwv46G1p2zmUBQ--.61720S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CFy7Kr43Ww1fXr45KFW7Jwb_yoW8XFyxpr
-	1IvFyfWFZ5JrnakF4DZ3W8Ar1kJFs0y3ZxJr1IyrW8Gw17Xryvva4agr1xta1UJw18Ca1U
-	XF4DJw1rta4qk3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
-	UI43ZEXa7IU8fpnPUUUUU==
-X-Originating-IP: [223.160.206.18]
-X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
+References: <029e5e79-ae9c-4d31-b75f-8f48f359d539@muenchen-mail.de>
+ <aWk59MT8yWcxiYKr@x1> <0733e741-ec63-4419-a08d-50b70210361b@muenchen-mail.de>
+In-Reply-To: <0733e741-ec63-4419-a08d-50b70210361b@muenchen-mail.de>
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 19 Jan 2026 10:00:06 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkmeEoynOurZoSB_sz0XfJupiJcLPyWqbTe6fQFpYJotQ@mail.gmail.com>
+X-Gm-Features: AZwV_QgrT3dDiwcF08wjUUfN6XQYaWlRXYCz0muYmQRZI8OcWh4fusv65038FzI
+Message-ID: <CAD++jLkmeEoynOurZoSB_sz0XfJupiJcLPyWqbTe6fQFpYJotQ@mail.gmail.com>
+Subject: Re: Typo in pinctrl-th1520.c
+To: thomas.gerner@muenchen-mail.de
+Cc: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_001917_157098_42C69A5A 
-X-CRM114-Status: UNSURE (   7.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260119_010019_578169_6CC33317 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,47 +78,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> +
-> +K230_CLK_GATE_FORMAT(hs_hclk_src_gate,
-> +		     K230_HS_HCLK_SRC_GATE,
-> +		     0x18, 0, 0, 0,
-> +		     &hs_hclk_high_src_rate.clk.hw);
-
-Here, you replaced hs_hclk_high_gate(in v9) with hs_hclk_high_src_rate,
-but after my board test, I find that when hs_hclk_high_gate is turned
-off, the mmc/sd and other high-speed subsystems can not work. So maybe
-you should not change the hs_hclk_high_gate to hs_hclk_high_src_rate.
-
-When I used clk_ignore_unused, I saw the log as follows, while the enable
-and prepare count of hs_hclk_high_gate is zero. Here is the log:
-       pll0_div4                     5  5  0  400000000   0   0     50000      Y  deviceless   no_connection_id
-          hs_hclk_high_src_rate      1  1  0  400000000   0   0     50000      Y     deviceless   no_connection_id
-             hs_hclk_high_gate       0  0  0  400000000   0   0     50000      Y        deviceless   no_connection_id
-             hs_hclk_src_gate        1  1  0  400000000   0   0     50000      Y        deviceless   no_connection_id
-                hs_hclk_src_rate     4  4  0  200000000   0   0     50000      Y           deviceless   no_connection_id
-                   hs_sd0_ahb_gate   1  1  0  200000000   0   0     50000      Y              91580000.mmc   ahb
-                                                                                            deviceless   no_connection_id
-                   hs_sd1_ahb_gate   1  1  0  200000000   0   0     50000      Y              91581000.mmc   ahb
-                                                                                            deviceless   no_connection_id
-                   hs_ssi1_ahb_gate  0  0  0  200000000   0   0     50000      Y              deviceless   no_connection_id
-                   hs_ssi2_ahb_gate  0  0  0  200000000   0   0     50000      Y              deviceless   no_connection_id
-                   hs_usb0_ahb_gate  1  1  0  200000000   0   0     50000      Y              91500000.usb   otg
-                                                                                            deviceless   no_connection_id
-                   hs_usb1_ahb_gate  1  1  0  200000000   0   0     50000      Y              91540000.usb   otg
-
-Regards,
-Jiayu Du
-> +
-> +K230_CLK_RATE_FORMAT(hs_hclk_src_rate,
-> +		     K230_HS_HCLK_SRC_RATE,
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBKYW4gMTUsIDIwMjYgYXQgODoxNuKAr1BNIFRob21hcyBHZXJuZXIKPHRob21hcy5n
+ZXJuZXJAbXVlbmNoZW4tbWFpbC5kZT4gd3JvdGU6Cj4gW0RyZXddOgo+ID4gSGVsbG8sIHRoYW5r
+IHlvdSBjYXRjaGluZyB0aGlzIGFuZCBwcm92aWRpbmcgYSBmaXguIFRoZSBjaGFuZ2UgbG9va3MK
+PiA+IGNvcnJlY3QgbWUsIGJ1dCBJIGJlbGlldmUgdGhlcmUgaXMgc29tZXRoaW5nIHdyb25nIHdp
+dGggdGhlIHBhdGNoLgo+ID4KPiA+IERpZCB5b3UganVzdCBwYXN0ZSBhIGRpZmYgaW50byBhbiBl
+bWFpbD8KPiA+Cj4gPiBJIHdvdWxkIHN1Z2dlc3QgdXNpbmcgZ2l0IHNlbmQtZW1haWwuIEtlcm5l
+bE5ld2JpZXMgWzFdIGhhcyBzb21lIGdvb2QKPiA+IHRpcHMgYXMgd2VsbCBhcyBOaWNrJ3MgZ3Vp
+ZGUgWzJdLgo+Cj4gWWVzLCBJIHBhc3RlZCB0aGUgcGF0Y2ggdG8gVGh1bmRlcmJpcmQgYW5kIGl0
+IGxvb2tzIHRoZSBtYWlsIGNsaWVudAo+IHJlZm9ybWF0dGVkIHRoZSBtYWlsIGR1cmluZyBzZW5k
+LiBIb3dldmVyLCB0aGUgZml4IGlzIG9ubHkgYSBzaW5nbGUKPiBsZXR0ZXIgYW5kIGNhbiBiZSBk
+b25lIGVhc2lseSB3aXRoIGFuIHNpbXBsZSB0ZXh0IGVkaXRvciwganVzdCBjaGFuZ2UKPiBRU1BJ
+MSB0byBRU1BJMCBpbiB0aGUgbGluZSBvZiBwYWQgOC4KPgo+IEknbSBuZXcgaW4gd29ya2luZyBv
+biB0aGUgTGludXgga2VybmVsIGJlY2F1c2Ugb2YgbXkgQmVhZ2xlVi1BaGVhZC4gTmV4dAo+IHRp
+bWUgd2hlbiBJIHNlbmQgYSBwYXRjaCBJIHdpbGwgdXNlIGdpdCBzZW5kLWVtYWlsLgoKV2lsbCB5
+b3Ugc2VuZCBhIHByb3BlciBwYXRjaCBmb3IgdGhpcz8KCk90aGVyd2lzZSBwZXJoYXBzIERyZXcg
+Y2FuIHNlbmQgYSBwcm9wZXIgcGF0Y2ggdG8gZml4IHRoaXMgYnVnCnNvIEkgY2FuIGFwcGx5IGl0
+PwoKWW91cnMsCkxpbnVzIFdhbGxlaWoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
