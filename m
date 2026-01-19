@@ -4,58 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EAB6D29C33
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 15:09:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09EB3D29C2E
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 15:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xo+yaPr7AMdpAvv2/p8gHXVIEEl2e2VlO4155STpWVo=; b=NzmHgEH3izGAGG
-	eJtAl3z0IkdX8YdMCHnb8zlKSuWjNmn1SRWxaDYzDHNWcGkhhedHJEaiko5E8qpb4WqahWghdPjR0
-	RIff0JwFm4MaxMVX37qS4NYpvL66VyXFc8peVEMEixoaWAHJ/K0cVb9CDv4Mnu7wXM07dHzke87HS
-	Q9SkeZSWUfsNVFAqwQrXojHEWS3/jaNiEH1XIaiqxFlQyXLUetQZnwCou08se2ozl05cd/eFC/K9w
-	5Wx4Dw3S0eTiQF3c/jnyQt6JtP2PyCSi9yBxHEXx+IDHZHAcQ03fhB3GcSYT3VjqW39BwqjLw72KT
-	stT/ZofwNhZMHFg4wReQ==;
+	List-Owner; bh=HRzLmd2TULuIwLrMw+hmui+kkkOYlQThjJ3JBULvtYA=; b=yelGrho3e2EHUm
+	M1qIEYC73qQGJk8OyxuvmK/SILmHKp3TSRQt0spkaTEjDJ+JnLToqlVQFd0ZsKN9bEa37Ah462nB6
+	+JicjtlG1eM/mf4+/UPxmc4gM93kVJVEhBSh1MkIMOfhYzUHZlzamyGVOd8TYl48AUAkeIhsCWFHl
+	HfPCq6QOnaGfrSPK256EELi46AjOLTWJxtgInBSz5jeNPRWfReGg88BC625Y47G9Rv+m/xWN0zEeJ
+	L46JfcrxIg9pZveEyFBFbj7OwU5c2lmGCeYGj2+eKuKJiefxDbbTOP37w4nxZHsjEZAalwfEWtM1Y
+	SO0Ma6QCYQdUUAQH1UIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhqso-00000002Jro-1uLA;
-	Mon, 19 Jan 2026 15:09:34 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vhr3C-00000002L2Y-04gj;
+	Mon, 19 Jan 2026 15:20:44 +0000
+Received: from mail-out.m-online.net ([212.18.0.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhqsl-00000002Jqw-39aE
+	id 1vhr37-00000002L1q-2cXG
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jan 2026 15:09:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=34ElnxDRQbNZrGi1RSpU0QbjEZAsJP9D0opkzbG1cjM=; b=MC4ly2iXpNquh53DTz2ysfgs+h
-	krl7wIQO0oWIql0odQRzCSD1domNspeN+8kqQEA4dez2UFKN/DZDiDQVHb/DZSyuRqETDW1H2MYMi
-	HLMUq0zmRseIN3UQhmAdpsug8euvRvmc96ilA8C9pnCeVmaeZ4WosWPTg7WE2YzMjSCA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vhqsT-003W6M-VF; Mon, 19 Jan 2026 16:09:13 +0100
-Date: Mon, 19 Jan 2026 16:09:13 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: wangruikang@iscas.ac.cn, andrew+netdev@lunn.ch, davem@davemloft.net,
-	dlan@gentoo.org, edumazet@google.com, kuba@kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org, pabeni@redhat.com, spacemit@lists.linux.dev
-Subject: Re: [PATCH 1/1] net: spacemit: Check netif_carrier_ok when reading
- stats
-Message-ID: <48757af2-bbea-4185-8cc9-2ef51dbc8373@lunn.ch>
-References: <e3890633-351d-401d-abb1-5b2625c2213b@iscas.ac.cn>
- <20260119141620.1318102-1-amadeus@jmu.edu.cn>
+	Mon, 19 Jan 2026 15:20:16 +0000
+Received: from mail-out.m-online.net (mail-out.m-online.net [212.18.0.10])
+	by mail-out.m-online.net (Postfix) with ESMTP id 4dvvK64vFmz1wMZ6;
+	Mon, 19 Jan 2026 16:20:10 +0100 (CET)
+DKIM-Signature: a=rsa-sha256; bh=B5bVaMYRP7fZH0t1A8JUTPFjs12q9uFq1LutIPHOLX0=;
+        c=relaxed/relaxed; d=muenchen-mail.de;
+        h=From:To:Subject:Date:Message-ID;
+        s=r1; t=1768836010; v=1;
+        b=Lf/7fRjMpSy4G4Apna6ThwzImkXVKKBb2rHVKcIfnc9ROyGdAgUGBqsiuZjyhmst
+         lqIAHYeY3rHd4E9J9G4cbPxn3qA56+jH+crW0BCMsBm0FnXahVAmqIGsGHqdCOCo
+         6T6yTobim0OM8cKOGb7iadxvh5+eqU/nlaqZCv36B557duTnnloKCu/BprQltHHQ
+         XC+C/GE3Qy4BtXoVP3FupmXkgl0DAWmOCF+i/DXe3s2PwdO0hm2Q574wrrSjdQtH
+         uouC538KrFpmJl2D44nKHSocuKIhrwfHg27W5LIt3YGP/J/u6MRw7W9aIJPlOO/2
+         UQSPhJDfaLWTFwRl2IHYkw==
+Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
+	by mail-out.m-online.net (Postfix) with ESMTP id 4dvvK504gKz1wMZ5;
+	Mon, 19 Jan 2026 16:20:08 +0100 (CET)
+Received: from localhost (dynscan1.mnet-online.de [192.168.6.68])
+	by mail.m-online.net (Postfix) with ESMTP id 4dvvK46L0Yz1qqlc;
+	Mon, 19 Jan 2026 16:20:08 +0100 (CET)
+X-Virus-Scanned: amavis at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.8.182])
+ by localhost (dynscan1.mail.m-online.net [192.168.6.68]) (amavis, port 10024)
+ with ESMTP id smdXlySC5pbE; Mon, 19 Jan 2026 16:20:08 +0100 (CET)
+X-Auth-Info: g7Bbe4MRfNrSS1YHWIcgAE9qsq4ZWWmcnDyV0fCZclR14QUJ3oFtdrzw+CbcK4pk
+Received: from wiesel.intern (aftr-82-135-82-149.dynamic.mnet-online.de [82.135.82.149])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by mail.mnet-online.de (Postfix) with ESMTPSA;
+	Mon, 19 Jan 2026 16:20:08 +0100 (CET)
+Received: from murmel.intern (unknown [IPv6:fdea:9b79:8984:1:7c62:722b:b9a7:1b50])
+	by wiesel.intern (Postfix) with ESMTP id 0E17F79A04C7;
+	Mon, 19 Jan 2026 16:20:08 +0100 (CET)
+From: Thomas Gerner <thomas.gerner@muenchen-mail.de>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	linux-riscv@lists.infradead.org,
+	Thomas Gerner <thomas.gerner@muenchen-mail.de>
+Subject: [PATCH] Re: Typo in pinctrl-th1520.c
+Date: Mon, 19 Jan 2026 16:20:02 +0100
+Message-ID: <20260119152004.166749-1-thomas.gerner@muenchen-mail.de>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <CAD++jLmyweD1Y1E1qONC41sPF+ZE4ajh=UvT7OeX_0DJPJsLZA@mail.gmail.com>
+References: <029e5e79-ae9c-4d31-b75f-8f48f359d539@muenchen-mail.de> <aWk59MT8yWcxiYKr@x1> <0733e741-ec63-4419-a08d-50b70210361b@muenchen-mail.de> <CAD++jLkmeEoynOurZoSB_sz0XfJupiJcLPyWqbTe6fQFpYJotQ@mail.gmail.com> <20260119135553.145092-1-thomas.gerner@muenchen-mail.de> <CAD++jLmyweD1Y1E1qONC41sPF+ZE4ajh=UvT7OeX_0DJPJsLZA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260119141620.1318102-1-amadeus@jmu.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_070931_811713_E7DAEC32 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20260119_072015_010144_EA404620 
+X-CRM114-Status: GOOD (  21.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,36 +88,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> root@OpenWrt:~# ethtool -S eth1
-> [   71.725539] k1_emac cac81000.ethernet eth1: Read stat timeout
-> NIC statistics:
->      rx_drp_fifo_full_pkts: 0
->      rx_truncate_fifo_full_pkts: 0
-> 
-> I just discovered that adding "motorcomm,auto-sleep-disabled" to disable
-> the sleep mode of the MotorComm PHY prevents the problem from occurring.
-
-This suggests that when the PHY stops the reference clock, the MAC
-hardware stops working. It needs that clock to access
-statistics. Keeping the clock ticking will increase power usage a
-little.
-
-I wounder if anything else stops working? There are some MACs whos DMA
-engine stop working without the reference clock. That can cause
-problems during both probe and remove, or open and close.
-
-So it would be nice to have a better understanding of this. If this
-turns out to be true, maybe a comment by this poll_read_timeout()
-indicating if it does timeout, the PHY might be the problem.
-
-	   Andrew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDE5LjAxLjI2IGF0IDE1OjMyIExpbnVzIFdhbGxlaWogd3JvdGU6Cj4gT24gTW9uLCBKYW4g
+MTksIDIwMjYgYXQgMjo1NuKAr1BNIFRob21hcyBHZXJuZXIKPiA8dGhvbWFzLmdlcm5lckBtdWVu
+Y2hlbi1tYWlsLmRlPiB3cm90ZToKPj4gT24gTW9uLCAxOSBKYW4gMjAyNiBhdCAxMDowMDowNiAr
+MDEwMCBMaW51cyBXYWxsZWlqIHdyb3RlCj4+Cj4+PiBPbiBUaHUsIEphbiAxNSwgMjAyNiBhdCA4
+OjE2IFRob21hcyBHZXJuZXIKPj4+IDx0aG9tYXMuZ2VybmVyQG11ZW5jaGVuLW1haWwuZGU+IHdy
+b3RlOgo+Pj4KPj4+PiBJJ20gbmV3IGluIHdvcmtpbmcgb24gdGhlIExpbnV4IGtlcm5lbCBiZWNh
+dXNlIG9mIG15IEJlYWdsZVYtQWhlYWQuIE5leHQKPj4+PiB0aW1lIHdoZW4gSSBzZW5kIGEgcGF0
+Y2ggSSB3aWxsIHVzZSBnaXQgc2VuZC1lbWFpbC4KPj4+Cj4+PiBXaWxsIHlvdSBzZW5kIGEgcHJv
+cGVyIHBhdGNoIGZvciB0aGlzPwo+Pj4KPj4+IE90aGVyd2lzZSBwZXJoYXBzIERyZXcgY2FuIHNl
+bmQgYSBwcm9wZXIgcGF0Y2ggdG8gZml4IHRoaXMgYnVnCj4+PiBzbyBJIGNhbiBhcHBseSBpdD8K
+Pj4KPj4gSSBob3BlIHRoaXMgdGltZSB0aGUgcGF0Y2ggaXMgcHJvcGVyIGZvcm1hdHRlZC4KPgo+
+IE5haCBpdCBkb2Vzbid0IHdvcmsuLi4gYnV0IEkgY291bGQgZml4IHRoYXQgdXAgaWYgeW91IHNl
+bmQgaXQgYWdhaW4KPiBhbmQgcHJvdmlkZSB5b3VyICJTaWduZWQtb2ZmLWJ5IiBiZWNhdXNlIG90
+aGVyd2lzZSBJIGNhbm5vdCBsZWdhbGx5Cj4gYXBwbHkgaXQuCj4KCkhvcGVmdWxseSB0aGlzIHRp
+bWUgZXZlcnl0aGluZyBpcyBva2F5LgoKU2lnbmVkLW9mZi1ieTogVGhvbWFzIEdlcm5lciA8dGhv
+bWFzLmdlcm5lckBtdWVuY2hlbi1tYWlsLmRlPgotLS0KIGRyaXZlcnMvcGluY3RybC9waW5jdHJs
+LXRoMTUyMC5jIHwgMiArLQogMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0
+aW9uKC0pCgpkaWZmIC0tZ2l0IGEvZHJpdmVycy9waW5jdHJsL3BpbmN0cmwtdGgxNTIwLmMgYi9k
+cml2ZXJzL3BpbmN0cmwvcGluY3RybC10aDE1MjAuYwppbmRleCBlNjQxYmFkNjcyOGMuLjgzZTlj
+OWY3NzM3MCAxMDA2NDQKLS0tIGEvZHJpdmVycy9waW5jdHJsL3BpbmN0cmwtdGgxNTIwLmMKKysr
+IGIvZHJpdmVycy9waW5jdHJsL3BpbmN0cmwtdGgxNTIwLmMKQEAgLTI4Nyw3ICsyODcsNyBAQCBz
+dGF0aWMgY29uc3Qgc3RydWN0IHBpbmN0cmxfcGluX2Rlc2MgdGgxNTIwX2dyb3VwM19waW5zW10g
+PSB7CiAJVEgxNTIwX1BBRCg1LCAgUVNQSTBfRDBfTU9TSSwgUVNQSSwgUFdNLCAgSTJTLCAgR1BJ
+TywgX19fXywgX19fXywgMCksCiAJVEgxNTIwX1BBRCg2LCAgUVNQSTBfRDFfTUlTTywgUVNQSSwg
+UFdNLCAgSTJTLCAgR1BJTywgX19fXywgX19fXywgMCksCiAJVEgxNTIwX1BBRCg3LCAgUVNQSTBf
+RDJfV1AsICAgUVNQSSwgUFdNLCAgSTJTLCAgR1BJTywgX19fXywgX19fXywgMCksCi0JVEgxNTIw
+X1BBRCg4LCAgUVNQSTFfRDNfSE9MRCwgUVNQSSwgX19fXywgSTJTLCAgR1BJTywgX19fXywgX19f
+XywgMCksCisJVEgxNTIwX1BBRCg4LCAgUVNQSTBfRDNfSE9MRCwgUVNQSSwgX19fXywgSTJTLCAg
+R1BJTywgX19fXywgX19fXywgMCksCiAJVEgxNTIwX1BBRCg5LCAgSTJDMl9TQ0wsICAgICAgSTJD
+LCAgVUFSVCwgX19fXywgR1BJTywgX19fXywgX19fXywgMCksCiAJVEgxNTIwX1BBRCgxMCwgSTJD
+Ml9TREEsICAgICAgSTJDLCAgVUFSVCwgX19fXywgR1BJTywgX19fXywgX19fXywgMCksCiAJVEgx
+NTIwX1BBRCgxMSwgSTJDM19TQ0wsICAgICAgSTJDLCAgX19fXywgX19fXywgR1BJTywgX19fXywg
+X19fXywgMCksCi0tIAoyLjQzLjAKCkJlc3QgcmVnYXJkcwpUaG9tYXMKCgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
