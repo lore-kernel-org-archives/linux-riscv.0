@@ -4,64 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02233D29C46
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 16:53:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA41D29C43
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 16:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4seg3dvsyl8qdV4FRrRqHywLBptOc3iRuUrYpXqc90Y=; b=jDNa/2C8Ujf1/gMtoqfGbutmEj
-	h5y0NkbsgJTG5eEc3cMW5RGbnZE5tdoDmVdaLefZsj+E5g5uFUkM87UqqsbaSkAyIdVStplCCS/WK
-	PGBk3SeN69F8KEKGV/UHWYvy8zyBUtsEF6c5ivKttDqAK8JZMqfLJ/4i3y/OHuVlKtgJmDFqi7vnr
-	ZlpMj4NitVRUeDzNOXtW745u8f7W1ygmQrVObrCtEK8bsO2k0WeXpZY3oZCcxHAANzRCEm4tLUssO
-	Ew5uII3Y2WCZyBN3tE5xJlNQYV5GqzZyb8zCr2DJs6SKAuHbdUEObu3vl4u8JFKI84Wz3idtYsYM7
-	MCwiX16A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DWf80Lnv+dAQ6mUz2jInLZ0CTwiiVUDAamP16JhKbYQ=; b=WX+NXBzmhSNiDs
+	IhCqKiFq1QWPuWvkunNgZdCiIvDFt6OR3d845OlHyAd4y3Dy/aqmyWeEWT6ItMiJeFl1xrz3gS8wS
+	rZhzYEajA9vuNeHMdG/axRPCRF3FQuD6tvNIzBsIRuCLhVz1U50aNrje5w08i39rrt9tZfricmpU6
+	fnkKTFQaEHWAAkpEYQQ1Obpy6Ek0HXQl7Gm/lbaCLgk9oRhitR3DYpGCn5wiJVHw/kw2Dv/CsLljg
+	XuIGjdsY07aVL/BOso/QseafGbXlSn8GPvv3KWkrnwgW6iuyYirdZy7kNmKr+JmmDT/MQz3NQjKZZ
+	GJJuh8Q5xn9u7Vk0m6Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsVC-00000002Yn0-1pWA;
-	Mon, 19 Jan 2026 16:53:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vhsVe-00000002Ysg-3Xeo;
+	Mon, 19 Jan 2026 16:53:46 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsV7-00000002Ylg-3Rt5
-	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jan 2026 16:53:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 44E0C42E58;
-	Mon, 19 Jan 2026 16:53:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9109AC116C6;
-	Mon, 19 Jan 2026 16:53:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768841591;
-	bh=2ZkOa9bEBe+GCTApBrgpJ3K+Kz14rXJVbtoTGmBF0vU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=R/GHQ5rkIxsHBLAflksNjI8LN/ZvzHFyetNHZkl2nzSxe/2OF79xF4IZJ1hOB3SDI
-	 4j8i4Vd4j5D2t2q9CSqe86TgnRTYCaF8aKGrZvhno013ettWe4k2MbodN0XfZWpgMU
-	 zKPyAThfTCOfgFKa0cUdPNxL/OHTukriZV4KoCiLWtAbGWy4XVeBaFSR8y5zxwR2gD
-	 e6K+LDX/KhQ96uQbdVMRUGk4ee8BulbxRbhVnrmgQ5WgauYmOneDxEdt3qoW3k2qYP
-	 JFs01WPCc7fOhHNrUPh4EEPQyJdP1T3iMUE6bLU5+/niaRk6LYBi7oiZ93Z0EcFW3q
-	 FFxNMJqIhA4jg==
-Date: Mon, 19 Jan 2026 17:53:08 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Tamir Duberstein <tamird@gmail.com>
-Cc: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
-	Fu Wei <wefu@redhat.com>, Miguel Ojeda <ojeda@kernel.org>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: Re: [PATCH] drivers: pwm: replace `kernel::c_str!` with C-Strings
-Message-ID: <2wmijhs5pbrynsgxuropvlxuozsubk7euybxzwc5ox2a3izfci@v6hzmzs5pmml>
-References: <20251222-cstr-pwm-v1-1-e8916d976f8d@gmail.com>
- <CAJ-ks9mrpcLaeiGjBcXNqTUwo00Y2MhhHWnWauou6exU1y920Q@mail.gmail.com>
+	id 1vhsVW-00000002Yqv-2gky;
+	Mon, 19 Jan 2026 16:53:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768841619; x=1800377619;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=gGo/5dEmepKxgBpGGO7a+1fKH6u9HnFgdE5iPBR7Ovc=;
+  b=gQGm9FOUEeciNZNbaGTVXVLu/lN41JpHK3NJwfTxoqUlqfFo+RlEMXd5
+   iylCxEoxgTih+4QVlOOYZCY62f1RJ6/p04h9KBsFxA3BmW6VcHHNQrCE+
+   FqGVWWOPOU1SHRAp+kSqiLS8PegYliNhUhPqmr15adi5/8oFDzpJ5PWnw
+   BFCiF03f+sn4a01Xjm7Ah+esGMaYdzEoiUU4pUyki421Dn7RumxbPA+gS
+   sr/4nfxWNxUCo+GordcrQBymeFhDpJgNyv/H9yGh7mKdUcbwHy7jd8NnL
+   16G0meaotsgrBv9KlHtCUv8oAs3A/ev+ieSMN8yPqBUM7vN+ZVk7pfmMq
+   g==;
+X-CSE-ConnectionGUID: wsmgUWFaTxmC/uHE6dKADQ==
+X-CSE-MsgGUID: v2ctR//gQj+l4ZEl4+s/fQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11676"; a="69787016"
+X-IronPort-AV: E=Sophos;i="6.21,238,1763452800"; 
+   d="scan'208";a="69787016"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 08:53:36 -0800
+X-CSE-ConnectionGUID: LIhY/GC6TxmV4eYrlCj3qQ==
+X-CSE-MsgGUID: hkIwwTFuR8KmIa2tZvAUkg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,238,1763452800"; 
+   d="scan'208";a="210755999"
+Received: from cjhill-mobl.amr.corp.intel.com (HELO [10.125.111.233]) ([10.125.111.233])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 08:53:34 -0800
+Message-ID: <4557fd56-0640-4218-a9ad-0ae3d7c37d45@intel.com>
+Date: Mon, 19 Jan 2026 08:53:33 -0800
 MIME-Version: 1.0
-In-Reply-To: <CAJ-ks9mrpcLaeiGjBcXNqTUwo00Y2MhhHWnWauou6exU1y920Q@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/3] randomize_kstack: Maintain kstack_offset per task
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Jeremy Linton <jeremy.linton@arm.com>,
+ David Laight <david.laight.linux@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-hardening@vger.kernel.org, stable@vger.kernel.org
+References: <20260119130122.1283821-1-ryan.roberts@arm.com>
+ <20260119130122.1283821-2-ryan.roberts@arm.com>
+ <85d0d013-eca2-4b9f-bee3-d583d0eeb99e@intel.com>
+ <31187502-2a11-4ef3-82b4-927a271d8b44@arm.com>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <31187502-2a11-4ef3-82b4-927a271d8b44@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_085314_004540_D6B50E4F 
-X-CRM114-Status: GOOD (  20.10  )
+X-CRM114-CacheID: sfid-20260119_085340_971843_A474DEFA 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,108 +141,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1188137061295158259=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 1/19/26 08:51, Ryan Roberts wrote:
+>> Since this doesn't fix any known functional issues, if it were me, I'd
+>> leave stable@ alone. It isn't clear that this is stable material.
+> I listed 2 issues in the commit log; I agree that issue 1 falls into the
+> category of "don't really care", but issue 2 means that kstack randomization is
+> currently trivial to defeat. That's the reason I thought it would valuable in
+> stable.
+> 
+> But if you're saying don't bother and others agree, then this whole patch can be
+> dropped; this is just intended to be the backportable fix. Patch 3 reimplements
+> this entirely for upstream.
+> 
+> I'll wait and see if others have opinions if that's ok?
 
---===============1188137061295158259==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ag6ssgt3jtvb55cw"
-Content-Disposition: inline
-
-
---ag6ssgt3jtvb55cw
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] drivers: pwm: replace `kernel::c_str!` with C-Strings
-MIME-Version: 1.0
-
-Hello,
-
-On Sat, Jan 03, 2026 at 09:30:31PM -0500, Tamir Duberstein wrote:
-> On Mon, Dec 22, 2025 at 7:24=E2=80=AFAM Tamir Duberstein <tamird@kernel.o=
-rg> wrote:
-> >
-> > From: Tamir Duberstein <tamird@gmail.com>
-> >
-> > C-String literals were added in Rust 1.77. Replace instances of
-> > `kernel::c_str!` with C-String literals where possible.
-> >
-> > Signed-off-by: Tamir Duberstein <tamird@gmail.com>
-> > ---
-> >  drivers/pwm/pwm_th1520.rs | 3 +--
-> >  1 file changed, 1 insertion(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
-> > index e3b7e77356fc..8ae8f852ec02 100644
-> > --- a/drivers/pwm/pwm_th1520.rs
-> > +++ b/drivers/pwm/pwm_th1520.rs
-> > @@ -22,7 +22,6 @@
-> >
-> >  use core::ops::Deref;
-> >  use kernel::{
-> > -    c_str,
-> >      clk::Clk,
-> >      device::{Bound, Core, Device},
-> >      devres,
-> > @@ -327,7 +326,7 @@ fn drop(self: Pin<&mut Self>) {
-> >      OF_TABLE,
-> >      MODULE_OF_TABLE,
-> >      <Th1520PwmPlatformDriver as platform::Driver>::IdInfo,
-> > -    [(of::DeviceId::new(c_str!("thead,th1520-pwm")), ())]
-> > +    [(of::DeviceId::new(c"thead,th1520-pwm"), ())]
-> >  );
-> >
-> >  impl platform::Driver for Th1520PwmPlatformDriver {
-> >
-> > ---
-> > base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> > change-id: 20251222-cstr-pwm-c9b9a4701157
-> >
-> > Best regards,
-> > --
-> > Tamir Duberstein <tamird@gmail.com>
-> >
->=20
-> @Uwe could you please have a look?
-
-I did, but given I'm more or less rust illiterate I would welcome
-feedback by Michal Wilczynski. I only now notice that he wasn't on Cc:
-up to now.
-
-Best regards
-Uwe
-
---ag6ssgt3jtvb55cw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmluYXIACgkQj4D7WH0S
-/k60Vwf+L9+sMF3DsYlxCUroWbaKU2YlEkePawJRhurmC6+MZsBE1EX/+eToCGGy
-tqkb4TmjhbSrQdgbZXoyxMXV9XguGzCq7aq0lZ7gI556Zc9iOll2EIJVUKCqjQ7z
-CklQ6HQMGB3X9oSXWuIUvfMkVgDej3YRVUIBlQ9WJVzuqoLOTMNYO5ymu0X1ll+Q
-mSHDQ9p4fDB7Ef8uIq41Zk+DldPQ+nBSY9TciePw1aApJg4DXmpaOwrBARbXzQdF
-8xBi1lN75cvNOvu5HEGYNNMP6QtiwLU5NuA/5SCMJsxl0eP1rXs8Yyg5XLxP8wU/
-jKWyRx8IwYFLbkQHfw48pJB/6nGUdw==
-=3gtg
------END PGP SIGNATURE-----
-
---ag6ssgt3jtvb55cw--
-
-
---===============1188137061295158259==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Sure. I don't feel that strongly about it.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1188137061295158259==--
-
