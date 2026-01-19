@@ -4,96 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BA09D2ECEB
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 20:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE3BD2ECF3
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 21:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rv6/TptKCWsyro2xLpC2QMMvDmSr8FlnBqXo8WhARRk=; b=sB1Q8ozmkwEZhw
-	KgyKH0lOH2N1Wi35iHAqpCIVm5Rkx/g6BqjZqcwSLnTF3ZswDmmLBp/I07GcaPc3LTYDqvpRoHiPp
-	ERDf+SP7erMPTXsA6fRnODZRw58hRjnprXrqxjD9Nb+swXebDIIa3sCccyAeM49+Jf9u9wJz03gyU
-	Y3HwPNtap/O5D71J+hp34mhOaNMssclkFQL6LDdZG0kf4VhWXeigb5q/dWra3cofzXW1WYxuxSGM5
-	pcPojGWBAIAq3AqSDkWQ4HG7Q8IruEXvzcaEVJlnhCwVckAGzrlgbtMnK9fQpdR4+pVJ/TTNioBXc
-	plHT2u17KW24haH3YiHA==;
+	List-Owner; bh=BxgsuAakULMlbM7Z7DobuVm8lagQhvHFRT1bGiz3h5I=; b=1svUgrhooPzoKb
+	ZTqnmyDU4UK1gsnCrBhucnCox3IsDyiY9aUnzNzNTybADtE/AIilujNPhTIeXXZiFNPv14xiCrCzS
+	uQBUdaMrFdzr6GAnyNaed5K7TcBEElpKQeMv/kcpkNKW7oW2N5D5+2QxyHCHDjM5BxFY0ZaFHgYEp
+	rstP8MMKU/oU7KVg4g/r95Su6p7tocyfObjE2+PBWbFeq0XY+5S0XNVZOPgScH86pFTHcHMg91T6T
+	ORcQnsVz7bcUuJynPedu1CEPweGESgBWU2ngfq0F6MPU3Slw6C5BmtbGlZOZOPgMw8atMrba6jwbc
+	WGboFk9S9R83MzlHNWBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhwAo-00000002qem-0uEN;
-	Mon, 19 Jan 2026 20:48:30 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vhx4u-00000002uq0-1ra0;
+	Mon, 19 Jan 2026 21:46:28 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhwAl-00000002qeR-3Pcj
+	id 1vhx4Y-00000002upX-23rK
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jan 2026 20:48:29 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-47ee4539adfso38972825e9.3
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Jan 2026 12:48:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768855705; x=1769460505; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=9zOo8J2/R5/ZECF8jXBFWc70aqTEGil4wxpiWbgmSlI=;
-        b=AUvwR/G9/gF3HhpFc6/v4u9e2BMiQERpRFFxnzoSbDXTynM5qOPqbPWF40eGtuxlGy
-         zkgDDX+eoKZqDYqOeMLD7bMuLMmv8JkB3tniLHGtyk8qkmAsLYzd7KGomTtf2AGsnBQY
-         7LBYW7uiP1bBIdbF7/UJW0+Wnq8gzT7XcaHUk8d1bzpa2PgvzoTI5w791IBahbBXxV31
-         +doRRj/dmTe2gOscJsgat0kC/e0BrvzYQUM9liYCdv6VKckNBkBliSgR0gec/5KplcLB
-         EWQMPIpzvZuL6V7DvdZV9yeUtlu+66geyabQ7gQ4sLK4n1lXdk9aW66ZggmNHnGcEg24
-         T1CQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768855705; x=1769460505;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9zOo8J2/R5/ZECF8jXBFWc70aqTEGil4wxpiWbgmSlI=;
-        b=iYzwpHgUevXg8NlwFy8+L9pBs2DRoYzNB4a3NSUw+g5Z4IBWE80dSpk5WHboNyTm7u
-         uKTJBsGbJjanMzpLN7dIYc0jkMIib1H9bHqJcm62f5FeG5zRnmc3f2skh5QCaF8Q24G/
-         +kClEbvu13aBNVn+xpZYqS2j24SkJgYH/9Gn/32RAhM6ge2hRlT3okqjI0qrr/FtuaQE
-         fqRaYs6lGre5h0lkJy4OP2kCwltTX96mbPNfWzmBakFFxg7mfNnLq4MBApaj7jdNWAZX
-         gpUBofH5nDMkUeEsH8V7DUJkVvrOEdvIRWZifjCQiWMz80KrT21vmf4lHn22zrP0CMby
-         CHiA==
-X-Gm-Message-State: AOJu0Yw6OdwxVxrei+1p+V+14dDGv9jthHW5hucY3q97n8VTeW6VWA4v
-	WShaW3kKtWfMthDYS623tSh/al5wzsJE+jEON+0jW0dkrSRaj+NakQzz
-X-Gm-Gg: AY/fxX5Djd/j+37RS8Vvp/7RPH/6VgR8YA2GbRIOaGnejyup5gn9xRNaK61vQQjtGz6
-	LitGSjIazrVb1UaJqTzfnJrSXkp72qOrNjiRsYrKh2t5zd0ULnydLxLhQoaJv7TGU01E+ur3xZW
-	E9TJhU9EU31aBULc0oo94U2CQqAEixo3LYRKx8kLDht8rBljdeXVq5o/5HhTd19budmGcD6uyhD
-	/Knm0/RlHJ/WXXVlbLy8UxRJ3anSZz3/7iJfz/Y42+534FlT3gIv4XeE1JKx1/IHcalZIHXgDqq
-	ZgjHgNXfGo24ezlGx7UpFSZWqrQborqzoiJkEiju5K+rsE3wJ2mZvP5xujZ5czawmQ5CP0/7bHn
-	kTVQeS2Tu92bcDZgbLwWYF3OzyuhyIM7nVwIGn6KmUpsiZUwsMAwrTfkKQi7YdRRv7X+O5bL84v
-	zogab5
-X-Received: by 2002:a05:600c:4e93:b0:46e:6d5f:f68 with SMTP id 5b1f17b1804b1-4801e30b737mr159086915e9.12.1768855705113;
-        Mon, 19 Jan 2026 12:48:25 -0800 (PST)
-Received: from curiosity ([80.211.22.60])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4801fe3b01csm92808125e9.5.2026.01.19.12.48.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Jan 2026 12:48:24 -0800 (PST)
-Date: Mon, 19 Jan 2026 23:48:21 +0300
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: Andy Chiu <andybnac@gmail.com>, Paul Walmsley <pjw@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Oleg Nesterov <oleg@redhat.com>,
-	Shuah Khan <shuah@kernel.org>, Thomas Huth <thuth@redhat.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Joel Granados <joel.granados@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>
-Subject: Re: [PATCH v5 2/9] riscv: vector: init vector context with proper
- vlenb
-Message-ID: <aW6YlXEbusvDiDWw@curiosity>
-References: <20251214163537.1054292-1-geomatsi@gmail.com>
- <20251214163537.1054292-3-geomatsi@gmail.com>
- <CAFTtA3MdoL5XjcjTrNhZ27UXZe4Mxot-rttc8cQ-K=E-Mh164A@mail.gmail.com>
+	Mon, 19 Jan 2026 21:46:20 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260119214559euoutp018ccee4720aed9a9033248702da5931ff~MQAiWcUUw0782507825euoutp01F
+	for <linux-riscv@lists.infradead.org>; Mon, 19 Jan 2026 21:45:59 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260119214559euoutp018ccee4720aed9a9033248702da5931ff~MQAiWcUUw0782507825euoutp01F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1768859159;
+	bh=FiwIk5BBQQ9iPckGkn5Dt7hTifYvLcVxHD5dU0pMV5E=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=Q9Xf8fbQ6xVsysLFDwsjw9red5LNE/4dOsmM6sweOLApnZwCpBccB68wd3WMnXddC
+	 0sstwB7PMcjsb9GbEeeM3X8TzuvpDxJe9fT4KrkQ3dvNZa7JCTxLNeKutAEUPGONtT
+	 YvPWGiPdsR2VcrU0fvTXCArpfNsRUtHtHYRWY64g=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260119214557eucas1p2a32532504042480c2809f13589fc9127~MQAhG-1kc1870218702eucas1p2W;
+	Mon, 19 Jan 2026 21:45:57 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260119214556eusmtip2baec3b17eba8b350eca229f32831d134~MQAgH2fip0752007520eusmtip22;
+	Mon, 19 Jan 2026 21:45:56 +0000 (GMT)
+Message-ID: <90657b83-1cff-4c7d-adde-9b560c2be7c2@samsung.com>
+Date: Mon, 19 Jan 2026 22:45:56 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAFTtA3MdoL5XjcjTrNhZ27UXZe4Mxot-rttc8cQ-K=E-Mh164A@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/3] pwm: th1520: remove impl Send/Sync for
+ Th1520PwmDriverData
+To: Alice Ryhl <aliceryhl@google.com>, Stephen Boyd <sboyd@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei
+	<wefu@redhat.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>, Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, Benno Lossin
+	<lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross
+	<tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, Daniel Almeida
+	<daniel.almeida@collabora.com>, linux-clk@vger.kernel.org,
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <20260113-clk-send-sync-v4-3-712bc7d94a79@google.com>
+X-CMS-MailID: 20260119214557eucas1p2a32532504042480c2809f13589fc9127
+X-Msg-Generator: CA
+X-RootMTR: 20260113151335eucas1p157cd966c5f0f4e477fb11272810a0ae8
+X-EPHeader: CA
+X-CMS-RootMailID: 20260113151335eucas1p157cd966c5f0f4e477fb11272810a0ae8
+References: <20260113-clk-send-sync-v4-0-712bc7d94a79@google.com>
+	<CGME20260113151335eucas1p157cd966c5f0f4e477fb11272810a0ae8@eucas1p1.samsung.com>
+	<20260113-clk-send-sync-v4-3-712bc7d94a79@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_124828_000764_B7723327 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20260119_134607_926473_7879E056 
+X-CRM114-Status: GOOD (  19.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,33 +91,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksCgpPbiBXZWQsIEphbiAwNywgMjAyNiBhdCAxMjo0OTozMUFNIC0wNjAwLCBBbmR5IENoaXUg
-d3JvdGU6Cj4gT24gU3VuLCBEZWMgMTQsIDIwMjUgYXQgMTA6MzXigK9BTSBTZXJnZXkgTWF0eXVr
-ZXZpY2ggPGdlb21hdHNpQGdtYWlsLmNvbT4gd3JvdGU6Cj4gPgo+ID4gVGhlIHZzdGF0ZSBpbiB0
-aHJlYWRfc3RydWN0IGlzIHplcm9lZCB3aGVuIHRoZSB2ZWN0b3IgY29udGV4dCBpcwo+ID4gaW5p
-dGlhbGl6ZWQuIFRoYXQgaW5jbHVkZXMgcmVhZC1vbmx5IHJlZ2lzdGVyIHZsZW5iLCB3aGljaCBo
-b2xkcwo+ID4gdGhlIHZlY3RvciByZWdpc3RlciBsZW5ndGggaW4gYnl0ZXMuIFplcm9lZCBzdGF0
-ZSBwZXJzaXN0cyB1bnRpbAo+ID4gbXN0YXR1cy5WUyBiZWNvbWVzICdkaXJ0eScgYW5kIGEgY29u
-dGV4dCBzd2l0Y2ggc2F2ZXMgdGhlIGFjdHVhbAo+ID4gaGFyZHdhcmUgdmFsdWVzLgo+ID4KPiA+
-IFRoaXMgY2FuIGV4cG9zZSB0aGUgemVybyB2bGVuYiB2YWx1ZSB0byB0aGUgdXNlci1zcGFjZSBp
-biBlYXJseQo+ID4gZGVidWcgc2NlbmFyaW9zLCBlLmcuIHdoZW4gcHRyYWNlIGF0dGFjaGVzIHRv
-IGEgdHJhY2VkIHByb2Nlc3MKPiA+IGVhcmx5LCBiZWZvcmUgYW55IHZlY3RvciBpbnN0cnVjdGlv
-biBleGNlcHQgdGhlIGZpcnN0IG9uZSB3YXMKPiA+IGV4ZWN1dGVkLgo+ID4KPiA+IEZpeCB0aGlz
-IGJ5IHNwZWNpZnlpbmcgcHJvcGVyIHZsZW5iIG9uIHZlY3RvciBjb250ZXh0IGluaXQuCj4gPgo+
-ID4gU2lnbmVkLW9mZi1ieTogU2VyZ2V5IE1hdHl1a2V2aWNoIDxnZW9tYXRzaUBnbWFpbC5jb20+
-Cj4gCj4gUmV2aWV3ZWQtYnk6IEFuZHkgQ2hpdSA8YW5keWJuYWNAZ21haWwuY29tPgo+IAoKVGhh
-bmtzIGZvciByZXZpZXdzICEKCldoYXQgd291bGQgYmUgdGhlIHJlY29tbWVuZGVkIHdheSB0byBw
-cm9jZWVkIHdpdGggdGhlc2UgcGF0Y2hlcyA/CkkgaGF2ZSByZXZpZXdzIGZyb20gQW5keSBmb3Ig
-dGhlIHBhdGNoZXMgMSwyIGFuZCA1IChzZWxmdGVzdCBmb3IgMikuClRoZXkgY2FuIGJlIHVzZWQg
-aW5kZXBlbmRlbnRseSBvZiB0aGUgcmVtYWluaWcgcHRyYWNlIHYtc3RhdGUKdmFsaWRhdGlvbiBj
-aGFuZ2VzIGFuZCB0aGVpciB0ZXN0cy4KCldvdWxkIGl0IG1ha2Ugc2Vuc2UgdG8gc3BsaXQgdGhl
-IHNlcmllcyBpbnRvIHR3byBwYXJ0cywgc28gdGhhdAp0aGUgdi1zdGF0ZSB2YWxpZGF0aW9uIGNh
-biBjb250aW51ZSBldm9sdmUgaW5kZXBlbmRlbnRseSA/CgpSZWdhcmRzLApTZXJnZXkKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+
+On 1/13/26 16:12, Alice Ryhl wrote:
+> Now that clk implements Send and Sync, we no longer need to manually
+> implement these traits for Th1520PwmDriverData. Thus remove the
+> implementations.
+> 
+> Reviewed-by: Gary Guo <gary@garyguo.net>
+> Reviewed-by: Daniel Almeida <daniel.almeida@collabora.com>
+> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
+> ---
+> Cc: linux-riscv@lists.infradead.org
+> ---
+>  drivers/pwm/pwm_th1520.rs | 15 ---------------
+>  1 file changed, 15 deletions(-)
+> 
+> diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
+> index e3b7e77356fc2492077c519073e861beb3e44df9..043dc4dbc6232020195c7b73fad302bbb69652df 100644
+> --- a/drivers/pwm/pwm_th1520.rs
+> +++ b/drivers/pwm/pwm_th1520.rs
+> @@ -97,21 +97,6 @@ struct Th1520PwmDriverData {
+>      clk: Clk,
+>  }
+>  
+> -// This `unsafe` implementation is a temporary necessity because the underlying `kernel::clk::Clk`
+> -// type does not yet expose `Send` and `Sync` implementations. This block should be removed
+> -// as soon as the clock abstraction provides these guarantees directly.
+> -// TODO: Remove those unsafe impl's when Clk will support them itself.
+> -
+> -// SAFETY: The `devres` framework requires the driver's private data to be `Send` and `Sync`.
+> -// We can guarantee this because the PWM core synchronizes all callbacks, preventing concurrent
+> -// access to the contained `iomem` and `clk` resources.
+> -unsafe impl Send for Th1520PwmDriverData {}
+> -
+> -// SAFETY: The same reasoning applies as for `Send`. The PWM core's synchronization
+> -// guarantees that it is safe for multiple threads to have shared access (`&self`)
+> -// to the driver data during callbacks.
+> -unsafe impl Sync for Th1520PwmDriverData {}
+> -
+>  impl pwm::PwmOps for Th1520PwmDriverData {
+>      type WfHw = Th1520WfHw;
+>  
+> 
+
+I thought this was already merged :-).
+
+Reviewed-by: Michal Wilczynski <m.wilczynski@samsung.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
