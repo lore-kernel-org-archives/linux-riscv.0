@@ -4,82 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE3BD2ECF3
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 21:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FEB0D2ECEC
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 21:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BxgsuAakULMlbM7Z7DobuVm8lagQhvHFRT1bGiz3h5I=; b=1svUgrhooPzoKb
-	ZTqnmyDU4UK1gsnCrBhucnCox3IsDyiY9aUnzNzNTybADtE/AIilujNPhTIeXXZiFNPv14xiCrCzS
-	uQBUdaMrFdzr6GAnyNaed5K7TcBEElpKQeMv/kcpkNKW7oW2N5D5+2QxyHCHDjM5BxFY0ZaFHgYEp
-	rstP8MMKU/oU7KVg4g/r95Su6p7tocyfObjE2+PBWbFeq0XY+5S0XNVZOPgScH86pFTHcHMg91T6T
-	ORcQnsVz7bcUuJynPedu1CEPweGESgBWU2ngfq0F6MPU3Slw6C5BmtbGlZOZOPgMw8atMrba6jwbc
-	WGboFk9S9R83MzlHNWBw==;
+	List-Owner; bh=HE/1cyRtKRpmM+SuvYpL9k/sUcZgru62U0mddm5zsXQ=; b=UzDiQ7eOlBFb23
+	b4ufutkffemtliV+4O/pmc0745j9DSC4cTP/eXOoiKHBilWQz4L7FLFvzBoMVOvw9RCB4vHtgvAmz
+	dhEGjHLiGh94js57nJvAMBAjyV6mtXltXq78MxVkPXX/0zLZD3FL2+Fo6/UEyQRErB15zXoItlXdV
+	gkMz9+hAd6EF6+tzNF6IdJV3v+pxKq6kbNUeeyH4yHgY8rdOC7DzWKsijlO4LVa7dVcHvEgWml2VI
+	O8Fvb7QlYZq8UESyXuJEcsGghr7mMn/aalVvANzzBTuTyWyfNWKBsv+9fhzYp3VcNYG5J1w5Q+PwL
+	yNQKvUNHT1H6GhCgmUwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhx4u-00000002uq0-1ra0;
-	Mon, 19 Jan 2026 21:46:28 +0000
+	id 1vhx71-00000002uxq-3jJy;
+	Mon, 19 Jan 2026 21:48:39 +0000
 Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhx4Y-00000002upX-23rK
+	id 1vhx6w-00000002uxI-3Ttx
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jan 2026 21:46:20 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260119214559euoutp018ccee4720aed9a9033248702da5931ff~MQAiWcUUw0782507825euoutp01F
-	for <linux-riscv@lists.infradead.org>; Mon, 19 Jan 2026 21:45:59 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260119214559euoutp018ccee4720aed9a9033248702da5931ff~MQAiWcUUw0782507825euoutp01F
+	Mon, 19 Jan 2026 21:48:36 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260119214832euoutp015d31052b2108f6c9b74563da2db96d30~MQCxenNmZ1258012580euoutp01B
+	for <linux-riscv@lists.infradead.org>; Mon, 19 Jan 2026 21:48:32 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260119214832euoutp015d31052b2108f6c9b74563da2db96d30~MQCxenNmZ1258012580euoutp01B
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1768859159;
-	bh=FiwIk5BBQQ9iPckGkn5Dt7hTifYvLcVxHD5dU0pMV5E=;
+	s=mail20170921; t=1768859313;
+	bh=cCm71GD0cs8rUf+b/+Yue313FKPYNV9mxHzm/pCITyE=;
 	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=Q9Xf8fbQ6xVsysLFDwsjw9red5LNE/4dOsmM6sweOLApnZwCpBccB68wd3WMnXddC
-	 0sstwB7PMcjsb9GbEeeM3X8TzuvpDxJe9fT4KrkQ3dvNZa7JCTxLNeKutAEUPGONtT
-	 YvPWGiPdsR2VcrU0fvTXCArpfNsRUtHtHYRWY64g=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260119214557eucas1p2a32532504042480c2809f13589fc9127~MQAhG-1kc1870218702eucas1p2W;
-	Mon, 19 Jan 2026 21:45:57 +0000 (GMT)
+	b=rEXc5uaAZUh3C4E0l7XA5sknffFZQjzYlguMbXAt4FInYJTkNIsMIf60gIZ6IBAOI
+	 zh63b2PoDfQx2/vpg8EGR2AHwCoGY9pE+U5QtDabBQRyrcbyqMLo5QOXenS2MC0lOT
+	 NQ0lVGrnoa68zCzgy4AQYCibXu68ADOWVLnVBGdk=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260119214832eucas1p167fdf88f95104f679bcddca93e2042e5~MQCw7jTSn1492514925eucas1p1m;
+	Mon, 19 Jan 2026 21:48:32 +0000 (GMT)
 Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260119214556eusmtip2baec3b17eba8b350eca229f32831d134~MQAgH2fip0752007520eusmtip22;
-	Mon, 19 Jan 2026 21:45:56 +0000 (GMT)
-Message-ID: <90657b83-1cff-4c7d-adde-9b560c2be7c2@samsung.com>
-Date: Mon, 19 Jan 2026 22:45:56 +0100
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260119214831eusmtip14c7fc135b79501a10d3681c98444622b~MQCwEMDUo1429314293eusmtip1f;
+	Mon, 19 Jan 2026 21:48:31 +0000 (GMT)
+Message-ID: <2cdba52f-9bec-4550-912f-d61c58e2852a@samsung.com>
+Date: Mon, 19 Jan 2026 22:48:30 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/3] pwm: th1520: remove impl Send/Sync for
- Th1520PwmDriverData
-To: Alice Ryhl <aliceryhl@google.com>, Stephen Boyd <sboyd@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei
-	<wefu@redhat.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>, Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+Subject: Re: [PATCH] drivers: pwm: replace `kernel::c_str!` with C-Strings
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Tamir
+	Duberstein <tamird@gmail.com>
+Cc: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei
+	<wefu@redhat.com>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng
+	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
 	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, Benno Lossin
-	<lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross
-	<tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, Daniel Almeida
-	<daniel.almeida@collabora.com>, linux-clk@vger.kernel.org,
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
+	<lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl
+	<aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, Danilo Krummrich
+	<dakr@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	rust-for-linux@vger.kernel.org
 Content-Language: en-US
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20260113-clk-send-sync-v4-3-712bc7d94a79@google.com>
-X-CMS-MailID: 20260119214557eucas1p2a32532504042480c2809f13589fc9127
+In-Reply-To: <2wmijhs5pbrynsgxuropvlxuozsubk7euybxzwc5ox2a3izfci@v6hzmzs5pmml>
+X-CMS-MailID: 20260119214832eucas1p167fdf88f95104f679bcddca93e2042e5
 X-Msg-Generator: CA
-X-RootMTR: 20260113151335eucas1p157cd966c5f0f4e477fb11272810a0ae8
+X-RootMTR: 20260119165319eucas1p23ae598d689d6a25d631f7c74368156d7
 X-EPHeader: CA
-X-CMS-RootMailID: 20260113151335eucas1p157cd966c5f0f4e477fb11272810a0ae8
-References: <20260113-clk-send-sync-v4-0-712bc7d94a79@google.com>
-	<CGME20260113151335eucas1p157cd966c5f0f4e477fb11272810a0ae8@eucas1p1.samsung.com>
-	<20260113-clk-send-sync-v4-3-712bc7d94a79@google.com>
+X-CMS-RootMailID: 20260119165319eucas1p23ae598d689d6a25d631f7c74368156d7
+References: <20251222-cstr-pwm-v1-1-e8916d976f8d@gmail.com>
+	<CAJ-ks9mrpcLaeiGjBcXNqTUwo00Y2MhhHWnWauou6exU1y920Q@mail.gmail.com>
+	<CGME20260119165319eucas1p23ae598d689d6a25d631f7c74368156d7@eucas1p2.samsung.com>
+	<2wmijhs5pbrynsgxuropvlxuozsubk7euybxzwc5ox2a3izfci@v6hzmzs5pmml>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_134607_926473_7879E056 
-X-CRM114-Status: GOOD (  19.59  )
+X-CRM114-CacheID: sfid-20260119_134835_135615_FD36D3E2 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,60 +88,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 1/13/26 16:12, Alice Ryhl wrote:
-> Now that clk implements Send and Sync, we no longer need to manually
-> implement these traits for Th1520PwmDriverData. Thus remove the
-> implementations.
-> 
-> Reviewed-by: Gary Guo <gary@garyguo.net>
-> Reviewed-by: Daniel Almeida <daniel.almeida@collabora.com>
-> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
-> ---
-> Cc: linux-riscv@lists.infradead.org
-> ---
->  drivers/pwm/pwm_th1520.rs | 15 ---------------
->  1 file changed, 15 deletions(-)
-> 
-> diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
-> index e3b7e77356fc2492077c519073e861beb3e44df9..043dc4dbc6232020195c7b73fad302bbb69652df 100644
-> --- a/drivers/pwm/pwm_th1520.rs
-> +++ b/drivers/pwm/pwm_th1520.rs
-> @@ -97,21 +97,6 @@ struct Th1520PwmDriverData {
->      clk: Clk,
->  }
->  
-> -// This `unsafe` implementation is a temporary necessity because the underlying `kernel::clk::Clk`
-> -// type does not yet expose `Send` and `Sync` implementations. This block should be removed
-> -// as soon as the clock abstraction provides these guarantees directly.
-> -// TODO: Remove those unsafe impl's when Clk will support them itself.
-> -
-> -// SAFETY: The `devres` framework requires the driver's private data to be `Send` and `Sync`.
-> -// We can guarantee this because the PWM core synchronizes all callbacks, preventing concurrent
-> -// access to the contained `iomem` and `clk` resources.
-> -unsafe impl Send for Th1520PwmDriverData {}
-> -
-> -// SAFETY: The same reasoning applies as for `Send`. The PWM core's synchronization
-> -// guarantees that it is safe for multiple threads to have shared access (`&self`)
-> -// to the driver data during callbacks.
-> -unsafe impl Sync for Th1520PwmDriverData {}
-> -
->  impl pwm::PwmOps for Th1520PwmDriverData {
->      type WfHw = Th1520WfHw;
->  
-> 
-
-I thought this was already merged :-).
-
-Reviewed-by: Michal Wilczynski <m.wilczynski@samsung.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAxLzE5LzI2IDE3OjUzLCBVd2UgS2xlaW5lLUvDtm5pZyB3cm90ZToKPiBIZWxsbywKPiAK
+PiBPbiBTYXQsIEphbiAwMywgMjAyNiBhdCAwOTozMDozMVBNIC0wNTAwLCBUYW1pciBEdWJlcnN0
+ZWluIHdyb3RlOgo+PiBPbiBNb24sIERlYyAyMiwgMjAyNSBhdCA3OjI04oCvQU0gVGFtaXIgRHVi
+ZXJzdGVpbiA8dGFtaXJkQGtlcm5lbC5vcmc+IHdyb3RlOgo+Pj4KPj4+IEZyb206IFRhbWlyIER1
+YmVyc3RlaW4gPHRhbWlyZEBnbWFpbC5jb20+Cj4+Pgo+Pj4gQy1TdHJpbmcgbGl0ZXJhbHMgd2Vy
+ZSBhZGRlZCBpbiBSdXN0IDEuNzcuIFJlcGxhY2UgaW5zdGFuY2VzIG9mCj4+PiBga2VybmVsOjpj
+X3N0ciFgIHdpdGggQy1TdHJpbmcgbGl0ZXJhbHMgd2hlcmUgcG9zc2libGUuCj4+Pgo+Pj4gU2ln
+bmVkLW9mZi1ieTogVGFtaXIgRHViZXJzdGVpbiA8dGFtaXJkQGdtYWlsLmNvbT4KPj4+IC0tLQo+
+Pj4gIGRyaXZlcnMvcHdtL3B3bV90aDE1MjAucnMgfCAzICstLQo+Pj4gIDEgZmlsZSBjaGFuZ2Vk
+LCAxIGluc2VydGlvbigrKSwgMiBkZWxldGlvbnMoLSkKPj4+Cj4+PiBkaWZmIC0tZ2l0IGEvZHJp
+dmVycy9wd20vcHdtX3RoMTUyMC5ycyBiL2RyaXZlcnMvcHdtL3B3bV90aDE1MjAucnMKPj4+IGlu
+ZGV4IGUzYjdlNzczNTZmYy4uOGFlOGY4NTJlYzAyIDEwMDY0NAo+Pj4gLS0tIGEvZHJpdmVycy9w
+d20vcHdtX3RoMTUyMC5ycwo+Pj4gKysrIGIvZHJpdmVycy9wd20vcHdtX3RoMTUyMC5ycwo+Pj4g
+QEAgLTIyLDcgKzIyLDYgQEAKPj4+Cj4+PiAgdXNlIGNvcmU6Om9wczo6RGVyZWY7Cj4+PiAgdXNl
+IGtlcm5lbDo6ewo+Pj4gLSAgICBjX3N0ciwKPj4+ICAgICAgY2xrOjpDbGssCj4+PiAgICAgIGRl
+dmljZTo6e0JvdW5kLCBDb3JlLCBEZXZpY2V9LAo+Pj4gICAgICBkZXZyZXMsCj4+PiBAQCAtMzI3
+LDcgKzMyNiw3IEBAIGZuIGRyb3Aoc2VsZjogUGluPCZtdXQgU2VsZj4pIHsKPj4+ICAgICAgT0Zf
+VEFCTEUsCj4+PiAgICAgIE1PRFVMRV9PRl9UQUJMRSwKPj4+ICAgICAgPFRoMTUyMFB3bVBsYXRm
+b3JtRHJpdmVyIGFzIHBsYXRmb3JtOjpEcml2ZXI+OjpJZEluZm8sCj4+PiAtICAgIFsob2Y6OkRl
+dmljZUlkOjpuZXcoY19zdHIhKCJ0aGVhZCx0aDE1MjAtcHdtIikpLCAoKSldCj4+PiArICAgIFso
+b2Y6OkRldmljZUlkOjpuZXcoYyJ0aGVhZCx0aDE1MjAtcHdtIiksICgpKV0KPj4+ICApOwo+Pj4K
+Pj4+ICBpbXBsIHBsYXRmb3JtOjpEcml2ZXIgZm9yIFRoMTUyMFB3bVBsYXRmb3JtRHJpdmVyIHsK
+Pj4+Cj4+PiAtLS0KPj4+IGJhc2UtY29tbWl0OiA4ZjBiNGNjZTQ0ODFmYjIyNjUzNjk3Y2NlZDhk
+MGQwNDAyN2NiMWU4Cj4+PiBjaGFuZ2UtaWQ6IDIwMjUxMjIyLWNzdHItcHdtLWM5YjlhNDcwMTE1
+Nwo+Pj4KPj4+IEJlc3QgcmVnYXJkcywKPj4+IC0tCj4+PiBUYW1pciBEdWJlcnN0ZWluIDx0YW1p
+cmRAZ21haWwuY29tPgo+Pj4KPj4KPj4gQFV3ZSBjb3VsZCB5b3UgcGxlYXNlIGhhdmUgYSBsb29r
+Pwo+IAo+IEkgZGlkLCBidXQgZ2l2ZW4gSSdtIG1vcmUgb3IgbGVzcyBydXN0IGlsbGl0ZXJhdGUg
+SSB3b3VsZCB3ZWxjb21lCj4gZmVlZGJhY2sgYnkgTWljaGFsIFdpbGN6eW5za2kuIEkgb25seSBu
+b3cgbm90aWNlIHRoYXQgaGUgd2Fzbid0IG9uIENjOgo+IHVwIHRvIG5vdy4KPiAKPiBCZXN0IHJl
+Z2FyZHMKPiBVd2UKCkkgdGhpbmsgdGhlIHBhdGNoIGlzIGNvcnJlY3QuIFRoYW5rcyAhCgpSZXZp
+ZXdlZC1ieTogTWljaGFsIFdpbGN6eW5za2kgPG0ud2lsY3p5bnNraUBzYW1zdW5nLmNvbT4KCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
