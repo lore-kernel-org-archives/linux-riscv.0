@@ -4,77 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B76D29C25
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 13:02:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 830FCD29C27
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 13:14:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Haeqa6PiiMhefk/z8L+ggXhYNc0ckSMwSJME5mGhbUU=; b=IlUmp2hL4xPKzn
-	/GWU/enloiogJaKnunNU/8i1cHoq69F27Tg/GAg9ckqSq42G5mP5l6y/FZQ7d4IYV3gcI2noSLbl4
-	TcoVz+02UX2ZVLr+IyTGaINjaR1e92OGvkbcd+EZZHiLkXLSS3JPxl2TP6DxTmt0zH1C8bXQjaPF6
-	hv3yY8BtD1gaiP60xf2jMB2Cz3sy64C5jT+msIjZHEGo7GjASZl8TnMzYiL0b2ccJt+ouz7Zsr0mH
-	plNly8c0l1HZCpGoH91MQGJpbaE2ZJAEqNQ76NPGp3d9iRFiuGmJEiQlOfhTaso1NgwA2X45uWQfw
-	e3dgwglZjfa0gLwyFhDQ==;
+	List-Owner; bh=sgPrdujt2BhGAERbXM87cvXAdHi/zBu144ftQ55kCVA=; b=Q/2LdB/+VMaEaw
+	1OtQKHm0XtsEUo+oFQC62sk5LnTM3HO+VwDPZrQbm+kzuNWoer+QUbJQVLw5JMf+fiqW/s2uYntmC
+	2ol71KI/bhvXhg3a00IyzMbgiKgQ8YbK9BdJE9R6oqdA+wC0W8gVtpvKFYaGdDWy+Ruf5mAYF3yNd
+	4W8dUpE6gVopq0Xxyk4baliD/DME7Wfu0WwvCZJZ++9DbYpM6SCJAyziWU4qKVTs+nBfYPNTlGWPG
+	neh/u21CC1Cojsz7h/nouVtsw+yhMxfKtvTzXDnfDsq1NohCiA/APaZKaKPrNo2caHnvZ4r0vg/VG
+	uCf9YUDfISlFWOeeCjyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhotf-000000027ey-3rqS;
-	Mon, 19 Jan 2026 13:02:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhot1-000000027Qb-0yxy;
-	Mon, 19 Jan 2026 13:01:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8A144FEC;
-	Mon, 19 Jan 2026 05:01:31 -0800 (PST)
-Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A51C03F740;
-	Mon, 19 Jan 2026 05:01:34 -0800 (PST)
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	David Laight <david.laight.linux@gmail.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v4 1/3] randomize_kstack: Maintain kstack_offset per task
-Date: Mon, 19 Jan 2026 13:01:08 +0000
-Message-ID: <20260119130122.1283821-2-ryan.roberts@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260119130122.1283821-1-ryan.roberts@arm.com>
-References: <20260119130122.1283821-1-ryan.roberts@arm.com>
-MIME-Version: 1.0
+	id 1vhp51-000000028oc-3DvB;
+	Mon, 19 Jan 2026 13:14:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhp50-000000028oU-2IjY
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 19 Jan 2026 13:14:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=+CgZWcmNGygQjfD27T+jBsRojt6pw3uvENO+XS4NxvM=; b=qcK7jqfKIiKVetg/GYrRQIXBFc
+	8qCpC3U6PjdtGvonvWaU/nDATxgtRmMkv4+HOBqSA/fEbXVD/8gJHrS5GXhSGjwMVfOv3FYruKFTm
+	TtFB1lzz33lUeBi1bqE0N1ZoMC3z0Ps3xFMxP1mhBJcU47MnFKXrRWaa0a/4WUQdzyxA3PO4/CUvc
+	ZavIrYFzVPlTWe5cHY/YBSqi9qmFtB3CcTVkIhk/utlFljcrmi64wtOd9rXuFI5r5OFFEHU/88swk
+	/gq+rgLPIM9GRCje2pgu9Eq405UXuxEwM71z+1rz0aiqyVwFsjCKkfY80XRYWchDsgASBRSn4CjpU
+	UfXkNc1g==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhp4x-0000000C9Du-2P94
+	for linux-riscv@lists.infradead.org;
+	Mon, 19 Jan 2026 13:14:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9E0324090E;
+	Mon, 19 Jan 2026 13:13:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A1A7C116C6;
+	Mon, 19 Jan 2026 13:13:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768828435;
+	bh=+CgZWcmNGygQjfD27T+jBsRojt6pw3uvENO+XS4NxvM=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
+	b=XXNWw6OBkSaH02cWAwZjvJOZJZXBsqeN2f6csk5pLRwKU5shzpE2NsU3v9YEDJPsH
+	 HxcwDQK7tfuapzHJdyV+rrcU0+Zk3kVTeosGsJkNUBJx435U7ra+OcGeR+pY8ZKOQ9
+	 8TxtniuuKmJqYxSO1/7NavnefBHny0TvTF+OOQHEdgAimnSmdAqtcpBm8PucbDJIPf
+	 9WiKs0Lota3kNRR8lNBq1JsrnWksFx/gDG9myqT+rW7Gd+EjT9DDu/Fabd0IcdQZyb
+	 ENN4Eoo2lb4iuTU98WnZi+/J3/RPgApwF0FqMzEtPGu+zO7NKR7n0dGkPsaRXw1whH
+	 gO9xFz8YVSIrg==
+Mime-Version: 1.0
+Date: Mon, 19 Jan 2026 14:13:48 +0100
+Message-Id: <DFSLCI9U4NCW.2HI2UPUI7G134@kernel.org>
+Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
+Cc: "Alice Ryhl" <aliceryhl@google.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, "Viresh
+ Kumar" <viresh.kumar@linaro.org>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Thomas Zimmermann"
+ <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>, "Simona Vetter"
+ <simona@ffwll.ch>, "Drew Fustini" <fustini@kernel.org>, "Guo Ren"
+ <guoren@kernel.org>, "Fu Wei" <wefu@redhat.com>,
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>,
+ "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng" <boqun.feng@gmail.com>,
+ "Gary Guo" <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
+ Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
+ <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <dri-devel@lists.freedesktop.org>, <linux-riscv@lists.infradead.org>,
+ <linux-pwm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+ <rust-for-linux@vger.kernel.org>
+To: "Daniel Almeida" <daniel.almeida@collabora.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20260107-clk-type-state-v3-0-77d3e3ee59c2@collabora.com>
+ <20260107-clk-type-state-v3-1-77d3e3ee59c2@collabora.com>
+ <20260108-delectable-fennec-of-sunshine-ffca19@houat>
+ <98CD0BF6-3350-40B9-B8A9-F569AE3E3220@collabora.com>
+ <20260119-thundering-tested-robin-4be817@houat>
+ <aW4lCfUyumOKRRJm@google.com>
+ <518D8B09-B9A1-4DB4-85CD-37A2DD3D5FB1@collabora.com>
+In-Reply-To: <518D8B09-B9A1-4DB4-85CD-37A2DD3D5FB1@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_050146_824592_E2CDDBE4 
-X-CRM114-Status: GOOD (  22.74  )
+X-CRM114-CacheID: sfid-20260119_131359_808281_FE88753E 
+X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,160 +108,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-kstack_offset was previously maintained per-cpu, but this caused a
-couple of issues. So let's instead make it per-task.
+On Mon Jan 19, 2026 at 1:54 PM CET, Daniel Almeida wrote:
+>> On 19 Jan 2026, at 09:35, Alice Ryhl <aliceryhl@google.com> wrote:
+>> I think that if you still want an API where you just call enable/disable
+>> directly on it with no protection against unbalanced calls, then that
+>> should be the special API. Probably called RawClk and functions marked
+>> unsafe. Unbalanced calls seem really dangerous and use should not be
+>> encouraged.
 
-Issue 1: add_random_kstack_offset() and choose_random_kstack_offset()
-expected and required to be called with interrupts and preemption
-disabled so that it could manipulate per-cpu state. But arm64, loongarch
-and risc-v are calling them with interrupts and preemption enabled. I
-don't _think_ this causes any functional issues, but it's certainly
-unexpected and could lead to manipulating the wrong cpu's state, which
-could cause a minor performance degradation due to bouncing the cache
-lines. By maintaining the state per-task those functions can safely be
-called in preemptible context.
++1; and unless there is a use-case that requires otherwise, it should not even
+be possible to do this at all -- at least for driver code.
 
-Issue 2: add_random_kstack_offset() is called before executing the
-syscall and expands the stack using a previously chosen random offset.
-choose_random_kstack_offset() is called after executing the syscall and
-chooses and stores a new random offset for the next syscall. With
-per-cpu storage for this offset, an attacker could force cpu migration
-during the execution of the syscall and prevent the offset from being
-updated for the original cpu such that it is predictable for the next
-syscall on that cpu. By maintaining the state per-task, this problem
-goes away because the per-task random offset is updated after the
-syscall regardless of which cpu it is executing on.
+> I think we should discourage RawClk if at all possible. But if the consensus
+> is that we *really* need this easily-abused thing, I can provide a follow-up.
 
-Fixes: 39218ff4c625 ("stack: Optionally randomize kernel stack offset each syscall")
-Closes: https://lore.kernel.org/all/dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com/
-Cc: stable@vger.kernel.org
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
----
- include/linux/randomize_kstack.h | 26 +++++++++++++++-----------
- include/linux/sched.h            |  4 ++++
- init/main.c                      |  1 -
- kernel/fork.c                    |  2 ++
- 4 files changed, 21 insertions(+), 12 deletions(-)
-
-diff --git a/include/linux/randomize_kstack.h b/include/linux/randomize_kstack.h
-index 1d982dbdd0d0..5d3916ca747c 100644
---- a/include/linux/randomize_kstack.h
-+++ b/include/linux/randomize_kstack.h
-@@ -9,7 +9,6 @@
- 
- DECLARE_STATIC_KEY_MAYBE(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,
- 			 randomize_kstack_offset);
--DECLARE_PER_CPU(u32, kstack_offset);
- 
- /*
-  * Do not use this anywhere else in the kernel. This is used here because
-@@ -50,15 +49,14 @@ DECLARE_PER_CPU(u32, kstack_offset);
-  * add_random_kstack_offset - Increase stack utilization by previously
-  *			      chosen random offset
-  *
-- * This should be used in the syscall entry path when interrupts and
-- * preempt are disabled, and after user registers have been stored to
-- * the stack. For testing the resulting entropy, please see:
-- * tools/testing/selftests/lkdtm/stack-entropy.sh
-+ * This should be used in the syscall entry path after user registers have been
-+ * stored to the stack. Preemption may be enabled. For testing the resulting
-+ * entropy, please see: tools/testing/selftests/lkdtm/stack-entropy.sh
-  */
- #define add_random_kstack_offset() do {					\
- 	if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,	\
- 				&randomize_kstack_offset)) {		\
--		u32 offset = raw_cpu_read(kstack_offset);		\
-+		u32 offset = current->kstack_offset;			\
- 		u8 *ptr = __kstack_alloca(KSTACK_OFFSET_MAX(offset));	\
- 		/* Keep allocation even after "ptr" loses scope. */	\
- 		asm volatile("" :: "r"(ptr) : "memory");		\
-@@ -69,9 +67,9 @@ DECLARE_PER_CPU(u32, kstack_offset);
-  * choose_random_kstack_offset - Choose the random offset for the next
-  *				 add_random_kstack_offset()
-  *
-- * This should only be used during syscall exit when interrupts and
-- * preempt are disabled. This position in the syscall flow is done to
-- * frustrate attacks from userspace attempting to learn the next offset:
-+ * This should only be used during syscall exit. Preemption may be enabled. This
-+ * position in the syscall flow is done to frustrate attacks from userspace
-+ * attempting to learn the next offset:
-  * - Maximize the timing uncertainty visible from userspace: if the
-  *   offset is chosen at syscall entry, userspace has much more control
-  *   over the timing between choosing offsets. "How long will we be in
-@@ -85,14 +83,20 @@ DECLARE_PER_CPU(u32, kstack_offset);
- #define choose_random_kstack_offset(rand) do {				\
- 	if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,	\
- 				&randomize_kstack_offset)) {		\
--		u32 offset = raw_cpu_read(kstack_offset);		\
-+		u32 offset = current->kstack_offset;			\
- 		offset = ror32(offset, 5) ^ (rand);			\
--		raw_cpu_write(kstack_offset, offset);			\
-+		current->kstack_offset = offset;			\
- 	}								\
- } while (0)
-+
-+static inline void random_kstack_task_init(struct task_struct *tsk)
-+{
-+	tsk->kstack_offset = 0;
-+}
- #else /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
- #define add_random_kstack_offset()		do { } while (0)
- #define choose_random_kstack_offset(rand)	do { } while (0)
-+#define random_kstack_task_init(tsk)		do { } while (0)
- #endif /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
- 
- #endif
-diff --git a/include/linux/sched.h b/include/linux/sched.h
-index da0133524d08..23081a702ecf 100644
---- a/include/linux/sched.h
-+++ b/include/linux/sched.h
-@@ -1591,6 +1591,10 @@ struct task_struct {
- 	unsigned long			prev_lowest_stack;
- #endif
- 
-+#ifdef CONFIG_RANDOMIZE_KSTACK_OFFSET
-+	u32				kstack_offset;
-+#endif
-+
- #ifdef CONFIG_X86_MCE
- 	void __user			*mce_vaddr;
- 	__u64				mce_kflags;
-diff --git a/init/main.c b/init/main.c
-index b84818ad9685..27fcbbde933e 100644
---- a/init/main.c
-+++ b/init/main.c
-@@ -830,7 +830,6 @@ static inline void initcall_debug_enable(void)
- #ifdef CONFIG_RANDOMIZE_KSTACK_OFFSET
- DEFINE_STATIC_KEY_MAYBE_RO(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,
- 			   randomize_kstack_offset);
--DEFINE_PER_CPU(u32, kstack_offset);
- 
- static int __init early_randomize_kstack_offset(char *buf)
- {
-diff --git a/kernel/fork.c b/kernel/fork.c
-index b1f3915d5f8e..b061e1edbc43 100644
---- a/kernel/fork.c
-+++ b/kernel/fork.c
-@@ -95,6 +95,7 @@
- #include <linux/thread_info.h>
- #include <linux/kstack_erase.h>
- #include <linux/kasan.h>
-+#include <linux/randomize_kstack.h>
- #include <linux/scs.h>
- #include <linux/io_uring.h>
- #include <linux/bpf.h>
-@@ -2231,6 +2232,7 @@ __latent_entropy struct task_struct *copy_process(
- 	if (retval)
- 		goto bad_fork_cleanup_io;
- 
-+	random_kstack_task_init(p);
- 	stackleak_task_init(p);
- 
- 	if (pid != &init_struct_pid) {
--- 
-2.43.0
-
+I think we should only do this if there are use-case with no alternative, so far
+there haven't been any AFAIK.
 
 _______________________________________________
 linux-riscv mailing list
