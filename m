@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EEA9CCF2D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 10:26:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0E5CCF2E3
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 10:46:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+f2ShsQlwmL2C84LpPtoI9KkScmlSo6qupOqTem/PrM=; b=Yn1rADSgx6CluE
-	9DXA628phv+b//7YMG2LnXNSAm0coqPTLnIWTKjwXacfKQtaFCqG+rGH4usivQlEt+59WiFF1EOe8
-	iPVwY9KRAu4yqAbx73As9m2C9UhU6Ct5lgCohQpnC7ESxhOSbD3+Ip6ml0GfFfYWoVgfw+qDJLyXv
-	wqmyhJcVMnGl4hqUn5NQlCOZ4+Gj3aCZSn8pJlM6NP+BoWTA/5sLVd37KryN3lOfqR0xKIoSuGeNU
-	7Y7Uu+bQxK8+cq6Kkr4Jew916UP3IF7tpY5k7ECem6YoOr+ohxax8j6XaJtxAuL0xqxXFD+zKdv9G
-	DKdJ1GRtQ9rF1Es9phdQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vQhTX2C2MgMR9VtbeIWZI46jKpS95uFQChwAYI+dh2Q=; b=aMBKIblu1qrsF7EeOewWn13PMr
+	gJa2ykaQvuJwKUc3jjhBr6Y9uxkvxgRsYsDAO+zD6m4NxFYl0ykEhbuoTKnAfRogQgLBdWBKo5i35
+	CnjeM1UL6rERGT4/U/vOskGL5hD/Dwr/v2qPSmw7HZrtsKleHa4W1M7M+ynS4oW85t5hFV7wjbCzX
+	9bH/1ZqAHfrlFevz57BTVStDHRBG2D8ZqiMxH8mby4TIzX8O2n4c1Ee/jTCt9DJfKeUXFRKNNhHnk
+	p37eS6DLrR8JOeJrTslDz97N2QzL1qWZLqm0EXfPrNSojsW6a3kTk5a7P+lzNwK1cirhaLACnaSPW
+	gOygwu3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmSy-00000001lsg-1kV7;
-	Mon, 19 Jan 2026 10:26:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmSv-00000001lrn-0hUc;
-	Mon, 19 Jan 2026 10:26:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1246C153B;
-	Mon, 19 Jan 2026 02:26:25 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B17E53F632;
-	Mon, 19 Jan 2026 02:26:26 -0800 (PST)
-Date: Mon, 19 Jan 2026 10:26:24 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Jeremy Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] prandom: Convert prandom_u32_state() to
- __always_inline
-Message-ID: <aW4G0PBEwx1RjbOl@J2N7QTR9R3>
-References: <20260102131156.3265118-1-ryan.roberts@arm.com>
- <20260102131156.3265118-3-ryan.roberts@arm.com>
+	id 1vhmlw-00000001oMA-0Hw2;
+	Mon, 19 Jan 2026 10:46:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhmll-00000001oLS-0vQt
+	for linux-riscv@lists.infradead.org;
+	Mon, 19 Jan 2026 10:46:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4BF7B6014E;
+	Mon, 19 Jan 2026 10:46:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77CB5C116C6;
+	Mon, 19 Jan 2026 10:45:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768819560;
+	bh=rkpu5Kvdq4UjpgR+E/cyIKMWzAhUNtRYXVnLJ7du0CY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AC/jLJl+k4VzXeZjIYCjP7hmA5yOAwefAhLFkpRm4OEWHZFtQe/EnP4XOe7qYmfe9
+	 uvH93sd58BoTMx+bkl0xL91VjFXSMY9LAxDMPbk/nmkiDNdtlQHb14dv2o22jGGJRv
+	 iyyRzQFouO3cFZ2V4zZZ31Yn4nKyfAUlmUEd+6KlP4GqzVp9X/5WK032EJ6ESCVpyj
+	 qyB2QBROYwRKy8//DkjcBIL1QXVbgNCbRlGP12hfWS8G4MuJPyr+Ja6x2lMs3MjYo5
+	 /pG9J6BKQ/nTeS22hYFdhc/XIIK7rkkgAtw/jxHOMbhnqbKr6aZIqWLp9+7mrh4iKK
+	 1yX8JUcNL9nRQ==
+Date: Mon, 19 Jan 2026 11:45:57 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Daniel Almeida <daniel.almeida@collabora.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Viresh Kumar <viresh.kumar@linaro.org>, Danilo Krummrich <dakr@kernel.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Fu Wei <wefu@redhat.com>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org, 
+	linux-pwm@vger.kernel.org, linux-clk@vger.kernel.org, rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
+Message-ID: <20260119-thundering-tested-robin-4be817@houat>
+References: <20260107-clk-type-state-v3-0-77d3e3ee59c2@collabora.com>
+ <20260107-clk-type-state-v3-1-77d3e3ee59c2@collabora.com>
+ <20260108-delectable-fennec-of-sunshine-ffca19@houat>
+ <98CD0BF6-3350-40B9-B8A9-F569AE3E3220@collabora.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260102131156.3265118-3-ryan.roberts@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_022633_356936_8FAF918B 
-X-CRM114-Status: GOOD (  20.82  )
+In-Reply-To: <98CD0BF6-3350-40B9-B8A9-F569AE3E3220@collabora.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,97 +76,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1711063723241602944=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 02, 2026 at 01:11:53PM +0000, Ryan Roberts wrote:
-> We will shortly use prandom_u32_state() to implement kstack offset
-> randomization and some arches need to call it from non-instrumentable
-> context. Given the function is just a handful of operations and doesn't
-> call out to any other functions, let's take the easy path and make it
-> __always_inline.
-> 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 
-I see there were some comments about keeping an out-of-line wrapper.
-With or without that, this looks good to me, and either way:
+--===============1711063723241602944==
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="3exjby5pwbo6o3lx"
+Content-Disposition: inline
 
-Acked-by: Mark Rutland <mark.rutland@arm.com>
 
-Mark.
+--3exjby5pwbo6o3lx
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
+MIME-Version: 1.0
 
-> ---
->  include/linux/prandom.h | 19 ++++++++++++++++++-
->  lib/random32.c          | 19 -------------------
->  2 files changed, 18 insertions(+), 20 deletions(-)
-> 
-> diff --git a/include/linux/prandom.h b/include/linux/prandom.h
-> index ff7dcc3fa105..e797b3709f5c 100644
-> --- a/include/linux/prandom.h
-> +++ b/include/linux/prandom.h
-> @@ -17,7 +17,24 @@ struct rnd_state {
->  	__u32 s1, s2, s3, s4;
->  };
->  
-> -u32 prandom_u32_state(struct rnd_state *state);
-> +/**
-> + * prandom_u32_state - seeded pseudo-random number generator.
-> + * @state: pointer to state structure holding seeded state.
-> + *
-> + * This is used for pseudo-randomness with no outside seeding.
-> + * For more random results, use get_random_u32().
-> + */
-> +static __always_inline u32 prandom_u32_state(struct rnd_state *state)
-> +{
-> +#define TAUSWORTHE(s, a, b, c, d) ((s & c) << d) ^ (((s << a) ^ s) >> b)
-> +	state->s1 = TAUSWORTHE(state->s1,  6U, 13U, 4294967294U, 18U);
-> +	state->s2 = TAUSWORTHE(state->s2,  2U, 27U, 4294967288U,  2U);
-> +	state->s3 = TAUSWORTHE(state->s3, 13U, 21U, 4294967280U,  7U);
-> +	state->s4 = TAUSWORTHE(state->s4,  3U, 12U, 4294967168U, 13U);
-> +
-> +	return (state->s1 ^ state->s2 ^ state->s3 ^ state->s4);
-> +}
-> +
->  void prandom_bytes_state(struct rnd_state *state, void *buf, size_t nbytes);
->  void prandom_seed_full_state(struct rnd_state __percpu *pcpu_state);
->  
-> diff --git a/lib/random32.c b/lib/random32.c
-> index 24e7acd9343f..d57baf489d4a 100644
-> --- a/lib/random32.c
-> +++ b/lib/random32.c
-> @@ -42,25 +42,6 @@
->  #include <linux/slab.h>
->  #include <linux/unaligned.h>
->  
-> -/**
-> - *	prandom_u32_state - seeded pseudo-random number generator.
-> - *	@state: pointer to state structure holding seeded state.
-> - *
-> - *	This is used for pseudo-randomness with no outside seeding.
-> - *	For more random results, use get_random_u32().
-> - */
-> -u32 prandom_u32_state(struct rnd_state *state)
-> -{
-> -#define TAUSWORTHE(s, a, b, c, d) ((s & c) << d) ^ (((s << a) ^ s) >> b)
-> -	state->s1 = TAUSWORTHE(state->s1,  6U, 13U, 4294967294U, 18U);
-> -	state->s2 = TAUSWORTHE(state->s2,  2U, 27U, 4294967288U,  2U);
-> -	state->s3 = TAUSWORTHE(state->s3, 13U, 21U, 4294967280U,  7U);
-> -	state->s4 = TAUSWORTHE(state->s4,  3U, 12U, 4294967168U, 13U);
-> -
-> -	return (state->s1 ^ state->s2 ^ state->s3 ^ state->s4);
-> -}
-> -EXPORT_SYMBOL(prandom_u32_state);
-> -
->  /**
->   *	prandom_bytes_state - get the requested number of pseudo-random bytes
->   *
-> -- 
-> 2.43.0
-> 
+On Thu, Jan 08, 2026 at 11:14:37AM -0300, Daniel Almeida wrote:
+> Hi Maxime :)
+>=20
+> >=20
+> > I don't know the typestate pattern that well, but I wonder if we don't
+> > paint ourselves into a corner by introducing it.
+> >=20
+> > While it's pretty common to get your clock from the get go into a state,
+> > and then don't modify it (like what devm_clk_get_enabled provides for
+> > example), and the typestate pattern indeed works great for those, we
+>=20
+> Minor correction, devm_clk_get_enabled is not handled by the typestate
+> pattern. The next patch does include this function for convenience, but
+> you get a Result<()>. The typestate pattern is used when you want more
+> control.
+>
+> > also have a significant number of drivers that will have a finer-grained
+> > control over the clock enablement for PM.
+> >=20
+> > For example, it's quite typical to have (at least) one clock for the bus
+> > interface that drives the register, and one that drives the main
+> > component logic. The former needs to be enabled only when you're
+> > accessing the registers (and can be abstracted with
+> > regmap_mmio_attach_clk for example), and the latter needs to be enabled
+> > only when the device actually starts operating.
+> >=20
+> > You have a similar thing for the prepare vs enable thing. The difference
+> > between the two is that enable can be called into atomic context but
+> > prepare can't.
+> >=20
+> > So for drivers that would care about this, you would create your device
+> > with an unprepared clock, and then at various times during the driver
+> > lifetime, you would mutate that state.
+> >=20
+> > AFAIU, encoding the state of the clock into the Clk type (and thus
+> > forcing the structure that holds it) prevents that mutation. If not, we
+> > should make it clearer (by expanding the doc maybe?) how such a pattern
+> > can be supported.
+> >=20
+> > Maxime
+>=20
+> IIUC, your main point seems to be about mutating the state at runtime? Th=
+is is
+> possible with this code. You can just have an enum, for example:
+>=20
+> enum MyClocks {
+> 	Unprepared(Clk<Unprepared>),
+>         Prepared(Clk<Prepared>),
+> 	Enabled(Clk<Enabled>),=20
+> }
+>=20
+> In fact, I specifically wanted to ensure that this was possible when writ=
+ing
+> these patches, as it=E2=80=99s needed by drivers. If you want to, I can c=
+over that in
+> the examples, no worries.
+
+Yes, that would be great. I do wonder though if it wouldn't make sense
+to turn it the other way around. It creates a fair share of boilerplate
+for a number of drivers. Can't we keep Clk the way it is as a
+lower-level type, and crate a ManagedClk (or whatever name you prefer)
+that drivers can use, and would be returned by higher-level helpers, if
+they so choose?
+
+That way, we do have the typestate API for whoever wants to, without
+creating too much boilerplate for everybody else.
+
+Maxime
+
+--3exjby5pwbo6o3lx
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaW4LYAAKCRAnX84Zoj2+
+dnZsAX9nFpCf4rHo08JAKymz1W+q/77It0LDePnr7Z4FcKcAaOFxzUQGcpfN+CD1
+J+nBTwsBfRDR1L+GOUsrfRdzMmZlqPL4YaO+ZfgoF503ccIvPNhgVoyA+Vmf3hAc
+YZBwZl6Ufw==
+=sXrk
+-----END PGP SIGNATURE-----
+
+--3exjby5pwbo6o3lx--
+
+
+--===============1711063723241602944==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1711063723241602944==--
+
