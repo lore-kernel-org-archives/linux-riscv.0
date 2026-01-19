@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41594D29C50
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 18:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B71D29C58
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jan 2026 18:17:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nHVYeFVD3Rey7yvnsORwzL0WM+4FEKLMkNd0xa7zOKw=; b=B1E1Uj5EBgk3nLM9IxTKYcAJ16
-	KaWs5j1XUOVerfhmCywBq6pH8ZYHDqN7rSAI96sD0/D7L8C3X7F9HAIiQVpESPqksVAS+QS+2h7al
-	g7KGBTj4QPPbKscpxRjdCBjl0dA/cwrAbNjkn1aNeYmxgIwJW5IX1YWW/3rT7kYHrWsqQulzICRyC
-	THxRJu03XmF33YI/gWztGCH78PFpDUJgO7v8ppe02flclZoa4/TbZ+Pv3b/u4sOUnT+5cBY3qRS2f
-	NP1GEkUa0yK2rJHUVWFxCGRCZfwm0p9+a+lJGe7tQ0zfo1OvcKYbsNlYc9OAbyanT8wiEtcASsDd7
-	0ij9wF8A==;
+	bh=swp+k5FY92hx6hM60NVfaRPuZVVECO4lLg2p20SfEnY=; b=HzboOAvyYmfElHOMfxRLv1pmUn
+	MUyeenB5ZWQSQqhj0xMElbxTydBQhhdADlplpq7wMp08T6FGKN/V6IvrpsDxFTzpwHPfjmKLyqk1f
+	JYMOgHsyGUDNHWbdAE43YjydJFH2V/dtWcqJrLFhGstW9LQ3Ve/fsFjJ/QylL2j+DT0DaAC7qKkg+
+	U1pfvx1gvUN0MaJKawU5j74HC4dBIJR/TBJvQTzTzdgM7KClU0bTJBZE5KOYXBZgn1wfMVqhX9ohD
+	8dcX5XVJlz2UTHt/J7G49nRcyrRCRF8/mKWBhohZecQYfIw9QFutS4lxraez65/O5oSFA3dDfOK42
+	J5NBwj4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhtkW-00000002h5O-3HrK;
-	Mon, 19 Jan 2026 18:13:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vhtoK-00000002hHi-1QoL;
+	Mon, 19 Jan 2026 18:17:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhtkU-00000002h4m-0aZA
+	id 1vhtoJ-00000002hHa-1V3d
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jan 2026 18:13:11 +0000
+	Mon, 19 Jan 2026 18:17:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D4741440D6;
-	Mon, 19 Jan 2026 18:13:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B87FCC19422;
-	Mon, 19 Jan 2026 18:13:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6F968600CB;
+	Mon, 19 Jan 2026 18:17:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 919A2C116C6;
+	Mon, 19 Jan 2026 18:17:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768846388;
-	bh=+GPrc+VC5LhsvUwvuFMDOJQ8WEkZu6sQfESCubnoKsE=;
+	s=k20201202; t=1768846626;
+	bh=zASyTGTQSFQPJTz6S2zuESVkideM51IYDimBNABRwqs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZHzmDsSbOquj5RyNUjRMRTb54VBQw8JpU6rHan4MVuZmcusPLy8ngI7hZx/0nPXlK
-	 WAYONRXcsqBHimnRy7J/VuRLmNS7g8g7r6OsQ5LGF04bnkHDJrRdwrw1yMht2Gl1Mw
-	 mrUNbBQWK1OsK8ScQxwbeejq9zYZx/aJ5sux+6dMCS0QxKZIdPvd4FNB1WVkdp3erb
-	 ITuiT1Js8BrGzbZP/kBUdiu39Mk2A1HhuzC7+RtVvZdeGq5ohq8LjEvmZu301PXjtL
-	 c5ER6DuBO7ATfLdbwhYG3m7RXPSXbv189ZMcucPKv/Gt8DVXz2YgA9Dchh8XrQZvNa
-	 M9iLJeF4H/roQ==
-Date: Mon, 19 Jan 2026 18:13:04 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: canaan: k230: Add "b" ISA extension
-Message-ID: <20260119-parcel-overtly-2621c4069f13@spud>
-References: <20260118-k230-ext-b-v1-1-6a63616b11cc@pigmoral.tech>
+	b=LRlQFESht6e4DgS3rlGx5mdBh0UUnubb9Ru922ypel3X2jJvCjB6dDJ7xbEZL82FB
+	 naP4QD4KjY1U58W+f7IuM85z0+HiOD1rnnaXmuuDNi3+7eLOdSmqt/Cmd2MxnH9G0u
+	 KtmFAqw3VR3HjARY3OMsCBA8fdjuomW4ILkM50ajVKIqSfJS+7KKe1a8Luoq0taKs6
+	 Q+bgoEdRxk2wtAleUWaUbRam0Emir4rNGUbwomq6ucX7vza72uDgQU7s5wBcFWrU1E
+	 O2WGdAlvLvbqY2/kDKq35PWwIsq8k2r7jBplgFPWJe9rXShC890nck5z5+aUJtOfFg
+	 azQhMLqpI41kQ==
+Date: Mon, 19 Jan 2026 19:17:03 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Tamir Duberstein <tamird@gmail.com>, 
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Fu Wei <wefu@redhat.com>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	rust-for-linux@vger.kernel.org, Michal Wilczynski <m.wilczynski@samsung.com>
+Subject: Re: [PATCH] drivers: pwm: replace `kernel::c_str!` with C-Strings
+Message-ID: <w3drdr2cm65ypplvwn3h7js25isshjqjqooqqkgg5d5zfh3ium@lveyiholocqh>
+References: <20251222-cstr-pwm-v1-1-e8916d976f8d@gmail.com>
+ <CAJ-ks9mrpcLaeiGjBcXNqTUwo00Y2MhhHWnWauou6exU1y920Q@mail.gmail.com>
+ <2wmijhs5pbrynsgxuropvlxuozsubk7euybxzwc5ox2a3izfci@v6hzmzs5pmml>
+ <CANiq72mSxtO0s8xGhgYemfz9DvvwDzC0fsF2covGFspduDz5XA@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20260118-k230-ext-b-v1-1-6a63616b11cc@pigmoral.tech>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_101310_202377_81CD10BF 
-X-CRM114-Status: GOOD (  13.10  )
+In-Reply-To: <CANiq72mSxtO0s8xGhgYemfz9DvvwDzC0fsF2covGFspduDz5XA@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,59 +73,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4898841081831589947=="
+Content-Type: multipart/mixed; boundary="===============1811752074728305440=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4898841081831589947==
+--===============1811752074728305440==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="oPma+Hg1nyREzzym"
+	protocol="application/pgp-signature"; boundary="w3lb7nkuiao4zq7t"
 Content-Disposition: inline
 
 
---oPma+Hg1nyREzzym
-Content-Type: text/plain; charset=us-ascii
+--w3lb7nkuiao4zq7t
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] drivers: pwm: replace `kernel::c_str!` with C-Strings
+MIME-Version: 1.0
 
-On Sun, Jan 18, 2026 at 10:25:07PM +0800, Junhui Liu wrote:
-> "b" is ratified (Apr/2024) much later than its components zba/zbb/zbs
-> (Jun/2021). With "b" added into riscv/extensions.yaml, a dependency
-> checking rule is now enforced, which requires that when zba, zbb, and zbs
-> are all specified, "b" must be added as well. Failing to do this will
-> cause dtbs_check schema check warnings.
->=20
-> According to uabi.rst, as a single-letter extension, "b" should be added
-> after "c" in canonical order.
->=20
-> Update k230.dtsi to conform to this rule. Also synchronize "riscv,isa"
-> with "riscv,isa-extensions".
->=20
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> ---
-> Based on Conor's k230-basic branch and rebased to riscv-dt-for-next.
->=20
-> The commit message and implementation are adapted from Guodong's patch
-> for adding the "b" ISA extension to multiple dtsi files.
+Hello,
 
-Applied to my k230-basic branch.
+On Mon, Jan 19, 2026 at 07:01:33PM +0100, Miguel Ojeda wrote:
+> (@Tamir: in the future, for patches like this, and especially since
+> the patch was split from a series and was a multi-step/multi-cycle
+> migration etc., it probably helps to give maintainers some context
+> with Link: tags to the ones above).
 
---oPma+Hg1nyREzzym
+And ideally also point out dependencies explicitly (also if there are
+none). This gives a cosy feeling to your friendly but clueless
+maintainer :-)
+
+Best regards
+Uwe
+
+--w3lb7nkuiao4zq7t
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaW50LQAKCRB4tDGHoIJi
-0lyVAPwIyMt9V+9/RQXQI3699dzt8Z/BHQtTcQpwEb/azVM2zQEA1DJemeolcjLQ
-6fgw6pCmq1lhCiCd1FcY21oaoE4X6AY=
-=blkV
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmludRwACgkQj4D7WH0S
+/k5oAgf/Ud0/7uDeUSMZsd6kQyuPiKtJSS4z9jpPGAb9PEV7iK+W4To8qZjkMuFx
+Xg+PHxvy4deeONIKn13FTbrP0o0WMTXiBV8i6mm5Nw0PU6W1uDTtVEaa6YZFWaE4
+3ZpofamlGM33QmyxNh0RkomtukOqIjYryaja/MCLdGEmWqUlldEVw3bM8UKO8YQI
+6SPkHvpMbNmgYzhW3+3+T4baB7McdA764v8OKT5bq3j6aOHY6zOPJeA8Me0B3ydq
+J3JTYrQD3o5L0uDaPh/aElS40nNLLIHUwQ193WBUjEwZlIEX/vzCFpuZwROvWHW7
+AWU+14FPIoJzCoizBbcM5tOBubrcxA==
+=qsY4
 -----END PGP SIGNATURE-----
 
---oPma+Hg1nyREzzym--
+--w3lb7nkuiao4zq7t--
 
 
---===============4898841081831589947==
+--===============1811752074728305440==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -132,5 +134,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4898841081831589947==--
+--===============1811752074728305440==--
 
