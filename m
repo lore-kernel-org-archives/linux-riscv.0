@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F034D2ED0F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62534D2ED13
 	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 04:16:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
-	MIME-Version:Subject:Date:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QvhIOmQFv2dPXhyjWDuy896dAS2lJ+Zc7yvGjARMWaM=; b=N3LT9d4yU9Neot
-	t9+JqX5RV/j1JvuXH9G88m3kalq0oLf4gwJJSMxgsFwkXOcIlyWcqceM6BwVdKK5NxNA0UbBUw/Z7
-	/ajZivIraBuBzNS2Na8SSn8VNq5IRxhRKqLyo8ZYxF0+XlSMHuxlwcMSPQ2tmDDD4D0uRtmohVzIk
-	x/muH6ouKNqy9ExasnJWJTw5nW+jop2LGkcychuCir8x9fLB72/s3leHw7z37sCA809OqbqTkf4Sq
-	gfd6pHs7DaFBVs9cVmPr1oyHFOOcYDhZBhDSaO1LT40khnIFuUhwho2CdibKJ5s5Khcw4F7UyX9XC
-	muon592/ligk9eOeKyWg==;
+	List-Owner; bh=mRhqvE/8wFbvHTYH/nbKaXzXU2Vvl10jPFct9eYXMAI=; b=YguMmUk8HAH1GP
+	tqJpmN8SLd0EarRdQSl1ACZ8kY7j0VEMFdePkwdlrYdt7QV8N6Rt15EQS+JkfR20rM+4tC8SeN5/9
+	PAog/S67BPmomtPop8qgp6pa2dOXwIN3qloPuohctEwsTlq/zghqCyJBThu7kGdU3ScI8dCGHM9Vx
+	5kPE7JKJB3YngDMxd8efxDrZ4Et0xVptLo1uorsPBLc9VsK+sOZ/MNc/Xrap+zBkCjD/u66eQV9Lh
+	sQsUlVf3XrTdrM5Vki2ZJCd6UI3Af+UVwv8gSm0YtcVp47zW7A/jiLjpEGppkwIA+pj7LRqQmdS/X
+	NTelIqszOruKKQ1ks1oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi39o-000000039U1-49qs;
+	id 1vi39j-000000039Sy-0wSA;
 	Tue, 20 Jan 2026 04:15:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi39M-000000039Mu-3C23
+	id 1vi39D-000000039Kv-42Q4
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 04:15:42 +0000
+	Tue, 20 Jan 2026 04:15:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3382760008;
-	Tue, 20 Jan 2026 04:15:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A3A1C2BC87;
-	Tue, 20 Jan 2026 04:15:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BAC2F44345;
+	Tue, 20 Jan 2026 04:15:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B57AC19421;
+	Tue, 20 Jan 2026 04:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768882527;
-	bh=udCB56ewUuBczR6ctM7up8XACViyJiWY/ibyZC1jejs=;
-	h=From:Date:Subject:References:In-Reply-To:To:From;
-	b=q9O4T3Iwp5YU9aTtmeJpgqm4DzAdGefVfEQ9vaci4fasVdHhxCtxtl06PwRBg9ERG
-	 h4nBCUYcBujNBC5VaUWllNPthZII8W19hZEeJqcnU3cXhADKEIYf43qj2Zw5g6iZQT
-	 4IxMq95bY1ARP4MJGC/HikCdl+ip+UlakSpBKhDw0yU/aSRBfRzW0ME6L770zJ+EmK
-	 KL8Se3YCpBA+/ETMQAyiACgFGsljmdcS9hlV3ygaw3oBdg8ecLy6/zjUjYxezXL+Tq
-	 GiVchXxe9h9bw8OO0rmUuYaZma252RfrfXycAmNh4t+/ryn8mJXFugVqp8kRktGuAH
-	 o+5SG6ii9Ve1Q==
+	s=k20201202; t=1768882517;
+	bh=iU4P/QyFDo51iNRXh33LwyQncDIl37ClLj6x8G/smfI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=lAO4/BnbIJGMFBU6rw5rtclBpMc/bLFKl51zwghdn10xpbcRPrOI12DDkY5tBP7y/
+	 H9vwDPIcAVldqp8vpW2UdGyL3XfkQBloJ5bWCWGK9KjIJA8tfZ0h9W4NCf1hddTdZy
+	 QZ4gF1LvFoHHidFaN4grFraxNjKoQMg+ZTFCbjjntTDCDXMjxiCL9hwUoTa0Y9ISvh
+	 g3ga5fW3z6sewiAJ6gww5xya3zmMK7djRwFrIto/3S+rR0HuMr0L01yhUm3i/uOOWl
+	 3UKgoAapCcOG8tp3enwvGFvfQGXTBUkd0GhWBAE9566UP/Yw5Ix8PMdc2EajL7C8MN
+	 awNhAcclqqQeg==
 From: Drew Fustini <fustini@kernel.org>
-Date: Mon, 19 Jan 2026 20:14:55 -0800
-Subject: [PATCH NFU RFC 18/19] riscv: dts: qemu: add CBQRI controller nodes
+Date: Mon, 19 Jan 2026 20:14:38 -0800
+Subject: [PATCH RFC 01/19] dt-bindings: riscv: Add Ssqosid extension
+ description
 MIME-Version: 1.0
-Message-Id: <20260119-ssqosid-cbqri-v1-18-aa2a75153832@kernel.org>
+Message-Id: <20260119-ssqosid-cbqri-v1-1-aa2a75153832@kernel.org>
 References: <20260119-ssqosid-cbqri-v1-0-aa2a75153832@kernel.org>
 In-Reply-To: <20260119-ssqosid-cbqri-v1-0-aa2a75153832@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -71,15 +72,20 @@ To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  Dave Martin <Dave.Martin@arm.com>, Drew Fustini <fustini@kernel.org>, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, x86@kernel.org
+Cc: Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2591; i=fustini@kernel.org;
- h=from:subject:message-id; bh=udCB56ewUuBczR6ctM7up8XACViyJiWY/ibyZC1jejs=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTmMwZb8NY27P2ru04ycsMpxgV11wKXXXzt/+/TjxdWZ
- TE1O+tXd5SyMIhxMciKKbJs+pB3YYlX6NcF819sg5nDygQyhIGLUwAmknWb4X9CjeiBp9XGT/dk
- pz9Kmhp1gzl0e4QFn1Tk+51p269ymuoy/Ga5duGYup/rg52s59Ycknr2elF+qdEf8z9LK+1r/gj
- Lp/MBAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1214; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=iU4P/QyFDo51iNRXh33LwyQncDIl37ClLj6x8G/smfI=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTmMwa1Ly2YIabU0/8gM63YMrzk9xeJsC1P2WwDPVsi9
+ 9yca3G8o5SFQYyLQVZMkWXTh7wLS7xCvy6Y/2IbzBxWJpAhDFycAjCRiSKMDNdXt29ra/yp8HOB
+ yly9DVJeB+NvH+SWM/GKbTFRfOm2I5GR4cSeCsk6ieJPJqxBCkGXxY2WFoR0rd7y1bosNtLBzaG
+ aCwA=
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260119_201524_767416_8266218B 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,87 +102,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-[NOT FOR UPSTREAM]
+Document the ratified Supervisor-mode Quality of Service ID (Ssqosid)
+extension v1.0.
 
-Add nodes to for CBQRI-capable cache and bandwidth controllers.
-
-Link: https://github.com/tt-fustini/qemu/tree/b4/riscv-ssqosid-cbqri
-Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+Link: https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- arch/riscv/boot/dts/qemu/qemu-virt-cbqri.dts | 59 ++++++++++++++++++++++++++++
- 1 file changed, 59 insertions(+)
+ Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/qemu/qemu-virt-cbqri.dts b/arch/riscv/boot/dts/qemu/qemu-virt-cbqri.dts
-index 4c6257bec42d..9f65de65f758 100644
---- a/arch/riscv/boot/dts/qemu/qemu-virt-cbqri.dts
-+++ b/arch/riscv/boot/dts/qemu/qemu-virt-cbqri.dts
-@@ -395,5 +395,64 @@ pci@30000000 {
- 			#interrupt-cells = <0x01>;
- 			#address-cells = <0x03>;
- 		};
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index 5bab356addc8..27a7b4e63eb1 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -165,6 +165,12 @@ properties:
+             ratified at commit d70011dde6c2 ("Update to ratified state")
+             of riscv-j-extension.
+ 
++        - const: ssqosid
++          description: |
++            The Ssqosid extension for Quality of Service ID is ratified
++            as v1.0 in commit 5059e0ca641c  ("Merge pull request #7 from
++            ved-rivos/Ratified") of riscv-ssqosid.
 +
-+		cluster0_l2: controller@4820000 {
-+			compatible = "riscv,cbqri-cache";
-+			reg = <0x0 0x4820000 0x0 0x1000>; /* 4KB at 0x04820000 */
-+			cache-unified;
-+			cache-line-size = <64>;
-+			cache-level = <2>;
-+			cache-sets = <1000>;
-+			cache-size = <768000>; /* 750 KiB */
-+			next-level-cache = <&shared_llc>;
-+			riscv,cbqri-rcid = <64>;
-+			riscv,cbqri-mcid = <256>;
-+		};
-+
-+		cluster1_l2: controller@4821000 {
-+			compatible = "riscv,cbqri-cache";
-+			reg = <0x0 0x4821000 0x0 0x1000>; /* 4KB at 0x04821000 */
-+			cache-unified;
-+			cache-line-size = <64>;
-+			cache-level = <2>;
-+			cache-sets = <1000>;
-+			cache-size = <768000>; /* 750 KiB */
-+			next-level-cache = <&shared_llc>;
-+			riscv,cbqri-rcid = <64>;
-+			riscv,cbqri-mcid = <256>;
-+		};
-+
-+		shared_llc: controller@482b000 {
-+			compatible = "riscv,cbqri-cache";
-+			reg = <0x0 0x482b000 0x0 0x1000>; /* 4KB at 0x0482B000 */
-+			cache-unified;
-+			cache-line-size = <64>;
-+			cache-level = <3>;
-+			cache-sets = <4096>;
-+			cache-size = <3145728>; /* 3 MiB */
-+			riscv,cbqri-rcid = <64>;
-+			riscv,cbqri-mcid = <256>;
-+		};
-+
-+		mem0: controller@4828000 {
-+			compatible = "riscv,cbqri-bandwidth";
-+			reg = <0x0 0x4828000 0x0 0x1000>; /* 4KB at 0x04828000 */
-+			riscv,cbqri-rcid = <64>;
-+			riscv,cbqri-mcid = <256>;
-+		};
-+
-+		mem1: controller@4829000 {
-+			compatible = "riscv,cbqri-bandwidth";
-+			reg = <0x0 0x4829000 0x0 0x1000>; /* 4KB at 0x04829000 */
-+			riscv,cbqri-rcid = <64>;
-+			riscv,cbqri-mcid = <256>;
-+		};
-+
-+		mem2: controller@482a000 {
-+			compatible = "riscv,cbqri-bandwidth";
-+			reg = <0x0 0x482a000 0x0 0x1000>; /* 4KB at 0x0482A000 */
-+			riscv,cbqri-rcid = <64>;
-+			riscv,cbqri-mcid = <256>;
-+		};
- 	};
- };
+         - const: sstc
+           description: |
+             The standard Sstc supervisor-level extension for time compare as
 
 -- 
 2.43.0
