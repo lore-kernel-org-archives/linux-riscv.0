@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC659D2ED12
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 14:33:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B10DBD2ECE9
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 14:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=47SDCe/HOjpz01rLsOJvyHOSjQp+vvYVHVMvHMSzptY=; b=yD+agIA9v7uEla
-	xD3t7fp/7obxaiUcdS6xM2I4oQazdxYoihuNHzi6erhWcRSU6f7iPhI46O3ec8poKNUEqEMhjmdRO
-	UGQZ3kfy31ATCRHHQLeVDVLaXz+HAyEye9cN8LOB2pUWDnEIag3q1szgIAXZ8FbAKDmNLBzMTjJoP
-	wuI3XWcO8t6bhd2CXxhOQ+ihUFDs2PgFNlwcHybPDVgoqcudG1HDo6EtIH2D/52gjz6uJLNdep0rU
-	GV+NNk+ax477KZ2rMSumLsbZbibbfIEf54w8TJDaqjbtDaejSV81vzr3MRB8yM9nWsdD8NwWdJXQ3
-	LGkVJvoezkTDKhEshF7Q==;
+	List-Owner; bh=y3ktD68A8cDThin0lvGqvK+J1toQfAYNNFCQfshM+Ek=; b=l8w7Ms0wbm6tkq
+	5LboMU17+csXS2Z5FXMWi4M4qauZz2Z/1n2ofFi7TkJ6y3wqkPeIwgahtEgvE3f1Mo4t1tq25ct2c
+	gx1n0YO1P0ypSnQdn4jHVUbTKiaSPNV6N99NpKwPragNBDIBrgF8RxXqj+baOxiM6dVmJkW81bcLU
+	792mWJNOm/y2miPmxO3DYRlusiPRfV6vBIlDxOt/QKiHZ1EtUq2N83qY2sghXV4+Gc7jkLXEKTHA/
+	/QCeK3O9azaAe05aIB5DGHarxlu3rtdPLMQMDmkuhY3VG3aSU0Ix2rsnfxp/xtHmL2pYT+p+LfxMq
+	nBWO8Fj1Q4iKWKuh0Ieg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viCnC-00000003zAd-0D0W;
+	id 1viCnC-00000003zB2-2WOK;
 	Tue, 20 Jan 2026 14:33:14 +0000
 Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viCn5-00000003z7y-39sb;
+	id 1viCn6-00000003z82-2xHW;
 	Tue, 20 Jan 2026 14:33:11 +0000
 Received: from duge-virtual-machine (unknown [183.192.221.134])
-	by APP-05 (Coremail) with SMTP id zQCowACn_hESkm9p+zDJBQ--.5466S3;
-	Tue, 20 Jan 2026 22:32:52 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowACn_hESkm9p+zDJBQ--.5466S6;
+	Tue, 20 Jan 2026 22:32:55 +0800 (CST)
 From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
 To: vkoul@kernel.org,
 	gregkh@linuxfoundation.org,
@@ -46,36 +46,36 @@ Cc: neil.armstrong@linaro.org,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 1/4] dt-bindings: phy: Add Canaan K230 USB PHY
-Date: Tue, 20 Jan 2026 22:32:40 +0800
-Message-ID: <20260120143243.71937-2-jiayu.riscv@isrc.iscas.ac.cn>
+Subject: [PATCH v4 4/4] riscv: dts: canaan: Add syscon and USB nodes for K230
+Date: Tue, 20 Jan 2026 22:32:43 +0800
+Message-ID: <20260120143243.71937-5-jiayu.riscv@isrc.iscas.ac.cn>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260120143243.71937-1-jiayu.riscv@isrc.iscas.ac.cn>
 References: <20260120143243.71937-1-jiayu.riscv@isrc.iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowACn_hESkm9p+zDJBQ--.5466S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7CrWrJw4fCr18KrWUtryrZwb_yoW8GF1xpa
-	s7uF9FgrsagF4ayws3KF18Ca43ArWkCFyfKr13t34UKr1DW3WYv3yakry5Zw1UJFs7CFWj
-	vFZa9Fy7Kr4qyw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmj14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
-	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
-	ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AI
-	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
-	vE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
-	r2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04
-	v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j
-	6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7
-	AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE
-	2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcV
-	C2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2Kfnx
-	nUUI43ZEXa7VUjWv37UUUUU==
+X-CM-TRANSID: zQCowACn_hESkm9p+zDJBQ--.5466S6
+X-Coremail-Antispam: 1UD129KBjvJXoW7tF1xZr1fCrykZF47JFy5Jwb_yoW8tw4xp3
+	srCFZ8Gr93Wr4S93Wak348KFyfGF4kGFyfWrn8AryUGr4UZas09w1fJ34fXFyUXw47J3y2
+	kasYqryxKF4jyw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmS14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
+	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
+	z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr
+	1UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4UJVWx
+	Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2I
+	x0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8
+	JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2
+	ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Y
+	z7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zV
+	AF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1l
+	IxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF
+	4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBI
+	daVFxhVjvjDU0xZFpf9x0JUWMKtUUUUU=
 X-Originating-IP: [183.192.221.134]
 X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_063308_152479_2559DCCE 
-X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-CacheID: sfid-20260120_063309_101608_21ED29A0 
+X-CRM114-Status: UNSURE (   6.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,56 +93,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-K230 SoC USB PHY requires configuring registers for control and
-configuration. Add USB phy bindings for K230 SoC.
+Add top syscon and USB PHY subdevice nodes, USB0/USB1 dwc2 controller
+to K230 DTSI, and enable UART0 and USB0/USB1 in DshanPI DT.
 
 Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
 ---
- .../bindings/phy/canaan,k230-usb-phy.yaml     | 35 +++++++++++++++++++
- 1 file changed, 35 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml
+ .../boot/dts/canaan/k230-canmv-dshanpi.dts    | 17 +++++++++
+ arch/riscv/boot/dts/canaan/k230.dtsi          | 35 +++++++++++++++++++
+ 2 files changed, 52 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml b/Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml
-new file mode 100644
-index 000000000000..b959b381c44c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml
-@@ -0,0 +1,35 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/phy/canaan,k230-usb-phy.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts b/arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts
+index 4f95b534ee87..55197cfc25b4 100644
+--- a/arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts
++++ b/arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts
+@@ -80,3 +80,20 @@ &uart0 {
+ 	pinctrl-0 = <&uart0_pins>;
+ 	status = "okay";
+ };
 +
-+title: Canaan K230 USB2.0 PHY
++&usb0 {
++	vusb_d-supply = <&vdd_3v3>;
++	vusb_a-supply = <&vdd_1v8>;
++	status = "okay";
++};
 +
-+maintainers:
-+  - Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
++&usb1 {
++	dr_mode = "host";
++	vusb_d-supply = <&vdd_3v3>;
++	vusb_a-supply = <&vdd_1v8>;
++	status = "okay";
++};
 +
-+properties:
-+  compatible:
-+    const: canaan,k230-usb-phy
++&usbphy {
++	status = "okay";
++};
+diff --git a/arch/riscv/boot/dts/canaan/k230.dtsi b/arch/riscv/boot/dts/canaan/k230.dtsi
+index 8ca5c7dee427..b369b7d8dc83 100644
+--- a/arch/riscv/boot/dts/canaan/k230.dtsi
++++ b/arch/riscv/boot/dts/canaan/k230.dtsi
+@@ -148,5 +148,40 @@ uart4: serial@91404000 {
+ 			reg-shift = <2>;
+ 			status = "disabled";
+ 		};
 +
-+  reg:
-+    maxItems: 1
++		usb0: usb@91500000 {
++			compatible = "canaan,k230-usb", "snps,dwc2";
++			reg = <0x0 0x91500000 0x0 0x40000>;
++			interrupts = <173 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&sysclk K230_HS_USB0_AHB_GATE>;
++			clock-names = "otg";
++			g-rx-fifo-size = <512>;
++			g-np-tx-fifo-size = <64>;
++			g-tx-fifo-size = <512 1024 64 64 64 64>;
++			phys = <&usbphy 0>;
++			phy-names = "usb2-phy";
++			status = "disabled";
++		};
 +
-+  "#phy-cells":
-+    const: 1
++		usb1: usb@91540000 {
++			compatible = "canaan,k230-usb", "snps,dwc2";
++			reg = <0x0 0x91540000 0x0 0x40000>;
++			interrupts = <174 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&sysclk K230_HS_USB1_AHB_GATE>;
++			clock-names = "otg";
++			g-rx-fifo-size = <512>;
++			g-np-tx-fifo-size = <64>;
++			g-tx-fifo-size = <512 1024 64 64 64 64>;
++			phys = <&usbphy 1>;
++			phy-names = "usb2-phy";
++			status = "disabled";
++		};
 +
-+required:
-+  - compatible
-+  - reg
-+  - "#phy-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    usbphy: usb-phy@91585000 {
-+        compatible = "canaan,k230-usb-phy";
-+        reg = <0x91585000 0x400>;
-+        #phy-cells = <1>;
-+    };
++		usbphy: usb-phy@91585000 {
++			compatible = "canaan,k230-usb-phy";
++			reg = <0x0 0x91585000 0x0 0x400>;
++			#phy-cells = <1>;
++			status = "disabled";
++		};
+ 	};
+ };
 -- 
 2.52.0
 
