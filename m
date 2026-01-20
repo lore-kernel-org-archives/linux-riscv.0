@@ -4,71 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9851DD2ED11
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 04:17:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E04FD2ED0F
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 04:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D6G+Kzxx/QukoRmRmAKms5UyEWfJzinYYUWgI7focGQ=; b=rvIc5IWjuGYYHf
-	VZJDuA/gcK3wyL1iB4+nFzc2EqO32T8dLvGilJqFrV6FoPJopHSesKdATzaaj7aQ7MxA7sD6bp/dQ
-	7x4j3NKIMOaKc0JiDKH+s3+D2HAM6uVlvmxDgEvkXgKRoZDdk6GBIVorlYcVthpeGunluB0g5fANT
-	0j7rRspHUwDnXpfjoQGKsZ3gdpp5RDHZOjVQm+jdW4Rv6YmcxE9coO3VOdshRu9Wf9wNgGkPgdsTL
-	ShlRrZCj+LWixF1luKVv1KYb2cfg4gaoPk+H3LhsLYz6+fdfgMMWIQwXExmvsmyXfooR6MsVhw9wC
-	Wmk9rwsiuwBiNiOAHfTA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0UjP7qpgRk4UX7Td91u5zuufNKznQq+FbhOzr6IccKA=; b=ak6Z3r9ePc1TKS
+	xACdR0tlSYtLC45Se4cqSsX/UpPwMeRrgO4TXOmy2UMmH1eT7E9gkIVBIM61MFIBb+IRu9c8V5GKw
+	Em3tHjvVhdHQ7+v/ol052rewc0oVE05GXVWlRT08/Y1566QP3mo4BQs48VUhy+ezGifGe/AB2P+cL
+	QJTHKhi8AdJ8hfMBiOFu8BOHrjtkIPzcpkNae8aviVkT19+t+sk+1NFV7lQj2PVQNGeWHZKh0Zi6k
+	jO+Hu8mQmJ2ChxCKF58hqP3xyiIhiwKzTJtLjHxMy0FpUn3BqTaOLfpl31m7nbZnodmwZo2LQaYYX
+	rOOwZMkogVk3f4tDUJpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi3BE-000000039xh-1ikR;
-	Tue, 20 Jan 2026 04:17:24 +0000
+	id 1vi3DX-00000003BUz-2v1c;
+	Tue, 20 Jan 2026 04:19:49 +0000
 Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi3Ay-000000039m1-1woA
+	id 1vi3DK-00000003BRs-3NhN
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 04:17:14 +0000
-Received: from [10.213.18.194] (unknown [210.73.43.101])
-	by APP-05 (Coremail) with SMTP id zQCowAAXqg21AW9pXw+3BQ--.1431S2;
-	Tue, 20 Jan 2026 12:16:54 +0800 (CST)
-Message-ID: <f63d455c-7593-4382-86ef-9c31a1ebd283@iscas.ac.cn>
-Date: Tue, 20 Jan 2026 12:16:53 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] net: spacemit: Check netif_carrier_ok when reading
- stats
-To: Andrew Lunn <andrew@lunn.ch>, Chukun Pan <amadeus@jmu.edu.cn>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, dlan@gentoo.org,
- edumazet@google.com, kuba@kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, netdev@vger.kernel.org, pabeni@redhat.com,
- spacemit@lists.linux.dev
-References: <e3890633-351d-401d-abb1-5b2625c2213b@iscas.ac.cn>
- <20260119141620.1318102-1-amadeus@jmu.edu.cn>
- <48757af2-bbea-4185-8cc9-2ef51dbc8373@lunn.ch>
-Content-Language: en-US
+	Tue, 20 Jan 2026 04:19:45 +0000
+Received: from [127.0.0.2] (unknown [210.73.43.101])
+	by APP-05 (Coremail) with SMTP id zQCowACXKAxPAm9pZCG3BQ--.23154S2;
+	Tue, 20 Jan 2026 12:19:28 +0800 (CST)
 From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <48757af2-bbea-4185-8cc9-2ef51dbc8373@lunn.ch>
-X-CM-TRANSID: zQCowAAXqg21AW9pXw+3BQ--.1431S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7KFy5KryruFyxJr18CryxuFg_yoW8WF1kpF
-	43Kw4Fyr1kt3W0qF1Ika1DA3409rZ5tFy5Gr1Fg3s3Aa15Xr1Svr4fKrWjgFyUWryvgw1j
-	vr1qvF4YvFWDAFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxUgHanUUUUU
+Date: Tue, 20 Jan 2026 12:19:23 +0800
+Subject: [PATCH net-next] net: spacemit: Clarify stat timeout comments and
+ messages
+MIME-Version: 1.0
+Message-Id: <20260120-k1-ethernet-clarify-stat-timeout-v1-1-108cf928d1b3@iscas.ac.cn>
+X-B4-Tracking: v=1; b=H4sIAEoCb2kC/y2N3QqCQBBGX0Xmugl3AylfJQqmdcyhXGt2FEN89
+ 7afy8Ph+84CiVU4QV0soDxJkiFmcJsCQkfxyihNZvClr0rnS7w5ZOtYIxuGO6m0L0xGhiY9D6N
+ h471rQ7Mjoj3km4dyK/M3cYTPKvJscPoZ5eeYm/bXF0qMYeh7sbqYqq07oAZ3XlY4resbjlthk
+ awAAAA=
+X-Change-ID: 20260120-k1-ethernet-clarify-stat-timeout-d221fcd3aaa8
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Yixun Lan <dlan@gentoo.org>
+Cc: Chukun Pan <amadeus@jmu.edu.cn>, 
+ Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
+ netdev@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Vivian Wang <wangruikang@iscas.ac.cn>
+X-Mailer: b4 0.14.3
+X-CM-TRANSID: zQCowACXKAxPAm9pZCG3BQ--.23154S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXF17KrykAF47AFy7AF4DXFb_yoW5CrWDp3
+	yYkasavr1ktF4YvFsrAr4UJw1fZw4vgFyUuFnFy395ZFn8tFy8Xr10kFWj9FyqkrW8WryY
+	qr4UCFs8CF4DAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9K14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_Gryl42xK82IYc2Ij64vIr4
+	1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK
+	67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI
+	8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAv
+	wI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14
+	v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUnBTYUUUUU
 X-Originating-IP: [210.73.43.101]
 X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_201712_009790_6C563ABB 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20260119_201940_920773_A5BA6BEA 
+X-CRM114-Status: GOOD (  20.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,42 +89,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 1/19/26 23:09, Andrew Lunn wrote:
->> root@OpenWrt:~# ethtool -S eth1
->> [   71.725539] k1_emac cac81000.ethernet eth1: Read stat timeout
->> NIC statistics:
->>      rx_drp_fifo_full_pkts: 0
->>      rx_truncate_fifo_full_pkts: 0
->>
->> I just discovered that adding "motorcomm,auto-sleep-disabled" to disable
->> the sleep mode of the MotorComm PHY prevents the problem from occurring.
-> This suggests that when the PHY stops the reference clock, the MAC
-> hardware stops working. It needs that clock to access
-> statistics. Keeping the clock ticking will increase power usage a
-> little.
+Someone did run into this timeout in the wild [1], and it turns out to
+be related to the PHY reference clock stopping.
 
-As per suggestion from Chukun, adding realtek,aldps-enable to the DTS on
-BananaPi F3 (with, obviously, a Realtek PHY) also reproduces this
-problem. So this is a good indication that it really is a problem with
-this power saving thing.
+Improve the comments and error message prints around this to reflect the
+better understanding of how this could happen. This patch doesn't fix
+the problem, but should direct anyone running into it in the future to
+know it is probably a PHY problem, and have a better idea what to do.
 
-> I wounder if anything else stops working? There are some MACs whos DMA
-> engine stop working without the reference clock. That can cause
-> problems during both probe and remove, or open and close.
+Link: https://lore.kernel.org/r/20260119141620.1318102-1-amadeus@jmu.edu.cn/ # [1]
+Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+---
+* Chukun: If you think changing the DTS for the PHY is appropriate, you
+can send the DTS patch separately - that one should go through the
+spacemit SoC tree.
 
-At least DMA reset seems to work in this case, so it's probably not as
-big of a problem, but at least I would conclude that the HW design
-didn't have the reference clock stopping in mind. AFAICT from the DTS
-files a bunch of other boards also have motorcomm,auto-sleep-disabled so
-at least SpacemiT isn't alone in this.
+FWIW, the same timeout thing also happens on the vendor provided OS
+images for the OrangePi RV2, and AFAICT at least the statistics part is
+not recoverable.
 
-> So it would be nice to have a better understanding of this. If this
-> turns out to be true, maybe a comment by this poll_read_timeout()
-> indicating if it does timeout, the PHY might be the problem.
+So until/unless we manage to get more information on how this works
+under the hood, I think we just don't bother handling the case where the
+PHY can just stop running, since the hardware certainly doesn't seem to
+expect it.
+---
+ drivers/net/ethernet/spacemit/k1_emac.c | 23 +++++++++++++++++------
+ 1 file changed, 17 insertions(+), 6 deletions(-)
 
-I'll send a patch updating the comments and error prints.
+diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
+index 220eb5ce7583..387f26ff7714 100644
+--- a/drivers/net/ethernet/spacemit/k1_emac.c
++++ b/drivers/net/ethernet/spacemit/k1_emac.c
+@@ -1099,7 +1099,14 @@ static int emac_read_stat_cnt(struct emac_priv *priv, u8 cnt, u32 *res,
+ 					100, 10000);
+ 
+ 	if (ret) {
+-		netdev_err(priv->ndev, "Read stat timeout\n");
++		/*
++		 * If you run into this, one possibility is that even though the
++		 * interface is up the PHY may have stopped its clock anyway for
++		 * power saving. This MAC doesn't like that, so configure your
++		 * PHY to not do that.
++		 */
++		dev_err_ratelimited(&priv->ndev->dev,
++				    "Read stat timeout. PHY clock stopped?\n");
+ 		return ret;
+ 	}
+ 
+@@ -1148,16 +1155,20 @@ static void emac_stats_update(struct emac_priv *priv)
+ 	assert_spin_locked(&priv->stats_lock);
+ 
+ 	if (!netif_running(priv->ndev) || !netif_device_present(priv->ndev)) {
+-		/* Not up, don't try to update */
++		/*
++		 * Not up, don't try to update. If the PHY is stopped, reading
++		 * stats would time out.
++		 */
+ 		return;
+ 	}
+ 
+ 	for (i = 0; i < sizeof(priv->tx_stats) / sizeof(*tx_stats); i++) {
+ 		/*
+-		 * If reading stats times out, everything is broken and there's
+-		 * nothing we can do. Reading statistics also can't return an
+-		 * error, so just return without updating and without
+-		 * rescheduling.
++		 * If reading stats times out anyway, the stat registers will be
++		 * stuck, and we can't really recover from that.
++		 *
++		 * Reading statistics also can't return an error, so just return
++		 * without updating and without rescheduling.
+ 		 */
+ 		if (emac_tx_read_stat_cnt(priv, i, &res))
+ 			return;
 
-Thanks,
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20260120-k1-ethernet-clarify-stat-timeout-d221fcd3aaa8
+
+Best regards,
+-- 
 Vivian "dramforever" Wang
 
 
