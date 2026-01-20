@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62534D2ED13
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 04:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 657B0D2ED12
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 04:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
+	MIME-Version:Subject:Date:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mRhqvE/8wFbvHTYH/nbKaXzXU2Vvl10jPFct9eYXMAI=; b=YguMmUk8HAH1GP
-	tqJpmN8SLd0EarRdQSl1ACZ8kY7j0VEMFdePkwdlrYdt7QV8N6Rt15EQS+JkfR20rM+4tC8SeN5/9
-	PAog/S67BPmomtPop8qgp6pa2dOXwIN3qloPuohctEwsTlq/zghqCyJBThu7kGdU3ScI8dCGHM9Vx
-	5kPE7JKJB3YngDMxd8efxDrZ4Et0xVptLo1uorsPBLc9VsK+sOZ/MNc/Xrap+zBkCjD/u66eQV9Lh
-	sQsUlVf3XrTdrM5Vki2ZJCd6UI3Af+UVwv8gSm0YtcVp47zW7A/jiLjpEGppkwIA+pj7LRqQmdS/X
-	NTelIqszOruKKQ1ks1oQ==;
+	List-Owner; bh=kkYHWwpptLuRTLCLXSXS4EbQBkiBrZxUV7TNERnijm0=; b=blDPjf2e6O16R5
+	Xg29OcjCbF1PVUoWLFUx5xPz84Z96Yc5wBQWZ4L0i82Aqpa+KNi+NDna4gX2rHwCdv7ATXrLQP8Zm
+	IO7Ka30896etkeCXurU5HKy9eFsYvXknFQnJ0bdjBJQW1A0Umm18MYrPy2+52bhzrXFX+p9Lk6WeY
+	eRWqCS50fKTlyLNXrfFZkHXDhZ4fQwfeXPz/5siiNfFVxsG+RSbEnxP0kUnKNi+5LS3FSBQ++gaA9
+	RQbnAZT79KVJp8hB33SleBe+H6wZ2K5lO1p7M+lrdzEwj5neumgCgCHopEU8AJMNHp0zdsyXqybOE
+	R8RufNt6c30/FF4W/CKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi39j-000000039Sy-0wSA;
-	Tue, 20 Jan 2026 04:15:56 +0000
+	id 1vi39t-000000039Ve-1Jky;
+	Tue, 20 Jan 2026 04:16:01 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi39D-000000039Kv-42Q4
+	id 1vi39F-000000039L1-0xo8
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 04:15:34 +0000
+	Tue, 20 Jan 2026 04:15:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BAC2F44345;
-	Tue, 20 Jan 2026 04:15:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B57AC19421;
-	Tue, 20 Jan 2026 04:15:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DAFDD444EA;
+	Tue, 20 Jan 2026 04:15:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BEB4C2BCB0;
+	Tue, 20 Jan 2026 04:15:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768882517;
-	bh=iU4P/QyFDo51iNRXh33LwyQncDIl37ClLj6x8G/smfI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=lAO4/BnbIJGMFBU6rw5rtclBpMc/bLFKl51zwghdn10xpbcRPrOI12DDkY5tBP7y/
-	 H9vwDPIcAVldqp8vpW2UdGyL3XfkQBloJ5bWCWGK9KjIJA8tfZ0h9W4NCf1hddTdZy
-	 QZ4gF1LvFoHHidFaN4grFraxNjKoQMg+ZTFCbjjntTDCDXMjxiCL9hwUoTa0Y9ISvh
-	 g3ga5fW3z6sewiAJ6gww5xya3zmMK7djRwFrIto/3S+rR0HuMr0L01yhUm3i/uOOWl
-	 3UKgoAapCcOG8tp3enwvGFvfQGXTBUkd0GhWBAE9566UP/Yw5Ix8PMdc2EajL7C8MN
-	 awNhAcclqqQeg==
+	s=k20201202; t=1768882520;
+	bh=VY+L/H7NAb+kbLIgJH0JdAYq+trW362UFibAaSaVSAU=;
+	h=From:Date:Subject:References:In-Reply-To:To:From;
+	b=tJrWM4Jlv8EPiNguXi34IMmH900SeLGHOZKnLesPNJ3HxYkOle3hygR3We4ASD7QD
+	 tDGiAZ9C0/hzar4PZkjwedtXys5obJMOBOyxyeoDNZ8l0ARpcSY+s+Y+X80LXq8BLL
+	 EJ9xZJK5BI1gZ4rqiIoPSBb/he6UJRMT2BeCiMZh6JuWBTP7n3CneJ+vRBLYCFKNye
+	 YHiwXT3E8QOn+pwjF2/PyENV3IwYbi/4EZMnt46JDYrdpkjVsZ6I+dUUC1QyTzwcmv
+	 6hsdNewZriAif/INmK6b8vr6a+iklQxqIAi4fiuafVgxfHf3HFgzr/rHKpkSc2K2Em
+	 zVQEirZQ4nEjg==
 From: Drew Fustini <fustini@kernel.org>
-Date: Mon, 19 Jan 2026 20:14:38 -0800
-Subject: [PATCH RFC 01/19] dt-bindings: riscv: Add Ssqosid extension
- description
+Date: Mon, 19 Jan 2026 20:14:44 -0800
+Subject: [PATCH RFC 07/19] RISC-V: QoS: define prototypes for resctrl
+ interface
 MIME-Version: 1.0
-Message-Id: <20260119-ssqosid-cbqri-v1-1-aa2a75153832@kernel.org>
+Message-Id: <20260119-ssqosid-cbqri-v1-7-aa2a75153832@kernel.org>
 References: <20260119-ssqosid-cbqri-v1-0-aa2a75153832@kernel.org>
 In-Reply-To: <20260119-ssqosid-cbqri-v1-0-aa2a75153832@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -72,20 +72,18 @@ To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  Dave Martin <Dave.Martin@arm.com>, Drew Fustini <fustini@kernel.org>, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, x86@kernel.org
-Cc: Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1214; i=fustini@kernel.org;
- h=from:subject:message-id; bh=iU4P/QyFDo51iNRXh33LwyQncDIl37ClLj6x8G/smfI=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTmMwa1Ly2YIabU0/8gM63YMrzk9xeJsC1P2WwDPVsi9
- 9yca3G8o5SFQYyLQVZMkWXTh7wLS7xCvy6Y/2IbzBxWJpAhDFycAjCRiSKMDNdXt29ra/yp8HOB
- yly9DVJeB+NvH+SWM/GKbTFRfOm2I5GR4cSeCsk6ieJPJqxBCkGXxY2WFoR0rd7y1bosNtLBzaG
- aCwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2765; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=VY+L/H7NAb+kbLIgJH0JdAYq+trW362UFibAaSaVSAU=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTmMwZlv0240nxloabf7If7vILvexoe0PBM3nw3NsBX6
+ lNMg59SRykLgxgXg6yYIsumD3kXlniFfl0w/8U2mDmsTCBDGLg4BWAiF5czMvQ5y7P3Wzn6ii8r
+ u7hkcV6B7aV6x7WOCh3Hdpz8pt6Vspbhf16/75FGy9h3zWb32npTDolJlNtv6ZYqrNT9HBgd934
+ VAwA=
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_201524_767416_8266218B 
-X-CRM114-Status: UNSURE (   8.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260119_201524_731735_3AA47F5B 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,33 +100,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the ratified Supervisor-mode Quality of Service ID (Ssqosid)
-extension v1.0.
+Define the prototypes for the resctrl interface functions that are
+implemented on RISC-V.
 
-Link: https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+[fustini: rebased on riscv/for-next]
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ include/linux/riscv_qos.h | 44 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 5bab356addc8..27a7b4e63eb1 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -165,6 +165,12 @@ properties:
-             ratified at commit d70011dde6c2 ("Update to ratified state")
-             of riscv-j-extension.
+diff --git a/include/linux/riscv_qos.h b/include/linux/riscv_qos.h
+index 51c3a96bbcd0..0c551ed85fe1 100644
+--- a/include/linux/riscv_qos.h
++++ b/include/linux/riscv_qos.h
+@@ -3,6 +3,7 @@
+ #ifndef __LINUX_RISCV_QOS_H
+ #define __LINUX_RISCV_QOS_H
  
-+        - const: ssqosid
-+          description: |
-+            The Ssqosid extension for Quality of Service ID is ratified
-+            as v1.0 in commit 5059e0ca641c  ("Merge pull request #7 from
-+            ved-rivos/Ratified") of riscv-ssqosid.
++#include <linux/resctrl_types.h>
+ #include <linux/iommu.h>
+ #include <linux/types.h>
+ 
+@@ -31,4 +32,47 @@ struct cbqri_controller_info {
+ 
+ extern struct list_head cbqri_controllers;
+ 
++bool resctrl_arch_alloc_capable(void);
++bool resctrl_arch_mon_capable(void);
++bool resctrl_arch_is_llc_occupancy_enabled(void);
++bool resctrl_arch_is_mbm_local_enabled(void);
++bool resctrl_arch_is_mbm_total_enabled(void);
 +
-         - const: sstc
-           description: |
-             The standard Sstc supervisor-level extension for time compare as
++struct rdt_resource;
++/*
++ * Note about terminology between x86 (Intel RDT/AMD QoS) and RISC-V:
++ *   CLOSID on x86 is RCID on RISC-V
++ *     RMID on x86 is MCID on RISC-V
++ *      CDP on x86 is AT (access type) on RISC-V
++ */
++u32  resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid);
++void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid);
++void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 pmg);
++void resctrl_arch_sched_in(struct task_struct *tsk);
++void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
++bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid);
++bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
++void resctrl_arch_reset_resources(void);
++void *resctrl_arch_mon_ctx_alloc(struct rdt_resource *r, enum resctrl_event_id evtid);
++void resctrl_arch_mon_ctx_free(struct rdt_resource *r, enum resctrl_event_id evtid,
++			       void *arch_mon_ctx);
++struct rdt_domain_hdr *resctrl_arch_find_domain(struct list_head *domain_list, int id);
++
++static inline bool resctrl_arch_event_is_free_running(enum resctrl_event_id evt)
++{
++	/* must be true for resctrl L3 monitoring files to be created */
++	return true;
++}
++
++static inline unsigned int resctrl_arch_round_mon_val(unsigned int val)
++{
++	return val;
++}
++
++/* Not needed for RISC-V */
++static inline void resctrl_arch_enable_mon(void) { }
++static inline void resctrl_arch_disable_mon(void) { }
++static inline void resctrl_arch_enable_alloc(void) { }
++static inline void resctrl_arch_disable_alloc(void) { }
++
+ #endif /* __LINUX_RISCV_QOS_H */
 
 -- 
 2.43.0
