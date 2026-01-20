@@ -4,120 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A47D2ECF7
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 06:20:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A982FD2ECF9
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 06:59:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aKvYgJcEQO2H5Y/vlx4BXWrqdJhSos0PdZQuWgYEuNA=; b=ONrwuEe8O1ayrd
-	SWYODuVbiipjaqbPVCamIK1ea8OpNV4+OnIdHMKSuZP3U9bBMY0zFIPDE26TTcNqfm+vGfSpsIAe6
-	xgu/E3Ri8scLR1RaysWbQ3B//vB9id/Rs3m6Ho+2Te6ElNo1zfNYdqvQaxHenLoqcdTRJEpmaxbr1
-	hWmOdbGNBw+RxSdj2fqz10d9TrvwAyZoEefOQsBrWl6T7ItWQEHwbkqfwGuypb8HEQfuzPrI/Iipa
-	Oa1HgSbQiiw97C0j+YAa2BVBPdTTo/QUZIgg5oHFduqwN4rWlXp8my/eyLCRvtH7qBaby9J8YDh3e
-	oAXvqmgQFrpN+QPNfj5A==;
+	List-Owner; bh=XVGptw+dMZ0x7bfvaw++ArhuBPwy7NibTYUhuBeT+zs=; b=juO+RoGnGajT3T
+	GYM92BkXXGI6B6rhmnHlqw9QS/7teR0f6nJc/VKL5/Xcf4lHOiznsYWgj2XcW4J+1oB9uEMZHYRUa
+	ZPRnTRCJ3gNfvOmFwHAy5nAR2gAlKUBecd2RBBnfpUmAu6Xi191a/FgLZ46gkwRlsJYiFLm7GR1ZR
+	DasyZc41Z9rIPS38SPn20lxJZzXZLNe450iC6mLpiNW1pzKHAjO3Vjpl7fk582V+5B+5jzC8WXlx7
+	KKY7RbT2fNgbxyGaJjFCsGax+PW3D50VkiuwshFQKl/NFZjUfgf5+dYeKbNZrBaRLB7bJst4W3Snv
+	VB6vVddEMFNPYz9yWnTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi56E-00000003GGV-0GAY;
-	Tue, 20 Jan 2026 06:20:22 +0000
-Received: from mail-vs1-xe2d.google.com ([2607:f8b0:4864:20::e2d])
+	id 1vi5ho-00000003J9K-2Etp;
+	Tue, 20 Jan 2026 06:59:12 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi56B-00000003GGA-3zHR
+	id 1vi5hk-00000003J5p-3nAP
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 06:20:21 +0000
-Received: by mail-vs1-xe2d.google.com with SMTP id ada2fe7eead31-5ec87b1f525so2179447137.0
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Jan 2026 22:20:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768890018; x=1769494818; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9/P4vB6ZrTUYfKL01JZTaSnR0v+y3e+rmtwAP48/qa4=;
-        b=FkaaPnnAKAai7Z6lbqPz5LuOquGroLgn3gey9L/kWHJdEAh9i6uUm91Q5suZEg1ycJ
-         0wMVA1hGDpPUJ0ZzuqiZ2JzydjlkPVzmAhiyV6swVUW8HptKdGyTOt1pGxcekX63ax9a
-         iIcpA72ORKazP01U8KiTV4Tvum84/vHcBCiFRhVe/OrxmlSlZXHuDOsLKkUTy2xVkMO+
-         LMAhiLzZVVwyVrlsZYFIqUdpVb42a0+8YRfHojOpZQHSldJcvNNn979j43sOr2THjrK5
-         hbA4Fdf0eTNVgajzHjrxnp8SFx+yNOQNej8PHSxEll7iGm7lFQuA0+Ujvfll3JiWtXr3
-         QapQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768890018; x=1769494818;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=9/P4vB6ZrTUYfKL01JZTaSnR0v+y3e+rmtwAP48/qa4=;
-        b=lEPrT6Fs9vqoQ2qagxTYqehqBWRIhb2o5Iu14o6udHdIUIvkg374CllVhsmWjeFYLV
-         IJpX/GaU0AXx+vnUjTNfLq8VCK7/NZnotar4NvlSx2HVTRvZ+Oy8fRTFz+zgj32bx8V6
-         Qn/qKrZ7YQD2ewsgJ/w6BcMd4gO/+MVmE6PQIDAaXJIW+6oiQ56sEuAFoZFSqfoa5AN2
-         AbQ+jbowfrsvR51KoI7fQeY4r2dGGWBQKh7qGHGAykQZlNq7D/9AEdYsff9GvCaHHgvI
-         I2adYOqoeJfi2cneEGn3K1smy6qOz+y7felkec22VZ6rLhdi16CqUad8BhXp9In79guq
-         9Fng==
-X-Forwarded-Encrypted: i=1; AJvYcCXSd7VGpqcwk4PCEEeH32NyB10A7RBPVAv8lxSpSfVgAsw8xE3qK0XOh67u2IaINpop28bOFM0gxfG/jA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTCaiQ8G7OedZeX4D4ho99ekMYoj/mR4LCb+w8DBhsoAyoxhnK
-	r6RivMtGXAeUp5/2ul2TeNWCdO8KuOQO9nmstxiES9qHls51kE+gEo8K82VIFDuh
-X-Gm-Gg: AZuq6aL47vWX/qQm+cxwQ7Vy2HRB3UpJdWbGSH+fFIa1Y5ne3idoUAcRACYrNNX/JNU
-	wb3MsQU8I+sew0U008TmoSrDKz05VFecUZ32DQQgBMli8RjWMwWO6vCmiGnCdAgNnxNRflq4Ect
-	NlLmIw8yZ/Ids+9+to3OKlzHlQaUiz2djoV98KWicTiisOG//eVPsnK+kvkUiJa6umsf4Zbfqkx
-	o7plJago0PdgC/rDMcX4Rgsqayph4DdFGbn+0y2FfNXY3Eb4Y4ehKwo6BfCNDTbThXjkREqveMA
-	kG5cq+ONVADlmDo/BMAU3PMDvZy6sM+EvUqctGCBWXZO0JcX6gSjhLlahoch+AvIsDKnizVDDxY
-	qzmvXIKS0TSd3yJWCmNpVm8LarevId3K70OtZ62lfUH6nAqif24bcQ8oNeUZht5XqZ0HevqvtSv
-	mr0KpDYlP4bw==
-X-Received: by 2002:a05:7300:6d1f:b0:2b0:4e86:8157 with SMTP id 5a478bee46e88-2b6b46eb100mr10720484eec.17.1768883786512;
-        Mon, 19 Jan 2026 20:36:26 -0800 (PST)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b6b3502c91sm15459859eec.9.2026.01.19.20.36.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Jan 2026 20:36:26 -0800 (PST)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Yixun Lan <dlan@gentoo.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Yanteng Si <siyanteng@cqsoftware.com.cn>,
-	Yao Zi <ziyao@disroot.org>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Tue, 20 Jan 2026 06:59:10 +0000
+X-UUID: 811afaaef5cd11f0b0f03b4cfa9209d1-20260120
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:56069a1a-b44a-4c38-a798-2abbc3fcc918,IP:0,UR
+	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-25
+X-CID-META: VersionHash:a9d874c,CLOUDID:3837b84ef2212740f4955e3344fc799f,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
+	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
+	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 811afaaef5cd11f0b0f03b4cfa9209d1-20260120
+X-User: jiangfeng@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <jiangfeng@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1050199038; Tue, 20 Jan 2026 14:59:03 +0800
+From: Feng Jiang <jiangfeng@kylinos.cn>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	akpm@linux-foundation.org,
+	kees@kernel.org,
+	andy@kernel.org,
+	jiangfeng@kylinos.cn,
+	ebiggers@kernel.org,
+	martin.petersen@oracle.com,
+	ardb@kernel.org,
+	charlie@rivosinc.com,
+	conor.dooley@microchip.com,
+	ajones@ventanamicro.com,
+	linus.walleij@linaro.org,
+	nathan@kernel.org
+Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH net-next 1/3] dt-bindings: net: Add support for Spacemit K3 dwmac
-Date: Tue, 20 Jan 2026 12:36:06 +0800
-Message-ID: <20260120043609.910302-2-inochiama@gmail.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260120043609.910302-1-inochiama@gmail.com>
-References: <20260120043609.910302-1-inochiama@gmail.com>
+	linux-hardening@vger.kernel.org,
+	Joel Stanley <joel@jms.id.au>
+Subject: [PATCH v3 8/8] riscv: lib: add strrchr implementation
+Date: Tue, 20 Jan 2026 14:58:52 +0800
+Message-Id: <20260120065852.166857-9-jiangfeng@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260120065852.166857-1-jiangfeng@kylinos.cn>
+References: <20260120065852.166857-1-jiangfeng@kylinos.cn>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_222020_006387_3BDFEA4B 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20260119_225909_258026_17F0001D 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,161 +93,127 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The GMAC IP on Spacemit K3 is almost a standard Synopsys DesignWare
-MAC (version 5.40a) with some extra clock.
+Add an assembly implementation of strrchr() for RISC-V.
 
-Add necessary compatible string for this device.
+This implementation minimizes instruction count and avoids unnecessary
+memory access to the stack. The performance benefits are most visible
+on small workloads (1-16 bytes) where the architectural savings in
+function overhead outweigh the execution time of the scan loop.
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+Benchmark results (QEMU TCG, rv64):
+  Length | Original (MB/s) | Optimized (MB/s) | Improvement
+  -------|-----------------|------------------|------------
+  1 B    | 21              | 22               | +4.7%
+  7 B    | 116             | 122              | +5.1%
+  16 B   | 195             | 208              | +6.6%
+  512 B  | 388             | 399              | +2.8%
+  4096 B | 411             | 411              | +0.0%
+
+Suggested-by: Andy Shevchenko <andy@kernel.org>
+Tested-by: Joel Stanley <joel@jms.id.au>
+Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
 ---
- .../devicetree/bindings/net/snps,dwmac.yaml   |   3 +
- .../bindings/net/spacemit,k3-dwmac.yaml       | 107 ++++++++++++++++++
- 2 files changed, 110 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+ arch/riscv/include/asm/string.h |  3 +++
+ arch/riscv/lib/Makefile         |  1 +
+ arch/riscv/lib/strrchr.S        | 37 +++++++++++++++++++++++++++++++++
+ arch/riscv/purgatory/Makefile   |  5 ++++-
+ 4 files changed, 45 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/lib/strrchr.S
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index dd3c72e8363e..3c2c6cb6b10b 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -34,6 +34,7 @@ select:
-           - snps,dwmac-5.10a
-           - snps,dwmac-5.20
-           - snps,dwmac-5.30a
-+          - snps,dwmac-5.40a
-           - snps,dwxgmac
-           - snps,dwxgmac-2.10
+diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
+index ca3ade82b124..764ffe8f6479 100644
+--- a/arch/riscv/include/asm/string.h
++++ b/arch/riscv/include/asm/string.h
+@@ -34,6 +34,9 @@ extern asmlinkage __kernel_size_t strnlen(const char *, size_t);
  
-@@ -108,6 +109,7 @@ properties:
-         - snps,dwmac-5.10a
-         - snps,dwmac-5.20
-         - snps,dwmac-5.30a
-+        - snps,dwmac-5.40a
-         - snps,dwxgmac
-         - snps,dwxgmac-2.10
-         - sophgo,sg2042-dwmac
-@@ -653,6 +655,7 @@ allOf:
-                 - snps,dwmac-5.10a
-                 - snps,dwmac-5.20
-                 - snps,dwmac-5.30a
-+                - snps,dwmac-5.40a
-                 - snps,dwxgmac
-                 - snps,dwxgmac-2.10
-                 - st,spear600-gmac
-diff --git a/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+ #define __HAVE_ARCH_STRCHR
+ extern asmlinkage char *strchr(const char *, int);
++
++#define __HAVE_ARCH_STRRCHR
++extern asmlinkage char *strrchr(const char *, int);
+ #endif
+ 
+ /* For those files which don't want to check by kasan. */
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index b7f804dce1c3..735d0b665536 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -9,6 +9,7 @@ lib-y			+= strlen.o
+ lib-y			+= strncmp.o
+ lib-y			+= strnlen.o
+ lib-y			+= strchr.o
++lib-y			+= strrchr.o
+ endif
+ lib-y			+= csum.o
+ ifeq ($(CONFIG_MMU), y)
+diff --git a/arch/riscv/lib/strrchr.S b/arch/riscv/lib/strrchr.S
 new file mode 100644
-index 000000000000..58dd98f79e8a
+index 000000000000..ac58b20ca21d
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
-@@ -0,0 +1,107 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/spacemit,k3-dwmac.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/arch/riscv/lib/strrchr.S
+@@ -0,0 +1,37 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
 +
-+title: Spacemit K3 DWMAC glue layer
++/*
++ * Copyright (C) 2025 Feng Jiang <jiangfeng@kylinos.cn>
++ */
 +
-+maintainers:
-+  - Inochi Amaoto <inochiama@gmail.com>
++#include <linux/linkage.h>
++#include <asm/asm.h>
 +
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        const: spacemit,k3-dwmac
-+  required:
-+    - compatible
++/* char *strrchr(const char *s, int c) */
++SYM_FUNC_START(strrchr)
++	/*
++	 * Parameters
++	 *	a0 - The string to be searched
++	 *	a1 - The character to seaerch for
++	 *
++	 * Returns
++	 *	a0 - Address of last occurrence of 'c' or 0
++	 *
++	 * Clobbers
++	 *	t0, t1
++	 */
++	andi	a1, a1, 0xff
++	mv	t1, a0
++	li	a0, 0
++1:
++	lbu	t0, 0(t1)
++	bne	t0, a1, 2f
++	mv	a0, t1
++2:
++	addi	t1, t1, 1
++	bnez	t0, 1b
++	ret
++SYM_FUNC_END(strrchr)
 +
-+properties:
-+  compatible:
-+    items:
-+      - const: spacemit,k3-dwmac
-+      - const: snps,dwmac-5.40a
++SYM_FUNC_ALIAS_WEAK(__pi_strrchr, strrchr)
++EXPORT_SYMBOL(strrchr)
+diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
+index e7b3d748c913..b0358a78f11a 100644
+--- a/arch/riscv/purgatory/Makefile
++++ b/arch/riscv/purgatory/Makefile
+@@ -2,7 +2,7 @@
+ 
+ purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o
+ ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
+-purgatory-y += strcmp.o strlen.o strncmp.o strnlen.o strchr.o
++purgatory-y += strcmp.o strlen.o strncmp.o strnlen.o strchr.o strrchr.o
+ endif
+ 
+ targets += $(purgatory-y)
+@@ -38,6 +38,9 @@ $(obj)/strnlen.o: $(srctree)/arch/riscv/lib/strnlen.S FORCE
+ $(obj)/strchr.o: $(srctree)/arch/riscv/lib/strchr.S FORCE
+ 	$(call if_changed_rule,as_o_S)
+ 
++$(obj)/strrchr.o: $(srctree)/arch/riscv/lib/strrchr.S FORCE
++	$(call if_changed_rule,as_o_S)
 +
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    minItems: 3
-+    items:
-+      - description: GMAC main clock
-+      - description: PTP clock
-+      - description: TX clock
-+      - description: PHY clock
-+
-+  clock-names:
-+    minItems: 3
-+    items:
-+      - const: stmmaceth
-+      - const: ptp_ref
-+      - const: tx
-+      - const: phy
-+
-+  interrupts:
-+    minItems: 1
-+    items:
-+      - description: MAC interrupt
-+      - description: MAC wake interrupt
-+
-+  interrupt-names:
-+    minItems: 1
-+    items:
-+      - const: macirq
-+      - const: eth_wake_irq
-+
-+  resets:
-+    maxItems: 1
-+
-+  reset-names:
-+    const: stmmaceth
-+
-+  spacemit,apmu:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to the syscon node which control the glue register
-+          - description: offset of the control register
-+          - description: offset of the dline register
-+
-+    description:
-+      A phandle to syscon with offset to control registers for this MAC
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - interrupt-names
-+  - resets
-+  - reset-names
-+
-+allOf:
-+  - $ref: snps,dwmac.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    eth0: ethernet@cac80000 {
-+      compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
-+      reg = <0xcac80000 0x2000>;
-+      clocks = <&syscon_apmu 66>, <&syscon_apmu 68>,
-+               <&syscon_apmu 69>;
-+      clock-names = "stmmaceth", "ptp_ref", "tx";
-+      interrupts = <131 IRQ_TYPE_LEVEL_HIGH>, <276 IRQ_TYPE_LEVEL_HIGH>;
-+      interrupt-names = "macirq", "eth_wake_irq";
-+      phy-mode = "rgmii-id";
-+      phy-handle = <&phy0>;
-+      resets = <&syscon_apmu 67>;
-+      reset-names = "stmmaceth";
-+      spacemit,apmu = <&syscon_apmu 0x384 0x38c>;
-+    };
-+
+ CFLAGS_sha256.o := -D__DISABLE_EXPORTS -D__NO_FORTIFY
+ CFLAGS_string.o := -D__DISABLE_EXPORTS
+ CFLAGS_ctype.o := -D__DISABLE_EXPORTS
 -- 
-2.52.0
+2.25.1
 
 
 _______________________________________________
