@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C30F4D2ECF7
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 13:49:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 618C4D2ECE9
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 13:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jTMQnSSdV7mCIAt0gqOkoDbEDFJvRkvY+vS+9FUKga8=; b=zdfi8QRUy6ifWl
-	e+cBJzYZu26oJl36GjKp0JgpTANNLPkSfvFoxKekxTcTMHLRzccC15baQD1G3dwCg/43SjQRAzv6v
-	fx7Ey3Hzd5sksVmG2WHmZgcLP/NPHJviUopXi3SyccN3BPTjqsvqXJvOtYMygLqJCMPaXDusw8vDQ
-	yPIKumSXVnlBTUDUHZDlh1i7Bf8Y9HP4FmAwLTTJgR/QWDrhYYrxoEGxpgPD411tHFPAmlweR+nBi
-	LW1OSFp9QBvweuxEI20drqdBuvTIIZpfeIPjxZFgBs+rYzDi9Cl0ZQDYx9sWBza4kXfp9FMi3uMu6
-	j+yywqqTkzp2x40HRp/A==;
+	List-Owner; bh=WtPDHuElwgzQP+GPZp5xsI4BtU4pSlHXPs7FLTAmPNc=; b=HQKKmduDb76kip
+	JyUt0frUd0MZAhVHel/H+D0Yv8rUWBvKYhgBZ7FZwRvffzrxLgck7BEoB6edqAwy/f4lbNkMrjwXh
+	GJe5sdenBJ9T++2c9QhCynwH0d27Ub21VuZlZq48meXZqHO/2W8RTzWK9vmFnCH5ZcpPtwiDJr11A
+	63whj+byBQrGMqEW50ld9fm7Ytd54cxfpVAQeViV++5398Ofnq1WE/wdvpeHyugQ9Tkl2VNFMNY1B
+	Y+5Wkdn5M0vgDoUM5jMKH6wcwUZtEQjqDPSBqOPFmbp2eAvIMbr+hr4HEWWz1Qn/gNxFUkPzBj5AM
+	X3koeBxRPwFAEaNgWwuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viC6L-00000003vrx-1Y7w;
-	Tue, 20 Jan 2026 13:48:57 +0000
+	id 1viCEB-00000003wI9-2ddB;
+	Tue, 20 Jan 2026 13:57:03 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viC6I-00000003vrV-2OjN;
-	Tue, 20 Jan 2026 13:48:55 +0000
+	id 1viCE9-00000003wHf-1XfW;
+	Tue, 20 Jan 2026 13:57:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=qyLmoKDip8mb9xeBIhPS2JElYYtGvtICGd4heml4sBM=; b=Sxbab9wUBTL3beDPBjlCANIkOu
-	0pvVFyMTIUssN8KrOHq2Ohdgune2ofMMYij8VIOwcnEonn1KJM3X4MrFmt1RtFGU3r4KEubWXyuxF
-	s4S6Fqly7efORJ5dkw/biM3rPfErfBr34I3BA2QdIFhst29jEQbmpqL9aTu6h95/OVbE=;
+	bh=QtbdNomdPucfxnW3rL++HESsroFk6TDesTIE5AoPiVQ=; b=oI5F92+YDAysPNopnvpJdE5ILn
+	TIHf/z42aRZw8xLvonGdJy4BsvmKVOC6ctX7R4KDZO02EHBbu2CY6UrEk/JXHaYcLEbSyfbbz+k4n
+	z4j1Fh0gT+oKgP7jaLDxmEaFpioFiRLlTNzFXE8gsOCHaOwjEl53Dsp/xPGVO7LaygsM=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1viC5c-003gSB-9P; Tue, 20 Jan 2026 14:48:12 +0100
-Date: Tue, 20 Jan 2026 14:48:12 +0100
+	id 1viCDa-003gVE-Ex; Tue, 20 Jan 2026 14:56:26 +0100
+Date: Tue, 20 Jan 2026 14:56:26 +0100
 From: Andrew Lunn <andrew@lunn.ch>
 To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Yao Zi <me@ziyao.cc>, Andrew Lunn <andrew+netdev@lunn.ch>,
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
@@ -70,19 +70,17 @@ Cc: Yao Zi <me@ziyao.cc>, Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next 1/3] dt-bindings: net: Add support for Spacemit
- K3 dwmac
-Message-ID: <9334905d-d11b-49d4-92b1-61e8cf644f0f@lunn.ch>
+Subject: Re: [PATCH net-next 3/3] net: stmmac: Add glue layer for Spacemit K3
+ SoC
+Message-ID: <f8e4c5ec-94b1-4da0-8a40-976770514828@lunn.ch>
 References: <20260120043609.910302-1-inochiama@gmail.com>
- <20260120043609.910302-2-inochiama@gmail.com>
- <aW9fL7r0AM0flALJ@pie>
- <aW9ou-lsQQ5dVzqW@inochi.infowork>
+ <20260120043609.910302-4-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aW9ou-lsQQ5dVzqW@inochi.infowork>
+In-Reply-To: <20260120043609.910302-4-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_054854_640115_22150C08 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20260120_055701_430935_AA001EF4 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,19 +97,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> IIRC, the "phy" clock is used to pass the phy from the mac core, I will
-> double check if it is possible to connect to the phy directly.
+> +/* Note: the delay step value is at 0.1ps */
+> +static const unsigned int k3_delay_step_10x[4] = {
+> +	367, 493, 559, 685
+> +};
 
-Are you saying this is the reference clock output from the MAC being
-fed to the PHY? That would be a clock provider, not a clock consumer.
+Am i reading it correctly that RGMII delays are limited to these four
+values?
 
-Or is it the reference clock output from the PHY going to the MAC?
-Then the MAC would be a consumer.
+If so, please add this list to the DT binding.
 
-And there are some designs which have a third party generate the
-clock, and both the MAC and the PHY consume it.
+> +static int spacemit_dwmac_detected_delay_value(unsigned int delay,
+> +					       unsigned int *config)
+> +{
+> +	int i;
+> +	int code, best_code = 0;
+> +	unsigned int best_delay = 0;
+> +	unsigned int best_config = 0;
+> +
+> +	if (delay == 0)
+> +		return 0;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(k3_delay_step_10x); i++) {
+> +		unsigned int step = k3_delay_step_10x[i];
+> +
+> +		for (code = 1; code <= MAX_DLINE_DELAY_CODE; code++) {
+> +			/*
+> +			 * Note K3 require a specific factor for calculate
+> +			 * the delay, in this scenario it is 0.9. So the
+> +			 * formula is code * step / 10 * 0.9
+> +			 */
+> +			unsigned int tmp = code * step * 9 / 10 / 10;
+> +
+> +			if (abs(tmp - delay) < abs(best_delay - delay)) {
+> +				best_code = code;
+> +				best_delay = tmp;
+> +				best_config = i;
+> +			}
+> +		}
+> +	}
 
-     Andrew
+With the four values listed in DT, i would make this a straight match,
+not the nearest, and return -EINVAL otherwise.
+
+    Andrew
 
 _______________________________________________
 linux-riscv mailing list
