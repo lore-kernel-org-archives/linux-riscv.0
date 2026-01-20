@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2DD5D2ED11
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 04:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECFA9D2ED0F
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 04:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
 	MIME-Version:Subject:Date:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w/4m12vY66mlzlqsinNBlFRfB1275xd5mc+SQ/U2qE4=; b=M0SAJAbxi5/CA/
-	+qlqpDRB+CdPYWgGSwzQVs5kdAUgkZ1OLAMx4KRZyvcP6juo23XlLZMRUo9rHh6hmRnLUrnskV+Vy
-	F74Q78fpU38ftvdH2EHE4I/M0D9uqMr13Le9SYf45oG0sMaZmc1Ob+xlIbaJESRFFdOYG1qr7AC40
-	2xUB19k4x94RuNqEk9VzmZc/UT4+cjoS6dcxzwBGuysMe5Tgyt0tA4D2h89l1KWyRZcNLZ4aM8/7i
-	O1xngOQReJ5f90GpVr5j/M08gW5FzyPUzvAMkbpImeOGT5J3lNi+CuY8Tg4FE6NfFNp5G4q70iSt4
-	iudgjtXDYz6HoZtnRfFg==;
+	List-Owner; bh=9SF/Kf6izbRhqG31Dl2IgsLOhcptYWgePJGrpru6Sb4=; b=LJiSWcrSC01Qpl
+	EpW9dO7Yv87EwEfib7MGrk9SO2qtoPn23EBm5V+UrLSqg7hW25damOVeneXZpqV2ts3L9IPwVPBRa
+	zPgR7pwEQ6Pq/jt7ojSjNd5KS3Rpn1waRupzcTQuRYxW/i81Nn7UK2XUHKmOAJ6UGv/QPyXtdRXRk
+	vvFwLwm0T27zVXR6u60GJ7vkDNpFfkS9l3MXoMKwEMUgdz9zJoeH/SmismVyKN61A4lhFx+OqdwAy
+	9G0iXCVwjpb322qkmeCE3E6luV9TLeO7PGnG3yiuM8gVxPYByjQUsPx+ofvSqUXQT3ddcV1++QuEu
+	pO+HxLubju/e67LZOxmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi39J-000000039Mp-3odb;
-	Tue, 20 Jan 2026 04:15:26 +0000
+	id 1vi39b-000000039ON-0mpV;
+	Tue, 20 Jan 2026 04:15:43 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi39D-000000039Kw-2WGm
+	id 1vi39E-000000039Ky-11rO
 	for linux-riscv@lists.infradead.org;
 	Tue, 20 Jan 2026 04:15:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 779E660158;
+	by tor.source.kernel.org (Postfix) with ESMTP id 7D81A60152;
+	Tue, 20 Jan 2026 04:15:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3B24C19421;
 	Tue, 20 Jan 2026 04:15:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B39C6C2BCB1;
-	Tue, 20 Jan 2026 04:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768882518;
-	bh=/bDxWcPBw7DqP8cMaBdDBq6xIoctZXAai1IBsm35Yn8=;
+	s=k20201202; t=1768882519;
+	bh=e1gD37k8W4Pzp7U55pR9/mebQe/hwn2pjhUSiquHa+s=;
 	h=From:Date:Subject:References:In-Reply-To:To:From;
-	b=bDM3mPlopQCjNR/5OkhnqbDNy0mwIxVLOtVwPt9ZZx5D5Q0FZUc+6BWgmg3VfnWWS
-	 Zb0OL+UJkjW7nPdztp5vTl4eRqhgm11FeuwOZN6p3577GlNVEDdZgEOgsDJ/6OUJJg
-	 3FgtEalpwkoip9rRqZDsBhEbAN5OiuSkmvhhLzCJo7RbminDTApqvC417B8v5IqoLi
-	 nm1o3HvUM5KK8AKNZAigLmEaYmtyABPqqcgtZ7VsH7O9T7qO9Mvqc1tN+Rk2lFl3q4
-	 bnQTbGOQbQhfPC3O93SEfPL3h3arHyRr9jHehextMspa+b2qdQpwkC1iSV20hRhGOK
-	 D0Vbd6YGihZRw==
+	b=KiKv/zLSLl24ROOPMupclmjRMeAtAOud503ezve+J0sps06z8lg9xDGgs/gxUV5Gf
+	 TpioUc53xeE9Kywr78ChG8mllTEAzfw4cPwXBcsukdRnu6tGYISiJYIR/eQz+mBq+E
+	 48Yy4fg1W4RIGbHi/R5PwdSaCafnCVt8CMlR9AyiKmvl5Gipz9pwJmS64NNP7bCrC+
+	 +GNPzmTx5XwlxjoVT53PQziE9KwEaUWjSrArbNDI9cHwe9f0B9w2CRfVVO9DZRxWSO
+	 wuVQdAzZyecEG2h8cvBfO8DI3GxW+YYYKfA4Muk10qsrmRxOJZjJ/pJvfearNKTPbo
+	 ECUOH69/YBVvw==
 From: Drew Fustini <fustini@kernel.org>
-Date: Mon, 19 Jan 2026 20:14:39 -0800
-Subject: [PATCH RFC 02/19] RISC-V: Detect the Ssqosid extension
+Date: Mon, 19 Jan 2026 20:14:41 -0800
+Subject: [PATCH RFC 04/19] RISC-V: QoS: define properties of CBQRI
+ controllers
 MIME-Version: 1.0
-Message-Id: <20260119-ssqosid-cbqri-v1-2-aa2a75153832@kernel.org>
+Message-Id: <20260119-ssqosid-cbqri-v1-4-aa2a75153832@kernel.org>
 References: <20260119-ssqosid-cbqri-v1-0-aa2a75153832@kernel.org>
 In-Reply-To: <20260119-ssqosid-cbqri-v1-0-aa2a75153832@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -72,12 +73,12 @@ To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, x86@kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1616; i=fustini@kernel.org;
- h=from:subject:message-id; bh=/bDxWcPBw7DqP8cMaBdDBq6xIoctZXAai1IBsm35Yn8=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTmMwYd63/sYelVnyTbru5XsFpk6pZXaw5kP2Bttitf/
- OzCidJ3HaUsDGJcDLJiiiybPuRdWOIV+nXB/BfbYOawMoEMYeDiFICJ8Jxi+MNh7ek95cANA71l
- NoynT361jD3iMs3USktfNfvW3EWPo78z/FO5cLCG+Zh+3n/FP4vql317FycVra55s1s+S+xdHHd
- 0GQsA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1881; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=e1gD37k8W4Pzp7U55pR9/mebQe/hwn2pjhUSiquHa+s=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTmMwZN5rP20bO/dDmHP7S/7cIfjRLnCTPvKu/bpdMrd
+ k1Rtkyho5SFQYyLQVZMkWXTh7wLS7xCvy6Y/2IbzBxWJpAhDFycAjCR/+WMDCdWXmdxLXSdYd+X
+ 7Jqy/MAknU83Y5fYaG5kF2bp/ftC7gUjwxP9amW2zDSJeYve7TkxOcxI59RiGR8vtguPhbXezL2
+ 6kwEA
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -91,39 +92,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-U3Nxb3NpZCBpcyB0aGUgUklTQy1WIFF1YWxpdHktb2YtU2VydmljZSAoUW9TKSBJZGVudGlmaWVy
-cyBzcGVjaWZpY2F0aW9uCndoaWNoIGRlZmluZXMgdGhlIFN1cGVydmlzb3IgUmVzb3VyY2UgTWFu
-YWdlbWVudCBDb25maWd1cmF0aW9uIChzcm1jZmcpCnJlZ2lzdGVyLgoKTGluazogaHR0cHM6Ly9n
-aXRodWIuY29tL3Jpc2N2L3Jpc2N2LXNzcW9zaWQvcmVsZWFzZXMvdGFnL3YxLjAKU2lnbmVkLW9m
-Zi1ieTogS29ybmVsIER1bMSZYmEgPG1pbmRhbEBzZW1paGFsZi5jb20+CltmdXN0aW5pOiByZWJh
-c2Ugb24gcmlzY3YvZm9yLW5leHRdClNpZ25lZC1vZmYtYnk6IERyZXcgRnVzdGluaSA8ZnVzdGlu
-aUBrZXJuZWwub3JnPgotLS0KIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaCB8IDEgKwog
-YXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jIHwgMSArCiAyIGZpbGVzIGNoYW5nZWQsIDIg
-aW5zZXJ0aW9ucygrKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAu
-aCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAppbmRleCA0MzY5YTIzMzg1NDEuLjI4
-ZGZmODIzM2IzNCAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oCisr
-KyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaApAQCAtMTEwLDYgKzExMCw3IEBACiAj
-ZGVmaW5lIFJJU0NWX0lTQV9FWFRfWkFMQVNSCQkxMDEKICNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9a
-SUxTRAkJMTAyCiAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWkNMU0QJCTEwMworI2RlZmluZSBSSVND
-Vl9JU0FfRVhUX1NTUU9TSUQJCTEwNAogCiAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWExJTlVYRU5W
-Q0ZHCTEyNwogCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMgYi9h
-cmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKaW5kZXggYzA1YjExNTk2YzE5Li5iZjcwNGI0
-ODY3OWMgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYworKysgYi9h
-cmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKQEAgLTU1OCw2ICs1NTgsNyBAQCBjb25zdCBz
-dHJ1Y3QgcmlzY3ZfaXNhX2V4dF9kYXRhIHJpc2N2X2lzYV9leHRbXSA9IHsKIAlfX1JJU0NWX0lT
-QV9FWFRfREFUQShzc2FpYSwgUklTQ1ZfSVNBX0VYVF9TU0FJQSksCiAJX19SSVNDVl9JU0FfRVhU
-X0RBVEEoc3Njb2ZwbWYsIFJJU0NWX0lTQV9FWFRfU1NDT0ZQTUYpLAogCV9fUklTQ1ZfSVNBX0VY
-VF9TVVBFUlNFVChzc25wbSwgUklTQ1ZfSVNBX0VYVF9TU05QTSwgcmlzY3ZfeGxpbnV4ZW52Y2Zn
-X2V4dHMpLAorCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNzcW9zaWQsIFJJU0NWX0lTQV9FWFRfU1NR
-T1NJRCksCiAJX19SSVNDVl9JU0FfRVhUX0RBVEEoc3N0YywgUklTQ1ZfSVNBX0VYVF9TU1RDKSwK
-IAlfX1JJU0NWX0lTQV9FWFRfREFUQShzdmFkZSwgUklTQ1ZfSVNBX0VYVF9TVkFERSksCiAJX19S
-SVNDVl9JU0FfRVhUX0RBVEFfVkFMSURBVEUoc3ZhZHUsIFJJU0NWX0lTQV9FWFRfU1ZBRFUsIHJp
-c2N2X2V4dF9zdmFkdV92YWxpZGF0ZSksCgotLSAKMi40My4wCgoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Define data structure to represent the CBQRI properties that a driver
+for an CBQRI-capable controller would discover during probe.
+
+Each instance of a CBQRI-capable controller is added to a list that the
+RISC-V CBQRI resctrl implementation will consume.
+
+Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+Signed-off-by: Drew Fustini <fustini@kernel.org>
+---
+ MAINTAINERS               |  1 +
+ include/linux/riscv_qos.h | 34 ++++++++++++++++++++++++++++++++++
+ 2 files changed, 35 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index e98d553bd0ca..31e536304972 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22511,6 +22511,7 @@ L:	linux-riscv@lists.infradead.org
+ S:	Supported
+ F:	arch/riscv/include/asm/qos.h
+ F:	arch/riscv/kernel/qos/
++F:	include/linux/riscv_qos.h
+ 
+ RISC-V RPMI AND MPXY DRIVERS
+ M:	Rahul Pathak <rahul@summations.net>
+diff --git a/include/linux/riscv_qos.h b/include/linux/riscv_qos.h
+new file mode 100644
+index 000000000000..51c3a96bbcd0
+--- /dev/null
++++ b/include/linux/riscv_qos.h
+@@ -0,0 +1,34 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++#ifndef __LINUX_RISCV_QOS_H
++#define __LINUX_RISCV_QOS_H
++
++#include <linux/iommu.h>
++#include <linux/types.h>
++
++#include <asm/qos.h>
++
++enum cbqri_controller_type {
++	CBQRI_CONTROLLER_TYPE_CAPACITY,
++	CBQRI_CONTROLLER_TYPE_BANDWIDTH,
++	CBQRI_CONTROLLER_TYPE_UNKNOWN
++};
++
++struct cbqri_controller_info {
++	unsigned long addr;
++	unsigned long size;
++	enum cbqri_controller_type type;
++	u32 rcid_count;
++	u32 mcid_count;
++	struct list_head list;
++
++	struct cache_controller {
++		u32 cache_level;
++		u32 cache_size; /* in bytes */
++		struct cpumask cpu_mask;
++	} cache;
++};
++
++extern struct list_head cbqri_controllers;
++
++#endif /* __LINUX_RISCV_QOS_H */
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
