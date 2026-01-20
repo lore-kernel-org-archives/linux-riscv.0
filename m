@@ -4,74 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75421CA5FA8
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 16:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67390CA5FA7
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 16:32:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Cqe9t3IUneInHxcuwB/rRJMOuS7xsjV50tiA4OI7zDw=; b=FyB0g9zVIfe54b
-	VZrjRsPglSdSSzvD2GMctrgqn8Rx6VfkSdhxB1KiKbXOyae8xFfENREG7f1onhiFr9b+nXpw+7Jzx
-	bWYpu/DCCUqh1OhW3RJBol2ccHEFgL6XRM5KV9X1NAqXo4pXLkDVZ+BXK+oTU1JWbc4bLVAh4g9HO
-	qF7l7b91yMAhJ73dPLOAPMHE6ao0KNUw+6+gnpcRPV8yReJg4laV8nEbDKjxKjWzUqfCN6I48ncJJ
-	0gp9gf7Ub7VGDQH3qlqsXKkIX2EflFfJyyD124SXFSBXfrxwD5LGIGXaKeL/9rDyl8Pf0yqOKIal8
-	vQDrreKAGpAge4EG9xTA==;
+	List-Owner; bh=SvB2rLa/oHH9K6sa8fIiY/rxBkzGQfgZaXh0E4FOhJQ=; b=SZclY4AUGe4nuH
+	xHZ7/8JM32jNFtsAZ9z20rWyY5Wpo2QVE3h1dU+EBdeu8GZnMuSbfSPmq+ghnKG2DWl7TNXihlOip
+	sTlk5Wo/myzGB+B/BDK7WZrL2KYJ+4e/8XzpRsp/qnFPycqYXl1IDh6pHmaGRDnu0GnjNr1eJtYTh
+	NbVpmjIZQzfq0714fjanFlAbm2TXvSojKTKfFuq8yronltwd+ePhcXmYS86G2uqBo7M9BcRwxoJY2
+	XgJvHsp8BUUPRZ0wMrIkZLh1VVRalBodmwPHC9ndT2Y0tbo2R/v9Ej6gguV7N2lW6MjCjvVkzkmoV
+	T5fj7hr7zN1Ab2hvKRqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viEPF-000000048zi-2wGQ;
-	Tue, 20 Jan 2026 16:16:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viEPD-000000048zI-1Xuh
-	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 16:16:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A6CB444085
-	for <linux-riscv@lists.infradead.org>; Tue, 20 Jan 2026 16:16:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80B1DC2BCB2
-	for <linux-riscv@lists.infradead.org>; Tue, 20 Jan 2026 16:16:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768925794;
-	bh=BNzsItdhwN4AlCLoipqscYZCx4sHqbuRLNDIVXpilSk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=THSDmi8gq235TCymdcD40neouylxEUPybAk8IqPK1VlC9tfnkSczzfK6vsoo+M7vm
-	 eXRPBc7IzwbOSPtHHf8dHvyl+qHLHU4MtJpcRy0md+yhVkI3QX0Wf9ZYLfVQc5BSI1
-	 EpHa3DG6ExQiIEki+f+ELIQVkMORCQqN0OFyLZu1xmbWwpQIqrBaWzxjzqxN3FzfI0
-	 wzaQ9R0CufxLLJ2C+ysHLBMxD0wT9LjUP0aUYVKk5p9C2c3t3djt/tuO+lpqqgq+dD
-	 c1KckqjyOcvQbx+YLaC0JIE7KedRkmAOFwWC8fFgTA0UlhvXaSSwSGeNAhlnSKX2WG
-	 hQVTvJWeGqqpA==
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-382fea4a160so53345771fa.2
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Jan 2026 08:16:34 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUGz+l7fiC3DAU7tGGd+nwmgewg/JY3rPTPYNxO/Ctdt6xdvomRUohcTw3C58ofKgEpG+V8omZewu/BGg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyM481kW092Om57lNek47yxyjHTIllMjO306lCBPL3Ste6qcN9s
-	893poaouLv/kpqJj/2udZaPSGalniRSw2vcG2DIKlnF7n2JKuX9qF0rrRZDxFFgF3UgffAFqX4S
-	PK5WchdzMAtDo6s7c+4hZHEm9amMsPz0=
-X-Received: by 2002:a05:651c:3612:b0:378:d5dc:17c2 with SMTP id
- 38308e7fff4ca-3838417c912mr56935201fa.11.1768925793031; Tue, 20 Jan 2026
- 08:16:33 -0800 (PST)
+	id 1viEec-00000004Apj-092J;
+	Tue, 20 Jan 2026 16:32:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viEeX-00000004AoO-1XbN;
+	Tue, 20 Jan 2026 16:32:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B3771476;
+	Tue, 20 Jan 2026 08:32:16 -0800 (PST)
+Received: from [10.1.39.200] (XHFQ2J9959.cambridge.arm.com [10.1.39.200])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BFE823F694;
+	Tue, 20 Jan 2026 08:32:18 -0800 (PST)
+Message-ID: <785a7d90-babe-43af-93a6-c220c1877bcf@arm.com>
+Date: Tue, 20 Jan 2026 16:32:17 +0000
 MIME-Version: 1.0
-References: <20251222-cstr-pwm-v1-1-e8916d976f8d@gmail.com> <o4uvwymm73wnehs5zb7lqgv3mjv235jpprfqrsb6oxscxhmmjh@25u7wrb7yo2i>
-In-Reply-To: <o4uvwymm73wnehs5zb7lqgv3mjv235jpprfqrsb6oxscxhmmjh@25u7wrb7yo2i>
-From: Tamir Duberstein <tamird@kernel.org>
-Date: Tue, 20 Jan 2026 11:15:56 -0500
-X-Gmail-Original-Message-ID: <CAJ-ks9=USrGECVS1qMqs+iCKUqvOdfcjA6phAjaF0wfcTkQt_g@mail.gmail.com>
-X-Gm-Features: AZwV_QhGR5x54f9_gIkwS8dqtjPRJRBl1YkXPqMFOsqu-3oh6YnupyEAn_EqRwc
-Message-ID: <CAJ-ks9=USrGECVS1qMqs+iCKUqvOdfcjA6phAjaF0wfcTkQt_g@mail.gmail.com>
-Subject: Re: [PATCH] drivers: pwm: replace `kernel::c_str!` with C-Strings
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>
-Cc: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, linux-riscv@lists.infradead.org, 
-	linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, Michal Wilczynski <m.wilczynski@samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/3] Fix bugs and performance of kstack offset
+ randomisation
+Content-Language: en-GB
+To: Kees Cook <kees@kernel.org>, Dave Hansen <dave.hansen@intel.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>, Arnd Bergmann
+ <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Jeremy Linton <jeremy.linton@arm.com>,
+ David Laight <david.laight.linux@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20260119130122.1283821-1-ryan.roberts@arm.com>
+ <20fb97f1-7e50-485a-bdfd-a2901d20ec84@intel.com>
+ <C502BCE6-2FB2-4A06-93A8-E8DEDFC22914@kernel.org>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <C502BCE6-2FB2-4A06-93A8-E8DEDFC22914@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_081635_451745_8E122576 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20260120_083225_449484_344D2076 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,41 +77,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKYW4gMjAsIDIwMjYgYXQgMzozOeKAr0FNIFV3ZSBLbGVpbmUtS8O2bmlnIDx1a2xl
-aW5la0BrZXJuZWwub3JnPiB3cm90ZToKPgo+IEhlbGxvLAo+Cj4gT24gTW9uLCBEZWMgMjIsIDIw
-MjUgYXQgMDE6MjQ6NDZQTSArMDEwMCwgVGFtaXIgRHViZXJzdGVpbiB3cm90ZToKPiA+IEZyb206
-IFRhbWlyIER1YmVyc3RlaW4gPHRhbWlyZEBnbWFpbC5jb20+Cj4gPgo+ID4gQy1TdHJpbmcgbGl0
-ZXJhbHMgd2VyZSBhZGRlZCBpbiBSdXN0IDEuNzcuIFJlcGxhY2UgaW5zdGFuY2VzIG9mCj4gPiBg
-a2VybmVsOjpjX3N0ciFgIHdpdGggQy1TdHJpbmcgbGl0ZXJhbHMgd2hlcmUgcG9zc2libGUuCj4g
-Pgo+ID4gU2lnbmVkLW9mZi1ieTogVGFtaXIgRHViZXJzdGVpbiA8dGFtaXJkQGdtYWlsLmNvbT4K
-Pgo+IEFwcGxpZWQgdG8KPgo+ICAgICAgICAgaHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2Nt
-L2xpbnV4L2tlcm5lbC9naXQvdWtsZWluZWsvbGludXguZ2l0IHB3bS9mb3ItbmV4dAo+Cj4gYXMg
-bWVyZ2Ugd2luZG93IG1hdGVyaWFsIHdpdGggdGhlIFItYiB0YWdzIGJ5IE1pY2hhbCBXaWxjenlu
-c2tpIGFuZAo+IERhbmllbCBBbG1laWRhLgo+Cj4gKFNpZGUgbm90ZSwgYjQgdG9sZCBtZToKPgo+
-ICAgICAgICAgICDinJcgTm8ga2V5OiBvcGVuc3NoL3RhbWlyZEBnbWFpbC5jb20KPgo+IC4gSXQn
-cyBub3QgY2xlYXIgdG8gbWUgaG93IHRvIHZlcmlmeSB0aGlzIHNpZ25hdHVyZS4gTXkgZXhwZXJp
-bWVudHMKPiBpbmNsdWRlOgo+Cj4gICAgICAgICAkIGI0IGtyIC0tc2hvdy1rZXlzIDIwMjUxMjIy
-LWNzdHItcHdtLXYxLTEtZTg5MTZkOTc2ZjhkQGdtYWlsLmNvbQo+ICAgICAgICAgLS0tCj4gICAg
-ICAgICBObyBrZXlzIGZvdW5kIGluIHRoZSB0aHJlYWQuCj4KPiBhbmQgbG9va2luZyBhdAo+IGh0
-dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXB3bS8yMDI1MTIyMi1jc3RyLXB3bS12MS0xLWU4
-OTE2ZDk3NmY4ZEBnbWFpbC5jb20vcmF3Cj4gd2hlcmUgSSBzZWUKPgo+ICAgICAgICAgWC1EZXZl
-bG9wZXItS2V5OiBpPXRhbWlyZEBnbWFpbC5jb207IGE9b3BlbnNzaDsgZnByPVNIQTI1NjoyNjRy
-UG1ubnJiK0VSa1M3RERTM3R1d3FjSnNzL3pldkpSem95bHFNc2JjCj4KPiB3aGljaCBJSVVDIGlz
-bid0IGVub3VnaCB0byB2ZXJpZnkgdGhlIG5leHQgbWFpbCBzaWduZWQgd2l0aCB0aGUgc2FtZQo+
-IGtleS4gQW0gSSBtaXNzaW5nIHNvbWV0aGluZz8gSSB2ZXJ5IGFwcHJlY2lhdGUgc2lnbmluZyB5
-b3VyIHdvcmssIGJ1dCBpZgo+IHRoZXJlIGlzIG5vIHdheSBmb3IgbWUgKG9yIGFueW9uZSBlbHNl
-KSB0byB2ZXJpZnkgaXQsIHRoZXJlIGlzIG5vIGdhaW4uKQoKWWVwLCB5b3UgYXJlIHJpZ2h0IHRv
-IGNhbGwgdGhpcyBvdXQuIE15IHVzdWFsIHNldHVwIHVzZXMgU1NIIGtleXMgZm9yCmNvbW1pdCBz
-aWduaW5nLCB3aGljaCBhcmUgbm90IHBhcnQgb2YgdGhlIGtlcm5lbCB3ZWIgb2YgdHJ1c3QuIEkK
-cHJvbWlzZSB0byBzdGFydCBzaWduaW5nIGtlcm5lbCB3b3JrIHdpdGggbXkgR1BHIGtleSBzb29u
-IDopCgpJbiB0aGUgbWVhbnRpbWUgaWYgeW91IHRydXN0IEdpdGh1YiB5b3UgY2FuIHZlcmlmeSBt
-eSBzaWduYXR1cmUKYWdhaW5zdCBodHRwczovL2dpdGh1Yi5jb20vdGFtaXJkLmtleXMuCgpDaGVl
-cnMuClRhbWlyCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+On 19/01/2026 16:44, Kees Cook wrote:
+> 
+> 
+> On January 19, 2026 8:00:00 AM PST, Dave Hansen <dave.hansen@intel.com> wrote:
+>> On 1/19/26 05:01, Ryan Roberts wrote:
+>>> x86 (AWS Sapphire Rapids):
+>>> +-----------------+--------------+-------------+---------------+
+>>> | Benchmark       | Result Class |   v6.18-rc5 | per-task-prng |
+>>> |                 |              | rndstack-on |               |
+>>> |                 |              |             |               |
+>>> +=================+==============+=============+===============+
+>>> | syscall/getpid  | mean (ns)    |  (R) 13.32% |     (R) 4.60% |
+>>> |                 | p99 (ns)     |  (R) 13.38% |    (R) 18.08% |
+>>> |                 | p99.9 (ns)   |      16.26% |    (R) 19.38% |
+>>
+>> Like you noted, this is surprising. This would be a good thing to make
+>> sure it goes in very early after -rc1 and gets plenty of wide testing.
+> 
+> Right, we are pretty late in the dev cycle (rc6). It would be prudent to get this into -next after the coming rc1 (1 month from now).
+> 
+> On the other hand, the changes are pretty "binary" in the sense that mistakes should be VERY visible right away. Would it be better to take this into -next immediately instead?
+
+I don't think this question was really addressed to me, but I'll give my opinion
+anyway; I agree it's pretty binary - it will either work or it will explode.
+I've tested on arm64 and x86_64 so I have high confidence that it works. If you
+get it into -next ASAP it has 3 weeks to soak before the merge window opens
+right? (Linus said he would do an -rc8 this cycle). That feels like enough time
+to me. But it's your tree ;-)
+
+Thanks,
+Ryan
+
+
+> 
+>> But I don't see any problems with the approach, and the move to common
+>> code looks like a big win as well:
+> 
+> Agreed; I think it's looking great.
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
