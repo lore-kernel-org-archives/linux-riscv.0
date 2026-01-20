@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC890D2ED12
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 04:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9851DD2ED11
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 04:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
-	MIME-Version:Subject:Date:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hhCCUH43tMKMCkMt0IHvSf90KOQZj86YReq0YSgzC+I=; b=ed79qomhOezyVA
-	66/TCjJIHDYP6+ZK3k2bYTJNT/kxuXV4ZGhNVGRMfobMjW9b7FbA580m77iiM4TdJDPwVLAj9PPOW
-	rNTNhxVSU/8ugSjcWyql0jUJU7W9XUQSdYPGr+5x5z0bnCyWu4EXgb82CBJ2DjqOL6mbsKdNx+pNw
-	/DEMgtxPCNXlolPa4rbJqAoD94tvuCtUyKX0SZoBoVmQVcDFom3J4+QiprC8Y7Aw5UqGHNDbadNFx
-	DMMbCQpyexIJkHVypwnudbz2IEQyQntYNp8lxPOkQUQqVnATCfPPlgcMlUBG9T7Sm233mSLWVYz07
-	wcNe5jLphKktWGNTNA/g==;
+	List-Owner; bh=D6G+Kzxx/QukoRmRmAKms5UyEWfJzinYYUWgI7focGQ=; b=rvIc5IWjuGYYHf
+	VZJDuA/gcK3wyL1iB4+nFzc2EqO32T8dLvGilJqFrV6FoPJopHSesKdATzaaj7aQ7MxA7sD6bp/dQ
+	7x4j3NKIMOaKc0JiDKH+s3+D2HAM6uVlvmxDgEvkXgKRoZDdk6GBIVorlYcVthpeGunluB0g5fANT
+	0j7rRspHUwDnXpfjoQGKsZ3gdpp5RDHZOjVQm+jdW4Rv6YmcxE9coO3VOdshRu9Wf9wNgGkPgdsTL
+	ShlRrZCj+LWixF1luKVv1KYb2cfg4gaoPk+H3LhsLYz6+fdfgMMWIQwXExmvsmyXfooR6MsVhw9wC
+	Wmk9rwsiuwBiNiOAHfTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi3B4-000000039tF-25es;
-	Tue, 20 Jan 2026 04:17:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vi3BE-000000039xh-1ikR;
+	Tue, 20 Jan 2026 04:17:24 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi39c-000000039Od-1PWm
+	id 1vi3Ay-000000039m1-1woA
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 04:15:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 756074455E;
-	Tue, 20 Jan 2026 04:15:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EBC7C2BCAF;
-	Tue, 20 Jan 2026 04:15:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768882526;
-	bh=3hAMXnvjLCvZuLkN0WdyCAoEU5EJcEF/iWW3PasfPck=;
-	h=From:Date:Subject:References:In-Reply-To:To:From;
-	b=NCOBNF3y+UrdmyS49PT7n0srA8e8n9hSaC3seECAgp50Q29iJX+lJJju7IyABKaNj
-	 0ZqtZ9RlOStNPHWd4U0F/H/+3qBxj1MEvFnwpC83RzNZyI78xb/vIWCC6hcAdw0VGD
-	 A9LpOmmSnUs8xiyo/SvLZXdalZM8F8a3wW7ipqqxUt5s6jBi/pW6cO4QlBWOyw4eJj
-	 6nCT8Mrn7aTLKaDrmdjiI3xlLDYupPhtUXTNFcL1Htmjxhl1brpJKYaxjcyr/wB4uY
-	 o02xbB6cimgvS9YRjgUjSge82H2YfjV8Q/Tg4V5ETAKE2uLy99yyfoYy41NYyVx3d4
-	 PR1IBl0ZWTMQw==
-From: Drew Fustini <fustini@kernel.org>
-Date: Mon, 19 Jan 2026 20:14:52 -0800
-Subject: [PATCH NFU RFC 15/19] resctrl: riscv: add CBQRI bandwidth
- controller driver
+	Tue, 20 Jan 2026 04:17:14 +0000
+Received: from [10.213.18.194] (unknown [210.73.43.101])
+	by APP-05 (Coremail) with SMTP id zQCowAAXqg21AW9pXw+3BQ--.1431S2;
+	Tue, 20 Jan 2026 12:16:54 +0800 (CST)
+Message-ID: <f63d455c-7593-4382-86ef-9c31a1ebd283@iscas.ac.cn>
+Date: Tue, 20 Jan 2026 12:16:53 +0800
 MIME-Version: 1.0
-Message-Id: <20260119-ssqosid-cbqri-v1-15-aa2a75153832@kernel.org>
-References: <20260119-ssqosid-cbqri-v1-0-aa2a75153832@kernel.org>
-In-Reply-To: <20260119-ssqosid-cbqri-v1-0-aa2a75153832@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Adrien Ricciardi <aricciardi@baylibre.com>, 
- Nicolas Pitre <npitre@baylibre.com>, 
- =?utf-8?q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>, 
- Atish Patra <atish.patra@linux.dev>, 
- Atish Kumar Patra <atishp@rivosinc.com>, 
- Vasudevan Srinivasan <vasu@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>, 
- yunhui cui <cuiyunhui@bytedance.com>, Chen Pei <cp0613@linux.alibaba.com>, 
- Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, Weiwei Li <liwei1518@gmail.com>, 
- guo.wenjia23@zte.com.cn, liu.qingtao2@zte.com.cn, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
- Reinette Chatre <reinette.chatre@intel.com>, 
- Tony Luck <tony.luck@intel.com>, Babu Moger <babu.moger@amd.com>, 
- Peter Newman <peternewman@google.com>, Fenghua Yu <fenghua.yu@intel.com>, 
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
- Dave Martin <Dave.Martin@arm.com>, Drew Fustini <fustini@kernel.org>, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, x86@kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2638; i=fustini@kernel.org;
- h=from:subject:message-id; bh=3hAMXnvjLCvZuLkN0WdyCAoEU5EJcEF/iWW3PasfPck=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTmMwbn/8v13chTdUpN9lEOU8TzUPZ6q5NPfpVN+XD97
- YUp//+YdpSyMIhxMciKKbJs+pB3YYlX6NcF819sg5nDygQyhIGLUwAmcteKkeHIlWjJa+pxD7ce
- /vPsxKZFU05HrNv17dgzo74fFj9EzyhZMvzhbTQpOxrXseyb0cPUHecEewqvcl0Qmbft0sG+/uy
- 2viNMAA==
-X-Developer-Key: i=fustini@kernel.org; a=openpgp;
- fpr=1B6F948213EA489734F3997035D5CD577C1E6010
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] net: spacemit: Check netif_carrier_ok when reading
+ stats
+To: Andrew Lunn <andrew@lunn.ch>, Chukun Pan <amadeus@jmu.edu.cn>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, dlan@gentoo.org,
+ edumazet@google.com, kuba@kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, netdev@vger.kernel.org, pabeni@redhat.com,
+ spacemit@lists.linux.dev
+References: <e3890633-351d-401d-abb1-5b2625c2213b@iscas.ac.cn>
+ <20260119141620.1318102-1-amadeus@jmu.edu.cn>
+ <48757af2-bbea-4185-8cc9-2ef51dbc8373@lunn.ch>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <48757af2-bbea-4185-8cc9-2ef51dbc8373@lunn.ch>
+X-CM-TRANSID: zQCowAAXqg21AW9pXw+3BQ--.1431S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KFy5KryruFyxJr18CryxuFg_yoW8WF1kpF
+	43Kw4Fyr1kt3W0qF1Ika1DA3409rZ5tFy5Gr1Fg3s3Aa15Xr1Svr4fKrWjgFyUWryvgw1j
+	vr1qvF4YvFWDAFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjxUgHanUUUUU
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_201544_485765_135C95F9 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20260119_201712_009790_6C563ABB 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,105 +85,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-[NOT FOR UPSTREAM]
+On 1/19/26 23:09, Andrew Lunn wrote:
+>> root@OpenWrt:~# ethtool -S eth1
+>> [   71.725539] k1_emac cac81000.ethernet eth1: Read stat timeout
+>> NIC statistics:
+>>      rx_drp_fifo_full_pkts: 0
+>>      rx_truncate_fifo_full_pkts: 0
+>>
+>> I just discovered that adding "motorcomm,auto-sleep-disabled" to disable
+>> the sleep mode of the MotorComm PHY prevents the problem from occurring.
+> This suggests that when the PHY stops the reference clock, the MAC
+> hardware stops working. It needs that clock to access
+> statistics. Keeping the clock ticking will increase power usage a
+> little.
 
-Add example driver for a CBQRI bandwidth controller.
+As per suggestion from Chukun, adding realtek,aldps-enable to the DTS on
+BananaPi F3 (with, obviously, a Realtek PHY) also reproduces this
+problem. So this is a good indication that it really is a problem with
+this power saving thing.
 
-Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
-Signed-off-by: Drew Fustini <fustini@kernel.org>
----
- drivers/resctrl/riscv/cbqri_bandwidth.c | 79 +++++++++++++++++++++++++++++++++
- 1 file changed, 79 insertions(+)
+> I wounder if anything else stops working? There are some MACs whos DMA
+> engine stop working without the reference clock. That can cause
+> problems during both probe and remove, or open and close.
 
-diff --git a/drivers/resctrl/riscv/cbqri_bandwidth.c b/drivers/resctrl/riscv/cbqri_bandwidth.c
-new file mode 100644
-index 000000000000..13649d56b7dc
---- /dev/null
-+++ b/drivers/resctrl/riscv/cbqri_bandwidth.c
-@@ -0,0 +1,79 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#define pr_fmt(fmt) "cbqri-bandwidth: " fmt
-+
-+#include <linux/device.h>
-+#include <linux/of.h>
-+#include <linux/riscv_qos.h>
-+
-+static const struct of_device_id cbqri_mem_ctrl_ids[] = {
-+	{ .compatible = "riscv,cbqri-bandwidth" },
-+	{ }
-+};
-+
-+static int __init cbqri_mem_ctrl_init(void)
-+{
-+	struct cbqri_controller_info *ctrl_info;
-+	struct device_node *np;
-+	u32 value;
-+	int err;
-+
-+	for_each_matching_node(np, cbqri_mem_ctrl_ids) {
-+		if (!of_device_is_available(np)) {
-+			of_node_put(np);
-+			continue;
-+		}
-+
-+		ctrl_info = kzalloc(sizeof(*ctrl_info), GFP_KERNEL);
-+		if (!ctrl_info)
-+			goto err_node_put;
-+		ctrl_info->type = CBQRI_CONTROLLER_TYPE_BANDWIDTH;
-+
-+		err = of_property_read_u32_index(np, "reg", 1, &value);
-+		if (err) {
-+			pr_err("Failed to read reg base address (%d)", err);
-+			goto err_kfree_ctrl_info;
-+		}
-+		ctrl_info->addr = value;
-+
-+		err = of_property_read_u32_index(np, "reg", 3, &value);
-+		if (err) {
-+			pr_err("Failed to read reg size (%d)", err);
-+			goto err_kfree_ctrl_info;
-+		}
-+		ctrl_info->size = value;
-+
-+		err = of_property_read_u32(np, "riscv,cbqri-rcid", &value);
-+		if (err) {
-+			pr_err("Failed to read RCID count (%d)", err);
-+			goto err_kfree_ctrl_info;
-+		}
-+		ctrl_info->rcid_count = value;
-+
-+		err = of_property_read_u32(np, "riscv,cbqri-mcid", &value);
-+		if (err) {
-+			pr_err("Failed to read MCID count (%d)", err);
-+			goto err_kfree_ctrl_info;
-+		}
-+		ctrl_info->mcid_count = value;
-+
-+		of_node_put(np);
-+
-+		pr_debug("addr=0x%lx max-rcid=%u max-mcid=%u", ctrl_info->addr,
-+			 ctrl_info->rcid_count, ctrl_info->mcid_count);
-+
-+		/* Fill the list shared with RISC-V QoS resctrl */
-+		INIT_LIST_HEAD(&ctrl_info->list);
-+		list_add_tail(&ctrl_info->list, &cbqri_controllers);
-+	}
-+
-+	return 0;
-+
-+err_kfree_ctrl_info:
-+	kfree(ctrl_info);
-+
-+err_node_put:
-+	of_node_put(np);
-+
-+	return err;
-+}
-+device_initcall(cbqri_mem_ctrl_init);
+At least DMA reset seems to work in this case, so it's probably not as
+big of a problem, but at least I would conclude that the HW design
+didn't have the reference clock stopping in mind. AFAICT from the DTS
+files a bunch of other boards also have motorcomm,auto-sleep-disabled so
+at least SpacemiT isn't alone in this.
 
--- 
-2.43.0
+> So it would be nice to have a better understanding of this. If this
+> turns out to be true, maybe a comment by this poll_read_timeout()
+> indicating if it does timeout, the PHY might be the problem.
+
+I'll send a patch updating the comments and error prints.
+
+Thanks,
+Vivian "dramforever" Wang
 
 
 _______________________________________________
