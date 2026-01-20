@@ -4,81 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63732D2ECF7
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 07:49:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E75B7D2ED0F
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 08:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D9LGORuxpMAcb+AtHQQ/rCVFAXlrFs2lXPGNFtZgEHE=; b=ecbZwMEsCggDtF
-	nNhe1G5NxVvqyuu9s3pfTqFwdahr7GYimg7pMpbZE6Y+b3qH3HxcCZFoMI3b7S3Ef6q0KuAmZ6ryF
-	+t9NYCEnDC5Em2OOLUfPBAtAnkfNP5c7GKfddWxBLDEeShmPg7V8c4jfkZwDM7VrxDzLOerjJWOkF
-	c2CgHcBdHd1TA946FBOtHmMEouFUIEpfsu2PB2dvxFvrIwSi44EJpQEvE7/D5o/pahQ+TrWvz6WdG
-	pac5qrhi0SiQU+GP6EU/dJH9bJSjeK93/XjbxfcfksyjekUKDM2RtxS/VBhvr80uYV8a5xOkusGlo
-	a9b4LWKuYOcE715V+nDA==;
+	List-Owner; bh=+pGiLjTiMBHPp0PPg2w0YB7cZ9OA+k3kRLffcPrYW1I=; b=UAK8yAYho/ZZBY
+	C05IFV0Y9KJUGPVFjqAQlV7Y10j0WrKF19iJmWNTqAq3owi7jE7hOiI+E+PaFYfTXJPyVU/awEwgd
+	q2tWmTYXnzfu9x18JJMbaVKm1C2+tm8MP/q8oviZYTSfn/seFi3YKWSf7Pp2aqldu1BfyN3JrNCjC
+	bt7hNRfEuctsLFWD/7H+V+v4TU+sR0xvGsMpSyBNp7onaoe8B7fS+k+E8q+uJ8u2iBFN/ZAuOsMYa
+	/ZHKdiSRPMwRsCP9pYeQ4B6gEwXKJoMEkTkOLBJuPm7cAUbfRAHcLx+hQ5xsLHWWn1L1P/tmJwc02
+	wvovtwBcN6oKUAMy6FrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi6Tt-00000003NAt-41CW;
-	Tue, 20 Jan 2026 07:48:53 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1vi6fA-00000003O3Z-1CMA;
+	Tue, 20 Jan 2026 08:00:32 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi6Tr-00000003NAL-3qgP
-	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 07:48:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768895332; x=1800431332;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=k0kTOpVAbMSgIAQ+svuxOM9SArLZcXQbklyV/T0JbM4=;
-  b=SE6pIb+72+myc2eKIOvitH0O9zMhGRCE6RsATb2HV+rl+Q7EmQhfUZUn
-   eC3dQ1xtyfBO070aAS24M7Y9oJJFFBOIdUpVmnSNfCy1D0oYxshF9SgKs
-   2WdT7yOUevhgLonVtVapRgGUTtqkHna4uXmpUUwswieKfe4g3o37H+aM2
-   WobyZek1KKGyXbuA08ZwrKcDw/8LP4LAbohNznk8xOYSQKI2emfKjBmv7
-   icOZ2NRgowpGfcxBaWkehsC6zDHLLzOoglDrOBRDrQPxBjkk4fYimnbl7
-   BojGFNyRB3vGu8yESRJu4KOBQq7t1OoY8cXmGAJ3ebLr5g/CcKQhRIC8P
-   Q==;
-X-CSE-ConnectionGUID: q7fuo1vORPWmOpl80BDNFg==
-X-CSE-MsgGUID: RXewCBh7Q2aBCxTpD6FcBQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11676"; a="70184357"
-X-IronPort-AV: E=Sophos;i="6.21,240,1763452800"; 
-   d="scan'208";a="70184357"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 23:48:51 -0800
-X-CSE-ConnectionGUID: HKKCPH71QCOrf9Cdrgn0gw==
-X-CSE-MsgGUID: n4YSA7VTSAehW5YoidIuSw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,240,1763452800"; 
-   d="scan'208";a="206102045"
-Received: from dalessan-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.179])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 23:48:46 -0800
-Date: Tue, 20 Jan 2026 09:48:43 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Feng Jiang <jiangfeng@kylinos.cn>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, akpm@linux-foundation.org, kees@kernel.org,
-	andy@kernel.org, ebiggers@kernel.org, martin.petersen@oracle.com,
-	ardb@kernel.org, charlie@rivosinc.com, conor.dooley@microchip.com,
-	ajones@ventanamicro.com, linus.walleij@linaro.org,
-	nathan@kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-	Joel Stanley <joel@jms.id.au>
-Subject: Re: [PATCH v3 5/8] lib/string_kunit: extend benchmarks to strnlen
- and chr searches
-Message-ID: <aW8zWxjpVMSTFPYM@smile.fi.intel.com>
-References: <20260120065852.166857-1-jiangfeng@kylinos.cn>
- <20260120065852.166857-6-jiangfeng@kylinos.cn>
+	id 1vi6f8-00000003O3B-0z2x;
+	Tue, 20 Jan 2026 08:00:31 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60K29O9Y3176513;
+	Tue, 20 Jan 2026 08:00:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=70FVPqWOUc6
+	q+nHQB3unn1JGiYC4Y+KpHz1yQ6rzxfU=; b=RzTZ7M+Y/Q2hZ7Juaa/HTZo5xC4
+	0WVbbxHv0+iX8TbGvd0UqmzJNXTIyxVXcG5gu9RGv+KD05QHt55iU9ctqqzNA2xK
+	uaCGx/yb/oRG4pHp9eFc/VpR0QfdYP2gvn2T/g5zWqHtKFuZxQGfYo1ZLeUDqR4b
+	wN0hZq/vt6i6Q4b4XSfpMPYJxxPLQbqIlZ5tcDYkaH+9P6rJtYWBAAbQqBMNLe4I
+	ibYRlFpiC95FRhdkJ3aK7J5JZVRnUa1NHwlLkU8+XmXzA49uPdI25AjfYNDONSI3
+	IbSri4A7HHQC+VaecXXyx69vRGg/r6OQStDygsyRJiMysO1ZYbhiXT8bWpQ==
+Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bt0p2gx27-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 20 Jan 2026 08:00:18 +0000 (GMT)
+Received: from pps.filterd (APBLRPPMTA02.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 60K80FpJ007859;
+	Tue, 20 Jan 2026 08:00:15 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 4br3gm8q4s-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 20 Jan 2026 08:00:15 +0000
+Received: from APBLRPPMTA02.qualcomm.com (APBLRPPMTA02.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 60K80FQ6007834;
+	Tue, 20 Jan 2026 08:00:15 GMT
+Received: from hu-devc-blr-u24-a.qualcomm.com (hu-anuppate-blr.qualcomm.com [10.131.36.165])
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 60K80FsL007822
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 20 Jan 2026 08:00:15 +0000
+Received: by hu-devc-blr-u24-a.qualcomm.com (Postfix, from userid 486687)
+	id 960FC21A15; Tue, 20 Jan 2026 13:30:14 +0530 (+0530)
+From: Anup Patel <anup.patel@oss.qualcomm.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atish.patra@linux.dev>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+        Alexandre Ghiti <alex@ghiti.fr>, Shuah Khan <shuah@kernel.org>,
+        Anup Patel <anup@brainfault.org>,
+        Andrew Jones <andrew.jones@oss.qualcomm.com>,
+        kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-kselftest@vger.kernel.org,
+        Anup Patel <anup.patel@oss.qualcomm.com>
+Subject: [PATCH 01/27] RISC-V: KVM: Fix error code returned for Smstateen ONE_REG
+Date: Tue, 20 Jan 2026 13:29:47 +0530
+Message-ID: <20260120080013.2153519-2-anup.patel@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260120080013.2153519-1-anup.patel@oss.qualcomm.com>
+References: <20260120080013.2153519-1-anup.patel@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260120065852.166857-6-jiangfeng@kylinos.cn>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: RHm1NnSvan5Fuj4Vn-KmYzClBeBGL1HQ
+X-Authority-Analysis: v=2.4 cv=drTWylg4 c=1 sm=1 tr=0 ts=696f3613 cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8
+ a=TSmjHFh1LFP8C4-irMcA:9
+X-Proofpoint-GUID: RHm1NnSvan5Fuj4Vn-KmYzClBeBGL1HQ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTIwMDA2NiBTYWx0ZWRfX10W8eDU9xlJ2
+ fpqkkTDK0+y/dyFI0hEDZbjy2BmJjzmvAvOUprJhBmlmNxdrNOt9h7PYN5ULt9tR/pplcxe0lCx
+ ufS3yPj0ZL1gfH9xWbU6vTzEctbMIHxqZBw1p0EsvcMGW9NeOFpvqTnP5wvq0GA5sPB0opsZJFV
+ Sh9SWcq27CMXgVHObHV+edv9HWx5gMoVlu76dptHfLWaxBBU3zuJ8EEghvv1LcByuoankAvFuun
+ 9f7kjeNz8uUb96uqm0F0ehGUvPf9e7jncAxX7qjCTgYmJG2Qc5TA8AY+d/dDlHThqvxc4xvA49u
+ 62pbhekF5/etmCJbYdZeVKth8QMIueCSp7oyZfzKoh+9KLyIgVzsMOVhzIBiLmq46Y+eIIb90pX
+ 65CcPtk+CpMVG9FV2cdgdfUVx9cStpU2u3I/rJAXLrzN+qgsNVmB7Gt8cmg1bIDrUUOZep6H+vF
+ VOwqKwVr6Pigc7edHbg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-20_02,2026-01-19_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 bulkscore=0 adultscore=0 impostorscore=0
+ malwarescore=0 priorityscore=1501 clxscore=1015 lowpriorityscore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
+ definitions=main-2601200066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_234851_966523_9BAE0081 
-X-CRM114-Status: UNSURE (   7.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260120_000030_485072_51632166 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,22 +116,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKYW4gMjAsIDIwMjYgYXQgMDI6NTg6NDlQTSArMDgwMCwgRmVuZyBKaWFuZyB3cm90
-ZToKPiBFeHRlbmQgdGhlIHN0cmluZyBiZW5jaG1hcmtpbmcgc3VpdGUgdG8gaW5jbHVkZSBzdHJu
-bGVuKCksIHN0cmNocigpLAo+IGFuZCBzdHJyY2hyKCkuCj4gCj4gRm9yIGNoYXJhY3RlciBzZWFy
-Y2ggZnVuY3Rpb25zIChzdHJjaHIgYW5kIHN0cnJjaHIpLCB0aGUgYmVuY2htYXJrCgpzdHJjaHIo
-KSBhbmQgc3RycmNocigpCgo+IHRhcmdldHMgdGhlIG51bGwgdGVybWluYXRvci4gVGhpcyBlbnN1
-cmVzIHRoZSBlbnRpcmUgc3RyaW5nIGlzIHNjYW5uZWQsCgpOVUwgY2hhcmFjdGVyCgooQWxzbyBj
-aGVjayB0ZXJtaW5vbG9neSBldmVyeXdoZXJlOiBOVUxMIOKAlCBpcyBmb3IgTlVMTCBwb2ludGVy
-cywgTlVMIGlzIGZvcgogJ1wwJyBjaGFyYWN0ZXJzLikKCj4gcHJvdmlkaW5nIGEgY29uc2lzdGVu
-dCBtZWFzdXJlIG9mIGZ1bGwtbGVuZ3RoIHByb2Nlc3NpbmcgZWZmaWNpZW5jeQo+IGNvbXBhcmFi
-bGUgdG8gc3RybGVuKCkuCgpBY2tlZC1ieTogQW5keSBTaGV2Y2hlbmtvIDxhbmR5QGtlcm5lbC5v
-cmc+CgotLSAKV2l0aCBCZXN0IFJlZ2FyZHMsCkFuZHkgU2hldmNoZW5rbwoKCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Return -ENOENT for Smstateen ONE_REG when:
+1) Smstateen is not enabled for a VCPU
+2) When ONE_REG id is out of range
+
+This will make Smstateen ONE_REG error codes consistent
+with other ONE_REG interfaces of KVM RISC-V.
+
+Fixes: c04913f2b54e ("RISCV: KVM: Add sstateen0 to ONE_REG")
+Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
+---
+ arch/riscv/kvm/vcpu_onereg.c | 18 ++++++++----------
+ 1 file changed, 8 insertions(+), 10 deletions(-)
+
+diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
+index e7ab6cb00646..6dab4deed86d 100644
+--- a/arch/riscv/kvm/vcpu_onereg.c
++++ b/arch/riscv/kvm/vcpu_onereg.c
+@@ -549,9 +549,11 @@ static inline int kvm_riscv_vcpu_smstateen_set_csr(struct kvm_vcpu *vcpu,
+ {
+ 	struct kvm_vcpu_smstateen_csr *csr = &vcpu->arch.smstateen_csr;
+ 
++	if (!riscv_isa_extension_available(vcpu->arch.isa, SMSTATEEN))
++		return -ENOENT;
+ 	if (reg_num >= sizeof(struct kvm_riscv_smstateen_csr) /
+ 		sizeof(unsigned long))
+-		return -EINVAL;
++		return -ENOENT;
+ 
+ 	((unsigned long *)csr)[reg_num] = reg_val;
+ 	return 0;
+@@ -563,9 +565,11 @@ static int kvm_riscv_vcpu_smstateen_get_csr(struct kvm_vcpu *vcpu,
+ {
+ 	struct kvm_vcpu_smstateen_csr *csr = &vcpu->arch.smstateen_csr;
+ 
++	if (!riscv_isa_extension_available(vcpu->arch.isa, SMSTATEEN))
++		return -ENOENT;
+ 	if (reg_num >= sizeof(struct kvm_riscv_smstateen_csr) /
+ 		sizeof(unsigned long))
+-		return -EINVAL;
++		return -ENOENT;
+ 
+ 	*out_val = ((unsigned long *)csr)[reg_num];
+ 	return 0;
+@@ -595,10 +599,7 @@ static int kvm_riscv_vcpu_get_reg_csr(struct kvm_vcpu *vcpu,
+ 		rc = kvm_riscv_vcpu_aia_get_csr(vcpu, reg_num, &reg_val);
+ 		break;
+ 	case KVM_REG_RISCV_CSR_SMSTATEEN:
+-		rc = -EINVAL;
+-		if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN))
+-			rc = kvm_riscv_vcpu_smstateen_get_csr(vcpu, reg_num,
+-							      &reg_val);
++		rc = kvm_riscv_vcpu_smstateen_get_csr(vcpu, reg_num, &reg_val);
+ 		break;
+ 	default:
+ 		rc = -ENOENT;
+@@ -640,10 +641,7 @@ static int kvm_riscv_vcpu_set_reg_csr(struct kvm_vcpu *vcpu,
+ 		rc = kvm_riscv_vcpu_aia_set_csr(vcpu, reg_num, reg_val);
+ 		break;
+ 	case KVM_REG_RISCV_CSR_SMSTATEEN:
+-		rc = -EINVAL;
+-		if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN))
+-			rc = kvm_riscv_vcpu_smstateen_set_csr(vcpu, reg_num,
+-							      reg_val);
++		rc = kvm_riscv_vcpu_smstateen_set_csr(vcpu, reg_num, reg_val);
+ 		break;
+ 	default:
+ 		rc = -ENOENT;
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
