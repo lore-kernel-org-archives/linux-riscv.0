@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8888CD2ECF7
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 07:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5331AD2ECF7
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 07:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XRX24Jve4ois4cTSiGdSEN7/Fd7X4UyvQPzSdi7HMLg=; b=q7zyEKOu11k3Pa
-	zt1D06HwRXm3fazkNT8lv4sgK/ouf3RNpnGPMSwOE2hZbthnMILU2esRVC7QrxOU8GDkfCEh2xUoW
-	X7JmdKAeINGFAAqWbR3v9QynDq+iUitVS+8Yy6nYD0cMAe9v30SNbbwgVrthOPlVX/zSrhveEketo
-	b5v3eq+w4jdB+3XAFdIJV7HzEUxqM5jEM20uPH1aDfextebyFnDgzPhxA7ldOeLQhLH8Y6hCgq8UI
-	5KxjC2NEh9VlBgowsfpmF+dCYKE1WGELcSl/2T3Z+WhUAxo23ir33slh8GcL6rnousL7HLMwZptS4
-	0eAN+M7ziwSqmHDw5vjQ==;
+	List-Owner; bh=McLVYA8ZfxtGuD7+CCwPyugd1QmTNukLkbJqXcArqak=; b=SjLKy5jqH33+zG
+	ERM/zpHWNJCZjhYmpSvxSMxozr20M5Ac508hR8gyndpVdn5xhiFrGT/fj/Ap63MrF0TPC51QK+pCc
+	apurDHQPK+D4squr3eWNteHKqFFsu3yFIv4u8FxeU2xytGaSDL/0jkSuIDN0H9Dbo8z/trCljr0M3
+	DOrcEHm3eiyyoZNYIRe+++5Fk1+dWR9ByK4Piz3RiEPhumUYmd5erp37eEW4PrW1aWFsHqpVG4Z5d
+	Nh6tfOYUTzsgiel762/9f3MqJQgEYfHo1Whls+8EB7OjEZ4Ev1X1f69v9LD4zXMKy2iJ1l2zYxGEq
+	6ZNyv5WqmYH0IbXOmFPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi6Br-00000003LjK-26xq;
-	Tue, 20 Jan 2026 07:30:15 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1vi6DB-00000003Ltw-0oCr;
+	Tue, 20 Jan 2026 07:31:37 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi6Bp-00000003Liq-1dy0
+	id 1vi6D7-00000003LtT-45Kt
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 07:30:14 +0000
+	Tue, 20 Jan 2026 07:31:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768894213; x=1800430213;
+  t=1768894294; x=1800430294;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=PiHIgy9pcNcdJAMceILghC2Fv+8K8xr6hlv+TwIM2Yg=;
-  b=VzknItaq3gx6q+rchKofKOsLjkxLrxWP/Tmb7FjPsy0jpgrB1jZIuL0R
-   FEOgNsQOiWSwn9BmwMgYw0FPIX0PdoXSEKHiDSPaW76IFEm6UO0Z3pqr4
-   y40cWbOsQbeoqLG7XLWxKg06AHnrQFEwbJ4LEAwLiez/YOJSK3dmeBvTY
-   DL4MX1PMwNhQHpi4/+a9afmxCtU4QzojKSOd8izDmlKMXzO1pZdeJMyEQ
-   ouJERp2y162fcii8uaJNmF8qUj1TXoOZueIaNxdR2tsnWlAqZGBbUKPZk
-   UNocbLTFJW5HomJU6/ZA7G1K8AJBWqmk6Q2L3FKuYDIO28FIcMBrf8KWk
-   Q==;
-X-CSE-ConnectionGUID: Dqwjl80JQdGvX5rQznFfVg==
-X-CSE-MsgGUID: +vEomjZ8TM6sT9Zu3H414w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11676"; a="87675957"
+  bh=G9HzxjN0Yu3oOjEo97n42KKy1eIhD6tKisYWbW2wsH0=;
+  b=MThM998lviTFOgGFRL9aceugnz9gKfJ2oTx18JPuMIQE4RQvsDZWMg+h
+   mBRnzIgtCnk2p5knOlOuofqXnGX/WBmODFHAg7GOgtPu43CiFvpw7BYp4
+   TwBBlCrL6UEe7ZxlK+j912g2uxd6utvGBOc/ZAr745TQXhNDmGjMUMTMA
+   Yj5vfEUCge896b5tPdnRwo2o7ha1vKRDBSq8EaK9inoFqtLuuNszwRX3V
+   GIExuShWgnVHfpkB/KlWweUfa/vQC6b9/+LSt2MV/jXpC+tFwmhqRwe0b
+   deHcQMWwTacF5dY2lbWd/je6r4tRALW7M1Z1CSszIu/6bSYCBfi6VKmlM
+   w==;
+X-CSE-ConnectionGUID: YNBMkaTHQ9y88oVGotNhUg==
+X-CSE-MsgGUID: 9vH4P97FRBeMS4hQ73VFtw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11676"; a="70147478"
 X-IronPort-AV: E=Sophos;i="6.21,240,1763452800"; 
-   d="scan'208";a="87675957"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 23:30:12 -0800
-X-CSE-ConnectionGUID: xxK9hBXyQtKPYrXh5SEPWw==
-X-CSE-MsgGUID: x2HfyupBQ2aWASUyUHTbEA==
+   d="scan'208";a="70147478"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 23:31:33 -0800
+X-CSE-ConnectionGUID: eFNTO8iUTJ6+e71sTJ6Yvg==
+X-CSE-MsgGUID: 6SjcySW9QJu2PdVpZUWjJw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.21,240,1763452800"; 
-   d="scan'208";a="210519062"
+   d="scan'208";a="206078277"
 Received: from dalessan-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.179])
-  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 23:30:08 -0800
-Date: Tue, 20 Jan 2026 09:30:06 +0200
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 23:31:28 -0800
+Date: Tue, 20 Jan 2026 09:31:25 +0200
 From: Andy Shevchenko <andriy.shevchenko@intel.com>
 To: Feng Jiang <jiangfeng@kylinos.cn>
 Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
@@ -65,19 +65,18 @@ Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
 	nathan@kernel.org, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
 	Joel Stanley <joel@jms.id.au>
-Subject: Re: [PATCH v3 3/8] lib/string_kunit: add correctness test for
- strrchr()
-Message-ID: <aW8u_hqxNThnnizm@smile.fi.intel.com>
+Subject: Re: [PATCH v3 6/8] riscv: lib: add strnlen implementation
+Message-ID: <aW8vTc4mieqmJKhE@smile.fi.intel.com>
 References: <20260120065852.166857-1-jiangfeng@kylinos.cn>
- <20260120065852.166857-4-jiangfeng@kylinos.cn>
+ <20260120065852.166857-7-jiangfeng@kylinos.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260120065852.166857-4-jiangfeng@kylinos.cn>
+In-Reply-To: <20260120065852.166857-7-jiangfeng@kylinos.cn>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_233013_440053_0D84E649 
-X-CRM114-Status: UNSURE (   6.67  )
+X-CRM114-CacheID: sfid-20260119_233134_022590_E7E126AA 
+X-CRM114-Status: UNSURE (   7.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,13 +94,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 02:58:47PM +0800, Feng Jiang wrote:
-> Introduce a KUnit test to verify strrchr() across various memory
-> alignments and character positions. This ensures the implementation
-> correctly identifies the last occurrence of a character.
+On Tue, Jan 20, 2026 at 02:58:50PM +0800, Feng Jiang wrote:
+> Add an optimized strnlen() implementation for RISC-V. This version
+> includes a generic word-at-a-time optimization and a Zbb-powered
+> optimization using the 'orc.b' instruction, derived from the strlen
+> implementation.
+> 
+> Benchmark results (QEMU TCG, rv64):
+>   Length | Original (MB/s) | Optimized (MB/s) | Improvement
+>   -------|-----------------|------------------|------------
+>   16 B   | 189             | 310              | +64.0%
+>   512 B  | 344             | 1535             | +346.2%
+>   4096 B | 363             | 1854             | +410.7%
 
-Acked-by: Andy Shevchenko <andy@kernel.org>
+> Suggested-by: Andy Shevchenko <andy@kernel.org>
 
+Wrong tag, I have zero knowledge about RISC V.
 
 -- 
 With Best Regards,
