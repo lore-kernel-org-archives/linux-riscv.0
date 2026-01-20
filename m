@@ -4,63 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8AE0D2ED0F
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 10:12:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE1FD2ECF7
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 10:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=umiAGWDZCnXtidBuqt4QffgnRdBKiqwFYtFrcCKehPk=; b=GWBkT8n5pRtGbw
-	LMwHtPtmioHENMUDQM5T8bZrfCk0dv1hNVEac0HyUjnY8mDYxBo3BWNDTBy7Rd3I8uNEYd6EiBSyu
-	f+QKgYu97ChW6w0j+RG6gkhRzmPkmc0whUsltKs0Ujcw9pv/fHpdJMqDCeE7CtbwNpY5IG1woW/Hl
-	G0pavHnJce9BjbHz6iibY4KU2zbg8FdxSwlIS2g7b4LtvK4tkCh5/4L9bJ+7GelrvZ3jZhcKbvvNb
-	I98sGNpNt8tWS6hIjrn6lG3bGFjdEywI0fuZk+5v5Q84Dw+0i+T5nAiu9vuFrJOzSMdIIYCTReWQo
-	8OJl94G07+/+kHAPi1Aw==;
+	List-Owner; bh=O/8Qe8xzMKTHumqH0vYAeojFQdIQpsnH7RhtlF/wweQ=; b=Can0sb9lkX7h4B
+	HxtKgm2E2rsoU0IIP152mrOfG9kZL6+m2NTrTZjeyEehl0g0iDBIDO7esDngzXTyZwWPF0GYeQDYe
+	30uCs6Aazk5sKFlpJ2E1V/A3DiRuBKRB9dyNgiBm6BDVWMydiZMIGmq+mpfst00u5Q1/AEitcg4Md
+	EsdwcV75q4ffMZ9MdM57cBYcYmHZKKGyzbCbiP4ORhBQQ6TfaqSAemT8w2RUzYJQ8VPz3ROsVhmd6
+	IYlOWa5ZIl2ttQIUcN7yBzvKZ35bIgKOhNk+CDI/ERR2AMwTxF33Zx/cyekPKkkq95iXtI5atZAAy
+	+djy94sPEHh5OiInZycw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi8iq-00000003aSc-0Eke;
-	Tue, 20 Jan 2026 10:12:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vi9QL-00000003f1X-0Baw;
+	Tue, 20 Jan 2026 10:57:25 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi8ip-00000003aSR-0awh
-	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 10:12:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 90DFD60008;
-	Tue, 20 Jan 2026 10:12:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6444C19423;
-	Tue, 20 Jan 2026 10:12:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768903946;
-	bh=Zl0EKiX/vDiGriw8Csf4K6DbilEEJTuZv+esRqz9RV8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SJqHM+qrlsFxzvU5PfoSZMk0yau5k4To/SOce72gwQHGF9Bp5bqjOdXiSE/wvePXf
-	 ZKVrqbgKTk8WtX9YlMv0F01flen843N1+lXC/bf2emOHP0IjJ3+bInHA+og4e8y/Gs
-	 kVfDBltHb3mav2HykfFTSrTPIJkCJQgFvpwd1HKp7wW91hoxRNuAwTrb+5t9cpH7/5
-	 W7SoC5N8hQ73lmn9PvY/x72YlEypXQ8mwz/kH0onseWS6xukT8EBFyr1+/tH82t73o
-	 hqM2cyUaANs8nEkfLV71BAXwsaA5aIMYbpRdjEfPP1ZdVOUO+TR0OnPSbC0T4YIoII
-	 n6SIvs0MsM5YQ==
-Date: Tue, 20 Jan 2026 11:12:23 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: "Anton D. Stavinskii" <stavinsky@gmail.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
-	Inochi Amaoto <inochiama@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-sound@vger.kernel.org, 
-	devicetree@vger.kernel.org, sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 3/6] dt-bindings: codecs: sophgo,cv1800b: codecs: add
- ADC/DAC
-Message-ID: <20260120-rapid-turaco-of-discourse-fe3fe6@quoll>
-References: <20260119-cv1800b-i2s-driver-v3-0-04006f4111d7@gmail.com>
- <20260119-cv1800b-i2s-driver-v3-3-04006f4111d7@gmail.com>
+	id 1vi9QI-00000003f16-0IYJ;
+	Tue, 20 Jan 2026 10:57:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1768906567; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Ak6+zhg/djoSET/jxpadpQyRcrriZ+Hb4IrbOf1xk69NlUklGQMlAFWHFwmYe3Yesq3b5hQ22GYGsF+HGH1Bt05MaD92p74uwnxUUFvPhFQ84McpHwHIm1iz+EQW9QgEc5Xc5zFv6FwCsoa2iYSN8/h5UXVatAvvTisNw1EldZo=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1768906567; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ONSVQRKcPO7Hdq9rjeCJBLbi+rJef9ClGejj6CnM0wY=; 
+	b=NOJakvj5baRnkmXoB7LumnUit/KQxGV92PkXR478iuA98Tdt3Of/28od+qlx0Eepp+TIkIeLBAt5wPapNsAjtx9Doj78v/gkaJqNN5QnZPeD1wRDB6IAZiGhCl9gjGgBF3uF+8QEDy5fAE724YLlr0+UDLbM8smzAJ233CuTkzg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ziyao.cc;
+	spf=pass  smtp.mailfrom=me@ziyao.cc;
+	dmarc=pass header.from=<me@ziyao.cc>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768906567;
+	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=ONSVQRKcPO7Hdq9rjeCJBLbi+rJef9ClGejj6CnM0wY=;
+	b=UfbY76hCP8zX5WETuGgn6VZM3NN+FjaN8LWv69wwAVNk0zvq8H3HC8pdZHJp2V4c
+	sfOY8cbsd+bhCiZhPaWpES7/nq72N3qz3r2DaTdaXMj1PJmH1Q7eUkPXygOtrxsg6XT
+	wISiqo24iESoNSprYd3gvxcv3ZhFDNNxXiO9pccg=
+Received: by mx.zohomail.com with SMTPS id 1768906565127972.0399174349235;
+	Tue, 20 Jan 2026 02:56:05 -0800 (PST)
+Date: Tue, 20 Jan 2026 10:55:43 +0000
+From: Yao Zi <me@ziyao.cc>
+To: Inochi Amaoto <inochiama@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Yao Zi <ziyao@disroot.org>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next 1/3] dt-bindings: net: Add support for Spacemit
+ K3 dwmac
+Message-ID: <aW9fL7r0AM0flALJ@pie>
+References: <20260120043609.910302-1-inochiama@gmail.com>
+ <20260120043609.910302-2-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260119-cv1800b-i2s-driver-v3-3-04006f4111d7@gmail.com>
+In-Reply-To: <20260120043609.910302-2-inochiama@gmail.com>
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260120_025722_188850_2D5CD355 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,22 +107,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 08:30:44PM +0400, Anton D. Stavinskii wrote:
-> Document the internal ADC and DAC audio codecs integrated
-> in the Sophgo CV1800B SoC.
+On Tue, Jan 20, 2026 at 12:36:06PM +0800, Inochi Amaoto wrote:
+> The GMAC IP on Spacemit K3 is almost a standard Synopsys DesignWare
+> MAC (version 5.40a) with some extra clock.
 > 
-> Signed-off-by: Anton D. Stavinskii <stavinsky@gmail.com>
+> Add necessary compatible string for this device.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 > ---
->  .../bindings/sound/sophgo,cv1800b-sound-adc.yaml   | 43 ++++++++++++++++++++++
->  .../bindings/sound/sophgo,cv1800b-sound-dac.yaml   | 43 ++++++++++++++++++++++
+>  .../devicetree/bindings/net/snps,dwmac.yaml   |   3 +
+>  .../bindings/net/spacemit,k3-dwmac.yaml       | 107 ++++++++++++++++++
+>  2 files changed, 110 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
 
-This is not what I asked. I did not say squash patches. I asked to
-squash into the binding. COMBINE the bindings. We do not need multiple
-documents.
+...
+
+> diff --git a/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+> new file mode 100644
+> index 000000000000..58dd98f79e8a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+
+...
+
+> +  clocks:
+> +    minItems: 3
+> +    items:
+> +      - description: GMAC main clock
+> +      - description: PTP clock
+> +      - description: TX clock
+> +      - description: PHY clock
+
+Why does the MAC require "phy" clock? Shouldn't this be handled in PHY
+driver instead, or I get its meaning wrong?
+
+Also, I don't see "phy" clock is acquired anywhere in the driver. Is it
+really necessary for the MAC?
 
 Best regards,
-Krzysztof
-
+Yao Zi
 
 _______________________________________________
 linux-riscv mailing list
