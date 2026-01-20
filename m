@@ -4,104 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 021DFD26284
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 18:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9707CD2628B
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 18:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dBnZr+KghyaXdtV8tJvDso3cYnUwWsb1Zlt97JEiz7Q=; b=ZbkEZnbm4Fn1cI
-	ZIKkIVYjCmwIz9USDf1A4FZmfeQZoNdBiuHeOJgo2ER5kwgsct10BHN1h20miQrFuEFJ+dSDfuZAD
-	zlXRswHvQn8g63ODBiZDzdkRMlC9bSEG5IM0t6yYsRcM8Lsdwsc+yzJiMscRUWx4fTj1bOflK33MC
-	g5kfXRyYA5vi8JLr3LbMDS9dIvK58oSKYUu9yqdt77desaVsRkEVJHp5mOygR9ohLiykviqkmMRYi
-	KOKkwOEHDUL0Dl+37nwfFz+mYcuvdc+8RKGqBJjrieLygNACSAgqt62sdmU77862PmTb9yP5kdZug
-	mukZH2vTBKFNdVeB6Gew==;
+	List-Owner; bh=+RDr2ShtuLCNXHsERJkgt1EHCrkAO44kWmdldwglPeQ=; b=FLj36HZ7Vv0yFs
+	7/7o4nQmAfEO8W+SaezF64XOaVwBr8C/AVWqjS2oABneEZ76BryUa7DMNAsJ4FztQC0pqrjpfrEgF
+	Lx0eLJl/DIKAVyucmDf9OIWQV0QTKrnbsipTC41pi6+C0L/5b6Lu64l7I96+hBcGM/Lu7LTaMcdVC
+	J1rbnMRESsa1vxM8D8BidfaEN7HSPkuAkyALVNtdBEJCvjTN/9myepM1RArjFX2DeI+9Xnc37RS/N
+	8M/vmdP0RXTgSS4ryG28XD8R01UBMUcyXohhBuenu0UJV2mB3mVH2+8wfVacxqfIajFyVG7oF5vAl
+	yErtwPVknU20yqadNX5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viGjh-00000004Jlm-1itC;
-	Tue, 20 Jan 2026 18:45:53 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1viGno-00000004K9a-15Xe;
+	Tue, 20 Jan 2026 18:50:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viGja-00000004JkO-0NIn
-	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 18:45:51 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-4358fb60802so65969f8f.1
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Jan 2026 10:45:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768934743; x=1769539543; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=thnE7Lerq2YAOWgwctI0eLWWpc+gSu6vXOqPs3mAkT8=;
-        b=AnFKBR8gJ92rj+YIF9GqyjAK7IbSKIjkNmzcG2kexro5HChJinYZKEoyFTWwUc+NPI
-         8GCtbGGzVloWB7PP/mmuhhhW75P8uUZdT/q3qZOYOUEneaZFa3zm8hWlop+MxPAyyEZE
-         nfBsc/od2oP2QmldPkytFi50KZCHfC2OeEx4CGEpkk/BGQfQPQNmwF52mdlOSH8Ztv51
-         mX9RejGOi+55q//Sdnmb0T9euLirnj3E5zQ4tMkq97LZSoNl1QqNzVFxjjx6H+b53oRr
-         ak97Y08WD/0BgLO9Mh8YcK+NqystWPxS8Az32fZX/4XdyO40XFKwikpFcCWfPSTeUr1T
-         dhlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768934743; x=1769539543;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=thnE7Lerq2YAOWgwctI0eLWWpc+gSu6vXOqPs3mAkT8=;
-        b=Kl7nl9aHcSokHoUcsH1+5KXAkkmLnLWGSo2G4BY6/uxU2s5tRWyYWdke0loh7hqUeO
-         +A1A1SH4WdXEB/weECH2it5J3i5yEn3e+ClKiCPaZI+O6r6eyoM9DMRRc/1j3PiP/wrb
-         ksS8p0kSUJWrHbsiBXWCNu5L+Q7FAOOe6Ux3fXiCQLeJvqBEnbklqV4OgspGuXGRIX90
-         KlgUNIoIXj/6wbMAbSDCQsysiB51IQHbAfKDrJt/CUg0czeTVtSBlll74q0+P8SaNlgF
-         F8EmjTANpVVZAEEVqmCE2kig5glfMr7Sw/4XuoG2d3RTa2AuG40D9Dja3Fmd64k48GTC
-         tjJA==
-X-Forwarded-Encrypted: i=1; AJvYcCV1SZRPJ3FL8TatKbcJ+2ASRRm3CGvWrY2wc/c3J7E4zaap977yY9MietSd0xca35h+Ve2JFY8BOhMgyA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8JveJC4iaY07P6gZPTeotqyudt3tlrQ07cwYkOQ2SPtPWqwb2
-	QNPykBqha6DAB5iDAAYYXo4cxG+u/Mw7i7/lMFM/0GoF3ubm9DFPlJBK
-X-Gm-Gg: AZuq6aJLHP90Paq6cCwcHl+15fVv5VddEfBoIWUv1S043oxRzdOKkFYj132rCCBT/us
-	u0Xa6DPuuy6tMKSoMqXixDigC8h89fOwxJOVfANCg3n1/SCG3Fr1XhyqI19EVxHFYXlxYP6U0jF
-	u3WZoa6Fmpru74UM54+m8eNZ/t9g8ml/b+DaqSuVn8t28wRkxSlgS1Ug1knP/2QbbRlohxhS9eD
-	2T3IH3QX+MDwR7N1Rrl4xtDSx9wOEhQocY7mM3lDF+PkujGSNOUtZyrDIkaZrCXJRH5CcagsbI/
-	ElrVfEOFkwjEH4PjZ4LQLpJ3woQIt4fVxBvf/Qqh2dotwIAEhDD7V4V0oPKEKjDd1OshbHCGBFS
-	YwrMpkaXFz14C4ajpYUO/zfPOSAxSs5JH9Ymj0K0Q6nSWLjbkapVHr6ILF9hOSfKTvmGRZBaywx
-	9XW/NyV1tPO8yLqE83EPrBeGsJuX/irdm+FQmYuLShRB+pe2kliRvY
-X-Received: by 2002:a05:6000:2484:b0:430:fcbc:dc4a with SMTP id ffacd0b85a97d-434d75c16c1mr25592154f8f.19.1768934743113;
-        Tue, 20 Jan 2026 10:45:43 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4356997eb1fsm30869735f8f.35.2026.01.20.10.45.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Jan 2026 10:45:42 -0800 (PST)
-Date: Tue, 20 Jan 2026 18:45:41 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Dave Hansen <dave.hansen@intel.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Kees Cook <kees@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
- <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
- <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "Gustavo
- A. R. Silva" <gustavoars@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Mark
- Rutland <mark.rutland@arm.com>, "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard
- Biesheuvel <ardb@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v4 0/3] Fix bugs and performance of kstack offset
- randomisation
-Message-ID: <20260120184541.0a463cd1@pumpkin>
-In-Reply-To: <a8ca3483-d61a-41bd-9b1b-17a8f3ac03eb@intel.com>
-References: <20260119130122.1283821-1-ryan.roberts@arm.com>
-	<20fb97f1-7e50-485a-bdfd-a2901d20ec84@intel.com>
-	<C502BCE6-2FB2-4A06-93A8-E8DEDFC22914@kernel.org>
-	<785a7d90-babe-43af-93a6-c220c1877bcf@arm.com>
-	<a8ca3483-d61a-41bd-9b1b-17a8f3ac03eb@intel.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	id 1viGnm-00000004K9K-0VVg;
+	Tue, 20 Jan 2026 18:50:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A2B7B60007;
+	Tue, 20 Jan 2026 18:50:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D20CAC19421;
+	Tue, 20 Jan 2026 18:50:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768935002;
+	bh=RmGeyuXo1uW+F5wAFWT4FNRAvYpuDuojoTmkmG6thsg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XMFr0HUnW2gYIg+E4/T/nh+T/QfHDMc2TLB2/zszUt0HXKwvhCRhKh4lcMkeSr2Ne
+	 AAWnRTO264ZmkDHhpojE9ivFIjL+XA73XMS5r+nNVLd7nonTTwtkPMmxSOji3WXASy
+	 VSYLaCKzBf02zAAWW9tcwWC9QBfANo4NPsJznBVq6coq8SMiOHpFoKSiaZ/c0wJnLF
+	 vclTuYh5uRyhvj90KnGJeh4pjcU+OgAFq0Awl0SbsRStoKqGhb4e8ah+XE//Tc7nSp
+	 42nG8H7qsbqyoxTVwfbNmkswQXM9rx3sjGlQxnnNZ0s5ek61vtiB0LniK69jN8Q1tX
+	 +V9Z+6Eh30Y6w==
+Date: Tue, 20 Jan 2026 15:49:59 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Shimin Guo <shimin.guo@skydio.com>,
+	Athira Rajeev <atrajeev@linux.ibm.com>,
+	Stephen Brennan <stephen.s.brennan@oracle.com>,
+	Howard Chu <howardchu95@gmail.com>,
+	Thomas Falcon <thomas.falcon@intel.com>,
+	Andi Kleen <ak@linux.intel.com>,
+	"Dr. David Alan Gilbert" <linux@treblig.org>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Krzysztof =?utf-8?Q?=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>,
+	Chun-Tse Shao <ctshao@google.com>,
+	Aditya Bodkhe <aditya.b1@linux.ibm.com>,
+	Haibo Xu <haibo1.xu@intel.com>,
+	Sergei Trofimovich <slyich@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Mark Wielaard <mark@klomp.org>
+Subject: Re: [PATCH v1 08/23] perf perf_regs: Switch from arch string to int
+ e_machine
+Message-ID: <aW_OV72q5rAVrgRE@x1>
+References: <20260117052849.2205545-1-irogers@google.com>
+ <20260117052849.2205545-9-irogers@google.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_104546_147726_0B3A253F 
-X-CRM114-Status: GOOD (  20.10  )
+Content-Disposition: inline
+In-Reply-To: <20260117052849.2205545-9-irogers@google.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,37 +87,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyMCBKYW4gMjAyNiAwODozNzo0MyAtMDgwMApEYXZlIEhhbnNlbiA8ZGF2ZS5oYW5z
-ZW5AaW50ZWwuY29tPiB3cm90ZToKCj4gT24gMS8yMC8yNiAwODozMiwgUnlhbiBSb2JlcnRzIHdy
-b3RlOgo+ID4gSSBkb24ndCB0aGluayB0aGlzIHF1ZXN0aW9uIHdhcyByZWFsbHkgYWRkcmVzc2Vk
-IHRvIG1lLCBidXQgSSdsbCBnaXZlIG15IG9waW5pb24KPiA+IGFueXdheTsgSSBhZ3JlZSBpdCdz
-IHByZXR0eSBiaW5hcnkgLSBpdCB3aWxsIGVpdGhlciB3b3JrIG9yIGl0IHdpbGwgZXhwbG9kZS4K
-PiA+IEkndmUgdGVzdGVkIG9uIGFybTY0IGFuZCB4ODZfNjQgc28gSSBoYXZlIGhpZ2ggY29uZmlk
-ZW5jZSB0aGF0IGl0IHdvcmtzLiBJZiB5b3UKPiA+IGdldCBpdCBpbnRvIC1uZXh0IEFTQVAgaXQg
-aGFzIDMgd2Vla3MgdG8gc29hayBiZWZvcmUgdGhlIG1lcmdlIHdpbmRvdyBvcGVucwo+ID4gcmln
-aHQ/IChMaW51cyBzYWlkIGhlIHdvdWxkIGRvIGFuIC1yYzggdGhpcyBjeWNsZSkuIFRoYXQgZmVl
-bHMgbGlrZSBlbm91Z2ggdGltZQo+ID4gdG8gbWUuIEJ1dCBpdCdzIHlvdXIgdHJlZSDwn5iJICAK
-PiAKPiBGaXJzdCBvZiBhbGwsIHRoYW5rIHlvdSBmb3IgdGVzdGluZyBpdCBvbiB4ODYhIEhhdmlu
-ZyB0aGF0IG9uZSBkYXRhCj4gcG9pbnQgd2hlcmUgaXQgaGVscGVkIHBlcmZvcm1hbmNlIGlzIHN1
-cGVyIHZhbHVhYmxlLgo+IAo+IEknbSBtb3JlIHdvcnJpZWQgdGhhdCBpdCdzIGdvaW5nIHRvIHJl
-Z3Jlc3MgcGVyZm9ybWFuY2Ugc29tZXdoZXJlIGFuZAo+IHRoZW4gaXQncyBnb2luZyB0byBiZSBh
-IHBhaW4gdG8gYmFjayBvdXQuIEknbSBub3Qgc3VwZXIgd29ycmllZCBhYm91dAo+IGZ1bmN0aW9u
-YWwgcmVncmVzc2lvbnMuCgpVbmxpa2VseSwgb24geDg2IHRoZSAncmR0c2MnIGlzIH4yMCBjbG9j
-a3Mgb24gSW50ZWwgY3B1IGFuZCBldmVuIHNsb3dlcgpvbiBhbWQgKGFjY29yZGluZyB0byBBZ25l
-cikuCihUaGF0IGlzIHNlcmlhbGlzZWQgYWdhaW5zdCBhbm90aGVyIHJkdHNjIHJhdGhlciB0aGFu
-IG90aGVyIGluc3RydWN0aW9ucy4pCldoZXJlYXMgdGhlIGZvdXIgVEFVU1dPUlRIRSgpIGFyZSBp
-bmRlcGVuZGVudCBzbyBjYW4gZXhlY3V0ZSBpbiBwYXJhbGxlbC4KSUlSQyBlYWNoIGlzIGEgbWVt
-b3J5IHJlYWQgYW5kIDUgQUxVIGluc3RydWN0aW9ucyAtIG5vdCBtdWNoIGF0IGFsbC4KVGhlIHNs
-b3cgYml0IHdpbGwgYmUgdGhlIGNhY2hlIG1pc3Mgb24gdGhlIHBlci1jcHUgZGF0YS4KWW91IGxv
-c2UgYSBjbG9jayBhdCB0aGUgZW5kIGJlY2F1c2UgZ2NjIHdpbGwgY29tcGlsZSB0aGUgYSB8IGIg
-fCBjIHwgZAphcyAoKChhIHwgYikgfCBjKSB8IGQpIG5vdCAoKGEgfCBiKSB8IChjIHwgZCkpLgoK
-SSB0aGluayBzb21lb25lIHJlcG9ydGVkIHRoZSAnbmV3JyB2ZXJzaW9uIGJlaW5nIGZhc3RlciBv
-biB4ODYsCnRoYXQgbWlnaHQgYmUgd2h5LgoKCURhdmlkCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, Jan 16, 2026 at 09:28:34PM -0800, Ian Rogers wrote:
+> The arch string requires multiple strcmp to identify things like the
+> IP and SP. Switch to passing in an e_machine that in the bulk of cases
+> is computed using a current thread load. The e_machine also allows
+> identification of 32-bit vs 64-bit processes.
+> 
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>  tools/perf/builtin-script.c                   |  17 ++-
+>  tools/perf/util/evsel.c                       |  14 ++-
+>  tools/perf/util/perf_regs.c                   | 105 +++++++++++-------
+
+[ Include dwarf-regs.h to get conditional defines for EM_CSKY and EM_LOONGARCH, not available in old distros ]
+
+- Arnaldo
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
