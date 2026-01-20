@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D9DDD2ECF7
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 07:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A70CD2ECF9
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 07:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tYRzdIuzuqgPOmXKHTT6hhWuluB2HAlF+RDiUBylVJU=; b=yrWrIzfY3Knbnv
-	u593CgCobFWyNyImhdaLoD0PdNdoi7JlD3lKwjiYN+lmXKSPYawvNzOBzx6QIC5wEGG7Ga2cKcOCp
-	CG1aiII0E3d0AZnaWLm/dpJbQuZTmyADQgbvKijTHOe/4T3IT65+cKsAAAdwWboCeDsFh8BtEzly+
-	GrmJDSki7+Le+AO/SYMdD6ZkQXDmfgHP5+9EhqGXH99N7bhNvrZv3Ac/zE9sfMCwHe9bw4Nd1U3Q8
-	xhViozYhoWy33FfDOaaWrkkrelyFzvWZqF2hjxesx2N1j041u53hv8thIy/y5jZBw8nqf0OJi/Xq8
-	3VsZof/7uhrP0+RLVGtQ==;
+	List-Owner; bh=oHCA/vgiIvZWmgQ7T22guStFVUuFb4mUjCqKNDk2rHE=; b=pCe6VaMR9a+6B/
+	LvBHmsyX896D/5mTvoOP07lHomXgkg51lRWuD3U39k7jX8L8vo7DIVRB+WAB647qYgUnllBMU3n4r
+	+DcAnznNdnN86/K0TYQp4tTlQLQUsAEq9K4CNB2X0NvwfFkApQ3jhy1HZzk+HMsRXscqMS3KL8m3r
+	Xadehk28Uz7hQRU6NhObvBbxdmwhhBLBojXiw7kDLx6mqkV9FJNY03Om9Np1b4ilvht5EF1o9ZlbN
+	R0rblKF2DaY6j909jhsM3MGW9O+s5tayE1M/e0V8wvDgIbzIrDe7Bd1g3oDBvc2wfvFkBN7oXaKDO
+	mlzkzlOyiD2/EQc+vHIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi6E2-00000003M2v-2bYj;
-	Tue, 20 Jan 2026 07:32:30 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1vi6IB-00000003MLC-2FTu;
+	Tue, 20 Jan 2026 07:36:47 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi6E0-00000003M2K-13y9
+	id 1vi6I8-00000003MKq-1hIM
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 07:32:29 +0000
+	Tue, 20 Jan 2026 07:36:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768894348; x=1800430348;
+  t=1768894604; x=1800430604;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=nb3aJk8nyDTzbplwGZGJ0Q/PSSQgwHA8tn4+tbQmuPs=;
-  b=gU6PzSpc62pqOLwxNop6JTBrmcBUYhX/EvpZywd3ZBmsCeHe3brW9xa2
-   wKs3Q5b/t4rJnnnQqslUTXN9MU1xu26Gznf1wycR75URbo9nQv1CLhJ/t
-   kPlv9O2QJc7LtXxHtHm7Rae97QL/58eBXM4j8bKKgBG3D8D/CF4FReSjq
-   qwjsBuOnlipZ+HZtL+iL87CvZuObYoVmGRK/AtKsOgCHaRJCLEhGMIWLQ
-   ytg3bNMNVEpksOYP4s6Gjl2fyc/FeKy2vO4VEwVcBZUK4c1uQrw6k+Iz1
-   Gj40feYpLTQryaw16HktMDdASmBMwP7MLpnoUlnHaKGAEg0kXuuVbtxBU
-   g==;
-X-CSE-ConnectionGUID: f8mPFMAxTDug+TWGmI+hOw==
-X-CSE-MsgGUID: TGtoGsJnSkm59f3Vh+iq4g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11676"; a="70147562"
+  bh=dY/ITLky4ksuqTvlk+bheOz2RwnVsxxlZhktw+2usFw=;
+  b=IFs002E5CB9Jo/ApkeKzJQUxVeNSLJloUBTGMoVWOz/xk/Xcx/YkIyq9
+   xO1lQF+Cifstp1OprEI9DhEk3ZV/JAW+fuukJ6qlmZKePMlNZRTtZYBwz
+   6OEKFfKC540VoOW3kAXjrbnwlWc3PCNGifm/F6BDnmfkF+ZFkHAcL3dlT
+   3kFe9p1CpA5B2SBLDowlxi8U/RoKMFkd1qJGwD8RKSWGD0wvW7nGKl9cZ
+   kjryP/Tfh4YC0+jeIT9cFax/FR8kZQ+TW4kaiGLbK9apVmJ+sdDnrQeyA
+   qvXBwZql9Dv4iexknXNHMZRD0KrTPIAlr+TJN6qxPNs7do2Xqb7dxeOZL
+   A==;
+X-CSE-ConnectionGUID: IVNHtZMHQ5KBntzcM4HcSQ==
+X-CSE-MsgGUID: XJWf20mNRQmEcE3PDM3a8g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11676"; a="80817809"
 X-IronPort-AV: E=Sophos;i="6.21,240,1763452800"; 
-   d="scan'208";a="70147562"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 23:32:28 -0800
-X-CSE-ConnectionGUID: tx2GBIdAQea0qouo7OESYA==
-X-CSE-MsgGUID: F57grxlgTQGhgqj1ORpCbw==
+   d="scan'208";a="80817809"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 23:36:44 -0800
+X-CSE-ConnectionGUID: aHKjsF1ETVKAm/rOnd05ig==
+X-CSE-MsgGUID: kqcYcfVPSbeawduoR8Oxig==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.21,240,1763452800"; 
-   d="scan'208";a="210893958"
+   d="scan'208";a="205198375"
 Received: from dalessan-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.179])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 23:32:23 -0800
-Date: Tue, 20 Jan 2026 09:32:21 +0200
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 23:36:39 -0800
+Date: Tue, 20 Jan 2026 09:36:36 +0200
 From: Andy Shevchenko <andriy.shevchenko@intel.com>
 To: Feng Jiang <jiangfeng@kylinos.cn>
 Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
@@ -63,21 +63,19 @@ Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
 	ardb@kernel.org, charlie@rivosinc.com, conor.dooley@microchip.com,
 	ajones@ventanamicro.com, linus.walleij@linaro.org,
 	nathan@kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-	Joel Stanley <joel@jms.id.au>
-Subject: Re: [PATCH v3 8/8] riscv: lib: add strrchr implementation
-Message-ID: <aW8vhU-ECUIITPoh@smile.fi.intel.com>
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 0/8] riscv: optimize string functions and add kunit
+ tests
+Message-ID: <aW8whGcAR0x6FSRJ@smile.fi.intel.com>
 References: <20260120065852.166857-1-jiangfeng@kylinos.cn>
- <20260120065852.166857-9-jiangfeng@kylinos.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260120065852.166857-9-jiangfeng@kylinos.cn>
+In-Reply-To: <20260120065852.166857-1-jiangfeng@kylinos.cn>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_233228_299665_0BB0F95D 
-X-CRM114-Status: UNSURE (   7.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260119_233645_074393_C399E06A 
+X-CRM114-Status: GOOD (  18.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,26 +92,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 02:58:52PM +0800, Feng Jiang wrote:
-> Add an assembly implementation of strrchr() for RISC-V.
-> 
-> This implementation minimizes instruction count and avoids unnecessary
-> memory access to the stack. The performance benefits are most visible
-> on small workloads (1-16 bytes) where the architectural savings in
-> function overhead outweigh the execution time of the scan loop.
-> 
-> Benchmark results (QEMU TCG, rv64):
->   Length | Original (MB/s) | Optimized (MB/s) | Improvement
->   -------|-----------------|------------------|------------
->   1 B    | 21              | 22               | +4.7%
->   7 B    | 116             | 122              | +5.1%
->   16 B   | 195             | 208              | +6.6%
->   512 B  | 388             | 399              | +2.8%
->   4096 B | 411             | 411              | +0.0%
+On Tue, Jan 20, 2026 at 02:58:44PM +0800, Feng Jiang wrote:
+> This series provides optimized implementations of strnlen(), strchr(),
+> and strrchr() for the RISC-V architecture. The strnlen implementation
+> is derived from the existing optimized strlen. For strchr and strrchr,
 
-> Suggested-by: Andy Shevchenko <andy@kernel.org>
+strchr() and strrchr()
 
-Wrong tag.
+> the current versions use simple byte-by-byte assembly logic, which
+> will serve as a baseline for future Zbb-based optimizations.
+> 
+> The patch series is organized into three parts:
+> 1. Correctness Testing: The first three patches add KUnit test cases
+>    for strlen, strnlen, and strrchr to ensure the baseline and optimized
+
+strlen(), strnlen(), and strrchr()
+
+>    versions are functionally correct.
+> 2. Benchmarking Tool: Patches 4 and 5 extend string_kunit to include
+>    performance measurement capabilities, allowing for comparative
+>    analysis within the KUnit environment.
+> 3. Architectural Optimizations: The final three patches introduce the
+>    RISC-V specific assembly implementations.
+> 
+> Following suggestions from Andy Shevchenko, performance benchmarks have
+> been added to string_kunit.c to provide quantifiable evidence of the
+> improvements. Andy provided many specific comments on the implementation
+> of the benchmark logic, which is also inspired by Eric Biggers'
+> crc_benchmark(). Performance was measured in a QEMU TCG (rv64) environment,
+> comparing the generic C implementation with the new RISC-V assembly versions.
+> 
+> Performance Summary (Improvement %):
+> ---------------------------------------------------------------
+> Function  |  16 B (Short) |  512 B (Mid) |  4096 B (Long)
+> ---------------------------------------------------------------
+> strnlen   |    +64.0%     |   +346.2%    |    +410.7%
+
+This is still suspicious.
+
+> strchr    |    +4.0%      |   +6.4%      |    +1.5%
+> strrchr   |    +6.6%      |   +2.8%      |    +0.0%
+> ---------------------------------------------------------------
+> The benchmarks can be reproduced by enabling CONFIG_STRING_KUNIT_BENCH
+> and running: ./tools/testing/kunit/kunit.py run --arch=riscv \
+> --cross_compile=riscv64-linux-gnu- --kunitconfig=my_string.kunitconfig \
+> --raw_output
+> 
+> The strnlen implementation leverages the Zbb 'orc.b' instruction and
+
+strnlen()
+
+> word-at-a-time logic, showing significant gains as the string length
+> increases.
+
+Hmm... Have you tried to optimise the generic implementation to use
+word-at-a-time logic and compare?
+
+> For strchr and strrchr, the handwritten assembly reduces
+
+strchr() and strrchr()
+
+> fixed overhead by eliminating stack frame management. The gain is most
+> prominent on short strings (1-16B) where function call overhead dominates,
+> while the performance converges with the C implementation for longer
+> strings in the TCG environment.
 
 -- 
 With Best Regards,
