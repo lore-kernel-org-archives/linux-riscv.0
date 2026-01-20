@@ -4,112 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C13D26294
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 19:22:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B798D26292
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 19:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YAlfqj3LlVmSy9gjzBRJ/er+fmajAAqfQJD+Xiau7og=; b=ZmRttimb4r/EwS
-	+5iGvbvyj01giTonKZIGnalKSY2yskfnMUgZYncFOS984m9GRRJOoHAA+OAf/SpoIyfk9Hy+fbKfF
-	rRZZMln8yDPyAkyINnGaEOVyHo7guBISIaFZq/nKdIOID0gwzV9kBVRCpA1HZyoxXATMd/0lYEwYM
-	eoJLad+h9EfCIdAFF4s+W3nMnKF7oj4OYXM1IUhLUWskdQ84+YUnlmI1Qr379F2vRXPayKtLwha3i
-	I4bX44u4sNDU3cCloswDtsJoUHYG4ow4ovSvA4vtpp97j+XJiGqADAIBW72ysMLWwMOd74Bj1VpSa
-	6yX7Ha+do/BVCPmy/a2A==;
+	List-Owner; bh=6MfTWFI4f995ToINQSTGd139VRze3NimOKe/ytcPbbg=; b=vnLTJio8uYv3Lg
+	SO7CfWeUaX9pGxqp6j7Coz0KXSjvrZVQkV+ixFZLJq/m7Q0UwyYUAYkf8VZVaatR4m0vQuwxvBCFn
+	U2NsM5UEep/kjrcfRyhZlxFa0mxd54IEDWnFwfZor9yvVoQ78VM8bQl8UJCjFHnaZbdft7RdvmynV
+	ukahlob+6sLpcV4gZWYnLNxxTRTNlYm3OeIEodUmgvIys+peqAJbUkTfZAthm6fEmIdYh4O6QBDDv
+	Ge5WQI+On+7LxlMW9jW8W+6PmLhGuKntJMi5Yj/S0twTr0l59C4Y/k0BmQqfrSTylYOXZ96nWnTqE
+	BOGkXJqY/o51VSHrPpaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viHIg-00000004MW6-31B4;
-	Tue, 20 Jan 2026 19:22:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1viHVM-00000004NT4-0kjI;
+	Tue, 20 Jan 2026 19:35:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viHIb-00000004MVI-3lA8
+	id 1viHVL-00000004NSw-1DMh
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 19:22:01 +0000
+	Tue, 20 Jan 2026 19:35:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B345D44339;
-	Tue, 20 Jan 2026 19:21:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6FC4C16AAE;
-	Tue, 20 Jan 2026 19:21:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3304F60010;
+	Tue, 20 Jan 2026 19:35:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB2E1C19421;
+	Tue, 20 Jan 2026 19:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768936915;
-	bh=0GSFWc9QhOINtnHufyl7Xm5y3QzphnDnSzaiXuBG9g8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qh8Q21rF1pWoEtxfej/4aF684Rz5HhYGNXYJXdeP7p6cOJsDGrBjvuIPkvXNUtgTz
-	 phqYamLh6aAJbdF4e4lY8HVinfxrM4tnQJhWcGHiRb2DOxeiBp0AP7KNZvyTzqN5N8
-	 LiEHX5wA52VMmIbSKQfHxggPwMhudvyzmYfZ59ccSojIcZqV/yCNVXapINEz7rVqn5
-	 4twv2god5AAVP+zDKE89LOyC1mQ7dXohMh5F84ZC30cenHyCmqm6m6kfzVXe2VsqGJ
-	 naZuXACD4EkUWQwMS/seyB7B61ThNNwlaGXJvoBagE5jkga1bkeL5oc4PUJWEnP32b
-	 Rd/QEcjDbQpsQ==
-Message-ID: <556a380d-8e05-4533-979d-fe1d08e00887@kernel.org>
-Date: Tue, 20 Jan 2026 20:21:49 +0100
+	s=k20201202; t=1768937705;
+	bh=LhUtgzXOVPV8SD3R2VJ6zeG5rQgZrdms4OAVI/3ji5s=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=BEVy/UHoYyT1NPcSaM7OZOWOmpSp4fz9Om0Cj6qr09uIAdFFQCGFWFoJwEBZjZelF
+	 0s5s3uDl6t/EemYHuhJQYi02UXEaIoi+Evq+YYb29zaLur/hnFOBVC+nD9Yt2iJm9i
+	 lk1eIjzyP0wY3B+x8ZZgjXNp6oyxHmqijIoj3gzwx2ATIP5dfPPpTPHB4gMi1iT5aX
+	 6lPTff7/GyXtZswom8WOVMkaJPTGwPTEBLbiSDdprgJetN3HboA+fs0PqAhDoN7XMU
+	 9mLUGTqe3iNigiDAl894Y1WZoUaLiXdGmQUjfl7/XOISnI5+8BQvJSTg4GmXksmwXY
+	 GFUjZem7TrGQg==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Guodong Xu <guodong@riscstar.com>,
+	Juan Li <lijuan@linux.spacemit.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Sasha Levin <sashal@kernel.org>,
+	dlan@gentoo.org,
+	dmaengine@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev
+Subject: [PATCH AUTOSEL 6.18] dmaengine: mmp_pdma: Fix race condition in mmp_pdma_residue()
+Date: Tue, 20 Jan 2026 14:34:48 -0500
+Message-ID: <20260120193456.865383-5-sashal@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260120193456.865383-1-sashal@kernel.org>
+References: <20260120193456.865383-1-sashal@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/6] ASoC: dt-bindings: sophgo,cv1800b: add I2S/TDM
- controller
-To: "Anton D. Stavinskii" <stavinsky@gmail.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
- Inochi Amaoto <inochiama@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20260120-cv1800b-i2s-driver-v4-0-6ef787dc6426@gmail.com>
- <20260120-cv1800b-i2s-driver-v4-1-6ef787dc6426@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260120-cv1800b-i2s-driver-v4-1-6ef787dc6426@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_112159_149777_6D0A50E9 
-X-CRM114-Status: GOOD (  10.78  )
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.18.6
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,25 +79,204 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20/01/2026 20:06, Anton D. Stavinskii wrote:
-> There are 4 TDM controllers on the SoC. Each controller can receive or
-> transmit data over DMA. The dma it self has 8 channels.
-> Each channel can be connected only to a specific i2s node. But each
-> of dma channel can have multiple purposes so in order to save dma
-> channels the configurations allows to use tx and rx, only rx, only tx
-> or none channels. I2S controller without channels can be useful in
-> configuration where I2S is used as clock source only and doesn't
-> produce any data.
-> 
-> Signed-off-by: Anton D. Stavinskii <stavinsky@gmail.com>
-> ---
->  .../bindings/sound/sophgo,cv1800b-i2s.yaml         | 67 ++++++++++++++++++++++
->  1 file changed, 67 insertions(+)
+From: Guodong Xu <guodong@riscstar.com>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+[ Upstream commit a143545855bc2c6e1330f6f57ae375ac44af00a7 ]
 
-Best regards,
-Krzysztof
+Add proper locking in mmp_pdma_residue() to prevent use-after-free when
+accessing descriptor list and descriptor contents.
+
+The race occurs when multiple threads call tx_status() while the tasklet
+on another CPU is freeing completed descriptors:
+
+CPU 0                              CPU 1
+-----                              -----
+mmp_pdma_tx_status()
+mmp_pdma_residue()
+  -> NO LOCK held
+     list_for_each_entry(sw, ..)
+                                   DMA interrupt
+                                   dma_do_tasklet()
+                                     -> spin_lock(&desc_lock)
+                                        list_move(sw->node, ...)
+                                        spin_unlock(&desc_lock)
+  |                                     dma_pool_free(sw) <- FREED!
+  -> access sw->desc <- UAF!
+
+This issue can be reproduced when running dmatest on the same channel with
+multiple threads (threads_per_chan > 1).
+
+Fix by protecting the chain_running list iteration and descriptor access
+with the chan->desc_lock spinlock.
+
+Signed-off-by: Juan Li <lijuan@linux.spacemit.com>
+Signed-off-by: Guodong Xu <guodong@riscstar.com>
+Link: https://patch.msgid.link/20251216-mmp-pdma-race-v1-1-976a224bb622@riscstar.com
+Signed-off-by: Vinod Koul <vkoul@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+
+LLM Generated explanations, may be completely bogus:
+
+This confirms the `mmp_pdma_residue()` function was added in 2014. The
+race condition has existed since then.
+
+## Analysis Summary
+
+### 1. COMMIT MESSAGE ANALYSIS
+
+The commit message clearly describes:
+- A **use-after-free (UAF) race condition** in `mmp_pdma_residue()`
+- The race occurs between `tx_status()` (calling `mmp_pdma_residue()`)
+  and the DMA tasklet (`dma_do_tasklet()`)
+- **Clear reproduction steps**: running dmatest with `threads_per_chan >
+  1`
+- The CPU timeline diagram explicitly shows the race window between
+  unlocked list iteration and descriptor free
+
+Keywords: "Fix race condition", "use-after-free", "UAF"
+
+### 2. CODE CHANGE ANALYSIS
+
+**The bug:** `mmp_pdma_residue()` iterates over `chan->chain_running`
+list and accesses descriptor contents (`sw->desc`) without holding the
+`desc_lock` spinlock. Meanwhile, `dma_do_tasklet()` can:
+1. Hold `desc_lock`
+2. Move descriptors from `chain_running` to `chain_cleanup` via
+   `list_move()`
+3. Release `desc_lock`
+4. Free the descriptor via `dma_pool_free()`
+
+If `mmp_pdma_residue()` is iterating over the list when this happens, it
+can access freed memory (UAF).
+
+**The fix:** Adds `spin_lock_irqsave(&chan->desc_lock, flags)` before
+the `list_for_each_entry()` loop and `spin_unlock_irqrestore()` at all
+exit points from the function. This is:
+- Small (+6 lines, -0 lines of actual logic)
+- Surgical - uses the existing `desc_lock` that already protects this
+  list elsewhere
+- Follows existing driver patterns (other list operations use this lock)
+
+### 3. CLASSIFICATION
+
+This is a **bug fix** for a **use-after-free vulnerability**. This is a
+serious memory safety issue:
+- Can cause kernel crashes/panics
+- Can lead to data corruption
+- Potential security implications (UAF bugs are commonly exploitable)
+
+### 4. SCOPE AND RISK ASSESSMENT
+
+- **Lines changed**: ~10 lines (just adding lock/unlock around existing
+  code)
+- **Files touched**: 1 file
+- **Complexity**: Very low - straightforward spinlock acquisition
+- **Risk of regression**: Minimal - uses existing lock that is designed
+  for this purpose
+- **Potential issues**: Slightly increased lock contention when calling
+  `tx_status()`, but this is necessary for correctness
+
+### 5. USER IMPACT
+
+- **Who is affected**: Users of MMP PDMA DMA controller (Marvell PXA/MMP
+  platforms, SpacemiT K1)
+- **Trigger conditions**: Multi-threaded DMA operations on same channel
+  (common in dmatest, may occur in real workloads)
+- **Severity**: High - UAF can cause kernel crashes or undefined
+  behavior
+- **Reproducibility**: Can be reproduced with dmatest (`threads_per_chan
+  > 1`)
+
+### 6. STABILITY INDICATORS
+
+- Has proper sign-offs: `Signed-off-by` from author, forwarder, and DMA
+  maintainer (Vinod Koul)
+- Link to mailing list discussion included
+- The existing lock (`desc_lock`) has been in the driver since the
+  beginning
+- The locking pattern matches other functions in the driver
+
+### 7. DEPENDENCY CHECK
+
+- No dependencies on other commits
+- The affected code (`mmp_pdma_residue()`) has existed since 2014
+- The `desc_lock` spinlock exists in all stable trees
+- Should apply cleanly to any kernel from 3.15+ (when residue reporting
+  was added)
+
+**Note**: Recent mainline commits added SpacemiT K1 support with 64-bit
+operations (`pdev->ops->get_desc_dst_addr`, etc.), but the core logic
+and the race condition existed with the original 32-bit implementation
+too. For older stable trees (pre-6.x), minor context adjustments might
+be needed due to the `pdev->ops->` refactoring, but the fix concept
+remains the same.
+
+### Conclusion
+
+This commit fixes a clear **use-after-free race condition** in the MMP
+PDMA driver. The bug:
+- Can cause kernel crashes/panics
+- Has existed since 2014 (when residue reporting was added)
+- Is reproducible with standard kernel testing tools (dmatest)
+
+The fix:
+- Is small and surgical (~10 lines of spinlock additions)
+- Uses existing infrastructure (the `desc_lock` already exists for this
+  purpose)
+- Follows existing driver patterns
+- Has minimal regression risk
+
+This is exactly the type of fix stable trees need: a clearly correct fix
+for a real bug that users can hit, with minimal risk of introducing new
+problems.
+
+**YES**
+
+ drivers/dma/mmp_pdma.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/drivers/dma/mmp_pdma.c b/drivers/dma/mmp_pdma.c
+index d07229a748868..481b58c414e47 100644
+--- a/drivers/dma/mmp_pdma.c
++++ b/drivers/dma/mmp_pdma.c
+@@ -928,6 +928,7 @@ static unsigned int mmp_pdma_residue(struct mmp_pdma_chan *chan,
+ {
+ 	struct mmp_pdma_desc_sw *sw;
+ 	struct mmp_pdma_device *pdev = to_mmp_pdma_dev(chan->chan.device);
++	unsigned long flags;
+ 	u64 curr;
+ 	u32 residue = 0;
+ 	bool passed = false;
+@@ -945,6 +946,8 @@ static unsigned int mmp_pdma_residue(struct mmp_pdma_chan *chan,
+ 	else
+ 		curr = pdev->ops->read_src_addr(chan->phy);
+ 
++	spin_lock_irqsave(&chan->desc_lock, flags);
++
+ 	list_for_each_entry(sw, &chan->chain_running, node) {
+ 		u64 start, end;
+ 		u32 len;
+@@ -989,6 +992,7 @@ static unsigned int mmp_pdma_residue(struct mmp_pdma_chan *chan,
+ 			continue;
+ 
+ 		if (sw->async_tx.cookie == cookie) {
++			spin_unlock_irqrestore(&chan->desc_lock, flags);
+ 			return residue;
+ 		} else {
+ 			residue = 0;
+@@ -996,6 +1000,8 @@ static unsigned int mmp_pdma_residue(struct mmp_pdma_chan *chan,
+ 		}
+ 	}
+ 
++	spin_unlock_irqrestore(&chan->desc_lock, flags);
++
+ 	/* We should only get here in case of cyclic transactions */
+ 	return residue;
+ }
+-- 
+2.51.0
+
 
 _______________________________________________
 linux-riscv mailing list
