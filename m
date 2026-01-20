@@ -4,103 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55C21D2ED11
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 04:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B0A0D2ED12
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 04:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q+nCvMOwz0i5c+aBKCEW6q2fRx9F2orH8WepRoCeRrQ=; b=jYMjvWu59MTPIS
-	6TjgcNRYvrDL0fZSPHDzvbgweK3HQPUA9pY7cPVaBQn87A/tNjJUd/P1P4revRm9vKJXg8d5aDxPm
-	76UL96K1EvEvUz9/ivsb6hKL+1tW+eiG9LeLgXzk/Mvq1MBlbXy9CbRYq/62j3VwZCe6QY/UhUoBI
-	tReZ2t5ISHgJMdrHHH+PqoyP3doJM9cmuSGl33K7FZgnLvuGs6SjYo3pVHrPU1T5wMHEeIadC0Ife
-	TrHw9tJ9RNkmf5Rrpd5B881ZrISKUaFW87pSL/buEm/aW4qxG2wouGS69Ooz5lDU6mGmJgrQJYmj5
-	v0kLD+ZFhFzCxkSj3tHg==;
+	List-Owner; bh=DnNGwYec7ogz/bXFO6q7oRCpgmd9dEXJbS3/0r6dppI=; b=qZPfSIRRlehoLS
+	HakR+QGd+riUBMgqkXGO7yp9L/vjbYhlFNa1f4Nh+LH5PK7GgaKbWq07UsRk4Ic055R30lN0d3FXF
+	yCBJoRExoKDt6BcW9QCVAtcNtIJErJOprVe0tFZOU22LoR5c36UdYxC9rgdAZzHa+Vux79WQdyUUs
+	2GkJg7KlHYf713TZgJMm9tPBTSdZYFpJlNaHZP7MrvE3WkTQ8KdGbRTEN2jrahjc74uP8aPPGQgzY
+	MOwR+0idobrRn/Ik9k24Gfwd+tecDD/CofYYI24HUqHx83YAuw8BefNFCSw3hSjLs1bKpowBMKpJK
+	DX/KJLXbDopGWJ8Vf8Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi3Tq-00000003C23-2Uj5;
-	Tue, 20 Jan 2026 04:36:38 +0000
-Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
+	id 1vi3Ty-00000003C3b-18Ot;
+	Tue, 20 Jan 2026 04:36:46 +0000
+Received: from mail-dy1-x1336.google.com ([2607:f8b0:4864:20::1336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi3TZ-00000003BzF-0LwM
+	id 1vi3Tj-00000003C0Z-04pr
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 04:36:30 +0000
-Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-7cfd2be567bso3031103a34.2
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Jan 2026 20:36:20 -0800 (PST)
+	Tue, 20 Jan 2026 04:36:38 +0000
+Received: by mail-dy1-x1336.google.com with SMTP id 5a478bee46e88-2b6f5a9cecaso948882eec.0
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Jan 2026 20:36:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768883780; x=1769488580; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1768883790; x=1769488590; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=i2Ldiltg0ilm3GITC1FlZ3jygue5ViLbnCHXlSmV/Sg=;
-        b=VOi7xXj8D+ZdgAqRwDN864H79Rm1wd1E3pn5QgWLEtLTepqJUCtEXDHuIiGoFPneiK
-         3ShJ7G4X9bjuhQ8s7qjop+ds6f5RcTWVKS4VqQnzgNIrD2mXoZXSZaRfuwbwVIegngme
-         s6y6Q2AR5Kr/jkhJeRuVwn2gab//wiNJJOorpEg9VsFfW4KD22aRP0nQmiAs2WAjI9bs
-         FZiC2Ei8CuGGy9jXnPKHYURSWxiYkHezAvJ2bCe9BK5msragjH+hRykHLXWgGexh4tnv
-         KBpjHK0gdhXs5q5UBruGkftOYVyNYc8sHHm6vDFmW4A4EuvEmSuNg7QNMNZjcrfamOd+
-         fkHg==
+        bh=yB8/RdUGEfLZjhmXdp52kQTD2QqD1w42DdvzuHTbkg0=;
+        b=b51fCfsYvhKsVdsgFVAz1c1Flqhyn5aLHxjyJez67IlGVb2AFxr/d20d+8B5La9Bo/
+         RTnM57gVz2ReIF3jzOJhSvR9fJf3Ug8kqKRPfvPwO8JH/k2v9tkn/tJdD723katHX3g4
+         2lGZP4kXPhvbRCXp0bjcMxuxQ5WCAPkO0mYPmGtLeayRwXfcbCwV/xrgc0LC0QNOb5+r
+         RuXdtH2IibspFNthQF2XRtbk2MkfBATdzXSSnWaXopJBQucYaUGiTWb8JrWeSwn04pkU
+         3qvRTMpLpuXcctz0ggkkNdGMVDaEam4vweMxygtTYeO7LW/NXv0yHaKsLhHdAZc6b3st
+         q/WQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768883780; x=1769488580;
+        d=1e100.net; s=20230601; t=1768883790; x=1769488590;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=i2Ldiltg0ilm3GITC1FlZ3jygue5ViLbnCHXlSmV/Sg=;
-        b=C2S4h1WtKxW1BJcXn40CUmMAppnAQv9Jqz6A4316a1bHjH985uUBQhqI+hYMvBsVv5
-         x8KEXorC/1ODdXJehtZ6hba2ytaSYBa4WooBhX6qTRvBiGqU9NlDUmiTACq+nVENC1Mc
-         ShicT94NJH6D2mhQTEE36HZz1mhRxtQABOgilP9yb9sF+EGQlF4kaz+djarfL1Tpxjo4
-         CdkexyNfEOHhWCNZUyBEzOdfNUvXJ3E0dDkSHsk8k8wUcuhas69PIevkyP52sLzf90wd
-         elWn08a6evEmK78kcDQvq9u60bIkhVhCxZDcuRzrat8wWO6MRx3o/IwfJ9xPoVgUyRyI
-         HmJw==
-X-Forwarded-Encrypted: i=1; AJvYcCWD/BLz4Cwi1Jv3Fr9hqz3BC7IFgtBNHhBo+A4yLF4ajalrMD+z1k1MgrgdvLMC5FYC5qredVD4qlxvzg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGGqC+j8CsdLHoEqEsg1aPr2DxhYwN+dvciXEOA7X8A4XPQ1pq
-	1ta+myaOM2nf+GO7rCl8TAD0ztivlCT8sB82dUbgceI8i1IoM0xGEfJGc2KyfEiV
-X-Gm-Gg: AY/fxX4be06J7TbJy0/bGtvGNE4v4D+hf9Rhp0FVk8TSnCzx7nJaWDdnV8RA45wC1QP
-	mttI3MB2vOi1Uh9x42c5RxtcUSI11OFbUfY7XQdiF3y5VXnr5bgYqu24jLyViNfb3QtuWMwqxgP
-	cJz/44K/GFSbTihyS5Za0/zIccWwFoXlm5AwoCLfSuM77/0JmZRQupJzK+7uIRaadTTvp6llEtb
-	GJAIAW73/FO6lMzOObTSUq4l3nVH64WdWSiCvhPZ6EsMmIgZvA5Y15Xh8mOyztrIl4299MkAdue
-	YTGs/Aepdm4pJB4fkyQhxYlHyIBEZTQCBlfnCjwd47rQ9ESGdXtccbGFAQ6kYo3yst/ApgfLJXt
-	Z7aenLp4jvwRBf2jnBOebCBsdCbgF/qTSVrzuAS2yr3VDvTHpna7tStYg8RZqA+Vt7v4xdmFmm+
-	MyNQNpuNOR4g==
-X-Received: by 2002:a05:7022:925:b0:119:e569:fba6 with SMTP id a92af1059eb24-1244a7195b4mr14136099c88.21.1768877353611;
-        Mon, 19 Jan 2026 18:49:13 -0800 (PST)
+        bh=yB8/RdUGEfLZjhmXdp52kQTD2QqD1w42DdvzuHTbkg0=;
+        b=aWUuH+yczffo6v9mQhEzrAu9X+PWUR5kO1kzZo45GboPWhrE7QmlIRvY1uBWYtY7m3
+         wdQb9wnPc+qCpciqdjBjphZdGDtzCRVP/U+HkCeey5OYLcgs3ZAOTEPD5nOCvtKIE93h
+         sBlDS/VzzN1NIRrPx54XU6YfGrqZF/ZokpAenfO3A06v9JBmLIJ8kAhds6X9RBmEIjH/
+         x/j8PeM/7RsaO/mQHeMG0/tVc9+AKjC9E5i3bl2jQSTdz39kNWjjgOlcrcFFltI31YSu
+         15yaESpXtzb8zhRcNEOvw5BbplGjUi+479/5AWR4Q0P3AnNiKbnGmnxuq7P0cAseFdCD
+         tu+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU8otLyqA4V3fMlZaRwZ/0ezgagjE2wcVJRihgNGBQ8bB0VasoIb69NrJj3yqSqAm2ibFR9oYvDm8eBaQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCS4b5czSoe63wE+6mhb8AuQhS2ATQAkvpuRw67d8kMThm2aOx
+	Sv8ev0uOFAtOGE12Kci9N+r6dMBQgnS2zEBDUYHPbLWKDQfyVE/BADZ6
+X-Gm-Gg: AZuq6aJZAbkVI57qycOaEzh9SUWi3XLVvxCT3z+uHkM1mght/qhCXtx9Bf92d1mVZfa
+	yF7FzaRF7XcwihWI4S7RXRhDejPhpj0Ju+BzDnP/a+6hyhuoQ2X9RtN7SX2Yakew6OzNIRheAtR
+	HjXVO8h7CUB//rpI8TPCWMHZ4GEow7otLiQ5TIGcOM6+oZyBdZZdXJGv9MQ7Sy/Zu2G/AUoWj32
+	XUDkJUHdcObPJu332jOKwEtJJfM+45Q/GcXdJ7bOTj//XS0LkU8dlhCamry6BCOODCoqwnB48Cp
+	huHO1Vv79qDxc2k8klUP0+arSDblOAo47tQ7/hsyT42zrWGzkQgaElCv8ME+EmfkdE/Q9//jmPj
+	lUhTZNOCLH8TlqAYbK9ouDZSz46NVjpUv3mHargere2KEAgWcq6k/jhE4rKQONIiqfqJcGz5sFS
+	G39drtwNDynnfwQtdBWLni
+X-Received: by 2002:a05:7301:9f09:b0:2ae:5e93:b6d with SMTP id 5a478bee46e88-2b6fd7e55f9mr304430eec.38.1768883790053;
+        Mon, 19 Jan 2026 20:36:30 -0800 (PST)
 Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1244ac585a9sm16856206c88.2.2026.01.19.18.49.12
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b6fc2820a2sm1030314eec.35.2026.01.19.20.36.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Jan 2026 18:49:13 -0800 (PST)
+        Mon, 19 Jan 2026 20:36:29 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Jonathan Corbet <corbet@lwn.net>,
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Yixun Lan <dlan@gentoo.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Guodong Xu <guodong@riscstar.com>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	Junhui Liu <junhui.liu@pigmoral.tech>,
-	linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Yao Zi <ziyao@disroot.org>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org,
 	devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	spacemit@lists.linux.dev
-Subject: Re: (subset) [PATCH v2 0/4] riscv: dts: Add "b" ISA extension to existing devicetrees
-Date: Tue, 20 Jan 2026 10:48:55 +0800
-Message-ID: <176887176536.427065.4468747981087466363.b4-ty@gmail.com>
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net-next 2/3] net: stmmac: platform: Add snps,dwmac-5.40a IP compatible string
+Date: Tue, 20 Jan 2026 12:36:07 +0800
+Message-ID: <20260120043609.910302-3-inochiama@gmail.com>
 X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260115-adding-b-dtsi-v2-0-254dd61cf947@riscstar.com>
-References: <20260115-adding-b-dtsi-v2-0-254dd61cf947@riscstar.com>
+In-Reply-To: <20260120043609.910302-1-inochiama@gmail.com>
+References: <20260120043609.910302-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_203625_693614_C62E1ED0 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20260119_203631_050775_B75FFE19 
+X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,28 +134,29 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20260120024855.kR6DBze1o7SJuFZMCxsIB5FaMyKQhMavwcSfQSV6Qrk@z>
 
-On Thu, 15 Jan 2026 07:18:56 +0800, Guodong Xu wrote:
-> The RISC-V "b" (Bit-manipulation) extension was ratified in April 2024,
-> much later than its component extensions zba/zbb/zbs (June 2021). Recent
-> updates to the device tree bindings [2] enforce that when all three
-> component extensions are present, "b" must also be specified. Related
-> discussion can also be found in [1].
-> 
-> Patch 1 clarifies the ISA spec version for canonical ordering in uabi.rst.
-> It is a trivial update, but can help readers reference the correct
-> document version. Acked-by Paul Walmsley in v1.
-> 
-> [...]
+Add compatible string for 5.40a version that can avoid to define some
+platform data in the glue layer.
 
-Applied to dt/riscv, thanks!
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-[3/4] riscv: dts: sophgo: sg2044: Add "b" ISA extension
-      https://github.com/sophgo/linux/commit/f16ae81b80ca4e721f4c4ed1f28390115f7721eb
-
-Thanks,
-Inochi
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+index 8979a50b5507..54c7b1537ab9 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+@@ -396,6 +396,7 @@ static const char * const stmmac_gmac4_compats[] = {
+ 	"snps,dwmac-5.10a",
+ 	"snps,dwmac-5.20",
+ 	"snps,dwmac-5.30a",
++	"snps,dwmac-5.40a",
+ 	NULL
+ };
+ 
+-- 
+2.52.0
 
 
 _______________________________________________
