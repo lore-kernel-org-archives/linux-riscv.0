@@ -4,102 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FE49D2ED0E
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 03:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F33D2ED0F
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 03:30:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BOa9x2zf7MEJTdESTgfV9uBl6WJcBXCWJdIVu8UNZiE=; b=Arcsf57j/6i2Ru
-	zjJTuX7G3xRtYxWJ70iM8D4m9M+GsweqdclHXEYk6WRn5HBD0xMA4wqGegtuVEWu9xHaezubQGw//
-	nMrNCGAiIB+WK9PWIvX5YzGg06x6lSMrfr1oRlOCBlClQqPMT/f9ChNdorcKbDjZOdTC7Vn7wg4yL
-	tbV8ge/bprxX8n6kpefDw+zuqLz/i60FeF/R6H936/+iq07PcCnqwqt1QenJbBBaGlhuMKWeDfXTJ
-	rlulbQbgeBAhgsoew9UyByiQxykomPduicqs5r4GrhcxNZwLseWsyjLviWmQ0AyCj8lszlwPMpLgd
-	OoeUSwmTRPaqXGlpXtQw==;
+	List-Owner; bh=aKHTGyP5GHKtQo6Il9olRFY9uLzu0XV23ZPbah1uI3g=; b=vT6inIA6ncehtQ
+	UXcu+INYzKuKyX+fWJ9qVenc428zFNg5VcbGZdaXIn0G0FbvDrM+UOl/j+yEjLX5+BLdRgW3gyz1L
+	1YmFL4w8dOAlVmZzsgNk7P3AbKShgttpBAjNJps6A7SkUYk5tnQhHe+/JKRXXR3OQMdpsxY2c2UhG
+	zNUGsHES2CQRdoEklprzZhvOxGnptwjA9io0Cmg+tUSDQQZfsyUZ4u4sE5tb06zAeHLvz4JlHCewK
+	XvsvLeTazKMc8tTUiHBAS4Dadi+tAWDJgVilbs2Q2qbEWb4dIyvq7FzbYYYNPgEEk2zEf4PYsFtDh
+	fUjIA76OPvDV3yQareQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi23z-000000036wv-1N1Y;
-	Tue, 20 Jan 2026 03:05:53 +0000
-Received: from mail-ua1-x92c.google.com ([2607:f8b0:4864:20::92c])
+	id 1vi2Rz-000000037jm-35mr;
+	Tue, 20 Jan 2026 03:30:39 +0000
+Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi23w-000000036wb-0k2V
+	id 1vi2Rw-000000037jR-3YdI
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 03:05:49 +0000
-Received: by mail-ua1-x92c.google.com with SMTP id a1e0cc1a2514c-94130b88642so3051387241.3
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Jan 2026 19:05:47 -0800 (PST)
+	Tue, 20 Jan 2026 03:30:38 +0000
+Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-502b698e510so23380471cf.0
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Jan 2026 19:30:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768878346; x=1769483146; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1768879835; x=1769484635; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Gv5G6VMcszifsvErGVwkIh6g0xPeD3R1+Dyj40SWmEo=;
-        b=Umq+kzrqNXhaZ9Y2oM4nAnsV2omzeBkgdL8hnU779M0jjuO3vYZ7dgkvSzpy9sqeMY
-         TVg8W9slE18fqW+7wZZae0dvn+ig0KOmidjg8/O3T4GmxtMR1EAKlX1nbRU5J4XH+mhz
-         2xRYdsR9k3LCJGWxzSyjSoaIuQpJHSHXxHQj91xggiUI3AeFbQfXA1/TxX9hiDxRLF2e
-         K9albWBCQOnVm/ZrARGw3vJdnbuZbL1xDAjDHaWL3ekKgExt7z+R3VcGCvRq3rVTT82k
-         J77Qfu8GqeRkiwySV9dOniRgHZPMzDw2bL3DX16FXiWgTB4nOFAz07OHwxpgY4P1yG3n
-         p6Aw==
+        bh=hlh3awqwpSDVfosrs2ZgXu5CLF0C481abnvSQYVV+dg=;
+        b=hsdSVFlpp0/hboCIVD8EJNw02IzIdJAuyZQAeh8BOXm5vJTGyu8Ujr0ebPqA/GwIdt
+         3FH1t0QfG2q4PSu+PI+/FwuMoPnNQn79sRoNnVuPQ8wnZiTM12bY32B7MtsLyJXHMI5Y
+         oh23s6XGRu89OxdYojXzkeh9xcTTcyYXjlq+ye6KWx/nmcOs6GnPLPOOKqWd36XXPw1V
+         ygH9PIClUkGZgiUnHR2BrHblJuAxOa4Ap89JUnS35PIFcTYWbm5yj4YYMSLrUZ3t4piS
+         oh6UYo9RF3Go56DTNYwKEkKPpy1mn+HY3zs2dRcI/3e2krMaQaptBHGBMCxR1TPGOxQv
+         CkaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768878346; x=1769483146;
+        d=1e100.net; s=20230601; t=1768879835; x=1769484635;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Gv5G6VMcszifsvErGVwkIh6g0xPeD3R1+Dyj40SWmEo=;
-        b=JIe59HH7Ydaf7cnd/6cw41VI3pNSzGs1hp48HEZy8/E/Kz550ayNykPfiyImndjRXD
-         kD4aHDpXnEAE1ojQ7FwxSbh1fR8dlZ9YzOUDCi34jwPU4DLpxXABP8HXJiJaJ6s7/uuX
-         a0ug611oL9hSgLWaP4Z3u0wuKv/rjdw+HkwxmIZQRumXqlfHftujpi8H3yyshetQ6w1c
-         AuIeIZDf3X9wkmLV4Cg/B3xnp77LvpAwr9bAkVsmaWufcOKrougtPjTNAARZRjQkpwE8
-         lWG5nNdCkvrHVu+RuJBa3+5I6cndHuv/piWDnHYduqghcxiRt7gNqfdK5RJ98qGfiGRP
-         IEWA==
-X-Forwarded-Encrypted: i=1; AJvYcCXRLcRrQEXpOpN49g/SUjV/SQfwcmMow7ut1lDnr92pJ0ACNvi7NyiqS+LN8E7lNaY4XfH222iZQgDs9g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxiHxUipFaNkN5/zEFDrc7PdI+sZ4r3eAVzjY9KRNYxadVkYxKw
-	eIpXgI8uMJuosVa2vF07F96EdNBOq19+eW0Y4vVugFjgWe5OX5IOIRw5vbups8z2
-X-Gm-Gg: AZuq6aLbmdLtd7sAS5kO/UYRsOz3hTuz5zFWD1ghXdGVN8CsAx+gAHSWgVtGBok6grs
-	3f/m3ZEO7qXqHLXogAWNPT3eQbEEG2zvF2p1XqUlT8XoliM5fszW1/l+cQDnC/1KMnQdIfjulxX
-	mkg9mfopyNNPaBulUv3F0LfSF7i2qtFR+USAdI/0QzuEJsPlDToGF5WGbqGR7iGcJDPAO3gETFW
-	+SP+alITZrXQGrsHEWIa5P9XJl845i8v9uZLU5qacY/KaGU89YpmaRuxre7sCcplk0t0Rm/WIQE
-	Csoc4G55r4pV7Gf9uHOdRBIQWEXoDFJ3dJM4NcykMa6hPlGNSHBqzAxvW8AzsGAlz2RnPpLop3P
-	mMsxdmXibdg0GgJNvFLip2cFQReG0PAgL9FoeqQckzw4FqpW8fpenBb7BdAG7N0YGm3LsPYohuB
-	PH8NCmNdglwA==
-X-Received: by 2002:a05:7301:fa12:b0:2b1:7910:b0f9 with SMTP id 5a478bee46e88-2b6fd7c5909mr186113eec.42.1768871788943;
-        Mon, 19 Jan 2026 17:16:28 -0800 (PST)
+        bh=hlh3awqwpSDVfosrs2ZgXu5CLF0C481abnvSQYVV+dg=;
+        b=oE4f5nbBtCuHO7D2lvw4uRqtQw7wemCYh3z3+CkghS6fRsl+XDbQrhRLTH5YdQvaBc
+         lS0SMymCxDP0O3188kvr6kr8BAFezrR0XkrS96cp6t11PbeuYVlf65TWofTDz3A+/uii
+         zT5axEj4fYITtK2cVdS2b9sh8ASFawi9XcYuP4h0zTbmBzURzXXyWcoyjvcRcNTwFAc6
+         3Se7QqoTTDn6W0DLmhxYcroU0eJjY10nnY2k5t0p9uV3HTczjanHTw/VIN7fHrD6VYcw
+         u+yfiNC2mjcF93WjuWcyvh/3qBlWje4q+o32ce46DNBOp3mDuPrbAWlG+m655344KuRC
+         5Oiw==
+X-Forwarded-Encrypted: i=1; AJvYcCXu+b4QKddiP0qakg6zr/TsvQD2caX89gbTz+kWjF57qy0iKcjMXVKG1gcI4Hil86XiiEdpLPvfO5UYeQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwR65AQ7QsPRGl9XWhO7WpmNLQ/qSSn5tiECSs7YoZkjlbZhdWD
+	AEfWCOeeKsFgSYZbkDww4Gp2O2TQgZJ/S3CFiSpN5oTBdQjRjAppUB4B
+X-Gm-Gg: AY/fxX5c/8+yK8a7L5lbuLYd4a7m0JB86682Yz/YZyEG/DGN0/9VSa5txlLCt/WEEaG
+	nTIYPSLwEhz8zneyjhpp/dwguKpzecaDy9mJCMOS74BBwABsfcv12nfRGSMllzkcHEOiqdX8UB4
+	mMn97vrRVPqYFkmr6l2iHYu7rTyHjdrG0Bhpm92dzrIWOgsa1xCzdDnIHWq1GxpvRdR3EjoN8j6
+	nU4rQOaXptcJU2gUHd0B9cNXfUizSo3/6k6f0FXFJyYe0GAUDc+T/8S8V8Wm/1Ef4Hd9Fk/x9Bq
+	6ERUrJJkbDYxLpU5NFSBWrwjF9ztgcuCCD+QgtUpXTi4gHrtYMgzLUOWLCW1JAExAJtXTFDNrGf
+	xm0cGxYGRh4yGP2G90PsBPVbGLEgQxB38ZXRNtGZT4ltN+hUY6Cp7VPVsS9lNv4irfArY7QGTa9
+	VJDuz5n07pMw==
+X-Received: by 2002:a05:7300:6c89:b0:2ae:4f61:892e with SMTP id 5a478bee46e88-2b6b4eaddf6mr9178898eec.36.1768873045971;
+        Mon, 19 Jan 2026 17:37:25 -0800 (PST)
 Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b6b3503a30sm16787462eec.13.2026.01.19.17.16.28
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b6b36550dfsm15337344eec.25.2026.01.19.17.37.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Jan 2026 17:16:28 -0800 (PST)
+        Mon, 19 Jan 2026 17:37:25 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Rob Herring <robh@kernel.org>,
+To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Han Gao <rabenda.cn@gmail.com>,
-	Nutty Liu <liujingqi@lanxincomputing.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Zixian Zeng <sycamoremoon376@gmail.com>,
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	sophgo@lists.linux.dev,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Longbin Li <looong.bin@gmail.com>,
+	Ze Huang <huangze@whut.edu.cn>
+Cc: dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
+	sophgo@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
 	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 1/2] riscv: dts: sophgo: Move PLIC and CLINT node into CPU dtsi
-Date: Tue, 20 Jan 2026 09:16:15 +0800
-Message-ID: <176887176535.427065.12899087990982068409.b4-ty@gmail.com>
+	"Anton D. Stavinskii" <stavinsky@gmail.com>
+Subject: [PATCH v3 3/3] riscv: dts: sophgo: cv180x: Allow the DMA multiplexer to set channel number for DMA controller
+Date: Tue, 20 Jan 2026 09:37:05 +0800
+Message-ID: <20260120013706.436742-4-inochiama@gmail.com>
 X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260113023828.790136-1-inochiama@gmail.com>
-References: <20260113023828.790136-1-inochiama@gmail.com>
+In-Reply-To: <20260120013706.436742-1-inochiama@gmail.com>
+References: <20260120013706.436742-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_190548_246014_56D605FE 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260119_193036_921228_6DE3126E 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,23 +117,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 Jan 2026 10:38:26 +0800, Inochi Amaoto wrote:
-> As we have a separate CPU dtsi file, move the PLIC and CLINT
-> node to the CPU dtsi file. This will make the sg2042.dtsi force
-> peripheral devices, and make the CPU dtsi force CPU related
-> devices.
-> 
-> 
+Change the DMA controller compatible to the sophgo,cv1800b-axi-dma,
+which supports setting DMA channel number in DMA phandle args.
 
-Applied to dt/riscv, thanks!
+Fixes: 514951a81a5e ("riscv: dts: sophgo: cv18xx: add DMA controller")
+Reported-by: Anton D. Stavinskii <stavinsky@gmail.com>
+Closes: https://github.com/sophgo/linux/issues/9
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+Tested-by: Anton D. Stavinskii <stavinsky@gmail.com>
+---
+ arch/riscv/boot/dts/sophgo/cv180x.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-[1/2] riscv: dts: sophgo: Move PLIC and CLINT node into CPU dtsi
-      https://github.com/sophgo/linux/commit/5e6836e735f9c9c5e8e1d1dce02dfed5fe566e8f
-[2/2] riscv: dts: sophgo: fix the node order of SG2042 peripheral
-      https://github.com/sophgo/linux/commit/ebb87dd74c34a76e1e93041e9329cf9269be35ed
-
-Thanks,
-Inochi
+diff --git a/arch/riscv/boot/dts/sophgo/cv180x.dtsi b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
+index 1b2b1969a648..e1b515b46466 100644
+--- a/arch/riscv/boot/dts/sophgo/cv180x.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
+@@ -417,7 +417,7 @@ sdhci1: mmc@4320000 {
+ 		};
+ 
+ 		dmac: dma-controller@4330000 {
+-			compatible = "snps,axi-dma-1.01a";
++			compatible = "sophgo,cv1800b-axi-dma";
+ 			reg = <0x04330000 0x1000>;
+ 			interrupts = <SOC_PERIPHERAL_IRQ(13) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_SDMA_AXI>, <&clk CLK_SDMA_AXI>;
+-- 
+2.52.0
 
 
 _______________________________________________
