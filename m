@@ -4,53 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E0C0D2ED14
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 04:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3FC4D2ED13
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 04:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PEcPr2elZ9cmhd9NiBv7TzFKwx3S3sveOCOoquQ7320=; b=ZfrI3nvIFlqtka
-	vn1hq4A4w4MI9p8+ma+8RHW6FB8c8bzeulZAx13Kj5eWSxmfaD1mWMJp0zK6nbIrrm9ufBcOl7AZA
-	3cddctK3xLDqKkBAytr4iDubiJPHYyyRYBiVmdiB1/NbnW+u89R57aZCZ03UFaxCwMyXyjKOYFaMB
-	V66O/Ya/9qQEVH+r3lISa+oAHBWRcSlwa9/tcvj7VpuFgrtCrRxhKFgF1si9Fy+nmuOvNofAZq4qc
-	csBz5zgiBILglHr1c6vo3C/CSvcTyJWW7VD+zzMHJ+uKOtUar3g8uOOlVR0fSdFlDPEZM9oxcH0wh
-	u6nKf2bTU2WrCITz+d1w==;
+	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
+	MIME-Version:Subject:Date:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eiPkbQgvbqEl0Z1fhvkvc10hGZP7VKj7bjON1zLIyzM=; b=uTrMv+gmNpnmjn
+	Q9yNh6V/eifxHHrex8GPZrGBuvYYKfObMuMjqfY9m1rqvVoYxSu5ahxp4D/LEQ+h3pxHECKGG/lkj
+	YQDI6+dLJwfy1db6aIQ6hl42b3ff6ENgPYZiGVIj9cmgtunR2Y7lQ3ju+uQyuChBaOCFXVSVtjYN+
+	Gev5HHmdzmZC0VitCMLbvjchGwB5iPcVZWHpOLKDSti6uNR09r9jucysK7TM+nstHajRmec3AcYAh
+	J5uBGXdT+jxFbx39xA0dUYAOfUcLcunLWkWVaOtIjuCehST35Tj7kTUZQk0wqizWvqUw0y4SNnSxC
+	pzAgUDjOfZBlV4OnLGog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi39s-000000039VJ-3OPc;
-	Tue, 20 Jan 2026 04:16:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vi39p-000000039UC-1Asv;
+	Tue, 20 Jan 2026 04:15:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi39F-000000039Ku-0Vib
+	id 1vi39M-000000039Ms-1G1B
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 04:15:44 +0000
+	Tue, 20 Jan 2026 04:15:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3C72640136;
-	Tue, 20 Jan 2026 04:15:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC191C16AAE;
-	Tue, 20 Jan 2026 04:15:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A684C60165;
+	Tue, 20 Jan 2026 04:15:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE6D4C19424;
+	Tue, 20 Jan 2026 04:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768882517;
-	bh=6sisZqiC0hHclKdH/nGj0mfmQcZPf0CcsEWodDjCCCY=;
-	h=From:Subject:Date:To:Cc:From;
-	b=kNbjyKf0T9l9Misi9pZK6efHgZLVu1+Nv5ROKroKCW7G1ZATgWpbjpHBou+dnUBv0
-	 i92vYTEbnfiyXBoJGM4k2luPKyuUeGTDMOpyOVHhk9vWYpQzKzxVG5Me9f+Vd9dG+X
-	 g4eIr+apKTE2DTDK8YlOw0DjEuiJAnK3uTyA4Px/TyygGKHvXRE1gby7kK313fPYab
-	 FoPRvchLdZF1gG9nkVRcwNfxZsmIglSGvFuAb3tJlMocD5F2wgbUf6wHCyrwRYNk8d
-	 46pBUzZ5lMnkQpm+nYMSwxaonWJPG9M4LFUGi3fL461UriGhRRgvdctergSfIzO2Jt
-	 4IVdb/3K4QXOA==
+	s=k20201202; t=1768882527;
+	bh=08+NoXyvW3Xk6Oo5KOcsUwbtLfO2FJFdCtJSOZ1Zuws=;
+	h=From:Date:Subject:References:In-Reply-To:To:From;
+	b=tRPacVIB4t2VbsUGJIO2a17wCy77QjWXAqYWwS+DmywWQ4CWeiln7CdoF7NgrS5WO
+	 QctBL5aVxNJi9c4/0f0XNETkCdcbkj5n0ztIYdU9Mbr0gJzs7QpYdlecRDZg9xYIe+
+	 uE/TOVtnIlYqqra03dzwi5VJodv6Bhdk6Ky0sTFNwhoEU3aTMPuXGRURkPrgwkh0Vp
+	 9nJo0cOP4H6KavTf6THwQiyeigZ17k9C4fnZx4rQPy1tYmDSAmaywdZv1CxvaxyEHa
+	 zlQbXvbGESSPyLfKcu5hgSEZDfutLFOyGI/vdAMsc2gc4QoK4BZhGE+rBO3g7wG/Ae
+	 2xdke4ZtlmOdw==
 From: Drew Fustini <fustini@kernel.org>
-Subject: [PATCH RFC 00/19] RISC-V: QoS: add CBQRI resctrl interface
-Date: Mon, 19 Jan 2026 20:14:37 -0800
-Message-Id: <20260119-ssqosid-cbqri-v1-0-aa2a75153832@kernel.org>
+Date: Mon, 19 Jan 2026 20:14:54 -0800
+Subject: [PATCH NFU RFC 17/19] riscv: dts: qemu: add dump from virt machine
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAC0Bb2kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDQ0Mj3eLiwvzizBTd5KTCokxdEwPz5LTklETLtDQTJaCegqLUtMwKsHn
- RSkFuzkqxtbUAe7UY9WQAAAA=
-X-Change-ID: 20260112-ssqosid-cbqri-407cfcda9ff4
+Message-Id: <20260119-ssqosid-cbqri-v1-17-aa2a75153832@kernel.org>
+References: <20260119-ssqosid-cbqri-v1-0-aa2a75153832@kernel.org>
+In-Reply-To: <20260119-ssqosid-cbqri-v1-0-aa2a75153832@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
  Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
  =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>, 
@@ -73,19 +71,15 @@ To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  Dave Martin <Dave.Martin@arm.com>, Drew Fustini <fustini@kernel.org>, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, x86@kernel.org
-Cc: Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12510; i=fustini@kernel.org;
- h=from:subject:message-id; bh=6sisZqiC0hHclKdH/nGj0mfmQcZPf0CcsEWodDjCCCY=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTmMwbapWuopycckZ8adp01j1ehq/9qKOvW/6uXTOZUq
- Uq3m3Smo5SFQYyLQVZMkWXTh7wLS7xCvy6Y/2IbzBxWJpAhDFycAjARjkRGhr0M5QpHl/jejHVJ
- WJy1ucTG2nh3UdVuaelPO9OrOnis2RgZlp82SFlV2Ho8oD/otsVTvpOLFRT915x/9/OsdZaUvYk
- eHwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=17006; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=08+NoXyvW3Xk6Oo5KOcsUwbtLfO2FJFdCtJSOZ1Zuws=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTmMwY3Jj7gXmZ++ZKKxNwG3X8sSgwn27sPfVXYGlV3e
+ JL8woNPOkpZGMS4GGTFFFk2fci7sMQr9OuC+S+2wcxhZQIZwsDFKQATmWbFyLBL4M0U39MWP16x
+ ZByefHHb1xbd//PaHiTNPVG+SO2xi1IXw//8Lc5J4SvPOkR0/vQxNpD/lTzvQqm8REaej170hLb
+ 6RC4A
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_201524_759923_B19547C5 
-X-CRM114-Status: GOOD (  34.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,256 +96,442 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This RFC series implements the RISC-V Quality-of-Service Identifiers
-(Ssqosid) extension [1] which adds the srmcfg register. It also
-implements the RISC-V Capacity and Bandwidth Controller QoS Register
-Interface (CBQRI) specification [2] and integrates resctrl [3] support.
-The patches are also available as a branch [4].
+[NOT FOR UPSTREAM]
 
-There is a Qemu patch series [5] that implements Ssqosid and CBQRI, and
-a corresponding Qemu branch with those patches too [6].
+Dumped dtb from qemu branch based on the v4 riscv-ssqosid-cbqri series.
 
-[1] https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
-[2] https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
-[3] https://docs.kernel.org/filesystems/resctrl.html
-[4] https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/log/?h=b4/ssqosid-cbqri
-[5] https://lore.kernel.org/qemu-devel/20260105-riscv-ssqosid-cbqri-v4-0-9ad7671dde78@kernel.org/
-[6] https://github.com/tt-fustini/qemu/tree/b4/riscv-ssqosid-cbqri
+ $ qemu-system-riscv64 -version
+ QEMU emulator version 10.2.50 (v10.2.0-208-g087112467867)
+ Copyright (c) 2003-2025 Fabrice Bellard and the QEMU Project developers
 
-RISC-V QoS
-----------
-QoS (Quality of Service) in this context is concerned with shared
-resources on an SoC such as cache capacity and memory bandwidth.
+ $ qemu-system-riscv64 \
+      -M virt \
+      -nographic \
+      -smp 8 \
+      -bios output/images/fw_jump.elf \
+      -kernel $HOME/kernel/cbqri-linux/arch/riscv/boot/Image \
+      -append "root=/dev/vda ro" \
+      -drive file=output/images/rootfs.ext2,format=raw,id=hd0 \
+      -device virtio-blk-device,drive=hd0 \
+      -machine dumpdtb=qemu.dtb
 
-The Sssqosid extension defines the srmcfg CSR which configures a hart
-with two identifiers:
-
- - Resource Control ID (RCID)
- - Monitoring Counter ID (MCID)
-
-These identifiers accompany each request issued by the hart to shared
-resource controllers. This allows the capacity and bandwidth resources
-used by a software workload (e.g. a process or a set of processes) to be
-controlled and monitored.
-
-CBQRI defines operations to configure resource usage limits, in the form
-of capacity or bandwidth, for an RCID. CBQRI also defines operations to
-configure counters to track resource utilization per MCID. Furthermore,
-the Access Type (AT) field allows resource usage to be differentiated
-between data and code.
-
-x86 comparison
---------------
-The existing QoS identifiers on x86 map well:
-
-  CLOSID (Class of Service ID) on x86 is RCID on RISC-V
-    RMID (Resource Monitoring ID) on x86 is MCID on RISC-V
-
-In addition, CDP (code data prioritization) on x86 is similar to the
-AT (access type) field in CBQRI which defines code and data types.
-
-One aspect of CBQRI that simplifies the RISC-V resctrl interface is that
-any cpu (technically a hart, or hardware thread, in RISC-V terminology)
-can access the memory-mapped registers of any CBQRI controller in the
-system. This means it does not matter which cpu runs the resctrl code.
-
-Example SoC
------------
-This series also includes a Qemu device tree and platform drivers for a
-hypothetical SoC with a cache controller that implements CBQRI capacity
-operations and a memory controller that implements CBQRI bandwidth
-operations.
-
-  - L2 cache controllers
-    - Resource type: Capacity
-    - Number of capacity blocks (NCBLKS): 12
-    	- In the context of a set-associative cache, the number of
-	  capacity blocks can be thought of as the number of ways
-    - Number of access types: 2 (code and data)
-    - Usage monitoring not supported
-    - Capacity allocation operations: CONFIG_LIMIT, READ_LIMIT
-
-  - Last-level cache (LLC) controller
-    - Resource type: Capacity
-    - Number of capacity blocks (NCBLKS): 16
-    - Number of access types: 2 (code and data)
-    - Usage monitoring operations: CONFIG_EVENT, READ_COUNTER
-    - Event IDs supported: None, Occupancy
-    - Capacity allocation ops: CONFIG_LIMIT, READ_LIMIT, FLUSH_RCID
-
-  - Memory controllers
-    - Resource type: Bandwidth
-    - Number of bandwidth blocks (NBWBLKS): 1024
-       - Bandwidth blocks do not have a unit but instead represent a
-         portion of the total bandwidth resource. For NWBLKS of 1024,
-	 each block represents about 0.1% of the bandwidth resource.
-    - Maximum reserved bandwidth blocks (MRBWB): 819 (80% of NBWBLKS)
-    - Number of access types: 1 (no code/data differentiation)
-    - Usage monitoring operations: CONFIG_EVENT, READ_COUNTER
-    - Event IDs supported: None, Total read/write byte count, Total
-                           read byte count, Total write byte count
-    - Bandwidth allocation operations: CONFIG_LIMIT, READ_LIMIT
-
-The memory map for this example SoC:
-
-  Base addr  Size
-  0x4820000  4KB  Cluster 0 L2 cache controller
-  0x4821000  4KB  Cluster 1 L2 cache controller
-  0x4828000  4KB  Memory controller 0
-  0x4829000  4KB  Memory controller 1
-  0X482a000  4KB  Memory controller 2
-  0X482b000  4KB  Shared LLC cache controller
-
-This configuration is only meant to provide a "concrete" example, and it
-represents just one of many possible ways that hardware can implement
-the CBQRI spec.
-
-The example SoC configuration is created with the following:
-
-  qemu-system-riscv64 \
-        -M virt \
-        -nographic \
-        -smp 8 \
-        -device riscv.cbqri.capacity,max_mcids=256,max_rcids=64,ncblks=12,alloc_op_flush_rcid=false,mon_op_config_event=false,mon_op_read_counter=false,mon_evt_id_none=false,mon_evt_id_occupancy=false,mmio_base=0x04820000 \
-        -device riscv.cbqri.capacity,max_mcids=256,max_rcids=64,ncblks=12,alloc_op_flush_rcid=false,mon_op_config_event=false,mon_op_read_counter=false,mon_evt_id_none=false,mon_evt_id_occupancy=false,mmio_base=0x04821000 \
-        -device riscv.cbqri.capacity,max_mcids=256,max_rcids=64,ncblks=16,mmio_base=0x0482B000 \
-        -device riscv.cbqri.bandwidth,max_mcids=256,max_rcids=64,nbwblks=1024,mrbwb=819,mmio_base=0x04828000 \
-        -device riscv.cbqri.bandwidth,max_mcids=256,max_rcids=64,nbwblks=1024,mrbwb=819,mmio_base=0x04829000 \
-        -device riscv.cbqri.bandwidth,max_mcids=256,max_rcids=64,nbwblks=1024,mrbwb=819,mmio_base=0x0482a000
-
-In addition, please note that this series only implements the register
-interface that CBQRI specifies. It does not attempt to emulate the
-performance impact of configuring limits on shared resources like cache
-and memory bandwidth. 
-
-Versioning
-----------
-I chose to make this series v1 as there have been many changes from the
-old proof-of-concept. However, here are previous series to make the
-history clear:
-
- [RFC PATCH 00/21] RISC-V: QoS: add CBQRI resctrl interface
- https://lore.kernel.org/all/20230419111111.477118-1-dfustini@baylibre.com/
- The original RFC from the CBQRI proof-of-concept in 2023 that worked
- in conjunction with the Qemu patch series for the proof-of-concept.
-
- [PATCH v4 0/3] RISC-V: Detect Ssqosid extension and handle srmcfg CSR
- https://lore.kernel.org/all/20251007-ssqosid-v4-0-e8b57e59d812@kernel.org/
- More recently I thought it would be simpler to upstream just the
- Ssqosid patches first. However, I got feedback that it was hard to
- review without the CBQRI patches in the same series.
-
-Open issues:
-------------
- - Checkpatch false positive: there is a checkpatch warning about
-   "Argument '__next' is not used in function-like macro"
-   - __switch_to_srmcfg(__next) is needed to avoid the error reported
-     by LKP for riscv-allnoconfig:
-     https://lore.kernel.org/oe-kbuild-all/202509162355.wByessnb-lkp@intel.com/
-   - __switch_to_srmcfg() will trigger a build error in clang when
-     CONFIG_RISCV_ISA_SSQOSID is turned off.
-
- - The number of CBQRI controllers is hard coded
-   - This was done as a simple approach in the proof-of-concept as there
-     were 6 controllers
-   - I need to refactor this so that it is dynamically allocated based
-     on the number of controllers present in the system
-
- - Stub platform drivers are included to demonstrate device tree integration
-   - I am expecting a real CBQRI-enabled hardware platform using device
-     tree would have real platform drivers for controllers that
-     implement CBQRI.
-   - To demonstrate the interaction with the qemu model, I have included
-     patches which create "stub" drivers for a cache controller and a
-     generic bandwidth controller. These patches are not meant for
-     upstream, so I did not create binding documentation for the
-     compatibles.
-
- - Add RQSC table support for ACPI platforms
-   - My kernel patches from the RQSC proof-of-concept were based on
-     v6.14, so I need to rebase them.
-   - The necessary PPTT helpers are already in 6.19 thanks to the MPAM
-     driver series. This should help reduce the number of patches in my
-     RQSC series.
-   - My Qemu patches for RQSC will also take some work to rebase on top
-     of my recent Qemu CBQRI+Ssqosid v4 series.
-
- - No L2 and L3 cache occupancy monitoring
-   - This is not currently implemented and I have to decided to leave
-     it as an enhancement for a future series after the Ssqosid and
-     CBQRI core are merged.
-
- - No MBM (bandwidth monitoring)
-   - MBA schema works ok for the CBQRI-enabled memory controllers, but
-     resctrl does not currently have solution for representing MBM for
-     bandwidth resources that are not associated with a L3 cache.
-   - For the old CBQRI proof-of-concept RFC, two separate domains were
-     created for each memory controller: one for MB (allocation) and one
-     for MBM (monitoring).
-   - The monitoring domains had to pretend that these memory controllers
-     were L3 caches which is not the case. I have removed this as it was
-     too complicated and not the right solution.
-   - Fenghua Yu talked about a similar problem last month at LPC in the
-     resctrl BoF during the "MBA/MBM on CPU-less Memory Node" topic:
-     https://lpc.events/event/19/contributions/2093/
-   - I hope to work with resctrl developers on finding a solution.
-
+Link: https://lore.kernel.org/all/20260105-riscv-ssqosid-cbqri-v4-0-9ad7671dde78@kernel.org/
+Link: https://github.com/tt-fustini/qemu/tree/b4/riscv-ssqosid-cbqri
+Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
-Drew Fustini (19):
-      dt-bindings: riscv: Add Ssqosid extension description
-      RISC-V: Detect the Ssqosid extension
-      RISC-V: Add support for srmcfg CSR from Ssqosid ext
-      RISC-V: QoS: define properties of CBQRI controllers
-      RISC-V: QoS: define CBQRI capacity and bandwidth capabilities
-      RISC-V: QoS: define CBQRI resctrl resources and domains
-      RISC-V: QoS: define prototypes for resctrl interface
-      RISC-V: QoS: add resctrl interface for CBQRI controllers
-      RISC-V: QoS: expose implementation to resctrl
-      RISC-V: QoS: add late_initcall to setup resctrl interface
-      RISC-V: QoS: add to build when CONFIG_RISCV_ISA_SSQOSID set
-      RISC-V: QoS: make CONFIG_RISCV_ISA_SSQOSID select resctrl
-      dt-bindings: riscv: add riscv,cbqri bindings
-      [NFU] resctrl: riscv: add CBQRI cache controller driver
-      [NFU] resctrl: riscv: add CBQRI bandwidth controller driver
-      [NFU] resctrl: riscv: build CBQRI drivers
-      [NFU] riscv: dts: qemu: add dump from virt machine
-      [NFU] riscv: dts: qemu: add CBQRI controller nodes
-      [NFU] riscv: dts: build qemu dtb for CONFIG_ARCH_VIRT
+ arch/riscv/boot/dts/qemu/qemu-virt-cbqri.dts | 399 +++++++++++++++++++++++++++
+ 1 file changed, 399 insertions(+)
 
- .../devicetree/bindings/riscv/extensions.yaml      |    6 +
- .../devicetree/bindings/riscv/riscv,cbqri.yaml     |   28 +
- MAINTAINERS                                        |   10 +
- arch/riscv/Kconfig                                 |   20 +
- arch/riscv/boot/dts/Makefile                       |    1 +
- arch/riscv/boot/dts/qemu/Makefile                  |    3 +
- arch/riscv/boot/dts/qemu/qemu-virt-cbqri.dts       |  458 ++++++++
- arch/riscv/include/asm/csr.h                       |    8 +
- arch/riscv/include/asm/hwcap.h                     |    1 +
- arch/riscv/include/asm/processor.h                 |    3 +
- arch/riscv/include/asm/qos.h                       |   41 +
- arch/riscv/include/asm/resctrl.h                   |    2 +
- arch/riscv/include/asm/switch_to.h                 |    3 +
- arch/riscv/kernel/Makefile                         |    2 +
- arch/riscv/kernel/cpufeature.c                     |    1 +
- arch/riscv/kernel/qos/Makefile                     |    2 +
- arch/riscv/kernel/qos/internal.h                   |  155 +++
- arch/riscv/kernel/qos/qos.c                        |   32 +
- arch/riscv/kernel/qos/qos_resctrl.c                | 1191 ++++++++++++++++++++
- drivers/resctrl/Kconfig                            |    2 +
- drivers/resctrl/Makefile                           |    2 +
- drivers/resctrl/riscv/Kconfig                      |   25 +
- drivers/resctrl/riscv/Makefile                     |    4 +
- drivers/resctrl/riscv/cbqri_bandwidth.c            |   79 ++
- drivers/resctrl/riscv/cbqri_cache.c                |  106 ++
- include/linux/riscv_qos.h                          |   78 ++
- 26 files changed, 2263 insertions(+)
----
-base-commit: 9ace4753a5202b02191d54e9fdf7f9e3d02b85eb
-change-id: 20260112-ssqosid-cbqri-407cfcda9ff4
+diff --git a/arch/riscv/boot/dts/qemu/qemu-virt-cbqri.dts b/arch/riscv/boot/dts/qemu/qemu-virt-cbqri.dts
+new file mode 100644
+index 000000000000..4c6257bec42d
+--- /dev/null
++++ b/arch/riscv/boot/dts/qemu/qemu-virt-cbqri.dts
+@@ -0,0 +1,399 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/dts-v1/;
++
++/ {
++	#address-cells = <0x02>;
++	#size-cells = <0x02>;
++	compatible = "riscv-virtio";
++	model = "riscv-virtio,qemu";
++
++	poweroff {
++		value = <0x5555>;
++		offset = <0x00>;
++		regmap = <0x12>;
++		compatible = "syscon-poweroff";
++	};
++
++	reboot {
++		value = <0x7777>;
++		offset = <0x00>;
++		regmap = <0x12>;
++		compatible = "syscon-reboot";
++	};
++
++	platform-bus@4000000 {
++		interrupt-parent = <0x11>;
++		ranges = <0x00 0x00 0x4000000 0x2000000>;
++		#address-cells = <0x01>;
++		#size-cells = <0x01>;
++		compatible = "qemu,platform\0simple-bus";
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x00 0x80000000 0x00 0x8000000>;
++	};
++
++	cpus {
++		#address-cells = <0x01>;
++		#size-cells = <0x00>;
++		timebase-frequency = <0x989680>;
++
++		cpu@0 {
++			phandle = <0x0f>;
++			device_type = "cpu";
++			reg = <0x00>;
++			status = "okay";
++			compatible = "riscv";
++			riscv,cbop-block-size = <0x40>;
++			riscv,cboz-block-size = <0x40>;
++			riscv,cbom-block-size = <0x40>;
++			riscv,isa-extensions = "i\0m\0a\0f\0d\0c\0h\0zic64b\0zicbom\0zicbop\0zicboz\0ziccamoa\0ziccif\0zicclsm\0ziccrse\0zicntr\0zicsr\0zifencei\0zihintntl\0zihintpause\0zihpm\0zmmul\0za64rs\0zaamo\0zalrsc\0zawrs\0zfa\0zca\0zcd\0zba\0zbb\0zbc\0zbs\0sdtrig\0shcounterenw\0shgatpa\0shtvala\0shvsatpa\0shvstvala\0shvstvecd\0ssccptr\0sscounterenw\0ssqosid\0ssstrict\0sstc\0sstvala\0sstvecd\0ssu64xl\0svadu\0svvptc";
++			riscv,isa-base = "rv64i";
++			riscv,isa = "rv64imafdch_zic64b_zicbom_zicbop_zicboz_ziccamoa_ziccif_zicclsm_ziccrse_zicntr_zicsr_zifencei_zihintntl_zihintpause_zihpm_zmmul_za64rs_zaamo_zalrsc_zawrs_zfa_zca_zcd_zba_zbb_zbc_zbs_sdtrig_shcounterenw_shgatpa_shtvala_shvsatpa_shvstvala_shvstvecd_ssccptr_sscounterenw_ssqosid_ssstrict_sstc_sstvala_sstvecd_ssu64xl_svadu_svvptc";
++			mmu-type = "riscv,sv57";
++
++			interrupt-controller {
++				#interrupt-cells = <0x01>;
++				interrupt-controller;
++				compatible = "riscv,cpu-intc";
++				phandle = <0x10>;
++			};
++		};
++
++		cpu@1 {
++			phandle = <0x0d>;
++			device_type = "cpu";
++			reg = <0x01>;
++			status = "okay";
++			compatible = "riscv";
++			riscv,cbop-block-size = <0x40>;
++			riscv,cboz-block-size = <0x40>;
++			riscv,cbom-block-size = <0x40>;
++			riscv,isa-extensions = "i\0m\0a\0f\0d\0c\0h\0zic64b\0zicbom\0zicbop\0zicboz\0ziccamoa\0ziccif\0zicclsm\0ziccrse\0zicntr\0zicsr\0zifencei\0zihintntl\0zihintpause\0zihpm\0zmmul\0za64rs\0zaamo\0zalrsc\0zawrs\0zfa\0zca\0zcd\0zba\0zbb\0zbc\0zbs\0sdtrig\0shcounterenw\0shgatpa\0shtvala\0shvsatpa\0shvstvala\0shvstvecd\0ssccptr\0sscounterenw\0ssqosid\0ssstrict\0sstc\0sstvala\0sstvecd\0ssu64xl\0svadu\0svvptc";
++			riscv,isa-base = "rv64i";
++			riscv,isa = "rv64imafdch_zic64b_zicbom_zicbop_zicboz_ziccamoa_ziccif_zicclsm_ziccrse_zicntr_zicsr_zifencei_zihintntl_zihintpause_zihpm_zmmul_za64rs_zaamo_zalrsc_zawrs_zfa_zca_zcd_zba_zbb_zbc_zbs_sdtrig_shcounterenw_shgatpa_shtvala_shvsatpa_shvstvala_shvstvecd_ssccptr_sscounterenw_ssqosid_ssstrict_sstc_sstvala_sstvecd_ssu64xl_svadu_svvptc";
++			mmu-type = "riscv,sv57";
++
++			interrupt-controller {
++				#interrupt-cells = <0x01>;
++				interrupt-controller;
++				compatible = "riscv,cpu-intc";
++				phandle = <0x0e>;
++			};
++		};
++
++		cpu@2 {
++			phandle = <0x0b>;
++			device_type = "cpu";
++			reg = <0x02>;
++			status = "okay";
++			compatible = "riscv";
++			riscv,cbop-block-size = <0x40>;
++			riscv,cboz-block-size = <0x40>;
++			riscv,cbom-block-size = <0x40>;
++			riscv,isa-extensions = "i\0m\0a\0f\0d\0c\0h\0zic64b\0zicbom\0zicbop\0zicboz\0ziccamoa\0ziccif\0zicclsm\0ziccrse\0zicntr\0zicsr\0zifencei\0zihintntl\0zihintpause\0zihpm\0zmmul\0za64rs\0zaamo\0zalrsc\0zawrs\0zfa\0zca\0zcd\0zba\0zbb\0zbc\0zbs\0sdtrig\0shcounterenw\0shgatpa\0shtvala\0shvsatpa\0shvstvala\0shvstvecd\0ssccptr\0sscounterenw\0ssqosid\0ssstrict\0sstc\0sstvala\0sstvecd\0ssu64xl\0svadu\0svvptc";
++			riscv,isa-base = "rv64i";
++			riscv,isa = "rv64imafdch_zic64b_zicbom_zicbop_zicboz_ziccamoa_ziccif_zicclsm_ziccrse_zicntr_zicsr_zifencei_zihintntl_zihintpause_zihpm_zmmul_za64rs_zaamo_zalrsc_zawrs_zfa_zca_zcd_zba_zbb_zbc_zbs_sdtrig_shcounterenw_shgatpa_shtvala_shvsatpa_shvstvala_shvstvecd_ssccptr_sscounterenw_ssqosid_ssstrict_sstc_sstvala_sstvecd_ssu64xl_svadu_svvptc";
++			mmu-type = "riscv,sv57";
++
++			interrupt-controller {
++				#interrupt-cells = <0x01>;
++				interrupt-controller;
++				compatible = "riscv,cpu-intc";
++				phandle = <0x0c>;
++			};
++		};
++
++		cpu@3 {
++			phandle = <0x09>;
++			device_type = "cpu";
++			reg = <0x03>;
++			status = "okay";
++			compatible = "riscv";
++			riscv,cbop-block-size = <0x40>;
++			riscv,cboz-block-size = <0x40>;
++			riscv,cbom-block-size = <0x40>;
++			riscv,isa-extensions = "i\0m\0a\0f\0d\0c\0h\0zic64b\0zicbom\0zicbop\0zicboz\0ziccamoa\0ziccif\0zicclsm\0ziccrse\0zicntr\0zicsr\0zifencei\0zihintntl\0zihintpause\0zihpm\0zmmul\0za64rs\0zaamo\0zalrsc\0zawrs\0zfa\0zca\0zcd\0zba\0zbb\0zbc\0zbs\0sdtrig\0shcounterenw\0shgatpa\0shtvala\0shvsatpa\0shvstvala\0shvstvecd\0ssccptr\0sscounterenw\0ssqosid\0ssstrict\0sstc\0sstvala\0sstvecd\0ssu64xl\0svadu\0svvptc";
++			riscv,isa-base = "rv64i";
++			riscv,isa = "rv64imafdch_zic64b_zicbom_zicbop_zicboz_ziccamoa_ziccif_zicclsm_ziccrse_zicntr_zicsr_zifencei_zihintntl_zihintpause_zihpm_zmmul_za64rs_zaamo_zalrsc_zawrs_zfa_zca_zcd_zba_zbb_zbc_zbs_sdtrig_shcounterenw_shgatpa_shtvala_shvsatpa_shvstvala_shvstvecd_ssccptr_sscounterenw_ssqosid_ssstrict_sstc_sstvala_sstvecd_ssu64xl_svadu_svvptc";
++			mmu-type = "riscv,sv57";
++
++			interrupt-controller {
++				#interrupt-cells = <0x01>;
++				interrupt-controller;
++				compatible = "riscv,cpu-intc";
++				phandle = <0x0a>;
++			};
++		};
++
++		cpu@4 {
++			phandle = <0x07>;
++			device_type = "cpu";
++			reg = <0x04>;
++			status = "okay";
++			compatible = "riscv";
++			riscv,cbop-block-size = <0x40>;
++			riscv,cboz-block-size = <0x40>;
++			riscv,cbom-block-size = <0x40>;
++			riscv,isa-extensions = "i\0m\0a\0f\0d\0c\0h\0zic64b\0zicbom\0zicbop\0zicboz\0ziccamoa\0ziccif\0zicclsm\0ziccrse\0zicntr\0zicsr\0zifencei\0zihintntl\0zihintpause\0zihpm\0zmmul\0za64rs\0zaamo\0zalrsc\0zawrs\0zfa\0zca\0zcd\0zba\0zbb\0zbc\0zbs\0sdtrig\0shcounterenw\0shgatpa\0shtvala\0shvsatpa\0shvstvala\0shvstvecd\0ssccptr\0sscounterenw\0ssqosid\0ssstrict\0sstc\0sstvala\0sstvecd\0ssu64xl\0svadu\0svvptc";
++			riscv,isa-base = "rv64i";
++			riscv,isa = "rv64imafdch_zic64b_zicbom_zicbop_zicboz_ziccamoa_ziccif_zicclsm_ziccrse_zicntr_zicsr_zifencei_zihintntl_zihintpause_zihpm_zmmul_za64rs_zaamo_zalrsc_zawrs_zfa_zca_zcd_zba_zbb_zbc_zbs_sdtrig_shcounterenw_shgatpa_shtvala_shvsatpa_shvstvala_shvstvecd_ssccptr_sscounterenw_ssqosid_ssstrict_sstc_sstvala_sstvecd_ssu64xl_svadu_svvptc";
++			mmu-type = "riscv,sv57";
++
++			interrupt-controller {
++				#interrupt-cells = <0x01>;
++				interrupt-controller;
++				compatible = "riscv,cpu-intc";
++				phandle = <0x08>;
++			};
++		};
++
++		cpu@5 {
++			phandle = <0x05>;
++			device_type = "cpu";
++			reg = <0x05>;
++			status = "okay";
++			compatible = "riscv";
++			riscv,cbop-block-size = <0x40>;
++			riscv,cboz-block-size = <0x40>;
++			riscv,cbom-block-size = <0x40>;
++			riscv,isa-extensions = "i\0m\0a\0f\0d\0c\0h\0zic64b\0zicbom\0zicbop\0zicboz\0ziccamoa\0ziccif\0zicclsm\0ziccrse\0zicntr\0zicsr\0zifencei\0zihintntl\0zihintpause\0zihpm\0zmmul\0za64rs\0zaamo\0zalrsc\0zawrs\0zfa\0zca\0zcd\0zba\0zbb\0zbc\0zbs\0sdtrig\0shcounterenw\0shgatpa\0shtvala\0shvsatpa\0shvstvala\0shvstvecd\0ssccptr\0sscounterenw\0ssqosid\0ssstrict\0sstc\0sstvala\0sstvecd\0ssu64xl\0svadu\0svvptc";
++			riscv,isa-base = "rv64i";
++			riscv,isa = "rv64imafdch_zic64b_zicbom_zicbop_zicboz_ziccamoa_ziccif_zicclsm_ziccrse_zicntr_zicsr_zifencei_zihintntl_zihintpause_zihpm_zmmul_za64rs_zaamo_zalrsc_zawrs_zfa_zca_zcd_zba_zbb_zbc_zbs_sdtrig_shcounterenw_shgatpa_shtvala_shvsatpa_shvstvala_shvstvecd_ssccptr_sscounterenw_ssqosid_ssstrict_sstc_sstvala_sstvecd_ssu64xl_svadu_svvptc";
++			mmu-type = "riscv,sv57";
++
++			interrupt-controller {
++				#interrupt-cells = <0x01>;
++				interrupt-controller;
++				compatible = "riscv,cpu-intc";
++				phandle = <0x06>;
++			};
++		};
++
++		cpu@6 {
++			phandle = <0x03>;
++			device_type = "cpu";
++			reg = <0x06>;
++			status = "okay";
++			compatible = "riscv";
++			riscv,cbop-block-size = <0x40>;
++			riscv,cboz-block-size = <0x40>;
++			riscv,cbom-block-size = <0x40>;
++			riscv,isa-extensions = "i\0m\0a\0f\0d\0c\0h\0zic64b\0zicbom\0zicbop\0zicboz\0ziccamoa\0ziccif\0zicclsm\0ziccrse\0zicntr\0zicsr\0zifencei\0zihintntl\0zihintpause\0zihpm\0zmmul\0za64rs\0zaamo\0zalrsc\0zawrs\0zfa\0zca\0zcd\0zba\0zbb\0zbc\0zbs\0sdtrig\0shcounterenw\0shgatpa\0shtvala\0shvsatpa\0shvstvala\0shvstvecd\0ssccptr\0sscounterenw\0ssqosid\0ssstrict\0sstc\0sstvala\0sstvecd\0ssu64xl\0svadu\0svvptc";
++			riscv,isa-base = "rv64i";
++			riscv,isa = "rv64imafdch_zic64b_zicbom_zicbop_zicboz_ziccamoa_ziccif_zicclsm_ziccrse_zicntr_zicsr_zifencei_zihintntl_zihintpause_zihpm_zmmul_za64rs_zaamo_zalrsc_zawrs_zfa_zca_zcd_zba_zbb_zbc_zbs_sdtrig_shcounterenw_shgatpa_shtvala_shvsatpa_shvstvala_shvstvecd_ssccptr_sscounterenw_ssqosid_ssstrict_sstc_sstvala_sstvecd_ssu64xl_svadu_svvptc";
++			mmu-type = "riscv,sv57";
++
++			interrupt-controller {
++				#interrupt-cells = <0x01>;
++				interrupt-controller;
++				compatible = "riscv,cpu-intc";
++				phandle = <0x04>;
++			};
++		};
++
++		cpu@7 {
++			phandle = <0x01>;
++			device_type = "cpu";
++			reg = <0x07>;
++			status = "okay";
++			compatible = "riscv";
++			riscv,cbop-block-size = <0x40>;
++			riscv,cboz-block-size = <0x40>;
++			riscv,cbom-block-size = <0x40>;
++			riscv,isa-extensions = "i\0m\0a\0f\0d\0c\0h\0zic64b\0zicbom\0zicbop\0zicboz\0ziccamoa\0ziccif\0zicclsm\0ziccrse\0zicntr\0zicsr\0zifencei\0zihintntl\0zihintpause\0zihpm\0zmmul\0za64rs\0zaamo\0zalrsc\0zawrs\0zfa\0zca\0zcd\0zba\0zbb\0zbc\0zbs\0sdtrig\0shcounterenw\0shgatpa\0shtvala\0shvsatpa\0shvstvala\0shvstvecd\0ssccptr\0sscounterenw\0ssqosid\0ssstrict\0sstc\0sstvala\0sstvecd\0ssu64xl\0svadu\0svvptc";
++			riscv,isa-base = "rv64i";
++			riscv,isa = "rv64imafdch_zic64b_zicbom_zicbop_zicboz_ziccamoa_ziccif_zicclsm_ziccrse_zicntr_zicsr_zifencei_zihintntl_zihintpause_zihpm_zmmul_za64rs_zaamo_zalrsc_zawrs_zfa_zca_zcd_zba_zbb_zbc_zbs_sdtrig_shcounterenw_shgatpa_shtvala_shvsatpa_shvstvala_shvstvecd_ssccptr_sscounterenw_ssqosid_ssstrict_sstc_sstvala_sstvecd_ssu64xl_svadu_svvptc";
++			mmu-type = "riscv,sv57";
++
++			interrupt-controller {
++				#interrupt-cells = <0x01>;
++				interrupt-controller;
++				compatible = "riscv,cpu-intc";
++				phandle = <0x02>;
++			};
++		};
++
++		cpu-map {
++
++			cluster0 {
++
++				core0 {
++					cpu = <0x0f>;
++				};
++
++				core1 {
++					cpu = <0x0d>;
++				};
++
++				core2 {
++					cpu = <0x0b>;
++				};
++
++				core3 {
++					cpu = <0x09>;
++				};
++
++				core4 {
++					cpu = <0x07>;
++				};
++
++				core5 {
++					cpu = <0x05>;
++				};
++
++				core6 {
++					cpu = <0x03>;
++				};
++
++				core7 {
++					cpu = <0x01>;
++				};
++			};
++		};
++	};
++
++	pmu {
++		riscv,event-to-mhpmcounters = <0x01 0x01 0x7fff9 0x02 0x02 0x7fffc 0x10019 0x10019 0x7fff8 0x1001b 0x1001b 0x7fff8 0x10021 0x10021 0x7fff8>;
++		compatible = "riscv,pmu";
++	};
++
++	fw-cfg@10100000 {
++		dma-coherent;
++		reg = <0x00 0x10100000 0x00 0x18>;
++		compatible = "qemu,fw-cfg-mmio";
++	};
++
++	flash@20000000 {
++		bank-width = <0x04>;
++		reg = <0x00 0x20000000 0x00 0x2000000 0x00 0x22000000 0x00 0x2000000>;
++		compatible = "cfi-flash";
++	};
++
++	aliases {
++		serial0 = "/soc/serial@10000000";
++	};
++
++	chosen {
++		bootargs = "root=/dev/vda ro loglevel=8";
++		stdout-path = "/soc/serial@10000000";
++		rng-seed = <0x56a2904d 0x281bbaec 0x55c405c1 0x602a34cd 0x3490edca 0x3ed9ed5d 0xa98e5ed6 0xa663e102>;
++	};
++
++	soc {
++		#address-cells = <0x02>;
++		#size-cells = <0x02>;
++		compatible = "simple-bus";
++		ranges;
++
++		rtc@101000 {
++			interrupts = <0x0b>;
++			interrupt-parent = <0x11>;
++			reg = <0x00 0x101000 0x00 0x1000>;
++			compatible = "google,goldfish-rtc";
++		};
++
++		serial@10000000 {
++			interrupts = <0x0a>;
++			interrupt-parent = <0x11>;
++			clock-frequency = "\08@";
++			reg = <0x00 0x10000000 0x00 0x100>;
++			compatible = "ns16550a";
++		};
++
++		test@100000 {
++			phandle = <0x12>;
++			reg = <0x00 0x100000 0x00 0x1000>;
++			compatible = "sifive,test1\0sifive,test0\0syscon";
++		};
++
++		virtio_mmio@10008000 {
++			interrupts = <0x08>;
++			interrupt-parent = <0x11>;
++			reg = <0x00 0x10008000 0x00 0x1000>;
++			compatible = "virtio,mmio";
++		};
++
++		virtio_mmio@10007000 {
++			interrupts = <0x07>;
++			interrupt-parent = <0x11>;
++			reg = <0x00 0x10007000 0x00 0x1000>;
++			compatible = "virtio,mmio";
++		};
++
++		virtio_mmio@10006000 {
++			interrupts = <0x06>;
++			interrupt-parent = <0x11>;
++			reg = <0x00 0x10006000 0x00 0x1000>;
++			compatible = "virtio,mmio";
++		};
++
++		virtio_mmio@10005000 {
++			interrupts = <0x05>;
++			interrupt-parent = <0x11>;
++			reg = <0x00 0x10005000 0x00 0x1000>;
++			compatible = "virtio,mmio";
++		};
++
++		virtio_mmio@10004000 {
++			interrupts = <0x04>;
++			interrupt-parent = <0x11>;
++			reg = <0x00 0x10004000 0x00 0x1000>;
++			compatible = "virtio,mmio";
++		};
++
++		virtio_mmio@10003000 {
++			interrupts = <0x03>;
++			interrupt-parent = <0x11>;
++			reg = <0x00 0x10003000 0x00 0x1000>;
++			compatible = "virtio,mmio";
++		};
++
++		virtio_mmio@10002000 {
++			interrupts = <0x02>;
++			interrupt-parent = <0x11>;
++			reg = <0x00 0x10002000 0x00 0x1000>;
++			compatible = "virtio,mmio";
++		};
++
++		virtio_mmio@10001000 {
++			interrupts = <0x01>;
++			interrupt-parent = <0x11>;
++			reg = <0x00 0x10001000 0x00 0x1000>;
++			compatible = "virtio,mmio";
++		};
++
++		plic@c000000 {
++			phandle = <0x11>;
++			riscv,ndev = <0x5f>;
++			reg = <0x00 0xc000000 0x00 0x600000>;
++			interrupts-extended = <0x10 0x0b 0x10 0x09 0x0e 0x0b 0x0e 0x09 0x0c 0x0b 0x0c 0x09 0x0a 0x0b 0x0a 0x09 0x08 0x0b 0x08 0x09 0x06 0x0b 0x06 0x09 0x04 0x0b 0x04 0x09 0x02 0x0b 0x02 0x09>;
++			interrupt-controller;
++			compatible = "sifive,plic-1.0.0\0riscv,plic0";
++			#address-cells = <0x00>;
++			#interrupt-cells = <0x01>;
++		};
++
++		clint@2000000 {
++			interrupts-extended = <0x10 0x03 0x10 0x07 0x0e 0x03 0x0e 0x07 0x0c 0x03 0x0c 0x07 0x0a 0x03 0x0a 0x07 0x08 0x03 0x08 0x07 0x06 0x03 0x06 0x07 0x04 0x03 0x04 0x07 0x02 0x03 0x02 0x07>;
++			reg = <0x00 0x2000000 0x00 0x10000>;
++			compatible = "sifive,clint0\0riscv,clint0";
++		};
++
++		pci@30000000 {
++			interrupt-map-mask = <0x1800 0x00 0x00 0x07>;
++			interrupt-map = <0x00 0x00 0x00 0x01 0x11 0x20 0x00 0x00 0x00 0x02 0x11 0x21 0x00 0x00 0x00 0x03 0x11 0x22 0x00 0x00 0x00 0x04 0x11 0x23 0x800 0x00 0x00 0x01 0x11 0x21 0x800 0x00 0x00 0x02 0x11 0x22 0x800 0x00 0x00 0x03 0x11 0x23 0x800 0x00 0x00 0x04 0x11 0x20 0x1000 0x00 0x00 0x01 0x11 0x22 0x1000 0x00 0x00 0x02 0x11 0x23 0x1000 0x00 0x00 0x03 0x11 0x20 0x1000 0x00 0x00 0x04 0x11 0x21 0x1800 0x00 0x00 0x01 0x11 0x23 0x1800 0x00 0x00 0x02 0x11 0x20 0x1800 0x00 0x00 0x03 0x11 0x21 0x1800 0x00 0x00 0x04 0x11 0x22>;
++			ranges = <0x1000000 0x00 0x00 0x00 0x3000000 0x00 0x10000 0x2000000 0x00 0x40000000 0x00 0x40000000 0x00 0x40000000 0x3000000 0x04 0x00 0x04 0x00 0x04 0x00>;
++			reg = <0x00 0x30000000 0x00 0x10000000>;
++			dma-coherent;
++			bus-range = <0x00 0xff>;
++			linux,pci-domain = <0x00>;
++			device_type = "pci";
++			compatible = "pci-host-ecam-generic";
++			#size-cells = <0x02>;
++			#interrupt-cells = <0x01>;
++			#address-cells = <0x03>;
++		};
++	};
++};
 
-Best regards,
 -- 
-Drew Fustini <fustini@kernel.org>
+2.43.0
 
 
 _______________________________________________
