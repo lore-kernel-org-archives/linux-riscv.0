@@ -4,52 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A31D2ED0F
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 11:29:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91455D2ED0F
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 11:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E8UNIfmI5tMFmearznqVORJfCKvGJwLAsfqmxUBgbwY=; b=hlBLiYWuzfLeDX
-	ikXdPR5FIjDlznuCYmPiw4ywoDcTmYjdl2g3LI1HInDOeiUGhf0JC1qX0OzROVVBAeTiDz8KyCEZU
-	YRYxfeF2P015QTCI6oKne1Fz0cZNh5VnBIGcKAxxnR/ArMrR/r5O3bn2K3c46Yl6Vq60DfMMdQNI0
-	2v2zf29nLls9UY6gFvgzCGiJni1UU7D2C/xO4HxXzP0MAamCBpBG/sz7QRBtK3GWofdNqt2zvuFin
-	hMmTHGx55GLn41Lz6H/xAi6muTf5+Kg8hChFjba6iJrBdvb09HeCE3U6CyYKXyumH4tk6gjZWVAW8
-	Hghe+2RQaZCimInZbJ2Q==;
+	List-Owner; bh=rXziorat1SQ7y27IGdF3mqU63s4TCTYH7Ki4t9MZS+U=; b=qo+CB9kRAEx6KF
+	kvzzADygee8Cer4i5+olb9cWiRCNp/HknShz+O0xej1G/Z6I2z0BnbhXb9fVA9GobEdA/k0+JtQeu
+	G/YpZL/ubnpoYoGO7gseGtvxn1hsLFvUU6cZeha1zKoCNxaif0dw/ORFRyaoMk10jBU3xZAytqt+h
+	DE6IgoM9cARnKy7M/aErmO57O+VAQlp76V7RLw1ReX0c6uK0LX5ZefjAJFEOD4GKDyNLppK0AYwQa
+	UBRriUjzJYgyreWB+fm8cTvdPXZViouI9uS+uHJx/AR5qP5BiLN5Mb3LxdGmwsSKOOi22yDs3NHb4
+	g72/tgbfB8FB7jRN7WFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi9vb-00000003iJf-32zr;
-	Tue, 20 Jan 2026 11:29:43 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vi9yK-00000003ihU-06uS;
+	Tue, 20 Jan 2026 11:32:32 +0000
+Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi9vY-00000003iJB-3hwC;
-	Tue, 20 Jan 2026 11:29:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=AjnwvV2BqvE2aPiFrCHPh0/mzQujqmD6N4sIt6a5sZU=; b=hovWwipuHB57LKi4MlszUuI8DP
-	CgD3oSh3KhgWsMTfb486kUstGtEakbhWKS3+1iC5/urnMW79/L40gcwZ5abtlbaHeVDneWxj/KXyX
-	eTJv0JZfc3wkTMmGRw7nkB0HxBhoRPNL5zkIKvCd+Dsv6eBFJLW2/pEYOO2FIvMQl4Su8K1KY6UZi
-	PrXKLOXfxQQycmy+X6n53r84bKvM9JlWyEx096TTXdb2WDyBWNjezyvY8YMZ1iQmo/Hfbr+wGtFAY
-	C9aaJwM1f6p7mnsw1EmmDjJrl5vXbwvoF6LduEgFjCuro5aKLguFLKEm7NSzHR4V0bm8WPRMvX/zN
-	vUNCdoYQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59282)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vi9us-000000006A6-2vXc;
-	Tue, 20 Jan 2026 11:28:58 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vi9uj-000000007Tq-3hBk;
-	Tue, 20 Jan 2026 11:28:49 +0000
-Date: Tue, 20 Jan 2026 11:28:49 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+	id 1vi9yD-00000003igo-2lsH;
+	Tue, 20 Jan 2026 11:32:30 +0000
+Received: from localhost (unknown [116.232.27.242])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id B15B9341064;
+	Tue, 20 Jan 2026 11:32:18 +0000 (UTC)
+Date: Tue, 20 Jan 2026 19:32:07 +0800
+From: Yixun Lan <dlan@gentoo.org>
 To: Yao Zi <me@ziyao.cc>
 Cc: Inochi Amaoto <inochiama@gmail.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -58,12 +43,13 @@ Cc: Inochi Amaoto <inochiama@gmail.com>,
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Richard Cochran <richardcochran@gmail.com>,
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
 	Yanteng Si <siyanteng@cqsoftware.com.cn>,
 	Yao Zi <ziyao@disroot.org>,
 	Vladimir Oltean <vladimir.oltean@nxp.com>,
@@ -83,7 +69,7 @@ Cc: Inochi Amaoto <inochiama@gmail.com>,
 	Longbin Li <looong.bin@gmail.com>
 Subject: Re: [PATCH net-next 3/3] net: stmmac: Add glue layer for Spacemit K3
  SoC
-Message-ID: <aW9m8YOVO1ClIQOd@shell.armlinux.org.uk>
+Message-ID: <20260120113207-GYB56672@gentoo.org>
 References: <20260120043609.910302-1-inochiama@gmail.com>
  <20260120043609.910302-4-inochiama@gmail.com>
  <aW9jbqBSgkiLLw8r@pie>
@@ -91,8 +77,8 @@ MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <aW9jbqBSgkiLLw8r@pie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_032940_948845_61B0A887 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20260120_033225_753244_475AB4E6 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,8 +95,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 11:13:50AM +0000, Yao Zi wrote:
+Hi Yao,
+
+On 11:13 Tue 20 Jan     , Yao Zi wrote:
 > On Tue, Jan 20, 2026 at 12:36:08PM +0800, Inochi Amaoto wrote:
+> > Adds Spacemit dwmac driver support on the Spacemit K3 SoC.
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > ---
+> >  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 +
+> >  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+> >  .../ethernet/stmicro/stmmac/dwmac-spacemit.c  | 224 ++++++++++++++++++
+> >  3 files changed, 237 insertions(+)
+> >  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
+> 
+> 
+> ...
+> 
 > > +static int spacemit_dwmac_probe(struct platform_device *pdev)
 > > +{
 > 
@@ -122,29 +123,22 @@ On Tue, Jan 20, 2026 at 11:13:50AM +0000, Yao Zi wrote:
 > According to of.h, of_property_read_u32, which in turn calls
 > of_property_read_u32_array, could fail with -ENODATA if there's no value
 > associated with the property. Should the case be handled?
+> 
+I think it should be safe, see the comment
 
-You cut too much. This had:
-
-	unsigned int tx_delay = 0;
-	unsigned int rx_delay = 0;
-
-at the start of the function.
-
-of_property_read_u32_array() says:
-
- * @out_values: pointer to return value, modified only if return value is 0.
-
-and of_property_read_u32() passes &tx_delay or &rx_delay to this. Thus,
-if any error occurs, these will be zero. In other words, a missing
-property is equivalent to setting these to zero, which is entirely
-reasonable.
-
-However, "unsigned int" _may_ be type equivalent to "u32", but really
-these should be "u32" if of_property_read_u32_array() is used.
+ *
+ * The out_values is modified only if a valid u64 value can be decoded.
+ */
+static inline int of_property_read_u64_array(const struct device_node *np,
+                                             const char *propname,
+                                             u64 *out_values, size_t sz)
+{
+..
+if the function fail then it will use default value which assigned already
+at initialization stage.
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
