@@ -4,65 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 633BFD2ECF7
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 14:23:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA854D2ECF7
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 14:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5KmCKBB75h5trHTpi9ZyB6sAk1CMInWMjbBhrj/fHDc=; b=GiYcDPKLiliece
-	sVCxtwkldzLgOkcRSoKSI7Id9l5W1sgdmINAomuB7NLe61ZFU1FeIpCnHMIXMTYFnJGz9kYa3Yfju
-	y1aJ7u5/1ruC4w6OGkaUkPo1AFM/lrpdnXeOFHL6bWTG3eR+hhSIQg8/iO/+Tm1vAPLQgmoSjzBPr
-	HdDsxekxx8whbnenGho/Ar7577WoRo88mWWmoJ/bB+J39Np5OAK2P0ZjS1gpX35u+lKPF6feNczMJ
-	cEg5yylm62UyI0N1castpnYKS66z0kwnxw0Sj4lpExgPIc9JklZCE/TLtSLFX7sBzBeHQFtBNOPUD
-	c10hBNLk2sMF8YPc45ng==;
+	List-Owner; bh=HE/ZyIByN3d2I6NU8oBpYMRDr56DfLf5tEdPjUr1qOs=; b=I/hIFXgD0JBTix
+	6BUS6dmsaIX53cDEa5TWYdIClLqiB8TKx0WNNS/0W0+PEfJElNJPPXzkfgzkNMRCm353jMJojSf4j
+	VSwd0RY11dftwMj+5yl89SO/uCawTlGelaXC6thE9DzTXBcRb+t/fa9bUmFzx3jUHKQywFAwzwmvD
+	Qxu9g1CIh8pUhmA7mW1K5Or73rA5RA5Z2hNAPLFZYVXUK6rgOV4sFrRF6cs9GbTBgIijP0yyA9J70
+	qcshszsRTyfY/Y8C5G9C5zPwsKG/J/kBQIT6E5emhQVOwTopKyU61rMflSNSxDCuTd/bywTDtUhkO
+	XfGAH9nv1inpoZ7P12aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viCdX-00000003yKd-2MGB;
-	Tue, 20 Jan 2026 14:23:15 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1viCgz-00000003ygx-48aw;
+	Tue, 20 Jan 2026 14:26:49 +0000
+Received: from esa1.hc555-34.eu.iphmx.com ([23.90.104.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viCdQ-00000003yHc-02ax;
-	Tue, 20 Jan 2026 14:23:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1768918982; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=XjFJwiZwKYWRxhHb7L7H6Uqg4/HCRCOm2ZcJ0CPggm0=;
-	b=w+hWjyy0ZeAhnzf5VYtWUGdB/Hc/GhvH+GD+xTKdGBZmvC47GmYim5U961FuEATcTpG07zyuhVJTo1LrdQsY8TqC/Kc3++NVyaslRLbF26F5d5EEyqhOhTf7hpgegwYef0YGFQemv1YsIRUvLyCJCkzrD8PHRQovLrd1lezpui8=
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0WxUghn7_1768918976 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 20 Jan 2026 22:22:58 +0800
-From: fangyu.yu@linux.alibaba.com
-To: radim.krcmar@oss.qualcomm.com
-Cc: ajones@ventanamicro.com,
-	alex@ghiti.fr,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	atish.patra@linux.dev,
-	corbet@lwn.net,
-	fangyu.yu@linux.alibaba.com,
-	guoren@kernel.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1viCgu-00000003yfJ-3Fzm
+	for linux-riscv@lists.infradead.org;
+	Tue, 20 Jan 2026 14:26:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
+  t=1768919204; x=1800455204;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=JcK32a/K4Bc5DTjfgo4jpbmZhsGF6/j5Ko6r8eaGKR8=;
+  b=ZIueK2Zz37U50/9xng5fDaqMV1uF5DE6H8BfCctiKJVSaRpAaahY28WO
+   vJRYIN7DNEJzYOffo5ZPs9VvYU/Ev7XBouqbgVaR4JMPNQ4joJNov9Nqg
+   q7gj+kEZS+0Yws0WpDQJGe8nI6PofwJIGhffhkBhp3RrbLHQCPc2qTicE
+   +kOo1XTC3vgZqA4pNp7Kq2Ifa5vwqJpm9qDlUArYLendJFCHYjr28H9Iq
+   9ddCjbDivrsLwJwkND+xie1Y9BGLhv7/L9nU1ayku5Pr7B1p3xFfOOjhr
+   1CeVWFzO/gQAFMx+YbWBjt7Ms6sIIXtoJ8+MZ217FNLFSteIjLU4H65Zn
+   A==;
+X-CSE-ConnectionGUID: OpuY0g/LR4uOSrGr5D8Jxg==
+X-CSE-MsgGUID: KzJE5NufRJ+1uUV9kD/x3Q==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from unknown (HELO ces02_data.me-corp.lan) ([146.255.191.134])
+  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jan 2026 16:26:40 +0200
+X-CSE-ConnectionGUID: Z7IJKOSBRGaaiEAxrI+bkQ==
+X-CSE-MsgGUID: /rziLRduQLaA2dxB9YR0yw==
+Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.2])
+  by ces02_data.me-corp.lan with SMTP; 20 Jan 2026 16:28:38 +0200
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Tue, 20 Jan 2026 16:26:39 +0200
+From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Will Deacon <will@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Gary Guo <gary@garyguo.net>,
+	Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	cfu@wavecomp.com,
+	torvalds@linux-foundation.org,
+	olof@lixom.net,
+	aleksa.paunovic@htecgroup.com,
+	arikalo@gmail.com
+Cc: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
 	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pbonzini@redhat.com,
-	pjw@kernel.org,
-	rkrcmar@ventanamicro.com
-Subject: Re: Re: [PATCH v2] RISC-V: KVM: add KVM_CAP_RISCV_SET_HGATP_MODE
-Date: Tue, 20 Jan 2026 22:22:56 +0800
-Message-Id: <20260120142256.9968-1-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <DFSM9IHXY24S.3W4T39VHEH420@oss.qualcomm.com>
-References: <DFSM9IHXY24S.3W4T39VHEH420@oss.qualcomm.com>
+	linux-kernel@vger.kernel.org,
+	Vladimir.Kondratiev@mobileye.com
+Subject: [PATCH v2 0/2] Support for Risc-V CPUs implementing LR/SC but not AMO
+Date: Tue, 20 Jan 2026 16:26:22 +0200
+Message-ID: <20260120-lrsc-only-v2-0-a522e640d27d@mobileye.com>
+In-Reply-To: <DFSQIY6WV4U7.3B3RY31KE739B@garyguo.net>
+References: <DFSQIY6WV4U7.3B3RY31KE739B@garyguo.net>
 MIME-Version: 1.0
+X-Change-ID: 20260120-lrsc-only-cc06422f5bb1
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_062308_292181_82B0B495 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20260120_062645_310738_D435B459 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,65 +99,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
->>
->> This capability allows userspace to explicitly select the HGATP mode
->> for the VM. The selected mode must be less than or equal to the max
->> HGATP mode supported by the hardware. This capability must be enabled
->> before creating any vCPUs, and can only be set once per VM.
->>
->> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
->> ---
->> diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
->> @@ -212,12 +219,27 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->>  
->>  int kvm_vm_ioctl_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap)
->>  {
->> +	if (cap->flags)
->> +		return -EINVAL;
->>  	switch (cap->cap) {
->> +	case KVM_CAP_RISCV_SET_HGATP_MODE:
->> +#ifdef CONFIG_64BIT
->> +		if (cap->args[0] < HGATP_MODE_SV39X4 ||
->> +			cap->args[0] > kvm_riscv_gstage_max_mode)
->> +			return -EINVAL;
->> +		if (kvm->arch.gstage_mode_initialized)
->> +			return 0;
->
->"must be enabled before creating any vCPUs" check is missing.
+Primary goal is to support Mobileye eyeq7h automotive platform
+based on MIPS P8700 CPU [1] having only "zalrsc" ISA extension but
+not full "a".
 
-Agreed, I'll add the missing "must be enabled before creating any vCPUs" check by
-rejecting the capability once kvm->created_vcpus is non-zero.
+Such platforms need userspace to be compiled with correct
+"-march" flags to generate proper instructions for the atomic types
+so there's not feasible to use universal userspace for it.
+Thus there's no point to do same binary kernel suitable for both
+"full A" and "LRSC only" platform types. Do a compile time
+alternatives and require CONFIG_NONPORTABLE for this
 
->
->> +		kvm->arch.gstage_mode_initialized = true;
->> +		kvm->arch.kvm_riscv_gstage_mode = cap->args[0];
->> +		kvm->arch.kvm_riscv_gstage_pgd_levels = 3 +
->> +		    kvm->arch.kvm_riscv_gstage_mode - HGATP_MODE_SV39X4;
->
->Even before creating VCPUs, I don't see enough protections to make this
->work.
->
->Userspace can only provide a hint about the physical address space size
->before any other KVM code could have acted on the information.
->It would be a serious issue if some code would operate on hgatp as if it
->were X and others as Y.
->
->The simplest solution would be to ensure that the CAP_SET VM ioctl can
->only be executed before any other IOCTL, but a change in generic code to
->achieve it would be frowned upon...
->I would recommend looking at kvm_are_all_memslots_empty() first, as it's
->quite likely that it could be sufficient for the purposes of changing
->hgatp.
+[1] https://mips.com/products/hardware/p8700/
 
-Using kvm_are_all_memslots_empty might be a good idea, and I will add a
-check for this function in the v2.
+Patch 1 do most of work to provide compile-time LR/SC alternatives
+        for the AMO instructions
+Patch 2 adjust tests for reported CPU extensions compatibility with
+        the code
 
->
->Thanks.
+Changes in v2: switch from dynamic atomic flavor resolution to
+compile-time one.
 
-Thanks,
-Fangyu
+Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+---
+Vladimir Kondratiev (2):
+      riscv: support ISA extensions "zaamo" and "zalrsc"
+      riscv: more accurate check for CPU atomics support
+
+ arch/riscv/Kconfig               | 19 ++++++++++++++
+ arch/riscv/Makefile              | 16 ++++++++----
+ arch/riscv/include/asm/atomic.h  | 56 +++++++++++++++++++++++++++++++++++++++-
+ arch/riscv/include/asm/bitops.h  | 48 ++++++++++++++++++++++++++++++++++
+ arch/riscv/include/asm/cmpxchg.h | 18 +++++++++++++
+ arch/riscv/include/asm/futex.h   | 52 +++++++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/cpu.c          | 22 +++++++++++++---
+ arch/riscv/kernel/entry.S        |  9 +++++++
+ arch/riscv/kernel/head.S         | 18 +++++++++++++
+ 9 files changed, 248 insertions(+), 10 deletions(-)
+---
+base-commit: 7d0a66e4bb9081d75c82ec4957c50034cb0ea449
+change-id: 20260120-lrsc-only-cc06422f5bb1
+
+Best regards,
+-- 
+Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+
 
 _______________________________________________
 linux-riscv mailing list
