@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD8BD2ED11
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 04:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 931F6D2ED12
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jan 2026 04:17:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
 	MIME-Version:Subject:Date:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kysJ+Pg7mK3hh2tPV8aMt1VeJo18XtVKg55NdciE1LY=; b=skzx6dPZK8qBiG
-	ENL9ARHOmNW7i0VnO1Oll8WExXXzm2JlA7MQPKa0gzXHUl0g+TOaytbNhMgjaRh8HX4mfX32Md+MP
-	3uddpXPxI5AReqfMVnQyumCzkruwVxCAFQdnjB6gh/ZVQcV67QEkYP3dbj9oz9KYRMQGpogucR22e
-	sZUDkDHZL1R25aH1gX/wlbrHsxRwje/5b1Kvq75kAmuZTv2asSxJgv8gThEV9svjrfjprKZKwLCIl
-	4U5JIQtw1riFkysOt/qhd0pe9v6KNU2/PDyzp7f55TF0jFjxqLPCdCRbT/juZQzK0jHAb6Be8Fi/g
-	7w3yVFR2t8icCnENiWBQ==;
+	List-Owner; bh=U4zH6dJ/mTzBjGDLPYThkRgU8rvzbTDlcIdkICymNrM=; b=g9P6a9WWwZQihB
+	pkWEXUI5fuZXOnAsEHrjrvWOgYRzwww8V3I9mfdYL7OmoFJztP2v2sm0ioEWEX0dWKDYX6guDF15l
+	kNJbcUG1H/ymw6VWYa+DWlj7dsxY9mc3wPHESscsAa0C7EKOX5olM3dDl29tFkwojNPv88yv42EDu
+	6dNjvhQX1Yg0L9O7io0G5CN8ZMjQWSRVteH0iPPzhhbUgvjQFQFkeimMvPgkYSBwINjVmQbSs0tCE
+	OPhPI2CBQCQA8SduOrbNPTUzj7fhB8TVjZP9wgbSEXDxPLJrvO0FJiOdIreD3h3FIkCjaXYzL/cxi
+	ZBi6NeMoM/dT1pROGs3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi3Aq-000000039l7-2ohg;
-	Tue, 20 Jan 2026 04:17:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vi3B3-000000039sU-42Qy;
+	Tue, 20 Jan 2026 04:17:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi39b-000000039O1-159X
+	id 1vi39c-000000039OW-1dZ1
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jan 2026 04:15:45 +0000
+	Tue, 20 Jan 2026 04:15:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ED3064454C;
-	Tue, 20 Jan 2026 04:15:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 549EAC2BCC6;
-	Tue, 20 Jan 2026 04:15:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7C0324455C;
+	Tue, 20 Jan 2026 04:15:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2260C2BC87;
+	Tue, 20 Jan 2026 04:15:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768882523;
-	bh=LLcYCf8E3m+c3NEGM6PLVB/b2aK0eRa7uHCxUc0B8eM=;
+	s=k20201202; t=1768882525;
+	bh=R1lDGdU7iIiekrd1oymtfCVNrLHfj85DdbG3x9sBksw=;
 	h=From:Date:Subject:References:In-Reply-To:To:From;
-	b=NjkctdjKUn0SLqbTQurxBFfLInhgoQWsPREXXMtKwABJ/gYwDhLfCUs8qJtBs06rc
-	 EUaBhI2ahtDB8PBFbcHF5tCQl1GzV1TZdEqVEDdKoB4hJkz+LqtjEayxp6d+28gFE8
-	 3ABLnRkLQPtnbfcmjEIIUs7xDEA+B4pluqyp1dkgwdmiqtqqtrMmERzCcuE3zeTV53
-	 NoZia7WtAER7IlZZVsX/H+NT6nWzcWrp9vpmUzk7d0PbNOeq1moTRsUKI1lcK+6Vrh
-	 /lpV9aJzxiRiuX6iEMy0eT/YDrf8e9SePo2PA9hEHQ7H7RV8fEx8GeUbuUfigHfv0v
-	 G9hZ+ZbdjOglg==
+	b=o5O6wA2Sa7mj9exOhlWMr60IUo9V+uZYDFgj/AhtuKNokK4T3QyFOibJGyRd/1tvh
+	 OlI8fL+nnGEs9NWYESHV2Ln6pnEEjX1xeBGGxoAFo6Yjtgv4DJxBR67E1V19Ji1w0T
+	 ru6gkzgY1nuC/RU8Nt7mQvtbTH1brAy6rmgME1DwHJBF7uTBQ/uheBfPdA85pqFZy0
+	 TTpO4Ua/33Wtye91iWendEhluYKw7bEVDuNHZuECacmYeyVzJIQ8R7fPgk9c9Gsn5f
+	 QQJVQkom/0DVWSGuPP29AUkhY8ygZTpcvbJCaOZQeOJbb4SBneVreDS6c0YgELxqKh
+	 UtBt/nasszGpg==
 From: Drew Fustini <fustini@kernel.org>
-Date: Mon, 19 Jan 2026 20:14:48 -0800
-Subject: [PATCH RFC 11/19] RISC-V: QoS: add to build when
- CONFIG_RISCV_ISA_SSQOSID set
+Date: Mon, 19 Jan 2026 20:14:51 -0800
+Subject: [PATCH NFU RFC 14/19] resctrl: riscv: add CBQRI cache controller
+ driver
 MIME-Version: 1.0
-Message-Id: <20260119-ssqosid-cbqri-v1-11-aa2a75153832@kernel.org>
+Message-Id: <20260119-ssqosid-cbqri-v1-14-aa2a75153832@kernel.org>
 References: <20260119-ssqosid-cbqri-v1-0-aa2a75153832@kernel.org>
 In-Reply-To: <20260119-ssqosid-cbqri-v1-0-aa2a75153832@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -73,18 +73,17 @@ To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, x86@kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=738; i=fustini@kernel.org;
- h=from:subject:message-id; bh=LLcYCf8E3m+c3NEGM6PLVB/b2aK0eRa7uHCxUc0B8eM=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTmMwbdjty3TG5LQAHrWZZdIf/E2jMXGsx4bdseHx+2s
- 0fuqKVwRykLgxgXg6yYIsumD3kXlniFfl0w/8U2mDmsTCBDGLg4BWAii20ZGd6Wzr7z0Wshw7Je
- jeDaqElRHatnO7xLi2dY+6hi7mvPLzsYGc7V2kZWJvycdatwx5ufb6pO+ChkSX88qvOua0PZlo8
- +3/kB
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3582; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=R1lDGdU7iIiekrd1oymtfCVNrLHfj85DdbG3x9sBksw=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTmMwbPd3m6brnUfHdzF68gA205o7A5f5Y/vX7961zf9
+ V6HTss+6yhlYRDjYpAVU2TZ9CHvwhKv0K8L5r/YBjOHlQlkCAMXpwBM5KMZI0NvyR13W+maSyv5
+ 81fnPVsf/LTjXeQOW5t5nClJBgc62h4y/I/4cJxpakut2He/3U9mLlK4Eq8vvf2afgnHv7lGHCu
+ mf2IDAA==
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_201544_103716_F254AB2D 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260119_201544_581488_E9520959 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,24 +100,130 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the srmcfg CSR handling and the resctrl interface to the build when
-CONFIG_RISCV_ISA_SSQOSID is set.
+[NOT FOR UPSTREAM]
+
+Add example driver for a cache controller that implements CBQRI capacity
+allocation.
 
 Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- arch/riscv/kernel/qos/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/resctrl/riscv/cbqri_cache.c | 106 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 106 insertions(+)
 
-diff --git a/arch/riscv/kernel/qos/Makefile b/arch/riscv/kernel/qos/Makefile
-index 9f996263a86d..9ed0c13a854d 100644
---- a/arch/riscv/kernel/qos/Makefile
-+++ b/arch/riscv/kernel/qos/Makefile
-@@ -1,2 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0
--obj-$(CONFIG_RISCV_ISA_SSQOSID) += qos.o
-+obj-$(CONFIG_RISCV_ISA_SSQOSID) += qos.o qos_resctrl.o
+diff --git a/drivers/resctrl/riscv/cbqri_cache.c b/drivers/resctrl/riscv/cbqri_cache.c
+new file mode 100644
+index 000000000000..0bee65eefb2d
+--- /dev/null
++++ b/drivers/resctrl/riscv/cbqri_cache.c
+@@ -0,0 +1,106 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#define pr_fmt(fmt) "cbqri-cache: " fmt
++
++#include <linux/device.h>
++#include <linux/of.h>
++#include <linux/riscv_qos.h>
++
++static const struct of_device_id cbqri_cache_ids[] = {
++	{ .compatible = "riscv,cbqri-cache" },
++	{ }
++};
++
++static int __init cbqri_cache_init(void)
++{
++	struct cbqri_controller_info *ctrl_info;
++	struct device_node *np;
++	u32 value;
++	int err;
++
++	for_each_matching_node(np, cbqri_cache_ids) {
++		if (!of_device_is_available(np)) {
++			of_node_put(np);
++			continue;
++		}
++
++		ctrl_info = kzalloc(sizeof(*ctrl_info), GFP_KERNEL);
++		if (!ctrl_info)
++			goto err_node_put;
++		ctrl_info->type = CBQRI_CONTROLLER_TYPE_CAPACITY;
++
++		err = of_property_read_u32_index(np, "reg", 1, &value);
++		if (err) {
++			pr_err("Failed to read reg base address (%d)", err);
++			goto err_kfree_ctrl_info;
++		}
++		ctrl_info->addr = value;
++
++		err = of_property_read_u32_index(np, "reg", 3, &value);
++		if (err) {
++			pr_err("Failed to read reg size (%d)", err);
++			goto err_kfree_ctrl_info;
++		}
++		ctrl_info->size = value;
++
++		err = of_property_read_u32(np, "cache-level", &value);
++		if (err) {
++			pr_err("Failed to read cache level (%d)", err);
++			goto err_kfree_ctrl_info;
++		}
++		ctrl_info->cache.cache_level = value;
++
++		err = of_property_read_u32(np, "cache-size", &value);
++		if (err) {
++			pr_err("Failed to read cache size (%d)", err);
++			goto err_kfree_ctrl_info;
++		}
++		ctrl_info->cache.cache_size = value;
++
++		err = of_property_read_u32(np, "riscv,cbqri-rcid", &value);
++		if (err) {
++			pr_err("Failed to read RCID count (%d)", err);
++			goto err_kfree_ctrl_info;
++		}
++		ctrl_info->rcid_count = value;
++
++		err = of_property_read_u32(np, "riscv,cbqri-mcid", &value);
++		if (err) {
++			pr_err("Failed to read MCID count (%d)", err);
++			goto err_kfree_ctrl_info;
++		}
++		ctrl_info->mcid_count = value;
++
++		/*
++		 * For CBQRI, any cpu (technically a hart in RISC-V terms)
++		 * can access the memory-mapped registers of any CBQRI
++		 * controller in the system. Therefore, set the CPU mask
++		 * to 'FF' to allow all 8 cores in the example Qemu SoC
++		 */
++		err = cpumask_parse("FF", &ctrl_info->cache.cpu_mask);
++		if (err) {
++			pr_err("Failed to convert cores mask string to cpumask (%d)", err);
++			goto err_kfree_ctrl_info;
++		}
++
++		of_node_put(np);
++
++		pr_debug("addr=0x%lx max-rcid=%u max-mcid=%u level=%d size=%u",
++			 ctrl_info->addr, ctrl_info->rcid_count, ctrl_info->mcid_count,
++			 ctrl_info->cache.cache_level, ctrl_info->cache.cache_size);
++
++		/* Fill the list shared with RISC-V QoS resctrl */
++		INIT_LIST_HEAD(&ctrl_info->list);
++		list_add_tail(&ctrl_info->list, &cbqri_controllers);
++	}
++
++	return 0;
++
++err_kfree_ctrl_info:
++	kfree(ctrl_info);
++
++err_node_put:
++	of_node_put(np);
++
++	return err;
++}
++device_initcall(cbqri_cache_init);
 
 -- 
 2.43.0
