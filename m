@@ -4,71 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3703FD262B2
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 05:45:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0045D262B0
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 05:46:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eAWsYsqwy4x/ZscxUWmEDr1BLJeFvO0kDV+HyHuCr3U=; b=F76CNlqHe26rSe
-	kuVzKzyvsAz3MHyKqbrS4f1tRdVxRNXC+O79fXFXFZVsD2Q+jip2iPiniEHXB3rO0zcERz4stscHQ
-	Hk8fYpDd8G7eA1Y6AyhWlaAX2V/l6sZZuYx0FuPMh3n+d3Bd9jAchxKYvTJ66YGwrFGpBSQnVM2xG
-	7uJOFuUs2IPCB5RxoBUbElQXYUz8+lTh2Gjl/noL2LI7er+vzpMfqJrku+mBox9+jvCC5QEjaaaLK
-	d3uXpyBa/+2wb97SlecYS8xE76x0lO0PaDnc1ctMX7fSiDwkfHVUOdbL3SBatss3lq8oFVNXyLF0q
-	CpVRD9kvpbtQ5hL7RYmg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=s+ypPal5TVik0HXL6o8NTWRZ0uDXi8zys4xfbbuqHpI=; b=IA97ugd+hf0KmE
+	shZZkd9zlm/lVma8cgNVe9uv+5GR6oq8lBoVpfx4A+yHwB6Vo9UTU3u1HjaLeugXNzjFlipJ80Bsw
+	frhiNKK8bBEH/ORuiS0eGcPbwN7axp7gvB93XzPgS10Q3kIjQgoneJl3KHVUxVtrNjENTMuXGzGj/
+	catjmyuuOwCNXvxTlMj/gD1R3ZHPUNOdvUFTLF8E3uD3v5n0MIm0W5B3o0JNU4Lq2Fk57BOkPu663
+	cy6cTFHxYghjHOMy9gjEtaux/HzsJDhUalC3bcP7GOpCDQ5VBNdVaDUlwDxp2t32gfqX4N77fI1Cz
+	U2RPC46fn/+2oXkTqywQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viR22-00000004ueH-3tUh;
-	Wed, 21 Jan 2026 05:45:30 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1viR2Q-00000004ugu-19SB;
+	Wed, 21 Jan 2026 05:45:54 +0000
+Received: from out203-205-221-233.mail.qq.com ([203.205.221.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viR1x-00000004ucX-2FdE
+	id 1viR2N-00000004ug7-1x60
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jan 2026 05:45:30 +0000
-X-UUID: 5ab3987af68c11f0b0f03b4cfa9209d1-20260121
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:508bdded-23e2-47af-bd06-24a8046211d7,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:0fab305e8081ca41f69ad0fa902d795b,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:0|15|
-	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 5ab3987af68c11f0b0f03b4cfa9209d1-20260121
-X-User: jiangfeng@kylinos.cn
-Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 1510422865; Wed, 21 Jan 2026 13:45:12 +0800
-Message-ID: <e596e070-b3c1-4aae-8f7c-35f172f1fbbf@kylinos.cn>
-Date: Wed, 21 Jan 2026 13:45:09 +0800
+	Wed, 21 Jan 2026 05:45:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1768974344; bh=2hfAdrr6Ey5DyT/MRw7XElyPJvDe8wPUBa8s2u/6NnM=;
+	h=From:To:Cc:Subject:Date;
+	b=ygGnTWCfcImv06QmhsyP6n2vs1sQda8e3dKfz+KMdMuTHTYi799GmTLWkvNV5+AVH
+	 WwtcbmmRFbb+2hLKzG+fPnXSTI0cNjqdMC4ElNm4+npAWP50l8ZUNKJI9vNCstrt8n
+	 74e5N9I0vj1vx0wV+O3swJzChYK1V/Uwm5X8BXRk=
+Received: from cyy-pc.lan ([240e:379:2268:a400:43ad:678c:aeb3:355d])
+	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
+	id B6898CAC; Wed, 21 Jan 2026 13:45:40 +0800
+X-QQ-mid: xmsmtpt1768974340t77ckc9c4
+Message-ID: <tencent_A697393AE256C4288768342AF245099A690A@qq.com>
+X-QQ-XMAILINFO: MRMtjO3A6C9XTS8vhvmawojs2BQVngzqTotK+QHmdsr2PLG21iw9vmyDJhIEFd
+	 bkWg/G3wSW3HrbsDFH6cyhO7d9ZJeWvRhsWa8n9NIGQuPqeqzWGuLXoe9PkaujxE6cGdFHAfLAh5
+	 J6SJf5ivp9uAAEWufIX10Eq/qb3NeOMH3usomK+SRVt7oniSpdaj0z9EbrphitjiWJSfjH/DEQmk
+	 N49bu4+JRb4jh1RmxvtIUiTiGkQfcvJ9BJ9rVB/QlwrgLaDXkckG0vIsDE3I5Lo8cF2xFymuzg7p
+	 dtNEbPAkZHhiK6jLpBPniyepET9bPS4UegOUeYaWiA8/3T9MPADCdD1bF8YBHZUsYAaYGfRFuGIb
+	 L60vUqGdRfHCqg4p4+vX9Aq0IAnUbRFwLL/rrmHso/bV63Lfur1PZZrxpxCLTKA6qGDj0j4UNNv5
+	 1LaqSIQwCSZsQtb7hDxoA3GZ8b9tA+T5cILInW6S9YS5F3Z+4su8LBoty5As5VgMTi2JJ3mwFDDP
+	 m2WZTGiJCQC249lsY/ttlnFNwT94z3/8UCsxTf3KxQ75KnepAGDMYSt6f/m2yuFHxsvz5UtqEj39
+	 5Lk9Fl3VwDhhFlgyQUBrYKGrJSET/P+I1FrNUlBr0XuzoYl5hxb5LuAQU5gNAiaf7gtkC2bwolv+
+	 r2w3/Et9652A5zeWqzGPnDOPZzC2YCziRsfB6Ey7BDWx+NP2IKQLIysYRqyXOcYQf6kNG6M9rJFy
+	 Pua0jigjkUF74KKgZ30hmOz/dM3VExq3itLnYPrT6AzJA82/yWOX6YUbCPT2XwX9ueI1V/36R7Vm
+	 hS6Y8UDnECH2DpjmD0t9ZAE99ga3MPY0O4KvjFefKRJseDaKkvIlndECOXukSRfxVR6In5l7F5z+
+	 eJdyKazZwNaSVkvL5dP3Ukiv1BLsRNvGVWN1aGgyu4YdCI7RpVoWzM58m7dIuceB1ckdMJuE93yZ
+	 AMZRQ4wHAbFZQOd+qgSZ03lMMc5sUl7nIYEc57a8PMow4p6+9tpMgPxyN0GJI8oP98m/LJ0/IxMI
+	 XDjJ9T5McrP6exRC9yuwugJuFHwCM=
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+From: Yangyu Chen <cyy@cyyself.name>
+To: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	Anup Patel <anup.patel@oss.qualcomm.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Charles Mirabile <cmirabil@redhat.com>,
+	Lucas Zampieri <lzampier@redhat.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Mason Huo <mason.huo@starfivetech.com>,
+	Zhang Xincheng <zhangxincheng@ultrarisc.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Sia Jee Heng <jeeheng.sia@starfivetech.com>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	Yangyu Chen <cyy@cyyself.name>
+Subject: [PATCH v2] irqchip/sifive-plic: Fix insufficient irq_groups allocation
+Date: Wed, 21 Jan 2026 13:45:26 +0800
+X-OQ-MSGID: <20260121054526.3576962-1-cyy@cyyself.name>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/8] lib/string_kunit: add performance benchmarks for
- strlen
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- akpm@linux-foundation.org, kees@kernel.org, andy@kernel.org,
- ebiggers@kernel.org, martin.petersen@oracle.com, ardb@kernel.org,
- charlie@rivosinc.com, conor.dooley@microchip.com, ajones@ventanamicro.com,
- linus.walleij@linaro.org, nathan@kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org, Joel Stanley <joel@jms.id.au>
-References: <20260120065852.166857-1-jiangfeng@kylinos.cn>
- <20260120065852.166857-5-jiangfeng@kylinos.cn>
- <aW8y6eC7ZGRYIWkn@smile.fi.intel.com>
-Content-Language: en-US
-From: Feng Jiang <jiangfeng@kylinos.cn>
-In-Reply-To: <aW8y6eC7ZGRYIWkn@smile.fi.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_214525_921814_BFE0F1CB 
-X-CRM114-Status: GOOD (  22.08  )
+X-CRM114-CacheID: sfid-20260120_214551_888833_BA3B16BF 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,198 +95,137 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026/1/20 15:46, Andy Shevchenko wrote:
-> On Tue, Jan 20, 2026 at 02:58:48PM +0800, Feng Jiang wrote:
->> Introduce a benchmarking framework to the string_kunit test suite to
->> measure the execution efficiency of string functions.
->>
->> The implementation is inspired by crc_benchmark(), measuring throughput
->> (MB/s) and latency (ns/call) across a range of string lengths. It
->> includes a warm-up phase, disables preemption during measurement, and
->> uses a fixed seed for reproducible results.
->>
->> This allows for comparing different implementations (e.g., generic C vs.
->> architecture-optimized assembly) within the KUnit environment.
->>
->> Initially, provide benchmarks for strlen().
-> 
-> ...
-> 
->> +#define STRING_BENCH_SEED	888
->> +#define STRING_BENCH_WORKLOAD	1000000UL
-> 
-> Can also be (1 * MEGA) from units.h.
+Since the first irq source is 1 instead of 0, when the number of
+irqs is multiple of 32, the last irq group will be ignored during
+allocation, saving, and restoring. This lead to memory corruption
+when accessing enable_save beyond allocated memory after commit
+14ff9e54dd14 ("irqchip/sifive-plic: Cache the interrupt enable state")
+which will access enable_save for all sources during plic_probe.
+Thus, we should allocate irq_groups based on (nr_irqs + 1) instead of
+nr_irqs to avoid this issue.
 
-Fixed.
+This is an long standing bug since Linux v6.4 but since the last irq
+source is rarely used, it may not be triggered in practice until commit
+14ff9e54dd14 ("irqchip/sifive-plic: Cache the interrupt enable state").
 
-> ...
-> 
->> +static const size_t bench_lens[] = {
->> +	0, 1, 7, 8, 16, 31, 64, 127, 512, 1024, 3173, 4096
-> 
-> Leave trailing comma.
+Fixes: e80f0b6a2cf3 ("irqchip/irq-sifive-plic: Add syscore callbacks for hibernation")
+Fixes: 4d936f10ff80 ("irqchip/sifive-plic: Probe plic driver early for Allwinner D1 platform")
+Fixes: 539d147ef69c ("irqchip/sifive-plic: Add support for UltraRISC DP1000 PLIC")
+Fixes: 14ff9e54dd14 ("irqchip/sifive-plic: Cache the interrupt enable state")
+Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+---
+Changes since v1:
+- Add more Fixes tags for earlier commits that are also affected by this
+  bug.
+- Add more explanation about the bug's history.
 
-Fixed.
+This can be reproduced by modifying the PLIC node in DT to have ndev as
+exactly multiple of 32, e.g., 32, 64, etc., then triggering some interrupts
+and checking dmesg for memory corruption:
 
-> ...
-> 
->> +static void *alloc_max_bench_buffer(struct kunit *test,
->> +		const size_t *lens, size_t count, size_t *buf_len)
->> +{
->> +	void *buf;
->> +	size_t i, max_len = 0;
->> +
->> +	for (i = 0; i < count; i++) {
->> +		if (max_len < lens[i])
->> +			max_len = lens[i];
->> +	}
->> +
->> +	/* Add space for NUL terminator */
->> +	max_len += 1;
-> 
->> +	buf = kunit_kzalloc(test, max_len, GFP_KERNEL);
->> +	if (buf && buf_len)
->> +		*buf_len = max_len;
->> +
->> +	return buf;
-> 
-> 	if (!buf)
-> 		return NULL;
-> 
-> 	*buf_len ...
-> 	return buf;
-> 
+plic: plic@3c000000 {
+	compatible = "riscv,plic0";
+	reg = <0x0 0x3c000000 0x0 0x4000000>;
+	#interrupt-cells = <1>;
+	interrupt-controller;
+	interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
+	riscv,max-priority = <7>;
+	riscv,ndev = <64>;
+};
 
-Fixed.
+Here is an example dmesg log when ndev is 64:
+[    0.077196] Unable to handle kernel paging request at virtual address ffffaf8000000000
+[    0.077205] Current swapper/0 pgtable: 4K pagesize, 48-bit VAs, pgdp=0x0000000081c2d000
+[    0.077215] [ffffaf8000000000] pgd=000000009ffffc01, p4d=000000009ffffc01, pud=000000009ffff801, pmd=000000009ffff401, pte=0000000000000000
+[    0.077240] Oops [#1]
+[    0.077246] Modules linked in:
+[    0.077254] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.19.0-rc6 #36 NONE 
+[    0.077266] Hardware name: XiangShan (DT)
+[    0.077273] epc : __kmalloc_node_track_caller_noprof+0x1a0/0x524
+[    0.077284]  ra : kstrdup+0x32/0x60
+[    0.077293] epc : ffffffff80253c70 ra : ffffffff801fa70e sp : ffff8f800000b700
+[    0.077304]  gp : ffffffff81a1b580 tp : ffffaf8080158000 t0 : 0000000000000264
+[    0.077313]  t1 : 0000000000000003 t2 : 0000000000000000 s0 : ffff8f800000b750
+[    0.077323]  s1 : 0000000000000002 a0 : ffffaf8000000000 a1 : 0000000000000cc0
+[    0.077332]  a2 : ffff8d800200bfc0 a3 : ffffffff81a5c5e0 a4 : ffffaf8000000000
+[    0.077342]  a5 : 0000000000000003 a6 : ffffffffffffffff a7 : ffffaf8080001400
+[    0.077352]  s2 : ffffaf80802ff178 s3 : ffffffff810107f0 s4 : 0000000000000000
+[    0.077362]  s5 : 0000000000000000 s6 : ffff8f800000b9c0 s7 : ffffaf8080823200
+[    0.077372]  s8 : ffffffff81a20580 s9 : ffffaf808012c990 s10: ffffffffffffffff
+[    0.077382]  s11: 0000000000000000 t3 : 0000000000000cc0 t4 : ffffffff801fa764
+[    0.077391]  t5 : 0000000000000000 t6 : 0000000000000263
+[    0.077399] status: 0000000200000120 badaddr: ffffaf8000000000 cause: 000000000000000d
+[    0.077409] [<ffffffff80253c70>] __kmalloc_node_track_caller_noprof+0x1a0/0x524
+[    0.077422] [<ffffffff801fa70e>] kstrdup+0x32/0x60
+[    0.077433] [<ffffffff801fa764>] kstrdup_const+0x28/0x34
+[    0.077444] [<ffffffff80318438>] __kernfs_new_node+0x3c/0x274
+[    0.077457] [<ffffffff80318a90>] kernfs_new_node+0x44/0x6c
+[    0.077470] [<ffffffff80318f40>] kernfs_create_dir_ns+0x20/0x7c
+[    0.077483] [<ffffffff8031b8f8>] sysfs_create_dir_ns+0x60/0xcc
+[    0.077497] [<ffffffff80b41bea>] kobject_add_internal+0xae/0x2d8
+[    0.077509] [<ffffffff80b422d6>] kobject_add+0x52/0xb8
+[    0.077520] [<ffffffff80b6401c>] __irq_alloc_descs+0x190/0x328
+[    0.077534] [<ffffffff800976de>] irq_domain_alloc_descs.part.0+0x46/0x78
+[    0.077549] [<ffffffff8009827a>] irq_create_mapping_affinity+0x72/0xcc
+[    0.077561] [<ffffffff805d27d2>] plic_probe+0x2e2/0x6c8
+[    0.077573] [<ffffffff805d2bc8>] plic_platform_probe+0x10/0x18
+[    0.077586] [<ffffffff80723aca>] platform_probe+0x46/0x80
+[    0.077600] [<ffffffff807212ec>] really_probe+0x84/0x22c
+[    0.077612] [<ffffffff807214f0>] __driver_probe_device+0x5c/0xd4
+[    0.077625] [<ffffffff8072162e>] driver_probe_device+0x2e/0xf4
+[    0.077639] [<ffffffff80721856>] __driver_attach+0x6e/0x14c
+[    0.077652] [<ffffffff8071f434>] bus_for_each_dev+0x60/0xb0
+[    0.077664] [<ffffffff80720e22>] driver_attach+0x1a/0x24
+[    0.077676] [<ffffffff8072068a>] bus_add_driver+0xca/0x1d8
+[    0.077689] [<ffffffff80722622>] driver_register+0x3e/0xdc
+[    0.077702] [<ffffffff80723810>] __platform_driver_register+0x1c/0x24
+[    0.077716] [<ffffffff80c2946e>] plic_driver_init+0x1a/0x24
+[    0.077728] [<ffffffff800108aa>] do_one_initcall+0x4e/0x1b8
+[    0.077740] [<ffffffff80c01358>] kernel_init_freeable+0x25c/0x2dc
+[    0.077754] [<ffffffff80b639cc>] kernel_init+0x1c/0x144
+[    0.077768] [<ffffffff8001239a>] ret_from_fork_kernel+0xe/0xf4
+[    0.077781] [<ffffffff80b6e4ee>] ret_from_fork_kernel_asm+0x16/0x18
+[    0.077800] Code: 6308 0c63 2a06 0a63 2a05 e703 0308 8293 001f 972a (630c) 7f73 
+[    0.077809] ---[ end trace 0000000000000000 ]---
+[    0.077817] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[    0.077827] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
+---
+ drivers/irqchip/irq-sifive-plic.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-> ...
-> 
->> +static void fill_random_string(char *buf, size_t len)
->> +{
->> +	size_t i;
->> +	struct rnd_state state;
-> 
-> Reversed xmas tree ordering?
-
-Fixed.
-
->> +	if (!buf || !len)
->> +		return;
->> +
->> +	/* Use a fixed seed to ensure deterministic benchmark results */
->> +	prandom_seed_state(&state, 888);
->> +	prandom_bytes_state(&state, buf, len);
->> +
->> +	/* Replace null bytes to avoid early string termination */
->> +	for (i = 0; i < len; i++) {
->> +		if (buf[i] == '\0')
->> +			buf[i] = 0x01;
->> +	}
->> +
->> +	buf[len - 1] = '\0';
->> +}
-> 
-> ...
-> 
->> +#define STRING_BENCH(iters, func, ...)					\
-> 
-> Is this same / similar code to crc_benchmark()? Perhaps we need to have KUnit
-> provided macro / environment to perform such tests... Have you talked to KUnit
-> people about all this?
-> 
-
-I haven't reached out to the KUnit maintainers yet. This implementation is currently
-a lightweight adaptation specifically for string benchmarks. However, I agree that
-a generic KUnit benchmarking harness would be beneficial for the kernel. For now,
-I'll refine this version based on your feedback.
-
->> +({									\
->> +	u64 __bn_t;							\
->> +	size_t __bn_i;							\
->> +	size_t __bn_iters = (iters);					\
->> +	size_t __bn_warm_iters = max_t(size_t, __bn_iters / 10, 50U);	\
-> 
-> Try to avoid max_t() as much as possible. Wouldn't max() suffice?
-> 
-
-Will do.
-
->> +	/* Volatile function pointer prevents dead code elimination */	\
->> +	typeof(func) (* volatile __func) = (func);			\
->> +									\
->> +	for (__bn_i = 0; __bn_i < __bn_warm_iters; __bn_i++)		\
->> +		(void)__func(__VA_ARGS__);				\
->> +									\
->> +	preempt_disable();						\
->> +	__bn_t = ktime_get_ns();					\
->> +	for (__bn_i = 0; __bn_i < __bn_iters; __bn_i++)			\
->> +		(void)__func(__VA_ARGS__);				\
->> +	__bn_t = ktime_get_ns() - __bn_t;				\
->> +	preempt_enable();						\
->> +	__bn_t;								\
->> +})
->> +
->> +/**
->> + * STRING_BENCH_BUF() - Benchmark harness for single-buffer functions.
->> + * @test: KUnit context.
->> + * @buf_name: Local char * variable name to be defined.
->> + * @buf_size: Local size_t variable name to be defined.
->> + * @func: Function to benchmark.
->> + * @...: Extra arguments for @func.
->> + *
->> + * Prepares a randomized, null-terminated buffer and iterates through lengths
->> + * in bench_lens, defining @buf_name and @buf_size in each loop.
->> + */
->> +#define STRING_BENCH_BUF(test, buf_name, buf_size, func, ...)		\
->> +do {									\
->> +	char *buf_name, *_bn_buf;					\
->> +	size_t buf_size, _bn_i, _bn_iters, _bn_size = 0;		\
->> +	u64 _bn_t, _bn_mbps = 0, _bn_lat = 0;				\
->> +									\
->> +	if (!IS_ENABLED(CONFIG_STRING_KUNIT_BENCH))			\
->> +		kunit_skip(test, "not enabled");			\
->> +									\
->> +	_bn_buf = alloc_max_bench_buffer(test, bench_lens,		\
->> +			ARRAY_SIZE(bench_lens), &_bn_size);		\
->> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, _bn_buf);			\
->> +									\
->> +	fill_random_string(_bn_buf, _bn_size);				\
-> 
->> +	_bn_buf[_bn_size - 1] = '\0';					\
-> 
-> You have already this there in the function, no?
-> 
-
-Indeed, that's redundant. I'll remove it.
-
->> +	for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {	\
->> +		buf_size = bench_lens[_bn_i];				\
->> +		buf_name = _bn_buf + _bn_size - buf_size - 1;		\
->> +		_bn_iters = STRING_BENCH_WORKLOAD /			\
->> +				max_t(size_t, buf_size, 1U);		\
-> 
-> max()
-
-Fixed.
-
->> +		_bn_t = STRING_BENCH(_bn_iters, func, ##__VA_ARGS__);	\
->> +									\
->> +		if (_bn_t > 0) {					\
->> +			_bn_mbps = (u64)(buf_size) * _bn_iters * 1000;	\
->> +			_bn_mbps = div64_u64(_bn_mbps, _bn_t);		\
->> +			_bn_lat = div64_u64(_bn_t, _bn_iters);		\
->> +		}							\
->> +		kunit_info(test, "len=%zu: %llu MB/s (%llu ns/call)\n",	\
->> +				buf_size, _bn_mbps, _bn_lat);		\
->> +	}								\
->> +} while (0)
-> 
-
-Thanks for the catch. I will incorporate all your suggestions into v4.
-
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index 210a57959637..d6515bf76444 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -293,7 +293,7 @@ static void plic_irq_resume(void *data)
+ 			continue;
+ 
+ 		raw_spin_lock_irqsave(&handler->enable_lock, flags);
+-		for (i = 0; i < DIV_ROUND_UP(priv->nr_irqs, 32); i++) {
++		for (i = 0; i < DIV_ROUND_UP(priv->nr_irqs + 1, 32); i++) {
+ 			reg = handler->enable_base + i * sizeof(u32);
+ 			writel(handler->enable_save[i], reg);
+ 		}
+@@ -431,7 +431,7 @@ static u32 cp100_isolate_pending_irq(int nr_irq_groups, struct plic_handler *han
+ 
+ static irq_hw_number_t cp100_get_hwirq(struct plic_handler *handler, void __iomem *claim)
+ {
+-	int nr_irq_groups = DIV_ROUND_UP(handler->priv->nr_irqs, 32);
++	int nr_irq_groups = DIV_ROUND_UP(handler->priv->nr_irqs + 1, 32);
+ 	u32 __iomem *enable = handler->enable_base;
+ 	irq_hw_number_t hwirq = 0;
+ 	u32 iso_mask;
+@@ -718,7 +718,7 @@ static int plic_probe(struct fwnode_handle *fwnode)
+ 			context_id * CONTEXT_ENABLE_SIZE;
+ 		handler->priv = priv;
+ 
+-		handler->enable_save = kcalloc(DIV_ROUND_UP(nr_irqs, 32),
++		handler->enable_save = kcalloc(DIV_ROUND_UP(nr_irqs + 1, 32),
+ 					       sizeof(*handler->enable_save), GFP_KERNEL);
+ 		if (!handler->enable_save) {
+ 			error = -ENOMEM;
 -- 
-With Best Regards,
-Feng Jiang
+2.51.0
 
 
 _______________________________________________
