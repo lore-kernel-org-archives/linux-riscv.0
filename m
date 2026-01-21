@@ -4,73 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 030B6D262B0
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 08:13:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E03ED262B2
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 08:15:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sW2nNXuG2OC4/sLhjOOyxVPY0TOwfWhoqP4mDLA89uY=; b=XswjoByN3OoQuX
-	q/8Z9J3/jTY8HYPvGZK8H2uP+Za4t8kHn4y9jSHsA1A4gIbCR4KHGlRtKdkROp84EktM0nKX4KEvE
-	DQ2By+5Js3NBYArTkZ10bdJv+gpuO2F+XMn9j0pTEJE7NUksO7ONLVKrY6huX34m9vyDY7h5icGAM
-	gbruc0IohkKsvfhMf7TqmXiAEmjLBLmt7kAwIm85Q0cLSPermZBJFfN39he+vIcX6xoQZjLsHiRQ6
-	uoSmQ/Y6nRuDaVACegiErw0Wglz2y2OLYrMgVWrNQPgzyzvutue7FveA473ZIrCW0fHn+TJOlapzb
-	EO+gCkBX47TZKKCdcThQ==;
+	List-Owner; bh=B/laV51lY/nVjq5BNQoW3ldFy7Ds8AmPBxAJlzlYuo8=; b=0TgopYnU9UgfXl
+	6eqf33vkucPMie1gIyXbwlbiB8HjOMFJ42Gpegxufa9CxXpILDO4GYDGJ27yjAe4IbmmxTY8CYwaV
+	H05KJlRdAQe4qU3VJ/I2o9ILBkkhln6sjByQmtIa6d+aw1WP5TA6lRZEGVEM/pgPd6KV2zIBMEtCu
+	dbftfOu2gqu6uvsmAw+f9SNT3O5PsVqJ6f38/rsL2VsgKSUEcezXOGHZflYw5ydAxpJ4s5awu/aLB
+	v8cEuo9CeXI8iWtTAcvKt8A50ANexGfVj8hZAJQos9jz5XfGxiWAo/VNwi/3YIzQvHAKWIahvvcUV
+	8zhVwf+Y5V+S7MGEmU/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viTKW-0000000546t-4BXr;
-	Wed, 21 Jan 2026 08:12:45 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1viTMz-000000054Tp-1nyn;
+	Wed, 21 Jan 2026 08:15:17 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viTKS-0000000546J-2pvx
+	id 1viTMw-000000054Rf-2kDN
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jan 2026 08:12:43 +0000
-X-UUID: f00c6b04f6a011f0b0f03b4cfa9209d1-20260121
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:74250277-37fa-4705-b49d-a8c4cbdd6a8c,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:5c81ccfe12d22ec145f41d8a9028c491,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:0|15|
-	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: f00c6b04f6a011f0b0f03b4cfa9209d1-20260121
-X-User: jiangfeng@kylinos.cn
-Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 161648402; Wed, 21 Jan 2026 16:12:33 +0800
-Message-ID: <16313365-b51e-47d2-aae8-633dbfc8a3fa@kylinos.cn>
-Date: Wed, 21 Jan 2026 16:12:30 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/8] riscv: optimize string functions and add kunit
- tests
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- akpm@linux-foundation.org, kees@kernel.org, andy@kernel.org,
- ebiggers@kernel.org, martin.petersen@oracle.com, ardb@kernel.org,
- charlie@rivosinc.com, conor.dooley@microchip.com, ajones@ventanamicro.com,
- linus.walleij@linaro.org, nathan@kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org
-References: <20260120065852.166857-1-jiangfeng@kylinos.cn>
- <aW8whGcAR0x6FSRJ@smile.fi.intel.com>
- <691a0183-6f41-4956-82da-abb69a449919@kylinos.cn>
- <CAHp75Ve_pyVm430FL=aEAw1Cnf-92T3Y23qh7pEOaMYMp9iyvw@mail.gmail.com>
-Content-Language: en-US
-From: Feng Jiang <jiangfeng@kylinos.cn>
-In-Reply-To: <CAHp75Ve_pyVm430FL=aEAw1Cnf-92T3Y23qh7pEOaMYMp9iyvw@mail.gmail.com>
+	Wed, 21 Jan 2026 08:15:16 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 0B0ED5BCCA;
+	Wed, 21 Jan 2026 08:15:11 +0000 (UTC)
+Authentication-Results: smtp-out2.suse.de;
+	none
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5AF593EA63;
+	Wed, 21 Jan 2026 08:15:10 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id XS7yFA6LcGn7cAAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Wed, 21 Jan 2026 08:15:10 +0000
+Date: Wed, 21 Jan 2026 09:15:09 +0100
+Message-ID: <878qdrs7oy.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,	Michael Ellerman
+ <mpe@ellerman.id.au>,	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,	Alex Deucher
+ <alexander.deucher@amd.com>,	Christian =?ISO-8859-1?Q?K=F6nig?=
+ <christian.koenig@amd.com>,	David Airlie <airlied@gmail.com>,	Simona Vetter
+ <simona@ffwll.ch>,	"Creeley, Brett" <bcreeley@amd.com>,	Andrew Lunn
+ <andrew+netdev@lunn.ch>,	"David S. Miller" <davem@davemloft.net>,	Eric
+ Dumazet <edumazet@google.com>,	Jakub Kicinski <kuba@kernel.org>,	Paolo
+ Abeni <pabeni@redhat.com>,	Bjorn Helgaas <bhelgaas@google.com>,	Jaroslav
+ Kysela <perex@perex.cz>,	Takashi Iwai <tiwai@suse.com>,	Han Gao
+ <gaohan@iscas.ac.cn>,	linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,	amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,	netdev@vger.kernel.org,
+	linux-pci@vger.kernel.org,	linux-sound@vger.kernel.org,
+	linux-riscv@lists.infradead.org,	sophgo@lists.linux.dev
+Subject: Re: [PATCH v2 4/4] ALSA: hda/intel: Raise msi_addr_mask to dma_bits
+In-Reply-To: <20260121-pci-msi-addr-mask-v2-4-f42593168989@iscas.ac.cn>
+References: <20260121-pci-msi-addr-mask-v2-0-f42593168989@iscas.ac.cn>
+	<20260121-pci-msi-addr-mask-v2-4-f42593168989@iscas.ac.cn>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.1 Mule/6.0
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-Rspamd-Pre-Result: action=no action;
+	module=replies;
+	Message is reply to one we originated
+X-Rspamd-Pre-Result: action=no action;
+	module=replies;
+	Message is reply to one we originated
+X-Rspamd-Action: no action
+X-Rspamd-Queue-Id: 0B0ED5BCCA
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-4.00 / 50.00];
+	REPLY(-4.00)[];
+	TAGGED_RCPT(0.00)[netdev]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_001241_075695_85A43300 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20260121_001514_831606_B6578454 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,38 +96,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNi8xLzIxIDE1OjAxLCBBbmR5IFNoZXZjaGVua28gd3JvdGU6Cj4gT24gV2VkLCBKYW4g
-MjEsIDIwMjYgYXQgODo0NOKAr0FNIEZlbmcgSmlhbmcgPGppYW5nZmVuZ0BreWxpbm9zLmNuPiB3
-cm90ZToKPj4gT24gMjAyNi8xLzIwIDE1OjM2LCBBbmR5IFNoZXZjaGVua28gd3JvdGU6Cj4+PiBP
-biBUdWUsIEphbiAyMCwgMjAyNiBhdCAwMjo1ODo0NFBNICswODAwLCBGZW5nIEppYW5nIHdyb3Rl
-Ogo+IAo+IC4uLgo+Pj4+IHdvcmQtYXQtYS10aW1lIGxvZ2ljLCBzaG93aW5nIHNpZ25pZmljYW50
-IGdhaW5zIGFzIHRoZSBzdHJpbmcgbGVuZ3RoCj4+Pj4gaW5jcmVhc2VzLgo+Pj4KPj4+IEhtbS4u
-LiBIYXZlIHlvdSB0cmllZCB0byBvcHRpbWlzZSB0aGUgZ2VuZXJpYyBpbXBsZW1lbnRhdGlvbiB0
-byB1c2UKPj4+IHdvcmQtYXQtYS10aW1lIGxvZ2ljIGFuZCBjb21wYXJlPwo+Pgo+PiBSZWdhcmRp
-bmcgdGhlIGdlbmVyaWMgaW1wbGVtZW50YXRpb24sIGV2ZW4gaWYgd2Ugd2VyZSB0byBvcHRpbWl6
-ZSB0aGUgQyBjb2RlCj4+IHRvIHVzZSB3b3JkLWF0LWEtdGltZSBsb2dpYyAodGhlIGhhc196ZXJv
-KCkgc3R5bGUgYml0LW1hbmlwdWxhdGlvbiksIGl0IHN0aWxsCj4+IHdvdWxkbid0IG1hdGNoIHRo
-ZSBaYmIgdmVyc2lvbidzIGVmZmljaWVuY3kuCj4+Cj4+IFRoZSB0cmFkaXRpb25hbCBDLWJhc2Vk
-IHdvcmQtbGV2ZWwgZGV0ZWN0aW9uIHJlcXVpcmVzIGEgc2VxdWVuY2Ugb2YgYXJpdGhtZXRpYwo+
-PiBvcGVyYXRpb25zIHRvIGlkZW50aWZ5IE5VTCBieXRlcy4gSW4gY29udHJhc3QsIHRoZSBSSVND
-LVYgb3JjLmIgaW5zdHJ1Y3Rpb24KPj4gY29sbGFwc2VzIHRoaXMgZW50aXJlIGNoZWNrIGludG8g
-YSBzaW5nbGUgaGFyZHdhcmUgY3ljbGUuIEkndmUgZm9jdXNlZCBvbiB0aGlzCj4+IGFyY2hpdGVj
-dHVyYWwgYXBwcm9hY2ggdG8gZnVsbHkgbGV2ZXJhZ2UgdGhlc2Ugc3BlY2lmaWMgWmJiIGZlYXR1
-cmVzLCB3aGljaAo+PiBwcm92aWRlcyBhIGxldmVsIG9mIGluc3RydWN0aW9uIGRlbnNpdHkgdGhh
-dCBnZW5lcmljIEMgbWF0aCBjYW5ub3QgYWNoaWV2ZS4KPiAKPiBJIHVuZGVyc3RhbmQgdGhhdC4g
-TXkgcG9pbnQgaXMgaWYgd2UgbW92ZSB0aGUgZ2VuZXJpYyBpbXBsZW1lbnRhdGlvbgo+IHRvIHVz
-ZSB3b3JkLWF0LWEtdGltZSB0ZWNobmlxdWUgdGhlIGRpZmZlcmVuY2Ugc2hvdWxkIG5vdCBnbyA0
-eCwKPiByaWdodD8gUGVyaGFwcyAxLjV4IG9yIHNvLiBJIGJlbGlldmUgdGhpcyB3aWxsIGJlIGEg
-dmVyeSB1c2VmdWwKPiBleGVyY2lzZS4KPiAKClRoYXQgaXMgYSB2ZXJ5IGluc2lnaHRmdWwgcG9p
-bnQsIHRoYW5rcyBmb3IgdGhlIHN1Z2dlc3Rpb24uIEknbGwgbG9vayBpbnRvCm9wdGltaXppbmcg
-dGhlIGdlbmVyaWMgc3RyaW5nIGxpYnJhcnkgYXMgYSBmb2xsb3ctdXAgdGFzayB0byBzZWUgaWYg
-d2UgY2FuCmJyaW5nIHNvbWUgaW1wcm92ZW1lbnRzIHRoZXJlIGFzIHdlbGwuIAoKVGhhbmtzIGFn
-YWluIGZvciB0aGUgZ3VpZGFuY2UuCgotLSAKV2l0aCBCZXN0IFJlZ2FyZHMsCkZlbmcgSmlhbmcK
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, 21 Jan 2026 04:49:40 +0100,
+Vivian Wang wrote:
+> 
+> The code was originally written using no_64bit_msi, which restricts the
+> device to 32-bit MSI addresses.
+> 
+> Since msi_addr_mask is introduced, use DMA_BIT_MASK(dma_bits) instead of
+> DMA_BIT_MASK(32) here for msi_addr_mask, describing the restriction more
+> precisely and allowing these devices to work on platforms with MSI
+> doorbell address above 32-bit space, as long as it is within the
+> hardware's addressable space.
+> 
+> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+> 
+> ---
+> v2: No changes
+> 
+> hda/intel maintainers: I don't know if this is the correct restriction.
+> Please help with checking. Thanks.
+
+The quirk is used only for AMD graphics chips, so this should
+(hopefully) work.
+
+Acked-by: Takashi Iwai <tiwai@suse.de>
+
+
+thanks,
+
+Takashi
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
