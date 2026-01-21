@@ -4,75 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6750ED46942
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 14:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5D71C44536
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 16:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=QJ3kqi7zPZlWaH6McnIERlw97kNac8KqebbKDh4I98c=; b=RzvYULCmLiy4ma
-	daY5WYKnZVKlNGIRAoIDd6E/zwn1zFwB0AKahQndXi4SWBKkY80YwapZrq9t6TXWG1dJROvKJaiuH
-	SUwjx1liPSB0SDX0S/ziyZhIVv50nkPJxwrAuyvN0Bb2y13C5RyzMlZ09XWnCgPHMlPqP41PypVZV
-	SDfX/dPO+PBm9xL9OXakqmUtjC90vuipJe5gdLv+AQuh7rM1fPs6cyw+yvrPpGukOQKzceTiinkUf
-	iUZ0AN79f9vTcvxYlcsqx0cOR05R/YR8k0/6QeIi7hQP3ejXCzbWVn0Jbm2zk9PfkSF22YDe+5ET6
-	wgWMxVJB7/4sOk9rqaww==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SPMzj3CdMtI0fRGMOIhd5Hc0rFF9rUameJCdximAaL4=; b=Zl1ty9AFSsIEbY
+	QoCtZJoj18HG5VQajXwt81X/BW88eatjO4vW44DkaiJQQnAtxxTkNXDX+ECrZeJfcdK0z4R8IvHKG
+	D7kTHCaTyFZl3pUWQLWpUeQFrb8gr9Qv7KNLOjHYYN+ZW5krLSOVh/jCpRIeLvTq2bmQhXDgxi5DZ
+	X8tJAVTPi0iXvHGeoHaUoDu0E6IcrrITKsd5B3fpM9rpjdC9dmV/lc6DG05zJtpfFg/DNNqdFZ2rc
+	3p7nDOwdiTxLxc3YWk3+GAGLCVAx0JdXY4gza/gjwE044OS39o5DrDoUUBJNF7o7+BbshUDmcE5ZG
+	O0p2FQNzraRWCAkPGpjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZcd-00000005gGi-2Mgn;
-	Wed, 21 Jan 2026 14:55:51 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1viaxI-00000005mro-3vNE;
+	Wed, 21 Jan 2026 16:21:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZcZ-00000005gFX-3v5k;
-	Wed, 21 Jan 2026 14:55:50 +0000
-Received: from duge-virtual-machine (unknown [183.192.221.134])
-	by APP-01 (Coremail) with SMTP id qwCowACXP2vl6HBpCoqlBQ--.20720S2;
-	Wed, 21 Jan 2026 22:55:34 +0800 (CST)
-From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-To: vkoul@kernel.org,
-	gregkh@linuxfoundation.org,
-	conor@kernel.org
-Cc: neil.armstrong@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	jiayu.riscv@isrc.iscas.ac.cn,
-	linux-phy@lists.infradead.org,
-	linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 0/4] Add USB support for Canaan K230
-Date: Wed, 21 Jan 2026 22:55:21 +0800
-Message-ID: <20260121145526.14672-1-jiayu.riscv@isrc.iscas.ac.cn>
-X-Mailer: git-send-email 2.52.0
+	id 1viaxE-00000005mqh-3Lw2;
+	Wed, 21 Jan 2026 16:21:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DDD414169D;
+	Wed, 21 Jan 2026 16:21:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97712C4CEF1;
+	Wed, 21 Jan 2026 16:21:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769012471;
+	bh=NGyz5uwtzeGyvCVcwevBJVgXM2mV1JFZjaxPNVyzlf8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cFjVUj4H0wsckTkiSoxCEJxs+g1YF+sMLWNTHKCN39KcZ9O/bqtqPigbyqBHcrl6N
+	 3hG/VgHHw8puwjROLu4lRTxSQpWTe/Cjs6i2kC6GYqqS2VIZEymFmeLkboIuxnyf3F
+	 K8OYBfpuLkC8lVrd1wruo+keYfzUfqkD6uccp+TGLQ6v31JrUFlzWilKaBFXtIu/lH
+	 O664njCntVWQIdJx/nLzAbpY2KUQxxwCk4WVXgK3pINcQ96LXfWJrKZqg2kq38r4cC
+	 /6L4R9+46JTP7u5WegP+KZCt3suZdhkwS3TzQeLvVmzX4tROTrrGM7V5HItgn6mKYb
+	 kfuFuG65fgl5g==
+Date: Wed, 21 Jan 2026 10:21:10 -0600
+From: Rob Herring <robh@kernel.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Yao Zi <ziyao@disroot.org>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v2 1/3] dt-bindings: net: Add support for
+ Spacemit K3 dwmac
+Message-ID: <20260121162110.GA3314848-robh@kernel.org>
+References: <20260121071315.940130-1-inochiama@gmail.com>
+ <20260121071315.940130-2-inochiama@gmail.com>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowACXP2vl6HBpCoqlBQ--.20720S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7uF1UZryxGw18Jr1xJFyrZwb_yoW8tFW5pa
-	y7CFW3uFsrtFW2qan3tw48WF9xX3Z5Jry3Wryaq345Xa1UZFyUAws3urW5ZF1UGFsrCFWj
-	vFs0kFyxGFWUAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4UJV
-	WxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
-	nIWIevJa73UjIFyTuYvjfUonmRUUUUU
-X-Originating-IP: [183.192.221.134]
-X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
+Content-Disposition: inline
+In-Reply-To: <20260121071315.940130-2-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_065548_436908_E9ADF84F 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20260121_082112_887685_7D28D4E6 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,61 +101,172 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for the USB PHY and DWC2 IP which is used by Canaan K230,
-and made relevant changes to the DTS.
+On Wed, Jan 21, 2026 at 03:13:09PM +0800, Inochi Amaoto wrote:
+> The GMAC IP on Spacemit K3 is almost a standard Synopsys DesignWare
+> MAC (version 5.40a) with some extra clock.
+> 
+> Add necessary compatible string for this device.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>  .../devicetree/bindings/net/snps,dwmac.yaml   |   3 +
+>  .../bindings/net/spacemit,k3-dwmac.yaml       | 103 ++++++++++++++++++
+>  2 files changed, 106 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> index dd3c72e8363e..3c2c6cb6b10b 100644
+> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> @@ -34,6 +34,7 @@ select:
+>            - snps,dwmac-5.10a
+>            - snps,dwmac-5.20
+>            - snps,dwmac-5.30a
+> +          - snps,dwmac-5.40a
 
-This series is based on the initial 100ask K230 DshanPi series [1] which
-is based on the clock and pinctrl series. Check the details in the link.
+You don't need this in select as the spacemit schema references this 
+one.
 
-Link: https://lore.kernel.org/all/20260115060801.16819-1-jiayu.riscv@isrc.iscas.ac.cn/ [1]
+>            - snps,dwxgmac
+>            - snps,dwxgmac-2.10
+>  
+> @@ -108,6 +109,7 @@ properties:
+>          - snps,dwmac-5.10a
+>          - snps,dwmac-5.20
+>          - snps,dwmac-5.30a
+> +        - snps,dwmac-5.40a
+>          - snps,dwxgmac
+>          - snps,dwxgmac-2.10
+>          - sophgo,sg2042-dwmac
+> @@ -653,6 +655,7 @@ allOf:
+>                  - snps,dwmac-5.10a
+>                  - snps,dwmac-5.20
+>                  - snps,dwmac-5.30a
+> +                - snps,dwmac-5.40a
+>                  - snps,dwxgmac
+>                  - snps,dwxgmac-2.10
+>                  - st,spear600-gmac
+> diff --git a/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+> new file mode 100644
+> index 000000000000..e69f3b60c51f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+> @@ -0,0 +1,103 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/spacemit,k3-dwmac.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Spacemit K3 DWMAC glue layer
+> +
+> +maintainers:
+> +  - Inochi Amaoto <inochiama@gmail.com>
+> +
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        const: spacemit,k3-dwmac
+> +  required:
+> +    - compatible
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: spacemit,k3-dwmac
+> +      - const: snps,dwmac-5.40a
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: GMAC main clock
+> +      - description: PTP clock
+> +      - description: TX clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: stmmaceth
+> +      - const: ptp_ref
+> +      - const: tx
+> +
+> +  interrupts:
+> +    minItems: 1
+> +    items:
+> +      - description: MAC interrupt
+> +      - description: MAC wake interrupt
+> +
+> +  interrupt-names:
+> +    minItems: 1
+> +    items:
+> +      - const: macirq
+> +      - const: eth_wake_irq
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  reset-names:
+> +    const: stmmaceth
+> +
+> +  spacemit,apmu:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      - items:
+> +          - description: phandle to the syscon node which control the glue register
+> +          - description: offset of the control register
+> +          - description: offset of the dline register
+> +
 
-Changes in v5:
-- Changed the year of Copyright to 2026.
-- Add blank line after the declaration of variables
-- Fix wrong alignment.
-- Link to v4: https://lore.kernel.org/all/20260120143243.71937-1-jiayu.riscv@isrc.iscas.ac.cn/
+Drop blank line
 
-Changes in v4:
-- Shrink reg length to match the address/size-cells in k230-usb-phy yaml.
-- Move all PHY instance creation and initialization from xlate to probe.
-- Modify xlate function to only perform index lookup for PHY instances.
-- Define all register base offsets macros at the top of file instead of
-  hard-coding magic numbers directly in probe.
-- Link to v2: https://lore.kernel.org/all/20260115064223.21926-1-jiayu.riscv@isrc.iscas.ac.cn/
+> +    description:
+> +      A phandle to syscon with offset to control registers for this MAC
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +  - interrupt-names
+> +  - resets
+> +  - reset-names
 
-Changes in v3:
-- Please ignore v3.
+spacemit,apmu is not required? Looks like the driver requires it.
 
-Changes in v2:
-- Fold the child into the parent in dtsi.
-- Define one usbphy with phy-cells=1.
-- Delete the clock of the usbphy as it is not needed.
-- Link to v1: https://lore.kernel.org/all/20251230023725.15966-1-jiayu.riscv@isrc.iscas.ac.cn/
+> +
+> +allOf:
+> +  - $ref: snps,dwmac.yaml#
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    eth0: ethernet@cac80000 {
 
-Jiayu Du (4):
-  dt-bindings: phy: Add Canaan K230 USB PHY
-  dt-bindings: usb: dwc2: Add support for Canaan K230 SoC
-  phy: usb: Add driver for Canaan K230 USB 2.0 PHY
-  riscv: dts: canaan: Add syscon and USB nodes for K230
+Drop unused label.
 
- .../bindings/phy/canaan,k230-usb-phy.yaml     |  35 +++
- .../devicetree/bindings/usb/dwc2.yaml         |   3 +
- .../boot/dts/canaan/k230-canmv-dshanpi.dts    |  17 ++
- arch/riscv/boot/dts/canaan/k230.dtsi          |  35 +++
- drivers/phy/Kconfig                           |   1 +
- drivers/phy/Makefile                          |   1 +
- drivers/phy/canaan/Kconfig                    |  14 +
- drivers/phy/canaan/Makefile                   |   2 +
- drivers/phy/canaan/phy-k230-usb.c             | 284 ++++++++++++++++++
- 9 files changed, 392 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml
- create mode 100644 drivers/phy/canaan/Kconfig
- create mode 100644 drivers/phy/canaan/Makefile
- create mode 100644 drivers/phy/canaan/phy-k230-usb.c
-
--- 
-2.52.0
-
+> +      compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
+> +      reg = <0xcac80000 0x2000>;
+> +      clocks = <&syscon_apmu 66>, <&syscon_apmu 68>,
+> +               <&syscon_apmu 69>;
+> +      clock-names = "stmmaceth", "ptp_ref", "tx";
+> +      interrupts = <131 IRQ_TYPE_LEVEL_HIGH>, <276 IRQ_TYPE_LEVEL_HIGH>;
+> +      interrupt-names = "macirq", "eth_wake_irq";
+> +      phy-mode = "rgmii-id";
+> +      phy-handle = <&phy0>;
+> +      resets = <&syscon_apmu 67>;
+> +      reset-names = "stmmaceth";
+> +      spacemit,apmu = <&syscon_apmu 0x384 0x38c>;
+> +    };
+> +
+> -- 
+> 2.52.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
