@@ -4,101 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8998AD262B2
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 07:25:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0898FD262B0
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 07:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q+CtBd3ShIJBZLRNFG2dLCjuuxVrxOZ939lsmXitbgI=; b=49IUfILsdYYM4g
-	67AMH7DTLhql4JZoYy+qlIK4mSaZHyYZY1eqqcKI0D06Tc5txAspNhZ3bvC5+7Icj6VpEx9DgcdC8
-	YtmJJfcSB1tH2hBsMyekm+ZBpSH7+Bl1AkvVcvseUkq1JqKX4BcGRosNnjI/La/ta1dJjomUZGsCX
-	h9BQn7m0kxLG9A3eIFfpgWWzUG8yEpJNHxOWyPqAuyHWnOwZn/S3mbuBx+G/FMQnU+ADT+06gALW8
-	JArBdWcgUhLS9fnaX3SJnid5YPio6brf/4/gcutboSs01WcslJCPdJfZKpGQUdzz0wkU5uPK/mj75
-	gWDFFkvKfFiqzBZkgk7Q==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rS1DuV2BVsqxFBCTT9Svwfai5UrwiBr19aQHCLVhgmU=; b=Fwylog6TITbS0Y
+	QsSfv1Fk9R4Tku6dups57JY5rkk2tAuJIBQfp27MeqCv16U0JKM+Vzv3Nygd+vA4+/xo3WPcCgm5Z
+	d0b5/v2sqAsL3d4dwRX3AnuEc4s3v748VVG0yOKXk+QCcLmS+ZrFfv7qAiNOnpI88SYnzl5NWZgOz
+	RppFgaYFzYF049qFgZ6vgpGALN98DlwC5H7KZTLa4aB/AE0ZOc7DHAtEKem6oB+cCfcJkP6B3NFVG
+	5hICArtMYf981RI9E3p45CWJpt61+Sly3leDmrjOW9s1JI4/7oO9ZjK+QTkZktk5oUpJIt23V0qDp
+	3OzoXVQmT+3WK/hXoCCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viSaO-000000050kv-1IDP;
-	Wed, 21 Jan 2026 07:25:04 +0000
-Received: from mail-dy1-x1329.google.com ([2607:f8b0:4864:20::1329])
+	id 1viSdN-000000050v6-3qMC;
+	Wed, 21 Jan 2026 07:28:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viSaL-000000050kI-0NGr
+	id 1viSdM-000000050ul-0s8J
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jan 2026 07:25:02 +0000
-Received: by mail-dy1-x1329.google.com with SMTP id 5a478bee46e88-2b6f85470b6so3689324eec.1
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Jan 2026 23:24:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768980299; x=1769585099; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xd7TVVWwSVOrQ+WPeeZgk4vcwRxKlZMNBlvPshOCml4=;
-        b=ejrAEl4TLHnTHYSX4+RgR4xvu/2ov5CsfGpXnaMO5qBet4ThveUVYNieLYXqhDu93C
-         8v/vwgBbpHDpbw0WuzcgOkT0mYZnO7zBEkBsaG1daHrNDOaOB2pn3HHTPIJidpwhc6bN
-         gIjBHGug3fpFxM4+nKi8mqg4Q6wg+NJY51xaGHKLAhoVswJQOz3GM+zmJCNIRPkIYNvN
-         xzUY8sVT5kTZ6hbD7WnuyKhVCsWsMTar2lX43YVrAO1NjDxKginMyf7S8IaCzWThcbr8
-         YgLbozmzyOXwkKWOJ9RZdUnX9l+r8eCwS3mEAah9aKHbxR0ggHKvIxwRz8m6stshzmuA
-         HBLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768980299; x=1769585099;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=xd7TVVWwSVOrQ+WPeeZgk4vcwRxKlZMNBlvPshOCml4=;
-        b=huo+lC2FyO9h8w4zL6eZrI973j5sdvoSqVzW6Etgj0kTK81sWRQzI3pMD+mr0dZg3Y
-         Vo0eUMIxom4l/3lIZ44P1FePF1OVL3ng5ZUetT2l65aQXkfZCyIL7GCYdvgUAN0KGr1x
-         wrpbK0zaqxhq3d17SbwDzKysgum9tjdrM4hiXsYaY5mEmNo8T0KfGyTgoSxuYNEtVo8z
-         IB75mgOG+9z2RP2esORy7cIcvxpCrlNr4UFsVLw8dcdOI8NITogdX/K2FwpBoiMrTQYr
-         AwxlwcR+hDsmQLFpupkSwPoOTBGo9AvkebgVFmL+6ld/s2etH98wpfR0rLyGyuVbJcLs
-         DWLg==
-X-Forwarded-Encrypted: i=1; AJvYcCVEIjBa4xo0WjgWETtYA5MPK2sIkXFkDd0ai7n9xjLdK/iYTbFY4sZnxRbk+G4f+kroZzRZTPkGjY4jvg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmOCAffzUf4rQPbRTDJa5vvwFDjdqOYta+YPLjEYlk29szFyNk
-	2VTUrf8oemE6hNPQuPjbGTu8+0upOUonNDvMYGExKcJxOBkX/v8tGvkw
-X-Gm-Gg: AZuq6aJkmn49Zr6TjDSRMMT4ekpe5kpZqpCriLKTe9ncrBp6/Eh9y0Y3o4AevKhf159
-	eFBM5AMG6MWgx+l59xTJkEO6WY6oJ0yEszrGjRX9M58awMedJjPjuK+zYhINZOtimDKIWDpF+cv
-	X3A/wTsqnk/pwm13q7fv0B46le53JHt0N86AQzCUfhoK1/YC4gFj709KUSt6lbnrdKumGdwyJTD
-	hPmmAIlErmwCCAmE+mFgq51bS/mRnEZ5O7pvMbUWKYpYSjUtpNm4WFmJSuGgL7WrY7VeFXzNLNl
-	2oTZeHwlniUW9kPwYJDr03h5xCw2a/4i6+NYSDRoFe1Xs6cemHfO8ylW+ghGNvsLVP/yhwF1Ei9
-	4Sln90zq2RA6BPAFBONz13LHIbVmHADPPl2ycAfMvHfASexQbX/kPizkKE1iLNeg=
-X-Received: by 2002:a05:7301:658a:b0:2b6:affb:e02d with SMTP id 5a478bee46e88-2b6fdc7cba6mr2904960eec.28.1768980298950;
-        Tue, 20 Jan 2026 23:24:58 -0800 (PST)
-Received: from gmail.com ([2a09:bac1:19e0:20::4:33f])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b70d4324f5sm2724899eec.8.2026.01.20.23.24.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Jan 2026 23:24:58 -0800 (PST)
-From: Qingfang Deng <dqfext@gmail.com>
-To: Feng Jiang <jiangfeng@kylinos.cn>
-Cc: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	akpm@linux-foundation.org,
-	kees@kernel.org,
-	andy@kernel.org,
-	ebiggers@kernel.org,
-	martin.petersen@oracle.com,
-	ardb@kernel.org,
-	charlie@rivosinc.com,
-	conor.dooley@microchip.com,
-	ajones@ventanamicro.com,
-	linus.walleij@linaro.org,
-	nathan@kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	Joel Stanley <joel@jms.id.au>
-Subject: Re: [PATCH v3 6/8] riscv: lib: add strnlen implementation
-Date: Wed, 21 Jan 2026 15:24:38 +0800
-Message-ID: <20260121072438.6646-1-dqfext@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260120065852.166857-7-jiangfeng@kylinos.cn>
-References: <20260120065852.166857-1-jiangfeng@kylinos.cn> <20260120065852.166857-7-jiangfeng@kylinos.cn>
+	Wed, 21 Jan 2026 07:28:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0F1F543DF5;
+	Wed, 21 Jan 2026 07:28:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CAB6C16AAE;
+	Wed, 21 Jan 2026 07:28:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768980486;
+	bh=1Oh94yu/kL/t6er6f7NIe1Qp1FFW9S+PybGe6FlLZHU=;
+	h=From:Subject:Date:To:Cc:From;
+	b=QhjfZJ21jf6EGEXDW6+iEsvj5JDAHD9edFPeLIuMM8e8nwANaobZbxDUZ5dxWZV17
+	 wxm9odXvvWo4fdU0COQCyxHF4+t9rfgfTRddCZr8Feb66/KbqARhVYHom9R1g1Et/4
+	 1VzyiFDToeWmeFXnQ1W7ShRqZDteAwPcXQ2eUZZGx9xEmiuhUw0P+Gn4WKjQPC3pNB
+	 rwUd1kZsHpPvrPht4nYe8uScubX71CrXKimmgPfTt1pLegEKlcXMWn2Y/h8iJ1uP0T
+	 eErtKZU0RCB78S/aeNLfT5+kecGK8hnWQ9J7NQd1HXKFzDg/UE0O3JEo7C9j6I8NQ+
+	 amAYe5ZANSTsw==
+From: Yixun Lan <dlan@kernel.org>
+Subject: [PATCH 0/2] mmc: spacemit: Add support for K3 SoC
+Date: Wed, 21 Jan 2026 15:27:34 +0800
+Message-Id: <20260121-07-k3-mmc-v1-0-ff77c07bfdf6@kernel.org>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAOZ/cGkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDQ0MjXQNz3Wxj3dzcZF2z5EQDQyMz81QLYxMloPqCotS0zAqwWdGxtbU
+ AOlcaI1sAAAA=
+X-Change-ID: 20260112-07-k3-mmc-6ca01267e834
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>
+Cc: Yixun Lan <dlan@kernel.org>, linux-mmc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=930; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=1Oh94yu/kL/t6er6f7NIe1Qp1FFW9S+PybGe6FlLZHU=;
+ b=kA0DAAoBMarqR1lNu+0ByyZiAGlwf/qiAxUKtChbUUvTE3OCecGbEPBUlt4Vu8bn/vU6Op0QS
+ 4kCrwQAAQoAmRYhBLW6uMnDG3EVZwIj3DGq6kdZTbvtBQJpcH/6GxSAAAAAAAQADm1hbnUyLDIu
+ NSsxLjExLDIsMl8UgAAAAAAuAChpc3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9
+ yc2VtYW4ubmV0QjVCQUI4QzlDMzFCNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqu
+ pHWU277bsuD/4s7LzzrEsbzAHo6QjeIKdv/YeJsWD/JLVS4oubGZBLufaEkBnbVgNMyeBP5Ok8z
+ 6t5sbZn0OeI/a31RsbMPPRphnuWh2bjgJQ7bMUoA4FntwG+rmSWTmhsFWz6hPO4MbdvufTgtUXm
+ DUMa7VhiYvkEiar+pALY9j2LNEmh6VxPGfZYf5Wz1ZEDWsREFy0jJY1n8bjdBYzTpsqpe7h3ZxY
+ LLsTblrlxvkdHRAYaAphRYk3El8I2K9qPH82tjDiCQPKswYQJ/DMJg30el0xE/cb80UKlEa6ook
+ lqB0fimro7mjKjorA3wOWNrd/VLWhYovBnnM3LiX0q/bMGD6gfRF9AndBkihCUhF3UU6zmP+v9c
+ GsksDPjvnLOHmmw94GVnBxgpaZe6YFT+wEhzQ1/lLYd+8frij99hxMLil+avZvYRwz+Cw018U8p
+ b7wDiRgjNG1gjEy0plJIfPLEf5dagvo6nyC5QsyV9yotiEYHh8ypikV4RcgoujBgUMhbEw32yej
+ zGy0WS83dELVp5Kd448gyAmkgQNd6YIvU10P7B1X5+yBnO8f422c2TAQd5+eb4PJZP6C7mjaLx8
+ XvXwc46xwelmgGH0RzugcnzsuUP9K1SLBeNI17W6iirBj9xdO8vvXJ6UpvDNEFgT3y571jBlYYr
+ 7nwmjgbFyOxP8tJ8qbl7g==
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_232501_137187_918D467B 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20260120_232808_292990_C548710E 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,121 +96,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 20 Jan 2026 14:58:50 +0800, Feng Jiang wrote:
-> diff --git a/arch/riscv/lib/strnlen.S b/arch/riscv/lib/strnlen.S
+Enable SDHCI controller support on new SpacemiT K3 SoC, while as before
+only the third controller and the eMMC device has been tested which using
+vendor K3 evb board. This board has not acquired support in mainline
+kernel, so I've omitted the DT part patches for now.
 
-Branches that test maxlen can be replaced with Zbb minu instruction.
-(see below)
+The new SDHCI controller almost reuse the same IP as old K1 generation,
+while fixed the broken 64BIT DMA issue.
 
-> +	/*
-> +	 * Returns
-> +	 *   a0 - String length
-> +	 *
-> +	 * Parameters
-> +	 *   a0 - String to measure
-> +	 *   a1 - Max length of string
-> +	 *
-> +	 * Clobbers
-> +	 *   t0, t1, t2, t3, t4
-> +	 */
-> +
-> +	/* If maxlen is 0, return 0. */
-> +	beqz	a1, 3f
-> +
-> +	/* Number of irrelevant bytes in the first word. */
-> +	andi	t2, a0, SZREG-1
-> +
-> +	/* Align pointer. */
-> +	andi	t0, a0, -SZREG
-> +
-> +	li	t3, SZREG
-> +	sub	t3, t3, t2
-> +	slli	t2, t2, 3
-> +
-> +	/* Aligned boundary. */
-> +	add	t4, a0, a1
-> +	andi	t4, t4, -SZREG
-> +
-> +	/* Get the first word.  */
-> +	REG_L	t1, 0(t0)
-> +
-> +	/*
-> +	 * Shift away the partial data we loaded to remove the irrelevant bytes
-> +	 * preceding the string with the effect of adding NUL bytes at the
-> +	 * end of the string's first word.
-> +	 */
-> +	SHIFT	t1, t1, t2
-> +
-> +	/* Convert non-NUL into 0xff and NUL into 0x00. */
-> +	orc.b	t1, t1
-> +
-> +	/* Convert non-NUL into 0x00 and NUL into 0xff. */
-> +	not	t1, t1
-> +
-> +	/*
-> +	 * Search for the first set bit (corresponding to a NUL byte in the
-> +	 * original chunk).
-> +	 */
-> +	CZ	t1, t1
-> +
-> +	/*
-> +	 * The first chunk is special: compare against the number
-> +	 * of valid bytes in this chunk.
-> +	 */
-> +	srli	a0, t1, 3
-> +
-> +	/* Limit the result by maxlen. */
-> +	bleu	a1, a0, 3f
+Signed-off-by: Yixun Lan <dlan@kernel.org>
+---
+Yixun Lan (2):
+      dt-bindings: mmc: spacemit,sdhci: add support for K3 SoC
+      mmc: sdhci-of-k1: spacemit: Add support for K3 SoC
 
-minu	a0, a0, a1
+ .../devicetree/bindings/mmc/spacemit,sdhci.yaml    |  4 +++-
+ drivers/mmc/host/sdhci-of-k1.c                     | 22 ++++++++++++++++++++--
+ 2 files changed, 23 insertions(+), 3 deletions(-)
+---
+base-commit: 6cefff068d030786d63fa50970d6581c354630b2
+change-id: 20260112-07-k3-mmc-6ca01267e834
 
-> +
-> +	bgtu	t3, a0, 2f
-> +
-> +	/* Prepare for the word comparison loop. */
-> +	addi	t2, t0, SZREG
-> +	li	t3, -1
-> +
-> +	/*
-> +	 * Our critical loop is 4 instructions and processes data in
-> +	 * 4 byte or 8 byte chunks.
-> +	 */
-> +	.p2align 3
-> +1:
-> +	REG_L	t1, SZREG(t0)
-> +	addi	t0, t0, SZREG
-> +	orc.b	t1, t1
-> +	bgeu	t0, t4, 4f
-> +	beq	t1, t3, 1b
-> +4:
-> +	not	t1, t1
-> +	CZ	t1, t1
-> +	srli	t1, t1, 3
-> +
-> +	/* Get number of processed bytes. */
-> +	sub	t2, t0, t2
-> +
-> +	/* Add number of characters in the first word.  */
-> +	add	a0, a0, t2
-> +
-> +	/* Add number of characters in the last word.  */
-> +	add	a0, a0, t1
-> +
-> +	/* Ensure the final result does not exceed maxlen. */
-> +	bgeu	a0, a1, 3f
+Best regards,
+-- 
+Yixun Lan <dlan@kernel.org>
 
-minu	a0, a0, a1
-
-> +2:
-> +	ret
-> +3:
-> +	mv	a0, a1
-> +	ret
-> +
-> +.option pop
-
---
-Qingfang
 
 _______________________________________________
 linux-riscv mailing list
