@@ -4,77 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB27C44508
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 23:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BCCDC44508
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 23:57:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=u+2ZGVE5E0NoYuZVC7kUjkjK2M/Ren3AGxosMv+h1Y8=; b=zeKJjVOfQzp2Ha
-	YutzOZLYgkExrv+MngXHUPytO8stoX6jMktCp8Bes6Gdr4a2rRrZskSaeVBTaq2EbiWgoF0oLxphz
-	/wxNp/fHW8J8RlM5/0zlgk8yJ9F0J3Rt5GXlfpMkzKZyfQu/Ey61O3NW7XzYChM5HcS6DlDGUWz3o
-	Aoyo8dk2bsjSk1bHHT7BMC9CTDKtLOygqBWKqVUQ0++j9h670RhBbhpvha7nBw9DV17X8U3R6T1pY
-	QLDJ3nsabVLjJS38O8olqB2MKaacgIWr/AFBjQqhP3vqQdDZ3ocZj1pefFXNzNgCQp6NCRadCwZXl
-	LePUFx6PUqrTr+btOT1A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=x1hhajgkpyZSvlUgXVGQMu9fvbahguUyKFto5DylpiA=; b=oo12uh3rr/0ByE
+	AG1b4Ew7qLYf4rZPTLHXVZHFegMfljluX/T8OSZsoDq9NyMhcwU/nFkWxnn6YzBxVRLqvovuMNwN7
+	N3eAQrmyvslNVLwlnrIO3wXa352slRO+Wn0XIi6cV743GDUJnQN8Q+dvFcLDD1f7B/gvgnoCOTO6Q
+	m3pNYg3Krdi3oWqfEDScWhqbYfj9Wwvrmmy3zfb9NbvLgxPjq4q+2Qcu1hf0zYFO+bMbHOa2dahgk
+	Xkby9jqjuXefRGShpqcY0hYZ2JWO9cpmHgYWIHu3wyNNGcl+k1iel7FAsVFNzNNCkg/WSMpdpds/D
+	FthEuLb+ADAdcsxCEQsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vihzq-00000006BkS-07xT;
-	Wed, 21 Jan 2026 23:52:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vii4L-00000006Bvv-04r4;
+	Wed, 21 Jan 2026 23:57:01 +0000
+Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vihzp-00000006BkM-0J9B
+	id 1vii4I-00000006BvA-0CIG
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jan 2026 23:52:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E188F600CB;
-	Wed, 21 Jan 2026 23:52:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4D25C4CEF1;
-	Wed, 21 Jan 2026 23:52:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769039539;
-	bh=n1GiS+Ch3u2nLGAQ5qcayVMM0M3M5UTjjiWfRPTnAXA=;
-	h=From:Date:Subject:To:Cc:From;
-	b=CqSO0s2ZF2AJmrPdX0PwbVimN87CQgzdk/SMSOVl31MMY3YzTjxAhIF5xoactLYUS
-	 R6UZQDTEGQ2VvYDQHJyUS9TRnXasypqcX2b31bgfPKHo0mlAVcoKpbmFBojo3/sE2a
-	 bwoIH91xDx+BncJn8GPxIqN3cjW5mj7PN1u9tGq4JaeG33HLgPF7wPyh7twKDWywHW
-	 On01DsqKSYJWyadBuSz3I7+yMTDPNBk3Y2XbmiCFYr+2IbcT15MvrLr2Ub3xhdb9QP
-	 F/mOEsvEkjAutydjwywMR9b1IzoaUpY9KhmFIF5dliByuk6ssEqAR4onjEVQIA0juf
-	 rw2ONm047F5uA==
-From: Yixun Lan <dlan@kernel.org>
-Date: Thu, 22 Jan 2026 07:52:00 +0800
-Subject: [PATCH] i2c: spacemit: drop IRQF_ONESHOT flag from IRQ request
+	Wed, 21 Jan 2026 23:56:59 +0000
+Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-1233702afd3so744218c88.0
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Jan 2026 15:56:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769039817; x=1769644617; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=jp0I2O5rvzmCmzT9e9dhaVxnINQFtm8fPyCPAakfKbA=;
+        b=J2mfia38yElNpM0VXJe4jk89t76FWJpscWyqGC2cOiok+iGs6WK9HpZr9RLYLc4RyX
+         F2PBvpn/C/RXfUsQsAHJPBZziWD8Rc2J1StSfgK6RLUuadCAbAWpXnJugO9apg2+ujmp
+         W3clcHXnQoNnHLJVZUC9RDIpLwAOqsUqi2xuo7yfConJ8xIITBc1ggO4hiss2hi8VVdV
+         mzxhXPgElXynrTxdWMeYE8K/92+DcKDK6PUdSN/nIx1FQg6gCEyU2keZaI7iQ967P26M
+         7BQWjkODdweg08Pw/jV12mQn9rtfd3tc8AkGdGriXCTkZexPcYWBiDR/eLaaRqOlyHUh
+         QacQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769039817; x=1769644617;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jp0I2O5rvzmCmzT9e9dhaVxnINQFtm8fPyCPAakfKbA=;
+        b=Znp7XHG+KH/BHfZmYDRLiUGfmJwq8ejJ32/eYX+kGDAlksN9qLK2AA3JDxgn5iZpdS
+         tLDnxixLQ++qn2ww1PSIAxcMTH+3e7R8lrODSoo1SaHVUgIxYn652jcHdYL9T+6LRACd
+         34e7RVLJdt2Z3lujLsUVEfV8uiTBoDgWDeddcXsZP3gCjdDrhIc8UddRGsdxztI6Gl/L
+         QMWEyoVtgUxi1GxGK+35jJfN9hASJaoMCd7muJ6g7f50fi1nRHCKjj+ctToiMQYN9CQB
+         tX2lCXstI6z07XZrmaCtlMWoF8WZ5Pje/2PlYRNWvABpLVx0ttCxhdH6gtietfOkL+qv
+         GyEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVROBXL4ezCpkdQ70c8Xcwc5mOD+uvJw/eNHZ9u2XTlpLOcjb2q5oJwDwuVNixwRMqnpWmAXUv+FindnA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwG6TPhEdDczhLZpLAEMgM6/gT80BUHrysD8/WA7iQ6LO4CjcRT
+	ZvkqWD+hzHWnpKThaLDSi786OCYmn+MOK40T4PsrCkzumkvPiw16Bl7W
+X-Gm-Gg: AZuq6aKeOgUUKFx0AAIXYxjJRhdq3Tjarv3L5BxaCGYB2LE9RlG9PK7Cffw7tsPc4f9
+	3tscC0xr0mD8DX++lJCZlt06wxQff1qjAWcuSf4QLsBQ8S/tQh2mFyf5u/+N131i/2VdTroWJoP
+	yxzLCPA3qDqWqcms2yGxkmki/xP+HFozfwAdDJRXQirwIkiLcXM5ce/vu4OgDdL0XcVbDb21+5v
+	f6Pf3xK4A6HtZyKPksSO89BXM3EJKCa282qBlh11Ftpn39BQ1eoSnPF2zV0tbNaKrfFtFQUBJKu
+	Mgf7TM1SUn9SkLdh6ETKpQzXQlSck9KN8vA7DJsqNZWrnglGZ7oAGciO1O0kKhg0nveIkt2wcYr
+	Akgh6r8XLiuL+esEPgR6Ob12XlpMBemDD6Mg45DTgFh1uXv7SLnzOab3y7bLrJD22yp6jZT0Atn
+	9XKSVd0S59gQ==
+X-Received: by 2002:a05:7022:4389:b0:122:33e:6d41 with SMTP id a92af1059eb24-1246aaac67cmr4335389c88.23.1769039816566;
+        Wed, 21 Jan 2026 15:56:56 -0800 (PST)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1244ac5842csm27914226c88.1.2026.01.21.15.56.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Jan 2026 15:56:56 -0800 (PST)
+Date: Thu, 22 Jan 2026 07:56:45 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Yanteng Si <siyanteng@cqsoftware.com.cn>, 
+	Yao Zi <ziyao@disroot.org>, Vladimir Oltean <vladimir.oltean@nxp.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Choong Yong Liang <yong.liang.choong@linux.intel.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Shangjuan Wei <weishangjuan@eswincomputing.com>, Boon Khai Ng <boon.khai.ng@altera.com>, 
+	Quentin Schulz <quentin.schulz@cherry.de>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next 3/3] net: stmmac: Add glue layer for Spacemit K3
+ SoC
+Message-ID: <aXFnmXIwSdKCS9Uc@inochi.infowork>
+References: <20260120043609.910302-1-inochiama@gmail.com>
+ <20260120043609.910302-4-inochiama@gmail.com>
+ <aW8LAFhCRWlMVemz@shell.armlinux.org.uk>
+ <aW8MJpERR3TmsiKg@inochi.infowork>
+ <aXDAmDEpUArE1_en@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Message-Id: <20260122-05-k1-i2c-irq-v1-1-9b8d94bbcd22@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAJ9mcWkC/x3MSwqAMAwA0auUrA00qYp6FXEhNmoQ/LQggvTuF
- pdvMfNClKASoTMvBLk16rFnUGFgWsd9EVSfDWy5tsSMtsKNUHlCDRd6Yue8b2ZqS8jNGWTW5//
- 1Q0oflqgmzl8AAAA=
-X-Change-ID: 20260122-05-k1-i2c-irq-d1233dd8f194
-To: Andi Shyti <andi.shyti@kernel.org>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Yixun Lan <dlan@kernel.org>, Alex Elder <elder@riscstar.com>, 
- linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1295; i=dlan@kernel.org;
- h=from:subject:message-id; bh=n1GiS+Ch3u2nLGAQ5qcayVMM0M3M5UTjjiWfRPTnAXA=;
- b=kA0DAAoBMarqR1lNu+0ByyZiAGlxZq6jol8rc6i0KYVnmnJvNIRDpqx3w/Dsiyc1fnnxdLUE0
- YkCrwQAAQoAmRYhBLW6uMnDG3EVZwIj3DGq6kdZTbvtBQJpcWauGxSAAAAAAAQADm1hbnUyLDIu
- NSsxLjExLDIsMl8UgAAAAAAuAChpc3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9
- yc2VtYW4ubmV0QjVCQUI4QzlDMzFCNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqu
- pHWU277UoOEACZ5p9LnaVA+kkMQ1kg4fhqsbC2b1guKLuo3Fcr0yhW606ffvjtvnQOheIZ1NZUW
- c01rtedEDpgcXo8DeHxZN1wW4wglAPfcBkg0/QeBu8qA0it+ZuspiSpOVUrolpvnmkZGNc3BK5+
- lbuXBcT/GW2Dx4li+DaAWQ2sY3GM3anZXmco1w/bU6wM4kasS4HSo1wDBQaKmoB+iLFJDXMr9v8
- SdtneLNLOMw4Nd3aCQSNkGARNNRcZzE05TBcsEcXPy/rmlanQE3y10sKlg9xbP/urK7HC9+LBJC
- l9GFYSBndWb5fCNOKFSlb+avHaNfGUUCYHN5mK5PN7nyrJUH4MypFZUDI0gAyRvLBM1/5tv6unc
- XlnamKu/ceimiHvpLyL3nwTvQtcsFDtXZBB9ZuoulLMy9Jheb5cOIiLl8stEtfrW11ol5SdtUIZ
- u689oNk7fBLE/kDSDukGdn7g2S4yRv8fWtG8A67IcUai8qTVb/4/Sc3eZ8E1hR4PSH6IAafPoWy
- ZeqT5LBq9MftKWRbCi3B4266ClgJlgLjO5DO2PDafPrtWSeXkonmAjrXu9bawEFK6Fjtk+I8KPK
- 0dah5XkLy3RIJAA7D/3JYjYevoYNlYLM+z+zggMO6PPSy+kMgTGsA25YEJI64dY48b612u9kf0s
- ErLF3Tp9Hvukf+V3gUj0Q==
-X-Developer-Key: i=dlan@kernel.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+Content-Disposition: inline
+In-Reply-To: <aXDAmDEpUArE1_en@shell.armlinux.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260121_155658_089797_B63DB7EE 
+X-CRM114-Status: GOOD (  28.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,40 +119,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In commit aef30c8d569c ("genirq: Warn about using IRQF_ONESHOT without a
-threaded handler")[1], it will check IRQF_ONESHOT flag in IRQ request,
-and gives a warning if there is no threaded handler. Drop this flag to
-fix this warning.
+On Wed, Jan 21, 2026 at 12:03:36PM +0000, Russell King (Oracle) wrote:
+> On Tue, Jan 20, 2026 at 01:05:39PM +0800, Inochi Amaoto wrote:
+> > > > +	mask = RGMII_RX_DLINE_STEP | RGMII_TX_DLINE_CODE | RGMII_TX_DLINE_EN |
+> > > > +	       RGMII_TX_DLINE_STEP | RGMII_RX_DLINE_CODE | RGMII_RX_DLINE_EN;
+> > > > +	val = FIELD_PREP(RGMII_TX_DLINE_CODE, tx_config) |
+> > > > +	      FIELD_PREP(RGMII_TX_DLINE_CODE, tx_code) | RGMII_TX_DLINE_EN |
+> > > > +	      FIELD_PREP(RGMII_TX_DLINE_CODE, rx_config) |
+> > > > +	      FIELD_PREP(RGMII_RX_DLINE_CODE, rx_code) | RGMII_RX_DLINE_EN;
+> > > 
+> > > These FIELD_PREP() fields look wrong. Did you mean to use DLINE_CODE
+> > > both tx_config and tx_code, and did you mean to use TX_DLINE_CODE for
+> > > rx_config ?
+> > > 
+> > 
+> > This should be RGMII_TX_DLINE_CODE. This is a copy paste error, I
+> > will fix it.
+> 
+> Are you sure?
+> 
+> In that case, please change this to:
+> 
+> 	val = FIELD_PREP(RGMII_TX_DLINE_CODE, tx_config | tx_code |
+> 					      rx_config | rx_code) |
+> 	      RGMII_TX_DLINE_EN | RGMII_RX_DLINE_EN;
+> 
+> If that isn't what you meant, then your reply is wrong, and it seems
+> you're confused, which makes me then question how reliable your
+> replies are.
+> 
 
-Link: https://lore.kernel.org/r/20260112134013.eQWyReHR@linutronix.de/ [1]
-Fixes: 5ea558473fa3 ("i2c: spacemit: add support for SpacemiT K1 SoC")
-Signed-off-by: Yixun Lan <dlan@kernel.org>
----
- drivers/i2c/busses/i2c-k1.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+That's wrong, I think I have reply it in a wrong way, it should be
 
-diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
-index d42c03ef5db5..8ef6d5d1927b 100644
---- a/drivers/i2c/busses/i2c-k1.c
-+++ b/drivers/i2c/busses/i2c-k1.c
-@@ -566,7 +566,7 @@ static int spacemit_i2c_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, i2c->irq, "failed to get irq resource");
- 
- 	ret = devm_request_irq(i2c->dev, i2c->irq, spacemit_i2c_irq_handler,
--			       IRQF_NO_SUSPEND | IRQF_ONESHOT, dev_name(i2c->dev), i2c);
-+			       IRQF_NO_SUSPEND, dev_name(i2c->dev), i2c);
- 	if (ret)
- 		return dev_err_probe(dev, ret, "failed to request irq");
- 
+RGMII_TX_DLINE_STEP -> tx_config
+RGMII_TX_DLINE_CODE -> tx_code
+RGMII_RX_DLINE_STEP -> rx_config
+RGMII_RX_DLINE_CODE -> rx_code
 
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20260122-05-k1-i2c-irq-d1233dd8f194
+The RGMII_[RX|TX]_DLINE_STEP register selects which step is used for
+rx/tx delay. The RGMII_[RX|TX]_DLINE_CODE register provides the factor
+used for calculating the delay. These register are computed in the
+spacemit_dwmac_detected_delay_value(). And finally we can got a delay
+with "code * step / 10 * 0.9" for both rx and tx.
 
-Best regards,
--- 
-Yixun Lan <dlan@kernel.org>
+> > > > +	plat_dat->clk_tx_i = devm_clk_get_enabled(&pdev->dev, "tx");
+> > > > +	if (IS_ERR(plat_dat->clk_tx_i))
+> > > > +		return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat->clk_tx_i),
+> > > > +				     "failed to get tx clock\n");
+> > > 
+> > > You set plat_dat->clk_tx_i, but you don't point
+> > > plat_dat->set_clk_tx_rate at anything, which means the stmmac core
+> > > does nothing with this.
+> > > 
+> > 
+> > Yes, the vendor told me that the internal tx clock rate will be auto
+> > changed when the speed rate is changed. So no software interaction
+> > is needed.
+> 
+> Please do not assign a clock to clk_tx_i that is not the dwmac
+> clk_tx_i input. clk_tx_i is a name used by the Synopsys DWMAC for a
+> specific clock.
+> 
+> As you don't need to do anything with it other than to get and enable
+> it, consider using just a local variable here.
+> 
 
+OK, I will use a local variable here.
+
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
