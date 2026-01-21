@@ -4,85 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AFF0C4453F
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 13:46:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A2DC4452E
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 13:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O6t4ezr/66k8xnqzKmsJh2cqLgs39902AWtPBFXqEsw=; b=ffhT+uq81tua6I
-	oPtf55+IX3sWlkImSDePTyzs5KJIXZNtPj5ya7hfqvtZrOXL2PR1muNskQRnrgcmmMwpzFryrJTpM
-	hZFLE68eT0T7k3MPRBEEdwZonE+RORBmeZQbqKaYlvbmUVY1Kt6V8iczOjZNoXe3oAZb3CCXw6Wqg
-	M3oJjY+SsbnNlJgizn9HEGI2AiVG03Kmg5Z2wiDuOk0h9X0CxhKoLcExTNyZBLb7CzX6+24M08pFe
-	2rMgp8+d9leAeQXdrl1oCRsF8ofRmjaqdTvExuSgn9K8BUkngCRaQHOw6g7wLG9MZ5riHFeeoIyZz
-	Mwnw1s5L3n3DhGTr6UpA==;
+	List-Owner; bh=VgY7834nA30AZXpHnbr8JqPBGNilE/FWXXcEl2ni230=; b=QgFoxj0n92Vnol
+	B910iKW6Y1O+Pp9arg7SqbAznMh3sHZuToZ4tNOTlgotyzJDIJUZVIgz11y/p0GpiM4tFSlNv13VI
+	R/yNTw9/djK2XU348Xyr8WqihBmH307jjZMuhE/hL2l3uiXIq+nJuWVE9dsGcsu/BHSh7AaTB9Jg8
+	4pjZkZZ7Mgyou1/h67g7MyqTg5EuWud+A8hwZObxho6Rusuqy/TcZ/CH9pdptBdk/5nPRIv69k0wV
+	TmZc6WevZnysmLlp1NpWJ1XN2qWOmG/HwEd5U1d2cT+1zBM5YpB0zAqe5+T5F1ttMIjK/sssWpZFX
+	gax7NBvXthcWg5ACCRjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYXC-00000005VAf-18SZ;
-	Wed, 21 Jan 2026 13:46:10 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1viYgF-00000005YZf-3pYH;
+	Wed, 21 Jan 2026 13:55:31 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYX6-00000005VAF-3PMV;
-	Wed, 21 Jan 2026 13:46:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=GA0E+2lExoLTrBoxDpukALnUWndmDpxiv7DFZKJpltk=; b=5b+lJUiFPwVO4dTWd/qFReIVHI
-	7f99yyhyqXgdhUMCdDHEPQCqc1MLMgQKanORtkFU4U6RCDNpUqvSXjBSwcTdCc7xJv69ahZoiVGVN
-	k8+LEDN5Wjx8rpjwbhFUTfrwdpdMpHdB3asxlQfgxxUCsjamsFoUEg21HcN8Scc4H/oo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1viYWS-003p7S-MM; Wed, 21 Jan 2026 14:45:24 +0100
-Date: Wed, 21 Jan 2026 14:45:24 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yao Zi <ziyao@disroot.org>,
-	Yanteng Si <siyanteng@cqsoftware.com.cn>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v2 3/3] net: stmmac: Add glue layer for Spacemit
- K3 SoC
-Message-ID: <73bf2977-ad1a-45fa-9b06-5df083c060a8@lunn.ch>
-References: <20260121071315.940130-1-inochiama@gmail.com>
- <20260121071315.940130-4-inochiama@gmail.com>
- <aXDBCsfaNrgfGjNK@shell.armlinux.org.uk>
+	id 1viYg8-00000005YYo-0GtA;
+	Wed, 21 Jan 2026 13:55:29 +0000
+Received: from duge-virtual-machine (unknown [183.192.221.134])
+	by APP-03 (Coremail) with SMTP id rQCowAAXOuG+2nBp3sIgBg--.24067S2;
+	Wed, 21 Jan 2026 21:55:12 +0800 (CST)
+Date: Wed, 21 Jan 2026 21:55:10 +0800
+From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: gregkh@linuxfoundation.org, conor@kernel.org, neil.armstrong@linaro.org,
+	robh@kernel.org, krzk+dt@kernel.org, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-phy@lists.infradead.org, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 3/4] phy: usb: Add driver for Canaan K230 USB 2.0 PHY
+Message-ID: <aXDavrU8ATmUyWHE@duge-virtual-machine>
+References: <20260120143243.71937-1-jiayu.riscv@isrc.iscas.ac.cn>
+ <20260120143243.71937-4-jiayu.riscv@isrc.iscas.ac.cn>
+ <aXB7GqQaxtgKReVa@vaman>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aXDBCsfaNrgfGjNK@shell.armlinux.org.uk>
+In-Reply-To: <aXB7GqQaxtgKReVa@vaman>
+X-CM-TRANSID: rQCowAAXOuG+2nBp3sIgBg--.24067S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUY67k0a2IF6w1UM7kC6x804xWl14x267AK
+	xVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGw
+	A2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26r1j
+	6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2z280aVAFwI0_Gr
+	0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r4UJwAS0I0E0xvYzxvE52x082IY62kv
+	0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z2
+	80aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF
+	7I0E8cxan2IY04v7MxAIw28IcxkI7VAKI48JMxAqzxv26xkF7I0En4kS14v26r1q6r43Mx
+	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
+	wI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20x
+	vE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v2
+	0xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxV
+	W8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8489tUUUUU==
+X-Originating-IP: [183.192.221.134]
+X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_054604_853340_53B7B52F 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20260121_055525_956024_579859A5 
+X-CRM114-Status: UNSURE (   7.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,51 +83,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 12:05:30PM +0000, Russell King (Oracle) wrote:
-> On Wed, Jan 21, 2026 at 03:13:11PM +0800, Inochi Amaoto wrote:
-> > +	mask = RGMII_RX_DLINE_STEP | RGMII_TX_DLINE_CODE | RGMII_TX_DLINE_EN |
-> > +	       RGMII_TX_DLINE_STEP | RGMII_RX_DLINE_CODE | RGMII_RX_DLINE_EN;
-> > +	val = FIELD_PREP(RGMII_TX_DLINE_STEP, tx_config) |
-> > +	      FIELD_PREP(RGMII_TX_DLINE_CODE, tx_code) | RGMII_TX_DLINE_EN |
-> > +	      FIELD_PREP(RGMII_RX_DLINE_STEP, rx_config) |
-> > +	      FIELD_PREP(RGMII_RX_DLINE_CODE, rx_code) | RGMII_RX_DLINE_EN;
+On Wed, Jan 21, 2026 at 12:37:06PM +0530, Vinod Koul wrote:
+> On 20-01-26, 22:32, Jiayu Du wrote:
+> > + * Copyright (C) 2025 Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
 > 
-> So your reply where you basically stated that all the RGMII.*DLINE.*
-> constants here should be the same was nonsense. How can we trust your
-> replies?
+> 2026 now!
 > 
-> > +static int spacemit_dwmac_fix_delay(struct plat_stmmacenet_data *plat_dat,
-> > +				    struct regmap *apmu,
-> > +				    unsigned int dline_offset,
-> > +				    unsigned int tx_delay, unsigned int rx_delay)
-> > +{
-> > +	bool mac_rxid = rx_delay != 0;
-> > +	bool mac_txid = tx_delay != 0;
-> > +	unsigned int rx_config = 0;
-> > +	unsigned int tx_config = 0;
-> > +	int rx_code;
-> > +	int tx_code;
-> > +
-> > +	plat_dat->phy_interface = phy_fix_phy_mode_for_mac_delays(plat_dat->phy_interface,
-> > +								  mac_txid,
-> > +								  mac_rxid);
+...
+> > +	void __iomem *base = global->base;
+> > +	u32 val;
 > 
-> Maybe Andrew can confirm, but this function was to fix up existing
-> broken DT, and shouldn't be used by brand new drivers.
+> blank line here please
+> 
+...
+> > +    /* Configure test register (pull-ups/pull-downs) */
+> 
+> wrong alignment above, pls fix it
 
-Hi Russell, thanks for pointing this out.
+Thanks for pointing out these issues. I will fix them in v5.
 
-This function should not be used in this case. MAC drivers in general
-only add small delays, in order to do fine tuning. The PHY adds the
-2ns delay. There are however some MACs who cannot disable their 2ns
-delay, or have historically been broken, and add 2ns delay. In such
-cases, the phy_interface passed to the PHY needs masking, to indicate
-the PHY should not add the 2ns delays. That is what this function
-does.
-
-Please don't call it. Pass phy_interface as is to the PHY.
-
-       Andrew
 
 _______________________________________________
 linux-riscv mailing list
