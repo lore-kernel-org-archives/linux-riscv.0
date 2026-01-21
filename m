@@ -4,101 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 493C6C4450D
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 11:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79199C4450D
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 12:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bwRIsLAHpFNTon8FOIVeU4EvhnJ80MQLe9nLxAYuz4c=; b=X8lKo+4XKoq6Em
-	K2zlI2x0q/M0W94OKPOzTrsvMZ4U21wDdvyQjk8ImZT1iOSvrMWUHGuPWaNrWzAjrqeP20WPO1BEU
-	Bdv9PJvit0ONOxvPk+9QNvlN9+r8Sz30d8dBFHIHUISKz062nE3sFioRsSWXDVlnfWGE4cK9RVM6K
-	w8dwDS+lmcdYcM9QW4Sz3AmPynmpYZ6fCFzRlOfDJ9Lov8Ovy4mm3K4myJzoL0kzJMS4EeppCVLqY
-	o/4vzfie6yY/SeRWx5Esat0StIFogarTABhSXRVfPQbV03VZeIW1sQSdK0HUv8ACs49qoiRt2M5fv
-	UKXQ/HTM+S1Mp9JqFtKg==;
+	List-Owner; bh=0r+f6LiQR2SHwFmi94mfiJBbgY1+v0Wqw1ssr3ZcYfM=; b=UclqqOJCoZqpse
+	dLz1XfsjHRqBAkocC8DTErZxrotY/TyMlmZWXfBJiL24Esd3R6mVGHzic1g6HJ9p9ExoHHg7AbvJZ
+	qQPEkztTE1/i6kyCbOehbozQ05B58W+/kegr25g711dAmrDH7NAQIQwfzSPqn4uhmptN9wP7bqhfy
+	eF/t6vNyyxLb7d8PdaS/6pWyG4b07B4ows2i035vjpo7IzQjdG9o76frlWUyDIGIpvUQJTvZTbHnU
+	VQ9c2lrHPmnBENGgpEJjpyiRcfNgvBJpn6+nok7IkwEfJeM640i2pLatiLal9OAw2TtPXEbAliQWS
+	Q91KPpSD8VJstawWRX3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viWqU-00000005NQd-2CJH;
-	Wed, 21 Jan 2026 11:57:58 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1viWwu-00000005Noe-1tQk;
+	Wed, 21 Jan 2026 12:04:36 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viWqR-00000005NQC-1Ph2
-	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jan 2026 11:57:56 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-59dd4b602bfso363466e87.1
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Jan 2026 03:57:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768996673; x=1769601473; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2DGCZ8EIP3Ii+3jUlQj/U+neLJaf8YM5JLMcsfoSkko=;
-        b=j948YR8uXO6CUjLJMSmhj8B7LsYbHptyMtcbtAtT2wwEI5/YGLmzwZlN5b6kL0MTf8
-         YvlOaazJVJAqfRCnUFxh2CP3mUwfrUZ91M+vp+hTxOO47MB7oLMgsgjDl5PmgXOa5l8N
-         giEdXvn0UOn9qICqUIsaTiivY3mxqGfiokweDshaBUKV+sNafiXODIAopjMVVXHuu2K3
-         zq7KTfD18COdhvdcjpB1fPbPOMtKRyub/TZLIDcmRdKbmYFBdnK6pp06yDaKQ39GczSM
-         7gtDXUdlluUf74MpPKdFirGYlORqgvOGvvUKf0SssviETTHWoG9CepiQ1NDlTWaraGwi
-         Ctag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768996673; x=1769601473;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=2DGCZ8EIP3Ii+3jUlQj/U+neLJaf8YM5JLMcsfoSkko=;
-        b=a/8OAi9XqOef3xTXpZjYRbf/RiY8gwFCVOdIxYVGkb/86s7GG4jFO4L3gqbqQiMYDM
-         zie6R5K65W/mGH1MK75eaFoykMncjaP7yIFzJ5tKdDo4miKc8TZ3jko/jHcYUn5Uzg2K
-         oaaj08HR62Zc8FccdNF8QVe7tL1nwz+bES7jzPFyDKpwDPTEZoMyf7rz6LwPghmGnz/A
-         hhUqZTDj9+9vO92KAjWeM2BKwQon48vrHUefFArEn0UCLJ89laRzlI7gCRiDSHtVxjls
-         YruofvlDWiUriRyRrEDNIEy1bTlvVhohW6BzTInY2Sg7QqzLjIxwEW+GwLz2KW4lMcCo
-         EFkw==
-X-Forwarded-Encrypted: i=1; AJvYcCX0bVrcWuqXAj5uxM77CbT5MqC6KpHsOtjx63hTbLanUk7xlrfTP3dkQ7++aOoSK00IphLaHQ42NwCkDg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPSdzaA3VIdRH2u6U1xutgx3+rWcN28CZ4HbAMbRMvX+mhgosb
-	+2aLk9KVteU8/gwINUXahri9BPRBlU5eg4hVcP88/IFKhElqZVdPIv0IXtHVMA==
-X-Gm-Gg: AZuq6aLH7Q2KhbDg/L2BN0snO1vo7t+qVVS/7ThKWPu7WBqOoZ4UqaPUNHQNOYZFmvx
-	csJ49X3bUPoRUPJZP0CvaDjti6cD/SaGMjT6UfyYqwC6lhondACoez92g3vAr+kR5ebWtSZMFvP
-	beiy8OBXDMWDzJAvDmC6lN/Por6y1GEWRH1PdyFnYXAJ3Pnfj8to98vZYzRA6FYkQnDJfym54L+
-	VSmuiArDkIKyXa3/bLsrlLjhXrIhfVHTDW0xiFSWO71LkLhiuZcl9++txB/VbEW+9q3YDQsBdGT
-	jdx//4+a24fxNWl5KjsTiShEOxC1LCHn+SccL7N+U+EXtXPvfql/7j7Iu06v1j/HGd34jqpy7ra
-	P2uREJRHB+uA+nBB1fh8Esd/xT/AhZgek7SPr34StRq7mA0UtMKi5d1LpL99ZL6s/1g0mfeiiio
-	J7SJ6rZCDo9Ay7aHpQyfV610b1T59RXpfw/ETLvafaUrmaRIzJjizX
-X-Received: by 2002:a05:600c:8b55:b0:477:9f34:17b8 with SMTP id 5b1f17b1804b1-4801e2fbd61mr238692885e9.1.1768990819461;
-        Wed, 21 Jan 2026 02:20:19 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4801e8d77besm306630785e9.14.2026.01.21.02.20.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Jan 2026 02:20:19 -0800 (PST)
-Date: Wed, 21 Jan 2026 10:20:17 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: kernel test robot <lkp@intel.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
- <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael
- Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko
- Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander
- Gordeev <agordeev@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, Kees Cook <kees@kernel.org>, "Gustavo A. R.
- Silva" <gustavoars@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Mark Rutland
- <mark.rutland@arm.com>, "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard
- Biesheuvel <ardb@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
- llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH v4 3/3] randomize_kstack: Unify random source across
- arches
-Message-ID: <20260121102017.539b5531@pumpkin>
-In-Reply-To: <202601210752.6Nsv9et9-lkp@intel.com>
-References: <20260119130122.1283821-4-ryan.roberts@arm.com>
-	<202601210752.6Nsv9et9-lkp@intel.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	id 1viWwr-00000005Nnk-25kU;
+	Wed, 21 Jan 2026 12:04:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=FpPajyycP6hR8UaVkW71uLW018aze8MN50EScuTtwQU=; b=mto1Zpx3LkWT4BlB+EH50113Nb
+	gD+8T7D+2WAtGQq/HAETjWDP9VjyUv0Zasp+mlwBBJM04gLMpIW89udAEmz0zL+R4JNQd+rXs+PY4
+	USSP0T2O6gNnTn70MPBH5jdo6z8YgUfyFRirWq2Tdz2Gw4zd9r4L65P//5N1ynOsg2l7TAuicxjP6
+	pGTRuUj70fLX9dSQS/IJJpvxKeml9OwJP/7gY9jCdnner/ChJebJ2/6jm6tSsTTsHzq6t8RGzRX8J
+	mDoh8xcKRYL9T2uWFq+YyJ7ioJN2ZBtPvrNsVJYdxw+n90kPlQUz+vbO864VHSfMySk3q0BDAeUZa
+	DuvPldTQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39012)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1viWw8-000000007Ns-1ncE;
+	Wed, 21 Jan 2026 12:03:48 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1viWvw-000000008QZ-3jNS;
+	Wed, 21 Jan 2026 12:03:36 +0000
+Date: Wed, 21 Jan 2026 12:03:36 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Yao Zi <ziyao@disroot.org>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next 3/3] net: stmmac: Add glue layer for Spacemit K3
+ SoC
+Message-ID: <aXDAmDEpUArE1_en@shell.armlinux.org.uk>
+References: <20260120043609.910302-1-inochiama@gmail.com>
+ <20260120043609.910302-4-inochiama@gmail.com>
+ <aW8LAFhCRWlMVemz@shell.armlinux.org.uk>
+ <aW8MJpERR3TmsiKg@inochi.infowork>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <aW8MJpERR3TmsiKg@inochi.infowork>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_035755_402404_41ABB78D 
-X-CRM114-Status: GOOD (  17.34  )
+X-CRM114-CacheID: sfid-20260121_040433_815542_290382F6 
+X-CRM114-Status: GOOD (  19.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,46 +109,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 21 Jan 2026 07:50:16 +0800
-kernel test robot <lkp@intel.com> wrote:
+On Tue, Jan 20, 2026 at 01:05:39PM +0800, Inochi Amaoto wrote:
+> > > +	mask = RGMII_RX_DLINE_STEP | RGMII_TX_DLINE_CODE | RGMII_TX_DLINE_EN |
+> > > +	       RGMII_TX_DLINE_STEP | RGMII_RX_DLINE_CODE | RGMII_RX_DLINE_EN;
+> > > +	val = FIELD_PREP(RGMII_TX_DLINE_CODE, tx_config) |
+> > > +	      FIELD_PREP(RGMII_TX_DLINE_CODE, tx_code) | RGMII_TX_DLINE_EN |
+> > > +	      FIELD_PREP(RGMII_TX_DLINE_CODE, rx_config) |
+> > > +	      FIELD_PREP(RGMII_RX_DLINE_CODE, rx_code) | RGMII_RX_DLINE_EN;
+> > 
+> > These FIELD_PREP() fields look wrong. Did you mean to use DLINE_CODE
+> > both tx_config and tx_code, and did you mean to use TX_DLINE_CODE for
+> > rx_config ?
+> > 
+> 
+> This should be RGMII_TX_DLINE_CODE. This is a copy paste error, I
+> will fix it.
 
-> Hi Ryan,
-> 
-> kernel test robot noticed the following build warnings:
-> 
-> [auto build test WARNING on akpm-mm/mm-everything]
-> [also build test WARNING on linus/master v6.19-rc6 next-20260119]
-> [cannot apply to tip/sched/core kees/for-next/hardening kees/for-next/execve]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Roberts/randomize_kstack-Maintain-kstack_offset-per-task/20260119-210329
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
-> patch link:    https://lore.kernel.org/r/20260119130122.1283821-4-ryan.roberts%40arm.com
-> patch subject: [PATCH v4 3/3] randomize_kstack: Unify random source across arches
-> config: x86_64-allmodconfig (https://download.01.org/0day-ci/archive/20260121/202601210752.6Nsv9et9-lkp@intel.com/config)
-> compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260121/202601210752.6Nsv9et9-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202601210752.6Nsv9et9-lkp@intel.com/
-> 
-> All warnings (new ones prefixed by >>):
-> 
-> >> vmlinux.o: warning: objtool: do_syscall_64+0x2c: call to preempt_count_add() leaves .noinstr.text section
-> >> vmlinux.o: warning: objtool: __do_fast_syscall_32+0x3d: call to preempt_count_add() leaves .noinstr.text section  
-> 
+Are you sure?
 
-When CONFIG_DEBUG_PREEMPT or CONFIG_TRACE_PREEMP_TOGGLE is set
-the preempt_count_[en|dis]able() calls inside [put|get]_cpu_var()
-become real functions.
+In that case, please change this to:
 
-Maybe __preempt_count_[inc|dec]() can be called (with this_cpu_ptr()).
+	val = FIELD_PREP(RGMII_TX_DLINE_CODE, tx_config | tx_code |
+					      rx_config | rx_code) |
+	      RGMII_TX_DLINE_EN | RGMII_RX_DLINE_EN;
 
-	David
+If that isn't what you meant, then your reply is wrong, and it seems
+you're confused, which makes me then question how reliable your
+replies are.
+
+> > > +	plat_dat->clk_tx_i = devm_clk_get_enabled(&pdev->dev, "tx");
+> > > +	if (IS_ERR(plat_dat->clk_tx_i))
+> > > +		return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat->clk_tx_i),
+> > > +				     "failed to get tx clock\n");
+> > 
+> > You set plat_dat->clk_tx_i, but you don't point
+> > plat_dat->set_clk_tx_rate at anything, which means the stmmac core
+> > does nothing with this.
+> > 
+> 
+> Yes, the vendor told me that the internal tx clock rate will be auto
+> changed when the speed rate is changed. So no software interaction
+> is needed.
+
+Please do not assign a clock to clk_tx_i that is not the dwmac
+clk_tx_i input. clk_tx_i is a name used by the Synopsys DWMAC for a
+specific clock.
+
+As you don't need to do anything with it other than to get and enable
+it, consider using just a local variable here.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
