@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E244D262B1
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 02:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB42D262AD
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 02:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3fQiWSHIxcHf1taq0MIJboSBueL0f9WDngWX64XINa8=; b=KVUPvEzS+8QBRy
-	Kj9rx+Owcabr+2BwcY0w+S1+LKrPy26rgYEzBc6KDrwNONeiktUeH5J4GM/gOqU8ZSSD7xs5nD/33
-	UcdEZPYQ1ym084l5GIa/9Bt2KmrQnzq3yUdFFn8odrBtWOToO0eRIrM/HxJGcXhJ0tgxi2/BHhB28
-	k9izsx+W6pfsXDuo84cGHqlD4+yv/j7t7XBNFlgBaGB2hfJrbehV8gNSPWINXPZIYN87NGnV459az
-	3Pyly9vdLBxfEpKVUCSHZC/wpqm7ZlEAjgmnNS7QFvY9i1JtVS6UYZyd8oFTX+GXx2C+HI1jopgYt
-	96sZvsMRZLEJ6q0U7ACw==;
+	List-Owner; bh=XitMNKJEzCcxY2e/O/xsdMG7KmK1cc5OeeJzCbHwf/8=; b=djCzKJ1JIVGESV
+	3TMECERVjKOu8O7mr4+y5cKBGRPIHsz13qXtN9KI11Dxfd4VfySDD4TsYKk9v75o3wtPPRqYvqGeK
+	6SOtklZWqgzv9wz8gHs9d5PwcDQlrZBCPrxi8pEBahWh5CIO3xsPKkkI2iswSsO5TpxuTyOl7ecPu
+	D7W7Zda+r2jkIUoItpMCCKXfSnaaBvuMkfNrDdmPqPcITEewmy++RYj1q07nA8GGbw8WXlz7IQ0Uo
+	VMhLpgmyP69qWp5HC1ABDDLdvN+uZt2zYbAY0nhcnjGvLMqmJ5sRMuy+TeINfa4RpNBL7+ezyG5X0
+	MNScIE8UewdD6kQn+log==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viNxV-00000004myB-1FEg;
-	Wed, 21 Jan 2026 02:28:37 +0000
+	id 1viNzA-00000004nFM-2qsi;
+	Wed, 21 Jan 2026 02:30:20 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viNxS-00000004mxd-1H3D;
-	Wed, 21 Jan 2026 02:28:35 +0000
+	id 1viNz8-00000004nEt-0Mrw
+	for linux-riscv@lists.infradead.org;
+	Wed, 21 Jan 2026 02:30:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 733C74191B;
-	Wed, 21 Jan 2026 02:28:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 375E9C16AAE;
-	Wed, 21 Jan 2026 02:28:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B569C441B5;
+	Wed, 21 Jan 2026 02:30:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DD35C16AAE;
+	Wed, 21 Jan 2026 02:30:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768962513;
-	bh=vTfHbIosBhIGcDNmkGqJUvupsZF9T0Fme6/vw/4XXAs=;
+	s=k20201202; t=1768962617;
+	bh=qGrGq+WjO+0/AMaXMyyeImAUN8v9eq1Kl4YybbLFXzs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iYYrENlPoZw3+rWmuqEqKg3k92ScVBL9NUArHLatSJfJ2Rts34vSjz6BJLk8mKNhr
-	 UjtlfZJru2wmiUqOX+GMicfkptrMAqcZrgKzFNCdV32cru9yiQ6gyBkDSjd6iyw9bY
-	 ScyFDeFT1Zmffj0eW03A/HH/uSXbjRqkAeJLwI3WX/UUNqji6ZH8G3l6ycpX9Ht/+f
-	 BjU9JHen9x06nMGkp2NajcdCKjZFBv+qEer+wjmh2RDH1MiC7JNR8CQ7WRm3TNULWR
-	 lTro1tYK2GBKdJaAtoicxrWLqB1ycBJlI8zLIDpTHJBMU7/XoLwg21k3R34Wo6B5xx
-	 u+NgWJ+ckIUcw==
-Date: Tue, 20 Jan 2026 20:28:32 -0600
+	b=uoItEJWm0LVFPE7anJieBvxWmwVdoDk558iLW23WzQAstABvo9/zQOVi3jsMtCgf/
+	 LYtsmpG0gywjuHq5Rq0fxpUgBlzXovRd7O4jBMXMQRoA9elWM3sATYZIDlE/6W0QiX
+	 SSNx4dWROuFb+mwg9jc460Dv9W52IYBWmgOtfO5yLoPvErbsBnpET3+OsWLHoXkNb/
+	 Y0QLjO/JkpKPDDG8WtlusYBHvzuh5A4yzZM4jOd+IsvDgu8xCxLHY9vG3XB+csdibZ
+	 4tlHUe16S0cma/Dhken9DepdXsLgTgrIFLNKPzHXa/YN98KD7QK0vBqIBfOY3JN+G0
+	 NIXcnGRpnqV2A==
+Date: Tue, 20 Jan 2026 20:30:16 -0600
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-Cc: conor@kernel.org, alex@ghiti.fr, gregkh@linuxfoundation.org,
-	vkoul@kernel.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com, pjw@kernel.org, krzk+dt@kernel.org,
-	linux-usb@vger.kernel.org, aou@eecs.berkeley.edu,
-	neil.armstrong@linaro.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 1/4] dt-bindings: phy: Add Canaan K230 USB PHY
-Message-ID: <176896251125.1833421.13897211513814377916.robh@kernel.org>
-References: <20260120143243.71937-1-jiayu.riscv@isrc.iscas.ac.cn>
- <20260120143243.71937-2-jiayu.riscv@isrc.iscas.ac.cn>
+To: "Anton D. Stavinskii" <stavinsky@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>, Takashi Iwai <tiwai@suse.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org, Paul Walmsley <pjw@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, linux-sound@vger.kernel.org,
+	sophgo@lists.linux.dev, Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Subject: Re: [PATCH v4 3/6] ASoC: dt-bindings: sophgo,cv1800b: add ADC/DAC
+ codec
+Message-ID: <176896261596.1836014.8166453734393092086.robh@kernel.org>
+References: <20260120-cv1800b-i2s-driver-v4-0-6ef787dc6426@gmail.com>
+ <20260120-cv1800b-i2s-driver-v4-3-6ef787dc6426@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260120143243.71937-2-jiayu.riscv@isrc.iscas.ac.cn>
+In-Reply-To: <20260120-cv1800b-i2s-driver-v4-3-6ef787dc6426@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_182834_368430_79816449 
-X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-CacheID: sfid-20260120_183018_169466_079CB7F3 
+X-CRM114-Status: UNSURE (   8.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,15 +86,14 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 20 Jan 2026 22:32:40 +0800, Jiayu Du wrote:
-> K230 SoC USB PHY requires configuring registers for control and
-> configuration. Add USB phy bindings for K230 SoC.
+On Tue, 20 Jan 2026 23:06:05 +0400, Anton D. Stavinskii wrote:
+> Document the internal ADC and DAC audio codecs integrated
+> in the Sophgo CV1800B SoC.
 > 
-> Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+> Signed-off-by: Anton D. Stavinskii <stavinsky@gmail.com>
 > ---
->  .../bindings/phy/canaan,k230-usb-phy.yaml     | 35 +++++++++++++++++++
->  1 file changed, 35 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml
+>  .../bindings/sound/sophgo,cv1800b-codecs.yaml      | 46 ++++++++++++++++++++++
+>  1 file changed, 46 insertions(+)
 > 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
