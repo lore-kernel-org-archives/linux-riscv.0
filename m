@@ -4,38 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C19BFCA5FD7
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 03:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7990CA5FD7
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 03:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ackGAWWr/onIcsTqb+63SMwQSJ6jPyG9mqJLqPuErMY=; b=CZY/GZ0d+4qI0s
-	jdd3QbzAz1p8hwYniEUgdwhZc2ipSi9NqtF+Qw5+FmPVJ0jUlyKCR8R4MP421cO5pCCTRmz7DQU9l
-	tygtn+EvclIPbB75kexMHQELbpkn4NXvOPX/WTJhqifExPvwh2U7EoJ0uhHyAHifmdfxUNSWA3vI+
-	5U+vWp/QrZtNzHq533SolyvbsfYbIZ9DG+sInTvgcOK/8goAgd5XyBTsO/cnqVnSLmAEu9tBWQ/Ov
-	HXbH1OHIS5xZukEzCOnu1ocucAs1o6nHGBPb61aMBnJWg1VqsVTPTrS010E3rBU+cVJCzIkhqo+db
-	R+t1UKux1eXMqaiiHaNw==;
+	List-Owner; bh=W4ovFjE6w+OYPYqKB1rH6DySOu1UnNHeEU0Ml0o2L2U=; b=BjHHnNRWHuVcB/
+	cE2PghBR2bnOLkeTlYSeCCCN9apT77h4jQOTYExgL4bFyVT6WfeJWM9BBAeYg4oWz+V7u+VVZi+fe
+	ErxqjinsSsfh7PnAgR7BdSEiqvGTwbxPBh6sw7fzFNtKJX1z3yF+XR+GxrrurFrfN78V7FjLWuA39
+	5CEq6rzxtdeBVqR1pNX1MHeHn5yJ2z54L2e77+XT7FaZvREIPa+6D/LZmQsxaXYdstGl58msfGVvK
+	lpgJyw3xbd1nASc6qjBpgw3JN//4grk52gtnim/xRh4xYErzK9XA84OnAqjlv/GYFCQF7f2AvxCB3
+	xK36OMB/Li75F3q62IHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viPER-00000004qjk-3jKR;
-	Wed, 21 Jan 2026 03:50:11 +0000
+	id 1viPEU-00000004qkW-29q6;
+	Wed, 21 Jan 2026 03:50:14 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viPEP-00000004qiR-0VCr
+	id 1viPEQ-00000004qiU-3xlC
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jan 2026 03:50:10 +0000
+	Wed, 21 Jan 2026 03:50:12 +0000
 Received: from [127.0.0.2] (unknown [210.73.43.101])
-	by APP-01 (Coremail) with SMTP id qwCowADXfWnhTHBp_WqTBQ--.5409S4;
+	by APP-01 (Coremail) with SMTP id qwCowADXfWnhTHBp_WqTBQ--.5409S6;
 	Wed, 21 Jan 2026 11:49:55 +0800 (CST)
 From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Wed, 21 Jan 2026 11:49:38 +0800
-Subject: [PATCH v2 2/4] PCI/MSI: Check msi_addr_mask in
- msi_verify_entries()
+Date: Wed, 21 Jan 2026 11:49:40 +0800
+Subject: [PATCH v2 4/4] ALSA: hda/intel: Raise msi_addr_mask to dma_bits
 MIME-Version: 1.0
-Message-Id: <20260121-pci-msi-addr-mask-v2-2-f42593168989@iscas.ac.cn>
+Message-Id: <20260121-pci-msi-addr-mask-v2-4-f42593168989@iscas.ac.cn>
 References: <20260121-pci-msi-addr-mask-v2-0-f42593168989@iscas.ac.cn>
 In-Reply-To: <20260121-pci-msi-addr-mask-v2-0-f42593168989@iscas.ac.cn>
 To: Madhavan Srinivasan <maddy@linux.ibm.com>, 
@@ -56,29 +55,29 @@ Cc: Han Gao <gaohan@iscas.ac.cn>, Vivian Wang <wangruikang@iscas.ac.cn>,
  linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org, 
  sophgo@lists.linux.dev
 X-Mailer: b4 0.14.3
-X-CM-TRANSID: qwCowADXfWnhTHBp_WqTBQ--.5409S4
-X-Coremail-Antispam: 1UD129KBjvJXoW7uFy5JryfGw1kur43tr4fKrg_yoW8GF13pF
-	WqgayDAr4Fkw15JFsxXw10qF15ZFZ0qa4fGrW8G34a9FsIv3W2yrnxKa47Ka43XFy8Gw15
-	ZFyYyw4UWFs0yFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmF14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1l
-	e2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI
-	8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwAC
-	jcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0x
-	kIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_
-	Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1V
-	AY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAI
-	cVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIx
-	AIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2
-	KfnxnUUI43ZEXa7sRipB-tUUUUU==
+X-CM-TRANSID: qwCowADXfWnhTHBp_WqTBQ--.5409S6
+X-Coremail-Antispam: 1UD129KBjvJXoW7tF4kGw13tw4DtFWDKFyrXrb_yoW8Ary7pw
+	4DGayftF4YqFyrJa1kKa1DZF13CFZYkwn5GrWrK34Ska4Yvr10gr9FkryxJa4xGF4vgw1Y
+	vrWjv3WrWF45ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmq14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
+	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
+	4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE
+	3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2I
+	x0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8
+	JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2
+	ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Y
+	z7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zV
+	AF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4l
+	IxAIcVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r
+	1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIY
+	CTnIWIevJa73UjIFyTuYvjTRNdb1DUUUU
 X-Originating-IP: [210.73.43.101]
 X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_195009_559049_C7A7950C 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20260120_195011_361876_4F61EB2E 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,46 +94,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Instead of a 32-bit/64-bit dichotomy, check the MSI address against
-msi_addr_mask.
+The code was originally written using no_64bit_msi, which restricts the
+device to 32-bit MSI addresses.
 
-This allows platforms with MSI doorbell above 32-bit address space to
-work with devices without full 64-bit MSI address support, as long as
-the doorbell is within addressable range of MSI of the device.
+Since msi_addr_mask is introduced, use DMA_BIT_MASK(dma_bits) instead of
+DMA_BIT_MASK(32) here for msi_addr_mask, describing the restriction more
+precisely and allowing these devices to work on platforms with MSI
+doorbell address above 32-bit space, as long as it is within the
+hardware's addressable space.
 
 Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
 
 ---
 v2: No changes
----
- drivers/pci/msi/msi.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
-index 48f5f03d1479..2ecbcd6c436a 100644
---- a/drivers/pci/msi/msi.c
-+++ b/drivers/pci/msi/msi.c
-@@ -321,14 +321,17 @@ static int msi_setup_msi_desc(struct pci_dev *dev, int nvec,
- static int msi_verify_entries(struct pci_dev *dev)
- {
- 	struct msi_desc *entry;
-+	u64 address;
+hda/intel maintainers: I don't know if this is the correct restriction.
+Please help with checking. Thanks.
+---
+ sound/hda/controllers/intel.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/sound/hda/controllers/intel.c b/sound/hda/controllers/intel.c
+index c9542ebdf7e2..a44de2306a2b 100644
+--- a/sound/hda/controllers/intel.c
++++ b/sound/hda/controllers/intel.c
+@@ -1903,11 +1903,6 @@ static int azx_first_init(struct azx *chip)
+ 		chip->gts_present = true;
+ #endif
  
- 	if (dev->msi_addr_mask == DMA_BIT_MASK(64))
- 		return 0;
+-	if (chip->msi && chip->driver_caps & AZX_DCAPS_NO_MSI64) {
+-		dev_dbg(card->dev, "Disabling 64bit MSI\n");
+-		pci->msi_addr_mask = DMA_BIT_MASK(32);
+-	}
+-
+ 	pci_set_master(pci);
  
- 	msi_for_each_desc(entry, &dev->dev, MSI_DESC_ALL) {
--		if (entry->msg.address_hi) {
--			pci_err(dev, "arch assigned 64-bit MSI address %#x%08x but device only supports 32 bits\n",
--				entry->msg.address_hi, entry->msg.address_lo);
-+		address = (u64)entry->msg.address_hi << 32 |
-+			  entry->msg.address_lo;
-+		if (address & ~dev->msi_addr_mask) {
-+			pci_err(dev, "arch assigned 64-bit MSI address %llx above device MSI address mask %llx\n",
-+				address, dev->msi_addr_mask);
- 			break;
- 		}
- 	}
+ 	gcap = azx_readw(chip, GCAP);
+@@ -1958,6 +1953,11 @@ static int azx_first_init(struct azx *chip)
+ 		dma_set_mask_and_coherent(&pci->dev, DMA_BIT_MASK(32));
+ 	dma_set_max_seg_size(&pci->dev, UINT_MAX);
+ 
++	if (chip->msi && chip->driver_caps & AZX_DCAPS_NO_MSI64) {
++		dev_dbg(card->dev, "Restricting MSI to %u-bit\n", dma_bits);
++		pci->msi_addr_mask = DMA_BIT_MASK(dma_bits);
++	}
++
+ 	/* read number of streams from GCAP register instead of using
+ 	 * hardcoded value
+ 	 */
 
 -- 
 2.52.0
