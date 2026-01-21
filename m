@@ -4,79 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE3F1D262B2
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 06:03:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D589D262B0
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 06:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Cc:Date:In-Reply-To:From:
-	Subject:Mime-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DN1IyHuACcjxU0ct1m99qJQy24Jbgl2oqpj2A6zr14Q=; b=r8eKFwX9F4XDnR
-	s6DSM6sI2s2GkfVmZNJ0vGcNpMMdOdGVJ6P/P3n2CFZH6yAAf9CJP+DswF2Ve0doapCJz9CpuaUm+
-	uEtNd69DIcYDWMnX8gxFYCMNHqSIpR+slVdy+qhSb4f8RFOwJsronoxMwpVCyHmRez/h9ZqmX1nAb
-	WgsNTnEVZ6cM7rxEilbHu9paUQ3DrUFA9x/Si7CqaJvCGFXBRopcyLFfSPKTrULMtCofzzXc3+JmE
-	yeRvJhVqMlbXfi/5URPXwL2TTWFEB098zrSU6W/wGKlXcgwrR81JYC6DH67mEzfGggdT9WfMib/tZ
-	g+CYutJa0u03KSSiY1nQ==;
+	List-Owner; bh=9jZKxx5wUjkOuwEg2GunvDf/HI3Ll7UnKiARQTvRP6c=; b=boU03DAT6NRvXc
+	oM9cWpG9FASuUZliEMB3ycx/jYWUVbCbm3lh4WmLpmUi33d8tW29um9XNOPN0CwauMn9WsDzlHgF0
+	Yx7k6zUBLp/Xa86OMWDAEdw929kJKDJd1yP7uaDvDLj0t02+aXBcEXg7ncRXNzRaWwYbvde9I+kz1
+	G7kznlpD7HorcDJ99IZQauEqhyLf3L6Jl3EhuFm0RyL8ch8zO6lWUniQSsYqiMmeq2Sygit3yrWK7
+	uKWCkiXRhxl2Qvo1uA4osUezsN+RxVMHPIXuB03T4F7rZOrEOCMV7eE8qZEAuRELGUXdaTD+nct1W
+	KXp1OyNjuwVEb5Eg74dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viRJU-00000004ve2-0U9a;
-	Wed, 21 Jan 2026 06:03:32 +0000
-Received: from out162-62-57-210.mail.qq.com ([162.62.57.210])
+	id 1viRxF-00000004xcq-1Pxk;
+	Wed, 21 Jan 2026 06:44:37 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viRJP-00000004vdX-3BDZ
+	id 1viRxC-00000004xb7-1r3e
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jan 2026 06:03:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1768975403; bh=TStk4M7jB2dHEOfdaN0fGmnzx3tyrXUYVG7QmO7yZMY=;
-	h=Subject:From:In-Reply-To:Date:Cc:References:To;
-	b=ffL8X5Ew51BhBeXVkL1cn8A85zy6ywuOMjpsGYcRm87OdO6es6EthRhHzpkZB9/4V
-	 nOUc9vlv9BOUDMQrNVgbY3aTKlorDH/ja6t4R++5cq0PHj++qW0k3BorsAK0qb0KVE
-	 QkM5IOQxE4G9OzpkURTTy/Eq/LlHGIfZ1YT03Jhc=
-Received: from smtpclient.apple ([2408:8207:18a2:b280:f424:a7fd:eb6c:40a3])
-	by newxmesmtplogicsvrszb51-0.qq.com (NewEsmtp) with SMTP
-	id D4B4C28; Wed, 21 Jan 2026 14:03:20 +0800
-X-QQ-mid: xmsmtpt1768975400t97e4u9nd
-Message-ID: <tencent_1F737C658281DAAF8E6AB879311F21178D08@qq.com>
-X-QQ-XMAILINFO: OUdSXDVXBTEGDKFgovs9AMHiCis7GVVcqgu2UppWp4WPg6Q5o7/o0TgBzad66q
-	 gqudTPJGoh4tvRdyuurZy/M4URloSu7TpAKGIF1g7yF4LmKvaWM7ai59YGW9hD1QScMpiRo02N4R
-	 UZhPGy21jSL2PzXzX0JDR3SoUPgd3DvQmPLKIDWyxlCTrYKox7Lr99jHWnI6ymTvqNsfSADlqmbQ
-	 QqX6eBSHLv9ptsYvhmGUwUNGpNP1hBsouFVy2hFBkDc+DzHUzMeaNUVrcFLoShTRftoeQZKpseQA
-	 bRUcIFu7XYfMFEIf+pRXgDLwHnZncbQVSoW8QjHza/E9+IU9K3/s83+x1rlCu5oaWjjqSG/lO8TB
-	 D2Rir9TDPba1sqNh4XA7w4mo2yoAe9DrKCFyk429hxGCdU/fDknHjj8jWCDyNqeuZz6v9RLpyyCh
-	 s6arioKDv7wiTdfZ3DYXm28bg41+bMIsvAeiWgDQdgaT8rZbvf0vjlR1uZ8HVNuv9xMYuHHJY8kb
-	 1SMpxbwrjD8CP6Za8yV9ND8GhT645kMdgVdemTldgSJXar4xsO63KtVME4vGv9AOX4plxi42vknT
-	 jJ6cDPP4PmYH7uyLa910T0u/pOm/G9oPeejLHZG2zd+uOlPLHn7edK2EkUBmeK1cmq78mt+R5bPt
-	 JYfyd6p/FUcw+8Q/N83wj9imNQ0EAz+GAC+TJT49rdkOjLS7IM95sDr0P23LFDNkoJ0KNPwh4D7M
-	 Y71qrb0kYeRs/8K+erEXQ8qrkCTxMo3Egw1vuh1iO6Ak3J+JZm+bNUG7gX795rcsx4Qbz9EYgGpF
-	 m10kzxKEiQqzRfq3T2+BU1CmK7kvgNpdhEI5gOIBKA9v+tuprapwJbhIu44IthJGksPXBgXy9krf
-	 Y0jJKRGMXuKYqM+UWNICF5Z1lFWTZzwenVSKadxd+NQAw5SGee0HmnOB6pLqiGXguGb1VcZAKFAY
-	 hZH0pjjIJ2utkdlDh2w1i67TOtEqowMrNsZWNo8p4QkAH3g9HCORKD51XUE+BkFiuQWFD9n/S7O0
-	 xClVFqAN/t318d7CTF70ojhqK5HCL6MHHAmCvW3287aB1hTD36LLiPfEWteAHRUU6ikyfGBbk7jq
-	 LyWqDqq64hVLYOyus=
-X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
-Subject: Re: [PATCH] irqchip/sifive-plic: Fix insufficient irq_groups
- allocation
-From: Yangyu Chen <cyy@cyyself.name>
-In-Reply-To: <CABe3_aGGnNYuaLgEvAh42aE5cQj5w0+mj1vqt9UNQyz-EjJN8g@mail.gmail.com>
-Date: Wed, 21 Jan 2026 14:03:10 +0800
-Cc: linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Anup Patel <anup.patel@oss.qualcomm.com>,
- Samuel Holland <samuel.holland@sifive.com>,
- Lucas Zampieri <lzampier@redhat.com>,
- Thomas Gleixner <tglx@kernel.org>,
- Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>
-X-OQ-MSGID: <ACFFB7D8-3AAF-42D4-9F28-9C605A817FA9@cyyself.name>
-References: <tencent_6E9A1A3DF88005E3B4A11C4D7039637E4309@qq.com>
- <CABe3_aGGnNYuaLgEvAh42aE5cQj5w0+mj1vqt9UNQyz-EjJN8g@mail.gmail.com>
-To: Charles Mirabile <cmirabil@redhat.com>
-X-Mailer: Apple Mail (2.3864.300.41.1.7)
+	Wed, 21 Jan 2026 06:44:36 +0000
+X-UUID: 9ff90566f69411f0b0f03b4cfa9209d1-20260121
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:9300e27d-6a01-426e-8d3d-cc5a4d7499b9,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:29d47a59cb4704af44864fcde222a784,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:0|15|
+	50,EDM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
+	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 9ff90566f69411f0b0f03b4cfa9209d1-20260121
+X-User: jiangfeng@kylinos.cn
+Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <jiangfeng@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 981507235; Wed, 21 Jan 2026 14:44:24 +0800
+Message-ID: <691a0183-6f41-4956-82da-abb69a449919@kylinos.cn>
+Date: Wed, 21 Jan 2026 14:44:21 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/8] riscv: optimize string functions and add kunit
+ tests
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ akpm@linux-foundation.org, kees@kernel.org, andy@kernel.org,
+ ebiggers@kernel.org, martin.petersen@oracle.com, ardb@kernel.org,
+ charlie@rivosinc.com, conor.dooley@microchip.com, ajones@ventanamicro.com,
+ linus.walleij@linaro.org, nathan@kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20260120065852.166857-1-jiangfeng@kylinos.cn>
+ <aW8whGcAR0x6FSRJ@smile.fi.intel.com>
+Content-Language: en-US
+From: Feng Jiang <jiangfeng@kylinos.cn>
+In-Reply-To: <aW8whGcAR0x6FSRJ@smile.fi.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_220328_335359_944D27F7 
-X-CRM114-Status: GOOD (  31.33  )
+X-CRM114-CacheID: sfid-20260120_224434_817708_78811BBB 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,161 +79,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cgo+IE9uIDIxIEphbiAyMDI2LCBhdCAwMzoxNiwgQ2hhcmxlcyBNaXJhYmlsZSA8Y21pcmFiaWxA
-cmVkaGF0LmNvbT4gd3JvdGU6Cj4gCj4gSGkgWWFuZ3l14oCUCj4gCj4gT24gVHVlLCBKYW4gMjAs
-IDIwMjYgYXQgMTA6MzLigK9BTSBZYW5neXUgQ2hlbiA8Y3l5QGN5eXNlbGYubmFtZT4gd3JvdGU6
-Cj4+IAo+PiBTaW5jZSB0aGUgZmlyc3QgaXJxIHNvdXJjZSBpcyAxIGluc3RlYWQgb2YgMCwgd2hl
-biB0aGUgbnVtYmVyIG9mCj4+IGlycXMgaXMgbXVsdGlwbGUgb2YgMzIsIHRoZSBsYXN0IGlycSBn
-cm91cCB3aWxsIGJlIGlnbm9yZWQgZHVyaW5nCj4+IGFsbG9jYXRpb24sIHNhdmluZywgYW5kIHJl
-c3RvcmluZy4gVGhpcyBsZWFkIHRvIG1lbW9yeSBjb3JydXB0aW9uCj4+IHdoZW4gYWNjZXNzaW5n
-IGVuYWJsZV9zYXZlIGJleW9uZCBhbGxvY2F0ZWQgbWVtb3J5IGFmdGVyIGNvbW1pdAo+PiAxNGZm
-OWU1NGRkMTQgKCJpcnFjaGlwL3NpZml2ZS1wbGljOiBDYWNoZSB0aGUgaW50ZXJydXB0IGVuYWJs
-ZSBzdGF0ZSIpCj4+IHdoaWNoIHdpbGwgYWNjZXNzIGVuYWJsZV9zYXZlIGZvciBhbGwgc291cmNl
-cyBkdXJpbmcgcGxpY19wcm9iZS4KPj4gVGh1cywgd2Ugc2hvdWxkIGFsbG9jYXRlIGlycV9ncm91
-cHMgYmFzZWQgb24gKG5yX2lycXMgKyAxKSBpbnN0ZWFkIG9mCj4+IG5yX2lycXMgdG8gYXZvaWQg
-dGhpcyBpc3N1ZS4KPiAKPiBHb29kIGNhdGNoIQo+IAo+PiAKPj4gRml4ZXM6IDE0ZmY5ZTU0ZGQx
-NCAoImlycWNoaXAvc2lmaXZlLXBsaWM6IENhY2hlIHRoZSBpbnRlcnJ1cHQgZW5hYmxlIHN0YXRl
-IikKPiAKPiBJIHRoaW5rIHRoZSByb290IG9mIGJ1ZyBnb2VzIGJhY2sgZnVydGhlcjogZXZlbiB3
-aGVuIHRoZSBgZW5hYmxlX3NhdmVgCj4gYXJyYXkgd2FzIGZpcnN0IGludHJvZHVjZWQgaW4gZTgw
-ZjBiNmEyY2YzICgiaXJxY2hpcC9pcnEtc2lmaXZlLXBsaWM6Cj4gQWRkIHN5c2NvcmUgY2FsbGJh
-Y2tzIGZvciBoaWJlcm5hdGlvbiIpIGFuZCBvbmx5IHVzZWQgZHVyaW5nIHRoZQo+IHN1c3BlbmQv
-cmVzdW1lIGNvZGUgcGF0aCBpdCB3YXMgc3RpbGwgKG1vcmUgc2lsZW50bHkpIGJyb2tlbiBpZgo+
-IGBucl9pcnFzYCB3YXMgYSBtdWx0aXBsZSBvZiAzMi4gV2hpbGUgdGhlcmUgd291bGQgbm90IGJl
-IGFuIG91dCBvZgo+IGJvdW5kcyByZWFkL3dyaXRlLCB0aGUgc3RhdGUgb2YgdGhlIGxhc3QgaXJx
-IHdoaWNoIHdvdWxkIGhhbmcgb3Zlcgo+IGludG8gdGhlIG9uZSBhZGRpdGlvbmFsIHUzMiB5b3Vy
-IHBhdGNoIGFjY291bnRzIGZvciB3YXMgbm90IHByb3Blcmx5Cj4gc2F2ZWQvcmVzdG9yZWQuIEkg
-dGhpbmsgdGhhdCB0aGlzIHBhdGNoIHNob3VsZCBpbnN0ZWFkIGJlIGxpc3RlZCBmb3IKPiAiRml4
-ZXMiIGV2ZW4gdGhvdWdoIGl0IHdhcyBteSBwYXRjaCB0aGF0IHJldmVhbGVkIHRoZSBpc3N1ZSBh
-bmQKPiB1bHRpbWF0ZWx5IGFkZGVkIHRoZSBsaW5lIG9mIGNvZGUgdGhhdCBkaWQgdGhlIE9PQiBh
-Y2Nlc3Mgd2hlbgo+IHN1cHBsaWVkIHdpdGggdGhlIGhpZ2hlc3QgcG9zc2libGUgdmFsdWUgZm9y
-IGh3aXJxLiBQZXJoYXBzIGFsc28gYWRkCj4gRml4ZXM6IDUzOWQxNDdlZjY5YyAoImlycWNoaXAv
-c2lmaXZlLXBsaWM6IEFkZCBzdXBwb3J0IGZvciBVbHRyYVJJU0MKPiBEUDEwMDAgUExJQyIpIHNp
-bmNlIEkgY29waWVkIHRoZSBmYXVsdHkgbG9naWMgZm9yIGNhbGN1bGF0aW5nIHRoZQo+IGxlbmd0
-aCBpbnRvIHRoZSBuZXcgYGNwMTAwX2dldF9od2lycWAgZnVuY3Rpb24gd2hpY2ggeW91ciBwYXRj
-aCBhbHNvCj4gY29ycmVjdHMuCgoKSW5kZWVkLiBUaGFua3MgZm9yIHRoaXMgY2FyZWZ1bCByZXZp
-ZXcuIEkgaGF2ZSBzdWJtaXR0ZWQgdjIgdG8KYWRkcmVzcyB0aGlzOgoKaHR0cHM6Ly9wYXRjaHdv
-cmsua2VybmVsLm9yZy9wcm9qZWN0L2xpbnV4LXJpc2N2L3BhdGNoL3RlbmNlbnRfQTY5NzM5M0FF
-MjU2QzQyODg3NjgzNDJBRjI0NTA5OUE2OTBBQHFxLmNvbS8KClRoYW5rcywKWWFuZ3l1IENoZW4K
-Cgo+IAo+PiAKPj4gU2lnbmVkLW9mZi1ieTogWWFuZ3l1IENoZW4gPGN5eUBjeXlzZWxmLm5hbWU+
-Cj4+IC0tLQo+PiBUaGlzIGNhbiBiZSByZXByb2R1Y2VkIGJ5IG1vZGlmeWluZyB0aGUgUExJQyBu
-b2RlIGluIERUIHRvIGhhdmUgbmRldiBhcwo+PiBleGFjdGx5IG11bHRpcGxlIG9mIDMyLCBlLmcu
-LCAzMiwgNjQsIGV0Yy4sIHRoZW4gdHJpZ2dlcmluZyBzb21lIGludGVycnVwdHMKPj4gYW5kIGNo
-ZWNraW5nIGRtZXNnIGZvciBtZW1vcnkgY29ycnVwdGlvbjoKPj4gCj4+IHBsaWM6IHBsaWNAM2Mw
-MDAwMDAgewo+PiAgICAgICAgY29tcGF0aWJsZSA9ICJyaXNjdixwbGljMCI7Cj4+ICAgICAgICBy
-ZWcgPSA8MHgwIDB4M2MwMDAwMDAgMHgwIDB4NDAwMDAwMD47Cj4+ICAgICAgICAjaW50ZXJydXB0
-LWNlbGxzID0gPDE+Owo+PiAgICAgICAgaW50ZXJydXB0LWNvbnRyb2xsZXI7Cj4+ICAgICAgICBp
-bnRlcnJ1cHRzLWV4dGVuZGVkID0gPCZjcHUwX2ludGMgMTE+LCA8JmNwdTBfaW50YyA5PjsKPj4g
-ICAgICAgIHJpc2N2LG1heC1wcmlvcml0eSA9IDw3PjsKPj4gICAgICAgIHJpc2N2LG5kZXYgPSA8
-NjQ+Owo+PiB9Owo+PiAKPj4gSGVyZSBpcyBhbiBleGFtcGxlIGRtZXNnIGxvZyB3aGVuIG5kZXYg
-aXMgNjQ6Cj4+IAo+PiBbICAgIDAuMDc3MTk2XSBVbmFibGUgdG8gaGFuZGxlIGtlcm5lbCBwYWdp
-bmcgcmVxdWVzdCBhdCB2aXJ0dWFsIGFkZHJlc3MgZmZmZmFmODAwMDAwMDAwMAo+PiBbICAgIDAu
-MDc3MjA1XSBDdXJyZW50IHN3YXBwZXIvMCBwZ3RhYmxlOiA0SyBwYWdlc2l6ZSwgNDgtYml0IFZB
-cywgcGdkcD0weDAwMDAwMDAwODFjMmQwMDAKPj4gWyAgICAwLjA3NzIxNV0gW2ZmZmZhZjgwMDAw
-MDAwMDBdIHBnZD0wMDAwMDAwMDlmZmZmYzAxLCBwNGQ9MDAwMDAwMDA5ZmZmZmMwMSwgcHVkPTAw
-MDAwMDAwOWZmZmY4MDEsIHBtZD0wMDAwMDAwMDlmZmZmNDAxLCBwdGU9MDAwMDAwMDAwMDAwMDAw
-MAo+PiBbICAgIDAuMDc3MjQwXSBPb3BzIFsjMV0KPj4gWyAgICAwLjA3NzI0Nl0gTW9kdWxlcyBs
-aW5rZWQgaW46Cj4+IFsgICAgMC4wNzcyNTRdIENQVTogMCBVSUQ6IDAgUElEOiAxIENvbW06IHN3
-YXBwZXIvMCBOb3QgdGFpbnRlZCA2LjE5LjAtcmM2ICMzNiBOT05FCj4+IFsgICAgMC4wNzcyNjZd
-IEhhcmR3YXJlIG5hbWU6IFhpYW5nU2hhbiAoRFQpCj4+IFsgICAgMC4wNzcyNzNdIGVwYyA6IF9f
-a21hbGxvY19ub2RlX3RyYWNrX2NhbGxlcl9ub3Byb2YrMHgxYTAvMHg1MjQKPj4gWyAgICAwLjA3
-NzI4NF0gIHJhIDoga3N0cmR1cCsweDMyLzB4NjAKPj4gWyAgICAwLjA3NzI5M10gZXBjIDogZmZm
-ZmZmZmY4MDI1M2M3MCByYSA6IGZmZmZmZmZmODAxZmE3MGUgc3AgOiBmZmZmOGY4MDAwMDBiNzAw
-Cj4+IFsgICAgMC4wNzczMDRdICBncCA6IGZmZmZmZmZmODFhMWI1ODAgdHAgOiBmZmZmYWY4MDgw
-MTU4MDAwIHQwIDogMDAwMDAwMDAwMDAwMDI2NAo+PiBbICAgIDAuMDc3MzEzXSAgdDEgOiAwMDAw
-MDAwMDAwMDAwMDAzIHQyIDogMDAwMDAwMDAwMDAwMDAwMCBzMCA6IGZmZmY4ZjgwMDAwMGI3NTAK
-Pj4gWyAgICAwLjA3NzMyM10gIHMxIDogMDAwMDAwMDAwMDAwMDAwMiBhMCA6IGZmZmZhZjgwMDAw
-MDAwMDAgYTEgOiAwMDAwMDAwMDAwMDAwY2MwCj4+IFsgICAgMC4wNzczMzJdICBhMiA6IGZmZmY4
-ZDgwMDIwMGJmYzAgYTMgOiBmZmZmZmZmZjgxYTVjNWUwIGE0IDogZmZmZmFmODAwMDAwMDAwMAo+
-PiBbICAgIDAuMDc3MzQyXSAgYTUgOiAwMDAwMDAwMDAwMDAwMDAzIGE2IDogZmZmZmZmZmZmZmZm
-ZmZmZiBhNyA6IGZmZmZhZjgwODAwMDE0MDAKPj4gWyAgICAwLjA3NzM1Ml0gIHMyIDogZmZmZmFm
-ODA4MDJmZjE3OCBzMyA6IGZmZmZmZmZmODEwMTA3ZjAgczQgOiAwMDAwMDAwMDAwMDAwMDAwCj4+
-IFsgICAgMC4wNzczNjJdICBzNSA6IDAwMDAwMDAwMDAwMDAwMDAgczYgOiBmZmZmOGY4MDAwMDBi
-OWMwIHM3IDogZmZmZmFmODA4MDgyMzIwMAo+PiBbICAgIDAuMDc3MzcyXSAgczggOiBmZmZmZmZm
-ZjgxYTIwNTgwIHM5IDogZmZmZmFmODA4MDEyYzk5MCBzMTA6IGZmZmZmZmZmZmZmZmZmZmYKPj4g
-WyAgICAwLjA3NzM4Ml0gIHMxMTogMDAwMDAwMDAwMDAwMDAwMCB0MyA6IDAwMDAwMDAwMDAwMDBj
-YzAgdDQgOiBmZmZmZmZmZjgwMWZhNzY0Cj4+IFsgICAgMC4wNzczOTFdICB0NSA6IDAwMDAwMDAw
-MDAwMDAwMDAgdDYgOiAwMDAwMDAwMDAwMDAwMjYzCj4+IFsgICAgMC4wNzczOTldIHN0YXR1czog
-MDAwMDAwMDIwMDAwMDEyMCBiYWRhZGRyOiBmZmZmYWY4MDAwMDAwMDAwIGNhdXNlOiAwMDAwMDAw
-MDAwMDAwMDBkCj4+IFsgICAgMC4wNzc0MDldIFs8ZmZmZmZmZmY4MDI1M2M3MD5dIF9fa21hbGxv
-Y19ub2RlX3RyYWNrX2NhbGxlcl9ub3Byb2YrMHgxYTAvMHg1MjQKPj4gWyAgICAwLjA3NzQyMl0g
-WzxmZmZmZmZmZjgwMWZhNzBlPl0ga3N0cmR1cCsweDMyLzB4NjAKPj4gWyAgICAwLjA3NzQzM10g
-WzxmZmZmZmZmZjgwMWZhNzY0Pl0ga3N0cmR1cF9jb25zdCsweDI4LzB4MzQKPj4gWyAgICAwLjA3
-NzQ0NF0gWzxmZmZmZmZmZjgwMzE4NDM4Pl0gX19rZXJuZnNfbmV3X25vZGUrMHgzYy8weDI3NAo+
-PiBbICAgIDAuMDc3NDU3XSBbPGZmZmZmZmZmODAzMThhOTA+XSBrZXJuZnNfbmV3X25vZGUrMHg0
-NC8weDZjCj4+IFsgICAgMC4wNzc0NzBdIFs8ZmZmZmZmZmY4MDMxOGY0MD5dIGtlcm5mc19jcmVh
-dGVfZGlyX25zKzB4MjAvMHg3Ywo+PiBbICAgIDAuMDc3NDgzXSBbPGZmZmZmZmZmODAzMWI4Zjg+
-XSBzeXNmc19jcmVhdGVfZGlyX25zKzB4NjAvMHhjYwo+PiBbICAgIDAuMDc3NDk3XSBbPGZmZmZm
-ZmZmODBiNDFiZWE+XSBrb2JqZWN0X2FkZF9pbnRlcm5hbCsweGFlLzB4MmQ4Cj4+IFsgICAgMC4w
-Nzc1MDldIFs8ZmZmZmZmZmY4MGI0MjJkNj5dIGtvYmplY3RfYWRkKzB4NTIvMHhiOAo+PiBbICAg
-IDAuMDc3NTIwXSBbPGZmZmZmZmZmODBiNjQwMWM+XSBfX2lycV9hbGxvY19kZXNjcysweDE5MC8w
-eDMyOAo+PiBbICAgIDAuMDc3NTM0XSBbPGZmZmZmZmZmODAwOTc2ZGU+XSBpcnFfZG9tYWluX2Fs
-bG9jX2Rlc2NzLnBhcnQuMCsweDQ2LzB4NzgKPj4gWyAgICAwLjA3NzU0OV0gWzxmZmZmZmZmZjgw
-MDk4MjdhPl0gaXJxX2NyZWF0ZV9tYXBwaW5nX2FmZmluaXR5KzB4NzIvMHhjYwo+PiBbICAgIDAu
-MDc3NTYxXSBbPGZmZmZmZmZmODA1ZDI3ZDI+XSBwbGljX3Byb2JlKzB4MmUyLzB4NmM4Cj4+IFsg
-ICAgMC4wNzc1NzNdIFs8ZmZmZmZmZmY4MDVkMmJjOD5dIHBsaWNfcGxhdGZvcm1fcHJvYmUrMHgx
-MC8weDE4Cj4+IFsgICAgMC4wNzc1ODZdIFs8ZmZmZmZmZmY4MDcyM2FjYT5dIHBsYXRmb3JtX3By
-b2JlKzB4NDYvMHg4MAo+PiBbICAgIDAuMDc3NjAwXSBbPGZmZmZmZmZmODA3MjEyZWM+XSByZWFs
-bHlfcHJvYmUrMHg4NC8weDIyYwo+PiBbICAgIDAuMDc3NjEyXSBbPGZmZmZmZmZmODA3MjE0ZjA+
-XSBfX2RyaXZlcl9wcm9iZV9kZXZpY2UrMHg1Yy8weGQ0Cj4+IFsgICAgMC4wNzc2MjVdIFs8ZmZm
-ZmZmZmY4MDcyMTYyZT5dIGRyaXZlcl9wcm9iZV9kZXZpY2UrMHgyZS8weGY0Cj4+IFsgICAgMC4w
-Nzc2MzldIFs8ZmZmZmZmZmY4MDcyMTg1Nj5dIF9fZHJpdmVyX2F0dGFjaCsweDZlLzB4MTRjCj4+
-IFsgICAgMC4wNzc2NTJdIFs8ZmZmZmZmZmY4MDcxZjQzND5dIGJ1c19mb3JfZWFjaF9kZXYrMHg2
-MC8weGIwCj4+IFsgICAgMC4wNzc2NjRdIFs8ZmZmZmZmZmY4MDcyMGUyMj5dIGRyaXZlcl9hdHRh
-Y2grMHgxYS8weDI0Cj4+IFsgICAgMC4wNzc2NzZdIFs8ZmZmZmZmZmY4MDcyMDY4YT5dIGJ1c19h
-ZGRfZHJpdmVyKzB4Y2EvMHgxZDgKPj4gWyAgICAwLjA3NzY4OV0gWzxmZmZmZmZmZjgwNzIyNjIy
-Pl0gZHJpdmVyX3JlZ2lzdGVyKzB4M2UvMHhkYwo+PiBbICAgIDAuMDc3NzAyXSBbPGZmZmZmZmZm
-ODA3MjM4MTA+XSBfX3BsYXRmb3JtX2RyaXZlcl9yZWdpc3RlcisweDFjLzB4MjQKPj4gWyAgICAw
-LjA3NzcxNl0gWzxmZmZmZmZmZjgwYzI5NDZlPl0gcGxpY19kcml2ZXJfaW5pdCsweDFhLzB4MjQK
-Pj4gWyAgICAwLjA3NzcyOF0gWzxmZmZmZmZmZjgwMDEwOGFhPl0gZG9fb25lX2luaXRjYWxsKzB4
-NGUvMHgxYjgKPj4gWyAgICAwLjA3Nzc0MF0gWzxmZmZmZmZmZjgwYzAxMzU4Pl0ga2VybmVsX2lu
-aXRfZnJlZWFibGUrMHgyNWMvMHgyZGMKPj4gWyAgICAwLjA3Nzc1NF0gWzxmZmZmZmZmZjgwYjYz
-OWNjPl0ga2VybmVsX2luaXQrMHgxYy8weDE0NAo+PiBbICAgIDAuMDc3NzY4XSBbPGZmZmZmZmZm
-ODAwMTIzOWE+XSByZXRfZnJvbV9mb3JrX2tlcm5lbCsweGUvMHhmNAo+PiBbICAgIDAuMDc3Nzgx
-XSBbPGZmZmZmZmZmODBiNmU0ZWU+XSByZXRfZnJvbV9mb3JrX2tlcm5lbF9hc20rMHgxNi8weDE4
-Cj4+IFsgICAgMC4wNzc4MDBdIENvZGU6IDYzMDggMGM2MyAyYTA2IDBhNjMgMmEwNSBlNzAzIDAz
-MDggODI5MyAwMDFmIDk3MmEgKDYzMGMpIDdmNzMKPj4gWyAgICAwLjA3NzgwOV0gLS0tWyBlbmQg
-dHJhY2UgMDAwMDAwMDAwMDAwMDAwMCBdLS0tCj4+IFsgICAgMC4wNzc4MTddIEtlcm5lbCBwYW5p
-YyAtIG5vdCBzeW5jaW5nOiBBdHRlbXB0ZWQgdG8ga2lsbCBpbml0ISBleGl0Y29kZT0weDAwMDAw
-MDBiCj4+IFsgICAgMC4wNzc4MjddIC0tLVsgZW5kIEtlcm5lbCBwYW5pYyAtIG5vdCBzeW5jaW5n
-OiBBdHRlbXB0ZWQgdG8ga2lsbCBpbml0ISBleGl0Y29kZT0weDAwMDAwMDBiIF0tLS0KPj4gLS0t
-Cj4+IGRyaXZlcnMvaXJxY2hpcC9pcnEtc2lmaXZlLXBsaWMuYyB8IDYgKysrLS0tCj4+IDEgZmls
-ZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCj4+IAo+PiBkaWZmIC0t
-Z2l0IGEvZHJpdmVycy9pcnFjaGlwL2lycS1zaWZpdmUtcGxpYy5jIGIvZHJpdmVycy9pcnFjaGlw
-L2lycS1zaWZpdmUtcGxpYy5jCj4+IGluZGV4IDIxMGE1Nzk1OTYzNy4uZDY1MTViZjc2NDQ0IDEw
-MDY0NAo+PiAtLS0gYS9kcml2ZXJzL2lycWNoaXAvaXJxLXNpZml2ZS1wbGljLmMKPj4gKysrIGIv
-ZHJpdmVycy9pcnFjaGlwL2lycS1zaWZpdmUtcGxpYy5jCj4+IEBAIC0yOTMsNyArMjkzLDcgQEAg
-c3RhdGljIHZvaWQgcGxpY19pcnFfcmVzdW1lKHZvaWQgKmRhdGEpCj4+ICAgICAgICAgICAgICAg
-ICAgICAgICAgY29udGludWU7Cj4+IAo+PiAgICAgICAgICAgICAgICByYXdfc3Bpbl9sb2NrX2ly
-cXNhdmUoJmhhbmRsZXItPmVuYWJsZV9sb2NrLCBmbGFncyk7Cj4+IC0gICAgICAgICAgICAgICBm
-b3IgKGkgPSAwOyBpIDwgRElWX1JPVU5EX1VQKHByaXYtPm5yX2lycXMsIDMyKTsgaSsrKSB7Cj4+
-ICsgICAgICAgICAgICAgICBmb3IgKGkgPSAwOyBpIDwgRElWX1JPVU5EX1VQKHByaXYtPm5yX2ly
-cXMgKyAxLCAzMik7IGkrKykgewo+PiAgICAgICAgICAgICAgICAgICAgICAgIHJlZyA9IGhhbmRs
-ZXItPmVuYWJsZV9iYXNlICsgaSAqIHNpemVvZih1MzIpOwo+PiAgICAgICAgICAgICAgICAgICAg
-ICAgIHdyaXRlbChoYW5kbGVyLT5lbmFibGVfc2F2ZVtpXSwgcmVnKTsKPj4gICAgICAgICAgICAg
-ICAgfQo+PiBAQCAtNDMxLDcgKzQzMSw3IEBAIHN0YXRpYyB1MzIgY3AxMDBfaXNvbGF0ZV9wZW5k
-aW5nX2lycShpbnQgbnJfaXJxX2dyb3Vwcywgc3RydWN0IHBsaWNfaGFuZGxlciAqaGFuCj4+IAo+
-PiBzdGF0aWMgaXJxX2h3X251bWJlcl90IGNwMTAwX2dldF9od2lycShzdHJ1Y3QgcGxpY19oYW5k
-bGVyICpoYW5kbGVyLCB2b2lkIF9faW9tZW0gKmNsYWltKQo+PiB7Cj4+IC0gICAgICAgaW50IG5y
-X2lycV9ncm91cHMgPSBESVZfUk9VTkRfVVAoaGFuZGxlci0+cHJpdi0+bnJfaXJxcywgMzIpOwo+
-PiArICAgICAgIGludCBucl9pcnFfZ3JvdXBzID0gRElWX1JPVU5EX1VQKGhhbmRsZXItPnByaXYt
-Pm5yX2lycXMgKyAxLCAzMik7Cj4+ICAgICAgICB1MzIgX19pb21lbSAqZW5hYmxlID0gaGFuZGxl
-ci0+ZW5hYmxlX2Jhc2U7Cj4+ICAgICAgICBpcnFfaHdfbnVtYmVyX3QgaHdpcnEgPSAwOwo+PiAg
-ICAgICAgdTMyIGlzb19tYXNrOwo+PiBAQCAtNzE4LDcgKzcxOCw3IEBAIHN0YXRpYyBpbnQgcGxp
-Y19wcm9iZShzdHJ1Y3QgZndub2RlX2hhbmRsZSAqZndub2RlKQo+PiAgICAgICAgICAgICAgICAg
-ICAgICAgIGNvbnRleHRfaWQgKiBDT05URVhUX0VOQUJMRV9TSVpFOwo+PiAgICAgICAgICAgICAg
-ICBoYW5kbGVyLT5wcml2ID0gcHJpdjsKPj4gCj4+IC0gICAgICAgICAgICAgICBoYW5kbGVyLT5l
-bmFibGVfc2F2ZSA9IGtjYWxsb2MoRElWX1JPVU5EX1VQKG5yX2lycXMsIDMyKSwKPj4gKyAgICAg
-ICAgICAgICAgIGhhbmRsZXItPmVuYWJsZV9zYXZlID0ga2NhbGxvYyhESVZfUk9VTkRfVVAobnJf
-aXJxcyArIDEsIDMyKSwKPj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgIHNpemVvZigqaGFuZGxlci0+ZW5hYmxlX3NhdmUpLCBHRlBfS0VSTkVMKTsKPj4gICAg
-ICAgICAgICAgICAgaWYgKCFoYW5kbGVyLT5lbmFibGVfc2F2ZSkgewo+PiAgICAgICAgICAgICAg
-ICAgICAgICAgIGVycm9yID0gLUVOT01FTTsKPj4gLS0KPj4gMi41MS4wCj4+IAo+IAo+IEJlc3Ti
-gJRDaGFybGllCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On 2026/1/20 15:36, Andy Shevchenko wrote:
+> On Tue, Jan 20, 2026 at 02:58:44PM +0800, Feng Jiang wrote:
+>> This series provides optimized implementations of strnlen(), strchr(),
+>> and strrchr() for the RISC-V architecture. The strnlen implementation
+>> is derived from the existing optimized strlen. For strchr and strrchr,
+> 
+> strchr() and strrchr()
+>>> the current versions use simple byte-by-byte assembly logic, which
+>> will serve as a baseline for future Zbb-based optimizations.
+>>
+>> The patch series is organized into three parts:
+>> 1. Correctness Testing: The first three patches add KUnit test cases
+>>    for strlen, strnlen, and strrchr to ensure the baseline and optimized
+> 
+> strlen(), strnlen(), and strrchr()
+
+Will fix these to include parentheses consistently in the next version.
+
+>> Performance Summary (Improvement %):
+>> ---------------------------------------------------------------
+>> Function  |  16 B (Short) |  512 B (Mid) |  4096 B (Long)
+>> ---------------------------------------------------------------
+>> strnlen   |    +64.0%     |   +346.2%    |    +410.7%
+> 
+> This is still suspicious.
+> 
+
+Regarding the +410% gain, it becomes clearer when looking at the inner loop of the
+Zbb implementation (https://docs.riscv.org/reference/isa/unpriv/b-st-ext.html#zbb).
+For a 64-bit system, the core loop uses only 5 instructions to process 8 bytes.
+Note that t3 is pre-loaded with -1 (0xFFFFFFFFFFFFFFFF):
+
+1:
+    REG_L   t1, SZREG(t0)      /* Load 8 bytes */
+    addi    t0, t0, SZREG      /* Advance pointer */
+    orc.b   t1, t1             /* Bitwise OR-Combine: 0x00 becomes 0x00, others 0xFF */
+    bgeu    t0, t4, 4f         /* Boundary check (max_len) */
+    beq     t1, t3, 1b         /* If t1 == 0xFFFFFFFFFFFFFFFF (no NUL), loop */
+
+In contrast, the generic C implementation performs byte-by-byte comparisons, which involves
+significantly more loads and branches for every single byte processed. The Zbb approach is
+much leaner: the orc.b instruction collapses the NUL-check for an entire 8-byte word into a
+single step. By shifting from a byte-oriented loop to this hardware-accelerated word-at-a-time
+logic, we drastically reduce the instruction count and branch overhead, which explains the
+massive jump in TCG throughput for long strings.
+
+Beyond the main loop, the Zbb implementation also utilizes ctz (Count Trailing Zeros)
+to handle the tail and alignment. Once orc.b identifies a NUL byte within a register,
+we can precisely locate its position in just two instructions:
+
+    not     t1, t1             /* Flip bits: NUL byte (0x00) becomes 0xFF */
+    ctz     t1, t1             /* Count bits before the first NUL byte */
+    srli    t1, t1, 3          /* Divide by 8 to get byte offset */
+
+In a generic C implementation, calculating this byte offset typically requires a series
+of shifts, masks, or a sub-loop, which adds significant overhead. By combining orc.b and
+ctz, we eliminate all branching and lookup tables for the tail-end calculation, further
+contributing to the performance gains observed in the benchmarks.
+
+>> strchr    |    +4.0%      |   +6.4%      |    +1.5%
+>> strrchr   |    +6.6%      |   +2.8%      |    +0.0%
+
+As for strchr() and strrchr(), the relatively modest improvements are because the current
+versions in this series are implemented using simple byte-by-byte assembly. These primarily
+gain performance by reducing function call overhead and eliminating stack frame management
+compared to the generic C version.
+
+Unlike strnlen(), they do not yet utilize Zbb extensions. I plan to introduce Zbb-optimized
+versions for these functions in a future patch set, which I expect will bring performance
+gains similar to what we now see with strnlen().
+
+>> word-at-a-time logic, showing significant gains as the string length
+>> increases.
+> 
+> Hmm... Have you tried to optimise the generic implementation to use
+> word-at-a-time logic and compare?
+> 
+
+Regarding the generic implementation, even if we were to optimize the C code
+to use word-at-a-time logic (the has_zero() style bit-manipulation), it still
+wouldn't match the Zbb version's efficiency.
+
+The traditional C-based word-level detection requires a sequence of arithmetic
+operations to identify NUL bytes. In contrast, the RISC-V orc.b instruction
+collapses this entire check into a single hardware cycle. I've focused on this
+architectural approach to fully leverage these specific Zbb features, which
+provides a level of instruction density that generic C math cannot achieve.
+
+>> For strchr and strrchr, the handwritten assembly reduces
+> 
+> strchr() and strrchr()
+> 
+>> fixed overhead by eliminating stack frame management. The gain is most
+>> prominent on short strings (1-16B) where function call overhead dominates,
+>> while the performance converges with the C implementation for longer
+>> strings in the TCG environment.
+> 
+
+Thanks for your detailed review!
+
+-- 
+With Best Regards,
+Feng Jiang
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
