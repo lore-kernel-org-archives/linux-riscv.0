@@ -4,80 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD54C44508
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 17:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DD73C44506
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 18:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rFwQq5aL8DXPSdR26HagVkdtHjiBiJ3R28EB161Snbw=; b=vzHuAWN0j+SmCa
-	ewMJD0MZcomobdW7FAIjVs++qiNydYWcHeda2a1nxtyXjPj8tcSCnS5quYvXnUenCU0aEutyDdLAJ
-	cUlWGb1CMDKGka2hGnbCK+z2rkE4oeZZ+g3aBWmoEiYb3ffv2m/NA1H0++PaVmshk9P5JRuY4nJFI
-	w/RHaJoFAAVXkrb2sNpFTwFjCaFpBi6VF4kUqtOo5B3/fGpI+nyRdNVCR16ZLjw87WrFCrQkMEFua
-	6/+ZDYjDgU5NDYMiBCIIUgq7PbA3tWIB8osz0SAyiiNpB2CQXlzyqrQuAhF8Dc8WodoXj8qWQM5Bg
-	b3zXpC6RpdQt1ITFPGmw==;
+	List-Owner; bh=RLV2wvaGsYWKwA5x/mgW9Rw0JCVyVXtQc8AahjIzF18=; b=1Ud3/vWkzPNMqI
+	Tdx6E5emFelah6ZL6fbLFkgMjI5pxuCGDSKpz+WhfAFByzsL4vABhVriZGvb0KeFrjyZhbSzwDRVk
+	LlzXoWtTChIHd8ef3plnwIdKGEIc8WARAHy6PYwWFMt2NqnD3P9SYzTw4rj1ti0PsCpfuTgBP5L3T
+	WtUPj/mgRRiEWp6ZvIIpU66vH6xtIAJJuC84LnaoP//36mfHgyQEQlgsA/4r9riTaMgqBLAtHRO3H
+	Mya+ql+LTijjTnZDgmZt3CbqwBpFuzvxtLfQrjzyjtt0l33QhfciXYMf4VtvM+C3gn/vZGBsbICxc
+	wIhIAA+Ui2v0AOYTt5Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vicM7-00000005tEj-0TPm;
-	Wed, 21 Jan 2026 17:50:59 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1vico2-00000005uzr-20Aq;
+	Wed, 21 Jan 2026 18:19:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vicM4-00000005tEH-1cie
+	id 1vico1-00000005uzd-3FAJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jan 2026 17:50:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769017856; x=1800553856;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=3MYiRsfmJspvl/SoswP+hUfE8ou4Z+5WbA9yfdIRxl8=;
-  b=d7CAJriXKe4JYGUJbfDsC/NKds+6hyFqQA04ll3vsVMRgVbAF00cZ6uE
-   xzBvnTYwaW6aWY6eOUmjFtTsKF4zWOYDgfzU9ruVdnWl4USE2rPIkwPyW
-   Ddjp8z99ywiHVIsg9FJSnJrN/Si/gdbeABnLcMsT8jOUOtFC7r8mLs5KQ
-   9pOloHTyYb/8zqPIO7hcwwBmLM82m6fibPtc2waXPfDznzgWhPR+bkOAz
-   hpU9FHRhbtntnLpBb63t8lauHnayvL9tDKbv9Y5gib0pzSf8amCbTJqVN
-   EkGKsHyIAZ1KgZn8DB3JxB3/WSdaHXyrWGfhu/uVRWFVD44w8kJF3gxz2
-   A==;
-X-CSE-ConnectionGUID: yqp1otWkRBum/OmEdzL+fA==
-X-CSE-MsgGUID: BaGruEpNRPuXLIW23zwCjw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11678"; a="81359609"
-X-IronPort-AV: E=Sophos;i="6.21,242,1763452800"; 
-   d="scan'208";a="81359609"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jan 2026 09:50:55 -0800
-X-CSE-ConnectionGUID: tOvd/WTMRkaB/9UPRysoMA==
-X-CSE-MsgGUID: OKccG1LuQCyNjYxKe0uJPg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,242,1763452800"; 
-   d="scan'208";a="206935246"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by fmviesa009.fm.intel.com with ESMTP; 21 Jan 2026 09:50:51 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vicLx-00000000RW1-0t8L;
-	Wed, 21 Jan 2026 17:50:49 +0000
-Date: Thu, 22 Jan 2026 01:50:11 +0800
-From: kernel test robot <lkp@intel.com>
-To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S . Miller" <davem@davemloft.net>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: Re: [PATCH] crypto: aegis128: Add RISC-V vector SIMD implementation
-Message-ID: <202601220110.ontiS30n-lkp@intel.com>
-References: <20260121101923.64657-1-zhangchunyan@iscas.ac.cn>
+	Wed, 21 Jan 2026 18:19:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AAC426012A;
+	Wed, 21 Jan 2026 18:19:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49B8DC19422;
+	Wed, 21 Jan 2026 18:19:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769019588;
+	bh=3CcvuOymMDRK29xRNEntJWvnGy/LwN0+SLFJAFzMZ8E=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=FUOmjg4HrSD61U4mlQAZ2io3Zte8HunIIzqI9X38l4TxHj4+sXDnnimRkkzhg48z+
+	 pKmK7u/0L4SIbZ/zuD/cDr+S7Cn3+a/RVXE4zrZDnQJgCZF8TbYaFvoDn/mOtcARYX
+	 9If04c6uexTGdhoS94fjzqkDqv1i8HSe6gfUwlUniMn35nMslP4CetvR8fKjIcLWDr
+	 K8ICPXuReV9hvuAu/ZhJS+OEXpMFvP7By0SeDnlUlaRkcDpK13YtvFy17RqofV2O96
+	 URtUOkWEYp5OnNss1sdZ4Rl7cDUQwPys+BpScyomcz3hHAaH+ofdCXsNOwH53fYxl0
+	 AWkav6kw/5FCg==
+Date: Wed, 21 Jan 2026 11:19:44 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+    Boqun Feng <boqun.feng@gmail.com>, Mark Rutland <mark.rutland@arm.com>, 
+    Gary Guo <gary@garyguo.net>, Yury Norov <yury.norov@gmail.com>, 
+    Rasmus Villemoes <linux@rasmusvillemoes.dk>, cfu@wavecomp.com, 
+    torvalds@linux-foundation.org, olof@lixom.net, 
+    aleksa.paunovic@htecgroup.com, arikalo@gmail.com, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] Support for Risc-V CPUs implementing LR/SC but
+ not AMO
+In-Reply-To: <20260120-lrsc-only-v2-0-a522e640d27d@mobileye.com>
+Message-ID: <6201870b-b50d-f6e2-814b-7a1fdbf064db@kernel.org>
+References: <DFSQIY6WV4U7.3B3RY31KE739B@garyguo.net> <20260120-lrsc-only-v2-0-a522e640d27d@mobileye.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260121101923.64657-1-zhangchunyan@iscas.ac.cn>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_095056_479647_F97F7AE3 
-X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,188 +76,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Chunyan,
+Hi Vladimir,
 
-kernel test robot noticed the following build errors:
+On Tue, 20 Jan 2026, Vladimir Kondratiev wrote:
 
-[auto build test ERROR on herbert-cryptodev-2.6/master]
-[also build test ERROR on herbert-crypto-2.6/master linus/master v6.19-rc6 next-20260120]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> Primary goal is to support Mobileye eyeq7h automotive platform
+> based on MIPS P8700 CPU [1] having only "zalrsc" ISA extension but
+> not full "a".
+> 
+> Such platforms need userspace to be compiled with correct
+> "-march" flags to generate proper instructions for the atomic types
+> so there's not feasible to use universal userspace for it.
+> Thus there's no point to do same binary kernel suitable for both
+> "full A" and "LRSC only" platform types. Do a compile time
+> alternatives and require CONFIG_NONPORTABLE for this
+> 
+> [1] https://mips.com/products/hardware/p8700/
+> 
+> Patch 1 do most of work to provide compile-time LR/SC alternatives
+>         for the AMO instructions
+> Patch 2 adjust tests for reported CPU extensions compatibility with
+>         the code
+> 
+> Changes in v2: switch from dynamic atomic flavor resolution to
+> compile-time one.
+> 
+> Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Chunyan-Zhang/crypto-aegis128-Add-RISC-V-vector-SIMD-implementation/20260121-184354
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git master
-patch link:    https://lore.kernel.org/r/20260121101923.64657-1-zhangchunyan%40iscas.ac.cn
-patch subject: [PATCH] crypto: aegis128: Add RISC-V vector SIMD implementation
-config: riscv-randconfig-001-20260121 (https://download.01.org/0day-ci/archive/20260122/202601220110.ontiS30n-lkp@intel.com/config)
-compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260122/202601220110.ontiS30n-lkp@intel.com/reproduce)
+Thanks for updating the patches so quickly to deal with Gary's comments. I 
+think we should hold off on merging them until common userspace providers 
+(like Linux distributions) or distribution builders (like OE/Yocto or 
+Buildroot) merge support for this configuration, along with underlying 
+projects like glibc.  That way, the rest of us have a way to test our 
+patches on this unusual configuration before sending them to the list, or 
+sending PRs upstream.  It should be straightforward to get the Zalrsc-only 
+userspace support patches tested on existing RISC-V Linux hardware, since 
+it supports a superset of this behavior.  I guess the only question is 
+whether other projects are interested in committing to carrying forward 
+the necessary changes.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601220110.ontiS30n-lkp@intel.com/
-
-All error/warnings (new ones prefixed by >>):
-
->> crypto/aegis128-rvv.c:21:2: error: call to undeclared function 'kernel_vector_begin'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           kernel_vector_begin();
-           ^
->> crypto/aegis128-rvv.c:23:2: error: call to undeclared function 'kernel_vector_end'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           kernel_vector_end();
-           ^
-   crypto/aegis128-rvv.c:28:2: error: call to undeclared function 'kernel_vector_begin'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           kernel_vector_begin();
-           ^
-   crypto/aegis128-rvv.c:30:2: error: call to undeclared function 'kernel_vector_end'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           kernel_vector_end();
-           ^
-   crypto/aegis128-rvv.c:36:2: error: call to undeclared function 'kernel_vector_begin'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           kernel_vector_begin();
-           ^
-   crypto/aegis128-rvv.c:38:2: error: call to undeclared function 'kernel_vector_end'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           kernel_vector_end();
-           ^
-   crypto/aegis128-rvv.c:44:2: error: call to undeclared function 'kernel_vector_begin'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           kernel_vector_begin();
-           ^
-   crypto/aegis128-rvv.c:46:2: error: call to undeclared function 'kernel_vector_end'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           kernel_vector_end();
-           ^
-   crypto/aegis128-rvv.c:57:2: error: call to undeclared function 'kernel_vector_begin'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           kernel_vector_begin();
-           ^
-   crypto/aegis128-rvv.c:60:2: error: call to undeclared function 'kernel_vector_end'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           kernel_vector_end();
-           ^
-   10 errors generated.
---
->> crypto/aegis128-rvv-inner.c:317:10: warning: unknown option, expected 'push', 'pop', 'rvc', 'norvc', 'relax' or 'norelax' [-Winline-asm]
-                         ".option  arch,+v\n"
-                          ^
-   <inline asm>:2:9: note: instantiated into assembly here
-   .option arch,+v
-           ^
->> crypto/aegis128-rvv-inner.c:318:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vsetivli zero, 0x10, e8, m1, ta, ma\n"
-                          ^
-   <inline asm>:3:1: note: instantiated into assembly here
-   vsetivli        zero, 0x10, e8, m1, ta, ma
-   ^
-   crypto/aegis128-rvv-inner.c:319:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vle8.v   v0, (%[const0])\n"
-                          ^
-   <inline asm>:4:1: note: instantiated into assembly here
-   vle8.v  v0, (a5)
-   ^
-   crypto/aegis128-rvv-inner.c:320:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vle8.v   v1, (%[const1])\n"
-                          ^
-   <inline asm>:5:1: note: instantiated into assembly here
-   vle8.v  v1, (s1)
-   ^
-   crypto/aegis128-rvv-inner.c:321:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vse8.v   v0, (%[block2])\n"
-                          ^
-   <inline asm>:6:1: note: instantiated into assembly here
-   vse8.v  v0, (a1)
-   ^
-   crypto/aegis128-rvv-inner.c:322:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vse8.v   v1, (%[block1])\n"
-                          ^
-   <inline asm>:7:1: note: instantiated into assembly here
-   vse8.v  v1, (a0)
-   ^
-   crypto/aegis128-rvv-inner.c:323:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vle8.v   v2, (%[iv])\n"
-                          ^
-   <inline asm>:8:1: note: instantiated into assembly here
-   vle8.v  v2, (a2)
-   ^
-   crypto/aegis128-rvv-inner.c:324:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vle8.v   v3, (%[key])\n"
-                          ^
-   <inline asm>:9:1: note: instantiated into assembly here
-   vle8.v  v3, (s2)
-   ^
-   crypto/aegis128-rvv-inner.c:325:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vxor.vv  v0, v0, v3\n"
-                          ^
-   <inline asm>:10:1: note: instantiated into assembly here
-   vxor.vv v0, v0, v3
-   ^
-   crypto/aegis128-rvv-inner.c:326:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vxor.vv  v1, v1, v3\n"
-                          ^
-   <inline asm>:11:1: note: instantiated into assembly here
-   vxor.vv v1, v1, v3
-   ^
-   crypto/aegis128-rvv-inner.c:327:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vxor.vv  v2, v2, v3\n"
-                          ^
-   <inline asm>:12:1: note: instantiated into assembly here
-   vxor.vv v2, v2, v3
-   ^
-   crypto/aegis128-rvv-inner.c:328:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vse8.v   v2, (%[block0])\n"
-                          ^
-   <inline asm>:13:1: note: instantiated into assembly here
-   vse8.v  v2, (s3)
-   ^
-   crypto/aegis128-rvv-inner.c:329:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vse8.v   v2, (%[kiv])\n"
-                          ^
-   <inline asm>:14:1: note: instantiated into assembly here
-   vse8.v  v2, (s6)
-   ^
-   crypto/aegis128-rvv-inner.c:330:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vse8.v   v0, (%[block3])\n"
-                          ^
-   <inline asm>:15:1: note: instantiated into assembly here
-   vse8.v  v0, (a3)
-   ^
-   crypto/aegis128-rvv-inner.c:331:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vse8.v   v1, (%[block4])\n"
-                          ^
-   <inline asm>:16:1: note: instantiated into assembly here
-   vse8.v  v1, (a4)
-   ^
-   crypto/aegis128-rvv-inner.c:82:10: warning: unknown option, expected 'push', 'pop', 'rvc', 'norvc', 'relax' or 'norelax' [-Winline-asm]
-                         ".option  arch,+v\n"
-                          ^
-   <inline asm>:2:9: note: instantiated into assembly here
-   .option arch,+v
-           ^
-   crypto/aegis128-rvv-inner.c:83:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vsetivli zero, 0x10, e8, m1, ta, ma\n"
-                          ^
-   <inline asm>:3:1: note: instantiated into assembly here
-   vsetivli        zero, 0x10, e8, m1, ta, ma
-   ^
-   crypto/aegis128-rvv-inner.c:84:10: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
-                         "vle8.v   v13, (%[rev32qu16])\n"
-                          ^
-   <inline asm>:4:1: note: instantiated into assembly here
-   vle8.v  v13, (a0)
+It also would be good to see publicly available MIPS P8700 boards being 
+used on an ongoing basis by at least one active participant on this list, 
+who can post Tested-by:s for key series and who can post review feedback 
+and Reviewed-by:s for other RISC-V patch series.  That way, we'd have more 
+confidence that there actually is an ongoing user population for this 
+board who cares about upstream.  This is particularly important for folks 
+who care about these MIPS P8700 cores, which don't seem to be a 
+from-scratch design for RISC-V, and which don't have AMO support like all 
+of the other cores we support.  (For what it's worth, we're trying to 
+foster this engagement for other core microarchitectures as well; thanks 
+Joel Stanley of TensTorrent, Andrew Jones and Anup Patel of 
+Ventana/Qualcomm, and Andreas Korb of Fraunhofer working on the Core-V 
+designs for showing how this is done.)
 
 
-vim +/kernel_vector_begin +21 crypto/aegis128-rvv.c
+thanks,
 
-    16	
-    17	void crypto_aegis128_init_simd(struct aegis_state *state,
-    18				       const union aegis_block *key,
-    19				       const u8 *iv)
-    20	{
-  > 21		kernel_vector_begin();
-    22		crypto_aegis128_init_rvv(state, key, iv);
-  > 23		kernel_vector_end();
-    24	}
-    25	
+- Paul
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+
 
 _______________________________________________
 linux-riscv mailing list
