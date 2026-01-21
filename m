@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E94C44503
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 10:45:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B274C44501
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 10:52:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nrSiE65VXp0YxpKk8htLKzVmg9k5/2cf8lGAO1+VOuw=; b=IAHKWiARKgTYc5
-	quiiempHujV6FAT0wN5QbkX+fLEcM51injutyOYlKSO5wbD8jg9dz7yfTBPnjkXI5cKSuqQz1yib2
-	+OREjY0aban6yWVGBP4C9xS1RtlzUoFy93gR5xbmI1ljNszuEwx9GJzPqcnzAQlUnXuNHb0Stn7QR
-	M0LAHl/vLnassGk2YKP0YJWPyctXucVu0Am8TH8IKVXoX1az4g8ogFuudKKIwOKQ/k5jKeq4zFMQx
-	jWRbAD5ZayeICZD867nAPKBe9Q8yotTEXOG7t38sZ97tOwXwTQZMJ38Nd6hMe78Kx1oX/UICxGqyu
-	1A3ot91c3OxEKxQEWTrg==;
+	List-Owner; bh=xCLX8jPwUdetBztfQ6lbNBmll1MPcvXsjfVJuYPnn6Y=; b=XEzRn0sHJl+8BI
+	f/eVVYkCIyiyDpl59Q4B6SEyEJtN33k99Bomy4n90igw9z3I+uAjyi/9+OgJfp2T1FL8oZr7cM0vS
+	lNXRV/1Ul/TpSgyljSPFEEoaVlmcf9qdmufmvk1SczDGPjmcnEVO1qQ/wpqlvVHYtOQvANAxv6XUF
+	L1f+yzL1ZNGfxfR9CVFQu5nu7rQtzK+lzjSdHbmr77L9FWy6/nLxjX1q7lb/pW4T7GAvg587Bq578
+	bHBhogUTzjPVIzGLAZsVaSy39lvWG+Ncl+0C7J4rMALgqeHeWMdhgLK2Qtz6sNlhdJJBcuVoT4LXi
+	3tyRESrWUfgm9AmXqjJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viVhr-00000005IV6-03r8;
-	Wed, 21 Jan 2026 10:44:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viVhp-00000005IUj-1PHI
-	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jan 2026 10:44:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AEE3C4050D;
-	Wed, 21 Jan 2026 10:44:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13358C16AAE;
-	Wed, 21 Jan 2026 10:44:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768992296;
-	bh=TOZuB+2yqLbtJOMDd2WB+YZbOWhoxkhnNzCazqbFRCw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iiPtYKt9Si/btGlU9/TFr3qPVEcQOcRQPpIcJiSL5YCrbN5/ELnWMM177CE9wTxDM
-	 le8mVg11Ne6WCa9i6ni2vxkgo6oXGFSR1mBIXFrXMacq61FoLSt9gfdvd3KzwS9XiO
-	 V2ZH6D+utSEed4khFweEWJYllW9+IWH41loNFYzCCxjkRzymKi/6s1+Tg7A8yykqp/
-	 BCOAa0g9IaJxvCeYwG01url82nsL/XFeHN8piti1CJcJE0z/h0PdT5gsvAetlf+VLy
-	 yH7ptho0I/ZUPh+tDB/Joe6p4wmvgdhAQl4R7N4ebDtCGKDunxzeNUI+JYtL6qFi9m
-	 becMyE3a+mhuw==
-Date: Wed, 21 Jan 2026 18:44:53 +0800
-From: Yixun Lan <dlan@kernel.org>
-To: Yao Zi <me@ziyao.cc>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>, linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] mmc: sdhci-of-k1: spacemit: Add support for K3 SoC
-Message-ID: <20260121104453-GKD61591@kernel.org>
-References: <20260121-07-k3-mmc-v1-0-ff77c07bfdf6@kernel.org>
- <20260121-07-k3-mmc-v1-2-ff77c07bfdf6@kernel.org>
- <aXCg43ZepMm1DNHq@pie>
+	id 1viVpB-00000005Izn-1Arf;
+	Wed, 21 Jan 2026 10:52:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viVp7-00000005IzA-49aN;
+	Wed, 21 Jan 2026 10:52:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF6CE1476;
+	Wed, 21 Jan 2026 02:52:21 -0800 (PST)
+Received: from [10.1.25.175] (XHFQ2J9959.cambridge.arm.com [10.1.25.175])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 02DD53F632;
+	Wed, 21 Jan 2026 02:52:22 -0800 (PST)
+Message-ID: <46c7d109-b076-4bb3-9e6e-36c34c546c20@arm.com>
+Date: Wed, 21 Jan 2026 10:52:21 +0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aXCg43ZepMm1DNHq@pie>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/3] randomize_kstack: Unify random source across
+ arches
+Content-Language: en-GB
+To: kernel test robot <lkp@intel.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Jeremy Linton <jeremy.linton@arm.com>,
+ David Laight <david.laight.linux@gmail.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
+References: <20260119130122.1283821-4-ryan.roberts@arm.com>
+ <202601210752.6Nsv9et9-lkp@intel.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <202601210752.6Nsv9et9-lkp@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_024457_418245_2DFE5A13 
-X-CRM114-Status: GOOD (  24.52  )
+X-CRM114-CacheID: sfid-20260121_025230_162427_DD145664 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,70 +81,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09:48 Wed 21 Jan     , Yao Zi wrote:
-> On Wed, Jan 21, 2026 at 03:27:36PM +0800, Yixun Lan wrote:
-> > The SDHCI controller found on SpacemiT K3 SoC share the same IP with K1
-> > generation and introduce a compatible data to denote the change that broken
-> > 64BIT DMA issue has been fixed.
-> > 
-> > Signed-off-by: Yixun Lan <dlan@kernel.org>
-> > ---
-> >  drivers/mmc/host/sdhci-of-k1.c | 22 ++++++++++++++++++++--
-> >  1 file changed, 20 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
-> > index a160e1d5d9bd..a56cb8a36982 100644
-> > --- a/drivers/mmc/host/sdhci-of-k1.c
-> > +++ b/drivers/mmc/host/sdhci-of-k1.c
-> > @@ -259,8 +259,20 @@ static const struct sdhci_pltfm_data spacemit_sdhci_k1_pdata = {
-> >  		   SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
-> >  };
-> >  
-> > +static const struct sdhci_pltfm_data spacemit_sdhci_k3_pdata = {
-> > +	.ops = &spacemit_sdhci_ops,
-> > +	.quirks = SDHCI_QUIRK_DATA_TIMEOUT_USES_SDCLK |
-> > +		  SDHCI_QUIRK_NO_ENDATTR_IN_NOPDESC |
-> > +		  SDHCI_QUIRK_32BIT_ADMA_SIZE |
-> > +		  SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-> > +		  SDHCI_QUIRK_BROKEN_CARD_DETECTION |
-> > +		  SDHCI_QUIRK_BROKEN_TIMEOUT_VAL,
-> > +	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
-> > +};
-> > +
-> >  static const struct of_device_id spacemit_sdhci_of_match[] = {
-> > -	{ .compatible = "spacemit,k1-sdhci" },
-> > +	{ .compatible = "spacemit,k1-sdhci", .data = &spacemit_sdhci_k1_pdata },
-> > +	{ .compatible = "spacemit,k3-sdhci", .data = &spacemit_sdhci_k3_pdata },
-> >  	{ /* sentinel */ }
-> >  };
-> >  MODULE_DEVICE_TABLE(of, spacemit_sdhci_of_match);
-> > @@ -271,10 +283,16 @@ static int spacemit_sdhci_probe(struct platform_device *pdev)
-> >  	struct spacemit_sdhci_host *sdhst;
-> >  	struct sdhci_pltfm_host *pltfm_host;
-> >  	struct sdhci_host *host;
-> > +	const struct sdhci_pltfm_data *data;
-> >  	struct mmc_host_ops *mops;
-> >  	int ret;
-> >  
-> > -	host = sdhci_pltfm_init(pdev, &spacemit_sdhci_k1_pdata, sizeof(*sdhst));
-> > +
-got one extra blank line here, will drop in next version
-
-> > +	data = of_device_get_match_data(&pdev->dev);
-> > +	if (!data)
-> > +		return dev_err_probe(dev, -EINVAL, "failed to get platform data\n");
+On 20/01/2026 23:50, kernel test robot wrote:
+> Hi Ryan,
 > 
-> Is there a need to check against return value of
-> of_device_get_match_data()? It isn't a user input, instead missing the
-> data seems a kernel bug to me, and shouldn't happen in production.
+> kernel test robot noticed the following build warnings:
 > 
-I agree, it should be safe to drop this check
+> [auto build test WARNING on akpm-mm/mm-everything]
+> [also build test WARNING on linus/master v6.19-rc6 next-20260119]
+> [cannot apply to tip/sched/core kees/for-next/hardening kees/for-next/execve]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Roberts/randomize_kstack-Maintain-kstack_offset-per-task/20260119-210329
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
+> patch link:    https://lore.kernel.org/r/20260119130122.1283821-4-ryan.roberts%40arm.com
+> patch subject: [PATCH v4 3/3] randomize_kstack: Unify random source across arches
+> config: x86_64-allmodconfig (https://download.01.org/0day-ci/archive/20260121/202601210752.6Nsv9et9-lkp@intel.com/config)
+> compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260121/202601210752.6Nsv9et9-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202601210752.6Nsv9et9-lkp@intel.com/
+> 
+> All warnings (new ones prefixed by >>):
+> 
+>>> vmlinux.o: warning: objtool: do_syscall_64+0x2c: call to preempt_count_add() leaves .noinstr.text section
+>>> vmlinux.o: warning: objtool: __do_fast_syscall_32+0x3d: call to preempt_count_add() leaves .noinstr.text section
 
-> Regards,
-> Yao Zi
+Hmm, clearly Dave was correct not to rush this through... yuck. I'll take a
+look, but I guess there is no rush if this won't go into -next until shortly
+after -rc1.
 
--- 
-Yixun Lan (dlan)
+Thanks,
+Ryan
+
 
 _______________________________________________
 linux-riscv mailing list
