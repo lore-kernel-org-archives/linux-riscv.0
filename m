@@ -4,62 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 189EFD262B0
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 07:07:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0742D262B2
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jan 2026 07:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=csgTgwR/V85yKIBOwhkx7cxe4W8aNxFCAvdn+6IdAsc=; b=0ureBM+cgMN5eQ
-	UDnrVyhqGKKQNCSkidjGdZoX1NSkrU/PvvIbp8pRrdMNcvozbXGF5gH1Js/050l/64NfIBmCH00lR
-	w2qisS32xInAwUxgEIMEZ4fwLljpa6vnl6LANMs4uYYjok27NuTMH1njUqXgePl1UUg1sZwn/a8rV
-	jpydcep0jnFvgxJ5nVRpjSAgK0rIF8Zyl2EM2/IbJxImN+FSJkRqNHZP5XZFSs1rrU5YzQnG+ishn
-	EL17/KXszNgPuDBeCP57Dugmlqh4lE41LwgY+S+Y8dyDinfdGGEuHm8gDLygp6HMAoDDxM6A5Yj2C
-	3I1zkcmctdo42sPoDwpg==;
+	List-Owner; bh=rZnembkQ2sK9omuF7B8Lb6URICHWEl9ZdLu//WcjoNA=; b=WTurUPJCi2rpkl
+	ttWTGB3YeQflgsi0WeHCgoNU8TL33qE/jwwNJmHdA8nCdLhDEjyCs4vimcHV8ZxL66nuKuy8Bw1I0
+	YMdnREoO6vMLS96CUc/bg12a1BMmT9mZzzj5s+8hI5AWMPzIS9sW8w4hFg+Ik/UTiR8SkpO+/Rp0K
+	0D/I+wukAvyLvW25Lk5rfpZHTwzBWVOay5stHkDSgkcJbf0KPfoG76FJa3Fjrvt7r9SyFUwyqeKUo
+	hCwqw5cADsiaib4fAC46SGKPEYOLxSeOpnYy/eEDzqUmpTuUinksE1pdcNeg8gcH+K1HbU6hz4I4K
+	E11fETbzhzruNlZm2jCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viSJB-00000004zAj-0U6r;
-	Wed, 21 Jan 2026 07:07:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1viSM6-00000004zSU-00ox;
+	Wed, 21 Jan 2026 07:10:18 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viSJ8-00000004zAA-14Cr;
-	Wed, 21 Jan 2026 07:07:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E902143839;
-	Wed, 21 Jan 2026 07:07:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00CB8C116D0;
-	Wed, 21 Jan 2026 07:07:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768979231;
-	bh=D/qLyHaqemYuzX/6TqYrPD10JkyadCvZeTQHZMRgjjM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AQAfKaGx2l7So5vR6Sb/9yAdfiXnVwSwF7BVyCPT5Gl8dlA4guXULV9JwgaAi+XZu
-	 cZbwYCiY2CzQog11d8mqnHB8RefvzDr8V1Rr2XWCRZqAI5JQT9K+hLMT62h2TbTANq
-	 cuK5tk6kEyswVLuJ0nKOBmSolo5nSHyZeq6hY9DXx/ROoQ6n0tYrgRQo2gpwpLtjbp
-	 vtpSyfmx6vyN5zynOP4RcK4CR6snVv6/eSa4Svpv85wX454t0zUGWjcmESxBxXUoiX
-	 QjQrec+8G9xkT8Ptv0B5PZcDftAh4NcpIzUMNLKg2ulrtNpVu4pJQKsqyC7bU/Dmjl
-	 0jORLJgIQmepw==
-Date: Wed, 21 Jan 2026 12:37:06 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-Cc: gregkh@linuxfoundation.org, conor@kernel.org, neil.armstrong@linaro.org,
-	robh@kernel.org, krzk+dt@kernel.org, pjw@kernel.org,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-phy@lists.infradead.org, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 3/4] phy: usb: Add driver for Canaan K230 USB 2.0 PHY
-Message-ID: <aXB7GqQaxtgKReVa@vaman>
-References: <20260120143243.71937-1-jiayu.riscv@isrc.iscas.ac.cn>
- <20260120143243.71937-4-jiayu.riscv@isrc.iscas.ac.cn>
+	id 1viSM3-00000004zRk-2vHp
+	for linux-riscv@lists.infradead.org;
+	Wed, 21 Jan 2026 07:10:17 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2a35ae38bdfso45125ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Jan 2026 23:10:15 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768979414; cv=none;
+        d=google.com; s=arc-20240605;
+        b=iuzQPqrem7wUVpjriXwoc3AwDcsS9qGeg/+KknuG3t2733r6+3l9+2ANNsJNQrEYe9
+         X7TdQQDimtce2aaYrip4vlPUi72DfiKaRRZtxuYJXR8Pyg/8jr/iOTwucO9CnUT0TSL5
+         SPcQF7Rh0emrhSeqT8S+PdzCtorY0mm/7YjF6JvwIDFoQaZeuWk4DMC165+TFUxH3lfo
+         8yfFnIR8xGi1M/19hgrYx859rCuluC2Htp0Mzd/CD9Ry8kjeijZ1ct941hc6C87Y0IQf
+         NpxnTfbRdNb3ePn2uDRkIiBSxKUsMXAU0AEmEhjNl+3EYnmZHBmDHFsqe73wAoJL9h9b
+         ns1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=hJ81YcHVJUXCUDOSqTEo4fpneXYhzAyyqlg4VRJWSOc=;
+        fh=fKmRe9R8irOs4PLTpLFL6gYfdMUed6Oywkvq0wTHa5c=;
+        b=TVq/TGi3QfShBiN3vvJ9XvvCNNXBlk9fuw6A6WDKOD5fqA79W/Q9VlUxKGfHe7FqqH
+         8AvQd1EZHDrlvQw7Px358n4OAQCVyz9K9i+zOXWXR16RrAoZWnVCtjpPtiT+MIKLwBTC
+         JlAx3gM8O/Z2pzfPyYrs3bCEu8ADdqn6fw5qHYSI5AGras492Cu+AvJcmf/kIbRuxApM
+         fJ18uEPwP8IzNQCN6phfKjYD23SyMwtcl4Q1W7x3SSyhncgiOrIhHQShn5oPTIDlm+b8
+         N7j0DZzl0VOs0oGh6YniMkSv+wHTo3wLkPTPxtlyw14p3KGatQkJ0rbvl4fa+3K+8nW8
+         8n7A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1768979414; x=1769584214; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hJ81YcHVJUXCUDOSqTEo4fpneXYhzAyyqlg4VRJWSOc=;
+        b=MoVzcfKf6Qf+qaNbDNbyTl2z4yD0Ck2LviL/gNLaqQ7+0nUg7TRVDMibg5nI/QtFuk
+         Pvfh5S2IfUIy84+1FMv/cGjq7ogFedetCWqYkPzR15FFhqCn4abgxRXhOTgSXZeMTTRX
+         cu0LDyfnl2Xm+RsOa281O76ZfyZjjHY9oobct4sYapz0xUlFhZjD8qo/o81JaFb6SZ2R
+         HhABDwk1dphz5mYsH3IMcVYJP0XoowgoFDmk/e0VpHg1QLidAc4PORkaeRN1oGgMfFGq
+         5uiXgQDmFLEDw/f1qI2VWyq1ze2/M4D5bTs0rBU0ytQX349PB+CD0V8OMTTA3tmr7pzN
+         Ad7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768979414; x=1769584214;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=hJ81YcHVJUXCUDOSqTEo4fpneXYhzAyyqlg4VRJWSOc=;
+        b=A9PdqE/7O7hPh3B5EQU6m8YHTEK55Ff45/+2DwM5uBA6ijz945BW7h0nvyEUbWiWGf
+         dB65+jJfFRGXDUhWhLKW78fApCNl9eOp22FZc6sgitGN6nETQuVmzizOmzEGjiRyXiH5
+         VY+0vRi0BKjhj7eztTksAJEMSp5zG4hZFSoqs26g/7WFeKo6TwzzQe40Mp8iwOf8JIhZ
+         nELoYd8rtmHCHEf/HCR8eNZm9FthKUFk2ZNKoktT4RnLdQWFjcXa5NUvxlAb53QRZo5a
+         Kag1+ZoyKANPXWfky/5a/omX21om55xBbU2AB+n96xY+xBWTYmoSFwnM4UqflnTVEdUr
+         ynHw==
+X-Forwarded-Encrypted: i=1; AJvYcCVNBEQvYB2D1ecnm6J8v9SD+qrX0zLUZlK0jCpBeNxOcsZ3H0xqRdMimeO2Jf0qJl+ky98o8pwYNGp0Aw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5ljmN41SmqQ5vmDiBeHggEGHcPf5DhMa8RtdUH9/lP0wdUHmJ
+	XsL+iaG7sjpm6Nxy7NfO2/dD7P8top/YZ1WX6//b/fo5e6uQGYqgNPzO5l2cuJRw0kJC3FeMNlD
+	+kMvllWRZ5Q16zBQmjeGm7rIVdefx6hZaptqKJJBG
+X-Gm-Gg: AZuq6aJc3MKXndREjtKIXG6RBrL7eHv4f0T2lr3YPpwd2rOlFN/2ulPyA9jtIlQSkUO
+	juseyLRZwsaD+hLjLXoe2C+lm9FWR1RjZ/SZXlxk6yZCGCqbrr85axUsFyVKfh1Stx9NhAOS5tz
+	v1Jt+ZbpzNF0c/OYf8KDfW4mgOdnrNEeeNql36zMkmmYQAyGqqf2ecDUFkZcYAbRgK4Nxfe8K7H
+	Qu+uin+46Mwn3N/od7lRqyLg2m/KfdVd1x951hmmpZ+HpN6oUlcYE+WZUmBmfbtCSMjNz3v3JYP
+	d7pLxds=
+X-Received: by 2002:a17:902:e746:b0:290:8ecf:e9f9 with SMTP id
+ d9443c01a7336-2a7a2443b58mr1503495ad.7.1768979413636; Tue, 20 Jan 2026
+ 23:10:13 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260120143243.71937-4-jiayu.riscv@isrc.iscas.ac.cn>
+References: <20260117052849.2205545-1-irogers@google.com> <20260117052849.2205545-9-irogers@google.com>
+ <aW_OV72q5rAVrgRE@x1> <8c1fefd6-4f4c-42a7-9007-5c9df3975080@linux.intel.com>
+In-Reply-To: <8c1fefd6-4f4c-42a7-9007-5c9df3975080@linux.intel.com>
+From: Ian Rogers <irogers@google.com>
+Date: Tue, 20 Jan 2026 23:10:01 -0800
+X-Gm-Features: AZwV_Qg0iOIpO5Pzoy2b7YabxBnL-fqXhU8D44tCtQG-FBoEqke8sFeoam8z8tY
+Message-ID: <CAP-5=fXUw=LLXX6Pzrab37TTrVrMdHJim1QOnvbP9gXsRQZFUg@mail.gmail.com>
+Subject: Re: [PATCH v1 08/23] perf perf_regs: Switch from arch string to int e_machine
+To: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, 
+	Guo Ren <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Shimin Guo <shimin.guo@skydio.com>, Athira Rajeev <atrajeev@linux.ibm.com>, 
+	Stephen Brennan <stephen.s.brennan@oracle.com>, Howard Chu <howardchu95@gmail.com>, 
+	Thomas Falcon <thomas.falcon@intel.com>, Andi Kleen <ak@linux.intel.com>, 
+	"Dr. David Alan Gilbert" <linux@treblig.org>, Dmitry Vyukov <dvyukov@google.com>, 
+	=?UTF-8?Q?Krzysztof_=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>, 
+	Chun-Tse Shao <ctshao@google.com>, Aditya Bodkhe <aditya.b1@linux.ibm.com>, 
+	Haibo Xu <haibo1.xu@intel.com>, Sergei Trofimovich <slyich@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Mark Wielaard <mark@klomp.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_230714_357612_8429186B 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20260120_231015_755510_252194A3 
+X-CRM114-Status: GOOD (  25.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,269 +126,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20-01-26, 22:32, Jiayu Du wrote:
-> Add driver for the USB 2.0 PHY in Canaan K230 SoC, which supports PHY
-> initialization and power management.
-> 
-> Add Kconfig/Makefile under drivers/phy/canaan/.
-> 
-> Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-> ---
->  drivers/phy/Kconfig               |   1 +
->  drivers/phy/Makefile              |   1 +
->  drivers/phy/canaan/Kconfig        |  14 ++
->  drivers/phy/canaan/Makefile       |   2 +
->  drivers/phy/canaan/phy-k230-usb.c | 283 ++++++++++++++++++++++++++++++
->  5 files changed, 301 insertions(+)
->  create mode 100644 drivers/phy/canaan/Kconfig
->  create mode 100644 drivers/phy/canaan/Makefile
->  create mode 100644 drivers/phy/canaan/phy-k230-usb.c
-> 
-> diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-> index 142e7b0ef2ef..e37bcceef65a 100644
-> --- a/drivers/phy/Kconfig
-> +++ b/drivers/phy/Kconfig
-> @@ -150,6 +150,7 @@ source "drivers/phy/amlogic/Kconfig"
->  source "drivers/phy/apple/Kconfig"
->  source "drivers/phy/broadcom/Kconfig"
->  source "drivers/phy/cadence/Kconfig"
-> +source "drivers/phy/canaan/Kconfig"
->  source "drivers/phy/freescale/Kconfig"
->  source "drivers/phy/hisilicon/Kconfig"
->  source "drivers/phy/ingenic/Kconfig"
-> diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
-> index dcbb060c8207..8cef0a447986 100644
-> --- a/drivers/phy/Makefile
-> +++ b/drivers/phy/Makefile
-> @@ -22,6 +22,7 @@ obj-y					+= allwinner/	\
->  					   apple/	\
->  					   broadcom/	\
->  					   cadence/	\
-> +					   canaan/	\
->  					   freescale/	\
->  					   hisilicon/	\
->  					   ingenic/	\
-> diff --git a/drivers/phy/canaan/Kconfig b/drivers/phy/canaan/Kconfig
-> new file mode 100644
-> index 000000000000..1ff8831846d5
-> --- /dev/null
-> +++ b/drivers/phy/canaan/Kconfig
-> @@ -0,0 +1,14 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +#
-> +# Phy drivers for Canaan platforms
-> +#
-> +config PHY_CANAAN_USB
-> +	tristate "Canaan USB2 PHY Driver"
-> +	depends on (ARCH_CANAAN || COMPILE_TEST) && OF
-> +	select GENERIC_PHY
-> +	help
-> +	Enable this driver to support the USB 2.0 PHY controller
-> +	on Canaan K230 RISC-V SoCs. This PHY controller
-> +	provides physical layer functionality for USB 2.0 devices.
-> +	If you have a Canaan K230 board and need USB 2.0 support,
-> +	say Y or M here.
-> diff --git a/drivers/phy/canaan/Makefile b/drivers/phy/canaan/Makefile
-> new file mode 100644
-> index 000000000000..d73857ba284e
-> --- /dev/null
-> +++ b/drivers/phy/canaan/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +obj-$(CONFIG_PHY_CANAAN_USB)		+= phy-k230-usb.o
-> diff --git a/drivers/phy/canaan/phy-k230-usb.c b/drivers/phy/canaan/phy-k230-usb.c
-> new file mode 100644
-> index 000000000000..350950563f60
-> --- /dev/null
-> +++ b/drivers/phy/canaan/phy-k230-usb.c
-> @@ -0,0 +1,283 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Canaan usb PHY driver
-> + *
-> + * Copyright (C) 2025 Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-
-2026 now!
-
-> + */
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/io.h>
-> +#include <linux/of_address.h>
-> +#include <linux/phy/phy.h>
-> +#include <linux/platform_device.h>
-> +
-> +#define MAX_PHYS		2
-> +
-> +/* Register offsets within the HiSysConfig system controller */
-> +#define K230_USB0_TEST_REG_BASE     0x70
-> +#define K230_USB0_CTL_REG_BASE      0xb0
-> +#define K230_USB1_TEST_REG_BASE     0x90
-> +#define K230_USB1_CTL_REG_BASE      0xb8
-> +
-> +/* Relative offsets within each PHY's control/test block */
-> +#define CTL0_OFFSET		0x00
-> +#define CTL1_OFFSET		0x04
-> +#define TEST_CTL3_OFFSET	0x0c
-> +
-> +/* Bit definitions for TEST_CTL3 */
-> +#define USB_IDPULLUP0		BIT(4)
-> +#define USB_DMPULLDOWN0		BIT(8)
-> +#define USB_DPPULLDOWN0		BIT(9)
-> +
-> +/* USB control register 0 in HiSysConfig system controller */
-> +/* PLL Integral Path Tune */
-> +#define USB_CTL0_PLLITUNE_MASK		GENMASK(23, 22)
-> +
-> +/* PLL Proportional Path Tune */
-> +#define USB_CTL0_PLLPTUNE_MASK		GENMASK(21, 18)
-> +
-> +/* PLL Bandwidth Adjustment */
-> +#define USB_CTL0_PLLBTUNE_MASK		GENMASK(17, 17)
-> +
-> +/* VReg18 Bypass Control */
-> +#define USB_CTL0_VREGBYPASS_MASK	GENMASK(16, 16)
-> +
-> +/* Retention Mode Enable */
-> +#define USB_CTL0_RETENABLEN_MASK	GENMASK(15, 15)
-> +
-> +/* Reserved Request Input */
-> +#define USB_CTL0_RESREQIN_MASK		GENMASK(14, 14)
-> +
-> +/* External VBUS Valid Select */
-> +#define USB_CTL0_VBUSVLDEXTSEL0_MASK	GENMASK(13, 13)
-> +
-> +/* OTG Block Disable Control */
-> +#define USB_CTL0_OTGDISABLE0_MASK	GENMASK(12, 12)
-> +
-> +/* Drive VBUS Enable */
-> +#define USB_CTL0_DRVVBUS0_MASK		GENMASK(11, 11)
-> +
-> +/* Autoresume Mode Enable */
-> +#define USB_CTL0_AUTORSMENB0_MASK	GENMASK(10, 10)
-> +
-> +/* HS Transceiver Asynchronous Control */
-> +#define USB_CTL0_HSXCVREXTCTL0_MASK	GENMASK(9, 9)
-> +
-> +/* USB 1.1 Transmit Data */
-> +#define USB_CTL0_FSDATAEXT0_MASK	GENMASK(8, 8)
-> +
-> +/* USB 1.1 SE0 Generation */
-> +#define USB_CTL0_FSSE0EXT0_MASK		GENMASK(7, 7)
-> +
-> +/* USB 1.1 Data Enable */
-> +#define USB_CTL0_TXENABLEN0_MASK	GENMASK(6, 6)
-> +
-> +/* Disconnect Threshold */
-> +#define USB_CTL0_COMPDISTUNE0_MASK	GENMASK(5, 3)
-> +
-> +/* Squelch Threshold */
-> +#define USB_CTL0_SQRXTUNE0_MASK		GENMASK(2, 0)
-> +
-> +/* USB control register 1 in HiSysConfig system controller */
-> +/* Data Detect Voltage */
-> +#define USB_CTL1_VDATREFTUNE0_MASK	GENMASK(23, 22)
-> +
-> +/* VBUS Valid Threshold */
-> +#define USB_CTL1_OTGTUNE0_MASK		GENMASK(21, 19)
-> +
-> +/* Transmitter High-Speed Crossover */
-> +#define USB_CTL1_TXHSXVTUNE0_MASK	GENMASK(18, 17)
-> +
-> +/* FS/LS Source Impedance */
-> +#define USB_CTL1_TXFSLSTUNE0_MASK	GENMASK(16, 13)
-> +
-> +/* HS DC Voltage Level */
-> +#define USB_CTL1_TXVREFTUNE0_MASK	GENMASK(12, 9)
-> +
-> +/* HS Transmitter Rise/Fall Time */
-> +#define USB_CTL1_TXRISETUNE0_MASK	GENMASK(8, 7)
-> +
-> +/* USB Source Impedance */
-> +#define USB_CTL1_TXRESTUNE0_MASK	GENMASK(6, 5)
-> +
-> +/* HS Transmitter Pre-Emphasis Current Control */
-> +#define USB_CTL1_TXPREEMPAMPTUNE0_MASK	GENMASK(4, 3)
-> +
-> +/* HS Transmitter Pre-Emphasis Duration Control */
-> +#define USB_CTL1_TXPREEMPPULSETUNE0_MASK	GENMASK(2, 2)
-> +
-> +/* charging detection */
-> +#define USB_CTL1_CHRGSRCPUENB0_MASK	GENMASK(1, 0)
-> +
-> +#define K230_PHY_CTL0_VAL \
-> +( \
-> +	FIELD_PREP(USB_CTL0_PLLITUNE_MASK, 0x0) | \
-> +	FIELD_PREP(USB_CTL0_PLLPTUNE_MASK, 0xc) | \
-> +	FIELD_PREP(USB_CTL0_PLLBTUNE_MASK, 0x1) | \
-> +	FIELD_PREP(USB_CTL0_VREGBYPASS_MASK, 0x1) | \
-> +	FIELD_PREP(USB_CTL0_RETENABLEN_MASK, 0x1) | \
-> +	FIELD_PREP(USB_CTL0_RESREQIN_MASK, 0x0) | \
-> +	FIELD_PREP(USB_CTL0_VBUSVLDEXTSEL0_MASK, 0x0) | \
-> +	FIELD_PREP(USB_CTL0_OTGDISABLE0_MASK, 0x0) | \
-> +	FIELD_PREP(USB_CTL0_DRVVBUS0_MASK, 0x1) | \
-> +	FIELD_PREP(USB_CTL0_AUTORSMENB0_MASK, 0x0) | \
-> +	FIELD_PREP(USB_CTL0_HSXCVREXTCTL0_MASK, 0x0) | \
-> +	FIELD_PREP(USB_CTL0_FSDATAEXT0_MASK, 0x0) | \
-> +	FIELD_PREP(USB_CTL0_FSSE0EXT0_MASK, 0x0) | \
-> +	FIELD_PREP(USB_CTL0_TXENABLEN0_MASK, 0x0) | \
-> +	FIELD_PREP(USB_CTL0_COMPDISTUNE0_MASK, 0x3) | \
-> +	FIELD_PREP(USB_CTL0_SQRXTUNE0_MASK, 0x3) \
-> +)
-> +
-> +#define K230_PHY_CTL1_VAL \
-> +( \
-> +	FIELD_PREP(USB_CTL1_VDATREFTUNE0_MASK, 0x1) | \
-> +	FIELD_PREP(USB_CTL1_OTGTUNE0_MASK, 0x3) | \
-> +	FIELD_PREP(USB_CTL1_TXHSXVTUNE0_MASK, 0x3) | \
-> +	FIELD_PREP(USB_CTL1_TXFSLSTUNE0_MASK, 0x3) | \
-> +	FIELD_PREP(USB_CTL1_TXVREFTUNE0_MASK, 0x3) | \
-> +	FIELD_PREP(USB_CTL1_TXRISETUNE0_MASK, 0x1) | \
-> +	FIELD_PREP(USB_CTL1_TXRESTUNE0_MASK, 0x1) | \
-> +	FIELD_PREP(USB_CTL1_TXPREEMPAMPTUNE0_MASK, 0x0) | \
-> +	FIELD_PREP(USB_CTL1_TXPREEMPPULSETUNE0_MASK, 0x0) | \
-> +	FIELD_PREP(USB_CTL1_CHRGSRCPUENB0_MASK, 0x0) \
-> +)
-> +
-> +struct k230_usb_phy_instance {
-> +	struct k230_usb_phy_global *global;
-> +	struct phy *phy;
-> +	u32 test_offset;
-> +	u32 ctl_offset;
-> +	int index;
-> +};
-> +
-> +struct k230_usb_phy_global {
-> +	struct k230_usb_phy_instance phys[MAX_PHYS];
-> +	void __iomem *base;
-> +};
-> +
-> +static int k230_usb_phy_power_on(struct phy *phy)
-> +{
-> +	struct k230_usb_phy_instance *inst = phy_get_drvdata(phy);
-> +	struct k230_usb_phy_global *global = inst->global;
-> +	void __iomem *base = global->base;
-> +	u32 val;
-
-blank line here please
-
-> +	/* Apply recommended settings */
-> +	writel(K230_PHY_CTL0_VAL, base + inst->ctl_offset + CTL0_OFFSET);
-> +	writel(K230_PHY_CTL1_VAL, base + inst->ctl_offset + CTL1_OFFSET);
-> +
-> +    /* Configure test register (pull-ups/pull-downs) */
-
-wrong alignment above, pls fix it
-
--- 
-~Vinod
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKYW4gMjAsIDIwMjYgYXQgMTA6NTjigK9QTSBNaSwgRGFwZW5nIDxkYXBlbmcxLm1p
+QGxpbnV4LmludGVsLmNvbT4gd3JvdGU6Cj4KPgo+IE9uIDEvMjEvMjAyNiAyOjQ5IEFNLCBBcm5h
+bGRvIENhcnZhbGhvIGRlIE1lbG8gd3JvdGU6Cj4gPiBPbiBGcmksIEphbiAxNiwgMjAyNiBhdCAw
+OToyODozNFBNIC0wODAwLCBJYW4gUm9nZXJzIHdyb3RlOgo+ID4+IFRoZSBhcmNoIHN0cmluZyBy
+ZXF1aXJlcyBtdWx0aXBsZSBzdHJjbXAgdG8gaWRlbnRpZnkgdGhpbmdzIGxpa2UgdGhlCj4gPj4g
+SVAgYW5kIFNQLiBTd2l0Y2ggdG8gcGFzc2luZyBpbiBhbiBlX21hY2hpbmUgdGhhdCBpbiB0aGUg
+YnVsayBvZiBjYXNlcwo+ID4+IGlzIGNvbXB1dGVkIHVzaW5nIGEgY3VycmVudCB0aHJlYWQgbG9h
+ZC4gVGhlIGVfbWFjaGluZSBhbHNvIGFsbG93cwo+ID4+IGlkZW50aWZpY2F0aW9uIG9mIDMyLWJp
+dCB2cyA2NC1iaXQgcHJvY2Vzc2VzLgo+ID4+Cj4gPj4gU2lnbmVkLW9mZi1ieTogSWFuIFJvZ2Vy
+cyA8aXJvZ2Vyc0Bnb29nbGUuY29tPgo+ID4+IC0tLQo+ID4+ICB0b29scy9wZXJmL2J1aWx0aW4t
+c2NyaXB0LmMgICAgICAgICAgICAgICAgICAgfCAgMTcgKystCj4gPj4gIHRvb2xzL3BlcmYvdXRp
+bC9ldnNlbC5jICAgICAgICAgICAgICAgICAgICAgICB8ICAxNCArKy0KPiA+PiAgdG9vbHMvcGVy
+Zi91dGlsL3BlcmZfcmVncy5jICAgICAgICAgICAgICAgICAgIHwgMTA1ICsrKysrKysrKysrLS0t
+LS0tLQo+ID4gWyBJbmNsdWRlIGR3YXJmLXJlZ3MuaCB0byBnZXQgY29uZGl0aW9uYWwgZGVmaW5l
+cyBmb3IgRU1fQ1NLWSBhbmQgRU1fTE9PTkdBUkNILCBub3QgYXZhaWxhYmxlIGluIG9sZCBkaXN0
+cm9zIF0KPiA+Cj4gPiAtIEFybmFsZG8KPgo+IFNlZW1zIHRoZSBjaGFuZ2Ugd291bGQgaW50cm9k
+dWNlIHRoZSBiZWxvdyBidWlsZGluZyBlcnJvci4KPgo+IHV0aWwvcGVyZl9yZWdzLmM6IEluIGZ1
+bmN0aW9uIOKAmHBlcmZfcmVnX25hbWXigJk6Cj4gdXRpbC9wZXJmX3JlZ3MuYzo0ODoxNDogZXJy
+b3I6IOKAmEVNX0xPT05HQVJDSOKAmSB1bmRlY2xhcmVkIChmaXJzdCB1c2UgaW4gdGhpcwo+IGZ1
+bmN0aW9uKQo+ICAgIDQ4IHwgICAgICAgICBjYXNlIEVNX0xPT05HQVJDSDoKPiAgICAgICB8ICAg
+ICAgICAgICAgICBefn5+fn5+fn5+fn4KPiB1dGlsL3BlcmZfcmVncy5jOjQ4OjE0OiBub3RlOiBl
+YWNoIHVuZGVjbGFyZWQgaWRlbnRpZmllciBpcyByZXBvcnRlZCBvbmx5Cj4gb25jZSBmb3IgZWFj
+aCBmdW5jdGlvbiBpdCBhcHBlYXJzIGluCj4gdXRpbC9wZXJmX3JlZ3MuYzogSW4gZnVuY3Rpb24g
+4oCYcGVyZl9hcmNoX3JlZ19pcOKAmToKPiB1dGlsL3BlcmZfcmVncy5jOjExNDoxNDogZXJyb3I6
+IOKAmEVNX0xPT05HQVJDSOKAmSB1bmRlY2xhcmVkIChmaXJzdCB1c2UgaW4KPiB0aGlzIGZ1bmN0
+aW9uKQo+ICAgMTE0IHwgICAgICAgICBjYXNlIEVNX0xPT05HQVJDSDoKPiAgICAgICB8ICAgICAg
+ICAgICAgICBefn5+fn5+fn5+fn4KPiB1dGlsL3BlcmZfcmVncy5jOiBJbiBmdW5jdGlvbiDigJhw
+ZXJmX2FyY2hfcmVnX3Nw4oCZOgo+IHV0aWwvcGVyZl9yZWdzLmM6MTQzOjE0OiBlcnJvcjog4oCY
+RU1fTE9PTkdBUkNI4oCZIHVuZGVjbGFyZWQgKGZpcnN0IHVzZSBpbgo+IHRoaXMgZnVuY3Rpb24p
+Cj4gICAxNDMgfCAgICAgICAgIGNhc2UgRU1fTE9PTkdBUkNIOgo+ICAgICAgIHwgICAgICAgICAg
+ICAgIF5+fn5+fn5+fn5+fgo+Cj4gSXQgbG9va3MgRU1fTE9PTkdBUkNIIGlzIG5vdCBkZWZpbmVk
+IGluIHRoZSA8ZWxmLmg+IGhlYWRlciBmaWxlLCBub3Qgc3VyZQo+IHdoaWNoIG9uZSBpcyBiZXR0
+ZXIsIGluY2x1ZGUgIGR3YXJmLXJlZ3MuaCBzdWdnZXN0ZWQgYnkgQXJuYWxkbyBvciBkaXJlY3QK
+PiBhZGQgdGhlIGRlZmluZSwKPgo+IGRpZmYgLS1naXQgYS90b29scy9wZXJmL3V0aWwvcGVyZl9y
+ZWdzLmMgYi90b29scy9wZXJmL3V0aWwvcGVyZl9yZWdzLmMKPiBpbmRleCBiNThkNTliODRmYjEu
+LmNlODM5ZGYxOWZhMyAxMDA2NDQKPiAtLS0gYS90b29scy9wZXJmL3V0aWwvcGVyZl9yZWdzLmMK
+PiArKysgYi90b29scy9wZXJmL3V0aWwvcGVyZl9yZWdzLmMKPiBAQCAtNiw2ICs2LDEwIEBACj4g
+ICNpbmNsdWRlICJ1dGlsL3NhbXBsZS5oIgo+ICAjaW5jbHVkZSAiZGVidWcuaCIKPgo+ICsjaWZu
+ZGVmIEVNX0xPT05HQVJDSAo+ICsjZGVmaW5lIEVNX0xPT05HQVJDSCAgICAgICAgICAgMjU4Cj4g
+KyNlbmRpZgoKT3IgI2luY2x1ZGUgPGR3YXJmLXJlZ3MuaD4gd2hpY2ggSSB0aGluayBpcyB0aGUg
+Zml4IEFybmFsZG8gaXMKY2FycnlpbmcgYXQgdGhlIG1vbWVudC4KClRoYW5rcywKSWFuCgo+ICsK
+PiAgaW50IF9fd2VhayBhcmNoX3NkdF9hcmdfcGFyc2Vfb3AoY2hhciAqb2xkX29wIF9fbWF5YmVf
+dW51c2VkLAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNoYXIgKipuZXdfb3Ag
+X19tYXliZV91bnVzZWQpCj4gIHsKPgo+Cj4gPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
