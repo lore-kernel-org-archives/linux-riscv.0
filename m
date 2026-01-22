@@ -4,95 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3488C44500
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 08:07:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80BAAC44500
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 08:09:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zMO+yrjRxLQPMmWztar+XP+Gx1c04hUKAO81uXL2mxo=; b=ADgZhNz32+mYE5
-	2U24Vpb44jo+kNbZTBU+uvLbjL4wqO6J0uma/EZriIway4nLCUEvt2K3usEiraapjSwHlUUms+IgB
-	+WcilKtoB3kL1rGpavKD45OvicKnFuvyGtvt0TIga5RvFpyjvxlGABf6j9aLJD7MBOhD106KLG6GM
-	PUXxOZZJB/PJmD2kOHC45TOZTDiPqz3jCf+hV18fVwKN0crTC4iryNootn+HCtK4tEfrUAT4oNYHY
-	ybNXyzHuzDiUfrhCb5qWzJ/pS7MkedN2n2YK1d3+DSv/SL8N2PY3r2IXtFHMecKzhg6Qj1uK8DpWe
-	ynhDLzCpGkp9C5Jys1ew==;
+	List-Owner; bh=dv6kk9NuC7sgau5TK1+JzDeEToZEO8uFZZI9WcM0GUY=; b=VEj9AYpGZ+LOhD
+	+RAeWRCqmMRg/CLUMf6iz1HXBoIlkb7C+Sj5TmQfsAtG0+fzFdQ1SnSeYHB3CQrFMMe54weF5Htj3
+	n4pm4ovP1Um4CJWxN0UkzgiRHO/8SqM79ujthrsc6ZUTbMc6nzaOfCg6WIGPwoWv4jpF4HX7pp/DQ
+	I1P74OtXLE9vhgI4u928qAVUlWAcCJicN5hfNRAme/9dLBcFJ0RtzxoLG/Melbl/kkfgXJSUZWCCQ
+	0nBrVYx/Iqf6MEZNx++6EUM8C4xBfSkdurYugvJFSM/+sJpyNjASVHg7qdksOBmGrEQtXxV5nV8el
+	diQv2ZHicvlDR0jHZ4Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vipiV-00000006cq6-3P2P;
-	Thu, 22 Jan 2026 08:06:59 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vipkD-00000006cyA-0xt5;
+	Thu, 22 Jan 2026 08:08:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vipiR-00000006cpg-3ybt
+	id 1vipkC-00000006cxz-1Op3
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jan 2026 08:06:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1769069212;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xnAUpn2svZoy/oq95lU8MjW2YyOALbOwRLuDG6KCbUY=;
-	b=SkrotNcnJ7C/ROyMmdelAZTl8O6wSBcYq4IYukNHUKKtT6KtIqa0QY4HSBZine7RrBXwND
-	iO7cCedLtZyrBn0ZatAclfoTXAZ+yUGINUlnRMNFjh0Xod/PhzEMeoHVth60YfqxR+22sp
-	xduvvPNiftkLbvjEJa+SIZRzJvN6TYs=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-664-d3b12X80OPqdbcCopmcp-g-1; Thu, 22 Jan 2026 03:06:51 -0500
-X-MC-Unique: d3b12X80OPqdbcCopmcp-g-1
-X-Mimecast-MFC-AGG-ID: d3b12X80OPqdbcCopmcp-g_1769069210
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-47d5bd981c8so5023765e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Jan 2026 00:06:50 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769069210; x=1769674010;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xnAUpn2svZoy/oq95lU8MjW2YyOALbOwRLuDG6KCbUY=;
-        b=mrQjeC0b0BGy9L0knIL9VIMHTxp1Xo/yaMZk9HH5mV9wBG3T0kIRzmN1zCXsHqqLGl
-         Z6+HrpchQnOGCwC0xUVXbXei0xH9v+RMtfMHVb3CGI+z/DSbgCMnIV6At+0MHqr1Xoq+
-         CDZbJ16+umC273mMmaJj8SI1udoN8ARyEOP9bbFU0tAW6AnS3wjwH1UOn/bu08csO5iV
-         kR9SO4oPyW+z634dUOT0S97sWA0aLrUSniO2eeoFQLf8UymE5D//51FdPULS9XKNNuhJ
-         zDP+7xYQTquZOTYhvJHzlc4S13aAL+oMlkfCXyAuHSviEFSSbRZx4Svp9vKDLBYplNcd
-         vkww==
-X-Forwarded-Encrypted: i=1; AJvYcCUXUFuXWodKDxD/24QxdtjtEf4pC7gl1YKol9W6b0L5Srh+JqlSVKvacOUgzrcGiVHX3mJFkvfhFJjntg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRRrHiEC7Gn1MVsT7x7JtQgPLZMa3HcPCaFwQt3I7mUOgR2iNz
-	50nWn7Nwkbz+4OinPrFGo+nswjeHS8ulOw5OfmP8K+3EBMWeOZH5y4V+QzQoeJvSAK3K+Dr6qr9
-	8ACbpdMgE5VPMc/RePSk4lnACGCiML6hVVK+P4NHkDtY5Vwn5U9/JGmueI9oF/V9S5JUUQA==
-X-Gm-Gg: AZuq6aLlX1C98Cc/9Q1pwEVfQqPGFH/XjAirgi4pKYSzP2WJWSH9DI+OBPc+X6iUEB5
-	a6Nzj7GIfIsVk6revusDrFVKncG73t8x2OlI4Id9hZMkqT1GAxlV3b+Hz/v/Ho5bLQ5Ridi3knm
-	RE5tqJ1qtsvSRiBAv24hOSsBol6KKp8rH7bcrV5ZV4e/Eosjl7koVxYYAiJHxS8swTWJ0kFi3UO
-	T3u1ycXKLcHJskqeQSkhglC7mukZ5F2mfhgpDpoSwaidDTT2JLVqIjXPqEn5tJcBOWT9pYXL49Y
-	fsTuRrqbYYhwgM1DLzntYZa69fvWodjqtx3cKnAERDsxNraM75HcJYMLMy6lO4aHtUdkpkBpyfG
-	SB1vXDLAQFwYa7rtt1ptqUBp5gOS/vzzL4v8Pxe0Nryn29fPTwEk/XHbVYtNwcjibMRtY
-X-Received: by 2002:a05:600c:46ce:b0:477:7b16:5f9f with SMTP id 5b1f17b1804b1-4801eb0efe0mr306255055e9.31.1769069209716;
-        Thu, 22 Jan 2026 00:06:49 -0800 (PST)
-X-Received: by 2002:a05:600c:46ce:b0:477:7b16:5f9f with SMTP id 5b1f17b1804b1-4801eb0efe0mr306254515e9.31.1769069209274;
-        Thu, 22 Jan 2026 00:06:49 -0800 (PST)
-Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48042c38063sm44525215e9.12.2026.01.22.00.06.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Jan 2026 00:06:48 -0800 (PST)
-From: Javier Martinez Canillas <javierm@redhat.com>
-To: Yixun Lan <dlan@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, Troy
- Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Yixun Lan <dlan@kernel.org>, Alex Elder <elder@riscstar.com>,
- linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH] i2c: spacemit: drop IRQF_ONESHOT flag from IRQ request
-In-Reply-To: <20260122-05-k1-i2c-irq-v1-1-9b8d94bbcd22@kernel.org>
-References: <20260122-05-k1-i2c-irq-v1-1-9b8d94bbcd22@kernel.org>
-Date: Thu, 22 Jan 2026 09:06:47 +0100
-Message-ID: <87tswedqaw.fsf@ocarina.mail-host-address-is-not-set>
+	Thu, 22 Jan 2026 08:08:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 56360600C4;
+	Thu, 22 Jan 2026 08:08:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CE38C16AAE;
+	Thu, 22 Jan 2026 08:08:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769069323;
+	bh=QdnzH/k/Cpxt+cbGkFJe3060i3uFURJ3AiMAUgzjrW0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bagLUWivqopIxhtDMa4hRZVJlzZb1kOZZsiVJnxhmZ7KLjsN6zgCRuoAMeWeiKT0i
+	 o5XfefkojyxAH+mcKs5mdF+lMOnuo0UyRh2dY0QzIf1CjL3Q4CapMm7uRBbDVUI9EA
+	 zXwzAvjbxhHSyFIE5UO8QV7c8bqDBXuM86amczFv7LQg/jcyNQu1XyIxE6PVHMGafq
+	 GPhJ5VVM+EESTXOyPb5bECIGqYtWvl3640i5zTALnrwGhMuEky6JZy1M6m+h3E+D9I
+	 72jCj78NUmFwr72E1RR5qO3AZFraIVU6S66ImRnev+NXK55Q7BFha/7EQqn2epNilq
+	 Pg32b92y/9i1A==
+Date: Thu, 22 Jan 2026 09:08:40 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ben Zong-You Xie <ben717@andestech.com>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-i2c@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: i2c: add support for AE350 I2C
+ controller
+Message-ID: <20260122-almond-pug-of-management-33d438@quoll>
+References: <20260122-atciic100-v2-0-7559136d07cf@andestech.com>
+ <20260122-atciic100-v2-1-7559136d07cf@andestech.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ZxzUpDwomU76f14iXUqf8XtsI_jDTpGtGTNL4O7Iygo_1769069210
-X-Mimecast-Originator: redhat.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_000656_060071_9C584E80 
-X-CRM114-Status: UNSURE (   7.37  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20260122-atciic100-v2-1-7559136d07cf@andestech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,26 +74,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Yixun Lan <dlan@kernel.org> writes:
-
-> In commit aef30c8d569c ("genirq: Warn about using IRQF_ONESHOT without a
-> threaded handler")[1], it will check IRQF_ONESHOT flag in IRQ request,
-> and gives a warning if there is no threaded handler. Drop this flag to
-> fix this warning.
->
-> Link: https://lore.kernel.org/r/20260112134013.eQWyReHR@linutronix.de/ [1]
-> Fixes: 5ea558473fa3 ("i2c: spacemit: add support for SpacemiT K1 SoC")
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
+On Thu, Jan 22, 2026 at 11:53:18AM +0800, Ben Zong-You Xie wrote:
+> Document device tree bindings for the I2C controller on Andes AE350
+> platform.
+> 
+> Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
 > ---
+>  .../bindings/i2c/andestech,ae350-i2c.yaml          | 45 ++++++++++++++++++++++
+>  1 file changed, 45 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/i2c/andestech,ae350-i2c.yaml b/Documentation/devicetree/bindings/i2c/andestech,ae350-i2c.yaml
+> new file mode 100644
+> index 000000000000..59a521fb249b
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/i2c/andestech,ae350-i2c.yaml
+> @@ -0,0 +1,45 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/i2c/andestech,ae350-i2c.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Andes I2C controller on AE350 platform
+> +
+> +maintainers:
+> +  - Ben Zong-You Xie <ben717@andestech.com>
+> +
+> +allOf:
+> +  - $ref: /schemas/i2c/i2c-controller.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - andestech,qilai-i2c
+> +          - const: andestech,ae350-i2c
+> +      - const: andestech,ae350-i2c
 
-Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
+Same question as before. Nothing in commit msg explains me above and you
+STILL DID NOT send your soc upstream which would help me to understand
+the relation between SoCs.
 
--- 
+Considering you did not even build check previous version, I do not give
+you any benefits of the doubt that this is correct code.
+
+Respond to previous review.
+
+That is a NAK and I am dropping it from the patchwork.
+
 Best regards,
-
-Javier Martinez Canillas
-Core Platforms
-Red Hat
+Krzysztof
 
 
 _______________________________________________
