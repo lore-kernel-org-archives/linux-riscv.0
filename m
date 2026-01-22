@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCB47D3EE95
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 16:54:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43207D3EE96
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 16:55:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:References:
 	Mime-Version:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HM0BF+nBIwoFEDapWBLkxrdZHwUFkswBpS9ISziSVxc=; b=GnL8249wmZUzbD
-	WS9LQP4VRzvI20Zxd/E200VDf0E4J+QSl1I1Gv8aoV9+7iyIGY3NsQvfHn3wufHW5l2dGS4pynU1S
-	22U0C1eQHWDrAinAqWKSSYklz/DZWh4udKvwrOMxjP0lyvMneznDFdYxxhgfeTQdktOuOPCjWiCsU
-	bNnKzh0A5c6T97Aa36wLYoaHFvD4xBPeUKLpdwCyjbuUo6Pnx5Zo+drddBNcdjWaTzdMszUZs7OEv
-	rXP+QB8kflFQWW6utcFVCQREVh3qaUxnUq+y+SfbXYssBgSXHKbVCk3CphlDrfnDb+WaLT6dZV3QI
-	+t3s9EjMrMWWeQGI4+kQ==;
+	List-Owner; bh=HKf/dnwKhyHgvwksp3rRg/tprgmqdtJMfl4QKx6Dzkk=; b=iFW7yfXLFFS4Pd
+	B9/UFCVsSi0cLcAmit5QpOzsTCtTBT+Giry8nkvZmi7m8HEh9Ivq8IIyibX00KepeSMRpmavyvfbL
+	wtmCydA1uLGUsmtgG5Muuxu0K5OdtGXprkmbEiUDK0P60rPVlhlDFYR/j2j1LDRhyMu51RaDHFNuu
+	ec+Lm5es/Ir1UdxyEMntFoYmV9C01h0yMFACh/n6LBN7OxqSWgtIdlSNqErWP7AttY2eqfsXGGxye
+	x/u9OIAbfcqIuQzt8gO5qtGBa0J535E4KPfYOTqzrWDV8ycGVm+9wtxH9/jOcpD8BXy7kRgTgYYy7
+	GU1c4f11KFDkA4XxXFbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixxG-00000007TzZ-1M7I;
-	Thu, 22 Jan 2026 16:54:46 +0000
+	id 1vixxI-00000007U2y-1lIS;
+	Thu, 22 Jan 2026 16:54:48 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixx3-00000007Tno-2SHU
+	id 1vixx6-00000007Tp5-0gTe
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 22 Jan 2026 16:54:33 +0000
+	Thu, 22 Jan 2026 16:54:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=mohShwdVVANhhguIax08ioRiqfRGyb+9L7Fn7SVEHWE=; b=klmI32PnGSQclgrC0/FQXtXUIt
-	M6pXUWjQtC1MnNt4U/+4fRx/vABG5iZfyG/02Z83Q81qxljrl4tc2eVQhHETp+ukoiinBz83ObyAJ
-	7ImmEUixmB87LNx2h9KXOw7/SkXWY4nn3XSszWttjPKPwiSa211awyVFoFCsya20xzc+3Jp1ZbGtD
-	0uY3IpdcvPlZEvXnz/WgcYkakXgK7epB95HLNYb+LR/5MYt/qOa/kxyQ/ley6zjIj+pVuxGb1oPMe
-	GhCS20nX2KxwJne+Cbt/wq7Ve+Ug37lIG8rZnXZ7+jiIv+hJ93qC/iGKaD/XMj5sk3RyejmxlLXHm
-	QP7fml6w==;
+	bh=Xlxy7gGNB7fnsuI8qX0WFdpap2bNeW5xmXABoxpIzho=; b=YL6i9+8dklZeEkI8gtX5CAZ0ju
+	471hJiXJvKqHrQRPLmbr2tQ0hW+GLPHrF7/6xvFsO2AfnKUfl4LmL0GFmzwQYhvpOfG9tsZs9yW5w
+	0u+zJW170DvOJtjgT7Or6VZKOek3oikefme1QF9NBxOkXWEmUDiEOm1hOwX9tsC4g0lYOp2VPp+7Y
+	nmPnJ+oxHGJHDfFi/ZnfsYLGNWfZl2YM97uNeibVdtYqJNCIBIil+dbx5ve3SfG8OymbhDbcInML8
+	z4o3TJ4Iz8hAwfbVJfW+Fg6jwZXFcCjb7bbnCd/f8UAxXCAe/G53nL4E1ZQXOFkxqPH14pQm+yDbC
+	XxudfHPQ==;
 Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixwz-00000000oVt-2rkp
+	id 1vixx3-00000000oXs-0cX1
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jan 2026 16:54:32 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2b724ff60e6so982942eec.0
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Jan 2026 08:54:29 -0800 (PST)
+	Thu, 22 Jan 2026 16:54:35 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2b6f0b345e3so6300377eec.0
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Jan 2026 08:54:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769100868; x=1769705668; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1769100871; x=1769705671; darn=lists.infradead.org;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=mohShwdVVANhhguIax08ioRiqfRGyb+9L7Fn7SVEHWE=;
-        b=lmsK9Mu6R33l/qc6ZTG1kf2sf2FFR0ptJPGG09+pY/uwNvaGpt2Ds29jzFHQUlGJuN
-         TxraY9+jEcgPs58yt8A5jq2tr5tRhUrVuWN0cG5tAaJvjg8B3Fxg9h/AoB/AjmzJB68G
-         He+6RkC/K3U3UlZeHjR9LlH5vOM58pCm7MEbsuUNcuEzeeHsz5IXxqQnYUI3gfsZYGsV
-         CsZHkzrItGl2I0y18BXRWL9Jhpz+I09Ds1yZfUZIJkR3D5Y7QLYo44PskjxytFsuNFfQ
-         rEw0RGyRQi+iimw7PQKsEHczLWmegZQJxC4ZYroEmUMTJkvXsans0tQcPk56WAVSrRI2
-         OR6Q==
+        bh=Xlxy7gGNB7fnsuI8qX0WFdpap2bNeW5xmXABoxpIzho=;
+        b=zkSPCYfDGFlpHVxnPmAook9iknvv/+7FZ9SL4Jrr67FX8bEKGqeIyhmb4LVC4YIK0A
+         AxeeoGD+nL19U2jL9dHB3TgXpXtxDW2PBmc0PVlb4+Zs8Wp0rpw7lyOxLOceV3bOOZLc
+         VKU3B9KJC9mr7iOTFLxA1lBivB1+xV0XGQSWBwIQzRJeUUaeJ1RVT/c5KBHtLLemFtL6
+         3/f8SZDcgylxD6mNGnY17a4BHv2iwbr6Z253beDaie68ICfxMOAQxEpA05aKaDOpWFwL
+         MeZWMaKai/duZ+xVZKzV/py6SIDBLIbsOKX/AAR6OY/5GQUVzIKOgP5piie/gYCZcG+u
+         ZU9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769100868; x=1769705668;
+        d=1e100.net; s=20230601; t=1769100871; x=1769705671;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mohShwdVVANhhguIax08ioRiqfRGyb+9L7Fn7SVEHWE=;
-        b=MU1QNrIirkfPK8iRrO4iEQuoyN90DVZIIz4W7HgeMPGi93CLg8Tg57/OyWlYN34f3m
-         bhO8poiBgGr3VrnhTZmH2uim7gHiWwkChvvDlsrO1QYca6D3G2sB1kXL3zTeZw5y2JiX
-         NWJdTofMI+Ez6+VDWCS2MYh6ypzfPUU1Wzw9v0F9nThUQOldXUmklD0YeclFXgqKiNCV
-         ZdFzeesJRJGJLRsNyfARWUIUdlG1+6O7QSWkC8sbWSeVE7bCv5kdRbTq/VuAXI83N+oL
-         NK1ISPk+aYWRdw13TckkKayp+UWaP25hk5RGobpIlOcPXekOXu1kGPZZXpyCKufujcKQ
-         fZNA==
-X-Forwarded-Encrypted: i=1; AJvYcCWkuLsLgCF1xeR/JBZQXQ6Fz9Cq0KXaDB3OQL6yV3MTmkkDvKC3Oo69gqkN45xkPu4gnmeGSTawX0dgbA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLn/+IJu0XSe7OoGuuTCQoZM35Xn1sjdFwOqLDwZtApnmF5/+7
-	KHXcMTCUTxY5sHhbFsdlgsqK7L0vK8aEeaSsd8wQ/lmIWRTaohG6hljXQ+1UpKAN7RF+3aFGLaV
-	E4OY/2rcGiA==
-X-Received: from dycoh11.prod.google.com ([2002:a05:7301:da0b:b0:2b7:9eb:9ca9])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:8623:b0:2b0:5735:25a1
- with SMTP id 5a478bee46e88-2b6fd5d816fmr6237134eec.7.1769100867496; Thu, 22
- Jan 2026 08:54:27 -0800 (PST)
-Date: Thu, 22 Jan 2026 08:54:02 -0800
+        bh=Xlxy7gGNB7fnsuI8qX0WFdpap2bNeW5xmXABoxpIzho=;
+        b=Uu9zKDwf7ZS2LBduhla5HEuqPzLdLs2roEhc9ROuLEZ1QiPD9a2Klfr1f9R5SPJPxX
+         SEkSJxGlJlMvBCBSojjsTybjaiAFZ797U1GqQdgFVTPO7JpLytQHQqVpDjYWMxkr9/AT
+         VGUSZDnec7wrGAu+wydAeVIVaRBuxzp2zeYE1Q8Yis9atx1O3x3+xs7ClUdyydUKLYjT
+         GEmfM4+2Qc8lPNgZ6zNeSS3nfv7SuEYTM45EzvTwVEgdGpYv5FaGgsQw628DPpPJyfny
+         XyRqtm3K8L3f1Qt2wbmi7M40q1MIlojWuLVh608tpzuW1V0ZH1sbn4f65Q4ZDQzTKeI3
+         4b5w==
+X-Forwarded-Encrypted: i=1; AJvYcCXAlf4vXWEyhqgNaOao+4AYTNoooSO2wr/qPiQAolPj0/PJn63a+uNk2i2N+pXSevPvmIIGBBiRob9Ybw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx13XdmOG5I/crGtEF85upsZZ6UMNcf+FbKTM10wk36Tz0eYkg9
+	urDQYk5oBdhTitwkQkg8L9g6em6agG39g4iXczKgKs8pQ/gvC+bXKZTaKNslgzVCB8jtI2uT3Kz
+	PzsTv07irFQ==
+X-Received: from dyer16.prod.google.com ([2002:a05:7300:2310:b0:2b0:6a03:e2bb])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:1291:b0:2b7:1744:725e
+ with SMTP id 5a478bee46e88-2b7397a364dmr12071eec.0.1769100871210; Thu, 22 Jan
+ 2026 08:54:31 -0800 (PST)
+Date: Thu, 22 Jan 2026 08:54:04 -0800
 In-Reply-To: <20260122165407.561888-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260122165407.561888-1-irogers@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260122165407.561888-8-irogers@google.com>
-Subject: [PATCH v2 07/12] perf disasm: Rework the string arch__is to use the
- ELF machine
+Message-ID: <20260122165407.561888-10-irogers@google.com>
+Subject: [PATCH v2 09/12] perf disasm: Refactor ins__is_call/jump to avoid
+ exposing arch ins_ops
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -103,8 +103,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_165429_781073_502263F0 
-X-CRM114-Status: GOOD (  21.44  )
+X-CRM114-CacheID: sfid-20260122_165433_599359_A1E1E48E 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,233 +121,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add new arch__is_x86 and arch__is_powerpc functions that avoid string
-comparisons and use the ELF machine. Remove arch__is that is no longer
-used.
+Add booleans indicating whether and ins_ops are call or jump and
+return it. This avoids exposing loongarch and s390 ins_ops for the
+sake of matching.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/annotate-data.c | 10 +++++-----
- tools/perf/util/annotate.c      | 16 ++++++++--------
- tools/perf/util/capstone.c      |  2 +-
- tools/perf/util/disasm.c        | 15 ++++++++++-----
- tools/perf/util/disasm.h        |  3 ++-
- tools/perf/util/llvm.c          |  2 +-
- 6 files changed, 27 insertions(+), 21 deletions(-)
+ tools/perf/util/annotate-arch/annotate-loongarch.c | 6 ++++--
+ tools/perf/util/annotate-arch/annotate-s390.c      | 3 ++-
+ tools/perf/util/disasm.c                           | 6 ++++--
+ tools/perf/util/disasm.h                           | 5 ++---
+ 4 files changed, 12 insertions(+), 8 deletions(-)
 
-diff --git a/tools/perf/util/annotate-data.c b/tools/perf/util/annotate-data.c
-index edfcd6e9df9c..44fbd41e3845 100644
---- a/tools/perf/util/annotate-data.c
-+++ b/tools/perf/util/annotate-data.c
-@@ -165,7 +165,7 @@ static void init_type_state(struct type_state *state, const struct arch *arch)
- 	memset(state, 0, sizeof(*state));
- 	INIT_LIST_HEAD(&state->stack_vars);
- 
--	if (arch__is(arch, "x86")) {
-+	if (arch__is_x86(arch)) {
- 		state->regs[0].caller_saved = true;
- 		state->regs[1].caller_saved = true;
- 		state->regs[2].caller_saved = true;
-@@ -526,7 +526,7 @@ static enum type_match_result check_variable(struct data_loc_info *dloc,
- 		needs_pointer = false;
- 	else if (reg == dloc->fbreg || is_fbreg)
- 		needs_pointer = false;
--	else if (arch__is(dloc->arch, "x86") && reg == X86_REG_SP)
-+	else if (arch__is_x86(dloc->arch) && reg == X86_REG_SP)
- 		needs_pointer = false;
- 
- 	/* Get the type of the variable */
-@@ -1071,7 +1071,7 @@ static void delete_var_types(struct die_var_type *var_types)
- /* should match to is_stack_canary() in util/annotate.c */
- static void setup_stack_canary(struct data_loc_info *dloc)
- {
--	if (arch__is(dloc->arch, "x86")) {
-+	if (arch__is_x86(dloc->arch)) {
- 		dloc->op->segment = INSN_SEG_X86_GS;
- 		dloc->op->imm = true;
- 		dloc->op->offset = 40;
-@@ -1311,7 +1311,7 @@ static enum type_match_result check_matching_type(struct type_state *state,
- 
- 		/* Direct this-cpu access like "%gs:0x34740" */
- 		if (dloc->op->segment == INSN_SEG_X86_GS && dloc->op->imm &&
--		    arch__is(dloc->arch, "x86")) {
-+		    arch__is_x86(dloc->arch)) {
- 			pr_debug_dtp("this-cpu var");
- 
- 			addr = dloc->op->offset;
-@@ -1397,7 +1397,7 @@ static enum type_match_result find_data_type_insn(struct data_loc_info *dloc,
- 
- static int arch_supports_insn_tracking(struct data_loc_info *dloc)
- {
--	if ((arch__is(dloc->arch, "x86")) || (arch__is(dloc->arch, "powerpc")))
-+	if ((arch__is_x86(dloc->arch)) || (arch__is_powerpc(dloc->arch)))
- 		return 1;
+diff --git a/tools/perf/util/annotate-arch/annotate-loongarch.c b/tools/perf/util/annotate-arch/annotate-loongarch.c
+index 32df10f6fed5..79dc116ade2f 100644
+--- a/tools/perf/util/annotate-arch/annotate-loongarch.c
++++ b/tools/perf/util/annotate-arch/annotate-loongarch.c
+@@ -57,9 +57,10 @@ static int loongarch_call__parse(const struct arch *arch, struct ins_operands *o
  	return 0;
  }
-diff --git a/tools/perf/util/annotate.c b/tools/perf/util/annotate.c
-index 132af2556aec..79702072568b 100644
---- a/tools/perf/util/annotate.c
-+++ b/tools/perf/util/annotate.c
-@@ -2474,7 +2474,7 @@ static int extract_reg_offset(const struct arch *arch, const char *str,
- 	 * %gs:0x18(%rbx).  In that case it should skip the part.
- 	 */
- 	if (*str == arch->objdump.register_char) {
--		if (arch__is(arch, "x86")) {
-+		if (arch__is_x86(arch)) {
- 			/* FIXME: Handle other segment registers */
- 			if (!strncmp(str, "%gs:", 4))
- 				op_loc->segment = INSN_SEG_X86_GS;
-@@ -2571,7 +2571,7 @@ int annotate_get_insn_location(const struct arch *arch, struct disasm_line *dl,
- 		op_loc->reg2 = -1;
  
- 		if (insn_str == NULL) {
--			if (!arch__is(arch, "powerpc"))
-+			if (!arch__is_powerpc(arch))
- 				continue;
- 		}
- 
-@@ -2580,7 +2580,7 @@ int annotate_get_insn_location(const struct arch *arch, struct disasm_line *dl,
- 		 * required fields for op_loc, ie reg1, reg2, offset from the
- 		 * raw instruction.
- 		 */
--		if (arch__is(arch, "powerpc")) {
-+		if (arch__is_powerpc(arch)) {
- 			op_loc->mem_ref = mem_ref;
- 			op_loc->multi_regs = multi_regs;
- 			get_powerpc_regs(dl->raw.raw_insn, !i, op_loc);
-@@ -2591,7 +2591,7 @@ int annotate_get_insn_location(const struct arch *arch, struct disasm_line *dl,
- 		} else {
- 			char *s, *p = NULL;
- 
--			if (arch__is(arch, "x86")) {
-+			if (arch__is_x86(arch)) {
- 				/* FIXME: Handle other segment registers */
- 				if (!strncmp(insn_str, "%gs:", 4)) {
- 					op_loc->segment = INSN_SEG_X86_GS;
-@@ -2675,7 +2675,7 @@ static struct annotated_item_stat *annotate_data_stat(struct list_head *head,
- 
- static bool is_stack_operation(const struct arch *arch, struct disasm_line *dl)
- {
--	if (arch__is(arch, "x86")) {
-+	if (arch__is_x86(arch)) {
- 		if (!strncmp(dl->ins.name, "push", 4) ||
- 		    !strncmp(dl->ins.name, "pop", 3) ||
- 		    !strncmp(dl->ins.name, "call", 4) ||
-@@ -2689,7 +2689,7 @@ static bool is_stack_operation(const struct arch *arch, struct disasm_line *dl)
- static bool is_stack_canary(const struct arch *arch, struct annotated_op_loc *loc)
- {
- 	/* On x86_64, %gs:40 is used for stack canary */
--	if (arch__is(arch, "x86")) {
-+	if (arch__is_x86(arch)) {
- 		if (loc->segment == INSN_SEG_X86_GS && loc->imm &&
- 		    loc->offset == 40)
- 			return true;
-@@ -2704,7 +2704,7 @@ static bool is_stack_canary(const struct arch *arch, struct annotated_op_loc *lo
-  */
- static bool is_address_gen_insn(const struct arch *arch, struct disasm_line *dl)
- {
--	if (arch__is(arch, "x86")) {
-+	if (arch__is_x86(arch)) {
- 		if (!strncmp(dl->ins.name, "lea", 3))
- 			return true;
- 	}
-@@ -2847,7 +2847,7 @@ __hist_entry__get_data_type(struct hist_entry *he, const struct arch *arch,
- 		}
- 
- 		/* This CPU access in kernel - pretend PC-relative addressing */
--		if (dso__kernel(map__dso(ms->map)) && arch__is(arch, "x86") &&
-+		if (dso__kernel(map__dso(ms->map)) && arch__is_x86(arch) &&
- 		    op_loc->segment == INSN_SEG_X86_GS && op_loc->imm) {
- 			dloc.var_addr = op_loc->offset;
- 			op_loc->reg1 = DWARF_REG_PC;
-diff --git a/tools/perf/util/capstone.c b/tools/perf/util/capstone.c
-index 2c7feab61b7b..ce06cfd253ef 100644
---- a/tools/perf/util/capstone.c
-+++ b/tools/perf/util/capstone.c
-@@ -147,7 +147,7 @@ static void print_capstone_detail(cs_insn *insn, char *buf, size_t len,
- 	struct symbol *sym;
- 
- 	/* TODO: support more architectures */
--	if (!arch__is(args->arch, "x86"))
-+	if (!arch__is_x86(args->arch))
- 		return;
- 
- 	if (insn->detail == NULL)
-diff --git a/tools/perf/util/disasm.c b/tools/perf/util/disasm.c
-index 2793697ce75c..b7523256c4ad 100644
---- a/tools/perf/util/disasm.c
-+++ b/tools/perf/util/disasm.c
-@@ -228,9 +228,14 @@ const struct arch *arch__find(const char *name)
- 	return bsearch(name, architectures, nmemb, sizeof(struct arch), arch__key_cmp);
- }
- 
--bool arch__is(const struct arch *arch, const char *name)
-+bool arch__is_x86(const struct arch *arch)
- {
--	return !strcmp(arch->name, name);
-+	return arch->e_machine == EM_386 || arch->e_machine == EM_X86_64;
-+}
-+
-+bool arch__is_powerpc(const struct arch *arch)
-+{
-+	return arch->e_machine == EM_PPC || arch->e_machine == EM_PPC64;
- }
- 
- static void ins_ops__delete(struct ins_operands *ops)
-@@ -877,7 +882,7 @@ static const struct ins_ops *__ins__find(const struct arch *arch, const char *na
- 	struct ins *ins;
- 	const int nmemb = arch->nr_instructions;
- 
--	if (arch__is(arch, "powerpc")) {
-+	if (arch__is_powerpc(arch)) {
- 		/*
- 		 * For powerpc, identify the instruction ops
- 		 * from the opcode using raw_insn.
-@@ -1066,7 +1071,7 @@ struct disasm_line *disasm_line__new(struct annotate_args *args)
- 		goto out_delete;
- 
- 	if (args->offset != -1) {
--		if (arch__is(args->arch, "powerpc")) {
-+		if (arch__is_powerpc(args->arch)) {
- 			if (disasm_line__parse_powerpc(dl, args) < 0)
- 				goto out_free_line;
- 		} else if (disasm_line__parse(dl->al.line, &dl->ins.name, &dl->ops.raw) < 0)
-@@ -1700,7 +1705,7 @@ int symbol__disassemble(struct symbol *sym, struct annotate_args *args)
- 	 * and typeoff, disassemble to mnemonic notation is not required in
- 	 * case of powerpc.
- 	 */
--	if (arch__is(args->arch, "powerpc")) {
-+	if (arch__is_powerpc(args->arch)) {
- 		extern const char *sort_order;
- 
- 		if (sort_order && !strstr(sort_order, "sym")) {
-diff --git a/tools/perf/util/disasm.h b/tools/perf/util/disasm.h
-index 4f5c9a985786..db7f1ee3d8e7 100644
---- a/tools/perf/util/disasm.h
-+++ b/tools/perf/util/disasm.h
-@@ -106,7 +106,8 @@ struct annotate_args {
+-const struct ins_ops loongarch_call_ops = {
++static const struct ins_ops loongarch_call_ops = {
+ 	.parse	   = loongarch_call__parse,
+ 	.scnprintf = call__scnprintf,
++	.is_call   = true,
  };
  
- const struct arch *arch__find(const char *name);
--bool arch__is(const struct arch *arch, const char *name);
-+bool arch__is_x86(const struct arch *arch);
-+bool arch__is_powerpc(const struct arch *arch);
+ static int loongarch_jump__parse(const struct arch *arch, struct ins_operands *ops,
+@@ -106,9 +107,10 @@ static int loongarch_jump__parse(const struct arch *arch, struct ins_operands *o
+ 	return 0;
+ }
  
- const struct ins_ops *ins__find(const struct arch *arch, const char *name, struct disasm_line *dl);
+-const struct ins_ops loongarch_jump_ops = {
++static const struct ins_ops loongarch_jump_ops = {
+ 	.parse	   = loongarch_jump__parse,
+ 	.scnprintf = jump__scnprintf,
++	.is_jump   = true,
+ };
  
-diff --git a/tools/perf/util/llvm.c b/tools/perf/util/llvm.c
-index 4ada9a10bd93..0d126d233c01 100644
---- a/tools/perf/util/llvm.c
-+++ b/tools/perf/util/llvm.c
-@@ -146,7 +146,7 @@ int symbol__disassemble_llvm(const char *filename, struct symbol *sym,
- 		return errno;
+ static
+diff --git a/tools/perf/util/annotate-arch/annotate-s390.c b/tools/perf/util/annotate-arch/annotate-s390.c
+index 81db102b3e15..7b2d27b62e6b 100644
+--- a/tools/perf/util/annotate-arch/annotate-s390.c
++++ b/tools/perf/util/annotate-arch/annotate-s390.c
+@@ -57,9 +57,10 @@ static int s390_call__parse(const struct arch *arch, struct ins_operands *ops,
+ 	return 0;
+ }
  
- 	init_llvm();
--	if (arch__is(args->arch, "x86")) {
-+	if (arch__is_x86(args->arch)) {
- 		const char *triplet = is_64bit ? "x86_64-pc-linux" : "i686-pc-linux";
+-const struct ins_ops s390_call_ops = {
++static const struct ins_ops s390_call_ops = {
+ 	.parse	   = s390_call__parse,
+ 	.scnprintf = call__scnprintf,
++	.is_call   = true,
+ };
  
- 		disasm = LLVMCreateDisasm(triplet, &storage, /*tag_type=*/0,
+ static int s390_mov__parse(const struct arch *arch __maybe_unused,
+diff --git a/tools/perf/util/disasm.c b/tools/perf/util/disasm.c
+index 845c2d0f39b1..8c3e9094600a 100644
+--- a/tools/perf/util/disasm.c
++++ b/tools/perf/util/disasm.c
+@@ -315,11 +315,12 @@ int call__scnprintf(const struct ins *ins, char *bf, size_t size,
+ const struct ins_ops call_ops = {
+ 	.parse	   = call__parse,
+ 	.scnprintf = call__scnprintf,
++	.is_call   = true,
+ };
+ 
+ bool ins__is_call(const struct ins *ins)
+ {
+-	return ins->ops == &call_ops || ins->ops == &s390_call_ops || ins->ops == &loongarch_call_ops;
++	return ins->ops && ins->ops->is_call;
+ }
+ 
+ /*
+@@ -469,11 +470,12 @@ const struct ins_ops jump_ops = {
+ 	.free	   = jump__delete,
+ 	.parse	   = jump__parse,
+ 	.scnprintf = jump__scnprintf,
++	.is_jump   = true,
+ };
+ 
+ bool ins__is_jump(const struct ins *ins)
+ {
+-	return ins->ops == &jump_ops || ins->ops == &loongarch_jump_ops;
++	return ins->ops && ins->ops->is_jump;
+ }
+ 
+ static int comment__symbol(char *raw, char *comment, u64 *addrp, char **namep)
+diff --git a/tools/perf/util/disasm.h b/tools/perf/util/disasm.h
+index 83503c5075f9..b6a2a30fdf27 100644
+--- a/tools/perf/util/disasm.h
++++ b/tools/perf/util/disasm.h
+@@ -93,6 +93,8 @@ struct ins_ops {
+ 			struct disasm_line *dl);
+ 	int (*scnprintf)(const struct ins *ins, char *bf, size_t size,
+ 			 struct ins_operands *ops, int max_ins_name);
++	bool is_jump;
++	bool is_call;
+ };
+ 
+ struct annotate_args {
+@@ -139,9 +141,6 @@ bool ins__is_fused(const struct arch *arch, const char *ins1, const char *ins2);
+ bool ins__is_ret(const struct ins *ins);
+ bool ins__is_lock(const struct ins *ins);
+ 
+-extern const struct ins_ops s390_call_ops;
+-extern const struct ins_ops loongarch_call_ops;
+-extern const struct ins_ops loongarch_jump_ops;
+ const struct ins_ops *check_ppc_insn(struct disasm_line *dl);
+ 
+ struct disasm_line *disasm_line__new(struct annotate_args *args);
 -- 
 2.52.0.457.g6b5491de43-goog
 
