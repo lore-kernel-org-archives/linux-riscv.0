@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F562C44500
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 12:23:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A846CA5FD7
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 12:43:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tnRfpOn6kJ/Gjirvvs/q24hG8wk3jibqZd4V4+USQRo=; b=KHSfCd0rg+/0z5
-	EV1LxIBhQLGyYugmauzBXm8XHeCXOUIgpSvG/1ENT1j2qeSlb6ycSP8OE3e7ki8+XgYVrgGMNervj
-	fViHOnV0X1pjEZOe2Edd9Cdm7Q7aOq639iQx1+Q46I6XncpDLJAo0dMUcY3O8jDjeIhZuWnHnmrx8
-	PWMzAFV2TFIga+5TUA2PTxdWJ56QjyV0/LvO52zLDOHntTLI1XywiD6yhZZKFHk6qTNgl0Tn752ia
-	j1/bQ5JmC6vuqCAPsfRVVr8smVBytfoaNrvD13EB+cpw9lCjH+8pg4iYC8W0dAKdCU+2tXq+/KziO
-	P+YjOSzRALB0s9J+6B6A==;
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:Date:Subject:From:
+	References:In-Reply-To:Message-Id:Cc:To:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=P3qRfp6kbiOD9M2++U7hn4vUXoDeIc9DUiqStALtK0g=; b=kO7rIM1SJIrCZVqdqFknaZaDHZ
+	Akx6NmqWVK2aiMCHqG6MLO4VKLPrpoL5+z3zVwihyK1evx6pJV8Bk/rcCsGI8Ud6MPwbw1Go/VUQT
+	GX3m57dqhataHvQjcE1eEgL3NX2knBvnVipFYeBoUJtTFOeR8Fdi2G9sKzMQZzoi1ypJ62P2emvWS
+	M7D4dhKR4jtvaw6duiJplXghM6kWTRaD7bIAXNiCri07ig6cZyoJ7OZ66nxfBR8vaA6YtxubpM2dP
+	HE0Em2bO4L9j9N/1MV2MGDHcScPyfvqEY+GGsQzreTe/u9ALgAXEwQ2JWXFrIXljaVsYY2Obo5VFl
+	HQwNblQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vitiT-000000073D7-2lxr;
-	Thu, 22 Jan 2026 12:23:13 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1viu1y-000000074Kr-2CeZ;
+	Thu, 22 Jan 2026 12:43:22 +0000
+Received: from sg-1-40.ptr.blmpb.com ([118.26.132.40])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vitiR-000000073Cm-1UDZ
+	id 1viu1u-000000074KK-2kwj
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jan 2026 12:23:12 +0000
-Received: from localhost (unknown [116.232.27.242])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 9116E341A11;
-	Thu, 22 Jan 2026 12:23:09 +0000 (UTC)
-Date: Thu, 22 Jan 2026 20:23:05 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Guodong Xu <guodong@riscstar.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Alex Elder <elder@riscstar.com>, Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, devicetree@vger.kernel.org
-Subject: Re: [PATCH 2/4] dt-bindings: mfd: spacemit,p1: Add individual
- regulator supply properties
-Message-ID: <20260122122305-GYD63789@gentoo.org>
-References: <20260122-spacemit-p1-v1-0-309be27fbff9@riscstar.com>
- <20260122-spacemit-p1-v1-2-309be27fbff9@riscstar.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260122-spacemit-p1-v1-2-309be27fbff9@riscstar.com>
+	Thu, 22 Jan 2026 12:43:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=picoheart-com.20200927.dkim.feishu.cn; t=1769085788;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=MyQlH88uNbS6AL1mNGr0EzjCJBAdtIs859QM7mQIV4E=;
+ b=ioS81eNCpZj8Tg4xqHNq+3xwOH9vpBeGhii+oHAJKwq52QB4aPZODUtg1atsUrSw+55mm1
+ 08foZRAKxA04JjeKdAQXb4E7/UtqtBqW9XVKf3MeNoCzzE1IlrhK+OM6PKHhdVvbve/ULY
+ xFJnfmyFFDWfGZy3du502okWQQAy1zgx7VKMfuAaZ7fEIXD0mYk0qkStE2J+wlANhR2jyu
+ 05l/DzubrFaaVXaibh0bLQWCx72SwBmaZ6z1QJXxlP68/ieB43yD7o8Sv8mTLqlteipKwP
+ O1k11aMHiMsUzIUxE7wIk25UQ0aWwmNFIYFqjAmLD2+OyVqpLwM8+z1JtfZC3Q==
+X-Lms-Return-Path: <lba+269721b5a+4434aa+lists.infradead.org+yang.yicong@picoheart.com>
+Content-Language: en-US
+To: "Greg KH" <gregkh@linuxfoundation.org>
+Cc: <yang.yicong@picoheart.com>, <rafael@kernel.org>, <lenb@kernel.org>, 
+	<tglx@kernel.org>, <dakr@kernel.org>, <akpm@linux-foundation.org>, 
+	<apatel@ventanamicro.com>, <pjw@kernel.org>, <palmer@dabbelt.com>, 
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <geshijian@picoheart.com>, 
+	<weidong.wd@picoheart.com>, <linux-acpi@vger.kernel.org>, 
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Message-Id: <ca98b360-ea68-4edc-af3e-0a3f4f87fc21@picoheart.com>
+In-Reply-To: <2026012214-dinginess-improper-9bc1@gregkh>
+References: <20260122073446.45628-1-yang.yicong@picoheart.com> <20260122073446.45628-2-yang.yicong@picoheart.com> <2026012214-dinginess-improper-9bc1@gregkh>
+X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
+Received: from [172.16.153.176] ([58.250.122.114]) by smtp.feishu.cn with ESMTPS; Thu, 22 Jan 2026 20:43:05 +0800
+From: "Yicong Yang" <yang.yicong@picoheart.com>
+Subject: Re: [PATCH 1/2] ACPI: scan: Use async schedule function for acpi_scan_clear_dep_fn
+Date: Thu, 22 Jan 2026 20:43:03 +0800
+Mime-Version: 1.0
+User-Agent: Mozilla Thunderbird
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_042311_443467_62579C79 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20260122_044319_311574_38B5FB74 
+X-CRM114-Status: GOOD (  28.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,126 +76,135 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guodong,
-
-On 17:43 Thu 22 Jan     , Guodong Xu wrote:
-> Add supply properties that match the P1 PMIC's actual hardware topology
-> where each buck converter has its own VIN pin and LDO groups share
-> common input pins. Supply names are defined according to the pinout
-> names in the P1 datasheet.
+On 1/22/26 6:29 PM, Greg KH wrote:
+> On Thu, Jan 22, 2026 at 03:34:45PM +0800, Yicong Yang wrote:
+>> The device object rescan in acpi_scan_clear_dep_fn is scheduled
+>> in the system workqueue which is not guaranteed to be finished
+>> before entering userspace. This will cause the problem that
+>> some key devices are missed when the init task try to find them,
+>> e.g. console devices and root devices (PCIe nvme, etc).
+>> This issues is more possbile to happen on RISCV since these
+>> devices using GSI interrupt may depend on APLIC and will be
+>> scanned in acpi_scan_clear_dep_queue() after APLIC initialized.
+>>
+>> Fix this by scheduling the acpi_scan_clear_dep_queue() using async
+>> schedule function rather than the system workqueue. The deferred
+>> works will be synchronized by async_synchronize_full() before
+>> entering init task.
+>>
+>> Update the comment as well.
+>>
+>> Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
+>> ---
+>>  drivers/acpi/scan.c | 35 ++++++++++++++++-------------------
+>>  1 file changed, 16 insertions(+), 19 deletions(-)
+>>
+>> diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+>> index 416d87f9bd10..bf0d8ba9ba19 100644
+>> --- a/drivers/acpi/scan.c
+>> +++ b/drivers/acpi/scan.c
+>> @@ -5,6 +5,7 @@
+>>  
+>>  #define pr_fmt(fmt) "ACPI: " fmt
+>>  
+>> +#include <linux/async.h>
+>>  #include <linux/module.h>
+>>  #include <linux/init.h>
+>>  #include <linux/slab.h>
+>> @@ -2365,39 +2366,35 @@ struct acpi_scan_clear_dep_work {
+>>  	struct acpi_device *adev;
+>>  };
+>>  
+>> -static void acpi_scan_clear_dep_fn(struct work_struct *work)
+>> +static void acpi_scan_clear_dep_fn(void *dev, async_cookie_t cookie)
+>>  {
+>> -	struct acpi_scan_clear_dep_work *cdw;
+>> -
+>> -	cdw = container_of(work, struct acpi_scan_clear_dep_work, work);
+>> +	struct acpi_device *adev = to_acpi_device(dev);
+>>  
+>>  	acpi_scan_lock_acquire();
+>> -	acpi_bus_attach(cdw->adev, (void *)true);
+>> +	acpi_bus_attach(adev, (void *)true);
+>>  	acpi_scan_lock_release();
+>>  
+>> -	acpi_dev_put(cdw->adev);
+>> -	kfree(cdw);
+>> +	acpi_dev_put(adev);
+>>  }
+>>  
+>>  static bool acpi_scan_clear_dep_queue(struct acpi_device *adev)
+>>  {
+>> -	struct acpi_scan_clear_dep_work *cdw;
+>> -
+>>  	if (adev->dep_unmet)
+>>  		return false;
+>>  
+>> -	cdw = kmalloc(sizeof(*cdw), GFP_KERNEL);
+>> -	if (!cdw)
+>> -		return false;
+>> -
+>> -	cdw->adev = adev;
+>> -	INIT_WORK(&cdw->work, acpi_scan_clear_dep_fn);
+>>  	/*
+>> -	 * Since the work function may block on the lock until the entire
+>> -	 * initial enumeration of devices is complete, put it into the unbound
+>> -	 * workqueue.
+>> +	 * Async schedule the deferred acpi_scan_clear_dep_fn() since:
+>> +	 * - acpi_bus_attach() needs to hold acpi_scan_lock which cannot
+>> +	 *   be acquired under acpi_dep_list_lock (held here)
+>> +	 * - the deferred work at boot stage is ensured to be finished
+>> +	 *   before entering init task by the async_synchronize_full()
+>> +	 *   barrier
+>> +	 *
+>> +	 * Use _nocall variant since it'll return on failure instead of
+>> +	 * run the function synchronously.
+>>  	 */
+>> -	queue_work(system_dfl_wq, &cdw->work);
+>> +	if (!async_schedule_dev_nocall(acpi_scan_clear_dep_fn, &adev->dev))
+>> +		return false;
 > 
-While checking schematics/docs, I found the SWIN/SWOUT are not
-described in the dt-binding? is this intentional? I have no problem
-if you plan to implement it separately later, just curious to ask..
-
-In Bananapi F3/Jupiter board, it's used as LCD_VCC5V0 out
-
-> This allows different boards to describe their actual
-> power tree connections in devicetree rather than hardcoding supply
-> relationships in the driver.
+> This really feels wrong to me, you are taking a code path that has been
+> working for quite a while and changing it.  Perhaps your system ACPI
+> tables are the thing that is incorrect here?
 > 
-> Signed-off-by: Guodong Xu <guodong@riscstar.com>
-> ---
->  .../devicetree/bindings/mfd/spacemit,p1.yaml       | 58 +++++++++++++++++++++-
->  1 file changed, 56 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/mfd/spacemit,p1.yaml b/Documentation/devicetree/bindings/mfd/spacemit,p1.yaml
-> index c6593ac6ef6adb72fc48af570dc13fc9edf77ccb..abdc93b9a67b1872c8fe6955abd950622a0b69e8 100644
-> --- a/Documentation/devicetree/bindings/mfd/spacemit,p1.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/spacemit,p1.yaml
-> @@ -27,8 +27,41 @@ properties:
->    interrupts:
->      maxItems: 1
->  
-> -  vin-supply:
-> -    description: Input supply phandle.
-> +  vin1-supply:
-> +    description:
-> +      Power supply for BUCK1. Required if BUCK1 is defined.
-> +
-> +  vin2-supply:
-> +    description:
-> +      Power supply for BUCK2. Required if BUCK2 is defined.
-> +
-> +  vin3-supply:
-> +    description:
-> +      Power supply for BUCK3. Required if BUCK3 is defined.
-> +
-> +  vin4-supply:
-> +    description:
-> +      Power supply for BUCK4. Required if BUCK4 is defined.
-> +
-> +  vin5-supply:
-> +    description:
-> +      Power supply for BUCK5. Required if BUCK5 is defined.
-> +
-> +  vin6-supply:
-> +    description:
-> +      Power supply for BUCK6. Required if BUCK6 is defined.
-> +
-> +  aldoin-supply:
-> +    description:
-> +      Power supply for ALDO1-4. Required if any are defined.
-> +
-> +  dldoin1-supply:
-> +    description:
-> +      Power supply for DLDO1-4. Required if any are defined.
-> +
-> +  dldoin2-supply:
-> +    description:
-> +      Power supply for DLDO5-7. Required if any are defined.
->  
->    regulators:
->      type: object
-> @@ -50,6 +83,15 @@ unevaluatedProperties: false
->  
->  examples:
->    - |
-> +    / {
-> +        reg_vcc_5v: regulator-vcc-5v {
-> +            compatible = "regulator-fixed";
-> +            regulator-name = "vcc_5v";
-> +            regulator-min-microvolt = <5000000>;
-> +            regulator-max-microvolt = <5000000>;
-> +        };
-> +    };
-> +
->      i2c {
->          #address-cells = <1>;
->          #size-cells = <0>;
-> @@ -58,6 +100,10 @@ examples:
->              compatible = "spacemit,p1";
->              reg = <0x41>;
->              interrupts = <64>;
-> +            vin1-supply = <&reg_vcc_5v>;
-> +            vin5-supply = <&reg_vcc_5v>;
-> +            aldoin-supply = <&reg_vcc_5v>;
-> +            dldoin1-supply = <&buck5>;
->  
->              regulators {
->                  buck1 {
-> @@ -68,6 +114,14 @@ examples:
->                      regulator-always-on;
->                  };
->  
-> +                buck5: buck5 {
-> +                    regulator-name = "buck5";
-> +                    regulator-min-microvolt = <500000>;
-> +                    regulator-max-microvolt = <3450000>;
-> +                    regulator-ramp-delay = <5000>;
-> +                    regulator-always-on;
-> +                };
-> +
->                  aldo1 {
->                      regulator-name = "aldo1";
->                      regulator-min-microvolt = <500000>;
-> 
-> -- 
-> 2.43.0
+> What exactly is the problem that you are seeing?  Why not start with
+> that and then we can work out how to solve that issue?
 > 
 
--- 
-Yixun Lan (dlan)
+two issues here we met (as briefly mentioned in the commit and cover letter):
+1. kernel panic due to userspace init cannot have an opened console. the
+   console device scanning is queued in the system_dfl_wq in above code
+   and not finished by the time userspace init process running, thus by
+   the time userspace init running, no console is created
+2. entering rescue shell due to no root devices (PCIe nvme in our case)
+   found. same reason as above, the PCIe host bridge scanning is queued
+   in above and finished after init process running.
+
+The reason why these devices are created here is because they both depend
+on riscv-aplic irqchip to serve their interrupts (console's wired
+interrupt and PCI's INTx interrupts) and in order to keep the dependency
+these devices are scanned and created after riscv-aplic initialized. The
+riscv-aplic is initialized in device_initcall and invoke above codes for
+the scan/creation of these devices, it's close to the time running
+userspace init process. Since system_dfl_wq is used here and no synchronized
+mechanism, the issues will happen if userspace init runs before these devices
+are ready.
+
+Previous solution [1] is to advance the initialization of riscv-aplic
+earlier but the order still cannot be guaranteed conceptually.
+With async_schedule_dev_nocal() the work queued is finished
+before entering userspace init since we'll wait for completion at
+async_synchronize_full() before executing userspace init process.
+
+To solve the issue I think we should make these devices ready before
+entering userspace and async schedule is one way to make it. It's also
+using an unbound workqueue but have additional synchronization. Any
+corrections or suggestions?
+
+[1] https://lore.kernel.org/linux-riscv/20260114063730.78009-1-yang.yicong@picoheart.com/
+
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
