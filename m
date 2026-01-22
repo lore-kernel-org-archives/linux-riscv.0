@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15646D3EE92
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 16:54:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B55D3EE92
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 16:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:References:
-	Mime-Version:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ysjf97+1ljy3V+a/lYD6GKjReLTpUUqZfvbu2WsNlAY=; b=WRh8kQ1H565EbM
-	IcmxAPui2Oxxz8XZbb71xOWNIH/m7WZRqhpxiHSYbaAikkvMjP4ObP928yGCczITpPEkhSsGpVmMd
-	DKR56D5VcfdL9/Z3+ws6I/gWoEnMpj2p7SRguoggxfD1qSIWvwNvrjsd4VDbKNUgX8ndZ+gHuxGGr
-	dBqg68YWAqtY+Sf8suTroO4NG51swhMNXUjjeaO2hzzRDgqoT9kWN3jkvHmCt+G2HcrnS5/mQE/zL
-	TLf+3tviR2TxYuVcO6EZCqd6drRnNWbURCjF+IIX/67a9t3iu3p1Euq9jQRixTQxEbpN+qFIt3pW8
-	pXtHzESqkWsH5Ej+bLTw==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:Mime-Version
+	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IGF2gJNdx2WKCcWfkZadRmZueXcZ9pLU4nvYd5nrrAg=; b=mlqHshYJQlrcgx
+	0XchBJ8ld+9wxvEoE067F5IDO+gcRwhHrOl1ahlZBVmst94u242wNpZtZA6+5GzUHZZu+D5jvQU1E
+	Fev54MBz1xSHjsr8++hD+NPRgLS1aF33KaeNDy6QZUkvA9vbgje5Ei0f4KMnENiym2ESpKAr2x4F+
+	45+rt1imRqNy1JsE4xytEIh8clsAEi2TMBRWYwcV6EuBnsgbtSIgWpjCblOHmkq+7EtqHKDWRSx0y
+	FlGQ/Vj2JTLd71IhyTUqxZh2kenUFl2LJ8/fxIY+xdtxQXxsYcDGQnz9mvlQaaiOC+31kkUMhng98
+	wHUEOcxs43Vro+wYxbmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixwq-00000007Ten-2p6A;
+	id 1vixwq-00000007Ted-1YJl;
 	Thu, 22 Jan 2026 16:54:20 +0000
-Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixwo-00000007Td4-1j2j
+	id 1vixwn-00000007Tco-17JH
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jan 2026 16:54:19 +0000
-Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-1247bb4db53so432433c88.1
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Jan 2026 08:54:17 -0800 (PST)
+	Thu, 22 Jan 2026 16:54:18 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2b722bc1be1so932875eec.0
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Jan 2026 08:54:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769100856; x=1769705656; darn=lists.infradead.org;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zalmwLrK8cPj7cYoTUj/KkGE6/xfnap/Tev3VqTduZw=;
-        b=3gqe7CFUGvzeV1S0/tIW1RMh3X+0VhkHAa8AO7g73gRp1bUYYkjjQpwcH0o/1FmJmr
-         fW1ykP7MkvAqXa9zRxi4MQ2VE36VPJJiIfDmUcpHz4BcWjs6ARk6WeDlBUyahcnL+f3B
-         UNbPpRvGUkxg1P0x0vVeBK/grYT8gJwdAPgKKfb6gDZ11v9eNErz6T+73k1rwzgmO538
-         sUBmbWbZf630bZ4EvRlSX2B01D/UHT4RYp4zHmDG4FXYVx3mQCKj1cGz/iinzBSxipBe
-         evd4cLSLEKV0Xro1fL0pii2LlHCiYsb5OG8kIuLDevj11B4dXGfTe9lMOkRxXGtDcaak
-         VHcw==
+        d=google.com; s=20230601; t=1769100855; x=1769705655; darn=lists.infradead.org;
+        h=to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ptohnX8yCM46UmZak3D8AP5tKkb3cPUe+4O8l8XtsLs=;
+        b=BZ2lODS4egrfxseiK3peKcTq/JO9SLa6ODpLu1EL/xIw1zWzH+zmCMXzBSVC6sxE9d
+         hO0EM9wlfxXj4IVIrtaFDwv3jFRv0hUxKuXJi3GKU7SnbyGQ1T8b5TewAunF+d1Fb4bR
+         fp4YZiNvw4gBjDnufcozJijsgU7bXDJoRpLgXCE1zjyndm4iRJgT3adaiULAe306s8LP
+         KibXNsKL4mwMUSjLb1fA8JBiUWLlOvFsiM4m2ATO2wSZJwUotFEa6TO3N5S0jEtWIPAo
+         BKBw0EsOEU01tsVWDYgfxBUarvEWIvttoH/lcqVhfocQyZBoq0i24iZUUczTLVXuPOoK
+         f4Gw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769100856; x=1769705656;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zalmwLrK8cPj7cYoTUj/KkGE6/xfnap/Tev3VqTduZw=;
-        b=swhsCufp5vxgodw6oZBn+B618K3Qgt2731MdFFxVQCfQlvTgRpeUDi2jGbGdJ8j35L
-         vm3AFGaSl+MMSKaRCZ4qNQBfgiJ71crai0rZXTl4KvlBXXmWL5zqMBTycrsi2u9q5Oli
-         W7zINE6brYMPxcuexsRqhoa3G4cVENkcqsFfTKOeSb8Na7q+CrVTxNUAEBNeln6JTIQ0
-         0tvuBeUaD5fCPeGLjeJy5SH7AUVhOawf49AwpvKOr6bT/IfpTQ8rjRA8249U3gxH43Ih
-         fZN60ap011Hne1O5gM46C93UeKzfchIYxkf05oFeremowcCGihoV30YLT3kuAF0WWplU
-         vMXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUZPW3eiGf5RFEgJFClOzZ0MeQYNznfo6SsBAQoUjTuNUslDgm8mn1Ieskg0RFVidcD/a+GGGCWL0M8nA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YywAWL8RrX8k8C44q4Ba5FPbTw4u3Lt3vPumSUXzoCTUKT141N0
-	ahxtLJUOCji7w1ECn+MpKij45ikBpKGry4aWDm6mYnDZPXbV5jLdmyLc4S5z1dRdPINuTAlKRMq
-	vE49ovMVCxA==
-X-Received: from dlbqj5.prod.google.com ([2002:a05:7022:ec05:b0:123:2b17:f461])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:4582:b0:11b:95fe:bee3
- with SMTP id a92af1059eb24-1246aabf3f6mr7269627c88.37.1769100856331; Thu, 22
- Jan 2026 08:54:16 -0800 (PST)
-Date: Thu, 22 Jan 2026 08:53:56 -0800
-In-Reply-To: <20260122165407.561888-1-irogers@google.com>
+        d=1e100.net; s=20230601; t=1769100855; x=1769705655;
+        h=to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ptohnX8yCM46UmZak3D8AP5tKkb3cPUe+4O8l8XtsLs=;
+        b=MM9lDU9IaEeUjHsIyngPO7DFhWiAv7BLH3YNBv6qaYRXmBBusHw6+Mjy01sAnBFUHx
+         nRZsxnfp1APXjTEOF4Ubmyg/J6W0iX+2XJuFqqclm5flL2htpazSmtSdtt4uvLpwStvY
+         VDJ0ohUCHkcvnV7kUsJ8BJBSN7BWVovg/1VNewZaNU6OkX9N0a4Bcnlt9wuuReReQjmB
+         PK7XPEcnwHyOVCq2XLgVNPf9HmbAxUxHhP8JsVGpxq/lCQ8ohc8mAEpA5oWXphCFWpvZ
+         7Ho3W5gUI1iBKJsU7I3HBfw2XyKI/eLW0EfgQbNlOf+0oX/f2z2nWm2kgZsCLzNQd/UR
+         3hbA==
+X-Forwarded-Encrypted: i=1; AJvYcCVEdicAektuFKrM+3oyGQE0anWRn3lDhsab1YVPOd6jBmBXsRQ98Cf5hFA47zZufdxZNbcMZE4jfrpNDA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywv+0ikkUHvKff2SB0uT2MIQigWhr7uPXYSw+yqIaYJAZ3d272m
+	qoG6tLthZWNgYD9Q6/4z7EiLrTRQEcNcvsmFZlQ2Nys2pLFU0vh/5vtXMiHvC5q8H6Xe/TTkr+r
+	4oBAZ12Om3Q==
+X-Received: from dybgn17.prod.google.com ([2002:a05:7301:2511:b0:2b7:3bb:5997])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:650c:b0:2ae:51ae:5cfd
+ with SMTP id 5a478bee46e88-2b6b4104264mr16128244eec.22.1769100854683; Thu, 22
+ Jan 2026 08:54:14 -0800 (PST)
+Date: Thu, 22 Jan 2026 08:53:55 -0800
 Mime-Version: 1.0
-References: <20260122165407.561888-1-irogers@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260122165407.561888-2-irogers@google.com>
-Subject: [PATCH v2 01/12] perf header: Fix memory leaks in process_cpu_domain_info
+Message-ID: <20260122165407.561888-1-irogers@google.com>
+Subject: [PATCH v2 00/12] perf annotate arch clean up
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -87,8 +85,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_085418_454454_15CCB658 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20260122_085417_309165_068440CC 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,62 +103,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-do_read_string returns a string in allocated memory, for some reason
-there was unused memory allocations and unnecessary strdups. Remove
-these and make the "perf annotate basic tests" leak sanitizer clean.
+3 initial memory leak fix patches for perf annotate.
 
-Signed-off-by: Ian Rogers <irogers@google.com>
-Fixes: d40c68a49f69 ("perf header: Support CPU DOMAIN relation info")
----
- tools/perf/util/header.c | 17 ++++-------------
- 1 file changed, 4 insertions(+), 13 deletions(-)
+Move the disasm.c #included arch files into a new util/annotate-arch
+directory. Make the code compile standalone. Try to better encapsulate
+architecture specific code within the files and with a
+arch__new_<arch> function that allows additional data to be associated
+with the struct arch using the standard container_of trick.
 
-diff --git a/tools/perf/util/header.c b/tools/perf/util/header.c
-index 9a15dd4b7640..eefd1cd73b6a 100644
---- a/tools/perf/util/header.c
-+++ b/tools/perf/util/header.c
-@@ -3634,6 +3634,7 @@ static int process_cpu_domain_info(struct feat_fd *ff, void *data __maybe_unused
- 			if (!d_info)
- 				return -1;
- 
-+			assert(cd_map[cpu]->domains[domain] == NULL);
- 			cd_map[cpu]->domains[domain] = d_info;
- 			d_info->domain = domain;
- 
-@@ -3642,30 +3643,20 @@ static int process_cpu_domain_info(struct feat_fd *ff, void *data __maybe_unused
- 				if (!dname)
- 					return -1;
- 
--				d_info->dname = zalloc(strlen(dname) + 1);
--				if (!d_info->dname)
--					return -1;
--
--				d_info->dname = strdup(dname);
-+				d_info->dname = dname;
- 			}
- 
- 			cpumask = do_read_string(ff);
- 			if (!cpumask)
- 				return -1;
- 
--			d_info->cpumask = zalloc(strlen(cpumask) + 1);
--			if (!d_info->cpumask)
--				return -1;
--			d_info->cpumask = strdup(cpumask);
-+			d_info->cpumask = cpumask;
- 
- 			cpulist = do_read_string(ff);
- 			if (!cpulist)
- 				return -1;
- 
--			d_info->cpulist = zalloc(strlen(cpulist) + 1);
--			if (!d_info->cpulist)
--				return -1;
--			d_info->cpulist = strdup(cpulist);
-+			d_info->cpulist = cpulist;
- 		}
- 	}
- 
+Make the lookup of struct arch use the ELF machine gather from a
+thread rather than an evsel. For example, the evsel can't determine
+the difference between EM_386 and EM_X86_64 so generally the latter
+has currently been used. This means the dwarf registers are off as
+register 1 is CX with EM_386 and DX with EM_X86_64. To facilitate this
+change map_symbol is refactored to use a struct thread rather than a
+struct maps, the maps being obtainable from the thread.
+
+To make in and out arguments clearer, for safety, etc. try to constify
+struct arch and its related structs.
+
+v2: Add a patch to fix a domain info memory leak that was blocking
+    leak sanitizer analysis. Fix more map_symbol leaks or uses after
+    reference count put (Suchit Karunakaran
+    <suchitkarunakaran@gmail.com>).  Try to repro annotate test crash
+    (James Clark) but suspect it was addressed in the other reference
+    count fixes.
+
+v1: https://lore.kernel.org/lkml/20260122073127.375139-1-irogers@google.com/
+
+Ian Rogers (12):
+  perf header: Fix memory leaks in process_cpu_domain_info
+  perf annotate: Fix args leak of map_symbol
+  perf maps: Fix reference count leak in maps__find_ams
+  perf disasm: Constify use of struct arch
+  perf disasm: Constify use of struct ins_op
+  perf disasm: Constify use of struct ins
+  perf disasm: Rework the string arch__is to use the ELF machine
+  perf disasm: Don't include C files from the arch directory
+  perf disasm: Refactor ins__is_call/jump to avoid exposing arch ins_ops
+  perf map_symbol: Switch from holding maps to holding thread
+  perf disasm: Refactor arch__find and initialization of arch structs
+  perf disasm: Minor layout tweaks for struct arch
+
+ tools/perf/arch/arc/annotate/instructions.c   |  11 -
+ .../perf/arch/riscv64/annotate/instructions.c |  36 --
+ tools/perf/ui/browsers/annotate.c             |   6 +-
+ tools/perf/ui/browsers/hists.c                |   3 +-
+ tools/perf/util/Build                         |   1 +
+ tools/perf/util/addr_location.c               |   4 -
+ tools/perf/util/addr_location.h               |   1 -
+ tools/perf/util/annotate-arch/Build           |  11 +
+ tools/perf/util/annotate-arch/annotate-arc.c  |  18 +
+ .../annotate-arch/annotate-arm.c}             |  48 +-
+ .../annotate-arch/annotate-arm64.c}           |  59 +--
+ .../annotate-arch/annotate-csky.c}            |  29 +-
+ .../annotate-arch/annotate-loongarch.c}       |  71 +--
+ .../annotate-arch/annotate-mips.c}            |  29 +-
+ .../annotate-arch/annotate-powerpc.c}         | 125 ++++-
+ .../util/annotate-arch/annotate-riscv64.c     |  41 ++
+ .../annotate-arch/annotate-s390.c}            |  70 +--
+ .../annotate-arch/annotate-sparc.c}           |  26 +-
+ .../annotate-arch/annotate-x86.c}             |  89 ++--
+ tools/perf/util/annotate-data.c               |  12 +-
+ tools/perf/util/annotate-data.h               |   2 +-
+ tools/perf/util/annotate.c                    |  88 ++--
+ tools/perf/util/annotate.h                    |  10 +-
+ tools/perf/util/callchain.c                   |  12 +-
+ tools/perf/util/capstone.c                    |  18 +-
+ tools/perf/util/db-export.c                   |   1 -
+ tools/perf/util/disasm.c                      | 428 +++++++-----------
+ tools/perf/util/disasm.h                      |  95 ++--
+ tools/perf/util/event.c                       |   2 -
+ tools/perf/util/header.c                      |  17 +-
+ tools/perf/util/hist.c                        |  18 +-
+ tools/perf/util/llvm.c                        |   8 +-
+ tools/perf/util/machine.c                     |  13 +-
+ tools/perf/util/map_symbol.c                  |   5 +-
+ tools/perf/util/map_symbol.h                  |   3 +-
+ tools/perf/util/maps.c                        |   1 +
+ tools/perf/util/sort.c                        |   2 +-
+ tools/perf/util/unwind-libdw.c                |   2 +-
+ tools/perf/util/unwind-libunwind-local.c      |   2 +-
+ 39 files changed, 774 insertions(+), 643 deletions(-)
+ delete mode 100644 tools/perf/arch/arc/annotate/instructions.c
+ delete mode 100644 tools/perf/arch/riscv64/annotate/instructions.c
+ create mode 100644 tools/perf/util/annotate-arch/Build
+ create mode 100644 tools/perf/util/annotate-arch/annotate-arc.c
+ rename tools/perf/{arch/arm/annotate/instructions.c => util/annotate-arch/annotate-arm.c} (59%)
+ rename tools/perf/{arch/arm64/annotate/instructions.c => util/annotate-arch/annotate-arm64.c} (70%)
+ rename tools/perf/{arch/csky/annotate/instructions.c => util/annotate-arch/annotate-csky.c} (67%)
+ rename tools/perf/{arch/loongarch/annotate/instructions.c => util/annotate-arch/annotate-loongarch.c} (60%)
+ rename tools/perf/{arch/mips/annotate/instructions.c => util/annotate-arch/annotate-mips.c} (59%)
+ rename tools/perf/{arch/powerpc/annotate/instructions.c => util/annotate-arch/annotate-powerpc.c} (73%)
+ create mode 100644 tools/perf/util/annotate-arch/annotate-riscv64.c
+ rename tools/perf/{arch/s390/annotate/instructions.c => util/annotate-arch/annotate-s390.c} (66%)
+ rename tools/perf/{arch/sparc/annotate/instructions.c => util/annotate-arch/annotate-sparc.c} (85%)
+ rename tools/perf/{arch/x86/annotate/instructions.c => util/annotate-arch/annotate-x86.c} (93%)
+
 -- 
 2.52.0.457.g6b5491de43-goog
 
