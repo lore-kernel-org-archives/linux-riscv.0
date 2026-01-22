@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C64D625E8
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 03:53:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D003CC44536
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 04:04:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=17//mTlh12x/BHA2i/1MkSGnEXgss/GP61HwwpOz3Vg=; b=mf5LiqoAwfMV4o
-	b/foV3TMGEQ88buw1bsImzcKCiy6stvD/EGsPLfyiJBn+OwmOiMLaqPKpErlvBHpN5ypQ4NbWPm+l
-	Ggc9PmDTUOHt88zq+BEquTWXjsg+8LA+I4/dGtn5Oc+E2ly7lPIP/nybKAMPVrlEtP9EbwU3g8zqz
-	/yNILHy3jBQ3xNFJwZ5LI6W4Z3D/yVDxrtB+6y5xFosXwvqoWN3Uu528aNvoYMWHG8/Cu4y0ewl2F
-	QW7U7ZfLbI6vPVIMFCoCHDQ1PMp9FSK7ATxlPEfgbR6nGzcWrXwsrMhdkL3uXUOKIq7cS/mATXIml
-	dWRE+GoFi+fUWuADC9mA==;
+	List-Owner; bh=CczSn3fm9U2tHhPXNKOLDmpNTEIP37QwIHYl7pkiXDM=; b=jWPkm2zrjJO5Ir
+	M6BWE9n+RxfBGw4n0WpS71TeDpYykGIRaawdc2Cx94bh3XNqjW4kgzQ+SqSzo5/dqQK6dR9ZGNCta
+	exeiRUcnSw4+fvdryd9oN+PitPLCgd2hEj3kdTmcMgY6x/tu0Kl/2sJhyfTeGXUyX4dMvrS+K6zrJ
+	N94OIbFBeltCbOzG2yLFrOkFsV119g7vFIxkzEizmmvOcLKWuB4GO4pmG0L4Js3FN0uKX8STxkLob
+	Hrjs9/xDeubiaMZcobXFU+c8J9YiKMqMH8KHAHq0greghhqLRzAcKpROf7ot0v418TV6Hfh2LeLoF
+	K1Q2YRQlM0BhSxnUpxIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1villL-00000006OZh-2pIm;
-	Thu, 22 Jan 2026 03:53:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vilw5-00000006PNR-00xF;
+	Thu, 22 Jan 2026 04:04:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1villH-00000006OXx-2JG2
+	id 1vilw2-00000006PN4-264S
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jan 2026 03:53:36 +0000
+	Thu, 22 Jan 2026 04:04:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EE21944412;
-	Thu, 22 Jan 2026 03:53:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C7DC6C19423;
-	Thu, 22 Jan 2026 03:53:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 835BE40E52;
+	Thu, 22 Jan 2026 04:04:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C42ABC116C6;
+	Thu, 22 Jan 2026 04:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769054013;
-	bh=YUyTnratnqlECwzSAzk6FREP35eA7ZpjXULZWweNn00=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=bpGMLl4mIFgV61A9Q2THHlMjzlDs6K7ieCZNsfNdZb9KBAcRDsE5RtPxlTjmPy5vc
-	 mtalZMlIjwXm5BLp7UP4Dq33+WbtXb5D2vT1Soi5Em2dLowP5DtXaaEdOYISTdoxFb
-	 ns0VocjMMpRNQh9K8QhanaaJLqF4r8HjsEeb279G/wO7xbHFInZQs7DT9jueejEsAn
-	 r9msHCLe+/4Vl1B+AzSBUapG7r9wUjk15sVOTQpjOZSGj9zWkYevssBIzjeYBa7pu+
-	 p3ZnyYqzGQCXulSKmxhP/KEaWNYiY8cj8nvDhzb3gNOPwChrJz18DfE/FMIY6fJdec
-	 pR+svBXIhDvVQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BEC92D625E9;
-	Thu, 22 Jan 2026 03:53:33 +0000 (UTC)
-From: Ben Zong-You Xie via B4 Relay <devnull+ben717.andestech.com@kernel.org>
-Date: Thu, 22 Jan 2026 11:53:21 +0800
-Subject: [PATCH v2 4/4] riscv: dts: andes: qilai: add I2C controller
+	s=k20201202; t=1769054681;
+	bh=gNw4Mn93YzCI8oJeAeU0yYtwdWCHimW6oGNe77uKZa8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=pt1CGfZ0vyBhrqFG0Gn5nrZ09yl5Sm3aBudEWgbbxzlxNpYaBja7iES2Y1J8u6fSQ
+	 tQ/CbI9RwOnn/Lf79757S7W7G0X5PTI6+NcdPKsT6pDxvsKjaD0Kjv372N97PTZaDM
+	 jHtZ9G2uaTHZHuVurk28yJiEiu3ccbQ7KH9FMghVgq9rP7GVKU2IqpAtGxO9zVVIMO
+	 aFyJ8OotAKGg9SalUec5uuSLQhF2btQf5o1xDeI2FxM1GK/t8R6FSDYqS5Z2hzO2z7
+	 GhPKpIcFkd2XStdGbLia0x0ukw+x+USb9o54HvqHis3iQEA9NqZdG8UOs1VsDNbvpV
+	 MJp/yB0X9vCGA==
+Date: Wed, 21 Jan 2026 20:04:39 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Yixun Lan <dlan@gentoo.org>, Chukun Pan
+ <amadeus@jmu.edu.cn>, Michael Opdenacker
+ <michael.opdenacker@rootcommit.com>, netdev@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2] net: spacemit: Clarify stat timeout comments and
+ messages
+Message-ID: <20260121200439.64c22125@kernel.org>
+In-Reply-To: <20260121-k1-ethernet-clarify-stat-timeout-v2-1-76ff1a1168d9@iscas.ac.cn>
+References: <20260121-k1-ethernet-clarify-stat-timeout-v2-1-76ff1a1168d9@iscas.ac.cn>
 MIME-Version: 1.0
-Message-Id: <20260122-atciic100-v2-4-7559136d07cf@andestech.com>
-References: <20260122-atciic100-v2-0-7559136d07cf@andestech.com>
-In-Reply-To: <20260122-atciic100-v2-0-7559136d07cf@andestech.com>
-To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Ben Zong-You Xie <ben717@andestech.com>
-X-Mailer: b4 0.15-dev-47773
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769054012; l=723;
- i=ben717@andestech.com; s=20260120; h=from:subject:message-id;
- bh=lHt2jE6+LDmM/nXD6n9TCCx5A6rJ3cqG+Q1RYfyMh24=;
- b=iQnJZd47qVd7XoSMvzcJ5R5zVO+zQfuzU0q0WaUJznzsDZ59v88OiVEbBZPkzjzFOhclrG4vg
- k/KD4r89D2YAmX40WHr5xetJkK4m8lyEL3ckbopFs6NGdMUp6uLwRzV
-X-Developer-Key: i=ben717@andestech.com; a=ed25519;
- pk=nb8L7zQKGJpYk0yvrYKjViOZ34A36g1ZIsCmCsP518s=
-X-Endpoint-Received: by B4 Relay for ben717@andestech.com/20260120 with
- auth_id=610
-X-Original-From: Ben Zong-You Xie <ben717@andestech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_195335_619647_B00DDD4C 
-X-CRM114-Status: UNSURE (   7.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260121_200442_567795_FF419B4A 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,43 +72,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: ben717@andestech.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ben Zong-You Xie <ben717@andestech.com>
+On Wed, 21 Jan 2026 10:17:18 +0800 Vivian Wang wrote:
+> This patch isn't a fix for the problem per se, since it is hardware
+> behavior. The new message and comments, however, should direct those
+> running into this on new hardware towards a fix.
 
-Add the I2C node to QiLai DTS.
-
-Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
----
- arch/riscv/boot/dts/andes/qilai.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/andes/qilai.dtsi b/arch/riscv/boot/dts/andes/qilai.dtsi
-index de3de32f8c39..8b40f4d7f8d5 100644
---- a/arch/riscv/boot/dts/andes/qilai.dtsi
-+++ b/arch/riscv/boot/dts/andes/qilai.dtsi
-@@ -182,5 +182,12 @@ uart0: serial@30300000 {
- 			reg-io-width = <4>;
- 			no-loopback-test;
- 		};
-+
-+		i2c: i2c@30800000 {
-+			compatible = "andestech,qilai-i2c",
-+				     "andestech,ae350-i2c";
-+			reg = <0x0 0x30800000 0x0 0x100000>;
-+			interrupts = <6 IRQ_TYPE_LEVEL_HIGH>;
-+		};
- 	};
- };
-
--- 
-2.34.1
-
-
+Is it not possible to improve the situation?
+Is the refclock disappearing because of power saving?
+Or because the link is down?
+Because if it's the latter we should be able to skip reading the stats
+when link is down (still racy but better than waiting in cases we can
+detect?)
 
 _______________________________________________
 linux-riscv mailing list
