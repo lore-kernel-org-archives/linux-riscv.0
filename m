@@ -4,83 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55ED6D3EE95
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 16:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A607BD3EE92
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 16:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:References:
 	Mime-Version:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ma+tYG399UdE3avfk8EKGqV7uFF2Nv3h+zd51u0kCQ4=; b=37cU4bLdolLF+N
-	lZSb4fy4CLDjkF1v5+tIAD8RGNt7RkaDVpXJiOcrIta5F7CTicvNz0O4zHttcuXL6Cyp69u49nNGc
-	exTuJJmBFoI9AMSGhlS7JXQRM8s6FjnYR7IgR3yOFCxZpUUjgmYydAscwvnG6apIEXqgTncvy9O7E
-	p2LQz+LW8gSGtYhnwO9x8HV6mGWi2cyKBBIdCfHWC1tU+yklcs7nci9TaqsYJxsRdQY0VQlcEF7os
-	cvYhzlFCP50Vuj9bHPjH0b8SOGYhUJGgUZ6BctI8OVRPCLttfOqUWVk+RzB6rqhMPJJh0a4rhENxe
-	8AAQ4S+6vr4M+mgh7+JA==;
+	List-Owner; bh=ySdbinqFeexaaXG6LvfS1ffjrQjZu2OZQt59BwtDL6M=; b=WSow/DY4kKzGzm
+	O9wSbgoGaKm+4c5bxgsLXipYWXt5MksaIZMmpMopiRNr/W6Rod1t5AxZDzUyTfIxmsM2M1wKiafgQ
+	IFroYzwdHcw59X9wfnFJwoEznRdN6ccl7OVQ79pCHflvrYde8rafJpYQSWy3Eos02cp3Q4vS9PaxT
+	GWnX2C7Kkckk/MFaIZ7FIJSK62wDDvFTQ2VRfE3lVOsxLG6sbyKneVRnDq1d7G4qBsDUyF+WrVEN3
+	xLFoU6QcpAbJEnL6XN8eETSacBJ20f0iRilO+7lezggx+ah/O4Krhv+Qbx/6ZrudhFpUkbIFvU6iZ
+	S3yfbHirZoExmWhY/bZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixxL-00000007U6q-0Uv9;
-	Thu, 22 Jan 2026 16:54:51 +0000
+	id 1vixxO-00000007UBN-2k9f;
+	Thu, 22 Jan 2026 16:54:54 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixxB-00000007TtF-1ZTt
+	id 1vixxE-00000007Twx-3bWu
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 22 Jan 2026 16:54:41 +0000
+	Thu, 22 Jan 2026 16:54:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ad2GwIvXnuBM0K5HE3V72oHuf8IYiJKy1/A8wVQtlzk=; b=nlU1PRZyR1oiZvSUe2UjfGm8ZY
-	U1qYNUVNwHfSp5pFarAYrT7NA107EbfuV2FgTXZ6EBrO3pGH24t0tpD1D2PTM0oG1JR04yUx2NKzl
-	z1F7fOlbMq9uLkH31E/hvCNImM9dO/PVrnICq4wvYCO8o5YBVGbP89rgixV/cCHd5XZvUhvoLfw3G
-	YZnw5AKt08ygQs4qwALed8X5bH8KDjljlwY8iJZyDXWcLXj+4w5k55LfL6sprazxSUdfKEYxXI13F
-	5uApnqObHAMCD67HTCP+JUnrJuzlJ7ewpdKkksNyo08GDWFdEVuK1QM2yvd5SW06t6f07NfWDZG/E
-	YmhidWLQ==;
-Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
+	bh=L3tfpDGgMXxO9KixeIltpKBhsTwkoWo2VIaEEFB+NJI=; b=pk8WHyO5W3JweARgi1FNdKpIOh
+	jLgDDCRvlQtCF2KAvlg1QpFZh86rJFgjkIDLNXAQapRmLWStP0YPqeKA0Z4WskUUZeQhvDHbZspPB
+	s21viXvODP7PBUHQhmMeY+Y1ZyjIMz+B0f26DMuE6bPMp0Xb/QQ3D4O0Kdis6t5G4qwXOpuU0tbj5
+	LjHUXT7S4WdwuWs77i0JRsCqjOKZate7xRqiPq1AZ6n/Fjsfc8XGPKGi5LYjsP0UdWzL5UttSTtWc
+	L3ijB8XYldBxqMQaB8PRNbZYECrAcTRont/pLdhDXLR9E/EUgvBXZ9BHiOGzpmGliQ/5eYmKkuJ1F
+	GJeZxJAA==;
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixx5-00000000oYs-1nuq
+	id 1vixxA-00000000oZX-0IKA
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jan 2026 16:54:37 +0000
-Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-123349958b2so4890497c88.0
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Jan 2026 08:54:35 -0800 (PST)
+	Thu, 22 Jan 2026 16:54:43 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2b70c92f404so1645361eec.0
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Jan 2026 08:54:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769100873; x=1769705673; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1769100875; x=1769705675; darn=lists.infradead.org;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=ad2GwIvXnuBM0K5HE3V72oHuf8IYiJKy1/A8wVQtlzk=;
-        b=35iKWYHv6rlRSBmBGHhinVGb5m9B7o4uSI1Z7QR7RwST+ljDeO9b6qPMBK3yNBFT7Z
-         1HvhKDaf0InchKPMvnoErvfHsZZudr33BtU56HhZAO+aRlSuGQtmjZvMkjr1KBgUomkO
-         Gyu6PjgbAIwNr+uzlJkkd5agyf8zgbdxDGPPIrPGnHfHWDPMKRwTn2Y6mqdNk1G7UFGa
-         LrW4Im3Lt9MSdQqKSPGxbw2mCY/9xeqsUp2MYpzfgYGYcKKyqNy2T3ourlaEmgUrBTnx
-         f/zmkJCA54cgukdiYYAO+Y6NJG3uAr6pPC9MX4z0iY6pRoj4HwJxo4YmjnymCSRP0IFq
-         eWyg==
+        bh=L3tfpDGgMXxO9KixeIltpKBhsTwkoWo2VIaEEFB+NJI=;
+        b=qkXt+gG6evVw47PIYbF83lTkmIy/gq2DAvUTIan9TPf6IFx0XzD0YWHl8LUuCuSNTZ
+         90KqS1PCCWZJRBLw9qZ+3fw8tnAkqW+Ql3e5L3COAGMaHqrhU94k4zNLgB6FRCTjZiHr
+         phHcxIKA+OQxmbcKWfZ4DX44cw51Yv0qdfgmjqifwoJUOXtpc36dVYGyPu87cOR0fWge
+         Sy850YWeAKiE0vW87SyAqIH8XU262ixY0JtYNlsBa7Zqb7kSY/C18iAG+3hEpsizugYp
+         OGMwdKrZBRLEfKG6rEdMlC9uIT9c1asMghb9dkQpdAhexZFrdhHv6nTpKhn/uO5bMDSm
+         efuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769100873; x=1769705673;
+        d=1e100.net; s=20230601; t=1769100875; x=1769705675;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ad2GwIvXnuBM0K5HE3V72oHuf8IYiJKy1/A8wVQtlzk=;
-        b=DN3vWOscFfAJZWabyxoTHVwv5jATogr45Ctln9JDrdidqxz9gFssDbNHU55755j60p
-         YKTgGYDYIYzpBBihCS26W3ne3avooVfhhqX1a8PgrQR2/nk3kZsj78AGuD+y2XobSe4v
-         AyjIP2Lki9NGMV7CmO6meJeh6RNVXBwHVT85Pe7DA6uctXCRQSN0x22fKOEY/BKIaMpT
-         xsUATBq2t+Vi16YIi6G3mIYitINqZOyLl8xcYkzOo1gK/DX4rfXjI1ynPyYy1qLxvKvx
-         bsRm9lXzq4AHPgihJomxRS3Cq0+s3OeFEiaN73sod2WFcBF4GHm7tZxeJ3CvbypDQNWw
-         Rdzw==
-X-Forwarded-Encrypted: i=1; AJvYcCWfmu6k/X3AytXnqtVrvVxd78dIKEZNpLeWP4hilcqGW+UDa98JfaNpPFdC3N0SyyU1mW8uQL7s8jRCHA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6H5SvK/UGz3Gj0Y36MS2sGNS/1XrMCbQBKmA9KHyKvDPDjlAw
-	OCyY195AjAmmXR6ld1fu2L2WalftZF6SBCSHTNiej0kSxXjN6C/iWHqmI3kl0Iv2PO8nAPUT38/
-	1tuSfS9rKuA==
-X-Received: from dld13.prod.google.com ([2002:a05:7022:30d:b0:121:79a7:ec2d])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:128b:b0:11f:3483:bbb0
- with SMTP id a92af1059eb24-1244a72aef2mr18517708c88.19.1769100873225; Thu, 22
- Jan 2026 08:54:33 -0800 (PST)
-Date: Thu, 22 Jan 2026 08:54:05 -0800
+        bh=L3tfpDGgMXxO9KixeIltpKBhsTwkoWo2VIaEEFB+NJI=;
+        b=lyOoHJOUntGYWiwgZiZsJR6ebzPbpEqETTrkNo+KhRAzM2hVRHmeo9VpqU4+hLaOiq
+         TTrbcqP8oOlnYXOVpQVIDtqGO/H+R9Eh7eB1SHej0QPzT8Zr6LQBMgqrCZ7LKIOPaVbA
+         0HrCaTb9F6O0h5hTSK7vj4ulUHnUMEeBJJFUrXqtcV+2+m49WteJijoXhNaTziEIzDom
+         ZnpXLFm575sbENhedGXpsAspQ5iVBTSc3E7yEX9Ei2BuorqSBSQiZwc2xaKmaZJT6QtB
+         n9DTobHVE/TNTqrJ2rc/npKRZUV0g9rXEBTng8N+FKknEc0b27cU1OVoKVcWn70dNmbt
+         pC4A==
+X-Forwarded-Encrypted: i=1; AJvYcCX1zL93AccyVowXTIfqPZB0dXpZ5DIGxmhHJKJG6beDV7GvFxch2dGmQG+ycY3NkWL0WySHoiJYgoIdqA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3tr0PoB+ZYzd6XTdg0XgNNNtYl/8LNavA6JfI3eeAgvBPJXnE
+	4Chq6+49bsM1GNQD064eab0zN/y+BdJ7SeXxnomnop9Nlj/9ha4q1DInjtfCNkPvqo34hhcrN9v
+	mnGaGEf81ow==
+X-Received: from dybbz25.prod.google.com ([2002:a05:7300:a599:b0:2b6:c3b1:69d4])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:5712:b0:2a4:3594:72d1
+ with SMTP id 5a478bee46e88-2b73979ff1cmr14890eec.0.1769100875149; Thu, 22 Jan
+ 2026 08:54:35 -0800 (PST)
+Date: Thu, 22 Jan 2026 08:54:06 -0800
 In-Reply-To: <20260122165407.561888-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260122165407.561888-1-irogers@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260122165407.561888-11-irogers@google.com>
-Subject: [PATCH v2 10/12] perf map_symbol: Switch from holding maps to holding thread
+Message-ID: <20260122165407.561888-12-irogers@google.com>
+Subject: [PATCH v2 11/12] perf disasm: Refactor arch__find and initialization
+ of arch structs
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -102,8 +103,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_165435_673182_0011EBBE 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20260122_165440_336425_57C62E2B 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,508 +121,959 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-maps may belong to >1 thread. In contexts like symbolization
-information from the thread may be useful, such as the ELF machine. As
-the maps can be gained from the thread switch from holding maps in
-struct map_symbol to holding the thread. Holding the maps in
-addr_location is also redundant, switch this to using thread__maps.
+Switch arch__find to using an ELF machine number rather than a
+string. Rather than an array of fixed size arch structs turn the init
+functions into new functions indexed by the ELF machine they
+correspond to. This allows data to be stored with a struct arch with
+the container_of trick, so the priv variable can be removed. Switch to
+using the thread to find the arch rather than the evsel as the evsel
+only has limited notions of the running thread upon which disassembly
+is performed. Factor out the e_machine and e_flags into their own
+struct to make them easier to pass around.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/ui/browsers/annotate.c              |  2 +-
- tools/perf/ui/browsers/hists.c                 |  3 ++-
- tools/perf/util/addr_location.c                |  4 ----
- tools/perf/util/addr_location.h                |  1 -
- .../util/annotate-arch/annotate-loongarch.c    |  5 +++--
- tools/perf/util/annotate-arch/annotate-s390.c  |  3 ++-
- tools/perf/util/callchain.c                    | 12 +++++++-----
- tools/perf/util/capstone.c                     |  6 ++++--
- tools/perf/util/db-export.c                    |  1 -
- tools/perf/util/disasm.c                       |  7 ++++---
- tools/perf/util/event.c                        |  2 --
- tools/perf/util/hist.c                         | 18 +++++++++---------
- tools/perf/util/machine.c                      | 13 +++++++------
- tools/perf/util/map_symbol.c                   |  5 +++--
- tools/perf/util/map_symbol.h                   |  3 ++-
- tools/perf/util/sort.c                         |  2 +-
- tools/perf/util/unwind-libdw.c                 |  2 +-
- tools/perf/util/unwind-libunwind-local.c       |  2 +-
- 18 files changed, 47 insertions(+), 44 deletions(-)
+ tools/perf/ui/browsers/annotate.c             |   2 +-
+ tools/perf/util/annotate-arch/annotate-arc.c  |  14 +-
+ tools/perf/util/annotate-arch/annotate-arm.c  |  37 +++--
+ .../perf/util/annotate-arch/annotate-arm64.c  |  39 +++--
+ tools/perf/util/annotate-arch/annotate-csky.c |  14 +-
+ .../util/annotate-arch/annotate-loongarch.c   |  19 ++-
+ tools/perf/util/annotate-arch/annotate-mips.c |  19 ++-
+ .../util/annotate-arch/annotate-powerpc.c     |  22 +--
+ .../util/annotate-arch/annotate-riscv64.c     |  19 ++-
+ tools/perf/util/annotate-arch/annotate-s390.c |  29 ++--
+ .../perf/util/annotate-arch/annotate-sparc.c  |  17 +-
+ tools/perf/util/annotate-arch/annotate-x86.c  |  24 +--
+ tools/perf/util/annotate.c                    |  46 +++---
+ tools/perf/util/annotate.h                    |   2 +-
+ tools/perf/util/disasm.c                      | 153 ++++++++----------
+ tools/perf/util/disasm.h                      |  59 +++----
+ 16 files changed, 278 insertions(+), 237 deletions(-)
 
 diff --git a/tools/perf/ui/browsers/annotate.c b/tools/perf/ui/browsers/annotate.c
-index 3df61cd46652..91ded9c271ee 100644
+index 91ded9c271ee..ea17e6d29a7e 100644
 --- a/tools/perf/ui/browsers/annotate.c
 +++ b/tools/perf/ui/browsers/annotate.c
-@@ -601,7 +601,7 @@ static bool annotate_browser__callq(struct annotate_browser *browser,
- 		return true;
- 	}
+@@ -1198,7 +1198,7 @@ int __hist_entry__tui_annotate(struct hist_entry *he, struct map_symbol *ms,
+ 				ui__warning("Annotation has no source code.");
+ 		}
+ 	} else {
+-		err = evsel__get_arch(evsel, &browser.arch);
++		err = thread__get_arch(ms->thread, &browser.arch);
+ 		if (err) {
+ 			annotate_browser__symbol_annotate_error(&browser, err);
+ 			return -1;
+diff --git a/tools/perf/util/annotate-arch/annotate-arc.c b/tools/perf/util/annotate-arch/annotate-arc.c
+index d7ca08ca5600..170103e383a4 100644
+--- a/tools/perf/util/annotate-arch/annotate-arc.c
++++ b/tools/perf/util/annotate-arch/annotate-arc.c
+@@ -1,10 +1,18 @@
+ // SPDX-License-Identifier: GPL-2.0
+ #include <linux/compiler.h>
++#include <linux/zalloc.h>
+ #include "../disasm.h"
  
--	target_ms.maps = ms->maps;
-+	target_ms.thread = ms->thread;
- 	target_ms.map = ms->map;
- 	target_ms.sym = dl->ops.target.sym;
- 	annotation__unlock(notes);
-diff --git a/tools/perf/ui/browsers/hists.c b/tools/perf/ui/browsers/hists.c
-index 08fecbe28a52..cfa6386e6e1d 100644
---- a/tools/perf/ui/browsers/hists.c
-+++ b/tools/perf/ui/browsers/hists.c
-@@ -3189,7 +3189,8 @@ static int evsel__hists_browse(struct evsel *evsel, int nr_events, const char *h
- 		case 'k':
- 			if (browser->selection != NULL)
- 				hists_browser__zoom_map(browser,
--					      maps__machine(browser->selection->maps)->vmlinux_map);
-+					maps__machine(thread__maps(browser->selection->thread)
-+						     )->vmlinux_map);
- 			continue;
- 		case 'V':
- 			verbose = (verbose + 1) % 4;
-diff --git a/tools/perf/util/addr_location.c b/tools/perf/util/addr_location.c
-index 81a0b79c5e10..57e8217a00f9 100644
---- a/tools/perf/util/addr_location.c
-+++ b/tools/perf/util/addr_location.c
-@@ -7,7 +7,6 @@
- void addr_location__init(struct addr_location *al)
+-int arc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
++const struct arch *arch__new_arc(const struct e_machine_and_e_flags *id,
++				 const char *cpuid __maybe_unused)
  {
- 	al->thread = NULL;
--	al->maps = NULL;
- 	al->map = NULL;
- 	al->sym = NULL;
- 	al->srcline = NULL;
-@@ -30,16 +29,13 @@ void addr_location__exit(struct addr_location *al)
+-	arch->initialized = true;
++	struct arch *arch = zalloc(sizeof(*arch));
++
++	if (!arch)
++		return NULL;
++
++	arch->name = "arc";
++	arch->id = *id;
+ 	arch->objdump.comment_char = ';';
+-	return 0;
++	return arch;
+ }
+diff --git a/tools/perf/util/annotate-arch/annotate-arm.c b/tools/perf/util/annotate-arch/annotate-arm.c
+index 08c49067c3c9..25086f5fce23 100644
+--- a/tools/perf/util/annotate-arch/annotate-arm.c
++++ b/tools/perf/util/annotate-arch/annotate-arm.c
+@@ -7,14 +7,15 @@
+ #include "../annotate.h"
+ #include "../disasm.h"
+ 
+-struct arm_annotate {
+-	regex_t call_insn,
+-		jump_insn;
++struct arch_arm {
++	struct arch arch;
++	regex_t call_insn;
++	regex_t jump_insn;
+ };
+ 
+ static const struct ins_ops *arm__associate_instruction_ops(struct arch *arch, const char *name)
  {
- 	map__zput(al->map);
- 	thread__zput(al->thread);
--	maps__zput(al->maps);
+-	struct arm_annotate *arm = arch->priv;
++	struct arch_arm *arm = container_of(arch, struct arch_arm, arch);
+ 	const struct ins_ops *ops;
+ 	regmatch_t match[2];
+ 
+@@ -29,37 +30,39 @@ static const struct ins_ops *arm__associate_instruction_ops(struct arch *arch, c
+ 	return ops;
  }
  
- void addr_location__copy(struct addr_location *dst, struct addr_location *src)
+-int arm__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
++const struct arch *arch__new_arm(const struct e_machine_and_e_flags *id,
++				 const char *cpuid __maybe_unused)
  {
- 	thread__put(dst->thread);
--	maps__put(dst->maps);
- 	map__put(dst->map);
- 	*dst = *src;
- 	dst->thread = thread__get(src->thread);
--	dst->maps = maps__get(src->maps);
- 	dst->map = map__get(src->map);
- }
-diff --git a/tools/perf/util/addr_location.h b/tools/perf/util/addr_location.h
-index 64b551025216..fdc4d3f3a68b 100644
---- a/tools/perf/util/addr_location.h
-+++ b/tools/perf/util/addr_location.h
-@@ -11,7 +11,6 @@ struct symbol;
+-	struct arm_annotate *arm;
+ 	int err;
++	struct arch_arm *arm = zalloc(sizeof(*arm));
++	struct arch *arch;
  
- struct addr_location {
- 	struct thread *thread;
--	struct maps   *maps;
- 	struct map    *map;
- 	struct symbol *sym;
- 	const char    *srcline;
+-	if (arch->initialized)
+-		return 0;
+-
+-	arm = zalloc(sizeof(*arm));
+ 	if (!arm)
+-		return ENOMEM;
++		return NULL;
++
++	arch = &arm->arch;
++	arch->name = "arm";
++	arch->id = *id;
++	arch->objdump.comment_char	  = ';';
++	arch->objdump.skip_functions_char = '+';
++	arch->associate_instruction_ops   = arm__associate_instruction_ops;
+ 
+ #define ARM_CONDS "(cc|cs|eq|ge|gt|hi|le|ls|lt|mi|ne|pl|vc|vs)"
+ 	err = regcomp(&arm->call_insn, "^blx?" ARM_CONDS "?$", REG_EXTENDED);
+ 	if (err)
+ 		goto out_free_arm;
++
+ 	err = regcomp(&arm->jump_insn, "^bx?" ARM_CONDS "?$", REG_EXTENDED);
+ 	if (err)
+ 		goto out_free_call;
+ #undef ARM_CONDS
+ 
+-	arch->initialized = true;
+-	arch->priv	  = arm;
+-	arch->associate_instruction_ops   = arm__associate_instruction_ops;
+-	arch->objdump.comment_char	  = ';';
+-	arch->objdump.skip_functions_char = '+';
+ 	return 0;
+ 
+ out_free_call:
+ 	regfree(&arm->call_insn);
+ out_free_arm:
+ 	free(arm);
+-	return SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_REGEXP;
++	errno = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_REGEXP;
++	return NULL;
+ }
+diff --git a/tools/perf/util/annotate-arch/annotate-arm64.c b/tools/perf/util/annotate-arch/annotate-arm64.c
+index d2ea32984b0d..da45c7d05757 100644
+--- a/tools/perf/util/annotate-arch/annotate-arm64.c
++++ b/tools/perf/util/annotate-arch/annotate-arm64.c
+@@ -8,9 +8,10 @@
+ #include "../annotate.h"
+ #include "../disasm.h"
+ 
+-struct arm64_annotate {
+-	regex_t call_insn,
+-		jump_insn;
++struct arch_arm64 {
++	struct arch arch;
++	regex_t call_insn;
++	regex_t jump_insn;
+ };
+ 
+ static int arm64_mov__parse(const struct arch *arch __maybe_unused,
+@@ -70,7 +71,7 @@ static const struct ins_ops arm64_mov_ops = {
+ 
+ static const struct ins_ops *arm64__associate_instruction_ops(struct arch *arch, const char *name)
+ {
+-	struct arm64_annotate *arm = arch->priv;
++	struct arch_arm64 *arm = container_of(arch, struct arch_arm64, arch);
+ 	const struct ins_ops *ops;
+ 	regmatch_t match[2];
+ 
+@@ -87,38 +88,44 @@ static const struct ins_ops *arm64__associate_instruction_ops(struct arch *arch,
+ 	return ops;
+ }
+ 
+-int arm64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
++const struct arch *arch__new_arm64(const struct e_machine_and_e_flags *id,
++				   const char *cpuid __maybe_unused)
+ {
+-	struct arm64_annotate *arm;
+ 	int err;
++	struct arch_arm64 *arm = zalloc(sizeof(*arm));
++	struct arch *arch;
+ 
+-	if (arch->initialized)
+-		return 0;
++	if (!arm)
++		return NULL;
++
++	arch = &arm->arch;
++	arch->name = "arm64";
++	arch->id = *id;
++	arch->objdump.comment_char	  = '/';
++	arch->objdump.skip_functions_char = '+';
++	arch->associate_instruction_ops   = arm64__associate_instruction_ops;
+ 
+ 	arm = zalloc(sizeof(*arm));
+ 	if (!arm)
+-		return ENOMEM;
++		return NULL;
+ 
+ 	/* bl, blr */
+ 	err = regcomp(&arm->call_insn, "^blr?$", REG_EXTENDED);
+ 	if (err)
+ 		goto out_free_arm;
++
+ 	/* b, b.cond, br, cbz/cbnz, tbz/tbnz */
+ 	err = regcomp(&arm->jump_insn, "^[ct]?br?\\.?(cc|cs|eq|ge|gt|hi|hs|le|lo|ls|lt|mi|ne|pl|vc|vs)?n?z?$",
+ 		      REG_EXTENDED);
+ 	if (err)
+ 		goto out_free_call;
+ 
+-	arch->initialized = true;
+-	arch->priv	  = arm;
+-	arch->associate_instruction_ops   = arm64__associate_instruction_ops;
+-	arch->objdump.comment_char	  = '/';
+-	arch->objdump.skip_functions_char = '+';
+-	return 0;
++	return arch;
+ 
+ out_free_call:
+ 	regfree(&arm->call_insn);
+ out_free_arm:
+ 	free(arm);
+-	return SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_REGEXP;
++	errno = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_REGEXP;
++	return NULL;
+ }
+diff --git a/tools/perf/util/annotate-arch/annotate-csky.c b/tools/perf/util/annotate-arch/annotate-csky.c
+index 0b0b09b068ec..d2b18e4ea2c9 100644
+--- a/tools/perf/util/annotate-arch/annotate-csky.c
++++ b/tools/perf/util/annotate-arch/annotate-csky.c
+@@ -2,6 +2,7 @@
+ // Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd.
+ #include <string.h>
+ #include <linux/compiler.h>
++#include <linux/zalloc.h>
+ #include "../disasm.h"
+ 
+ static const struct ins_ops *csky__associate_ins_ops(struct arch *arch,
+@@ -39,10 +40,17 @@ static const struct ins_ops *csky__associate_ins_ops(struct arch *arch,
+ 	return ops;
+ }
+ 
+-int csky__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
++const struct arch *arch__new_csky(const struct e_machine_and_e_flags *id,
++				  const char *cpuid __maybe_unused)
+ {
+-	arch->initialized = true;
++	struct arch *arch = zalloc(sizeof(*arch));
++
++	if (!arch)
++		return NULL;
++
++	arch->name = "csky";
++	arch->id = *id;
+ 	arch->objdump.comment_char = '/';
+ 	arch->associate_instruction_ops = csky__associate_ins_ops;
+-	return 0;
++	return arch;
+ }
 diff --git a/tools/perf/util/annotate-arch/annotate-loongarch.c b/tools/perf/util/annotate-arch/annotate-loongarch.c
-index 79dc116ade2f..6c94cb98a104 100644
+index 6c94cb98a104..3aeab453a059 100644
 --- a/tools/perf/util/annotate-arch/annotate-loongarch.c
 +++ b/tools/perf/util/annotate-arch/annotate-loongarch.c
-@@ -11,6 +11,7 @@
+@@ -7,6 +7,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <linux/compiler.h>
++#include <linux/zalloc.h>
+ #include "../disasm.h"
  #include "../map.h"
  #include "../maps.h"
- #include "../symbol.h"
-+#include "../thread.h"
+@@ -139,13 +140,17 @@ const struct ins_ops *loongarch__associate_ins_ops(struct arch *arch, const char
+ 	return ops;
+ }
  
- static int loongarch_call__parse(const struct arch *arch, struct ins_operands *ops,
- 				 struct map_symbol *ms,
-@@ -49,7 +50,7 @@ static int loongarch_call__parse(const struct arch *arch, struct ins_operands *o
- 		.addr = map__objdump_2mem(map, ops->target.addr),
- 	};
+-int loongarch__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
++const struct arch *arch__new_loongarch(const struct e_machine_and_e_flags *id,
++				       const char *cpuid __maybe_unused)
+ {
+-	if (!arch->initialized) {
+-		arch->associate_instruction_ops = loongarch__associate_ins_ops;
+-		arch->initialized = true;
+-		arch->objdump.comment_char = '#';
+-	}
++	struct arch *arch = zalloc(sizeof(*arch));
  
--	if (maps__find_ams(ms->maps, &target) == 0 &&
-+	if (maps__find_ams(thread__maps(ms->thread), &target) == 0 &&
- 	    map__rip_2objdump(target.ms.map, map__map_ip(target.ms.map, target.addr)) == ops->target.addr)
- 		ops->target.sym = target.ms.sym;
+-	return 0;
++	if (!arch)
++		return NULL;
++
++	arch->name = "loongarch";
++	arch->id = *id;
++	arch->associate_instruction_ops = loongarch__associate_ins_ops;
++	arch->objdump.comment_char = '#';
++	return arch;
+ }
+diff --git a/tools/perf/util/annotate-arch/annotate-mips.c b/tools/perf/util/annotate-arch/annotate-mips.c
+index f14b34ed77d3..e8d1c6c7e9f3 100644
+--- a/tools/perf/util/annotate-arch/annotate-mips.c
++++ b/tools/perf/util/annotate-arch/annotate-mips.c
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0
+ #include <string.h>
+ #include <linux/compiler.h>
++#include <linux/zalloc.h>
+ #include "../disasm.h"
  
-@@ -93,7 +94,7 @@ static int loongarch_jump__parse(const struct arch *arch, struct ins_operands *o
+ static
+@@ -36,13 +37,17 @@ const struct ins_ops *mips__associate_ins_ops(struct arch *arch, const char *nam
+ 	return ops;
+ }
  
- 	ops->target.outside = target.addr < start || target.addr > end;
+-int mips__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
++const struct arch *arch__new_mips(const struct e_machine_and_e_flags *id,
++				  const char *cpuid __maybe_unused)
+ {
+-	if (!arch->initialized) {
+-		arch->associate_instruction_ops = mips__associate_ins_ops;
+-		arch->initialized = true;
+-		arch->objdump.comment_char = '#';
+-	}
++	struct arch *arch = zalloc(sizeof(*arch));
  
--	if (maps__find_ams(ms->maps, &target) == 0 &&
-+	if (maps__find_ams(thread__maps(ms->thread), &target) == 0 &&
- 	    map__rip_2objdump(target.ms.map, map__map_ip(target.ms.map, target.addr)) == ops->target.addr)
- 		ops->target.sym = target.ms.sym;
+-	return 0;
++	if (!arch)
++		return NULL;
++
++	arch->name = "mips";
++	arch->id = *id;
++	arch->objdump.comment_char = '#';
++	arch->associate_instruction_ops = mips__associate_ins_ops;
++	return arch;
+ }
+diff --git a/tools/perf/util/annotate-arch/annotate-powerpc.c b/tools/perf/util/annotate-arch/annotate-powerpc.c
+index 593c138c8104..004e6137aa03 100644
+--- a/tools/perf/util/annotate-arch/annotate-powerpc.c
++++ b/tools/perf/util/annotate-arch/annotate-powerpc.c
+@@ -390,17 +390,21 @@ static void update_insn_state_powerpc(struct type_state *state,
+ }
+ #endif /* HAVE_LIBDW_SUPPORT */
  
+-int powerpc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
++const struct arch *arch__new_powerpc(const struct e_machine_and_e_flags *id,
++				     const char *cpuid __maybe_unused)
+ {
+-	if (!arch->initialized) {
+-		arch->initialized = true;
+-		arch->associate_instruction_ops = powerpc__associate_instruction_ops;
+-		arch->objdump.comment_char      = '#';
+-		annotate_opts.show_asm_raw = true;
++	struct arch *arch = zalloc(sizeof(*arch));
++
++	if (!arch)
++		return NULL;
++
++	arch->name = "powerpc";
++	arch->id = *id;
++	arch->objdump.comment_char = '#';
++	annotate_opts.show_asm_raw = true;
++	arch->associate_instruction_ops = powerpc__associate_instruction_ops;
+ #ifdef HAVE_LIBDW_SUPPORT
+-		arch->update_insn_state = update_insn_state_powerpc;
++	arch->update_insn_state = update_insn_state_powerpc;
+ #endif
+-	}
+-
+ 	return 0;
+ }
+diff --git a/tools/perf/util/annotate-arch/annotate-riscv64.c b/tools/perf/util/annotate-arch/annotate-riscv64.c
+index 15526824037a..29a988fca8c9 100644
+--- a/tools/perf/util/annotate-arch/annotate-riscv64.c
++++ b/tools/perf/util/annotate-arch/annotate-riscv64.c
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0
+ #include <string.h>
+ #include <linux/compiler.h>
++#include <linux/zalloc.h>
+ #include "../disasm.h"
+ 
+ static
+@@ -24,13 +25,17 @@ const struct ins_ops *riscv64__associate_ins_ops(struct arch *arch, const char *
+ 	return ops;
+ }
+ 
+-int riscv64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
++const struct arch *arch__new_riscv64(const struct e_machine_and_e_flags *id,
++				     const char *cpuid __maybe_unused)
+ {
+-	if (!arch->initialized) {
+-		arch->associate_instruction_ops = riscv64__associate_ins_ops;
+-		arch->initialized = true;
+-		arch->objdump.comment_char = '#';
+-	}
++	struct arch *arch = zalloc(sizeof(*arch));
+ 
+-	return 0;
++	if (!arch)
++		return NULL;
++
++	arch->name = "riscv";
++	arch->id = *id;
++	arch->objdump.comment_char = '#';
++	arch->associate_instruction_ops = riscv64__associate_ins_ops;
++	return arch;
+ }
 diff --git a/tools/perf/util/annotate-arch/annotate-s390.c b/tools/perf/util/annotate-arch/annotate-s390.c
-index 7b2d27b62e6b..47573f0310c1 100644
+index 47573f0310c1..af9cabd0a586 100644
 --- a/tools/perf/util/annotate-arch/annotate-s390.c
 +++ b/tools/perf/util/annotate-arch/annotate-s390.c
-@@ -6,6 +6,7 @@
- #include "../map.h"
- #include "../maps.h"
- #include "../symbol.h"
-+#include "../thread.h"
- #include "../annotate.h"
- #include "../annotate-data.h"
+@@ -148,7 +148,7 @@ static const struct ins_ops *s390__associate_ins_ops(struct arch *arch, const ch
+ 	return ops;
+ }
  
-@@ -49,7 +50,7 @@ static int s390_call__parse(const struct arch *arch, struct ins_operands *ops,
- 		.addr = map__objdump_2mem(map, ops->target.addr),
- 	};
- 
--	if (maps__find_ams(ms->maps, &target) == 0 &&
-+	if (maps__find_ams(thread__maps(ms->thread), &target) == 0 &&
- 	    map__rip_2objdump(target.ms.map, map__map_ip(target.ms.map, target.addr)) == ops->target.addr)
- 		ops->target.sym = target.ms.sym;
- 
-diff --git a/tools/perf/util/callchain.c b/tools/perf/util/callchain.c
-index 428e5350d7a2..515bb8b5da01 100644
---- a/tools/perf/util/callchain.c
-+++ b/tools/perf/util/callchain.c
-@@ -31,6 +31,7 @@
- #include "callchain.h"
- #include "branch.h"
- #include "symbol.h"
-+#include "thread.h"
- #include "util.h"
- #include "../perf.h"
- 
-@@ -1042,7 +1043,7 @@ merge_chain_branch(struct callchain_cursor *cursor,
- 
- 	list_for_each_entry_safe(list, next_list, &src->val, list) {
- 		struct map_symbol ms = {
--			.maps = maps__get(list->ms.maps),
-+			.thread = thread__get(list->ms.thread),
- 			.map = map__get(list->ms.map),
- 		};
- 		callchain_cursor_append(cursor, list->ip, &ms, false, NULL, 0, 0, 0, list->srcline);
-@@ -1147,10 +1148,11 @@ int hist_entry__append_callchain(struct hist_entry *he, struct perf_sample *samp
- int fill_callchain_info(struct addr_location *al, struct callchain_cursor_node *node,
- 			bool hide_unresolved)
+-static int s390__cpuid_parse(struct arch *arch, char *cpuid)
++static int s390__cpuid_parse(struct arch *arch, const char *cpuid)
  {
--	struct machine *machine = node->ms.maps ? maps__machine(node->ms.maps) : NULL;
-+	struct machine *machine = NULL;
+ 	unsigned int family;
+ 	char model[16], model_c[16], cpumf_v[16], cpumf_a[16];
+@@ -169,19 +169,22 @@ static int s390__cpuid_parse(struct arch *arch, char *cpuid)
+ 	return -1;
+ }
+ 
+-int s390__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
++const struct arch *arch__new_s390(const struct e_machine_and_e_flags *id, const char *cpuid)
+ {
+-	int err = 0;
+-
+-	if (!arch->initialized) {
+-		arch->initialized = true;
+-		arch->associate_instruction_ops = s390__associate_ins_ops;
+-		if (cpuid) {
+-			if (s390__cpuid_parse(arch, cpuid))
+-				err = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_CPUID_PARSING;
++	struct arch *arch = zalloc(sizeof(*arch));
 +
-+	if (node->ms.thread)
-+		machine = maps__machine(thread__maps(node->ms.thread));
- 
--	maps__put(al->maps);
--	al->maps = maps__get(node->ms.maps);
- 	map__put(al->map);
- 	al->map = map__get(node->ms.map);
- 	al->sym = node->ms.sym;
-@@ -1163,7 +1165,7 @@ int fill_callchain_info(struct addr_location *al, struct callchain_cursor_node *
- 		if (al->map == NULL)
- 			goto out;
++	if (!arch)
++		return NULL;
++
++	arch->name = "s390";
++	arch->id = *id;
++	arch->associate_instruction_ops = s390__associate_ins_ops;
++	if (cpuid) {
++		if (s390__cpuid_parse(arch, cpuid)) {
++			errno = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_CPUID_PARSING;
++			return NULL;
+ 		}
+-		arch->objdump.comment_char = '#';
  	}
--	if (maps__equal(al->maps, machine__kernel_maps(machine))) {
-+	if (maps__equal(thread__maps(al->thread), machine__kernel_maps(machine))) {
- 		if (machine__is_host(machine)) {
- 			al->cpumode = PERF_RECORD_MISC_KERNEL;
- 			al->level = 'k';
-diff --git a/tools/perf/util/capstone.c b/tools/perf/util/capstone.c
-index ce06cfd253ef..9216916f848f 100644
---- a/tools/perf/util/capstone.c
-+++ b/tools/perf/util/capstone.c
-@@ -268,7 +268,8 @@ int symbol__disassemble_capstone(const char *filename __maybe_unused,
- 	    !strcmp(args->options->disassembler_style, "att"))
- 		disassembler_style = true;
+-
+-	return err;
++	arch->objdump.comment_char = '#';
++	return arch;
+ }
+diff --git a/tools/perf/util/annotate-arch/annotate-sparc.c b/tools/perf/util/annotate-arch/annotate-sparc.c
+index 66a0174376dd..fe7a37966261 100644
+--- a/tools/perf/util/annotate-arch/annotate-sparc.c
++++ b/tools/perf/util/annotate-arch/annotate-sparc.c
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0
+ #include <string.h>
+ #include <linux/compiler.h>
++#include <linux/zalloc.h>
+ #include "../../util/disasm.h"
  
--	if (capstone_init(maps__machine(args->ms->maps), &handle, is_64bit, disassembler_style) < 0)
-+	if (capstone_init(maps__machine(thread__maps(args->ms->thread)), &handle, is_64bit,
-+			  disassembler_style) < 0)
- 		goto err;
+ static int is_branch_cond(const char *cond)
+@@ -160,13 +161,17 @@ static const struct ins_ops *sparc__associate_instruction_ops(struct arch *arch,
+ 	return ops;
+ }
  
- 	needs_cs_close = true;
-@@ -382,7 +383,8 @@ int symbol__disassemble_capstone_powerpc(const char *filename __maybe_unused,
- 	    !strcmp(args->options->disassembler_style, "att"))
- 		disassembler_style = true;
+-int sparc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
++const struct arch *arch__new_sparc(const struct e_machine_and_e_flags *id,
++				   const char *cpuid __maybe_unused)
+ {
+-	if (!arch->initialized) {
+-		arch->initialized = true;
+-		arch->associate_instruction_ops = sparc__associate_instruction_ops;
+-		arch->objdump.comment_char = '#';
+-	}
++	struct arch *arch = zalloc(sizeof(*arch));
++
++	if (!arch)
++		return NULL;
  
--	if (capstone_init(maps__machine(args->ms->maps), &handle, is_64bit, disassembler_style) < 0)
-+	if (capstone_init(maps__machine(thread__maps(args->ms->thread)), &handle, is_64bit,
-+			  disassembler_style) < 0)
- 		goto err;
++	arch->name = "sparc";
++	arch->id = *id;
++	arch->associate_instruction_ops = sparc__associate_instruction_ops;
++	arch->objdump.comment_char = '#';
+ 	return 0;
+ }
+diff --git a/tools/perf/util/annotate-arch/annotate-x86.c b/tools/perf/util/annotate-arch/annotate-x86.c
+index 0c7957fe60da..eb9a649ca656 100644
+--- a/tools/perf/util/annotate-arch/annotate-x86.c
++++ b/tools/perf/util/annotate-arch/annotate-x86.c
+@@ -182,7 +182,7 @@ static bool intel__ins_is_fused(const struct arch *arch, const char *ins1,
+ 	return false;
+ }
  
- 	needs_cs_close = true;
-diff --git a/tools/perf/util/db-export.c b/tools/perf/util/db-export.c
-index 8f52e8cefcf3..ae9a9065aab7 100644
---- a/tools/perf/util/db-export.c
-+++ b/tools/perf/util/db-export.c
-@@ -254,7 +254,6 @@ static struct call_path *call_path_from_sample(struct db_export *dbe,
- 		addr_location__init(&al);
- 		al.sym = node->ms.sym;
- 		al.map = map__get(node->ms.map);
--		al.maps = maps__get(thread__maps(thread));
- 		al.addr = node->ip;
- 		al.thread = thread__get(thread);
+-static int x86__cpuid_parse(struct arch *arch, char *cpuid)
++static int x86__cpuid_parse(struct arch *arch, const char *cpuid)
+ {
+ 	unsigned int family, model, stepping;
+ 	int ret;
+@@ -777,18 +777,21 @@ static void update_insn_state_x86(struct type_state *state,
+ }
+ #endif
  
+-int x86__annotate_init(struct arch *arch, char *cpuid)
++const struct arch *arch__new_x86(const struct e_machine_and_e_flags *id, const char *cpuid)
+ {
+-	int err = 0;
++	struct arch *arch = zalloc(sizeof(*arch));
+ 
+-	if (arch->initialized)
+-		return 0;
++	if (!arch)
++		return NULL;
+ 
++	arch->name = "x86";
++	arch->id = *id;
+ 	if (cpuid) {
+-		if (x86__cpuid_parse(arch, cpuid))
+-			err = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_CPUID_PARSING;
++		if (x86__cpuid_parse(arch, cpuid)) {
++			errno = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_CPUID_PARSING;
++			return NULL;
++		}
+ 	}
+-
+ 	arch->instructions = x86__instructions;
+ 	arch->nr_instructions = ARRAY_SIZE(x86__instructions);
+ #ifndef NDEBUG
+@@ -810,11 +813,8 @@ int x86__annotate_init(struct arch *arch, char *cpuid)
+ 	arch->objdump.memory_ref_char = '(';
+ 	arch->objdump.imm_char = '$';
+ 	arch->insn_suffix = "bwlq";
+-	arch->e_machine = EM_X86_64;
+-	arch->e_flags = 0;
+-	arch->initialized = true;
+ #ifdef HAVE_LIBDW_SUPPORT
+ 	arch->update_insn_state = update_insn_state_x86;
+ #endif
+-	return err;
++	return arch;
+ }
+diff --git a/tools/perf/util/annotate.c b/tools/perf/util/annotate.c
+index 79702072568b..c16c6dfaa959 100644
+--- a/tools/perf/util/annotate.c
++++ b/tools/perf/util/annotate.c
+@@ -980,32 +980,27 @@ void symbol__calc_percent(struct symbol *sym, struct evsel *evsel)
+ 	annotation__calc_percent(notes, evsel, symbol__size(sym));
+ }
+ 
+-int evsel__get_arch(struct evsel *evsel, const struct arch **parch)
++int thread__get_arch(struct thread *thread, const struct arch **parch)
+ {
+-	struct perf_env *env = evsel__env(evsel);
+-	const char *arch_name = perf_env__arch(env);
+ 	const struct arch *arch;
+-	int err;
++	struct machine *machine;
++	uint16_t e_machine;
+ 
+-	if (!arch_name) {
++	if (!thread) {
+ 		*parch = NULL;
+-		return errno;
++		return -1;
+ 	}
+ 
+-	*parch = arch = arch__find(arch_name);
++	machine = maps__machine(thread__maps(thread));
++	e_machine = thread__e_machine(thread, machine);
++	arch = arch__find(e_machine, machine->env ? machine->env->cpuid : NULL);
+ 	if (arch == NULL) {
+-		pr_err("%s: unsupported arch %s\n", __func__, arch_name);
+-		return ENOTSUP;
++		pr_err("%s: unsupported arch %d\n", __func__, e_machine);
++		return errno;
+ 	}
++	if (parch)
++		*parch = arch;
+ 
+-	if (arch->init) {
+-		err = arch->init((struct arch *)arch, env ? env->cpuid : NULL);
+-		if (err) {
+-			pr_err("%s: failed to initialize %s arch priv area\n",
+-			       __func__, arch->name);
+-			return err;
+-		}
+-	}
+ 	return 0;
+ }
+ 
+@@ -1020,7 +1015,7 @@ int symbol__annotate(struct map_symbol *ms, struct evsel *evsel,
+ 	const struct arch *arch = NULL;
+ 	int err, nr;
+ 
+-	err = evsel__get_arch(evsel, &arch);
++	err = thread__get_arch(ms->thread, &arch);
+ 	if (err)
+ 		return err;
+ 
+@@ -1268,7 +1263,7 @@ int hist_entry__annotate_printf(struct hist_entry *he, struct evsel *evsel)
+ 
+ 	apd.addr_fmt_width = annotated_source__addr_fmt_width(&notes->src->source,
+ 							      notes->src->start);
+-	evsel__get_arch(evsel, &apd.arch);
++	thread__get_arch(ms->thread, &apd.arch);
+ 	apd.dbg = dso__debuginfo(dso);
+ 
+ 	list_for_each_entry(pos, &notes->src->source, node) {
+@@ -1373,7 +1368,7 @@ static int symbol__annotate_fprintf2(struct symbol *sym, FILE *fp,
+ 	struct annotation_line *al;
+ 
+ 	if (annotate_opts.code_with_type) {
+-		evsel__get_arch(apd->evsel, &apd->arch);
++		thread__get_arch(apd->he->ms.thread, &apd->arch);
+ 		apd->dbg = dso__debuginfo(map__dso(apd->he->ms.map));
+ 	}
+ 
+@@ -2495,7 +2490,7 @@ static int extract_reg_offset(const struct arch *arch, const char *str,
+ 	if (regname == NULL)
+ 		return -1;
+ 
+-	op_loc->reg1 = get_dwarf_regnum(regname, arch->e_machine, arch->e_flags);
++	op_loc->reg1 = get_dwarf_regnum(regname, arch->id.e_machine, arch->id.e_flags);
+ 	free(regname);
+ 
+ 	/* Get the second register */
+@@ -2508,7 +2503,7 @@ static int extract_reg_offset(const struct arch *arch, const char *str,
+ 		if (regname == NULL)
+ 			return -1;
+ 
+-		op_loc->reg2 = get_dwarf_regnum(regname, arch->e_machine, arch->e_flags);
++		op_loc->reg2 = get_dwarf_regnum(regname, arch->id.e_machine, arch->id.e_flags);
+ 		free(regname);
+ 	}
+ 	return 0;
+@@ -2607,8 +2602,11 @@ int annotate_get_insn_location(const struct arch *arch, struct disasm_line *dl,
+ 			if (s == NULL)
+ 				return -1;
+ 
+-			if (*s == arch->objdump.register_char)
+-				op_loc->reg1 = get_dwarf_regnum(s, arch->e_machine, arch->e_flags);
++			if (*s == arch->objdump.register_char) {
++				op_loc->reg1 = get_dwarf_regnum(s,
++								arch->id.e_machine,
++								arch->id.e_flags);
++			}
+ 			else if (*s == arch->objdump.imm_char) {
+ 				op_loc->offset = strtol(s + 1, &p, 0);
+ 				if (p && p != s + 1)
+diff --git a/tools/perf/util/annotate.h b/tools/perf/util/annotate.h
+index 58eaf4b2fa65..696e36dbf013 100644
+--- a/tools/perf/util/annotate.h
++++ b/tools/perf/util/annotate.h
+@@ -586,5 +586,5 @@ int annotation_br_cntr_entry(char **str, int br_cntr_nr, u64 *br_cntr,
+ 			     int num_aggr, struct evsel *evsel);
+ int annotation_br_cntr_abbr_list(char **str, struct evsel *evsel, bool header);
+ 
+-int evsel__get_arch(struct evsel *evsel, const struct arch **parch);
++int thread__get_arch(struct thread *thread, const struct arch **parch);
+ #endif	/* __PERF_ANNOTATE_H */
 diff --git a/tools/perf/util/disasm.c b/tools/perf/util/disasm.c
-index 8c3e9094600a..d81469db0aac 100644
+index d81469db0aac..46740d1e5858 100644
 --- a/tools/perf/util/disasm.c
 +++ b/tools/perf/util/disasm.c
-@@ -28,6 +28,7 @@
- #include "namespaces.h"
- #include "srcline.h"
- #include "symbol.h"
-+#include "thread.h"
- #include "util.h"
- 
- static regex_t	 file_lineno;
-@@ -277,7 +278,7 @@ static int call__parse(const struct arch *arch, struct ins_operands *ops, struct
- 		.addr = map__objdump_2mem(map, ops->target.addr),
- 	};
- 
--	if (maps__find_ams(ms->maps, &target) == 0 &&
-+	if (maps__find_ams(thread__maps(ms->thread), &target) == 0 &&
- 	    map__rip_2objdump(target.ms.map, map__map_ip(target.ms.map, target.addr)) == ops->target.addr)
- 		ops->target.sym = target.ms.sym;
- 
-@@ -411,7 +412,7 @@ static int jump__parse(const struct arch *arch, struct ins_operands *ops, struct
- 	 * Actual navigation will come next, with further understanding of how
- 	 * the symbol searching and disassembly should be done.
- 	 */
--	if (maps__find_ams(ms->maps, &target) == 0 &&
-+	if (maps__find_ams(thread__maps(ms->thread), &target) == 0 &&
- 	    map__rip_2objdump(target.ms.map, map__map_ip(target.ms.map, target.addr)) == ops->target.addr)
- 		ops->target.sym = target.ms.sym;
- 
-@@ -1074,7 +1075,7 @@ static int symbol__parse_objdump_line(struct symbol *sym,
- 			.ms = { .map = map__get(map), },
- 		};
- 
--		if (!maps__find_ams(args->ms->maps, &target) &&
-+		if (!maps__find_ams(thread__maps(args->ms->thread), &target) &&
- 		    target.ms.sym->start == target.al_addr)
- 			dl->ops.target.sym = target.ms.sym;
- 
-diff --git a/tools/perf/util/event.c b/tools/perf/util/event.c
-index 2dde1044b5a7..bc045fddf7d5 100644
---- a/tools/perf/util/event.c
-+++ b/tools/perf/util/event.c
-@@ -698,7 +698,6 @@ struct map *thread__find_map(struct thread *thread, u8 cpumode, u64 addr,
- 	struct machine *machine = maps__machine(maps);
- 	bool load_map = false;
- 
--	maps__zput(al->maps);
- 	map__zput(al->map);
- 	thread__zput(al->thread);
- 	al->thread = thread__get(thread);
-@@ -736,7 +735,6 @@ struct map *thread__find_map(struct thread *thread, u8 cpumode, u64 addr,
- 
- 		return NULL;
- 	}
--	al->maps = maps__get(maps);
- 	al->map = maps__find(maps, al->addr);
- 	if (al->map != NULL) {
- 		/*
-diff --git a/tools/perf/util/hist.c b/tools/perf/util/hist.c
-index ef4b569f7df4..7ffaa3d9851b 100644
---- a/tools/perf/util/hist.c
-+++ b/tools/perf/util/hist.c
-@@ -251,7 +251,7 @@ void hists__calc_col_len(struct hists *hists, struct hist_entry *h)
- 
- 	if (h->cgroup) {
- 		const char *cgrp_name = "unknown";
--		struct cgroup *cgrp = cgroup__find(maps__machine(h->ms.maps)->env,
-+		struct cgroup *cgrp = cgroup__find(maps__machine(thread__maps(h->ms.thread))->env,
- 						   h->cgroup);
- 		if (cgrp != NULL)
- 			cgrp_name = cgrp->name;
-@@ -536,7 +536,7 @@ static int hist_entry__init(struct hist_entry *he,
- 			memset(&he->stat, 0, sizeof(he->stat));
- 	}
- 
--	he->ms.maps = maps__get(he->ms.maps);
-+	he->ms.thread = thread__get(he->ms.thread);
- 	he->ms.map = map__get(he->ms.map);
- 
- 	if (he->branch_info) {
-@@ -552,9 +552,9 @@ static int hist_entry__init(struct hist_entry *he,
- 		memcpy(he->branch_info, template->branch_info,
- 		       sizeof(*he->branch_info));
- 
--		he->branch_info->from.ms.maps = maps__get(he->branch_info->from.ms.maps);
-+		he->branch_info->from.ms.thread = thread__get(he->branch_info->from.ms.thread);
- 		he->branch_info->from.ms.map = map__get(he->branch_info->from.ms.map);
--		he->branch_info->to.ms.maps = maps__get(he->branch_info->to.ms.maps);
-+		he->branch_info->to.ms.thread = thread__get(he->branch_info->to.ms.thread);
- 		he->branch_info->to.ms.map = map__get(he->branch_info->to.ms.map);
- 	}
- 
-@@ -810,7 +810,7 @@ __hists__add_entry(struct hists *hists,
- 		},
- 		.cgroup = sample->cgroup,
- 		.ms = {
--			.maps	= al->maps,
-+			.thread	= al->thread,
- 			.map	= al->map,
- 			.sym	= al->sym,
- 		},
-@@ -890,7 +890,7 @@ struct hist_entry *hists__add_entry_block(struct hists *hists,
- 		.block_info = block_info,
- 		.hists = hists,
- 		.ms = {
--			.maps = al->maps,
-+			.thread = al->thread,
- 			.map = al->map,
- 			.sym = al->sym,
- 		},
-@@ -1020,8 +1020,8 @@ iter_next_branch_entry(struct hist_entry_iter *iter, struct addr_location *al)
- 	if (iter->curr >= iter->total)
- 		return 0;
- 
--	maps__put(al->maps);
--	al->maps = maps__get(bi[i].to.ms.maps);
-+	thread__put(al->thread);
-+	al->thread = thread__get(bi[i].to.ms.thread);
- 	map__put(al->map);
- 	al->map = map__get(bi[i].to.ms.map);
- 	al->sym = bi[i].to.ms.sym;
-@@ -1232,7 +1232,7 @@ iter_add_next_cumulative_entry(struct hist_entry_iter *iter,
- 		.comm = thread__comm(al->thread),
- 		.ip = al->addr,
- 		.ms = {
--			.maps = al->maps,
-+			.thread = al->thread,
- 			.map = al->map,
- 			.sym = al->sym,
- 		},
-diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
-index 30d606fbf040..5b0f5a48ffd4 100644
---- a/tools/perf/util/machine.c
-+++ b/tools/perf/util/machine.c
-@@ -2016,7 +2016,7 @@ static void ip__resolve_ams(struct thread *thread,
- 	ams->addr = ip;
- 	ams->al_addr = al.addr;
- 	ams->al_level = al.level;
--	ams->ms.maps = maps__get(al.maps);
-+	ams->ms.thread = thread__get(al.thread);
- 	ams->ms.sym = al.sym;
- 	ams->ms.map = map__get(al.map);
- 	ams->phys_addr = 0;
-@@ -2037,7 +2037,7 @@ static void ip__resolve_data(struct thread *thread,
- 	ams->addr = addr;
- 	ams->al_addr = al.addr;
- 	ams->al_level = al.level;
--	ams->ms.maps = maps__get(al.maps);
-+	ams->ms.thread = thread__get(al.thread);
- 	ams->ms.sym = al.sym;
- 	ams->ms.map = map__get(al.map);
- 	ams->phys_addr = phys_addr;
-@@ -2120,7 +2120,7 @@ static int append_inlines(struct callchain_cursor *cursor, struct map_symbol *ms
- 	}
- 
- 	ilist_ms = (struct map_symbol) {
--		.maps = maps__get(ms->maps),
-+		.thread = thread__get(ms->thread),
- 		.map = map__get(map),
- 	};
- 	list_for_each_entry(ilist, &inline_node->val, list) {
-@@ -2220,7 +2220,7 @@ static int add_callchain_ip(struct thread *thread,
- 		iter_cycles = iter->cycles;
- 	}
- 
--	ms.maps = maps__get(al.maps);
-+	ms.thread = thread__get(al.thread);
- 	ms.map = map__get(al.map);
- 	ms.sym = al.sym;
- 
-@@ -2383,7 +2383,7 @@ static void save_lbr_cursor_node(struct thread *thread,
- 	map_symbol__exit(&lbr_stitch->prev_lbr_cursor[idx].ms);
- 	memcpy(&lbr_stitch->prev_lbr_cursor[idx], cursor->curr,
- 	       sizeof(struct callchain_cursor_node));
--	lbr_stitch->prev_lbr_cursor[idx].ms.maps = maps__get(cursor->curr->ms.maps);
-+	lbr_stitch->prev_lbr_cursor[idx].ms.thread = thread__get(cursor->curr->ms.thread);
- 	lbr_stitch->prev_lbr_cursor[idx].ms.map = map__get(cursor->curr->ms.map);
- 
- 	lbr_stitch->prev_lbr_cursor[idx].valid = true;
-@@ -2596,7 +2596,8 @@ static bool has_stitched_lbr(struct thread *thread,
- 		memcpy(&stitch_node->cursor, &lbr_stitch->prev_lbr_cursor[i],
- 		       sizeof(struct callchain_cursor_node));
- 
--		stitch_node->cursor.ms.maps = maps__get(lbr_stitch->prev_lbr_cursor[i].ms.maps);
-+		stitch_node->cursor.ms.thread =
-+			thread__get(lbr_stitch->prev_lbr_cursor[i].ms.thread);
- 		stitch_node->cursor.ms.map = map__get(lbr_stitch->prev_lbr_cursor[i].ms.map);
- 
- 		if (callee)
-diff --git a/tools/perf/util/map_symbol.c b/tools/perf/util/map_symbol.c
-index 6ad2960bc289..11bc0a7f704c 100644
---- a/tools/perf/util/map_symbol.c
-+++ b/tools/perf/util/map_symbol.c
-@@ -2,10 +2,11 @@
- #include "map_symbol.h"
- #include "maps.h"
- #include "map.h"
-+#include "thread.h"
- 
- void map_symbol__exit(struct map_symbol *ms)
- {
--	maps__zput(ms->maps);
-+	thread__zput(ms->thread);
- 	map__zput(ms->map);
+@@ -102,112 +102,101 @@ int arch__associate_ins_ops(struct arch *arch, const char *name, const struct in
+ 	return 0;
  }
  
-@@ -16,7 +17,7 @@ void addr_map_symbol__exit(struct addr_map_symbol *ams)
+-static struct arch architectures[] = {
+-	{
+-		.name = "arc",
+-		.init = arc__annotate_init,
+-		.e_machine = EM_ARC,
+-	},
+-	{
+-		.name = "arm",
+-		.init = arm__annotate_init,
+-		.e_machine = EM_ARM,
+-	},
+-	{
+-		.name = "arm64",
+-		.init = arm64__annotate_init,
+-		.e_machine = EM_AARCH64,
+-	},
+-	{
+-		.name = "csky",
+-		.init = csky__annotate_init,
+-		.e_machine = EM_CSKY,
+-#if defined(__CSKYABIV2__)
+-		.e_flags = EF_CSKY_ABIV2,
+-#else
+-		.e_flags = EF_CSKY_ABIV1,
+-#endif
+-	},
+-	{
+-		.name = "mips",
+-		.init = mips__annotate_init,
+-		.e_machine = EM_MIPS,
+-	},
+-	{
+-		.name = "x86",
+-		.init = x86__annotate_init,
+-		.e_machine = EM_X86_64, // TODO: EM_386 too.
+-	},
+-	{
+-		.name = "powerpc",
+-		.init = powerpc__annotate_init,
+-		.e_machine = EM_PPC, // TODO: EM_PPC64 too.
+-	},
+-	{
+-		.name = "riscv64",
+-		.init = riscv64__annotate_init,
+-		.e_machine = EM_RISCV,
+-	},
+-	{
+-		.name = "s390",
+-		.init = s390__annotate_init,
+-		.e_machine = EM_S390,
+-	},
+-	{
+-		.name = "sparc",
+-		.init = sparc__annotate_init,
+-		.e_machine = EM_SPARC,
+-	},
+-	{
+-		.name = "loongarch",
+-		.init = loongarch__annotate_init,
+-		.e_machine = EM_LOONGARCH,
+-	},
+-};
++static int e_machine_and_eflags__cmp(const struct e_machine_and_e_flags *val1,
++				     const struct e_machine_and_e_flags *val2)
++{
++	if (val1->e_machine == val2->e_machine) {
++		if (val1->e_machine != EM_CSKY)
++			return 0;
++		if ((val1->e_flags & EF_CSKY_ABIMASK) < (val2->e_flags & EF_CSKY_ABIMASK))
++			return -1;
++		return (val1->e_flags & EF_CSKY_ABIMASK) > (val2->e_flags & EF_CSKY_ABIMASK);
++	}
++	return val1->e_machine < val2->e_machine ? -1 : 1;
++}
  
- void map_symbol__copy(struct map_symbol *dst, struct map_symbol *src)
+-static int arch__key_cmp(const void *name, const void *archp)
++static int arch__key_cmp(const void *key, const void *archp)
  {
--	dst->maps = maps__get(src->maps);
-+	dst->thread = thread__get(src->thread);
- 	dst->map = map__get(src->map);
- 	dst->sym = src->sym;
+-	const struct arch *arch = archp;
++	const struct arch *const *arch = archp;
+ 
+-	return strcmp(name, arch->name);
++	return e_machine_and_eflags__cmp(key, &(*arch)->id);
  }
-diff --git a/tools/perf/util/map_symbol.h b/tools/perf/util/map_symbol.h
-index e370bb32ed47..7437e319f4a3 100644
---- a/tools/perf/util/map_symbol.h
-+++ b/tools/perf/util/map_symbol.h
-@@ -4,12 +4,13 @@
  
- #include <linux/types.h>
+ static int arch__cmp(const void *a, const void *b)
+ {
+-	const struct arch *aa = a;
+-	const struct arch *ab = b;
++	const struct arch *const *aa = a;
++	const struct arch *const *ab = b;
  
-+struct thread;
- struct maps;
- struct map;
- struct symbol;
+-	return strcmp(aa->name, ab->name);
++	return e_machine_and_eflags__cmp(&(*aa)->id, &(*ab)->id);
+ }
  
- struct map_symbol {
--	struct maps   *maps;
-+	struct thread *thread;
- 	struct map    *map;
- 	struct symbol *sym;
+-static void arch__sort(void)
++const struct arch *arch__find(uint16_t e_machine, const char *cpuid)
+ {
+-	const int nmemb = ARRAY_SIZE(architectures);
++	static const struct arch *(*const arch_new_fn[])(const struct e_machine_and_e_flags *id,
++							 const char *cpuid) = {
++		[EM_386]	= arch__new_x86,
++		[EM_ARC]	= arch__new_arc,
++		[EM_ARM]	= arch__new_arm,
++		[EM_AARCH64]	= arch__new_arm64,
++		[EM_CSKY]	= arch__new_csky,
++		[EM_LOONGARCH]	= arch__new_loongarch,
++		[EM_MIPS]	= arch__new_mips,
++		[EM_PPC64]	= arch__new_powerpc,
++		[EM_PPC]	= arch__new_powerpc,
++		[EM_RISCV]	= arch__new_riscv64,
++		[EM_S390]	= arch__new_s390,
++		[EM_SPARC]	= arch__new_sparc,
++		[EM_SPARCV9]	= arch__new_sparc,
++		[EM_X86_64]	= arch__new_x86,
++	};
++	static const struct arch **archs;
++	static size_t num_archs;
++	struct e_machine_and_e_flags key = {
++		.e_machine = e_machine,
++		// TODO: e_flags should really come from the same source as e_machine.
++		.e_flags = EF_HOST,
++	};
++	const struct arch *result = NULL, **tmp;
+ 
+-	qsort(architectures, nmemb, sizeof(struct arch), arch__cmp);
+-}
++	if (num_archs > 0) {
++		tmp = bsearch(&key, archs, num_archs, sizeof(*archs), arch__key_cmp);
++		if (tmp)
++			result = *tmp;
++	}
+ 
+-const struct arch *arch__find(const char *name)
+-{
+-	const int nmemb = ARRAY_SIZE(architectures);
+-	static bool sorted;
++	if (result)
++		return result;
+ 
+-	if (!sorted) {
+-		arch__sort();
+-		sorted = true;
++	if (e_machine >= ARRAY_SIZE(arch_new_fn) || arch_new_fn[e_machine] == NULL) {
++		errno = ENOTSUP;
++		return NULL;
+ 	}
+ 
+-	return bsearch(name, architectures, nmemb, sizeof(struct arch), arch__key_cmp);
++	tmp = reallocarray(archs, num_archs + 1, sizeof(*archs));
++	if (!tmp)
++		return NULL;
++
++	result = arch_new_fn[e_machine](&key, cpuid);
++	if (!result) {
++		pr_err("%s: failed to initialize %s (%u) arch priv area\n",
++			__func__, result->name, e_machine);
++		free(tmp);
++		return NULL;
++	}
++	archs = tmp;
++	archs[num_archs++] = result;
++	qsort(archs, num_archs, sizeof(*archs), arch__cmp);
++	return result;
+ }
+ 
+ bool arch__is_x86(const struct arch *arch)
+ {
+-	return arch->e_machine == EM_386 || arch->e_machine == EM_X86_64;
++	return arch->id.e_machine == EM_386 || arch->id.e_machine == EM_X86_64;
+ }
+ 
+ bool arch__is_powerpc(const struct arch *arch)
+ {
+-	return arch->e_machine == EM_PPC || arch->e_machine == EM_PPC64;
++	return arch->id.e_machine == EM_PPC || arch->id.e_machine == EM_PPC64;
+ }
+ 
+ static void ins_ops__delete(struct ins_operands *ops)
+diff --git a/tools/perf/util/disasm.h b/tools/perf/util/disasm.h
+index b6a2a30fdf27..2793d48aa04e 100644
+--- a/tools/perf/util/disasm.h
++++ b/tools/perf/util/disasm.h
+@@ -17,21 +17,23 @@ struct data_loc_info;
+ struct type_state;
+ struct disasm_line;
+ 
++struct e_machine_and_e_flags {
++	uint16_t e_machine;
++	uint32_t e_flags;
++};
++
+ struct arch {
+-	const char	*name;
++	/** @id: ELF machine and flags associated with arch. */
++	struct e_machine_and_e_flags id;
++	/** @name: name such as "x86" or "powerpc". */
++	const char		*name;
+ 	const struct ins	*instructions;
+-	size_t		nr_instructions;
+-	size_t		nr_instructions_allocated;
+-	const struct ins_ops  *(*associate_instruction_ops)(struct arch *arch, const char *name);
+-	bool		sorted_instructions;
+-	bool		initialized;
+-	const char	*insn_suffix;
+-	void		*priv;
+-	unsigned int	model;
+-	unsigned int	family;
+-	int		(*init)(struct arch *arch, char *cpuid);
+-	bool		(*ins_is_fused)(const struct arch *arch, const char *ins1,
+-					const char *ins2);
++	size_t			nr_instructions;
++	size_t			nr_instructions_allocated;
++	bool			sorted_instructions;
++	const char		*insn_suffix;
++	unsigned int		model;
++	unsigned int		family;
+ 	struct		{
+ 		char comment_char;
+ 		char skip_functions_char;
+@@ -39,15 +41,14 @@ struct arch {
+ 		char memory_ref_char;
+ 		char imm_char;
+ 	} objdump;
++	bool		(*ins_is_fused)(const struct arch *arch, const char *ins1,
++					const char *ins2);
++	const struct ins_ops  *(*associate_instruction_ops)(struct arch *arch, const char *name);
+ #ifdef HAVE_LIBDW_SUPPORT
+ 	void		(*update_insn_state)(struct type_state *state,
+ 				struct data_loc_info *dloc, Dwarf_Die *cu_die,
+ 				struct disasm_line *dl);
+ #endif
+-	/** @e_machine: ELF machine associated with arch. */
+-	unsigned int e_machine;
+-	/** @e_flags: Optional ELF flags associated with arch. */
+-	unsigned int e_flags;
  };
-diff --git a/tools/perf/util/sort.c b/tools/perf/util/sort.c
-index f963d61ac166..01a9d73ae348 100644
---- a/tools/perf/util/sort.c
-+++ b/tools/perf/util/sort.c
-@@ -1016,7 +1016,7 @@ static int hist_entry__cgroup_snprintf(struct hist_entry *he,
- 	const char *cgrp_name = "N/A";
  
- 	if (he->cgroup) {
--		struct cgroup *cgrp = cgroup__find(maps__machine(he->ms.maps)->env,
-+		struct cgroup *cgrp = cgroup__find(maps__machine(thread__maps(he->ms.thread))->env,
- 						   he->cgroup);
- 		if (cgrp != NULL)
- 			cgrp_name = cgrp->name;
-diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
-index c1646ef5f971..9cb0960ef905 100644
---- a/tools/perf/util/unwind-libdw.c
-+++ b/tools/perf/util/unwind-libdw.c
-@@ -161,7 +161,7 @@ static int entry(u64 ip, struct unwind_info *ui)
- 	}
+ struct ins {
+@@ -107,7 +108,7 @@ struct annotate_args {
+ 	char			  *fileloc;
+ };
  
- 	e->ip	  = ip;
--	e->ms.maps = maps__get(al.maps);
-+	e->ms.thread = thread__get(al.thread);
- 	e->ms.map = map__get(al.map);
- 	e->ms.sym = al.sym;
+-const struct arch *arch__find(const char *name);
++const struct arch *arch__find(uint16_t e_machine, const char *cpuid);
+ bool arch__is_x86(const struct arch *arch);
+ bool arch__is_powerpc(const struct arch *arch);
  
-diff --git a/tools/perf/util/unwind-libunwind-local.c b/tools/perf/util/unwind-libunwind-local.c
-index a24b45106acd..ecf0c01fe51f 100644
---- a/tools/perf/util/unwind-libunwind-local.c
-+++ b/tools/perf/util/unwind-libunwind-local.c
-@@ -666,7 +666,7 @@ static int entry(u64 ip, struct thread *thread,
- 	e.ms.sym = thread__find_symbol(thread, PERF_RECORD_MISC_USER, ip, &al);
- 	e.ip     = ip;
- 	e.ms.map = al.map;
--	e.ms.maps = al.maps;
-+	e.ms.thread = thread__get(al.thread);
+@@ -121,17 +122,17 @@ extern const struct ins_ops ret_ops;
  
- 	pr_debug("unwind: %s:ip = 0x%" PRIx64 " (0x%" PRIx64 ")\n",
- 		 al.sym ? al.sym->name : "''",
+ int arch__associate_ins_ops(struct arch *arch, const char *name, const struct ins_ops *ops);
+ 
+-int arc__annotate_init(struct arch *arch, char *cpuid);
+-int arm__annotate_init(struct arch *arch, char *cpuid);
+-int arm64__annotate_init(struct arch *arch, char *cpuid);
+-int csky__annotate_init(struct arch *arch, char *cpuid);
+-int loongarch__annotate_init(struct arch *arch, char *cpuid);
+-int mips__annotate_init(struct arch *arch, char *cpuid);
+-int powerpc__annotate_init(struct arch *arch, char *cpuid);
+-int riscv64__annotate_init(struct arch *arch, char *cpuid);
+-int s390__annotate_init(struct arch *arch, char *cpuid);
+-int sparc__annotate_init(struct arch *arch, char *cpuid);
+-int x86__annotate_init(struct arch *arch, char *cpuid);
++const struct arch *arch__new_arc(const struct e_machine_and_e_flags *id, const char *cpuid);
++const struct arch *arch__new_arm(const struct e_machine_and_e_flags *id, const char *cpuid);
++const struct arch *arch__new_arm64(const struct e_machine_and_e_flags *id, const char *cpuid);
++const struct arch *arch__new_csky(const struct e_machine_and_e_flags *id, const char *cpuid);
++const struct arch *arch__new_loongarch(const struct e_machine_and_e_flags *id, const char *cpuid);
++const struct arch *arch__new_mips(const struct e_machine_and_e_flags *id, const char *cpuid);
++const struct arch *arch__new_powerpc(const struct e_machine_and_e_flags *id, const char *cpuid);
++const struct arch *arch__new_riscv64(const struct e_machine_and_e_flags *id, const char *cpuid);
++const struct arch *arch__new_s390(const struct e_machine_and_e_flags *id, const char *cpuid);
++const struct arch *arch__new_sparc(const struct e_machine_and_e_flags *id, const char *cpuid);
++const struct arch *arch__new_x86(const struct e_machine_and_e_flags *id, const char *cpuid);
+ 
+ const struct ins_ops *ins__find(const struct arch *arch, const char *name, struct disasm_line *dl);
+ 
 -- 
 2.52.0.457.g6b5491de43-goog
 
