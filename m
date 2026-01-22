@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F05C44500
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 10:29:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D6BC44500
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 10:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4/8Ar8DXQEx6+BoyOSeD8iumK176vidF+RzP2sHq8pg=; b=CnrdXxYdoZm2B/
-	h55vUDpbniNIIJnBRNqAA1yIivVrhWEUn602JWCfMXva9SWQPnkP4z2oO6fe/8IruFb9pJgv7ElUr
-	pTlWFEBGutMz9CSLv9rdVsgAAJk8SsO7y0IptYCb+xAuVWftj3hyGBosX30obays04JPRzKgogzoZ
-	F31t5iG/LcAHGwwdruNvsYNdttHd9Lt1A9FVunOBHTcmA1FIF9pmxT4MeBaNQdnAT6tES2ZAEfTm6
-	Nr4suE/pkbzVL3o8FFr/164H7LJQbXTtKLvwhXDBC4eL6vrLTir6LKF+7iCfNkq+tR898EusspGks
-	kJTXh+NhFvyHRAvCbzxA==;
+	List-Owner; bh=Q7iY7pZu3lW9xaiBt/ZR7wbCHk43ZEsqy6LLQ6vrNTM=; b=AkkmoSIu97oJ69
+	bUWntENMHEjdL9Z18yMWpC4IQx6RZAPjQPlpfinDzoBAw9LsCYFeAG39YV/lXIU4enbpqRbjAcIBo
+	4yBA9XTviqyz2dAESqzqRApMgbSAFKWxN6ua6JMUlyhBJKXTR+601AO5kifmISmFvdpJRvfEbmp1K
+	IbtUDX4lcTyrX0dnXM+kAbTI47VMosrBr87wabgTBpfa7qzEK8+j6S2QULeJPxnHFW2L6/OMka/Z2
+	cykT4LIaAgeIa9NaBIV3U112/wDmvVphMG4GxNgJazrd15MPL4DwRQa0q65WB0aYAM6tdajMkUBNI
+	dAqIM7xd+omwx/gnsnMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virwK-00000006qQ9-3sP5;
-	Thu, 22 Jan 2026 10:29:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vis5v-00000006rDO-06IR;
+	Thu, 22 Jan 2026 10:39:19 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virwJ-00000006qPp-2ncV
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 22 Jan 2026 10:29:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=i/IM1UBePwfyfu0FVWvj2KzpIR5W4AOMRVUbtEg+z2E=; b=YZLeuiwycH06649SJpuqJiudSB
-	hmm6BkBxVflJFnNmXeOgMQAcI54B6QeAZc0d9sAv2cLfyf5CUJwRs2blihHf9zujFCFrrIPr5vnwe
-	3ASUb5YuaEumcH8lO0GxUMIKalsqvLBWM01ePbaPVjOhkP5VxJyqNcyx614Ny6cYiLSAJB7HKBH8e
-	TPaj9OINdPWbWdARZVHTkacDPS6S6Ycn7vXfMIytsre6+z5sn9KPeQyG6GFx3u8gP5llo+zn1l6Z4
-	MSAMPCUiWg3UTHv7+EubtjeCEEBJnL9109ALUONiRLSdwbPO9OBueYbANV8tRFVguP8BDxpucvJwt
-	Qy4NKnNA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virwG-0000000098X-2JOQ
+	id 1vis5r-00000006rCU-2hM3
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jan 2026 10:29:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 932F543710;
-	Thu, 22 Jan 2026 10:29:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3EFAC116C6;
-	Thu, 22 Jan 2026 10:29:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1769077758;
-	bh=uKRKux9iS3ROkkfKKUwwUwqJYfhukxH9PcpBbqJv6xE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rrkUvSIT8cVE/uNuxROhUecxxNK5GNNXVdlRCj+0HgYBSC/RlvJnWqCR+Cktq/E0I
-	 2I2RLjPeaSlZZJYAcZGNfkzfxJuax/H2abVtyEty5V8W9woU7p3rhneP/DxRPboOg+
-	 6fruH1rQcqoALVaMrBKR8nzJ7J6UOwdlqXagbZw4=
-Date: Thu, 22 Jan 2026 11:29:15 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Yicong Yang <yang.yicong@picoheart.com>
-Cc: rafael@kernel.org, lenb@kernel.org, tglx@kernel.org, dakr@kernel.org,
-	akpm@linux-foundation.org, apatel@ventanamicro.com, pjw@kernel.org,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	geshijian@picoheart.com, weidong.wd@picoheart.com,
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/2] ACPI: scan: Use async schedule function for
- acpi_scan_clear_dep_fn
-Message-ID: <2026012214-dinginess-improper-9bc1@gregkh>
-References: <20260122073446.45628-1-yang.yicong@picoheart.com>
- <20260122073446.45628-2-yang.yicong@picoheart.com>
+	Thu, 22 Jan 2026 10:39:18 +0000
+Received: from [10.213.20.167] (unknown [210.73.43.101])
+	by APP-03 (Coremail) with SMTP id rQCowABnhdxK_nFpSZlDBg--.20370S2;
+	Thu, 22 Jan 2026 18:39:07 +0800 (CST)
+Message-ID: <5639ff0c-dfd1-4528-a0ce-92d3c457ce64@iscas.ac.cn>
+Date: Thu, 22 Jan 2026 18:39:06 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260122073446.45628-2-yang.yicong@picoheart.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2] net: spacemit: Clarify stat timeout comments and
+ messages
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Yixun Lan <dlan@gentoo.org>,
+ Chukun Pan <amadeus@jmu.edu.cn>,
+ Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+ netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260121-k1-ethernet-clarify-stat-timeout-v2-1-76ff1a1168d9@iscas.ac.cn>
+ <20260121200439.64c22125@kernel.org>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <20260121200439.64c22125@kernel.org>
+X-CM-TRANSID: rQCowABnhdxK_nFpSZlDBg--.20370S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CryxGw48ZF47tF17KF4Durg_yoW8XF4fpa
+	1IgwsxGF1xtrWkXrsrtw10qFyYvw1vqa43ury3KryDtF15XrZa9r1FkrZ0kFZrZ393u3yj
+	qr42gFyv9FsrZa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Ib7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
+	1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_Gw1l42xK82IYc2Ij64vIr41l4I8I3I0E4I
+	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
+	WwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
+	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
+	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
+	IYCTnIWIevJa73UjIFyTuYvjxUgd-PDUUUU
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_102920_979506_0A1C7097 
-X-CRM114-Status: GOOD (  27.07  )
+X-CRM114-CacheID: sfid-20260122_023916_068066_CBEF61C9 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,103 +87,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 03:34:45PM +0800, Yicong Yang wrote:
-> The device object rescan in acpi_scan_clear_dep_fn is scheduled
-> in the system workqueue which is not guaranteed to be finished
-> before entering userspace. This will cause the problem that
-> some key devices are missed when the init task try to find them,
-> e.g. console devices and root devices (PCIe nvme, etc).
-> This issues is more possbile to happen on RISCV since these
-> devices using GSI interrupt may depend on APLIC and will be
-> scanned in acpi_scan_clear_dep_queue() after APLIC initialized.
-> 
-> Fix this by scheduling the acpi_scan_clear_dep_queue() using async
-> schedule function rather than the system workqueue. The deferred
-> works will be synchronized by async_synchronize_full() before
-> entering init task.
-> 
-> Update the comment as well.
-> 
-> Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
-> ---
->  drivers/acpi/scan.c | 35 ++++++++++++++++-------------------
->  1 file changed, 16 insertions(+), 19 deletions(-)
-> 
-> diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-> index 416d87f9bd10..bf0d8ba9ba19 100644
-> --- a/drivers/acpi/scan.c
-> +++ b/drivers/acpi/scan.c
-> @@ -5,6 +5,7 @@
->  
->  #define pr_fmt(fmt) "ACPI: " fmt
->  
-> +#include <linux/async.h>
->  #include <linux/module.h>
->  #include <linux/init.h>
->  #include <linux/slab.h>
-> @@ -2365,39 +2366,35 @@ struct acpi_scan_clear_dep_work {
->  	struct acpi_device *adev;
->  };
->  
-> -static void acpi_scan_clear_dep_fn(struct work_struct *work)
-> +static void acpi_scan_clear_dep_fn(void *dev, async_cookie_t cookie)
->  {
-> -	struct acpi_scan_clear_dep_work *cdw;
-> -
-> -	cdw = container_of(work, struct acpi_scan_clear_dep_work, work);
-> +	struct acpi_device *adev = to_acpi_device(dev);
->  
->  	acpi_scan_lock_acquire();
-> -	acpi_bus_attach(cdw->adev, (void *)true);
-> +	acpi_bus_attach(adev, (void *)true);
->  	acpi_scan_lock_release();
->  
-> -	acpi_dev_put(cdw->adev);
-> -	kfree(cdw);
-> +	acpi_dev_put(adev);
->  }
->  
->  static bool acpi_scan_clear_dep_queue(struct acpi_device *adev)
->  {
-> -	struct acpi_scan_clear_dep_work *cdw;
-> -
->  	if (adev->dep_unmet)
->  		return false;
->  
-> -	cdw = kmalloc(sizeof(*cdw), GFP_KERNEL);
-> -	if (!cdw)
-> -		return false;
-> -
-> -	cdw->adev = adev;
-> -	INIT_WORK(&cdw->work, acpi_scan_clear_dep_fn);
->  	/*
-> -	 * Since the work function may block on the lock until the entire
-> -	 * initial enumeration of devices is complete, put it into the unbound
-> -	 * workqueue.
-> +	 * Async schedule the deferred acpi_scan_clear_dep_fn() since:
-> +	 * - acpi_bus_attach() needs to hold acpi_scan_lock which cannot
-> +	 *   be acquired under acpi_dep_list_lock (held here)
-> +	 * - the deferred work at boot stage is ensured to be finished
-> +	 *   before entering init task by the async_synchronize_full()
-> +	 *   barrier
-> +	 *
-> +	 * Use _nocall variant since it'll return on failure instead of
-> +	 * run the function synchronously.
->  	 */
-> -	queue_work(system_dfl_wq, &cdw->work);
-> +	if (!async_schedule_dev_nocall(acpi_scan_clear_dep_fn, &adev->dev))
-> +		return false;
+On 1/22/26 12:04, Jakub Kicinski wrote:
+> On Wed, 21 Jan 2026 10:17:18 +0800 Vivian Wang wrote:
+>> This patch isn't a fix for the problem per se, since it is hardware
+>> behavior. The new message and comments, however, should direct those
+>> running into this on new hardware towards a fix.
+> Is it not possible to improve the situation?
 
-This really feels wrong to me, you are taking a code path that has been
-working for quite a while and changing it.  Perhaps your system ACPI
-tables are the thing that is incorrect here?
+Maybe I should have made it clearer, but this comment and messages
+improvement was proposed by Andrew in the linked thread [1].
 
-What exactly is the problem that you are seeing?  Why not start with
-that and then we can work out how to solve that issue?
+As an aside, saying that made me realize this patch should be:
 
-thanks,
+Suggested-by: Andrew Lunn <andrew@lunn.ch>
 
-greg k-h
+> Is the refclock disappearing because of power saving?
+> Or because the link is down?
+
+I'm not really well-versed in what's allowed from the PHY here, but at
+least the Motorcomm and Realtek PHYs seem to only stop this clock while
+the link is down. So from what I can tell it's PHY stopping the clock
+because of power saving for when the link is down. I'm not sure how that
+should translate into an answer to your question here...
+
+> Because if it's the latter we should be able to skip reading the stats
+> when link is down (still racy but better than waiting in cases we can
+> detect?)
+
+If checking the link is definitely up as a condition for updating stats
+would be acceptable, then maybe the original patch from the linked
+thread [2] can also be adopted?
+
+Vivian "dramforever" Wang
+
+[1]: https://lore.kernel.org/r/48757af2-bbea-4185-8cc9-2ef51dbc8373@lunn.ch/
+[2]: https://lore.kernel.org/r/20260118100000.224793-1-amadeus@jmu.edu.cn/
+
 
 _______________________________________________
 linux-riscv mailing list
