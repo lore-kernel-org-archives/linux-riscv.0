@@ -4,85 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17EE3C44500
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 09:29:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 425A1C44500
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 09:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FdtOJlMPp5P9mW9IE1Lu/0buJz1QuMgwMyoKTY/4omM=; b=HpfuiXF3oX7VEX
-	TNaVpgHuNoK+R5hAFVWxLHTpBWXopfPm9xBiQDvjErLUzqmOcnICyljDyB2HV5fNPVF8Lv9dXHpXA
-	8zKNlIHJ/pfB9rvY7xPC6mxyvitnE5uP3X4MgT6KSIOZbEDf6rK2vsZRNyPMQ/w0Vg0zdiisEIYtf
-	X3G/D+Fx7PcX8+47VIFsnfxVE7FOlhd2k5xwlm0X8B8fM5+VsWMdkbUN1jy5OxGtZMsw3AKHsFjdm
-	jiwo7wzS5yE0S6Rf+FpAAMcX4vhHZf4kHUGAB1ccwBS9Tv0W0jvGxtvafisQKUHnr12pChtolG5dq
-	F8cy+HgorioGDv+frLQA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eK9W/a2DnKRe4C23Ifhp18E2nnQqavUtchDRz9Tz0nU=; b=nlqlqqf/WwSDEG
+	VUiQZigZv7ZSLF3gcVU2vYOsYMEwJGcWHd3a207mI3Yxv7p7wGUjiskSdLeRRGQLMNqG/GnZahDBG
+	WBsoQeFQet/+MZUiM6j6Ftsc4bfra/rGPAo7r6SffG3w6ZBaHjkLu9E6JBxYHDfpKrnocgBxI2xxY
+	k/a0SXs+Oe2G6ZLcoTgyFmYGCHFgBb0mciHZg9Vkl88imwZGYRwgbumQqqcvLlcJWc0CsITlBXQ8w
+	Kd9eWWEHBYyIeT9z78OqNx5MnlT1MpxHptAee9Qo391kwgPAey14lMf49iKPhhgQ9E5rAkem//DVs
+	ECtGsPMcYq+vuafiVTaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vir0M-00000006k6i-1Ilz;
-	Thu, 22 Jan 2026 09:29:30 +0000
-Received: from sender4-pp-f119.zoho.com ([136.143.188.119])
+	id 1vir8v-00000006kZZ-0aS7;
+	Thu, 22 Jan 2026 09:38:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vir0J-00000006k6E-3JnC
+	id 1vir8t-00000006kZ9-3pId
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jan 2026 09:29:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769074142; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Udvbm8NgR2dtivyV/B8IJDDZ879uhF5Ci3xQtoVfIihHPwArmKYLfmxJVM7t4A+/a6Z40cTs6yZQsk3h02ba5Zr9r0Ryz+zGG13v920KVVt8yHcZqnNFM+l+3r8DQ0eEwbMXugtZNzmkGu86oQCEEggkKTmXz//f2Nah8wcqF0Y=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769074142; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=jkBmy4kjCDcQOpfASv2lnaUG8rOadoq5dD9Vpg8Ptdk=; 
-	b=L+MkeuxBkvhwGY8m1P0SJA4Y5mnZPrFwRWtqv3W6tutGLI3HwXhXinZ1NGnE2vJeUa3HE48xaN0MNFNNFTiuNB8rsccfWzX1UZxfGPGs4yRXtg/cyGAFwafSCiwuj4hy2r+O9OJpbvwqpVVVOnyk7gxB6I/Q+37gja1oHdTYPqQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769074142;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=jkBmy4kjCDcQOpfASv2lnaUG8rOadoq5dD9Vpg8Ptdk=;
-	b=Y2mbPBuOuCj9AxxoCurKOpHBaIkqJQIOkD9SwYE43pZlGaPEu9D2e7xCcwzBWaMO
-	GwV0ar9sHZrVXjosHPl3cjjnsbSVvFOx73PZp2KCnt5aHnTAtOlh393GhhdYnydVJCR
-	teiljx6lsiYlcFNvaZQTSVaVpMxwTYWebbA8yiBR9xDEe0TjiuMvwkcWcCzcyAgQRB8
-	hWibZuPEkykvZ9UK/irHVLmbgOyetIiAoSbG4kG31JIcJ+tY53vkNAnk0ihVRwWmLeR
-	h1AfgaOr34lurEyIZmOcbxv34+iUmzwLrRhJhuo9s8OIUAkx9VnFB/JtjXvWO9juQN9
-	J8T9eAtDYg==
-Received: by mx.zohomail.com with SMTPS id 176907414121622.6349085265756;
-	Thu, 22 Jan 2026 01:29:01 -0800 (PST)
-Message-ID: <7802bbc5edf2cfd6bf0d3f189aa7e6f6fc62e6ae.camel@icenowy.me>
-Subject: Re: [PATCH v5 3/9] drm: verisilicon: add a driver for Verisilicon
- display controllers
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob
- Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Drew Fustini <fustini@kernel.org>, Guo Ren
- <guoren@kernel.org>, Fu Wei <wefu@redhat.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Dmitry Baryshkov
- <lumag@kernel.org>,  Michal Wilczynski <m.wilczynski@samsung.com>, Luca
- Ceresoli <luca.ceresoli@bootlin.com>, Han Gao <rabenda.cn@gmail.com>,  Yao
- Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org,  devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, Han Gao <gaohan@iscas.ac.cn>
-Date: Thu, 22 Jan 2026 17:28:48 +0800
-In-Reply-To: <56e1974c-0fe6-4bdb-918d-fcf6a8b866c1@suse.de>
-References: <20260116043746.336328-1-zhengxingda@iscas.ac.cn>
-	 <20260116043746.336328-4-zhengxingda@iscas.ac.cn>
-	 <56e1974c-0fe6-4bdb-918d-fcf6a8b866c1@suse.de>
-Organization: Anthon Open-Source Community
-User-Agent: Evolution 3.44.4 
+	Thu, 22 Jan 2026 09:38:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0174B600CB;
+	Thu, 22 Jan 2026 09:38:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56991C116C6;
+	Thu, 22 Jan 2026 09:38:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769074698;
+	bh=EWgAvMz5SU18vwREMMzZWEEapD5INKu1KRD7ZdxGh6w=;
+	h=From:Subject:Date:To:Cc:From;
+	b=pyM9rVvAhHDtByBv2Oha4vhuJsRAOUMauVOR/OMgEcAQfuT6NzTUADMg1Qp+LM7ZI
+	 1IazcLADEbfaWtqOLy28S2f1CBv0Y/iSra+mZ3ip7QGGEb+fEPl5rKRnK9ZJK1jkt0
+	 5oEGQLa/GBdPSHRMvIlV9AiAmNNDDLlZr/oIvZ/R6jXaITi7QrRN3itUH+MGSlH1+a
+	 LY4Ma9YYp7MqDtYS1lE+2JaaPLBbyFMVtGHAaYjQxd35EE7Suqh5ISDIvxQktV7LwG
+	 IyPEo9I18TbZ/gxY7wyThKOEGlgaYVgqO6fLYBKxsRypbmNToDLAEqGJ0ToMODYMAb
+	 LZisFdWcR8e0w==
+From: Yixun Lan <dlan@kernel.org>
+Subject: [PATCH v2 0/2] mmc: spacemit: Add support for K3 SoC
+Date: Thu, 22 Jan 2026 17:37:29 +0800
+Message-Id: <20260122-07-k3-mmc-v2-0-3c3ffef25e94@kernel.org>
 MIME-Version: 1.0
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_012927_900984_96BCF111 
-X-CRM114-Status: UNSURE (   9.29  )
-X-CRM114-Notice: Please train this message.
+X-B4-Tracking: v=1; b=H4sIANnvcWkC/03MQQ7CIBCF4as0s3YMUAPGlfcwXVQ6tKQWmsEQT
+ cPdxcaFy//l5dsgEXtKcGk2YMo++RhqqEMDdurDSOiH2qCE0kJKhcLg3OKyWNS2F1JpQ+f2BPW
+ /Mjn/2q1bV3vy6Rn5vdNZftefouSfkmugc8ZYYe5ucPo6Ewd6HCOP0JVSPrbwJqyjAAAA
+X-Change-ID: 20260112-07-k3-mmc-6ca01267e834
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>
+Cc: Yixun Lan <dlan@kernel.org>, linux-mmc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1295; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=EWgAvMz5SU18vwREMMzZWEEapD5INKu1KRD7ZdxGh6w=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpce/+HinEMWPgByCb1BEgVBcsMFS+EUvwcnC8v
+ l1uUlX4WLiJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaXHv/hsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+22YA/6A50NF0MEca1IiK/og/EQsOKYCKWNcMud0+nfCq+qq8XZEg6vanipM
+ 4RzNH3O5z0dIyHqeCAZ+XVnTz8r6cIxoRKKHBLBYn/Ck0CIsLwlEN+9f3DMWeddwPY0WcsEt9cG
+ QTXVDD9wk1uornaqw0j7Z7CAJJ8Mf/9enPXJVKa76uIrMvuIJDkMRfYyTg4IgWJfEo+ngMso1eF
+ nEDKJBSGJs6JZiAjNhyPmeUL5J5TMG1GH5pymhYaNvkGAX3zRrKaKamm+uv3+ocWGc3F5Db8pW5
+ H6PAfZpyXt1nrSWxAl/kRucGMHQx4texhY5zZOAsjCSwBX6YpYLHJ1bzEBDJUG2LuVjZv3Bk5XX
+ 6sBfCtZG47hl76dThzICc1ZXczPW61Se9gaWx+fVnCcGrpZSPTzbdgLaCTUjK7cxfa2rJmTZsPJ
+ 3/4UOshLgZrg3rrJqjaCR7Vax0scjaoyyaKY25zhfoGrXAP4r8B8OtdgkQyEmzhNL7MROThED3g
+ /F8U3CwQzEg+gncEOE4PnwESYlHQF7lL/R5V83Dbsy8LK6Q5HnbUySAzj4MA0C2oADv9xWyRXQ5
+ WYg5S37+RNK3gYvEo/3W/Vsf2TlgKNPmY1zYZxnY71OWx/165kpGMKHoNLQ3Prvd7ye8VAEuJ+B
+ WNM3TvYd4lurJxs0sNP9B6vkaOH3Ac=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,27 +87,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjYtMDEtMjHmmJ/mnJ/kuInnmoQgMTM6NTYgKzAxMDDvvIxUaG9tYXMgWmltbWVybWFu
-buWGmemBk++8mgoKPT09PT09PT09PT09PT0gODwgPT09PT09PT09PT09PT09PT09PT09PT0KPiA+
-ICtzdGF0aWMgaW50IHZzX2dlbV9kdW1iX2NyZWF0ZShzdHJ1Y3QgZHJtX2ZpbGUgKmZpbGVfcHJp
-diwKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCBzdHJ1Y3QgZHJtX2RldmljZSAqZHJtLAo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHN0cnVjdCBkcm1fbW9kZV9jcmVh
-dGVfZHVtYiAqYXJncykKPiA+ICt7Cj4gPiArwqDCoMKgwqDCoMKgwqAvKiBUaGUgaGFyZHdhcmUg
-d2FudHMgMTI4Qi1hbGlnbmVkIHBpdGNoZXMgZm9yIGxpbmVhcgo+ID4gYnVmZmVycy4gKi8KPiA+
-ICvCoMKgwqDCoMKgwqDCoGFyZ3MtPnBpdGNoID0gQUxJR04oRElWX1JPVU5EX1VQKGFyZ3MtPndp
-ZHRoICogYXJncy0+YnBwLAo+ID4gOCksIDEyOCk7Cj4gCj4gUGxlYXNlIHVzZSB0aGUgbmV3IGRy
-bV9tb2RlX2FsaWduX2R1bWIoKSBpbnN0ZWFkLgoKSXQgc2VlbXMgdG8gYmUgc3RpbGwgYSBzdGF0
-aWMgZnVuY3Rpb24sIGF0IGxlYXN0IGluIDYuMTktcmMxIC4KCkl0IGxvb2tzIGxpa2UgSSBzaG91
-bGQgcHV0IGEgY2FsbCB0byBkcm1fbW9kZV9zaXplX2R1bWIoKSBoZXJlLCBpcyB0aGlzCmNvcnJl
-Y3Q/CgpUaGFua3MsCkljZW5vd3kKCj4gCj4gPiArCj4gPiArwqDCoMKgwqDCoMKgwqByZXR1cm4g
-ZHJtX2dlbV9kbWFfZHVtYl9jcmVhdGVfaW50ZXJuYWwoZmlsZV9wcml2LCBkcm0sCj4gPiBhcmdz
-KTsKPiA+ICt9Cj4gPiArCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+Enable SDHCI controller support on new SpacemiT K3 SoC, while as before
+only the third controller and the eMMC device has been tested which using
+vendor K3 evb board. This board has not acquired support in mainline
+kernel, so I've omitted the DT part patches for now.
+
+The new SDHCI controller almost reuse the same IP as old K1 generation,
+while fixed the broken 64BIT DMA issue.
+
+Hi Ulf,
+ Any chance to queue this for v6.20? I know it's a little bit late,
+but the patch itself is quite simple and we've tested on evb board.
+
+Signed-off-by: Yixun Lan <dlan@kernel.org>
+---
+Changes in v2:
+- collect Rob's Ack
+- drop uncessary blank line
+- drop return check from of_device_get_match_data
+- Link to v1: https://lore.kernel.org/r/20260121-07-k3-mmc-v1-0-ff77c07bfdf6@kernel.org
+
+---
+Yixun Lan (2):
+      dt-bindings: mmc: spacemit,sdhci: add support for K3 SoC
+      mmc: sdhci-of-k1: spacemit: Add support for K3 SoC
+
+ .../devicetree/bindings/mmc/spacemit,sdhci.yaml       |  4 +++-
+ drivers/mmc/host/sdhci-of-k1.c                        | 19 +++++++++++++++++--
+ 2 files changed, 20 insertions(+), 3 deletions(-)
+---
+base-commit: 6cefff068d030786d63fa50970d6581c354630b2
+change-id: 20260112-07-k3-mmc-6ca01267e834
+
+Best regards,
+-- 
+Yixun Lan <dlan@kernel.org>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
