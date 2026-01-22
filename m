@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55855D3EE74
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 15:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E310D3EE77
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 15:31:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gm2B2meEsT3yD/lqCkoW1ApWLGHAr+zro3YQLgVvrS4=; b=Pal71t1Kr+GkBj
-	Y4UNOni/JWq+K3lX9tbx0Z8lrhg1wg6KMrCrIHZiZ7NXE4bUo/JvrS2B0rBPwFBGtXADXq8cTw5dd
-	4i2LiVMh5FUjYCv5Ket0VdlTl7Sg1PlFBMiSvV6BZebdvDUZVJMJyxNWMqD14pnwyKFotIqiVSNvg
-	dxkscKaTr5oVW/Tz/LpDgsHhVM2iDWZ8/aDvrWbVglxwRiy0lFR7SoctC1W2/bJXJvFWJojF1/Qlv
-	GKpnvfOWcf+nz8VBNQvvzpLIRQkh7KyiMSOfYLPWrd1s+6AXSQjFS5lLwJyLl031enqUIg3bbqS02
-	Jnh9rp4br6X6ZLCRZTsA==;
+	List-Owner; bh=Qp/RYC8vt0JffubVMPSqhLhiBNtnKLa+KNw6jZQCvmY=; b=Toi6gOTvt+o/w1
+	C3RXvQQjSRyOelCRJCmykcHpkpkuB1BAsh4bua7H9GSIEDDTnrq4lLZQs331mhOyFFlP7U1mvQfSp
+	pHCx7hl9TKJcOlFrmivxqZ5syQgxNucYsUEuLy0C6J/3eeQzWaoc9KpUiAUVopX+rkJkTxxk5/L/z
+	rgmmx3DyECxVsRkGb6zs7yVTdDDE1+ncLjswuFcP2zRUU93HB24ZnUOlDBGm5+KdZkeYRDDkyU0qu
+	w+cIPjBJ8VF+uwCSBdSEIqiYBdfCt/sTJlAa5yDagfORieHR1OtxRinZOt//dLwyvn24sLEioB2G4
+	9L37hAoogIqTvWIHSQLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwN4-00000007JGC-1n2L;
-	Thu, 22 Jan 2026 15:13:18 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1viwe1-00000007LFD-1KVH;
+	Thu, 22 Jan 2026 15:30:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwN1-00000007JFg-37lz
+	id 1viwdx-00000007LEV-32tE
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jan 2026 15:13:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769094778; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=lEoIOIMYjotqF6pMogdQeeX3MKr4ENlCiD/zwjVHEz7oX/aBkcYEGsE/b+AyEz9/qHammd5PwkwUTjHgxSm4xUXMdfvKKymDrKfMO7XVkqxZwi0eFOFpycTX3Ph2VfjoBn2jh/PONyeioR4e3509GRDmI2FA+Je/43/yldSCFMk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769094778; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Eo/IUXScxtTqfsnFKhZ0cMjvhBNV94SAmIf3IWc0PYg=; 
-	b=AZzM73oOqgb/shBUa24qmbpxOMWgTlo1reLo+3afbd9Xl7CJMIRkBrYmPkdk2CdcDFwLdwbYH74ZtI+L0KF7ytTXDaUDxoTHzgoOcZUfzYExAF5bEEHSigbE2A63ghwesaif6vIXyb2O824EsoihePPHqysB3lNJrcO/mtWQ/qs=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769094778;
-	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=Eo/IUXScxtTqfsnFKhZ0cMjvhBNV94SAmIf3IWc0PYg=;
-	b=o+IZLkUHaUjCBLwjbbYzPaDnbsyf4n4RhgWAG2Yid5tjpLPXo8AzAvbFBQ/tDCoQ
-	bpWF7sPLiJvteO0izmqf5tShsN/HlmNc/nFEa9bui9aQ2xILgsJQCEHu/zBdQxeznix
-	ZOv63McBSVkhandjj20A1es/cJW+yfpOD64EoQ+4=
-Received: by mx.zohomail.com with SMTPS id 1769094776105810.6311707654235;
-	Thu, 22 Jan 2026 07:12:56 -0800 (PST)
-Date: Thu, 22 Jan 2026 15:12:36 +0000
-From: Yao Zi <me@ziyao.cc>
-To: Chukun Pan <amadeus@jmu.edu.cn>, Vivian Wang <wangruikang@iscas.ac.cn>,
-	Yixun Lan <dlan@kernel.org>
-Cc: Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	spacemit@lists.linux.dev, netdev@vger.kernel.org
-Subject: Re: [PATCH 1/1] net: spacemit: display phy driver information
-Message-ID: <aXI-ZMbwXHBX4XiT@pie>
-References: <20260122080001.73921-1-amadeus@jmu.edu.cn>
+	Thu, 22 Jan 2026 15:30:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E72D3408F4;
+	Thu, 22 Jan 2026 15:30:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42D54C116C6;
+	Thu, 22 Jan 2026 15:30:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769095844;
+	bh=ANg5M9bdXUHW9bMx19M0GjytrhaC2dSQ5F7F+spFkJ0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=IYhT1yn4Bjgk3YWlRzOiqht4ndOe/2FortRNdEusRVbggBT0EGruRInA2in7lfeX7
+	 lPZraa64Lz7NL4cseEA9rPcU95OYYPE1ho7FENs/kGc70IpaXjD3zgFItBDhn92Drs
+	 BPlkJ5arVrS8FG17CLSc2RvrXaB5DZbz+e89cBl/y/+W93VuM6+J+sRsGXYvCqkS3p
+	 DC5OMHBNauNWCys0NP8G7nGji3PLMPvwzx6R/N2jTxX6UuT/cPUg9OMJteSheyFsU5
+	 +UeGqXJPS5Uya+qNfPnkDWn+qDTLjkbRhvK2csnMyL/16eUDhTeKwny/Tq/5+cdc2G
+	 Q4KnaafOpi8eg==
+Date: Thu, 22 Jan 2026 07:30:43 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Yixun Lan <dlan@gentoo.org>, Chukun Pan
+ <amadeus@jmu.edu.cn>, Michael Opdenacker
+ <michael.opdenacker@rootcommit.com>, netdev@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2] net: spacemit: Clarify stat timeout comments and
+ messages
+Message-ID: <20260122073043.3089d435@kernel.org>
+In-Reply-To: <5639ff0c-dfd1-4528-a0ce-92d3c457ce64@iscas.ac.cn>
+References: <20260121-k1-ethernet-clarify-stat-timeout-v2-1-76ff1a1168d9@iscas.ac.cn>
+	<20260121200439.64c22125@kernel.org>
+	<5639ff0c-dfd1-4528-a0ce-92d3c457ce64@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260122080001.73921-1-amadeus@jmu.edu.cn>
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_071315_949272_93D257A7 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20260122_073045_790024_28B0953C 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,39 +80,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 04:00:01PM +0800, Chukun Pan wrote:
-> Print the PHY driver used and interrupt status after connection.
+On Thu, 22 Jan 2026 18:39:06 +0800 Vivian Wang wrote:
+> > Because if it's the latter we should be able to skip reading the stats
+> > when link is down (still racy but better than waiting in cases we can
+> > detect?)  
 > 
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-> ---
->  drivers/net/ethernet/spacemit/k1_emac.c | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
-> index c85dc742c404..afb5b6a61c2c 100644
-> --- a/drivers/net/ethernet/spacemit/k1_emac.c
-> +++ b/drivers/net/ethernet/spacemit/k1_emac.c
-> @@ -1568,6 +1568,7 @@ static int emac_phy_connect(struct net_device *ndev)
->  	struct device *dev = &priv->pdev->dev;
->  	struct phy_device *phydev;
->  	struct device_node *np;
-> +	char *irq_str;
->  	int ret;
->  
->  	ret = of_get_phy_mode(dev->of_node, &priv->phy_interface);
-> @@ -1610,6 +1611,11 @@ static int emac_phy_connect(struct net_device *ndev)
->  		goto err_node_put;
->  	}
->  
-> +	irq_str = phy_attached_info_irq(phydev);
-> +	netdev_info(ndev, "PHY driver [%s] (irq=%s)\n",
-> +		    phydev->drv->name, irq_str);
-> +	kfree(irq_str);
+> If checking the link is definitely up as a condition for updating stats
+> would be acceptable, then maybe the original patch from the linked
+> thread [2] can also be adopted?
 
-Would phy_attached_print() simplify the code?
-
-Regards,
-Yao Zi
+Yes, speaking under correction if Andrew disagrees, but could you
+squash those two patches ([2] and the v2) into one?
 
 _______________________________________________
 linux-riscv mailing list
