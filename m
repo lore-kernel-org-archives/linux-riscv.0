@@ -4,85 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39990C44500
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 09:53:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E045C44500
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 10:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dYDbaaZ0EY8+nHreiZq2waIcM8PUfB9ggup7FleVJAY=; b=bOp7T4+H66z/Sd
-	n4pv2tlbINCFaAeUbhNxLZDp+ft6cQm4FRrEDGUAxq5QqPueGjR2jMOW5wMqrkQxK8Z5EEbkuJ4Q9
-	Aoow+YL953A2ePgJLX5kJvbYGzy0dhFI3hsnETnrqcA2MAVnvTrjgd1XEtyXzeXZlcxVQrVPWK7th
-	djbj/35DnKHQkcbjrVMzKP1rfIGZHpq6Jp0XOiL3Qpeii6gCnJUDTPTgRXTlwUCs62DqjimWoZnq6
-	phZ0h8c6CbtD1JUqXsaapEPvr5YcwPZC+Jmwc1g3ogtGQQy37UtVae4vil0ll6nKxT1LYVmIWp0OW
-	LOUu7cPrMqoZ/S6fxdyQ==;
+	List-Owner; bh=Z4blHG6YDkcf8vJuA6XU/V1d+IcfOXJLI4QqZ00O9Bg=; b=gYpT1PkCNR1iA8
+	8zDaQJzmv0+Zpb7I7LR28+jzJR5SajoLOsX/IWg8jRjZPJvrPIby+2gEalweJmkUQtMD41KLAzsrX
+	wnIcJKT2GRwwJs7hwJ8mm9QLLsxIqE3AzZVXwj6hQIAd5QQAeKOiPkISYtefwc4m/qo7ss1c4/aIN
+	zEYMuTPMTGNUKzePGmdXWq1QoxqxqWJQc+1No5g9W/cHTP3YH4G39aPRgaG8AeBjk4ly0MLQDuLNt
+	TZdtkgEfDhSD/WCzsuzZynXe5JLX+6E5xbk3eKK93ELq2DaRnxofkSxce5AZpRhjWAnyUtNb5u3G7
+	Hem2klvsUO/T+ZshinlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virMs-00000006mrT-4Bxj;
-	Thu, 22 Jan 2026 09:52:47 +0000
-Received: from sender4-pp-e108.zoho.com ([136.143.188.108])
+	id 1virfF-00000006o8T-45E8;
+	Thu, 22 Jan 2026 10:11:45 +0000
+Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virMr-00000006mr4-0Lvi
+	id 1virfE-00000006o7V-0wRK
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jan 2026 09:52:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769075537; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=JBJ/+wc0b5Hxlf5ahsSQPhwaW6hiu9azg9PvCFgw/mjFVv1ImjMp76R9IbWao0fOKXfJ3A1c+BQwG+Gw8EnEUbHtwqxqQqYI6Cqor7RvhRaDruYaAA6+wpBx2lr20yFZ/vKERc8hPRb7nalIJgWXJomMQSZBEZd2XEkPQmjG/54=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769075537; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=En2qI4RcwDlkrfG6MdSabUnMFEl4jAYZLW1cW7ujXac=; 
-	b=BJu2tKOz8v1SK2RshUDIvNiowM7rthLgXWS9m7Iuu5xEImEBiZRBQgzrUVcRmOwRdEu3km2xSxGwZcUC9v3RILQ1JNXaKsYVqO6H2OqAUi4zBxYwyKtGy1O/8WURxP4prJWhi93qGS2wjw70F9ZJnCb02W0DZN8wa0VoHKDkj48=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769075537;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=En2qI4RcwDlkrfG6MdSabUnMFEl4jAYZLW1cW7ujXac=;
-	b=mkW0kRHDimVziqSg9qFRzy59I3am3tCQCNMQPdjs+aw10eI288VmpkLEfVChez/4
-	tr8uuot/nFxyjRw6NMcGahZJ22d3RjzhWsQV9ZEiznwVNlbZx4ShK3BGS9vGitfvmZt
-	djM16PLS/D0vTZBgFNBx2UGBDlnwVFAHpXnhuRx68cIA+gWQMEOLGjCRTAOEJfKDeVE
-	/+twAuvquRm0RAt1zruS3wQZcBpygpzT1T2meo2lcC3KDbs0l1c4s9Yf1+xB327qySI
-	WOAFzOyMfP0arIOSBHcBr51p2ZbqxVF1TBbUD1Dupz1A2BnCJzr+Co6k5rrFX+czVlH
-	kRrxs79w2w==
-Received: by mx.zohomail.com with SMTPS id 176907553619080.19812547444451;
-	Thu, 22 Jan 2026 01:52:16 -0800 (PST)
-Message-ID: <7dcf09b4c09f3bfb3650219d9d174f65dce17970.camel@icenowy.me>
-Subject: Re: [PATCH v5 3/9] drm: verisilicon: add a driver for Verisilicon
- display controllers
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob
- Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Drew Fustini <fustini@kernel.org>, Guo Ren
- <guoren@kernel.org>, Fu Wei <wefu@redhat.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Dmitry Baryshkov
- <lumag@kernel.org>,  Michal Wilczynski <m.wilczynski@samsung.com>, Luca
- Ceresoli <luca.ceresoli@bootlin.com>, Han Gao <rabenda.cn@gmail.com>,  Yao
- Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org,  devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, Han Gao <gaohan@iscas.ac.cn>
-Date: Thu, 22 Jan 2026 17:52:04 +0800
-In-Reply-To: <7bffdc45628fec9dd8175f696d3a68aa1e12f0a2.camel@icenowy.me>
-References: <20260116043746.336328-1-zhengxingda@iscas.ac.cn>
-	 <20260116043746.336328-4-zhengxingda@iscas.ac.cn>
-	 <56e1974c-0fe6-4bdb-918d-fcf6a8b866c1@suse.de>
-	 <7bffdc45628fec9dd8175f696d3a68aa1e12f0a2.camel@icenowy.me>
-Organization: Anthon Open-Source Community
-User-Agent: Evolution 3.44.4 
+	Thu, 22 Jan 2026 10:11:45 +0000
+Received: from localhost (unknown [116.232.27.242])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 603E0341E75;
+	Thu, 22 Jan 2026 10:11:34 +0000 (UTC)
+Date: Thu, 22 Jan 2026 18:11:22 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Guodong Xu <guodong@riscstar.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Alex Elder <elder@riscstar.com>, Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, devicetree@vger.kernel.org
+Subject: Re: [PATCH 0/4] regulator: spacemit-p1: Fix voltage ranges and
+ support board power tree
+Message-ID: <20260122101122-GYA63789@gentoo.org>
+References: <20260122-spacemit-p1-v1-0-309be27fbff9@riscstar.com>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Disposition: inline
+In-Reply-To: <20260122-spacemit-p1-v1-0-309be27fbff9@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_015245_179474_C2D25065 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20260122_021144_291753_C11FA77F 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,104 +68,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjYtMDEtMjLmmJ/mnJ/lm5vnmoQgMTc6NDcgKzA4MDDvvIxJY2Vub3d5IFpoZW5n5YaZ
-6YGT77yaCj4g5ZyoIDIwMjYtMDEtMjHmmJ/mnJ/kuInnmoQgMTM6NTYgKzAxMDDvvIxUaG9tYXMg
-WmltbWVybWFubuWGmemBk++8mgo+IAo+ID09PT09PT09PT09PT09PT09PT0gODwgPT09PT09PT09
-PT09PT09PT09PT0KPiA+ID4gK3ZvaWQgZHJtX2Zvcm1hdF90b192c19mb3JtYXQodTMyIGRybV9m
-b3JtYXQsIHN0cnVjdCB2c19mb3JtYXQKPiA+ID4gKnZzX2Zvcm1hdCkKPiA+ID4gK3sKPiA+ID4g
-K8KgwqDCoMKgwqDCoMKgc3dpdGNoIChkcm1fZm9ybWF0KSB7Cj4gPiA+ICvCoMKgwqDCoMKgwqDC
-oGNhc2UgRFJNX0ZPUk1BVF9YUkdCNDQ0NDoKPiA+ID4gK8KgwqDCoMKgwqDCoMKgY2FzZSBEUk1f
-Rk9STUFUX1JHQlg0NDQ0Ogo+ID4gPiArwqDCoMKgwqDCoMKgwqBjYXNlIERSTV9GT1JNQVRfWEJH
-UjQ0NDQ6Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoGNhc2UgRFJNX0ZPUk1BVF9CR1JYNDQ0NDoKPiA+
-ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHZzX2Zvcm1hdC0+Y29sb3IgPSBWU0RD
-X0NPTE9SX0ZPUk1BVF9YNFI0RzRCNDsKPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoGJyZWFrOwo+ID4gPiArwqDCoMKgwqDCoMKgwqBjYXNlIERSTV9GT1JNQVRfQVJHQjQ0NDQ6
-Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoGNhc2UgRFJNX0ZPUk1BVF9SR0JBNDQ0NDoKPiA+ID4gK8Kg
-wqDCoMKgwqDCoMKgY2FzZSBEUk1fRk9STUFUX0FCR1I0NDQ0Ogo+ID4gPiArwqDCoMKgwqDCoMKg
-wqBjYXNlIERSTV9GT1JNQVRfQkdSQTQ0NDQ6Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqB2c19mb3JtYXQtPmNvbG9yID0gVlNEQ19DT0xPUl9GT1JNQVRfQTRSNEc0QjQ7Cj4g
-PiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBicmVhazsKPiA+ID4gK8KgwqDCoMKg
-wqDCoMKgY2FzZSBEUk1fRk9STUFUX1hSR0IxNTU1Ogo+ID4gPiArwqDCoMKgwqDCoMKgwqBjYXNl
-IERSTV9GT1JNQVRfUkdCWDU1NTE6Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoGNhc2UgRFJNX0ZPUk1B
-VF9YQkdSMTU1NToKPiA+ID4gK8KgwqDCoMKgwqDCoMKgY2FzZSBEUk1fRk9STUFUX0JHUlg1NTUx
-Ogo+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgdnNfZm9ybWF0LT5jb2xvciA9
-IFZTRENfQ09MT1JfRk9STUFUX1gxUjVHNUI1Owo+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgYnJlYWs7Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoGNhc2UgRFJNX0ZPUk1BVF9BUkdC
-MTU1NToKPiA+ID4gK8KgwqDCoMKgwqDCoMKgY2FzZSBEUk1fRk9STUFUX1JHQkE1NTUxOgo+ID4g
-PiArwqDCoMKgwqDCoMKgwqBjYXNlIERSTV9GT1JNQVRfQUJHUjE1NTU6Cj4gPiA+ICvCoMKgwqDC
-oMKgwqDCoGNhc2UgRFJNX0ZPUk1BVF9CR1JBNTU1MToKPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoHZzX2Zvcm1hdC0+Y29sb3IgPSBWU0RDX0NPTE9SX0ZPUk1BVF9BMVI1RzVC
-NTsKPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGJyZWFrOwo+ID4gPiArwqDC
-oMKgwqDCoMKgwqBjYXNlIERSTV9GT1JNQVRfUkdCNTY1Ogo+ID4gPiArwqDCoMKgwqDCoMKgwqBj
-YXNlIERSTV9GT1JNQVRfQkdSNTY1Ogo+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgdnNfZm9ybWF0LT5jb2xvciA9IFZTRENfQ09MT1JfRk9STUFUX1I1RzZCNTsKPiA+ID4gK8Kg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGJyZWFrOwo+ID4gPiArwqDCoMKgwqDCoMKgwqBj
-YXNlIERSTV9GT1JNQVRfWFJHQjg4ODg6Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoGNhc2UgRFJNX0ZP
-Uk1BVF9SR0JYODg4ODoKPiA+ID4gK8KgwqDCoMKgwqDCoMKgY2FzZSBEUk1fRk9STUFUX1hCR1I4
-ODg4Ogo+ID4gPiArwqDCoMKgwqDCoMKgwqBjYXNlIERSTV9GT1JNQVRfQkdSWDg4ODg6Cj4gPiA+
-ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB2c19mb3JtYXQtPmNvbG9yID0gVlNEQ19D
-T0xPUl9GT1JNQVRfWDhSOEc4Qjg7Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqBicmVhazsKPiA+ID4gK8KgwqDCoMKgwqDCoMKgY2FzZSBEUk1fRk9STUFUX0FSR0I4ODg4Ogo+
-ID4gPiArwqDCoMKgwqDCoMKgwqBjYXNlIERSTV9GT1JNQVRfUkdCQTg4ODg6Cj4gPiA+ICvCoMKg
-wqDCoMKgwqDCoGNhc2UgRFJNX0ZPUk1BVF9BQkdSODg4ODoKPiA+ID4gK8KgwqDCoMKgwqDCoMKg
-Y2FzZSBEUk1fRk9STUFUX0JHUkE4ODg4Ogo+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgdnNfZm9ybWF0LT5jb2xvciA9IFZTRENfQ09MT1JfRk9STUFUX0E4UjhHOEI4Owo+ID4g
-PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgYnJlYWs7Cj4gPiA+ICvCoMKgwqDCoMKg
-wqDCoGNhc2UgRFJNX0ZPUk1BVF9BUkdCMjEwMTAxMDoKPiA+ID4gK8KgwqDCoMKgwqDCoMKgY2Fz
-ZSBEUk1fRk9STUFUX1JHQkExMDEwMTAyOgo+ID4gPiArwqDCoMKgwqDCoMKgwqBjYXNlIERSTV9G
-T1JNQVRfQUJHUjIxMDEwMTA6Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoGNhc2UgRFJNX0ZPUk1BVF9C
-R1JBMTAxMDEwMjoKPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHZzX2Zvcm1h
-dC0+Y29sb3IgPSBWU0RDX0NPTE9SX0ZPUk1BVF9BMlIxMEcxMEIxMDsKPiA+ID4gK8KgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoGJyZWFrOwo+ID4gPiArwqDCoMKgwqDCoMKgwqBkZWZhdWx0
-Ogo+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgRFJNX1dBUk4oIlVuZXhwZWN0
-ZWQgZHJtIGZvcm1hdCFcbiIpOwo+ID4gCj4gPiBkcm1fd2FybigpLiBJZiB0aGlzIGNhbiBiZSBp
-bnZva2VkIGZyb20gdXNlciBzcGFjZSxlYXNpbHksIGJldHRlcgo+ID4gdXNlCj4gPiBkcm1fZGJn
-KCkKCkFoLCBieSB0aGUgd2F5LCB0aGlzIGZ1bmN0aW9uIGN1cnJlbnRseSB0YWtlcyBubyBwYXJh
-bWV0ZXIgdGhhdApjb250YWlucyB0aGUgc3RydWN0IGRybV9kZXZpY2UgcG9pbnRlci4gU2hvdWxk
-IEkgcmV3b3JrIHRoZSBmdW5jdGlvbgpwcm90b3R5cGUgdG8gdXNlIGRybV93YXJuKCkgaW4gdGhp
-cyBjYXNlIChJIGRpZG4ndCBzZWUgdXNlIG9mCmRybV93YXJuKE5VTEwsIHh4eCkgaW4gdGhlIGtl
-cm5lbCBjdXJyZW50bHkpLCBvciBzaG91bGQgSSBzd2l0Y2ggYmFjawp0byBwcl93YXJuKCkgb3Ig
-a2VlcCBEUk1fV0FSTigpID8KCj4gCj4gVGhpcyBmdW5jdGlvbiBpcyBjYWxsZWQgZHVyaW5nIGF0
-b21pY191cGRhdGUgb2YgcGxhbmVzLCBhbmQgSSB0aGluawo+IGluCj4gdGhpcyBjYXNlIHRoZSB1
-bmtub3duIGZvcm1hdHMgc2hvdWxkIGFscmVhZHkgYmUgcmVqZWN0ZWQgYmVjYXVzZQo+IHRoZXkn
-cmUgbm90IGFkdmVydGlzZWQgZm9yIGFueSBwbGFuZXMuCj4gCj4gRGlkIEkgZ2V0IGl0IHJpZ2h0
-IG9uIHRoaXM/Cj4gCj4gPiAKPiA+ID4gK8KgwqDCoMKgwqDCoMKgfQo+ID4gPiArCj4gPiA+ICvC
-oMKgwqDCoMKgwqDCoHN3aXRjaCAoZHJtX2Zvcm1hdCkgewo+ID4gPiArwqDCoMKgwqDCoMKgwqBj
-YXNlIERSTV9GT1JNQVRfUkdCWDQ0NDQ6Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoGNhc2UgRFJNX0ZP
-Uk1BVF9SR0JBNDQ0NDoKPiA+ID4gK8KgwqDCoMKgwqDCoMKgY2FzZSBEUk1fRk9STUFUX1JHQlg1
-NTUxOgo+ID4gPiArwqDCoMKgwqDCoMKgwqBjYXNlIERSTV9GT1JNQVRfUkdCQTU1NTE6Cj4gPiA+
-ICvCoMKgwqDCoMKgwqDCoGNhc2UgRFJNX0ZPUk1BVF9SR0JYODg4ODoKPiA+ID4gK8KgwqDCoMKg
-wqDCoMKgY2FzZSBEUk1fRk9STUFUX1JHQkE4ODg4Ogo+ID4gPiArwqDCoMKgwqDCoMKgwqBjYXNl
-IERSTV9GT1JNQVRfUkdCQTEwMTAxMDI6Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqB2c19mb3JtYXQtPnN3aXp6bGUgPSBWU0RDX1NXSVpaTEVfUkdCQTsKPiA+ID4gK8KgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGJyZWFrOwo+ID4gPiArwqDCoMKgwqDCoMKgwqBjYXNl
-IERSTV9GT1JNQVRfWEJHUjQ0NDQ6Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoGNhc2UgRFJNX0ZPUk1B
-VF9BQkdSNDQ0NDoKPiA+ID4gK8KgwqDCoMKgwqDCoMKgY2FzZSBEUk1fRk9STUFUX1hCR1IxNTU1
-Ogo+ID4gPiArwqDCoMKgwqDCoMKgwqBjYXNlIERSTV9GT1JNQVRfQUJHUjE1NTU6Cj4gPiA+ICvC
-oMKgwqDCoMKgwqDCoGNhc2UgRFJNX0ZPUk1BVF9CR1I1NjU6Cj4gPiA+ICvCoMKgwqDCoMKgwqDC
-oGNhc2UgRFJNX0ZPUk1BVF9YQkdSODg4ODoKPiA+ID4gK8KgwqDCoMKgwqDCoMKgY2FzZSBEUk1f
-Rk9STUFUX0FCR1I4ODg4Ogo+ID4gPiArwqDCoMKgwqDCoMKgwqBjYXNlIERSTV9GT1JNQVRfQUJH
-UjIxMDEwMTA6Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB2c19mb3JtYXQt
-PnN3aXp6bGUgPSBWU0RDX1NXSVpaTEVfQUJHUjsKPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoGJyZWFrOwo+ID4gPiArwqDCoMKgwqDCoMKgwqBjYXNlIERSTV9GT1JNQVRfQkdS
-WDQ0NDQ6Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoGNhc2UgRFJNX0ZPUk1BVF9CR1JBNDQ0NDoKPiA+
-ID4gK8KgwqDCoMKgwqDCoMKgY2FzZSBEUk1fRk9STUFUX0JHUlg1NTUxOgo+ID4gPiArwqDCoMKg
-wqDCoMKgwqBjYXNlIERSTV9GT1JNQVRfQkdSQTU1NTE6Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoGNh
-c2UgRFJNX0ZPUk1BVF9CR1JYODg4ODoKPiA+ID4gK8KgwqDCoMKgwqDCoMKgY2FzZSBEUk1fRk9S
-TUFUX0JHUkE4ODg4Ogo+ID4gPiArwqDCoMKgwqDCoMKgwqBjYXNlIERSTV9GT1JNQVRfQkdSQTEw
-MTAxMDI6Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB2c19mb3JtYXQtPnN3
-aXp6bGUgPSBWU0RDX1NXSVpaTEVfQkdSQTsKPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoGJyZWFrOwo+ID4gPiArwqDCoMKgwqDCoMKgwqBkZWZhdWx0Ogo+ID4gPiArwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgLyogTi9BIGZvciBZVVYgZm9ybWF0cyAqLwo+ID4gPiAr
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgdnNfZm9ybWF0LT5zd2l6emxlID0gVlNEQ19T
-V0laWkxFX0FSR0I7Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoH0KPiA+ID4gKwo+ID4gPiArwqDCoMKg
-wqDCoMKgwqAvKiBOL0EgZm9yIG5vbi1ZVVYgZm9ybWF0cyAqLwo+ID4gPiArwqDCoMKgwqDCoMKg
-wqB2c19mb3JtYXQtPnV2X3N3aXp6bGUgPSBmYWxzZTsKPiA+ID4gK30KCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Guodong,
+
+On 17:43 Thu 22 Jan     , Guodong Xu wrote:
+> This series fixes hardware voltage constraints and enables flexible power
+> tree configurations for the SpacemiT P1 PMIC.
+> 
+> Patch 1, n_voltages is corrected to match hardware register widths, as the
+> previous values prevented regulators from reaching higher operational
+> voltages (e.g., 3.3V on LDOs).
+> 
+> Patch 2-4, hardcoded supply assumptions are replaced with explicit
+> devicetree properties. PMIC supply connections are board-design decisions.
+> Moving this to DT allows supporting varied topologies without driver
+> modifications.
+> 
+> Note: Patch 3 introduces a bisect breakage by transitioning to
+> pin-specific supply names. Probe failures will occur on existing board
+> (K1 Bananapi F3) until Patch 4 updates the corresponding DTS file.
+This patch bring system-wide change that not only affect Bananapi F3..
+
+Please also provide fix for other boards, I think you may not be able
+to test all boards, but make sure the patches are available, so people
+who interested can test, P.S I can help on milkv jupiter board
+
+> 
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
+> ---
+> Guodong Xu (4):
+>       regulator: spacemit-p1: Fix n_voltages for BUCK and LDO regulators
+>       dt-bindings: mfd: spacemit,p1: Add individual regulator supply properties
+>       regulator: spacemit-p1: Update supply names
+>       riscv: dts: spacemit: k1-bananapi-f3: Update PMIC supply properties
+> 
+>  .../devicetree/bindings/mfd/spacemit,p1.yaml       | 58 +++++++++++++++++++++-
+>  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    | 12 ++++-
+>  drivers/regulator/spacemit-p1.c                    | 25 ++++++----
+>  3 files changed, 80 insertions(+), 15 deletions(-)
+> ---
+> base-commit: c8a4a774a9b0d2c86593492625874e27e9cbc9a9
+> change-id: 20260122-spacemit-p1-ae596efe885f
+> 
+> Best regards,
+> -- 
+> Guodong Xu <guodong@riscstar.com>
+> 
+
+-- 
+Yixun Lan (dlan)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
