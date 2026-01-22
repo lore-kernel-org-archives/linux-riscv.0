@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F140C44500
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 07:32:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41291C44500
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 07:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:References:
 	Mime-Version:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qwk86I2KKQftb6Whutnh2d85NsKmwoUxK0zUSskm18o=; b=Doc7l9Zsc+125A
-	9sikPEIJuG+cmafjv/RgyT7AGBTc1lIFdlgwM/wJWxnmWs6bhk5dIsum+WcKUUFc82YIZcJ/JuK98
-	WRLUTWNFVghfRuJygCzoXSaYomlLCD/vy2NgmOJ9gZ/q3XunURZM2RQykTVT509TTqLhvuIdegYzD
-	upuN7fU/32D46MJ5JYfb/pznn0BDdprGLUGg6m6l3MJAsQj9QcuGTxO+Sr5RS/vFXUkaOnK6lL2J2
-	+2GrmRj9NLxAqdvZm0X1GuBKh3J/rjpz0fTu/B/s5mWWPXAe6oP9iXnwsztusJpAWAtSN2eUb4AG5
-	PHF0ngQxOodsbrxjrbVw==;
+	List-Owner; bh=EfIopOzUOo9jWF6bzB9Cgq9UcNK9WJ3sk9ZPgmq5qE0=; b=kooxFBTgbEbZlY
+	Znd5YhF1dvElQAIGVptJ5BBRGGxhM1QTBFfsZZzsGcVA2wW0RgVG6Wv1ppqBuUtaPHCrE7k/ju+Uw
+	JqIFwPs9NFv3K5zMI9QfMdX8GhsyxUetc9f3AmtcJFvDIKJWA73xNpTjKgF1t771An/EkH1jvjKAa
+	W9KPeHhIraaRSfGx9VmwE9IzBVGW9Ho+uwdO0q+dXbSYmXr3+M9GCBNEojdbQNMuDoxRe8oX+sISc
+	I1aQWGAJ9OV27buFNmax0hASgl+X+0rVFsYuMFKhLEMgGxJUmVFd1GQLXXDjZ6yDX4FRx28YfMttE
+	GhvhcaQx18RccUcMK8CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vipAU-00000006YHd-0Y76;
-	Thu, 22 Jan 2026 07:31:50 +0000
-Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
+	id 1vipAY-00000006YNC-3m8K;
+	Thu, 22 Jan 2026 07:31:54 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vipAI-00000006Y5H-3O7V
+	id 1vipAK-00000006Y6d-233r
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jan 2026 07:31:40 +0000
-Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12339e20a86so914212c88.0
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Jan 2026 23:31:38 -0800 (PST)
+	Thu, 22 Jan 2026 07:31:41 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2b6b9c1249fso1292836eec.1
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Jan 2026 23:31:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769067098; x=1769671898; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1769067099; x=1769671899; darn=lists.infradead.org;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=G3Q6y9uuDnZT4fchJSYQvOs3qoNM/plkLt24+BhC4KM=;
-        b=uVsIt0w0NoUaKvsdszAxwnIzYDz+rYRl7vYpw9ggQrj/hL6lKM2qFWKL4iMuaWXWbC
-         vOxsCPv5lKv4wFuxjI1pXOx3kL39nCVta7oBxbwP2Be0BIZ4jvQRDKrfRubUJ+2Ve2gB
-         N/whs5OZzDQ/pDPi7CAKxZiGVLmW0D/HBzFR7CX7ZYpdEYSIrcEltruNST3Lh8P0Um11
-         0q8dfHxXYlmLPajeJSBhF3VTh0djSRqvqF6lg1l3Lcm8J883dAnzHO+taVRTmi7cvy8k
-         5T+Auqga1Q4LTACB60Ok062CB+Z9mJ6yzKhwJH5ol13K+b0QCUYZEOmsIL/Y840uxix7
-         6Scg==
+        bh=1NhvuInpc7eqBNv/e0P4EBfwFbvwk538QrbOwOslQR4=;
+        b=X5PE0+RlG2MmaskcHEkuTV4JYQLRrlFj4dhrszIgt2X9GxYChtzfDm1tFg4j52rNBt
+         47B31+xls3Xj8vCGpPkLjPmJpjultn/ul5+xEnES3Vhr/GCEUHq0Nu+y5qwzi0NfDUHg
+         3xVCL8gb58EvhrcoLnqfh/etG4xgoXdvjgJAx2XqbB+mv5j5hbaaya2gcDqPv1IHeC1K
+         OBomsF7qwcsZJ8ghliqxWzOD4532F1ZOal3Ek/47nXzeG9PmC5nmunV78ziD1LxAkK2O
+         taS/O4M/gDhxqSergezFqbI03ouPht3vhbvPYCRrCEqZDe7975fe0SvWwEghHSePZRA6
+         2qjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769067098; x=1769671898;
+        d=1e100.net; s=20230601; t=1769067099; x=1769671899;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=G3Q6y9uuDnZT4fchJSYQvOs3qoNM/plkLt24+BhC4KM=;
-        b=iIbfl1JLst8Cdds4jYbeXjTsAOrboyegTgsXZdXS5jsE4JzE9FPg/E/ZZDHzVW9Uek
-         6P+CFNBcFoG2HyP0rqJd3lNTD7IAmGhWd8t4dIy4NcouWQlYfboG0J+bKrmQKVVWbxjy
-         0NE9+BmkHd/rVUVYsyn3/ebJBePpiq6Syxv1mIGHeDF1ENOgzQcb/3HHd54CexhUvotx
-         9GcBX8U3AgexCnAtQdl81iGpMdowIlm8iF9TSJNv6+WuG19QHokwnjd/erMlm6GWeG6K
-         aGwJ0bgtuT8hTZsXUw3lEsl0Ou2MQAmPJ+ALfhP383JdISY5j7oq59mNFpqcw2gI9fzW
-         9FsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUyLXh1m2d9ZaUISopk6eCbMfGR91/1bjccWbhCVLXBOGumvj2crnYrfkCcL9kAIAs/ZYl8joXKtF41ZQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSpHHv7ICoJCpv/DifXtrTtlt92eYGZPTWqFiRxK7r5avn014v
-	uuiTFw+ryI9yPK5fCoKUXMYQotJbeTlBNzSKsYrbaFjK26YWXYFU7ku79XfoeLDXs34C6zTURB5
-	HNOsFgaRS7A==
-X-Received: from dlbvv19.prod.google.com ([2002:a05:7022:5f13:b0:119:9f33:34a6])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6b93:b0:122:3a5:fc42
- with SMTP id a92af1059eb24-1246aa67352mr4639077c88.20.1769067097397; Wed, 21
- Jan 2026 23:31:37 -0800 (PST)
-Date: Wed, 21 Jan 2026 23:31:20 -0800
+        bh=1NhvuInpc7eqBNv/e0P4EBfwFbvwk538QrbOwOslQR4=;
+        b=gl7WM+xeNdpMcIEmg30W18xE3M8mFxfW7xmSVhA3vUVW7m6T3/vYo29NVVak5k9Pkq
+         Q0keKjUaFlpP05kMlSw5NOPEpNDTsk/tr2A+taZ6FGjDYpcQhwTeQGcAlKEf7TuK10l8
+         zRvRON+ZjI515W6OO6M7grdEji7DMK62s2KB5Jw3Mn7H5uctSlPsOJdJNAdmDi+NvhiW
+         Im3nlQZdyKvlbn2MWSPp6I8nUEOYDjXqW2fM2mhovXYPdpYxhz0PFFftoIdmFa6zt0iJ
+         4qSoTmhRnLNHAxWhmKFc+5aGw7HXekUIs+47EbC+n0GAnlRRxPNMkI8Lv97kqJrrj/Sr
+         xOUA==
+X-Forwarded-Encrypted: i=1; AJvYcCWbQi4BKlCCjR45KiOU07PQ3Fxd8oPXxb474XMkKTTvv7GK4mSltJsuOLGuVaK2q6O3dUAWEFk1qnFYgA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmJUwnvXMI7Ahz96ZGfqp1PQ1kHEhjQRrezMjZ63IljVE/eblX
+	l7PI4xPBIwtU503WLcbenrAgZKX7+H5euFcIFOmlqhMfa3hVnzqHwmlTo07CcCrvgBul8sVocJ5
+	WIQTYC6QPhw==
+X-Received: from dyaw19-n2.prod.google.com ([2002:a05:693c:4153:20b0:2b4:549f:c73b])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:2c17:b0:2b7:1e8f:c83a
+ with SMTP id 5a478bee46e88-2b71e8fcdc4mr1945394eec.32.1769067099123; Wed, 21
+ Jan 2026 23:31:39 -0800 (PST)
+Date: Wed, 21 Jan 2026 23:31:21 -0800
 In-Reply-To: <20260122073127.375139-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260122073127.375139-1-irogers@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260122073127.375139-5-irogers@google.com>
-Subject: [PATCH v1 04/11] perf disasm: Constify use of struct ins_op
+Message-ID: <20260122073127.375139-6-irogers@google.com>
+Subject: [PATCH v1 05/11] perf disasm: Constify use of struct ins
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -87,8 +87,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_233138_889252_FCB03DB8 
-X-CRM114-Status: GOOD (  16.04  )
+X-CRM114-CacheID: sfid-20260121_233140_567132_B93FA8BB 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,396 +105,267 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The struct ins_op holds variables to function pointers that are read
-but not written. Change uses to be for a "const struct ins_op *"
-version to capture this immutability.
+The struct ins holds variables that are read but not written, except
+during some initialization. Change most uses to be for a "const struct
+ins *" version to capture this immutability. So the x86__instructions
+can be const pre-sort it and make the sorted variable true.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/arch/arm/annotate/instructions.c   |  4 +-
- tools/perf/arch/arm64/annotate/instructions.c |  6 +--
- tools/perf/arch/csky/annotate/instructions.c  |  6 +--
- .../arch/loongarch/annotate/instructions.c    |  8 ++--
- tools/perf/arch/mips/annotate/instructions.c  |  4 +-
- .../perf/arch/powerpc/annotate/instructions.c |  6 +--
- .../perf/arch/riscv64/annotate/instructions.c |  4 +-
- tools/perf/arch/s390/annotate/instructions.c  |  8 ++--
- tools/perf/arch/sparc/annotate/instructions.c |  4 +-
- tools/perf/util/disasm.c                      | 46 +++++++++----------
- tools/perf/util/disasm.h                      |  6 +--
- 11 files changed, 51 insertions(+), 51 deletions(-)
+ tools/perf/arch/arm64/annotate/instructions.c |  2 +-
+ tools/perf/arch/x86/annotate/instructions.c   | 26 +++++++++++----
+ tools/perf/util/disasm.c                      | 32 ++++++++++---------
+ tools/perf/util/disasm.h                      |  4 +--
+ 4 files changed, 40 insertions(+), 24 deletions(-)
 
-diff --git a/tools/perf/arch/arm/annotate/instructions.c b/tools/perf/arch/arm/annotate/instructions.c
-index 5e667b0f5512..b997d127fedd 100644
---- a/tools/perf/arch/arm/annotate/instructions.c
-+++ b/tools/perf/arch/arm/annotate/instructions.c
-@@ -11,10 +11,10 @@ struct arm_annotate {
- 		jump_insn;
- };
- 
--static struct ins_ops *arm__associate_instruction_ops(struct arch *arch, const char *name)
-+static const struct ins_ops *arm__associate_instruction_ops(struct arch *arch, const char *name)
- {
- 	struct arm_annotate *arm = arch->priv;
--	struct ins_ops *ops;
-+	const struct ins_ops *ops;
- 	regmatch_t match[2];
- 
- 	if (!regexec(&arm->call_insn, name, 2, match, 0))
 diff --git a/tools/perf/arch/arm64/annotate/instructions.c b/tools/perf/arch/arm64/annotate/instructions.c
-index 5099fa36180d..363af2f55122 100644
+index 363af2f55122..44db33854dba 100644
 --- a/tools/perf/arch/arm64/annotate/instructions.c
 +++ b/tools/perf/arch/arm64/annotate/instructions.c
-@@ -63,15 +63,15 @@ static int arm64_mov__parse(const struct arch *arch __maybe_unused,
- static int mov__scnprintf(struct ins *ins, char *bf, size_t size,
+@@ -60,7 +60,7 @@ static int arm64_mov__parse(const struct arch *arch __maybe_unused,
+ 	return -1;
+ }
+ 
+-static int mov__scnprintf(struct ins *ins, char *bf, size_t size,
++static int mov__scnprintf(const struct ins *ins, char *bf, size_t size,
  			  struct ins_operands *ops, int max_ins_name);
  
--static struct ins_ops arm64_mov_ops = {
-+static const struct ins_ops arm64_mov_ops = {
- 	.parse	   = arm64_mov__parse,
- 	.scnprintf = mov__scnprintf,
- };
- 
--static struct ins_ops *arm64__associate_instruction_ops(struct arch *arch, const char *name)
-+static const struct ins_ops *arm64__associate_instruction_ops(struct arch *arch, const char *name)
- {
- 	struct arm64_annotate *arm = arch->priv;
--	struct ins_ops *ops;
-+	const struct ins_ops *ops;
- 	regmatch_t match[2];
- 
- 	if (!regexec(&arm->jump_insn, name, 2, match, 0))
-diff --git a/tools/perf/arch/csky/annotate/instructions.c b/tools/perf/arch/csky/annotate/instructions.c
-index 14270311d215..4a55c84a320a 100644
---- a/tools/perf/arch/csky/annotate/instructions.c
-+++ b/tools/perf/arch/csky/annotate/instructions.c
-@@ -3,10 +3,10 @@
- 
- #include <linux/compiler.h>
- 
--static struct ins_ops *csky__associate_ins_ops(struct arch *arch,
--					       const char *name)
-+static const struct ins_ops *csky__associate_ins_ops(struct arch *arch,
-+						     const char *name)
- {
--	struct ins_ops *ops = NULL;
-+	const struct ins_ops *ops = NULL;
- 
- 	/* catch all kind of jumps */
- 	if (!strcmp(name, "bt") ||
-diff --git a/tools/perf/arch/loongarch/annotate/instructions.c b/tools/perf/arch/loongarch/annotate/instructions.c
-index 4ca4fb6bbcf9..ee360faad420 100644
---- a/tools/perf/arch/loongarch/annotate/instructions.c
-+++ b/tools/perf/arch/loongarch/annotate/instructions.c
-@@ -49,7 +49,7 @@ static int loongarch_call__parse(const struct arch *arch, struct ins_operands *o
- 	return 0;
- }
- 
--static struct ins_ops loongarch_call_ops = {
-+static const struct ins_ops loongarch_call_ops = {
- 	.parse	   = loongarch_call__parse,
- 	.scnprintf = call__scnprintf,
- };
-@@ -98,15 +98,15 @@ static int loongarch_jump__parse(const struct arch *arch, struct ins_operands *o
- 	return 0;
- }
- 
--static struct ins_ops loongarch_jump_ops = {
-+static const struct ins_ops loongarch_jump_ops = {
- 	.parse	   = loongarch_jump__parse,
- 	.scnprintf = jump__scnprintf,
- };
- 
- static
--struct ins_ops *loongarch__associate_ins_ops(struct arch *arch, const char *name)
-+const struct ins_ops *loongarch__associate_ins_ops(struct arch *arch, const char *name)
- {
--	struct ins_ops *ops = NULL;
-+	const struct ins_ops *ops = NULL;
- 
- 	if (!strcmp(name, "bl"))
- 		ops = &loongarch_call_ops;
-diff --git a/tools/perf/arch/mips/annotate/instructions.c b/tools/perf/arch/mips/annotate/instructions.c
-index b50b46c613d6..0fbe0a7df95a 100644
---- a/tools/perf/arch/mips/annotate/instructions.c
-+++ b/tools/perf/arch/mips/annotate/instructions.c
-@@ -1,9 +1,9 @@
- // SPDX-License-Identifier: GPL-2.0
- 
- static
--struct ins_ops *mips__associate_ins_ops(struct arch *arch, const char *name)
-+const struct ins_ops *mips__associate_ins_ops(struct arch *arch, const char *name)
- {
--	struct ins_ops *ops = NULL;
-+	const struct ins_ops *ops = NULL;
- 
- 	if (!strncmp(name, "bal", 3) ||
- 	    !strncmp(name, "bgezal", 6) ||
-diff --git a/tools/perf/arch/powerpc/annotate/instructions.c b/tools/perf/arch/powerpc/annotate/instructions.c
-index ca567cfdcbdb..d1be55425e35 100644
---- a/tools/perf/arch/powerpc/annotate/instructions.c
-+++ b/tools/perf/arch/powerpc/annotate/instructions.c
-@@ -1,10 +1,10 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <linux/compiler.h>
- 
--static struct ins_ops *powerpc__associate_instruction_ops(struct arch *arch, const char *name)
-+static const struct ins_ops *powerpc__associate_instruction_ops(struct arch *arch, const char *name)
- {
- 	int i;
--	struct ins_ops *ops;
-+	const struct ins_ops *ops;
- 
- 	/*
- 	 * - Interested only if instruction starts with 'b'.
-@@ -189,7 +189,7 @@ static int cmp_offset(const void *a, const void *b)
- 	return (val1->value - val2->value);
- }
- 
--static struct ins_ops *check_ppc_insn(struct disasm_line *dl)
-+static const struct ins_ops *check_ppc_insn(struct disasm_line *dl)
- {
- 	int raw_insn = dl->raw.raw_insn;
- 	int opcode = PPC_OP(raw_insn);
-diff --git a/tools/perf/arch/riscv64/annotate/instructions.c b/tools/perf/arch/riscv64/annotate/instructions.c
-index 55cf911633f8..a34798864fab 100644
---- a/tools/perf/arch/riscv64/annotate/instructions.c
-+++ b/tools/perf/arch/riscv64/annotate/instructions.c
-@@ -1,9 +1,9 @@
- // SPDX-License-Identifier: GPL-2.0
- 
- static
--struct ins_ops *riscv64__associate_ins_ops(struct arch *arch, const char *name)
-+const struct ins_ops *riscv64__associate_ins_ops(struct arch *arch, const char *name)
- {
--	struct ins_ops *ops = NULL;
-+	const struct ins_ops *ops = NULL;
- 
- 	if (!strncmp(name, "jal", 3) ||
- 	    !strncmp(name, "jr", 2) ||
-diff --git a/tools/perf/arch/s390/annotate/instructions.c b/tools/perf/arch/s390/annotate/instructions.c
-index 8d66c0ea3810..38f7e918ebf8 100644
---- a/tools/perf/arch/s390/annotate/instructions.c
-+++ b/tools/perf/arch/s390/annotate/instructions.c
-@@ -46,7 +46,7 @@ static int s390_call__parse(const struct arch *arch, struct ins_operands *ops,
- 	return 0;
- }
- 
--static struct ins_ops s390_call_ops = {
-+static const struct ins_ops s390_call_ops = {
- 	.parse	   = s390_call__parse,
- 	.scnprintf = call__scnprintf,
- };
-@@ -100,14 +100,14 @@ static int s390_mov__parse(const struct arch *arch __maybe_unused,
- }
- 
- 
--static struct ins_ops s390_mov_ops = {
-+static const struct ins_ops s390_mov_ops = {
- 	.parse	   = s390_mov__parse,
- 	.scnprintf = mov__scnprintf,
- };
- 
--static struct ins_ops *s390__associate_ins_ops(struct arch *arch, const char *name)
-+static const struct ins_ops *s390__associate_ins_ops(struct arch *arch, const char *name)
- {
--	struct ins_ops *ops = NULL;
-+	const struct ins_ops *ops = NULL;
- 
- 	/* catch all kind of jumps */
- 	if (strchr(name, 'j') ||
-diff --git a/tools/perf/arch/sparc/annotate/instructions.c b/tools/perf/arch/sparc/annotate/instructions.c
-index 68c31580ccfc..a08d8734c883 100644
---- a/tools/perf/arch/sparc/annotate/instructions.c
-+++ b/tools/perf/arch/sparc/annotate/instructions.c
-@@ -117,9 +117,9 @@ static int is_branch_float_cond(const char *cond)
- 	return 0;
- }
- 
--static struct ins_ops *sparc__associate_instruction_ops(struct arch *arch, const char *name)
-+static const struct ins_ops *sparc__associate_instruction_ops(struct arch *arch, const char *name)
- {
--	struct ins_ops *ops = NULL;
-+	const struct ins_ops *ops = NULL;
- 
- 	if (!strcmp(name, "call") ||
- 	    !strcmp(name, "jmp") ||
+ static const struct ins_ops arm64_mov_ops = {
+diff --git a/tools/perf/arch/x86/annotate/instructions.c b/tools/perf/arch/x86/annotate/instructions.c
+index 24b388bacdae..ffca3029388b 100644
+--- a/tools/perf/arch/x86/annotate/instructions.c
++++ b/tools/perf/arch/x86/annotate/instructions.c
+@@ -7,7 +7,7 @@
+  * So this table should not have entries with the suffix unless it's
+  * a complete different instruction than ones without the suffix.
+  */
+-static struct ins x86__instructions[] = {
++static const struct ins x86__instructions[] = {
+ 	{ .name = "adc",	.ops = &mov_ops,  },
+ 	{ .name = "add",	.ops = &mov_ops,  },
+ 	{ .name = "addsd",	.ops = &mov_ops,  },
+@@ -19,9 +19,9 @@ static struct ins x86__instructions[] = {
+ 	{ .name = "btr",	.ops = &mov_ops,  },
+ 	{ .name = "bts",	.ops = &mov_ops,  },
+ 	{ .name = "call",	.ops = &call_ops, },
++	{ .name = "cmovae",	.ops = &mov_ops,  },
+ 	{ .name = "cmovbe",	.ops = &mov_ops,  },
+ 	{ .name = "cmove",	.ops = &mov_ops,  },
+-	{ .name = "cmovae",	.ops = &mov_ops,  },
+ 	{ .name = "cmp",	.ops = &mov_ops,  },
+ 	{ .name = "cmpxch",	.ops = &mov_ops,  },
+ 	{ .name = "cmpxchg",	.ops = &mov_ops,  },
+@@ -73,23 +73,23 @@ static struct ins x86__instructions[] = {
+ 	{ .name = "movaps",	.ops = &mov_ops,  },
+ 	{ .name = "movdqa",	.ops = &mov_ops,  },
+ 	{ .name = "movdqu",	.ops = &mov_ops,  },
++	{ .name = "movsb",	.ops = &mov_ops,  },
+ 	{ .name = "movsd",	.ops = &mov_ops,  },
++	{ .name = "movsl",	.ops = &mov_ops,  },
+ 	{ .name = "movss",	.ops = &mov_ops,  },
+-	{ .name = "movsb",	.ops = &mov_ops,  },
+ 	{ .name = "movsw",	.ops = &mov_ops,  },
+-	{ .name = "movsl",	.ops = &mov_ops,  },
+ 	{ .name = "movupd",	.ops = &mov_ops,  },
+ 	{ .name = "movups",	.ops = &mov_ops,  },
+ 	{ .name = "movzb",	.ops = &mov_ops,  },
+-	{ .name = "movzw",	.ops = &mov_ops,  },
+ 	{ .name = "movzl",	.ops = &mov_ops,  },
++	{ .name = "movzw",	.ops = &mov_ops,  },
+ 	{ .name = "mulsd",	.ops = &mov_ops,  },
+ 	{ .name = "mulss",	.ops = &mov_ops,  },
+ 	{ .name = "nop",	.ops = &nop_ops,  },
+ 	{ .name = "or",		.ops = &mov_ops,  },
+ 	{ .name = "orps",	.ops = &mov_ops,  },
+-	{ .name = "pand",	.ops = &mov_ops,  },
+ 	{ .name = "paddq",	.ops = &mov_ops,  },
++	{ .name = "pand",	.ops = &mov_ops,  },
+ 	{ .name = "pcmpeqb",	.ops = &mov_ops,  },
+ 	{ .name = "por",	.ops = &mov_ops,  },
+ 	{ .name = "rcl",	.ops = &mov_ops,  },
+@@ -202,6 +202,20 @@ static int x86__annotate_init(struct arch *arch, char *cpuid)
+ 		if (x86__cpuid_parse(arch, cpuid))
+ 			err = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_CPUID_PARSING;
+ 	}
++
++#ifndef NDEBUG
++	{
++		static bool sorted_check;
++
++		if (!sorted_check) {
++			for (size_t i = 0; i < arch->nr_instructions - 1; i++) {
++				assert(strcmp(arch->instructions[i].name,
++					      arch->instructions[i + 1].name) <= 0);
++			}
++			sorted_check = true;
++		}
++	}
++#endif
+ 	arch->e_machine = EM_X86_64;
+ 	arch->e_flags = 0;
+ 	arch->initialized = true;
 diff --git a/tools/perf/util/disasm.c b/tools/perf/util/disasm.c
-index d41a0f96a6f6..dbeb89047fd1 100644
+index dbeb89047fd1..7cfea3419041 100644
 --- a/tools/perf/util/disasm.c
 +++ b/tools/perf/util/disasm.c
-@@ -33,15 +33,15 @@
- static regex_t	 file_lineno;
+@@ -43,9 +43,9 @@ static const struct ins_ops ret_ops;
+ static const struct ins_ops load_store_ops;
+ static const struct ins_ops arithmetic_ops;
  
- /* These can be referred from the arch-dependent code */
--static struct ins_ops call_ops;
--static struct ins_ops dec_ops;
--static struct ins_ops jump_ops;
--static struct ins_ops mov_ops;
--static struct ins_ops nop_ops;
--static struct ins_ops lock_ops;
--static struct ins_ops ret_ops;
--static struct ins_ops load_store_ops;
--static struct ins_ops arithmetic_ops;
-+static const struct ins_ops call_ops;
-+static const struct ins_ops dec_ops;
-+static const struct ins_ops jump_ops;
-+static const struct ins_ops mov_ops;
-+static const struct ins_ops nop_ops;
-+static const struct ins_ops lock_ops;
-+static const struct ins_ops ret_ops;
-+static const struct ins_ops load_store_ops;
-+static const struct ins_ops arithmetic_ops;
- 
- static int jump__scnprintf(struct ins *ins, char *bf, size_t size,
+-static int jump__scnprintf(struct ins *ins, char *bf, size_t size,
++static int jump__scnprintf(const struct ins *ins, char *bf, size_t size,
  			   struct ins_operands *ops, int max_ins_name);
-@@ -85,7 +85,7 @@ static int arch__grow_instructions(struct arch *arch)
- 	goto out_update_instructions;
- }
+-static int call__scnprintf(struct ins *ins, char *bf, size_t size,
++static int call__scnprintf(const struct ins *ins, char *bf, size_t size,
+ 			   struct ins_operands *ops, int max_ins_name);
  
--static int arch__associate_ins_ops(struct arch* arch, const char *name, struct ins_ops *ops)
-+static int arch__associate_ins_ops(struct arch *arch, const char *name, const struct ins_ops *ops)
- {
- 	struct ins *ins;
+ static void ins__sort(struct arch *arch);
+@@ -66,7 +66,8 @@ static int arch__grow_instructions(struct arch *arch)
+ 		goto grow_from_non_allocated_table;
  
-@@ -334,7 +334,7 @@ static int call__scnprintf(struct ins *ins, char *bf, size_t size,
- 	return scnprintf(bf, size, "%-*s *%" PRIx64, max_ins_name, ins->name, ops->target.addr);
- }
+ 	new_nr_allocated = arch->nr_instructions_allocated + 128;
+-	new_instructions = realloc(arch->instructions, new_nr_allocated * sizeof(struct ins));
++	new_instructions = realloc((void *)arch->instructions,
++				   new_nr_allocated * sizeof(struct ins));
+ 	if (new_instructions == NULL)
+ 		return -1;
  
--static struct ins_ops call_ops = {
-+static const struct ins_ops call_ops = {
- 	.parse	   = call__parse,
- 	.scnprintf = call__scnprintf,
- };
-@@ -487,7 +487,7 @@ static void jump__delete(struct ins_operands *ops __maybe_unused)
- 	 */
- }
+@@ -93,7 +94,7 @@ static int arch__associate_ins_ops(struct arch *arch, const char *name, const st
+ 	    arch__grow_instructions(arch))
+ 		return -1;
  
--static struct ins_ops jump_ops = {
-+static const struct ins_ops jump_ops = {
- 	.free	   = jump__delete,
- 	.parse	   = jump__parse,
- 	.scnprintf = jump__scnprintf,
-@@ -579,7 +579,7 @@ static void lock__delete(struct ins_operands *ops)
+-	ins = &arch->instructions[arch->nr_instructions];
++	ins = (struct ins *)&arch->instructions[arch->nr_instructions];
+ 	ins->name = strdup(name);
+ 	if (!ins->name)
+ 		return -1;
+@@ -146,6 +147,7 @@ static struct arch architectures[] = {
+ 		.init = x86__annotate_init,
+ 		.instructions = x86__instructions,
+ 		.nr_instructions = ARRAY_SIZE(x86__instructions),
++		.sorted_instructions = true,
+ 		.insn_suffix = "bwlq",
+ 		.objdump =  {
+ 			.comment_char = '#',
+@@ -241,13 +243,13 @@ static void ins_ops__delete(struct ins_operands *ops)
  	zfree(&ops->target.name);
  }
  
--static struct ins_ops lock_ops = {
-+static const struct ins_ops lock_ops = {
- 	.free	   = lock__delete,
- 	.parse	   = lock__parse,
- 	.scnprintf = lock__scnprintf,
-@@ -688,7 +688,7 @@ static int mov__scnprintf(struct ins *ins, char *bf, size_t size,
- 			 ops->target.name ?: ops->target.raw);
+-static int ins__raw_scnprintf(struct ins *ins, char *bf, size_t size,
++static int ins__raw_scnprintf(const struct ins *ins, char *bf, size_t size,
+ 			      struct ins_operands *ops, int max_ins_name)
+ {
+ 	return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name, ops->raw);
  }
  
--static struct ins_ops mov_ops = {
-+static const struct ins_ops mov_ops = {
- 	.parse	   = mov__parse,
- 	.scnprintf = mov__scnprintf,
- };
-@@ -738,7 +738,7 @@ static int arithmetic__parse(const struct arch *arch __maybe_unused, struct ins_
+-static int ins__scnprintf(struct ins *ins, char *bf, size_t size,
++static int ins__scnprintf(const struct ins *ins, char *bf, size_t size,
+ 			  struct ins_operands *ops, int max_ins_name)
+ {
+ 	if (ins->ops->scnprintf)
+@@ -319,7 +321,7 @@ static int call__parse(const struct arch *arch, struct ins_operands *ops, struct
+ 	goto find_target;
+ }
+ 
+-static int call__scnprintf(struct ins *ins, char *bf, size_t size,
++static int call__scnprintf(const struct ins *ins, char *bf, size_t size,
+ 			   struct ins_operands *ops, int max_ins_name)
+ {
+ 	if (ops->target.sym)
+@@ -446,7 +448,7 @@ static int jump__parse(const struct arch *arch, struct ins_operands *ops, struct
  	return 0;
  }
  
--static struct ins_ops arithmetic_ops = {
-+static const struct ins_ops arithmetic_ops = {
- 	.parse     = arithmetic__parse,
+-static int jump__scnprintf(struct ins *ins, char *bf, size_t size,
++static int jump__scnprintf(const struct ins *ins, char *bf, size_t size,
+ 			   struct ins_operands *ops, int max_ins_name)
+ {
+ 	const char *c;
+@@ -551,7 +553,7 @@ static int lock__parse(const struct arch *arch, struct ins_operands *ops, struct
+ 	return 0;
+ }
+ 
+-static int lock__scnprintf(struct ins *ins, char *bf, size_t size,
++static int lock__scnprintf(const struct ins *ins, char *bf, size_t size,
+ 			   struct ins_operands *ops, int max_ins_name)
+ {
+ 	int printed;
+@@ -680,7 +682,7 @@ static int mov__parse(const struct arch *arch, struct ins_operands *ops,
+ 	return -1;
+ }
+ 
+-static int mov__scnprintf(struct ins *ins, char *bf, size_t size,
++static int mov__scnprintf(const struct ins *ins, char *bf, size_t size,
+ 			   struct ins_operands *ops, int max_ins_name)
+ {
+ 	return scnprintf(bf, size, "%-*s %s,%s", max_ins_name, ins->name,
+@@ -699,7 +701,7 @@ static const struct ins_ops mov_ops = {
+ #define	ADD_ZERO_EXT_XO_FORM	202
+ #define	SUB_ZERO_EXT_XO_FORM	200
+ 
+-static int arithmetic__scnprintf(struct ins *ins, char *bf, size_t size,
++static int arithmetic__scnprintf(const struct ins *ins, char *bf, size_t size,
+ 		struct ins_operands *ops, int max_ins_name)
+ {
+ 	return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name,
+@@ -743,7 +745,7 @@ static const struct ins_ops arithmetic_ops = {
  	.scnprintf = arithmetic__scnprintf,
  };
-@@ -772,7 +772,7 @@ static int load_store__parse(const struct arch *arch __maybe_unused, struct ins_
+ 
+-static int load_store__scnprintf(struct ins *ins, char *bf, size_t size,
++static int load_store__scnprintf(const struct ins *ins, char *bf, size_t size,
+ 		struct ins_operands *ops, int max_ins_name)
+ {
+ 	return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name,
+@@ -806,7 +808,7 @@ static int dec__parse(const struct arch *arch __maybe_unused, struct ins_operand
  	return 0;
  }
  
--static struct ins_ops load_store_ops = {
-+static const struct ins_ops load_store_ops = {
- 	.parse     = load_store__parse,
- 	.scnprintf = load_store__scnprintf,
- };
-@@ -813,7 +813,7 @@ static int dec__scnprintf(struct ins *ins, char *bf, size_t size,
- 			 ops->target.name ?: ops->target.raw);
- }
- 
--static struct ins_ops dec_ops = {
-+static const struct ins_ops dec_ops = {
- 	.parse	   = dec__parse,
+-static int dec__scnprintf(struct ins *ins, char *bf, size_t size,
++static int dec__scnprintf(const struct ins *ins, char *bf, size_t size,
+ 			   struct ins_operands *ops, int max_ins_name)
+ {
+ 	return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name,
+@@ -818,7 +820,7 @@ static const struct ins_ops dec_ops = {
  	.scnprintf = dec__scnprintf,
  };
-@@ -824,11 +824,11 @@ static int nop__scnprintf(struct ins *ins __maybe_unused, char *bf, size_t size,
+ 
+-static int nop__scnprintf(struct ins *ins __maybe_unused, char *bf, size_t size,
++static int nop__scnprintf(const struct ins *ins __maybe_unused, char *bf, size_t size,
+ 			  struct ins_operands *ops __maybe_unused, int max_ins_name)
+ {
  	return scnprintf(bf, size, "%-*s", max_ins_name, "nop");
- }
- 
--static struct ins_ops nop_ops = {
-+static const struct ins_ops nop_ops = {
- 	.scnprintf = nop__scnprintf,
- };
- 
--static struct ins_ops ret_ops = {
-+static const struct ins_ops ret_ops = {
- 	.scnprintf = ins__raw_scnprintf,
- };
- 
-@@ -869,7 +869,7 @@ static void ins__sort(struct arch *arch)
- 	qsort(arch->instructions, nmemb, sizeof(struct ins), ins__cmp);
- }
- 
--static struct ins_ops *__ins__find(const struct arch *arch, const char *name,
-+static const struct ins_ops *__ins__find(const struct arch *arch, const char *name,
- 				     struct disasm_line *dl)
+@@ -866,7 +868,7 @@ static void ins__sort(struct arch *arch)
  {
- 	struct ins *ins;
-@@ -880,7 +880,7 @@ static struct ins_ops *__ins__find(const struct arch *arch, const char *name,
- 		 * For powerpc, identify the instruction ops
- 		 * from the opcode using raw_insn.
- 		 */
--		struct ins_ops *ops;
-+		const struct ins_ops *ops;
+ 	const int nmemb = arch->nr_instructions;
  
- 		ops = check_ppc_insn(dl);
- 		if (ops)
-@@ -916,9 +916,9 @@ static struct ins_ops *__ins__find(const struct arch *arch, const char *name,
- 	return ins ? ins->ops : NULL;
+-	qsort(arch->instructions, nmemb, sizeof(struct ins), ins__cmp);
++	qsort((void *)arch->instructions, nmemb, sizeof(struct ins), ins__cmp);
  }
  
--struct ins_ops *ins__find(const struct arch *arch, const char *name, struct disasm_line *dl)
-+const struct ins_ops *ins__find(const struct arch *arch, const char *name, struct disasm_line *dl)
- {
--	struct ins_ops *ops = __ins__find(arch, name, dl);
-+	const struct ins_ops *ops = __ins__find(arch, name, dl);
- 
- 	if (!ops && arch->associate_instruction_ops)
- 		ops = arch->associate_instruction_ops((struct arch *)arch, name);
+ static const struct ins_ops *__ins__find(const struct arch *arch, const char *name,
 diff --git a/tools/perf/util/disasm.h b/tools/perf/util/disasm.h
-index 273a9c906514..dc5233f2a773 100644
+index dc5233f2a773..4f5c9a985786 100644
 --- a/tools/perf/util/disasm.h
 +++ b/tools/perf/util/disasm.h
-@@ -22,7 +22,7 @@ struct arch {
- 	struct ins	*instructions;
+@@ -19,7 +19,7 @@ struct disasm_line;
+ 
+ struct arch {
+ 	const char	*name;
+-	struct ins	*instructions;
++	const struct ins	*instructions;
  	size_t		nr_instructions;
  	size_t		nr_instructions_allocated;
--	struct ins_ops  *(*associate_instruction_ops)(struct arch *arch, const char *name);
-+	const struct ins_ops  *(*associate_instruction_ops)(struct arch *arch, const char *name);
- 	bool		sorted_instructions;
- 	bool		initialized;
- 	const char	*insn_suffix;
-@@ -52,7 +52,7 @@ struct arch {
- 
- struct ins {
- 	const char     *name;
--	struct ins_ops *ops;
-+	const struct ins_ops *ops;
+ 	const struct ins_ops  *(*associate_instruction_ops)(struct arch *arch, const char *name);
+@@ -91,7 +91,7 @@ struct ins_ops {
+ 	void (*free)(struct ins_operands *ops);
+ 	int (*parse)(const struct arch *arch, struct ins_operands *ops, struct map_symbol *ms,
+ 			struct disasm_line *dl);
+-	int (*scnprintf)(struct ins *ins, char *bf, size_t size,
++	int (*scnprintf)(const struct ins *ins, char *bf, size_t size,
+ 			 struct ins_operands *ops, int max_ins_name);
  };
  
- struct ins_operands {
-@@ -108,7 +108,7 @@ struct annotate_args {
- const struct arch *arch__find(const char *name);
- bool arch__is(const struct arch *arch, const char *name);
- 
--struct ins_ops *ins__find(const struct arch *arch, const char *name, struct disasm_line *dl);
-+const struct ins_ops *ins__find(const struct arch *arch, const char *name, struct disasm_line *dl);
- 
- bool ins__is_call(const struct ins *ins);
- bool ins__is_jump(const struct ins *ins);
 -- 
 2.52.0.457.g6b5491de43-goog
 
