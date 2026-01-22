@@ -4,60 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B75ADD625F8
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 07:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D3CC44500
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 07:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Cc:To:In-Reply-To:Date:From:
-	References:Mime-Version:Subject:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3RiT7FeaZrR1l+jZpnMhfo3H6V3V64HEp9EV/8+M8cc=; b=gBQorVqU2nvyKG
-	LRk+oxHZnLuP8BfnxIXTCCRY4e4MJzx7gJ/7s9+yyxyGmsEaTgr9BnGSFzhkU6WFCKMUKIW/+wkrW
-	DR7wDZZTc6YcsGRFy2inMGGeqG9QO6sFq4tP2hQ4HEtnu3Q/xz+0qrx7eAKdrfdlzFFM9ZRozoksT
-	sqauIPRu6uFrSpQMxf9OSjZWkN3qpKyi++c61pI6vm3tMVdxftYBW89H/m+r86cub8dpaNEWXrAyF
-	9F31E0vMWUP8vqfcFydWKetaNPcHJ00Nqri+mOSMTW81BkMq3OZMd0+xN75Pe1SvyUP1i41xFLRts
-	kLl4B6yCbNd/vUtT5SNg==;
+	List-Owner; bh=UC5JrDT9MZlRzVMGI+ARn6Lrk7kylbL4EbviAajpRds=; b=TEjwuZCvAZkEdp
+	ZvUZcBvXVT7bdHXMhaE8QY1J+y3e60HyVSFKrgIHuNKY/Vb2SwvB+RpFo8Cqfghex2Pq1aMFJEGr0
+	yiaLSzC1p8aQzKhkhw7AL8BPLmqYfcxu7mV99Z80zUMYTHJvllNkK1rsDySeisutnMC709Fynppui
+	9xZtaZBQXLsexG1E+78RnF9MZLlGoae8++YCzkQkfywh1y6+n5Qf8BwkvRfdGFxrpjrdld9+QZy3P
+	CPHJXtGP2If+GLo9gC7KX5FBeTv2W0N4Ss534zzBcVpZOGvn98g3bUGidU2yBqkEEFAaBFX4p5+YO
+	MV2C2VT+yY0LV43Ti5GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vipDg-00000006aPY-3ivH;
-	Thu, 22 Jan 2026 07:35:08 +0000
-Received: from sg-1-35.ptr.blmpb.com ([118.26.132.35])
+	id 1vipGi-00000006aoH-0sgE;
+	Thu, 22 Jan 2026 07:38:16 +0000
+Received: from sender4-pp-e103.zoho.com ([136.143.188.103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vipDc-00000006aNv-3CED
+	id 1vipGf-00000006anf-2X6b
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jan 2026 07:35:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=picoheart-com.20200927.dkim.feishu.cn; t=1769067294;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=01FP4vC/jj6alLbiTxMoouO+ZRSgO8bEdY/088MJqcA=;
- b=jhH9+h6AHNS2KkO5f4Zec42IGeHlvuo9vSXwxd+jiKkpEJOKkTi7rWdJOMGHXLKhctyhPR
- VrM7bErmHnwghcMI2vPN6QRu96+Cd+atsZoFvpaV11yiHRg5sNwmaH20M+ihAsIwVvA0l9
- Sg/QFlD1GUF86MUqVG0snmzxsb+rTZ0rOcxR6Vg5VJAO+dyuanMByrag3S5ero+XtR70jf
- niyjNX07WFXktwMWPbnoQM8IxnwwotNp/qOoq/vEMklXOcWsQWm/weqvwfR+Mvs/TXwF6h
- 181ZMf9pdCNmBuJd0ry9aW/Nd/IAGZ10BJWmneEDmG7xAbO3VerXEV54v/IdNw==
-Subject: [PATCH 1/2] ACPI: scan: Use async schedule function for acpi_scan_clear_dep_fn
-Received: from G9WYR9K0VW ([58.250.122.114]) by smtp.feishu.cn with ESMTPS; Thu, 22 Jan 2026 15:34:52 +0800
-X-Mailer: git-send-email 2.50.1
-Mime-Version: 1.0
-References: <20260122073446.45628-1-yang.yicong@picoheart.com>
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-Date: Thu, 22 Jan 2026 15:34:45 +0800
-In-Reply-To: <20260122073446.45628-1-yang.yicong@picoheart.com>
-X-Lms-Return-Path: <lba+26971d31c+ca80be+lists.infradead.org+yang.yicong@picoheart.com>
-To: <rafael@kernel.org>, <lenb@kernel.org>, <tglx@kernel.org>, 
-	<gregkh@linuxfoundation.org>, <dakr@kernel.org>
-Cc: <akpm@linux-foundation.org>, <apatel@ventanamicro.com>, <pjw@kernel.org>, 
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, 
-	<geshijian@picoheart.com>, <weidong.wd@picoheart.com>, 
-	<yang.yicong@picoheart.com>, <linux-acpi@vger.kernel.org>, 
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Message-Id: <20260122073446.45628-2-yang.yicong@picoheart.com>
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
+	Thu, 22 Jan 2026 07:38:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769067460; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=IUEuA7iixpF8g6ihu8V8QGi6kaYgpTSlcHr9jxQn95IhlcvR+ybd1ACfxTbavWTBhlLI1Die9W8M0iY4Q+IbERFuXWDutDMBfW3FCM6TfzI+Odop3ALe/dvZzFg2uSP9go1XT8ondylOifQPWF8nMm++AR5J96/UnIz8IVqnNT4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1769067460; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=27t/D+au2E5C7LW4H+D00miBeJuLJZVdStU+4BuYmh4=; 
+	b=eaDyfkKxPxRVa7wKWqTtOcFUdn1p2i/yyyZhYw0prb8NP+UyuEK4KONMzasLMwN9v/1OA5hFPt0peSHh8Fbfibo7jLPuxjSP5vyHt1V2gM+IFXJ6sK2qhu91rWdZkdjsU9B5KT9vtexBp5GtB9trqzsbOYOjBbLQIuhkd21o3hg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769067460;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=27t/D+au2E5C7LW4H+D00miBeJuLJZVdStU+4BuYmh4=;
+	b=E+/jIas7Qh4p+m3shDjLivdA1NgpOR9fsh0txKMDmdekAFcI/OsLfNSKNJskPDta
+	k7B6xtQG4Afm0gWd8AAJoUsWnXXwJlRhzPv6alDhFVqTKj6nVam/WqxLR0XcMcnzhxS
+	F799VRlpXCnjfuR7iVsxs8JzXKU4hFcN+UK1qlZERlcpEr3Wtk+xLeoPXxv5THrLD+P
+	v9CqdepE/9dZSN1XK8n/vEVD4B3R+njPjvC7d2Y6we0QqOrlyjviXvf0j8y0O9zjdsd
+	KMe3Yuk6xQT1w/7vkvGpOWmqexzOLTuTG2EIWyJLztnOq9ulCveKaGCrGEL20K8r/6Y
+	mdY8291CkQ==
+Received: by mx.zohomail.com with SMTPS id 176906745890729.598189028159595;
+	Wed, 21 Jan 2026 23:37:38 -0800 (PST)
+Message-ID: <bf129af81c999b9b0760036ed2755e0c3da3e9c1.camel@icenowy.me>
+Subject: Re: [PATCH v5 3/9] drm: verisilicon: add a driver for Verisilicon
+ display controllers
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob
+ Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Drew Fustini <fustini@kernel.org>, Guo Ren
+ <guoren@kernel.org>, Fu Wei <wefu@redhat.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, Dmitry Baryshkov
+ <lumag@kernel.org>,  Michal Wilczynski <m.wilczynski@samsung.com>, Luca
+ Ceresoli <luca.ceresoli@bootlin.com>, Han Gao <rabenda.cn@gmail.com>,  Yao
+ Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org,  devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Han Gao <gaohan@iscas.ac.cn>
+Date: Thu, 22 Jan 2026 15:37:28 +0800
+In-Reply-To: <f49d5e01-1e01-4393-9ba3-2079006984ae@suse.de>
+References: <20260116043746.336328-1-zhengxingda@iscas.ac.cn>
+	 <20260116043746.336328-4-zhengxingda@iscas.ac.cn>
+	 <56e1974c-0fe6-4bdb-918d-fcf6a8b866c1@suse.de>
+	 <4afa6f3110790c701c5e24901e9e66560cf21ad0.camel@icenowy.me>
+	 <f49d5e01-1e01-4393-9ba3-2079006984ae@suse.de>
+Organization: Anthon Open-Source Community
+User-Agent: Evolution 3.44.4 
+MIME-Version: 1.0
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_233505_214443_875BEA1B 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20260121_233813_706888_E59C7866 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,103 +96,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The device object rescan in acpi_scan_clear_dep_fn is scheduled
-in the system workqueue which is not guaranteed to be finished
-before entering userspace. This will cause the problem that
-some key devices are missed when the init task try to find them,
-e.g. console devices and root devices (PCIe nvme, etc).
-This issues is more possbile to happen on RISCV since these
-devices using GSI interrupt may depend on APLIC and will be
-scanned in acpi_scan_clear_dep_queue() after APLIC initialized.
-
-Fix this by scheduling the acpi_scan_clear_dep_queue() using async
-schedule function rather than the system workqueue. The deferred
-works will be synchronized by async_synchronize_full() before
-entering init task.
-
-Update the comment as well.
-
-Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
----
- drivers/acpi/scan.c | 35 ++++++++++++++++-------------------
- 1 file changed, 16 insertions(+), 19 deletions(-)
-
-diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index 416d87f9bd10..bf0d8ba9ba19 100644
---- a/drivers/acpi/scan.c
-+++ b/drivers/acpi/scan.c
-@@ -5,6 +5,7 @@
- 
- #define pr_fmt(fmt) "ACPI: " fmt
- 
-+#include <linux/async.h>
- #include <linux/module.h>
- #include <linux/init.h>
- #include <linux/slab.h>
-@@ -2365,39 +2366,35 @@ struct acpi_scan_clear_dep_work {
- 	struct acpi_device *adev;
- };
- 
--static void acpi_scan_clear_dep_fn(struct work_struct *work)
-+static void acpi_scan_clear_dep_fn(void *dev, async_cookie_t cookie)
- {
--	struct acpi_scan_clear_dep_work *cdw;
--
--	cdw = container_of(work, struct acpi_scan_clear_dep_work, work);
-+	struct acpi_device *adev = to_acpi_device(dev);
- 
- 	acpi_scan_lock_acquire();
--	acpi_bus_attach(cdw->adev, (void *)true);
-+	acpi_bus_attach(adev, (void *)true);
- 	acpi_scan_lock_release();
- 
--	acpi_dev_put(cdw->adev);
--	kfree(cdw);
-+	acpi_dev_put(adev);
- }
- 
- static bool acpi_scan_clear_dep_queue(struct acpi_device *adev)
- {
--	struct acpi_scan_clear_dep_work *cdw;
--
- 	if (adev->dep_unmet)
- 		return false;
- 
--	cdw = kmalloc(sizeof(*cdw), GFP_KERNEL);
--	if (!cdw)
--		return false;
--
--	cdw->adev = adev;
--	INIT_WORK(&cdw->work, acpi_scan_clear_dep_fn);
- 	/*
--	 * Since the work function may block on the lock until the entire
--	 * initial enumeration of devices is complete, put it into the unbound
--	 * workqueue.
-+	 * Async schedule the deferred acpi_scan_clear_dep_fn() since:
-+	 * - acpi_bus_attach() needs to hold acpi_scan_lock which cannot
-+	 *   be acquired under acpi_dep_list_lock (held here)
-+	 * - the deferred work at boot stage is ensured to be finished
-+	 *   before entering init task by the async_synchronize_full()
-+	 *   barrier
-+	 *
-+	 * Use _nocall variant since it'll return on failure instead of
-+	 * run the function synchronously.
- 	 */
--	queue_work(system_dfl_wq, &cdw->work);
-+	if (!async_schedule_dev_nocall(acpi_scan_clear_dep_fn, &adev->dev))
-+		return false;
- 
- 	return true;
- }
--- 
-2.34.1
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjYtMDEtMjLmmJ/mnJ/lm5vnmoQgMDg6MzEgKzAxMDDvvIxUaG9tYXMgWmltbWVybWFu
+buWGmemBk++8mgo+IEhpCj4gCj4gQW0gMjIuMDEuMjYgdW0gMDg6MDYgc2NocmllYiBJY2Vub3d5
+IFpoZW5nOgo+ID4g5ZyoIDIwMjYtMDEtMjHmmJ/mnJ/kuInnmoQgMTM6NTYgKzAxMDDvvIxUaG9t
+YXMgWmltbWVybWFubuWGmemBk++8mgo+ID4gCj4gPiA9PT09PT09PT09PT09PT0gODwgPT09PT09
+PT09PT09PT09PT0KPiA+ID4gPiArCj4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgaWYgKGlycXMpCj4g
+PiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHByX3dhcm4oIlVua25vd24gVmVy
+aXNpbGljb24gREMgaW50ZXJydXB0IDB4JXgKPiA+ID4gPiBmaXJlZCFcbiIsIGlycXMpOwo+ID4g
+PiBJJ2QgYXZvaWQgcHJfd2FybigpIGhlcmUuIFRoaXMgY2FuIGZpbGwgeW91ciBsb2dzIHF1aWNr
+bHkuCj4gPiBUaGVuIGlzIHByX3dhcm5fb25jZSgpIG9rYXk/Cj4gCj4gWWVhaCwgd2Fybl9vbmNl
+IHNob3VsZCBiZSBmaW5lLgo+IAo+ID4gCj4gPiA+ID4gKwo+ID4gPiA+ICvCoMKgwqDCoMKgwqDC
+oHJldHVybiBJUlFfSEFORExFRDsKPiA+ID4gPiArfQo+ID4gPT09PT09PT09PT09PT09IDg8ID09
+PT09PT09PT09PT09PT09Cj4gCj4gTWF5YmUgY29uc2lkZXIgcmV0dXJuaW5nIElSUV9OT05FIGlm
+IHRoZSAoaXJxKSB0ZXN0cyBzdWNjZWVkcy4KCldlbGwsIHRoZSBJUlFzIGFyZSByZWFkIGZyb20g
+dGhlIGRldmljZSdzIHJlZ2lzdGVyLCBhbmQgdGhlIHJlYWQKb3BlcmF0aW9uIGF1dG9tYXRpY2Fs
+bHkgQUNLcyB0aGUgSVJRLCBzbyBpdCBzb3VuZHMgbW9yZSBhcHByb3ByaWF0ZSB0bwphbHdheXMg
+cmV0dXJuIElSUV9IQU5ETEVELgoKKFdlbGwgbWF5YmUgdGhpcyBmdW5jdGlvbiBzaG91bGQgYmUg
+bWFkZSByZXR1cm4gdm9pZCwgYW5kIHJldHVybmluZwpJUlFfSEFORExFRCBzaG91bGQgYmUgZG9u
+ZSBpbiB0aGUgY2FsbGVyIG9mIHRoaXMgZnVuY3Rpb24sCnZzX2RjX2lycV9oYW5kbGVyKCkgKQoK
+VGhhbmtzLApJY2Vub3d5CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
