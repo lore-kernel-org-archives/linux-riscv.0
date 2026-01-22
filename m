@@ -4,86 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46FEFC44536
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 11:31:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 371BCC44500
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 11:41:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WzfHk5uSm3luvaSLfuxG/mfu7RJAKiUeOEVzlWzJtJc=; b=TSfgD5PR3/jL22
-	YXCb/uCqGV+A1J2J7X+yYxvOnvEfTI1WfrXAfyrpQfRwC7JXWl2IJeHpqDqtZmuB5SrL6QbssCTuA
-	CsFM0uORCpTsmOKi436Af6QVPNyldruKVb6wrI8/cBd0qGvXQc37CaToLtgIpszdRMFEcyXPGtvXH
-	cVw2NWu5GiZoF9yGD963/Mi28I5u0FwO8U4hJITrJDSGu2L6Yc6xsy0+vlDC6EnRlFMjZiodrOYJo
-	WM77lg/wkNmfStGgtOWyd29RlYt5jkW0jI0VU8gjmneFHbX0T/ZD4f+8MZBJBXWXrY5kAnoy19vTj
-	OtTshbzO6WIU6Mn6eCIA==;
+	List-Owner; bh=mmnUWg/IUEgCb0e8wib1Z7XWDg3HSgHRXk+1uO1EOFo=; b=J1HyPWvh7sT9Lf
+	BELEIueGt+6jnPc8DluIwqgcqtC+UzokTpCWoUWmscVSyW24uESZsPtUbvRoOuktEwipYqRN5S8H+
+	685LEZ8BnpnZOOpsKgu3eHoPTgKSp3NhQYnaltn3ejRSLQjQKOcWYYQM9hXzALHWyDEgCXDgW3LPd
+	tu4Qv3/OtfcPF6HvRF+FmuqlXJivHcKTxDo29e+4RZP7j9LgzVUOCvLP+q9llgjMZLFIClaPgk9VU
+	ZTG8pSYQ+pvhrdNLJ8eB8+x5onjmfYOWHxEI1C+Fhu5eUFL99Pb8k3TugVrZnFagPLIYrQ+RP9SW5
+	wTXDLZFaMX1ll92e/NzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1visu5-00000006yZ8-02su;
-	Thu, 22 Jan 2026 11:31:09 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1vit3l-00000006zGj-1jWJ;
+	Thu, 22 Jan 2026 11:41:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1visu1-00000006yYc-2ZzW
+	id 1vit3j-00000006zGX-2I0l
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 22 Jan 2026 11:41:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=kG2AIxIWH9YRnqrSVj4qktDyQAM1oSw/ZIFoeBq6s78=; b=Wh6NtdHIlNNabM7Jzy7QEn84jo
+	9bgQB1iVc83jVL66Qc/Xscyt86cgHO0ia81R9PjQA12lHw83rzZ6xdxQzgLjtA2aXN0zbX10zmwwY
+	Gj3YTQwXQnJCkIBc3DNbNKv5xgf0TBsXvpZqcLd6a2X6JjyvSkX9OGFLILKV6L4UW8f3XYQGFwssW
+	+kLQzovhMpR2+BKP5dtV6MMcLTX+OlZFtHcqk+U4ALVHPfHlmeEpRuzUc7r6YwhWV32eKV+/VSVv3
+	aN8cO112eMDA3aulEiDwQH/1BkGduNH+5i2A50hBD505VZOgr8a2SCsVe3yraIUt2tIghwtM5p1IM
+	3z2XJ+TQ==;
+Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vit3f-00000000GJK-0egj
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jan 2026 11:31:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769081434; cv=none; 
+	Thu, 22 Jan 2026 11:41:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769082054; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=MtiHHIZYQUeCCYK1Vw+l3qYJ/cihtcyfKVG7igKL8pUW0pRICdGl4yONRbLcu1ZSBN+2SB0gwYQfXu+Szw09anRgVTldOpAl3MhD/kxRGWL+Nbb81363Vkk9F+6nYYoG8aPsw7ERcZMDn8+Nt8lrcZL4hJoVwgu2oAGe0gUhdlk=
+	b=Pb8wiJACOCATzEXc4PgWeHIX19E6c8dIl0diDlAgtpiB0IAwUMTZURj9rCubMT0CuzRWrb2BPGCqmrhgshV3wU+jAIfwilYbnYY9NjhFMNLLPXHi7Y3s3tB6cKDIy29ifBkwYWuvZYwnOj6XXaOZ8nTabaya4N+xCJCDWSHzxhE=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769081434; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=vs335ZT7EhWZfxxjTxl6JBDq5jVuuj9XZAER/sv59EM=; 
-	b=Osy3BRq/nlLS8mi3Fto69HEEONzZ5iUMHmEeqnNnGeyFl2NawclAatZcP3lAMqmb/bSxY8qaybB5Lpn3ZcXIYBwLR5eq7Mtax73GON2EWhsyg8HliWqn1GVny5VtZWy+1tbixuzHg8vqq7oMgAYwMwWpgxENrdPy+qpFWSfF3Eo=
+	t=1769082054; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=kG2AIxIWH9YRnqrSVj4qktDyQAM1oSw/ZIFoeBq6s78=; 
+	b=Dj4aFJGUyrUKNT48CUlGd3wNqeM8ZFloOsQ90iuc4DIUrjrzDt3EV1ltEGMvJIRegNKk5apzWRMdelYfKACU5hIxhjUeJR/sOdGlyx9s/HrvvsSpZjuQnHabxf5u7eJfd7RUBbFQQRV6fUboqX1EqgRgu1UNWnS7Fvi/xTYbvbk=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769081434;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=vs335ZT7EhWZfxxjTxl6JBDq5jVuuj9XZAER/sv59EM=;
-	b=Vz79PtSUcLr7Mnt7C0I/xCT8Im9ctOIrfePxw7pyZdgfqflY1qgNi3rRyujPIAVV
-	bkXqA6rO+3de5H62Gto5FwD39gc860c3MS7pZxuFgi3PeUe8dU5PcGaG7iWN6WDkG0Z
-	uSg4+0U8Uz0YvRM0zKLPKcY+YwnpxxRpk/0L9kMlwOUCuIni7rVZrwfvi0MQlojT/B1
-	V0XeORaiA70Hw78ZphFKgCijMRvBQkub6/p2WYef7HnlkirqPcrnTUB7N8Pmdv36QvH
-	cYUspeBjkrKCBsp6uEX2duEJgbrlM/LpjHaTmb+TSKs9JpAAkZhx1lUzHdXb4U1SlpA
-	0Nd20mncHA==
-Received: by mx.zohomail.com with SMTPS id 1769081432999180.9632440094016;
-	Thu, 22 Jan 2026 03:30:32 -0800 (PST)
-Message-ID: <a49102edf09d26a885c02b206ff8f02aefcd9f29.camel@icenowy.me>
-Subject: Re: [PATCH v5 3/9] drm: verisilicon: add a driver for Verisilicon
- display controllers
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob
- Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Drew Fustini <fustini@kernel.org>, Guo Ren
- <guoren@kernel.org>, Fu Wei <wefu@redhat.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Dmitry Baryshkov
- <lumag@kernel.org>,  Michal Wilczynski <m.wilczynski@samsung.com>, Luca
- Ceresoli <luca.ceresoli@bootlin.com>, Han Gao <rabenda.cn@gmail.com>,  Yao
- Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org,  devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, Han Gao <gaohan@iscas.ac.cn>
-Date: Thu, 22 Jan 2026 19:30:14 +0800
-In-Reply-To: <5fc5439b-ef21-416a-90fe-07f0d21de87d@suse.de>
-References: <20260116043746.336328-1-zhengxingda@iscas.ac.cn>
-	 <20260116043746.336328-4-zhengxingda@iscas.ac.cn>
-	 <56e1974c-0fe6-4bdb-918d-fcf6a8b866c1@suse.de>
-	 <0eb4b6ba8ef3b47cd28eb8d652b05eb5a6d1409c.camel@icenowy.me>
-	 <5fc5439b-ef21-416a-90fe-07f0d21de87d@suse.de>
-Organization: Anthon Open-Source Community
-User-Agent: Evolution 3.44.4 
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
+	dmarc=pass header.from=<kingxukai@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769082054;
+	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
+	bh=kG2AIxIWH9YRnqrSVj4qktDyQAM1oSw/ZIFoeBq6s78=;
+	b=BqgP/0+kjtY5+I2wZdBhES5UOLW9z1ic0VLtrQkGNlJ7QWvS9+jpKGeGORrH+7kB
+	eUHuZ79RxGH2zG0JY1ZMWSVqESzpwtdokYeP8JXMY0tzcC7Vjz2zjwiS8D66YXfaarc
+	/srXBXlWqzXyCep56oIBWOFMZ32N71mASZEWajLE=
+Received: by mx.zohomail.com with SMTPS id 176908204557861.379657628005475;
+	Thu, 22 Jan 2026 03:40:45 -0800 (PST)
+Message-ID: <bf39fdb8-6698-418b-bd4a-6d8d40ccc9a0@zohomail.com>
+Date: Thu, 22 Jan 2026 19:40:29 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 2/3] clk: canaan: Add clock driver for Canaan K230
+To: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor@kernel.org>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Troy Mitchell <TroyMitchell988@gmail.com>
+References: <20260116-b4-k230-clk-v10-0-de59033c5d30@zohomail.com>
+ <20260116-b4-k230-clk-v10-2-de59033c5d30@zohomail.com>
+ <aW3o8xVziqb9iRBN@duge-virtual-machine>
+From: Xukai Wang <kingxukai@zohomail.com>
+Content-Language: en-US
+In-Reply-To: <aW3o8xVziqb9iRBN@duge-virtual-machine>
+Feedback-ID: rr080112278a99ca22fe3413b8502573b80000d112c6c8de0269d35716262045f3868d8834dff19452d12e59:zu080112270525b0f9423d0c1823811a910000b1028f03cb95fe0534d1fd2bc67e39b74b00cfd63973a25f42:rf0801122c843053e5f5fb5ac981c0487f000022c182bfb45a1df9df852c4ef67ed102773d21a27587345871b15b159e36:ZohoMail
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_033105_720494_D1D63C0F 
-X-CRM114-Status: GOOD (  36.66  )
+X-CRM114-CacheID: sfid-20260122_114103_749208_6EAF1D72 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,155 +100,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjYtMDEtMjLmmJ/mnJ/lm5vnmoQgMTE6MzkgKzAxMDDvvIxUaG9tYXMgWmltbWVybWFu
-buWGmemBk++8mgo+IEhpCj4gCj4gQW0gMjIuMDEuMjYgdW0gMTA6MjMgc2NocmllYiBJY2Vub3d5
-IFpoZW5nOgo+ID4g5ZyoIDIwMjYtMDEtMjHmmJ/mnJ/kuInnmoQgMTM6NTYgKzAxMDDvvIxUaG9t
-YXMgWmltbWVybWFubuWGmemBk++8mgo+ID4gCj4gPiA9PT09PT09PT09PT09PT0gODwgPT09PT09
-PT09PT09PT09PT09PQo+ID4gPiA+ICsKPiA+ID4gPiArwqDCoMKgwqDCoMKgwqBkZXZfaW5mbyhk
-ZXYsICJEQyV4IHJldiAleCBjdXN0b21lciAleFxuIiwgZGMtCj4gPiA+ID4gPiBpZGVudGl0eS5t
-b2RlbCwKPiA+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGRjLT5pZGVudGl0
-eS5yZXZpc2lvbiwgZGMtCj4gPiA+ID4gPmlkZW50aXR5LmN1c3RvbWVyX2lkKTsKPiA+ID4gZHJt
-X2RiZygpLsKgIERyaXZlcnMgc2hvdWxkIGJlIHF1aXRlIGJ5IGRlZmF1bHQuCj4gPiBXZWxsIGZv
-ciB0aGlzIGtpbmQgb2YgaWRlbnRpZmljYXRpb24gaW5mb3JtYXRpb24gSSB0aGluayBkcml2ZXIg
-aXMKPiA+IHVzdWFsbHkgbm90IHF1aWV0LCBhdCBsZWFzdCBhbWRncHUgKHdoZW4gZG9pbmcgSVAg
-ZGlzY292ZXJ5KSwKPiA+IHBhbmZyb3N0Cj4gPiBhbmQgZXRuYXZpdiAod2hpY2ggc2hhcmVzIHRo
-ZSBzYW1lIHNldCBvZiBpZGVudGlmaWNhdGlvbiByZWdpc3RlcnMKPiA+IHdpdGgKPiA+IHRoaXMg
-ZHJpdmVyKSBpcyByZXBvcnRpbmcgaXQuCj4gCj4gVGhlc2UgZHJpdmVycyBvbmx5IGdldCBhd2F5
-IHdpdGggaXQgYmVjYXVzZSBtYW55IG90aGVyIGRyaXZlcnMga2VlcCAKPiBxdWl0ZS4gT3RoZXJ3
-aXNlIHRoZSBrZXJuZWwgbG9nIHdvdWxkIGJlIGZpbGxlZCB3aXRoIGluaXQgcmVwb3J0cy4KPiBZ
-b3VyIAo+IGNob2ljZSwgYnV0IGl0J3MgcXVlc3Rpb25hYmxlIGlmIGFueW9uZSBldmVyIGNhcmVz
-IGV4Y2VwdCBmb3IKPiBkZWJ1Z2dpbmcuCj4gCj4gCj4gPiAKPiA+ID4gPiArCj4gPiA+ID4gK8Kg
-wqDCoMKgwqDCoMKgaWYgKHBvcnRfY291bnQgPiBkYy0+aWRlbnRpdHkuZGlzcGxheV9jb3VudCkg
-ewo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBkZXZfZXJyKGRldiwgInRv
-byBtYW55IGRvd25zdHJlYW0gcG9ydHMgdGhhbiBIVwo+ID4gPiA+IGNhcGFiaWxpdHlcbiIpOwo+
-ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZXQgPSAtRUlOVkFMOwo+ID4g
-PiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBnb3RvIGVycl9yc3RfYXNzZXJ0Owo+
-ID4gPiA+ICvCoMKgwqDCoMKgwqDCoH0KPiA+ID4gPiArCj4gPiA9PT09PT09PT09PT09PT0gODwg
-PT09PT09PT09PT09PT09PT09PQo+ID4gPiA+ICsKPiA+ID4gPiArwqDCoMKgwqDCoMKgwqBpZiAo
-IXN0YXRlLT52aXNpYmxlIHx8ICFmYikgewo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqByZWdtYXBfd3JpdGUoZGMtPnJlZ3MsIFZTRENfRkJfQ09ORklHKG91dHB1dCksCj4g
-PiA+ID4gMCk7Cj4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJlZ21hcF93
-cml0ZShkYy0+cmVncywKPiA+ID4gPiBWU0RDX0ZCX0NPTkZJR19FWChvdXRwdXQpLAo+ID4gPiA+
-IDApOwo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBnb3RvIGNvbW1pdDsK
-PiA+ID4gPiArwqDCoMKgwqDCoMKgwqB9IGVsc2Ugewo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqByZWdtYXBfc2V0X2JpdHMoZGMtPnJlZ3MsCj4gPiA+ID4gVlNEQ19GQl9D
-T05GSUdfRVgob3V0cHV0KSwKPiA+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBWU0RDX0ZCX0NPTkZJR19FWF9GQl9FTik7
-Cj4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgfQo+ID4gPiBTaW5jZSB5b3UgaGFuZGxlIHRoZSBwbGFu
-ZSBvbi9wbGFuZSBvZmYgY2FzZXMgaGVyZSwgSSdkIGFkdmlzZSB0bwo+ID4gPiBpbXBsZW1lbnQg
-YXRvbWljX2VuYWJsZSBhbmQgYXRvbWljX2Rpc2FibGUgZm9yIHRoZSBwbGFuZSwgaWYgdGhlCj4g
-PiA+IGhhcmR3YXJlIGFsbG93cyBpdC4gKFRoZXJlIGlzIGhhcmR3YXJlIHdlcmUgdGhlIGN1cnJl
-bnQgcGF0dGVybgo+ID4gPiBtYWtlcwo+ID4gPiBzZW5zZSB0aG91Z2guKQo+ID4gSWYgYXRvbWlj
-XyphYmxlIGlzIGdvaW5nIHRvIGJlIGltcGxlbWVudGVkLCBzaG91bGQgYXRvbWljX3VwZGF0ZSgp
-Cj4gPiBrZWVwCj4gPiB0aGUgcGxhbmUgb24vb2ZmIGNvZGU/Cj4gCj4gSW4gdGhpcyBjYXNlLCBh
-dG9taWNfdXBkYXRlIHNob3VsZCBvbmx5IHBlcmZvcm0gYW4gdXBkYXRlIG9mIHRoZQo+IHBsYW5l
-J3MgCj4gZ3JhcGhpY3MgYnVmZmVyIChzY2Fub3V0IGFkZHJlc3MsIGNvbG9yIGZvcm1hdCkuIFRo
-ZSBsb2dpYyB0aGVuIGlzCj4gCj4gZW5hYmxlIGFuZCBtb2RlIHNldHRpbmc6Cj4gCj4gwqDCoGF0
-b21pY191cGRhdGUsIHBsdXMKPiDCoMKgYXRvbWljX2VuYWJsZQo+IAo+IGRpc2FibGU6Cj4gCj4g
-wqDCoGF0b21pY19kaXNhYmxlIG9ubHkKPiAKPiBwYWdlIGZsaXBzOgo+IAo+IMKgwqBhdG9taWNf
-dXBkYXRlIG9ubHkKClRoZSBoYXJkd2FyZSBzZWVtcyB0byB3b3JrIHdlbGwgd2l0aCB0aGlzIHBh
-dHRlcm4uCgpIb3dldmVyLCBJIGZvdW5kIHRoYXQgcGxhbmUncyBhdG9taWNfZW5hYmxlIGlzIHN0
-aWxsIGEgcmFyZSBmZWF0dXJlIGluCnRoZSBrZXJuZWwsIGFuZCB0aGUgZm91bmQgdXNlciBvZiBp
-dCwgdGlkc3MsIHN0aWxsIG5lZWQgdG8gaGFuZGxlCnNpdHVhdGlvbnMgdGhhdCB0aGUgcGxhbmUg
-aXMgaW52aXNpYmxlIGluIGF0b21pY191cGRhdGUgKGFuZCBkaXNhYmxlCnRoZSBwbGFuZSBpbiB0
-aGUgY2FzZSkuCgo+IAo+IFNlZSAKPiBodHRwczovL2VsaXhpci5ib290bGluLmNvbS9saW51eC92
-Ni4xOC42L3NvdXJjZS9kcml2ZXJzL2dwdS9kcm0vZHJtX2F0b21pY19oZWxwZXIuYyNMMzAyMgoK
-VGhlIGNvZGUgZ2l2ZXMgbWUgdGhlIGZlZWxpbmcgdGhhdCB0aGUgZW5hYmxlbWVudCBzdGF0dXMg
-b2YgYSBwbGFuZSBpcwppbmRlcGVuZGVudCB0byB0aGUgdmlzaWJpbGl0eSBzdGF0dXMgKGJlY2F1
-c2UgdGhlIGNvZGUgZG9lcyBub3QKcmVmZXJlbmNlIHZpc2libGUgZmllbGQgaW4gdGhlIHN0YXRl
-KSwgd2hpY2ggdG90YWxseSBjb25mdXNlcyBtZSBhYm91dAp0aGUgdXNhZ2Ugb2YgYXRvbWljX2Vu
-YWJsZS4KClNvIGlzIGl0IGFib3V0IHNvbWUgZW5hYmxlbWVudCBvZiBoYXJkd2FyZSB1bnJlbGF0
-ZWQgdG8gdmlzaWJpbGl0eT8KCj4gCj4gVGhhdCdzIHVzdWFsbHkgY2xlYW5lci4gQnV0IHRoZXJl
-J3MgaGFyZHdhcmUgd2hlcmUKPiB1cGRhdGUvZW5hYmxlL2Rpc2FibGUgCj4gaXMgY29ubmVjdGVk
-IGluIHN1Y2ggYSB3YXkgdGhhdCBhIHNpbmdsZSBhdG9taWNfdXBkYXRlIGlzIGJldHRlci4KPiAK
-PiAKPiA+IAo+ID4gQlRXIGl0IHNlZW1zIHRoYXQgREM4MjAwIGhhcyB0aGUgc2hhZG93IHJlZ2lz
-dGVyIGNhcGFiaWxpdHkgdGhhdAo+ID4gY291bGQKPiA+IGJlIG1hbnVhbGx5IGNvbW1pdGVkIGJ1
-dCB0aGUgb2xkZXIgREM4MDAwIGhhcyBubyAodGhlCj4gPiBWU0RDX0ZCX0NPTkZJR19FWF9DT01N
-SVQgYml0IHdyaXR0ZW4gYmVsb3cgaXMgYSBuZXcgdGhpbmcpIC0tIHRoZQo+ID4gVlNEQ19GQl9D
-T05GSUcgcmVnaXN0ZXIgb24gREM4MDAwIGhhcyBhIHdyaXRlLW9ubHkgYml0IHRoYXQgd2hlbgo+
-ID4gd3JpdHRlbiB3aXRoIDAgdGhlIGRpc3BsYXkgaXMgcHV0IHRvIHJlc2V0IGFuZCB3aGVuIHdy
-aXR0ZW4gd2l0aCAxCj4gPiB0aGUKPiA+IGRpc3BsYXkgd2lsbCBzdGFydCB0byBydW4uIFRoaXMg
-cGF0dGVybiBzZWVtcyB0byBiZSBub3QgYWJsZSB0bwo+ID4ga2VlcAo+ID4gdGhlIGVuYWJsZWQg
-c3RhdGUgd2hpbGUgcHJvZ3JhbW1pbmcgKGF0IGxlYXN0IHBhcnQgb2YpIG5ldyBwbGFuZQo+ID4g
-Y29uZmlndXJhdGlvbiwgc2VlIFsxXS4KPiAKPiBJIGNhbm5vdCBjb21tZW50IG9uIHRoZSBoYXJk
-d2FyZS4gQnV0IG9uIHRoZSBEUk0gc2lkZSwgd2UgYWx3YXlzCj4gZGlzYWJsZSAKPiB0aGUgcGlw
-ZWxpbmUgZm9yIHdlIHByb2dyYW0gYSBuZXcgZGlzcGxheSBtb2RlOyBhbmQgdGhlbiBkbyBhbiBl
-bmFibGUKPiBzdGVwIHRvIHByb2dyYW0gdGhlIG5ldyBtb2RlLiBUaGlzIGhhcHBlbnMgb24gdGhl
-IENSVEMsIGJ1dCBpdCBhbHNvIAo+IGFmZmVjdHMgdGhlIENSVEMncyBwbGFuZXMgYWNjb3JkaW5n
-bHkuIEZvciBwYWdlZmxpcHMsIHdlIG9ubHkgcnVuIHRoZQo+IHBsYW5lJ3MgYXRvbWljX3VwZGF0
-ZS4KPiAKPiBJZiB5b3UgeW91IHNlZSBhIHBhZ2UgZmxpcCwgYnV0IG5lZWQgYSBmdWxsIG1vZGUt
-c2V0dGluZyBvcGVyYXRpb24sCj4geW91IAo+IGNhbiBtYW51YWxseSB0cmlnZ2VyIGl0IGJ5IHNl
-dHRpbmcgZHJtX2NydGNfc3RhdGUubW9kZV9jaGFuZ2VkIGZyb20KPiB0aGUgCj4gcGxhbmUncyBh
-dG9taWNfY2hlY2suIEhlcmUncyBhbiBleGFtcGxlOiAKPiBodHRwczovL2VsaXhpci5ib290bGlu
-LmNvbS9saW51eC92Ni4xOC42L3NvdXJjZS9kcml2ZXJzL2dwdS9kcm0vbWdhZzIwMC9tZ2FnMjAw
-X21vZGUuYyNMNTAzCj4gCj4gSWYgdGhlIERDODAwMCBhbmQgREM4MjAwIGJlaGF2ZSBzdWZmaWNp
-ZW50bHkgZGlmZmVyZW50bHksIG15IGFkdmlzZQo+IGlzIAo+IHRvIHdyaXRlIG11bHRpcGxlIF9m
-dW5jcyBzdHJ1Y3RzIHdpdGggY3VzdG9tIGhlbHBlcnMgYW5kIHBpY2sgdGhlIAo+IGNvcnJlY3Qg
-b25lIHdoZW4geW91IGluaXRpYWxpemUgdGhlIG1vZGVzZXR0aW5nIHBpcGVsaW5lLgoKVGhlbiBs
-ZXQgbWUganVzdCB0b3RhbGx5IGZvcmdldCBEQzgwMDAgbm93LiBBdCBsZWFzdCB0aGUgREM4MjAw
-CmhhcmR3YXJlIGZpdHMgdGhlIHVwZGF0ZStlbmFibGUgbW9kZWwuCgo+IAo+IEJlc3QgcmVnYXJk
-cwo+IFRob21hcwo+IAo+ID4gCj4gPiBbMV0KPiA+IGh0dHBzOi8vZ2l0aHViLmNvbS9taWxrdi1t
-ZWdyZXovcm9ja29zLXUtYm9vdC9ibG9iL2M5MjIxY2YyZmE3N2QzOWMwYjI0MWFiNGIwMzBjNzA4
-ZTdlYmUyNzkvZHJpdmVycy92aWRlby9lc3dpbi9lc3dpbl9kY19yZWcuaCNMMzU3OQo+ID4gCj4g
-PiA+ID4gKwo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoGRybV9mb3JtYXRfdG9fdnNfZm9ybWF0KHN0
-YXRlLT5mYi0+Zm9ybWF0LT5mb3JtYXQsCj4gPiA+ID4gJmZtdCk7Cj4gPiA+ID4gKwo+ID4gPiA+
-ICvCoMKgwqDCoMKgwqDCoHJlZ21hcF91cGRhdGVfYml0cyhkYy0+cmVncywgVlNEQ19GQl9DT05G
-SUcob3V0cHV0KSwKPiA+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgVlNEQ19GQl9DT05GSUdfRk1UX01BU0ssCj4gPiA+ID4gK8KgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFZTRENfRkJfQ09ORklH
-X0ZNVChmbXQuY29sb3IpKTsKPiA+ID4gPiArwqDCoMKgwqDCoMKgwqByZWdtYXBfdXBkYXRlX2Jp
-dHMoZGMtPnJlZ3MsIFZTRENfRkJfQ09ORklHKG91dHB1dCksCj4gPiA+ID4gK8KgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFZTRENfRkJfQ09ORklHX1NX
-SVpaTEVfTUFTSywKPiA+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAKPiA+ID4gPiBWU0RDX0ZCX0NPTkZJR19TV0laWkxFKGZtdC5zd2l6emxl
-KSk7Cj4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgcmVnbWFwX2Fzc2lnbl9iaXRzKGRjLT5yZWdzLCBW
-U0RDX0ZCX0NPTkZJRyhvdXRwdXQpLAo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBWU0RDX0ZCX0NPTkZJR19VVl9TV0laWkxFX0VOLAo+
-ID4gPiA+IGZtdC51dl9zd2l6emxlKTsKPiA+ID4gPiArCj4gPiA+ID4gK8KgwqDCoMKgwqDCoMKg
-LyogR2V0IHRoZSBwaHlzaWNhbCBhZGRyZXNzIG9mIHRoZSBidWZmZXIgaW4gbWVtb3J5ICovCj4g
-PiA+ID4gK8KgwqDCoMKgwqDCoMKgZ2VtID0gZHJtX2ZiX2RtYV9nZXRfZ2VtX29iaihmYiwgMCk7
-Cj4gPiA+ID4gKwo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoC8qIENvbXB1dGUgdGhlIHN0YXJ0IG9m
-IHRoZSBkaXNwbGF5ZWQgbWVtb3J5ICovCj4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgYnBwID0gZmIt
-PmZvcm1hdC0+Y3BwWzBdOwo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoGRtYV9hZGRyID0gZ2VtLT5k
-bWFfYWRkciArIGZiLT5vZmZzZXRzWzBdOwo+ID4gPiA+ICsKPiA+ID4gPiArwqDCoMKgwqDCoMKg
-wqAvKiBGaXh1cCBmcmFtZWJ1ZmZlciBhZGRyZXNzIGZvciBzcmMgY29vcmRpbmF0ZXMgKi8KPiA+
-ID4gPiArwqDCoMKgwqDCoMKgwqBkbWFfYWRkciArPSAoc3RhdGUtPnNyYy54MSA+PiAxNikgKiBi
-cHA7Cj4gPiA+IGJwcCBpcyBkZXByZWNhdGVkIGFuZCBzaG91bGQgYmUgYXZvaWRlZCBpbiBuZXcg
-Y29kZS4gWW91IGNhbgo+ID4gPiBjb21wdXRlCj4gPiA+IHRoZQo+ID4gPiBvZmZzZXQgd2l0aCBk
-cm1fZm9ybWF0X21pbl9waXRjaCgpOgo+ID4gPiAKPiA+ID4gZHJtX2Zvcm1hdF9taW5fcGl0Y2go
-ZmItPmZvcm1hdCwgMCwgc3RhdGUtPnNyYy54MSA+PiAxNiApCj4gPiA+IAo+ID4gPiBCZXN0IHJl
-Z2FyZHMKPiA+ID4gVGhvbWFzCj4gPiA+IAo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoGRtYV9hZGRy
-ICs9IChzdGF0ZS0+c3JjLnkxID4+IDE2KSAqIGZiLT5waXRjaGVzWzBdOwo+ID4gPiA+ICsKPiA+
-ID4gPiArwqDCoMKgwqDCoMKgwqByZWdtYXBfd3JpdGUoZGMtPnJlZ3MsIFZTRENfRkJfQUREUkVT
-UyhvdXRwdXQpLAo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oCBsb3dlcl8zMl9iaXRzKGRtYV9hZGRyKSk7Cj4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgcmVnbWFw
-X3dyaXRlKGRjLT5yZWdzLCBWU0RDX0ZCX1NUUklERShvdXRwdXQpLAo+ID4gPiA+ICvCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBmYi0+cGl0Y2hlc1swXSk7Cj4gPiA+ID4g
-Kwo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoHJlZ21hcF93cml0ZShkYy0+cmVncywgVlNEQ19GQl9U
-T1BfTEVGVChvdXRwdXQpLAo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCBWU0RDX01BS0VfUExBTkVfUE9TKHN0YXRlLT5jcnRjX3gsIHN0YXRlLQo+ID4gPiA+
-ID4gY3J0Y195KSk7Cj4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgcmVnbWFwX3dyaXRlKGRjLT5yZWdz
-LCBWU0RDX0ZCX0JPVFRPTV9SSUdIVChvdXRwdXQpLAo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBWU0RDX01BS0VfUExBTkVfUE9TKHN0YXRlLT5jcnRjX3gg
-KyBzdGF0ZS0KPiA+ID4gPiA+IGNydGNfdywKPiA+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IHN0YXRlLT5jcnRjX3kgKyBzdGF0ZS0KPiA+ID4gPiA+IGNydGNfaCkpOwo+ID4gPiA+ICvCoMKg
-wqDCoMKgwqDCoHJlZ21hcF93cml0ZShkYy0+cmVncywgVlNEQ19GQl9TSVpFKG91dHB1dCksCj4g
-PiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFZTRENfTUFLRV9Q
-TEFORV9TSVpFKHN0YXRlLT5jcnRjX3csIHN0YXRlLQo+ID4gPiA+ID4gY3J0Y19oKSk7Cj4gPiA+
-ID4gKwo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoHJlZ21hcF93cml0ZShkYy0+cmVncywgVlNEQ19G
-Ql9CTEVORF9DT05GSUcob3V0cHV0KSwKPiA+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgVlNEQ19GQl9CTEVORF9DT05GSUdfQkxFTkRfRElTQUJMRSk7Cj4gPiA+
-ID4gK2NvbW1pdDoKPiA+ID4gPiArwqDCoMKgwqDCoMKgwqByZWdtYXBfc2V0X2JpdHMoZGMtPnJl
-Z3MsIFZTRENfRkJfQ09ORklHX0VYKG91dHB1dCksCj4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBWU0RDX0ZCX0NPTkZJR19FWF9DT01NSVQpOwo+
-ID4gPiA+ICt9Cj4gPiA+ID4gKwo+ID4gPT09PT09PT09PT09PT09IDg8ID09PT09PT09PT09PT09
-PT09PT0KPiAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+
+On 2026/1/19 16:18, Jiayu Du wrote:
+>> +
+>> +K230_CLK_GATE_FORMAT(hs_hclk_src_gate,
+>> +		     K230_HS_HCLK_SRC_GATE,
+>> +		     0x18, 0, 0, 0,
+>> +		     &hs_hclk_high_src_rate.clk.hw);
+> Here, you replaced hs_hclk_high_gate(in v9) with hs_hclk_high_src_rate,
+
+I'm a bit confused, as I don't recall making these specific changes.
+Looking at the code below, the only difference between v9 and v10 is
+within the K230_CLK_GATE_FORMAT(hs_hclk_src_gate, ...) definition, where
+the second parameter changed from 1 to 0. Everything else appears
+consistent. Could you clarify which change you were referring to?
+
+The code
+
+in v8:
+
++K230_CLK_RATE_FORMAT(hs_hclk_high_src_rate, +
+K230_HS_HCLK_HIGH_SRC_RATE, + 1, 1, 0, 0, + 1, 8, 0, 0x7, + 0x1C, 31,
+div, 0x0, + false, 0, + &pll0_div4.hw); +
++K230_CLK_GATE_FORMAT(hs_hclk_high_gate, + K230_HS_HCLK_HIGH_GATE, +
+0x18, 1, 0, 0, + &hs_hclk_high_src_rate.clk.hw); +
++K230_CLK_GATE_FORMAT(hs_hclk_src_gate, + K230_HS_HCLK_SRC_GATE, + 0x18,
+1, 0, 0, + &hs_hclk_high_src_rate.clk.hw); +
++K230_CLK_RATE_FORMAT(hs_hclk_src_rate, + K230_HS_HCLK_SRC_RATE, + 1, 1,
+0, 0, + 1, 8, 3, 0x7, + 0x1C, 31, div, 0x0, + false, 0, +
+&hs_hclk_src_gate.clk.hw);
+
+in v9:
+
++K230_CLK_RATE_FORMAT(hs_hclk_high_src_rate, +
+K230_HS_HCLK_HIGH_SRC_RATE, + 1, 1, 0, 0, + 1, 8, 0, 0x7, + 0x1C, 31,
+div, 0x0, + false, 0, + &pll0_div4.hw); +
++K230_CLK_GATE_FORMAT(hs_hclk_high_gate, + K230_HS_HCLK_HIGH_GATE, +
+0x18, 1, 0, 0, + &hs_hclk_high_src_rate.clk.hw); +
++K230_CLK_GATE_FORMAT(hs_hclk_src_gate, + K230_HS_HCLK_SRC_GATE, + 0x18,
+1, 0, 0, + &hs_hclk_high_src_rate.clk.hw); +
++K230_CLK_RATE_FORMAT(hs_hclk_src_rate, + K230_HS_HCLK_SRC_RATE, + 1, 1,
+0, 0, + 1, 8, 3, 0x7, + 0x1C, 31, div, 0x0, + false, 0, +
+&hs_hclk_src_gate.clk.hw); +
+
+in v10:
+
++K230_CLK_RATE_FORMAT(hs_hclk_high_src_rate, +
+K230_HS_HCLK_HIGH_SRC_RATE, + 1, 1, 0, 0, + 1, 8, 0, 0x7, + 0x1C, 31,
+div, 0x0, + false, 0, + &pll0_div4.hw); +
++K230_CLK_GATE_FORMAT(hs_hclk_high_gate, + K230_HS_HCLK_HIGH_GATE, +
+0x18, 1, 0, 0, + &hs_hclk_high_src_rate.clk.hw); +
++K230_CLK_GATE_FORMAT(hs_hclk_src_gate, + K230_HS_HCLK_SRC_GATE, + 0x18,
+0, 0, 0, + &hs_hclk_high_src_rate.clk.hw); +
++K230_CLK_RATE_FORMAT(hs_hclk_src_rate, + K230_HS_HCLK_SRC_RATE, + 1, 1,
+0, 0, + 1, 8, 3, 0x7, + 0x1C, 31, div, 0x0, + false, 0, +
+&hs_hclk_src_gate.clk.hw);
+
+> but after my board test, I find that when hs_hclk_high_gate is turned
+> off, the mmc/sd and other high-speed subsystems can not work. So maybe
+> you should not change the hs_hclk_high_gate to hs_hclk_high_src_rate.
+
+Regarding the clock management, I recommend explicitly enabling
+hs_hclk_high_gateas it will be closed by `close unused clocks`.
+
+>
+> When I used clk_ignore_unused, I saw the log as follows, while the enable
+> and prepare count of hs_hclk_high_gate is zero. Here is the log:
+>        pll0_div4                     5  5  0  400000000   0   0     50000      Y  deviceless   no_connection_id
+>           hs_hclk_high_src_rate      1  1  0  400000000   0   0     50000      Y     deviceless   no_connection_id
+>              hs_hclk_high_gate       0  0  0  400000000   0   0     50000      Y        deviceless   no_connection_id
+>              hs_hclk_src_gate        1  1  0  400000000   0   0     50000      Y        deviceless   no_connection_id
+>                 hs_hclk_src_rate     4  4  0  200000000   0   0     50000      Y           deviceless   no_connection_id
+>                    hs_sd0_ahb_gate   1  1  0  200000000   0   0     50000      Y              91580000.mmc   ahb
+>                                                                                             deviceless   no_connection_id
+>                    hs_sd1_ahb_gate   1  1  0  200000000   0   0     50000      Y              91581000.mmc   ahb
+>                                                                                             deviceless   no_connection_id
+>                    hs_ssi1_ahb_gate  0  0  0  200000000   0   0     50000      Y              deviceless   no_connection_id
+>                    hs_ssi2_ahb_gate  0  0  0  200000000   0   0     50000      Y              deviceless   no_connection_id
+>                    hs_usb0_ahb_gate  1  1  0  200000000   0   0     50000      Y              91500000.usb   otg
+>                                                                                             deviceless   no_connection_id
+>                    hs_usb1_ahb_gate  1  1  0  200000000   0   0     50000      Y              91540000.usb   otg
+>
+> Regards,
+> Jiayu Du
+>> +
+>> +K230_CLK_RATE_FORMAT(hs_hclk_src_rate,
+>> +		     K230_HS_HCLK_SRC_RATE,
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
