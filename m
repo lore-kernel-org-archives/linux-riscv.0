@@ -4,83 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2FC7C44536
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 02:41:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6557CD625E7
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 03:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2IrMDzjTkzCzfgS8H/QjtDrVYl+exOMuVIQ4or2ILUw=; b=xvterstS7Y9qYK
-	6kEzcBriNjHPnFSKBGitdQJXKsSHLe4kO24QrpghjatrEWFxEg5WdzRdd5FuQv8PTCmmb8WTwdXzL
-	I2YiE5WkmI3tIHSZOw5V+VUYpwtZ0t/q+qWYpJ/0hGThXw5gvI5gevBhEoM0xzYhHurR5Xn9YrtDS
-	ZN8ie2H6m1Kuni5YdqD7BvCb67RQo2qbdZfEmMIsR23Nr7RmgNm02TQsDNTwc3ypPuJqq9IESUihm
-	px2y9+9a4JK8xHzxySnIbHg38XmdPT17oSOOgl2gWvTgjeKg5MpscYzHecHn0ugsx9Z2ES/OwradE
-	1sSMKXUdaBEGa65z+olA==;
+	List-Owner; bh=zX+ngw1TcrFNGvAWE1r6fbUUSrAvytDKA+r3OwKd87A=; b=NsJ/bkHwWiJD+q
+	hd67sLbq+DPrQC3Mz0mEIWO7sQ3boYo0fLEK/Op8jCTg876Y0ma29AwyIYl94baqSRNwrq3YJsAjW
+	WAtlAs2L7ZnepZTqwgGTbzHRmtVyd9UCMTinboMpChd//Maqwud5Iw0A//r1hPs+h+jr9+btuJk5c
+	iY1UVT5/OyEJa/GsddsJviNsSntDdHySO+z6eUEnhUQMUK6D8Qwc/8dtb798d1L17CXWT7ULkJHYB
+	iMCqxc1Qbp5Sodc/G1Myu8PGExFzZsM5P9HnZn6R7K0+xwix2ODIzvAKK8ZI37oeqBsUUOzFTGGBl
+	f0znIzt6sk3dHDMFxUyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vikdd-00000006LDl-1OhB;
-	Thu, 22 Jan 2026 02:41:37 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1villM-00000006OZw-2R1n;
+	Thu, 22 Jan 2026 03:53:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vikda-00000006L7k-0syt
+	id 1villH-00000006OXu-2hiy
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jan 2026 02:41:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1769049651;
-	bh=OSp5I9nulPPxdvzFSVI3H8ywydl3nfy34JloJ6SMU30=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=vVD2ezAQeUXmoHQGfJduIJQjTI+k9pnnT9C2zdekHpCRLxsRz4jdogAXC02Ijtm9o
-	 5sIryLBv3PKdPUKP4Fw79L/SWGERav0n/2Nbz0uBh5EyStAgnB2hss7Deid2vc5fnr
-	 fYbdkKMyTaXUvDRH1im00U6CaHxvOcEtAr3fCwO0=
-X-QQ-mid: esmtpsz11t1769049644tbb570909
-X-QQ-Originating-IP: qF4nDzfkioILTV6w/tGbU85I+nTwtlrLpsw8UddWtnU=
-Received: from = ( [27.42.87.212])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 22 Jan 2026 10:40:42 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 15349338892100512281
-EX-QQ-RecipientCnt: 8
-Mime-Version: 1.0
-Date: Thu, 22 Jan 2026 10:40:42 +0800
-Message-Id: <DFURREI8ELMF.M9ZXCQYVDMZO@linux.spacemit.com>
-Cc: "Alex Elder" <elder@riscstar.com>, <linux-i2c@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>
-Subject: Re: [PATCH] i2c: spacemit: drop IRQF_ONESHOT flag from IRQ request
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Yixun Lan" <dlan@kernel.org>, "Andi Shyti" <andi.shyti@kernel.org>,
- "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260122-05-k1-i2c-irq-v1-1-9b8d94bbcd22@kernel.org>
-In-Reply-To: <20260122-05-k1-i2c-irq-v1-1-9b8d94bbcd22@kernel.org>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NEaes6yu2o+mX6JmLuK8H/PF/o8Uemax1hqblB/b9fu1NSWY5tqU1h3J
-	qTTziNk4m67+BiC5yGiiQex3JcW6D087pQQ5mMLeVNeJcflaV9di9I+8t/m86byw18RD09S
-	CdWPSOUBLwBqvIOKDy4FKmJxMwyx0S2hUsgtoeGLqRNkj4+cbOJJIqqWSVQY4XW5n/LCl6F
-	rJWcByMBQlsEIhZ8z2SwjQS8xrf1up3mImmFNEFzu37K7kxDRFsV/SY6/khtYrWH/6hxD0X
-	LQBjxWuKGoWdbPY11CBf6UlE04qh364cT+hKbYoRp0/soQmRUnwO3B/zGeuCy3gsC26BQ5T
-	4x0GH0yZopgECq6jQo6/QBIdHxRMX9WmZW2PVW6YHC28E9GoR/HLaY+zBURUuQtN2IAVyup
-	Z4JxSahRuO652uXxG6hXoi6vBh1Xojie+z3LNWiRuqvYuDU/NSEYq3cQAasvSpk9H5DAXUM
-	6EXSTgcjvpnktRvrVgLJq77C4O50HwNseRcjDAn0x8HgvuOnVaXkh5MONp04QTw9tXOxvyx
-	Z3fbYniOSpgwcG8uVus0sCYg8w0NmKStN6NpeSakJ91p9emovKZiaEj1tBwJBow5ZO5Io1T
-	Oigtyeg0zHr+tkRONX48GbD5l7jcUmJ/7UakcoAVeJO9OPtk9jJLcWhBOq+lEgHJwzNdmf/
-	Q2gY+OJXR1t4h3uGU5AqnvhnnC2oVRRqbzxf5x4wuP40nIFp5bQx+rDMxQ/cNp0NHa6eyTv
-	d+pr/NroaYPEiO0wGf+iXwKe0A6yAYrFoGhTPjqUYzRuCGZXfGkSMQFNC0k7Rex+Yp53Dye
-	dhDqKC1poR3TpKe6+uEB1ZmnQG2XIs9ZXRP7kmvsJmvoyCGyHqSxhonk48BONetxBhQuImG
-	bw3kaJyCr5HwbHTjyzZy7bLW3PaE7ITIH6XIra9zSxu+xnsM44EOw3V6Ct6yUP/JHs3s0dj
-	Sim14TNipOrqvceODLa7zoXFCKM34LnQn/470Qq9fb/xnJXMlLaP7ZldCfETpaNz3Jp31g4
-	OSKEbTUAQ3Ho6vwEW4u9XtXlceOX0+yBfsEfM6luXXsjVfBf4gTd2S7XqtID5Je0qUwHRjI
-	1ZroH8FkK/h
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-X-QQ-RECHKSPAM: 0
+	Thu, 22 Jan 2026 03:53:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E1B1844403;
+	Thu, 22 Jan 2026 03:53:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A7A02C2BC86;
+	Thu, 22 Jan 2026 03:53:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769054013;
+	bh=m4Bu2xjNxMaziu7cHr/9vWIkSqxp2HE82nWmIg/qftM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=gVVWz2N/tKocCvh3vdBjLHrzX68dKZaBGVQQJFhaq/FI6SwtTbTXu+CYIEia7iw+K
+	 W9Tyx7Nx23wDcVm2Lug7YDx/OanYoN3vP5GuiDWnyOfCq2TBz9OucK3KqB8BZtp2lg
+	 Qxtc3vO3pkgS9/ozC18rCmPe5S+LRllw4E13A52l31LtYpt6oQjxazYX3yLCTXE1hf
+	 Mm7swDw2bCh61Ps4ZrR9m1TIsO5okqb6nmMnkGgdgjKchrZPa/ZtVrtNAd/Gc8eN3l
+	 QTOJaUiObb9/zwTmCsosu9Q/UbVO9WA10SoSzdYGpnaRjNCihkrgfwqy967rSB99rE
+	 mc2TxEHmEh+Jg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 985FED625E8;
+	Thu, 22 Jan 2026 03:53:33 +0000 (UTC)
+From: Ben Zong-You Xie via B4 Relay <devnull+ben717.andestech.com@kernel.org>
+Date: Thu, 22 Jan 2026 11:53:19 +0800
+Subject: [PATCH v2 2/4] i2c: add Andes I2C driver support
+MIME-Version: 1.0
+Message-Id: <20260122-atciic100-v2-2-7559136d07cf@andestech.com>
+References: <20260122-atciic100-v2-0-7559136d07cf@andestech.com>
+In-Reply-To: <20260122-atciic100-v2-0-7559136d07cf@andestech.com>
+To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Ben Zong-You Xie <ben717@andestech.com>
+X-Mailer: b4 0.15-dev-47773
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769054012; l=11439;
+ i=ben717@andestech.com; s=20260120; h=from:subject:message-id;
+ bh=JJvoU5xm6NYwGRCQSVZcQTCsnH+d2KxcC6DNdPLV+u8=;
+ b=xZR9ZrMYttfqiprnQpov1qhhkZW7p2P+ykEkE6FJM0pXFt3+GtkadtP6nf/v8XDR6dFfeX9WT
+ +tF/KP7PSv6BJZEjvjw4sjzBqK5d+plRbQe8j6R/MacentK1jp5+ViG
+X-Developer-Key: i=ben717@andestech.com; a=ed25519;
+ pk=nb8L7zQKGJpYk0yvrYKjViOZ34A36g1ZIsCmCsP518s=
+X-Endpoint-Received: by B4 Relay for ben717@andestech.com/20260120 with
+ auth_id=610
+X-Original-From: Ben Zong-You Xie <ben717@andestech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_184135_107626_CD7D7522 
-X-CRM114-Status: UNSURE (   4.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260121_195335_752941_0C4F7BBB 
+X-CRM114-Status: GOOD (  28.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,21 +85,409 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: ben717@andestech.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu Jan 22, 2026 at 7:52 AM CST, Yixun Lan wrote:
-> In commit aef30c8d569c ("genirq: Warn about using IRQF_ONESHOT without a
-> threaded handler")[1], it will check IRQF_ONESHOT flag in IRQ request,
-> and gives a warning if there is no threaded handler. Drop this flag to
-> fix this warning.
->
-> Link: https://lore.kernel.org/r/20260112134013.eQWyReHR@linutronix.de/ [1]
-> Fixes: 5ea558473fa3 ("i2c: spacemit: add support for SpacemiT K1 SoC")
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+From: Ben Zong-You Xie <ben717@andestech.com>
+
+Add support for Andes I2C driver. Andes I2C can act as either a
+controller or a target, depending on the control register settings. Now,
+we only support controller mode.
+
+Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
+---
+ drivers/i2c/busses/Kconfig     |  10 ++
+ drivers/i2c/busses/Makefile    |   1 +
+ drivers/i2c/busses/i2c-andes.c | 341 +++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 352 insertions(+)
+
+diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
+index e11d50750e63..8b9dbc25af8b 100644
+--- a/drivers/i2c/busses/Kconfig
++++ b/drivers/i2c/busses/Kconfig
+@@ -446,6 +446,16 @@ config I2C_AT91_SLAVE_EXPERIMENTAL
+ 	    - There are some mismatches with a SAMA5D4 as slave and a SAMA5D2 as
+ 	    master.
+ 
++config I2C_ANDES
++	tristate "Andes I2C Controller"
++	depends on ARCH_ANDES || COMPILE_TEST
++	help
++	  If you say yes to this option, support will be included for the
++	  Andes I2C controller.
++
++	  This support is also available as a module. If so, the module
++	  will be called i2c-andes.
++
+ config I2C_AU1550
+ 	tristate "Au1550/Au1200/Au1300 SMBus interface"
+ 	depends on MIPS_ALCHEMY
+diff --git a/drivers/i2c/busses/Makefile b/drivers/i2c/busses/Makefile
+index 547123ab351f..89d85d10f8d2 100644
+--- a/drivers/i2c/busses/Makefile
++++ b/drivers/i2c/busses/Makefile
+@@ -41,6 +41,7 @@ obj-$(CONFIG_I2C_ASPEED)	+= i2c-aspeed.o
+ obj-$(CONFIG_I2C_AT91)		+= i2c-at91.o
+ i2c-at91-y			:= i2c-at91-core.o i2c-at91-master.o
+ i2c-at91-$(CONFIG_I2C_AT91_SLAVE_EXPERIMENTAL)	+= i2c-at91-slave.o
++obj-$(CONFIG_I2C_ANDES)		+= i2c-andes.o
+ obj-$(CONFIG_I2C_AU1550)	+= i2c-au1550.o
+ obj-$(CONFIG_I2C_AXXIA)		+= i2c-axxia.o
+ obj-$(CONFIG_I2C_BCM2835)	+= i2c-bcm2835.o
+diff --git a/drivers/i2c/busses/i2c-andes.c b/drivers/i2c/busses/i2c-andes.c
+new file mode 100644
+index 000000000000..5f135d8c9b13
+--- /dev/null
++++ b/drivers/i2c/busses/i2c-andes.c
+@@ -0,0 +1,341 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Driver for Andes I2C controller, used in Andes AE350 platform and QiLai SoC
++ *
++ * Copyright (C) 2026 Andes Technology Corporation.
++ */
++
++#include <linux/bitfield.h>
++#include <linux/completion.h>
++#include <linux/iopoll.h>
++#include <linux/i2c.h>
++#include <linux/of_device.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/spinlock.h>
++
++#define ANDES_I2C_ID_REG		0x0
++#define ANDES_I2C_ID_MASK		GENMASK(31, 8)
++#define ANDES_I2C_ID			0x020210
++
++#define	ANDES_I2C_CFG_REG		0x10
++#define ANDES_I2C_CFG_FIFOSIZE		GENMASK(1, 0)
++
++#define	ANDES_I2C_INTEN_REG		0x14
++#define	ANDES_I2C_INTEN_FIFO_EMPTY	BIT(0)
++#define	ANDES_I2C_INTEN_FIFO_FULL	BIT(1)
++#define	ANDES_I2C_INTEN_CMPL		BIT(9)
++
++#define	ANDES_I2C_STATUS_REG		0x18
++#define ANDES_I2C_STATUS_FIFO_EMPTY	BIT(0)
++#define ANDES_I2C_STATUS_FIFO_FULL	BIT(1)
++#define ANDES_I2C_STATUS_ADDR_HIT	BIT(3)
++#define ANDES_I2C_STATUS_CMPL		BIT(9)
++#define ANDES_I2C_STATUS_W1C		GENMASK(9, 3)
++
++#define	ANDES_I2C_ADDR_REG		0x1C
++
++#define	ANDES_I2C_DATA_REG		0x20
++
++#define	ANDES_I2C_CTRL_REG		0x24
++#define ANDES_I2C_CTRL_DATA_CNT		GENMASK(7, 0)
++#define ANDES_I2C_CTRL_DIR		BIT(8)
++#define ANDES_I2C_CTRL_PHASE		GENMASK(12, 9)
++
++#define	ANDES_I2C_CMD_REG		0x28
++#define ANDES_I2C_CMD_ACTION		GENMASK(2, 0)
++#define ANDES_I2C_CMD_TRANS		BIT(0)
++
++#define	ANDES_I2C_SETUP_REG		0x2C
++#define ANDES_I2C_SETUP_IICEN		BIT(0)
++#define ANDES_I2C_SETUP_REQ		BIT(2)
++
++#define ANDES_I2C_TPM_REG		0x30
++
++#define ANDES_I2C_TIMEOUT_US		400000
++#define ANDES_I2C_TIMEOUT		usecs_to_jiffies(ANDES_I2C_TIMEOUT_US)
++
++#define ANDES_I2C_MAX_DATA_LEN		256
++
++struct andes_i2c {
++	struct i2c_adapter adap;
++	struct completion completion;
++	spinlock_t lock;
++	struct regmap *map;
++	u8 *buf;
++	unsigned int fifo_size;
++	int irq;
++	u16 buf_len;
++	bool addr_hit;
++	bool xfer_done;
++};
++
++static const struct regmap_config andes_i2c_regmap_config = {
++	.name = "andes_i2c",
++	.reg_bits = 32,
++	.reg_stride = 4,
++	.val_bits = 32,
++	.pad_bits = 0,
++	.max_register = ANDES_I2C_TPM_REG,
++	.cache_type = REGCACHE_NONE,
++};
++
++static void andes_i2c_xfer_common(struct andes_i2c *i2c, u32 status)
++{
++	unsigned long flags;
++	unsigned int fsize = i2c->fifo_size;
++	unsigned int val;
++
++	spin_lock_irqsave(&i2c->lock, flags);
++	if (status & ANDES_I2C_STATUS_FIFO_EMPTY) {
++		/* Disable the FIFO empty interrupt for the last write */
++		if (i2c->buf_len <= fsize) {
++			fsize = i2c->buf_len;
++			regmap_clear_bits(i2c->map, ANDES_I2C_INTEN_REG,
++					  ANDES_I2C_INTEN_FIFO_EMPTY);
++		}
++
++		while (fsize--) {
++			val = *i2c->buf++;
++			regmap_write(i2c->map, ANDES_I2C_DATA_REG, val);
++			i2c->buf_len--;
++		}
++	} else if (status & ANDES_I2C_STATUS_FIFO_FULL) {
++		while (fsize--) {
++			regmap_read(i2c->map, ANDES_I2C_DATA_REG, &val);
++			*i2c->buf++ = (u8)val;
++			i2c->buf_len--;
++		}
++	}
++
++	if (status & ANDES_I2C_STATUS_CMPL) {
++		i2c->xfer_done = true;
++		if (status & ANDES_I2C_STATUS_ADDR_HIT)
++			i2c->addr_hit = true;
++
++		/* Write 1 to clear the status */
++		regmap_set_bits(i2c->map, ANDES_I2C_STATUS_REG,
++				ANDES_I2C_STATUS_W1C);
++
++		/* For the last read, retrieve all remaining data in FIFO. */
++		while (i2c->buf_len > 0) {
++			regmap_read(i2c->map, ANDES_I2C_DATA_REG, &val);
++			*i2c->buf++ = (u8)val;
++			i2c->buf_len--;
++		}
++	}
++
++	spin_unlock_irqrestore(&i2c->lock, flags);
++}
++
++static irqreturn_t andes_i2c_irq_handler(int irq, void *data)
++{
++	struct andes_i2c *i2c = data;
++	u32 i2c_status;
++
++	regmap_read(i2c->map, ANDES_I2C_STATUS_REG, &i2c_status);
++	andes_i2c_xfer_common(i2c, i2c_status);
++	if (i2c->xfer_done)
++		complete(&i2c->completion);
++
++	return IRQ_HANDLED;
++}
++
++static int andes_i2c_xfer_wait(struct andes_i2c *i2c, struct i2c_msg *msg)
++{
++	unsigned int mask;
++	unsigned int i2c_ctrl;
++
++	/*
++	 * Set the data count. If there are 256 bytes to be transmitted, write
++	 * zero to the data count field.
++	 */
++	regmap_update_bits(i2c->map, ANDES_I2C_CTRL_REG,
++			   ANDES_I2C_CTRL_DATA_CNT,
++			   FIELD_PREP(ANDES_I2C_CTRL_DATA_CNT, i2c->buf_len));
++
++	regmap_set_bits(i2c->map, ANDES_I2C_CTRL_REG, ANDES_I2C_CTRL_PHASE);
++	if (msg->flags & I2C_M_RD)
++		regmap_set_bits(i2c->map, ANDES_I2C_CTRL_REG,
++				ANDES_I2C_CTRL_DIR);
++	else
++		regmap_clear_bits(i2c->map, ANDES_I2C_CTRL_REG,
++				  ANDES_I2C_CTRL_DIR);
++
++	regmap_write(i2c->map, ANDES_I2C_ADDR_REG, msg->addr);
++
++	if (i2c->irq >= 0) {
++		mask = ANDES_I2C_INTEN_CMPL;
++		mask |= (msg->flags & I2C_M_RD) ? ANDES_I2C_INTEN_FIFO_FULL
++						: ANDES_I2C_INTEN_FIFO_EMPTY;
++		regmap_set_bits(i2c->map, ANDES_I2C_INTEN_REG, mask);
++	}
++
++	regmap_set_bits(i2c->map, ANDES_I2C_CMD_REG, ANDES_I2C_CMD_TRANS);
++	if (i2c->irq >= 0) {
++		unsigned long time_left;
++
++		time_left = wait_for_completion_timeout(&i2c->completion,
++							ANDES_I2C_TIMEOUT);
++		if (!time_left)
++			return -ETIMEDOUT;
++
++		if (!i2c->addr_hit)
++			return -ENXIO;
++
++		regmap_write(i2c->map, ANDES_I2C_INTEN_REG, 0);
++		reinit_completion(&i2c->completion);
++	} else {
++		unsigned int val;
++		int ret;
++
++		mask = ANDES_I2C_STATUS_CMPL;
++		mask |= (msg->flags & I2C_M_RD) ? ANDES_I2C_STATUS_FIFO_FULL
++						: ANDES_I2C_STATUS_FIFO_EMPTY;
++		while (!i2c->xfer_done) {
++			ret = regmap_read_poll_timeout(i2c->map,
++						       ANDES_I2C_STATUS_REG,
++						       val, val & mask, 2000,
++						       ANDES_I2C_TIMEOUT_US);
++			if (ret)
++				return ret;
++
++			andes_i2c_xfer_common(i2c, val);
++		}
++
++		if (!i2c->addr_hit)
++			return -ENXIO;
++	}
++
++	/* Check if all data is successfully transmitted */
++	regmap_read(i2c->map, ANDES_I2C_CTRL_REG, &i2c_ctrl);
++	if (FIELD_GET(ANDES_I2C_CTRL_DATA_CNT, i2c_ctrl))
++		return -EIO;
++
++	return 0;
++}
++
++static int andes_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msg,
++			  int num)
++{
++	int i;
++	struct i2c_msg *m;
++	struct andes_i2c *i2c = i2c_get_adapdata(adap);
++	int ret;
++
++	for (i = 0; i < num; i++) {
++		m = &msg[i];
++		i2c->addr_hit = false;
++		i2c->buf = m->buf;
++		i2c->buf_len = m->len;
++		i2c->xfer_done = false;
++		ret = andes_i2c_xfer_wait(i2c, m);
++		if (ret < 0)
++			return ret;
++	}
++
++	return num;
++}
++
++static u32 andes_i2c_func(struct i2c_adapter *adap)
++{
++	return I2C_FUNC_I2C | I2C_FUNC_SMBUS_EMUL;
++}
++
++static struct i2c_algorithm andes_i2c_algo = {
++	.xfer = andes_i2c_xfer,
++	.functionality = andes_i2c_func,
++};
++
++static const struct i2c_adapter_quirks andes_i2c_quirks = {
++	.flags = I2C_AQ_NO_ZERO_LEN,
++	.max_write_len = ANDES_I2C_MAX_DATA_LEN,
++	.max_read_len = ANDES_I2C_MAX_DATA_LEN,
++};
++
++static int andes_i2c_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct andes_i2c *i2c;
++	void __iomem *reg_base;
++	u32 i2c_id;
++	int ret;
++	struct i2c_adapter *adap;
++
++	i2c = devm_kzalloc(dev, sizeof(*i2c), GFP_KERNEL);
++	if (!i2c)
++		return -ENOMEM;
++
++	reg_base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(reg_base))
++		return dev_err_probe(dev, PTR_ERR(reg_base),
++				     "failed to map I/O space\n");
++
++	i2c->map = devm_regmap_init_mmio(dev, reg_base,
++					 &andes_i2c_regmap_config);
++	if (IS_ERR(i2c->map))
++		return dev_err_probe(dev, PTR_ERR(i2c->map),
++				     "failed to initialize regmap\n");
++
++	regmap_read(i2c->map, ANDES_I2C_ID_REG, &i2c_id);
++	if (FIELD_GET(ANDES_I2C_ID_MASK, i2c_id) != ANDES_I2C_ID)
++		return dev_err_probe(dev, -ENODEV, "unmatched hardware ID 0x%x\n",
++				     i2c_id);
++
++	i2c->irq = platform_get_irq(pdev, 0);
++	if (i2c->irq >= 0) {
++		ret = devm_request_irq(dev, i2c->irq, andes_i2c_irq_handler, 0,
++				       dev_name(dev), i2c);
++		if (ret < 0)
++			return dev_err_probe(dev, ret, "unable to request IRQ %d\n",
++					     i2c->irq);
++	} else {
++		dev_warn(dev, "no IRQ resource, falling back to poll mode\n");
++	}
++
++	spin_lock_init(&i2c->lock);
++	init_completion(&i2c->completion);
++	adap = &i2c->adap;
++	strscpy(adap->name, pdev->name, sizeof(adap->name));
++	adap->algo = &andes_i2c_algo;
++	adap->class = I2C_CLASS_HWMON;
++	adap->dev.parent = dev;
++	adap->dev.of_node = dev->of_node;
++	adap->owner = THIS_MODULE;
++	adap->quirks = &andes_i2c_quirks;
++	adap->retries = 1;
++	adap->timeout = ANDES_I2C_TIMEOUT;
++	i2c_set_adapdata(adap, i2c);
++	platform_set_drvdata(pdev, i2c);
++	ret = devm_i2c_add_adapter(dev, adap);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to add adapter\n");
++
++	regmap_read(i2c->map, ANDES_I2C_CFG_REG, &i2c->fifo_size);
++	i2c->fifo_size = 2 << FIELD_GET(ANDES_I2C_CFG_FIFOSIZE, i2c->fifo_size);
++
++	regmap_set_bits(i2c->map, ANDES_I2C_SETUP_REG,
++			ANDES_I2C_SETUP_IICEN | ANDES_I2C_SETUP_REQ);
++	return 0;
++}
++
++static const struct of_device_id andes_i2c_of_match[] = {
++	{ .compatible = "andestech,ae350-i2c" },
++	{ /* sentinel */ }
++};
++
++MODULE_DEVICE_TABLE(of, andes_i2c_of_match);
++
++static struct platform_driver andes_i2c_platform_driver = {
++	.driver = {
++		.name = "andes_i2c",
++		.of_match_table	= andes_i2c_of_match,
++	},
++	.probe = andes_i2c_probe,
++};
++
++module_platform_driver(andes_i2c_platform_driver);
++
++MODULE_AUTHOR("Ben Zong-You Xie <ben717@andestech.com>");
++MODULE_DESCRIPTION("Andes I2C controller driver");
++MODULE_LICENSE("GPL");
+
+-- 
+2.34.1
+
 
 
 _______________________________________________
