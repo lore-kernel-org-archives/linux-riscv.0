@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69BB1D6CFA8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97BE0D6CFA6
 	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jan 2026 21:36:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:References:
-	Mime-Version:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8ep1xbq3/FgjFPQhPgLN/NMKOURwuMBJa8rJxPnQ1Ic=; b=MyUGrjzL9VhBHW
-	GJ6vmUvU5ChOvEVCLVz+n890fNL0T3Ud5l44ZzjEHDER1+VC7M8EcCeq1mnBhyXyboOk1ANWCe+WA
-	lh8nNUhh4PFotgEs0Rk1i1EzohsuI6hxPSQSwT8pE/KpCa7PvT8u3gbVV/mDQDxfIQP/YodXjxxUg
-	EcdWCAWv1J+UxUiXqrC5OBcrmlyKtrJlitkznj4wxJUBMs7wfn8ZozfRT6W9K7oRRDP1RFbDSZzRa
-	V4M89288ZOdfAP4yhdL1g+uB3vuDVFvphEx41+iXvyZ9CurFrnlffCdbhLlFhWolr6VrMpkhZ2oX6
-	wPRmIIjaARCsL//aJPmg==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:Mime-Version
+	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xhZ2BikZv1qoWwGerOInjdgCqre4xz/FovVn/tNllMg=; b=18fMdztNCgeI0y
+	mTCZfZs3iZffR7WAyKeSiCYhEpG6jWvQGnVxNKRhwQGPc8fpmfnjXOhDlWrn2byPYdVj7dXFftqK9
+	y2J7pqRqauqalNBmUqLPjPquwmRX6kJ8AhvhhIHtnBU0ySHfqZWwyKe6cpKVeFiBVkiUz68jIyTdr
+	eM8YKJoLhkbj3n7OUe0fTgFjqxQKbPlSeP7W9bIrRr6BX5Dp587BicbRjc5q7l7jTWhSGcsBx6BuZ
+	QXUOpAUqOCku1dPoOeimZzhkmL+tr7o5PjtZfBpPQxTEno8BjpONQcYyWJjTNee5KvW0fuQLtwLXi
+	8XAQckxAsSWIHjzvVtwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj2L3-00000007mN8-2oQk;
-	Thu, 22 Jan 2026 21:35:37 +0000
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	id 1vj2Ku-00000007mHr-1I6R;
+	Thu, 22 Jan 2026 21:35:28 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj2Kw-00000007mIH-0NIT
+	id 1vj2Kr-00000007mFp-0waX
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jan 2026 21:35:31 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2b70c92f404so2062587eec.0
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Jan 2026 13:35:29 -0800 (PST)
+	Thu, 22 Jan 2026 21:35:26 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2b6f0b345e3so7790431eec.0
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Jan 2026 13:35:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769117729; x=1769722529; darn=lists.infradead.org;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DnbHjkP7sr2MY8dvLIuI6wPgadGKGFiX6WTYohRo5Kw=;
-        b=zhLTrDPBW0Nu+S9nGlP0IuRQVwaAvz6c3DyprSns/6FovEt/ZG9AQXMAtaZ/LdCovV
-         gSlDb3ywBhaSyLPaJ3OQ6SFCx/buAwN4YSklfBJ79aiq/KSDcfwveG+3J3bePvcZTA9m
-         5m05oHlafpuoZtz0hAv3Vpe1iqlbIPSaIdgBjVSpb0fU6v2ZfQiGlYKEn+rQgR9Vw2Na
-         s60qdBOdpX5dI4Y3B/VNCbelU2dLpfOB3xNrWWHiactegBcbXo6kK9VO3hffv2abMtJ0
-         AFdNe9nafHIuYwO2FWgmxPQ7c/L1iPS3BgNyKuS3MlOhInYPj2pae7uV7RfuQQdCqmRE
-         6Ung==
+        d=google.com; s=20230601; t=1769117723; x=1769722523; darn=lists.infradead.org;
+        h=to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ZjxarqoXVmrnwFoXxcECDiv8CYdTI3p8aLn4Yna1I44=;
+        b=hDILKNswD5LB0GHWf7teNRkuxoQhVzvycJiqOytRTRdN+k41cVkOvSIo1DzDPRVMy1
+         Jgpd3WbrtvrBoAzbAlwebOt3XiO52SaSOcwXnUYeZDJ7bBJKGCHBdGB24Ei6CdJTZ2kr
+         NvkubtCj9H+FcMFvQMFkEjCVBeqSKWeAcXrD5OvNI8AkaCG8cmDj5QbUDoBQfnCUtIM7
+         zI9gHwbnqI6hi7ezd9tDvUuLYpdRRo7UMnmNjnD0k4vbtzgqGjKuun3xyVo3lWFdYYoe
+         nHbKF3yE0noXT5latQn01VOJ6ktDQklPzR1S/Fa+yNOBuPt+R4Ff75wuZ3PtKnLcV0Z+
+         P/pA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769117729; x=1769722529;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DnbHjkP7sr2MY8dvLIuI6wPgadGKGFiX6WTYohRo5Kw=;
-        b=YHBv6RI3LuIRQ2Nu3T1q6BCnr1J27MTdCRFOJFsChEmPAjzlTLHaPYImxSxjwGU1Jl
-         BRzoCU/+jsF6ZcKU6PonkXc0NmE5pJuhMvEVTC0ubXzXUHY68nBckvjYN/oROx/bnHUF
-         m7OphNx+oWmsGofAoBOo9Eiv/rDhyMKqJQGdtT5AggnBXq0s1ylwnw/BiTON3l05/rUW
-         NM8JIqk8+KvDB5x3yAwemcyKJzPweHcYOM6NB3JMfDu8Srrk6jmWfltWBvPCLP8Eo6S7
-         adszH2ABnWMaFF+opNTw3G2BjIaPtJMh4+vz4UQrWJjgx4C16Kily05HCFdV8MBualrC
-         szaw==
-X-Forwarded-Encrypted: i=1; AJvYcCUxMGp1LLIXH6ZI7p6yTZR479fgxY2a1CM6RmxogreGe7MiMOHcn1eoZQQ/xEj6G42kc6uDclW8vYaYlA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJymwcIRcprdSBTGP1SzeHNb2T0cpwhFUr28n6rj5L7/cDTmFh
-	vy3zKF7mHQJfl8DGKXdtaogB1TDx+63HMhDwYG9q+NJKFf7lzxMbj610/QAAs/0rsdXAbodKdTw
-	0zfCjMq1Ffw==
-X-Received: from dycok8.prod.google.com ([2002:a05:7301:db08:b0:2ac:32e7:3ccd])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:4084:b0:2b7:2263:3d3c
- with SMTP id 5a478bee46e88-2b739b6d29fmr262486eec.24.1769117728705; Thu, 22
- Jan 2026 13:35:28 -0800 (PST)
-Date: Thu, 22 Jan 2026 13:35:07 -0800
-In-Reply-To: <20260122213516.671089-1-irogers@google.com>
+        d=1e100.net; s=20230601; t=1769117723; x=1769722523;
+        h=to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ZjxarqoXVmrnwFoXxcECDiv8CYdTI3p8aLn4Yna1I44=;
+        b=b1+Rht6B9PsOYNhJTUFq0q4zb9VduO/U+Id3+9qGJ8SK6i7W7oW+KSLGMiaRnQh4/p
+         R/f/3sYcWl9jSM/M6eI6DN6sUgo9/zUZPtZqs5AFm3M/6ac3ZJyl34I8FIyIIaUWTz9t
+         fdcEKGauSNQB6zL6iMb4dBZo8pES0DAnQVTOMwFNu4JscNCN0ucsOrLrkrBdLNFBSrZn
+         tj/wrcLZawVx/p+r1JsYPXhv1YgyDS+sBqsVLCesyX7It1PupRqiyDXjQ+w4DAy9Hega
+         HUDIwerJcmC6srlnj7XWjGwgyPqQVt59i4QzddtTlj+TNIvqf2rmovhM0I7i0IswPr5Z
+         6fGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCULK22seNAdpgPhK7Oe0SZ88ce43L3O5F5Qdj8D+zTBIf12SCo+CfhElr2Wcapcyh9O/v6qkBSrskRilg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvEFq+mcQ3pGTpSbT307/xHOHikoingE/WKY04L72lhMuo987Z
+	1CxFUM4mNNLrVK5jpLdqBOHBgnQXMNhhFuvZbJMTl03SptJB/wkqUzpDeHqahQ8dpPQhM2Tcq+l
+	sqN23U9mWDw==
+X-Received: from dycph3.prod.google.com ([2002:a05:7300:dd43:b0:2b7:b7:1269])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:6094:b0:2ae:5d5b:4ed0
+ with SMTP id 5a478bee46e88-2b739b751e6mr408223eec.21.1769117723263; Thu, 22
+ Jan 2026 13:35:23 -0800 (PST)
+Date: Thu, 22 Jan 2026 13:35:04 -0800
 Mime-Version: 1.0
-References: <20260122213516.671089-1-irogers@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260122213516.671089-4-irogers@google.com>
-Subject: [PATCH v3 03/12] perf maps: Fix reference count leak in maps__find_ams
+Message-ID: <20260122213516.671089-1-irogers@google.com>
+Subject: [PATCH v3 00/12] perf annotate arch clean up
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -87,9 +85,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_133530_124693_1EED03B5 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260122_133525_260960_3269228D 
+X-CRM114-Status: GOOD (  18.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,28 +103,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ams and so ams->ms.map is an in argument, however, it is also
-overwritten. As a map is reference counted, ensure a map__put is done
-before overwriting it.
+3 initial memory leak fix patches for perf annotate.
 
-Signed-off-by: Ian Rogers <irogers@google.com>
-Fixes: 42fd623b58db ("perf maps: Get map before returning in maps__find")
----
- tools/perf/util/maps.c | 1 +
- 1 file changed, 1 insertion(+)
+Move the disasm.c #included arch files into a new util/annotate-arch
+directory. Make the code compile standalone. Try to better encapsulate
+architecture specific code within the files and with a
+arch__new_<arch> function that allows additional data to be associated
+with the struct arch using the standard container_of trick.
 
-diff --git a/tools/perf/util/maps.c b/tools/perf/util/maps.c
-index 8ccc46d515b6..4092211cff62 100644
---- a/tools/perf/util/maps.c
-+++ b/tools/perf/util/maps.c
-@@ -708,6 +708,7 @@ int maps__find_ams(struct maps *maps, struct addr_map_symbol *ams)
- 	if (ams->addr < map__start(ams->ms.map) || ams->addr >= map__end(ams->ms.map)) {
- 		if (maps == NULL)
- 			return -1;
-+		map__put(ams->ms.map);
- 		ams->ms.map = maps__find(maps, ams->addr);
- 		if (ams->ms.map == NULL)
- 			return -1;
+Make the lookup of struct arch use the ELF machine gather from a
+thread rather than an evsel. For example, the evsel can't determine
+the difference between EM_386 and EM_X86_64 so generally the latter
+has currently been used. This means the dwarf registers are off as
+register 1 is CX with EM_386 and DX with EM_X86_64. To facilitate this
+change map_symbol is refactored to use a struct thread rather than a
+struct maps, the maps being obtainable from the thread.
+
+To make in and out arguments clearer, for safety, etc. try to constify
+struct arch and its related structs.
+
+v3: Fix arch initialization on arm, arm64, powerpc and sparc as spotted by Suchit
+    Karunakaranw.
+
+v2: Add a patch to fix a domain info memory leak that was blocking
+    leak sanitizer analysis. Fix more map_symbol leaks or uses after
+    reference count put (Suchit Karunakaranw
+    <suchitkarunakaran@gmail.com>).  Try to repro annotate test crash
+    (James Clark) but suspect it was addressed in the other reference
+    count fixes.
+    https://lore.kernel.org/lkml/20260122165407.561888-1-irogers@google.com/
+
+v1: https://lore.kernel.org/lkml/20260122073127.375139-1-irogers@google.com/
+
+Ian Rogers (12):
+  perf header: Fix memory leaks in process_cpu_domain_info
+  perf annotate: Fix args leak of map_symbol
+  perf maps: Fix reference count leak in maps__find_ams
+  perf disasm: Constify use of struct arch
+  perf disasm: Constify use of struct ins_op
+  perf disasm: Constify use of struct ins
+  perf disasm: Rework the string arch__is to use the ELF machine
+  perf disasm: Don't include C files from the arch directory
+  perf disasm: Refactor ins__is_call/jump to avoid exposing arch ins_ops
+  perf map_symbol: Switch from holding maps to holding thread
+  perf disasm: Refactor arch__find and initialization of arch structs
+  perf disasm: Minor layout tweaks for struct arch
+
+ tools/perf/arch/arc/annotate/instructions.c   |  11 -
+ .../perf/arch/riscv64/annotate/instructions.c |  36 --
+ tools/perf/ui/browsers/annotate.c             |   6 +-
+ tools/perf/ui/browsers/hists.c                |   3 +-
+ tools/perf/util/Build                         |   1 +
+ tools/perf/util/addr_location.c               |   4 -
+ tools/perf/util/addr_location.h               |   1 -
+ tools/perf/util/annotate-arch/Build           |  11 +
+ tools/perf/util/annotate-arch/annotate-arc.c  |  18 +
+ .../annotate-arch/annotate-arm.c}             |  50 +-
+ .../annotate-arch/annotate-arm64.c}           |  59 +--
+ .../annotate-arch/annotate-csky.c}            |  29 +-
+ .../annotate-arch/annotate-loongarch.c}       |  71 +--
+ .../annotate-arch/annotate-mips.c}            |  29 +-
+ .../annotate-arch/annotate-powerpc.c}         | 127 +++++-
+ .../util/annotate-arch/annotate-riscv64.c     |  41 ++
+ .../annotate-arch/annotate-s390.c}            |  70 +--
+ .../annotate-arch/annotate-sparc.c}           |  28 +-
+ .../annotate-arch/annotate-x86.c}             |  89 ++--
+ tools/perf/util/annotate-data.c               |  12 +-
+ tools/perf/util/annotate-data.h               |   2 +-
+ tools/perf/util/annotate.c                    |  88 ++--
+ tools/perf/util/annotate.h                    |  10 +-
+ tools/perf/util/callchain.c                   |  12 +-
+ tools/perf/util/capstone.c                    |  18 +-
+ tools/perf/util/db-export.c                   |   1 -
+ tools/perf/util/disasm.c                      | 428 +++++++-----------
+ tools/perf/util/disasm.h                      |  95 ++--
+ tools/perf/util/event.c                       |   2 -
+ tools/perf/util/header.c                      |  17 +-
+ tools/perf/util/hist.c                        |  18 +-
+ tools/perf/util/llvm.c                        |   8 +-
+ tools/perf/util/machine.c                     |  13 +-
+ tools/perf/util/map_symbol.c                  |   5 +-
+ tools/perf/util/map_symbol.h                  |   3 +-
+ tools/perf/util/maps.c                        |   1 +
+ tools/perf/util/sort.c                        |   2 +-
+ tools/perf/util/unwind-libdw.c                |   2 +-
+ tools/perf/util/unwind-libunwind-local.c      |   2 +-
+ 39 files changed, 775 insertions(+), 648 deletions(-)
+ delete mode 100644 tools/perf/arch/arc/annotate/instructions.c
+ delete mode 100644 tools/perf/arch/riscv64/annotate/instructions.c
+ create mode 100644 tools/perf/util/annotate-arch/Build
+ create mode 100644 tools/perf/util/annotate-arch/annotate-arc.c
+ rename tools/perf/{arch/arm/annotate/instructions.c => util/annotate-arch/annotate-arm.c} (59%)
+ rename tools/perf/{arch/arm64/annotate/instructions.c => util/annotate-arch/annotate-arm64.c} (70%)
+ rename tools/perf/{arch/csky/annotate/instructions.c => util/annotate-arch/annotate-csky.c} (67%)
+ rename tools/perf/{arch/loongarch/annotate/instructions.c => util/annotate-arch/annotate-loongarch.c} (60%)
+ rename tools/perf/{arch/mips/annotate/instructions.c => util/annotate-arch/annotate-mips.c} (59%)
+ rename tools/perf/{arch/powerpc/annotate/instructions.c => util/annotate-arch/annotate-powerpc.c} (73%)
+ create mode 100644 tools/perf/util/annotate-arch/annotate-riscv64.c
+ rename tools/perf/{arch/s390/annotate/instructions.c => util/annotate-arch/annotate-s390.c} (66%)
+ rename tools/perf/{arch/sparc/annotate/instructions.c => util/annotate-arch/annotate-sparc.c} (85%)
+ rename tools/perf/{arch/x86/annotate/instructions.c => util/annotate-arch/annotate-x86.c} (93%)
+
 -- 
 2.52.0.457.g6b5491de43-goog
 
