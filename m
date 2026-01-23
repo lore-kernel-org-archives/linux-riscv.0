@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC2ABD72355
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jan 2026 08:59:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E52D72350
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jan 2026 09:29:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y6v4+uVgMI5emR0mer+ps9NOxyPZQdew/j5PUGkBUfc=; b=bvNevH74SnxFvm
-	ysDXslyykBr9pvP0sl9ZdaDTLYzMoAw6kG7NoEnFksRMeAMmqxlq7ty/mSpskU9Kr/NlNKIrwoIDe
-	GSxGKw+6QZzi1kdxPf/Roccypbx987uhXYjInVEajUV0lAj+i3B4+cZB2OTaNsU6+ehfrUlS3OPdk
-	wnM1dULgafvX5BnpAAshnxBCXqm5n3oAUXqnjTFEqv97MWaIqm2fnwONFqzWzxJCKiXLA1eCbviVl
-	Q/cTEpyKy8FOSGA/BtX30bsEWmhSl6kbVN8Tb7R/25t2pDmOj5/+dGSSvWDjzORLz80XOuXp6aVOT
-	uu0pGYMs0eTF1gdpodMw==;
+	List-Owner; bh=Xz4X5+0qdDh1K+SHRoAha625LWSn1klsxJDxlLM6ue4=; b=prF5FTFI9fM5hG
+	mQ5lsdhKmSWfExjVeNBiLi0QIYDuncCEZ5rp2YlyMYlbRiFg5/VzBWRRNbFS1Ir2ahbSDrat5BhGe
+	lH2f9xFElH3D2+6kaoiGfT+6kztnW8UaUdE/hRXHhu/Zrbh87tJwytTLrM3AfBpUGfdCbpaQm3r/Y
+	I4itIeFb3uS3/7vaWO9nQcJ+c2XC2J7q27/EvkJ8BHHj/TNmWXcLR7BYgAJwqJoiPjGGh/w67t/VC
+	KbWt3pSHY7vrl/K8TRd9DBT9rUb8fKf6835U09dE253THhqEbVzyJAH9fTbtLgd/N7mo8rz9PNMu3
+	6AuFpnYGVDhu6SkggGAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjD0R-00000008VtB-3XEX;
-	Fri, 23 Jan 2026 08:59:03 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1vjDTa-00000008Zfz-1HkK;
+	Fri, 23 Jan 2026 09:29:10 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjD0N-00000008VnX-0Qjr
+	id 1vjDTX-00000008ZfG-3oc5
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Jan 2026 08:59:00 +0000
-X-UUID: bcb91302f83911f0b0f03b4cfa9209d1-20260123
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:b899f6a1-1e9b-4402-826e-8ac7b618a117,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:a9d874c,CLOUDID:cafa3f54b4ba1725d8a95b5766bd95e9,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
-	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
-	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: bcb91302f83911f0b0f03b4cfa9209d1-20260123
-X-User: jiangfeng@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1148596265; Fri, 23 Jan 2026 16:58:51 +0800
-From: Feng Jiang <jiangfeng@kylinos.cn>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	akpm@linux-foundation.org,
-	kees@kernel.org,
-	andy@kernel.org,
-	jiangfeng@kylinos.cn,
-	ebiggers@kernel.org,
-	martin.petersen@oracle.com,
-	mingo@kernel.org,
-	charlie@rivosinc.com,
-	conor.dooley@microchip.com,
-	samuel.holland@sifive.com,
-	linus.walleij@linaro.org,
-	nathan@kernel.org
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: [PATCH v4 4/8] lib/string_kunit: add performance benchmark for strlen()
-Date: Fri, 23 Jan 2026 16:58:37 +0800
-Message-Id: <20260123085841.212468-5-jiangfeng@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260123085841.212468-1-jiangfeng@kylinos.cn>
-References: <20260123085841.212468-1-jiangfeng@kylinos.cn>
+	Fri, 23 Jan 2026 09:29:09 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.103.171])
+	by APP-03 (Coremail) with SMTP id rQCowABXZ85EP3NppX1gBg--.20954S4;
+	Fri, 23 Jan 2026 17:28:52 +0800 (CST)
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>
+Subject: [PATCH v6 2/9] dt-bindings: display: add verisilicon,dc
+Date: Fri, 23 Jan 2026 17:28:23 +0800
+Message-ID: <20260123092830.4046009-3-zhengxingda@iscas.ac.cn>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260123092830.4046009-1-zhengxingda@iscas.ac.cn>
+References: <20260123092830.4046009-1-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
+X-CM-TRANSID: rQCowABXZ85EP3NppX1gBg--.20954S4
+X-Coremail-Antispam: 1UD129KBjvJXoWxur17uw4fuw4UCFW5Xr1rCrg_yoWruryrpa
+	n3AFWxtF4vqF13Xws3JFyIgw4rtan5Zr10gryxXw1jyan0gFy0qw4akrn8Za4DJF92vay7
+	WFWj9r4Ikw1IyaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmY14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
+	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
+	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
+	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
+	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
+	xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
+	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
+	kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY
+	6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42
+	IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIev
+	Ja73UjIFyTuYvjTRNiSHDUUUU
+X-Originating-IP: [112.94.103.171]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_005859_450096_2A259139 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20260123_012908_327662_D70F43C5 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,251 +89,183 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Philipp Zabel <p.zabel@pengutronix.de>, Han Gao <rabenda.cn@gmail.com>, Michal Wilczynski <m.wilczynski@samsung.com>, linux-riscv@lists.infradead.org, Luca Ceresoli <luca.ceresoli@bootlin.com>, Dmitry Baryshkov <lumag@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce a benchmarking framework to the string_kunit test suite to
-measure the execution efficiency of string functions.
+From: Icenowy Zheng <uwu@icenowy.me>
 
-The implementation is inspired by crc_benchmark(), measuring throughput
-(MB/s) and latency (ns/call) across a range of string lengths. It
-includes a warm-up phase, disables preemption during measurement, and
-uses a fixed seed for reproducible results.
+Verisilicon has a series of display controllers prefixed with DC and
+with self-identification facility like their GC series GPUs.
 
-This framework allows for comparing different implementations (e.g.,
-generic C vs. architecture-optimized assembly) within the KUnit
-environment.
+Add a device tree binding for it.
 
-Initially, provide a benchmark for strlen().
+Depends on the specific DC model, it can have either one or two display
+outputs, and each display output could be set to DPI signal or "DP"
+signal (which seems to be some plain parallel bus to HDMI controllers).
 
-Suggested-by: Andy Shevchenko <andy@kernel.org>
-Suggested-by: Eric Biggers <ebiggers@kernel.org>
-Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- lib/Kconfig.debug        |  11 +++
- lib/tests/string_kunit.c | 158 +++++++++++++++++++++++++++++++++++++++
- 2 files changed, 169 insertions(+)
+Changes in v6:
+- Added Rob's R-b.
 
-diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-index ba36939fda79..21b058ae815f 100644
---- a/lib/Kconfig.debug
-+++ b/lib/Kconfig.debug
-@@ -2475,6 +2475,17 @@ config STRING_HELPERS_KUNIT_TEST
- 	depends on KUNIT
- 	default KUNIT_ALL_TESTS
- 
-+config STRING_KUNIT_BENCH
-+       bool "Benchmark string functions at runtime"
-+       depends on STRING_KUNIT_TEST
-+       help
-+         Enable performance measurement for string functions.
+Changes in v5:
+- Dropped the requirement of port@0.
+- Dropped the if clause for TH1520, which seems to be not needed because
+  of implicit DT binding rules.
+
+Changes in v4:
+- Added a comment for "verisilicon,dc" that says the ID/revision is
+  discoverable via registers.
+- Removed clock minItems constraint w/o specific compatible strings.
+
+Changes in v3:
+- Added SoC-specific compatible string, and arm the binding with clock /
+  port checking for the specific SoC (with a 2-output DC).
+
+Changes in v2:
+- Fixed misspelt "versilicon" in title.
+- Moved minItems in clock properties to be earlier than items.
+- Re-aligned multi-line clocks and resets in example.
+
+ .../bindings/display/verisilicon,dc.yaml      | 122 ++++++++++++++++++
+ 1 file changed, 122 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+
+diff --git a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+new file mode 100644
+index 0000000000000..9dc35ab973f20
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+@@ -0,0 +1,122 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/verisilicon,dc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+         This measures the execution efficiency of string functions
-+         during the KUnit test run.
++title: Verisilicon DC-series display controllers
 +
-+         If unsure, say N.
++maintainers:
++  - Icenowy Zheng <uwu@icenowy.me>
 +
- config FFS_KUNIT_TEST
- 	tristate "KUnit test ffs-family functions at runtime" if !KUNIT_ALL_TESTS
- 	depends on KUNIT
-diff --git a/lib/tests/string_kunit.c b/lib/tests/string_kunit.c
-index 7f1e2bf6a352..52798f426aa9 100644
---- a/lib/tests/string_kunit.c
-+++ b/lib/tests/string_kunit.c
-@@ -6,10 +6,13 @@
- #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
- 
- #include <kunit/test.h>
-+#include <linux/math64.h>
- #include <linux/module.h>
-+#include <linux/prandom.h>
- #include <linux/printk.h>
- #include <linux/slab.h>
- #include <linux/string.h>
-+#include <linux/units.h>
- 
- #define STRCMP_LARGE_BUF_LEN 2048
- #define STRCMP_CHANGE_POINT 1337
-@@ -20,6 +23,9 @@
- #define STRING_TEST_MAX_LEN	128
- #define STRING_TEST_MAX_OFFSET	16
- 
-+#define STRING_BENCH_SEED	888
-+#define STRING_BENCH_WORKLOAD	(1 * MEGA)
++properties:
++  $nodename:
++    pattern: "^display@[0-9a-f]+$"
 +
- static void string_test_memset16(struct kunit *test)
- {
- 	unsigned i, j, k;
-@@ -700,6 +706,157 @@ static void string_test_strends(struct kunit *test)
- 	KUNIT_EXPECT_TRUE(test, strends("", ""));
- }
- 
-+/* Target string lengths for benchmarking */
-+static const size_t bench_lens[] = {
-+	0, 1, 7, 8, 16, 31, 64, 127, 512, 1024, 3173, 4096,
-+};
++  compatible:
++    items:
++      - enum:
++          - thead,th1520-dc8200
++      - const: verisilicon,dc # DC IPs have discoverable ID/revision registers
 +
-+/**
-+ * alloc_max_bench_buffer() - Allocate buffer for the max test case.
-+ * @test: KUnit context for managed allocation.
-+ * @lens: Array of lengths used in the benchmark cases.
-+ * @count: Number of elements in the @lens array.
-+ * @buf_len: [out] Pointer to store the actually allocated buffer
-+ * size (including NUL character).
-+ *
-+ * Return: Pointer to the allocated memory, or NULL on failure.
-+ */
-+static void *alloc_max_bench_buffer(struct kunit *test,
-+		const size_t *lens, size_t count, size_t *buf_len)
-+{
-+	size_t i, max_len = 0;
-+	void *buf;
++  reg:
++    maxItems: 1
 +
-+	for (i = 0; i < count; i++) {
-+		if (max_len < lens[i])
-+			max_len = lens[i];
-+	}
++  interrupts:
++    maxItems: 1
 +
-+	/* Add space for NUL character */
-+	max_len += 1;
++  clocks:
++    items:
++      - description: DC Core clock
++      - description: DMA AXI bus clock
++      - description: Configuration AHB bus clock
++      - description: Pixel clock of output 0
++      - description: Pixel clock of output 1
 +
-+	buf = kunit_kzalloc(test, max_len, GFP_KERNEL);
-+	if (!buf)
-+		return NULL;
++  clock-names:
++    items:
++      - const: core
++      - const: axi
++      - const: ahb
++      - const: pix0
++      - const: pix1
 +
-+	if (buf_len)
-+		*buf_len = max_len;
++  resets:
++    items:
++      - description: DC Core reset
++      - description: DMA AXI bus reset
++      - description: Configuration AHB bus reset
 +
-+	return buf;
-+}
++  reset-names:
++    items:
++      - const: core
++      - const: axi
++      - const: ahb
 +
-+/**
-+ * fill_random_string() - Populate a buffer with a random NUL-terminated string.
-+ * @buf: Buffer to fill.
-+ * @len: Length of the buffer in bytes.
-+ *
-+ * Fills the buffer with random non-NUL bytes and ensures the string is
-+ * properly NUL-terminated.
-+ */
-+static void fill_random_string(char *buf, size_t len)
-+{
-+	struct rnd_state state;
-+	size_t i;
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
 +
-+	if (!buf || !len)
-+		return;
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: The first output channel , endpoint 0 should be
++          used for DPI format output and endpoint 1 should be used
++          for DP format output.
 +
-+	/* Use a fixed seed to ensure deterministic benchmark results */
-+	prandom_seed_state(&state, STRING_BENCH_SEED);
-+	prandom_bytes_state(&state, buf, len);
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: The second output channel if the DC variant
++          supports. Follow the same endpoint addressing rule with
++          the first port.
 +
-+	/* Replace NUL characters to avoid early string termination */
-+	for (i = 0; i < len; i++) {
-+		if (buf[i] == '\0')
-+			buf[i] = 0x01;
-+	}
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - ports
 +
-+	buf[len - 1] = '\0';
-+}
++additionalProperties: false
 +
-+/**
-+ * STRING_BENCH() - Benchmark string functions.
-+ * @iters: Number of iterations to run.
-+ * @func: Function to benchmark.
-+ * @...: Variable arguments passed to @func.
-+ *
-+ * Disables preemption and measures the total time in nanoseconds to execute
-+ * @func(@__VA_ARGS__) for @iters times, including a small warm-up phase.
-+ *
-+ * Context: Disables preemption during measurement.
-+ * Return: Total execution time in nanoseconds (u64).
-+ */
-+#define STRING_BENCH(iters, func, ...)					\
-+({									\
-+	/* Volatile function pointer prevents dead code elimination */	\
-+	typeof(func) (* volatile __func) = (func);			\
-+	size_t __bn_iters = (iters);					\
-+	size_t __bn_warm_iters;						\
-+	size_t __bn_i;							\
-+	u64 __bn_t;							\
-+									\
-+	__bn_warm_iters = max(__bn_iters / 10, 50U);			\
-+									\
-+	for (__bn_i = 0; __bn_i < __bn_warm_iters; __bn_i++)		\
-+		(void)__func(__VA_ARGS__);				\
-+									\
-+	preempt_disable();						\
-+	__bn_t = ktime_get_ns();					\
-+	for (__bn_i = 0; __bn_i < __bn_iters; __bn_i++)			\
-+		(void)__func(__VA_ARGS__);				\
-+	__bn_t = ktime_get_ns() - __bn_t;				\
-+	preempt_enable();						\
-+	__bn_t;								\
-+})
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
++    #include <dt-bindings/reset/thead,th1520-reset.h>
++    soc {
++      #address-cells = <2>;
++      #size-cells = <2>;
 +
-+/**
-+ * STRING_BENCH_BUF() - Benchmark harness for single-buffer functions.
-+ * @test: KUnit context.
-+ * @buf_name: Local char * variable name to be defined.
-+ * @buf_size: Local size_t variable name to be defined.
-+ * @func: Function to benchmark.
-+ * @...: Extra arguments for @func.
-+ *
-+ * Prepares a randomized, NUL-terminated buffer and iterates through lengths
-+ * in bench_lens, defining @buf_name and @buf_size in each loop.
-+ */
-+#define STRING_BENCH_BUF(test, buf_name, buf_size, func, ...)		\
-+do {									\
-+	size_t buf_size, _bn_i, _bn_iters, _bn_size = 0;		\
-+	u64 _bn_t, _bn_mbps = 0, _bn_lat = 0;				\
-+	char *buf_name, *_bn_buf;					\
-+									\
-+	if (!IS_ENABLED(CONFIG_STRING_KUNIT_BENCH))			\
-+		kunit_skip(test, "not enabled");			\
-+									\
-+	_bn_buf = alloc_max_bench_buffer(test, bench_lens,		\
-+			ARRAY_SIZE(bench_lens), &_bn_size);		\
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, _bn_buf);			\
-+									\
-+	fill_random_string(_bn_buf, _bn_size);				\
-+									\
-+	for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {	\
-+		buf_size = bench_lens[_bn_i];				\
-+		buf_name = _bn_buf + _bn_size - buf_size - 1;		\
-+		_bn_iters = STRING_BENCH_WORKLOAD / max(buf_size, 1U);	\
-+									\
-+		_bn_t = STRING_BENCH(_bn_iters, func, ##__VA_ARGS__);	\
-+									\
-+		if (_bn_t > 0) {					\
-+			_bn_mbps = (u64)(buf_size) * _bn_iters * 1000;	\
-+			_bn_mbps = div64_u64(_bn_mbps, _bn_t);		\
-+			_bn_lat = div64_u64(_bn_t, _bn_iters);		\
-+		}							\
-+		kunit_info(test, "len=%zu: %llu MB/s (%llu ns/call)\n",	\
-+				buf_size, _bn_mbps, _bn_lat);		\
-+	}								\
-+} while (0)
++      display@ffef600000 {
++        compatible = "thead,th1520-dc8200", "verisilicon,dc";
++        reg = <0xff 0xef600000 0x0 0x100000>;
++        interrupts = <93 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&clk_vo CLK_DPU_CCLK>,
++                 <&clk_vo CLK_DPU_ACLK>,
++                 <&clk_vo CLK_DPU_HCLK>,
++                 <&clk_vo CLK_DPU_PIXELCLK0>,
++                 <&clk_vo CLK_DPU_PIXELCLK1>;
++        clock-names = "core", "axi", "ahb", "pix0", "pix1";
++        resets = <&rst TH1520_RESET_ID_DPU_CORE>,
++                 <&rst TH1520_RESET_ID_DPU_AXI>,
++                 <&rst TH1520_RESET_ID_DPU_AHB>;
++        reset-names = "core", "axi", "ahb";
 +
-+static void string_bench_strlen(struct kunit *test)
-+{
-+	STRING_BENCH_BUF(test, buf, len, strlen, buf);
-+}
++        ports {
++          #address-cells = <1>;
++          #size-cells = <0>;
 +
- static struct kunit_case string_test_cases[] = {
- 	KUNIT_CASE(string_test_memset16),
- 	KUNIT_CASE(string_test_memset32),
-@@ -725,6 +882,7 @@ static struct kunit_case string_test_cases[] = {
- 	KUNIT_CASE(string_test_strtomem),
- 	KUNIT_CASE(string_test_memtostr),
- 	KUNIT_CASE(string_test_strends),
-+	KUNIT_CASE(string_bench_strlen),
- 	{}
- };
- 
++          port@1 {
++            reg = <1>;
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            dpu_out_dp1: endpoint@1 {
++              reg = <1>;
++              remote-endpoint = <&hdmi_in>;
++            };
++          };
++        };
++      };
++    };
 -- 
-2.25.1
+2.52.0
 
 
 _______________________________________________
