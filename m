@@ -4,99 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB739D6CFAC
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jan 2026 00:31:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E834D6CFAE
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jan 2026 01:24:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=53fdBU7hpFavCO3nc0BHNBy3UbgErm2TyaWEPjovrWg=; b=3TgCAVGaMwVjyg
-	qwyP1mxjv5sq4u2k5fVtIpEMyzOjTEA1VHxo0Tl1WPqa/sttz6ZDzWS+/TABjZeGxHKKPjTBjXbzv
-	QfmQUDTisSMXYwqjFXHrC1PnwyypRCgfygEgVHYWvyhTc9rmN+wNlGRiEW2XXFUHL0F5Xd1rsepqy
-	sOGivHaDxH8J+wRAHzc140JYXmEMVyBed0h8HUqUeEgS0vy0liCl/4H8vXCaox8t0AYivm3AHRbf1
-	DQJ//0EehtACIOckxPVJowGxhgRKIuCUareHKhkPkDyv/zKmuTTtmza/5rych0yP8nlr3adCEkgx0
-	ysSrohux86T0jK65u24g==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BWB7Bxz/EdEnpbS9ev/+N06Y4H7QhXqGJnFcWJN2p4s=; b=JqJmFHc9P1sAUK
+	kQnpO/umfHYzSrd52J7P+hcwFxx29/GsIBcA+dFyJDWVKWOAR0aG7HrVKS/pQ0hR3gQN4RduZCGSj
+	qoNam+6RxzSWOg80djX57VzJ1EUCDDWrNODCIpygogEC8n6vSWKAo3sX2TyPB1LSrwAl/ez8pdljE
+	xAS1bNS/lGIy8nPWYgM/aCjAdVQxDb2sXh/uQQk+6igxlgRMu0aRsilRogZ0jQReQfIA8Rp6NDiVk
+	Nmhdei+Bd5fic7kG3qNpd2SUXzDjkQJ9Chdx8tv+fD3eKB2x+lkcb2V1UvGXZccsiQgSR1Wq9K4rm
+	K1PZkQjXR30tg3dnJvvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj54W-00000007vxL-04XL;
-	Fri, 23 Jan 2026 00:30:44 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vj5uP-00000007xcw-0IHQ;
+	Fri, 23 Jan 2026 01:24:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj54T-00000007vx0-1l9b
+	id 1vj5uM-00000007xcQ-2OD6
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Jan 2026 00:30:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769128221; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=IZX+1LsCpQQ+Rl7KDSFtZgqKtr0PFsWoY/u+das8x/TXSxh+Ln1Hk9x+LvhBnMOhhD04WoVYYpE5cQ7UuNgeA7XlHCsKB5IjjWyZ1BvfungO69wQ/8scKUuKaVt01w89ed8KawoVYjMdgiGCZoTubcf9rarqe8R+8TI2Y8+77dc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769128221; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=/yeziewaw15H86mUs/MvNCnEniIqbrsf9kqGH0zpSXc=; 
-	b=Tt3GOU/H/cyscwd7myazOyzRW77JnO56/aqYeAt/Zkpoe1vOTJYpVVs//RrL8nLiVC50uAxu8dPVbEFPFncY3Zi8ScUHJFG/fTrevf7PE1rmXyegT6LtmAMu7xKcFSitHRUUDmxCOgHUfHdefBNj9kz+/maGAMxgCUlPa0Xryes=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
-	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769128221;
-	s=zohomail; d=collabora.com; i=daniel.almeida@collabora.com;
-	h=Content-Type:Mime-Version:Subject:Subject:From:From:In-Reply-To:Date:Date:Cc:Cc:Content-Transfer-Encoding:Message-Id:Message-Id:References:To:To:Reply-To;
-	bh=/yeziewaw15H86mUs/MvNCnEniIqbrsf9kqGH0zpSXc=;
-	b=JFVN7vr2V3WZMOROff8QAPjioTjWXyMphmAFlpev66SuROF3067M31vA00BA9Qdv
-	9k2102LwLuyRGbUhXPt7+F8xLhnysIan5A9yTTYnFciNuqWiFEWVWPUEbWV9s4yDnMX
-	8Y0Hf0auyWwWFoUrq7zk34PewHnWOptInla8L9JM=
-Received: by mx.zohomail.com with SMTPS id 1769128219741646.6810529308862;
-	Thu, 22 Jan 2026 16:30:19 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81\))
-Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
-From: Daniel Almeida <daniel.almeida@collabora.com>
-In-Reply-To: <20260122-majestic-masterful-jaguarundi-d0abde@houat>
-Date: Thu, 22 Jan 2026 21:29:30 -0300
-Cc: Danilo Krummrich <dakr@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Drew Fustini <fustini@kernel.org>,
- Guo Ren <guoren@kernel.org>,
- Fu Wei <wefu@redhat.com>,
- =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>,
- Miguel Ojeda <ojeda@kernel.org>,
- Boqun Feng <boqun.feng@gmail.com>,
- Gary Guo <gary@garyguo.net>,
- =?utf-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>,
- Trevor Gross <tmgross@umich.edu>,
- linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org,
- linux-riscv@lists.infradead.org,
- linux-pwm@vger.kernel.org,
- linux-clk@vger.kernel.org,
- rust-for-linux@vger.kernel.org
-Message-Id: <2F3D3A40-6EF9-46FC-A769-E5A3AAF67E65@collabora.com>
-References: <20260107-clk-type-state-v3-0-77d3e3ee59c2@collabora.com>
- <20260107-clk-type-state-v3-1-77d3e3ee59c2@collabora.com>
- <20260108-delectable-fennec-of-sunshine-ffca19@houat>
- <98CD0BF6-3350-40B9-B8A9-F569AE3E3220@collabora.com>
- <20260119-thundering-tested-robin-4be817@houat> <aW4lCfUyumOKRRJm@google.com>
- <518D8B09-B9A1-4DB4-85CD-37A2DD3D5FB1@collabora.com>
- <DFSLCI9U4NCW.2HI2UPUI7G134@kernel.org>
- <20260119-weightless-pelican-of-anger-190db0@houat>
- <DFSN4FDCYHMW.3J3237PEBV2ZP@kernel.org>
- <20260122-majestic-masterful-jaguarundi-d0abde@houat>
-To: Maxime Ripard <mripard@kernel.org>
-X-Mailer: Apple Mail (2.3826.700.81)
-X-ZohoMailClient: External
+	Fri, 23 Jan 2026 01:24:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9DACD43438;
+	Fri, 23 Jan 2026 01:24:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC3B3C116C6;
+	Fri, 23 Jan 2026 01:24:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769131455;
+	bh=/UCYbgTfvHqzeFToJOfvHYkGR2P9KrAkiNHmRMcwnsk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tQFwwSK5R5L4zJP22A9CMJaT1uLiAkkw/ScNxv+0agEIKGejgWBOWyfm/RjgHRrfo
+	 j1OWBZWTFTcQv8j/jJhhMPclAkZuHLPRfQZTf2+k2LqE5D6Mjxh47Qs5snlURgbzbE
+	 dH8jnsdt3RG0g4yC8eMuS78GrKRGWR4OzboBfLAgZ6RTm8aRjoSz49NoEFDy++e7XZ
+	 LDrui+/w4MvmAKHLNHg7MrGZRpkuwJleBBqmYBT0M6tADiEJmrO6AABMNuipcJmah9
+	 lYLwY8o2lxk2THQogWbVIl/hqP25PHt0ocPYKT4S8Dn080s0O8exsVS3dqwncCP/mS
+	 EyWQTfclzXJyg==
+Date: Fri, 23 Jan 2026 09:24:13 +0800
+From: Yixun Lan <dlan@kernel.org>
+To: Guodong Xu <guodong@riscstar.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Haylen Chu <heylenay@4d2.org>, Alex Elder <elder@riscstar.com>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v3 0/4] reset: spacemit: Add support for SpacemiT K3 SoC
+Message-ID: <20260123012413-GKA71138@kernel.org>
+References: <20260120-k3-reset-v3-0-effe87f4bdbe@riscstar.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260120-k3-reset-v3-0-effe87f4bdbe@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_163041_489731_5A4EFAF2 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20260122_172418_636472_C567394F 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,67 +72,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cgo+IE9uIDIyIEphbiAyMDI2LCBhdCAxMDo0NCwgTWF4aW1lIFJpcGFyZCA8bXJpcGFyZEBrZXJu
-ZWwub3JnPiB3cm90ZToKPiAKPiBPbiBNb24sIEphbiAxOSwgMjAyNiBhdCAwMzozNzoxN1BNICsw
-MTAwLCBEYW5pbG8gS3J1bW1yaWNoIHdyb3RlOgo+PiBPbiBNb24gSmFuIDE5LCAyMDI2IGF0IDM6
-MTggUE0gQ0VULCBNYXhpbWUgUmlwYXJkIHdyb3RlOgo+Pj4gT24gTW9uLCBKYW4gMTksIDIwMjYg
-YXQgMDI6MTM6NDhQTSArMDEwMCwgRGFuaWxvIEtydW1tcmljaCB3cm90ZToKPj4+PiBPbiBNb24g
-SmFuIDE5LCAyMDI2IGF0IDE6NTQgUE0gQ0VULCBEYW5pZWwgQWxtZWlkYSB3cm90ZToKPj4+Pj4+
-IE9uIDE5IEphbiAyMDI2LCBhdCAwOTozNSwgQWxpY2UgUnlobCA8YWxpY2VyeWhsQGdvb2dsZS5j
-b20+IHdyb3RlOgo+Pj4+Pj4gSSB0aGluayB0aGF0IGlmIHlvdSBzdGlsbCB3YW50IGFuIEFQSSB3
-aGVyZSB5b3UganVzdCBjYWxsIGVuYWJsZS9kaXNhYmxlCj4+Pj4+PiBkaXJlY3RseSBvbiBpdCB3
-aXRoIG5vIHByb3RlY3Rpb24gYWdhaW5zdCB1bmJhbGFuY2VkIGNhbGxzLCB0aGVuIHRoYXQKPj4+
-Pj4+IHNob3VsZCBiZSB0aGUgc3BlY2lhbCBBUEkuIFByb2JhYmx5IGNhbGxlZCBSYXdDbGsgYW5k
-IGZ1bmN0aW9ucyBtYXJrZWQKPj4+Pj4+IHVuc2FmZS4gVW5iYWxhbmNlZCBjYWxscyBzZWVtIHJl
-YWxseSBkYW5nZXJvdXMgYW5kIHVzZSBzaG91bGQgbm90IGJlCj4+Pj4+PiBlbmNvdXJhZ2VkLgo+
-Pj4+IAo+Pj4+ICsxOyBhbmQgdW5sZXNzIHRoZXJlIGlzIGEgdXNlLWNhc2UgdGhhdCByZXF1aXJl
-cyBvdGhlcndpc2UsIGl0IHNob3VsZCBub3QgZXZlbgo+Pj4+IGJlIHBvc3NpYmxlIHRvIGRvIHRo
-aXMgYXQgYWxsIC0tIGF0IGxlYXN0IGZvciBkcml2ZXIgY29kZS4KPj4+IAo+Pj4gSSBtZWFuLCBp
-dCdzIGdyZWF0LCBpdCdzIHNhZmUsIGV0Yy4gYnV0IGl0J3MgYWxzbyBzdWJvcHRpbWFsIGZyb20g
-YSBQTQo+Pj4gcGVyc3BlY3RpdmUgb24gbWFueSBwbGF0Zm9ybXMuIEl0J3MgdG90YWxseSBmaW5l
-IHRvIHByb3ZpZGUgbmljZSwgc2FmZSwKPj4+IGVyZ29ub21pYyB3cmFwcGVycyBmb3IgdGhlIGRy
-aXZlcnMgdGhhdCBkb24ndCBjYXJlIChvciBjYW4ndCwgcmVhbGx5KSwKPj4+IGJ1dCB0cmVhdGlu
-ZyBhIGxlZ2l0aW1hdGUgb3B0aW1pc2F0aW9uIGFzIHNvbWV0aGluZyB3ZSBzaG91bGQgY29uc2lk
-ZXIKPj4+IGltcG9zc2libGUgdG8gZG8gaXMganVzdCB3ZWlyZCB0byBtZS4KPj4gCj4+IEkgc2Fp
-ZCB0aGF0IGFuIHVuc2FmZSBBUEkgd2l0aCBwb3RlbnRpYWxseSB1bmJhbGFuY2VkIGNhbGxzIGlz
-IHNvbWV0aGluZyB3ZQo+PiBzaG91bGQgY2xlYXJseSBhdm9pZCBmb3IgZHJpdmVycy4gVGhpcyBp
-cyAqbm90KiBlcXVpdmFsZW50IHRvICJ0cmVhdGluZyBhCj4+IGxlZ2l0aW1hdGUgb3B0aW1pc2F0
-aW9uIGFzIHNvbWV0aGluZyB3ZSBzaG91bGQgY29uc2lkZXIgaW1wb3NzaWJsZSIuCj4+IAo+PiBJ
-ZiB3ZSBkaXNjb3ZlciB1c2UtY2FzZXMgd2hlcmUgdGhlIGN1cnJlbnQgQVBJIGRvZXNuJ3Qgd29y
-ayB3ZWxsLCB3ZSBjYW4KPj4gaW52ZW5zdGlnYXRlIGZ1cnRoZXIuCj4gCj4gSSdtIG5vdCBzdXJl
-IEknbSBmb2xsb3dpbmcgd2hhdCB5b3UncmUgc2F5aW5nLCBzb3JyeS4gSSd2ZSBwb2ludGVkIG91
-dAo+IHN1Y2ggYSB1c2UtY2FzZSBhbHJlYWR5Lgo+IAo+Pj4+PiBJIHRoaW5rIHdlIHNob3VsZCBk
-aXNjb3VyYWdlIFJhd0NsayBpZiBhdCBhbGwgcG9zc2libGUuIEJ1dCBpZiB0aGUgY29uc2Vuc3Vz
-Cj4+Pj4+IGlzIHRoYXQgd2UgKnJlYWxseSogbmVlZCB0aGlzIGVhc2lseS1hYnVzZWQgdGhpbmcs
-IEkgY2FuIHByb3ZpZGUgYSBmb2xsb3ctdXAuCj4+Pj4gCj4+Pj4gSSB0aGluayB3ZSBzaG91bGQg
-b25seSBkbyB0aGlzIGlmIHRoZXJlIGFyZSB1c2UtY2FzZSB3aXRoIG5vIGFsdGVybmF0aXZlLCBz
-byBmYXIKPj4+PiB0aGVyZSBoYXZlbid0IGJlZW4gYW55IEFGQUlLLgo+Pj4gCj4+PiBJIGRvbid0
-IHJlYWxseSBjYXJlIGFib3V0IHdoaWNoIGFsdGVybmF0aXZlIHdlIGNvbWUgdXAgd2l0aCwgYnV0
-IGxvb2sgYXQKPj4+IGRldm1fcmVnbWFwX2luaXRfbW1pb19jbGsgZm9yIGV4YW1wbGUuIEl0IGlz
-IGEgdmFsaWQgdXNlLWNhc2UgdGhhdAo+Pj4gYWxyZWFkeSBleGlzdHMgdG9kYXksIGFuZCBoYXMg
-aGFkIGZvciBtb3JlIHRoYW4gYSBkZWNhZGUgYXQgdGhpcyBwb2ludC4KPj4gCj4+IEkgZG9uJ3Qg
-c2VlIHRoZSBpc3N1ZSB3aXRoIGRldm1fcmVnbWFwX2luaXRfbW1pb19jbGsoKT8gSXQgdGFrZXMg
-YSByZWZlcmVuY2UKPj4gY291bnQgb2YgdGhlIGNsb2NrIGFuZCBwcmVwYXJlcyBpdCB3aGVuIGNh
-bGxlZCBhbmQgdW5wcmVwYXJlcyB0aGUgY2xrIGluIGRyb3BzCj4+IGl0cyByZWZlcmVuY2UgaW4g
-cmVnbWFwX21taW9fZnJlZV9jb250ZXh0KCkgY2FsbGVkIGZyb20gdGhlIGRldnJlcyBjYWxsYmFj
-ay4KPj4gCj4+IFRoYXQgc29tZXRoaW5nIHdlIGNhbiBlYXNpbHkgZG8gd2l0aCB0aGUgY3VycmVu
-dCBBUEksIG5vPwo+IAo+IFRoZSBjdXJyZW50IG9uZSwgeWVzLiBEb2luZyB0aGF0IGluIHRoZSBB
-UEkgc3VnZ2VzdGVkIGhlcmUgd291bGQgaW52b2x2ZQo+IHNvbWUgYm9pbGVycGxhdGUgaW4gYWxs
-IHRob3NlIGRyaXZlcnMgdGhleSBkb24ndCBoYXZlIHJpZ2h0IG5vdy4KPiAKPiBNYXhpbWUKCk1h
-eGltZSwgSSBrbm93IHlvdeKAmXZlIGFscmVhZHkgcG9pbnRlZCBvdXQgYSB1c2UtY2FzZSwgYnV0
-IEkgdGhpbmsgdGhlCmNvbmZ1c2lvbiBzdGVtcyBmcm9tIHdoeSB5b3Ugc2VlbSB0byB0aGluayB0
-aGF0IHRoZSBjdXJyZW50IHNvbHV0aW9uIGNhbm5vdApjYXRlciB0byB0aGUgQVBJIHlvdSBtZW50
-aW9uZWQgaW4gYSBjbGVhbiB3YXkuIFlvdSBzZWVtIHRvIGltcGx5IHRoYXQgdGhlcmUKd2lsbCBi
-ZSBhIGxvdCBvZiBib2lsZXJwbGF0ZSBpbnZvbHZlZCwgYnV0IHdlIChvciBJKSBjYW5ub3Qgc2Vl
-IHRoaXMuIFBlcmhhcHMKaXQgd291bGQgaGVscCBpZiB5b3UgaGlnaGxpZ2h0ZWQgaG93IGV4YWN0
-bHkgdGhlIHR5cGUgc3RhdGUgc29sdXRpb24gd291bGQgYmUKdmVyYm9zZSB1c2luZyBzb21lIHBz
-ZXVkb2NvZGUuIEkgZ3Vlc3MgdGhhdCB3b3VsZCBtYWtlIHlvdXIgcG9pbnQgY2xlYXJlciBmb3IK
-dXMuCgrigJQgRGFuaWVsCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+Hi Philipp Zabel,
+
+On 19:10 Tue 20 Jan     , Guodong Xu wrote:
+> This series adds support for the reset controller found on the SpacemiT
+> K3 SoC.
+> 
+> The clock driver changes, which defined new auxiliary device name
+> patterns for reset on K1 and K3, have been applied to the clock tree.
+> To facilitate merging, Yixun Lan has created an immutable tag
+> (spacemit-clkrst-v6.20-3) within his pull request to the clock
+> subsystem [1]. Hence, the dependencies mentioned in v2 have now
+> been deblocked, making the reset driver ready to be applied, if it
+> gets approval from review.
+> 
+> In this version (v3), the entire series has been rebased and tested
+> on top of the linux-next tag: next-20260119.
+> 
+> General informaiton about the series:
+> 
+> The K3 reset controller shares the same architecture as the K1. To
+> facilitate support for both and future SoCs, the existing K1 reset
+> driver is refactored with the following changes:
+> 
+> 1. The existing K1 driver is moved to a dedicated 'drivers/reset/spacemit/'
+>    directory.
+> 2. Common reset operations are extracted into reset-spacemit-common.{c,h}
+> 
+> The K3 driver is implemented using this common infrastructure.
+> 
+> Link: https://lore.kernel.org/linux-clk/20260114060410.3340540-1-yixun.lan@gmail.com/ [1]
+> 
+
+Just want to ping this with my SpacemiT maintainer position, the reset
+driver is the last piece that I hope can be accepted during this merge
+window (target the v6.20 release), it would help other drivers since it
+is a fundamental dependency..
+
+The clock PR which is a dependency for reset has been pulled by Stephen[2],
+and the driver also has been tested for a while locally
+https://lore.kernel.org/r/176902257445.4027.5972559722832621691@lazor [2]
+
+Reviewed-by: Yixun Lan <dlan@kernel.org>
+
+-- 
+Yixun Lan (dlan)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
