@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08E56D72350
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jan 2026 09:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E612D72362
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jan 2026 09:29:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qihqax/OVZNGxtCuD8LqBVYiZSBEcSkGw4zrykLOfuo=; b=ATtV2u9E20DkZ+
-	nyrKnNnLTX8fNggzjAH8YOWYkhYeB3OcxgBBEgQKSlLzVJvApeTmb4imdbb70CO8CRoXYMfec95Ap
-	Osp4teHjYB1OGT55aBFhKX3NClm9uA5rhMkMJR7mPsMC7zUFaB3onwjLn/I4TNQRE9seJawQsMB/y
-	YBp52c+BG7FkSMF9nDr+Bm2LDgpbfSLC/ARWC/PplZ1BYMF4OyUzsUgzCgEVoC3Yy3D4LHBzY23ug
-	f1eonLU/mEptGURJ6QpOdtHDT/2KaOgzekbNGpkztJ21PugSQ6LAK2dneb05DWIhoAWl3A9U9QI7G
-	R1jg6z3d7kB3KiqCgNEg==;
+	List-Owner; bh=w0zPSn4mEBnN9k+TBiJvx/ZG/Bdmkxjz+K5NzEur9i4=; b=0tnW3Z4i2e1Bw1
+	G2c8lvWLBsDgVtdgBkvQTqI+QJbeYs0EEoHGh0SyLdJ7qG6hSqLvalD6w5P5dkrw5o16oa/syjQau
+	+rh6xGHuH3pPhCUrzdhJHXOx8gD5DC61vzmnJGLR4MANpAl+wp8x2hJyGbStpMGGa8pq/3EQ+ONnA
+	RVM6NCSAZ6N99uMAKdlLx5I3QXr8tTa0smDP3Tx9npGKU2fQ0G4ElPawSdy5lsAmiFEwi1i2nBgQb
+	5C5qp4JqlBt0hWYDduHZrahkBHQWc8w4rxlbjnnNPRa08EJaBgJZ2itaP+byQFvIqP1ll8WAPMg/1
+	sIy/shuwFsBuFkyLDHuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDTW-00000008ZfM-2z9q;
-	Fri, 23 Jan 2026 09:29:06 +0000
+	id 1vjDTj-00000008ZiB-3xqK;
+	Fri, 23 Jan 2026 09:29:19 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDTU-00000008ZeE-0nvr
+	id 1vjDTg-00000008Zgt-0orx
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Jan 2026 09:29:05 +0000
+	Fri, 23 Jan 2026 09:29:18 +0000
 Received: from edelgard.fodlan.icenowy.me (unknown [112.94.103.171])
-	by APP-03 (Coremail) with SMTP id rQCowABXZ85EP3NppX1gBg--.20954S3;
-	Fri, 23 Jan 2026 17:28:45 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowABXZ85EP3NppX1gBg--.20954S6;
+	Fri, 23 Jan 2026 17:29:01 +0800 (CST)
 From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -48,37 +48,36 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Drew Fustini <fustini@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
 	Fu Wei <wefu@redhat.com>
-Subject: [PATCH v6 1/9] dt-bindings: vendor-prefixes: add verisilicon
-Date: Fri, 23 Jan 2026 17:28:22 +0800
-Message-ID: <20260123092830.4046009-2-zhengxingda@iscas.ac.cn>
+Subject: [PATCH v6 4/9] dt-bindings: display/bridge: add binding for TH1520 HDMI controller
+Date: Fri, 23 Jan 2026 17:28:25 +0800
+Message-ID: <20260123092830.4046009-5-zhengxingda@iscas.ac.cn>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260123092830.4046009-1-zhengxingda@iscas.ac.cn>
 References: <20260123092830.4046009-1-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABXZ85EP3NppX1gBg--.20954S3
-X-Coremail-Antispam: 1UD129KBjvdXoW7GF47WFWrGrW8GrW5tryxZrb_yoWkuwb_WF
-	s7Cr1Dur45tF1Fvw4jyFs3GryUCw1akr48C3Z0qFWqka4xG39xGF92q3y5Zw17WF4fuas5
-	ArnaqrZrXF1xKjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbkxFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGwA2048vs2IY02
-	0Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xv
-	wVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1l84
-	ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I2
-	62IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcV
-	AFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG
-	0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI
-	1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
-	Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17
-	CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0
-	I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcV
-	C2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2Kfnx
-	nUUI43ZEXa7sRiubytUUUUU==
+X-CM-TRANSID: rQCowABXZ85EP3NppX1gBg--.20954S6
+X-Coremail-Antispam: 1UD129KBjvJXoWxuF1rJF1xAw47tryUJr48Crg_yoW5tw45pa
+	yfGa18JFyktF17ua1xAF10krZYqrWkAFnYgr17Ww1jyay5WF12qrZIkrn8XFyrJF4xZa43
+	ZFZ8Xr1fKa1av3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmS14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
+	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
+	4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq
+	3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7
+	IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4U
+	M4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2
+	kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkE
+	bVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67
+	AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI
+	42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF
+	4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBI
+	daVFxhVjvjDU0xZFpf9x0pRQJ5wUUUUU=
 X-Originating-IP: [112.94.103.171]
 X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_012904_604090_3112B7AD 
-X-CRM114-Status: UNSURE (   6.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260123_012916_622550_C3235816 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,7 +89,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Philipp Zabel <p.zabel@pengutronix.de>, Han Gao <rabenda.cn@gmail.com>, Michal Wilczynski <m.wilczynski@samsung.com>, linux-riscv@lists.infradead.org, Luca Ceresoli <luca.ceresoli@bootlin.com>, Dmitry Baryshkov <lumag@kernel.org>
+Cc: devicetree@vger.kernel.org, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Philipp Zabel <p.zabel@pengutronix.de>, Han Gao <rabenda.cn@gmail.com>, Michal Wilczynski <m.wilczynski@samsung.com>, linux-riscv@lists.infradead.org, Luca Ceresoli <luca.ceresoli@bootlin.com>, Dmitry Baryshkov <lumag@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -98,38 +97,152 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Icenowy Zheng <uwu@icenowy.me>
 
-VeriSilicon is a Silicon IP vendor, which is the current owner of
-Vivante series video-related IPs and Hantro series video codec IPs.
+T-Head TH1520 SoC contains a Synopsys DesignWare HDMI controller paired
+with DesignWare HDMI PHY, with an extra clock gate for HDMI pixel clock
+and two reset controls.
 
-Add a vendor prefix for this company.
+Add a device tree binding to it.
 
 Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
-No changes since v4.
+No changes since v3.
 
-Changes in v3:
-- Add Rob's ACK.
+Changes in v2:
+- Re-aligned multi-line clocks/resets in example.
+- Added Krzysztof's R-b.
 
-No changes in v2.
+ .../display/bridge/thead,th1520-dw-hdmi.yaml  | 120 ++++++++++++++++++
+ 1 file changed, 120 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-hdmi.yaml
 
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index c7591b2aec2a7..18f931f369198 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -1745,6 +1745,8 @@ patternProperties:
-     description: Variscite Ltd.
-   "^vdl,.*":
-     description: Van der Laan b.v.
-+  "^verisilicon,.*":
-+    description: VeriSilicon Microelectronics (Shanghai) Co., Ltd.
-   "^vertexcom,.*":
-     description: Vertexcom Technologies, Inc.
-   "^via,.*":
+diff --git a/Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-hdmi.yaml b/Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-hdmi.yaml
+new file mode 100644
+index 0000000000000..68fff885ce15b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-hdmi.yaml
+@@ -0,0 +1,120 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/bridge/thead,th1520-dw-hdmi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: T-Head TH1520 DesignWare HDMI TX Encoder
++
++maintainers:
++  - Icenowy Zheng <uwu@icenowy.me>
++
++description:
++  The HDMI transmitter is a Synopsys DesignWare HDMI TX controller
++  paired with a DesignWare HDMI Gen2 TX PHY.
++
++allOf:
++  - $ref: /schemas/display/bridge/synopsys,dw-hdmi.yaml#
++
++properties:
++  compatible:
++    enum:
++      - thead,th1520-dw-hdmi
++
++  reg-io-width:
++    const: 4
++
++  clocks:
++    maxItems: 4
++
++  clock-names:
++    items:
++      - const: iahb
++      - const: isfr
++      - const: cec
++      - const: pix
++
++  resets:
++    items:
++      - description: Main reset
++      - description: Configuration APB reset
++
++  reset-names:
++    items:
++      - const: main
++      - const: apb
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Input port connected to DC8200 DPU "DP" output
++
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: HDMI output port
++
++    required:
++      - port@0
++      - port@1
++
++required:
++  - compatible
++  - reg
++  - reg-io-width
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++  - interrupts
++  - ports
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
++    #include <dt-bindings/reset/thead,th1520-reset.h>
++
++    soc {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      hdmi@ffef540000 {
++        compatible = "thead,th1520-dw-hdmi";
++        reg = <0xff 0xef540000 0x0 0x40000>;
++        reg-io-width = <4>;
++        interrupts = <111 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&clk_vo CLK_HDMI_PCLK>,
++                 <&clk_vo CLK_HDMI_SFR>,
++                 <&clk_vo CLK_HDMI_CEC>,
++                 <&clk_vo CLK_HDMI_PIXCLK>;
++        clock-names = "iahb", "isfr", "cec", "pix";
++        resets = <&rst_vo TH1520_RESET_ID_HDMI>,
++                 <&rst_vo TH1520_RESET_ID_HDMI_APB>;
++        reset-names = "main", "apb";
++
++        ports {
++          #address-cells = <1>;
++          #size-cells = <0>;
++          port@0 {
++            reg = <0>;
++
++            hdmi_in: endpoint {
++              remote-endpoint = <&dpu_out_dp1>;
++            };
++          };
++
++          port@1 {
++            reg = <1>;
++
++            hdmi_out_conn: endpoint {
++              remote-endpoint = <&hdmi_conn_in>;
++            };
++          };
++        };
++      };
++    };
 -- 
 2.52.0
 
