@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E11EAD77894
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jan 2026 17:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00128D77899
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jan 2026 17:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lvr9QNQdNG61PiP/sjjZaDLAwvzaDubSinanXQp4Ocw=; b=Lm7fKfLhutgLjLc5eJJIxsqY2t
-	CRrSOHyYLfUJBPMKAJrKUR+qqJrRfm0DlStEQE3N0ACY5RnRNUl2hvaDXyhvGEE1mjY/KP/HZspGm
-	ok6VFsia2kwe0ROOb9emQrVkxw799SmeUmUiz6pSAvIzoZsKlwesLaicQLutPz0DML3p1R5oqas+R
-	zvsgObuls5g6Xb1YAZaCLjsy8mDSypEg9D5ze2hb6y32D8A1C989FJ+IE5rZcrfhGR0NjdW3FsJOM
-	6ZAHgF+d+Wottlo6dIEfd7xIee4wpm5bKF9n1XKlYb04+sM2ElPxuaCKQRkKWXCXRyrqHNmJch3Mf
-	Af89t6Ug==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WvslPPwHz2b/IaKd3m/Ms4GR23I63G2SN4TIn4RcKqc=; b=eIvJuU1OZ5u5Yz
+	6qwNVs5B/AipUtxuJUy4hqXGWSL79ADt14H323/R7wEudQ59jeRAVlQYI5ee7Z5nOpbmNpe0mYA+V
+	8eShgsDn3FIKo4BdGYbos1FOaZnFGXdctSC7HkEc3lv/smja3e5A2d+hWebAlBz/MfcmC943MG5Na
+	BvZ6q85ErEy4HqnYuA7yoieUuYeu6k3NF7mjysTrSs0VKxnAYL/AKH+smJjS9yGjwgkDG2kFF1d8P
+	qEHd6XN0YtpnmWUlnjCookb/wKZBoZ0tOsOX3dRKhMAGwTLzghcvI50YVo88iSCc8gQ5a7VLfF2Ir
+	vuky/jaSKZhlpuXhBTdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjKtN-00000009HiS-0u3F;
-	Fri, 23 Jan 2026 17:24:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vjLFb-00000009J42-2yUh;
+	Fri, 23 Jan 2026 17:47:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjKtL-00000009HiB-2w1j
-	for linux-riscv@lists.infradead.org;
-	Fri, 23 Jan 2026 17:24:15 +0000
+	id 1vjLFZ-00000009J3n-3euv;
+	Fri, 23 Jan 2026 17:47:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C673560135;
-	Fri, 23 Jan 2026 17:24:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8591AC4CEF1;
-	Fri, 23 Jan 2026 17:24:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EAE8460147;
+	Fri, 23 Jan 2026 17:47:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20E4DC4CEF1;
+	Fri, 23 Jan 2026 17:47:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769189054;
-	bh=1iFXkFiW5IRcxv20ZM521sbV1+F7TXqM6Nja0SMCg+0=;
+	s=k20201202; t=1769190432;
+	bh=Fvul9cTQTipTMlqs6XhjhLKNYQVXUkoZrLxvwUon1vQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B2FN5rsCQdDfLjoZ8VgMn7Rh+tli/6+KJU+t2Q4q7dUCCl7ql77pgz3nOigmZ2CXY
-	 uFjc2pwbSRuCWEPulozzncyX30wXc17aPkLftO9+UlUEvpSLK7xeZBrs2wuQbYl7sy
-	 m+LZljKi42aieQjxuhIUnLDbmF+qLgo5mIS2e3OfBkYqBzp3FD6Hj8qgR8MfSbS+eo
-	 basn4ghX6Rjas1XzHxe4mdeB6gUTcr1UEnMknpM5ieHVGV+JHvhk+mt11jT17IbEUC
-	 h/dF4eZHET+B+Jc7R5Pz7Kj+QreRJ2T7F5EZ44+6OTKJPFLKznKz8arW1u965Eh/Ba
-	 i3Cgbm4UKBKPA==
-Date: Fri, 23 Jan 2026 17:24:09 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Guodong Xu <guodong@riscstar.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+	b=EnJs6i5cTHOlKaNlU87cLSBa8KHPBnahqPMdwuu7AmNbJl+0lAV32DFm2xxVfJ+s1
+	 M2VjiYN269iF/Fz1hKsagkuBCbTtBLNmI4o76vHdDNuWy/vP5qfM2NmJrjsyIOGpPz
+	 oTtEljWa8LRkKv211KZkl0aIhoPn1LelEFGMrNm/2rbvJtBG7YzZmU8K7BwP43X2yn
+	 1wBqL6mh9sWW8eYykQfWb4HzEVFhMmOcgdtcmohtx/ru/FspacPOjG336TlE1GCTPo
+	 coPzT9tMq0lspF7y77DhDjko2h+ZmGKtWz/GJJj+42BGTI1U9g+GPumXQVn5Jhy7gw
+	 sGkBR+CQRM/Lw==
+Date: Fri, 23 Jan 2026 14:47:09 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>,
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Evan Green <evan@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: riscv: Add Supm extension description
-Message-ID: <20260123-regime-example-c53814f85bad@spud>
-References: <20260116-supm-ext-id-v1-0-5fcf778ba4a6@riscstar.com>
- <20260116-supm-ext-id-v1-1-5fcf778ba4a6@riscstar.com>
- <20260122-headlamp-champion-0bbad2551d33@spud>
- <CAH1PCMY+FrxkT+qnAXbS75T=PTzGB_BkKWY1f3-anOjHwG9CkA@mail.gmail.com>
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Zecheng Li <zecheng@google.com>, Tianyou Li <tianyou.li@intel.com>,
+	Thomas Falcon <thomas.falcon@intel.com>,
+	Julia Lawall <Julia.Lawall@inria.fr>,
+	Suchit Karunakaran <suchitkarunakaran@gmail.com>,
+	Athira Rajeev <atrajeev@linux.ibm.com>,
+	Aditya Bodkhe <aditya.b1@linux.ibm.com>,
+	Howard Chu <howardchu95@gmail.com>,
+	Krzysztof =?utf-8?Q?=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>,
+	"Dr. David Alan Gilbert" <linux@treblig.org>,
+	Shimin Guo <shimin.guo@skydio.com>,
+	Sergei Trofimovich <slyich@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 11/12] perf disasm: Refactor arch__find and
+ initialization of arch structs
+Message-ID: <aXO0Hao8t-McaAU3@x1>
+References: <20260122213516.671089-1-irogers@google.com>
+ <20260122213516.671089-12-irogers@google.com>
 MIME-Version: 1.0
-In-Reply-To: <CAH1PCMY+FrxkT+qnAXbS75T=PTzGB_BkKWY1f3-anOjHwG9CkA@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20260122213516.671089-12-irogers@google.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,121 +91,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6300688014640680995=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============6300688014640680995==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7xcWmSwswcfCaFDt"
-Content-Disposition: inline
-
-
---7xcWmSwswcfCaFDt
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Jan 23, 2026 at 07:29:52AM +0800, Guodong Xu wrote:
-> On Fri, Jan 23, 2026 at 2:52=E2=80=AFAM Conor Dooley <conor@kernel.org> w=
-rote:
-> >
-> > On Fri, Jan 16, 2026 at 10:10:31AM +0800, Guodong Xu wrote:
-> > > Add description for the Supm extension. Supm indicates support for po=
-inter
-> > > masking in user mode. Supm is mandatory for RVA23S64.
-> > >
-> > > The Supm extension is ratified in commit d70011dde6c2 ("Update to rat=
-ified
-> > > state") of riscv-j-extension.
-> > >
-> > > Signed-off-by: Guodong Xu <guodong@riscstar.com>
-> > > ---
-> > >  Documentation/devicetree/bindings/riscv/extensions.yaml | 17 +++++++=
-++++++++++
-> > >  1 file changed, 17 insertions(+)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml =
-b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > index 4ffd61926505..1922dff03787 100644
-> > > --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > @@ -262,6 +262,23 @@ properties:
-> > >              ratified in RISC-V Profiles Version 1.0, with commit b1d=
-806605f87
-> > >              ("Updated to ratified state.")
-> > >
-> > > +        - const: supm
-> > > +          description: |
-> > > +            The standard Supm extension for pointer masking support =
-in user
-> > > +            mode (U-mode) as ratified at commit d70011dde6c2 ("Updat=
-e to
-> > > +            ratified state") of riscv-j-extension.
-> > > +
-> > > +            Supm represents a combination of underlying hardware cap=
-ability
-> > > +            (Smnpm or Ssnpm), U-mode consumer privilege level, and M=
-/S-mode
-> >
-> > Should we therefore make this require that Smnpm or Ssnpm are present?
->=20
-> I'm not sure. Would U-mode DTBs typically omit the privileged extensions =
-like
-> Smnpm/Ssnpm, making such a dependency impractical?
-
-I don't actually know of any u-mode software that uses a devicetree, but
-my guy feeling is that people won't trim out the lower-priv mode things
-because they might want/need to know if those features are available on the
-platform.
-
-> > > +            software configuration that enables pointer masking for =
-U-mode.
-> > > +
-> > > +            DO NOT include this property in device trees targeting p=
-rivileged
-> > > +            system software (S-mode or M-mode).
-> > > +
-> > > +            This property is only appropriate in device trees provid=
-ed to
-> > > +            U-mode software where the next-higher-privilege-mode sup=
-ports
-> > > +            Smnpm or Ssnpm and enables it for U-mode.
-> > > +
-> > >          - const: svade
-> > >            description: |
-> > >              The standard Svade supervisor-level extension for SW-man=
-aged PTE A/D
-> > >
-> > > --
-> > > 2.43.0
-> > >
-
---7xcWmSwswcfCaFDt
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaXOuuQAKCRB4tDGHoIJi
-0lARAQCw6xeBCMvnkMZXdVDTmW8UaI95vKbCXYpHPfG3jyruoAEAnfru/kFDHa+s
-T43B5i4zwtYiw6O0oerDYK/DrbtnUg8=
-=udYY
------END PGP SIGNATURE-----
-
---7xcWmSwswcfCaFDt--
-
-
---===============6300688014640680995==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6300688014640680995==--
-
+T24gVGh1LCBKYW4gMjIsIDIwMjYgYXQgMDE6MzU6MTVQTSAtMDgwMCwgSWFuIFJvZ2VycyB3cm90
+ZToKPiBTd2l0Y2ggYXJjaF9fZmluZCB0byB1c2luZyBhbiBFTEYgbWFjaGluZSBudW1iZXIgcmF0
+aGVyIHRoYW4gYQo+IHN0cmluZy4gUmF0aGVyIHRoYW4gYW4gYXJyYXkgb2YgZml4ZWQgc2l6ZSBh
+cmNoIHN0cnVjdHMgdHVybiB0aGUgaW5pdAo+IGZ1bmN0aW9ucyBpbnRvIG5ldyBmdW5jdGlvbnMg
+aW5kZXhlZCBieSB0aGUgRUxGIG1hY2hpbmUgdGhleQo+IGNvcnJlc3BvbmQgdG8uIFRoaXMgYWxs
+b3dzIGRhdGEgdG8gYmUgc3RvcmVkIHdpdGggYSBzdHJ1Y3QgYXJjaCB3aXRoCj4gdGhlIGNvbnRh
+aW5lcl9vZiB0cmljaywgc28gdGhlIHByaXYgdmFyaWFibGUgY2FuIGJlIHJlbW92ZWQuIFN3aXRj
+aCB0bwo+IHVzaW5nIHRoZSB0aHJlYWQgdG8gZmluZCB0aGUgYXJjaCByYXRoZXIgdGhhbiB0aGUg
+ZXZzZWwgYXMgdGhlIGV2c2VsCj4gb25seSBoYXMgbGltaXRlZCBub3Rpb25zIG9mIHRoZSBydW5u
+aW5nIHRocmVhZCB1cG9uIHdoaWNoIGRpc2Fzc2VtYmx5Cj4gaXMgcGVyZm9ybWVkLiBGYWN0b3Ig
+b3V0IHRoZSBlX21hY2hpbmUgYW5kIGVfZmxhZ3MgaW50byB0aGVpciBvd24KPiBzdHJ1Y3QgdG8g
+bWFrZSB0aGVtIGVhc2llciB0byBwYXNzIGFyb3VuZC4KCkFkZGVkOgoK4qyiIFthY21lQHRvb2xi
+eCBwZXJmLXRvb2xzLW5leHRdJCBnaXQgZGlmZgpkaWZmIC0tZ2l0IGEvdG9vbHMvcGVyZi91dGls
+L2Rpc2FzbS5jIGIvdG9vbHMvcGVyZi91dGlsL2Rpc2FzbS5jCmluZGV4IDQ2NzQwZDFlNTg1ODAw
+MDQuLjRmNjA3MjYyNDdkNjI3NjQgMTAwNjQ0Ci0tLSBhL3Rvb2xzL3BlcmYvdXRpbC9kaXNhc20u
+YworKysgYi90b29scy9wZXJmL3V0aWwvZGlzYXNtLmMKQEAgLTEsNSArMSw5IEBACiAvLyBTUERY
+LUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5CiAjaW5jbHVkZSA8Y3R5cGUuaD4KKyNp
+bmNsdWRlIDxlbGYuaD4KKyNpZm5kZWYgRUZfQ1NLWV9BQklNQVNLCisjZGVmaW5lIEVGX0NTS1lf
+QUJJTUFTSyAgICAgICAgMFhGMDAwMDAwMAorI2VuZGlmCiAjaW5jbHVkZSA8ZXJybm8uaD4KICNp
+bmNsdWRlIDxmY250bC5oPgogI2luY2x1ZGUgPGludHR5cGVzLmg+CgoKV2l0aDoKCiAgICBbIElu
+Y2x1ZGUgZWxmLmggZm9yIEVNX0NTS1kgYW5kIGZyaWVuZHMgYW5kIGFsc28gY29uZGl0aW9uYWxs
+eSBkZWZpbmUgRU1fQ1NLWV9BQklNQVNLIGZvciBvbGQgZGlzdHJvcyBdCgoKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
+aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
