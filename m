@@ -4,32 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95EF7D72362
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jan 2026 09:29:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF465D72361
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jan 2026 09:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CgpKPo5qqlQ9lN592sdMfYQGlOl93KNz5m1k/mLKRHA=; b=hPxtqJ7wWlysm0
-	uVQ/m0YsapKN50dGfUDPB+LY1lkfQw1IQf/n8N6+Lro9WgQ86CzM00qxJgNIFnDWXdbu6g5fUiZOd
-	ijG5ZU7lQpy0Y5tL16caUsQqkNlmCaEqgvN/ZAJynUOFZCtFB4rwinBXYOZ06ZkApG+zlaiqFOi2y
-	8ii9tfteGOkte14zs/9N5mrXRY+zJuURLxSDnmJ3WNAWIdN7HtTOyj4nPBxizaravvUAS6bCbuUa9
-	flKZhS54803INCGpgQffOuE+qW28lSJmgvz2o5WDxorwyFPgwHBBB+c8KMXzzUmR2aFE3GR0+H9xr
-	QAztm7MFv3rW9Iot7omQ==;
+	List-Owner; bh=n/eojqc6AxEKBVjhS3Hsgv55r3Fte2/u+YUOaZXQz1Q=; b=OeI4U27TvEt6vV
+	N9fu4aANtuHChoF87LGgbYl9xbr8oOnaiImx7KqaG7SH7YttPZNsHVbVAk6wDdS4PIMCk2wSdvf7s
+	e8rU/lfBqAO0XRpCXX1Njv5mHmydvUtikelwxBjYxjljKy9THTIcrwIJamN1QuM4TcsH9hTG7RvLe
+	o4TMqbj97mk48skqZuVrtQRHulYgNkZFwcLy8uSZB+HNTLhumQndUNc3v5UVGg1BLORWepJCDh7Lb
+	i1x3hKEW90PKIsb+eUdtSgFBlKvf7Zno0FjEpMnIhU2SMmJiSKBsmjIBqAWq8X2sv4vilElWw9/fV
+	n914Q5nTSttdXXlXiynQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDTw-00000008Znd-3kIa;
-	Fri, 23 Jan 2026 09:29:34 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1vjDUB-00000008ZyZ-14T5;
+	Fri, 23 Jan 2026 09:29:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDTu-00000008ZlN-1jli
+	id 1vjDUA-00000008ZxT-2Mlq
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 23 Jan 2026 09:29:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=GrI2Y/FhNtva0TLt29K+OTkJd59zne09SKgLV3aylL0=; b=Jsm6bDBHbarWpBCYIVh6zN1BYI
+	qboq2MaS1XLHi1QGKcJWNhkFrj30G66QE6PGP5WSZ7MnKGB9ANaPaDmE1TX36mL/gLOyDs2numPHP
+	sWfHrYOS5M9AYtn1navJny8UcOZGMuptNpiVMF4zMa9MOGYn3/gFUy0vOGzwt6ryh/fHbzT83JzyN
+	2/XuuCIOJ8xyMoH+znNEC2BUkJW8W41AUZ+GWVveVT/Q+D9ebkJ3zPBVJHcxuKTcH8iCyK5Iyng2D
+	MYOed/XCAO0N4/adb7jxHMR79JhJ7CAMnphU4bZb16cM1cC9TalTuum7jc2DxMjtvDDNAixGu+fE6
+	gGpdiHtg==;
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vjDU5-000000022mn-2YGM
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Jan 2026 09:29:31 +0000
+	Fri, 23 Jan 2026 09:29:44 +0000
 Received: from edelgard.fodlan.icenowy.me (unknown [112.94.103.171])
-	by APP-03 (Coremail) with SMTP id rQCowABXZ85EP3NppX1gBg--.20954S9;
-	Fri, 23 Jan 2026 17:29:16 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowABXZ85EP3NppX1gBg--.20954S10;
+	Fri, 23 Jan 2026 17:29:21 +0800 (CST)
 From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -48,36 +63,36 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Drew Fustini <fustini@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
 	Fu Wei <wefu@redhat.com>
-Subject: [PATCH v6 7/9] riscv: dts: thead: lichee-pi-4a: enable HDMI
-Date: Fri, 23 Jan 2026 17:28:28 +0800
-Message-ID: <20260123092830.4046009-8-zhengxingda@iscas.ac.cn>
+Subject: [PATCH v6 8/9] MAINTAINERS: assign myself as maintainer for verisilicon DC driver
+Date: Fri, 23 Jan 2026 17:28:29 +0800
+Message-ID: <20260123092830.4046009-9-zhengxingda@iscas.ac.cn>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260123092830.4046009-1-zhengxingda@iscas.ac.cn>
 References: <20260123092830.4046009-1-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABXZ85EP3NppX1gBg--.20954S9
-X-Coremail-Antispam: 1UD129KBjvJXoW7WFy8Kw1kKr4kAr1rKF4UJwb_yoW8XF1Dpa
-	1xGrsaqFyDCr43u3W3AF18Grn8Krs5ZF93Gw13Z34UJrsIgFZ7t3yfKws8XFyDXFZ3Xr43
-	AF1kZF4a9r1qyw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmS14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
-	4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq
-	3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7
-	IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4U
-	M4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2
-	kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkE
-	bVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67
-	AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI
-	42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF
-	4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBI
-	daVFxhVjvjDU0xZFpf9x0pRQJ5wUUUUU=
+X-CM-TRANSID: rQCowABXZ85EP3NppX1gBg--.20954S10
+X-Coremail-Antispam: 1UD129KBjvdXoWrKrW5tFyfCw1kXr18KF4DArb_yoWkXrc_WF
+	4kA34DZw47GFnYk39YyFs0k3yF93y5Jr4ru3Zxtwsay34jyryqg3Wvgw15Cw4UCFWfGF1D
+	Za9rJryfGF4a9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbvAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAVCq3wA2048vs2
+	IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28E
+	F7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr
+	1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0D
+	M2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjx
+	v20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1l
+	F7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2
+	IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY
+	6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17
+	CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF
+	0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCw
+	CI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsG
+	vfC2KfnxnUUI43ZEXa7sRiHUDtUUUUU==
 X-Originating-IP: [112.94.103.171]
 X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_012930_833120_7ACE384D 
-X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-CacheID: sfid-20260123_092942_227524_E5A9F5B9 
+X-CRM114-Status: UNSURE (   7.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,76 +105,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Yao Zi <ziyao@disroot.org>, Han Gao <gaohan@iscas.ac.cn>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Philipp Zabel <p.zabel@pengutronix.de>, Han Gao <rabenda.cn@gmail.com>, Michal Wilczynski <m.wilczynski@samsung.com>, linux-riscv@lists.infradead.org, Luca Ceresoli <luca.ceresoli@bootlin.com>, Dmitry Baryshkov <lumag@kernel.org>
+Cc: devicetree@vger.kernel.org, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Philipp Zabel <p.zabel@pengutronix.de>, Han Gao <rabenda.cn@gmail.com>, Michal Wilczynski <m.wilczynski@samsung.com>, linux-riscv@lists.infradead.org, Luca Ceresoli <luca.ceresoli@bootlin.com>, Dmitry Baryshkov <lumag@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Lichee Pi 4A board features a HDMI Type-A connector connected to the
-HDMI TX controller of TH1520 SoC.
+From: Icenowy Zheng <uwu@icenowy.me>
 
-Add a device tree node describing the connector, connect it to the HDMI
-controller, and enable everything on this display pipeline.
+As I am the author of this rewritten driver, it makes sense for me to be
+the maintainer.
+
+Confirm this in MAINTAINERS file.
 
 Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Tested-by: Han Gao <gaohan@iscas.ac.cn>
-Tested-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
-No changes in v5.
+No changes since v4.
 
-Changes in v4:
-- Rebased on top of v6.19-rc1.
+Changes in v3:
+- Switch to my ISCAS mailbox.
 
-No changes in v2, v3.
+No changes in v2.
 
- .../boot/dts/thead/th1520-lichee-pi-4a.dts    | 25 +++++++++++++++++++
- 1 file changed, 25 insertions(+)
+ MAINTAINERS | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-index c58c2085ca92a..7cb7d28683bce 100644
---- a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-+++ b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-@@ -29,6 +29,17 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index fc04fc007a054..507ffef26dac1 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -8658,6 +8658,13 @@ F:	Documentation/devicetree/bindings/display/brcm,bcm2835-*.yaml
+ F:	drivers/gpu/drm/vc4/
+ F:	include/uapi/drm/vc4_drm.h
  
-+	hdmi-connector {
-+		compatible = "hdmi-connector";
-+		type = "a";
++DRM DRIVERS FOR VERISILICON DISPLAY CONTROLLER IP
++M:	Icenowy Zheng <zhengxingda@iscas.ac.cn>
++L:	dri-devel@lists.freedesktop.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/display/verisilicon,dc.yaml
++F:	drivers/gpu/drm/verisilicon/
 +
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi_out_con>;
-+			};
-+		};
-+	};
-+
- 	thermal-zones {
- 		cpu-thermal {
- 			polling-delay = <1000>;
-@@ -121,6 +132,20 @@ rx-pins {
- 	};
- };
- 
-+&dpu {
-+	status = "okay";
-+};
-+
-+&hdmi {
-+	status = "okay";
-+};
-+
-+&hdmi_out_port {
-+	hdmi_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_pins>;
+ DRM DRIVERS FOR VIVANTE GPU IP
+ M:	Lucas Stach <l.stach@pengutronix.de>
+ R:	Russell King <linux+etnaviv@armlinux.org.uk>
 -- 
 2.52.0
 
