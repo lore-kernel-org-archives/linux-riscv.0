@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF465D72361
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jan 2026 09:29:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0ED6D72361
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jan 2026 09:30:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n/eojqc6AxEKBVjhS3Hsgv55r3Fte2/u+YUOaZXQz1Q=; b=OeI4U27TvEt6vV
-	N9fu4aANtuHChoF87LGgbYl9xbr8oOnaiImx7KqaG7SH7YttPZNsHVbVAk6wDdS4PIMCk2wSdvf7s
-	e8rU/lfBqAO0XRpCXX1Njv5mHmydvUtikelwxBjYxjljKy9THTIcrwIJamN1QuM4TcsH9hTG7RvLe
-	o4TMqbj97mk48skqZuVrtQRHulYgNkZFwcLy8uSZB+HNTLhumQndUNc3v5UVGg1BLORWepJCDh7Lb
-	i1x3hKEW90PKIsb+eUdtSgFBlKvf7Zno0FjEpMnIhU2SMmJiSKBsmjIBqAWq8X2sv4vilElWw9/fV
-	n914Q5nTSttdXXlXiynQ==;
+	List-Owner; bh=SE9yVSMpW+yNsuI2azY5tmDCs28gFPdl78PeCN+bF4I=; b=ThqpWDIStZupCB
+	ptuzTqeOghYWAgIvL/Tj+pD1RVllO6WUBZa86X4jwyMgJbfGVR0N6RqNzlTQQ4m9CtrJAelEjxxC1
+	2c1uiaBJO6+grvBNtZBAbXe114dy7jN3SAIOVnn43D6JHbF627/ay+lT6ddt60DzFin0qIp35AO4v
+	vS8AxNLCK8hilqc8HW7UTk6398epXKlwFs7BqNGYXBiD5I71E500R4a/Tdaa/EhBuCsq1P+Q/+YZx
+	u0lMjjoROit5LtiXXCktsZVtM+lzaa+iMkTCwWouFBAc5QkzehhVbqz8zG66xwRNNygBoukbtoaR/
+	Ubvc6POy2jj+OuZyRVfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDUB-00000008ZyZ-14T5;
-	Fri, 23 Jan 2026 09:29:47 +0000
+	id 1vjDUE-00000008a20-2OO8;
+	Fri, 23 Jan 2026 09:29:50 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDUA-00000008ZxT-2Mlq
+	id 1vjDUB-00000008ZyY-3u1R
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 23 Jan 2026 09:29:46 +0000
+	Fri, 23 Jan 2026 09:29:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=GrI2Y/FhNtva0TLt29K+OTkJd59zne09SKgLV3aylL0=; b=Jsm6bDBHbarWpBCYIVh6zN1BYI
-	qboq2MaS1XLHi1QGKcJWNhkFrj30G66QE6PGP5WSZ7MnKGB9ANaPaDmE1TX36mL/gLOyDs2numPHP
-	sWfHrYOS5M9AYtn1navJny8UcOZGMuptNpiVMF4zMa9MOGYn3/gFUy0vOGzwt6ryh/fHbzT83JzyN
-	2/XuuCIOJ8xyMoH+znNEC2BUkJW8W41AUZ+GWVveVT/Q+D9ebkJ3zPBVJHcxuKTcH8iCyK5Iyng2D
-	MYOed/XCAO0N4/adb7jxHMR79JhJ7CAMnphU4bZb16cM1cC9TalTuum7jc2DxMjtvDDNAixGu+fE6
-	gGpdiHtg==;
+	bh=Xgs2c9+kz7gvMJwiGADsUFN9XcjihKYujG4M50n+Li4=; b=Vu5K6sCW3C38T4ZUVy0F9opKXO
+	QYhmHnpavDobYTLLePQub6ZPOvzSAjaFs5Uuw4/H6LJn+Sk029Mq5s6nOOS1DXu5aYaaXnm4fL98Z
+	gV4nXoZpJ9AH/BSZ0jGUY/9eRIYPB+WFPWCRMizuyc/Eo6z/x58Ta7rdBLaYAiBYkVt5HRr6SFK8r
+	k54jwL7K5yfBPnhjgv/urNNMbvmWv3jCHbv7cqtKx245eSDeO4gNM4tzl1GV3LHrPJQPsj6fZJrJt
+	YjEMveqevd2yeS//d7wAYJBoONe8pMGo8bPiPlkGPteESqTy6FTEJepDTe/Gg6XPGop/ZaoEjRtnG
+	bsHPrn9Q==;
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDU5-000000022mn-2YGM
+	id 1vjDU7-000000022ok-3KFu
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Jan 2026 09:29:44 +0000
+	Fri, 23 Jan 2026 09:29:46 +0000
 Received: from edelgard.fodlan.icenowy.me (unknown [112.94.103.171])
-	by APP-03 (Coremail) with SMTP id rQCowABXZ85EP3NppX1gBg--.20954S10;
-	Fri, 23 Jan 2026 17:29:21 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowABXZ85EP3NppX1gBg--.20954S11;
+	Fri, 23 Jan 2026 17:29:23 +0800 (CST)
 From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -63,36 +63,36 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Drew Fustini <fustini@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
 	Fu Wei <wefu@redhat.com>
-Subject: [PATCH v6 8/9] MAINTAINERS: assign myself as maintainer for verisilicon DC driver
-Date: Fri, 23 Jan 2026 17:28:29 +0800
-Message-ID: <20260123092830.4046009-9-zhengxingda@iscas.ac.cn>
+Subject: [PATCH v6 9/9] mailmap: map all Icenowy Zheng's mail addresses
+Date: Fri, 23 Jan 2026 17:28:30 +0800
+Message-ID: <20260123092830.4046009-10-zhengxingda@iscas.ac.cn>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260123092830.4046009-1-zhengxingda@iscas.ac.cn>
 References: <20260123092830.4046009-1-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABXZ85EP3NppX1gBg--.20954S10
-X-Coremail-Antispam: 1UD129KBjvdXoWrKrW5tFyfCw1kXr18KF4DArb_yoWkXrc_WF
-	4kA34DZw47GFnYk39YyFs0k3yF93y5Jr4ru3Zxtwsay34jyryqg3Wvgw15Cw4UCFWfGF1D
-	Za9rJryfGF4a9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbvAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAVCq3wA2048vs2
-	IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28E
-	F7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr
-	1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0D
-	M2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjx
-	v20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1l
-	F7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2
-	IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY
-	6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17
-	CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF
-	0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCw
-	CI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsG
-	vfC2KfnxnUUI43ZEXa7sRiHUDtUUUUU==
+X-CM-TRANSID: rQCowABXZ85EP3NppX1gBg--.20954S11
+X-Coremail-Antispam: 1UD129KBjvJXoWrKryDWr4ktryDKw4fCFWDXFb_yoW8JrWkpr
+	4xGr4UKFykAwn29r1qgry5WF1kXa95WF4DGw4Yvw18uFZ3JF1kWrsxJayDXr1UJrWS9rW7
+	JFnFvr93Was7A3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmS14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
+	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
+	4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq
+	3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7
+	IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4U
+	M4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2
+	kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkE
+	bVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67
+	AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI
+	42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF
+	4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBI
+	daVFxhVjvjDU0xZFpf9x0pRQJ5wUUUUU=
 X-Originating-IP: [112.94.103.171]
 X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_092942_227524_E5A9F5B9 
-X-CRM114-Status: UNSURE (   7.44  )
+X-CRM114-CacheID: sfid-20260123_092945_326940_74DF1A27 
+X-CRM114-Status: UNSURE (   6.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,42 +113,37 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Icenowy Zheng <uwu@icenowy.me>
 
-As I am the author of this rewritten driver, it makes sense for me to be
-the maintainer.
+Map all mail addresses Icenowy Zheng had used to the personal mailbox
+prefixed "uwu".
 
-Confirm this in MAINTAINERS file.
+All these mailboxes, except the one of Sipeed (which was only used
+during a summer vacation internship), can accept mails now.
 
 Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 ---
 No changes since v4.
 
-Changes in v3:
-- Switch to my ISCAS mailbox.
+New patch in v3.
 
-No changes in v2.
+ .mailmap | 4 ++++
+ 1 file changed, 4 insertions(+)
 
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index fc04fc007a054..507ffef26dac1 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -8658,6 +8658,13 @@ F:	Documentation/devicetree/bindings/display/brcm,bcm2835-*.yaml
- F:	drivers/gpu/drm/vc4/
- F:	include/uapi/drm/vc4_drm.h
- 
-+DRM DRIVERS FOR VERISILICON DISPLAY CONTROLLER IP
-+M:	Icenowy Zheng <zhengxingda@iscas.ac.cn>
-+L:	dri-devel@lists.freedesktop.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-+F:	drivers/gpu/drm/verisilicon/
-+
- DRM DRIVERS FOR VIVANTE GPU IP
- M:	Lucas Stach <l.stach@pengutronix.de>
- R:	Russell King <linux+etnaviv@armlinux.org.uk>
+diff --git a/.mailmap b/.mailmap
+index 84309a39d329c..0fc9602ddd9b0 100644
+--- a/.mailmap
++++ b/.mailmap
+@@ -316,6 +316,10 @@ Henrik Rydberg <rydberg@bitmath.org>
+ Herbert Xu <herbert@gondor.apana.org.au>
+ Huacai Chen <chenhuacai@kernel.org> <chenhc@lemote.com>
+ Huacai Chen <chenhuacai@kernel.org> <chenhuacai@loongson.cn>
++Icenowy Zheng <uwu@icenowy.me> <zhengxingda@iscas.ac.cn>
++Icenowy Zheng <uwu@icenowy.me> <icenowy@aosc.io>
++Icenowy Zheng <uwu@icenowy.me> <icenowy@aosc.xyz>
++Icenowy Zheng <uwu@icenowy.me> <icenowy@sipeed.com>
+ Ike Panhc <ikepanhc@gmail.com> <ike.pan@canonical.com>
+ J. Bruce Fields <bfields@fieldses.org> <bfields@redhat.com>
+ J. Bruce Fields <bfields@fieldses.org> <bfields@citi.umich.edu>
 -- 
 2.52.0
 
