@@ -4,81 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DDFAD6CFBB
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jan 2026 03:53:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20DFBD6CFDC
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jan 2026 06:08:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=07sLuoGsNzGKur0hyg1qlZCecAROjwAlZDFJzQwKODQ=; b=BLVt6uDwY3NX64
-	CugC8jlKzcnnWkhj+4kdEROksaZ4En+lMn6XltAIuyReTLifkfOMOChBkChlrHONRy6N72TBQqy5m
-	3QdzNHljfkgmVQEIgnbvGnquib13/z2B15s1O5ztQLRPaAddqVvVnd9FV2NVG262KjBXXPIpN8m8z
-	6XzbFWxlakV5lcM2OJFwXT+t9UoTsdPx64enbGEFXal/sHFd77Y8pWOo3Z3aXRbkbjfsSpudB1hho
-	xR4LIkliPANsEvhgFfcmWJ8kXIfonR9sraViRasX1MVotW5Q2ZNHXJkLJ7nnSpep3iIbfniVOFm0M
-	W7jUDjcU783J5YjEVbjg==;
+	List-Owner; bh=vBIO41ID0jx569vEBGvCjpcMfPuQxBVnB3y/v9WlA4g=; b=znSPLP+afSMhiU
+	let9YN5SgNv6a1HpqKoJkEKmpK99wLpOVfp+Jq0/oPixvJl3D+ByujpAqZrOmE5koKn1KtLAhlqDl
+	5DQFbp6aCbcqr6XOv1r1PEvfh4rb0IbVPMRrcFhepDWZSNJjstgn0cXrNjczANYkB96+9ztcTuzvY
+	mMSrbIIuyJOxJCnoReAOag67/h7xEBzmUglVa7EzBU0N9xWyVK71MN6dxCCn4Yp+cfVlqYaO2RJhw
+	IUADTIPU0KPQaKLB1C7niRJY3gye98KQIuH3yNPZXNQ3vs758+dL0x2YPnPx1tKLc67e3hgY1vK9U
+	Q8aTeHWJHMbpmCgCXRug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj8E8-00000008AWA-1k1y;
-	Fri, 23 Jan 2026 03:52:52 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vjAKr-00000008GWg-079r;
+	Fri, 23 Jan 2026 06:07:57 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj8E5-00000008AVW-1gp2
+	id 1vjAKj-00000008GU0-3TRT
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Jan 2026 03:52:51 +0000
+	Fri, 23 Jan 2026 06:07:53 +0000
 Received: from [127.0.0.2] (unknown [210.73.43.101])
-	by APP-01 (Coremail) with SMTP id qwCowAB3HGh_8HJpaGXcBQ--.18963S2;
-	Fri, 23 Jan 2026 11:52:33 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowACnPBAiEHNp9tMuBg--.1678S2;
+	Fri, 23 Jan 2026 14:07:32 +0800 (CST)
 From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Fri, 23 Jan 2026 11:52:23 +0800
-Subject: [PATCH net v3] net: spacemit: Check for netif_carrier_ok() in
- emac_stats_update()
+Subject: [PATCH v3 0/4] PCI/MSI: Generalize no_64bit_msi into msi_addr_mask
+Date: Fri, 23 Jan 2026 14:07:27 +0800
+Message-Id: <20260123-pci-msi-addr-mask-v3-0-9f9baa048524@iscas.ac.cn>
 MIME-Version: 1.0
-Message-Id: <20260123-k1-ethernet-clarify-stat-timeout-v3-1-93b9df627e87@iscas.ac.cn>
-X-B4-Tracking: v=1; b=H4sIAHbwcmkC/43PwW7DMAgA0F+JfJ4rQyKX9LT/mHYgNl6sLUlnu
- 1GrKv9eK9thu1WcAPGAu8qSomR1au4qyRpzXOaatC+NciPPH6Kjr7lCg9YAGv0JWsooaZai3Re
- nGG46Fy66xEmWS9EeEYLzLTOTqsw5SYjXfcWbqlPq/aeY5PtS15XfzsBZtFumKZZT03HrB+4Ii
- NCQdMFaQiRjxHRoyR6p89h72K0x5rKk2/7CCjv2/LUr6BqGXOiRPAzta8yO84Hdwc07v+JfEp4
- gsZJHGwIwgCXf/ye3bXsAGSVarXYBAAA=
-X-Change-ID: 20260120-k1-ethernet-clarify-stat-timeout-d221fcd3aaa8
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+X-B4-Tracking: v=1; b=H4sIAB8Qc2kC/23OwW6DMAwG4FdBOc8oMZA2Pe09qk0KJqzWBHQxj
+ TYh3r0pbQ+Tevwt/5+9KAmRg6hDsagYEgtPYw7VW6Ho5MevANzlrFBjYxArOBPDIAy+6yIMXr4
+ Bu51t/C60ldMq984x9Py7mcePe47h55Lp+T5UrZcANA0Dz4ci2dI4iGQ+l1Xd9k8s8xT/tpeS2
+ QqP6/WL68mABt1421NbtzXpdxbyUnoqady8hE/DaoPmlYHZ6GtsXGXs3u3df2Nd1ysS8Ij3KAE
+ AAA==
+X-Change-ID: 20251223-pci-msi-addr-mask-2d765a7eb390
+To: Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ Alex Deucher <alexander.deucher@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ "Creeley, Brett" <bcreeley@amd.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Yixun Lan <dlan@gentoo.org>, Vadim Fedorenko <vadim.fedorenko@linux.dev>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Alexandre Ghiti <alex@ghiti.fr>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Chukun Pan <amadeus@jmu.edu.cn>, 
- Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
- netdev@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Vivian Wang <wangruikang@iscas.ac.cn>
+ Bjorn Helgaas <bhelgaas@google.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>
+Cc: Han Gao <gaohan@iscas.ac.cn>, Vivian Wang <wangruikang@iscas.ac.cn>, 
+ Thomas Gleixner <tglx@kernel.org>, linuxppc-dev@lists.ozlabs.org, 
+ linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org, 
+ dri-devel@lists.freedesktop.org, netdev@vger.kernel.org, 
+ linux-pci@vger.kernel.org, linux-sound@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, sophgo@lists.linux.dev, 
+ Takashi Iwai <tiwai@suse.de>
 X-Mailer: b4 0.14.3
-X-CM-TRANSID: qwCowAB3HGh_8HJpaGXcBQ--.18963S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXF17Xw4rAF1rJw1fZw15CFg_yoWrWFW8p3
-	yYvasaqr40kry0vFsIyr4UZrZ8Xa1fJFyUCFyay395WFn0y3WfAry8KayUKF1qvrWkuryY
-	qr1UAa1DCF4DArDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUP0b7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4
-	vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
-	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F
-	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
-	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK67
-	AK6r48MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAF
-	wI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc4
-	0Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AK
-	xVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr
-	1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU892-5UU
-	UUU==
+X-CM-TRANSID: zQCowACnPBAiEHNp9tMuBg--.1678S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJFy3ZFy7CrWxur4kZryrZwb_yoWrurW8pF
+	Z8GayagF48tryxKa9rCw47ZF4ayan5t34fKr1DK3sa9an0vFy8Zrn3tr45X34UXr4xJw40
+	qr9rW3WkZaykuaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9014x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0pRVVbgUUUUU=
 X-Originating-IP: [210.73.43.101]
 X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_195249_811962_132B5602 
-X-CRM114-Status: GOOD (  17.83  )
+X-CRM114-CacheID: sfid-20260122_220750_254089_7A2926E6 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,109 +98,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some PHYs stop the refclk for power saving, usually while link down.
-This causes reading stats to time out.
+The Sophgo SG2042 is a cursed machine in more ways than one.
 
-Therefore, in emac_stats_update(), also don't update and reschedule if
-!netif_carrier_ok(). But that means we could be missing later updates if
-the link comes back up, so also reschedule when link up is detected in
-emac_adjust_link().
+The one way relevant to this patch series is that its PCIe controller
+has neither INTx nor a low-address MSI doorbell wired up. Instead, the
+only usable MSI doorbell is a SoC one at 0x7030010300, which is above
+32-bit space.
 
-While we're at it, improve the comments and error message prints around
-this to reflect the better understanding of how this could happen.
-Hopefully if this happens again on new hardware, these comments will
-direct towards a solution.
+Currently, the no_64bit_msi flag on a PCI device declares that a device
+needs a 32-bit MSI address. Since no more precise indication is
+possible, devices supporting less than 64 bits of MSI addresses are all
+lumped into one "need 32-bit MSI address" bucket. This of course
+prevents these devices from working with MSI enabled on SG2042 because a
+32-bit MSI doorbell address is not possible. Combined with a lack of
+INTx, some of them have trouble working on SG2042 at all.
 
-Closes: https://lore.kernel.org/r/20260119141620.1318102-1-amadeus@jmu.edu.cn/
-Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
-Co-developed-by: Chukun Pan <amadeus@jmu.edu.cn>
-Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+There were previous dirtier attempts to allow overriding no_64bit_msi
+for radeon [1] and hda/intel [2].
+
+To fix this, generalize the single bit no_64bit_msi into a full address
+mask msi_addr_mask to more precisely describe the restriction. The
+existing DMA masks seems insufficient, as for e.g. radeon the
+msi_addr_mask and coherent_dma_mask seems to be different on more recent
+devices.
+
+The patches are structured as follows:
+
+- Patch 1 conservatively introduces msi_addr_mask, without introducing
+  any functional changes (hopefully, if I've done everything right), by
+  only using DMA_BIT_MASK(32) and DMA_BIT_MASK(64).
+- The rest of the series actually make use of intermediate values of
+  msi_addr_mask, and should be independently appliable. Patch 2 relaxes
+  msi_verify_entries() to allow intermediate values of msi_addr_mask.
+  Patch 3 onwards raises msi_addr_mask in individual device drivers.
+
+I still believe this safe approach is the way to go, since we don't know
+the MSI addressing limitations of *every single* PCI(e) device out
+there. Brett's comment from v1 [3] indicates at least the *possibility*
+of MSI mask being larger than DMA mask, so let's play it safe for now
+and not randomly disable some other device's MSI just because of this
+one cursed platform.
+
+Tested on SG2042 with a Radeon R5 220 which makes use of radeon and
+hda/intel. PPC changes and pensanto/ionic changes are compile-tested
+only, since I do not have the hardware.
+
+I would appreciate if driver maintainers can take a look and see whether
+the masks I've set makes sense, although I believe they shouldn't cause
+problems on existing platforms. I'm also not familiar with PPC enough to
+touch the arch/powerpc firmware calls further - help would be
+appreciated.
+
+My intention is that the first two patches are taken up by PCI
+maintainers, and the rest go through the maintainers of individual
+drivers since they could use more device-specific testing and review. If
+this is not convenient I'll be happy to split it up or something.
+
+[1]: https://lore.kernel.org/all/20251220163338.3852399-1-gaohan@iscas.ac.cn/
+[2]: https://lore.kernel.org/all/20251220170501.3972438-1-gaohan@iscas.ac.cn/
+[3]: https://lore.kernel.org/all/970e6955-d345-48e3-8ea5-83c577ecc563@amd.com/
+
 ---
 Changes in v3:
-- Incorporated changes from Chukun to check for netif_carrier_ok().
-  Reworded patch message to match. (Jakub)
-- Link to v2: https://lore.kernel.org/r/20260121-k1-ethernet-clarify-stat-timeout-v2-1-76ff1a1168d9@iscas.ac.cn
+- Patch 2: %llx -> %#llx while printing addresses (Bjorn)
+- Link to v2: https://lore.kernel.org/r/20260121-pci-msi-addr-mask-v2-0-f42593168989@iscas.ac.cn
 
 Changes in v2:
-- Add "Fixes" and retarget to net (Andrew)
-- Link to v1: https://lore.kernel.org/r/20260120-k1-ethernet-clarify-stat-timeout-v1-1-108cf928d1b3@iscas.ac.cn
----
-This has a conflict in context lines in emac_adjust_link() with current
-net-next, which will show up when pulling that for next rc1. Just remove
-"emac_set_fc_autoneg(priv);".
----
- drivers/net/ethernet/spacemit/k1_emac.c | 34 ++++++++++++++++++++++++++-------
- 1 file changed, 27 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
-index 220eb5ce7583..88e9424d2d51 100644
---- a/drivers/net/ethernet/spacemit/k1_emac.c
-+++ b/drivers/net/ethernet/spacemit/k1_emac.c
-@@ -1099,7 +1099,13 @@ static int emac_read_stat_cnt(struct emac_priv *priv, u8 cnt, u32 *res,
- 					100, 10000);
- 
- 	if (ret) {
--		netdev_err(priv->ndev, "Read stat timeout\n");
-+		/*
-+		 * This could be caused by the PHY stopping its refclk even when
-+		 * the link is up, for power saving. See also comments in
-+		 * emac_stats_update().
-+		 */
-+		dev_err_ratelimited(&priv->ndev->dev,
-+				    "Read stat timeout. PHY clock stopped?\n");
- 		return ret;
- 	}
- 
-@@ -1147,17 +1153,25 @@ static void emac_stats_update(struct emac_priv *priv)
- 
- 	assert_spin_locked(&priv->stats_lock);
- 
--	if (!netif_running(priv->ndev) || !netif_device_present(priv->ndev)) {
--		/* Not up, don't try to update */
-+	/*
-+	 * We can't read statistics if the interface is not up. Also, some PHYs
-+	 * stop their reference clocks for link down power saving, which also
-+	 * causes reading statistics to time out. Don't update and don't
-+	 * reschedule in these cases.
-+	 */
-+	if (!netif_running(priv->ndev) ||
-+	    !netif_carrier_ok(priv->ndev) ||
-+	    !netif_device_present(priv->ndev)) {
- 		return;
- 	}
- 
- 	for (i = 0; i < sizeof(priv->tx_stats) / sizeof(*tx_stats); i++) {
- 		/*
--		 * If reading stats times out, everything is broken and there's
--		 * nothing we can do. Reading statistics also can't return an
--		 * error, so just return without updating and without
--		 * rescheduling.
-+		 * If reading stats times out anyway, the stat registers will be
-+		 * stuck, and we can't really recover from that.
-+		 *
-+		 * Reading statistics also can't return an error, so just return
-+		 * without updating and without rescheduling.
- 		 */
- 		if (emac_tx_read_stat_cnt(priv, i, &res))
- 			return;
-@@ -1636,6 +1650,12 @@ static void emac_adjust_link(struct net_device *dev)
- 		emac_wr(priv, MAC_GLOBAL_CONTROL, ctrl);
- 
- 		emac_set_fc_autoneg(priv);
-+
-+		/*
-+		 * Reschedule stats updates now that link is up. See comments in
-+		 * emac_stats_update().
-+		 */
-+		mod_timer(&priv->stats_timer, jiffies);
- 	}
- 
- 	phy_print_status(phydev);
+- Patch 3: Fix the mask for radeon (Christian)
+- Drop what was patch 5, keep the behavior for pensando unchanged for now
+- Add Cc for linux-riscv and sophgo. Oops.
+- Link to v1: https://lore.kernel.org/r/20251224-pci-msi-addr-mask-v1-0-05a6fcb4b4c0@iscas.ac.cn/
 
 ---
-base-commit: 4a3dba48188208e4f66822800e042686784d29d1
-change-id: 20260120-k1-ethernet-clarify-stat-timeout-d221fcd3aaa8
+Vivian Wang (4):
+      PCI/MSI: Conservatively generalize no_64bit_msi into msi_addr_mask
+      PCI/MSI: Check msi_addr_mask in msi_verify_entries()
+      drm/radeon: Raise msi_addr_mask to dma_bits
+      ALSA: hda/intel: Raise msi_addr_mask to dma_bits
+
+ arch/powerpc/platforms/powernv/pci-ioda.c           |  2 +-
+ arch/powerpc/platforms/pseries/msi.c                |  4 ++--
+ drivers/gpu/drm/radeon/radeon_device.c              |  1 +
+ drivers/gpu/drm/radeon/radeon_irq_kms.c             | 10 ----------
+ drivers/net/ethernet/pensando/ionic/ionic_bus_pci.c |  2 +-
+ drivers/pci/msi/msi.c                               | 11 +++++++----
+ drivers/pci/msi/pcidev_msi.c                        |  2 +-
+ drivers/pci/probe.c                                 |  7 +++++++
+ include/linux/pci.h                                 |  8 +++++++-
+ sound/hda/controllers/intel.c                       | 10 +++++-----
+ 10 files changed, 32 insertions(+), 25 deletions(-)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20251223-pci-msi-addr-mask-2d765a7eb390
 
 Best regards,
 -- 
