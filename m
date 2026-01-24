@@ -4,79 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38606D715E3
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jan 2026 18:00:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 604F5D715F8
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jan 2026 23:19:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YpQVPyU0XXuSVK7MZpw2yBOoEedXVq8Leu2wY4Kv5IQ=; b=sECXcPkO8pGOQQ
-	8a9lUsk8YrAnRL8eOY1EhJfz1qIEVW1fY2TbsxYaZiNMjtOxrYVptS3dNQguRheAE3oi9qQEDZug3
-	fOQquZS7xae1VKqgHH2C73qIScIfi8p4yCvD8w+738GtT+Fr5bVFOeb2xlfhF/ttsaJP6fYfwm3Fh
-	usPi51Myv47qOMbaigGkFc9TYEt9rcm6ZWKH98KTcZYFnCDy2dMAMcy5o6igphN3smdZYzfgakMs3
-	zsNmo4nn+1uraDiFg3Cudnb8A7ZPMNOJqTSH4KkS/0CmUIO/lyVjHHNBzRlBTMfWEZYmL1N0mPiFR
-	veKuqJNRrzjf5nPzkMTA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rzgB/t031us7y9pqoNDcYcm2eVvSCf2X1aA1Jp2SWPo=; b=Zm7EnXoaJI+bYX
+	cYP1TxdIkRB28Ouiwhkt5aRPJsvzm+PNPjlbg2bT5g1Uu0RTIKFWAkvQj518zTdwRRNJXVtwNPfWz
+	2talOZlpoYoUDRyiFT1d5T6DSyb44ut/HS9lhuiDQmuU2KpIszv/Q81im+7vr7C33yf8gNYkdPuzm
+	DIgNrWMHZD4OYCEhiNMUn0RF/qlCf+VLe0rCmW45ZjD/VgpYWfK+1EKpa8xuG+2f2HsxccX5eYfia
+	zvlFE6XnNRI3SrvozGAxEsQCU/pDMONcLXYgkr7LeoWJ2KO5fRz79FrVc3fCE/p5P0PiZf+MGZxYN
+	VPiLwX/oF0UG/fVCwgHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjhva-0000000AQGl-1Lpp;
-	Sat, 24 Jan 2026 18:00:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vjmtw-0000000AgaI-2MzI;
+	Sat, 24 Jan 2026 23:18:44 +0000
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjhvZ-0000000AQGL-2401
+	id 1vjmtt-0000000AgZp-3DqR
 	for linux-riscv@lists.infradead.org;
-	Sat, 24 Jan 2026 18:00:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3836260055;
-	Sat, 24 Jan 2026 18:00:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73711C116D0;
-	Sat, 24 Jan 2026 18:00:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769277603;
-	bh=ZEuUe0fii9zeTFf3nGMbuhhNCbG/kSLNmWTlO1fl/hA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IrbkHLQwKIoPQvs4AEvMoM6AWVrTZwsWeB3m0BN/Ce2DyZ7a18JIdmwRocKhHjZQm
-	 TiSZKjvgSuEC8nWS4u9hH72wxYz28OJAvW0a5A49+V+CtQS0/JEKfQeBh7kypa/jrE
-	 vD22p33UgtzN0XgrPds2fFxXgPaSYS1sdldFighoTXoCVDLak9spgf7AWImTOHUD7B
-	 7AhZ2Q1dzXUaDX5GFneKkjcNFnZ/fIBm+yH7ZV6XQ0hR4uin6T+CNIkhzWAWOkmajb
-	 7wE9bLwrJx7ij92mgiiTjabPsG7w1LPY868N7PHMEHkWTmzI4aVvSV7/xDuhT1rp2O
-	 z7Q9UPBPfsp1g==
-Date: Sat, 24 Jan 2026 10:00:01 -0800
-From: Drew Fustini <fustini@kernel.org>
-To: Reinette Chatre <reinette.chatre@intel.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Adrien Ricciardi <aricciardi@baylibre.com>,
-	Nicolas Pitre <npitre@baylibre.com>,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Vasudevan Srinivasan <vasu@rivosinc.com>,
-	Ved Shanbhogue <ved@rivosinc.com>,
-	yunhui cui <cuiyunhui@bytedance.com>,
-	Chen Pei <cp0613@linux.alibaba.com>,
-	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
-	Weiwei Li <liwei1518@gmail.com>, guo.wenjia23@zte.com.cn,
-	liu.qingtao2@zte.com.cn, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	Babu Moger <babu.moger@amd.com>,
-	Peter Newman <peternewman@google.com>,
-	Fenghua Yu <fenghua.yu@intel.com>,
-	James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
-	Dave Martin <Dave.Martin@arm.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	x86@kernel.org, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH RFC 00/19] RISC-V: QoS: add CBQRI resctrl interface
-Message-ID: <aXUIoSSL2hZPKf0p@x1>
-References: <20260119-ssqosid-cbqri-v1-0-aa2a75153832@kernel.org>
- <1c9b21e3-f64b-4a0c-9e1b-cc90d981159c@intel.com>
+	Sat, 24 Jan 2026 23:18:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=l82ZVZ/VI0kbu29TGg+8ZXOmWG4T54btv9HILVOjM0Mp5ILBU+zPuvKB1yHEKONrHx/6sLhnmPEGcD3WPLRstekoKjjfR2EMokPhpY6AIPpLfO3hPTzijdT+ThyRHKdd4pOuusvddIcWlm9x1aGFAiOGspwN+TOA/wN5aVs6bDbh06fv6PjsHqNFbP0WYeBTetXHqErSz7oHO60AmESsWl+8HnvV5qVjYM7HcHzoOsQ22HstszMfTZtwjY2biyx/lihLK55Ulg4U3VX24vx68oECqaXeIjTGEM9SMfspziMywvRhfCSX/8x6ICHKEbaAXs4q2C3ybdRzbnrCxe3hyg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HT9+3BOcRv3841WFHXL7XPLgN9f8gFOTyvlscZsulX0=;
+ b=FPhWIHQiOKbwjDm5GScWFOSb+6+HV/ZxIc3wkpjYXwPoLgLQX86ImbCQtwAdWF1b4iYlT7ZLSDWvCjHAQ4samQjc/u/YtttgGKTJIccgyxjIC+MKSeaSDgLZQrTmDzkWtK27Nl32uV5RLpcC95KQ9PVQoqZg/q+Ko1/73Fl2o9/bJq8dyop5j5vMDWOUovj5BBNtXxhVWIR26sTVY50++bOEX8Jyp/3QSM1BZc+dFExIzwnNEQ59hTBpoOlfGV5vNPidAllFGEffBoLDhzAJDKAbUZMOdKk9GWk4ai1IFU0ONVOLcrCYGPQFsA/Xv/ijXq+TkeLq7c0EAycqwWyxug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HT9+3BOcRv3841WFHXL7XPLgN9f8gFOTyvlscZsulX0=;
+ b=oGoljl/xRZcTMBRRgvW+hsGGjG7YVtOb8YZcH7phWxoMMYIB6fmPYVTS9w0ml0xwcwyqb2p4ExkCQPKKMb6WlnAe3xAAc1QJC7pmb+VFZVkA3X3fpMpuCAvqRxV9s57nOZ5VHNs9YmeMyo1DCEq7rdOpqibKB5Y4LkmmM8sksaI7ih6AQmfKIdj4UVnzQqPPr8JiJ1uXZIvrYtH629sMc1/codvmuzN5V1ui2csONMlvH2+l7fsMnzy0QqONb2XJiVpHLxvL70vO1+MfcWRxf7LS4I2kr7fAsGLilcDGcattNXAVEY5zgqvpQ+CYDfuheEhbhbxDd3er2mvoYVdy2Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB6486.namprd12.prod.outlook.com (2603:10b6:8:c5::21) by
+ PH7PR12MB5734.namprd12.prod.outlook.com (2603:10b6:510:1e1::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9542.14; Sat, 24 Jan 2026 23:18:34 +0000
+Received: from DS0PR12MB6486.namprd12.prod.outlook.com
+ ([fe80::88a9:f314:c95f:8b33]) by DS0PR12MB6486.namprd12.prod.outlook.com
+ ([fe80::88a9:f314:c95f:8b33%4]) with mapi id 15.20.9542.010; Sat, 24 Jan 2026
+ 23:18:34 +0000
+From: Joel Fernandes <joelagnelf@nvidia.com>
+To: linux-kernel@vger.kernel.org,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Gary Guo <gary@garyguo.net>,
+	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>
+Cc: Alexandre Courbot <acourbot@nvidia.com>,
+	John Hubbard <jhubbard@nvidia.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	Timur Tabi <ttabi@nvidia.com>,
+	Edwin Peer <epeer@nvidia.com>,
+	Zhi Wang <zhiw@nvidia.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	nouveau@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	rust-for-linux@vger.kernel.org,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v1 0/5] gpu: nova-core: use checked arithmetic for firmware parsing robustness
+Date: Sat, 24 Jan 2026 18:18:25 -0500
+Message-Id: <20260124231830.3088323-1-joelagnelf@nvidia.com>
+X-Mailer: git-send-email 2.34.1
+X-ClientProxiedBy: MN2PR07CA0026.namprd07.prod.outlook.com
+ (2603:10b6:208:1a0::36) To DS0PR12MB6486.namprd12.prod.outlook.com
+ (2603:10b6:8:c5::21)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1c9b21e3-f64b-4a0c-9e1b-cc90d981159c@intel.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB6486:EE_|PH7PR12MB5734:EE_
+X-MS-Office365-Filtering-Correlation-Id: ad90cb78-dc30-41ca-111c-08de5b9ee501
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5HIKmSgbbg4tQilPQAz3zDScawyUoBMY1osPkJ6OX+fCcZBFZDpg7NMQ3SH8?=
+ =?us-ascii?Q?plASj1z8QUovhdKuMMOkpkUUoQPI4iSD26YrhLCfzcawqUjj6MhV9W6SREuE?=
+ =?us-ascii?Q?6EsLu76S1PAx2aVQqh/d2AslBlMCczWlk2ndphixu6amdHzvw2KpKa+FdQ8I?=
+ =?us-ascii?Q?AhCccH10Kb7pUlZ5D9Xlp2zD7wCFpwzzZ/DFv0DtGiiISTqGo9haYUUUWe1Z?=
+ =?us-ascii?Q?uhGyTEpjy1js1hCmeWv2HeEMvKB3Y0BZTBSBjWczw0i996bm0ii5IJUchT73?=
+ =?us-ascii?Q?2IMCP9C46MTI0U8cxrPUl90QdhnfkuQ83zTAH83Cr1nU8datxslA3rsxkjrg?=
+ =?us-ascii?Q?UjQZxvm9ocw8Bd71bhifKq2XDIwE++1jTGM3W8OQA61pwIl8/UNK7C+Nmaqp?=
+ =?us-ascii?Q?Bt0p6GMZJHudBHx7n6YsfoFXatD9V/yO4SYMANF14KBoK9uDxDycYCm3D5D/?=
+ =?us-ascii?Q?gfWcDRMBiructdvkFsuGa80M5Cyu3mTXOS664TeacDvJda9gUC5QcNkB5qYa?=
+ =?us-ascii?Q?BfeTXVAjEuX0BKhTypT+LxAq5lFWGn3U1B8ZUlM4w//r3Il2vtMsVpO6sszi?=
+ =?us-ascii?Q?Rgr3nzJUtHGDgqadSlLhDtz0Nzw1Z39/brp+XwK+gGJNhGTn9ZIER/xW6f5m?=
+ =?us-ascii?Q?3R6wZ4suXKOREwTQDI4brsNeSpJgYcYk1JcEU3V7CAG8Dhy2UD+vBjdwhvdw?=
+ =?us-ascii?Q?6Tp16IIUJW66JpYSMPFo7utaMSVYap9pbUbEf6uAL/FnuOKVUPvFNb+Lzj9E?=
+ =?us-ascii?Q?kKq7FHV9hu7boOqQ9tHfkJn0SzLSbjX/Bj/U+FTAmaAgWNhUfYd6EJrRFIYL?=
+ =?us-ascii?Q?lvc6KtxyYHAYedGtzFFUITfINzW9H1A68Qlj8QrRJZYNXRGAz2eSaGaHN31n?=
+ =?us-ascii?Q?lzKYz9Ke/tHtNnQBYCXXi2ITse3uatBxL8UDeAn2TzLmEDUnqyYKjvAOVFIq?=
+ =?us-ascii?Q?mWvB7x9T4p6N6qDgxnQwYuz8AwNdhbPu3EiB7TaKzrCbuUA4p8e59YRi/EXL?=
+ =?us-ascii?Q?8PgToWFIQnzE2SLs90CZbo6W8BKSJ5CmOTimTzAIwRRzIySpSVxegrFpVMXs?=
+ =?us-ascii?Q?6Hn/uENqxnSfNyPLdH4KbeqzygyBP5CEIOLrEbosM8jcVJje15qQq0QOO7Xx?=
+ =?us-ascii?Q?vcePdOIh29PAgGFP0tKXing1dmpDaj32EldgM5LnNyxsSRubWQV4JRzHCpHs?=
+ =?us-ascii?Q?rly62g4p9GPaUG/68l4N5omJFT9btePvNzCHhPFSLnV3PYvPs8xYBckF9Tkg?=
+ =?us-ascii?Q?whhIgRX2EHMW+NAvwHio65KybOKZI5L+PifyTrRo/ZaI2pIK90TNtWYiKyga?=
+ =?us-ascii?Q?rPVOfOau61Tm6XFHO28vrJPr4QEuco+lw50foT/mKi+XX6FIHGpYurceqvdP?=
+ =?us-ascii?Q?JN05vTVKfoqmHG1BAVvDddK4pulwoMTkPZBDr7fC4vDbTMABPOlZ8wzt00Vo?=
+ =?us-ascii?Q?QK/EwOGCJJlPh76fEgFM3t83PDrVtppmh3a4BAjWDYAJCbTusZbcATDXf0BK?=
+ =?us-ascii?Q?aaVWZx/rN+MzwFpCbOCsxFjsSx59m1o21vBU8ThOL3GLhgljU2tjWpPuDxQD?=
+ =?us-ascii?Q?S7gPtcLEwahAgs0h5sU+ypvwwiZBeKgBLW8fekFp+CdFtp+u0kQl9Sm8wo9b?=
+ =?us-ascii?Q?QQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6486.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PFM33cGFoVpKXgMAACSYm9cnT7bxStm55zt10/Odt+k1oQKVyjeDWJHoaHmT?=
+ =?us-ascii?Q?lldj0xTQoq7Vjo4dNJmoZe57byA+ESPLUUp5g7io1vs+XljhiQ8yyiPMlON3?=
+ =?us-ascii?Q?ZPX7a5wto65NxPIMauyPNiEXvvDL73AdpnHs7ZiiLPVU6jYuOiO/WCCj1nBf?=
+ =?us-ascii?Q?8sAOLPoL75WtxslE4NPi6+ehNNFA+ElES9qmsjagQlIIAKaqH6uHwHfQSaOP?=
+ =?us-ascii?Q?9Qu4Z386hCNqw9MbP58bHnmS9hOYWETfjJfXoaoWkn2nenodsAd1bKxO5E0b?=
+ =?us-ascii?Q?ou4AEDq+yAQre67UkSoSjt2NjOIfwTe6xYCAEzLXi9XqTayvW+d67kAcba6B?=
+ =?us-ascii?Q?BEbZbf/78jQBB7OnX7A4Y7NYEb6Uj6vOIrNcmwkah5cH61dSUwIpvCIqZrF6?=
+ =?us-ascii?Q?jfSLPMOTecGXtjPD2PCmXocnqD3zvzeiILdKGD9pjdxv+0mzJjRUoR01mo7Q?=
+ =?us-ascii?Q?z7fkAUBEm9/LzLxu9Nbx/TR2GEH6JXUfcUY/NUc9Nz8hKorppeI8HG9Wy2hA?=
+ =?us-ascii?Q?0D3XlRWV/sUmYR4TxXxkhCcIWQ2MrTx4ONDL7IM1maYoYy7O2FghyUK4coNx?=
+ =?us-ascii?Q?JBR7AikXRAUUUcXE77ime6irOcEZeQJpyxGlFlDdOFNPQUjT1d8M24doKl/I?=
+ =?us-ascii?Q?hXKBFBeOJfOD1ZJ2yUEiHwKWfQFzBRF7sZ1Gue29RhsXbCFSzL9KBiXq8At2?=
+ =?us-ascii?Q?whF0PkD5bTBY1tXJfDGWUKPIQV+U3UqE4avDsMzQZHVACy2WvxEzvL0HVJ+s?=
+ =?us-ascii?Q?/+NDDK2EbJnWY9EP6OGM71OzIITQwbRK4jfTHpSjnsc4rFs49w0YCBsVXUIf?=
+ =?us-ascii?Q?mLUgt35Ouk8OF+JayypB8/v3A9Wt8MRxxZIs7a6cq+d8NW2GrU9O+q3gHDIq?=
+ =?us-ascii?Q?Pcdug3YqYRgG8XgCvgEjX0k1r4TBcAKzFPzV55/y5dZMDAZG2CvyqRsp36KY?=
+ =?us-ascii?Q?FcuqmXhJBTCobKaE1KJMi1tPxXcyD8OKvmjsPiH783q4eUCPMZJrhGj99qOY?=
+ =?us-ascii?Q?wOsj84G33na4qH5JNMFRGP/FTuBLpZu6RWlzL72ycaBFJBIr6X1dgQy7yiI8?=
+ =?us-ascii?Q?YpEPFFBho0+8ALvmHl4k+qiGylg7IhBNpezDRrY90k4FFUylciKUxuMShdUo?=
+ =?us-ascii?Q?OAAhSh1sh9r7vcJQU3nlJF7g4WapMlsj8iAK66JVCTl69+nLNE9YF8HRp8zO?=
+ =?us-ascii?Q?Nt7l0ZA9ABIuUhmp5P3GL3m065HWytbHwoKG53/PFu9YNeiIfhSoBtRcx59K?=
+ =?us-ascii?Q?Bp4/wn2eltUdiUSHexSiuFCAF2Mr/Vmc4Q86KdeAfgnM3HSudSXocbgI+13N?=
+ =?us-ascii?Q?YEL51b1594VIKPuKB5dmKuBVpxKL/1ylUIcrwi9Qm7+/25ch5lkQR4/J/euR?=
+ =?us-ascii?Q?6v5mdVxRRiJGFYY1eAiK7Cwfxh9kEE4h0b2871T05ugvAcPx1HzKAjh5TW1B?=
+ =?us-ascii?Q?IKw2kK3eCevC7bwiYHhxdXI1mcPE1az4r7/ZKTxwF0ssFrB8le6pJ2E8PIgd?=
+ =?us-ascii?Q?I4kk7xJaTB2Z1GLhZyMoEHv58zrW8wubLf7xxZpXjRaL9ZvX4weRHYLra5+X?=
+ =?us-ascii?Q?EavR8O5UNjM1Z6+cNKR2NWpmFEel1FUf93hIpZX1GRFTY8+iBfod/k8mpuEG?=
+ =?us-ascii?Q?olrMfmcnji3UlB54B/KPws/oGPOd71OUDNZ5HRHsIDRNWY71qj/UXp4Hf+45?=
+ =?us-ascii?Q?/Vj8UqqIkqvvVP9hiUprSF7dAC052WqAd+zIEGgIAqRiNX7Pqc5X8ZBJQc2v?=
+ =?us-ascii?Q?xa8irUS5vg=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad90cb78-dc30-41ca-111c-08de5b9ee501
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6486.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jan 2026 23:18:33.9525
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Peukkan/01yCjvcyujFgqA4vCFTxRyCUFDUMK6L/smHJTa5nEmcqT5a7s6TpQVTLDXcoEO9e0RgZw9KyxqVpEg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5734
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260124_151841_820224_F86C27F5 
+X-CRM114-Status: UNSURE (   7.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,33 +187,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 02:31:06PM -0800, Reinette Chatre wrote:
-> Hi Drew,
-> 
-> On 1/19/26 8:14 PM, Drew Fustini wrote:
-> >  - No MBM (bandwidth monitoring)
-> >    - MBA schema works ok for the CBQRI-enabled memory controllers, but
-> >      resctrl does not currently have solution for representing MBM for
-> >      bandwidth resources that are not associated with a L3 cache.
-> >    - For the old CBQRI proof-of-concept RFC, two separate domains were
-> >      created for each memory controller: one for MB (allocation) and one
-> >      for MBM (monitoring).
-> >    - The monitoring domains had to pretend that these memory controllers
-> >      were L3 caches which is not the case. I have removed this as it was
-> >      too complicated and not the right solution.
-> >    - Fenghua Yu talked about a similar problem last month at LPC in the
-> >      resctrl BoF during the "MBA/MBM on CPU-less Memory Node" topic:
-> >      https://lpc.events/event/19/contributions/2093/
-> >    - I hope to work with resctrl developers on finding a solution.
-> 
-> Specific to this open, could you please consider [1] that proposes a way for
-> resctrl to handle allocation and monitoring of resources at different scope?
+This series adds checked arithmetic throughout nova-core's firmware parsing
+code to guard rust code against integer overflow from corrupt firmware.
 
-Thank you for pointing that out. I think that the different scope for
-bandwidth monitoring would fit CBQRI well. I will reply in that other
-thread.
+Without checked arithmetic, firmware could cause integer overflow when
+computing offsets. The danger is not just wrapping to a huge value (which may
+fail validation in other paths), but potentially wrapping to a small plausible
+offset that accesses entirely wrong data, causing silent corruption or security
+issues.
 
--Drew
+The series converts all firmware offset calculations to use checked arithmetic.
+This has been rebased on drm-rust-next. I would like to consider merging for
+the upcoming merge window to avoid future conflicts. Tested probing with GPU
+name printed in dmesg on my GA102 (Ampere).
+
+The git tree with all patches can be found at:
+git://git.kernel.org/pub/scm/linux/kernel/git/jfern/linux.git (tag: nova-checked-arith-v1-20260124)
+
+Joel Fernandes (5):
+  gpu: nova-core: use checked arithmetic in FWSEC firmware parsing
+  gpu: nova-core: use checked arithmetic in Booter signature parsing
+  gpu: nova-core: use checked arithmetic in frombytes_at helper
+  gpu: nova-core: use checked arithmetic in BinFirmware::data
+  gpu: nova-core: use checked arithmetic in RISC-V firmware parsing
+
+ drivers/gpu/nova-core/firmware.rs        |  3 +-
+ drivers/gpu/nova-core/firmware/booter.rs | 22 ++++++---
+ drivers/gpu/nova-core/firmware/fwsec.rs  | 60 ++++++++++++++----------
+ drivers/gpu/nova-core/firmware/riscv.rs  |  6 ++-
+ 4 files changed, 57 insertions(+), 34 deletions(-)
+
+
+base-commit: 58d26d42818c0f8c9b334cc7cf318b43046e675f
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
