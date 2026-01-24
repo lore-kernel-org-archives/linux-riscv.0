@@ -4,81 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CACD7237B
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jan 2026 04:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47CEAD6CFD7
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jan 2026 04:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7VLlE+5Ui2+G/qsGeaT2KgKBG97XsByxxJRQ6sG3Mcs=; b=Vcj/6cvHG14vEV
-	Er9sZ1Tlv0JIV/RubFQq/hkFD1J8XP4JFEMGtVri3p3iLOFNRZrust57w6NHYg2l12Tp10jDmS0jm
-	oTaibOycCPvbOJJJwOcysl0Ym+OIn8/vstKxRmPnlZqmIdZ9cDnhz/M30PBT4sgx6kj+ihmNU1mqT
-	b7CLr8kpuqdddViQCFzua8lxVz4FZYqRttcTcAER0IAj9ml/GTj61zn2M2GnRt0kRzxWi8nzHQ0hE
-	ElVJ/Qug3HoGzACME1YrtEG5TjXWxM2XLSF8TlxrlvF41xXdl/4o8K0WY6K7+jBknfHBahBTNqSiV
-	PWN1FW5i1KK7vyrDvhfA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Xcn/xo/p4yvUjPNde1x5+WOFlBzKQwwf8P+gnd/32W4=; b=dthdB4R73HoXfK
+	4fBP9ioPHXU4mieulGEhJJD6SDhuc8pCripDgoYYKYz1yiZdHJEYMT35ctz4s21OKamBgKOleTJQA
+	9f4pvQDArIF9SV1+eNNwbiY6nQVZw2M9a9ihVupDiyy4gUd1bW2JDIlusfInEee8C5mSffKZYrBEW
+	WErmr0ePlu2+Bdx3sreNI0bIJ7EH9uJOoY48hKjI1MYUepDc44xwAjjRmYV+iTYNdByDmHwlILiRa
+	UmMKXo4XWnvnu+ovcJBfZGcQapzsgKN+sr2kqCcZMpQ7qQ11CEKyyUopHAKGbNf4eLQXPepjcs+6a
+	FJenPeTvoq/wcrOcIq2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjVHD-00000009z6e-3d4H;
-	Sat, 24 Jan 2026 04:29:35 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1vjVHY-00000009z9h-2zRG;
+	Sat, 24 Jan 2026 04:29:56 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjVHA-00000009z6G-1JeU
+	id 1vjVHT-00000009z90-2F6p
 	for linux-riscv@lists.infradead.org;
-	Sat, 24 Jan 2026 04:29:34 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-82318702afbso1849296b3a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 23 Jan 2026 20:29:31 -0800 (PST)
+	Sat, 24 Jan 2026 04:29:52 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-81f4c0e2b42so1520219b3a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 23 Jan 2026 20:29:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1769228971; x=1769833771; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=O4MFr4awFPQFQ95TEp9Xx5V/NF5VvFij05h0W0v3UZY=;
-        b=bnkgNOGrJ2z407v2OcneZteRS2043NwQcn/auPFiVWdSw8zFToBfqMXAe9mLyFts81
-         XIKerYmwB4CDLipIihUomTH8TteD6dDtOSPzhYEV+6/itfd+/PJLxSqHtkKm/yRjYbhy
-         Xn5Bnhwrv6C4HbEb2tXnOZPgUbSWOxcIrKlVPj5e+U0bBMAsgnHFD++o33j2zeAIj8vk
-         9F+7jHLkA21opS9g+Ib+mx7he+JwkOTiJxnMhdpVEVy4CHFfsjauGSR4qOVvnBnXIbgV
-         y/cKXfuQTjFlcdv8HX/FdIUobbFHWY5vzBhCO+AC/EcOnFbwPPStKZRqlsTVnbSOiAnZ
-         OZaA==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1769228991; x=1769833791; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NyfRLNITYR+AOfB6dobWT67hhjvc5+SsVTabgpbO9i8=;
+        b=tnzQsYjcB1DA7D0gcOewlaAZnYhwQGymdWYyEapsNKr+SgUutxwrSElDUE1DmS/uzn
+         kA+0OcC2SKwH2MSco0shubv9X6GxLrYASNh7wXgo99Fp2Y7fN3aQK2ZpdSprd+6hQlK+
+         26TICiT9XXAwbfTS+7PBWEPJzNFvo4FcL0Q/4sTo6uHsNDmJRDaIs8e0+vWjjlTkdVqL
+         sgmH/uCfPU4wQQeD0ezKvhrsVjEY70HeKSo5yBGTVVdTqF7zG7nIviUMA2k0Nx1FZta5
+         ZikiN5gyAZ0lr5qAcRrNmYXoLoTvjkDNHDaLh/Mc+Pl10J90v26JkZVH6hDY7XJB8NEm
+         +kZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769228971; x=1769833771;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=O4MFr4awFPQFQ95TEp9Xx5V/NF5VvFij05h0W0v3UZY=;
-        b=QosCYJ6DEj7WeNRL3S4QThe8j9xs688lLRr+OXLQRozi9rulOROVNdEm0/sBHTbu47
-         65T/tXPZtb6hjqFOCt5ulNSCyEKMRe9RTRTEo5geHdKwDwHCJ7WvyZZwECyaBgVTOIIu
-         FjKZy6dgS4QxUgDeMt9maiLoCiAfa9KAU542IURa6RdTkjjrAAcMl2ZvQD7LGLczGAMX
-         SQcyy5/6u0vhSRG2vNrM9dtbE2N/PJ8RsGHqrcD+HS1ALZljJrZCdH6/8A0bLGvu71Rf
-         sO0/Y8LFB1ygYN62a5C1tmrO+zt/eWyI7vVMkJ5kIh3QpvF2OBUqg2iZoPH0/LWziOGj
-         aQHw==
-X-Forwarded-Encrypted: i=1; AJvYcCV0dU7T0B89jHEPfTV6sUbdhrvTrNKsOZnvyq8MRAEG0rI2Z44NdibaUvNYdA3ZQTHR+CFSIRGEbTR36w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwS/pINyVL9w1r63PCfO+4co7CzeE4tx6xqEUjMtiHVdzLDKKRH
-	KzfgA2xibFiR0+d7o9j0zJokRrO4XJRKp0GQ+ImXIk7K2xKO8B1JaV61Y+eC7PGbfOg=
-X-Gm-Gg: AZuq6aKrwdfXl++0VPa3z/ZwI4jDdp46KP9XP9GPgSGxlI3RD2OtWvHB/P740PNY4Bp
-	NKoNy4Z1aNSj5Nw9TTu1plXAksCZBeIzT0CjmALAvhYTa+ownKeS3kdZ+5Vo3RvFj1scWP4aZye
-	uMFUox7X41b63zrBoF43wXxTHcRwX+Y5VYe3/bDpu0etsbHKJuohm/TvXzTsmcuwxLdZ/bMtTjx
-	sjxteGkBgEQe3ETXvULJFqkTa4zw0hCodZBpGoDf7ik9Polr5AlE8kXWvK5JUV6zC+vztSZpxQO
-	O49cFsgltaeMBaw84PSomKnXyHcMNiwgOlzy1gx5TvD2N8jGj/KR0VoVv3z5radC2/ABtn1WmQi
-	8W6LLtzuE25aRlJTmApRbrWXme2cqzmnb5f/DeXeOwMSeirYQgEa9k+ohJEoQM4ae8V1z0TWF45
-	i4k/ldihYwaIzEl+MQ+OfGi1PSck9xuk4=
-X-Received: by 2002:a05:6a00:428b:b0:823:943:391b with SMTP id d2e1a72fcca58-82317f1a119mr4451736b3a.60.1769228970505;
-        Fri, 23 Jan 2026 20:29:30 -0800 (PST)
+        d=1e100.net; s=20230601; t=1769228991; x=1769833791;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=NyfRLNITYR+AOfB6dobWT67hhjvc5+SsVTabgpbO9i8=;
+        b=bhkxWnLYicp70quqebXv4538A5QVAVomhvtHlMY30dkx3ZEgdxSh0g2TNU0EoEraEO
+         sd6HJg2z68KzvPOP244XkYoW9Y9MDEajXWocNOLOTywKi2YipoEiKZuA6ZZrZ+QOsZWm
+         Yqpjc38f18ZIFEduC1+HqxKJHskplOUOvz+q7djjeEuLuBhFEtd5QV7W24E3nqYBuE7B
+         b9xcZEkbvYtaqlV9lIxAg2gE7CbrXswILELO70fGh6ZB9vwh+9op9rGAYZ5SgQR3xdLY
+         /0xSvpAPXpI0+smrb/dobvT42bqIMLkAknZaILqr1eD2QxlJtb/XAFfUHX+7aocqiPce
+         BLLA==
+X-Forwarded-Encrypted: i=1; AJvYcCVhqTgA1X/nawyXBVWm3BTpZFiBbYsaSrgQGYbUAcTneNYqFTO1UEPM3IiBdiPpHyG33x4cnYqp4kG5QA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2wJmBRuAbUqkD6PpZtaFNy8iW8QXL3mgEgXEQB7yNlx5IkJRq
+	wQasR5gL1UOLkYo03mvC/1arbUvvGQJLzX409kjUGIN8UqIxsv9FzuB+Ve/ADDl7Brw=
+X-Gm-Gg: AZuq6aLjJlBpow4lkDunOO3cN8d28TmLd01J/uW1xsEdIn4AYcvqeDSJhN91MTBefLg
+	KOXogdWoOl3wF3ZA/BP24Bvm3ELINnIZpvr4dNCDkg9Cp/ELn5vteJGEv2u14Ft7oL5soM5ivsG
+	5pK+duQLg5gcu4UfW9L7N/qSEay5H1J6aUp+OcQqJx3ebwP3ziOKZ1/5HnYpPCTA1G55Di/1Wdf
+	L4bAXFqIN50oNkr8QOyBWha0C1MqY8+9kwYh81WGCxZ/buWWNtvh7fJwP6guX/f/d5d7bIaP2oJ
+	33PkMX69rF1gJOqQYhDWyCP+YisN90rF2ezC0TndO8PIDBMZJQR5fzb2/cCHh4M1QBZavj7bleT
+	P/H8Edddyas+XbdqLCBNORAIRxqwq4+SpKaDNFDNZo0Fybhj5YHuB1CLm6dEvwvouWwmKnaxsqY
+	QxwUdnHup5UTTSINuiCN8G6EErTvo4Nq0=
+X-Received: by 2002:a05:6a00:f08:b0:81f:2b25:ca73 with SMTP id d2e1a72fcca58-82317e00e76mr4405493b3a.38.1769228990885;
+        Fri, 23 Jan 2026 20:29:50 -0800 (PST)
 Received: from [127.0.1.1] ([2a12:a305:4::30fc])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8231871d51esm3469423b3a.38.2026.01.23.20.29.23
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8231871d51esm3469423b3a.38.2026.01.23.20.29.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Jan 2026 20:29:30 -0800 (PST)
+        Fri, 23 Jan 2026 20:29:50 -0800 (PST)
 From: Guodong Xu <guodong@riscstar.com>
-Subject: [PATCH v2 0/4] regulator: spacemit-p1: Fix voltage ranges and
- support board power tree
-Date: Sat, 24 Jan 2026 08:20:15 +0800
-Message-Id: <20260124-spacemit-p1-v2-0-2c86b06694ba@riscstar.com>
+Date: Sat, 24 Jan 2026 08:20:18 +0800
+Subject: [PATCH v2 3/4] regulator: spacemit-p1: Update supply names
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAEAQdGkC/22Oyw6DIBBFf8XMujSAhYqr/kfjAnGoLHyUoaaN8
- d9LddvluZl77qxAGAMS1MUKEZdAYRozyFMBrrfjA1noMoPkUnMhJaPZOhxCYrNgFpXR6LGqlIf
- cmCP68N5t9+bgiM9XlqYjhNYSMjcNWVAXSugLGqW06kr43feB0hQ/+zOL2At/dxfBOCu5aVFef
- eu9ucVAjpKN5+yGZtu2L24UNUnZAAAA
-X-Change-ID: 20260122-spacemit-p1-ae596efe885f
+Message-Id: <20260124-spacemit-p1-v2-3-2c86b06694ba@riscstar.com>
+References: <20260124-spacemit-p1-v2-0-2c86b06694ba@riscstar.com>
+In-Reply-To: <20260124-spacemit-p1-v2-0-2c86b06694ba@riscstar.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
  Yixun Lan <dlan@gentoo.org>, Alex Elder <elder@riscstar.com>, 
  Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -92,9 +89,8 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Guodong Xu <guodong@riscstar.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_202932_611770_21A4987F 
-X-CRM114-Status: UNSURE (   8.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260123_202951_956446_E94BE0CC 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,51 +107,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series fixes hardware voltage constraints and enables flexible power
-tree configurations for the SpacemiT P1 PMIC.
+Update supply names to match the P1 PMIC's actual hardware pinout where
+each buck has an individual VIN pin (vin1-vin6) and LDO groups have
+dedicated input pins (aldoin, dldoin1, dldoin2).
 
-In v2, rebased to Spacemit SoC's k1/dt-for-next and added power tree
-definition for K1 Milkv Jupiter.
-
-Patch 1, n_voltages is corrected to match hardware register widths, as the
-previous values prevented regulators from reaching higher operational
-voltages (e.g., 3.3V on LDOs).
-
-Patch 2-4, hardcoded supply assumptions are replaced with explicit
-devicetree properties. PMIC supply connections are board-design decisions.
-Moving this to DT allows supporting varied topologies without driver
-modifications.
-
-Note: Patch 3 introduces a bisect breakage by transitioning to
-pin-specific supply names. Probe failures will occur on existing boards
-until Patch 4 updates the corresponding DTS file.
-
-Changes in v2:
-- Patch 2: dt-bindings, remove providers from the example dts.
-- Patch 4: Added the pmic supply properties for K1 Milkv Jupiter.
-           Updated the commit message accordingly.
-- Link to v1: https://lore.kernel.org/r/20260122-spacemit-p1-v1-0-309be27fbff9@riscstar.com
+The supply is a board design decision and should not be hardcoded to any
+existing power source. This allows boards to specify their actual power
+tree topology in devicetree.
 
 Signed-off-by: Guodong Xu <guodong@riscstar.com>
 ---
-Guodong Xu (4):
-      regulator: spacemit-p1: Fix n_voltages for BUCK and LDO regulators
-      dt-bindings: mfd: spacemit,p1: Add individual regulator supply properties
-      regulator: spacemit-p1: Update supply names
-      riscv: dts: spacemit: Update PMIC supply properties for BPI-F3 and Jupiter
-
- .../devicetree/bindings/mfd/spacemit,p1.yaml       | 49 +++++++++++++++++++++-
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    | 12 +++++-
- arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts  | 12 +++++-
- drivers/regulator/spacemit-p1.c                    | 25 ++++++-----
- 4 files changed, 81 insertions(+), 17 deletions(-)
+v2: No change.
 ---
-base-commit: 5164e95565d3fd508ca8a95351323f5716dfb695
-change-id: 20260122-spacemit-p1-ae596efe885f
+ drivers/regulator/spacemit-p1.c | 25 ++++++++++++++-----------
+ 1 file changed, 14 insertions(+), 11 deletions(-)
 
-Best regards,
+diff --git a/drivers/regulator/spacemit-p1.c b/drivers/regulator/spacemit-p1.c
+index 2b585ba01a93..57e6e00a73fa 100644
+--- a/drivers/regulator/spacemit-p1.c
++++ b/drivers/regulator/spacemit-p1.c
+@@ -87,13 +87,16 @@ static const struct linear_range p1_ldo_ranges[] = {
+ 	}
+ 
+ #define P1_BUCK_DESC(_n) \
+-	P1_REG_DESC(BUCK, buck, _n, "vin", 0x47, BUCK_MASK, 255, p1_buck_ranges)
++	P1_REG_DESC(BUCK, buck, _n, "vin" #_n, 0x47, BUCK_MASK, 255, p1_buck_ranges)
+ 
+ #define P1_ALDO_DESC(_n) \
+-	P1_REG_DESC(ALDO, aldo, _n, "vin", 0x5b, LDO_MASK, 128, p1_ldo_ranges)
++	P1_REG_DESC(ALDO, aldo, _n, "aldoin", 0x5b, LDO_MASK, 128, p1_ldo_ranges)
+ 
+-#define P1_DLDO_DESC(_n) \
+-	P1_REG_DESC(DLDO, dldo, _n, "buck5", 0x67, LDO_MASK, 128, p1_ldo_ranges)
++#define P1_DLDO1_DESC(_n) \
++	P1_REG_DESC(DLDO, dldo, _n, "dldoin1", 0x67, LDO_MASK, 128, p1_ldo_ranges)
++
++#define P1_DLDO2_DESC(_n) \
++	P1_REG_DESC(DLDO, dldo, _n, "dldoin2", 0x67, LDO_MASK, 128, p1_ldo_ranges)
+ 
+ static const struct regulator_desc p1_regulator_desc[] = {
+ 	P1_BUCK_DESC(1),
+@@ -108,13 +111,13 @@ static const struct regulator_desc p1_regulator_desc[] = {
+ 	P1_ALDO_DESC(3),
+ 	P1_ALDO_DESC(4),
+ 
+-	P1_DLDO_DESC(1),
+-	P1_DLDO_DESC(2),
+-	P1_DLDO_DESC(3),
+-	P1_DLDO_DESC(4),
+-	P1_DLDO_DESC(5),
+-	P1_DLDO_DESC(6),
+-	P1_DLDO_DESC(7),
++	P1_DLDO1_DESC(1),
++	P1_DLDO1_DESC(2),
++	P1_DLDO1_DESC(3),
++	P1_DLDO1_DESC(4),
++	P1_DLDO2_DESC(5),
++	P1_DLDO2_DESC(6),
++	P1_DLDO2_DESC(7),
+ };
+ 
+ static int p1_regulator_probe(struct platform_device *pdev)
+
 -- 
-Guodong Xu <guodong@riscstar.com>
+2.43.0
 
 
 _______________________________________________
