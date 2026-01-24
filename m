@@ -4,56 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C968D715C7
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jan 2026 07:57:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F4C5D715D6
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jan 2026 08:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mdfRfrzs6OJ35sSEREuja4YrLU/ouuILd5MFadqZz9E=; b=iCsxf5gWRZS/d7
-	MsNIE0QFHy/x/m4DxaTTUNN33JvcY4n/8H54S88M00tPrB1Zrb9kjHjk6YlLSq2DYW5LhhJrgYltG
-	5R0CJ9PhjL+RafK62WalhkZJsUvDdr6HO+Rt0/SLp76lrgtGecRJ5jhlyZR34ldnavtYVqOtpBRQW
-	gOw3bjIZRn5crFe+ypDTY39RxgNQWGJi4mkuPbkmZJI4aEcbYxpKIBicx1iA2+DjNTzyfM+PR93fD
-	ZjeDGWXLarOF0mfGjKECnbdGYfhy/PX5ubgCSuK5SI/zbceCZ0BflvTkOIBnFM4TvZFsoPtuvo589
-	epfuIN/OR4s3B8xFCYZw==;
+	List-Owner; bh=yWgoHN5LDnJ2gP66CDSFvweeioifeZkcjLR1zicjG8c=; b=b/JMsibeItECnn
+	N8wkYTX0ao6rgm/J2hOaZmNywmTX0AmOpZyOhELYwq+ambTbR8dIXdXqrwFSnbntnCaIFUefZ7zUM
+	ae5vOls1oBvQJEJuSqfLIFT5cgnSSDpQ8sBdsvPYlONpUEi467IOMhThxvO120/X3Z03KuH82Kirz
+	IaQUVia+mMowcD363414tXTqWSmahGyCGghhnhhOVZjCdc07CQkg1R2ZNzP8cGnl1VtlrIFpafD72
+	fDsX4UgpjXEGsbkUNsOQzRYmJQBm5Z1N1Op7xrXsvcnbEjUSp0t3pPgG9ZHO/lTknDyGNSBjcuyig
+	/FwLixpuURjdycJampTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjYWA-0000000A59l-1QPu;
-	Sat, 24 Jan 2026 07:57:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vjYnR-0000000A5gC-3xPz;
+	Sat, 24 Jan 2026 08:15:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjYW9-0000000A59b-1xeh
+	id 1vjYnO-0000000A5fg-40H9
 	for linux-riscv@lists.infradead.org;
-	Sat, 24 Jan 2026 07:57:13 +0000
+	Sat, 24 Jan 2026 08:15:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 723DB60018;
-	Sat, 24 Jan 2026 07:57:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAA83C116D0;
-	Sat, 24 Jan 2026 07:57:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9788A44073;
+	Sat, 24 Jan 2026 08:15:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBB42C116D0;
+	Sat, 24 Jan 2026 08:14:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769241432;
-	bh=/3lcu5EbSSMnUGdeqq9TFxTE+A/cLGvQGHoCcQR9/e8=;
+	s=k20201202; t=1769242500;
+	bh=PywAw2DMbolvUVXsSOcJRpn47qYGaoGZYNder+ttOHk=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=ObyaRoxBt0hNvX39mmPHlwWQ2zTDoWZCgJ68dCXPWPuyTV5+tv2uNbgrYqXQTup/D
-	 7fJvwIXWWVHa5bu8DDZDWbxd4CZOaUs0Pqw6E2sMbWXNXWSRCoqU5Z1SlU+qFxGo9C
-	 mbFbrr1b74MLAyERW+mHex4JYgY6NTWZZ+ZskDVJNeOnZaIy3LuG9XpeLEmI6jc5BO
-	 hcTid2N0JyMMuVsrBiBDs2w5t8Hem6Pj37pdZuzlzTDuYANqJb/uUw9fXhaOPk5q54
-	 ZylC3kZ1GoFReqEEbz/VzzE5mszUMGzbrbBGXs8WuAwJCGRnQl6e+9YPavv1KB0ie8
-	 oTjX+CiENvRvA==
-Date: Sat, 24 Jan 2026 00:57:11 -0700 (MST)
+	b=Fb+4nXLNATw6Z4sPmcJml8tLbXrO1ZOBKCX+BPFUfdS/j9YDimTNTbzyUSraVZ9vc
+	 vPgaMT7ZSoZp+lue7HKA2KINXANR6h2ZY+MMDWND4tRBjYW9btlzNT5JyQxEpU8zpK
+	 tcP8Pqe0p9Bn1GfUkkdedRahayyFtBFvcxqm5YCrGnBpZBgPk6aedLR05voRcIgjEm
+	 3zTD1gYenX/gsbKZcgQv84QRct+4Qg6ALx+1m+EYLqDRR7H9E9V/BZ0j0HhdQB6tI2
+	 ZPyDHqtMf0Oqn0mtRRPLDo6iBhZyMmqGjkfmHrH6BvCvJ7F6mp74MbjGq1l4+2jqoa
+	 gwBcPyMjj+8dA==
+Date: Sat, 24 Jan 2026 01:14:58 -0700 (MST)
 From: Paul Walmsley <pjw@kernel.org>
-To: Austin Kim <austindh.kim@gmail.com>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>, 
-    linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] riscv: Add macros for software check and hardware error
- exception codes
-In-Reply-To: <aXGNwBk79yMuvysm@adminpc-PowerEdge-R7525>
-Message-ID: <a2a69633-8462-01ac-626c-2f0f0160553e@kernel.org>
-References: <aXGNwBk79yMuvysm@adminpc-PowerEdge-R7525>
+To: Feng Jiang <jiangfeng@kylinos.cn>
+cc: Paul Walmsley <pjw@kernel.org>, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+    alex@ghiti.fr, samuel.holland@sifive.com, charlie@rivosinc.com, 
+    conor.dooley@microchip.com, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: lib: optimize strlen loop efficiency
+In-Reply-To: <581a8707-cb16-46d9-b6b5-8fa267383318@kylinos.cn>
+Message-ID: <4cd1d9d1-34da-7d96-46ac-a5470cfa85c3@kernel.org>
+References: <20251218032614.57356-1-jiangfeng@kylinos.cn> <d356705a-843c-06dc-38a3-77eae7d2ef59@kernel.org> <581a8707-cb16-46d9-b6b5-8fa267383318@kylinos.cn>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260124_001503_042606_056EBECA 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,25 +73,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Austin,
+On Thu, 15 Jan 2026, Feng Jiang wrote:
 
-On Thu, 22 Jan 2026, Austin Kim wrote:
+> On 2026/1/15 10:03, Paul Walmsley wrote:
+> > On Thu, 18 Dec 2025, Feng Jiang wrote:
+> > 
+> >> Optimize the generic strlen implementation by using a pre-decrement
+> >> pointer. This reduces the loop body from 4 instructions to 3 and
+> >> eliminates the unconditional jump ('j').
+> >>
+> >> Old loop (4 instructions, 2 branches):
+> >>   1: lbu t0, 0(t1); beqz t0, 2f; addi t1, t1, 1; j 1b
+> >>
+> >> New loop (3 instructions, 1 branch):
+> >>   1: addi t1, t1, 1; lbu t0, 0(t1); bnez t0, 1b
+> >>
+> >> This change improves execution efficiency and reduces branch pressure
+> >> for systems without the Zbb extension.
+> > 
+> > Looks reasonable; do you have any benchmarks on hardware that you can 
+> > share?  Any reason why this patch stands alone and isn't rolled up as part 
+> > of your "optimize string function" series?
+> 
+> Thanks for the feedback.
+> 
+> This patch predates the rest of the series, which is why it wasn't included
+> in the 'optimize string function' rollup. At the time, I focused on correctness
+> testing and observed the improvement through rdcycle instruction counts.
+> 
+> Since the series still needs further refinement and may take a longer time to
+> complete, I was hoping this standalone optimization could be considered independently.
 
-> The latest RISC-V Privileged specification defines new synchronous
-> exception codes in the scause register:
-> 
->    18: Software check
->    19: Hardware error
-> 
-> Link: https://docs.riscv.org/reference/isa/priv/supervisor.html
-> - 12.1.8. Supervisor Cause (scause) Register
-> 
-> Add these macros for future use.
-> 
-> Signed-off-by: Austin Kim <austindh.kim@gmail.com>
+Ok.  Queued for v6.20.
 
-Thanks for the patch.  Though, maybe it makes more sense to add these 
-along with code that uses them?
+Might be worth taking a look at David's suggestions for a followup patch?
 
 
 - Paul
