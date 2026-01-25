@@ -4,78 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93AC2E63C8E
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 Jan 2026 13:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25234E63CA5
+	for <linux-riscv@archiver.kernel.org>; Sun, 25 Jan 2026 14:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TuI4SB/A/b6DE/0n4fAN/IEZGyRRh0h0y2LlTQ1dyvU=; b=Y/PKjSwP9S6sZn
-	pePcjauCZ7W+RiRPj3iaTmA0NXVKsDnWFJeP9AqD4I2TT2CFha3JicyNtWYVf4sChM1UJ1UQO4v4K
-	11D6PeHTFDYhDQahf/TFDSrK43NSQxGgpdv97HzF1bKsfYbtN7OFx1FzyGR7pHY/rdFOK+CkA3PWz
-	ZD7l8FtmjUsbAhoCBgSddureRbqGisSPVdp7JJdKXXChe9/CLfD5cNJQGzLeuZXOUYu7VmeOEfhlA
-	02oPX+tvfN6poPLKJ7UoG5X9NVs0bSElSNlTpwnlthjZZmF3Zx7L3h7WrbCgRxitjeWlYsZhQTswG
-	iEM1/L2jRzP4KLSpoo4g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VsYGT4VxVaYnYY9vX3AMQDYd7lwSY9xcM4QDFuohO5A=; b=nrvQOmoLLgEECf
+	cYIyHUAnwnV8mbkZRMpy/yz2zGUzgV0RTcSSjzZBPHcsraE73izQJuYpHeKAuOyVyTx+EhTUYhOCe
+	mGjLWRvse07yVV+tj4Fn/IFVLbNBBrF4PRuI+am9C0MXh5hPNxmbamhUCwdY34/9o4hnZwTQqrLDU
+	3SQWlxOdEAff1qWM+KCyE5EncCh3OnjKoQ29RiNldzJZq32pGXnshdNovAkwYHiRKMm/xXP8QyrKz
+	gFxB3ZiVGG20cQmpE5zBL+qWWO5Gbfm4g7Bx5Jcphh9G9BGlDuRYdb/URdn6gB9KUDZq5U9Hs4zRw
+	P2NamuoEsiN8EBSJMY1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjzle-0000000BBA9-2Fag;
-	Sun, 25 Jan 2026 13:03:02 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vk1Bb-0000000BF4T-0qk6;
+	Sun, 25 Jan 2026 14:33:55 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjzla-0000000BB9K-2Isy
+	id 1vk1BZ-0000000BF3q-153D
 	for linux-riscv@lists.infradead.org;
-	Sun, 25 Jan 2026 13:03:00 +0000
-Received: from [192.168.0.107] (unknown [123.118.222.47])
-	by APP-01 (Coremail) with SMTP id qwCowACH825yFHZpgUgsBg--.19908S2;
-	Sun, 25 Jan 2026 21:02:43 +0800 (CST)
-Message-ID: <b705ceed-3ee1-49ec-8f8e-e885e87f871e@iscas.ac.cn>
-Date: Sun, 25 Jan 2026 21:02:42 +0800
+	Sun, 25 Jan 2026 14:33:54 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-35305538592so3554114a91.0
+        for <linux-riscv@lists.infradead.org>; Sun, 25 Jan 2026 06:33:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769351632; x=1769956432; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9vrpTgp19j2v2S0F0+kVV2ZQQrhahMGVY6XxldYPxCk=;
+        b=M36DMzpgS8VMhkmkGE+oJO1r4hWtRJlehJLY3ayv5cEOo0TbGoC6d6csrqjNxVb8qt
+         BJphDfTi9yQu3VFJW/munZgyJR6LHOiqSDS3y50qZAF/tzsxN/XkgEBDtSoOy2MJHblH
+         8iLiRwhmrIxVMV8wmEKpBdCESDkL6tKYazZtsFZmbZOFMJgykCtOAOSyFqdYSh50js8U
+         xRqYyhlMRJqA4cpbbdi01tA41ZJR5UgYacPJj6Rkai82U/pw93lh7e5Gz8gdbrNtzjFf
+         cvP5sIInVR11s8cK11SXzXVZ/sYuKs9FFc1T2yEumVS5fO2ipOovAZdtAQPJN+tasVbQ
+         WAuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769351632; x=1769956432;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9vrpTgp19j2v2S0F0+kVV2ZQQrhahMGVY6XxldYPxCk=;
+        b=uLGxp20dPazAzXZOBedhA4lB0lRmwbuxCwhOT5T7Y68lMKXiK3ALrchzF8SXD4R7tx
+         ngRqlLp76Ug7QQdEqAGn8EbQxwv7+xOyjDq3zRuvHofGOfoVQrFIt2kyE2LViCpUqO8n
+         PRZNaLMDilT4+o4G9p9ZnkLRoh9X6r+2tbDKS5f0iaVqj3wObZ+cDXUu27eeMbVK9loa
+         ppo7w3nmoEkGqflXXbb/IdboOpfFA///zgIjC5AA3Cd2jXqhhpe3QXwh0k1u5y6YjgSl
+         awTaAEUs2UVBNofKsww753ZLP51IALwp2WTngg+SoGR7TJHbu/Qx9xO2B8untmkRRhBQ
+         a5Vw==
+X-Forwarded-Encrypted: i=1; AJvYcCX4Dv+cztFTdBN1xtiJOAFAdzqiU1pcumdFAOORYm6QWzETeUpe3p49nJUhFMIievlQP+ucr6b7j/RUOg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHRmdxoxL/0w7c7XSCh1H35pvT2yeCJHeSoT8fm+W14u9btTA6
+	QtDQEj94Pq5CqVRDVTSmuZPGnfZ89g5e5VyhgYa2nn0+zhBDX5c/41Di
+X-Gm-Gg: AZuq6aKkf2gHsWthwAODi9gB1+5rKYV3IUbuLRN4Y0Sog/L4inaeEtjzWWde/6WIjqB
+	3+J2jj+UzmDz2LLsvW5c4CcdeEiUSwP/tcGhj5MuTmQQHvsPVGhGWr+3hcMq+r/ipgXD63Lkx3o
+	b19xZk5zK0O4h/obEGiD57P7i3X/X29eDs4v+fQ+qeGQb9iBtfKIare7/WBPIjNNiSl9QrLooYv
+	3lzortxBPBdfZP7iik3qDyIKEsxNQt0YUTMyrEuOq/F7gKiyI3md7o1MW5Ce4a2ebTGtAhzPklV
+	Wp0ntKudT7rbjpP4el4gRbYnsVvEG1rX/Apn0EfIerhENy31E5M1z1ynIEdep7nrP8V4RM/L8EY
+	ALHkcyXiJO0+EO9WtIulYEwWrYrJg4R0KrXjVGIvBZeRHD22Fgqul3c4bzGIzeonuvO74zR/ttg
+	HKcJnBge/pi1io2iNmKBiWWRBhKixdBrfOfqzi4ZTjYVULcdJ1Fb0=
+X-Received: by 2002:a17:90b:3d12:b0:340:b908:9665 with SMTP id 98e67ed59e1d1-353c418d276mr1450186a91.37.1769351631814;
+        Sun, 25 Jan 2026 06:33:51 -0800 (PST)
+Received: from fric.. ([210.73.43.101])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-353354a6b06sm9351073a91.10.2026.01.25.06.33.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 25 Jan 2026 06:33:51 -0800 (PST)
+From: Jiakai Xu <jiakaipeanut@gmail.com>
+X-Google-Original-From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Anup Patel <anup@brainfault.org>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Jiakai Xu <jiakaiPeanut@gmail.com>
+Subject: [PATCH v4] RISC-V: KVM: Fix null pointer dereference in kvm_riscv_aia_imsic_has_attr()
+Date: Sun, 25 Jan 2026 14:33:44 +0000
+Message-Id: <20260125143344.2515451-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] regulator: spacemit-p1: Fix voltage ranges and
- support board power tree
-To: Yixun Lan <dlan@gentoo.org>, Guodong Xu <guodong@riscstar.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Alex Elder <elder@riscstar.com>, Lee Jones <lee@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Troy Mitchell <troy.mitchell@linux.spacemit.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, devicetree@vger.kernel.org
-References: <20260124-spacemit-p1-v2-0-2c86b06694ba@riscstar.com>
- <76bd53dd-0ca9-4358-a0b6-a49283e43c5f@iscas.ac.cn>
- <CAH1PCMZq++FYr_2WB=HvouXvnxcYGFk6tngqNUk3zTOM6xXLZQ@mail.gmail.com>
- <CAH1PCMbEcVa6mAvw9UAG2T2Jy0W-+nEcw79nTHDJr9xgEdm0VA@mail.gmail.com>
- <20260125110333-GYD71302@gentoo.org>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20260125110333-GYD71302@gentoo.org>
-X-CM-TRANSID: qwCowACH825yFHZpgUgsBg--.19908S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCw1kGrWxArWfJrWrKF4DArb_yoW5Gr18pa
-	9Ika9rKFWkKr4fZwnFkw1IyayFy397Jw45W345Kw15Gr90vF1agF1UK3yY9Fy3Gr4kCw42
-	yrWUKas3JF90v3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvqb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
-	1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
-	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
-	wI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
-	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
-	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0x
-	ZFpf9x07bIBTOUUUUU=
-X-Originating-IP: [123.118.222.47]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_050258_958437_81B5E2D3 
-X-CRM114-Status: GOOD (  19.52  )
+X-CRM114-CacheID: sfid-20260125_063353_300332_C4B13082 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,56 +101,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDEvMjUvMjYgMTk6MDMsIFlpeHVuIExhbiB3cm90ZToKPiBIaSBHdW9kb25nLAo+Cj4gT24g
-MTI6MjcgU3VuIDI1IEphbiAgICAgLCBHdW9kb25nIFh1IHdyb3RlOgo+PiBPbiBTdW4sIEphbiAy
-NSwgMjAyNiBhdCAxMjoxOOKAr1BNIEd1b2RvbmcgWHUgPGd1b2RvbmdAcmlzY3N0YXIuY29tPiB3
-cm90ZToKPj4+IE9uIFNhdCwgSmFuIDI0LCAyMDI2IGF0IDI6MjXigK9QTSBWaXZpYW4gV2FuZyA8
-d2FuZ3J1aWthbmdAaXNjYXMuYWMuY24+IHdyb3RlOgo+Pj4+Cj4+Pj4gT24gMS8yNC8yNiAwODoy
-MCwgR3VvZG9uZyBYdSB3cm90ZToKPj4+Pj4gWy4uLl0KPj4+Pj4KPj4+Pj4gTm90ZTogUGF0Y2gg
-MyBpbnRyb2R1Y2VzIGEgYmlzZWN0IGJyZWFrYWdlIGJ5IHRyYW5zaXRpb25pbmcgdG8KPj4+Pj4g
-cGluLXNwZWNpZmljIHN1cHBseSBuYW1lcy4gUHJvYmUgZmFpbHVyZXMgd2lsbCBvY2N1ciBvbiBl
-eGlzdGluZyBib2FyZHMKPj4+Pj4gdW50aWwgUGF0Y2ggNCB1cGRhdGVzIHRoZSBjb3JyZXNwb25k
-aW5nIERUUyBmaWxlLgo+Pj4+IE91Y2gsIHRoYXQncyBub3QgYSBiaXNlY3QgYnJlYWthZ2UsIHRo
-YXQncyBhbiAqQUJJIGJyZWFrYWdlKi4gQW5kIEFGQUlDVAo+Pj4+IHRoaXMgaXMgc3RpbGwgbm90
-IG9rYXkgaW4gMjAyNiwKPj4+PiBzZWUgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdz
-L0FCSS5yc3QKPj4+Pgo+Pj4+IFNvIHRoZSBiaW5kaW5ncyB3b3VsZCBuZWVkIHRvIGJlIGNoYW5n
-ZWQgdG8gYWNjZXB0IGJvdGggdGhlIG5ldyBhbmQgb2xkIHdheS4KPj4+IElkZWFsbHkgeWVzLiBI
-b3dldmVyLCBjb25zaWRlcmluZyB0aGlzIEFCSSBjaGFuZ2UncyBhY3R1YWwgZWZmZWN0LCB0aGUg
-dHdvCj4+PiBLMSBib2FyZHMgKEJQSS1GMyBhbmQgSnVwaXRlcikgaW4gdGhlIGtlcm5lbCBnZXQg
-dGhlaXIgcG93ZXIgc2V0dGluZ3MKPj4+IGZyb20gYm9vdCBmaXJtd2FyZSBhcyB3ZWxsLCBhbmQg
-dGhlIHR5cGVzIG9mIHBlcmlwaGVyYWxzIGVuYWJsZWQgaW4gdGhlIC5kdHMKPj4+IGZpbGVzIGFy
-ZSB2ZXJ5IGxpbWl0ZWQsIHRoZSBwcm9iZSBmYWlsdXJlIG9mIHRoZSBwbWljIHJlZ3VsYXRvciBk
-b2Vzbid0Cj4+PiBhZmZlY3QgbXVjaC4gU28sIEkgdGhpbmsgdGhpcyBicmVha2FnZSBpcyBhY2Nl
-cHRhYmxlLgo+Pj4KPj4+PiBEcml2ZXItd2lzZSwgYXQgYSBjdXJzb3J5IGxvb2sgZnJvbSBzb21l
-b25lIG5vdCBmYW1pbGlhciB3aXRoIHRoZQo+Pj4+IHJlZ3VsYXRvciBzdHVmZiwgbWF5YmUgd2Ug
-Y2FuIG1ha2UgaXQgY29tcGF0aWJsZSB3aXRoIG9sZCBEVFMgYnkgYWRkaW5nCj4+Pj4gdGhlIG5l
-dyBuYW1lcyBhcyBhbGlhc2VzICh7ZGV2bV8sfXJlZ3VsYXRvcl9yZWdpc3Rlcl9zdXBwbHlfYWxp
-YXM/KSBhcwo+Pj4+ICJ2aW4iIG9yICJidWNrNSIsIGlmIHdlIHNlZSB0aGUgb2xkIHZpbi1zdXBw
-bHkgZGVmaW5pdGlvbnM/Cj4+Pj4KPj4+IFdlIGNhbiBkbyB0aGF0IG9mIGNvdXJzZS4gTXkgaGVz
-aXRhdGlvbiBpcywgaG93ZXZlciwgaXQgbWFrZXMgdGhlIGRyaXZlciB0YWtlCj4+PiBleHRyYSBj
-b2RlIHdoaWNoIG1heSBub3QgYmUgbmVlZGVkIG9uY2UgYWxsIC5kdHMgZmlsZXMgaGF2ZSBiZWVu
-IHVwZGF0ZWQuIFRoZQo+Pj4gZHJpdmVyIGNvZGUgd2lsbCBiZSBsZWZ0IHRoZXJlIGZvcmV2ZXIu
-Cj4+Pgo+PiBNYXJrIGdhdmUgaGlzIG9waW5pb24gaW4gdjEgcmV2aWV3IFsxXSwgcGxlYXNlIGFs
-bG93IG1lIHRvIHBhcnRpYWxseSBxdW90ZQo+PiBoZXJlOiAiKGl0J3MgYW4gQUJJIGNoYW5nZSBz
-byBzaG91bGRuJ3QgcmVhbGx5IGhhcHBlbiwgYnV0IHBlcmhhcHMgdGhlcmUgYXJlCj4+IGZldyBl
-bm91Z2ggdXNlcnMgZm9yIGV2ZXJ5b25lIHRvIGNvb3JkaW5hdGUgYW5kIGl0J3Mgd2hhdCB5b3Ug
-YWxsIHByZWZlcikuIgo+Pgo+PiBJIGRvIGV4cGVjdCB0byBjb2xsZWN0IG1vcmUgaWRlYXMgYmVm
-b3JlIEkgZGVjaWRlIHdoZXRoZXIgYW5kIHdoYXQgdG8gZG8gaW4KPj4gdjMsIG9yIG1heWJlIHYz
-IGlzIG5vdCByZXF1aXJlZC4KPj4KPiBBcyBJIGNoZWNrZWQgdGhlIGR0cyB0cmVlIChEVCBxdWV1
-ZWQgZm9yIHY2LjIwKSwgYWx0aG91Z2ggd2UgaW50cm9kdWNlZCB0aGUKPiByZWd1bGF0b3Igb2Yg
-UDEvUE1JQywgYnV0IHRoZXJlIGlzIG5vIGNvbnN1bWVycyBzbyBmYXIsIHNvIGluIHJlYWwgbGlm
-ZSwgd2UKPiBzaG91bGRuJ3QgYnJlYWsgYW55dGhpbmcuIEluIHRoaXMgY2FzZSwgSSdkIHN1Z2dl
-c3Qgd2UganVzdCBnaXZlIHVwIGZvciBkb2luZwo+IHRoZSBBQkkgYmFja3dhcmQgY29tcGF0aWJs
-ZSB3b3JrIHdoaWNoIHNob3VsZCBzaW1wbGlmeSBvdXIgbGlmZS4uCgpIYXZpbmcgY2hlY2tlZCBh
-Z2FpbiwgSSBhZ3JlZSB0aGF0IHRoaXMgaXMgbm90IHRoYXQgYmlnIG9mIGEgcHJvYmxlbS4KVGhl
-IGJyZWFrYWdlIHdpdGggb2xkIERUIGlzIGxpbWl0ZWQgdG8gYW4gb3RoZXJ3aXNlIGhhcm1sZXNz
-IGVycm9yIG9uCmJvb3QgdGhhdCBkb2Vzbid0IGFmZmVjdCBmdW5jdGlvbmFsaXR5IHNpbmNlIHRo
-ZXJlIGFyZSBubyB1c2Vycy4KClZpdmlhbiAiZHJhbWZvcmV2ZXIiIFdhbmcuCgoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Add a null pointer check for imsic_state before dereferencing it in
+kvm_riscv_aia_imsic_has_attr(). While the function checks that the
+vcpu exists, it doesn't verify that the vcpu's imsic_state has been
+initialized, leading to a null pointer dereference when accessed.
+
+This issue was discovered during fuzzing of RISC-V KVM code. The
+crash occurs when userspace calls KVM_HAS_DEVICE_ATTR ioctl on an
+AIA IMSIC device before the IMSIC state has been fully initialized
+for a vcpu.
+
+The crash manifests as:
+  Unable to handle kernel paging request at virtual address
+  dfffffff00000001
+  ...
+  epc : kvm_riscv_aia_imsic_has_attr+0x464/0x50e
+  arch/riscv/kvm/aia_imsic.c:998
+  ...
+  kvm_riscv_aia_imsic_has_attr+0x464/0x50e arch/riscv/kvm/aia_imsic.c:998
+  aia_has_attr+0x128/0x2bc arch/riscv/kvm/aia_device.c:471
+  kvm_device_ioctl_attr virt/kvm/kvm_main.c:4722 [inline]
+  kvm_device_ioctl+0x296/0x374 virt/kvm/kvm_main.c:4739
+  ...
+
+The fix adds a check to return -ENODEV if imsic_state is NULL, which
+is consistent with other error handling in the function and prevents
+the null pointer dereference.
+
+Fixes: 5463091a51cf ("RISC-V: KVM: Expose IMSIC registers as attributes of AIA irqchip")
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+---
+V3 -> V4: Fix typo in Signed-off-by email address.
+V2 -> V3: Moved isel assignment after imsic_state NULL check.
+          Placed patch version history after '---' separator.
+          Added parentheses to function name in subject.
+V1 -> V2: Added Fixes tag and drop external link as suggested.
+
+ arch/riscv/kvm/aia_imsic.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
+index e597e86491c3b..cd070d83663a9 100644
+--- a/arch/riscv/kvm/aia_imsic.c
++++ b/arch/riscv/kvm/aia_imsic.c
+@@ -993,8 +993,11 @@ int kvm_riscv_aia_imsic_has_attr(struct kvm *kvm, unsigned long type)
+ 	if (!vcpu)
+ 		return -ENODEV;
+ 
+-	isel = KVM_DEV_RISCV_AIA_IMSIC_GET_ISEL(type);
+ 	imsic = vcpu->arch.aia_context.imsic_state;
++	if (!imsic)
++		return -ENODEV;
++
++	isel = KVM_DEV_RISCV_AIA_IMSIC_GET_ISEL(type);
+ 	return imsic_mrif_isel_check(imsic->nr_eix, isel);
+ }
+ 
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
