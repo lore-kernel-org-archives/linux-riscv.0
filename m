@@ -4,151 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D30DC88E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jan 2026 08:02:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B5BAC88E78
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jan 2026 08:09:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yG+H0O76LkGv0h0r+JN20E628Vwm/TznwaUoPv0hYPU=; b=RgBXDaRcwpX6aW
-	ybTeIVUAlafAvjITSVcRBTdHW88S9SGRDrw3+5SOS6jDfmYeXyq2EfwBJiwdFWz3KQOhGdyviQ2LM
-	YUwmHZHa78dj47xKco5jg0JjiRAd8KJu+IIHz+ZIFhCq7w2IpHvjToBFiRtl1znteUbN2a3KR2bHY
-	uY8z98myjP8II3UsRNDXkZqJfM1aG2+vtlldmuj1aD/Cap3esSCuT1P/3CZV5x4av1tCLdALDslAP
-	h0vgOlOdud+R/4Az642YSRYZ8E7MzhFokGwDe6jW7Kms+Au2cnHyZVaBbZmpA+7MwPJviJ1hZag2b
-	H5Vw1AiEEHLfA2Gpf4mw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PzaXBFwcGMfTPuyqakpiQzbBuV93b6H+/wkd7wQhdVs=; b=jfZJLjhaYyceWl
+	bj4AF/qqazbw/0FuK8CrD70Y4zO5D7hq8cogNxLYCs8XD0/tmEfd/ZOmqr8MYXMLMuLiPhwb2FMf9
+	OSRMy632fKcHp0qnumK949NAPFdb5xHuHEP9xzRielvIQtO8IePZxJMzmyovBZb80/oINriNMGExL
+	oeBZvL/51bcv/K7WNrt00HvLdwOTANlcB3GKzabk+r/smynSaiQmkwDFyjrbfH9aVwoGJUhnxxu1p
+	hAKAlZVRXlTroElHPwOa8CmZ4VxKYxSs85gAtGQFNx+b8D0aXFnSPsiF0HeKwYACiS3X5fPjub0G8
+	xtZbTGGhM9T5krhxMokg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkHXz-0000000C4b6-2Z7b;
-	Mon, 26 Jan 2026 08:02:07 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1vkHev-0000000C5H6-1slI;
+	Mon, 26 Jan 2026 08:09:17 +0000
+Received: from [113.46.200.225] (helo=canpmsgout10.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkHXw-0000000C4ak-3CQa
+	id 1vkHes-0000000C52M-17wA
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Jan 2026 08:02:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=exhEp0ePBEkh8EPSeXU8a1Gee6yRYNrOI0ZYujKPKn2W6/dG63DaxIlO+a5qRWZGkyu7xvMA3k+g9rgmENCPPqZreg0ITGw7IqJyB11D2lXaaot2zDrj+t7ICA7qxu3UxpjLtqCJVmxNra8NP4Ye5hfl19bitZKfmltVJhSOh2G5/Z/QD0D73T5XXRkQUOB2kbilA9p2qU8gF+hwFq5MWQiurA8N/oVN9tNjxe2C6nG64oHVv1lkskyqNGbT06hDshVUWRzBQUYW6mLBSkJpoSpJI6ML8iZ4+9peoqdfAEJ4UH2GP6W4jfv6ojj5/2/eP3ZOq70ZERVHgmXvi7wYnw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5q9Ccxgpdo0Juhdt7t1oUktC72zh5N4eTzTVyV7Cwic=;
- b=tpoHG9EaDN5/wDIh30lTAnyLKzvnfzAhhJwmiqO6SOBvcrNVRA9kR+1x6iHtpcBj1sg8W5dy2aEw87AjLpeSraFlnMeaeCCx9RcTx64WiBvUs8Yo3/LZfWRkiQGn/xZQgdlh9r8WXcKJeLSuzo2Mk4w+c9QdSuOAJVtgQNOejiDN4Pm3o84bHFYojyEvPdh4KqU7vrk2B2TIg7Fp2eppGDI4O66sQxq4zysqx4xqc660VmdrS9lc1vYwgrOM71BHG7qDTvUs0tw8l0d4naeb0B5dydu510PFE3ynStDolA+MD3hGjhASYCNaTSdk7EghO/MC4Dv/cllRp+5gREv4Tg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=lists.freedesktop.org
- smtp.mailfrom=nvidia.com; dmarc=pass (p=reject sp=reject pct=100) action=none
- header.from=nvidia.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5q9Ccxgpdo0Juhdt7t1oUktC72zh5N4eTzTVyV7Cwic=;
- b=Zrv1rhxeodIoJstqTowaIfF1+IolZmnEjjAl0B8BX/Iyxi/X6gFhOIX5NFNMcZd8NqR6oc4YezWu4srUIIEHla119sbyc4Eym4nvAPm9Ebt/Ov5hLuqlNrrU87RraWmyKuPxMbYhQGF+tl9lMC7wxzQiHFcjx5uMx0IsFZ3/t+x1zku3dK3W/+TNHfe7Q1bmGjCO57jQIGrLEzShv1Jn3wMQXzMWorr4SgG4AjAU9WTL2H4DCK6wA3kXqr5XnMGj4hTwlTEwdNpye5rQgKMo35Iwkd9uzF9Xpxjo7ab8kzaDQDD+vTKRP2HSu2HuptV154oL5pidrOqA+R52GZWr0w==
-Received: from IA4P221CA0012.NAMP221.PROD.OUTLOOK.COM (2603:10b6:208:559::15)
- by CY3PR12MB9679.namprd12.prod.outlook.com (2603:10b6:930:100::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Mon, 26 Jan
- 2026 08:01:58 +0000
-Received: from BL02EPF0002992A.namprd02.prod.outlook.com
- (2603:10b6:208:559:cafe::f6) by IA4P221CA0012.outlook.office365.com
- (2603:10b6:208:559::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.16 via Frontend Transport; Mon,
- 26 Jan 2026 08:01:56 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BL02EPF0002992A.mail.protection.outlook.com (10.167.249.55) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.3 via Frontend Transport; Mon, 26 Jan 2026 08:01:57 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 26 Jan
- 2026 00:01:39 -0800
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 26 Jan
- 2026 00:01:39 -0800
-Received: from inno-thin-client (10.127.8.10) by mail.nvidia.com (10.129.68.7)
- with Microsoft SMTP Server id 15.2.2562.20 via Frontend Transport; Mon, 26
- Jan 2026 00:01:33 -0800
-Date: Mon, 26 Jan 2026 10:01:32 +0200
-From: Zhi Wang <zhiw@nvidia.com>
-To: Joel Fernandes <joelagnelf@nvidia.com>
-CC: <linux-kernel@vger.kernel.org>, Danilo Krummrich <dakr@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>, Alice Ryhl <aliceryhl@google.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, "Paul
- Walmsley" <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Alistair Popple
-	<apopple@nvidia.com>, Bjorn Helgaas <bhelgaas@google.com>, Miguel Ojeda
-	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng
-	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, "=?UTF-8?B?QmrDtnJu?=
- Roy Baron" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>,
-	<nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-	<rust-for-linux@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v1 5/5] gpu: nova-core: use checked arithmetic in RISC-V
- firmware parsing
-Message-ID: <20260126100132.7e566316.zhiw@nvidia.com>
-In-Reply-To: <20260124231830.3088323-6-joelagnelf@nvidia.com>
-References: <20260124231830.3088323-1-joelagnelf@nvidia.com>
-	<20260124231830.3088323-6-joelagnelf@nvidia.com>
-Organization: NVIDIA
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.33; x86_64-pc-linux-gnu)
+	Mon, 26 Jan 2026 08:09:16 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=sOghiDouoURDtvNsJpBPALG0yovDywlbWn7RSuW8imw=;
+	b=EBYu/kGG7IprOhDja66qjbVwFLKyc8+26zBLtrtFJfUnBFgKz7KsoaoVc5lVCR9QSjBZ4W8DW
+	M8+F8RYTc4WAhCSflsNlzM7K7jNzkjJNhLonZUf/9gdIvmsnGg0HUbmhctW9RKxJSyXHjZtx1yW
+	AbPpDlG1PFTpSfQNwAKa5+I=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4f01J070xzz1K977;
+	Mon, 26 Jan 2026 16:03:28 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id AC42A40363;
+	Mon, 26 Jan 2026 16:06:53 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 26 Jan
+ 2026 16:06:52 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <corbet@lwn.net>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <akpm@linux-foundation.org>,
+	<bp@alien8.de>, <rdunlap@infradead.org>, <mingo@kernel.org>,
+	<pawan.kumar.gupta@linux.intel.com>, <feng.tang@linux.alibaba.com>,
+	<kees@kernel.org>, <elver@google.com>, <arnd@arndb.de>,
+	<lirongqing@baidu.com>, <fvdl@google.com>, <bhelgaas@google.com>,
+	<leitao@debian.org>, <songshuaishuai@tinylab.org>, <bjorn@rivosinc.com>,
+	<rppt@kernel.org>, <dave.hansen@linux.intel.com>, <kevin.brodsky@arm.com>,
+	<samuel.holland@sifive.com>, <vishal.moola@gmail.com>,
+	<junhui.liu@pigmoral.tech>, <cuiyunhui@bytedance.com>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH] riscv: kexec: Add support for crashkernel CMA reservation
+Date: Mon, 26 Jan 2026 16:07:38 +0800
+Message-ID: <20260126080738.696723-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF0002992A:EE_|CY3PR12MB9679:EE_
-X-MS-Office365-Filtering-Correlation-Id: dcedacaa-883f-4516-ceb2-08de5cb12dbe
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|82310400026|376014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xp6B+qQ7yUUCWZef9q2UHGpBWVhOvjAMjz5+44asT2Y275GnAuqUbGSk/7Zl?=
- =?us-ascii?Q?eDeWJdld2zsOCUhywaoE7gj28GZ0+TGREsS8+8fRpN79tGOsJfu5RiH4u0Lb?=
- =?us-ascii?Q?vIDdfpfu6BVyDZgKfSOP/7bEu2FlmM2num40TB5rv8rnQXwkelRrNvvO1bwP?=
- =?us-ascii?Q?WUsjJXz9yu1V5kjetznsasv41WjvKk7FDf2rUW28AhgIJw0ll81GrDYHrrjy?=
- =?us-ascii?Q?vO3oCwsV0okb+kJKUmMnAUOHzTtW2IlTDGcZe+2hWxaKDGgTyB6piibo5FL0?=
- =?us-ascii?Q?0uDfdsitnH+o7TBB5j/korUZOCX5yjWCH4g/w1yxpXVWPSFRrkeKPPweH/kk?=
- =?us-ascii?Q?4+iSVlD0sXTyFBRGHRMyMcuhJqnU0tc+5ROLeaPQuDNVnmaCUC4jZob3UL54?=
- =?us-ascii?Q?AxkOzxd5xd81EK4r2IegV5560ouI7kv5wa4xHx4FobwLfneGR09qjlLoNzGn?=
- =?us-ascii?Q?0LmiPAjpQGvlllVG3KRB1OE3a0r48qfLlIA8sFjKdrLZRrcGdpDK6we2k9FV?=
- =?us-ascii?Q?hkU9niZhNLC/IwV8RhZcdZ61BhjFVA4zdrC+uRfMWIiMN7KWaIGeEqfvIIsX?=
- =?us-ascii?Q?JcisshlGZWS+goSO1dUorRT3xQb3v+yn5T6gX34I10IBWFZ8hgFlMYDFDdDR?=
- =?us-ascii?Q?ImC0X2/BjWMaaHEpj7l4SbRtaYbP8jQ2sbtrRnxZ4dOQeavTQlLSBuSotcTn?=
- =?us-ascii?Q?dNIr4SBNbqi3nR1RcXTCUO0+ah4xSj26yQdSdr2zkHFYbB9fLONC8+wPUERj?=
- =?us-ascii?Q?wc1xZuA3U7mI4aQ+bvkyqi+zuKYlZYSUtgBzKHNJm71UITgBdyUiaCSMqD0I?=
- =?us-ascii?Q?OM5IJ4LXzl6sIB7UDGMmU1GqapecG+zDb2707I88TTB6k9ZQjnfFumsOVVeP?=
- =?us-ascii?Q?FOjyyzA74Hf/7eRqH1kLZj3TgrvD4qlCYgpTIrbf1vWaZA9sKEhpo/tb4MHe?=
- =?us-ascii?Q?x3AkzkE8LU9lhVvSQivq3eWtHBYl8FLGEmzYJXt3GUBN+7ZuqB2bK47lQbYL?=
- =?us-ascii?Q?Ktf32oYazl9jcRDzpQJwPPPdk3c0SeqfhE8htNvL05oF44xA9GSIA/HBCc20?=
- =?us-ascii?Q?R73m53x4SLsnbu6KSTRABSLfSYiFt/SYQNXSocOo0EZtVhNpD6dReUli+4VK?=
- =?us-ascii?Q?kcq4EnT3rHRK2VuvSX+KAdyPSjA5rNddHCL3xwG7TGAbiIfY9gp1NuulhILq?=
- =?us-ascii?Q?zzI18zLTXeLkEtuHY7Gcyk0JSPjjdj82w7npT6bUHbeXbJYePvRf8ojfQafM?=
- =?us-ascii?Q?qzTuLh59XB2yq2LO1zarSv2EKwd9Mapo4cTrIm04+PZow/W7dpDe3Cj0HUnG?=
- =?us-ascii?Q?ff1XC/jFFobIZcFtk2BJrSreLsbBifACxWKLNPmcnyausOOtboPbiOEck6BF?=
- =?us-ascii?Q?fpSSG57QIW2Ps0o/Gd7R59o/+olaBPxNM3ixpbczodsTUjeRv8QY8cGXhaXh?=
- =?us-ascii?Q?44AA620QDfX1ZNAMis1cJ/oehK54khXhCj2LmeaN3RTYMOQTOK23syHUPGi2?=
- =?us-ascii?Q?S9gHd40PCtCsH4M4vygjR2AJNjYLdthVxR10vyAE8FsX2jF3sXgtO+O7W5JF?=
- =?us-ascii?Q?Rs7udI3WOiNpX7lBS2658gsE8oERECsN9p1+bSBUFRASE+Lh4ghOgEjKB2ZG?=
- =?us-ascii?Q?usEhKFZkoNdqqpblLp43d2miw5RkCRcCw6WlhMTApDuUNVCAMQEik2Vq3BKZ?=
- =?us-ascii?Q?B9rcWQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(82310400026)(376014)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 08:01:57.7818
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: dcedacaa-883f-4516-ceb2-08de5cb12dbe
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0002992A.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY3PR12MB9679
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_000204_832628_8202403D 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20260126_000914_629051_8B0FB6F4 
+X-CRM114-Status: GOOD (  18.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,50 +85,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 24 Jan 2026 18:18:30 -0500
-Joel Fernandes <joelagnelf@nvidia.com> wrote:
+Commit 35c18f2933c5 ("Add a new optional ",cma" suffix to the
+crashkernel= command line option") and commit ab475510e042 ("kdump:
+implement reserve_crashkernel_cma") added CMA support for kdump
+crashkernel reservation. This allows the kernel to dynamically allocate
+contiguous memory for crash dumping when needed, rather than permanently
+reserving a fixed region at boot time.
 
-> Use checked_add() when computing offsets from firmware-provided values
-> in the RISC-V firmware parsing code. These values come from the BinHdr
-> structure parsed from the firmware file header.
-> 
-> Signed-off-by: Joel Fernandes <joelagnelf@nvidia.com>
-> ---
->  drivers/gpu/nova-core/firmware/riscv.rs | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpu/nova-core/firmware/riscv.rs
-> b/drivers/gpu/nova-core/firmware/riscv.rs index
-> 28dfef63657a..97030bdd9991 100644 ---
-> a/drivers/gpu/nova-core/firmware/riscv.rs +++
-> b/drivers/gpu/nova-core/firmware/riscv.rs @@ -47,10 +47,11 @@ impl
-> RmRiscvUCodeDesc { /// Fails if the header pointed at by `bin_fw` is not
-> within the bounds of the firmware image. fn new(bin_fw:
-> &BinFirmware<'_>) -> Result<Self> { let offset =
-> usize::from_safe_cast(bin_fw.hdr.header_offset);
-> +        let end = offset.checked_add(size_of::<Self>()).ok_or(EINVAL)?;
->  
->          bin_fw
->              .fw
-> -            .get(offset..offset + size_of::<Self>())
-> +            .get(offset..end)
->              .and_then(Self::from_bytes_copy)
->              .ok_or(EINVAL)
->      }
-> @@ -80,8 +81,9 @@ pub(crate) fn new(dev: &device::Device<device::Bound>,
-> fw: &Firmware) -> Result< let ucode = {
->              let start = usize::from_safe_cast(bin_fw.hdr.data_offset);
->              let len = usize::from_safe_cast(bin_fw.hdr.data_size);
-> +            let end = start.checked_add(len).ok_or(EINVAL)?;
->  
-> -            DmaObject::from_data(dev, fw.data().get(start..start +
-> len).ok_or(EINVAL)?)?
-> +            DmaObject::from_data(dev,
-> fw.data().get(start..end).ok_or(EINVAL)?)? };
->  
->          Ok(Self {
+So extend crashkernel CMA reservation support to riscv. The following
+changes are made to enable CMA reservation:
 
-Reviewed-by: Zhi Wang <zhiw@nvidia.com>
+- Parse and obtain the CMA reservation size along with other crashkernel
+  parameters.
+- Call reserve_crashkernel_cma() to allocate the CMA region for kdump.
+- Include the CMA-reserved ranges for kdump kernel to use.
+- Exclude the CMA-reserved ranges from the crash kernel memory to
+  prevent them from being exported through /proc/vmcore.
+
+Update kernel-parameters.txt to document CMA support for crashkernel on
+riscv architecture.
+
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ Documentation/admin-guide/kernel-parameters.txt |  2 +-
+ arch/riscv/kernel/machine_kexec_file.c          | 17 +++++++++++++++--
+ arch/riscv/mm/init.c                            |  5 +++--
+ 3 files changed, 19 insertions(+), 5 deletions(-)
+
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 1058f2a6d6a8..52414c254208 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -1119,7 +1119,7 @@ Kernel parameters
+ 			It will be ignored when crashkernel=X,high is not used
+ 			or memory reserved is below 4G.
+ 	crashkernel=size[KMG],cma
+-			[KNL, X86, ppc] Reserve additional crash kernel memory from
++			[KNL, X86, RISCV, ppc] Reserve additional crash kernel memory from
+ 			CMA. This reservation is usable by the first system's
+ 			userspace memory and kernel movable allocations (memory
+ 			balloon, zswap). Pages allocated from this memory range
+diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
+index dd9d92a96517..5c8f3cccbc83 100644
+--- a/arch/riscv/kernel/machine_kexec_file.c
++++ b/arch/riscv/kernel/machine_kexec_file.c
+@@ -59,9 +59,9 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+ {
+ 	struct crash_mem *cmem;
+ 	unsigned int nr_ranges;
+-	int ret;
++	int ret, i;
+ 
+-	nr_ranges = 1; /* For exclusion of crashkernel region */
++	nr_ranges = 1 + crashk_cma_cnt; /* For exclusion of crashkernel region */
+ 	walk_system_ram_res(0, -1, &nr_ranges, get_nr_ram_ranges_callback);
+ 
+ 	cmem = kmalloc(struct_size(cmem, ranges, nr_ranges), GFP_KERNEL);
+@@ -74,11 +74,24 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+ 	if (ret)
+ 		goto out;
+ 
++	for (i = 0; i < crashk_cma_cnt; i++) {
++		cmem->ranges[cmem->nr_ranges].start = crashk_cma_ranges[i].start;
++		cmem->ranges[cmem->nr_ranges].end = crashk_cma_ranges[i].end;
++		cmem->nr_ranges++;
++	}
++
+ 	/* Exclude crashkernel region */
+ 	ret = crash_exclude_mem_range(cmem, crashk_res.start, crashk_res.end);
+ 	if (!ret)
+ 		ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
+ 
++	for (i = 0; i < crashk_cma_cnt; ++i) {
++		ret = crash_exclude_mem_range(cmem, crashk_cma_ranges[i].start,
++					      crashk_cma_ranges[i].end);
++		if (ret)
++			goto out;
++	}
++
+ out:
+ 	kfree(cmem);
+ 	return ret;
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index addb8a9305be..074d2d5f79ee 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -1404,7 +1404,7 @@ static inline void setup_vm_final(void)
+  */
+ static void __init arch_reserve_crashkernel(void)
+ {
+-	unsigned long long low_size = 0;
++	unsigned long long low_size = 0, cma_size = 0;
+ 	unsigned long long crash_base, crash_size;
+ 	bool high = false;
+ 	int ret;
+@@ -1414,11 +1414,12 @@ static void __init arch_reserve_crashkernel(void)
+ 
+ 	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
+ 				&crash_size, &crash_base,
+-				&low_size, NULL, &high);
++				&low_size, &cma_size, &high);
+ 	if (ret)
+ 		return;
+ 
+ 	reserve_crashkernel_generic(crash_size, crash_base, low_size, high);
++	reserve_crashkernel_cma(cma_size);
+ }
+ 
+ void __init paging_init(void)
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
