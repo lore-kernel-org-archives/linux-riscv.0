@@ -4,155 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9484D19503
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jan 2026 16:56:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FE56D19503
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jan 2026 17:15:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=anPf4fJK/QwGzrMOympP5fVjxlkT6lPYVvW1EC3RlVw=; b=l7DG7i3oLljgyE
-	i93i8hAAi5NnOPUrE4qINJB8VT6CExC1gX6gdE71vwdMbnOYe2gjofgUVjJ0+qHRyQOGTcxqWQPFS
-	kFaO5a2b7yzhtIpmtt3zolASCz99bQ0w3S5oW6VXtcitBsx82MjibFQuMBu1AX6+foqubC07q1U6b
-	IsiyoJexgTAPXRIfYj5FgY7Ekx5PfHVw8PdXFI9iwZQ0BQDVyIbtbs2lpl9QZjcI3w119eCKYbslq
-	i/7cViXfoCK7H9rPLXJwGqfaIHIfjcKI//98l+HDHKC0ssxYS/5w4YI9Vgl/3bZCo+4D16C9QJjiK
-	LZJEdlvt0DXLCTepWeew==;
+	List-Owner; bh=xLIonPxjynDO/wxOjzep5iZDP6CtCNKjhDKW7cM1++I=; b=WyhlrS7Ctib/yI
+	IccAtXSf2F+fM5wpGsLJ4Iaaqz/AKFbrKoQszYKWtRy9t86jV4/ih1Pvj61uudKUWcJl+EhxLq2uI
+	jC3v614wXYh9KJy6PYVQj06cO92aeWr7dGYNG7LH8FGbVzbo+c3kXu8tlIJCG1o4GB4Xi2zf60F4t
+	9Llv+f3uXxKHkQcyzfxjSzCNitSy5DmfmGO6I94LnNOF0I7xt0QH/tUXgei8ymm2lcrN1KlzgW6Nr
+	NP032LeCSlQjUye/7Om+RDVEY2G0OGwGrRmXG8z4YROi+4PWjWkgC2VLZUZxl0kU8xGbMkrEzLNeZ
+	uTAWAdtFeR246KUGVuMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPtI-0000000CuIh-2m4Z;
-	Mon, 26 Jan 2026 16:56:40 +0000
-Received: from fra-out-010.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([63.178.143.178])
+	id 1vkQB2-0000000Cwas-114U;
+	Mon, 26 Jan 2026 17:15:00 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPtF-0000000CuII-3eM7;
-	Mon, 26 Jan 2026 16:56:39 +0000
+	id 1vkQB0-0000000CwZs-0JhJ
+	for linux-riscv@lists.infradead.org;
+	Mon, 26 Jan 2026 17:14:59 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-47fedb7c68dso48090595e9.2
+        for <linux-riscv@lists.infradead.org>; Mon, 26 Jan 2026 09:14:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1769446597; x=1800982597;
-  h=message-id:date:mime-version:reply-to:subject:to:cc:
-   references:from:in-reply-to:content-transfer-encoding;
-  bh=i1wNPmaVv8oAnx46s+pv/CwmAbOdzYrpQ/gTMvCUjdA=;
-  b=klu4T5ia6GxVd51YU6JQ900i2Gdd+JA+cA6n7gP5/u8sl0wiCd4N9ccr
-   xpIsP2YWvPMzPNmNHog84/qLHyL3FlvMFNYVRYct5sUS/vDKW+0/o5wuc
-   p7rPi53Lv5YqFmvhgJv88WmttLPGvanvInEbTN4CxyQ79WAw/iZ94J6yF
-   Pde3o/THqPlZ8aPuh3wgAn4KPamwAhvH6H1m4sCQ1O+b76UCYi3nzmtoE
-   6zfq6fuME+RHqLrOC0GsMlzGA0D7YgMyNDJE41dYsxHk0FKCeRHQ+vlnK
-   CdSygWmXWLKRs+hRazMsrb9aB9owZJjB5mrk9uaZMB6KrUjhi4rsk3Dxy
-   g==;
-X-CSE-ConnectionGUID: hG/nmz7vTNmceFnAp6G6SA==
-X-CSE-MsgGUID: 3E3qoK4vTpqzDoxpd4XG1Q==
-X-IronPort-AV: E=Sophos;i="6.21,255,1763424000"; 
-   d="scan'208";a="8357615"
-Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
-  by internal-fra-out-010.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jan 2026 16:56:36 +0000
-Received: from EX19MTAEUC001.ant.amazon.com [54.240.197.225:22549]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.9.185:2525] with esmtp (Farcaster)
- id 8a3ce0b8-5cfe-49f5-b875-46094201b2e6; Mon, 26 Jan 2026 16:56:35 +0000 (UTC)
-X-Farcaster-Flow-ID: 8a3ce0b8-5cfe-49f5-b875-46094201b2e6
-Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
- EX19MTAEUC001.ant.amazon.com (10.252.51.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Mon, 26 Jan 2026 16:56:30 +0000
-Received: from [192.168.25.27] (10.106.82.32) by EX19D005EUB003.ant.amazon.com
- (10.252.51.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35; Mon, 26 Jan 2026
- 16:56:11 +0000
-Message-ID: <afddc163-4b1e-46ee-920a-85de3b347291@amazon.com>
-Date: Mon, 26 Jan 2026 16:56:10 +0000
+        d=gmail.com; s=20230601; t=1769447696; x=1770052496; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SHXVzDDBmvnIJ3lzKbW0IxNth1KaCaSoyXj6yfLdil0=;
+        b=iWMey817rhBzw23Y1RJ7b9N5vnwzOzGBJtY2rhRnJuOmXbY/6J+GPFkLgFeb0kI/85
+         n40OGnQDB2yGLIn9m7xrvRPJPj3QR8pDvBEcTQNCK0qFdj1keHh9hwg+Ko53IjnM37b2
+         Ku+0KpTCCKRXp7+NwBY0rgo9GLn7z/X7+okpm48LRQbJjNXmx3uCTabHQzGXYa9YLPId
+         xo4yjCpzPT/FoMUvDi91g+8yDHv7ZAADLboCyj7XbjDbqXYv5AT92YlUqLHp9LWKLR9u
+         sT8rHop4jbgW71L8rpQWXyHSp9hbwgGrCj0eGMv69YFTAeUMkp0t93AC6z1g/CVTEw07
+         RHZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769447696; x=1770052496;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=SHXVzDDBmvnIJ3lzKbW0IxNth1KaCaSoyXj6yfLdil0=;
+        b=kV1JD6RcYtvR4XZEYvyXrq4JKbf3gN4L+YfI0ztRVHnvDf/k3TcossdbzXbvTUrGsv
+         3YEftFovSM0eCBJoKLKRzxD52TIBSF3PzOQrLgtrDUY5roOnDRRGdCSkkwO2Fqhe9z7L
+         DdZHfbAwlxg1KxGHo7A35FrFLvZ3iAdia+IjsUEaoaIXZ420xLClU8exZ/A+5GO6cDOZ
+         KE2RHVjUl3X5rvZoJXLKpFUcAqo4OirRSQZQDkw/qBJE4WTZrVhQ7I7nXGJec9HdDY/T
+         Q16aQyVnTRdCYuh7ellS3+AgtMU7YfJS7V6jJdl4pCDT+wgDERF1At7a5qOEUFlR232Q
+         FpOQ==
+X-Gm-Message-State: AOJu0YwW69Un3IRJzUZcKJiEtl2p91S51K8qH1Qc+0kFp3ibh/KDJiQt
+	Et4Agcv5FiheJ2MWFRTfETY5iTqocafvy4UfvmWEWUu0Egz8qKWu+J8=
+X-Gm-Gg: AZuq6aK3eqyzmZXTWQBQQ55cqi7xbinmjGMGeZZvQaodzlMIxBel5ZHDf31Y9P6B0xH
+	NnggQBlAtN0f1A/BATvSLfdewuvbhcsDwUEoM8z8BQsXjtinFnX3qJ6WtEnj9yLCCNxSgqtVdtW
+	6BzOHfpKsy+2il/U+oWfD61XJ0wtN3aDWZgsQcZujOkEqTa/kyeupezLPpabZa0k+olOrSAAq7f
+	c61McufFCWJkksK+c+wSDPHRh0Ln8ug6Q54G24TapaaHTNmuBDytyG8LS7asR8czBweg3qfUJg9
+	lkn7I2Pe7LjTFGZ4i2d1wBTnUGuCs3CnfTMyQNsec6D7uZBQU5LvR4umF27isFHbzH5lLKq7NDg
+	57giaKJgdJQCOW/ufom6tgvmphU+CFUeHH8eCXYDX+r/tFXvodu8WtEWTV4LPj+bCcgqRG53SeU
+	bdso6u
+X-Received: by 2002:a05:600c:5395:b0:46e:32dd:1b1a with SMTP id 5b1f17b1804b1-4805cd40961mr78662845e9.7.1769447695886;
+        Mon, 26 Jan 2026 09:14:55 -0800 (PST)
+Received: from localhost ([2a02:169:c21a:1:5aa8:4ea4:a58b:fc48])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48066aaf30esm3136815e9.0.2026.01.26.09.14.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Jan 2026 09:14:55 -0800 (PST)
+From: Tomas Hlavacek <tmshlvck@gmail.com>
+To: netdev@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Yixun Lan <dlan@kernel.org>,
+	Vivian Wang <wangruikang@iscas.ac.cn>,
+	Tomas Hlavacek <tmshlvck@gmail.com>
+Subject: [PATCH net v2] net: spacemit: k1-emac: program frame size registers for jumbo frames
+Date: Mon, 26 Jan 2026 18:14:49 +0100
+Message-ID: <20260126171449.83288-1-tmshlvck@gmail.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260126135919.77168-1-tmshlvck@gmail.com>
+References: <20260126135919.77168-1-tmshlvck@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 07/13] KVM: guest_memfd: Add flag to remove from direct
- map
-To: Ackerley Tng <ackerleytng@google.com>, "Edgecombe, Rick P"
-	<rick.p.edgecombe@intel.com>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "kalyazin@amazon.co.uk"
-	<kalyazin@amazon.co.uk>, "kernel@xen0n.name" <kernel@xen0n.name>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>, "linux-fsdevel@vger.kernel.org"
-	<linux-fsdevel@vger.kernel.org>, "linux-s390@vger.kernel.org"
-	<linux-s390@vger.kernel.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvm@vger.kernel.org"
-	<kvm@vger.kernel.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>
-CC: "david@kernel.org" <david@kernel.org>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"svens@linux.ibm.com" <svens@linux.ibm.com>, "jgross@suse.com"
-	<jgross@suse.com>, "surenb@google.com" <surenb@google.com>,
-	"riel@surriel.com" <riel@surriel.com>, "pfalcato@suse.de" <pfalcato@suse.de>,
-	"peterx@redhat.com" <peterx@redhat.com>, "x86@kernel.org" <x86@kernel.org>,
-	"rppt@kernel.org" <rppt@kernel.org>, "thuth@redhat.com" <thuth@redhat.com>,
-	"maz@kernel.org" <maz@kernel.org>, "dave.hansen@linux.intel.com"
-	<dave.hansen@linux.intel.com>, "ast@kernel.org" <ast@kernel.org>,
-	"vbabka@suse.cz" <vbabka@suse.cz>, "Annapurve, Vishal"
-	<vannapurve@google.com>, "borntraeger@linux.ibm.com"
-	<borntraeger@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>,
-	"pjw@kernel.org" <pjw@kernel.org>, "tglx@linutronix.de" <tglx@linutronix.de>,
-	"willy@infradead.org" <willy@infradead.org>, "hca@linux.ibm.com"
-	<hca@linux.ibm.com>, "wyihan@google.com" <wyihan@google.com>,
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jolsa@kernel.org"
-	<jolsa@kernel.org>, "yang@os.amperecomputing.com"
-	<yang@os.amperecomputing.com>, "jmattson@google.com" <jmattson@google.com>,
-	"luto@kernel.org" <luto@kernel.org>, "aneesh.kumar@kernel.org"
-	<aneesh.kumar@kernel.org>, "haoluo@google.com" <haoluo@google.com>,
-	"patrick.roy@linux.dev" <patrick.roy@linux.dev>, "akpm@linux-foundation.org"
-	<akpm@linux-foundation.org>, "coxu@redhat.com" <coxu@redhat.com>,
-	"mhocko@suse.com" <mhocko@suse.com>, "mlevitsk@redhat.com"
-	<mlevitsk@redhat.com>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "hpa@zytor.com"
-	<hpa@zytor.com>, "song@kernel.org" <song@kernel.org>, "oupton@kernel.org"
-	<oupton@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>,
-	"maobibo@loongson.cn" <maobibo@loongson.cn>, "lorenzo.stoakes@oracle.com"
-	<lorenzo.stoakes@oracle.com>, "Liam.Howlett@oracle.com"
-	<Liam.Howlett@oracle.com>, "jthoughton@google.com" <jthoughton@google.com>,
-	"martin.lau@linux.dev" <martin.lau@linux.dev>, "jhubbard@nvidia.com"
-	<jhubbard@nvidia.com>, "Yu, Yu-cheng" <yu-cheng.yu@intel.com>,
-	"Jonathan.Cameron@huawei.com" <Jonathan.Cameron@huawei.com>,
-	"eddyz87@gmail.com" <eddyz87@gmail.com>, "yonghong.song@linux.dev"
-	<yonghong.song@linux.dev>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>,
-	"shuah@kernel.org" <shuah@kernel.org>, "prsampat@amd.com" <prsampat@amd.com>,
-	"kevin.brodsky@arm.com" <kevin.brodsky@arm.com>,
-	"shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "itazur@amazon.co.uk"
-	<itazur@amazon.co.uk>, "pbonzini@redhat.com" <pbonzini@redhat.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "dev.jain@arm.com"
-	<dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>,
-	"jackabt@amazon.co.uk" <jackabt@amazon.co.uk>, "daniel@iogearbox.net"
-	<daniel@iogearbox.net>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>,
-	"andrii@kernel.org" <andrii@kernel.org>, "mingo@redhat.com"
-	<mingo@redhat.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>, "derekmn@amazon.com"
-	<derekmn@amazon.com>, "xmarcalx@amazon.co.uk" <xmarcalx@amazon.co.uk>,
-	"kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me"
-	<sdf@fomichev.me>, "jackmanb@google.com" <jackmanb@google.com>,
-	"bp@alien8.de" <bp@alien8.de>, "corbet@lwn.net" <corbet@lwn.net>,
-	"jannh@google.com" <jannh@google.com>, "john.fastabend@gmail.com"
-	<john.fastabend@gmail.com>, "kas@kernel.org" <kas@kernel.org>,
-	"will@kernel.org" <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>
-References: <20260114134510.1835-1-kalyazin@amazon.com>
- <20260114134510.1835-8-kalyazin@amazon.com>
- <e619ded526a2f9a4cec4f74383cef31519624935.camel@intel.com>
- <294bca75-2f3e-46db-bb24-7c471a779cc1@amazon.com>
- <CAEvNRgEvd9tSwrkaYrQyibO2DP99vgVj6_zr=jBH5+zMnJwYbA@mail.gmail.com>
-Content-Language: en-US
-From: Nikita Kalyazin <kalyazin@amazon.com>
-Autocrypt: addr=kalyazin@amazon.com; keydata=
- xjMEY+ZIvRYJKwYBBAHaRw8BAQdA9FwYskD/5BFmiiTgktstviS9svHeszG2JfIkUqjxf+/N
- JU5pa2l0YSBLYWx5YXppbiA8a2FseWF6aW5AYW1hem9uLmNvbT7CjwQTFggANxYhBGhhGDEy
- BjLQwD9FsK+SyiCpmmTzBQJnrNfABQkFps9DAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQr5LK
- IKmaZPOpfgD/exazh4C2Z8fNEz54YLJ6tuFEgQrVQPX6nQ/PfQi2+dwBAMGTpZcj9Z9NvSe1
- CmmKYnYjhzGxzjBs8itSUvWIcMsFzjgEY+ZIvRIKKwYBBAGXVQEFAQEHQCqd7/nb2tb36vZt
- ubg1iBLCSDctMlKHsQTp7wCnEc4RAwEIB8J+BBgWCAAmFiEEaGEYMTIGMtDAP0Wwr5LKIKma
- ZPMFAmes18AFCQWmz0MCGwwACgkQr5LKIKmaZPNTlQEA+q+rGFn7273rOAg+rxPty0M8lJbT
- i2kGo8RmPPLu650A/1kWgz1AnenQUYzTAFnZrKSsXAw5WoHaDLBz9kiO5pAK
-In-Reply-To: <CAEvNRgEvd9tSwrkaYrQyibO2DP99vgVj6_zr=jBH5+zMnJwYbA@mail.gmail.com>
-X-Originating-IP: [10.106.82.32]
-X-ClientProxiedBy: EX19D001EUB003.ant.amazon.com (10.252.51.38) To
- EX19D005EUB003.ant.amazon.com (10.252.51.31)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_085638_200885_FCD45C06 
-X-CRM114-Status: GOOD (  24.52  )
+X-CRM114-CacheID: sfid-20260126_091458_148861_81C3475C 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,89 +104,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: kalyazin@amazon.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The driver allows changing MTU up to 4K via emac_change_mtu() and
+allocates appropriately sized DMA buffers, but it never programs the
+MAC_MAXIMUM_FRAME_SIZE and MAC_RECEIVE_JABBER_SIZE registers.
 
+This causes the MAC hardware to reject frames larger than the default
+1518 bytes, even when larger buffers are allocated. Frames exceeding
+the default size trigger jabber errors and are discarded.
 
-On 22/01/2026 18:37, Ackerley Tng wrote:
-> Nikita Kalyazin <kalyazin@amazon.com> writes:
-> 
->> On 16/01/2026 00:00, Edgecombe, Rick P wrote:
->>> On Wed, 2026-01-14 at 13:46 +0000, Kalyazin, Nikita wrote:
->>>> +static void kvm_gmem_folio_restore_direct_map(struct folio *folio)
->>>> +{
->>>> +     /*
->>>> +      * Direct map restoration cannot fail, as the only error condition
->>>> +      * for direct map manipulation is failure to allocate page tables
->>>> +      * when splitting huge pages, but this split would have already
->>>> +      * happened in folio_zap_direct_map() in kvm_gmem_folio_zap_direct_map().
-> 
-> Do you know if folio_restore_direct_map() will also end up merging page
-> table entries to a higher level?
-> 
->>>> +      * Thus folio_restore_direct_map() here only updates prot bits.
->>>> +      */
->>>> +     if (kvm_gmem_folio_no_direct_map(folio)) {
->>>> +             WARN_ON_ONCE(folio_restore_direct_map(folio));
->>>> +             folio->private = (void *)((u64)folio->private & ~KVM_GMEM_FOLIO_NO_DIRECT_MAP);
->>>> +     }
->>>> +}
->>>> +
->>>
->>> Does this assume the folio would not have been split after it was zapped? As in,
->>> if it was zapped at 2MB granularity (no 4KB direct map split required) but then
->>> restored at 4KB (split required)? Or it gets merged somehow before this?
-> 
-> I agree with the rest of the discussion that this will probably land
-> before huge page support, so I will have to figure out the intersection
-> of the two later.
-> 
->>
->> AFAIK it can't be zapped at 2MB granularity as the zapping code will
->> inevitably cause splitting because guest_memfd faults occur at the base
->> page granularity as of now.
-> 
-> Here's what I'm thinking for now:
-> 
-> [HugeTLB, no conversions]
-> With initial HugeTLB support (no conversions), host userspace
-> guest_memfd faults will be:
-> 
-> + For guest_memfd with PUD-sized pages
->      + At PUD level or PTE level
-> + For guest_memfd with PMD-sized pages
->      + At PMD level or PTE level
-> 
-> Since this guest_memfd doesn't support conversions, the folio is never
-> split/merged, so the direct map is restored at whatever level it was
-> zapped. I think this works out well.
-> 
-> [HugeTLB + conversions]
-> For a guest_memfd with HugeTLB support and conversions, host userspace
-> guest_memfd faults will always be at PTE level, so the direct map will
-> be split and the faulted pages have the direct map zapped in 4K chunks
-> as they are faulted.
-> 
-> On conversion back to private, put those back into the direct map
-> (putting aside whether to merge the direct map PTEs for now).
+Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
+Cc: stable@vger.kernel.org
+Signed-off-by: Tomas Hlavacek <tmshlvck@gmail.com>
+---
+v2: Added Fixes tag and Cc stable.
 
-Makes sense to me.
+ drivers/net/ethernet/spacemit/k1_emac.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-> 
-> 
-> Unfortunately there's no unmapping callback for guest_memfd to use, so
-> perhaps the principle should be to put the folios back into the direct
-> map ASAP - at unmapping if guest_memfd is doing the unmapping, otherwise
-> at freeing time?
-
-I'm not sure I fully understand what you mean here.  What would be the 
-purpose for hooking up to unmapping?  Why would making sure we put 
-folios back into the direct map whenever they are freed or converted to 
-private not be sufficient?
+diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
+index 220eb5ce7583..31b1bdb2827e 100644
+--- a/drivers/net/ethernet/spacemit/k1_emac.c
++++ b/drivers/net/ethernet/spacemit/k1_emac.c
+@@ -228,6 +228,12 @@ static void emac_init_hw(struct emac_priv *priv)
+ 		DEFAULT_TX_THRESHOLD);
+ 	emac_wr(priv, MAC_RECEIVE_PACKET_START_THRESHOLD, DEFAULT_RX_THRESHOLD);
+ 
++	/* Set maximum frame size and jabber size based on configured buffer
++	 * size.
++	 */
++	emac_wr(priv, MAC_MAXIMUM_FRAME_SIZE, priv->dma_buf_sz);
++	emac_wr(priv, MAC_RECEIVE_JABBER_SIZE, priv->dma_buf_sz);
++
+ 	/* Configure flow control (enabled in emac_adjust_link() later) */
+ 	emac_set_mac_addr_reg(priv, fc_dest_addr, MAC_FC_SOURCE_ADDRESS_HIGH);
+ 	emac_wr(priv, MAC_FC_PAUSE_HIGH_THRESHOLD, DEFAULT_FC_FIFO_HIGH);
+-- 
+2.52.0
 
 
 _______________________________________________
