@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3041D2FEE1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 949D7D2FEDE
 	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 19:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,54 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QvTb4GuFXI8LpO75i/s8ANFtJy5LhvFt13v5nitSAZw=; b=46+JywQfB7bR9U
-	cxXqqb4s+ChJY78cGpEBAgvplZKGC6+xegrdPjKCgkGS7WrOsE5tRGE0h63lO1Si3z7rEYpjP+bjx
-	uJZ+1P6bWRJ7jpy5btJX+xn7/RVGoaDVGRqLo+Bd0oyiueeXi5617evcQyf5Z5ihcT+COF/gmEzmL
-	gVVgHTOCHhAQ6FoKmN74nvUOu5hL4jk0FaC7qafu26grtucZOW2qn273hj8yQOnnJ2OLh4ktzuGYX
-	1X1GJHnzUqEuYTKIZSmPRvWxZycmeQk/8f50tG+rVDwxdJbhrz/jkIVDzmnVnXpquWUJXqEtq3LZn
-	aGhicbrWBN6MFUgiTqwA==;
+	List-Owner; bh=uPhNQel25T7s7CFU52LQY6t76p1rMCqEONsrT5SmIl4=; b=SqNglP5DxAx/j8
+	stmMQZKAJHQl4aCNxsf8KeTm1C11M55BdbgcOphB7+YJqeB6Ngd3ZKYZHHLdxHQ1y19O4o4Ol7/bH
+	ytgrm6HpchcSALh+APgCZez5BFiMSjAD4cFeKtRCEFkwDuxSDIQ17yJw5r5qQxEwLAEtMZyh5RQQt
+	IfYdG8WCcgd4Evy0UH2zraxEesjVz0CcGQxZ7uL/EUmnN82CFNJH3ttLyWK9V29EFEpa45dXQQfPH
+	IPRgEhsIFb3ZAyC/I9wxQ3OlpEWWbZX1c/tmKyjShAHu4O+Kt4se+f2yhAaCtY0KS61fsixV6XTbw
+	Yo7C/l8mrfeg7hSvSjuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkoqr-0000000Evv5-0TBL;
+	id 1vkoqr-0000000Evvy-3eYN;
 	Tue, 27 Jan 2026 19:35:49 +0000
 Received: from fra-out-008.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([35.158.23.94])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPqB-0000000Cu1N-1nJd;
-	Mon, 26 Jan 2026 16:53:28 +0000
+	id 1vkPqW-0000000Cu54-1Ski;
+	Mon, 26 Jan 2026 16:53:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
-  s=amazoncorp2; t=1769446407; x=1800982407;
+  s=amazoncorp2; t=1769446428; x=1800982428;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-transfer-encoding:mime-version;
-  bh=j+Z5wrixfI4H8rTwsRxl2yKp4vaZueJxgsH7jlHoBL4=;
-  b=ChUysUrQkE4JmjGGAEDRdbEPJei1an1NC+Y6CkhthRJ6SKRx/44c5M7i
-   QoUfxckZ7MjekkUgqzqQhnrRZLjECHqkbzNW5gJ+9yEvviqkucs03Cc2+
-   Bgt+Zq/5X3tbkbCkVunvgplKOsVQIsbPr0Hr5xUzfyqntuyvpsdw5kW83
-   7q+t/vJVgDxz2gWnEeLgvBmAb0O99IeYvsQbKPM6b+ekQVyXFZewZarps
-   KSVu/banYLSEcUmr3jW2t/FH0Q8BkZZBI5m4HzV7Y1NUWNEYEElOaP26P
-   dB3dqojKxp998hSmHPdPRrOSA9TTe6f9vBWtT8P7NnljUAuqcPelHn7dU
+  bh=sUXffJ10pcwposVmC9vM2kcbCnj2+0WuRal0d/tv1pE=;
+  b=l/FWrpfERJLEfuLePRdYKKmiCL0HGT87uJfBucms2yY9GVJ3uaotH/xG
+   CSf/y+P9C+zXQTFlWyl1M+vlZem+oVcVWOG8NDk35X2SuNXBDp3cKDOMw
+   BuzHs/CZLkHEMnXBgtzJEbwg02cloDsQ5csMEsSjsHvXnx/BggrIK4nyd
+   tyTL8BllSzYTavpoK96CqOWKaiHSHKabB08uH0J5hx66iPZXtEY6XC2tT
+   +Nf41BhwKu544JvUFniuQT5JyyJ77MOugSwfU8iz6AY5dKLxIRchvI2RC
+   VB3608IGW7Vs6jVgC0W1oEVUCeckwFgREPYVPWuQC/Cjpn/XE+uoy1hy0
    g==;
-X-CSE-ConnectionGUID: Yh5g7urpQqWpn4CqoGKYfA==
-X-CSE-MsgGUID: 17QVleK0SeyL2TgczznQFA==
+X-CSE-ConnectionGUID: 2MO852eqTuG8D6xQEfIyyA==
+X-CSE-MsgGUID: r4PoUa0vSOeBGqbiWfWq9A==
 X-IronPort-AV: E=Sophos;i="6.21,255,1763424000"; 
-   d="scan'208";a="8451565"
-Received: from ip-10-6-11-83.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.11.83])
-  by internal-fra-out-008.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jan 2026 16:53:19 +0000
-Received: from EX19MTAEUC002.ant.amazon.com [54.240.197.228:31653]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.20.120:2525] with esmtp (Farcaster)
- id 73c5d942-d46d-4131-8f3e-538958800243; Mon, 26 Jan 2026 16:53:19 +0000 (UTC)
-X-Farcaster-Flow-ID: 73c5d942-d46d-4131-8f3e-538958800243
-Received: from EX19D005EUB004.ant.amazon.com (10.252.51.126) by
- EX19MTAEUC002.ant.amazon.com (10.252.51.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Mon, 26 Jan 2026 16:53:19 +0000
+   d="scan'208";a="8451600"
+Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
+  by internal-fra-out-008.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jan 2026 16:53:46 +0000
+Received: from EX19MTAEUB002.ant.amazon.com [54.240.197.232:20340]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.26.95:2525] with esmtp (Farcaster)
+ id 7c5d4f7f-b341-4f66-a5c9-35691d57cbfa; Mon, 26 Jan 2026 16:53:46 +0000 (UTC)
+X-Farcaster-Flow-ID: 7c5d4f7f-b341-4f66-a5c9-35691d57cbfa
 Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
- EX19D005EUB004.ant.amazon.com (10.252.51.126) with Microsoft SMTP Server
+ EX19MTAEUB002.ant.amazon.com (10.252.51.79) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Mon, 26 Jan 2026 16:53:18 +0000
+ Mon, 26 Jan 2026 16:53:41 +0000
+Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
+ EX19D005EUB003.ant.amazon.com (10.252.51.31) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
+ Mon, 26 Jan 2026 16:53:41 +0000
 Received: from EX19D005EUB003.ant.amazon.com ([fe80::b825:becb:4b38:da0c]) by
  EX19D005EUB003.ant.amazon.com ([fe80::b825:becb:4b38:da0c%3]) with mapi id
- 15.02.2562.035; Mon, 26 Jan 2026 16:53:18 +0000
+ 15.02.2562.035; Mon, 26 Jan 2026 16:53:41 +0000
 From: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
 To: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org"
 	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
@@ -133,13 +133,13 @@ CC: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net"
 	<jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>,
 	"Manwaring, Derek" <derekmn@amazon.com>, "Cali, Marco"
 	<xmarcalx@amazon.co.uk>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
-Subject: [PATCH v10 13/15] KVM: selftests: cover
- GUEST_MEMFD_FLAG_NO_DIRECT_MAP in existing selftests
-Thread-Topic: [PATCH v10 13/15] KVM: selftests: cover
- GUEST_MEMFD_FLAG_NO_DIRECT_MAP in existing selftests
-Thread-Index: AQHcjuRFfdDw6PnQdUi9fE6WE495GA==
-Date: Mon, 26 Jan 2026 16:53:18 +0000
-Message-ID: <20260126164445.11867-14-kalyazin@amazon.com>
+Subject: [PATCH v10 15/15] KVM: selftests: Test guest execution from direct
+ map removed gmem
+Thread-Topic: [PATCH v10 15/15] KVM: selftests: Test guest execution from
+ direct map removed gmem
+Thread-Index: AQHcjuRTcCA/ThXLV0KKWvmgpRrsIQ==
+Date: Mon, 26 Jan 2026 16:53:41 +0000
+Message-ID: <20260126164445.11867-16-kalyazin@amazon.com>
 References: <20260126164445.11867-1-kalyazin@amazon.com>
 In-Reply-To: <20260126164445.11867-1-kalyazin@amazon.com>
 Accept-Language: en-GB, en-US
@@ -149,9 +149,8 @@ X-MS-TNEF-Correlator:
 x-originating-ip: [172.19.103.116]
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_085327_755509_2BD635F8 
-X-CRM114-Status: UNSURE (   9.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260126_085348_727033_F583527E 
+X-CRM114-Status: GOOD (  11.61  )
 X-Mailman-Approved-At: Tue, 27 Jan 2026 11:35:38 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -171,87 +170,91 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Patrick Roy <patrick.roy@linux.dev>
 
-Extend mem conversion selftests to cover the scenario that the guest can
-fault in and write gmem-backed guest memory even if its direct map
-removed. Also cover the new flag in guest_memfd_test.c tests.
+Add a selftest that loads itself into guest_memfd (via
+GUEST_MEMFD_FLAG_MMAP) and triggers an MMIO exit when executed. This
+exercises x86 MMIO emulation code inside KVM for guest_memfd-backed
+memslots where the guest_memfd folios are direct map removed.
+Particularly, it validates that x86 MMIO emulation code (guest page
+table walks + instruction fetch) correctly accesses gmem through the VMA
+that's been reflected into the memslot's userspace_addr field (instead
+of trying to do direct map accesses).
 
 Signed-off-by: Patrick Roy <patrick.roy@linux.dev>
 Signed-off-by: Nikita Kalyazin <kalyazin@amazon.com>
 ---
- tools/testing/selftests/kvm/guest_memfd_test.c  | 17 ++++++++++++++++-
- .../kvm/x86/private_mem_conversions_test.c      |  7 ++++---
- 2 files changed, 20 insertions(+), 4 deletions(-)
+ .../selftests/kvm/set_memory_region_test.c    | 52 +++++++++++++++++--
+ 1 file changed, 48 insertions(+), 4 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/guest_memfd_test.c b/tools/testing/selftests/kvm/guest_memfd_test.c
-index 618c937f3c90..9615018a1a67 100644
---- a/tools/testing/selftests/kvm/guest_memfd_test.c
-+++ b/tools/testing/selftests/kvm/guest_memfd_test.c
-@@ -403,6 +403,17 @@ static void test_guest_memfd(unsigned long vm_type)
- 		__test_guest_memfd(vm, GUEST_MEMFD_FLAG_MMAP |
- 				       GUEST_MEMFD_FLAG_INIT_SHARED);
+diff --git a/tools/testing/selftests/kvm/set_memory_region_test.c b/tools/testing/selftests/kvm/set_memory_region_test.c
+index 7fe427ff9b38..6c57fb036b20 100644
+--- a/tools/testing/selftests/kvm/set_memory_region_test.c
++++ b/tools/testing/selftests/kvm/set_memory_region_test.c
+@@ -602,6 +602,41 @@ static void test_mmio_during_vectoring(void)
  
-+	if (flags & GUEST_MEMFD_FLAG_NO_DIRECT_MAP) {
-+		__test_guest_memfd(vm, GUEST_MEMFD_FLAG_NO_DIRECT_MAP);
-+		if (flags & GUEST_MEMFD_FLAG_MMAP)
-+			__test_guest_memfd(vm, GUEST_MEMFD_FLAG_NO_DIRECT_MAP |
-+					       GUEST_MEMFD_FLAG_MMAP);
-+		if (flags & GUEST_MEMFD_FLAG_INIT_SHARED)
-+			__test_guest_memfd(vm, GUEST_MEMFD_FLAG_NO_DIRECT_MAP |
-+					       GUEST_MEMFD_FLAG_MMAP |
-+					       GUEST_MEMFD_FLAG_INIT_SHARED);
-+	}
-+
  	kvm_vm_free(vm);
  }
++
++static void guest_code_trigger_mmio(void)
++{
++	/*
++	 * Read some GPA that is not backed by a memslot. KVM consider this
++	 * as MMIO and tell userspace to emulate the read.
++	 */
++	READ_ONCE(*((uint64_t *)MEM_REGION_GPA));
++
++	GUEST_DONE();
++}
++
++static void test_guest_memfd_mmio(void)
++{
++	struct kvm_vm *vm;
++	struct kvm_vcpu *vcpu;
++	struct vm_shape shape = {
++		.mode = VM_MODE_DEFAULT,
++		.src_type = VM_MEM_SRC_GUEST_MEMFD_NO_DIRECT_MAP,
++	};
++	pthread_t vcpu_thread;
++
++	pr_info("Testing MMIO emulation for instructions in gmem\n");
++
++	vm = __vm_create_shape_with_one_vcpu(shape, &vcpu, 0, guest_code_trigger_mmio);
++
++	virt_map(vm, MEM_REGION_GPA, MEM_REGION_GPA, 1);
++
++	pthread_create(&vcpu_thread, NULL, vcpu_worker, vcpu);
++
++	/* If the MMIO read was successfully emulated, the vcpu thread will exit */
++	pthread_join(vcpu_thread, NULL);
++
++	kvm_vm_free(vm);
++}
+ #endif
  
-@@ -445,10 +456,14 @@ static void test_guest_memfd_guest(void)
- 	TEST_ASSERT(vm_check_cap(vm, KVM_CAP_GUEST_MEMFD_FLAGS) & GUEST_MEMFD_FLAG_INIT_SHARED,
- 		    "Default VM type should support INIT_SHARED, supported flags = 0x%x",
- 		    vm_check_cap(vm, KVM_CAP_GUEST_MEMFD_FLAGS));
-+	TEST_ASSERT(vm_check_cap(vm, KVM_CAP_GUEST_MEMFD_FLAGS) & GUEST_MEMFD_FLAG_NO_DIRECT_MAP,
-+		    "Default VM type should support INIT_SHARED, supported flags = 0x%x",
-+		    vm_check_cap(vm, KVM_CAP_GUEST_MEMFD_FLAGS));
+ int main(int argc, char *argv[])
+@@ -625,10 +660,19 @@ int main(int argc, char *argv[])
+ 	test_add_max_memory_regions();
  
- 	size = vm->page_size;
- 	fd = vm_create_guest_memfd(vm, size, GUEST_MEMFD_FLAG_MMAP |
--					     GUEST_MEMFD_FLAG_INIT_SHARED);
-+					     GUEST_MEMFD_FLAG_INIT_SHARED |
-+					     GUEST_MEMFD_FLAG_NO_DIRECT_MAP);
- 	vm_set_user_memory_region2(vm, slot, KVM_MEM_GUEST_MEMFD, gpa, size, NULL, fd, 0);
- 
- 	mem = kvm_mmap(size, PROT_READ | PROT_WRITE, MAP_SHARED, fd);
-diff --git a/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c b/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c
-index 1969f4ab9b28..8767cb4a037e 100644
---- a/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c
-+++ b/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c
-@@ -367,7 +367,7 @@ static void *__test_mem_conversions(void *__vcpu)
- }
- 
- static void test_mem_conversions(enum vm_mem_backing_src_type src_type, uint32_t nr_vcpus,
--				 uint32_t nr_memslots)
-+				 uint32_t nr_memslots, uint64_t gmem_flags)
- {
- 	/*
- 	 * Allocate enough memory so that each vCPU's chunk of memory can be
-@@ -394,7 +394,7 @@ static void test_mem_conversions(enum vm_mem_backing_src_type src_type, uint32_t
- 
- 	vm_enable_cap(vm, KVM_CAP_EXIT_HYPERCALL, (1 << KVM_HC_MAP_GPA_RANGE));
- 
--	memfd = vm_create_guest_memfd(vm, memfd_size, 0);
-+	memfd = vm_create_guest_memfd(vm, memfd_size, gmem_flags);
- 
- 	for (i = 0; i < nr_memslots; i++)
- 		vm_mem_add(vm, src_type, BASE_DATA_GPA + slot_size * i,
-@@ -474,7 +474,8 @@ int main(int argc, char *argv[])
- 		}
+ #ifdef __x86_64__
+-	if (kvm_has_cap(KVM_CAP_GUEST_MEMFD) &&
+-	    (kvm_check_cap(KVM_CAP_VM_TYPES) & BIT(KVM_X86_SW_PROTECTED_VM))) {
+-		test_add_private_memory_region();
+-		test_add_overlapping_private_memory_regions();
++	if (kvm_has_cap(KVM_CAP_GUEST_MEMFD)) {
++		uint64_t valid_flags = kvm_check_cap(KVM_CAP_GUEST_MEMFD_FLAGS);
++
++		if (kvm_check_cap(KVM_CAP_VM_TYPES) & BIT(KVM_X86_SW_PROTECTED_VM)) {
++			test_add_private_memory_region();
++			test_add_overlapping_private_memory_regions();
++		}
++
++		if ((valid_flags & GUEST_MEMFD_FLAG_MMAP)
++			&& (valid_flags & GUEST_MEMFD_FLAG_NO_DIRECT_MAP))
++			test_guest_memfd_mmio();
++		else
++			pr_info("Skipping tests requiring GUEST_MEMFD_FLAG_MMAP | GUEST_MEMFD_FLAG_NO_DIRECT_MAP");
+ 	} else {
+ 		pr_info("Skipping tests for KVM_MEM_GUEST_MEMFD memory regions\n");
  	}
- 
--	test_mem_conversions(src_type, nr_vcpus, nr_memslots);
-+	test_mem_conversions(src_type, nr_vcpus, nr_memslots, 0);
-+	test_mem_conversions(src_type, nr_vcpus, nr_memslots, GUEST_MEMFD_FLAG_NO_DIRECT_MAP);
- 
- 	return 0;
- }
 -- 
 2.50.1
 
