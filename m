@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DD9C88E43
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9804FC88E42
 	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jan 2026 04:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,55 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mBrZTSQrfqGQ2eVv25iFG9bRwr04VtAP8UBl7uvKcW8=; b=O0hhZr5roIA11G
-	ZBr7pFnuEabgXTYmSXJJ1mmuwHMxcpf4JrdE6sG8rhxDR3uVCHTT3BvG/yCE48Hy+mQ1qBdq+9ffb
-	i99WHZjYd5v+kJXGUKl8dXUZPHnKiHwjilJNuargCFnzTxkwBSQTp8l8pR658DHtL7vqoq8QkRab8
-	LTnYhdvPgCShYEzPuwvwIu8TE8zKGFaCNByFxgwrnUKE8ANUoiomCqMqfH5656YhAMVAdfWfOJRwk
-	7Kf9VxymIYvIeUpeSvc8NkiyOepGRNy84NdrcxcNemOn7cYLrW9R9/WDSxF9F6lixmOSHooW7/F93
-	WrhVZE1BBUvoFcjXhawQ==;
+	List-Owner; bh=k1L6THi6wvtc4MiRrG/8Q5XZAivzJwtbD7WgILgLFUI=; b=we7A7OcDsgFnAY
+	ET3p0yHMh06p2Uzqk+9g4YRdnPvE9hqjSSRcfSYpy2L8EEVUKsvyInJ1ymzw4xV8G18R7mZ0aVrcN
+	WGXHM/6oz7cCDDXbFQqJ3LqyNetd+BnzLX/JaBcdaqGx7qBHb27Sy6cWbdfqf3zwTgRmj5C90fzfk
+	Rg2H5MzLP4DIrc7rZyno+SBwmdJYiw0L1VwMq6GeTPH/YVQzzMuaDg3cdVh6pVHnK0aeuTH8vBJWr
+	/yAd7penWTdSpRy2oLCEVmj+PE99cG72yP3p6wGkA2iZj0AGLjPXf5qzbY4z99XAAoJ5ZxdCXxCil
+	kGqlCVT1zGOPsz07BU6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkE6v-0000000BsYm-1EOB;
-	Mon, 26 Jan 2026 04:21:57 +0000
+	id 1vkE71-0000000BsaW-018a;
+	Mon, 26 Jan 2026 04:22:03 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkE6s-0000000BsXT-1H8C
+	id 1vkE6v-0000000BsYk-1SZm
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Jan 2026 04:21:56 +0000
+	Mon, 26 Jan 2026 04:21:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7AE204441B;
-	Mon, 26 Jan 2026 04:21:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BDC6C19425;
-	Mon, 26 Jan 2026 04:21:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1562B44415;
+	Mon, 26 Jan 2026 04:21:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E914EC116C6;
+	Mon, 26 Jan 2026 04:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769401312;
-	bh=O0Chq8FOwcKLbBZ6GgKrruLCkSBIdndz2GCwD70Bmn0=;
+	s=k20201202; t=1769401316;
+	bh=+/TmLP7uQZV/QkfJ2BYskF9iGcIhUQOcpCvg+re+VHU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=AaugFFuUyWDMrG0RBi0+t/mFV/TECAGxCNW/Xu1Bmy1HggS4k1oszf5b1CTFJkL7n
-	 plVJXS37a/bz+oRkMg+vPrEw9XI4sHC3xB8OFG0PioyPHsqtLqg09CEva07c6QRMwj
-	 24wX0YlE+Oo/+IfsdCy29FfUwxMOvyXG62zCq6WPvxB1FfEy4aJBqxs2Q9czXo2WJo
-	 CM4Z1Kmrcj9BWS4sPA6y1+T9r4WWM/zJuuDb94Po0dcJhqsVz6fUrxJCpGQBDo/I5N
-	 Qo0W4/3hJNgVX41JM4SsKIWB6KLjHWlRmnz9I1jlYAry8IBo+1GGPbWCNQcneA+W/w
-	 jWRlGN5q9SqwQ==
+	b=R4rHeXRKr46HzJnufDrOmsu5j4AIH9EVSo6a1F05cnSGqoxagpqGojvTqJqJy4sR6
+	 iXju10dKP63UUwvCT9bcJYwpG+49Jrh9V7Ww5Oh7YqU7DKFOUEuoB9nm4dTZAHlVIG
+	 oaaG87Xy15z57P7JK4rC3coABIyFS6TktPPC2xZuWqAHv2nZ/UA4+avQED4N/zUI23
+	 xuuguhsrVa8n1D0jyPbLwf5N+ZDB2srFp5HOGdCdb3XfrcG/DNDzDJJZ2sBKEOuVJn
+	 i0FlJ1VIkna25AGzdH5peWaKjYTo9R74/qIraQXTahSxRPTUosbEB9sIRIAFwzIPnY
+	 p0HgxiVmguKDQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 4EBF83809A22;
-	Mon, 26 Jan 2026 04:21:48 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id C8C7A3809A22;
+	Mon, 26 Jan 2026 04:21:52 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 11/21] i2c: spacemit: Remove IRQF_ONESHOT
+Subject: Re: [GIT PULL] RISC-V updates for v6.19-rc7
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176940130684.4057692.5555017535441416202.git-patchwork-notify@kernel.org>
-Date: Mon, 26 Jan 2026 04:21:46 +0000
-References: <20260123113708.416727-12-bigeasy@linutronix.de>
-In-Reply-To: <20260123113708.416727-12-bigeasy@linutronix.de>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rt-devel@lists.linux.dev, tglx@kernel.org,
- troy.mitchell@linux.spacemit.com, andi.shyti@kernel.org, dlan@gentoo.org,
- linux-i2c@vger.kernel.org
+Message-Id: <176940131135.4057692.4058115103852267681.git-patchwork-notify@kernel.org>
+Date: Mon, 26 Jan 2026 04:21:51 +0000
+References: <081aefd5-d47d-8397-693a-3e0a3c73783e@kernel.org>
+In-Reply-To: <081aefd5-d47d-8397-693a-3e0a3c73783e@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_202154_421940_A24DEB96 
-X-CRM114-Status: UNSURE (   9.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260125_202157_440667_05182D37 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,22 +76,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Andi Shyti <andi.shyti@kernel.org>:
+This pull request was applied to riscv/linux.git (fixes)
+by Linus Torvalds <torvalds@linux-foundation.org>:
 
-On Fri, 23 Jan 2026 12:36:57 +0100 you wrote:
-> Passing IRQF_ONESHOT ensures that the interrupt source is masked until
-> the secondary (threaded) handler is done. If only a primary handler is
-> used then the flag makes no sense because the interrupt can not fire
-> (again) while its handler is running.
-> The flag also disallows force-threading of the primary handler and the
-> irq-core will warn about this.
+On Sat, 24 Jan 2026 16:21:29 -0700 (MST) you wrote:
+> Linus,
+> 
+> Please pull these RISC-V fixes for v6.19-rc7.
+> 
+> The notable changes here are the three RISC-V timer compare register
+> update sequence patches.  These only apply to RV32 systems and are related
+> to the 64-bit timer compare value being split across two separate 32-bit
+> registers.  We weren't using the appropriate three-write sequence,
+> documented in the RISC-V ISA specifications, to avoid spurious timer
+> interrupts during the update sequence; so, these patches now use the
+> recommended sequence.  This doesn't affect 64-bit RISC-V systems, since
+> the timer compare value fits inside a single register and can be updated
+> with a single write.
 > 
 > [...]
 
 Here is the summary with links:
-  - [11/21] i2c: spacemit: Remove IRQF_ONESHOT
-    https://git.kernel.org/riscv/c/e351836a54e3
+  - [GIT,PULL] RISC-V updates for v6.19-rc7
+    https://git.kernel.org/riscv/c/d91a46d6805a
 
 You are awesome, thank you!
 -- 
