@@ -4,107 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E612FC88E77
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jan 2026 08:54:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A5D1D74EF7
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jan 2026 09:24:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K86PdyKXn/Nk58J+LeKk4Oa94g5qMpTdG/hml3+6+SA=; b=rYV2eeSRhqHx2Q
-	aV0vkAELCMuH+0RwzyAzaDK1+PxH8rxZPRyJcTpK3UQJcnjPUiX6OkJZemU4eYdfKY1DrIJethgqM
-	HOr7HS+9j1GT7Ko/Cquwc/KFIio9pEykDJ2Lh3iVmfOtPc1H5a0ViwclwZXV51oM292Jh5VlbQuYP
-	diuJNZecVJB1rXX/2kWeKSuNRPQ7Wv1WV5qZbs5gzIf5JrxgugkMstDledtazxqgfvDwR3xZGxYaU
-	FUyoX1knj0hgvj2dvpO9gRqBVeVFlYQ43dhheU4Kq8bNgV6dCmKq9K+qNb/lcwVJHfGZ0ZRxm9HXA
-	o+0EVoaVjBaERyeU6w+A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Pn7WvdkLF/hozDkm1e5dZVVKUxVFzJ7ocX8EJxGE63I=; b=PUWZHi/OX2cfS7
+	bGEBAduwZ/dODKKyMbO561gGG+WIykoADqa0WcaoPayxloZEmHVZf7ixNRGLf0toxTTXBytt5EpGk
+	/tqC9WnPabjDKgOSgmpfA5rZRtIPAphxgyQhO39KSr45Kay00k1GFov+gP1bh7iInmcvmSIKWvUiI
+	V2LntVELhXqf6FeRisHBbtw0UaMvitZc5rWZheDsfFsw1kNMFPYqhccS3BkJFpkz9B5TyU8qaYpxC
+	Gpz8A4McEn10AO8+Y1O16l+06jN5JC8vi+N5ezER68OYDly/fiMJlwT+cLFGoFvtalK4XwTQnp5YF
+	lGpgx5EZTtmgKWdkUWrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkIMu-0000000C8c7-1JRp;
-	Mon, 26 Jan 2026 08:54:44 +0000
-Received: from relay2.mymailcheap.com ([217.182.113.132])
+	id 1vkIph-0000000CBnO-0K4j;
+	Mon, 26 Jan 2026 09:24:29 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkIMq-0000000C8bd-3cAU
+	id 1vkIpb-0000000CBmd-40kW
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Jan 2026 08:54:42 +0000
-Received: from nf1.mymailcheap.com (nf1.mymailcheap.com [51.75.14.91])
-	by relay2.mymailcheap.com (Postfix) with ESMTPS id 0C8663E8B0;
-	Mon, 26 Jan 2026 08:54:36 +0000 (UTC)
-Received: from mail20.mymailcheap.com (mail20.mymailcheap.com [51.83.111.147])
-	by nf1.mymailcheap.com (Postfix) with ESMTPSA id A2F0D400D5;
-	Mon, 26 Jan 2026 08:54:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=aosc.io; s=default;
-	t=1769417671; bh=TwIToU064K5dMWaz+SRpXB7pa10vjszZ1Jy8t7dLIrc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ORqjPLk++EGfsnq5gappSmmd+co4PSfSsPlDjskR5vg14gPN7pChfp5XREpSKs0jx
-	 Cbke3yY4poVFGqSSE4Yf72g9OJzkXuhAWPFDGWb495qP0jSi2ecAMoheaHzVbUQEO7
-	 +kckd9qRE/pa8VR/InKeQPrA5GsVWV1ezawKn5pw=
-Received: from [127.0.0.1] (unknown [117.151.13.225])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail20.mymailcheap.com (Postfix) with ESMTPSA id DF98543622;
-	Mon, 26 Jan 2026 08:54:20 +0000 (UTC)
-Message-ID: <f3256219-bb97-45d4-9364-cf28d3c9dc8a@aosc.io>
-Date: Mon, 26 Jan 2026 16:54:15 +0800
+	Mon, 26 Jan 2026 09:24:27 +0000
+Received: from ubt.. (unknown [210.73.43.101])
+	by APP-01 (Coremail) with SMTP id qwCowADnjmq9MndptA1LBg--.14759S2;
+	Mon, 26 Jan 2026 17:24:14 +0800 (CST)
+From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>
+Cc: linux-riscv@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Chunyan Zhang <zhang.lyra@gmail.com>
+Subject: [PATCH V2] crypto: aegis128: Add RISC-V vector SIMD implementation
+Date: Mon, 26 Jan 2026 17:24:11 +0800
+Message-Id: <20260126092411.243237-1-zhangchunyan@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] KVM: Add KVM_GET_REG_LIST ioctl for LoongArch
-Content-Language: en-US-large, en-US
-To: Bibo Mao <maobibo@loongson.cn>, WANG Xuerui <kernel@xen0n.name>,
- Huacai Chen <chenhuacai@kernel.org>
-Cc: Kexy Biscuit <kexybiscuit@aosc.io>, Mingcong Bai <jeffbai@aosc.io>,
- Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
- Tianrui Zhao <zhaotianrui@loongson.cn>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Miguel Ojeda <ojeda@kernel.org>,
- Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
- =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
- Danilo Krummrich <dakr@kernel.org>, kvm@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- rust-for-linux@vger.kernel.org
-References: <20260125054322.1237687-1-liushuyu@aosc.io>
- <4b504274-4241-0e3e-3ed3-7804b72b7ee8@loongson.cn>
- <972430be-d2f3-49b6-851b-a057ddfcafec@aosc.io>
- <29565e27-f153-c2c5-cbc3-e0457d45f094@loongson.cn>
- <2fa2dc72-b24e-4504-8c8e-e4ecacda02c4@aosc.io>
- <13746394-1a33-894a-d325-8125743f7906@loongson.cn>
-From: liushuyu <liushuyu@aosc.io>
-In-Reply-To: <13746394-1a33-894a-d325-8125743f7906@loongson.cn>
-X-Rspamd-Queue-Id: A2F0D400D5
-X-Spamd-Result: default: False [1.40 / 10.00];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MIME_GOOD(-0.10)[text/plain];
-	BAYES_HAM(-0.00)[14.52%];
-	RCVD_TLS_ALL(0.00)[];
-	DBL_BLOCKED(0.00)[mail20.mymailcheap.com:rdns,mail20.mymailcheap.com:helo,aosc.io:mid,aosc.io:from_smtp,aosc.io:from_mime,aosc.io:email];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCVD_COUNT_ONE(0.00)[1];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[27];
-	MIME_TRACE(0.00)[0:+];
-	SPFBL_URIBL_EMAIL_FAIL(0.00)[liushuyu.aosc.io:server fail];
-	ALIAS_RESOLVED(0.00)[];
-	RECEIVED_HELO_LOCALHOST(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,protonmail.com];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	LOCAL_OUTBOUND(0.00)[];
-	FREEMAIL_CC(0.00)[aosc.io,redhat.com,lwn.net,loongson.cn,kernel.org,dabbelt.com,eecs.berkeley.edu,ghiti.fr,gmail.com,garyguo.net,protonmail.com,google.com,umich.edu,vger.kernel.org,lists.linux.dev,lists.infradead.org];
-	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	URIBL_BLOCKED(0.00)[mail20.mymailcheap.com:rdns,mail20.mymailcheap.com:helo,aosc.io:mid,aosc.io:from_smtp,aosc.io:from_mime,aosc.io:email];
-	SURBL_MULTI_FAIL(0.00)[git.kernel.org:server fail]
-X-Rspamd-Action: no action
-X-Rspamd-Server: nf1.mymailcheap.com
+X-CM-TRANSID: qwCowADnjmq9MndptA1LBg--.14759S2
+X-Coremail-Antispam: 1UD129KBjvAXoWfuw15Xr48AryrAr1fXrWfGrg_yoW8KrykZo
+	ZrGa1fWr4kuw12gFWak3y7GFn3uwsxKwsav3WFvF4UZFsxtF15K340vw45Wr1xAw12k3Wa
+	yFyfXw1fWw4jyw1Dn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UjIYCTnIWjp_UUUYT7k0a2IF6w4kM7kC6x804xWl14x267AKxVW8JVW5JwAFc2x0
+	x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj4
+	1l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0
+	I7IYx2IY6xkF7I0E14v26F4j6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
+	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY
+	04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r
+	1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CE
+	b7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0x
+	vE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAI
+	cVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa
+	73UjIFyTuYvjxUgHanUUUUU
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiBwsTB2l3H59ExwAAsF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_005441_108638_143B2FA9 
-X-CRM114-Status: GOOD (  34.10  )
+X-CRM114-CacheID: sfid-20260126_012425_080480_9ED903FF 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,159 +79,931 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQmlibywKCj4KPgo+IE9uIDIwMjYvMS8yNiDkuIvljYgxMjoyMiwgbGl1c2h1eXUgd3JvdGU6
-Cj4+IEhpIEJpYm8sCj4+Cj4+Pgo+Pj4KPj4+IE9uIDIwMjYvMS8yNiDkuIrljYgxMTozOCwgbGl1
-c2h1eXUgd3JvdGU6Cj4+Pj4gSGkgQmlibywKPj4+Pj4KPj4+Pj4KPj4+Pj4gT24gMjAyNi8xLzI1
-IOS4i+WNiDE6NDMsIFppeGluZyBMaXUgd3JvdGU6Cj4+Pj4+PiBUaGlzIGlvY3RsIGNhbiBiZSB1
-c2VkIGJ5IHVzZXJzcGFjZSBhcHBsaWNhdGlvbnMgdG8gZGV0ZXJtaW5lIHdoaWNoCj4+Pj4+PiAo
-c3BlY2lhbCkgcmVnaXN0ZXJzIGFyZSBnZXQvc2V0LWFibGUuCj4+Pj4+Pgo+Pj4+Pj4gVGhpcyBj
-YW4gYmUgdmVyeSB1c2VmdWwgZm9yIGNyb3NzLXBsYXRmb3JtIFZNTXMgc28gdGhhdCB0aGV5IGRv
-IG5vdAo+Pj4+Pj4gaGF2ZQo+Pj4+Pj4gdG8gaGFyZGNvZGUgcmVnaXN0ZXIgaW5kaWNlcyBmb3Ig
-ZWFjaCBzdXBwb3J0ZWQgYXJjaGl0ZWN0dXJlcy4KPj4+Pj4+Cj4+Pj4+PiBTaWduZWQtb2ZmLWJ5
-OiBaaXhpbmcgTGl1IDxsaXVzaHV5dUBhb3NjLmlvPgo+Pj4+Pj4gLS0tCj4+Pj4+Pgo+Pj4+Pj4g
-Rm9yIGV4YW1wbGUsIHRoaXMgaW9jdGwgY291bGQgYmUgdXNlZCBieSBydXN0LXZtbS9ydXN0LWt2
-bSBvciBtYXliZQo+Pj4+Pj4gVmlydHVhbEJveC1rdm0gaW4gdGhlIGZ1dHVyZS4KPj4+Pj4+Cj4+
-Pj4+PiDCoMKgwqAgRG9jdW1lbnRhdGlvbi92aXJ0L2t2bS9hcGkucnN0IHzCoCAyICstCj4+Pj4+
-PiDCoMKgwqAgYXJjaC9sb29uZ2FyY2gva3ZtL3ZjcHUuY8KgwqDCoMKgwqAgfCA2OQo+Pj4+Pj4g
-KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+Pj4+Pj4gwqDCoMKgIDIgZmlsZXMg
-Y2hhbmdlZCwgNzAgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+Pj4+Pj4KPj4+Pj4+IGRp
-ZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL3ZpcnQva3ZtL2FwaS5yc3QKPj4+Pj4+IGIvRG9jdW1l
-bnRhdGlvbi92aXJ0L2t2bS9hcGkucnN0Cj4+Pj4+PiBpbmRleCAwMWEzYWJlZjhhYmIuLmY0NmRk
-OGJlMjgyZiAxMDA2NDQKPj4+Pj4+IC0tLSBhL0RvY3VtZW50YXRpb24vdmlydC9rdm0vYXBpLnJz
-dAo+Pj4+Pj4gKysrIGIvRG9jdW1lbnRhdGlvbi92aXJ0L2t2bS9hcGkucnN0Cj4+Pj4+PiBAQCAt
-MzYwMyw3ICszNjAzLDcgQEAgVkNQVSBtYXRjaGluZyB1bmRlcmx5aW5nIGhvc3QuCj4+Pj4+PiDC
-oMKgwqAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tCj4+Pj4+PiDCoMKgwqAgwqAgOkNhcGFiaWxpdHk6
-IGJhc2ljCj4+Pj4+PiAtOkFyY2hpdGVjdHVyZXM6IGFybTY0LCBtaXBzLCByaXNjdiwgeDg2IChp
-ZiBLVk1fQ0FQX09ORV9SRUcpCj4+Pj4+PiArOkFyY2hpdGVjdHVyZXM6IGFybTY0LCBsb29uZ2Fy
-Y2gsIG1pcHMsIHJpc2N2LCB4ODYgKGlmCj4+Pj4+PiBLVk1fQ0FQX09ORV9SRUcpCj4+Pj4+PiDC
-oMKgwqAgOlR5cGU6IHZjcHUgaW9jdGwKPj4+Pj4+IMKgwqDCoCA6UGFyYW1ldGVyczogc3RydWN0
-IGt2bV9yZWdfbGlzdCAoaW4vb3V0KQo+Pj4+Pj4gwqDCoMKgIDpSZXR1cm5zOiAwIG9uIHN1Y2Nl
-c3M7IC0xIG9uIGVycm9yCj4+Pj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9sb29uZ2FyY2gva3ZtL3Zj
-cHUuYyBiL2FyY2gvbG9vbmdhcmNoL2t2bS92Y3B1LmMKPj4+Pj4+IGluZGV4IDY1NmI5NTRjMTEz
-NC4uYjg4NGViOWM3NmFhIDEwMDY0NAo+Pj4+Pj4gLS0tIGEvYXJjaC9sb29uZ2FyY2gva3ZtL3Zj
-cHUuYwo+Pj4+Pj4gKysrIGIvYXJjaC9sb29uZ2FyY2gva3ZtL3ZjcHUuYwo+Pj4+Pj4gQEAgLTEx
-ODYsNiArMTE4Niw1NyBAQCBzdGF0aWMgaW50IGt2bV9sb29uZ2FyY2hfdmNwdV9zZXRfYXR0cihz
-dHJ1Y3QKPj4+Pj4+IGt2bV92Y3B1ICp2Y3B1LAo+Pj4+Pj4gwqDCoMKgwqDCoMKgwqAgcmV0dXJu
-IHJldDsKPj4+Pj4+IMKgwqDCoCB9Cj4+Pj4+PiDCoMKgwqAgK3N0YXRpYyB1bnNpZ25lZCBsb25n
-IGt2bV9sb29uZ2FyY2hfbnVtX2xidF9yZWdzKHZvaWQpCj4+Pj4+PiArewo+Pj4+Pj4gK8KgwqDC
-oCAvKiArMSBmb3IgdGhlIExCVF9GVE9QIGZsYWcgKGluc2lkZSBhcmNoLmZwdSkgKi8KPj4+Pj4+
-ICvCoMKgwqAgcmV0dXJuIHNpemVvZihzdHJ1Y3QgbG9vbmdhcmNoX2xidCkgLyBzaXplb2YodW5z
-aWduZWQgbG9uZykKPj4+Pj4+ICsgMTsKPj4+Pj4+ICt9Cj4+Pj4+PiArCj4+Pj4+PiArc3RhdGlj
-IHVuc2lnbmVkIGxvbmcga3ZtX2xvb25nYXJjaF9udW1fcmVncyhzdHJ1Y3Qga3ZtX3ZjcHUgKnZj
-cHUpCj4+Pj4+PiArewo+Pj4+Pj4gK8KgwqDCoCAvKiArMSBmb3IgdGhlIEtWTV9SRUdfTE9PTkdB
-UkNIX0NPVU5URVIgcmVnaXN0ZXIgKi8KPj4+Pj4+ICvCoMKgwqAgdW5zaWduZWQgbG9uZyByZXMg
-PSBDU1JfTUFYX05VTVMgKyBLVk1fTUFYX0NQVUNGR19SRUdTICsgMTsKPj4+Pj4+ICsKPj4+Pj4+
-ICvCoMKgwqAgaWYgKGt2bV9ndWVzdF9oYXNfbGJ0KCZ2Y3B1LT5hcmNoKSkKPj4+Pj4+ICvCoMKg
-wqDCoMKgwqDCoCByZXMgKz0ga3ZtX2xvb25nYXJjaF9udW1fbGJ0X3JlZ3MoKTsKPj4+Pj4+ICsK
-Pj4+Pj4+ICvCoMKgwqAgcmV0dXJuIHJlczsKPj4+Pj4+ICt9Cj4+Pj4+PiArCj4+Pj4+PiArc3Rh
-dGljIGludCBrdm1fbG9vbmdhcmNoX2NvcHlfcmVnX2luZGljZXMoc3RydWN0IGt2bV92Y3B1ICp2
-Y3B1LAo+Pj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB1
-NjQgX191c2VyICp1aW5kaWNlcykKPj4+Pj4+ICt7Cj4+Pj4+PiArwqDCoMKgIHU2NCByZWc7Cj4+
-Pj4+PiArwqDCoMKgIHVuc2lnbmVkIGludCBpOwo+Pj4+Pj4gKwo+Pj4+Pj4gK8KgwqDCoCBmb3Ig
-KGkgPSAwOyBpIDwgQ1NSX01BWF9OVU1TOyBpKyspIHsKPj4+Pj4+ICvCoMKgwqDCoMKgwqDCoCBy
-ZWcgPSBLVk1fSU9DX0NTUklEKGkpOwo+Pj4+Pj4gK8KgwqDCoMKgwqDCoMKgIGlmIChwdXRfdXNl
-cihyZWcsIHVpbmRpY2VzKyspKQo+Pj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcmV0dXJu
-IC1FRkFVTFQ7Cj4+Pj4+PiArwqDCoMKgIH0KPj4+Pj4gQ1NSX01BWF9OVU1TIGlzIG1heCBudW1i
-ZXIgb2YgYWNjZXNzaWJsZSBDU1IgcmVnaXN0ZXJzLCBpbnN0ZWFkIG9ubHkKPj4+Pj4gcGFydCBv
-ZiB0aGVtIGlzIHVzZWQgYnkgdkNQVSBtb2RlbC4gQnkgbXkgdW5kZXJzdGFuZGluZywgdGhlcmUK
-Pj4+Pj4gd2lsbCBiZQo+Pj4+PiBubyBtdWNoIG1lYW5pbmcgaWYgQ1NSX01BWF9OVU1TIGlzIHJl
-dHVybmVkLiBBbmQgSSB0aGluayBpdCB3aWxsIGJlCj4+Pj4+IGJldHRlciBpZiByZWFsIENTUiBy
-ZWdpc3RlciBpZCBhbmQgbnVtYmVyIGlzIHJldHVybmVkLgo+Pj4+Pgo+Pj4+IERpZCB5b3UgbWVh
-biB3ZSBzaG91bGQgb25seSByZXR1cm4gdGhlIENTUiByZWdpc3RlcnMgaW5pdGlhbGl6ZWQgaW4K
-Pj4+PiB0aGlzCj4+Pj4gZnVuY3Rpb24KPj4+PiBodHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9z
-Y20vbGludXgva2VybmVsL2dpdC90b3J2YWxkcy9saW51eC5naXQvdHJlZS9hcmNoL2xvb25nYXJj
-aC9rdm0vbWFpbi5jP2lkPTYzODA0ZmVkMTQ5YTY3NTBmZmQyODYxMGM1YzFjOThjY2U2YmQzNzcj
-bjQ4Cj4+Pj4KPj4+Pgo+Pj4+ID8KPj4+Pgo+Pj4+IFRoYXQgbG9va3MgbGlrZSBhIHZlcnkgbGFy
-Z2UgbGlzdCBhbmQgdGhlIHZhbHVlcyBvZiB0aGUgcmVnaXN0ZXIKPj4+PiBJRHMgYXJlCj4+Pj4g
-bm90IGZ1bGx5IGNvbnRpbnVvdXMuIElmIHRoYXQgaXMgdGhlIGNhc2UsIGhvdyBkbyB3ZSBtYWlu
-dGFpbiB0aGUKPj4+PiBnZXQvc2V0LWFibGUgQ1NSIHJlZ2lzdGVyIGxpc3Q/Cj4+PiBJdCB3aWxs
-IGJlIGJldHRlciBpZiBDU1IgcmVnaXN0ZXIgbGlzdCBjYW4gYmUgY2F0ZWdvcml6ZWQsIGZvciBl
-eGFtcGxlCj4+PiB3aXRoIExvb25nQXJjaCBDUFUgbWFudWFsIENTUiByZWdpc3RlciBpcyBzcGxp
-dCBpbnRvIDggdHlwZXMgZnJvbQo+Pj4gY2hhcHRlciA3LjQgLS0gNy4xMQo+Pj4KPj4+IEF0IHRo
-ZSBiZWdpbm5pbmcsIHRoZXJlIGlzIGJpZyBhcnJheSB3aXRoIHNpemUgQ1NSX01BWF9OVU1TIHdp
-dGhvdXQKPj4+IGFueSBjYXRlZ29yeSwgaXQgY2FuIGJlIGZpbmUtZ2FpbmVkIGluIGxhdGUuCj4+
-Cj4+IERvZXMgdGhhdCBtZWFuIGluIHRoZSBuZXcgYGt2bV9sb29uZ2FyY2hfY29weV9yZWdfaW5k
-aWNlc2AgZnVuY3Rpb24sIGl0Cj4+IGlzIGFsc28gb2theSB0byBlbWJlZCB0aGlzIGJpZyBsaXN0
-IGluIHRoZXJlPwo+IEZpcnN0bHkgSSBkbyBub3Qga25vdyBob3cgdG8gdXNlIGlvY3RsIGNvbW1h
-bmQgS1ZNX0dFVF9SRUdfTElTVCBpbiBWTU0KPiBhY3R1YWxseS4KPgo+IEF0IHRoZSBzZWNvbmQg
-ZnJvbSB0aGUgd29yZCAiZGV0ZXJtaW5lIHdoaWNoIChzcGVjaWFsKSByZWdpc3RlcnMgYXJlCj4g
-Z2V0L3NldC1hYmxlIiwgSSB0aGluayB0aGF0IGl0IGlzIGJldHRlciB0byBzZXQgYWNjZXNzaWJs
-ZSBDU1IKPiByZWdpc3RlciBudW1iZXIgYW5kIElEIHJhdGhlciB0aGFuIHRoZSB0b3RhbCBudW1i
-ZXIgQ1NSX01BWF9OVU1TLsKgCj4KVW5kZXJzdG9vZC4gSSB3aWxsIHBvc3QgYSB2MiBwYXRjaCwg
-YW5kIHdlIGNhbiBjb250aW51ZSB0aGUgZGlzY3Vzc2lvbgpmcm9tIHRoZXJlIHRvIHNlZSBpZiBJ
-IHVuZGVyc3Rvb2QgeW91ciBwb2ludHMgY29ycmVjdGx5LgoKPiArc3RhdGljIGludCBrdm1fbG9v
-bmdhcmNoX251bV9jc3JfcmVncyhzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCj4gK3sKPiArwqDCoMKg
-IHVuc2lnbmVkIGludCBpLCBjb3VudDsKPiArCj4gK8KgwqDCoCBjb3VudCA9IDAKPiArwqDCoMKg
-IGZvciAoaSA9IDA7IGkgPCBDU1JfTUFYX05VTVM7IGkrKykgewo+ICvCoMKgwqDCoMKgwqDCoCBp
-ZiAoIShnZXRfZ2Nzcl9mbGFnKGkpICYgKFNXX0dDU1IgfCBIV19HQ1NSKSkpCj4gK8KgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgY29udGludWU7Cj4gK8KgwqDCoMKgwqDCoMKgIGNvdW50Kys7Cj4gK8Kg
-wqDCoCB9Cj4gK8KgwqDCoCByZXR1cm4gY291bnQ7Cj4gK30KPgo+IHN0YXRpYyB1bnNpZ25lZCBs
-b25nIGt2bV9sb29uZ2FyY2hfbnVtX3JlZ3Moc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQo+IHsKPiDC
-oMKgwqDCoC8qICsxIGZvciB0aGUgS1ZNX1JFR19MT09OR0FSQ0hfQ09VTlRFUiByZWdpc3RlciAq
-Lwo+ICvCoMKgwqAgdW5zaWduZWQgbG9uZyByZXMgPSBrdm1fbG9vbmdhcmNoX251bV9jc3JfcmVn
-cyArCj4gS1ZNX01BWF9DUFVDRkdfUkVHUyArIDE7Cj4KPiDCoMKgwqDCoGlmIChrdm1fZ3Vlc3Rf
-aGFzX2xidCgmdmNwdS0+YXJjaCkpCj4gwqDCoMKgwqDCoMKgwqAgcmVzICs9IGt2bV9sb29uZ2Fy
-Y2hfbnVtX2xidF9yZWdzKCk7Cj4KPiDCoMKgwqDCoHJldHVybiByZXM7Cj4gfQo+Cj4gc3RhdGlj
-IGludCBrdm1fbG9vbmdhcmNoX2NvcHlfcmVnX2luZGljZXMoc3RydWN0IGt2bV92Y3B1ICp2Y3B1
-LAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB1NjQgX191c2Vy
-ICp1aW5kaWNlcykKPiB7Cj4gwqDCoMKgwqB1NjQgcmVnOwo+IMKgwqDCoMKgdW5zaWduZWQgaW50
-IGk7Cj4KPiDCoMKgwqDCoGZvciAoaSA9IDA7IGkgPCBDU1JfTUFYX05VTVM7IGkrKykgewo+ICvC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgaWYgKCEoZ2V0X2djc3JfZmxhZyhpKSAmIChT
-V19HQ1NSIHwgSFdfR0NTUikpKQo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoCBjb250aW51ZTsKPiDCoMKgwqDCoMKgwqDCoCByZWcgPSBLVk1fSU9DX0NTUklEKGkpOwo+
-IMKgwqDCoMKgwqDCoMKgIGlmIChwdXRfdXNlcihyZWcsIHVpbmRpY2VzKyspKQo+IMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgcmV0dXJuIC1FRkFVTFQ7Cj4gwqDCoMKgwqB9Cj4KPiBSZWdhcmRzCj4g
-QmlibyBNYW8KPj4KPj4gT3IgZG8geW91IHdhbnQgdG8gZXh0cmFjdCB0aGUgbGlzdCBmcm9tIHRo
-ZSBga3ZtX2luaXRfZ2Nzcl9mbGFnYAo+PiBmdW5jdGlvbiBhbmQgcmVmYWN0b3IgYm90aCBmdW5j
-dGlvbnMgdG8gc2hhcmUgb25lIHNpbmdsZSBiaWcgbGlzdAo+PiAocHJvYmFibHkgaW4gdGhlIGt2
-bV9ob3N0LmggaGVhZGVyKT8KPj4KPj4gQmVjYXVzZSBmcm9tIHdoYXQgSSBjb3VsZCB1bmRlcnN0
-YW5kLCB5b3VyIHByZXZpb3VzIG1lc3NhZ2VzIHBvaW50IHRvCj4+IHRoYXQgd2UgbmVlZCB0byB1
-c2UgdGhpcyBsaXN0IHRvIG1ha2Ugb3V0IHdoYXQgQ1NSIHJlZ2lzdGVycyB0byByZXR1cm4KPj4g
-dG8gdGhlIHVzZXIgc3BhY2UgVk1Ncy4KPgo+Pgo+Pj4KPj4+IFJlZ2FyZHMKPj4+IEJpYm8gTWFv
-Cj4+Pj4KPj4+Pj4gUmVnYXJkcwo+Pj4+PiBCaWJvIE1hbwo+Pj4+Pj4gKwo+Pj4+Pj4gK8KgwqDC
-oCBmb3IgKGkgPSAwOyBpIDwgS1ZNX01BWF9DUFVDRkdfUkVHUzsgaSsrKSB7Cj4+Pj4+PiArwqDC
-oMKgwqDCoMKgwqAgcmVnID0gS1ZNX0lPQ19DUFVDRkcoaSk7Cj4+Pj4+PiArwqDCoMKgwqDCoMKg
-wqAgaWYgKHB1dF91c2VyKHJlZywgdWluZGljZXMrKykpCj4+Pj4+PiArwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCByZXR1cm4gLUVGQVVMVDsKPj4+Pj4+ICvCoMKgwqAgfQo+Pj4+Pj4gKwo+Pj4+Pj4g
-K8KgwqDCoCByZWcgPSBLVk1fUkVHX0xPT05HQVJDSF9DT1VOVEVSOwo+Pj4+Pj4gK8KgwqDCoCBp
-ZiAocHV0X3VzZXIocmVnLCB1aW5kaWNlcysrKSkKPj4+Pj4+ICvCoMKgwqDCoMKgwqDCoCByZXR1
-cm4gLUVGQVVMVDsKPj4+Pj4+ICsKPj4+Pj4+ICvCoMKgwqAgaWYgKCFrdm1fZ3Vlc3RfaGFzX2xi
-dCgmdmNwdS0+YXJjaCkpCj4+Pj4+PiArwqDCoMKgwqDCoMKgwqAgcmV0dXJuIDA7Cj4+Pj4+PiAr
-Cj4+Pj4+PiArwqDCoMKgIGZvciAoaSA9IDE7IGkgPD0ga3ZtX2xvb25nYXJjaF9udW1fbGJ0X3Jl
-Z3MoKTsgaSsrKSB7Cj4+Pj4+PiArwqDCoMKgwqDCoMKgwqAgcmVnID0gKEtWTV9SRUdfTE9PTkdB
-UkNIX0xCVCB8IEtWTV9SRUdfU0laRV9VNjQgfCBpKTsKPj4+Pj4+ICvCoMKgwqDCoMKgwqDCoCBp
-ZiAocHV0X3VzZXIocmVnLCB1aW5kaWNlcysrKSkKPj4+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgIHJldHVybiAtRUZBVUxUOwo+Pj4+Pj4gK8KgwqDCoCB9Cj4+Pj4+PiArCj4+Pj4+PiArwqDC
-oMKgIHJldHVybiAwOwo+Pj4+Pj4gK30KPj4+Pj4+ICsKPj4+Pj4+IMKgwqDCoCBsb25nIGt2bV9h
-cmNoX3ZjcHVfaW9jdGwoc3RydWN0IGZpbGUgKmZpbHAsCj4+Pj4+PiDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoCB1bnNpZ25lZCBpbnQgaW9jdGwsIHVuc2lnbmVkIGxvbmcgYXJnKQo+
-Pj4+Pj4gwqDCoMKgIHsKPj4+Pj4+IEBAIC0xMjUxLDYgKzEzMDIsMjQgQEAgbG9uZyBrdm1fYXJj
-aF92Y3B1X2lvY3RsKHN0cnVjdCBmaWxlICpmaWxwLAo+Pj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoCByID0ga3ZtX2xvb25nYXJjaF92Y3B1X3NldF9hdHRyKHZjcHUsICZhdHRyKTsKPj4+Pj4+
-IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgYnJlYWs7Cj4+Pj4+PiDCoMKgwqDCoMKgwqDCoCB9Cj4+
-Pj4+PiArwqDCoMKgIGNhc2UgS1ZNX0dFVF9SRUdfTElTVDogewo+Pj4+Pj4gK8KgwqDCoMKgwqDC
-oMKgIHN0cnVjdCBrdm1fcmVnX2xpc3QgX191c2VyICp1c2VyX2xpc3QgPSBhcmdwOwo+Pj4+Pj4g
-K8KgwqDCoMKgwqDCoMKgIHN0cnVjdCBrdm1fcmVnX2xpc3QgcmVnX2xpc3Q7Cj4+Pj4+PiArwqDC
-oMKgwqDCoMKgwqAgdW5zaWduZWQgbjsKPj4+Pj4+ICsKPj4+Pj4+ICvCoMKgwqDCoMKgwqDCoCBy
-ID0gLUVGQVVMVDsKPj4+Pj4+ICvCoMKgwqDCoMKgwqDCoCBpZiAoY29weV9mcm9tX3VzZXIoJnJl
-Z19saXN0LCB1c2VyX2xpc3QsIHNpemVvZihyZWdfbGlzdCkpKQo+Pj4+Pj4gK8KgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgYnJlYWs7Cj4+Pj4+PiArwqDCoMKgwqDCoMKgwqAgbiA9IHJlZ19saXN0Lm47
-Cj4+Pj4+PiArwqDCoMKgwqDCoMKgwqAgcmVnX2xpc3QubiA9IGt2bV9sb29uZ2FyY2hfbnVtX3Jl
-Z3ModmNwdSk7Cj4+Pj4+PiArwqDCoMKgwqDCoMKgwqAgaWYgKGNvcHlfdG9fdXNlcih1c2VyX2xp
-c3QsICZyZWdfbGlzdCwgc2l6ZW9mKHJlZ19saXN0KSkpCj4+Pj4+PiArwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCBicmVhazsKPj4+Pj4+ICvCoMKgwqDCoMKgwqDCoCByID0gLUUyQklHOwo+Pj4+Pj4g
-K8KgwqDCoMKgwqDCoMKgIGlmIChuIDwgcmVnX2xpc3QubikKPj4+Pj4+ICvCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgIGJyZWFrOwo+Pj4+Pj4gK8KgwqDCoMKgwqDCoMKgIHIgPSBrdm1fbG9vbmdhcmNo
-X2NvcHlfcmVnX2luZGljZXModmNwdSwgdXNlcl9saXN0LT5yZWcpOwo+Pj4+Pj4gK8KgwqDCoMKg
-wqDCoMKgIGJyZWFrOwo+Pj4+Pj4gK8KgwqDCoCB9Cj4+Pj4+PiDCoMKgwqDCoMKgwqDCoCBkZWZh
-dWx0Ogo+Pj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByID0gLUVOT0lPQ1RMQ01EOwo+Pj4+
-Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBicmVhazsKPj4+Pj4+Cj4+Pj4+Cj4+Pj4gVGhhbmtz
-LAo+Pj4+IFppeGluZwo+Pj4+Cj4+Pgo+PiBUaGFua3MsCj4+IFppeGluZwo+Pgo+ClRoYW5rcywK
-ClppeGluZwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Add a RISC-V vector-accelerated implementation of aegis128 by
+wiring it into the generic SIMD hooks.
+
+This implementation supports vlen values of 512, 256, and 128.
+
+Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+---
+V2:
+- Add config dependency of RISCV_ISA_V to fix the issue reported by kernel test robot;
+- Add return value in preload_round_data() and aegis128_round().
+
+V1: https://lore.kernel.org/all/20260121101923.64657-1-zhangchunyan@iscas.ac.cn/
+---
+ crypto/Kconfig              |   4 +-
+ crypto/Makefile             |   4 +
+ crypto/aegis-rvv.h          |  19 +
+ crypto/aegis128-rvv-inner.c | 762 ++++++++++++++++++++++++++++++++++++
+ crypto/aegis128-rvv.c       |  63 +++
+ 5 files changed, 850 insertions(+), 2 deletions(-)
+ create mode 100644 crypto/aegis-rvv.h
+ create mode 100644 crypto/aegis128-rvv-inner.c
+ create mode 100644 crypto/aegis128-rvv.c
+
+diff --git a/crypto/Kconfig b/crypto/Kconfig
+index 2e5b195b1b06..9766b3596049 100644
+--- a/crypto/Kconfig
++++ b/crypto/Kconfig
+@@ -777,8 +777,8 @@ config CRYPTO_AEGIS128
+ 	  AEGIS-128 AEAD algorithm
+ 
+ config CRYPTO_AEGIS128_SIMD
+-	bool "AEGIS-128 (arm NEON, arm64 NEON)"
+-	depends on CRYPTO_AEGIS128 && ((ARM || ARM64) && KERNEL_MODE_NEON)
++	bool "AEGIS-128 (arm NEON, arm64 NEON, RISC-V vector)"
++	depends on CRYPTO_AEGIS128 && (((ARM || ARM64) && KERNEL_MODE_NEON) || (RISCV && RISCV_ISA_V))
+ 	default y
+ 	help
+ 	  AEGIS-128 AEAD algorithm
+diff --git a/crypto/Makefile b/crypto/Makefile
+index 16a35649dd91..3d94cae9eeba 100644
+--- a/crypto/Makefile
++++ b/crypto/Makefile
+@@ -121,6 +121,10 @@ endif
+ # Enable <arm_neon.h>
+ CFLAGS_aegis128-neon-inner.o += -isystem $(shell $(CC) -print-file-name=include)
+ 
++ifeq ($(ARCH),riscv)
++aegis128-$(CONFIG_CRYPTO_AEGIS128_SIMD) += aegis128-rvv.o aegis128-rvv-inner.o
++endif
++
+ obj-$(CONFIG_CRYPTO_PCRYPT) += pcrypt.o
+ obj-$(CONFIG_CRYPTO_CRYPTD) += cryptd.o
+ obj-$(CONFIG_CRYPTO_DES) += des_generic.o
+diff --git a/crypto/aegis-rvv.h b/crypto/aegis-rvv.h
+new file mode 100644
+index 000000000000..02bd646e4467
+--- /dev/null
++++ b/crypto/aegis-rvv.h
+@@ -0,0 +1,19 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Copyright 2026 Institute of Software, CAS
++ */
++
++#ifndef _AEGIS_RVV_H
++#define _AEGIS_RVV_H
++
++extern const u8 crypto_aes_sbox[];
++
++void crypto_aegis128_init_rvv(void *state, const void *key, const void *iv);
++void crypto_aegis128_update_rvv(void *state, const void *msg);
++void crypto_aegis128_encrypt_chunk_rvv(void *state, void *dst, const void *src,
++				       unsigned int size);
++void crypto_aegis128_decrypt_chunk_rvv(void *state, void *dst, const void *src,
++				       unsigned int size);
++int crypto_aegis128_final_rvv(void *state, void *tag_xor, unsigned int assoclen,
++			      unsigned int cryptlen, unsigned int authsize);
++#endif
+diff --git a/crypto/aegis128-rvv-inner.c b/crypto/aegis128-rvv-inner.c
+new file mode 100644
+index 000000000000..2d7439769d77
+--- /dev/null
++++ b/crypto/aegis128-rvv-inner.c
+@@ -0,0 +1,762 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright 2026 Institute of Software, CAS
++ * Author: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
++ *
++ * Based on aegis128-neon-inner.c:
++ *	Copyright (C) 2019 Linaro, Ltd. <ard.biesheuvel@linaro.org>
++ */
++
++#include <asm/vector.h>
++#include <linux/types.h>
++
++#include "aegis-rvv.h"
++#include "aegis.h"
++
++#define AEGIS128_STATE_BLOCKS 5
++#define RVV_VLEN	riscv_vector_vlen()
++
++typedef u8 aegis128_block_bytes[AEGIS_BLOCK_SIZE];
++struct aegis_state {
++	aegis128_block_bytes blocks[AEGIS128_STATE_BLOCKS];
++};
++
++/* Load 256 bytes at one time into the vector registers starting from r0 */
++#define preload_sbox_1(m, r0) do {				\
++	unsigned long vl;					\
++	asm volatile (".option	push\n"				\
++		      ".option	arch,+v\n"			\
++		      "vsetvli	%0, x0, e8, "m", ta, ma\n"	\
++		      "vle8.v	"r0", (%1)\n"			\
++		      ".option	pop\n"				\
++		      : "=&r" (vl)				\
++		      :						\
++		      "r" (crypto_aes_sbox)			\
++	:);							\
++} while (0)
++
++/* Load 256 bytes at two times into the vector registers starting from r0 and r1 */
++#define preload_sbox_2(m, r0, r1) do {				\
++	unsigned long vl;					\
++	asm volatile (".option	push\n"				\
++		      ".option	arch,+v\n"			\
++		      "vsetvli	%0, x0, e8, "m", ta, ma\n"	\
++		      "vle8.v	"r0", (%1)\n"			\
++		      "vle8.v	"r1", (%2)\n"			\
++		      ".option	pop\n"				\
++		      : "=&r" (vl)				\
++		      :						\
++		      "r" (crypto_aes_sbox),			\
++		      "r" (crypto_aes_sbox + 0x80)		\
++	:);							\
++} while (0)
++
++/* v16 - v31: crypto_aes_sbox[0-255] */
++#define preload_sbox_128() preload_sbox_2("m8", "v16", "v24")
++
++/* v16 - v23: crypto_aes_sbox[0-255] */
++#define preload_sbox_256() preload_sbox_1("m8", "v16")
++
++/* v16 - v19: crypto_aes_sbox[0-255] */
++#define preload_sbox_512() preload_sbox_1("m4", "v16")
++
++static __always_inline
++int preload_round_data(void)
++{
++	static const u8 rev32qu16[] = {
++		0x2, 0x3, 0x0, 0x1, 0x6, 0x7, 0x4, 0x5,
++		0xa, 0xb, 0x8, 0x9, 0xe, 0xf, 0xc, 0xd,
++	};
++
++	static const u8 shift_rows[] = {
++		0x0, 0x5, 0xa, 0xf, 0x4, 0x9, 0xe, 0x3,
++		0x8, 0xd, 0x2, 0x7, 0xc, 0x1, 0x6, 0xb,
++	};
++
++	static const u8 ror32by8[] = {
++		0x1, 0x2, 0x3, 0x0, 0x5, 0x6, 0x7, 0x4,
++		0x9, 0xa, 0xb, 0x8, 0xd, 0xe, 0xf, 0xc,
++	};
++
++	asm volatile (".option	push\n"
++		      ".option	arch,+v\n"
++		      "vsetivli	zero, 0x10, e8, m1, ta, ma\n"
++		      "vle8.v	v13, (%[rev32qu16])\n"
++		      "vle8.v	v14, (%[shift_rows])\n"
++		      "vle8.v	v15, (%[ror32by8])\n"
++		      ".option	pop\n"
++		      : :
++		      [rev32qu16]"r"(rev32qu16),
++		      [shift_rows]"r"(shift_rows),
++		      [ror32by8]"r"(ror32by8)
++	:);
++
++	switch (RVV_VLEN) {
++	case 128:
++		preload_sbox_128();
++		break;
++	case 256:
++		preload_sbox_256();
++		break;
++	case 512:
++		preload_sbox_512();
++		break;
++	default:
++		pr_err("ERROR: %d is not a supported vector length!", RVV_VLEN);
++		return -ENODEV;
++	}
++
++	return 0;
++}
++
++#define AEGIS128_ROUND_PART1				\
++	".option	push\n"				\
++	".option	arch,+v\n"			\
++	"vsetivli	zero, 0x10, e8, m1, ta, ma\n"	\
++	/* s = vqtbl1q_u8(s, vld1q_u8(shift_rows)) */	\
++	"vle8.v		v0, (%[s])\n"			\
++	"vrgather.vv	v1, v0, v14\n" /* v14: shift_rows */
++
++#define AEGIS128_ROUND_PART3						\
++	/* s= (v << 1) ^ (uint8x16_t)(((int8x16_t)v >> 7) & 0x1b) */	\
++	"vsetivli	zero, 0x10, e8, m1, ta, ma\n"			\
++	"vsra.vi	v3, v2, 7\n" /* ((int8x16_t)v >> 7) */		\
++	"vand.vx	v3, v3, %[x1b]\n"				\
++	"vsll.vi	v4, v2, 1\n" /* (v << 1) */			\
++	"vxor.vv	v3, v4, v3\n"					\
++	/* s ^= (uint8x16_t)vrev32q_u16((uint16x8_t)v) */		\
++	"vrgather.vv	v4, v2, v13\n" /* v13: rev32qu16 */		\
++	"vxor.vv	v3, v3, v4\n"					\
++	/* s ^= vqtbl1q_u8(v ^ s, vld1q_u8(ror32by8)); */		\
++	"vxor.vv	v4, v3, v2\n" /* v ^ s */			\
++	"vrgather.vv	v5, v4, v15\n" /* v15: ror32by8 */		\
++	"vxor.vv	v3, v3, v5\n"					\
++	"vle8.v		v4, (%[d])\n"					\
++	"vxor.vv	v3, v3, v4\n" /* dst ^= v3 */			\
++	"vse8.v		v3, (%[d])\n"					\
++	".option	pop\n"
++
++/*
++ * v = vqtbx4q_u8(v, vld1q_u8_x4(crypto_aes_sbox + step), s - step);
++ * r: vector register which stores sbox array
++ */
++#define gather_sbox(r)				\
++	"vsub.vx	v1, v1, %[step]\n"	\
++	"vrgather.vv	v3, "r", v1\n"		\
++	"vor.vv		v2, v2, v3\n"
++
++static __always_inline
++void aegis128_round_128(u8 *dst, const u8 *src)
++{
++	unsigned long vl;
++
++	/* v16 - v31: crypto_aes_sbox[0-255] */
++	asm volatile (AEGIS128_ROUND_PART1
++		      /* v = vqtbl4q_u8(vld1q_u8_x4(crypto_aes_sbox), s); */
++		      "vsetvli		%0, x0, e8, m1, ta, ma\n"
++		      "vrgather.vv	v2, v16, v1\n"
++		      /* v = vqtbx4q_u8(v, vld1q_u8_x4(crypto_aes_sbox + 0x10), s - 0x10); */
++		      gather_sbox("v17")
++		      gather_sbox("v18")
++		      gather_sbox("v19")
++		      gather_sbox("v20")
++		      gather_sbox("v21")
++		      gather_sbox("v22")
++		      gather_sbox("v23")
++		      gather_sbox("v24")
++		      gather_sbox("v25")
++		      gather_sbox("v26")
++		      gather_sbox("v27")
++		      gather_sbox("v28")
++		      gather_sbox("v29")
++		      gather_sbox("v30")
++		      gather_sbox("v31")
++		      AEGIS128_ROUND_PART3
++		      : "=&r" (vl) :
++		      [s]"r"(src),
++		      [step]"r"(0x10),
++		      [x1b]"r"(0x1b),
++		      [d]"r"(dst)
++		      : "memory"
++	);
++}
++
++static __always_inline
++void aegis128_round_256(u8 *dst, const u8 *src)
++{
++	unsigned long vl;
++
++	/* v16 - v23: crypto_aes_sbox[0-255] */
++	asm volatile (AEGIS128_ROUND_PART1
++		      /* v = vqtbl4q_u8(vld1q_u8_x4(crypto_aes_sbox), s); */
++		      "vsetvli		%0, x0, e8, m1, ta, ma\n"
++		      "vrgather.vv	v2, v16, v1\n"
++		      /* v = vqtbx4q_u8(v, vld1q_u8_x4(crypto_aes_sbox + 0x20), s - 0x20); */
++		      gather_sbox("v17")
++		      gather_sbox("v18")
++		      gather_sbox("v19")
++		      gather_sbox("v20")
++		      gather_sbox("v21")
++		      gather_sbox("v22")
++		      gather_sbox("v23")
++		      AEGIS128_ROUND_PART3
++		      : "=&r" (vl) :
++		      [s]"r"(src),
++		      [step]"r"(0x20),
++		      [x1b]"r"(0x1b),
++		      [d]"r"(dst)
++		      : "memory"
++	);
++}
++
++static __always_inline
++void aegis128_round_512(u8 *dst, const u8 *src)
++{
++	unsigned long vl;
++
++	/* v16 - v19: crypto_aes_sbox[0-255] */
++	asm volatile (AEGIS128_ROUND_PART1
++		      /* v = vqtbl4q_u8(vld1q_u8_x4(crypto_aes_sbox), s); */
++		      "vsetvli		%0, x0, e8, m1, ta, ma\n"
++		      "vrgather.vv	v2, v16, v1\n"
++		      /*v = vqtbx4q_u8(v, vld1q_u8_x4(crypto_aes_sbox + 0x40), s - 0x40);*/
++		      gather_sbox("v17")
++		      /*v = vqtbx4q_u8(v, vld1q_u8_x4(crypto_aes_sbox + 0x80), s - 0x80);*/
++		      gather_sbox("v18")
++		      /*v = vqtbx4q_u8(v, vld1q_u8_x4(crypto_aes_sbox + 0xc0), s - 0xc0);*/
++		      gather_sbox("v19")
++		      AEGIS128_ROUND_PART3
++		      : "=&r" (vl) :
++		      [s]"r"(src),
++		      [step]"r"(0x40),
++		      [x1b]"r"(0x1b),
++		      [d]"r"(dst)
++		      : "memory"
++	);
++}
++
++static __always_inline
++int aegis128_round(u8 *dst, const u8 *src)
++{
++	switch (RVV_VLEN) {
++	case 128:
++		aegis128_round_128(dst, src);
++		break;
++	case 256:
++		aegis128_round_256(dst, src);
++		break;
++	case 512:
++		aegis128_round_512(dst, src);
++		break;
++	default:
++		pr_err("ERROR: %d is not a supported vector length!", RVV_VLEN);
++		return -ENODEV;
++	}
++
++	return 0;
++}
++
++static __always_inline
++void aegis128_update_rvv(struct aegis_state *state, const void *key)
++{
++	u8 k[AEGIS_BLOCK_SIZE];
++
++	/* save key to k[16] */
++	asm volatile (".option	push\n"
++		      ".option	arch,+v\n"
++		      "vsetivli	zero, 0x10, e8, m1, ta, ma\n"
++		      "vle8.v	v1, (%[key])\n"
++		      "vse8.v	v1, (%[k])\n"
++		      ".option	pop\n"
++		      : :
++		      [key]"r"(key),
++		      [k]"r"(k)
++	:);
++
++	aegis128_round(k, state->blocks[4]);
++	aegis128_round(state->blocks[4], state->blocks[3]);
++	aegis128_round(state->blocks[3], state->blocks[2]);
++	aegis128_round(state->blocks[2], state->blocks[1]);
++	aegis128_round(state->blocks[1], state->blocks[0]);
++
++	/* state->blocks[0] ^= key */
++	asm volatile (".option	push\n"
++		      ".option	arch,+v\n"
++		      "vsetivli	zero, 0x10, e8, m1, ta, ma\n"
++		      "vle8.v	v1, (%[k])\n"
++		      "vle8.v	v2, (%[block0])\n"
++		      "vxor.vv	v2, v2, v1\n"
++		      "vse8.v	v2, (%[block0])\n"
++		      ".option	pop\n"
++		      : :
++		      [k]"r"(k),
++		      [block0]"r"(state->blocks[0])
++	:);
++}
++
++void crypto_aegis128_init_rvv(void *state, const void *key, const void *iv)
++{
++	struct aegis_state *st = state;
++	u8 kiv[AEGIS_BLOCK_SIZE];
++
++	static const u8 const0[] = {
++		0x00, 0x01, 0x01, 0x02, 0x03, 0x05, 0x08, 0x0d,
++		0x15, 0x22, 0x37, 0x59, 0x90, 0xe9, 0x79, 0x62,
++	};
++	static const u8 const1[] = {
++		0xdb, 0x3d, 0x18, 0x55, 0x6d, 0xc2, 0x2f, 0xf1,
++		0x20, 0x11, 0x31, 0x42, 0x73, 0xb5, 0x28, 0xdd,
++	};
++
++	/*
++	 * kiv = key^iv
++	 * struct aegis128_state st = {{
++		kiv,
++		vld1q_u8(const1),
++		vld1q_u8(const0),
++		key ^ vld1q_u8(const0),
++		key ^ vld1q_u8(const1),
++	   }};
++	 */
++	asm volatile (".option	push\n"
++		      ".option	arch,+v\n"
++		      "vsetivli	zero, 0x10, e8, m1, ta, ma\n"
++		      "vle8.v	v0, (%[const0])\n"
++		      "vle8.v	v1, (%[const1])\n"
++		      "vse8.v	v0, (%[block2])\n"
++		      "vse8.v	v1, (%[block1])\n"
++		      "vle8.v	v2, (%[iv])\n"
++		      "vle8.v	v3, (%[key])\n"
++		      "vxor.vv	v0, v0, v3\n"
++		      "vxor.vv	v1, v1, v3\n"
++		      "vxor.vv	v2, v2, v3\n"
++		      "vse8.v	v2, (%[block0])\n"
++		      "vse8.v	v2, (%[kiv])\n"
++		      "vse8.v	v0, (%[block3])\n"
++		      "vse8.v	v1, (%[block4])\n"
++		      ".option	pop\n"
++		      : :
++		      [const0]"r"(const0),
++		      [const1]"r"(const1),
++		      [block1]"r"(st->blocks[1]),
++		      [block2]"r"(st->blocks[2]),
++		      [iv]"r"(iv),
++		      [key]"r"(key),
++		      [block0]"r"(st->blocks[0]),
++		      [kiv]"r"(kiv),
++		      [block3]"r"(st->blocks[3]),
++		      [block4]"r"(st->blocks[4])
++	:);
++
++	if (preload_round_data())
++		return;
++
++	for (int i = 0; i < 5; i++) {
++		aegis128_update_rvv(st, key);
++		aegis128_update_rvv(st, kiv);
++	}
++}
++
++void crypto_aegis128_update_rvv(void *state, const void *msg)
++{
++	struct aegis_state *st = state;
++
++	if (preload_round_data())
++		return;
++
++	aegis128_update_rvv(st, msg);
++}
++
++static const u8 permute[] __aligned(64) = {
++	-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
++	 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,
++	-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
++};
++
++void crypto_aegis128_encrypt_chunk_rvv(void *state, void *dst, const void *src,
++				       unsigned int size)
++{
++	struct aegis_state *st = state;
++	const int short_input = size < AEGIS_BLOCK_SIZE;
++	u8 s[AEGIS_BLOCK_SIZE];
++	u8 msg[AEGIS_BLOCK_SIZE];
++
++	if (preload_round_data())
++		return;
++
++	while (size >= AEGIS_BLOCK_SIZE) {
++		/* s = st.v[1] ^ (st.v[2] & st.v[3]) ^ st.v[4]; */
++		asm volatile (".option	push\n"
++			      ".option	arch,+v\n"
++			      "vsetivli	zero, 0x10, e8, m1, ta, ma\n"
++			      "vle8.v	v1, (%[block1])\n"
++			      "vle8.v	v2, (%[block2])\n"
++			      "vle8.v	v3, (%[block3])\n"
++			      "vle8.v	v4, (%[block4])\n"
++			      "vxor.vv	v1, v1, v4\n"
++			      "vand.vv	v2, v2, v3\n"
++			      "vxor.vv	v1, v1, v2\n"
++			      "vse8.v	v1, (%[s])\n"
++			      ".option	pop\n"
++			      : :
++			      [block1]"r"(st->blocks[1]),
++			      [block2]"r"(st->blocks[2]),
++			      [block3]"r"(st->blocks[3]),
++			      [block4]"r"(st->blocks[4]),
++			      [s]"r"(s)
++		:);
++
++		aegis128_update_rvv(st, src);
++		/* dst = s ^ src*/
++		asm volatile (".option	push\n"
++			      ".option	arch,+v\n"
++			      "vle8.v	v1, (%[s])\n"
++			      "vle8.v	v2, (%[src])\n"
++			      "vxor.vv	v1, v1, v2\n"
++			      "vse8.v	v1, (%[dst])\n"
++			      "vse8.v	v1, (%[msg])\n"
++			      ".option	pop\n"
++			      : :
++			      [s]"r"(s),
++			      [src]"r"(src),
++			      [dst]"r"(dst),
++			      [msg]"r"(msg)
++		:);
++
++		size -= AEGIS_BLOCK_SIZE;
++		src += AEGIS_BLOCK_SIZE;
++		dst += AEGIS_BLOCK_SIZE;
++	}
++
++	if (size > 0) {
++		u8 buf[AEGIS_BLOCK_SIZE];
++		const void *in = src;
++		void *out = dst;
++		u8 m[AEGIS_BLOCK_SIZE];
++
++		/* s = st.v[1] ^ (st.v[2] & st.v[3]) ^ st.v[4]; */
++		asm volatile (".option	push\n"
++			      ".option	arch,+v\n"
++			      "vsetivli	zero, 0x10, e8, m1, ta, ma\n"
++			      "vle8.v	v1, (%[block1])\n"
++			      "vle8.v	v2, (%[block2])\n"
++			      "vle8.v	v3, (%[block3])\n"
++			      "vle8.v	v4, (%[block4])\n"
++			      "vxor.vv	v1, v1, v4\n" /* st.v[1] ^ st.v[4] */
++			      "vand.vv	v2, v2, v3\n" /* st.v[2] & st.v[3] */
++			      "vxor.vv	v1, v1, v2\n"
++			      "vse8.v	v1, (%[s])\n"
++			      ".option	pop\n"
++			      : :
++			      [block1]"r"(st->blocks[1]),
++			      [block2]"r"(st->blocks[2]),
++			      [block3]"r"(st->blocks[3]),
++			      [block4]"r"(st->blocks[4]),
++			      [s]"r"(s)
++		:);
++
++		if (__builtin_expect(short_input, 0))
++			in = out = memcpy(buf + AEGIS_BLOCK_SIZE - size, src, size);
++
++		/*
++		 * m = vqtbl1q_u8(vld1q_u8(in + size - AEGIS_BLOCK_SIZE),
++		 *		  vld1q_u8(permute + 32 - size));
++		 */
++		asm volatile (".option		push\n"
++			      ".option		arch,+v\n"
++			      "vle8.v		v1, (%[in])\n"
++			      "vle8.v		v2, (%[p])\n"
++			      "vrgather.vv	v3, v1, v2\n"
++			      "vse8.v		v3, (%[m])\n"
++			      ".option		pop\n"
++			      : :
++			      [in]"r"(in + size - AEGIS_BLOCK_SIZE),
++			      [p]"r"(permute + 32 - size),
++			      [m]"r"(m)
++		:);
++
++		aegis128_update_rvv(st, m);
++
++		/*
++		 * vst1q_u8(out + size - AEGIS_BLOCK_SIZE,
++		 *			vqtbl1q_u8(m ^ s, vld1q_u8(permute + size)));
++		 */
++		asm volatile (".option		push\n"
++			      ".option		arch,+v\n"
++			      "vsetivli		zero, 0x10, e8, m1, ta, ma\n"
++			      "vle8.v		v1, (%[m])\n"
++			      "vle8.v		v2, (%[s])\n"
++			      "vxor.vv		v1, v1, v2\n"
++			      "vle8.v		v2, (%[p])\n"
++			      "vrgather.vv	v3, v1, v2\n"
++			      "vse8.v		v3, (%[out])\n"
++			      ".option		pop\n"
++			      : :
++			      [m]"r"(m),
++			      [s]"r"(s),
++			      [p]"r"(permute + size),
++			      [out]"r"(out + size - AEGIS_BLOCK_SIZE)
++		:);
++
++		if (__builtin_expect(short_input, 0)) {
++			memcpy(dst, out, size);
++		} else {
++			/* vst1q_u8(out - AEGIS_BLOCK_SIZE, m); */
++			asm volatile (".option	push\n"
++				      ".option	arch,+v\n"
++				      "vsetivli	zero, 0x10, e8, m1, ta, ma\n"
++				      "vle8.v	v1, (%[msg])\n"
++				      "vse8.v	v1, (%[out])\n"
++				      ".option	pop\n"
++				      : :
++				      [msg]"r"(msg),
++				      [out]"r"(out - AEGIS_BLOCK_SIZE)
++			:);
++		}
++	}
++}
++
++void crypto_aegis128_decrypt_chunk_rvv(void *state, void *dst, const void *src,
++				       unsigned int size)
++{
++	struct aegis_state *st = state;
++	const int short_input = size < AEGIS_BLOCK_SIZE;
++	u8 s[AEGIS_BLOCK_SIZE];
++	u8 msg[AEGIS_BLOCK_SIZE];
++
++	if (preload_round_data())
++		return;
++
++	while (size >= AEGIS_BLOCK_SIZE) {
++		/* s = vld1q_u8(src) ^ st.v[1] ^ (st.v[2] & st.v[3]) ^ st.v[4]; */
++		asm volatile (".option	push\n"
++			      ".option	arch,+v\n"
++			      "vsetivli	zero, 0x10, e8, m1, ta, ma\n"
++			      "vle8.v	v1, (%[block1])\n"
++			      "vle8.v	v2, (%[block2])\n"
++			      "vle8.v	v3, (%[block3])\n"
++			      "vle8.v	v4, (%[block4])\n"
++			      "vle8.v	v5, (%[src])\n"
++			      "vxor.vv	v1, v1, v4\n"
++			      "vand.vv	v2, v2, v3\n"
++			      "vxor.vv	v1, v1, v2\n"
++			      "vxor.vv	v1, v1, v5\n"
++			      "vse8.v	v1, (%[msg])\n"
++			      ".option	pop\n"
++			      : :
++			      [block1]"r"(st->blocks[1]),
++			      [block2]"r"(st->blocks[2]),
++			      [block3]"r"(st->blocks[3]),
++			      [block4]"r"(st->blocks[4]),
++			      [src]"r"(src),
++			      [msg]"r"(msg)
++		:);
++
++		aegis128_update_rvv(st, msg);
++
++		asm volatile (".option	push\n"
++			      ".option	arch,+v\n"
++			      "vle8.v	v1, (%[msg])\n"
++			      "vse8.v	v1, (%[dst])\n"
++			      ".option	pop\n"
++			      : :
++			      [msg]"r"(msg),
++			      [dst]"r"(dst)
++		:);
++
++		size -= AEGIS_BLOCK_SIZE;
++		src += AEGIS_BLOCK_SIZE;
++		dst += AEGIS_BLOCK_SIZE;
++	}
++
++	if (size > 0) {
++		u8 buf[AEGIS_BLOCK_SIZE];
++		const void *in = src;
++		void *out = dst;
++		u8 m[AEGIS_BLOCK_SIZE];
++
++		/* s = st.v[1] ^ (st.v[2] & st.v[3]) ^ st.v[4]; */
++		asm volatile (".option	push\n"
++			      ".option	arch,+v\n"
++			      "vsetivli	zero, 0x10, e8, m1, ta, ma\n"
++			      "vle8.v	v1, (%[block1])\n"
++			      "vle8.v	v2, (%[block2])\n"
++			      "vle8.v	v3, (%[block3])\n"
++			      "vle8.v	v4, (%[block4])\n"
++			      "vxor.vv	v1, v1, v4\n"
++			      "vand.vv	v2, v2, v3\n"
++			      "vxor.vv	v1, v1, v2\n"
++			      "vse8.v	v1, (%[s])\n"
++			      ".option	pop\n"
++			      : :
++			      [block1]"r"(st->blocks[1]),
++			      [block2]"r"(st->blocks[2]),
++			      [block3]"r"(st->blocks[3]),
++			      [block4]"r"(st->blocks[4]),
++			      [s]"r"(s)
++		:);
++
++		if (__builtin_expect(short_input, 0))
++			in = out = memcpy(buf + AEGIS_BLOCK_SIZE - size, src, size);
++
++		/*
++		 * m = s ^ vqtbx1q_u8(s, vld1q_u8(in + size - AEGIS_BLOCK_SIZE),
++		 *		      vld1q_u8(permute + 32 - size));
++		 */
++		asm volatile (".option		push\n"
++			      ".option		arch,+v\n"
++			      "vle8.v		v1, (%[in])\n"
++			      "vle8.v		v2, (%[p])\n"
++			      "vrgather.vv	v3, v1, v2\n"
++			      "vle8.v		v4, (%[s])\n"
++			      "vmsltu.vx	v0, v2, %[x10]\n" /* set if less then 0x10 */
++			      "vmerge.vvm	v3, v4, v3, v0\n"
++			      "vxor.vv		v3, v4, v3\n"
++			      "vse8.v		v3, (%[m])\n"
++			      ".option		pop\n"
++			      : :
++			      [in]"r"(in + size - AEGIS_BLOCK_SIZE),
++			      [p]"r"(permute + 32 - size),
++			      [s]"r"(s),
++			      [x10]"r"(0x10),
++			      [m]"r"(m)
++		:);
++
++		aegis128_update_rvv(st, m);
++
++		/*
++		 * vst1q_u8(out + size - AEGIS_BLOCK_SIZE,
++		 *	    vqtbl1q_u8(m, vld1q_u8(permute + size)));
++		 */
++		asm volatile (".option		push\n"
++			      ".option		arch,+v\n"
++			      "vsetivli		zero, 0x10, e8, m1, ta, ma\n"
++			      "vle8.v		v1, (%[m])\n"
++			      "vle8.v		v2, (%[p])\n"
++			      "vrgather.vv	v3, v1, v2\n"
++			      "vse8.v		v3, (%[out])\n"
++			      ".option		pop\n"
++			      : :
++			      [m]"r"(m),
++			      [p]"r"(permute + size),
++			      [out]"r"(out + size - AEGIS_BLOCK_SIZE)
++		:);
++
++		if (__builtin_expect(short_input, 0)) {
++			memcpy(dst, out, size);
++		} else {
++			/* vst1q_u8(out - AEGIS_BLOCK_SIZE, m); */
++			asm volatile (".option	push\n"
++				      ".option	arch,+v\n"
++				      "vsetivli	zero, 0x10, e8, m1, ta, ma\n"
++				      "vle8.v	v1, (%[msg])\n"
++				      "vse8.v	v1, (%[out])\n"
++				      ".option	pop\n"
++				      : :
++				      [msg]"r"(msg),
++				      [out]"r"(out - AEGIS_BLOCK_SIZE)
++			:);
++		}
++	}
++}
++
++int crypto_aegis128_final_rvv(void *state, void *tag_xor, unsigned int assoclen,
++			      unsigned int cryptlen, unsigned int authsize)
++{
++	struct aegis_state *st = state;
++	u64 v[2];
++	int i;
++	int ret;
++
++	ret = preload_round_data();
++	if (ret)
++		return ret;
++
++	/*
++	 *v = st.v[3] ^ (uint8x16_t)vcombine_u64(vmov_n_u64(8ULL * assoclen),
++	 *					 vmov_n_u64(8ULL * cryptlen));
++	 */
++	v[0] = 8ULL * assoclen;
++	v[1] = 8ULL * cryptlen;
++	asm volatile (".option	push\n"
++		      ".option	arch,+v\n"
++		      "vsetivli	zero, 0x10, e8, m1, ta, ma\n"
++		      "vle8.v	v0, (%[v])\n"
++		      "vle8.v	v1, (%[block3])\n"
++		      "vxor.vv	v0, v0, v1\n"
++		      "vse8.v	v0, (%[v])\n"
++		      ".option	pop\n"
++		      : :
++		      [v]"r"(v),
++		      [block3]"r"(st->blocks[3])
++	:);
++
++	for (i = 0; i < 7; i++)
++		aegis128_update_rvv(st, v);
++
++	/* v = st.v[0] ^ st.v[1] ^ st.v[2] ^ st.v[3] ^ st.v[4]; */
++	asm volatile (".option	push\n"
++		      ".option	arch,+v\n"
++		      "vsetivli	zero, 0x10, e8, m1, ta, ma\n"
++		      "vle8.v	v0, (%[block0])\n"
++		      "vle8.v	v1, (%[block1])\n"
++		      "vle8.v	v2, (%[block2])\n"
++		      "vle8.v	v3, (%[block3])\n"
++		      "vle8.v	v4, (%[block4])\n"
++		      "vxor.vv	v0, v0, v1\n"
++		      "vxor.vv	v2, v2, v3\n"
++		      "vxor.vv	v0, v0, v2\n"
++		      "vxor.vv	v0, v0, v4\n"
++		      "vse8.v	v0, (%[v])\n"
++		      ".option	pop\n"
++		      : :
++		      [block0]"r"(st->blocks[0]),
++		      [block1]"r"(st->blocks[1]),
++		      [block2]"r"(st->blocks[2]),
++		      [block3]"r"(st->blocks[3]),
++		      [block4]"r"(st->blocks[4]),
++		      [v]"r"(v)
++	:);
++
++	if (authsize > 0) {
++		/*
++		 * v = vqtbl1q_u8(~vceqq_u8(v, vld1q_u8(tag_xor)),
++		 *			    vld1q_u8(permute + authsize));
++		 */
++		asm volatile (".option		push\n"
++			      ".option		arch,+v\n"
++			      "vsetivli		zero, 0x10, e8, m1, ta, ma\n"
++			      "vle8.v		v0, (%[v])\n"
++			      "vle8.v		v1, (%[tag_xor])\n"
++			      "vmseq.vv		v0, v0, v1\n" /* vceqq_u8(v, vld1q_u8(tag_xor) */
++			      "vmv.v.i		v1, 0\n" /* set v1 = 0 */
++			      "vmerge.vxm	v1, v1, %[xff], v0\n"
++			      "vxor.vi		v1, v1, -1\n" /* vnot.v v0, v0 */
++			      "vle8.v		v0, (%[pa])\n"
++			      "vrgather.vv	v2, v1, v0\n"
++			      "vredmin.vs	v2, v2, v2\n" /* vminvq_s8((int8x16_t)v) */
++			      "vse8.v		v2, (%[v])\n"
++			      ".option		pop\n"
++			      : :
++			      [v]"r"(v),
++			      [tag_xor]"r"(tag_xor),
++			      [xff]"r"(0xff),
++			      [pa]"r"(permute + authsize)
++		:);
++
++		return *((s8 *)v);
++	}
++
++	asm volatile (".option	push\n"
++		      ".option	arch,+v\n"
++		      "vsetivli	zero, 0x10, e8, m1, ta, ma\n"
++		      "vle8.v	v0, (%[v])\n"
++		      "vse8.v	v0, (%[tag_xor])\n"
++		      ".option	pop\n"
++		      : :
++		      [v]"r"(v),
++		      [tag_xor]"r"(tag_xor)
++	:);
++
++	return 0;
++}
+diff --git a/crypto/aegis128-rvv.c b/crypto/aegis128-rvv.c
+new file mode 100644
+index 000000000000..5a6647722d82
+--- /dev/null
++++ b/crypto/aegis128-rvv.c
+@@ -0,0 +1,63 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright 2026 Institute of Software, CAS
++ * Author: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
++ */
++
++#include <asm/vector.h>
++
++#include "aegis.h"
++#include "aegis-rvv.h"
++
++bool crypto_aegis128_have_simd(void)
++{
++	return IS_ENABLED(CONFIG_RISCV_ISA_V);
++}
++
++void crypto_aegis128_init_simd(struct aegis_state *state,
++			       const union aegis_block *key,
++			       const u8 *iv)
++{
++	kernel_vector_begin();
++	crypto_aegis128_init_rvv(state, key, iv);
++	kernel_vector_end();
++}
++
++void crypto_aegis128_update_simd(struct aegis_state *state, const void *msg)
++{
++	kernel_vector_begin();
++	crypto_aegis128_update_rvv(state, msg);
++	kernel_vector_end();
++}
++
++void crypto_aegis128_encrypt_chunk_simd(struct aegis_state *state, u8 *dst,
++					const u8 *src, unsigned int size)
++{
++	kernel_vector_begin();
++	crypto_aegis128_encrypt_chunk_rvv(state, dst, src, size);
++	kernel_vector_end();
++}
++
++void crypto_aegis128_decrypt_chunk_simd(struct aegis_state *state, u8 *dst,
++					const u8 *src, unsigned int size)
++{
++	kernel_vector_begin();
++	crypto_aegis128_decrypt_chunk_rvv(state, dst, src, size);
++	kernel_vector_end();
++}
++
++int crypto_aegis128_final_simd(struct aegis_state *state,
++			       union aegis_block *tag_xor,
++			       unsigned int assoclen,
++			       unsigned int cryptlen,
++			       unsigned int authsize)
++{
++	int ret;
++
++	kernel_vector_begin();
++	ret = crypto_aegis128_final_rvv(state, tag_xor, assoclen, cryptlen,
++					authsize);
++	kernel_vector_end();
++
++	return ret;
++}
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
