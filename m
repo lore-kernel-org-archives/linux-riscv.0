@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DEEC88E4A
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jan 2026 04:22:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D883EC88E48
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jan 2026 04:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mJpHnAKm65pFq7szStdqbGEcJO0u2RcwXIVuHppZz4Q=; b=RWjIRhpnUqsrf6
-	0FahNx77c9h+8QimvOlj870uXPmeqK8xT1OPc7qoWgHg6FtsBW/v6dTZXQ3acw/PaDeEtOBnR7Z61
-	YA1UIzVPf28zPOSlUNOROBYG7tc5CQAyScOD+ZEJHHb5e/LIBja9YiHqAytf/1tJzySDGGTXStZQG
-	RqXEI0kJBO8fd0xH8o7w6OPBoVybDk3A+lKs/9j5PEdU8ZoUOKd4o9UX1HpH/IewLVIymzV7tT9pE
-	IOncDM/6vdt+L0RHhGBCOqEFo/qyXXX8d7WpjaCz5VJ7L2OZYEZCwcS25uaZmv6a0Rb8P/Fx0t9y5
-	AJ3PuC3G3MtZ+jMqjm0A==;
+	List-Owner; bh=Hc7hDLG7xzCSS8B2d87t6vnnuTN6eUCTqvD4bb4n658=; b=Sg4nCooD9CAyQE
+	OES4rqyOCtkGH4MZq8Ehqae0HU8wW7GkDz3xcszXPFPwKrNb0PztsnbzJKNBRqVrRVcpHlxyiopvB
+	fS76O2gCRYpeqieFX8brH4ina9MC0XZOOidS/ZMvhgCkh40YR2Wif4xt7xZchcQNEqbE0va70y98q
+	TGaHtgkaQTfmZvP5HoJjsIHeQNGKGxHkmRxGw+axKqeEb1DYZ8+3a1jfLCPLRSWtf7k3sCPigPnEI
+	uhm3P0hE6oW414ZEWOVGkmm2PiChuGCbJxMX06Y6l9P8li9z+Ay+7iDp0O7WVHxYcpvBLkwfRlxcL
+	sS8ApyGS2pQ1wVjxPklQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkE6u-0000000BsYg-4APF;
-	Mon, 26 Jan 2026 04:21:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vkE71-0000000Bsao-1Ph7;
+	Mon, 26 Jan 2026 04:22:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkE6s-0000000BsXa-1KkG
+	id 1vkE6w-0000000BsY9-1OTA
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Jan 2026 04:21:55 +0000
+	Mon, 26 Jan 2026 04:21:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F228C442E6;
-	Mon, 26 Jan 2026 04:21:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE146C116C6;
-	Mon, 26 Jan 2026 04:21:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 38FED44180;
+	Mon, 26 Jan 2026 04:21:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 163A3C116C6;
+	Mon, 26 Jan 2026 04:21:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769401313;
-	bh=9YpabiXPrUeHcDcJdX38UxODvbvZ6FSJMCaEGx6kT00=;
+	s=k20201202; t=1769401318;
+	bh=u2mZjtT2ef63nBRxN806PtRnf8Sp48BSpzrnucxNvLM=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=mFDt6MRQIX5YJowpdFi4cwjaqLBMn5hRthJcQojCBz7KUqXIqUQnLp9oTrsG+vpZC
-	 +oupAAyrmSFGBKxSN6H9JtmUPrkh+LWOif2kyAMQrvsi+5Ni+PVyd+TbLP8CA6Ac70
-	 sCn47LRvA7raDRD4Q5viKZ1pGnef8OhPoFOlOIwOnb1skFG9P+y9tPL8AL4NwtRfWg
-	 QwIzid+G3ojBubJin7uX0hdDo1E5adLt/E3VAOlpbzi5/xixMvuyA3SDX4JgSx0li9
-	 smNmYvnRpafzTeC+915666I4AzAM34c8Pd3dPhmXcBOSaN81sKnub4+8PtG2FelXm3
-	 CgG92BtavfBAQ==
+	b=mx3khty3+dTGClMOSsm4TCGURDjhMxIJ6Hr1bO+Hbm7pIDDMRiqqUI60/PSBokAlS
+	 XDKfB/qj+L3xyJ2qvyINgs0wD1pWn95s+Rkn2LpKpDZVb3Qm6E11lRb6+gmxfXX2fp
+	 Y0puJp0SfTExJAn/+KhCOy5Bb/Cb4Wib65mAZItqOyzuEp0PMSk2hQ9F8YHBPAhLUl
+	 4OkRVSJbQNM9okPoSdnbRH4h5yxkAZi8MRJuUoppDD2ti/3VZX6AQcX0/6q4RJB+hX
+	 BoyEqXvgV5dn4f1qXwsNoEWqJw9JT7awjVq+tpfrUMGLV8dNWUCboeRZP7SRPsDOMP
+	 iCanGpQICOKlg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id C8DF63809A22;
-	Mon, 26 Jan 2026 04:21:49 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 11B303809A22;
+	Mon, 26 Jan 2026 04:21:54 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re:
- =?utf-8?q?=5BPATCH_linux-next=5D_irqchip/riscv-imsic=3A_Revert_=22R?=
-	=?utf-8?q?emove_redundant_irq=5Fdata?=
-	=?utf-8?q?_?=
-	=?utf-8?q?_lookups=22?=
+Subject: Re: [PATCH v7] mm/hugetlb: ignore hugepage kernel args if hugepages
+ are
+ unsupported
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176940130834.4057692.5469884123687376656.git-patchwork-notify@kernel.org>
-Date: Mon, 26 Jan 2026 04:21:48 +0000
-References: <20260113111930821RrC26avITHWSFCN0bYbgI@zte.com.cn>
-In-Reply-To: <20260113111930821RrC26avITHWSFCN0bYbgI@zte.com.cn>
-To: <wang.yaxin@zte.com.cn>
-Cc: linux-riscv@lists.infradead.org, anup@brainfault.org, tglx@linutronix.de,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- zhang.run@zte.com.cn, hu.shengming@zte.com.cn, zhang.anmeng@zte.com.cn,
- luo.haiyang@zte.com.cn, alex@ghiti.fr, linux-kernel@vger.kernel.org
+Message-Id: <176940131284.4057692.12950572087692218599.git-patchwork-notify@kernel.org>
+Date: Mon, 26 Jan 2026 04:21:52 +0000
+References: <20251224115524.1272010-1-sourabhjain@linux.ibm.com>
+In-Reply-To: <20251224115524.1272010-1-sourabhjain@linux.ibm.com>
+To: Sourabh Jain <sourabhjain@linux.ibm.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ akpm@linux-foundation.org, bp@alien8.de, christophe.leroy@csgroup.eu,
+ hca@linux.ibm.com, mingo@redhat.com, maddy@linux.ibm.com, mpe@ellerman.id.au,
+ muchun.song@linux.dev, osalvador@suse.de, tglx@linutronix.de,
+ gor@linux.ibm.com, linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, x86@kernel.org, david@kernel.org,
+ ritesh.list@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_202154_421975_3C654D76 
-X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-CacheID: sfid-20260125_202158_395196_A382D32B 
+X-CRM114-Status: UNSURE (   8.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,23 +85,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Thomas Gleixner <tglx@kernel.org>:
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Tue, 13 Jan 2026 11:19:30 +0800 (CST) you wrote:
-> From: Luo Haiyang <luo.haiyang@zte.com.cn>
+On Wed, 24 Dec 2025 17:25:24 +0530 you wrote:
+> Skip processing hugepage kernel arguments (hugepagesz, hugepages, and
+> default_hugepagesz) when hugepages are not supported by the
+> architecture.
 > 
-> Commit c475c0b71314("irqchip/riscv-imsic: Remove redundant irq_data
-> lookups") leads a NULL pointer deference in imsic_msi_update_msg().
-> 
-> When QEMU is launched with the following additional boot parameters:
-> "-device virtio-blk-pci,drive=disk1 \
->  -drive file=disk.qcow2,if=none,id=disk1,format=qcow2 \"
+> Some architectures may need to disable hugepages based on conditions
+> discovered during kernel boot. The hugepages_supported() helper allows
+> architecture code to advertise whether hugepages are supported.
 > 
 > [...]
 
 Here is the summary with links:
-  - [linux-next] irqchip/riscv-imsic: Revert "Remove redundant irq_data lookups"
-    https://git.kernel.org/riscv/c/f2edf797dab1
+  - [v7] mm/hugetlb: ignore hugepage kernel args if hugepages are unsupported
+    https://git.kernel.org/riscv/c/b02019169284
 
 You are awesome, thank you!
 -- 
