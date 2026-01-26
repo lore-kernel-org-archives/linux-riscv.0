@@ -4,60 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9804FC88E42
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jan 2026 04:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DEEC88E4A
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jan 2026 04:22:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k1L6THi6wvtc4MiRrG/8Q5XZAivzJwtbD7WgILgLFUI=; b=we7A7OcDsgFnAY
-	ET3p0yHMh06p2Uzqk+9g4YRdnPvE9hqjSSRcfSYpy2L8EEVUKsvyInJ1ymzw4xV8G18R7mZ0aVrcN
-	WGXHM/6oz7cCDDXbFQqJ3LqyNetd+BnzLX/JaBcdaqGx7qBHb27Sy6cWbdfqf3zwTgRmj5C90fzfk
-	Rg2H5MzLP4DIrc7rZyno+SBwmdJYiw0L1VwMq6GeTPH/YVQzzMuaDg3cdVh6pVHnK0aeuTH8vBJWr
-	/yAd7penWTdSpRy2oLCEVmj+PE99cG72yP3p6wGkA2iZj0AGLjPXf5qzbY4z99XAAoJ5ZxdCXxCil
-	kGqlCVT1zGOPsz07BU6g==;
+	List-Owner; bh=mJpHnAKm65pFq7szStdqbGEcJO0u2RcwXIVuHppZz4Q=; b=RWjIRhpnUqsrf6
+	0FahNx77c9h+8QimvOlj870uXPmeqK8xT1OPc7qoWgHg6FtsBW/v6dTZXQ3acw/PaDeEtOBnR7Z61
+	YA1UIzVPf28zPOSlUNOROBYG7tc5CQAyScOD+ZEJHHb5e/LIBja9YiHqAytf/1tJzySDGGTXStZQG
+	RqXEI0kJBO8fd0xH8o7w6OPBoVybDk3A+lKs/9j5PEdU8ZoUOKd4o9UX1HpH/IewLVIymzV7tT9pE
+	IOncDM/6vdt+L0RHhGBCOqEFo/qyXXX8d7WpjaCz5VJ7L2OZYEZCwcS25uaZmv6a0Rb8P/Fx0t9y5
+	AJ3PuC3G3MtZ+jMqjm0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkE71-0000000BsaW-018a;
-	Mon, 26 Jan 2026 04:22:03 +0000
+	id 1vkE6u-0000000BsYg-4APF;
+	Mon, 26 Jan 2026 04:21:56 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkE6v-0000000BsYk-1SZm
+	id 1vkE6s-0000000BsXa-1KkG
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Jan 2026 04:21:58 +0000
+	Mon, 26 Jan 2026 04:21:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1562B44415;
-	Mon, 26 Jan 2026 04:21:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E914EC116C6;
-	Mon, 26 Jan 2026 04:21:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F228C442E6;
+	Mon, 26 Jan 2026 04:21:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE146C116C6;
+	Mon, 26 Jan 2026 04:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769401316;
-	bh=+/TmLP7uQZV/QkfJ2BYskF9iGcIhUQOcpCvg+re+VHU=;
+	s=k20201202; t=1769401313;
+	bh=9YpabiXPrUeHcDcJdX38UxODvbvZ6FSJMCaEGx6kT00=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=R4rHeXRKr46HzJnufDrOmsu5j4AIH9EVSo6a1F05cnSGqoxagpqGojvTqJqJy4sR6
-	 iXju10dKP63UUwvCT9bcJYwpG+49Jrh9V7Ww5Oh7YqU7DKFOUEuoB9nm4dTZAHlVIG
-	 oaaG87Xy15z57P7JK4rC3coABIyFS6TktPPC2xZuWqAHv2nZ/UA4+avQED4N/zUI23
-	 xuuguhsrVa8n1D0jyPbLwf5N+ZDB2srFp5HOGdCdb3XfrcG/DNDzDJJZ2sBKEOuVJn
-	 i0FlJ1VIkna25AGzdH5peWaKjYTo9R74/qIraQXTahSxRPTUosbEB9sIRIAFwzIPnY
-	 p0HgxiVmguKDQ==
+	b=mFDt6MRQIX5YJowpdFi4cwjaqLBMn5hRthJcQojCBz7KUqXIqUQnLp9oTrsG+vpZC
+	 +oupAAyrmSFGBKxSN6H9JtmUPrkh+LWOif2kyAMQrvsi+5Ni+PVyd+TbLP8CA6Ac70
+	 sCn47LRvA7raDRD4Q5viKZ1pGnef8OhPoFOlOIwOnb1skFG9P+y9tPL8AL4NwtRfWg
+	 QwIzid+G3ojBubJin7uX0hdDo1E5adLt/E3VAOlpbzi5/xixMvuyA3SDX4JgSx0li9
+	 smNmYvnRpafzTeC+915666I4AzAM34c8Pd3dPhmXcBOSaN81sKnub4+8PtG2FelXm3
+	 CgG92BtavfBAQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id C8C7A3809A22;
-	Mon, 26 Jan 2026 04:21:52 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id C8DF63809A22;
+	Mon, 26 Jan 2026 04:21:49 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [GIT PULL] RISC-V updates for v6.19-rc7
+Subject: Re:
+ =?utf-8?q?=5BPATCH_linux-next=5D_irqchip/riscv-imsic=3A_Revert_=22R?=
+	=?utf-8?q?emove_redundant_irq=5Fdata?=
+	=?utf-8?q?_?=
+	=?utf-8?q?_lookups=22?=
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176940131135.4057692.4058115103852267681.git-patchwork-notify@kernel.org>
-Date: Mon, 26 Jan 2026 04:21:51 +0000
-References: <081aefd5-d47d-8397-693a-3e0a3c73783e@kernel.org>
-In-Reply-To: <081aefd5-d47d-8397-693a-3e0a3c73783e@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>
-Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
- linux-kernel@vger.kernel.org
+Message-Id: <176940130834.4057692.5469884123687376656.git-patchwork-notify@kernel.org>
+Date: Mon, 26 Jan 2026 04:21:48 +0000
+References: <20260113111930821RrC26avITHWSFCN0bYbgI@zte.com.cn>
+In-Reply-To: <20260113111930821RrC26avITHWSFCN0bYbgI@zte.com.cn>
+To: <wang.yaxin@zte.com.cn>
+Cc: linux-riscv@lists.infradead.org, anup@brainfault.org, tglx@linutronix.de,
+ pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ zhang.run@zte.com.cn, hu.shengming@zte.com.cn, zhang.anmeng@zte.com.cn,
+ luo.haiyang@zte.com.cn, alex@ghiti.fr, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_202157_440667_05182D37 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20260125_202154_421975_3C654D76 
+X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,29 +83,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This pull request was applied to riscv/linux.git (fixes)
-by Linus Torvalds <torvalds@linux-foundation.org>:
+This patch was applied to riscv/linux.git (fixes)
+by Thomas Gleixner <tglx@kernel.org>:
 
-On Sat, 24 Jan 2026 16:21:29 -0700 (MST) you wrote:
-> Linus,
+On Tue, 13 Jan 2026 11:19:30 +0800 (CST) you wrote:
+> From: Luo Haiyang <luo.haiyang@zte.com.cn>
 > 
-> Please pull these RISC-V fixes for v6.19-rc7.
+> Commit c475c0b71314("irqchip/riscv-imsic: Remove redundant irq_data
+> lookups") leads a NULL pointer deference in imsic_msi_update_msg().
 > 
-> The notable changes here are the three RISC-V timer compare register
-> update sequence patches.  These only apply to RV32 systems and are related
-> to the 64-bit timer compare value being split across two separate 32-bit
-> registers.  We weren't using the appropriate three-write sequence,
-> documented in the RISC-V ISA specifications, to avoid spurious timer
-> interrupts during the update sequence; so, these patches now use the
-> recommended sequence.  This doesn't affect 64-bit RISC-V systems, since
-> the timer compare value fits inside a single register and can be updated
-> with a single write.
+> When QEMU is launched with the following additional boot parameters:
+> "-device virtio-blk-pci,drive=disk1 \
+>  -drive file=disk.qcow2,if=none,id=disk1,format=qcow2 \"
 > 
 > [...]
 
 Here is the summary with links:
-  - [GIT,PULL] RISC-V updates for v6.19-rc7
-    https://git.kernel.org/riscv/c/d91a46d6805a
+  - [linux-next] irqchip/riscv-imsic: Revert "Remove redundant irq_data lookups"
+    https://git.kernel.org/riscv/c/f2edf797dab1
 
 You are awesome, thank you!
 -- 
