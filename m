@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB072D19519
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jan 2026 20:23:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17528D1950F
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jan 2026 20:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vwFJ1x5jtRqFY08MMLRhgK/PBrYdAvrK7JGnaLZ5WaY=; b=c6c+ikGv3yOde5
-	g3oZ3X8fgoOIT23ip157O139HQT2ToKrC0HDrptjd6pOYug0dQvlKYAXFz0bg0yuqw27zqnitKIue
-	ZtKcVBes+gtHoU+ld0gfoWVvC0T6CTsd6LahOqub8tHSqYQwlgnd4n6llil5EGLC2MMFDGOWj0wR4
-	smZyjYPw/Ic/Yhi2E2SPzH2VsRR5q7YMm43WNDWdAZqVTcfu/xT5Tue3mBw8plsH+EfBfF8eTb3q+
-	JFDnUKUkw4asvyJYlr+sK3qF4dOL+C5gzTpHlXUqEELzf8HYj0wn6M2ksxdwIP35VPnTWrDLC3m0Q
-	HTemwqfYMXYFfeZ9MhiA==;
+	List-Owner; bh=35lsAi/0e9swSx9dP1Xwg6lyJeMI6KpfhPQUtYCbYLo=; b=Xcnr1i6phzeeGY
+	qUgWwOJPX0DcPlqB/s4RRLmrr9bgqIeYer253vVZNKBbk7M0MgbhUbR3/4NA/sG++sTOfLRs4XHer
+	SVbkkRslfyWB8B6NTvhQLph/ll36js5hgsAfcXNgIc6xXzsiKOmA3mqWg85K1xDpizV/buQiXuB3k
+	KLL54ZKVmVpxUrtiMPIsv362TcjnYmMh8zw19aFDkTH0rQu73G8IUNLwBqMZrrC3ZlkZpdGAiQt0+
+	3QzgSNQSM44Ez8ztyPXXo8OMQfs608xVBe7fJ0cce0sb3EG3Aygb4REv1rBK30RhRh2mWhZVyRKI4
+	BtpTlHHpQhm8DGCpt5hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkT7L-0000000DC6C-3RMp;
-	Mon, 26 Jan 2026 20:23:23 +0000
+	id 1vkT7P-0000000DC8G-22aE;
+	Mon, 26 Jan 2026 20:23:27 +0000
 Received: from mail-southcentralusazon11012030.outbound.protection.outlook.com ([40.93.195.30] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkT7H-0000000DC3c-3KKy
+	id 1vkT7L-0000000DC3c-1H47
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Jan 2026 20:23:21 +0000
+	Mon, 26 Jan 2026 20:23:24 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FBOvcqkVVcBnqyjQh57bJV96NegZNALbMcYP4KMrTL441+iNi/D4kMmwYPU2WzrHlrsUWGyAru5b5u8Z9jBh0nELSQzIKYkkmNSxxRzQL8nzSBVrkLg35T5leOIJphgj2IewPdvpGM8Wiep1rS5Qk9WzYhB0ufIUFLaqFt9skyz3zFSsNeZSAKx5T9qos084RB8qLtx8TZ/SQbOFuLIhberAFrRcVVKSXhH2KCIA3dP9IbG4clZUJwHnR9gzPH1jQZaH/hbYm9Z2OcYAPnjwHyorYSmXVWFk/RKWKjI8FXSw1gbuQ12gK6bljWBsY7NRTUweZaYVSUrmxsP75BVAcw==
+ b=dsKCO8O0t3JimkFgdPHroD08fgqbhLSRU2t1ozb5ADXAO4V7cKd7ceNOvcsPJBiAlV0tnXveBamIh/Ph7Z4awcadmLn13NR/9x/RiR/SGverRElP5mfmlbNKdWyPjjyaOw2N6x11QMHdQ589CVU8rd49dceaCGmEbwjTQlNwyS3+Ly+jVSJLwIcueU1phYNNVJGOAJChgzOEuiu9ByQXVRCcg7EPfw4kRtx+uMc2EKBOawfGEZwdX/SseVHsE64iHO+VSjlDKtiPkvPVuuZwjypIiEDGg6QKZnFuk7kv0YpH/fXN298xWoCpO7VmBsrsJbZO8Sjt82iVRYMK6h+yrw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=emNGAWJg6q4LlDY8LZkvYlckRtr6T+gHFR+egELQEPs=;
- b=syi6nqOrasbokqCSC76TGQzIxpRAvDDjOlW/xuDcPVz2qpaVSPQiKbmJ5YCHZG9Yvpj8wZAtdo8uBGZdqeWDTq++jJwiz/E6FEJhdZC23vDJeyl7iskkEDZLVSHAw0KWT0TgQG28wTQHVm9WymQIlIOUFDsWelFN8easrafuJentjf9CDnE0LCVl03T19zIgg53AOYhvCjtDe3SM5Hv5K9EQrMv6VluTLLynBaDugBudjm4gQWyen7s2PIw+rcZB8ly/4ggzCULjoRjh268skZTxZH3CYM9mtWMm1O2lcaDONpELn3KSMx0wQigQJuMm5xWD593IxnNhfc6qqgHfeA==
+ bh=CR7y9ABhJFTdgTrB9RQbGWyU6hRgNWjPb0U4Cu/4C2o=;
+ b=XohtVjcp3Q0mdRSx9n6Cv+jCWc7rpvKe9fzlo9F86DmOOURD2v92q+TUWRSd0qtbIaxIpi/mlH0aiqkO6yq9JIrtQeTtIobEXg+az1agfITRUtbLAe55x4kgIGSyk6z20Y1a6DH+pvOWPO4zVN0zyk5/s6lq8+l/PlFfCmAN4VJIjQHQ4PgKmZpRUOWR29nbM2wjakixvEecoMrRVF8cbFEQIdXPDfO61/D0w45nHdHqxbr3qA2SRvsH3sV8/4MrkS9Z5IAxfjaaojooxKLmMbZFG7R7doOc97vVmzGyGspbSuvxUw7yY9QsnrNMZk7CtitBI6ihFZ8OH6diUtjDBw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=emNGAWJg6q4LlDY8LZkvYlckRtr6T+gHFR+egELQEPs=;
- b=OCWjWWrhzuGWKPuisFAUflwYVPPiotcWvSsVthUhemw2+NSu/MzgC0VNZCTJTAAlnvr79rRJZIz2NrtQE1yPUrzf+zQDzOYNql8ClR6oqn80pVXOWnFwzIrya4KmdmVO5Bks9IkhhqF+8Vu80HOPrf4YZy6NiOI9dUf/7DploI0GzBhzk+0TzkiPOouWwxVrjUoWAwCiBURg4uo/ijlAD8wSiRDtwqYBT0m+5lrApuftU/qGf+fcYQLJlC/6lkFOmELZqEEhrW6czD+mXZm7yuDLdaSKLUq3axyc+9z5JPKb4rSwdcUbsU4+c/5mfo6TB8o5mXaTqYczo8/VepwHmg==
+ bh=CR7y9ABhJFTdgTrB9RQbGWyU6hRgNWjPb0U4Cu/4C2o=;
+ b=UdtSN6NldMsGkR+AIz3uJSHAdLj0e81uzU0S/v9uBKkIZYKcOZkwd4g99+C2wphZQw+UJMmXZ1cXeG8GWPJU1FTtUZZNR6lZ0MaPVFJvMCZE21h3tiKovcbuORtkbB1PMgjrO0Hp2SCF60cY8ne+SiPcpQSFCKenPuJOI+OyAEZQplMi6V0qfL3W4kLURnhfztdhIAgbBdnGNVv7lo7uaSUzQY40a+DjuZQ5AA6zJbknYcjqeSyiDTf0TrTPQrbzOuzjOC3ismJfs+5UrveoRFFsR/+yHJMmv4xSGR1GjEPJHLqv1Cw14TTD62x2q2Cx9pzR4C97ngwj3+LDUn3pcQ==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from DS0PR12MB6486.namprd12.prod.outlook.com (2603:10b6:8:c5::21) by
  LV5PR12MB9827.namprd12.prod.outlook.com (2603:10b6:408:305::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Mon, 26 Jan
- 2026 20:23:11 +0000
+ 2026 20:23:17 +0000
 Received: from DS0PR12MB6486.namprd12.prod.outlook.com
  ([fe80::88a9:f314:c95f:8b33]) by DS0PR12MB6486.namprd12.prod.outlook.com
  ([fe80::88a9:f314:c95f:8b33%4]) with mapi id 15.20.9542.010; Mon, 26 Jan 2026
- 20:23:10 +0000
+ 20:23:15 +0000
 From: Joel Fernandes <joelagnelf@nvidia.com>
 To: linux-kernel@vger.kernel.org
 Cc: Paul Walmsley <pjw@kernel.org>,
@@ -84,95 +84,96 @@ Cc: Paul Walmsley <pjw@kernel.org>,
 	rust-for-linux@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Joel Fernandes <joelagnelf@nvidia.com>
-Subject: [PATCH v2 1/5] gpu: nova-core: use checked arithmetic in FWSEC firmware parsing
-Date: Mon, 26 Jan 2026 15:23:01 -0500
-Message-Id: <20260126202305.2526618-2-joelagnelf@nvidia.com>
+Subject: [PATCH v2 3/5] gpu: nova-core: use checked arithmetic in frombytes_at helper
+Date: Mon, 26 Jan 2026 15:23:03 -0500
+Message-Id: <20260126202305.2526618-4-joelagnelf@nvidia.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260126202305.2526618-1-joelagnelf@nvidia.com>
 References: <20260126202305.2526618-1-joelagnelf@nvidia.com>
-X-ClientProxiedBy: MN0PR04CA0024.namprd04.prod.outlook.com
- (2603:10b6:208:52d::14) To DS0PR12MB6486.namprd12.prod.outlook.com
+X-ClientProxiedBy: MN0PR05CA0003.namprd05.prod.outlook.com
+ (2603:10b6:208:52c::33) To DS0PR12MB6486.namprd12.prod.outlook.com
  (2603:10b6:8:c5::21)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: DS0PR12MB6486:EE_|LV5PR12MB9827:EE_
-X-MS-Office365-Filtering-Correlation-Id: eb97073a-7deb-4066-a8ad-08de5d18b993
+X-MS-Office365-Filtering-Correlation-Id: d3834c66-24d5-4f77-f707-08de5d18bc26
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?L0dah+1IP1mI+cs/+tFBe9T/NYZvHG8tW32EalZi7rbbweWtnniUWcAmXqLV?=
- =?us-ascii?Q?zAlUWTDBSFnHL+r94ivxdfJLiNCl5ZoOueE/XNL63mXsE13S5FOGDs/J8xvn?=
- =?us-ascii?Q?+dmSzAQrisRWG2ETwdKj+UXJpelpyPQalCg3VIN3224XXpstiNTd+nnoUWG3?=
- =?us-ascii?Q?MQxPj4ZVGK0+qnemXpJ8AA1rcyJKxyEkwWyBTnagWuYwNV6Sx+2b2GVzTIgt?=
- =?us-ascii?Q?+jgPRzcPgva1DTZUgJ8CCZBMkuo1KKRjyo0/FYvhE+M8hENXH86AkH1j+SL6?=
- =?us-ascii?Q?jzYu/Vz78b4VcNEoJ+WjgWrFSOC7Ej03XnCRimrkfnzZjjOJzugKlwCxPaYE?=
- =?us-ascii?Q?zA6uiYgH5mSlKziEI/9vqGDVmorn+tcY+k4ISHc4RcvYl4KUSQHneRmYQNt/?=
- =?us-ascii?Q?8nWI0pwVsrTxpTiaM6P8Ea9hcb/JuTlTCl8BGxfbjc6GVZD38MambaWG+eoJ?=
- =?us-ascii?Q?vYv9d4LDupzjhTKYdPg7eXMC1hPrbE1eB9Ib9FoSkypZEzgxWGhcRiqfjzlJ?=
- =?us-ascii?Q?/EDDnonU0rTi6sUnTxp0f/ted2Vgp0PngJrksyhUYNPmJ+YhfuagocGtKREY?=
- =?us-ascii?Q?98BM/G+fFNwAwnqT6eYXy5noGl72dvslktnJ7kElwwC/Wmoa52ApOT/wfbds?=
- =?us-ascii?Q?7dcMyNcSDPuNMYhcaDIVeVMBLfvt6jxB52Awxq9rHbrYqzAWwCGKNpv65bzT?=
- =?us-ascii?Q?FUrgLeQwj1cjUB4rvPauoBgV881pcFhlInAJh+L6w4QzKdeiZF+6NffDd9Gu?=
- =?us-ascii?Q?zzZfJKyCzHDAUjQFgdLG3hPVKmz+1aFI8bhGVeR/O0uOawapPtG5G+uhqya4?=
- =?us-ascii?Q?zq6TTAfWYCZrMM4Deyjgwm3Wh6WNW2tXCyPs81zZtzCYE6WTg+c80FeM52cV?=
- =?us-ascii?Q?9uHAxeLiJh4yT9nE8iEeyR887+WcJImhgh4skj2YR/w7yIpU34wlZkJjekhH?=
- =?us-ascii?Q?SNtUwOIJg7/p3XU+z1J40q75335GhGWEYoOfBBIjBFQz1bLlSgz8aMweMEKA?=
- =?us-ascii?Q?1xrTdvVLCLFv1jAPhAoQR3k9xHfQDrBWuPutT6HonK2ZaFYV70hs4sk8WQL5?=
- =?us-ascii?Q?mzuDb3kukgq9mvd/QvJTEOxx30MRQAbGi7UZIgIcqvJlK7Q5dz9WEsf8HtaZ?=
- =?us-ascii?Q?2oHvQzmCXdgxfuCPnzkbkfCtJ4ihoOdQN26ylX9FFBEdGhdiQ/ZX/aV25VzL?=
- =?us-ascii?Q?wJdkZN5cGq/TSnmYpO9yEGvEW9zAVtDQUUTT6ikvKpUEDkiJAqHsSJLzm2FE?=
- =?us-ascii?Q?5U+02X8GBbu6657JQsSwt5bLbH6fgbz1YxsFXXOgdP7nZS+MRZGZJMq5PEN0?=
- =?us-ascii?Q?oAtAAE2ZPz/5CAmRFckGKNWWdj/OuWjIyurt/oxkBNUJw2FxNKOq5CY4wMMb?=
- =?us-ascii?Q?ItlV9LkANxOT/aNrTBdVwe+Iw99rIcjRwrfho5gGpFhgFqqDT1DcYpvhYFNj?=
- =?us-ascii?Q?+j32P/9ybvptU8h0WPImmqj+QyupgZPpPHqnS501ThuNxMlsweeazil0qFRg?=
- =?us-ascii?Q?gqV9sK8QrwUd+VshPtbO4fCQBK8FyxCtQtkK4OyTJfFUmGAYi9Ge2/8KqLiC?=
- =?us-ascii?Q?DFCqxDRqz0C/D/YTbZY=3D?=
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cKb20ZCVL5NnXUckC09AxyJMJFkjvljMDNyvqErgTnBTnCCIBoDxtO7lppay?=
+ =?us-ascii?Q?CxNp/aotVd6cqw1EjgTA2Z9Y8fxZF+UR319fq0TPlZ2y0nME9prq9YR1V6Pc?=
+ =?us-ascii?Q?2ppanXb0PIoyoYWsfQMI3GZJi4tAlIReT+kUFhRGSw3CyswJv5gZjM/MAnZc?=
+ =?us-ascii?Q?+1ASWdLQx0P/EKfwTWlMXlJPeCuB3WL/4IX3t2DQs21dBzfFyfRM1aG8EiBR?=
+ =?us-ascii?Q?q1wP/shri7Zh1x+I8PWm3d2IfSrJIlxwS4ENLwPKlp1lKfWkLWj1crhBkm/u?=
+ =?us-ascii?Q?g9MTGcO6CkFQVK3UwafXXyrEq88lnfGFRIQYS6jn9gVxyB15gROxCbYaMaDS?=
+ =?us-ascii?Q?5Yx3pGsT5UHg8t3L8gnlIj0FjzDD8DUomLa5xZFGY4Gt0C8O9mi/7TRJm+vt?=
+ =?us-ascii?Q?zWK/rjDGrQPScerpvO2p3cwU+DHVZhXK3ZvLZ7ksaCWwHZexpql4jqsZ7sS6?=
+ =?us-ascii?Q?g3HXpD29QlQZ8xHfDSPhU1kqFCsNcXaoUKW/1v+Jo8q975Fo+aQBmPaf6YAF?=
+ =?us-ascii?Q?T7HC17aKeKyscMTQawHiY5iA6lojid3C8Z6KpDK2IewCxR4sn1nPZYhwYjOc?=
+ =?us-ascii?Q?WpmweIR7lM8anktnEFik3qANlJeLawe2D3mapKRUcyxOLuHWEnlat9pLVbeQ?=
+ =?us-ascii?Q?YAY1hKbz7tz95bX1bOvkzCIlyq+xv4munT9Av1vPpKFZFY6Joe9hGzby2Kk4?=
+ =?us-ascii?Q?gapsTy1ppC4RdcFYRAjieejvApEaEr49v1hEvEuw5c15d+tA0hBlSwyfWGLK?=
+ =?us-ascii?Q?mJ5X7DYkKVv+1EdvARoCUl1SKKXUl5YiZOeRyypQgD/Y1VJh+HVSaPDk3o86?=
+ =?us-ascii?Q?Me0azf/IPTcCj/t84memmBeIDUHR3a21xxvdHOazT8ruBCPRJ4gMZ1ksivpc?=
+ =?us-ascii?Q?3Kg/kBC/vpdtDntylACPp22/Pf4UK7dnD1yM0MOB3M6jakj5qsK47DiUnhiU?=
+ =?us-ascii?Q?piNg0p/8xbRH3CiSywM2W0oIGq5bdtf3kEq/+A3zhBhhoYV2eDV4aRXFz/oB?=
+ =?us-ascii?Q?Jv+7VSwRN+4aX6SGNeb+ZD9NwfNm5PVaBKPaOe896Skpwcta4LugO1vNUMOs?=
+ =?us-ascii?Q?x0qo1fO7z+J7bxVdhVFhIkde9dN/Y5UpggZU4cj5LoepW8/aezqdZM2o7dmv?=
+ =?us-ascii?Q?oz28SUzogpdj1uC1rtuNjsZdrNaI4Ts5Z8Cul2q1cCs3ih/JStT/IgY7bC9n?=
+ =?us-ascii?Q?EY6JkUe9hsffxAP8CvfPKySK9O33KiLP+nsPQlXb41HxWZE3amJs8FEQT8Sh?=
+ =?us-ascii?Q?5i1mlUZzKTcuLh/qUturgF9ty8G2Nk+JHd390oIEUmezfDDpMroVwyVnAkej?=
+ =?us-ascii?Q?tAtJFS60enGpwp2rvjz1+1ji5j0Ejo6+eN0DKgHpkYLOQOgnwiiH+7iCal/2?=
+ =?us-ascii?Q?wWKo/3cpwDFID6zGk7HKax7FO3lGWsEKYPch6fujY1nfgQGdFK9SG0OLU4kS?=
+ =?us-ascii?Q?Sp43BOS/i78bnd6GSpcVl8lN6EoSwJaf5q2z9VNLiPfhx0Wc5os0ZjR/l9Uk?=
+ =?us-ascii?Q?FZrjNxxGZqo/+F9legWrzfkYO5wwmb+LYQx079U6KDnjJ9TEOLxepgJui77u?=
+ =?us-ascii?Q?u7VM68ndko4duXw9a9Y=3D?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6486.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?orzSp7fuJC2F8F9UqnicJaR8GyEMZ5yWoQMP0VHo3dOjP54VlXWIrjn3pNbC?=
- =?us-ascii?Q?mNOSV/9MAyRMNUR86YC5CCU+YP2aJFI+RR39uqbiTJmAhWZ0j/hqkYdArfVo?=
- =?us-ascii?Q?XoPj5N0u6TTMCNxR5fa3dzr8d6ZFIyUxptBrO155Gn7+ScCh4CyrQo+F7vM7?=
- =?us-ascii?Q?z0ELZ8ml/7FaZ5cefFBL093ow4CE3wINESyNN3ROCIwm4RQObytvq+mYSTEv?=
- =?us-ascii?Q?1mFmqui8no7YMK+rH7vCh8KqiKs2LnohP9K4nq9/rk55SvZtQprN7+vnue/D?=
- =?us-ascii?Q?7CYWryWqSTOwDk/HPL5sHConH9wmx0Opcd6ykcxTxzcTLKGf9WPlvruMft5u?=
- =?us-ascii?Q?aIw5WgQq6OaC92isXQCffx8SaL6NijEPKtkTdz+Nb/MSpnbJeeuNjGV8soXt?=
- =?us-ascii?Q?oq9Y8bA314bUeFuGMRG8kC2uJCZhiKUrKfUcG4zv669xe8PJAon1R8Gy3SRW?=
- =?us-ascii?Q?2F3frhf3IdZaz+DE1noLp9a+I8qUyxdxGn/r6mIfk872J95GWMIe8PywOMgv?=
- =?us-ascii?Q?zMJP7Wlpgm7Xjs5jIK9jK37KeC5YJGrc+1v9Vwz4rwoYakjDdmP6GptLaRIF?=
- =?us-ascii?Q?rdzTHGOsbg6EzDexcoY3gF9t+IbdWUNCYtvCBLBjS2sWRmrR9WxBxZXMBuxq?=
- =?us-ascii?Q?7Mm9WgPfyloJ3cBLTdfgm8wfBdaYTrL4vtWkrbos0SSImCmDxTKlPWyC3j7N?=
- =?us-ascii?Q?vhu9Kixg4H2x/Wvbh1l+uXNBeXFYSZ9Qcmb/DJFZ6fAW6+zSF7XTeupy/vH4?=
- =?us-ascii?Q?5miThPJOg7ciQT7gKrVfKVF+mUghPKvWmQRB9bMSP+jkZqpMGt8K7m0UnGtc?=
- =?us-ascii?Q?c4mxopky+ehidH8g0THcnSaavKGVKHfvsDSyv+mUQaa1+p4njA7xM462I1rm?=
- =?us-ascii?Q?N0FNcZ+FuLqzRg9ny9kniCMouXgd39DC1mVATfV7OpYvaHlQSZ1FVH2TvIiq?=
- =?us-ascii?Q?pyzwvCIKPboK+6CtNXMx/sXv159R/Wuk3d3pDBhO5w9oxqIPfRn9Fq3V+R3I?=
- =?us-ascii?Q?FOSZwjm2OBoaHAzGcYTZHTRP+U3HR3JqjiGC/CfygxVlor5QLI36aDQtgAip?=
- =?us-ascii?Q?Z1Qo7J31LAtlPJmsjJUASYed25jmHwI/p+qHagRb/UjLnnGbvTYEmrSk30a5?=
- =?us-ascii?Q?48itguUyi29a1mG0gbJcTNKOOxMF+52QeMB30w/43ASeYxkCIO733JuQdBkM?=
- =?us-ascii?Q?JqWoesLURvSXhsju4eYmXLDC3n+kBV3qY7F7X3XdaA0S1yNqgXMjTQdCU6pX?=
- =?us-ascii?Q?Gacj6h2IwEARtzshd65pCCDkBtDjrnrKAP/+WcilQewqTKjUv0l2yvlSv1As?=
- =?us-ascii?Q?hhL53/jFnADXkA26IurO8151hec/Fo+rVgHRHgv6clxQxan2vS5fdQUt7JNn?=
- =?us-ascii?Q?P14iFffsWd3qw8EKYat1jmoc4OJNN6+K/IW7Saj+X9/5xfkZAETKXZsqcNjn?=
- =?us-ascii?Q?V+ICohuQ5bPqOR1AUJiNsVeFNEswV9iEQW0x4ujZ+46N3bjmCNDOkWxpD0JZ?=
- =?us-ascii?Q?7dEB2RAYIsdCMjdpzMErVH5H8ZjqVHoRlZbAw4zg8PimZUnsIIM5CGQoCLRE?=
- =?us-ascii?Q?oYvKLID5ESgPk+dDPXX/Q0ZUZn9CAn256oUG+j1hktWUTsjq4NJPvXJ4dk9H?=
- =?us-ascii?Q?bfk8bLtuV6aTw1Xnd+5/Yyt+SmKdkFoIAJnOHf+pzSJzvdFXpWT5uvght788?=
- =?us-ascii?Q?b9VdRRR6Ogv5Pbf5x3BeGLLWPal2H9TXli84ZQYDtBr7hNfjrscUrp0408m4?=
- =?us-ascii?Q?6zP7Qyar9g=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AtN6kkrNdsN2zJ0einIQp3NfA87+8Frv6l6pKEw0/Y1rJCRHERDr2oJaX2EY?=
+ =?us-ascii?Q?NcoMi0FScFEO9KFmLUo+kuWGWf0gTLM0WcLLTefipwc2/nE8x//FS8OSIHeB?=
+ =?us-ascii?Q?masjdNWtTdwqJnxGK0vOPS7Cjkw4ex2o/8+c07H9487YvNAkBkuMWvlfnmkk?=
+ =?us-ascii?Q?h8aY/fefCQz1Qcb5dIZq7CMU8EW+slbciBHNNQvdRGglNl/VoHp6L8j0mQwV?=
+ =?us-ascii?Q?Yj7+cHjGcmsE8pJYmO2SfA2/V/aHE83XdCJRB0hVohTR07VOySGvWE4B2305?=
+ =?us-ascii?Q?G6Xe+c2Ns4p0HT+KcnhRjXYWzgauJQzb9b0QBf4mePMzSVoZ4ffoXhTSAI1I?=
+ =?us-ascii?Q?YBzV9PviakXDHiQP5wEtiPvqidlZ7AJDeE7nQQPCZAGj/8FaNQ+362QtqMns?=
+ =?us-ascii?Q?l8jQ2aKjLVTXfadMJy8RIAtIuJDBe47t0ATSL+0lY9FNOB5pm81+uEoKBhPN?=
+ =?us-ascii?Q?KRY3CFayFLGB+VBpUOFIIHnfz1Gu+9mXXN+BrJiymC+PARNotpIXOV7/stbH?=
+ =?us-ascii?Q?DVKThx9pRn0G/jB44zTLW5AICq+7j+5J+gtkCohKpVcJUXHVNw4Jl/sJ5q6J?=
+ =?us-ascii?Q?0tzoB46/2dJdZjs+e/iFjH7cLxXD7tdlOy9Wd+mw8G1PA0K/T/b2rlka1EOZ?=
+ =?us-ascii?Q?uGt8FcESiRLR3HJuMUplUFVVLOxY+gejFILdoJQ07FJT8jgMbH+9X/MSDZHN?=
+ =?us-ascii?Q?n8Kj8XVohjFRdsCWOce0tkksnNCOQmGB50dmvPuosan91VIZw1bIQftWFKqL?=
+ =?us-ascii?Q?Q1Q7HIF+UH5Mw67coVpu5s28hwlSYKjcPsdByRHNpn32yB8i+iU3bnUnlfiM?=
+ =?us-ascii?Q?wH72Xd+byrYChPtXbNXLPIMuE+glqUmXRzOmYLs+o+YKOdU7joy5c78Znq6U?=
+ =?us-ascii?Q?WGQ8wYojFuIJ21uFoIRV7TvyL+LCjhZ+3mdIxFSxxg2cWdp+W1lLpptRwL4u?=
+ =?us-ascii?Q?ANn/k4FHBTdthdYo6DmGob0USX6PJPgBMZ6JKC3DouZT6wGy9IXM6xju5dtu?=
+ =?us-ascii?Q?Rw+vxuUA9hu8uvT/OmlChLmWPg/wi/0oIoN5Pj1fRlm9JCvXnTeWnIiJc3gW?=
+ =?us-ascii?Q?D/ykeJX7ct6xOBljMy1Pa+atSQY8ao8EQPwES8ThnAFx1NriB7cCP7T8AxOZ?=
+ =?us-ascii?Q?NW+px3nqunvuGhkN/LdmT9NDJ+NGHxp/GETmf/uNxzPc3bj2j98PbZL5/8Vq?=
+ =?us-ascii?Q?dSo116HwAdUMkoC4yybKvsqGb2S2J2e2KgNmKnlkRN34IKebMeuvMmKwuStK?=
+ =?us-ascii?Q?Y4/V9jO8dij/gPZuOku54f6pTmbvD1oXojavaRx8siOOvM0dTn6V0OIMuqo3?=
+ =?us-ascii?Q?1YemjVtPdd4dxd8unRrv/SX9CdZ7s4IEmweEudUdJyx3wZWrawUuBkmW1WzP?=
+ =?us-ascii?Q?jKdvxSI69NkK+Mzfm04euXLbRhru0vPZYbMWj/uJ8wo9MXreqvQARxOHm4Ar?=
+ =?us-ascii?Q?HgQa1qqB6oU6CjhtXiVT+n1c5Hx7UahACs9MbOsk6hJ5brVu5TdpmBmaohcR?=
+ =?us-ascii?Q?aIUWu3307dw+K7JEy4jDPo/5ed4EV5e06IzLnHSz/sBVGqcNmcLwhqKdoPxE?=
+ =?us-ascii?Q?KMiGwRSF1x45K/wVHW6cfxg/wMz+gYv7Ha6aww6Px+Dzay1neVGUnbSU+gjA?=
+ =?us-ascii?Q?gaeGDAQ/j/qdAB9j4ri/dDK3Kl3FgC7CNs7i9McXlnQkJh9EtxR+QZiIVu/T?=
+ =?us-ascii?Q?or3yvF5smqQ7ydW+Q/H4JknQRO0gdh16MrK0IzafWyMVBc88rndtbKcUDVUs?=
+ =?us-ascii?Q?kmgGDoh8Bg=3D=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eb97073a-7deb-4066-a8ad-08de5d18b993
+X-MS-Exchange-CrossTenant-Network-Message-Id: d3834c66-24d5-4f77-f707-08de5d18bc26
 X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6486.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 20:23:10.9116
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 20:23:15.3748
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hBALSfAkPM9879pm9fhiWXkfYjyLQ7Ti/X0uyume9o0zK8ODGNQW4maiyRggH1L5oZT5Otk4fd4EMrHeS5FrOQ==
+X-MS-Exchange-CrossTenant-UserPrincipalName: xG3YJMVaFlBWxx7FQ9573IQfB5YaOrOnNqpn/2IvNMo9sX92Ij52Xze3lW7NjxNDpW5YK72VDqBdUy1k6aCGJA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV5PR12MB9827
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_122319_836639_6090715C 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20260126_122323_398706_F0EF415F 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,128 +190,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use checked_add() and checked_mul() when computing offsets from
-firmware-provided values in new_fwsec().
-
-Without checked arithmetic, corrupt firmware could cause integer overflow. The
-danger is not just wrapping to a huge value, but potentially wrapping to a
-small plausible offset that passes validation yet accesses entirely wrong data,
-causing silent corruption or security issues.
+Use checked_add() when computing the end offset in the frombytes_at()
+helper function. This function is called with firmware-provided offsets.
 
 Reviewed-by: Zhi Wang <zhiw@nvidia.com>
 Signed-off-by: Joel Fernandes <joelagnelf@nvidia.com>
 ---
- drivers/gpu/nova-core/firmware/fwsec.rs | 60 ++++++++++++++-----------
- 1 file changed, 35 insertions(+), 25 deletions(-)
+ drivers/gpu/nova-core/firmware/booter.rs | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/nova-core/firmware/fwsec.rs b/drivers/gpu/nova-core/firmware/fwsec.rs
-index a8ec08a500ac..71541b1f07d7 100644
---- a/drivers/gpu/nova-core/firmware/fwsec.rs
-+++ b/drivers/gpu/nova-core/firmware/fwsec.rs
-@@ -46,10 +46,7 @@
-         Signed,
-         Unsigned, //
-     },
--    num::{
--        FromSafeCast,
--        IntoSafeCast, //
--    },
-+    num::FromSafeCast,
-     vbios::Vbios,
- };
- 
-@@ -267,7 +264,12 @@ fn new_fwsec(dev: &Device<device::Bound>, bios: &Vbios, cmd: FwsecCommand) -> Re
-         let ucode = bios.fwsec_image().ucode(&desc)?;
-         let mut dma_object = DmaObject::from_data(dev, ucode)?;
- 
--        let hdr_offset = usize::from_safe_cast(desc.imem_load_size() + desc.interface_offset());
-+        // Compute hdr_offset = imem_load_size + interface_offset.
-+        let hdr_offset = desc
-+            .imem_load_size()
-+            .checked_add(desc.interface_offset())
-+            .map(usize::from_safe_cast)
-+            .ok_or(EINVAL)?;
-         // SAFETY: we have exclusive access to `dma_object`.
-         let hdr: &FalconAppifHdrV1 = unsafe { transmute(&dma_object, hdr_offset) }?;
- 
-@@ -277,26 +279,28 @@ fn new_fwsec(dev: &Device<device::Bound>, bios: &Vbios, cmd: FwsecCommand) -> Re
- 
-         // Find the DMEM mapper section in the firmware.
-         for i in 0..usize::from(hdr.entry_count) {
-+            // Compute entry_offset = hdr_offset + header_size + i * entry_size.
-+            let entry_offset = hdr_offset
-+                .checked_add(usize::from(hdr.header_size))
-+                .and_then(|o| o.checked_add(i.checked_mul(usize::from(hdr.entry_size))?))
-+                .ok_or(EINVAL)?;
-             // SAFETY: we have exclusive access to `dma_object`.
--            let app: &FalconAppifV1 = unsafe {
--                transmute(
--                    &dma_object,
--                    hdr_offset + usize::from(hdr.header_size) + i * usize::from(hdr.entry_size),
--                )
--            }?;
-+            let app: &FalconAppifV1 = unsafe { transmute(&dma_object, entry_offset) }?;
- 
-             if app.id != NVFW_FALCON_APPIF_ID_DMEMMAPPER {
-                 continue;
-             }
-             let dmem_base = app.dmem_base;
- 
-+            // Compute dmem_mapper_offset = imem_load_size + dmem_base.
-+            let dmem_mapper_offset = desc
-+                .imem_load_size()
-+                .checked_add(dmem_base)
-+                .map(usize::from_safe_cast)
-+                .ok_or(EINVAL)?;
-             // SAFETY: we have exclusive access to `dma_object`.
--            let dmem_mapper: &mut FalconAppifDmemmapperV3 = unsafe {
--                transmute_mut(
--                    &mut dma_object,
--                    (desc.imem_load_size() + dmem_base).into_safe_cast(),
--                )
--            }?;
-+            let dmem_mapper: &mut FalconAppifDmemmapperV3 =
-+                unsafe { transmute_mut(&mut dma_object, dmem_mapper_offset) }?;
- 
-             dmem_mapper.init_cmd = match cmd {
-                 FwsecCommand::Frts { .. } => NVFW_FALCON_APPIF_DMEMMAPPER_CMD_FRTS,
-@@ -304,13 +308,15 @@ fn new_fwsec(dev: &Device<device::Bound>, bios: &Vbios, cmd: FwsecCommand) -> Re
-             };
-             let cmd_in_buffer_offset = dmem_mapper.cmd_in_buffer_offset;
- 
-+            // Compute frts_cmd_offset = imem_load_size + cmd_in_buffer_offset.
-+            let frts_cmd_offset = desc
-+                .imem_load_size()
-+                .checked_add(cmd_in_buffer_offset)
-+                .map(usize::from_safe_cast)
-+                .ok_or(EINVAL)?;
-             // SAFETY: we have exclusive access to `dma_object`.
--            let frts_cmd: &mut FrtsCmd = unsafe {
--                transmute_mut(
--                    &mut dma_object,
--                    (desc.imem_load_size() + cmd_in_buffer_offset).into_safe_cast(),
--                )
--            }?;
-+            let frts_cmd: &mut FrtsCmd =
-+                unsafe { transmute_mut(&mut dma_object, frts_cmd_offset) }?;
- 
-             frts_cmd.read_vbios = ReadVbios {
-                 ver: 1,
-@@ -356,8 +362,12 @@ pub(crate) fn new(
-         // Patch signature if needed.
-         let desc = bios.fwsec_image().header()?;
-         let ucode_signed = if desc.signature_count() != 0 {
--            let sig_base_img =
--                usize::from_safe_cast(desc.imem_load_size() + desc.pkc_data_offset());
-+            // Compute sig_base_img = imem_load_size + pkc_data_offset.
-+            let sig_base_img = desc
-+                .imem_load_size()
-+                .checked_add(desc.pkc_data_offset())
-+                .map(usize::from_safe_cast)
-+                .ok_or(EINVAL)?;
-             let desc_sig_versions = u32::from(desc.signature_versions());
-             let reg_fuse_version =
-                 falcon.signature_reg_fuse_version(bar, desc.engine_id_mask(), desc.ucode_id())?;
+diff --git a/drivers/gpu/nova-core/firmware/booter.rs b/drivers/gpu/nova-core/firmware/booter.rs
+index 40ac7e66d228..bae24c756853 100644
+--- a/drivers/gpu/nova-core/firmware/booter.rs
++++ b/drivers/gpu/nova-core/firmware/booter.rs
+@@ -43,8 +43,9 @@
+ /// Local convenience function to return a copy of `S` by reinterpreting the bytes starting at
+ /// `offset` in `slice`.
+ fn frombytes_at<S: FromBytes + Sized>(slice: &[u8], offset: usize) -> Result<S> {
++    let end = offset.checked_add(size_of::<S>()).ok_or(EINVAL)?;
+     slice
+-        .get(offset..offset + size_of::<S>())
++        .get(offset..end)
+         .and_then(S::from_bytes_copy)
+         .ok_or(EINVAL)
+ }
 -- 
 2.34.1
 
