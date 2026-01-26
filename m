@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD5F7D2FEE3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C1D6D2FEE0
 	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 19:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,54 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TSjXDXrH9QPJGZb1G3VVT+tcBIvybdQk8SWTrjMdvFE=; b=lvHHtxNdyYHMTe
-	X6Kif0+zdUaUshmeOc19DNiCPl74DOJS3pigjPwzAtkemOA4lcd+jSQn0LL7WmFuxFmOBd/BE7S2K
-	3X5hF8LxkVDdn1HexD97htL79wtk9PEmgOoM5BqFIGyrXkFCkJcWKHPpEdfbm/+hV7bonKRYWJf2M
-	hzOAB92U4L3p5jSRRUnyGGy/+m3Bgnf86vErqJ6QygqrbwqTJ9OXqgPjXIeEtbgY9FKGURZUlBWG7
-	NRbELh2nwn5ogKxIPERNGbPpx+0grC06NnptDdHjUmQW0R46dXmvCoXp7DRLkk3otjDtleHhHuj5z
-	NAM3bd4FSYxLlYnOX3YA==;
+	List-Owner; bh=TMP6qLAd6qtFeG/yqwkad2HaGW6dkGVjM9qk9LNQul4=; b=uh66CR+Lq4rjNc
+	UWY8mRg3I2VNVCKKXqhByGEhZsezLVlvF1z0bAp+d7rrhL8UmUG5I6hN1yhwEdyNWIgPL2atijb35
+	jtvtKlgzA3Jq8KMrOw2IM3OcnDA6WDE8bR+59IGUTpMtourGMyCvSIZiEAjHSiHkREbl+luca+/ll
+	qyXty3DPN8aDQqS96wzmj7rywpQqYtZbS6jBebUcFyYMmxx+nORPeEStrkRpUcqGYvjiVESy0oppN
+	ThsuM+WRjFk+xroWlQpbHGt6T+Pg5IpVm1k0Hjzv68I0h94faNZZjoOrD6JPEzRYRjlpiC/OnQgX8
+	h/P7okt8IIsfKFrLJv2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkoqp-0000000EvtV-1AbC;
-	Tue, 27 Jan 2026 19:35:47 +0000
+	id 1vkoqq-0000000EvuR-1GJz;
+	Tue, 27 Jan 2026 19:35:48 +0000
 Received: from fra-out-005.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([63.176.194.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPnJ-0000000CtkL-0XKk;
-	Mon, 26 Jan 2026 16:50:31 +0000
+	id 1vkPnp-0000000Ctr7-296W;
+	Mon, 26 Jan 2026 16:51:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
-  s=amazoncorp2; t=1769446229; x=1800982229;
+  s=amazoncorp2; t=1769446261; x=1800982261;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-transfer-encoding:mime-version;
-  bh=Z+0YCRdTDnWSs97jpjMZOSlIedfR2zbQnGU/yn7jp+s=;
-  b=q4bxCu7DP3JP5Y3NSevEICx/SHASuQR1MHaRlH8iuwxlD6s9k5RkGKmP
-   qzSqUKLKXoLwJH/wuLeL2qynX5Qfaqo/gFZ+1TsxZAK3RcXysdwyU9Y+q
-   zgJ3Tq64YPZ0mLsI0dlQAwj0r5obclIEmcXHOSgJwCcD+86lws03V4IpH
-   SAmBecb5pSMSTng97iEvPJD3IgdpSAFxTTszU17oiRWTu7hvCkf8XOhJs
-   iY3f5lUIdmfWGWfkZE5BOA0cyCB8xqwsVkjQP63Bi1JR20PygUjs2ZS2h
-   +ZHy5H0anSJYUTMWG4bhLMR76EE2t0b5TccoiMGOaYZs1gDw7msq/eokE
+  bh=Jc9MipNs+jRvs8/alLQSd1jk+l+CAkjcNo6zBdOlRgI=;
+  b=DBswMq4cUZjCOtwpl4icv9mCqvkVsR0jHF55lpe8qLQeM3zv75iHDVqZ
+   6PT1w3lpBV/8smqRjbh8gw8h2eYCb/UA60DhBRQZWQ/e5cn0NNM1XJrdk
+   lK7lgbS8VYwwTqng5tgbLPFRLR1Xb+mA/mjn865maOTpz7ae2m82swm1j
+   7yOUlcUxuRXSCihzYN0EHBVj1G1IjlmckmdAg/Cfehw+22XLm7cA5TAxQ
+   j1S1xn4qKdGOYZaoy7YxEoEtDUiroay4cQsO72Ri4+BpOBW2+GhvVhija
+   +SMjdNqQJ9J5Kle9jOKBSJ4i+L1z8a+uCINzkX6NbaDDBBNdksTUeU1G7
    g==;
-X-CSE-ConnectionGUID: u2oaZC4NS1OsnhY1SRBC7A==
-X-CSE-MsgGUID: Pxs/ngYXSYK56Rj63xFgrw==
+X-CSE-ConnectionGUID: b9vX8AkLSL+fmfI7VGGAOQ==
+X-CSE-MsgGUID: Gs1GJvP8TOWtneYnpV4Eag==
 X-IronPort-AV: E=Sophos;i="6.21,255,1763424000"; 
-   d="scan'208";a="8462653"
-Received: from ip-10-6-11-83.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.11.83])
-  by internal-fra-out-005.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jan 2026 16:50:21 +0000
-Received: from EX19MTAEUB002.ant.amazon.com [54.240.197.224:11258]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.13.191:2525] with esmtp (Farcaster)
- id 0c98ffad-9331-4293-9e93-229526262b2a; Mon, 26 Jan 2026 16:50:21 +0000 (UTC)
-X-Farcaster-Flow-ID: 0c98ffad-9331-4293-9e93-229526262b2a
-Received: from EX19D005EUB002.ant.amazon.com (10.252.51.103) by
- EX19MTAEUB002.ant.amazon.com (10.252.51.79) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Mon, 26 Jan 2026 16:50:21 +0000
+   d="scan'208";a="8462711"
+Received: from ip-10-6-6-97.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.6.97])
+  by internal-fra-out-005.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jan 2026 16:50:59 +0000
+Received: from EX19MTAEUA001.ant.amazon.com [54.240.197.233:24157]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.9.185:2525] with esmtp (Farcaster)
+ id 7f63df6a-e714-497a-a74a-daa6c67ccaa5; Mon, 26 Jan 2026 16:50:59 +0000 (UTC)
+X-Farcaster-Flow-ID: 7f63df6a-e714-497a-a74a-daa6c67ccaa5
 Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
- EX19D005EUB002.ant.amazon.com (10.252.51.103) with Microsoft SMTP Server
+ EX19MTAEUA001.ant.amazon.com (10.252.50.50) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Mon, 26 Jan 2026 16:50:20 +0000
+ Mon, 26 Jan 2026 16:50:55 +0000
+Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
+ EX19D005EUB003.ant.amazon.com (10.252.51.31) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
+ Mon, 26 Jan 2026 16:50:55 +0000
 Received: from EX19D005EUB003.ant.amazon.com ([fe80::b825:becb:4b38:da0c]) by
  EX19D005EUB003.ant.amazon.com ([fe80::b825:becb:4b38:da0c%3]) with mapi id
- 15.02.2562.035; Mon, 26 Jan 2026 16:50:20 +0000
+ 15.02.2562.035; Mon, 26 Jan 2026 16:50:55 +0000
 From: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
 To: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org"
 	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
@@ -133,13 +133,13 @@ CC: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net"
 	<jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>,
 	"Manwaring, Derek" <derekmn@amazon.com>, "Cali, Marco"
 	<xmarcalx@amazon.co.uk>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
-Subject: [PATCH v10 08/15] KVM: arm64: define
- kvm_arch_gmem_supports_no_direct_map()
-Thread-Topic: [PATCH v10 08/15] KVM: arm64: define
- kvm_arch_gmem_supports_no_direct_map()
-Thread-Index: AQHcjuPbS80kQwcCmUC50XT6X/2MWg==
-Date: Mon, 26 Jan 2026 16:50:20 +0000
-Message-ID: <20260126164445.11867-9-kalyazin@amazon.com>
+Subject: [PATCH v10 11/15] KVM: selftests: set KVM_MEM_GUEST_MEMFD in
+ vm_mem_add() if guest_memfd != -1
+Thread-Topic: [PATCH v10 11/15] KVM: selftests: set KVM_MEM_GUEST_MEMFD in
+ vm_mem_add() if guest_memfd != -1
+Thread-Index: AQHcjuPwB1du/+4SKEWmYrRFe6KT3g==
+Date: Mon, 26 Jan 2026 16:50:55 +0000
+Message-ID: <20260126164445.11867-12-kalyazin@amazon.com>
 References: <20260126164445.11867-1-kalyazin@amazon.com>
 In-Reply-To: <20260126164445.11867-1-kalyazin@amazon.com>
 Accept-Language: en-GB, en-US
@@ -149,9 +149,8 @@ X-MS-TNEF-Correlator:
 x-originating-ip: [172.19.103.116]
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_085029_447455_DFB22567 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260126_085101_832854_F92BEAF0 
+X-CRM114-Status: GOOD (  13.18  )
 X-Mailman-Approved-At: Tue, 27 Jan 2026 11:35:38 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -171,60 +170,67 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Patrick Roy <patrick.roy@linux.dev>
 
-Support for GUEST_MEMFD_FLAG_NO_DIRECT_MAP on arm64 depends on 1) direct
-map manipulations at 4k granularity being possible, and 2) FEAT_S2FWB.
+Have vm_mem_add() always set KVM_MEM_GUEST_MEMFD in the memslot flags if
+a guest_memfd is passed in as an argument. This eliminates the
+possibility where a guest_memfd instance is passed to vm_mem_add(), but
+it ends up being ignored because the flags argument does not specify
+KVM_MEM_GUEST_MEMFD at the same time.
 
-1) is met whenever the direct map is set up at 4k granularity (e.g. not
- with huge/gigantic pages) at boottime, as due to ARM's
-break-before-make semantics, breaking huge mappings into 4k mappings in
-the direct map is not possible (BBM would require temporary invalidation
-of the entire huge mapping, even if only a 4k subrange should be zapped,
-which will probably crash the kernel). However, the current default for
-rodata_full is true, which forces a 4k direct map.
+This makes it easy to support more scenarios in which no vm_mem_add() is
+not passed a guest_memfd instance, but is expected to allocate one.
+Currently, this only happens if guest_memfd == -1 but flags &
+KVM_MEM_GUEST_MEMFD != 0, but later vm_mem_add() will gain support for
+loading the test code itself into guest_memfd (via
+GUEST_MEMFD_FLAG_MMAP) if requested via a special
+vm_mem_backing_src_type, at which point having to make sure the src_type
+and flags are in-sync becomes cumbersome.
 
-2) is required to allow KVM to elide cache coherency operations when
-installing stage 2 page tables, which require the direct map to be
-entry for the newly mapped memory to be present (which it will not be,
-as guest_memfd would have removed direct map entries in
-kvm_gmem_get_pfn()).
-
-Cc: Will Deacon <will@kernel.org>
 Signed-off-by: Patrick Roy <patrick.roy@linux.dev>
 Signed-off-by: Nikita Kalyazin <kalyazin@amazon.com>
 ---
- arch/arm64/include/asm/kvm_host.h | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ tools/testing/selftests/kvm/lib/kvm_util.c | 24 +++++++++++++---------
+ 1 file changed, 14 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index ac7f970c7883..d431ca7d4fc9 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -19,6 +19,7 @@
- #include <linux/maple_tree.h>
- #include <linux/percpu.h>
- #include <linux/psci.h>
-+#include <linux/set_memory.h>
- #include <asm/arch_gicv3.h>
- #include <asm/barrier.h>
- #include <asm/cpufeature.h>
-@@ -1654,5 +1655,17 @@ static __always_inline enum fgt_group_id __fgt_reg_to_group_id(enum vcpu_sysreg
- 									\
- 		p;							\
- 	})
-+#ifdef CONFIG_KVM_GUEST_MEMFD
-+static inline bool kvm_arch_gmem_supports_no_direct_map(void)
-+{
-+	/*
-+	 * Without FWB, direct map access is needed in kvm_pgtable_stage2_map(),
-+	 * as it calls dcache_clean_inval_poc().
-+	 */
-+	return can_set_direct_map() && cpus_have_final_cap(ARM64_HAS_STAGE2_FWB);
-+}
-+#define kvm_arch_gmem_supports_no_direct_map kvm_arch_gmem_supports_no_direct_map
-+#endif /* CONFIG_KVM_GUEST_MEMFD */
-+
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index 8279b6ced8d2..0a2999d8ef47 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -1057,21 +1057,25 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
  
- #endif /* __ARM64_KVM_HOST_H__ */
+ 	region->backing_src_type = src_type;
+ 
+-	if (flags & KVM_MEM_GUEST_MEMFD) {
+-		if (guest_memfd < 0) {
++	if (guest_memfd < 0) {
++		if (flags & KVM_MEM_GUEST_MEMFD) {
+ 			uint32_t guest_memfd_flags = 0;
+ 			TEST_ASSERT(!guest_memfd_offset,
+ 				    "Offset must be zero when creating new guest_memfd");
+ 			guest_memfd = vm_create_guest_memfd(vm, mem_size, guest_memfd_flags);
+-		} else {
+-			/*
+-			 * Install a unique fd for each memslot so that the fd
+-			 * can be closed when the region is deleted without
+-			 * needing to track if the fd is owned by the framework
+-			 * or by the caller.
+-			 */
+-			guest_memfd = kvm_dup(guest_memfd);
+ 		}
++	} else {
++		/*
++		 * Install a unique fd for each memslot so that the fd
++		 * can be closed when the region is deleted without
++		 * needing to track if the fd is owned by the framework
++		 * or by the caller.
++		 */
++		guest_memfd = kvm_dup(guest_memfd);
++	}
++
++	if (guest_memfd >= 0) {
++		flags |= KVM_MEM_GUEST_MEMFD;
+ 
+ 		region->region.guest_memfd = guest_memfd;
+ 		region->region.guest_memfd_offset = guest_memfd_offset;
 -- 
 2.50.1
 
