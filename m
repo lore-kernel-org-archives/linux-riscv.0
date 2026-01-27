@@ -4,79 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43968D2F00A
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 12:23:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B90D2F000
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 12:38:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fsZKLktfwjsDlFv59oqmLjLgAOXs1o9azi+dAuMHRxo=; b=rCvnprJtUddJSj
-	7obc/QSjyNiajaRudl88byuxv1Zh1BaMcApr7qidCLQJJIHipISLJRCnrbmMs3MdasYVWK7b1eHtz
-	92iQeeiKQz5vTsnCrr38KgvcTsYVY/8k9A9K2iJHbJUpLCtL0Dx9fmOYsN2wOLPRnMrgsBai1QKYL
-	AejMq9rsP1fW6MQUVEVgz9LllMH2HVKGj5+YzI5TJXkPK4EXLP3l7kd6FXwn0V3UZvgDQ54i8BeAf
-	0vZ0V4w21o2KMa0A3N1QiRuan2vVQzSLhz/qIaP8jidDkhNFHhTQJQu2MYqwNGiKmhtJbZNrXCRJK
-	+wghFZ7oHTeF2SgfiNww==;
+	List-Owner; bh=ErJCHZaFD5zh7lOQi57pBnzxfmIEUwy8kuv/SXvEY08=; b=JtRLLqFkIIA2+1
+	DIkj1k1dc6jZydGLTChVi3In7hADRvh/k8aIQEWhOv7z+BbEkUBA6Zq06kmCNNgDFvB4Zx73CntZ9
+	1emV2JJMH6sNQnkyfQm5+KSEporo5kNrtgaFpFal+xlZ67cOkVHrm1Vvpn0AAOwmIR3+dFWYKOX11
+	DzrQT4k17NJOlVC2T4kiRugOuH+7G1gcKe7Lhuox6EPmAsTXEN00C37UKTk30Ca1d/LLXOPT/YP3Z
+	8egQmoCuoeR+XRsGJ7mAWtIn/SOca7Usbe0E1PrCaWb4SB1ehpaGIuKHOHdW0Bhmjscy7gYgZ5tXf
+	Yl7ioO2hwuWWoDu0fE2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vki5s-0000000EEqH-1Ayj;
-	Tue, 27 Jan 2026 12:22:52 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1vkiKY-0000000EFzT-3FPt;
+	Tue, 27 Jan 2026 12:38:02 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vki5o-0000000EEnF-1pUE
-	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jan 2026 12:22:51 +0000
-Received: from duge-virtual-machine (unknown [183.192.223.177])
-	by APP-03 (Coremail) with SMTP id rQCowACHqN8MrnhpMuD1Bg--.48031S2;
-	Tue, 27 Jan 2026 20:22:38 +0800 (CST)
-Date: Tue, 27 Jan 2026 20:22:36 +0800
-From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-To: Xukai Wang <kingxukai@zohomail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Troy Mitchell <TroyMitchell988@gmail.com>
-Subject: Re: [PATCH v10 2/3] clk: canaan: Add clock driver for Canaan K230
-Message-ID: <aXiuDAO7I6urJj09@duge-virtual-machine>
-References: <20260116-b4-k230-clk-v10-0-de59033c5d30@zohomail.com>
- <20260116-b4-k230-clk-v10-2-de59033c5d30@zohomail.com>
- <aW3o8xVziqb9iRBN@duge-virtual-machine>
- <bf39fdb8-6698-418b-bd4a-6d8d40ccc9a0@zohomail.com>
- <aXJJ3MjQSq8Rq084@duge-virtual-machine>
- <0af969a7-3579-4303-b302-f171ef02a163@zohomail.com>
+	id 1vkiKW-0000000EFyy-0OtS;
+	Tue, 27 Jan 2026 12:38:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769517480; x=1801053480;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=klfkji3dA/BcUEdcu+FxnfdCOIEKdGDNWQxxFEl3RVo=;
+  b=YOqlorJayQI0YpOX5GuAk3afTYJmdYTtCx+NZ8Lu0KMM5LvK1dJNgO6p
+   TBVHJfPe5/RK+CioOTI2XJAZDkIYEFCdfSqtNaFfGghIYNfrkZxpTWajc
+   k9nMmkMBqvjpW9vgHtNioIAeVfjMRNP4yxwBG0eMTbO5OSVfesYzkpkhQ
+   9dW3ubz99WoTzYCrnQNB+wRFAa4TyneIqTMoTtTKcQpjQmGGxibByvvx0
+   mU++A50jLoORoMQWymNBGWBIuxz9R0hYJdtX5ts0hFq26RxdWfNBYlqhL
+   KBhCAJrafDYcr3jXyDUNkXWxMf8m4vY4HJEOqDehVRm6oI3gQgOx5h2eI
+   A==;
+X-CSE-ConnectionGUID: 3MClT9ogS+SFkTnQuiZbsQ==
+X-CSE-MsgGUID: JpKEuTNNTv+wgbhcGqJw0g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="70800478"
+X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
+   d="scan'208";a="70800478"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 04:37:59 -0800
+X-CSE-ConnectionGUID: XD0hjFQVSYCELvfSH4zETw==
+X-CSE-MsgGUID: i7897sFcR2+Dl89FbwtX+g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
+   d="scan'208";a="207863450"
+Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.240.14]) ([10.124.240.14])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 04:37:52 -0800
+Message-ID: <a97ff1d6-7712-4315-95ff-4079ffc752f7@linux.intel.com>
+Date: Tue, 27 Jan 2026 20:37:48 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0af969a7-3579-4303-b302-f171ef02a163@zohomail.com>
-X-CM-TRANSID: rQCowACHqN8MrnhpMuD1Bg--.48031S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxGr15tFyUArW5XF48uFWrAFb_yoW5trW3p3
-	97XF18CFWDGw1I9F1qvw47J34DtFs8ta1UGF93JFykJwnrA34jqF129w40gFWjvr4xCF4j
-	yr48twn0vFW2yw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxUqiFxDUUUU
-X-Originating-IP: [183.192.223.177]
-X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Patch v2 1/3] perf arch: Update arch headers to use relative
+ UAPI paths
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+ James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>,
+ Guo Ren <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Zide Chen <zide.chen@intel.com>,
+ Falcon Thomas <thomas.falcon@intel.com>, Dapeng Mi <dapeng1.mi@intel.com>,
+ Xudong Hao <xudong.hao@intel.com>
+References: <20260127070259.2720468-1-dapeng1.mi@linux.intel.com>
+ <20260127070259.2720468-2-dapeng1.mi@linux.intel.com>
+Content-Language: en-US
+From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
+In-Reply-To: <20260127070259.2720468-2-dapeng1.mi@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_042248_853145_1ACF2DE0 
-X-CRM114-Status: GOOD (  24.75  )
+X-CRM114-CacheID: sfid-20260127_043800_155159_D365ED2D 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,106 +93,157 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 27, 2026 at 07:03:59PM +0800, Xukai Wang wrote:
-> =
 
-> On 2026/1/23 00:01, Jiayu Du wrote:
-> > On Thu, Jan 22, 2026 at 07:40:29PM +0800, Xukai Wang wrote:
-> >> On 2026/1/19 16:18, Jiayu Du wrote:
-> >>>> +
-> >>>> +K230_CLK_GATE_FORMAT(hs_hclk_src_gate,
-> >>>> +		     K230_HS_HCLK_SRC_GATE,
-> >>>> +		     0x18, 0, 0, 0,
-> >>>> +		     &hs_hclk_high_src_rate.clk.hw);
-> >>> Here, you replaced hs_hclk_high_gate(in v9) with hs_hclk_high_src_rat=
-e,
-> >> I'm a bit confused, as I don't recall making these specific changes.
-> >> Looking at the code below, the only difference between v9 and v10 is
-> >> within the K230_CLK_GATE_FORMAT(hs_hclk_src_gate, ...) definition, whe=
-re
-> >> the second parameter changed from 1 to 0. Everything else appears
-> >> consistent. Could you clarify which change you were referring to?
-> >>> but after my board test, I find that when hs_hclk_high_gate is turned
-> >>> off, the mmc/sd and other high-speed subsystems can not work. So maybe
-> >>> you should not change the hs_hclk_high_gate to hs_hclk_high_src_rate.
-> >> Regarding the clock management, I recommend explicitly enabling
-> >> hs_hclk_high_gateas it will be closed by `close unused clocks`.
-> > Sorry, you are right. It was me who made the changes locally. And I
-> > saw your reply to this email[1], which you said According to the vendor=
-'s
-> > code, the parent clock of hs_hclk_src is hs_hclk_high_src.
-> >
-> > Indeed, the parent clock of hs_hclk_src is hs_hclk_high_src. =
+On 1/27/2026 3:02 PM, Dapeng Mi wrote:
+> The architectural specific headers perf_regs.h currently rely on the
+> host architecture's 'asm/perf_regs.h'. This can lead to compilation
+> inconsistencies or failures when including and building perf for a
+> target architecture that differs from the host's architecture.
+>
+> Explicitly point to the UAPI headers within the tools source tree using
+> relative paths. This ensures that perf is always built against the
+> intended architecture.
+>
+> No functional changes are intended.
+>
+> Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+> ---
+>  tools/perf/arch/arm/include/perf_regs.h       | 2 +-
+>  tools/perf/arch/arm64/include/perf_regs.h     | 2 +-
+>  tools/perf/arch/csky/include/perf_regs.h      | 1 +
+>  tools/perf/arch/loongarch/include/perf_regs.h | 2 +-
+>  tools/perf/arch/mips/include/perf_regs.h      | 2 +-
+>  tools/perf/arch/powerpc/include/perf_regs.h   | 2 +-
+>  tools/perf/arch/riscv/include/perf_regs.h     | 2 +-
+>  tools/perf/arch/s390/include/perf_regs.h      | 2 +-
+>  tools/perf/arch/x86/include/perf_regs.h       | 2 +-
+>  9 files changed, 9 insertions(+), 8 deletions(-)
+>
+> diff --git a/tools/perf/arch/arm/include/perf_regs.h b/tools/perf/arch/arm/include/perf_regs.h
+> index 75ce1c370114..20c54766e3a0 100644
+> --- a/tools/perf/arch/arm/include/perf_regs.h
+> +++ b/tools/perf/arch/arm/include/perf_regs.h
+> @@ -4,7 +4,7 @@
+>  
+>  #include <stdlib.h>
+>  #include <linux/types.h>
+> -#include <asm/perf_regs.h>
+> +#include "../../../../arch/arm/include/uapi/asm/perf_regs.h"
+>  
+>  void perf_regs_load(u64 *regs);
+>  
+> diff --git a/tools/perf/arch/arm64/include/perf_regs.h b/tools/perf/arch/arm64/include/perf_regs.h
+> index 58639ee9f7ea..372f2565a9dd 100644
+> --- a/tools/perf/arch/arm64/include/perf_regs.h
+> +++ b/tools/perf/arch/arm64/include/perf_regs.h
+> @@ -5,7 +5,7 @@
+>  #include <stdlib.h>
+>  #include <linux/types.h>
+>  #define perf_event_arm_regs perf_event_arm64_regs
+> -#include <asm/perf_regs.h>
+> +#include "../../../../arch/arm64/include/uapi/asm/perf_regs.h"
+>  #undef perf_event_arm_regs
+>  
+>  void perf_regs_load(u64 *regs);
+> diff --git a/tools/perf/arch/csky/include/perf_regs.h b/tools/perf/arch/csky/include/perf_regs.h
+> index 076c7746c8a2..9520e6aa319e 100644
+> --- a/tools/perf/arch/csky/include/perf_regs.h
+> +++ b/tools/perf/arch/csky/include/perf_regs.h
+> @@ -7,6 +7,7 @@
+>  #include <stdlib.h>
+>  #include <linux/types.h>
+>  #include <asm/perf_regs.h>
 
-> =
-
-> > but hs_hclk_high_gate is the gate of hs_hclk_high_src. =
-
-> =
-
-> No. It seems there is some confusion. The hs_hclk_high_src does not have
-> a gate.
-
-In this code segment of the vendor[1], it states that hs_hclk_high is
-indeed the downstream gate of hs_hclk_high_src. Once hs_hclk_high is turned
-off, all the high-speed peripherals such as USB, MMC, and SD will fail.
-This indicates that in the hardware, the gate bit1 actually controls the
-overall clock switch of the high speed system.
-
-I understand that hs_sd0/1_ahb_gate should be enabled during the SD driver
-probe, and hs_usb0/1_ahb_gate should be enabled during the USB driver probe,
-but currently there is NO clear driver to ENABLE hi_hclk_high_gate. =
+Oops, the above line was not removed. Would remove it in next version.
 
 
-So in your code, I think hs_hclk_high_gate should be the gate of =
-
-hs_hclk_high_src_rate. And hs_hclk_high_gate should be the parent of
-hs_hclk_src_gate.
-
-link: https://github.com/kendryte/k230_sdk/blob/main/src/little/linux/arch/=
-riscv/boot/dts/kendryte/clock_provider.dtsi#L497 [1]
-
-> =
-
-> The clock tree is as follow:
-> =
-
-> =A0 =A0 =A0 =A0pll0_div4
-> =A0 =A0 =A0 =A0 =A0 hs_hclk_high_src_rate
-> =A0 =A0 =A0 =A0 =A0 =A0 =A0hs_hclk_high_gate
-> =A0 =A0 =A0 =A0 =A0 =A0 =A0hs_hclk_src_gate
-> =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 hs_hclk_src_rate
-> =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0hs_sd0_ahb_gate
-> =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0hs_sd1_ahb_gate
-> =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0hs_ssi1_ahb_gate
-> =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0hs_ssi2_ahb_gate
-> =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0hs_usb0_ahb_gate
-> =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0hs_usb1_ahb_gate
-> =
-
-> > So, what you mean is
-> > that you will add the CLK_IS_CRITICAL flag to the hs_hclk_high_gate?
-> No, I don't intend to add CLK_IS_CRITICAL flag. Instead, I recommend you
-> to explicitly enable the clock by using clk_prepare_enable in your driver.
-
-I think there is NO clear driver to ENABLE hi_hclk_high_gate.
-
-Regards,
-Jiayu Du
-
-> >
-> > Link: https://lore.kernel.org/all/159615d3-cc52-43be-bf6d-5fe717ef1cc4@=
-zohomail.com/ [1]
-> >
-> > Regards,
-> > Jiayu Du
-> >
-
+> +#include "../../../../arch/csky/include/uapi/asm/perf_regs.h"
+>  
+>  #define PERF_REGS_MASK	((1ULL << PERF_REG_CSKY_MAX) - 1)
+>  #define PERF_REGS_MAX	PERF_REG_CSKY_MAX
+> diff --git a/tools/perf/arch/loongarch/include/perf_regs.h b/tools/perf/arch/loongarch/include/perf_regs.h
+> index 45c799fa5330..b86078a55e90 100644
+> --- a/tools/perf/arch/loongarch/include/perf_regs.h
+> +++ b/tools/perf/arch/loongarch/include/perf_regs.h
+> @@ -4,7 +4,7 @@
+>  
+>  #include <stdlib.h>
+>  #include <linux/types.h>
+> -#include <asm/perf_regs.h>
+> +#include "../../../../arch/loongarch/include/uapi/asm/perf_regs.h"
+>  
+>  #define PERF_REGS_MAX PERF_REG_LOONGARCH_MAX
+>  
+> diff --git a/tools/perf/arch/mips/include/perf_regs.h b/tools/perf/arch/mips/include/perf_regs.h
+> index 7082e91e0ed1..66655f0c4fea 100644
+> --- a/tools/perf/arch/mips/include/perf_regs.h
+> +++ b/tools/perf/arch/mips/include/perf_regs.h
+> @@ -4,7 +4,7 @@
+>  
+>  #include <stdlib.h>
+>  #include <linux/types.h>
+> -#include <asm/perf_regs.h>
+> +#include "../../../../arch/mips/include/uapi/asm/perf_regs.h"
+>  
+>  #define PERF_REGS_MAX PERF_REG_MIPS_MAX
+>  
+> diff --git a/tools/perf/arch/powerpc/include/perf_regs.h b/tools/perf/arch/powerpc/include/perf_regs.h
+> index 1c66f6ba6773..22b492a3dd58 100644
+> --- a/tools/perf/arch/powerpc/include/perf_regs.h
+> +++ b/tools/perf/arch/powerpc/include/perf_regs.h
+> @@ -4,7 +4,7 @@
+>  
+>  #include <stdlib.h>
+>  #include <linux/types.h>
+> -#include <asm/perf_regs.h>
+> +#include "../../../../arch/powerpc/include/uapi/asm/perf_regs.h"
+>  
+>  void perf_regs_load(u64 *regs);
+>  
+> diff --git a/tools/perf/arch/riscv/include/perf_regs.h b/tools/perf/arch/riscv/include/perf_regs.h
+> index d482edb413e5..89d5bbb8d2b8 100644
+> --- a/tools/perf/arch/riscv/include/perf_regs.h
+> +++ b/tools/perf/arch/riscv/include/perf_regs.h
+> @@ -6,7 +6,7 @@
+>  
+>  #include <stdlib.h>
+>  #include <linux/types.h>
+> -#include <asm/perf_regs.h>
+> +#include "../../../../arch/riscv/include/uapi/asm/perf_regs.h"
+>  
+>  #define PERF_REGS_MASK	((1ULL << PERF_REG_RISCV_MAX) - 1)
+>  #define PERF_REGS_MAX	PERF_REG_RISCV_MAX
+> diff --git a/tools/perf/arch/s390/include/perf_regs.h b/tools/perf/arch/s390/include/perf_regs.h
+> index 130dfad2b96a..9c95589965fe 100644
+> --- a/tools/perf/arch/s390/include/perf_regs.h
+> +++ b/tools/perf/arch/s390/include/perf_regs.h
+> @@ -3,7 +3,7 @@
+>  
+>  #include <stdlib.h>
+>  #include <linux/types.h>
+> -#include <asm/perf_regs.h>
+> +#include "../../../../arch/s390/include/uapi/asm/perf_regs.h"
+>  
+>  void perf_regs_load(u64 *regs);
+>  
+> diff --git a/tools/perf/arch/x86/include/perf_regs.h b/tools/perf/arch/x86/include/perf_regs.h
+> index f209ce2c1dd9..5495e5ca7cdc 100644
+> --- a/tools/perf/arch/x86/include/perf_regs.h
+> +++ b/tools/perf/arch/x86/include/perf_regs.h
+> @@ -4,7 +4,7 @@
+>  
+>  #include <stdlib.h>
+>  #include <linux/types.h>
+> -#include <asm/perf_regs.h>
+> +#include "../../../../arch/x86/include/uapi/asm/perf_regs.h"
+>  
+>  void perf_regs_load(u64 *regs);
+>  
 
 _______________________________________________
 linux-riscv mailing list
