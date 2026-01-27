@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E18EAD2FED9
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 18:59:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B16D2FED2
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 19:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Cc:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aZNi7rF5ER5pHMD+HG9+/bZTZsKT5Iwk9xbbgr4nxJk=; b=YzmCkAZgSXGi9PXuBCdeTPWfKs
-	ipMJH3GL7ouGEbgfCI/DyPIKlKTO9tVDpYFGCUHQdDOY/RHQCDtmR9wyRGTzHRq7pf6V2YzaqQmdi
-	lKLVayGbtGoPEdTWsyN/uSsHI3G+1qZnU+4GVloWYp6luQEdN2VBDeUP3UyaGKIryEHHsxEAfbj/x
-	yWOSMhEcerK0x/dS2Km7tpzvWVkdFrsfcz7P/DaKp80unapGspJ9HELWB34dEqbq75Ff8UPWujAsx
-	z7cuqlQ77wqYqhF+tVSq5dfSeXk3TT5bxYF66gTRlgVO/u0HtBaOASMRWHDoeC3PUzP/DLs+tt4lE
-	3oqmBeiA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WkIK2k3Tw6jOlqE8/muxMMR5i2BgwsxmehabEMthIec=; b=r7QwD/UATEJtYd
+	rvsPR4fqWPxdRjiJ+NBc76lyhp+Dw4r1z68LHrUXtW2HomDS7hdCqa91tstQ1Xd8PgsyoAo/aA8jE
+	NPADUdA69jIiK3ZipEYEUlqLXk4GrJ7sF1UzX57eyMatW9sSdnWmcT8UkgM5Rw0xb5cWWdjrep9Fz
+	r339U9Iud0r9JNRmUzLIxuTUhJEPrwQZmUqZ2JBZFSZHdFNBBXDmd5t3ZWxWfynLbk55Bs7AfvCzo
+	ZkKHFYQ+y2idzc0d8+FVso7J8vlVZwvUT+qyo9eJnO/W93F1E+Qcv4tenU/HNB7bsn+Zi2CglNaS9
+	r2b/yf6Kq8N2R0RcxnCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkoHN-0000000Es9Q-1OnL;
-	Tue, 27 Jan 2026 18:59:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vkoPZ-0000000EspN-29TQ;
+	Tue, 27 Jan 2026 19:07:37 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkoHK-0000000Es8p-3jGK
+	id 1vkoPV-0000000Eso1-2LkW
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jan 2026 18:59:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 30B2443FDB;
-	Tue, 27 Jan 2026 18:59:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CA81C116C6;
-	Tue, 27 Jan 2026 18:59:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769540346;
-	bh=RNmO6INJrf6vBZOIGgzqhzcFiKfgOZ5TeFz3FBzqLHw=;
-	h=Date:From:To:Subject:References:In-Reply-To:From;
-	b=cWXAZ33QRRnZkydpJVvnUSoHkk8cxWYejV8/TPs8NZD0o8n+tA5Gm0fblbii+5VGc
-	 zE3lmp4kPGZWOrVbzafwOENhHCHGueS8GLOFS/U2h5jDuhGclzkVJqTybpK7HgVVkA
-	 NCDGysIFqGpSOGwldCYwZ54m1x0jeANTKg8dfnTkt2o7wGOSY3y/uZE0lCJ26s0TII
-	 hwvPUU4rdUkDTaX5h2uxp2LB+6cty8MZrPBeWQh0abyILSKhQKFi0hSvh6XxFw0qJz
-	 jNnp5eYhRL4LDUw71ZpWrlO6Wfl+b7E5lE6Jaq+XTvEbep4gk7b6iKXUBbDOLIPPVO
-	 2aMucMFWV9IXA==
-Date: Tue, 27 Jan 2026 18:58:59 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>, linux-sound@vger.kernel.org,
-	sophgo@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/2] ASoC: sophgo: cv1800b: document DAC overwrite
- handling
-Message-ID: <f5a0646e-f21d-48a2-8a57-e47db794a327@sirena.org.uk>
-References: <20260127-incremental-for-i2s-dvier-v1-0-431b809c632d@gmail.com>
- <20260127-incremental-for-i2s-dvier-v1-1-431b809c632d@gmail.com>
- <6f1d8478-c2b6-4966-b339-47c4d55fe7c8@sirena.org.uk>
- <aXkKfZDyG1uxDsD0@anton.local>
+	Tue, 27 Jan 2026 19:07:35 +0000
+Received: from localhost.localdomain (unknown [223.166.92.103])
+	by APP-05 (Coremail) with SMTP id zQCowACXKAziDHlpfVrMBg--.4489S2;
+	Wed, 28 Jan 2026 03:07:23 +0800 (CST)
+From: Han Gao <gaohan@iscas.ac.cn>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Han Gao <gaohan@iscas.ac.cn>,
+	Guo Ren <guoren@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Han Gao <rabenda.cn@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] riscv: compat: fix COMPAT_UTS_MACHINE definition
+Date: Wed, 28 Jan 2026 03:07:11 +0800
+Message-ID: <20260127190711.2264664-1-gaohan@iscas.ac.cn>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-In-Reply-To: <aXkKfZDyG1uxDsD0@anton.local>
-X-Cookie: I brake for chezlogs!
+X-CM-TRANSID: zQCowACXKAziDHlpfVrMBg--.4489S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtrW3GFy7tr4kJw4Utw1fZwb_yoW3Krc_C3
+	4xJa97ZayrAFWIyFnrAan5Ar1qg3y0qryDWrn8JryUCFn8uFnrXa9Fk3y7Aw4YkrsxWFWx
+	AayrtrW3tw17ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb3AFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr
+	0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
+	6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
+	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
+	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
+	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
+	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r
+	1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_
+	JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCT
+	nIWIevJa73UjIFyTuYvjfUonmRUUUUU
+X-Originating-IP: [223.166.92.103]
+X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiBwkADGl41E9yrAAAsW
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_105906_945570_6ECCFFCC 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20260127_110733_982798_35E58351 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,63 +80,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6968163609639411379=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The COMPAT_UTS_MACHINE for riscv was incorrectly defined as "riscv".
+Change it to "riscv32" to reflect the correct 32-bit compat name.
 
---===============6968163609639411379==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8LAMoqXCOpm9loGG"
-Content-Disposition: inline
+Fixes: 06d0e3723647 ("riscv: compat: Add basic compat data type implementation")
+Cc: stable@vger.kernel.org
 
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+---
+ arch/riscv/include/asm/compat.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
---8LAMoqXCOpm9loGG
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+diff --git a/arch/riscv/include/asm/compat.h b/arch/riscv/include/asm/compat.h
+index 6081327e55f5..28e115eed218 100644
+--- a/arch/riscv/include/asm/compat.h
++++ b/arch/riscv/include/asm/compat.h
+@@ -2,7 +2,7 @@
+ #ifndef __ASM_COMPAT_H
+ #define __ASM_COMPAT_H
+ 
+-#define COMPAT_UTS_MACHINE	"riscv\0\0"
++#define COMPAT_UTS_MACHINE	"riscv32\0\0"
+ 
+ /*
+  * Architecture specific compatibility types
+-- 
+2.47.3
 
-On Tue, Jan 27, 2026 at 10:57:43PM +0400, Anton D. Stavinskii wrote:
-> On Tue, Jan 27, 2026 at 06:49:14PM +0400, Mark Brown wrote:
-
-> > You've not provided a Signed-off-by for this so I can't do anything with
-> > it, please see Documentation/process/submitting-patches.rst for details
-> > on what this is and why it's important.
-
-> Sorry. I was relying on b4 prep --check. Looks like it was wrong. Should
-> I resend as v1?=20
-
-Probably easiest to just resend - sending as v2 is fine and probably
-less likely to confuse tools.
-
---8LAMoqXCOpm9loGG
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAml5CvIACgkQJNaLcl1U
-h9ColAf/fkgnBF6kRiud7owt/zoAhQrLAMNQlUlFwskWevHmn16QwdOmfa4p8Zxz
-iZ7aUK2l72TqSnLGeGTsQaN0b6F/95fIQKv6HHN3IpFapf6PQ/yRqRr18cZiXoEG
-IRZOwmrxHOeym/3pg/Ebsz6aOAXfOorDiZEx7rJo1MFVy82YuXbSNcjTgruQsPmV
-lTvtFv+F2E97fkAwjVLqbGcbBpmXcP37NoPD15fYIPyipUCijusaHEdeHEcj4XvS
-K19zqmoS4Ay8XVe723/HPS6787jIo3tKuPDhDGv7xKbIPG+egQ+w5vifCEpuA1Y3
-Ev54KUVRptPiGGTomsb6qOlTWeGmCQ==
-=6QcR
------END PGP SIGNATURE-----
-
---8LAMoqXCOpm9loGG--
-
-
---===============6968163609639411379==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6968163609639411379==--
-
