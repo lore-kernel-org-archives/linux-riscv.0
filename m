@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F494D25920
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 02:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE1AD25932
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 04:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=sJmhCwrB0rySooG9EQxZiF3JpPeuQ570dIS/VCiqYT4=; b=1aSyfkXLpxxKOe
-	Ax4GAEEXyjESgxaIxYKpx8PfMav4tWDHEIxwkQq93GnLepdzdCE0wpqTtMG4Pt8ARGKpuLthLUGcT
-	ETclVcuhxHUeuwOusH0mD0YkWk1/df5c0YLOn1DujmCTxhNm6tVFjtQ6Dbyo7q2+/nN4iIR/mi97j
-	6W9Hbm7lypBd2rmqU21du2hCQQBGRJbBAAVPrgz8dM0QPwF/Q1TSofeiYTpXgj0W+z64+MO290Cfc
-	+r39sjSHaNpVK5/395BX+yw4AXczfmucanSWkm9NhusyNMHXYJz8EINNlw49iMhz2gVkm1FMCKrH7
-	R6JVmnHfDkV3+nzaZ25A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yDmTms1kCWHzpONMEfhrjiA/rc2WOewbf33sYHbv5Ac=; b=Zfuf90RPs5m1mf
+	BrL6j/ibvpoiT1wxbtitwz+p5ROE1M3N3SeWMtPnmX9kkxpPmaEcaLk0TVfjU2tL5+I3Iy42VjaOb
+	qq2OYWdXgFGnyKZZfx3k2j5ed76PRxNRQqiXWSZx5tqdIWLKwpdfQerPyebwSHlezD04ZjRumq9iR
+	y4cU1WU8/wosaonbEzhTAAdQD9y8V32Wao9jl1ptSOy7FoDGQFwO6FN52ZLSRB4CmpJwtv3QkKxpo
+	uVSheRsqLWtCrH6fDoNKDVTFFFik1JLmoFvYXACIZWKY3zLfwSWRTxENKA4HbM82QQk2+gDE73alU
+	fiSrSQlsyT2umeDIwNdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkZIG-0000000DXYN-3vRZ;
-	Tue, 27 Jan 2026 02:59:05 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vkaFX-0000000DcpO-0A5b;
+	Tue, 27 Jan 2026 04:00:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkZID-0000000DXXv-0ipu
+	id 1vkaFU-0000000Dcp3-41W9
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jan 2026 02:59:03 +0000
-Received: from [127.0.0.2] (unknown [210.73.43.101])
-	by APP-01 (Coremail) with SMTP id qwCowACHMGzqKXhpDppkBg--.41488S2;
-	Tue, 27 Jan 2026 10:58:50 +0800 (CST)
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Tue, 27 Jan 2026 10:58:49 +0800
-Subject: [PATCH] gpio: spacemit-k1: Use PDR for pin direction, not SDR/CDR
+	Tue, 27 Jan 2026 04:00:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 38FE9444C5;
+	Tue, 27 Jan 2026 04:00:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18C93C116C6;
+	Tue, 27 Jan 2026 04:00:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769486415;
+	bh=/dnKUp4g2owUpoadHslNe+UnWeyhp45Dv0N1zbazH/0=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=h0OsIkyVYOsuapZYA1CVXBKpZ3J91N3a8QTzY3NuQzqhl4duy8HC5TKr0IcRMQinz
+	 ClbqsZyNjpWaaUmsAfqAjfeSOy1Ro5z+wiKH8rjouCKGHTMhNDd62qFMk5Q2PLrv30
+	 3jjlt7rXW8sSCJNjP4FtyWpZTnBAHN6Pmmo51M6en+Pzw0ynd57CSUc69Dlf0AVp1c
+	 0NZ+eHz5l2B2T917CkaT5sSkTjXZKyykXN92jnP0xC7TkGjHtqE5MXigcsEJ2DwiVn
+	 jaD6yfy/ZTUk0fEkOs9T7pk7E88/5qiJnVWVevAYlitEcq64AuSTk1DCY2lAy/bYYE
+	 ngTbJAoMQuAbA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 8BBA8380A961;
+	Tue, 27 Jan 2026 04:00:10 +0000 (UTC)
 MIME-Version: 1.0
-Message-Id: <20260127-gpio-spacemit-k1-pdr-v1-1-bb868a517dbc@iscas.ac.cn>
-X-B4-Tracking: v=1; b=H4sIAOgpeGkC/yWN2wqDMBBEf0X2uQETm4v9leLDJlltKGqa2FIQ/
- 71LhXk5A3Nmh0olUYVbs0OhT6ppXRjkpYHwwGUikSIzqFaZViorppxWUTMGmtMmnlLkWES0Ujv
- nTYx9CzzNhcb0/Wvvw8mFXm+2b2cJHiuJsM4suTUdGuw4Y7iSdMRfhKMJSjutO69RWt9LYy0Mx
- /EDxHggCrIAAAA=
-X-Change-ID: 20260127-gpio-spacemit-k1-pdr-d71588b6dd90
-To: Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Alex Elder <elder@riscstar.com>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Vivian Wang <wangruikang@iscas.ac.cn>
-X-Mailer: b4 0.14.3
-X-CM-TRANSID: qwCowACHMGzqKXhpDppkBg--.41488S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxAF1UZF1UGry7JF1rCF4Uurg_yoW5ury3pF
-	Wru3savF45JFWUtFnFvFnrZF4fCan7tFnxAF42grW8Zwn0qFyktr48tF93XFy5ZFyrZr42
-	qr4DKr18C3ZrAw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9K14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
-	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r4UMxAIw28IcxkI7VAKI4
-	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
-	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjx
-	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20E
-	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
-	AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjfUO6pPUUUUU
-X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+Subject: Re: [PATCH net v3] net: spacemit: Check for netif_carrier_ok() in
+ emac_stats_update()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176948640910.677485.7954248952886250088.git-patchwork-notify@kernel.org>
+Date: Tue, 27 Jan 2026 04:00:09 +0000
+References: <20260123-k1-ethernet-clarify-stat-timeout-v3-1-93b9df627e87@iscas.ac.cn>
+In-Reply-To: <20260123-k1-ethernet-clarify-stat-timeout-v3-1-93b9df627e87@iscas.ac.cn>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, dlan@gentoo.org,
+ vadim.fedorenko@linux.dev, maxime.chevallier@bootlin.com, pjw@kernel.org,
+ palmer@dabbelt.com, alex@ghiti.fr, troy.mitchell@linux.spacemit.com,
+ amadeus@jmu.edu.cn, michael.opdenacker@rootcommit.com,
+ netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_185901_585588_EC13A2C2 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20260126_200017_022105_3F946E65 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,83 +81,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On the SpacemiT GPIO controller, the direction control register PDR is
-readable and writable [1]. Therefore, implement direction control by
-using PDR as dirout, and don't mark it as unreadable.
+Hello:
 
-The original implementation, using SDR as dirout and CDR as dirin, is
-not actually a supported configuration by gpio-mmio. The hardware
-supports changing the direction of some pins atomically by writing a
-value with the corresponding bits set to SDR (set as output) or to CDR
-(set as input). However, gpio-mmio does not actually handle this.
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Using only PDR as dirout to match the expectations of gpio-mmio. This
-also allows us to avoid clobbering potentially important GPIO direction
-configurations set by pre-Linux boot stages.
+On Fri, 23 Jan 2026 11:52:23 +0800 you wrote:
+> Some PHYs stop the refclk for power saving, usually while link down.
+> This causes reading stats to time out.
+> 
+> Therefore, in emac_stats_update(), also don't update and reschedule if
+> !netif_carrier_ok(). But that means we could be missing later updates if
+> the link comes back up, so also reschedule when link up is detected in
+> emac_adjust_link().
+> 
+> [...]
 
-Found while trying to add PCIe support to OrangePi RV2, where the
-regulator (controlled by GPIO 116) turns off on boot while some other
-GPIO pin in the same bank is touched, which is not desirable.
+Here is the summary with links:
+  - [net,v3] net: spacemit: Check for netif_carrier_ok() in emac_stats_update()
+    https://git.kernel.org/netdev/net/c/2c84959167d6
 
-Link: https://developer.spacemit.com/documentation?token=Rn9Kw3iFHirAMgkIpTAcV2Arnkf#18.4-gpio # [1]
-Fixes: d00553240ef8 ("gpio: spacemit: add support for K1 SoC")
-Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
----
-Tested on K1 only - help with K3 testing would be appreciated.
-
-Backporting this looks like it would be annoying. Unsure about whether
-it would be necessary.
-
-Of course the PCIe 3.3V regulator still needs to described properly in
-the future DTS update for OrangePi RV2, but IIUC this avoids having the
-regulator briefly powering off? In any case, being able to read the
-direction is still an improvement.
----
- drivers/gpio/gpio-spacemit-k1.c | 9 +++------
- 1 file changed, 3 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/gpio/gpio-spacemit-k1.c b/drivers/gpio/gpio-spacemit-k1.c
-index 8f570a1a4894..dbd2e81094b9 100644
---- a/drivers/gpio/gpio-spacemit-k1.c
-+++ b/drivers/gpio/gpio-spacemit-k1.c
-@@ -199,7 +199,7 @@ static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
- 	struct gpio_chip *gc = &gb->chip.gc;
- 	struct device *dev = sg->dev;
- 	struct gpio_irq_chip *girq;
--	void __iomem *dat, *set, *clr, *dirin, *dirout;
-+	void __iomem *dat, *set, *clr, *dirout;
- 	int ret;
- 
- 	gb->base = regs + sg->data->bank_offsets[index];
-@@ -208,8 +208,7 @@ static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
- 	dat	= gb->base + to_spacemit_gpio_regs(gb)[SPACEMIT_GPLR];
- 	set	= gb->base + to_spacemit_gpio_regs(gb)[SPACEMIT_GPSR];
- 	clr	= gb->base + to_spacemit_gpio_regs(gb)[SPACEMIT_GPCR];
--	dirin	= gb->base + to_spacemit_gpio_regs(gb)[SPACEMIT_GCDR];
--	dirout	= gb->base + to_spacemit_gpio_regs(gb)[SPACEMIT_GSDR];
-+	dirout	= gb->base + to_spacemit_gpio_regs(gb)[SPACEMIT_GPDR];
- 
- 	config = (struct gpio_generic_chip_config) {
- 		.dev = dev,
-@@ -218,9 +217,7 @@ static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
- 		.set = set,
- 		.clr = clr,
- 		.dirout = dirout,
--		.dirin = dirin,
--		.flags = GPIO_GENERIC_UNREADABLE_REG_SET |
--			 GPIO_GENERIC_UNREADABLE_REG_DIR,
-+		.flags = GPIO_GENERIC_UNREADABLE_REG_SET,
- 	};
- 
- 	/* This registers 32 GPIO lines per bank */
-
----
-base-commit: 3a6a36a3fc4e18e202eaf6c258553b5a17b91677
-change-id: 20260127-gpio-spacemit-k1-pdr-d71588b6dd90
-
-Best regards,
+You are awesome, thank you!
 -- 
-Vivian "dramforever" Wang
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
 _______________________________________________
