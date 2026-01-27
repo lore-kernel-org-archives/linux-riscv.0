@@ -4,80 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 893FCD1951B
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 01:27:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1100ED19512
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 02:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LIAdS4fkmyF4LXRp1BVpDSJmCaLZaXvg4fix/6Mi/38=; b=Sn8nXU1L5Ctl26
-	DsfvQmnGplYFxKj9cR2yhuMVih7Wd5NLcv1UMu9bwOU9vcUlKF5HvVSRUvR38wakNitZPrQr10Ong
-	6DJIBuCpLJtNR666K83ESl/v2NG7YB46eFwR4wIz5MQs33QmeY22VMR0ZrZOI1sr1MsgZgH/dHcfR
-	p2joIplnj94mHd/x2hVqieER6vJBfevQcrBX2mwWevI8diIXEF4d12b45vlLd7XcCS5obnn9wYMfq
-	rm4crsyuPU2RiQCqz6ETYVJIMGAaWjrsPC5dmanisZbh9cs0ElARHoPQkdgMlVsCf/1VVZS4zAu4m
-	pVJiEgYdrX0Y36efwTUw==;
+	List-Owner; bh=2RgIGG2cbkZzG/eV6dQ8HPAo4At2fCHQ4xGBrIZCvtc=; b=38jlaieIR5tnC5
+	Slr2/aBBCJOubnzR7KbLzoSLoBze2P5AVaQv+Zd1SAGn/sXqUktXjtFa9Eih7xWt4h+7hXhcIZnqS
+	D/u3y0NBZuyz4py9ZbHBEkxIVeWKz2pYcR56tiqyHKNnlq4/ixQqB2hGKiAXuSb5jLdVVHtw4yCTt
+	tVXJnNerKvAd2qOrkta+z8mgtk2VhEtRpOvpeiPtcdC/DRcQK3HtycpoD0kLtiMK/Be0+fS5+C3Uq
+	hLVcnlMvYHg9H5O3jgmBNrh4QUJPJFjwYn6SboO+QFDCFg1dovpFHsLIa/ouNs+v97DFPdHVSPwiZ
+	Rs6Qhhh8lc0k8XL47dFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkXqi-0000000DR5d-0hG7;
-	Tue, 27 Jan 2026 01:26:32 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1vkYSe-0000000DT1L-2WAM;
+	Tue, 27 Jan 2026 02:05:44 +0000
+Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkXqd-0000000DR2h-0zUD
+	id 1vkYSc-0000000DT0z-17zd
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jan 2026 01:26:29 +0000
-X-UUID: 2edcbb90fb1f11f0b0f03b4cfa9209d1-20260127
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:211fc255-d3ae-49cc-a5fb-8c81abf285e4,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:a9d874c,CLOUDID:664592adbd3044f57befc36d5e3a214f,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
-	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
-	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 2edcbb90fb1f11f0b0f03b4cfa9209d1-20260127
-X-User: jiangfeng@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1730086189; Tue, 27 Jan 2026 09:26:19 +0800
-From: Feng Jiang <jiangfeng@kylinos.cn>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	akpm@linux-foundation.org,
-	kees@kernel.org,
-	andy@kernel.org,
-	jiangfeng@kylinos.cn,
-	ebiggers@kernel.org,
-	martin.petersen@oracle.com,
-	sohil.mehta@intel.com,
-	charlie@rivosinc.com,
-	conor.dooley@microchip.com,
-	samuel.holland@sifive.com,
-	linus.walleij@linaro.org,
-	nathan@kernel.org
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	Joel Stanley <joel@jms.id.au>
-Subject: [PATCH v5 1/8] lib/string_kunit: add correctness test for strlen()
-Date: Tue, 27 Jan 2026 09:25:51 +0800
-Message-Id: <20260127012558.40025-2-jiangfeng@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260127012558.40025-1-jiangfeng@kylinos.cn>
-References: <20260127012558.40025-1-jiangfeng@kylinos.cn>
+	Tue, 27 Jan 2026 02:05:43 +0000
+Received: from localhost (unknown [116.232.27.242])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id BFB16335D2F;
+	Tue, 27 Jan 2026 02:05:36 +0000 (UTC)
+Date: Tue, 27 Jan 2026 10:05:26 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Tomas Hlavacek <tmshlvck@gmail.com>
+Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, Yixun Lan <dlan@kernel.org>,
+	Vivian Wang <wangruikang@iscas.ac.cn>
+Subject: Re: [PATCH net v2] net: spacemit: k1-emac: program frame size
+ registers for jumbo frames
+Message-ID: <20260127020526-GYA88966@gentoo.org>
+References: <20260126135919.77168-1-tmshlvck@gmail.com>
+ <20260126171449.83288-1-tmshlvck@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260126171449.83288-1-tmshlvck@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_172627_584577_41BA3ABD 
-X-CRM114-Status: UNSURE (   8.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260126_180542_341314_AB80345B 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,70 +71,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a KUnit test for strlen() to verify correctness across
-different string lengths and memory alignments.
+Hi Tomas,
 
-Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
-Acked-by: Andy Shevchenko <andy@kernel.org>
-Tested-by: Joel Stanley <joel@jms.id.au>
----
- lib/tests/string_kunit.c | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+On 18:14 Mon 26 Jan     , Tomas Hlavacek wrote:
+> The driver allows changing MTU up to 4K via emac_change_mtu() and
+> allocates appropriately sized DMA buffers, but it never programs the
+> MAC_MAXIMUM_FRAME_SIZE and MAC_RECEIVE_JABBER_SIZE registers.
+> 
+> This causes the MAC hardware to reject frames larger than the default
+> 1518 bytes, even when larger buffers are allocated. Frames exceeding
+> the default size trigger jabber errors and are discarded.
+> 
+> Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Tomas Hlavacek <tmshlvck@gmail.com>
+> ---
+> v2: Added Fixes tag and Cc stable.
+> 
+>  drivers/net/ethernet/spacemit/k1_emac.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
+> index 220eb5ce7583..31b1bdb2827e 100644
+> --- a/drivers/net/ethernet/spacemit/k1_emac.c
+> +++ b/drivers/net/ethernet/spacemit/k1_emac.c
+> @@ -228,6 +228,12 @@ static void emac_init_hw(struct emac_priv *priv)
+>  		DEFAULT_TX_THRESHOLD);
+>  	emac_wr(priv, MAC_RECEIVE_PACKET_START_THRESHOLD, DEFAULT_RX_THRESHOLD);
+>  
+> +	/* Set maximum frame size and jabber size based on configured buffer
+> +	 * size.
+> +	 */
+> +	emac_wr(priv, MAC_MAXIMUM_FRAME_SIZE, priv->dma_buf_sz);
+> +	emac_wr(priv, MAC_RECEIVE_JABBER_SIZE, priv->dma_buf_sz);
+> +
+I'm no expert here, but just notice there is additional MAC_TRANSMIT_JABBER_SIZE
+register which is no need to set? or is the problem on receive side only?
 
-diff --git a/lib/tests/string_kunit.c b/lib/tests/string_kunit.c
-index f9a8e557ba77..bc5130c6e5e9 100644
---- a/lib/tests/string_kunit.c
-+++ b/lib/tests/string_kunit.c
-@@ -17,6 +17,9 @@
- #define STRCMP_TEST_EXPECT_LOWER(test, fn, ...) KUNIT_EXPECT_LT(test, fn(__VA_ARGS__), 0)
- #define STRCMP_TEST_EXPECT_GREATER(test, fn, ...) KUNIT_EXPECT_GT(test, fn(__VA_ARGS__), 0)
- 
-+#define STRING_TEST_MAX_LEN	128
-+#define STRING_TEST_MAX_OFFSET	16
-+
- static void string_test_memset16(struct kunit *test)
- {
- 	unsigned i, j, k;
-@@ -104,6 +107,28 @@ static void string_test_memset64(struct kunit *test)
- 	}
- }
- 
-+static void string_test_strlen(struct kunit *test)
-+{
-+	const size_t buf_size = STRING_TEST_MAX_LEN + STRING_TEST_MAX_OFFSET + 1;
-+	size_t len, offset;
-+	char *s;
-+
-+	s = kunit_kzalloc(test, buf_size, GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, s);
-+
-+	memset(s, 'A', buf_size);
-+	s[buf_size - 1] = '\0';
-+
-+	for (offset = 0; offset < STRING_TEST_MAX_OFFSET; offset++) {
-+		for (len = 0; len <= STRING_TEST_MAX_LEN; len++) {
-+			s[offset + len] = '\0';
-+			KUNIT_EXPECT_EQ_MSG(test, strlen(s + offset), len,
-+				"offset:%zu len:%zu", offset, len);
-+			s[offset + len] = 'A';
-+		}
-+	}
-+}
-+
- static void string_test_strchr(struct kunit *test)
- {
- 	const char *test_string = "abcdefghijkl";
-@@ -618,6 +643,7 @@ static struct kunit_case string_test_cases[] = {
- 	KUNIT_CASE(string_test_memset16),
- 	KUNIT_CASE(string_test_memset32),
- 	KUNIT_CASE(string_test_memset64),
-+	KUNIT_CASE(string_test_strlen),
- 	KUNIT_CASE(string_test_strchr),
- 	KUNIT_CASE(string_test_strnchr),
- 	KUNIT_CASE(string_test_strspn),
+>  	/* Configure flow control (enabled in emac_adjust_link() later) */
+>  	emac_set_mac_addr_reg(priv, fc_dest_addr, MAC_FC_SOURCE_ADDRESS_HIGH);
+>  	emac_wr(priv, MAC_FC_PAUSE_HIGH_THRESHOLD, DEFAULT_FC_FIFO_HIGH);
+> -- 
+> 2.52.0
+> 
+
 -- 
-2.25.1
-
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
