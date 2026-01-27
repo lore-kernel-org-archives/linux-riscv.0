@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CD9DCA6CB8
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 09:31:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B1BCD13C1B
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 09:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=63cNnGMBAGWC5nzL3QbwLtWys+9g96Zn+8eBBeQMuio=; b=ednVJb1oovTLDj
-	ZZpraCkInsyxFFTQdWu3+qpgXusTaH/qzdpwpuq2FAO2zUH3ceLGqNE1c7ccS0pF4cMXa+zdDSaIP
-	1tKJbW5LTO2joIj5KcNr17FVJOfQoTfWxn9onzbNxcYryPTO8zmMlxbxL3Y2lgc30e95I7Yrv6Pss
-	vUOAybyUztwpIF1q4uV0e7wWbIrzNHUpFcZc3uoaoApotfJCWYQEAQIivl/cpSaYXIB33wje0BNKM
-	IrRRCiNiC2J+lWC2XBn2DOGIRn/39+4IN+vY5s2ebu0XjAOjVFkh0wkPmwcKR/ORSv0RnPbU1hDCO
-	7xbIDR+PJfcfzfy6ZARA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aR9si8vzVM0nXwAhgLDqf++Pm26isE9PNdCq+jHgTl8=; b=IErdbtIODcoRQH
+	9RkqJCcb7gXSduvRuTezy4UNFkg35Au15poyu1QXJF+r6qLj+EeMaNIta3Te+Rmr2OMDgef6D4Rll
+	Ij4Pf1sQGCEpPciLQfocgIN5czcxefW4CcEpM9x7GrpWoBIRty/UWSAMz/wlok8KdyQxp7/cC8kTw
+	ReM66IVZNK7PTVSswseJf7X+/tcQDH5n1EI6BuWrlxylwhIw7j6Qp5SOXTF36wdFAkY6QIfBk8ExT
+	MTx07ecCrl+ErkdB1MGR8JYoXJGpe65f2lmSY1lgA/omuaF2A07vuGOysulzJOAmQdsjAFd6GJRzY
+	0r74mmb0wmtJqfaPDfrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfPz-0000000DwOk-3moz;
-	Tue, 27 Jan 2026 09:31:29 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1vkfSC-0000000DwlA-1Dlc;
+	Tue, 27 Jan 2026 09:33:44 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfPx-0000000DwON-35S6
+	id 1vkfS7-0000000Dwgo-3jkT
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jan 2026 09:31:26 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2a7786d7895so36394675ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 27 Jan 2026 01:31:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769506284; x=1770111084; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Nvr2xv+8/kE2Yaa160xiVghqX5wMbpe9ZaewCjQfr5c=;
-        b=Kg55ogZEKB64XrDI1fJBFh5opBSLRp4ftDp+Is3dnXqwKdzW87OenJsI0XHxoh5aJ5
-         uYLXd0BGQAIWViSI2d794QrN5wjmxQWBku8QN71NTu7l6ipzGw1XkYccN1sVd2fTELe+
-         icHBaO9yVYdhwVK84vCHUT7/wHk8cyvI4caU3mF5HjShlatqIHa4gRuvGd0aCUFOEtns
-         VqPgXWkBjv9Baqapoyg3MS3XIntTu4ne2itptSl0Www9s1xcDfMyfdsNHTVBYhSkKnHU
-         CR94f5avblr1IJxuqmRxAN1Mly4bS2T8XE/+9aouSj0PNuBP4U7uXdgiqgli6O1S0cJK
-         phdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769506284; x=1770111084;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Nvr2xv+8/kE2Yaa160xiVghqX5wMbpe9ZaewCjQfr5c=;
-        b=Dz3jLp1cXxadXWUeTSVKPpt45nJpwN0aJihqZIcBjaBe11ncW755Aiiwa1vnOwU5bb
-         PoSAW6eaK+5N4T+nN3DlWMC9EMl9QMBGA+TwpnGkMIwC0HPwxHut4u8kTBoBKoOBd+UJ
-         aaj2Loa5VN7Azwtj4e7PaKeJXqHGv+gjxODgraI1Y7XHKQictcgiurMjRSu/gZdulKHQ
-         jmQa4JPoH0qpxFUlR5sCzBWX9yAp/96dYusZu3d5q7KmYCxs6otwX6IiZQBUZNXB+4Ki
-         Y9XoBKbXQVvXcJ+yW2y6sTFzTuzSqgEBx7QC35e6rrNM/mNO7ejoUQzc60jJmlZDZoh5
-         Y32w==
-X-Forwarded-Encrypted: i=1; AJvYcCVsENhEzT0nqVNqukJpXcqhQehPOfOlLjz3dxsz5Lq/jmklEmVpVSglwZaBUTU1AvqU0v3vxJZN6sHU2w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKmG8+KOohLc0Qy1RbsPZktFRF7nEsBgJawDId5e4f87kGjQNU
-	xmbU9j1vSLgVi0+PZ52fNyG7gixYeJXITdMVgU4BFzsTWX7gQ1mDEi2G
-X-Gm-Gg: AZuq6aLYpMdMOj5U4wESffwL/JZwsh48Y4VtxOcBF6WmVEKU2Ictv9on6Hs51WZ29en
-	Y0zJ6AkuDxfPepb/NkeZJhiMoB4pbVJ17TEhcTOv9tpjP2n3znvfEmgxcG8Yof4vMxgp15QJpKz
-	t51rDqhkhN6k+hGbI/tlLCZWZAvxfTZXX3CDRbLqnIjoUf3pV2pM72fCzf9vIYYD21msFI7nXfs
-	rvDKdsL5J52p1UTgRSFVeshdbB+V53lVduvt1qvHv94kgrPyWXS6iIdTAGtd/wCKJfkRQ1IVFaE
-	L0Q1zR1FlDWADfzA6EIzk3FlaCLYKs87a7iXBnb/UBEkyLDcyviDRpGltI6S5eqI+CD94Zgaul6
-	Xqe0Ya3vVWemKhRQDbBrRHZjYyRLti+7D9eLYiWrz9RP/coYBNV7eTReYCNviIVyTFYniLq5SAL
-	W4K5jwMjznK/KhVcSbbmGKfoEfWYk=
-X-Received: by 2002:a17:903:2b0f:b0:2a0:97d2:a264 with SMTP id d9443c01a7336-2a870dd5709mr10270305ad.37.1769506284518;
-        Tue, 27 Jan 2026 01:31:24 -0800 (PST)
-Received: from adminpc-PowerEdge-R7525 ([27.122.242.81])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a802daa8ecsm112363425ad.17.2026.01.27.01.31.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jan 2026 01:31:23 -0800 (PST)
-Date: Tue, 27 Jan 2026 18:31:19 +0900
-From: Austin Kim <austindh.kim@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	austindh.kim@gmail.com
-Subject: [PATCH] riscv: export kaslr offset and satp in VMCOREINFO ELF notes
-Message-ID: <aXiF55y5D49gcpUg@adminpc-PowerEdge-R7525>
+	Tue, 27 Jan 2026 09:33:43 +0000
+X-UUID: 33ae895cfb6311f0b0f03b4cfa9209d1-20260127
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:924c3915-d02c-422d-b550-1d91469ae95f,IP:0,UR
+	L:0,TC:0,Content:2,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:2
+X-CID-META: VersionHash:a9d874c,CLOUDID:e6e4b4dd21fa9035a4a80c4860a47fc1,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:4|15|
+	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 33ae895cfb6311f0b0f03b4cfa9209d1-20260127
+X-User: jiangfeng@kylinos.cn
+Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <jiangfeng@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 704281077; Tue, 27 Jan 2026 17:33:13 +0800
+Message-ID: <dcdb82e8-691a-4cc1-88d5-755039ed0313@kylinos.cn>
+Date: Tue, 27 Jan 2026 17:33:10 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 4/8] lib/string_kunit: add performance benchmark for
+ strlen()
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ akpm@linux-foundation.org, kees@kernel.org, andy@kernel.org,
+ ebiggers@kernel.org, martin.petersen@oracle.com, sohil.mehta@intel.com,
+ charlie@rivosinc.com, conor.dooley@microchip.com, samuel.holland@sifive.com,
+ linus.walleij@linaro.org, nathan@kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20260127012558.40025-1-jiangfeng@kylinos.cn>
+ <20260127012558.40025-5-jiangfeng@kylinos.cn>
+ <aXh93EVRSOrQQS6l@smile.fi.intel.com>
+Content-Language: en-US
+From: Feng Jiang <jiangfeng@kylinos.cn>
+In-Reply-To: <aXh93EVRSOrQQS6l@smile.fi.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_013125_780202_692DC2E2 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20260127_013341_785698_9C74F1DA 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,52 +85,134 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Austin Kim <austin.kim@lge.com>
+On 2026/1/27 16:57, Andy Shevchenko wrote:
+> On Tue, Jan 27, 2026 at 09:25:54AM +0800, Feng Jiang wrote:
+>> Introduce a benchmarking framework to the string_kunit test suite to
+>> measure the execution efficiency of string functions.
+>>
+>> The implementation is inspired by crc_benchmark(), measuring throughput
+>> (MB/s) and latency (ns/call) across a range of string lengths. It
+>> includes a warm-up phase, disables preemption during measurement, and
+>> uses a fixed seed for reproducible results.
+>>
+>> This framework allows for comparing different implementations (e.g.,
+>> generic C vs. architecture-optimized assembly) within the KUnit
+>> environment.
+> 
+> Acked-by: Andy Shevchenko <andy@kernel.org>
+> A few nit-picks below.
+> 
 
-The following options are required by the kdump crash utility for RISC-V 
-based vmcore file:
+Thanks for the Acked-by and the detailed review.
 
-- kaslr: If the vmcore is generated from a KASLR-enabled Linux kernel, 
-         the KASLR offset is required for the crash utility to load 
-         the vmcore. Without the proper kaslr option, the crash utility 
-         fails to load the vmcore file.
-- satp: The exact root page table address helps determine the correct base 
-        PGD address.
+> ...
+> 
+>> +static void *alloc_max_bench_buffer(struct kunit *test,
+>> +		const size_t *lens, size_t count, size_t *buf_len)
+>> +{
+>> +	size_t max_len = 0;
+>> +	void *buf;
+>> +
+>> +	for (size_t i = 0; i < count; i++)
+>> +		max_len = max(lens[i], max_len);
+> 
+> You also need minmax.h.
 
-With this patch, RISC-V VMCOREINFO ELF notes now include both kaslr 
-and satp information.
+Will add.
 
-Signed-off-by: Austin Kim <austin.kim@lge.com>
----
- arch/riscv/kernel/vmcore_info.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+> ...
+> 
+>> +#define STRING_BENCH(iters, func, ...)					\
+>> +({									\
+>> +	/* Volatile function pointer prevents dead code elimination */	\
+>> +	typeof(func) (* volatile __func) = (func);			\
+>> +	size_t __bn_iters = (iters);					\
+>> +	size_t __bn_warm_iters;						\
+>> +	u64 __bn_t;							\
+> 
+> 
+> Perhaps a short comment here
+> 
+> 	/* Use 10% of the given iterations (maximum 50) to warm up */
 
-diff --git a/arch/riscv/kernel/vmcore_info.c b/arch/riscv/kernel/vmcore_info.c
-index d5e448aa9..682ba423c 100644
---- a/arch/riscv/kernel/vmcore_info.c
-+++ b/arch/riscv/kernel/vmcore_info.c
-@@ -3,6 +3,11 @@
- #include <linux/vmcore_info.h>
- #include <linux/pagemap.h>
- 
-+static inline u64 get_satp_value(void)
-+{
-+	return csr_read(CSR_SATP);
-+}
-+
- void arch_crash_save_vmcoreinfo(void)
- {
- 	VMCOREINFO_NUMBER(phys_ram_base);
-@@ -27,5 +32,7 @@ void arch_crash_save_vmcoreinfo(void)
- #else
- 	vmcoreinfo_append_str("NUMBER(va_kernel_pa_offset)=0x%lx\n",
- 						kernel_map.va_kernel_pa_offset);
-+	vmcoreinfo_append_str("KERNELOFFSET=%lx\n", kaslr_offset());
-+	vmcoreinfo_append_str("NUMBER(satp)=0x%llx\n", get_satp_value());
- #endif
- }
+Will add this comment.
+
+>> +	__bn_warm_iters = max(__bn_iters / 10, 50U);			\
+>> +									\
+>> +	for (size_t __bn_i = 0; __bn_i < __bn_warm_iters; __bn_i++)	\
+>> +		(void)__func(__VA_ARGS__);				\
+>> +									\
+>> +	preempt_disable();						\
+>> +	__bn_t = ktime_get_ns();					\
+>> +	for (size_t __bn_i = 0; __bn_i < __bn_iters; __bn_i++)		\
+>> +		(void)__func(__VA_ARGS__);				\
+>> +	__bn_t = ktime_get_ns() - __bn_t;				\
+>> +	preempt_enable();						\
+>> +	__bn_t;								\
+>> +})
+> 
+> ...
+> 
+>> +#define STRING_BENCH_BUF(test, buf_name, buf_size, func, ...)		\
+>> +do {									\
+>> +	size_t buf_size, _bn_i, _bn_iters, _bn_size = 0;		\
+>> +	u64 _bn_t, _bn_mbps = 0, _bn_lat = 0;				\
+>> +	char *buf_name, *_bn_buf;					\
+>> +									\
+>> +	_bn_buf = alloc_max_bench_buffer(test, bench_lens,		\
+>> +			ARRAY_SIZE(bench_lens), &_bn_size);		\
+>> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, _bn_buf);			\
+>> +									\
+>> +	fill_random_string(_bn_buf, _bn_size);				\
+>> +									\
+>> +	for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {	\
+>> +		buf_size = bench_lens[_bn_i];				\
+>> +		buf_name = _bn_buf + _bn_size - buf_size - 1;		\
+>> +		_bn_iters = STRING_BENCH_WORKLOAD / max(buf_size, 1U);	\
+>> +									\
+>> +		_bn_t = STRING_BENCH(_bn_iters, func, ##__VA_ARGS__);	\
+> 
+>> +									\
+> 
+> Remove unneeded blank line.
+
+Will fix.
+
+>> +		if (_bn_t > 0) {					\
+>> +			_bn_mbps = (u64)(buf_size) * _bn_iters		\
+> 
+> Why buf_size in the parentheses here and not anywhere else (above)?
+
+It was a bit inconsistent. I'll remove the unneeded parentheses for buf_size.
+
+> I assume it's just an external temporary variable? But why do we need to have
+> it in the parameters to the macro?
+
+This is necessary because buf_size often needs to be passed as an argument
+to the function under test. For instance, when benchmarking strnlen, the
+caller must pass the current length as an argument:
+STRING_BENCH_BUF(test, buf, len, strnlen, buf, len);
+
+>> +					* (NSEC_PER_SEC / MEGA);	\
+> > Leave '*' on the previous line.
+
+Will fix.
+
+>> +			_bn_mbps = div64_u64(_bn_mbps, _bn_t);		\
+>> +			_bn_lat = div64_u64(_bn_t, _bn_iters);		\
+>> +		}							\
+>> +		kunit_info(test, "len=%zu: %llu MB/s (%llu ns/call)\n",	\
+>> +				buf_size, _bn_mbps, _bn_lat);		\
+>> +	}								\
+>> +} while (0)
+> 
+
+Thank you again for your patience and for helping me improve the quality of
+this patch.
+
 -- 
-2.34.1
+With Best Regards,
+Feng Jiang
 
 
 _______________________________________________
