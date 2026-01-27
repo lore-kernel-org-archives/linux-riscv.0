@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F0EBD1951A
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jan 2026 22:10:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 678ACCF65E2
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 01:26:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zRSjoRJPk+t3XRxHqwRzzu3VvHYfkbdtib99omDtrhk=; b=q/sA69UBJQsGI8
-	9++NxeH5pPMsq21bp6X66M7FEMc8fHlNknsly0oe2jXjBLTwJcI2dgHaqqcQPHqDFIasK5YN0ehfO
-	Sjpnh65cloFwfHcX3LeiLLwMypa33h7egAcwLL+O526AspHNmw7oxiyoCSoqkCdFnWf46K0mUpQRC
-	BTEq1rTXazvMsfkM3P3x2J6xYiNsOa6TojYyh8F7JHydGrr/PwX7kSZeG1zsppst+jrIg3uTP5ClW
-	q03N6MOj7eXT2ssD+bzcMZMeZGUx1hjbqz93yHxq4cXufXUnrHFd79dodJrpAQYRPbQGdrEkaZlTR
-	fHBUU2NPoxiIbr5O7rKw==;
+	List-Owner; bh=x0DhDr6IWSmyCQS/Y3PCmUXF7SHx+AgDW3zupvW4QAs=; b=WhQeC1SKPW4dAC
+	cCMEkGJrjHL2xpcrP8MswmAQyQ8BXJtAw7JjsMsiEjlpo8wQrOf4HcpZxrEGsVWF+AxUw1iYGkCdc
+	kVcW/Yp7nDlmCaOT/Ivh//1PLrId0R8OtkopD/Qk0qvweTY82kZIFio5J7onAgH9BJ2KEG5ZN6uYf
+	zMWdwnDfHh8Ht5DNGK9A4ZGa2owvNdYmotuVl34CJ2TvymGA13y62rNcZRfbPhhTjWxxUpq3IOd5U
+	DNLpULcoMrXNYtZqWv0gdFvs5YCPo8ptbrpZrAZbjtzl0AkkcC5480YTup35Z7K8l1lDT2EE1+p5C
+	1nPfEjfABtT+gXh5i7Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkUmy-0000000DIZ0-1jPR;
-	Mon, 26 Jan 2026 22:10:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vkXqj-0000000DR6B-0Lbf;
+	Tue, 27 Jan 2026 01:26:33 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkUmw-0000000DIYu-14GT
+	id 1vkXqf-0000000DR3S-16Cv
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Jan 2026 22:10:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 495F960129;
-	Mon, 26 Jan 2026 22:10:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E64C9C116C6;
-	Mon, 26 Jan 2026 22:10:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769465425;
-	bh=e+VY0YiRm9WdQtrKQ6RfFsmWCSJBN/5QaCkWJ9Ungeo=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=YTzAxIhk/pSa4n+8h0Gf3q+yExDMsiza3pkly3tahdJJHRSJd35Q5TYaFXlAM1CXY
-	 OTjU8wgz9qT5K9cWqLgJ1uUQNdbe/RBLE+AYBFRGmhBCFqwBgkqyrpidQYaxLofW1y
-	 +wTgXTx6PDWZSYkHsp95py0UlAMwejEaEAu0pLKb3LKbXAoJjd3GUZ9cWXKlqCXziO
-	 ih2kDfXP5UKpLS7HjiyjaZxADKmMSPpZ6+XK17taEH0M61guoBpIxs3MBvs4FLv50l
-	 qYi4Xjvb4ocp2Py7dmdxfCAG61NW+6ENPQVpTjNm8NL1DW2XlMYkZe02S6Zmarpk3X
-	 vfJDnvk8MylJw==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Yixun Lan <dlan@gentoo.org>, 
- Alex Elder <elder@riscstar.com>, Lee Jones <lee@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Guodong Xu <guodong@riscstar.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, devicetree@vger.kernel.org
-In-Reply-To: <20260122-spacemit-p1-v1-0-309be27fbff9@riscstar.com>
-References: <20260122-spacemit-p1-v1-0-309be27fbff9@riscstar.com>
-Subject: Re: (subset) [PATCH 0/4] regulator: spacemit-p1: Fix voltage
- ranges and support board power tree
-Message-Id: <176946542165.977042.9433935491443420344.b4-ty@kernel.org>
-Date: Mon, 26 Jan 2026 22:10:21 +0000
+	Tue, 27 Jan 2026 01:26:30 +0000
+X-UUID: 30878696fb1f11f0b0f03b4cfa9209d1-20260127
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:2684c0df-676d-4e03-a677-861975f869cf,IP:0,UR
+	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:-5
+X-CID-META: VersionHash:a9d874c,CLOUDID:2b077f54cad1216696474bc67f3f7b60,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
+	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
+	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 30878696fb1f11f0b0f03b4cfa9209d1-20260127
+X-User: jiangfeng@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <jiangfeng@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1487477625; Tue, 27 Jan 2026 09:26:22 +0800
+From: Feng Jiang <jiangfeng@kylinos.cn>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	akpm@linux-foundation.org,
+	kees@kernel.org,
+	andy@kernel.org,
+	jiangfeng@kylinos.cn,
+	ebiggers@kernel.org,
+	martin.petersen@oracle.com,
+	sohil.mehta@intel.com,
+	charlie@rivosinc.com,
+	conor.dooley@microchip.com,
+	samuel.holland@sifive.com,
+	linus.walleij@linaro.org,
+	nathan@kernel.org
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: [PATCH v5 5/8] lib/string_kunit: extend benchmarks to strnlen() and chr searches
+Date: Tue, 27 Jan 2026 09:25:55 +0800
+Message-Id: <20260127012558.40025-6-jiangfeng@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260127012558.40025-1-jiangfeng@kylinos.cn>
+References: <20260127012558.40025-1-jiangfeng@kylinos.cn>
 MIME-Version: 1.0
-X-Mailer: b4 0.15-dev-47773
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260126_172629_621266_45A3808A 
+X-CRM114-Status: UNSURE (   7.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,43 +93,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 22 Jan 2026 17:43:41 +0800, Guodong Xu wrote:
-> This series fixes hardware voltage constraints and enables flexible power
-> tree configurations for the SpacemiT P1 PMIC.
-> 
-> Patch 1, n_voltages is corrected to match hardware register widths, as the
-> previous values prevented regulators from reaching higher operational
-> voltages (e.g., 3.3V on LDOs).
-> 
-> [...]
+Extend the string benchmarking suite to include strnlen(), strchr(),
+and strrchr().
 
-Applied to
+For character search functions strchr() and strrchr(), the benchmark
+targets the NUL character. This ensures the entire string is scanned,
+providing a consistent measure of full-length processing efficiency
+comparable to strlen().
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
+Suggested-by: Andy Shevchenko <andy@kernel.org>
+Suggested-by: Eric Biggers <ebiggers@kernel.org>
+Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
+Acked-by: Andy Shevchenko <andy@kernel.org>
+---
+ lib/tests/string_kunit.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-Thanks!
-
-[1/4] regulator: spacemit-p1: Fix n_voltages for BUCK and LDO regulators
-      commit: 41399c5d476156635c9a58de870d39318e22fa09
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+diff --git a/lib/tests/string_kunit.c b/lib/tests/string_kunit.c
+index 3fcd55953bd7..c338d35d3ea3 100644
+--- a/lib/tests/string_kunit.c
++++ b/lib/tests/string_kunit.c
+@@ -858,6 +858,21 @@ static void string_bench_strlen(struct kunit *test)
+ 	STRING_BENCH_BUF(test, buf, len, strlen, buf);
+ }
+ 
++static void string_bench_strnlen(struct kunit *test)
++{
++	STRING_BENCH_BUF(test, buf, len, strnlen, buf, len);
++}
++
++static void string_bench_strchr(struct kunit *test)
++{
++	STRING_BENCH_BUF(test, buf, len, strchr, buf, '\0');
++}
++
++static void string_bench_strrchr(struct kunit *test)
++{
++	STRING_BENCH_BUF(test, buf, len, strrchr, buf, '\0');
++}
++
+ static struct kunit_case string_test_cases[] = {
+ 	KUNIT_CASE(string_test_memset16),
+ 	KUNIT_CASE(string_test_memset32),
+@@ -884,6 +899,9 @@ static struct kunit_case string_test_cases[] = {
+ 	KUNIT_CASE(string_test_memtostr),
+ 	KUNIT_CASE(string_test_strends),
+ 	KUNIT_CASE(string_bench_strlen),
++	KUNIT_CASE(string_bench_strnlen),
++	KUNIT_CASE(string_bench_strchr),
++	KUNIT_CASE(string_bench_strrchr),
+ 	{}
+ };
+ 
+-- 
+2.25.1
 
 
 _______________________________________________
