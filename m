@@ -4,82 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35CA9D2D8DA
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 09:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 770ADD2D8FD
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 11:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UwJ0ynMaFwApKE3TcL++vi7bL5fZMWgiByrXCcE3nY0=; b=mOjn8XmAKDqxqb
-	6tV7TmTDjRxPdFqQYCm6sIasnk5EeqzccClWrqlou5hUC23oQFguGh7aK3j7Xcgk5CXvDmHtBFphC
-	U0ByKx4dQCEoFE2DREAmFGHVnq+S3kkji370qN7+Z4PviX7Vq9sdDqDjFwZPumK8294/6jN4h/2V/
-	qtuEkcp226Y100TPEsasXeIkRU4p/qoIkj7npPbdv4v1MdKwJwX52KS3NDKW3o9qJjx2urZGM00OL
-	4RThDqsPl/u3vlDm2UM/y4Qd/husldjAEzgwgelRqiyjTQeWZJxptzN3wb+KsqZXCrrQSY6B/FP58
-	qoxUkW7I/Lh4FNbD9cDg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:
+	Cc:To:Subject:MIME-Version:Date:Message-ID:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f2luDoRczbqZET+uKWBDqLMdS7251PXvFDNx2JuVaqE=; b=SYGks6q6VYd7Dj4PJeTYxZwqQq
+	t/sGMlxMrMWkO5227IOhRMWRPnNRoCh4NhTHR6lZewY5LSS+HNEqQx6R3oAGEJticI2dLg1/rrN7a
+	W8TGq44Z9o7mxTpSwuGi4FetCIZ2iWEDpAhnzkOKReLdTLjEStuxWZc53ui9oWkP57qtNvo4eNQL2
+	DoQPtl8hg6INZfHuArztIbupYqNcCCIoshJ7+5diVAxv9qjH8kVrEae2qw7YWpLY0cf5b5Jihs6LO
+	sSwqXtThvnBzeCLzLAAnSkIOBqhxe8K+aqWCoshGcajg7xojInrHQKYYj7tfYIRvS++Wm2btDFm5Z
+	HJDOXIiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfiu-0000000DznK-2dVp;
-	Tue, 27 Jan 2026 09:51:00 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1vkgqU-0000000E7Co-2hAt;
+	Tue, 27 Jan 2026 11:02:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfir-0000000DzmV-47jh
+	id 1vkgqR-0000000E7Aw-1aIj
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jan 2026 09:50:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769507458; x=1801043458;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=9JoGMgukM4DO2lRnKpbhZfoRHZo0S35f5oyw0yGG8sI=;
-  b=Vgoq2rygTI76R0eZGS1vlVPE+Y3P5SnBI8Z3DNm1z+QmNXs/L7EzJSMl
-   0fhhtCMpKbfryDcD1X5BBTHxxxtvZfur/xdOWKlytZCSGPGEHK9t5pdof
-   80fzSbU7X/oPxUg4GPaIyfxngoruYpkNPQezill0iBzxhT3MV2IzzIrAn
-   Ilpt94DPEbs5zDqVQ3M4AVbU2y1Zqakd0HXtwxaiA7IYqDDemwQSDZhuW
-   hkLVtW9Jyi0vJwRd6yAuLdmQitUMCIkwFPbK/950PVdqA6sPfU8jN3+RB
-   VexFh1Buwvt49jNC7XTGX0dwIOb8+OW0hDGiW/ULUpyjqPZN7blkdw61X
-   g==;
-X-CSE-ConnectionGUID: gfDJan65Qo2lTVRUYSu56w==
-X-CSE-MsgGUID: hREBQTbHQdWjKljIM2bdWQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11683"; a="58271401"
-X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
-   d="scan'208";a="58271401"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:50:56 -0800
-X-CSE-ConnectionGUID: OqvKmhYqSd2jgX+m0sRoEQ==
-X-CSE-MsgGUID: 2zHo4xzOTYyK0NqT/J5mqA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
-   d="scan'208";a="208301388"
-Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.245.248])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:50:52 -0800
-Date: Tue, 27 Jan 2026 11:50:50 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Feng Jiang <jiangfeng@kylinos.cn>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, akpm@linux-foundation.org, kees@kernel.org,
-	andy@kernel.org, ebiggers@kernel.org, martin.petersen@oracle.com,
-	sohil.mehta@intel.com, charlie@rivosinc.com,
-	conor.dooley@microchip.com, samuel.holland@sifive.com,
-	linus.walleij@linaro.org, nathan@kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v5 4/8] lib/string_kunit: add performance benchmark for
- strlen()
-Message-ID: <aXiKelsJF-SiqnVS@smile.fi.intel.com>
-References: <20260127012558.40025-1-jiangfeng@kylinos.cn>
- <20260127012558.40025-5-jiangfeng@kylinos.cn>
- <aXh93EVRSOrQQS6l@smile.fi.intel.com>
- <dcdb82e8-691a-4cc1-88d5-755039ed0313@kylinos.cn>
+	Tue, 27 Jan 2026 11:02:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5649D40280;
+	Tue, 27 Jan 2026 11:02:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E952FC16AAE;
+	Tue, 27 Jan 2026 11:02:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769511768;
+	bh=y1iQYc67DVhYxrB/p1GAQkjp9lfULkyMwv5pXHH1MeY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=a494yn1earYfQdWtOeC6onTEwHjvoiyDrY14fuT7ksTyakta8da4aokFgA7IBkXxm
+	 0Od5vvfE8dRocCFPZJbZTWC+Fx5utr1a2mVBzED22IBREwvFFn2xx/T8F0tYAWmTOu
+	 sF30e3qIp3P3dF9+zSZBJKTx8rPwo03w9mE32KcwvYaLptde5SXhcTdoWpesHZ4bXE
+	 tMk3S71XjdsRD1gXBRhSepD4pjtfsUZjGC6LHfyhLNBf405Uk8XAI1vVl1QKwb0vJG
+	 yOh7tS9LQ/rQ5IABErR0zw2yNgk/hUUP27S2+lZpqTye7jgZSdBo/vsmVT9kmSIt7q
+	 mgQSsni2aonpA==
+Content-Type: multipart/mixed; boundary="------------KRL6Ja5OIm97DC6q0pB1trVX"
+Message-ID: <1c357d72-2a73-47d8-9ec7-56a2912a2e10@kernel.org>
+Date: Tue, 27 Jan 2026 12:02:38 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <dcdb82e8-691a-4cc1-88d5-755039ed0313@kylinos.cn>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3] net: spacemit: Check for netif_carrier_ok() in
+ emac_stats_update(): manual merge
+Content-Language: en-GB, fr-BE
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: Chukun Pan <amadeus@jmu.edu.cn>,
+ Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+ netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Mark Brown <broonie@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Yixun Lan <dlan@gentoo.org>, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Alexandre Ghiti <alex@ghiti.fr>,
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+References: <20260123-k1-ethernet-clarify-stat-timeout-v3-1-93b9df627e87@iscas.ac.cn>
+From: Matthieu Baerts <matttbe@kernel.org>
+Autocrypt: addr=matttbe@kernel.org; keydata=
+ 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
+ lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
+Organization: NGI0 Core
+In-Reply-To: <20260123-k1-ethernet-clarify-stat-timeout-v3-1-93b9df627e87@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_015058_069113_099D0B76 
-X-CRM114-Status: GOOD (  19.51  )
+X-CRM114-CacheID: sfid-20260127_030251_465632_E3764B3C 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,81 +124,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 27, 2026 at 05:33:10PM +0800, Feng Jiang wrote:
-> On 2026/1/27 16:57, Andy Shevchenko wrote:
-> > On Tue, Jan 27, 2026 at 09:25:54AM +0800, Feng Jiang wrote:
+This is a multi-part message in MIME format.
+--------------KRL6Ja5OIm97DC6q0pB1trVX
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-...
+Hi Vivian,
 
-> >> +#define STRING_BENCH_BUF(test, buf_name, buf_size, func, ...)		\
-> >> +do {									\
-> >> +	size_t buf_size, _bn_i, _bn_iters, _bn_size = 0;		\
-> >> +	u64 _bn_t, _bn_mbps = 0, _bn_lat = 0;				\
-> >> +	char *buf_name, *_bn_buf;					\
-> >> +									\
-> >> +	_bn_buf = alloc_max_bench_buffer(test, bench_lens,		\
-> >> +			ARRAY_SIZE(bench_lens), &_bn_size);		\
-> >> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, _bn_buf);			\
-> >> +									\
-> >> +	fill_random_string(_bn_buf, _bn_size);				\
-> >> +									\
-> >> +	for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {	\
-> >> +		buf_size = bench_lens[_bn_i];				\
-> >> +		buf_name = _bn_buf + _bn_size - buf_size - 1;		\
-> >> +		_bn_iters = STRING_BENCH_WORKLOAD / max(buf_size, 1U);	\
-> >> +									\
-> >> +		_bn_t = STRING_BENCH(_bn_iters, func, ##__VA_ARGS__);	\
-> > 
-> >> +									\
-> > 
-> > Remove unneeded blank line.
-> 
-> Will fix.
-> 
-> >> +		if (_bn_t > 0) {					\
-> >> +			_bn_mbps = (u64)(buf_size) * _bn_iters		\
-> > 
-> > Why buf_size in the parentheses here and not anywhere else (above)?
-> 
-> It was a bit inconsistent. I'll remove the unneeded parentheses for buf_size.
-> 
-> > I assume it's just an external temporary variable? But why do we need to have
-> > it in the parameters to the macro?
-> 
-> This is necessary because buf_size often needs to be passed as an argument
-> to the function under test. For instance, when benchmarking strnlen, the
-> caller must pass the current length as an argument:
-> STRING_BENCH_BUF(test, buf, len, strnlen, buf, len);
++cc Mark Brown
 
-Okay, and why is it needed in this macro? It get overridden immediately in
-the loop. Assuming that the array size of bench lengths is not zero, this
-has no visible use. Can you elaborate?
-
-> >> +					* (NSEC_PER_SEC / MEGA);	\
-> > > Leave '*' on the previous line.
+On 23/01/2026 04:52, Vivian Wang wrote:
+> Some PHYs stop the refclk for power saving, usually while link down.
+> This causes reading stats to time out.
 > 
-> Will fix.
+> Therefore, in emac_stats_update(), also don't update and reschedule if
+> !netif_carrier_ok(). But that means we could be missing later updates if
+> the link comes back up, so also reschedule when link up is detected in
+> emac_adjust_link().
 > 
-> >> +			_bn_mbps = div64_u64(_bn_mbps, _bn_t);		\
-> >> +			_bn_lat = div64_u64(_bn_t, _bn_iters);		\
-> >> +		}							\
-> >> +		kunit_info(test, "len=%zu: %llu MB/s (%llu ns/call)\n",	\
-> >> +				buf_size, _bn_mbps, _bn_lat);		\
-> >> +	}								\
-> >> +} while (0)
+> While we're at it, improve the comments and error message prints around
+> this to reflect the better understanding of how this could happen.
+> Hopefully if this happens again on new hardware, these comments will
+> direct towards a solution.
 
+(...)
+
+> ---
+> This has a conflict in context lines in emac_adjust_link() with current
+> net-next, which will show up when pulling that for next rc1. Just remove
+> "emac_set_fc_autoneg(priv);".
+
+Thank you for this note, this was useful! Just in case it can be useful
+for linux-next and Net maintainers, I confirm the conflict when merging
+'net' in 'net-next' due to this patch applied in 'net':
+
+  2c84959167d6 ("net: spacemit: Check for netif_carrier_ok() in
+emac_stats_update()")
+
+and this one from 'net-next':
+
+  f66086798f91 ("net: spacemit: Remove broken flow control support")
+
+The resolution is attached to this email, and rerere cache is available
+there:
+
+ https://github.com/multipath-tcp/mptcp-upstream-rr-cache/commit/526c74b
+
+Cheers,
+Matt
 -- 
-With Best Regards,
-Andy Shevchenko
+Sponsored by the NGI0 Core fund.
 
+--------------KRL6Ja5OIm97DC6q0pB1trVX
+Content-Type: text/x-patch; charset=UTF-8;
+ name="7daa0aa370b7e9326e11e06fdb247227773bba0a.patch"
+Content-Disposition: attachment;
+ filename="7daa0aa370b7e9326e11e06fdb247227773bba0a.patch"
+Content-Transfer-Encoding: base64
 
+ZGlmZiAtLWNjIGRyaXZlcnMvbmV0L2V0aGVybmV0L3NwYWNlbWl0L2sxX2VtYWMuYwppbmRl
+eCBjODVkYzc0MmM0MDQsODhlOTQyNGQyZDUxLi4yM2I2ZjE1MzFlMGMKLS0tIGEvZHJpdmVy
+cy9uZXQvZXRoZXJuZXQvc3BhY2VtaXQvazFfZW1hYy5jCisrKyBiL2RyaXZlcnMvbmV0L2V0
+aGVybmV0L3NwYWNlbWl0L2sxX2VtYWMuYwpAQEAgLTE1MzEsNiAtMTY0OCwxNCArMTU0NSwx
+MiBAQEAgc3RhdGljIHZvaWQgZW1hY19hZGp1c3RfbGluayhzdHJ1Y3QgbmV0CiAgCQl9CiAg
+CiAgCQllbWFjX3dyKHByaXYsIE1BQ19HTE9CQUxfQ09OVFJPTCwgY3RybCk7CisgCiAtCQll
+bWFjX3NldF9mY19hdXRvbmVnKHByaXYpOwogLQorIAkJLyoKKyAJCSAqIFJlc2NoZWR1bGUg
+c3RhdHMgdXBkYXRlcyBub3cgdGhhdCBsaW5rIGlzIHVwLiBTZWUgY29tbWVudHMgaW4KKyAJ
+CSAqIGVtYWNfc3RhdHNfdXBkYXRlKCkuCisgCQkgKi8KKyAJCW1vZF90aW1lcigmcHJpdi0+
+c3RhdHNfdGltZXIsIGppZmZpZXMpOwogIAl9CiAgCiAgCXBoeV9wcmludF9zdGF0dXMocGh5
+ZGV2KTsK
+
+--------------KRL6Ja5OIm97DC6q0pB1trVX
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--------------KRL6Ja5OIm97DC6q0pB1trVX--
+
