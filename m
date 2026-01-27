@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3747D19512
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 01:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C52ED1951B
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 01:26:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9fmYNQeFTcnaL0fxHPqP6UlEY3Q6nlTcsYabdUsPJF8=; b=gxuE7+HwPY1IGx
-	o4RbBSMX5jsf+tdQfVsKmglG+5WPu1hiloJQv6yc+zhtLCf8dcfc8RhFiI6K7ui5w5AA/3fiU7oZo
-	BBop7jhN+lmB8AMimnitNIABZPwz3uVQeoKaJFzsBDoAnf7q8IeL+FbY5QOFdLJsETZqevuj3xV+x
-	Mbc2+dWLFEdKQJsBLt5k4lWLcthddqK+NG42UTx1aoH+qwMSaKCgQKgaA7F9Xi9sSMvkabrCgUB7w
-	+T5SQo1lBWYe6cuiNug+BpnP535lnK8lHIk0W5CQvv5l3RUW05bImKKlzJFPkQmFdIUSDBzRPY/b0
-	J8CnVvHShHccLmOZYRCw==;
+	List-Owner; bh=hgFnkvokhQyzLt2H9wZ91QusN7BGCbQJgadlOFG8xOY=; b=2Qi2sgiCgx3lmq
+	PaetGXuOpeUvQYqG75NJpPo7/MRXpJWH2z+aD7HBHOhA5uLlR0+UaGk4vcUsMjiWi1twSrsrQxqvT
+	Eb/xW+MAlfcwpPdO9+GJupSDhcOcHnnphj7KBiDAs1Ig9HEmBbTrQBgQV/7cxpqzKgXdE6zR32vsa
+	eVyOifO7frgbPLd59jmuksYsh9yxJcQkDIHaW8uKV6MA5+BPJN0NYjo6Fwj5s9jKmhNi4DAsowzds
+	qQA8ATOsypnS0M2PkbJAcVwhho9z+PVAGEPLEu9f+RQHsVwt9cYphOW13wbWioV5nIdPyqOkucj3R
+	Wlq6xz7gAVwy7fxM2+gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkXqo-0000000DR8K-1Za1;
-	Tue, 27 Jan 2026 01:26:38 +0000
+	id 1vkXqi-0000000DR5z-3GdD;
+	Tue, 27 Jan 2026 01:26:32 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkXqh-0000000DR4H-1by3
+	id 1vkXqe-0000000DR2n-15kr
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jan 2026 01:26:32 +0000
-X-UUID: 31c5e7e6fb1f11f0b0f03b4cfa9209d1-20260127
+	Tue, 27 Jan 2026 01:26:30 +0000
+X-UUID: 2fb64fe0fb1f11f0b0f03b4cfa9209d1-20260127
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:98ad2e02-80d8-4bb9-8d9e-e3b854d07c80,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:a9d874c,CLOUDID:8ce0b3e479db6be6e531a73d4b068cc3,BulkI
+X-CID-O-INFO: VERSION:1.3.6,REQID:d4ca1490-5d8d-4a91-ac0a-51a841116038,IP:0,UR
+	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:-5
+X-CID-META: VersionHash:a9d874c,CLOUDID:876203e88ad206fc665525193757f4da,BulkI
 	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
 	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
 	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -40,12 +40,12 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 31c5e7e6fb1f11f0b0f03b4cfa9209d1-20260127
+X-UUID: 2fb64fe0fb1f11f0b0f03b4cfa9209d1-20260127
 X-User: jiangfeng@kylinos.cn
 Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
 	(envelope-from <jiangfeng@kylinos.cn>)
 	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1987578300; Tue, 27 Jan 2026 09:26:24 +0800
+	with ESMTP id 1638620801; Tue, 27 Jan 2026 09:26:21 +0800
 From: Feng Jiang <jiangfeng@kylinos.cn>
 To: pjw@kernel.org,
 	palmer@dabbelt.com,
@@ -65,17 +65,19 @@ To: pjw@kernel.org,
 	nathan@kernel.org
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: [PATCH v5 8/8] riscv: lib: add strrchr() implementation
-Date: Tue, 27 Jan 2026 09:25:58 +0800
-Message-Id: <20260127012558.40025-9-jiangfeng@kylinos.cn>
+	linux-hardening@vger.kernel.org,
+	Joel Stanley <joel@jms.id.au>
+Subject: [PATCH v5 3/8] lib/string_kunit: add correctness test for strrchr()
+Date: Tue, 27 Jan 2026 09:25:53 +0800
+Message-Id: <20260127012558.40025-4-jiangfeng@kylinos.cn>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260127012558.40025-1-jiangfeng@kylinos.cn>
 References: <20260127012558.40025-1-jiangfeng@kylinos.cn>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_172631_747294_BA12AB31 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20260126_172629_127859_9A0493E8 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,123 +94,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add an assembly implementation of strrchr() for RISC-V.
-
-This implementation minimizes instruction count and avoids unnecessary
-memory access to the stack. The performance benefits are most visible
-on small workloads (1-16 bytes) where the architectural savings in
-function overhead outweigh the execution time of the scan loop.
-
-Benchmark results (QEMU TCG, rv64):
-  Length | Original (MB/s) | Optimized (MB/s) | Improvement
-  -------|-----------------|------------------|------------
-  1 B    | 20              | 21               | +5.0%
-  7 B    | 111             | 120              | +8.1%
-  16 B   | 189             | 199              | +5.3%
-  512 B  | 361             | 382              | +5.8%
-  4096 B | 388             | 391              | +0.8%
+Introduce a KUnit test to verify strrchr() across various memory
+alignments and character positions. This ensures the implementation
+correctly identifies the last occurrence of a character.
 
 Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
+Acked-by: Andy Shevchenko <andy@kernel.org>
+Tested-by: Joel Stanley <joel@jms.id.au>
 ---
- arch/riscv/include/asm/string.h |  3 +++
- arch/riscv/lib/Makefile         |  1 +
- arch/riscv/lib/strrchr.S        | 37 +++++++++++++++++++++++++++++++++
- arch/riscv/purgatory/Makefile   |  5 ++++-
- 4 files changed, 45 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/lib/strrchr.S
+ lib/tests/string_kunit.c | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
-diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
-index ca3ade82b124..764ffe8f6479 100644
---- a/arch/riscv/include/asm/string.h
-+++ b/arch/riscv/include/asm/string.h
-@@ -34,6 +34,9 @@ extern asmlinkage __kernel_size_t strnlen(const char *, size_t);
+diff --git a/lib/tests/string_kunit.c b/lib/tests/string_kunit.c
+index 991f01d52eb2..7f1e2bf6a352 100644
+--- a/lib/tests/string_kunit.c
++++ b/lib/tests/string_kunit.c
+@@ -184,6 +184,35 @@ static void string_test_strchr(struct kunit *test)
+ 	KUNIT_ASSERT_NULL(test, result);
+ }
  
- #define __HAVE_ARCH_STRCHR
- extern asmlinkage char *strchr(const char *, int);
++static void string_test_strrchr(struct kunit *test)
++{
++	const size_t buf_size = STRING_TEST_MAX_LEN + STRING_TEST_MAX_OFFSET + 1;
++	size_t offset, len;
++	char *buf;
 +
-+#define __HAVE_ARCH_STRRCHR
-+extern asmlinkage char *strrchr(const char *, int);
- #endif
- 
- /* For those files which don't want to check by kasan. */
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index b7f804dce1c3..735d0b665536 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -9,6 +9,7 @@ lib-y			+= strlen.o
- lib-y			+= strncmp.o
- lib-y			+= strnlen.o
- lib-y			+= strchr.o
-+lib-y			+= strrchr.o
- endif
- lib-y			+= csum.o
- ifeq ($(CONFIG_MMU), y)
-diff --git a/arch/riscv/lib/strrchr.S b/arch/riscv/lib/strrchr.S
-new file mode 100644
-index 000000000000..ac58b20ca21d
---- /dev/null
-+++ b/arch/riscv/lib/strrchr.S
-@@ -0,0 +1,37 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
++	buf = kunit_kzalloc(test, buf_size, GFP_KERNEL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, buf);
 +
-+/*
-+ * Copyright (C) 2025 Feng Jiang <jiangfeng@kylinos.cn>
-+ */
++	memset(buf, 'A', buf_size);
++	buf[buf_size - 1] = '\0';
 +
-+#include <linux/linkage.h>
-+#include <asm/asm.h>
++	for (offset = 0; offset < STRING_TEST_MAX_OFFSET; offset++) {
++		for (len = 0; len <= STRING_TEST_MAX_LEN; len++) {
++			buf[offset + len] = '\0';
 +
-+/* char *strrchr(const char *s, int c) */
-+SYM_FUNC_START(strrchr)
-+	/*
-+	 * Parameters
-+	 *	a0 - The string to be searched
-+	 *	a1 - The character to seaerch for
-+	 *
-+	 * Returns
-+	 *	a0 - Address of last occurrence of 'c' or 0
-+	 *
-+	 * Clobbers
-+	 *	t0, t1
-+	 */
-+	andi	a1, a1, 0xff
-+	mv	t1, a0
-+	li	a0, 0
-+1:
-+	lbu	t0, 0(t1)
-+	bne	t0, a1, 2f
-+	mv	a0, t1
-+2:
-+	addi	t1, t1, 1
-+	bnez	t0, 1b
-+	ret
-+SYM_FUNC_END(strrchr)
++			KUNIT_EXPECT_PTR_EQ(test, strrchr(buf + offset, 'Z'), NULL);
 +
-+SYM_FUNC_ALIAS_WEAK(__pi_strrchr, strrchr)
-+EXPORT_SYMBOL(strrchr)
-diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-index e7b3d748c913..b0358a78f11a 100644
---- a/arch/riscv/purgatory/Makefile
-+++ b/arch/riscv/purgatory/Makefile
-@@ -2,7 +2,7 @@
- 
- purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o
- ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
--purgatory-y += strcmp.o strlen.o strncmp.o strnlen.o strchr.o
-+purgatory-y += strcmp.o strlen.o strncmp.o strnlen.o strchr.o strrchr.o
- endif
- 
- targets += $(purgatory-y)
-@@ -38,6 +38,9 @@ $(obj)/strnlen.o: $(srctree)/arch/riscv/lib/strnlen.S FORCE
- $(obj)/strchr.o: $(srctree)/arch/riscv/lib/strchr.S FORCE
- 	$(call if_changed_rule,as_o_S)
- 
-+$(obj)/strrchr.o: $(srctree)/arch/riscv/lib/strrchr.S FORCE
-+	$(call if_changed_rule,as_o_S)
++			if (len > 0)
++				KUNIT_EXPECT_PTR_EQ(test, strrchr(buf + offset, 'A'),
++						buf + offset + len - 1);
++			else
++				KUNIT_EXPECT_PTR_EQ(test, strrchr(buf + offset, 'A'), NULL);
 +
- CFLAGS_sha256.o := -D__DISABLE_EXPORTS -D__NO_FORTIFY
- CFLAGS_string.o := -D__DISABLE_EXPORTS
- CFLAGS_ctype.o := -D__DISABLE_EXPORTS
++			buf[offset + len] = 'A';
++		}
++	}
++}
++
+ static void string_test_strnchr(struct kunit *test)
+ {
+ 	const char *test_string = "abcdefghijkl";
+@@ -679,6 +708,7 @@ static struct kunit_case string_test_cases[] = {
+ 	KUNIT_CASE(string_test_strnlen),
+ 	KUNIT_CASE(string_test_strchr),
+ 	KUNIT_CASE(string_test_strnchr),
++	KUNIT_CASE(string_test_strrchr),
+ 	KUNIT_CASE(string_test_strspn),
+ 	KUNIT_CASE(string_test_strcmp),
+ 	KUNIT_CASE(string_test_strcmp_long_strings),
 -- 
 2.25.1
 
