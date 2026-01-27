@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343DECA6CBF
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 09:26:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 706C2CA6CBF
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 09:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Wl6BkALJV39VIIfHpGJRd/uOHe73v7PqmR9BLgKGuyA=; b=M1lWQ0C16H0cQV
-	fTBtZ6XO4+yaWHcz80g7X9EVfZVFJRb9q8u/XPL0l9WZwYgCa9+QjSH5/rNf8KGLtONVkJfOtsjyx
-	RIukxK6pgWZgVaHbxbP1RvrN6ebMrd25IJb2qYWVGpsGPXtsNzMuAfiZ5AGfDxG0PEWlIXRM+wM7i
-	7H5wTOLZ+BOZVlLBSgVW8ZYCR5NHkajutKhpHmaWugfjwtAcky379MbKmxsNKgZT64Fq7CDIJyD6N
-	wdXwT5eswIdVjb0xJFqFpjVVTX9RQ98i8QlpczSsBhtMPq6SvmfuGDEjyKhKkYqIxLuWJC/9EefvP
-	gF8410XAtLpwILkPyDpQ==;
+	List-Owner; bh=D4LdHgf7GkEqusbmYdvsWw8+2zQFES7lf/Fw0YBJ9kk=; b=gFx9m6RfrhRBTo
+	d4oSoWXM3TnfE74Kt6Se79BRieG2syhgAQmatJ9QvFXwcVEzWMXgRUh6iOnBNdOcAPnEQDB821XFe
+	fOYozF0o9BbAwvopclqSQVrapIsBoQ+1272Fps30F6ZTNo79rvLOOVnOT0nAex9bJ1PZ8cGnOBlN4
+	jFp9MaXEUNJKU8fi8NyGltmxemTE2kvErFESGnHmbkSMT0Mz59I6Yz5A759G9W/fXBkaCX9JhfMIB
+	MdXzog9DoZw1AeudMO2fo1lTcS2y15nQEqwCi+Z2jqDCBvuBruiKW9SZXi/F25l/0A+AYPeaCIQFm
+	njNXRCkonKt8zzfrwkCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfKe-0000000DvqC-1CgC;
-	Tue, 27 Jan 2026 09:25:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vkfMi-0000000Dw5l-31bz;
+	Tue, 27 Jan 2026 09:28:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfKY-0000000DvpL-1SKC
+	id 1vkfMg-0000000Dw5c-2YS7
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jan 2026 09:25:52 +0000
+	Tue, 27 Jan 2026 09:28:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8841760132;
-	Tue, 27 Jan 2026 09:25:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AD12C2BC86;
-	Tue, 27 Jan 2026 09:25:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A3E6260143;
+	Tue, 27 Jan 2026 09:28:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA751C116C6;
+	Tue, 27 Jan 2026 09:28:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769505949;
-	bh=4jiQZv9wxoQeg5GZ0kgb1xulJUpKBRxTXH2y58bWr18=;
+	s=k20201202; t=1769506081;
+	bh=NUtdM1nWlicDFUqsuPzcoMB/gzA3aziNceLt7F8iSE8=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=MwfWSVSNX2GZRCGGxBdlvB8xQYGAbi+lkcajYFbHijmcWUpTHXDVhI7ydYg1uDjw4
-	 HPpv7cCWzutovVqQJEFV3KZL//Hjra5aOIzQJyjIGBzCYXBC3ssyUAgViMMRma4E8N
-	 9SI9RpBNdQlO2gZ1RG3HWsxR056Wvm49DwJQ5mjLp02M/PoyIPmVEZs045/mNPrN8l
-	 XEVpJ/uVSxciHV8bwp11WnyYsne7NENgI/2Vp0/n6QymhC8d5j3IAzg0x8lS3r/mDR
-	 Luvuoy36/GTL+oCN+smnWQtd3kI0mNNEOL3E95afS5itU4dMOYSPhDbadVadZSN/bL
-	 xSVk3WlsToqFA==
+	b=oEO2FeMpvi1NaSCO2Gn8Cj6UbLkdPGgHSCr2a7tIho96JHKe2OPIWUlyKRZRs+g/p
+	 bOydMQemiNt+degt62tyGOKCzCMxGQP/+fWYHd5fQoEeMMtMBrEhvbKzxQI+uASfo+
+	 WnvxAODGQoHBidevnuikSB14Qm/l1uuA8SKt8swMro14a0ryd5Zo1SXOw/QtvrZtYe
+	 o9wowBLm4NktfnH4gj6vq4gkvSOgZCJwp+WvtCKPASNeo0iUYm1k9Mj89Qs/nBEKdC
+	 UoXofhNhiJNlSAVG+UzzUh/MKGzx0b0QaoSEXAsSwPPoP60aL3O7aNFQz0OEp+KLaq
+	 Ksz08X55xve/w==
 From: Thomas Gleixner <tglx@kernel.org>
 To: Vivian Wang <wangruikang@iscas.ac.cn>, Madhavan Srinivasan
  <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas
@@ -59,14 +59,14 @@ Cc: Han Gao <gaohan@iscas.ac.cn>, Vivian Wang <wangruikang@iscas.ac.cn>,
  amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
  netdev@vger.kernel.org, linux-pci@vger.kernel.org,
  linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org,
- sophgo@lists.linux.dev, Takashi Iwai <tiwai@suse.de>
-Subject: Re: [PATCH v3 1/4] PCI/MSI: Conservatively generalize no_64bit_msi
- into msi_addr_mask
-In-Reply-To: <20260123-pci-msi-addr-mask-v3-1-9f9baa048524@iscas.ac.cn>
+ sophgo@lists.linux.dev
+Subject: Re: [PATCH v3 2/4] PCI/MSI: Check msi_addr_mask in
+ msi_verify_entries()
+In-Reply-To: <20260123-pci-msi-addr-mask-v3-2-9f9baa048524@iscas.ac.cn>
 References: <20260123-pci-msi-addr-mask-v3-0-9f9baa048524@iscas.ac.cn>
- <20260123-pci-msi-addr-mask-v3-1-9f9baa048524@iscas.ac.cn>
-Date: Tue, 27 Jan 2026 10:25:46 +0100
-Message-ID: <87o6mfbe5h.ffs@tglx>
+ <20260123-pci-msi-addr-mask-v3-2-9f9baa048524@iscas.ac.cn>
+Date: Tue, 27 Jan 2026 10:27:58 +0100
+Message-ID: <87jyx3be1t.ffs@tglx>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,44 +85,41 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Fri, Jan 23 2026 at 14:07, Vivian Wang wrote:
-> Some PCI devices have PCI_MSI_FLAGS_64BIT in the MSI capability, but
-> implement less than 64 address bits. This breaks on platforms where such
-> a device is assigned an MSI address higher than what's reachable.
+> Instead of a 32-bit/64-bit dichotomy, check the MSI address against
+> msi_addr_mask.
 >
-> Currently, we deal with this with a single no_64bit_msi flag, and
+> This allows platforms with MSI doorbell above 32-bit address space to
 
-we don't deal with anything. The code has a single bit
-limitation. Please use passive voice as documented.
+with a MSI doorbell address above the 32-bit limit to
 
-> (notably on powerpc) forces 32-bit MSI address for these devices.
+> work with devices without full 64-bit MSI address support, as long as
+> the doorbell is within addressable range of MSI of the device.
 
-this is not a valid sentence.
+within the addressable
 
-> However, on some platforms the MSI doorbell address is above 32-bit but
-> within device ability.
->
-> As a first step to enabling MSI on those combinations of devices and
-> platforms, conservatively generalize the single-bit flag no_64bit_msi
-> into msi_addr_mask. (The name msi_addr_mask is chosen to avoid confusion
-> with msi_mask.)
->
-> The translation is essentially:
->
-> - no_64bit_msi = 1    ->    msi_addr_mask = DMA_BIT_MASK(32)
-> - no_64bit_msi = 0    ->    msi_addr_mask = DMA_BIT_MASK(64)
-> - if (no_64bit_msi)   ->    if (msi_addr_mask < DMA_BIT_MASK(64))
->
-> Since no values other than DMA_BIT_MASK(32) and DMA_BIT_MASK(64) is
+>  static int msi_verify_entries(struct pci_dev *dev)
+>  {
+>  	struct msi_desc *entry;
+> +	u64 address;
+>  
+>  	if (dev->msi_addr_mask == DMA_BIT_MASK(64))
+>  		return 0;
+>  
+>  	msi_for_each_desc(entry, &dev->dev, MSI_DESC_ALL) {
+> -		if (entry->msg.address_hi) {
+> -			pci_err(dev, "arch assigned 64-bit MSI address %#x%08x but device only supports 32 bits\n",
+> -				entry->msg.address_hi, entry->msg.address_lo);
+> +		address = (u64)entry->msg.address_hi << 32 |
+> +			  entry->msg.address_lo;
 
-s/is/are/
+No line break required. Let it stick out.
 
-> used, no functional change is intended. Future patches that make use of
-> intermediate values of msi_addr_mask will follow, allowing devices that
-> cannot use full 64-bit addresses for MSI to work on platforms with MSI
-> doorbell above 32-bit address space.
->
-> Acked-by: Takashi Iwai <tiwai@suse.de>
-> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+> +		if (address & ~dev->msi_addr_mask) {
+> +			pci_err(dev, "arch assigned 64-bit MSI address %#llx above device MSI address mask %#llx\n",
+> +				address, dev->msi_addr_mask);
+>  			break;
+>  		}
+>  	}
 
 Other than those nits:
 
