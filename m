@@ -4,115 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 770ADD2D8FD
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 11:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5902CD2D8FA
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 11:04:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:
-	Cc:To:Subject:MIME-Version:Date:Message-ID:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f2luDoRczbqZET+uKWBDqLMdS7251PXvFDNx2JuVaqE=; b=SYGks6q6VYd7Dj4PJeTYxZwqQq
-	t/sGMlxMrMWkO5227IOhRMWRPnNRoCh4NhTHR6lZewY5LSS+HNEqQx6R3oAGEJticI2dLg1/rrN7a
-	W8TGq44Z9o7mxTpSwuGi4FetCIZ2iWEDpAhnzkOKReLdTLjEStuxWZc53ui9oWkP57qtNvo4eNQL2
-	DoQPtl8hg6INZfHuArztIbupYqNcCCIoshJ7+5diVAxv9qjH8kVrEae2qw7YWpLY0cf5b5Jihs6LO
-	sSwqXtThvnBzeCLzLAAnSkIOBqhxe8K+aqWCoshGcajg7xojInrHQKYYj7tfYIRvS++Wm2btDFm5Z
-	HJDOXIiw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lPkHZKyf3DXsQiYuhNCuIia/eeon9gbs7+mTrUJtC0s=; b=Y+L5JVlN6dRb/w
+	GzCejOx9WDdoU2g76feFm48zoRN4QuOJsi0RMxi1lFR5zVqjtVskq/DkwE/nlxKCbwOnJu4sOL0aC
+	B648dpF9JXVLf1oTkn6HZD2/pXBS/58A2dqtSUD9BFSODgqnEQvXlooEX6UHx6vgkqP3wuOid1wsg
+	QjUvQBHwN53Fn0eKri3A0UElb2NFTcFZNn3YSMhD670go80NzLoVM9xvAeFiXxTQpspjD28e4lb0C
+	2S4dak5OTy2SiOYBjeb2NIimaZPsfVzBN1QwX//KFs1hh+8b6twaJFBUA4wZzofDpnWXWDDhfbAC3
+	6ia3sZvBV40Ylm1ucNTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkgqU-0000000E7Co-2hAt;
-	Tue, 27 Jan 2026 11:02:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vkgs5-0000000E7aU-2yjD;
+	Tue, 27 Jan 2026 11:04:33 +0000
+Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkgqR-0000000E7Aw-1aIj
+	id 1vkgs0-0000000E7Zh-2s18
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jan 2026 11:02:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5649D40280;
-	Tue, 27 Jan 2026 11:02:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E952FC16AAE;
-	Tue, 27 Jan 2026 11:02:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769511768;
-	bh=y1iQYc67DVhYxrB/p1GAQkjp9lfULkyMwv5pXHH1MeY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=a494yn1earYfQdWtOeC6onTEwHjvoiyDrY14fuT7ksTyakta8da4aokFgA7IBkXxm
-	 0Od5vvfE8dRocCFPZJbZTWC+Fx5utr1a2mVBzED22IBREwvFFn2xx/T8F0tYAWmTOu
-	 sF30e3qIp3P3dF9+zSZBJKTx8rPwo03w9mE32KcwvYaLptde5SXhcTdoWpesHZ4bXE
-	 tMk3S71XjdsRD1gXBRhSepD4pjtfsUZjGC6LHfyhLNBf405Uk8XAI1vVl1QKwb0vJG
-	 yOh7tS9LQ/rQ5IABErR0zw2yNgk/hUUP27S2+lZpqTye7jgZSdBo/vsmVT9kmSIt7q
-	 mgQSsni2aonpA==
-Content-Type: multipart/mixed; boundary="------------KRL6Ja5OIm97DC6q0pB1trVX"
-Message-ID: <1c357d72-2a73-47d8-9ec7-56a2912a2e10@kernel.org>
-Date: Tue, 27 Jan 2026 12:02:38 +0100
+	Tue, 27 Jan 2026 11:04:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769511863; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Qg9X3pcoJnoqViWAtoWu+1abukl8Fw5lGIAyAv5BWD3vf2Qt+Y2HBJoSm6lHZzgY07f9QhbdgMnisC8fVRFzFp4CUU5HhGtDUJfPfY89ioVwpqdt8hXeZ0xpvyx1oZiwhLKIIUkrWK40ABNm/4+axHkf/jSJsjLFuS134r3jGpg=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1769511863; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=zIZv98xexLqGPRXaRA7uJoEdTPOCRvLcc++itdaM4UI=; 
+	b=D+E2caX5GVBGRR0A8rjCa2P57YJRm8gJTwfYBgJFz0Ffg43w0VLJZCQlCoRDdYKahcNa2xnx/CjuKY4KGhPHfFZDFyGeBox2Arze2ad1Ac9ED0AluOZlgXXxzaFxBpMAyRREUfl2ctsmkp2W3p69mhQkCho4FIvzkjS4wB0Z6tU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
+	dmarc=pass header.from=<kingxukai@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769511863;
+	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
+	bh=zIZv98xexLqGPRXaRA7uJoEdTPOCRvLcc++itdaM4UI=;
+	b=Yssn+2MqnT1qoMPXr6YSK96CPNXVriKXqEsW0mq/UEwfSKYG4Bu+HG8e/oaAAkno
+	jMBGI1Um3eAiMZeBuuNH1jma14j1gOEaS7iIUZ9ASMOb7tW3WyXclPRjU0cgrzHPAsw
+	HnfbuposIAuRXBDIRp+LCc2H8kJFktwrdXwklJWU=
+Received: by mx.zohomail.com with SMTPS id 1769511855331786.2569087782504;
+	Tue, 27 Jan 2026 03:04:15 -0800 (PST)
+Message-ID: <0af969a7-3579-4303-b302-f171ef02a163@zohomail.com>
+Date: Tue, 27 Jan 2026 19:03:59 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3] net: spacemit: Check for netif_carrier_ok() in
- emac_stats_update(): manual merge
-Content-Language: en-GB, fr-BE
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: Chukun Pan <amadeus@jmu.edu.cn>,
- Michael Opdenacker <michael.opdenacker@rootcommit.com>,
- netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- Mark Brown <broonie@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Yixun Lan <dlan@gentoo.org>, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Alexandre Ghiti <alex@ghiti.fr>,
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-References: <20260123-k1-ethernet-clarify-stat-timeout-v3-1-93b9df627e87@iscas.ac.cn>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <20260123-k1-ethernet-clarify-stat-timeout-v3-1-93b9df627e87@iscas.ac.cn>
+Subject: Re: [PATCH v10 2/3] clk: canaan: Add clock driver for Canaan K230
+To: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor@kernel.org>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Troy Mitchell <TroyMitchell988@gmail.com>
+References: <20260116-b4-k230-clk-v10-0-de59033c5d30@zohomail.com>
+ <20260116-b4-k230-clk-v10-2-de59033c5d30@zohomail.com>
+ <aW3o8xVziqb9iRBN@duge-virtual-machine>
+ <bf39fdb8-6698-418b-bd4a-6d8d40ccc9a0@zohomail.com>
+ <aXJJ3MjQSq8Rq084@duge-virtual-machine>
+From: Xukai Wang <kingxukai@zohomail.com>
+Content-Language: en-US
+In-Reply-To: <aXJJ3MjQSq8Rq084@duge-virtual-machine>
+Feedback-ID: rr08011227a510c0fba220186bba5f362e000053b54e7061a9cbdd371d5284c83a55924f9557a426366cbb14:zu080112272a5276332e1090ec5d5ceed40000b2c296e870bfa7ef506b33ce0394521dd45f1929333996b33b:rf0801122cc4400f0c83132b1947518dc60000c8bd395d79c79d723ff8939ceba3fa55336a182f4efa95f61dab38722347:ZohoMail
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_030251_465632_E3764B3C 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20260127_030428_772674_11A5F561 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,89 +87,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is a multi-part message in MIME format.
---------------KRL6Ja5OIm97DC6q0pB1trVX
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-
-Hi Vivian,
-
-+cc Mark Brown
-
-On 23/01/2026 04:52, Vivian Wang wrote:
-> Some PHYs stop the refclk for power saving, usually while link down.
-> This causes reading stats to time out.
-> 
-> Therefore, in emac_stats_update(), also don't update and reschedule if
-> !netif_carrier_ok(). But that means we could be missing later updates if
-> the link comes back up, so also reschedule when link up is detected in
-> emac_adjust_link().
-> 
-> While we're at it, improve the comments and error message prints around
-> this to reflect the better understanding of how this could happen.
-> Hopefully if this happens again on new hardware, these comments will
-> direct towards a solution.
-
-(...)
-
-> ---
-> This has a conflict in context lines in emac_adjust_link() with current
-> net-next, which will show up when pulling that for next rc1. Just remove
-> "emac_set_fc_autoneg(priv);".
-
-Thank you for this note, this was useful! Just in case it can be useful
-for linux-next and Net maintainers, I confirm the conflict when merging
-'net' in 'net-next' due to this patch applied in 'net':
-
-  2c84959167d6 ("net: spacemit: Check for netif_carrier_ok() in
-emac_stats_update()")
-
-and this one from 'net-next':
-
-  f66086798f91 ("net: spacemit: Remove broken flow control support")
-
-The resolution is attached to this email, and rerere cache is available
-there:
-
- https://github.com/multipath-tcp/mptcp-upstream-rr-cache/commit/526c74b
-
-Cheers,
-Matt
--- 
-Sponsored by the NGI0 Core fund.
-
---------------KRL6Ja5OIm97DC6q0pB1trVX
-Content-Type: text/x-patch; charset=UTF-8;
- name="7daa0aa370b7e9326e11e06fdb247227773bba0a.patch"
-Content-Disposition: attachment;
- filename="7daa0aa370b7e9326e11e06fdb247227773bba0a.patch"
-Content-Transfer-Encoding: base64
-
-ZGlmZiAtLWNjIGRyaXZlcnMvbmV0L2V0aGVybmV0L3NwYWNlbWl0L2sxX2VtYWMuYwppbmRl
-eCBjODVkYzc0MmM0MDQsODhlOTQyNGQyZDUxLi4yM2I2ZjE1MzFlMGMKLS0tIGEvZHJpdmVy
-cy9uZXQvZXRoZXJuZXQvc3BhY2VtaXQvazFfZW1hYy5jCisrKyBiL2RyaXZlcnMvbmV0L2V0
-aGVybmV0L3NwYWNlbWl0L2sxX2VtYWMuYwpAQEAgLTE1MzEsNiAtMTY0OCwxNCArMTU0NSwx
-MiBAQEAgc3RhdGljIHZvaWQgZW1hY19hZGp1c3RfbGluayhzdHJ1Y3QgbmV0CiAgCQl9CiAg
-CiAgCQllbWFjX3dyKHByaXYsIE1BQ19HTE9CQUxfQ09OVFJPTCwgY3RybCk7CisgCiAtCQll
-bWFjX3NldF9mY19hdXRvbmVnKHByaXYpOwogLQorIAkJLyoKKyAJCSAqIFJlc2NoZWR1bGUg
-c3RhdHMgdXBkYXRlcyBub3cgdGhhdCBsaW5rIGlzIHVwLiBTZWUgY29tbWVudHMgaW4KKyAJ
-CSAqIGVtYWNfc3RhdHNfdXBkYXRlKCkuCisgCQkgKi8KKyAJCW1vZF90aW1lcigmcHJpdi0+
-c3RhdHNfdGltZXIsIGppZmZpZXMpOwogIAl9CiAgCiAgCXBoeV9wcmludF9zdGF0dXMocGh5
-ZGV2KTsK
-
---------------KRL6Ja5OIm97DC6q0pB1trVX
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---------------KRL6Ja5OIm97DC6q0pB1trVX--
-
+Ck9uIDIwMjYvMS8yMyAwMDowMSwgSmlheXUgRHUgd3JvdGU6Cj4gT24gVGh1LCBKYW4gMjIsIDIw
+MjYgYXQgMDc6NDA6MjlQTSArMDgwMCwgWHVrYWkgV2FuZyB3cm90ZToKPj4gT24gMjAyNi8xLzE5
+IDE2OjE4LCBKaWF5dSBEdSB3cm90ZToKPj4+PiArCj4+Pj4gK0syMzBfQ0xLX0dBVEVfRk9STUFU
+KGhzX2hjbGtfc3JjX2dhdGUsCj4+Pj4gKwkJICAgICBLMjMwX0hTX0hDTEtfU1JDX0dBVEUsCj4+
+Pj4gKwkJICAgICAweDE4LCAwLCAwLCAwLAo+Pj4+ICsJCSAgICAgJmhzX2hjbGtfaGlnaF9zcmNf
+cmF0ZS5jbGsuaHcpOwo+Pj4gSGVyZSwgeW91IHJlcGxhY2VkIGhzX2hjbGtfaGlnaF9nYXRlKGlu
+IHY5KSB3aXRoIGhzX2hjbGtfaGlnaF9zcmNfcmF0ZSwKPj4gSSdtIGEgYml0IGNvbmZ1c2VkLCBh
+cyBJIGRvbid0IHJlY2FsbCBtYWtpbmcgdGhlc2Ugc3BlY2lmaWMgY2hhbmdlcy4KPj4gTG9va2lu
+ZyBhdCB0aGUgY29kZSBiZWxvdywgdGhlIG9ubHkgZGlmZmVyZW5jZSBiZXR3ZWVuIHY5IGFuZCB2
+MTAgaXMKPj4gd2l0aGluIHRoZSBLMjMwX0NMS19HQVRFX0ZPUk1BVChoc19oY2xrX3NyY19nYXRl
+LCAuLi4pIGRlZmluaXRpb24sIHdoZXJlCj4+IHRoZSBzZWNvbmQgcGFyYW1ldGVyIGNoYW5nZWQg
+ZnJvbSAxIHRvIDAuIEV2ZXJ5dGhpbmcgZWxzZSBhcHBlYXJzCj4+IGNvbnNpc3RlbnQuIENvdWxk
+IHlvdSBjbGFyaWZ5IHdoaWNoIGNoYW5nZSB5b3Ugd2VyZSByZWZlcnJpbmcgdG8/Cj4+PiBidXQg
+YWZ0ZXIgbXkgYm9hcmQgdGVzdCwgSSBmaW5kIHRoYXQgd2hlbiBoc19oY2xrX2hpZ2hfZ2F0ZSBp
+cyB0dXJuZWQKPj4+IG9mZiwgdGhlIG1tYy9zZCBhbmQgb3RoZXIgaGlnaC1zcGVlZCBzdWJzeXN0
+ZW1zIGNhbiBub3Qgd29yay4gU28gbWF5YmUKPj4+IHlvdSBzaG91bGQgbm90IGNoYW5nZSB0aGUg
+aHNfaGNsa19oaWdoX2dhdGUgdG8gaHNfaGNsa19oaWdoX3NyY19yYXRlLgo+PiBSZWdhcmRpbmcg
+dGhlIGNsb2NrIG1hbmFnZW1lbnQsIEkgcmVjb21tZW5kIGV4cGxpY2l0bHkgZW5hYmxpbmcKPj4g
+aHNfaGNsa19oaWdoX2dhdGVhcyBpdCB3aWxsIGJlIGNsb3NlZCBieSBgY2xvc2UgdW51c2VkIGNs
+b2Nrc2AuCj4gU29ycnksIHlvdSBhcmUgcmlnaHQuIEl0IHdhcyBtZSB3aG8gbWFkZSB0aGUgY2hh
+bmdlcyBsb2NhbGx5LiBBbmQgSQo+IHNhdyB5b3VyIHJlcGx5IHRvIHRoaXMgZW1haWxbMV0sIHdo
+aWNoIHlvdSBzYWlkIEFjY29yZGluZyB0byB0aGUgdmVuZG9yJ3MKPiBjb2RlLCB0aGUgcGFyZW50
+IGNsb2NrIG9mIGhzX2hjbGtfc3JjIGlzIGhzX2hjbGtfaGlnaF9zcmMuCj4KPiBJbmRlZWQsIHRo
+ZSBwYXJlbnQgY2xvY2sgb2YgaHNfaGNsa19zcmMgaXMgaHNfaGNsa19oaWdoX3NyYy4gCgo+IGJ1
+dCBoc19oY2xrX2hpZ2hfZ2F0ZSBpcyB0aGUgZ2F0ZSBvZiBoc19oY2xrX2hpZ2hfc3JjLiAKCk5v
+LiBJdCBzZWVtcyB0aGVyZSBpcyBzb21lIGNvbmZ1c2lvbi4gVGhlIGhzX2hjbGtfaGlnaF9zcmMg
+ZG9lcyBub3QgaGF2ZQphIGdhdGUuCgpUaGUgY2xvY2sgdHJlZSBpcyBhcyBmb2xsb3c6CgrCoCDC
+oCDCoCDCoHBsbDBfZGl2NArCoCDCoCDCoCDCoCDCoCBoc19oY2xrX2hpZ2hfc3JjX3JhdGUKwqAg
+wqAgwqAgwqAgwqAgwqAgwqBoc19oY2xrX2hpZ2hfZ2F0ZQrCoCDCoCDCoCDCoCDCoCDCoCDCoGhz
+X2hjbGtfc3JjX2dhdGUKwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgaHNfaGNsa19zcmNfcmF0ZQrC
+oCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoGhzX3NkMF9haGJfZ2F0ZQrCoCDCoCDCoCDCoCDC
+oCDCoCDCoCDCoCDCoCDCoGhzX3NkMV9haGJfZ2F0ZQrCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDC
+oCDCoGhzX3NzaTFfYWhiX2dhdGUKwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqBoc19zc2ky
+X2FoYl9nYXRlCsKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgaHNfdXNiMF9haGJfZ2F0ZQrC
+oCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoGhzX3VzYjFfYWhiX2dhdGUKCj4gU28sIHdoYXQg
+eW91IG1lYW4gaXMKPiB0aGF0IHlvdSB3aWxsIGFkZCB0aGUgQ0xLX0lTX0NSSVRJQ0FMIGZsYWcg
+dG8gdGhlIGhzX2hjbGtfaGlnaF9nYXRlPwpObywgSSBkb24ndCBpbnRlbmQgdG8gYWRkIENMS19J
+U19DUklUSUNBTCBmbGFnLiBJbnN0ZWFkLCBJIHJlY29tbWVuZCB5b3UKdG8gZXhwbGljaXRseSBl
+bmFibGUgdGhlIGNsb2NrIGJ5IHVzaW5nIGNsa19wcmVwYXJlX2VuYWJsZSBpbiB5b3VyIGRyaXZl
+ci4KPgo+IExpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8xNTk2MTVkMy1jYzUyLTQz
+YmUtYmY2ZC01ZmU3MTdlZjFjYzRAem9ob21haWwuY29tLyBbMV0KPgo+IFJlZ2FyZHMsCj4gSmlh
+eXUgRHUKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
