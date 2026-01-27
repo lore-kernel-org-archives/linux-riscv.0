@@ -4,118 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B12D13C1B
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 02:34:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F494D25920
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 02:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=awbYJIXhG2qVO4Qq7kYl0tI4XNu3I8Tppgdh8dW3nzk=; b=RHRjlsnSHsdOZY
-	mmCM+S7fpOZ7qHGxe4wF0t/siPv+6tb4qDsc504/OK7UjeLzxMWckdARWR39nRnolZdeA6CFZfWIk
-	uX0/nq0htoTOgJkvhkptJPU8JHOZZei4tqpyWA6ZkDl3b2Dewf1tNXfUwwmRsuKYxA1n+Cmi9ru07
-	9vapRP/0TF97hjYa2dB5UyAy4YD74YzCc8u9xXxzNF7d5HFJq40rxn/fxwDrcGBE6tt3ClFVrVc/w
-	E0KZJeD5Aq14Z2qvEwZDihYWIZmLo1U+vqaVv1RCMEepg4lMDqxhwkv6vk5o5gftpZd4s+8lDAx9X
-	EINd5Uy48V9eoNzSKJKg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sJmhCwrB0rySooG9EQxZiF3JpPeuQ570dIS/VCiqYT4=; b=1aSyfkXLpxxKOe
+	Ax4GAEEXyjESgxaIxYKpx8PfMav4tWDHEIxwkQq93GnLepdzdCE0wpqTtMG4Pt8ARGKpuLthLUGcT
+	ETclVcuhxHUeuwOusH0mD0YkWk1/df5c0YLOn1DujmCTxhNm6tVFjtQ6Dbyo7q2+/nN4iIR/mi97j
+	6W9Hbm7lypBd2rmqU21du2hCQQBGRJbBAAVPrgz8dM0QPwF/Q1TSofeiYTpXgj0W+z64+MO290Cfc
+	+r39sjSHaNpVK5/395BX+yw4AXczfmucanSWkm9NhusyNMHXYJz8EINNlw49iMhz2gVkm1FMCKrH7
+	R6JVmnHfDkV3+nzaZ25A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkYtz-0000000DUhf-0LKV;
-	Tue, 27 Jan 2026 02:33:59 +0000
-Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
+	id 1vkZIG-0000000DXYN-3vRZ;
+	Tue, 27 Jan 2026 02:59:05 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkYtw-0000000DUhI-2Gn2
+	id 1vkZID-0000000DXXv-0ipu
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jan 2026 02:33:57 +0000
-Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-6446c924f9eso4450254d50.1
-        for <linux-riscv@lists.infradead.org>; Mon, 26 Jan 2026 18:33:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769481235; cv=none;
-        d=google.com; s=arc-20240605;
-        b=iFrIsb9wzXyxBNW16ivhBQEjSWJgTfBDosELveZhnBrJ8MjMllP0nplntodyXz/CiP
-         UIcDPoQmc0lr/GHCKNVSisVyQwQmQQMfCsabieKnH7Wj9ja/e113Q51aywbsa+5YGJir
-         2Iz5zeCaXZjHeZj7og59YDF4i3Dn6sCFj4C9XQO8mNyxF1cnLWr84Ga4F3/f+Rz0kg/5
-         lN+6hhvas9wZgGu4HFjOwExA72WeuPkW8ZeVdPcra6a24jmk7rfV2EAb9dVTJRrE65LT
-         PGitcCBUcyhOlkaat0GsD3txWJ4vwg3IWgoXvz3hAaTQ3bjejQdNLHQt/hjMRZaPL0gd
-         QjLQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=wnhaptmtQTA7JxU4MBG5PTLQDrXwDGYuJ0Tg+46DiE0=;
-        fh=dVEWOBs3qk0Oh97oh4alqHPauj7XkdeE+MBuYEmztd4=;
-        b=iriAAgED6VeTRmUnFAwOBGxtWLx++s2TjiW76+ckbap0wal9NNQ1sU8YfFhQDz3PC5
-         56Blz80MJ3HO3CQcMRPlczi5LwygyrxRoIa2aO2/gkBB0uoNnWHGtFL/GQlxMQZduVmV
-         X/pQd48tmUiuI0YeFwFa2KNrhoobmjyfyMI2lVHN/RjS/jaTt0lSVra6Loomv/8S3MU4
-         7JmhwjiBMccXk76Bj6NFikj8QuwA7E7iudOWJlcaFDGtaE4Phvf/Vxnv3Bw+6ZgevoHc
-         yIgTDPJGPfw/Frjt2a/iGPOi3a1G4c8La6PNvZAVtAZ+MXtgoxlIsW2MWe8bFJiZLHiR
-         RzZw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1769481235; x=1770086035; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wnhaptmtQTA7JxU4MBG5PTLQDrXwDGYuJ0Tg+46DiE0=;
-        b=i/2Jz4p8ZMGI6/IKS0ARwH0eA5TG7bcaTVCXa+/BoKT1DF24QNgknd9TJa5fuJYAOP
-         AIQnnK86/aQ89laaVISgYwFX3Je43xAyG0pYtK47mLNnu+brPZVYUi8bvDG2/OPVYqW/
-         XHFRyrQ8Muw/xVqIh0HOtgkFu0WDCvq5XyBIm8PPiXvIleXQFgvo4gJHmVFx+cynY43k
-         MP4KaWbFy+GH0c56GoyTt2fLwRp4W2hKiaBs2JNIsyiPllwsKmDOO93jvf1qkZBZzSYb
-         8jqatEl2s8EcJnZfDVfntEsn3knPvECUytbCpXxzHSqxxCbdGP3Hh9hPMZ4rxU/zc0uJ
-         pDpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769481235; x=1770086035;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=wnhaptmtQTA7JxU4MBG5PTLQDrXwDGYuJ0Tg+46DiE0=;
-        b=vsZJdQlPnr5jHwpmno3QYoScaLi0VtPw/lIZBy5xRSiMrfBzlTQgPoMGIWhlSumXtx
-         IuzWlEH+FsMQVYGt20iI6g14pUAdY3P8bbUmo35cVELnc9VEK5z3Onvum6nz0eRH4rPh
-         ndvmyaJrCyzXT98hQ6YcL4GKeLMzQvWx1G9/mCx3l2ElS2gnLCf6bB08qjGjdzVYwMw2
-         LAwrBOc1o/agpMWRf2EmH7B5Ujz/Rhi1EIMdwEIh9wFUu4sJGUwiE3y8upnUyuhlTKhr
-         l/TkjjcZvEGDM6tLLr62fntQOTnOn9Dj0wLr8P3zUSPVMpx7Rms8UfITaklEU+rEJBfv
-         9MYg==
-X-Forwarded-Encrypted: i=1; AJvYcCWS62JhDVQGB6gWjIVniSMyUgFkFZLoAx+LA3+w2eCjf794Es4WsQqLxSLLV2srTGzdQjReOqs6cpk2zQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwY0GJD+rGC2PzPAicO1zXxBAZsTnHVKwEgPqAGZipUJBuzAnaf
-	RA2ckrro5Vpl1tkuD0FtIYb3tFgx3V0nc0qNjgDA0PnduW9FR5EG3Q3GYOcygeZzC+ijcHOLq2h
-	2wAHu/NrzXwD625aFSzRLq6L/6vFx4Pmz8NgI2/yDtg==
-X-Gm-Gg: AZuq6aLdmk/Pn1DVKc5eZo5gbVQYsIYR4wVOpedgI2TZGvXxsRUq30LrSJsWeDXoqH6
-	RMai9xJGwlkscKsqF7e4EhENhoxftOUpBP8NoZ6SajAhO//TihN5H+XLV1JA+oLKpEEdT9kqXij
-	ha/y36uwaoXGC/mLL2zmwJGhQMi/eTzXumtSM2fZTTEQr+i5OpDJXAclhrEZc8Vkc5vCWL2yRBk
-	qDTPSR8W5GPr21oMWSYiFfrxE9fl1ewHyNPOSrYanRMJizNw73GLT+iDna+GHWATlCaevz4ev86
-	PQ==
-X-Received: by 2002:a05:690e:1c1c:b0:644:53d2:a698 with SMTP id
- 956f58d0204a3-6498fbf5009mr54384d50.34.1769481234990; Mon, 26 Jan 2026
- 18:33:54 -0800 (PST)
+	Tue, 27 Jan 2026 02:59:03 +0000
+Received: from [127.0.0.2] (unknown [210.73.43.101])
+	by APP-01 (Coremail) with SMTP id qwCowACHMGzqKXhpDppkBg--.41488S2;
+	Tue, 27 Jan 2026 10:58:50 +0800 (CST)
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Date: Tue, 27 Jan 2026 10:58:49 +0800
+Subject: [PATCH] gpio: spacemit-k1: Use PDR for pin direction, not SDR/CDR
 MIME-Version: 1.0
-References: <20260119-ssqosid-cbqri-v1-0-aa2a75153832@kernel.org>
- <CAEEQ3w=0_JvE0nuJ=F_RHsBE=tbV5j0ycgT_k3kYPLE_ixOExw@mail.gmail.com> <aXfKYokyKJ8oassV@x1>
-In-Reply-To: <aXfKYokyKJ8oassV@x1>
-From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Tue, 27 Jan 2026 10:33:43 +0800
-X-Gm-Features: AZwV_QiA23kiB68WdyQnej2C57ua4snmGQ3t9gJKKg_GFzgdJ-hZdgu2hYe-BSQ
-Message-ID: <CAEEQ3wnxFyCDL0swL4ymWupKj3M+TsbEtFn+CPx2t_1sZS1PdQ@mail.gmail.com>
-Subject: Re: [External] [PATCH RFC 00/19] RISC-V: QoS: add CBQRI resctrl interface
-To: Drew Fustini <fustini@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	=?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, 
-	Samuel Holland <samuel.holland@sifive.com>, Adrien Ricciardi <aricciardi@baylibre.com>, 
-	Nicolas Pitre <npitre@baylibre.com>, =?UTF-8?Q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>, 
-	Atish Patra <atish.patra@linux.dev>, Atish Kumar Patra <atishp@rivosinc.com>, 
-	Vasudevan Srinivasan <vasu@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>, 
-	Chen Pei <cp0613@linux.alibaba.com>, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, 
-	Weiwei Li <liwei1518@gmail.com>, guo.wenjia23@zte.com.cn, liu.qingtao2@zte.com.cn, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Rob Herring <robh+dt@kernel.org>, Reinette Chatre <reinette.chatre@intel.com>, 
-	Tony Luck <tony.luck@intel.com>, Babu Moger <babu.moger@amd.com>, 
-	Peter Newman <peternewman@google.com>, Fenghua Yu <fenghua.yu@intel.com>, 
-	James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
-	Dave Martin <Dave.Martin@arm.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, x86@kernel.org, 
-	Conor Dooley <conor.dooley@microchip.com>
+Message-Id: <20260127-gpio-spacemit-k1-pdr-v1-1-bb868a517dbc@iscas.ac.cn>
+X-B4-Tracking: v=1; b=H4sIAOgpeGkC/yWN2wqDMBBEf0X2uQETm4v9leLDJlltKGqa2FIQ/
+ 71LhXk5A3Nmh0olUYVbs0OhT6ppXRjkpYHwwGUikSIzqFaZViorppxWUTMGmtMmnlLkWES0Ujv
+ nTYx9CzzNhcb0/Wvvw8mFXm+2b2cJHiuJsM4suTUdGuw4Y7iSdMRfhKMJSjutO69RWt9LYy0Mx
+ /EDxHggCrIAAAA=
+X-Change-ID: 20260127-gpio-spacemit-k1-pdr-d71588b6dd90
+To: Linus Walleij <linusw@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Alex Elder <elder@riscstar.com>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Vivian Wang <wangruikang@iscas.ac.cn>
+X-Mailer: b4 0.14.3
+X-CM-TRANSID: qwCowACHMGzqKXhpDppkBg--.41488S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxAF1UZF1UGry7JF1rCF4Uurg_yoW5ury3pF
+	Wru3savF45JFWUtFnFvFnrZF4fCan7tFnxAF42grW8Zwn0qFyktr48tF93XFy5ZFyrZr42
+	qr4DKr18C3ZrAw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9K14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r4UMxAIw28IcxkI7VAKI4
+	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
+	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjx
+	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20E
+	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
+	AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjfUO6pPUUUUU
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_183356_598543_CBE8A78B 
-X-CRM114-Status: GOOD (  17.71  )
+X-CRM114-CacheID: sfid-20260126_185901_585588_EC13A2C2 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,40 +80,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgRHJldywKCk9uIFR1ZSwgSmFuIDI3LCAyMDI2IGF0IDQ6MTHigK9BTSBEcmV3IEZ1c3Rpbmkg
-PGZ1c3RpbmlAa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBNb24sIEphbiAyNiwgMjAyNiBhdCAw
-OToxNDoyNFBNICswODAwLCB5dW5odWkgY3VpIHdyb3RlOgo+ID4gMS4gV2hhdCBhYm91dCB0aGUg
-cmVsZXZhbnQgbG9naWMgZm9yIG13ZWlnaHQ/Cj4KPiBNeSBpbnRlbnRpb24gZm9yIHRoaXMgc2Vy
-aWVzIGlzIHRvIGp1c3QgYWRkIHN1cHBvcnQgZm9yIGZ1bmN0aW9uYWxpdHkKPiB0aGF0IG1hdGNo
-ZXMgdGhlIGV4aXN0aW5nIHJlc2N0cmwgc2NoZW1hdGEuIEkgdGhpbmsgbXdlaWdodCBjb3VsZCBi
-ZQo+IGFkZGVkIGxhdGVyLiBUaGVyZSBpcyBhY3RpdmUgZGlzY3Vzc2lvbiBbMV0gYWJvdXQgaG93
-IHRvIGV4cGFuZCBzY2hlbWFzCj4gaW4gcmVzY3RybC4KClRoZSBjb21tb24gbGF5ZXIgbWF5IGNv
-bnNpZGVyIGFkZGluZyBhIHJlc291cmNlIHR5cGUKUkRUX1JFU09VUkNFX01CX1dFSUdIVCAoc2lt
-aWxhciB0byBSRFRfUkVTT1VSQ0VfTDMpLCB3aGljaCBjYW4gZXZvbHZlCmluIHRhbmRlbSB3aXRo
-IHJlc2N0cmwgaW4gdGhlIGNvbW1vbiBsYXllci4gVGhlIFJJU0MtViBRb1MgbGF5ZXIgc2hhbGwK
-aW1wbGVtZW50IHRoZSBsb2dpYyBmb3IgbXdlaWdodCDigJQgdGhpcyBwYXJ0IGlzIGZpeGVkLCBh
-bmQgaXQgaXMKcmVjb21tZW5kZWQgdG8gYWRkIHRoaXMgbG9naWMgdG8gdGhlIHBhdGNoc2V0LiBS
-QldCIG9ubHkgcHJvdmlkZXMKc3RhdGljIGNhcGFiaWxpdGllcywgd2hpbGUgbXdlaWdodCBlbmFi
-bGVzIGR5bmFtaWMgdHJhZmZpYyBsaW1pdGluZwpmdW5jdGlvbmFsaXR5LCBtYWtpbmcgaXQgcXVp
-dGUgaW1wb3J0YW50IGluIHRlcm1zIG9mIG92ZXJhbGwgZmVhdHVyZQpzdXBwb3J0LgoKPgo+ID4g
-Mi4gV2hhdCBpcyB0aGUgc3VwcG9ydCBwbGFuIGZvciBJT01NVT8KPgo+IFNpbWlsYXJseSwgSSB3
-YW50ZWQgdG8gbGFuZCB0aGUgYmFzaWMgcmVzY3RybCBzdXBwb3J0IGJlZm9yZSBleHBhbmRpbmcK
-PiB0byBvdGhlciByZXNvdXJjZSB0eXBlcy4KCkFscmlnaHQsIHRoaXMgcGFydCBjYW4gYmUgaW5j
-b3Jwb3JhdGVkIGluIG9uY2UgdGhlIHJldmlldyBmb3IgdGhlCmNhY2hlL21lbSArIEFDUEkgcGF0
-Y2hzZXQgaXMgbmVhcmx5IG1hdHVyZS4KCj4KPiA+IDMuIENhbiB3ZSBhbHNvIGFkZCB0aGUgcGF0
-Y2hlcyB0aGF0IHN1cHBvcnQgUlFTQyB0byB0aGlzIHBhdGNoc2V0Pwo+Cj4gSSdtIGFib3V0IHRv
-IHNlbmQgaXQgYXMgcGFydCBvZiB2MiBvZiB0aGlzIHNlcmllcy4gSSByZW1vdmVkIHRoZQo+IHBs
-YXRmb3JtIGRyaXZlcnMgYW5kIHVzZSB0byBBQ1BJIHRvIGJvb3QgdGhlIHN5c3RlbS4gSSB3aWxs
-IGZpbmlzaAo+IGVkaXRpbmcgdGhlIGNvdmVyIGxldHRlciBhbmQgc2VuZCB0b2RheS4gVGhlIGI0
-L3NzcW9zaWQtY2JxcmkgYnJhbmNoCj4gY29udGFpbnMgd2hhdCB3aWxsIGJlIHRoZSB2MiBzZXJp
-ZXMuCj4KPiBUaGFua3MsCj4gRHJldwo+Cj4gWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2Fs
-bC9hWFVLN1hGc0hsK2dud0ElMkZAeDEvCj4gWzJdIGh0dHBzOi8vZ2l0aHViLmNvbS90dC1mdXN0
-aW5pL2xpbnV4L2NvbW1pdHMvYjQvc3Nxb3NpZC1jYnFyaS8KCgpUaGFua3MsCll1bmh1aQoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On the SpacemiT GPIO controller, the direction control register PDR is
+readable and writable [1]. Therefore, implement direction control by
+using PDR as dirout, and don't mark it as unreadable.
+
+The original implementation, using SDR as dirout and CDR as dirin, is
+not actually a supported configuration by gpio-mmio. The hardware
+supports changing the direction of some pins atomically by writing a
+value with the corresponding bits set to SDR (set as output) or to CDR
+(set as input). However, gpio-mmio does not actually handle this.
+
+Using only PDR as dirout to match the expectations of gpio-mmio. This
+also allows us to avoid clobbering potentially important GPIO direction
+configurations set by pre-Linux boot stages.
+
+Found while trying to add PCIe support to OrangePi RV2, where the
+regulator (controlled by GPIO 116) turns off on boot while some other
+GPIO pin in the same bank is touched, which is not desirable.
+
+Link: https://developer.spacemit.com/documentation?token=Rn9Kw3iFHirAMgkIpTAcV2Arnkf#18.4-gpio # [1]
+Fixes: d00553240ef8 ("gpio: spacemit: add support for K1 SoC")
+Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+---
+Tested on K1 only - help with K3 testing would be appreciated.
+
+Backporting this looks like it would be annoying. Unsure about whether
+it would be necessary.
+
+Of course the PCIe 3.3V regulator still needs to described properly in
+the future DTS update for OrangePi RV2, but IIUC this avoids having the
+regulator briefly powering off? In any case, being able to read the
+direction is still an improvement.
+---
+ drivers/gpio/gpio-spacemit-k1.c | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/gpio/gpio-spacemit-k1.c b/drivers/gpio/gpio-spacemit-k1.c
+index 8f570a1a4894..dbd2e81094b9 100644
+--- a/drivers/gpio/gpio-spacemit-k1.c
++++ b/drivers/gpio/gpio-spacemit-k1.c
+@@ -199,7 +199,7 @@ static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
+ 	struct gpio_chip *gc = &gb->chip.gc;
+ 	struct device *dev = sg->dev;
+ 	struct gpio_irq_chip *girq;
+-	void __iomem *dat, *set, *clr, *dirin, *dirout;
++	void __iomem *dat, *set, *clr, *dirout;
+ 	int ret;
+ 
+ 	gb->base = regs + sg->data->bank_offsets[index];
+@@ -208,8 +208,7 @@ static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
+ 	dat	= gb->base + to_spacemit_gpio_regs(gb)[SPACEMIT_GPLR];
+ 	set	= gb->base + to_spacemit_gpio_regs(gb)[SPACEMIT_GPSR];
+ 	clr	= gb->base + to_spacemit_gpio_regs(gb)[SPACEMIT_GPCR];
+-	dirin	= gb->base + to_spacemit_gpio_regs(gb)[SPACEMIT_GCDR];
+-	dirout	= gb->base + to_spacemit_gpio_regs(gb)[SPACEMIT_GSDR];
++	dirout	= gb->base + to_spacemit_gpio_regs(gb)[SPACEMIT_GPDR];
+ 
+ 	config = (struct gpio_generic_chip_config) {
+ 		.dev = dev,
+@@ -218,9 +217,7 @@ static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
+ 		.set = set,
+ 		.clr = clr,
+ 		.dirout = dirout,
+-		.dirin = dirin,
+-		.flags = GPIO_GENERIC_UNREADABLE_REG_SET |
+-			 GPIO_GENERIC_UNREADABLE_REG_DIR,
++		.flags = GPIO_GENERIC_UNREADABLE_REG_SET,
+ 	};
+ 
+ 	/* This registers 32 GPIO lines per bank */
+
+---
+base-commit: 3a6a36a3fc4e18e202eaf6c258553b5a17b91677
+change-id: 20260127-gpio-spacemit-k1-pdr-d71588b6dd90
+
+Best regards,
+-- 
+Vivian "dramforever" Wang
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
