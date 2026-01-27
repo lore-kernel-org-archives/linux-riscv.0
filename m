@@ -4,80 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D014CCA6C92
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 08:57:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343DECA6CBF
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 09:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OnRLAvv/ktZrGTLt8NuBvjjQT/k51yP9tfzfBare9gU=; b=Y7r2JWGXVQvoKv
-	6Vw9aHbDL4S7Unm1NcgZQ+e1Hz+KHrW3EZlUzdhZu868Njn7xfmvpiZzCEsFvX2UmLRY5xbq1w6FE
-	5U09AAEVkKFNbKoSiRT6QidHO4KQAR8WJgOniiVw28s+ymde2e2yKCQRrPyjP9xsY22Cslrg0ex/F
-	OoD5VJJ52OR7WAD+nU8RVNnDZl86ixvYcc9BOBqFjD+MuPf3E9DW9yx3UxUenkyK20yUIGGnPx05J
-	5hMv+ajCfp/hWnw5IFf2+rmVTtMeW0G0+7wq4tHt+h+yUtUoJPr7qnlA5NJKtxYx31JxyfzrIhzFQ
-	66KvZQEiL7xGCMDabYJA==;
+	List-Owner; bh=Wl6BkALJV39VIIfHpGJRd/uOHe73v7PqmR9BLgKGuyA=; b=M1lWQ0C16H0cQV
+	fTBtZ6XO4+yaWHcz80g7X9EVfZVFJRb9q8u/XPL0l9WZwYgCa9+QjSH5/rNf8KGLtONVkJfOtsjyx
+	RIukxK6pgWZgVaHbxbP1RvrN6ebMrd25IJb2qYWVGpsGPXtsNzMuAfiZ5AGfDxG0PEWlIXRM+wM7i
+	7H5wTOLZ+BOZVlLBSgVW8ZYCR5NHkajutKhpHmaWugfjwtAcky379MbKmxsNKgZT64Fq7CDIJyD6N
+	wdXwT5eswIdVjb0xJFqFpjVVTX9RQ98i8QlpczSsBhtMPq6SvmfuGDEjyKhKkYqIxLuWJC/9EefvP
+	gF8410XAtLpwILkPyDpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkeso-0000000Dt1Z-0an7;
-	Tue, 27 Jan 2026 08:57:10 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1vkfKe-0000000DvqC-1CgC;
+	Tue, 27 Jan 2026 09:25:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkesl-0000000Dt0U-32zn
+	id 1vkfKY-0000000DvpL-1SKC
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jan 2026 08:57:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769504228; x=1801040228;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=B0I0oaZQsAdILuwspLXSS9mmvQz9qSJghCZs0WfsOQg=;
-  b=DwXzZ4iwIbMLwHD7PH2PnKgcqQ+zIn8IRIjmCnkYjork5QjfltBbQwO6
-   owVtvAIZfVdswjE2o5qXJdfuuIOyDbc1vzR2Tmll3dZMU5lZqGghLCG55
-   OgpCFdu20+Bp1uFk6TiTHOxUrwstFrSpAufr6PB7ucR03OYA/McHxmAqD
-   LH5cYkcHe3lvgEL+0UzO3NqPElhmzqeK4hpY4/agI3vgXtJ5vrpmCcpT+
-   Sd9jJdWbrhi8qBHJNTs8dzlaj+KLSDXMQNbb2e6u4bcG+T8PBRN/DUa9l
-   sI5xXcIT+5fb5zL63wgrKQ2zM5UzK/hqP2Z1ZPNbQroWyP9UiwSg7o96S
-   g==;
-X-CSE-ConnectionGUID: MFlWU6SlSziBxxvNPFwxyw==
-X-CSE-MsgGUID: fjQbsyXZTjKOFkzx1lJGVA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11683"; a="82122917"
-X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
-   d="scan'208";a="82122917"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 00:57:07 -0800
-X-CSE-ConnectionGUID: 4jAFmzE3SJClXjb5Py/jfw==
-X-CSE-MsgGUID: 1Rfd1XACRZK1VZjGHVP01A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
-   d="scan'208";a="207539221"
-Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.245.248])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 00:57:02 -0800
-Date: Tue, 27 Jan 2026 10:57:00 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Feng Jiang <jiangfeng@kylinos.cn>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, akpm@linux-foundation.org, kees@kernel.org,
-	andy@kernel.org, ebiggers@kernel.org, martin.petersen@oracle.com,
-	sohil.mehta@intel.com, charlie@rivosinc.com,
-	conor.dooley@microchip.com, samuel.holland@sifive.com,
-	linus.walleij@linaro.org, nathan@kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v5 4/8] lib/string_kunit: add performance benchmark for
- strlen()
-Message-ID: <aXh93EVRSOrQQS6l@smile.fi.intel.com>
-References: <20260127012558.40025-1-jiangfeng@kylinos.cn>
- <20260127012558.40025-5-jiangfeng@kylinos.cn>
+	Tue, 27 Jan 2026 09:25:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8841760132;
+	Tue, 27 Jan 2026 09:25:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AD12C2BC86;
+	Tue, 27 Jan 2026 09:25:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769505949;
+	bh=4jiQZv9wxoQeg5GZ0kgb1xulJUpKBRxTXH2y58bWr18=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=MwfWSVSNX2GZRCGGxBdlvB8xQYGAbi+lkcajYFbHijmcWUpTHXDVhI7ydYg1uDjw4
+	 HPpv7cCWzutovVqQJEFV3KZL//Hjra5aOIzQJyjIGBzCYXBC3ssyUAgViMMRma4E8N
+	 9SI9RpBNdQlO2gZ1RG3HWsxR056Wvm49DwJQ5mjLp02M/PoyIPmVEZs045/mNPrN8l
+	 XEVpJ/uVSxciHV8bwp11WnyYsne7NENgI/2Vp0/n6QymhC8d5j3IAzg0x8lS3r/mDR
+	 Luvuoy36/GTL+oCN+smnWQtd3kI0mNNEOL3E95afS5itU4dMOYSPhDbadVadZSN/bL
+	 xSVk3WlsToqFA==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Vivian Wang <wangruikang@iscas.ac.cn>, Madhavan Srinivasan
+ <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas
+ Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)"
+ <chleroy@kernel.org>, Alex Deucher <alexander.deucher@amd.com>, Christian
+ =?utf-8?Q?K=C3=B6nig?= <christian.koenig@amd.com>, David Airlie
+ <airlied@gmail.com>, Simona
+ Vetter <simona@ffwll.ch>, "Creeley, Brett" <bcreeley@amd.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni <pabeni@redhat.com>, Bjorn Helgaas <bhelgaas@google.com>, Jaroslav
+ Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
+Cc: Han Gao <gaohan@iscas.ac.cn>, Vivian Wang <wangruikang@iscas.ac.cn>,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ netdev@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org,
+ sophgo@lists.linux.dev, Takashi Iwai <tiwai@suse.de>
+Subject: Re: [PATCH v3 1/4] PCI/MSI: Conservatively generalize no_64bit_msi
+ into msi_addr_mask
+In-Reply-To: <20260123-pci-msi-addr-mask-v3-1-9f9baa048524@iscas.ac.cn>
+References: <20260123-pci-msi-addr-mask-v3-0-9f9baa048524@iscas.ac.cn>
+ <20260123-pci-msi-addr-mask-v3-1-9f9baa048524@iscas.ac.cn>
+Date: Tue, 27 Jan 2026 10:25:46 +0100
+Message-ID: <87o6mfbe5h.ffs@tglx>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260127012558.40025-5-jiangfeng@kylinos.cn>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_005708_049887_ADCB56C4 
-X-CRM114-Status: GOOD (  18.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,126 +84,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 27, 2026 at 09:25:54AM +0800, Feng Jiang wrote:
-> Introduce a benchmarking framework to the string_kunit test suite to
-> measure the execution efficiency of string functions.
-> 
-> The implementation is inspired by crc_benchmark(), measuring throughput
-> (MB/s) and latency (ns/call) across a range of string lengths. It
-> includes a warm-up phase, disables preemption during measurement, and
-> uses a fixed seed for reproducible results.
-> 
-> This framework allows for comparing different implementations (e.g.,
-> generic C vs. architecture-optimized assembly) within the KUnit
-> environment.
+On Fri, Jan 23 2026 at 14:07, Vivian Wang wrote:
+> Some PCI devices have PCI_MSI_FLAGS_64BIT in the MSI capability, but
+> implement less than 64 address bits. This breaks on platforms where such
+> a device is assigned an MSI address higher than what's reachable.
+>
+> Currently, we deal with this with a single no_64bit_msi flag, and
 
-Acked-by: Andy Shevchenko <andy@kernel.org>
-A few nit-picks below.
+we don't deal with anything. The code has a single bit
+limitation. Please use passive voice as documented.
 
-...
+> (notably on powerpc) forces 32-bit MSI address for these devices.
 
-> +static void *alloc_max_bench_buffer(struct kunit *test,
-> +		const size_t *lens, size_t count, size_t *buf_len)
-> +{
-> +	size_t max_len = 0;
-> +	void *buf;
-> +
-> +	for (size_t i = 0; i < count; i++)
-> +		max_len = max(lens[i], max_len);
+this is not a valid sentence.
 
-You also need minmax.h.
+> However, on some platforms the MSI doorbell address is above 32-bit but
+> within device ability.
+>
+> As a first step to enabling MSI on those combinations of devices and
+> platforms, conservatively generalize the single-bit flag no_64bit_msi
+> into msi_addr_mask. (The name msi_addr_mask is chosen to avoid confusion
+> with msi_mask.)
+>
+> The translation is essentially:
+>
+> - no_64bit_msi = 1    ->    msi_addr_mask = DMA_BIT_MASK(32)
+> - no_64bit_msi = 0    ->    msi_addr_mask = DMA_BIT_MASK(64)
+> - if (no_64bit_msi)   ->    if (msi_addr_mask < DMA_BIT_MASK(64))
+>
+> Since no values other than DMA_BIT_MASK(32) and DMA_BIT_MASK(64) is
 
-> +	/* Add space for NUL character */
-> +	max_len += 1;
-> +
-> +	buf = kunit_kzalloc(test, max_len, GFP_KERNEL);
-> +	if (!buf)
-> +		return NULL;
-> +
-> +	if (buf_len)
-> +		*buf_len = max_len;
-> +
-> +	return buf;
-> +}
+s/is/are/
 
-...
+> used, no functional change is intended. Future patches that make use of
+> intermediate values of msi_addr_mask will follow, allowing devices that
+> cannot use full 64-bit addresses for MSI to work on platforms with MSI
+> doorbell above 32-bit address space.
+>
+> Acked-by: Takashi Iwai <tiwai@suse.de>
+> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
 
-> +#define STRING_BENCH(iters, func, ...)					\
-> +({									\
-> +	/* Volatile function pointer prevents dead code elimination */	\
-> +	typeof(func) (* volatile __func) = (func);			\
-> +	size_t __bn_iters = (iters);					\
-> +	size_t __bn_warm_iters;						\
-> +	u64 __bn_t;							\
+Other than those nits:
 
-
-Perhaps a short comment here
-
-	/* Use 10% of the given iterations (maximum 50) to warm up */
-
-> +	__bn_warm_iters = max(__bn_iters / 10, 50U);			\
-> +									\
-> +	for (size_t __bn_i = 0; __bn_i < __bn_warm_iters; __bn_i++)	\
-> +		(void)__func(__VA_ARGS__);				\
-> +									\
-> +	preempt_disable();						\
-> +	__bn_t = ktime_get_ns();					\
-> +	for (size_t __bn_i = 0; __bn_i < __bn_iters; __bn_i++)		\
-> +		(void)__func(__VA_ARGS__);				\
-> +	__bn_t = ktime_get_ns() - __bn_t;				\
-> +	preempt_enable();						\
-> +	__bn_t;								\
-> +})
-
-...
-
-> +#define STRING_BENCH_BUF(test, buf_name, buf_size, func, ...)		\
-> +do {									\
-> +	size_t buf_size, _bn_i, _bn_iters, _bn_size = 0;		\
-> +	u64 _bn_t, _bn_mbps = 0, _bn_lat = 0;				\
-> +	char *buf_name, *_bn_buf;					\
-> +									\
-> +	_bn_buf = alloc_max_bench_buffer(test, bench_lens,		\
-> +			ARRAY_SIZE(bench_lens), &_bn_size);		\
-> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, _bn_buf);			\
-> +									\
-> +	fill_random_string(_bn_buf, _bn_size);				\
-> +									\
-> +	for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {	\
-> +		buf_size = bench_lens[_bn_i];				\
-> +		buf_name = _bn_buf + _bn_size - buf_size - 1;		\
-> +		_bn_iters = STRING_BENCH_WORKLOAD / max(buf_size, 1U);	\
-> +									\
-> +		_bn_t = STRING_BENCH(_bn_iters, func, ##__VA_ARGS__);	\
-
-> +									\
-
-Remove unneeded blank line.
-
-> +		if (_bn_t > 0) {					\
-> +			_bn_mbps = (u64)(buf_size) * _bn_iters		\
-
-Why buf_size in the parentheses here and not anywhere else (above)?
-I assume it's just an external temporary variable? But why do we need to have
-it in the parameters to the macro?
-
-> +					* (NSEC_PER_SEC / MEGA);	\
-
-Leave '*' on the previous line.
-
-> +			_bn_mbps = div64_u64(_bn_mbps, _bn_t);		\
-> +			_bn_lat = div64_u64(_bn_t, _bn_iters);		\
-> +		}							\
-> +		kunit_info(test, "len=%zu: %llu MB/s (%llu ns/call)\n",	\
-> +				buf_size, _bn_mbps, _bn_lat);		\
-> +	}								\
-> +} while (0)
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Reviewed-by: Thomas Gleixner <tglx@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
