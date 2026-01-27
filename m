@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD2F9D2FED2
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 18:49:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120CFD2FED2
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 18:49:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/HdhA8wpKUzTXYyPz1KaKNsXCfkPUcR33h87glQ+lsU=; b=4NEl+qA23WjLOE
-	Qtt5v5rtUNPZzFo+ikERC0+ivQGmxCc4luRZAtPsE9cMXvtHwoHrEb3muA4KDQ56VRyaZc7XPCc6F
-	sWNz2duIITEMpc0G+8BogfIQAUDsvOV9bSWCn0JHEXmdQWhYbYTz1t5b/GaP0a9WOmnOPDAbSIuSf
-	fmgwavCj7PWwhkM3agGVfsfvP/KMOlykYechOmw6E0rN/Y0jI9HPFVgRMiOp1b4UhHhR9CNRQ7peD
-	2/5xVlzl4tPOMyUfKrFQXhxwN85wRPnByrXGuBIkFEmiAqU73tNClhgO4v4caCye0UVQRaIpYDlbx
-	WCbPnFCvUhbS0FpU6eMw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xTQGIVR4q6Q6oOblwbpFkWCKuWss8BA/yWaHzxOJZi8=; b=4oZiL8FAElbbuU
+	wzwovYmgw0CrvFPyrCZljT/ZtTjBpuPjZp/f8tyTWfSi6SB0G6rPHvhAWo4lTdZ7/+RVtWpfeAzp4
+	IUW8wbyVYiszkAo4AgEo+ZyFd5A6GpHrB8DCGw2PGvpyJnNbVX03VnvQ5o1tQj+MhzbU1JR5W9Cjk
+	i3CwakI6Rpa3uBjFSJmTus3Mq9yqEKqW4T+nKM74CmNgPvqOMO1EOv/qe8Fym37L2EakKlwVKgDqV
+	DikJZ15SWCH4+UQNDjqpyTywbvzxLYQAuZ6KcMXtlFF3ahgn60VH3+fLfkcEPOstIhiX5xPRw/57Q
+	EKJQA7lNvH3VzUSxRkUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vko7G-0000000EqHe-2G0y;
-	Tue, 27 Jan 2026 18:48:42 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1vko7N-0000000EqJ5-3oEP;
+	Tue, 27 Jan 2026 18:48:49 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vko7C-0000000EqGt-3qzU
+	id 1vko7J-0000000EqHn-0MRO
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jan 2026 18:48:41 +0000
-Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-4805ef35864so22891225e9.0
-        for <linux-riscv@lists.infradead.org>; Tue, 27 Jan 2026 10:48:38 -0800 (PST)
+	Tue, 27 Jan 2026 18:48:48 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47ff94b46afso1077205e9.1
+        for <linux-riscv@lists.infradead.org>; Tue, 27 Jan 2026 10:48:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769539717; x=1770144517; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=KIPiKXcszSKqC5Pe05TjPejSszZASfo0tqdtxtTf+sk=;
-        b=WN5AWO8YAD9rhPe/dK1p8ve+tGtwTV55l0gVl6OnV6CEWlYwXu8w0yg9Ojh4LVEc+U
-         NRmCnH8Cs+ay3eNprWqodQAfs+igL4lpE8jgsBEVjgUm3mSv4QTXv8k7hlCqb8/a4cR/
-         PuI7OdRSYW+zIqRhnXmf+NZu/QHoEWz0w0YrCn4imPXQtD4u+G+lVqjst7dticG79cr9
-         urEgYLQqzQapvcWgcSHH4CbQkpM3vJCe3W2QMc9pZMwoprGkckxmtxSff+Gts2iauPHG
-         /Ayym7kWQnOeojqA3/FraSsDJqR5WAARDhYrWaQEu3eH55n8lzhBJVfc5Ca8EwhRKvzR
-         88JQ==
+        d=gmail.com; s=20230601; t=1769539723; x=1770144523; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=j6l444t6jpG+w7dlEITp6QEjvTc4ukc4CjhdbSiVZ9s=;
+        b=JRrX5Qx6WoAbKHMdSsqUQC7GdjLfELEHWGajcHBZ8wlxN4R5FJH0ZIIq9iXdXcMosE
+         Qcgrg4vqUuZ2PrwzO22otfZPS8Q/JXbggCM3bgPR9VLPfXSmoL9Q2i+VtYMH38K8qbEz
+         9rudzcxR+jb1kIBSMRX86ZvMfJ+A7K7eWa5l/fjCjAMDPror+GDBGYapZbLJeFlxKE8u
+         Fv40VKoD+DrxURveKZzZhlaE4pTT9FsN+ADkCWvN1FWcinI9Q0A6wwjHgN2MGfkqCNZb
+         z8Le4haYd6RVMdqpQgpuiPiTV2QUA566VaNTFYL4/3/Rupj7eU2AUvfNEohErmmBA5MW
+         DNZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769539717; x=1770144517;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KIPiKXcszSKqC5Pe05TjPejSszZASfo0tqdtxtTf+sk=;
-        b=hDLpTqqwXk9mjDDPHLE4qX9CbkWnlyTDLTJJbny35ddRqAYe+kd2iwuvLXLfV0RW1B
-         gFFwinH9MC8F/cTRyWKxkMNYd3DFdvpP59U8rttBWYMoDD/fvTvPUbA9XEjHuER0+kgA
-         RRprVd5wYOo6+uzXyiXg7mAGHeq+4nHE+zakxDnaPO6U6UIRMtk1ZxM/gzvq5SvSyf8k
-         VUyo8xYJpAOXfmHfjE7MBdZhmZg1O5Yqm78gn2c5bDlpXeMzE0+SMgEvOr5KkxvQ2Xz2
-         cHDi0b3rOQ4CqH6W4/nszc4zY4tPLg1ExyIjwHhi8Gi7cmQkZZlPFN+T8NADs4ezTBLF
-         uYBw==
-X-Forwarded-Encrypted: i=1; AJvYcCV7Mhx/hMO9b7MZ24hHLOJcEsGkI9csQxA0w6g1x46pWvtkQ73UzRBeNcMhuYbiUSh2wagbjt6WZ3PTJQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxg6JD3LhJAh6io3GcVorAQk2zcmX1q5QoO17cdZXzooTLMxlcc
-	BO0OlakP8R4uSG4WnXR2QzSsbhM85UxAMWArgBsaLnNH1d69ihFQ+/qM
-X-Gm-Gg: AZuq6aKd/k2to838Ziakvbb4DVkLQqscVCHABatYRcldVfRgLjjl7JkJE5FMOTA9CKV
-	gw3hhD6KHVEgt8ZSSxD9U51Gsx4GsIQUxYnE0/DbkFrIRv+zySLZwsNHw7P2Kojl5eTXL4YY9jl
-	inNvbUVLUiL2dyZaelhOKC7h716gsgJHs+4CqlDI/Z6/am6Apsy4HiHJZ0nLvGneBcUU8yZQWQl
-	MjrctVeQtt0713Mbu5TtqWZ4IRmGjKLyXCGJPkLqaBnqOUuPHD8REcBYrHfOBDtFEn8T6XK31ov
-	vS2O2WTT+QCX661OtIo4COogP3A4IlA11IJEvpqisxw6gKLIgHhkVpCUrLXsjNmwPvPIx7NjNhc
-	b3Tpx1iWc+rOXZ9mle8AXbiXxd10k3GJzD9R5LV2dAe63SToTW1J+ixGZAxzBM6SLWaDsBfBi9d
-	jdXdVDMrjwsO9e+HfC4qBUQINozYpxR2XNWJ4KibMbWi23IT8jnWHTAig=
-X-Received: by 2002:a05:6000:1a86:b0:431:1d4:3a8a with SMTP id ffacd0b85a97d-435dd02c1cbmr3380605f8f.7.1769539716838;
-        Tue, 27 Jan 2026 10:48:36 -0800 (PST)
+        d=1e100.net; s=20230601; t=1769539723; x=1770144523;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=j6l444t6jpG+w7dlEITp6QEjvTc4ukc4CjhdbSiVZ9s=;
+        b=Ghizd70WM32vGD8rZmIb7xQxpI6nIlqEIeV0nceaWt7vn+++mQ/fZjV+q4Y9Ev6KEn
+         dNUfwx1RA6qcjvdHjcArfXYoPQkVvdcF2gQGCGuPd/gzYfMNN2t5o/Ojxpfuc65qx8rG
+         d/dphyUBsHYBiIHzvcyhjrXJwSUa500L8S781N/Qcat06ILfBPzjdyqF3fq70vShtjaQ
+         i6xTz1eeu5imjMmVg5BHmWJExBRWqihXt64gayEjJHUKvBNWDJ1qYJYVX1rMaHKw9iam
+         nkZ8WNZgA7EU7WNcEI/L0e8F/pcbJtBphvkkACCTZlMwF9Oz3HCHZh51tD/iWRjb/mdd
+         pWAA==
+X-Forwarded-Encrypted: i=1; AJvYcCUfr4JeLlrCERNLJD19fL+YRzdgxkl4Hsxg9A5vZTAOyvPZ5C/UgiInhvCAsZLjfGBVIWa5U4BKplKrAw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7iA/pL2uXbPAizRtiQ1dRbzFtTNZjyoBsmv9s9Ha0z4w7LjVF
+	d1E1+bAdwvVaqVPuR7IxYbuoFT5ISArFLH8qdTfTjcWt3XcsrMfd3jWs
+X-Gm-Gg: AZuq6aJfopG4NBuWQUaBKd3y6cIdeTCXfdNSvFf4OPpAJ4BgNugMBweHgPnbwT719Mz
+	tQOXc5dGQK7q/QJ/QcOzAm2FEpEC+XXO+Otjm4LEYoyyEQlvP5ZeHABGkjZZwYfHZJt7CdJ6TyV
+	GFRQJCRDQprKnSXverJNqFMtOk8HtRkZ+dC/85soMPW9oarVb45UJktpHfACjCBluSB4a6shb8r
+	IX8ob2R9bYyezx/qiba88ssE2dI+cxZAPU9HdVSJcU8RJ+VuNIADludxi/TYDlC3C8+6PS3XVWw
+	xQlWMhjUpzaP8FWLmTLwLL6NzJRzFzOBB4gLN4DdmoGI2FO7n1CnrgQZ5MPBhfpOQFiAlfwW0WY
+	o7AEtXIrkBceUz5t5hRZCKGt/TGQt841pqJlYJ5s59iySX9EsSaurrDxdOI8JHTFYm7qI2/bhex
+	TvQwBs+1EqFw/1M4Cfijy+HrHHvsWgVcYIIL/93KdYjfRi
+X-Received: by 2002:a05:600c:4448:b0:47d:6c36:a125 with SMTP id 5b1f17b1804b1-48069e9b5dbmr38558875e9.17.1769539723087;
+        Tue, 27 Jan 2026 10:48:43 -0800 (PST)
 Received: from [127.0.1.1] (bba-94-59-215-181.alshamil.net.ae. [94.59.215.181])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10ee057sm903100f8f.15.2026.01.27.10.48.33
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10ee057sm903100f8f.15.2026.01.27.10.48.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jan 2026 10:48:36 -0800 (PST)
+        Tue, 27 Jan 2026 10:48:42 -0800 (PST)
 From: "Anton D. Stavinskii" <stavinsky@gmail.com>
-Subject: [PATCH 0/2] ASoC: sophgo: cv1800b: document DAC overwrite handling
-Date: Tue, 27 Jan 2026 22:48:06 +0400
-Message-Id: <20260127-incremental-for-i2s-dvier-v1-0-431b809c632d@gmail.com>
+Date: Tue, 27 Jan 2026 22:48:08 +0400
+Subject: [PATCH 2/2] ASoC: sophgo: cv1800b: tidy Kconfig spacing
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAGYIeWkC/x3MQQqDQAxG4atI1g3ELJT2KtLFdOZXA+0omSKCe
- HcHl9/ivYMK3FDo1Rzk2KzYkivaR0NxDnkCW6omFe2k1Z4tR8cP+R++PC7OpoXTZnB+InYSRPS
- TEtV+dYy23+/hfZ4X9B0UuGsAAAA=
-X-Change-ID: 20260127-incremental-for-i2s-dvier-9ec60a002bdd
+Message-Id: <20260127-incremental-for-i2s-dvier-v1-2-431b809c632d@gmail.com>
+References: <20260127-incremental-for-i2s-dvier-v1-0-431b809c632d@gmail.com>
+In-Reply-To: <20260127-incremental-for-i2s-dvier-v1-0-431b809c632d@gmail.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
@@ -89,16 +88,16 @@ Cc: linux-sound@vger.kernel.org, sophgo@lists.linux.dev,
  linux-riscv@lists.infradead.org, 
  "Anton D. Stavinskii" <stavinsky@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769539713; l=880;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769539713; l=698;
  i=stavinsky@gmail.com; s=20260115; h=from:subject:message-id;
- bh=nzQYk89pkPHGP6R9yMxHj/NHVae7UpktsR44AHN8qy4=;
- b=TJUZT6XopIns2Aq1PkC0y8MR1LmYdMKUSI/PbXI4JnKpP2YxaJmJzDyKFryrDuINikpNhjQxd
- iDhtmZXTcl1BljB5y3BIqfBw/HkpuDVmV3Ugvi5lxIm5dhKFwA/yPv1
+ bh=H84erZxT2MlAaY5J3iUKm8PxILlu1jOlSTZ53NjhBCY=;
+ b=N5uJIXd1MfaMnAMCepcgyt3gC9Xj7DoHIF9W3uU+gs94PPz93VNI4wEbeV3fdbL7ZL/vEo6tZ
+ kH+9BQDgcF5Bj2ECBnA1a+a29Tr89ihFUjfl7+ue7ClXiU6Yb9Xs6wS
 X-Developer-Key: i=stavinsky@gmail.com; a=ed25519;
  pk=2WxGZ1zd1vQwSPFCSks6zrADqUDBUdtq39lElk4ZE7Q=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_104838_999706_A4856C79 
-X-CRM114-Status: UNSURE (   7.19  )
+X-CRM114-CacheID: sfid-20260127_104847_651241_21623A6F 
+X-CRM114-Status: UNSURE (   9.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,33 +115,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-An incremental patch on top of 
-"[PATCH v4 5/6] ASoC: sophgo: add CV1800B internal DAC" 
-adding the explanatory comments as requested.
-https://lore.kernel.org/all/20260120-cv1800b-i2s-driver-v4-0-6ef787dc6426@gmail.com/
-
-changes: 
- - added description for cv1800b_dac_mute function
- - fixed "extra change" from previos commit
-
-Thanks
+Restore the empty line that was accidentally removed earlier
 
 Signed-off-by: Anton D. Stavinskii <stavinsky@gmail.com>
 ---
-Anton D. Stavinskii (2):
-      ASoC: sophgo: cv1800b: document DAC overwrite handling
-      ASoC: sophgo: cv1800b: tidy Kconfig spacing
+ sound/soc/sophgo/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
- sound/soc/sophgo/Kconfig             | 1 +
- sound/soc/sophgo/cv1800b-sound-dac.c | 6 +++++-
- 2 files changed, 6 insertions(+), 1 deletion(-)
----
-base-commit: bdc79da6c6206a12c9a13ed5e4eb1360d62b321e
-change-id: 20260127-incremental-for-i2s-dvier-9ec60a002bdd
+diff --git a/sound/soc/sophgo/Kconfig b/sound/soc/sophgo/Kconfig
+index e4786f087589..9b454261bcfd 100644
+--- a/sound/soc/sophgo/Kconfig
++++ b/sound/soc/sophgo/Kconfig
+@@ -28,6 +28,7 @@ config SND_SOC_CV1800B_ADC_CODEC
+ 	help
+ 	  This driver provides an ASoC codec DAI for capture and basic
+ 	  control of the RXADC registers.
++
+ 	  Say Y or M to build support for the Sophgo CV1800B
+ 	  internal analog ADC codec block (RXADC).
+ 	  The module will be called cv1800b-sound-adc
 
-Best regards,
 -- 
-Anton D. Stavinskii <stavinsky@gmail.com>
+2.43.0
 
 
 _______________________________________________
