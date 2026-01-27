@@ -4,84 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B90D2F000
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 12:38:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD04DD2F000
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 12:50:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ErJCHZaFD5zh7lOQi57pBnzxfmIEUwy8kuv/SXvEY08=; b=JtRLLqFkIIA2+1
-	DIkj1k1dc6jZydGLTChVi3In7hADRvh/k8aIQEWhOv7z+BbEkUBA6Zq06kmCNNgDFvB4Zx73CntZ9
-	1emV2JJMH6sNQnkyfQm5+KSEporo5kNrtgaFpFal+xlZ67cOkVHrm1Vvpn0AAOwmIR3+dFWYKOX11
-	DzrQT4k17NJOlVC2T4kiRugOuH+7G1gcKe7Lhuox6EPmAsTXEN00C37UKTk30Ca1d/LLXOPT/YP3Z
-	8egQmoCuoeR+XRsGJ7mAWtIn/SOca7Usbe0E1PrCaWb4SB1ehpaGIuKHOHdW0Bhmjscy7gYgZ5tXf
-	Yl7ioO2hwuWWoDu0fE2A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QW0gqjiTwuS+Bsd00+6iPgf30sDNJIKIZ69VXSPzhSg=; b=efz0ww+psFlgZJUqYIh5PafYiP
+	O1U6G77Uqn/3IfGZHEhum4sIKWo+nVQKEQYM1DW4HEd5WaZdRoG/KSzPuJwlmLh7fkz8t6mm+roBs
+	gmZoGM2ejelmMlt27eL8XhQcCLSSio3utS0Dn61uUsa9gT1MmHURindK7yCNiv6NYzC/yeMCfTOOR
+	U2E9yRhV0gyMNXOnEBr2UPRh3SLoCCtjrz5RbXYdgDqnFsPHCTY1fdxBIiK138C4HiFBNs1XcqPRW
+	1+E5QhRetonhSW/boFc1scEk4aTWpb6NSiCXSS7D2dyWmfRDFSO+Djip5RhrWJn3TGvt2yfZLY3YN
+	Maq2LoFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkiKY-0000000EFzT-3FPt;
-	Tue, 27 Jan 2026 12:38:02 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1vkiW9-0000000EGgG-3MZ9;
+	Tue, 27 Jan 2026 12:50:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkiKW-0000000EFyy-0OtS;
-	Tue, 27 Jan 2026 12:38:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769517480; x=1801053480;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=klfkji3dA/BcUEdcu+FxnfdCOIEKdGDNWQxxFEl3RVo=;
-  b=YOqlorJayQI0YpOX5GuAk3afTYJmdYTtCx+NZ8Lu0KMM5LvK1dJNgO6p
-   TBVHJfPe5/RK+CioOTI2XJAZDkIYEFCdfSqtNaFfGghIYNfrkZxpTWajc
-   k9nMmkMBqvjpW9vgHtNioIAeVfjMRNP4yxwBG0eMTbO5OSVfesYzkpkhQ
-   9dW3ubz99WoTzYCrnQNB+wRFAa4TyneIqTMoTtTKcQpjQmGGxibByvvx0
-   mU++A50jLoORoMQWymNBGWBIuxz9R0hYJdtX5ts0hFq26RxdWfNBYlqhL
-   KBhCAJrafDYcr3jXyDUNkXWxMf8m4vY4HJEOqDehVRm6oI3gQgOx5h2eI
-   A==;
-X-CSE-ConnectionGUID: 3MClT9ogS+SFkTnQuiZbsQ==
-X-CSE-MsgGUID: JpKEuTNNTv+wgbhcGqJw0g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="70800478"
-X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
-   d="scan'208";a="70800478"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 04:37:59 -0800
-X-CSE-ConnectionGUID: XD0hjFQVSYCELvfSH4zETw==
-X-CSE-MsgGUID: i7897sFcR2+Dl89FbwtX+g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
-   d="scan'208";a="207863450"
-Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.240.14]) ([10.124.240.14])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 04:37:52 -0800
-Message-ID: <a97ff1d6-7712-4315-95ff-4079ffc752f7@linux.intel.com>
-Date: Tue, 27 Jan 2026 20:37:48 +0800
+	id 1vkiW8-0000000EGfr-27ug
+	for linux-riscv@lists.infradead.org;
+	Tue, 27 Jan 2026 12:50:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9E352600AA;
+	Tue, 27 Jan 2026 12:49:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9E99C116C6;
+	Tue, 27 Jan 2026 12:49:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769518198;
+	bh=KYms8UhlZqE4igiABRj1LzqgOIs+iJRMeClJApK6cbQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uaNYvjUxY0GIM4J6cCobQ23NebB7GjsM2DZfK6UILpYCSRtdQ1W8+iVvZACzt1Dhh
+	 q3LFOHORgflGCdpvnxA9vWUHRxLFp3T1cmpz+iPnNnDW4EXZWjgqKVV4MY+oQP5D2T
+	 vO58w5ZiPuVfGZ3MftsqHj/ud7fALXaNx3LVnMx4dHa2a3HSGZgSGDeFvrb3AmxnJX
+	 gHBIFh0EFBFi1lCR/R3siM+huMpBhChoodmHn+Hpt1viDnik0ig2E4cFOckxsbSPBF
+	 Rn3Y27pM6p0L1o1VHlu+FZMifmTtMX/0Owbk8X4xqVn971LrHdIjUoU7SaIoCnx0M7
+	 HHX+4l1rl7CuQ==
+Date: Tue, 27 Jan 2026 12:49:52 +0000
+From: Mark Brown <broonie@kernel.org>
+To: "Anton D. Stavinskii" <stavinsky@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 5/6] ASoC: sophgo: add CV1800B internal DAC codec
+ driver
+Message-ID: <88ef974b-9fa8-490e-ba19-1fb31ca94342@sirena.org.uk>
+References: <20260120-cv1800b-i2s-driver-v4-0-6ef787dc6426@gmail.com>
+ <20260120-cv1800b-i2s-driver-v4-5-6ef787dc6426@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Patch v2 1/3] perf arch: Update arch headers to use relative
- UAPI paths
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
- James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>,
- Guo Ren <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Zide Chen <zide.chen@intel.com>,
- Falcon Thomas <thomas.falcon@intel.com>, Dapeng Mi <dapeng1.mi@intel.com>,
- Xudong Hao <xudong.hao@intel.com>
-References: <20260127070259.2720468-1-dapeng1.mi@linux.intel.com>
- <20260127070259.2720468-2-dapeng1.mi@linux.intel.com>
-Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <20260127070259.2720468-2-dapeng1.mi@linux.intel.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_043800_155159_D365ED2D 
-X-CRM114-Status: GOOD (  15.25  )
+In-Reply-To: <20260120-cv1800b-i2s-driver-v4-5-6ef787dc6426@gmail.com>
+X-Cookie: I brake for chezlogs!
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,159 +75,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7000295337246541429=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 1/27/2026 3:02 PM, Dapeng Mi wrote:
-> The architectural specific headers perf_regs.h currently rely on the
-> host architecture's 'asm/perf_regs.h'. This can lead to compilation
-> inconsistencies or failures when including and building perf for a
-> target architecture that differs from the host's architecture.
->
-> Explicitly point to the UAPI headers within the tools source tree using
-> relative paths. This ensures that perf is always built against the
-> intended architecture.
->
-> No functional changes are intended.
->
-> Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
-> ---
->  tools/perf/arch/arm/include/perf_regs.h       | 2 +-
->  tools/perf/arch/arm64/include/perf_regs.h     | 2 +-
->  tools/perf/arch/csky/include/perf_regs.h      | 1 +
->  tools/perf/arch/loongarch/include/perf_regs.h | 2 +-
->  tools/perf/arch/mips/include/perf_regs.h      | 2 +-
->  tools/perf/arch/powerpc/include/perf_regs.h   | 2 +-
->  tools/perf/arch/riscv/include/perf_regs.h     | 2 +-
->  tools/perf/arch/s390/include/perf_regs.h      | 2 +-
->  tools/perf/arch/x86/include/perf_regs.h       | 2 +-
->  9 files changed, 9 insertions(+), 8 deletions(-)
->
-> diff --git a/tools/perf/arch/arm/include/perf_regs.h b/tools/perf/arch/arm/include/perf_regs.h
-> index 75ce1c370114..20c54766e3a0 100644
-> --- a/tools/perf/arch/arm/include/perf_regs.h
-> +++ b/tools/perf/arch/arm/include/perf_regs.h
-> @@ -4,7 +4,7 @@
->  
->  #include <stdlib.h>
->  #include <linux/types.h>
-> -#include <asm/perf_regs.h>
-> +#include "../../../../arch/arm/include/uapi/asm/perf_regs.h"
->  
->  void perf_regs_load(u64 *regs);
->  
-> diff --git a/tools/perf/arch/arm64/include/perf_regs.h b/tools/perf/arch/arm64/include/perf_regs.h
-> index 58639ee9f7ea..372f2565a9dd 100644
-> --- a/tools/perf/arch/arm64/include/perf_regs.h
-> +++ b/tools/perf/arch/arm64/include/perf_regs.h
-> @@ -5,7 +5,7 @@
->  #include <stdlib.h>
->  #include <linux/types.h>
->  #define perf_event_arm_regs perf_event_arm64_regs
-> -#include <asm/perf_regs.h>
-> +#include "../../../../arch/arm64/include/uapi/asm/perf_regs.h"
->  #undef perf_event_arm_regs
->  
->  void perf_regs_load(u64 *regs);
-> diff --git a/tools/perf/arch/csky/include/perf_regs.h b/tools/perf/arch/csky/include/perf_regs.h
-> index 076c7746c8a2..9520e6aa319e 100644
-> --- a/tools/perf/arch/csky/include/perf_regs.h
-> +++ b/tools/perf/arch/csky/include/perf_regs.h
-> @@ -7,6 +7,7 @@
->  #include <stdlib.h>
->  #include <linux/types.h>
->  #include <asm/perf_regs.h>
-
-Oops, the above line was not removed. Would remove it in next version.
+--===============7000295337246541429==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6aHygTPjbSMl5gIi"
+Content-Disposition: inline
 
 
-> +#include "../../../../arch/csky/include/uapi/asm/perf_regs.h"
->  
->  #define PERF_REGS_MASK	((1ULL << PERF_REG_CSKY_MAX) - 1)
->  #define PERF_REGS_MAX	PERF_REG_CSKY_MAX
-> diff --git a/tools/perf/arch/loongarch/include/perf_regs.h b/tools/perf/arch/loongarch/include/perf_regs.h
-> index 45c799fa5330..b86078a55e90 100644
-> --- a/tools/perf/arch/loongarch/include/perf_regs.h
-> +++ b/tools/perf/arch/loongarch/include/perf_regs.h
-> @@ -4,7 +4,7 @@
->  
->  #include <stdlib.h>
->  #include <linux/types.h>
-> -#include <asm/perf_regs.h>
-> +#include "../../../../arch/loongarch/include/uapi/asm/perf_regs.h"
->  
->  #define PERF_REGS_MAX PERF_REG_LOONGARCH_MAX
->  
-> diff --git a/tools/perf/arch/mips/include/perf_regs.h b/tools/perf/arch/mips/include/perf_regs.h
-> index 7082e91e0ed1..66655f0c4fea 100644
-> --- a/tools/perf/arch/mips/include/perf_regs.h
-> +++ b/tools/perf/arch/mips/include/perf_regs.h
-> @@ -4,7 +4,7 @@
->  
->  #include <stdlib.h>
->  #include <linux/types.h>
-> -#include <asm/perf_regs.h>
-> +#include "../../../../arch/mips/include/uapi/asm/perf_regs.h"
->  
->  #define PERF_REGS_MAX PERF_REG_MIPS_MAX
->  
-> diff --git a/tools/perf/arch/powerpc/include/perf_regs.h b/tools/perf/arch/powerpc/include/perf_regs.h
-> index 1c66f6ba6773..22b492a3dd58 100644
-> --- a/tools/perf/arch/powerpc/include/perf_regs.h
-> +++ b/tools/perf/arch/powerpc/include/perf_regs.h
-> @@ -4,7 +4,7 @@
->  
->  #include <stdlib.h>
->  #include <linux/types.h>
-> -#include <asm/perf_regs.h>
-> +#include "../../../../arch/powerpc/include/uapi/asm/perf_regs.h"
->  
->  void perf_regs_load(u64 *regs);
->  
-> diff --git a/tools/perf/arch/riscv/include/perf_regs.h b/tools/perf/arch/riscv/include/perf_regs.h
-> index d482edb413e5..89d5bbb8d2b8 100644
-> --- a/tools/perf/arch/riscv/include/perf_regs.h
-> +++ b/tools/perf/arch/riscv/include/perf_regs.h
-> @@ -6,7 +6,7 @@
->  
->  #include <stdlib.h>
->  #include <linux/types.h>
-> -#include <asm/perf_regs.h>
-> +#include "../../../../arch/riscv/include/uapi/asm/perf_regs.h"
->  
->  #define PERF_REGS_MASK	((1ULL << PERF_REG_RISCV_MAX) - 1)
->  #define PERF_REGS_MAX	PERF_REG_RISCV_MAX
-> diff --git a/tools/perf/arch/s390/include/perf_regs.h b/tools/perf/arch/s390/include/perf_regs.h
-> index 130dfad2b96a..9c95589965fe 100644
-> --- a/tools/perf/arch/s390/include/perf_regs.h
-> +++ b/tools/perf/arch/s390/include/perf_regs.h
-> @@ -3,7 +3,7 @@
->  
->  #include <stdlib.h>
->  #include <linux/types.h>
-> -#include <asm/perf_regs.h>
-> +#include "../../../../arch/s390/include/uapi/asm/perf_regs.h"
->  
->  void perf_regs_load(u64 *regs);
->  
-> diff --git a/tools/perf/arch/x86/include/perf_regs.h b/tools/perf/arch/x86/include/perf_regs.h
-> index f209ce2c1dd9..5495e5ca7cdc 100644
-> --- a/tools/perf/arch/x86/include/perf_regs.h
-> +++ b/tools/perf/arch/x86/include/perf_regs.h
-> @@ -4,7 +4,7 @@
->  
->  #include <stdlib.h>
->  #include <linux/types.h>
-> -#include <asm/perf_regs.h>
-> +#include "../../../../arch/x86/include/uapi/asm/perf_regs.h"
->  
->  void perf_regs_load(u64 *regs);
->  
+--6aHygTPjbSMl5gIi
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Tue, Jan 20, 2026 at 11:06:07PM +0400, Anton D. Stavinskii wrote:
+
+>  	help
+>  	  This driver provides an ASoC codec DAI for capture and basic
+>  	  control of the RXADC registers.
+> -
+>  	  Say Y or M to build support for the Sophgo CV1800B
+>  	  internal analog ADC codec block (RXADC).
+>  	  The module will be called cv1800b-sound-adc
+
+Extra change here.
+
+> +static int cv1800b_dac_hw_params(struct snd_pcm_substream *substream,
+> +				 struct snd_pcm_hw_params *params,
+> +				 struct snd_soc_dai *dai)
+> +{
+> +	struct cv1800b_priv *priv = snd_soc_dai_get_drvdata(dai);
+> +	int ret;
+> +	unsigned int rate = params_rate(params);
+
+> +	cv1800b_dac_mute(priv, false);
+> +	/* minimal decimation for 48kHz is 64*/
+
+Nothing ever mutes the DAC so this is a bit redundant.  The mute should
+probably be a mute_stream() operation.
+
+--6aHygTPjbSMl5gIi
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAml4tG8ACgkQJNaLcl1U
+h9BHkQf+Kuc6BJjZWeAWQyoncG7fDBwM+k/TqBukcTrPjZHiGZ22yCkrEVWU06Lc
+qWWOu9GIJM4QfBsRLYI9IEvy0L4b3RZK72dHfIsK0YEOUydC1oKWRYsm4qUqHnou
+vXTYz6nDIuMxvIAlODl9SiLHxT4/BNRKMWdPl/RCV86jUbF7mBqyRpDx41tTTuen
+lzSUWIvK8ZhTmCfkB6mdBapl4oxYANInUjMxq/28hOUOJ3xXIiPLTn/UHFLVYmdX
+ORMrhBMCWuVIiagUgK8RwF0Uc9Fd1zPgfA5QjanVdstgKYDe1IhODVJNT5n+E2bE
+8un1mgrWVdoXPo3r8LiZ9rth+YqXqw==
+=0mgc
+-----END PGP SIGNATURE-----
+
+--6aHygTPjbSMl5gIi--
+
+
+--===============7000295337246541429==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7000295337246541429==--
+
