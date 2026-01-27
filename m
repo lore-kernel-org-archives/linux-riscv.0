@@ -4,69 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A25D34093
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 15:46:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22003D34094
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jan 2026 15:52:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Cc:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AxYl/WGbEbI7EoU5/LYuHMi6X7INnmJb+6pY7KkXKNU=; b=b1IxpPj8h+r1MmVcoBOfJiQNwx
-	K+znleUNrZ+99bDw/M3UVAIcZ1ty2aLQgJFqmCIaSuCdW+QuQxhPBNaW4y8xK9383ooUl097XgxWV
-	2VRs4Ym5zWIpqLMYruQxxnzM54HvisoaGZLk2jLVY5GwWbS5scb3cL8gaWwBeylNK8Jn0isv49KP+
-	KwQZhEh0eYjWBycWD03hcM95kob9QWdNjlKBYSXTka0V783u77253l/B/xBIdqQO2nKNqtdPoG6Ef
-	kEPBCDEhNpXme51BW2VhXjWJSRfr7eNIgXundPxV/FLdcgaC1huImppACnmoAUXSOCY+sItoM51YK
-	vsgbTtPg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3HmIz5ZAtDi+C6hkVnRaJ22BtRq95SWsGgGuiz3VsT0=; b=IWB7U3ttQ8OQSz
+	BAm35aSm3OkSxvRxp+MnKaUH2M3tb056UF7J+uvauaV6ly0b/PxRpYGRO664worQaV0HJJJ+BXOvl
+	TBGj+m372gts1B3FD2c7Vs8X+c755zVQe3eg5PXvj7jADN+LQPkvF/Hm4NEL+x7f9nReYlMfvHZzp
+	0LksxAahPNIXWHJjczfOyscs4R5B1vVonBycN5I8ug0Bak9u556rpyEveBaV4blwt2OW08mQdB+dt
+	yIrKCYSAX0cX9ZeAMKtrLK4DfT5QMCMbgL+fCeLQ+IRLz6LSpCdqOkkUB7qyC7rKEe3fibb76nDA0
+	mFm8ezWbzcIEImMmML4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklGw-0000000EZcD-127x;
-	Tue, 27 Jan 2026 15:46:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vklME-0000000Ea3O-0hI4;
+	Tue, 27 Jan 2026 15:51:58 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklGt-0000000EZbp-2IOT
-	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jan 2026 15:46:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 58DEA600AD;
-	Tue, 27 Jan 2026 15:46:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0710BC116C6;
-	Tue, 27 Jan 2026 15:46:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769528786;
-	bh=xnYN9Q0IFOodzxUZqshzGzPwYS+J6zEaW1r71nfonvs=;
-	h=Date:From:To:Subject:References:In-Reply-To:From;
-	b=KpSEjwuO2DLPWdws9KNxncFhQBmeJyWjiaRU57U9ZiSk/aOLAR3D5L6/VVjAWpdg9
-	 SE0fR7mAwkFJK904YIMPBlQlMg5LkyelxCvqdOqcNpv8/qr/GEVEH2jIrU1X2yb45Y
-	 kTJxY7mXgvrsTKEiRrJR9K1PQ+Fhf6ynU6oDfX7iFq9Rh8Y9zPTHQc64fnHB2oILta
-	 ytkoWgrKHN7mOSfIIswb/OGOd53nQP/O7EYfu3Hj0/yM7Ajfo1FvQe4H7rqeRm38km
-	 5vjGyDXOlswDn/FMxfFCbKvkAwzF/xHYYbr+m9y5rNn2oN7/hpccqbI+ngxUrxyP05
-	 b3dRFXnXNOM1A==
-Date: Tue, 27 Jan 2026 15:46:20 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 5/6] ASoC: sophgo: add CV1800B internal DAC codec
- driver
-Message-ID: <82d338be-7522-4098-b58f-7759ac4a6897@sirena.org.uk>
-References: <20260120-cv1800b-i2s-driver-v4-0-6ef787dc6426@gmail.com>
- <20260120-cv1800b-i2s-driver-v4-5-6ef787dc6426@gmail.com>
- <88ef974b-9fa8-490e-ba19-1fb31ca94342@sirena.org.uk>
- <aXjRx12yPA7QflaF@anton.local>
- <153acfd6-cb4f-48ee-82e0-0a18a4a1e9c7@sirena.org.uk>
- <aXjZoFi_fq3tzJFY@anton.local>
+	id 1vklMB-0000000Ea2u-3H1f;
+	Tue, 27 Jan 2026 15:51:56 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 60R7WMWC008927;
+	Tue, 27 Jan 2026 15:51:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=0OxxS5n1xieZUpH8YohdiA+9VRXqom
+	SLAoDHyJVmPjo=; b=R2OZ3tNd9SFjbhgmya+gAkR1LeSUyxH/4qTui9x0/Uant4
+	+He/E+9jhq17CXdAWqvn5tlXSBsBIY0k423Lv7jq6+YfHZeVMd54Yo78qQxKVPuq
+	dd6+jAI5VodjgFmoPT7n1593r1Fb9KKf6vYGR1TGJZ3ta6ySO2jEKN+/Q8hmskV6
+	M8b11DKp4JlY2KTeW8cYzln1cfyON+Phmgew57hSVAbypNIaxaMdvoh0QMqa7FG9
+	hBGIKEIipRzww0uYI0TSD1KqYz0ocdD/Bq8GtccsOZugDFGRaiamzsY71sb3mD3g
+	D02I83U0zVNelxPrFSiVffd8VmGWOQFku/D27YOQ==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bvnr64dmr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 27 Jan 2026 15:51:44 +0000 (GMT)
+Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 60RFhAPC013427;
+	Tue, 27 Jan 2026 15:51:43 GMT
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bvnr64dmn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 27 Jan 2026 15:51:43 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 60RD696c019647;
+	Tue, 27 Jan 2026 15:51:42 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4bw9dn18ec-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 27 Jan 2026 15:51:42 +0000
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 60RFpc0B25821738
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 27 Jan 2026 15:51:38 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4FDCE20040;
+	Tue, 27 Jan 2026 15:51:38 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1F2062004B;
+	Tue, 27 Jan 2026 15:51:38 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Tue, 27 Jan 2026 15:51:38 +0000 (GMT)
+Date: Tue, 27 Jan 2026 16:51:36 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Andrew Donnellan <ajd@linux.ibm.com>
+Cc: linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org,
+        Pasha Tatashin <pasha.tatashin@soleen.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Nicholas Piggin <npiggin@gmail.com>, Rohan McLure <rmclure@nvidia.com>,
+        Christophe Leroy <chleroy@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+        x86@kernel.org, Nicholas Miehlbradt <nicholas@linux.ibm.com>,
+        Sweet Tea Dorminy <sweettea-kernel@dorminy.me>,
+        Andrew Donnellan <andrew+kernel@donnellan.id.au>,
+        Srish Srinivasan <ssrish@linux.ibm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v18 10/12] powerpc/mm: Implement *_user_accessible_page()
+ for ptes
+Message-ID: <20260127155136.2808076Add-agordeev@linux.ibm.com>
+References: <20251219-pgtable_check_v18rebase-v18-0-755bc151a50b@linux.ibm.com>
+ <20251219-pgtable_check_v18rebase-v18-10-755bc151a50b@linux.ibm.com>
 MIME-Version: 1.0
-In-Reply-To: <aXjZoFi_fq3tzJFY@anton.local>
-X-Cookie: I brake for chezlogs!
+Content-Disposition: inline
+In-Reply-To: <20251219-pgtable_check_v18rebase-v18-10-755bc151a50b@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI3MDEyOSBTYWx0ZWRfXxChMywYP3CXN
+ le5d6yn3Qq6MfjN6zC+Z+DQqleCzkUqKSkhMwpJSnn1Mj3zS2dO0nICsNnXEMtWsE3vyb83rzjQ
+ 6kso4VpQ4wBoGpfXa+uDicwe3s/Tx9G27+lBkSjIdnBpBe924kovkU2wInK8zp4fCnVcBOZS31H
+ BJ3DIi34TvoRR/5d3SQODO1mtpcggsmfvH/oLD96EUws0DAq+gksrBtgsBJS82RwOsHFmTzrNBL
+ CNwOe0QD3sOFuH+hrRzC0HuLjsyg7NKVHQVFym8CqHd55vAIbLaoGLE/k7/e/ZOrw+hMYWVP7oQ
+ 3uUxUrs0HYHgzU6E9dLRct4A1ePYLRq2MVcmQ4XlAiQw0ogB0VlRgK8V/qrltGoxEmwPlQvaIpZ
+ oDSvwJEhdafxFukf2IRJrEZNbsOh1QhzlSOcS3BDkUFas4hDHNqKbsmPKpZG1pCe2JqB0joy895
+ KqtIgfb/A4B51Vjsq2g==
+X-Proofpoint-GUID: 8EJeeV34r0_XNIY9EmhfW46Wh100FMUs
+X-Proofpoint-ORIG-GUID: Bk5rloqyZadRkxusHYTPbD17s7SpVN9w
+X-Authority-Analysis: v=2.4 cv=X+Vf6WTe c=1 sm=1 tr=0 ts=6978df10 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=kj9zAlcOel0A:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=cPWeadVanShsLn6B-a8A:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-01-27_03,2026-01-27_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 impostorscore=0 lowpriorityscore=0
+ clxscore=1011 spamscore=0 adultscore=0 malwarescore=0 bulkscore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2601150000
+ definitions=main-2601270129
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260127_075155_937895_437A794A 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,61 +130,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3427019736533191634=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Dec 19, 2025 at 04:09:42AM +1100, Andrew Donnellan wrote:
 
---===============3427019736533191634==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="251LqXcFPudUkTrO"
-Content-Disposition: inline
+Hi All,
 
+...
+> Page table checking depends on architectures providing an
+> implementation of p{te,md,ud}_user_accessible_page.
+...
+> +static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
+> +{
+> +	return pte_present(pte) && !is_kernel_addr(addr);
+> +}
 
---251LqXcFPudUkTrO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+We looked into implementing this for s390 and for us the only possible
+user vs kernel entry attribute is comparing mm to init_mm. The generic
+code already does that, but I am not sure whether such check alone is
+enough.
 
-On Tue, Jan 27, 2026 at 07:30:27PM +0400, Anton D. Stavinskii wrote:
-> On Tue, Jan 27, 2026 at 03:13:59PM +0400, Mark Brown wrote:
+But it occured to me that we could implement e.g. ARCH_SUPPORTS_PTC_USER_PAGE
+that adds an extra field to struct page_table_check:
 
-> > It's probably fine to leave the functional code as is but you should add
-> > some comments to the mute function explaining waht's going on here.
+struct page_table_check {
+	atomic_t anon_map_count;
+	atomic_t file_map_count;
+#ifdef CONFIG_ARCH_SUPPORTS_PTC_USER_PAGE
+	bool user_page;
+#endif
+};
 
-> Sounds good. Will add comments and prepare v5.=20
+Page Table Extensions already used by PTC, so that would fit pretty natural.
+Once a page is mapped into a user process it would be marked as user_page,
+while p{te,md,ud}_user_accessible_page() could go generic:
 
-Like I said in reply to the cover letter please send an incremental
-change.
+static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
+{
+	return pte_present(pte) && page_table_check_is_user_page(pte);
+}
+...
 
---251LqXcFPudUkTrO
-Content-Type: application/pgp-signature; name="signature.asc"
+I guess, many architectures without viable p.._user() support could benefit
+from that.
 
------BEGIN PGP SIGNATURE-----
+But I am not sure whether is it doable, so opinions are very welcomed!
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAml43csACgkQJNaLcl1U
-h9A7+gf/aT6Tpy/f6zJBaTvksbxv5zRaptPM00kWLv33/krBq7KdJJ7dXCFCSABN
-ygRt6v2QDSFwt9p5GfBTFzVDk+NqfbSy8SoCq8uvLN8bMHegR2//u8oY26kaJLan
-kH35bpSDk/yPQJ2dq7d9uA4EuWHaj6QO8p8Mo8cBkz2L0gcaM94Qwr4tX8GEDbvL
-JUf5G0ChfgHocxo7SE9mN1G2bKXw9CrHGr4mcpa0oUeXI3BvVLtm/74puZKbULE9
-3aGOdaHMaPHtz//Di0ak9sF+g86EDESCOqgS5GeFurvySBUDjIPHrsiC38VBSU2O
-FFcwKD1BZ/5pP0DNnqqVGE1UXefUwg==
-=9wVx
------END PGP SIGNATURE-----
-
---251LqXcFPudUkTrO--
-
-
---===============3427019736533191634==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3427019736533191634==--
-
