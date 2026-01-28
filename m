@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88B0BD46C0B
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 22:34:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17436D46C0A
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 22:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IzUGf0nyFlqfrLykoRyt7fh/CczjATh/I9zekHrkUcA=; b=B4vEvqbpuo+h8w
-	EfV1D5A1GgXR3S4Pk57Rf0JMn/euL3F+9hCcVXH9vUcix2+iHQ8Eatm1pvN7h6t7gB/VFb3QFaCVO
-	CJd9njf30zNYGhs4+19YZUxHPP3t7TqRRP4G+jiLH9LdTwBKVcSY9WhjbZ9UkoPP7Hm984jNBDXb7
-	WqKC5jsUojGqtT+iqBEqXXDBOaKaenpUyaOtUof3y+db+GE6jUBkGVWPUhaxYT49LDdJ8MQmUX/Gf
-	XzWkmNYGGG+8xT8WjMfnFH2CPCbNluFC71etC2KYhz0Y+LzupRU5cdN1MKaEFWZps2vgNW7utfoJj
-	FySub6BMUrjInZbggHYQ==;
+	List-Owner; bh=HIsdfNkdbcii1lWqP4MNGCCuEmf50GkmZRKBr4zaQl8=; b=4WqY2OM8vUYwh+
+	NUQiuWXZbXDgmZMA8H9Kw515NRpXM5Iqpk/EgVgK15hT9C47CV7APHLVxy1Fb3brP5TUZUIQMDG3f
+	Qn3eRzg0jLS4omzXhSEo64LOUehakEcrhYqlDw1ZlykFXKlnEiGnLiR6B7lCo0QL7A1JdkPMZOBbp
+	cDPMBMCGp0mauIFRMgsPI/VgfjA0om3H9mIFrj7aUKeBeAXMvRvQ2n0HNksyQuQ473f/I2pKLZbEE
+	N9VhGIBizhNqJhMp+DKZ0xLIc5ItGhMRG+3Gtt0weWWlxm525NSmmNoSLDWF+XRbHIYryQDbUQ1+Z
+	BwWdHPmGMwnD0fn75LPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlE6u-0000000GtJb-3sFA;
-	Wed, 28 Jan 2026 22:34:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vlEBy-0000000Gtf8-0opQ;
+	Wed, 28 Jan 2026 22:39:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlE6s-0000000GtJ9-1p29
+	id 1vlEBw-0000000Gtf1-3gbW
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 22:34:03 +0000
+	Wed, 28 Jan 2026 22:39:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C2CA442D8;
-	Wed, 28 Jan 2026 22:34:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71F05C4CEF1;
-	Wed, 28 Jan 2026 22:33:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B3C006001A;
+	Wed, 28 Jan 2026 22:39:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65B7BC4CEF1;
+	Wed, 28 Jan 2026 22:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769639639;
-	bh=+xRV2HkEsfrdZMBafEPY++3IUBK8ed73YGyM9OSrTOo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GFT+SJQeWAxJBzAONEHlTGwIFAve74HlsN9l13gpE9tz/7iC7F/ISJiNzx7vK7W19
-	 wXWwm/bmuO+oyDtQwVHGCyNojeyjoX6cFiIswjJYGs+4Df7AkFK1US4WpAFHUvAud9
-	 ZWqXjwBVCfS8kigZf8AD/msz+Z71O63FtZkLB3AUaqZqnMgyjLEzD3MAfy+3eD++/W
-	 7Sk65RpglYcX62AISqL5InJ1zY08+imf60SdPuNqzIf9xzzYx4KDQNKRSszL0KJRbV
-	 Q9LI2t7OBvA8PRE/EL8rv7aFRKpm1JMmWIBPAltw29d0f/Nqka2rujCfRpEyc+tLIQ
-	 UZUJ3794T/22g==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Nathan Chancellor <nathan@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alexghiti@rivosinc.com,
-	cyrilbur@tenstorrent.com,
-	jszhang@kernel.org,
-	aurelien@aurel32.net,
-	tglx@kernel.org,
-	cleger@rivosinc.com,
-	linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev
-Subject: [PATCH AUTOSEL 6.18] riscv: Use 64-bit variable for output in __get_user_asm
-Date: Wed, 28 Jan 2026 17:33:12 -0500
-Message-ID: <20260128223332.2806589-14-sashal@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260128223332.2806589-1-sashal@kernel.org>
-References: <20260128223332.2806589-1-sashal@kernel.org>
+	s=k20201202; t=1769639954;
+	bh=+Qo0hUtbp6GPRhlGZrjzGk3yEHHY8vN3Rk5lovqMKeQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aoe5guXZgqiwHfkzvcyGwChsttEGzY8XkQAQGbi+GVyMpTmaL9A50P2fKJkq1Ud/p
+	 W1LNZoTZbltT2WEw70+ZaFoJrjI/FmyZ8fHktzXwjQUFEtxQJmOizUBhrFp8Mb5yHj
+	 NYCENS6FTRdjzLmG5B3zAo3o7urcoqQErGRaCO1Npy5N5maFNmJaaTHbNWKdXumg0w
+	 iKnU6v2CUeiFR3lVO8ZSadcj2RfCJJmdyB8NbH+m9eDDJef8qiOZkMfFrCTShZDcgL
+	 qWypr76X7QxjjtRPuQA9tEzQS083eLdv3ipGuRDv2zU6QSOgreU+SzC35YqbLvadk3
+	 19la0D8Df3KAQ==
+Date: Wed, 28 Jan 2026 14:39:14 -0800
+From: Kees Cook <kees@kernel.org>
+To: Feng Jiang <jiangfeng@kylinos.cn>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, akpm@linux-foundation.org, andy@kernel.org,
+	ebiggers@kernel.org, martin.petersen@oracle.com,
+	sohil.mehta@intel.com, charlie@rivosinc.com,
+	conor.dooley@microchip.com, samuel.holland@sifive.com,
+	linus.walleij@linaro.org, nathan@kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org, Joel Stanley <joel@jms.id.au>
+Subject: Re: [PATCH v5 1/8] lib/string_kunit: add correctness test for
+ strlen()
+Message-ID: <202601281437.F327FC61@keescook>
+References: <20260127012558.40025-1-jiangfeng@kylinos.cn>
+ <20260127012558.40025-2-jiangfeng@kylinos.cn>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.18.7
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_143402_522010_24AAD3C1 
-X-CRM114-Status: GOOD (  22.26  )
+Content-Disposition: inline
+In-Reply-To: <20260127012558.40025-2-jiangfeng@kylinos.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,212 +77,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Nathan Chancellor <nathan@kernel.org>
+On Tue, Jan 27, 2026 at 09:25:51AM +0800, Feng Jiang wrote:
+> Add a KUnit test for strlen() to verify correctness across
+> different string lengths and memory alignments.
+> 
+> Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
+> Acked-by: Andy Shevchenko <andy@kernel.org>
+> Tested-by: Joel Stanley <joel@jms.id.au>
+> ---
+>  lib/tests/string_kunit.c | 26 ++++++++++++++++++++++++++
+>  1 file changed, 26 insertions(+)
+> 
+> diff --git a/lib/tests/string_kunit.c b/lib/tests/string_kunit.c
+> index f9a8e557ba77..bc5130c6e5e9 100644
+> --- a/lib/tests/string_kunit.c
+> +++ b/lib/tests/string_kunit.c
+> @@ -17,6 +17,9 @@
+>  #define STRCMP_TEST_EXPECT_LOWER(test, fn, ...) KUNIT_EXPECT_LT(test, fn(__VA_ARGS__), 0)
+>  #define STRCMP_TEST_EXPECT_GREATER(test, fn, ...) KUNIT_EXPECT_GT(test, fn(__VA_ARGS__), 0)
+>  
+> +#define STRING_TEST_MAX_LEN	128
+> +#define STRING_TEST_MAX_OFFSET	16
+> +
+>  static void string_test_memset16(struct kunit *test)
+>  {
+>  	unsigned i, j, k;
+> @@ -104,6 +107,28 @@ static void string_test_memset64(struct kunit *test)
+>  	}
+>  }
+>  
+> +static void string_test_strlen(struct kunit *test)
+> +{
+> +	const size_t buf_size = STRING_TEST_MAX_LEN + STRING_TEST_MAX_OFFSET + 1;
+> +	size_t len, offset;
+> +	char *s;
+> +
+> +	s = kunit_kzalloc(test, buf_size, GFP_KERNEL);
 
-[ Upstream commit bdce162f2e57a969803e5e9375999a3e0546905f ]
+One aspect of "correctness" that we might want to include here is making
+sure we don't have any implementations that over-read. To that end,
+perhaps this test can put the string at the end of a vmalloc allocation
+(so that the end of the string is right up against an unallocated memory
+space).
 
-After commit f6bff7827a48 ("riscv: uaccess: use 'asm_goto_output' for
-get_user()"), which was the first commit that started using asm goto
-with outputs on RISC-V, builds of clang built with assertions enabled
-start crashing in certain files that use get_user() with:
+> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, s);
+> +
+> +	memset(s, 'A', buf_size);
+> +	s[buf_size - 1] = '\0';
+> +
+> +	for (offset = 0; offset < STRING_TEST_MAX_OFFSET; offset++) {
+> +		for (len = 0; len <= STRING_TEST_MAX_LEN; len++) {
+> +			s[offset + len] = '\0';
+> +			KUNIT_EXPECT_EQ_MSG(test, strlen(s + offset), len,
+> +				"offset:%zu len:%zu", offset, len);
+> +			s[offset + len] = 'A';
+> +		}
+> +	}
+> +}
 
-  clang: llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp:12743: Register FollowCopyChain(MachineRegisterInfo &, Register): Assertion `MI->getOpcode() == TargetOpcode::COPY && "start of copy chain MUST be COPY"' failed.
+It would require building the string backwards here. Or maybe we just
+need a separate test for the over-read concerns?
 
-Internally, LLVM generates an addiw instruction when the output of the
-inline asm (which may be any scalar type) needs to be sign extended for
-ABI reasons, such as a later function call, so that basic block does not
-have to do it.
+Thoughts?
 
-Use a temporary 64-bit variable as the output of the inline assembly in
-__get_user_asm() and explicitly cast it to truncate it if necessary,
-avoiding the addiw that triggers the assertion.
+-Kees
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/2092
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-Link: https://patch.msgid.link/20260116-riscv-wa-llvm-asm-goto-outputs-assertion-failure-v3-1-55b5775f989b@kernel.org
-Signed-off-by: Paul Walmsley <pjw@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-
-LLM Generated explanations, may be completely bogus:
-
-Looking at the full analysis based on what we have:
-
-## Analysis Summary
-
-### 1. COMMIT MESSAGE ANALYSIS
-
-The commit message clearly states:
-- **After commit f6bff7827a48** - Clearly identifies the regressing
-  commit
-- **Builds of clang built with assertions enabled start crashing** -
-  This is a **build failure**, not just a warning
-- Provides a link to the ClangBuiltLinux issue tracker
-  (https://github.com/ClangBuiltLinux/linux/issues/2092)
-- The assertion failure message is in LLVM's code generation phase
-- Author: Nathan Chancellor (ClangBuiltLinux maintainer, well-known
-  kernel/LLVM expert)
-
-### 2. CODE CHANGE ANALYSIS
-
-The change is small and surgical:
-- **Old code (asm_goto_output path):**
-  ```c
-  #define __get_user_asm(insn, x, ptr, label)  \
-  asm_goto_output(                          \
-  "1:\n"                                 \
-  "  " insn " %0, %1\n"                  \
-  _ASM_EXTABLE_UACCESS_ERR(1b, %l2, %0)  \
-  : "=&r" (x)                            \
-  : "m" (*(ptr)) : : label)
-  ```
-
-- **New code:**
-  ```c
-  #define __get_user_asm(insn, x, ptr, label)  \
-  do {                                          \
-  u64 __tmp;                                \
-  asm_goto_output(                          \
-  "1:\n"                                 \
-  "  " insn " %0, %1\n"                  \
-  _ASM_EXTABLE_UACCESS_ERR(1b, %l2, %0)  \
-  : "=&r" (__tmp)                        \
-  : "m" (*(ptr)) : : label);             \
-  (x) = (__typeof__(x))__tmp;               \
-  } while (0)
-  ```
-
-**Technical mechanism:**
-- The fix uses a 64-bit temporary variable (`u64 __tmp`) as the output
-  of the inline assembly
-- Then explicitly casts it to the expected type of `x`
-- This avoids LLVM generating an `addiw` instruction to sign-extend the
-  output for ABI reasons
-- The `addiw` was causing an assertion failure in LLVM's code generation
-  because it wasn't recognized as a proper copy instruction
-
-### 3. CLASSIFICATION
-
-This is a **BUILD FIX** - one of the exception categories that is
-explicitly allowed in stable:
-- Prevents compilation with Clang/LLVM on RISC-V
-- Without this fix, users cannot build kernel for RISC-V when using
-  Clang with assertions enabled
-- The underlying bug likely causes incorrect code generation even when
-  assertions are disabled
-
-### 4. SCOPE AND RISK ASSESSMENT
-
-**Lines changed:** ~10 lines, all in a single macro definition
-**Files touched:** 1 (arch/riscv/include/asm/uaccess.h)
-**Subsystem:** RISC-V uaccess (user-space access)
-**Risk:** Very low
-- Uses a temporary variable to hold the assembly output then casts it
-- This is a known safe pattern (used elsewhere in the kernel)
-- Does not change any runtime behavior for GCC builds
-- Only affects the `CONFIG_CC_HAS_ASM_GOTO_OUTPUT` code path
-  (Clang/modern GCC)
-
-### 5. USER IMPACT
-
-- **Who is affected:** All RISC-V kernel developers and users building
-  with Clang/LLVM
-- **Severity:** Cannot build the kernel at all on RISC-V with Clang
-  (when using assertion-enabled builds)
-- RISC-V is an increasingly popular architecture
-- Clang is a major compiler used by many distributions
-
-### 6. STABILITY INDICATORS
-
-- Written by Nathan Chancellor (ClangBuiltLinux project lead, kernel
-  developer)
-- Clear reference to upstream bug reports
-- Follows a known workaround pattern
-
-### 7. DEPENDENCY CHECK
-
-**Critical:** This fix depends on commit **f6bff7827a48** ("riscv:
-uaccess: use 'asm_goto_output' for get_user()"), which was introduced in
-**v6.16-rc1**.
-
-The fix is only relevant for stable trees that contain v6.16+. For older
-stable trees (6.15.y and earlier), the problematic code doesn't exist,
-so this fix is not needed and wouldn't apply.
-
-### Risk vs. Benefit Analysis
-
-**Benefits:**
-- Fixes a **complete build failure** on RISC-V with Clang
-- Build fixes are explicitly allowed in stable rules
-- Critical for RISC-V users who use Clang
-
-**Risks:**
-- Minimal - adds a temporary variable and explicit cast
-- Does not change runtime behavior for correct code
-- Pattern is well-understood and used elsewhere
-
-### Concerns
-
-1. **Dependency:** Only applicable to stable trees containing 6.16+
-   (which have commit f6bff7827a48)
-2. **LLVM Bug:** This is a workaround for an LLVM bug (tracked at llvm-
-   project#143795). The LLVM bug may eventually be fixed, but kernel
-   builds need to work now.
-
-### Conclusion
-
-This commit is a **build fix** that solves a Clang compilation failure
-on RISC-V. Build fixes are explicitly allowed in stable kernel rules.
-The fix is:
-- Small (10 lines)
-- Surgical (single macro)
-- Safe (temporary variable + cast pattern)
-- Critical (prevents build failure)
-- Well-documented (links to bug reports)
-- Written by an expert (Nathan Chancellor)
-
-The only consideration is that it should only be backported to stable
-trees that contain the parent commit f6bff7827a48 (v6.16+), otherwise
-the fix addresses code that doesn't exist.
-
-**YES**
-
- arch/riscv/include/asm/uaccess.h | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index f5f4f7f85543f..1029c31026dcf 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -97,13 +97,23 @@ static inline unsigned long __untagged_addr_remote(struct mm_struct *mm, unsigne
-  */
- 
- #ifdef CONFIG_CC_HAS_ASM_GOTO_OUTPUT
-+/*
-+ * Use a temporary variable for the output of the asm goto to avoid a
-+ * triggering an LLVM assertion due to sign extending the output when
-+ * it is used in later function calls:
-+ * https://github.com/llvm/llvm-project/issues/143795
-+ */
- #define __get_user_asm(insn, x, ptr, label)			\
-+do {								\
-+	u64 __tmp;						\
- 	asm_goto_output(					\
- 		"1:\n"						\
- 		"	" insn " %0, %1\n"			\
- 		_ASM_EXTABLE_UACCESS_ERR(1b, %l2, %0)		\
--		: "=&r" (x)					\
--		: "m" (*(ptr)) : : label)
-+		: "=&r" (__tmp)					\
-+		: "m" (*(ptr)) : : label);			\
-+	(x) = (__typeof__(x))__tmp;				\
-+} while (0)
- #else /* !CONFIG_CC_HAS_ASM_GOTO_OUTPUT */
- #define __get_user_asm(insn, x, ptr, label)			\
- do {								\
 -- 
-2.51.0
-
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
