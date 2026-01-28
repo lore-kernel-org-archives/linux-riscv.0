@@ -4,57 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5298DD46BFA
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 20:34:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB63D46BFB
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 20:35:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3+klLswLBEpiR7dLZUjEuSAoXhPM9OuqEAriMrkRzng=; b=hukrDTa+Wb5PG7
-	+so8H1K3l6OlBfGgPJW/90Aogn1kPjllNBCXBqFBQz0jArOP6Qr3CDP3T7g8SUOdXGNnUK7KMvnda
-	jWvi8/tAtxDQCPr+dErr9n+6Hdq4HgixwlcgbsQ59NnJ7HSzRUaM9X1RGNb6SDr1gxrPdabyy3eI8
-	MrVUradXnlWGf7BJPbdBAT27GbfnxoZcoPrhF0PVC+NLz/apwefQ945ehvaF7ojKFjughmm9GOoVS
-	seq7GGN35VmiaR6wZlrAb66HlMebXKR/mbZabt8D0POHDh33xonNFtuU0F412SHQC5e2hF3qyo9tu
-	EYJxEcP/O5rQ4PhjP4Xw==;
+	List-Owner; bh=VbWVDpYRbOvwCwsUoIpTk5G+S62a11bdemMGWcvw9Pk=; b=2KjZV3EDemZeVx
+	s9LoGI98rjjXv1ABqa/oBsE4jv9+5/Z8WHrx6nBMNjotq+H+hXhDULzcPr7jzWkc0Hn0ofELhLrE1
+	zwwR4oK+5kuo41Rav63Yf4Ws/D9XycRJXnZAsPmTmKLvxMPiy1lNqkfu6P3rBpS2hIedSXiy9MSRY
+	FugoW7tVq63t60WyPTFvoKj0Rfk8S1nvenfEnUFmubZmBTo84SDulOi0wUlKj8wbMDMaFYafqZSua
+	JiOLNcAn5qKRfMtGPD+ideFePoPTAl0A90XZfUCfHjKfnT5luMetH9m5Wc7Xcn2e3lOh3panKLjJ6
+	u+UmotD+8ofiB1WuPyYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlCFT-0000000Gm4n-3KTl;
-	Wed, 28 Jan 2026 20:34:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vlCGL-0000000GmTT-121M;
+	Wed, 28 Jan 2026 20:35:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlCFP-0000000Gm49-3pG0
+	id 1vlCGJ-0000000GmQy-3lWt
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 28 Jan 2026 20:35:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=VLa6LOTN8i440ICI8XRdDC2wGvuvyQX1LFm6uILTaMg=; b=T6K+b4JoiDxJ5H14mb6iIjU/RA
+	NDt/QdFj/khzcflo3oHeC0mlMfxSd88KyxyYSIUk1G8bOVbOuTSEMlPP8b5XTdo7sAUAGLa1xlvST
+	V9L40aIlOUwZLEi8SoHlkUTNnh6BDUO7yniexp/krSvGMzOkSJP9FMfUGEP8NoC4TqgeAG0tuuIGU
+	APP8N1rHFRs6K1wm6oOts++LDFjcnC5ATjwWfV2nfBaP4lUd17+9PReYymi+BJlh6/0u/65V+40HK
+	DSek7xFtI7acc8Fn8vUiSS+XpZN5fwLGJLXm3sok2OuJS9ofk3efxqbIpfuNRnwf6Ey2VvK/mNoQ3
+	1zjQoTYQ==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlCG6-00000009LWa-3YYD
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 20:34:46 +0000
+	Wed, 28 Jan 2026 20:35:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7CDF44417A;
-	Wed, 28 Jan 2026 20:34:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 020BEC4CEF1;
-	Wed, 28 Jan 2026 20:34:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BBFAE4199B;
+	Wed, 28 Jan 2026 20:35:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E219C116C6;
+	Wed, 28 Jan 2026 20:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769632483;
-	bh=cmYuQlBDDUjfKDQHbd81D0K9u1pyvJ63sJDqKouExlY=;
+	s=k20201202; t=1769632524;
+	bh=yrnUUci/5Ahsz40PLPK7R0htusSkB8akdUK58N6WXS8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uP/54hZc1216Iwwh9RQoZqekZgMZLdWPW1e0kXKk2wMfgd7UGFS7UTo6gFKTcMMQn
-	 hZIByhYDwDTZKiNUkTcaeu3AXmBh7E7DObifFV/GO8vor6Xf42Ib3tvYYZmkMzgh0B
-	 4yuJ3G0qTBbJ7QHytZ0AHY4oPZAZG8q1sf+a7mdP1SuDzarczYkBHhaDNFOKQMpCbB
-	 lkSH6g05s2a14Q94vY52y8nTSsW15W9hunxjTihKGo8co3PFO37cYEhsj87LkWNqaK
-	 Uhoa/P+4EI6HX4/zA5GM8M3ScKYehbcMuvWJgBsW89f8PmUF4UgEG7CcTPfVbozhfE
-	 S4oHDYLC5vCsg==
-Date: Wed, 28 Jan 2026 12:34:41 -0800
+	b=JzJGyY690ZAhQVx+8Kmt2Sq//jhKMTPY7GWMxEIJHsuuL2XHLceWHtDPedYsO2H0B
+	 p6HpsgEy4ovTugw+gd6Y6RJXeprchF/38ic2lABzQc5zdWHu2QtxdAhILsIC2r9zcT
+	 8z7w5FzXoVPLV/ikIuCCUK+w1eAzZPlL/9ATO2dNOLrf4fNpybQU29HhpQ7eVzpEXg
+	 cJtGIMmB5peUC2JfQx+9amd4rBUpLFVafc3tbcfr4b1ZZYE0tF2hk4lv8wigP/ayMi
+	 KAnHC0P92ltnk0XYtkGO08rbyd0sCxaZK40RRWaM7tj7md+qsOARKJTrMfAz3H3Xd1
+	 klvlqdXTbM8kg==
+Date: Wed, 28 Jan 2026 12:35:23 -0800
 From: Drew Fustini <fustini@kernel.org>
 To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Subject: Re: [PATCH v6 2/9] dt-bindings: display: add verisilicon,dc
-Message-ID: <aXpy4f9G9QKRh3Ts@x1>
+Subject: Re: [PATCH v6 4/9] dt-bindings: display/bridge: add binding for
+ TH1520 HDMI controller
+Message-ID: <aXpzC8MnShvc0tJv@x1>
 References: <20260123092830.4046009-1-zhengxingda@iscas.ac.cn>
- <20260123092830.4046009-3-zhengxingda@iscas.ac.cn>
+ <20260123092830.4046009-5-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260123092830.4046009-3-zhengxingda@iscas.ac.cn>
+In-Reply-To: <20260123092830.4046009-5-zhengxingda@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_123443_988960_D41F578E 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20260128_203534_725812_80A850F0 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,53 +82,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: dri-devel@lists.freedesktop.org, Guo Ren <guoren@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Robert Foss <rfoss@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Michal Wilczynski <m.wilczynski@samsung.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>, Jonas Karlman <jonas@kwiboo.se>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Dmitry Baryshkov <lumag@kernel.org>, linux-kernel@vger.kernel.org, Thomas Zimmermann <tzimmermann@suse.de>, Han Gao <rabenda.cn@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>
+Cc: dri-devel@lists.freedesktop.org, Guo Ren <guoren@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Robert Foss <rfoss@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Michal Wilczynski <m.wilczynski@samsung.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>, Jonas Karlman <jonas@kwiboo.se>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Dmitry Baryshkov <lumag@kernel.org>, linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Thomas Zimmermann <tzimmermann@suse.de>, Han Gao <rabenda.cn@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 23, 2026 at 05:28:23PM +0800, Icenowy Zheng wrote:
+On Fri, Jan 23, 2026 at 05:28:25PM +0800, Icenowy Zheng wrote:
 > From: Icenowy Zheng <uwu@icenowy.me>
 > 
-> Verisilicon has a series of display controllers prefixed with DC and
-> with self-identification facility like their GC series GPUs.
+> T-Head TH1520 SoC contains a Synopsys DesignWare HDMI controller paired
+> with DesignWare HDMI PHY, with an extra clock gate for HDMI pixel clock
+> and two reset controls.
 > 
-> Add a device tree binding for it.
-> 
-> Depends on the specific DC model, it can have either one or two display
-> outputs, and each display output could be set to DPI signal or "DP"
-> signal (which seems to be some plain parallel bus to HDMI controllers).
+> Add a device tree binding to it.
 > 
 > Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 > Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > ---
-> Changes in v6:
-> - Added Rob's R-b.
-> 
-> Changes in v5:
-> - Dropped the requirement of port@0.
-> - Dropped the if clause for TH1520, which seems to be not needed because
->   of implicit DT binding rules.
-> 
-> Changes in v4:
-> - Added a comment for "verisilicon,dc" that says the ID/revision is
->   discoverable via registers.
-> - Removed clock minItems constraint w/o specific compatible strings.
-> 
-> Changes in v3:
-> - Added SoC-specific compatible string, and arm the binding with clock /
->   port checking for the specific SoC (with a 2-output DC).
+> No changes since v3.
 > 
 > Changes in v2:
-> - Fixed misspelt "versilicon" in title.
-> - Moved minItems in clock properties to be earlier than items.
-> - Re-aligned multi-line clocks and resets in example.
+> - Re-aligned multi-line clocks/resets in example.
+> - Added Krzysztof's R-b.
 > 
->  .../bindings/display/verisilicon,dc.yaml      | 122 ++++++++++++++++++
->  1 file changed, 122 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>  .../display/bridge/thead,th1520-dw-hdmi.yaml  | 120 ++++++++++++++++++
+>  1 file changed, 120 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-hdmi.yaml
 
 I've applied the bindings patches (1, 2, 4) to thead-dt-for-next as well
 so that 'make W=1 dtbs_check' won't break for the next release of
