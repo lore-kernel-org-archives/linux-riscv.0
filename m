@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06DA1D46BFC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01386D46BFE
 	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 20:28:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9SF/Kf6izbRhqG31Dl2IgsLOhcptYWgePJGrpru6Sb4=; b=ov/Ut7i1I69pi0
-	isvdUq3HCBfXXHKxbm02oVDss5dIjPXwZHT4KwphMAvk2zxCgJUU0dYLN6vfCJUW8hi0d4eOo94UD
-	Li1p3WFJEbewUL5GodIiQboZLP8abe3DnPOmgGDzLKcEd4+1NdM22lTElsu2vBc82YXkmJstnDjO8
-	Iwm0bTEinL8I2PB7qemw8ntaWyw9AWzbYfqGeWrD/fsWTJbpzsK93QSUcgVfDhKDbPSbYucXQPsWz
-	HUOgDhB9rr8G8c/NYJtvoL/D/CXqlCeW4Mp4VdB73oLDY4Q6Vit8G0AL3KTBpomS3sP2Keytfkp6m
-	jelNXQDFUP4Enu+KYiVQ==;
+	List-Owner; bh=ss0JY+iQzr5MYEs/XKDHrp968Cb2Ni4FhXmM4K5zWsI=; b=n4ba73pQGp33/4
+	aSNCR8D3r6w0NFEfOD0XhTJF3Ja5zhjMhNpTIkXsvpXviIyBZzBxXF52xuYwvFpY+4TewmKFHrisb
+	yVjYiPjUfIt+KPZP+5EwRm4MFSKPnenwClI4iDhlCAt99zqhQCwOdmNYqDPtKticHutg4OGDTzy6i
+	pfDophXbZDdV3Lpub/Zxix6iPneQGSUlpjHJmcLKF2eFESq00joDbn15XhAfy+zt0qyWWUQhmxFV/
+	qHxEuVJUM5fn9+4sT595lFuBN9bRqWfKY5PXATiQ0lrVbar2/wgaQhGZ209dFxkdi3UiXNo7YsNOa
+	9GfNyLjWruKaLpnG/hiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlC95-0000000Gk52-0K9V;
-	Wed, 28 Jan 2026 20:28:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vlC96-0000000Gk7H-2plT;
+	Wed, 28 Jan 2026 20:28:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlC8z-0000000Gk0f-3g9Z
+	id 1vlC92-0000000Gk1k-05oH
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 20:28:07 +0000
+	Wed, 28 Jan 2026 20:28:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6702B44537;
-	Wed, 28 Jan 2026 20:28:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFF73C2BCAF;
-	Wed, 28 Jan 2026 20:28:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6D0C860129;
+	Wed, 28 Jan 2026 20:28:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A58BBC16AAE;
+	Wed, 28 Jan 2026 20:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769632085;
-	bh=e1gD37k8W4Pzp7U55pR9/mebQe/hwn2pjhUSiquHa+s=;
+	s=k20201202; t=1769632087;
+	bh=CVgk8+0DOVtFgoErfuPTKgd5FmJ8SBgjgEb/2k9FVe0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=RCoi2aWY/oZS67ocZqD2asZzFlXYhQYfYhe3wqNa6gStwaGO2FSunPiQni46XQpSQ
-	 v+1mkd1Zi76k+jAK7BCTvTUqnvaTWrXRVi6KyTCxJOUkKxs2/ViSLefTPmB4M6TYfp
-	 zgygXHEFdMq8RyNpJks8Ckn43dqM6a4lvqOEVNmoUXQ9XxGregt3JOmmtKLgsSjGsF
-	 3DQcYdFAJ0FMYBe4PNJ5JST/NIi4UA9Wj3bLJQXJTzehMYVVJ2IFQjbSlGkzagdyaM
-	 c7JBsIVir62difcOv6pNT3HM0+QnQeoK5MC82ctYZTuWro0r3JwENByHgcYGVw0yak
-	 mRzMX4TE7tbIg==
+	b=kDZothHsC0SE8ArM14vzOmB2tLd6uqZJD2C7GffaxHZCpyXZzeTwICgFm+oOrsdi9
+	 X34I9y9dnybmX7RDdxZhH37D2zJ2OV5sv4fucC+OQ8cReAtMCLRYgifhnsBcUu+HGb
+	 AI0sYUs1pD041F6ocDMXoVPuKq7DPzQnTAxnZcYkd2MM1lE1d0SBfsgRpFIyYZcPca
+	 qCZzHlrndkQA1isP7juA53jOdMhnmbDg3kaFJ+ln+YpPx1f0B0SbqXemecZfrn2F+l
+	 GcByaXMx/6g6n72pauP2macgso9Xwh6tza7xI4TWqIRgK85kg0PZbJlgg9rJH+hHnN
+	 VlE/2e25nT6oA==
 From: Drew Fustini <fustini@kernel.org>
-Date: Wed, 28 Jan 2026 12:27:25 -0800
-Subject: [PATCH RFC v2 04/17] RISC-V: QoS: define properties of CBQRI
- controllers
+Date: Wed, 28 Jan 2026 12:27:28 -0800
+Subject: [PATCH RFC v2 07/17] RISC-V: QoS: define prototypes for resctrl
+ interface
 MIME-Version: 1.0
-Message-Id: <20260128-ssqosid-cbqri-v2-4-dca586b091b9@kernel.org>
+Message-Id: <20260128-ssqosid-cbqri-v2-7-dca586b091b9@kernel.org>
 References: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
 In-Reply-To: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -77,17 +77,14 @@ To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 Cc: Paul Walmsley <paul.walmsley@sifive.com>, linux-acpi@vger.kernel.org, 
  acpica-devel@lists.linux.dev, devicetree@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1881; i=fustini@kernel.org;
- h=from:subject:message-id; bh=e1gD37k8W4Pzp7U55pR9/mebQe/hwn2pjhUSiquHa+s=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWRWFfo/PsmQs8/5uN0n4RmuNZbNnaqKh08JWp8PniEvI
- bZA5vf0jlIWBjEuBlkxRZZNH/IuLPEK/bpg/ottMHNYmUCGMHBxCsBEplxlZLhUc3PVNvcCloD3
- kWI1zKbTl3BYzC5zeF0/S6nPd/bORDOGv7KKuyXYZZdlXPyvsccx8XE9U12Qqvt2Y92ekIhmPZU
- nHAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2767; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=CVgk8+0DOVtFgoErfuPTKgd5FmJ8SBgjgEb/2k9FVe0=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWRWFQaISj0rOd11wV6vnWOx8sInCgdUZy9k6P2y3P/8+
+ osX9jQ/7ChlYRDjYpAVU2TZ9CHvwhKv0K8L5r/YBjOHlQlkCAMXpwBM5KccI8PXgsPcf53ecDCc
+ b+N+X7AozrJql6dE/4d3L3qcPd6vOXuN4a+s+8eYNw4n9+eZ5s/7vOnUuukl/E8eWqZe7cy+d/T
+ 9iSvsAA==
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_122805_962251_88ADEBDE 
-X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,72 +101,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define data structure to represent the CBQRI properties that a driver
-for an CBQRI-capable controller would discover during probe.
-
-Each instance of a CBQRI-capable controller is added to a list that the
-RISC-V CBQRI resctrl implementation will consume.
+Define the prototypes for the resctrl interface functions that are
+implemented on RISC-V.
 
 Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+[fustini: rebased on current upstream]
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- MAINTAINERS               |  1 +
- include/linux/riscv_qos.h | 34 ++++++++++++++++++++++++++++++++++
- 2 files changed, 35 insertions(+)
+ include/linux/riscv_qos.h | 44 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e98d553bd0ca..31e536304972 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22511,6 +22511,7 @@ L:	linux-riscv@lists.infradead.org
- S:	Supported
- F:	arch/riscv/include/asm/qos.h
- F:	arch/riscv/kernel/qos/
-+F:	include/linux/riscv_qos.h
- 
- RISC-V RPMI AND MPXY DRIVERS
- M:	Rahul Pathak <rahul@summations.net>
 diff --git a/include/linux/riscv_qos.h b/include/linux/riscv_qos.h
-new file mode 100644
-index 000000000000..51c3a96bbcd0
---- /dev/null
+index 51c3a96bbcd0..0c551ed85fe1 100644
+--- a/include/linux/riscv_qos.h
 +++ b/include/linux/riscv_qos.h
-@@ -0,0 +1,34 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
+@@ -3,6 +3,7 @@
+ #ifndef __LINUX_RISCV_QOS_H
+ #define __LINUX_RISCV_QOS_H
+ 
++#include <linux/resctrl_types.h>
+ #include <linux/iommu.h>
+ #include <linux/types.h>
+ 
+@@ -31,4 +32,47 @@ struct cbqri_controller_info {
+ 
+ extern struct list_head cbqri_controllers;
+ 
++bool resctrl_arch_alloc_capable(void);
++bool resctrl_arch_mon_capable(void);
++bool resctrl_arch_is_llc_occupancy_enabled(void);
++bool resctrl_arch_is_mbm_local_enabled(void);
++bool resctrl_arch_is_mbm_total_enabled(void);
 +
-+#ifndef __LINUX_RISCV_QOS_H
-+#define __LINUX_RISCV_QOS_H
++struct rdt_resource;
++/*
++ * Note about terminology between x86 (Intel RDT/AMD QoS) and RISC-V:
++ *   CLOSID on x86 is RCID on RISC-V
++ *     RMID on x86 is MCID on RISC-V
++ *      CDP on x86 is AT (access type) on RISC-V
++ */
++u32  resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid);
++void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid);
++void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 pmg);
++void resctrl_arch_sched_in(struct task_struct *tsk);
++void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
++bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid);
++bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
++void resctrl_arch_reset_resources(void);
++void *resctrl_arch_mon_ctx_alloc(struct rdt_resource *r, enum resctrl_event_id evtid);
++void resctrl_arch_mon_ctx_free(struct rdt_resource *r, enum resctrl_event_id evtid,
++			       void *arch_mon_ctx);
++struct rdt_domain_hdr *resctrl_arch_find_domain(struct list_head *domain_list, int id);
 +
-+#include <linux/iommu.h>
-+#include <linux/types.h>
++static inline bool resctrl_arch_event_is_free_running(enum resctrl_event_id evt)
++{
++	/* must be true for resctrl L3 monitoring files to be created */
++	return true;
++}
 +
-+#include <asm/qos.h>
++static inline unsigned int resctrl_arch_round_mon_val(unsigned int val)
++{
++	return val;
++}
 +
-+enum cbqri_controller_type {
-+	CBQRI_CONTROLLER_TYPE_CAPACITY,
-+	CBQRI_CONTROLLER_TYPE_BANDWIDTH,
-+	CBQRI_CONTROLLER_TYPE_UNKNOWN
-+};
++/* Not needed for RISC-V */
++static inline void resctrl_arch_enable_mon(void) { }
++static inline void resctrl_arch_disable_mon(void) { }
++static inline void resctrl_arch_enable_alloc(void) { }
++static inline void resctrl_arch_disable_alloc(void) { }
 +
-+struct cbqri_controller_info {
-+	unsigned long addr;
-+	unsigned long size;
-+	enum cbqri_controller_type type;
-+	u32 rcid_count;
-+	u32 mcid_count;
-+	struct list_head list;
-+
-+	struct cache_controller {
-+		u32 cache_level;
-+		u32 cache_size; /* in bytes */
-+		struct cpumask cpu_mask;
-+	} cache;
-+};
-+
-+extern struct list_head cbqri_controllers;
-+
-+#endif /* __LINUX_RISCV_QOS_H */
+ #endif /* __LINUX_RISCV_QOS_H */
 
 -- 
 2.43.0
