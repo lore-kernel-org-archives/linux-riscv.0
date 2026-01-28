@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC54D46BF6
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 19:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E0CED46BF6
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 19:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wJxC5UlMbxIOZAzUpRht5THEzWIMi1oCUejAtz/rIRQ=; b=LYZ9NcmBsH+BxC
-	3iGCpzS2BNGd8Yk0DLmuiwP5uEZsz3FPTXgicgj4m9AmBaR3xDVBjmeQV+rFJ5wFiwHkCLMKptYr1
-	cEg5xYHOO2I9F9rRiXtk6hL66edSRUhhtddbsXpm2/QYNFC5NOr4bINE8dherWIr4TzWikKLGC02o
-	lYj9T4OTrdDy020cZPrRMKVibEUvu0KD2S/Tjhb3FR7GPP6tWBNMO1SVq/PImVMMeT7tSq3mwx2RP
-	9ryNWCu1UXGTCztq2PqKNmutyO/U23HHC/YegM/ZFQ6++q0OirrWHdN89+6c+KivqJw0R5FsbWs//
-	RgTnnGdDv/KQR59uKv8w==;
+	List-Owner; bh=ZI4yiJpPCRYmK4GI8KWwK7p3lZ7263+xrlzeBxQrU7s=; b=T+ywabm+0OWgFd
+	0o1dkFno3ThRz9hNef2QV67wxgxPj+rukjY5VnT8gDRRwHL4UsLInz1JC4PtBJvdyXdmaeqO5U1R3
+	Rt8FZiWrjg/OMlbUyf8+lXnAst7X1hbik4FV2eaRIpPr1gaYE7MLi1bZYuAkUhk3HWWbn8/22+SKA
+	tis9iP/q8KrOQLdolmhZmALLWFkwxISTBWiQqe73/Mq41X5lf36pEG6jqnJrdXcUcUxP7rKxJ8HrH
+	Qmvs2m8m6c/vg9CXTw2nPVloAFYVwwgC2W0sYhPiy6WKgdHuiF7wAGKYK1X62fqttE9TSXEN8Mizz
+	7JFrVD/2qSWCQi3f4BAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlBSo-0000000GgnV-0Hn9;
-	Wed, 28 Jan 2026 19:44:30 +0000
+	id 1vlBTc-0000000Ggr8-1mfC;
+	Wed, 28 Jan 2026 19:45:20 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlBSl-0000000GgnN-1yRq
+	id 1vlBTb-0000000Ggqy-1596
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 19:44:27 +0000
+	Wed, 28 Jan 2026 19:45:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 546166000A;
-	Wed, 28 Jan 2026 19:44:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A05C7C4CEF1;
-	Wed, 28 Jan 2026 19:44:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 94E086001A;
+	Wed, 28 Jan 2026 19:45:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4D6BC4CEF1;
+	Wed, 28 Jan 2026 19:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769629466;
-	bh=mI8NvKoZWsbB56B798mUB4ZBCLG7Ks1zL7TA9JObJ1I=;
+	s=k20201202; t=1769629518;
+	bh=bZ7dJ7gqhVeTmkm1nqjpOk6NE87IYlDZBHUJKo/GhV0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BPmAddnt1ZUTc2oHQ+bDiWTTtPSI+Eagor38VD6iVzNDk5kGf8l2UQ3tPhDaT+/xV
-	 uNj/PWtklR79KofA36XzG25fYa6MXqFltYDv3RIP6Xgr1QbJ+3giXa0jVZAp9bJvEG
-	 oINnQA3sNBdunWjfrYz6tMRXdnJPSzgm7EkOekKL+fvfZsCoPlCYHrQ7wr6wCo4k3k
-	 LupWJHcLVaPGgvT4kAzNfTbdyWPSgXJ1bD1zcLS87qnxAeAU79/a5bR9kSYbBxq1Qf
-	 VbAGO24qVP3a/uuyiu1tk1LoI9quLQpJnycVYlKirNG2iu/z/yIaDcwUfOUSPxQBZA
-	 hA8TBv77Gqeew==
-Date: Wed, 28 Jan 2026 11:44:24 -0800
+	b=r+zDLcEjn6EhyS1eEIqj+F0YNY9xGGoJZNuWB67b5PhGL4hfyeaw0d/wYYmlvqVGl
+	 EeIb3GqRWtIb1wonosEAACd4E+6EnuUFqNbO6sEzDX7jHm8aB+oWWxJXUJw0Y+riUm
+	 Z5hgGV5qt6ybl3rAg7MoaUq9du/F3njB4YQ7kdVfw5KSxhfxRnpOR3Ml3KfT8UHXhT
+	 wi35Gd2hfDxrPwRm0FGgOa6eGbtZJywcYVLJr27u+VZiHOxuZbcgadOH+IzR8vLfpa
+	 Uldr92B5GbnHSha8B2bzrNtUez7AYPI2yy6EZrHrTlGf+y1idGxOs8tRX4kUtv1lMn
+	 7FBQEIQu51YIQ==
+Date: Wed, 28 Jan 2026 11:45:16 -0800
 From: Drew Fustini <fustini@kernel.org>
 To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Subject: Re: [PATCH v6 6/9] riscv: dts: thead: add DPU and HDMI device tree
- nodes
-Message-ID: <aXpnGA80OYY+aoMy@x1>
+Subject: Re: [PATCH v6 7/9] riscv: dts: thead: lichee-pi-4a: enable HDMI
+Message-ID: <aXpnTDSowoW+8UzN@x1>
 References: <20260123092830.4046009-1-zhengxingda@iscas.ac.cn>
- <20260123092830.4046009-7-zhengxingda@iscas.ac.cn>
- <aXpa5zPWNOM1oP/C@x1>
+ <20260123092830.4046009-8-zhengxingda@iscas.ac.cn>
+ <aXpbBq3TwuiP9Qry@x1>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aXpa5zPWNOM1oP/C@x1>
+In-Reply-To: <aXpbBq3TwuiP9Qry@x1>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,40 +70,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 10:52:23AM -0800, Drew Fustini wrote:
-> On Fri, Jan 23, 2026 at 05:28:27PM +0800, Icenowy Zheng wrote:
-> > From: Icenowy Zheng <uwu@icenowy.me>
+On Wed, Jan 28, 2026 at 10:52:54AM -0800, Drew Fustini wrote:
+> On Fri, Jan 23, 2026 at 05:28:28PM +0800, Icenowy Zheng wrote:
+> > Lichee Pi 4A board features a HDMI Type-A connector connected to the
+> > HDMI TX controller of TH1520 SoC.
 > > 
-> > T-Head TH1520 SoC contains a Verisilicon DC8200 display controller
-> > (called DPU in manual) and a Synopsys DesignWare HDMI TX controller.
-> > 
-> > Add device tree nodes to them.
+> > Add a device tree node describing the connector, connect it to the HDMI
+> > controller, and enable everything on this display pipeline.
 > > 
 > > Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 > > Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 > > Tested-by: Han Gao <gaohan@iscas.ac.cn>
 > > Tested-by: Michal Wilczynski <m.wilczynski@samsung.com>
 > > ---
-> > No changes since v4.
+> > No changes in v5.
 > > 
-> > Changes in v3:
-> > - Adapting to the changed binding.
+> > Changes in v4:
+> > - Rebased on top of v6.19-rc1.
 > > 
-> > No changes in v2.
+> > No changes in v2, v3.
 > > 
-> >  arch/riscv/boot/dts/thead/th1520.dtsi | 66 +++++++++++++++++++++++++++
-> >  1 file changed, 66 insertions(+)
+> >  .../boot/dts/thead/th1520-lichee-pi-4a.dts    | 25 +++++++++++++++++++
+> >  1 file changed, 25 insertions(+)
 > 
 > Reviewed-by: Drew Fustini <fustini@kernel.org>
 
 I've applied this to tenstorrent-dt-for-next
 
-https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/commit/?h=tenstorrent-dt-for-next&id=b6a400f45aaf391d15d70758df207bbf5a63811e
+https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/commit/?h=tenstorrent-dt-for-next&id=0075f4c3aade0d436925026eaefb14be1ec52a69
 
-Hopefully we can get some testing done once the driver patches hit next.
+Hopefully we can get some testing done with a next release once the driver patches hit next.
 
 Thanks,
 Drew
+
 
 _______________________________________________
 linux-riscv mailing list
