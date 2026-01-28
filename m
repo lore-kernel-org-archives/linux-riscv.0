@@ -4,63 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17436D46C0A
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 22:39:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBAEED46C0F
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 22:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HIsdfNkdbcii1lWqP4MNGCCuEmf50GkmZRKBr4zaQl8=; b=4WqY2OM8vUYwh+
-	NUQiuWXZbXDgmZMA8H9Kw515NRpXM5Iqpk/EgVgK15hT9C47CV7APHLVxy1Fb3brP5TUZUIQMDG3f
-	Qn3eRzg0jLS4omzXhSEo64LOUehakEcrhYqlDw1ZlykFXKlnEiGnLiR6B7lCo0QL7A1JdkPMZOBbp
-	cDPMBMCGp0mauIFRMgsPI/VgfjA0om3H9mIFrj7aUKeBeAXMvRvQ2n0HNksyQuQ473f/I2pKLZbEE
-	N9VhGIBizhNqJhMp+DKZ0xLIc5ItGhMRG+3Gtt0weWWlxm525NSmmNoSLDWF+XRbHIYryQDbUQ1+Z
-	BwWdHPmGMwnD0fn75LPg==;
+	List-Owner; bh=fVS9vfp+S9RUxEBhZflxpAEAijVy3zcsXRNeupjl8oQ=; b=p2AC0dV0mkfc2r
+	7AuMsnpnjm/8LXBYi+4GHGsuV1ZmFnLR+U6rCHeyqNzZFrEFtcH4d5MvgXB+7LiyjtVdWRx0BCXFc
+	0sp/fTvJnIyd6JHyj/jqKEG6Ck1txuCxd5qK1xsoM8DU2SuxaTILjkWj0nHuIHSBo13B2gumyUawi
+	i80eLab6VBqacElhweKoSJdfRR+LcDEjmYU2waCxjEbeOa7tVnYJP0nooWMx18K1EiOs/A3uTlUde
+	bfV8aQVFN3nCOQpBvcxNFsHb/ijzaaxX86lnB0YxOkXK+52i8nLPpzjAW2P/52Z3xIg81g+pDzCEd
+	KJ/vZ7g4Bqr1feDnwa1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlEBy-0000000Gtf8-0opQ;
-	Wed, 28 Jan 2026 22:39:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vlETy-0000000GuV7-27ob;
+	Wed, 28 Jan 2026 22:57:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlEBw-0000000Gtf1-3gbW
+	id 1vlETv-0000000GuUm-41Ou
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 22:39:16 +0000
+	Wed, 28 Jan 2026 22:57:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B3C006001A;
-	Wed, 28 Jan 2026 22:39:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65B7BC4CEF1;
-	Wed, 28 Jan 2026 22:39:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7032A41567;
+	Wed, 28 Jan 2026 22:57:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED2BAC4CEF1;
+	Wed, 28 Jan 2026 22:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769639954;
-	bh=+Qo0hUtbp6GPRhlGZrjzGk3yEHHY8vN3Rk5lovqMKeQ=;
+	s=k20201202; t=1769641070;
+	bh=zzDPxa7YTOuxLsTohGS9o5cD9aMxBThQMZVsekatb4k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aoe5guXZgqiwHfkzvcyGwChsttEGzY8XkQAQGbi+GVyMpTmaL9A50P2fKJkq1Ud/p
-	 W1LNZoTZbltT2WEw70+ZaFoJrjI/FmyZ8fHktzXwjQUFEtxQJmOizUBhrFp8Mb5yHj
-	 NYCENS6FTRdjzLmG5B3zAo3o7urcoqQErGRaCO1Npy5N5maFNmJaaTHbNWKdXumg0w
-	 iKnU6v2CUeiFR3lVO8ZSadcj2RfCJJmdyB8NbH+m9eDDJef8qiOZkMfFrCTShZDcgL
-	 qWypr76X7QxjjtRPuQA9tEzQS083eLdv3ipGuRDv2zU6QSOgreU+SzC35YqbLvadk3
-	 19la0D8Df3KAQ==
-Date: Wed, 28 Jan 2026 14:39:14 -0800
-From: Kees Cook <kees@kernel.org>
-To: Feng Jiang <jiangfeng@kylinos.cn>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, akpm@linux-foundation.org, andy@kernel.org,
-	ebiggers@kernel.org, martin.petersen@oracle.com,
-	sohil.mehta@intel.com, charlie@rivosinc.com,
-	conor.dooley@microchip.com, samuel.holland@sifive.com,
-	linus.walleij@linaro.org, nathan@kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org, Joel Stanley <joel@jms.id.au>
-Subject: Re: [PATCH v5 1/8] lib/string_kunit: add correctness test for
- strlen()
-Message-ID: <202601281437.F327FC61@keescook>
-References: <20260127012558.40025-1-jiangfeng@kylinos.cn>
- <20260127012558.40025-2-jiangfeng@kylinos.cn>
+	b=APE1AEwTUOcZZ+IQmP17cC9GRK94sU9OeZ/v7jHgkDwIOBOrZpB+vQtNnXrep80Bx
+	 9sJacVWYQ6fmBBJQon+E4uhVlMmA4PsJDmWLnT3NmVaxKhDMcx59DvgL8JbahtGyJW
+	 tlSCEoqsoDhTsndDt3Mqe3mZzNNWhVT/bJ9V+zWwFEMjT4xIYYmOxL/VmZ6jVouwE0
+	 hHTPw5qCftlxbvrMn/eRhsu1c8GwkR6CkPfk1LtxyJmFEU7AYKXQWBFpdirjOxx5UK
+	 vDnGnXzSxLwu5r8+nlH5COUoPzb0VzZcz4lcpKNrmrtfg/B+RkdZQleGKglPI+OANW
+	 jQUhDbQJJfntQ==
+Date: Wed, 28 Jan 2026 14:57:48 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Subject: Re: [PATCH v6 2/9] dt-bindings: display: add verisilicon,dc
+Message-ID: <aXqUbDw45ulf8c+s@x1>
+References: <20260123092830.4046009-1-zhengxingda@iscas.ac.cn>
+ <20260123092830.4046009-3-zhengxingda@iscas.ac.cn>
+ <aXpy4f9G9QKRh3Ts@x1>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260127012558.40025-2-jiangfeng@kylinos.cn>
+In-Reply-To: <aXpy4f9G9QKRh3Ts@x1>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260128_145752_046320_EE42E6B3 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,78 +67,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: dri-devel@lists.freedesktop.org, Guo Ren <guoren@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Robert Foss <rfoss@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Michal Wilczynski <m.wilczynski@samsung.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>, Jonas Karlman <jonas@kwiboo.se>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Dmitry Baryshkov <lumag@kernel.org>, linux-kernel@vger.kernel.org, Thomas Zimmermann <tzimmermann@suse.de>, Han Gao <rabenda.cn@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 27, 2026 at 09:25:51AM +0800, Feng Jiang wrote:
-> Add a KUnit test for strlen() to verify correctness across
-> different string lengths and memory alignments.
+On Wed, Jan 28, 2026 at 12:34:41PM -0800, Drew Fustini wrote:
+> On Fri, Jan 23, 2026 at 05:28:23PM +0800, Icenowy Zheng wrote:
+> > From: Icenowy Zheng <uwu@icenowy.me>
+> > 
+> > Verisilicon has a series of display controllers prefixed with DC and
+> > with self-identification facility like their GC series GPUs.
+> > 
+> > Add a device tree binding for it.
+> > 
+> > Depends on the specific DC model, it can have either one or two display
+> > outputs, and each display output could be set to DPI signal or "DP"
+> > signal (which seems to be some plain parallel bus to HDMI controllers).
+> > 
+> > Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> > Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> > ---
+> > Changes in v6:
+> > - Added Rob's R-b.
+> > 
+> > Changes in v5:
+> > - Dropped the requirement of port@0.
+> > - Dropped the if clause for TH1520, which seems to be not needed because
+> >   of implicit DT binding rules.
+> > 
+> > Changes in v4:
+> > - Added a comment for "verisilicon,dc" that says the ID/revision is
+> >   discoverable via registers.
+> > - Removed clock minItems constraint w/o specific compatible strings.
+> > 
+> > Changes in v3:
+> > - Added SoC-specific compatible string, and arm the binding with clock /
+> >   port checking for the specific SoC (with a 2-output DC).
+> > 
+> > Changes in v2:
+> > - Fixed misspelt "versilicon" in title.
+> > - Moved minItems in clock properties to be earlier than items.
+> > - Re-aligned multi-line clocks and resets in example.
+> > 
+> >  .../bindings/display/verisilicon,dc.yaml      | 122 ++++++++++++++++++
+> >  1 file changed, 122 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/display/verisilicon,dc.yaml
 > 
-> Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
-> Acked-by: Andy Shevchenko <andy@kernel.org>
-> Tested-by: Joel Stanley <joel@jms.id.au>
-> ---
->  lib/tests/string_kunit.c | 26 ++++++++++++++++++++++++++
->  1 file changed, 26 insertions(+)
+> I've applied the bindings patches (1, 2, 4) to thead-dt-for-next as well
+> so that 'make W=1 dtbs_check' won't break for the next release of
+> linux-next.
 > 
-> diff --git a/lib/tests/string_kunit.c b/lib/tests/string_kunit.c
-> index f9a8e557ba77..bc5130c6e5e9 100644
-> --- a/lib/tests/string_kunit.c
-> +++ b/lib/tests/string_kunit.c
-> @@ -17,6 +17,9 @@
->  #define STRCMP_TEST_EXPECT_LOWER(test, fn, ...) KUNIT_EXPECT_LT(test, fn(__VA_ARGS__), 0)
->  #define STRCMP_TEST_EXPECT_GREATER(test, fn, ...) KUNIT_EXPECT_GT(test, fn(__VA_ARGS__), 0)
->  
-> +#define STRING_TEST_MAX_LEN	128
-> +#define STRING_TEST_MAX_OFFSET	16
-> +
->  static void string_test_memset16(struct kunit *test)
->  {
->  	unsigned i, j, k;
-> @@ -104,6 +107,28 @@ static void string_test_memset64(struct kunit *test)
->  	}
->  }
->  
-> +static void string_test_strlen(struct kunit *test)
-> +{
-> +	const size_t buf_size = STRING_TEST_MAX_LEN + STRING_TEST_MAX_OFFSET + 1;
-> +	size_t len, offset;
-> +	char *s;
-> +
-> +	s = kunit_kzalloc(test, buf_size, GFP_KERNEL);
+> https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/log/?h=thead-dt-for-next
+> 
+> Please see my reply to patch 1 for the rest of my message.
 
-One aspect of "correctness" that we might want to include here is making
-sure we don't have any implementations that over-read. To that end,
-perhaps this test can put the string at the end of a vmalloc allocation
-(so that the end of the string is right up against an unallocated memory
-space).
+I've dropped the yaml patches from thead-dt-for-next based on Conor's
+advice. Patches 1, 2 and 4 can go through drm.
 
-> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, s);
-> +
-> +	memset(s, 'A', buf_size);
-> +	s[buf_size - 1] = '\0';
-> +
-> +	for (offset = 0; offset < STRING_TEST_MAX_OFFSET; offset++) {
-> +		for (len = 0; len <= STRING_TEST_MAX_LEN; len++) {
-> +			s[offset + len] = '\0';
-> +			KUNIT_EXPECT_EQ_MSG(test, strlen(s + offset), len,
-> +				"offset:%zu len:%zu", offset, len);
-> +			s[offset + len] = 'A';
-> +		}
-> +	}
-> +}
-
-It would require building the string backwards here. Or maybe we just
-need a separate test for the over-read concerns?
-
-Thoughts?
-
--Kees
-
--- 
-Kees Cook
+Drew
 
 _______________________________________________
 linux-riscv mailing list
