@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F04DFD25926
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 13:56:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4E62D25926
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 13:56:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xe8wutyA8pyMnJdMno4z12yiuDet0QRZiFdDrrXNJUI=; b=n4ma6f+L8GRRN5
-	vxc4KRprA4d2G6oLCQLWmJVSwPHWbUdcxAGo1E/aULzGig3fCYMZ2dr0jzYWpNANGPkn9IidKPQn/
-	PS3pTS8K6iH3G4JWeeKxWCB7ZjbGGf4/n6uZUXBUCnninCmym4PdMAK80voOrudr1CORsanifLFqt
-	3cPcURFinfcRJ5I3GH7W4077gtll+AxeTs4cai3wh4gJP/0hih5wnCiNe2g4m+jOrk+DVSRJUA7ki
-	9qDAU0BIGv+rKrlun5FFl6JDdhIgz5xv+u3v5yGvFXpk2svK0N7zHe3zSaEBXe8VbMKJG/iHmV7s7
-	Drt3hMrpDotJvsdz48DA==;
+	List-Owner; bh=MR9Iol00nt7oZdTBfbcRmfO0NfleR0Xu6vU5jj2xjug=; b=Ea9FWl3bxmHXJY
+	QYKzXdm9OJ0kzCpHdFmSgz1FYyigghBk4AfiBCxXpTICjUwm4WF2JY4m9+YevyB+I9Si1qkX8apBJ
+	xCRcR6/oPkNKgGygAVgQn6O1khwrlawSGKduT3DQM7cNjV6nRxsPNiRmWkmwVGTAtOmmATPnArajE
+	wtdDNaRcoraWNdTQxVJ+oz8tAbPTkL+FZQJFNzMHd3FR3+JoUoNYvL99pLDGlZi8+wp/qPvSRv5uK
+	swnxLj3zxBs2WZ4UJ59gRSWiLs7gA9PixmRgSqkufutgQUh1/bOseiJqDFhe3lnYuCg3cj/3SpYtb
+	whFbfdPX0jcMg3bxgdUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl61O-0000000G6q2-344E;
-	Wed, 28 Jan 2026 13:55:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vl61b-0000000G6vb-0BWJ;
+	Wed, 28 Jan 2026 13:56:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl61M-0000000G6p0-1xce
+	id 1vl61Z-0000000G6u3-2RtH
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 28 Jan 2026 13:56:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=5itD1SDwquwWs2ds/5ZXa9iuE390ctktQFtmzlQ5/0M=; b=HyybYE6IIH6yoIDdALvplgYc6W
+	huhJobQWTanh71MHdia4EEjSmZ7jMb3ooeu/je+a27qiGUtU6Sl4aZP3+M8Efzz9Br2fA4xR9bHCV
+	8kqfRXSwLdnOJKveDibwXGbt82JI8V77NMQeWt1e/4h/0XEgD3d/Ub45stN0A1whHwcyIo/ft9P6q
+	pwNc6W47QErFfhjc8jUmiwD5NxmpOvGUOc/gz+YPVi/mtCYV6VuiAO9ITHTz6T3Xm5nEez3Fq2R6R
+	lKxHB9vpBRp2Xrm0b1ROu8dXXM5TYKdTZr7D4E/UojHbSL2N73aJQ3Ec4T+o8KG3nCLlc4TM3Gl4k
+	OKjTKPug==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vl61W-00000008eAG-2Lft
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 13:55:49 +0000
+	Wed, 28 Jan 2026 13:56:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3189D4362B;
-	Wed, 28 Jan 2026 13:55:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61317C116C6;
-	Wed, 28 Jan 2026 13:55:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 55940443FD;
+	Wed, 28 Jan 2026 13:55:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47923C116C6;
+	Wed, 28 Jan 2026 13:55:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769608548;
-	bh=4F/Szy/Cik4u0re8XChd+PvOlhHKvV3FFCqDor4py4I=;
+	s=k20201202; t=1769608557;
+	bh=gSmvqtqPx9nfy8Fha/oZ+Wj5/HcAhp/Bj63bLn9BVgA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZOvBHJXCBdEVSav7bVOSuhG08QTbWvvlM9vHrnJl5ke4zZXkKPaGxt5MvEPpy4P9e
-	 QwzpK/Kr4Ua8TbKh5VKpP6sNpd+gmwJta6H/0RyVW9r2xreLLJa2vZBNKoFEjX7wV8
-	 XAHIfrer1Mb0YgoLxTXS1pNWz2GQJ71g9FdzlaLMhJHvlFUrAeMA1Gy6Hgaam0seB/
-	 Vn0m6dnSqwAUlkJa+9tojRlgioqXIC38CDAeknvH3XFWj/eVrnEC7h28SKuxzDW/b8
-	 MbV6xOrpb5b/pO6wRE3AyBTPe07b3jUbhvWgO3R3c6n3Eo5J+G/m8E97omGPUJd5ed
-	 YttuFOQuKJQ/Q==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 86550F4006A;
-	Wed, 28 Jan 2026 08:55:46 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-01.internal (MEProxy); Wed, 28 Jan 2026 08:55:46 -0500
-X-ME-Sender: <xms:YhV6aQXYXK4PTlTlsGsi-EXDgRriresz04zcDIqotuZmvsZtxfc6Rw>
-    <xme:YhV6adyB6XEUNHcJ8K7DZOLxtSBEh36rgXKCwi9-RpGND-xRgTk2NiMsRJbMIWwIh
-    nA0-rey9kH-zwWaKo85QcjpbuVpn2wu4XYje80DwncWzsGRLbOjLmSh>
-X-ME-Received: <xmr:YhV6aejTlcdBm04B9Zb0ixADZ-pd27JuoZQYdmfPWkW6bKitM1aTngU2bzgCzQ>
+	b=aSfS4zqkiQirAMa4sg/10S+f9YjL+SEBWnjL0oqrgw1ZwGZTJngNAJ72nT96X4RJF
+	 O/bCFOF/CKFdCt/MvG1wQqfVU/YWfUb+mNG+8RZWLYa6Dhilo1NQkkmjsVb+PUVljX
+	 HWt64cKbkmU7VMQ3jLd1BQLb/iVPvprRxo+s+cN/8yHRaTgzpVWdzM8PhhLykgYuce
+	 +xyu9QnskUWVexe2pVLB52fJzgPbhvuhOSdgmNFkhfI/gg2dE+TBrMQWk5+uu66ljc
+	 sFCJwrGbQq4FLLZcyrJsjybQQxEPTfNZ95iO5Mc5q+zzUjNlTmJUQ2XyYlh2G+11UX
+	 bPUclcasHDNrw==
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 6E120F40069;
+	Wed, 28 Jan 2026 08:55:55 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Wed, 28 Jan 2026 08:55:55 -0500
+X-ME-Sender: <xms:axV6aXA1ExlFUtDBWzg_bt4IS7G8DRDTfKBgadVokIPfMe44t7P7BA>
+    <xme:axV6aWtqIaLFmJdFjQvxneGi9Vq0a1wFZnURiMxdK1iYHxxGTN12HAAX2DQxj4m32
+    f2pSZYcgqUUG3RehqchugthcLtLok35BOiA2NtA8wRS8dKsZCFrUw>
+X-ME-Received: <xmr:axV6actSKPCq5Ep2tkcGeMLxa5C8V1Sy3HfbLg73XsNW0jvicy-nlYW6k73Jgg>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduieefheegucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
     gurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepmfhirhihlhcu
     ufhhuhhtshgvmhgruhcuoehkrghssehkvghrnhgvlhdrohhrgheqnecuggftrfgrthhtvg
     hrnhephfdufeejhefhkedtuedvfeevjeffvdfhvedtudfgudffjeefieekleehvdetvdev
-    necuvehluhhsthgvrhfuihiivgepvdenucfrrghrrghmpehmrghilhhfrhhomhepkhhirh
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepkhhirh
     hilhhlodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieduudeivdeiheeh
     qddvkeeggeegjedvkedqkhgrsheppehkvghrnhgvlhdrohhrghesshhhuhhtvghmohhvrd
     hnrghmvgdpnhgspghrtghpthhtohepvdekpdhmohguvgepshhmthhpohhuthdprhgtphht
@@ -68,14 +83,14 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduieefheegucetufdote
     tghpthhtohepfhhvughlsehgohhoghhlvgdrtghomhdprhgtphhtthhopehoshgrlhhvrg
     guohhrsehsuhhsvgdruggvpdhrtghpthhtoheprhhpphhtsehkvghrnhgvlhdrohhrghdp
     rhgtphhtthhopehvsggrsghkrgesshhushgvrdgtii
-X-ME-Proxy: <xmx:YhV6aQP9MF5N76J4tglK2iXE7aytvFT2B8OFD2wMmvEQM6ISVZ-P7A>
-    <xmx:YhV6aWhWq9u5KMXdTYtb8umMsbSReRRuuzZCbY3C8WNK4lOaheYJ4Q>
-    <xmx:YhV6aQq-wMuxk9YdIal3rqi6WZ1EAwSdLvkzeETKdd9rlQEhRB4HMw>
-    <xmx:YhV6aRhOa_W2y_xmndaioiM4BSpaB3NIJIRSWZirCBqugXLAfWoqpA>
-    <xmx:YhV6aWKwASNwQ7mAJ75LFcnKUB3-Ek04FvMrOZy1jdgYEszqG0DUyZgv>
+X-ME-Proxy: <xmx:axV6aar11BVtW7su70KxKpfacmLD_KKRjs1rwm6RxhxOdIp00YaVgQ>
+    <xmx:axV6aYM_1mkvTrlwWWHXImp-rSWQUlnT-77wYrYmJk715njwpiubag>
+    <xmx:axV6aYlAWDB55avl4rhWdKNXE4lnVZUNustFAxp0wNwJUNt_OJp7Xg>
+    <xmx:axV6aSv4P1g4WQ7uiaAQy7S_Lxydyfvcx6CLrwmCDWTtD69dspLNlQ>
+    <xmx:axV6aXks34t5g-5ItH6OTvzh9pV3ClyBtjP_MuqKX10NRTLBcDUU1oOE>
 Feedback-ID: i10464835:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 28 Jan 2026 08:55:44 -0500 (EST)
+ 28 Jan 2026 08:55:53 -0500 (EST)
 From: Kiryl Shutsemau <kas@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	Muchun Song <muchun.song@linux.dev>,
@@ -105,16 +120,16 @@ Cc: Oscar Salvador <osalvador@suse.de>,
 	loongarch@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	Kiryl Shutsemau <kas@kernel.org>
-Subject: [PATCHv5 05/17] riscv/mm: Align vmemmap to maximal folio size
-Date: Wed, 28 Jan 2026 13:54:46 +0000
-Message-ID: <20260128135500.22121-6-kas@kernel.org>
+Subject: [PATCHv5 06/17] LoongArch/mm: Align vmemmap to maximal folio size
+Date: Wed, 28 Jan 2026 13:54:47 +0000
+Message-ID: <20260128135500.22121-7-kas@kernel.org>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20260128135500.22121-1-kas@kernel.org>
 References: <20260128135500.22121-1-kas@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_055548_545331_BD4C2558 
-X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-CacheID: sfid-20260128_135558_991819_7D03EE9C 
+X-CRM114-Status: UNSURE (   8.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -140,23 +155,23 @@ Align vmemmap to MAX_FOLIO_NR_PAGES.
 
 Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
 ---
- arch/riscv/mm/init.c | 3 ++-
+ arch/loongarch/include/asm/pgtable.h | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 21d534824624..c555b9a4fdce 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -63,7 +63,8 @@ phys_addr_t phys_ram_base __ro_after_init;
- EXPORT_SYMBOL(phys_ram_base);
+diff --git a/arch/loongarch/include/asm/pgtable.h b/arch/loongarch/include/asm/pgtable.h
+index c33b3bcb733e..f9416acb9156 100644
+--- a/arch/loongarch/include/asm/pgtable.h
++++ b/arch/loongarch/include/asm/pgtable.h
+@@ -113,7 +113,8 @@ extern unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)];
+ 	 min(PTRS_PER_PGD * PTRS_PER_PUD * PTRS_PER_PMD * PTRS_PER_PTE * PAGE_SIZE, (1UL << cpu_vabits) / 2) - PMD_SIZE - VMEMMAP_SIZE - KFENCE_AREA_SIZE)
+ #endif
  
- #ifdef CONFIG_SPARSEMEM_VMEMMAP
--#define VMEMMAP_ADDR_ALIGN	(1ULL << SECTION_SIZE_BITS)
-+#define VMEMMAP_ADDR_ALIGN	max(1ULL << SECTION_SIZE_BITS, \
-+				    MAX_FOLIO_NR_PAGES * sizeof(struct page))
+-#define vmemmap		((struct page *)((VMALLOC_END + PMD_SIZE) & PMD_MASK))
++#define VMEMMAP_ALIGN	max(PMD_SIZE, MAX_FOLIO_NR_PAGES * sizeof(struct page))
++#define vmemmap		((struct page *)(ALIGN(VMALLOC_END, VMEMMAP_ALIGN)))
+ #define VMEMMAP_END	((unsigned long)vmemmap + VMEMMAP_SIZE - 1)
  
- unsigned long vmemmap_start_pfn __ro_after_init;
- EXPORT_SYMBOL(vmemmap_start_pfn);
+ #define KFENCE_AREA_START	(VMEMMAP_END + 1)
 -- 
 2.51.2
 
