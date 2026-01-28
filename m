@@ -4,84 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9810AD35690
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 09:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F1DD35690
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 09:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u8H37fzgA575UBds2wtFc2L9MgwoQom2xiq1uhLbuDk=; b=qoC/7RO39AWau1
-	t4iNqPduECqRXn4Xcp4DAvFrn8QUlgdemo5+7w++u+SwQ91/kni98F/TkOj0+MFyVW9/HZDAg0iu+
-	UwX5Bj1M1N7St/7olCwRjI3Gyroa9xPj9iCDCqobIJPQ/bVxjBuJKhrPVwFOCFTqEwI5Qc3rWBMdd
-	LC8LFaf2mlaa/1E+FBCtEGRxsv+o5eN2xiugT2v2qmjRtGqtb7gYD7ljW7LmuZKzIcRGNSSMry4TH
-	dRuphn03Wgd2TGi4J3uud1jbsKChRi0nN9amh/OSaKOaAJIJxoE+eIhPutBbFboK7jg9tFkpBbbzB
-	bBph0tJDmu8gqAvmZ6Ug==;
+	List-Owner; bh=Te1JKkw6s/8ECXxXLJlRTv41wRFAyxLzyZxPUfCHzOs=; b=lrARyvpqsSC7DL
+	eOVGMveckLCltJbNsGdbE24KqOdd+6nfpLZz8M0LM1fpIaGqa/qKsqJt0lfogGrv93LxQQgwqvByx
+	XLyEw86uIK2BOvf3A+xFUZTVvCAj+t/RmHl9ut4KdCfxftEMeOZ1qnPRL1LpuubDeXo48rESVB//h
+	b0tbYo2Mc8bUqiw+Rg8NJ4IggYGAhkr9B+v8r/up16s+MBHb/mD5+2hTMCskHht7W+0sIUK4C5p9x
+	maa0/mIn381DsIq0BmZyPgV/YplqgZjssopfRi6dOoSK4+c3ajntsjxabShrWh81U0x2uK4H3axeF
+	xKXRmc64ZmWfzJYyqoNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1Oy-0000000Fi8m-2RQa;
-	Wed, 28 Jan 2026 08:59:52 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1vl1cM-0000000Fj3j-1eVF;
+	Wed, 28 Jan 2026 09:13:42 +0000
+Received: from mail-dy1-x132b.google.com ([2607:f8b0:4864:20::132b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1Ow-0000000Fi8R-13Kd
+	id 1vl1cK-0000000Fj3N-1mzX
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 08:59:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769590790; x=1801126790;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=aiOWRRjAx3Fe65K/nWnJxxRvs7BcjtXp2Asr0BTsf+E=;
-  b=Uqi/Fz+k6IXlbhe9/Ux6Yq67SvCDkJPfMQxlsQAJBP6j6Vq6D/8RIYIx
-   /qmm51dNuCamWdFZygRNaiuy6HM3pZ0iWPSPlnRFHuzBr7v82z/ASPNQv
-   Kv9rvBPYMxQnd9TiD6hVJnBhZ6sEG8Qotx67lvh3aBWxoCI/m1FTX1uP6
-   BrZ52kBCPSkV8LGr7B6Nc7iTAmtSkhh9InOGgJAqPgzRP/Ln9I3crYCZZ
-   togrZmTP6LzMOkJ7a5qu+KudE67C+L8BWrotE7qXS/X0q9hD0vPKjxf4Q
-   yByfSOv7HuvZJA3PaWd5fgZkACVxqYUtcrnrm9o/mcAVP2JtScW43f0x9
-   g==;
-X-CSE-ConnectionGUID: VZ/5IEc3RA2IgtA3cSSiSA==
-X-CSE-MsgGUID: HfPyJL8HQN2mwGo2MVqo7g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="96259207"
-X-IronPort-AV: E=Sophos;i="6.21,258,1763452800"; 
-   d="scan'208";a="96259207"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jan 2026 00:59:49 -0800
-X-CSE-ConnectionGUID: mvNnzAdoRQWYNA+cb2eLzw==
-X-CSE-MsgGUID: +dVQm/t5Sx2lyKn4ImKqGg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,258,1763452800"; 
-   d="scan'208";a="208111010"
-Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.196])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jan 2026 00:59:45 -0800
-Date: Wed, 28 Jan 2026 10:59:43 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Feng Jiang <jiangfeng@kylinos.cn>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, akpm@linux-foundation.org, kees@kernel.org,
-	andy@kernel.org, ebiggers@kernel.org, martin.petersen@oracle.com,
-	sohil.mehta@intel.com, charlie@rivosinc.com,
-	conor.dooley@microchip.com, samuel.holland@sifive.com,
-	linus.walleij@linaro.org, nathan@kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v5 4/8] lib/string_kunit: add performance benchmark for
- strlen()
-Message-ID: <aXnP_6wsyXcVGasN@smile.fi.intel.com>
-References: <20260127012558.40025-1-jiangfeng@kylinos.cn>
- <20260127012558.40025-5-jiangfeng@kylinos.cn>
- <aXh93EVRSOrQQS6l@smile.fi.intel.com>
- <dcdb82e8-691a-4cc1-88d5-755039ed0313@kylinos.cn>
- <aXiKelsJF-SiqnVS@smile.fi.intel.com>
- <0d0f0528-738b-402c-a05c-53e21000dc67@kylinos.cn>
+	Wed, 28 Jan 2026 09:13:41 +0000
+Received: by mail-dy1-x132b.google.com with SMTP id 5a478bee46e88-2b72e49776eso10970404eec.1
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Jan 2026 01:13:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769591619; x=1770196419; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yEOFkSi2N0vtkbtCff5kn8mqsv72spWR8lTmAsEOTX4=;
+        b=M9Hi9d0nrL7N0SEPbY+5KId+3LtPusroEva2GQW+6+dF1LRPHeQIx+q8+uH3CklhTo
+         Ixh753VHUN7TAp5K5FOoE/28ZA5CMZX1+bTKkOv+8ZAV6FM2TLvdEFq9wDVmkUmFlFra
+         DiWI0AgOB4xvw9aluRdyCkDF735fQbEjzJ6LGp+2SEYqXkXi8ad0zXJEyt1cwudAVFhP
+         n/hes7JlyHUrl5BDvPec++mFeQxdYOGK7aq7N5VyWKAa6HjRq2SmazrHw/Dd9JRFF9Av
+         pju5cQQF1Lwy09AKZMLLE0qis4vMlwUPwGiuuvQkf72TSJug5Q4Xilz9x2lsB+oYH7xc
+         dXLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769591619; x=1770196419;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=yEOFkSi2N0vtkbtCff5kn8mqsv72spWR8lTmAsEOTX4=;
+        b=Ex8a98v/UdP4qxRV20j0Arz+VRfY/Mw+D4uMcoDjCj2EjP170MtX0XY0xmFgpCiLGI
+         o6xf3IpbhRb1NiW/6Y8+aZpLiCnlE58seQB0PImIC4KeMq3eqLbbRFGKiT2hW2SAK1qT
+         EVL5S0L3vCj0ftPrf8OMrnOKhTW2B0Sw7LKcpqDMp4TaJaOrojaJKQr3i363SXQT/4zk
+         SyS4zajbyB1EFwCnx6bfBG3y5VEjhwCHYNO+3ntTr9XOJBbPi/r/SroIALyh3oPUQW0x
+         daxHJc15MKnhcP9UN2G4injHR/O/6G25TIQoUsy1Qw9lu4xo6w5JgZnv1OSR3rTvaG3s
+         4L2A==
+X-Forwarded-Encrypted: i=1; AJvYcCV0/PneQGlf9Wceq96ZxYTabT6CGc48vZLPiW9dVfT2zCOQuv4EF/KVopcFlUqBDLDn5Kj38lyAN+xZPA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxL2ujSzTZvJEXv5555svWuDdKs45DW4eWwtIxDD2uHIdpEyxBs
+	JewjhO15HnE0sy9y+a3i3WDzptimeC07gprtYLsTCb1kfI57mk19Jktadl6stQHl
+X-Gm-Gg: AZuq6aKbYCEzrdceYXdUZKzyo/pHlIVlup5DoA4m21P2KKpWIh7JQ4k81TyWOaiRk/m
+	s0nuZrDDBIkTreMoEw2QeTb7E2kBfFTDmrHlNLbpuCFnZ4MbGnUqcjbRAcLLZoYB5vW/3jEwFV7
+	PpNOAZoVae7O8S0fr/11CQrzw/sjsUqupARbvglfA8pzR8L0BdMYpNlZM1EigUXOaWQaYRLCC8e
+	mLEKfuQLSGvL2z5NGBxcRZgGBNOHAL208ucunwtI4RSDpL7t9oMTRlbkKI9MIQQOGVU65ByoX4Y
+	vKTsNwOCuU+hOFL7hC+FytEvBg24h4+EhOLw2c+kJhsOtjnoUdYUbccIsyKIDiQARNNSyxoO5eG
+	FhwIy3V7tYa4d5mrxOJ4cl7+skKveP0+4PFZjnuWkLiyXsJBrOfdmhFfpBW863WFoTKvt0Y4wb5
+	fSt6zDLkS2U2ydGIiVWJkN
+X-Received: by 2002:a05:7300:a188:b0:2a4:3594:d540 with SMTP id 5a478bee46e88-2b78d90178cmr2919827eec.13.1769585396662;
+        Tue, 27 Jan 2026 23:29:56 -0800 (PST)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b7a16ef40asm1515483eec.13.2026.01.27.23.29.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Jan 2026 23:29:56 -0800 (PST)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Yao Zi <ziyao@disroot.org>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net-next v3 1/3] dt-bindings: net: Add support for Spacemit K3 dwmac
+Date: Wed, 28 Jan 2026 15:29:27 +0800
+Message-ID: <20260128072931.875041-2-inochiama@gmail.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260128072931.875041-1-inochiama@gmail.com>
+References: <20260128072931.875041-1-inochiama@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0d0f0528-738b-402c-a05c-53e21000dc67@kylinos.cn>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_005950_351050_BAF71E1D 
-X-CRM114-Status: GOOD (  29.63  )
+X-CRM114-CacheID: sfid-20260128_011340_462733_69DF2CA9 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,123 +133,149 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 09:44:40AM +0800, Feng Jiang wrote:
-> On 2026/1/27 17:50, Andy Shevchenko wrote:
-> > On Tue, Jan 27, 2026 at 05:33:10PM +0800, Feng Jiang wrote:
-> >> On 2026/1/27 16:57, Andy Shevchenko wrote:
-> >>> On Tue, Jan 27, 2026 at 09:25:54AM +0800, Feng Jiang wrote:
+The GMAC IP on Spacemit K3 is almost a standard Synopsys DesignWare
+MAC (version 5.40a) with some extra clock.
 
-...
+Add necessary compatible string for this device.
 
-> >>>> +#define STRING_BENCH_BUF(test, buf_name, buf_size, func, ...)		\
-> >>>> +do {									\
-> >>>> +	size_t buf_size, _bn_i, _bn_iters, _bn_size = 0;		\
-> >>>> +	u64 _bn_t, _bn_mbps = 0, _bn_lat = 0;				\
-> >>>> +	char *buf_name, *_bn_buf;					\
-> >>>> +									\
-> >>>> +	_bn_buf = alloc_max_bench_buffer(test, bench_lens,		\
-> >>>> +			ARRAY_SIZE(bench_lens), &_bn_size);		\
-> >>>> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, _bn_buf);			\
-> >>>> +									\
-> >>>> +	fill_random_string(_bn_buf, _bn_size);				\
-> >>>> +									\
-> >>>> +	for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {	\
-> >>>> +		buf_size = bench_lens[_bn_i];				\
-> >>>> +		buf_name = _bn_buf + _bn_size - buf_size - 1;		\
-> >>>> +		_bn_iters = STRING_BENCH_WORKLOAD / max(buf_size, 1U);	\
-> >>>> +									\
-> >>>> +		_bn_t = STRING_BENCH(_bn_iters, func, ##__VA_ARGS__);	\
-> >>>
-> >>>> +									\
-> >>>
-> >>> Remove unneeded blank line.
-> >>
-> >> Will fix.
-> >>
-> >>>> +		if (_bn_t > 0) {					\
-> >>>> +			_bn_mbps = (u64)(buf_size) * _bn_iters		\
-> >>>
-> >>> Why buf_size in the parentheses here and not anywhere else (above)?
-> >>
-> >> It was a bit inconsistent. I'll remove the unneeded parentheses for buf_size.
-> >>
-> >>> I assume it's just an external temporary variable? But why do we need to have
-> >>> it in the parameters to the macro?
-> >>
-> >> This is necessary because buf_size often needs to be passed as an argument
-> >> to the function under test. For instance, when benchmarking strnlen, the
-> >> caller must pass the current length as an argument:
-> >> STRING_BENCH_BUF(test, buf, len, strnlen, buf, len);
-> > 
-> > Okay, and why is it needed in this macro? It get overridden immediately in
-> > the loop. Assuming that the array size of bench lengths is not zero, this
-> > has no visible use. Can you elaborate?
-> 
-> Thank you for the explanation. I see the source of the confusion now.
-> 
-> In v5, buf_name and buf_size were not intended to pass external variables into
-> the macro. Instead, they were naming placeholders for local variables declared
-> inside the macro's scope. This allows the caller to define the names used in
-> the variadic arguments.
-> 
-> To resolve the logical inconsistency you pointed out, I'd like to propose two
-> options for v6. Which one would you prefer?
-> 
-> Option 1: Internal Declaration (The "Self-Contained" approach)
-> 
-> We declare and initialize the variables directly inside the loop. This keeps
-> the macro self-contained and the caller doesn't need to pre-declare anything.
-> 
-> for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {
->     size_t buf_size = bench_lens[_bn_i];
->     char *buf_name = _bn_buf + _bn_size - buf_size - 1;
->     ...
-> }
-> 
-> Usage:
->   STRING_BENCH_BUF(test, my_buf, my_len, strnlen, my_buf, my_len);
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
+ .../bindings/net/spacemit,k3-dwmac.yaml       | 103 ++++++++++++++++++
+ 2 files changed, 105 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
 
-This option is better as long as the user doesn't need to know the (stale) data
-out of these parameters. And I think this is the case, so #1 is the winner.
-
-> Option 2: External Declaration (The list.h approach)
-> 
-> The macro expects the caller to provide pre-declared variables, similar to
-> list_for_each_entry(). This removes all re-declarations inside the macro.
-> 
-> for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {
->     buf_size = bench_lens[_bn_i];
->     buf_name = _bn_buf + _bn_size - buf_size - 1;
->     ...
-> }
-> 
-> Usage:
->   size_t my_len;
->   char *my_buf;
->   STRING_BENCH_BUF(test, my_buf, my_len, strnlen, my_buf, my_len);
-> 
-> Please let me know which style fits the kernel's preference better, and
-> I will implement it in v6 along with your other suggestions.
-> 
-> Thanks for the catch!
-> 
-> >>>> +					* (NSEC_PER_SEC / MEGA);	\
-> >>>> Leave '*' on the previous line.
-> >>
-> >> Will fix.
-> >>
-> >>>> +			_bn_mbps = div64_u64(_bn_mbps, _bn_t);		\
-> >>>> +			_bn_lat = div64_u64(_bn_t, _bn_iters);		\
-> >>>> +		}							\
-> >>>> +		kunit_info(test, "len=%zu: %llu MB/s (%llu ns/call)\n",	\
-> >>>> +				buf_size, _bn_mbps, _bn_lat);		\
-> >>>> +	}								\
-> >>>> +} while (0)
-
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index dd3c72e8363e..a3fcb9a251fa 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -34,6 +34,7 @@ select:
+           - snps,dwmac-5.10a
+           - snps,dwmac-5.20
+           - snps,dwmac-5.30a
++          - snps,dwmac-5.40a
+           - snps,dwxgmac
+           - snps,dwxgmac-2.10
+ 
+@@ -653,6 +654,7 @@ allOf:
+                 - snps,dwmac-5.10a
+                 - snps,dwmac-5.20
+                 - snps,dwmac-5.30a
++                - snps,dwmac-5.40a
+                 - snps,dwxgmac
+                 - snps,dwxgmac-2.10
+                 - st,spear600-gmac
+diff --git a/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+new file mode 100644
+index 000000000000..fc024a927fcc
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+@@ -0,0 +1,103 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/spacemit,k3-dwmac.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Spacemit K3 DWMAC glue layer
++
++maintainers:
++  - Inochi Amaoto <inochiama@gmail.com>
++
++select:
++  properties:
++    compatible:
++      contains:
++        const: spacemit,k3-dwmac
++  required:
++    - compatible
++
++properties:
++  compatible:
++    items:
++      - const: spacemit,k3-dwmac
++      - const: snps,dwmac-5.40a
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: GMAC main clock
++      - description: PTP clock
++      - description: TX clock
++
++  clock-names:
++    items:
++      - const: stmmaceth
++      - const: ptp_ref
++      - const: tx
++
++  interrupts:
++    minItems: 1
++    items:
++      - description: MAC interrupt
++      - description: MAC wake interrupt
++
++  interrupt-names:
++    minItems: 1
++    items:
++      - const: macirq
++      - const: eth_wake_irq
++
++  resets:
++    maxItems: 1
++
++  reset-names:
++    const: stmmaceth
++
++  spacemit,apmu:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    items:
++      - items:
++          - description: phandle to the syscon node which control the glue register
++          - description: offset of the control register
++          - description: offset of the dline register
++    description:
++      A phandle to syscon with offset to control registers for this MAC
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - interrupt-names
++  - resets
++  - reset-names
++  - spacemit,apmu
++
++allOf:
++  - $ref: snps,dwmac.yaml#
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    ethernet@cac80000 {
++      compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
++      reg = <0xcac80000 0x2000>;
++      clocks = <&syscon_apmu 66>, <&syscon_apmu 68>,
++               <&syscon_apmu 69>;
++      clock-names = "stmmaceth", "ptp_ref", "tx";
++      interrupts = <131 IRQ_TYPE_LEVEL_HIGH>, <276 IRQ_TYPE_LEVEL_HIGH>;
++      interrupt-names = "macirq", "eth_wake_irq";
++      phy-mode = "rgmii-id";
++      phy-handle = <&phy0>;
++      resets = <&syscon_apmu 67>;
++      reset-names = "stmmaceth";
++      spacemit,apmu = <&syscon_apmu 0x384 0x38c>;
++    };
++
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.52.0
 
 
 _______________________________________________
