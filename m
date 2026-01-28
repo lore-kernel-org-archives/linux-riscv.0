@@ -4,75 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19F8AD35697
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 09:21:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E63D35697
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 09:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L8JQWzxcWUjdpSdTGLBHU37DI050A1yxtvhsjVaKPzg=; b=YLBx3xxTbEEsE4
-	g+cpWHYndRxTulul9qP/vLGlTe7pVESo5xSNX7DfdFYBkj/HxDctOnZDzFpr5iw0Obj9lkFJFhVmL
-	4Ie1aZDMrkL7OfIKFLUT6bJ/kL6Ex5gZxJKnY2qHb2jSeWmrOEf+9dukLbEiZGfTc/jqQ9rk9MgqV
-	q+JPzLcQCMOHcg/ag+yQg2Pqqb1ZMP+mj7otw4PCxNqvd6gKX0fgx0oQvjBPPNpIvt2nb75F3xTgw
-	9iMsVC/FYQh4o/EYCJe7/gRJ4w+JVwZxU9d9kEI2ZR9AakcDTB+PWosIMJYAm6OKqJ+7c2kcrDdZf
-	ne++4JZkAfva5EjThDqQ==;
+	List-Owner; bh=lhQ9ldrDOXlyv1YCEVeZDPYpZZe9dl1KR97wUYdAucQ=; b=vzexd3rSN93hbv
+	Z7ATQPcKbP9EwnL2+mDkDO5dlwT9qRRZi//gKAkVMqvSi4TjfV4EYjm+im/NbZct4i05BNKJigReX
+	4yL67LSDsRFyVpYUEcDp7vVHPfNb5TBV1tZCC6RVcrDB0tKrIBgn5raMpgVacieqYhDpq5gH5GG2O
+	4KqEP8LvihWGNZ92EbLRbhUsbYAy/H28N7B7rqluFL5Ha3aLmrvye4/tWeevRhb0I847y9DvXKAGS
+	O3IRmV0HFQp1o3stLDcjpynkDPUBS3oeX0znaDy7c2LLGPakCTza/GLHneJSyqezLQYvU0vkH+M6P
+	Ok/J7n/RNftEzZcU7kyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1jW-0000000FkCq-3VeF;
-	Wed, 28 Jan 2026 09:21:09 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1vl1ve-0000000FkrT-0Kx4;
+	Wed, 28 Jan 2026 09:33:38 +0000
+Received: from bg1.exmail.qq.com ([114.132.64.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1jU-0000000FkAo-0ehj
+	id 1vl1va-0000000Fkqh-26Ag
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 09:21:06 +0000
-X-UUID: a7b5d806fc2a11f0b0f03b4cfa9209d1-20260128
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:6ac908b7-1750-4ebf-a73a-631faeae6520,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:91d8eeff496e98c2da796a6a28df1cc2,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:0|15|
-	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: a7b5d806fc2a11f0b0f03b4cfa9209d1-20260128
-X-User: jiangfeng@kylinos.cn
-Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 1755012723; Wed, 28 Jan 2026 17:20:58 +0800
-Message-ID: <56eb86c0-9b60-4f7f-8824-16f14a019e3c@kylinos.cn>
-Date: Wed, 28 Jan 2026 17:20:55 +0800
+	Wed, 28 Jan 2026 09:33:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1769592767;
+	bh=YqgQ7XTWnwiLqJRqmob5IA4FpJiapKMV3EHIEwmKLvk=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=ZUGWTyM8Me+1zINdg/FP/yCjoNE8+anpE72BrxAcA8kyh9YZh75xWRTWmrXGHfDDi
+	 hVJiGgtySfMegzlGyVabx4Re67DuHIDMvmwepRsbBG7y9UfdfNWLkCqRF+oD4AoQzy
+	 mL6YDYSv75/9Rsx+wQD1C3KoEd8TP5kPkg9a8Gd8=
+X-QQ-mid: zesmtpgz6t1769592759t9b968819
+X-QQ-Originating-IP: wSV2IFKiia32OYtniGlD6DAAqZvlSdHLzBCZK1/Wp0o=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 28 Jan 2026 17:32:37 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 319744168602380696
+EX-QQ-RecipientCnt: 11
+Date: Wed, 28 Jan 2026 17:32:37 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Vivian Wang <wangruikang@iscas.ac.cn>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Alex Elder <elder@riscstar.com>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: Re: [PATCH] gpio: spacemit-k1: Use PDR for pin direction, not SDR/CDR
+Message-ID: <85EFBB88D70FB64F+aXnXtS35RG_U6MeC@kernel.org>
+References: <20260127-gpio-spacemit-k1-pdr-v1-1-bb868a517dbc@iscas.ac.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 4/8] lib/string_kunit: add performance benchmark for
- strlen()
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- akpm@linux-foundation.org, kees@kernel.org, andy@kernel.org,
- ebiggers@kernel.org, martin.petersen@oracle.com, sohil.mehta@intel.com,
- charlie@rivosinc.com, conor.dooley@microchip.com, samuel.holland@sifive.com,
- linus.walleij@linaro.org, nathan@kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org
-References: <20260127012558.40025-1-jiangfeng@kylinos.cn>
- <20260127012558.40025-5-jiangfeng@kylinos.cn>
- <aXh93EVRSOrQQS6l@smile.fi.intel.com>
- <dcdb82e8-691a-4cc1-88d5-755039ed0313@kylinos.cn>
- <aXiKelsJF-SiqnVS@smile.fi.intel.com>
- <0d0f0528-738b-402c-a05c-53e21000dc67@kylinos.cn>
- <aXnP_6wsyXcVGasN@smile.fi.intel.com>
-Content-Language: en-US
-From: Feng Jiang <jiangfeng@kylinos.cn>
-In-Reply-To: <aXnP_6wsyXcVGasN@smile.fi.intel.com>
+Content-Disposition: inline
+In-Reply-To: <20260127-gpio-spacemit-k1-pdr-v1-1-bb868a517dbc@iscas.ac.cn>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MKzYG8XJzx27luHda+8viI9Zbcs2SNIwmBWR31bLVy7d4Whz+EeimKQt
+	21JWgfTV5aWJfNYrs5hIzjlbfdFAJNmO+kKSWq3c60VgLJHpKNvj/jFVe6kftITNL9bkrAh
+	031kqQQnf5Vhxi3kBExh4upNU2DFx1WIeRKDwlrqEIz8QlygV68APMK8C2OC0UAfgxNWwbO
+	sPp6MqDF/InNLzc++z/7gNJV/aeqij3+f7Y0rDCiahKEr8im+QQRY0tO5VUt6dVwl0ecErR
+	KWHwpQ5W/StWgR9OycHFys4kgXX334Rmwl/iBzRkwcLCUbC62DchViSXVJMRFe8x3nRxgbW
+	DyQAe2Us1zdyIAiLRDwvR7C7yn+i/xqXVjsSLkf1oMuJixziWdq2WxDQ9ZfK29DVVEvtswP
+	/jxjeXwtGtSO3yk3rnPA/MXjPm5CtRz8PAHpLm5xU9qyj4NG/gzQVV0JT7Aa2AEJPdely5q
+	L1HcvJjxfT05s7vTJVC+uQwG/tXx1SGd1K87xneFERYV1C0xHcnCcmphRRas8DZ881gQ7WP
+	5YqU8bWc1CNJwdHlFDqmLwwTnNIKiVyHhOJ+jq8jWYJqPogcdGQU54tl0A+mYt+APwZrgfp
+	zgLRjS5wug7HeWw3DIFf5EVgWECmQ4LVLqSK5X7+dwGlHMLu7FYFz+KVNyfIHGR+CzzhuFs
+	nH/8GrZ+hPgKqUe/n5VyVWzbyaYYGc486b+YpcopQYW6wlBDHVz0wl2oFSjQZcgdcYWd5rj
+	lxW3ze0k+PCUwGoMw1Rs9uzEYEKqmTj7j4HiSI3SOBLKqROidZRfe81zMtFOBBDouxSfgfv
+	LcdZFmGEEr6p8fAZKOJyGuofmTwVlvsVp8yhGJoaZMATVAwWbHdNrNpaywjAlUbN1szajyq
+	jcHthvKySi5BJnEHuqBvAYTYYBYTzq4WQlHasIQBZ10SX0BDH/91Qd7Tu1gw8NuiTKMCkJ+
+	km3W2kirXQ4MM+htGZRNlYwQya+JooAGecFIQYluhTuImB988QCv65howFD81CQwOKlJsda
+	YX7Tzhf2G9oUIV5+/UX8Hwt8RKUuSQXLQkAKl7Zenog5UTi3vdWYnzwEvX1JNbE3owAbzLj
+	3n/Bb4AsiRB
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_012104_535321_EE78449B 
-X-CRM114-Status: GOOD (  20.19  )
+X-CRM114-CacheID: sfid-20260128_013335_384267_52673C25 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,128 +99,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026/1/28 16:59, Andy Shevchenko wrote:
-> On Wed, Jan 28, 2026 at 09:44:40AM +0800, Feng Jiang wrote:
->> On 2026/1/27 17:50, Andy Shevchenko wrote:
->>> On Tue, Jan 27, 2026 at 05:33:10PM +0800, Feng Jiang wrote:
->>>> On 2026/1/27 16:57, Andy Shevchenko wrote:
->>>>> On Tue, Jan 27, 2026 at 09:25:54AM +0800, Feng Jiang wrote:
+On Tue, Jan 27, 2026 at 10:58:49AM +0800, Vivian Wang wrote:
+> On the SpacemiT GPIO controller, the direction control register PDR is
+> readable and writable [1]. Therefore, implement direction control by
+> using PDR as dirout, and don't mark it as unreadable.
 > 
-> ...
+> The original implementation, using SDR as dirout and CDR as dirin, is
+> not actually a supported configuration by gpio-mmio. The hardware
+> supports changing the direction of some pins atomically by writing a
+> value with the corresponding bits set to SDR (set as output) or to CDR
+> (set as input). However, gpio-mmio does not actually handle this.
 > 
->>>>>> +#define STRING_BENCH_BUF(test, buf_name, buf_size, func, ...)		\
->>>>>> +do {									\
->>>>>> +	size_t buf_size, _bn_i, _bn_iters, _bn_size = 0;		\
->>>>>> +	u64 _bn_t, _bn_mbps = 0, _bn_lat = 0;				\
->>>>>> +	char *buf_name, *_bn_buf;					\
->>>>>> +									\
->>>>>> +	_bn_buf = alloc_max_bench_buffer(test, bench_lens,		\
->>>>>> +			ARRAY_SIZE(bench_lens), &_bn_size);		\
->>>>>> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, _bn_buf);			\
->>>>>> +									\
->>>>>> +	fill_random_string(_bn_buf, _bn_size);				\
->>>>>> +									\
->>>>>> +	for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {	\
->>>>>> +		buf_size = bench_lens[_bn_i];				\
->>>>>> +		buf_name = _bn_buf + _bn_size - buf_size - 1;		\
->>>>>> +		_bn_iters = STRING_BENCH_WORKLOAD / max(buf_size, 1U);	\
->>>>>> +									\
->>>>>> +		_bn_t = STRING_BENCH(_bn_iters, func, ##__VA_ARGS__);	\
->>>>>
->>>>>> +									\
->>>>>
->>>>> Remove unneeded blank line.
->>>>
->>>> Will fix.
->>>>
->>>>>> +		if (_bn_t > 0) {					\
->>>>>> +			_bn_mbps = (u64)(buf_size) * _bn_iters		\
->>>>>
->>>>> Why buf_size in the parentheses here and not anywhere else (above)?
->>>>
->>>> It was a bit inconsistent. I'll remove the unneeded parentheses for buf_size.
->>>>
->>>>> I assume it's just an external temporary variable? But why do we need to have
->>>>> it in the parameters to the macro?
->>>>
->>>> This is necessary because buf_size often needs to be passed as an argument
->>>> to the function under test. For instance, when benchmarking strnlen, the
->>>> caller must pass the current length as an argument:
->>>> STRING_BENCH_BUF(test, buf, len, strnlen, buf, len);
->>>
->>> Okay, and why is it needed in this macro? It get overridden immediately in
->>> the loop. Assuming that the array size of bench lengths is not zero, this
->>> has no visible use. Can you elaborate?
->>
->> Thank you for the explanation. I see the source of the confusion now.
->>
->> In v5, buf_name and buf_size were not intended to pass external variables into
->> the macro. Instead, they were naming placeholders for local variables declared
->> inside the macro's scope. This allows the caller to define the names used in
->> the variadic arguments.
->>
->> To resolve the logical inconsistency you pointed out, I'd like to propose two
->> options for v6. Which one would you prefer?
->>
->> Option 1: Internal Declaration (The "Self-Contained" approach)
->>
->> We declare and initialize the variables directly inside the loop. This keeps
->> the macro self-contained and the caller doesn't need to pre-declare anything.
->>
->> for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {
->>     size_t buf_size = bench_lens[_bn_i];
->>     char *buf_name = _bn_buf + _bn_size - buf_size - 1;
->>     ...
->> }
->>
->> Usage:
->>   STRING_BENCH_BUF(test, my_buf, my_len, strnlen, my_buf, my_len);
+> Using only PDR as dirout to match the expectations of gpio-mmio. This
+> also allows us to avoid clobbering potentially important GPIO direction
+> configurations set by pre-Linux boot stages.
 > 
-> This option is better as long as the user doesn't need to know the (stale) data
-> out of these parameters. And I think this is the case, so #1 is the winner.
-
-Thanks for the feedback. I'll incorporate this change, along with the other
-improvements we discussed, and send out v6 shortly.
-
->> Option 2: External Declaration (The list.h approach)
->>
->> The macro expects the caller to provide pre-declared variables, similar to
->> list_for_each_entry(). This removes all re-declarations inside the macro.
->>
->> for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {
->>     buf_size = bench_lens[_bn_i];
->>     buf_name = _bn_buf + _bn_size - buf_size - 1;
->>     ...
->> }
->>
->> Usage:
->>   size_t my_len;
->>   char *my_buf;
->>   STRING_BENCH_BUF(test, my_buf, my_len, strnlen, my_buf, my_len);
->>
->> Please let me know which style fits the kernel's preference better, and
->> I will implement it in v6 along with your other suggestions.
->>
->> Thanks for the catch!
->>
->>>>>> +					* (NSEC_PER_SEC / MEGA);	\
->>>>>> Leave '*' on the previous line.
->>>>
->>>> Will fix.
->>>>
->>>>>> +			_bn_mbps = div64_u64(_bn_mbps, _bn_t);		\
->>>>>> +			_bn_lat = div64_u64(_bn_t, _bn_iters);		\
->>>>>> +		}							\
->>>>>> +		kunit_info(test, "len=%zu: %llu MB/s (%llu ns/call)\n",	\
->>>>>> +				buf_size, _bn_mbps, _bn_lat);		\
->>>>>> +	}								\
->>>>>> +} while (0)
+> Found while trying to add PCIe support to OrangePi RV2, where the
+> regulator (controlled by GPIO 116) turns off on boot while some other
+> GPIO pin in the same bank is touched, which is not desirable.
 > 
+> Link: https://developer.spacemit.com/documentation?token=Rn9Kw3iFHirAMgkIpTAcV2Arnkf#18.4-gpio # [1]
+> Fixes: d00553240ef8 ("gpio: spacemit: add support for K1 SoC")
+> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+> ---
+> Tested on K1 only - help with K3 testing would be appreciated.
+Confirmed that PDR is also R/W on K3. Thanks!
 
--- 
-With Best Regards,
-Feng Jiang
-
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
 _______________________________________________
 linux-riscv mailing list
