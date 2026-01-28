@@ -4,94 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23BF4D25B6E
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 13:29:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3283D25B76
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 13:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I356dSrVPz6wpry/gZSlqpesmv1/KE+2ChCSeQX/fGw=; b=yNIxoHgK8Ty5iH
-	B5P9tIxAmrXcQkLm6jjtxDh1z/e7pN1myl7usIp9n05q+1ghM1G+e5z64hSM0wMXCeOpEcpfH678T
-	3agzzj0O/BZrZoInl0mAs0zqrwv3eS1s5UPCgPEdUvFQ5246Xp+2pndnNiRMkwx3letONMlDVnbg7
-	VlB5yskZ1ZHWvKcx06H6I58DlO46TWWKqKtShGd8bpa8+bS3IbsJ3WaqeMJiVS4cOErgVJe5Th6RV
-	Jd6Qvb0hmdLBpT7yQ3JZfSYrDcdYsCt99FpyF0QiPUwpBcOllU7MEc6D5tWNpytTZM3FPutP4dC47
-	etcKxgRsLI9Xgka30FKg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:From:To:Date:Subject:Cc:Mime-Version:
+	Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Cbpf7rsTADhaMTNXvRt2WHcCHWzdFn+02EOVLPcPSXE=; b=gDwd0y9gjz7ipJ
+	CfL1kmaikeuaiyBPZtd7SqsjVuwJf6zjEAt2eprKBkzyD/pJoOQwWQ7V2Pw4PdpHcxEGInCNLec8j
+	bJOPGFKI/Rm32EqyIgJs30ea2GGdcPJMR31F8AtfWgKvfSk0FxjvNCmug23s7Tm9zn8BEOFAkjFoq
+	n83uTQxrrfcMghjKiKQZHagKUNXYmMcDQkN7Q165zfdebof5OkIT+Tk1HyCAUlTfB3V14gy0Jrbg6
+	bSCjO0OAdWAxPfKzuZZ42/MVtFHrGIB8uzzGmw6UiGNdJTDpgXfH4k7Ygvb2JD+DR/Hs75xhFxnLA
+	vxLl1jNFE8dzH0k9PUBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl5bU-0000000G4C0-1lHN;
-	Wed, 28 Jan 2026 13:29:04 +0000
-Received: from mail-oo1-xc2a.google.com ([2607:f8b0:4864:20::c2a])
+	id 1vl5bW-0000000G4DC-34fH;
+	Wed, 28 Jan 2026 13:29:06 +0000
+Received: from sg-1-30.ptr.blmpb.com ([118.26.132.30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl5bR-0000000G4AJ-1m41
+	id 1vl5bR-0000000G49V-3WRH
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 13:29:02 +0000
-Received: by mail-oo1-xc2a.google.com with SMTP id 006d021491bc7-662fc35291eso263389eaf.1
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Jan 2026 05:29:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1769606940; x=1770211740; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=O3+eV0m5YOcp1OGVa9q7WwRpTmAwgwaorWnGyCzBuiI=;
-        b=Y2n83cc3LHRo8Z8bl6YwPzHw3DyOMXlW9xfI2gEr4f7DGYbmzredUNRP1SW4v3aumu
-         E6SDcW1ITA1aCXvRpGxhicKkk5bB8WIUFluBI2Iyuu0aszSQlEHFbDVVhMB4TieP1XTO
-         Jk6f/VgmLZBlEPTzZGTDcF8i7wxnrSkR9OQSUUDFqWl00uLLex2m2caTlOMEPtWLJu3D
-         NealxqYD7M2qP9GsVz+VuuLT92/fgjd4KArDK9+MqYcIftGRSlrPZmSkdIMpqawZVF+e
-         vMimkk1zCc7CkN8LCBNCevkTtZbKZyrQSwKKV0MeP3GIACPk3PgwzJgmsY+yztBQmMht
-         G71w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769606940; x=1770211740;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=O3+eV0m5YOcp1OGVa9q7WwRpTmAwgwaorWnGyCzBuiI=;
-        b=UT6dj0SlPNgdg/dgH4sxfWJWTJM2HayHEYI4EHkeFNTepo0OQZK9Ebr6Q5BD3Yu5LH
-         unrAqMcINmUKuh2IlwRBHCfhlfdZSGLEOqU5AP6pK1jTJ3PqfrWCpyvJShpECJV3cixn
-         FXsAPsuaW2SLVfQmYKLivzDiLh3en5MfBRJ67gCsYDtliG1nJuA7OcHbD5xmyzyko4tw
-         0CiJFaAfSygY9vg/vqXq9jM3clSxLQsyue3gNqj1a16rY08S6WC49cvK638KvIWuICdR
-         kg3At6IUQRhOWQltGQWIm97GM40tzViCJxvq+b/76ojDFhtwR1+HCJR/aQE9C4yqmgkP
-         K1dw==
-X-Forwarded-Encrypted: i=1; AJvYcCWbrm6SyWfiMnPv63s2jL6VJ+N5QE0dOYLoZPqy+4amwjCRwevE1pef74CIuzlldyGYAPEb1+lFDYlXPg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAN8DPtKn1NOlQOaSCX4RTZomF/fDDy64IX7Ko7g2h28QxG/TC
-	U4AEVGR/6A5HYGz8EIlHqFxtSwL4EOsssrk80Gd3OGSVO5aEujcn9klhp9odyo5YLcQ=
-X-Gm-Gg: AZuq6aLmwzP9zcYIk8pFjdv2n5N6nKvImY2g79pkInU3+Vs92+QnJN4LZXLxdm+DhnC
-	rWMlTy0DiW6/bpoaNHyjirS8ez4SRKG1tPTzn6nXdSlxlkqwYoVZreBkgp9wx/lSIYKCBgcIHp2
-	mvDxnAkxwAYLFdbf6AXigAiWZ57/US+sFD9fORagzzyUldu9MoDT8vVAcXubDHPjv9mqqkGHW+Q
-	ITGbLsDrSMQgWRP4oiLkGbEFIN0USQnX4BhldrTGDC4QEOFsV1+WHnZWO4/l7AO0ZucAEv/5p2K
-	qXoDhrLZLNwAF8ENVR7+mm+m23UYjpLzYwmXbkdQ3wT0wmcXWvBCv7IXOhY6SVAf81BCWlhjn0x
-	x5S11Gbb+KAb1dCDooXL9vAjari3QtwyLF4alRl889g4nGILW+x2klFIEtpVmJF273z7DYjK2P4
-	CPxrgdeCBnSOkmdtL9WQmeGzyiEQ2FfKF9cwYpgxr8FavOhxTRjv0=
-X-Received: by 2002:a4a:ee06:0:b0:659:9a49:8efc with SMTP id 006d021491bc7-662f208c524mr3076054eaf.13.1769606940245;
-        Wed, 28 Jan 2026 05:29:00 -0800 (PST)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-662f994388fsm1374132eaf.4.2026.01.28.05.28.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 Jan 2026 05:28:59 -0800 (PST)
-Message-ID: <4395bea9-44d7-4f0f-81d6-c1e05976a308@riscstar.com>
-Date: Wed, 28 Jan 2026 07:28:58 -0600
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] regulator: spacemit-p1: Update supply names
-To: Guodong Xu <guodong@riscstar.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Troy Mitchell <troy.mitchell@linux.spacemit.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, devicetree@vger.kernel.org
-References: <20260124-spacemit-p1-v2-0-2c86b06694ba@riscstar.com>
- <20260124-spacemit-p1-v2-3-2c86b06694ba@riscstar.com>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20260124-spacemit-p1-v2-3-2c86b06694ba@riscstar.com>
+	Wed, 28 Jan 2026 13:29:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=picoheart-com.20200927.dkim.feishu.cn; t=1769606933;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=vcYXwx5F8javVvZgh4a7pvf8s/p2JUmWBU4iY67rl4o=;
+ b=dJ5Egclq4+OLZhTBlMWeH/6/xatwYPvi9J2nvaFQG/r2BfXtkB5CxJHe6vuNLaNAbqlc2Q
+ b/FSXMYIBerFScFxW+QkI69xifIY05cXq9sue6YCDUyHPKXGC4znbsum/qMB5gBhltCFNi
+ rR7KAvB98PiGCPyGQ8RUcj9WGOgOc82s/1KcZwWvA8a4JAS8BBO/jMxS4afjOx6SghIPdp
+ 0xZHibfqvSOEwNVDILEm7isagquvSME2nCHsJK1petQfjQBgjQVeDkm+GI2xg7RSHHzEjy
+ +XzMIrapUWir67/DhspuwTfgqO26tbKiWaAzI4Rg7koj0X2+cJzp6ljuxthj5A==
+X-Lms-Return-Path: <lba+2697a0f13+b2cb31+lists.infradead.org+yang.yicong@picoheart.com>
+Message-Id: <20260128132848.93638-1-yang.yicong@picoheart.com>
+Mime-Version: 1.0
+Cc: <akpm@linux-foundation.org>, <apatel@ventanamicro.com>, <pjw@kernel.org>, 
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, 
+	<geshijian@picoheart.com>, <weidong.wd@picoheart.com>, 
+	<yang.yicong@picoheart.com>, <linux-acpi@vger.kernel.org>, 
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH v3] ACPI: scan: Use async schedule function for acpi_scan_clear_dep_fn
+Date: Wed, 28 Jan 2026 21:28:47 +0800
+Received: from G9WYR9K0VW ([58.250.122.114]) by smtp.feishu.cn with ESMTPS; Wed, 28 Jan 2026 21:28:50 +0800
+To: <rafael@kernel.org>, <lenb@kernel.org>, <tglx@kernel.org>, 
+	<gregkh@linuxfoundation.org>, <dakr@kernel.org>
+From: "Yicong Yang" <yang.yicong@picoheart.com>
+X-Mailer: git-send-email 2.50.1
+X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_052901_476801_42ED6BF0 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20260128_052902_910083_8F0114C5 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,97 +67,148 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 1/23/26 6:20 PM, Guodong Xu wrote:
-> Update supply names to match the P1 PMIC's actual hardware pinout where
-> each buck has an individual VIN pin (vin1-vin6) and LDO groups have
-> dedicated input pins (aldoin, dldoin1, dldoin2).
-> 
-> The supply is a board design decision and should not be hardcoded to any
-> existing power source. This allows boards to specify their actual power
-> tree topology in devicetree.
-> 
-> Signed-off-by: Guodong Xu <guodong@riscstar.com>
+The device object rescan in acpi_scan_clear_dep_fn is scheduled
+in the system workqueue which is not guaranteed to be finished
+before entering userspace. This will cause the problem that
+some key devices are missing when userspace init task tries to
+find them. Two issues observed on our RISCV platforms:
 
-These are good changes but I have a suggestion on the way
-you define the DLDO descriptors.  I might be mistaken but
-I think you should make this change.
+- kernel panic due to userspace init cannot have an opened
+  console. the console device scanning is queued by
+  acpi_scan_clear_dep_queue and not finished by the time
+  userspace init process running, thus by the time userspace
+  init running, no console is created
+- entering rescue shell due to no root devices (PCIe nvme in
+  our case) found. same reason as above, the PCIe host bridge
+  scanning is queued in above and finished after init process
+  running.
 
-Aside from that:
+The reason is because both devices (console, PCIe host bridge)
+depend on riscv-aplic irqchip to serve their interrupts (console's
+wired interrupt and PCI's INTx interrupts). In order to keep the
+dependency these devices are scanned and created after riscv-aplic
+initialized. The riscv-aplic is initialized in device_initcall and
+queue the device scan work with acpi_scan_clear_dep_queue, it's
+close to the time running userspace init process. Since system_dfl_wq
+is used in acpi_scan_clear_dep_queue and no synchronization,
+the issues will happen if userspace init runs before these devices
+are ready.
 
-Reviewed-by: Alex Elder <elder@riscstar.com>
+The solution is to wait for the queued work finished before
+entering userspace init. One possible way is to use a dedicated
+workqueue instead of the system_dfl_wq, and explicitly flush
+it somewhere in the initcall stage before entering userspace.
+One other way is to use async_schedule_dev_nocall() for these
+device scanning. It's designed for asynchronous initialization
+and will work same as before since it's using a dedicated
+unbound workqueue as well, but the kernel init code will
+wait for the work finished (async_synchronize_full) right before
+entering userspace init.
 
-> ---
-> v2: No change.
-> ---
->   drivers/regulator/spacemit-p1.c | 25 ++++++++++++++-----------
->   1 file changed, 14 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/regulator/spacemit-p1.c b/drivers/regulator/spacemit-p1.c
-> index 2b585ba01a93..57e6e00a73fa 100644
-> --- a/drivers/regulator/spacemit-p1.c
-> +++ b/drivers/regulator/spacemit-p1.c
-> @@ -87,13 +87,16 @@ static const struct linear_range p1_ldo_ranges[] = {
->   	}
->   
->   #define P1_BUCK_DESC(_n) \
-> -	P1_REG_DESC(BUCK, buck, _n, "vin", 0x47, BUCK_MASK, 255, p1_buck_ranges)
-> +	P1_REG_DESC(BUCK, buck, _n, "vin" #_n, 0x47, BUCK_MASK, 255, p1_buck_ranges)
+This patch use the second approach. Compared to a dedicated
+workqueue, it's simpler since the async schedule framework have
+handled most works like synchronization, memory allocation of
+works and workqueue. The ACPI code only needs to focus on its
+work. A dedicated workqueue for this could also be redundant
+since some platforms don't need acpi_scan_clear_dep_queue()
+for their device scanning.
 
-That was a simple change...
+Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
+---
+Change since v2:
+- minor code cleanup for return path per Rafael
+Link: https://lore.kernel.org/all/20260126070427.64574-1-yang.yicong@picoheart.com/
 
->   #define P1_ALDO_DESC(_n) \
-> -	P1_REG_DESC(ALDO, aldo, _n, "vin", 0x5b, LDO_MASK, 128, p1_ldo_ranges)
-> +	P1_REG_DESC(ALDO, aldo, _n, "aldoin", 0x5b, LDO_MASK, 128, p1_ldo_ranges)
+Change since v1:
+Refine the commit message to:
+- include the issues and the analysis
+- include the reason for using the async schedule rather than
+  a dedicated workqueue
+Link: https://lore.kernel.org/linux-riscv/20260122073446.45628-2-yang.yicong@picoheart.com/
 
-As stated before, I believe the 128 should be 117 here.  (If
-you change the earlier patch, make sure the change to 128
-doesn't persist here.)  Same comment for the DLDO regulators.
+ drivers/acpi/scan.c | 41 +++++++++++++++--------------------------
+ 1 file changed, 15 insertions(+), 26 deletions(-)
 
-> -#define P1_DLDO_DESC(_n) \
-> -	P1_REG_DESC(DLDO, dldo, _n, "buck5", 0x67, LDO_MASK, 128, p1_ldo_ranges)
-> +#define P1_DLDO1_DESC(_n) \
-> +	P1_REG_DESC(DLDO, dldo, _n, "dldoin1", 0x67, LDO_MASK, 128, p1_ldo_ranges)
-
-Why can't you use _n here like you did for P1_BUCK_DESC() above?
-
-> +
-> +#define P1_DLDO2_DESC(_n) \
-> +	P1_REG_DESC(DLDO, dldo, _n, "dldoin2", 0x67, LDO_MASK, 128, p1_ldo_ranges)
-
-So this is generalizing the input, which is good.  The use
-of "buck5" here was a Banana Pi BPI-F3 design and but it
-doesn't have to be that way.
-
->   static const struct regulator_desc p1_regulator_desc[] = {
->   	P1_BUCK_DESC(1),
-> @@ -108,13 +111,13 @@ static const struct regulator_desc p1_regulator_desc[] = {
->   	P1_ALDO_DESC(3),
->   	P1_ALDO_DESC(4),
->   
-> -	P1_DLDO_DESC(1),
-> -	P1_DLDO_DESC(2),
-> -	P1_DLDO_DESC(3),
-> -	P1_DLDO_DESC(4),
-> -	P1_DLDO_DESC(5),
-> -	P1_DLDO_DESC(6),
-> -	P1_DLDO_DESC(7),
-> +	P1_DLDO1_DESC(1),
-> +	P1_DLDO1_DESC(2),
-> +	P1_DLDO1_DESC(3),
-> +	P1_DLDO1_DESC(4),
-> +	P1_DLDO2_DESC(5),
-> +	P1_DLDO2_DESC(6),
-> +	P1_DLDO2_DESC(7),
->   };
->   
->   static int p1_regulator_probe(struct platform_device *pdev)
-> 
-
+diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+index 416d87f9bd10..b78f6be2f946 100644
+--- a/drivers/acpi/scan.c
++++ b/drivers/acpi/scan.c
+@@ -5,6 +5,7 @@
+ 
+ #define pr_fmt(fmt) "ACPI: " fmt
+ 
++#include <linux/async.h>
+ #include <linux/module.h>
+ #include <linux/init.h>
+ #include <linux/slab.h>
+@@ -2360,46 +2361,34 @@ static int acpi_dev_get_next_consumer_dev_cb(struct acpi_dep_data *dep, void *da
+ 	return 0;
+ }
+ 
+-struct acpi_scan_clear_dep_work {
+-	struct work_struct work;
+-	struct acpi_device *adev;
+-};
+-
+-static void acpi_scan_clear_dep_fn(struct work_struct *work)
++static void acpi_scan_clear_dep_fn(void *dev, async_cookie_t cookie)
+ {
+-	struct acpi_scan_clear_dep_work *cdw;
+-
+-	cdw = container_of(work, struct acpi_scan_clear_dep_work, work);
++	struct acpi_device *adev = to_acpi_device(dev);
+ 
+ 	acpi_scan_lock_acquire();
+-	acpi_bus_attach(cdw->adev, (void *)true);
++	acpi_bus_attach(adev, (void *)true);
+ 	acpi_scan_lock_release();
+ 
+-	acpi_dev_put(cdw->adev);
+-	kfree(cdw);
++	acpi_dev_put(adev);
+ }
+ 
+ static bool acpi_scan_clear_dep_queue(struct acpi_device *adev)
+ {
+-	struct acpi_scan_clear_dep_work *cdw;
+-
+ 	if (adev->dep_unmet)
+ 		return false;
+ 
+-	cdw = kmalloc(sizeof(*cdw), GFP_KERNEL);
+-	if (!cdw)
+-		return false;
+-
+-	cdw->adev = adev;
+-	INIT_WORK(&cdw->work, acpi_scan_clear_dep_fn);
+ 	/*
+-	 * Since the work function may block on the lock until the entire
+-	 * initial enumeration of devices is complete, put it into the unbound
+-	 * workqueue.
++	 * Async schedule the deferred acpi_scan_clear_dep_fn() since:
++	 * - acpi_bus_attach() needs to hold acpi_scan_lock which cannot
++	 *   be acquired under acpi_dep_list_lock (held here)
++	 * - the deferred work at boot stage is ensured to be finished
++	 *   before userspace init task by the async_synchronize_full()
++	 *   barrier
++	 *
++	 * Use _nocall variant since it'll return on failure instead of
++	 * run the function synchronously.
+ 	 */
+-	queue_work(system_dfl_wq, &cdw->work);
+-
+-	return true;
++	return async_schedule_dev_nocall(acpi_scan_clear_dep_fn, &adev->dev);
+ }
+ 
+ static void acpi_scan_delete_dep_data(struct acpi_dep_data *dep)
+-- 
+2.34.1
 
 _______________________________________________
 linux-riscv mailing list
