@@ -4,58 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3283D25B76
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 13:29:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB50D25B6E
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 13:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:From:To:Date:Subject:Cc:Mime-Version:
-	Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Cbpf7rsTADhaMTNXvRt2WHcCHWzdFn+02EOVLPcPSXE=; b=gDwd0y9gjz7ipJ
-	CfL1kmaikeuaiyBPZtd7SqsjVuwJf6zjEAt2eprKBkzyD/pJoOQwWQ7V2Pw4PdpHcxEGInCNLec8j
-	bJOPGFKI/Rm32EqyIgJs30ea2GGdcPJMR31F8AtfWgKvfSk0FxjvNCmug23s7Tm9zn8BEOFAkjFoq
-	n83uTQxrrfcMghjKiKQZHagKUNXYmMcDQkN7Q165zfdebof5OkIT+Tk1HyCAUlTfB3V14gy0Jrbg6
-	bSCjO0OAdWAxPfKzuZZ42/MVtFHrGIB8uzzGmw6UiGNdJTDpgXfH4k7Ygvb2JD+DR/Hs75xhFxnLA
-	vxLl1jNFE8dzH0k9PUBQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PA7BRSkVZcJD4X9GliDrlws2yU6i7qoXZZEVRkEr5eE=; b=pITcemf/YD1OoH
+	UD/U2gR6+X0zCinzn0RwAhBZJk6YjBKVADsmZpvDPTVUG0WjOlvBbKDKb6MTubzaAyOAGxpKipi1s
+	kAqDtc0nMMhjQ8LSaSHqf7FRDk6sOd+WUH5tVK2Vx5NE8iNF3BT/v/OCppdDll4gWYcknBGGZho7b
+	U57DpWXKNQKJltypyYhUbmi6ixWPFKUcO67HC0HOY2izxNBnqtG6ZAuevyJJg3tP7QZ7EMhhAkx90
+	jLzV+h9Rxf9BWyrjzor0IQBe6r6ELxqcxKN3Ap9Bh0YK0cyuuHOz59dCmy95sIf6qZgH3PJKsX5HL
+	l3CpD0NBiUCHUSj7kraw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl5bW-0000000G4DC-34fH;
-	Wed, 28 Jan 2026 13:29:06 +0000
-Received: from sg-1-30.ptr.blmpb.com ([118.26.132.30])
+	id 1vl5bY-0000000G4Dp-08zw;
+	Wed, 28 Jan 2026 13:29:08 +0000
+Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl5bR-0000000G49V-3WRH
+	id 1vl5bV-0000000G4C5-0xLw
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 13:29:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=picoheart-com.20200927.dkim.feishu.cn; t=1769606933;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=vcYXwx5F8javVvZgh4a7pvf8s/p2JUmWBU4iY67rl4o=;
- b=dJ5Egclq4+OLZhTBlMWeH/6/xatwYPvi9J2nvaFQG/r2BfXtkB5CxJHe6vuNLaNAbqlc2Q
- b/FSXMYIBerFScFxW+QkI69xifIY05cXq9sue6YCDUyHPKXGC4znbsum/qMB5gBhltCFNi
- rR7KAvB98PiGCPyGQ8RUcj9WGOgOc82s/1KcZwWvA8a4JAS8BBO/jMxS4afjOx6SghIPdp
- 0xZHibfqvSOEwNVDILEm7isagquvSME2nCHsJK1petQfjQBgjQVeDkm+GI2xg7RSHHzEjy
- +XzMIrapUWir67/DhspuwTfgqO26tbKiWaAzI4Rg7koj0X2+cJzp6ljuxthj5A==
-X-Lms-Return-Path: <lba+2697a0f13+b2cb31+lists.infradead.org+yang.yicong@picoheart.com>
-Message-Id: <20260128132848.93638-1-yang.yicong@picoheart.com>
-Mime-Version: 1.0
-Cc: <akpm@linux-foundation.org>, <apatel@ventanamicro.com>, <pjw@kernel.org>, 
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, 
-	<geshijian@picoheart.com>, <weidong.wd@picoheart.com>, 
-	<yang.yicong@picoheart.com>, <linux-acpi@vger.kernel.org>, 
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v3] ACPI: scan: Use async schedule function for acpi_scan_clear_dep_fn
-Date: Wed, 28 Jan 2026 21:28:47 +0800
-Received: from G9WYR9K0VW ([58.250.122.114]) by smtp.feishu.cn with ESMTPS; Wed, 28 Jan 2026 21:28:50 +0800
-To: <rafael@kernel.org>, <lenb@kernel.org>, <tglx@kernel.org>, 
-	<gregkh@linuxfoundation.org>, <dakr@kernel.org>
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-X-Mailer: git-send-email 2.50.1
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
+	Wed, 28 Jan 2026 13:29:06 +0000
+Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-7cfdf0c8908so3812026a34.0
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Jan 2026 05:29:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1769606944; x=1770211744; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=raYtuP2NjeAqA5181HGaACfoUp8/gkl6VSn/CKYueq0=;
+        b=VUEy0vXUmwsA4/3W4lBR1JFHJttL6vwexUL5okmfnm31OWyKue6gXn4YxXmBkm+mEz
+         xoXuh0+B6Iyh7l0OZVkyuMjvWh2xzkrnGV8sb79vJcEeVnSl6q3r0Nm1afgSu6qdUjHC
+         jiR+if/kGnZpdln+JAXfofoUzlSlmcXYNZda08cp1rV10bY4GGtVXrfEn5ovui+v2seO
+         oFnJKAEtz6/uHNf6KCElI+Uz+f3hCDDS4rQ+DoGvnPgkuOXRrFTJBwDOm6KFlmz8ctWf
+         8I6TIfUgUUj9ufp1b/n8r1a0LNUoNBOD7r8CXvxF1s5jeNiCrDHFVK1sTWD4hmOru9pn
+         QqEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769606944; x=1770211744;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=raYtuP2NjeAqA5181HGaACfoUp8/gkl6VSn/CKYueq0=;
+        b=jpzyQ2VDdCem47wI2lKTahU8VF6egSjh3EqRp2Sr80pLqCsAkyL4Dj/+5IyfrblGJq
+         X8BQ8+5/3Vseh6Z0Rb2xbA7pYMEu4VA/a+ImwocrXDbZI77yOSSmcCLbh2FJ+BC7EIi/
+         lj/t13fWei37G22/ZjhTNBacKSA/BBtzxtM21wX7m5OlIuoXWmE1Pdx0+m+ybTx6CN4Z
+         YKJ+O2Q7MBUttyRJRkv7iQuweGA8h+eJp89nEr7FfHKlANRY2coOJkXAGGdQbj+GWb93
+         jD/oXNmzA7WBI1CKmpD5idA89i1bq7SWpMhRoxhfzWXJ7sx9fUm82b/8QE/s8yQuRl9t
+         dtaA==
+X-Forwarded-Encrypted: i=1; AJvYcCXwqeQohUOV6xLB2sDPehTb9Evydc/Y1vi2qM0P9EcM6F71PkD1Po2vtcCYXPMmSoFXj+0GQqd1VPSs7g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzE9BygjR8b+hkk/Z5LTn1ADXWS94vyqbihCVHwhXrJGlt9ndXO
+	qG7esxdk56sBI9f4rq8wqoL8nG9UkQJ1N5YBwRu0rsdcDJm2Yh2HUOLYKB1mLkAM7kc=
+X-Gm-Gg: AZuq6aK/SW75KAUCnVlLbMvr02Sg/3frk4HfFu8qnVCVPCIGFN9mTZDPKVEDHN6AmEA
+	71rliuP4bnO6B1SDes8arz22jtPFBnUbDWU0lpfNI/dtDEus2bEtbLLwOZF82ZlQA29M57Yx1D4
+	KQcaGrhUYOFKvBqz17EPV6y+WVxPu2d+/LEy0GATtzpJzcFrxltnwiQr4I5AQlrlKvtrH3tw5dn
+	0s7zOO5CY5h8XVOzdX7ZRPi6cXwrxZSYDc5xb5KcCLnHlgRvYHNmlMQ1vScVuyqtNGw1O1y4jdG
+	nzvZudOZUUxLR4Ur2bVFPl9G+BmWOmCWQaXkVVVve0dcBgJlWtFFAs1dHIA0+d05zwd2/4acRLD
+	twvWTx2HwWNBrQ4N4Q/48vWgRbO4Hz9porvnQn6UDAe7IeXw9JCF/m7nShPtfuiZ9k2uhV2CJuL
+	znGQkFJAP0pTZ2PaEYrkmiaZSgrHI3DzpvER1YCzWRFTkJEqE+nTM=
+X-Received: by 2002:a05:6820:4588:b0:65f:1012:69c5 with SMTP id 006d021491bc7-662f20f917fmr2413146eaf.76.1769606943544;
+        Wed, 28 Jan 2026 05:29:03 -0800 (PST)
+Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-662f994388fsm1374132eaf.4.2026.01.28.05.29.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 28 Jan 2026 05:29:03 -0800 (PST)
+Message-ID: <7f892961-5978-4283-bec9-0f2953db42b7@riscstar.com>
+Date: Wed, 28 Jan 2026 07:29:02 -0600
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/4] riscv: dts: spacemit: Update PMIC supply
+ properties for BPI-F3 and Jupiter
+To: Guodong Xu <guodong@riscstar.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, devicetree@vger.kernel.org
+References: <20260124-spacemit-p1-v2-0-2c86b06694ba@riscstar.com>
+ <20260124-spacemit-p1-v2-4-2c86b06694ba@riscstar.com>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20260124-spacemit-p1-v2-4-2c86b06694ba@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_052902_910083_8F0114C5 
-X-CRM114-Status: GOOD (  19.39  )
+X-CRM114-CacheID: sfid-20260128_052905_277597_6DE24C72 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,148 +104,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The device object rescan in acpi_scan_clear_dep_fn is scheduled
-in the system workqueue which is not guaranteed to be finished
-before entering userspace. This will cause the problem that
-some key devices are missing when userspace init task tries to
-find them. Two issues observed on our RISCV platforms:
+On 1/23/26 6:20 PM, Guodong Xu wrote:
+> Update individual supply properties in pmic "spacemit,p1" node to specify
+> the board's power tree topology for BananaPi F3 and Milk-V Jupiter.
+> 
+> Previously these relationships were hardcoded in the driver; now they
+> are explicitly defined in the devicetree per the updated binding
+> document spacemit,p1.yaml.
+> 
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
 
-- kernel panic due to userspace init cannot have an opened
-  console. the console device scanning is queued by
-  acpi_scan_clear_dep_queue and not finished by the time
-  userspace init process running, thus by the time userspace
-  init running, no console is created
-- entering rescue shell due to no root devices (PCIe nvme in
-  our case) found. same reason as above, the PCIe host bridge
-  scanning is queued in above and finished after init process
-  running.
+I acknowledge that you've made an ABI change, and I should
+have done a better job of describing this the first time
+around.  (And reviewers might have caught that!)
 
-The reason is because both devices (console, PCIe host bridge)
-depend on riscv-aplic irqchip to serve their interrupts (console's
-wired interrupt and PCI's INTx interrupts). In order to keep the
-dependency these devices are scanned and created after riscv-aplic
-initialized. The riscv-aplic is initialized in device_initcall and
-queue the device scan work with acpi_scan_clear_dep_queue, it's
-close to the time running userspace init process. Since system_dfl_wq
-is used in acpi_scan_clear_dep_queue and no synchronization,
-the issues will happen if userspace init runs before these devices
-are ready.
+I had some of the same thoughts about supporting just
+"vin_supply" for older systems.
 
-The solution is to wait for the queued work finished before
-entering userspace init. One possible way is to use a dedicated
-workqueue instead of the system_dfl_wq, and explicitly flush
-it somewhere in the initcall stage before entering userspace.
-One other way is to use async_schedule_dev_nocall() for these
-device scanning. It's designed for asynchronous initialization
-and will work same as before since it's using a dedicated
-unbound workqueue as well, but the kernel init code will
-wait for the work finished (async_synchronize_full) right before
-entering userspace init.
+However I agree with the conclusion you and Vivian
+came to, which is that practically speaking it isn't
+likely to be a problem.  Boards should use either
+old DTB and software or new DTB and software, not
+a mix.
 
-This patch use the second approach. Compared to a dedicated
-workqueue, it's simpler since the async schedule framework have
-handled most works like synchronization, memory allocation of
-works and workqueue. The ACPI code only needs to focus on its
-work. A dedicated workqueue for this could also be redundant
-since some platforms don't need acpi_scan_clear_dep_queue()
-for their device scanning.
+Reviewed-by: Alex Elder <elder@riscstar.com>
 
-Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
----
-Change since v2:
-- minor code cleanup for return path per Rafael
-Link: https://lore.kernel.org/all/20260126070427.64574-1-yang.yicong@picoheart.com/
 
-Change since v1:
-Refine the commit message to:
-- include the issues and the analysis
-- include the reason for using the async schedule rather than
-  a dedicated workqueue
-Link: https://lore.kernel.org/linux-riscv/20260122073446.45628-2-yang.yicong@picoheart.com/
+> ---
+> v2: Added the pmic supply properties for K1 Milkv Jupiter.
+>      Updated the commit message accordingly.
+> ---
+>   arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   | 12 ++++++++++--
+>   arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts | 12 ++++++++++--
+>   2 files changed, 20 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> index 5971605754b3..444c3b1e6f44 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> @@ -190,7 +190,15 @@ pmic@41 {
+>   		compatible = "spacemit,p1";
+>   		reg = <0x41>;
+>   		interrupts = <64>;
+> -		vin-supply = <&reg_vcc_4v>;
+> +		vin1-supply = <&reg_vcc_4v>;
+> +		vin2-supply = <&reg_vcc_4v>;
+> +		vin3-supply = <&reg_vcc_4v>;
+> +		vin4-supply = <&reg_vcc_4v>;
+> +		vin5-supply = <&reg_vcc_4v>;
+> +		vin6-supply = <&reg_vcc_4v>;
+> +		aldoin-supply = <&reg_vcc_4v>;
+> +		dldoin1-supply = <&buck5>;
+> +		dldoin2-supply = <&buck5>;
+>   
+>   		regulators {
+>   			buck1 {
+> @@ -221,7 +229,7 @@ buck4 {
+>   				regulator-always-on;
+>   			};
+>   
+> -			buck5 {
+> +			buck5: buck5 {
+>   				regulator-min-microvolt = <500000>;
+>   				regulator-max-microvolt = <3450000>;
+>   				regulator-ramp-delay = <5000>;
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+> index 800a112d5d70..e2702a781734 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+> @@ -100,7 +100,15 @@ pmic@41 {
+>   		compatible = "spacemit,p1";
+>   		reg = <0x41>;
+>   		interrupts = <64>;
+> -		vin-supply = <&reg_vcc_4v>;
+> +		vin1-supply = <&reg_vcc_4v>;
+> +		vin2-supply = <&reg_vcc_4v>;
+> +		vin3-supply = <&reg_vcc_4v>;
+> +		vin4-supply = <&reg_vcc_4v>;
+> +		vin5-supply = <&reg_vcc_4v>;
+> +		vin6-supply = <&reg_vcc_4v>;
+> +		aldoin-supply = <&reg_vcc_4v>;
+> +		dldoin1-supply = <&buck5>;
+> +		dldoin2-supply = <&buck5>;
+>   
+>   		regulators {
+>   			buck1 {
+> @@ -131,7 +139,7 @@ buck4 {
+>   				regulator-always-on;
+>   			};
+>   
+> -			buck5 {
+> +			buck5: buck5 {
+>   				regulator-min-microvolt = <500000>;
+>   				regulator-max-microvolt = <3450000>;
+>   				regulator-ramp-delay = <5000>;
+> 
 
- drivers/acpi/scan.c | 41 +++++++++++++++--------------------------
- 1 file changed, 15 insertions(+), 26 deletions(-)
-
-diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index 416d87f9bd10..b78f6be2f946 100644
---- a/drivers/acpi/scan.c
-+++ b/drivers/acpi/scan.c
-@@ -5,6 +5,7 @@
- 
- #define pr_fmt(fmt) "ACPI: " fmt
- 
-+#include <linux/async.h>
- #include <linux/module.h>
- #include <linux/init.h>
- #include <linux/slab.h>
-@@ -2360,46 +2361,34 @@ static int acpi_dev_get_next_consumer_dev_cb(struct acpi_dep_data *dep, void *da
- 	return 0;
- }
- 
--struct acpi_scan_clear_dep_work {
--	struct work_struct work;
--	struct acpi_device *adev;
--};
--
--static void acpi_scan_clear_dep_fn(struct work_struct *work)
-+static void acpi_scan_clear_dep_fn(void *dev, async_cookie_t cookie)
- {
--	struct acpi_scan_clear_dep_work *cdw;
--
--	cdw = container_of(work, struct acpi_scan_clear_dep_work, work);
-+	struct acpi_device *adev = to_acpi_device(dev);
- 
- 	acpi_scan_lock_acquire();
--	acpi_bus_attach(cdw->adev, (void *)true);
-+	acpi_bus_attach(adev, (void *)true);
- 	acpi_scan_lock_release();
- 
--	acpi_dev_put(cdw->adev);
--	kfree(cdw);
-+	acpi_dev_put(adev);
- }
- 
- static bool acpi_scan_clear_dep_queue(struct acpi_device *adev)
- {
--	struct acpi_scan_clear_dep_work *cdw;
--
- 	if (adev->dep_unmet)
- 		return false;
- 
--	cdw = kmalloc(sizeof(*cdw), GFP_KERNEL);
--	if (!cdw)
--		return false;
--
--	cdw->adev = adev;
--	INIT_WORK(&cdw->work, acpi_scan_clear_dep_fn);
- 	/*
--	 * Since the work function may block on the lock until the entire
--	 * initial enumeration of devices is complete, put it into the unbound
--	 * workqueue.
-+	 * Async schedule the deferred acpi_scan_clear_dep_fn() since:
-+	 * - acpi_bus_attach() needs to hold acpi_scan_lock which cannot
-+	 *   be acquired under acpi_dep_list_lock (held here)
-+	 * - the deferred work at boot stage is ensured to be finished
-+	 *   before userspace init task by the async_synchronize_full()
-+	 *   barrier
-+	 *
-+	 * Use _nocall variant since it'll return on failure instead of
-+	 * run the function synchronously.
- 	 */
--	queue_work(system_dfl_wq, &cdw->work);
--
--	return true;
-+	return async_schedule_dev_nocall(acpi_scan_clear_dep_fn, &adev->dev);
- }
- 
- static void acpi_scan_delete_dep_data(struct acpi_dep_data *dep)
--- 
-2.34.1
 
 _______________________________________________
 linux-riscv mailing list
