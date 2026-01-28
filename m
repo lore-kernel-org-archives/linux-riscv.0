@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F1DD35690
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 09:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8511AD35696
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 09:14:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Te1JKkw6s/8ECXxXLJlRTv41wRFAyxLzyZxPUfCHzOs=; b=lrARyvpqsSC7DL
-	eOVGMveckLCltJbNsGdbE24KqOdd+6nfpLZz8M0LM1fpIaGqa/qKsqJt0lfogGrv93LxQQgwqvByx
-	XLyEw86uIK2BOvf3A+xFUZTVvCAj+t/RmHl9ut4KdCfxftEMeOZ1qnPRL1LpuubDeXo48rESVB//h
-	b0tbYo2Mc8bUqiw+Rg8NJ4IggYGAhkr9B+v8r/up16s+MBHb/mD5+2hTMCskHht7W+0sIUK4C5p9x
-	maa0/mIn381DsIq0BmZyPgV/YplqgZjssopfRi6dOoSK4+c3ajntsjxabShrWh81U0x2uK4H3axeF
-	xKXRmc64ZmWfzJYyqoNw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VBZswlUMi/9TH776vrajtSNyNvCfV46WOkcdZUL1tlk=; b=dZU6Ln7QXVCwqi
+	c8FhaXTfbMrQigus+ne+5WKJzQYOnqkT9WGswx+9BXBPOZZ35AzdwP/ati10S3uO0gIXNSDC1v+Fs
+	/JKxjvhD7YsHTRidg9udqBQznNFubGSEJvq3SoGBmjbmiD/clUdmUgdH06f3e8uj4oHTbGhMd6y7S
+	YT8MzqzcPpBRjZHHqZC5kNGMEFzWaRN8cqReVjDB5SenmLlKnAjbP0NWoEQsnewPIPJfoQaMvYCjM
+	UndrTDqvxCcBTCfcuaYkk1IHr/O5x3Z/bTR1q7yq8cmRvpV92tzmAtnDBjbQpX0oPFRSt9HIqbfzO
+	3ncptMbN7OKnRkIe3KYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1cM-0000000Fj3j-1eVF;
-	Wed, 28 Jan 2026 09:13:42 +0000
-Received: from mail-dy1-x132b.google.com ([2607:f8b0:4864:20::132b])
+	id 1vl1cX-0000000Fj50-3CMT;
+	Wed, 28 Jan 2026 09:13:53 +0000
+Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1cK-0000000Fj3N-1mzX
+	id 1vl1cU-0000000Fj4b-3pMr
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 09:13:41 +0000
-Received: by mail-dy1-x132b.google.com with SMTP id 5a478bee46e88-2b72e49776eso10970404eec.1
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Jan 2026 01:13:40 -0800 (PST)
+	Wed, 28 Jan 2026 09:13:52 +0000
+Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-124a95e592fso38360c88.0
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Jan 2026 01:13:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769591619; x=1770196419; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yEOFkSi2N0vtkbtCff5kn8mqsv72spWR8lTmAsEOTX4=;
-        b=M9Hi9d0nrL7N0SEPbY+5KId+3LtPusroEva2GQW+6+dF1LRPHeQIx+q8+uH3CklhTo
-         Ixh753VHUN7TAp5K5FOoE/28ZA5CMZX1+bTKkOv+8ZAV6FM2TLvdEFq9wDVmkUmFlFra
-         DiWI0AgOB4xvw9aluRdyCkDF735fQbEjzJ6LGp+2SEYqXkXi8ad0zXJEyt1cwudAVFhP
-         n/hes7JlyHUrl5BDvPec++mFeQxdYOGK7aq7N5VyWKAa6HjRq2SmazrHw/Dd9JRFF9Av
-         pju5cQQF1Lwy09AKZMLLE0qis4vMlwUPwGiuuvQkf72TSJug5Q4Xilz9x2lsB+oYH7xc
-         dXLg==
+        d=gmail.com; s=20230601; t=1769591630; x=1770196430; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uKUvT1UkLVoSBo2GeUIFsYzGNbYkZ2w4SGalbBin6yo=;
+        b=eQHx5ZvoYFCnm1N3BXdcpoU0SGrCT4JDlXCbYvJG1eLMhbGoFF0wHLxsLrFKSPLcEw
+         MIhayvlYDnipmzmqHyB1d8V051Fzq7oEEpm26nWw+nqVH32roSR8xufvqdG3OfTghBYY
+         CD4wvV8nnKPKvkLYYleoaHYftSVoLomtIkVZ43WFE0YuOmc3ijPzwnQI97G5pBS+x9ZL
+         k/RYBkPx1L62c3xCiK4VM17s8zhCUIf4TJs3DURpsxjH+8hp7rqkqrRZ6Lmj5irKYGtE
+         IfbwBf77gIq8+0qGVqwnpwvxc0gbw9iIdKDfgFcyuFdNfXN1amTx8COe3jtxMkVi4Btq
+         eMPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769591619; x=1770196419;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=yEOFkSi2N0vtkbtCff5kn8mqsv72spWR8lTmAsEOTX4=;
-        b=Ex8a98v/UdP4qxRV20j0Arz+VRfY/Mw+D4uMcoDjCj2EjP170MtX0XY0xmFgpCiLGI
-         o6xf3IpbhRb1NiW/6Y8+aZpLiCnlE58seQB0PImIC4KeMq3eqLbbRFGKiT2hW2SAK1qT
-         EVL5S0L3vCj0ftPrf8OMrnOKhTW2B0Sw7LKcpqDMp4TaJaOrojaJKQr3i363SXQT/4zk
-         SyS4zajbyB1EFwCnx6bfBG3y5VEjhwCHYNO+3ntTr9XOJBbPi/r/SroIALyh3oPUQW0x
-         daxHJc15MKnhcP9UN2G4injHR/O/6G25TIQoUsy1Qw9lu4xo6w5JgZnv1OSR3rTvaG3s
-         4L2A==
-X-Forwarded-Encrypted: i=1; AJvYcCV0/PneQGlf9Wceq96ZxYTabT6CGc48vZLPiW9dVfT2zCOQuv4EF/KVopcFlUqBDLDn5Kj38lyAN+xZPA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxL2ujSzTZvJEXv5555svWuDdKs45DW4eWwtIxDD2uHIdpEyxBs
-	JewjhO15HnE0sy9y+a3i3WDzptimeC07gprtYLsTCb1kfI57mk19Jktadl6stQHl
-X-Gm-Gg: AZuq6aKbYCEzrdceYXdUZKzyo/pHlIVlup5DoA4m21P2KKpWIh7JQ4k81TyWOaiRk/m
-	s0nuZrDDBIkTreMoEw2QeTb7E2kBfFTDmrHlNLbpuCFnZ4MbGnUqcjbRAcLLZoYB5vW/3jEwFV7
-	PpNOAZoVae7O8S0fr/11CQrzw/sjsUqupARbvglfA8pzR8L0BdMYpNlZM1EigUXOaWQaYRLCC8e
-	mLEKfuQLSGvL2z5NGBxcRZgGBNOHAL208ucunwtI4RSDpL7t9oMTRlbkKI9MIQQOGVU65ByoX4Y
-	vKTsNwOCuU+hOFL7hC+FytEvBg24h4+EhOLw2c+kJhsOtjnoUdYUbccIsyKIDiQARNNSyxoO5eG
-	FhwIy3V7tYa4d5mrxOJ4cl7+skKveP0+4PFZjnuWkLiyXsJBrOfdmhFfpBW863WFoTKvt0Y4wb5
-	fSt6zDLkS2U2ydGIiVWJkN
-X-Received: by 2002:a05:7300:a188:b0:2a4:3594:d540 with SMTP id 5a478bee46e88-2b78d90178cmr2919827eec.13.1769585396662;
-        Tue, 27 Jan 2026 23:29:56 -0800 (PST)
+        d=1e100.net; s=20230601; t=1769591630; x=1770196430;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uKUvT1UkLVoSBo2GeUIFsYzGNbYkZ2w4SGalbBin6yo=;
+        b=T+xQjbvNDmyDzHpBcY6fqQp+CJt/92gUORrXwEynlmfdseP+rFDYur8vnwRunZAdSX
+         Y85VoJ7pv+vCH64crYHZlbuCfgJcDU9/58bOa/91HsCuiYpERf3AjXn5zyVDuUF0/zDW
+         RvaT49riM0J4f7Fw+exElRXiyy4PiJ8DWlpg6R/NIt2Hq04CsSi1OH9NgEWpByk4Jgcy
+         ctAhU6agXy1yisNCc/hC/nS9t0jJzY0Y0y6Okih585EJ/XyGAESG6CRzm4+yMLzOt9YP
+         CPcvgo/1AoAs9cRdDeT/MDm2DD0g6Rz6uNlI3nsHBo9rQ1+uGXrvzy8vM4VZ0ygySAN1
+         ++QQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUoufrSrAddZPdzIHKteu5Vw6r+RS4v2KxS04fyQu6NaQjECmYHoukNujlmN01vmwB14BeuN9wGj3bo1A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDEE0cU2v+RAbhpKBhvlKr9hVTR/Rj0jViSIJ71GL9Dm3dfgNT
+	oOC31N5zB/85Q+2UWC0KpXhkc+9b2jwiSLZesyzBrGCtEeO3GAXPkCVYBuuQcw==
+X-Gm-Gg: AZuq6aKr4d2g+j56Z5d3keijm4sFf6iEqXQPyhgsr/2PapLOaQ18fXXniokuOFfy8j9
+	oDBmpg8zLkcpli+PwvJihuJynRT2JR/47wHpMJMlxHJ57CDhplWwq2YGg5mFwzi2nBHVjlqUCra
+	GpxnKz7p56ZWJbLAwKWoqjy/tcioEAWxXUioalpRaUPt3Fv3AQDBuPU5vyHpNPenwuu1HClay/s
+	lbRnOi6ZW7csBTS8fgr563Bw2yAaTG7i7yvkWlyAxmuWMJ46573W+YmDsn6VrfmNsCkkqETJBQ2
+	sMewK51ne2eIGL6wVzlPbu2Z7p568ZCZF5DonKfgGQANMy/cO8O/yWtF5rxp1LrPt2rYjQeMT5i
+	Ok7Rpys6TirRYCc7OmI1TT2jE8URiXf09byq3IdoMjEdOJZS9g5jtyUlUG5RVtTcCvtGEnw4cON
+	nAeN0NW1DEBg==
+X-Received: by 2002:a05:7300:6d08:b0:2b7:2664:aeae with SMTP id 5a478bee46e88-2b78da0b4a8mr2419091eec.37.1769585393102;
+        Tue, 27 Jan 2026 23:29:53 -0800 (PST)
 Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b7a16ef40asm1515483eec.13.2026.01.27.23.29.55
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-124a9d6b658sm1374769c88.3.2026.01.27.23.29.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jan 2026 23:29:56 -0800 (PST)
+        Tue, 27 Jan 2026 23:29:52 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -107,16 +106,14 @@ Cc: netdev@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH net-next v3 1/3] dt-bindings: net: Add support for Spacemit K3 dwmac
-Date: Wed, 28 Jan 2026 15:29:27 +0800
-Message-ID: <20260128072931.875041-2-inochiama@gmail.com>
+Subject: [PATCH net-next v3 0/3] riscv: spacemit: Add ethernet support for K3
+Date: Wed, 28 Jan 2026 15:29:26 +0800
+Message-ID: <20260128072931.875041-1-inochiama@gmail.com>
 X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260128072931.875041-1-inochiama@gmail.com>
-References: <20260128072931.875041-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_011340_462733_69DF2CA9 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20260128_011350_954699_8BB3D9E3 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,148 +130,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The GMAC IP on Spacemit K3 is almost a standard Synopsys DesignWare
-MAC (version 5.40a) with some extra clock.
+Add initial support for ethernet controller of the Spacemit K3 SoC.
+This ethernet controller is almost a standard Synopsys DesignWare
+MAC (version 5.40a). This controller require a syscon device to
+configure some basic features, like interface type and internal delay.
 
-Add necessary compatible string for this device.
+Change from v2:
+- https://lore.kernel.org/netdev/20260121071315.940130-1-inochiama@gmail.com
+patch 1:
+1. remove not needed compatible for select
+2. drop empty line in "spacemit,apmu" properties
+3. add spacemit,apmu properties to required.
+patch 3:
+1. remove misused phy_fix_phy_mode_for_mac_delays.
+2. use local tx clock instead of the clk_tx_i in the dwmac.
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
----
+Change from v1:
+- https://lore.kernel.org/netdev/20260120043609.910302-1-inochiama@gmail.com
+patch 1:
+1. remove phy clock
+patch 3:
+1. improve comment and include something special about Spacmit K3 dwmac
+2. reorder the included file
+3. fix wrong delay macro used in spacemit_dwmac_set_delay.
+4. add check for maximum supported delay.
+5. use DIV_ROUND_CLOSEST to calculate best delay configuration.
+6. use assign for the ctrl register initial value.
+7. fix input when calling of_property_read_u32().
+
+Inochi Amaoto (3):
+  dt-bindings: net: Add support for Spacemit K3 dwmac
+  net: stmmac: platform: Add snps,dwmac-5.40a IP compatible string
+  net: stmmac: Add glue layer for Spacemit K3 SoC
+
  .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
- .../bindings/net/spacemit,k3-dwmac.yaml       | 103 ++++++++++++++++++
- 2 files changed, 105 insertions(+)
+ .../bindings/net/spacemit,k3-dwmac.yaml       | 103 +++++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 +
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-spacemit.c  | 218 ++++++++++++++++++
+ .../ethernet/stmicro/stmmac/stmmac_platform.c |   1 +
+ 6 files changed, 337 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index dd3c72e8363e..a3fcb9a251fa 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -34,6 +34,7 @@ select:
-           - snps,dwmac-5.10a
-           - snps,dwmac-5.20
-           - snps,dwmac-5.30a
-+          - snps,dwmac-5.40a
-           - snps,dwxgmac
-           - snps,dwxgmac-2.10
- 
-@@ -653,6 +654,7 @@ allOf:
-                 - snps,dwmac-5.10a
-                 - snps,dwmac-5.20
-                 - snps,dwmac-5.30a
-+                - snps,dwmac-5.40a
-                 - snps,dwxgmac
-                 - snps,dwxgmac-2.10
-                 - st,spear600-gmac
-diff --git a/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
-new file mode 100644
-index 000000000000..fc024a927fcc
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
-@@ -0,0 +1,103 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/spacemit,k3-dwmac.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Spacemit K3 DWMAC glue layer
-+
-+maintainers:
-+  - Inochi Amaoto <inochiama@gmail.com>
-+
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        const: spacemit,k3-dwmac
-+  required:
-+    - compatible
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: spacemit,k3-dwmac
-+      - const: snps,dwmac-5.40a
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: GMAC main clock
-+      - description: PTP clock
-+      - description: TX clock
-+
-+  clock-names:
-+    items:
-+      - const: stmmaceth
-+      - const: ptp_ref
-+      - const: tx
-+
-+  interrupts:
-+    minItems: 1
-+    items:
-+      - description: MAC interrupt
-+      - description: MAC wake interrupt
-+
-+  interrupt-names:
-+    minItems: 1
-+    items:
-+      - const: macirq
-+      - const: eth_wake_irq
-+
-+  resets:
-+    maxItems: 1
-+
-+  reset-names:
-+    const: stmmaceth
-+
-+  spacemit,apmu:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to the syscon node which control the glue register
-+          - description: offset of the control register
-+          - description: offset of the dline register
-+    description:
-+      A phandle to syscon with offset to control registers for this MAC
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - interrupt-names
-+  - resets
-+  - reset-names
-+  - spacemit,apmu
-+
-+allOf:
-+  - $ref: snps,dwmac.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    ethernet@cac80000 {
-+      compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
-+      reg = <0xcac80000 0x2000>;
-+      clocks = <&syscon_apmu 66>, <&syscon_apmu 68>,
-+               <&syscon_apmu 69>;
-+      clock-names = "stmmaceth", "ptp_ref", "tx";
-+      interrupts = <131 IRQ_TYPE_LEVEL_HIGH>, <276 IRQ_TYPE_LEVEL_HIGH>;
-+      interrupt-names = "macirq", "eth_wake_irq";
-+      phy-mode = "rgmii-id";
-+      phy-handle = <&phy0>;
-+      resets = <&syscon_apmu 67>;
-+      reset-names = "stmmaceth";
-+      spacemit,apmu = <&syscon_apmu 0x384 0x38c>;
-+    };
-+
--- 
+--
 2.52.0
 
 
