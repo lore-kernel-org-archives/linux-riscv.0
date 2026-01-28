@@ -4,89 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E120D35698
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 09:17:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19F8AD35697
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 09:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+dQ1gXVkQfjYQH+3u3wI5100nsRheW4hoFOn1n1rRcg=; b=eS7Yso0/T/5ue8
-	CXKPhVPNvlEW9cnMvG7gQDeGXaXP6Ne031khmH9sNT/ubDtbiFzlbAzu1vm3QAPCFsB+zsiglEwL3
-	mV4pn52btM6+NacxpINHc/9G1endDXfmX9YRfBNRuO4Oz++oMtWMdwULHSS7P5JPHm2/VCYja2P4T
-	7LqtttPkyh4EVItQbblKl3gLy9mypgdfQywvjNrpFJ373XxUgG1egzDKGwcpsb9eMgwenVYxgy60J
-	8xvZZxxoyGhJ4kjMiEHHJBKBshk8+6bLDx7FBiQWZNzmMTfEbCzWr0dzn9JeQOtE1fZ2BX+UGhKRI
-	yA0nKY1zPKhqLfXRpYYQ==;
+	List-Owner; bh=L8JQWzxcWUjdpSdTGLBHU37DI050A1yxtvhsjVaKPzg=; b=YLBx3xxTbEEsE4
+	g+cpWHYndRxTulul9qP/vLGlTe7pVESo5xSNX7DfdFYBkj/HxDctOnZDzFpr5iw0Obj9lkFJFhVmL
+	4Ie1aZDMrkL7OfIKFLUT6bJ/kL6Ex5gZxJKnY2qHb2jSeWmrOEf+9dukLbEiZGfTc/jqQ9rk9MgqV
+	q+JPzLcQCMOHcg/ag+yQg2Pqqb1ZMP+mj7otw4PCxNqvd6gKX0fgx0oQvjBPPNpIvt2nb75F3xTgw
+	9iMsVC/FYQh4o/EYCJe7/gRJ4w+JVwZxU9d9kEI2ZR9AakcDTB+PWosIMJYAm6OKqJ+7c2kcrDdZf
+	ne++4JZkAfva5EjThDqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1fy-0000000FjZW-2XHo;
-	Wed, 28 Jan 2026 09:17:26 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vl1jW-0000000FkCq-3VeF;
+	Wed, 28 Jan 2026 09:21:09 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1fr-0000000FjYC-1Fwk;
-	Wed, 28 Jan 2026 09:17:25 +0000
-Received: from [192.168.0.109] (unknown [123.118.222.47])
-	by APP-01 (Coremail) with SMTP id qwCowAD3nmr+03lp6YiOBg--.8714S2;
-	Wed, 28 Jan 2026 17:16:46 +0800 (CST)
-Message-ID: <f73fc83c-b38d-4974-ba3c-80c5e5556e7e@iscas.ac.cn>
-Date: Wed, 28 Jan 2026 17:16:46 +0800
+	id 1vl1jU-0000000FkAo-0ehj
+	for linux-riscv@lists.infradead.org;
+	Wed, 28 Jan 2026 09:21:06 +0000
+X-UUID: a7b5d806fc2a11f0b0f03b4cfa9209d1-20260128
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:6ac908b7-1750-4ebf-a73a-631faeae6520,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:91d8eeff496e98c2da796a6a28df1cc2,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:0|15|
+	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: a7b5d806fc2a11f0b0f03b4cfa9209d1-20260128
+X-User: jiangfeng@kylinos.cn
+Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <jiangfeng@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 1755012723; Wed, 28 Jan 2026 17:20:58 +0800
+Message-ID: <56eb86c0-9b60-4f7f-8824-16f14a019e3c@kylinos.cn>
+Date: Wed, 28 Jan 2026 17:20:55 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 3/3] net: stmmac: Add glue layer for Spacemit
- K3 SoC
-To: Inochi Amaoto <inochiama@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>,
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Yao Zi <ziyao@disroot.org>, Yanteng Si <siyanteng@cqsoftware.com.cn>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Choong Yong Liang <yong.liang.choong@linux.intel.com>,
- Chen-Yu Tsai <wens@kernel.org>,
- Shangjuan Wei <weishangjuan@eswincomputing.com>,
- Boon Khai Ng <boon.khai.ng@altera.com>,
- Quentin Schulz <quentin.schulz@cherry.de>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>,
- Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Longbin Li <looong.bin@gmail.com>
-References: <20260128072931.875041-1-inochiama@gmail.com>
- <20260128072931.875041-4-inochiama@gmail.com>
+Subject: Re: [PATCH v5 4/8] lib/string_kunit: add performance benchmark for
+ strlen()
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ akpm@linux-foundation.org, kees@kernel.org, andy@kernel.org,
+ ebiggers@kernel.org, martin.petersen@oracle.com, sohil.mehta@intel.com,
+ charlie@rivosinc.com, conor.dooley@microchip.com, samuel.holland@sifive.com,
+ linus.walleij@linaro.org, nathan@kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20260127012558.40025-1-jiangfeng@kylinos.cn>
+ <20260127012558.40025-5-jiangfeng@kylinos.cn>
+ <aXh93EVRSOrQQS6l@smile.fi.intel.com>
+ <dcdb82e8-691a-4cc1-88d5-755039ed0313@kylinos.cn>
+ <aXiKelsJF-SiqnVS@smile.fi.intel.com>
+ <0d0f0528-738b-402c-a05c-53e21000dc67@kylinos.cn>
+ <aXnP_6wsyXcVGasN@smile.fi.intel.com>
 Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20260128072931.875041-4-inochiama@gmail.com>
-X-CM-TRANSID: qwCowAD3nmr+03lp6YiOBg--.8714S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWrW5Wr48GF4xGryDuF17KFg_yoW5uFWkpF
-	WrJF97KrWqyF4fAw4IyFZrZFn3Zr47tr17ur1ftryfGFn5Jr95Wr1FkrWxGr1xCrZ3Ja48
-	Z3Wfu3W3Wa9F93DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_Wrv_ZF1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26rWY6r4UJwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
-	UI43ZEXa7IUYQeOtUUUUU==
-X-Originating-IP: [123.118.222.47]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+From: Feng Jiang <jiangfeng@kylinos.cn>
+In-Reply-To: <aXnP_6wsyXcVGasN@smile.fi.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_011722_946585_DD6C5B8E 
-X-CRM114-Status: GOOD (  22.39  )
+X-CRM114-CacheID: sfid-20260128_012104_535321_EE78449B 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,72 +84,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSW5vY2hpLAoKSSBoYXZlIHNvbWUgY29tbWVudHMgYmVsb3cuCgpPbiAxLzI4LzI2IDE1OjI5
-LCBJbm9jaGkgQW1hb3RvIHdyb3RlOgo+IFRoZSBldGhlcmVuZXQgY29udHJvbGxlciBvbiBTcGFj
-ZW1pdCBLMyBTb0MgaXMgU3lub3BzeXMgRGVzaWduV2FyZQpUeXBvOiBldGhlcmVuZXQgLT4gZXRo
-ZXJuZXQKPiBNQUMgKHZlcnNpb24gNS40MGEpLCB3aXRoIHRoZSBmb2xsb3dpbmcgc3BlY2lhbCBw
-b2ludDoKTml0OiBwb2ludCAtPiBwb2ludHPCoAo+IDEuIFRoZSByYXRlIG9mIHRoZSB0eCBjbG9j
-ayBsaW5lIGlzIGF1dG8gY2hhbmdlZCB3aGVuIHRoZSBtYWMgc3BlZWQKPiAgICByYXRlIGlzIGNo
-YW5nZWQsIGFuZCBubyBuZWVkIGZvciBjaGFuZ2luZyB0aGUgaW5wdXQgdHggY2xvY2suCj4gMi4g
-VGhpcyBjb250cm9sbGVyIHJlcXVpcmUgYSBleHRyYSBzeXNjb24gZGV2aWNlIHRvIGNvbmZpZ3Vy
-ZSB0aGUKPiAgICBpbnRlcmZhY2UgdHlwZSwgZW5hYmxlIHdha2UgdXAgaW50ZXJydXB0IGFuZCBk
-ZWxheSBjb25maWd1cmF0aW9uCj4gICAgaWYgbmVlZGVkLgo+Cj4gQWRkIFNwYWNlbWl0IGR3bWFj
-IGRyaXZlciBzdXBwb3J0IG9uIHRoZSBTcGFjZW1pdCBLMyBTb0MuCj4KPiBTaWduZWQtb2ZmLWJ5
-OiBJbm9jaGkgQW1hb3RvIDxpbm9jaGlhbWFAZ21haWwuY29tPgo+IC0tLQo+ICBkcml2ZXJzL25l
-dC9ldGhlcm5ldC9zdG1pY3JvL3N0bW1hYy9LY29uZmlnICAgfCAgMTIgKwo+ICBkcml2ZXJzL25l
-dC9ldGhlcm5ldC9zdG1pY3JvL3N0bW1hYy9NYWtlZmlsZSAgfCAgIDEgKwo+ICAuLi4vZXRoZXJu
-ZXQvc3RtaWNyby9zdG1tYWMvZHdtYWMtc3BhY2VtaXQuYyAgfCAyMTggKysrKysrKysrKysrKysr
-KysrCj4gIDMgZmlsZXMgY2hhbmdlZCwgMjMxIGluc2VydGlvbnMoKykKPiAgY3JlYXRlIG1vZGUg
-MTAwNjQ0IGRyaXZlcnMvbmV0L2V0aGVybmV0L3N0bWljcm8vc3RtbWFjL2R3bWFjLXNwYWNlbWl0
-LmMKPgo+IFsuLi5dCj4KPiArCj4gKy8qIGRsaW5lIHJlZ2lzdGVyIGJpdHMgKi8KPiArI2RlZmlu
-ZSBSR01JSV9SWF9ETElORV9FTgkJQklUKDApCj4gKyNkZWZpbmUgUkdNSUlfUlhfRExJTkVfU1RF
-UAkJR0VOTUFTSyg1LCA0KQo+ICsjZGVmaW5lIFJHTUlJX1JYX0RMSU5FX0NPREUJCUdFTk1BU0so
-MTUsIDgpCj4gKyNkZWZpbmUgUkdNSUlfVFhfRExJTkVfRU4JCUJJVCgxNikKPiArI2RlZmluZSBS
-R01JSV9UWF9ETElORV9TVEVQCQlHRU5NQVNLKDIxLCAyMCkKPiArI2RlZmluZSBSR01JSV9UWF9E
-TElORV9DT0RFCQlHRU5NQVNLKDMxLCAyNCkKPiArCj4gKyNkZWZpbmUgTUFYX0RMSU5FX0RFTEFZ
-X0NPREUJCTB4ZmYKPiArI2RlZmluZSBNQVhfV09SS0VEX0RFTEFZCQkyODAwCj4gKwo+ICsvKiBO
-b3RlOiB0aGUgZGVsYXkgc3RlcCB2YWx1ZSBpcyBhdCAwLjFwcyAqLwo+ICtzdGF0aWMgY29uc3Qg
-dW5zaWduZWQgaW50IGszX2RlbGF5X3N0ZXBfMTB4WzRdID0gewo+ICsJMzY3LCA0OTMsIDU1OSwg
-Njg1Cj4gK307Cj4gKwo+ICtzdGF0aWMgaW50IHNwYWNlbWl0X2R3bWFjX3NldF9kZWxheShzdHJ1
-Y3QgcmVnbWFwICphcG11LAo+ICsJCQkJICAgIHVuc2lnbmVkIGludCBkbGluZV9vZmZzZXQsCj4g
-KwkJCQkgICAgdW5zaWduZWQgaW50IHR4X2NvZGUsIHVuc2lnbmVkIGludCB0eF9jb25maWcsCj4g
-KwkJCQkgICAgdW5zaWduZWQgaW50IHJ4X2NvZGUsIHVuc2lnbmVkIGludCByeF9jb25maWcpCj4g
-K3sKPiArCXVuc2lnbmVkIGludCBtYXNrLCB2YWw7Cj4gKwo+ICsJbWFzayA9IFJHTUlJX1RYX0RM
-SU5FX1NURVAgfCBSR01JSV9UWF9ETElORV9DT0RFIHwgUkdNSUlfVFhfRExJTkVfRU4gfAo+ICsJ
-ICAgICAgIFJHTUlJX1JYX0RMSU5FX1NURVAgfCBSR01JSV9SWF9ETElORV9DT0RFIHwgUkdNSUlf
-UlhfRExJTkVfRU47Cj4gKwl2YWwgPSBGSUVMRF9QUkVQKFJHTUlJX1RYX0RMSU5FX1NURVAsIHR4
-X2NvbmZpZykgfAo+ICsJICAgICAgRklFTERfUFJFUChSR01JSV9UWF9ETElORV9DT0RFLCB0eF9j
-b2RlKSB8IFJHTUlJX1RYX0RMSU5FX0VOIHwKPiArCSAgICAgIEZJRUxEX1BSRVAoUkdNSUlfUlhf
-RExJTkVfU1RFUCwgcnhfY29uZmlnKSB8Cj4gKwkgICAgICBGSUVMRF9QUkVQKFJHTUlJX1JYX0RM
-SU5FX0NPREUsIHJ4X2NvZGUpIHwgUkdNSUlfUlhfRExJTkVfRU47Cj4gKwo+ICsJcmV0dXJuIHJl
-Z21hcF91cGRhdGVfYml0cyhhcG11LCBkbGluZV9vZmZzZXQsIG1hc2ssIHZhbCk7Cj4gK30KPiAr
-Cj4gK3N0YXRpYyBpbnQgc3BhY2VtaXRfZHdtYWNfZGV0ZWN0ZWRfZGVsYXlfdmFsdWUodW5zaWdu
-ZWQgaW50IGRlbGF5LAo+ICsJCQkJCSAgICAgICB1bnNpZ25lZCBpbnQgKmNvbmZpZykKPiArewo+
-ICsJdW5zaWduZWQgaW50IGJlc3RfZGVsYXkgPSAwOwo+ICsJdW5zaWduZWQgaW50IGJlc3RfY29u
-ZmlnID0gMDsKPiArCWludCBiZXN0X2NvZGUgPSAwOwo+ICsJaW50IGk7Cj4gKwo+ICsJaWYgKGRl
-bGF5ID09IDApCj4gKwkJcmV0dXJuIDA7Cj4gKwo+ICsJaWYgKGRlbGF5ID4gTUFYX1dPUktFRF9E
-RUxBWSkKPiArCQlyZXR1cm4gLUVJTlZBTDsKPiArCj4gKwkvKgo+ICsJICogTm90ZSBLMyByZXF1
-aXJlIGEgc3BlY2lmaWMgZmFjdG9yIGZvciBjYWxjdWxhdGUKPiArCSAqIHRoZSBkZWxheSwgaW4g
-dGhpcyBzY2VuYXJpbyBpdCBpcyAwLjkuIFNvIHRoZQo+ICsJICogZm9ybXVsYSBpcyBjb2RlICog
-c3RlcCAvIDEwICogMC45Cj4gKwkgKi8KPiArCWZvciAoaSA9IDA7IGkgPCBBUlJBWV9TSVpFKGsz
-X2RlbGF5X3N0ZXBfMTB4KTsgaSsrKSB7Cj4gKwkJdW5zaWduZWQgaW50IHN0ZXAgPSBrM19kZWxh
-eV9zdGVwXzEweFtpXTsKPiArCQlpbnQgY29kZSA9IERJVl9ST1VORF9DTE9TRVNUKGRlbGF5ICog
-MTAgKiAxMCwgc3RlcCAqIDkpOwo+ICsJCXVuc2lnbmVkIGludCB0bXAgPSBjb2RlICogc3RlcCAq
-IDkgLyAxMCAvIDEwOwo+ICsKPiArCQlpZiAoYWJzKHRtcCAtIGRlbGF5KSA8IGFicyhiZXN0X2Rl
-bGF5IC0gZGVsYXkpKSB7Cj4gKwkJCWJlc3RfY29kZSA9IGNvZGU7Cj4gKwkJCWJlc3RfZGVsYXkg
-PSB0bXA7Cj4gKwkJCWJlc3RfY29uZmlnID0gaTsKPiArCQl9Cj4gKwl9Cj4gKwo+ICsJKmNvbmZp
-ZyA9IGJlc3RfY29uZmlnOwo+ICsKPiArCXJldHVybiBiZXN0X2NvZGU7CgpJcyB0aGlzIHJlYWxs
-eSBuZWNlc3Nhcnk/IEZvciBLMSBJIGp1c3QgdXNlZCB0aGUgc21hbGxlc3Qgc3RlcCBzaXplLgoK
-SXQgc2VlbXMgdG8gbWUgeW91IGhhdmUsIGZvciB0aGUgc21hbGxlc3Qgc3RlcCBzaXplLCBhYm91
-dCAzNi43cHMgKiAwLjkKPSAzM3BzIHBlciBzdGVwLiBUaGVvcmV0aWNhbGx5IHNwZWFraW5nIHRo
-YXQgbGV0cyB5b3UgZmluZSB0dW5lIHRoZQpkZWxheSB0byB3aXRoaW4gMSUgb2YgdGhlIDJucyB0
-b3RhbCByZXF1aXJlZCBSR01JSSBkZWxheSAoTUFDICsgUENCICsKUEhZKS4gSW4gcHJhY3RpY2Ug
-dGhpcyBudW1iZXIgc2hvdWxkbid0IGJlIHRoYXQgbWFyZ2luYWwuwqAKCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 2026/1/28 16:59, Andy Shevchenko wrote:
+> On Wed, Jan 28, 2026 at 09:44:40AM +0800, Feng Jiang wrote:
+>> On 2026/1/27 17:50, Andy Shevchenko wrote:
+>>> On Tue, Jan 27, 2026 at 05:33:10PM +0800, Feng Jiang wrote:
+>>>> On 2026/1/27 16:57, Andy Shevchenko wrote:
+>>>>> On Tue, Jan 27, 2026 at 09:25:54AM +0800, Feng Jiang wrote:
+> 
+> ...
+> 
+>>>>>> +#define STRING_BENCH_BUF(test, buf_name, buf_size, func, ...)		\
+>>>>>> +do {									\
+>>>>>> +	size_t buf_size, _bn_i, _bn_iters, _bn_size = 0;		\
+>>>>>> +	u64 _bn_t, _bn_mbps = 0, _bn_lat = 0;				\
+>>>>>> +	char *buf_name, *_bn_buf;					\
+>>>>>> +									\
+>>>>>> +	_bn_buf = alloc_max_bench_buffer(test, bench_lens,		\
+>>>>>> +			ARRAY_SIZE(bench_lens), &_bn_size);		\
+>>>>>> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, _bn_buf);			\
+>>>>>> +									\
+>>>>>> +	fill_random_string(_bn_buf, _bn_size);				\
+>>>>>> +									\
+>>>>>> +	for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {	\
+>>>>>> +		buf_size = bench_lens[_bn_i];				\
+>>>>>> +		buf_name = _bn_buf + _bn_size - buf_size - 1;		\
+>>>>>> +		_bn_iters = STRING_BENCH_WORKLOAD / max(buf_size, 1U);	\
+>>>>>> +									\
+>>>>>> +		_bn_t = STRING_BENCH(_bn_iters, func, ##__VA_ARGS__);	\
+>>>>>
+>>>>>> +									\
+>>>>>
+>>>>> Remove unneeded blank line.
+>>>>
+>>>> Will fix.
+>>>>
+>>>>>> +		if (_bn_t > 0) {					\
+>>>>>> +			_bn_mbps = (u64)(buf_size) * _bn_iters		\
+>>>>>
+>>>>> Why buf_size in the parentheses here and not anywhere else (above)?
+>>>>
+>>>> It was a bit inconsistent. I'll remove the unneeded parentheses for buf_size.
+>>>>
+>>>>> I assume it's just an external temporary variable? But why do we need to have
+>>>>> it in the parameters to the macro?
+>>>>
+>>>> This is necessary because buf_size often needs to be passed as an argument
+>>>> to the function under test. For instance, when benchmarking strnlen, the
+>>>> caller must pass the current length as an argument:
+>>>> STRING_BENCH_BUF(test, buf, len, strnlen, buf, len);
+>>>
+>>> Okay, and why is it needed in this macro? It get overridden immediately in
+>>> the loop. Assuming that the array size of bench lengths is not zero, this
+>>> has no visible use. Can you elaborate?
+>>
+>> Thank you for the explanation. I see the source of the confusion now.
+>>
+>> In v5, buf_name and buf_size were not intended to pass external variables into
+>> the macro. Instead, they were naming placeholders for local variables declared
+>> inside the macro's scope. This allows the caller to define the names used in
+>> the variadic arguments.
+>>
+>> To resolve the logical inconsistency you pointed out, I'd like to propose two
+>> options for v6. Which one would you prefer?
+>>
+>> Option 1: Internal Declaration (The "Self-Contained" approach)
+>>
+>> We declare and initialize the variables directly inside the loop. This keeps
+>> the macro self-contained and the caller doesn't need to pre-declare anything.
+>>
+>> for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {
+>>     size_t buf_size = bench_lens[_bn_i];
+>>     char *buf_name = _bn_buf + _bn_size - buf_size - 1;
+>>     ...
+>> }
+>>
+>> Usage:
+>>   STRING_BENCH_BUF(test, my_buf, my_len, strnlen, my_buf, my_len);
+> 
+> This option is better as long as the user doesn't need to know the (stale) data
+> out of these parameters. And I think this is the case, so #1 is the winner.
+
+Thanks for the feedback. I'll incorporate this change, along with the other
+improvements we discussed, and send out v6 shortly.
+
+>> Option 2: External Declaration (The list.h approach)
+>>
+>> The macro expects the caller to provide pre-declared variables, similar to
+>> list_for_each_entry(). This removes all re-declarations inside the macro.
+>>
+>> for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {
+>>     buf_size = bench_lens[_bn_i];
+>>     buf_name = _bn_buf + _bn_size - buf_size - 1;
+>>     ...
+>> }
+>>
+>> Usage:
+>>   size_t my_len;
+>>   char *my_buf;
+>>   STRING_BENCH_BUF(test, my_buf, my_len, strnlen, my_buf, my_len);
+>>
+>> Please let me know which style fits the kernel's preference better, and
+>> I will implement it in v6 along with your other suggestions.
+>>
+>> Thanks for the catch!
+>>
+>>>>>> +					* (NSEC_PER_SEC / MEGA);	\
+>>>>>> Leave '*' on the previous line.
+>>>>
+>>>> Will fix.
+>>>>
+>>>>>> +			_bn_mbps = div64_u64(_bn_mbps, _bn_t);		\
+>>>>>> +			_bn_lat = div64_u64(_bn_t, _bn_iters);		\
+>>>>>> +		}							\
+>>>>>> +		kunit_info(test, "len=%zu: %llu MB/s (%llu ns/call)\n",	\
+>>>>>> +				buf_size, _bn_mbps, _bn_lat);		\
+>>>>>> +	}								\
+>>>>>> +} while (0)
+> 
+
+-- 
+With Best Regards,
+Feng Jiang
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
