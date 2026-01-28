@@ -4,102 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F32D6D25B4C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 12:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01858D25B48
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 12:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JmWQcK0ELlMtPcvTiJTo7BB3atq+/CBxd/Dc760Nc1A=; b=FDg7oAt1IQAic4
-	ilcUEiumiIYDZjE0O6snkSJ7k/T8scpaPihromjGaTxiS3mW0tuMqjoCAocmAhJZg/qjlpgbGkiXg
-	kAkiTWHAXqX5n1DKS7Muntdj+ISLFLPxBy0qIaNry5PwuHZ9I/KwpaNbjR0eQTL9BIuFGbI/ZPjAD
-	ZhvRRaPAGVsljbi5Xm693XfftWDAWinqhAeEOlezMJYtu4r+1WKPEUGU7aOn3fj4YqCdYSGrABBTr
-	0UAVgLxeetCShAa5+bfsdWwnhYgQkbDGcBxG/WV7F9W+QQf9cLKRsje6zEjf16TRE1vBsDH/Wd/kc
-	SVvxqXqubTMD9sapAMhg==;
+	List-Owner; bh=xL13Q9M+ZIRmIctTVGw5ufKTQp/fIUgBf7dSp7bLIEg=; b=qL0vtsWme3Os4I
+	JWHf5W+QKdIY00VzycjOv0UqfXIVEAkU6qT18+V+KufQ7GGG1UPmO7i/DzBz2reRSA2wMCz4kkGQW
+	KJkz7f428zXfTP8hSSSJpM04TV9xEbPqBzcfAG/NJahl1hjYI4ztlkFAMMQFDhTDW7k4yts7uBIjj
+	ZL+VC41b3F/sIiz9SLIVGELbUehM4KAdqYcUAxg442qefoB5uMb6dxwcBtXoCw7Lz6MjBI68V5dhj
+	2ly09ex8ZmlbcrbeW1SQ5hJapEkHFlqcjp9jO6lqMLm9+ViMAxQu2w9Q2Ymb9nhar5RU7/Dxwav0O
+	Bt2nW3ThY1IAaqQLGr0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl4VT-0000000Fz3z-49NN;
-	Wed, 28 Jan 2026 12:18:47 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1vl4cM-0000000FzjM-06ba;
+	Wed, 28 Jan 2026 12:25:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl4VQ-0000000Fz38-2DaF;
-	Wed, 28 Jan 2026 12:18:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769602725; x=1801138725;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=irHF387VhKHjsOnpsnW9NUk3sxxbxWzln/uy9xgtwqM=;
-  b=D3OHmmEsjUklNavAl49U2/+ZfpomUTMO1jjMRswpLZR97IBYtFJ31ZBt
-   x7kJaa0yX5t/Qk8q31MGwUPlZCST8PYhx0Lpz68DKE0O6Elu4oEPxDqrU
-   +BPHwQTUWado9qgbNEwNnSzJYKltBR6Tn6AotiHHc8g4HOwJCjYfwmMF7
-   o+tm0cE70FtexmZQZ8AQXSnyIfHfM3pYfeNM+SWXI/IR2C+dzj8rSmsMG
-   Y/gdiiIxoTKxWEuZegNM3JP6xnIkYvPvqLrYjLeoV/yVprGSrcB/hOcB2
-   YyEIkj+mE7is7w9kjaeEVUMBeafqfjw/s/ndCi1uEDhEemqO4Hkl5O+dS
-   Q==;
-X-CSE-ConnectionGUID: VQkGhQ5uRUe0FiiquH5crg==
-X-CSE-MsgGUID: j38+SUOERP6su/DVFanKVw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="93469833"
-X-IronPort-AV: E=Sophos;i="6.21,258,1763452800"; 
-   d="scan'208";a="93469833"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jan 2026 04:18:43 -0800
-X-CSE-ConnectionGUID: Q7Z5V0R1RjCKaaK9/1JSxA==
-X-CSE-MsgGUID: tIAdhHReTWOiiIA7g/WWbw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,258,1763452800"; 
-   d="scan'208";a="212353797"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa003.jf.intel.com with ESMTP; 28 Jan 2026 04:18:35 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vl4VE-00000000ZeC-2fMW;
-	Wed, 28 Jan 2026 12:18:32 +0000
-Date: Wed, 28 Jan 2026 20:18:08 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"kernel@xen0n.name" <kernel@xen0n.name>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	"pbonzini@redhat.com" <pbonzini@redhat.com>,
-	"corbet@lwn.net" <corbet@lwn.net>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"oupton@kernel.org" <oupton@kernel.org>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"seanjc@google.com" <seanjc@google.com>,
-	"tglx@kernel.org" <tglx@kernel.org>,
-	"mingo@redhat.com" <mingo@redhat.com>,
-	"bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
-	"luto@kernel.org" <luto@kernel.org>
-Subject: Re: [PATCH v10 01/15] set_memory: set_direct_map_* to take address
-Message-ID: <202601282023.vzRHJBfU-lkp@intel.com>
-References: <20260126164445.11867-2-kalyazin@amazon.com>
+	id 1vl4cH-0000000FziA-0RWA
+	for linux-riscv@lists.infradead.org;
+	Wed, 28 Jan 2026 12:25:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 26EDD60122;
+	Wed, 28 Jan 2026 12:25:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B5FABC16AAE;
+	Wed, 28 Jan 2026 12:25:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769603147;
+	bh=I6SFiFiNnzvjnHZJQs1yZdEPLEEph5L365SmIUtly8I=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=OU2o3bBxSM5A1rMHXtUw9xEqtmgkmj6cXbmCxGqS6X0EtidnKkPBYjT6krRGOojqI
+	 mpDR7Kd6Uh2BjIfIV8dXhTyZwRJxiyT5fEidmjHEKf7HlSB48E5zsoY2NyfxyQ4012
+	 Wjao+LvJjsDC9V3ZEpb7vW/N+IEr7WfSMbUYHvLY/boEqcGMKSx6JKOR1O7DwUBoOB
+	 UkiOFBtB1zzKqmtiQqMpls34ECv54pQxXHdPvHDyJuZkU78hTswdVlp6rtSrFjkdhN
+	 sk6h2XK0zdTlVh+ZlQqmDGITUOuFUMgBLS7YZjM3UEJasM2x/8/5ns/56fK6QJuv7F
+	 EriuEYMdCmx6A==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A886ED25B4C;
+	Wed, 28 Jan 2026 12:25:47 +0000 (UTC)
+From: Ben Zong-You Xie via B4 Relay <devnull+ben717.andestech.com@kernel.org>
+Date: Wed, 28 Jan 2026 20:25:44 +0800
+Subject: [PATCH v3 1/4] dt-bindings: i2c: add support for AE350 I2C
+ controller
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260126164445.11867-2-kalyazin@amazon.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_041844_957065_F9FB8343 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <20260128-atciic100-v3-1-8c002fcc2bb4@andestech.com>
+References: <20260128-atciic100-v3-0-8c002fcc2bb4@andestech.com>
+In-Reply-To: <20260128-atciic100-v3-0-8c002fcc2bb4@andestech.com>
+To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Ben Zong-You Xie <ben717@andestech.com>
+X-Mailer: b4 0.15-dev-47773
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769603146; l=2094;
+ i=ben717@andestech.com; s=20260120; h=from:subject:message-id;
+ bh=NMbc3VIfpHJETsANLk21QTpskUGQ9uYRp5oUEqlzxCU=;
+ b=5BwaIZCAGLFCyGw3oyx8lje/xt4KUylEHsKwfH29eFwHiK8DsNZLbEUPtNEOvRXUFkgOlQEUP
+ cPrJK8pSVBNCXgEwlVdGvD0GBSAuyrI39JRoINgSgovvIEbyrAEo22t
+X-Developer-Key: i=ben717@andestech.com; a=ed25519;
+ pk=nb8L7zQKGJpYk0yvrYKjViOZ34A36g1ZIsCmCsP518s=
+X-Endpoint-Received: by B4 Relay for ben717@andestech.com/20260120 with
+ auth_id=610
+X-Original-From: Ben Zong-You Xie <ben717@andestech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,59 +83,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: ben717@andestech.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nikita,
+From: Ben Zong-You Xie <ben717@andestech.com>
 
-kernel test robot noticed the following build errors:
+Document device tree bindings for the I2C controller on Andes AE350
+platform.
 
-[auto build test ERROR on 0499add8efd72456514c6218c062911ccc922a99]
+The ATCIIC100 is a dedicated I2C controller IP developed by
+Andes Technology. This IP block is a core component of the Andes
+AE350 platform, which serves as a reference architecture for SoC
+designs. The QiLai SoC also integrates this I2C controller.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Kalyazin-Nikita/set_memory-set_direct_map_-to-take-address/20260127-005641
-base:   0499add8efd72456514c6218c062911ccc922a99
-patch link:    https://lore.kernel.org/r/20260126164445.11867-2-kalyazin%40amazon.com
-patch subject: [PATCH v10 01/15] set_memory: set_direct_map_* to take address
-config: loongarch-allnoconfig (https://download.01.org/0day-ci/archive/20260128/202601282023.vzRHJBfU-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 9b8addffa70cee5b2acc5454712d9cf78ce45710)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260128/202601282023.vzRHJBfU-lkp@intel.com/reproduce)
+The binding introduces the following compatible strings:
+- "andestech,qilai-i2c": For the implementation integrated into the
+  Andes QiLai SoC.
+- "andestech,ae350-i2c": As a fallback compatible string representing
+  the base IP design used across the AE350 platform architecture.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601282023.vzRHJBfU-lkp@intel.com/
+Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
+---
+ .../bindings/i2c/andestech,ae350-i2c.yaml          | 45 ++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
 
-All errors (new ones prefixed by >>):
-
->> arch/loongarch/mm/pageattr.c:211:16: error: redefinition of 'addr' with a different type: 'unsigned long' vs 'const void *'
-     211 |         unsigned long addr = (unsigned long)addr;
-         |                       ^
-   arch/loongarch/mm/pageattr.c:209:48: note: previous definition is here
-     209 | int set_direct_map_invalid_noflush(const void *addr)
-         |                                                ^
-   1 error generated.
-
-
-vim +211 arch/loongarch/mm/pageattr.c
-
-   208	
-   209	int set_direct_map_invalid_noflush(const void *addr)
-   210	{
- > 211		unsigned long addr = (unsigned long)addr;
-   212	
-   213		if ((unsigned long)addr < vm_map_base)
-   214			return 0;
-   215	
-   216		return __set_memory((unsigned long)addr, 1, __pgprot(0),
-   217				    __pgprot(_PAGE_PRESENT | _PAGE_VALID));
-   218	}
-   219	
+diff --git a/Documentation/devicetree/bindings/i2c/andestech,ae350-i2c.yaml b/Documentation/devicetree/bindings/i2c/andestech,ae350-i2c.yaml
+new file mode 100644
+index 000000000000..59a521fb249b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/i2c/andestech,ae350-i2c.yaml
+@@ -0,0 +1,45 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/i2c/andestech,ae350-i2c.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Andes I2C controller on AE350 platform
++
++maintainers:
++  - Ben Zong-You Xie <ben717@andestech.com>
++
++allOf:
++  - $ref: /schemas/i2c/i2c-controller.yaml#
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - andestech,qilai-i2c
++          - const: andestech,ae350-i2c
++      - const: andestech,ae350-i2c
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    i2c@f0a00000 {
++        compatible = "andestech,ae350-i2c";
++        reg = <0xf0a00000 0x100000>;
++        interrupts = <6 IRQ_TYPE_LEVEL_HIGH>;
++    };
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.34.1
+
+
 
 _______________________________________________
 linux-riscv mailing list
