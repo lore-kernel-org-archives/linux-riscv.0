@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 422C4D35666
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 03:03:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39035D3566A
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 03:08:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qaTTJFMqwt2AnIsnKq78q1bV98LfEyxKXh+U2s79T3I=; b=PCSYc0DkiDkJOj
-	+zpUYr3y0byjqstMuH9QiU4UHvlTJde0WXVKlKHJpgaHr4xkmSxYhFNGrLvI8sWuLMBo7QE11/0pY
-	0eMkiefi5NJNMMfLMYjFOGqt3TTX2txeyKwMf+zx4TjYKYhBWiKUBcqp5Xb92agEH/B8Wol56syL9
-	VQUFFM8kK5QyypyEuxtCZxgY7ZaKASR495hp2jHdXxMCm7MqzBMxOdt0HYS6A40geemyA1EV+H/hY
-	fBUiubQ9qz8bZhSjFjeuXLh7h4d4M595MaG6wyY2Id3kALYtVrBndpPz5P7QDDHxg9r+hW9856VWs
-	d2flvKEPRC2poOL1mqvg==;
+	List-Owner; bh=Me6TJULhhs9cWQAJl6lrWu6wdlfxcHHTU/TtCydpkQI=; b=FnWh/HjJarwBt/
+	Z3kqbFn9rYGUl82m+X2k7EPH9YLB0VF1s61MksNxzmb6cw6taB40bs4IobHJxd0fZvXYAabZ1crDJ
+	GvkSN6YHdyMVmaio7q68gHBFfEtDoqowWAKLC2Mt0jqOVC88l7qkvvvZKMYOWXmTVygLFgqpMHS6s
+	0X6GG+ail2u/xUDf4qq4K68HSdDYVZh9lWDiwfjR9DTDPy0ylytyD+huZMg156zVuUl3wTGi2UYXi
+	Xvwlw5IeLASJyvNnYGJe708D2I9c3J4jKopjcpI62flqKDl38NBtY9OWKR/KWNFrkPjf/FIKGqFqP
+	eaja41VC9jB8Iky806kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkvp7-0000000FKro-3RED;
-	Wed, 28 Jan 2026 03:02:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vkvup-0000000FLNN-2gOt;
+	Wed, 28 Jan 2026 03:08:23 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkvp6-0000000FKr6-2nI6
+	id 1vkvum-0000000FLN5-1ing
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 03:02:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1F9F460007;
-	Wed, 28 Jan 2026 03:02:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2635C19425;
-	Wed, 28 Jan 2026 03:02:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769569347;
-	bh=H9NXgJot6Ofd8DdlL75INUWfELwxu3+FrH0VklUOezc=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Rk5/BmybWlM47xVlmxM8eKaBG5BmPG8Zym64Sejpg1wuTYn6mFccBTi6agVt02bmo
-	 u+YgkbPBfGqCqvDEULJ04NvMD8Vz9i0877TM79w8ihEXVf/iMwUHcFvS25bXFLDKxM
-	 0KSyrEMdYg7D+xdjAN28imLlOw6nVwyy5aYysfw0iwxzxxqUD0RvVf9WrFJ5hFprR2
-	 mOOmUaZNNk4hQu5l/SAtbmX7wn5fBiv60X4k7AAkpAlX0U9M2Jry2Dx1xaqeh0wBK1
-	 Z5tDpU6ThFIlakj2ETw6v6af2NY/ifIFI+D/fcH9vJa9M1p+AGRahLkH0XcJpVItfQ
-	 Jq5T4F01Zu5+Q==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Chen Wang <unicorn_wang@outlook.com>, 
- Inochi Amaoto <inochiama@gmail.com>, 
- "Anton D. Stavinskii" <stavinsky@gmail.com>
-Cc: linux-sound@vger.kernel.org, sophgo@lists.linux.dev, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org
-In-Reply-To: <20260127-incremental-for-i2s-dvier-v2-0-5f66b841f63d@gmail.com>
-References: <20260127-incremental-for-i2s-dvier-v2-0-5f66b841f63d@gmail.com>
-Subject: Re: [PATCH v2 0/2] ASoC: sophgo: cv1800b: document DAC overwrite
- handling
-Message-Id: <176956934454.1515833.15704162153202007918.b4-ty@kernel.org>
-Date: Wed, 28 Jan 2026 03:02:24 +0000
+	Wed, 28 Jan 2026 03:08:22 +0000
+Received: from [192.168.0.109] (unknown [123.118.222.47])
+	by APP-05 (Coremail) with SMTP id zQCowAC3Sw+bfXlpAQvXBg--.33087S2;
+	Wed, 28 Jan 2026 11:08:12 +0800 (CST)
+Message-ID: <dc31ca81-1854-41ba-a448-718ba1f781da@iscas.ac.cn>
+Date: Wed, 28 Jan 2026 11:08:11 +0800
 MIME-Version: 1.0
-X-Mailer: b4 0.15-dev-47773
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2] net: spacemit: k1-emac: program frame size
+ registers for jumbo frames
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Tomas Hlavacek <tmshlvck@gmail.com>, netdev@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, Yixun Lan <dlan@kernel.org>
+References: <20260126135919.77168-1-tmshlvck@gmail.com>
+ <20260126171449.83288-1-tmshlvck@gmail.com>
+ <9f424b4e-b83b-47a0-8637-3df25e504be7@iscas.ac.cn>
+ <20260127172401.4bb7bd83@kernel.org>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <20260127172401.4bb7bd83@kernel.org>
+X-CM-TRANSID: zQCowAC3Sw+bfXlpAQvXBg--.33087S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUY67k0a2IF6FyUM7kC6x804xWl14x267AK
+	xVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGw
+	A2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26r4j
+	6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2z280aVAFwI0_Cr
+	1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv
+	0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z2
+	80aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF
+	7I0E8cxan2IY04v7MxAIw28IcxkI7VAKI48JMxAqzxv26xkF7I0En4kS14v26r1q6r43Mx
+	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
+	wI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20x
+	vE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v2
+	0xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxV
+	W8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8fwIDUUUUU==
+X-Originating-IP: [123.118.222.47]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260127_190820_852895_6B05BDBD 
+X-CRM114-Status: UNSURE (   4.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,47 +87,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 27 Jan 2026 23:08:18 +0400, Anton D. Stavinskii wrote:
-> An incremental patch on top of
-> "[PATCH v4 5/6] ASoC: sophgo: add CV1800B internal DAC"
-> adding the explanatory comments as requested.
-> https://lore.kernel.org/all/20260120-cv1800b-i2s-driver-v4-0-6ef787dc6426@gmail.com/
-> 
-> changes:
->  - added description for cv1800b_dac_mute function
->  - fixed "extra change" from previos commit
-> 
-> [...]
+On 1/28/26 09:24, Jakub Kicinski wrote:
+> On Tue, 27 Jan 2026 12:58:21 +0800 Vivian Wang wrote:
+>> Oh and... maybe these should be priv->ndev->mtu + ETH_HLEN + ETH_FCS_LEN?
+> + 2 * VLAN_HLEN perhaps?
 
-Applied to
+... yeah looks like I've simply messed up the whole MTU and max frame
+size configuration thing.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+* Tomas: Do you still want to deal with all this and figure out all the
+MTU stuff that needs to be fixed? I can give it a go but I don't want to
+steal your credit.
 
-Thanks!
+Regards,
+Vivian "dramforever" Wang
 
-[1/2] ASoC: sophgo: cv1800b: document DAC overwrite handling
-      commit: a8e3e488293118b8fa5d5e7ca786ca25b954ce12
-[2/2] ASoC: sophgo: cv1800b: tidy Kconfig spacing
-      commit: 8cf19b19dba8814ccc8b1179dabf28b7f8eefc22
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
 
 
 _______________________________________________
