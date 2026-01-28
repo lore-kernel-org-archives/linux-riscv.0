@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A347CD25B7F
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 13:55:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8032AD25B7E
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 13:55:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6wPyJuaho6ML6o4Kq1rS0Y3xjTgw8TZcizag5htEw4Y=; b=g/g1PjZqkg20ro
-	B3LV0LLapM5gT9CGfwVbvNBKayo1KlZCYI/YWiE+ZYDzQ0RkoPrWx0lm9n8T7kP7leXJup9NHK7DL
-	P8r384PFACwi3VRUK7TJhHhNLKTHRp0ep5gFMPDlOFY6erux45Vyzh/FDXdvYM+VsTjx5tgZfvv1V
-	sbeXSSIebYJgmlne5IaJehf6pB0Jjk7/uIpp2th6wyBzsjRfe4wKL14tGKm8m2GDItP03Qfh710qK
-	iZOcD9DNNOcAuXRJsv/EKUKvzfaJd9Qc21GGpv4oqKxD//Ov6krC1Z2DwpVURkrjaLKvoCmOymrfW
-	tf1otV7586Kt/Uc7w1cw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3d8v7jAeE/oXSSo6XFxJHaNPupNxsYSJ3GcSJ2Axzw0=; b=ImL450OJyk3qal
+	oOIb2DOHkvcbtxrhlWJWv25MFQwrMPpb4GtNBNzd4M13aqmAs7nrbE83RsevrX062uu6qrfrkvNzG
+	h0ufuMTMSmoh9PnJombo26CLJbe9qxs0e9hTv0RqgpuODaUYDBl7jSoIDlUJ+A+yo/CsVDx6JbCLD
+	MLuQLqFhdCK6jr9TSb8xsSSR/rm7ojjgDRpC/PUCG2hVy4Xmy1hFfecQTKBSflsINQTosoNK+izs4
+	5fXNghUnF/A+RFbGFJPz8TjTaKD4/k7nNPajwXFxQpOESrTgZG6s9iultzxQJO73lPqJSnlMO8lXi
+	KFSleNWmg4rKic3OmcYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl60i-0000000G6fI-416m;
-	Wed, 28 Jan 2026 13:55:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vl60n-0000000G6gA-19ml;
+	Wed, 28 Jan 2026 13:55:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl60h-0000000G6f7-0SwI
+	id 1vl60m-0000000G6fw-1KkL
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 13:55:07 +0000
+	Wed, 28 Jan 2026 13:55:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2BFF060007;
-	Wed, 28 Jan 2026 13:55:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65EB2C4CEF1;
-	Wed, 28 Jan 2026 13:55:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 700FE60097;
+	Wed, 28 Jan 2026 13:55:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77FDBC4CEF7;
+	Wed, 28 Jan 2026 13:55:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769608505;
-	bh=fxqweZtjhNjUzXJhjxx9w3CvgIGRJ0HGBGSiQo/CyUw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=EhYRrrvLq4w5jX7F0H+PWO1qRP7+MGhf3VoTevKWhHArD7JQIf/qz4bjUGHOyxuC+
-	 eawFFU4mAqNhcv8nGg8bM99TH6JE8fEe/lh5og7SBrVu7gTDR7CXO5qxlQ8ROlE9PY
-	 GxLtlICXa0/CHRrMPOZvYZjJdpzjqfuGbzs5gqVIB5e9QzQXmFvAzlL+EoWJs3MSkg
-	 dxRSPB+bch1h5Ju2Zzk168tYPZYdfAdy+oOnS7+jfZDhGHOMR7/oyDbn+eGgOCcwgA
-	 nPhRGR1dInw+C+HuVW0hATRYwXaLMYLMQaF/0l6oN+xmNSvSlP5iVFFwScRiVSoaPj
-	 uX0zZlwn0Jc4A==
+	s=k20201202; t=1769608511;
+	bh=AAnIadXhZxE/xw6Xd6felYchHz0PQHYO69+c3YSZCe8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=GSKal1mdGyYmQdTcYaYWCrpQxqhSa0abl4M88scQ0oD0CPPMAn/W/ziTb5o6fOIqc
+	 4GviC1yzRokvwgBPo4Mn5i1z42TFw9Hv68PgJkXY/+KkOZpWAwQaIU12j6Uf7dKtFz
+	 sHAzx+zvICzU/5o5F6m8Ryb4pX9Hbm/GdWN6XQG/34VCS/0U7VkyhuCgEHbfl/Uzko
+	 /NYsD50WtFXcMPBlu1X9gfC7Tclo9vEz1mttJ/MAqP32i3lGlfcKDRiiHIw3kPj3ng
+	 bZ9wOztB2fskRP8QTnEYtDbUiYRl4+quj2VGGyJodJ/hEy9+8gwkIrtokcI8mBw0nu
+	 PcDvqL6OGjZoA==
 Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 89104F4006D;
-	Wed, 28 Jan 2026 08:55:04 -0500 (EST)
+	by mailfauth.phl.internal (Postfix) with ESMTP id 9C036F4006A;
+	Wed, 28 Jan 2026 08:55:09 -0500 (EST)
 Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-01.internal (MEProxy); Wed, 28 Jan 2026 08:55:04 -0500
-X-ME-Sender: <xms:OBV6aaPPMvM1-Yc9LoXUPUaMbyOwsY1rENAo48XpltruwcQHBOy7DA>
-    <xme:OBV6aSLkI0ccUxbDEQI6fL9V_uyliBzDOzM1n7KPyuLG0lkyvYwvr5SGAezJF09IX
-    RoAqFt6Nodgd-k_IbhDbDUqiShK1alXv0uxwsF5aCzc83ykDQX2MDY>
-X-ME-Received: <xmr:OBV6abaPRFLoERJO1xQZX_Ed5t8_gDXUzxVwd5N0cpu4Xux0js8FQUJ4Hahd_g>
+  by phl-compute-01.internal (MEProxy); Wed, 28 Jan 2026 08:55:09 -0500
+X-ME-Sender: <xms:PRV6aXctoo9CvAcsI446BvMWXAjccvR2nSboGgyGbdhtTMUvA4Vb3A>
+    <xme:PRV6adUlombAl4wSx96uHdftCOkeDK6SC_bmPGpqN_kEHTckWMCqGpQxzrf2FvInZ
+    8mdZth2kFyYXxeRpZbfvz8-8dQls-c1TiwooI8aOyQ_R3NSg3ZUt-8>
+X-ME-Received: <xmr:PRV6aeXXOfJhXd26JAR1fWCiG3wHqvMDjS3O2y2aQ12Nw4_7Hj9vou1sBmpYZw>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduieefheegucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhephffvvefufffkofgggfestdekredtredttdenucfhrhhomhepmfhirhihlhcuufhh
-    uhhtshgvmhgruhcuoehkrghssehkvghrnhgvlhdrohhrgheqnecuggftrfgrthhtvghrnh
-    epffdvhfdtgfekuddttdffgeeljeehueffvdfgjeejvdetiedtfeefgfetgfffhfffnecu
-    vehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepkhhirhhilh
-    hlodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieduudeivdeiheehqddv
-    keeggeegjedvkedqkhgrsheppehkvghrnhgvlhdrohhrghesshhhuhhtvghmohhvrdhnrg
-    hmvgdpnhgspghrtghpthhtohepvdekpdhmohguvgepshhmthhpohhuthdprhgtphhtthho
-    pegrkhhpmheslhhinhhugidqfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtohepmh
-    hutghhuhhnrdhsohhngheslhhinhhugidruggvvhdprhgtphhtthhopegurghvihgusehr
-    vgguhhgrthdrtghomhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrggurdhorh
-    hgpdhrtghpthhtohepuhhsrghmrggrrhhifheigedvsehgmhgrihhlrdgtohhmpdhrtghp
-    thhtohepfhhvughlsehgohhoghhlvgdrtghomhdprhgtphhtthhopehoshgrlhhvrgguoh
-    hrsehsuhhsvgdruggvpdhrtghpthhtoheprhhpphhtsehkvghrnhgvlhdrohhrghdprhgt
-    phhtthhopehvsggrsghkrgesshhushgvrdgtii
-X-ME-Proxy: <xmx:OBV6abkHOi0XxIHwLmbGmyEfUq6XgXtLhb4rAo_x4GuRaXlHl7o5gw>
-    <xmx:OBV6aeZp7NXOkrQr0rTFx3DgFhu1k8MKCl0rc-aBlRVLcp2bgv2D7w>
-    <xmx:OBV6abA-IQ0-64zbkFo4K51Ld32rKkDXxPTJkLLlbF25ktvL1fscig>
-    <xmx:OBV6acY4Hwzt12D1Yn7yZUMjZ6V_lPOgduLZIgtlSTIr1ab8XtFONA>
-    <xmx:OBV6aXjw3K5ggxbRrx212NCPfk0pnyfme_AFgqsqH4euXtTZbO1cOQAS>
+    gurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepmfhirhihlhcu
+    ufhhuhhtshgvmhgruhcuoehkrghssehkvghrnhgvlhdrohhrgheqnecuggftrfgrthhtvg
+    hrnhephfdufeejhefhkedtuedvfeevjeffvdfhvedtudfgudffjeefieekleehvdetvdev
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepkhhirh
+    hilhhlodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieduudeivdeiheeh
+    qddvkeeggeegjedvkedqkhgrsheppehkvghrnhgvlhdrohhrghesshhhuhhtvghmohhvrd
+    hnrghmvgdpnhgspghrtghpthhtohepvdelpdhmohguvgepshhmthhpohhuthdprhgtphht
+    thhopegrkhhpmheslhhinhhugidqfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoh
+    epmhhutghhuhhnrdhsohhngheslhhinhhugidruggvvhdprhgtphhtthhopegurghvihgu
+    sehrvgguhhgrthdrtghomhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrggurd
+    horhhgpdhrtghpthhtohepuhhsrghmrggrrhhifheigedvsehgmhgrihhlrdgtohhmpdhr
+    tghpthhtohepfhhvughlsehgohhoghhlvgdrtghomhdprhgtphhtthhopehoshgrlhhvrg
+    guohhrsehsuhhsvgdruggvpdhrtghpthhtoheprhhpphhtsehkvghrnhgvlhdrohhrghdp
+    rhgtphhtthhopehvsggrsghkrgesshhushgvrdgtii
+X-ME-Proxy: <xmx:PRV6adPpqUuA53jX-Gx5rGE3Y2LI7uv89Odvj7UIdDFmCOMzVBKSQA>
+    <xmx:PRV6aR7PCcJrhG-wm3HqCMnc35XfrvBoeRE_2IXOauSejyCeMoMTNA>
+    <xmx:PRV6aWoXcBHQ_v2j3ZcrDozr4huvlUdeHhlsZZGpoOxjreE6hDqF3w>
+    <xmx:PRV6aXBa7YZQ0lcR5V9u9YptXp9OdeoQDS02F41otLs02d1-x5Rz5Q>
+    <xmx:PRV6aUcjIyt9oZyw7hFCtgE-pDDbiRss8bEHzKmAGSOvysTO_bD_PYD2>
 Feedback-ID: i10464835:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 28 Jan 2026 08:55:03 -0500 (EST)
+ 28 Jan 2026 08:55:07 -0500 (EST)
 From: Kiryl Shutsemau <kas@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	Muchun Song <muchun.song@linux.dev>,
@@ -104,11 +104,14 @@ Cc: Oscar Salvador <osalvador@suse.de>,
 	linux-doc@vger.kernel.org,
 	loongarch@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
-	Kiryl Shutsemau <kas@kernel.org>
-Subject: [PATCHv5 00/17] mm: Eliminate fake head pages from vmemmap optimization
-Date: Wed, 28 Jan 2026 13:54:41 +0000
-Message-ID: <20260128135500.22121-1-kas@kernel.org>
+	Kiryl Shutsemau <kas@kernel.org>,
+	"David Hildenbrand (Red Hat)" <david@kernel.org>
+Subject: [PATCHv5 01/17] mm: Move MAX_FOLIO_ORDER definition to mmzone.h
+Date: Wed, 28 Jan 2026 13:54:42 +0000
+Message-ID: <20260128135500.22121-2-kas@kernel.org>
 X-Mailer: git-send-email 2.51.2
+In-Reply-To: <20260128135500.22121-1-kas@kernel.org>
+References: <20260128135500.22121-1-kas@kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -126,187 +129,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series removes "fake head pages" from the HugeTLB vmemmap
-optimization (HVO) by changing how tail pages encode their relationship
-to the head page.
+Move MAX_FOLIO_ORDER definition from mm.h to mmzone.h.
 
-It simplifies compound_head() and page_ref_add_unless(). Both are in the
-hot path.
+This is preparation for adding the vmemmap_tails array to struct
+pglist_data, which requires MAX_FOLIO_ORDER to be available in mmzone.h.
 
-Background
-==========
+Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
+Acked-by: David Hildenbrand (Red Hat) <david@kernel.org>
+Acked-by: Zi Yan <ziy@nvidia.com>
+Acked-by: Muchun Song <muchun.song@linux.dev>
+---
+ include/linux/mm.h     | 31 -------------------------------
+ include/linux/mmzone.h | 31 +++++++++++++++++++++++++++++++
+ 2 files changed, 31 insertions(+), 31 deletions(-)
 
-HVO reduces memory overhead by freeing vmemmap pages for HugeTLB pages
-and remapping the freed virtual addresses to a single physical page.
-Previously, all tail page vmemmap entries were remapped to the first
-vmemmap page (containing the head struct page), creating "fake heads" -
-tail pages that appear to have PG_head set when accessed through the
-deduplicated vmemmap.
-
-This required special handling in compound_head() to detect and work
-around fake heads, adding complexity and overhead to a very hot path.
-
-New Approach
-============
-
-For architectures/configs where sizeof(struct page) is a power of 2 (the
-common case), this series changes how position of the head page is encoded
-in the tail pages.
-
-Instead of storing a pointer to the head page, the ->compound_info
-(renamed from ->compound_head) now stores a mask.
-
-The mask can be applied to any tail page's virtual address to compute
-the head page address. Critically, all tail pages of the same order now
-have identical compound_info values, regardless of which compound page
-they belong to.
-
-The key insight is that all tail pages of the same order now have
-identical compound_info values, regardless of which compound page they
-belong to. This allows a single page of tail struct pages to be shared
-across all huge pages of the same order on a NUMA node.
-
-Benefits
-========
-
-1. Simplified compound_head(): No fake head detection needed, can be
-   implemented in a branchless manner.
-
-2. Simplified page_ref_add_unless(): RCU protection removed since there's
-   no race with fake head remapping.
-
-3. Cleaner architecture: The shared tail pages are truly read-only and
-   contain valid tail page metadata.
-
-If sizeof(struct page) is not power-of-2, there are no functional changes.
-HVO is not supported in this configuration.
-
-I had hoped to see performance improvement, but my testing thus far has
-shown either no change or only a slight improvement within the noise.
-
-Series Organization
-===================
-
-Patch 1: Preparation - move MAX_FOLIO_ORDER to mmzone.h
-Patches 2-4: Refactoring - interface changes, field rename, code movement
-Patches 5-6: Arch fixes - align vmemmap for riscv and LoongArch
-Patch 7: Core change - new mask-based compound_head() encoding
-Patch 8: Correctness fix - page_zonenum() must use head page
-Patch 9: Add memmap alignment check for compound_info_has_mask()
-Patch 10: Refactor vmemmap_walk for new design
-Patch 11: Eliminate fake heads with shared tail pages
-Patches 12-15: Cleanup - remove fake head infrastructure
-Patch 16: Documentation update
-Patch 17: Get rid of opencoded compound_head() in page_slab()
-
-Changes in v5:
-==============
-  - Rebased to mm-everything-2026-01-27-04-35
-
-  - Add arch-specific patches to align vmemmap to maximal folio size
-    for riscv and LoongArch architectures.
-
-  - Strengthen the memmap alignment check in mm/sparse.c: use BUG()
-    for CONFIG_DEBUG_VM, WARN() otherwise. (Muchun)
-
-  - Use cmpxchg() instead of hugetlb_lock to update vmemmap_tails
-    array. (Muchun)
-
-  - Update page_slab().
-
-Changes in v4:
-==============
-  - Fix build issues due to linux/mmzone.h <-> linux/pgtable.h
-    dependency loop by avoiding including linux/pgtable.h into
-    linux/mmzone.h
-
-  - Rework vmemmap_remap_alloc() interface. (Muchun)
-
-  - Use &folio->page instead of folio address for optimization
-    target. (Muchun)
-
-Changes in v3:
-==============
-  - Fixed error recovery path in vmemmap_remap_free() to pass correct start
-    address for TLB flush. (Muchun)
-
-  - Wrapped the mask-based compound_info encoding within CONFIG_SPARSEMEM_VMEMMAP
-    check via compound_info_has_mask(). For other memory models, alignment
-    guarantees are harder to verify. (Muchun)
-
-  - Updated vmemmap_dedup.rst documentation wording: changed "vmemmap_tail
-    shared for the struct hstate" to "A single, per-node page frame shared
-    among all hugepages of the same size". (Muchun)
-
-  - Fixed build error with MAX_FOLIO_ORDER expanding to undefined PUD_ORDER
-    in certain configurations. (kernel test robot)
-
-Changes in v2:
-==============
-
-- Handle boot-allocated huge pages correctly. (Frank)
-
-- Changed from per-hstate vmemmap_tail to per-node vmemmap_tails[] array
-  in pglist_data. (Muchun)
-
-- Added spin_lock(&hugetlb_lock) protection in vmemmap_get_tail() to fix
-  a race condition where two threads could both allocate tail pages.
-  The losing thread now properly frees its allocated page. (Usama)
-
-- Add warning if memmap is not aligned to MAX_FOLIO_SIZE, which is
-  required for the mask approach. (Muchun)
-
-- Make page_zonenum() use head page - correctness fix since shared
-  tail pages cannot have valid zone information. (Muchun)
-
-- Added 'const' qualifier to head parameter in set_compound_head() and
-  prep_compound_tail(). (Usama)
-
-- Updated commit messages.
-
-
-Kiryl Shutsemau (17):
-  mm: Move MAX_FOLIO_ORDER definition to mmzone.h
-  mm: Change the interface of prep_compound_tail()
-  mm: Rename the 'compound_head' field in the 'struct page' to
-    'compound_info'
-  mm: Move set/clear_compound_head() next to compound_head()
-  riscv/mm: Align vmemmap to maximal folio size
-  LoongArch/mm: Align vmemmap to maximal folio size
-  mm: Rework compound_head() for power-of-2 sizeof(struct page)
-  mm: Make page_zonenum() use head page
-  mm/sparse: Check memmap alignment for compound_info_has_mask()
-  mm/hugetlb: Refactor code around vmemmap_walk
-  mm/hugetlb: Remove fake head pages
-  mm: Drop fake head checks
-  hugetlb: Remove VMEMMAP_SYNCHRONIZE_RCU
-  mm/hugetlb: Remove hugetlb_optimize_vmemmap_key static key
-  mm: Remove the branch from compound_head()
-  hugetlb: Update vmemmap_dedup.rst
-  mm/slab: Use compound_head() in page_slab()
-
- .../admin-guide/kdump/vmcoreinfo.rst          |   2 +-
- Documentation/mm/vmemmap_dedup.rst            |  62 ++--
- arch/loongarch/include/asm/pgtable.h          |   3 +-
- arch/riscv/mm/init.c                          |   3 +-
- include/linux/mm.h                            |  31 --
- include/linux/mm_types.h                      |  20 +-
- include/linux/mmzone.h                        |  46 +++
- include/linux/page-flags.h                    | 167 +++++-----
- include/linux/page_ref.h                      |   8 +-
- include/linux/types.h                         |   2 +-
- kernel/vmcore_info.c                          |   2 +-
- mm/hugetlb.c                                  |   8 +-
- mm/hugetlb_vmemmap.c                          | 290 ++++++++----------
- mm/internal.h                                 |  12 +-
- mm/mm_init.c                                  |   2 +-
- mm/page_alloc.c                               |   4 +-
- mm/slab.h                                     |   8 +-
- mm/sparse-vmemmap.c                           |  44 ++-
- mm/sparse.c                                   |  13 +
- mm/util.c                                     |  16 +-
- 20 files changed, 371 insertions(+), 372 deletions(-)
-
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index f8a8fd47399c..8d5fa655fea4 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -27,7 +27,6 @@
+ #include <linux/page-flags.h>
+ #include <linux/page_ref.h>
+ #include <linux/overflow.h>
+-#include <linux/sizes.h>
+ #include <linux/sched.h>
+ #include <linux/pgtable.h>
+ #include <linux/kasan.h>
+@@ -2477,36 +2476,6 @@ static inline unsigned long folio_nr_pages(const struct folio *folio)
+ 	return folio_large_nr_pages(folio);
+ }
+ 
+-#if !defined(CONFIG_HAVE_GIGANTIC_FOLIOS)
+-/*
+- * We don't expect any folios that exceed buddy sizes (and consequently
+- * memory sections).
+- */
+-#define MAX_FOLIO_ORDER		MAX_PAGE_ORDER
+-#elif defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
+-/*
+- * Only pages within a single memory section are guaranteed to be
+- * contiguous. By limiting folios to a single memory section, all folio
+- * pages are guaranteed to be contiguous.
+- */
+-#define MAX_FOLIO_ORDER		PFN_SECTION_SHIFT
+-#elif defined(CONFIG_HUGETLB_PAGE)
+-/*
+- * There is no real limit on the folio size. We limit them to the maximum we
+- * currently expect (see CONFIG_HAVE_GIGANTIC_FOLIOS): with hugetlb, we expect
+- * no folios larger than 16 GiB on 64bit and 1 GiB on 32bit.
+- */
+-#define MAX_FOLIO_ORDER		get_order(IS_ENABLED(CONFIG_64BIT) ? SZ_16G : SZ_1G)
+-#else
+-/*
+- * Without hugetlb, gigantic folios that are bigger than a single PUD are
+- * currently impossible.
+- */
+-#define MAX_FOLIO_ORDER		PUD_ORDER
+-#endif
+-
+-#define MAX_FOLIO_NR_PAGES	(1UL << MAX_FOLIO_ORDER)
+-
+ /*
+  * compound_nr() returns the number of pages in this potentially compound
+  * page.  compound_nr() can be called on a tail page, and is defined to
+diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
+index 3e51190a55e4..be8ce40b5638 100644
+--- a/include/linux/mmzone.h
++++ b/include/linux/mmzone.h
+@@ -23,6 +23,7 @@
+ #include <linux/page-flags.h>
+ #include <linux/local_lock.h>
+ #include <linux/zswap.h>
++#include <linux/sizes.h>
+ #include <asm/page.h>
+ 
+ /* Free memory management - zoned buddy allocator.  */
+@@ -61,6 +62,36 @@
+  */
+ #define PAGE_ALLOC_COSTLY_ORDER 3
+ 
++#if !defined(CONFIG_HAVE_GIGANTIC_FOLIOS)
++/*
++ * We don't expect any folios that exceed buddy sizes (and consequently
++ * memory sections).
++ */
++#define MAX_FOLIO_ORDER		MAX_PAGE_ORDER
++#elif defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
++/*
++ * Only pages within a single memory section are guaranteed to be
++ * contiguous. By limiting folios to a single memory section, all folio
++ * pages are guaranteed to be contiguous.
++ */
++#define MAX_FOLIO_ORDER		PFN_SECTION_SHIFT
++#elif defined(CONFIG_HUGETLB_PAGE)
++/*
++ * There is no real limit on the folio size. We limit them to the maximum we
++ * currently expect (see CONFIG_HAVE_GIGANTIC_FOLIOS): with hugetlb, we expect
++ * no folios larger than 16 GiB on 64bit and 1 GiB on 32bit.
++ */
++#define MAX_FOLIO_ORDER		get_order(IS_ENABLED(CONFIG_64BIT) ? SZ_16G : SZ_1G)
++#else
++/*
++ * Without hugetlb, gigantic folios that are bigger than a single PUD are
++ * currently impossible.
++ */
++#define MAX_FOLIO_ORDER		PUD_ORDER
++#endif
++
++#define MAX_FOLIO_NR_PAGES	(1UL << MAX_FOLIO_ORDER)
++
+ enum migratetype {
+ 	MIGRATE_UNMOVABLE,
+ 	MIGRATE_MOVABLE,
 -- 
 2.51.2
 
