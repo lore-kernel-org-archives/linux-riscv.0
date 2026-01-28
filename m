@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 113B3D46BF8
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 20:28:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB2EAD46BFC
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 20:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RNaiChDmGFu+gtETV6uicSlskySVTUy+JVfTVUMqrQs=; b=okmj+VDSs4m5Wl
-	g8MbPwg10i9SmUqYses+hWF6vtA4IwMipE3+QjNoy3tlwVCS+rIrZ4Ahs38ZtQxPebo7PYx9e1hzG
-	pS209JTQ/7W/s261dJmSR5HAGxm6E9OhX9zk54AqY7IubDtnx6/4n6P+N0WfXwHjCj9t08A23LbyN
-	UPrDkxtD4uFKL98CYPR7FiuA+UzauSqvM3bljUzFRPURHhahXhx88UyIM8AZ4zrEg/HbA7ofG8R2K
-	zB91dBrzNzEO4Lhz6y8X45PiKtKAtRkDVzHEqjlxtYylBl2H6RKnN77xssZ/ITRJ53j87AKBAT/rJ
-	m5a7MzCL+N1qwiGc2MaQ==;
+	List-Owner; bh=tQiVQdP09+WCG5hblKY1S4Npnav1aWwx/3s0u+nDTww=; b=PIXq+kpsMfTbHj
+	R62+5vlyj2hswCWDjDw4Nv7l1gXZoTSsIRQYDSwC5d2MFDvtMatCsNgxknPOUHBMB5rUDv1JAXyaQ
+	dpGvpsKpKbvMdHZwlDiLiz9stCTF6ANffy3UQdUHm6nTVy26AkqwJIBk45iD/ERFTjyVn06mwTjM6
+	aAhQkTWfQM6bsGJX4GoBkF7RP7vHdURRRIaQof/U3StfyUGj6cZ6xSz5xawA17/f9rdfvVfAouelQ
+	2YgvyM6UI7VdgWERkz9D3Ou8b+f2AXSZVywMvQL3bXNHL4N1yCtB6p1Ychvgl6BhJ5allFd1927sK
+	lGIxSXBvqEivf3Ju8umA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlC9M-0000000GkID-44wl;
-	Wed, 28 Jan 2026 20:28:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vlC9N-0000000GkJP-3XLX;
+	Wed, 28 Jan 2026 20:28:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlC95-0000000Gk3G-01Qx
+	id 1vlC95-0000000Gk0f-44Zq
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 20:28:12 +0000
+	Wed, 28 Jan 2026 20:28:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A584D44528;
-	Wed, 28 Jan 2026 20:28:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AE73C2BCB6;
-	Wed, 28 Jan 2026 20:28:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D335E44529;
+	Wed, 28 Jan 2026 20:28:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4242EC19421;
+	Wed, 28 Jan 2026 20:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769632090;
-	bh=ocyqe4U7WsJJbTpfliXFcM4vxluIpCLTh7ZpGc7FQ9c=;
+	s=k20201202; t=1769632091;
+	bh=4o0KFAigHCtXfQSjAvAOAbc0aP+19v9iIO4nX66XDCM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=HbukFBG+BVdHcteku9MwelF3rnMrQgJFghq6OZXCg5Wo5w/M6fgaw9wzgtHBlHOW1
-	 rW+G8vQfaNvEpize+pVloepoxynpzcwSDZtd1EvjSC7x6CRsoL+mEwfeiWcRaINuAB
-	 HteP3IzzZ4ADheYpxvQLwdEw4d45oPj+bD4erFph+GLriIDePg7Wy0A795AFfwg58Q
-	 oPznvx57FUi9ilO1GmxcLQEd3anBF7PgGs6eLNE0VUweCeMp0zy8wox7hUNXwW9sYN
-	 nrkbieancGhVy32DDtoVxFMZ22KPgdi7fRCht6u66H7FBBP/GsUmiYk9w4BxjqokkX
-	 +WncgTdQo4sjA==
+	b=vJq1dOMePTouoidO/P2tv+4dKpxFdEC2aSVyZi0wNFbc6ZsUxexPgDwcQi96Ht9E3
+	 pxTjJFsUzUNZiAbloJoMLqK2b6OyYUFBESwWfzSZUdhu9rQa2ZS+hoKUY6Kmvtwkwm
+	 wBVOuHKRAGZZthnQHbjcESTZIazXMrj7KBvoFCxBYAyn05MPA4pUnGno7CFafh3H/S
+	 Y/EMMUO3C+beVB6aNfLRIo7XkNbmIZqgvmkyOl7IyU7uQP/I1c/32WrRl/aOyS3CK0
+	 YN2gEB5ZkokGY20mtw0zFTfD7i91rj6M+Nq0muzJA6k/z4bsNtJMUIqXsWFflTX7tY
+	 Rsmrpn5quQUdg==
 From: Drew Fustini <fustini@kernel.org>
-Date: Wed, 28 Jan 2026 12:27:34 -0800
-Subject: [PATCH RFC v2 13/17] acpi: pptt: Add helper to find a cache from
- id
+Date: Wed, 28 Jan 2026 12:27:36 -0800
+Subject: [PATCH RFC v2 15/17] RISC-V: QoS: add Cache ID and Prox Dom to
+ CBQRI controllers
 MIME-Version: 1.0
-Message-Id: <20260128-ssqosid-cbqri-v2-13-dca586b091b9@kernel.org>
+Message-Id: <20260128-ssqosid-cbqri-v2-15-dca586b091b9@kernel.org>
 References: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
 In-Reply-To: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -77,17 +77,18 @@ To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 Cc: Paul Walmsley <paul.walmsley@sifive.com>, linux-acpi@vger.kernel.org, 
  acpica-devel@lists.linux.dev, devicetree@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3896; i=fustini@kernel.org;
- h=from:subject:message-id; bh=ocyqe4U7WsJJbTpfliXFcM4vxluIpCLTh7ZpGc7FQ9c=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWRWFQZ+FZveccRm85//urc4F8ws39AV4PNEeSnr7A3fJ
- qQfjjZR6ihlYRDjYpAVU2TZ9CHvwhKv0K8L5r/YBjOHlQlkCAMXpwBMZN5JRoY9yR671mX9nXtM
- Y0eh5fX2lpN5ji2OBTNnHiqsUwgTMzZn+B86nb1+klSz0ddQYdlrLO/8j2srLPvgcEXN9ulepdj
- O1ywA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=899; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=4o0KFAigHCtXfQSjAvAOAbc0aP+19v9iIO4nX66XDCM=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWRWFQYKivn8UZhwb8bOXbu6v8tnpR05HvQsufNYFt+j1
+ afM6u6od5SyMIhxMciKKbJs+pB3YYlX6NcF819sg5nDygQyhIGLUwAmsqae4X94zqLaLyYnUleZ
+ KwvYv8uQ8nPp4djz44G1stUU3YVf4m8w/C/18GCrmGqa9rfnLzOP2282w/m9/VW2p9ee41n83XB
+ /Py8A
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_122811_210721_6A8367D2 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20260128_122812_095556_69F8375D 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,124 +105,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add function to find the pointer to an instance of acpi_pptt_cache.
+Expand cbqri_controller_info to contain:
 
-find_acpi_cache_from_id() is based on find_acpi_cache_level_from_id()
-from commit c4170570cc7f ("ACPI / PPTT: Find PPTT cache level by ID") in
-the morse/mpam/snapshot/v6.14-rc1 branch.
-
-TODO: find_acpi_cache_level_from_id() has changed since then so this
-function should be updated. In additon, there may be a simpler way for
-acpi_parse_rqsc() than adding this function to get a pointer to
-acpi_pptt_cache.
+ - Cache ID from the PPTT table's Cache Type Structure
+ - Proximity Domain from SRAT table Memory Affifinty Controller
 
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- drivers/acpi/pptt.c  | 63 ++++++++++++++++++++++++++++++++++++++++++++++++++++
- include/linux/acpi.h |  8 +++++++
- 2 files changed, 71 insertions(+)
+ include/linux/riscv_qos.h | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-index de5f8c018333..d1002673dc39 100644
---- a/drivers/acpi/pptt.c
-+++ b/drivers/acpi/pptt.c
-@@ -1063,3 +1063,66 @@ int acpi_pptt_get_cpumask_from_cache_id(u32 cache_id, cpumask_t *cpus)
+diff --git a/include/linux/riscv_qos.h b/include/linux/riscv_qos.h
+index 0c551ed85fe1..4812b6811327 100644
+--- a/include/linux/riscv_qos.h
++++ b/include/linux/riscv_qos.h
+@@ -27,7 +27,14 @@ struct cbqri_controller_info {
+ 		u32 cache_level;
+ 		u32 cache_size; /* in bytes */
+ 		struct cpumask cpu_mask;
++		// Unique Cache ID from the PPTT table's Cache Type Structure
++		u32 cache_id;
+ 	} cache;
++
++	struct mem_controller {
++		// Proximity Domain from SRAT table Memory Affifinty Controller
++		u32 prox_dom;
++	} mem;
+ };
  
- 	return 0;
- }
-+
-+/*
-+ * find_acpi_cache_from_id() is adapted from find_acpi_cache_level_from_id()
-+ * introduced by c4170570cc7f ("ACPI / PPTT: Find PPTT cache level by ID")
-+ * in the morse/mpam/snapshot/v6.14-rc1 branch.
-+ *
-+ * TODO: find_acpi_cache_level_from_id() has changed since then so this
-+ * function should be updated. In additon, there may be a simpler way for
-+ * acpi_parse_rqsc() than adding this function to get a pointer to
-+ * acpi_pptt_cache.
-+ */
-+struct acpi_pptt_cache *find_acpi_cache_from_id(u32 cache_id)
-+{
-+	u32 acpi_cpu_id;
-+	acpi_status status;
-+	int level, cpu, num_levels;
-+	struct acpi_pptt_cache *cache;
-+	struct acpi_table_header *table;
-+	struct acpi_pptt_cache_v1 *cache_v1;
-+	struct acpi_pptt_processor *cpu_node;
-+
-+	status = acpi_get_table(ACPI_SIG_PPTT, 0, &table);
-+	if (ACPI_FAILURE(status)) {
-+		acpi_pptt_warn_missing();
-+		return NULL;
-+	}
-+
-+	if (table->revision < 3) {
-+		acpi_put_table(table);
-+		return NULL;
-+	}
-+
-+	for_each_possible_cpu(cpu) {
-+		num_levels = 0;
-+		acpi_cpu_id = get_acpi_id_for_cpu(cpu);
-+
-+		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
-+		if (!cpu_node)
-+			break;
-+		num_levels = acpi_count_levels(table, cpu_node, NULL);
-+
-+		for (level = 1; level <= num_levels; level++) {
-+			cache = acpi_find_cache_node(table, acpi_cpu_id,
-+						     ACPI_PPTT_CACHE_TYPE_UNIFIED,
-+						     level, &cpu_node);
-+			if (!cache)
-+				continue;
-+
-+			cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
-+						cache,
-+						sizeof(struct acpi_pptt_cache));
-+
-+			if (cache->flags & ACPI_PPTT_CACHE_ID_VALID &&
-+			    cache_v1->cache_id == cache_id) {
-+				acpi_put_table(table);
-+				return cache;
-+			}
-+		}
-+	}
-+
-+	acpi_put_table(table);
-+	return NULL;
-+}
-diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-index fbf0c3a65f59..fee6a5059a46 100644
---- a/include/linux/acpi.h
-+++ b/include/linux/acpi.h
-@@ -1546,6 +1546,7 @@ int find_acpi_cpu_topology_package(unsigned int cpu);
- int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
- void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus);
- int find_acpi_cache_level_from_id(u32 cache_id);
-+struct acpi_pptt_cache *find_acpi_cache_from_id(u32 cache_id);
- int acpi_pptt_get_cpumask_from_cache_id(u32 cache_id, cpumask_t *cpus);
- #else
- static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
-@@ -1570,10 +1571,17 @@ static inline int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
- }
- static inline void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id,
- 						     cpumask_t *cpus) { }
-+
- static inline int find_acpi_cache_level_from_id(u32 cache_id)
- {
- 	return -ENOENT;
- }
-+
-+static inline struct acpi_pptt_cache *find_acpi_cache_from_id(u32 cache_id)
-+{
-+	return NULL;
-+}
-+
- static inline int acpi_pptt_get_cpumask_from_cache_id(u32 cache_id,
- 						      cpumask_t *cpus)
- {
+ extern struct list_head cbqri_controllers;
 
 -- 
 2.43.0
