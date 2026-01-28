@@ -4,95 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB50D25B6E
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 13:29:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7008BD25B77
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 13:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PA7BRSkVZcJD4X9GliDrlws2yU6i7qoXZZEVRkEr5eE=; b=pITcemf/YD1OoH
-	UD/U2gR6+X0zCinzn0RwAhBZJk6YjBKVADsmZpvDPTVUG0WjOlvBbKDKb6MTubzaAyOAGxpKipi1s
-	kAqDtc0nMMhjQ8LSaSHqf7FRDk6sOd+WUH5tVK2Vx5NE8iNF3BT/v/OCppdDll4gWYcknBGGZho7b
-	U57DpWXKNQKJltypyYhUbmi6ixWPFKUcO67HC0HOY2izxNBnqtG6ZAuevyJJg3tP7QZ7EMhhAkx90
-	jLzV+h9Rxf9BWyrjzor0IQBe6r6ELxqcxKN3Ap9Bh0YK0cyuuHOz59dCmy95sIf6qZgH3PJKsX5HL
-	l3CpD0NBiUCHUSj7kraw==;
+	List-Owner; bh=5nU72yPmDDPR4yokNiNL/1u2c+axjcpK0jYvxxNovJY=; b=SlHNevl12N4bOT
+	iMT+xba/A6FzLBYRj5iL6CrnROqjPclq1+xg10K2fBUH03Rx7id0fOKsLlozgoUcrldMPK+IY5GMt
+	OfnKfRVsuLq/8mGqTuOAWqzMhhT1rbQH4ZSgHQH4agJzkdobuU7+j1K6VtOpRWE0cXB6XEKvnfTbe
+	9dGJ+sO8wTLspOm7UQ/hJuqv2pQplwND1Y9WVD9mzGqXhQ5Mdmd686yANEQs6kqTXZCpFaZlieZdC
+	g3zduHFxyLZE0YM6C/N5i4QcoL/Wz1xmem666C5LrCKGeSeKFJEAmlE0nF/9GnWjUERDsqSqEv/a5
+	rXiRTj7CX6M0aupTZCew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl5bY-0000000G4Dp-08zw;
-	Wed, 28 Jan 2026 13:29:08 +0000
-Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
+	id 1vl5fT-0000000G4v4-3JAn;
+	Wed, 28 Jan 2026 13:33:11 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl5bV-0000000G4C5-0xLw
+	id 1vl5fR-0000000G4uW-17OG
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 13:29:06 +0000
-Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-7cfdf0c8908so3812026a34.0
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Jan 2026 05:29:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1769606944; x=1770211744; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=raYtuP2NjeAqA5181HGaACfoUp8/gkl6VSn/CKYueq0=;
-        b=VUEy0vXUmwsA4/3W4lBR1JFHJttL6vwexUL5okmfnm31OWyKue6gXn4YxXmBkm+mEz
-         xoXuh0+B6Iyh7l0OZVkyuMjvWh2xzkrnGV8sb79vJcEeVnSl6q3r0Nm1afgSu6qdUjHC
-         jiR+if/kGnZpdln+JAXfofoUzlSlmcXYNZda08cp1rV10bY4GGtVXrfEn5ovui+v2seO
-         oFnJKAEtz6/uHNf6KCElI+Uz+f3hCDDS4rQ+DoGvnPgkuOXRrFTJBwDOm6KFlmz8ctWf
-         8I6TIfUgUUj9ufp1b/n8r1a0LNUoNBOD7r8CXvxF1s5jeNiCrDHFVK1sTWD4hmOru9pn
-         QqEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769606944; x=1770211744;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=raYtuP2NjeAqA5181HGaACfoUp8/gkl6VSn/CKYueq0=;
-        b=jpzyQ2VDdCem47wI2lKTahU8VF6egSjh3EqRp2Sr80pLqCsAkyL4Dj/+5IyfrblGJq
-         X8BQ8+5/3Vseh6Z0Rb2xbA7pYMEu4VA/a+ImwocrXDbZI77yOSSmcCLbh2FJ+BC7EIi/
-         lj/t13fWei37G22/ZjhTNBacKSA/BBtzxtM21wX7m5OlIuoXWmE1Pdx0+m+ybTx6CN4Z
-         YKJ+O2Q7MBUttyRJRkv7iQuweGA8h+eJp89nEr7FfHKlANRY2coOJkXAGGdQbj+GWb93
-         jD/oXNmzA7WBI1CKmpD5idA89i1bq7SWpMhRoxhfzWXJ7sx9fUm82b/8QE/s8yQuRl9t
-         dtaA==
-X-Forwarded-Encrypted: i=1; AJvYcCXwqeQohUOV6xLB2sDPehTb9Evydc/Y1vi2qM0P9EcM6F71PkD1Po2vtcCYXPMmSoFXj+0GQqd1VPSs7g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzE9BygjR8b+hkk/Z5LTn1ADXWS94vyqbihCVHwhXrJGlt9ndXO
-	qG7esxdk56sBI9f4rq8wqoL8nG9UkQJ1N5YBwRu0rsdcDJm2Yh2HUOLYKB1mLkAM7kc=
-X-Gm-Gg: AZuq6aK/SW75KAUCnVlLbMvr02Sg/3frk4HfFu8qnVCVPCIGFN9mTZDPKVEDHN6AmEA
-	71rliuP4bnO6B1SDes8arz22jtPFBnUbDWU0lpfNI/dtDEus2bEtbLLwOZF82ZlQA29M57Yx1D4
-	KQcaGrhUYOFKvBqz17EPV6y+WVxPu2d+/LEy0GATtzpJzcFrxltnwiQr4I5AQlrlKvtrH3tw5dn
-	0s7zOO5CY5h8XVOzdX7ZRPi6cXwrxZSYDc5xb5KcCLnHlgRvYHNmlMQ1vScVuyqtNGw1O1y4jdG
-	nzvZudOZUUxLR4Ur2bVFPl9G+BmWOmCWQaXkVVVve0dcBgJlWtFFAs1dHIA0+d05zwd2/4acRLD
-	twvWTx2HwWNBrQ4N4Q/48vWgRbO4Hz9porvnQn6UDAe7IeXw9JCF/m7nShPtfuiZ9k2uhV2CJuL
-	znGQkFJAP0pTZ2PaEYrkmiaZSgrHI3DzpvER1YCzWRFTkJEqE+nTM=
-X-Received: by 2002:a05:6820:4588:b0:65f:1012:69c5 with SMTP id 006d021491bc7-662f20f917fmr2413146eaf.76.1769606943544;
-        Wed, 28 Jan 2026 05:29:03 -0800 (PST)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-662f994388fsm1374132eaf.4.2026.01.28.05.29.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 Jan 2026 05:29:03 -0800 (PST)
-Message-ID: <7f892961-5978-4283-bec9-0f2953db42b7@riscstar.com>
-Date: Wed, 28 Jan 2026 07:29:02 -0600
+	Wed, 28 Jan 2026 13:33:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=doZ85lF6LwVvINxaJrF/nmXBjOrb6x+NUt3+RRN73cqIF2qdVjxRyW8INLlRVhunKQByAFDh59KP1pFLMSkxf4RkFEAbLWMiDAw3cw/BwlnY/izxVJ11xukp+lXw6XdrmmAjID08c0HmI+FabiiaFCPMmvzF42ngXXlE7+nMJhAUe/q1VClarDNlUo1fZuhsRPOoQTRm+dAfvezJcdRaVIPQQ5xOxWn7PVnHS0f48fcszR5X+3RkpRJMy5VLgRwMRPZWCgXaaDlloRDWTSv7cWV92xJiXF+027K3y0YpkURE0xblZ+g6RF3NjrEPn9lNvc00INvATu4u3hC2Ww//ng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5p8br2m8GZ+vPCSSJpxM6S0RMhByROiyDRrLLe0nRMk=;
+ b=R5StvXWxWGiNOIBueSoqsrzyXxW8+c9qKele+gBB0WAZcAx99OwuPHEsCWVom7e98HZIyK/AX00W5c4qL5tIOOHUg1UMkVT81ddmu89ShYexxunUprHYUNQh1eD4oiRFbRBG49RLo7oStV4UkpEgyY2WHUFn/2Ib0fBzrawtQpzug79xQk2pFtEQe25QjwHfMuIHhJO5YLFhVVwU+QO39FtkFK+deRJutw13aLhGLwPE4ancJLOj0edBSUswXhl3M2lm5mRfFZ/GMGyIX4mwfZTUMnQSHpA8/9T7aj3wVH2Lgh5aWMt1xxJGZHImb7/lR9iy7aOcnfkUGyHzhIrFHA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5p8br2m8GZ+vPCSSJpxM6S0RMhByROiyDRrLLe0nRMk=;
+ b=qKfc3iRwR0UrVZpGF05OsnRFln6jmzKzGP+PCk+TKMI7Nk4lZJecfLtCZ8dbhupkHj5G3ZGyXw/yBGijH6inYUkgqxIOUcRD/P9HGVfd0mUCGL2x/+zwFdOnE95tvYdeFW/TM5wDoml9lyksZvHAq2EJNpzvH2j8p4KHnfvoBUFYEIOROlAMt4vZ8ybhDw63ZYdJvWS9pVUqNE9Q/XitKP7uybf8eAN8kfkDTxsFz8N2HhCbSAt9xWVuRiWFc4f4nB6C95BL2MIhRoC+eO3VgEoa7Z8c244z5PG6ubTQXRJ7vDkib4iL4UkJF5kA/09zBTiewnCxDl+4f6tNbSZl1g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by CY3PR12MB9607.namprd12.prod.outlook.com (2603:10b6:930:103::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Wed, 28 Jan
+ 2026 13:32:59 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9542.015; Wed, 28 Jan 2026
+ 13:32:59 +0000
+Date: Wed, 28 Jan 2026 09:32:58 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Alexey Kardashevskiy <aik@amd.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
+	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
+	Justin Stitt <justinstitt@google.com>, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
+	llvm@lists.linux.dev, Bill Wendling <morbo@google.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, Shuah Khan <shuah@kernel.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Will Deacon <will@kernel.org>,
+	Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
+	James Gowans <jgowans@amazon.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Michael Roth <michael.roth@amd.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Vasant Hegde <vasant.hegde@amd.com>
+Subject: Re: [PATCH v8 07/15] iommupt: Add map_pages op
+Message-ID: <20260128133258.GY1134360@nvidia.com>
+References: <20260119173734.GL1134360@nvidia.com>
+ <e8cb2549-6a17-47ce-8e9f-96c576890262@amd.com>
+ <20260121170931.GG1134360@nvidia.com>
+ <5a3dfc0a-eca4-4de1-96cd-b4034f0b8e06@amd.com>
+ <20260122141240.GM1134360@nvidia.com>
+ <0295a5bb-2567-48f8-9806-0467907143d5@amd.com>
+ <20260123141413.GY1134360@nvidia.com>
+ <ddeb2bc8-5088-4d16-bea3-91d58a4403e8@amd.com>
+ <20260127142512.GD1134360@nvidia.com>
+ <cd7a2d11-bf65-4445-8eec-df9ba7950128@amd.com>
+Content-Disposition: inline
+In-Reply-To: <cd7a2d11-bf65-4445-8eec-df9ba7950128@amd.com>
+X-ClientProxiedBy: MN0PR03CA0002.namprd03.prod.outlook.com
+ (2603:10b6:208:52f::31) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] riscv: dts: spacemit: Update PMIC supply
- properties for BPI-F3 and Jupiter
-To: Guodong Xu <guodong@riscstar.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Troy Mitchell <troy.mitchell@linux.spacemit.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, devicetree@vger.kernel.org
-References: <20260124-spacemit-p1-v2-0-2c86b06694ba@riscstar.com>
- <20260124-spacemit-p1-v2-4-2c86b06694ba@riscstar.com>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20260124-spacemit-p1-v2-4-2c86b06694ba@riscstar.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CY3PR12MB9607:EE_
+X-MS-Office365-Filtering-Correlation-Id: 63646bfd-83f4-4fb4-d8fc-08de5e71c0ab
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?oKS2VsLXWlnfVWxQwp8meNf4Y7EWsZXJ/9dP4ifCLgfi9bae/8vAAabBeIQa?=
+ =?us-ascii?Q?rCQK8gJ2R14zQUBqRauXn52VGZEi9Qq0q9wX9YpabZisF2YTVYQvezV2ze7B?=
+ =?us-ascii?Q?3dsClmRAshQqF3vuJAVd6cV70TVgmgiqPFsUaUtU3+RD57m6+QW0waLaroy8?=
+ =?us-ascii?Q?UmQgUzVUH88ToO8Y5eZFZlYq/XbNSgcJ8rf69iuIe5cafAX+ilGkTlHxxOhA?=
+ =?us-ascii?Q?8+1LwGdb8iOiX8cSgtG9GaSy8sXDrL+5+X6BcCAiItY1HR6tOW5PqpTt8Y3K?=
+ =?us-ascii?Q?i2M//yE7qIhY7hsFK8QKT4FerIIJzEFjGiNYTBK6Zsn1IFgAPvuK+w+ywa9e?=
+ =?us-ascii?Q?CkB5/sG7pmIevR1gxvpB7iHxY5udWjWEF8HeqlGejYX25whWT0boiqPIwGHi?=
+ =?us-ascii?Q?C9G/eON0OGjMQ962yyWJiCGR+/shn+bBsQ5KuaeoWVK9PUysZm0MiYvxxn5r?=
+ =?us-ascii?Q?z5Xn7GkNNqO2cxCUKF8YnAmUGlKmmqd2ZeTPHx++RqlPllm1lkJPM5O2LfPO?=
+ =?us-ascii?Q?4cHKehxzjD9KiNUZBPe+05Io3dvmqVEu1926ygrWabvVIL6cmzSkA1Hf92m1?=
+ =?us-ascii?Q?DgefCWhHHtNQmA5V+CdbclEcIVMJMuemvDhX80ksCcjM9T+Uey+cVjoK0uD8?=
+ =?us-ascii?Q?DdXawsFywR5xQl549nKoUJOBsfTGWhVaXsLxpcLU3QOX0v/fqycVeno98BHe?=
+ =?us-ascii?Q?X1H3j3oq52LZp9GoBa+qZ3GrLTvw7NsD7QLMX+yHzNTRtH6M46vJQeTN9mTF?=
+ =?us-ascii?Q?Q7gshNNv0FFuU+ZMUaOKHGCIbFqYnrVA3mjSbzssfEGE3dGm/SovQoKzQX0h?=
+ =?us-ascii?Q?LEVBe+Lj/QjzjLsuZyMWABkCCCblOJ44IXYTl+3DPXBxDfMwI/jz8ZqUKkAk?=
+ =?us-ascii?Q?vdwxgcQoATdTtiEqyr+8LCyct1B0yTW1Fc2X3j378e4CjlN2o35651Ms95dU?=
+ =?us-ascii?Q?QqARb+W971DFqxOjdyeq+lbjUdJFss7TUtJx2QmJ04izrCJuzwY3W7HF21Zd?=
+ =?us-ascii?Q?uvFD1qOrpaG3s5KSPlnp4Uk0sFpCWcm388M9b/CRZMycu9sLWR1xHR1GqhSW?=
+ =?us-ascii?Q?yLeKG+7UYKMG3ZSUV7ajT+IEEAmWMvAZh00iEj/Cu19ezLguSDE0bNnDBlvd?=
+ =?us-ascii?Q?UwJctSco7x77AFhIrQK/StgchontRkIgsUBd4cJGNT7HUSWNTWpAdo/hsnlk?=
+ =?us-ascii?Q?wtXZQxW4FZkXqIObapFnq3JV975AL1MLGY3fUrWZpyPsUFGuo4It3/dK0W3p?=
+ =?us-ascii?Q?ZHRUQ9VSa1r6+KV6bo8mS3p7/VuXjZsGY+mrpgEmNxx2D2fk5eTvB0BQz4p9?=
+ =?us-ascii?Q?m6B3Ec+jkwm6qG31DW8H4rXkzPM1tUTmtaVwM5Xar4gRdbx6oyr9JQ+giC6w?=
+ =?us-ascii?Q?NRoO1dpqwaYZZ6YHgGx8btHUrFdOBYTTReiArXWoPfRTC/N0K+9m9mmkx1rU?=
+ =?us-ascii?Q?hsxVflIgNM08VV0wVrwyZ8OZMpxjH72UGoxTjGMeRnz7C8AZtlAr2Nivhjyq?=
+ =?us-ascii?Q?fZiyZuPwioJjMpiyMux63YQRDWSdLl2Ezzy6828QUA4Ixyzi5Az/TOAkpufu?=
+ =?us-ascii?Q?I1nxHpL7yMyg0ox1sXo=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1H0H9fBS3Yt4xBN89J6v5XOVIVaRphfd2giRV1fNvml14+Ly+4kxlvMt6fDE?=
+ =?us-ascii?Q?dmp5ShoXVNMi+GNSNpwP5Bh2Y2TpP3QW1Yc2QeM1vjAg2gkYJSCedJbUxU7m?=
+ =?us-ascii?Q?VIvKaMkncyzz6Y6UTSo8Rz/LgiGYlYselz1mzRhGOf5DHNI13ZXmTkcBtpJP?=
+ =?us-ascii?Q?rDFiG+WKwrJvDyeiupOk9Cw0Dvt78rCaVoAis5Ur2/PqXFxyz9ynVEi44XfT?=
+ =?us-ascii?Q?VjltbHHN55CEgnvHhxjTnyJcvOQCbdAIx7gipxv4PrSMez3TORwWiAmdLskL?=
+ =?us-ascii?Q?cO+kWt5CQ8+GeamUdJYfUfV/3AGixIm4XwCqhmLlftgfcXsxu0AnYBEQ8ny5?=
+ =?us-ascii?Q?vfpgoU97an7Yk5uqt2v+Q1YtOWG8Ucvp8vd63fhsdYmJjQ6/VUreq9TXgNIl?=
+ =?us-ascii?Q?qSXObiCR6Esks2/u2CE5FIhO5uioYLAx8QdxxfvbvwDy1mcuXfzZ71ninWwa?=
+ =?us-ascii?Q?6Dm7RDT4n+ypQLNIS2mNgEg9qd/F21PSdZCHR1HFCHr2ba5hUULONfMUXLX4?=
+ =?us-ascii?Q?QpoP33MGX4ShAK3YSPDhSE0BFQVc4PyWJ8xPawMqbn2e7XIDT7w5Xz3Yeiiy?=
+ =?us-ascii?Q?+fr4O6h5OsNRYe42okW9IdXqsWXQ9rbWosFP+PBZH9sqQDxIt36gnyU4LWKC?=
+ =?us-ascii?Q?qdxKo2Fw64TolTkBEPTuQtggHa6J0gaM4w7EAuMGmf3V+x8s42/qxQo9/SOd?=
+ =?us-ascii?Q?GoIVXq0VzAMMNeqxdDNXG0Uye2OOduAa+oNTf+IY5oAoBEp4PMgQ92qBPW6h?=
+ =?us-ascii?Q?ZrA0Ab2nhG5vED9Qj39U4Bz8c7KU/4jms9ccn3lzToqC1Y+E4YPA9cuE0zQ+?=
+ =?us-ascii?Q?XqD+K6Ee7TFe91tDOU4WC3+BKD0hfj9GjcgwdE59A139Yj9LqiYyLj/bxNB6?=
+ =?us-ascii?Q?aU3wCQOAiJUMdLKrx8ggby6j7GC313vo6oazuQ1Y403+KRgNSHo1hveB/41e?=
+ =?us-ascii?Q?nWGEYJalTwfaUAIgEFOrNOlPsGedLv8qfBS7Od3A9b7v0j6XLMxMCIQLzFeM?=
+ =?us-ascii?Q?+aHe0IOCuCKB8n5O8P6JTvSy/TWq6SY3LD8oRvejd9XGPhxK92jN3to4hS4Y?=
+ =?us-ascii?Q?NYhRs7HgGxJ4WU4OGpER4Jz9THNj5WieoRuK1YZidIp2XqRzWXJR1w2cjv77?=
+ =?us-ascii?Q?71GhH5GnEPKFP12QqSb9yzq70N3wUdOwyrf1rrJZHJ92uuOV5NdeUbHvSGbf?=
+ =?us-ascii?Q?4ZsmsJSRpf7g3Tg+3t/oXbSwwVMTZprvhqYancWO52zmhxLr3oK9JH2SCKiB?=
+ =?us-ascii?Q?H3v6kFibopzVDOj+0BzpQrImSf/GvuVkMsvR2VQNtvxJ/+7byYg5ARr4ugSY?=
+ =?us-ascii?Q?CFBd5hDoBzna7dhPkpSPiO7UhmvKTJIrqpL5h/Ti/SkdcCu4tr0StOWmkfGi?=
+ =?us-ascii?Q?l3mcJveXnTWwBbz4mN7DwqZ+I1Pz6Pa9CWijiy7ZENyLJlaCi4kepSWA49wP?=
+ =?us-ascii?Q?YNTLHNbjnwr8tIAOaUVvi7cgQ/XNifB+dHCeQRNoHiE4cKxrgkI6CD1BfBKi?=
+ =?us-ascii?Q?3HxzVAq49mwIg4Cs+peU8fDWPXrcnrYgSzOWPq36Xnc0SbvRDrskYczAjfB0?=
+ =?us-ascii?Q?4gyhbZp3rZt7JSw0eOn/Ahg1LLz/Ci5COIhfDOz/RoFDCF7AR8HkLaedYFWx?=
+ =?us-ascii?Q?scm8WJjXauPQR11lNn2zwLM+tUIkhU97RdM7BueUtBYQGreWvqB6JuJIZNtS?=
+ =?us-ascii?Q?HKBEdfb+Eo0d+JPMw0bHeIRB3sILfh9aynabNE9vS0DcbBm0j20ZFP9RTc4k?=
+ =?us-ascii?Q?Jq9QOILaFA=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 63646bfd-83f4-4fb4-d8fc-08de5e71c0ab
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 13:32:59.1567
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: iz1clCHEPMWIGrHwJSd9hrsj8gaM4oItsyrrABe6ds0kEQXq9VWK4nx0TNoindh+
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY3PR12MB9607
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_052905_277597_6DE24C72 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20260128_053309_311004_E65FF8F1 
+X-CRM114-Status: GOOD (  32.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,107 +184,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 1/23/26 6:20 PM, Guodong Xu wrote:
-> Update individual supply properties in pmic "spacemit,p1" node to specify
-> the board's power tree topology for BananaPi F3 and Milk-V Jupiter.
+On Wed, Jan 28, 2026 at 12:42:08PM +1100, Alexey Kardashevskiy wrote:
+> > > Nah, it is quite easy to force 2MB on swiotlb (just do it once and
+> > > forget) but currently any guest page can be converted to shared and
+> > > DMA-mapped and this skips swiotlb.
+> > 
+> > Upstream Linux doesn't support that, only SWIOTLB or special DMA
+> > coherent memory can be DMA mapped in CC systems. You can't take a
+> > random page, make it shared and then DMA map it.
 > 
-> Previously these relationships were hardcoded in the driver; now they
-> are explicitly defined in the devicetree per the updated binding
-> document spacemit,p1.yaml.
+> Well, my test device driver calls dma_alloc_coherent() which does that - alloc + convert 4K.
+
+Yes, and there is no reason that can't come from the same allocator as
+SWIOTLB and use 2M aligned blocks.
+
+> > What happens if you don't have a VIOMMU, have a single translation
+> > stage and only use the S1 (AMDv2) page table in the hypervisor? Then
+> > does the HW fix it? Or does it only fix it with two stages enabled?
 > 
-> Signed-off-by: Guodong Xu <guodong@riscstar.com>
-
-I acknowledge that you've made an ABI change, and I should
-have done a better job of describing this the first time
-around.  (And reviewers might have caught that!)
-
-I had some of the same thoughts about supporting just
-"vin_supply" for older systems.
-
-However I agree with the conclusion you and Vivian
-came to, which is that practically speaking it isn't
-likely to be a problem.  Boards should use either
-old DTB and software or new DTB and software, not
-a mix.
-
-Reviewed-by: Alex Elder <elder@riscstar.com>
-
-
-> ---
-> v2: Added the pmic supply properties for K1 Milkv Jupiter.
->      Updated the commit message accordingly.
-> ---
->   arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   | 12 ++++++++++--
->   arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts | 12 ++++++++++--
->   2 files changed, 20 insertions(+), 4 deletions(-)
+> The HW translates a DMA handle to a host pfn, and then RMP checks if
+> that [pfn..pfn+size] is assigned to the correct ASID and the page
+> size matches and the gfn matches.
 > 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> index 5971605754b3..444c3b1e6f44 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> @@ -190,7 +190,15 @@ pmic@41 {
->   		compatible = "spacemit,p1";
->   		reg = <0x41>;
->   		interrupts = <64>;
-> -		vin-supply = <&reg_vcc_4v>;
-> +		vin1-supply = <&reg_vcc_4v>;
-> +		vin2-supply = <&reg_vcc_4v>;
-> +		vin3-supply = <&reg_vcc_4v>;
-> +		vin4-supply = <&reg_vcc_4v>;
-> +		vin5-supply = <&reg_vcc_4v>;
-> +		vin6-supply = <&reg_vcc_4v>;
-> +		aldoin-supply = <&reg_vcc_4v>;
-> +		dldoin1-supply = <&buck5>;
-> +		dldoin2-supply = <&buck5>;
->   
->   		regulators {
->   			buck1 {
-> @@ -221,7 +229,7 @@ buck4 {
->   				regulator-always-on;
->   			};
->   
-> -			buck5 {
-> +			buck5: buck5 {
->   				regulator-min-microvolt = <500000>;
->   				regulator-max-microvolt = <3450000>;
->   				regulator-ramp-delay = <5000>;
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-> index 800a112d5d70..e2702a781734 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-> @@ -100,7 +100,15 @@ pmic@41 {
->   		compatible = "spacemit,p1";
->   		reg = <0x41>;
->   		interrupts = <64>;
-> -		vin-supply = <&reg_vcc_4v>;
-> +		vin1-supply = <&reg_vcc_4v>;
-> +		vin2-supply = <&reg_vcc_4v>;
-> +		vin3-supply = <&reg_vcc_4v>;
-> +		vin4-supply = <&reg_vcc_4v>;
-> +		vin5-supply = <&reg_vcc_4v>;
-> +		vin6-supply = <&reg_vcc_4v>;
-> +		aldoin-supply = <&reg_vcc_4v>;
-> +		dldoin1-supply = <&buck5>;
-> +		dldoin2-supply = <&buck5>;
->   
->   		regulators {
->   			buck1 {
-> @@ -131,7 +139,7 @@ buck4 {
->   				regulator-always-on;
->   			};
->   
-> -			buck5 {
-> +			buck5: buck5 {
->   				regulator-min-microvolt = <500000>;
->   				regulator-max-microvolt = <3450000>;
->   				regulator-ramp-delay = <5000>;
-> 
+> RMP does not check S1 translations inside the guest, only S2. RMP is
+> not fixing page sizes or anything, it says yes/no to the access.
 
+Your explanation doesn't make alot of sense.
+
+If we have a vIOMMU and the guest has a 4K IOPTE in S1 then it goes
+
+ S1[4k] -> S2[2M] -- [4k] --> RMP[2M] ==> OK 4k IOTLB entry
+
+While if we have no vIOMMU, the same effective scenario:
+
+ S2[4k] ------- [4k] -------> RMP[2M] ==> FAIL
+
+It makes no sense at all. Why build something like that?
+
+It is not a "firewall" it is a huge software obstacle.
+
+Maybe your answer is the entity that is building the RMP also has to
+build a matching S2 IOTLB as one unit and we somehow just plumb the
+page table pointer and invalidations into the IOMMU driver.
+
+Such a messy design.
+
+> > > > iommufd won't deal with memory maps for IO, the secure world will
+> > > > handle that through KVM.
+> > > 
+> > > Is QEMU going to skip on IOMMU mapping entirely? So when the device
+> > > is transitioned from untrusted (when everything mapped via VFIO or
+> > > IOMMU) to trusted - QEMU will unmap everything and then the guest
+> > > will map everything but this time via KVM and bypassing QEMU
+> > > entirely? Thanks,
+> > 
+> > On ARM there are different S2s for the IOMMU, one for T=1 and one for
+> > T=0 traffic. The T=1 is fully controlled by the secure world is equal
+> > to the CPU S2. The T=0 one is fully controlled by qemu and acts like a
+> > normal system. The T=0 can only access guest shared memory.
+> 
+> Does the T=0 table still have all the guest memory mapped (with the
+> expectation that what is not allowed - won't be accessed using that
+> table)? Thanks,
+
+I'm not sure what the plan is, I think ARM can do both ways - map all
+guest physical and rely on the GPT to prevent access or dynamically
+map only shared pages.
+
+Jason
 
 _______________________________________________
 linux-riscv mailing list
