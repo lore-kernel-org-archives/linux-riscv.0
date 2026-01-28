@@ -4,82 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEBB8D35687
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 07:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1468FD35662
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 07:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:Mime-Version
-	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yjqZqSAZ+yMKfZQQQpFx9EoEJbmMof1V77NExIlzXDY=; b=hb6Qy2jrOmf2bS
-	+607ibBlVeFk1iL7UFoHAQzrOdFPB37lmZJLuzWvcUu5z0yJ3XNc2LW7SnUB8LY6rQtTs/5lMa2mp
-	xaXCEL675pQu7rxkDMq2MXGVLdftnixxLcgS7BJTjVwbazSLDqxspC56+xt+d3hfqpXPhyx7vDBfL
-	k+iVBvWzbv4RxNylupJjjy1+FFpiYLD2l3Dgd7r8ZhcR8VjUrQtc6ObJa88YjDfqwyigqhkYx9lut
-	XINM5iUCfBWSPJmT9mjkuVfyqiKP8Eg6zuJBhUVazt5GdZxmhk18lUh2jeMfbpQa51YIOQuD6m3ME
-	ntv+/yCXm58SIWIewGNg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FUtPUgwlFGU2f9tKXFY7lKVJFjqtxHL1IPIK/y3AUrs=; b=PrsqL4rdvI2vaG
+	6nrV3CSZfh423UW68eynVwQ6V72zfALsN1FKt5ChU7fJ1ZZNg2Ebd50E2YWTQEBM5Wrx3gy3+9WmZ
+	SFPzxcjcJLx+Z84FAtAn2W/4kB5yfRJJ3vX4xHRvw7RiItgk8hkukRt/fVpK9afknDeyYU/tw9PEI
+	hZ90TPs9En7NjSqPIMmMEUcYsuma1Wcu2bQM8mkDf6FXBW6mphb8ibr6LUnn0kqgmTUDtUM6dCcvC
+	SaPgL40GKjtQ9jMA0dKrqushur+dZWZWAhkRMCjLEIT+pX/UD3vdxD2GYzCg4Nb4Fct38cfr9trwo
+	Qo1e5IsqRo8p5gnG3uig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl0As-0000000FbPP-0u2n;
-	Wed, 28 Jan 2026 07:41:14 +0000
-Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
+	id 1vl0CD-0000000Fbbs-0sWj;
+	Wed, 28 Jan 2026 07:42:37 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl0Ao-0000000FbOU-3vGK
+	id 1vl0CA-0000000Fbb6-2P0h
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 07:41:12 +0000
-Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-1233b91de6bso11198968c88.1
-        for <linux-riscv@lists.infradead.org>; Tue, 27 Jan 2026 23:41:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769586069; x=1770190869; darn=lists.infradead.org;
-        h=to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=X1yac3VhavJ/iSNuoTf4tOpLzxqJ/EDuq8aVrMeVv+k=;
-        b=YHI4yarN/DeLNrikF1di1vtqo1SiChPVod1x+ZTl7ROv4IzPqxvID/BvV1wTzcwHk3
-         w6BgnzvGAaCsK5q3IN9EC53wPI6ineygwFKzn4rChSXTjJo39QS/BaucAmHcLi2sU0LA
-         5kqJJhW//n/9Xv2JTtaPCVWDdrePcUKSjb2dbWg+4AmX2j5YaAUCj0F36VI/aj1p3vCu
-         Uk8im8MVjsqhQ114Wy/p/bvq/WYrC0Gfm5CYIr7AU2Y/GC54SfJFiO6bMTxYVUgdSyst
-         mAcs5mpVvS9g7vqJpBASLpNxQsJx5sDK0P1EXEWOIeccfs2RtZLiq+MphO6k0W12y2st
-         SWsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769586069; x=1770190869;
-        h=to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=X1yac3VhavJ/iSNuoTf4tOpLzxqJ/EDuq8aVrMeVv+k=;
-        b=r+QDQw0c+zE6/xyho8mrQWn+4DcgdBYbs0/oaQ2Vwk9UjDqwpZumG36ETa2twvULln
-         UT3FKHBTEfqrwjDHky8v3EzRdIKDjmjmjmtF8C3p6sRTelyy4SmFH720ltwgnF/O/Wvp
-         K2EcEosgmIU11hTPC1333vLkJvdtj2BCQ7bnYF4WWPMkoZdu87m+iNNFogXNhqoPK3L+
-         R4aUn/AwgSLQwVpR1vIOSTQy7FSik1uHxpB7d/w/nDbtsr9QsawNzqqHoaFYZE7P3ViU
-         C84GGZaxM+5HDjNJllPNz10IKbcCGcJ4fE3xoxzdjrEf+VyNik8HmRanErHCdwm9+Act
-         2GeA==
-X-Forwarded-Encrypted: i=1; AJvYcCWhpkQOu6T+juESycULsEJpwHhf1lj7ClKiFavej+jMffCdliystGHEZZJ8w4sAHt149YYOu5mABN/V8w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDDdJ/bbfLca0Uwxs2BYFPGPyyEGRb8oEKcmLLDtYKq9AKiA0O
-	OjSVz0eTygFE1RUAHqR3XeBnp453Y156As9AlV9dLqBZIOf/JjSoZ2tejHwPANcknh82Vs8vwRE
-	lzaZa24PgHQ==
-X-Received: from dlnn5.prod.google.com ([2002:a05:7022:6185:b0:11f:30f6:ea10])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:fa3:b0:123:35cb:96e3
- with SMTP id a92af1059eb24-124a00e4d53mr2943505c88.46.1769586069175; Tue, 27
- Jan 2026 23:41:09 -0800 (PST)
-Date: Tue, 27 Jan 2026 23:41:05 -0800
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260128074106.788156-1-irogers@google.com>
-Subject: [PATCH v1] perf kvm stat: Remove use of the arch directory
-From: Ian Rogers <irogers@google.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Shimin Guo <shimin.guo@skydio.com>, Yunseong Kim <ysk@kzalloc.com>, 
-	Athira Rajeev <atrajeev@linux.ibm.com>, Anup Patel <anup@brainfault.org>, 
-	Quan Zhou <zhouquan@iscas.ac.cn>, Andrew Jones <ajones@ventanamicro.com>, 
-	Dapeng Mi <dapeng1.mi@linux.intel.com>, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org
+	Wed, 28 Jan 2026 07:42:36 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 0E3C033A74;
+	Wed, 28 Jan 2026 07:42:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1769586151; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=1k8hO8xjXdb+sjtwH5LaddzgJDNkOtiWuz60aka9CHQ=;
+	b=ZWsSY/E3X8VhbXx/lAtIQQuTLKwrvztUF9Nuw9D0raTTKaY+SYFbj6JkHR0uJ0GSawfe/m
+	C9V84P1J7f9kOW6bUDHDeIdR+xaMhSRzL+MPMcVy4Vq6ZWMxp8YuNebWDJJ9K7YUCdKrWD
+	eS5haMgAW8fWIsjy67DQKk8KuxOqpdw=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1769586151;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=1k8hO8xjXdb+sjtwH5LaddzgJDNkOtiWuz60aka9CHQ=;
+	b=iSxeWZ1BbhoJWYXpKN+DuzbnDoN3+ArLL6ltog3v/9+YPHad32MEeA9QCkn7dcrgSk5yR8
+	pEXBzBarHGH+NBAg==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="ZWsSY/E3";
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=iSxeWZ1B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1769586151; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=1k8hO8xjXdb+sjtwH5LaddzgJDNkOtiWuz60aka9CHQ=;
+	b=ZWsSY/E3X8VhbXx/lAtIQQuTLKwrvztUF9Nuw9D0raTTKaY+SYFbj6JkHR0uJ0GSawfe/m
+	C9V84P1J7f9kOW6bUDHDeIdR+xaMhSRzL+MPMcVy4Vq6ZWMxp8YuNebWDJJ9K7YUCdKrWD
+	eS5haMgAW8fWIsjy67DQKk8KuxOqpdw=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1769586151;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=1k8hO8xjXdb+sjtwH5LaddzgJDNkOtiWuz60aka9CHQ=;
+	b=iSxeWZ1BbhoJWYXpKN+DuzbnDoN3+ArLL6ltog3v/9+YPHad32MEeA9QCkn7dcrgSk5yR8
+	pEXBzBarHGH+NBAg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 434CF3EA61;
+	Wed, 28 Jan 2026 07:42:30 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 33KjDua9eWkYcwAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Wed, 28 Jan 2026 07:42:30 +0000
+Message-ID: <200ec371-3ab1-467d-b873-5a106b6b5661@suse.de>
+Date: Wed, 28 Jan 2026 08:42:29 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 3/9] drm: verisilicon: add a driver for Verisilicon
+ display controllers
+To: Icenowy Zheng <uwu@icenowy.me>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Drew Fustini <fustini@kernel.org>,
+ Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+ Dmitry Baryshkov <lumag@kernel.org>,
+ Michal Wilczynski <m.wilczynski@samsung.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Han Gao <rabenda.cn@gmail.com>,
+ Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Han Gao <gaohan@iscas.ac.cn>
+References: <20260116043746.336328-1-zhengxingda@iscas.ac.cn>
+ <20260116043746.336328-4-zhengxingda@iscas.ac.cn>
+ <56e1974c-0fe6-4bdb-918d-fcf6a8b866c1@suse.de>
+ <7802bbc5edf2cfd6bf0d3f189aa7e6f6fc62e6ae.camel@icenowy.me>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <7802bbc5edf2cfd6bf0d3f189aa7e6f6fc62e6ae.camel@icenowy.me>
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_TO(0.00)[icenowy.me,intel.com,linaro.org,kernel.org,ideasonboard.com,kwiboo.se,gmail.com,linux.intel.com,ffwll.ch,redhat.com];
+	ARC_NA(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCPT_COUNT_TWELVE(0.00)[28];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	RCVD_TLS_ALL(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[pengutronix.de,kernel.org,samsung.com,bootlin.com,gmail.com,disroot.org,vger.kernel.org,lists.freedesktop.org,lists.infradead.org,iscas.ac.cn];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[dt];
+	DKIM_TRACE(0.00)[suse.de:+];
+	R_RATELIMIT(0.00)[to_ip_from(RLhco1tq9et14njsu3qecxcejq)];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid,suse.com:url]
+X-Rspamd-Queue-Id: 0E3C033A74
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_234111_012224_E2B2F066 
-X-CRM114-Status: GOOD (  19.81  )
+X-CRM114-CacheID: sfid-20260127_234234_903653_02D9DB56 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,1444 +182,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-`perf kvm stat` supports record and report options. By using the arch
-directory a report for a different machine type cannot be
-supported. Move the kvm-stat code out of the arch directory and into
-util/kvm-stat-arch following the pattern of perf-regs and
-dwarf-regs. Avoid duplicate symbols by renaming functions to have the
-architecture name within them. For global variables, wrap them in an
-architecture specific function. Selecting the architecture to use with
-`perf kvm stat` is selected by EM_HOST, ie no different than before
-the change. When the ELF machine can be determined from a header
-feature (ie EM_HOST at the time of the record) then this can change.
-
-The build and #define HAVE_KVM_STAT_SUPPORT is now redundant so remove
-across Makefiles and in the build.
-
-Opportunistically constify architectural structs and arrays.
-
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/Makefile.config                    |   4 -
- tools/perf/arch/arm64/Makefile                |   1 -
- tools/perf/arch/arm64/util/Build              |   1 -
- tools/perf/arch/loongarch/Makefile            |   1 -
- tools/perf/arch/loongarch/util/Build          |   1 -
- tools/perf/arch/powerpc/Makefile              |   1 -
- tools/perf/arch/powerpc/util/Build            |   1 -
- tools/perf/arch/riscv/Makefile                |   1 -
- tools/perf/arch/riscv/util/Build              |   2 -
- tools/perf/arch/s390/Makefile                 |   1 -
- tools/perf/arch/s390/util/Build               |   1 -
- tools/perf/arch/x86/Makefile                  |   1 -
- tools/perf/arch/x86/util/Build                |   1 -
- tools/perf/builtin-kvm.c                      |  37 ++--
- tools/perf/util/Build                         |   3 +-
- .../kvm-stat-arch}/arm64_exception_types.h    |   0
- .../kvm-stat-arch}/book3s_hcalls.h            |   0
- .../kvm-stat-arch}/book3s_hv_exits.h          |   0
- .../kvm-stat-arch/kvm-stat-arm64.c}           |  43 ++--
- .../kvm-stat-arch/kvm-stat-loongarch.c}       |  48 ++--
- .../kvm-stat-arch/kvm-stat-powerpc.c}         |  61 ++---
- .../kvm-stat-arch/kvm-stat-riscv.c}           |  42 ++--
- .../kvm-stat-arch/kvm-stat-s390.c}            |  38 ++--
- .../kvm-stat-arch/kvm-stat-x86.c}             |  44 ++--
- .../kvm-stat-arch}/riscv_trap_types.h         |   2 +-
- tools/perf/util/kvm-stat.c                    | 209 +++++++++++++++++-
- tools/perf/util/kvm-stat.h                    |  68 ++++--
- 27 files changed, 434 insertions(+), 178 deletions(-)
- rename tools/perf/{arch/arm64/util => util/kvm-stat-arch}/arm64_exception_types.h (100%)
- rename tools/perf/{arch/powerpc/util => util/kvm-stat-arch}/book3s_hcalls.h (100%)
- rename tools/perf/{arch/powerpc/util => util/kvm-stat-arch}/book3s_hv_exits.h (100%)
- rename tools/perf/{arch/arm64/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-arm64.c} (63%)
- rename tools/perf/{arch/loongarch/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-loongarch.c} (78%)
- rename tools/perf/{arch/powerpc/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-powerpc.c} (78%)
- rename tools/perf/{arch/riscv/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-riscv.c} (58%)
- rename tools/perf/{arch/s390/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-s390.c} (77%)
- rename tools/perf/{arch/x86/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-x86.c} (88%)
- rename tools/perf/{arch/riscv/util => util/kvm-stat-arch}/riscv_trap_types.h (96%)
-
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 63ca9b2be663..c7e493245f34 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -1033,10 +1033,6 @@ ifndef NO_LIBNUMA
-   endif
- endif
- 
--ifdef HAVE_KVM_STAT_SUPPORT
--    CFLAGS += -DHAVE_KVM_STAT_SUPPORT
--endif
--
- ifeq (${IS_64_BIT}, 1)
-   ifndef NO_PERF_READ_VDSO32
-     $(call feature_check,compile-32)
-diff --git a/tools/perf/arch/arm64/Makefile b/tools/perf/arch/arm64/Makefile
-index 087e099fb453..44cc3f023318 100644
---- a/tools/perf/arch/arm64/Makefile
-+++ b/tools/perf/arch/arm64/Makefile
-@@ -1,3 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0
- PERF_HAVE_JITDUMP := 1
--HAVE_KVM_STAT_SUPPORT := 1
-diff --git a/tools/perf/arch/arm64/util/Build b/tools/perf/arch/arm64/util/Build
-index 0177af19cc00..d25edd9e1883 100644
---- a/tools/perf/arch/arm64/util/Build
-+++ b/tools/perf/arch/arm64/util/Build
-@@ -1,4 +1,3 @@
--perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
- perf-util-$(CONFIG_LOCAL_LIBUNWIND) += unwind-libunwind.o
- perf-util-y += ../../arm/util/auxtrace.o
- perf-util-y += ../../arm/util/cs-etm.o
-diff --git a/tools/perf/arch/loongarch/Makefile b/tools/perf/arch/loongarch/Makefile
-index 087e099fb453..44cc3f023318 100644
---- a/tools/perf/arch/loongarch/Makefile
-+++ b/tools/perf/arch/loongarch/Makefile
-@@ -1,3 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0
- PERF_HAVE_JITDUMP := 1
--HAVE_KVM_STAT_SUPPORT := 1
-diff --git a/tools/perf/arch/loongarch/util/Build b/tools/perf/arch/loongarch/util/Build
-index 0aa31986ecb5..1cb06a5f8935 100644
---- a/tools/perf/arch/loongarch/util/Build
-+++ b/tools/perf/arch/loongarch/util/Build
-@@ -3,4 +3,3 @@ perf-util-y += perf_regs.o
- 
- perf-util-$(CONFIG_LOCAL_LIBUNWIND) += unwind-libunwind.o
- perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
--perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
-diff --git a/tools/perf/arch/powerpc/Makefile b/tools/perf/arch/powerpc/Makefile
-index a295a80ea078..44cc3f023318 100644
---- a/tools/perf/arch/powerpc/Makefile
-+++ b/tools/perf/arch/powerpc/Makefile
-@@ -1,3 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0
--HAVE_KVM_STAT_SUPPORT := 1
- PERF_HAVE_JITDUMP := 1
-diff --git a/tools/perf/arch/powerpc/util/Build b/tools/perf/arch/powerpc/util/Build
-index 5fd28ec713a4..e091b6785674 100644
---- a/tools/perf/arch/powerpc/util/Build
-+++ b/tools/perf/arch/powerpc/util/Build
-@@ -1,5 +1,4 @@
- perf-util-y += header.o
--perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
- perf-util-y += perf_regs.o
- perf-util-y += mem-events.o
- perf-util-y += pmu.o
-diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
-index 087e099fb453..44cc3f023318 100644
---- a/tools/perf/arch/riscv/Makefile
-+++ b/tools/perf/arch/riscv/Makefile
-@@ -1,3 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0
- PERF_HAVE_JITDUMP := 1
--HAVE_KVM_STAT_SUPPORT := 1
-diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
-index 628b9ebd418b..c01231bcf9c3 100644
---- a/tools/perf/arch/riscv/util/Build
-+++ b/tools/perf/arch/riscv/util/Build
-@@ -1,4 +1,2 @@
- perf-util-y += perf_regs.o
- perf-util-y += header.o
--
--perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
-diff --git a/tools/perf/arch/s390/Makefile b/tools/perf/arch/s390/Makefile
-index 0033698a65ce..8b59ce8efb89 100644
---- a/tools/perf/arch/s390/Makefile
-+++ b/tools/perf/arch/s390/Makefile
-@@ -1,3 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0-only
--HAVE_KVM_STAT_SUPPORT := 1
- PERF_HAVE_JITDUMP := 1
-diff --git a/tools/perf/arch/s390/util/Build b/tools/perf/arch/s390/util/Build
-index 5391d26fedd4..87229f2c4397 100644
---- a/tools/perf/arch/s390/util/Build
-+++ b/tools/perf/arch/s390/util/Build
-@@ -1,5 +1,4 @@
- perf-util-y += header.o
--perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
- perf-util-y += perf_regs.o
- 
- perf-util-y += machine.o
-diff --git a/tools/perf/arch/x86/Makefile b/tools/perf/arch/x86/Makefile
-index a295a80ea078..44cc3f023318 100644
---- a/tools/perf/arch/x86/Makefile
-+++ b/tools/perf/arch/x86/Makefile
-@@ -1,3 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0
--HAVE_KVM_STAT_SUPPORT := 1
- PERF_HAVE_JITDUMP := 1
-diff --git a/tools/perf/arch/x86/util/Build b/tools/perf/arch/x86/util/Build
-index 76127eefde8b..0c4cf1dd07bf 100644
---- a/tools/perf/arch/x86/util/Build
-+++ b/tools/perf/arch/x86/util/Build
-@@ -1,7 +1,6 @@
- perf-util-y += header.o
- perf-util-y += tsc.o
- perf-util-y += pmu.o
--perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
- perf-util-y += perf_regs.o
- perf-util-y += topdown.o
- perf-util-y += machine.o
-diff --git a/tools/perf/builtin-kvm.c b/tools/perf/builtin-kvm.c
-index c61369d54dd9..bd9bda32157f 100644
---- a/tools/perf/builtin-kvm.c
-+++ b/tools/perf/builtin-kvm.c
-@@ -52,7 +52,7 @@
- #include <math.h>
- #include <perf/mmap.h>
- 
--#if defined(HAVE_KVM_STAT_SUPPORT) && defined(HAVE_LIBTRACEEVENT)
-+#if defined(HAVE_LIBTRACEEVENT)
- #define GET_EVENT_KEY(func, field)					\
- static u64 get_event_ ##func(struct kvm_event *event, int vcpu)		\
- {									\
-@@ -597,7 +597,7 @@ static void kvm_display(struct perf_kvm_stat *kvm)
- 
- #endif /* HAVE_SLANG_SUPPORT */
- 
--#endif // defined(HAVE_KVM_STAT_SUPPORT) && defined(HAVE_LIBTRACEEVENT)
-+#endif // defined(HAVE_LIBTRACEEVENT)
- 
- static const char *get_filename_for_perf_kvm(void)
- {
-@@ -613,13 +613,13 @@ static const char *get_filename_for_perf_kvm(void)
- 	return filename;
- }
- 
--#if defined(HAVE_KVM_STAT_SUPPORT) && defined(HAVE_LIBTRACEEVENT)
-+#if defined(HAVE_LIBTRACEEVENT)
- 
- static bool register_kvm_events_ops(struct perf_kvm_stat *kvm)
- {
--	struct kvm_reg_events_ops *events_ops = kvm_reg_events_ops;
-+	const struct kvm_reg_events_ops *events_ops;
- 
--	for (events_ops = kvm_reg_events_ops; events_ops->name; events_ops++) {
-+	for (events_ops = kvm_reg_events_ops(); events_ops->name; events_ops++) {
- 		if (!strcmp(events_ops->name, kvm->report_event)) {
- 			kvm->events_ops = events_ops->ops;
- 			return true;
-@@ -809,7 +809,7 @@ static bool is_child_event(struct perf_kvm_stat *kvm,
- 			   struct perf_sample *sample,
- 			   struct event_key *key)
- {
--	struct child_event_ops *child_ops;
-+	const struct child_event_ops *child_ops;
- 
- 	child_ops = kvm->events_ops->child_ops;
- 
-@@ -845,7 +845,7 @@ static bool skip_event(const char *event)
- {
- 	const char * const *skip_events;
- 
--	for (skip_events = kvm_skip_events; *skip_events; skip_events++)
-+	for (skip_events = kvm_skip_events(); *skip_events; skip_events++)
- 		if (!strcmp(event, *skip_events))
- 			return true;
- 
-@@ -928,7 +928,7 @@ struct vcpu_event_record *per_vcpu_record(struct thread *thread,
- 			return NULL;
- 		}
- 
--		vcpu_record->vcpu_id = evsel__intval(evsel, sample, vcpu_id_str);
-+		vcpu_record->vcpu_id = evsel__intval(evsel, sample, vcpu_id_str());
- 		thread__set_priv(thread, vcpu_record);
- 	}
- 
-@@ -1636,11 +1636,6 @@ static int kvm_events_report_vcpu(struct perf_kvm_stat *kvm)
- 	return ret;
- }
- 
--int __weak setup_kvm_events_tp(struct perf_kvm_stat *kvm __maybe_unused)
--{
--	return 0;
--}
--
- static int
- kvm_events_record(struct perf_kvm_stat *kvm, int argc, const char **argv)
- {
-@@ -1666,7 +1661,7 @@ kvm_events_record(struct perf_kvm_stat *kvm, int argc, const char **argv)
- 		return ret;
- 	}
- 
--	for (events_tp = kvm_events_tp; *events_tp; events_tp++)
-+	for (events_tp = kvm_events_tp(); *events_tp; events_tp++)
- 		events_tp_size++;
- 
- 	rec_argc = ARRAY_SIZE(record_args) + argc + 2 +
-@@ -1681,7 +1676,7 @@ kvm_events_record(struct perf_kvm_stat *kvm, int argc, const char **argv)
- 
- 	for (j = 0; j < events_tp_size; j++) {
- 		rec_argv[i++] = STRDUP_FAIL_EXIT("-e");
--		rec_argv[i++] = STRDUP_FAIL_EXIT(kvm_events_tp[j]);
-+		rec_argv[i++] = STRDUP_FAIL_EXIT(kvm_events_tp()[j]);
- 	}
- 
- 	rec_argv[i++] = STRDUP_FAIL_EXIT("-o");
-@@ -1775,7 +1770,7 @@ static struct evlist *kvm_live_event_list(void)
- 	if (evlist == NULL)
- 		return NULL;
- 
--	for (events_tp = kvm_events_tp; *events_tp; events_tp++) {
-+	for (events_tp = kvm_events_tp(); *events_tp; events_tp++) {
- 
- 		tp = strdup(*events_tp);
- 		if (tp == NULL)
-@@ -1985,13 +1980,7 @@ static int kvm_cmd_stat(const char *file_name, int argc, const char **argv)
- perf_stat:
- 	return cmd_stat(argc, argv);
- }
--#endif /* HAVE_KVM_STAT_SUPPORT */
--
--int __weak kvm_add_default_arch_event(int *argc __maybe_unused,
--					const char **argv __maybe_unused)
--{
--	return 0;
--}
-+#endif /* HAVE_LIBTRACEEVENT */
- 
- static int __cmd_record(const char *file_name, int argc, const char **argv)
- {
-@@ -2179,7 +2168,7 @@ int cmd_kvm(int argc, const char **argv)
- 		return __cmd_top(argc, argv);
- 	else if (strlen(argv[0]) > 2 && strstarts("buildid-list", argv[0]))
- 		return __cmd_buildid_list(file_name, argc, argv);
--#if defined(HAVE_KVM_STAT_SUPPORT) && defined(HAVE_LIBTRACEEVENT)
-+#if defined(HAVE_LIBTRACEEVENT)
- 	else if (strlen(argv[0]) > 2 && strstarts("stat", argv[0]))
- 		return kvm_cmd_stat(file_name, argc, argv);
- #endif
-diff --git a/tools/perf/util/Build b/tools/perf/util/Build
-index b9925c6902ca..2852ba0f3d4d 100644
---- a/tools/perf/util/Build
-+++ b/tools/perf/util/Build
-@@ -128,7 +128,8 @@ perf-util-y += spark.o
- perf-util-y += topdown.o
- perf-util-y += iostat.o
- perf-util-y += stream.o
--perf-util-y += kvm-stat.o
-+perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
-+perf-util-y += kvm-stat-arch/
- perf-util-y += lock-contention.o
- perf-util-y += auxtrace.o
- perf-util-y += intel-pt-decoder/
-diff --git a/tools/perf/arch/arm64/util/arm64_exception_types.h b/tools/perf/util/kvm-stat-arch/arm64_exception_types.h
-similarity index 100%
-rename from tools/perf/arch/arm64/util/arm64_exception_types.h
-rename to tools/perf/util/kvm-stat-arch/arm64_exception_types.h
-diff --git a/tools/perf/arch/powerpc/util/book3s_hcalls.h b/tools/perf/util/kvm-stat-arch/book3s_hcalls.h
-similarity index 100%
-rename from tools/perf/arch/powerpc/util/book3s_hcalls.h
-rename to tools/perf/util/kvm-stat-arch/book3s_hcalls.h
-diff --git a/tools/perf/arch/powerpc/util/book3s_hv_exits.h b/tools/perf/util/kvm-stat-arch/book3s_hv_exits.h
-similarity index 100%
-rename from tools/perf/arch/powerpc/util/book3s_hv_exits.h
-rename to tools/perf/util/kvm-stat-arch/book3s_hv_exits.h
-diff --git a/tools/perf/arch/arm64/util/kvm-stat.c b/tools/perf/util/kvm-stat-arch/kvm-stat-arm64.c
-similarity index 63%
-rename from tools/perf/arch/arm64/util/kvm-stat.c
-rename to tools/perf/util/kvm-stat-arch/kvm-stat-arm64.c
-index 6611aa21cba9..8003ff415b1a 100644
---- a/tools/perf/arch/arm64/util/kvm-stat.c
-+++ b/tools/perf/util/kvm-stat-arch/kvm-stat-arm64.c
-@@ -1,21 +1,17 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <errno.h>
- #include <memory.h>
--#include "../../../util/evsel.h"
--#include "../../../util/kvm-stat.h"
-+#include "../debug.h"
-+#include "../evsel.h"
-+#include "../kvm-stat.h"
- #include "arm64_exception_types.h"
--#include "debug.h"
- 
- define_exit_reasons_table(arm64_exit_reasons, kvm_arm_exception_type);
- define_exit_reasons_table(arm64_trap_exit_reasons, kvm_arm_exception_class);
- 
--const char *kvm_trap_exit_reason = "esr_ec";
--const char *vcpu_id_str = "id";
--const char *kvm_exit_reason = "ret";
--const char *kvm_entry_trace = "kvm:kvm_entry";
--const char *kvm_exit_trace = "kvm:kvm_exit";
-+static const char *kvm_trap_exit_reason = "esr_ec";
- 
--const char *kvm_events_tp[] = {
-+static const char * const __kvm_events_tp[] = {
- 	"kvm:kvm_entry",
- 	"kvm:kvm_exit",
- 	NULL,
-@@ -26,7 +22,7 @@ static void event_get_key(struct evsel *evsel,
- 			  struct event_key *key)
- {
- 	key->info = 0;
--	key->key = evsel__intval(evsel, sample, kvm_exit_reason);
-+	key->key = evsel__intval(evsel, sample, kvm_exit_reason());
- 	key->exit_reasons = arm64_exit_reasons;
- 
- 	/*
-@@ -44,28 +40,28 @@ static bool event_begin(struct evsel *evsel,
- 			struct perf_sample *sample __maybe_unused,
- 			struct event_key *key __maybe_unused)
- {
--	return evsel__name_is(evsel, kvm_entry_trace);
-+	return evsel__name_is(evsel, kvm_entry_trace());
- }
- 
- static bool event_end(struct evsel *evsel,
- 		      struct perf_sample *sample,
- 		      struct event_key *key)
- {
--	if (evsel__name_is(evsel, kvm_exit_trace)) {
-+	if (evsel__name_is(evsel, kvm_exit_trace())) {
- 		event_get_key(evsel, sample, key);
- 		return true;
- 	}
- 	return false;
- }
- 
--static struct kvm_events_ops exit_events = {
-+static const struct kvm_events_ops exit_events = {
- 	.is_begin_event = event_begin,
- 	.is_end_event	= event_end,
- 	.decode_key	= exit_event_decode_key,
- 	.name		= "VM-EXIT"
- };
- 
--struct kvm_reg_events_ops kvm_reg_events_ops[] = {
-+static const struct kvm_reg_events_ops __kvm_reg_events_ops[] = {
- 	{
- 		.name	= "vmexit",
- 		.ops	= &exit_events,
-@@ -73,12 +69,27 @@ struct kvm_reg_events_ops kvm_reg_events_ops[] = {
- 	{ NULL, NULL },
- };
- 
--const char * const kvm_skip_events[] = {
-+static const char * const __kvm_skip_events[] = {
- 	NULL,
- };
- 
--int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid __maybe_unused)
-+int __cpu_isa_init_arm64(struct perf_kvm_stat *kvm)
- {
- 	kvm->exit_reasons_isa = "arm64";
- 	return 0;
- }
-+
-+const char * const *__kvm_events_tp_arm64(void)
-+{
-+	return __kvm_events_tp;
-+}
-+
-+const struct kvm_reg_events_ops *__kvm_reg_events_ops_arm64(void)
-+{
-+	return __kvm_reg_events_ops;
-+}
-+
-+const char * const *__kvm_skip_events_arm64(void)
-+{
-+	return __kvm_skip_events;
-+}
-diff --git a/tools/perf/arch/loongarch/util/kvm-stat.c b/tools/perf/util/kvm-stat-arch/kvm-stat-loongarch.c
-similarity index 78%
-rename from tools/perf/arch/loongarch/util/kvm-stat.c
-rename to tools/perf/util/kvm-stat-arch/kvm-stat-loongarch.c
-index a7859a3a9a51..a15ce072ac34 100644
---- a/tools/perf/arch/loongarch/util/kvm-stat.c
-+++ b/tools/perf/util/kvm-stat-arch/kvm-stat-loongarch.c
-@@ -1,12 +1,12 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <errno.h>
- #include <memory.h>
--#include "util/kvm-stat.h"
--#include "util/parse-events.h"
--#include "util/debug.h"
--#include "util/evsel.h"
--#include "util/evlist.h"
--#include "util/pmus.h"
-+#include "../kvm-stat.h"
-+#include "../parse-events.h"
-+#include "../debug.h"
-+#include "../evsel.h"
-+#include "../evlist.h"
-+#include "../pmus.h"
- 
- #define LOONGARCH_EXCEPTION_INT		0
- #define LOONGARCH_EXCEPTION_PIL		1
-@@ -43,12 +43,8 @@
- 
- define_exit_reasons_table(loongarch_exit_reasons, loongarch_exception_type);
- 
--const char *vcpu_id_str = "vcpu_id";
--const char *kvm_exit_reason = "reason";
--const char *kvm_entry_trace = "kvm:kvm_enter";
--const char *kvm_reenter_trace = "kvm:kvm_reenter";
--const char *kvm_exit_trace = "kvm:kvm_exit";
--const char *kvm_events_tp[] = {
-+static const char *kvm_reenter_trace = "kvm:kvm_reenter";
-+static const char * const __kvm_events_tp[] = {
- 	"kvm:kvm_enter",
- 	"kvm:kvm_reenter",
- 	"kvm:kvm_exit",
-@@ -74,7 +70,8 @@ static bool event_end(struct evsel *evsel,
- 	 *   kvm:kvm_enter   means returning to vmm and then to guest
- 	 *   kvm:kvm_reenter means returning to guest immediately
- 	 */
--	return evsel__name_is(evsel, kvm_entry_trace) || evsel__name_is(evsel, kvm_reenter_trace);
-+	return evsel__name_is(evsel, kvm_entry_trace()) ||
-+	       evsel__name_is(evsel, kvm_reenter_trace);
- }
- 
- static void event_gspr_get_key(struct evsel *evsel,
-@@ -109,12 +106,12 @@ static void event_gspr_get_key(struct evsel *evsel,
- 	}
- }
- 
--static struct child_event_ops child_events[] = {
-+static const struct child_event_ops child_events[] = {
- 	{ .name = "kvm:kvm_exit_gspr", .get_key = event_gspr_get_key },
- 	{ NULL, NULL },
- };
- 
--static struct kvm_events_ops exit_events = {
-+static const struct kvm_events_ops exit_events = {
- 	.is_begin_event = event_begin,
- 	.is_end_event = event_end,
- 	.child_ops = child_events,
-@@ -122,18 +119,33 @@ static struct kvm_events_ops exit_events = {
- 	.name = "VM-EXIT"
- };
- 
--struct kvm_reg_events_ops kvm_reg_events_ops[] = {
-+static const struct kvm_reg_events_ops __kvm_reg_events_ops[] = {
- 	{ .name	= "vmexit", .ops = &exit_events, },
- 	{ NULL, NULL },
- };
- 
--const char * const kvm_skip_events[] = {
-+static const char * const __kvm_skip_events[] = {
- 	NULL,
- };
- 
--int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid __maybe_unused)
-+int __cpu_isa_init_loongarch(struct perf_kvm_stat *kvm)
- {
- 	kvm->exit_reasons_isa = "loongarch64";
- 	kvm->exit_reasons = loongarch_exit_reasons;
- 	return 0;
- }
-+
-+const char * const *__kvm_events_tp_loongarch(void)
-+{
-+	return __kvm_events_tp;
-+}
-+
-+const struct kvm_reg_events_ops *__kvm_reg_events_ops_loongarch(void)
-+{
-+	return __kvm_reg_events_ops;
-+}
-+
-+const char * const *__kvm_skip_events_loongarch(void)
-+{
-+	return __kvm_skip_events;
-+}
-diff --git a/tools/perf/arch/powerpc/util/kvm-stat.c b/tools/perf/util/kvm-stat-arch/kvm-stat-powerpc.c
-similarity index 78%
-rename from tools/perf/arch/powerpc/util/kvm-stat.c
-rename to tools/perf/util/kvm-stat-arch/kvm-stat-powerpc.c
-index c8357b571ccf..42182d70beb6 100644
---- a/tools/perf/arch/powerpc/util/kvm-stat.c
-+++ b/tools/perf/util/kvm-stat-arch/kvm-stat-powerpc.c
-@@ -1,11 +1,11 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <errno.h>
--#include "util/kvm-stat.h"
--#include "util/parse-events.h"
--#include "util/debug.h"
--#include "util/evsel.h"
--#include "util/evlist.h"
--#include "util/pmus.h"
-+#include "../kvm-stat.h"
-+#include "../parse-events.h"
-+#include "../debug.h"
-+#include "../evsel.h"
-+#include "../evlist.h"
-+#include "../pmus.h"
- 
- #include "book3s_hv_exits.h"
- #include "book3s_hcalls.h"
-@@ -13,15 +13,11 @@
- 
- #define NR_TPS 4
- 
--const char *vcpu_id_str = "vcpu_id";
--const char *kvm_entry_trace = "kvm_hv:kvm_guest_enter";
--const char *kvm_exit_trace = "kvm_hv:kvm_guest_exit";
--
- define_exit_reasons_table(hv_exit_reasons, kvm_trace_symbol_exit);
- define_exit_reasons_table(hcall_reasons, kvm_trace_symbol_hcall);
- 
- /* Tracepoints specific to ppc_book3s_hv */
--const char *ppc_book3s_hv_kvm_tp[] = {
-+static const char * const ppc_book3s_hv_kvm_tp[] = {
- 	"kvm_hv:kvm_guest_enter",
- 	"kvm_hv:kvm_guest_exit",
- 	"kvm_hv:kvm_hcall_enter",
-@@ -30,8 +26,7 @@ const char *ppc_book3s_hv_kvm_tp[] = {
- };
- 
- /* 1 extra placeholder for NULL */
--const char *kvm_events_tp[NR_TPS + 1];
--const char *kvm_exit_reason;
-+static const char *__kvm_events_tp[NR_TPS + 1];
- 
- static void hcall_event_get_key(struct evsel *evsel,
- 				struct perf_sample *sample,
-@@ -60,13 +55,13 @@ static bool hcall_event_end(struct evsel *evsel,
- 			    struct perf_sample *sample __maybe_unused,
- 			    struct event_key *key __maybe_unused)
- {
--	return (evsel__name_is(evsel, kvm_events_tp[3]));
-+	return evsel__name_is(evsel, __kvm_events_tp[3]);
- }
- 
- static bool hcall_event_begin(struct evsel *evsel,
- 			      struct perf_sample *sample, struct event_key *key)
- {
--	if (evsel__name_is(evsel, kvm_events_tp[2])) {
-+	if (evsel__name_is(evsel, __kvm_events_tp[2])) {
- 		hcall_event_get_key(evsel, sample, key);
- 		return true;
- 	}
-@@ -82,27 +77,27 @@ static void hcall_event_decode_key(struct perf_kvm_stat *kvm __maybe_unused,
- 	scnprintf(decode, KVM_EVENT_NAME_LEN, "%s", hcall_reason);
- }
- 
--static struct kvm_events_ops hcall_events = {
-+static const struct kvm_events_ops hcall_events = {
- 	.is_begin_event = hcall_event_begin,
- 	.is_end_event = hcall_event_end,
- 	.decode_key = hcall_event_decode_key,
- 	.name = "HCALL-EVENT",
- };
- 
--static struct kvm_events_ops exit_events = {
-+static const struct kvm_events_ops exit_events = {
- 	.is_begin_event = exit_event_begin,
- 	.is_end_event = exit_event_end,
- 	.decode_key = exit_event_decode_key,
- 	.name = "VM-EXIT"
- };
- 
--struct kvm_reg_events_ops kvm_reg_events_ops[] = {
-+static const struct kvm_reg_events_ops __kvm_reg_events_ops[] = {
- 	{ .name = "vmexit", .ops = &exit_events },
- 	{ .name = "hcall", .ops = &hcall_events },
- 	{ NULL, NULL },
- };
- 
--const char * const kvm_skip_events[] = {
-+static const char * const __kvm_skip_events[] = {
- 	NULL,
- };
- 
-@@ -123,7 +118,7 @@ static int is_tracepoint_available(const char *str, struct evlist *evlist)
- static int ppc__setup_book3s_hv(struct perf_kvm_stat *kvm,
- 				struct evlist *evlist)
- {
--	const char **events_ptr;
-+	const char * const *events_ptr;
- 	int i, nr_tp = 0, err = -1;
- 
- 	/* Check for book3s_hv tracepoints */
-@@ -135,10 +130,9 @@ static int ppc__setup_book3s_hv(struct perf_kvm_stat *kvm,
- 	}
- 
- 	for (i = 0; i < nr_tp; i++)
--		kvm_events_tp[i] = ppc_book3s_hv_kvm_tp[i];
-+		__kvm_events_tp[i] = ppc_book3s_hv_kvm_tp[i];
- 
--	kvm_events_tp[i] = NULL;
--	kvm_exit_reason = "trap";
-+	__kvm_events_tp[i] = NULL;
- 	kvm->exit_reasons = hv_exit_reasons;
- 	kvm->exit_reasons_isa = "HV";
- 
-@@ -157,12 +151,12 @@ static int ppc__setup_kvm_tp(struct perf_kvm_stat *kvm)
- 	return ppc__setup_book3s_hv(kvm, evlist);
- }
- 
--int setup_kvm_events_tp(struct perf_kvm_stat *kvm)
-+int __setup_kvm_events_tp_powerpc(struct perf_kvm_stat *kvm)
- {
- 	return ppc__setup_kvm_tp(kvm);
- }
- 
--int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid __maybe_unused)
-+int __cpu_isa_init_powerpc(struct perf_kvm_stat *kvm)
- {
- 	int ret;
- 
-@@ -184,7 +178,7 @@ int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid __maybe_unused)
-  *
-  * Function to parse the arguments and return appropriate values.
-  */
--int kvm_add_default_arch_event(int *argc, const char **argv)
-+int __kvm_add_default_arch_event_powerpc(int *argc, const char **argv)
- {
- 	const char **tmp;
- 	bool event = false;
-@@ -217,3 +211,18 @@ int kvm_add_default_arch_event(int *argc, const char **argv)
- 	free(tmp);
- 	return 0;
- }
-+
-+const char * const *__kvm_events_tp_powerpc(void)
-+{
-+	return __kvm_events_tp;
-+}
-+
-+const struct kvm_reg_events_ops *__kvm_reg_events_ops_powerpc(void)
-+{
-+	return __kvm_reg_events_ops;
-+}
-+
-+const char * const *__kvm_skip_events_powerpc(void)
-+{
-+	return __kvm_skip_events;
-+}
-diff --git a/tools/perf/arch/riscv/util/kvm-stat.c b/tools/perf/util/kvm-stat-arch/kvm-stat-riscv.c
-similarity index 58%
-rename from tools/perf/arch/riscv/util/kvm-stat.c
-rename to tools/perf/util/kvm-stat-arch/kvm-stat-riscv.c
-index 3ea7acb5e159..b2c5d3220795 100644
---- a/tools/perf/arch/riscv/util/kvm-stat.c
-+++ b/tools/perf/util/kvm-stat-arch/kvm-stat-riscv.c
-@@ -7,19 +7,14 @@
-  */
- #include <errno.h>
- #include <memory.h>
--#include "../../../util/evsel.h"
--#include "../../../util/kvm-stat.h"
-+#include "../evsel.h"
-+#include "../kvm-stat.h"
- #include "riscv_trap_types.h"
- #include "debug.h"
- 
- define_exit_reasons_table(riscv_exit_reasons, kvm_riscv_trap_class);
- 
--const char *vcpu_id_str = "id";
--const char *kvm_exit_reason = "scause";
--const char *kvm_entry_trace = "kvm:kvm_entry";
--const char *kvm_exit_trace = "kvm:kvm_exit";
--
--const char *kvm_events_tp[] = {
-+static const char * const __kvm_events_tp[] = {
- 	"kvm:kvm_entry",
- 	"kvm:kvm_exit",
- 	NULL,
-@@ -29,8 +24,10 @@ static void event_get_key(struct evsel *evsel,
- 			  struct perf_sample *sample,
- 			  struct event_key *key)
- {
-+	int xlen = 64; // TODO: 32-bit support.
-+
- 	key->info = 0;
--	key->key = evsel__intval(evsel, sample, kvm_exit_reason) & ~CAUSE_IRQ_FLAG;
-+	key->key = evsel__intval(evsel, sample, kvm_exit_reason()) & ~CAUSE_IRQ_FLAG(xlen);
- 	key->exit_reasons = riscv_exit_reasons;
- }
- 
-@@ -38,28 +35,28 @@ static bool event_begin(struct evsel *evsel,
- 			struct perf_sample *sample __maybe_unused,
- 			struct event_key *key __maybe_unused)
- {
--	return evsel__name_is(evsel, kvm_entry_trace);
-+	return evsel__name_is(evsel, kvm_entry_trace());
- }
- 
- static bool event_end(struct evsel *evsel,
- 		      struct perf_sample *sample,
- 		      struct event_key *key)
- {
--	if (evsel__name_is(evsel, kvm_exit_trace)) {
-+	if (evsel__name_is(evsel, kvm_exit_trace())) {
- 		event_get_key(evsel, sample, key);
- 		return true;
- 	}
- 	return false;
- }
- 
--static struct kvm_events_ops exit_events = {
-+static const struct kvm_events_ops exit_events = {
- 	.is_begin_event = event_begin,
- 	.is_end_event	= event_end,
- 	.decode_key	= exit_event_decode_key,
- 	.name		= "VM-EXIT"
- };
- 
--struct kvm_reg_events_ops kvm_reg_events_ops[] = {
-+static const struct kvm_reg_events_ops __kvm_reg_events_ops[] = {
- 	{
- 		.name	= "vmexit",
- 		.ops	= &exit_events,
-@@ -67,12 +64,27 @@ struct kvm_reg_events_ops kvm_reg_events_ops[] = {
- 	{ NULL, NULL },
- };
- 
--const char * const kvm_skip_events[] = {
-+static const char * const __kvm_skip_events[] = {
- 	NULL,
- };
- 
--int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid __maybe_unused)
-+int __cpu_isa_init_riscv(struct perf_kvm_stat *kvm)
- {
- 	kvm->exit_reasons_isa = "riscv64";
- 	return 0;
- }
-+
-+const char * const *__kvm_events_tp_riscv(void)
-+{
-+	return __kvm_events_tp;
-+}
-+
-+const struct kvm_reg_events_ops *__kvm_reg_events_ops_riscv(void)
-+{
-+	return __kvm_reg_events_ops;
-+}
-+
-+const char * const *__kvm_skip_events_riscv(void)
-+{
-+	return __kvm_skip_events;
-+}
-diff --git a/tools/perf/arch/s390/util/kvm-stat.c b/tools/perf/util/kvm-stat-arch/kvm-stat-s390.c
-similarity index 77%
-rename from tools/perf/arch/s390/util/kvm-stat.c
-rename to tools/perf/util/kvm-stat-arch/kvm-stat-s390.c
-index 0aed92df51ba..2073bfd82b67 100644
---- a/tools/perf/arch/s390/util/kvm-stat.c
-+++ b/tools/perf/util/kvm-stat-arch/kvm-stat-s390.c
-@@ -8,9 +8,9 @@
- 
- #include <errno.h>
- #include <string.h>
--#include "../../util/kvm-stat.h"
--#include "../../util/evsel.h"
--#include <asm/sie.h>
-+#include "../kvm-stat.h"
-+#include "../evsel.h"
-+#include "../../../arch/s390/include/uapi/asm/sie.h"
- 
- define_exit_reasons_table(sie_exit_reasons, sie_intercept_code);
- define_exit_reasons_table(sie_icpt_insn_codes, icpt_insn_codes);
-@@ -18,11 +18,6 @@ define_exit_reasons_table(sie_sigp_order_codes, sigp_order_codes);
- define_exit_reasons_table(sie_diagnose_codes, diagnose_codes);
- define_exit_reasons_table(sie_icpt_prog_codes, icpt_prog_codes);
- 
--const char *vcpu_id_str = "id";
--const char *kvm_exit_reason = "icptcode";
--const char *kvm_entry_trace = "kvm:kvm_s390_sie_enter";
--const char *kvm_exit_trace = "kvm:kvm_s390_sie_exit";
--
- static void event_icpt_insn_get_key(struct evsel *evsel,
- 				    struct perf_sample *sample,
- 				    struct event_key *key)
-@@ -58,7 +53,7 @@ static void event_icpt_prog_get_key(struct evsel *evsel,
- 	key->exit_reasons = sie_icpt_prog_codes;
- }
- 
--static struct child_event_ops child_events[] = {
-+static const struct child_event_ops child_events[] = {
- 	{ .name = "kvm:kvm_s390_intercept_instruction",
- 	  .get_key = event_icpt_insn_get_key },
- 	{ .name = "kvm:kvm_s390_handle_sigp",
-@@ -70,7 +65,7 @@ static struct child_event_ops child_events[] = {
- 	{ NULL, NULL },
- };
- 
--static struct kvm_events_ops exit_events = {
-+static const struct kvm_events_ops exit_events = {
- 	.is_begin_event = exit_event_begin,
- 	.is_end_event = exit_event_end,
- 	.child_ops = child_events,
-@@ -78,7 +73,7 @@ static struct kvm_events_ops exit_events = {
- 	.name = "VM-EXIT"
- };
- 
--const char *kvm_events_tp[] = {
-+static const char * const __kvm_events_tp[] = {
- 	"kvm:kvm_s390_sie_enter",
- 	"kvm:kvm_s390_sie_exit",
- 	"kvm:kvm_s390_intercept_instruction",
-@@ -88,17 +83,17 @@ const char *kvm_events_tp[] = {
- 	NULL,
- };
- 
--struct kvm_reg_events_ops kvm_reg_events_ops[] = {
-+static const struct kvm_reg_events_ops __kvm_reg_events_ops[] = {
- 	{ .name = "vmexit", .ops = &exit_events },
- 	{ NULL, NULL },
- };
- 
--const char * const kvm_skip_events[] = {
-+static const char * const __kvm_skip_events[] = {
- 	"Wait state",
- 	NULL,
- };
- 
--int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid)
-+int __cpu_isa_init_s390(struct perf_kvm_stat *kvm, const char *cpuid)
- {
- 	if (strstr(cpuid, "IBM")) {
- 		kvm->exit_reasons = sie_exit_reasons;
-@@ -108,3 +103,18 @@ int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid)
- 
- 	return 0;
- }
-+
-+const char * const *__kvm_events_tp_s390(void)
-+{
-+	return __kvm_events_tp;
-+}
-+
-+const struct kvm_reg_events_ops *__kvm_reg_events_ops_s390(void)
-+{
-+	return __kvm_reg_events_ops;
-+}
-+
-+const char * const *__kvm_skip_events_s390(void)
-+{
-+	return __kvm_skip_events;
-+}
-diff --git a/tools/perf/arch/x86/util/kvm-stat.c b/tools/perf/util/kvm-stat-arch/kvm-stat-x86.c
-similarity index 88%
-rename from tools/perf/arch/x86/util/kvm-stat.c
-rename to tools/perf/util/kvm-stat-arch/kvm-stat-x86.c
-index bff36f9345ea..1cf541385a4b 100644
---- a/tools/perf/arch/x86/util/kvm-stat.c
-+++ b/tools/perf/util/kvm-stat-arch/kvm-stat-x86.c
-@@ -1,9 +1,9 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <errno.h>
- #include <string.h>
--#include "../../../util/kvm-stat.h"
--#include "../../../util/evsel.h"
--#include "../../../util/env.h"
-+#include "../kvm-stat.h"
-+#include "../evsel.h"
-+#include "../env.h"
- #include <asm/svm.h>
- #include <asm/vmx.h>
- #include <asm/kvm.h>
-@@ -12,18 +12,13 @@
- define_exit_reasons_table(vmx_exit_reasons, VMX_EXIT_REASONS);
- define_exit_reasons_table(svm_exit_reasons, SVM_EXIT_REASONS);
- 
--static struct kvm_events_ops exit_events = {
-+static const struct kvm_events_ops exit_events = {
- 	.is_begin_event = exit_event_begin,
- 	.is_end_event = exit_event_end,
- 	.decode_key = exit_event_decode_key,
- 	.name = "VM-EXIT"
- };
- 
--const char *vcpu_id_str = "vcpu_id";
--const char *kvm_exit_reason = "exit_reason";
--const char *kvm_entry_trace = "kvm:kvm_entry";
--const char *kvm_exit_trace = "kvm:kvm_exit";
--
- /*
-  * For the mmio events, we treat:
-  * the time of MMIO write: kvm_mmio(KVM_TRACE_MMIO_WRITE...) -> kvm_entry
-@@ -83,7 +78,7 @@ static void mmio_event_decode_key(struct perf_kvm_stat *kvm __maybe_unused,
- 		  key->info == KVM_TRACE_MMIO_WRITE ? "W" : "R");
- }
- 
--static struct kvm_events_ops mmio_events = {
-+static const struct kvm_events_ops mmio_events = {
- 	.is_begin_event = mmio_event_begin,
- 	.is_end_event = mmio_event_end,
- 	.decode_key = mmio_event_decode_key,
-@@ -127,7 +122,7 @@ static void ioport_event_decode_key(struct perf_kvm_stat *kvm __maybe_unused,
- 		  key->info ? "POUT" : "PIN");
- }
- 
--static struct kvm_events_ops ioport_events = {
-+static const struct kvm_events_ops ioport_events = {
- 	.is_begin_event = ioport_event_begin,
- 	.is_end_event = ioport_event_end,
- 	.decode_key = ioport_event_decode_key,
-@@ -171,14 +166,14 @@ static void msr_event_decode_key(struct perf_kvm_stat *kvm __maybe_unused,
- 		  key->info ? "W" : "R");
- }
- 
--static struct kvm_events_ops msr_events = {
-+static const struct kvm_events_ops msr_events = {
- 	.is_begin_event = msr_event_begin,
- 	.is_end_event = msr_event_end,
- 	.decode_key = msr_event_decode_key,
- 	.name = "MSR Access"
- };
- 
--const char *kvm_events_tp[] = {
-+static const char * const __kvm_events_tp[] = {
- 	"kvm:kvm_entry",
- 	"kvm:kvm_exit",
- 	"kvm:kvm_mmio",
-@@ -187,7 +182,7 @@ const char *kvm_events_tp[] = {
- 	NULL,
- };
- 
--struct kvm_reg_events_ops kvm_reg_events_ops[] = {
-+static const struct kvm_reg_events_ops __kvm_reg_events_ops[] = {
- 	{ .name = "vmexit", .ops = &exit_events },
- 	{ .name = "mmio", .ops = &mmio_events },
- 	{ .name = "ioport", .ops = &ioport_events },
-@@ -195,12 +190,12 @@ struct kvm_reg_events_ops kvm_reg_events_ops[] = {
- 	{ NULL, NULL },
- };
- 
--const char * const kvm_skip_events[] = {
-+static const char * const __kvm_skip_events[] = {
- 	"HLT",
- 	NULL,
- };
- 
--int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid)
-+int __cpu_isa_init_x86(struct perf_kvm_stat *kvm, const char *cpuid)
- {
- 	if (strstr(cpuid, "Intel")) {
- 		kvm->exit_reasons = vmx_exit_reasons;
-@@ -226,7 +221,7 @@ int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid)
-  * So, to avoid this issue explicitly use "cycles" instead of "cycles:P" event
-  * by default to sample guest on Intel platforms.
-  */
--int kvm_add_default_arch_event(int *argc, const char **argv)
-+int __kvm_add_default_arch_event_x86(int *argc, const char **argv)
- {
- 	const char **tmp;
- 	bool event = false;
-@@ -262,3 +257,18 @@ int kvm_add_default_arch_event(int *argc, const char **argv)
- 	free(tmp);
- 	return ret;
- }
-+
-+const char * const *__kvm_events_tp_x86(void)
-+{
-+	return __kvm_events_tp;
-+}
-+
-+const struct kvm_reg_events_ops *__kvm_reg_events_ops_x86(void)
-+{
-+	return __kvm_reg_events_ops;
-+}
-+
-+const char * const *__kvm_skip_events_x86(void)
-+{
-+	return __kvm_skip_events;
-+}
-diff --git a/tools/perf/arch/riscv/util/riscv_trap_types.h b/tools/perf/util/kvm-stat-arch/riscv_trap_types.h
-similarity index 96%
-rename from tools/perf/arch/riscv/util/riscv_trap_types.h
-rename to tools/perf/util/kvm-stat-arch/riscv_trap_types.h
-index 6cc71eb01fca..aa5d24fab4ee 100644
---- a/tools/perf/arch/riscv/util/riscv_trap_types.h
-+++ b/tools/perf/util/kvm-stat-arch/riscv_trap_types.h
-@@ -3,7 +3,7 @@
- #define ARCH_PERF_RISCV_TRAP_TYPES_H
- 
- /* Exception cause high bit - is an interrupt if set */
--#define CAUSE_IRQ_FLAG		(_AC(1, UL) << (__riscv_xlen - 1))
-+#define CAUSE_IRQ_FLAG(xlen)		(_AC(1, UL) << (xlen - 1))
- 
- /* Interrupt causes (minus the high bit) */
- #define IRQ_S_SOFT 1
-diff --git a/tools/perf/util/kvm-stat.c b/tools/perf/util/kvm-stat.c
-index 38ace736db5c..b1affd97917b 100644
---- a/tools/perf/util/kvm-stat.c
-+++ b/tools/perf/util/kvm-stat.c
-@@ -2,12 +2,11 @@
- #include "debug.h"
- #include "evsel.h"
- #include "kvm-stat.h"
--
--#if defined(HAVE_KVM_STAT_SUPPORT) && defined(HAVE_LIBTRACEEVENT)
-+#include <dwarf-regs.h>
- 
- bool kvm_exit_event(struct evsel *evsel)
- {
--	return evsel__name_is(evsel, kvm_exit_trace);
-+	return evsel__name_is(evsel, kvm_exit_trace());
- }
- 
- void exit_event_get_key(struct evsel *evsel,
-@@ -15,7 +14,7 @@ void exit_event_get_key(struct evsel *evsel,
- 			struct event_key *key)
- {
- 	key->info = 0;
--	key->key  = evsel__intval(evsel, sample, kvm_exit_reason);
-+	key->key  = evsel__intval(evsel, sample, kvm_exit_reason());
- }
- 
- 
-@@ -32,7 +31,7 @@ bool exit_event_begin(struct evsel *evsel,
- 
- bool kvm_entry_event(struct evsel *evsel)
- {
--	return evsel__name_is(evsel, kvm_entry_trace);
-+	return evsel__name_is(evsel, kvm_entry_trace());
- }
- 
- bool exit_event_end(struct evsel *evsel,
-@@ -67,4 +66,202 @@ void exit_event_decode_key(struct perf_kvm_stat *kvm,
- 	scnprintf(decode, KVM_EVENT_NAME_LEN, "%s", exit_reason);
- }
- 
--#endif
-+int setup_kvm_events_tp(struct perf_kvm_stat *kvm)
-+{
-+	switch (EM_HOST) {
-+	case EM_PPC:
-+	case EM_PPC64:
-+		return __setup_kvm_events_tp_powerpc(kvm);
-+	default:
-+		return 0;
-+	}
-+}
-+
-+int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid)
-+{
-+	switch (EM_HOST) {
-+	case EM_AARCH64:
-+		return __cpu_isa_init_arm64(kvm);
-+	case EM_LOONGARCH:
-+		return __cpu_isa_init_loongarch(kvm);
-+	case EM_PPC:
-+	case EM_PPC64:
-+		return __cpu_isa_init_powerpc(kvm);
-+	case EM_RISCV:
-+		return __cpu_isa_init_riscv(kvm);
-+	case EM_S390:
-+		return __cpu_isa_init_s390(kvm, cpuid);
-+	case EM_X86_64:
-+	case EM_386:
-+		return __cpu_isa_init_x86(kvm, cpuid);
-+	default:
-+		pr_err("Unsupported kvm-stat host %d\n", EM_HOST);
-+		return -1;
-+	}
-+}
-+
-+const char *vcpu_id_str(void)
-+{
-+	switch (EM_HOST) {
-+	case EM_AARCH64:
-+	case EM_RISCV:
-+	case EM_S390:
-+		return "id";
-+	case EM_LOONGARCH:
-+	case EM_PPC:
-+	case EM_PPC64:
-+	case EM_X86_64:
-+	case EM_386:
-+		return "vcpu_id";
-+	default:
-+		pr_err("Unsupported kvm-stat host %d\n", EM_HOST);
-+		return NULL;
-+	}
-+}
-+
-+const char *kvm_exit_reason(void)
-+{
-+	switch (EM_HOST) {
-+	case EM_AARCH64:
-+		return "ret";
-+	case EM_LOONGARCH:
-+		return "reason";
-+	case EM_PPC:
-+	case EM_PPC64:
-+		return "trap";
-+	case EM_RISCV:
-+		return "scause";
-+	case EM_S390:
-+		return "icptcode";
-+	case EM_X86_64:
-+	case EM_386:
-+		return "exit_reason";
-+	default:
-+		pr_err("Unsupported kvm-stat host %d\n", EM_HOST);
-+		return NULL;
-+	}
-+}
-+
-+const char *kvm_entry_trace(void)
-+{
-+	switch (EM_HOST) {
-+	case EM_AARCH64:
-+	case EM_RISCV:
-+	case EM_X86_64:
-+	case EM_386:
-+		return "kvm:kvm_entry";
-+	case EM_LOONGARCH:
-+		return "kvm:kvm_enter";
-+	case EM_PPC:
-+	case EM_PPC64:
-+		return "kvm_hv:kvm_guest_enter";
-+	case EM_S390:
-+		return "kvm:kvm_s390_sie_enter";
-+	default:
-+		pr_err("Unsupported kvm-stat host %d\n", EM_HOST);
-+		return NULL;
-+	}
-+}
-+
-+const char *kvm_exit_trace(void)
-+{
-+	switch (EM_HOST) {
-+	case EM_AARCH64:
-+	case EM_LOONGARCH:
-+	case EM_RISCV:
-+	case EM_X86_64:
-+	case EM_386:
-+		return "kvm:kvm_exit";
-+	case EM_PPC:
-+	case EM_PPC64:
-+		return "kvm_hv:kvm_guest_exit";
-+	case EM_S390:
-+		return "kvm:kvm_s390_sie_exit";
-+	default:
-+		pr_err("Unsupported kvm-stat host %d\n", EM_HOST);
-+		return NULL;
-+	}
-+}
-+
-+const char * const *kvm_events_tp(void)
-+{
-+	switch (EM_HOST) {
-+	case EM_AARCH64:
-+		return __kvm_events_tp_arm64();
-+	case EM_LOONGARCH:
-+		return __kvm_events_tp_loongarch();
-+	case EM_PPC:
-+	case EM_PPC64:
-+		return __kvm_events_tp_powerpc();
-+	case EM_RISCV:
-+		return __kvm_events_tp_riscv();
-+	case EM_S390:
-+		return __kvm_events_tp_s390();
-+	case EM_X86_64:
-+	case EM_386:
-+		return __kvm_events_tp_x86();
-+	default:
-+		pr_err("Unsupported kvm-stat host %d\n", EM_HOST);
-+		return NULL;
-+	}
-+}
-+
-+const struct kvm_reg_events_ops *kvm_reg_events_ops(void)
-+{
-+	switch (EM_HOST) {
-+	case EM_AARCH64:
-+		return __kvm_reg_events_ops_arm64();
-+	case EM_LOONGARCH:
-+		return __kvm_reg_events_ops_loongarch();
-+	case EM_PPC:
-+	case EM_PPC64:
-+		return __kvm_reg_events_ops_powerpc();
-+	case EM_RISCV:
-+		return __kvm_reg_events_ops_riscv();
-+	case EM_S390:
-+		return __kvm_reg_events_ops_s390();
-+	case EM_X86_64:
-+	case EM_386:
-+		return __kvm_reg_events_ops_x86();
-+	default:
-+		pr_err("Unsupported kvm-stat host %d\n", EM_HOST);
-+		return NULL;
-+	}
-+}
-+
-+const char * const *kvm_skip_events(void)
-+{
-+	switch (EM_HOST) {
-+	case EM_AARCH64:
-+		return __kvm_skip_events_arm64();
-+	case EM_LOONGARCH:
-+		return __kvm_skip_events_loongarch();
-+	case EM_PPC:
-+	case EM_PPC64:
-+		return __kvm_skip_events_powerpc();
-+	case EM_RISCV:
-+		return __kvm_skip_events_riscv();
-+	case EM_S390:
-+		return __kvm_skip_events_s390();
-+	case EM_X86_64:
-+	case EM_386:
-+		return __kvm_skip_events_x86();
-+	default:
-+		pr_err("Unsupported kvm-stat host %d\n", EM_HOST);
-+		return NULL;
-+	}
-+}
-+
-+int kvm_add_default_arch_event(int *argc, const char **argv)
-+{
-+	switch (EM_HOST) {
-+	case EM_PPC:
-+	case EM_PPC64:
-+		return __kvm_add_default_arch_event_powerpc(argc, argv);
-+	case EM_X86_64:
-+	case EM_386:
-+		return __kvm_add_default_arch_event_x86(argc, argv);
-+	default:
-+		return 0;
-+	}
-+}
-diff --git a/tools/perf/util/kvm-stat.h b/tools/perf/util/kvm-stat.h
-index a356b839c2ee..a54cd4496df9 100644
---- a/tools/perf/util/kvm-stat.h
-+++ b/tools/perf/util/kvm-stat.h
-@@ -2,8 +2,6 @@
- #ifndef __PERF_KVM_STAT_H
- #define __PERF_KVM_STAT_H
- 
--#ifdef HAVE_KVM_STAT_SUPPORT
--
- #include "tool.h"
- #include "sort.h"
- #include "stat.h"
-@@ -67,7 +65,7 @@ struct kvm_events_ops {
- 			       struct event_key *key);
- 	bool (*is_end_event)(struct evsel *evsel,
- 			     struct perf_sample *sample, struct event_key *key);
--	struct child_event_ops *child_ops;
-+	const struct child_event_ops *child_ops;
- 	void (*decode_key)(struct perf_kvm_stat *kvm, struct event_key *key,
- 			   char *decode);
- 	const char *name;
-@@ -95,7 +93,7 @@ struct perf_kvm_stat {
- 	struct exit_reasons_table *exit_reasons;
- 	const char *exit_reasons_isa;
- 
--	struct kvm_events_ops *events_ops;
-+	const struct kvm_events_ops *events_ops;
- 
- 	u64 total_time;
- 	u64 total_count;
-@@ -113,11 +111,9 @@ struct perf_kvm_stat {
- 
- struct kvm_reg_events_ops {
- 	const char *name;
--	struct kvm_events_ops *ops;
-+	const struct kvm_events_ops *ops;
- };
- 
--#if defined(HAVE_KVM_STAT_SUPPORT) && defined(HAVE_LIBTRACEEVENT)
--
- void exit_event_get_key(struct evsel *evsel,
- 			struct perf_sample *sample,
- 			struct event_key *key);
-@@ -130,11 +126,9 @@ bool exit_event_end(struct evsel *evsel,
- void exit_event_decode_key(struct perf_kvm_stat *kvm,
- 			   struct event_key *key,
- 			   char *decode);
--#endif
- 
- bool kvm_exit_event(struct evsel *evsel);
- bool kvm_entry_event(struct evsel *evsel);
--int setup_kvm_events_tp(struct perf_kvm_stat *kvm);
- 
- #define define_exit_reasons_table(name, symbols)	\
- 	static struct exit_reasons_table name[] = {	\
-@@ -144,15 +138,49 @@ int setup_kvm_events_tp(struct perf_kvm_stat *kvm);
- /*
-  * arch specific callbacks and data structures
-  */
--int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid);
-+int setup_kvm_events_tp(struct perf_kvm_stat *kvm);
-+int __setup_kvm_events_tp_powerpc(struct perf_kvm_stat *kvm);
- 
--extern const char *kvm_events_tp[];
--extern struct kvm_reg_events_ops kvm_reg_events_ops[];
--extern const char * const kvm_skip_events[];
--extern const char *vcpu_id_str;
--extern const char *kvm_exit_reason;
--extern const char *kvm_entry_trace;
--extern const char *kvm_exit_trace;
-+int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid);
-+int __cpu_isa_init_arm64(struct perf_kvm_stat *kvm);
-+int __cpu_isa_init_loongarch(struct perf_kvm_stat *kvm);
-+int __cpu_isa_init_powerpc(struct perf_kvm_stat *kvm);
-+int __cpu_isa_init_riscv(struct perf_kvm_stat *kvm);
-+int __cpu_isa_init_s390(struct perf_kvm_stat *kvm, const char *cpuid);
-+int __cpu_isa_init_x86(struct perf_kvm_stat *kvm, const char *cpuid);
-+
-+const char *vcpu_id_str(void);
-+const char *kvm_exit_reason(void);
-+const char *kvm_entry_trace(void);
-+const char *kvm_exit_trace(void);
-+
-+const char * const *kvm_events_tp(void);
-+const char * const *__kvm_events_tp_arm64(void);
-+const char * const *__kvm_events_tp_loongarch(void);
-+const char * const *__kvm_events_tp_powerpc(void);
-+const char * const *__kvm_events_tp_riscv(void);
-+const char * const *__kvm_events_tp_s390(void);
-+const char * const *__kvm_events_tp_x86(void);
-+
-+const struct kvm_reg_events_ops *kvm_reg_events_ops(void);
-+const struct kvm_reg_events_ops *__kvm_reg_events_ops_arm64(void);
-+const struct kvm_reg_events_ops *__kvm_reg_events_ops_loongarch(void);
-+const struct kvm_reg_events_ops *__kvm_reg_events_ops_powerpc(void);
-+const struct kvm_reg_events_ops *__kvm_reg_events_ops_riscv(void);
-+const struct kvm_reg_events_ops *__kvm_reg_events_ops_s390(void);
-+const struct kvm_reg_events_ops *__kvm_reg_events_ops_x86(void);
-+
-+const char * const *kvm_skip_events(void);
-+const char * const *__kvm_skip_events_arm64(void);
-+const char * const *__kvm_skip_events_loongarch(void);
-+const char * const *__kvm_skip_events_powerpc(void);
-+const char * const *__kvm_skip_events_riscv(void);
-+const char * const *__kvm_skip_events_s390(void);
-+const char * const *__kvm_skip_events_x86(void);
-+
-+int kvm_add_default_arch_event(int *argc, const char **argv);
-+int __kvm_add_default_arch_event_powerpc(int *argc, const char **argv);
-+int __kvm_add_default_arch_event_x86(int *argc, const char **argv);
- 
- static inline struct kvm_info *kvm_info__get(struct kvm_info *ki)
- {
-@@ -186,11 +214,6 @@ static inline struct kvm_info *kvm_info__new(void)
- 	return ki;
- }
- 
--#else /* HAVE_KVM_STAT_SUPPORT */
--// We use this unconditionally in hists__findnew_entry() and hist_entry__delete()
--#define kvm_info__zput(ki) do { } while (0)
--#endif /* HAVE_KVM_STAT_SUPPORT */
--
- #define STRDUP_FAIL_EXIT(s)		\
- 	({	char *_p;		\
- 		_p = strdup(s);		\
-@@ -201,5 +224,4 @@ static inline struct kvm_info *kvm_info__new(void)
- 		_p;			\
- 	})
- 
--extern int kvm_add_default_arch_event(int *argc, const char **argv);
- #endif /* __PERF_KVM_STAT_H */
--- 
-2.52.0.457.g6b5491de43-goog
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkKCkFtIDIyLjAxLjI2IHVtIDEwOjI4IHNjaHJpZWIgSWNlbm93eSBaaGVuZzoKPiDlnKggMjAy
+Ni0wMS0yMeaYn+acn+S4ieeahCAxMzo1NiArMDEwMO+8jFRob21hcyBaaW1tZXJtYW5u5YaZ6YGT
+77yaCj4KPiA9PT09PT09PT09PT09PSA4PCA9PT09PT09PT09PT09PT09PT09PT09PQo+Pj4gK3N0
+YXRpYyBpbnQgdnNfZ2VtX2R1bWJfY3JlYXRlKHN0cnVjdCBkcm1fZmlsZSAqZmlsZV9wcml2LAo+
+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgIHN0cnVjdCBkcm1fZGV2aWNlICpkcm0sCj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgc3RydWN0IGRybV9tb2RlX2NyZWF0ZV9k
+dW1iICphcmdzKQo+Pj4gK3sKPj4+ICvCoMKgwqDCoMKgwqDCoC8qIFRoZSBoYXJkd2FyZSB3YW50
+cyAxMjhCLWFsaWduZWQgcGl0Y2hlcyBmb3IgbGluZWFyCj4+PiBidWZmZXJzLiAqLwo+Pj4gK8Kg
+wqDCoMKgwqDCoMKgYXJncy0+cGl0Y2ggPSBBTElHTihESVZfUk9VTkRfVVAoYXJncy0+d2lkdGgg
+KiBhcmdzLT5icHAsCj4+PiA4KSwgMTI4KTsKPj4gUGxlYXNlIHVzZSB0aGUgbmV3IGRybV9tb2Rl
+X2FsaWduX2R1bWIoKSBpbnN0ZWFkLgo+IEl0IHNlZW1zIHRvIGJlIHN0aWxsIGEgc3RhdGljIGZ1
+bmN0aW9uLCBhdCBsZWFzdCBpbiA2LjE5LXJjMSAuCj4KPiBJdCBsb29rcyBsaWtlIEkgc2hvdWxk
+IHB1dCBhIGNhbGwgdG8gZHJtX21vZGVfc2l6ZV9kdW1iKCkgaGVyZSwgaXMgdGhpcwo+IGNvcnJl
+Y3Q/CgpZZXMsIHNvcnJ5LCBteSBiYWQuIGRybV9tb2RlX3NpemVfZHVtYigpIGlzIHRoZSBjb3Jy
+ZWN0IGludGVyZmFjZS4KCkJlc3QgcmVnYXJkcwpUaG9tYXMKCj4KPiBUaGFua3MsCj4gSWNlbm93
+eQo+Cj4+PiArCj4+PiArwqDCoMKgwqDCoMKgwqByZXR1cm4gZHJtX2dlbV9kbWFfZHVtYl9jcmVh
+dGVfaW50ZXJuYWwoZmlsZV9wcml2LCBkcm0sCj4+PiBhcmdzKTsKPj4+ICt9Cj4+PiArCgotLSAK
+LS0KVGhvbWFzIFppbW1lcm1hbm4KR3JhcGhpY3MgRHJpdmVyIERldmVsb3BlcgpTVVNFIFNvZnR3
+YXJlIFNvbHV0aW9ucyBHZXJtYW55IEdtYkgKRnJhbmtlbnN0ci4gMTQ2LCA5MDQ2MSBOw7xybmJl
+cmcsIEdlcm1hbnksIHd3dy5zdXNlLmNvbQpHRjogSm9jaGVuIEphc2VyLCBBbmRyZXcgTWNEb25h
+bGQsIFdlcm5lciBLbm9ibGljaCwgKEhSQiAzNjgwOSwgQUcgTsO8cm5iZXJnKQoKCgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
