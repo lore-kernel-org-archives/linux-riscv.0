@@ -4,76 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B55FD25B48
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 12:26:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 141A0D25B76
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 13:29:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zX+ngw1TcrFNGvAWE1r6fbUUSrAvytDKA+r3OwKd87A=; b=IKw6XmvoQb8FwG
-	H8eZcTd+gOAypi/DN/3x+Y7lRXyh1HSuv0GUGTJyNgUt/V81JDmVC9TV3DjwoxJ2Adv//OfUCKCMx
-	ffqmzlAaO4fvQPA3f060rzLnw8y6xJa8bs4S6LP4OZDFMltKcz2eQzoA60XXFu2HD+9Xu4PScUN31
-	wmtfSrQ0OZbd/VwZUXH4bWYJh7tOKOnODHioCOECQAxb8nff6RJ5Zklt+TlUA44qbAIH0E8xEUiHn
-	FclEUj2GXWh5lboDL05dZ9Fu7xHmwie5VxbTZ7ikZKLT35Fnz//Q7Uwhur25Paju9SwGcsvkcvZOK
-	MTAYfwX41kPE6pXMneMg==;
+	List-Owner; bh=6oZUCFzRzNHS6k4eTQNsK3iiydY0ErTc8dcUaG86Jxc=; b=Gy/p3b1IXmzp4j
+	7H7ApczlyAzCWhX+rO95AvZo1O2WtPRdchcx4UFtvwh4r7rfYfTdMKKYutPgwAohPBCb7MVNOUxcj
+	63tjVUpgoVo1m4IgasBjaHXxXfsJ7jPzq+tArI5b1foyqmF64Pq402v9KU3y46gzCzZt0TvMdsF1z
+	jq0ZPLdhtUYLUMHugq2ZJqVEi7W5CuP9H19q7Oj0i6xTN8Qxv0ucAhOA1Ejs1k1k6ThJDEYGenZO7
+	cOwuMHYwuNei/Ofqs0SyAaocQTZzRn/OOfliC3K37bRmtuYTqac4vYCJbJauOJdddLHedNCQCrFlZ
+	GNHswL/2rEvRQU2wogYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl4cM-0000000FzjU-2XuJ;
-	Wed, 28 Jan 2026 12:25:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vl5bK-0000000G48C-2zhX;
+	Wed, 28 Jan 2026 13:28:54 +0000
+Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl4cI-0000000Fzi9-21Bc
+	id 1vl5bH-0000000G46n-2AUM
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 12:25:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3196244304;
-	Wed, 28 Jan 2026 12:25:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C61DBC19422;
-	Wed, 28 Jan 2026 12:25:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769603147;
-	bh=m4Bu2xjNxMaziu7cHr/9vWIkSqxp2HE82nWmIg/qftM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=eXZQjkZ36is5OxEy5IjErWrdHlrYizgtzRB1hqFT3QDjio8ZYsELBpunp84yfGmCn
-	 APArHPYiirCSuLjlDnMQdLlI0fz9JrSOsEe02GdwXWmvBSwcWlZYSIuOxYO3UBcuwv
-	 AoSA0XzP606IjM8lwKcW6U6Zz8Jvu8Ifo4cGhNMrdKm6Abf9AJDYRhH1fM+hDaGaLW
-	 B2+bJBuXtLR0nNgQYWCWSJE2otjFOit+kGEwR266uRWLxN/qwgVA6bXH1h/i+XmwS8
-	 V3fs+PczXu5R0kDRvh01DwgCT6aJS8+fHYgceisJRh2qGxKbA8zUcRUWqRyHAp9kWs
-	 QZY8LvBOCf+kg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B865AD25B4E;
-	Wed, 28 Jan 2026 12:25:47 +0000 (UTC)
-From: Ben Zong-You Xie via B4 Relay <devnull+ben717.andestech.com@kernel.org>
-Date: Wed, 28 Jan 2026 20:25:45 +0800
-Subject: [PATCH v3 2/4] i2c: add Andes I2C driver support
+	Wed, 28 Jan 2026 13:28:52 +0000
+Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-662ecc42c2fso696560eaf.2
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Jan 2026 05:28:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1769606930; x=1770211730; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=CR+ZvBkGA0rmoAszJtyMWrCYonp7pdFBqImvRwPUKjc=;
+        b=IOX8jI9jN4dGHZvHyE2h7HAuWH7B+V2BQ1HyGFRtBvYojVQdtBFSzJy9Z5PEHIUQnn
+         G8hnedhbG6DnRxzPRjqGo88GYxCAfzYH7fllejVwjFj01pZCQMnnkhGgi3cbeRmuLezI
+         skePTOWAYyvUbVIgNlGpNyI597YX5XjHBL2pgJpEshyzGvMvJfqtmIctu8GPTxv6PtnF
+         nLeDzhNNG/ZchlqUlQg7e8oAQuu6lrWmwlEKtE3vpZGwc9WeqSzNtP6i/G8dpF+mY9DZ
+         DxOwiomdc6iE6Lsw6nK6th9f3cLZrpOdzNyrNjdPJ/Y4sH7lX16x3NHTTrEpOx1GSvvJ
+         gjFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769606930; x=1770211730;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CR+ZvBkGA0rmoAszJtyMWrCYonp7pdFBqImvRwPUKjc=;
+        b=gcMtGccpaRvc03J0wCnrRAP/2VerkFtuUPmvKPA+0XFyytGv+mEs1+1oJ50Q72aCbf
+         j4iVwspXzJ8R7L9C9Ph9DLakZcIhM77JmwAFjcDb3c2G1zQc4WKM29hIEiHaiPntdUBi
+         7MVTUDMurGCmM4kbtbSlQTqcJE/NPE0PGTLQqu9wFTz4VC2AHVV1zKD9XpSYGCziGCcI
+         l0og5CHg+15Rh1bxTpLMRd1pE7iorrrEpH2jPrU/F8eoyMUAMCjZORVWGH2ET7EV4f5i
+         kau1xfuw7JC1L1Uv3D/u1ASeJ723x41ktHaLv3GJjd9xu+9bmKDbPgX5Gar/7fr2usq/
+         6+yA==
+X-Forwarded-Encrypted: i=1; AJvYcCXr56bEWCEskC3soVEZWdaACezhnES0J3Iu1sMUXAARH377sABiuyjDAZA0EkAVJ1msVQiRVKcPNY2KIA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQs1MnaYlY2W2wd+HLCYmc30YD1DV3v9tw1n/+a8coTF3/waCd
+	Y2LzIv8rEmZH+PasgeIIar6eUmBEB/mfp+DjRNXoQMmXKL0LrPfkqsk4XgeHaUX5Lpc=
+X-Gm-Gg: AZuq6aLLLItuUnnMw+vUS9p1qARnONqf1Q+0c3YPfpnPrMl1HNlcyuCe6pARQ8UTycp
+	9ybZYcdfaQOyDluhCx6OEtV2c9eNu678zPTXsB8m02Ont8hhPXAMAfZ6FDnI2Mc9PZpHyKNUnfw
+	kWkaWrnSdlXu0wZKWQkdRi+kOsC/OCQRpU75TkISJHfpG7+i5NxuL/MdnDMkYEaRcuV529nUSWY
+	qPvK5EwlRb18CFKuhs65VRvM+6jqz+4xrlIuCOONDyMxd9z/nKmCLJgxpN3oGEGcVpGMgv0W/gg
+	DXIA2cWFAhCe4mScJJC8dbimB0zcmi3ngJXh9gP+JvoqmcRuAPW4qFouiaDoJhEoN694XMeCa2J
+	rvvdYSRWIbRdsHq3+y9n81mVDXtQZtOV18/Db+fhJyqeEjluvSAL7tT5gicV8LxV84WVRW8Rst2
+	iQTdvOAViJSL8rszGqo2+SAesp2Oe/JmXqQJYFH9XE4LtQcpWfjAE=
+X-Received: by 2002:a05:6820:f061:b0:662:f493:181 with SMTP id 006d021491bc7-662f49306cbmr2051118eaf.76.1769606930064;
+        Wed, 28 Jan 2026 05:28:50 -0800 (PST)
+Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-662f994388fsm1374132eaf.4.2026.01.28.05.28.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 28 Jan 2026 05:28:49 -0800 (PST)
+Message-ID: <501849d1-2158-471a-af25-da3dbb070422@riscstar.com>
+Date: Wed, 28 Jan 2026 07:28:48 -0600
 MIME-Version: 1.0
-Message-Id: <20260128-atciic100-v3-2-8c002fcc2bb4@andestech.com>
-References: <20260128-atciic100-v3-0-8c002fcc2bb4@andestech.com>
-In-Reply-To: <20260128-atciic100-v3-0-8c002fcc2bb4@andestech.com>
-To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Ben Zong-You Xie <ben717@andestech.com>
-X-Mailer: b4 0.15-dev-47773
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769603146; l=11439;
- i=ben717@andestech.com; s=20260120; h=from:subject:message-id;
- bh=JJvoU5xm6NYwGRCQSVZcQTCsnH+d2KxcC6DNdPLV+u8=;
- b=PSGQRohQrPW9usQgbqK4XxrszaN6tJ7BK9AUzMjsCrnqaIYAy1lQhW60yh5ftHCvDxNbL7lnj
- W6dLmmMLgTVBzF+RvBNtjxyjlwjDvqZb0+ZSQ8Y4iM6g4K7HqXax6+s
-X-Developer-Key: i=ben717@andestech.com; a=ed25519;
- pk=nb8L7zQKGJpYk0yvrYKjViOZ34A36g1ZIsCmCsP518s=
-X-Endpoint-Received: by B4 Relay for ben717@andestech.com/20260120 with
- auth_id=610
-X-Original-From: Ben Zong-You Xie <ben717@andestech.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] regulator: spacemit-p1: Fix n_voltages for BUCK
+ and LDO regulators
+To: Guodong Xu <guodong@riscstar.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, devicetree@vger.kernel.org
+References: <20260124-spacemit-p1-v2-0-2c86b06694ba@riscstar.com>
+ <20260124-spacemit-p1-v2-1-2c86b06694ba@riscstar.com>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20260124-spacemit-p1-v2-1-2c86b06694ba@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_042550_667132_E126CAEC 
-X-CRM114-Status: GOOD (  28.30  )
+X-CRM114-CacheID: sfid-20260128_052851_701251_9585A254 
+X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,410 +104,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: ben717@andestech.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ben Zong-You Xie <ben717@andestech.com>
+On 1/23/26 6:20 PM, Guodong Xu wrote:
+> Higher voltage settings were unusable due to incorrect n_voltages values
+> causing registration failures. For example, setting aldo4 to 3.3V failed
+> with -EINVAL because the required selector (123) exceeded the allowed
+> range (n_voltages=117).
+> 
+> Fix by aligning n_voltages with the hardware register widths per the P1
+> datasheet [1]:
+> - BUCK: 255 (was 254), allows selectors 0-254, selector 255 is reserved
+> - LDO: 128 (was 117), allows selectors 0-127, selectors 0-10 are for
+>    suspend mode, valid operational range is 11-127
+> 
+> This enables the full voltage range supported by the hardware.
+> 
+> Fixes: 8b84d712ad84 ("regulator: spacemit: support SpacemiT P1 regulators")
+> Link: https://developer.spacemit.com/documentation [1]
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
+> ---
+> v2: No change.
+> ---
+>   drivers/regulator/spacemit-p1.c | 6 +++---
+>   1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/regulator/spacemit-p1.c b/drivers/regulator/spacemit-p1.c
+> index 2bf9137e12b1..2b585ba01a93 100644
+> --- a/drivers/regulator/spacemit-p1.c
+> +++ b/drivers/regulator/spacemit-p1.c
+> @@ -87,13 +87,13 @@ static const struct linear_range p1_ldo_ranges[] = {
+>   	}
+>   
+>   #define P1_BUCK_DESC(_n) \
+> -	P1_REG_DESC(BUCK, buck, _n, "vin", 0x47, BUCK_MASK, 254, p1_buck_ranges)
+> +	P1_REG_DESC(BUCK, buck, _n, "vin", 0x47, BUCK_MASK, 255, p1_buck_ranges)
 
-Add support for Andes I2C driver. Andes I2C can act as either a
-controller or a target, depending on the control register settings. Now,
-we only support controller mode.
+This is correct.  There are 255 possible ranges, 0..254, and
+255 is an illegal value.
 
-Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
----
- drivers/i2c/busses/Kconfig     |  10 ++
- drivers/i2c/busses/Makefile    |   1 +
- drivers/i2c/busses/i2c-andes.c | 341 +++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 352 insertions(+)
+I think this bug is an artifact of a change I made while
+chasing an issue during development, and I neglected to
+change it back.
 
-diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
-index e11d50750e63..8b9dbc25af8b 100644
---- a/drivers/i2c/busses/Kconfig
-+++ b/drivers/i2c/busses/Kconfig
-@@ -446,6 +446,16 @@ config I2C_AT91_SLAVE_EXPERIMENTAL
- 	    - There are some mismatches with a SAMA5D4 as slave and a SAMA5D2 as
- 	    master.
- 
-+config I2C_ANDES
-+	tristate "Andes I2C Controller"
-+	depends on ARCH_ANDES || COMPILE_TEST
-+	help
-+	  If you say yes to this option, support will be included for the
-+	  Andes I2C controller.
-+
-+	  This support is also available as a module. If so, the module
-+	  will be called i2c-andes.
-+
- config I2C_AU1550
- 	tristate "Au1550/Au1200/Au1300 SMBus interface"
- 	depends on MIPS_ALCHEMY
-diff --git a/drivers/i2c/busses/Makefile b/drivers/i2c/busses/Makefile
-index 547123ab351f..89d85d10f8d2 100644
---- a/drivers/i2c/busses/Makefile
-+++ b/drivers/i2c/busses/Makefile
-@@ -41,6 +41,7 @@ obj-$(CONFIG_I2C_ASPEED)	+= i2c-aspeed.o
- obj-$(CONFIG_I2C_AT91)		+= i2c-at91.o
- i2c-at91-y			:= i2c-at91-core.o i2c-at91-master.o
- i2c-at91-$(CONFIG_I2C_AT91_SLAVE_EXPERIMENTAL)	+= i2c-at91-slave.o
-+obj-$(CONFIG_I2C_ANDES)		+= i2c-andes.o
- obj-$(CONFIG_I2C_AU1550)	+= i2c-au1550.o
- obj-$(CONFIG_I2C_AXXIA)		+= i2c-axxia.o
- obj-$(CONFIG_I2C_BCM2835)	+= i2c-bcm2835.o
-diff --git a/drivers/i2c/busses/i2c-andes.c b/drivers/i2c/busses/i2c-andes.c
-new file mode 100644
-index 000000000000..5f135d8c9b13
---- /dev/null
-+++ b/drivers/i2c/busses/i2c-andes.c
-@@ -0,0 +1,341 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Driver for Andes I2C controller, used in Andes AE350 platform and QiLai SoC
-+ *
-+ * Copyright (C) 2026 Andes Technology Corporation.
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/completion.h>
-+#include <linux/iopoll.h>
-+#include <linux/i2c.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/spinlock.h>
-+
-+#define ANDES_I2C_ID_REG		0x0
-+#define ANDES_I2C_ID_MASK		GENMASK(31, 8)
-+#define ANDES_I2C_ID			0x020210
-+
-+#define	ANDES_I2C_CFG_REG		0x10
-+#define ANDES_I2C_CFG_FIFOSIZE		GENMASK(1, 0)
-+
-+#define	ANDES_I2C_INTEN_REG		0x14
-+#define	ANDES_I2C_INTEN_FIFO_EMPTY	BIT(0)
-+#define	ANDES_I2C_INTEN_FIFO_FULL	BIT(1)
-+#define	ANDES_I2C_INTEN_CMPL		BIT(9)
-+
-+#define	ANDES_I2C_STATUS_REG		0x18
-+#define ANDES_I2C_STATUS_FIFO_EMPTY	BIT(0)
-+#define ANDES_I2C_STATUS_FIFO_FULL	BIT(1)
-+#define ANDES_I2C_STATUS_ADDR_HIT	BIT(3)
-+#define ANDES_I2C_STATUS_CMPL		BIT(9)
-+#define ANDES_I2C_STATUS_W1C		GENMASK(9, 3)
-+
-+#define	ANDES_I2C_ADDR_REG		0x1C
-+
-+#define	ANDES_I2C_DATA_REG		0x20
-+
-+#define	ANDES_I2C_CTRL_REG		0x24
-+#define ANDES_I2C_CTRL_DATA_CNT		GENMASK(7, 0)
-+#define ANDES_I2C_CTRL_DIR		BIT(8)
-+#define ANDES_I2C_CTRL_PHASE		GENMASK(12, 9)
-+
-+#define	ANDES_I2C_CMD_REG		0x28
-+#define ANDES_I2C_CMD_ACTION		GENMASK(2, 0)
-+#define ANDES_I2C_CMD_TRANS		BIT(0)
-+
-+#define	ANDES_I2C_SETUP_REG		0x2C
-+#define ANDES_I2C_SETUP_IICEN		BIT(0)
-+#define ANDES_I2C_SETUP_REQ		BIT(2)
-+
-+#define ANDES_I2C_TPM_REG		0x30
-+
-+#define ANDES_I2C_TIMEOUT_US		400000
-+#define ANDES_I2C_TIMEOUT		usecs_to_jiffies(ANDES_I2C_TIMEOUT_US)
-+
-+#define ANDES_I2C_MAX_DATA_LEN		256
-+
-+struct andes_i2c {
-+	struct i2c_adapter adap;
-+	struct completion completion;
-+	spinlock_t lock;
-+	struct regmap *map;
-+	u8 *buf;
-+	unsigned int fifo_size;
-+	int irq;
-+	u16 buf_len;
-+	bool addr_hit;
-+	bool xfer_done;
-+};
-+
-+static const struct regmap_config andes_i2c_regmap_config = {
-+	.name = "andes_i2c",
-+	.reg_bits = 32,
-+	.reg_stride = 4,
-+	.val_bits = 32,
-+	.pad_bits = 0,
-+	.max_register = ANDES_I2C_TPM_REG,
-+	.cache_type = REGCACHE_NONE,
-+};
-+
-+static void andes_i2c_xfer_common(struct andes_i2c *i2c, u32 status)
-+{
-+	unsigned long flags;
-+	unsigned int fsize = i2c->fifo_size;
-+	unsigned int val;
-+
-+	spin_lock_irqsave(&i2c->lock, flags);
-+	if (status & ANDES_I2C_STATUS_FIFO_EMPTY) {
-+		/* Disable the FIFO empty interrupt for the last write */
-+		if (i2c->buf_len <= fsize) {
-+			fsize = i2c->buf_len;
-+			regmap_clear_bits(i2c->map, ANDES_I2C_INTEN_REG,
-+					  ANDES_I2C_INTEN_FIFO_EMPTY);
-+		}
-+
-+		while (fsize--) {
-+			val = *i2c->buf++;
-+			regmap_write(i2c->map, ANDES_I2C_DATA_REG, val);
-+			i2c->buf_len--;
-+		}
-+	} else if (status & ANDES_I2C_STATUS_FIFO_FULL) {
-+		while (fsize--) {
-+			regmap_read(i2c->map, ANDES_I2C_DATA_REG, &val);
-+			*i2c->buf++ = (u8)val;
-+			i2c->buf_len--;
-+		}
-+	}
-+
-+	if (status & ANDES_I2C_STATUS_CMPL) {
-+		i2c->xfer_done = true;
-+		if (status & ANDES_I2C_STATUS_ADDR_HIT)
-+			i2c->addr_hit = true;
-+
-+		/* Write 1 to clear the status */
-+		regmap_set_bits(i2c->map, ANDES_I2C_STATUS_REG,
-+				ANDES_I2C_STATUS_W1C);
-+
-+		/* For the last read, retrieve all remaining data in FIFO. */
-+		while (i2c->buf_len > 0) {
-+			regmap_read(i2c->map, ANDES_I2C_DATA_REG, &val);
-+			*i2c->buf++ = (u8)val;
-+			i2c->buf_len--;
-+		}
-+	}
-+
-+	spin_unlock_irqrestore(&i2c->lock, flags);
-+}
-+
-+static irqreturn_t andes_i2c_irq_handler(int irq, void *data)
-+{
-+	struct andes_i2c *i2c = data;
-+	u32 i2c_status;
-+
-+	regmap_read(i2c->map, ANDES_I2C_STATUS_REG, &i2c_status);
-+	andes_i2c_xfer_common(i2c, i2c_status);
-+	if (i2c->xfer_done)
-+		complete(&i2c->completion);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int andes_i2c_xfer_wait(struct andes_i2c *i2c, struct i2c_msg *msg)
-+{
-+	unsigned int mask;
-+	unsigned int i2c_ctrl;
-+
-+	/*
-+	 * Set the data count. If there are 256 bytes to be transmitted, write
-+	 * zero to the data count field.
-+	 */
-+	regmap_update_bits(i2c->map, ANDES_I2C_CTRL_REG,
-+			   ANDES_I2C_CTRL_DATA_CNT,
-+			   FIELD_PREP(ANDES_I2C_CTRL_DATA_CNT, i2c->buf_len));
-+
-+	regmap_set_bits(i2c->map, ANDES_I2C_CTRL_REG, ANDES_I2C_CTRL_PHASE);
-+	if (msg->flags & I2C_M_RD)
-+		regmap_set_bits(i2c->map, ANDES_I2C_CTRL_REG,
-+				ANDES_I2C_CTRL_DIR);
-+	else
-+		regmap_clear_bits(i2c->map, ANDES_I2C_CTRL_REG,
-+				  ANDES_I2C_CTRL_DIR);
-+
-+	regmap_write(i2c->map, ANDES_I2C_ADDR_REG, msg->addr);
-+
-+	if (i2c->irq >= 0) {
-+		mask = ANDES_I2C_INTEN_CMPL;
-+		mask |= (msg->flags & I2C_M_RD) ? ANDES_I2C_INTEN_FIFO_FULL
-+						: ANDES_I2C_INTEN_FIFO_EMPTY;
-+		regmap_set_bits(i2c->map, ANDES_I2C_INTEN_REG, mask);
-+	}
-+
-+	regmap_set_bits(i2c->map, ANDES_I2C_CMD_REG, ANDES_I2C_CMD_TRANS);
-+	if (i2c->irq >= 0) {
-+		unsigned long time_left;
-+
-+		time_left = wait_for_completion_timeout(&i2c->completion,
-+							ANDES_I2C_TIMEOUT);
-+		if (!time_left)
-+			return -ETIMEDOUT;
-+
-+		if (!i2c->addr_hit)
-+			return -ENXIO;
-+
-+		regmap_write(i2c->map, ANDES_I2C_INTEN_REG, 0);
-+		reinit_completion(&i2c->completion);
-+	} else {
-+		unsigned int val;
-+		int ret;
-+
-+		mask = ANDES_I2C_STATUS_CMPL;
-+		mask |= (msg->flags & I2C_M_RD) ? ANDES_I2C_STATUS_FIFO_FULL
-+						: ANDES_I2C_STATUS_FIFO_EMPTY;
-+		while (!i2c->xfer_done) {
-+			ret = regmap_read_poll_timeout(i2c->map,
-+						       ANDES_I2C_STATUS_REG,
-+						       val, val & mask, 2000,
-+						       ANDES_I2C_TIMEOUT_US);
-+			if (ret)
-+				return ret;
-+
-+			andes_i2c_xfer_common(i2c, val);
-+		}
-+
-+		if (!i2c->addr_hit)
-+			return -ENXIO;
-+	}
-+
-+	/* Check if all data is successfully transmitted */
-+	regmap_read(i2c->map, ANDES_I2C_CTRL_REG, &i2c_ctrl);
-+	if (FIELD_GET(ANDES_I2C_CTRL_DATA_CNT, i2c_ctrl))
-+		return -EIO;
-+
-+	return 0;
-+}
-+
-+static int andes_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msg,
-+			  int num)
-+{
-+	int i;
-+	struct i2c_msg *m;
-+	struct andes_i2c *i2c = i2c_get_adapdata(adap);
-+	int ret;
-+
-+	for (i = 0; i < num; i++) {
-+		m = &msg[i];
-+		i2c->addr_hit = false;
-+		i2c->buf = m->buf;
-+		i2c->buf_len = m->len;
-+		i2c->xfer_done = false;
-+		ret = andes_i2c_xfer_wait(i2c, m);
-+		if (ret < 0)
-+			return ret;
-+	}
-+
-+	return num;
-+}
-+
-+static u32 andes_i2c_func(struct i2c_adapter *adap)
-+{
-+	return I2C_FUNC_I2C | I2C_FUNC_SMBUS_EMUL;
-+}
-+
-+static struct i2c_algorithm andes_i2c_algo = {
-+	.xfer = andes_i2c_xfer,
-+	.functionality = andes_i2c_func,
-+};
-+
-+static const struct i2c_adapter_quirks andes_i2c_quirks = {
-+	.flags = I2C_AQ_NO_ZERO_LEN,
-+	.max_write_len = ANDES_I2C_MAX_DATA_LEN,
-+	.max_read_len = ANDES_I2C_MAX_DATA_LEN,
-+};
-+
-+static int andes_i2c_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct andes_i2c *i2c;
-+	void __iomem *reg_base;
-+	u32 i2c_id;
-+	int ret;
-+	struct i2c_adapter *adap;
-+
-+	i2c = devm_kzalloc(dev, sizeof(*i2c), GFP_KERNEL);
-+	if (!i2c)
-+		return -ENOMEM;
-+
-+	reg_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(reg_base))
-+		return dev_err_probe(dev, PTR_ERR(reg_base),
-+				     "failed to map I/O space\n");
-+
-+	i2c->map = devm_regmap_init_mmio(dev, reg_base,
-+					 &andes_i2c_regmap_config);
-+	if (IS_ERR(i2c->map))
-+		return dev_err_probe(dev, PTR_ERR(i2c->map),
-+				     "failed to initialize regmap\n");
-+
-+	regmap_read(i2c->map, ANDES_I2C_ID_REG, &i2c_id);
-+	if (FIELD_GET(ANDES_I2C_ID_MASK, i2c_id) != ANDES_I2C_ID)
-+		return dev_err_probe(dev, -ENODEV, "unmatched hardware ID 0x%x\n",
-+				     i2c_id);
-+
-+	i2c->irq = platform_get_irq(pdev, 0);
-+	if (i2c->irq >= 0) {
-+		ret = devm_request_irq(dev, i2c->irq, andes_i2c_irq_handler, 0,
-+				       dev_name(dev), i2c);
-+		if (ret < 0)
-+			return dev_err_probe(dev, ret, "unable to request IRQ %d\n",
-+					     i2c->irq);
-+	} else {
-+		dev_warn(dev, "no IRQ resource, falling back to poll mode\n");
-+	}
-+
-+	spin_lock_init(&i2c->lock);
-+	init_completion(&i2c->completion);
-+	adap = &i2c->adap;
-+	strscpy(adap->name, pdev->name, sizeof(adap->name));
-+	adap->algo = &andes_i2c_algo;
-+	adap->class = I2C_CLASS_HWMON;
-+	adap->dev.parent = dev;
-+	adap->dev.of_node = dev->of_node;
-+	adap->owner = THIS_MODULE;
-+	adap->quirks = &andes_i2c_quirks;
-+	adap->retries = 1;
-+	adap->timeout = ANDES_I2C_TIMEOUT;
-+	i2c_set_adapdata(adap, i2c);
-+	platform_set_drvdata(pdev, i2c);
-+	ret = devm_i2c_add_adapter(dev, adap);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to add adapter\n");
-+
-+	regmap_read(i2c->map, ANDES_I2C_CFG_REG, &i2c->fifo_size);
-+	i2c->fifo_size = 2 << FIELD_GET(ANDES_I2C_CFG_FIFOSIZE, i2c->fifo_size);
-+
-+	regmap_set_bits(i2c->map, ANDES_I2C_SETUP_REG,
-+			ANDES_I2C_SETUP_IICEN | ANDES_I2C_SETUP_REQ);
-+	return 0;
-+}
-+
-+static const struct of_device_id andes_i2c_of_match[] = {
-+	{ .compatible = "andestech,ae350-i2c" },
-+	{ /* sentinel */ }
-+};
-+
-+MODULE_DEVICE_TABLE(of, andes_i2c_of_match);
-+
-+static struct platform_driver andes_i2c_platform_driver = {
-+	.driver = {
-+		.name = "andes_i2c",
-+		.of_match_table	= andes_i2c_of_match,
-+	},
-+	.probe = andes_i2c_probe,
-+};
-+
-+module_platform_driver(andes_i2c_platform_driver);
-+
-+MODULE_AUTHOR("Ben Zong-You Xie <ben717@andestech.com>");
-+MODULE_DESCRIPTION("Andes I2C controller driver");
-+MODULE_LICENSE("GPL");
+Technically this is a bug fix but it doesn't matter because
+this voltage value (255 represents 3.450 volts) was not
+required.
 
--- 
-2.34.1
+>   #define P1_ALDO_DESC(_n) \
+> -	P1_REG_DESC(ALDO, aldo, _n, "vin", 0x5b, LDO_MASK, 117, p1_ldo_ranges)
+> +	P1_REG_DESC(ALDO, aldo, _n, "vin", 0x5b, LDO_MASK, 128, p1_ldo_ranges)
 
+I would say this is not correct.
 
+The valid range of values in this register is 0xd-0x1f (11-127),
+which is 117 values; 0xd represents 0.500V and 0x1f represents
+3.400V.
+
+Technically, all other values represent 0.5v (and could therefore
+be considered valid), but I believe those should never be used
+and intentionally considered them invalid.  If 0.5V is desired,
+0xd should be used.
+
+Do you disagree with this?
+>   #define P1_DLDO_DESC(_n) \
+> -	P1_REG_DESC(DLDO, dldo, _n, "buck5", 0x67, LDO_MASK, 117, p1_ldo_ranges)
+> +	P1_REG_DESC(DLDO, dldo, _n, "buck5", 0x67, LDO_MASK, 128, p1_ldo_ranges)
+>   
+>   static const struct regulator_desc p1_regulator_desc[] = {
+>   	P1_BUCK_DESC(1),
+> 
+
+I have exactly the same comment about this change to the
+number of supported values.
+
+					-Alex
 
 _______________________________________________
 linux-riscv mailing list
