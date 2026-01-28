@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C412D46BF8
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 20:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5735D46BFA
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 20:28:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o4ASY5+u2S6iMO+SAQ93ls2Fd7Rug39uKjaOAm7wuv0=; b=v+R+RHO2cWQxAa
-	FZouS5Lx7XvTusm5foSQXBXaLlBrqoMRXcmkQOt63X53X/nKcdOf0JVPT4DaPBeDB3YT95OFBQt/Q
-	Mx8+qgxkQ8G0ILOHXrwjdsZGJW8TQH89p9a31BtLUXyP8t2o7JvoavgAmk/BqMwBHEBZbzKOORtmR
-	1Zh4GaFk2BgOSGqAoqNFT6xdHSxqemmu7pNqOrY7MUCal1vjVUn1yeAHQ/UyOKKsrj5itJKvF9SWV
-	yrj7A2Ngpnhio96exhdWeDN05yO7erATlUMe0McrDPS8i+0vYj5z+pExSSGCzmeLba3ppTrFCQT94
-	OlgrFuZzaYYhnjdiKcHw==;
+	List-Owner; bh=URq6SwM9sx+6v64B2Zo0G3ztW5cBY/3tAuVuetm8e5E=; b=FfyfQuBy3746bV
+	X9hTe9STe3KLIKOrk7TRx/AKrCkKeMZIFKYKWAsmJI2n3zf3adIA2gXha1Shj1yQp71+MC/EirVTW
+	v/QLHSyBSiBAkClVYAHmxoUYGEy7bQ9uDigls567K84xqUlgPP6aXTn8ycZQ6k/gv+vMO1zUCrM0h
+	GpL966svu2TcqT2c5KHHRegBA+D78q03psUhaq4unR2hObhA/sLArEgAxFSAKy69vXWOlQi5A5uke
+	RgFBD/u2V2Hvz6LJTBKpKSqz6yUG2aanmTMrmB/N0KypvVUvuDWOrVuly6H/lNOeKp+xReRdvhgjk
+	CH5zboiX2p3kmbvbUfrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlC97-0000000Gk8m-2zRl;
+	id 1vlC97-0000000Gk7r-10XJ;
 	Wed, 28 Jan 2026 20:28:13 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlC92-0000000Gk19-27ch
+	id 1vlC91-0000000Gk19-07GO
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 20:28:09 +0000
+	Wed, 28 Jan 2026 20:28:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 616D640A27;
-	Wed, 28 Jan 2026 20:28:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8DC3C2BCB7;
-	Wed, 28 Jan 2026 20:28:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A507E44542;
+	Wed, 28 Jan 2026 20:28:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B31DC2BCAF;
+	Wed, 28 Jan 2026 20:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769632088;
-	bh=SXrtFbN0ix7KxT0GqeIs7HkzT3FdlhgaF3gCwM+F2Mc=;
+	s=k20201202; t=1769632086;
+	bh=nRtrIHSuWEDHEeDXLCrpmYAAH9Hp3uZpgjylkcnSlpU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=SXHGNincT1DeoGx7ssYkSIxdzYD3fa107Q47yezQ1LeJwiV7ONy7LToOgvXkr0ZTw
-	 S68V839gLSVlHktb33pZevH0NgFjRlLb4uTsqB7lP/nwom+MUzF2srHxzBO7UqKjRL
-	 A+YHYevDMB7kT5OadaQGqqUXK9iRjrOUEOokLC1pkS8QncUhifRrAoqrk+7C95SCzE
-	 9rOkjDAeI5KTOmJxYrovOZp38l5w2ERAycGoY5PFVGIE5zdt0qE7N9RobXeDDGXkS6
-	 bGzEeD+ksB8JeVfeg38UGEthfHxRDTSwoZ5sgumdZ5MpcHNwBamciSNHc2ZiF7Wl8w
-	 /E+is7bA4XZpA==
+	b=QyoMgQ1PlpsL25i4MmYfj4pTfftDnw7v3FsxFrm0jEker86I3vX4LLM3Vfp5/3oX2
+	 0CNeldeXnjcgDuhembANRxNc0zAi7xPH2f7N0zKk9Ql/qiff+RbvLIyJspncWrBJO6
+	 gSg1zmnP5UtM7ZF2EVg5Bw3fmIeQZZSpqWOcst/dkdR32o/2GF72e7Z3VR6xOjowhI
+	 X4SNGkZm/4G4g0pf9+V7X0VNFnul2tCcpiK7MwzdyfGDpNYwnSNAle1sxZ3UL/qCGJ
+	 MPtURsWZmNvZY7R0JKskU0HYVIUF+LxDzIU+i3GXfI39kDlCd0Ue6jqQ5jtJxFC9YJ
+	 gFTNMoLDM+uyA==
 From: Drew Fustini <fustini@kernel.org>
-Date: Wed, 28 Jan 2026 12:27:30 -0800
-Subject: [PATCH RFC v2 09/17] RISC-V: QoS: expose implementation to resctrl
+Date: Wed, 28 Jan 2026 12:27:27 -0800
+Subject: [PATCH RFC v2 06/17] RISC-V: QoS: define CBQRI resctrl resources
+ and domains
 MIME-Version: 1.0
-Message-Id: <20260128-ssqosid-cbqri-v2-9-dca586b091b9@kernel.org>
+Message-Id: <20260128-ssqosid-cbqri-v2-6-dca586b091b9@kernel.org>
 References: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
 In-Reply-To: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -76,17 +77,17 @@ To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 Cc: Paul Walmsley <paul.walmsley@sifive.com>, linux-acpi@vger.kernel.org, 
  acpica-devel@lists.linux.dev, devicetree@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1087; i=fustini@kernel.org;
- h=from:subject:message-id; bh=SXrtFbN0ix7KxT0GqeIs7HkzT3FdlhgaF3gCwM+F2Mc=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWRWFQZwVWzgevGUQymt74rxZA9L+66yIPZaRfbY6W7uB
- Q61/bc6SlkYxLgYZMUUWTZ9yLuwxCv064L5L7bBzGFlAhnCwMUpABOZMp/hn0qHm5PoJqH/af9y
- TM9v48sSELjomZSU/fxiS2xaiuC+R4wMp8/OnJf36OwJtsRDBaFS9//EPXecIMawUeqn1DmzpWx
- eTAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1671; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=nRtrIHSuWEDHEeDXLCrpmYAAH9Hp3uZpgjylkcnSlpU=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWRWFQZcWOafc1mIUyQrfPft57MCLq6xf8c35WlDxxZ/h
+ trtfz886ShlYRDjYpAVU2TZ9CHvwhKv0K8L5r/YBjOHlQlkCAMXpwBMZFsMw2+2eX9Mbvuknzs9
+ +9bmf3fmG1k9iFq368zirCNn7MIYrle0MTIszUg6Kj236ZH6fPNX17YwnmDmXZb4seOg0E0T+23
+ drwOZAA==
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_122808_603925_A6230BE1 
-X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-CacheID: sfid-20260128_122807_113368_07705DE4 
+X-CRM114-Status: UNSURE (   9.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,37 +105,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The generic resctrl header include/linux/resctrl.h includes
-linux/riscv_qos.h when CONFIG_ARCH_HAS_CPU_RESCTRL is set.
+Define data structures to encapsulate the resctrl resource
+and domain structures.
 
 Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+[fustini: rebased current upstream]
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- MAINTAINERS                      | 1 +
- arch/riscv/include/asm/resctrl.h | 2 ++
- 2 files changed, 3 insertions(+)
+ arch/riscv/kernel/qos/internal.h | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 31e536304972..96ead357a634 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22510,6 +22510,7 @@ M:	Drew Fustini <fustini@kernel.org>
- L:	linux-riscv@lists.infradead.org
- S:	Supported
- F:	arch/riscv/include/asm/qos.h
-+F:	arch/riscv/include/asm/resctrl.h
- F:	arch/riscv/kernel/qos/
- F:	include/linux/riscv_qos.h
+diff --git a/arch/riscv/kernel/qos/internal.h b/arch/riscv/kernel/qos/internal.h
+index ff2c7eff50be..c0402dd06cfa 100644
+--- a/arch/riscv/kernel/qos/internal.h
++++ b/arch/riscv/kernel/qos/internal.h
+@@ -65,6 +65,11 @@
+ #define CBQRI_BC_ALLOC_CTL_OP_READ_LIMIT   2
+ #define CBQRI_BC_ALLOC_CTL_STATUS_SUCCESS  1
  
-diff --git a/arch/riscv/include/asm/resctrl.h b/arch/riscv/include/asm/resctrl.h
-new file mode 100644
-index 000000000000..7d247d87dab9
---- /dev/null
-+++ b/arch/riscv/include/asm/resctrl.h
-@@ -0,0 +1,2 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#include <linux/riscv_qos.h>
++int qos_resctrl_setup(void);
++void qos_resctrl_exit(void);
++int qos_resctrl_online_cpu(unsigned int cpu);
++int qos_resctrl_offline_cpu(unsigned int cpu);
++
+ /* Capacity Controller hardware capabilities */
+ struct riscv_cbqri_capacity_caps {
+ 	u16 ncblks; /* number of capacity blocks */
+@@ -125,4 +130,26 @@ struct cbqri_controller {
+ 	bool mon_capable;
+ };
+ 
++struct cbqri_resctrl_res {
++	struct rdt_resource     resctrl_res;
++	struct cbqri_controller controller;
++	u32 max_rcid;
++	u32 max_mcid;
++};
++
++struct cbqri_resctrl_dom {
++	struct rdt_domain_hdr       resctrl_dom_hdr;
++	struct rdt_ctrl_domain  resctrl_ctrl_dom;
++	struct rdt_mon_domain   resctrl_mon_dom;
++	u64 cbm;
++	u64 rbwb;
++	u64 *ctrl_val;
++	struct cbqri_controller *hw_ctrl;
++};
++
++struct cbqri_config {
++	u64 cbm; /* capacity block mask */
++	u64 rbwb; /* reserved bandwidth blocks */
++};
++
+ #endif /* _ASM_RISCV_QOS_INTERNAL_H */
 
 -- 
 2.43.0
