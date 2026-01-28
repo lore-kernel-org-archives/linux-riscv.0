@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E0C7D46BFA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49539D46BFC
 	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 20:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0WcrDG2IIo9zTYuGhAZI4dlGmLM+c40ufboWqc6DoEc=; b=st9o5QU0CMEvSV
-	qbvd3q0tU1pTSMVHyncmVmhSp7pd3qNmqE/cWN2GT0IOs8yiR4zwc2dApWf6wsO0DeKOYgYIZV5Ve
-	FESEBjqjx/R94yKgJowmwM57Q/GjlOcr8IM8o6Zg7kHX0dRHaB8yB7LZDhiuPUSV2J/Yu6Msc/6i3
-	PuYzjTLHqHULMdJvObmZ/z7quwD4UKdgN1xt6Y6QrzMC0jdDXTWQiz2Ca42DFoz7epJ3Baf0W004X
-	xFcDJheCPvD8G+b3eqnTbkwAWCeYmwoyn39cxbGZ4FVthJlGqoUfPgUIerWpCWGbx8XjVQt4HVauX
-	p9sd5XCN/vk45gvJmI4Q==;
+	List-Owner; bh=wnUyx/2H2B4Y3558ETHQAcBO5KoK9240hUAVd6qsqDc=; b=rEHj8oyKbqhQRI
+	vfZ+/GA5ALv0k2trKvze0qp0y7wVVbPVniN/LYFRrZMoHnmJ6N0sVBA56xEqGYsLp/Ngo9iMRmy/9
+	Vl1MKzee52oN8pWFIkIVIFJmvBqG4tQjHUKZF0qn4ht+O3H1ktSQ9F8mOQ9wh8yAnNRKi4H+y9Gg9
+	DNt2A7o5bH60Y7U9KHCysw0Ro4hTm59vFLTs/Ge9mewEQpSy8o0YePv0lNwm87wzsW5FsOpltHMqU
+	nng8M0iHZZnadleZkqaLfif/A4Fpwly+TrT55ywWnsNb5VxcYcfCi97drbewOnMUZbYdcshVtST9V
+	YW42IGNwDbU9t5odLY/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlC9L-0000000GkGD-3WCQ;
-	Wed, 28 Jan 2026 20:28:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vlC9M-0000000GkHS-2S4J;
+	Wed, 28 Jan 2026 20:28:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlC93-0000000Gk3G-1Ubr
+	id 1vlC94-0000000Gk0f-1ZKT
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 20:28:10 +0000
+	Wed, 28 Jan 2026 20:28:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E6B244455A;
-	Wed, 28 Jan 2026 20:28:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58B83C16AAE;
-	Wed, 28 Jan 2026 20:28:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0D3EC44518;
+	Wed, 28 Jan 2026 20:28:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71CBDC4CEF7;
+	Wed, 28 Jan 2026 20:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769632088;
-	bh=jw+AW2ohMGVwE01frppRYwsxi/H3/LBPifNRE5CWvac=;
+	s=k20201202; t=1769632089;
+	bh=uFVTMJOPvCbobzJzlLLOywkmk/8YKf9YQOLxRrQYfB8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=PFEyCSFY9buxPwA/UYfJ9y6TzNhi5d7Mf6yymH4zM5ftIqAxhd1mF4xPxnGghHzhn
-	 wVGMsgsb4yUrKbkbpI+5juyIXr2R4W2x0YmNhly8WM/cqyQJc6hvE7b0fQEYN8AR3y
-	 Di/wJ+Zuj1HCiTCTrlhcodoqTVkKv+tFGNa17wxeALUAzDSeX6fKk9NKtpJ8Aggmp0
-	 PeLCIOKP+Z3m9OdCjPGIk5OMnC/GWqilwJHyt9zs8u3apVLhdEATe7N9OPz9t/zM3i
-	 lAZx3dNodfFAy350LNxRgFjbn34XG+sijz9MRiyIArDCul9XidFcPasnQGQ6CPi/Cx
-	 MepzuFjh+aGUg==
+	b=SPPkuaDgcf/BvE0ZirdITV/+1qku/YWxWJrcZ7ODvLUS+ziSK4eRpeoN86oXxrxuv
+	 hUvJXiPJxwfGoTMU0NrA9PBme53oM2P2Sj6j1PaiS6oswVMgqPaM7ar14rupJk7RS+
+	 y7dy/w7147MJX6/d/q2MSnxv6lbmHrxq2CrY+z0HD4qqVimIX0qfXJPLrGkWF/tFFf
+	 8eS0as/v5sXvgIbi7yvdz8ZCsjgEE9UaG0p1/X1UPeG9R+rfaRfRBmq6CNH2pEMOSr
+	 D9B6nWgJcxjT1Y/KR3UEctH0ei3I6OlLCsQ1wjBC+x7S0dkJmjko4uI2ZRKXEvb3l3
+	 pasmzSX/29q9A==
 From: Drew Fustini <fustini@kernel.org>
-Date: Wed, 28 Jan 2026 12:27:31 -0800
-Subject: [PATCH RFC v2 10/17] RISC-V: QoS: add late_initcall to setup
- resctrl interface
+Date: Wed, 28 Jan 2026 12:27:33 -0800
+Subject: [PATCH RFC v2 12/17] RISC-V: QoS: make CONFIG_RISCV_ISA_SSQOSID
+ select resctrl
 MIME-Version: 1.0
-Message-Id: <20260128-ssqosid-cbqri-v2-10-dca586b091b9@kernel.org>
+Message-Id: <20260128-ssqosid-cbqri-v2-12-dca586b091b9@kernel.org>
 References: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
 In-Reply-To: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -77,17 +77,17 @@ To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 Cc: Paul Walmsley <paul.walmsley@sifive.com>, linux-acpi@vger.kernel.org, 
  acpica-devel@lists.linux.dev, devicetree@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1362; i=fustini@kernel.org;
- h=from:subject:message-id; bh=jw+AW2ohMGVwE01frppRYwsxi/H3/LBPifNRE5CWvac=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWRWFQbkXNyQ4ne0/N2Myrrrzzb82uG803Fee4CQVrjJ5
- PURjJKzOkpZGMS4GGTFFFk2fci7sMQr9OuC+S+2wcxhZQIZwsDFKQATifnOyDBdaNvy9TZJU7fN
- cne4bfFXNnyS2tGelI9iyy8+8vf+OzGL4X9e5UnDRbFBxsbK4pN3Osyqf3m/y7RColuJ64Bh0sl
- tW3kB
+X-Developer-Signature: v=1; a=openpgp-sha256; l=875; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=uFVTMJOPvCbobzJzlLLOywkmk/8YKf9YQOLxRrQYfB8=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWRWFQa2ul2WMDnBtvGQZY1t1YQ7obmFv5+eiOHI/h1rK
+ 8Wc0xvWUcrCIMbFICumyLLpQ96FJV6hXxfMf7ENZg4rE8gQBi5OAZjI93kM/+N8ns6Zv2thVmVO
+ yi7r27o1X99LPIiWES0WtvNoy9xWEMjwV+yvzak3rAYW8vzctWWPJRSmX6g4l/X6hLDfNpV5+h5
+ izAA=
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_122809_463940_C07A0A63 
-X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-CacheID: sfid-20260128_122810_454772_1A57C753 
+X-CRM114-Status: UNSURE (   7.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,53 +105,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add late_initcall which checks if the Ssqosid extension is present, and
-if so, calls resctrl setup and sets cpu hotplug state to "qos:online".
+Make CONFIG_RISCV_ISA_SSQOSID select the config options for resctrl:
+ARCH_HAS_CPU_RESCTRL, RESCTRL_FS and MISC_FILESYSTEMS.
 
 Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- arch/riscv/kernel/qos/qos.c | 27 +++++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+ arch/riscv/Kconfig | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/riscv/kernel/qos/qos.c b/arch/riscv/kernel/qos/qos.c
-index 7b06f7ae9056..2cd5d7be1d10 100644
---- a/arch/riscv/kernel/qos/qos.c
-+++ b/arch/riscv/kernel/qos/qos.c
-@@ -1,5 +1,32 @@
- // SPDX-License-Identifier: GPL-2.0-only
-+#include <linux/slab.h>
-+#include <linux/err.h>
-+#include <linux/cpu.h>
-+#include <linux/cpumask.h>
-+#include <linux/riscv_qos.h>
-+
-+#include <asm/csr.h>
- #include <asm/qos.h>
- 
-+#include "internal.h"
-+
- /* cached value of sqoscfg csr for each cpu */
- DEFINE_PER_CPU(u32, cpu_srmcfg);
-+
-+static int __init qos_arch_late_init(void)
-+{
-+	int err;
-+
-+	if (!riscv_isa_extension_available(NULL, SSQOSID))
-+		return -ENODEV;
-+
-+	err = qos_resctrl_setup();
-+	if (err != 0)
-+		return err;
-+
-+	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "qos:online", qos_resctrl_online_cpu,
-+			  qos_resctrl_offline_cpu);
-+
-+	return err;
-+}
-+late_initcall(qos_arch_late_init);
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 35a6238b02c5..8ff6d962b6b2 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -598,6 +598,9 @@ config RISCV_ISA_SVNAPOT
+ config RISCV_ISA_SSQOSID
+ 	bool "Ssqosid extension support for supervisor mode Quality of Service ID"
+ 	default y
++	select ARCH_HAS_CPU_RESCTRL
++	select RESCTRL_FS
++	select MISC_FILESYSTEMS
+ 	help
+ 	  Adds support for the Ssqosid ISA extension (Supervisor-mode
+ 	  Quality of Service ID).
 
 -- 
 2.43.0
