@@ -4,59 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A26D5D46BF9
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 19:49:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E97D46BF9
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 20:10:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pe0V7ubin3HW25YoXu5S7IzZSlOVlhD9KNVRYEEG1Js=; b=ra+5rreCErLHr8
-	1wKDkXNVvw/JQUgxRQtBnyh6YZESrV0tXoQFFx6oF+s7/PvEMFiR4HEaKSd1aaQKFHgPtruA/hN4i
-	RRnrbegV0XpCM2fuJH91XpQNybs0VmdG+dr816EQqlHTEqqk6pHA2gpbCghoZ8+Dvr5ex91selY+J
-	3YrXSmoxUwvbucl0FONYMUNSdpBP3WDhN6tbLoonkETXf2FHMDnL3EgDuVoY5Zy+e1EhYYraovmQp
-	C6AjFS2X0PphW0bmb+v2FPdBgXzJPkrzcQyQOHjcEkr1KSXKpqHOaMftqBipAVEVf0TgLtCNdtG43
-	RqPaqBfx9lcxRxohN3zA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qLAGV6gGxxY5/+mQFcwKCY9DehsiXJ1MN+8f73ISldc=; b=he7917rjCW4LxEKz4xYt7nJz8L
+	sAe89ssJe4d9BwBt/Wh3tkoKkExVw7AS2C4TJfKtpto4xJE8E8NaHIn+oq87wXY9G61L5z/KQoncs
+	gmvofEDUx0UqtDo7Vtx/DhLGvVSIARpv7wNH8UG1AbYrXtnCGYPUcjlMHROFFEH3gIAjBP5AGU/oV
+	983JamsiHoAYd5aq/yLATCDqcwbScwvI+LraJgjGT6273XEft3SnBODyWRUqUQXGONbEzP6XeRwB9
+	cH+gdQMgHxN3WI4U9OeewC+urZp52z3R8aB5tx2liOlzjw8O7xhowfQ0TSTuw1XhwLtaCjrlV+cgW
+	2gRfXprA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlBXP-0000000Gh95-1Cmv;
-	Wed, 28 Jan 2026 19:49:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vlBs5-0000000Gign-0xXD;
+	Wed, 28 Jan 2026 20:10:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlBXM-0000000Gh8Y-1CPh
+	id 1vlBs2-0000000Gigd-1fx9
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 19:49:13 +0000
+	Wed, 28 Jan 2026 20:10:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1968342D95;
-	Wed, 28 Jan 2026 19:49:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 956C3C4CEF1;
-	Wed, 28 Jan 2026 19:49:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 720E56000A;
+	Wed, 28 Jan 2026 20:10:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 278F7C4CEF1;
+	Wed, 28 Jan 2026 20:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769629751;
-	bh=ZgURDPXZxdlzY1nCr7dFdlPZ+CG+p3tih0XcJrBxJSc=;
+	s=k20201202; t=1769631033;
+	bh=cbUTU7UNDP0PcQPrkgEPxOaWJaIp7t5a4TDdNENC9sQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jkx+W8ykaiIAXPqelZuIfPFrrsGq5g6rbS4D8Jk/4FwLCUPyFtyLQbdRWVd5QVY0G
-	 XOhZUqzVn1LqgIWGYrZDgEebxdC/KmN+dqrMiJ36UyI2+n1ywoBfPKW3kzUL4JwMSh
-	 TWQu2/usGHuvucBrBEYtY1CuGbnwXZCIYuv9XxdIziZ1xHxgWV8GUsm4WaD8vJTtyI
-	 ZjozH8/Y9OXlZkm/CQdngwr2lbuVJX3/CF01ddVSudhxRygFUhpXyXj8Bgbjk4WQim
-	 HASeIQyrPngoVJoNEuDYWJ/Iq7mtUb/As6vyFCkXvux9Q53OAsVmr7xAByTYYFOlcx
-	 bbpNtTZ7q9KSA==
-Date: Wed, 28 Jan 2026 11:49:09 -0800
-From: Drew Fustini <fustini@kernel.org>
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Subject: Re: [PATCH v6 7/9] riscv: dts: thead: lichee-pi-4a: enable HDMI
-Message-ID: <aXpoNTuziA2XOIuz@x1>
-References: <20260123092830.4046009-1-zhengxingda@iscas.ac.cn>
- <20260123092830.4046009-8-zhengxingda@iscas.ac.cn>
- <aXpbBq3TwuiP9Qry@x1>
- <aXpnTDSowoW+8UzN@x1>
+	b=RyHHTAlKb5eS4BFX+Ch9ajyVf8ZIjISXgZhpX65ZmewBuzaGEjODnpepq0cOhxXk+
+	 W9UaEu3RJk+MAqDZ3u9jGCKTdLdT3toK6JV7DrCPovZkLjRxpUi8Qcn9txEPHy9Y+1
+	 KrLShf3iCnzBS8+GW/3JnqVlaId+Xq0SmY8+3LGVboM1vmvI7SCh9PHzP44d4301OE
+	 mcdeHvsYe/MHNgvuNf1CQj8Smc1ZXZVDt42NChEyssMcY0BbdimGVWmUWqOoKZoyOP
+	 NKbAg8iGCxIs8bymtpsQ19QZfpg9uKtAK9CRTvMX7VXmUp2NvcjXXqKpRSFPAUDSpT
+	 wwpo2DdbEvCag==
+Date: Wed, 28 Jan 2026 20:10:28 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Guodong Xu <guodong@riscstar.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Evan Green <evan@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: riscv: Add Supm extension description
+Message-ID: <20260128-steering-luckless-565bb14495a1@spud>
+References: <20260125-supm-ext-id-v2-0-1e3b9714c860@riscstar.com>
+ <20260125-supm-ext-id-v2-1-1e3b9714c860@riscstar.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aXpnTDSowoW+8UzN@x1>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_114912_347336_AD37432F 
-X-CRM114-Status: GOOD (  16.01  )
+In-Reply-To: <20260125-supm-ext-id-v2-1-1e3b9714c860@riscstar.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,52 +74,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: dri-devel@lists.freedesktop.org, Guo Ren <guoren@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Robert Foss <rfoss@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Michal Wilczynski <m.wilczynski@samsung.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>, Jonas Karlman <jonas@kwiboo.se>, Han Gao <gaohan@iscas.ac.cn>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Dmitry Baryshkov <lumag@kernel.org>, linux-kernel@vger.kernel.org, Thomas Zimmermann <tzimmermann@suse.de>, Han Gao <rabenda.cn@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7149445237762130639=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 11:45:16AM -0800, Drew Fustini wrote:
-> On Wed, Jan 28, 2026 at 10:52:54AM -0800, Drew Fustini wrote:
-> > On Fri, Jan 23, 2026 at 05:28:28PM +0800, Icenowy Zheng wrote:
-> > > Lichee Pi 4A board features a HDMI Type-A connector connected to the
-> > > HDMI TX controller of TH1520 SoC.
-> > > 
-> > > Add a device tree node describing the connector, connect it to the HDMI
-> > > controller, and enable everything on this display pipeline.
-> > > 
-> > > Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-> > > Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-> > > Tested-by: Han Gao <gaohan@iscas.ac.cn>
-> > > Tested-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> > > ---
-> > > No changes in v5.
-> > > 
-> > > Changes in v4:
-> > > - Rebased on top of v6.19-rc1.
-> > > 
-> > > No changes in v2, v3.
-> > > 
-> > >  .../boot/dts/thead/th1520-lichee-pi-4a.dts    | 25 +++++++++++++++++++
-> > >  1 file changed, 25 insertions(+)
-> > 
-> > Reviewed-by: Drew Fustini <fustini@kernel.org>
-> 
-> I've applied this to tenstorrent-dt-for-next
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/commit/?h=tenstorrent-dt-for-next&id=0075f4c3aade0d436925026eaefb14be1ec52a69
-> 
-> Hopefully we can get some testing done with a next release once the driver patches hit next.
 
-Sorry about my typo mistake. The correct branch is thead-dt-for-next
+--===============7149445237762130639==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="qxguFY5XCRtrbMWp"
+Content-Disposition: inline
 
-https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/log/?h=thead-dt-for-next
 
-Thanks,
-Drew
+--qxguFY5XCRtrbMWp
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sun, Jan 25, 2026 at 09:36:06AM +0800, Guodong Xu wrote:
+> Add description for the Supm extension. Supm indicates support for pointer
+> masking in user mode. Supm is mandatory for RVA23S64.
+>=20
+> Add dependency check that Supm requires either Smnpm or Ssnpm.
+>=20
+> The Supm extension is ratified in commit d70011dde6c2 ("Update to ratified
+> state") of riscv-j-extension.
+>=20
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
+
+FWIW, this is missing my 6.20/7.0 (whichever it ends up being) PR cos
+I'd like some other folks to look at the series. If Paul/Palmer are
+happy with it though,
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+Cheers,
+Conor.
+
+> ---
+> v2: Add dependency check for Sump.
+>     Put the check blok after single-letters and before Z*.
+> ---
+>  .../devicetree/bindings/riscv/extensions.yaml      | 27 ++++++++++++++++=
+++++++
+>  1 file changed, 27 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
+cumentation/devicetree/bindings/riscv/extensions.yaml
+> index c6ec9290fe07..2b0a8a93bb21 100644
+> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> @@ -262,6 +262,23 @@ properties:
+>              ratified in RISC-V Profiles Version 1.0, with commit b1d8066=
+05f87
+>              ("Updated to ratified state.")
+> =20
+> +        - const: supm
+> +          description: |
+> +            The standard Supm extension for pointer masking support in u=
+ser
+> +            mode (U-mode) as ratified at commit d70011dde6c2 ("Update to
+> +            ratified state") of riscv-j-extension.
+> +
+> +            Supm represents a combination of underlying hardware capabil=
+ity
+> +            (Smnpm or Ssnpm), U-mode consumer privilege level, and M/S-m=
+ode
+> +            software configuration that enables pointer masking for U-mo=
+de.
+> +
+> +            DO NOT include this property in device trees targeting privi=
+leged
+> +            system software (S-mode or M-mode).
+> +
+> +            This property is only appropriate in device trees provided to
+> +            U-mode software where the next-higher-privilege-mode supports
+> +            Smnpm or Ssnpm and enables it for U-mode.
+> +
+>          - const: svade
+>            description: |
+>              The standard Svade supervisor-level extension for SW-managed=
+ PTE A/D
+> @@ -907,6 +924,16 @@ properties:
+>          then:
+>            contains:
+>              const: b
+> +      # Supm depends on Smnpm or Ssnpm
+> +      - if:
+> +          contains:
+> +            const: supm
+> +        then:
+> +          oneOf:
+> +            - contains:
+> +                const: smnpm
+> +            - contains:
+> +                const: ssnpm
+>        # Za64rs and Ziccrse depend on Zalrsc or A
+>        - if:
+>            contains:
+>=20
+> --=20
+> 2.43.0
+>=20
+
+--qxguFY5XCRtrbMWp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaXptMwAKCRB4tDGHoIJi
+0i/IAPwIYQeMxvZnB3qX0r5k2G4LWuHgJmduU+vhmMmN4Dp59gD/S6sCI+hDlciv
+V3PF2CQwUvIJFEDbW9Mt1wkk+BIUggk=
+=TPgz
+-----END PGP SIGNATURE-----
+
+--qxguFY5XCRtrbMWp--
+
+
+--===============7149445237762130639==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7149445237762130639==--
+
