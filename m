@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F51D46BFE
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 20:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C65A6D46BFB
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jan 2026 20:31:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EjDDAsZYLMB7fTkf0i6WXduxwCYFdZjyRCuvpyncouo=; b=anc8CjEtUAVemQ
-	gJUmakjo+DogwPuF42VdxisDRaPcsHPrlBog27UK9QQW2IBEuhS2ErQmlIsve/BF832OYLmI1DLP1
-	mz406vNTcgldLD93vSptz9Eh8PPM6WV+I/qnEeHsY1sd71m9pTx+DF3qI2FN6qG8gWlnfuZ4GNgaD
-	tiTvHDQwVANwfEX0/g21l7s82QdGwiZtBFDUceczMt+24ULpA1EVrcgaGFFVm3oZ3j3F90BKkjcJv
-	pagEDAMEzr3Qb/Gp/GtiDdGaCJq03L5QuA8weH/b+ud/b6CPZHskbqn6uU575ht2eVPq5KGr3mk+N
-	xjOz1jhlerCx8MeYRQEw==;
+	List-Owner; bh=+JxIJlaE5pZpxpflXMkznAIrxYWf3vZsz3Sc2HVhJhk=; b=bVs6BzquOiI4Tl
+	c9ZyG5Rd6ToqPrfjNq7NxuIsxY4ZppZlzJKnqy2p5uf7OzklN/ChZlQqgduRUV/4q/ole9fpUTqSv
+	0RRNZeFekaqZQ3VUsUrmsgtkLytg/hpqgYD3WAu5tqG6PWyZz3AZrSUsIDRqehE+Nu33WLkLLaiMS
+	SIEAthJNo7iWM2Sie+RRafq2PVJoQRYcCJhxl6yth5LHCFUih5nT+OWc6gOQTzGobcdDyVRtDRDiM
+	6qGbBoQTQ84++KI73pKF0AS6j3Ei/IUqksisfvWxRQFisht0mqXzXCJqlZZd8sC2vCqW7cS1jZE1A
+	llZL5BDmrT+XwaQWzbsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlC9P-0000000GkM9-1fz2;
-	Wed, 28 Jan 2026 20:28:31 +0000
+	id 1vlCCK-0000000GlgS-175h;
+	Wed, 28 Jan 2026 20:31:32 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlC96-0000000Gk3G-2976
+	id 1vlCCH-0000000Glg6-1x0I
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jan 2026 20:28:22 +0000
+	Wed, 28 Jan 2026 20:31:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 62E1444538;
-	Wed, 28 Jan 2026 20:28:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB782C16AAE;
-	Wed, 28 Jan 2026 20:28:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E422244512
+	for <linux-riscv@lists.infradead.org>; Wed, 28 Jan 2026 20:31:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9080C116C6
+	for <linux-riscv@lists.infradead.org>; Wed, 28 Jan 2026 20:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769632092;
-	bh=/31EreH53ZbfLgFROUgaazBzJSVsVuqJTT5oOs7SCjM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ucbNnildD1YQ95dVxpJ2kkQXeMWx+bA6Mc2FsARgFcVczjwggyqCOcgGWKsjXfec0
-	 51D6f5QPatAMeAu9Vw6HX+6MRLWkyyK6yzpjQQlivsYVrTrYieeOmAAYjkYpC6njYK
-	 K7NE0shSt3timYgnt9sBnvphGh2hQP16PqKuqTDkVV3H2wkYDF5c/dL9sHxeiHygKF
-	 6QL+fgFZpGiBtC1RH0UUPAzxFv/9qe2Nje7LN9WU+3iv6g+cZCTL5ZvPakAArH+9Lp
-	 9GlN8ysBJm1zNmO5ChhjFmzSnxiSs0gdkJhnT9j7aw0P+nGRKD/uKtDX9+BI2hS/q1
-	 dAoFoM2VcjExQ==
-From: Drew Fustini <fustini@kernel.org>
-Date: Wed, 28 Jan 2026 12:27:37 -0800
-Subject: [PATCH RFC v2 16/17] acpi: riscv: Parse RISC-V Quality of Service
- Controller (RQSC) table
+	s=k20201202; t=1769632288;
+	bh=gBKZeGXmRB72ugZQee9uLksgDTLcgvK/XSgyK0HBTYs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=fJV8AyCjQjvZdUGePNhoVfrZMdJ8GUJEIoBRWGtSh9gGvFIbEe9/lQ5JyFCmnyMRd
+	 LW5m8YYPHmQceI1ZKQQ9P8xMSo5IiNoqlbxq1tfORv65VIsTFCydOco9+eUa6UtmAt
+	 vS6+nmhkALtkUIZMtlkKHXoz4kZ7svueDOmz9icuRSMhnAKTcsuU+0DaEKdtJOtRRI
+	 ietsL1xrzMh4ibjlyiE5a0gI16gGcpoAgMak67adSFZPL5QkwrXl8TsG7EadV11am9
+	 92JPLOlDDWG7sNt1pNxfZ86fHE+RcUVheKB7+ANlu9cmdH/LKuQLrCaPYU0hqbPjyR
+	 R2hGaCris2jOg==
+Received: by mail-oo1-f48.google.com with SMTP id 006d021491bc7-662f62af84bso86606eaf.1
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Jan 2026 12:31:28 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCU8vhsWU5QEXIecieYjdHZi/Tvjxl9E1caepO5wdY9uiUxK8M1tzAEoNWJyLk93q4XAgmfEXy/2S/q64A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwMMCn3CbIDSBy4tPVLzoa0bK8Kx/rtVzzvte5KzHU6JLLo+QJ
+	YShvSyUsWNnJtaActtRC+vOFZxc7ECGlPj+ef+TMZ+ry1nd3eAsM3+jJn9jOGINHIJBST5CwrdN
+	Wrumm1pDAmkF2Xs6CZNXncuTgpGZLmow=
+X-Received: by 2002:a05:6820:4888:b0:661:1d0c:a5b5 with SMTP id
+ 006d021491bc7-662f20b2282mr3218498eaf.48.1769632287212; Wed, 28 Jan 2026
+ 12:31:27 -0800 (PST)
 MIME-Version: 1.0
-Message-Id: <20260128-ssqosid-cbqri-v2-16-dca586b091b9@kernel.org>
-References: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
-In-Reply-To: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Adrien Ricciardi <aricciardi@baylibre.com>, 
- Nicolas Pitre <npitre@baylibre.com>, 
- =?utf-8?q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>, 
- Atish Patra <atish.patra@linux.dev>, 
- Atish Kumar Patra <atishp@rivosinc.com>, 
- Vasudevan Srinivasan <vasu@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>, 
- yunhui cui <cuiyunhui@bytedance.com>, Chen Pei <cp0613@linux.alibaba.com>, 
- Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, Weiwei Li <liwei1518@gmail.com>, 
- guo.wenjia23@zte.com.cn, liu.qingtao2@zte.com.cn, 
- Reinette Chatre <reinette.chatre@intel.com>, 
- Tony Luck <tony.luck@intel.com>, Babu Moger <babu.moger@amd.com>, 
- Peter Newman <peternewman@google.com>, Fenghua Yu <fenghua.yu@intel.com>, 
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
- Dave Martin <Dave.Martin@arm.com>, Drew Fustini <fustini@kernel.org>, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- x86@kernel.org, Rob Herring <robh@kernel.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
- Robert Moore <robert.moore@intel.com>, Sunil V L <sunilvl@ventanamicro.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, linux-acpi@vger.kernel.org, 
- acpica-devel@lists.linux.dev, devicetree@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5705; i=fustini@kernel.org;
- h=from:subject:message-id; bh=/31EreH53ZbfLgFROUgaazBzJSVsVuqJTT5oOs7SCjM=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWRWFQZGmc3dXWH840Dfap/on9x8wdaVnnOLfHdbrlfoZ
- HF8f8W3o5SFQYyLQVZMkWXTh7wLS7xCvy6Y/2IbzBxWJpAhDFycAjCRfdsZGf7cnRk68dAd/agJ
- ifslzvismBv8apVhxuS3PauDbFtSvs9mZOgQt1u7wGulryvHyoVrpmtsZF2jVzO1cZL8hI91bI+
- mqnABAA==
-X-Developer-Key: i=fustini@kernel.org; a=openpgp;
- fpr=1B6F948213EA489734F3997035D5CD577C1E6010
+References: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org> <20260128-ssqosid-cbqri-v2-14-dca586b091b9@kernel.org>
+In-Reply-To: <20260128-ssqosid-cbqri-v2-14-dca586b091b9@kernel.org>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Wed, 28 Jan 2026 21:31:16 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0iSZ6qvhUWHtrWuO5XBviMcLUMfRB_hWn-FxAhe=LoA-Q@mail.gmail.com>
+X-Gm-Features: AZwV_QhTWYQto4BrtdQANhW7sZdsYf8E3diyh5q6rhkPzFH1j0ccCk27nUICkrQ
+Message-ID: <CAJZ5v0iSZ6qvhUWHtrWuO5XBviMcLUMfRB_hWn-FxAhe=LoA-Q@mail.gmail.com>
+Subject: Re: [PATCH RFC v2 14/17] include: acpi: actbl2: Add structs for RQSC table
+To: Drew Fustini <fustini@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_122812_614044_B4AC35CE 
-X-CRM114-Status: GOOD (  21.62  )
+X-CRM114-CacheID: sfid-20260128_123129_568768_8CBE4D2D 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,194 +75,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Atish Patra <atish.patra@linux.dev>, Adrien Ricciardi <aricciardi@baylibre.com>, Atish Kumar Patra <atishp@rivosinc.com>, Conor Dooley <conor+dt@kernel.org>, Nicolas Pitre <npitre@baylibre.com>, devicetree@vger.kernel.org, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, guo.wenjia23@zte.com.cn, linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, x86@kernel.org, acpica-devel@lists.linux.dev, Robert Moore <robert.moore@intel.com>, liu.qingtao2@zte.com.cn, linux-acpi@vger.kernel.org, Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>, =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Dave Martin <Dave.Martin@arm.com>, Len Brown <lenb@kernel.org>, Fenghua Yu <fenghua.yu@intel.com>, Chen Pei <cp0613@linux.alibaba.com>, Albert Ou <aou@eecs.berkeley.edu>, =?UTF-8?Q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>, Babu Moger <babu.moger@amd.com>, Weiwei Li <liwei1518@gmail.com>, yunhui cui <cuiyunhui@bytedance.com>, Paul Walmsley <paul.walmsley@sifive.com>, Ved Shanbhogue <ved@rivosinc.com>, Reinette Chatre <reinette.chatre@intel.com>, Vasudevan Srinivasan <vasu@rivosinc.com>, Tony Luck <tony.luck@intel.com>, Peter Newman <peternewman@google.com>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Paul Walmsley <pjw@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add driver to parse the ACPI RISC-V Quality of Service Controller (RQSC)
-table which describes the capacity and bandwidth QoS controllers in a
-system. The QoS controllers implement the RISC-V Capacity and Bandwidth
-Controller QoS Register Interface (CBQRI) specification.
-
-Link: https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
-Link: https://github.com/riscv-non-isa/riscv-rqsc/blob/main/src/
-Signed-off-by: Drew Fustini <fustini@kernel.org>
----
- MAINTAINERS                   |   1 +
- arch/riscv/include/asm/acpi.h |  10 ++++
- drivers/acpi/riscv/Makefile   |   2 +-
- drivers/acpi/riscv/rqsc.c     | 112 ++++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 124 insertions(+), 1 deletion(-)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 96ead357a634..e96a83dc9a02 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22512,6 +22512,7 @@ S:	Supported
- F:	arch/riscv/include/asm/qos.h
- F:	arch/riscv/include/asm/resctrl.h
- F:	arch/riscv/kernel/qos/
-+F:	drivers/acpi/riscv/rqsc.c
- F:	include/linux/riscv_qos.h
- 
- RISC-V RPMI AND MPXY DRIVERS
-diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-index 6e13695120bc..16c6e25eed1e 100644
---- a/arch/riscv/include/asm/acpi.h
-+++ b/arch/riscv/include/asm/acpi.h
-@@ -71,6 +71,16 @@ int acpi_get_riscv_isa(struct acpi_table_header *table,
- 
- void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
- 			     u32 *cboz_size, u32 *cbop_size);
-+
-+#ifdef CONFIG_RISCV_ISA_SSQOSID
-+int acpi_parse_rqsc(struct acpi_table_header *table);
-+#else
-+static inline int acpi_parse_rqsc(struct acpi_table_header *table)
-+{
-+	return -EINVAL;
-+}
-+#endif /* CONFIG_RISCV_ISA_SSQOSID */
-+
- #else
- static inline void acpi_init_rintc_map(void) { }
- static inline struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
-diff --git a/drivers/acpi/riscv/Makefile b/drivers/acpi/riscv/Makefile
-index 1284a076fa88..cf0f38c93a9f 100644
---- a/drivers/acpi/riscv/Makefile
-+++ b/drivers/acpi/riscv/Makefile
-@@ -1,5 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0-only
--obj-y					+= rhct.o init.o irq.o
-+obj-y					+= rhct.o rqsc.o init.o irq.o
- obj-$(CONFIG_ACPI_PROCESSOR_IDLE)	+= cpuidle.o
- obj-$(CONFIG_ACPI_CPPC_LIB)		+= cppc.o
- obj-$(CONFIG_ACPI_RIMT)			+= rimt.o
-diff --git a/drivers/acpi/riscv/rqsc.c b/drivers/acpi/riscv/rqsc.c
-new file mode 100644
-index 000000000000..a86ddb39fae4
---- /dev/null
-+++ b/drivers/acpi/riscv/rqsc.c
-@@ -0,0 +1,112 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2025 Tenstorrent
-+ *	Author: Drew Fustini <fustini@kernel.org>
-+ *
-+ */
-+
-+#define pr_fmt(fmt) "ACPI: RQSC: " fmt
-+
-+#include <linux/acpi.h>
-+#include <linux/bits.h>
-+#include <linux/riscv_qos.h>
-+
-+#ifdef CONFIG_RISCV_ISA_SSQOSID
-+
-+#define CBQRI_CTRL_SIZE 0x1000
-+
-+static struct acpi_table_rqsc *acpi_get_rqsc(void)
-+{
-+	static struct acpi_table_header *rqsc;
-+	acpi_status status;
-+
-+	/*
-+	 * RQSC will be used at runtime on every CPU, so we
-+	 * don't need to call acpi_put_table() to release the table mapping.
-+	 */
-+	if (!rqsc) {
-+		status = acpi_get_table(ACPI_SIG_RQSC, 0, &rqsc);
-+		if (ACPI_FAILURE(status)) {
-+			pr_warn_once("No RQSC table found\n");
-+			return NULL;
-+		}
-+	}
-+
-+	return (struct acpi_table_rqsc *)rqsc;
-+}
-+
-+int acpi_parse_rqsc(struct acpi_table_header *table)
-+{
-+	struct acpi_table_rqsc *rqsc;
-+	int err;
-+
-+	BUG_ON(acpi_disabled);
-+	if (!table) {
-+		rqsc = acpi_get_rqsc();
-+		if (!rqsc)
-+			return -ENOENT;
-+	} else {
-+		rqsc = (struct acpi_table_rqsc *)table;
-+	}
-+
-+	for (int i = 0; i < rqsc->num; i++) {
-+		struct cbqri_controller_info *ctrl_info;
-+
-+		ctrl_info = kzalloc(sizeof(*ctrl_info), GFP_KERNEL);
-+		if (!ctrl_info)
-+			return -ENOMEM;
-+
-+		ctrl_info->type = rqsc->f[i].type;
-+		ctrl_info->addr = rqsc->f[i].reg[1];
-+		ctrl_info->size = CBQRI_CTRL_SIZE;
-+		ctrl_info->rcid_count = rqsc->f[i].rcid;
-+		ctrl_info->mcid_count = rqsc->f[i].mcid;
-+
-+		pr_info("Found controller with type %u addr 0x%lx size  %lu rcid  %u mcid  %u",
-+			ctrl_info->type, ctrl_info->addr, ctrl_info->size,
-+			ctrl_info->rcid_count, ctrl_info->mcid_count);
-+
-+		if (ctrl_info->type == CBQRI_CONTROLLER_TYPE_CAPACITY) {
-+			ctrl_info->cache.cache_id = rqsc->f[i].res.id1;
-+			ctrl_info->cache.cache_level =
-+				find_acpi_cache_level_from_id(ctrl_info->cache.cache_id);
-+
-+			struct acpi_pptt_cache *cache;
-+
-+			cache = find_acpi_cache_from_id(ctrl_info->cache.cache_id);
-+			if (cache) {
-+				ctrl_info->cache.cache_size = cache->size;
-+			} else {
-+				pr_warn("%s(): failed to determine size for cache id 0x%x",
-+					__func__, ctrl_info->cache.cache_id);
-+				ctrl_info->cache.cache_size = 0;
-+			}
-+
-+			pr_info("Cache controller has ID 0x%x level %u size %u ",
-+				ctrl_info->cache.cache_id, ctrl_info->cache.cache_level,
-+				ctrl_info->cache.cache_size);
-+
-+			/*
-+			 * For CBQRI, any cpu (technically a hart in RISC-V terms)
-+			 * can access the memory-mapped registers of any CBQRI
-+			 * controller in the system.
-+			 */
-+			err = cpumask_parse("FF", &ctrl_info->cache.cpu_mask);
-+			if (err)
-+				pr_err("Failed to convert cores mask string to cpumask (%d)", err);
-+
-+		} else if (ctrl_info->type == CBQRI_CONTROLLER_TYPE_BANDWIDTH) {
-+			ctrl_info->mem.prox_dom = rqsc->f[i].res.id1;
-+			pr_info("Memory controller with proximity domain %u",
-+				ctrl_info->mem.prox_dom);
-+		}
-+
-+		/* Fill the list shared with RISC-V QoS resctrl */
-+		INIT_LIST_HEAD(&ctrl_info->list);
-+		list_add_tail(&ctrl_info->list, &cbqri_controllers);
-+	}
-+
-+	return 0;
-+}
-+
-+#endif /* CONFIG_RISCV_ISA_SSQOSID */
-
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKYW4gMjgsIDIwMjYgYXQgOToyOOKAr1BNIERyZXcgRnVzdGluaSA8ZnVzdGluaUBr
+ZXJuZWwub3JnPiB3cm90ZToKPgo+IEFkZCBzdHJ1Y3RzIGZvciB0aGUgUlFTQyB0YWJsZSB3aGlj
+aCBkZXNjcmliZXMgdGhlIHByb3BlcnRpZXMgb2YgdGhlCj4gUklTQy1WIFFvUyBjb250cm9sbGVy
+cyAoQ0JRUkkpIGluIHRoZSBzeXN0ZW0uIFRoZSB0YWJsZSBhbHNvIGRlc2NyaWJlcwo+IHRoZSB0
+b3BvbG9naWNhbCBhcnJhbmdlbWVudCBvZiB0aGUgUW9TIGNvbnRyb2xsZXJzIGFuZCByZXNvdXJj
+ZXMgaW4gdGhlCj4gc3lzdGVtLiBUaGUgdG9wb2xvZ3kgaXMgZXhwcmVzc2VkIGluIHRlcm1zIG9m
+IHRoZSBsb2NhdGlvbiBvZiB0aGUKPiByZXNvdXJjZXMgd2l0aGluIHRoZSBzeXN0ZW0gYW5kIHRo
+ZSByZWxhdGlvbiBiZXR3ZWVuIHRoZSBRb1MgQ29udHJvbGxlcgo+IGFuZCB0aGUgcmVzb3VyY2Ug
+aXQgbWFuYWdlcy4KPgo+IExpbms6IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi1ub24taXNhL3Jp
+c2N2LWNicXJpL3JlbGVhc2VzL3RhZy92MS4wCj4gTGluazogaHR0cHM6Ly9naXRodWIuY29tL3Jp
+c2N2LW5vbi1pc2EvcmlzY3YtcnFzYy9ibG9iL21haW4vc3JjL2NoYXB0ZXIyLmFkb2MKPiBTaWdu
+ZWQtb2ZmLWJ5OiBEcmV3IEZ1c3RpbmkgPGZ1c3RpbmlAa2VybmVsLm9yZz4KCk9mIGNvdXJzZSwg
+dGhpcyBjaGFuZ2UgbmVlZHMgdG8gZ28gdGhyb3VnaCB1cHN0cmVhbSBBQ1BJQ0EuCgo+IC0tLQo+
+ICBpbmNsdWRlL2FjcGkvYWN0YmwyLmggfCA5MiArKysrKysrKysrKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrKysrKysrKysKPiAgMSBmaWxlIGNoYW5nZWQsIDkyIGluc2VydGlvbnMo
+KykKPgo+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2FjcGkvYWN0YmwyLmggYi9pbmNsdWRlL2FjcGkv
+YWN0YmwyLmgKPiBpbmRleCBmNzI2YmNlM2ViODQuLjczNjc5OTAzNDllZSAxMDA2NDQKPiAtLS0g
+YS9pbmNsdWRlL2FjcGkvYWN0YmwyLmgKPiArKysgYi9pbmNsdWRlL2FjcGkvYWN0YmwyLmgKPiBA
+QCAtNTMsNiArNTMsNyBAQAo+ICAjZGVmaW5lIEFDUElfU0lHX1JHUlQgICAgICAgICAgICJSR1JU
+IiAvKiBSZWd1bGF0b3J5IEdyYXBoaWNzIFJlc291cmNlIFRhYmxlICovCj4gICNkZWZpbmUgQUNQ
+SV9TSUdfUkhDVCAgICAgICAgICAgIlJIQ1QiIC8qIFJJU0MtViBIYXJ0IENhcGFiaWxpdGllcyBU
+YWJsZSAqLwo+ICAjZGVmaW5lIEFDUElfU0lHX1JJTVQgICAgICAgICAgICJSSU1UIiAvKiBSSVND
+LVYgSU8gTWFwcGluZyBUYWJsZSAqLwo+ICsjZGVmaW5lIEFDUElfU0lHX1JRU0MgICAgICAgICAg
+ICJSUVNDIiAvKiBSSVNDLVYgUklTQy1WIFF1YWxpdHkgb2YgU2VydmljZSBDb250cm9sbGVyICov
+Cj4gICNkZWZpbmUgQUNQSV9TSUdfU0JTVCAgICAgICAgICAgIlNCU1QiIC8qIFNtYXJ0IEJhdHRl
+cnkgU3BlY2lmaWNhdGlvbiBUYWJsZSAqLwo+ICAjZGVmaW5lIEFDUElfU0lHX1NERUkgICAgICAg
+ICAgICJTREVJIiAvKiBTb2Z0d2FyZSBEZWxlZ2F0ZWQgRXhjZXB0aW9uIEludGVyZmFjZSBUYWJs
+ZSAqLwo+ICAjZGVmaW5lIEFDUElfU0lHX1NERVYgICAgICAgICAgICJTREVWIiAvKiBTZWN1cmUg
+RGV2aWNlcyB0YWJsZSAqLwo+IEBAIC0zMTY1LDYgKzMxNjYsOTcgQEAgZW51bSBhY3BpX3JncnRf
+aW1hZ2VfdHlwZSB7Cj4gICAgICAgICBBQ1BJX1JHUlRfVFlQRV9SRVNFUlZFRCA9IDIgICAgIC8q
+IDIgYW5kIGdyZWF0ZXIgYXJlIHJlc2VydmVkICovCj4gIH07Cj4KPiArLyoqKioqKioqKioqKioq
+KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq
+KioqKioqKioKPiArICoKPiArICogUlFTQyAtIFJJU0MtViBRdWFsaXR5IG9mIFNlcnZpY2UgQ29u
+dHJvbGxlcgo+ICsgKiAgICAgICAgVmVyc2lvbiAxCj4gKyAqCj4gKyAqKioqKioqKioqKioqKioq
+KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq
+KioqKiovCj4gKwo+ICtzdHJ1Y3QgYWNwaV90YWJsZV9ycXNjX2ZpZWxkc19yZXMgewo+ICsgICAg
+ICAgdTggdHlwZTsgICAgICAgIC8vIDEKPiArICAgICAgIHU4IHJlc3Y7ICAgICAgICAvLyAxCj4g
+KyAgICAgICB1MTYgbGVuZ3RoOyAgICAgLy8gMgo+ICsgICAgICAgdTE2IGZsYWdzOyAgICAgIC8v
+IDIKPiArICAgICAgIHU4IHJlc3YyOyAgICAgICAvLyAxCj4gKyAgICAgICB1OCBpZF90eXBlOyAg
+ICAgLy8gMQo+ICsgICAgICAgdTY0IGlkMTsgICAgICAgIC8vIDgKPiArICAgICAgIHUzMiBpZDI7
+ICAgICAgICAvLyA0Cj4gK307Cj4gKwo+ICtzdHJ1Y3QgYWNwaV90YWJsZV9ycXNjX2ZpZWxkcyB7
+Cj4gKyAgICAgICB1OCB0eXBlOyAgICAgICAgLy8gIDEKPiArICAgICAgIHU4IHJlc3Y7ICAgICAg
+ICAvLyAgMQo+ICsgICAgICAgdTE2IGxlbmd0aDsgICAgIC8vICAyCj4gKyAgICAgICB1MzIgcmVn
+WzNdOyAgICAgLy8gMTIKPiArICAgICAgIHUzMiByY2lkOyAgICAgICAvLyAgNAo+ICsgICAgICAg
+dTMyIG1jaWQ7ICAgICAgIC8vICA0Cj4gKyAgICAgICB1MTYgZmxhZ3M7ICAgICAgLy8gIDIKPiAr
+ICAgICAgIHUxNiBucmVzOyAgICAgICAvLyAgMgo+ICsgICAgICAgc3RydWN0IGFjcGlfdGFibGVf
+cnFzY19maWVsZHNfcmVzIHJlczsgLy8gMjAKPiArfTsKPiArCj4gK3N0cnVjdCBhY3BpX3RhYmxl
+X3Jxc2Mgewo+ICsgICAgICAgc3RydWN0IGFjcGlfdGFibGVfaGVhZGVyIGhlYWRlcjsgICAgICAg
+IC8qIENvbW1vbiBBQ1BJIHRhYmxlIGhlYWRlciAqLwo+ICsgICAgICAgdTMyIG51bTsKPiArICAg
+ICAgIHN0cnVjdCBhY3BpX3RhYmxlX3Jxc2NfZmllbGRzIGZbNl07Cj4gK307Cj4gKwo+ICsvKiBS
+UVNDIEZsYWdzICovCj4gKyNkZWZpbmUgQUNQSV9SUVNDX1RJTUVSX0NBTk5PVF9XQUtFVVBfQ1BV
+ICAgICAgICgxKQo+ICsKPiArLyoKPiArICogUlFTQyBzdWJ0YWJsZXMKPiArICovCj4gK3N0cnVj
+dCBhY3BpX3Jxc2Nfbm9kZV9oZWFkZXIgewo+ICsgICAgICAgdTE2IHR5cGU7Cj4gKyAgICAgICB1
+MTYgbGVuZ3RoOwo+ICsgICAgICAgdTE2IHJldmlzaW9uOwo+ICt9Owo+ICsKPiArLyogVmFsdWVz
+IGZvciBSUVNDIHN1YnRhYmxlIFR5cGUgYWJvdmUgKi8KPiArZW51bSBhY3BpX3Jxc2Nfbm9kZV90
+eXBlIHsKPiArICAgICAgIEFDUElfUlFTQ19OT0RFX1RZUEVfSVNBX1NUUklORyA9IDB4MDAwMCwK
+PiArICAgICAgIEFDUElfUlFTQ19OT0RFX1RZUEVfQ01PID0gMHgwMDAxLAo+ICsgICAgICAgQUNQ
+SV9SUVNDX05PREVfVFlQRV9NTVUgPSAweDAwMDIsCj4gKyAgICAgICBBQ1BJX1JRU0NfTk9ERV9U
+WVBFX1JFU0VSVkVEID0gMHgwMDAzLAo+ICsgICAgICAgQUNQSV9SUVNDX05PREVfVFlQRV9IQVJU
+X0lORk8gPSAweEZGRkYsCj4gK307Cj4gKwo+ICsvKgo+ICsgKiBSUVNDIG5vZGUgc3BlY2lmaWMg
+c3VidGFibGVzCj4gKyAqLwo+ICsKPiArLyogSVNBIHN0cmluZyBub2RlIHN0cnVjdHVyZSAqLwo+
+ICtzdHJ1Y3QgYWNwaV9ycXNjX2lzYV9zdHJpbmcgewo+ICsgICAgICAgdTE2IGlzYV9sZW5ndGg7
+Cj4gKyAgICAgICBjaGFyIGlzYVtdOwo+ICt9Owo+ICsKPiArc3RydWN0IGFjcGlfcnFzY19jbW9f
+bm9kZSB7Cj4gKyAgICAgICB1OCByZXNlcnZlZDsgICAgICAgICAgICAvKiBNdXN0IGJlIHplcm8g
+Ki8KPiArICAgICAgIHU4IGNib21fc2l6ZTsgICAgICAgICAgIC8qIENCT00gc2l6ZSBpbiBwb3dl
+cm9mIDIgKi8KPiArICAgICAgIHU4IGNib3Bfc2l6ZTsgICAgICAgICAgIC8qIENCT1Agc2l6ZSBp
+biBwb3dlcm9mIDIgKi8KPiArICAgICAgIHU4IGNib3pfc2l6ZTsgICAgICAgICAgIC8qIENCT1og
+c2l6ZSBpbiBwb3dlcm9mIDIgKi8KPiArfTsKPiArCj4gK3N0cnVjdCBhY3BpX3Jxc2NfbW11X25v
+ZGUgewo+ICsgICAgICAgdTggcmVzZXJ2ZWQ7ICAgICAgICAgICAgLyogTXVzdCBiZSB6ZXJvICov
+Cj4gKyAgICAgICB1OCBtbXVfdHlwZTsgICAgICAgICAgICAvKiBWaXJ0dWFsIEFkZHJlc3MgU2No
+ZW1lICovCj4gK307Cj4gKwo+ICtlbnVtIGFjcGlfcnFzY19tbXVfdHlwZSB7Cj4gKyAgICAgICBB
+Q1BJX1JRU0NfTU1VX1RZUEVfU1YzOSA9IDAsCj4gKyAgICAgICBBQ1BJX1JRU0NfTU1VX1RZUEVf
+U1Y0OCA9IDEsCj4gKyAgICAgICBBQ1BJX19NTVVfVFlQRV9TVjU3ID0gMgo+ICt9Owo+ICsKPiAr
+LyogSGFydCBJbmZvIG5vZGUgc3RydWN0dXJlICovCj4gK3N0cnVjdCBhY3BpX3Jxc2NfaGFydF9p
+bmZvIHsKPiArICAgICAgIHUxNiBudW1fb2Zmc2V0czsKPiArICAgICAgIHUzMiB1aWQ7ICAgICAg
+ICAgICAgICAgIC8qIEFDUEkgcHJvY2Vzc29yIFVJRCAqLwo+ICt9Owo+ICsKPiAgLyoqKioqKioq
+KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq
+KioqKioqKioqKioqKioKPiAgICoKPiAgICogUkhDVCAtIFJJU0MtViBIYXJ0IENhcGFiaWxpdGll
+cyBUYWJsZQo+Cj4gLS0KPiAyLjQzLjAKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
