@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AF97D3569F
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 05:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FBF1D358C0
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 06:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Date:To:Message-Id:From:Cc:Mime-Version
+	:Subject:In-Reply-To:References:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TaTpbavYLeUq+Q7iO3vzRK3Y7mdiUjfJ1dZPJpFnOCY=; b=lgbXuv5pXWRO2G
-	P9WgmNmpUy6R5wcgg9UTBbPuHKj+2LbxjrJTzwTnObzKM/tpKprFOvgWu/e81pxj8DdmJ5tFEHDqw
-	qX4UrFv4RsJl5AVUBw91bSVaP1Vhr71LrXe0zc5RH/5Rn05nTOSr0vZJA8J0tAZydBQB0gClTHuOB
-	HDPQkcG8yZ3F13tOLLZilGXkeuoFEwCV1I6RPCEtpYFe18XUEekAuxS6QP9BjCmoj/uZIzwpAQddE
-	XWMnO1sTBHQ0IUrrc34VIhi8nQBt5Rpr6eeVdNPvj3U09W9L07ATFLr9Iq6QVbOrKTRIOjvIYDcQT
-	2E/wCkO/k9YdUOlchwgQ==;
+	List-Owner; bh=jEaLPFtgQo7x3xDGNM74oDikm2h2mtlSeekDClmbdV8=; b=wt3NyLlIryNcyk
+	w2x8Y+Y54u/JSFbQerNX3AyNH6i2w/lw6KeC1ZasoIzV8wgksMXQmtl2RWtWUTLTc+McVMVW7hmbu
+	XQ3g3eZSr2w0tXyOJsMa/2+BjHSLfHdzsEEZKZLPhnkyTcUEpNYz0Zlzp7p1kIc+RC5yRcR8M/zsw
+	h8HT8rqbiKieKBFThTUtvYDU9ZD/WEu6PAlYYjUmN3zabN+UFRZw7zism7mRThiUAD6K2KIg6RyEL
+	0kw3KRNa5fqRkQLLPeu7w6DhUnj4HhtqP/0OL6KqCpeeGmH9Sq07XfuCKz0bjV16udoZDrt/0Ekqr
+	RzvrPwA+yRve6nfjZCXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlKbI-0000000HHAl-0nAA;
-	Thu, 29 Jan 2026 05:29:52 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vlLD9-0000000HItL-0cCU;
+	Thu, 29 Jan 2026 06:08:59 +0000
+Received: from sg-1-39.ptr.blmpb.com ([118.26.132.39])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlKbE-0000000HH97-2Urv
+	id 1vlLD3-0000000HIsy-0tnh
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jan 2026 05:29:51 +0000
-Received: from [10.213.22.141] (unknown [210.73.43.101])
-	by APP-01 (Coremail) with SMTP id qwCowAAHr2pB8HppvVmpBg--.14477S2;
-	Thu, 29 Jan 2026 13:29:39 +0800 (CST)
-Message-ID: <11bd0685-8665-45ef-bec1-8ccf9e38ad6c@iscas.ac.cn>
-Date: Thu, 29 Jan 2026 13:29:37 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] net: spacemit: k1-emac: fix jumbo frame support
-To: Tomas Hlavacek <tmshlvck@gmail.com>, netdev@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, dlan@kernel.org, stable@vger.kernel.org
-References: <20260129042908.410326-1-tmshlvck@gmail.com>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20260129042908.410326-1-tmshlvck@gmail.com>
-X-CM-TRANSID: qwCowAAHr2pB8HppvVmpBg--.14477S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxAw47Zr1UWrWrAr43ZF15CFg_yoWrAF1kpF
-	4Y9F90krs0yrn2k3Z2ya18tFn8ta17Wr10k3yjv3y8Z3sFkr9rGrnxKrW3Cr9rurWkWF1F
-	9a4UZrnruFWDXrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvj
-	DU0xZFpf9x07betCcUUUUU=
-X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+	Thu, 29 Jan 2026 06:08:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=feishu2303021642; d=spacemit.com; t=1769666921; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=rNrYIcOjBoHLzLWKgyHR6MiVadOMXKsbO2l4LxyJKmg=;
+ b=tLMlyX6mHPD63lKQSRFoK4VFzi/dGbmb2be7IIzqYQSkGSDYf3s/3CudCJ8OSw6ELHfa5N
+ V2jPzIyXAZrucfri4cDVopN3O74GF9IxisSD8N48jcBzoNJJdtQ8AH790aXveCUce5f4Id
+ Ln84xsbpI+lgAoZBeisuCeHcWrUewkGqaC8Xu3kGdAWEnhDhZEw+lPJwyHLFjI5P+5c5oP
+ z7A3wt//Yjr5sM1PCaGfy2wPBONo70Dwzj4fgqaS8P0YwXnBhn8Qv6mZ3E5Bw6CE0y1NhJ
+ 57T9kj2oJiaW8n9T/jlpuPwezHUi1JI1sDWxwjOsLxMlQ29wsWNkbGTz0iUcAA==
+References: <cover.1769562575.git.lv.zheng@spacemit.com>
+Received: from SurfaceBook2-B.localdomain ([122.224.183.70]) by smtp.feishu.cn with ESMTPS; Thu, 29 Jan 2026 14:08:37 +0800
+In-Reply-To: <cover.1769562575.git.lv.zheng@spacemit.com>
+Subject: [PATCH v1.1 0/7] iommu/riscv: Add HPM support for RISC-V IOMMU
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.43.0
+Cc: "Jingyu Li" <joey.li@spacemit.com>, "Lv Zheng" <lv.zheng@spacemit.com>, 
+	"Zhijian Chen" <zhijian@spacemit.com>, <iommu@lists.linux.dev>, 
+	<linux-perf-users@vger.kernel.org>, <linux-riscv@lists.infradead.org>, 
+	<spacemit@lists.linux.dev>, <devicetree@vger.kernel.org>
+From: "Lv Zheng" <lv.zheng@spacemit.com>
+X-Original-From: Lv Zheng <lv.zheng@spacemit.com>
+Message-Id: <cover.1769666438.git.lv.zheng@spacemit.com>
+To: "Tomasz Jeznach" <tjeznach@rivosinc.com>, 
+	"Joerg Roedel" <joro@8bytes.org>, "Will Deacon" <will@kernel.org>, 
+	"Robin Murphy" <robin.murphy@arm.com>, "Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>
+Date: Thu, 29 Jan 2026 14:08:17 +0800
+X-Lms-Return-Path: <lba+2697af967+183e5d+lists.infradead.org+lv.zheng@spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_212949_028271_30C40946 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20260128_220854_734971_ED4E4BF1 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,119 +74,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 1/29/26 12:29, Tomas Hlavacek wrote:
-> The driver never programs the MAC frame size and jabber registers,
-> causing the hardware to reject frames larger than the default 1518
-> bytes even when larger DMA buffers are allocated.
->
-> Program MAC_MAXIMUM_FRAME_SIZE, MAC_TRANSMIT_JABBER_SIZE, and
-> MAC_RECEIVE_JABBER_SIZE based on the configured MTU. Also fix the
-> maximum buffer size from 4096 to 4095, since the descriptor buffer
-> size field is only 12 bits. Account for double VLAN tags in frame
-> size calculations.
->
-> Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Tomas Hlavacek <tmshlvck@gmail.com>
-> ---
-> v3:
-> - Set all three frame/jabber registers, fix 12-bit buffer size field
->   overflow, use actual frame size with VLAN headroom consistently.
->
-> v2: https://lore.kernel.org/netdev/20260126171449.83288-1-tmshlvck@gmail.com/
-> - Added Fixes tag and Cc stable.
->
-> v1: https://lore.kernel.org/netdev/20260126135919.77168-1-tmshlvck@gmail.com/
-> ---
->  drivers/net/ethernet/spacemit/k1_emac.c | 21 +++++++++++++++------
->  1 file changed, 15 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
-> index 220eb5ce7583..cd6879d7434c 100644
-> --- a/drivers/net/ethernet/spacemit/k1_emac.c
-> +++ b/drivers/net/ethernet/spacemit/k1_emac.c
-> @@ -12,6 +12,7 @@
->  #include <linux/dma-mapping.h>
->  #include <linux/etherdevice.h>
->  #include <linux/ethtool.h>
-> +#include <linux/if_vlan.h>
->  #include <linux/interrupt.h>
->  #include <linux/io.h>
->  #include <linux/iopoll.h>
-> @@ -38,7 +39,7 @@
->  
->  #define EMAC_DEFAULT_BUFSIZE		1536
->  #define EMAC_RX_BUF_2K			2048
-> -#define EMAC_RX_BUF_4K			4096
-> +#define EMAC_RX_BUF_MAX			FIELD_MAX(RX_DESC_1_BUFFER_SIZE_1_MASK)
->  
->  /* Tuning parameters from SpacemiT */
->  #define EMAC_TX_FRAMES			64
-> @@ -202,8 +203,7 @@ static void emac_init_hw(struct emac_priv *priv)
->  {
->  	/* Destination address for 802.3x Ethernet flow control */
->  	u8 fc_dest_addr[ETH_ALEN] = { 0x01, 0x80, 0xc2, 0x00, 0x00, 0x01 };
-> -
-> -	u32 rxirq = 0, dma = 0;
-> +	u32 rxirq = 0, dma = 0, frame_sz;
->  
->  	regmap_set_bits(priv->regmap_apmu,
->  			priv->regmap_apmu_offset + APMU_EMAC_CTRL_REG,
-> @@ -228,6 +228,15 @@ static void emac_init_hw(struct emac_priv *priv)
->  		DEFAULT_TX_THRESHOLD);
->  	emac_wr(priv, MAC_RECEIVE_PACKET_START_THRESHOLD, DEFAULT_RX_THRESHOLD);
->  
-> +	/* Set maximum frame size and jabber size based on configured MTU,
-> +	 * accounting for Ethernet header, double VLAN tags, and FCS.
-> +	 */
-> +	frame_sz = priv->ndev->mtu + ETH_HLEN + 2 * VLAN_HLEN + ETH_FCS_LEN;
-> +
-> +	emac_wr(priv, MAC_MAXIMUM_FRAME_SIZE, frame_sz);
-> +	emac_wr(priv, MAC_TRANSMIT_JABBER_SIZE, frame_sz);
-> +	emac_wr(priv, MAC_RECEIVE_JABBER_SIZE, frame_sz);
-> +
->  	/* Configure flow control (enabled in emac_adjust_link() later) */
->  	emac_set_mac_addr_reg(priv, fc_dest_addr, MAC_FC_SOURCE_ADDRESS_HIGH);
->  	emac_wr(priv, MAC_FC_PAUSE_HIGH_THRESHOLD, DEFAULT_FC_FIFO_HIGH);
-> @@ -924,14 +933,14 @@ static int emac_change_mtu(struct net_device *ndev, int mtu)
->  		return -EBUSY;
->  	}
->  
-> -	frame_len = mtu + ETH_HLEN + ETH_FCS_LEN;
-> +	frame_len = mtu + ETH_HLEN + 2 * VLAN_HLEN + ETH_FCS_LEN;
->  
->  	if (frame_len <= EMAC_DEFAULT_BUFSIZE)
->  		priv->dma_buf_sz = EMAC_DEFAULT_BUFSIZE;
->  	else if (frame_len <= EMAC_RX_BUF_2K)
->  		priv->dma_buf_sz = EMAC_RX_BUF_2K;
->  	else
-> -		priv->dma_buf_sz = EMAC_RX_BUF_4K;
-> +		priv->dma_buf_sz = EMAC_RX_BUF_MAX;
->  
->  	ndev->mtu = mtu;
->  
-> @@ -2005,7 +2014,7 @@ static int emac_probe(struct platform_device *pdev)
->  	ndev->hw_features = NETIF_F_SG;
->  	ndev->features |= ndev->hw_features;
->  
-> -	ndev->max_mtu = EMAC_RX_BUF_4K - (ETH_HLEN + ETH_FCS_LEN);
-> +	ndev->max_mtu = EMAC_RX_BUF_MAX - (ETH_HLEN + 2 * VLAN_HLEN + ETH_FCS_LEN);
->  	ndev->pcpu_stat_type = NETDEV_PCPU_STAT_DSTATS;
->  
->  	priv = netdev_priv(ndev);
-
-Thanks for the fix. This essentially matches what I've been testing as well.
-
-Reviewed-by: Vivian Wang <wangruikang@iscas.ac.cn>
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SW5jbHVkZXMgSFBNIHN1cHBvcnQgZm9yIFJJU0MtViBJT01NVS4gVGhlIEhQTSBoYXJkd2FyZSBt
+ZWNobmlzbSBjYW4gYmUKZm91bmQgaW4gdGhlIHJlY2VudCBhbm5vdW5jZWQgU3BhY2VtaVQgU29D
+cyAoSzMsIFYxMDApLCB3aGVyZSBUMTAwCihTcGFjZW1pVCBkaXN0cmlidXRlZCBJT01NVSkgaXMg
+c2hpcHBlZC4gCgpUaGUgdGVzdGVkIHJlc3VsdCBjYW4gYmUgZm91bmQgYXMgZm9sbG93czoKCiBy
+b290QHNkZmlybTp+IyBwZXJmIHN0YXQgLS10aW1lb3V0IDUwMDAgLWEgLWUgcmlzY3ZfaW9tbXVf
+aHBtXzAvZGV2aWNlX2Rpcl93YWxrcyxjb25maWcxPTB4MjBjMDAxMDAwMDAwMDAwMC8gZG1hdGVz
+dDsgc2xlZXAgMQogWyAgMTc2LjExMDIxMV0gZG1hdGVzdDogU3RhcnRlZCAxIHRocmVhZHMgdXNp
+bmcgZG1hMGNoYW4wCiBbICAxNzYuMTE0OTMzXSBkbWF0ZXN0OiBkbWEwY2hhbjAtY29weTA6IHN1
+bW1hcnkgMSB0ZXN0cywgMCBmYWlsdXJlcyAzOTQuOTQgaW9wcyAzOTQgS0IvcyAoMCkKIAogIFBl
+cmZvcm1hbmNlIGNvdW50ZXIgc3RhdHMgZm9yICdzeXN0ZW0gd2lkZSc6CiAKICAgICAgICAgICAg
+ICAgICAgMyAgICAgIHJpc2N2X2lvbW11X2hwbV8wL2RldmljZV9kaXJfd2Fsa3MsY29uZmlnMT0w
+eDIwYzAwMTAwMDAwMDAwMDAvICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKIAog
+ICAgICAgIDAuMDgxMDU2MDAwIHNlY29uZHMgdGltZSBlbGFwc2VkCiAKIHJvb3RAc2RmaXJtOn4j
+IHBlcmYgc3RhdCAtLXRpbWVvdXQgNTAwMCAtYSAtZSByaXNjdl9pb21tdV9ocG1fMC9zX3N0YWdl
+X3dhbGtzLGNvbmZpZzE9MHgyMGMwMDEwMDAwMDAwMDAwLyBkbWF0ZXN0OyBzbGVlcCAxCiBbICAg
+NjguMTUyOTkyXSBkbWF0ZXN0OiBTdGFydGVkIDEgdGhyZWFkcyB1c2luZyBkbWEwY2hhbjAKIFsg
+ICA2OC4xNTgwNzFdIGRtYXRlc3Q6IGRtYTBjaGFuMC1jb3B5MDogc3VtbWFyeSAxIHRlc3RzLCAw
+IGZhaWx1cmVzIDQwMS45MiBpb3BzIDQwMSBLQi9zICgwKQogCiAgUGVyZm9ybWFuY2UgY291bnRl
+ciBzdGF0cyBmb3IgJ3N5c3RlbSB3aWRlJzoKIAogICAgICAgICAgICAgICAgICA2ICAgICAgcmlz
+Y3ZfaW9tbXVfaHBtXzAvc19zdGFnZV93YWxrcyxjb25maWcxPTB4MjBjMDAxMDAwMDAwMDAwMC8g
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogCiAgICAgICAgMC4wODMxOTIwMDAg
+c2Vjb25kcyB0aW1lIGVsYXBzZWQKCkppbmd5dSBMaSAoMyk6CiAgaW9tbXUvcmlzY3Y6IEVuYWJs
+ZSBJT01NVSBETUEgbWFwcGluZyBzdXBwb3J0CiAgaW9tbXUvcmlzY3Y6IEZpeCBXU0kgbW9kZSBJ
+UlEgbnVtYmVyIGhhbmRsaW5nCiAgaW9tbXUvcmlzY3Y6IEFkZCBIUE0gc3VwcG9ydCBmb3IgcGVy
+Zm9ybWFuY2UgbW9uaXRvcmluZwoKTHYgWmhlbmcgKDQpOgogIGR0LWJpbmRpbmdzOiBpb21tdTog
+QWRkIHNwYWNlbWl0L3QxMDAgZmVhdHVyZXMKICBzcGFjZW1pdC90MTAwOiBBZGQgdmVuZG9yIGV2
+ZW50IHN1cHBvcnQgZm9yIFJJU0MtViBJT01NVSBIUE0KICBzcGFjZW1pdC90MTAwOiBBZGQgZ2xv
+YmFsIGZpbHRlciBzdXBwb3J0IGZvciBSSVNDLVYgSU9NTVUgSFBNCiAgc3BhY2VtaXQvdDEwMDog
+QWRkIFNwYWNlbWlUIFQxMDAgSU9BVEMgSFBNIHN1cHBvcnQKCiAuLi4vYmluZGluZ3MvaW9tbXUv
+cmlzY3YsaW9tbXUueWFtbCAgICAgICAgICAgfCAgIDYwICstCiBkcml2ZXJzL2lvbW11L0tjb25m
+aWcgICAgICAgICAgICAgICAgICAgICAgICAgfCAgICAyICstCiBkcml2ZXJzL2lvbW11L3Jpc2N2
+L0tjb25maWcgICAgICAgICAgICAgICAgICAgfCAgICA5ICsKIGRyaXZlcnMvaW9tbXUvcmlzY3Yv
+TWFrZWZpbGUgICAgICAgICAgICAgICAgICB8ICAgIDEgKwogZHJpdmVycy9pb21tdS9yaXNjdi9p
+b21tdS1iaXRzLmggICAgICAgICAgICAgIHwgICAyMCArLQogZHJpdmVycy9pb21tdS9yaXNjdi9p
+b21tdS1ocG0uYyAgICAgICAgICAgICAgIHwgMTEzNSArKysrKysrKysrKysrKysrKwogZHJpdmVy
+cy9pb21tdS9yaXNjdi9pb21tdS1wY2kuYyAgICAgICAgICAgICAgIHwgICAxMyArLQogZHJpdmVy
+cy9pb21tdS9yaXNjdi9pb21tdS1wbGF0Zm9ybS5jICAgICAgICAgIHwgICAxMiArLQogZHJpdmVy
+cy9pb21tdS9yaXNjdi9pb21tdS5jICAgICAgICAgICAgICAgICAgIHwgICAyNSArLQogZHJpdmVy
+cy9pb21tdS9yaXNjdi9pb21tdS5oICAgICAgICAgICAgICAgICAgIHwgICA0NSArLQogMTAgZmls
+ZXMgY2hhbmdlZCwgMTMwOCBpbnNlcnRpb25zKCspLCAxNCBkZWxldGlvbnMoLSkKIGNyZWF0ZSBt
+b2RlIDEwMDY0NCBkcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LWhwbS5jCgotLSAKMi40My4wCgpU
+aGlzIG1lc3NhZ2UgYW5kIGFueSBhdHRhY2htZW50IGFyZSBjb25maWRlbnRpYWwgYW5kIG1heSBi
+ZSBwcml2aWxlZ2VkIG9yIG90aGVyd2lzZSBwcm90ZWN0ZWQgZnJvbSBkaXNjbG9zdXJlLiBJZiB5
+b3UgYXJlIG5vdCBhbiBpbnRlbmRlZCByZWNpcGllbnQgb2YgdGhpcyBtZXNzYWdlLCBwbGVhc2Ug
+ZGVsZXRlIGl0IGFuZCBhbnkgYXR0YWNobWVudCBmcm9tIHlvdXIgc3lzdGVtIGFuZCBub3RpZnkg
+dGhlIHNlbmRlciBpbW1lZGlhdGVseSBieSByZXBseSBlLW1haWwuIFVuaW50ZW5kZWQgcmVjaXBp
+ZW50cyBzaG91bGQgbm90IHVzZSwgY29weSwgZGlzY2xvc2Ugb3IgdGFrZSBhbnkgYWN0aW9uIGJh
+c2VkIG9uIHRoaXMgbWVzc2FnZSBvciBhbnkgaW5mb3JtYXRpb24gY29udGFpbmVkIGluIHRoaXMg
+bWVzc2FnZS4gRW1haWxzIGNhbm5vdCBiZSBndWFyYW50ZWVkIHRvIGJlIHNlY3VyZSBvciBlcnJv
+ciBmcmVlIGFzIHRoZXkgY2FuIGJlIGludGVyY2VwdGVkLCBhbWVuZGVkLCBsb3N0IG9yIGRlc3Ry
+b3llZCwgYW5kIHlvdSBzaG91bGQgdGFrZSBmdWxsIHJlc3BvbnNpYmlsaXR5IGZvciBzZWN1cml0
+eSBjaGVja2luZy4gCiAK5pys6YKu5Lu25Y+K5YW25Lu75L2V6ZmE5Lu25YW35pyJ5L+d5a+G5oCn
+6LSo77yM5bm25Y+v6IO95Y+X5YW25LuW5L+d5oqk5oiW5LiN5YWB6K646KKr5oqr6Zyy57uZ56ys
+5LiJ5pa544CC5aaC6ZiB5LiL6K+v5pS25Yiw5pys6YKu5Lu277yM5pWs6K+356uL5Y2z5Lul5Zue
+5aSN55S15a2Q6YKu5Lu255qE5pa55byP6YCa55+l5Y+R5Lu25Lq677yM5bm25bCG5pys6YKu5Lu2
+5Y+K5YW25Lu75L2V6ZmE5Lu25LuO6ZiB5LiL57O757uf5Lit5LqI5Lul5Yig6Zmk44CC5aaC6ZiB
+5LiL5bm26Z2e5pys6YKu5Lu25YaZ5piO5LmL5pS25Lu25Lq677yM5pWs6K+35YiH5Yu/5L2/55So
+44CB5aSN5Yi244CB5oqr6Zyy5pys6YKu5Lu25oiW5YW25Lu75L2V5YaF5a6577yM5Lqm6K+35YiH
+5Yu/5L6d5pys6YKu5Lu25oiW5YW25Lu75L2V5YaF5a656ICM6YeH5Y+W5Lu75L2V6KGM5Yqo44CC
+55S15a2Q6YKu5Lu25peg5rOV5L+d6K+B5piv5LiA56eN5a6J5YWo5ZKM5LiN5Lya5Ye6546w5Lu7
+5L2V5beu6ZSZ55qE6YCa5L+h5pa55byP77yM5Y+v6IO95Lya6KKr5oum5oiq44CB5L+u5pS544CB
+5Lii5aSx5oiW5o2f5Z2P77yM5pS25Lu25Lq66ZyA6Ieq6KGM6LSf6LSj5YGa5aW95a6J5YWo5qOA
+5p+l44CCCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
