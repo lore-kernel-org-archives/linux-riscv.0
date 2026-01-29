@@ -4,77 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E96CD73E87
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 22:36:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 184A0D73E87
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 22:36:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jc+W+e6idyKs4zkhNyc+/2yyEfyoag5MSQnALjIuTFg=; b=eK4hUWe68RoljC
-	UlmOZJP2CXToBq7n1ix5UpJ0K5RQxeQ0pUCgDgsNDI9JP9g2Gxup/BI2cF7exuObTEwzNrzKaumuL
-	6AyKEWETCx72VZaLQVKfCJRO4D4uXaqh5uOlzl0HfvtEyxLukmZvpUtHCVmsaeFbXEnrhLgs5T0tO
-	dMB/utBhjAvB3EYBLZaB+tWqyNkf0sAZxOYaAORbWNVgLk7YnAHwpQWTwDAO4FQndbclLpdacx67y
-	zX4g7Q9HD1mfk58yA7tlphOkq8j/i3fX4KpbMAj0G29K8kfgQURpZNT/GkgurwpqS7rNsfkO3G/uW
-	ojbU4oRTERLbEEiLeW4g==;
+	List-Owner; bh=8yT4zZgJbBbrTdii4hvZMpA5oTtTw9jcs8w7Ni19E6U=; b=oipeaA20z2hZ+1
+	YI959HPM4Fogb4ZlkWHW9c72xINFSouRw0domiDFIUOj5OAAG5znFhNs6IGvsw07VRoWK9b/R6srC
+	fbapqXjWocmxDDfrSFOoXyMkH/Jsi5og4lbsggDLfcKuHKN6FHhaVxgWakdUidvoJE+rURkw1El0E
+	1vyUBnX0KbIQSBt59aMyLykB/sKzdUWroL/NIBEzF6lG5MGH7ilUn5kLFFzzQQWbFn3SUVyFP9Z6P
+	1vgt1I28I9oP4QJ9nepvjxCGQ8QCg6XsX31S+D3g46X3sDduJEQ1MMLujnRCpMRLtbRDd7VMQGZ/R
+	eZrG5vMxtajKwwE6JDwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlac4-00000000k8R-0ehA;
-	Thu, 29 Jan 2026 22:35:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vlach-00000000kDS-21Kp;
+	Thu, 29 Jan 2026 22:36:23 +0000
+Received: from mail-westeuropeazon11010049.outbound.protection.outlook.com ([52.101.69.49] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlac1-00000000k7v-2dVO
+	id 1vlace-00000000kCX-3Iiu
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jan 2026 22:35:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EA8DD41682;
-	Thu, 29 Jan 2026 22:35:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76475C4CEF7;
-	Thu, 29 Jan 2026 22:35:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769726138;
-	bh=UkNX32KZtTbiUWsoCAvLwtloIiF3hbhWHYIeoQpDme8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=k09VX/toJdFybVhpIQRAo1f8y9CbBEYErGzzsMQjRzVbSqvNBcSEBAVY8oPUivtXX
-	 eopkMR1CT43PMYuUpbsjZMN3YVmv7zqh5JkSq4BOVI80zjWQORYC7tLqj0m79kS8IS
-	 SzNVpo0JtqO2mLkbucoyiQUqAf+oKRagkGxOsaQM/EmF/5r19t1wc8ZiEjoDFO4MDr
-	 Et19cFV2FQoGPxFYsm/v7jsdJtr92j3dJuhva40AFYk1ksrIj3yDj+tChSZWx97B9R
-	 gv9yqQfF/lEwYGy4KjUPSoLy5uY1HLwj9WqcCv9Bo+HiegXEmV+6ZRPHA2WrjnlZU/
-	 X2X+fxmCsMGAg==
-Date: Thu, 29 Jan 2026 15:35:28 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Asuna Yang <xinrui.riscv@isrc.iscas.ac.cn>
-Cc: Nicolas Schier <nsc@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
+	Thu, 29 Jan 2026 22:36:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=swnS9qBy1XZGlYU+KHRdoKrGWKLAYYzBDbK8cW/F8qNlTcmGkzYUZnItp97TPZ2jMqvviS9jyKLUpDiwjwxuUAoe23NjkeThlVIgQGTX0uoqkx6ZscmAqfN6Aw5L35QU9aRrKdZwfTkvEu/QgJHXoGLa6AdcgygAO9FFQ64CJ+yLxarm4UE4rjaW4nmQ7N/QZ3wVEwFy1TVdvaJGJsau3hWzKdWTK+r9UeHB9+zNB2oOblrYdDvFD9O1VVP4c7YEkRJZx9K/k6ZUH8Wft2Oqje9pspfIpgMP3O6dvwOdQUkWAbvT3Bb/xsulm1ZEgltavBXQYrSkRogG08mUJZ5Mew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/t8o8I5TXpexSD0I9UNxOAtB05Yy5/zMpVNSR28SPIk=;
+ b=nR2rvwYbVkdMZhM8rgFGUq/zAawdHL77NiqyDwlRGhXlLLO8y7vqGvKLV0lsd04Az0Yi4PMcmZnxYXgYhHnMwM3H12ycpy9kW9JGc+nmes2xvFDFQGecQT/0g4pemX6fU8NIh5A2aNV/4nAYWqyWBskL5mhxe8RfPDkmLqEyJHgdz7H3BXmrZ3jS+FMYiELH4BzhAxUKeaPSEt+HC9xDlwTEj4IPOkX7lJ4XfzNcQLnYOw63OzlEwq5yKciIcFzN5mOrn0ENIZb/2NaVXlThbC+pGeOAzh8LGrM5x84z1qbqixqdTNg/cMEyZ+gp3voC+aDcyKWH4mmhIkJply4+ww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/t8o8I5TXpexSD0I9UNxOAtB05Yy5/zMpVNSR28SPIk=;
+ b=cCt6WlPJHmjI2l378DQO+EmaG+aQpHA6rYPymbRI73siVoD7O2IQhTnEXEGkvTU3ZWT7YfoU529t87ODOKrXX5bhpxfCslxkRYGK9Z3jeaOsIvVgcDKZAS5owN4BSBxDvJL8NAKXH7UyXCF3GRNXwywwd6SCVkq9gm3QE3mTn01pYtRCaytTlTvjmS18OzYIAB+Q4oPpDHSRHj+0cTJxRPK019mEZXh6vxp3llEAib8Z0nPV5HcMBjbT7gfjLVFajd0jz2suagHfII68lJ+oyq8xban4xNDMayLTdlvTF0tDiffFb1VvHXVvBsH12zOiMj2+tPQVrTXuAeKIk7JCzA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com (2603:10a6:10:35b::7)
+ by PA1PR04MB10676.eurprd04.prod.outlook.com (2603:10a6:102:48b::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.8; Thu, 29 Jan
+ 2026 22:36:15 +0000
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4]) by DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4%5]) with mapi id 15.20.9520.010; Thu, 29 Jan 2026
+ 22:36:15 +0000
+Date: Thu, 29 Jan 2026 17:36:03 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Jonathan Corbet <corbet@lwn.net>, Conor Dooley <conor@kernel.org>,
-	Mingcong Bai <jeffbai@aosc.io>, Han Gao <rabenda.cn@gmail.com>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Jason Montleon <jmontleo@redhat.com>, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v6 1/4] rust: export BINDGEN_TARGET from a separate
- Makefile
-Message-ID: <20260129223528.GA844102@ax162>
-References: <20251230-gcc-rust-v5-v6-0-2ac86ba728c8@isrc.iscas.ac.cn>
- <20251230-gcc-rust-v5-v6-1-2ac86ba728c8@isrc.iscas.ac.cn>
-MIME-Version: 1.0
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Longbin Li <looong.bin@gmail.com>, Ze Huang <huangze@whut.edu.cn>,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, sophgo@lists.linux.dev,
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>
+Subject: Re: [PATCH v3 2/3] dmaengine: dw-axi-dmac: Add support for CV1800B
+ DMA
+Message-ID: <aXvg064x6gYcCHRD@lizhi-Precision-Tower-5810>
+References: <20260120013706.436742-1-inochiama@gmail.com>
+ <20260120013706.436742-3-inochiama@gmail.com>
 Content-Disposition: inline
-In-Reply-To: <20251230-gcc-rust-v5-v6-1-2ac86ba728c8@isrc.iscas.ac.cn>
+In-Reply-To: <20260120013706.436742-3-inochiama@gmail.com>
+X-ClientProxiedBy: PH7PR03CA0013.namprd03.prod.outlook.com
+ (2603:10b6:510:339::16) To DU0PR04MB9372.eurprd04.prod.outlook.com
+ (2603:10a6:10:35b::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9372:EE_|PA1PR04MB10676:EE_
+X-MS-Office365-Filtering-Correlation-Id: 088aa81a-15be-4050-dbe9-08de5f86cfdd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|19092799006|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7HSAEP9nUfzOdQ5p9cpdBJyrwD2wTEfWf9CWvzBuxsa6e3TV8vTCUu80UW91?=
+ =?us-ascii?Q?/XlleaLaxyUYgMIafp6Z0ddZMT19G1mU5JQUD499wogs4gM/J8GTAtw4rd0k?=
+ =?us-ascii?Q?/CcWowXGSZBEZy1vM1dmAEkgxHQV9CNl+sR6f5mN2CbhrlQqf5b2XCcUdxRU?=
+ =?us-ascii?Q?lDheft/5hTHSzf5bMJnTFgk/nOj219Yy0WvxwPMPbfPFdMQbEsGL796eS0r5?=
+ =?us-ascii?Q?V+1Xf8r4N4xiddMEUHgQm7/FDwpdGAZ+zuUfW6HRgVxf/XqTx9sJiSIyT6m5?=
+ =?us-ascii?Q?3scMFGr+O/Cv1vGfW6mi0ZibPnMfhTaApsk5aSFv6zAb6ZW4gxbrlhBQHWyZ?=
+ =?us-ascii?Q?kxyXSCx6IXt0z3lRpjhw7X/IVDTtUN/wpEQXEGeOuAGM5QwYr5ClO8E7qz/d?=
+ =?us-ascii?Q?xxiwJ3bNFEu3tJTVHeH1HItnFqTW8Upo5yHV12hg5jUy8uMWUmmzqydXQ9iM?=
+ =?us-ascii?Q?TKG0jOATYlEVn2ZvNnA9BZqfnX6gNCObVjUg8eaHRHc2JUxtmI9DVYBi/GYO?=
+ =?us-ascii?Q?mgiLDMUrBBx6B/xaJsWI9EtlZtri2pxyMGNj4sONI7tJv0JBWLd1GbCP3ABS?=
+ =?us-ascii?Q?uQ0G1Lr/jYktsn2PPI0ksqRpGDjYbsBdbq9zR0HyqWqWcDIHKiZyVIFFbnD0?=
+ =?us-ascii?Q?b0SOlkHhpVyg5tYPG8yg1AgtMBAAxO4g5RWRjXqGzXr6JpxNErE66R5JNqxF?=
+ =?us-ascii?Q?o6RJaPjrDxDHrKK/L1DezmbvyiueyiYLIT9iiLwjlpMLOKpuSwPWZZ7Hgzk4?=
+ =?us-ascii?Q?DyrxbPJiW0cX2ISuZJLBpS+NX3qoTh6+ifO8ZLtYS1PSqzxAFjJ6hflZ+2o0?=
+ =?us-ascii?Q?vOBeVj8+CHh+wP61A/swr6TTZ8yhWq+K28c3BywzBC+xYvP+L2WG4uS3ky6D?=
+ =?us-ascii?Q?GbAUtJ4Nib/ofvblb02gwAcIBTKQs96NHlcHrYN7jk9S1wH547CG2BosUgMT?=
+ =?us-ascii?Q?XEqI6F0/fG/rx+gdjPd5YPzJFWgD/Cd9R+xtX49uPOI4yAf9Cc0/8x2GDXyp?=
+ =?us-ascii?Q?pt/yxI0otu96Rl/qNf3D5YJQAB6tgkBWTYvVoTx/jKOe4zuiiXmQCI9WsAqJ?=
+ =?us-ascii?Q?Wd8Anau62d248vF54IrRYHg9q3+iGuE4ayj+RnnU7KMNHwYsOcOTtfdxx4d8?=
+ =?us-ascii?Q?QIRnNV3/DnKvafiz7ljJglqrCGjMtxET0rhz6BA+LtrUGFyJaj8X4O48F15T?=
+ =?us-ascii?Q?q+5URqRgG9Ubi7hrTyElVS2SS7NHNa325P/hCWX5UlM7X3Gki7jkSVf323LP?=
+ =?us-ascii?Q?4a2AOoZwA6+5YNFOAJl1q6MWR7UKOE23s6TmhQXL0ZjIIgXXiw8sM971uluj?=
+ =?us-ascii?Q?ldufST0fF++A6/TqKXKofTTAxW8VeX4FK1okNqs2gT8SChniW1sErNmNemtx?=
+ =?us-ascii?Q?ouBI/NaJrd3gKsh8lriB5pUurZgpDrI+Ihm4/wjds792mTRbSxRDbo84ua7f?=
+ =?us-ascii?Q?kE1whIgqUSYLgB8Y/HH+WdrZDTWBKr87iIVl0M2+UqR7fNUWsuwOFE0xSPzc?=
+ =?us-ascii?Q?sk0GD/5sRLum9FkIaMgY18j6ZC0Kf54rcNCtnDKEo6/xIlDbAOlwlarD5NHq?=
+ =?us-ascii?Q?Ne1PjtatUqymlVCKTuQBkD87083avzjRxfGuMbuO2nuRI4ydNBdMVbNGPgp8?=
+ =?us-ascii?Q?F+Rba7E4lYZRirReOeta+K4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9372.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7Us5kQ30iPPbp1mrUFsl2w9t+n37fK2RLfiPmkefubqMdbDlp2+3hwrTEHY1?=
+ =?us-ascii?Q?OQymXYrliWHkTqheWI98GJEtYWRJT6DG+kbkVCD7cJDV+jv8mKfMmn0kmWbW?=
+ =?us-ascii?Q?g/cL4yrOHORWSOYl/W4qhHz2GsZvOW6S2dk5BSOCH6NyNOm371B5AkfDgNYX?=
+ =?us-ascii?Q?GqOdqu2BHzG8Ze+ODoGu3H0TPQL5oW5F6Yv6wfAlzcULMlinzT+TlpEIF/oC?=
+ =?us-ascii?Q?Q81KUR4b0NUHjLUX63Aj3KNFG+JPFweUe/3MF4bR09+Ny0sMqoZeSlHm8jc5?=
+ =?us-ascii?Q?v4EoD8tYqBTM8BI11RbU24Foq7/kvP0FD+dO8RJugDQAGKMGejNxIav/ShlH?=
+ =?us-ascii?Q?EAsKDtVsQgl6dt72mfAskKraIiI41jlDTtwH+9eMX0X9jcWIMTJD3Av8RCnp?=
+ =?us-ascii?Q?Cm63JtRVfkNjK72zMVgFgnSvhD47geQe25CKaX9P3bmW4ax8se0O5yWDWwnA?=
+ =?us-ascii?Q?rS4UIuJ0m12G3gq2XYC1+uqiNleGO9/h+EgZNyJckotsXVbrkWIiA69WLhuh?=
+ =?us-ascii?Q?DB/JOBjdXg5a6W21slsdPJCKnlTrcMb2t6wfErFbzoA+ezdIXYXnOrJuDDae?=
+ =?us-ascii?Q?nbYJinSg6MdK0v9vvrV9bGY6zbNvSlWl0nrO9vQdLg82wL0hzs3V1O7MaDFj?=
+ =?us-ascii?Q?y3glRi0DX2UgJWqLseVgFNILb/rJYXUyDnd8q8ENrZR8Xfymom43vdIPcKjs?=
+ =?us-ascii?Q?YMQvY2516C6zbghG0+4x/lfwiTXD0y2MKB+V6qRbghC1pjXBCVhHQiptMIov?=
+ =?us-ascii?Q?SSbima+QZ5On4X7SDYomjmoabnqF8dcBFus10l5pQ6GVBOrQtre82F8oseXz?=
+ =?us-ascii?Q?+84tsiCY0UmUUbzhL1JTSG0rAf1k5ZJDzzj457d3MhTwVSK0mAb+2tkKN9nI?=
+ =?us-ascii?Q?rofw02TOykYowi/nDhuSmhv8OMYjKWvj0W3GV8L37Sz1GRzdJXG6agoB6fq9?=
+ =?us-ascii?Q?++2k0/SkILNCdzAzbNLDu6TwibcGGWsf0S+6SSt3fId2wFnxmiH2sK9KjKmn?=
+ =?us-ascii?Q?fBePnawJEaHe2Tx7GMdkkjLQ9SJdL99ZVNzghM12EVxR2XTMgpW12BZlTq9J?=
+ =?us-ascii?Q?MR7Fjl5Q76or5Xm0EWx9r+tCdtHSlYIxmgp3D0pAUI2aYKPyqdnk1SYY+/2s?=
+ =?us-ascii?Q?OU6+mpCdBxqTkchDD97sw6ZJdhDKpC+mNC1NYyi9uQlnfCZnX0hbjaqod2V4?=
+ =?us-ascii?Q?H0+noUgELmwWHvhNffBz7gm6JADOWPWcGTcUR3y/1sEocK1ix3nfj02aq7t+?=
+ =?us-ascii?Q?Ykv3f9qEOEQFkUJL0lCP3Cd4/yjD7xlR8qHq5xCaTFt6JH0ZmdWPXUJ3XoUh?=
+ =?us-ascii?Q?jfrXK3DqABgnFMs/3DZvVsSuJEsMLMjaSVWWBNv1DW7H6cUp8vcl4rhSZeaV?=
+ =?us-ascii?Q?A6FWKxReD7CaQGw4Fee+kTo0JfaNwuvf8HHjm2a5E2s0Tfqq0uRh5JSqnClC?=
+ =?us-ascii?Q?ju93zI+C/h65Rg1HRrchBYcIsXpWk68upAzjqFvou2x4ooTNAwMVrt21D5bv?=
+ =?us-ascii?Q?bomktfhRQjBjM0q+HGHslfR3hS/QVxGYBzmk3QjmXUYCOM1i/cLjTYEyMulp?=
+ =?us-ascii?Q?ICBH84z+bRDee7/c417R51AhTigisKVlmM9f50VpvLwvWDdLxeNBVzrJ5Mq6?=
+ =?us-ascii?Q?aVCh3yBRvqCnO+11nMUYk9NE5fjXpKG0dEEe+/BfBgEbfQFT5R5u8KbGCg67?=
+ =?us-ascii?Q?01ieS+rlLAS8OQWBRVxZIYbZiB820gvXN6eqdmIt+zoE5QpH?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 088aa81a-15be-4050-dbe9-08de5f86cfdd
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9372.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2026 22:36:15.4521
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: e7WLG2MnFq0wArfq1IzufTf9hYOAAfbTPXF0QzxJl2NyPFP9qjGaxROK8SlKAtGwgkXQ7nEB+x4phwfrV4RXjA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10676
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_143541_710252_27A0995B 
-X-CRM114-Status: GOOD (  23.07  )
+X-CRM114-CacheID: sfid-20260129_143620_835254_17E8D3F9 
+X-CRM114-Status: GOOD (  23.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,91 +173,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 30, 2025 at 05:47:54PM +0100, Asuna Yang wrote:
-> A subsequent commit will add a new function `bindgen-option` to
-> `scripts/Kconfig.include`. The bindgen backend requires the `--target`
-> option for cross compiling, but variable `BINDGEN_TARGET` in
-> `rust/Makefile` cannot be exported to `scripts/Kconfig.include`.
-> 
-> Therefore, move this variable to a separate new `Makefile.rust` file and
-> include it from `scripts/Makefile` to make the exported variable
-> available for use in Kconfig. Place the include in the `need-compiler`
-> branch to avoid including it in irrelevant make targets.
-> 
-> Since the new file name is `Makefile.rust`, it matches an existing
-> MAINTAINERS rule `scripts/*rust*`, so no modification to the MAINTAINERS
-> file is needed.
-> 
-> Signed-off-by: Asuna Yang <xinrui.riscv@isrc.iscas.ac.cn>
-
-Acked-by: Nathan Chancellor <nathan@kernel.org>
-
+On Tue, Jan 20, 2026 at 09:37:04AM +0800, Inochi Amaoto wrote:
+> As the DMA controller on Sophgo CV1800 series SoC only has 8 channels,
+> the SoC provides a dma multiplexer to reuse the DMA channel. However,
+> the dma multiplexer also controls the DMA interrupt multiplexer, which
+> means that the dma multiplexer needs to know the channel number.
+>
+> Allow the driver to use DMA phandle args as the channel number, so the
+> DMA multiplexer can route the DMA interrupt correctly.
+>
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 > ---
->  Makefile              | 3 ++-
->  rust/Makefile         | 8 --------
->  scripts/Makefile.rust | 9 +++++++++
->  3 files changed, 11 insertions(+), 9 deletions(-)
-> 
-> diff --git a/Makefile b/Makefile
-> index 27ce077520fe..9754d7add947 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -718,9 +718,10 @@ ifneq ($(findstring clang,$(CC_VERSION_TEXT)),)
->  include $(srctree)/scripts/Makefile.clang
->  endif
->  
-> +ifdef need-compiler
-> +include $(srctree)/scripts/Makefile.rust
->  # Include this also for config targets because some architectures need
->  # cc-cross-prefix to determine CROSS_COMPILE.
-> -ifdef need-compiler
->  include $(srctree)/scripts/Makefile.compiler
 
-Not that it is a big deal but it would make the diff simpler if the Rust
-makefile was added after the compiler one, both for alphabetical reasons
-and it would not necessitate moving the comment (even if it mostly
-applies just to the compiler include).
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
->  endif
->  
-> diff --git a/rust/Makefile b/rust/Makefile
-> index 5d357dce1704..2603b34f9833 100644
-> --- a/rust/Makefile
-> +++ b/rust/Makefile
-> @@ -385,14 +385,6 @@ bindgen_skip_c_flags := -mno-fp-ret-in-387 -mpreferred-stack-boundary=% \
->  	-fzero-init-padding-bits=% -mno-fdpic \
->  	--param=% --param asan-% -fno-isolate-erroneous-paths-dereference
->  
-> -# Derived from `scripts/Makefile.clang`.
-> -BINDGEN_TARGET_x86	:= x86_64-linux-gnu
-> -BINDGEN_TARGET_arm64	:= aarch64-linux-gnu
-> -BINDGEN_TARGET_arm	:= arm-linux-gnueabi
-> -BINDGEN_TARGET_loongarch	:= loongarch64-linux-gnusf
-> -BINDGEN_TARGET_um	:= $(BINDGEN_TARGET_$(SUBARCH))
-> -BINDGEN_TARGET		:= $(BINDGEN_TARGET_$(SRCARCH))
-> -
->  # All warnings are inhibited since GCC builds are very experimental,
->  # many GCC warnings are not supported by Clang, they may only appear in
->  # some configurations, with new GCC versions, etc.
-> diff --git a/scripts/Makefile.rust b/scripts/Makefile.rust
-> new file mode 100644
-> index 000000000000..5c12b4b8c8b6
-> --- /dev/null
-> +++ b/scripts/Makefile.rust
-> @@ -0,0 +1,9 @@
-> +# Derived from `scripts/Makefile.clang`.
-> +BINDGEN_TARGET_x86	:= x86_64-linux-gnu
-> +BINDGEN_TARGET_arm64	:= aarch64-linux-gnu
-> +BINDGEN_TARGET_arm	:= arm-linux-gnueabi
-> +BINDGEN_TARGET_loongarch	:= loongarch64-linux-gnusf
-> +BINDGEN_TARGET_um	:= $(BINDGEN_TARGET_$(SUBARCH))
-> +BINDGEN_TARGET		:= $(BINDGEN_TARGET_$(SRCARCH))
+>  .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    | 25 ++++++++++++++++---
+>  drivers/dma/dw-axi-dmac/dw-axi-dmac.h         |  1 +
+>  2 files changed, 22 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+> index b23536645ff7..89ded0207832 100644
+> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+> @@ -50,6 +50,7 @@
+>  #define AXI_DMA_FLAG_HAS_APB_REGS	BIT(0)
+>  #define AXI_DMA_FLAG_HAS_RESETS		BIT(1)
+>  #define AXI_DMA_FLAG_USE_CFG2		BIT(2)
+> +#define AXI_DMA_FLAG_ARG0_AS_CHAN	BIT(3)
+>
+>  static inline void
+>  axi_dma_iowrite32(struct axi_dma_chip *chip, u32 reg, u32 val)
+> @@ -1360,16 +1361,27 @@ static int __maybe_unused axi_dma_runtime_resume(struct device *dev)
+>  static struct dma_chan *dw_axi_dma_of_xlate(struct of_phandle_args *dma_spec,
+>  					    struct of_dma *ofdma)
+>  {
+> +	unsigned int handshake = dma_spec->args[0];
+>  	struct dw_axi_dma *dw = ofdma->of_dma_data;
+> -	struct axi_dma_chan *chan;
+> +	struct axi_dma_chan *chan = NULL;
+>  	struct dma_chan *dchan;
+>
+> -	dchan = dma_get_any_slave_channel(&dw->dma);
+> +	if (dw->hdata->use_handshake_as_channel_number) {
+> +		if (handshake >= dw->hdata->nr_channels)
+> +			return NULL;
 > +
-> +export BINDGEN_TARGET
-> 
-> -- 
-> 2.51.1
-> 
+> +		chan = &dw->chan[handshake];
+> +		dchan = dma_get_slave_channel(&chan->vc.chan);
+> +	} else {
+> +		dchan = dma_get_any_slave_channel(&dw->dma);
+> +	}
+> +
+>  	if (!dchan)
+>  		return NULL;
+>
+> -	chan = dchan_to_axi_dma_chan(dchan);
+> -	chan->hw_handshake_num = dma_spec->args[0];
+> +	if (!chan)
+> +		chan = dchan_to_axi_dma_chan(dchan);
+> +	chan->hw_handshake_num = handshake;
+>  	return dchan;
+>  }
+>
+> @@ -1508,6 +1520,8 @@ static int dw_probe(struct platform_device *pdev)
+>  			return ret;
+>  	}
+>
+> +	chip->dw->hdata->use_handshake_as_channel_number = !!(flags & AXI_DMA_FLAG_ARG0_AS_CHAN);
+> +
+>  	chip->dw->hdata->use_cfg2 = !!(flags & AXI_DMA_FLAG_USE_CFG2);
+>
+>  	chip->core_clk = devm_clk_get(chip->dev, "core-clk");
+> @@ -1663,6 +1677,9 @@ static const struct of_device_id dw_dma_of_id_table[] = {
+>  	}, {
+>  		.compatible = "intel,kmb-axi-dma",
+>  		.data = (void *)AXI_DMA_FLAG_HAS_APB_REGS,
+> +	}, {
+> +		.compatible = "sophgo,cv1800b-axi-dma",
+> +		.data = (void *)AXI_DMA_FLAG_ARG0_AS_CHAN,
+>  	}, {
+>  		.compatible = "starfive,jh7110-axi-dma",
+>  		.data = (void *)(AXI_DMA_FLAG_HAS_RESETS | AXI_DMA_FLAG_USE_CFG2),
+> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+> index b842e6a8d90d..67cc199e24d1 100644
+> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+> @@ -34,6 +34,7 @@ struct dw_axi_dma_hcfg {
+>  	bool	reg_map_8_channels;
+>  	bool	restrict_axi_burst_len;
+>  	bool	use_cfg2;
+> +	bool	use_handshake_as_channel_number;
+>  };
+>
+>  struct axi_dma_chan {
+> --
+> 2.52.0
+>
 
 _______________________________________________
 linux-riscv mailing list
