@@ -4,185 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DAA8D46C01
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 00:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B0E4D46BED
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 01:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ul5FEkpHfb1nJ6otLjsde8gGRnrwL9llzFnR7UHqz+w=; b=3DDIIP47n/3GacA3PHQJOjev4F
-	6ksi7TnK6gDDRFqEaAJF8KUGcmPaN3oFyPQ9PiClLHb+P9jV1oOKWa+qbWRRHe2928a9btp0+6gOF
-	SZ00uqpU5umBwym/KB42f31ssliIlo7QiXuMa62+R4kNfEXcIZbfuFYrVcrN1Ws75bOOVmEHB6CTK
-	c7MXCIGH4OaY7k6kIoPtFgq1KNb4YSDMsoNrMhZTSI6gB0nua9Kh81Hb4FaIyyIL8L33SNYbSSEgz
-	Hs1lw8gpvth9t5+DYnluKcC3JeglWdZhCSqJhx3t/TkHXjLsbNnAws2dvTDom7eCfZgmVCX+V5198
-	QQjrjU7A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=S+g7bESuhUeNLRH+Lhd8F5ILaFKjNK4S+qiPEV3oaj0=; b=dje2Ot3+gSuD4g
+	WGgRZGeAiF9Zduv9OjM4+ABv/N9UeFdW04b+gAuhQtLiEpjpEwVt5pjeNhcRVcaTgzyZHHEPwa0wl
+	rz0FiowrWVz0/CasPPYS3LCHy3FQ1uBsJRH/e57z0qa7rtlMpCujVo2hKYUeXwhc5ftorrRufFine
+	VeLmqC3BX0CHbzHQbirRzGEUYfDgSX4eLBYC/VKSB+K71BoKDPx/9Q1RaExYE6VpzQkfzonaZUcka
+	Iy+OOOdk/Vo94VDWRdJr/VZ8F/nhLLAa9YidQqXo0OtdRLKXRVbtAZXHWnNgFdgSuQLOx4Ti7K44T
+	g7EBDNaM6wjxsJWJmz1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlGN8-0000000H0og-14CL;
-	Thu, 29 Jan 2026 00:58:58 +0000
-Received: from mail-northcentralusazon11010040.outbound.protection.outlook.com ([52.101.193.40] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1vlGQP-0000000H1en-2xxU;
+	Thu, 29 Jan 2026 01:02:21 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlGN5-0000000H0oL-45OK
+	id 1vlGQN-0000000H1eR-2YCZ
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jan 2026 00:58:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CQMwu2F7zr7YO0CI1DqeZ08iD1PKRRIICtpQlNC0oTPW5ZYS6Y2mnsyl5XiSOfVuWCEpST5C3T/hiaXl4XyPDfnylLOHVfLtzK5RxxE+ca8ANLrqubnaFQhT8OkLjsICPwGYPU/F2hdfMrU0zXeDwdMBYxAQhNrUxlEHRhXfX1ffq7ebni65vEyrvr40lTFYcyMyj8aMQKBCrVN3TByNUTUA1xkmsiGuuc1neE1YEl04qJBgCrb/Qc+zaQm2QrP5zIBp7UWxBP9DerSKjX0+p5grYsJ6ApoV92i7BfoGr78HdXoeo5YauvpB234bgc/BYlE754Urh7ZoOfN+De5FZg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lqruOZZCWm84lOyOBwcn6//Q9zISyC5L0TG4cv/2vGQ=;
- b=WWFdI4y8pRN2hGoOt6LGSDjnutSoYTFNtesD2dqVCgPK/qMV6+vheJHizvN8WaTVHOWyssvxacmlBrOpa7hrtRNL6uBjVJElFyopSmVq77EmmOEmb3owrNxkkLobXalg43+jO7bc7KPIWbGtDLNXYdQpBubBG6xjMYEK06D+K8KMlHGsImS5bDUISTDMeTzFu5dNy54P5olgd7Q8Aa8nhZgez2/hSi6gME7/JX/V4ksRM+K6rpXW1Xc0JwYCdBMhgkxcUFzUInpwmBCc3ulq7dp2ZPNWJM+7vaXxVJmkdUp6Tbdv981J59XpWiUHFXJr5fOMRsom9Yo5Kjg+iGZnbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lqruOZZCWm84lOyOBwcn6//Q9zISyC5L0TG4cv/2vGQ=;
- b=OXFSLA/BlGQIco7ph5hUkDL+EjVoVTY0CTMZ99dvqUezEN6mA+12VODUkGPTDY7hS0SXsbjd8LlGQHBlev4rt5v3xitNCWuTh5qpkTb68e+RFM78+PmQqWbX7ZoC4NgU7hh3v52UECJcSTlYSjlSvQ7d7JNoli+xhJAUxFBiDDWZze8Bo1B8vahr7HHySzpVgpEDv7NU/DnTktP6RDv50VB8afFrSFKMQjux3FzRBZkoklV5jgjbPohkb0AXaR3821yGeBM5ZZqKMGW3h20i1Y//MzZnT3lRdgG4YG+vIlzvN/LA52bfO0PKvwXTwqARUgWXiQCDoHleLCxrnbXhAg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV3PR12MB9412.namprd12.prod.outlook.com (2603:10b6:408:211::18)
- by SA3PR12MB9108.namprd12.prod.outlook.com (2603:10b6:806:37d::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Thu, 29 Jan
- 2026 00:58:48 +0000
-Received: from LV3PR12MB9412.namprd12.prod.outlook.com
- ([fe80::c319:33b5:293:6ec4]) by LV3PR12MB9412.namprd12.prod.outlook.com
- ([fe80::c319:33b5:293:6ec4%5]) with mapi id 15.20.9542.010; Thu, 29 Jan 2026
- 00:58:48 +0000
-Message-ID: <8859d68f-ca38-469e-8345-84059573ac97@nvidia.com>
-Date: Wed, 28 Jan 2026 16:58:44 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] gpu: nova-core: use checked arithmetic in FWSEC
- firmware parsing
-To: Danilo Krummrich <dakr@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>
-Cc: linux-kernel@vger.kernel.org, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Miguel Ojeda <ojeda@kernel.org>,
- Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
- =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
- Alexandre Courbot <acourbot@nvidia.com>, Alistair Popple
- <apopple@nvidia.com>, Timur Tabi <ttabi@nvidia.com>,
- Edwin Peer <epeer@nvidia.com>, Zhi Wang <zhiw@nvidia.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Bjorn Helgaas <bhelgaas@google.com>, Alex Gaynor <alex.gaynor@gmail.com>,
- Dirk Behme <dirk.behme@gmail.com>, nouveau@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20260126202305.2526618-1-joelagnelf@nvidia.com>
- <20260126202305.2526618-2-joelagnelf@nvidia.com>
- <DG0607SU943F.1FDOPYPN38FCS@kernel.org>
- <259bdacf-d16e-4fff-9f6b-f860feb40aa8@nvidia.com>
- <DG0N5PNS1ZQ0.13WMT4XYDXNUS@kernel.org>
-Content-Language: en-US
-From: John Hubbard <jhubbard@nvidia.com>
-In-Reply-To: <DG0N5PNS1ZQ0.13WMT4XYDXNUS@kernel.org>
-X-ClientProxiedBy: SJ0PR03CA0004.namprd03.prod.outlook.com
- (2603:10b6:a03:33a::9) To LV3PR12MB9412.namprd12.prod.outlook.com
- (2603:10b6:408:211::18)
+	Thu, 29 Jan 2026 01:02:20 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4806ce0f97bso3431295e9.0
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Jan 2026 17:02:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769648537; x=1770253337; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=h4iBj8KyUyTe6sipZIufqWbKIe7HfRCC1Q1VoGen0RU=;
+        b=eK2WjwxJuHx049ic7JxOz1jlkme+esxEHyXUoR6AfbT04Aju8yoCXoE18DIAarsp7Q
+         D0omkSFK6TQdcYCEzhhGPvZdFqXpYr+5q5vtBm0YLe9tLJ41AhAXWFhDv8iWD717X38b
+         wmAwk7kj+/x9m7AWOgbFJG9qw5St22CQodIX7gjkoEkW3uc1kflVqaHBlEcJWvHDGWMj
+         TNgr2LP4FWVOlm4p2yPj36ghulVWv0DvDi6oHfw8hOlD3lsZqCMAx7xph370bSd1jMVU
+         xTDwEp+6VAkjxVKSot302dBUbVKxOY1dZbeaoiOQE9TmbyO+lanKxcdO1nx0m+k51Imk
+         jWQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769648537; x=1770253337;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=h4iBj8KyUyTe6sipZIufqWbKIe7HfRCC1Q1VoGen0RU=;
+        b=QC2+ooM/VM5lQukyF7gDrR8F8IbJDxZRpBwSCcMTOIZ/ZVEhFKRTCRTjlU2d5uvQM0
+         Gc3xus2FunZA47nQUsxMFskGfzpspQQ5cephT9UGK0LBu6YHtqo4KpXYsgmWq9YLs8NS
+         8tot0L3IS0+mGO2F62q2A+41Qk/CaY7ZO82LkXPJ0ekIi5KTE669hiKOGvNRH4LjAsdj
+         Xq7t6n/Y2ukRRefvcT5Z/exjo+Snh8V4x8gvuzxUxncEI7dZNZsJTI4Uqx/eft+2eUGv
+         EXO4u4CX/PHxXrhYRLOXxqcCyl9KYwoNT29XEYGa7bCq7rCilvOdvG5EKhDYha2gAm0p
+         cs7Q==
+X-Gm-Message-State: AOJu0YyKMWQwJhedoTGj4X+OKXao574V/VCw6uVHDWIeNjzx0bs25m+W
+	+fgVZu1OQuNX0ckDSTe2XUTCFWS9MaHcaAAxSLAzdh4V3CN8aNQJS5rXSfRsZKg8IXM=
+X-Gm-Gg: AZuq6aJCcykPlCjJuHVpMooxCHMESw8csMO1F98puz48PVIWQzqCq2iHNp4U+VyVhBb
+	8a74vCI1zWIhNAzFHRwEh5iRqvj8iyN4hp8LEfszNPz6VFwKl08GR1T1ODH4qtEbhJHdQlHemZE
+	acp9euy1kNAGWRAVII8JIJRS70rsfzu3+5i1rWKkf75yNHPkMgiHvexrWuxt5XFBHoFhhXhCoWg
+	6/kdCbfWp0Hov20OOrZOFqQa3gImTYy5r+FoXOhMKod0UXow6tuHNF0PTiJmBnYjhJY+89C6Nce
+	M9irpv4JgZKyhhuA4LCjLUl92bkozIZSgJzYHQ7nIMr4eZlgNxcHNjAdj3/4QHmExm0vUKAiPTJ
+	su/x98dSFKl8RzBTKszV7oCdhNs3GIlf1A5ZJTL2LDW0Jw73g0grqW3MzS52LUGJsvCHltu50OG
+	8p6aM1f75dYJbbVRZf2leMW0GCrPdzmaGgw+SRdl+staYwBeRgjqmc6WSpZPqjmR/wMcHeTapZs
+	Q==
+X-Received: by 2002:a05:600c:35cb:b0:471:700:f281 with SMTP id 5b1f17b1804b1-48069c7c492mr96027775e9.25.1769648536595;
+        Wed, 28 Jan 2026 17:02:16 -0800 (PST)
+Received: from turbo.teknoraver.net (net-37-117-189-76.cust.vodafonedsl.it. [37.117.189.76])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48066bee7d0sm172742115e9.4.2026.01.28.17.02.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Jan 2026 17:02:16 -0800 (PST)
+From: Matteo Croce <technoboy85@gmail.com>
+X-Google-Original-From: Matteo Croce <teknoraver@meta.com>
+To: linux-riscv@lists.infradead.org,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: memcpy: fast copy for unaligned buffers
+Date: Thu, 29 Jan 2026 02:02:11 +0100
+Message-ID: <20260129010211.103615-1-teknoraver@meta.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV3PR12MB9412:EE_|SA3PR12MB9108:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4d9004a2-7503-4de6-e1b2-08de5ed18f41
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?d2FUVHExRjUyM1hrV0JXTUp4TnVOYkdUM3NIZXF0bnVsS0pNM0c3UlA1SlE1?=
- =?utf-8?B?dXZwU3o2RVM1elZOdkdoOUNTQzV3a2swZGFGOTd2a0NSeXVzRTZtWDdzWnJF?=
- =?utf-8?B?c2VRN0Yva2djakZVVFk5QmpIUS9kaTJOT2pWb0J3eXRIVW9BUW1NSHF1QTZp?=
- =?utf-8?B?dklpR3puVzFIZlZMR3F2TGVZb0Q2eEYzOHBjdU8wWnJXd25OemFrdnhoWHNP?=
- =?utf-8?B?L3ZzNGFHUlRpME1JdnhpUHhqd0ZsYnlmNTd1bTFwb1V1NExTSllmSlBlcnUy?=
- =?utf-8?B?WFNBUkRvbW80ZnF2U1Z5OFlGZ0lLNnpNeU9oOHNzbWcyWDhmanZtZkNqbnB6?=
- =?utf-8?B?SzRzbWoxQjFPK1RLYyt0R2MvWGJOamdkNmlqNVBDQldNcXErVTVzNkE3eFkv?=
- =?utf-8?B?MGRvV1NGQVIzWjlGU2E1YkxDUldNSFBCSURERWFHNDdQMC92RkNCaE9nSUVB?=
- =?utf-8?B?RE1TRG5Bc1V0ZGlVMEwzV0FEMitBTDBoWlE5cWRJbEw2OS9yM29QMUduTEZG?=
- =?utf-8?B?VGZUNUNMbVRkK0ZnazVnNFZCVlp4dUFoRXRaMU0xOWNESWMraUtvb0tUYi9T?=
- =?utf-8?B?U1RpeDgyQUtqcEZ3ck9RaHhqblcxa2trYW1WSEttUzdrV1l5ZUFtbVJpMEVz?=
- =?utf-8?B?RHgxdTY4UXdENUJ0elREeDVaMUdIejBpREpRYzlQUHJvR1hmRTEyaDdHRFZX?=
- =?utf-8?B?WngrMy9QQlNyd3pwSS9PY2ZkUTRSUy9Lam5XeXErWWxiaFQxUnl1Sk9Cbndw?=
- =?utf-8?B?RGl3V1U3V0E2eW9jSzlBOFZtcVhBbThycks4Vkx2UWs0cjBaaFZKbkE2bGxv?=
- =?utf-8?B?eDY5U3Q0N1NabGcyd1c0YnVpWk5idEZreHF0ZUltM2FKc3J2YTBDam1rdlJV?=
- =?utf-8?B?NUg3N1FlRmJESnVpcjZRRjI4TlJWdTFuS291USt5M3VVZlJ0VE9VQnBIYm5q?=
- =?utf-8?B?dkNjR2g2MFduQXJETGY5RXR4Kzdhaks4UTE0V3dFZm1SL3RRalJsWmhpZkkw?=
- =?utf-8?B?V0hoQ0luREdYSEJVeVdEVGdVS2tWMEF5M0lXak5sZi95OWorMGNWaU5CL25R?=
- =?utf-8?B?dDltUHBKSjEvWFZEOVQwVVZjVEtTcW1VdWhuQlRqaTZ6MEhTbkZzdHZTelE3?=
- =?utf-8?B?eWdWdktnNUtkQzhUdk51WGhWT3VGMGVMdkNOZG1PUmRXeldISTk4TEFXNnNI?=
- =?utf-8?B?QW5oMnZKTzR6VHQwTlNNc1ZsWkd4M3ZQNVpKakhyY3JkVTU3bWNNRDJjR0NI?=
- =?utf-8?B?djRGeUI3aHRDT1VCQi8zQ1h1WTJ1RCtEcmx4dHVjVlJlS2xmOWVjN1NiVXFw?=
- =?utf-8?B?ZlBiZks4ek9PQk5Xa0pqRGduRW4yWFRoaDV5cTN5dmZzdVpxTC9mMGl3ZDMz?=
- =?utf-8?B?akRra2Z2d1ZKNDZ5b2dCQXBiVUJzalE2ZTdlWmd1M3JaalozNmhDQlRUOC9G?=
- =?utf-8?B?c3ptTVZXVkVUWHZ4REtGcGM4MXhobnJ2aHBxUWNXeVBnMWt3UkxpdTdpc3hR?=
- =?utf-8?B?c0lvcU1GckJpanM2bkNvZWh5eU1xbmRkeU9yVXAxTjJHckNtWWlHNDkwMlNx?=
- =?utf-8?B?enFyUjRvdFY3bWhuRGh6SXVra2lQYVdrVW13TE5yaVBhZ0ZJeDNLUGlycysz?=
- =?utf-8?B?ZWxYb2l3K3RydWdzcWhZandWZTRkby9BR2lteDE4S1U5UXk3N0hZcmF4MTZw?=
- =?utf-8?B?WTNFTktTMHhjRHBPNDB4ODFuQTJqdHV4UlRWdTY3MzlCYUtaVXk1YlBxYTRK?=
- =?utf-8?B?UDI2dXcvRXVmQW1KeC9Ld0VPQm93Z2tBaDNVYURRbEJGQ3hoUGptMkZuOVZR?=
- =?utf-8?B?ZENXdWxjSTBpZDRxQ2ZBdndkUHpTUjEyZ1lMbU1DNllPVENoRGlLTjZkUzRD?=
- =?utf-8?B?KzF0a1h2MzcvajdMaldyRnEwWThHeWZBVlpmeTFFNVZGNzEvQy9OOStjd1BK?=
- =?utf-8?B?RlRCNXVwZHJ2ODZuNG5CWVJMQXlSOU1kaGQ1S0RnYUhiZU5ZUDhZRndWNThi?=
- =?utf-8?B?Z2J3cUViZTgwR0lzS1ZqbDEreWYxTnIzOFNEcGIwekxBS1hQbjhvenpjWXVn?=
- =?utf-8?B?UUE5ZVp5UGFqOE12T1l6MG5wNXYzanNENlZLTlBXZ0pxMzNKdHVSVERibGMx?=
- =?utf-8?Q?d/Ug=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR12MB9412.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bGxheWsrK2hiWkk0TmtnUWF3RXNrVFg0OXdTQkxocEhPZ3ZuNWRuZmFYWjJG?=
- =?utf-8?B?UW9uSTZpK3c4M1Q2SXhBV3Vyc0tuSjhsR0JnSVBjWkM3aHgvMjA2STZEaU5B?=
- =?utf-8?B?Ris4amhKVzlVek5KOHlGNy9hWlRKZ3JpUUhkU1psMHpZc3EzVFFsYVNIVzd5?=
- =?utf-8?B?ZHIzZHVtV2RBM1RaMzFsL3hva1lGTVpRSVdhcEdEeFd1SkNicHNJVUJxRmh6?=
- =?utf-8?B?d1Exb3N4WHBSZ2p3VjZHOGVnL2p6V0w2aGNlZFpKNjkrdldYY3ZaUmRjMGFN?=
- =?utf-8?B?UTRRVnVZRTlmYXlkSnJ0bzduM0JramhQODF0S0svVTNWd2hmeHE0MnpRYWZm?=
- =?utf-8?B?ZUNNN3k4MjYybUpTQU1wYW1lWTZON1A1K3dTR0ZVbTJjRHh1OTB3R0tzcXJs?=
- =?utf-8?B?dCtCTkpvWnhTbkQ0RXNYUEw1d1MzREhVWU44cmRSdDVwZkNZaWhWSXNHc1pB?=
- =?utf-8?B?RExpMnB4LzJScFBiS0c4ajBmVG1Wd2hKajNHdWRhSUxqNW9XUHduYU1YOEx0?=
- =?utf-8?B?VFBTUFc2amdUckNweWRPSllNYmtTRlN1NGdKakpEZlhUSm5NVkt4L3JkMEhj?=
- =?utf-8?B?NjZNcDFsek1yZDh3YTM4c01GdGRkRUc3dnd4MVY5UlU3WTV5TzZvdDZPUjRs?=
- =?utf-8?B?YTIyZWdKdHJvbkVEdndYN2J2b3FoN2w1OENXY0JMWHNsakg2SmtteU15a3di?=
- =?utf-8?B?T3VrZGlrZWJzT0ZPVFQraGx3S1lTOU9sbkFrM2lYcVpyeDhDdTVONjhJVCt4?=
- =?utf-8?B?UWtMd1l4N0g2YUF6Ty9oSksxcmFBRFhrQ3hTM0c1eTMzUm1RSFZaVG9CZUFI?=
- =?utf-8?B?RW03N2lXNFMwcTNiSllKdjhpd05Tc3ZPcnFTZlRVQk9XME5VUnhJOFE4NEd0?=
- =?utf-8?B?VWxJREZTb2VsYlN5L2x1dlpQY3VkUmtZUDMybFRLeWRWZnJCTk14VmtDWktG?=
- =?utf-8?B?Z05iN0JmR0lFZWk1TTA2UXhleENwWDdlQThHM082STF5SmNyYmFsQUQrNW9u?=
- =?utf-8?B?Ymg3cG5ZY0NZNkg0aTNCbnFZS09hK09oNWdZSForSjlkMXovTTl4bm1HTlZi?=
- =?utf-8?B?WEJNRHBaRkFxbTMrTU03NGkrUWFQVlkwaXA5MHN5MU5pdWw1OVdlKysvb3lO?=
- =?utf-8?B?dTZPY2UycUlLVHJaRjIvek9PeHN1ekhVcjRmNnYrY1hCRmtEMEZtODdVb2Zs?=
- =?utf-8?B?RmdCU1FFVkc5ZXByTGdOYitzRTllSWN1UGdFNndITktPL3FZMDNpeEY1WTZS?=
- =?utf-8?B?V0JKZTJ0cm5jWDRucU5ocG1zZFJMSkpuTFEweFJQcWlGRk8yQWlwZVZQM0FS?=
- =?utf-8?B?aXBQQ0o4aHA4cVgxS0ZmSkFQbG5WRlJTV09QeVF6ek40SnJSZkF0U25HSzlF?=
- =?utf-8?B?d2RaOTNtbm9wLzAwVnpNVHRUVlpZVERuL01LeWcwV0w2aGRESW1ubzJSTE4z?=
- =?utf-8?B?ZzNDUEJseXdNZng3WllPVGdzd1NJNHhYNlhhUkJGeHlYVFF3c2NWM0ZPcGF1?=
- =?utf-8?B?bTBHRnhmOUY4Q1YrWC9DSTFYU0xta2FTekZocGNSQjhNbGNaalQvZmRRNHNS?=
- =?utf-8?B?NGcyU3FUS2xqaHBiRVhiR1VVNHhSYjhvdU15K1JkSzVkbUdwSytmREN4OHg4?=
- =?utf-8?B?NERjalZESGxpVnd2ZE1pZWUrUVRsZXFDT2t2aUZld0lxL3EzeWI1MjhMdytx?=
- =?utf-8?B?Z3RJTUNOK3R4aUVHZ2NSZG55YW90MGZ5RWI4c205djQyMFlpSVFhS21CUG14?=
- =?utf-8?B?YjNaZVFrSlR3N1VjbW5nWFB0RVFuYWZpOVNzcWgreDJjMEhmRExFam0rSHZ4?=
- =?utf-8?B?Z2VaNUYrZFFVaHdSbG5TTzRXV3QrNFZrcVhRd0l2MmNwY3l0ZzhwTWtQWFNP?=
- =?utf-8?B?cnJIQnFkcFJ6QkJYV3JjVVVXUGFnTmxiWUFzV2RWOStMRG1aVWJPYW5iSGRq?=
- =?utf-8?B?MGlpcElKaU51cG0yMTZYZUJISm5zTlRhZTZGdTE3S2g3TjhCOXRSYmZQOXln?=
- =?utf-8?B?U3c0aGJZbSsyMUJUYWsrSENudDAyVzVFT1dYbFprOEQ3ZnlSdUttN1ppczhY?=
- =?utf-8?B?RmQ4TFFHanJaRklTblhTVkQ3TE9BTGJrd2xyVzhMOHRaRzhXYUZsUy9SNzI2?=
- =?utf-8?B?R05EZXVldTdJWWU1bjVKVWVnaDFQWjZWSVBjcXc0UlkzUWI5VjRLdWNIK0U5?=
- =?utf-8?B?Yi9RNUpMMDd1bWhWamVMYjg4SFpwcWtXbXdac3ZRbG5SemxrenR1emtKR2l1?=
- =?utf-8?B?TUpHOEJOSjJ6aVlVSGxxRXhFQTBvbW5tUWptRWhoNXdoS0RGN2c2MExTcTVV?=
- =?utf-8?B?cE9DVVZXZ2hXdEZCdGgyTFFRSVI4YmVWWk11ZFNCRDBrWWlrVHNudz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4d9004a2-7503-4de6-e1b2-08de5ed18f41
-X-MS-Exchange-CrossTenant-AuthSource: LV3PR12MB9412.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2026 00:58:47.9764
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: p9Rf3UhbZLK/v8aEBA6LIleNqXvogCyoHh7QJHcdbONN1ZNcz1SBgD35rfdQ8AxIEd5c+zwVOit+o/8Mtd1K3A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB9108
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_165856_020930_E87E3695 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20260128_170219_666577_EFF71574 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,60 +94,144 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 1/28/26 4:20 PM, Danilo Krummrich wrote:
-> On Wed Jan 28, 2026 at 4:14 PM CET, Joel Fernandes wrote:
->> On 1/28/2026 5:53 AM, Danilo Krummrich wrote:
->>> On Mon Jan 26, 2026 at 9:23 PM CET, Joel Fernandes wrote:
->>>> @@ -267,7 +264,12 @@ fn new_fwsec(dev: &Device<device::Bound>, bios: &Vbios, cmd: FwsecCommand) -> Re
->>>>            let ucode = bios.fwsec_image().ucode(&desc)?;
->>>>            let mut dma_object = DmaObject::from_data(dev, ucode)?;
->>>>    
->>>> -        let hdr_offset = usize::from_safe_cast(desc.imem_load_size() + desc.interface_offset());
->>>> +        // Compute hdr_offset = imem_load_size + interface_offset.
->>>
->>> I do get the idea behind those comments, but are we sure that's really a good
->>> idea? How do we ensure to keep them up to date in case we have to change the
->>> code?
->>>
->>> If we really want this, I'd at least chose a common syntax, e.g.
->>>
->>> 	// CALC: `imem_load_size + interface_offset`
->>>
->>> without the variable name the resulting value is assigned to.
->>>
->>> But I'd rather prefer to just drop those comments.
->> The idea of adding these comments was to improve readability. However, I
->> can drop them in the v3, that's fine with me.
-> 
-> Yeah, that's why I wrote "I get the idea". :) But as I write above, I'm
-> concerned about the comments getting outdated or inconsistent over time.
-> 
-> Besides that, it more seems like something your favorite editor should help with
-> instead.
-> 
->> Do you want me to wait for additional comments on this series, or should
->> I make the update and repost it?  Thanks,
-> 
-> As mentioned, I tend to think we should just drop them, but I'm happy to hear
-> some more opinions on this if any.
+The RISC-V memcpy() does an 8 byte wide copy when the two buffers have
+the same alignment, and fallbacks to a single byte copy otherwise.
 
-Yes, please drop the comments. They were just echoing the code for
-the most part, so the code itself will be easier to read without
-them.
+Implement a unaligned aware 8 byte copy when buffers are unaligned
+which copies 8 bytes at time by doing proper shifting.
 
-I think this is something that, when you are writing the code and
-comments, it's really hard to see. But when you come back a while
-later (or you are reviewing someone else's patch), then it is much
-easier to spot.
+Benchmarks shows that the aligned code path is unaffected, while the
+unaligned one gets a ~2.3x boost.
 
-thanks,
+Benchmark with the current implementation:
+    memcpy: aligned copy of 400 MBytes in 429 msecs (931 MB/s)
+    memcpy: unaligned copy of 400 MBytes in 1202 msecs (332 MB/s)
+
+Benchmark with the new unaligned copy:
+    memcpy: aligned copy of 400 MBytes in 428 msecs (933 MB/s)
+    memcpy: unaligned copy of 400 MBytes in 519 msecs (770 MB/s)
+
+These numbers are calculated on a 1.8 GHz SiFive P550 CPU
+with this custom unit test:
+https://lore.kernel.org/lkml/20260129004328.102770-1-teknoraver@meta.com/T/
+
+Signed-off-by: Matteo Croce <teknoraver@meta.com>
+---
+ arch/riscv/lib/memcpy.S | 84 ++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 79 insertions(+), 5 deletions(-)
+
+diff --git a/arch/riscv/lib/memcpy.S b/arch/riscv/lib/memcpy.S
+index 44e009ec5fef..293f8a348cfd 100644
+--- a/arch/riscv/lib/memcpy.S
++++ b/arch/riscv/lib/memcpy.S
+@@ -10,13 +10,14 @@
+ SYM_FUNC_START(__memcpy)
+ 	move t6, a0  /* Preserve return value */
+ 
+-	/* Defer to byte-oriented copy for small sizes */
+-	sltiu a3, a2, 128
+-	bnez a3, 4f
+-	/* Use word-oriented copy only if low-order bits match */
++	/* Check alignment first */
+ 	andi a3, t6, SZREG-1
+ 	andi a4, a1, SZREG-1
+-	bne a3, a4, 4f
++	bne a3, a4, .Lshifted_copy
++
++	/* Aligned path: defer to byte-oriented copy for small sizes */
++	sltiu a5, a2, 128
++	bnez a5, 4f
+ 
+ 	beqz a3, 2f  /* Skip if already aligned */
+ 	/*
+@@ -76,6 +77,79 @@ SYM_FUNC_START(__memcpy)
+ 	addi t6, t6, 16*SZREG
+ 	bltu a1, a3, 3b
+ 	andi a2, a2, (16*SZREG)-1  /* Update count */
++	j 4f			/* Skip shifted copy section */
++
++.Lshifted_copy:
++	/*
++	 * Source and dest have different alignments.
++	 * a3 = dest & (SZREG-1), a4 = src & (SZREG-1)
++	 * Align destination first, then use shifted word copy.
++	 */
++
++	/* For small sizes, just use byte copy */
++	sltiu a5, a2, 16
++	bnez a5, 4f
++
++	/* If dest is already aligned, skip to shifted loop setup */
++	beqz a3, .Ldest_aligned
++
++	/* Calculate bytes needed to align dest: SZREG - a3 */
++	neg a5, a3
++	addi a5, a5, SZREG
++	sub a2, a2, a5		/* Update count */
++
++.Lalign_dest_loop:
++	lb a4, 0(a1)
++	addi a1, a1, 1
++	sb a4, 0(t6)
++	addi t6, t6, 1
++	addi a5, a5, -1
++	bnez a5, .Lalign_dest_loop
++
++.Ldest_aligned:
++	/*
++	 * Dest is now aligned. Check if we have enough bytes
++	 * remaining for word-oriented copy.
++	 */
++	sltiu a3, a2, SZREG
++	bnez a3, 4f
++
++	/*
++	 * Calculate shift amounts based on source alignment (distance).
++	 * distance = src & (SZREG-1), guaranteed non-zero since we only
++	 * reach here when src and dest had different alignments.
++	 */
++	andi a3, a1, SZREG-1	/* a3 = distance */
++	slli a4, a3, 3		/* a4 = distance * 8 (right shift amount) */
++	li a5, SZREG*8
++	sub a5, a5, a4		/* a5 = SZREG*8 - distance*8 (left shift) */
++
++	/* Align src backwards to word boundary */
++	sub a1, a1, a3
++
++	/* Calculate end address: dest + (count rounded down to words) */
++	andi a6, a2, ~(SZREG-1)
++	add a6, t6, a6		/* a6 = loop end address for dest */
++
++	/* Load first aligned word from source */
++	REG_L t0, 0(a1)
++
++.Lshifted_loop:
++	REG_L t1, SZREG(a1)	/* Load next aligned word */
++	srl t2, t0, a4		/* Shift right: low part from current word */
++	mv t0, t1		/* Current = next for next iteration */
++	addi a1, a1, SZREG
++	addi t6, t6, SZREG
++	sll t3, t0, a5		/* Shift left: high part from next word */
++	or t2, t2, t3		/* Combine to form output word */
++	REG_S t2, -SZREG(t6)	/* Store to aligned dest */
++	bltu t6, a6, .Lshifted_loop
++
++	/* Restore src to correct unaligned position */
++	add a1, a1, a3
++	/* Calculate remaining byte count */
++	andi a2, a2, SZREG-1
++	/* Fall through to label 4 for remaining bytes */
+ 
+ 4:
+ 	/* Handle trailing misalignment */
 -- 
-John Hubbard
+2.52.0
+
 
 _______________________________________________
 linux-riscv mailing list
