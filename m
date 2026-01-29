@@ -4,98 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBF60D61015
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 13:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E32D61015
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 13:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2sKfp/zkRty4unWackVd3sNcVnmJwmnH/+rEIHBAMgc=; b=iAUErFlSz4Ji72
-	sKmI3bKAd7mWdi8euTG8DxtcRFgo1s99uElzdv+DhbKlbkB/J1j/R7/dEMm5zeSwxP9QWNSYK9//w
-	cMhoCa+raDBRII4fP8mFKEpaVsHYNeCQvvFVUbIBuelfYon4pTZW9DItEKBR6cyi55jEUxs04HwYL
-	1qWcgePthzEfttZ5bgQmMpmpqsWs+U/I40KWeN3/EWJWPkjViAs4Xd9bLg8G6TaVMXcnZhTZzsrBG
-	UwCj3QMuEkfCzQNKdDHtCX+31btrANZzCtgbACAwmBZVPFWwhdGDlWxZZdRHxEB+Jc4CUF7TUm51f
-	uzQCUMnrBOo0BLrxQ9xQ==;
+	List-Owner; bh=iKPNJvC72rh7GffK4t9DrnDFcIcRCxN/AY0qkAJJEBw=; b=NzEkN1Si1MJLUe
+	u+DrH5+FWCmOjnV2ch0e1yJ8vmeJVjBFBPyD9iZfLdVlLYrcZDmWyQ2g+/Be1tkylRDLLb+BaBugq
+	OlvQhBqQ4gp6jC29U9wRO1YsMLQ5Pnlc7n0RjJ6VFa+JqlTdLS5KFsPlJrVDebpiAie+9654uVKgM
+	oZcdVj+Zj/ib2kNM4Q4Zr1qSTCPMt+RdjcLCdWoBvMOmaxR7vBKB8sI+1CjKYNo2GM/EauRBF3AJl
+	t1TNhQAx0MeORlkTwcnzqN3qPxcUwR/SlrluXz7dXl+nbgHBdj5qMTshhXw7FfiR3Bd1VLwMLQNei
+	HQL5+5MrvDwHpXSybogg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlSPJ-00000000B1H-1fUP;
-	Thu, 29 Jan 2026 13:50:01 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1vlSPO-00000000B2o-2zn2;
+	Thu, 29 Jan 2026 13:50:06 +0000
+Received: from mout01.posteo.de ([185.67.36.65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlSPF-00000000Azn-1CDe
+	id 1vlSPL-00000000B0o-2OnD
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jan 2026 13:50:00 +0000
-Received: by mail-pf1-x442.google.com with SMTP id d2e1a72fcca58-81f4c0e2b42so527696b3a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Jan 2026 05:49:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1769694595; x=1770299395; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=MVJS0XZnQdJSuFRyO9cJopaQzPSIm6FDGJq3O2WzR/w=;
-        b=N/QacoK4YcEJXUrNfsXcDOR4cYw7z+bV7KZFgbMAaB5daP9vpTBocHPNrlPp785iEJ
-         qD08yRNzVHJA5Ysv8JZ+udKkTzacjl8NPuMv1wJsNzEs+Q0e0gEnMQywtUvWi+ICR/4X
-         tGjK7MeQnpOvY17jQG1M8ViQFKWEGCfA1sawxLEdX3Oznwsa0vrxLU46PEY5+Ncs9iLL
-         DI+UqU/HTGmL2lYFmbyiTCNUToWsZ8A2SAxOIqCd0Da9enkSo2DZXAp79aMpHIa6roed
-         fKqiilFWIEoa8v+KRvcPm7Is+UwsZst8dQ/anXdtLgU+9uZc1bzvzIBahadgg+MhKwbw
-         tA4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769694595; x=1770299395;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MVJS0XZnQdJSuFRyO9cJopaQzPSIm6FDGJq3O2WzR/w=;
-        b=Umn0wkW/njl0LVTzBqguJgRKwD7OngpHzXeaer4+GeHaW7E/Nlx20lJVa3cb1Z1XBM
-         YYzQ8jmVEJIed1jgjrRRnFM72yS8Bpvd5ODxk1z0yj/scyOdatcjsa4H092Vl5w/TtlD
-         zDRL1HeqxyDsFbWNC8xDe1+b1swF3OisR8a1EO62DI5az4V9jIdnSlGsREavtdpp/h4E
-         GQfR4A02b2QXyOu3Alj+E+2DS8C45BA7uorRdveDuutHigwnFdn0a1glmWj4QITFYoC2
-         xIkbgRKDKpu6+fv36AnXgb1BagOyocwklOMsqdHuB8k5CXQVboBB6uaemkxegFP22moQ
-         vYig==
-X-Forwarded-Encrypted: i=1; AJvYcCXgk9FCDCFJATpc7HlILcY83N1JcZm9zZS77/c3REDJEvxmuJ6yBX/CcOSWobO7j2aIXqQtMGCuzNr16g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnnXu47ubIlumHqYeqwUwLav1n+b7lzSqSCrI/eUKDoWiGCEZy
-	tK8jDT/ePzBGyxYJruS2JZRxQlu6+1r8OIbz7tP8CQsAEfXbpuMBb1xXfjWJb/PYyVo=
-X-Gm-Gg: AZuq6aJGJR/ZPwKFGx+R2/9SscAHhWI717EM49oIArRsYxX9byaQafhS73C5g+xpezS
-	sV18mjVe6Mfxf+r7qhV+Sr91DTI0GlKawvuWkfBJyjOd8Bhfi0tG69PIGjfrDNkIafrsKW8h/XE
-	zFJyz+Xi1Ei49DtG41kbI8SOOzT890LZRZpgEgg4WAb4wbN/r2KY5GscqrH7VBwWXJ2LvAu36jI
-	bH0S0Sp2etyFs/WHibonfN3NcPlxwxAvTM0XYeOrmRxqPvKwU3nxZZEUlFsb7e0veVMFGcmhyGv
-	fhJdJurQ8fhH9EOajZHHuSeBKl68L5DPBlpT0p4M5Lz4kNPjN6NzXttx9846Cdm2GAw9YauBCuX
-	M0IGGyxpsJuxEpZ6LerP66Eyf/U0NHsW+rYt1vQ/sKy8OLuOBFwv1LBHMTh7HUWowZa74QvitCo
-	gLHFynPfa7pAtJmKkc4w==
-X-Received: by 2002:a05:6a00:2e2a:b0:800:8fdf:1a54 with SMTP id d2e1a72fcca58-82369275931mr8476106b3a.34.1769694595607;
-        Thu, 29 Jan 2026 05:49:55 -0800 (PST)
-Received: from sunil-laptop ([106.51.192.152])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82379bfcaadsm6072882b3a.37.2026.01.29.05.49.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Jan 2026 05:49:54 -0800 (PST)
-Date: Thu, 29 Jan 2026 19:19:43 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, huyuye <huyuye812@163.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Robert Moore <robert.moore@intel.com>, linux-pci@vger.kernel.org,
-	linux-acpi@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, dai.hualiang@zte.com.cn,
-	deng.weixian@zte.com.cn, guo.chang2@zte.com.cn,
-	liu.qingtao2@zte.com.cn, wu.jiabao@zte.com.cn,
-	lin.yongchun@zte.com.cn, hu.yuye@zte.com.cn,
-	zhang.longxiang@zte.com.cn, zuo.jiang@zte.com.cn,
-	li.kunpeng@zte.com.cn, Sunil V L <sunilvl@oss.qualcomm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v2] ACPI: pci_root: Clear the acpi dependencies after PCI
- root bridge initialization on RISC-V
-Message-ID: <aXtld38sQ9qFoNKk@sunil-laptop>
-References: <CAJZ5v0iZukqD0atbdfBnmZAxUzNB6sTcJ1YUeAo5a8NRn-emEg@mail.gmail.com>
- <20260127194648.GA368841@bhelgaas>
+	Thu, 29 Jan 2026 13:50:05 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout01.posteo.de (Postfix) with ESMTPS id 40CC924002A
+	for <linux-riscv@lists.infradead.org>; Thu, 29 Jan 2026 14:49:58 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net; s=2017;
+	t=1769694599; bh=Xv30LavhO4rN6saEyHYn+XnCL4YQgEmDy4BNFRu1GBs=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
+	 From;
+	b=GCYiUCD2hA9oCJji3wIMxh2iBViPRXpP9OV9LQUAK3e/Kb6fHSFqKPKmPgsPeqgAU
+	 4vC5spyxIRgllQEkiBs91RvJytP9oDnFP6woro5zHY1h3RQtP5t+UT9aBuL9fctQWZ
+	 lyWGaONYkkMmI1nC/FVuRkafaTuzLxg45B2Usich5+JEdI7OGs/E4vafaf9ZOBmJ2J
+	 s2ZWeMVTJOvyeCEK2Dob57kl5QHrK0PJX4SHf2XWMkwa95gmr2JEM16WYVpc3fkHuw
+	 w4qduRhI1ief0F5mULS83KC9wdgK2uNcvAPaNwZdJ0G8lJvuxGimmFc2C1O69Zi2H9
+	 cnvTLcb1vZuGQ==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4f20rD1s7Kz9rxh;
+	Thu, 29 Jan 2026 14:49:48 +0100 (CET)
+From: Charalampos Mitrodimas <charmitro@posteo.net>
+To: Asuna Yang <xinrui.riscv@isrc.iscas.ac.cn>
+Cc: Nathan Chancellor <nathan@kernel.org>,  Nicolas Schier <nsc@kernel.org>,
+  Miguel Ojeda <ojeda@kernel.org>,  Boqun Feng <boqun.feng@gmail.com>,
+  Gary Guo <gary@garyguo.net>,  =?utf-8?Q?Bj=C3=B6rn?= Roy Baron
+ <bjorn3_gh@protonmail.com>,
+  Benno Lossin <lossin@kernel.org>,  Andreas Hindborg
+ <a.hindborg@kernel.org>,  Alice Ryhl <aliceryhl@google.com>,  Trevor Gross
+ <tmgross@umich.edu>,  Danilo Krummrich <dakr@kernel.org>,  Nick
+ Desaulniers <nick.desaulniers+lkml@gmail.com>,  Bill Wendling
+ <morbo@google.com>,  Justin Stitt <justinstitt@google.com>,  Paul Walmsley
+ <pjw@kernel.org>,  Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou
+ <aou@eecs.berkeley.edu>,  Alexandre Ghiti <alex@ghiti.fr>,  Jonathan
+ Corbet <corbet@lwn.net>,  Conor Dooley <conor@kernel.org>,  Mingcong Bai
+ <jeffbai@aosc.io>,  Han Gao <rabenda.cn@gmail.com>,  Vivian Wang
+ <wangruikang@iscas.ac.cn>,  Jason Montleon <jmontleo@redhat.com>,
+  linux-kbuild@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  rust-for-linux@vger.kernel.org,  llvm@lists.linux.dev,
+  linux-riscv@lists.infradead.org,  linux-doc@vger.kernel.org
+Subject: Re: [PATCH v6 4/4] RISC-V: handle extension configs for bindgen,
+ re-enable gcc + rust builds
+In-Reply-To: <20251230-gcc-rust-v5-v6-4-2ac86ba728c8@isrc.iscas.ac.cn>
+References: <20251230-gcc-rust-v5-v6-0-2ac86ba728c8@isrc.iscas.ac.cn>
+	<20251230-gcc-rust-v5-v6-4-2ac86ba728c8@isrc.iscas.ac.cn>
+Date: Thu, 29 Jan 2026 13:49:56 +0000
+Message-ID: <87v7gk8r5x.fsf@posteo.net>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260127194648.GA368841@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_054957_352093_C3BB960F 
-X-CRM114-Status: GOOD (  22.20  )
+X-CRM114-CacheID: sfid-20260129_055003_924911_03A25E70 
+X-CRM114-Status: GOOD (  25.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,53 +84,243 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKYW4gMjcsIDIwMjYgYXQgMDE6NDY6NDhQTSAtMDYwMCwgQmpvcm4gSGVsZ2FhcyB3
-cm90ZToKPiBPbiBUdWUsIEphbiAyNywgMjAyNiBhdCAwNjo1MDoyNFBNICswMTAwLCBSYWZhZWwg
-Si4gV3lzb2NraSB3cm90ZToKPiA+IE9uIFR1ZSwgSmFuIDI3LCAyMDI2IGF0IDY6MjbigK9QTSBC
-am9ybiBIZWxnYWFzIDxoZWxnYWFzQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4gPiBPbiBUdWUsIEph
-biAyNywgMjAyNiBhdCAwNDowMDo0OVBNICswMTAwLCBSYWZhZWwgSi4gV3lzb2NraSB3cm90ZToK
-PiA+ID4gPiBPbiBNb24sIEphbiAxMiwgMjAyNiBhdCAzOjE34oCvUE0gaHV5dXllIDxodXl1eWU4
-MTJAMTYzLmNvbT4gd3JvdGU6Cj4gPiA+ID4gPgpbLi4uXQoKPiA+IE5vdCByZWFsbHkuCj4gPiAK
-PiA+IGFjcGlfZGV2X2NsZWFyX2RlcGVuZGVuY2llcygpIGlzIHJlbGF0ZWQgdG8gdGhlIHdheSBM
-aW51eCB1c2VzIF9ERVAKPiA+IHdoaWNoIGlzIHRvIGRlZmVyIHRoZSBlbnVtZXJhdGlvbiBvZiBk
-ZXBlbmRlbnQgZGV2aWNlcyB1bnRpbCB0aGUKPiA+IGRldmljZXMgdGhleSBkZXBlbmQgb24gYXJl
-IHJlYWR5Lgo+ID4gCj4gPiBTbyBieSBjYWxsaW5nIGFjcGlfZGV2X2NsZWFyX2RlcGVuZGVuY2ll
-cygpIHRoZSBkcml2ZXIgYmFzaWNhbGx5Cj4gPiBhbGxvd3Mgb3RoZXIgZHJpdmVycyB0byBiaW5k
-IHRvIGRldmljZXMuCj4gCj4gSSBhc3N1bWVkIHRoZSBkZXBlbmRlbmN5IGV4cHJlc3NlZCBieSBf
-REVQIHdvdWxkIGJlIHNhdGlzZmllZCBieSB0aGUKPiBleGVjdXRpb24gb2Ygc29tZSBvdGhlciBB
-Q1BJIG1ldGhvZC4gIEUuZy4sIHRoZSBkZXBlbmRlbmN5IG1pZ2h0IGJlCj4gc2F0aXNmaWVkIHdo
-ZW4gYSBfUkVHIG1ldGhvZCBtYWtlcyBhbiBvcHJlZ2lvbiBhdmFpbGFibGUgKGFsdGhvdWdoIHRo
-ZQo+IHNwZWMgc2VlbXMgdG8gc3VnZ2VzdCB0aGF0J3Mgb25seSBvbmUgb2YgdGhlIHBvc3NpYmxl
-IGRlcGVuZGVuY2llcykuCj4gCj4gQnV0IGluIHRoaXMgY2FzZSBpdCBzb3VuZHMgbGlrZSBSSVND
-LVYgaXMgdXNpbmcgX0RFUCBub3QgYmVjYXVzZSBvZgo+IGFueSBBQ1BJLXJlbGF0ZWQgb3JkZXJp
-bmcgcmVxdWlyZW1lbnQsIGJ1dCBzaW1wbHkgdG8gZW5mb3JjZSB0aGUgT1MKPiBlbnVtZXJhdGlv
-biBvcmRlciAoYW5kIHRoZXJlZm9yZSBuYW1pbmcpLiAgSSBndWVzcyB0aGlzIHJlZmVycyB0byBQ
-Q0kKPiBkZXZpY2UgbmFtaW5nLCBzbyBJIHN1cHBvc2UgdGhhdCBkZXBlbmRlbmN5IGlzIG9uCj4g
-cGNpX2FjcGlfc2Nhbl9yb290KCkuCj4gClJpZ2h0LiBEZXZpY2VzIHRoYXQgdXNlIHdpcmVkIGlu
-dGVycnVwdHMgKG9yIEdTSXMpIGRlcGVuZCBvbiB0aGUgQVBMSUMKaW50ZXJydXB0IGNvbnRyb2xs
-ZXIgYmVpbmcgcHJvYmVkIGZpcnN0LiBBQ1BJIHVzZXMgdGhlIF9ERVAgbWVjaGFuaXNtIHRvCmVu
-Zm9yY2UgdGhpcyBwcm9iZSBvcmRlci4gSG93ZXZlciwgd2hlbiBtdWx0aXBsZSBkZXBlbmRlbnQg
-UENJIGJyaWRnZXMKYXJlIHByZXNlbnQgaW4gdGhlIHN5c3RlbSwgdGhlcmUgaXMgbm8gZ3VhcmFu
-dGVlIHRoYXQgdGhleSB3aWxsIGJlCnByb2JlZCBpbiB0aGUgc2FtZSBvcmRlciBvbiBldmVyeSBy
-ZWJvb3QuIFRoaXMgcGF0Y2ggYWRkcmVzc2VzIHRoZSBpc3N1ZQpieSBhZGRpbmcgX0RFUCByZWxh
-dGlvbnNoaXBzIGJldHdlZW4gdGhlIFBDSSBicmlkZ2Ugbm9kZXMgaW4gdGhlCnBsYXRmb3JtLCBl
-bnN1cmluZyB0aGF0IHRoZXkgYXJlIGFsd2F5cyBwcm9iZWQgaW4gYSBkZXRlcm1pbmlzdGljCm9y
-ZGVyLgoKPiBJIHRob3VnaHQgdWRldiB3YXMgc3VwcG9zZWQgdG8gYmUgdGhlIHJlYWwgc29sdXRp
-b24gZm9yIGNvbnNpc3RlbnQKPiBuYW1pbmcuICBJcyB0aGlzIHNvcnQgb2YgYSB3b3JrYXJvdW5k
-IHRvIGFjY29tcGxpc2ggdGhlIHNhbWUgZW5kPwo+ClllcywgTWFyYyBoYWQgc3VnZ2VzdGVkIHRo
-aXMgYXMgd2VsbCwgYnV0IGl0IGxvb2tzIGxpa2UgaXTigJlzIG5vdCBlYXN5IHRvCnVzZSBpbiB0
-aGlzIGVudmlyb25tZW50IFsxXS4KCj4gSW4gYW55IGNhc2UsIHlvdXIgSVNfRU5BQkxFRChDT05G
-SUdfUklTQ1YpIHByb3Bvc2FsIHNlZW1zIGZpbmUgdG8gbWUuCj4gSSB0aGluayBpdCdzIG5pY2Ug
-aWYgd2UgY2FuIGF2b2lkIGFkZGluZyBhbm90aGVyIF9fd2VhayBmdW5jdGlvbi4KPiAKSSBhZ3Jl
-ZS4gQnV0IEkgYW0gbm90IHN1cmUgaWYgQVJNIGFsc28gY2FuIGdldCBpbnRvIHRoaXMgc2l0dWF0
-aW9uIHdpdGgKR0lDdjUuIEFkZGluZyBMb3JlbnpvLgoKWzFdIC0gaHR0cHM6Ly9sb3JlLmtlcm5l
-bC5vcmcvbGludXgtcmlzY3YvMjAyNTExMjYxNjE1NDAuNjQ2MC0xLW5pX2xpcWlhbmdAMTI2LmNv
-bS8KClRoYW5rcywKU3VuaWwKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+Asuna Yang <xinrui.riscv@isrc.iscas.ac.cn> writes:
+
+> Commit 33549fcf37ec ("RISC-V: disallow gcc + rust builds") disabled GCC
+> + Rust builds for RISC-V due to differences in extension handling
+> compared to LLVM. This commit enables GCC + Rust builds again.
+>
+> Add `bindgen-option` conditions for the availability of libclang to the
+> RISC-V extension Kconfig symbols that depend on the `cc-option`
+> function.
+>
+> For Zicsr/Zifencei special handling, since LLVM/Clang always enables
+> these two extensions, either don't pass them to `-march`, or pass them
+> explicitly and Rust bindgen libclang must recognize them.
+>
+> Clang does not support `-mno-riscv-attribute` flag, filter it out to
+> resolve error: unknown argument: '-mno-riscv-attribute'.
+>
+> Define `BINDGEN_TARGET_riscv` to pass the target triplet to Rust bindgen
+> libclang for RISC-V to resolve error: unsupported argument 'medany' to
+> option '-mcmodel=' for target 'unknown'.
+>
+> Update the documentation, GCC + Rust builds for RISC-V are now
+> maintained.
+>
+> Acked-by: Miguel Ojeda <ojeda@kernel.org>
+> Signed-off-by: Asuna Yang <xinrui.riscv@isrc.iscas.ac.cn>
+> ---
+>  Documentation/rust/arch-support.rst |  2 +-
+>  arch/riscv/Kconfig                  | 35 ++++++++++++++++++++++++++++++++++-
+>  rust/Makefile                       |  3 ++-
+>  scripts/Makefile.rust               |  1 +
+>  4 files changed, 38 insertions(+), 3 deletions(-)
+>
+> diff --git a/Documentation/rust/arch-support.rst b/Documentation/rust/arch-support.rst
+> index 6e6a515d0899..5282e0e174e8 100644
+> --- a/Documentation/rust/arch-support.rst
+> +++ b/Documentation/rust/arch-support.rst
+> @@ -18,7 +18,7 @@ Architecture   Level of support  Constraints
+>  ``arm``        Maintained        ARMv7 Little Endian only.
+>  ``arm64``      Maintained        Little Endian only.
+>  ``loongarch``  Maintained        \-
+> -``riscv``      Maintained        ``riscv64`` and LLVM/Clang only.
+> +``riscv``      Maintained        ``riscv64`` only.
+>  ``um``         Maintained        \-
+>  ``x86``        Maintained        ``x86_64`` only.
+>  =============  ================  ==============================================
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 6b39f37f769a..c869ee07117e 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -195,7 +195,7 @@ config RISCV
+>  	select HAVE_REGS_AND_STACK_ACCESS_API
+>  	select HAVE_RETHOOK if !XIP_KERNEL
+>  	select HAVE_RSEQ
+> -	select HAVE_RUST if RUSTC_SUPPORTS_RISCV && CC_IS_CLANG
+> +	select HAVE_RUST if RUSTC_SUPPORTS_RISCV && TOOLCHAIN_MATCHES_ZICSR_ZIFENCEI
+>  	select HAVE_SAMPLE_FTRACE_DIRECT
+>  	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
+>  	select HAVE_STACKPROTECTOR
+> @@ -619,6 +619,8 @@ config TOOLCHAIN_HAS_V
+>  	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32imv)
+>  	depends on LD_IS_LLD || LD_VERSION >= 23800
+>  	depends on AS_HAS_OPTION_ARCH
+> +	depends on !RUST || !64BIT || $(bindgen-backend-option,-mabi=lp64 -march=rv64imv)
+> +	depends on !RUST || !32BIT || $(bindgen-backend-option,-mabi=ilp32 -march=rv32imv)
+
+Hi Asuna!
+
+I'm under the impression that the `!RUST ||` guard here doesn't
+actually prevent the `$(bindgen-backend-option,...)` call from being
+executed. `$(...)` shell expansions should happen during the textual
+substitution phase, before symbol dependency evaluation occurs, check
+documentation at kconfig-macro-language.rst lines 228-229.
+
+I did this test:
+  $ cat /tmp/fake_bindgen
+    #!/bin/bash
+    echo "[BINDGEN INVOKED] $(date '+%H:%M:%S') args: $@" >> /tmp/bindgen_calls.log
+    # Call real bindgen
+    exec /home/charmitro/.cargo/bin/bindgen "$@"
+
+  $ make ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- BINDGEN=/tmp/fake_bindgen defconfig
+    HOSTCC  scripts/basic/fixdep
+    ...
+  *** Default configuration is based on 'defconfig'
+  #
+  # configuration written to .config
+  #
+
+  $ linux git:(master) rg CONFIG_RUST .config
+  ...
+  283:# CONFIG_RUST is not set
+  ...
+
+  $ cat /tmp/bindgen_calls.log
+  [BINDGEN INVOKED] 15:44:44 args: --version workaround-for-0.69.0
+  [BINDGEN INVOKED] 15:44:44 args: ./scripts/rust_is_available_bindgen_libclang.h
+  [BINDGEN INVOKED] 15:44:44 args: --version workaround-for-0.69.0
+  [BINDGEN INVOKED] 15:44:44 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64imv
+  [BINDGEN INVOKED] 15:44:44 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32imv
+  [BINDGEN INVOKED] 15:44:44 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64ima_zabha
+  [BINDGEN INVOKED] 15:44:44 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32ima_zabha
+  [BINDGEN INVOKED] 15:44:45 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64ima_zacas
+  [BINDGEN INVOKED] 15:44:45 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32ima_zacas
+  [BINDGEN INVOKED] 15:44:45 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64ima_zbb
+  [BINDGEN INVOKED] 15:44:45 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32ima_zbb
+  [BINDGEN INVOKED] 15:44:45 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64ima_zba
+  [BINDGEN INVOKED] 15:44:45 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32ima_zba
+  [BINDGEN INVOKED] 15:44:45 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64ima_zbc
+  [BINDGEN INVOKED] 15:44:46 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32ima_zbc
+  [BINDGEN INVOKED] 15:44:46 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64ima_zbkb
+  [BINDGEN INVOKED] 15:44:46 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32ima_zbkb
+  [BINDGEN INVOKED] 15:44:46 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64ima_zicsr_zifencei
+  [BINDGEN INVOKED] 15:44:46 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32ima_zicsr_zifencei
+
+So, CONFIG_RUST not set, yet bindgen was invoked. Not sure if that is
+intentional though.
+
+
+Cheers,
+C. Mitrodimas
+
+>  
+>  config RISCV_ISA_V
+>  	bool "Vector extension support"
+> @@ -683,6 +685,8 @@ config TOOLCHAIN_HAS_ZABHA
+>  	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zabha)
+>  	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zabha)
+>  	depends on AS_HAS_OPTION_ARCH
+> +	depends on !RUST || !64BIT || $(bindgen-backend-option,-mabi=lp64 -march=rv64ima_zabha)
+> +	depends on !RUST || !32BIT || $(bindgen-backend-option,-mabi=ilp32 -march=rv32ima_zabha)
+>  
+>  config RISCV_ISA_ZABHA
+>  	bool "Zabha extension support for atomic byte/halfword operations"
+> @@ -701,6 +705,8 @@ config TOOLCHAIN_HAS_ZACAS
+>  	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zacas)
+>  	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zacas)
+>  	depends on AS_HAS_OPTION_ARCH
+> +	depends on !RUST || !64BIT || $(bindgen-backend-option,-mabi=lp64 -march=rv64ima_zacas)
+> +	depends on !RUST || !32BIT || $(bindgen-backend-option,-mabi=ilp32 -march=rv32ima_zacas)
+>  
+>  config RISCV_ISA_ZACAS
+>  	bool "Zacas extension support for atomic CAS"
+> @@ -719,6 +725,8 @@ config TOOLCHAIN_HAS_ZBB
+>  	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbb)
+>  	depends on LD_IS_LLD || LD_VERSION >= 23900
+>  	depends on AS_HAS_OPTION_ARCH
+> +	depends on !RUST || !64BIT || $(bindgen-backend-option,-mabi=lp64 -march=rv64ima_zbb)
+> +	depends on !RUST || !32BIT || $(bindgen-backend-option,-mabi=ilp32 -march=rv32ima_zbb)
+>  
+>  # This symbol indicates that the toolchain supports all v1.0 vector crypto
+>  # extensions, including Zvk*, Zvbb, and Zvbc.  LLVM added all of these at once.
+> @@ -734,6 +742,8 @@ config TOOLCHAIN_HAS_ZBA
+>  	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zba)
+>  	depends on LD_IS_LLD || LD_VERSION >= 23900
+>  	depends on AS_HAS_OPTION_ARCH
+> +	depends on !RUST || !64BIT || $(bindgen-backend-option,-mabi=lp64 -march=rv64ima_zba)
+> +	depends on !RUST || !32BIT || $(bindgen-backend-option,-mabi=ilp32 -march=rv32ima_zba)
+>  
+>  config RISCV_ISA_ZBA
+>  	bool "Zba extension support for bit manipulation instructions"
+> @@ -769,6 +779,8 @@ config TOOLCHAIN_HAS_ZBC
+>  	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbc)
+>  	depends on LD_IS_LLD || LD_VERSION >= 23900
+>  	depends on AS_HAS_OPTION_ARCH
+> +	depends on !RUST || !64BIT || $(bindgen-backend-option,-mabi=lp64 -march=rv64ima_zbc)
+> +	depends on !RUST || !32BIT || $(bindgen-backend-option,-mabi=ilp32 -march=rv32ima_zbc)
+>  
+>  config RISCV_ISA_ZBC
+>  	bool "Zbc extension support for carry-less multiplication instructions"
+> @@ -792,6 +804,8 @@ config TOOLCHAIN_HAS_ZBKB
+>  	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbkb)
+>  	depends on LD_IS_LLD || LD_VERSION >= 23900
+>  	depends on AS_HAS_OPTION_ARCH
+> +	depends on !RUST || !64BIT || $(bindgen-backend-option,-mabi=lp64 -march=rv64ima_zbkb)
+> +	depends on !RUST || !32BIT || $(bindgen-backend-option,-mabi=ilp32 -march=rv32ima_zbkb)
+>  
+>  config RISCV_ISA_ZBKB
+>  	bool "Zbkb extension support for bit manipulation instructions"
+> @@ -893,6 +907,25 @@ config TOOLCHAIN_NEEDS_OLD_ISA_SPEC
+>  	  versions of clang and GCC to be passed to GAS, which has the same result
+>  	  as passing zicsr and zifencei to -march.
+>  
+> +config RUST_BINDGEN_HAS_ZICSR_ZIFENCEI
+> +	def_bool y
+> +	depends on !64BIT || $(bindgen-backend-option,-mabi=lp64 -march=rv64ima_zicsr_zifencei)
+> +	depends on !32BIT || $(bindgen-backend-option,-mabi=ilp32 -march=rv32ima_zicsr_zifencei)
+> +
+> +config TOOLCHAIN_MATCHES_ZICSR_ZIFENCEI
+> +	def_bool y
+> +	# https://github.com/llvm/llvm-project/commit/22e199e6afb1263c943c0c0d4498694e15bf8a16
+> +	depends on TOOLCHAIN_NEEDS_OLD_ISA_SPEC || !TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI || RUST_BINDGEN_HAS_ZICSR_ZIFENCEI
+> +	help
+> +	  LLVM/Clang >= 17.0.0 starts recognizing Zicsr/Zifencei in -march, passing
+> +	  them to -march doesn't generate an error anymore, and passing them or not
+> +	  doesn't have any real difference, it still follows ISA before version
+> +	  20190608 - Zicsr/Zifencei are included in base ISA.
+> +
+> +	  The current latest version of LLVM/Clang still does not require explicit
+> +	  Zicsr/Zifencei to enable these two extensions, Clang just accepts them in
+> +	  -march and then silently ignores them.
+> +
+>  config FPU
+>  	bool "FPU support"
+>  	default y
+> diff --git a/rust/Makefile b/rust/Makefile
+> index 37b4205afb70..d8b6a570cb84 100644
+> --- a/rust/Makefile
+> +++ b/rust/Makefile
+> @@ -383,7 +383,8 @@ bindgen_skip_c_flags := -mno-fp-ret-in-387 -mpreferred-stack-boundary=% \
+>  	-fno-inline-functions-called-once -fsanitize=bounds-strict \
+>  	-fstrict-flex-arrays=% -fmin-function-alignment=% \
+>  	-fzero-init-padding-bits=% -mno-fdpic \
+> -	--param=% --param asan-% -fno-isolate-erroneous-paths-dereference
+> +	--param=% --param asan-% -fno-isolate-erroneous-paths-dereference \
+> +	-mno-riscv-attribute
+>  
+>  # Because scripts/Makefile.rust is included regardless of whether Rust is enabled,
+>  # we perform this check here to avoid breaking targets that do not yet support Rust builds.
+> diff --git a/scripts/Makefile.rust b/scripts/Makefile.rust
+> index 5c12b4b8c8b6..bfdad4a0a3ce 100644
+> --- a/scripts/Makefile.rust
+> +++ b/scripts/Makefile.rust
+> @@ -3,6 +3,7 @@ BINDGEN_TARGET_x86	:= x86_64-linux-gnu
+>  BINDGEN_TARGET_arm64	:= aarch64-linux-gnu
+>  BINDGEN_TARGET_arm	:= arm-linux-gnueabi
+>  BINDGEN_TARGET_loongarch	:= loongarch64-linux-gnusf
+> +BINDGEN_TARGET_riscv	:= riscv64-linux-gnu
+>  BINDGEN_TARGET_um	:= $(BINDGEN_TARGET_$(SUBARCH))
+>  BINDGEN_TARGET		:= $(BINDGEN_TARGET_$(SRCARCH))
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
