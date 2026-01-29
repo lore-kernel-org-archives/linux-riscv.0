@@ -4,79 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7698AD358CF
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 07:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80BD9D358C8
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 07:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YMz+/2Wh1ISiBEnAqHO5r9uJhR/VnCN+ractylXXG24=; b=O2FzoYyDk6cdJK
-	knvY0ATU4t490NAhejYBbhC/4lO2ixGSFUr02uhbECu2iPd61rN7DtPRPILkXiqJTb9f1iwinPnwU
-	FCrEL5ELmvmtvyAS6ElA6jNb4gyCPC1UfJfubKqXMwMODCl3z8w5ruu18mjeu4Q93XbLeeqj4UFRM
-	ZzenkZVdHlNhGpnpDleEh2fjhpl+hnJdw7ZLmwXDjunOazPNYnPRXDSiNAIBNbviwOZsg5zUGirYg
-	QPeNnekq8N1uy9abjBY4f61gizt2tfbp5r5B/imghsj7BAsJTAgyFB60hy2k1ues6ORXBGRAzBsBN
-	swATXgax/emupBouB8TQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kUeCtXYBrKYOXz44k4atSvMHJkEzlrBRbjnFucD47M0=; b=aJHaOP/qjgMSyy
+	WmO4zF82bcjaKwmT/MuFCpUZiejtMyQDWz/+QLNZZmVKDWUS1jby5JueqtMcOFIPmB6M77nFKpUii
+	OviEm/rWvQZtfBYEpFHrJmq+jMi4Aqz/6tNHTnRxvob4sdatTwtHNucI6w9fzOCa9EeVyGC9fVBWN
+	MI3qI50QRk0Se+swTdECwDMEfEvy5z5w0KJuHYqVXSGFt3h0xtQn4Sr8HZv2t5XPbbtcdcdnlpd/Z
+	E8QdvoEbISOOjuCoeIOptgxMMjZRbv30oqDmxKtbVlHPHPv7wcqjgZp+1xH5ZY94yzhrFKbjWIYF8
+	MIYCsqHvnyN5C3Y45VCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlM3F-0000000HM8t-3xau;
-	Thu, 29 Jan 2026 07:02:49 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1vlM6l-0000000HMwx-2X05;
+	Thu, 29 Jan 2026 07:06:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlM38-0000000HM3v-2O1q
+	id 1vlM6i-0000000HMwq-376r
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 29 Jan 2026 07:06:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Sender:Reply-To:Content-ID:Content-Description;
+	bh=3vg92+QaCjCV3/Bar3U+6CnYR1oFAyAXYUL9A8jeWm8=; b=JgxjBgM+rNoMp9iDpTQVuELrmC
+	sou/3zkkK+uWYI1Daq85Rl6W7R1jotg5jiYWlDnBYvQB25k5mgju05lJ0HuzT7JK9LaOKITUMAQM2
+	L5dkl84bbG5Lr8mPsv5cNXOCJke1lKtIs3ZPkg9aF238hSXFseb39EXzaYkiaIdSQJZLqvtmKnwJO
+	VCayrukVYkYHtmikRdFvTXE14gYC4tTIbXxTOyMm3OatDTREZ+zugzmIb8R0gCKiC6gOc1W1KJvfR
+	JSZ8Zj9HkU1w/iwkzRmtvBGcDxKwclTflZOWPyPPHyuluBjTDd3Q4A/6W3LlSINYUMsw9fiFJJGNF
+	X42GzG2g==;
+Received: from out-174.mta0.migadu.com ([91.218.175.174])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlM4h-00000009tWu-2nnc
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jan 2026 07:02:44 +0000
-X-UUID: 7d369a46fce011f0b0f03b4cfa9209d1-20260129
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:5e1217de-990d-4401-a1b6-2ed64fb254dd,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:a9d874c,CLOUDID:05035b19a8c59727fa8d6b1a693e1812,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
-	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
-	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 7d369a46fce011f0b0f03b4cfa9209d1-20260129
-X-User: jiangfeng@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1864206166; Thu, 29 Jan 2026 15:02:35 +0800
-From: Feng Jiang <jiangfeng@kylinos.cn>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	akpm@linux-foundation.org,
-	kees@kernel.org,
-	andy@kernel.org,
-	jiangfeng@kylinos.cn,
-	ebiggers@kernel.org,
-	martin.petersen@oracle.com,
-	herbert@gondor.apana.org.au,
-	samuel.holland@sifive.com,
-	ajones@ventanamicro.com,
-	charlie@rivosinc.com,
-	conor.dooley@microchip.com,
-	linus.walleij@linaro.org,
-	nathan@kernel.org
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: [PATCH v6 4/8] lib/string_kunit: add performance benchmark for strlen()
-Date: Thu, 29 Jan 2026 15:02:23 +0800
-Message-Id: <20260129070227.220866-5-jiangfeng@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260129070227.220866-1-jiangfeng@kylinos.cn>
-References: <20260129070227.220866-1-jiangfeng@kylinos.cn>
-MIME-Version: 1.0
+	Thu, 29 Jan 2026 07:06:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1769670247;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3vg92+QaCjCV3/Bar3U+6CnYR1oFAyAXYUL9A8jeWm8=;
+	b=Iob+/9N6mglmQ5CwLaS9ocAUEvMwsKem7aRvOHuqJ5HnZvpj1vwXZDUrnsWiKKeNk39mkq
+	UFbqDvLd2nu/cRKHcmggetWBLn3vX8rXwHqI8Rpjn1DgVQV7NLjb4HAmSLVSB61+LJXKgu
+	aJVVdIpvm/M8OWL50qQK1YgMS9HnhjY=
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
+Subject: Re: [PATCHv5 09/17] mm/sparse: Check memmap alignment for
+ compound_info_has_mask()
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <5AFAE2FC-7274-4A23-AE92-797D5B69AA8B@nvidia.com>
+Date: Thu, 29 Jan 2026 15:03:21 +0800
+Cc: Kiryl Shutsemau <kas@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>,
+ Matthew Wilcox <willy@infradead.org>,
+ Usama Arif <usamaarif642@gmail.com>,
+ Frank van der Linden <fvdl@google.com>,
+ Oscar Salvador <osalvador@suse.de>,
+ Mike Rapoport <rppt@kernel.org>,
+ Vlastimil Babka <vbabka@suse.cz>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Baoquan He <bhe@redhat.com>,
+ Michal Hocko <mhocko@suse.com>,
+ Johannes Weiner <hannes@cmpxchg.org>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>,
+ kernel-team@meta.com,
+ linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org,
+ loongarch@lists.linux.dev,
+ linux-riscv@lists.infradead.org
+Message-Id: <8CDE3AB8-EF51-4D53-A1D2-6084A7613E9A@linux.dev>
+References: <20260128135500.22121-1-kas@kernel.org>
+ <20260128135500.22121-10-kas@kernel.org>
+ <B4674CF0-7534-462B-A761-D9124234BFE4@linux.dev>
+ <3DA11168-5E37-4CE9-9934-CD1CAF3085D6@nvidia.com>
+ <1A08D224-E1AC-4FE5-B1D0-1BAE2D5FF31E@linux.dev>
+ <5AFAE2FC-7274-4A23-AE92-797D5B69AA8B@nvidia.com>
+To: Zi Yan <ziy@nvidia.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_230242_983890_7EA83F89 
-X-CRM114-Status: GOOD (  18.16  )
+X-CRM114-CacheID: sfid-20260129_070421_955514_1083932E 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,256 +108,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce a benchmarking framework to the string_kunit test suite to
-measure the execution efficiency of string functions.
-
-The implementation is inspired by crc_benchmark(), measuring throughput
-(MB/s) and latency (ns/call) across a range of string lengths. It
-includes a warm-up phase, disables preemption during measurement, and
-uses a fixed seed for reproducible results.
-
-This framework allows for comparing different implementations (e.g.,
-generic C vs. architecture-optimized assembly) within the KUnit
-environment.
-
-Initially, provide a benchmark for strlen().
-
-Suggested-by: Andy Shevchenko <andy@kernel.org>
-Suggested-by: Eric Biggers <ebiggers@kernel.org>
-Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
----
- lib/Kconfig.debug        |  11 +++
- lib/tests/string_kunit.c | 160 +++++++++++++++++++++++++++++++++++++++
- 2 files changed, 171 insertions(+)
-
-diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-index ba36939fda79..21b058ae815f 100644
---- a/lib/Kconfig.debug
-+++ b/lib/Kconfig.debug
-@@ -2475,6 +2475,17 @@ config STRING_HELPERS_KUNIT_TEST
- 	depends on KUNIT
- 	default KUNIT_ALL_TESTS
- 
-+config STRING_KUNIT_BENCH
-+       bool "Benchmark string functions at runtime"
-+       depends on STRING_KUNIT_TEST
-+       help
-+         Enable performance measurement for string functions.
-+
-+         This measures the execution efficiency of string functions
-+         during the KUnit test run.
-+
-+         If unsure, say N.
-+
- config FFS_KUNIT_TEST
- 	tristate "KUnit test ffs-family functions at runtime" if !KUNIT_ALL_TESTS
- 	depends on KUNIT
-diff --git a/lib/tests/string_kunit.c b/lib/tests/string_kunit.c
-index f16dfa29e8ce..4636379c6d5c 100644
---- a/lib/tests/string_kunit.c
-+++ b/lib/tests/string_kunit.c
-@@ -6,10 +6,16 @@
- #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
- 
- #include <kunit/test.h>
-+#include <linux/ktime.h>
-+#include <linux/math64.h>
-+#include <linux/minmax.h>
- #include <linux/module.h>
-+#include <linux/prandom.h>
- #include <linux/printk.h>
- #include <linux/slab.h>
- #include <linux/string.h>
-+#include <linux/time64.h>
-+#include <linux/units.h>
- #include <linux/vmalloc.h>
- 
- #define STRCMP_LARGE_BUF_LEN 2048
-@@ -21,6 +27,9 @@
- #define STRING_TEST_MAX_LEN	128
- #define STRING_TEST_MAX_OFFSET	16
- 
-+#define STRING_BENCH_SEED	888
-+#define STRING_BENCH_WORKLOAD	(1 * MEGA)
-+
- static void string_test_memset16(struct kunit *test)
- {
- 	unsigned i, j, k;
-@@ -706,6 +715,156 @@ static void string_test_strends(struct kunit *test)
- 	KUNIT_EXPECT_TRUE(test, strends("", ""));
- }
- 
-+#if IS_ENABLED(CONFIG_STRING_KUNIT_BENCH)
-+/* Target string lengths for benchmarking */
-+static const size_t bench_lens[] = {
-+	0, 1, 7, 8, 16, 31, 64, 127, 512, 1024, 3173, 4096,
-+};
-+
-+/**
-+ * alloc_max_bench_buffer() - Allocate buffer for the max test case.
-+ * @test: KUnit context for managed allocation.
-+ * @lens: Array of lengths used in the benchmark cases.
-+ * @count: Number of elements in the @lens array.
-+ * @buf_len: [out] Pointer to store the actually allocated buffer
-+ * size (including NUL character).
-+ *
-+ * Return: Pointer to the allocated memory, or NULL on failure.
-+ */
-+static void *alloc_max_bench_buffer(struct kunit *test,
-+		const size_t *lens, size_t count, size_t *buf_len)
-+{
-+	size_t max_len = 0;
-+	void *buf;
-+
-+	for (size_t i = 0; i < count; i++)
-+		max_len = max(lens[i], max_len);
-+
-+	/* Add space for NUL character */
-+	max_len += 1;
-+
-+	buf = kunit_kzalloc(test, max_len, GFP_KERNEL);
-+	if (!buf)
-+		return NULL;
-+
-+	if (buf_len)
-+		*buf_len = max_len;
-+
-+	return buf;
-+}
-+
-+/**
-+ * fill_random_string() - Populate a buffer with a random NUL-terminated string.
-+ * @buf: Buffer to fill.
-+ * @len: Length of the buffer in bytes.
-+ *
-+ * Fills the buffer with random non-NUL bytes and ensures the string is
-+ * properly NUL-terminated.
-+ */
-+static void fill_random_string(char *buf, size_t len)
-+{
-+	struct rnd_state state;
-+
-+	if (!buf || !len)
-+		return;
-+
-+	/* Use a fixed seed to ensure deterministic benchmark results */
-+	prandom_seed_state(&state, STRING_BENCH_SEED);
-+	prandom_bytes_state(&state, buf, len);
-+
-+	/* Replace NUL characters to avoid early string termination */
-+	for (size_t i = 0; i < len; i++) {
-+		if (buf[i] == '\0')
-+			buf[i] = 0x01;
-+	}
-+
-+	buf[len - 1] = '\0';
-+}
-+
-+/**
-+ * STRING_BENCH() - Benchmark string functions.
-+ * @iters: Number of iterations to run.
-+ * @func: Function to benchmark.
-+ * @...: Variable arguments passed to @func.
-+ *
-+ * Disables preemption and measures the total time in nanoseconds to execute
-+ * @func(@__VA_ARGS__) for @iters times, including a small warm-up phase.
-+ *
-+ * Context: Disables preemption during measurement.
-+ * Return: Total execution time in nanoseconds (u64).
-+ */
-+#define STRING_BENCH(iters, func, ...)					\
-+({									\
-+	/* Volatile function pointer prevents dead code elimination */	\
-+	typeof(func) (* volatile __func) = (func);			\
-+	size_t __bn_iters = (iters);					\
-+	size_t __bn_warm_iters;						\
-+	u64 __bn_t;							\
-+									\
-+	/* Use 10% of the given iterations (maximum 50) to warm up */	\
-+	__bn_warm_iters = max(__bn_iters / 10, 50U);			\
-+									\
-+	for (size_t __bn_i = 0; __bn_i < __bn_warm_iters; __bn_i++)	\
-+		(void)__func(__VA_ARGS__);				\
-+									\
-+	preempt_disable();						\
-+	__bn_t = ktime_get_ns();					\
-+	for (size_t __bn_i = 0; __bn_i < __bn_iters; __bn_i++)		\
-+		(void)__func(__VA_ARGS__);				\
-+	__bn_t = ktime_get_ns() - __bn_t;				\
-+	preempt_enable();						\
-+	__bn_t;								\
-+})
-+
-+/**
-+ * STRING_BENCH_BUF() - Benchmark harness for single-buffer functions.
-+ * @test: KUnit context.
-+ * @buf_name: Local char * variable name to be defined.
-+ * @buf_size: Local size_t variable name to be defined.
-+ * @func: Function to benchmark.
-+ * @...: Extra arguments for @func.
-+ *
-+ * Prepares a randomized, NUL-terminated buffer and iterates through lengths
-+ * in bench_lens, defining @buf_name and @buf_size in each loop.
-+ */
-+#define STRING_BENCH_BUF(test, buf_name, buf_size, func, ...)		\
-+do {									\
-+	size_t _bn_i, _bn_iters, _bn_size = 0;				\
-+	u64 _bn_t, _bn_mbps = 0, _bn_lat = 0;				\
-+	char *_bn_buf;							\
-+									\
-+	_bn_buf = alloc_max_bench_buffer(test, bench_lens,		\
-+			ARRAY_SIZE(bench_lens), &_bn_size);		\
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, _bn_buf);			\
-+									\
-+	fill_random_string(_bn_buf, _bn_size);				\
-+									\
-+	for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {	\
-+		size_t buf_size = bench_lens[_bn_i];			\
-+		char *buf_name = _bn_buf + _bn_size - buf_size - 1;	\
-+		_bn_iters = STRING_BENCH_WORKLOAD / max(buf_size, 1U);	\
-+									\
-+		_bn_t = STRING_BENCH(_bn_iters, func, ##__VA_ARGS__);	\
-+		if (_bn_t > 0) {					\
-+			_bn_mbps = (u64)(buf_size) * _bn_iters *	\
-+					(NSEC_PER_SEC / MEGA);		\
-+			_bn_mbps = div64_u64(_bn_mbps, _bn_t);		\
-+			_bn_lat = div64_u64(_bn_t, _bn_iters);		\
-+		}							\
-+		kunit_info(test, "len=%zu: %llu MB/s (%llu ns/call)\n",	\
-+				buf_size, _bn_mbps, _bn_lat);		\
-+	}								\
-+} while (0)
-+#else
-+#define STRING_BENCH_BUF(test, buf_name, buf_size, func, ...)		\
-+	kunit_skip(test, "not enabled")
-+#endif /* IS_ENABLED(CONFIG_STRING_KUNIT_BENCH) */
-+
-+static void string_bench_strlen(struct kunit *test)
-+{
-+	STRING_BENCH_BUF(test, buf, len, strlen, buf);
-+}
-+
- static struct kunit_case string_test_cases[] = {
- 	KUNIT_CASE(string_test_memset16),
- 	KUNIT_CASE(string_test_memset32),
-@@ -731,6 +890,7 @@ static struct kunit_case string_test_cases[] = {
- 	KUNIT_CASE(string_test_strtomem),
- 	KUNIT_CASE(string_test_memtostr),
- 	KUNIT_CASE(string_test_strends),
-+	KUNIT_CASE(string_bench_strlen),
- 	{}
- };
- 
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Cgo+IE9uIEphbiAyOSwgMjAyNiwgYXQgMTE6MjksIFppIFlhbiA8eml5QG52aWRpYS5jb20+IHdy
+b3RlOgo+IAo+IE9uIDI4IEphbiAyMDI2LCBhdCAyMjoyMywgTXVjaHVuIFNvbmcgd3JvdGU6Cj4g
+Cj4+PiBPbiBKYW4gMjksIDIwMjYsIGF0IDExOjEwLCBaaSBZYW4gPHppeUBudmlkaWEuY29tPiB3
+cm90ZToKPj4+IAo+Pj4gT24gMjggSmFuIDIwMjYsIGF0IDIyOjAwLCBNdWNodW4gU29uZyB3cm90
+ZToKPj4+IAo+Pj4+PiBPbiBKYW4gMjgsIDIwMjYsIGF0IDIxOjU0LCBLaXJ5bCBTaHV0c2VtYXUg
+PGthc0BrZXJuZWwub3JnPiB3cm90ZToKPj4+Pj4gCj4+Pj4+IElmIHBhZ2UtPmNvbXBvdW5kX2lu
+Zm8gZW5jb2RlcyBhIG1hc2ssIGl0IGlzIGV4cGVjdGVkIHRoYXQgdm1lbW1hcCB0byBiZQo+Pj4+
+PiBuYXR1cmFsbHkgYWxpZ25lZCB0byB0aGUgbWF4aW11bSBmb2xpbyBzaXplLgo+Pj4+PiAKPj4+
+Pj4gVHJpZ2dlciBhIEJVRygpIGZvciBDT05GSUdfREVCVUdfVk09eSBvciBXQVJOKCkgb3RoZXJ3
+aXNlLgo+Pj4+PiAKPj4+Pj4gU2lnbmVkLW9mZi1ieTogS2lyeWwgU2h1dHNlbWF1IDxrYXNAa2Vy
+bmVsLm9yZz4KPj4+Pj4gQWNrZWQtYnk6IFppIFlhbiA8eml5QG52aWRpYS5jb20+Cj4+Pj4+IC0t
+LQo+Pj4+PiBtbS9zcGFyc2UuYyB8IDEzICsrKysrKysrKysrKysKPj4+Pj4gMSBmaWxlIGNoYW5n
+ZWQsIDEzIGluc2VydGlvbnMoKykKPj4+Pj4gCj4+Pj4+IGRpZmYgLS1naXQgYS9tbS9zcGFyc2Uu
+YyBiL21tL3NwYXJzZS5jCj4+Pj4+IGluZGV4IGI1YjJiNmY3MDQxYi4uOWMwZjQwMTU3NzhjIDEw
+MDY0NAo+Pj4+PiAtLS0gYS9tbS9zcGFyc2UuYwo+Pj4+PiArKysgYi9tbS9zcGFyc2UuYwo+Pj4+
+PiBAQCAtNjAwLDYgKzYwMCwxOSBAQCB2b2lkIF9faW5pdCBzcGFyc2VfaW5pdCh2b2lkKQo+Pj4+
+PiBCVUlMRF9CVUdfT04oIWlzX3Bvd2VyX29mXzIoc2l6ZW9mKHN0cnVjdCBtZW1fc2VjdGlvbikp
+KTsKPj4+Pj4gbWVtYmxvY2tzX3ByZXNlbnQoKTsKPj4+Pj4gCj4+Pj4+ICsgIGlmIChjb21wb3Vu
+ZF9pbmZvX2hhc19tYXNrKCkpIHsKPj4+Pj4gKyAgIHVuc2lnbmVkIGxvbmcgYWxpZ25tZW50Owo+
+Pj4+PiArICAgYm9vbCBhbGlnbmVkOwo+Pj4+PiArCj4+Pj4+ICsgICBhbGlnbm1lbnQgPSBNQVhf
+Rk9MSU9fTlJfUEFHRVMgKiBzaXplb2Yoc3RydWN0IHBhZ2UpOwo+Pj4+PiArICAgYWxpZ25lZCA9
+IElTX0FMSUdORUQoKHVuc2lnbmVkIGxvbmcpIHBmbl90b19wYWdlKDApLCBhbGlnbm1lbnQpOwo+
+Pj4+PiArCj4+Pj4+ICsgICBpZiAoSVNfRU5BQkxFRChDT05GSUdfREVCVUdfVk0pKQo+Pj4+PiAr
+ICAgQlVHX09OKCFhbGlnbmVkKTsKPj4+Pj4gKyAgIGVsc2UKPj4+Pj4gKyAgIFdBUk5fT04oIWFs
+aWduZWQpOwo+Pj4+IAo+Pj4+IFNpbmNlIHlvdeKAmXZlIGZpeGVkIGFsbCB0aGUgcHJvYmxlbWF0
+aWMgYXJjaGl0ZWN0dXJlcywgSSBkb27igJl0IGJlbGlldmUKPj4+PiB3ZeKAmWxsIGV2ZXIgaGl0
+IHRoZSBXQVJOIG9yIEJVRyBoZXJlIGFueW1vcmUuCj4+Pj4gCj4+Pj4gSSB0aGluayB3ZSBjYW4g
+bm93IHNpbXBsaWZ5IHRoZSBjb2RlIGZ1cnRoZXIgYW5kIGp1c3QgdXNlIFZNX0JVR19PTjoKPj4+
+PiBpZiBhbnkgYXJjaGl0ZWN0dXJlIGNoYW5nZXMgaW4gdGhlIGZ1dHVyZSwgdGhlIG1pc2FsaWdu
+bWVudCB3aWxsIGJlCj4+Pj4gY2F1Z2h0IGR1cmluZyB0ZXN0aW5nLCBzbyB3ZSB3b27igJl0IG5l
+ZWQgdG8gd29ycnkgYWJvdXQgaXQgYXQgcnVuLXRpbWUuCj4+Pj4gCj4+PiAKPj4+IFZNX1dBUk5f
+T04gc2hvdWxkIGJlIHN1ZmZpY2llbnQsIHNpbmNlIGJvdHMgc2hvdWxkIHJlcG9ydCB3YXJuaW5n
+cwo+Pj4gZnJvbSBhbnkgcGF0Y2gvY2hhbmdlLgo+PiAKPj4gSeKAmW0gbm90IHN1cmUgYSBXQVJO
+IHdpbGwgZ2V0IGRldmVsb3BlcnPigJkgYXR0ZW50aW9uLCBzaW5jZSB0aGUgbWVzc2FnZQo+PiBp
+cyB1bmxpa2VseSB0byBoYXZlIGFueSB2aXNpYmxlIGNvbnNlcXVlbmNlcyBhbmQgb25seSBmaXJl
+cyBvbgo+PiBhbGxvY2F0aW9ucyB3aXRoIGEgc3BlY2lhbCBvcmRlci4KPiAKPiBJZiBhIGRldmVs
+b3BlciBtaXNzZXMgdGhlIFdBUk4gYW5kIHRoZSBwYXRjaCBnZXRzIGludG8gbGludXgtbW0gb3Ig
+bGludXgtbmV4dCwKPiBrZXJuZWwgdGVzdCByb2JvdCBydW5zIHNlbGZ0ZXN0cyBvbiB0aGUga2Vy
+bmVsIGFuZCByZXBvcnRzIGFueSB3YXJuaW5ncwo+IHRvIHRoZSBtYWlsaW5nIGxpc3QuIERvIHdl
+IGhhdmUgYW55IHJlbGF0ZWQgdGVzdCBpbiBzZWxmdGVzdHMvbW0/IFRoYXQgc2hvdWxkCj4gaGVs
+cCB1cyBjYXRjaCBhbnl0aGluZyBpZiBhIGRldmVsb3BlciBkb2VzIG5vdCBjYXRjaCBpdC4KCkkg
+bG9va2VkIGF0IHRoZSBzZWxmdGVzdCBhbmQgaXQgZG9lc27igJl0IHNlZW0gdG8gaGF2ZSBhIHRl
+c3QgdGhhdAphbGxvY2F0ZXMgYXQgTUFYX0ZPTElPX09SREVSIGFuZCBjaGVja3MgdGhhdCBpdCB3
+b3JrcyBjb3JyZWN0bHkuCgo+IAo+IEJlc3QgUmVnYXJkcywKPiBZYW4sIFppCgoKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
