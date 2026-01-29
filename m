@@ -4,71 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C373CD46BF0
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 02:19:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66A7D46C1A
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 02:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u6SWlErJs8xcFaPoHkHCOFbBC8lWa2IXB+y/4S7HL38=; b=lHkHgvw+ITZYQg
-	7b2VxE+CMVXvZAORfjRUsza7I/W5edxo2p0ad5DTPiavWhltJGruSy6Bd4/YJf3rcbJvkA0BF8soi
-	HpBs3NXvun1mvkBx0KHjxqBceHIFh/0R78udOkPLR1NaKUr1qwpxF7qdOPnP20oHHhK0HgprTFokK
-	6ubj+pIRP++eMr4w/eJExNQuyWFnIxwI8zm316OHpcabJubQ9ZuiZt7KuJbOAXCHrY8BiXacxHfwq
-	DLB1v6VfMrD+WoagwfseNXd8p1OTUsZwKgv/o7UIGlJ/wOg8mqZNd+0uLhULckFHl/koUETv+LQ3X
-	fe4Fc50VbNmW/lEw+LBQ==;
+	List-Owner; bh=Qihqax/OVZNGxtCuD8LqBVYiZSBEcSkGw4zrykLOfuo=; b=voFr23tJPJnTYn
+	FBtIyMwNP7JT19Ase8s0tYReobjilYg5ybWrQqdPFdKcziZ0RkrvLDdXcJzTzZ7bb83vSgNZDCJJk
+	tg5FJBN4U7J9FvHlXVYmYEPGSzH3rHGDU6FDW0IdmFhNHZXXmVvr2XtYAdULMSGgEBQNolgMpMZ/F
+	Aif8o2hF1kK0Y2MJpu7rFFbIQHbWtjZ7OPVrrCXrn+NMJJnA17JXDXpK73EBOO5pbpXhvAiS0QeYy
+	4g6N7rGbyNijE/GVkotVKDkjEsPULvpxg2PgHqnOgn0A3PpH1616tKDmqZ0wxvi/q8IfdhjXnZFHN
+	fQBN5g/phGTjbNxSbsTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlHd2-0000000H7SG-01xQ;
-	Thu, 29 Jan 2026 02:19:28 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1vlHwm-0000000H8cc-2UBn;
+	Thu, 29 Jan 2026 02:39:52 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlHcz-0000000H7QF-1zJU
+	id 1vlHwj-0000000H8bB-22Zk
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jan 2026 02:19:27 +0000
-X-UUID: e7990fc2fcb811f0b0f03b4cfa9209d1-20260129
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:f891207d-7053-44ab-a336-3feadf09848e,IP:0,UR
-	L:0,TC:0,Content:2,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:2
-X-CID-META: VersionHash:a9d874c,CLOUDID:93b2c925ebfb35e9375b0a36792dc51a,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:4|15|
-	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: e7990fc2fcb811f0b0f03b4cfa9209d1-20260129
-X-User: jiangfeng@kylinos.cn
-Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 1471132287; Thu, 29 Jan 2026 10:19:13 +0800
-Message-ID: <1792d41f-fa5b-4507-98d4-cb8f671cde96@kylinos.cn>
-Date: Thu, 29 Jan 2026 10:19:10 +0800
+	Thu, 29 Jan 2026 02:39:51 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.235])
+	by APP-03 (Coremail) with SMTP id rQCowADX9t1byHppMtQpBw--.56353S3;
+	Thu, 29 Jan 2026 10:39:29 +0800 (CST)
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>
+Subject: [PATCH v7 1/8] dt-bindings: vendor-prefixes: add verisilicon
+Date: Thu, 29 Jan 2026 10:39:15 +0800
+Message-ID: <20260129023922.1527729-2-zhengxingda@iscas.ac.cn>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260129023922.1527729-1-zhengxingda@iscas.ac.cn>
+References: <20260129023922.1527729-1-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/8] lib/string_kunit: add correctness test for
- strlen()
-To: Kees Cook <kees@kernel.org>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- akpm@linux-foundation.org, andy@kernel.org, ebiggers@kernel.org,
- martin.petersen@oracle.com, sohil.mehta@intel.com, charlie@rivosinc.com,
- conor.dooley@microchip.com, samuel.holland@sifive.com,
- linus.walleij@linaro.org, nathan@kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org, Joel Stanley <joel@jms.id.au>
-References: <20260127012558.40025-1-jiangfeng@kylinos.cn>
- <20260127012558.40025-2-jiangfeng@kylinos.cn>
- <202601281437.F327FC61@keescook>
-Content-Language: en-US
-From: Feng Jiang <jiangfeng@kylinos.cn>
-In-Reply-To: <202601281437.F327FC61@keescook>
+X-CM-TRANSID: rQCowADX9t1byHppMtQpBw--.56353S3
+X-Coremail-Antispam: 1UD129KBjvdXoW7GF47WFWrGrW8GrW5tryxZrb_yoWkuwb_WF
+	s7Cr1Dur45tF1Fvw4jyFs3GryUCw1akr48C3Z0qFWqka4xG39xGF92q3y5Zw17WF4fuas5
+	ArnaqrZrXF1xKjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbkAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGwA2048vs2IY02
+	0Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xv
+	wVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UM2
+	8EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
+	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
+	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
+	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
+	xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
+	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
+	kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY
+	6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42
+	IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIev
+	Ja73UjIFyTuYvjTRMfOzDUUUU
+X-Originating-IP: [112.94.102.235]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_181925_854302_3258DD69 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20260128_183949_880216_4C7F57F1 
+X-CRM114-Status: UNSURE (   6.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,87 +90,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Dmitry Baryshkov <lumag@kernel.org>, Han Gao <gaohan@iscas.ac.cn>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Philipp Zabel <p.zabel@pengutronix.de>, Michal Wilczynski <m.wilczynski@samsung.com>, linux-riscv@lists.infradead.org, Luca Ceresoli <luca.ceresoli@bootlin.com>, Yao Zi <ziyao@disroot.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026/1/29 06:39, Kees Cook wrote:
-> On Tue, Jan 27, 2026 at 09:25:51AM +0800, Feng Jiang wrote:
->> Add a KUnit test for strlen() to verify correctness across
->> different string lengths and memory alignments.
->>
->> Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
->> Acked-by: Andy Shevchenko <andy@kernel.org>
->> Tested-by: Joel Stanley <joel@jms.id.au>
->> ---
->>  lib/tests/string_kunit.c | 26 ++++++++++++++++++++++++++
->>  1 file changed, 26 insertions(+)
->>
->> diff --git a/lib/tests/string_kunit.c b/lib/tests/string_kunit.c
->> index f9a8e557ba77..bc5130c6e5e9 100644
->> --- a/lib/tests/string_kunit.c
->> +++ b/lib/tests/string_kunit.c
->> @@ -17,6 +17,9 @@
->>  #define STRCMP_TEST_EXPECT_LOWER(test, fn, ...) KUNIT_EXPECT_LT(test, fn(__VA_ARGS__), 0)
->>  #define STRCMP_TEST_EXPECT_GREATER(test, fn, ...) KUNIT_EXPECT_GT(test, fn(__VA_ARGS__), 0)
->>  
->> +#define STRING_TEST_MAX_LEN	128
->> +#define STRING_TEST_MAX_OFFSET	16
->> +
->>  static void string_test_memset16(struct kunit *test)
->>  {
->>  	unsigned i, j, k;
->> @@ -104,6 +107,28 @@ static void string_test_memset64(struct kunit *test)
->>  	}
->>  }
->>  
->> +static void string_test_strlen(struct kunit *test)
->> +{
->> +	const size_t buf_size = STRING_TEST_MAX_LEN + STRING_TEST_MAX_OFFSET + 1;
->> +	size_t len, offset;
->> +	char *s;
->> +
->> +	s = kunit_kzalloc(test, buf_size, GFP_KERNEL);
-> 
-> One aspect of "correctness" that we might want to include here is making
-> sure we don't have any implementations that over-read. To that end,
-> perhaps this test can put the string at the end of a vmalloc allocation
-> (so that the end of the string is right up against an unallocated memory
-> space).
-> 
->> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, s);
->> +
->> +	memset(s, 'A', buf_size);
->> +	s[buf_size - 1] = '\0';
->> +
->> +	for (offset = 0; offset < STRING_TEST_MAX_OFFSET; offset++) {
->> +		for (len = 0; len <= STRING_TEST_MAX_LEN; len++) {
->> +			s[offset + len] = '\0';
->> +			KUNIT_EXPECT_EQ_MSG(test, strlen(s + offset), len,
->> +				"offset:%zu len:%zu", offset, len);
->> +			s[offset + len] = 'A';
->> +		}
->> +	}
->> +}
-> 
-> It would require building the string backwards here. Or maybe we just
-> need a separate test for the over-read concerns?
-> 
-> Thoughts?
+From: Icenowy Zheng <uwu@icenowy.me>
 
-Thanks for the suggestion! That is a very effective way to catch potential
-over-reads in optimized implementations.
+VeriSilicon is a Silicon IP vendor, which is the current owner of
+Vivante series video-related IPs and Hantro series video codec IPs.
 
-I will refactor the correctness tests in v6 to use a vmalloc-allocated page
-and ensure the NUL character is positioned at the very end of the allocation
-boundary.
+Add a vendor prefix for this company.
 
-I'll send out the v6 patch set shortly with these changes.
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+No changes since v4.
 
+Changes in v3:
+- Add Rob's ACK.
+
+No changes in v2.
+
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index c7591b2aec2a7..18f931f369198 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1745,6 +1745,8 @@ patternProperties:
+     description: Variscite Ltd.
+   "^vdl,.*":
+     description: Van der Laan b.v.
++  "^verisilicon,.*":
++    description: VeriSilicon Microelectronics (Shanghai) Co., Ltd.
+   "^vertexcom,.*":
+     description: Vertexcom Technologies, Inc.
+   "^via,.*":
 -- 
-With Best Regards,
-Feng Jiang
+2.52.0
 
 
 _______________________________________________
