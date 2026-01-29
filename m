@@ -4,68 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9131D73E83
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 18:16:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52A85D73E88
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 20:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C8kXy7SJ1HCtlnShPPuKlPXmqduS71+BQth0BTaJ23o=; b=yG843qr6mkBDfs
-	AylRYKZ1yqBO4aYip3Wv3SlVIR5aXxkIH52IhMi/S/cwskzNvjslmo8sGrwmHzbMnxn+Up90BowfK
-	Sy98lpuIq0sE8Bj+CUgLh+uH1JT947Dcs7B3rJKEh4/OvXn57Au4HbfSXitcnus/Imu9SQLmaHPCG
-	kz+kOvXXOyPzZP+qj9tzVtlVn04LkwAb2BiiQLIV6M6hJQJrqtmWIygheia52ZnXWAeClOYZB8yf8
-	a1OPs0nh/utnWsS/bVtppu1kYXxOezPLtiolh8WeyZ70ag5Gl7VVODmHybVO5cpiA8RuHKi/RFB94
-	UOczCHmq9YtMU8huiiXQ==;
+	List-Owner; bh=vk7hu7IJGQdoHmPQxNSJu0T/X2bQIdIR/bJ1IOaNwzM=; b=yrF6NcburP36+6
+	GrvkXZISPwfHXjd4JkldFxYDPRoCsO/gX3J4JO9402nSxM6pnDRhk8PP5VgaPvfGv7zmXysKuAuAg
+	gx24BZVwIcoOl6EGSt0PhNycb/j/V5T9mx7XdujM0xegHMutJiNlneNfzsWpmTTq5ZqE8x0BXt9OD
+	5vdSEtEijHQX1oXOr8KUu+UnW27PlBdzHT621Sz8HxTQGBB04xE9sO9JW1WYEVCgDxSYMEqVM0Tgy
+	sL+YjTpbSYotjrWdwbRC+nhWrdm1wAOK3kbG+jF61Zit/TQyD0N/JRJmo5mAOKj+MhYurKhFYHdO4
+	tqM0H9ljWjXMBvQdrIvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlWYq-00000000UtC-2qLq;
-	Thu, 29 Jan 2026 18:16:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vlYns-00000000cwA-2IM1;
+	Thu, 29 Jan 2026 20:39:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlWYo-00000000Usp-2Rrt
+	id 1vlYnq-00000000cw1-1YGh
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jan 2026 18:16:07 +0000
+	Thu, 29 Jan 2026 20:39:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8D3D443E42;
-	Thu, 29 Jan 2026 18:16:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43245C4CEF7;
-	Thu, 29 Jan 2026 18:16:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 559FA6001A;
+	Thu, 29 Jan 2026 20:39:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3817C4CEF7;
+	Thu, 29 Jan 2026 20:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769710565;
-	bh=4DXQDhnPotjP+UKYn76hb5JpjbepnP01qbt9I5JvauM=;
+	s=k20201202; t=1769719185;
+	bh=I2XKr5np989B+pWFOlR34GmPzvPNXdc/qQeX07JQAkg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=anB/Q/jbZNTJ+9hs9D5Hw+dbM8AF5A3/ahakg8HQK18cyX/ISdqRhjY56JdPSE7d8
-	 z8tmnFZPr1sOAa1Ix1pEzt4IqsJTXA/fW9jB93ccEDojQbtc9RcO1XjAb2u834CE3v
-	 5poZvGKmQkuXFZk+aS1Orib65norHrWzF3VK3ftyvc7vyoAEms/J9y1SEqcH8Fukw1
-	 q/SrjR39Nvs/kxSKqmsQ5G3/6v2eZCIvSasGpVNMrL2BEa4/j5Btil28GUX/FzmMgy
-	 bOffYtIGplJtqaHSlIZfGmWuYL8PcuG7lW93PU9hUdhQZrre1Z9uyL9blb1HHgiwmF
-	 XgYMm5DwoUUrA==
-Date: Thu, 29 Jan 2026 12:16:04 -0600
-From: Rob Herring <robh@kernel.org>
-To: Guodong Xu <guodong@riscstar.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Yixun Lan <dlan@gentoo.org>, Alex Elder <elder@riscstar.com>,
-	Lee Jones <lee@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 2/4] dt-bindings: mfd: spacemit,p1: Add individual
- regulator supply properties
-Message-ID: <20260129181604.GA1398997-robh@kernel.org>
-References: <20260124-spacemit-p1-v2-0-2c86b06694ba@riscstar.com>
- <20260124-spacemit-p1-v2-2-2c86b06694ba@riscstar.com>
+	b=qSxkpHzVhlw/obTzm96L8FCd6Zg9xmzhDvsreuCMrdLsgY/ZcwoYANS2tptv1zvWR
+	 pgejeVocfZabblUdomu7lQwIDh8PvyDSmJ9yOmKuBYHENGntFnsl43n5xPY0qsSSuW
+	 5ebzDeh8rB5hOZImkhBCuCBnVvcUuy1TgJpt6SMd/VIEWAI9B/u5QT7amtqdVK0cc/
+	 ER827WoQndLGDifnxbVNycXjVmJh3tBklh2jtWYdk6LKvZa4lqPwy9jfprBQ9R07Km
+	 YcGsjwYk7D59M+rxNAy330W81ifS0gzk66xHwSYOqwb954LGAw4Jv2+3cwMQMSSctU
+	 jd+aYK6/cJiGA==
+Date: Thu, 29 Jan 2026 12:39:43 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Subject: Re: [PATCH v7 6/8] riscv: dts: thead: add DPU and HDMI device tree
+ nodes
+Message-ID: <aXvFj22hB14TRDFk@x1>
+References: <20260129023922.1527729-1-zhengxingda@iscas.ac.cn>
+ <20260129023922.1527729-7-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260124-spacemit-p1-v2-2-2c86b06694ba@riscstar.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_101606_642622_E0A86C38 
-X-CRM114-Status: GOOD (  12.25  )
+In-Reply-To: <20260129023922.1527729-7-zhengxingda@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,35 +64,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: dri-devel@lists.freedesktop.org, Guo Ren <guoren@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Robert Foss <rfoss@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Michal Wilczynski <m.wilczynski@samsung.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>, Jonas Karlman <jonas@kwiboo.se>, Han Gao <gaohan@iscas.ac.cn>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Dmitry Baryshkov <lumag@kernel.org>, linux-kernel@vger.kernel.org, Thomas Zimmermann <tzimmermann@suse.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 24, 2026 at 08:20:17AM +0800, Guodong Xu wrote:
-> Add supply properties that match the P1 PMIC's actual hardware topology
-> where each buck converter has its own VIN pin and LDO groups share
-> common input pins. Supply names are defined according to the pinout
-> names in the P1 datasheet.
+On Thu, Jan 29, 2026 at 10:39:20AM +0800, Icenowy Zheng wrote:
+> From: Icenowy Zheng <uwu@icenowy.me>
 > 
-> This allows different boards to describe their actual power tree
-> connections in devicetree rather than hardcoding supply relationships
-> in the driver.
-
-You are breaking both forward and backwards compatibility changing both 
-the dts and the driver. If that is fine to do, then explicitly say so. 
-
-A secondary issue is the binding and dts go via differ trees and we end 
-up with intermittent warnings.
-
+> T-Head TH1520 SoC contains a Verisilicon DC8200 display controller
+> (called DPU in manual) and a Synopsys DesignWare HDMI TX controller.
 > 
-> Signed-off-by: Guodong Xu <guodong@riscstar.com>
+> Add device tree nodes to them.
+> 
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> Tested-by: Han Gao <gaohan@iscas.ac.cn>
+> Tested-by: Michal Wilczynski <m.wilczynski@samsung.com>
 > ---
-> v2: Remove providers from the dts example.
->     Pass the 'make dt_binding_check' test.
-> ---
->  .../devicetree/bindings/mfd/spacemit,p1.yaml       | 49 +++++++++++++++++++++-
->  1 file changed, 47 insertions(+), 2 deletions(-)
+> No changes since v4.
+> 
+> Changes in v3:
+> - Adapting to the changed binding.
+> 
+> No changes in v2.
+> 
+>  arch/riscv/boot/dts/thead/th1520.dtsi | 66 +++++++++++++++++++++++++++
+>  1 file changed, 66 insertions(+)
+
+Reviewed-by: Drew Fustini <fustini@kernel.org>
+
+I will create a pull request for the DTS patches if Thomas applies the
+bindings and driver patches.
+
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
