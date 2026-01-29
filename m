@@ -4,80 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB4F9D46BF0
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 01:57:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C373CD46BF0
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 02:19:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QuEQ25YfCy0GDmCF9jy0gOKp7F8ctoMBHCi1v4LKsMw=; b=gZ9Wxg0gzPQG6p
-	LO2xvYxcVwUtUQpHwPGnUItLvP6DYdCjWVhDlhJ6zE4y3vtPjeGGCK5PkkuMoCA4NwDq+u6R4+CP1
-	lQ8VDBYaizZjNckUywmzcuLtI+QgKTZ1jtJqidqjT2rVNHweanZfy8dx8/11fLoukw4jiMd97bJdX
-	oClFFpfSAJpnSgonCmRmP9Z75MiTcnti4HWjKOJu0KDPkqAkJZ6U8MD98gpoFvEVwVuHrVmQObE7d
-	EtYiBC107fu5LBQjgMF6aH/hBlLvL6F5wwwDUXaRPDONaDmJKi21FagumvoMhRTGdUG+p1AFEbgxv
-	yd55m24X1Kyxcsqvhcgw==;
+	List-Owner; bh=u6SWlErJs8xcFaPoHkHCOFbBC8lWa2IXB+y/4S7HL38=; b=lHkHgvw+ITZYQg
+	7b2VxE+CMVXvZAORfjRUsza7I/W5edxo2p0ad5DTPiavWhltJGruSy6Bd4/YJf3rcbJvkA0BF8soi
+	HpBs3NXvun1mvkBx0KHjxqBceHIFh/0R78udOkPLR1NaKUr1qwpxF7qdOPnP20oHHhK0HgprTFokK
+	6ubj+pIRP++eMr4w/eJExNQuyWFnIxwI8zm316OHpcabJubQ9ZuiZt7KuJbOAXCHrY8BiXacxHfwq
+	DLB1v6VfMrD+WoagwfseNXd8p1OTUsZwKgv/o7UIGlJ/wOg8mqZNd+0uLhULckFHl/koUETv+LQ3X
+	fe4Fc50VbNmW/lEw+LBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlHGz-0000000H57H-2WrO;
-	Thu, 29 Jan 2026 01:56:41 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1vlHd2-0000000H7SG-01xQ;
+	Thu, 29 Jan 2026 02:19:28 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlHGv-0000000H55W-1O5e
+	id 1vlHcz-0000000H7QF-1zJU
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jan 2026 01:56:39 +0000
-Received: from [127.0.0.2] (unknown [210.73.43.101])
-	by APP-05 (Coremail) with SMTP id zQCowAAntwpDvnpps5z0Bg--.39391S5;
-	Thu, 29 Jan 2026 09:56:20 +0800 (CST)
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Thu, 29 Jan 2026 09:56:08 +0800
-Subject: [PATCH v4 3/4] drm/radeon: Raise msi_addr_mask to dma_bits
+	Thu, 29 Jan 2026 02:19:27 +0000
+X-UUID: e7990fc2fcb811f0b0f03b4cfa9209d1-20260129
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:f891207d-7053-44ab-a336-3feadf09848e,IP:0,UR
+	L:0,TC:0,Content:2,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:2
+X-CID-META: VersionHash:a9d874c,CLOUDID:93b2c925ebfb35e9375b0a36792dc51a,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:4|15|
+	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: e7990fc2fcb811f0b0f03b4cfa9209d1-20260129
+X-User: jiangfeng@kylinos.cn
+Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <jiangfeng@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 1471132287; Thu, 29 Jan 2026 10:19:13 +0800
+Message-ID: <1792d41f-fa5b-4507-98d4-cb8f671cde96@kylinos.cn>
+Date: Thu, 29 Jan 2026 10:19:10 +0800
 MIME-Version: 1.0
-Message-Id: <20260129-pci-msi-addr-mask-v4-3-70da998f2750@iscas.ac.cn>
-References: <20260129-pci-msi-addr-mask-v4-0-70da998f2750@iscas.ac.cn>
-In-Reply-To: <20260129-pci-msi-addr-mask-v4-0-70da998f2750@iscas.ac.cn>
-To: Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- Alex Deucher <alexander.deucher@amd.com>, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Bjorn Helgaas <bhelgaas@google.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Brett Creeley <brett.creeley@amd.com>
-Cc: Han Gao <gaohan@iscas.ac.cn>, Vivian Wang <wangruikang@iscas.ac.cn>, 
- Thomas Gleixner <tglx@kernel.org>, linuxppc-dev@lists.ozlabs.org, 
- linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org, 
- dri-devel@lists.freedesktop.org, netdev@vger.kernel.org, 
- linux-pci@vger.kernel.org, linux-sound@vger.kernel.org, 
- linux-riscv@lists.infradead.org, sophgo@lists.linux.dev
-X-Mailer: b4 0.14.3
-X-CM-TRANSID: zQCowAAntwpDvnpps5z0Bg--.39391S5
-X-Coremail-Antispam: 1UD129KBjvJXoW7tF4kJF1UWF4fAr15JrWfuFg_yoW8Zw1kpF
-	43GFZxtr9Iy3WUKa9Fkay7ZF15Aa1FkayfXr4DG39I9a4YyryUCry3Zw43J34kXr1kXr42
-	qr18G3y5uF1FvF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQY14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr1j6rxd
-	M2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjx
-	v20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1l
-	F7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2
-	IY04v7MxkF7I0En4kS14v26r4a6rW5MxkIecxEwVAFwVWkMxAIw28IcxkI7VAKI48JMxC2
-	0s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI
-	0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE
-	14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI
-	8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v2
-	6r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7sRRiF4JUUUUU==
-X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/8] lib/string_kunit: add correctness test for
+ strlen()
+To: Kees Cook <kees@kernel.org>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ akpm@linux-foundation.org, andy@kernel.org, ebiggers@kernel.org,
+ martin.petersen@oracle.com, sohil.mehta@intel.com, charlie@rivosinc.com,
+ conor.dooley@microchip.com, samuel.holland@sifive.com,
+ linus.walleij@linaro.org, nathan@kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org, Joel Stanley <joel@jms.id.au>
+References: <20260127012558.40025-1-jiangfeng@kylinos.cn>
+ <20260127012558.40025-2-jiangfeng@kylinos.cn>
+ <202601281437.F327FC61@keescook>
+Content-Language: en-US
+From: Feng Jiang <jiangfeng@kylinos.cn>
+In-Reply-To: <202601281437.F327FC61@keescook>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_175637_748859_0294B3AE 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20260128_181925_854302_3258DD69 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,60 +85,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The code was originally written using no_64bit_msi, which restricts the
-device to 32-bit MSI addresses.
+On 2026/1/29 06:39, Kees Cook wrote:
+> On Tue, Jan 27, 2026 at 09:25:51AM +0800, Feng Jiang wrote:
+>> Add a KUnit test for strlen() to verify correctness across
+>> different string lengths and memory alignments.
+>>
+>> Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
+>> Acked-by: Andy Shevchenko <andy@kernel.org>
+>> Tested-by: Joel Stanley <joel@jms.id.au>
+>> ---
+>>  lib/tests/string_kunit.c | 26 ++++++++++++++++++++++++++
+>>  1 file changed, 26 insertions(+)
+>>
+>> diff --git a/lib/tests/string_kunit.c b/lib/tests/string_kunit.c
+>> index f9a8e557ba77..bc5130c6e5e9 100644
+>> --- a/lib/tests/string_kunit.c
+>> +++ b/lib/tests/string_kunit.c
+>> @@ -17,6 +17,9 @@
+>>  #define STRCMP_TEST_EXPECT_LOWER(test, fn, ...) KUNIT_EXPECT_LT(test, fn(__VA_ARGS__), 0)
+>>  #define STRCMP_TEST_EXPECT_GREATER(test, fn, ...) KUNIT_EXPECT_GT(test, fn(__VA_ARGS__), 0)
+>>  
+>> +#define STRING_TEST_MAX_LEN	128
+>> +#define STRING_TEST_MAX_OFFSET	16
+>> +
+>>  static void string_test_memset16(struct kunit *test)
+>>  {
+>>  	unsigned i, j, k;
+>> @@ -104,6 +107,28 @@ static void string_test_memset64(struct kunit *test)
+>>  	}
+>>  }
+>>  
+>> +static void string_test_strlen(struct kunit *test)
+>> +{
+>> +	const size_t buf_size = STRING_TEST_MAX_LEN + STRING_TEST_MAX_OFFSET + 1;
+>> +	size_t len, offset;
+>> +	char *s;
+>> +
+>> +	s = kunit_kzalloc(test, buf_size, GFP_KERNEL);
+> 
+> One aspect of "correctness" that we might want to include here is making
+> sure we don't have any implementations that over-read. To that end,
+> perhaps this test can put the string at the end of a vmalloc allocation
+> (so that the end of the string is right up against an unallocated memory
+> space).
+> 
+>> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, s);
+>> +
+>> +	memset(s, 'A', buf_size);
+>> +	s[buf_size - 1] = '\0';
+>> +
+>> +	for (offset = 0; offset < STRING_TEST_MAX_OFFSET; offset++) {
+>> +		for (len = 0; len <= STRING_TEST_MAX_LEN; len++) {
+>> +			s[offset + len] = '\0';
+>> +			KUNIT_EXPECT_EQ_MSG(test, strlen(s + offset), len,
+>> +				"offset:%zu len:%zu", offset, len);
+>> +			s[offset + len] = 'A';
+>> +		}
+>> +	}
+>> +}
+> 
+> It would require building the string backwards here. Or maybe we just
+> need a separate test for the over-read concerns?
+> 
+> Thoughts?
 
-Since msi_addr_mask is introduced, use DMA_BIT_MASK(dma_bits) instead of
-DMA_BIT_MASK(32) here for msi_addr_mask, describing the restriction more
-precisely and allowing these devices to work on platforms with MSI
-doorbell address above the 32-bit limit, as long as it is within the
-hardware's addressable range.
+Thanks for the suggestion! That is a very effective way to catch potential
+over-reads in optimized implementations.
 
-Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+I will refactor the correctness tests in v6 to use a vmalloc-allocated page
+and ensure the NUL character is positioned at the very end of the allocation
+boundary.
 
----
-v4: Patch message rewording for more consistency
----
- drivers/gpu/drm/radeon/radeon_device.c  |  1 +
- drivers/gpu/drm/radeon/radeon_irq_kms.c | 10 ----------
- 2 files changed, 1 insertion(+), 10 deletions(-)
-
-diff --git a/drivers/gpu/drm/radeon/radeon_device.c b/drivers/gpu/drm/radeon/radeon_device.c
-index 60afaa8e56b4..5faae0361361 100644
---- a/drivers/gpu/drm/radeon/radeon_device.c
-+++ b/drivers/gpu/drm/radeon/radeon_device.c
-@@ -1374,6 +1374,7 @@ int radeon_device_init(struct radeon_device *rdev,
- 		pr_warn("radeon: No suitable DMA available\n");
- 		return r;
- 	}
-+	rdev->pdev->msi_addr_mask = DMA_BIT_MASK(dma_bits);
- 	rdev->need_swiotlb = drm_need_swiotlb(dma_bits);
- 
- 	/* Registers mapping */
-diff --git a/drivers/gpu/drm/radeon/radeon_irq_kms.c b/drivers/gpu/drm/radeon/radeon_irq_kms.c
-index d550554a6f3f..839d619e5602 100644
---- a/drivers/gpu/drm/radeon/radeon_irq_kms.c
-+++ b/drivers/gpu/drm/radeon/radeon_irq_kms.c
-@@ -245,16 +245,6 @@ static bool radeon_msi_ok(struct radeon_device *rdev)
- 	if (rdev->flags & RADEON_IS_AGP)
- 		return false;
- 
--	/*
--	 * Older chips have a HW limitation, they can only generate 40 bits
--	 * of address for "64-bit" MSIs which breaks on some platforms, notably
--	 * IBM POWER servers, so we limit them
--	 */
--	if (rdev->family < CHIP_BONAIRE) {
--		dev_info(rdev->dev, "radeon: MSI limited to 32-bit\n");
--		rdev->pdev->msi_addr_mask = DMA_BIT_MASK(32);
--	}
--
- 	/* force MSI on */
- 	if (radeon_msi == 1)
- 		return true;
+I'll send out the v6 patch set shortly with these changes.
 
 -- 
-2.52.0
+With Best Regards,
+Feng Jiang
 
 
 _______________________________________________
