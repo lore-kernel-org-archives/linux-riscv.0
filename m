@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 259ECD73E87
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 22:40:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42441D73E87
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 22:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C27+UiFJdnI12EehMwpWpDPn3cXaHCj9MBm5cZbV0Us=; b=XKLxvn7x+mdhbQ
-	THIy7D9y4d6eHVOdA2xBCw4JLjb7h2TAX+vSpgU7O9Pqbn/CM8ci6SYFsxD/Ch5Wuqzu0Nc1HVeEw
-	LaguVYi9o4LCw3Hbj1IVRnAStKCGcOscNCrOF8KvmqgqZGL/xKmAEffli/jNbIO7LJct3Syr+Q66r
-	vUAPv9f8K9PpIt1UtvVutWBDE3VxABNCD8XVAjv8QQLBlN6Z5UvX5zNjbEoXKhpME53WLSQ0QtU1O
-	JN034lJ3zPcdt6gerak/+SpWN7zLugH0lvMM7Km6WpHFVuV+pXgfr1RqJd6LMqxVJeiMQf0nDrzTR
-	HKTWhHG54HKmomiGWM4Q==;
+	List-Owner; bh=yKMMmCcFfGpTMVq5FCgZ3AYmcLuYem7LCaeic1H+fTA=; b=rfD/MCCOABUB1E
+	Po+3JF5tjZKZwDFEkw1TRvv+wEjjGlmTHvOfEXfaHRlbx1tl/prw5GXmlsLDF1CMOPB7yDmwp+zuv
+	Lt0lPqUv4kJgML6hGoNn8nNpcIp52O0qTLeYMLlGcSu5M0pzkig4Uz53tjCoe4fiycnIhDWxxIcGA
+	Du2U0d9AiSOkTxh7tmRNXan/+WxxnZA5VO1rkC1BMrjD5mDuwxMYBjo9iV7JXrx20Yak7PanckvDt
+	5y2N4oR7an9e9wzcggylZfof9tNz/AwkNgEY8m6Z8scC2HEip9HjlDwuxB0tfA1067/nH9cxqh4r7
+	aqCRTpLzl0WZ+RG7qGtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlagq-00000000kad-1IMn;
-	Thu, 29 Jan 2026 22:40:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vlahd-00000000kkc-2pkJ;
+	Thu, 29 Jan 2026 22:41:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlagp-00000000kZo-05dc
+	id 1vlahb-00000000kjk-3Cfg
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jan 2026 22:40:39 +0000
+	Thu, 29 Jan 2026 22:41:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0F23B60125;
-	Thu, 29 Jan 2026 22:40:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6116CC4CEF7;
-	Thu, 29 Jan 2026 22:40:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 04DBE44377;
+	Thu, 29 Jan 2026 22:41:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84E11C4CEF7;
+	Thu, 29 Jan 2026 22:41:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769726437;
-	bh=xtSi5LDy2VLevngpWtUgTscV+hk8mKNOyyqkZOYAcq8=;
+	s=k20201202; t=1769726486;
+	bh=0Cgvwko1h1R9ooOUPVRWvfyKzy4YXcZJFJeK7aS3gGs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RNnKmAOux33eR/V56A5vvkVt0BxmZNMnOERd/zeSKT/UPl5v7Bym72Ae29UxpcHUn
-	 hTiK/SIDZQbRLl3UTwb9/OQN/i/V2jHbI9XhUKN3xumfO3ybWS54pVEbVWept/2RXw
-	 GOKFdxbTj5thLyQ+ToVj9ZMn+PGZtw6YtQ+1Pno/4tn8LUn1xHcfcw6jjBHzazav5T
-	 48Qaw6CNGolmwaA/CGS+xanT0SNxhWWHaJRnw9NGcc0gO9XvEVu/CXPaQYUFQ0QuXT
-	 GK20nHZz6zVOC8OLDK+TThVdE44HLHC5n80zT7yjH9PGl+GXNriwj6+xcjpAessAtL
-	 fCEmD27SI8E1A==
-Date: Thu, 29 Jan 2026 15:40:29 -0700
+	b=TjQySNhEktK8AivnEQwrXUmQquAClQmbacRI5eShSk3gBiLELRT/J9iUCcCVmtmov
+	 YB0pVrvh9WDq2fXWvXWnd8hR9HOCGciPGhKTN/VzQ0Zybx2wzUuWdoNm1KocMbzzkD
+	 bEUZOkSfqS8eDTPDVAfSp5ezGNY20RrDR/YjnM+R8qKqXxCCV5eFC3perOqeKASXti
+	 axhfmyKuQzFZYNMbMVR5r5bwC0VEsX3yZDnn95lOlLy3j7zzTLLjwd3fAakqOi06is
+	 GuQpGCbwKdsWKY1BS7Rflr521ZyFgiHpZH/FNOiSl4zvqIbZJtUg/Hk0p8pWIixicY
+	 kGEOfRtf2blBg==
+Date: Thu, 29 Jan 2026 15:41:18 -0700
 From: Nathan Chancellor <nathan@kernel.org>
 To: Asuna Yang <xinrui.riscv@isrc.iscas.ac.cn>
 Cc: Nicolas Schier <nsc@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
@@ -64,14 +64,17 @@ Cc: Nicolas Schier <nsc@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
 	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
 	llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
 	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v6 2/4] rust: generate a fatal error if BINDGEN_TARGET is
- undefined
-Message-ID: <20260129224029.GB844102@ax162>
+Subject: Re: [PATCH v6 3/4] rust: add a Kconfig function to test for support
+ of bindgen options
+Message-ID: <20260129224118.GC844102@ax162>
 References: <20251230-gcc-rust-v5-v6-0-2ac86ba728c8@isrc.iscas.ac.cn>
- <20251230-gcc-rust-v5-v6-2-2ac86ba728c8@isrc.iscas.ac.cn>
+ <20251230-gcc-rust-v5-v6-3-2ac86ba728c8@isrc.iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251230-gcc-rust-v5-v6-2-2ac86ba728c8@isrc.iscas.ac.cn>
+In-Reply-To: <20251230-gcc-rust-v5-v6-3-2ac86ba728c8@isrc.iscas.ac.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260129_144127_849500_E995ADCA 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,72 +91,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 30, 2025 at 05:47:55PM +0100, Asuna Yang wrote:
-> Generate a friendly fatal error if the target triplet is undefined for
-> bindgen, rather than having the compiler generate obscure error messages
-> during the build stage.
+On Tue, Dec 30, 2025 at 05:47:56PM +0100, Asuna Yang wrote:
+> Add a new `bindgen-backend-option` Kconfig function to test whether the
+> bindgen backend supports a given flag.
 > 
-> `BINDGEN_TARGET` is actually defined in `scripts/Makefile.rust`, but the
-> file is included regardless of whether Rust is enabled, so perform this
-> check in `rust/Makefile` to avoid breaking targets that do not yet
-> support Rust builds.
+> A subsequent commit will use this function to test for RISC-V extension
+> flags.
 > 
-> This piece of code is copied from `scripts/Makefile.clang`.
-> 
-> Before this commit, error messages might look like:
-> 
-> error: unknown argument: '-mno-riscv-attribute'
-> error: unsupported argument 'medany' to option '-mcmodel=' for target
-> 'unknown'
-> error: unsupported option '-march=' for target ''
-> error: unsupported option '-mno-save-restore' for target ''
-> error: unknown target triple 'unknown'
-> panicked at bindgen/ir/context.rs:562:15:
-> libclang error; possible causes include:
-> - Invalid flag syntax
-> - Unrecognized flags
-> - Invalid flag arguments
-> - File I/O errors
-> - Host vs. target architecture mismatch
-> 
-> Acked-by: Miguel Ojeda <ojeda@kernel.org>
 > Signed-off-by: Asuna Yang <xinrui.riscv@isrc.iscas.ac.cn>
 > ---
->  rust/Makefile | 6 ++++++
->  1 file changed, 6 insertions(+)
+
+Acked-by: Nathan Chancellor <nathan@kernel.org>
+
+>  scripts/Kconfig.include | 5 +++++
+>  1 file changed, 5 insertions(+)
 > 
-> diff --git a/rust/Makefile b/rust/Makefile
-> index 2603b34f9833..37b4205afb70 100644
-> --- a/rust/Makefile
-> +++ b/rust/Makefile
-> @@ -385,6 +385,12 @@ bindgen_skip_c_flags := -mno-fp-ret-in-387 -mpreferred-stack-boundary=% \
->  	-fzero-init-padding-bits=% -mno-fdpic \
->  	--param=% --param asan-% -fno-isolate-erroneous-paths-dereference
->  
-> +# Because scripts/Makefile.rust is included regardless of whether Rust is enabled,
-> +# we perform this check here to avoid breaking targets that do not yet support Rust builds.
-
-This might read a little better if it were
-
-  scripts/Makefile.rust is included ..., so we perform ...
-
-instead of
-
-  Because ..., we perform ...
-
-or at the very least reversing the phrases
-
-  We perform ... because ...
-
-But that could just be personal preference.
-
-> +ifeq ($(BINDGEN_TARGET),)
-> +$(error add '--target=' option to scripts/Makefile.rust)
-> +endif
+> diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
+> index d42042b6c9e2..9954b8093fab 100644
+> --- a/scripts/Kconfig.include
+> +++ b/scripts/Kconfig.include
+> @@ -78,3 +78,8 @@ rustc-llvm-version := $(shell,$(srctree)/scripts/rustc-llvm-version.sh $(RUSTC))
+>  # If you are testing for unstable features, consider testing RUSTC_VERSION
+>  # instead, as features may have different completeness while available.
+>  rustc-option = $(success,trap "rm -rf .tmp_$$" EXIT; mkdir .tmp_$$; $(RUSTC) $(1) --crate-type=rlib /dev/null --out-dir=.tmp_$$ -o .tmp_$$/tmp.rlib)
 > +
->  # All warnings are inhibited since GCC builds are very experimental,
->  # many GCC warnings are not supported by Clang, they may only appear in
->  # some configurations, with new GCC versions, etc.
+> +# $(bindgen-backend-option,<flag>)
+> +# Return y if bindgen backend supports <flag>, n otherwise
+> +# For now, the backend refers only to libclang, so more specifically, this function tests whether the given flag is recognized by the libclang used by bindgen.
+> +bindgen-backend-option = $(success,$(BINDGEN) /dev/null -- -x c --target=$(BINDGEN_TARGET) $(1))
 > 
 > -- 
 > 2.51.1
