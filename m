@@ -4,51 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F09FD46C1D
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jan 2026 23:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A04D7D49C97
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jan 2026 23:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=y4XLCGnqZ5qUEEMvgxvCLva4wDylWzrXvm+zTQAGyFE=; b=AuEQucLpW/A3wt
-	SRGrqQULAVBNX+ao5fVngg5iGNlDWXUtdND+dBHKYEbbbNzhLL425ohgLUu8MBLsvKVfCfh+oHj92
-	AjGwUBSqEauqT0GYlo5/D6P3imNZUTG5tHfPsKGEy42kC/QF9V8WV6CS0Axqk+EUzPnK6melZSMAR
-	9VHN/HtoOdqMV+kwb1EUYFVW2TiAsGLqImoIWWSdzGTrKIeZ4yiLgsRl1Xy8B0+oHVLwpfJZ47zjB
-	jKQCfTDlksNglx9Jmfh7pQGWlZyX1wZNvEP58VBSleJMCMb9HElj7ZknTStqqt3oOaAuWf/K+x5Tl
-	0hrLwAXwR98B5bViF1OA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9e3nIDgE9w1UZIrXW2qZw5ucqC6KfBCnF3A34Z1F7G8=; b=PMitj64bZaytbN
+	jPtFJuwFsa/Ft5JG6D2MU1n3NkR5fjIEfllnRmxKoHeW0bkw84csp036ffhJ2lZcd/1nmHzNw+PIm
+	+hlP8Q7vuJYjM8uMMhb5ZrUqYwF175AurX0yvjhZgQcC9LRoU0xb8GY9ertSzf9dUOCLZWRIf7deL
+	BLrWCLBuX21zbrxgIhR3qORw4SHBXJABnxnV/Gdl1SvWppGoYvQ2D0/QEmKbWnEtbyQ4VCMIuG87b
+	H8G/CeB4iPG9iO9FNErD5eYUwZRziyznelSlJh7FiE2yRKUQmX0KWo8/BtNg0AJTKnvhrTTsyC6cX
+	v+OIIpHcVONgiSZMFhJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlxtc-000000026I8-180p;
-	Fri, 30 Jan 2026 23:27:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vlyAV-000000026zt-3vEe;
+	Fri, 30 Jan 2026 23:44:51 +0000
+Received: from mail-southcentralusazon11012047.outbound.protection.outlook.com ([40.93.195.47] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlxta-000000026I2-0BfY
+	id 1vlyAQ-000000026yc-448S
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jan 2026 23:27:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 203C360008;
-	Fri, 30 Jan 2026 23:27:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96118C4CEF7;
-	Fri, 30 Jan 2026 23:27:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769815640;
-	bh=rsyffoolBOpfsNf+j3mxclg7gYs+0FemeRkWFk/l1HM=;
-	h=Date:From:To:cc:Subject:From;
-	b=g79ImuZhK+2KaX8boCzoBbtK4ZDLx3Npgr9+9406zSJMcKs+lpDOqEThBy3D7zNr6
-	 AH5xMrkHxYJ/HjqRDAhm1xjqFr0MF4FolaeWQLrAiSDjeLI9K3ayyntPSBo7hYRS/B
-	 dMbEePtHmYJ1L8CLezz5Z2KNY6t7zGAScntiW8ayqe6V7b/RALbBK/mgfBLQQ/lxmg
-	 BKeoCwuMDyrsABE34plVj2H/JfHb1nUdXz7L56xHANWolZ9L2XrWlfDYvuBgEd/Me/
-	 bDT0QKWlcBBafv6wyz201BI7Ky2N+TTO9yCi5v5RAu69EbDg84Gz8ti1bG1zPvwYKC
-	 4GYyyVoL1fnGg==
-Date: Fri, 30 Jan 2026 16:27:13 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: torvalds@linux-foundation.org
-cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [GIT PULL] RISC-V updates for v6.19-rc8
-Message-ID: <486c518d-4349-a1ef-25b9-c30abe0008fb@kernel.org>
+	Fri, 30 Jan 2026 23:44:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UtSIUh1rui6ypJ3cM+ai/vd1SBvPHDYQPAYNNXSHaO/AdJbp+MJ7SqCijz3gF6A45w5LEY/tjo9RbacyamuSiStadS01mP1+B7rsgdnIDuZ2typVLrJOmw3ZBLpHI1WiAkyEVDqyHmxb8i2Z1aZPkCnzbZiZD2QThuH0gJY6UPIhxbtVIVVMr9905NETyLcJkOmjzi5dbaCiy/CGY4kC0Uq8Rlyd8tv8SK69jogly40rfGUpjD3PP3RxkN87avFDfPSdQf9lZuCGjptjuXabBqnEBvs1VqknIhotk9dY+BNtor0ZLM3MbvosREQiuyBTP7xjWQwbjsHq9ckjLGBYXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Zt+Xh3O5hT3lqmi+EeDHacGZjCE1M9+1HfF9KHXkJhM=;
+ b=y8BPtitJtxVsjw01xOEHeFBr/7cibR0YOAZIzm9HvKxcvi0OM8JAcoIf4P7Z/3rnv+DeezF2Sf6G5Znb6ADbD0chbIujKD4e78R2v//J4lvbd02jEijlCzXUDXdnl0NqkCEvDDxhexdP9goPyeSEI+IrfnUi67R9iFl102RDD9AHJBryjZcisREtc3iTcw9m7A8V0W9k/9xh7g/HKPnVbdBEXNrbVCE3Q5sIOPyDjc0tzpB8sQRK5LGFFCGHLSD51shFyV4APWZxQnJe8naoEzhQ+zc70BO42tYKgXwun4fhpxXKYauhsVDRS/ny30+MX0MPy1rP6peqlDk3bT/azg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Zt+Xh3O5hT3lqmi+EeDHacGZjCE1M9+1HfF9KHXkJhM=;
+ b=HzHmjpwLJHOoLAZ1JefFiFu5Ha48118Cesf/HTT4EJW5xlUQRbXmNe+t8TdeicxOlgNDEQDosUL4crDhZyoKIL9GOvI39dvjAJBSn0bvFYbYYXDiJiUqNyl3iNpuqUmbpW8hksuZC5SGW+YBJ41dazPBkL776twG07dZ/7TMFuRpjTuQlh9vjTCuVir+ACrz7YEdYoKBc59PRIk13grpBdjDQKzmYT92tBMKHJCaDao4uUcRBTehhylr3ccSZM1w/OmnJEw2xRnIdbX08kOp2IzPuHU1DDpkCanDdNwUA+HIbnHIsRFvPxbzQzEzVQWNNWcx/OIhtFcsozb1V+Qabg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by MN0PR12MB5716.namprd12.prod.outlook.com (2603:10b6:208:373::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Fri, 30 Jan
+ 2026 23:44:35 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9564.010; Fri, 30 Jan 2026
+ 23:44:35 +0000
+Date: Fri, 30 Jan 2026 19:44:34 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Andrew Jones <andrew.jones@oss.qualcomm.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
+	linux-riscv@lists.infradead.org,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Will Deacon <will@kernel.org>, lihangjing@bytedance.com,
+	Xu Lu <luxu.kernel@bytedance.com>, patches@lists.linux.dev,
+	xieyongji@bytedance.com
+Subject: Re: [PATCH v2 5/5] iommu/riscv: Allow RISC_VIOMMU to COMPILE_TEST
+Message-ID: <20260130234434.GK2223369@nvidia.com>
+References: <0-v2-b11ebca8abb6+c096-iommu_pt_riscv_jgg@nvidia.com>
+ <5-v2-b11ebca8abb6+c096-iommu_pt_riscv_jgg@nvidia.com>
+ <dn7bsft2qvjod3sm6omneq37pwr2jtdzgobapy6obpgccg7soc@ctvs3c2w4vob>
+Content-Disposition: inline
+In-Reply-To: <dn7bsft2qvjod3sm6omneq37pwr2jtdzgobapy6obpgccg7soc@ctvs3c2w4vob>
+X-ClientProxiedBy: BLAPR05CA0047.namprd05.prod.outlook.com
+ (2603:10b6:208:335::28) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|MN0PR12MB5716:EE_
+X-MS-Office365-Filtering-Correlation-Id: f413998d-452e-4281-9229-08de60598623
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1opgstu8I8HcvS8mQyzDnXib6oLgVV3nardfmTUKu46Sqv1U7u2DZqslPZ94?=
+ =?us-ascii?Q?8cvsBtgn81TzWXwEYcsOmJ6Dp4faPkztuavlnLQ8gGnBxwx5x6SE4cY+2k2x?=
+ =?us-ascii?Q?Jv86aHHdu3khCillNIvJQLoe9HdRu4N2fspBADzHrOvEP184Jv5MO1UwWKTY?=
+ =?us-ascii?Q?8Xnh091rA64O5akGy99gVmLIINJDUpprCSItC0DzoJFy+50r9+QC3I2bhh7R?=
+ =?us-ascii?Q?oEC5sySbZQI/UP2LzJ+CSzBR98JDLAMQCqJwZ8ZF6MEa2Y3GP655bBfj9mVL?=
+ =?us-ascii?Q?zBs4dZNH9Qy0zfy5zyuAZwo3JS5SdaOGH1c5sXdWszQfSjbPshgHtzph/NRA?=
+ =?us-ascii?Q?PERynVQ8HkKmsVyNP/9dNWNVfbAcPcHogHfNl9HAya3l6lkwwM3Fh+HUDwax?=
+ =?us-ascii?Q?1YtFgLRsYZuEIG1eolqZU/3ZmAF5TzLAuS0S18LvO6BdjadjqTVN9zujEvM4?=
+ =?us-ascii?Q?rYp0C6nS0BtSrN/3UFGAhJaHWtadq+JP5vLE7RE1XUdpejModNG0Y9aSRFAF?=
+ =?us-ascii?Q?03TeO0YtXCsjTGeRCTYmQe5FQs1gl4zocbVjE4CZ7xwEGt0QsGgWwt2o7i7E?=
+ =?us-ascii?Q?fI0xjsqI7/KUg4d/ys4nV5LbyJrIoZ4Dan8QhsAQbjfnjoQ1KQ4dprhgV1Y+?=
+ =?us-ascii?Q?4mJocBWfo8m+YHAC3/IKWUhMxr0WPij6OxDjHaxwPZacRSC0ZIoPEsGAeHm7?=
+ =?us-ascii?Q?yY2YtHHLgcg4s3ts+I6t0bkraXNqUPLpBFNqfADlv0MANI3wN/xLFUNYnugj?=
+ =?us-ascii?Q?Lle16xSEXhFQzyh1l2pyULbTDGOhQJ1v1+Op9Larfvfc9SnDrDzHoSe7te3v?=
+ =?us-ascii?Q?9kimn1T/sKXU+xUHG+/gsWJZvABRNEeK/ASh+UGNnIGHjYayHs6APW10AFa9?=
+ =?us-ascii?Q?fde3HnRDlbON6EFX3fE89iK78n3nM97UdqbfJYlRJEDJ7XI9fA4KAJ8H7gQM?=
+ =?us-ascii?Q?fOqKXc1eLYPoWE3CKGlwZ8Dfl7PtszMacFDQCd0SeVE5peTLDajF9/NSH7Ph?=
+ =?us-ascii?Q?pAW5ay/6R1//zJRKcqStTioiJqqPNsLmcFoQ4SEF8DEcs3SKv5A5rKcpQznb?=
+ =?us-ascii?Q?falDsM5UzhcmEv9DICU3AbXmbOf0owMQuAYUqJWRHyDEkHJPG5h0jXYUrGjN?=
+ =?us-ascii?Q?NGUYv4wYl5YjJmiUkyaKgYgiZkbFhkMVIP8Mq3HN9O1MLfR0hwW3XRMzivE1?=
+ =?us-ascii?Q?M1jE1lLivO3VXIxRx0LSZBBc98mwp6pVAvH4ylq/eCDJJZGuAL58CAGXmaTV?=
+ =?us-ascii?Q?DuZhK6mTLOGRCSsF6E+g9bwJm3sv0RhPXBJ4CrJ9LPUKQmFpVhVVmh3DMr1W?=
+ =?us-ascii?Q?WfOsJV3Ib7j2kMt7B5gCq1i+eCvXU9SUsXFPPzXPacdu/2qwZE6fpYmz9ejx?=
+ =?us-ascii?Q?znQQdMdRfCYtYT48tfRPYGVgxp9fquU2gCfI4VSrN4zh5q0ZtsiBfR4gOKb0?=
+ =?us-ascii?Q?30aOeWkPE1J698uGYq7Sz6t9Oax49pO0cRTxIN1jZ5m+ndSfBuKMRs7wVyOR?=
+ =?us-ascii?Q?+EnDwzJu47YgBEqmqo5/62x78XcbO2b/nQZA5plvhExO5NH7orCPpOrSIkc6?=
+ =?us-ascii?Q?ndhVHrMiRR6y8/xJzYk=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?L3tcgpZWmmXTR8IP3uay5cP5PZqSoi/dC5oaaGcQb6Dcuoe7lbfBVSrG1A0x?=
+ =?us-ascii?Q?qj+YY9pYf32MGW+Euwmtz2hxeZiTcbX69i/fsVZ9N0cnRodw2qCRWWZI3qpe?=
+ =?us-ascii?Q?py9V3guVU2zaLSPULuygL8R8jOFFBfiufT0KqWv8Jf71TV78GeZLK3Ippmnq?=
+ =?us-ascii?Q?fk5QsZkYsxhDRGsxnDK9xcMjVBXxch2rj+Klb+CvIhBFHIUnaPI2CO6eTM6Q?=
+ =?us-ascii?Q?9u0Wte5olNO/c8EM2CC2w6KhZ+/6CC4bbrCIUpx7kMPjiIf+qnZ1NpwezEt3?=
+ =?us-ascii?Q?ur0Y9fRPhcMLPltsAaVNCuEnQfvOAvUHjZYm9rj/yPgHmdnYH6eQhD8VbW3M?=
+ =?us-ascii?Q?ZUBQcYUjKU64CvrPRXEoZ8GZER5SwS6vpr2SOhF/ZCskp/YtGCGzOQl03XSV?=
+ =?us-ascii?Q?6h5lEtWGs/AV6I1FWIbXwOPftkb56zgr73zuq1XkTvIwHOt36XDh/NWNDnGv?=
+ =?us-ascii?Q?gOP5nzqYvPUAohnNa7cGacE93eTSRH+ycYTpYQpnvf5o7K2DY17UP3yvP2AH?=
+ =?us-ascii?Q?rS4e/SuP5B0VFYbGcv11/lgtBHzhQPN5zSxGjy6OOvidRNPglHRqi8J2eWju?=
+ =?us-ascii?Q?8I049T0k0Jt4vD3GpaWcfroEn87Sbk9ugBUprCG4lyGrnejQIgi9uVoUF9SC?=
+ =?us-ascii?Q?5magGBiZ0DHur6ka9niQB13aNJSJ0UEZvdm3P+I3rw85i4QUJdj+Vbkb3RYR?=
+ =?us-ascii?Q?u10gRyghhUBgOGimQ0I6GgWhsyhiWx17AFX3AkKoxpy0NzBAam3RZ+dPK+Cg?=
+ =?us-ascii?Q?trZxlvGDqIcdMcc/9kCgOnG70Y6wxBcb7yrdshhyWkjMwRmH959RfY0PGROK?=
+ =?us-ascii?Q?no8Q5g/tAIIpr5iFqGS1jnqhSdAHZ2FkMWdWar9D/+P/3j8mlE7kvXz/X1/S?=
+ =?us-ascii?Q?JeOIpoRKHA2Db7FiSAAqnwRR2p08mMbjlmMxtZRwF5cpjiWBnzzoRiBtEAL6?=
+ =?us-ascii?Q?8BeaSFqb+T+RS/bjPtTpWjdrzzT1UGVgVCWpRYOCc1JPwYl3ViCFE/7PlSNz?=
+ =?us-ascii?Q?o4uClRYi8Qj7pOmcblddN19PLwYk7sh2bUdElH9Mvgewg14dSnreThh1N3U4?=
+ =?us-ascii?Q?1zMqLKvCBHZp51qgO0OrwQl7dXkmb+xOb+NzU1Rf1Xarm0NnA+mSKvZhDh03?=
+ =?us-ascii?Q?BhHlEh617lLlltJkuNlZsl2QVaw7G4jpplUnpoham8djjioMTsafqqz6xiEh?=
+ =?us-ascii?Q?aDlF3mZKiXU6LtGpP4v1948UhDRC/GuOyyJ9mdWW1lnXMytTjFRVs4R/ap/x?=
+ =?us-ascii?Q?oraJZHF+bRWPjI7w+nQe/UzEmjFd7fx8wLUVrc0/gznv2uWuaE6noOJUvj/g?=
+ =?us-ascii?Q?E+oBskMPbYhlnjtWjGkIcqIq5x9toqew5HRtPde0Wiq6zJZ7pSvEpOLpk57T?=
+ =?us-ascii?Q?CDs5z4Xf6AvjjoEvg+7kaxz4Q44d/Rc4h8OYyNYKYaL/ae1ZBZrTRAGHe9lS?=
+ =?us-ascii?Q?q36hyl+ynBYb8YzfIMzQx9VzPgDAs3UIT6rvaVcAslD+IBTiBZoSpjM1oLEE?=
+ =?us-ascii?Q?vCe3jMXn1b0LKdPTmAwkBkgzhR3ANPzW7gonrAjYTVIih5Yf8kqlpJmVSaTN?=
+ =?us-ascii?Q?lZKroAXnqQQ2n0yipBqWKkh4LsxXKJ+2G8YrNCo1+TslK3Gu0c6hqmtSDGBI?=
+ =?us-ascii?Q?K767OXq3VoEEKHGF69VpAywSwJV2HUYlgMDGlKIs53DL+LEuM3oxQAAOIFnu?=
+ =?us-ascii?Q?vSzXVmbYP/pp6rM6XHl7V6lKaWVz88/SGTWd+valZevfKA8ix6U+nAZVTK2a?=
+ =?us-ascii?Q?QvlJ1RUj4A=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f413998d-452e-4281-9229-08de60598623
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 23:44:35.4148
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0MKaFybygK/mvq5fh/sDl0uNyVj1PR/kjcGXaZgOFGQHfC0l7F41ObsaQ2zhFAhE
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5716
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260130_154447_037975_A0042F9D 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,72 +171,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Linus,
+On Fri, Jan 30, 2026 at 01:58:51PM -0600, Andrew Jones wrote:
+> >  config RISCV_IOMMU
+> >  	bool "RISC-V IOMMU Support"
+> > -	depends on RISCV && 64BIT
+> > -	default y
+> > +	default RISCV
+> > +	depends on (RISCV || COMPILE_TEST) && 64BIT
+> > +	depends on GENERIC_MSI_IRQ
+> 
+> This new depends isn't called out in the commit message. Maybe it should
+> even be its own patch with a fixes d5f88acdd6ff ("iommu/riscv: Add support
+> for platform msi") tag, but, either way, thanks for the fix.
 
-Please pull these RISC-V updates for v6.19-rc8.  Nothing too exciting here;
-looks like we're in good shape for the final v6.19 release.
+I think if riscv has a 32 bit configuration with iommu HW available
+then you'd want a different fix to make it work.. Probably include one
+of the high/low headers to get emulated writeq
 
-thanks,
+This is just intended to make it work with COMPILE_TEST on eg ARM32.
 
-- Paul
+> > @@ -436,7 +436,9 @@ static unsigned int riscv_iommu_queue_send(struct riscv_iommu_queue *queue,
+> >  	 * 6. Make sure the doorbell write to the device has finished before updating
+> >  	 *    the shadow tail index in normal memory. 'fence o, w'
+> >  	 */
+> > +#ifdef CONFIG_MMIOWB
+> >  	mmiowb();
+> > +#endif
+> 
+> Taking inspiration from powerpc we'd put the #ifdef CONFIG_MMIOWB in
+> arch/riscv/include/asm/mmiowb.h
 
+That won't help compile on x86 for example.
 
-The following changes since commit 63804fed149a6750ffd28610c5c1c98cce6bd377:
-
-  Linux 6.19-rc7 (2026-01-25 14:11:24 -0800)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.19-rc8
-
-for you to fetch changes up to 0ea05c4f7527a98f5946f96c829733788934311d:
-
-  riscv: compat: fix COMPAT_UTS_MACHINE definition (2026-01-29 00:59:17 -0700)
-
-----------------------------------------------------------------
-RISC-V updates for v6.19-rc8
-
-- Correct the RISC-V compat.h COMPAT_UTS_MACHINE architecture name
-
-- Avoid printing a false warning message on kernels with the SiFive and
-  MIPS errata compiled in
-
-- Address a few warnings generated by sparse in the signal handling code
-
-- Fix a comment typo
-
-----------------------------------------------------------------
-Andreas Schwab (1):
-      errata/sifive: remove unreliable warn_miss_errata
-
-Austin Kim (1):
-      riscv: fix minor typo in syscall.h comment
-
-Han Gao (1):
-      riscv: compat: fix COMPAT_UTS_MACHINE definition
-
-Paul Walmsley (1):
-      riscv: signal: fix some warnings reported by sparse
-
- arch/riscv/errata/sifive/errata.c | 18 ------------------
- arch/riscv/include/asm/compat.h   |  2 +-
- arch/riscv/include/asm/syscall.h  |  2 +-
- arch/riscv/kernel/signal.c        |  6 +++---
- 4 files changed, 5 insertions(+), 23 deletions(-)
-
-
-vmlinux size differences in bytes (from 63804fed149a):
-text data bss  dec  hex filename                             
- -64 -224   . -288 -120 vmlinux.defconfig.gcc-15             
-   . -288   . -288 -120 vmlinux.nosmp_defconfig.gcc-15       
--128 -168   . -296 -128 vmlinux.rv32_defconfig.gcc-15        
- -88 -168   . -256 -100 vmlinux.rv32_nosmp_defconfig.gcc-15  
--123    .   . -123  -7b vmlinux.nommu_virt_defconfig.gcc-15  
--176 -160   . -336 -150 vmlinux.defconfig.clang-20           
--176 -160   . -336 -150 vmlinux.nosmp_defconfig.clang-20     
--184 -160   . -344 -158 vmlinux.rv32_defconfig.clang-20      
--184 -224   . -408 -198 vmlinux.rv32_nosmp_defconfig.clang-20
--223 +128   .  -95  -5f vmlinux.nommu_virt_defconfig.clang-20
+Thanks,
+Jason
 
 _______________________________________________
 linux-riscv mailing list
