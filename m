@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05ACAD73EB5
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jan 2026 02:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F58AD73EBA
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jan 2026 02:51:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UewizhP3SGUyhkK9sV8UwIjd+VaRkAkyYM/wfXZgmH8=; b=V9RowvOIUyZ7tR
-	hPb1iT3dRJMrR1SIQbE5W7ids6ZsgqaMMwdAwp8WqDmJCumLQDtLlQ1tHS7YFzA2ltJl9V9dm0MmN
-	5M2VJTaAsY1/tHwlVDH1sINHV8ugspzS5zoRXrWKMnMQLQ3t9gzTo7Cdb8s4+Wxpio0qcWdMXGvuo
-	Aqt1hODjJmkScDy0NHkJCKd4DIfAach2+lOfnMAU1156ChEnMGWtOMzgfRFOZ5e90GJ3M4nyD/BY1
-	C9PE+7KrqnJYcsnG1wpWUapYLGLMqPl8A7hlu44p3zxNss/cnES38+qNB6b8RuxS9XMkkHm3AEeUv
-	UALfMQIUdRJE4bcauXbA==;
+	List-Owner; bh=AXY4tfX+O3hI/qU8fr0C+TVsZiEA7oNclrpA4Z17i3I=; b=0kVi3TUOY/NSVn
+	jvCTunqZb9Rp66zLra9b08vZesmXmpDFBzAqdV/sYssKJBkU6Mu5V1DF89A0jkmv8koMp+9cSDixl
+	fUt3S6wqnWfLEhD2Y9IYaZweKjNDNAj30B5PQvJFrqrm52IMCv/rJery0b530cVn4XLnedFLSn3Co
+	jdc133AKCGB+5c3Iqh8PBD+qaPKeVuvqXRqAurZlwJ2SIz+8s7O93yhs6x2YG3PfRPsgIH7g795gW
+	hx6QpBKii7mij0YGniyOsngGAf+emspQm/Tl10hZiD9iwPmq9izJS92vaiEB6PBHXD1JBAl2wiaeJ
+	h66+kg3UUVHWGMiIf5zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vleaz-00000000uaZ-2QmK;
-	Fri, 30 Jan 2026 02:50:53 +0000
+	id 1vleb2-00000000uc5-0jfh;
+	Fri, 30 Jan 2026 02:50:56 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vleap-00000000uVV-119r
+	id 1vleaq-00000000uVw-11tK
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jan 2026 02:50:44 +0000
-X-UUID: 73e61e98fd8611f0b0f03b4cfa9209d1-20260130
+	Fri, 30 Jan 2026 02:50:45 +0000
+X-UUID: 75246a44fd8611f0b0f03b4cfa9209d1-20260130
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:56164397-ed6e-4a68-804b-d0004fb2e554,IP:0,UR
+X-CID-O-INFO: VERSION:1.3.6,REQID:df9ece3a-1388-422f-9cc8-24cedd227772,IP:0,UR
 	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
 	:release,TS:-25
-X-CID-META: VersionHash:a9d874c,CLOUDID:536f67217e178ec6b8491c0731b6679c,BulkI
+X-CID-META: VersionHash:a9d874c,CLOUDID:d7cd5d757304f68a322d377133fdf69b,BulkI
 	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
 	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
 	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -40,12 +40,12 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 73e61e98fd8611f0b0f03b4cfa9209d1-20260130
+X-UUID: 75246a44fd8611f0b0f03b4cfa9209d1-20260130
 X-User: jiangfeng@kylinos.cn
 Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
 	(envelope-from <jiangfeng@kylinos.cn>)
 	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 408523068; Fri, 30 Jan 2026 10:50:36 +0800
+	with ESMTP id 943938681; Fri, 30 Jan 2026 10:50:38 +0800
 From: Feng Jiang <jiangfeng@kylinos.cn>
 To: palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
@@ -66,16 +66,16 @@ To: palmer@dabbelt.com,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH v7 4/8] lib/string_kunit: add performance benchmark for strlen()
-Date: Fri, 30 Jan 2026 10:50:14 +0800
-Message-Id: <20260130025018.172925-5-jiangfeng@kylinos.cn>
+Subject: [PATCH v7 7/8] riscv: lib: add strchr() implementation
+Date: Fri, 30 Jan 2026 10:50:17 +0800
+Message-Id: <20260130025018.172925-8-jiangfeng@kylinos.cn>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260130025018.172925-1-jiangfeng@kylinos.cn>
 References: <20260130025018.172925-1-jiangfeng@kylinos.cn>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_185043_615395_12B0DF3C 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20260129_185044_584062_92B4405B 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,247 +92,122 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce a benchmarking framework to the string_kunit test suite to
-measure the execution efficiency of string functions.
+Add an assembly implementation of strchr() for RISC-V.
 
-The implementation is inspired by crc_benchmark(), measuring throughput
-(MB/s) and latency (ns/call) across a range of string lengths. It
-includes a warm-up phase, disables preemption during measurement, and
-uses a fixed seed for reproducible results.
+By eliminating stack frame management (prologue/epilogue) and optimizing
+the function entries, the assembly version provides significant relative
+gains for short strings where the fixed overhead of the C function is
+most prominent. As string length increases, performance converges with
+the generic C implementation.
 
-This framework allows for comparing different implementations (e.g.,
-generic C vs. architecture-optimized assembly) within the KUnit
-environment.
+Benchmark results (QEMU TCG, rv64):
+  Length | Original (MB/s) | Optimized (MB/s) | Improvement
+  -------|-----------------|------------------|------------
+  1 B    | 21              | 22               | +4.8%
+  7 B    | 113             | 121              | +7.1%
+  16 B   | 195             | 202              | +3.6%
+  512 B  | 376             | 389              | +3.5%
+  4096 B | 394             | 393              | -0.3%
 
-Initially, provide a benchmark for strlen().
-
-Suggested-by: Andy Shevchenko <andy@kernel.org>
-Suggested-by: Eric Biggers <ebiggers@kernel.org>
 Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
 ---
- lib/Kconfig.debug        |  11 +++
- lib/tests/string_kunit.c | 160 +++++++++++++++++++++++++++++++++++++++
- 2 files changed, 171 insertions(+)
+ arch/riscv/include/asm/string.h |  3 +++
+ arch/riscv/lib/Makefile         |  1 +
+ arch/riscv/lib/strchr.S         | 35 +++++++++++++++++++++++++++++++++
+ arch/riscv/purgatory/Makefile   |  5 ++++-
+ 4 files changed, 43 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/lib/strchr.S
 
-diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-index ba36939fda79..21b058ae815f 100644
---- a/lib/Kconfig.debug
-+++ b/lib/Kconfig.debug
-@@ -2475,6 +2475,17 @@ config STRING_HELPERS_KUNIT_TEST
- 	depends on KUNIT
- 	default KUNIT_ALL_TESTS
+diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
+index 16634d67c217..ca3ade82b124 100644
+--- a/arch/riscv/include/asm/string.h
++++ b/arch/riscv/include/asm/string.h
+@@ -31,6 +31,9 @@ extern asmlinkage int strncmp(const char *cs, const char *ct, size_t count);
  
-+config STRING_KUNIT_BENCH
-+       bool "Benchmark string functions at runtime"
-+       depends on STRING_KUNIT_TEST
-+       help
-+         Enable performance measurement for string functions.
+ #define __HAVE_ARCH_STRNLEN
+ extern asmlinkage __kernel_size_t strnlen(const char *, size_t);
 +
-+         This measures the execution efficiency of string functions
-+         during the KUnit test run.
-+
-+         If unsure, say N.
-+
- config FFS_KUNIT_TEST
- 	tristate "KUnit test ffs-family functions at runtime" if !KUNIT_ALL_TESTS
- 	depends on KUNIT
-diff --git a/lib/tests/string_kunit.c b/lib/tests/string_kunit.c
-index 2bed641e1eae..5f6d0409459b 100644
---- a/lib/tests/string_kunit.c
-+++ b/lib/tests/string_kunit.c
-@@ -6,11 +6,17 @@
- #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
++#define __HAVE_ARCH_STRCHR
++extern asmlinkage char *strchr(const char *, int);
+ #endif
  
- #include <kunit/test.h>
-+#include <linux/ktime.h>
-+#include <linux/math64.h>
-+#include <linux/minmax.h>
- #include <linux/mm.h>
- #include <linux/module.h>
-+#include <linux/prandom.h>
- #include <linux/printk.h>
- #include <linux/slab.h>
- #include <linux/string.h>
-+#include <linux/time64.h>
-+#include <linux/units.h>
- #include <linux/vmalloc.h>
- 
- #define STRCMP_LARGE_BUF_LEN 2048
-@@ -22,6 +28,9 @@
- #define STRING_TEST_MAX_LEN	128
- #define STRING_TEST_MAX_OFFSET	16
- 
-+#define STRING_BENCH_SEED	888
-+#define STRING_BENCH_WORKLOAD	(1 * MEGA)
+ /* For those files which don't want to check by kasan. */
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 0969d8136df0..b7f804dce1c3 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -8,6 +8,7 @@ lib-y			+= strcmp.o
+ lib-y			+= strlen.o
+ lib-y			+= strncmp.o
+ lib-y			+= strnlen.o
++lib-y			+= strchr.o
+ endif
+ lib-y			+= csum.o
+ ifeq ($(CONFIG_MMU), y)
+diff --git a/arch/riscv/lib/strchr.S b/arch/riscv/lib/strchr.S
+new file mode 100644
+index 000000000000..48c3a9da53e3
+--- /dev/null
++++ b/arch/riscv/lib/strchr.S
+@@ -0,0 +1,35 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
 +
- static void string_test_memset16(struct kunit *test)
- {
- 	unsigned i, j, k;
-@@ -707,6 +716,156 @@ static void string_test_strends(struct kunit *test)
- 	KUNIT_EXPECT_TRUE(test, strends("", ""));
- }
- 
-+#if IS_ENABLED(CONFIG_STRING_KUNIT_BENCH)
-+/* Target string lengths for benchmarking */
-+static const size_t bench_lens[] = {
-+	0, 1, 7, 8, 16, 31, 64, 127, 512, 1024, 3173, 4096,
-+};
-+
-+/**
-+ * alloc_max_bench_buffer() - Allocate buffer for the max test case.
-+ * @test: KUnit context for managed allocation.
-+ * @lens: Array of lengths used in the benchmark cases.
-+ * @count: Number of elements in the @lens array.
-+ * @buf_len: [out] Pointer to store the actually allocated buffer
-+ * size (including NUL character).
-+ *
-+ * Return: Pointer to the allocated memory, or NULL on failure.
++/*
++ * Copyright (C) 2025 Feng Jiang <jiangfeng@kylinos.cn>
 + */
-+static void *alloc_max_bench_buffer(struct kunit *test,
-+		const size_t *lens, size_t count, size_t *buf_len)
-+{
-+	size_t max_len = 0;
-+	void *buf;
 +
-+	for (size_t i = 0; i < count; i++)
-+		max_len = max(lens[i], max_len);
++#include <linux/linkage.h>
++#include <asm/asm.h>
 +
-+	/* Add space for NUL character */
-+	max_len += 1;
++/* char *strchr(const char *s, int c) */
++SYM_FUNC_START(strchr)
++	/*
++	 * Parameters
++	 *   a0 - The string to be searched
++	 *   a1 - The character to search for
++	 *
++	 * Returns
++	 *   a0 - Address of first occurrence of 'c' or 0
++	 *
++	 * Clobbers
++	 *   t0
++	 */
++	andi	a1, a1, 0xff
++1:
++	lbu	t0, 0(a0)
++	beq	t0, a1, 2f
++	addi	a0, a0, 1
++	bnez	t0, 1b
++	li	a0, 0
++2:
++	ret
++SYM_FUNC_END(strchr)
 +
-+	buf = kunit_kzalloc(test, max_len, GFP_KERNEL);
-+	if (!buf)
-+		return NULL;
-+
-+	if (buf_len)
-+		*buf_len = max_len;
-+
-+	return buf;
-+}
-+
-+/**
-+ * fill_random_string() - Populate a buffer with a random NUL-terminated string.
-+ * @buf: Buffer to fill.
-+ * @len: Length of the buffer in bytes.
-+ *
-+ * Fills the buffer with random non-NUL bytes and ensures the string is
-+ * properly NUL-terminated.
-+ */
-+static void fill_random_string(char *buf, size_t len)
-+{
-+	struct rnd_state state;
-+
-+	if (!buf || !len)
-+		return;
-+
-+	/* Use a fixed seed to ensure deterministic benchmark results */
-+	prandom_seed_state(&state, STRING_BENCH_SEED);
-+	prandom_bytes_state(&state, buf, len);
-+
-+	/* Replace NUL characters to avoid early string termination */
-+	for (size_t i = 0; i < len; i++) {
-+		if (buf[i] == '\0')
-+			buf[i] = 0x01;
-+	}
-+
-+	buf[len - 1] = '\0';
-+}
-+
-+/**
-+ * STRING_BENCH() - Benchmark string functions.
-+ * @iters: Number of iterations to run.
-+ * @func: Function to benchmark.
-+ * @...: Variable arguments passed to @func.
-+ *
-+ * Disables preemption and measures the total time in nanoseconds to execute
-+ * @func(@__VA_ARGS__) for @iters times, including a small warm-up phase.
-+ *
-+ * Context: Disables preemption during measurement.
-+ * Return: Total execution time in nanoseconds (u64).
-+ */
-+#define STRING_BENCH(iters, func, ...)					\
-+({									\
-+	/* Volatile function pointer prevents dead code elimination */	\
-+	typeof(func) (* volatile __func) = (func);			\
-+	size_t __bn_iters = (iters);					\
-+	size_t __bn_warm_iters;						\
-+	u64 __bn_t;							\
-+									\
-+	/* Use 10% of the given iterations (maximum 50) to warm up */	\
-+	__bn_warm_iters = max(__bn_iters / 10, 50U);			\
-+									\
-+	for (size_t __bn_i = 0; __bn_i < __bn_warm_iters; __bn_i++)	\
-+		(void)__func(__VA_ARGS__);				\
-+									\
-+	preempt_disable();						\
-+	__bn_t = ktime_get_ns();					\
-+	for (size_t __bn_i = 0; __bn_i < __bn_iters; __bn_i++)		\
-+		(void)__func(__VA_ARGS__);				\
-+	__bn_t = ktime_get_ns() - __bn_t;				\
-+	preempt_enable();						\
-+	__bn_t;								\
-+})
-+
-+/**
-+ * STRING_BENCH_BUF() - Benchmark harness for single-buffer functions.
-+ * @test: KUnit context.
-+ * @buf_name: Local char * variable name to be defined.
-+ * @buf_size: Local size_t variable name to be defined.
-+ * @func: Function to benchmark.
-+ * @...: Extra arguments for @func.
-+ *
-+ * Prepares a randomized, NUL-terminated buffer and iterates through lengths
-+ * in bench_lens, defining @buf_name and @buf_size in each loop.
-+ */
-+#define STRING_BENCH_BUF(test, buf_name, buf_size, func, ...)		\
-+do {									\
-+	size_t _bn_i, _bn_iters, _bn_size = 0;				\
-+	u64 _bn_t, _bn_mbps = 0, _bn_lat = 0;				\
-+	char *_bn_buf;							\
-+									\
-+	_bn_buf = alloc_max_bench_buffer(test, bench_lens,		\
-+			ARRAY_SIZE(bench_lens), &_bn_size);		\
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, _bn_buf);			\
-+									\
-+	fill_random_string(_bn_buf, _bn_size);				\
-+									\
-+	for (_bn_i = 0; _bn_i < ARRAY_SIZE(bench_lens); _bn_i++) {	\
-+		size_t buf_size = bench_lens[_bn_i];			\
-+		char *buf_name = _bn_buf + _bn_size - buf_size - 1;	\
-+		_bn_iters = STRING_BENCH_WORKLOAD / max(buf_size, 1U);	\
-+									\
-+		_bn_t = STRING_BENCH(_bn_iters, func, ##__VA_ARGS__);	\
-+		if (_bn_t > 0) {					\
-+			_bn_mbps = (u64)(buf_size) * _bn_iters *	\
-+					(NSEC_PER_SEC / MEGA);		\
-+			_bn_mbps = div64_u64(_bn_mbps, _bn_t);		\
-+			_bn_lat = div64_u64(_bn_t, _bn_iters);		\
-+		}							\
-+		kunit_info(test, "len=%zu: %llu MB/s (%llu ns/call)\n",	\
-+				buf_size, _bn_mbps, _bn_lat);		\
-+	}								\
-+} while (0)
-+#else
-+#define STRING_BENCH_BUF(test, buf_name, buf_size, func, ...)		\
-+	kunit_skip(test, "not enabled")
-+#endif /* IS_ENABLED(CONFIG_STRING_KUNIT_BENCH) */
-+
-+static void string_bench_strlen(struct kunit *test)
-+{
-+	STRING_BENCH_BUF(test, buf, len, strlen, buf);
-+}
-+
- static struct kunit_case string_test_cases[] = {
- 	KUNIT_CASE(string_test_memset16),
- 	KUNIT_CASE(string_test_memset32),
-@@ -732,6 +891,7 @@ static struct kunit_case string_test_cases[] = {
- 	KUNIT_CASE(string_test_strtomem),
- 	KUNIT_CASE(string_test_memtostr),
- 	KUNIT_CASE(string_test_strends),
-+	KUNIT_CASE(string_bench_strlen),
- 	{}
- };
++SYM_FUNC_ALIAS_WEAK(__pi_strchr, strchr)
++EXPORT_SYMBOL(strchr)
+diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
+index d7c0533108be..e7b3d748c913 100644
+--- a/arch/riscv/purgatory/Makefile
++++ b/arch/riscv/purgatory/Makefile
+@@ -2,7 +2,7 @@
  
+ purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o
+ ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
+-purgatory-y += strcmp.o strlen.o strncmp.o strnlen.o
++purgatory-y += strcmp.o strlen.o strncmp.o strnlen.o strchr.o
+ endif
+ 
+ targets += $(purgatory-y)
+@@ -35,6 +35,9 @@ $(obj)/sha256.o: $(srctree)/lib/crypto/sha256.c FORCE
+ $(obj)/strnlen.o: $(srctree)/arch/riscv/lib/strnlen.S FORCE
+ 	$(call if_changed_rule,as_o_S)
+ 
++$(obj)/strchr.o: $(srctree)/arch/riscv/lib/strchr.S FORCE
++	$(call if_changed_rule,as_o_S)
++
+ CFLAGS_sha256.o := -D__DISABLE_EXPORTS -D__NO_FORTIFY
+ CFLAGS_string.o := -D__DISABLE_EXPORTS
+ CFLAGS_ctype.o := -D__DISABLE_EXPORTS
 -- 
 2.25.1
 
