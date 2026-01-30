@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90978E6BF30
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jan 2026 17:36:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCA1CE6BF30
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jan 2026 17:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2+6438Y6CPdxuDnD6v+ndGXPqNJFGIvBOE4vkKnSy64=; b=ri23FnMJVs9cpm
-	fWR52O+7VvzIA+gE0aua/iXSdE0iOGTI3KCkcbo3ZODe/bBksZM88LTTFLaQiLtjt48VLbLNfzV0C
-	UgbB/1ku/eLjIcJj5FWDliSesEga7b5tnPrR3i3lJEhTUAlr0+eCT3z1ju0bj2kTxlWaV5iU8kw4R
-	DOYdjOFevcXo1twLXPuAEFjkwUi7qVEgk56+1JefS3eHmPEqS/tQGtlJlFaILVigdIc3HXoN8vJ0z
-	9S0eOJ31B3k7WvDw7eGHXT8FMD/78Tq6ee1nH7niPbha5rZs8umHZWUxp99B+Xk+QzBRhN6GA5WmB
-	Vem8R458+oprP1gKlGbQ==;
+	List-Owner; bh=pUaKoAdc7Vzydtm9spWqHvHofhwIf9ws2jLOrVKQh4Q=; b=P4SAnMkqGQ3r/K
+	sPULwWSy/g67G3GUDdUdysZxSZN1Lnws+q8cLSfY4S1YeGGk9HjxQMSF1utgth5LYfhvUfj4EZ4/E
+	TRQsrRhcB2iyNhnar7Qr4ssgG4WwH9fvxstk/j2HM10zN5Lxm9H5wW7MtBCYkuyXCfiP5gZu5ZnTc
+	ka8Zn9L8C2tgjxWGSsUFkPhVuTuSBrEPy0NcS/40ttsBTkfV/dzIsV/gjCYV1n3+KFaLBB7FztUyA
+	+HrlBPvnzPD3bgjKcQDQt4kwpNEEuN7sNrNB7dyOp4+KpsVc9ROC+9S1tA/1ZjCrCUBowG8nEBuHW
+	f6GQlABEKGKqgtmtkWEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlsPT-00000001m5q-1ZX3;
-	Fri, 30 Jan 2026 17:35:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vlsRA-00000001mRz-2jYo;
+	Fri, 30 Jan 2026 17:37:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlsPQ-00000001m5A-3uyQ
+	id 1vlsR7-00000001mR8-4C1a
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jan 2026 17:35:53 +0000
+	Fri, 30 Jan 2026 17:37:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8D9C04195E;
-	Fri, 30 Jan 2026 17:35:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AB17C4CEF7;
-	Fri, 30 Jan 2026 17:35:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8DCCD44173;
+	Fri, 30 Jan 2026 17:37:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 652EEC4CEF7;
+	Fri, 30 Jan 2026 17:37:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769794552;
-	bh=PNcKOtJEhTtwsqaYMcux4hWhZmy9ojaJIltFMghSNDY=;
+	s=k20201202; t=1769794657;
+	bh=EURabUMH4lsCb1dCSFQMp+VQOndKCUfb9vC/+CetiwU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BiOrk+4KP4cywSelLRGhpurbFn96EhLXamqAMFYcoCppIXrS0vQniRFgfv1kh7HWp
-	 D6R83gevct9t7SCKRg5D1qLFjbIcaV64aktRTSS+S9mNQfngXW5ToszCweShtvHDeq
-	 +ztGwNRWMJXZ0WJrsWufigDVB8ivR/1WhKnyyGLKljv+2tpdY7uiJUHFjtD0nSEyL2
-	 1oV/pu8hs0oF9IfOg7T1HoSsLt7FNjlvK2JH6OAh11hAhL4FGTBFbxXQ2w2hdyUZQO
-	 gtrbLyrlhMCGUYad9xGvHowUho7qJJAAB91U3xujOW0Ii20P0mMr/1/rYgOxRpkgNM
-	 kmLK/Au8/6+uA==
-Date: Fri, 30 Jan 2026 09:35:52 -0800
+	b=YKhWxTebYFBkWgr87V7M7d4jVbTl1IAC6z1KCKRbehsB8H2Cu6GdKiye5y2Nsf0QY
+	 0AvuBrImpkjujpGczBynZQCGYIX2amIpiR3ZwYlyUwyd49v/jU6THnPDGaJYWF2Eud
+	 Y7IOjEhhBXYYMJh1n7clB59Tz4g4tOnqhnBSPyuYm+FgHQpcu1NJZgPAMG9UJ/tREg
+	 dQI4bF8rjtBu/xkicrEwvUFSXn2fYHRWsoWPkPvvVKpj8zIz/RhWwTuKi1+HhCraxZ
+	 OFXwEh1EkhK/5DbA4csUmtu26oXBNwqICJi2Qinz/+xqjpFirVY2jUIcHV28tyRfDq
+	 eTVQQkifEXX6A==
+Date: Fri, 30 Jan 2026 09:37:36 -0800
 From: Kees Cook <kees@kernel.org>
 To: Feng Jiang <jiangfeng@kylinos.cn>
 Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
@@ -52,17 +52,16 @@ Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
 	conor.dooley@microchip.com, charlie@rivosinc.com, nathan@kernel.org,
 	linusw@kernel.org, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v7 5/8] lib/string_kunit: extend benchmarks to strnlen()
- and chr searches
-Message-ID: <202601300935.DF5E50015A@keescook>
+Subject: Re: [PATCH v7 0/8] riscv: optimize string functions and add kunit
+ tests
+Message-ID: <202601300936.6EDA32E96@keescook>
 References: <20260130025018.172925-1-jiangfeng@kylinos.cn>
- <20260130025018.172925-6-jiangfeng@kylinos.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260130025018.172925-6-jiangfeng@kylinos.cn>
+In-Reply-To: <20260130025018.172925-1-jiangfeng@kylinos.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_093552_993144_54FC116E 
-X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-CacheID: sfid-20260130_093738_058005_632356D5 
+X-CRM114-Status: UNSURE (   8.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,20 +79,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30, 2026 at 10:50:15AM +0800, Feng Jiang wrote:
-> Extend the string benchmarking suite to include strnlen(), strchr(),
-> and strrchr().
-> 
-> For character search functions strchr() and strrchr(), the benchmark
-> targets the NUL character. This ensures the entire string is scanned,
-> providing a consistent measure of full-length processing efficiency
-> comparable to strlen().
-> 
-> Suggested-by: Andy Shevchenko <andy@kernel.org>
-> Suggested-by: Eric Biggers <ebiggers@kernel.org>
-> Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
+On Fri, Jan 30, 2026 at 10:50:10AM +0800, Feng Jiang wrote:
+> This series provides optimized implementations of strnlen(), strchr(),
+> and strrchr() for the RISC-V architecture. The strnlen() implementation
+> is derived from the existing optimized strlen(). For strchr() and
+> strrchr(), the current versions use simple byte-by-byte assembly logic,
+> which will serve as a baseline for future Zbb-based optimizations.
 
-Reviewed-by: Kees Cook <kees@kernel.org>
+I'm happy with the Kunit elements here, so unless Andy has other
+feedback, please feel free to take this via the riscv tree. (Or if riscv
+maintainers would prefer, I can take it via string.)
+
+Thanks for working on this!
+
+-Kees
 
 -- 
 Kees Cook
