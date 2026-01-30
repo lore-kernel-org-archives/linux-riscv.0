@@ -4,63 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50DD6E6BF3C
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jan 2026 23:14:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F09FD46C1D
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jan 2026 23:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7m/VAzlYCdUal4kKZdPSu0gW8ccE7o8MsycBTLCO8zw=; b=3vVF2E1ZnH4TnQ
-	WFhDm9YzWA61G5mlgtEdwDXDdfiwcK1p4W4X9ttKKDlzxQfdkK77/e7d/2aGdPrjg2M3hk2j+QzCL
-	JKhRKnbWfltKWVQRjzpE2Ci7MgXq6Y5dZuT1DmBBzf+T00TpT/RZtOYIkzVL6UEKVP2vD/qu7U9sV
-	Y8qEod8YbfyRkPRV6sCANcoih9fcRVGRW+YnLRD/RgSY9U+RwM6yxTgRcQM5aCaSEnMW9fiJ7iQQ/
-	SJJi67Gm1+9QdM5qgAh+hFQaENjb2F5MfbNPb4aMkkqeg20Nu3Puy39rBMfBxD3hlclNoSBKkZzgq
-	qxocUL0ePqLc13mGwZ/g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=y4XLCGnqZ5qUEEMvgxvCLva4wDylWzrXvm+zTQAGyFE=; b=AuEQucLpW/A3wt
+	SRGrqQULAVBNX+ao5fVngg5iGNlDWXUtdND+dBHKYEbbbNzhLL425ohgLUu8MBLsvKVfCfh+oHj92
+	AjGwUBSqEauqT0GYlo5/D6P3imNZUTG5tHfPsKGEy42kC/QF9V8WV6CS0Axqk+EUzPnK6melZSMAR
+	9VHN/HtoOdqMV+kwb1EUYFVW2TiAsGLqImoIWWSdzGTrKIeZ4yiLgsRl1Xy8B0+oHVLwpfJZ47zjB
+	jKQCfTDlksNglx9Jmfh7pQGWlZyX1wZNvEP58VBSleJMCMb9HElj7ZknTStqqt3oOaAuWf/K+x5Tl
+	0hrLwAXwR98B5bViF1OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlxh9-000000025dD-4253;
-	Fri, 30 Jan 2026 23:14:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vlxtc-000000026I8-180p;
+	Fri, 30 Jan 2026 23:27:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlxh7-000000025cm-3rMf
+	id 1vlxta-000000026I2-0BfY
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jan 2026 23:14:31 +0000
+	Fri, 30 Jan 2026 23:27:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1EBC9442E2;
-	Fri, 30 Jan 2026 23:14:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22C2FC4CEF7;
-	Fri, 30 Jan 2026 23:14:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 203C360008;
+	Fri, 30 Jan 2026 23:27:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96118C4CEF7;
+	Fri, 30 Jan 2026 23:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769814867;
-	bh=BYVLMfjlzugSV06GJuMhIdNz3ii0H/2nYGc7SJ5HKu4=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=GdD+wVPUvvGQjp73geEyDLrh0soCtHBNZVcAcWAkgcbjjCCdvJ206yPdVnVWBjCnP
-	 mMGJsYvquL1KVKDccli3glI2w+MfbL0yQQ1BJ1+QlXap0Ck+AUpgMqo7NEA7mYCxkG
-	 gPEctX/SPOsnWU8xXeUjNb9rc1TPsQhJJgyYBqY+q7KZ7T5WX/YYj3qLABuPAhnTR0
-	 SVQq2j8zeYLJ+lzqZwR4j0RKA5GZqDDsRMuYb5WzLVrkkFaIAQz7k0wUEzSSHsljMb
-	 d0NiQe7Dc/j4TFzw3+mqE3QQejUhbT62cgpkhlIOonOFqhy2h+4NY10ZmyOO234yn1
-	 CrojXD2jTfg1g==
-Date: Fri, 30 Jan 2026 16:14:24 -0700 (MST)
+	s=k20201202; t=1769815640;
+	bh=rsyffoolBOpfsNf+j3mxclg7gYs+0FemeRkWFk/l1HM=;
+	h=Date:From:To:cc:Subject:From;
+	b=g79ImuZhK+2KaX8boCzoBbtK4ZDLx3Npgr9+9406zSJMcKs+lpDOqEThBy3D7zNr6
+	 AH5xMrkHxYJ/HjqRDAhm1xjqFr0MF4FolaeWQLrAiSDjeLI9K3ayyntPSBo7hYRS/B
+	 dMbEePtHmYJ1L8CLezz5Z2KNY6t7zGAScntiW8ayqe6V7b/RALbBK/mgfBLQQ/lxmg
+	 BKeoCwuMDyrsABE34plVj2H/JfHb1nUdXz7L56xHANWolZ9L2XrWlfDYvuBgEd/Me/
+	 bDT0QKWlcBBafv6wyz201BI7Ky2N+TTO9yCi5v5RAu69EbDg84Gz8ti1bG1zPvwYKC
+	 4GYyyVoL1fnGg==
+Date: Fri, 30 Jan 2026 16:27:13 -0700 (MST)
 From: Paul Walmsley <pjw@kernel.org>
-To: Jason Gunthorpe <jgg@ziepe.ca>, Joerg Roedel <joro@8bytes.org>
-cc: Tomasz Jeznach <tjeznach@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Albert Ou <aou@eecs.berkeley.edu>, iommu@lists.linux.dev, 
-    linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-    Will Deacon <will@kernel.org>, lihangjing@bytedance.com, 
-    Xu Lu <luxu.kernel@bytedance.com>, patches@lists.linux.dev, 
-    xieyongji@bytedance.com
-Subject: Re: [PATCH v2 0/5] Convert riscv to use the generic iommu page
- table
-In-Reply-To: <20260129004640.GB1641016@ziepe.ca>
-Message-ID: <63c38161-762f-bff5-0b9c-0148140c695b@kernel.org>
-References: <0-v2-b11ebca8abb6+c096-iommu_pt_riscv_jgg@nvidia.com> <72olk767l4goaqsrkyelhtnzg33nxbtwnammy4asnqxukbolnh@gwypmg6n5t3e> <20260129004640.GB1641016@ziepe.ca>
+To: torvalds@linux-foundation.org
+cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [GIT PULL] RISC-V updates for v6.19-rc8
+Message-ID: <486c518d-4349-a1ef-25b9-c30abe0008fb@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_151430_008119_429A8835 
-X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +65,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 28 Jan 2026, Jason Gunthorpe wrote:
+Linus,
 
-> On Thu, Jan 22, 2026 at 08:56:12AM +0100, Joerg Roedel wrote:
-> > Tomasz,
-> > 
-> > On Tue, Jan 06, 2026 at 11:06:44AM -0400, Jason Gunthorpe wrote:
-> > > Jason Gunthorpe (5):
-> > >   iommupt: Add the RISC-V page table format
-> > >   iommu/riscv: Disable SADE
-> > >   iommu/riscv: Use the generic iommu page table
-> > >   iommu/riscv: Enable SVNAPOT support for contiguous ptes
-> > >   iommu/riscv: Allow RISC_VIOMMU to COMPILE_TEST
-> > 
-> > Any opinion on that series?
-> 
-> Let's take it if we don't hear from Tomasz this week? It brings
-> the contiguous page feature people wanted and now that it is tested
-> I'm not especially worried about it.
+Please pull these RISC-V updates for v6.19-rc8.  Nothing too exciting here;
+looks like we're in good shape for the final v6.19 release.
 
-In the event that you don't hear from Tomasz:
-
-Acked-by: Paul Walmsley <pjw@kernel.org> # arch/riscv 
-
+thanks,
 
 - Paul
+
+
+The following changes since commit 63804fed149a6750ffd28610c5c1c98cce6bd377:
+
+  Linux 6.19-rc7 (2026-01-25 14:11:24 -0800)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.19-rc8
+
+for you to fetch changes up to 0ea05c4f7527a98f5946f96c829733788934311d:
+
+  riscv: compat: fix COMPAT_UTS_MACHINE definition (2026-01-29 00:59:17 -0700)
+
+----------------------------------------------------------------
+RISC-V updates for v6.19-rc8
+
+- Correct the RISC-V compat.h COMPAT_UTS_MACHINE architecture name
+
+- Avoid printing a false warning message on kernels with the SiFive and
+  MIPS errata compiled in
+
+- Address a few warnings generated by sparse in the signal handling code
+
+- Fix a comment typo
+
+----------------------------------------------------------------
+Andreas Schwab (1):
+      errata/sifive: remove unreliable warn_miss_errata
+
+Austin Kim (1):
+      riscv: fix minor typo in syscall.h comment
+
+Han Gao (1):
+      riscv: compat: fix COMPAT_UTS_MACHINE definition
+
+Paul Walmsley (1):
+      riscv: signal: fix some warnings reported by sparse
+
+ arch/riscv/errata/sifive/errata.c | 18 ------------------
+ arch/riscv/include/asm/compat.h   |  2 +-
+ arch/riscv/include/asm/syscall.h  |  2 +-
+ arch/riscv/kernel/signal.c        |  6 +++---
+ 4 files changed, 5 insertions(+), 23 deletions(-)
+
+
+vmlinux size differences in bytes (from 63804fed149a):
+text data bss  dec  hex filename                             
+ -64 -224   . -288 -120 vmlinux.defconfig.gcc-15             
+   . -288   . -288 -120 vmlinux.nosmp_defconfig.gcc-15       
+-128 -168   . -296 -128 vmlinux.rv32_defconfig.gcc-15        
+ -88 -168   . -256 -100 vmlinux.rv32_nosmp_defconfig.gcc-15  
+-123    .   . -123  -7b vmlinux.nommu_virt_defconfig.gcc-15  
+-176 -160   . -336 -150 vmlinux.defconfig.clang-20           
+-176 -160   . -336 -150 vmlinux.nosmp_defconfig.clang-20     
+-184 -160   . -344 -158 vmlinux.rv32_defconfig.clang-20      
+-184 -224   . -408 -198 vmlinux.rv32_nosmp_defconfig.clang-20
+-223 +128   .  -95  -5f vmlinux.nommu_virt_defconfig.clang-20
 
 _______________________________________________
 linux-riscv mailing list
