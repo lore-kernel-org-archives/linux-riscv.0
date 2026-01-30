@@ -4,79 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DD53D73EA8
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jan 2026 23:26:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B491D73E86
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jan 2026 01:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GVXrEas6ZGuzYrT/Cf9Bi8aLbQRBw6XolHpua7rh5u0=; b=AA97gxfBQu5wl/
-	rA6GXr5KFzEaGhcPQ1RhGVxyF2EKG9B4Rn0EYOJ9GGiwkuVd+g3+Pnu9nmsbYN9oQslu4yCKr+awp
-	YQKLT0CYCOcPWLbizrO/5NVqMp89nDHeVvRCDCd4+1BOWtbzXBmZ4T2S7n/7fgmZW99Wyh0Y/O7wG
-	/db8JQXNtyiuB3j7Ixehpt0dTUeVIUMBDAop5YMK2/KyWuyPjib2FgShluqWBwf4nmVQZQoUOcyc+
-	n1zlCRqFfLfaPlZtH6ex3ps8qau7EAZh9q5P+OAndWw2aBolIQvteFraC47bzbYQCCOqAKScQZTCV
-	otmEt1BdZBRB0o6NMyIw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:Message-Id:Date:References:
+	Mime-Version:From:Subject:To:In-Reply-To:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=ydHje6yj+5G3s80UlC/7GtUPLrOWN2OWISsKObyW/6Q=; b=D9V4xJAOwiOE5CDNPUIHavpiH+
+	dc3pgEKHUNnBkPBQUB2Oa4Wla0wUg3L7AazgvqCt29jbNelsHb6LveKR0kTTAOUwNzogbKFg/qEXE
+	qMjqZTs3Nm2FeRxfbv11u5SI3vOR/mKK+EX1E379NkK9uThP4+yt9LXWdeHnSLScsoRH2jGiT5pai
+	pDqzCgnxhUMWHBE9prPw/cixNOthIzWZ2bn6L4655tmuqJiAGJjJlDWo/38KS5IQlNLKiwYfexa7G
+	Y8AR3BoYIFQZyre6lLwFh4ROUkuw5p1ukfjrNi29sNVK3kHWOhSI4Jk9tj4qrDq5X1/gAapK9CaEd
+	GVlJr93Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlbOU-00000000mVH-1pA2;
-	Thu, 29 Jan 2026 23:25:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vldLa-00000000rCJ-49vt;
+	Fri, 30 Jan 2026 01:30:55 +0000
+Received: from sg-1-36.ptr.blmpb.com ([118.26.132.36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlbOS-00000000mUw-2H1W
+	id 1vldLX-00000000rBw-0qRq
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jan 2026 23:25:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A6D544419E;
-	Thu, 29 Jan 2026 23:25:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1C9AC4CEF7;
-	Thu, 29 Jan 2026 23:25:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769729143;
-	bh=3+xik+/x6pFcQMFxG5QqN5mR1gL6yX1jrYgnP2VQ1dA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LgXJgQCduBviX6Pf5XMfcb9aW6ykHIkhl0Z6Zjlkw96jyKTrpGQwQA8tuDCuq6bmL
-	 rZ9RavnLNAyBE2rnhO1yAIoE7K0XaC3jPEBLk6gqw2A9HkBV1oZ7x/hijwzaR5urQE
-	 qVwBpVXIp00grEZzG0WdscxJ+dtgADy1weesMNqVq2q07mYMrMScyQzvoBYt1FbVQK
-	 tb/MuuVq58SjwOeMt+nsTJRB+V/oAeYWkZpxwgM4xegcVT4tQIftjzWCtRqC/0Aj7b
-	 Eqn2khyMx/cJdgbqR3TWoXRiRKLOywiAQETfK/IPsskVw3VSiw9tz2rE2cSS9vyR9n
-	 6QCROt0qaTMfQ==
-Date: Thu, 29 Jan 2026 16:25:35 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Charalampos Mitrodimas <charmitro@posteo.net>
-Cc: Asuna Yang <xinrui.riscv@isrc.iscas.ac.cn>,
-	Nicolas Schier <nsc@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Jonathan Corbet <corbet@lwn.net>, Conor Dooley <conor@kernel.org>,
-	Mingcong Bai <jeffbai@aosc.io>, Han Gao <rabenda.cn@gmail.com>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Jason Montleon <jmontleo@redhat.com>, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v6 4/4] RISC-V: handle extension configs for bindgen,
- re-enable gcc + rust builds
-Message-ID: <20260129232535.GD844102@ax162>
-References: <20251230-gcc-rust-v5-v6-0-2ac86ba728c8@isrc.iscas.ac.cn>
- <20251230-gcc-rust-v5-v6-4-2ac86ba728c8@isrc.iscas.ac.cn>
- <87v7gk8r5x.fsf@posteo.net>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87v7gk8r5x.fsf@posteo.net>
+	Fri, 30 Jan 2026 01:30:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=feishu2303021642; d=spacemit.com; t=1769736637; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=suEQkRNvZoCOc0//N1x9+pIb/ihS7enDgh91Lsz4D8I=;
+ b=PPC9Q3yF5hUaX3Wtgs1l/TkEjcGUsqX2Jl1RwrfqgR5DjjKeoF8oN7VovRj8jGQosbKd3F
+ suq32AMw4TYFeVvbcm1A71Gj74PPk5oa42UG7Lws7xhySfGfv7+P1Bk8dD7+zh9kttNKO2
+ oRDe2j6ZF3STIEU0Jp/s2q0fvhxIp/DBc9z7I1cwFgEmP9qh7h2B8hFkMe7rZGsk+VSfH8
+ uf1YaNbfQHvlP5Z2BP2YZiC9mkPlMjQBbEJuDex3P6FnsKZX2Gxup1lyKUHqaWC9kUoY/c
+ SL9FchmZ2iwRbcyDlCsnqTcLhchsT8LYSVuBsC3q6bYdWfgl1TAuNEnDx8fqJg==
+In-Reply-To: <2f1f48c6-ad75-4e7d-89a2-c93bb1c1d067@arm.com>
+To: "Robin Murphy" <robin.murphy@arm.com>
+Subject: Re: [PATCH v1.1 4/7] dt-bindings: iommu: Add spacemit/t100 features
+From: =?utf-8?q?=E9=83=91=E5=BE=8B?= <lv.zheng@spacemit.com>
+Mime-Version: 1.0
+X-Lms-Return-Path: <lba+1697c09bb+4df8e4+lists.infradead.org+lv.zheng@spacemit.com>
+References: <cover.1769562575.git.lv.zheng@spacemit.com> <cover.1769666438.git.lv.zheng@spacemit.com> <15209d7b8c5a5055f8944ab7261e440d70a18a03.1769666438.git.lv.zheng@spacemit.com> <20260129-evolution-femur-84eb5668f4a7@spud> <a4684b7f094a6a5ee87d9db722b75594f851b9fb.d4fb292a.1570.47af.8025.bf9af089dc8a@feishu.cn> <20260129-grandly-compare-e8e3a105f690@spud>
+	<2f1f48c6-ad75-4e7d-89a2-c93bb1c1d067@arm.com>
+Date: Fri, 30 Jan 2026 09:30:34 +0800
+Message-Id: <a4684b7f094a6a5ee87d9db722b75594f851b9fb.75577c8a.52dc.41c3.80a1.ca94d4edcb4c@feishu.cn>
+Cc: "Conor Dooley" <conor@kernel.org>, 
+	"Tomasz Jeznach" <tjeznach@rivosinc.com>, 
+	"Joerg Roedel" <joro@8bytes.org>, "Will Deacon" <will@kernel.org>, 
+	"Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
+	"Jingyu Li" <joey.li@spacemit.com>, "iommu" <iommu@lists.linux.dev>, 
+	"linux-perf-users" <linux-perf-users@vger.kernel.org>, 
+	"linux-riscv" <linux-riscv@lists.infradead.org>, 
+	"spacemit" <spacemit@lists.linux.dev>, 
+	"devicetree" <devicetree@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_152544_623602_B2AA1B92 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20260129_173051_936019_937B7E71 
+X-CRM114-Status: GOOD (  27.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,88 +75,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 29, 2026 at 01:49:56PM +0000, Charalampos Mitrodimas wrote:
-> I'm under the impression that the `!RUST ||` guard here doesn't
-> actually prevent the `$(bindgen-backend-option,...)` call from being
-> executed. `$(...)` shell expansions should happen during the textual
-> substitution phase, before symbol dependency evaluation occurs, check
-> documentation at kconfig-macro-language.rst lines 228-229.
-> 
-> I did this test:
->   $ cat /tmp/fake_bindgen
->     #!/bin/bash
->     echo "[BINDGEN INVOKED] $(date '+%H:%M:%S') args: $@" >> /tmp/bindgen_calls.log
->     # Call real bindgen
->     exec /home/charmitro/.cargo/bin/bindgen "$@"
-> 
->   $ make ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- BINDGEN=/tmp/fake_bindgen defconfig
->     HOSTCC  scripts/basic/fixdep
->     ...
->   *** Default configuration is based on 'defconfig'
->   #
->   # configuration written to .config
->   #
-> 
->   $ linux git:(master) rg CONFIG_RUST .config
->   ...
->   283:# CONFIG_RUST is not set
->   ...
-> 
->   $ cat /tmp/bindgen_calls.log
->   [BINDGEN INVOKED] 15:44:44 args: --version workaround-for-0.69.0
->   [BINDGEN INVOKED] 15:44:44 args: ./scripts/rust_is_available_bindgen_libclang.h
->   [BINDGEN INVOKED] 15:44:44 args: --version workaround-for-0.69.0
->   [BINDGEN INVOKED] 15:44:44 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64imv
->   [BINDGEN INVOKED] 15:44:44 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32imv
->   [BINDGEN INVOKED] 15:44:44 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64ima_zabha
->   [BINDGEN INVOKED] 15:44:44 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32ima_zabha
->   [BINDGEN INVOKED] 15:44:45 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64ima_zacas
->   [BINDGEN INVOKED] 15:44:45 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32ima_zacas
->   [BINDGEN INVOKED] 15:44:45 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64ima_zbb
->   [BINDGEN INVOKED] 15:44:45 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32ima_zbb
->   [BINDGEN INVOKED] 15:44:45 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64ima_zba
->   [BINDGEN INVOKED] 15:44:45 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32ima_zba
->   [BINDGEN INVOKED] 15:44:45 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64ima_zbc
->   [BINDGEN INVOKED] 15:44:46 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32ima_zbc
->   [BINDGEN INVOKED] 15:44:46 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64ima_zbkb
->   [BINDGEN INVOKED] 15:44:46 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32ima_zbkb
->   [BINDGEN INVOKED] 15:44:46 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=lp64 -march=rv64ima_zicsr_zifencei
->   [BINDGEN INVOKED] 15:44:46 args: /dev/null -- -x c --target=riscv64-linux-gnu -mabi=ilp32 -march=rv32ima_zicsr_zifencei
-> 
-> So, CONFIG_RUST not set, yet bindgen was invoked. Not sure if that is
-> intentional though.
-
-While I have only recently adopted Kconfig, the section you pointed to
-in kconfig-macro-language.rst makes it seem like this is expected. I
-read that to mean all shell commands are going to be evaluated and
-effectively turned into "y" and "n" before dependencies are evaluated.
-You can test this with something like:
-
-if RUST
-
-config RUST_FOOBAR
-    def_bool $(bindgen-backend-option,-obviously-not-supported)
-
-endif
-
-added in init/Kconfig and running your fake bindgen.
-
-While this is obviously a little wasteful, I suspect this drastically
-simplifies the shell commands part of Kconfig for no change in runtime
-behavior.  The way that the dependency is currently written ensures that
-either the result of bindgen-backend-option matters for the sake of
-saying an extension is fully supported by the toolchain (when Rust is
-enabled) or it does not matter (because Rust is not enabled).
-
-Cheers,
-Nathan
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+PiBGcm9tOiAiUm9iaW4gTXVycGh5Ijxyb2Jpbi5tdXJwaHlAYXJtLmNvbT4KPiBEYXRlOsKgIEZy
+aSwgSmFuIDMwLCAyMDI2LCAwMTowNgo+IFN1YmplY3Q6wqAgUmU6IFtQQVRDSCB2MS4xIDQvN10g
+ZHQtYmluZGluZ3M6IGlvbW11OiBBZGQgc3BhY2VtaXQvdDEwMCBmZWF0dXJlcwo+IFRvOiAiQ29u
+b3IgRG9vbGV5Ijxjb25vckBrZXJuZWwub3JnPiwgIumDkeW+iyI8bHYuemhlbmdAc3BhY2VtaXQu
+Y29tPgo+IENjOiAiVG9tYXN6IEplem5hY2giPHRqZXpuYWNoQHJpdm9zaW5jLmNvbT4sICJKb2Vy
+ZyBSb2VkZWwiPGpvcm9AOGJ5dGVzLm9yZz4sICJXaWxsIERlYWNvbiI8d2lsbEBrZXJuZWwub3Jn
+PiwgIlJvYiBIZXJyaW5nIjxyb2JoQGtlcm5lbC5vcmc+LCAiS3J6eXN6dG9mIEtvemxvd3NraSI8
+a3J6aytkdEBrZXJuZWwub3JnPiwgIkNvbm9yIERvb2xleSI8Y29ub3IrZHRAa2VybmVsLm9yZz4s
+ICJQYXVsIFdhbG1zbGV5IjxwandAa2VybmVsLm9yZz4sICJQYWxtZXIgRGFiYmVsdCI8cGFsbWVy
+QGRhYmJlbHQuY29tPiwgIkFsYmVydCBPdSI8YW91QGVlY3MuYmVya2VsZXkuZWR1PiwgIkFsZXhh
+bmRyZSBHaGl0aSI8YWxleEBnaGl0aS5mcj4sICJKaW5neXUgTGkiPGpvZXkubGlAc3BhY2VtaXQu
+Y29tPiwgImlvbW11Ijxpb21tdUBsaXN0cy5saW51eC5kZXY+LCAibGludXgtcGVyZi11c2VycyI8
+bGludXgtcGVyZi11c2Vyc0B2Z2VyLmtlcm5lbC5vcmc+LCAibGludXgtcmlzY3YiPGxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmc+LCAic3BhY2VtaXQiPHNwYWNlbWl0QGxpc3RzLmxpbnV4
+LmRldj4sICJkZXZpY2V0cmVlIjxkZXZpY2V0cmVlQHZnZXIua2VybmVsLm9yZz4KPiBPbiAyOS8w
+MS8yMDI2IDQ6NDEgcG0sIENvbm9yIERvb2xleSB3cm90ZToKPiA+IE9uIFRodSwgSmFuIDI5LCAy
+MDI2IGF0IDA2OjQzOjAzUE0gKzA4MDAsIOmDkeW+iyB3cm90ZToKPiA+Pj4gRnJvbTogIkNvbm9y
+IERvb2xleSI8Y29ub3JAa2VybmVsLm9yZz4KPiA+Pj4gRGF0ZTrCoCBUaHUsIEphbiAyOSwgMjAy
+NiwgMTg6MDgKPiA+Pj4gU3ViamVjdDrCoCBSZTogW1BBVENIIHYxLjEgNC83XSBkdC1iaW5kaW5n
+czogaW9tbXU6IEFkZCBzcGFjZW1pdC90MTAwIGZlYXR1cmVzCj4gPj4+IFRvOiAiTHYgWmhlbmci
+PGx2LnpoZW5nQHNwYWNlbWl0LmNvbT4KPiA+Pj4gQ2M6ICJUb21hc3ogSmV6bmFjaCI8dGplem5h
+Y2hAcml2b3NpbmMuY29tPiwgIkpvZXJnIFJvZWRlbCI8am9yb0A4Ynl0ZXMub3JnPiwgIldpbGwg
+RGVhY29uIjx3aWxsQGtlcm5lbC5vcmc+LCAiUm9iaW4gTXVycGh5Ijxyb2Jpbi5tdXJwaHlAYXJt
+LmNvbT4sICJSb2IgSGVycmluZyI8cm9iaEBrZXJuZWwub3JnPiwgIktyenlzenRvZiBLb3psb3dz
+a2kiPGtyemsrZHRAa2VybmVsLm9yZz4sICJDb25vciBEb29sZXkiPGNvbm9yK2R0QGtlcm5lbC5v
+cmc+LCAiUGF1bCBXYWxtc2xleSI8cGp3QGtlcm5lbC5vcmc+LCAiUGFsbWVyIERhYmJlbHQiPHBh
+bG1lckBkYWJiZWx0LmNvbT4sICJBbGJlcnQgT3UiPGFvdUBlZWNzLmJlcmtlbGV5LmVkdT4sICJB
+bGV4YW5kcmUgR2hpdGkiPGFsZXhAZ2hpdGkuZnI+LCAiSmluZ3l1IExpIjxqb2V5LmxpQHNwYWNl
+bWl0LmNvbT4sICJaaGlqaWFuIENoZW4iPHpoaWppYW5Ac3BhY2VtaXQuY29tPiwgPGlvbW11QGxp
+c3RzLmxpbnV4LmRldj4sIDxsaW51eC1wZXJmLXVzZXJzQHZnZXIua2VybmVsLm9yZz4sIDxsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnPiwgPHNwYWNlbWl0QGxpc3RzLmxpbnV4LmRldj4s
+IDxkZXZpY2V0cmVlQHZnZXIua2VybmVsLm9yZz4KPiA+Pj4gT24gVGh1LCBKYW4gMjksIDIwMjYg
+YXQgMDI6MDk6MTNQTSArMDgwMCwgTHYgWmhlbmcgd3JvdGU6Cj4gPj4+PiBBZGRzIGRldmljZSB0
+cmVlIGJpbmRpbmdzIGZvciBTcGFjZW1pVCBUMTAwIHNwZWNpZmljIGZlYXR1cmVzLgo+ID4+Pj4g
+wqDCoAo+ID4+Pj4gdmVuZG9yLWhwbS1ldmVudHM6IEFsbG93IHZlbmRvciBldmVudHMgdG8gYmUg
+Y3VzdG9taXplZCBpbiB0aGUgZGV2aWNlCj4gPj4+PiDCoMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKg
+IMKgIMKgdHJlZS4KPiA+Pj4+IGdsb2JhbC1maWx0ZXI6IFRoZSBmZWF0dXJlIHNhdmVzIHNpbGlj
+b24gYXJlYSBieSByZWR1Y2luZyBmaWx0ZXJzIHRvCj4gPj4+PiDCoMKgIMKgIMKgIMKgIMKgIMKg
+IMKgIMKgb25lIGFuZCB1c2UgaXQgYXMgYSBnbG9iYWwgZmlsdGVyIGFjcm9zcyBhbGwgZXZlbnRz
+Lgo+ID4+Pj4gwqDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoFRoaXMgdXN1YWxseSBpcyBzdWZmaWNp
+ZW50IGZvciByZWFsIGFwcGxpY2F0aW9ucy4KPiA+Pj4gwqDCoAo+ID4+PiBXaHkgY2FuIHRoZXNl
+IG5vdCBiZSBkZXRlcm1pbmVkIGZyb20gYSBkZXZpY2Ugc3BlY2lmaWMgY29tcGF0aWJsZT8KPiA+
+Pgo+ID4+IFRoZSBzcGVjaWZpY2F0aW9uIG9ubHkgZGVmaW5lcyBsZXNzIHRoYW4gMTAgc3RhbmRh
+cmQgZXZlbnQgdHlwZXMgd2hpbGUgdGhlCj4gPj4gcmVhbCBzaWxpY29ucyBzaG91bGQgaGF2ZSBp
+bXBsZW1lbnRlZCBtYW55IG90aGVyIGV2ZW50IHR5cGVzIGJhc2VkIG9uCj4gPj4gdGhlaXIgbWlj
+cm8tYXJjaGl0ZWN0dXJlLiBJIHRyaWVkIHRvIHByb3ZpZGUgYSBjb21tb24gbWVjaGFuaXNtIGZv
+ciBhbGwKPiA+PiB2ZW5kb3Igc3BlY2lmaWMgZXZlbnQgdHlwZXMgYWNyb3NzIGRpZmZlcmVudCB2
+ZW5kb3JzLgo+ID7CoAo+ID4gR2l2ZW4gdGhhdCB0aGUgdmFyaWFuY2UgaXMgYmFzZWQgb24gdWFy
+Y2gsIGl0IHNvdW5kcyBsaWtlIGl0IGNhbiBiZQo+ID4gZGV0ZXJtaW5lZCBmcm9tIHRoZSBjb21w
+YXRpYmxlLgo+ID7CoAo+ID4+IEl0IGlzIHNpbWlsYXIgZm9yIHRoZSBnbG9iYWwgZmlsdGVyLCB0
+aGUgZ2xvYmFsIGZpbHRlciBtZWNoYW5pc20gYWN0dWFsbHkKPiA+PiBjb21wbGllcyB0byB0aGUg
+SU9NTVUgc3BlY2lmaWNhdGlvbiwgdXNlcnMgY2FuIGFsdGVyIHRoZSBpb2hwbWV2dAo+ID4+IHJl
+Z2lzdGVycyBhcyBpcyB3aGF0IGlzIHNwZWNpZmllZCBpbiB0aGUgSU9NTVUgc3BlY2lmaWNhdGlv
+bi4gSXQgb25seQo+ID4+IHByb3ZpZGVzIHNsaWdodCBhcHBsaWNhdGlvbiBkaWZmZXJlbmNlIGJl
+dHdlZW4gdGhlIGZpbmFsIGVmZmVjdGlvbi4gVGh1cwo+ID4+IHRoaXMgY291bGQgYWxzbyBiZSBh
+IG5vbi1kZXZpY2Ugc3BlY2lmaWMgb3B0aW9uLgo+ID7CoAo+ID4gV2hhdCBpcyBhICJ1c2VyIiBp
+biB0aGlzIGNvbnRleHQ/IEdpdmVuIHlvdSdyZSB0YWxraW5nIGFib3V0IHJlZHVjaW5nCj4gPiBz
+aWxpY29uIGFyZWEsIGl0IHNvdW5kcyBsaWtlIHRoaXMgd2lsbCBiZSBzZXQgaW4gc3RvbmUgZm9y
+IGVhY2ggU29DLCBhbmQKPiA+IHRoZXJlZm9yZSBjYW4gYmUgZGV0ZXJtaW5lZCBieSBjb21wYXRp
+YmxlLiBJZiBvdGhlciBkZXZpY2VzIGRvIHRoaXMsCj4gPiB0aGV5IGNhbiBhbHNvIGRldGVybWlu
+ZSBpdCBmcm9tIHRoZWlyIGNvbXBhdGlibGUuCj4gPsKgCj4gPiBQcm9wZXJ0aWVzIGZvciB0aGlu
+Z3MgdGhhdCBjYW4gYmUgZGV0ZXJtaW5lZCBiYXNlZCBvbiBjb21wYXRpYmxlIGFyZQo+ID4gZ2Vu
+ZXJhbGx5IG5vdCBwZXJtaXR0ZWQsIHNvIHlvdSdsbCBuZWVkIHRvIHByb3ZpZGUgYSBjb21wZWxs
+aW5nCj4gPiByYXRpb25hbGUuIENvbW1vbiBtZWNoYW5pc20gaXNuJ3Qgb25lLCBzaW5jZSBkZXRl
+cm1pbmluZyBiYXNlZCBvbgo+ID4gY29tcGF0aWJsZSB3b3VsZCBiZSBhIGNvbW1vbiBtZWNoYW5p
+c20gYmFzZWQgb24gbWF0Y2ggZGF0YSB0aGF0IHBlb3BsZQo+ID4gY2FuIHRhY2sgb250byBmb3Ig
+dGhlaXIgZGV2aWNlcy4KPsKgCj4gQWxzbywgcmVpbnZlbnRpbmcgamV2ZW50cyB2aWEgZGV2aWNl
+dHJlZSBpcyBwcmV0dHkgZ3JpbSBhbnl3YXkgLSB0aGUgUE1VwqAKPiBjYW4gc2ltcGx5IGV4cG9z
+ZSBhbiAiaWRlbnRpZmllciIgYXR0cmlidXRlIHRoYXQgdW5pcXVlbHkgaWRlbnRpZmllcyB0aGXC
+oAo+IHZlbmRvciBpbXBsZW1lbnRhdGlvbiwgYW5kIHBlcmYgdG9vbGluZyBjYW4gbWF0Y2ggdGhh
+dCB0byBhIHNldCBvZiBldmVudMKgCj4gZGVmaW5pdGlvbnMgaW4gdXNlcnNwYWNlLCB3aXRoIHRo
+ZSBhZGRlZCBib251cyB0aGF0IGpldmVudHMgY2FuIGFsc2/CoAo+IGVuY29kZSBtZWFuaW5nZnVs
+IGRlc2NyaXB0aW9ucywgbWV0cmljcyBhbmQgc3VjaGxpa2UuIFRoZXJlIGRvZXNuJ3TCoAo+ICpu
+ZWVkKiB0byBiZSBhIHN5c2ZzIGFsaWFzIGZvciBldmVyeSBwb3NzaWJsZSBldmVudC4gSSBzZWUg
+dGhlIFJJU0MtVsKgCj4gQ1BVIFBNVXMgYXJlIGFscmVhZHkgb24tYm9hcmQgd2l0aCB0aGlzIGFw
+cHJvYWNoIC0gbm90ZSB0aGXCoAo+ICJVbml0Ii8iQ29tcGF0IiBtYXRjaGluZyBmb3Igc3lzdGVt
+L3VuY29yZSBQTVVzIGlzIGEgbGl0dGxlIGRpZmZlcmVudMKgCj4gZnJvbSB0aGUgbWFwZmlsZSB1
+c2VkIGZvciBDUFVzLCBidXQgc2VlIG90aGVyIGFyY2hpdGVjdHVyZXMgZm9yIGV4YW1wbGVzLgoK
+VGhhbmtzIGZvciB0aGUgaWRlYS4gSXQgc291bmRzIGdyZWF0IGFuZCBJJ2xsIGdpdmUgaXQgYSB0
+cnkuCgpCZXN0IHJlZ2FyZHMsCkx2Cgo+wqAKPiBUaGFua3MsCj4gUm9iaW4uCgoKVGhpcyBtZXNz
+YWdlIGFuZCBhbnkgYXR0YWNobWVudCBhcmUgY29uZmlkZW50aWFsIGFuZCBtYXkgYmUgcHJpdmls
+ZWdlZCBvciBvdGhlcndpc2UgcHJvdGVjdGVkIGZyb20gZGlzY2xvc3VyZS4gSWYgeW91IGFyZSBu
+b3QgYW4gaW50ZW5kZWQgcmVjaXBpZW50IG9mIHRoaXMgbWVzc2FnZSwgcGxlYXNlIGRlbGV0ZSBp
+dCBhbmQgYW55IGF0dGFjaG1lbnQgZnJvbSB5b3VyIHN5c3RlbSBhbmQgbm90aWZ5IHRoZSBzZW5k
+ZXIgaW1tZWRpYXRlbHkgYnkgcmVwbHkgZS1tYWlsLiBVbmludGVuZGVkIHJlY2lwaWVudHMgc2hv
+dWxkIG5vdCB1c2UsIGNvcHksIGRpc2Nsb3NlIG9yIHRha2UgYW55IGFjdGlvbiBiYXNlZCBvbiB0
+aGlzIG1lc3NhZ2Ugb3IgYW55IGluZm9ybWF0aW9uIGNvbnRhaW5lZCBpbiB0aGlzIG1lc3NhZ2Uu
+IEVtYWlscyBjYW5ub3QgYmUgZ3VhcmFudGVlZCB0byBiZSBzZWN1cmUgb3IgZXJyb3IgZnJlZSBh
+cyB0aGV5IGNhbiBiZSBpbnRlcmNlcHRlZCwgYW1lbmRlZCwgbG9zdCBvciBkZXN0cm95ZWQsIGFu
+ZCB5b3Ugc2hvdWxkIHRha2UgZnVsbCByZXNwb25zaWJpbGl0eSBmb3Igc2VjdXJpdHkgY2hlY2tp
+bmcuIAogCuacrOmCruS7tuWPiuWFtuS7u+S9lemZhOS7tuWFt+acieS/neWvhuaAp+i0qO+8jOW5
+tuWPr+iDveWPl+WFtuS7luS/neaKpOaIluS4jeWFgeiuuOiiq+aKq+mcsue7meesrOS4ieaWueOA
+guWmgumYgeS4i+ivr+aUtuWIsOacrOmCruS7tu+8jOaVrOivt+eri+WNs+S7peWbnuWkjeeUteWt
+kOmCruS7tueahOaWueW8j+mAmuefpeWPkeS7tuS6uu+8jOW5tuWwhuacrOmCruS7tuWPiuWFtuS7
+u+S9lemZhOS7tuS7jumYgeS4i+ezu+e7n+S4reS6iOS7peWIoOmZpOOAguWmgumYgeS4i+W5tumd
+nuacrOmCruS7tuWGmeaYjuS5i+aUtuS7tuS6uu+8jOaVrOivt+WIh+WLv+S9v+eUqOOAgeWkjeWI
+tuOAgeaKq+mcsuacrOmCruS7tuaIluWFtuS7u+S9leWGheWuue+8jOS6puivt+WIh+WLv+S+neac
+rOmCruS7tuaIluWFtuS7u+S9leWGheWuueiAjOmHh+WPluS7u+S9leihjOWKqOOAgueUteWtkOmC
+ruS7tuaXoOazleS/neivgeaYr+S4gOenjeWuieWFqOWSjOS4jeS8muWHuueOsOS7u+S9leW3rumU
+meeahOmAmuS/oeaWueW8j++8jOWPr+iDveS8muiiq+aLpuaIquOAgeS/ruaUueOAgeS4ouWkseaI
+luaNn+Wdj++8jOaUtuS7tuS6uumcgOiHquihjOi0n+i0o+WBmuWlveWuieWFqOajgOafpeOAggoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
