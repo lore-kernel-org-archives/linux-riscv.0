@@ -4,65 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5514D73EB2
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jan 2026 02:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC902D73EB8
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jan 2026 04:12:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YlUBNihkVws5gyDu6rn4XbLBxh6GwcQB6glgsxAFgqQ=; b=cfEInlB2eXdgp6
-	5G371Lwc5tj+1DiyI5XEOVi4g844fblty8ni7xz1p0wmcFAtwpbls0HzrSULQn1i4CM9f0jNEBjVs
-	xCOAYRNwMUflDtI54tZWVzRP6TOIYRqI0CKKygAXF55W6r3SJwlMswrpepNXR0bMwjNyoVNxAwL9G
-	LpTswg2FSCYhO/LO/2yU/2EeaIr9gSY8cIY4KYNpdgNu8bRDtBokY53ZMnv9p00joZBi3HbPtbmCw
-	sLVO8saBUaDL/m9mofhqM6O5zKRw1qybmnuoSYNSBNSTsQqfe5U5gfNVZaR0f45F3o/qosJ6hmHy+
-	/okp1TjtrZMW9DKH2rVw==;
+	List-Owner; bh=lAU6aK8amN1bUIoEqr+u4KifE1F4hGHPqygUV5WUVHA=; b=GVMc6173wCBCLQ
+	t0gSF096FypNxMdc/pdNsKBLeHEt5gKxLvDk9uvsIM4ugCE+lZ1uq48SZARCyptYGG5vaP9aljg6H
+	vYlSLWxTV1NEWMOk3veLmKEZsXd6JxUl1l3kY8g3bnSvpFqYeCepjkQkUKz2WMqUW9OQXxDWnrG2A
+	Lbzg5DgYLGhgBBrg3zG4cpKltVUOjKceXY3qqdkSlUjptV02v2UA2FwMwi45plfyDWpZ6bf1dg39d
+	YU1IUY8LrpuZAWxs3qmw1p1f8tpFMLFqwNrByGnIjjYmZew6R4D4xC7MvhjDp3mEV4qEil2sWStIx
+	AbwED/M3Ezg3Kniq9Lag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlebE-00000000ujd-2BfP;
-	Fri, 30 Jan 2026 02:51:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vlfre-00000000zTF-1YB8;
+	Fri, 30 Jan 2026 04:12:10 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vleav-00000000uZQ-00QU;
-	Fri, 30 Jan 2026 02:50:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AEBE744534;
-	Fri, 30 Jan 2026 02:50:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91A5CC4CEF7;
-	Fri, 30 Jan 2026 02:50:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769741448;
-	bh=YnXhxfv/PgSEeYazcWLixzHseoSlG5XpJcXQaxI+Imc=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=kB0wdIkFjFPhwfMk7mjY2gf3zytLxtNfGxwrsr1ZaZO3MlgQDJ5OMUAGDEWtKl0uX
-	 9h7BfLJUTpV1BQVd5vl5a9aw0LTzaETreSpBkKazR9UgM8jwUj1EmOyiJfjM4E9O9g
-	 ww81WeRevmvXI5+XRCIfxvN7DLaSbqHpqzTnIc9XKGCDcKcbcHMiJ+CNhnXGQSNoFL
-	 uYPTAumpC9rM1G3pj+V5LF2QaBaisbf17MVOFqDmb4wtpeTqAdNk8ScpbuZek3X6JE
-	 jL++/0Wl+YETV/1iykFkAuTQS3X7ecwKM+Uwi9iPDXGkMMM0oLF7sHAwvbIb1YO9/A
-	 BTvM7tgYSTGHA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 8BB5B380CEE0;
-	Fri, 30 Jan 2026 02:50:42 +0000 (UTC)
+	id 1vlfra-00000000zSt-41bI
+	for linux-riscv@lists.infradead.org;
+	Fri, 30 Jan 2026 04:12:08 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-502a789834fso13454191cf.2
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Jan 2026 20:12:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769746325; x=1770351125; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=H+T2Zlo06xiXQn/gacLojfwLwZ7jz+x2wxOefgL6ljo=;
+        b=AYJDEKK6i/Gyi/A9RGtg38hgOdgpLmvxagFXWOAoJf5SwmS/MnUpycpz6IMdKl8Fw1
+         tYv3UqscHKhkS9rVnvQZ0sI592LFuG/Ner07cw4ZTIim76v+g7W0eoUT4QoeZmIDKKGN
+         /5isS/HM17d/l1r4PcyicMgJngK/U3yltqWkqYvGyoQyzEie8LDWSwdpjHAlJ7hW5yrh
+         z0KllQxj5G/bpXNImNnwYe0gbAxyDin00EynpjfBeETV5ARPyH3MuoXCw/wXZf/B4OxH
+         3edzZ9mBglV/ejM/B2vKrlvKn7QpVTBclTrOqOvrDp399ftBPdWknOrkePX2XbLMh0Ob
+         UBmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769746325; x=1770351125;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=H+T2Zlo06xiXQn/gacLojfwLwZ7jz+x2wxOefgL6ljo=;
+        b=d4vRwsM3c6mkQ3SyKR5rrCsDcYQxvCdl+GRwidwp/cwdJ0YmgRPiR7HuxvgUENI6/2
+         MYlVu2119cy2Qv8DYESjVcAnC3It+5JIQUXpzCjO4lMe5Yi9hM9H11N1BySQ4XpQJ5BR
+         NnrYoHSzpeJW7SV6ns1z7dk+yYJTK26DlEXiIOyrup3tSKw+vNbVBlec0KMKgF04sWBu
+         /76/vL6MBJ/61b2RZsUe6loUsI2f+sQA4HraXO3IxwJJFFtzrzZtYQ44OEOsG11CtA/V
+         Z5GPVF4t9rQn8V0LXrXMYTJE6+N3QLn6hJ5sSUWqDVt7ZCeVO0FvnOrtgpTVJ/j9o/Ay
+         7UtA==
+X-Forwarded-Encrypted: i=1; AJvYcCUQhteSykNEQ1VHsDvPY8z/pOunFlUhXYEnqNg4ZGBNnG7twcjoA8PK4/vHzCvEE30ZROVqnN8FRdZ4SQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJPTjM/3B8g09RmjcDbW2XB65myzwMfwy9qIZc/iX2ZBsYB4Ed
+	HkH1mm3o/6A4kTeBdk8TWnnBiSffhbX+qEIwS/5zr8x7NPkaKULvf5CF
+X-Gm-Gg: AZuq6aKmWE68G0PL9MY73iMceW7JnbyKjTDCc4hjLL1VDQ4mDSip2uo1dK3UyQYpv8N
+	dANrgEpwnOHI3v2guDFCx/mw/Wr3uzeDLyvFqHdictdnixwfAjCWEHJAMc36L9HASKepm7kiq9h
+	EhZplNfoyP+PB+BfOcBnxJ5/DGYYEiIEH5NAI0A2OXY58zuyr35bpAmicSkS41JYnQTeQ/EQY6t
+	o3zSJAIfTI9cVV6t6mOnmjQ2f/CeXQHm27IK5P2nId4XEFSqbqTcF9ixl6Q0LfSm8BbJBaLzZ6c
+	6+NCsxDnjHm8BFWin6i51CQOWeGizRkMNyYnP41GlzQZ2j0WX7NdPZdZtRH4LksXQ2NPOS+qVMX
+	L/+8hbOcIJ2qgMM/bxdf0j+5lGYbhNjO0yJjGzBG1ju+A8Uuf4i30Y2PcY6OTUK6FvRhJrKFnrB
+	OVOyD0QSSCZJ/D+BqgUkmq
+X-Received: by 2002:a05:693c:2b08:b0:2b0:5834:44d2 with SMTP id 5a478bee46e88-2b7c894932cmr655603eec.39.1769740049721;
+        Thu, 29 Jan 2026 18:27:29 -0800 (PST)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b7bb9ca10csm4119874eec.30.2026.01.29.18.27.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 Jan 2026 18:27:29 -0800 (PST)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Yao Zi <ziyao@disroot.org>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Zhi Li <lizhi2@eswincomputing.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net-next v4 1/3] dt-bindings: net: Add support for Spacemit K3 dwmac
+Date: Fri, 30 Jan 2026 10:27:02 +0800
+Message-ID: <20260130022705.1059214-2-inochiama@gmail.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260130022705.1059214-1-inochiama@gmail.com>
+References: <20260130022705.1059214-1-inochiama@gmail.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next 1/2] net: stmmac: thead: avoid conflicts with
- PHY_INTF_* definitions
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176974144135.3149010.17418895035388677174.git-patchwork-notify@kernel.org>
-Date: Fri, 30 Jan 2026 02:50:41 +0000
-References: <E1vl35b-00000006upH-2zt9@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1vl35b-00000006upH-2zt9@rmk-PC.armlinux.org.uk>
-To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Cc: andrew@lunn.ch, alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, fustini@kernel.org, edumazet@google.com,
- wefu@redhat.com, guoren@kernel.org, kuba@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
- pabeni@redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_185049_871505_B0C0D188 
-X-CRM114-Status: UNSURE (   8.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260129_201207_408003_5423B1C6 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,31 +133,149 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+The GMAC IP on Spacemit K3 is almost a standard Synopsys DesignWare
+MAC (version 5.40a) with some extra clock.
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Add necessary compatible string for this device.
 
-On Wed, 28 Jan 2026 10:47:59 +0000 you wrote:
-> Avoid conflicts between stmmac PHY_INTF_* and GMAC_INTF_CTRL register
-> definitions by replacing the PHY_ prefix with GMAC_.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c | 10 +++++-----
->  1 file changed, 5 insertions(+), 5 deletions(-)
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
+ .../bindings/net/spacemit,k3-dwmac.yaml       | 103 ++++++++++++++++++
+ 2 files changed, 105 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
 
-Here is the summary with links:
-  - [net-next,1/2] net: stmmac: thead: avoid conflicts with PHY_INTF_* definitions
-    https://git.kernel.org/netdev/net-next/c/88afa0dd655c
-  - [net-next,2/2] net: stmmac: report active PHY interface
-    (no matching commit)
-
-You are awesome, thank you!
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index dd3c72e8363e..faa598c19bf7 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -108,6 +108,7 @@ properties:
+         - snps,dwmac-5.10a
+         - snps,dwmac-5.20
+         - snps,dwmac-5.30a
++        - snps,dwmac-5.40a
+         - snps,dwxgmac
+         - snps,dwxgmac-2.10
+         - sophgo,sg2042-dwmac
+@@ -653,6 +654,7 @@ allOf:
+                 - snps,dwmac-5.10a
+                 - snps,dwmac-5.20
+                 - snps,dwmac-5.30a
++                - snps,dwmac-5.40a
+                 - snps,dwxgmac
+                 - snps,dwxgmac-2.10
+                 - st,spear600-gmac
+diff --git a/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+new file mode 100644
+index 000000000000..fc024a927fcc
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+@@ -0,0 +1,103 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/spacemit,k3-dwmac.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Spacemit K3 DWMAC glue layer
++
++maintainers:
++  - Inochi Amaoto <inochiama@gmail.com>
++
++select:
++  properties:
++    compatible:
++      contains:
++        const: spacemit,k3-dwmac
++  required:
++    - compatible
++
++properties:
++  compatible:
++    items:
++      - const: spacemit,k3-dwmac
++      - const: snps,dwmac-5.40a
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: GMAC main clock
++      - description: PTP clock
++      - description: TX clock
++
++  clock-names:
++    items:
++      - const: stmmaceth
++      - const: ptp_ref
++      - const: tx
++
++  interrupts:
++    minItems: 1
++    items:
++      - description: MAC interrupt
++      - description: MAC wake interrupt
++
++  interrupt-names:
++    minItems: 1
++    items:
++      - const: macirq
++      - const: eth_wake_irq
++
++  resets:
++    maxItems: 1
++
++  reset-names:
++    const: stmmaceth
++
++  spacemit,apmu:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    items:
++      - items:
++          - description: phandle to the syscon node which control the glue register
++          - description: offset of the control register
++          - description: offset of the dline register
++    description:
++      A phandle to syscon with offset to control registers for this MAC
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - interrupt-names
++  - resets
++  - reset-names
++  - spacemit,apmu
++
++allOf:
++  - $ref: snps,dwmac.yaml#
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    ethernet@cac80000 {
++      compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
++      reg = <0xcac80000 0x2000>;
++      clocks = <&syscon_apmu 66>, <&syscon_apmu 68>,
++               <&syscon_apmu 69>;
++      clock-names = "stmmaceth", "ptp_ref", "tx";
++      interrupts = <131 IRQ_TYPE_LEVEL_HIGH>, <276 IRQ_TYPE_LEVEL_HIGH>;
++      interrupt-names = "macirq", "eth_wake_irq";
++      phy-mode = "rgmii-id";
++      phy-handle = <&phy0>;
++      resets = <&syscon_apmu 67>;
++      reset-names = "stmmaceth";
++      spacemit,apmu = <&syscon_apmu 0x384 0x38c>;
++    };
++
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.52.0
 
 
 _______________________________________________
