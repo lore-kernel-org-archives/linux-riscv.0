@@ -4,97 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA37E6BF30
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jan 2026 17:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DFDE6BF0A
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jan 2026 19:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Hf66RKIaNoEiWgClRsG143K+4hemtJa3rJgxErxGtG4=; b=2Dqregq6ZoB33F
-	dv0jZJqHMjr7QOa2kvk9hFYkHUUSfdD1QbnbUI0NZ8LDbWVn8GvCh7yRJGXl6BpKlzngCNz7z+vpi
-	Pgjdi3iL9GFVcA/pTWdOOOIW7NwDFZGQGCYhptq9ElhulJ9K/Z8pOiIfz0CFDc3sNJuMapLUYEJcp
-	5TycYH8FOly5I0ojvcNlLXKgaANCUEui0GV5OCnskw9XV+5wlvh5CPPULQExgZNEpMBGvifNAfVz5
-	596ZKO/pt1EcM62P/75BypiB0CHSEEQDBg7mE7nfkkJGkJjbkVGEwmncsykqClZY8ihSpplrfShtf
-	Kl6JBNK35q02wxWSKa0A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ka0j4SL6fF4qLHy+85WYQRmFbbqS5p9937TZTwuCIFI=; b=x0C6DRMWphHPLm
+	pDPd7vSAY7G2d7qZzuhEzaozpyGebEyrADMwIS7XrjfJ1vIJvta5hY8zShpUUrh5QfiMlN80yMbw/
+	p5xZInG1sG0h92kRrweAubP5gnweSj2U0jzT1V04zzKytm66+WoLp9QeAdiwPiXIgFjojMb7MX6Xu
+	54ZHRNF7/nUtBklYvNAQb3daRnSXwPJubdmm056UgrzSqNodLHIJIq+VDltg9XxWcykD5takWatL8
+	OGatB2bEBvOn09PiX1Sv3aTh44QfWNmREDTzLH+jJ4u+L8s/Z+UndkubBrTD4wclqmYCMrSRTZ3/p
+	K4JnhiVlHNAYOksHgrcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlsdg-00000001nHl-23WC;
-	Fri, 30 Jan 2026 17:50:36 +0000
-Received: from mail-yx1-xb130.google.com ([2607:f8b0:4864:20::b130])
+	id 1vlu3h-00000001siY-3FI7;
+	Fri, 30 Jan 2026 19:21:33 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlsdd-00000001nGu-3Czb
+	id 1vlu3f-00000001si2-1yQY
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jan 2026 17:50:35 +0000
-Received: by mail-yx1-xb130.google.com with SMTP id 956f58d0204a3-649ae700ba0so585958d50.1
-        for <linux-riscv@lists.infradead.org>; Fri, 30 Jan 2026 09:50:32 -0800 (PST)
+	Fri, 30 Jan 2026 19:21:32 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60UBiaWU1485236
+	for <linux-riscv@lists.infradead.org>; Fri, 30 Jan 2026 19:21:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=bXe9Lrt7dSp+Dy1ApjFhZbK3
+	Rd1JE1rBVyTVQSittNQ=; b=SZqsK2qKpHHoSsFrI+E5IyhBJgdCVpnxw9YwrGUW
+	Sg/dTSZPenHA0gQ8UIMth55J22wj3SO4FrypsAMXbijrAAVb+41nHk2S8d3pBUTN
+	rantylkNrSmjP5LZlCQVrdhfYlWmzQNgw4t0X3ebLmrFuxVLDIm/Y2mV4LYyou4P
+	as4TzZE6q3IBbB4KwPqk14T4XaAQsYktMn4tkcrhb2HtIQaxpeZqyqD08igDzmX1
+	3m3T+iEKF3GWi+5t1MGkpYCTFdh36TZURMM/yh4tmgomdEGRgiARd4/v2zDlJXNF
+	bOhmHDHuho/EkY3WUjd8eeS41voGj554cYpRuATjifZ+qw==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c0nsfamh5-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Fri, 30 Jan 2026 19:21:30 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-2b6f0b345e3so17313328eec.0
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Jan 2026 11:21:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1769795432; x=1770400232; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=EqVc82Oy/ZflqXYTUlnweH/P2SRPYGdES/1mmOJBJfg=;
-        b=BwS08Nf5+cOj/F5sM2bt9PjDnDLaJVnAkqAyPRHPMeq8rMO8C5JXotoSNvn0lSQxku
-         dqh0Kf/AD4bYkQLw1Llt7XyzqnKvJfGhkPfRAhz72dLIbfKCyl7bU2OJnHfANdzOXYml
-         xVYn6m7WLHaU83/C+LQb0JCxjRlq1UPnChz8XXHfUe7yN/v+BGLIB9rKcS/aI9nkMoPl
-         wuJVwEdb+OTIQ02G8G1r/yx8t+BIbz+Dl9lar53fATpkdG16zOaNZGqD5+N6U4uTwy6l
-         w6CfyS6BBomON8x/AcIf6Nl96vFrGvcTfgwbvBuahdVLti2ZLBCZKzk60z4hMfo4z9SL
-         QP+A==
+        d=oss.qualcomm.com; s=google; t=1769800889; x=1770405689; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=bXe9Lrt7dSp+Dy1ApjFhZbK3Rd1JE1rBVyTVQSittNQ=;
+        b=iheMZ+9S97VLTnUPGNrfNG/moAEwL+/9/i/GaIQyidanE88dPZlJeqoMSFXQaitLoe
+         MxLogk8+TPSn/kPIUPzSa//HLwY7OzBTAC3MD3MIUSgFml11QNy6YI50PtxMRXmLoV6c
+         f/SraDKY/sxSGaPcYKa/rXlP9ObiVO3SAyQK4cQZTzf/EAJR2innYfIEaitHCG7AGW/T
+         gnRJLWuwrhPiu+9Z52l4McS96UlDM6pHDfXV+prJpDjS5fUy/56YT2hKYchHsFYqg2h6
+         ugfTqxixyH2cx+R4fK34EtanGHEK102lWW3hn+C1lOsP7+cAXh/XoHDMa+JCyAeflpaT
+         3q/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769795432; x=1770400232;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EqVc82Oy/ZflqXYTUlnweH/P2SRPYGdES/1mmOJBJfg=;
-        b=P+bwrNjdThD6A9/F6Vp5fgHtczPVMt2ZfpXC9xwEQZg8H+DzSKfkV3B0AGf30bUwKn
-         UbcmXzp2kMPEfW/+UZEMtF/0APyatJFDGKuzUNpNRXxbDxkTs3BgaqonRjsc6Khd9CXP
-         NM93VE5jY/pi91ZHdbpsoZCln3vgceKY6J7rGaxxmP9SzFGLzJYwyrlPBDsu04iUf2ul
-         0lMLUqPSzD+k/cfzGe9iQw2PhV4SUDIBPbcVVMcI+LysiARslN9SAmedYGZOyv3a24Hy
-         vaHhyeMtF20CuWeAlxQJa+ztUpd0/xLRkL94rFnTpD22Dh1EKqP+1LfcQ351lO0qhz58
-         QWPg==
-X-Gm-Message-State: AOJu0Yy6BElQPzWy30S/ozrIbsk6S1jTvmy69SDmp75n4c+FILzSrv7z
-	FbZ7iWOfl9dXJqb1w2LLwdIOZN698sPEH4t8bP9rDWLe0ARSV5KloMemmDfgyBWE5X0=
-X-Gm-Gg: AZuq6aJ48smL97gL/fYAFGr4Qy+xR7ExmJDj39ObqlVsLa2vJlZjxFeqAo8gerCL7c8
-	zPqNtgED/bNBhc5+8JIJFeou54cLut27/LMQ3r93eN6dcGrLxJn7rJDv6yiTIJ6qzyoOJN97FNw
-	TOBcunsJ+0IMvHI7dF8UQBLOk207c+DnCb2/EPal60yZcsm5BKAy6qeKO/ucjgA7hkDsovX5Km3
-	Ni7PU3XZe7sxLGXthTTPbr1z7/VI33uyO/aOD+Mwtq0dW7tXxOzKbLDFK+rgSKXTMiEwJ/zSDww
-	SxXeTbjfvtZI76S7GCEpx8G3lfjrglJSAuUmn1IuSrVm5xtiD0qG4yCcTsF31LBquBnfB+geWDX
-	apczgXkI5qZPKEV5Lpw48sWcmPlMpc1RcDT038YWiMgScxuRQYzPOSklOzmZBNFyd6w8IaHC3lQ
-	1QSBI7ejk0ADhkZiLOI3hU9uAJT6oLagOwRZApYPBDevvBLPyT8O9qEsXY3LdtTmy2+TSlvsz9D
-	r34
-X-Received: by 2002:a05:690c:2607:b0:78f:b163:782 with SMTP id 00721157ae682-7949e076330mr69517847b3.58.1769795431831;
-        Fri, 30 Jan 2026 09:50:31 -0800 (PST)
-Received: from [192.168.5.15] ([68.95.197.245])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-649960e0965sm3939108d50.13.2026.01.30.09.50.30
+        d=1e100.net; s=20230601; t=1769800889; x=1770405689;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bXe9Lrt7dSp+Dy1ApjFhZbK3Rd1JE1rBVyTVQSittNQ=;
+        b=Yq6LcuF7z3XSSJnPWj4l/7gQLbkXDport7EmzVwgPd5Oc/rI7TNZszfVCFAfclkeNc
+         ZH9+fOQ8OH+lB8sYc2P3qOsFpuiMxxqP/Et+EFXudpVRIBFIyz1kCzd+QEiSYSihV33h
+         pHp+F14zvWLzTFoarahLkujStKjVU039vJ5HRhGjnASClFAyXRm9/lcJRcjEYB0+dghD
+         kotoN7IOOEngiKsM2RanMU0JK0d1KfqWpUqy79q3iHMkiZU6Ce2wPtvjvIwynW/YvMW6
+         RDa/cYxkc1pqCr2jLRqL96PqIAIR19vJx+PGJqHs9a2n+AlOV9sYaf9T5RKWUrBgwNgp
+         fdog==
+X-Forwarded-Encrypted: i=1; AJvYcCWzU4Jd8vBTZKvYzwzJvwsLP5M8iuFUv5VN2Q4DFMUUaVvHagfWL4L/sM70zSEP+YR+DT+z6S9xzrSdVQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTBUobbnn5u2oBzI0Rz8YTvcAGaPS4K5cqAb1y8Cf6LXAuEoUr
+	sjQenjD7PVn7UfKcT29VZHOOzjXzLBKhfv3nyPOPfKGgpWvXlJv/MJcOCadIzS5lZiFiohz5OIp
+	EQcAfDZGoBwM9ih+F1iw2qWBhRugpBz5b7reFiTmNv11QndiFmKLtihde33JFZQkP88BEYPhhS6
+	sm7GM=
+X-Gm-Gg: AZuq6aIs7fxXTN0S6fxLVWLa/flmePfK1Etn1pA+zmLJ99x2f232JyPyflzaMa6k9Eg
+	WexUyDSdohlBVBsPv4apiLKwXDfq1q8PPaokcAxm5fMnpV2eU3UPhHQhZb7CddxOhMN5nBnGSJY
+	Yc43tgL6vlAv3hSYzyu6hmPkuUGomwrFSNQIHgGzw5hXL6PZpzIa5PoV4EVRTdBrtaMf6DXmjn/
+	XDlES1dqIgPNsM67mfZE6JbwHQRgOxHtv3RGluk9UOrKVbCXsG6TP9qlLjYZ14bwr1XywNjGyQK
+	wVtHqMwPnmfxLSqOVKCVUWwvEmtEuY74rRcxaSEqa6xyWNAaIjpQudmLe2zJWDJyRqbZwshZZyq
+	0BoXIZRdEsInohtlM348=
+X-Received: by 2002:a05:7300:a944:b0:2b7:2813:6a61 with SMTP id 5a478bee46e88-2b7c8634cd2mr2270952eec.6.1769800889394;
+        Fri, 30 Jan 2026 11:21:29 -0800 (PST)
+X-Received: by 2002:a05:7300:a944:b0:2b7:2813:6a61 with SMTP id 5a478bee46e88-2b7c8634cd2mr2270939eec.6.1769800888834;
+        Fri, 30 Jan 2026 11:21:28 -0800 (PST)
+Received: from localhost ([140.82.166.162])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b7a16cfaa8sm12015146eec.4.2026.01.30.11.21.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Jan 2026 09:50:31 -0800 (PST)
-From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Subject: [PATCH v4 0/3] Add Tenstorrent Atlantis Clock/Reset Controller
-Date: Fri, 30 Jan 2026 11:50:20 -0600
-Message-Id: <20260130-atlantis-clocks-v4-0-46de52d52924@oss.tenstorrent.com>
+        Fri, 30 Jan 2026 11:21:28 -0800 (PST)
+Date: Fri, 30 Jan 2026 13:21:27 -0600
+From: Andrew Jones <andrew.jones@oss.qualcomm.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+        iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
+        linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+        Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Tomasz Jeznach <tjeznach@rivosinc.com>, Will Deacon <will@kernel.org>,
+        lihangjing@bytedance.com, Xu Lu <luxu.kernel@bytedance.com>,
+        patches@lists.linux.dev, xieyongji@bytedance.com
+Subject: Re: [PATCH v2 1/5] iommupt: Add the RISC-V page table format
+Message-ID: <hay56yg2plriyehsvy6zbyaptf6xvnj65zzvurllvpar6gyklr@i4cb6zenwap6>
+References: <0-v2-b11ebca8abb6+c096-iommu_pt_riscv_jgg@nvidia.com>
+ <1-v2-b11ebca8abb6+c096-iommu_pt_riscv_jgg@nvidia.com>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAFzvfGkC/3XOwQrCMAyA4VeRnu1oWps5T76HeNhqpkVtpS1FG
- Xt3O0EYTI9/IF8ysEjBUmS71cACZRutdyU26xUzl9adidtTaSaFRAEgeZturUs2cnPz5hp5Lxp
- hoBHdFk+sbD0C9fb5EQ/H0hcbkw+vz4EM0/Rr6YWVgQteK42ENfRy2+19jFUiNxGBXKqMv7NJz
- XImyeVXWRbJIKoaUDWE+F9ScwmXkipSJwBBaa2hq39L4zi+ATP7AsNMAQAA
-X-Change-ID: 20260112-atlantis-clocks-f090c190b86d
-To: Drew Fustini <dfustini@oss.tenstorrent.com>, 
- Joel Stanley <jms@oss.tenstorrent.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, 
- Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, joel@jms.id.au, 
- fustini@kernel.org, mpe@kernel.org, mpe@oss.tenstorrent.com, 
- npiggin@oss.tenstorrent.com, agross@kernel.org, agross@oss.tenstorrent.com, 
- bmasney@redhat.com
-X-Mailer: b4 0.14.3
+Content-Disposition: inline
+In-Reply-To: <1-v2-b11ebca8abb6+c096-iommu_pt_riscv_jgg@nvidia.com>
+X-Proofpoint-ORIG-GUID: g3ahdf0vL1tXOdpbA2hfekJNKB4V1k74
+X-Authority-Analysis: v=2.4 cv=EvjfbCcA c=1 sm=1 tr=0 ts=697d04ba cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
+ a=kj9zAlcOel0A:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Ikd4Dj_1AAAA:8 a=MAu47OgHUst8qGL3NBsA:9
+ a=CjuIK1q_8ugA:10 a=bBxd6f-gb0O0v-kibOvt:22
+X-Proofpoint-GUID: g3ahdf0vL1tXOdpbA2hfekJNKB4V1k74
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTMwMDE1OCBTYWx0ZWRfX1McjWuIOZISF
+ t97oZ4Z3pKQ/Nv+nNQrk18A7KPk7EbP6TZk51rLAoOIrSOSHHJEaal1DNqF3inHLHROlHTvyXQE
+ TWHzRotcMb5Xtt9wvGG/9JhKAoUk8hh0Mm7gKtWuq0mLDWd76ZkIrmBuTVi6tyt7FxIfSEKFRT+
+ ihZHbv+HZeAznT6ZkV6/JbSzXUeQc0zQiAyOcoleeWbrCiiJQt14Fzp1dyCxedKISi6Zut12guU
+ 3gMpopZuasV7epnyilW/YIdu8h5mIuo3y3wS00hvPyoE1e1B6rfkyDtya5d9K2ubXPaLtjV10Ot
+ gJWmBB6q4NyKnHTHX4DLT2/BCrxy9kB7HqFJMEdPiy46KRtEKoFa1c5iAy7hpOW2lncrYmawxBJ
+ 3oaLVktx+1BE0fomb2h09ADYDtjFp8SwyIgEYjRikgYl1qkrworn8FvQzyM6M4GkAsO7+L05ocy
+ BG/j51rTPnuB2zt5yRg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-01-30_02,2026-01-30_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 spamscore=0 priorityscore=1501 bulkscore=0 suspectscore=0
+ adultscore=0 malwarescore=0 impostorscore=0 lowpriorityscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601300158
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_095033_868040_ACE4AF83 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20260130_112131_528314_B2DE2DF2 
+X-CRM114-Status: GOOD (  24.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,74 +146,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds support for a multifunctional register block
-called PRCM in the Tenstorrent Atlantis SoC, whose main functionality
-is to serve clocks and resets. This block is instantiated multiple
-times in the SoC, with each block covering clock/resets from a
-different subsystem. This series also adds a driver that covers clocks
-and resets from the RCPU subsystem, which covers most low speed IO
-interfaces found in the chip. The reset controller is implemented as
-an auxiliary device of the clock controller and shares the same regmap
-as it.
+On Tue, Jan 06, 2026 at 11:06:45AM -0400, Jason Gunthorpe wrote:
+> The RISC-V format is a fairly simple 5 level page table not unlike the x86
+> one. It has optional support for a single contiguous page size of 64k (16
+> x 4k).
+> 
+> The specification describes a 32-bit format, the general code can support
+> it via a #define but the iommu side implementation has been left off until
+> a user comes.
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
+>  drivers/iommu/generic_pt/.kunitconfig        |   1 +
+>  drivers/iommu/generic_pt/Kconfig             |   9 +
+>  drivers/iommu/generic_pt/fmt/Makefile        |   2 +
+>  drivers/iommu/generic_pt/fmt/defs_riscv.h    |  29 ++
+>  drivers/iommu/generic_pt/fmt/iommu_riscv64.c |  11 +
+>  drivers/iommu/generic_pt/fmt/riscv.h         | 313 +++++++++++++++++++
+>  include/linux/generic_pt/common.h            |  16 +
+>  include/linux/generic_pt/iommu.h             |  11 +
+>  8 files changed, 392 insertions(+)
+>  create mode 100644 drivers/iommu/generic_pt/fmt/defs_riscv.h
+>  create mode 100644 drivers/iommu/generic_pt/fmt/iommu_riscv64.c
+>  create mode 100644 drivers/iommu/generic_pt/fmt/riscv.h
+> 
+> diff --git a/drivers/iommu/generic_pt/.kunitconfig b/drivers/iommu/generic_pt/.kunitconfig
+> index 52ac9e661ffd2b..db0a5b2b3c7867 100644
+> --- a/drivers/iommu/generic_pt/.kunitconfig
+> +++ b/drivers/iommu/generic_pt/.kunitconfig
+> @@ -4,6 +4,7 @@ CONFIG_DEBUG_GENERIC_PT=y
+>  CONFIG_IOMMU_PT=y
+>  CONFIG_IOMMU_PT_AMDV1=y
+>  CONFIG_IOMMU_PT_VTDSS=y
+> +CONFIG_IOMMU_PT_RISCV64=y
+>  CONFIG_IOMMU_PT_X86_64=y
+>  CONFIG_IOMMU_PT_KUNIT_TEST=y
+>  
+> diff --git a/drivers/iommu/generic_pt/Kconfig b/drivers/iommu/generic_pt/Kconfig
+> index ce4fb478691457..df0fef423584d5 100644
+> --- a/drivers/iommu/generic_pt/Kconfig
+> +++ b/drivers/iommu/generic_pt/Kconfig
+> @@ -50,6 +50,14 @@ config IOMMU_PT_VTDSS
+>  	  level Second Stage page table. It is similar to the X86_64 format with
+>  	  4K/2M/1G page sizes.
+>  
+> +config IOMMU_PT_RISCV64
+> +       tristate "IOMMU page table for RISC-V 64 bit Sv57/Sv48/Sv39"
+> +	depends on !GENERIC_ATOMIC64 # for cmpxchg64
+> +	help
+> +	  iommu_domain implementation for RISC-V 64 bit 3/4/5 level page table.
+> +	  It supports 4K/2M/1G/512G/256T page sizes and can decode a sign
+> +	  extended portion of the 64 bit IOVA space.
+> +
+>  	  Selected automatically by an IOMMU driver that uses this format.
 
-The first commit adds bindings documenting the PRCM block, along with
-clock and reset indices. The second commit adds the reset controller
-driver along with the auxdev definitions needed for it. The third commit
-adds the clock controller driver, and the reset controller is created as
-an auxdev of it.
+I assume we want to keep this 'Selected automatically...' line in the help
+text of IOMMU_PT_VTDSS too, so it should be duplicated here.
 
-Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+>  
+>  config IOMMU_PT_X86_64
+> @@ -66,6 +74,7 @@ config IOMMU_PT_KUNIT_TEST
+>  	tristate "IOMMU Page Table KUnit Test" if !KUNIT_ALL_TESTS
+>  	depends on KUNIT
+>  	depends on IOMMU_PT_AMDV1 || !IOMMU_PT_AMDV1
+> +	depends on IOMMU_PT_RISCV64 || !IOMMU_PT_RISCV64
+>  	depends on IOMMU_PT_X86_64 || !IOMMU_PT_X86_64
+>  	depends on IOMMU_PT_VTDSS || !IOMMU_PT_VTDSS
+>  	default KUNIT_ALL_TESTS
 
----
-Changes in v4:
-- Dropped !rcpu prcms and custom property used by them. Will be added
-  later with rest of clock tree
-- Link to v3: https://lore.kernel.org/r/20260126-atlantis-clocks-v3-0-b016135551b7@oss.tenstorrent.com
-
-Changes in v3:
-- Fixed warnings reported by kernel test bot
-- Addressed comments on reset driver bit set/unset value
-- Changed auxdev macros to use inline functions
-- Renamed bindings and clock driver to use block's name of "PRCM" rather
-  than syscon
-- Link to v2: https://lore.kernel.org/r/20260122-atlantis-clocks-v2-0-c66371639e66@oss.tenstorrent.com
-
-Changes in v2:
-- Improve the documentation about the syscon block in bindings
-- Implemented all clks using custom ops
-- Removed custom lock/lock handling functions for regmap
-- Addressed comments on header file ordering, newlines and typos
-- Removed code for mux parent setting
-- Squashed down multiple commits that added reset/auxdev separately
-- Link to v1: https://lore.kernel.org/r/20260115-atlantis-clocks-v1-0-7356e671f28b@oss.tenstorrent.com
-
----
-Anirudh Srinivasan (3):
-      dt-bindings: clk: tenstorrent: Add tenstorrent,atlantis-prcm
-      reset: tenstorrent: Add reset controller for Atlantis
-      clk: tenstorrent: Add Atlantis clock controller driver
-
- .../bindings/clock/tenstorrent,atlantis-prcm.yaml  |  54 ++
- MAINTAINERS                                        |   5 +
- drivers/clk/Kconfig                                |   1 +
- drivers/clk/Makefile                               |   1 +
- drivers/clk/tenstorrent/Kconfig                    |  14 +
- drivers/clk/tenstorrent/Makefile                   |   3 +
- drivers/clk/tenstorrent/atlantis-prcm.c            | 941 +++++++++++++++++++++
- drivers/reset/Kconfig                              |  11 +
- drivers/reset/Makefile                             |   1 +
- drivers/reset/reset-tenstorrent-atlantis.c         | 160 ++++
- .../dt-bindings/clock/tenstorrent,atlantis-prcm.h  | 103 +++
- include/soc/tenstorrent/atlantis-prcm.h            |  58 ++
- 12 files changed, 1352 insertions(+)
----
-base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
-change-id: 20260112-atlantis-clocks-f090c190b86d
-
-Best regards,
--- 
-Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
