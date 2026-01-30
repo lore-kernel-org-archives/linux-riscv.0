@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D9EE6BF2F
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jan 2026 17:11:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC3AE6BF31
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jan 2026 17:35:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aMMcoarFftAVjrJ18bD+vfZyN8/5MNwgruwU4yQ5xTk=; b=IIbZ011DByES4a1w2/C0krOG4o
-	6Z8p4LVwqKivdNpsT6U/r2ab5DEvgSVfaUzqQyafphINTswenPu+kJpTxHWmXvTzyJu0rqlcpPGn+
-	MCgbhrMWcK0H56gP5PI7wN5ieCdZ7ZkS8Sty6G6xXbbJqfc6uoeUmH4BY3FyguXL83bB/yLZVQREu
-	eqYt6sLJJ4qeRCBVFWbBYbjYfqylD28sFIck29dlHxqaj35Ef3DoLvlFMAEvsAykD5OUnIjFsH4HW
-	j0ufv7bgSgTOAAiNhuDuK42S7FMWEkjceBDfL85UWld1iDlAC3AWe2yo2lIxOjcgXzlUTJQDqsPqh
-	i4zD8RdA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KQU8BY9AsfecksxySt/WM0an+J1Z9KWyFPQjqQQx/PM=; b=xmsStsESzdWsNX
+	ikRQiFSMWqRJ5/N7KSdWVH1k2GFhpntcrttlMnBu6IMlHWteR0mq8NNxe5f9ZVB01Y+hfcrLTpCvF
+	mRDEg08bxdPvYU6XlONZ5tZKG95koDhaVXed5sv2oB06ew9qobRqZHYm+gotFCnaM5QMwEwNEvV5e
+	OewZRqvVQJEYSNC4jMXHwYgK78JWK/N4cPcOvC8YWZP3TQ+ce5muKN+sip1YEFtV6HPSD/lydcG68
+	F9THKd2KbxNCC9GqEp74RJnkcTXJedV5QhYfqybVfxPyyJ98YBKXjSXN0w8eEzVhIJqzQo4vj0CMr
+	iReVVigJfhQC6z9FliRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vls1w-00000001kFO-0zHF;
-	Fri, 30 Jan 2026 17:11:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vlsOT-00000001luZ-1jGV;
+	Fri, 30 Jan 2026 17:34:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vls1t-00000001kET-2iuc
+	id 1vlsOR-00000001luF-0LdG
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jan 2026 17:11:34 +0000
+	Fri, 30 Jan 2026 17:34:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6223243EAA;
-	Fri, 30 Jan 2026 17:11:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2892C116C6;
-	Fri, 30 Jan 2026 17:11:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C66B544361;
+	Fri, 30 Jan 2026 17:34:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2C5BC16AAE;
+	Fri, 30 Jan 2026 17:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769793092;
-	bh=aIOowKRbbtWXCBTrIHVIrdOUVd0KWK+9sOxeQrb9Ik0=;
+	s=k20201202; t=1769794490;
+	bh=1TKfjAm12XOvM0K5C6eA86Bn9vgJw3DhIQ7HuUKNHo4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BOm4AEZgDq3BINv4ERUCFxnUo2rsm1AVJdfJIOgBhB4PmksARYScWcO6voVrPnYGg
-	 /7eI3N2vahljl5YNsTjZQn2EZwNKeKjisq99NTqFJEZhqsRIc9BrQRpZkL75Hqmm2p
-	 hUdXtLxoR2tOlNN0HW/ZEbWDrw8KMR1rJL4ojLBvoao5P27HgL6WlZZnsqvBFzIzxB
-	 RXSESCYXrPeHDoDgDDk8m7C0iYiogmPz67Zodg68N1Ru6bvVJ7gDI57LL/IiW3Xdci
-	 Sho7k1vNr+vu8KTk0YEbw/QkjNPrijCsU3b6hgJ0ut2OCu3RWzUAR57tLxgNKT98Hc
-	 c5vmb30d4Y6eQ==
-Date: Fri, 30 Jan 2026 17:11:27 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Yixun Lan <dlan@kernel.org>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: pinctrl: spacemit: fix drive-strength check
- warning
-Message-ID: <20260130-outsmart-ether-73a7927b4c95@spud>
-References: <20260130-k3-pinctrl-io-drv-fix-v1-1-077aec3ba7ae@kernel.org>
+	b=SS/G2kgWqt4OEfQ2Wi9NTQkrSFfXvXT9o/ZRT9grSwMLe01WfLW+aK7UJTCRcc84t
+	 2FekKoQgLwAC6x69Zv5d/4qvQRCO0Yrv5Dk45i4jVNLjDDQjMnLAdaT9yFWsHkuO3Y
+	 taFJ0t2aWBsz+BWYy3aRaX0SYR56xx95EFZ8vqkhv9PvVXMH5fx4JVelgyj++vBDo9
+	 lyrUNFjMeourtGFfaWTgzrQy6jAnDAgDvW7SbddBEZ0OJGM3cpzKkoajGxHVWsRntR
+	 3gykFSbFcmummwoPqGER3bH0bLZGe6QoriQ3irijXyPEkOWadiEvPLOZa27Gky1xm0
+	 pHR0vt611eNnA==
+Date: Fri, 30 Jan 2026 09:34:50 -0800
+From: Kees Cook <kees@kernel.org>
+To: Feng Jiang <jiangfeng@kylinos.cn>
+Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	akpm@linux-foundation.org, andy@kernel.org, ebiggers@kernel.org,
+	martin.petersen@oracle.com, herbert@gondor.apana.org.au,
+	samuel.holland@sifive.com, ajones@ventanamicro.com,
+	conor.dooley@microchip.com, charlie@rivosinc.com, nathan@kernel.org,
+	linusw@kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v7 2/8] lib/string_kunit: add correctness test for
+ strnlen()
+Message-ID: <202601300934.A203EB29F1@keescook>
+References: <20260130025018.172925-1-jiangfeng@kylinos.cn>
+ <20260130025018.172925-3-jiangfeng@kylinos.cn>
 MIME-Version: 1.0
-In-Reply-To: <20260130-k3-pinctrl-io-drv-fix-v1-1-077aec3ba7ae@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20260130025018.172925-3-jiangfeng@kylinos.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_091133_725030_A3843D5A 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20260130_093451_140540_C11AF487 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,102 +75,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5736581693697512070=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jan 30, 2026 at 10:50:12AM +0800, Feng Jiang wrote:
+> Add a KUnit test for strnlen() to verify correctness across
+> different string lengths and memory alignments. Use vmalloc()
+> to place the NUL character at the page boundary to ensure
+> over-reads are detected.
+> 
+> Suggested-by: Andy Shevchenko <andy@kernel.org>
+> Suggested-by: Kees Cook <kees@kernel.org>
+> Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
 
---===============5736581693697512070==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="BXE3nMVoCCy1SEy/"
-Content-Disposition: inline
+Reviewed-by: Kees Cook <kees@kernel.org>
 
-
---BXE3nMVoCCy1SEy/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Jan 30, 2026 at 07:22:15PM +0800, Yixun Lan wrote:
-> The problem is that one value from drive-strength may match to more than
-> two different enum groups which lead to DT complaint, switch to use 'anyO=
-f'
-> to fix this kind warning.
->=20
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-And I guess:
-Reported-by: Conor Dooley <conor.dooley@microchip.com>
-
-
-> Fixes: c3efac0592f8 ("dt-bindings: pinctrl: spacemit: convert drive stren=
-gth to schema format")
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-> ---
-> Doing DT check with command: make dtbs_check W=3D1, will get this kind
-> of warning message:
->=20
-> arch/riscv/boot/dts/spacemit/k1-musepi-pro.dtb: pinctrl@d401e000 (spacemi=
-t,k1-pinctrl): gmac0-cfg:gmac0-pins:drive-strength: 21 is valid under each =
-of {'enum': [2, 4, 6, 7, 9, 11, 13, 14, 21, 23, 25, 26, 28, 30, 31, 33]}, {=
-'enum': [11, 21, 32, 42]}
->=20
-> Instead of using more complicated minimum and maximum value of property
-> with constrains of compatibles, we decide to use 'anyOf' to fix this
-> warning.
-> ---
->  Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctr=
-l.yaml b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
-> index f009fed87e6b..5194fa92fe93 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
-> @@ -76,7 +76,7 @@ patternProperties:
->            drive-strength:
->              description:
->                typical current (in mA) when the output at high level.
-> -            oneOf:
-> +            anyOf:
->                - enum: [ 11, 21, 32, 42 ]
->                  description: For K1 SoC, 1.8V voltage output
-> =20
->=20
-> ---
-> base-commit: 3fcdb264b61a5bb0eb3fb7272717468aa376a74c
-> change-id: 20260130-k3-pinctrl-io-drv-fix-5b11752dae1f
->=20
-> Best regards,
-> --=20
-> Yixun Lan <dlan@kernel.org>
->=20
-
---BXE3nMVoCCy1SEy/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaXzmPwAKCRB4tDGHoIJi
-0l9OAPwIZSVqA3HcerTZTYpElKg+7wSay+MnJcfS6DqQXii4XQD/XnTWlAiX3ZXJ
-XmLWxI52yWO62/AAzYhO6YGjdIbqOw0=
-=LlSc
------END PGP SIGNATURE-----
-
---BXE3nMVoCCy1SEy/--
-
-
---===============5736581693697512070==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5736581693697512070==--
-
