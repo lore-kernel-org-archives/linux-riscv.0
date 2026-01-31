@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 256A4E7C6E7
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Jan 2026 20:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6277E7C6E0
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Jan 2026 20:03:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:References:
 	Mime-Version:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ooIz8Tvds/kJA7CawsAHGQv7GmAECctVaa53sdsO0xw=; b=0uCgDkndaYun2L
-	DSpI+6102fmSTbwBEQLrzLETQpQz5wAsENgP9wcK0GAhde6bENy+rCrEVt8JyZFcIQDYVubI/5kVY
-	PIgXoSefvD3UWJM2MP8C5ItEGt5lAiNlBK1+WIuc839rI1Or9TDzdkFyiW6Cl6ZUhZZo1LAIYawpB
-	4JlXy/uk1i7wyulhA9qiMmw6zhT2jNfdh3i/IaJYPRZ1lRlxOT+Cku+TyUXtdnbtiPLD292XBJSKY
-	YIv48V+HHxBovAvGNeKk9V0tVL7x0Ay+xZhnhNo+C9GVn6N5fbqPPIV7u5CaxE3ZkEh0ASxsubvr5
-	0b+DYKHdOhd/qMoCaakQ==;
+	List-Owner; bh=YLHAy1736B2ZGfIvmhSYp2i8iKzUBtSoPGnxNhs+fzY=; b=Os5/Vs8VUhXs/D
+	vCdLmzDQ+mvpHueNe3na7lXchpAlZ+3mSlFbfLlRhZ+Gkm2In7dk3VmZU6SdFkvOnrQAjjkmZ2vb4
+	InfwFb3vNWK04iDr/ozxs1V97lCFiiTpdR3dVpx+RgDLcSLBcT/thMMR+DpkxD1vcAu6/d9f0Xrqq
+	PYdL3x6mZ5pNJqds6iTGTi+HRYqpjr3vJPr3q8Dee5ZAJlfc2O5H4e4YZHte8J4NI1OPmt2Ry7SFT
+	hmG7MuER3NsNtrLRnQLucOiRj5KpkjSSNjkWLzm+0zHKJWetLYmOH43yig0S/TbyTEgn1RjLqmPW4
+	wwR/pVDCvaeuoZUKeRnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmHBN-00000002wlq-2iK9;
-	Sat, 31 Jan 2026 20:03:01 +0000
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
+	id 1vmHBY-00000002wvs-190N;
+	Sat, 31 Jan 2026 20:03:12 +0000
+Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmHB4-00000002wWK-0Oum
+	id 1vmHB4-00000002wWc-2ZGn
 	for linux-riscv@lists.infradead.org;
-	Sat, 31 Jan 2026 20:02:43 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2b7ef896edcso2308956eec.0
-        for <linux-riscv@lists.infradead.org>; Sat, 31 Jan 2026 12:02:39 -0800 (PST)
+	Sat, 31 Jan 2026 20:02:44 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2b724ff60e6so3679629eec.0
+        for <linux-riscv@lists.infradead.org>; Sat, 31 Jan 2026 12:02:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769889759; x=1770494559; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1769889761; x=1770494561; darn=lists.infradead.org;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=hbIIGfMQy8kU/29JW+xHk5T5mRSTZKfA14hCK/ZK1Tw=;
-        b=nX/P6Q33M3Xa47NJoX+1csFaMF3kE8dqf7Onja2rlnELPJ7gCECzNdz8R2EpBdIty3
-         GucVYqH5TD53Oov9amjgNUZkBWf+8L8fT4ZRkkCBVAM8hBtaBwFWPnEa+R92wdEv+VgE
-         ghmq8ro7OssIuT20Iz3lDsXQnx2ucpH0nI3sf3c6HL88ijDOtZC9RqTBzjtPVF/vt0CX
-         RRr9W6030qSQUEV4wmqKEUmVSLVlY5Rq+fhE9mQYuA7KLiMBAW56/jWaGhr/q9FSZTaG
-         oBLE6ttbEGqY6YX53GaQv4Zxa/5GGa7dVIl14+utgnkvX0ml+WUB/J67kFPKM+afmKnJ
-         Ep4w==
+        bh=yU/No/CiRXNK30X5BW5gARgpwLegeQsixxR3xJoI9G0=;
+        b=2ilZim0JawgMUwbqE7I/ciKOgY5DkfZiWDBE9g0LuJ3f8cr0bWyS+Kt0JnG7vSWYe/
+         tYOoM1QOr7c+oP5cbIiN+qAIKqfMU35TCL52oofE+YcwV6ZTicxPBJjQ7PM+Qor80avR
+         2n3YlyDCCT1omfGs1+nlfmG+4GiiNKIr7xCfzWdrGzRezAsJndwl+KMN1y/HwUipfEfC
+         Hj+89mR0BWnlqBuK8qBOXAuN+Sm7nezBq3tL4blsc9CbTwH7K2d5zBIU2bL2kDM6PDcu
+         OjPVp25feXnX+onMTEobBlShi0NI8KWY2p01UOq71Kv/zz2DGUAJFcpVqFPZL3YuUt/y
+         gaug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769889759; x=1770494559;
+        d=1e100.net; s=20230601; t=1769889761; x=1770494561;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hbIIGfMQy8kU/29JW+xHk5T5mRSTZKfA14hCK/ZK1Tw=;
-        b=MswmlVOCl8+tbU8vrLfb2Q0aZgTtSb8stpFPPo5Gofxlz6/ELjNEiOFUTITrqFIrGq
-         Tl8MWGWdmrZ81T8Yaox6VjUcWKUjtnvy3QIw8MGa973Pj5jfdmbKRrB8eKk7MvPyj4Jf
-         dHRQrH9j76rKPg6VUMNvi/yAZSEAlsNwe2fuEwP3iDdSnEP7kkrXEa/QQdxCP8RdFKtL
-         wtVglEIPLPsW82uZeQ6rjc3Mr4iCeLGnxQng3lVGkRacMfbGWzNeVrj/SpkaYBgixpXL
-         TeV9HZnqXyl4+/lPrM7CsXW14vyMzHko1Q1F3N7fk0o2L59RhgeV5Ssx4OzoadEwM1Zr
-         1etw==
-X-Forwarded-Encrypted: i=1; AJvYcCW/teQPJQssiJWIuIKIoLCzNSsGoU8/0SOvdiLZk06fHVxAQQf4bZOYWkUE5c4IHqMjYTfpLfzM3U/bKw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0ssDAE5eRU9uZ32O1KbE9d2I5Pz9+dkhtZisLPPzJcNl5RMO9
-	7GlL1UJ2svVVqohbH0wvLdIG4oX3Lr2HVMnGP1yCcjy3qYNyTTdEYaqKlCCKUxpepgn8Nh2ws3Z
-	qm1uDHAGCkA==
-X-Received: from dycoz4.prod.google.com ([2002:a05:7301:fc84:b0:2b6:bdce:fb0])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:434f:b0:2b7:1746:c947
- with SMTP id 5a478bee46e88-2b7c86268ebmr3367037eec.6.1769889759132; Sat, 31
- Jan 2026 12:02:39 -0800 (PST)
-Date: Sat, 31 Jan 2026 12:02:23 -0800
+        bh=yU/No/CiRXNK30X5BW5gARgpwLegeQsixxR3xJoI9G0=;
+        b=ihAWK9RwK3tUIamNirkta/kVfoL7VDkLmhmOCKtVEa4wOTEEjdYOapjYrj8a0NPNk4
+         NZB30h9VNdob7xDN2wi3prWD5pnF3U28V4LZEf3VYV2OYiIkfygG/9Yrgym91nsADmof
+         5TWwGCysPJ/IhdJk0GU1q9zB9iloN8TFqo06I/7S3cMGHWHlvzen4ID01tnno3f5ihPI
+         Ay++o2KgcoCm3/r/8aOPQpS4eXfUu501HFHHdJIykmntMLc6lMlSSSxCjmpl2ItjSiEy
+         aa2Bc1DTdqIdiVacKkT5jBrlHSK5cy+1xKM19sPB4cmkp+0yeg3UG8I6oYUrd+XqDUEc
+         HbCA==
+X-Forwarded-Encrypted: i=1; AJvYcCUk13+KrYy3A7+NCFaprQLdvdSeAntUirGnrv0JSlkjV5qjJ1aSovsu33PutExkaPCtlPOfcaaR37wDdA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6fyn/ovw0L9qAmZ522JXZQqP6KWLECYuKOj4NuaUdtHaNnwCf
+	gOUmWt9+G2/W99KRxI+uPIkVwYmvuqpUff1I/XXh6Lbt1cAQfiIXrzJ9waXR981zXmkEGA7rhLy
+	UHtyNTwzpkA==
+X-Received: from dyek9.prod.google.com ([2002:a05:7300:6409:b0:2b7:4867:6bd0])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:2b13:b0:2ae:614a:330e
+ with SMTP id 5a478bee46e88-2b7c8943db0mr3682412eec.41.1769889761125; Sat, 31
+ Jan 2026 12:02:41 -0800 (PST)
+Date: Sat, 31 Jan 2026 12:02:24 -0800
 In-Reply-To: <20260131200224.1296136-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260131200224.1296136-1-irogers@google.com>
 X-Mailer: git-send-email 2.53.0.rc1.225.gd81095ad13-goog
-Message-ID: <20260131200224.1296136-6-irogers@google.com>
-Subject: [PATCH v2 5/6] perf header: Add e_machine/e_flags to the header
+Message-ID: <20260131200224.1296136-7-irogers@google.com>
+Subject: [PATCH v2 6/6] perf thread: Don't require machine to compute the e_machine
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -86,8 +86,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_120242_155227_9C6184D4 
-X-CRM114-Status: GOOD (  21.10  )
+X-CRM114-CacheID: sfid-20260131_120242_680614_0975FF18 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,182 +104,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add 64-bits of feature data to record the ELF machine and flags. This
-allows readers to initialize based on the data. For example, `perf kvm
-stat` wants to initialize based on the kind of data to be read, but at
-initialization time there are no threads to base this data upon and
-using the host means cross platform support won't work. The values in
-the perf_env also act as a cache for these within the session.
+The machine can be calculated from a thread via its maps. Don't
+require the machine argument to simplify callers and also to delay
+computing the machine until a little later.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/env.h     |  3 +++
- tools/perf/util/header.c  | 33 +++++++++++++++++++++++++++++++++
- tools/perf/util/header.h  |  1 +
- tools/perf/util/session.c | 33 +++++++++++++++++++++++++++------
- 4 files changed, 64 insertions(+), 6 deletions(-)
+ tools/perf/util/scripting-engines/trace-event-python.c | 8 +++-----
+ tools/perf/util/session.c                              | 3 +--
+ tools/perf/util/thread.c                               | 5 +++++
+ 3 files changed, 9 insertions(+), 7 deletions(-)
 
-diff --git a/tools/perf/util/env.h b/tools/perf/util/env.h
-index 76ba1a36e9ff..a4501cbca375 100644
---- a/tools/perf/util/env.h
-+++ b/tools/perf/util/env.h
-@@ -74,6 +74,9 @@ struct perf_env {
- 	char			*os_release;
- 	char			*version;
- 	char			*arch;
-+	/* e_machine expanded from 16 to 32-bits for alignment. */
-+	u32			e_machine;
-+	u32			e_flags;
- 	int			nr_cpus_online;
- 	int			nr_cpus_avail;
- 	char			*cpu_desc;
-diff --git a/tools/perf/util/header.c b/tools/perf/util/header.c
-index eefd1cd73b6a..196bbe0c8407 100644
---- a/tools/perf/util/header.c
-+++ b/tools/perf/util/header.c
-@@ -378,6 +378,21 @@ static int write_arch(struct feat_fd *ff,
- 	return do_write_string(ff, uts.machine);
- }
- 
-+static int write_e_machine(struct feat_fd *ff,
-+			   struct evlist *evlist __maybe_unused)
-+{
-+	/* e_machine expanded from 16 to 32-bits for alignment. */
-+	uint32_t e_flags;
-+	uint32_t e_machine = perf_session__e_machine(evlist->session, &e_flags);
-+	int ret;
-+
-+	ret = do_write(ff, &e_machine, sizeof(e_machine));
-+	if (ret)
-+		return ret;
-+
-+	return do_write(ff, &e_flags, sizeof(e_flags));
-+}
-+
- static int write_version(struct feat_fd *ff,
- 			 struct evlist *evlist __maybe_unused)
+diff --git a/tools/perf/util/scripting-engines/trace-event-python.c b/tools/perf/util/scripting-engines/trace-event-python.c
+index 62c9c73daef5..2b0df7bd9a46 100644
+--- a/tools/perf/util/scripting-engines/trace-event-python.c
++++ b/tools/perf/util/scripting-engines/trace-event-python.c
+@@ -837,7 +837,6 @@ static PyObject *get_perf_sample_dict(struct perf_sample *sample,
+ 					 PyObject *callchain)
  {
-@@ -1784,6 +1799,12 @@ static void print_arch(struct feat_fd *ff, FILE *fp)
- 	fprintf(fp, "# arch : %s\n", ff->ph->env.arch);
- }
+ 	PyObject *dict, *dict_sample, *brstack, *brstacksym;
+-	struct machine *machine;
+ 	uint16_t e_machine = EM_HOST;
+ 	uint32_t e_flags = EF_HOST;
  
-+static void print_e_machine(struct feat_fd *ff, FILE *fp)
-+{
-+	fprintf(fp, "# e_machine : %u\n", ff->ph->env.e_machine);
-+	fprintf(fp, "#   e_flags : %u\n", ff->ph->env.e_flags);
-+}
-+
- static void print_cpudesc(struct feat_fd *ff, FILE *fp)
- {
- 	fprintf(fp, "# cpudesc : %s\n", ff->ph->env.cpu_desc);
-@@ -2611,6 +2632,17 @@ FEAT_PROCESS_STR_FUN(arch, arch);
- FEAT_PROCESS_STR_FUN(cpudesc, cpu_desc);
- FEAT_PROCESS_STR_FUN(cpuid, cpuid);
+@@ -926,10 +925,9 @@ static PyObject *get_perf_sample_dict(struct perf_sample *sample,
+ 			PyLong_FromUnsignedLongLong(sample->cyc_cnt));
+ 	}
  
-+static int process_e_machine(struct feat_fd *ff, void *data __maybe_unused)
-+{
-+	int ret;
+-	if (al->thread) {
+-		machine = maps__machine(thread__maps(al->thread));
+-		e_machine = thread__e_machine(al->thread, machine, &e_flags);
+-	}
++	if (al->thread)
++		e_machine = thread__e_machine(al->thread, /*machine=*/NULL, &e_flags);
 +
-+	ret = do_read_u32(ff, &ff->ph->env.e_machine);
-+	if (ret)
-+		return ret;
-+
-+	return do_read_u32(ff, &ff->ph->env.e_flags);
-+}
-+
- #ifdef HAVE_LIBTRACEEVENT
- static int process_tracing_data(struct feat_fd *ff, void *data)
- {
-@@ -3729,6 +3761,7 @@ const struct perf_header_feature_ops feat_ops[HEADER_LAST_FEATURE] = {
- 	FEAT_OPN(HYBRID_TOPOLOGY,	hybrid_topology,	true),
- 	FEAT_OPR(PMU_CAPS,	pmu_caps,	false),
- 	FEAT_OPR(CPU_DOMAIN_INFO,	cpu_domain_info,	true),
-+	FEAT_OPR(E_MACHINE,	e_machine,	false),
- };
+ 	if (set_regs_in_dict(dict, sample, evsel, e_machine, e_flags))
+ 		Py_FatalError("Failed to setting regs in dict");
  
- struct header_print_data {
-diff --git a/tools/perf/util/header.h b/tools/perf/util/header.h
-index 36cc74e2d14d..cc40ac796f52 100644
---- a/tools/perf/util/header.h
-+++ b/tools/perf/util/header.h
-@@ -54,6 +54,7 @@ enum {
- 	HEADER_HYBRID_TOPOLOGY,
- 	HEADER_PMU_CAPS,
- 	HEADER_CPU_DOMAIN_INFO,
-+	HEADER_E_MACHINE,
- 	HEADER_LAST_FEATURE,
- 	HEADER_FEAT_BITS	= 256,
- };
 diff --git a/tools/perf/util/session.c b/tools/perf/util/session.c
-index 72e8bb67d740..53f51c3f9603 100644
+index 53f51c3f9603..4b465abfa36c 100644
 --- a/tools/perf/util/session.c
 +++ b/tools/perf/util/session.c
-@@ -2967,7 +2967,6 @@ struct perf_env *perf_session__env(struct perf_session *session)
- struct perf_session__e_machine_cb_args {
- 	uint32_t e_flags;
- 	uint16_t e_machine;
--	bool need_e_flags;
- };
- 
+@@ -2972,9 +2972,8 @@ struct perf_session__e_machine_cb_args {
  static int perf_session__e_machine_cb(struct thread *thread, void *_args)
-@@ -2975,8 +2974,7 @@ static int perf_session__e_machine_cb(struct thread *thread, void *_args)
+ {
  	struct perf_session__e_machine_cb_args *args = _args;
- 	struct machine *machine = maps__machine(thread__maps(thread));
+-	struct machine *machine = maps__machine(thread__maps(thread));
  
--	args->e_machine = thread__e_machine(thread, machine,
--					    args->need_e_flags ? &args->e_flags : NULL);
-+	args->e_machine = thread__e_machine(thread, machine, &args->e_flags);
+-	args->e_machine = thread__e_machine(thread, machine, &args->e_flags);
++	args->e_machine = thread__e_machine(thread, /*machine=*/NULL, &args->e_flags);
  	return args->e_machine != EM_NONE ? 1 : 0;
  }
  
-@@ -2988,8 +2986,8 @@ uint16_t perf_session__e_machine(struct perf_session *session, uint32_t *e_flags
- {
- 	struct perf_session__e_machine_cb_args args = {
- 		.e_machine = EM_NONE,
--		.need_e_flags = e_flags != NULL,
- 	};
-+	struct perf_env *env;
- 
- 	if (!session) {
- 		/* Default to assuming a host machine. */
-@@ -2999,12 +2997,35 @@ uint16_t perf_session__e_machine(struct perf_session *session, uint32_t *e_flags
- 		return EM_HOST;
+diff --git a/tools/perf/util/thread.c b/tools/perf/util/thread.c
+index 618f29afb160..22be77225bb0 100644
+--- a/tools/perf/util/thread.c
++++ b/tools/perf/util/thread.c
+@@ -499,6 +499,11 @@ uint16_t thread__e_machine(struct thread *thread, struct machine *machine, uint3
+ 		return e_machine;
  	}
  
-+	env = perf_session__env(session);
-+	if (env && env->e_machine != EM_NONE) {
-+		if (e_flags)
-+			*e_flags = env->e_flags;
++	if (machine == NULL) {
++		struct maps *maps = thread__maps(thread);
 +
-+		return env->e_machine;
++		machine = maps__machine(maps);
 +	}
-+
- 	machines__for_each_thread(&session->machines,
- 				  perf_session__e_machine_cb,
- 				  &args);
- 
-+	if (args.e_machine != EM_NONE) {
-+		if (env) {
-+			env->e_machine = args.e_machine;
-+			env->e_flags = args.e_flags;
-+		}
-+		if (e_flags)
-+			*e_flags = args.e_flags;
-+
-+		return args.e_machine;
-+	}
-+
-+	/*
-+	 * Couldn't determine from the perf_env or current set of
-+	 * threads. Default to the host.
-+	 */
- 	if (e_flags)
--		*e_flags = args.e_flags;
-+		*e_flags = EF_HOST;
- 
--	return args.e_machine == EM_NONE ? EM_HOST : args.e_machine;
-+	return EM_HOST;
- }
+ 	tid = thread__tid(thread);
+ 	pid = thread__pid(thread);
+ 	if (pid != tid) {
 -- 
 2.53.0.rc1.225.gd81095ad13-goog
 
