@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FBBE7C6EE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E3C6E7C6F2
 	for <linux-riscv@archiver.kernel.org>; Sat, 31 Jan 2026 21:38:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,24 +12,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=biAKVT4+3ELNVXT8oY+RawbWFXZRM/YPcU0dNeqN4DE=; b=iGCXxlmtGk0uB0
-	40xcNekH8WeLcCswZ66fglCi8YBKCkfrbgrmrBwcGtuP6bfPLVpxOdLN9fjzUma8nZcpSf6yPj7t5
-	gxnld8gtX0RapXO/eMlg11QJc0/J8W2QuUp3uru1tkxTOmB9+rRBVfEU2lj0zrblLoPzHg9pk/QBT
-	dDpmai8/l7jjlK4SqwzZl72BjYRoA/YNzA8hNSdnNesqTW7mTGpYTIMYbQj2s3PuypAtZnVhUxpgt
-	OI2mWBPnY56wyHY57nLdexzJp55a0h5ZO+ZqWgdWkhRDOi+wNEnWwzlVSQaLCwhE6nFHlSackGNdY
-	/lbOo0ivgu6kxO1swG/A==;
+	List-Owner; bh=DzxUzO+6Apb0lbnHNJXRLVfhbg1OfV+E74d6YSCPTV4=; b=RNERe47L8i1JUJ
+	nIJ6Qyoq/WTduD+ulZB1hyz478j6N6t0eeSRqCxHbPERhkKT4aEj10CvI1mZiXUtTTssjVO7M/6Co
+	syNkgb31GPLO+zccYRHjdjGSeHxFg+E5p3HqMNu31BhLMilF4BV0ttBmD8T81yIi6o7Rioj0aX6eJ
+	uBZyF9ug3PFPVsi3TWvsQ0qATR5oCOT7GhI2JvPDC4WUF8AOlcFCZAWEOsDBZ6WEP0klOLcL6vep9
+	A0sTo4vlC6JSVDIbTfSTKbk+WA22ApR5JbYdErpcSxFytsxm5ByWc2PkgfjlUzjdpDhMUsvGbh063
+	5ve4yydyE4/YLkdjTHvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmIfr-0000000315J-1kbH;
-	Sat, 31 Jan 2026 21:38:36 +0000
+	id 1vmIfu-0000000316M-2yZ1;
+	Sat, 31 Jan 2026 21:38:38 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmIfn-0000000313U-1X81
+	id 1vmIfn-0000000313T-1kF1
 	for linux-riscv@lists.infradead.org;
-	Sat, 31 Jan 2026 21:38:34 +0000
+	Sat, 31 Jan 2026 21:38:36 +0000
 Received: from localhost.localdomain (unknown [223.166.92.103])
-	by APP-03 (Coremail) with SMTP id rQCowABXadBIdn5pRJhjBw--.18091S6;
-	Sun, 01 Feb 2026 05:38:19 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowABXadBIdn5pRJhjBw--.18091S3;
+	Sun, 01 Feb 2026 05:38:17 +0800 (CST)
 From: Han Gao <gaohan@iscas.ac.cn>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -45,36 +45,36 @@ Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Han Gao <rabenda.cn@gmail.com>,
 	Han Gao <gaohan@iscas.ac.cn>
-Subject: [PATCH 4/7] riscv: dts: spacemit: Enable USB3.0 on OrangePi RV2
-Date: Sun,  1 Feb 2026 05:38:11 +0800
-Message-ID: <2f4aa209fbdb718f751b1d45b73a37044e7f26b2.1769895215.git.gaohan@iscas.ac.cn>
+Subject: [PATCH 1/7] riscv: dts: spacemit: Enable i2c8 adapter for OrangePi RV2
+Date: Sun,  1 Feb 2026 05:38:08 +0800
+Message-ID: <505d0c3db0ca3c471ca0ac4d3c93c9e333b7fc28.1769895215.git.gaohan@iscas.ac.cn>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1769895215.git.gaohan@iscas.ac.cn>
 References: <cover.1769895215.git.gaohan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABXadBIdn5pRJhjBw--.18091S6
-X-Coremail-Antispam: 1UD129KBjvJXoW7Zry8ZryUAF18Kr1rtFWfGrg_yoW8ZrWxpF
-	45uFsa9ayrArWFkw4a9as2ka1rXFsYgFWku34vvr48GrsF93WqkrnxJr1SvFn5WF48Xw4f
-	ArWI9ryUCF129aUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmq14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr
-	1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr1j
-	6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7V
-	C0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j
-	6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x0262
-	8vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE
-	7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI
-	8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWU
-	CwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJV
-	WUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIY
-	CTnIWIevJa73UjIFyTuYvjfUOyIUUUUUU
+X-CM-TRANSID: rQCowABXadBIdn5pRJhjBw--.18091S3
+X-Coremail-Antispam: 1UD129KBjvdXoW7Xry5AF4DWFyxCFyDZFyxZrb_yoW3GrX_CF
+	13Gay0vFyUGFWvkFnrXr1rtayxu3y5KrWSywnaqr1UGasYgrWrKFWUKF4kJw1rurWYvrW3
+	Jw48tFyxJwnIkjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbkAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGwA2048vs2IY02
+	0Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xv
+	wVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwA2z4
+	x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4UJVWxJr1l
+	e2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI
+	8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwAC
+	jcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0x
+	kIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_
+	Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1V
+	AY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAI
+	cVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42
+	IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIev
+	Ja73UjIFyTuYvjfU8XdbUUUUU
 X-Originating-IP: [223.166.92.103]
-X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiBwwEDGl+GlBjhQAAs4
+X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiCQ4EDGl+GiNkAAABsE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_133831_778221_973C5667 
-X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-CacheID: sfid-20260131_133831_840352_8E4D073B 
+X-CRM114-Status: UNSURE (   6.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,79 +92,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable the DWC3 USB 3.0 controller and its associated usbphy2 on the
-OrangePi RV2 board.
-
-The board utilizes a Genesys Logic GL3523 hub, which requires two
-separate power supplies: one VBUS and one for hub itself.
-Add two GPIO-controlled fixed-regulators to manage this.
+The adapter is used to access the SpacemiT P1 PMIC present in this board.
 
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- .../boot/dts/spacemit/k1-orangepi-rv2.dts     | 46 +++++++++++++++++++
- 1 file changed, 46 insertions(+)
+ arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-index f87c6ab417c4..d8d0baaec731 100644
+index 7b7331cb3c72..93880ba7bdfe 100644
 --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
 +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-@@ -42,6 +42,25 @@ reg_vcc_4v: vcc-4v {
- 		vin-supply = <&reg_dc_in>;
- 	};
- 
-+	usb3-vbus-5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "USB30_VBUS";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+		gpio = <&gpio K1_GPIO(97) GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	usb3_hub_5v: usb3-hub-5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "USB30_HUB";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		gpio = <&gpio K1_GPIO(123) GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
- 	leds {
- 		compatible = "gpio-leds";
- 
-@@ -227,3 +246,30 @@ &uart0 {
- 	pinctrl-0 = <&uart0_2_cfg>;
+@@ -87,6 +87,12 @@ &pdma {
  	status = "okay";
  };
-+
-+&usbphy2 {
+ 
++&i2c8 {
++	pinctrl-0 = <&i2c8_cfg>;
++	pinctrl-names = "default";
 +	status = "okay";
 +};
 +
-+&usb_dwc3 {
-+	dr_mode = "host";
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	hub_2_0: hub@1 {
-+		compatible = "usb5e3,610";
-+		reg = <0x1>;
-+		vdd-supply = <&usb3_hub_5v>;
-+		peer-hub = <&hub_3_0>;
-+		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
-+	};
-+
-+	hub_3_0: hub@2 {
-+		compatible = "usb5e3,620";
-+		reg = <0x2>;
-+		vdd-supply = <&usb3_hub_5v>;
-+		peer-hub = <&hub_2_0>;
-+		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
-+	};
-+};
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_2_cfg>;
 -- 
 2.47.3
 
