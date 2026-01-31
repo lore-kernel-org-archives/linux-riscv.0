@@ -4,108 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AEFED46C1D
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Jan 2026 01:28:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70787E6BF3C
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Jan 2026 02:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kld7RZQXakaG1aG9zlRWmJiCVAuN/HK0jszX7+1Mcvc=; b=rGXQebbQeawk1X
-	yWVKWCN4tl/YZhjMoYa2t5mk/4+Rbvk24HFT0oUj/XwZI8udLZGlF7GiEbNS30EvsolRB+PpWoqxt
-	ukDjrR2+zRYvU187u8dL8VnrwhDh0dBo9pUdrogt9DccqzFqOsO/Vn6u0KIIiGpc+jGOAePONKhWj
-	PSxzuCrFADrkdQtgMbXkFUPA99B8KASk4DE5ygg2RF4KYmvQvIrZZ1GH+Y78T/HVZi0nTKmHIWvqr
-	c199TjLa7mGhfF4J3frCilNIcHnjuC6p48zoEYYvtP4Iic2gT6ET5IsUcXCU9Lcj7F2IoQWWbhR2H
-	Dh3t6grLkPyespl3yMrQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=s7j5IofukLgz5OjGrwSBIDnjILaq1ZRelnrWR56nqiE=; b=h0T8961/hC8/e/
+	Jmoub4E8gHUtY4q8Jjw5a/1Tz4gtF5+K4yASk/ZinuSodnCxMfDPEzfdb+jA+/uF63NycopmnBt2y
+	rRJmPhVeDxOS1FTndizJ7JHeBcK5k5BZJ3IIUU0K4Z+JlHPNJ0kfyQSWU6WdkGPqWdbKdfh3/vVb6
+	xGqZ+2nnRrzKZRRGzhrImRS+eAET8vQurywtE1oyDFHeOe0jMb8C5muYony7BEf/A8a4vHkaF5zUA
+	5L6sAJESqq/nukLbCOQVF16BjIx2C/3vNAa8MG87Qe8XFoXucp/9jUJNBaUWmLru2kWw+IL4Sb0pC
+	FztsWqtndvEi7soWSacw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlzme-00000002Bkg-0SOO;
-	Sat, 31 Jan 2026 01:28:20 +0000
-Received: from mail-oo1-xc2c.google.com ([2607:f8b0:4864:20::c2c])
+	id 1vm1Bd-00000002Fv5-3BLQ;
+	Sat, 31 Jan 2026 02:58:13 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlzmb-00000002BkL-22qS
-	for linux-riscv@lists.infradead.org;
-	Sat, 31 Jan 2026 01:28:18 +0000
-Received: by mail-oo1-xc2c.google.com with SMTP id 006d021491bc7-66307e10d1dso1373074eaf.0
-        for <linux-riscv@lists.infradead.org>; Fri, 30 Jan 2026 17:28:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769822895; cv=none;
-        d=google.com; s=arc-20240605;
-        b=DMAn8zxtvtf3K5NUA6IxwXyQrojJg5Yk3ZP/MmnVLB49mXKcCsgm/7yXRTMuMPf6Zs
-         BH6UpqF3gNaDpDBvETyRFdxZNKyfWoH6JvcTKdE9+gUf41aJJftsH9F2jpPatQcBdcWl
-         5Wj6Hp8E5L7f586ppUpFxTcf/fczk2ZGl7cccbzXr6r1kR2HQgab9te4l4bQkTYZ7/+7
-         WnJO/61AlT0VoIFJ04RaW66+qsXmiMSRGazgQZEBG0/Vk1PjYTByUPevhsaM/pPX41Bj
-         Dew2xYXh7AnpewTBQvXwYHVznXPRxutVMEnxWx1Bby315vL7cM+5LTJ38BTAk0urRDkz
-         fNWA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=hAdK8PSPpbAG4ZF3DDf9iwcQO/z7KVY0C1nZwOLHMfE=;
-        fh=6XGEB3ruxEchUrtmLaZedanyQmWMqcNZTsaMd+2PDao=;
-        b=AfwEytrVmid1z+bBykOJzaI+MAlfEzDIvAnfNjrodliobFuwykOBczDjBfDr0g1dHm
-         BpO1yVwmzrSMyTTUDc7PcbSIl4CDqZvC6W4TT6E6HZ+anHbwSeLJpYnh7jKKE6ws0ef1
-         yj7lN431MEpMgor6RxG9Zi2nzaFVIWf2RxDQCUjfOSxxrPtBVZjkrP5V/pt3Ag/EGk9o
-         WbXNGbJUxl1iVEhjuf0OCbrsvlUHGNp9fuc51MCCsy5jH4tcUyGNfRGzm21u/4g6h7lk
-         i0qcrQnzLMGywxWLGypdWpulYBFJQEAEVWxv/UOzz22DLx+nsGCzGsKfHLt5y/jLop9S
-         a15g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1769822895; x=1770427695; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hAdK8PSPpbAG4ZF3DDf9iwcQO/z7KVY0C1nZwOLHMfE=;
-        b=Dw+/hYj2MfV+SyOwqPIkRuAFZgdzeJ2LS7fR0LVLLyQciTe/LbKwFHMqzP78uPptuS
-         nhAOkpqgQ6x5Q7WhoHY/MytoYKUtSaaxggiosx7gNLcxQMz7ja6VKIIBFd/dYhs05OST
-         rReMbsQR+MhPrOJ5gX3ZO+HOe1oJ2/U4f5BvkvukuQ1cKOwEnlfTc0AcW/M+7YgsZJUD
-         93jLI0R6r1vYIJHFdXO66KqubgOA0KmhVU0R4pxJXsotcVdBZpFM4u85og0oELL8XnmI
-         VqFkREgcK1FdLizEIwzLZGTfIQ2GIx8RZBbVAj08wfCn2OXGAhY0IVQFSXt+3oqgvmMa
-         DnyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769822895; x=1770427695;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hAdK8PSPpbAG4ZF3DDf9iwcQO/z7KVY0C1nZwOLHMfE=;
-        b=dTFED/O3Erl7Y/bFaPxeEjWj+5H8bEUBKQfLmk+xOdY80pPZEdgKrCJy6+beHePU6W
-         5MREPfHYifOWYf/LoGSyLcV/ywx9AotboryWoI9ILFublQTmtoHcs68XqZs9GlOkLZVm
-         HeuUGI+OhED/0S7fjtX47TO4Xm2iQKmqhAI/uOeGmoFjs1G14nai+XRd8pYEhMe1ZCLf
-         bg+VenWExjdENKQpjukmEsQ5cUTqNGHZDi2WGeRUHUUaN1/TDlP3SZlP8F4ouQ8gG5B4
-         hHj1VIo8gpsU6JAWPx3c4URcsGtwAY8l1/wRG/SMpCAKrTymuexO2GnZSn4W+eBgh4Nj
-         6J6w==
-X-Forwarded-Encrypted: i=1; AJvYcCWz1Z2lrw5RDT+zDkUleteVBr1eNC8kQ7RgqJAbMVejd4uB2/2q7T6THyLvh3gia0ThpbDYA6MhkwtnPw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8JhCCNyLS+o170gP5z3E+3CGVD36PSDhrV0rwIy7F838nA0PS
-	LO3kvP40b6n/+gx2aQC9ZwdsuFRLK8GGJKkDBpNlkeJkfzGhfxDSU41iKNlq4f8VOEBjzn9DL8G
-	wDqDaotiWv91uyUx5CQXimRcqAOwgYuTVeZtPg8Ff7g==
-X-Gm-Gg: AZuq6aKFqscQcpzYDhdccz+T73Mvvg0+uAnD1fY2h9yWqbyYI1m49zBPE80cRr6zB51
-	OWBkppaypPyIyTRVxQ5f89vpjT/vLS7TOwQ8k447Q21vCRBNRPraCCBj9Mc1OibhCKyqDk1oyU0
-	lHTF5fYQetYzS3fYAZM90PvNt/P9Wxo5bzLvhE4h2ymrInb86V8AQPyrCdIgeN7WGBGkUgpExn5
-	sQqxRKG3qiaIVIwS4O60t21XlGCInwNnoDCrsqDdTLf0mBoA7nD7+dHR/hALNU2LTCAmqPckQjs
-	0sjhqA==
-X-Received: by 2002:a05:6820:22a9:b0:65b:257b:a898 with SMTP id
- 006d021491bc7-6630f0507ffmr2047585eaf.29.1769822894013; Fri, 30 Jan 2026
- 17:28:14 -0800 (PST)
+	id 1vm1Ba-00000002FuB-3XYj;
+	Sat, 31 Jan 2026 02:58:12 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-01 (Coremail) with SMTP id qwCowABnEm65b31pOVPLBg--.13268S2;
+	Sat, 31 Jan 2026 10:58:02 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Anup Patel <anup@brainfault.org>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Jiakai Xu <jiakaiPeanut@gmail.com>
+Subject: [PATCH] RISC-V: KVM: Change imsic->vsfile_lock from rwlock_t to raw_spinlock_t
+Date: Sat, 31 Jan 2026 02:58:00 +0000
+Message-Id: <20260131025800.1550692-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <0-v2-b11ebca8abb6+c096-iommu_pt_riscv_jgg@nvidia.com>
- <72olk767l4goaqsrkyelhtnzg33nxbtwnammy4asnqxukbolnh@gwypmg6n5t3e>
- <20260129004640.GB1641016@ziepe.ca> <63c38161-762f-bff5-0b9c-0148140c695b@kernel.org>
-In-Reply-To: <63c38161-762f-bff5-0b9c-0148140c695b@kernel.org>
-From: Tomasz Jeznach <tjeznach@rivosinc.com>
-Date: Fri, 30 Jan 2026 17:28:03 -0800
-X-Gm-Features: AZwV_Qj0tZjKAecspcSVxodkCX0io_Vn0UvzOmM88WNtFjCfrWhK6JNivTo3BO4
-Message-ID: <CAH2o1u4_bieYiNUwCvhheKeRg6wvjH3Y4hZY9AGLcMbH5A-rDQ@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] Convert riscv to use the generic iommu page table
-To: tjeznach@fb.com, Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Joerg Roedel <joro@8bytes.org>, Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>, 
-	iommu@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>, 
-	lihangjing@bytedance.com, Xu Lu <luxu.kernel@bytedance.com>, 
-	patches@lists.linux.dev, xieyongji@bytedance.com, 
-	Paul Walmsley <pjw@kernel.org>
+X-CM-TRANSID: qwCowABnEm65b31pOVPLBg--.13268S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3XryDGr4ruFWUJF4fAryUtrb_yoW3ZFWfpr
+	4rZF1kCr1xuw1Uuw4qv3Wkuayvg39F9r45WrWUWw1rXr17JwsYgr4xZayxWFWjqrn7GFn2
+	yr1rAaySkF17AaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUB214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+	0_GcWlnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
+	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2
+	Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s02
+	6x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0x
+	vE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE
+	42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6x
+	kF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUOmhFUUUUU
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBgsECWl8yB384AAAsc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_172817_602433_25047BE5 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20260130_185811_254280_17BEA420 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,37 +80,212 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8gZXZlcnlvbmUsCgpTb3JyeSBmb3IgdGhlIHZlcnkgbG9uZyByYWRpbyBzaWxlbmNlLiBJ
-J20gYmFjayBvbmxpbmUuIEknbGwgdXBkYXRlIG15CmVtYWlsIGluIHRoZSBNQUlOVEFJTkVSUyBm
-aWxlIHNvb24sIGZvciBub3cgYWRkaW5nIG15IG5ldyBhZGRyZXNzIHRvCnRoZSByZWNpcGllbnRz
-LgoKVGhhbmtzIEphc29uIGZvciB0aGlzIGNoYW5nZSwgSSd2ZSBsb29rZWQgYXQgdGhlIHYxLCBs
-b29rcyBnb29kLiBJdApwYXNzZWQgbXkgaW5pdGlhbCB0ZXN0aW5nIGF0IHRoZSB0aW1lLiBVbmZv
-cnR1bmF0ZWx5IEkgaGFkIHRvIGhvbGQgb2ZmCm9uIHRlc3RpbmcgZm9yIGEgd2hpbGUuLi4KCkkn
-dmUgcmV2aXZlZCBSSVNDLVYgdGVzdCBmbG93cyBiYXNlZCBvbiB2Ni4xOS1yYzcgKyB0aGlzIHBh
-dGNoc2V0IGFuZApoaXQgdHJhbnNsYXRpb24gZmFpbHVyZXMgb24gRE1BcyBmcm9tL3RvIE5WTWUg
-U1NELiBIb3BlZnVsbHkKdW5yZWxhdGVkLCBzdGlsbCBpbnZlc3RpZ2F0aW5nLgoKQmVzdCwKLSBU
-b21hc3oKCgpPbiBGcmksIEphbiAzMCwgMjAyNiBhdCAzOjE04oCvUE0gUGF1bCBXYWxtc2xleSA8
-cGp3QGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gV2VkLCAyOCBKYW4gMjAyNiwgSmFzb24gR3Vu
-dGhvcnBlIHdyb3RlOgo+Cj4gPiBPbiBUaHUsIEphbiAyMiwgMjAyNiBhdCAwODo1NjoxMkFNICsw
-MTAwLCBKb2VyZyBSb2VkZWwgd3JvdGU6Cj4gPiA+IFRvbWFzeiwKPiA+ID4KPiA+ID4gT24gVHVl
-LCBKYW4gMDYsIDIwMjYgYXQgMTE6MDY6NDRBTSAtMDQwMCwgSmFzb24gR3VudGhvcnBlIHdyb3Rl
-Ogo+ID4gPiA+IEphc29uIEd1bnRob3JwZSAoNSk6Cj4gPiA+ID4gICBpb21tdXB0OiBBZGQgdGhl
-IFJJU0MtViBwYWdlIHRhYmxlIGZvcm1hdAo+ID4gPiA+ICAgaW9tbXUvcmlzY3Y6IERpc2FibGUg
-U0FERQo+ID4gPiA+ICAgaW9tbXUvcmlzY3Y6IFVzZSB0aGUgZ2VuZXJpYyBpb21tdSBwYWdlIHRh
-YmxlCj4gPiA+ID4gICBpb21tdS9yaXNjdjogRW5hYmxlIFNWTkFQT1Qgc3VwcG9ydCBmb3IgY29u
-dGlndW91cyBwdGVzCj4gPiA+ID4gICBpb21tdS9yaXNjdjogQWxsb3cgUklTQ19WSU9NTVUgdG8g
-Q09NUElMRV9URVNUCj4gPiA+Cj4gPiA+IEFueSBvcGluaW9uIG9uIHRoYXQgc2VyaWVzPwo+ID4K
-PiA+IExldCdzIHRha2UgaXQgaWYgd2UgZG9uJ3QgaGVhciBmcm9tIFRvbWFzeiB0aGlzIHdlZWs/
-IEl0IGJyaW5ncwo+ID4gdGhlIGNvbnRpZ3VvdXMgcGFnZSBmZWF0dXJlIHBlb3BsZSB3YW50ZWQg
-YW5kIG5vdyB0aGF0IGl0IGlzIHRlc3RlZAo+ID4gSSdtIG5vdCBlc3BlY2lhbGx5IHdvcnJpZWQg
-YWJvdXQgaXQuCj4KPiBJbiB0aGUgZXZlbnQgdGhhdCB5b3UgZG9uJ3QgaGVhciBmcm9tIFRvbWFz
-ejoKPgo+IEFja2VkLWJ5OiBQYXVsIFdhbG1zbGV5IDxwandAa2VybmVsLm9yZz4gIyBhcmNoL3Jp
-c2N2Cj4KPgo+IC0gUGF1bAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+The per-vCPU IMSIC context uses a vsfile_lock to protect access
+to the VS-file. Currently, this lock is an rwlock_t, and is used
+with read_lock_irqsave/write_lock_irqsave in multiple places
+inside arch/riscv/kvm/aia_imsic.c.
+
+During fuzz testing of KVM ioctl sequences, an 
+"[BUG: Invalid wait context]" crash was observed when holding 
+vsfile_lock in certain VCPU scheduling paths, for example during 
+kvm_riscv_vcpu_aia_imsic_put(). Log shows that at this point
+the task may hold vcpu->mutex and scheduler runqueue locks,
+and thus is in a context where acquiring a read/write rwlock
+with irqsave is illegal.
+
+The crash manifests as:
+  [ BUG: Invalid wait context ]
+  (&imsic->vsfile_lock){....}-{3:3}, at:
+  kvm_riscv_vcpu_aia_imsic_put arch/riscv/kvm/aia_imsic.c:728
+  ...
+  2 locks held by syz.4.4541/8252:
+   #0: (&vcpu->mutex), at: kvm_vcpu_ioctl virt/kvm/kvm_main.c:4460
+   #1: (&rq->__lock), at: raw_spin_rq_lock_nested kernel/sched/core.c:639
+   #1: (&rq->__lock), at: raw_spin_rq_lock kernel/sched/sched.h:1580
+   #1: (&rq->__lock), at: rq_lock kernel/sched/sched.h:1907
+   #1: (&rq->__lock), at: __schedule kernel/sched/core.c:6772
+  ...
+  Call Trace:
+   _raw_read_lock_irqsave kernel/locking/spinlock.c:236
+   kvm_riscv_vcpu_aia_imsic_put arch/riscv/kvm/aia_imsic.c:716
+   kvm_riscv_vcpu_aia_put arch/riscv/kvm/aia.c:154
+   kvm_arch_vcpu_put arch/riscv/kvm/vcpu.c:650
+   kvm_sched_out virt/kvm/kvm_main.c:6421
+   __fire_sched_out_preempt_notifiers kernel/sched/core.c:4835
+   fire_sched_out_preempt_notifiers kernel/sched/core.c:4843
+   prepare_task_switch kernel/sched/core.c:5050
+   context_switch kernel/sched/core.c:5205
+   __schedule kernel/sched/core.c:6867
+   __schedule_loop kernel/sched/core.c:6949
+   schedule kernel/sched/core.c:6964
+   kvm_riscv_check_vcpu_requests arch/riscv/kvm/vcpu.c:699
+   kvm_arch_vcpu_ioctl_run arch/riscv/kvm/vcpu.c:920
+
+Therefore, replace vsfile_lock with raw_spinlock_t, and update 
+all acquire/release calls to 
+raw_spin_lock_irqsave()/raw_spin_unlock_irqrestore().
+
+Fixes: db8b7e97d6137a ("RISC-V: KVM: Add in-kernel virtualization of AIA IMSIC")
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+---
+ arch/riscv/kvm/aia_imsic.c | 36 ++++++++++++++++++------------------
+ 1 file changed, 18 insertions(+), 18 deletions(-)
+
+diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
+index fda0346f0ea1f..8730229442a26 100644
+--- a/arch/riscv/kvm/aia_imsic.c
++++ b/arch/riscv/kvm/aia_imsic.c
+@@ -47,7 +47,7 @@ struct imsic {
+ 	 */
+ 
+ 	/* IMSIC VS-file */
+-	rwlock_t vsfile_lock;
++	raw_spinlock_t vsfile_lock;
+ 	int vsfile_cpu;
+ 	int vsfile_hgei;
+ 	void __iomem *vsfile_va;
+@@ -597,13 +597,13 @@ static void imsic_vsfile_cleanup(struct imsic *imsic)
+ 	 * VCPU is being destroyed.
+ 	 */
+ 
+-	write_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 	old_vsfile_hgei = imsic->vsfile_hgei;
+ 	old_vsfile_cpu = imsic->vsfile_cpu;
+ 	imsic->vsfile_cpu = imsic->vsfile_hgei = -1;
+ 	imsic->vsfile_va = NULL;
+ 	imsic->vsfile_pa = 0;
+-	write_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ 
+ 	memset(imsic->swfile, 0, sizeof(*imsic->swfile));
+ 
+@@ -688,10 +688,10 @@ bool kvm_riscv_vcpu_aia_imsic_has_interrupt(struct kvm_vcpu *vcpu)
+ 	 * only check for interrupt when IMSIC VS-file is being used.
+ 	 */
+ 
+-	read_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 	if (imsic->vsfile_cpu > -1)
+ 		ret = !!(csr_read(CSR_HGEIP) & BIT(imsic->vsfile_hgei));
+-	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ 
+ 	return ret;
+ }
+@@ -713,10 +713,10 @@ void kvm_riscv_vcpu_aia_imsic_put(struct kvm_vcpu *vcpu)
+ 	if (!kvm_vcpu_is_blocking(vcpu))
+ 		return;
+ 
+-	read_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 	if (imsic->vsfile_cpu > -1)
+ 		csr_set(CSR_HGEIE, BIT(imsic->vsfile_hgei));
+-	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ }
+ 
+ void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu)
+@@ -727,13 +727,13 @@ void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu)
+ 	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
+ 
+ 	/* Read and clear IMSIC VS-file details */
+-	write_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 	old_vsfile_hgei = imsic->vsfile_hgei;
+ 	old_vsfile_cpu = imsic->vsfile_cpu;
+ 	imsic->vsfile_cpu = imsic->vsfile_hgei = -1;
+ 	imsic->vsfile_va = NULL;
+ 	imsic->vsfile_pa = 0;
+-	write_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ 
+ 	/* Do nothing, if no IMSIC VS-file to release */
+ 	if (old_vsfile_cpu < 0)
+@@ -786,10 +786,10 @@ int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu)
+ 		return 1;
+ 
+ 	/* Read old IMSIC VS-file details */
+-	read_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 	old_vsfile_hgei = imsic->vsfile_hgei;
+ 	old_vsfile_cpu = imsic->vsfile_cpu;
+-	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ 
+ 	/* Do nothing if we are continuing on same CPU */
+ 	if (old_vsfile_cpu == vcpu->cpu)
+@@ -839,12 +839,12 @@ int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu)
+ 	/* TODO: Update the IOMMU mapping ??? */
+ 
+ 	/* Update new IMSIC VS-file details in IMSIC context */
+-	write_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 	imsic->vsfile_hgei = new_vsfile_hgei;
+ 	imsic->vsfile_cpu = vcpu->cpu;
+ 	imsic->vsfile_va = new_vsfile_va;
+ 	imsic->vsfile_pa = new_vsfile_pa;
+-	write_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ 
+ 	/*
+ 	 * At this point, all interrupt producers have been moved
+@@ -943,7 +943,7 @@ int kvm_riscv_aia_imsic_rw_attr(struct kvm *kvm, unsigned long type,
+ 	isel = KVM_DEV_RISCV_AIA_IMSIC_GET_ISEL(type);
+ 	imsic = vcpu->arch.aia_context.imsic_state;
+ 
+-	read_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 
+ 	rc = 0;
+ 	vsfile_hgei = imsic->vsfile_hgei;
+@@ -958,7 +958,7 @@ int kvm_riscv_aia_imsic_rw_attr(struct kvm *kvm, unsigned long type,
+ 					    isel, val, 0, 0);
+ 	}
+ 
+-	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ 
+ 	if (!rc && vsfile_cpu >= 0)
+ 		rc = imsic_vsfile_rw(vsfile_hgei, vsfile_cpu, imsic->nr_eix,
+@@ -1015,7 +1015,7 @@ int kvm_riscv_vcpu_aia_imsic_inject(struct kvm_vcpu *vcpu,
+ 	if (imsic->nr_msis <= iid)
+ 		return -EINVAL;
+ 
+-	read_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 
+ 	if (imsic->vsfile_cpu >= 0) {
+ 		writel(iid, imsic->vsfile_va + IMSIC_MMIO_SETIPNUM_LE);
+@@ -1025,7 +1025,7 @@ int kvm_riscv_vcpu_aia_imsic_inject(struct kvm_vcpu *vcpu,
+ 		imsic_swfile_extirq_update(vcpu);
+ 	}
+ 
+-	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ 
+ 	return 0;
+ }
+@@ -1081,7 +1081,7 @@ int kvm_riscv_vcpu_aia_imsic_init(struct kvm_vcpu *vcpu)
+ 
+ 	/* Setup IMSIC context  */
+ 	imsic->nr_msis = kvm->arch.aia.nr_ids + 1;
+-	rwlock_init(&imsic->vsfile_lock);
++	raw_spin_lock_init(&imsic->vsfile_lock);
+ 	imsic->nr_eix = BITS_TO_U64(imsic->nr_msis);
+ 	imsic->nr_hw_eix = BITS_TO_U64(kvm_riscv_aia_max_ids);
+ 	imsic->vsfile_hgei = imsic->vsfile_cpu = -1;
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
