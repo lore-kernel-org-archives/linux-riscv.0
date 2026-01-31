@@ -4,90 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6277E7C6E0
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Jan 2026 20:03:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BBF2E7C6EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Jan 2026 21:38:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:References:
-	Mime-Version:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YLHAy1736B2ZGfIvmhSYp2i8iKzUBtSoPGnxNhs+fzY=; b=Os5/Vs8VUhXs/D
-	vCdLmzDQ+mvpHueNe3na7lXchpAlZ+3mSlFbfLlRhZ+Gkm2In7dk3VmZU6SdFkvOnrQAjjkmZ2vb4
-	InfwFb3vNWK04iDr/ozxs1V97lCFiiTpdR3dVpx+RgDLcSLBcT/thMMR+DpkxD1vcAu6/d9f0Xrqq
-	PYdL3x6mZ5pNJqds6iTGTi+HRYqpjr3vJPr3q8Dee5ZAJlfc2O5H4e4YZHte8J4NI1OPmt2Ry7SFT
-	hmG7MuER3NsNtrLRnQLucOiRj5KpkjSSNjkWLzm+0zHKJWetLYmOH43yig0S/TbyTEgn1RjLqmPW4
-	wwR/pVDCvaeuoZUKeRnw==;
+	List-Owner; bh=KIe50Azb2sUh1eYJNdlKj3PviqfCM/TGP2JAz5Qnb9I=; b=4CUwUePmpv+oHk
+	r2gOAngzwPArAMfz2QiAAupoUr7RYeJLb40FHdu4D0HYjGBOYgdLyR/DxuAktjkeIhbaQC98oN/yD
+	mHA5+jhTndDz9niffu0RKuChd1MfL0Tu7mXct7UVhDVEKhMUnPxR2/Baa4S079mGxShkKglWecvbB
+	OVfDuMj0nRQt76iOGLO0iTuGOAzqLtMET0/M3vCVSvKp00KT1lW2hxLektDAogjiw8fuvUlT+3fYh
+	EQAh0Ngji6LFUGc9yQny83p98EHKycRJ2ZTkGhJQLbznJwvjVQ5M+iXxltcfRIVGZyDeRVzhWh7yB
+	SOR3qU7Mz5sE3/4VWKgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmHBY-00000002wvs-190N;
-	Sat, 31 Jan 2026 20:03:12 +0000
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	id 1vmIfu-00000003161-1KBf;
+	Sat, 31 Jan 2026 21:38:38 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmHB4-00000002wWc-2ZGn
+	id 1vmIfn-0000000313R-1jM2
 	for linux-riscv@lists.infradead.org;
-	Sat, 31 Jan 2026 20:02:44 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2b724ff60e6so3679629eec.0
-        for <linux-riscv@lists.infradead.org>; Sat, 31 Jan 2026 12:02:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769889761; x=1770494561; darn=lists.infradead.org;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=yU/No/CiRXNK30X5BW5gARgpwLegeQsixxR3xJoI9G0=;
-        b=2ilZim0JawgMUwbqE7I/ciKOgY5DkfZiWDBE9g0LuJ3f8cr0bWyS+Kt0JnG7vSWYe/
-         tYOoM1QOr7c+oP5cbIiN+qAIKqfMU35TCL52oofE+YcwV6ZTicxPBJjQ7PM+Qor80avR
-         2n3YlyDCCT1omfGs1+nlfmG+4GiiNKIr7xCfzWdrGzRezAsJndwl+KMN1y/HwUipfEfC
-         Hj+89mR0BWnlqBuK8qBOXAuN+Sm7nezBq3tL4blsc9CbTwH7K2d5zBIU2bL2kDM6PDcu
-         OjPVp25feXnX+onMTEobBlShi0NI8KWY2p01UOq71Kv/zz2DGUAJFcpVqFPZL3YuUt/y
-         gaug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769889761; x=1770494561;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yU/No/CiRXNK30X5BW5gARgpwLegeQsixxR3xJoI9G0=;
-        b=ihAWK9RwK3tUIamNirkta/kVfoL7VDkLmhmOCKtVEa4wOTEEjdYOapjYrj8a0NPNk4
-         NZB30h9VNdob7xDN2wi3prWD5pnF3U28V4LZEf3VYV2OYiIkfygG/9Yrgym91nsADmof
-         5TWwGCysPJ/IhdJk0GU1q9zB9iloN8TFqo06I/7S3cMGHWHlvzen4ID01tnno3f5ihPI
-         Ay++o2KgcoCm3/r/8aOPQpS4eXfUu501HFHHdJIykmntMLc6lMlSSSxCjmpl2ItjSiEy
-         aa2Bc1DTdqIdiVacKkT5jBrlHSK5cy+1xKM19sPB4cmkp+0yeg3UG8I6oYUrd+XqDUEc
-         HbCA==
-X-Forwarded-Encrypted: i=1; AJvYcCUk13+KrYy3A7+NCFaprQLdvdSeAntUirGnrv0JSlkjV5qjJ1aSovsu33PutExkaPCtlPOfcaaR37wDdA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6fyn/ovw0L9qAmZ522JXZQqP6KWLECYuKOj4NuaUdtHaNnwCf
-	gOUmWt9+G2/W99KRxI+uPIkVwYmvuqpUff1I/XXh6Lbt1cAQfiIXrzJ9waXR981zXmkEGA7rhLy
-	UHtyNTwzpkA==
-X-Received: from dyek9.prod.google.com ([2002:a05:7300:6409:b0:2b7:4867:6bd0])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:2b13:b0:2ae:614a:330e
- with SMTP id 5a478bee46e88-2b7c8943db0mr3682412eec.41.1769889761125; Sat, 31
- Jan 2026 12:02:41 -0800 (PST)
-Date: Sat, 31 Jan 2026 12:02:24 -0800
-In-Reply-To: <20260131200224.1296136-1-irogers@google.com>
-Mime-Version: 1.0
-References: <20260131200224.1296136-1-irogers@google.com>
-X-Mailer: git-send-email 2.53.0.rc1.225.gd81095ad13-goog
-Message-ID: <20260131200224.1296136-7-irogers@google.com>
-Subject: [PATCH v2 6/6] perf thread: Don't require machine to compute the e_machine
-From: Ian Rogers <irogers@google.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	James Clark <james.clark@linaro.org>, John Garry <john.g.garry@oracle.com>, 
-	Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Shimin Guo <shimin.guo@skydio.com>, Yunseong Kim <ysk@kzalloc.com>, 
-	Athira Rajeev <atrajeev@linux.ibm.com>, Quan Zhou <zhouquan@iscas.ac.cn>, 
-	Andrew Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>, 
-	Dapeng Mi <dapeng1.mi@linux.intel.com>, Thomas Falcon <thomas.falcon@intel.com>, 
-	Blake Jones <blakejones@google.com>, Swapnil Sapkal <swapnil.sapkal@amd.com>, 
-	Kan Liang <kan.liang@linux.intel.com>, Howard Chu <howardchu95@gmail.com>, 
-	Anubhav Shelat <ashelat@redhat.com>, Aditya Bodkhe <aditya.b1@linux.ibm.com>, 
-	Chun-Tse Shao <ctshao@google.com>, Andi Kleen <ak@linux.intel.com>, 
-	Dmitry Vyukov <dvyukov@google.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org
+	Sat, 31 Jan 2026 21:38:36 +0000
+Received: from localhost.localdomain (unknown [223.166.92.103])
+	by APP-03 (Coremail) with SMTP id rQCowABXadBIdn5pRJhjBw--.18091S4;
+	Sun, 01 Feb 2026 05:38:18 +0800 (CST)
+From: Han Gao <gaohan@iscas.ac.cn>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Han Gao <rabenda.cn@gmail.com>,
+	Han Gao <gaohan@iscas.ac.cn>
+Subject: [PATCH 2/7] riscv: dts: spacemit: Define fixed regulators for OrangePi RV2
+Date: Sun,  1 Feb 2026 05:38:09 +0800
+Message-ID: <c5799da08242f8aa1a77f144ab0273d68af1841f.1769895215.git.gaohan@iscas.ac.cn>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1769895215.git.gaohan@iscas.ac.cn>
+References: <cover.1769895215.git.gaohan@iscas.ac.cn>
+MIME-Version: 1.0
+X-CM-TRANSID: rQCowABXadBIdn5pRJhjBw--.18091S4
+X-Coremail-Antispam: 1UD129KBjvdXoW7Wr1rZw4UXF4fAF1DtFyftFb_yoWkWFc_Cr
+	y3Ga4SqFWxXF4DKF93tFZY9ry5W3yv9a13Xrs7Wr4UG3Z5Zan7X3ZrJry8Ar4UGr45GF9x
+	Zr42vr18AF1YgjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbkAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUXwA2048vs2IY02
+	0Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xv
+	wVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwA2z4
+	x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4UJVWxJr1l
+	e2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI
+	8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwAC
+	jcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0x
+	kIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_
+	Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1V
+	AY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAI
+	cVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42
+	IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIev
+	Ja73UjIFyTuYvjfUOdgAUUUUU
+X-Originating-IP: [223.166.92.103]
+X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiCQ8EDGl+GiNkAwAAsH
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_120242_680614_0975FF18 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20260131_133831_842981_6B7EA379 
+X-CRM114-Status: UNSURE (   6.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,76 +92,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The machine can be calculated from a thread via its maps. Don't
-require the machine argument to simplify callers and also to delay
-computing the machine until a little later.
+Define the DC power input and the 4v power as fixed regulator supplies.
 
-Signed-off-by: Ian Rogers <irogers@google.com>
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- tools/perf/util/scripting-engines/trace-event-python.c | 8 +++-----
- tools/perf/util/session.c                              | 3 +--
- tools/perf/util/thread.c                               | 5 +++++
- 3 files changed, 9 insertions(+), 7 deletions(-)
+ .../boot/dts/spacemit/k1-orangepi-rv2.dts     | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/tools/perf/util/scripting-engines/trace-event-python.c b/tools/perf/util/scripting-engines/trace-event-python.c
-index 62c9c73daef5..2b0df7bd9a46 100644
---- a/tools/perf/util/scripting-engines/trace-event-python.c
-+++ b/tools/perf/util/scripting-engines/trace-event-python.c
-@@ -837,7 +837,6 @@ static PyObject *get_perf_sample_dict(struct perf_sample *sample,
- 					 PyObject *callchain)
- {
- 	PyObject *dict, *dict_sample, *brstack, *brstacksym;
--	struct machine *machine;
- 	uint16_t e_machine = EM_HOST;
- 	uint32_t e_flags = EF_HOST;
+diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+index 93880ba7bdfe..bd1e45e95e38 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+@@ -23,6 +23,25 @@ chosen {
+ 		stdout-path = "serial0";
+ 	};
  
-@@ -926,10 +925,9 @@ static PyObject *get_perf_sample_dict(struct perf_sample *sample,
- 			PyLong_FromUnsignedLongLong(sample->cyc_cnt));
- 	}
- 
--	if (al->thread) {
--		machine = maps__machine(thread__maps(al->thread));
--		e_machine = thread__e_machine(al->thread, machine, &e_flags);
--	}
-+	if (al->thread)
-+		e_machine = thread__e_machine(al->thread, /*machine=*/NULL, &e_flags);
++	reg_dc_in: dc-in-12v {
++		compatible = "regulator-fixed";
++		regulator-name = "dc_in_12v";
++		regulator-min-microvolt = <12000000>;
++		regulator-max-microvolt = <12000000>;
++		regulator-boot-on;
++		regulator-always-on;
++	};
 +
- 	if (set_regs_in_dict(dict, sample, evsel, e_machine, e_flags))
- 		Py_FatalError("Failed to setting regs in dict");
- 
-diff --git a/tools/perf/util/session.c b/tools/perf/util/session.c
-index 53f51c3f9603..4b465abfa36c 100644
---- a/tools/perf/util/session.c
-+++ b/tools/perf/util/session.c
-@@ -2972,9 +2972,8 @@ struct perf_session__e_machine_cb_args {
- static int perf_session__e_machine_cb(struct thread *thread, void *_args)
- {
- 	struct perf_session__e_machine_cb_args *args = _args;
--	struct machine *machine = maps__machine(thread__maps(thread));
- 
--	args->e_machine = thread__e_machine(thread, machine, &args->e_flags);
-+	args->e_machine = thread__e_machine(thread, /*machine=*/NULL, &args->e_flags);
- 	return args->e_machine != EM_NONE ? 1 : 0;
- }
- 
-diff --git a/tools/perf/util/thread.c b/tools/perf/util/thread.c
-index 618f29afb160..22be77225bb0 100644
---- a/tools/perf/util/thread.c
-+++ b/tools/perf/util/thread.c
-@@ -499,6 +499,11 @@ uint16_t thread__e_machine(struct thread *thread, struct machine *machine, uint3
- 		return e_machine;
- 	}
- 
-+	if (machine == NULL) {
-+		struct maps *maps = thread__maps(thread);
++	reg_vcc_4v: vcc-4v {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_4v";
++		regulator-min-microvolt = <4000000>;
++		regulator-max-microvolt = <4000000>;
++		regulator-boot-on;
++		regulator-always-on;
++		vin-supply = <&reg_dc_in>;
++	};
 +
-+		machine = maps__machine(maps);
-+	}
- 	tid = thread__tid(thread);
- 	pid = thread__pid(thread);
- 	if (pid != tid) {
+ 	leds {
+ 		compatible = "gpio-leds";
+ 
 -- 
-2.53.0.rc1.225.gd81095ad13-goog
+2.47.3
 
 
 _______________________________________________
