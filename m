@@ -4,160 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58DE9E6BF3C
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Jan 2026 00:27:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F415E6BF3C
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Jan 2026 00:40:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qblqHFgxlnvNVu4MFySCsN9T5ywcsLCvnXLWAbRQ1kc=; b=XnQDXkDElXlZx8
-	Sat8vKf4tQCf5cV9DNmVcXnv5iOK6q2m1jqxT4dwz3kOK4Gt4AEefwb75D8aqzOTACSOslzek4IEA
-	oNwvjKKeXfgDy6UTGmoq+MY18geYDxMzpLkmEJQjKO5SthOVmHBdxnaK+Vv0XL+ACYg0hbcd2i04I
-	Tu2yVZqtbvXKQB3u16NDX74xlcBUPSE0bYb3ctOG3VmHP/KYmn3OyXH/oMMr1KN7a9nNhA+4tD1I4
-	mNEMoJ9ZK9BH+xsHGQXaUgULXXxMqZ1d8I1kioJQepbLVi3Rd2Nwe4f+TrypcxAPpo11F7O2M3cG5
-	vQfwS4QQNysdJqA/kyBg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VLsM5fcoNhxkUwmuudTUmaPJy1EQggbUueSXlz8UKqQ=; b=jbFgCEWRMqtihd
+	JOIy4CBDiTblzlxjILtjZ/XszWhHpzjgISiJXiA0XkQiCBDs9LQZhW+57WZCZscyd57tbELmFvTz+
+	o/Dp1601+jFeZTAx2niAzQ0xR8l32JsdgsotV09V1AHadx5nigWqUUTMkd2+n4msJ8BLk0mmAs4nL
+	1k5JIYLWJmnmrCt7vxvbqaM/N53QXFxeemBKLdK0g5Eho1TearTBxGlylhOfdOkNbI4VBAhGUhPlu
+	CjJYn+03p9IEi9p2fvqmeyQ6esU0jdzgfu18YhupWpIWy4qIsu8ynPQovzBfaB10E0ogrJDlFE85r
+	8FkcXxJzDEKHEkt+kJBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlypu-000000029K4-2Y7Z;
-	Sat, 31 Jan 2026 00:27:38 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1vlz2V-000000029ou-1YxY;
+	Sat, 31 Jan 2026 00:40:39 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlypr-000000029Jj-3kFl
-	for linux-riscv@lists.infradead.org;
-	Sat, 31 Jan 2026 00:27:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FzywlGqns1Lj6ANSdmy43aIZiD18gldiH1mrsH5oJdycUte0YH0zhLygaYZCIT6LJwiZD6VEfcX5vF/yNRH0YYVh8Mxm+gHhhF7WYtuJjzcEl+MuTAPnSlvHLrtAv7FiFfbZjzMWahdI64PeCskXYERTUdzAxN+RGL7F7BuSi4rvxhHra4Pe/fEkvK+DfmjpJvUM1vU6lUMd3KmdcQe+uQA9WZFA/eKnB84Uo4LqNQT4C6wn2CEimT3kIPwcJDYWvA2ZYsqQjeLBrxffDgsR0ZiZeu+iLUkX6dq/t3LjAHFcGBBrfTWg5ZnvMAZ8e47TfQqo0YuV7r37dTCAFfd4DQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wfFE7s54dgzkF3kxvfANokIGlbBwSXwsKM+5iux+bTo=;
- b=tzRZuikX3LKDUnbCi4p0rrPz+SOKnjZ14ek54macI1Tr10rDT5vx1udrJZM6H028BAUf2e+w5e7teiP6g2t9D37YP4a0Pmvoey//NvIrLzADU2rGokIGX4SCCb2VG0EKRX2rf3qPlqGZncOt6j0OXawbavanM7pbIBfRio5E6XxeMNFh67eaghp3Mjw7HzkTuElpiM25glxmvtTROk1xNq4RlHyno8sO3Cohrm75BoXRKqygPHLnljmp9DBdP9ATjnUGnaa4ya7gHqYFperBbTcpJZUYNZVuBqy4vVtsHt26AbkHODYabsbTXIfMtoZ5EmrSd4+hp7H67FRlWXOmjQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wfFE7s54dgzkF3kxvfANokIGlbBwSXwsKM+5iux+bTo=;
- b=STCh54Fy8mWF43QlVhgnZ6vJz+MRTpQcK8ESiR95SQ51mVUpjr3KQBj+uJ/raFTE2s8G5euzMVhu8ahY1SpvN9LBcWmb+A4xnxCFcC0M8O64KC0TQOvQD/hogiFCAJ3Dg8PAhPfcnoPk38Z9FqwAX+mrCGsHckFvhVFMBB2N/5D8oFjfjX0tqV9amtqCywuqXS1LkRCET3KZjrzcHWpbBN4F3P7g29oYTPfKlVKmrlv5R0leeyW0BpzF8sCvultWVLYzWkLnRX0+QynbGrXNY7aQiCBuAQ4QGhOJhA5mPcDchjxGRC+77wppceEudQS7suTcpfPjmc4SUWUEa2Ahtg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by CH2PR12MB4150.namprd12.prod.outlook.com (2603:10b6:610:a6::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.12; Sat, 31 Jan
- 2026 00:27:29 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9564.010; Sat, 31 Jan 2026
- 00:27:29 +0000
-Date: Fri, 30 Jan 2026 20:27:28 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Vincent Chen <vincent.chen@sifive.com>, Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>, iommu@lists.linux.dev,
-	Joerg Roedel <joro@8bytes.org>, linux-riscv@lists.infradead.org,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Will Deacon <will@kernel.org>, lihangjing@bytedance.com,
-	Xu Lu <luxu.kernel@bytedance.com>, patches@lists.linux.dev,
-	xieyongji@bytedance.com
-Subject: Re: [PATCH v2 0/5] Convert riscv to use the generic iommu page table
-Message-ID: <20260131002728.GM2223369@nvidia.com>
-References: <0-v2-b11ebca8abb6+c096-iommu_pt_riscv_jgg@nvidia.com>
- <CABvJ_xiUK9BqUJS9-Sk1sS4vhVhyXN8P8NooZ0t_Zp7ycG0bAw@mail.gmail.com>
- <20260122153134.GO1134360@nvidia.com>
- <CABvJ_xgSbK3omxT7XGJ0N7oEva6dQAJwZxRhsBqi44BRNZ3G5Q@mail.gmail.com>
- <CABvJ_xhY_4ADOsVVbjhkBm8U1mKVOSwzKMfBw5mUsJe=kkUiLg@mail.gmail.com>
- <20260123135234.GW1134360@nvidia.com>
- <b1b220be-fd5e-4f83-8f5e-7d5282be39f9@arm.com>
-Content-Disposition: inline
-In-Reply-To: <b1b220be-fd5e-4f83-8f5e-7d5282be39f9@arm.com>
-X-ClientProxiedBy: MN2PR12CA0004.namprd12.prod.outlook.com
- (2603:10b6:208:a8::17) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	id 1vlz2R-000000029oQ-00pe;
+	Sat, 31 Jan 2026 00:40:37 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-05 (Coremail) with SMTP id zQCowAA3zRB1T31p+GgaBw--.52843S2;
+	Sat, 31 Jan 2026 08:40:22 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Andrew Jones <ajones@ventanamicro.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Anup Patel <anup@brainfault.org>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Jiakai Xu <jiakaiPeanut@gmail.com>
+Subject: [PATCH v4] RISC-V: KVM: Validate SBI STA shmem alignment in kvm_sbi_ext_sta_set_reg
+Date: Sat, 31 Jan 2026 00:40:19 +0000
+Message-Id: <20260131004019.1486274-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH2PR12MB4150:EE_
-X-MS-Office365-Filtering-Correlation-Id: 400c5bf3-1641-46a9-5abb-08de605f848e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nMbcu2HpUvaNUAkvmK/GXzJVoNqENzq4zzkL9eVYgvxv5STMODXeFKFzlDYn?=
- =?us-ascii?Q?6BIlND+ySXlsrS8WD5P+WL+NGCvUjtadiX6AOXPLXK/Aqu/gOhilVCCxG34B?=
- =?us-ascii?Q?9+1VLAAGivQ81JkRbVKlURXGmNfMSna6gKjQui06k1V8jp3Qui5yuK+a9L6P?=
- =?us-ascii?Q?sRs+A+QY1GCg0QQqBTQaJXBoVRvelrjrdpz7TfJDD+emvdtv5bnqfdAxGT3J?=
- =?us-ascii?Q?TbTUiJHFCSKm2xrhDWUMTpFIuO5r+Yz+tOVCm+d6ZkzFBUZhMyfC0sYnef1u?=
- =?us-ascii?Q?Q+oMW1FEZ8Mj8/ibBGFOe6r/H1J1GI3DlV7YSyRsYd3ibDJAYhnbzWTnJdhD?=
- =?us-ascii?Q?qzCoN+AnKO0FmxEMJF5QjtvSZAarMSrrsRm3tR6IOTM29YC0wr9JfAq94kJp?=
- =?us-ascii?Q?oGgrve+onn7E4cdZIvYeozAwUzhykLZp9An3RXCaBrya9bZUFBlPwkop8vxz?=
- =?us-ascii?Q?NJ/TUBw6cG1w0HV3MbS9hqk0smCsBhoECVbkt7OPk776YqQCwB99g2zlPqpg?=
- =?us-ascii?Q?w7w5E6otYdHO5BjcifOlioI1ZjytOKb9Pd+RG41vOCz831G/6hTEAy0mpCI4?=
- =?us-ascii?Q?sO4OBB6O9kdLmZ/ZaJ1o9tvtX3iY++LYB120cs0ARA2HL0kj179lqg7xoD+D?=
- =?us-ascii?Q?g/kbi9++526/YoqEMdH+/iIloRmA8poyzmWc2lwhe4LNgwnBFUmdfAEdFbkQ?=
- =?us-ascii?Q?PoExJMhfs3eeOoZtQ4q2+cp4pyi68ngxDAyTvoQpeibIeolYQmEi8wOeKdBb?=
- =?us-ascii?Q?azZZDqSc+9cAuK/Xrvy/N4HYBE2aAI/KTzgKy0Tt5f1IIvur4kpT6M9nfCkA?=
- =?us-ascii?Q?omWk9Ej+akg9HHByUH8PBAJ3rsd3GxHD87sguv7Sp8Vg//lkDc9FeO4R8hOB?=
- =?us-ascii?Q?GuP1pckaNDYo7S1pxdmhk76Cr+IjtGTVVFxtDN/h4S6gwwPB7/DFs7H71UsM?=
- =?us-ascii?Q?BbXKWUG5rjIoy1QAjfoJbwHPZy/TTlLKH0Fgzjhha7byxjIbfHlFOzTnXyCb?=
- =?us-ascii?Q?Cq0f8OlKTE91eerAG5hScAupPz3I+apxTHPFhGRmB6ranvRszm1l04XFzZpd?=
- =?us-ascii?Q?y3ldZ+s1oQYVCvA95k4wDAk2clZ9T3O5Eh91orO3RJ/cbqXZXRugHBj2EmTW?=
- =?us-ascii?Q?MPCv2C+B85vvNKcXaVrUiqmjec+NEfvmmJMvvJctg/3kLLN0VmBd4Zs9vDzJ?=
- =?us-ascii?Q?Tjaj/+9iM+DSZsSg9nseMeVW8AiJsiEB78650cX4gleyBp28aulFm2o2N0yH?=
- =?us-ascii?Q?80r6dFf6klBP8myLjhZTqK7K5kVRN4ZZe/2/E7VqYGQ33GMKcrffey4Y2VaW?=
- =?us-ascii?Q?rEUxz2NwXgpkdtMxz9vJ0+57VHeqwG0AY+r6D8fr7yZe/1+dBN67H9POeEYD?=
- =?us-ascii?Q?VNtKn3LwSY8F5Ak7NCRwFSrzHOG4Wfq+55gHJ/VawyWjT/mxWlJSutTtE8zQ?=
- =?us-ascii?Q?FrEt/v9+38TF9iE10PyG92XHbRgbByB2CANwg707BswgKSivOJc+WvkrP3mN?=
- =?us-ascii?Q?7mXF2rOM/vEGG5BWVsjAZ3kiDY7c5f1RM2gYXMq9k1nAzmydDPBu421fHCdY?=
- =?us-ascii?Q?68PdLBMSldmD3Wjl2X0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kV20XQplqdWSuBVFzsSYIe0f9AdPeT/eS7PKmBDZWMwcVNQc4hFmyiRc5NgP?=
- =?us-ascii?Q?L4bQlSDmXZFyxyMEHcZN3GPYk0YIGsA2140IwubipF58MI4lz14VBlYYb2cC?=
- =?us-ascii?Q?ozx5b6T6P+/SSfSycF/0ar2uzTOnW2Jh84Qf2w83fbWowGYJMqLnBjcpQtwS?=
- =?us-ascii?Q?KDVvXXlo3vUgdxYGQDFvqLOoHtYHG3rzxtNDnGgiFPfbvW94ZTm2OkQDfNLL?=
- =?us-ascii?Q?/TkO5zQrtVRUDM85x73LykOaLLPo7CIf0FmmWneC0c6PD4jlF2W7GKsUVgHH?=
- =?us-ascii?Q?HVXjVy0pDlD+UjJabmz1RHxkEstb3dyVQHBEjemDcRuXQ+sCMuHP+/YstB4Y?=
- =?us-ascii?Q?DRu14dppCqJmeAwsP8GzJ7+zb6AlzAf87Tn6Lktbg4lLoXgpbDB7oD9Q9wL/?=
- =?us-ascii?Q?x1YxqJXMFBSnnYIkl87IyOa9yiLptQBEvqG7MDQriNgROk0bfCFCHX7RFqng?=
- =?us-ascii?Q?NIQbzt8rsgcjSrBZfzBt0FSziA+3twWGGPdkwv57N5/J/Du/+zyKy7zdDl4O?=
- =?us-ascii?Q?avUu59RVoo9wR8AV+kUyvG3OBAkU6bDBoGXHm8MFjs0QE0pDetEtyXznaPjL?=
- =?us-ascii?Q?Wu6MYtzo1zmSkc3HdoYL2ziKiWuoFnMUa6u9c9RB56zfYCxU0pnQWWtycP3d?=
- =?us-ascii?Q?z+t2m+3XhHmGzUVpsf2avlY/OZmhpbQSZGzmN4tD12+EepCis18CTPaPYM5j?=
- =?us-ascii?Q?7iocbUNCthPn4tOJjZrRyTPMQTZPM2fKvUJJrW1aWK0vMOey1BRiK5GBi0CY?=
- =?us-ascii?Q?E33K4tkSARdltxsFp3lqumEQzmm9b/FZB3fLgjncDmdx3hduGVMPEl5Ko9kj?=
- =?us-ascii?Q?vU63YKkS4d10kOqbkLi6IDfBvPwsUbERdP946nhuiGVYMLgnYnB/i/SVR0nR?=
- =?us-ascii?Q?8rs6fEt59gzbNvH/uNvixOubPT4TSFr8xn79HMgobUuSFqvEzWwndh4kJ7eF?=
- =?us-ascii?Q?rTqUQ2bdFA3XatKa4KWhYvv0SIqNQUw2bj1Q+LEIIuaaKEndF5cKweJjSSlz?=
- =?us-ascii?Q?h5uBD2i9pl/Djf77Eoo9Welw3+EhQChfpdEzr9LPiY1nBs6KNkQoD3n7N4IM?=
- =?us-ascii?Q?q6WOr3DXvWAfUgDtVj6s+FrCj4uDdk1AmQ1Jc3HxpXbvK4UA0SxTHIgApg4l?=
- =?us-ascii?Q?aOif0UwZuunEojMvvYuN0JQMVRX4NNePjhIv4VvaB1bf7SOzjP8Q6JspPXbw?=
- =?us-ascii?Q?FQil4IBboRt+di24ORzkkEHvdI7+T9bOuGnZlEmoHVjx/3woW2dAEtu38f4F?=
- =?us-ascii?Q?BweV+bQfj8uqU5M26Q8347MWLyUFvrmXbRNpGjkVGT6/k9PiQJoppGdFimRp?=
- =?us-ascii?Q?Fs0evrOQ10xVyjiLhLYHAmBKKh+96ZyqJfOF1YBmh+DHuoRBx8ymA7JFovv7?=
- =?us-ascii?Q?nI32q4Oj9HgVwSRqnUV01qGatCiJFYbJ5FYOhCFTY+2pfGgrTe/NTqSK+I7v?=
- =?us-ascii?Q?Aboho1YHhYeTppD5a5toJ9NLgwPfSpHdcwhqPE0hc8lgHZbemVmemZeaRWhZ?=
- =?us-ascii?Q?1xWwASwc6JhfjK2jGPBjEOlOQ6aZ1gUnAFcLs6PTD+4LqckJpct95GS6Aag1?=
- =?us-ascii?Q?OuzVQEhCcpI8zTAIz1Asm6z46QRmfo5HhJnxVsGPZ2fNxNwLTN6VfYS85Tp+?=
- =?us-ascii?Q?Zqdp5aeKKxKXQd/qWh9zfOw1xwQlo7hp+n5FlnQ6ghYQ2NtVcynfw25zsBb0?=
- =?us-ascii?Q?x3tJd65zHSb3TwthccDvYNaicENDyKY1XwSG+NueF/iU82/mjBxy75DSvtPP?=
- =?us-ascii?Q?RtIc+ghewg=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 400c5bf3-1641-46a9-5abb-08de605f848e
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jan 2026 00:27:29.7869
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /tu98PW2Pz1WGUM5TQpkfgcfG71Kus7XybpePzGaDStLm74stgghdlJYT2HCc5/n
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4150
+X-CM-TRANSID: zQCowAA3zRB1T31p+GgaBw--.52843S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXF4xXFyfKw4fZrW5Cry7trb_yoWrJryrpF
+	4Ikw15ArWxtFZ7A39rZr4vgr1j93ykKr1UtF9xu34rZF4ktFyYyrna93y7ZFy5JFykZFyS
+	yr10vF1Duw45taUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUB214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+	0_GcWlnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
+	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2
+	Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s02
+	6x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0x
+	vE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE
+	42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6x
+	kF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUOmhFUUUUU
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiDAYECWl8yMbIFwAAsD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_162735_937297_02EB3BD4 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20260130_164035_419015_A7ACCECC 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,43 +86,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 29, 2026 at 11:21:53AM +0000, Robin Murphy wrote:
+The RISC-V SBI Steal-Time Accounting (STA) extension requires the shared
+memory physical address to be 64-byte aligned, and the shared memory size
+to be at least 64 bytes.
 
-> The driver does not advertise IOMMU_CAP_DEFERRED_FLUSH, as the existing
-> pagetable code has never implemented the conditional TLB maintenance
-> optimisation that makes it meaningful. Mind you, I don't see any reference
-> to iommu_iotlb_gather_queued() in generic_pt either, so I have no idea how
-> that's trying to do it :/
+KVM exposes the SBI STA shared memory configuration to userspace via
+KVM_SET_ONE_REG. However, the current implementation of
+kvm_sbi_ext_sta_set_reg() does not validate the alignment of the configured
+shared memory address. As a result, userspace can install a misaligned
+shared memory address that violates the SBI specification.
 
-Well, correct me if I've got it wrong..
+Such an invalid configuration may later reach runtime code paths that
+assume a valid and properly aligned shared memory region. In particular,
+KVM_RUN can trigger the following WARN_ON in
+kvm_riscv_vcpu_record_steal_time():
 
-DMA-FQ always does flush all, so the goal is to eliminate redundant
-flushes from within the page table logic itself.
+  WARNING: arch/riscv/kvm/vcpu_sbi_sta.c:49 at
+  kvm_riscv_vcpu_record_steal_time
 
-DMA-FQ requires two functionalites from the page table:
-1) use gather->freelist to avoid a HW UAF (iommupt always does this)
-2) avoid internal calls to iommu_iotlb_sync()
+WARN_ON paths are not expected to be reachable during normal runtime
+execution, and may result in a kernel panic when panic_on_warn is enabled.
 
-When the gather reaches __iommu_dma_unmap() it discards any iova range
-inside it, queues the freelist, and queues a flush all. So any flush
-implied by the gather is removed by the core code.
+Fix this by validating the shared memory alignment at the
+KVM_SET_ONE_REG boundary and rejecting misaligned configurations with
+-EINVAL. The validation is performed on a temporary computed address and
+only committed to vcpu->arch.sta.shmem once it is known to be valid, 
+similar to the existing logic in kvm_sbi_sta_steal_time_set_shmem() and
+kvm_sbi_ext_sta_handler().
 
-iommu_iotlb_gather_queued() should be used in the page table to
-supress any internal flushes.
+With this change, invalid userspace state is rejected early and cannot
+reach runtime code paths that rely on the SBI specification invariants.
 
-iommupt doesn't have any calls because it doesn't have any internal
-flushes. It calls iommu_iotlb_gather_add_range() which blindly updates
-the iova and never flushes.
+A reproducer triggering the WARN_ON and the complete kernel log are
+available at: https://github.com/j1akai/temp/tree/main/20260124
 
-The one call to iommu_iotlb_sync() is only for the para-virtualization
-optimization of narrowing invalidations. It would be nonsensical for a
-driver to enable this optimization and offer IOMMU_CAP_DEFERRED_FLUSH.
+Fixes: f61ce890b1f074 ("RISC-V: KVM: Add support for SBI STA registers")
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+---
+V3 -> V4: Declared new_shmem at the top of kvm_sbi_ext_sta_set_reg().
+          Initialized new_shmem to 0 instead of vcpu->arch.sta.shmem.
+		  Added blank lines per review feedback.
+V2 -> V3: Added parentheses to function name in subject.
+V1 -> V2: Added Fixes tag.
 
-But it is a good point that riscv pagetable may not have supported it
-before, but it does now, so we should probably add
-IOMMU_CAP_DEFERRED_FLUSH. I'll send a patch next cycle.
+---
+ arch/riscv/kvm/vcpu_sbi_sta.c | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
 
-Jason
+diff --git a/arch/riscv/kvm/vcpu_sbi_sta.c b/arch/riscv/kvm/vcpu_sbi_sta.c
+index afa0545c3bcfc..bb13aa8eab7ee 100644
+--- a/arch/riscv/kvm/vcpu_sbi_sta.c
++++ b/arch/riscv/kvm/vcpu_sbi_sta.c
+@@ -181,6 +181,7 @@ static int kvm_sbi_ext_sta_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
+ 				   unsigned long reg_size, const void *reg_val)
+ {
+ 	unsigned long value;
++	gpa_t new_shmem = 0;
+ 
+ 	if (reg_size != sizeof(unsigned long))
+ 		return -EINVAL;
+@@ -191,18 +192,18 @@ static int kvm_sbi_ext_sta_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
+ 		if (IS_ENABLED(CONFIG_32BIT)) {
+ 			gpa_t hi = upper_32_bits(vcpu->arch.sta.shmem);
+ 
+-			vcpu->arch.sta.shmem = value;
+-			vcpu->arch.sta.shmem |= hi << 32;
++			new_shmem = value;
++			new_shmem |= hi << 32;
+ 		} else {
+-			vcpu->arch.sta.shmem = value;
++			new_shmem = value;
+ 		}
+ 		break;
+ 	case KVM_REG_RISCV_SBI_STA_REG(shmem_hi):
+ 		if (IS_ENABLED(CONFIG_32BIT)) {
+ 			gpa_t lo = lower_32_bits(vcpu->arch.sta.shmem);
+ 
+-			vcpu->arch.sta.shmem = ((gpa_t)value << 32);
+-			vcpu->arch.sta.shmem |= lo;
++			new_shmem = ((gpa_t)value << 32);
++			new_shmem |= lo;
+ 		} else if (value != 0) {
+ 			return -EINVAL;
+ 		}
+@@ -211,6 +212,11 @@ static int kvm_sbi_ext_sta_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
+ 		return -ENOENT;
+ 	}
+ 
++	if (new_shmem && !IS_ALIGNED(new_shmem, 64))
++		return -EINVAL;
++
++	vcpu->arch.sta.shmem = new_shmem;
++
+ 	return 0;
+ }
+ 
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
