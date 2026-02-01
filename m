@@ -4,58 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A5E5E7C711
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Feb 2026 05:18:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED7AE7C70D
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Feb 2026 07:23:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5GGZ//v40ssA4Ev90yTLda8hv8Q2gY6pt7z4HZYjZks=; b=r9RmWsy/zHbQpQ
-	+RTZvpnXdXcvZOa4U4m1PtgC8HIXKJuwfuRculg01J3yzmrcoyGhs2OJlxQkcHsl4NLrZgYzRtH/a
-	QJ7THYnsf3fiyn7+yZMis0zhVY6ypf0tYkcJQ0sVeBH2/BZ2lqWqBD1hVCAoh5NIgQq3EGGE1ye8p
-	xZT9XCCxplvNkjQDlc8LCM1Pb/OWOk9eRMR2iyFLPOX+DLrUNytEl1njt8SUPBwp2ec+fUEPj/LqZ
-	sa6UsUKsSYrOCBbgw2LhKjFQTjCt48+5PJtNWViJ7F6e6TGv1jpdeRjXDZRyLHZyIOtZq2PAc0N0O
-	zX9Cx4X2zjfaKhMx2l+Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=BqPAQBuLEIvaKm8DsViVFKyxf/7sy+2sL37x5A6Ltd8=; b=Os/F1MuZSm129o
+	qHUTjRC+tWUznIXf4Npz5grOEgJiY8tpi1H/2GE31odYz9vrzn60GU9rCKBnh3lkwz84tuAikMHHc
+	gwzwGet5z7b74xHUzegN2/DCz9ufUMhSi0hFDzwhzfDxyOpH3tTfPdYZaHiz+XKKqD0NP+K6Lywvd
+	/XC0IV0Oc/sw4bQaug0+6JlXfQJ/WMxzv/HhGgQh8ZpqQ3XojakhJRWCu2Do2WiZAd1i8UcHkGnRV
+	fouvFP6HuDf2IYGDvOjNN7e92BxuD+l9Bi4qHLmo+DKS9SItTzlvKun8qVlradNwev6DyqSpWv91s
+	Q87pjxn/YSnzl5Jy/wWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmPqk-00000003Gid-1cM9;
-	Sun, 01 Feb 2026 05:18:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vmRnF-00000003KNw-22jq;
+	Sun, 01 Feb 2026 07:22:50 +0000
+Received: from relay1.mymailcheap.com ([144.217.248.100])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmPqi-00000003GiP-3pvJ
+	id 1vmRnC-00000003KNZ-1pkO
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Feb 2026 05:18:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E61BC60053;
-	Sun,  1 Feb 2026 05:18:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EAC6C116C6;
-	Sun,  1 Feb 2026 05:18:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1769923093;
-	bh=+kybUpnrtFuQGoWMBCIC3fHFNqt5wBdFD/Eo2b7zfE8=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date:From;
-	b=Npbid27TLuRheWz30x8RMRnI8qh8TRjYy3rqMGSvdaKHAg4144DvCku3jAsBRtkN4
-	 I08P2T33RIwwsysKE1Y3t65K+MEQUeVptS81TKdP5YyvaCny8f00KO97KCKChhbc9o
-	 IEjaIdEc6q1U+P8hCtV6lLh3QTYAZkGCwp9/dom0=
+	Sun, 01 Feb 2026 07:22:47 +0000
+Received: from nf1.mymailcheap.com (nf1.mymailcheap.com [51.75.14.91])
+	by relay1.mymailcheap.com (Postfix) with ESMTPS id 97D883E904;
+	Sun,  1 Feb 2026 07:22:38 +0000 (UTC)
+Received: from mail20.mymailcheap.com (mail20.mymailcheap.com [51.83.111.147])
+	by nf1.mymailcheap.com (Postfix) with ESMTPSA id 826E0400D5;
+	Sun,  1 Feb 2026 07:22:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=aosc.io; s=default;
+	t=1769930557; bh=tsYztuBMmDw9dhEyvXm134zQnSNewOglMstDiOxHhEs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=iOhL+zKYkoaHk3q1iqoOy9vIybwQDY0uOe0dcyxM0fekb06r8/iElx7VHqGrQLrmW
+	 Nq5KtnialzdQJDUTS7l4exM7Cfr1d7oc0NqtorLP9rC03FzHVPirO+E/uGdk6lON0I
+	 AN60QrXkkS2p2R2XBlpim+5ZagooXqlnbQZigupg=
+Received: from liushuyu-p15 (unknown [117.151.13.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail20.mymailcheap.com (Postfix) with ESMTPSA id B594B40563;
+	Sun,  1 Feb 2026 07:22:28 +0000 (UTC)
+From: Zixing Liu <liushuyu@aosc.io>
+To: WANG Xuerui <kernel@xen0n.name>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Bibo Mao <maobibo@loongson.cn>
+Cc: Kexy Biscuit <kexybiscuit@aosc.io>,
+	Mingcong Bai <jeffbai@aosc.io>,
+	Zixing Liu <liushuyu@aosc.io>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v3] KVM: Add KVM_GET_REG_LIST ioctl for LoongArch
+Date: Sun,  1 Feb 2026 15:21:23 +0800
+Message-ID: <20260201072124.566587-1-liushuyu@aosc.io>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Subject: Re: [PATCH 3/7] riscv: dts: spacemit: Define the P1 PMIC
- regulators for OrangePi RV2
-From: Konstantin Ryabitsev <konstantin@linuxfoundation.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Han Gao <rabenda.cn@gmail.com>, Han Gao <gaohan@iscas.ac.cn>
-In-Reply-To: <83affc871efc5fa1c1a08643e66a2dc42b47f24c.1769895215.git.gaohan@iscas.ac.cn>
-References: <cover.1769895215.git.gaohan@iscas.ac.cn>
- <83affc871efc5fa1c1a08643e66a2dc42b47f24c.1769895215.git.gaohan@iscas.ac.cn>
-Date: Sun, 01 Feb 2026 00:18:01 -0500
-Message-Id: <176992308158.607015.4408866122835179459@lemur>
-X-Mailer: b4 0.15-dev-da43f
+X-Rspamd-Queue-Id: 826E0400D5
+X-Spamd-Result: default: False [1.40 / 10.00];
+	MID_CONTAINS_FROM(1.00)[];
+	R_MISSING_CHARSET(0.50)[];
+	MIME_GOOD(-0.10)[text/plain];
+	ASN(0.00)[asn:16276, ipnet:51.83.0.0/16, country:FR];
+	ARC_NA(0.00)[];
+	RCVD_COUNT_ONE(0.00)[1];
+	RCPT_COUNT_TWELVE(0.00)[18];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED(0.00)[mail20.mymailcheap.com:rdns,mail20.mymailcheap.com:helo,aosc.io:mid,aosc.io:email,aosc.io:from_smtp,aosc.io:from_mime];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	LOCAL_OUTBOUND(0.00)[];
+	RCVD_TLS_ALL(0.00)[]
+X-Rspamd-Action: no action
+X-Rspamd-Server: nf1.mymailcheap.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260131_232246_640013_E69030B4 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,31 +108,140 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 01 Feb 2026 05:38:10 +0800, Han Gao <gaohan@iscas.ac.cn> wrote:
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts 
-> b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> index bd1e45e95e38..f87c6ab417c4 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> @@ -110,6 +110,116 @@ &i2c8 {
->  	pinctrl-0 = <&i2c8_cfg>;
->  	pinctrl-names = "default";
->  	status = "okay";
-> +
-> +	pmic@41 {
-> +		compatible = "spacemit,p1";
-> +		reg = <0x41>;
-> +		interrupts = <64>;
-> +		vin-supply = <&reg_vcc_4v>;
-> +
+This ioctl can be used by the userspace applications to determine which
+(special) registers are get/set-able in a meaningful way.
 
-This vin-supply is replaced by per-rail supplies (vin1-supply through
-vin6-supply, aldoin-supply, dldoin1-supply, dldoin2-supply) in patch
-5/7.  Consider using the final supply properties here directly to avoid
-an intermediate state that is immediately superseded.
+This can be very useful for cross-platform VMMs so that they do not have
+to hardcode register indices for each supported architectures.
 
+Signed-off-by: Zixing Liu <liushuyu@aosc.io>
+---
+ Documentation/virt/kvm/api.rst |  2 +-
+ arch/loongarch/kvm/vcpu.c      | 81 ++++++++++++++++++++++++++++++++++
+ 2 files changed, 82 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 01a3abef8abb..f46dd8be282f 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -3603,7 +3603,7 @@ VCPU matching underlying host.
+ ---------------------
+ 
+ :Capability: basic
+-:Architectures: arm64, mips, riscv, x86 (if KVM_CAP_ONE_REG)
++:Architectures: arm64, loongarch, mips, riscv, x86 (if KVM_CAP_ONE_REG)
+ :Type: vcpu ioctl
+ :Parameters: struct kvm_reg_list (in/out)
+ :Returns: 0 on success; -1 on error
+diff --git a/arch/loongarch/kvm/vcpu.c b/arch/loongarch/kvm/vcpu.c
+index 656b954c1134..fb8001deadc9 100644
+--- a/arch/loongarch/kvm/vcpu.c
++++ b/arch/loongarch/kvm/vcpu.c
+@@ -14,6 +14,8 @@
+ #define CREATE_TRACE_POINTS
+ #include "trace.h"
+ 
++#define NUM_LBT_REGS 6
++
+ const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	STATS_DESC_COUNTER(VCPU, int_exits),
+@@ -1186,6 +1188,67 @@ static int kvm_loongarch_vcpu_set_attr(struct kvm_vcpu *vcpu,
+ 	return ret;
+ }
+ 
++static int kvm_loongarch_walk_csrs(struct kvm_vcpu *vcpu, u64 __user *uindices)
++{
++	unsigned int i, count;
++
++	for (i = 0, count = 0; i < CSR_MAX_NUMS; i++) {
++		if (!(get_gcsr_flag(i) & (SW_GCSR | HW_GCSR)))
++			continue;
++		const u64 reg = KVM_IOC_CSRID(i);
++		if (uindices && put_user(reg, uindices++))
++			return -EFAULT;
++		count++;
++	}
++
++	return count;
++}
++
++static unsigned long kvm_loongarch_num_regs(struct kvm_vcpu *vcpu)
++{
++	/* +1 for the KVM_REG_LOONGARCH_COUNTER register */
++	unsigned long res =
++		kvm_loongarch_walk_csrs(vcpu, NULL) + KVM_MAX_CPUCFG_REGS + 1;
++
++	if (kvm_guest_has_lbt(&vcpu->arch))
++		res += NUM_LBT_REGS;
++
++	return res;
++}
++
++static int kvm_loongarch_copy_reg_indices(struct kvm_vcpu *vcpu,
++					  u64 __user *uindices)
++{
++	u64 reg;
++	unsigned int i;
++
++	i = kvm_loongarch_walk_csrs(vcpu, uindices);
++	if (i < 0)
++		return i;
++	uindices += i;
++
++	for (i = 0; i < KVM_MAX_CPUCFG_REGS; i++) {
++		reg = KVM_IOC_CPUCFG(i);
++		if (put_user(reg, uindices++))
++			return -EFAULT;
++	}
++
++	reg = KVM_REG_LOONGARCH_COUNTER;
++	if (put_user(reg, uindices++))
++		return -EFAULT;
++
++	if (!kvm_guest_has_lbt(&vcpu->arch))
++		return 0;
++
++	for (i = 1; i <= NUM_LBT_REGS; i++) {
++		reg = (KVM_REG_LOONGARCH_LBT | KVM_REG_SIZE_U64 | i);
++		if (put_user(reg, uindices++))
++			return -EFAULT;
++	}
++
++	return 0;
++}
++
+ long kvm_arch_vcpu_ioctl(struct file *filp,
+ 			 unsigned int ioctl, unsigned long arg)
+ {
+@@ -1251,6 +1314,24 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
+ 		r = kvm_loongarch_vcpu_set_attr(vcpu, &attr);
+ 		break;
+ 	}
++	case KVM_GET_REG_LIST: {
++		struct kvm_reg_list __user *user_list = argp;
++		struct kvm_reg_list reg_list;
++		unsigned n;
++
++		r = -EFAULT;
++		if (copy_from_user(&reg_list, user_list, sizeof(reg_list)))
++			break;
++		n = reg_list.n;
++		reg_list.n = kvm_loongarch_num_regs(vcpu);
++		if (copy_to_user(user_list, &reg_list, sizeof(reg_list)))
++			break;
++		r = -E2BIG;
++		if (n < reg_list.n)
++			break;
++		r = kvm_loongarch_copy_reg_indices(vcpu, user_list->reg);
++		break;
++	}
+ 	default:
+ 		r = -ENOIOCTLCMD;
+ 		break;
 -- 
-Konstantin Ryabitsev <konstantin@linuxfoundation.org>
+2.52.0
+
 
 _______________________________________________
 linux-riscv mailing list
