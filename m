@@ -4,92 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D457E73158
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 11:18:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B9F7E73156
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 11:32:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3HB63WXTX3C5vK/+NursEAh3tt7ANEn4yE7fxSF22M4=; b=cmGwK3ACrc4Tu8
-	2z/LaXuMGm2+vN/CxjVQR3i7CCz/uA83oj9PKEUxHAkp1bFbzRcasTba2oT6rlV3kehRq4kb+tb3X
-	Bvuivzyb1z+zFtghfEFmZFM0aeYis8psrhPdcW9aoS2J6CH5yVtoxapc5x8gkgH8sE4QDZIRa1yVn
-	oIJ5GfsxGEX08ZcmdV8h2PNK66VpMFVbTE64bwzSLEce85SoS2+4th53HBy9Dt+NDGIPSCLsIMBAH
-	CThrUCTuR5YaPs9KZZNznBm5ysnjrRlCLScsWxeULaOdlF0DA7F6VFqqkMmobmUIuy7+KnocoXBpV
-	PvLhieUG+qPatUCtIc0Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=53cnHd77VTdV7xGcYo70CaAq/lSDllGedQEwMyAuviQ=; b=TDA8vbkEGv9JpS
+	LBy0+4cRaLp3SAFNPVy/qvqirX+7v09AtecllofN0Y/IJQgrP6YO5aA8spdSy8lNzk4y8jrJJw+yI
+	UHP7Ct+7caCf74lKS30GMgYCUY7t5EB2WHlDSqaboxxCdOkG27Aa3cuV93GWBzgdg9nqi3SRTkQXf
+	uN7mproibe2sQtqOXbwBQXRHf1aIZXTdR2K1mOumT0uSPjJIBmxxryh7tXs3PTXnLrMKVzRXbHUrA
+	kkEw6cML1e+W5ewxLjyZsssH4EDvxVj3X5XSItrfWM7ONB6gGgjZIl26Vi7evqdrBVnHqwElnYoM0
+	cBfhoddjOYw8JdqUCvyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmrwX-00000004szc-0xgZ;
-	Mon, 02 Feb 2026 11:18:09 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1vms9v-00000004u1b-0FBx;
+	Mon, 02 Feb 2026 11:31:59 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmrwU-00000004syw-1RjX
-	for linux-riscv@lists.infradead.org;
-	Mon, 02 Feb 2026 11:18:07 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-8230d228372so2251080b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Feb 2026 03:18:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1770031083; x=1770635883; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QyoII6nqzBeIWsDGEglX8EZ/BM8yJuMFD3qz9JYR7y0=;
-        b=cnTWSmkopJ2HRQVo6BTfM3j8yNcxwdWOG3XkBdmASX0jMg85i2d5NV9WkA4/F/joPU
-         +i6FnrTR/JkrTd2pPkTnDWJuyKZiK2fipGzCljAUJNZCZmgaQ9B+eLT+SRGrxNWhj+mI
-         TTmpfHa8J07LfwiK09P0uJQPtK5Iszp4dRb4eBT3mLJ1UarIsW6XX65N5mvbU2BPT4A2
-         qCBO2tlhUU0TDnFHdc//sQivcXAIHhBb7If9F35ZsZOP2ZcO5X4j6o6dExDP0O6sDMKo
-         pvHIf2A5lt5xapAMKrpdE+QWKnjyLhj8NMShOLF4QQqNdf7BfGPm62ytMYhtYiiGkNL1
-         o8zw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770031083; x=1770635883;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QyoII6nqzBeIWsDGEglX8EZ/BM8yJuMFD3qz9JYR7y0=;
-        b=pWrBGWOPv8xlQd7YijmgNs6frRWV0Q1G5EFd/orihioC1wcNHa0D5HReNJHEJNv6lW
-         +VMNAvQ+yVsv4WNkeaRQMqrut8Y2zbb7Hx6p1WLklfrBTqUYVOx7lz2Mf5mlNi8kESZ2
-         1FeLTcsAVdN7dH6V7JZJGxpZclYWXRrQPsDBdfZt1112hETqZWd8VTS3RmNJNOdgTU+X
-         GIZwEkixDPe6wuxrZeQpJBZUC1gpVzi/c6LgiY8uqRZ4z6y4YvNquk1OGNaAa16EcnSE
-         Fi4LlyoeFrTO2fsezfu/qW1nmpOVU/amNuhaPAaQpi280tcSJPJ9U+TQDmdDtDQJJ5Hy
-         2h0Q==
-X-Gm-Message-State: AOJu0YwXkrEcDdyu/+fBj9RCP91Zkj2OfMXsJdi+li5zbjBkPUMcQa0t
-	eLi9bi3w8LRIQDK5+9B1Eas9+M4h9cyBnmWu71kIlnUs1XmPKSEFe2i5zq3zCLkTRmiAAoSCgaF
-	9EynDIbw=
-X-Gm-Gg: AZuq6aKhtDMAfr0AJPfOSw61pxXMcopwPyzSAqY27CSIool1sqyz5xyoD4g69QZF1Zl
-	Qg/32vkthAVcZxT2U8Z0YjQywnIQTgYgklPdslPwSk9TNhHb2N6j+57GiywpWyYk7lRvP/RfhE7
-	Ao9WnNmH5BC4AOYRcsG87nniPImuP+1++r6pPntB1aumHa5hCeJzIWw+9vMh3rnv5IPkL0SlO59
-	qHrYSMDBmrwkleHs5ujUzsn8tSEpenYwlcl93Vqn//BEQSRD1FxiekQ72bImU8VaX4wBDTM0bZB
-	HhrCIxC8hMgNvmMfxivKRD66q3hfTi4cCSygmeOudsPEPH68Vf60Gqh6KlS6n9qYcn1wap20Cu7
-	C4RpyFG6PMi/sb5jkSTO6IEhwnX7gW1eOIINPAsZ51RPsmDOINRDcIm1eAOC0aEq5vDzalS+n53
-	qXw/k=
-X-Received: by 2002:a05:6a00:1249:b0:823:9b7:9c0e with SMTP id d2e1a72fcca58-823ab75f14cmr11353585b3a.34.1770031082825;
-        Mon, 02 Feb 2026 03:18:02 -0800 (PST)
-Received: from n37-012-226.byted.org ([240e:83:200::8a])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82379c32944sm16015811b3a.57.2026.02.02.03.17.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Feb 2026 03:18:02 -0800 (PST)
-From: "qingwei.hu" <qingwei.hu@bytedance.com>
-To: atish.patra@linux.dev,
-	anup@brainfault.org,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Qingwei Hu <qingwei.hu@bytedance.com>
-Subject: [PATCH] RISC-V: Skip stopping cycle counter
-Date: Mon,  2 Feb 2026 19:17:28 +0800
-Message-Id: <20260202111728.4067036-1-qingwei.hu@bytedance.com>
-X-Mailer: git-send-email 2.39.5
+	id 1vms9q-00000004u13-16GE;
+	Mon, 02 Feb 2026 11:31:57 +0000
+Received: from duge-virtual-machine (unknown [183.192.223.177])
+	by APP-01 (Coremail) with SMTP id qwCowABH8WwYi4BpJdr9Bg--.29650S2;
+	Mon, 02 Feb 2026 19:31:38 +0800 (CST)
+Date: Mon, 2 Feb 2026 19:31:36 +0800
+From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+To: vkoul@kernel.org, gregkh@linuxfoundation.org, conor@kernel.org
+Cc: neil.armstrong@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux-phy@lists.infradead.org,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 0/4] Add USB support for Canaan K230
+Message-ID: <aYCLGLvbKZy+WyxI@duge-virtual-machine>
+References: <20260121145526.14672-1-jiayu.riscv@isrc.iscas.ac.cn>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260121145526.14672-1-jiayu.riscv@isrc.iscas.ac.cn>
+X-CM-TRANSID: qwCowABH8WwYi4BpJdr9Bg--.29650S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7trWrCrWkWry3Kw1ftFWrXwb_yoW5JF17pa
+	y2kFW3CFsrJFW2gFs3tw48WF9xX3Z5Jry5Wryaq3s8W3WUZr1UZ393KrWYvFyDJF4DCryj
+	qFs0kFyxKFy5AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjxUqiFxDUUUU
+X-Originating-IP: [183.192.223.177]
+X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_031806_383216_A0762C68 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20260202_033154_678769_C79A2A1A 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,43 +81,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Qingwei Hu <qingwei.hu@bytedance.com>
+On Wed, Jan 21, 2026 at 10:55:21PM +0800, Jiayu Du wrote:
+> Add support for the USB PHY and DWC2 IP which is used by Canaan K230,
+> and made relevant changes to the DTS.
+> 
+> This series is based on the initial 100ask K230 DshanPi series [1] which
+> is based on the clock and pinctrl series. Check the details in the link.
+> 
+> Link: https://lore.kernel.org/all/20260115060801.16819-1-jiayu.riscv@isrc.iscas.ac.cn/ [1]
+> 
+> Changes in v5:
+> - Changed the year of Copyright to 2026.
+> - Add blank line after the declaration of variables
+> - Fix wrong alignment.
+> - Link to v4: https://lore.kernel.org/all/20260120143243.71937-1-jiayu.riscv@isrc.iscas.ac.cn/
+> 
+> Changes in v4:
+> - Shrink reg length to match the address/size-cells in k230-usb-phy yaml.
+> - Move all PHY instance creation and initialization from xlate to probe.
+> - Modify xlate function to only perform index lookup for PHY instances.
+> - Define all register base offsets macros at the top of file instead of
+>   hard-coding magic numbers directly in probe.
+> - Link to v2: https://lore.kernel.org/all/20260115064223.21926-1-jiayu.riscv@isrc.iscas.ac.cn/
+> 
+> Changes in v3:
+> - Please ignore v3.
+> 
+> Changes in v2:
+> - Fold the child into the parent in dtsi.
+> - Define one usbphy with phy-cells=1.
+> - Delete the clock of the usbphy as it is not needed.
+> - Link to v1: https://lore.kernel.org/all/20251230023725.15966-1-jiayu.riscv@isrc.iscas.ac.cn/
+> 
+> Jiayu Du (4):
+>   dt-bindings: phy: Add Canaan K230 USB PHY
+>   dt-bindings: usb: dwc2: Add support for Canaan K230 SoC
+>   phy: usb: Add driver for Canaan K230 USB 2.0 PHY
+>   riscv: dts: canaan: Add syscon and USB nodes for K230
+> 
+>  .../bindings/phy/canaan,k230-usb-phy.yaml     |  35 +++
+>  .../devicetree/bindings/usb/dwc2.yaml         |   3 +
+>  .../boot/dts/canaan/k230-canmv-dshanpi.dts    |  17 ++
+>  arch/riscv/boot/dts/canaan/k230.dtsi          |  35 +++
+>  drivers/phy/Kconfig                           |   1 +
+>  drivers/phy/Makefile                          |   1 +
+>  drivers/phy/canaan/Kconfig                    |  14 +
+>  drivers/phy/canaan/Makefile                   |   2 +
+>  drivers/phy/canaan/phy-k230-usb.c             | 284 ++++++++++++++++++
+>  9 files changed, 392 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/canaan,k230-usb-phy.yaml
+>  create mode 100644 drivers/phy/canaan/Kconfig
+>  create mode 100644 drivers/phy/canaan/Makefile
+>  create mode 100644 drivers/phy/canaan/phy-k230-usb.c
+> 
+> -- 
+> 2.52.0
+> 
+Hello Vinod, could you please take a look at this patch? Thank you!
 
-In the riscv_pmu_sbi driver, pmu_sbi_stop_all() is intended to stop
-all available counters. However, counter 0 (the cycle counter) should
-be excluded from this operation because the counter may be used in
-user mode by rdcycle.
-
-Signed-off-by: Qingwei Hu <qingwei.hu@bytedance.com>
----
- drivers/perf/riscv_pmu_sbi.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 7dd282da67ce..2bc0050dabd2 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -900,11 +900,15 @@ static int pmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
- static inline void pmu_sbi_stop_all(struct riscv_pmu *pmu)
- {
- 	/*
--	 * No need to check the error because we are disabling all the counters
--	 * which may include counters that are not enabled yet.
-+	 * No need to check the error because we are disabling all available
-+	 * counters (except the cycle counter) which may include counters
-+	 * that are not enabled yet.
-+	 *
-+	 * Cycle counter is excluded because it might be accessed by user
-+	 * mode via rdcycle.
- 	 */
- 	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
--		  0, pmu->cmask, SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
-+		  0, pmu->cmask & ~BIT(0), SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
- }
- 
- static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
--- 
-2.39.5
+Regards,
+Jiayu Du
 
 
 _______________________________________________
