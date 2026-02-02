@@ -4,114 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA970E7DEF7
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 15:59:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A8BE7DEFC
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 16:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1nC1t8uCiTsNL0vUt8s5YJXqHovt1WxCs/YKZjr0FQ8=; b=2I1IhbYd/MAa0Q
-	kne4LN6FTZSP27GUEHLhnAg6SD120Upyd56kNqUhM7AlsbBHZtnLy4kQpjTsY3HfMR1pQ1CWzGzgj
-	QyUXJQzuuC4k+IVbj2IzG0crsdML3zhgGLoAhYqT9qMlmB8SGn5jXP7ca327r8ylCyPeFHkfbxO33
-	2k1fCdvhjlTGBy11zHzWFZKXEkdSHAeQgh7Aohg5Gpt2DZa2v8ZHR5HebRdz0kqFzfl/c0OgmQZ4G
-	ksY2qmzM3ShOk5mPfVqmktHNju3T/N1KoeuuGHcUQIebUepaOJldj4RcEsRkJxxIxBAiqV3zojDW8
-	+eL+KtJfXn6tXrb8jh0A==;
+	List-Owner; bh=Fd4GGJvbglxbJ9c3X5XeK85H7a+XV88DlkcXQwN3FA8=; b=qC4qZegZeWan3d
+	8ztIOCqfUDvsGATKkgwO7AmULVtcBXQCKt1OsBhRCT7Uz7ffE0BwRh1xjOlv3zHVMPypsYzTx4MHW
+	Fh21NgCzcTvoJXDOb6f5jA4rkDc6yFru48srvJDcHG2eiw9c9fGiaZhYbEv74yHkBOJbKSfRNWNrC
+	W1DDqMkuv1x6vgtbJY5ymgu8E2gd72oYNyfbt7iOaVVT1tPb4dNPBkGtsio/VFUX1nzPI7FreEyR+
+	BxfJN67aOXk+U3CJWEng71Wb8YJmhUWgRl9wyyuaGTf8b5tq0zVO4tCjQKYxqvI48mtvlc9DyY6yw
+	gCNonHnWtj5MGlRTPNzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwKl-00000005FMG-0lAv;
-	Mon, 02 Feb 2026 15:59:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vmwVq-00000005H4w-2nG6;
+	Mon, 02 Feb 2026 16:10:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwKj-00000005FLH-34e9
+	id 1vmwVp-00000005H4e-3qI0
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 02 Feb 2026 16:10:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ikbZ1i/RyFQD0EvwvpZgjNI3juJpORnFlSYCGPupu0Y=; b=OvdtGdSfDcdbg9z29RdJx+Q6K2
+	RyJuepz+wsROI9sKPlBc/QxHb9sHSivDRvu+yVelhhESoETGm9hK8t40nopComoiIzrn9cOOANiA9
+	J/dR76MzwHQ9IUZiFtQ0trtatMvUAfz0ONqKynh0ALqD8D6jZ4llD0AZOLltquMcD/ZTNMOwcaRSy
+	JcaLCE48xH2gonRPlQTYsr0KSlu2QxV+gY4K3qPomMz6Vh6X1fHXT5qUh/01c3K4KYEzyZR5vWQet
+	lt62t/+wAJWZXxGuI0vYcDSdBGezAg4HRIUGJdqCg0qC915VBzt/tHF94S+SLrUM/ykPUXEzGL7Ti
+	vhTMbIxQ==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vmwVl-0000000EoBV-10qx
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Feb 2026 15:59:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 131DC600B0;
-	Mon,  2 Feb 2026 15:58:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A693CC116C6;
-	Mon,  2 Feb 2026 15:58:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770047934;
-	bh=X0JuAHEku0e+NeEYY+UFCEJtQB+xpNwKPHNJM8wJov0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CZtz06q0vGmYwb8hRFv2Wn3BR/5FXDs0DQZEZZklnIqYSYest7pBTN3oeL/mkQ/AP
-	 V2DfaLKFQJi8aF+7DtEDsyswbdtDegT4v2ZjAJvFMc0d4MWV19koG5ezMhpeT5+6Pi
-	 ItIOoxr7E4I7G9gtLKd7I6Q5M4NoV3leG9aIdU1xWbBgxfsKojx0KS1MsMymYPPTQp
-	 u+G6ju8jZZ7ze0zroH6RoJcGFidEw3D4h41tcP3CP8+4gatjZuNsykx3CUuiTRAg/3
-	 8XNk0y2wXlRTsdql+oR+o6pQ0sURiOENnawoLQOavYKRrCAp4vIvtmOH8UWB9KMxwJ
-	 FeD9CsB6LWQqA==
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfauth.phl.internal (Postfix) with ESMTP id CD0EBF40069;
-	Mon,  2 Feb 2026 10:58:52 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-06.internal (MEProxy); Mon, 02 Feb 2026 10:58:52 -0500
-X-ME-Sender: <xms:vMmAaUDs_w_QA5mqnBBoNpnBVE5aIRy1iq3_qR2b-1WGXbMU6a4XxA>
-    <xme:vMmAafsg6lhBspUe0facpeZJiON4XHs_EpZZf997zRKS38d91-TojLRgBK-Ak_9Dm
-    bdG4LC0Dvx9Xh9l1NM1xdE3SC08PB251cNEJBSWF__gBTyWitY-UwE>
-X-ME-Received: <xmr:vMmAaRtuY0ST6mw5aOMFYZtc6RlTaLZcaiqVPBymsUCx2-1jP_uYhQgSJdcMpA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddujeektdeiucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhephffvvefufffkofgjfhggtgfgsehtkeertdertdejnecuhfhrohhmpefmihhrhihl
-    ucfuhhhuthhsvghmrghuuceokhgrsheskhgvrhhnvghlrdhorhhgqeenucggtffrrghtth
-    gvrhhnpeffkefffedugfeiudejheefleehteevtefgvefhveetheehkefhjeefhefgleej
-    veenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehkih
-    hrihhllhdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqudeiudduiedvieeh
-    hedqvdekgeeggeejvdekqdhkrghspeepkhgvrhhnvghlrdhorhhgsehshhhuthgvmhhovh
-    drnhgrmhgvpdhnsggprhgtphhtthhopedvkedpmhhouggvpehsmhhtphhouhhtpdhrtghp
-    thhtoheprghkphhmsehlihhnuhigqdhfohhunhgurghtihhonhdrohhrghdprhgtphhtth
-    hopehmuhgthhhunhdrshhonhhgsehlihhnuhigrdguvghvpdhrtghpthhtohepuggrvhhi
-    ugesrhgvughhrghtrdgtohhmpdhrtghpthhtohepfihilhhlhiesihhnfhhrrgguvggrug
-    drohhrghdprhgtphhtthhopehushgrmhgrrghrihhfieegvdesghhmrghilhdrtghomhdp
-    rhgtphhtthhopehfvhgulhesghhoohhglhgvrdgtohhmpdhrtghpthhtohepohhsrghlvh
-    grughorhesshhushgvrdguvgdprhgtphhtthhopehrphhptheskhgvrhhnvghlrdhorhhg
-    pdhrtghpthhtohepvhgsrggskhgrsehsuhhsvgdrtgii
-X-ME-Proxy: <xmx:vMmAabp2SZvoTdxbCCz7E69ywYsgb7TqE3v_IfeuILQV1FfRUXEbcQ>
-    <xmx:vMmAaVOTJcNRcLHlmKirHp9JIYOhTMeULrZQ7vzRuqHmej74emzSeA>
-    <xmx:vMmAaRnQKyCRRgu1ssJi3iPdXuygfi5Ur6LSNEiv4qtiy6MRbWvRng>
-    <xmx:vMmAaXt4D8GLZvraqQBXo7jPv1FQaDNKhI9Wnilbtezn6_zTrM6g4Q>
-    <xmx:vMmAaYmuQEOwOg4ks6Dz62QbjtRwl7nI7g8KoSABOuP99K47oWvdlCAh>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 2 Feb 2026 10:58:50 -0500 (EST)
-From: Kiryl Shutsemau <kas@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	David Hildenbrand <david@redhat.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Usama Arif <usamaarif642@gmail.com>,
-	Frank van der Linden <fvdl@google.com>
-Cc: Oscar Salvador <osalvador@suse.de>,
-	Mike Rapoport <rppt@kernel.org>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Zi Yan <ziy@nvidia.com>,
-	Baoquan He <bhe@redhat.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	kernel-team@meta.com,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	Kiryl Shutsemau <kas@kernel.org>
-Subject: [PATCHv6 16/17] hugetlb: Update vmemmap_dedup.rst
-Date: Mon,  2 Feb 2026 15:56:32 +0000
-Message-ID: <20260202155634.650837-17-kas@kernel.org>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <20260202155634.650837-1-kas@kernel.org>
-References: <20260202155634.650837-1-kas@kernel.org>
+	Mon, 02 Feb 2026 16:10:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1770048644;
+	bh=lgY3xynBWS6qvcthiKOlOb+Ph9aFwmFt+rqDpKZo9aU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=oKR4m0BxCDsa35AvV87Kxi/T/JWn5q4Ecpk6cUo92FWRlCbwT4HqyHkBMhvEG8RKd
+	 mypR1b41lYkA4yWB2LMkRnEsdKOGY1FfcxlCciJJmkxsa3l3MGxULKYEj0l5NJYdvo
+	 xRejKT2rdZ35FS/eGhoB7hGmQieY+C/v7ghRk32W3+GW6NHMHW9dIl59zBcB4sbaW/
+	 ivFu04K66tIv6RSOCIb2D+jJdBNWrXId91JTE3sV3Os46pRZYO2uuxjL/JVNuce6aC
+	 v+pi6oit7ec+V5OD1u5kt1HZGhLti/0AC+BEWd7pxVjMQNdhRz3vepa+UDyXk+B05P
+	 P1tOI/Pxhz4qg==
+Received: from fedora (unknown [IPv6:2a01:e0a:2c:6930:d919:a6e:5ea1:8a9f])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 205B217E1274;
+	Mon,  2 Feb 2026 17:10:43 +0100 (CET)
+Date: Mon, 2 Feb 2026 17:10:38 +0100
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: "Gary Guo" <gary@garyguo.net>
+Cc: "Daniel Almeida" <daniel.almeida@collabora.com>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, "Viresh Kumar" <viresh.kumar@linaro.org>, "Danilo
+ Krummrich" <dakr@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
+ Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Drew
+ Fustini" <fustini@kernel.org>, "Guo Ren" <guoren@kernel.org>, "Fu Wei"
+ <wefu@redhat.com>, Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?=
+ <ukleinek@kernel.org>, "Michael Turquette" <mturquette@baylibre.com>,
+ "Stephen Boyd" <sboyd@kernel.org>, "Miguel Ojeda" <ojeda@kernel.org>,
+ "Boqun Feng" <boqun.feng@gmail.com>, =?UTF-8?B?QmrDtnJu?= Roy Baron
+ <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
+ Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
+ <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <dri-devel@lists.freedesktop.org>, <linux-riscv@lists.infradead.org>,
+ <linux-pwm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+ <rust-for-linux@vger.kernel.org>
+Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
+Message-ID: <20260202171038.10e51e18@fedora>
+In-Reply-To: <DFSMRQFIYQPO.1A38Y84XZ1GZO@garyguo.net>
+References: <20260107-clk-type-state-v3-0-77d3e3ee59c2@collabora.com>
+	<20260107-clk-type-state-v3-1-77d3e3ee59c2@collabora.com>
+	<DFSMRQFIYQPO.1A38Y84XZ1GZO@garyguo.net>
+Organization: Collabora
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260202_161049_428713_FD671EE4 
+X-CRM114-Status: GOOD (  48.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,108 +102,308 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VXBkYXRlIHRoZSBkb2N1bWVudGF0aW9uIHJlZ2FyZGluZyB2bWVtbWFwIG9wdGltaXphdGlvbiBm
-b3IgaHVnZXRsYiB0bwpyZWZsZWN0IHRoZSBjaGFuZ2VzIGluIGhvdyB0aGUga2VybmVsIG1hcHMg
-dGhlIHRhaWwgcGFnZXMuCgpGYWtlIGhlYWRzIG5vIGxvbmdlciBleGlzdC4gUmVtb3ZlIHRoZWly
-IGRlc2NyaXB0aW9uLgoKU2lnbmVkLW9mZi1ieTogS2lyeWwgU2h1dHNlbWF1IDxrYXNAa2VybmVs
-Lm9yZz4KUmV2aWV3ZWQtYnk6IE11Y2h1biBTb25nIDxtdWNodW4uc29uZ0BsaW51eC5kZXY+Ci0t
-LQogRG9jdW1lbnRhdGlvbi9tbS92bWVtbWFwX2RlZHVwLnJzdCB8IDYwICsrKysrKysrKysrKyst
-LS0tLS0tLS0tLS0tLS0tLQogMSBmaWxlIGNoYW5nZWQsIDI2IGluc2VydGlvbnMoKyksIDM0IGRl
-bGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vbW0vdm1lbW1hcF9kZWR1cC5y
-c3QgYi9Eb2N1bWVudGF0aW9uL21tL3ZtZW1tYXBfZGVkdXAucnN0CmluZGV4IDE4NjNkODhkMmRj
-Yi4uZmNhOWQwY2UyODJhIDEwMDY0NAotLS0gYS9Eb2N1bWVudGF0aW9uL21tL3ZtZW1tYXBfZGVk
-dXAucnN0CisrKyBiL0RvY3VtZW50YXRpb24vbW0vdm1lbW1hcF9kZWR1cC5yc3QKQEAgLTEyNCwz
-MyArMTI0LDM1IEBAIEhlcmUgaXMgaG93IHRoaW5ncyBsb29rIGJlZm9yZSBvcHRpbWl6YXRpb246
-OgogIHwgICAgICAgICAgIHwKICArLS0tLS0tLS0tLS0rCiAKLVRoZSB2YWx1ZSBvZiBwYWdlLT5j
-b21wb3VuZF9pbmZvIGlzIHRoZSBzYW1lIGZvciBhbGwgdGFpbCBwYWdlcy4gVGhlIGZpcnN0Ci1w
-YWdlIG9mIGBgc3RydWN0IHBhZ2VgYCAocGFnZSAwKSBhc3NvY2lhdGVkIHdpdGggdGhlIEh1Z2VU
-TEIgcGFnZSBjb250YWlucyB0aGUgNAotYGBzdHJ1Y3QgcGFnZWBgIG5lY2Vzc2FyeSB0byBkZXNj
-cmliZSB0aGUgSHVnZVRMQi4gVGhlIG9ubHkgdXNlIG9mIHRoZSByZW1haW5pbmcKLXBhZ2VzIG9m
-IGBgc3RydWN0IHBhZ2VgYCAocGFnZSAxIHRvIHBhZ2UgNykgaXMgdG8gcG9pbnQgdG8gcGFnZS0+
-Y29tcG91bmRfaW5mby4KLVRoZXJlZm9yZSwgd2UgY2FuIHJlbWFwIHBhZ2VzIDEgdG8gNyB0byBw
-YWdlIDAuIE9ubHkgMSBwYWdlIG9mIGBgc3RydWN0IHBhZ2VgYAotd2lsbCBiZSB1c2VkIGZvciBl
-YWNoIEh1Z2VUTEIgcGFnZS4gVGhpcyB3aWxsIGFsbG93IHVzIHRvIGZyZWUgdGhlIHJlbWFpbmlu
-ZwotNyBwYWdlcyB0byB0aGUgYnVkZHkgYWxsb2NhdG9yLgorVGhlIGZpcnN0IHBhZ2Ugb2YgYGBz
-dHJ1Y3QgcGFnZWBgIChwYWdlIDApIGFzc29jaWF0ZWQgd2l0aCB0aGUgSHVnZVRMQiBwYWdlCitj
-b250YWlucyB0aGUgNCBgYHN0cnVjdCBwYWdlYGAgbmVjZXNzYXJ5IHRvIGRlc2NyaWJlIHRoZSBI
-dWdlVExCLiBUaGUgcmVtYWluaW5nCitwYWdlcyBvZiBgYHN0cnVjdCBwYWdlYGAgKHBhZ2UgMSB0
-byBwYWdlIDcpIGFyZSB0YWlsIHBhZ2VzLgorCitUaGUgb3B0aW1pemF0aW9uIGlzIG9ubHkgYXBw
-bGllZCB3aGVuIHRoZSBzaXplIG9mIHRoZSBzdHJ1Y3QgcGFnZSBpcyBhIHBvd2VyLW9mLTIKK0lu
-IHRoaXMgY2FzZSwgYWxsIHRhaWwgcGFnZXMgb2YgdGhlIHNhbWUgb3JkZXIgYXJlIGlkZW50aWNh
-bC4gU2VlCitjb21wb3VuZF9oZWFkKCkuIFRoaXMgYWxsb3dzIHVzIHRvIHJlbWFwIHRoZSB0YWls
-IHBhZ2VzIG9mIHRoZSB2bWVtbWFwIHRvIGEKK3NoYXJlZCwgcmVhZC1vbmx5IHBhZ2UuIFRoZSBo
-ZWFkIHBhZ2UgaXMgYWxzbyByZW1hcHBlZCB0byBhIG5ldyBwYWdlLiBUaGlzCithbGxvd3MgdGhl
-IG9yaWdpbmFsIHZtZW1tYXAgcGFnZXMgdG8gYmUgZnJlZWQuCiAKIEhlcmUgaXMgaG93IHRoaW5n
-cyBsb29rIGFmdGVyIHJlbWFwcGluZzo6CiAKLSAgICBIdWdlVExCICAgICAgICAgICAgICAgICAg
-c3RydWN0IHBhZ2VzKDggcGFnZXMpICAgICAgICAgcGFnZSBmcmFtZSg4IHBhZ2VzKQotICstLS0t
-LS0tLS0tLSsgLS0tdmlydF90b19wYWdlLS0tPiArLS0tLS0tLS0tLS0rICAgbWFwcGluZyB0byAg
-ICstLS0tLS0tLS0tLSsKLSB8ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgfCAgICAg
-MCAgICAgfCAtLS0tLS0tLS0tLS0tPiB8ICAgICAwICAgICB8Ci0gfCAgICAgICAgICAgfCAgICAg
-ICAgICAgICAgICAgICAgICstLS0tLS0tLS0tLSsgICAgICAgICAgICAgICAgKy0tLS0tLS0tLS0t
-KwotIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICB8ICAgICAxICAgICB8IC0tLS0t
-LS0tLS0tLS0tLV4gXiBeIF4gXiBeIF4KLSB8ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
-ICAgKy0tLS0tLS0tLS0tKyAgICAgICAgICAgICAgICAgIHwgfCB8IHwgfCB8Ci0gfCAgICAgICAg
-ICAgfCAgICAgICAgICAgICAgICAgICAgIHwgICAgIDIgICAgIHwgLS0tLS0tLS0tLS0tLS0tLS0r
-IHwgfCB8IHwgfAotIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICArLS0tLS0tLS0t
-LS0rICAgICAgICAgICAgICAgICAgICB8IHwgfCB8IHwKLSB8ICAgICAgICAgICB8ICAgICAgICAg
-ICAgICAgICAgICAgfCAgICAgMyAgICAgfCAtLS0tLS0tLS0tLS0tLS0tLS0tKyB8IHwgfCB8Ci0g
-fCAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICstLS0tLS0tLS0tLSsgICAgICAgICAg
-ICAgICAgICAgICAgfCB8IHwgfAotIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICB8
-ICAgICA0ICAgICB8IC0tLS0tLS0tLS0tLS0tLS0tLS0tLSsgfCB8IHwKLSB8ICAgIFBNRCAgICB8
-ICAgICAgICAgICAgICAgICAgICAgKy0tLS0tLS0tLS0tKyAgICAgICAgICAgICAgICAgICAgICAg
-IHwgfCB8Ci0gfCAgIGxldmVsICAgfCAgICAgICAgICAgICAgICAgICAgIHwgICAgIDUgICAgIHwg
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rIHwgfAotIHwgIG1hcHBpbmcgIHwgICAgICAgICAgICAg
-ICAgICAgICArLS0tLS0tLS0tLS0rICAgICAgICAgICAgICAgICAgICAgICAgICB8IHwKLSB8ICAg
-ICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgfCAgICAgNiAgICAgfCAtLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tKyB8Ci0gfCAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICstLS0t
-LS0tLS0tLSsgICAgICAgICAgICAgICAgICAgICAgICAgICAgfAotIHwgICAgICAgICAgIHwgICAg
-ICAgICAgICAgICAgICAgICB8ICAgICA3ICAgICB8IC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LSsKKyAgICBIdWdlVExCICAgICAgICAgICAgICAgICAgc3RydWN0IHBhZ2VzKDggcGFnZXMpICAg
-ICAgICAgICAgICAgICBwYWdlIGZyYW1lCisgKy0tLS0tLS0tLS0tKyAtLS12aXJ0X3RvX3BhZ2Ut
-LS0+ICstLS0tLS0tLS0tLSsgICBtYXBwaW5nIHRvICAgKy0tLS0tLS0tLS0tLS0tLS0rCisgfCAg
-ICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgIHwgICAgIDAgICAgIHwgLS0tLS0tLS0tLS0t
-LT4gfCAgICAgICAwICAgICAgICB8CisgfCAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAg
-ICstLS0tLS0tLS0tLSsgICAgICAgICAgICAgICAgKy0tLS0tLS0tLS0tLS0tLS0rCisgfCAgICAg
-ICAgICAgfCAgICAgICAgICAgICAgICAgICAgIHwgICAgIDEgICAgIHwgLS0tLS0t4pSQCisgfCAg
-ICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICstLS0tLS0tLS0tLSsgICAgICAgfAorIHwg
-ICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICB8ICAgICAyICAgICB8IC0tLS0tLeKUvCAg
-ICAgICAgKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCisgfCAgICAgICAgICAgfCAgICAg
-ICAgICAgICAgICAgICAgICstLS0tLS0tLS0tLSsgICAgICAgfCAgICAgICAgfCBBIHNpbmdsZSwg
-cGVyLW5vZGUgcGFnZSAgICB8CisgfCAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgIHwg
-ICAgIDMgICAgIHwgLS0tLS0t4pS8LS0tLS0tPiB8IGZyYW1lIHNoYXJlZCBhbW9uZyBhbGwgICAg
-IHwKKyB8ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgKy0tLS0tLS0tLS0tKyAgICAg
-ICB8ICAgICAgICB8IGh1Z2VwYWdlcyBvZiB0aGUgc2FtZSBzaXplIHwKKyB8ICAgICAgICAgICB8
-ICAgICAgICAgICAgICAgICAgICAgfCAgICAgNCAgICAgfCAtLS0tLS3ilLwgICAgICAgICstLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKworIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAg
-ICAgICArLS0tLS0tLS0tLS0rICAgICAgIHwKKyB8ICAgICAgICAgICB8ICAgICAgICAgICAgICAg
-ICAgICAgfCAgICAgNSAgICAgfCAtLS0tLS3ilLwKKyB8ICAgIFBNRCAgICB8ICAgICAgICAgICAg
-ICAgICAgICAgKy0tLS0tLS0tLS0tKyAgICAgICB8CisgfCAgIGxldmVsICAgfCAgICAgICAgICAg
-ICAgICAgICAgIHwgICAgIDYgICAgIHwgLS0tLS0t4pS8CisgfCAgbWFwcGluZyAgfCAgICAgICAg
-ICAgICAgICAgICAgICstLS0tLS0tLS0tLSsgICAgICAgfAorIHwgICAgICAgICAgIHwgICAgICAg
-ICAgICAgICAgICAgICB8ICAgICA3ICAgICB8IC0tLS0tLeKUmAogIHwgICAgICAgICAgIHwgICAg
-ICAgICAgICAgICAgICAgICArLS0tLS0tLS0tLS0rCiAgfCAgICAgICAgICAgfAogIHwgICAgICAg
-ICAgIHwKQEAgLTE3MiwxNiArMTc0LDYgQEAgVGhlIGNvbnRpZ3VvdXMgYml0IGlzIHVzZWQgdG8g
-aW5jcmVhc2UgdGhlIG1hcHBpbmcgc2l6ZSBhdCB0aGUgcG1kIGFuZCBwdGUKIChsYXN0KSBsZXZl
-bC4gU28gdGhpcyB0eXBlIG9mIEh1Z2VUTEIgcGFnZSBjYW4gYmUgb3B0aW1pemVkIG9ubHkgd2hl
-biBpdHMKIHNpemUgb2YgdGhlIGBgc3RydWN0IHBhZ2VgYCBzdHJ1Y3RzIGlzIGdyZWF0ZXIgdGhh
-biAqKjEqKiBwYWdlLgogCi1Ob3RpY2U6IFRoZSBoZWFkIHZtZW1tYXAgcGFnZSBpcyBub3QgZnJl
-ZWQgdG8gdGhlIGJ1ZGR5IGFsbG9jYXRvciBhbmQgYWxsCi10YWlsIHZtZW1tYXAgcGFnZXMgYXJl
-IG1hcHBlZCB0byB0aGUgaGVhZCB2bWVtbWFwIHBhZ2UgZnJhbWUuIFNvIHdlIGNhbiBzZWUKLW1v
-cmUgdGhhbiBvbmUgYGBzdHJ1Y3QgcGFnZWBgIHN0cnVjdCB3aXRoIGBgUEdfaGVhZGBgIChlLmcu
-IDggcGVyIDIgTUIgSHVnZVRMQgotcGFnZSkgYXNzb2NpYXRlZCB3aXRoIGVhY2ggSHVnZVRMQiBw
-YWdlLiBUaGUgYGBjb21wb3VuZF9oZWFkKClgYCBjYW4gaGFuZGxlCi10aGlzIGNvcnJlY3RseS4g
-VGhlcmUgaXMgb25seSAqKm9uZSoqIGhlYWQgYGBzdHJ1Y3QgcGFnZWBgLCB0aGUgdGFpbAotYGBz
-dHJ1Y3QgcGFnZWBgIHdpdGggYGBQR19oZWFkYGAgYXJlIGZha2UgaGVhZCBgYHN0cnVjdCBwYWdl
-YGAuICBXZSBuZWVkIGFuCi1hcHByb2FjaCB0byBkaXN0aW5ndWlzaCBiZXR3ZWVuIHRob3NlIHR3
-byBkaWZmZXJlbnQgdHlwZXMgb2YgYGBzdHJ1Y3QgcGFnZWBgIHNvCi10aGF0IGBgY29tcG91bmRf
-aGVhZCgpYGAgY2FuIHJldHVybiB0aGUgcmVhbCBoZWFkIGBgc3RydWN0IHBhZ2VgYCB3aGVuIHRo
-ZQotcGFyYW1ldGVyIGlzIHRoZSB0YWlsIGBgc3RydWN0IHBhZ2VgYCBidXQgd2l0aCBgYFBHX2hl
-YWRgYC4KLQogRGV2aWNlIERBWAogPT09PT09PT09PQogCi0tIAoyLjUxLjIKCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Mon, 19 Jan 2026 14:20:43 +0000
+"Gary Guo" <gary@garyguo.net> wrote:
+
+> On Wed Jan 7, 2026 at 3:09 PM GMT, Daniel Almeida wrote:
+> > The current Clk abstraction can still be improved on the following issues:
+> >
+> > a) It only keeps track of a count to clk_get(), which means that users have
+> > to manually call disable() and unprepare(), or a variation of those, like
+> > disable_unprepare().
+> >
+> > b) It allows repeated calls to prepare() or enable(), but it keeps no track
+> > of how often these were called, i.e., it's currently legal to write the
+> > following:
+> >
+> > clk.prepare();
+> > clk.prepare();
+> > clk.enable();
+> > clk.enable();
+> >
+> > And nothing gets undone on drop().
+> >
+> > c) It adds a OptionalClk type that is probably not needed. There is no
+> > "struct optional_clk" in C and we should probably not add one.
+> >
+> > d) It does not let a user express the state of the clk through the
+> > type system. For example, there is currently no way to encode that a Clk is
+> > enabled via the type system alone.
+> >
+> > In light of the Regulator abstraction that was recently merged, switch this
+> > abstraction to use the type-state pattern instead. It solves both a) and b)
+> > by establishing a number of states and the valid ways to transition between
+> > them. It also automatically undoes any call to clk_get(), clk_prepare() and
+> > clk_enable() as applicable on drop(), so users do not have to do anything
+> > special before Clk goes out of scope.
+> >
+> > It solves c) by removing the OptionalClk type, which is now simply encoded
+> > as a Clk whose inner pointer is NULL.
+> >
+> > It solves d) by directly encoding the state of the Clk into the type, e.g.:
+> > Clk<Enabled> is now known to be a Clk that is enabled.
+> >
+> > The INVARIANTS section for Clk is expanded to highlight the relationship
+> > between the states and the respective reference counts that are owned by
+> > each of them.
+> >
+> > The examples are expanded to highlight how a user can transition between
+> > states, as well as highlight some of the shortcuts built into the API.
+> >
+> > The current implementation is also more flexible, in the sense that it
+> > allows for more states to be added in the future. This lets us implement
+> > different strategies for handling clocks, including one that mimics the
+> > current API, allowing for multiple calls to prepare() and enable().
+> >
+> > The users (cpufreq.rs/ rcpufreq_dt.rs) were updated by this patch (and not
+> > a separate one) to reflect the new changes. This is needed, because
+> > otherwise this patch would break the build.
+> >
+> > Link: https://crates.io/crates/sealed [1]
+> > Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
+> > ---
+> >  drivers/cpufreq/rcpufreq_dt.rs |   2 +-
+> >  drivers/gpu/drm/tyr/driver.rs  |  31 +---
+> >  drivers/pwm/pwm_th1520.rs      |  17 +-
+> >  rust/kernel/clk.rs             | 399 +++++++++++++++++++++++++++--------------
+> >  rust/kernel/cpufreq.rs         |   8 +-
+> >  5 files changed, 281 insertions(+), 176 deletions(-)
+> >
+> > diff --git a/drivers/cpufreq/rcpufreq_dt.rs b/drivers/cpufreq/rcpufreq_dt.rs
+> > index 31e07f0279db..f1bd7d71ed54 100644
+> > --- a/drivers/cpufreq/rcpufreq_dt.rs
+> > +++ b/drivers/cpufreq/rcpufreq_dt.rs
+> > @@ -41,7 +41,7 @@ struct CPUFreqDTDevice {
+> >      freq_table: opp::FreqTable,
+> >      _mask: CpumaskVar,
+> >      _token: Option<opp::ConfigToken>,
+> > -    _clk: Clk,
+> > +    _clk: Clk<kernel::clk::Unprepared>,
+> >  }
+> >  
+> >  #[derive(Default)]
+> > diff --git a/drivers/gpu/drm/tyr/driver.rs b/drivers/gpu/drm/tyr/driver.rs
+> > index 09711fb7fe0b..5692def25621 100644
+> > --- a/drivers/gpu/drm/tyr/driver.rs
+> > +++ b/drivers/gpu/drm/tyr/driver.rs
+> > @@ -2,7 +2,7 @@
+> >  
+> >  use kernel::c_str;
+> >  use kernel::clk::Clk;
+> > -use kernel::clk::OptionalClk;
+> > +use kernel::clk::Enabled;
+> >  use kernel::device::Bound;
+> >  use kernel::device::Core;
+> >  use kernel::device::Device;
+> > @@ -37,7 +37,7 @@ pub(crate) struct TyrDriver {
+> >      device: ARef<TyrDevice>,
+> >  }
+> >  
+> > -#[pin_data(PinnedDrop)]
+> > +#[pin_data]
+> >  pub(crate) struct TyrData {
+> >      pub(crate) pdev: ARef<platform::Device>,
+> >  
+> > @@ -92,13 +92,9 @@ fn probe(
+> >          pdev: &platform::Device<Core>,
+> >          _info: Option<&Self::IdInfo>,
+> >      ) -> impl PinInit<Self, Error> {
+> > -        let core_clk = Clk::get(pdev.as_ref(), Some(c_str!("core")))?;
+> > -        let stacks_clk = OptionalClk::get(pdev.as_ref(), Some(c_str!("stacks")))?;
+> > -        let coregroup_clk = OptionalClk::get(pdev.as_ref(), Some(c_str!("coregroup")))?;
+> > -
+> > -        core_clk.prepare_enable()?;
+> > -        stacks_clk.prepare_enable()?;
+> > -        coregroup_clk.prepare_enable()?;
+> > +        let core_clk = Clk::<Enabled>::get(pdev.as_ref(), Some(c_str!("core")))?;  
+> 
+> Ah, more turbofish.. I'd really want to avoid them if possible.
+> 
+> Any disadvantage on just ask the user to chain `.get().prepare_enable()?`? This
+> way it is also clear that some action is performed.
+
+I've just disc
+
+> 
+> Alternatively, I think function names that mimick C API is also fine, e.g.
+> `Clk::get_enabled`.
+> 
+> > +        let stacks_clk = Clk::<Enabled>::get_optional(pdev.as_ref(), Some(c_str!("stacks")))?;
+> > +        let coregroup_clk = Clk::<Enabled>::get_optional(pdev.as_ref(), Some(c_str!("coregroup")))?;
+> >  
+> >          let mali_regulator = Regulator::<regulator::Enabled>::get(pdev.as_ref(), c_str!("mali"))?;
+> >          let sram_regulator = Regulator::<regulator::Enabled>::get(pdev.as_ref(), c_str!("sram"))?;
+> > @@ -145,17 +141,6 @@ impl PinnedDrop for TyrDriver {
+> >      fn drop(self: Pin<&mut Self>) {}
+> >  }
+> >  
+> > -#[pinned_drop]
+> > -impl PinnedDrop for TyrData {
+> > -    fn drop(self: Pin<&mut Self>) {
+> > -        // TODO: the type-state pattern for Clks will fix this.
+> > -        let clks = self.clks.lock();
+> > -        clks.core.disable_unprepare();
+> > -        clks.stacks.disable_unprepare();
+> > -        clks.coregroup.disable_unprepare();
+> > -    }
+> > -}
+> > -
+> >  // We need to retain the name "panthor" to achieve drop-in compatibility with
+> >  // the C driver in the userspace stack.
+> >  const INFO: drm::DriverInfo = drm::DriverInfo {
+> > @@ -181,9 +166,9 @@ impl drm::Driver for TyrDriver {
+> >  
+> >  #[pin_data]
+> >  struct Clocks {
+> > -    core: Clk,
+> > -    stacks: OptionalClk,
+> > -    coregroup: OptionalClk,
+> > +    core: Clk<Enabled>,
+> > +    stacks: Clk<Enabled>,
+> > +    coregroup: Clk<Enabled>,
+> >  }
+> >  
+> >  #[pin_data]
+> > diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
+> > index 043dc4dbc623..f4d03b988533 100644
+> > --- a/drivers/pwm/pwm_th1520.rs
+> > +++ b/drivers/pwm/pwm_th1520.rs
+> > @@ -23,7 +23,7 @@
+> >  use core::ops::Deref;
+> >  use kernel::{
+> >      c_str,
+> > -    clk::Clk,
+> > +    clk::{Clk, Enabled},
+> >      device::{Bound, Core, Device},
+> >      devres,
+> >      io::mem::IoMem,
+> > @@ -90,11 +90,11 @@ struct Th1520WfHw {
+> >  }
+> >  
+> >  /// The driver's private data struct. It holds all necessary devres managed resources.
+> > -#[pin_data(PinnedDrop)]
+> > +#[pin_data]
+> >  struct Th1520PwmDriverData {
+> >      #[pin]
+> >      iomem: devres::Devres<IoMem<TH1520_PWM_REG_SIZE>>,
+> > -    clk: Clk,
+> > +    clk: Clk<Enabled>,
+> >  }
+> >  
+> >  impl pwm::PwmOps for Th1520PwmDriverData {
+> > @@ -299,13 +299,6 @@ fn write_waveform(
+> >      }
+> >  }
+> >  
+> > -#[pinned_drop]
+> > -impl PinnedDrop for Th1520PwmDriverData {
+> > -    fn drop(self: Pin<&mut Self>) {
+> > -        self.clk.disable_unprepare();
+> > -    }
+> > -}
+> > -
+> >  struct Th1520PwmPlatformDriver;
+> >  
+> >  kernel::of_device_table!(
+> > @@ -326,9 +319,7 @@ fn probe(
+> >          let dev = pdev.as_ref();
+> >          let request = pdev.io_request_by_index(0).ok_or(ENODEV)?;
+> >  
+> > -        let clk = Clk::get(dev, None)?;
+> > -
+> > -        clk.prepare_enable()?;
+> > +        let clk = Clk::<Enabled>::get(dev, None)?;
+> >  
+> >          // TODO: Get exclusive ownership of the clock to prevent rate changes.
+> >          // The Rust equivalent of `clk_rate_exclusive_get()` is not yet available.
+> > diff --git a/rust/kernel/clk.rs b/rust/kernel/clk.rs
+> > index d192fbd97861..6323b40dc7ba 100644
+> > --- a/rust/kernel/clk.rs
+> > +++ b/rust/kernel/clk.rs
+> > @@ -80,17 +80,78 @@ fn from(freq: Hertz) -> Self {
+> >  mod common_clk {
+> >      use super::Hertz;
+> >      use crate::{
+> > -        device::Device,
+> > +        device::{Bound, Device},
+> >          error::{from_err_ptr, to_result, Result},
+> >          prelude::*,
+> >      };
+> >  
+> > -    use core::{ops::Deref, ptr};
+> > +    use core::{marker::PhantomData, mem::ManuallyDrop, ptr};
+> > +
+> > +    mod private {
+> > +        pub trait Sealed {}
+> > +
+> > +        impl Sealed for super::Unprepared {}
+> > +        impl Sealed for super::Prepared {}
+> > +        impl Sealed for super::Enabled {}
+> > +    }  
+> 
+> I guess it's time for me to work on a `#[sealed]` macro...
+> 
+> > +
+> > +    /// A trait representing the different states that a [`Clk`] can be in.
+> > +    pub trait ClkState: private::Sealed {
+> > +        /// Whether the clock should be disabled when dropped.
+> > +        const DISABLE_ON_DROP: bool;
+> > +
+> > +        /// Whether the clock should be unprepared when dropped.
+> > +        const UNPREPARE_ON_DROP: bool;
+> > +    }
+> > +
+> > +    /// A state where the [`Clk`] is not prepared and not enabled.  
+> 
+> Do we want to make it explicit that it's "not known to be prepared or
+> enabled"?
+> 
+> > +    pub struct Unprepared;
+> > +
+> > +    /// A state where the [`Clk`] is prepared but not enabled.
+> > +    pub struct Prepared;
+> > +
+> > +    /// A state where the [`Clk`] is both prepared and enabled.
+> > +    pub struct Enabled;
+> > +
+> > +    impl ClkState for Unprepared {
+> > +        const DISABLE_ON_DROP: bool = false;
+> > +        const UNPREPARE_ON_DROP: bool = false;
+> > +    }
+> > +
+> > +    impl ClkState for Prepared {
+> > +        const DISABLE_ON_DROP: bool = false;
+> > +        const UNPREPARE_ON_DROP: bool = true;
+> > +    }
+> > +
+> > +    impl ClkState for Enabled {
+> > +        const DISABLE_ON_DROP: bool = true;
+> > +        const UNPREPARE_ON_DROP: bool = true;
+> > +    }
+> > +
+> > +    /// An error that can occur when trying to convert a [`Clk`] between states.
+> > +    pub struct Error<State: ClkState> {
+> > +        /// The error that occurred.
+> > +        pub error: kernel::error::Error,
+> > +
+> > +        /// The [`Clk`] that caused the error, so that the operation may be
+> > +        /// retried.
+> > +        pub clk: Clk<State>,
+> > +    }  
+> 
+> I wonder if it makes sense to add a general `ErrorWith` type for errors that
+> carries error code + data.
+> 
+> Best,
+> Gary
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
