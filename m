@@ -4,82 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B60DE6529E
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Feb 2026 17:05:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DA2E65298
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 00:39:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pQmjZoZabNYXYLfFTvTZFmm0P9khdTyJmDH8eA8xj2s=; b=FuybbSSuHfokaC
-	clQkVmtWIu8op2gUaYwloOEzEqXya7VYA723zU1zsZDIy5oBhn5Sbuq1FWGFIqBj/QA/aFf3Kue+M
-	DKd8WMtVJ3c9ERGspqCMS4rqnLOVHwgNJXMVBYq8T1KfHneZ+f/TRYnBGArXootvkAIQantbHw28q
-	b8Vn83Fq1tj162N6eZlkbxtqeZsxSDLBSbHv5ckFSpYQlAnuUOpXu5bKTcBBJ32ROPOsGnW0YROI9
-	yr75D3gznjM9Qu5hmFO3bg7K/logXIu2uTtQvCRzQnZ2rN7rVSCy/tFm7ufR/vVbHoWGOmG6kI7co
-	cNHl45N/6+4I+NDMX3uQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=V5ElUbgT/PEvvBN/Kmp0t6Uq3zyaRNXkOL4VeElHsQQ=; b=yRDbJ/MAA1MHnt
+	VMl59F48Q1szZQiQo4MMxhU6W0cpM52MAuwyivIry2vq/hptwldQdQRRmVk/xs6cl2OtWAuyeFEya
+	pX1pE9k1WkMX9TgMne8EjNAqImpYmWKzjUzOz9MaqnjpS3u8nGZ/eSmgW117tMJ9FkRQS/P0Xu5j/
+	O0jmmN9HbL3DdQ8UIYPTTWo27Zy04pJHKxubEpiCx1pg/4E3G13wsj39im738LKol77/Hvuod7gq8
+	TWPZqBMJpjx7AHOdfqkm/WodVaGJB+Rg7dCUtT5ESQ/G8kpQRHukl2lWjCT/h0gVcRWL7uo1IWiAQ
+	nepcCCtn1h+iKHkvwetg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmat3-0000000418o-1ONR;
-	Sun, 01 Feb 2026 17:05:25 +0000
-Received: from out-173.mta0.migadu.com ([91.218.175.173])
+	id 1vmhyL-00000004GZd-28n7;
+	Mon, 02 Feb 2026 00:39:21 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmat0-00000004187-47d2
-	for linux-riscv@lists.infradead.org;
-	Sun, 01 Feb 2026 17:05:24 +0000
-Date: Mon, 2 Feb 2026 01:04:59 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1769965505;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=m0d8C18zxhPbKJRj/EyIvfZeIHT8AN8v0aXncDr3P8s=;
-	b=Fzj2chwYYipbTCPPQ7JSl3OKSs+EwJyQyL4t7lRnDgnGr5IHiglASYTPTIQYTMk5zQlpEX
-	/paxFKFA/Hw5OasG0G0Ybfy42dQx19odess3NrwFFnMXXubGjBUkCzsSV4xDEW7e8HJJwe
-	/UAlcr9kthhIkdr+wEdyj8qhEWaoRvs=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Leo Yan <leo.yan@linux.dev>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>, Paul Walmsley <pjw@kernel.org>,
+	id 1vmhyG-00000004GZ5-1rjw;
+	Mon, 02 Feb 2026 00:39:19 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-05 (Coremail) with SMTP id zQCowAC3Sw8i8n9p5QBGBw--.1693S2;
+	Mon, 02 Feb 2026 08:38:59 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Andrew Jones <ajones@ventanamicro.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Shimin Guo <shimin.guo@skydio.com>, Yunseong Kim <ysk@kzalloc.com>,
-	Athira Rajeev <atrajeev@linux.ibm.com>,
-	Quan Zhou <zhouquan@iscas.ac.cn>,
-	Andrew Jones <ajones@ventanamicro.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Atish Patra <atish.patra@linux.dev>,
 	Anup Patel <anup@brainfault.org>,
-	Dapeng Mi <dapeng1.mi@linux.intel.com>,
-	Thomas Falcon <thomas.falcon@intel.com>,
-	Blake Jones <blakejones@google.com>,
-	Swapnil Sapkal <swapnil.sapkal@amd.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Howard Chu <howardchu95@gmail.com>,
-	Anubhav Shelat <ashelat@redhat.com>,
-	Aditya Bodkhe <aditya.b1@linux.ibm.com>,
-	Chun-Tse Shao <ctshao@google.com>, Andi Kleen <ak@linux.intel.com>,
-	Dmitry Vyukov <dvyukov@google.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 2/6] perf kvm stat: Remove use of the arch directory
-Message-ID: <20260201170459.GA584@debian-dev>
-References: <20260131200224.1296136-1-irogers@google.com>
- <20260131200224.1296136-3-irogers@google.com>
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Jiakai Xu <jiakaiPeanut@gmail.com>
+Subject: [PATCH v5] RISC-V: KVM: Validate SBI STA shmem alignment in kvm_sbi_ext_sta_set_reg()
+Date: Mon,  2 Feb 2026 00:38:57 +0000
+Message-Id: <20260202003857.1694378-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260131200224.1296136-3-irogers@google.com>
-X-Migadu-Flow: FLOW_OUT
+X-CM-TRANSID: zQCowAC3Sw8i8n9p5QBGBw--.1693S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXF4xXFyfKw4fZrW5Cry7trb_yoWrJFWUpF
+	4Ikw15ArWxtFZ7A39rZr4vgr1Y93ykKr1jqF9xu34rZF4ktFyYyrna93y7ZF98GFyvvFyS
+	yr10vF1Duw4YyaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUB214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+	0_GcWlnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
+	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2
+	Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s02
+	6x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0x
+	vE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE
+	42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6x
+	kF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUOmhFUUUUU
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBwwGCWl-a9Cj8QAAs7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260201_090523_516674_BB51D480 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20260201_163916_863176_6ECDC9C7 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,111 +86,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 31, 2026 at 12:02:20PM -0800, Ian Rogers wrote:
+The RISC-V SBI Steal-Time Accounting (STA) extension requires the shared
+memory physical address to be 64-byte aligned, and the shared memory size
+to be at least 64 bytes.
 
-[...]
+KVM exposes the SBI STA shared memory configuration to userspace via
+KVM_SET_ONE_REG. However, the current implementation of
+kvm_sbi_ext_sta_set_reg() does not validate the alignment of the configured
+shared memory address. As a result, userspace can install a misaligned
+shared memory address that violates the SBI specification.
 
-> @@ -1666,7 +1661,7 @@ kvm_events_record(struct perf_kvm_stat *kvm, int argc, const char **argv)
->  		return ret;
->  	}
->  
-> -	for (events_tp = kvm_events_tp; *events_tp; events_tp++)
-> +	for (events_tp = kvm_events_tp(); *events_tp; events_tp++)
->  		events_tp_size++;
->  
->  	rec_argc = ARRAY_SIZE(record_args) + argc + 2 +
-> @@ -1681,7 +1676,7 @@ kvm_events_record(struct perf_kvm_stat *kvm, int argc, const char **argv)
->  
->  	for (j = 0; j < events_tp_size; j++) {
->  		rec_argv[i++] = STRDUP_FAIL_EXIT("-e");
-> -		rec_argv[i++] = STRDUP_FAIL_EXIT(kvm_events_tp[j]);
-> +		rec_argv[i++] = STRDUP_FAIL_EXIT(kvm_events_tp()[j]);
->  	}
+Such an invalid configuration may later reach runtime code paths that
+assume a valid and properly aligned shared memory region. In particular,
+KVM_RUN can trigger the following WARN_ON in
+kvm_riscv_vcpu_record_steal_time():
 
-Nitpick: we can assign reuse events_tp throughout the
-kvm_events_record().  Something like:
+  WARNING: arch/riscv/kvm/vcpu_sbi_sta.c:49 at
+  kvm_riscv_vcpu_record_steal_time
 
-  events_tp = kvm_events_tp();
-  for (j = 0; events_tp[j]; j++)
-       events_tp_size++;
+WARN_ON paths are not expected to be reachable during normal runtime
+execution, and may result in a kernel panic when panic_on_warn is enabled.
 
-  ...
+Fix this by validating the shared memory alignment at the
+KVM_SET_ONE_REG boundary and rejecting misaligned configurations with
+-EINVAL. The validation is performed on a temporary computed address and
+only committed to vcpu->arch.sta.shmem once it is known to be valid, 
+similar to the existing logic in kvm_sbi_sta_steal_time_set_shmem() and
+kvm_sbi_ext_sta_handler().
 
-  for (j = 0; j < events_tp_size; j++) {
-       rec_argv[i++] = STRDUP_FAIL_EXIT("-e");
-       rec_argv[i++] = STRDUP_FAIL_EXIT(events_tp[j]);
-  }
+With this change, invalid userspace state is rejected early and cannot
+reach runtime code paths that rely on the SBI specification invariants.
 
-[...]
+A reproducer triggering the WARN_ON and the complete kernel log are
+available at: https://github.com/j1akai/temp/tree/main/20260124
 
-> +int setup_kvm_events_tp(struct perf_kvm_stat *kvm)
-> +{
-> +	switch (EM_HOST) {
-> +	case EM_PPC:
-> +	case EM_PPC64:
-> +		return __setup_kvm_events_tp_powerpc(kvm);
-> +	default:
-> +		return 0;
-> +	}
-> +}
-> +
-> +int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid)
-> +{
-> +	switch (EM_HOST) {
-> +	case EM_AARCH64:
-> +		return __cpu_isa_init_arm64(kvm);
-> +	case EM_LOONGARCH:
-> +		return __cpu_isa_init_loongarch(kvm);
-> +	case EM_PPC:
-> +	case EM_PPC64:
-> +		return __cpu_isa_init_powerpc(kvm);
-> +	case EM_RISCV:
-> +		return __cpu_isa_init_riscv(kvm);
-> +	case EM_S390:
-> +		return __cpu_isa_init_s390(kvm, cpuid);
-> +	case EM_X86_64:
-> +	case EM_386:
-> +		return __cpu_isa_init_x86(kvm, cpuid);
-> +	default:
-> +		pr_err("Unsupported kvm-stat host %d\n", EM_HOST);
-> +		return -1;
-> +	}
-> +}
+Fixes: f61ce890b1f074 ("RISC-V: KVM: Add support for SBI STA registers")
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+---
+V4 -> V5: Added parentheses to function name in subject.
+V3 -> V4: Declared new_shmem at the top of kvm_sbi_ext_sta_set_reg().
+          Initialized new_shmem to 0 instead of vcpu->arch.sta.shmem.
+          Added blank lines per review feedback.
+V2 -> V3: Added parentheses to function name in subject.
+V1 -> V2: Added Fixes tag.
 
-For a general solution, I'd prefer to use "install" + callback methods
-rather than the opened code.  E.g., each arch installs a structure
-with callbacks:
+---
+ arch/riscv/kvm/vcpu_sbi_sta.c | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
 
-  struct kvm_stat_arch kvm_stat_aarch64 {
-      .setup_events_tp = NULL;
-      .cpu_isa_init    = __cpu_isa_init_arm64;
-      ...
-  };
+diff --git a/arch/riscv/kvm/vcpu_sbi_sta.c b/arch/riscv/kvm/vcpu_sbi_sta.c
+index afa0545c3bcfc..bb13aa8eab7ee 100644
+--- a/arch/riscv/kvm/vcpu_sbi_sta.c
++++ b/arch/riscv/kvm/vcpu_sbi_sta.c
+@@ -181,6 +181,7 @@ static int kvm_sbi_ext_sta_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
+ 				   unsigned long reg_size, const void *reg_val)
+ {
+ 	unsigned long value;
++	gpa_t new_shmem = 0;
+ 
+ 	if (reg_size != sizeof(unsigned long))
+ 		return -EINVAL;
+@@ -191,18 +192,18 @@ static int kvm_sbi_ext_sta_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
+ 		if (IS_ENABLED(CONFIG_32BIT)) {
+ 			gpa_t hi = upper_32_bits(vcpu->arch.sta.shmem);
+ 
+-			vcpu->arch.sta.shmem = value;
+-			vcpu->arch.sta.shmem |= hi << 32;
++			new_shmem = value;
++			new_shmem |= hi << 32;
+ 		} else {
+-			vcpu->arch.sta.shmem = value;
++			new_shmem = value;
+ 		}
+ 		break;
+ 	case KVM_REG_RISCV_SBI_STA_REG(shmem_hi):
+ 		if (IS_ENABLED(CONFIG_32BIT)) {
+ 			gpa_t lo = lower_32_bits(vcpu->arch.sta.shmem);
+ 
+-			vcpu->arch.sta.shmem = ((gpa_t)value << 32);
+-			vcpu->arch.sta.shmem |= lo;
++			new_shmem = ((gpa_t)value << 32);
++			new_shmem |= lo;
+ 		} else if (value != 0) {
+ 			return -EINVAL;
+ 		}
+@@ -211,6 +212,11 @@ static int kvm_sbi_ext_sta_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
+ 		return -ENOENT;
+ 	}
+ 
++	if (new_shmem && !IS_ALIGNED(new_shmem, 64))
++		return -EINVAL;
++
++	vcpu->arch.sta.shmem = new_shmem;
++
+ 	return 0;
+ }
+ 
+-- 
+2.34.1
 
-Then at the init phase, we can install arch's structure:
-
-  switch (EM_HOST) {
-  case EM_AARCH64:
-      kvm_stat_arch_init(&kvm_stat_aarch64);
-      break;
-  ...
-  }
-
-Afterwards, it is no need to check EM_HOST anymore, it can simply
-invoke the arch's callback:
-
-  int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid)
-  {
-      if (!arch_kvm_stat || !arch_kvm_stat->cpu_isa_init)
-          return -1;
-
-      return arch_kvm_stat->cpu_isa_init(kvm, cpuid);
-  }
-
-As a result, we can avoid spreading "switch (EM_HOST)" everywhere.
-
-Thanks,
-Leo
 
 _______________________________________________
 linux-riscv mailing list
