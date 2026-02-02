@@ -4,93 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A8BE7DEFC
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 16:11:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 839C2E7DEFD
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 16:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fd4GGJvbglxbJ9c3X5XeK85H7a+XV88DlkcXQwN3FA8=; b=qC4qZegZeWan3d
-	8ztIOCqfUDvsGATKkgwO7AmULVtcBXQCKt1OsBhRCT7Uz7ffE0BwRh1xjOlv3zHVMPypsYzTx4MHW
-	Fh21NgCzcTvoJXDOb6f5jA4rkDc6yFru48srvJDcHG2eiw9c9fGiaZhYbEv74yHkBOJbKSfRNWNrC
-	W1DDqMkuv1x6vgtbJY5ymgu8E2gd72oYNyfbt7iOaVVT1tPb4dNPBkGtsio/VFUX1nzPI7FreEyR+
-	BxfJN67aOXk+U3CJWEng71Wb8YJmhUWgRl9wyyuaGTf8b5tq0zVO4tCjQKYxqvI48mtvlc9DyY6yw
-	gCNonHnWtj5MGlRTPNzQ==;
+	List-Owner; bh=EUGZAdJo6zrOe9Euj/s4ojZejgWkthxT7mJrH1tLlBU=; b=IGNJYvFkFZhh8V
+	eIhPDtkQET9x+9xP2QOvHLu2sJBDtyCrpR4Cjike83OTiOycQLLsxoKKtBSyaUhPX6ruWDaj75tKj
+	MLhwxfBt/St1af16eDVxZhAvN9bmzy3/MCU8+HZyT06d61DokhOf7K4alJPo1iT2xNXNzQwBRHEXH
+	nIhhXkxbk5LRcuEHGUhfyQkyLa6BBoztrKy53kvdoLsL/pSonOl0D7d15pMWK1ZwwUCHyMxaKZSao
+	qb92D9/7N2sv6FRLTjCWbSz6nMFSYnUIsPRph2GqjYzHzJBfZOxldKKVHYMzqCU9o0l2jsYUBitCJ
+	ASJ5t8a76MHuxDQm6cpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwVq-00000005H4w-2nG6;
-	Mon, 02 Feb 2026 16:10:54 +0000
+	id 1vmwjs-00000005I7J-0Lp1;
+	Mon, 02 Feb 2026 16:25:24 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwVp-00000005H4e-3qI0
+	id 1vmwjq-00000005I6g-3PgM
 	for linux-riscv@bombadil.infradead.org;
-	Mon, 02 Feb 2026 16:10:54 +0000
+	Mon, 02 Feb 2026 16:25:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ikbZ1i/RyFQD0EvwvpZgjNI3juJpORnFlSYCGPupu0Y=; b=OvdtGdSfDcdbg9z29RdJx+Q6K2
-	RyJuepz+wsROI9sKPlBc/QxHb9sHSivDRvu+yVelhhESoETGm9hK8t40nopComoiIzrn9cOOANiA9
-	J/dR76MzwHQ9IUZiFtQ0trtatMvUAfz0ONqKynh0ALqD8D6jZ4llD0AZOLltquMcD/ZTNMOwcaRSy
-	JcaLCE48xH2gonRPlQTYsr0KSlu2QxV+gY4K3qPomMz6Vh6X1fHXT5qUh/01c3K4KYEzyZR5vWQet
-	lt62t/+wAJWZXxGuI0vYcDSdBGezAg4HRIUGJdqCg0qC915VBzt/tHF94S+SLrUM/ykPUXEzGL7Ti
-	vhTMbIxQ==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=i6qnaLJvdDvAW5szsitSpepDXeYDqBjigmWEpuJg4Xc=; b=RxVZJIBbyavYWT3kzaIL3LN0ko
+	JGdM7R0RZxrX8xbbXH0M5rLDDLkuVRgvAbtstt6L1GuGmjx+AEPWeVA9MJPICodxAmxtIxEeuJuTP
+	sdTLUK7VC20Ss8ktF9xDVDsRZvDnaJ/x2ZcOoSTNhj6uOO0/3dXbLNmbcsj2TeD3MW8LQv7pCkDdn
+	JffhfNcKe/o0idmWj+Fm0xAKKsWxyP4KGx3M+NRUhzg8KSCJZ0k81tsmPHJ2wm+agZRJCdd1JWzWV
+	V9BUYRmWJV/gJXqUbdJkaDNdbE6FjlHLmhBY3szIPLIjBhkg/Rl9F3DJ5tL32VhVZ96XrevHo2uDc
+	8ewq3oxQ==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwVl-0000000EoBV-10qx
+	id 1vmwjn-0000000Eq03-1xcf
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Feb 2026 16:10:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1770048644;
-	bh=lgY3xynBWS6qvcthiKOlOb+Ph9aFwmFt+rqDpKZo9aU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=oKR4m0BxCDsa35AvV87Kxi/T/JWn5q4Ecpk6cUo92FWRlCbwT4HqyHkBMhvEG8RKd
-	 mypR1b41lYkA4yWB2LMkRnEsdKOGY1FfcxlCciJJmkxsa3l3MGxULKYEj0l5NJYdvo
-	 xRejKT2rdZ35FS/eGhoB7hGmQieY+C/v7ghRk32W3+GW6NHMHW9dIl59zBcB4sbaW/
-	 ivFu04K66tIv6RSOCIb2D+jJdBNWrXId91JTE3sV3Os46pRZYO2uuxjL/JVNuce6aC
-	 v+pi6oit7ec+V5OD1u5kt1HZGhLti/0AC+BEWd7pxVjMQNdhRz3vepa+UDyXk+B05P
-	 P1tOI/Pxhz4qg==
-Received: from fedora (unknown [IPv6:2a01:e0a:2c:6930:d919:a6e:5ea1:8a9f])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bbrezillon)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 205B217E1274;
-	Mon,  2 Feb 2026 17:10:43 +0100 (CET)
-Date: Mon, 2 Feb 2026 17:10:38 +0100
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: "Gary Guo" <gary@garyguo.net>
-Cc: "Daniel Almeida" <daniel.almeida@collabora.com>, "Rafael J. Wysocki"
- <rafael@kernel.org>, "Viresh Kumar" <viresh.kumar@linaro.org>, "Danilo
- Krummrich" <dakr@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Drew
- Fustini" <fustini@kernel.org>, "Guo Ren" <guoren@kernel.org>, "Fu Wei"
- <wefu@redhat.com>, Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?=
- <ukleinek@kernel.org>, "Michael Turquette" <mturquette@baylibre.com>,
- "Stephen Boyd" <sboyd@kernel.org>, "Miguel Ojeda" <ojeda@kernel.org>,
- "Boqun Feng" <boqun.feng@gmail.com>, =?UTF-8?B?QmrDtnJu?= Roy Baron
- <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
- Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
- <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <dri-devel@lists.freedesktop.org>, <linux-riscv@lists.infradead.org>,
- <linux-pwm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
- <rust-for-linux@vger.kernel.org>
-Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
-Message-ID: <20260202171038.10e51e18@fedora>
-In-Reply-To: <DFSMRQFIYQPO.1A38Y84XZ1GZO@garyguo.net>
-References: <20260107-clk-type-state-v3-0-77d3e3ee59c2@collabora.com>
-	<20260107-clk-type-state-v3-1-77d3e3ee59c2@collabora.com>
-	<DFSMRQFIYQPO.1A38Y84XZ1GZO@garyguo.net>
-Organization: Collabora
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-redhat-linux-gnu)
+	Mon, 02 Feb 2026 16:25:21 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 612B0U362900010
+	for <linux-riscv@lists.infradead.org>; Mon, 2 Feb 2026 16:25:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=i6qnaLJvdDvAW5szsitSpepD
+	XeYDqBjigmWEpuJg4Xc=; b=WavQT2vQA0szCh9N45x2/IeMil3eDG+lSJvxEp3Y
+	JqK9TTGLwVvgXN/eej2ex1sZPn40sVuI1WpdOKrVoELbmE8coJo3lxDLVbsdEPHu
+	etVF6bZBRqAPwcOF/HNzH9QsEENanmYbcQWVfr7btTf4Yor4meBVZGbrJvelDQZs
+	w2pHbhN6e/6Jz/J9Mg8SgNkb5kTkEO+yNCFagbHM8VDt5MiQJQeEs0ZZb5QeBmoD
+	TV0UIjXlC6tu/GiBvlm22FO3gZKhHsfD+Sj0byLTlaR+6kREIWafLfjaQ7axrCE/
+	9oy/FfGTie0IObaGDGJyRl/B23SkLjSyG/rvDfYotSrhNQ==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c2tp0rxwr-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Mon, 02 Feb 2026 16:25:14 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-2b799f7a603so26247598eec.1
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Feb 2026 08:25:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1770049514; x=1770654314; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=i6qnaLJvdDvAW5szsitSpepDXeYDqBjigmWEpuJg4Xc=;
+        b=AA4VlGjH5U5xO9YcterMSP+h93uY97zgKl0rwyQyUYQf5ZRe+lqEf9b+w9uZ7dhb40
+         PDufObJIjQcMpGVkLp9cXw0PSKz04ecvLxQuX1gKscyWXS2532scafOAMPavFsCi6Akm
+         brQxXi9m/zTSHtQv80tmCM9rKPkRLKu5iCKmJYjVqBCuA4hasPxoj43LHT7g7xIrE0F5
+         +x8JabeJcwSPZTWi58GzOh7jwTgTdP5ANH7/VIC/LWi3c00AHS73zpytm5tEx+kW0EBM
+         0agcl+edCjDb4ekGHAjbW2K5zHoBzRGbYxVww3RR/I5NSy69lE1CBkEXRQmz001KnJ8a
+         DjEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770049514; x=1770654314;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=i6qnaLJvdDvAW5szsitSpepDXeYDqBjigmWEpuJg4Xc=;
+        b=abFZYHLyNQfCkovdDe7YUlciVJ8j0LnmZpbpnj3UdeXXBnawv6n1m2uWcPvCYRkCnb
+         lj6gi0JVkyqp8VEeHgX+sd/m1be/Hh3gfSRe0028XGMcvtJmepvZvCbVTtEClDlio+3s
+         sxYOWSGUrqw8q7dwx6QCnzZY+ID+WVIlzpsKqI0yQ6lM4MKwkEv8K60TzAbxkUKq9tWN
+         4f1TUfftumE9kkFwYy7RMWKq+93TBgotiyABY1QAV2G6d1eBA5mzg2wfV9lM/QQeP8JA
+         wwVqLdwUmPEATnPJOapY6hFqdXS+03KIr830XNXMwSGUKFq9QkZwEtQsnOAQy5Wk6XWi
+         MR1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUGhtOjBwtjdkOwDASGrNX3+CT0iwRBL8Km4tRUBWeAZ2SSooRxRc9hLpMA5l1QVZ8jrjwIJv5V+jl86g==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5SCwG/Gj5JYgJCuRhtZ8f05Zm5BczqBxUXdWoyjbEb1F7bajj
+	rJmWjzpaHdAPCaCDkUbw3GTpR0X0K4zXwz2mAJPip8z+D63opkwGBawbMW62cnxYJS7aWSRyXpk
+	HuGcQ+TCFyVwkunk7AfoiDbf3V39CG5sbFDzXvjkTVeM2yu1XRaS8qb4Gguwpn/el0SFys80=
+X-Gm-Gg: AZuq6aJ+lizijVYI4TaTySLthqjZNbQClq0bCrLeUZW//gHc4Mp5C7aOdwFoxgP1UxC
+	JFxrOL40W+w9xIO6bZuq9gvMh5UysXsypisQfOJDe1cO93LSbHmf3V88Z3dgEPGBMImixW1u8TM
+	p6UtTMx+sZq6TKci50ZDkgU+xWMSxLNwz83eds8sfnr6aUhCcJmzfZi9iQENaWjzZiMTi78C01K
+	6FkKgIS02B5xABgyris7OzJnKc9Wc5BUJpgPAYDUa14exGaTkyyfTWTfKEOWJNW0fWviIVMCRWo
+	vcj2XNU0oXrZfYE8J0OLoX5IS9DUBRQALqzkzBWYiIOjD+r+k39OBO4cHERBnfUyYF9M1fl4WQ9
+	GI5keDqcOIVBtizlsRDA=
+X-Received: by 2002:a05:7300:dc8c:b0:2b7:1cbe:fd1f with SMTP id 5a478bee46e88-2b7c8940615mr6058263eec.36.1770049512424;
+        Mon, 02 Feb 2026 08:25:12 -0800 (PST)
+X-Received: by 2002:a05:7300:dc8c:b0:2b7:1cbe:fd1f with SMTP id 5a478bee46e88-2b7c8940615mr6058185eec.36.1770049510377;
+        Mon, 02 Feb 2026 08:25:10 -0800 (PST)
+Received: from localhost ([140.82.166.162])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b7a16cfaa8sm19714357eec.4.2026.02.02.08.25.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Feb 2026 08:25:09 -0800 (PST)
+Date: Mon, 2 Feb 2026 10:25:08 -0600
+From: Andrew Jones <andrew.jones@oss.qualcomm.com>
+To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+        kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+        Andrew Jones <ajones@ventanamicro.com>,
+        Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+        Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>,
+        Jiakai Xu <jiakaiPeanut@gmail.com>
+Subject: Re: [PATCH v5] RISC-V: KVM: Validate SBI STA shmem alignment in
+ kvm_sbi_ext_sta_set_reg()
+Message-ID: <mknpdlex2x4dfqunv77xe7xyn5v35pdxnwp66honlivbma3ykv@zcm37hqow445>
+References: <20260202003857.1694378-1-xujiakai2025@iscas.ac.cn>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260202003857.1694378-1-xujiakai2025@iscas.ac.cn>
+X-Proofpoint-ORIG-GUID: ILn1hRq0J-Lovop2yBgt_RniNVPflqqC
+X-Authority-Analysis: v=2.4 cv=VJ/QXtPX c=1 sm=1 tr=0 ts=6980cfea cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
+ a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=NEAV23lmAAAA:8 a=pGLkceISAAAA:8
+ a=t_rjcDEbpHFVAzgC7Z0A:9 a=CjuIK1q_8ugA:10 a=bBxd6f-gb0O0v-kibOvt:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjAyMDEyOSBTYWx0ZWRfXxN8E8T+w/zsK
+ Di8nw/9dNVpN2C50HoCnD0oSK01htOu1CdvH7qrYDJd+LYrjihGVDyrTu98stZVhP//Dl40mcT9
+ W9ZjgtORu7MoQ/T6KtsvpniyaOu7WHizNtGqDenNrIT3zWeV3oXeirkjG8YTSXRw1b2ZiVhmbzk
+ oF6SgKeBOedSiJ4DuECEzr30dUZS7tvc8S51xgDMkLZVU2ojx7iR+4jZMHYIDTjbSoSYwaXfq8x
+ RIjFN6ByzHLrSBjSweFnPZpalLjHoJotfU1Hc9RDn8V5lgkgmG+23C+tgXG1dPkcz9YW2Ic5kZy
+ GSGoXBzIDFEYTdKomnNMdFAkaYurmjOyUCWLqze1hGTZ7mVnjhSjeJG/DG1h+SKWxdDKHwDCRJI
+ 9TRULebrwXFzDRtjhpASH3JtBKh9mhH/g2Wsw7oRvOlQc7h0gPdcm4tQ+7fpRxth0KUmFrmqKSK
+ /S01ikI2igVYW+1nkRQ==
+X-Proofpoint-GUID: ILn1hRq0J-Lovop2yBgt_RniNVPflqqC
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-02_04,2026-02-02_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 adultscore=0 malwarescore=0 spamscore=0 clxscore=1015
+ lowpriorityscore=0 phishscore=0 priorityscore=1501 impostorscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
+ definitions=main-2602020129
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_161049_428713_FD671EE4 
-X-CRM114-Status: GOOD (  48.43  )
+X-CRM114-CacheID: sfid-20260202_162519_845812_37189CDC 
+X-CRM114-Status: GOOD (  35.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,301 +161,113 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 Jan 2026 14:20:43 +0000
-"Gary Guo" <gary@garyguo.net> wrote:
-
-> On Wed Jan 7, 2026 at 3:09 PM GMT, Daniel Almeida wrote:
-> > The current Clk abstraction can still be improved on the following issues:
-> >
-> > a) It only keeps track of a count to clk_get(), which means that users have
-> > to manually call disable() and unprepare(), or a variation of those, like
-> > disable_unprepare().
-> >
-> > b) It allows repeated calls to prepare() or enable(), but it keeps no track
-> > of how often these were called, i.e., it's currently legal to write the
-> > following:
-> >
-> > clk.prepare();
-> > clk.prepare();
-> > clk.enable();
-> > clk.enable();
-> >
-> > And nothing gets undone on drop().
-> >
-> > c) It adds a OptionalClk type that is probably not needed. There is no
-> > "struct optional_clk" in C and we should probably not add one.
-> >
-> > d) It does not let a user express the state of the clk through the
-> > type system. For example, there is currently no way to encode that a Clk is
-> > enabled via the type system alone.
-> >
-> > In light of the Regulator abstraction that was recently merged, switch this
-> > abstraction to use the type-state pattern instead. It solves both a) and b)
-> > by establishing a number of states and the valid ways to transition between
-> > them. It also automatically undoes any call to clk_get(), clk_prepare() and
-> > clk_enable() as applicable on drop(), so users do not have to do anything
-> > special before Clk goes out of scope.
-> >
-> > It solves c) by removing the OptionalClk type, which is now simply encoded
-> > as a Clk whose inner pointer is NULL.
-> >
-> > It solves d) by directly encoding the state of the Clk into the type, e.g.:
-> > Clk<Enabled> is now known to be a Clk that is enabled.
-> >
-> > The INVARIANTS section for Clk is expanded to highlight the relationship
-> > between the states and the respective reference counts that are owned by
-> > each of them.
-> >
-> > The examples are expanded to highlight how a user can transition between
-> > states, as well as highlight some of the shortcuts built into the API.
-> >
-> > The current implementation is also more flexible, in the sense that it
-> > allows for more states to be added in the future. This lets us implement
-> > different strategies for handling clocks, including one that mimics the
-> > current API, allowing for multiple calls to prepare() and enable().
-> >
-> > The users (cpufreq.rs/ rcpufreq_dt.rs) were updated by this patch (and not
-> > a separate one) to reflect the new changes. This is needed, because
-> > otherwise this patch would break the build.
-> >
-> > Link: https://crates.io/crates/sealed [1]
-> > Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
-> > ---
-> >  drivers/cpufreq/rcpufreq_dt.rs |   2 +-
-> >  drivers/gpu/drm/tyr/driver.rs  |  31 +---
-> >  drivers/pwm/pwm_th1520.rs      |  17 +-
-> >  rust/kernel/clk.rs             | 399 +++++++++++++++++++++++++++--------------
-> >  rust/kernel/cpufreq.rs         |   8 +-
-> >  5 files changed, 281 insertions(+), 176 deletions(-)
-> >
-> > diff --git a/drivers/cpufreq/rcpufreq_dt.rs b/drivers/cpufreq/rcpufreq_dt.rs
-> > index 31e07f0279db..f1bd7d71ed54 100644
-> > --- a/drivers/cpufreq/rcpufreq_dt.rs
-> > +++ b/drivers/cpufreq/rcpufreq_dt.rs
-> > @@ -41,7 +41,7 @@ struct CPUFreqDTDevice {
-> >      freq_table: opp::FreqTable,
-> >      _mask: CpumaskVar,
-> >      _token: Option<opp::ConfigToken>,
-> > -    _clk: Clk,
-> > +    _clk: Clk<kernel::clk::Unprepared>,
-> >  }
-> >  
-> >  #[derive(Default)]
-> > diff --git a/drivers/gpu/drm/tyr/driver.rs b/drivers/gpu/drm/tyr/driver.rs
-> > index 09711fb7fe0b..5692def25621 100644
-> > --- a/drivers/gpu/drm/tyr/driver.rs
-> > +++ b/drivers/gpu/drm/tyr/driver.rs
-> > @@ -2,7 +2,7 @@
-> >  
-> >  use kernel::c_str;
-> >  use kernel::clk::Clk;
-> > -use kernel::clk::OptionalClk;
-> > +use kernel::clk::Enabled;
-> >  use kernel::device::Bound;
-> >  use kernel::device::Core;
-> >  use kernel::device::Device;
-> > @@ -37,7 +37,7 @@ pub(crate) struct TyrDriver {
-> >      device: ARef<TyrDevice>,
-> >  }
-> >  
-> > -#[pin_data(PinnedDrop)]
-> > +#[pin_data]
-> >  pub(crate) struct TyrData {
-> >      pub(crate) pdev: ARef<platform::Device>,
-> >  
-> > @@ -92,13 +92,9 @@ fn probe(
-> >          pdev: &platform::Device<Core>,
-> >          _info: Option<&Self::IdInfo>,
-> >      ) -> impl PinInit<Self, Error> {
-> > -        let core_clk = Clk::get(pdev.as_ref(), Some(c_str!("core")))?;
-> > -        let stacks_clk = OptionalClk::get(pdev.as_ref(), Some(c_str!("stacks")))?;
-> > -        let coregroup_clk = OptionalClk::get(pdev.as_ref(), Some(c_str!("coregroup")))?;
-> > -
-> > -        core_clk.prepare_enable()?;
-> > -        stacks_clk.prepare_enable()?;
-> > -        coregroup_clk.prepare_enable()?;
-> > +        let core_clk = Clk::<Enabled>::get(pdev.as_ref(), Some(c_str!("core")))?;  
+On Mon, Feb 02, 2026 at 12:38:57AM +0000, Jiakai Xu wrote:
+> The RISC-V SBI Steal-Time Accounting (STA) extension requires the shared
+> memory physical address to be 64-byte aligned, and the shared memory size
+> to be at least 64 bytes.
 > 
-> Ah, more turbofish.. I'd really want to avoid them if possible.
+> KVM exposes the SBI STA shared memory configuration to userspace via
+> KVM_SET_ONE_REG. However, the current implementation of
+> kvm_sbi_ext_sta_set_reg() does not validate the alignment of the configured
+> shared memory address. As a result, userspace can install a misaligned
+> shared memory address that violates the SBI specification.
 > 
-> Any disadvantage on just ask the user to chain `.get().prepare_enable()?`? This
-> way it is also clear that some action is performed.
+> Such an invalid configuration may later reach runtime code paths that
+> assume a valid and properly aligned shared memory region. In particular,
+> KVM_RUN can trigger the following WARN_ON in
+> kvm_riscv_vcpu_record_steal_time():
+> 
+>   WARNING: arch/riscv/kvm/vcpu_sbi_sta.c:49 at
+>   kvm_riscv_vcpu_record_steal_time
+> 
+> WARN_ON paths are not expected to be reachable during normal runtime
+> execution, and may result in a kernel panic when panic_on_warn is enabled.
+> 
+> Fix this by validating the shared memory alignment at the
+> KVM_SET_ONE_REG boundary and rejecting misaligned configurations with
+> -EINVAL. The validation is performed on a temporary computed address and
+> only committed to vcpu->arch.sta.shmem once it is known to be valid, 
+> similar to the existing logic in kvm_sbi_sta_steal_time_set_shmem() and
+> kvm_sbi_ext_sta_handler().
+> 
+> With this change, invalid userspace state is rejected early and cannot
+> reach runtime code paths that rely on the SBI specification invariants.
+> 
+> A reproducer triggering the WARN_ON and the complete kernel log are
+> available at: https://github.com/j1akai/temp/tree/main/20260124
 
-I've just disc
+Any reason not to add these tests to
+tools/testing/selftests/kvm/steal_time.c in the linux repo?
 
 > 
-> Alternatively, I think function names that mimick C API is also fine, e.g.
-> `Clk::get_enabled`.
+> Fixes: f61ce890b1f074 ("RISC-V: KVM: Add support for SBI STA registers")
+> Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+> Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+> ---
+> V4 -> V5: Added parentheses to function name in subject.
+> V3 -> V4: Declared new_shmem at the top of kvm_sbi_ext_sta_set_reg().
+>           Initialized new_shmem to 0 instead of vcpu->arch.sta.shmem.
+>           Added blank lines per review feedback.
+> V2 -> V3: Added parentheses to function name in subject.
+> V1 -> V2: Added Fixes tag.
 > 
-> > +        let stacks_clk = Clk::<Enabled>::get_optional(pdev.as_ref(), Some(c_str!("stacks")))?;
-> > +        let coregroup_clk = Clk::<Enabled>::get_optional(pdev.as_ref(), Some(c_str!("coregroup")))?;
-> >  
-> >          let mali_regulator = Regulator::<regulator::Enabled>::get(pdev.as_ref(), c_str!("mali"))?;
-> >          let sram_regulator = Regulator::<regulator::Enabled>::get(pdev.as_ref(), c_str!("sram"))?;
-> > @@ -145,17 +141,6 @@ impl PinnedDrop for TyrDriver {
-> >      fn drop(self: Pin<&mut Self>) {}
-> >  }
-> >  
-> > -#[pinned_drop]
-> > -impl PinnedDrop for TyrData {
-> > -    fn drop(self: Pin<&mut Self>) {
-> > -        // TODO: the type-state pattern for Clks will fix this.
-> > -        let clks = self.clks.lock();
-> > -        clks.core.disable_unprepare();
-> > -        clks.stacks.disable_unprepare();
-> > -        clks.coregroup.disable_unprepare();
-> > -    }
-> > -}
-> > -
-> >  // We need to retain the name "panthor" to achieve drop-in compatibility with
-> >  // the C driver in the userspace stack.
-> >  const INFO: drm::DriverInfo = drm::DriverInfo {
-> > @@ -181,9 +166,9 @@ impl drm::Driver for TyrDriver {
-> >  
-> >  #[pin_data]
-> >  struct Clocks {
-> > -    core: Clk,
-> > -    stacks: OptionalClk,
-> > -    coregroup: OptionalClk,
-> > +    core: Clk<Enabled>,
-> > +    stacks: Clk<Enabled>,
-> > +    coregroup: Clk<Enabled>,
-> >  }
-> >  
-> >  #[pin_data]
-> > diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
-> > index 043dc4dbc623..f4d03b988533 100644
-> > --- a/drivers/pwm/pwm_th1520.rs
-> > +++ b/drivers/pwm/pwm_th1520.rs
-> > @@ -23,7 +23,7 @@
-> >  use core::ops::Deref;
-> >  use kernel::{
-> >      c_str,
-> > -    clk::Clk,
-> > +    clk::{Clk, Enabled},
-> >      device::{Bound, Core, Device},
-> >      devres,
-> >      io::mem::IoMem,
-> > @@ -90,11 +90,11 @@ struct Th1520WfHw {
-> >  }
-> >  
-> >  /// The driver's private data struct. It holds all necessary devres managed resources.
-> > -#[pin_data(PinnedDrop)]
-> > +#[pin_data]
-> >  struct Th1520PwmDriverData {
-> >      #[pin]
-> >      iomem: devres::Devres<IoMem<TH1520_PWM_REG_SIZE>>,
-> > -    clk: Clk,
-> > +    clk: Clk<Enabled>,
-> >  }
-> >  
-> >  impl pwm::PwmOps for Th1520PwmDriverData {
-> > @@ -299,13 +299,6 @@ fn write_waveform(
-> >      }
-> >  }
-> >  
-> > -#[pinned_drop]
-> > -impl PinnedDrop for Th1520PwmDriverData {
-> > -    fn drop(self: Pin<&mut Self>) {
-> > -        self.clk.disable_unprepare();
-> > -    }
-> > -}
-> > -
-> >  struct Th1520PwmPlatformDriver;
-> >  
-> >  kernel::of_device_table!(
-> > @@ -326,9 +319,7 @@ fn probe(
-> >          let dev = pdev.as_ref();
-> >          let request = pdev.io_request_by_index(0).ok_or(ENODEV)?;
-> >  
-> > -        let clk = Clk::get(dev, None)?;
-> > -
-> > -        clk.prepare_enable()?;
-> > +        let clk = Clk::<Enabled>::get(dev, None)?;
-> >  
-> >          // TODO: Get exclusive ownership of the clock to prevent rate changes.
-> >          // The Rust equivalent of `clk_rate_exclusive_get()` is not yet available.
-> > diff --git a/rust/kernel/clk.rs b/rust/kernel/clk.rs
-> > index d192fbd97861..6323b40dc7ba 100644
-> > --- a/rust/kernel/clk.rs
-> > +++ b/rust/kernel/clk.rs
-> > @@ -80,17 +80,78 @@ fn from(freq: Hertz) -> Self {
-> >  mod common_clk {
-> >      use super::Hertz;
-> >      use crate::{
-> > -        device::Device,
-> > +        device::{Bound, Device},
-> >          error::{from_err_ptr, to_result, Result},
-> >          prelude::*,
-> >      };
-> >  
-> > -    use core::{ops::Deref, ptr};
-> > +    use core::{marker::PhantomData, mem::ManuallyDrop, ptr};
-> > +
-> > +    mod private {
-> > +        pub trait Sealed {}
-> > +
-> > +        impl Sealed for super::Unprepared {}
-> > +        impl Sealed for super::Prepared {}
-> > +        impl Sealed for super::Enabled {}
-> > +    }  
+> ---
+>  arch/riscv/kvm/vcpu_sbi_sta.c | 16 +++++++++++-----
+>  1 file changed, 11 insertions(+), 5 deletions(-)
 > 
-> I guess it's time for me to work on a `#[sealed]` macro...
-> 
-> > +
-> > +    /// A trait representing the different states that a [`Clk`] can be in.
-> > +    pub trait ClkState: private::Sealed {
-> > +        /// Whether the clock should be disabled when dropped.
-> > +        const DISABLE_ON_DROP: bool;
-> > +
-> > +        /// Whether the clock should be unprepared when dropped.
-> > +        const UNPREPARE_ON_DROP: bool;
-> > +    }
-> > +
-> > +    /// A state where the [`Clk`] is not prepared and not enabled.  
-> 
-> Do we want to make it explicit that it's "not known to be prepared or
-> enabled"?
-> 
-> > +    pub struct Unprepared;
-> > +
-> > +    /// A state where the [`Clk`] is prepared but not enabled.
-> > +    pub struct Prepared;
-> > +
-> > +    /// A state where the [`Clk`] is both prepared and enabled.
-> > +    pub struct Enabled;
-> > +
-> > +    impl ClkState for Unprepared {
-> > +        const DISABLE_ON_DROP: bool = false;
-> > +        const UNPREPARE_ON_DROP: bool = false;
-> > +    }
-> > +
-> > +    impl ClkState for Prepared {
-> > +        const DISABLE_ON_DROP: bool = false;
-> > +        const UNPREPARE_ON_DROP: bool = true;
-> > +    }
-> > +
-> > +    impl ClkState for Enabled {
-> > +        const DISABLE_ON_DROP: bool = true;
-> > +        const UNPREPARE_ON_DROP: bool = true;
-> > +    }
-> > +
-> > +    /// An error that can occur when trying to convert a [`Clk`] between states.
-> > +    pub struct Error<State: ClkState> {
-> > +        /// The error that occurred.
-> > +        pub error: kernel::error::Error,
-> > +
-> > +        /// The [`Clk`] that caused the error, so that the operation may be
-> > +        /// retried.
-> > +        pub clk: Clk<State>,
-> > +    }  
-> 
-> I wonder if it makes sense to add a general `ErrorWith` type for errors that
-> carries error code + data.
-> 
-> Best,
-> Gary
+> diff --git a/arch/riscv/kvm/vcpu_sbi_sta.c b/arch/riscv/kvm/vcpu_sbi_sta.c
+> index afa0545c3bcfc..bb13aa8eab7ee 100644
+> --- a/arch/riscv/kvm/vcpu_sbi_sta.c
+> +++ b/arch/riscv/kvm/vcpu_sbi_sta.c
+> @@ -181,6 +181,7 @@ static int kvm_sbi_ext_sta_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
+>  				   unsigned long reg_size, const void *reg_val)
+>  {
+>  	unsigned long value;
+> +	gpa_t new_shmem = 0;
 
+Sorry I missed this on my first review, but new_shmem should be
+initialized to INVALID_GPA, since zero is a valid gpa.
+
+>  
+>  	if (reg_size != sizeof(unsigned long))
+>  		return -EINVAL;
+> @@ -191,18 +192,18 @@ static int kvm_sbi_ext_sta_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
+>  		if (IS_ENABLED(CONFIG_32BIT)) {
+>  			gpa_t hi = upper_32_bits(vcpu->arch.sta.shmem);
+>  
+> -			vcpu->arch.sta.shmem = value;
+> -			vcpu->arch.sta.shmem |= hi << 32;
+> +			new_shmem = value;
+> +			new_shmem |= hi << 32;
+>  		} else {
+> -			vcpu->arch.sta.shmem = value;
+> +			new_shmem = value;
+>  		}
+>  		break;
+>  	case KVM_REG_RISCV_SBI_STA_REG(shmem_hi):
+>  		if (IS_ENABLED(CONFIG_32BIT)) {
+>  			gpa_t lo = lower_32_bits(vcpu->arch.sta.shmem);
+>  
+> -			vcpu->arch.sta.shmem = ((gpa_t)value << 32);
+> -			vcpu->arch.sta.shmem |= lo;
+> +			new_shmem = ((gpa_t)value << 32);
+> +			new_shmem |= lo;
+>  		} else if (value != 0) {
+>  			return -EINVAL;
+>  		}
+> @@ -211,6 +212,11 @@ static int kvm_sbi_ext_sta_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
+>  		return -ENOENT;
+>  	}
+>  
+> +	if (new_shmem && !IS_ALIGNED(new_shmem, 64))
+
+And then here check 'new_shmem != INVALID_GPA' since we want to allow the
+user to set the "disabled shared memory" value (all-ones). Indeed our
+testing should confirm that the value is either all-ones (disabled) or a
+64-byte aligned address.
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
