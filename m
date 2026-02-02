@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1ECAE7DEF5
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 15:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97739E7DEFC
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 15:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3d8v7jAeE/oXSSo6XFxJHaNPupNxsYSJ3GcSJ2Axzw0=; b=kFE9lflOAxfGW0
-	Jdel39ZgDK+QOSr9EncjZISbwkBs8SE8/Fg8ds5tjshUsOyOM1ESk8x3NYspb0+4EuH4T3IffFlj2
-	97oasjSgtQmXpuwzFZYTSbc0g7HFaLGndo/qXrJ2svmXsmLIwcGbGD3gmAQAgjYfZ1eCBUG0yBsPE
-	aKpfQ3Ruo+Y2SOEJuvaFEIk4Er4vctfr8LvoCwzUbBuB/H8HCDMYb0wTMEpwFD476Se3AAMu6/gHJ
-	SBS34lelhDyW+2xCj8KpZtbJPAkeX5Y29mVofZh3CB4HCAsfLkeY7Bxihi+QyFdqJx5h/ca6Rhp5Z
-	OLAgzuXEswo/vVsACxcg==;
+	List-Owner; bh=W4ulQqxgn3SSFGWgo1fKe+hJPYO4I4bcD3hNyNal0nk=; b=AzYkHkWIjnhIYR
+	WXYJ8AJUnNEG0KMvz9Mzp5pyunDYjyayP9f2BxUpJnU2HA79X5mAzmOW2mqCL6vr3XrLf40+Jami1
+	/vMaqwgVHZuFLgfpcKH2Py7mkYaW6kw1VACqzlD0zIh/NOVml0n4e6PBOD0tpIesCCa+RS9+MuArp
+	x3WOAHZ8i+ca1DkfOqz2ikmGvI2TsFD8rTc28VSlHmRar9sbWS2PDNbPyBeEaOjS3WsphMvaOeEuq
+	48fCg+URO+dSML9wEeWDxwvxSuvl6IrrMc4HAhaQwTtx4ihYPAkeqX+ESy8/z2oX346ltGz05sg4d
+	G5g/paZIYSt4dw1kwObg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwIk-00000005E7r-2Ego;
-	Mon, 02 Feb 2026 15:57:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vmwIm-00000005E9N-1FZd;
+	Mon, 02 Feb 2026 15:57:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwIJ-00000005E4Z-2A8n
+	id 1vmwIi-00000005E6G-0P2F
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Feb 2026 15:57:00 +0000
+	Mon, 02 Feb 2026 15:57:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9B062600C3;
-	Mon,  2 Feb 2026 15:56:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BC0DC116C6;
-	Mon,  2 Feb 2026 15:56:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C4C0643512;
+	Mon,  2 Feb 2026 15:57:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 128AEC116C6;
+	Mon,  2 Feb 2026 15:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770047814;
-	bh=AAnIadXhZxE/xw6Xd6felYchHz0PQHYO69+c3YSZCe8=;
+	s=k20201202; t=1770047839;
+	bh=IBF8LKGHv8lxiBFV8UfHPvSAlGIc6Qys2WBMHwwJVg4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cyAud1ljBhU6hXVMYDuVxG9jpcACY1UME5nIPj2OUK9lRFYLHCmmmrsNlbGkeCbfm
-	 L/0gx7mFeuS4G+R+wOuOcOZ386rqEeUXARPZWbm4zopq717llMrBlIbt+IwSpg6AYS
-	 bm0tLcnAvm/fAoaP1fzSO+D1jIT7hAjq29SUViMThOJEztAS8CVbySpTChJ4ZzjySw
-	 1DSTAUtZxr5PHmfZNPmX8k0WBhbHtsQVtyrfon657htolbTRaKlQS0Xj0TFVlYuPTK
-	 KaEv3Wc+OrCI1rDcoKHApgX8gPcTH8/IEqtJLHxTHlrCGQR8iPNc+7ufwWvpm6AxWL
-	 +T0D0gALHV6TA==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 9B01DF40069;
-	Mon,  2 Feb 2026 10:56:52 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-01.internal (MEProxy); Mon, 02 Feb 2026 10:56:52 -0500
-X-ME-Sender: <xms:RMmAaZ4vhPcb7sP9kiqfqIfDeldi64XfuBJEfPgmBT2rfX7sce7y_w>
-    <xme:RMmAaXAawH3yQ9DHeaMzL84__JhTR_tp1bUCZ8idXndy1RCiA0m4pBgLTGnz-704-
-    63Fby9_qHmipplMmmSngzNP8hY034nn79uxXXrG3AtFZQdOOJJB7mc>
-X-ME-Received: <xmr:RMmAaeQ_opyOhrKK5LcaKh-LhRC-K3O42p1t_cRN7Ey16kaH5ktBdxOuKOZukg>
+	b=YuVzolUxox1f5GDWOA8CVHMmtNtR8rH56CE799gR/LBfgxNTQE4DS7AzSZ05rBRWc
+	 FnPse+uKdKjUnE+dIg2WDGrAWi/DxQyNqRQWnVunXN1EQZ0s+l+VLBWznFXBq7FRtT
+	 2kLH+J41Lw+8XmHoO8pYl/kmQCiGHNECurCynDzjvYqd0jfAMqj0+rIDcD3/XTp9qN
+	 47jsB7V7iAH2Z2sWcSbM12x2hkw6jF6ysOVcj7VilqhwFryfXkl/hYvYBV/pqe5XOM
+	 V6I4WeWBkYYa/9pdpYNKkE5dwOOWz7J7plXl/u0mUpblatGhNNyZ0cKj7TlsLEOboH
+	 w5M6fqyvPoheQ==
+Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 3A677F40069;
+	Mon,  2 Feb 2026 10:57:18 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-11.internal (MEProxy); Mon, 02 Feb 2026 10:57:18 -0500
+X-ME-Sender: <xms:XsmAaZ8N7sRBFacFfLWK13Ue8N6iCEOIUyBKkoBm6B2qEy29XeyjOw>
+    <xme:XsmAaW6w3XnKVDwrmP53pkBrzNH0kPwGD5djm1jP2l7fNlkeuljlmSeLiBvQAj-RN
+    8kH9vKV4uxnghg8HFB3jlFUYqPtQks8jEFXDDwq4FCcKvaY2eork5Q>
+X-ME-Received: <xmr:XsmAaRLU_Bb7pbehAr9C94xhE2TepA20ZmiTQxko2AWD3GSzOCpgqmFs7GwENw>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddujeektdehucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
@@ -60,7 +60,7 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddujeektdehucetufdote
     necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepkhhirh
     hilhhlodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieduudeivdeiheeh
     qddvkeeggeegjedvkedqkhgrsheppehkvghrnhgvlhdrohhrghesshhhuhhtvghmohhvrd
-    hnrghmvgdpnhgspghrtghpthhtohepvdelpdhmohguvgepshhmthhpohhuthdprhgtphht
+    hnrghmvgdpnhgspghrtghpthhtohepvdekpdhmohguvgepshhmthhpohhuthdprhgtphht
     thhopegrkhhpmheslhhinhhugidqfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoh
     epmhhutghhuhhnrdhsohhngheslhhinhhugidruggvvhdprhgtphhtthhopegurghvihgu
     sehrvgguhhgrthdrtghomhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrggurd
@@ -68,14 +68,14 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddujeektdehucetufdote
     tghpthhtohepfhhvughlsehgohhoghhlvgdrtghomhdprhgtphhtthhopehoshgrlhhvrg
     guohhrsehsuhhsvgdruggvpdhrtghpthhtoheprhhpphhtsehkvghrnhgvlhdrohhrghdp
     rhgtphhtthhopehvsggrsghkrgesshhushgvrdgtii
-X-ME-Proxy: <xmx:RMmAaWZLoagEu_EMnI49bcGxRGAdZaG8l_6ThTEYNgMMdQ4wmmy4_g>
-    <xmx:RMmAabVsjAZGaVKFtdctyHi3-UAOPG9NZjEAP19kfOb1GIfovn5g4A>
-    <xmx:RMmAabXa1s9AOlNx0H34Q6mvchAeSh5pzWdxFOODTaj3SsNsnnYvWg>
-    <xmx:RMmAaV_jR_-BLSFrPptejodkRwpJXcXTZM7wmigOvJreB9qRbo0L3Q>
-    <xmx:RMmAaQorCj8SrIygf8oG6HXC5NCW7lCS1vAPY5UoutPQDbm8B8i3Q594>
+X-ME-Proxy: <xmx:XsmAaeXK6Ulq9xSuV1Fe1W8lKZh40n4Vh18Lo85oJ_aa2SVlvjb54g>
+    <xmx:XsmAaaILrAokZPLEJ-okksvlwcJuSj8xqBbLN0QhXKUlCSW46L9tsQ>
+    <xmx:XsmAabwDWM_7ZNYuh_qbv3zxFwhpPd5c34plUfYXwu-4cyfF_I905Q>
+    <xmx:XsmAaeLmiQHe6CStLnXUwh9Uqg-GtVdOxvC7Bg5bVtH0QBE9Tnc6ow>
+    <xmx:XsmAaWQ6hs_dYIYE26JrtJqW2_VAoQXXbs2kAZJYabhvNwhdxfNQYcq->
 Feedback-ID: i10464835:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 2 Feb 2026 10:56:50 -0500 (EST)
+ 2 Feb 2026 10:57:15 -0500 (EST)
 From: Kiryl Shutsemau <kas@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	Muchun Song <muchun.song@linux.dev>,
@@ -104,15 +104,18 @@ Cc: Oscar Salvador <osalvador@suse.de>,
 	linux-doc@vger.kernel.org,
 	loongarch@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
-	Kiryl Shutsemau <kas@kernel.org>,
-	"David Hildenbrand (Red Hat)" <david@kernel.org>
-Subject: [PATCHv6 01/17] mm: Move MAX_FOLIO_ORDER definition to mmzone.h
-Date: Mon,  2 Feb 2026 15:56:17 +0000
-Message-ID: <20260202155634.650837-2-kas@kernel.org>
+	Kiryl Shutsemau <kas@kernel.org>
+Subject: [PATCHv6 04/17] mm: Move set/clear_compound_head() next to compound_head()
+Date: Mon,  2 Feb 2026 15:56:20 +0000
+Message-ID: <20260202155634.650837-5-kas@kernel.org>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20260202155634.650837-1-kas@kernel.org>
 References: <20260202155634.650837-1-kas@kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260202_075721_733199_06644AB4 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,118 +132,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move MAX_FOLIO_ORDER definition from mm.h to mmzone.h.
+Move set_compound_head() and clear_compound_head() to be adjacent to the
+compound_head() function in page-flags.h.
 
-This is preparation for adding the vmemmap_tails array to struct
-pglist_data, which requires MAX_FOLIO_ORDER to be available in mmzone.h.
+These functions encode and decode the same compound_info field, so
+keeping them together makes it easier to verify their logic is
+consistent, especially when the encoding changes.
 
 Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
-Acked-by: David Hildenbrand (Red Hat) <david@kernel.org>
-Acked-by: Zi Yan <ziy@nvidia.com>
-Acked-by: Muchun Song <muchun.song@linux.dev>
+Reviewed-by: Muchun Song <muchun.song@linux.dev>
+Reviewed-by: Zi Yan <ziy@nvidia.com>
 ---
- include/linux/mm.h     | 31 -------------------------------
- include/linux/mmzone.h | 31 +++++++++++++++++++++++++++++++
- 2 files changed, 31 insertions(+), 31 deletions(-)
+ include/linux/page-flags.h | 24 ++++++++++++------------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index f8a8fd47399c..8d5fa655fea4 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -27,7 +27,6 @@
- #include <linux/page-flags.h>
- #include <linux/page_ref.h>
- #include <linux/overflow.h>
--#include <linux/sizes.h>
- #include <linux/sched.h>
- #include <linux/pgtable.h>
- #include <linux/kasan.h>
-@@ -2477,36 +2476,6 @@ static inline unsigned long folio_nr_pages(const struct folio *folio)
- 	return folio_large_nr_pages(folio);
+diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
+index aa46d49e82f7..d14a17ffb55b 100644
+--- a/include/linux/page-flags.h
++++ b/include/linux/page-flags.h
+@@ -290,6 +290,18 @@ static __always_inline unsigned long _compound_head(const struct page *page)
+ 
+ #define compound_head(page)	((typeof(page))_compound_head(page))
+ 
++static __always_inline void set_compound_head(struct page *page,
++					      const struct page *head,
++					      unsigned int order)
++{
++	WRITE_ONCE(page->compound_info, (unsigned long)head + 1);
++}
++
++static __always_inline void clear_compound_head(struct page *page)
++{
++	WRITE_ONCE(page->compound_info, 0);
++}
++
+ /**
+  * page_folio - Converts from page to folio.
+  * @p: The page.
+@@ -865,18 +877,6 @@ static inline bool folio_test_large(const struct folio *folio)
+ 	return folio_test_head(folio);
  }
  
--#if !defined(CONFIG_HAVE_GIGANTIC_FOLIOS)
--/*
-- * We don't expect any folios that exceed buddy sizes (and consequently
-- * memory sections).
-- */
--#define MAX_FOLIO_ORDER		MAX_PAGE_ORDER
--#elif defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
--/*
-- * Only pages within a single memory section are guaranteed to be
-- * contiguous. By limiting folios to a single memory section, all folio
-- * pages are guaranteed to be contiguous.
-- */
--#define MAX_FOLIO_ORDER		PFN_SECTION_SHIFT
--#elif defined(CONFIG_HUGETLB_PAGE)
--/*
-- * There is no real limit on the folio size. We limit them to the maximum we
-- * currently expect (see CONFIG_HAVE_GIGANTIC_FOLIOS): with hugetlb, we expect
-- * no folios larger than 16 GiB on 64bit and 1 GiB on 32bit.
-- */
--#define MAX_FOLIO_ORDER		get_order(IS_ENABLED(CONFIG_64BIT) ? SZ_16G : SZ_1G)
--#else
--/*
-- * Without hugetlb, gigantic folios that are bigger than a single PUD are
-- * currently impossible.
-- */
--#define MAX_FOLIO_ORDER		PUD_ORDER
--#endif
+-static __always_inline void set_compound_head(struct page *page,
+-					      const struct page *head,
+-					      unsigned int order)
+-{
+-	WRITE_ONCE(page->compound_info, (unsigned long)head + 1);
+-}
 -
--#define MAX_FOLIO_NR_PAGES	(1UL << MAX_FOLIO_ORDER)
+-static __always_inline void clear_compound_head(struct page *page)
+-{
+-	WRITE_ONCE(page->compound_info, 0);
+-}
 -
- /*
-  * compound_nr() returns the number of pages in this potentially compound
-  * page.  compound_nr() can be called on a tail page, and is defined to
-diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
-index 3e51190a55e4..be8ce40b5638 100644
---- a/include/linux/mmzone.h
-+++ b/include/linux/mmzone.h
-@@ -23,6 +23,7 @@
- #include <linux/page-flags.h>
- #include <linux/local_lock.h>
- #include <linux/zswap.h>
-+#include <linux/sizes.h>
- #include <asm/page.h>
- 
- /* Free memory management - zoned buddy allocator.  */
-@@ -61,6 +62,36 @@
-  */
- #define PAGE_ALLOC_COSTLY_ORDER 3
- 
-+#if !defined(CONFIG_HAVE_GIGANTIC_FOLIOS)
-+/*
-+ * We don't expect any folios that exceed buddy sizes (and consequently
-+ * memory sections).
-+ */
-+#define MAX_FOLIO_ORDER		MAX_PAGE_ORDER
-+#elif defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
-+/*
-+ * Only pages within a single memory section are guaranteed to be
-+ * contiguous. By limiting folios to a single memory section, all folio
-+ * pages are guaranteed to be contiguous.
-+ */
-+#define MAX_FOLIO_ORDER		PFN_SECTION_SHIFT
-+#elif defined(CONFIG_HUGETLB_PAGE)
-+/*
-+ * There is no real limit on the folio size. We limit them to the maximum we
-+ * currently expect (see CONFIG_HAVE_GIGANTIC_FOLIOS): with hugetlb, we expect
-+ * no folios larger than 16 GiB on 64bit and 1 GiB on 32bit.
-+ */
-+#define MAX_FOLIO_ORDER		get_order(IS_ENABLED(CONFIG_64BIT) ? SZ_16G : SZ_1G)
-+#else
-+/*
-+ * Without hugetlb, gigantic folios that are bigger than a single PUD are
-+ * currently impossible.
-+ */
-+#define MAX_FOLIO_ORDER		PUD_ORDER
-+#endif
-+
-+#define MAX_FOLIO_NR_PAGES	(1UL << MAX_FOLIO_ORDER)
-+
- enum migratetype {
- 	MIGRATE_UNMOVABLE,
- 	MIGRATE_MOVABLE,
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+ static inline void ClearPageCompound(struct page *page)
+ {
 -- 
 2.51.2
 
