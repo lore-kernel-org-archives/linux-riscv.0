@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB358E7FDC2
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 19:47:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81D4BE7FDC3
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 19:47:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=eYhRDvFydzgcOoJk95pLgbPb7AsF3f6NWoPtZCzgkBY=; b=bimjjTOPKG7wcX
-	Vy5pxWIwCf5m8rf9Lwvs1h9MmLRT1gJGlElQv5ELzpRoNh4GCvHVszDh78m4Yk0qV8M8BiS5Gy9KY
-	JbyT5ov2X8ClTfdO0PFFGsBHH5iV2OaSXVy6i/ZwP0OwlQhsaAKZHQSTOEbrw7ol8v0pgenm36/Nn
-	6M6DxQm2MnAop10OTJ6lV+G5ygCzilo2itd6loGWQ17LDF23RVNsyFNJ6QzyE+0x3xxe0aWB0h3Ry
-	Oefx2xFTxFSG58r/CIRs6UW1/9QPogcV+1BZK3p4YlSPLyb68P80iTxcviJ3slJlOheQziQsNCSxT
-	DWQHcyFo0GGR2GF15u0g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uiRNOywTAAW/BnfkUmJdc69jwSazB0jl85pqwWyEWZ8=; b=BF1SCyWPXgvnJy
+	jwPJlpJa3XpmHNp40FeXgvc4pc6iyUeuZbftanmCk8yr/iVdiG80DIKFGakvS4gr25lXpfuieYMFl
+	8D/XXy8gly+655Hozb8U7MfECZmJz0D5ru2DpiJUzNiaUf0rBH/CFObEwpt60sQuIpBTWn3qYzqv5
+	/srBp9/utbmChpSg5YlHnX8n23N3aEboz8doq+Dm3hpvd5G17Ezx9r9j8TyLmjw+BZE7FtelQP2oS
+	/Pzs3ZYaUTjo51RnHpd/ztAKC6fWSG1yJboWZ97m8M9PBO7WuT+ev+5LoWO/qKxMlrPJEHDXI7fvD
+	Xf2iaOCo44eBXnonThIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmzsz-00000005YJ2-2g7H;
-	Mon, 02 Feb 2026 19:47:01 +0000
-Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
+	id 1vmzt4-00000005YLU-2QFp;
+	Mon, 02 Feb 2026 19:47:06 +0000
+Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmzsx-00000005YIA-1dVw
+	id 1vmzt2-00000005YJh-0Uj6
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Feb 2026 19:47:00 +0000
-Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-794ed669269so1857267b3.1
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Feb 2026 11:46:58 -0800 (PST)
+	Mon, 02 Feb 2026 19:47:05 +0000
+Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-794d05dbe22so15932607b3.3
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Feb 2026 11:47:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1770061618; x=1770666418; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=u82dPfWkZFveIydXJfE5pfWEOGw2ni/TqG+rcgpwY6Q=;
-        b=HoxAxBEPICuJQ1nQOw4P3Cw3GfEG5MinQbjavRm8T09Sxek1Hl/AoR1hVfRaI/U6Zn
-         G7fpZqaqZaVJzpBVCDsgFPFTts+t7LAec+PCH7BSX948rlYdMCM5tke8yGp+xZbX3nUw
-         TuQz/9TFarPkuNVUO6rXfUdW/Blorm7QkxTJ+WpKWjawe9094i1y3uSDOYux4aeyisSh
-         aOMSJ3KRzvsSJiM1M91YV1UNGSozRNiVOdJqGj4J9r9/GZjEITFFzPJgBZbJJxuHKAJT
-         U0AMQIePYpm5RWW0wlYhJRVnr9ERqV3shDQRJgilJSEAIgkgAksU4ICTlFfO1VACzwEv
-         Do9A==
+        d=tenstorrent.com; s=google; t=1770061623; x=1770666423; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ftZMefrk0BVCRCKouNmAQmq50B2WuVNAS+bBDDwfxOI=;
+        b=GeXNY4zMsTQ+UFLj9mj3e8mLGJ9wpZo9gRoolRCtD0IAgV1wxAVxvUB0OI0IwHsbzb
+         weMEy1TxGVeDA5ugFhR8aMskQpN7qeQY48pfR8a4pUkoyNYMK44eNhB0cXNeI28X7vOb
+         Tay6TR2/wpvg9JXRD8/C2GmOkd6+FpI4GhuYBKHc2pDn5CADSdXvbI8HLvHeLxQDN554
+         hML2/7XMQIZfJFF4WhfWg8wKNXob1UOWx4hQxX546bKzni2+huWpCWcHrgFXeJdmB4aH
+         cB5291uDSLWZhNuKeCobqnVOdh4VY1jvR9joArh6Y5O+e1IQDS8Fmln/YI1D4gkS0psE
+         L5Qw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770061618; x=1770666418;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=u82dPfWkZFveIydXJfE5pfWEOGw2ni/TqG+rcgpwY6Q=;
-        b=XiiXio3mHBKAJO8976YA7BLuH7MB8H1l//tDTQ45JierCRwmTo6THUamDvQbP5znym
-         kZqZcvimOUHExnK7P6oWgVn+VG1spl8evudXl/5kLX2kpb8o7xT9mxIUrxSJkZSGlyLe
-         D23m9H1R3cD8ujRvBU/7okB++5dKqG9k+nYQG43aU1rO21hS1ng6PATpsx1eO8T5ZMnl
-         0QuQhXp0AHhPlxdZ+FYoWXBY+Mf0sJ8lUc3ku/W5pIzBiNDHAYS6vqVwoiqlekBKvyqt
-         lsrPwmfoyoU8yJv/0sA5PkaNkDVmGcZfW+NwNuNOm2bKlxt5DGelEYP/8S3qks22jHbo
-         oibQ==
-X-Gm-Message-State: AOJu0Yy5zIxXl3Bpk70PD6Ef1HdMORcLJcy2KoBoBzEpHTil031To++a
-	5AlJJQnjvHANJn4E93UFqitr+h2AbKFFlRyG4JVkgz6djmVIIk5WZG+6rCA78J4yt0U=
-X-Gm-Gg: AZuq6aJDG3swB3V9LbVugiiy6p1w0/9AYPiHy2gcjxvibNOrFsK6CbceShLHKeiin1M
-	IuXSSmBpXOUe6kFf7C3HJQLmb1H/tD8ZsoJ86pp/7mnelS40D8qzKkMGAN4C3ARn3s2RwVS54o2
-	eUqFfPyFS80sufx4sWigPHpR4FiwyTmLIEIIV6UIxZxOZp8MZ3FsGi//XhLErVZvIiJXZE+sxG/
-	WN5CnDc2BB3dvJCYzzAsljS8xifH2pdqOC2RPHXnlYqZFxF6Y6JTX7dgm7ksowtlHodR2i847Uq
-	tg/RDarWNTiuThgO+2JbTSVbv0e3/MZfVQddDiIk40LM/zpqewuBSkxJW8OHD6jCN04gXbvnZLm
-	+yv/GTqvVs2DQJh5ICkO6a8MKZ64c5WxgDO/N6Ku0z5s3WRpmMY4gF/2cXhWuZuGAJpuYeZ9Nuu
-	vuEGm2/xgTodxJf0EZzi7JMfOOFyXuweDrczGjyeDsb8S77HqvxRPq6lmKf2KiW4WqVk2lWEb2
-X-Received: by 2002:a81:b813:0:b0:794:bc47:df1 with SMTP id 00721157ae682-794ecdcb28fmr4723137b3.22.1770061617857;
-        Mon, 02 Feb 2026 11:46:57 -0800 (PST)
+        d=1e100.net; s=20230601; t=1770061623; x=1770666423;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=ftZMefrk0BVCRCKouNmAQmq50B2WuVNAS+bBDDwfxOI=;
+        b=BmVdcMUiYinum42buIfJ7efYDj2+4JpKT7Yd8hU+vtvTqqvV7K+3aWZv5rE5/GFCNE
+         oYxNebll2/M2PG+BulIz3sG4DJrKbAzEf5f7Uoy8GbSpG9pZeuZu59gAX6FfbceUgs0H
+         jP5yTol85lBBZ8iNp9Wo0TXcRcwKHcw1vtbIX2TshmtIPCNmKYJyYGhEbZO1S5sq7CkG
+         RYl53Q0CvEztJuLyBhoew1TYV+1iRLgDgnt4wHrzzzeVIQe6JVSC9SuwtCjVGHzjdb5D
+         9MerYmGoOOey4oTKh+J/me6iroMop872TqPlsJAqqve18teYvzq8M45FlqvNvinIGX6w
+         5NkA==
+X-Gm-Message-State: AOJu0Yx2tMJqhGUWTvwGzeK9CbQwRWUev3c9P4hxn0/7MIvbz0WEYajx
+	6KKNqFG96CLmbxoFNXnzioeO7rt8hzmTCz6e/WKi7afZqiAvz21ApMfnK0rz5j9XmGQ=
+X-Gm-Gg: AZuq6aIYQ8JOsO6U31oXP5kgXCdNe58ptAEwGL2Mwimc26p+l0xJAWE/wz+DHfhnXgI
+	aAdk9SfSPlnU+ev936EYdWcD7mnpbmw5g/BImSsj9ts2Vztu/T0w2/HWXCjIFPccOvWVWPyKkVr
+	0+iCk58Of2sadVNuVtxDqRThhFUXKp27TFL87VfVyIAjaPH9+aiwSkFnZF5fUXhyHJIBlNkXmgS
+	6ETSTbe9LtyUKevGyaDLe9pIiMTWX10EqRKQlNC/LTV+SWztgxHSYZyafOe9JG51Wu41KMecThy
+	NBHS5rZADWBDck0GvScWjyCt5IkLr5/eAqIC8dveZZdsy3VMEy/cLBYUq/7fz5E4YbhjwopPiyq
+	D1fAhd338Jc22f+Mft5RB//1o86uDVCOJxqkclN+37TvbaKwVTnI9CskneRgsG8CDGPQXcY3bSg
+	iGAgD/HoG9YErY603JmQmH4Gb1EzUU8tN0NqJsEtxNRYTEk2oIgaXPkr5du+nbnDj3n+0loAS/b
+	/BwQdjPFW8=
+X-Received: by 2002:a05:690c:10d:b0:78c:68f3:1ac3 with SMTP id 00721157ae682-7949dfa88fdmr104211957b3.32.1770061622724;
+        Mon, 02 Feb 2026 11:47:02 -0800 (PST)
 Received: from [192.168.5.15] ([50.231.163.162])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-794cd7241c0sm39493667b3.24.2026.02.02.11.46.56
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-794cd7241c0sm39493667b3.24.2026.02.02.11.47.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Feb 2026 11:46:57 -0800 (PST)
+        Mon, 02 Feb 2026 11:47:02 -0800 (PST)
 From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Subject: [PATCH v5 0/3] Add Tenstorrent Atlantis Clock/Reset Controller
-Date: Mon, 02 Feb 2026 13:46:48 -0600
-Message-Id: <20260202-atlantis-clocks-v5-0-0922e43acaba@oss.tenstorrent.com>
+Date: Mon, 02 Feb 2026 13:46:51 -0600
+Subject: [PATCH v5 3/3] clk: tenstorrent: Add Atlantis clock controller
+ driver
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIACj/gGkC/3XOwWrDMAyA4VcpPtfFkmOl2WnvMXpIHGU1a+1hG
- 9NR8u5zCoVA2uMv0CfdReLoOImP3V1ELi654GuY/U7Yc++/WbqxtkCFpABQ9vnS++yStJdgf5K
- cVKcsdGo40ijq1m/kyd0e4tep9tmlHOLf40CBZfq0zMYqIJVstSGmFiY8Dp8hpUNmvxCRfT7Yc
- BWLWnAl4farglWyRLoF0h0TvZf0WqKtpKs0KCDQxhgY2vdSs5K02kpNlRoa2eBosMPmtTTP8z8
- Q+nFelgEAAA==
-X-Change-ID: 20260112-atlantis-clocks-f090c190b86d
+Message-Id: <20260202-atlantis-clocks-v5-3-0922e43acaba@oss.tenstorrent.com>
+References: <20260202-atlantis-clocks-v5-0-0922e43acaba@oss.tenstorrent.com>
+In-Reply-To: <20260202-atlantis-clocks-v5-0-0922e43acaba@oss.tenstorrent.com>
 To: Drew Fustini <dfustini@oss.tenstorrent.com>, 
  Joel Stanley <jms@oss.tenstorrent.com>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -93,8 +92,8 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  bmasney@redhat.com
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_114659_457262_3D6B1280 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20260202_114704_284355_DC2F9255 
+X-CRM114-Status: GOOD (  21.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,78 +110,1092 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds support for a multifunctional register block
-called PRCM in the Tenstorrent Atlantis SoC, whose main functionality
-is to serve clocks and resets. This block is instantiated multiple
-times in the SoC, with each block covering clock/resets from a
-different subsystem. This series also adds a driver that covers clocks
-and resets from the RCPU subsystem, which covers most low speed IO
-interfaces found in the chip. The reset controller is implemented as
-an auxiliary device of the clock controller and shares the same regmap
-as it.
+Add driver for clock controller in Tenstorrent Atlantis SoC. This version
+of the driver coves clocks from RCPU syscon.
 
-The first commit adds bindings documenting the PRCM block, along with
-clock and reset indices. The second commit adds the reset controller
-driver along with the auxdev definitions needed for it. The third commit
-adds the clock controller driver, and the reset controller is created as
-an auxdev of it.
+5 types of clocks generated by this controller: PLLs (PLLs
+with bypass functionality and an additional Gate clk at output), Shared
+Gates (Multiple Gate clks that share an enable bit), standard Muxes,
+Dividers and Gates. All clocks are implemented using custom clk ops and
+use the regmap interface associated with the syscon. All clocks are derived
+from a 24 Mhz oscillator.
+
+The reset controller is also setup as an auxiliary device of the clock
+controller.
 
 Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-
 ---
-Changes in v5:
-- Replaced to_atlantis_*/hw_to_atlantis_* macros with static inline functions in clk and reset driver
-- Add Rb tags from Philipp Zabel
-- Link to v4: https://lore.kernel.org/r/20260130-atlantis-clocks-v4-0-46de52d52924@oss.tenstorrent.com
+ MAINTAINERS                             |   1 +
+ drivers/clk/Kconfig                     |   1 +
+ drivers/clk/Makefile                    |   1 +
+ drivers/clk/tenstorrent/Kconfig         |  14 +
+ drivers/clk/tenstorrent/Makefile        |   3 +
+ drivers/clk/tenstorrent/atlantis-prcm.c | 945 ++++++++++++++++++++++++++++++++
+ include/soc/tenstorrent/atlantis-prcm.h |  27 +
+ 7 files changed, 992 insertions(+)
 
-Changes in v4:
-- Dropped !rcpu prcms and custom property used by them. Will be added
-  later with rest of clock tree
-- Link to v3: https://lore.kernel.org/r/20260126-atlantis-clocks-v3-0-b016135551b7@oss.tenstorrent.com
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 0cde1774567d..85465fe3eeee 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22537,6 +22537,7 @@ T:	git https://github.com/tenstorrent/linux.git
+ F:	Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm.yaml
+ F:	Documentation/devicetree/bindings/riscv/tenstorrent.yaml
+ F:	arch/riscv/boot/dts/tenstorrent/
++F:	drivers/clk/tenstorrent/
+ F:	drivers/reset/reset-tenstorrent-atlantis.c
+ F:	include/dt-bindings/clock/tenstorrent,atlantis-prcm.h
+ F:	include/soc/tenstorrent/
+diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+index 3a1611008e48..643084887257 100644
+--- a/drivers/clk/Kconfig
++++ b/drivers/clk/Kconfig
+@@ -542,6 +542,7 @@ source "drivers/clk/starfive/Kconfig"
+ source "drivers/clk/sunxi/Kconfig"
+ source "drivers/clk/sunxi-ng/Kconfig"
+ source "drivers/clk/tegra/Kconfig"
++source "drivers/clk/tenstorrent/Kconfig"
+ source "drivers/clk/thead/Kconfig"
+ source "drivers/clk/stm32/Kconfig"
+ source "drivers/clk/ti/Kconfig"
+diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+index 61ec08404442..f88c116d315f 100644
+--- a/drivers/clk/Makefile
++++ b/drivers/clk/Makefile
+@@ -156,6 +156,7 @@ obj-y					+= starfive/
+ obj-$(CONFIG_ARCH_SUNXI)		+= sunxi/
+ obj-y					+= sunxi-ng/
+ obj-$(CONFIG_ARCH_TEGRA)		+= tegra/
++obj-y					+= tenstorrent/
+ obj-$(CONFIG_ARCH_THEAD)		+= thead/
+ obj-y					+= ti/
+ obj-$(CONFIG_CLK_UNIPHIER)		+= uniphier/
+diff --git a/drivers/clk/tenstorrent/Kconfig b/drivers/clk/tenstorrent/Kconfig
+new file mode 100644
+index 000000000000..9d4391eeeae0
+--- /dev/null
++++ b/drivers/clk/tenstorrent/Kconfig
+@@ -0,0 +1,14 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++config TENSTORRENT_ATLANTIS_PRCM
++	tristate "Support for Tenstorrent Atlantis PRCM Clock Controller"
++	depends on ARCH_TENSTORRENT || COMPILE_TEST
++	default ARCH_TENSTORRENT
++	select REGMAP_MMIO
++	select AUXILIARY_BUS
++	select MFD_SYSCON
++	help
++	  Say yes here to support the different clock
++	  controllers found in the Tenstorrent Atlantis SoC.
++	  This includes the clocks from the RCPU, HSIO, MMIO
++	  and PCIE domain.
+diff --git a/drivers/clk/tenstorrent/Makefile b/drivers/clk/tenstorrent/Makefile
+new file mode 100644
+index 000000000000..95d87bac7bf5
+--- /dev/null
++++ b/drivers/clk/tenstorrent/Makefile
+@@ -0,0 +1,3 @@
++# SPDX-License-Identifier: GPL-2.0
++
++obj-$(CONFIG_TENSTORRENT_ATLANTIS_PRCM)	+= atlantis-prcm.o
+diff --git a/drivers/clk/tenstorrent/atlantis-prcm.c b/drivers/clk/tenstorrent/atlantis-prcm.c
+new file mode 100644
+index 000000000000..839e874a3a2e
+--- /dev/null
++++ b/drivers/clk/tenstorrent/atlantis-prcm.c
+@@ -0,0 +1,945 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Tenstorrent Atlantis PRCM Clock Driver
++ *
++ * Copyright (c) 2026 Tenstorrent
++ */
++
++#include <dt-bindings/clock/tenstorrent,atlantis-prcm.h>
++#include <linux/auxiliary_bus.h>
++#include <linux/bitfield.h>
++#include <linux/clk-provider.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/slab.h>
++#include <soc/tenstorrent/atlantis-prcm.h>
++
++struct atlantis_clk_common {
++	int clkid;
++	struct regmap *regmap;
++	struct clk_hw hw;
++};
++
++static inline struct atlantis_clk_common *
++hw_to_atlantis_clk_common(struct clk_hw *hw)
++{
++	return container_of(hw, struct atlantis_clk_common, hw);
++}
++
++struct atlantis_clk_mux_config {
++	u8 shift;
++	u8 width;
++	u32 reg_offset;
++};
++
++struct atlantis_clk_mux {
++	struct atlantis_clk_common common;
++	struct atlantis_clk_mux_config config;
++};
++
++struct atlantis_clk_gate_config {
++	u32 reg_offset;
++	u32 enable;
++};
++
++struct atlantis_clk_gate {
++	struct atlantis_clk_common common;
++	struct atlantis_clk_gate_config config;
++};
++
++struct atlantis_clk_divider_config {
++	u8 shift;
++	u8 width;
++	u32 flags;
++	u32 reg_offset;
++};
++
++struct atlantis_clk_divider {
++	struct atlantis_clk_common common;
++	struct atlantis_clk_divider_config config;
++};
++
++struct atlantis_clk_pll_config {
++	u32 tbl_num;
++	u32 reg_offset;
++	u32 en_reg_offset;
++	u32 cg_reg_offset;
++	u32 cg_reg_enable;
++};
++
++/* Models a PLL with Bypass Functionality and Enable Bit + a Gate Clock at it's output */
++struct atlantis_clk_pll {
++	struct atlantis_clk_common common;
++	struct atlantis_clk_pll_config config;
++};
++
++struct atlantis_clk_gate_shared_config {
++	u32 reg_offset;
++	u32 enable;
++	unsigned int *share_count;
++	spinlock_t *refcount_lock;
++};
++
++struct atlantis_clk_gate_shared {
++	struct atlantis_clk_common common;
++	struct atlantis_clk_gate_shared_config config;
++};
++
++struct atlantis_clk_fixed_factor_config {
++	unsigned int mult;
++	unsigned int div;
++};
++
++struct atlantis_clk_fixed_factor {
++	struct atlantis_clk_fixed_factor_config config;
++	struct atlantis_clk_common common;
++};
++
++static inline struct atlantis_clk_mux *hw_to_atlantis_clk_mux(struct clk_hw *hw)
++{
++	struct atlantis_clk_common *common = hw_to_atlantis_clk_common(hw);
++
++	return container_of(common, struct atlantis_clk_mux, common);
++}
++
++static inline struct atlantis_clk_gate *
++hw_to_atlantis_clk_gate(struct clk_hw *hw)
++{
++	struct atlantis_clk_common *common = hw_to_atlantis_clk_common(hw);
++
++	return container_of(common, struct atlantis_clk_gate, common);
++}
++
++static inline struct atlantis_clk_divider *
++hw_to_atlantis_clk_divider(struct clk_hw *hw)
++{
++	struct atlantis_clk_common *common = hw_to_atlantis_clk_common(hw);
++
++	return container_of(common, struct atlantis_clk_divider, common);
++}
++
++static inline struct atlantis_clk_pll *hw_to_atlantis_pll(struct clk_hw *hw)
++{
++	struct atlantis_clk_common *common = hw_to_atlantis_clk_common(hw);
++
++	return container_of(common, struct atlantis_clk_pll, common);
++}
++
++static inline struct atlantis_clk_gate_shared *
++hw_to_atlantis_clk_gate_shared(struct clk_hw *hw)
++{
++	struct atlantis_clk_common *common = hw_to_atlantis_clk_common(hw);
++
++	return container_of(common, struct atlantis_clk_gate_shared, common);
++}
++
++static inline struct atlantis_clk_fixed_factor *
++hw_to_atlantis_clk_fixed_factor(struct clk_hw *hw)
++{
++	struct atlantis_clk_common *common = hw_to_atlantis_clk_common(hw);
++
++	return container_of(common, struct atlantis_clk_fixed_factor, common);
++}
++
++static u8 atlantis_clk_mux_get_parent(struct clk_hw *hw)
++{
++	struct atlantis_clk_mux *mux = hw_to_atlantis_clk_mux(hw);
++	u32 val;
++
++	regmap_read(mux->common.regmap, mux->config.reg_offset, &val);
++	val >>= mux->config.shift;
++	val &= (BIT(mux->config.width) - 1);
++
++	return val;
++}
++
++static int atlantis_clk_mux_set_parent(struct clk_hw *hw, u8 index)
++{
++	struct atlantis_clk_mux *mux = hw_to_atlantis_clk_mux(hw);
++	u32 val = index;
++
++	return regmap_update_bits(mux->common.regmap, mux->config.reg_offset,
++				  (BIT(mux->config.width) - 1)
++					  << mux->config.shift,
++				  val << mux->config.shift);
++}
++
++static int atlantis_clk_mux_determine_rate(struct clk_hw *hw,
++					   struct clk_rate_request *req)
++{
++	return clk_mux_determine_rate_flags(hw, req, hw->init->flags);
++}
++
++const struct clk_ops atlantis_clk_mux_ops = {
++	.get_parent = atlantis_clk_mux_get_parent,
++	.set_parent = atlantis_clk_mux_set_parent,
++	.determine_rate = atlantis_clk_mux_determine_rate,
++};
++
++static void atlantis_clk_gate_endisable(struct clk_hw *hw, int enable)
++{
++	struct atlantis_clk_gate *gate = hw_to_atlantis_clk_gate(hw);
++	u32 val;
++
++	if (enable)
++		val = gate->config.enable;
++	else
++		val = ~(gate->config.enable);
++
++	regmap_update_bits(gate->common.regmap, gate->config.reg_offset,
++			   gate->config.enable, val);
++}
++
++static int atlantis_clk_gate_enable(struct clk_hw *hw)
++{
++	atlantis_clk_gate_endisable(hw, 1);
++
++	return 0;
++}
++
++static void atlantis_clk_gate_disable(struct clk_hw *hw)
++{
++	atlantis_clk_gate_endisable(hw, 0);
++}
++
++static int atlantis_clk_gate_is_enabled(struct clk_hw *hw)
++{
++	struct atlantis_clk_gate *gate = hw_to_atlantis_clk_gate(hw);
++	u32 val;
++
++	regmap_read(gate->common.regmap, gate->config.reg_offset, &val);
++
++	val &= gate->config.enable;
++
++	return val ? 1 : 0;
++}
++
++const struct clk_ops atlantis_clk_gate_ops = {
++	.enable = atlantis_clk_gate_enable,
++	.disable = atlantis_clk_gate_disable,
++	.is_enabled = atlantis_clk_gate_is_enabled,
++};
++
++static unsigned long atlantis_clk_divider_recalc_rate(struct clk_hw *hw,
++						      unsigned long parent_rate)
++{
++	struct atlantis_clk_divider *divider = hw_to_atlantis_clk_divider(hw);
++	u32 val;
++
++	regmap_read(divider->common.regmap, divider->config.reg_offset, &val);
++
++	val >>= divider->config.shift;
++	val &= ((1 << (divider->config.width)) - 1);
++
++	return DIV_ROUND_UP_ULL((u64)parent_rate, val + 1);
++}
++
++const struct clk_ops atlantis_clk_divider_ops = {
++	.recalc_rate = atlantis_clk_divider_recalc_rate,
++};
++
++static unsigned long
++atlantis_clk_fixed_factor_recalc_rate(struct clk_hw *hw,
++				      unsigned long parent_rate)
++{
++	struct atlantis_clk_fixed_factor *factor =
++		hw_to_atlantis_clk_fixed_factor(hw);
++	unsigned long long rate;
++
++	rate = (unsigned long long)parent_rate * factor->config.mult;
++	do_div(rate, factor->config.div);
++	return (unsigned long)rate;
++}
++
++const struct clk_ops atlantis_clk_fixed_factor_ops = {
++	.recalc_rate = atlantis_clk_fixed_factor_recalc_rate,
++};
++
++static int atlantis_clk_pll_is_enabled(struct clk_hw *hw)
++{
++	struct atlantis_clk_pll *pll = hw_to_atlantis_pll(hw);
++	u32 val, en_val, cg_val;
++
++	regmap_read(pll->common.regmap, pll->config.reg_offset, &val);
++	regmap_read(pll->common.regmap, pll->config.en_reg_offset, &en_val);
++	regmap_read(pll->common.regmap, pll->config.cg_reg_offset, &cg_val);
++
++	/* Check if PLL is powered on, locked and Gate clk is enabled */
++	return !!(en_val & PLL_CFG_EN_BIT) && !!(val & PLL_CFG_LOCK_BIT) &&
++	       !!(cg_val && pll->config.cg_reg_enable);
++}
++
++static int atlantis_clk_pll_enable(struct clk_hw *hw)
++{
++	struct atlantis_clk_pll *pll = hw_to_atlantis_pll(hw);
++	u32 val, en_val, cg_val;
++	int ret;
++
++	regmap_read(pll->common.regmap, pll->config.reg_offset, &val);
++	regmap_read(pll->common.regmap, pll->config.en_reg_offset, &en_val);
++	regmap_read(pll->common.regmap, pll->config.cg_reg_offset, &cg_val);
++
++	/* Check if PLL is already enabled, locked and Gate clk is enabled */
++	if ((en_val & PLL_CFG_EN_BIT) && (val & PLL_CFG_LOCK_BIT) &&
++	    (cg_val && pll->config.cg_reg_enable) &&
++	    !(val & PLL_CFG_BYPASS_BIT)) {
++		return 0;
++	}
++
++	/* Step 1: Set bypass mode first */
++	regmap_update_bits(pll->common.regmap, pll->config.reg_offset,
++			   PLL_CFG_BYPASS_BIT, PLL_CFG_BYPASS_BIT);
++
++	/* Step 2: Enable PLL (clear then set power bit) */
++	regmap_update_bits(pll->common.regmap, pll->config.en_reg_offset,
++			   PLL_CFG_EN_BIT, 0);
++
++	regmap_update_bits(pll->common.regmap, pll->config.en_reg_offset,
++			   PLL_CFG_EN_BIT, PLL_CFG_EN_BIT);
++
++	/* Step 3: Wait for PLL lock */
++	ret = regmap_read_poll_timeout(pll->common.regmap,
++				       pll->config.reg_offset, val,
++				       val & PLL_CFG_LOCK_BIT, 10,
++				       PLL_BYPASS_WAIT_US);
++	if (ret) {
++		pr_err("PLL failed to lock within timeout\n");
++		return ret;
++	}
++
++	/* Step 4: Switch from bypass to PLL output */
++	regmap_update_bits(pll->common.regmap, pll->config.reg_offset,
++			   PLL_CFG_BYPASS_BIT, 0);
++
++	/* Enable Gate clk at PLL Output */
++	return regmap_update_bits(pll->common.regmap, pll->config.cg_reg_offset,
++				  pll->config.cg_reg_enable,
++				  pll->config.cg_reg_enable);
++}
++
++static void atlantis_clk_pll_disable(struct clk_hw *hw)
++{
++	struct atlantis_clk_pll *pll = hw_to_atlantis_pll(hw);
++
++	/* Step 1: Switch to bypass mode before disabling */
++	regmap_update_bits(pll->common.regmap, pll->config.reg_offset,
++			   PLL_CFG_BYPASS_BIT, PLL_CFG_BYPASS_BIT);
++	/* Step 2: Power down PLL */
++	regmap_update_bits(pll->common.regmap, pll->config.en_reg_offset,
++			   PLL_CFG_EN_BIT, 0);
++}
++
++static unsigned long atlantis_clk_pll_recalc_rate(struct clk_hw *hw,
++						  unsigned long parent_rate)
++{
++	struct atlantis_clk_pll *pll = hw_to_atlantis_pll(hw);
++
++	u32 val, refdiv, fbdiv, postdiv1, postdiv2;
++	u64 fout;
++
++	regmap_read(pll->common.regmap, pll->config.reg_offset, &val);
++
++	if (val & PLL_CFG_BYPASS_BIT)
++		return parent_rate;
++
++	refdiv = FIELD_GET(PLL_CFG_REFDIV_MASK, val);
++	fbdiv = FIELD_GET(PLL_CFG_FBDIV_MASK, val);
++	postdiv1 = FIELD_GET(PLL_CFG_POSTDIV1_MASK, val);
++	postdiv2 = FIELD_GET(PLL_CFG_POSTDIV2_MASK, val);
++
++	if (!refdiv)
++		refdiv = 1;
++	if (!postdiv1)
++		postdiv1 = 1;
++	if (!postdiv2)
++		postdiv2 = 1;
++	if (!fbdiv)
++		return 0;
++
++	fout = div64_u64((u64)parent_rate * fbdiv,
++			 refdiv * postdiv1 * postdiv2);
++
++	return fout;
++}
++
++const struct clk_ops atlantis_clk_pll_ops = {
++	.enable = atlantis_clk_pll_enable,
++	.disable = atlantis_clk_pll_disable,
++	.recalc_rate = atlantis_clk_pll_recalc_rate,
++	.is_enabled = atlantis_clk_pll_is_enabled,
++};
++
++static int atlantis_clk_gate_shared_enable(struct clk_hw *hw)
++{
++	struct atlantis_clk_gate_shared *gate =
++		hw_to_atlantis_clk_gate_shared(hw);
++	bool need_enable;
++	u32 reg;
++
++	scoped_guard(spinlock_irqsave, gate->config.refcount_lock)
++	{
++		need_enable = (*gate->config.share_count)++ == 0;
++		if (need_enable) {
++			regmap_read(gate->common.regmap,
++				    gate->config.reg_offset, &reg);
++			reg |= gate->config.enable;
++			regmap_write(gate->common.regmap,
++				     gate->config.reg_offset, reg);
++		}
++	}
++
++	if (need_enable) {
++		regmap_read(gate->common.regmap, gate->config.reg_offset, &reg);
++
++		if (!(reg & gate->config.enable)) {
++			pr_warn("%s: gate enable %d failed to enable\n",
++				clk_hw_get_name(hw), gate->config.enable);
++			return -EIO;
++		}
++	}
++
++	return 0;
++}
++
++static void atlantis_clk_gate_shared_disable(struct clk_hw *hw)
++{
++	struct atlantis_clk_gate_shared *gate =
++		hw_to_atlantis_clk_gate_shared(hw);
++	u32 reg;
++
++	scoped_guard(spinlock_irqsave, gate->config.refcount_lock)
++	{
++		if (WARN_ON(*gate->config.share_count == 0))
++			return;
++		if (--(*gate->config.share_count) > 0)
++			return;
++
++		regmap_read(gate->common.regmap, gate->config.reg_offset, &reg);
++		reg &= ~gate->config.enable;
++		regmap_write(gate->common.regmap, gate->config.reg_offset, reg);
++	}
++}
++
++static int atlantis_clk_gate_shared_is_enabled(struct clk_hw *hw)
++{
++	struct atlantis_clk_gate_shared *gate =
++		hw_to_atlantis_clk_gate_shared(hw);
++	u32 reg;
++
++	regmap_read(gate->common.regmap, gate->config.reg_offset, &reg);
++
++	return !!(reg & gate->config.enable);
++}
++
++static void atlantis_clk_gate_shared_disable_unused(struct clk_hw *hw)
++{
++	struct atlantis_clk_gate_shared *gate =
++		hw_to_atlantis_clk_gate_shared(hw);
++
++	u32 reg;
++
++	scoped_guard(spinlock_irqsave, gate->config.refcount_lock)
++	{
++		if (*gate->config.share_count == 0) {
++			regmap_read(gate->common.regmap,
++				    gate->config.reg_offset, &reg);
++			reg &= ~gate->config.enable;
++			regmap_write(gate->common.regmap,
++				     gate->config.reg_offset, reg);
++		}
++	}
++}
++
++const struct clk_ops atlantis_clk_gate_shared_ops = {
++	.enable = atlantis_clk_gate_shared_enable,
++	.disable = atlantis_clk_gate_shared_disable,
++	.disable_unused = atlantis_clk_gate_shared_disable_unused,
++	.is_enabled = atlantis_clk_gate_shared_is_enabled,
++};
++
++#define ATLANTIS_PLL_CONFIG(_reg_offset, _en_reg_offset, _cg_reg_offset, \
++			    _cg_reg_enable)                              \
++	{                                                                \
++		.reg_offset = (_reg_offset),                             \
++		.en_reg_offset = (_en_reg_offset),                       \
++		.cg_reg_offset = (_cg_reg_offset),                       \
++		.cg_reg_enable = (_cg_reg_enable),                       \
++	}
++
++#define ATLANTIS_PLL_DEFINE(_clkid, _name, _parent, _reg_offset,               \
++			    _en_reg_offset, _cg_reg_offset, _cg_reg_enable,    \
++			    _flags)                                            \
++	static struct atlantis_clk_pll _name = {                               \
++		.config = ATLANTIS_PLL_CONFIG(_reg_offset, _en_reg_offset,     \
++					      _cg_reg_offset, _cg_reg_enable), \
++		.common = { .clkid = _clkid,                                   \
++			    .hw.init = CLK_HW_INIT_PARENTS_DATA(               \
++				    #_name, _parent, &atlantis_clk_pll_ops,    \
++				    _flags) },                                 \
++	}
++#define ATLANTIS_MUX_CONFIG(_shift, _width, _reg_offset)                    \
++	{                                                                   \
++		.shift = _shift, .width = _width, .reg_offset = _reg_offset \
++	}
++
++#define ATLANTIS_MUX_DEFINE(_clkid, _name, _parents, _reg_offset, _shift,    \
++			    _width, _flags)                                  \
++	static struct atlantis_clk_mux _name = {                             \
++		.config = ATLANTIS_MUX_CONFIG(_shift, _width, _reg_offset),  \
++		.common = { .clkid = _clkid,                                 \
++			    .hw.init = CLK_HW_INIT_PARENTS_DATA(             \
++				    #_name, _parents, &atlantis_clk_mux_ops, \
++				    _flags) }                                \
++	}
++
++#define ATLANTIS_DIVIDER_CONFIG(_shift, _width, _flags, _reg_offset) \
++	{                                                            \
++		.shift = _shift, .width = _width, .flags = _flags,   \
++		.reg_offset = _reg_offset                            \
++	}
++
++#define ATLANTIS_DIVIDER_DEFINE(_clkid, _name, _parent, _reg_offset, _shift, \
++				_width, _divflags, _flags)                   \
++	static struct atlantis_clk_divider _name = {                         \
++		.config = ATLANTIS_DIVIDER_CONFIG(_shift, _width, _divflags, \
++						  _reg_offset),              \
++		.common = { .clkid = _clkid,                                 \
++			    .hw.init = CLK_HW_INIT_HW(                       \
++				    #_name, &_parent.common.hw,              \
++				    &atlantis_clk_divider_ops, _flags) }     \
++	}
++#define ATLANTIS_GATE_CONFIG(_enable, _reg_offset)           \
++	{                                                    \
++		.enable = _enable, .reg_offset = _reg_offset \
++	}
++
++#define ATLANTIS_GATE_DEFINE(_clkid, _name, _parent, _reg_offset, _enable, \
++			     _flags)                                       \
++	static struct atlantis_clk_gate _name = {                          \
++		.config = ATLANTIS_GATE_CONFIG(_enable, _reg_offset),      \
++		.common = { .clkid = _clkid,                               \
++			    .hw.init = CLK_HW_INIT_HW(                     \
++				    #_name, &_parent.common.hw,            \
++				    &atlantis_clk_gate_ops, _flags) }      \
++	}
++#define ATLANTIS_GATE_SHARED_CONFIG(_reg_offset, _enable, _share_count)      \
++	{                                                                    \
++		.reg_offset = _reg_offset, .enable = _enable,                \
++		.share_count = _share_count, .refcount_lock = &refcount_lock \
++	}
++#define ATLANTIS_GATE_SHARED_DEFINE(_clkid, _name, _parent, _reg_offset,     \
++				    _enable, _share_count, _flags)           \
++	static struct atlantis_clk_gate_shared _name = {                     \
++		.config = ATLANTIS_GATE_SHARED_CONFIG(_reg_offset, _enable,  \
++						      _share_count),         \
++		.common = { .clkid = _clkid,                                 \
++			    .hw.init = CLK_HW_INIT_HW(                       \
++				    #_name, &_parent.common.hw,              \
++				    &atlantis_clk_gate_shared_ops, _flags) } \
++	}
++#define ATLANTIS_CLK_FIXED_FACTOR_DEFINE(_clkid, _name, _parent, _mult, _div, \
++					 _flags)                              \
++	static struct atlantis_clk_fixed_factor _name = {                     \
++		.config = { .mult = _mult, .div = _div },                     \
++		.common = { .clkid = _clkid,                                  \
++			    .hw.init = CLK_HW_INIT_HW(                        \
++				    #_name, &_parent.common.hw,               \
++				    &atlantis_clk_fixed_factor_ops, _flags) } \
++	}
++
++static DEFINE_SPINLOCK(refcount_lock); /* Lock for refcount value accesses */
++
++static const struct regmap_config atlantis_prcm_regmap_config = {
++	.reg_bits = 32,
++	.reg_stride = 4,
++	.val_bits = 32,
++	.max_register = 0xFFFC,
++	.cache_type = REGCACHE_NONE,
++};
++struct atlantis_prcm {
++	struct device *dev;
++
++	struct regmap *regmap;
++	void __iomem *base;
++
++	struct clk_hw_onecell_data *clk_data;
++};
++
++struct atlantis_prcm_data {
++	struct clk_hw **hws;
++	size_t num;
++	const char *reset_name;
++};
++
++static const struct clk_parent_data osc_24m_clk[] = {
++	{ .index = 0 },
++};
++
++ATLANTIS_PLL_DEFINE(CLK_RCPU_PLL, rcpu_pll_clk, osc_24m_clk, RCPU_PLL_CFG_REG,
++		    PLL_RCPU_EN_REG, BUS_CG_REG, BIT(7),
++		    CLK_SET_RATE_NO_REPARENT | CLK_SET_RATE_UNGATE |
++			    CLK_IS_CRITICAL);
++
++static const struct clk_parent_data rcpu_root_parents[] = {
++	{ .index = 0 },
++	{ .hw = &rcpu_pll_clk.common.hw },
++};
++
++ATLANTIS_MUX_DEFINE(CLK_RCPU_ROOT, rcpu_root_mux, rcpu_root_parents,
++		    RCPU_DIV_CFG_REG, 0, 1, CLK_SET_RATE_NO_REPARENT);
++
++ATLANTIS_DIVIDER_DEFINE(CLK_RCPU_DIV2, rcpu_div2_clk, rcpu_root_mux,
++			RCPU_DIV_CFG_REG, 2, 4, 0, 0);
++ATLANTIS_DIVIDER_DEFINE(CLK_RCPU_DIV4, rcpu_div4_clk, rcpu_root_mux,
++			RCPU_DIV_CFG_REG, 7, 4, 0, 0);
++ATLANTIS_DIVIDER_DEFINE(CLK_RCPU_RTC, rcpu_rtc_clk, rcpu_div4_clk,
++			RCPU_DIV_CFG_REG, 12, 6, 0, 0);
++
++ATLANTIS_GATE_DEFINE(CLK_SMNDMA0_ACLK, smndma0_aclk, rcpu_div2_clk,
++		     RCPU_BLK_CG_REG, BIT(0), 0);
++ATLANTIS_GATE_DEFINE(CLK_SMNDMA1_ACLK, smndma1_aclk, rcpu_div2_clk,
++		     RCPU_BLK_CG_REG, BIT(1), 0);
++ATLANTIS_GATE_DEFINE(CLK_WDT0_PCLK, wdt0_pclk, rcpu_div4_clk, RCPU_BLK_CG_REG,
++		     BIT(2), 0);
++ATLANTIS_GATE_DEFINE(CLK_WDT1_PCLK, wdt1_pclk, rcpu_div4_clk, RCPU_BLK_CG_REG,
++		     BIT(3), 0);
++ATLANTIS_GATE_DEFINE(CLK_TIMER_PCLK, timer_pclk, rcpu_div4_clk, RCPU_BLK_CG_REG,
++		     BIT(4), 0);
++ATLANTIS_GATE_DEFINE(CLK_PVTC_PCLK, pvtc_pclk, rcpu_div4_clk, RCPU_BLK_CG_REG,
++		     BIT(12), 0);
++ATLANTIS_GATE_DEFINE(CLK_PMU_PCLK, pmu_pclk, rcpu_div4_clk, RCPU_BLK_CG_REG,
++		     BIT(13), 0);
++ATLANTIS_GATE_DEFINE(CLK_MAILBOX_HCLK, mb_hclk, rcpu_div2_clk, RCPU_BLK_CG_REG,
++		     BIT(14), 0);
++ATLANTIS_GATE_DEFINE(CLK_SEC_SPACC_HCLK, sec_spacc_hclk, rcpu_div2_clk,
++		     RCPU_BLK_CG_REG, BIT(26), 0);
++ATLANTIS_GATE_DEFINE(CLK_SEC_OTP_HCLK, sec_otp_hclk, rcpu_div2_clk,
++		     RCPU_BLK_CG_REG, BIT(28), 0);
++ATLANTIS_GATE_DEFINE(CLK_TRNG_PCLK, trng_pclk, rcpu_div4_clk, RCPU_BLK_CG_REG,
++		     BIT(29), 0);
++ATLANTIS_GATE_DEFINE(CLK_SEC_CRC_HCLK, sec_crc_hclk, rcpu_div2_clk,
++		     RCPU_BLK_CG_REG, BIT(30), 0);
++
++ATLANTIS_CLK_FIXED_FACTOR_DEFINE(CLK_SMN_HCLK, rcpu_smn_hclk, rcpu_div2_clk, 1,
++				 1, 0);
++ATLANTIS_CLK_FIXED_FACTOR_DEFINE(CLK_AHB0_HCLK, rcpu_ahb0_hclk, rcpu_div2_clk,
++				 1, 1, 0);
++
++ATLANTIS_CLK_FIXED_FACTOR_DEFINE(CLK_SMN_PCLK, rcpu_smn_pclk, rcpu_div4_clk, 1,
++				 1, 0);
++
++ATLANTIS_CLK_FIXED_FACTOR_DEFINE(CLK_SMN_CLK, rcpu_smn_clk, rcpu_root_mux, 1, 1,
++				 0);
++ATLANTIS_CLK_FIXED_FACTOR_DEFINE(CLK_SCRATCHPAD_CLK, rcpu_scratchpad_aclk,
++				 rcpu_root_mux, 1, 1, 0);
++ATLANTIS_CLK_FIXED_FACTOR_DEFINE(CLK_RCPU_CORE_CLK, rcpu_core_clk,
++				 rcpu_root_mux, 1, 1, 0);
++ATLANTIS_CLK_FIXED_FACTOR_DEFINE(CLK_RCPU_ROM_CLK, rcpu_rom_aclk, rcpu_root_mux,
++				 1, 1, 0);
++
++static struct atlantis_clk_fixed_factor
++	otp_load_clk = { .config = { .mult = 1, .div = 1 },
++			 .common = {
++				 .clkid = CLK_OTP_LOAD_CLK,
++				 .hw.init = CLK_HW_INIT_PARENTS_DATA(
++					 "otp_load_clk", osc_24m_clk,
++					 &atlantis_clk_fixed_factor_ops,
++					 CLK_SET_RATE_NO_REPARENT),
++			 } };
++
++ATLANTIS_PLL_DEFINE(CLK_NOC_PLL, nocc_pll_clk, osc_24m_clk,
++		    RCPU_NOCC_PLL_CFG_REG, PLL_NOCC_EN_REG, BUS_CG_REG, BIT(0),
++		    CLK_SET_RATE_NO_REPARENT | CLK_SET_RATE_UNGATE |
++			    CLK_IS_CRITICAL);
++
++static const struct clk_parent_data nocc_mux_parents[] = {
++	{ .index = 0 },
++	{ .hw = &nocc_pll_clk.common.hw },
++};
++
++ATLANTIS_MUX_DEFINE(CLK_NOCC_CLK, nocc_clk_mux, nocc_mux_parents,
++		    RCPU_NOCC_CLK_CFG_REG, 0, 1, CLK_SET_RATE_NO_REPARENT);
++
++ATLANTIS_DIVIDER_DEFINE(CLK_NOCC_DIV2, nocc_div2_clk, nocc_clk_mux,
++			RCPU_NOCC_CLK_CFG_REG, 1, 4, 0, 0);
++ATLANTIS_DIVIDER_DEFINE(CLK_NOCC_DIV4, nocc_div4_clk, nocc_clk_mux,
++			RCPU_NOCC_CLK_CFG_REG, 5, 4, 0, 0);
++ATLANTIS_DIVIDER_DEFINE(CLK_NOCC_RTC, nocc_rtc_clk, nocc_div4_clk,
++			RCPU_NOCC_CLK_CFG_REG, 9, 6, 0, 0);
++ATLANTIS_DIVIDER_DEFINE(CLK_NOCC_CAN, nocc_can_div, nocc_clk_mux,
++			RCPU_NOCC_CLK_CFG_REG, 15, 4, 0, 0);
++
++static unsigned int refcnt_qspi;
++ATLANTIS_GATE_SHARED_DEFINE(CLK_QSPI_SCLK, qspi_sclk, nocc_clk_mux,
++			    LSIO_BLK_CG_REG, BIT(0), &refcnt_qspi, 0);
++ATLANTIS_GATE_SHARED_DEFINE(CLK_QSPI_HCLK, qspi_hclk, nocc_div2_clk,
++			    LSIO_BLK_CG_REG, BIT(0), &refcnt_qspi, 0);
++ATLANTIS_GATE_DEFINE(CLK_I2C0_PCLK, i2c0_pclk, nocc_div4_clk, LSIO_BLK_CG_REG,
++		     BIT(1), 0);
++ATLANTIS_GATE_DEFINE(CLK_I2C1_PCLK, i2c1_pclk, nocc_div4_clk, LSIO_BLK_CG_REG,
++		     BIT(2), 0);
++ATLANTIS_GATE_DEFINE(CLK_I2C2_PCLK, i2c2_pclk, nocc_div4_clk, LSIO_BLK_CG_REG,
++		     BIT(3), 0);
++ATLANTIS_GATE_DEFINE(CLK_I2C3_PCLK, i2c3_pclk, nocc_div4_clk, LSIO_BLK_CG_REG,
++		     BIT(4), 0);
++ATLANTIS_GATE_DEFINE(CLK_I2C4_PCLK, i2c4_pclk, nocc_div4_clk, LSIO_BLK_CG_REG,
++		     BIT(5), 0);
++
++ATLANTIS_GATE_DEFINE(CLK_UART0_PCLK, uart0_pclk, nocc_div4_clk, LSIO_BLK_CG_REG,
++		     BIT(6), 0);
++ATLANTIS_GATE_DEFINE(CLK_UART1_PCLK, uart1_pclk, nocc_div4_clk, LSIO_BLK_CG_REG,
++		     BIT(7), 0);
++ATLANTIS_GATE_DEFINE(CLK_UART2_PCLK, uart2_pclk, nocc_div4_clk, LSIO_BLK_CG_REG,
++		     BIT(8), 0);
++ATLANTIS_GATE_DEFINE(CLK_UART3_PCLK, uart3_pclk, nocc_div4_clk, LSIO_BLK_CG_REG,
++		     BIT(9), 0);
++ATLANTIS_GATE_DEFINE(CLK_UART4_PCLK, uart4_pclk, nocc_div4_clk, LSIO_BLK_CG_REG,
++		     BIT(10), 0);
++ATLANTIS_GATE_DEFINE(CLK_SPI0_PCLK, spi0_pclk, nocc_div4_clk, LSIO_BLK_CG_REG,
++		     BIT(11), 0);
++ATLANTIS_GATE_DEFINE(CLK_SPI1_PCLK, spi1_pclk, nocc_div4_clk, LSIO_BLK_CG_REG,
++		     BIT(12), 0);
++ATLANTIS_GATE_DEFINE(CLK_SPI2_PCLK, spi2_pclk, nocc_div4_clk, LSIO_BLK_CG_REG,
++		     BIT(13), 0);
++ATLANTIS_GATE_DEFINE(CLK_SPI3_PCLK, spi3_pclk, nocc_div4_clk, LSIO_BLK_CG_REG,
++		     BIT(14), 0);
++ATLANTIS_GATE_DEFINE(CLK_GPIO_PCLK, gpio_pclk, nocc_div4_clk, LSIO_BLK_CG_REG,
++		     BIT(15), 0);
++
++static unsigned int refcnt_can0;
++ATLANTIS_GATE_SHARED_DEFINE(CLK_CAN0_HCLK, can0_hclk, nocc_div2_clk,
++			    LSIO_BLK_CG_REG, BIT(17), &refcnt_can0, 0);
++ATLANTIS_GATE_SHARED_DEFINE(CLK_CAN0_CLK, can0_clk, nocc_can_div,
++			    LSIO_BLK_CG_REG, BIT(17), &refcnt_can0, 0);
++
++static unsigned int refcnt_can1;
++ATLANTIS_GATE_SHARED_DEFINE(CLK_CAN1_HCLK, can1_hclk, nocc_div2_clk,
++			    LSIO_BLK_CG_REG, BIT(18), &refcnt_can1, 0);
++ATLANTIS_GATE_SHARED_DEFINE(CLK_CAN1_CLK, can1_clk, nocc_can_div,
++			    LSIO_BLK_CG_REG, BIT(18), &refcnt_can1, 0);
++
++ATLANTIS_CLK_FIXED_FACTOR_DEFINE(CLK_CAN0_TIMER_CLK, can0_timer_clk,
++				 nocc_rtc_clk, 1, 1, 0);
++ATLANTIS_CLK_FIXED_FACTOR_DEFINE(CLK_CAN1_TIMER_CLK, can1_timer_clk,
++				 nocc_rtc_clk, 1, 1, 0);
++
++static struct clk_hw *atlantis_rcpu_clks[] = {
++	[CLK_RCPU_PLL]		= &rcpu_pll_clk.common.hw,
++	[CLK_RCPU_ROOT]		= &rcpu_root_mux.common.hw,
++	[CLK_RCPU_DIV2]		= &rcpu_div2_clk.common.hw,
++	[CLK_RCPU_DIV4]		= &rcpu_div4_clk.common.hw,
++	[CLK_RCPU_RTC]		= &rcpu_rtc_clk.common.hw,
++	[CLK_SMNDMA0_ACLK]	= &smndma0_aclk.common.hw,
++	[CLK_SMNDMA1_ACLK]	= &smndma1_aclk.common.hw,
++	[CLK_WDT0_PCLK]		= &wdt0_pclk.common.hw,
++	[CLK_WDT1_PCLK]		= &wdt1_pclk.common.hw,
++	[CLK_TIMER_PCLK]	= &timer_pclk.common.hw,
++	[CLK_PVTC_PCLK]		= &pvtc_pclk.common.hw,
++	[CLK_PMU_PCLK]		= &pmu_pclk.common.hw,
++	[CLK_MAILBOX_HCLK]	= &mb_hclk.common.hw,
++	[CLK_SEC_SPACC_HCLK]	= &sec_spacc_hclk.common.hw,
++	[CLK_SEC_OTP_HCLK]	= &sec_otp_hclk.common.hw,
++	[CLK_TRNG_PCLK]		= &trng_pclk.common.hw,
++	[CLK_SEC_CRC_HCLK]	= &sec_crc_hclk.common.hw,
++	[CLK_SMN_HCLK]		= &rcpu_smn_hclk.common.hw,
++	[CLK_AHB0_HCLK]		= &rcpu_ahb0_hclk.common.hw,
++	[CLK_SMN_PCLK]		= &rcpu_smn_pclk.common.hw,
++	[CLK_SMN_CLK]		= &rcpu_smn_clk.common.hw,
++	[CLK_SCRATCHPAD_CLK]	= &rcpu_scratchpad_aclk.common.hw,
++	[CLK_RCPU_CORE_CLK]	= &rcpu_core_clk.common.hw,
++	[CLK_RCPU_ROM_CLK]	= &rcpu_rom_aclk.common.hw,
++	[CLK_OTP_LOAD_CLK]	= &otp_load_clk.common.hw,
++	[CLK_NOC_PLL]		= &nocc_pll_clk.common.hw,
++	[CLK_NOCC_CLK]		= &nocc_clk_mux.common.hw,
++	[CLK_NOCC_DIV2]		= &nocc_div2_clk.common.hw,
++	[CLK_NOCC_DIV4]		= &nocc_div4_clk.common.hw,
++	[CLK_NOCC_RTC]		= &nocc_rtc_clk.common.hw,
++	[CLK_NOCC_CAN]		= &nocc_can_div.common.hw,
++	[CLK_QSPI_SCLK]		= &qspi_sclk.common.hw,
++	[CLK_QSPI_HCLK]		= &qspi_hclk.common.hw,
++	[CLK_I2C0_PCLK]		= &i2c0_pclk.common.hw,
++	[CLK_I2C1_PCLK]		= &i2c1_pclk.common.hw,
++	[CLK_I2C2_PCLK]		= &i2c2_pclk.common.hw,
++	[CLK_I2C3_PCLK]		= &i2c3_pclk.common.hw,
++	[CLK_I2C4_PCLK]		= &i2c4_pclk.common.hw,
++	[CLK_UART0_PCLK]	= &uart0_pclk.common.hw,
++	[CLK_UART1_PCLK]	= &uart1_pclk.common.hw,
++	[CLK_UART2_PCLK]	= &uart2_pclk.common.hw,
++	[CLK_UART3_PCLK]	= &uart3_pclk.common.hw,
++	[CLK_UART4_PCLK]	= &uart4_pclk.common.hw,
++	[CLK_SPI0_PCLK]		= &spi0_pclk.common.hw,
++	[CLK_SPI1_PCLK]		= &spi1_pclk.common.hw,
++	[CLK_SPI2_PCLK]		= &spi2_pclk.common.hw,
++	[CLK_SPI3_PCLK]		= &spi3_pclk.common.hw,
++	[CLK_GPIO_PCLK]		= &gpio_pclk.common.hw,
++	[CLK_CAN0_HCLK]		= &can0_hclk.common.hw,
++	[CLK_CAN0_CLK]		= &can0_clk.common.hw,
++	[CLK_CAN1_HCLK]		= &can1_hclk.common.hw,
++	[CLK_CAN1_CLK]		= &can1_clk.common.hw,
++	[CLK_CAN0_TIMER_CLK]	= &can0_timer_clk.common.hw,
++	[CLK_CAN1_TIMER_CLK]	= &can1_timer_clk.common.hw,
++};
++
++static const struct atlantis_prcm_data atlantis_prcm_rcpu_data = {
++	.hws = atlantis_rcpu_clks,
++	.num = ARRAY_SIZE(atlantis_rcpu_clks),
++	.reset_name = "rcpu-reset"
++};
++
++static int atlantis_prcm_clocks_register(struct device *dev,
++					 struct atlantis_prcm *prcm,
++					 const struct atlantis_prcm_data *data)
++{
++	struct regmap *regmap = prcm->regmap;
++	struct clk_hw_onecell_data *clk_data;
++	int i, ret;
++	size_t num_clks = data->num;
++
++	clk_data = devm_kzalloc(dev, struct_size(clk_data, hws, data->num),
++				GFP_KERNEL);
++	if (!clk_data)
++		return -ENOMEM;
++
++	prcm->clk_data = clk_data;
++
++	for (i = 0; i < data->num; i++) {
++		struct clk_hw *hw = data->hws[i];
++		const char *name = hw->init->name;
++		struct atlantis_clk_common *common =
++			hw_to_atlantis_clk_common(hw);
++		common->regmap = regmap;
++
++		ret = devm_clk_hw_register(dev, hw);
++
++		if (ret) {
++			dev_err(dev, "Cannot register clock %d - %s\n", i,
++				name);
++			return ret;
++		}
++
++		clk_data->hws[common->clkid] = hw;
++	}
++
++	clk_data->num = num_clks;
++
++	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
++	if (ret)
++		dev_err(dev, "failed to add clock hardware provider (%d)\n",
++			ret);
++
++	return ret;
++}
++
++static void atlantis_cadev_release(struct device *dev)
++{
++	struct auxiliary_device *adev = to_auxiliary_dev(dev);
++
++	kfree(to_atlantis_prcm_adev(adev));
++}
++
++static void atlantis_adev_unregister(void *data)
++{
++	struct auxiliary_device *adev = data;
++
++	auxiliary_device_delete(adev);
++	auxiliary_device_uninit(adev);
++}
++
++static int atlantis_prcm_adev_register(struct device *dev,
++				       struct atlantis_prcm *prcm,
++				       const struct atlantis_prcm_data *data,
++				       const char *adev_name)
++{
++	struct atlantis_prcm_adev *cadev;
++	struct auxiliary_device *adev;
++	int ret;
++
++	cadev = kzalloc(sizeof(*cadev), GFP_KERNEL);
++	if (!cadev)
++		return -ENOMEM;
++
++	cadev->regmap = prcm->regmap;
++
++	adev = &cadev->adev;
++	adev->name = adev_name;
++	adev->dev.parent = dev;
++	adev->dev.release = atlantis_cadev_release;
++	adev->dev.of_node = dev->of_node;
++
++	ret = auxiliary_device_init(adev);
++	if (ret)
++		goto err_free_cadev;
++
++	ret = auxiliary_device_add(adev);
++	if (ret) {
++		auxiliary_device_uninit(adev);
++		return ret;
++	}
++
++	return devm_add_action_or_reset(dev, atlantis_adev_unregister, adev);
++
++err_free_cadev:
++	kfree(cadev);
++
++	return ret;
++}
++static int atlantis_prcm_probe(struct platform_device *pdev)
++{
++	const struct atlantis_prcm_data *data;
++	struct device *dev = &pdev->dev;
++	int ret;
++
++	struct atlantis_prcm *prcm =
++		devm_kzalloc(dev, sizeof(*prcm), GFP_KERNEL);
++
++	if (!prcm)
++		return -ENOMEM;
++
++	prcm->dev = dev;
++
++	prcm->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(prcm->base))
++		return dev_err_probe(dev, PTR_ERR(prcm->base),
++				     "Failed to map registers\n");
++
++	prcm->regmap = devm_regmap_init_mmio(dev, prcm->base,
++					     &atlantis_prcm_regmap_config);
++	if (IS_ERR(prcm->regmap))
++		return dev_err_probe(dev, PTR_ERR(prcm->regmap),
++				     "Failed to init regmap\n");
++
++	data = of_device_get_match_data(dev);
++
++	ret = atlantis_prcm_clocks_register(dev, prcm, data);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to register clocks\n");
++
++	ret = atlantis_prcm_adev_register(dev, prcm, data, data->reset_name);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to register resets\n");
++
++	return 0;
++}
++
++static const struct of_device_id atlantis_prcm_of_match[] = {
++	{
++		.compatible = "tenstorrent,atlantis-prcm-rcpu",
++		.data = &atlantis_prcm_rcpu_data,
++	},
++	{}
++
++};
++MODULE_DEVICE_TABLE(of, atlantis_prcm_of_match);
++
++static struct platform_driver atlantis_prcm_driver = {
++	.probe = atlantis_prcm_probe,
++	.driver = {
++		.name = "atlantis-prcm",
++		.of_match_table = atlantis_prcm_of_match,
++	},
++};
++module_platform_driver(atlantis_prcm_driver);
++
++MODULE_DESCRIPTION("Tenstorrent Atlantis PRCM Clock Controller Driver");
++MODULE_AUTHOR("Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>");
++MODULE_LICENSE("GPL");
+diff --git a/include/soc/tenstorrent/atlantis-prcm.h b/include/soc/tenstorrent/atlantis-prcm.h
+index 841516cbefd9..ff2c6a7c9a62 100644
+--- a/include/soc/tenstorrent/atlantis-prcm.h
++++ b/include/soc/tenstorrent/atlantis-prcm.h
+@@ -21,6 +21,17 @@ to_atlantis_prcm_adev(struct auxiliary_device *adev)
+ 	return container_of(adev, struct atlantis_prcm_adev, adev);
+ }
+ 
++/* RCPU Clock Register Offsets */
++#define RCPU_PLL_CFG_REG	0x0000
++#define RCPU_NOCC_PLL_CFG_REG	0x0004
++#define RCPU_NOCC_CLK_CFG_REG	0x0008
++#define RCPU_DIV_CFG_REG	0x000C
++#define RCPU_BLK_CG_REG		0x0014
++#define LSIO_BLK_CG_REG		0x0018
++#define PLL_RCPU_EN_REG		0x011c
++#define PLL_NOCC_EN_REG		0x0120
++#define BUS_CG_REG		0x01FC
++
+ /* RCPU Reset Register Offsets */
+ #define RCPU_BLK_RST_REG 0x001c
+ #define LSIO_BLK_RST_REG 0x0020
+@@ -28,4 +39,20 @@ to_atlantis_prcm_adev(struct auxiliary_device *adev)
+ #define PCIE_SUBS_RST_REG 0x0000
+ #define MM_RSTN_REG 0x0014
+ 
++/* PLL Bit Definitions */
++#define PLL_CFG_EN_BIT		BIT(0)
++#define PLL_CFG_BYPASS_BIT	BIT(1)
++#define PLL_CFG_REFDIV_MASK	GENMASK(7, 2)
++#define PLL_CFG_REFDIV_SHIFT	2
++#define PLL_CFG_POSTDIV1_MASK	GENMASK(10, 8)
++#define PLL_CFG_POSTDIV1_SHIFT	8
++#define PLL_CFG_POSTDIV2_MASK	GENMASK(13, 11)
++#define PLL_CFG_POSTDIV2_SHIFT	11
++#define PLL_CFG_FBDIV_MASK	GENMASK(25, 14)
++#define PLL_CFG_FBDIV_SHIFT	14
++#define PLL_CFG_LKDT_BIT	BIT(30)
++#define PLL_CFG_LOCK_BIT	BIT(31)
++#define PLL_LOCK_TIMEOUT_US	1000
++#define PLL_BYPASS_WAIT_US	500
++
+ #endif
 
-Changes in v3:
-- Fixed warnings reported by kernel test bot
-- Addressed comments on reset driver bit set/unset value
-- Changed auxdev macros to use inline functions
-- Renamed bindings and clock driver to use block's name of "PRCM" rather
-  than syscon
-- Link to v2: https://lore.kernel.org/r/20260122-atlantis-clocks-v2-0-c66371639e66@oss.tenstorrent.com
-
-Changes in v2:
-- Improve the documentation about the syscon block in bindings
-- Implemented all clks using custom ops
-- Removed custom lock/lock handling functions for regmap
-- Addressed comments on header file ordering, newlines and typos
-- Removed code for mux parent setting
-- Squashed down multiple commits that added reset/auxdev separately
-- Link to v1: https://lore.kernel.org/r/20260115-atlantis-clocks-v1-0-7356e671f28b@oss.tenstorrent.com
-
----
-Anirudh Srinivasan (3):
-      dt-bindings: clk: tenstorrent: Add tenstorrent,atlantis-prcm
-      reset: tenstorrent: Add reset controller for Atlantis
-      clk: tenstorrent: Add Atlantis clock controller driver
-
- .../bindings/clock/tenstorrent,atlantis-prcm.yaml  |  54 ++
- MAINTAINERS                                        |   5 +
- drivers/clk/Kconfig                                |   1 +
- drivers/clk/Makefile                               |   1 +
- drivers/clk/tenstorrent/Kconfig                    |  14 +
- drivers/clk/tenstorrent/Makefile                   |   3 +
- drivers/clk/tenstorrent/atlantis-prcm.c            | 945 +++++++++++++++++++++
- drivers/reset/Kconfig                              |  11 +
- drivers/reset/Makefile                             |   1 +
- drivers/reset/reset-tenstorrent-atlantis.c         | 163 ++++
- .../dt-bindings/clock/tenstorrent,atlantis-prcm.h  | 103 +++
- include/soc/tenstorrent/atlantis-prcm.h            |  58 ++
- 12 files changed, 1359 insertions(+)
----
-base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
-change-id: 20260112-atlantis-clocks-f090c190b86d
-
-Best regards,
 -- 
-Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+2.43.0
 
 
 _______________________________________________
