@@ -4,146 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 577EEE7DEFE
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 16:31:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F37FE7DF08
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 16:44:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YYhha4Z4c7ptaK73n8yxDIC30VmY6u+O0qAE2Bbv+CI=; b=Jz3KwnxfvOGL7g
-	KqrmgIHrfxl5orrMFf1Zvuz8vxQhXCITWsA8p5TOHmrlWDZjD7zcssqaxUsOmRH5WxFJZ+HRDx/gQ
-	pPxrMErwpqo2Zb3qnzSMGLB+91NykIf5bUK9aEGSz+AZV7qUj6Ip1oCetSKXXlFer5JLTOduuV4fK
-	4zMlvXnQVsY0fmKbHzXn7ENB7bV0cMJmSMN0FeBKbLByriNyjfMGVYUyNIc+PQJvIGs09wSNu102v
-	6DDLYRNlq66LMWTzh5z9PWZlXPrn1bM0lbLam6SLE/SlbbTwQaHhhwWZOuj351PNZ9iqrPfiXlgQv
-	hVAoBW0f2kpmVb5iCYHg==;
+	List-Owner; bh=wMBQmrH0beDK8XlapqsTIGvrve3okiA0ZTtqNQFozQM=; b=s5PNmSZBhdiYIv
+	kkpD2ZRCWy8NEpKvXXyRz4fqIGPjyxyBxJbYUEuqnSkNg0S4mf4YL8Ck0tV+lqZgulGliBpYM2MPx
+	+DEaBlGusZw2l64sFcC1rNMK3Mdcoq8iTiI97vNA7yTYrJKjQO51KnygJsFo/y6KZLxazRt9V5kWy
+	bmU+NuV9qHrMNPDXWxfYaD/i6eshCfYG5kE1jAwVWdbTu7E6TG96d0XOAgmlNZnI7v9oQNAwi0lsm
+	l0r3jWnVLhJ9yf1rQxvmjYG6XYlrxJwXETOkHRI2WdGWlvEmcLgsf8XaKg0Y8tK5AZUyuET9F636w
+	Ku3vzFfDKx4Fsfl3m7Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwpx-00000005IXc-2CKu;
-	Mon, 02 Feb 2026 16:31:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwpu-00000005IWt-3sPV
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 02 Feb 2026 16:31:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=eTpxpJLfJ8cj2Yer+m230biy2Ugzgu3eLhQ6MAn7/Yg=; b=HRWQp+qIJaHyYXlQoBi9neeQL8
-	WUISFg78rnRpo2HVSIycPA0lkCyO78Qur8dsukPXm781RA/oKpIl5hXXK9NNrJcuePzDmq8a4ZCkD
-	w5ka8caCgXI9ZcqqM+WEUs5tmuTEXwxDBky0AS4GyTz2iXHPcqwxSss4fevGUiB1aqN9dGshUehP0
-	tuFNpxunT6DiJNyi9laCmR19xqqIJ2VGppRYkCB2t8/Fny9fTV81cl+YrGmv2FrJvoty3UGq9q7Fl
-	BuAtwaL0tQDBRV4qfjC7kIyJ9Hq4Qwtn9EJbO3VpbtuXmsl0WPHxOYrXNPEDg2s2sZ/ZvFiBv3wS6
-	9NDmd5Ew==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwpr-0000000EqYn-38T9
+	id 1vmx1r-00000005Jez-2BH8;
+	Mon, 02 Feb 2026 16:43:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vmx1o-00000005JeI-1b6L
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Feb 2026 16:31:37 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 612BAQet3082911
-	for <linux-riscv@lists.infradead.org>; Mon, 2 Feb 2026 16:31:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=eTpxpJLfJ8cj2Yer+m230biy
-	2Ugzgu3eLhQ6MAn7/Yg=; b=H0aD1TdxU3ROBS+Dk3n49fvNaVNdzl1HXpx32sgB
-	17Iu02FVFeS4Y2dAWxrBxUAHl+txY6kJBe5J34T6Nv9MDG1vQgq81sN+VfbtK7Xl
-	1LMhRrniXNA1FLoK4apBSVgk6vI8t6q2pnMpXKInbjnnFgDx/l1ycEXVUkGWosYc
-	S/8IKdhJpeCPe/ih3kVoCdpXYh6vrk3rKCCmURY+o6hDqaQoVVGmT7zcXV++yxSt
-	eg/L6K+tzkdaeZljm0t/R/3MGIT8jiA2dCAJayuorPkWzuCEAKr34CcwFqm1/QCL
-	WIaEpwtnQNgMulownNMgayZCMl6dKUsoBYkz8GCDNgAwIw==
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c2ttn0x6d-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Mon, 02 Feb 2026 16:31:32 +0000 (GMT)
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-2b715b26fc3so6311449eec.1
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Feb 2026 08:31:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1770049892; x=1770654692; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=eTpxpJLfJ8cj2Yer+m230biy2Ugzgu3eLhQ6MAn7/Yg=;
-        b=fQTmBP0B6pPsq+AdHP9n8RsnKeUXrXQ+hFAmvQmpepKWcfZQSbYyJN0ek9q0cDb9el
-         L5wdVMdaKN9EPnL+Shyw5gdteUuCf612M2iC86vvWlB7Q26jH4fBlZoy9NkJvz6nGrZ4
-         kzurDYzeyCUAGgzatxDApInQmhldiOydFJ6UyVGn8juQGKBjIIcBp036TWHXja2rHyrk
-         XNN2kDiQzRB27hZEZoFwH5S8+89AWWSecLeofhQqyVtic6L5/SASn4S0R14M8zh7iYDr
-         ggVJjp57IfNFiSQQSJEaBCScEwF43ThQyDezEf5VDdbxA3QR1B2R9IvXG45JBn64rNbU
-         JA1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770049892; x=1770654692;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=eTpxpJLfJ8cj2Yer+m230biy2Ugzgu3eLhQ6MAn7/Yg=;
-        b=vyBm+T56H7GXWL6z1lQbnQ8fwJzL6vfOoBuQvByAgg0UK3JvK1HjUzeAB11DVfvT+B
-         LhwpBAX5ozPnKuJuyR7lFSA0GS+x5y1M5WRhQyT2DokE/xg7xw4otI349j3TGRB2sRda
-         hU7eEiMb1DAGFamBxmqXI4ggVYwXxJlIisMb6o/1SRXSLEP95zQYya5Hh1Fa64zjw4Ah
-         /KCUvG/r1LS2l+UxnB2vpbIM2UeVc4t+VnlaAbuNaViYq3Mc8H2YsMmye63oHtwMCMPU
-         SOfzCc+nVaQ9gR1t1lGzHprTG0RgFYERPjjisY7P39et7L6QQ0mQARYH7EUycg3RDRY4
-         9Zaw==
-X-Forwarded-Encrypted: i=1; AJvYcCX5NMn+uaY1am3IJpquZK6u6IzZt9AQdqZ4wYd49SHiuWLK/jbkKJSobbN1UUEn8CZOuQg8D9ies2ZlBA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YywrqGDehbMXXGK0ydCP/g3hReM7EZ1nZaoJQuvdN4DIoXzq9JX
-	mR1fOmSbJeu//IT4efkkvcmkCVXYguwpelKZNy51Tg9PXGgywXTQXLYrFWlk3AguK9TU2OTufyJ
-	thTLFz/nK9NBAbBZXEESYhZBqu2QHF+IUECChN09d/gjBJqqJdna19g8YpMFjA1xeKYicL6c=
-X-Gm-Gg: AZuq6aLP3SAndfSwY3S8ll5ifc6OKmHTX48jIuLJM6IibXaH+Fqhw1ylTQbzJMaJRkH
-	SSXFDwyGs9HsyI/fNqbrrY5y/PO53DUBUWFQZeP5mdoeJpPyTwzbiwMogLpUd0MJUkf1g3qsLq1
-	FG8xYMdDxleYgBexcPvn0fISViD0hM4qhHrlHwQU8/B22gAqyDmqgpdIoA06WzUrWGvpuWuHDUC
-	ohlFUMGzbsI1jtL4bOB8ygtU4DjnEHTPChAFc2xfTIl/ZVTZ7NiBkmXys9EwKrgr8wGr1S0z61d
-	wFTgMbmT4Tzj5FuGcw4QHZt2xOkh6EMOW2cTXU27ldE5FWv22NRvqw6PvRj7ESBphN2xNHYe7tu
-	haRwrjPfmWgLJjSC07vo=
-X-Received: by 2002:a05:7022:2481:b0:119:e56b:98a7 with SMTP id a92af1059eb24-125c0f95953mr6050904c88.14.1770049892247;
-        Mon, 02 Feb 2026 08:31:32 -0800 (PST)
-X-Received: by 2002:a05:7022:2481:b0:119:e56b:98a7 with SMTP id a92af1059eb24-125c0f95953mr6050882c88.14.1770049891645;
-        Mon, 02 Feb 2026 08:31:31 -0800 (PST)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-124a9d7f789sm17569743c88.6.2026.02.02.08.31.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Feb 2026 08:31:31 -0800 (PST)
-Date: Mon, 2 Feb 2026 10:31:29 -0600
-From: Andrew Jones <andrew.jones@oss.qualcomm.com>
-To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-        kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-        Andrew Jones <ajones@ventanamicro.com>,
-        Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-        Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>,
-        Jiakai Xu <jiakaiPeanut@gmail.com>
-Subject: Re: [PATCH v5] RISC-V: KVM: Validate SBI STA shmem alignment in
- kvm_sbi_ext_sta_set_reg()
-Message-ID: <h5ywmsqp2eysyslvh7zmuiw3mzthkiilgqv4gvjvpl6nejxs7m@ahjmnsz2c2x3>
-References: <20260202003857.1694378-1-xujiakai2025@iscas.ac.cn>
+	Mon, 02 Feb 2026 16:43:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C58D3339;
+	Mon,  2 Feb 2026 08:43:47 -0800 (PST)
+Received: from [10.57.54.50] (unknown [10.57.54.50])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2CC153F778;
+	Mon,  2 Feb 2026 08:43:51 -0800 (PST)
+Message-ID: <794b6121-b66b-4819-b291-9761ed21cd83@arm.com>
+Date: Mon, 2 Feb 2026 16:43:48 +0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260202003857.1694378-1-xujiakai2025@iscas.ac.cn>
-X-Authority-Analysis: v=2.4 cv=ANnNY0ku c=1 sm=1 tr=0 ts=6980d165 cx=c_pps
- a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
- a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=sM2csZlYJ7vdm-W6c3UA:9 a=CjuIK1q_8ugA:10
- a=6Ab_bkdmUrQuMsNx7PHu:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjAyMDEzMCBTYWx0ZWRfX0rGYtcDLytM4
- jyJMhiFeQpLFqALe2DomjcpT2KAYic26xvrOKuQxGo8WI0s0CWMZ3UK2MpmVoAxeCvKjSzcWFDF
- +Ieqaog17+PnamO0OdNAPmOAuv4mDfNdkBPhIddZDMuLU2dhxOchbPZY4ERuZaM+3ixnGjWbUEN
- sNdmhywx9vX9JJK3OqDHP+bI4j+nIBMBtYqCR+3tOltrBbPjLSxmHsn74pqDPLRNgndLs3oxGEs
- eT6lEXP4ddOMJOLUNIOkGp5y2L1KCB9ZsOJ0Bsyj7drC1uo+2wYFNKgjsO9DkrFjnc1noUzWgSO
- ri22MjtysexA5Y9Idzn0qcy3GWSWes3N9KBsk1d7b9hw2IU8Q4YUphOhdTje9/qTVAeCLP+VrYw
- UGp93LeYiOJxhbxSkORWU3D7+FKxip+Tpi2nS58KC89dI+PDqgO0HPuwW2R7zkerVqvKzeqs533
- jm25Vtbiu2dZb7U5dig==
-X-Proofpoint-GUID: c5AZBiGJvRp_vrC5tndI18xnxepL-42U
-X-Proofpoint-ORIG-GUID: c5AZBiGJvRp_vrC5tndI18xnxepL-42U
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-02_04,2026-02-02_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 lowpriorityscore=0 clxscore=1015 bulkscore=0
- spamscore=0 priorityscore=1501 impostorscore=0 phishscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602020130
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/5] Convert riscv to use the generic iommu page table
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Vincent Chen <vincent.chen@sifive.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Albert Ou <aou@eecs.berkeley.edu>, iommu@lists.linux.dev,
+ Joerg Roedel <joro@8bytes.org>, linux-riscv@lists.infradead.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Will Deacon <will@kernel.org>,
+ lihangjing@bytedance.com, Xu Lu <luxu.kernel@bytedance.com>,
+ patches@lists.linux.dev, xieyongji@bytedance.com
+References: <0-v2-b11ebca8abb6+c096-iommu_pt_riscv_jgg@nvidia.com>
+ <CABvJ_xiUK9BqUJS9-Sk1sS4vhVhyXN8P8NooZ0t_Zp7ycG0bAw@mail.gmail.com>
+ <20260122153134.GO1134360@nvidia.com>
+ <CABvJ_xgSbK3omxT7XGJ0N7oEva6dQAJwZxRhsBqi44BRNZ3G5Q@mail.gmail.com>
+ <CABvJ_xhY_4ADOsVVbjhkBm8U1mKVOSwzKMfBw5mUsJe=kkUiLg@mail.gmail.com>
+ <20260123135234.GW1134360@nvidia.com>
+ <b1b220be-fd5e-4f83-8f5e-7d5282be39f9@arm.com>
+ <20260131002728.GM2223369@nvidia.com>
+ <8c46864e-4625-49f4-90b3-a7467cec8b7b@arm.com>
+ <20260202143720.GN2223369@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260202143720.GN2223369@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_163136_232612_3E30AEAE 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20260202_084356_510530_B40042E7 
+X-CRM114-Status: GOOD (  29.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,30 +73,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 02, 2026 at 12:38:57AM +0000, Jiakai Xu wrote:
-...
-> V4 -> V5: Added parentheses to function name in subject.
-> V3 -> V4: Declared new_shmem at the top of kvm_sbi_ext_sta_set_reg().
->           Initialized new_shmem to 0 instead of vcpu->arch.sta.shmem.
->           Added blank lines per review feedback.
-> V2 -> V3: Added parentheses to function name in subject.
-> V1 -> V2: Added Fixes tag.
->
+On 2026-02-02 2:37 pm, Jason Gunthorpe wrote:
+> On Mon, Feb 02, 2026 at 02:00:07PM +0000, Robin Murphy wrote:
+> 
+>>> DMA-FQ requires two functionalites from the page table:
+>>> 1) use gather->freelist to avoid a HW UAF (iommupt always does this)
+>>
+>> Nope, correct DMA API usage would almost never unmap an entire table, so
+>> synchronous non-leaf maintenance in that path still doesn't hurt DMA-FQ
+>> either (e.g. io-pgtable-arm).
+> 
+> Well, it certainly would hurt workloads like IB MR's which can have
+> quite alot of IOVA in a single dma_map_sg() and we do want to see the
+> table levels removed to avoid the waste that Pasha has talked
+> about. Doing single invalidations of potentially a lot of levels in a
+> DMA-FQ environment is unnecessary overhead.
+> 
+> But I get your point that simple, say storage, use of the DMA API
+> wouldn't be bothered by this and you could still get alot of benefit
+> without using the free list.
 
-A procedure comment is that you don't need to send a new revision for each
-change as comments come in or as you think of them yourself. You should
-leave a revision on the list long enough to collect comments from multiple
-reviewers (including yourself) and then send a new revision with all the
-changes at once. A couple of days between revisions is a minimum. For more
-than a single patch (i.e. some longer series) a week would be a minimum.
+Yeah, users dealing with giant non-physically-contiguous scatterlists
+are the exception (hence "almost"), but such big things are already
+taking the slow path for IOVA allocation/freeing, and they're presumably
+not churning at high frequency, so would stand to see a lot less benefit
+from flush queues in the first place. If anything, having big lumps of
+IOVA space (and pagetable memory) tied up in the queues could even make
+matters worse overall.
+
+>> If a pagetable implementation wanted to refcount and eagerly free empty
+>> tables upon leaf unmaps, then yes it would need deferred freeing, but
+>> frankly it would be better off just not doing that at all for DMA-FQ anyway
+>> (as IOVA caching would make it likely to need to repopulate the same level
+>> of table soon.)
+> 
+> Today it isn't done with refcounts, just if the iova range unmapped
+> fully contains a table level then the table level can go away too. It
+> does trim interior page tables for large IOVA allocations but small
+> ones are unlikely to free anything.
+
+Right, and other than the non-contiguous scatterlist case, anything
+where a dma_unmap_*() might take out a table-sized region at once, the
+corresponding dma_map_*() would have put it down as a block anyway.
+
+>>> The one call to iommu_iotlb_sync() is only for the para-virtualization
+>>> optimization of narrowing invalidations. It would be nonsensical for a
+>>> driver to enable this optimization and offer IOMMU_CAP_DEFERRED_FLUSH.
+>>
+>> Not necessarily - in the PV case it can be desirable to minimise
+>> over-invalidation *if* you're trapping for targeted invalidations in strict
+>> mode. However, depending on the usage pattern it may also be beneficial to
+>> have non-strict let the FQ mechanism batch up work to minimise the number of
+>> traps taken - e.g. s390 is in this situation, and is precisely why we added
+>> IOMMU_DMA_OPTS_SINGLE_QUEUE to help optimise for that.
+> 
+> Okay, so if I understand you right, it should check for
+> iommu_iotlb_gather_queued() and disable PT_FEAT_FLUSH_RANGE_NO_GAPS
+> mode entirely? ie there is no point in doing small invalidations if
+> the caller is going to do a flush all?
+> 
+> This way the user gets to pick using DMA-FQ or DMA-strict ?
+
+Indeed, and furthermore we permit relaxing from DMA to DMA-FQ on a
+live domain, so although a virtualisation-aware driver may use
+PT_FEAT_FLUSH_RANGE_NO_GAPS and also call iommu_set_dma_strict() by
+default, that doesn't mean IOMMU_CAP_DEFERRED_FLUSH can't still be
+brought into play later. So I guess probably something like the below
+(except the other fix just sent breaks the if/else logic, ho hum...)
+
+> Also Intel would probably benefit from .shadow_on_flush too?
+
+I think it mostly depends on how the vIOMMU is implemented. It did seem
+potentially mildly beneficial to virtio at the time, not sure if
+anyone's ever tried it for Intel/AMD.
 
 Thanks,
-drew
+Robin.
+
+----->8-----
+diff --git a/drivers/iommu/generic_pt/iommu_pt.h b/drivers/iommu/generic_pt/iommu_pt.h
+index 3327116a441c..b5cc3094f543 100644
+--- a/drivers/iommu/generic_pt/iommu_pt.h
++++ b/drivers/iommu/generic_pt/iommu_pt.h
+@@ -51,7 +51,9 @@ static void gather_range_pages(struct iommu_iotlb_gather *iotlb_gather,
+  		iommu_pages_stop_incoherent_list(free_list,
+  						 iommu_table->iommu_device);
+  
+-	if (pt_feature(common, PT_FEAT_FLUSH_RANGE_NO_GAPS) &&
++	if (iommu_iotlb_gather_queued(iotlb_gather)) {
++		/* No need to bother, FQ will take care of TLBs */
++	} else if (pt_feature(common, PT_FEAT_FLUSH_RANGE_NO_GAPS) &&
+  	    iommu_iotlb_gather_is_disjoint(iotlb_gather, iova, len)) {
+  		iommu_iotlb_sync(&iommu_table->domain, iotlb_gather);
+  		/*
+
 
 _______________________________________________
 linux-riscv mailing list
