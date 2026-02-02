@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5C0D172BE
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 03:25:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE404D172C3
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 04:01:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jy0bcgFdVO/oCP7SZIViyerFuutkgTAYKWkVhjTPwqg=; b=lVDFFOQldHQXb8
-	H2QWxHh6ZttGzWOykGEvnuSA8UeonBiCVsYRThyhj4nb1AFd/a2B1GbG+dOv6TSBr4WREoKHIrzPk
-	n2b+ogNkzfWZdgtNN4ybV9zReTpAr37j4LXE6jMHnuHXt3QZtonOB4ApwxYQKjT8FAUEl/BzRwdPs
-	2vB7cJ9lYxKJtTZyNan4Y0gtCEOFZVmoT1XpwwJVqEUUhsnV6gg2rqmYgiTDhQp1s6uduhG3WmY2Z
-	9wTrmUX+LrXeirKsFzKZjmUiqZQlUH31k66N/wHo4065yZyOp5JRg/rNEnmq2s/rSyVbL16poPyYh
-	+m7u8r88wqs8OENd5hAA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=92Jgh1XdEOBna1RBWmbHqeyD9c1zcavcpTXiEe7GE0g=; b=1wN9Sl0AEO7F1Z
+	9V0XYsSqQlJDJ1jypYJuIjFLKY1lQSbWMMTrfbS72ogVsfLyqHEMP/YeoyaAs41n1WQ74eqm0y66y
+	kMSwfCkJwweupjWXtuv8GzWOL+bOFCuFBnBbsz0XUXI50S9xdW0ZvK2bAlvao2b0mb2tBf/jAK0ZH
+	hjSBH9Jm/c/JnUxkbi/EIIROzQBf1MqxqWvkxuAJVD5L0psZSyQvCvW4BILHO9Y6GY/cNWcaMDn09
+	F4LdxbisMfCdUGacDWLsixxDXJDnpaGZUTq1RLi3WVD9F3oWHy6147D0TQOLZt65cYTVXS6kaNGkF
+	9YYHUPJg2CMJZVfx4Sfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmkYm-00000004NrM-3fjm;
-	Mon, 02 Feb 2026 03:25:08 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1vml7j-00000004Oz8-0QVx;
+	Mon, 02 Feb 2026 04:01:15 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmkYg-00000004Np6-1mOa
-	for linux-riscv@lists.infradead.org;
-	Mon, 02 Feb 2026 03:25:07 +0000
-X-UUID: a3ea2898ffe611f0b0f03b4cfa9209d1-20260202
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:650c2ba8-0de9-41d5-b1e4-a5d1a5c681a0,IP:0,UR
-	L:0,TC:0,Content:2,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:2
-X-CID-META: VersionHash:a9d874c,CLOUDID:ac3f64aecb564f5a94453d2e355e200f,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:4|15|
-	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: a3ea2898ffe611f0b0f03b4cfa9209d1-20260202
-X-User: jiangfeng@kylinos.cn
-Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 707133680; Mon, 02 Feb 2026 11:24:10 +0800
-Message-ID: <484c9672-75a6-450f-b677-548000031942@kylinos.cn>
-Date: Mon, 2 Feb 2026 11:24:07 +0800
+	id 1vml7d-00000004Oyl-1YCw;
+	Mon, 02 Feb 2026 04:01:12 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-03 (Coremail) with SMTP id rQCowAAnDON8IYBpot59Bw--.49852S2;
+	Mon, 02 Feb 2026 12:01:01 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Anup Patel <anup@brainfault.org>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Jiakai Xu <jiakaiPeanut@gmail.com>
+Subject: [PATCH v2] RISC-V: KVM: Fix use-after-free in kvm_riscv_gstage_get_leaf()
+Date: Mon,  2 Feb 2026 04:00:59 +0000
+Message-Id: <20260202040059.1801167-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/8] riscv: optimize string functions and add kunit
- tests
-To: Kees Cook <kees@kernel.org>
-Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- akpm@linux-foundation.org, andy@kernel.org, ebiggers@kernel.org,
- martin.petersen@oracle.com, herbert@gondor.apana.org.au,
- samuel.holland@sifive.com, ajones@ventanamicro.com,
- conor.dooley@microchip.com, charlie@rivosinc.com, nathan@kernel.org,
- linusw@kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-References: <20260130025018.172925-1-jiangfeng@kylinos.cn>
- <202601300936.6EDA32E96@keescook>
-Content-Language: en-US
-From: Feng Jiang <jiangfeng@kylinos.cn>
-In-Reply-To: <202601300936.6EDA32E96@keescook>
+X-CM-TRANSID: rQCowAAnDON8IYBpot59Bw--.49852S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kw4UtrW7XF4Utw45tF13Jwb_yoW5JFykpF
+	Z8Gry3CryrJr4kCry7tryDZrWDWw4UWrWkCFy5CF9rGrsIqa97Zrna9as2qry5ArykXFy3
+	ZrWDKa4rCr4Fya7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBF14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
+	rcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x
+	0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E
+	7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcV
+	C0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF
+	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7
+	CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JU6c_3UUUUU=
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiDAUGCWl-a8ajEgABsN
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260201_192504_720514_64BDE0F0 
-X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-CacheID: sfid-20260201_200110_008491_91569B58 
+X-CRM114-Status: UNSURE (   6.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,26 +86,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026/1/31 01:37, Kees Cook wrote:
-> On Fri, Jan 30, 2026 at 10:50:10AM +0800, Feng Jiang wrote:
->> This series provides optimized implementations of strnlen(), strchr(),
->> and strrchr() for the RISC-V architecture. The strnlen() implementation
->> is derived from the existing optimized strlen(). For strchr() and
->> strrchr(), the current versions use simple byte-by-byte assembly logic,
->> which will serve as a baseline for future Zbb-based optimizations.
-> 
-> I'm happy with the Kunit elements here, so unless Andy has other
-> feedback, please feel free to take this via the riscv tree. (Or if riscv
-> maintainers would prefer, I can take it via string.)
-> 
-> Thanks for working on this!
+While fuzzing KVM on RISC-V, a use-after-free was observed in
+kvm_riscv_gstage_get_leaf(),  where ptep_get() dereferences a
+freed gstage page table page during gfn unmap.
 
-Thank you very much for your review and the previous suggestions for improvement.
-I truly appreciate your patience and guidance throughout this process!
+The crash manifests as:
+  use-after-free in ptep_get include/linux/pgtable.h:340 [inline]
+  use-after-free in kvm_riscv_gstage_get_leaf arch/riscv/kvm/gstage.c:89
+  Call Trace:
+    ptep_get include/linux/pgtable.h:340 [inline]
+    kvm_riscv_gstage_get_leaf+0x2ea/0x358 arch/riscv/kvm/gstage.c:89
+    kvm_riscv_gstage_unmap_range+0xf0/0x308 arch/riscv/kvm/gstage.c:265
+    kvm_unmap_gfn_range+0x168/0x1fc arch/riscv/kvm/mmu.c:256
+    kvm_mmu_unmap_gfn_range virt/kvm/kvm_main.c:724 [inline]
+  page last free pid 808 tgid 808 stack trace:
+    kvm_riscv_mmu_free_pgd+0x1b6/0x26a arch/riscv/kvm/mmu.c:457
+    kvm_arch_flush_shadow_all+0x1a/0x24 arch/riscv/kvm/mmu.c:134
+    kvm_flush_shadow_all virt/kvm/kvm_main.c:344 [inline]
 
+The UAF is caused by gstage page table walks running concurrently with
+gstage pgd teardown. In particular, kvm_unmap_gfn_range() can traverse
+gstage page tables while kvm_arch_flush_shadow_all() frees the pgd,
+leading to use-after-free of page table pages.
+
+Fix the issue by serializing gstage unmap and pgd teardown with
+kvm->mmu_lock. Holding mmu_lock ensures that gstage page tables
+remain valid for the duration of unmap operations and prevents
+concurrent frees.
+
+This matches existing RISC-V KVM usage of mmu_lock to protect gstage
+map/unmap operations, e.g. kvm_riscv_mmu_iounmap.
+
+Fixes: dd82e35638d67f ("RISC-V: KVM: Factor-out g-stage page table management")
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+---
+V1 -> V2: Removed kvm->mmu_lock in kvm_arch_flush_shadow_all().
+
+ arch/riscv/kvm/mmu.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index a1c3b2ec1dde5..1d71c1cb429ca 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -268,9 +268,11 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
+ 	gstage.flags = 0;
+ 	gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
+ 	gstage.pgd = kvm->arch.pgd;
++	spin_lock(&kvm->mmu_lock);
+ 	kvm_riscv_gstage_unmap_range(&gstage, range->start << PAGE_SHIFT,
+ 				     (range->end - range->start) << PAGE_SHIFT,
+ 				     range->may_block);
++	spin_unlock(&kvm->mmu_lock);
+ 	return false;
+ }
+ 
 -- 
-With Best Regards,
-Feng Jiang
+2.34.1
 
 
 _______________________________________________
