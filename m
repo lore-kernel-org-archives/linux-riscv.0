@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A82E73158
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 11:54:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85B19E7DEE0
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 14:00:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rkYQB9Xiel19kzkHE2vPjSqhGr1mcWdIHdB/SWgid0U=; b=vnQKUOH6TZNyqF
-	6Yw9xKnmTEDf6PuGWidJMb09MVt+n4MU+zw6dz9aYCAN9OejAWFecOsjI67JwwT3Td69TtlDIKk4d
-	pB3P6KTMPg1WD8IhYdyq90x7tBPI7fBV6Bb7MM9F/zEO7PBw3ES193b8CQLmAK4q0u4bpjvjKgjNm
-	1nDox9mamBT+akvEWOACgJqAUoQfQQKz8kjQMjWccfQyxenyfNNpdGZpVmzELmNnDBuNOLA/K3PMb
-	RXjL2Lv6R5viETKjkm0eOKqox7xFnFs/BzWfdly+weVbEuwbCT7j/ntwmJ+uHQxWcXT/X57x1qcop
-	8x8wYvnYDF0W+VtcpEAQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8naW18xgC+GLPmXd/9E08dmJoh0TihtMNWygWKYdsf4=; b=03qGs3vSNtoiJr
+	GvyVR+D1bW+ckR14/MPUJWJn8r+Kubfaiq47+PWE3ijpy1M07L1rsCEFCy+YsKlcItfiTMB7a+o4J
+	pka1xP2R69jy7H4JcwT8mQvGuXhYIIPBGRb+UVQbkNAL8sI3RPAIW5ibgyrSYenYwfK+/9SBisr7m
+	u26Zh9vLlf14UzMid1RO4SOPJv/5VgsRWGoA2LsfP3Vg883FG9DwqZrCYdfc8Q8yJ2SrDlXmqW6th
+	K4WdQpQpElp9RS4jtPboePfQXk55qIZfY4wbWVmf8yXKAvcmc9NHKNt4kgo28UZJqUOn44ot8NQKs
+	pK68aHJOJQVJ1oiGCCvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmsVc-00000004vqD-40gR;
-	Mon, 02 Feb 2026 11:54:25 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmsVa-00000004vpn-0xSu
+	id 1vmuTU-000000053uS-12et;
+	Mon, 02 Feb 2026 14:00:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vmuTP-000000053td-1QIN
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Feb 2026 11:54:24 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1770033257;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=T5Uilf3IQYak3PRURdEGXsrMPL7h9nKBW+wcPD1Gn2A=;
-	b=kRqjazkJQBRMMFalx7NBUeIuomaIiIT5K6ikIuwwC9+tqwPqOH0Il18E/1dr8QcUK24zxm
-	fb/QWTx6szIAdNHiMUu7PKZeL/NC1sZByor83/1RMgyrWhUzF02AWNbj5QtRDblfdn/Vv3
-	C4s6wMrcECP4TBFqVFWM2ghsyH438bkAuRiDTmyI1UgmTvjxWcyWlSrNitnTBtxdUyykMc
-	D8ZEZ35IeELdPf7YKKJN7lUjNQjhpbYwvjy67JlFD4BL5fDDu+YpjotiF5GXBw0YJVZlsB
-	fZjDyTdEBet3DnwDKaIP03IRHEduETQu7uX2JhaxjXzrz9ueZc/jb4D/oajjog==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1770033257;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=T5Uilf3IQYak3PRURdEGXsrMPL7h9nKBW+wcPD1Gn2A=;
-	b=w+xp7Rs8gHsVWUfqcBBQLEQaOrLsa2M62tEy7SQh/LzLKWxs07m8h/YMxEfuxHd4gq+Mju
-	UVAuBbc+INwb3DBw==
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Nam Cao <namcao@linutronix.de>,
-	Frederik Haxel <haxel@fzi.de>,
-	Vitaly Wool <vitaly.wool@konsulko.com>
-Subject: [PATCH] riscv: Remove support for XIP kernel
-Date: Mon,  2 Feb 2026 12:54:03 +0100
-Message-ID: <20260202115403.2119218-1-namcao@linutronix.de>
+	Mon, 02 Feb 2026 14:00:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 054EF339;
+	Mon,  2 Feb 2026 06:00:06 -0800 (PST)
+Received: from [10.57.54.50] (unknown [10.57.54.50])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B759E3F7A6;
+	Mon,  2 Feb 2026 06:00:09 -0800 (PST)
+Message-ID: <8c46864e-4625-49f4-90b3-a7467cec8b7b@arm.com>
+Date: Mon, 2 Feb 2026 14:00:07 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/5] Convert riscv to use the generic iommu page table
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Vincent Chen <vincent.chen@sifive.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Albert Ou <aou@eecs.berkeley.edu>, iommu@lists.linux.dev,
+ Joerg Roedel <joro@8bytes.org>, linux-riscv@lists.infradead.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Will Deacon <will@kernel.org>,
+ lihangjing@bytedance.com, Xu Lu <luxu.kernel@bytedance.com>,
+ patches@lists.linux.dev, xieyongji@bytedance.com
+References: <0-v2-b11ebca8abb6+c096-iommu_pt_riscv_jgg@nvidia.com>
+ <CABvJ_xiUK9BqUJS9-Sk1sS4vhVhyXN8P8NooZ0t_Zp7ycG0bAw@mail.gmail.com>
+ <20260122153134.GO1134360@nvidia.com>
+ <CABvJ_xgSbK3omxT7XGJ0N7oEva6dQAJwZxRhsBqi44BRNZ3G5Q@mail.gmail.com>
+ <CABvJ_xhY_4ADOsVVbjhkBm8U1mKVOSwzKMfBw5mUsJe=kkUiLg@mail.gmail.com>
+ <20260123135234.GW1134360@nvidia.com>
+ <b1b220be-fd5e-4f83-8f5e-7d5282be39f9@arm.com>
+ <20260131002728.GM2223369@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260131002728.GM2223369@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_035422_560744_BE4F63CD 
-X-CRM114-Status: GOOD (  24.84  )
+X-CRM114-CacheID: sfid-20260202_060015_695524_F499F975 
+X-CRM114-Status: GOOD (  25.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,972 +71,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-XIP has a history of being broken for long periods of time. In 2023, it was
-broken for 18 months before getting fixed [1]. In 2024 it was 4 months [2].
+On 2026-01-31 12:27 am, Jason Gunthorpe wrote:
+> On Thu, Jan 29, 2026 at 11:21:53AM +0000, Robin Murphy wrote:
+> 
+>> The driver does not advertise IOMMU_CAP_DEFERRED_FLUSH, as the existing
+>> pagetable code has never implemented the conditional TLB maintenance
+>> optimisation that makes it meaningful. Mind you, I don't see any reference
+>> to iommu_iotlb_gather_queued() in generic_pt either, so I have no idea how
+>> that's trying to do it :/
+> 
+> Well, correct me if I've got it wrong..
+> 
+> DMA-FQ always does flush all, so the goal is to eliminate redundant
+> flushes from within the page table logic itself.
+> 
+> DMA-FQ requires two functionalites from the page table:
+> 1) use gather->freelist to avoid a HW UAF (iommupt always does this)
 
-And now it is broken again since commit a44fb5722199 ("riscv: Add runtime
-constant support"), 10 months ago.
+Nope, correct DMA API usage would almost never unmap an entire table, so 
+synchronous non-leaf maintenance in that path still doesn't hurt DMA-FQ 
+either (e.g. io-pgtable-arm).
 
-These are clear signs that XIP feature is not being used.
+If a pagetable implementation wanted to refcount and eagerly free empty 
+tables upon leaf unmaps, then yes it would need deferred freeing, but 
+frankly it would be better off just not doing that at all for DMA-FQ 
+anyway (as IOVA caching would make it likely to need to repopulate the 
+same level of table soon.)
 
-I occasionally looked after XIP, but mostly because I was bored and had
-nothing better to do.
+> 2) avoid internal calls to iommu_iotlb_sync()
 
-Remove XIP support. Revert is possible if someone shows up complaining.
+More like avoid issuing any kind of inline TLB maintenance at all, e.g. 
+for SMMUv2 the significant work is done up-front in 
+io_pgtable_tlb_add_page(), so only skipping iommu_iotlb_sync() would 
+have very little benefit.
 
-Link: https://lore.kernel.org/linux-riscv/20231212-customary-hardcover-e19462bf8e75@wendy/ [1]
-Link: https://lore.kernel.org/linux-riscv/20240526110104.470429-1-namcao@linutronix.de/ [2]
-Signed-off-by: Nam Cao <namcao@linutronix.de>
-Cc: Frederik Haxel <haxel@fzi.de>
-Cc: Vitaly Wool <vitaly.wool@konsulko.com>
----
- arch/riscv/Kconfig                  |  86 ++++++---------------
- arch/riscv/Kconfig.socs             |   8 +-
- arch/riscv/Makefile                 |   3 -
- arch/riscv/boot/Makefile            |  11 ---
- arch/riscv/include/asm/page.h       |  29 --------
- arch/riscv/include/asm/pgtable.h    |  20 -----
- arch/riscv/include/asm/scs.h        |   1 -
- arch/riscv/include/asm/set_memory.h |   2 +-
- arch/riscv/include/asm/xip_fixup.h  |  49 ------------
- arch/riscv/kernel/head.S            |  41 ----------
- arch/riscv/kernel/head.h            |   3 -
- arch/riscv/kernel/setup.c           |   6 +-
- arch/riscv/kernel/suspend_entry.S   |   2 -
- arch/riscv/kernel/traps.c           |   4 -
- arch/riscv/kernel/vmcore_info.c     |   7 --
- arch/riscv/kernel/vmlinux.lds.S     |   5 --
- arch/riscv/mm/init.c                | 111 ++--------------------------
- 17 files changed, 37 insertions(+), 351 deletions(-)
- delete mode 100644 arch/riscv/include/asm/xip_fixup.h
+> When the gather reaches __iommu_dma_unmap() it discards any iova range
+> inside it, queues the freelist, and queues a flush all. So any flush
+> implied by the gather is removed by the core code.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 7e76b6316425..e8ac6c61e27d 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -48,8 +48,8 @@ config RISCV
- 	select ARCH_HAS_PTE_SPECIAL
- 	select ARCH_HAS_SET_DIRECT_MAP if MMU
- 	select ARCH_HAS_SET_MEMORY if MMU
--	select ARCH_HAS_STRICT_KERNEL_RWX if MMU && !XIP_KERNEL
--	select ARCH_HAS_STRICT_MODULE_RWX if MMU && !XIP_KERNEL
-+	select ARCH_HAS_STRICT_KERNEL_RWX if MMU
-+	select ARCH_HAS_STRICT_MODULE_RWX if MMU
- 	select ARCH_HAS_SYNC_CORE_BEFORE_USERMODE
- 	select ARCH_HAS_SYSCALL_WRAPPER
- 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
-@@ -85,7 +85,7 @@ config RISCV
- 	select ARCH_WANT_FRAME_POINTERS
- 	select ARCH_WANT_GENERAL_HUGETLB if !RISCV_ISA_SVNAPOT
- 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
--	select ARCH_WANT_LD_ORPHAN_WARN if !XIP_KERNEL
-+	select ARCH_WANT_LD_ORPHAN_WARN
- 	select ARCH_WANT_OPTIMIZE_DAX_VMEMMAP
- 	select ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP
- 	select ARCH_WANTS_NO_INSTR
-@@ -130,13 +130,13 @@ config RISCV
- 	select HAVE_ARCH_AUDITSYSCALL
- 	select HAVE_ARCH_HUGE_VMALLOC if HAVE_ARCH_HUGE_VMAP
- 	select HAVE_ARCH_HUGE_VMAP if MMU && 64BIT
--	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL
--	select HAVE_ARCH_JUMP_LABEL_RELATIVE if !XIP_KERNEL
-+	select HAVE_ARCH_JUMP_LABEL
-+	select HAVE_ARCH_JUMP_LABEL_RELATIVE
- 	select HAVE_ARCH_KASAN if MMU && 64BIT
- 	select HAVE_ARCH_KASAN_VMALLOC if MMU && 64BIT
- 	select HAVE_ARCH_KFENCE if MMU && 64BIT
- 	select HAVE_ARCH_KSTACK_ERASE
--	select HAVE_ARCH_KGDB if !XIP_KERNEL
-+	select HAVE_ARCH_KGDB
- 	select HAVE_ARCH_KGDB_QXFER_PKT
- 	select HAVE_ARCH_MMAP_RND_BITS if MMU
- 	select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
-@@ -154,7 +154,7 @@ config RISCV
- 	select HAVE_CONTEXT_TRACKING_USER
- 	select HAVE_DEBUG_KMEMLEAK
- 	select HAVE_DMA_CONTIGUOUS if MMU
--	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && (CLANG_SUPPORTS_DYNAMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
-+	select HAVE_DYNAMIC_FTRACE if MMU && (CLANG_SUPPORTS_DYNAMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
- 	select FUNCTION_ALIGNMENT_4B if HAVE_DYNAMIC_FTRACE && RISCV_ISA_C
- 	select HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS if HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
- 	select HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS if (DYNAMIC_FTRACE_WITH_ARGS && !CFI)
-@@ -162,7 +162,7 @@ config RISCV
- 	select HAVE_FTRACE_GRAPH_FUNC
- 	select HAVE_FUNCTION_GRAPH_TRACER if HAVE_DYNAMIC_FTRACE_WITH_ARGS
- 	select HAVE_FUNCTION_GRAPH_FREGS
--	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && HAVE_DYNAMIC_FTRACE
-+	select HAVE_FUNCTION_TRACER if HAVE_DYNAMIC_FTRACE
- 	select HAVE_EBPF_JIT if MMU
- 	select HAVE_GENERIC_TIF_BITS
- 	select HAVE_GUP_FAST if MMU
-@@ -171,16 +171,16 @@ config RISCV
- 	select HAVE_GCC_PLUGINS
- 	select HAVE_GENERIC_VDSO if MMU
- 	select HAVE_IRQ_TIME_ACCOUNTING
--	select HAVE_KERNEL_BZIP2 if !XIP_KERNEL && !EFI_ZBOOT
--	select HAVE_KERNEL_GZIP if !XIP_KERNEL && !EFI_ZBOOT
--	select HAVE_KERNEL_LZ4 if !XIP_KERNEL && !EFI_ZBOOT
--	select HAVE_KERNEL_LZMA if !XIP_KERNEL && !EFI_ZBOOT
--	select HAVE_KERNEL_LZO if !XIP_KERNEL && !EFI_ZBOOT
--	select HAVE_KERNEL_UNCOMPRESSED if !XIP_KERNEL && !EFI_ZBOOT
--	select HAVE_KERNEL_ZSTD if !XIP_KERNEL && !EFI_ZBOOT
--	select HAVE_KERNEL_XZ if !XIP_KERNEL && !EFI_ZBOOT
--	select HAVE_KPROBES if !XIP_KERNEL
--	select HAVE_KRETPROBES if !XIP_KERNEL
-+	select HAVE_KERNEL_BZIP2 if !EFI_ZBOOT
-+	select HAVE_KERNEL_GZIP if !EFI_ZBOOT
-+	select HAVE_KERNEL_LZ4 if !EFI_ZBOOT
-+	select HAVE_KERNEL_LZMA if !EFI_ZBOOT
-+	select HAVE_KERNEL_LZO if !EFI_ZBOOT
-+	select HAVE_KERNEL_UNCOMPRESSED if !EFI_ZBOOT
-+	select HAVE_KERNEL_ZSTD if !EFI_ZBOOT
-+	select HAVE_KERNEL_XZ if !EFI_ZBOOT
-+	select HAVE_KPROBES
-+	select HAVE_KRETPROBES
- 	# https://github.com/ClangBuiltLinux/linux/issues/1881
- 	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if !LD_IS_LLD
- 	select HAVE_MOVE_PMD
-@@ -191,9 +191,9 @@ config RISCV
- 	select HAVE_PERF_REGS
- 	select HAVE_PERF_USER_STACK_DUMP
- 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
--	select HAVE_PREEMPT_DYNAMIC_KEY if !XIP_KERNEL
-+	select HAVE_PREEMPT_DYNAMIC_KEY
- 	select HAVE_REGS_AND_STACK_ACCESS_API
--	select HAVE_RETHOOK if !XIP_KERNEL
-+	select HAVE_RETHOOK
- 	select HAVE_RSEQ
- 	select HAVE_RUST if RUSTC_SUPPORTS_RISCV && CC_IS_CLANG
- 	select HAVE_SAMPLE_FTRACE_DIRECT
-@@ -214,7 +214,7 @@ config RISCV
- 	select PCI_ECAM if (ACPI && PCI)
- 	select PCI_MSI if PCI
- 	select RELOCATABLE if !MMU && !PHYS_RAM_BASE_FIXED
--	select RISCV_ALTERNATIVE if !XIP_KERNEL
-+	select RISCV_ALTERNATIVE
- 	select RISCV_APLIC
- 	select RISCV_IMSIC
- 	select RISCV_INTC
-@@ -541,7 +541,6 @@ endchoice
- 
- config RISCV_ALTERNATIVE
- 	bool
--	depends on !XIP_KERNEL
- 	help
- 	  This Kconfig allows the kernel to automatically patch the
- 	  erratum or cpufeature required by the execution platform at run
-@@ -1129,7 +1128,6 @@ config PARAVIRT_TIME_ACCOUNTING
- 
- config RELOCATABLE
- 	bool "Build a relocatable kernel"
--	depends on !XIP_KERNEL
- 	select MODULE_SECTIONS if MODULES
- 	select ARCH_VMLINUX_NEEDS_RELOCS
- 	help
-@@ -1146,7 +1144,7 @@ config RELOCATABLE
- config RANDOMIZE_BASE
-         bool "Randomize the address of the kernel image"
-         select RELOCATABLE
--        depends on MMU && 64BIT && !XIP_KERNEL
-+        depends on MMU && 64BIT
-         help
-           Randomizes the virtual address at which the kernel image is
-           loaded, as a security feature that deters exploit attempts
-@@ -1236,7 +1234,7 @@ config EFI_STUB
- 
- config EFI
- 	bool "UEFI runtime support"
--	depends on OF && !XIP_KERNEL
-+	depends on OF
- 	depends on MMU
- 	default y
- 	select ARCH_SUPPORTS_ACPI if 64BIT
-@@ -1287,44 +1285,6 @@ config PHYS_RAM_BASE
- 	  explicitly specified to run early relocations of read-write data
- 	  from flash to RAM.
- 
--config XIP_KERNEL
--	bool "Kernel Execute-In-Place from ROM"
--	depends on MMU && SPARSEMEM && NONPORTABLE
--	# This prevents XIP from being enabled by all{yes,mod}config, which
--	# fail to build since XIP doesn't support large kernels.
--	depends on !COMPILE_TEST
--	select PHYS_RAM_BASE_FIXED
--	help
--	  Execute-In-Place allows the kernel to run from non-volatile storage
--	  directly addressable by the CPU, such as NOR flash. This saves RAM
--	  space since the text section of the kernel is not loaded from flash
--	  to RAM.  Read-write sections, such as the data section and stack,
--	  are still copied to RAM.  The XIP kernel is not compressed since
--	  it has to run directly from flash, so it will take more space to
--	  store it.  The flash address used to link the kernel object files,
--	  and for storing it, is configuration dependent. Therefore, if you
--	  say Y here, you must know the proper physical address where to
--	  store the kernel image depending on your own flash memory usage.
--
--	  Also note that the make target becomes "make xipImage" rather than
--	  "make zImage" or "make Image".  The final kernel binary to put in
--	  ROM memory will be arch/riscv/boot/xipImage.
--
--	  SPARSEMEM is required because the kernel text and rodata that are
--	  flash resident are not backed by memmap, then any attempt to get
--	  a struct page on those regions will trigger a fault.
--
--	  If unsure, say N.
--
--config XIP_PHYS_ADDR
--	hex "XIP Kernel Physical Location"
--	depends on XIP_KERNEL
--	default "0x21000000"
--	help
--	  This is the physical address in your flash memory the kernel will
--	  be linked for and stored to.  This address is dependent on your
--	  own flash usage.
--
- config RISCV_ISA_FALLBACK
- 	bool "Permit falling back to parsing riscv,isa for extension support by default"
- 	default y
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index d621b85dd63b..c174ac0ec46b 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -2,7 +2,7 @@ menu "SoC selection"
- 
- config ARCH_ANDES
- 	bool "Andes SoCs"
--	depends on MMU && !XIP_KERNEL
-+	depends on MMU
- 	select ERRATA_ANDES
- 	help
- 	  This enables support for Andes SoC platform hardware.
-@@ -33,7 +33,7 @@ config ARCH_RENESAS
- 
- config ARCH_SIFIVE
- 	bool "SiFive SoCs"
--	select ERRATA_SIFIVE if !XIP_KERNEL
-+	select ERRATA_SIFIVE
- 	help
- 	  This enables support for SiFive SoC platform hardware.
- 
-@@ -61,7 +61,7 @@ config SOC_STARFIVE
- 
- config ARCH_SUNXI
- 	bool "Allwinner sun20i SoCs"
--	depends on MMU && !XIP_KERNEL
-+	depends on MMU
- 	select ERRATA_THEAD
- 	select SUN4I_TIMER
- 	help
-@@ -78,7 +78,7 @@ config ARCH_TENSTORRENT
- 
- config ARCH_THEAD
- 	bool "T-HEAD RISC-V SoCs"
--	depends on MMU && !XIP_KERNEL
-+	depends on MMU
- 	select ERRATA_THEAD
- 	select PM_GENERIC_DOMAINS if PM
- 	help
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 371da75a47f9..2cda87a5aaf1 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -150,7 +150,6 @@ ifdef CONFIG_RISCV_M_MODE
- boot-image-$(CONFIG_SOC_CANAAN_K210)	:= loader.bin
- endif
- boot-image-$(CONFIG_EFI_ZBOOT)		:= vmlinuz.efi
--boot-image-$(CONFIG_XIP_KERNEL)		:= xipImage
- KBUILD_IMAGE				:= $(boot)/$(boot-image-y)
- 
- libs-y += arch/riscv/lib/
-@@ -218,8 +217,6 @@ define archhelp
-   echo  '  Image.xz	- Compressed kernel image (arch/riscv/boot/Image.xz)'
-   echo  '  vmlinuz.efi	- Compressed EFI kernel image (arch/riscv/boot/vmlinuz.efi)'
-   echo  '		  Default when CONFIG_EFI_ZBOOT=y'
--  echo  '  xipImage	- Execute-in-place kernel image (arch/riscv/boot/xipImage)'
--  echo  '		  Default when CONFIG_XIP_KERNEL=y'
-   echo  '  install	- Install kernel using (your) ~/bin/$(INSTALLKERNEL) or'
-   echo  '		  (distribution) /sbin/$(INSTALLKERNEL) or install to '
-   echo  '		  $$(INSTALL_PATH)'
-diff --git a/arch/riscv/boot/Makefile b/arch/riscv/boot/Makefile
-index 5301adf5f3f5..fcfbe3f814d6 100644
---- a/arch/riscv/boot/Makefile
-+++ b/arch/riscv/boot/Makefile
-@@ -20,17 +20,6 @@ OBJCOPYFLAGS_xipImage :=-O binary -R .note -R .note.gnu.build-id -R .comment -S
- 
- targets := Image Image.* loader loader.o loader.lds loader.bin xipImage
- 
--ifeq ($(CONFIG_XIP_KERNEL),y)
--
--quiet_cmd_mkxip = $(quiet_cmd_objcopy)
--cmd_mkxip = $(cmd_objcopy)
--
--$(obj)/xipImage: vmlinux FORCE
--	$(call if_changed,mkxip)
--	@$(kecho) '  Physical Address of xipImage: $(CONFIG_XIP_PHYS_ADDR)'
--
--endif
--
- $(obj)/Image: vmlinux FORCE
- 	$(call if_changed,objcopy)
- 
-diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-index 3c517bc9eac5..9ccd80d57ffe 100644
---- a/arch/riscv/include/asm/page.h
-+++ b/arch/riscv/include/asm/page.h
-@@ -29,11 +29,7 @@
- #define PAGE_OFFSET_L5		_AC(0xff60000000000000, UL)
- #define PAGE_OFFSET_L4		_AC(0xffffaf8000000000, UL)
- #define PAGE_OFFSET_L3		_AC(0xffffffd600000000, UL)
--#ifdef CONFIG_XIP_KERNEL
--#define PAGE_OFFSET		PAGE_OFFSET_L3
--#else
- #define PAGE_OFFSET		kernel_map.page_offset
--#endif /* CONFIG_XIP_KERNEL */
- #else
- #define PAGE_OFFSET		_AC(0xc0000000, UL)
- #endif /* CONFIG_64BIT */
-@@ -105,15 +101,8 @@ struct kernel_mapping {
- 	/* Offset between linear mapping virtual address and kernel load address */
- 	unsigned long va_pa_offset;
- 	/* Offset between kernel mapping virtual address and kernel load address */
--#ifdef CONFIG_XIP_KERNEL
--	unsigned long va_kernel_xip_text_pa_offset;
--	unsigned long va_kernel_xip_data_pa_offset;
--	uintptr_t xiprom;
--	uintptr_t xiprom_sz;
--#else
- 	unsigned long page_offset;
- 	unsigned long va_kernel_pa_offset;
--#endif
- };
- 
- extern struct kernel_mapping kernel_map;
-@@ -132,16 +121,7 @@ extern unsigned long vmemmap_start_pfn;
- void *linear_mapping_pa_to_va(unsigned long x);
- #endif
- 
--#ifdef CONFIG_XIP_KERNEL
--#define kernel_mapping_pa_to_va(y)	({					\
--	unsigned long _y = (unsigned long)(y);					\
--	(_y < phys_ram_base) ?							\
--		(void *)(_y + kernel_map.va_kernel_xip_text_pa_offset) :	\
--		(void *)(_y + kernel_map.va_kernel_xip_data_pa_offset);		\
--	})
--#else
- #define kernel_mapping_pa_to_va(y) ((void *)((unsigned long)(y) + kernel_map.va_kernel_pa_offset))
--#endif
- 
- #define __pa_to_va_nodebug(x)		linear_mapping_pa_to_va(x)
- 
-@@ -151,16 +131,7 @@ void *linear_mapping_pa_to_va(unsigned long x);
- phys_addr_t linear_mapping_va_to_pa(unsigned long x);
- #endif
- 
--#ifdef CONFIG_XIP_KERNEL
--#define kernel_mapping_va_to_pa(y) ({						\
--	unsigned long _y = (unsigned long)(y);					\
--	(_y < kernel_map.virt_addr + kernel_map.xiprom_sz) ?			\
--		(_y - kernel_map.va_kernel_xip_text_pa_offset) :		\
--		(_y - kernel_map.va_kernel_xip_data_pa_offset);			\
--	})
--#else
- #define kernel_mapping_va_to_pa(y) ((unsigned long)(y) - kernel_map.va_kernel_pa_offset)
--#endif
- 
- #define __va_to_pa_nodebug(x)	({						\
- 	unsigned long _x = x;							\
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 1340aa398a74..a18c0f62b452 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -134,21 +134,6 @@
- 
- #include <linux/page_table_check.h>
- 
--#ifdef CONFIG_XIP_KERNEL
--#define XIP_FIXUP(addr) ({							\
--	extern char _sdata[], _start[], _end[];					\
--	uintptr_t __rom_start_data = CONFIG_XIP_PHYS_ADDR			\
--				+ (uintptr_t)&_sdata - (uintptr_t)&_start;	\
--	uintptr_t __rom_end_data = CONFIG_XIP_PHYS_ADDR				\
--				+ (uintptr_t)&_end - (uintptr_t)&_start;	\
--	uintptr_t __a = (uintptr_t)(addr);					\
--	(__a >= __rom_start_data && __a < __rom_end_data) ?			\
--		__a - __rom_start_data + CONFIG_PHYS_RAM_BASE :	__a;		\
--	})
--#else
--#define XIP_FIXUP(addr)		(addr)
--#endif /* CONFIG_XIP_KERNEL */
--
- struct pt_alloc_ops {
- 	pte_t *(*get_pte_virt)(phys_addr_t pa);
- 	phys_addr_t (*alloc_pte)(uintptr_t va);
-@@ -1272,13 +1257,8 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
- extern char _start[];
- extern void *_dtb_early_va;
- extern uintptr_t _dtb_early_pa;
--#if defined(CONFIG_XIP_KERNEL) && defined(CONFIG_MMU)
--#define dtb_early_va	(*(void **)XIP_FIXUP(&_dtb_early_va))
--#define dtb_early_pa	(*(uintptr_t *)XIP_FIXUP(&_dtb_early_pa))
--#else
- #define dtb_early_va	_dtb_early_va
- #define dtb_early_pa	_dtb_early_pa
--#endif /* CONFIG_XIP_KERNEL */
- extern u64 satp_mode;
- 
- void paging_init(void);
-diff --git a/arch/riscv/include/asm/scs.h b/arch/riscv/include/asm/scs.h
-index ab7714aa93bd..023a412fe38d 100644
---- a/arch/riscv/include/asm/scs.h
-+++ b/arch/riscv/include/asm/scs.h
-@@ -10,7 +10,6 @@
- /* Load init_shadow_call_stack to gp. */
- .macro scs_load_init_stack
- 	la	gp, init_shadow_call_stack
--	XIP_FIXUP_OFFSET gp
- .endm
- 
- /* Load the per-CPU IRQ shadow call stack to gp. */
-diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-index 87389e93325a..ef59e1716a2c 100644
---- a/arch/riscv/include/asm/set_memory.h
-+++ b/arch/riscv/include/asm/set_memory.h
-@@ -47,7 +47,7 @@ bool kernel_page_present(struct page *page);
- 
- #endif /* __ASSEMBLER__ */
- 
--#if defined(CONFIG_STRICT_KERNEL_RWX) || defined(CONFIG_XIP_KERNEL)
-+#if defined(CONFIG_STRICT_KERNEL_RWX)
- #ifdef CONFIG_64BIT
- #define SECTION_ALIGN (1 << 21)
- #else
-diff --git a/arch/riscv/include/asm/xip_fixup.h b/arch/riscv/include/asm/xip_fixup.h
-deleted file mode 100644
-index f3d56299bc22..000000000000
---- a/arch/riscv/include/asm/xip_fixup.h
-+++ /dev/null
-@@ -1,49 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * XIP fixup macros, only useful in assembly.
-- */
--#ifndef _ASM_RISCV_XIP_FIXUP_H
--#define _ASM_RISCV_XIP_FIXUP_H
--
--#include <linux/pgtable.h>
--
--#ifdef CONFIG_XIP_KERNEL
--.macro XIP_FIXUP_OFFSET reg
--	/* Fix-up address in Flash into address in RAM early during boot before
--	 * MMU is up. Because generated code "thinks" data is in Flash, but it
--	 * is actually in RAM (actually data is also in Flash, but Flash is
--	 * read-only, thus we need to use the data residing in RAM).
--	 *
--	 * The start of data in Flash is _sdata and the start of data in RAM is
--	 * CONFIG_PHYS_RAM_BASE. So this fix-up essentially does this:
--	 * reg += CONFIG_PHYS_RAM_BASE - _start
--	 */
--	li t0, CONFIG_PHYS_RAM_BASE
--        add \reg, \reg, t0
--	la t0, _sdata
--	sub \reg, \reg, t0
--.endm
--.macro XIP_FIXUP_FLASH_OFFSET reg
--	/* In linker script, at the transition from read-only section to
--	 * writable section, the VMA is increased while LMA remains the same.
--	 * (See in linker script how _sdata, __data_loc and LOAD_OFFSET is
--	 * changed)
--	 *
--	 * Consequently, early during boot before MMU is up, the generated code
--	 * reads the "writable" section at wrong addresses, because VMA is used
--	 * by compiler to generate code, but the data is located in Flash using
--	 * LMA.
--	 */
--	la t0, _sdata
--	sub \reg, \reg, t0
--	la t0, __data_loc
--	add \reg, \reg, t0
--.endm
--#else
--.macro XIP_FIXUP_OFFSET reg
--.endm
--.macro XIP_FIXUP_FLASH_OFFSET reg
--.endm
--#endif /* CONFIG_XIP_KERNEL */
--
--#endif
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 9c99c5ad6fe8..650399044368 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -14,7 +14,6 @@
- #include <asm/hwcap.h>
- #include <asm/image.h>
- #include <asm/scs.h>
--#include <asm/xip_fixup.h>
- #include <asm/usercfi.h>
- #include "efi-header.S"
- 
-@@ -75,7 +74,6 @@ pe_head_start:
- relocate_enable_mmu:
- 	/* Relocate return address */
- 	la a1, kernel_map
--	XIP_FIXUP_OFFSET a1
- 	REG_L a1, KERNEL_MAP_VIRT_ADDR(a1)
- 	la a2, _start
- 	sub a1, a1, a2
-@@ -89,7 +87,6 @@ relocate_enable_mmu:
- 	/* Compute satp for kernel page tables, but don't load it yet */
- 	srl a2, a0, PAGE_SHIFT
- 	la a1, satp_mode
--	XIP_FIXUP_OFFSET a1
- 	REG_L a1, 0(a1)
- 	or a2, a2, a1
- 
-@@ -100,7 +97,6 @@ relocate_enable_mmu:
- 	 * to ensure the new translations are in use.
- 	 */
- 	la a0, trampoline_pg_dir
--	XIP_FIXUP_OFFSET a0
- 	srl a0, a0, PAGE_SHIFT
- 	or a0, a0, a1
- 	sfence.vma
-@@ -154,11 +150,9 @@ secondary_start_sbi:
- 
- 	/* a0 contains the hartid & a1 contains boot data */
- 	li a2, SBI_HART_BOOT_TASK_PTR_OFFSET
--	XIP_FIXUP_OFFSET a2
- 	add a2, a2, a1
- 	REG_L tp, (a2)
- 	li a3, SBI_HART_BOOT_STACK_PTR_OFFSET
--	XIP_FIXUP_OFFSET a3
- 	add a3, a3, a1
- 	REG_L sp, (a3)
- 
-@@ -167,7 +161,6 @@ secondary_start_sbi:
- #ifdef CONFIG_MMU
- 	/* Enable virtual memory and relocate to virtual address */
- 	la a0, swapper_pg_dir
--	XIP_FIXUP_OFFSET a0
- 	call relocate_enable_mmu
- #endif
- 	call .Lsetup_trap_vector
-@@ -269,40 +262,13 @@ SYM_CODE_START(_start_kernel)
- .Lgood_cores:
- 
- 	/* The lottery system is only required for spinwait booting method */
--#ifndef CONFIG_XIP_KERNEL
- 	/* Pick one hart to run the main boot sequence */
- 	la a3, hart_lottery
- 	li a2, 1
- 	amoadd.w a3, a2, (a3)
- 	bnez a3, .Lsecondary_start
--
--#else
--	/* hart_lottery in flash contains a magic number */
--	la a3, hart_lottery
--	mv a2, a3
--	XIP_FIXUP_OFFSET a2
--	XIP_FIXUP_FLASH_OFFSET a3
--	lw t1, (a3)
--	amoswap.w t0, t1, (a2)
--	/* first time here if hart_lottery in RAM is not set */
--	beq t0, t1, .Lsecondary_start
--
--#endif /* CONFIG_XIP */
- #endif /* CONFIG_RISCV_BOOT_SPINWAIT */
- 
--#ifdef CONFIG_XIP_KERNEL
--	la sp, _end + THREAD_SIZE
--	XIP_FIXUP_OFFSET sp
--	mv s0, a0
--	mv s1, a1
--	call __copy_data
--
--	/* Restore a0 & a1 copy */
--	mv a0, s0
--	mv a1, s1
--#endif
--
--#ifndef CONFIG_XIP_KERNEL
- 	/* Clear BSS for flat non-ELF images */
- 	la a3, __bss_start
- 	la a4, __bss_stop
-@@ -312,20 +278,16 @@ SYM_CODE_START(_start_kernel)
- 	add a3, a3, RISCV_SZPTR
- 	blt a3, a4, .Lclear_bss
- .Lclear_bss_done:
--#endif
- 	la a2, boot_cpu_hartid
--	XIP_FIXUP_OFFSET a2
- 	REG_S a0, (a2)
- 
- 	/* Initialize page tables and relocate to virtual addresses */
- 	la tp, init_task
- 	la sp, init_thread_union + THREAD_SIZE
--	XIP_FIXUP_OFFSET sp
- 	addi sp, sp, -PT_SIZE_ON_STACK
- 	scs_load_init_stack
- #ifdef CONFIG_BUILTIN_DTB
- 	la a0, __dtb_start
--	XIP_FIXUP_OFFSET a0
- #else
- 	mv a0, a1
- #endif /* CONFIG_BUILTIN_DTB */
-@@ -335,7 +297,6 @@ SYM_CODE_START(_start_kernel)
- 	call setup_vm
- #ifdef CONFIG_MMU
- 	la a0, early_pg_dir
--	XIP_FIXUP_OFFSET a0
- 	call relocate_enable_mmu
- #endif /* CONFIG_MMU */
- 
-@@ -374,9 +335,7 @@ SYM_CODE_START(_start_kernel)
- 
- 	slli a3, a0, LGREG
- 	la a1, __cpu_spinwait_stack_pointer
--	XIP_FIXUP_OFFSET a1
- 	la a2, __cpu_spinwait_task_pointer
--	XIP_FIXUP_OFFSET a2
- 	add a1, a3, a1
- 	add a2, a3, a2
- 
-diff --git a/arch/riscv/kernel/head.h b/arch/riscv/kernel/head.h
-index a556fdaafed9..05a04bef442b 100644
---- a/arch/riscv/kernel/head.h
-+++ b/arch/riscv/kernel/head.h
-@@ -11,9 +11,6 @@
- extern atomic_t hart_lottery;
- 
- asmlinkage void __init setup_vm(uintptr_t dtb_pa);
--#ifdef CONFIG_XIP_KERNEL
--asmlinkage void __init __copy_data(void);
--#endif
- 
- #ifdef CONFIG_RISCV_BOOT_SPINWAIT
- extern void *__cpu_spinwait_stack_pointer[];
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index b5bc5fc65cea..c89cc272440b 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -46,11 +46,7 @@
-  * This is used before the kernel initializes the BSS so it can't be in the
-  * BSS.
-  */
--atomic_t hart_lottery __section(".sdata")
--#ifdef CONFIG_XIP_KERNEL
--= ATOMIC_INIT(0xC001BEEF)
--#endif
--;
-+atomic_t hart_lottery __section(".sdata");
- unsigned long boot_cpu_hartid;
- EXPORT_SYMBOL_GPL(boot_cpu_hartid);
- 
-diff --git a/arch/riscv/kernel/suspend_entry.S b/arch/riscv/kernel/suspend_entry.S
-index 2d54f309c140..d71b55fd6259 100644
---- a/arch/riscv/kernel/suspend_entry.S
-+++ b/arch/riscv/kernel/suspend_entry.S
-@@ -10,7 +10,6 @@
- #include <asm/asm-offsets.h>
- #include <asm/assembler.h>
- #include <asm/csr.h>
--#include <asm/xip_fixup.h>
- 
- 	.text
- 	.altmacro
-@@ -70,7 +69,6 @@ SYM_TYPED_FUNC_START(__cpu_resume_enter)
- 
- 	/* Enable MMU */
- 	la	a0, swapper_pg_dir
--	XIP_FIXUP_OFFSET a0
- 	call	relocate_enable_mmu
- 
- 	/* Restore A0 and A1 */
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index 5fb57fad188a..bdec54d12b2a 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -142,11 +142,7 @@ static void do_trap_error(struct pt_regs *regs, int signo, int code,
- 	}
- }
- 
--#if defined(CONFIG_XIP_KERNEL) && defined(CONFIG_RISCV_ALTERNATIVE)
--#define __trap_section __noinstr_section(".xip.traps")
--#else
- #define __trap_section noinstr
--#endif
- #define DO_ERROR_INFO(name, signo, code, str)					\
- asmlinkage __visible __trap_section void name(struct pt_regs *regs)		\
- {										\
-diff --git a/arch/riscv/kernel/vmcore_info.c b/arch/riscv/kernel/vmcore_info.c
-index d5e448aa90e7..6d7a22522d63 100644
---- a/arch/riscv/kernel/vmcore_info.c
-+++ b/arch/riscv/kernel/vmcore_info.c
-@@ -19,13 +19,6 @@ void arch_crash_save_vmcoreinfo(void)
- #endif
- #endif
- 	vmcoreinfo_append_str("NUMBER(KERNEL_LINK_ADDR)=0x%lx\n", KERNEL_LINK_ADDR);
--#ifdef CONFIG_XIP_KERNEL
--	/* TODO: Communicate with crash-utility developers on the information to
--	 * export. The XIP case is more complicated, because the virtual-physical
--	 * address offset depends on whether the address is in ROM or in RAM.
--	 */
--#else
- 	vmcoreinfo_append_str("NUMBER(va_kernel_pa_offset)=0x%lx\n",
- 						kernel_map.va_kernel_pa_offset);
--#endif
- }
-diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index 61bd5ba6680a..3b5ffcf3216d 100644
---- a/arch/riscv/kernel/vmlinux.lds.S
-+++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -7,10 +7,6 @@
- #define RO_EXCEPTION_TABLE_ALIGN	4
- #define RUNTIME_DISCARD_EXIT
- 
--#ifdef CONFIG_XIP_KERNEL
--#include "vmlinux-xip.lds.S"
--#else
--
- #include <asm/pgtable.h>
- #define LOAD_OFFSET KERNEL_LINK_ADDR
- 
-@@ -175,4 +171,3 @@ SECTIONS
- 
- 	DISCARDS
- }
--#endif /* CONFIG_XIP_KERNEL */
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 25a8f693a765..c7ec6c0235e1 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -41,20 +41,17 @@ u64 new_vmalloc[NR_CPUS / sizeof(u64) + 1];
- 
- struct kernel_mapping kernel_map __ro_after_init;
- EXPORT_SYMBOL(kernel_map);
--#ifdef CONFIG_XIP_KERNEL
--#define kernel_map	(*(struct kernel_mapping *)XIP_FIXUP(&kernel_map))
--#endif
- 
- #ifdef CONFIG_64BIT
--u64 satp_mode __ro_after_init = !IS_ENABLED(CONFIG_XIP_KERNEL) ? SATP_MODE_57 : SATP_MODE_39;
-+u64 satp_mode __ro_after_init = SATP_MODE_57;
- #else
- u64 satp_mode __ro_after_init = SATP_MODE_32;
- #endif
- EXPORT_SYMBOL(satp_mode);
- 
- #ifdef CONFIG_64BIT
--bool pgtable_l4_enabled __ro_after_init = !IS_ENABLED(CONFIG_XIP_KERNEL);
--bool pgtable_l5_enabled __ro_after_init = !IS_ENABLED(CONFIG_XIP_KERNEL);
-+bool pgtable_l4_enabled __ro_after_init = true;
-+bool pgtable_l5_enabled __ro_after_init = true;
- EXPORT_SYMBOL(pgtable_l4_enabled);
- EXPORT_SYMBOL(pgtable_l5_enabled);
- #endif
-@@ -197,9 +194,6 @@ void __init arch_mm_preinit(void)
- 
- /* Limit the memory size via mem. */
- static phys_addr_t memory_limit;
--#ifdef CONFIG_XIP_KERNEL
--#define memory_limit	(*(phys_addr_t *)XIP_FIXUP(&memory_limit))
--#endif /* CONFIG_XIP_KERNEL */
- 
- static int __init early_mem(char *p)
- {
-@@ -223,10 +217,7 @@ static void __init setup_bootmem(void)
- 	phys_addr_t max_mapped_addr;
- 	phys_addr_t phys_ram_end, vmlinux_start;
- 
--	if (IS_ENABLED(CONFIG_XIP_KERNEL))
--		vmlinux_start = __pa_symbol(&_sdata);
--	else
--		vmlinux_start = __pa_symbol(&_start);
-+	vmlinux_start = __pa_symbol(&_start);
- 
- 	memblock_enforce_memory_limit(memory_limit);
- 
-@@ -246,12 +237,10 @@ static void __init setup_bootmem(void)
- 	 * Make sure we align the start of the memory on a PMD boundary so that
- 	 * at worst, we map the linear mapping with PMD mappings.
- 	 */
--	if (!IS_ENABLED(CONFIG_XIP_KERNEL)) {
--		phys_ram_base = memblock_start_of_DRAM() & PMD_MASK;
-+	phys_ram_base = memblock_start_of_DRAM() & PMD_MASK;
- #ifdef CONFIG_SPARSEMEM_VMEMMAP
--		vmemmap_start_pfn = round_down(phys_ram_base, VMEMMAP_ADDR_ALIGN) >> PAGE_SHIFT;
-+	vmemmap_start_pfn = round_down(phys_ram_base, VMEMMAP_ADDR_ALIGN) >> PAGE_SHIFT;
- #endif
--	}
- 
- 	/*
- 	 * In 64-bit, any use of __va/__pa before this point is wrong as we
-@@ -366,13 +355,6 @@ static pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
- 
- pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
- 
--#ifdef CONFIG_XIP_KERNEL
--#define pt_ops			(*(struct pt_alloc_ops *)XIP_FIXUP(&pt_ops))
--#define trampoline_pg_dir      ((pgd_t *)XIP_FIXUP(trampoline_pg_dir))
--#define fixmap_pte             ((pte_t *)XIP_FIXUP(fixmap_pte))
--#define early_pg_dir           ((pgd_t *)XIP_FIXUP(early_pg_dir))
--#endif /* CONFIG_XIP_KERNEL */
--
- static const pgprot_t protection_map[16] = {
- 	[VM_NONE]					= PAGE_NONE,
- 	[VM_READ]					= PAGE_READ,
-@@ -469,32 +451,14 @@ static pmd_t trampoline_pmd[PTRS_PER_PMD] __page_aligned_bss;
- static pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
- static pmd_t early_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
- 
--#ifdef CONFIG_XIP_KERNEL
--#define trampoline_pmd ((pmd_t *)XIP_FIXUP(trampoline_pmd))
--#define fixmap_pmd     ((pmd_t *)XIP_FIXUP(fixmap_pmd))
--#define early_pmd      ((pmd_t *)XIP_FIXUP(early_pmd))
--#endif /* CONFIG_XIP_KERNEL */
--
- static p4d_t trampoline_p4d[PTRS_PER_P4D] __page_aligned_bss;
- static p4d_t fixmap_p4d[PTRS_PER_P4D] __page_aligned_bss;
- static p4d_t early_p4d[PTRS_PER_P4D] __initdata __aligned(PAGE_SIZE);
- 
--#ifdef CONFIG_XIP_KERNEL
--#define trampoline_p4d ((p4d_t *)XIP_FIXUP(trampoline_p4d))
--#define fixmap_p4d     ((p4d_t *)XIP_FIXUP(fixmap_p4d))
--#define early_p4d      ((p4d_t *)XIP_FIXUP(early_p4d))
--#endif /* CONFIG_XIP_KERNEL */
--
- static pud_t trampoline_pud[PTRS_PER_PUD] __page_aligned_bss;
- static pud_t fixmap_pud[PTRS_PER_PUD] __page_aligned_bss;
- static pud_t early_pud[PTRS_PER_PUD] __initdata __aligned(PAGE_SIZE);
- 
--#ifdef CONFIG_XIP_KERNEL
--#define trampoline_pud ((pud_t *)XIP_FIXUP(trampoline_pud))
--#define fixmap_pud     ((pud_t *)XIP_FIXUP(fixmap_pud))
--#define early_pud      ((pud_t *)XIP_FIXUP(early_pud))
--#endif /* CONFIG_XIP_KERNEL */
--
- static pmd_t *__init get_pmd_virt_early(phys_addr_t pa)
- {
- 	/* Before MMU is enabled */
-@@ -765,21 +729,6 @@ static uintptr_t __meminit best_map_size(phys_addr_t pa, uintptr_t va, phys_addr
- 	return PAGE_SIZE;
- }
- 
--#ifdef CONFIG_XIP_KERNEL
--#define phys_ram_base  (*(phys_addr_t *)XIP_FIXUP(&phys_ram_base))
--extern char _xiprom[], _exiprom[], __data_loc;
--
--/* called from head.S with MMU off */
--asmlinkage void __init __copy_data(void)
--{
--	void *from = (void *)(&__data_loc);
--	void *to = (void *)CONFIG_PHYS_RAM_BASE;
--	size_t sz = (size_t)((uintptr_t)(&_end) - (uintptr_t)(&_sdata));
--
--	memcpy(to, from, sz);
--}
--#endif
--
- #ifdef CONFIG_STRICT_KERNEL_RWX
- static __meminit pgprot_t pgprot_from_va(uintptr_t va)
- {
-@@ -815,7 +764,7 @@ static __meminit pgprot_t pgprot_from_va(uintptr_t va)
- }
- #endif /* CONFIG_STRICT_KERNEL_RWX */
- 
--#if defined(CONFIG_64BIT) && !defined(CONFIG_XIP_KERNEL)
-+#if defined(CONFIG_64BIT)
- u64 __pi_set_satp_mode_from_cmdline(uintptr_t dtb_pa);
- u64 __pi_set_satp_mode_from_fdt(uintptr_t dtb_pa);
- 
-@@ -940,28 +889,6 @@ static __init void set_satp_mode(uintptr_t dtb_pa)
- #error "setup_vm() is called from head.S before relocate so it should not use absolute addressing."
- #endif
- 
--#ifdef CONFIG_XIP_KERNEL
--static void __init create_kernel_page_table(pgd_t *pgdir,
--					    __always_unused bool early)
--{
--	uintptr_t va, start_va, end_va;
--
--	/* Map the flash resident part */
--	end_va = kernel_map.virt_addr + kernel_map.xiprom_sz;
--	for (va = kernel_map.virt_addr; va < end_va; va += PMD_SIZE)
--		create_pgd_mapping(pgdir, va,
--				   kernel_map.xiprom + (va - kernel_map.virt_addr),
--				   PMD_SIZE, PAGE_KERNEL_EXEC);
--
--	/* Map the data in RAM */
--	start_va = kernel_map.virt_addr + (uintptr_t)&_sdata - (uintptr_t)&_start;
--	end_va = kernel_map.virt_addr + kernel_map.size;
--	for (va = start_va; va < end_va; va += PMD_SIZE)
--		create_pgd_mapping(pgdir, va,
--				   kernel_map.phys_addr + (va - start_va),
--				   PMD_SIZE, PAGE_KERNEL);
--}
--#else
- static void __init create_kernel_page_table(pgd_t *pgdir, bool early)
- {
- 	uintptr_t va, end_va;
-@@ -974,7 +901,6 @@ static void __init create_kernel_page_table(pgd_t *pgdir, bool early)
- 				   early ?
- 					PAGE_KERNEL_EXEC : pgprot_from_va(va));
- }
--#endif
- 
- /*
-  * Setup a 4MB mapping that encompasses the device tree: for 64-bit kernel,
-@@ -1116,27 +1042,11 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 
- 	kernel_map.virt_addr = KERNEL_LINK_ADDR + kernel_map.virt_offset;
- 
--#ifdef CONFIG_XIP_KERNEL
--	kernel_map.xiprom = (uintptr_t)CONFIG_XIP_PHYS_ADDR;
--	kernel_map.xiprom_sz = (uintptr_t)(&_exiprom) - (uintptr_t)(&_xiprom);
--
--	phys_ram_base = CONFIG_PHYS_RAM_BASE;
--#ifdef CONFIG_SPARSEMEM_VMEMMAP
--	vmemmap_start_pfn = round_down(phys_ram_base, VMEMMAP_ADDR_ALIGN) >> PAGE_SHIFT;
--#endif
--	kernel_map.phys_addr = (uintptr_t)CONFIG_PHYS_RAM_BASE;
--	kernel_map.size = (uintptr_t)(&_end) - (uintptr_t)(&_start);
--
--	kernel_map.va_kernel_xip_text_pa_offset = kernel_map.virt_addr - kernel_map.xiprom;
--	kernel_map.va_kernel_xip_data_pa_offset = kernel_map.virt_addr - kernel_map.phys_addr
--						+ (uintptr_t)&_sdata - (uintptr_t)&_start;
--#else
- 	kernel_map.phys_addr = (uintptr_t)(&_start);
- 	kernel_map.size = (uintptr_t)(&_end) - kernel_map.phys_addr;
- 	kernel_map.va_kernel_pa_offset = kernel_map.virt_addr - kernel_map.phys_addr;
--#endif
- 
--#if defined(CONFIG_64BIT) && !defined(CONFIG_XIP_KERNEL)
-+#if defined(CONFIG_64BIT)
- 	set_satp_mode(dtb_pa);
- 	set_mmap_rnd_bits_max();
- #endif
-@@ -1209,13 +1119,8 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 	if (pgtable_l4_enabled)
- 		create_pud_mapping(trampoline_pud, kernel_map.virt_addr,
- 				   (uintptr_t)trampoline_pmd, PUD_SIZE, PAGE_TABLE);
--#ifdef CONFIG_XIP_KERNEL
--	create_pmd_mapping(trampoline_pmd, kernel_map.virt_addr,
--			   kernel_map.xiprom, PMD_SIZE, PAGE_KERNEL_EXEC);
--#else
- 	create_pmd_mapping(trampoline_pmd, kernel_map.virt_addr,
- 			   kernel_map.phys_addr, PMD_SIZE, PAGE_KERNEL_EXEC);
--#endif
- #else
- 	/* Setup trampoline PGD */
- 	create_pgd_mapping(trampoline_pg_dir, kernel_map.virt_addr,
--- 
-2.47.3
+Pretty much - the freelist is handed off to the FQ, which will only 
+release the IOVA range and free any pages after completion of a 
+flush_iotlb_all() at some point in future (iommu-dma still knows the 
+whole IOVA range it unmapped - gather->iova is only for the actual 
+gathering of TLB ops by the IOMMU implementation itself)
 
+> iommu_iotlb_gather_queued() should be used in the page table to
+> supress any internal flushes.
+
+Yes.
+
+> iommupt doesn't have any calls because it doesn't have any internal
+> flushes. It calls iommu_iotlb_gather_add_range() which blindly updates
+> the iova and never flushes.
+
+For PT_FEAT_FLUSH_RANGE, I guess so.
+
+> The one call to iommu_iotlb_sync() is only for the para-virtualization
+> optimization of narrowing invalidations. It would be nonsensical for a
+> driver to enable this optimization and offer IOMMU_CAP_DEFERRED_FLUSH.
+
+Not necessarily - in the PV case it can be desirable to minimise 
+over-invalidation *if* you're trapping for targeted invalidations in 
+strict mode. However, depending on the usage pattern it may also be 
+beneficial to have non-strict let the FQ mechanism batch up work to 
+minimise the number of traps taken - e.g. s390 is in this situation, and 
+is precisely why we added IOMMU_DMA_OPTS_SINGLE_QUEUE to help optimise 
+for that.
+
+> But it is a good point that riscv pagetable may not have supported it
+> before, but it does now, so we should probably add
+> IOMMU_CAP_DEFERRED_FLUSH. I'll send a patch next cycle.
+
+Sounds good.
+
+Thanks,
+Robin.
 
 _______________________________________________
 linux-riscv mailing list
