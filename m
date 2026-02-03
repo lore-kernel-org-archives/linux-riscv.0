@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52CC2E7FDF3
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 00:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41149E7FDF3
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 01:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9kEQ4ZtRt/+xfoK5cYnOzJhsRGbKq5a6k4TdwDzuyck=; b=tHMfsFu5cseLWi
-	AMFWsmP1StxAtewmFCaLDMlKR2GgL8WIqejN2EoWd1hHNPc1gJMWvMPJAC6hg5Z7qntpr/nXB152C
-	Vcl18Xe9vSgqNI/QJT+OC99fKEtXcZQ/04lPWGWoWdRGdGc2SMp6XH5Rp1X0sfAeOHt3a1XAlNCrz
-	9PVoCpLjYrsBdGlA9xKSmiY4Cs/OQ76B3JrUF5CIuv6VFdfw2rcvIpjpsnPspaevQAEq2ESaQjcqk
-	mLOqjcJVrB+6gSxDwfsDsBR7pjQVkk5Lu9akt2Q5Fyc30tIWT0bLUiRwVIBWeLDTEOwbmTowIvZOE
-	tmoZLduuBiJiu69mv3bw==;
+	List-Owner; bh=2HSjmyAjw+4QNfwMYekbbh3HLee8xk5SqxFIjdO4qio=; b=Y3niUlHGAeHE8d
+	8sGFYjInnUYXw9R5x0E4W1IxAVOO8RAZetCBKiUv3s4NhKeEZGOt2O6BJAxASTRU2vVc5l0Lnm+yB
+	U4PtI7ZWQXAzdZFUvsPK2g7hDyq300ATY0qFMwbaGz946dzrhmlNrs2zPpW9XnuyJ0N/GCU9QFHsP
+	5IQ3RHmDxXRcNpCDQOUtJsLvKNH2clQ2JTZEySG7HaUXUhpwqNLL/r7VQx8+jzdkc/CuY1aMhWcgI
+	fXt+x2cGcDf1NAaMmEXHpFdwcDgA44/EQeYJK43tEq+KRtq7zcrg4ZPFWIze4mA7XBBbWKmO1c88w
+	7LhGFCbwau0E4KCxI76Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn4le-00000005pDU-2QsN;
-	Tue, 03 Feb 2026 00:59:46 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1vn4vz-00000005pdZ-37Gf;
+	Tue, 03 Feb 2026 01:10:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn4lZ-00000005pD0-3t3n;
-	Tue, 03 Feb 2026 00:59:44 +0000
-Received: from fric.. (unknown [210.73.43.101])
-	by APP-03 (Coremail) with SMTP id rQCowADX9NtsSIFpjCORBw--.35218S2;
-	Tue, 03 Feb 2026 08:59:25 +0800 (CST)
-From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-To: andrew.jones@oss.qualcomm.com
-Cc: ajones@ventanamicro.com,
-	alex@ghiti.fr,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	atish.patra@linux.dev,
-	jiakaiPeanut@gmail.com,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	xujiakai2025@iscas.ac.cn
-Subject: Re: [PATCH v5] RISC-V: KVM: Validate SBI STA shmem alignment in 
-Date: Tue,  3 Feb 2026 00:59:24 +0000
-Message-Id: <20260203005924.2144673-1-xujiakai2025@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <h5ywmsqp2eysyslvh7zmuiw3mzthkiilgqv4gvjvpl6nejxs7m@ahjmnsz2c2x3>
-References: <h5ywmsqp2eysyslvh7zmuiw3mzthkiilgqv4gvjvpl6nejxs7m@ahjmnsz2c2x3>
+	id 1vn4vw-00000005pdD-1UeE
+	for linux-riscv@lists.infradead.org;
+	Tue, 03 Feb 2026 01:10:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6C52144436;
+	Tue,  3 Feb 2026 01:10:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18BDFC116C6;
+	Tue,  3 Feb 2026 01:10:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770081022;
+	bh=eWx6elQkFDo3h1d42/U2wvpsYOLwbGMYG2305haSK8E=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=ZkVZXB5yFXFqISJIsYksqNedMwDcbttbG2nUkv1WSuiZCJH4sgxQxTYGumeURLQMI
+	 t6DyvZfs/7FNpQaforRjkUKUZTIR7cju/EEEAJQbIh0i+DapFTQkqqwsUsqjIsiA0i
+	 XaBtKTZ+Km7y0kh6IUh7+lazb+7LwOWohpWadnYrbelN7DjMnXBfZssF+bfhexGvd7
+	 uns5GWoPEWTHQUZg5wuYA5zrX/zMHFehdVxUvtzGfeir5f9ApF2WnosUR5o2oOiOPF
+	 pDC9YUgclS8QxiDdrz2x05ZWaRMAuMEn1Po+2gZOGZqgFOrODaLQVOYYY2NsJ9xU9o
+	 kZlB0PcZJr5sQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 16DE03808200;
+	Tue,  3 Feb 2026 01:10:20 +0000 (UTC)
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowADX9NtsSIFpjCORBw--.35218S2
-X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYN7AC8VAFwI0_Gr0_Xr1l1xkIjI8I6I8E
-	6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28Cjx
-	kF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8I
-	cVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2js
-	IEc7CjxVAFwI0_Cr1j6rxdM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvE
-	ncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I
-	8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I2
-	1c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxAIw28IcxkI7VAKI4
-	8JMxAqzxv26xkF7I0En4kS14v26r1q6r43MxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E
-	5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtV
-	W8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY
-	1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI
-	0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7V
-	UbHa0DUUUUU==
-X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBwwHCWmAvVDsXgAAsz
+Subject: Re: [PATCH v2 1/1] net: spacemit: display phy driver information
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177008101862.1258089.4006150419249084980.git-patchwork-notify@kernel.org>
+Date: Tue, 03 Feb 2026 01:10:18 +0000
+References: <20260201100001.33102-1-amadeus@jmu.edu.cn>
+In-Reply-To: <20260201100001.33102-1-amadeus@jmu.edu.cn>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: wangruikang@iscas.ac.cn, dlan@kernel.org, pabeni@redhat.com,
+ kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, spacemit@lists.linux.dev,
+ netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_165942_335645_17238898 
-X-CRM114-Status: UNSURE (   4.70  )
+X-CRM114-CacheID: sfid-20260202_171025_053097_554A61E6 
+X-CRM114-Status: UNSURE (   8.29  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,18 +73,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgZHJldywKClRoYW5rIHlvdSBmb3IgdGhlIHBhdGllbnQgcmV2aWV3LCBJIHJlYWxseSBhcHBy
-ZWNpYXRlIGl0LgoKSSBhZ3JlZSB3aXRoIHlvdXIgY29tbWVudHMgb24gaW5pdGlhbGl6aW5nIG5l
-d19zaG1lbSB0byBJTlZBTElEX0dQQSBhbmQgCm9uIGltcHJvdmluZyBjb3ZlcmFnZSB3aXRoIGtz
-ZWxmdGVzdHMuIEnigJlsbCB3YWl0IGEgY291cGxlIG9mIGRheXMgdG8gCnNlZSBpZiB0aGVyZSBh
-cmUgYWRkaXRpb25hbCBjb21tZW50cyBmcm9tIG90aGVyIHJldmlld2VycywgYW5kIHRoZW4gCnNl
-bmQgYW4gdXBkYXRlZCByZXZpc2lvbiB0aGF0IGluY29ycG9yYXRlcyB0aGUgZmVlZGJhY2suCgpU
-aGFua3MgYWdhaW4gZm9yIHlvdXIgcmV2aWV3LgoKQmVzdCByZWdhcmRzLApKaWFrYWkgWHUKCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hello:
+
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Sun,  1 Feb 2026 18:00:01 +0800 you wrote:
+> Print the PHY driver used and interrupt status after connection.
+> 
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> ---
+> Changes in v2:
+> - Simplify using phy_attached_info()
+> - Link to v1: https://lore.kernel.org/lkml/20260122080001.73921-1-amadeus@jmu.edu.cn/
+> 
+> [...]
+
+Here is the summary with links:
+  - [v2,1/1] net: spacemit: display phy driver information
+    https://git.kernel.org/netdev/net-next/c/fd102acfd362
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
