@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C68E8784C
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 17:40:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C79E87851
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 17:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CtQ8bOenc+CH42GjlUdRKnaMC/arUdJFHeeqJQGyxR4=; b=1F8pE38xcErOz/
-	o5F8HOTWMKWnIigIAyiDtMBdYv27+C17Bu2B2k+0HTpIxqth70kF4fTf++bQtgxRsMDHTEaAbTVTP
-	MljwcYgjo6YKqHx9jrJFKTBWDaGJP7nbfkhET80Rg0pn1it1lRlTROIqb4iAf8sh8LRYniZJiih79
-	7HxT5NuBFJv/0qrF3viQPYBo0UedBGpBLUSgjZvpH6C1LqQ0N7L8Qj1aTUBeNPX/QkrkyVOVS9mb+
-	G5RpiX6iINkuZxIm4p7ubXOuHRRj4AUn1jvQhxE9IEso8JiyaoiU0obsxED8aGahVPwAx6zZR9lAW
-	ewe8t/AO+7Ywg+5PEVqQ==;
+	List-Owner; bh=TNDh7RdK0Y0Ul3lrZ3dbRdal73en+URsR7dcqG5l+1I=; b=gn7GbuQPrh07Ma
+	CeR6SJGX1kSbZV9rz/ZI681CGFZHgLTBCwoZGHKg/LACn0BiATRUAITai4KyVhSOXsgpZ9nwbVAwc
+	kgCHI4QPhjWxtx52i39jkmta0T872Aa/J9jxP/OIC4fH3wSZ8iSFbiU1kZUtNREZBvHUjfGAN7V8z
+	bOmgzxViSqc1tHKINna8TtMmeFs/XiRJ31dV9WN5lw79hSJKfAmxanhU8Mgs81Lgb99RAf09yds0L
+	aVCNAeD5dJ3WEoOwz8zlMuVp0g2p7/3Za2za7YOl0aTnsibxEar40DT9j8t4vj30E1+ALsxflJihB
+	2T0s+g99yMQhiZmqUgVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnKNd-000000073sy-3mf5;
-	Tue, 03 Feb 2026 17:40:01 +0000
+	id 1vnKVw-00000007588-2RT3;
+	Tue, 03 Feb 2026 17:48:36 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnKNb-000000073sL-26xM;
-	Tue, 03 Feb 2026 17:40:00 +0000
+	id 1vnKVu-0000000757b-0fte;
+	Tue, 03 Feb 2026 17:48:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=jITDbePUoWQSXJd93nDwRBiMM6E0IjTPypgzoLf0eeQ=; b=I2WFZhgWSO19lx31F/vaHdToWH
-	N8HRXm0pzL3dqbMZKx5sRMO8YybZknWnCsaS7uWb+yMsiCYdYOhjv1Jobd2m6b6Qe48PiNLIcc3bJ
-	C80tqN8h2R33waZfb758zC51RzDVILv2Ch11fKKOd3JuUneUO+vaIJkydbRsjlwvwbnjwubMcG05K
-	M34ytIXFvU3e1S7cfo+Si+ziKdVz4uvS1jcVUHc2ZxDmmGC1hEhTkV6zmSWX22A++Krzh8IZc8k4V
-	UG4AY4tGrk2/THDhUwnG/c0UqsbLsrQ2fS8JGiZGB3OqTaUxO78bilAQEFl/t/XUfPLwjy0Ryb844
-	pFCDOPcQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42234)
+	bh=8+rZdHUALqDXCYWomEbTBBbdF709hbUaxOu7TxGSuck=; b=mnmCHRwgVvO2uVu8vPwzL3jlaQ
+	9e3s28tK2RkxDDz+wudnKFLlMgf8rsID3pS07Xd03nfUi/IOgHTvc4AYPkDSWkg8uZopukn03su/q
+	P7/A9g0eLJSwzR58O0WDaJVRC1VQO83NBE+KNK+wygGw/N/ZhhRad/Ht4honZ9Qc9Qo242neo8wKi
+	PIQ0qpcgMEmUQKrModpz+SkByA7jDdHARbBl5sgvopqaFP2qFctC8BEN+2kBzFlRlhaAMy2i3aCeK
+	DUf9JTguGfJOZXEOyc14Hbq6dAcCcmBDoL+92a34ygVVMMDNOsAfUug0efvdF/PZgHiZpVrcoCea1
+	hbGxnchg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:46968)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <linux@armlinux.org.uk>)
-	id 1vnKMw-000000005OS-08zy;
-	Tue, 03 Feb 2026 17:39:18 +0000
+	id 1vnKVS-000000005Pd-2TsJ;
+	Tue, 03 Feb 2026 17:48:06 +0000
 Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vnKMk-000000004Z7-3mB6;
-	Tue, 03 Feb 2026 17:39:07 +0000
-Date: Tue, 3 Feb 2026 17:39:06 +0000
+	id 1vnKVM-000000004ZO-2y1I;
+	Tue, 03 Feb 2026 17:48:00 +0000
+Date: Tue, 3 Feb 2026 17:48:00 +0000
 From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Inochi Amaoto <inochiama@gmail.com>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -78,18 +78,17 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v4 1/3] dt-bindings: net: Add support for
- Spacemit K3 dwmac
-Message-ID: <aYIyuulFADU_j3V0@shell.armlinux.org.uk>
+Subject: Re: [PATCH net-next v4 3/3] net: stmmac: Add glue layer for Spacemit
+ K3 SoC
+Message-ID: <aYI00Exytbgbnuzp@shell.armlinux.org.uk>
 References: <20260130022705.1059214-1-inochiama@gmail.com>
- <20260130022705.1059214-2-inochiama@gmail.com>
+ <20260130022705.1059214-4-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260130022705.1059214-2-inochiama@gmail.com>
+In-Reply-To: <20260130022705.1059214-4-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_093959_559460_DE45BC17 
-X-CRM114-Status: UNSURE (   8.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260203_094834_221000_7A817A2E 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,15 +105,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30, 2026 at 10:27:02AM +0800, Inochi Amaoto wrote:
-> +  clocks:
-> +    items:
-> +      - description: GMAC main clock
+On Fri, Jan 30, 2026 at 10:27:04AM +0800, Inochi Amaoto wrote:
+> +/* ctrl register bits */
+> +#define CTRL_PHY_INTF_RGMII		BIT(3)
+> +#define CTRL_PHY_INTF_MII		BIT(4)
+> +#define CTRL_WAKE_IRQ_EN		BIT(9)
+> +#define CTRL_PHY_IRQ_EN			BIT(12)
 
-If you know what this is in terms of dwmac databook clock terms, it
-would be helpful to use it here. I suspect "application clock" would
-probably summarise it, that being the clock for the bus interfaces
-that dwmac provides to the host.
+Thanks for updating these.
+
+> +static int spacemit_dwmac_update_ifconfig(struct plat_stmmacenet_data *plat_dat,
+> +					  struct stmmac_resources *stmmac_res,
+> +					  struct regmap *apmu,
+> +					  unsigned int ctrl_offset)
+> +{
+> +	unsigned int mask = CTRL_PHY_INTF_MII | CTRL_PHY_INTF_RGMII | CTRL_WAKE_IRQ_EN;
+> +	unsigned int val = 0;
+> +
+> +	switch (plat_dat->phy_interface) {
+> +	case PHY_INTERFACE_MODE_MII:
+> +		val = CTRL_PHY_INTF_MII;
+> +		break;
+> +
+> +	case PHY_INTERFACE_MODE_RMII:
+> +		break;
+> +
+> +	case PHY_INTERFACE_MODE_RGMII:
+> +	case PHY_INTERFACE_MODE_RGMII_ID:
+> +	case PHY_INTERFACE_MODE_RGMII_RXID:
+> +	case PHY_INTERFACE_MODE_RGMII_TXID:
+> +		val = CTRL_PHY_INTF_RGMII;
+> +		break;
+> +
+> +	default:
+> +		return -EOPNOTSUPP;
+> +	}
+> +
+> +	if (stmmac_res->wol_irq >= 0)
+> +		val |= CTRL_WAKE_IRQ_EN;
+> +
+> +	return regmap_update_bits(apmu, ctrl_offset, mask, val);
+
+I would suggest that this is split into two parts - first, this is
+renamed and reduced to just controlling CTRL_WAKE_IRQ_EN.
+
+Next, a function hooked into plat_dat->set_phy_intf_sel which sets
+the CTRL_PHY_INTF_RGMII and CTRL_PHY_INTF_MII bits as appropriate.
+Note that this function is passed the dwmac's own phy_intf_sel
+value from common.h which will be PHY_INTF_SEL_GMII_MII,
+PHY_INTF_SEL_RGMII or PHY_INTF_SEL_RMII for you.
+
+It would also be good to have plat_dat->get_interfaces populated
+using phy_interface_set_rgmii(), and __set_bit(PHY_INTERFACE_MODE_MII)
+and __set_bit(PHY_INTERFACE_MODE_RMII) to indicate to phylink which
+interface modes are permissable.
+
+Thanks.
 
 -- 
 RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
