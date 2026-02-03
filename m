@@ -4,91 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C647FE8307C
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 10:17:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5312E6E7E2
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 10:25:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z5WLC9bcX66NxFUCR+mBYjKp8B8iUi48CMBtRgkFCmo=; b=tZj817feQdojzB
-	Rb8NSY4oZtkNMw2WnYZTUpZ3EQESDfVWhC7YVHqtiqrdre00iDdT3xaJ3+bRYLqx/H0HbKdcpvnWK
-	ZvZkkRXUK8rdNXR2xtO36YHMfzINWayhWn+MaaTddM12X9MttKI64gleKET6y/is2bYtXXL8uo4KW
-	sfahG1shitGJkngxAOofUIYwe8WXSIMadTUsnkf5WxzT6dGjh6fIwg3W12I//A5wWWYt2pFp72r17
-	0dyr+MoKjRwxvrKwGdLucwHd+IfGKvnEgG5Lh8z/aMTNJJlusO5vuggxNV77FpZht4JEIqX+eLGgA
-	16kIxyftyGaY3ZcG0CnQ==;
+	List-Owner; bh=kmzxLFmq6pPJr0WDgI6gZKCS+As38E3Gb/cEuKGY8ck=; b=VUF0LFb+zYNK17
+	wVNP2lr1Xyip0q3QhEl0jIGOM0BG8XKfkummQ7DF4jxOr39ds6ISMyv9Mi8SKYc0RTnfoael9+57u
+	TCrdgKakIkLWvI6K0qs4oLdjeGJXfO5ZE+BcOf3VU6zATICgajQyPLzGTY2T1yYru2l7OMtN5X3jP
+	1cxEGNuV1Yh2OUHWe3LYonmFM5I90YH67GineUfRCFyUiArO78KO1+5yZuBAkLlnrLwsvKpTxyUIw
+	WtAWgWNfy2UXpineNwYJFMuryXiLG/x+xleynrz7QHFPnO8TaxUNpM848ZicBzHWdJUciULYJHfEF
+	oizEMxJe26dkJaGJFBmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnDTH-00000006SaZ-1in1;
-	Tue, 03 Feb 2026 10:17:23 +0000
-Received: from smtp-out3.simply.com ([94.231.106.210])
+	id 1vnDb6-00000006TGH-1HI6;
+	Tue, 03 Feb 2026 10:25:28 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnDTD-00000006SXt-1KZj;
-	Tue, 03 Feb 2026 10:17:21 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by smtp.simply.com (Simply.com) with ESMTP id 4f4ztd00Nsz1FDXZ;
-	Tue,  3 Feb 2026 11:17:13 +0100 (CET)
-Received: from [10.10.15.18] (h-98-128-223-123.NA.cust.bahnhof.se [98.128.223.123])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by smtp.simply.com (Simply.com) with ESMTPSA id 4f4ztY1CK4z1DHbc;
-	Tue,  3 Feb 2026 11:17:09 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gaisler.com;
-	s=simplycom2; t=1770113832;
-	bh=bIz4RVwkv6KARy4MwQOhUdd22JeZFr0fFrNF7J4bRPM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=lUAE2uVqAzYhZ1sm97fYuqy+vlFYURoO/ESgRDOLYwoPcj+AJLYcKftxzXr+4y/HX
-	 2YOyDda3zoXt+26+AX8pMM7QHh5T+XJuM4W03HRzJukix5g8rdsb/fjilKm09oxzSx
-	 tBwy+nern6bg1a50/KfLMYddppMeG7txUbC4/AmsAXT1tuu3+smPwBXiUUqokjSpVv
-	 UUsrhLX04O7HNQNLLVmIA6iNk0y72m91fWDt4UXVjn71WutyJfQfTM3K8uFvvtoUBz
-	 jIXUHdgIYTlrZQBjHS4KV4lgMsEWYt8Uw9Kgk+K14XLmF28umAniXCSL8090kqia/S
-	 lC0jknJm/j/RQ==
-Message-ID: <ec965a79-dad8-4358-a8e9-ebc9f330b67b@gaisler.com>
-Date: Tue, 3 Feb 2026 11:17:08 +0100
+	id 1vnDb2-00000006TFP-0INC
+	for linux-riscv@lists.infradead.org;
+	Tue, 03 Feb 2026 10:25:26 +0000
+Received: from [10.213.18.154] (unknown [210.73.43.101])
+	by APP-01 (Coremail) with SMTP id qwCowADnjmoKzYFpPVoSBw--.2286S2;
+	Tue, 03 Feb 2026 18:25:15 +0800 (CST)
+Message-ID: <140cb690-caa2-4c94-8b4a-75c0d89e2056@iscas.ac.cn>
+Date: Tue, 3 Feb 2026 18:25:14 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH mm-unstable] arch, mm: consolidate empty_zero_page
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Borislav Petkov
- <bp@alien8.de>, Brian Cain <bcain@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- "David S. Miller" <davem@davemloft.net>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Guo Ren <guoren@kernel.org>,
- Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Johannes Berg <johannes@sipsolutions.net>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Magnus Lindholm <linmag7@gmail.com>, Matt Turner <mattst88@gmail.com>,
- Max Filippov <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>,
- Palmer Dabbelt <palmer@dabbelt.com>, Richard Weinberger <richard@nod.at>,
- Russell King <linux@armlinux.org.uk>, Stafford Horne <shorne@gmail.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>,
- Vineet Gupta <vgupta@kernel.org>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, linux-alpha@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
- linux-mm@kvack.org, x86@kernel.org
-References: <20260124095628.668870-1-rppt@kernel.org>
- <2157220c-0394-40fa-9918-a8514171bd10@gaisler.com>
- <aXj_x5CyUeys7ONM@kernel.org>
+Subject: Re: [PATCH net v3] net: spacemit: k1-emac: fix jumbo frame support:
+ manual merge
+To: Matthieu Baerts <matttbe@kernel.org>, Tomas Hlavacek
+ <tmshlvck@gmail.com>, netdev@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, dlan@kernel.org, stable@vger.kernel.org,
+ Mark Brown <broonie@kernel.org>
+References: <20260130102301.477514-1-tmshlvck@gmail.com>
+ <4819ec3b-23b4-447b-b10b-0bd93a40dc5a@kernel.org>
 Content-Language: en-US
-From: Andreas Larsson <andreas@gaisler.com>
-In-Reply-To: <aXj_x5CyUeys7ONM@kernel.org>
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <4819ec3b-23b4-447b-b10b-0bd93a40dc5a@kernel.org>
+X-CM-TRANSID: qwCowADnjmoKzYFpPVoSBw--.2286S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYh7k0a2IF6F4UM7kC6x804xWl14x267AK
+	xVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGw
+	A2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26r4j
+	6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2z280aVAFwI0_Gc
+	CE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxI
+	r21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87
+	Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7Cj
+	xVA2Y2ka0xkIwI1l42xK82IYc2Ij64vIr41l4c8EcI0Ec7CjxVAaw2AFwI0_Jw0_GFyl4I
+	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
+	xVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
+	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8I
+	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
+	4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUcoqcUUUUU
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_021719_732740_18644D07 
-X-CRM114-Status: GOOD (  25.54  )
+X-CRM114-CacheID: sfid-20260203_022524_477203_6FAD8ED4 
+X-CRM114-Status: UNSURE (   6.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,125 +84,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-01-27 19:11, Mike Rapoport wrote:
-> On Tue, Jan 27, 2026 at 05:02:39PM +0100, Andreas Larsson wrote:
->> On 2026-01-24 10:56, Mike Rapoport wrote:
->>
->>> Every architecture defines empty_zero_page that way or another, but for the
->>> most of them it is always a page aligned page in BSS and most definitions
->>> of ZERO_PAGE do virt_to_page(empty_zero_page).
->>
->> Running this in an LDOM on an UltraSparc T4 sparc64, the entire LDOM
->> hangs after a while during boot.
->>
->>> diff --git a/arch/sparc/mm/init_64.c b/arch/sparc/mm/init_64.c
->>> index c2d19c9a9244..2bd99944176d 100644
->>> --- a/arch/sparc/mm/init_64.c
->>> +++ b/arch/sparc/mm/init_64.c
->>> @@ -177,9 +177,6 @@ extern unsigned long sparc_ramdisk_image64;
->>>  extern unsigned int sparc_ramdisk_image;
->>>  extern unsigned int sparc_ramdisk_size;
->>>  
->>> -struct page *mem_map_zero __read_mostly;
->>> -EXPORT_SYMBOL(mem_map_zero);
->>> -
->>>  unsigned int sparc64_highest_unlocked_tlb_ent __read_mostly;
->>>  
->>>  unsigned long sparc64_kern_pri_context __read_mostly;
->>> @@ -2506,18 +2503,6 @@ void __init mem_init(void)
->>>  	 */
->>>  	register_page_bootmem_info();
->>>  
->>> -	/*
->>> -	 * Set up the zero page, mark it reserved, so that page count
->>> -	 * is not manipulated when freeing the page from user ptes.
->>> -	 */
->>> -	mem_map_zero = alloc_pages(GFP_KERNEL|__GFP_ZERO, 0);
->>> -	if (mem_map_zero == NULL) {
->>> -		prom_printf("paging_init: Cannot alloc zero page.\n");
->>> -		prom_halt();
->>> -	}
->>> -	mark_page_reserved(mem_map_zero);
->>> -
->>> -
->>>  	if (tlb_type == cheetah || tlb_type == cheetah_plus)
->>>  		cheetah_ecache_flush_init();
->>>  }
->>
->> This just removes the mark_page_reserved(mem_map_zero) without 
->> replacing it with something corresponding to that. Perhaps part
->> of the problem?
-> 
-> I don't think so, empty_zero_page is in BSS now an it's reserved as a part
-> of the kernel image.
-> 
-> I suspect that virt_to_page() does not work BSS symbols on sparc64. Can you
-> please try with this patch:
-> 
-> diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
-> index 74ede706fb32..0578c5172d4e 100644
-> --- a/arch/sparc/include/asm/pgtable_64.h
-> +++ b/arch/sparc/include/asm/pgtable_64.h
-> @@ -22,6 +22,7 @@
->  #include <asm/adi.h>
->  #include <asm/page.h>
->  #include <asm/processor.h>
-> +#include <asm/vaddrs.h>
->  
->  /* The kernel image occupies 0x4000000 to 0x6000000 (4MB --> 96MB).
->   * The page copy blockops can use 0x6000000 to 0x8000000.
-> @@ -210,6 +211,11 @@ extern unsigned long _PAGE_CACHE;
->  extern unsigned long pg_iobits;
->  extern unsigned long _PAGE_ALL_SZ_BITS;
->  
-> +extern unsigned long kern_base;
-> +#define ZERO_PAGE(vaddr)						   \
-> +	(virt_to_page(empty_zero_page + ((unsigned long)__va(kern_base)) - \
-> +		      ((unsigned long)KERNBASE)))
-> +
->  /* PFNs are real physical page numbers.  However, mem_map only begins to record
->   * per-page information starting at pfn_base.  This is to handle systems where
->   * the first physical page in the machine is at some huge physical address,
-> diff --git a/arch/sparc/mm/init_64.c b/arch/sparc/mm/init_64.c
-> index 2bd99944176d..d2d724ba4f83 100644
-> --- a/arch/sparc/mm/init_64.c
-> +++ b/arch/sparc/mm/init_64.c
-> @@ -170,6 +170,8 @@ static void __init read_obp_memory(const char *property,
->  
->  /* Kernel physical address base and size in bytes.  */
->  unsigned long kern_base __read_mostly;
-> +EXPORT_SYMBOL(kern_base);
-> +
->  unsigned long kern_size __read_mostly;
->  
->  /* Initial ramdisk setup */
-Hi,
+Hi Matthieu and Mark,
 
-Unfortunately, that does not help. The LDOM goes down in the same fashion.
+On 2/3/26 17:39, Matthieu Baerts wrote:
+> [...]
+>
+> The conflict has been resolved on our side [1] and the resolution we
+> suggest is attached to this email. Please report any issues linked to
+> this conflict resolution as it might be used by others. If you worked on
+> the mentioned patches, don't hesitate to ACK this conflict resolution.
+> ---------------------------
 
-In QEMU, with or without this extra patch, I get this:
+Your merge is correct. Thanks for handling it.
 
-[    3.310674] BUG: Bad page map in process mount  pte:ffffc800016436b0
-[    3.310778] pgd:027dc000 p4d:027dc000 pud:027d8000 pmd:0269a000
-[    3.311686] addr:000001000020a000 vm_flags:00100077 anon_vma:fffff80002688548 mapping:0000000000000000 index:8000105
-[    3.312449] file:(null) fault:0x0 mmap:0x0 mmap_prepare: 0x0 read_folio:0x0
-[    3.313622] CPU: 0 UID: 0 PID: 46 Comm: mount Not tainted 6.19.0-rc5-00269-g28acabacf9b0 #22 VOLUNTARY 
-[    3.314056] Call Trace:
-[    3.314182] [<00000000005e822c>] print_bad_page_map+0x10c/0x260
-[    3.314375] [<00000000005e9f30>] vm_normal_page+0x70/0x80
-[    3.314400] [<00000000005ea5a8>] unmap_page_range+0x4e8/0x13c0
-[    3.314421] [<00000000005eb54c>] unmap_vmas+0x2c/0x120
-[    3.314440] [<00000000005f781c>] exit_mmap+0xdc/0x440
-[    3.314457] [<000000000047193c>] mmput+0x3c/0x100
-[    3.314477] [<0000000000479e94>] do_exit+0x1f4/0xa00
-[    3.314494] [<000000000047a83c>] do_group_exit+0x1c/0xa0
-[    3.314511] [<0000000000489b28>] get_signal+0x8a8/0x8e0
-[    3.314529] [<000000000043be24>] do_notify_resume+0xa4/0x5a0
-[    3.314549] [<0000000000404b48>] __handle_signal+0xc/0x30
-[    3.314687] Disabling lock debugging due to kernel taint
-
-Cheers,
-Andreas
+Vivian "dramforever" Wang
 
 
 _______________________________________________
