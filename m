@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 066E4E83057
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 05:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 290A2E83057
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 05:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=//xdL3E0X5p8lKBe7R3DbTgQGFq09fzPwoHA+HfGxBA=; b=DZvbcDWxUzNnL1
-	kSscntxFdJCrs2ihgAChMLal5YmC6FvT09UPlcwmZAqBH+j6DT8OAnTtOKtr+ci1Bd3iZyDqxylwE
-	+COG8tmM366GlUKaqUPoEZ2RXGs2+SEWPuK2w4m7Mecrw9AjkAdR8jba73cfvQxsRDiVf+YY+zhif
-	5RZqU3/qrltMKH990kVbIgxhcbTfPBzWoQTXFt7MpyT8Cp0snupIBo8lMZA1JSaJJoT8qTXSz2qBX
-	1kfrPFVyGND42SbIAkxiMii48UBPPhX4TBtlHg3QDZcsbGRQEnQKB0vexGx3gMzUlgzWOVCW6ZyVC
-	yuVetcJuejMfylUgGqgw==;
+	List-Owner; bh=J9cy1s+eq0g61n1bjqYG6XL5vGeswDCLxsUYH/ssE9U=; b=YTevFL1EVQ9wDB
+	yIAWyrwz2rtuO1nIPK2ZaV3AxkA/8vpivDVbUtXnr995ZOiZ85JAvaQwLtoFW8+yeDq/aWRsm2tkb
+	Rjhuow3b1/1/V+77ivPIZu4w1yCGd4bwNlQVbMPfCsBovngXQFopDDFrVb6Ib8vi5LAX6mnaS9U3W
+	umvu1eqstk4CnagnuA+g0K7+d3goyPQnxMKzNguTVHEX0etRP0IZrBs3EbVpSjtN7xNmlIkRSwtmo
+	xE5k0JK9vx9s7LtEST5EQKvGU1CRCk1R81VgdCq5n2b3VIluiLukvzEEeR5hTFdYdrckKYMHeWnvO
+	N2jnP3yzTtnRq0tdDmpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn9LS-00000006901-3Mx2;
-	Tue, 03 Feb 2026 05:53:02 +0000
-Received: from mail-qt1-x844.google.com ([2607:f8b0:4864:20::844])
+	id 1vn9La-0000000693h-0blK;
+	Tue, 03 Feb 2026 05:53:10 +0000
+Received: from mail-qv1-xf43.google.com ([2607:f8b0:4864:20::f43])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn9LP-000000068y8-2cBL
+	id 1vn9LY-0000000692S-1NVs
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Feb 2026 05:53:00 +0000
-Received: by mail-qt1-x844.google.com with SMTP id d75a77b69052e-502a98c66f7so42941811cf.1
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Feb 2026 21:52:59 -0800 (PST)
+	Tue, 03 Feb 2026 05:53:09 +0000
+Received: by mail-qv1-xf43.google.com with SMTP id 6a1803df08f44-8951c720496so715846d6.2
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Feb 2026 21:53:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770097978; x=1770702778; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1770097987; x=1770702787; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PzVkfCKgUCL7plixo/BQ6/TFm6BL7pd9AJ8r1pM28SI=;
-        b=T68knxGob2MUxFq3KgvUABkzFpyaZUtK2Ijx40q2kX2+6FnTJFzftZPPuzkXIQGr3+
-         IOVBsN7kcaPgN0l/yxNd54X3uXYzUV3YTbdAbl58fbGxRrQ3dTHCSQ4dWWEU8StuZiEx
-         TSm+VLwmBc0ecBPrd5esedl51Q0aJlby2PZkyR/YkDv6XhEy1Qr8IQwtJWIJ4WvLwpHg
-         B7w3S//QMvuI43V7drXyotXlm5FUaBj+YkKIk7xz6f9fKSdqmdXKTTnZ0emoBYWPq/1x
-         o+nCPHlc5hzrw19ACxKSXaVGmC+dtT4NRaQ6ilTmVQJ/I8JUSvhnC9lrZZ2ZQzZz+iGy
-         a8bg==
+        bh=6uxGWuC9y0ak4TPgoWK6c0g9IlENP1gQKqGkKB74Ees=;
+        b=Tjott4WseF244ECTCj+FsjdIj01yIR8lA3pRi5nWHpXJDE+o7ggj9cqyYCPBz0DbhV
+         d+e6hu/pOhrjHEu9WDOzZf5NvdKd4W0p8/IYHhNjvStMwUAUcyy/vkaQVQSlV+OAYzmR
+         N79IisAzamXAOdBmANUrrhY2Z5Q9yZYsH2SK3bXYevA8+1uh6xhtvLQCF7Qkts+PEtPw
+         dhCOhhaTenjLMGZkPD/r6pPQIDkRckwnZSyILZkLL31ZdHyddHURJwasa/kHqw7Woyzb
+         2HhN8ulCe7eiXYGFyiIxa4v/upuNwS7fJ330bggeEHje5K8M16oTMQXJoS5UPaSbI4py
+         6umQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770097978; x=1770702778;
+        d=1e100.net; s=20230601; t=1770097987; x=1770702787;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=PzVkfCKgUCL7plixo/BQ6/TFm6BL7pd9AJ8r1pM28SI=;
-        b=L0eW/ANkeSFZ4sJbgV1foq+5eCseOvsp8uKElkEtv2YZJqoY39YkuuRWNtKP2D6gnz
-         tQVn6GlctR1tKY1hJCFVsu9gSXpkTRvnSvJEOukdSMTkMOFE++v/7HcE2ZXPE3y2tAcj
-         J94667vKFZfwbLeF7v1t/mYWII4hKlBnO5fFox9W/mUR46i4qJRB0wpK4nIwoyeirWXi
-         OO47B1BR/zq/IZDZO0OnofGPPtqPTHQu3iQNc8gLnjvMCIuh2ADhZl9coxI6MZLwkWOT
-         D6kxv/f++YQ8i/GrYpinYHAJqihxQCrB/WMgeY/wZrd143wT7z5zMctNZ0s0r0JfVUQn
-         ESHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV+i9jjC8Fljxnh5kDUVTclGGQp3eKyawSKzLxCNPKnBnSWCzIVvAYWYIAvteqvcmNaCNVJcSBQkz8Kcw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5cU4QFh6qLKDAyiTpdeI0R++2YTOo65aetbtR7/tlh7ukx8si
-	0BltQ1fNAMsqNllVKY2GIemkNoEeh/nQrcWUJ4NAnh90la4JNL5tGWqc
-X-Gm-Gg: AZuq6aKKgYiQPuN3MOdy7TwsBfJz81wYhYUlOebxvidX0bWWc3d9rqd46O6/iAdnS1Y
-	IPx5O3Z5u+cW4xR7MJPhrREAniTF2DM34Fs/ECAq2hSapbhMVjAf5lZQMRvfDDHTZhn5CP0D515
-	v9K9gij5QQrQpXQfqN/ireJ10K8uGJRhKxxALt8g55PzEGG92uDR0JDqLpnlr7z4DV8scEi+AZ6
-	fiX0OY90PBy088SKCIUJk2GL3d7iCe2LCAGMqAT8ZpWl0H7hB7oWhBLn9Jn5DkrvZWM1h2b8O8j
-	h0sRLs95cA4sjHoe2K3FScmNR70LflB96A57pMX7/6KQ/k2a86rUrMR8A49Y4yK1teiwrAvCw24
-	AhJJPqSrwnWe3Kmg5/cT62UbpuamwWTxEEhlpTqfwMFEzL9KATCEg0y3a7NYQCXtechgVhC6HWq
-	AnclWQrXE=
-X-Received: by 2002:ac8:5a0d:0:b0:4f4:e15d:f220 with SMTP id d75a77b69052e-505d2183d83mr151199911cf.25.1770097978028;
-        Mon, 02 Feb 2026 21:52:58 -0800 (PST)
+        bh=6uxGWuC9y0ak4TPgoWK6c0g9IlENP1gQKqGkKB74Ees=;
+        b=LNx/8s85wPpAEAWnDVi430ccI+4dojCQlM5owhIkdAQ/sTfUUrqSF0sD4K8nvXVKBR
+         wMfo0MiWJqyYXCr4cu0FTAnflZippZmCGLjMigKZAaEo8hscdPjIctBjZp1aTmPCRxPz
+         k4P8KjegJNBUF/oDgoCPZstE5EWzwWuQwDLWh2j3+bgGQzvKou0hUeAWJ3oy030dyDVe
+         LCOsQwF3KrvSMkBqrhmAagG3ygTuLjlWTSlFVJ4cfm/fYfpw1C4/ynHUKVTgjNwlKYjv
+         9uvswNjsuC9HrxNu4ncv5vd4wN4jUdGgZ8aGof0ipOBcKrJ8BQ5a/tsJKRcPbHJxbdOS
+         as1A==
+X-Forwarded-Encrypted: i=1; AJvYcCUmvCKeXwsooeK/C5KCSE9HQJWZCjmstvNfOUGLvhIt/EHFQGAz8Y4C2N9ToegQLIgy2lawzIIMxqUA8w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNd4BLGFPFVz22jvPGLUbsT6EBZsz6kaMswIzXRC5L13yd+99m
+	GInIfvr7xhTu/07CVHeKg3FzM3XWnOjPT56rVgkHYX+cZ5UOhhCas7T4
+X-Gm-Gg: AZuq6aJ++tt1a1xzxdurIstqIjZdstIwPZ7tBNLlTCGOrwZjyHHkicByFqqYczexues
+	PuM2qHtEK//RMZuAKqJVQ2FZ0Q+Sz4QALPqQGQ4sctW1GNWuAd+zyIv3GGvEsRzgC9G3O1BE9ey
+	nHlTa0xZswElKKCCyj5Ix+2M77h7Xu5EnmI7auumTnGyzb4GVgM0pOyXjL+5Tbo2FMDiiWTshb1
+	GiwHkYvptVUI2QtdzqEAind/CcnLE5UTpcQZ37y6k2YndOyV0kIJCeQPBUiSrth8PC/dLBfFOlF
+	jjV0rIbQYufBXc1+CnQ7EAelWn9DvbhsIsixYWVVlo3CsUvbkjWPZ2cbPWyIjipsgYBOL0cayj3
+	NK1iocd45y/+nwM9RbvLv9Cu6RQufV/puiOvO94h8lY/bcZMjUwMC6rSaZcBXfGfpBxSutGVWRm
+	4lP0dX9CrgieuTTapGEQ==
+X-Received: by 2002:a05:6214:1c0f:b0:888:7ba5:6b35 with SMTP id 6a1803df08f44-894e9f818e5mr209940796d6.19.1770097986889;
+        Mon, 02 Feb 2026 21:53:06 -0800 (PST)
 Received: from 7940hx ([23.94.188.235])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-894d376e65bsm129844996d6.55.2026.02.02.21.52.47
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-894d376e65bsm129844996d6.55.2026.02.02.21.52.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Feb 2026 21:52:57 -0800 (PST)
+        Mon, 02 Feb 2026 21:53:06 -0800 (PST)
 From: Menglong Dong <menglong8.dong@gmail.com>
 X-Google-Original-From: Menglong Dong <dongml2@chinatelecom.cn>
 To: ast@kernel.org
@@ -94,16 +94,16 @@ Cc: daniel@iogearbox.net,
 	bpf@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf-next 1/3] bpf, riscv: introduce emit_store_stack_imm64() for trampoline
-Date: Tue,  3 Feb 2026 13:52:29 +0800
-Message-ID: <20260203055231.1088479-2-dongml2@chinatelecom.cn>
+Subject: [PATCH bpf-next 2/3] bpf, riscv: add fsession support for trampolines
+Date: Tue,  3 Feb 2026 13:52:30 +0800
+Message-ID: <20260203055231.1088479-3-dongml2@chinatelecom.cn>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260203055231.1088479-1-dongml2@chinatelecom.cn>
 References: <20260203055231.1088479-1-dongml2@chinatelecom.cn>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_215259_671734_EFC0D267 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20260202_215308_388003_7A0EC69E 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,66 +120,167 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce a helper to store 64-bit immediate on the trampoline stack with
-a help of a register.
+Implement BPF_TRACE_FSESSION support in the RISC-V trampoline JIT. The
+logic here is similar to what we did in x86_64.
+
+In order to simply the logic, we factor out the function invoke_bpf() for
+fentry and fexit.
 
 Signed-off-by: Menglong Dong <dongml2@chinatelecom.cn>
 ---
- arch/riscv/net/bpf_jit_comp64.c | 25 ++++++++++++++-----------
- 1 file changed, 14 insertions(+), 11 deletions(-)
+ arch/riscv/net/bpf_jit_comp64.c | 74 ++++++++++++++++++++++++++++-----
+ 1 file changed, 64 insertions(+), 10 deletions(-)
 
 diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index 37888abee70c..e4f45e2e7e2f 100644
+index e4f45e2e7e2f..f10418ff6a9b 100644
 --- a/arch/riscv/net/bpf_jit_comp64.c
 +++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -926,6 +926,14 @@ static void restore_stack_args(int nr_stack_args, int args_off, int stk_arg_off,
- 	}
+@@ -996,6 +996,29 @@ static int invoke_bpf_prog(struct bpf_tramp_link *l, int args_off, int retval_of
+ 	return ret;
  }
  
-+static void emit_store_stack_imm64(u8 reg, int stack_off, u64 imm64,
-+				   struct rv_jit_context *ctx)
++static int invoke_bpf(struct bpf_tramp_links *tl, int args_off, int retval_off,
++		      int run_ctx_off, int func_meta_off, bool save_ret, u64 func_meta,
++		      int cookie_off, struct rv_jit_context *ctx)
 +{
-+	/* Load imm64 into reg and store it at [FP + stack_off]. */
-+	emit_imm(reg, (s64)imm64, ctx);
-+	emit_sd(RV_REG_FP, stack_off, reg, ctx);
++	int i, cur_cookie = (cookie_off - args_off) / 8;
++
++	for (i = 0; i < tl->nr_links; i++) {
++		int err;
++
++		if (tl->links[i]->link.prog->call_session_cookie) {
++			u64 meta = func_meta | ((u64)cur_cookie << BPF_TRAMP_COOKIE_INDEX_SHIFT);
++
++			emit_store_stack_imm64(RV_REG_T1, -func_meta_off, meta, ctx);
++			cur_cookie--;
++		}
++		err = invoke_bpf_prog(tl->links[i], args_off, retval_off, run_ctx_off,
++				      save_ret, ctx);
++		if (err)
++			return err;
++	}
++	return 0;
 +}
 +
- static int invoke_bpf_prog(struct bpf_tramp_link *l, int args_off, int retval_off,
- 			   int run_ctx_off, bool save_ret, struct rv_jit_context *ctx)
- {
-@@ -933,12 +941,10 @@ static int invoke_bpf_prog(struct bpf_tramp_link *l, int args_off, int retval_of
- 	struct bpf_prog *p = l->link.prog;
- 	int cookie_off = offsetof(struct bpf_tramp_run_ctx, bpf_cookie);
+ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+ 					 const struct btf_func_model *m,
+ 					 struct bpf_tramp_links *tlinks,
+@@ -1005,13 +1028,15 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+ 	int i, ret, offset;
+ 	int *branches_off = NULL;
+ 	int stack_size = 0, nr_arg_slots = 0;
+-	int retval_off, args_off, nregs_off, ip_off, run_ctx_off, sreg_off, stk_arg_off;
++	int retval_off, args_off, func_meta_off, ip_off, run_ctx_off, sreg_off, stk_arg_off;
++	int cookie_off, cookie_cnt;
+ 	struct bpf_tramp_links *fentry = &tlinks[BPF_TRAMP_FENTRY];
+ 	struct bpf_tramp_links *fexit = &tlinks[BPF_TRAMP_FEXIT];
+ 	struct bpf_tramp_links *fmod_ret = &tlinks[BPF_TRAMP_MODIFY_RETURN];
+ 	bool is_struct_ops = flags & BPF_TRAMP_F_INDIRECT;
+ 	void *orig_call = func_addr;
+ 	bool save_ret;
++	u64 func_meta;
+ 	u32 insn;
  
--	if (l->cookie) {
--		emit_imm(RV_REG_T1, l->cookie, ctx);
--		emit_sd(RV_REG_FP, -run_ctx_off + cookie_off, RV_REG_T1, ctx);
--	} else {
-+	if (l->cookie)
-+		emit_store_stack_imm64(RV_REG_T1, -run_ctx_off + cookie_off, l->cookie, ctx);
-+	else
- 		emit_sd(RV_REG_FP, -run_ctx_off + cookie_off, RV_REG_ZERO, ctx);
--	}
+ 	/* Two types of generated trampoline stack layout:
+@@ -1042,10 +1067,14 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+ 	 *                  [ ...               ]
+ 	 * FP - args_off    [ arg1              ]
+ 	 *
+-	 * FP - nregs_off   [ regs count        ]
++	 * FP - func_meta_off [ regs count, etc ]  always
+ 	 *
+ 	 * FP - ip_off      [ traced func	] BPF_TRAMP_F_IP_ARG
+ 	 *
++	 *                  [ stack cookie N    ]
++	 *                  [ ...               ]
++	 * FP - cookie_off  [ stack cookie 1    ]
++	 *
+ 	 * FP - run_ctx_off [ bpf_tramp_run_ctx ]
+ 	 *
+ 	 * FP - sreg_off    [ callee saved reg	]
+@@ -1077,14 +1106,20 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+ 	stack_size += nr_arg_slots * 8;
+ 	args_off = stack_size;
  
- 	/* arg1: prog */
- 	emit_imm(RV_REG_A0, (const s64)p, ctx);
-@@ -1123,13 +1129,10 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
- 	emit_sd(RV_REG_FP, -sreg_off, RV_REG_S1, ctx);
++	/* function metadata, such as regs count */
+ 	stack_size += 8;
+-	nregs_off = stack_size;
++	func_meta_off = stack_size;
  
- 	/* store ip address of the traced function */
--	if (flags & BPF_TRAMP_F_IP_ARG) {
--		emit_imm(RV_REG_T1, (const s64)func_addr, ctx);
--		emit_sd(RV_REG_FP, -ip_off, RV_REG_T1, ctx);
--	}
-+	if (flags & BPF_TRAMP_F_IP_ARG)
-+		emit_store_stack_imm64(RV_REG_T1, -ip_off, (u64)func_addr, ctx);
+ 	if (flags & BPF_TRAMP_F_IP_ARG) {
+ 		stack_size += 8;
+ 		ip_off = stack_size;
+ 	}
  
--	emit_li(RV_REG_T1, nr_arg_slots, ctx);
--	emit_sd(RV_REG_FP, -nregs_off, RV_REG_T1, ctx);
-+	emit_store_stack_imm64(RV_REG_T1, -nregs_off, nr_arg_slots, ctx);
++	cookie_cnt = bpf_fsession_cookie_cnt(tlinks);
++	/* room for session cookies */
++	stack_size += cookie_cnt * 8;
++	cookie_off = stack_size;
++
+ 	stack_size += round_up(sizeof(struct bpf_tramp_run_ctx), 8);
+ 	run_ctx_off = stack_size;
+ 
+@@ -1132,10 +1167,19 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+ 	if (flags & BPF_TRAMP_F_IP_ARG)
+ 		emit_store_stack_imm64(RV_REG_T1, -ip_off, (u64)func_addr, ctx);
+ 
+-	emit_store_stack_imm64(RV_REG_T1, -nregs_off, nr_arg_slots, ctx);
++	func_meta = nr_arg_slots;
++	emit_store_stack_imm64(RV_REG_T1, -func_meta_off, func_meta, ctx);
  
  	store_args(nr_arg_slots, args_off, ctx);
  
++	if (bpf_fsession_cnt(tlinks)) {
++		/* clear all session cookies' value */
++		for (i = 0; i < cookie_cnt; i++)
++			emit_sd(RV_REG_FP, -cookie_off + 8 * i, RV_REG_ZERO, ctx);
++		/* clear return value to make sure fentry always get 0 */
++		emit_sd(RV_REG_FP, -retval_off, RV_REG_ZERO, ctx);
++	}
++
+ 	if (flags & BPF_TRAMP_F_CALL_ORIG) {
+ 		emit_imm(RV_REG_A0, ctx->insns ? (const s64)im : RV_MAX_COUNT_IMM, ctx);
+ 		ret = emit_call((const u64)__bpf_tramp_enter, true, ctx);
+@@ -1143,9 +1187,9 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+ 			return ret;
+ 	}
+ 
+-	for (i = 0; i < fentry->nr_links; i++) {
+-		ret = invoke_bpf_prog(fentry->links[i], args_off, retval_off, run_ctx_off,
+-				      flags & BPF_TRAMP_F_RET_FENTRY_RET, ctx);
++	if (fentry->nr_links) {
++		ret = invoke_bpf(fentry, args_off, retval_off, run_ctx_off, func_meta_off,
++				 flags & BPF_TRAMP_F_RET_FENTRY_RET, func_meta, cookie_off, ctx);
+ 		if (ret)
+ 			return ret;
+ 	}
+@@ -1192,9 +1236,14 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+ 		*(u32 *)(ctx->insns + branches_off[i]) = insn;
+ 	}
+ 
+-	for (i = 0; i < fexit->nr_links; i++) {
+-		ret = invoke_bpf_prog(fexit->links[i], args_off, retval_off,
+-				      run_ctx_off, false, ctx);
++	/* set "is_return" flag for fsession */
++	func_meta |= (1ULL << BPF_TRAMP_IS_RETURN_SHIFT);
++	if (bpf_fsession_cnt(tlinks))
++		emit_store_stack_imm64(RV_REG_T1, -func_meta_off, func_meta, ctx);
++
++	if (fexit->nr_links) {
++		ret = invoke_bpf(fexit, args_off, retval_off, run_ctx_off, func_meta_off,
++				 false, func_meta, cookie_off, ctx);
+ 		if (ret)
+ 			goto out;
+ 	}
+@@ -2094,3 +2143,8 @@ bool bpf_jit_inlines_helper_call(s32 imm)
+ 		return false;
+ 	}
+ }
++
++bool bpf_jit_supports_fsession(void)
++{
++	return true;
++}
 -- 
 2.52.0
 
