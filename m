@@ -4,59 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D783AE8304A
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 04:20:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1249AE83057
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 05:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YmIblU53GXHJMGERbkDsbIyCCX0ofcm2i5VOnKjPpKk=; b=46f5ke1zka+PqR
-	mbr0cSlA5kpa0xTjpW6/xXQ/HgxcqZ1rPTvSGurOy9+ezZC3NoXrbOBdrq2nm30o8LqJ7OmtpkYyT
-	hCV70KxD96YyBRx+5MpdolzkRdyYYHufjIig3A4xMQacQKv/MHMTf1018rcu/QYhfdMZYlDxsK98/
-	aTsCngJJBZuOfF9qcrJN+Md3dGNfxvJ+9g6dRsmwyyQG+uasv57iW9Mx83jTLqtuIpBfLkDNvLrZB
-	tTPjS5vijon4sQKFWwXrkIgpogCVaWJ5knMo3i5TU8sGwU5sRqdtIpLxsc+0X+7ZmQZ+S3XJX7uj4
-	fRubwZ5oWIyY9A/fEaJw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QGOhrYyHRBlrFQpPWzPR0hzX0oRw8rLqY9Pi4X25iCo=; b=RmJGpmSHjcIN6v
+	EhOjCxuAYIu6gCHNKbL5oCHRJiBbOem9kuzk3+1khBum+i5J3hag/noHjHXF7EqQnKEpOBd/ksrkH
+	lh1cJkjmyIKQW3wlRlpS9pOhxZGu6mBLWUICsRKYzrwU1toS7RErcMQkrP/PbkeJJHmAxP2aXQwm+
+	nHAbscJgUUy0Gz6sbJ90A6KRczjXU+N43hEiJ4ZyH6DSMqaHTjJeNbETT8ErwNs0z+Uohw8s8mzBS
+	4Pj4d06SgPrXEprRvPmVB0O2C1LD1WxtgJq1NUQzNETOL2QSI69ckUQM2Q3gqUUqQmzzKatM6lgZD
+	MMVHgXimL55HCMDuQTaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn7tb-0000000631l-0qeu;
-	Tue, 03 Feb 2026 04:20:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vn9LI-000000068vS-1opN;
+	Tue, 03 Feb 2026 05:52:52 +0000
+Received: from mail-qv1-xf44.google.com ([2607:f8b0:4864:20::f44])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn7tZ-0000000631a-3yut
+	id 1vn9LF-000000068tc-1Yr2
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Feb 2026 04:20:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 058C8600AA;
-	Tue,  3 Feb 2026 04:20:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9611C116D0;
-	Tue,  3 Feb 2026 04:20:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770092408;
-	bh=0YAWDIS+eysLPVl7yK0G0fnhNv1PM/4TCL5u/TuVNpI=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=UKGh6I5ZSbFuQyF6DyfPCFHB9zdBfTUzUeJCejaTBm/dpEDVsBM9akcfz3ux8mjSN
-	 V1GGYH7vDQuV6SIe/LPBTMFw0tV7KFHHMj74U1Nl1DEZATxxV+Apfi1UU2R4TPvm81
-	 p586sz5MMkfS8KUKTGZFF2vHVgfyJ01+ADhtSsbgPWPVUT2XYTGX8oChOUyQg4LhjC
-	 fANHZLY9Px53Wst1UDYbFQNpV3xWQ+XSv+K975fxhQ5ENsHYcY7aRzFc0qzYUQPV68
-	 caRRSkpontpG4cOKKEKWy/Wl2kId12Yd2BtpjqbnnxUTwhqVo8h7Qzr5O0Rqz9T7Z7
-	 DG0+ZRQWAJRKQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 9104D3808200;
-	Tue,  3 Feb 2026 04:20:06 +0000 (UTC)
+	Tue, 03 Feb 2026 05:52:50 +0000
+Received: by mail-qv1-xf44.google.com with SMTP id 6a1803df08f44-88a2fe9e200so50035996d6.0
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Feb 2026 21:52:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770097967; x=1770702767; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JBKc55eZpoTToABEyoP3jfOIFdx9NoLGQDjzruIsB0U=;
+        b=lkwBL2PeX+t7OlZ09ApZWWSP6LZfxEIouZXNvHr6V9Ss8aD5jt3samULVmdoFLBZHb
+         ePRtoaj8kAKF3GzV0WBaLDW0/uH6eBtylAH327+c3SpwEbxEBcOfDjwWRVIUBmdIRh+b
+         rKPFS5QUimQO2+N29W7jWLRQCdJoQGdHHsce/Zp+FUPIU0S8TRyC0zMKAGHoEW1gjKAw
+         p99S8h8pOp/TQDide5HXhViG6h3mwTwtHoURa4pgMwEahBb3Z3T3RqCtqJN1RM0APmKD
+         cRpCnipY2WVuG/Us5dDUyGp8XcjJAoCBcNRHhH/8HQaugBIOQsEoyXU/snR7/hdiLZCz
+         4Q9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770097967; x=1770702767;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JBKc55eZpoTToABEyoP3jfOIFdx9NoLGQDjzruIsB0U=;
+        b=VnsRimeTBClThfRGugUMLcb/2Erzf9WOmig29HG9lgA2BE+Ebr38ZlYNqaKZjLTxiw
+         ZArFW7zchu7y6WeEKagHnT4N2ViqbC2uoCv5Nxa4fRrRi8IS/AaekxAsY60X7gjyMEIP
+         f/crxiYQDR24GDMoWZ9Dn+Ptu9t8TPF8MNMz06MI8wDgbz6MZdmBodEEabDHbYcsUIPf
+         R4jjjPmXKLQgPSqJ2i7CxCd92Iajr6s7LRgfSAnAIAuADWg0gI1Onh2COEIr7uuXP5yK
+         D2Q/YmQGO/It2B8858RINg4OFZ3XBHXXjEBnsXrYiYK1ZwGbC4Qyi+g/tOBtaDAidbtF
+         3P/A==
+X-Forwarded-Encrypted: i=1; AJvYcCWNJ3g2KChMEh6Z9Ai/aPhjqwweR29TFudJQUGE6ydu1+M6g3trzVMQrYYUi4eEAxAFgk6GNU4wEkcZzg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5jiaWD96BX1qBRiCs5E1JQSS/avjtDi/iQDEU4elgBeNrYUFD
+	dod6e4ZUXGYcSUm5pt3UDnulzuySAH7rB2Tv/rxs9LdXKJTtRuiPzxQy
+X-Gm-Gg: AZuq6aLUiilxj5PS+ifbZ0Va69eZCQ6CtzxlDnMIbUzoIQ8ZJpvpdonCOc12WsuJ8pB
+	GbYHY6Hz3mpGOn/NEjdbwD4a25ENMPfDLPZtlLsWZER6kcyvAiWWgTwggIJR4DTtRlgDSHwb7OU
+	0syXkvBHREplq4XWQaItSUs3MEwHwUgOwdsrFDKuZsddLQzmwfoo1rFA0oMziWy2gHVOfQY+rUa
+	OMIusDbKDGvqjgjXIfFrrMNAn6f71dlr4v+h5rNAbCWErSWm/ijl0NCt9xCi7nNT5Skz+Nkh6sT
+	Spm08HtXXK6Q67N78eYlmdF9Dk+jMMZ+WXraXfH8Y4sE6OCinUTi65QxTl3Epru2fEurhY4diUY
+	Xyzqy35DBTrAlpw+d4RNmtOe5BcxyUSGoLcLEJkQs9hD0SgeH65vEEoss8pthJLgoQWaqJ2RXTw
+	y6vDZR8I8=
+X-Received: by 2002:a05:6214:2467:b0:88a:2444:36e9 with SMTP id 6a1803df08f44-894ea0a7b75mr196311776d6.67.1770097967508;
+        Mon, 02 Feb 2026 21:52:47 -0800 (PST)
+Received: from 7940hx ([23.94.188.235])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-894d376e65bsm129844996d6.55.2026.02.02.21.52.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Feb 2026 21:52:47 -0800 (PST)
+From: Menglong Dong <menglong8.dong@gmail.com>
+X-Google-Original-From: Menglong Dong <dongml2@chinatelecom.cn>
+To: ast@kernel.org
+Cc: daniel@iogearbox.net,
+	andrii@kernel.org,
+	martin.lau@linux.dev,
+	eddyz87@gmail.com,
+	song@kernel.org,
+	yonghong.song@linux.dev,
+	john.fastabend@gmail.com,
+	kpsingh@kernel.org,
+	sdf@fomichev.me,
+	haoluo@google.com,
+	jolsa@kernel.org,
+	bjorn@kernel.org,
+	pulehui@huawei.com,
+	puranjay@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	jiang.biao@linux.dev,
+	bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH bpf-next 0/3] bpf: fsession support for riscv
+Date: Tue,  3 Feb 2026 13:52:28 +0800
+Message-ID: <20260203055231.1088479-1-dongml2@chinatelecom.cn>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Subject: Re: [PATCH net v3] net: spacemit: k1-emac: fix jumbo frame support
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177009240524.1309272.13521907862288181709.git-patchwork-notify@kernel.org>
-Date: Tue, 03 Feb 2026 04:20:05 +0000
-References: <20260130102301.477514-1-tmshlvck@gmail.com>
-In-Reply-To: <20260130102301.477514-1-tmshlvck@gmail.com>
-To: Tomas Hlavacek <tmshlvck@gmail.com>
-Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, dlan@kernel.org, wangruikang@iscas.ac.cn,
- stable@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260202_215249_419424_27E86E07 
+X-CRM114-Status: UNSURE (   6.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,33 +118,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Implement bpf fsession for the riscv architecture.
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Menglong Dong (3):
+  bpf,riscv: introduce emit_store_stack_imm64() for trampoline
+  bpf,riscv: add fsession support for trampolines
+  selftests/bpf: enable fsession_test on riscv64
 
-On Fri, 30 Jan 2026 11:23:01 +0100 you wrote:
-> The driver never programs the MAC frame size and jabber registers,
-> causing the hardware to reject frames larger than the default 1518
-> bytes even when larger DMA buffers are allocated.
-> 
-> Program MAC_MAXIMUM_FRAME_SIZE, MAC_TRANSMIT_JABBER_SIZE, and
-> MAC_RECEIVE_JABBER_SIZE based on the configured MTU. Also fix the
-> maximum buffer size from 4096 to 4095, since the descriptor buffer
-> size field is only 12 bits. Account for double VLAN tags in frame
-> size calculations.
-> 
-> [...]
+ arch/riscv/net/bpf_jit_comp64.c               | 92 +++++++++++++++----
+ .../selftests/bpf/progs/get_func_args_test.c  |  2 +-
+ .../selftests/bpf/progs/get_func_ip_test.c    |  2 +-
+ 3 files changed, 74 insertions(+), 22 deletions(-)
 
-Here is the summary with links:
-  - [net,v3] net: spacemit: k1-emac: fix jumbo frame support
-    https://git.kernel.org/netdev/net/c/3125fc170169
-
-You are awesome, thank you!
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.52.0
 
 
 _______________________________________________
