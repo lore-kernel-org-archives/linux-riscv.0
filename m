@@ -4,70 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5312E6E7E2
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 10:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07155E6E7EE
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 10:39:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kmzxLFmq6pPJr0WDgI6gZKCS+As38E3Gb/cEuKGY8ck=; b=VUF0LFb+zYNK17
-	wVNP2lr1Xyip0q3QhEl0jIGOM0BG8XKfkummQ7DF4jxOr39ds6ISMyv9Mi8SKYc0RTnfoael9+57u
-	TCrdgKakIkLWvI6K0qs4oLdjeGJXfO5ZE+BcOf3VU6zATICgajQyPLzGTY2T1yYru2l7OMtN5X3jP
-	1cxEGNuV1Yh2OUHWe3LYonmFM5I90YH67GineUfRCFyUiArO78KO1+5yZuBAkLlnrLwsvKpTxyUIw
-	WtAWgWNfy2UXpineNwYJFMuryXiLG/x+xleynrz7QHFPnO8TaxUNpM848ZicBzHWdJUciULYJHfEF
-	oizEMxJe26dkJaGJFBmw==;
+	List-Owner; bh=9IhGcLdCBmjdtTahav+ag24xwP5v709xfMSbNqs2aNg=; b=BVavJn1Aqc9TmH
+	AvOdMH6jVwCkNqSy4ye+hFIRIIr3NszQNoX+cCowpRoAcMp+ewv319SY04766vYO0yIImLFVnvrAR
+	eeft3UMucOgufGnIv8QpXK2r0jWfYujSDjmlyZRS+B0NwmjbuqKWeUT0xioKO8gKyelvrAldDPULq
+	FEpPqL7D7ekviNpQRd/Kl+j/HptG78lZ6Y8I3QWgSQ8UB4sGUtSmyTVX62AIMGTuDpadjkKQCqp/k
+	lOF4RtsVAdm3sPGzEuqEYZ+0GINYSl5RK16dbIDdSJyEsww4ArTFlYF/GJXAtUkMrqjYr8x4RF0iX
+	lfvE9tQIc5FFz2ebG1Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnDb6-00000006TGH-1HI6;
-	Tue, 03 Feb 2026 10:25:28 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vnDoQ-00000006UQV-0POA;
+	Tue, 03 Feb 2026 10:39:14 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnDb2-00000006TFP-0INC
+	id 1vnDoM-00000006UPc-3LLg
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Feb 2026 10:25:26 +0000
-Received: from [10.213.18.154] (unknown [210.73.43.101])
-	by APP-01 (Coremail) with SMTP id qwCowADnjmoKzYFpPVoSBw--.2286S2;
-	Tue, 03 Feb 2026 18:25:15 +0800 (CST)
-Message-ID: <140cb690-caa2-4c94-8b4a-75c0d89e2056@iscas.ac.cn>
-Date: Tue, 3 Feb 2026 18:25:14 +0800
+	Tue, 03 Feb 2026 10:39:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1770115148;
+	bh=7p06UjiOAmOZZ+ivGAxqutS8zWb3kS0ttTynLQr7ZJc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=SgnwILfkwv3oTBP0QRGD4+/0u2LFd1lrBTYwrzMVWZl6IZzITGNDJPHWmpbkEnt4e
+	 TG4wDLMOmMtMS+ETjG6JC5bdL406D0GAmvytUj51hwLYcWrpJPbM5WTaSzTywjZoaI
+	 FFxjHM3rtDg9gcYE5FzA2bwwRKFt6LBt2jw+GX4PnHvoBw12en8RgzxwQBy1kOgZVQ
+	 ZA5lrnb2dyhfKzBwd5uelfXNfqKGTSm7/ZR+xlRsCWRuBbQbKZuf01ZH6deeTiX1ux
+	 r5u/L67j38Vt5bqXFK0YhNrmJ6Nmb6FQGbO7oT3YpnxoEZDA9Y6OsNWS5net3YeuS/
+	 04UbIXZpqpNlw==
+Received: from fedora (unknown [IPv6:2a01:e0a:2c:6930:d919:a6e:5ea1:8a9f])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 45D4217E00A3;
+	Tue,  3 Feb 2026 11:39:07 +0100 (CET)
+Date: Tue, 3 Feb 2026 11:39:02 +0100
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Alice Ryhl <aliceryhl@google.com>
+Cc: Maxime Ripard <mripard@kernel.org>, Daniel Almeida
+ <daniel.almeida@collabora.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>, Danilo Krummrich <dakr@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Drew Fustini <fustini@kernel.org>, Guo Ren
+ <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, "Uwe =?UTF-8?B?S2xlaW5l?=
+ =?UTF-8?B?LUvDtm5pZw==?=" <ukleinek@kernel.org>, Michael Turquette
+ <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Miguel Ojeda
+ <ojeda@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo
+ <gary@garyguo.net>, "=?UTF-8?B?QmrDtnJu?= Roy Baron"
+ <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, Andreas
+ Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>,
+ linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org,
+ linux-pwm@vger.kernel.org, linux-clk@vger.kernel.org,
+ rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
+Message-ID: <20260203113902.501e5803@fedora>
+In-Reply-To: <aW4lCfUyumOKRRJm@google.com>
+References: <20260107-clk-type-state-v3-0-77d3e3ee59c2@collabora.com>
+	<20260107-clk-type-state-v3-1-77d3e3ee59c2@collabora.com>
+	<20260108-delectable-fennec-of-sunshine-ffca19@houat>
+	<98CD0BF6-3350-40B9-B8A9-F569AE3E3220@collabora.com>
+	<20260119-thundering-tested-robin-4be817@houat>
+	<aW4lCfUyumOKRRJm@google.com>
+Organization: Collabora
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3] net: spacemit: k1-emac: fix jumbo frame support:
- manual merge
-To: Matthieu Baerts <matttbe@kernel.org>, Tomas Hlavacek
- <tmshlvck@gmail.com>, netdev@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, dlan@kernel.org, stable@vger.kernel.org,
- Mark Brown <broonie@kernel.org>
-References: <20260130102301.477514-1-tmshlvck@gmail.com>
- <4819ec3b-23b4-447b-b10b-0bd93a40dc5a@kernel.org>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <4819ec3b-23b4-447b-b10b-0bd93a40dc5a@kernel.org>
-X-CM-TRANSID: qwCowADnjmoKzYFpPVoSBw--.2286S2
-X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYh7k0a2IF6F4UM7kC6x804xWl14x267AK
-	xVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGw
-	A2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26r4j
-	6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2z280aVAFwI0_Gc
-	CE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxI
-	r21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87
-	Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7Cj
-	xVA2Y2ka0xkIwI1l42xK82IYc2Ij64vIr41l4c8EcI0Ec7CjxVAaw2AFwI0_Jw0_GFyl4I
-	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
-	xVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
-	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8I
-	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
-	4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUcoqcUUUUU
-X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_022524_477203_6FAD8ED4 
-X-CRM114-Status: UNSURE (   6.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260203_023911_023996_C9FFB78C 
+X-CRM114-Status: GOOD (  27.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,21 +95,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Matthieu and Mark,
+On Mon, 19 Jan 2026 12:35:21 +0000
+Alice Ryhl <aliceryhl@google.com> wrote:
 
-On 2/3/26 17:39, Matthieu Baerts wrote:
-> [...]
->
-> The conflict has been resolved on our side [1] and the resolution we
-> suggest is attached to this email. Please report any issues linked to
-> this conflict resolution as it might be used by others. If you worked on
-> the mentioned patches, don't hesitate to ACK this conflict resolution.
-> ---------------------------
+> On Mon, Jan 19, 2026 at 11:45:57AM +0100, Maxime Ripard wrote:
+> > On Thu, Jan 08, 2026 at 11:14:37AM -0300, Daniel Almeida wrote:  
+> > > > For example, it's quite typical to have (at least) one clock for the bus
+> > > > interface that drives the register, and one that drives the main
+> > > > component logic. The former needs to be enabled only when you're
+> > > > accessing the registers (and can be abstracted with
+> > > > regmap_mmio_attach_clk for example), and the latter needs to be enabled
+> > > > only when the device actually starts operating.
+> > > > 
+> > > > You have a similar thing for the prepare vs enable thing. The difference
+> > > > between the two is that enable can be called into atomic context but
+> > > > prepare can't.
+> > > > 
+> > > > So for drivers that would care about this, you would create your device
+> > > > with an unprepared clock, and then at various times during the driver
+> > > > lifetime, you would mutate that state.  
+> 
+> The case where you're doing it only while accessing registers is
+> interesting, because that means the Enable bit may be owned by a local
+> variable. We may imagine an:
+> 
+>     let enabled = self.prepared_clk.enable_scoped();
+>     ... use registers
+>     drop(enabled);
+> 
+> Now ... this doesn't quite work with the current API - the current
+> Enabled stated owns both a prepare and enable count, but the above keeps
+> the prepare count in `self` and the enabled count in a local variable.
+> But it could be done with a fourth state, or by a closure method:
+> 
+>     self.prepared_clk.with_enabled(|| {
+>         ... use registers
+>     });
+> 
+> All of this would work with an immutable variable of type Clk<Prepared>.
 
-Your merge is correct. Thanks for handling it.
+Hm, maybe it'd make sense to implement Clone so we can have a temporary
+clk variable that has its own prepare/enable refs and releases them
+as it goes out of scope. This implies wrapping *mut bindings::clk in an
+Arc<> because bindings::clk is not ARef, but should be relatively easy
+to do. Posting the quick experiment I did with this approach, in case
+you're interested [1]
 
-Vivian "dramforever" Wang
-
+[1]https://gitlab.freedesktop.org/bbrezillon/linux/-/commit/d5d04da4f4f6192b6e6760d5f861c69596c7d837
 
 _______________________________________________
 linux-riscv mailing list
