@@ -4,80 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B183E87834
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 14:42:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79D6BE8783D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 14:54:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YGrix7V1mvx6/x4dkbjwXgtJnvwdlRf6Lc3z3GAx7IA=; b=w0Udksj0mSSxXA
-	v+e2MN/M1wHpSB6fS1/Dcw6BDnyJB/IHdrJ1UO4K4L2A1W1QGWviDBpssPOQ/q1Iy68XNYSgflbPj
-	NszSsfkY+KhgUyuSu+aOAet307p+1TSLRCmYW121Fq2fYwALLZRg1J51+BXie8zSyhU2ihrtzW1EY
-	/PK0Cddzggy6MMVGPZEG954eW6XRG44Nbe+zpzQwp5KScVN3pBr0fa17aH7/NmLtzFbyHYSid0DBk
-	RULT17JAFkdmQocY49ys/6tZB3FR3CwdK9AeSUSU1KaIXmglPLghE0swPdfj6RLEH2vo5dtwtwv7/
-	McCmTtCEUSdaD9rwu13w==;
+	List-Owner; bh=Paad62Jl+0AcgCrX2oyk9Rq1UnGvRVzGEPHKj3aswNM=; b=HlHjScx2FFhTkY
+	WIzft2Wtnzc2Qs8wRkTy34u2UwCctAbUYHNS0Qqa2xyw+pU9TGqyUGw9fI96Zev69AccSOmjR9b7k
+	YA2n7JlQnpgnyWeHFMCTZEiLTZTbH9M0iB/CbQ4wsq7UVZ6FxpoUrlYBXWCcmEzys1JUJdecuynmL
+	CCCNiUyfI72njPDbmF2s0P4YwS1VJHZx354Bc/zNbFUWueoeO+M/6IUe0i5om9il767lJohvCAzPO
+	Z6dti3LrzlICjGB5PkfeKHvKD86QirikDLvvKiOUiu8e2c3MnO2m7RJVVQ3bTCvtK7I5yVljBdFDD
+	wUI5BDnKhPRtA0OkQhbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnHc6-00000006mjh-2gl9;
-	Tue, 03 Feb 2026 14:42:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vnHn4-00000006nZm-0Lmd;
+	Tue, 03 Feb 2026 14:54:06 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnHc5-00000006mjG-2rXj;
-	Tue, 03 Feb 2026 14:42:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BB9B160132;
-	Tue,  3 Feb 2026 14:42:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8CC1C116D0;
-	Tue,  3 Feb 2026 14:42:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770129764;
-	bh=5ezdefhGyTXcbjuTpqXROio3/fvSXh9q7JAF4cMtYiw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PPJ3309dmaWJP+2oPYosTZ8pHHHNaWduhQLA6Y1f2PFNkz5zGqmiRSrPnKMWMNTvl
-	 gQq38H6X9pL2JP83mWhHokUuv0ddj1LEaWfZOXSq5QnqjTMqhzpu5HOHFawV5qWxk2
-	 kGaDsgcA6sRmuP+5wXBw35FvNpAjt8q4DHZZWbQ7bEfEeGTs/G18M1e1rrAxLymKBj
-	 N4ypTDLIO2EuoaW1fiocyST0Hba2gmCqn3AsIVvFsUko88G5fGRqe3+uas/vf3jzON
-	 zWMhPYcWtexyipq7u4afqy1tB2pHnOxFoTRWvh5JN0FruWPJRIs+DBhIpjZ7JYVlz1
-	 bz2en7O0FYuEg==
-Date: Tue, 3 Feb 2026 11:42:41 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Shimin Guo <shimin.guo@skydio.com>, Yunseong Kim <ysk@kzalloc.com>,
-	Athira Rajeev <atrajeev@linux.ibm.com>,
-	Quan Zhou <zhouquan@iscas.ac.cn>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	Dapeng Mi <dapeng1.mi@linux.intel.com>,
-	Thomas Falcon <thomas.falcon@intel.com>,
-	Blake Jones <blakejones@google.com>,
-	Swapnil Sapkal <swapnil.sapkal@amd.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Howard Chu <howardchu95@gmail.com>,
-	Anubhav Shelat <ashelat@redhat.com>,
-	Aditya Bodkhe <aditya.b1@linux.ibm.com>,
-	Chun-Tse Shao <ctshao@google.com>, Andi Kleen <ak@linux.intel.com>,
-	Dmitry Vyukov <dvyukov@google.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 0/6] perf Cross platform KVM support
-Message-ID: <aYIJYVp6T4ClBw0M@x1>
-References: <20260131200224.1296136-1-irogers@google.com>
+	id 1vnHn1-00000006nZN-3cBi
+	for linux-riscv@lists.infradead.org;
+	Tue, 03 Feb 2026 14:54:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1770130440;
+	bh=3KcvY6BFAVkYx2CaRlFGKXfmnRMIMtHNvAHM5ApGVvU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=pFDS0747I6//N0JfFvhOfrFRr349OeRMQajiwIK8cB6QKQ03hqynIuKOrUfpt1l+O
+	 dTEBCyQ4QKVRojCCHAFmlJoVLbYxifRL5ffhWX3K36Od5RdlARX8wuWCdIqjEey18u
+	 FvjFLQDwvXiAsGytBefZEqsQCL0kPT4BhaYhhfE+K9G/m93jzOjmhYFBjSc2jt55qp
+	 BcuFlVbjlyBfZW13v4DFI3pJ6X3jbK5IqEN/XIZ+WjuyeJn5sv4U+NtF8WKY78DFcA
+	 7Z1ick3CWWW6UrjT+OZRS/5bLrHmUV3oGyqoQlMCmlr/N+Ee5QkeFCL0rUJSoYMdUa
+	 9DyAzghoEakpg==
+Received: from fedora (unknown [IPv6:2a01:e0a:2c:6930:d919:a6e:5ea1:8a9f])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 72A7317E1276;
+	Tue,  3 Feb 2026 15:53:59 +0100 (CET)
+Date: Tue, 3 Feb 2026 15:53:54 +0100
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Alice Ryhl <aliceryhl@google.com>
+Cc: Maxime Ripard <mripard@kernel.org>, Daniel Almeida
+ <daniel.almeida@collabora.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>, Danilo Krummrich <dakr@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Drew Fustini <fustini@kernel.org>, Guo Ren
+ <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, "Uwe =?UTF-8?B?S2xlaW5l?=
+ =?UTF-8?B?LUvDtm5pZw==?=" <ukleinek@kernel.org>, Michael Turquette
+ <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Miguel Ojeda
+ <ojeda@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo
+ <gary@garyguo.net>, "=?UTF-8?B?QmrDtnJu?= Roy Baron"
+ <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, Andreas
+ Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>,
+ linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org,
+ linux-pwm@vger.kernel.org, linux-clk@vger.kernel.org,
+ rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
+Message-ID: <20260203155354.0cea1f65@fedora>
+In-Reply-To: <20260203122631.3a94a935@fedora>
+References: <20260107-clk-type-state-v3-0-77d3e3ee59c2@collabora.com>
+	<20260107-clk-type-state-v3-1-77d3e3ee59c2@collabora.com>
+	<20260108-delectable-fennec-of-sunshine-ffca19@houat>
+	<98CD0BF6-3350-40B9-B8A9-F569AE3E3220@collabora.com>
+	<20260119-thundering-tested-robin-4be817@houat>
+	<aW4lCfUyumOKRRJm@google.com>
+	<20260203113902.501e5803@fedora>
+	<20260203122631.3a94a935@fedora>
+Organization: Collabora
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260131200224.1296136-1-irogers@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260203_065404_098194_95D1CA6D 
+X-CRM114-Status: GOOD (  32.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,86 +97,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 31, 2026 at 12:02:18PM -0800, Ian Rogers wrote:
-> The existing perf kvm code is using the arch directory, which means a
-> data file can only be processed on the same machine type that it was
-> recorded. Switch to using the ELF machine of the session at runtime to
-> set up the KVM support, making it cross-architectural. So that the ELF
-> machine number is available early in initialization add it to the perf
-> data file header.
-> 
-> v2: Wire up the perf data header to have the e_machine and allow early
->     initialization of the KVM operations based upon it.
-> v1: https://lore.kernel.org/lkml/20260128074106.788156-1-irogers@google.com/
+On Tue, 3 Feb 2026 12:26:31 +0100
+Boris Brezillon <boris.brezillon@collabora.com> wrote:
 
-Thanks, applied to perf-tools-next,
+> On Tue, 3 Feb 2026 11:39:02 +0100
+> Boris Brezillon <boris.brezillon@collabora.com> wrote:
+> 
+> > On Mon, 19 Jan 2026 12:35:21 +0000
+> > Alice Ryhl <aliceryhl@google.com> wrote:
+> >   
+> > > On Mon, Jan 19, 2026 at 11:45:57AM +0100, Maxime Ripard wrote:    
+> > > > On Thu, Jan 08, 2026 at 11:14:37AM -0300, Daniel Almeida wrote:      
+> > > > > > For example, it's quite typical to have (at least) one clock for the bus
+> > > > > > interface that drives the register, and one that drives the main
+> > > > > > component logic. The former needs to be enabled only when you're
+> > > > > > accessing the registers (and can be abstracted with
+> > > > > > regmap_mmio_attach_clk for example), and the latter needs to be enabled
+> > > > > > only when the device actually starts operating.
+> > > > > > 
+> > > > > > You have a similar thing for the prepare vs enable thing. The difference
+> > > > > > between the two is that enable can be called into atomic context but
+> > > > > > prepare can't.
+> > > > > > 
+> > > > > > So for drivers that would care about this, you would create your device
+> > > > > > with an unprepared clock, and then at various times during the driver
+> > > > > > lifetime, you would mutate that state.      
+> > > 
+> > > The case where you're doing it only while accessing registers is
+> > > interesting, because that means the Enable bit may be owned by a local
+> > > variable. We may imagine an:
+> > > 
+> > >     let enabled = self.prepared_clk.enable_scoped();
+> > >     ... use registers
+> > >     drop(enabled);
+> > > 
+> > > Now ... this doesn't quite work with the current API - the current
+> > > Enabled stated owns both a prepare and enable count, but the above keeps
+> > > the prepare count in `self` and the enabled count in a local variable.
+> > > But it could be done with a fourth state, or by a closure method:
+> > > 
+> > >     self.prepared_clk.with_enabled(|| {
+> > >         ... use registers
+> > >     });
+> > > 
+> > > All of this would work with an immutable variable of type Clk<Prepared>.    
+> > 
+> > Hm, maybe it'd make sense to implement Clone so we can have a temporary
+> > clk variable that has its own prepare/enable refs and releases them
+> > as it goes out of scope. This implies wrapping *mut bindings::clk in an
+> > Arc<> because bindings::clk is not ARef, but should be relatively easy
+> > to do. Posting the quick experiment I did with this approach, in case
+> > you're interested [1]  
+> 
+> This time with a proper RawClk(*mut bindings::clk) wrapper, so we can
+> clk_put() called in RawClk::drop() instead of in Clk::drop().
+> 
+> [1]https://gitlab.freedesktop.org/bbrezillon/linux/-/commit/6fa6cb72f14373b276c61d038bc2b16f49c78f74
 
-- Arnaldo
- 
-> Ian Rogers (6):
->   perf test kvm: Add stat live testing
->   perf kvm stat: Remove use of the arch directory
->   perf kvm: Wire up e_machine
->   perf session: Add e_flags to the e_machine helper
->   perf header: Add e_machine/e_flags to the header
->   perf thread: Don't require machine to compute the e_machine
-> 
->  tools/perf/Makefile.config                    |   4 -
->  tools/perf/arch/arm64/Makefile                |   1 -
->  tools/perf/arch/arm64/util/Build              |   1 -
->  tools/perf/arch/loongarch/Makefile            |   1 -
->  tools/perf/arch/loongarch/util/Build          |   1 -
->  tools/perf/arch/powerpc/Makefile              |   1 -
->  tools/perf/arch/powerpc/util/Build            |   1 -
->  tools/perf/arch/riscv/Makefile                |   1 -
->  tools/perf/arch/riscv/util/Build              |   2 -
->  tools/perf/arch/s390/Makefile                 |   1 -
->  tools/perf/arch/s390/util/Build               |   1 -
->  tools/perf/arch/x86/Makefile                  |   1 -
->  tools/perf/arch/x86/util/Build                |   1 -
->  tools/perf/builtin-kvm.c                      |  73 +++---
->  tools/perf/builtin-report.c                   |   4 +-
->  tools/perf/builtin-script.c                   |   6 +-
->  tools/perf/tests/shell/kvm.sh                 |  30 ++-
->  tools/perf/util/Build                         |   3 +-
->  tools/perf/util/env.h                         |   3 +
->  tools/perf/util/evsel.c                       |   6 +-
->  tools/perf/util/evsel.h                       |   1 +
->  tools/perf/util/header.c                      |  33 +++
->  tools/perf/util/header.h                      |   1 +
->  tools/perf/util/kvm-stat-arch/Build           |   6 +
->  .../kvm-stat-arch}/arm64_exception_types.h    |   0
->  .../kvm-stat-arch}/book3s_hcalls.h            |   0
->  .../kvm-stat-arch}/book3s_hv_exits.h          |   0
->  .../kvm-stat-arch/kvm-stat-arm64.c}           |  43 ++--
->  .../kvm-stat-arch/kvm-stat-loongarch.c}       |  48 ++--
->  .../kvm-stat-arch/kvm-stat-powerpc.c}         |  61 ++---
->  .../kvm-stat-arch/kvm-stat-riscv.c}           |  42 ++--
->  .../kvm-stat-arch/kvm-stat-s390.c}            |  38 ++--
->  .../kvm-stat-arch/kvm-stat-x86.c}             |  44 ++--
->  .../kvm-stat-arch}/riscv_trap_types.h         |   2 +-
->  tools/perf/util/kvm-stat.c                    | 215 +++++++++++++++++-
->  tools/perf/util/kvm-stat.h                    |  70 ++++--
->  .../scripting-engines/trace-event-python.c    |   8 +-
->  tools/perf/util/session.c                     |  62 ++++-
->  tools/perf/util/session.h                     |   2 +-
->  tools/perf/util/thread.c                      |   5 +
->  40 files changed, 606 insertions(+), 217 deletions(-)
->  create mode 100644 tools/perf/util/kvm-stat-arch/Build
->  rename tools/perf/{arch/arm64/util => util/kvm-stat-arch}/arm64_exception_types.h (100%)
->  rename tools/perf/{arch/powerpc/util => util/kvm-stat-arch}/book3s_hcalls.h (100%)
->  rename tools/perf/{arch/powerpc/util => util/kvm-stat-arch}/book3s_hv_exits.h (100%)
->  rename tools/perf/{arch/arm64/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-arm64.c} (62%)
->  rename tools/perf/{arch/loongarch/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-loongarch.c} (77%)
->  rename tools/perf/{arch/powerpc/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-powerpc.c} (78%)
->  rename tools/perf/{arch/riscv/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-riscv.c} (57%)
->  rename tools/perf/{arch/s390/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-s390.c} (77%)
->  rename tools/perf/{arch/x86/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-x86.c} (88%)
->  rename tools/perf/{arch/riscv/util => util/kvm-stat-arch}/riscv_trap_types.h (96%)
-> 
-> -- 
-> 2.53.0.rc1.225.gd81095ad13-goog
-> 
+And I forgot to drop the ManuallyDrop in that one, but I bet you get the
+idea.
 
 _______________________________________________
 linux-riscv mailing list
