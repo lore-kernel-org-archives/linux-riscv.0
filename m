@@ -4,104 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EF5DE8784D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 17:10:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34ED6E8784C
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 17:17:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w6xY8ztkB+NLv/bRlumBtVz6R03SLCAbLPVNCU4zb/c=; b=AgPI+fiMclPUc9
-	ma5PVachCbh8KCNvItvgFNqWn1kguKOzVvV6kh2XCs9PCYKfoxkOK8fx0H5XkI3ETDkhwZudJoh0A
-	CHyUNE2LQR0mI3W17MJoLAasHFmYqJbmetj1uAsszsFJ9jxXn921L0JCKZBaOfv5SF33bmWm3o0/D
-	v/9NnM815eoSbdGZNa/5kqxEl0B31yhjpkz970nmYEacOLuxTgRd6KVKXDA38tIlt4E8bqIHwS0eE
-	JK3GPdcxiRxcONBguP8aFaFYJrQmgPKzgHUVeq+WD54igeVCz2DZAkArMQYiMBKfWn0YFXpxNTNoo
-	d6RAdEhlS9ffWHPRPY+g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aZKPwv7GUdOkDEM74RcW9dGIYMXsSMburCCtYO659Cg=; b=Hnxq534HiAGPSO
+	/vwF7OH9fEHQRA2iH7D4h6q8v+KSn1uf9/nTIvi901ypdADU67EBsOiYrAt3KCV0fUplnEsWREOVl
+	nbDIjjjTSoNvZNQDmrn0EFQZeixOqA3wNLSo56Ny6MLmpAJES2a15lcLuuppvVC8qU+IIkXoXw4Zt
+	ThfitVfOm2xdCB3Us0MVndsmsrX8Oi/WEbYx1YbRoSc+sax2ANpOse9fjSMmzLIcpw63SeP2QgX+I
+	nA6Xr0+htJVKz1ZMxI6sy7if2IwULlwoPkm8PzL2Eyhs4tPEFSIYJKAfcIa570jQtP4WFbHe3WfHd
+	8hRjqvI3bY/3L1vy+Abw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnJui-000000071OM-0XG6;
-	Tue, 03 Feb 2026 17:10:08 +0000
-Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
+	id 1vnK1s-00000007274-3NlO;
+	Tue, 03 Feb 2026 17:17:32 +0000
+Received: from out203-205-221-153.mail.qq.com ([203.205.221.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnJuf-000000071Nz-2QQp
+	id 1vnK1n-0000000726P-3fNf
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Feb 2026 17:10:07 +0000
-Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-40418578e28so2191420fac.1
-        for <linux-riscv@lists.infradead.org>; Tue, 03 Feb 2026 09:10:04 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770138604; cv=none;
-        d=google.com; s=arc-20240605;
-        b=PXG9ZVx4UwcXWkCdEOzh4XvNJaJg1Gd/EXmLEegUap10jIWvFOSNLzogu1FeJ+luZd
-         KY20jXCc+P896bFGk/Z03EABty9NZq3jCgHE5T06HYzNsUGKuB83FjB3xyXc008vLCZj
-         tgwIqyOYG9LUEe6SHkhf2/tvZh8jnYTrXyZyhkNPL5v/WTcT6m+A2K3j41kieCE1kyZp
-         EMcHr3OaVJ10BYMaiFV7aAOuty8qe/QwnDIs7I2eegGGKLPf2LU//K4wMGfvW32lngnZ
-         EQldm+Ba/AsDzEHZDBoQW4dDdKR7jrqbbXBZyVRKYRA1Xl4badcbYZ2M2GS3e4fKzZHF
-         9Zbg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=qOSBvF/Gy8UgB1/+p9KXQwVSwOA3fLDnHXnJJD/Vqgc=;
-        fh=RR6i1FpaCOHNFqHZBnavwO4w4ygwLrYeSuey1zOwMy4=;
-        b=dRIsgqsrvhGxE6J75vYoSu1BJseLE2OAhLabzEJecOQmbPmOZw+sLB24APsYa/JqLy
-         TVKuOCvOjQuvIhZfjakKJRKWy9O2Uf24JYZOipe5EAhO72MlkVUAto9d0EO/Bz50QjDX
-         eTHZi4VcDmukrojgjXWs7Ik+i9YrggrxPMxHFc+txqBo8lbfRDTCdC75QeLrZJTd1ZYR
-         jJ1DDjWm02xhpU4DIgSbWywANKdBmhN1jc/3y2Q+WUgxpOPFkNmpney4JJrUoeX+UqzZ
-         +RpiMyQqFPKCpRjdJRXfgwKCfs8DrwEN+uk3eyGPNi3bQfklywizCsQaoXASQ/gplmK6
-         sNRg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1770138604; x=1770743404; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qOSBvF/Gy8UgB1/+p9KXQwVSwOA3fLDnHXnJJD/Vqgc=;
-        b=YUB3hohHDgYszVoFdr+gIlSePfS7F2rrg0+CTmvn1j/3+t5TbSvkq4Dh//a4segh8t
-         2N6RqeHnoHRZQoilocdciJ0TcPtZtQa3nYIeAiRQpkOyyOLWnd336PRmxKx3aKW+k60E
-         vElwr9UV3Qrz9KnFEo99r3JmsWrcN6XG3U20E5w+XZLE1tz2wjTkWMBRZ4nQ6x9mCAMU
-         EUeS6nTHytdqOVblV0L5fOilJawEk35frgkCUfdoskXTsWYfddAHwRqT/la4DHnK1Qv9
-         6HwSVvf2Lpn7P1n27ZoMk7XnajjK61sVqkik2qzPyOBfFypXCpPAfuao9TZvpXUEkJUK
-         jvNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770138604; x=1770743404;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=qOSBvF/Gy8UgB1/+p9KXQwVSwOA3fLDnHXnJJD/Vqgc=;
-        b=XJp9sHkKVhdRPB/15qmwPCZQQ2DnZNr5wrdjSPraiE+MiY3mGlgfRtSlD7jhEyFHP/
-         RGhNdupRQyacvm/IDPfl1o+ZrDgBF8oF+k7cQh1Fcdd4QIuvM1CTJXmwJtuIDLqJccZT
-         V/mzuh5Wz4HRiTsKUCVsf3MCylbjlLCee38hdxYJxcvjFY4vwdF7SsF+EX5xaTBKkBYJ
-         fib2lJhN16D4NHDjrziPEiVKI8njHa78BUuxT0ZwbFc5Xb1jbpD4ZroxDchLRO67QDpZ
-         f1Rct4mffDeVplY8UKQ2LoZmtVTlvR3nJXmkCho88oBRlYW8Pxn+F/Lmrto7rnuLsA6E
-         HwKw==
-X-Forwarded-Encrypted: i=1; AJvYcCVdDr71mZpAlPOh9LzDa+d6MhRK6AJyTn4Spt14bf/YeYA9GT4wDlXpWJOAAy6OrY3+Ygih+omPOio9qw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyh39Px5eiGfL0Nx8OVXYzYsU8R2OPnJHrm1AE9upYPP0AkPjpF
-	5ctIcSHkmKEjV9ucYZf3vAsi7Nmwb4/VzsMdCHUuq/7YkbUmCwuxrXRmd8WUUbFbNKowlq91dQy
-	ZQglTnz7vpfGAI8Bsz2uEXGGqMe6kgTL87dbV4qEATQ==
-X-Gm-Gg: AZuq6aLQmr8rH8NfOAznk0x8F1P7mTkU5mpi04K3Kltjm3uBY0vk22gqblfBFYE2vYP
-	VmtjkdMMiBoa0JzgSYiNZw5EOKzt7au8BfIDZMU8EeNsKY0d+9fxnaW8baPBakPhduhbjgGYY1y
-	5PGtiofJFuhHLBefwtpl70fSmtGaybXgZxuU3Zkpbnh216LuJz6m0ROrJkdiHBZ1mp2zGAGRczj
-	i9o0jhKVRi9AEDbscfWiDcjBM+ilNXHy6WGH/kD1oL4TmrsYFf9iB8EM4Evd6d/Wbp15HeDYln6
-	6Px6DeGWSywGpM2L3nODuj+owyRVyMf598P71iExlLKJqELaeDAEtdPHbQ==
-X-Received: by 2002:a05:6820:1744:b0:662:f543:5d33 with SMTP id
- 006d021491bc7-66a23cf2ffemr112433eaf.82.1770138603999; Tue, 03 Feb 2026
- 09:10:03 -0800 (PST)
+	Tue, 03 Feb 2026 17:17:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1770139041; bh=2m9r7lyGKPwigNE6SDb1IPWk3KIGxSFqCC+NDWFmpPw=;
+	h=From:To:Cc:Subject:Date;
+	b=Vz34wpMKqx57ppoewy/J09/lD5QRbl1dMlozPfc4DWjfqii8F40xr9wfi7d/4N0lH
+	 yeEaBjWyagbz7xYZUAc7PS1BUjlYNIsyq6AAOrCZHZJzlTNGOsKCWMbbFFsqD93Yqp
+	 sZVU/wF1u7YfpJcav7mZWv6wqC0kTmnPk3eEqyPs=
+Received: from cyy-pc.lan ([240e:379:2263:bd00:7e4b:55e4:8771:53fb])
+	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
+	id 44FB641C; Wed, 04 Feb 2026 01:17:15 +0800
+X-QQ-mid: xmsmtpt1770139035tu2r2k9s8
+Message-ID: <tencent_AEBB719FAF49D05B5BDF7118D729463F6405@qq.com>
+X-QQ-XMAILINFO: MwoEXPhRg/2G5m80Km1Rl90HySxC/ky8sgaEysJd53CqJAobJIsrrGYHutoLrv
+	 Hd2o95KPOGZ9ARw4t/8cmcYbxmY4dIn5BqKVwv1fz2HNGZyi2qSLYBrL0h2AimFGxsfhEZ1ltYYO
+	 5qYzQpliCoDEAK+jV+58Tfj9L9ZRIJSAqKH5i37ITME32TaV3CCGPjn+eiVGIfaPEZfeeywU7wWP
+	 Pmqx15U58/tvNLsKU/WNJV3PrUwz3kn7xVrA1dSepjuyMvh+72NiSBpvdmtRFlC91jE9OzGkXmTZ
+	 xUsiWIPGZnQ/XMY4XIbp/mGf0GIpic13uvpotUrJS9wnP1xi5QVIY4BN3t3BX3Gz6Gy4o6YQepqn
+	 3ZWuCrGAoEu5rrNMoHw0N9YbCa9csveYHjJEc/7MSgEYS1q5/Fdjr0k9EeBfTkoT3+wljgLlrLdZ
+	 1Z/Mw4wWYFXsUPTkcCoY5h3ygVrB/KNNrB5A0HeekjOoOVioySCyvHZrAqfRKe1mbYDNDWSxGYhe
+	 6aYwa9IgCFLWxkMCQpIZdZtUtzaA+IqLmIHPjeYwvCHYL7aLpF5DnHCWOGOWGBshWfUAokv5GoVO
+	 NPEpxIT6F/n1iPrEsd277INJ/FRB4IrxXb5Di25mck4MSJweTUo7lr8/9zyGydYC0VD0zfnzqd++
+	 E8hpb/y0cSdretIJFdZ4h36mvskP3qDAMANmcI6yusFfmFmij7QPhWNLFqzJYedAC+80fbCGUcOo
+	 oS3Cw4xqjqHkaEDZhfoIPLk4b8n8uvaYdZVdhhEDkc2krrXYq32FvtVRkwYV7sp2qSFmLc1UVV7y
+	 VbHKEOw5+CC9B6c/ynPpvkuOU78Jzizara9leSgOnyLR6Og5zo+qjOcUHzt5/bUlG7iKiMXEIA2H
+	 3Y6sJP4F7GNg7YaGy5mrcTY1Bw/YnkTyErJ+nFaGOZwNmxpEeVnbM+RS3uXirn1qvMLyel3SG04m
+	 nxYYJX+s7PhRZ1Dbhllt7VKJ4rEfJGecU3IP9MOx5leOObslc+o+6vRhzrsDuq8FgqNWJL3bdUrN
+	 m6JQq+Nh7ajoBStsFpKENA8/KUf4qj4ezbF6OX7FGebnTnlpm5pEYCfh3OSFt2zscYp0jE5TqDK5
+	 ATeC0sn4C0m6x3zEE=
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+From: Yangyu Chen <cyy@cyyself.name>
+To: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	Anup Patel <anup.patel@oss.qualcomm.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Charles Mirabile <cmirabil@redhat.com>,
+	Lucas Zampieri <lzampier@redhat.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Mason Huo <mason.huo@starfivetech.com>,
+	Zhang Xincheng <zhangxincheng@ultrarisc.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Sia Jee Heng <jeeheng.sia@starfivetech.com>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree@vger.kernel.org,
+	Yash Shah <yash.shah@sifive.com>,
+	Jia Wang <wangjia@ultrarisc.com>,
+	Yangyu Chen <cyy@cyyself.name>
+Subject: [PATCH v3 0/2] irqchip/sifive-plic: Fix wrong nr_irqs handling
+Date: Wed,  4 Feb 2026 01:17:07 +0800
+X-OQ-MSGID: <20260203171707.1581780-1-cyy@cyyself.name>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-References: <20260203080256.9401-2-yingjun.ni@riscv-computing.com> <87ecn23q6e.ffs@tglx>
-In-Reply-To: <87ecn23q6e.ffs@tglx>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 3 Feb 2026 22:39:51 +0530
-X-Gm-Features: AZwV_QgH4drql13ZRy2bmwhFho_X95PYTMoyB78oljBfF46hqGoDaTenQkYAr0g
-Message-ID: <CAAhSdy31dF1qHtaM1mqx+dG6ryb_3M+M63e8ujaCZBWDGUYeNg@mail.gmail.com>
-Subject: Re: [PATCH] irqchip/riscv-imsic: Fix irq migration failure issue when
- cpu hotplug.
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: Yingjun Ni <yingjun.ni@riscv-computing.com>, pjw@kernel.org, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_091005_813267_1848DA5E 
-X-CRM114-Status: GOOD (  30.86  )
+X-CRM114-CacheID: sfid-20260203_091728_223949_DEF7BBF8 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,76 +98,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBGZWIgMywgMjAyNiBhdCA3OjA14oCvUE0gVGhvbWFzIEdsZWl4bmVyIDx0Z2x4QGtl
-cm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gVHVlLCBGZWIgMDMgMjAyNiBhdCAxNjowMiwgWWluZ2p1
-biBOaSB3cm90ZToKPiA+IEFkZCBhIG51bGwgcG9pbnRlciBjaGVjayBmb3IgaXJxX3dyaXRlX21z
-aV9tc2cgdG8gZml4IE5VTEwgcG9pbnRlcgo+ID4gZGVyZWZlcmVuY2UgaXNzdWUgd2hlbiBtaWdy
-YXRpbmcgaXJxLgo+ID4KPiA+IE1vZGlmeSB0aGUgcmV0dXJuIHZhbHVlIG9mIGltc2ljX2lycV9z
-ZXRfYWZmaW5pdHkgdG8gbGV0IHRoZSBzdWJkb21haW4KPiA+IFBDSS1NU0lYIG1pZ3JhdGUgdGhl
-IGlycSB0byBhIG5ldyBjcHUgd2hlbiBjcHUgaG90cGx1Zy4KPiA+Cj4gPiBEb24ndCBzZXQgdmVj
-LT5tb3ZlX25leHQgaW4gaW1zaWNfdmVjdG9yX21vdmVfdXBkYXRlIHdoZW4gdGhlIGNwdSBpcwo+
-ID4gb2ZmbGluZSwgYmVjYXVzZSBpdCB3aWxsIG5ldmVyIGJlIGNsZWFyZWQuCj4KPiBZb3UgY29t
-cGxldGVseSBmYWlsIHRvIGV4cGxhaW4gdGhlIGFjdHVhbCBwcm9ibGVtIGFuZCB0aGUgcm9vdAo+
-IGNhdXNlLiBTZWUKPgo+IGh0dHBzOi8vd3d3Lmtlcm5lbC5vcmcvZG9jL2h0bWwvbGF0ZXN0L3By
-b2Nlc3MvbWFpbnRhaW5lci10aXAuaHRtbCNjaGFuZ2Vsb2cKPgo+ID4gIGRyaXZlcnMvaXJxY2hp
-cC9pcnEtcmlzY3YtaW1zaWMtcGxhdGZvcm0uYyB8IDggKysrKysrLS0KPiA+ICBkcml2ZXJzL2ly
-cWNoaXAvaXJxLXJpc2N2LWltc2ljLXN0YXRlLmMgICAgfCA1ICsrKysrCj4gPiAgMiBmaWxlcyBj
-aGFuZ2VkLCAxMSBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+ID4KPiA+IGRpZmYgLS1n
-aXQgYS9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWltc2ljLXBsYXRmb3JtLmMgYi9kcml2ZXJz
-L2lycWNoaXAvaXJxLXJpc2N2LWltc2ljLXBsYXRmb3JtLmMKPiA+IGluZGV4IDY0M2M4ZTQ1OTYx
-MS4uMTMxZTRmMmI1NDMxIDEwMDY0NAo+ID4gLS0tIGEvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNj
-di1pbXNpYy1wbGF0Zm9ybS5jCj4gPiArKysgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWlt
-c2ljLXBsYXRmb3JtLmMKPiA+IEBAIC05Myw5ICs5MywxMyBAQCBzdGF0aWMgdm9pZCBpbXNpY19p
-cnFfY29tcG9zZV9tc2coc3RydWN0IGlycV9kYXRhICpkLCBzdHJ1Y3QgbXNpX21zZyAqbXNnKQo+
-ID4gIHN0YXRpYyB2b2lkIGltc2ljX21zaV91cGRhdGVfbXNnKHN0cnVjdCBpcnFfZGF0YSAqZCwg
-c3RydWN0IGltc2ljX3ZlY3RvciAqdmVjKQo+ID4gIHsKPiA+ICAgICAgIHN0cnVjdCBtc2lfbXNn
-IG1zZyA9IHsgfTsKPiA+ICsgICAgIHN0cnVjdCBpcnFfY2hpcCAqaXJxX2NoaXAgPSBpcnFfZGF0
-YV9nZXRfaXJxX2NoaXAoZCk7Cj4gPiArCj4gPiArICAgICBpZiAoIWlycV9jaGlwLT5pcnFfd3Jp
-dGVfbXNpX21zZykKPiA+ICsgICAgICAgICAgICAgcmV0dXJuOwo+Cj4gSSBoYXZlIG5vIGlkZWEg
-aG93IHRoaXMgZXZlciB3b3JrZWQuIFRoZSBpcnFfZGF0YSBwb2ludGVyIGJlbG9uZ3MgdG8gdGhl
-Cj4gSU1TSUMgYmFzZSBkb21haW4sIHdoaWNoIGRlZmluaXRlbHkgZG9lcyBub3QgaGF2ZSBhIGly
-cV93cml0ZV9tc2lfbXNnKCkKPiBjYWxsYmFjayBhbmQgbmV2ZXIgY2FuIGhhdmUgb25lLgoKVGhl
-IGltc2ljX2lycV9zZXRfYWZmaW5pdHkoKSBwYXNzZXMgaXJxX2dldF9pcnFfZGF0YShkLT5pcnEp
-IGFzCmlycV9kYXRhIHBvaW50ZXIgdG8gaW1zaWNfbXNpX3VwZGF0ZV9tc2coKSBleHBlY3Rpbmcg
-aXQgdG8gYmUKdGhlIHRvcC1sZXZlbCBpcnFfZGF0YS4gVGhlIGltc2ljX21zaV91cGRhdGVfbXNn
-KCkgYXNzdW1lcwp0aGF0IHRoZSB0b3AtbGV2ZWwgaXJxX2RhdGEgYWx3YXlzIGhhcyBpcnFfd3Jp
-dGVfbXNpX21zZygpIGJ1dCBpZgp0aGlzIGFzc3VtcHRpb24gaXMgbm90IGNvcnJlY3QgdGhlbiB3
-ZSBuZWVkIGFuIGlmLWNoZWNrIG92ZXIgaGVyZS4KCj4KPiBUaGUgd3JpdGUgbWVzc2FnZSBjYWxs
-YmFjayBpcyBhbHdheXMgaW1wbGVtZW50ZWQgYnkgdGhlIHRvcCBtb3N0IGRvbWFpbiwKPiBpbiB0
-aGlzIGNhc2UgdGhlIFBDSS9NU0lbeF0gcGVyIGRldmljZSBkb21haW4uCj4KPiBTbyB0aGlzIGNv
-ZGUgaXMgc2ltcGx5IGJyb2tlbiBhbmQgeW91ciBOVUxMIHBvaW50ZXIgY2hlY2sganVzdCBtYWtl
-cyBpdAo+IGRpZmZlcmVudGx5IGJyb2tlbi4KPgo+ID4gICAgICAgaW1zaWNfaXJxX2NvbXBvc2Vf
-dmVjdG9yX21zZyh2ZWMsICZtc2cpOwo+ID4gLSAgICAgaXJxX2RhdGFfZ2V0X2lycV9jaGlwKGQp
-LT5pcnFfd3JpdGVfbXNpX21zZyhkLCAmbXNnKTsKPiA+ICsgICAgIGlycV9jaGlwLT5pcnFfd3Jp
-dGVfbXNpX21zZyhkLCAmbXNnKTsKPiA+ICB9Cj4gPgo+ID4gIHN0YXRpYyBpbnQgaW1zaWNfaXJx
-X3NldF9hZmZpbml0eShzdHJ1Y3QgaXJxX2RhdGEgKmQsIGNvbnN0IHN0cnVjdCBjcHVtYXNrICpt
-YXNrX3ZhbCwKPiA+IEBAIC0xNzMsNyArMTc3LDcgQEAgc3RhdGljIGludCBpbXNpY19pcnFfc2V0
-X2FmZmluaXR5KHN0cnVjdCBpcnFfZGF0YSAqZCwgY29uc3Qgc3RydWN0IGNwdW1hc2sgKm1hc2sK
-PiA+ICAgICAgIC8qIE1vdmUgc3RhdGUgb2YgdGhlIG9sZCB2ZWN0b3IgdG8gdGhlIG5ldyB2ZWN0
-b3IgKi8KPiA+ICAgICAgIGltc2ljX3ZlY3Rvcl9tb3ZlKG9sZF92ZWMsIG5ld192ZWMpOwo+ID4K
-PiA+IC0gICAgIHJldHVybiBJUlFfU0VUX01BU0tfT0tfRE9ORTsKPiA+ICsgICAgIHJldHVybiBJ
-UlFfU0VUX01BU0tfT0s7Cj4KPiBIYXZlIHlvdSBhY3R1YWxseSBsb29rZWQgYXQgdGhlIGNvbnNl
-cXVlbmNlcyBvZiB0aGlzIGNoYW5nZT8KCkkgYWdyZWUuIFRoaXMgc2VlbXMgdW5yZWxhdGVkIGFu
-ZCB0aGVyZSBpcyBubyBleHBsYW5hdGlvbgppbiB0aGUgY29tbWl0IGRlc2NyaXB0aW9uLgoKPgo+
-ID4gIH0KPiA+Cj4gPiAgc3RhdGljIHZvaWQgaW1zaWNfaXJxX2ZvcmNlX2NvbXBsZXRlX21vdmUo
-c3RydWN0IGlycV9kYXRhICpkKQo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaXJxY2hpcC9pcnEt
-cmlzY3YtaW1zaWMtc3RhdGUuYyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW1zaWMtc3Rh
-dGUuYwo+ID4gaW5kZXggYjZjZWJmZWU5NDYxLi5jZDFiZjk1MTY4NzggMTAwNjQ0Cj4gPiAtLS0g
-YS9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWltc2ljLXN0YXRlLmMKPiA+ICsrKyBiL2RyaXZl
-cnMvaXJxY2hpcC9pcnEtcmlzY3YtaW1zaWMtc3RhdGUuYwo+ID4gQEAgLTM2Miw2ICszNjIsMTAg
-QEAgc3RhdGljIGJvb2wgaW1zaWNfdmVjdG9yX21vdmVfdXBkYXRlKHN0cnVjdCBpbXNpY19sb2Nh
-bF9wcml2ICpscHJpdiwKPiA+ICAgICAgIC8qIFVwZGF0ZSBlbmFibGUgYW5kIG1vdmUgZGV0YWls
-cyAqLwo+ID4gICAgICAgZW5hYmxlZCA9IFJFQURfT05DRSh2ZWMtPmVuYWJsZSk7Cj4gPiAgICAg
-ICBXUklURV9PTkNFKHZlYy0+ZW5hYmxlLCBuZXdfZW5hYmxlKTsKPiA+ICsKPiA+ICsgICAgIGlm
-ICghY3B1X29ubGluZSh2ZWMtPmNwdSkgJiYgaXNfb2xkX3ZlYykKPiA+ICsgICAgICAgICAgICAg
-Z290byBvdXQ7Cj4KPiBUaGlzIGlzIGRlZmluaXRlbHkgbm90IGNvcnJlY3QgYXMgdGhpcyBzaG91
-bGQgc3RpbGwgY2xlYW51cCBzb2Z0d2FyZQo+IHN0YXRlLCBubz8KPgo+IFRoYW5rcywKPgo+ICAg
-ICAgICAgdGdseAoKUmVnYXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+This patch series fixes long standing bugs in sifive-plic driver regarding
+the handling of nr_irqs. Some code assumes the first irq source is 0 while
+some assumes it is 1. Since the first irq source is actually 1, this causes
+various issues including memory corruption when the number of irqs is
+multiple of 32. Also, some code assumes nr_irqs is the maximum irq source
+ID while some assumes it is the total number of irq sources including the
+reserved source 0. This patch series standardizes the handling of nr_irqs
+to be the maximum irq source ID, and the first irq source is 1.
+
+This bug can be reproduced by modifying the PLIC node in DT to have ndev as
+exactly multiple of 32, e.g., 32, 64, etc., then triggering some interrupts
+and checking dmesg for memory corruption:
+
+plic: plic@3c000000 {
+	compatible = "riscv,plic0";
+	reg = <0x0 0x3c000000 0x0 0x4000000>;
+	#interrupt-cells = <1>;
+	interrupt-controller;
+	interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
+	riscv,max-priority = <7>;
+	riscv,ndev = <64>;
+};
+
+Here is an example dmesg log when ndev is 64:
+[    0.077196] Unable to handle kernel paging request at virtual address ffffaf8000000000
+[    0.077205] Current swapper/0 pgtable: 4K pagesize, 48-bit VAs, pgdp=0x0000000081c2d000
+[    0.077215] [ffffaf8000000000] pgd=000000009ffffc01, p4d=000000009ffffc01, pud=000000009ffff801, pmd=000000009ffff401, pte=0000000000000000
+[    0.077240] Oops [#1]
+[    0.077246] Modules linked in:
+[    0.077254] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.19.0-rc6 #36 NONE 
+[    0.077266] Hardware name: XiangShan (DT)
+[    0.077273] epc : __kmalloc_node_track_caller_noprof+0x1a0/0x524
+[    0.077284]  ra : kstrdup+0x32/0x60
+[    0.077293] epc : ffffffff80253c70 ra : ffffffff801fa70e sp : ffff8f800000b700
+[    0.077304]  gp : ffffffff81a1b580 tp : ffffaf8080158000 t0 : 0000000000000264
+[    0.077313]  t1 : 0000000000000003 t2 : 0000000000000000 s0 : ffff8f800000b750
+[    0.077323]  s1 : 0000000000000002 a0 : ffffaf8000000000 a1 : 0000000000000cc0
+[    0.077332]  a2 : ffff8d800200bfc0 a3 : ffffffff81a5c5e0 a4 : ffffaf8000000000
+[    0.077342]  a5 : 0000000000000003 a6 : ffffffffffffffff a7 : ffffaf8080001400
+[    0.077352]  s2 : ffffaf80802ff178 s3 : ffffffff810107f0 s4 : 0000000000000000
+[    0.077362]  s5 : 0000000000000000 s6 : ffff8f800000b9c0 s7 : ffffaf8080823200
+[    0.077372]  s8 : ffffffff81a20580 s9 : ffffaf808012c990 s10: ffffffffffffffff
+[    0.077382]  s11: 0000000000000000 t3 : 0000000000000cc0 t4 : ffffffff801fa764
+[    0.077391]  t5 : 0000000000000000 t6 : 0000000000000263
+[    0.077399] status: 0000000200000120 badaddr: ffffaf8000000000 cause: 000000000000000d
+[    0.077409] [<ffffffff80253c70>] __kmalloc_node_track_caller_noprof+0x1a0/0x524
+[    0.077422] [<ffffffff801fa70e>] kstrdup+0x32/0x60
+[    0.077433] [<ffffffff801fa764>] kstrdup_const+0x28/0x34
+[    0.077444] [<ffffffff80318438>] __kernfs_new_node+0x3c/0x274
+[    0.077457] [<ffffffff80318a90>] kernfs_new_node+0x44/0x6c
+[    0.077470] [<ffffffff80318f40>] kernfs_create_dir_ns+0x20/0x7c
+[    0.077483] [<ffffffff8031b8f8>] sysfs_create_dir_ns+0x60/0xcc
+[    0.077497] [<ffffffff80b41bea>] kobject_add_internal+0xae/0x2d8
+[    0.077509] [<ffffffff80b422d6>] kobject_add+0x52/0xb8
+[    0.077520] [<ffffffff80b6401c>] __irq_alloc_descs+0x190/0x328
+[    0.077534] [<ffffffff800976de>] irq_domain_alloc_descs.part.0+0x46/0x78
+[    0.077549] [<ffffffff8009827a>] irq_create_mapping_affinity+0x72/0xcc
+[    0.077561] [<ffffffff805d27d2>] plic_probe+0x2e2/0x6c8
+[    0.077573] [<ffffffff805d2bc8>] plic_platform_probe+0x10/0x18
+
+Changes since v2:
+- Clarify the riscv,ndev meaning in the devicetree binding
+  documentation for PLIC.
+- Fix the entire driver code to have all nr_irqs handling consistent
+  with the standard definition.
+
+v2: https://lore.kernel.org/lkml/tencent_A697393AE256C4288768342AF245099A690A@qq.com/
+
+Changes since v1:
+- Add more Fixes tags for earlier commits that are also affected by this
+  bug.
+- Add more explanation about the bug's history.
+
+v1: https://lore.kernel.org/lkml/tencent_6E9A1A3DF88005E3B4A11C4D7039637E4309@qq.com/
+
+Yangyu Chen (2):
+  irqchip/sifive-plic: Fix wrong nr_irqs handling
+  dt-binding: riscv: Clarify the riscv,ndev meaning in PLIC
+
+ .../interrupt-controller/sifive,plic-1.0.0.yaml  |  2 ++
+ drivers/irqchip/irq-sifive-plic.c                | 16 ++++++++--------
+ 2 files changed, 10 insertions(+), 8 deletions(-)
+
+-- 
+2.51.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
