@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE93E7FDE0
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Feb 2026 21:47:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C4DCE7FDE0
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 00:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IzUGf0nyFlqfrLykoRyt7fh/CczjATh/I9zekHrkUcA=; b=zcc0PZ8mKvHxxo
-	BMgw5p1ElY25iAWNrJZkW7Z0PDKZCQ8pCUkRwsKlAcjdfaVkvek0ebqFniV1P+Gc+WXVFzLDRAvLo
-	AAkDapFxv/7UbkgyZAZrAbfixLUCZfGbWkPVXkSQ5C0vLC5bpHFe0s/h6tjs1qz4IdNkbzpKMH8Y8
-	yrgGT1meBo+pd6WqhzCjhYwSpcZJ6p8XpnxvltoBLmKMT4gt+6XwD7FkvvEMBkSYCr04g/D5+TqOK
-	vlE6D6Uo0h1DCc57ZhUBa2PLLpn6tazK837KyiuyaZ9uyKlbCQThX8b+kyG1mEainmj8ErMIhhq8O
-	DXJb+SYfDVfLWLqae3xA==;
+	List-Owner; bh=WDVOowvNG14a9tEmY5vkGSWGLRba7Kd2USGCkLhV8hk=; b=USgkbbmtRtQJbf
+	l0p9bX6ryEEO2eHNJO3YFc0AsR04otWOgBl27CCXiuZJ9aW7gydo1VorByQax5ap3PbIeUcyZ6735
+	rmb7kyJsk77tkfeADeuSuUjWn+DAhnl0FWctOiCH6QTCVbf4Tg/kQxWD6NRRN+y3bYzh7rBna4Q26
+	nenZnLCW2hxX0BFQo8f3cFT534lUUeabLI9NL0bjniIDw2zV/A9ZAs0MFy2aT+86B0rQrZ4HTgwtQ
+	xKnLQd+6t68wQsg5gravXbbgU/sDkNP0cRxwHNMpgLQy3LhaWrv+7KXMzS4MHOXNeH1Lj4Xj5Bvxi
+	dAgMw0eh/p03oEGavgsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn1lY-00000005fq1-3yuN;
-	Mon, 02 Feb 2026 21:47:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vn3vF-00000005m2T-0TfN;
+	Tue, 03 Feb 2026 00:05:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn1lW-00000005fpQ-3X6P
+	id 1vn3vD-00000005m2N-3y1o
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Feb 2026 21:47:28 +0000
+	Tue, 03 Feb 2026 00:05:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1FCD2418C0;
-	Mon,  2 Feb 2026 21:47:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1D31C116C6;
-	Mon,  2 Feb 2026 21:47:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8BC9660010
+	for <linux-riscv@lists.infradead.org>; Tue,  3 Feb 2026 00:05:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EEE3C116C6
+	for <linux-riscv@lists.infradead.org>; Tue,  3 Feb 2026 00:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770068844;
-	bh=+xRV2HkEsfrdZMBafEPY++3IUBK8ed73YGyM9OSrTOo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eWVdIZ9ZAC2PWIzVpuQY3YYx51E3j/pZ+sP/zUyYj0wBs5z5pL4NoIoNE2p3p97N+
-	 0x5hYt4eY26AliN+n9zoM2aHo2XaN2oR6V5bTLywTL/wCzV5hGiEbmol5XgYjulRYW
-	 HXX+vsMoq7vFFiQrwNT61/6H6HDxZycJ0vpj1FJ1rd0yk02XppfAJc7fX0vid16ZL/
-	 LbGcyfMdFS7s+KgP3L4vJB+6btLLw2eqVAV0a8nDvvNNQGfz4OT0cUQWfexc3C9WPv
-	 Iw4liuRwrbdTEhRzCLCgrs35gJID149SrIvcUM2Q8HzaKc3Y3J9x6eqovA6jcmCqFh
-	 8tBuv0Ll48ocA==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Nathan Chancellor <nathan@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alexghiti@rivosinc.com,
-	cyrilbur@tenstorrent.com,
-	jszhang@kernel.org,
-	cleger@rivosinc.com,
-	linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev
-Subject: [PATCH AUTOSEL 6.18] riscv: Use 64-bit variable for output in __get_user_asm
-Date: Mon,  2 Feb 2026 16:46:14 -0500
-Message-ID: <20260202214643.212290-19-sashal@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260202214643.212290-1-sashal@kernel.org>
-References: <20260202214643.212290-1-sashal@kernel.org>
+	s=k20201202; t=1770077134;
+	bh=kKdeou5Pe7UeE6Ix+YqLXbuufCdY2z3T0wxGDQhiRmE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=BFnNi+Zv2dDy+uisnj62bhZmOx+Uo1c9U+Shqx5+M+Q41ftZ8Ifk/eOO8xYo4huRR
+	 YPlMfNNCepNr+JIRQqPG2w2vjDnss3R0hIv4JhvSWyjyxC7PNQ4K/3KU5YS/NgidbI
+	 CJNwwXfZ875JGiPaqCLo9lyonoSjbZNTJtkRpggtzfCM+Zl3thRgdOWiOqElJ58I5n
+	 AhhWLprnJG7Druc1mYPMQ+aOXhJ0kgbQIPccu/fsQnWWpa8l2+o15K4QMvtclt4Qj/
+	 pQ4vb8ODVBZIZpqdgZrTWzDTOttVLJiWiVht7YjVJgWoDj7t8NoBsWBAaKih6+GINJ
+	 vG9TqvTQjfWdw==
+Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-64965ee303dso4824127d50.0
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Feb 2026 16:05:34 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUX/JqKCHmeJ9ufoAbA9X3ur3GsTtaxAadUU5mtXJHLMsDrv6IRyiAs0Wjfu5gyQSaezXrVkwpbhFx39A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzei9QCpJYF/SE+y6wPBID62e33aq5H4HfalkYIx85BtlMLrO9h
+	THFZXQ0DaECHfpj9UkwmdGcAY5RzmR2f0r2QlgVq7XcKIHDOChBDd8D3xK6ykcx6hh364U8K3zd
+	LNiUZCJQt3ykUErVuUo7x2GRJYx/nR1w=
+X-Received: by 2002:a05:690e:124a:b0:644:51a4:4f16 with SMTP id
+ 956f58d0204a3-649a847327dmr10877144d50.45.1770077133463; Mon, 02 Feb 2026
+ 16:05:33 -0800 (PST)
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.18.8
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_134726_928618_0C51B740 
-X-CRM114-Status: GOOD (  22.59  )
+References: <20260130-k3-pinctrl-io-drv-fix-v1-1-077aec3ba7ae@kernel.org>
+In-Reply-To: <20260130-k3-pinctrl-io-drv-fix-v1-1-077aec3ba7ae@kernel.org>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 3 Feb 2026 01:05:22 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmMRcgo9-sMOh6+y+Hg73HjmXPG_ur=mPUEQ-hhuWCtfg@mail.gmail.com>
+X-Gm-Features: AZwV_QjYr-Xcsc5cz_CTbglqWcpBs2gdc2w-EI4ETCV9es47TMb_bMpE3EZUcaA
+Message-ID: <CAD++jLmMRcgo9-sMOh6+y+Hg73HjmXPG_ur=mPUEQ-hhuWCtfg@mail.gmail.com>
+Subject: Re: [PATCH] dt-bindings: pinctrl: spacemit: fix drive-strength check warning
+To: Yixun Lan <dlan@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,219 +78,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Nathan Chancellor <nathan@kernel.org>
-
-[ Upstream commit bdce162f2e57a969803e5e9375999a3e0546905f ]
-
-After commit f6bff7827a48 ("riscv: uaccess: use 'asm_goto_output' for
-get_user()"), which was the first commit that started using asm goto
-with outputs on RISC-V, builds of clang built with assertions enabled
-start crashing in certain files that use get_user() with:
-
-  clang: llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp:12743: Register FollowCopyChain(MachineRegisterInfo &, Register): Assertion `MI->getOpcode() == TargetOpcode::COPY && "start of copy chain MUST be COPY"' failed.
-
-Internally, LLVM generates an addiw instruction when the output of the
-inline asm (which may be any scalar type) needs to be sign extended for
-ABI reasons, such as a later function call, so that basic block does not
-have to do it.
-
-Use a temporary 64-bit variable as the output of the inline assembly in
-__get_user_asm() and explicitly cast it to truncate it if necessary,
-avoiding the addiw that triggers the assertion.
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/2092
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-Link: https://patch.msgid.link/20260116-riscv-wa-llvm-asm-goto-outputs-assertion-failure-v3-1-55b5775f989b@kernel.org
-Signed-off-by: Paul Walmsley <pjw@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-
-LLM Generated explanations, may be completely bogus:
-
-Looking at the full analysis based on what we have:
-
-## Analysis Summary
-
-### 1. COMMIT MESSAGE ANALYSIS
-
-The commit message clearly states:
-- **After commit f6bff7827a48** - Clearly identifies the regressing
-  commit
-- **Builds of clang built with assertions enabled start crashing** -
-  This is a **build failure**, not just a warning
-- Provides a link to the ClangBuiltLinux issue tracker
-  (https://github.com/ClangBuiltLinux/linux/issues/2092)
-- The assertion failure message is in LLVM's code generation phase
-- Author: Nathan Chancellor (ClangBuiltLinux maintainer, well-known
-  kernel/LLVM expert)
-
-### 2. CODE CHANGE ANALYSIS
-
-The change is small and surgical:
-- **Old code (asm_goto_output path):**
-  ```c
-  #define __get_user_asm(insn, x, ptr, label)  \
-  asm_goto_output(                          \
-  "1:\n"                                 \
-  "  " insn " %0, %1\n"                  \
-  _ASM_EXTABLE_UACCESS_ERR(1b, %l2, %0)  \
-  : "=&r" (x)                            \
-  : "m" (*(ptr)) : : label)
-  ```
-
-- **New code:**
-  ```c
-  #define __get_user_asm(insn, x, ptr, label)  \
-  do {                                          \
-  u64 __tmp;                                \
-  asm_goto_output(                          \
-  "1:\n"                                 \
-  "  " insn " %0, %1\n"                  \
-  _ASM_EXTABLE_UACCESS_ERR(1b, %l2, %0)  \
-  : "=&r" (__tmp)                        \
-  : "m" (*(ptr)) : : label);             \
-  (x) = (__typeof__(x))__tmp;               \
-  } while (0)
-  ```
-
-**Technical mechanism:**
-- The fix uses a 64-bit temporary variable (`u64 __tmp`) as the output
-  of the inline assembly
-- Then explicitly casts it to the expected type of `x`
-- This avoids LLVM generating an `addiw` instruction to sign-extend the
-  output for ABI reasons
-- The `addiw` was causing an assertion failure in LLVM's code generation
-  because it wasn't recognized as a proper copy instruction
-
-### 3. CLASSIFICATION
-
-This is a **BUILD FIX** - one of the exception categories that is
-explicitly allowed in stable:
-- Prevents compilation with Clang/LLVM on RISC-V
-- Without this fix, users cannot build kernel for RISC-V when using
-  Clang with assertions enabled
-- The underlying bug likely causes incorrect code generation even when
-  assertions are disabled
-
-### 4. SCOPE AND RISK ASSESSMENT
-
-**Lines changed:** ~10 lines, all in a single macro definition
-**Files touched:** 1 (arch/riscv/include/asm/uaccess.h)
-**Subsystem:** RISC-V uaccess (user-space access)
-**Risk:** Very low
-- Uses a temporary variable to hold the assembly output then casts it
-- This is a known safe pattern (used elsewhere in the kernel)
-- Does not change any runtime behavior for GCC builds
-- Only affects the `CONFIG_CC_HAS_ASM_GOTO_OUTPUT` code path
-  (Clang/modern GCC)
-
-### 5. USER IMPACT
-
-- **Who is affected:** All RISC-V kernel developers and users building
-  with Clang/LLVM
-- **Severity:** Cannot build the kernel at all on RISC-V with Clang
-  (when using assertion-enabled builds)
-- RISC-V is an increasingly popular architecture
-- Clang is a major compiler used by many distributions
-
-### 6. STABILITY INDICATORS
-
-- Written by Nathan Chancellor (ClangBuiltLinux project lead, kernel
-  developer)
-- Clear reference to upstream bug reports
-- Follows a known workaround pattern
-
-### 7. DEPENDENCY CHECK
-
-**Critical:** This fix depends on commit **f6bff7827a48** ("riscv:
-uaccess: use 'asm_goto_output' for get_user()"), which was introduced in
-**v6.16-rc1**.
-
-The fix is only relevant for stable trees that contain v6.16+. For older
-stable trees (6.15.y and earlier), the problematic code doesn't exist,
-so this fix is not needed and wouldn't apply.
-
-### Risk vs. Benefit Analysis
-
-**Benefits:**
-- Fixes a **complete build failure** on RISC-V with Clang
-- Build fixes are explicitly allowed in stable rules
-- Critical for RISC-V users who use Clang
-
-**Risks:**
-- Minimal - adds a temporary variable and explicit cast
-- Does not change runtime behavior for correct code
-- Pattern is well-understood and used elsewhere
-
-### Concerns
-
-1. **Dependency:** Only applicable to stable trees containing 6.16+
-   (which have commit f6bff7827a48)
-2. **LLVM Bug:** This is a workaround for an LLVM bug (tracked at llvm-
-   project#143795). The LLVM bug may eventually be fixed, but kernel
-   builds need to work now.
-
-### Conclusion
-
-This commit is a **build fix** that solves a Clang compilation failure
-on RISC-V. Build fixes are explicitly allowed in stable kernel rules.
-The fix is:
-- Small (10 lines)
-- Surgical (single macro)
-- Safe (temporary variable + cast pattern)
-- Critical (prevents build failure)
-- Well-documented (links to bug reports)
-- Written by an expert (Nathan Chancellor)
-
-The only consideration is that it should only be backported to stable
-trees that contain the parent commit f6bff7827a48 (v6.16+), otherwise
-the fix addresses code that doesn't exist.
-
-**YES**
-
- arch/riscv/include/asm/uaccess.h | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index f5f4f7f85543f..1029c31026dcf 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -97,13 +97,23 @@ static inline unsigned long __untagged_addr_remote(struct mm_struct *mm, unsigne
-  */
- 
- #ifdef CONFIG_CC_HAS_ASM_GOTO_OUTPUT
-+/*
-+ * Use a temporary variable for the output of the asm goto to avoid a
-+ * triggering an LLVM assertion due to sign extending the output when
-+ * it is used in later function calls:
-+ * https://github.com/llvm/llvm-project/issues/143795
-+ */
- #define __get_user_asm(insn, x, ptr, label)			\
-+do {								\
-+	u64 __tmp;						\
- 	asm_goto_output(					\
- 		"1:\n"						\
- 		"	" insn " %0, %1\n"			\
- 		_ASM_EXTABLE_UACCESS_ERR(1b, %l2, %0)		\
--		: "=&r" (x)					\
--		: "m" (*(ptr)) : : label)
-+		: "=&r" (__tmp)					\
-+		: "m" (*(ptr)) : : label);			\
-+	(x) = (__typeof__(x))__tmp;				\
-+} while (0)
- #else /* !CONFIG_CC_HAS_ASM_GOTO_OUTPUT */
- #define __get_user_asm(insn, x, ptr, label)			\
- do {								\
--- 
-2.51.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBKYW4gMzAsIDIwMjYgYXQgMTI6MjLigK9QTSBZaXh1biBMYW4gPGRsYW5Aa2VybmVs
+Lm9yZz4gd3JvdGU6Cgo+IFRoZSBwcm9ibGVtIGlzIHRoYXQgb25lIHZhbHVlIGZyb20gZHJpdmUt
+c3RyZW5ndGggbWF5IG1hdGNoIHRvIG1vcmUgdGhhbgo+IHR3byBkaWZmZXJlbnQgZW51bSBncm91
+cHMgd2hpY2ggbGVhZCB0byBEVCBjb21wbGFpbnQsIHN3aXRjaCB0byB1c2UgJ2FueU9mJwo+IHRv
+IGZpeCB0aGlzIGtpbmQgd2FybmluZy4KPgo+IEZpeGVzOiBjM2VmYWMwNTkyZjggKCJkdC1iaW5k
+aW5nczogcGluY3RybDogc3BhY2VtaXQ6IGNvbnZlcnQgZHJpdmUgc3RyZW5ndGggdG8gc2NoZW1h
+IGZvcm1hdCIpCj4gU2lnbmVkLW9mZi1ieTogWWl4dW4gTGFuIDxkbGFuQGtlcm5lbC5vcmc+CgpQ
+YXRjaCBhcHBsaWVkIQoKWW91cnMsCkxpbnVzIFdhbGxlaWoKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
