@@ -4,90 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D96FCE8784C
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 17:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C68E8784C
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Feb 2026 17:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tF0hFrduZaYS2i9xvIelIQbKJI1ZZkjkpp/dMBWe110=; b=OWjtzXKZHoskQN
-	/nOcpWTq5y0ckC9H9N0TtzQmtV5kK5FKzCsFb5crqCfdxKSvzVMerX6YtFPztSSYL9uw05aOZ030/
-	OjZdGZIYzid+u+vDxZtiFBbnDbTVtk/w+05GbYKOvsbLmlXNkdlDDK7zN7cPx1T9Rzjl7Rg2hQBGP
-	cft3pWAd7RPx99MNl5tbFNdUvSKjBDqNbtZMxoNQet8x52Fuj/q/7B4U+F+5CrtRNHo43rxqRkqvv
-	HKnA/wwFrpMvobsWpkfdsuftm0N+7ZMBCJ6uMEI1ErCqG7yPG/PvyZWbk1cUxBdvelO/r9r8ll7Pa
-	bxM4gNavovpvXXbQZNMw==;
+	List-Owner; bh=CtQ8bOenc+CH42GjlUdRKnaMC/arUdJFHeeqJQGyxR4=; b=1F8pE38xcErOz/
+	o5F8HOTWMKWnIigIAyiDtMBdYv27+C17Bu2B2k+0HTpIxqth70kF4fTf++bQtgxRsMDHTEaAbTVTP
+	MljwcYgjo6YKqHx9jrJFKTBWDaGJP7nbfkhET80Rg0pn1it1lRlTROIqb4iAf8sh8LRYniZJiih79
+	7HxT5NuBFJv/0qrF3viQPYBo0UedBGpBLUSgjZvpH6C1LqQ0N7L8Qj1aTUBeNPX/QkrkyVOVS9mb+
+	G5RpiX6iINkuZxIm4p7ubXOuHRRj4AUn1jvQhxE9IEso8JiyaoiU0obsxED8aGahVPwAx6zZR9lAW
+	ewe8t/AO+7Ywg+5PEVqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnK6E-000000072aq-3LqU;
-	Tue, 03 Feb 2026 17:22:02 +0000
-Received: from out203-205-221-221.mail.qq.com ([203.205.221.221])
+	id 1vnKNd-000000073sy-3mf5;
+	Tue, 03 Feb 2026 17:40:01 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnK69-000000072Yh-2wcG
-	for linux-riscv@lists.infradead.org;
-	Tue, 03 Feb 2026 17:22:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1770139315; bh=+7o+0vyglI6SKIn20vq/JuFe7AAgC6WPGuSWeg1wEjw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=kGyI6ZgSq/IUUJENv5cuRssuvQUGt5dYMT1t1JA9ly4FozceSF6RRx7CLE/yK9B5P
-	 WBiGkmkUC2DfgPn3etbaFzjEoNTYF7c74yvMzt1rXAzisLZCzNEnABmU9j8D9ZTUhe
-	 IaBWf7CG+ndwEgLKwod/qq7bzslAZlgefwgChp0c=
-Received: from cyy-pc.lan ([240e:379:2263:bd00:7e4b:55e4:8771:53fb])
-	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
-	id 571062C7; Wed, 04 Feb 2026 01:21:49 +0800
-X-QQ-mid: xmsmtpt1770139309tz6l3w68c
-Message-ID: <tencent_720A4669773B1EE15EC720869C35C2F0490A@qq.com>
-X-QQ-XMAILINFO: N9lasXYeZMXWq8mgpS9v9z2OCE4jLagYmjfDafYb6w1cbnEz/To+DObDJGFuCw
-	 jHoRzlacZGegfRK8DPENVMFgk9g+EauA3kndjtTxmMvuCQa/aKhriujcsTTKyPtdjv+fl8c3f143
-	 MuXc8uODYA7yISkfM5rBvX9dLLj4TQIvLYc6eqHch56U7tEFhiG081NwNycFLY26R92nCEzadUwq
-	 VC1khsrdqzFuSikouiFfdexzxDsoxQ3Bm0Ahu2lgrz6M89KfozukUJq3NOj+YGK0mhL3cxOEbMDx
-	 5GL4LPJFvoGuKU5YMhJOejkvsIUHvMD2V9HgsdizTqvUFnTSu17QGhWUvU8SxoUc08SdXMykU+9k
-	 TRiyTPzBOYkVZvP5WhCH2P5HAWc1AuvPh+FFmhCCNZ//Yf36bwqCo/Mv+JqsjUgOs9EFBgAq2Ebl
-	 tKtnBDFAkNmLHHVpLq6NcZ8EV3MOv4n6eSZbx10WWQG7NAvCWqi3lVSvxNfzlPFB72CQh1zRLiLq
-	 SgNwf7mQwwwbX6dMuD4Rgx4HN3LF5EPJOAr8tHOGZOzJnw0isFDWkyglapr2jCr9UrG5rY3acFqW
-	 hOjEQjB1UEabIvy7/zC8+ahVptE/Cmer9lGtdgX5gUTU4/GNtlPDszv59bnUY4wpKopTuly//pE3
-	 MTe/YQzYGWBkFv0a7nuMFWy8472up+IVlWshTD/ECDEC5dRcoSS1+8YzhIVV4gLGjcfO+yGMiLBR
-	 It/6Ldze/V/+7MBpTXeKbbX78XaFdYzoTb3WQ5UfBOpHxUmhYXf1jQ8x141n8e0kDfLFCmA4pwo5
-	 AJiogfUmgV0fpVIxcbQJiPNNCVh9591Q9yIbkts4KF1EHBXUNEjsnZ9DCFgqDGvhmaXXMF8EdhFO
-	 +fGlprvTaSEFuO8X+6oTgoQrc2bHlxVTHMU63l664R6F8y34rLCWsQ2nusPkQHfBggIS+qTEI2WI
-	 XSgXEjH1bufRRtsq6qjK1Bi3Y91slsys99ohTfZVz7uQXyFK6U6sC90yS1Wlzc/rsKFVQ3wd0rvM
-	 mulMTDXb2afR/nJTFEUvSaVvlpHnNUnpToU1yL/djfJcsVSHwmIRcOknUrpSy1QUaRFqcQJWjTD2
-	 q3Wt5c
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-From: Yangyu Chen <cyy@cyyself.name>
-To: linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Anup Patel <anup.patel@oss.qualcomm.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Charles Mirabile <cmirabil@redhat.com>,
-	Lucas Zampieri <lzampier@redhat.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Mason Huo <mason.huo@starfivetech.com>,
-	Zhang Xincheng <zhangxincheng@ultrarisc.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Sia Jee Heng <jeeheng.sia@starfivetech.com>,
-	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	id 1vnKNb-000000073sL-26xM;
+	Tue, 03 Feb 2026 17:40:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=jITDbePUoWQSXJd93nDwRBiMM6E0IjTPypgzoLf0eeQ=; b=I2WFZhgWSO19lx31F/vaHdToWH
+	N8HRXm0pzL3dqbMZKx5sRMO8YybZknWnCsaS7uWb+yMsiCYdYOhjv1Jobd2m6b6Qe48PiNLIcc3bJ
+	C80tqN8h2R33waZfb758zC51RzDVILv2Ch11fKKOd3JuUneUO+vaIJkydbRsjlwvwbnjwubMcG05K
+	M34ytIXFvU3e1S7cfo+Si+ziKdVz4uvS1jcVUHc2ZxDmmGC1hEhTkV6zmSWX22A++Krzh8IZc8k4V
+	UG4AY4tGrk2/THDhUwnG/c0UqsbLsrQ2fS8JGiZGB3OqTaUxO78bilAQEFl/t/XUfPLwjy0Ryb844
+	pFCDOPcQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42234)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vnKMw-000000005OS-08zy;
+	Tue, 03 Feb 2026 17:39:18 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vnKMk-000000004Z7-3mB6;
+	Tue, 03 Feb 2026 17:39:07 +0000
+Date: Tue, 3 Feb 2026 17:39:06 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	devicetree@vger.kernel.org,
-	Jia Wang <wangjia@ultrarisc.com>,
-	Yangyu Chen <cyy@cyyself.name>
-Subject: [PATCH v3 2/2] dt-binding: riscv: Clarify the riscv,ndev meaning in PLIC
-Date: Wed,  4 Feb 2026 01:21:48 +0800
-X-OQ-MSGID: <20260203172148.1595129-1-cyy@cyyself.name>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <tencent_AEBB719FAF49D05B5BDF7118D729463F6405@qq.com>
-References: <tencent_AEBB719FAF49D05B5BDF7118D729463F6405@qq.com>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Yao Zi <ziyao@disroot.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Chen-Yu Tsai <wens@kernel.org>, Zhi Li <lizhi2@eswincomputing.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v4 1/3] dt-bindings: net: Add support for
+ Spacemit K3 dwmac
+Message-ID: <aYIyuulFADU_j3V0@shell.armlinux.org.uk>
+References: <20260130022705.1059214-1-inochiama@gmail.com>
+ <20260130022705.1059214-2-inochiama@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260130022705.1059214-2-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_092158_046419_E843D1A9 
-X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-CacheID: sfid-20260203_093959_559460_DE45BC17 
+X-CRM114-Status: UNSURE (   8.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,31 +106,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In PLIC, interrupt source 0 is reserved and should not be used.
-Therefore, the valid interrupt sources are from 1 to riscv,ndev
-inclusive. This commit updates the documentation to clarify this point.
+On Fri, Jan 30, 2026 at 10:27:02AM +0800, Inochi Amaoto wrote:
+> +  clocks:
+> +    items:
+> +      - description: GMAC main clock
 
-Signed-off-by: Yangyu Chen <cyy@cyyself.name>
----
- .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml        | 2 ++
- 1 file changed, 2 insertions(+)
+If you know what this is in terms of dwmac databook clock terms, it
+would be helpful to use it here. I suspect "application clock" would
+probably summarise it, that being the clock for the bus interfaces
+that dwmac provides to the host.
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index 388fc2c620c0..df9578bcac89 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -109,6 +109,8 @@ properties:
-     $ref: /schemas/types.yaml#/definitions/uint32
-     description:
-       Specifies how many external interrupts are supported by this controller.
-+      Note that source 0 is reserved in PLIC, so the valid interrupt sources
-+      are 1 to riscv,ndev inclusive.
- 
-   clocks: true
- 
 -- 
-2.51.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
