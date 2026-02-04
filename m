@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF99E9D41E
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 17:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF455E9D41E
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 17:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4xCdCadQzFamENnqeODFnXIKKTFlCKZewfCh3XvKWn4=; b=ylzMn7Rjo9JWBlne8rOOuLC/Zo
-	sHxdHQWnP4D5Dv0GNgQ3MO4HlL0LT2qThc1/C6M4i94udmJwCDGL3DkmCs6jdIfZrFtbJCwXPD8A1
-	8XsPJc/G41zmz7PUHS8yb347wRx2PfaTQg8FYquKcB8reh1Sj2TBaVARbXYPjQ1ayqAg3qDAsWQwG
-	57Nybd42zA/K4IEOab5czDma/7wbFA7LVFnUAiXkxQgKOeBaWqepPHboDPNbPU5wBEY8tV5f3kwSD
-	2cuh3PsjxxhANBisjTPcDxmNle/iajkhGZavukFbuRvE4nMTHpCg/drSWrv9kQJhUK1jvxNIS6gBN
-	RrV55XTQ==;
+	bh=OUi6qhaSI3OIqqwKT2HWJcgyG7EECjnWu6GUHVhS0Yc=; b=4uDEhzxgDaniJ36C7EMXFJHVNt
+	z15SLtDTveA968bA6cqUWdAvmAiXrMQufimXLfBGKAWEKrjHaaQ1GnQv2lWxUFQMBCQU4m8rLei4A
+	sfvlJq4jEY6waQfHyItkVBWvq5R8xwoltSSQQVNDQij8d4G5tmZ0tBAHDJUL9cLPibNsCJ+KnTnRs
+	tOZ2L6U7VU+bRGamTor/x8VXSJJ7N7slXXECOt08Sm5toFN6s/QpgTTqPS7fWhCO3Wuri2m6Pozud
+	u4pyBfRJD0+WrNq4+wrNME+JwyvAfIMxK7rax7y11dFWV61YnuFskdHTc8m8Xpot43p1PXdGJZ0/+
+	ldB5FYyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vngxi-00000008sbb-1az9;
-	Wed, 04 Feb 2026 17:46:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vnh0l-00000008sz2-2eQP;
+	Wed, 04 Feb 2026 17:49:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vngxg-00000008sb8-3CoG
+	id 1vnh0k-00000008syv-2r4D
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Feb 2026 17:46:45 +0000
+	Wed, 04 Feb 2026 17:49:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 25B14436C9;
-	Wed,  4 Feb 2026 17:46:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06D21C4CEF7;
-	Wed,  4 Feb 2026 17:46:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C18BB60010;
+	Wed,  4 Feb 2026 17:49:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E690C116C6;
+	Wed,  4 Feb 2026 17:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770227204;
-	bh=pn/M0MfcHQvMkT7h1BWDNF7KZy03z6oNN6WU6NquQZQ=;
+	s=k20201202; t=1770227393;
+	bh=3lnDvNg5TpBuQbJTldCFuO+TEQx0ZJwfaT7kWJHY4XY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CzWXersrCUIkXq3naw8jZT/Cypzo3Zltf0z7i4OBkEVtPmHTTiuxdjjdBTT7xC5nE
-	 uD8094XuKecR1080V6LgbDe9FxPaY68FXNrex7SAC9pcCTOhpDsWUfQEN8t0bZ8MSp
-	 nsCqfWlOmWVZXyH7LKmV5qeiOk2M3C2MtLtUDlA9rnF83IAp/se7aFCPFYTrvxKYFp
-	 KBQ33aArBvr8P0dtxlLiO91st+IzwZdqksOA1QoAramO3NnQ9X/O1HJR7Jzdhfm5gP
-	 wh+qsxluTQ6OhhefBaSEbQ83bnLXp6+wLwqRWTpMAfRKbDGwfHD1hUYo4OpVHhNaZ+
-	 91o8L1SgnBt+g==
-Date: Wed, 4 Feb 2026 17:46:37 +0000
+	b=RGgwneO6PbRV/MOZB5p9dqDI90TofB2O32zE/Ijq92iXqv1jVNGTg2RlxsGZUBdWK
+	 eXPiI7dZgMvoA/SkNnna9s/u8TNMFnCktZ6kR3vVoEKmGRZZGGkjg4W7SGiakAFDS2
+	 dA112C1CdZtzmrRm+v/ceDhzHiQSaOION1wxTUfJDb5EphJHqA2Ca/OwGBCi5fPAJq
+	 ROY4bmQG4YyXCWYJ1JjlkH+JYC7szFccPzLw6whCKZXiYe/ZOXvxaZBQ9R3QKBX55N
+	 X2vtIpNjpjPiwP9jJRqbjiOkK7qM0MLsNPgQQa/zsZj4z6zwpc8GiJu4yj9wjpt1Da
+	 0lmb6DmcQlrFQ==
+Date: Wed, 4 Feb 2026 17:49:47 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Yangyu Chen <cyy@cyyself.name>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -62,15 +62,13 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
 	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
 	Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
 	Jia Wang <wangjia@ultrarisc.com>
-Subject: Re: [PATCH v3 1/2] irqchip/sifive-plic: Fix wrong nr_irqs handling
-Message-ID: <20260204-implosion-defuse-f0bb02febc77@spud>
+Subject: Re: [PATCH v3 2/2] dt-binding: riscv: Clarify the riscv,ndev meaning
+ in PLIC
+Message-ID: <20260204-cursor-wad-186f59d9c2ab@spud>
 References: <tencent_AEBB719FAF49D05B5BDF7118D729463F6405@qq.com>
- <tencent_3927462924B7319F8F4F90447BDC110FB705@qq.com>
+ <tencent_720A4669773B1EE15EC720869C35C2F0490A@qq.com>
 MIME-Version: 1.0
-In-Reply-To: <tencent_3927462924B7319F8F4F90447BDC110FB705@qq.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_094644_824814_350634BA 
-X-CRM114-Status: GOOD (  15.22  )
+In-Reply-To: <tencent_720A4669773B1EE15EC720869C35C2F0490A@qq.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,54 +80,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4798943279666686811=="
+Content-Type: multipart/mixed; boundary="===============5450735164037875562=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4798943279666686811==
+--===============5450735164037875562==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ikgF83E3PUlqo6C9"
+	protocol="application/pgp-signature"; boundary="5qZwyZ7ljpTibS5F"
 Content-Disposition: inline
 
 
---ikgF83E3PUlqo6C9
+--5qZwyZ7ljpTibS5F
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Feb 04, 2026 at 01:21:16AM +0800, Yangyu Chen wrote:
-> Since the first irq source is 1 instead of 0, when the number of
-> irqs is multiple of 32, the last irq group will be ignored during
-> allocation, saving, and restoring. This lead to memory corruption
-> when accessing enable_save beyond allocated memory after commit
-> 14ff9e54dd14 ("irqchip/sifive-plic: Cache the interrupt enable state")
-> which will access enable_save for all sources during plic_probe.
-> Thus, we should allocate irq_groups based on (nr_irqs + 1) instead of
-> nr_irqs to avoid this issue. This commit also fixes related loops
-> to have all consumer of nr_irqs consistent.
+On Wed, Feb 04, 2026 at 01:21:48AM +0800, Yangyu Chen wrote:
+> In PLIC, interrupt source 0 is reserved and should not be used.
+> Therefore, the valid interrupt sources are from 1 to riscv,ndev
+> inclusive. This commit updates the documentation to clarify this point.
 >=20
-> This is an long standing bug since Linux v5.6 but since the last irq
-> source is rarely used, it may not be triggered in practice until commit
+> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+> ---
+>  .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml        | 2 ++
+>  1 file changed, 2 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifiv=
+e,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/=
+sifive,plic-1.0.0.yaml
+> index 388fc2c620c0..df9578bcac89 100644
+> --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-=
+1.0.0.yaml
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-=
+1.0.0.yaml
+> @@ -109,6 +109,8 @@ properties:
+>      $ref: /schemas/types.yaml#/definitions/uint32
+>      description:
+>        Specifies how many external interrupts are supported by this contr=
+oller.
+> +      Note that source 0 is reserved in PLIC, so the valid interrupt sou=
+rces
+> +      are 1 to riscv,ndev inclusive.
 
-FWIW, on mpfs the 186th and last source is used by the hardware but it's
-used by the platform's m-mode firmware not linux.
+The trm for mpfs says "in the plic, global interrupt id 0 means 'no
+interrupt'". That sounds subtly different to me than "reserved", but
+/shrug
+I think this could just be truncated to "Valid interrupt sources are
+1 to riscv,ndev, inclusive.".
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
---ikgF83E3PUlqo6C9
+--5qZwyZ7ljpTibS5F
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaYOF/QAKCRB4tDGHoIJi
-0pDSAP9PQB0BBn/A9qA110dayuxYw75k+Pg14c9AiodVFvguygEAt8CiSIAXGohM
-dnWhhn5mtxb1+19D/TmCaMQSQirtIwU=
-=QgAh
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaYOGuwAKCRB4tDGHoIJi
+0pa6AQCwywZTUwL9/gacjMWnPdIFo4Hel12UoD0elnhDgdS3FgEA8GIYZ5djlVCZ
+CcGXJzP3PHtS/fu1Sshwx7q1XR5maA4=
+=MZ4I
 -----END PGP SIGNATURE-----
 
---ikgF83E3PUlqo6C9--
+--5qZwyZ7ljpTibS5F--
 
 
---===============4798943279666686811==
+--===============5450735164037875562==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -140,5 +155,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4798943279666686811==--
+--===============5450735164037875562==--
 
