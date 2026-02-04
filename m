@@ -4,96 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8361DE83EF9
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 09:10:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E16F5E83EF9
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 09:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JbzRXHupUTiPMT3E9dsg96/qNjF4LhAF5yysr8v4Wx0=; b=PzV25dADAjgvu6
-	ZF6+XO/9HnCZnL+FtxGwjmpb94IsbW5Um3xgNKVnJ/MmViSRhY1w205iRvaJTNktI+lpyyWhegpkL
-	n5GW9RkQwtC8ZmQQRD69bUVLOl3CHloQ7ipmOErop6cQXT7bXsJKgWtNoJRmHso4Xu7Oq3HnvRqnH
-	jZoJJ+hjEj/TOAONA9hwz27reZq1+L75/cTNcecSjJgzw7XYm1T8J/dGn/hqCFOdAMTPRGVVxg0yd
-	FXDKTgtiFi7npmaNAzsZexT08cswLPUWyCi8NAMIdPogUWcb6LRsQGMf/sq/y7AwrMCiYkF6zXMe/
-	ar4tqRXgU2q9iVNF+jdA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gFGw2L/BnebGDBjlYa8wCrfcsV65YuiuKZXdjcQOcgg=; b=X0BpjEoAQDkJRawlx6DbtZcAJX
+	IUEzdRFkH8JnROyONRKrrKEueTMrAfxwYOp5TAlCEw6X+F7LLpmGvuSTg9aTS9KvzHlyB8Xfmsswz
+	Rb8cWAMPcfn6TrM2e9LbALFcqNviIq+UyeC+LoANwMWAt8m3My/vZC/OUgtP2IQNbw8a62bXuhbve
+	aiWE/zgagv5NESmQ9DbwjGWJ24gBHyRW2bfePAqUwa0WfgfEXrhg5wXGqO8opqEJcmXpOlcnThfxT
+	1d3HSOFlX5q9RNycRjgxj082fh9haVwtXnBbY4qkuaWKidKcpma+9HKDAVSiTpmlKoRMNTqzGjbSr
+	8zEGyHuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnYu2-00000008AY6-1gjG;
-	Wed, 04 Feb 2026 09:10:26 +0000
-Received: from smtpbgau2.qq.com ([54.206.34.216])
+	id 1vnYzG-00000008Bvu-38bK;
+	Wed, 04 Feb 2026 09:15:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnYtz-00000008AMs-0WiU
+	id 1vnYzG-00000008BvO-0iCS
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Feb 2026 09:10:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1770196200;
-	bh=EgJIHnad+b6A2LOWWhy4BtoavbNU0zZtyzPE8zCjc4w=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=E6E0LMNhekirNM3L86GHoYLjSnLPtbUINcLmxzUVR+Ph5DbpPJXAns+yvHxD7gbK9
-	 gOlcx79h3IS+/LNqWuLuMFXwYR2Dk3dvUcNmOQ7GgSLg3ZTTpByTp6+d3MNrez8CCy
-	 PCGGQsV8Vwc3Dv53qQlE456sXH06mU0ZlG8I6cbo=
-X-QQ-mid: zesmtpsz7t1770196198taefc40b6
-X-QQ-Originating-IP: mBozWA9Y+PFCCt1kixiwX9rViDm+vgGOQudZyHgPelI=
-Received: from SurfaceBook2-B.localdomain ( [101.70.125.34])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 04 Feb 2026 17:09:54 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 10106732724009350697
-EX-QQ-RecipientCnt: 19
-From: Lv Zheng <lv.zheng@linux.spacemit.com>
-To: Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Jingyu Li <joey.li@spacemit.com>,
-	Lv Zheng <lv.zheng@linux.spacemit.com>,
-	Zhijian Chen <zhijian@spacemit.com>,
-	iommu@lists.linux.dev,
-	linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	devicetree@vger.kernel.org
-Subject: [PATCH v3 8/8] perf vendor events riscv:: Add support for spacemit,riscv-iommu HPM aliasing
-Date: Wed,  4 Feb 2026 17:09:52 +0800
-Message-ID: <5242DDF0A783AF08+e141f1898581018f8dd0723cb5c870c23ec679d6.1770195980.git.lv.zheng@linux.spacemit.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1770195980.git.lv.zheng@linux.spacemit.com>
-References: <cover.1769562575.git.lv.zheng@spacemit.com> <cover.1770195980.git.lv.zheng@linux.spacemit.com>
+	Wed, 04 Feb 2026 09:15:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2180B600C4;
+	Wed,  4 Feb 2026 09:15:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4ED09C4CEF7;
+	Wed,  4 Feb 2026 09:15:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770196548;
+	bh=lS9VFPZsRSSNY0TpBWxQ7aGLcnM4yMbS/RfpIHPoP1U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ArXmYgvBA36SUx1c2xvQzH24vnKr/dLJ567NvWI8RRbJPb7FUmnsBRpFh8+JxH2oH
+	 a4O2uhpoXMZd8psL8tyxV66IVOQxaWwcw5srCDnEeTkDdceL9379S/Oxt5gRc0HNJ7
+	 iJ/oyrGQu7PjoGsg2u6BjE0fqwiKT2oSeYIUj0fcCuxS3qCs8lBCIenfIZODUNIMKA
+	 cf3wiNqV/lPenBD9EtSee0hKDjnvFrhMIdEJlz3mI6gfkHraltBRkf+u3J1K6IJBkC
+	 yI9oGlZS2IVPZPE4siUHNp02gTmhORcHZJJNwUUf4gkxAizbp22DL+a2sTe9+DsbDE
+	 HjeM3nyKC2P3w==
+Date: Wed, 4 Feb 2026 10:15:45 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Daniel Almeida <daniel.almeida@collabora.com>
+Cc: Danilo Krummrich <dakr@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org, 
+	linux-pwm@vger.kernel.org, linux-clk@vger.kernel.org, rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
+Message-ID: <20260204-nickel-seal-of-poetry-8fdefb@houat>
+References: <20260108-delectable-fennec-of-sunshine-ffca19@houat>
+ <98CD0BF6-3350-40B9-B8A9-F569AE3E3220@collabora.com>
+ <20260119-thundering-tested-robin-4be817@houat>
+ <aW4lCfUyumOKRRJm@google.com>
+ <518D8B09-B9A1-4DB4-85CD-37A2DD3D5FB1@collabora.com>
+ <DFSLCI9U4NCW.2HI2UPUI7G134@kernel.org>
+ <20260119-weightless-pelican-of-anger-190db0@houat>
+ <DFSN4FDCYHMW.3J3237PEBV2ZP@kernel.org>
+ <20260122-majestic-masterful-jaguarundi-d0abde@houat>
+ <2F3D3A40-6EF9-46FC-A769-E5A3AAF67E65@collabora.com>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-1
-X-QQ-XMAILINFO: NVJ0hJNx7N5S7OAqJS8spVOnE/fn5/CyBNG5bfTZdhkiCjkeFEV+k2Qf
-	OIEqjv2b8C6I+V/E+Wr5TZ98OYzGpvDMBQDmBIWcTgSL9yX0sUVFiFLaj4efiiN2Gj3KCxT
-	j/D4bMzORrXlmrKzTdUVaRX+5U6/tmYU0ux5qfWtLUYCFql5Q3Fx9885JJrH/x0bWAxX6j8
-	VMwYgITuseUqiLWOzL9Y75LoV757VwfKBv+tx5pof4ipGd/ua3bqhQjOKG6oDE+kApqfLo0
-	xq9JLL4lhRIBUSeD7ac37NtAPg0TKkzNEyfMyM85XRjGjISJNPSIM8Z3VXt1FAblg1q34Z/
-	9cyiKbnxmb3XrBJGoVwN3s3E9/wXCcRRB8Wbw4k26+/UOzSWriSJSHb74ghdKkOcRXLgZkw
-	dsrR4KaScs9f9VFoQYP0Zv3aqIXIV5fajjpW54zJxfklj061SMOn/hsgMYWdZ2m5srMuTm7
-	18ob+OgkIhYYAsF8dMpGh5lf5+RuOhiOqgtKPoof5NDdwujeHjOs3N6qhHgD/oOI21IFwbw
-	CDTNh7GwVxPuHvWW7Tsuq1FquAVPA7taMsZZjV1ZLB8pWRTCuvzoE4ZpiG4hJDQRSLYU2C4
-	KFFilk6gkcFS/m4oaNMpzgljsYADfxk1eZaJ11U2bJhL+qSw0au1TsHsZzuFYJjn1wat9Ah
-	zFFuflHrWnsewgd4EgDow2gXCmlm/2EZskIFTBXmRqaKi0P5riRbvrQR+JFb9wahXKUzp/W
-	cBMiqIhdXFGCjBKETfY7GCcKoQif0KPA8bcZ/1iQ/dnMQmE1/awu35jnOWi1iOjCv1S5x+H
-	BMRMlnqCWTk2q8MUZ2kBIxrbrjiFQPCdoHAUAhQaoxNSJwVxF74bsF5FDBkrqON50/1ZHGp
-	7rNlaoEjcvI4pv0i9l0n7Ne8ZBhlCY6iz5bECDET6hM7h9MOC6j5CHQ8rzaMhl3p/fjn4tH
-	6TleVyux1c0qO9OyivhpCweH32+dtZK8s2lc5TTRIwfiM6Cj2iNzz2ICC4HTF2pfz3UtUiv
-	ldxwAA5QSBtZSZ9mufeE0f+SvT1WgwAVf5uj22wWM7igIacI7pbMGPCbXSImJe5PHM/svlc
-	g==
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_011023_623381_16F510CF 
-X-CRM114-Status: GOOD (  12.14  )
+In-Reply-To: <2F3D3A40-6EF9-46FC-A769-E5A3AAF67E65@collabora.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,254 +82,156 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8051637522120364884=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add JSON HPM event aliases for SpacemiT distributed IOMMU (T100) which is
-general and compatible for all SpacemiT RISC-V SoCs.
 
-Signed-off-by: Lv Zheng <lv.zheng@linux.spacemit.com>
-Signed-off-by: Jingyu Li <joey.li@spacemit.com>
----
- MAINTAINERS                                   |   3 +
- .../arch/riscv/spacemit/iommu/sys/ioatc.json  |  30 ++++
- .../arch/riscv/spacemit/iommu/sys/ioats.json  | 163 ++++++++++++++++++
- 3 files changed, 196 insertions(+)
- create mode 100644 tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioatc.json
- create mode 100644 tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioats.json
+--===============8051637522120364884==
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="cc3shtqnjnhks75h"
+Content-Disposition: inline
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 7c50701b6001..4d91f99aa742 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22459,12 +22459,15 @@ K:	riscv
- 
- RISC-V IOMMU
- M:	Tomasz Jeznach <tjeznach@rivosinc.com>
-+M:	Lv Zheng <lv.zheng@linux.spacemit.com>
-+M:	Jingyu Li <joey.li@spacemit.com>
- L:	iommu@lists.linux.dev
- L:	linux-riscv@lists.infradead.org
- S:	Maintained
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git
- F:	Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
- F:	drivers/iommu/riscv/
-+F:	tools/perf/pmu-events/arch/riscv/spacemit/iommu/
- 
- RISC-V MICROCHIP SUPPORT
- M:	Conor Dooley <conor.dooley@microchip.com>
-diff --git a/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioatc.json b/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioatc.json
-new file mode 100644
-index 000000000000..a16610ba2274
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioatc.json
-@@ -0,0 +1,30 @@
-+[
-+  {
-+    "EventName": "mtlb_lkp",
-+    "EventCode": "0x38",
-+    "BriefDescription": "IOATC main TLB (MTLB) lookups",
-+    "Unit": "spacemit_ioatc_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "mtlb_mis",
-+    "EventCode": "0x39",
-+    "BriefDescription": "IOATC main TLB (MTLB) misses",
-+    "Unit": "spacemit_ioatc_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "utlb_lkp",
-+    "EventCode": "0x3A",
-+    "BriefDescription": "IOATC micro TLB (uTLB) lookups",
-+    "Unit": "spacemit_ioatc_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "utlb_mis",
-+    "EventCode": "0x3B",
-+    "BriefDescription": "IOATC micro TLB (uTLB) misses",
-+    "Unit": "spacemit_ioatc_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  }
-+]
-diff --git a/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioats.json b/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioats.json
-new file mode 100644
-index 000000000000..e1fea4e8125c
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioats.json
-@@ -0,0 +1,163 @@
-+[
-+  {
-+    "EventName": "pri_rq",
-+    "EventCode": "0x10",
-+    "BriefDescription": "IOATS PCIe page request interface (PRI) requests",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "ptwc_rq",
-+    "EventCode": "0x11",
-+    "BriefDescription": "IOATS page table walk (PTW) cache requests",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "dtwc_rq",
-+    "EventCode": "0x12",
-+    "BriefDescription": "IOATS directory table walk (DTW) cache requests",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "dtwc_mis",
-+    "EventCode": "0x13",
-+    "BriefDescription": "IOATS directory table walk (DTW) cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "ptwc_mis",
-+    "EventCode": "0x14",
-+    "BriefDescription": "IOATS page table walk (PTW) cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "all_trans_rq",
-+    "EventCode": "0x15",
-+    "BriefDescription": "IOATS all translation requests",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "dtwc_lkp",
-+    "EventCode": "0x20",
-+    "BriefDescription": "IOATS directory table walk (DTW) cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s0_ptwc_lkp",
-+    "EventCode": "0x28",
-+    "BriefDescription": "IOATS s-stage level-0 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s0_ptwc_mis",
-+    "EventCode": "0x29",
-+    "BriefDescription": "IOATS s-stage level-0 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s1_ptwc_lkp",
-+    "EventCode": "0x2A",
-+    "BriefDescription": "IOATS s-stage level-1 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s1_ptwc_mis",
-+    "EventCode": "0x2B",
-+    "BriefDescription": "IOATS s-stage level-1 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s2_ptwc_lkp",
-+    "EventCode": "0x2C",
-+    "BriefDescription": "IOATS s-stage level-2 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s2_ptwc_mis",
-+    "EventCode": "0x2D",
-+    "BriefDescription": "IOATS s-stage level-2 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s3_ptwc_lkp",
-+    "EventCode": "0x2E",
-+    "BriefDescription": "IOATS s-stage level-3 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s3_ptwc_mis",
-+    "EventCode": "0x2F",
-+    "BriefDescription": "IOATS s-stage level-3 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g0_ptwc_lkp",
-+    "EventCode": "0x30",
-+    "BriefDescription": "IOATS g-stage level-0 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g0_ptwc_mis",
-+    "EventCode": "0x31",
-+    "BriefDescription": "IOATS g-stage level-0 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g1_ptwc_lkp",
-+    "EventCode": "0x32",
-+    "BriefDescription": "IOATS g-stage level-1 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g1_ptwc_mis",
-+    "EventCode": "0x33",
-+    "BriefDescription": "IOATS g-stage level-1 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g2_ptwc_lkp",
-+    "EventCode": "0x34",
-+    "BriefDescription": "IOATS g-stage level-2 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g2_ptwc_mis",
-+    "EventCode": "0x35",
-+    "BriefDescription": "IOATS g-stage level-2 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g3_ptwc_lkp",
-+    "EventCode": "0x36",
-+    "BriefDescription": "IOATS g-stage level-3 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g3_ptwc_mis",
-+    "EventCode": "0x37",
-+    "BriefDescription": "IOATS g-stage level-3 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  }
-+]
--- 
-2.43.0
 
+--cc3shtqnjnhks75h
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
+MIME-Version: 1.0
+
+On Thu, Jan 22, 2026 at 09:29:30PM -0300, Daniel Almeida wrote:
+>=20
+>=20
+> > On 22 Jan 2026, at 10:44, Maxime Ripard <mripard@kernel.org> wrote:
+> >=20
+> > On Mon, Jan 19, 2026 at 03:37:17PM +0100, Danilo Krummrich wrote:
+> >> On Mon Jan 19, 2026 at 3:18 PM CET, Maxime Ripard wrote:
+> >>> On Mon, Jan 19, 2026 at 02:13:48PM +0100, Danilo Krummrich wrote:
+> >>>> On Mon Jan 19, 2026 at 1:54 PM CET, Daniel Almeida wrote:
+> >>>>>> On 19 Jan 2026, at 09:35, Alice Ryhl <aliceryhl@google.com> wrote:
+> >>>>>> I think that if you still want an API where you just call enable/d=
+isable
+> >>>>>> directly on it with no protection against unbalanced calls, then t=
+hat
+> >>>>>> should be the special API. Probably called RawClk and functions ma=
+rked
+> >>>>>> unsafe. Unbalanced calls seem really dangerous and use should not =
+be
+> >>>>>> encouraged.
+> >>>>=20
+> >>>> +1; and unless there is a use-case that requires otherwise, it shoul=
+d not even
+> >>>> be possible to do this at all -- at least for driver code.
+> >>>=20
+> >>> I mean, it's great, it's safe, etc. but it's also suboptimal from a PM
+> >>> perspective on many platforms. It's totally fine to provide nice, saf=
+e,
+> >>> ergonomic wrappers for the drivers that don't care (or can't, really),
+> >>> but treating a legitimate optimisation as something we should consider
+> >>> impossible to do is just weird to me.
+> >>=20
+> >> I said that an unsafe API with potentially unbalanced calls is somethi=
+ng we
+> >> should clearly avoid for drivers. This is *not* equivalent to "treatin=
+g a
+> >> legitimate optimisation as something we should consider impossible".
+> >>=20
+> >> If we discover use-cases where the current API doesn't work well, we c=
+an
+> >> invenstigate further.
+> >=20
+> > I'm not sure I'm following what you're saying, sorry. I've pointed out
+> > such a use-case already.
+> >=20
+> >>>>> I think we should discourage RawClk if at all possible. But if the =
+consensus
+> >>>>> is that we *really* need this easily-abused thing, I can provide a =
+follow-up.
+> >>>>=20
+> >>>> I think we should only do this if there are use-case with no alterna=
+tive, so far
+> >>>> there haven't been any AFAIK.
+> >>>=20
+> >>> I don't really care about which alternative we come up with, but look=
+ at
+> >>> devm_regmap_init_mmio_clk for example. It is a valid use-case that
+> >>> already exists today, and has had for more than a decade at this poin=
+t.
+> >>=20
+> >> I don't see the issue with devm_regmap_init_mmio_clk()? It takes a ref=
+erence
+> >> count of the clock and prepares it when called and unprepares the clk =
+in drops
+> >> its reference in regmap_mmio_free_context() called from the devres cal=
+lback.
+> >>=20
+> >> That something we can easily do with the current API, no?
+> >=20
+> > The current one, yes. Doing that in the API suggested here would involve
+> > some boilerplate in all those drivers they don't have right now.
+> >=20
+> > Maxime
+>=20
+> Maxime, I know you=E2=80=99ve already pointed out a use-case, but I think=
+ the
+> confusion stems from why you seem to think that the current solution cann=
+ot
+> cater to the API you mentioned in a clean way. You seem to imply that the=
+re
+> will be a lot of boilerplate involved, but we (or I) cannot see this. Per=
+haps
+> it would help if you highlighted how exactly the type state solution woul=
+d be
+> verbose using some pseudocode. I guess that would make your point clearer=
+ for
+> us.
+
+I'm probably missing something then, but let's assume you have a driver
+that wants its clock prepared and enabled in an hypothetical enable()
+callback, and disabled / unprepared in a disable() callback.
+
+=46rom a PM management perspective, this usecase makes total sense, is a
+valid usecase, is widely used in the kernel, and is currently supported
+by both the C and Rust clk APIs.
+
+The only solution to this you suggested so far (I think?) to implement
+this on top of the new clk API you propose is to have a driver specific
+enum that would store each of the possible state transition.
+
+That's the boilerplate I'm talking about. If every driver wanting to
+implement that pattern has to make such an enum, with all the relevant
+traits implementation that might come with it, we go from an API where
+everything works at no-cost from a code-size perspective to a situation
+where every driver has to develop and maintain that enum.
+
+Maxime
+
+--cc3shtqnjnhks75h
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaYMOQQAKCRAnX84Zoj2+
+dvrFAYCy9cMAXESi9V53Vv20SNDa4P4AXDj8RQneRDFodbIFI+G3mTEJQXOcFGkx
++lpmRa0Bf1ShS4JaHvSikZv6j6Jok+SN4hqbhT/G4nenYi5IvCNK7+Ezo+THb7dq
+SORhPzP8yg==
+=E93p
+-----END PGP SIGNATURE-----
+
+--cc3shtqnjnhks75h--
+
+
+--===============8051637522120364884==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8051637522120364884==--
+
