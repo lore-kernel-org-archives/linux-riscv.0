@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90670E83EF6
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 17:38:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF99E9D41E
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 17:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XEaEwIn82XUXG7QwezLS1STKf+8bcgdhcs7X+VF81Ic=; b=kQYVjV9eT3C61r7R2oi9NhPZkl
-	EcUZ6q8uHzIrENYR8EE0jBP46MZ50J3dedp3MmmOVokLKXLOQyBu3bwBmBlNsIZMosx9giYU09BW2
-	d9e4ywArnhs69VeohP+4ksKlpHhAh9TwvzL5368ZA9fbC4SOe2/pR9V3SR6xh4TpAwE6Yyxo9rqkB
-	sC2S9bcw2XBWZfyuoHz7+fKcWBNUGiYelYUbElOiC4Wqhg98qAyvxUC7wBo07KiHGFT4YmzgMtWsK
-	WlJ537MqtCCCIwPYM2YS3g4fdF1SVmxHa+BrYx5072yooPFUIp7e+OzYlPJvDetvnrqmu+ezqy9qS
-	wiu8DA6g==;
+	bh=4xCdCadQzFamENnqeODFnXIKKTFlCKZewfCh3XvKWn4=; b=ylzMn7Rjo9JWBlne8rOOuLC/Zo
+	sHxdHQWnP4D5Dv0GNgQ3MO4HlL0LT2qThc1/C6M4i94udmJwCDGL3DkmCs6jdIfZrFtbJCwXPD8A1
+	8XsPJc/G41zmz7PUHS8yb347wRx2PfaTQg8FYquKcB8reh1Sj2TBaVARbXYPjQ1ayqAg3qDAsWQwG
+	57Nybd42zA/K4IEOab5czDma/7wbFA7LVFnUAiXkxQgKOeBaWqepPHboDPNbPU5wBEY8tV5f3kwSD
+	2cuh3PsjxxhANBisjTPcDxmNle/iajkhGZavukFbuRvE4nMTHpCg/drSWrv9kQJhUK1jvxNIS6gBN
+	RrV55XTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vngpb-00000008rYA-3xff;
-	Wed, 04 Feb 2026 17:38:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vngxi-00000008sbb-1az9;
+	Wed, 04 Feb 2026 17:46:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vngpa-00000008rXi-00qZ
+	id 1vngxg-00000008sb8-3CoG
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Feb 2026 17:38:23 +0000
+	Wed, 04 Feb 2026 17:46:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AB21C41E65;
-	Wed,  4 Feb 2026 17:38:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13636C4CEF7;
-	Wed,  4 Feb 2026 17:38:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 25B14436C9;
+	Wed,  4 Feb 2026 17:46:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06D21C4CEF7;
+	Wed,  4 Feb 2026 17:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770226701;
-	bh=szEiRqNQBmBl7xB3+WCKENyasS6skJktBrmm9AAZG38=;
+	s=k20201202; t=1770227204;
+	bh=pn/M0MfcHQvMkT7h1BWDNF7KZy03z6oNN6WU6NquQZQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OK7mxYwl5E5s94aPs5ejbwJwn+I0fRMo+pjfbWuEl14jpm/cuNrxDl6nLpp90CEg4
-	 33XUY3dbyIFmQtbo6TJYO+zr5ppcsJbkWWIxWcKxs9J0ZK8ix5Vp0/WedbhUpQsccb
-	 9DuUEZudveuh5ObbojfrsmnZP5QDZ4hsD6/cX4Jt8ODok+fwbWHVKm4S5WpFs37lPJ
-	 U3DGGW2XCWjaLiIO8Qea9A7RTF4iUsOiPD3VvKtwn49l4LYQBQauSb7f3S+vlWjvU6
-	 KmeAvb9OPMU/bHH/1GWkpkFGhlq5yEOpCaNTMirEGJOc/fl+9AqLIDRxALp03Se55B
-	 owkMaQ9Waz6Tg==
-Date: Wed, 4 Feb 2026 17:38:15 +0000
+	b=CzWXersrCUIkXq3naw8jZT/Cypzo3Zltf0z7i4OBkEVtPmHTTiuxdjjdBTT7xC5nE
+	 uD8094XuKecR1080V6LgbDe9FxPaY68FXNrex7SAC9pcCTOhpDsWUfQEN8t0bZ8MSp
+	 nsCqfWlOmWVZXyH7LKmV5qeiOk2M3C2MtLtUDlA9rnF83IAp/se7aFCPFYTrvxKYFp
+	 KBQ33aArBvr8P0dtxlLiO91st+IzwZdqksOA1QoAramO3NnQ9X/O1HJR7Jzdhfm5gP
+	 wh+qsxluTQ6OhhefBaSEbQ83bnLXp6+wLwqRWTpMAfRKbDGwfHD1hUYo4OpVHhNaZ+
+	 91o8L1SgnBt+g==
+Date: Wed, 4 Feb 2026 17:46:37 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Lv Zheng <lv.zheng@linux.spacemit.com>
-Cc: Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+To: Yangyu Chen <cyy@cyyself.name>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Anup Patel <anup.patel@oss.qualcomm.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Charles Mirabile <cmirabil@redhat.com>,
+	Lucas Zampieri <lzampier@redhat.com>,
+	Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Jingyu Li <joey.li@spacemit.com>,
-	Zhijian Chen <zhijian@spacemit.com>, iommu@lists.linux.dev,
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 8/8] perf vendor events riscv:: Add support for
- spacemit,riscv-iommu HPM aliasing
-Message-ID: <20260204-suds-shush-d85872589cb3@spud>
-References: <cover.1769562575.git.lv.zheng@spacemit.com>
- <cover.1770195980.git.lv.zheng@linux.spacemit.com>
- <5242DDF0A783AF08+e141f1898581018f8dd0723cb5c870c23ec679d6.1770195980.git.lv.zheng@linux.spacemit.com>
+	Mason Huo <mason.huo@starfivetech.com>,
+	Zhang Xincheng <zhangxincheng@ultrarisc.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Sia Jee Heng <jeeheng.sia@starfivetech.com>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
+	Jia Wang <wangjia@ultrarisc.com>
+Subject: Re: [PATCH v3 1/2] irqchip/sifive-plic: Fix wrong nr_irqs handling
+Message-ID: <20260204-implosion-defuse-f0bb02febc77@spud>
+References: <tencent_AEBB719FAF49D05B5BDF7118D729463F6405@qq.com>
+ <tencent_3927462924B7319F8F4F90447BDC110FB705@qq.com>
 MIME-Version: 1.0
-In-Reply-To: <5242DDF0A783AF08+e141f1898581018f8dd0723cb5c870c23ec679d6.1770195980.git.lv.zheng@linux.spacemit.com>
+In-Reply-To: <tencent_3927462924B7319F8F4F90447BDC110FB705@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_093822_080784_3D6D37D0 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20260204_094644_824814_350634BA 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,75 +82,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1909441653854423549=="
+Content-Type: multipart/mixed; boundary="===============4798943279666686811=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1909441653854423549==
+--===============4798943279666686811==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iqh0NaWGo05RcNxz"
+	protocol="application/pgp-signature"; boundary="ikgF83E3PUlqo6C9"
 Content-Disposition: inline
 
 
---iqh0NaWGo05RcNxz
+--ikgF83E3PUlqo6C9
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Feb 04, 2026 at 05:09:52PM +0800, Lv Zheng wrote:
-> Add JSON HPM event aliases for SpacemiT distributed IOMMU (T100) which is
-> general and compatible for all SpacemiT RISC-V SoCs.
+On Wed, Feb 04, 2026 at 01:21:16AM +0800, Yangyu Chen wrote:
+> Since the first irq source is 1 instead of 0, when the number of
+> irqs is multiple of 32, the last irq group will be ignored during
+> allocation, saving, and restoring. This lead to memory corruption
+> when accessing enable_save beyond allocated memory after commit
+> 14ff9e54dd14 ("irqchip/sifive-plic: Cache the interrupt enable state")
+> which will access enable_save for all sources during plic_probe.
+> Thus, we should allocate irq_groups based on (nr_irqs + 1) instead of
+> nr_irqs to avoid this issue. This commit also fixes related loops
+> to have all consumer of nr_irqs consistent.
 >=20
-> Signed-off-by: Lv Zheng <lv.zheng@linux.spacemit.com>
-> Signed-off-by: Jingyu Li <joey.li@spacemit.com>
-> ---
->  MAINTAINERS                                   |   3 +
->  .../arch/riscv/spacemit/iommu/sys/ioatc.json  |  30 ++++
->  .../arch/riscv/spacemit/iommu/sys/ioats.json  | 163 ++++++++++++++++++
->  3 files changed, 196 insertions(+)
->  create mode 100644 tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/i=
-oatc.json
->  create mode 100644 tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/i=
-oats.json
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 7c50701b6001..4d91f99aa742 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -22459,12 +22459,15 @@ K:	riscv
-> =20
->  RISC-V IOMMU
->  M:	Tomasz Jeznach <tjeznach@rivosinc.com>
-> +M:	Lv Zheng <lv.zheng@linux.spacemit.com>
-> +M:	Jingyu Li <joey.li@spacemit.com>
+> This is an long standing bug since Linux v5.6 but since the last irq
+> source is rarely used, it may not be triggered in practice until commit
 
-To be frank, this looks misguided, or at least premature, to me, given the
-state of the patchset.
+FWIW, on mpfs the 186th and last source is used by the hardware but it's
+used by the platform's m-mode firmware not linux.
 
->  L:	iommu@lists.linux.dev
->  L:	linux-riscv@lists.infradead.org
->  S:	Maintained
->  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git
->  F:	Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
->  F:	drivers/iommu/riscv/
-> +F:	tools/perf/pmu-events/arch/riscv/spacemit/iommu/
-
---iqh0NaWGo05RcNxz
+--ikgF83E3PUlqo6C9
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaYOEBwAKCRB4tDGHoIJi
-0rAbAP9BQO+rmDwgyVtdWWl0COzirfBZ1h1MHPLEsDSPOC3q8AEAkAY/lFFX/2Ft
-ThczQMoz8DL7QCbK+gjE+pWs9vdsNwE=
-=n4nj
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaYOF/QAKCRB4tDGHoIJi
+0pDSAP9PQB0BBn/A9qA110dayuxYw75k+Pg14c9AiodVFvguygEAt8CiSIAXGohM
+dnWhhn5mtxb1+19D/TmCaMQSQirtIwU=
+=QgAh
 -----END PGP SIGNATURE-----
 
---iqh0NaWGo05RcNxz--
+--ikgF83E3PUlqo6C9--
 
 
---===============1909441653854423549==
+--===============4798943279666686811==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -157,5 +140,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1909441653854423549==--
+--===============4798943279666686811==--
 
