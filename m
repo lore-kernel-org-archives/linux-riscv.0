@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 616D8E9D40D
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 16:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 873F7E9D418
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 16:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dwgEc4M1ANmXlQ6NJfVbRBcYkA0PgQXHD1yoxAMFJoA=; b=O/2MWmLjjrmWuS
-	XD0JiUVY3gpuhVYIzpRuXYGp+kHS99JOY/guPC32k7A14tEiXRMu8onbkVfrzmXX3Bev5yOp9HtSW
-	GeWQjVql9iyy2yHZupxockuIOdXA8gQ8tOOU84v7AmIWAZBgdJankdMnLqlmAD/br/qBdq4hUrfBP
-	XujiFMxPPihDZYvsIHXafKBxLql2nUnov57xH53e0jxoAB98OuqA0icBQPcD+yrc9Lg6GnoDZIpYV
-	p73RdBgD/KpgG9hYXn5lgRVHK6DNTl+rLl9trFpj/Rgrpi3pUueF4qDa2mPL/NRAgYt+EhVf2GF42
-	L1ECiCGmJ9fDVEUfuKMw==;
+	List-Owner; bh=6CUP9+hieZtw5JzWT1lPISB0COzwaunLYJ+fm44676M=; b=GhGHAtwfHoN2oG
+	ypPZl7jwNXD4kK2doHwbrA7/7bP7nAJxVN/1+l9Q6UC6HC9tTNH3z5jh4DZ1oKyQagQaNjmuuCgUe
+	KUsuulSmjethXJmuA3TG7/VhSaFHfv+bi/KSta/u0TVsgCQovWjMzIegKE+EXuMhP8tpmXMp+2pMR
+	QrDWhb43UfONWO0sElihUcHRcoPkvmubLXQXo9dk8TAnDQS+Kz1sUa4r7jvmMB06pXLSERs/3ykhi
+	shGWjHiKDBJb7/Xv0UtV4j/0X8dbBIQMGkehQHcWeykdvIYcCmSi1QvMG2ShrPKp+Lz6FV9x/IGqU
+	jmYol7dIaUlXxRMgMAJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vng5K-00000008nSa-42Ty;
-	Wed, 04 Feb 2026 16:50:34 +0000
+	id 1vngBV-00000008oE3-0kKd;
+	Wed, 04 Feb 2026 16:56:57 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vng5I-00000008nSD-1ekh
+	id 1vngBT-00000008oDc-0o7G
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Feb 2026 16:50:33 +0000
+	Wed, 04 Feb 2026 16:56:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9EF4E441E2;
-	Wed,  4 Feb 2026 16:50:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81F69C4CEF7;
-	Wed,  4 Feb 2026 16:50:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 67CA4432E9;
+	Wed,  4 Feb 2026 16:56:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9369AC4CEF7;
+	Wed,  4 Feb 2026 16:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770223831;
-	bh=fd9mB6uxi20UpngRQKWBUIqmPqpBhJ06BLLPzdm+xN8=;
+	s=k20201202; t=1770224214;
+	bh=PdJwL2FfZcrZlGmwfIl75VdtZDNdmDKvW0Pqu/rV0mU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KvP2Ej0r49rqN3zlMVpi7wdZOiGb5ddjkwluNNwr9i65tfI+kq4umf0NzPJuSsz8p
-	 P6qg5MuNuC/5M3knmpbfL5L40N42mK4CxEuRfEkEvj5XMAVFGkQ5ALUg/vIDbzsrpn
-	 //iCatRb0KhDzkd/uzYZNxOW53aznd3RDzb/Zz2Zl7jilmlNc1PgoPNluqUj5Pdz/2
-	 6b47830F8Tvk2zwwsSlOD9haOzCh25eYY3PiIsZkPeucUqpGe9bEw1u0YDXiUIHiK+
-	 uatWn5zfW2IwFwvhWhhIepkHH5jQtDQ0ES43T91LXVz3v288R1X14ywTluExwNxg70
-	 eVR618or/n1mg==
-Message-ID: <1b80b189-b549-40ba-800c-8037ce12b081@kernel.org>
-Date: Wed, 4 Feb 2026 17:50:23 +0100
+	b=n3b6fFMj5xAka9Jh+F8qYvBKS4/lBho0sJ4vU7OzTxn6zTyTDuW4AH581/BU6NVbt
+	 POaPOLGC6z4LIY/GqI0emhIU2Icmf84HWLDkd8F9dX92Y4I5K1oi0iHTDmffqqNjvx
+	 PHy01L791lxZTaXw7Y5VnhB4pofkh6rxofpjA63xJwQEkD9lDd7625LUoA84ZfDUko
+	 TxXtZHx6ugQRzJGIQIRZ0RzEsTh0/kWjXByqXVBZ1/3HSpGyP91d9H4BGzE+R58At1
+	 x3obFM3m0s8LCh4QU7gv0ANGJnJibag29UlUvdQXsu8OUQSqiELG/wU+4zMbhYP01B
+	 vLdAeSVEdOHwQ==
+Message-ID: <2ce0e684-de54-43ec-be7d-c58bbffb3f4e@kernel.org>
+Date: Wed, 4 Feb 2026 17:56:45 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv6 05/17] riscv/mm: Align vmemmap to maximal folio size
+Subject: Re: [PATCHv6 06/17] LoongArch/mm: Align vmemmap to maximal folio size
 To: Kiryl Shutsemau <kas@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
@@ -63,7 +63,7 @@ Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
 References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-6-kas@kernel.org>
+ <20260202155634.650837-7-kas@kernel.org>
 From: "David Hildenbrand (arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -110,10 +110,10 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260202155634.650837-6-kas@kernel.org>
+In-Reply-To: <20260202155634.650837-7-kas@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_085032_475028_27594986 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20260204_085655_279932_897D5D15 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,61 +136,42 @@ On 2/2/26 16:56, Kiryl Shutsemau wrote:
 > folio size.
 > 
 > Align vmemmap to MAX_FOLIO_NR_PAGES.
-
-I think neither that statement nor the one in the patch description is 
-correct?
-
-"MAX_FOLIO_NR_PAGES * sizeof(struct page)" is neither the maximum folio 
-size nor MAX_FOLIO_NR_PAGES.
-
-It's the size of the memmap that a large folio could span at maximum.
-
-
-Assuming we have a 16 GiB folio, the calculation would give us
-
-	4194304 * sizeof(struct page)
-
-Which could be something like (assuming 80 bytes)
-
-	335544320
-
--> not even a power of 2, weird? (for HVO you wouldn't care as HVO would 
-be disabled, but that aliment is super weird?)
-
-
-Assuming 64 bytes, it would be a power of two (as 64 is a power of two).
-
-	268435456 (1<< 28)
-
-
-Which makes me wonder whether there is a way to avoid sizeof(struct 
-page) here completely.
-
-Or limit the alignment to the case where HVO is actually active and 
-sizeof(struct page) makes any sense?
-
-
 > 
 > Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
 > ---
->   arch/riscv/mm/init.c | 3 ++-
+>   arch/loongarch/include/asm/pgtable.h | 3 ++-
 >   1 file changed, 2 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 21d534824624..c555b9a4fdce 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -63,7 +63,8 @@ phys_addr_t phys_ram_base __ro_after_init;
->   EXPORT_SYMBOL(phys_ram_base);
+> diff --git a/arch/loongarch/include/asm/pgtable.h b/arch/loongarch/include/asm/pgtable.h
+> index c33b3bcb733e..f9416acb9156 100644
+> --- a/arch/loongarch/include/asm/pgtable.h
+> +++ b/arch/loongarch/include/asm/pgtable.h
+> @@ -113,7 +113,8 @@ extern unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)];
+>   	 min(PTRS_PER_PGD * PTRS_PER_PUD * PTRS_PER_PMD * PTRS_PER_PTE * PAGE_SIZE, (1UL << cpu_vabits) / 2) - PMD_SIZE - VMEMMAP_SIZE - KFENCE_AREA_SIZE)
+>   #endif
 >   
->   #ifdef CONFIG_SPARSEMEM_VMEMMAP
-> -#define VMEMMAP_ADDR_ALIGN	(1ULL << SECTION_SIZE_BITS)
-> +#define VMEMMAP_ADDR_ALIGN	max(1ULL << SECTION_SIZE_BITS, \
-> +				    MAX_FOLIO_NR_PAGES * sizeof(struct page))
->   
->   unsigned long vmemmap_start_pfn __ro_after_init;
->   EXPORT_SYMBOL(vmemmap_start_pfn);
+> -#define vmemmap		((struct page *)((VMALLOC_END + PMD_SIZE) & PMD_MASK))
+> +#define VMEMMAP_ALIGN	max(PMD_SIZE, MAX_FOLIO_NR_PAGES * sizeof(struct page))
+> +#define vmemmap		((struct page *)(ALIGN(VMALLOC_END, VMEMMAP_ALIGN)))
 
+
+Same comment, the "MAX_FOLIO_NR_PAGES * sizeof(struct page)" is just black magic here
+and the description of the situation is wrong.
+
+Maybe you want to pull the magic "MAX_FOLIO_NR_PAGES * sizeof(struct page)" into the core and call it
+
+#define MAX_FOLIO_VMEMMAP_ALIGN	(MAX_FOLIO_NR_PAGES * sizeof(struct page))
+
+But then special case it base on (a) HVO being configured in an (b) HVO being possible
+
+#ifdef HUGETLB_PAGE_OPTIMIZE_VMEMMAP && is_power_of_2(sizeof(struct page)
+/* A very helpful comment explaining the situation. */
+#define MAX_FOLIO_VMEMMAP_ALIGN	(MAX_FOLIO_NR_PAGES * sizeof(struct page))
+#else
+#define MAX_FOLIO_VMEMMAP_ALIGN	0
+#endif
+
+Something like that.
 
 -- 
 Cheers,
