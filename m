@@ -4,129 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EA88E9D410
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 16:32:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF25E9D410
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 16:35:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EKgqhCxSNQHLXzOnsrUYkPPeXJI48M2e5a3Z6l4bzzY=; b=GQLBKZZ3mOpgL6
-	9+wxnjHg5mZF9Wd7gbWlgg3/o5FjZqKmAsLJV3oc3TtRRHRHmS2tZpYFwusR97oRnU/iqdfObj3WT
-	ae9txvD4NN4PDhYKzJDRoHMyYhjThcFX55xmSgp7lss411LBryt//GMKAD03FepRWzKNnxPNSt9nd
-	acoKhZ+PUPcmotavFY+1pWZ8tto9ClPw/K/wj5yus2+bwesg/zkOV8tPc/0Ua6zDQm5otJEx0UDLV
-	zW0lbDp+QkyUo0zFU+zPkWrCgzZkuDC4IkyUCUYgGImcGIvIeTBCnoQD2V6BzRoDUvnHSryJvpNo5
-	CMAHHU+MofjOwF+6XQRQ==;
+	List-Owner; bh=vGo9Jxa48a4MLfypjGv5FbgUSz8xvB5T+EkcS4rNDTA=; b=iXIUSR9Q2ENxJa
+	hFzFxQmSY9IL/z4SFmg+IqVNEARiYIbV6F3IUe/0XSY0J1gqyTYZmb/v3SWcgXpY5KcGuIdrvpEZu
+	/cofR0OihMukA28LqNxXM5/rTIPOeGUGd2IOLZDsPj6c3nDjk6IfiZhet/GpwdiRm/MRqNgk8R9+K
+	62EaCZrfCaLwn0iqDvof+pJWN7+Br3XbAOG0w0pRDRDC4Q24ELRsvxlzcuVsgJvflkr8JG4+m3kZH
+	nJFdPEteALcsxODdfB8YOVrD12y02zJdshfkr5cZw7RfnWF7p9ahWOXomsUI3kwN79JtKaF7XjdnG
+	RY5F8nPbpq1YpU3MJiDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnfnw-00000008lHQ-0zPu;
-	Wed, 04 Feb 2026 16:32:36 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vnfqz-00000008ldM-2fzo;
+	Wed, 04 Feb 2026 16:35:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnfnu-00000008lGt-0CMQ
+	id 1vnfqw-00000008lcz-24MF
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Feb 2026 16:32:35 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 614CIOZE1032392
-	for <linux-riscv@lists.infradead.org>; Wed, 4 Feb 2026 16:32:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=Ot0UHj52m/IAOkUIkudhskal
-	lh3JrxoSMHxt2SdBTMM=; b=B1AEzZ1U9pPgEWTPnBotUvorfF4OHQZIz8ESDF2i
-	iGWhYvGcDsS17S9D/f9yBZZDHmWo7AQcBa1dH449yO1PBSzvtsBry2y2rLv9rE1M
-	VsLvJhuWq7GOQVHT/VAFB+5T9wzMMXk0dAWXH+U3tsO0j6Y5OgqBPhm+ciSJXlme
-	D0mXt2T83yUhl0tFEANOTD+6eV7mwwQ3Awr/gWLeMCGBx+HibBpWzyquhuBTBCpq
-	ud8UFJCOGoyUjkDTrDLLZFmB1HDDcg60e1O9/N1XF09eBkYONjJgEbbjNAJIX32f
-	EOCKp29yLl9MpI1W4Yj4Sa9xBPYdNUj/ayZjrIsB8MCG0Q==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c3ne7v1mp-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Wed, 04 Feb 2026 16:32:33 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-2b74766fae7so8227432eec.0
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Feb 2026 08:32:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1770222753; x=1770827553; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ot0UHj52m/IAOkUIkudhskallh3JrxoSMHxt2SdBTMM=;
-        b=GwNp6IVXbwJTAAnnZmqX3xyYZSXtPzDg9QI0Igwoij8fVoj/Wfmncj3lXtGL2F/mXx
-         DOiABCbn+8R+4Ja9PToyTQ1lhrw0nRRffNM9xLoIWEHRXXjWR3YvucBq6w3YHBXUDUQu
-         S2eqE+sT0/FftFKcaJthdbfGE1Z9+YomdxcutxI1ik38AaCF2szhaE9k9hk0ZmdnYCIV
-         7lFulm5MvG2OZqhTMrF5aQwYxLg63sqBouim5KuM272KZbwKLmt3ZBEH8j2gC8uVqh6Q
-         ERSjcfGdWysm1EVf7BYOmgyIzv2wIBhfwnxCWrmQ4+S97rSMStXZGseIwfhGVJT3X//2
-         gygw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770222753; x=1770827553;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Ot0UHj52m/IAOkUIkudhskallh3JrxoSMHxt2SdBTMM=;
-        b=o9391FS3ocQi3jg+WUd0QX3eWH5CscoV6gkveV2/Jgd0F1a/939wOZylVjuxdeEDtS
-         PIa+P2GzSK/bPeXndSsCMQ9qwtJlMgZVFg8YsqDJPSxTH6SL3Dgl5yXodBlfPn1HLkuc
-         NztKoqIQhF+yyZIZeYFIYK4F/wgzJNUWHdrcsBCpzcfP0h0xDjOMVgaH2j92Cvv8t785
-         16E4F8eISJebXZ+4340HoWVkqQ5s41qGEHvJd9V0hfswb6WzmLxWFgnqXkX1FJNPvGeG
-         0VlBfaXYkLhxMnDg7Se080uDEjb0xDcQPQ4mb1UoSa9AYP3Pv241k4dZ1V/mXZoNAKNh
-         FSSg==
-X-Forwarded-Encrypted: i=1; AJvYcCU/xLkS51GjIHVfx9k0nT7RaocAk+a9+BIk8Q8gePov7qaB4BaTJ8X3Sf374nuR6k0aTu17GsmL/d5TCw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5mGHAoG9jnhS/cFDH2N8KMQSBOB9qPBrhsCU4KAlgX1ez0n9a
-	xMAZG8vDm/8blgRJYa3S2M7GuDkOVwbhRWp0f/8dcEhXGI35LaXKv+dQkW7u9jn7IXprawf1XUc
-	/ZzReIAxTNaW7fzu8Um25sidnPCBa/txidKY1+NS7zrPAejHGIYVfl4ZZcYA+YyfkNT96y/w=
-X-Gm-Gg: AZuq6aJsdziE0K2Z2k/31Ukdt02CtmHm7Afq4Zk8WIXhHAAjj5PpfYJ5swaFu2E//Ue
-	S7yI29hjwGYJiTa7LXvpLdecTg2/p7DluzfyZkNsRXDyGQs/PUWN4prfvxBAKeE03O6kR2b2UfD
-	zXwN8VlmQJrLjc5fgEsA9GTeVtkheL20fDMdE0C7B8qIfCWy4b8JcYZvcv+NAY3Dpau/Garpf2Z
-	yqILHRYoSnRum/J1CLCWh4hWHZnacU3VQcnr0DCn1So/GMak42njCNT4MbpiZ1os8cB91NO/lDU
-	HXJ/ddq8U7B+QpDmPnxIaZH2X2uAmoqk9uQr450uvIv8YTmSiQY5L1fUx2aJaFmopf6KygRBgxh
-	v6Nj9S3n3x6s7HuLjgic=
-X-Received: by 2002:a05:7301:9f0c:b0:2b8:2748:1337 with SMTP id 5a478bee46e88-2b83291a20emr1556947eec.7.1770222752733;
-        Wed, 04 Feb 2026 08:32:32 -0800 (PST)
-X-Received: by 2002:a05:7301:9f0c:b0:2b8:2748:1337 with SMTP id 5a478bee46e88-2b83291a20emr1556923eec.7.1770222752116;
-        Wed, 04 Feb 2026 08:32:32 -0800 (PST)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b832fe59fasm1711886eec.34.2026.02.04.08.32.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Feb 2026 08:32:31 -0800 (PST)
-Date: Wed, 4 Feb 2026 10:32:30 -0600
-From: Andrew Jones <andrew.jones@oss.qualcomm.com>
-To: Yaxing Guo <guoyaxing@bosc.ac.cn>
-Cc: tjeznach@rivosinc.com, joro@8bytes.org, will@kernel.org,
-        robin.murphy@arm.com, pjw@kernel.org, palmer@dabbelt.com,
-        aou@eecs.berkeley.edu, alex@ghiti.fr, iommu@lists.linux.dev,
-        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] iommu/riscv: Skip IRQ count check when using MSI
- interrupts
-Message-ID: <2u46b5uue3jbim7u5c5p3oi7pgkq6vv2q7w3bkzvt3iatwredq@35o6g2rbyheb>
-References: <20260130065420.16811-1-guoyaxing@bosc.ac.cn>
+	Wed, 04 Feb 2026 16:35:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 15BD343BDC;
+	Wed,  4 Feb 2026 16:35:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7674FC4CEF7;
+	Wed,  4 Feb 2026 16:35:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770222941;
+	bh=5/OZ1qIQmuwJcm9OYX9ZIjpspcSxqstv+AWTE6uVKoc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=guHG9jw3N8I+xNLsa3f9nQa+Pmm2chRIav6Y51f4z/2JnAkdTEpX16Fbp74Vrsyfq
+	 Np8Ej508J36pKV5jc21t9LWaCvrngApFoEihPykdHOB5+GRDryzPG5TRTewk4V23Sz
+	 Wr1eyMyqWy6ZZ+F5Cg3X12kq4hY2A384zk5sqv9uxI9kYUl62ub6ovbRSafVvtZrfl
+	 6XKUvmI+uG20ar43iJqGmP1+y4MMzYu18Ha5HWbnYJKTCIPh1LgnmAMv/Ck9tJ6Hns
+	 CchYrBzdmIMmlYg8vgJvzobxdWYpN0Q+T4STBKBmXwKXv4BxtnsW0+vvdlw/o6oT0c
+	 XGofgnumfQ/Zw==
+Message-ID: <7e21f06e-6948-465c-b531-100749a76b26@kernel.org>
+Date: Wed, 4 Feb 2026 17:35:33 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260130065420.16811-1-guoyaxing@bosc.ac.cn>
-X-Proofpoint-ORIG-GUID: DtlBOFPyn6ovTZF11RFcJ6ReBOJvVTJ5
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjA0MDEyNiBTYWx0ZWRfX7dQhaBG3heAP
- RJF5zxovsWpWeoollSVGhD/GiA/2/dajyG3Eeo2U2D1RE+GUBHBrQoBrdP11uET1xeJz9Uif804
- /p/cWDKz9OzStl0jKLxBcMT/7cia312uBS615FhaB7SBRlMVIx8Uz7xi3Nv/uLftjRhpvzUQidh
- X/QwzOb0HQ3CXA7EYzTJlPi7P4SBUUKTuysltDrTgeJRLaM6GT6AneU5au3VAGQ/bAKxOrhs7FX
- j6qdhdckNzJlU3Xp0M9FeyetGAeJ9FAnkUALFYQnOSrPn6QlbI71qCR6HDgeAK5QHVnTo2vMIs/
- IqgLxnLzGynuwc+5g/7HPcpcSm1DqBgfEtBta1YRz0Bvn7fstp6zHT5LullGpr+p5HZLLXI2MI1
- 0Glj9VCA4ga3DkaA+56DGHSJFViDJUDWj/lRUkUB9ZxTjIz+pE8MYLOji1DcpAsr74tYgmdZOiB
- 9ZiuqJgaLs77NvaTfsg==
-X-Authority-Analysis: v=2.4 cv=TZmbdBQh c=1 sm=1 tr=0 ts=698374a1 cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
- a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=KTr5YeW84r-woyCYTtQA:9
- a=CjuIK1q_8ugA:10 a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-GUID: DtlBOFPyn6ovTZF11RFcJ6ReBOJvVTJ5
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-04_05,2026-02-04_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 priorityscore=1501 suspectscore=0 lowpriorityscore=0
- bulkscore=0 phishscore=0 clxscore=1015 spamscore=0 adultscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
- definitions=main-2602040126
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCHv6 04/17] mm: Move set/clear_compound_head() next to
+ compound_head()
+To: Kiryl Shutsemau <kas@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
+ Usama Arif <usamaarif642@gmail.com>, Frank van der Linden <fvdl@google.com>
+Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
+ Vlastimil Babka <vbabka@suse.cz>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Zi Yan <ziy@nvidia.com>,
+ Baoquan He <bhe@redhat.com>, Michal Hocko <mhocko@suse.com>,
+ Johannes Weiner <hannes@cmpxchg.org>, Jonathan Corbet <corbet@lwn.net>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, kernel-team@meta.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
+References: <20260202155634.650837-1-kas@kernel.org>
+ <20260202155634.650837-5-kas@kernel.org>
+From: "David Hildenbrand (arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260202155634.650837-5-kas@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_083234_089923_407681CA 
-X-CRM114-Status: GOOD (  26.39  )
+X-CRM114-CacheID: sfid-20260204_083542_601450_D78EA427 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,71 +126,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30, 2026 at 02:54:20PM +0800, Yaxing Guo wrote:
-> In RISC-V IOMMU platform devices that use MSI interrupts (indicated by the
-> presence of 'msi-parent' in the device tree), there are no wired interrupt
-> lines, so calling platform_get_irq_count() returns 0 or -ENXIO, causing the
-> driver to fail during probe.
+On 2/2/26 16:56, Kiryl Shutsemau wrote:
+> Move set_compound_head() and clear_compound_head() to be adjacent to the
+> compound_head() function in page-flags.h.
 > 
-> However, MSI interrupts are allocated dynamically via the MSI subsystem and
-> do not appear in the device tree 'interrupts' property. Therefore, the
-> driver should not require a non-zero IRQ count when 'msi-parent' is present.
+> These functions encode and decode the same compound_info field, so
+> keeping them together makes it easier to verify their logic is
+> consistent, especially when the encoding changes.
 > 
-> This patch fixes the bug where probe fails when using MSI interrupts
->  (which do not have an 'interrupts' property in the device tree)..
-> 
-> Fixes: <d5f88acdd6ff> ("iommu/riscv: Add support for platform msi")
-> 
-> Signed-off-by: Yaxing Guo <guoyaxing@bosc.ac.cn>
+> Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
+> Reviewed-by: Muchun Song <muchun.song@linux.dev>
+> Reviewed-by: Zi Yan <ziy@nvidia.com>
 > ---
->  drivers/iommu/riscv/iommu-platform.c | 14 ++++++++------
->  1 file changed, 8 insertions(+), 6 deletions(-)
+>   include/linux/page-flags.h | 24 ++++++++++++------------
+>   1 file changed, 12 insertions(+), 12 deletions(-)
 > 
-> diff --git a/drivers/iommu/riscv/iommu-platform.c b/drivers/iommu/riscv/iommu-platform.c
-> index 83a28c83f991..8f15b06e8499 100644
-> --- a/drivers/iommu/riscv/iommu-platform.c
-> +++ b/drivers/iommu/riscv/iommu-platform.c
-> @@ -68,12 +68,7 @@ static int riscv_iommu_platform_probe(struct platform_device *pdev)
->  	iommu->caps = riscv_iommu_readq(iommu, RISCV_IOMMU_REG_CAPABILITIES);
->  	iommu->fctl = riscv_iommu_readl(iommu, RISCV_IOMMU_REG_FCTL);
->  
-> -	iommu->irqs_count = platform_irq_count(pdev);
-> -	if (iommu->irqs_count <= 0)
-> -		return dev_err_probe(dev, -ENODEV,
-> -				     "no IRQ resources provided\n");
-> -	if (iommu->irqs_count > RISCV_IOMMU_INTR_COUNT)
-> -		iommu->irqs_count = RISCV_IOMMU_INTR_COUNT;
-> +	iommu->irqs_count = RISCV_IOMMU_INTR_COUNT;
->  
->  	igs = FIELD_GET(RISCV_IOMMU_CAPABILITIES_IGS, iommu->caps);
->  	switch (igs) {
-> @@ -120,6 +115,13 @@ static int riscv_iommu_platform_probe(struct platform_device *pdev)
->  		fallthrough;
->  
->  	case RISCV_IOMMU_CAPABILITIES_IGS_WSI:
-> +		iommu->irqs_count = platform_irq_count(pdev);
-> +		if (iommu->irqs_count <= 0)
-> +			return dev_err_probe(dev, -ENODEV,
-> +					     "no IRQ resources provided\n");
-> +		if (iommu->irqs_count > RISCV_IOMMU_INTR_COUNT)
-> +			iommu->irqs_count = RISCV_IOMMU_INTR_COUNT;
-> +
->  		for (vec = 0; vec < iommu->irqs_count; vec++)
->  			iommu->irqs[vec] = platform_get_irq(pdev, vec);
->  
-> -- 
-> 2.34.1
->
+> diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
+> index aa46d49e82f7..d14a17ffb55b 100644
+> --- a/include/linux/page-flags.h
+> +++ b/include/linux/page-flags.h
+> @@ -290,6 +290,18 @@ static __always_inline unsigned long _compound_head(const struct page *page)
+>   
+>   #define compound_head(page)	((typeof(page))_compound_head(page))
+>   
+> +static __always_inline void set_compound_head(struct page *page,
+> +					      const struct page *head,
+> +					      unsigned int order)
 
-Reviewed-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+^ :)
 
-Thanks,
-drew
+Acked-by: David Hildenbrand (arm) <david@kernel.org>
+
+-- 
+Cheers,
+
+David
 
 _______________________________________________
 linux-riscv mailing list
