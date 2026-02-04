@@ -4,104 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3C23E95376
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 10:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E28BE9538A
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 11:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZvSfffQMa+5Z9pwkHCW9qUesjWi1L2ETFXkA82xZvJQ=; b=Omn5YMM7puwA91
-	iOqgRztuif3tB05G53r+iotsjgokmKvhUlJGxydVaxndzQum3bDQK5tHpQNXWL5xVsFHcu6K+FalM
-	/bSHtGU/YTcsQN6Z1kCgZEHOM/7zKxoW7f7jf6VBo3H1ojZCajxUfERywAr0JlrSWDJYBP9uPcPHg
-	KDM3ZEpJH6ZSXp83Q2UlQ3zOyFt2rPu9MKkt1HXdmhL0VW9FO/msWuOPvoX8HoGUe5B8B3wCxNoeD
-	J1o9A5pedAkoh4433PoMOchpCGbzkG4kKuXPioNv9PNdyV96y9qy48Jh8CHLBCxZKZmgeSkcReajx
-	4Lxcc1FODSdPADnsz/BQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HypuFPGd1ibMP9oMNvRJYmX1av6HkZ0EDi5rB61dAFE=; b=o5lzgo2G+R98JN
+	FKLqJrGYMJjrcgZ9UtuoNKJV2fNB+/oJMBMJYa+CXah9jEaz8cVpTjUvwVYXuxMFPzuipvNlPcmF5
+	zHz7NLs+sz2rd2DU23JZCJ+KpiypJ42BfmGnKvaNQSkEl0c3TR9ADxFaa+Td7R7UtjEdDyJOXD5za
+	jhAap+l57CinDHmeM9JrlMqRBP6G6s0hhTo1H3Oe8e1Ip6GnM5irC3n3h+G/YrIbfZmkZFYaOth/S
+	4U8VNbk461JG1FhBn0jFHkaAoOyAj7+zveAjsx6MVHZm45E0lig9pZz2uKLXs4WDz+RMemBJRSYm0
+	3hpQ6fMt+qOe6ACzPKKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnaOK-00000008Iqn-1XSN;
-	Wed, 04 Feb 2026 10:45:48 +0000
-Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
+	id 1vnbBR-00000008N9l-3oDA;
+	Wed, 04 Feb 2026 11:36:33 +0000
+Received: from relay1.mymailcheap.com ([144.217.248.100])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnaOG-00000008IpY-3PCq
+	id 1vnbBN-00000008N9M-1SOY
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Feb 2026 10:45:46 +0000
-Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-7cfd04f1be8so2836322a34.2
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Feb 2026 02:45:44 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770201943; cv=none;
-        d=google.com; s=arc-20240605;
-        b=kEkahO3vMG0s4x8rkLsLMusO0AXBsyybDM8a9rpMVT+Zy0smpBJBge4+nHC0p9okKC
-         BeTRWHeTLAkODnEwgAJoZ33ZHHVT+C1cAD8gUhjVvbIZe/KVD6J/ZFVRSAIpT1gNlK1k
-         iTO61EZE5upoKp63v7QiCLLYWLEBtcLeOr/LImkavwo0con3aS5DEvSf0iDSFjQT9NwX
-         34MT6XPPrzIQuHEAYmL9Zci8V5mSF8/8aEx9ymsTWo0LyLebCFP2YE3YkZaInEuqTHrT
-         ylRW/EqufGGCBx/E3qMnycPEZPZdg/ipZW+XowtmYMHrccEJRk8RLDOZcquZe/l38FJO
-         DJow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=MxBI3Px7yFYe/I8uXtDTSK/tYhQEb2S2RBT2z3tyr+o=;
-        fh=nlidTO2qDHG85XmT9TupsXP93wF73Ag9oEij3h6myOg=;
-        b=YUTpPXoF4IBvUGhdXJ1KcLLHF09/UiDNQhFnTZ/evFOnn7Fpo4XckD/f4zSijQueDk
-         lSv0vKAiRP1jhJbyKd9i4BdnE2nw7oA/1W+8X3gdnZz6Hc9dlyXpj8jC2nNPh0WwWrZ5
-         ApdhzwH+7TuxGS7s34UwUjWKdLIj0FDnyr0jWMppNXbpQj8lauF09lTL6GlblwXp5uXC
-         gnT4sHKQX28AA+wNGcIi+RaR7n4DyYJUmMRf3O0stfmUyvo1oUr/HdaZH+pI+TZ5oxW4
-         2xJ+FO2x5GIyTTzVtLuCgvuyXTKBeNjOswkumYsZwDuw/nms3yX0vme+jJzm1Nc2aJTp
-         MhqQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1770201943; x=1770806743; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MxBI3Px7yFYe/I8uXtDTSK/tYhQEb2S2RBT2z3tyr+o=;
-        b=y2aUFKB2SxfxUfofizCOYwmIes4bAizW+m2J1ZpNUjWQHLxzoKPEh+FX4NcGJv1QAE
-         3rpInnPpQSENSxG+fV+Wd4r/v7yzSzkCP4mHvRXMNQJff/xD5Hlj5MRVqPElFpRys5k+
-         xS1cX6nYX7VQ1vg3+n+OL39NKmtBk3AZ4EeVJVGqyeIuMlvVEg3WF/fi5oOPMGHFO1c5
-         KrrWSb6oJCEIuEwahGWX4OgTEwh3zIxIyoXC1SI7VgU/Pr48QsF343AOLO4xEvP/Mk7F
-         859eBZ3Su2HTVmxrgEskrRL/x/QYjYyx3ua4D7YlIzaeo4Hxj1hj3lHXrsS1eUVkSMA9
-         5A9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770201943; x=1770806743;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=MxBI3Px7yFYe/I8uXtDTSK/tYhQEb2S2RBT2z3tyr+o=;
-        b=tdte3vinFQprgDMqXTSDTh+Z0JUMliJcOVuGp9ID25it2KZYrourmvopQIML3RyHrX
-         zYUvPDC+ZAFR9qu6P+Ev+b9b1n74Z/hhNOpt1k/5uKx2rIarqZfzgef3ty5SYvhak3bI
-         Ov7jGN31ViJPfbS7iVkWHWGJtRLnbWgPZ3YbBz+PAHjg4jXIC0tl9Lm9B0X7vTPh0/nJ
-         W1kkWjOXbMS4+nl0B5y4AQsq4hL34Dqlij3NEON9FMk9GIWeZ7OKF5pGlwRs9V7o2zsm
-         +bc4ySyqQowJ4S8GrA1AUiD/YoxKPgwIFtf9q+9HQXDQM5oOse+B/InYHt4uDH81xKq3
-         JxHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXl3TEPyL3n5pRm6wk5p5kU+5hkpLFT01Kguznz6Z+PcOh5em50MTJlA/Rfghjp7UZ+U7jIoyIFy+0VUQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJbL/oWjXsZd4EwuFENk5dIymasHQ0R5rMfN0Rb9ZVZGe5movJ
-	cNRN7+BIlAeV9n1SjhpBrJwO3Ets0N986PyKwac+/38PRQ34lQC7LL9n2sE5ryfS+RiCiuCUIUB
-	1/K4iPQwQM9x8Ezd9C4WD/nAbJbCbkmP/QnVjuOTAxQ==
-X-Gm-Gg: AZuq6aJKJMPlP6K/MrLfqpRlrVHUTZ0RcRAWunH0A7j1l8AiiKzP3R8DLXnFEJvvnbW
-	vwu5L7VLdymd6Q01xDO6vVvdCZMU1UQsIZjS+e6l1RCRRuUoKvJT1t7crx7Gs2Yduwey3c7bFd0
-	rbAkleF87H9fl7SzvNuNxqwExgJ1rEF/1b9lnXYb81fYlD7uDsfhOPyMv9yqRptACKENrcGeDFG
-	adiiggD1VBIajxpzim0YeWFWHjs15yiiV60HiyYBmHYy5MPZBw785yNoYAyp5kDrk84PZGrbk9o
-	i+wP+xArSrvxvvjQBNGG9D2fSE7rVYngMrrQx0GljjJmgSt/u5s+LxnMfw==
-X-Received: by 2002:a05:6820:2d08:b0:668:d715:108f with SMTP id
- 006d021491bc7-66a2390a170mr1139399eaf.73.1770201943318; Wed, 04 Feb 2026
- 02:45:43 -0800 (PST)
+	Wed, 04 Feb 2026 11:36:33 +0000
+Received: from nf2.mymailcheap.com (nf2.mymailcheap.com [54.39.180.165])
+	by relay1.mymailcheap.com (Postfix) with ESMTPS id 4A3903E980;
+	Wed,  4 Feb 2026 11:36:23 +0000 (UTC)
+Received: from mail20.mymailcheap.com (mail20.mymailcheap.com [51.83.111.147])
+	by nf2.mymailcheap.com (Postfix) with ESMTPSA id A9536400B6;
+	Wed,  4 Feb 2026 11:36:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=aosc.io; s=default;
+	t=1770204981; bh=58LqpetPvvp7KfRxRprE4DTYph3Dq/zzrccU1r05rww=;
+	h=From:To:Cc:Subject:Date:From;
+	b=hfp6HnSaID1je6wGMMhvx4x+k9OCuxPgggzHdQmrb+woIgr1a9d2THWhgVAoWWPaq
+	 1nKFUme2KhJ5b3ADlpWfva1hQIoR0QGolXOZpeIyBxL9BaN6UcIQTlRIF9nVGyq1V/
+	 YAACK+d9yJwqqGhl8cQ8oEhBgI1XyUVTbQCHe/TU=
+Received: from liushuyu-p15 (unknown [117.151.13.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail20.mymailcheap.com (Postfix) with ESMTPSA id F347641280;
+	Wed,  4 Feb 2026 11:36:09 +0000 (UTC)
+From: Zixing Liu <liushuyu@aosc.io>
+To: WANG Xuerui <kernel@xen0n.name>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Bibo Mao <maobibo@loongson.cn>
+Cc: Kexy Biscuit <kexybiscuit@aosc.io>,
+	Mingcong Bai <jeffbai@aosc.io>,
+	Zixing Liu <liushuyu@aosc.io>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v4] KVM: Add KVM_GET_REG_LIST ioctl for LoongArch
+Date: Wed,  4 Feb 2026 19:36:00 +0800
+Message-ID: <20260204113601.912413-1-liushuyu@aosc.io>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-References: <20260202111728.4067036-1-qingwei.hu@bytedance.com>
-In-Reply-To: <20260202111728.4067036-1-qingwei.hu@bytedance.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 4 Feb 2026 16:15:32 +0530
-X-Gm-Features: AZwV_Qjv3CycWr9Nq6vgpbjHaX6Q3jzdVxmyiQUktF1pv6KohqSpje4QgNfRJcY
-Message-ID: <CAAhSdy3DnWVT1z1C5VvyFQq7mFEf5rD5pt4Eq3WbyRjSLjmAsw@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Skip stopping cycle counter
-To: "qingwei.hu" <qingwei.hu@bytedance.com>
-Cc: atish.patra@linux.dev, will@kernel.org, mark.rutland@arm.com, 
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Rspamd-Queue-Id: A9536400B6
+X-Spamd-Result: default: False [1.40 / 10.00];
+	MID_CONTAINS_FROM(1.00)[];
+	R_MISSING_CHARSET(0.50)[];
+	MIME_GOOD(-0.10)[text/plain];
+	ARC_NA(0.00)[];
+	ASN(0.00)[asn:16276, ipnet:51.83.0.0/16, country:FR];
+	RCVD_COUNT_ONE(0.00)[1];
+	RCPT_COUNT_TWELVE(0.00)[18];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	SPFBL_URIBL_EMAIL_FAIL(0.00)[liushuyu.aosc.io:server fail];
+	URIBL_BLOCKED(0.00)[mail20.mymailcheap.com:rdns,mail20.mymailcheap.com:helo];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	LOCAL_OUTBOUND(0.00)[];
+	RCVD_TLS_ALL(0.00)[]
+X-Rspamd-Action: no action
+X-Rspamd-Server: nf2.mymailcheap.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_024545_106638_0C4F88C9 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20260204_033629_483873_70A22E1F 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,43 +104,160 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBGZWIgMiwgMjAyNiBhdCA0OjQ44oCvUE0gcWluZ3dlaS5odSA8cWluZ3dlaS5odUBi
-eXRlZGFuY2UuY29tPiB3cm90ZToKPgo+IEZyb206IFFpbmd3ZWkgSHUgPHFpbmd3ZWkuaHVAYnl0
-ZWRhbmNlLmNvbT4KPgo+IEluIHRoZSByaXNjdl9wbXVfc2JpIGRyaXZlciwgcG11X3NiaV9zdG9w
-X2FsbCgpIGlzIGludGVuZGVkIHRvIHN0b3AKPiBhbGwgYXZhaWxhYmxlIGNvdW50ZXJzLiBIb3dl
-dmVyLCBjb3VudGVyIDAgKHRoZSBjeWNsZSBjb3VudGVyKSBzaG91bGQKPiBiZSBleGNsdWRlZCBm
-cm9tIHRoaXMgb3BlcmF0aW9uIGJlY2F1c2UgdGhlIGNvdW50ZXIgbWF5IGJlIHVzZWQgaW4KPiB1
-c2VyIG1vZGUgYnkgcmRjeWNsZS4KPgo+IFNpZ25lZC1vZmYtYnk6IFFpbmd3ZWkgSHUgPHFpbmd3
-ZWkuaHVAYnl0ZWRhbmNlLmNvbT4KPiAtLS0KPiAgZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmku
-YyB8IDEwICsrKysrKystLS0KPiAgMSBmaWxlIGNoYW5nZWQsIDcgaW5zZXJ0aW9ucygrKSwgMyBk
-ZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3BlcmYvcmlzY3ZfcG11X3NiaS5j
-IGIvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYwo+IGluZGV4IDdkZDI4MmRhNjdjZS4uMmJj
-MDA1MGRhYmQyIDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvcGVyZi9yaXNjdl9wbXVfc2JpLmMKPiAr
-KysgYi9kcml2ZXJzL3BlcmYvcmlzY3ZfcG11X3NiaS5jCj4gQEAgLTkwMCwxMSArOTAwLDE1IEBA
-IHN0YXRpYyBpbnQgcG11X3NiaV9nZXRfY3RyaW5mbyhpbnQgbmN0ciwgdW5zaWduZWQgbG9uZyAq
-bWFzaykKPiAgc3RhdGljIGlubGluZSB2b2lkIHBtdV9zYmlfc3RvcF9hbGwoc3RydWN0IHJpc2N2
-X3BtdSAqcG11KQo+ICB7Cj4gICAgICAgICAvKgo+IC0gICAgICAgICogTm8gbmVlZCB0byBjaGVj
-ayB0aGUgZXJyb3IgYmVjYXVzZSB3ZSBhcmUgZGlzYWJsaW5nIGFsbCB0aGUgY291bnRlcnMKPiAt
-ICAgICAgICAqIHdoaWNoIG1heSBpbmNsdWRlIGNvdW50ZXJzIHRoYXQgYXJlIG5vdCBlbmFibGVk
-IHlldC4KPiArICAgICAgICAqIE5vIG5lZWQgdG8gY2hlY2sgdGhlIGVycm9yIGJlY2F1c2Ugd2Ug
-YXJlIGRpc2FibGluZyBhbGwgYXZhaWxhYmxlCj4gKyAgICAgICAgKiBjb3VudGVycyAoZXhjZXB0
-IHRoZSBjeWNsZSBjb3VudGVyKSB3aGljaCBtYXkgaW5jbHVkZSBjb3VudGVycwo+ICsgICAgICAg
-ICogdGhhdCBhcmUgbm90IGVuYWJsZWQgeWV0Lgo+ICsgICAgICAgICoKPiArICAgICAgICAqIEN5
-Y2xlIGNvdW50ZXIgaXMgZXhjbHVkZWQgYmVjYXVzZSBpdCBtaWdodCBiZSBhY2Nlc3NlZCBieSB1
-c2VyCj4gKyAgICAgICAgKiBtb2RlIHZpYSByZGN5Y2xlLgo+ICAgICAgICAgICovCj4gICAgICAg
-ICBzYmlfZWNhbGwoU0JJX0VYVF9QTVUsIFNCSV9FWFRfUE1VX0NPVU5URVJfU1RPUCwKPiAtICAg
-ICAgICAgICAgICAgICAwLCBwbXUtPmNtYXNrLCBTQklfUE1VX1NUT1BfRkxBR19SRVNFVCwgMCwg
-MCwgMCk7Cj4gKyAgICAgICAgICAgICAgICAgMCwgcG11LT5jbWFzayAmIH5CSVQoMCksIFNCSV9Q
-TVVfU1RPUF9GTEFHX1JFU0VULCAwLCAwLCAwKTsKCk5BSyB0byB0aGlzIHBhdGNoLgoKRGlzYWJs
-aW5nIGFsbCBjb3VudGVycyAoaW5jbHVkaW5nIGN5Y2xlIGFuZCBpbnN0cmV0IGNvdW50ZXJzKSBp
-cyBpbnRlbnRpb25hbC4KUGxlYXNlIHJlZmVyIHRvIHBhc3QgZGlzY3Vzc2lvbnMuCgpSZWdhcmRz
-LApBbnVwCgo+ICB9Cj4KPiAgc3RhdGljIGlubGluZSB2b2lkIHBtdV9zYmlfc3RvcF9od19jdHJz
-KHN0cnVjdCByaXNjdl9wbXUgKnBtdSkKPiAtLQo+IDIuMzkuNQo+CgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+This ioctl can be used by the userspace applications to determine which
+(special) registers are get/set-able in a meaningful way.
+
+This can be very useful for cross-platform VMMs so that they do not have
+to hardcode register indices for each supported architectures.
+
+Signed-off-by: Zixing Liu <liushuyu@aosc.io>
+---
+ Documentation/virt/kvm/api.rst |  2 +-
+ arch/loongarch/kvm/vcpu.c      | 87 ++++++++++++++++++++++++++++++++++
+ 2 files changed, 88 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 01a3abef8abb..f46dd8be282f 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -3603,7 +3603,7 @@ VCPU matching underlying host.
+ ---------------------
+ 
+ :Capability: basic
+-:Architectures: arm64, mips, riscv, x86 (if KVM_CAP_ONE_REG)
++:Architectures: arm64, loongarch, mips, riscv, x86 (if KVM_CAP_ONE_REG)
+ :Type: vcpu ioctl
+ :Parameters: struct kvm_reg_list (in/out)
+ :Returns: 0 on success; -1 on error
+diff --git a/arch/loongarch/kvm/vcpu.c b/arch/loongarch/kvm/vcpu.c
+index 656b954c1134..bd855ee20ee2 100644
+--- a/arch/loongarch/kvm/vcpu.c
++++ b/arch/loongarch/kvm/vcpu.c
+@@ -3,6 +3,7 @@
+  * Copyright (C) 2020-2023 Loongson Technology Corporation Limited
+  */
+ 
++#include "asm/kvm_host.h"
+ #include <linux/kvm_host.h>
+ #include <asm/fpu.h>
+ #include <asm/lbt.h>
+@@ -14,6 +15,8 @@
+ #define CREATE_TRACE_POINTS
+ #include "trace.h"
+ 
++#define NUM_LBT_REGS 6
++
+ const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	STATS_DESC_COUNTER(VCPU, int_exits),
+@@ -1186,6 +1189,72 @@ static int kvm_loongarch_vcpu_set_attr(struct kvm_vcpu *vcpu,
+ 	return ret;
+ }
+ 
++static int kvm_loongarch_walk_csrs(struct kvm_vcpu *vcpu, u64 __user *uindices)
++{
++	unsigned int i, count;
++
++	for (i = 0, count = 0; i < CSR_MAX_NUMS; i++) {
++		if (!(get_gcsr_flag(i) & (SW_GCSR | HW_GCSR)))
++			continue;
++		if (i >= LOONGARCH_CSR_PERFCTRL0 && i <= LOONGARCH_CSR_PERFCNTR3) {
++			/* Skip PMU CSRs if not supported by the guest */
++			if (!kvm_guest_has_pmu(&vcpu->arch))
++				continue;
++		}
++		const u64 reg = KVM_IOC_CSRID(i);
++		if (uindices && put_user(reg, uindices++))
++			return -EFAULT;
++		count++;
++	}
++
++	return count;
++}
++
++static unsigned long kvm_loongarch_num_regs(struct kvm_vcpu *vcpu)
++{
++	/* +1 for the KVM_REG_LOONGARCH_COUNTER register */
++	unsigned long res =
++		kvm_loongarch_walk_csrs(vcpu, NULL) + KVM_MAX_CPUCFG_REGS + 1;
++
++	if (kvm_guest_has_lbt(&vcpu->arch))
++		res += NUM_LBT_REGS;
++
++	return res;
++}
++
++static int kvm_loongarch_copy_reg_indices(struct kvm_vcpu *vcpu,
++					  u64 __user *uindices)
++{
++	u64 reg;
++	unsigned int i;
++
++	i = kvm_loongarch_walk_csrs(vcpu, uindices);
++	if (i < 0)
++		return i;
++	uindices += i;
++
++	for (i = 0; i < KVM_MAX_CPUCFG_REGS; i++) {
++		reg = KVM_IOC_CPUCFG(i);
++		if (put_user(reg, uindices++))
++			return -EFAULT;
++	}
++
++	reg = KVM_REG_LOONGARCH_COUNTER;
++	if (put_user(reg, uindices++))
++		return -EFAULT;
++
++	if (!kvm_guest_has_lbt(&vcpu->arch))
++		return 0;
++
++	for (i = 1; i <= NUM_LBT_REGS; i++) {
++		reg = (KVM_REG_LOONGARCH_LBT | KVM_REG_SIZE_U64 | i);
++		if (put_user(reg, uindices++))
++			return -EFAULT;
++	}
++
++	return 0;
++}
++
+ long kvm_arch_vcpu_ioctl(struct file *filp,
+ 			 unsigned int ioctl, unsigned long arg)
+ {
+@@ -1251,6 +1320,24 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
+ 		r = kvm_loongarch_vcpu_set_attr(vcpu, &attr);
+ 		break;
+ 	}
++	case KVM_GET_REG_LIST: {
++		struct kvm_reg_list __user *user_list = argp;
++		struct kvm_reg_list reg_list;
++		unsigned n;
++
++		r = -EFAULT;
++		if (copy_from_user(&reg_list, user_list, sizeof(reg_list)))
++			break;
++		n = reg_list.n;
++		reg_list.n = kvm_loongarch_num_regs(vcpu);
++		if (copy_to_user(user_list, &reg_list, sizeof(reg_list)))
++			break;
++		r = -E2BIG;
++		if (n < reg_list.n)
++			break;
++		r = kvm_loongarch_copy_reg_indices(vcpu, user_list->reg);
++		break;
++	}
+ 	default:
+ 		r = -ENOIOCTLCMD;
+ 		break;
+-- 
+2.53.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
