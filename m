@@ -4,55 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF60E83EF9
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 09:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18FDBE83EF9
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 09:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=khOaXV7U1pk4E5yuquHaaAHmM+eVHZMYotsfpMr9n2Y=; b=yRMjdha52lrLn7
-	Qyw1Yeb4WWjvLzU0AYqN0yRBSTX0yBWbpmnJxP6QsxNEkVNWE+dgMGYfZdHUKe4+XwDEq8Pq93z3a
-	pd+68dLVwCxOs6DtJ5cwqAVIqF2ByaBlmwve/0e08QyikaVLEOKQUf4h3ux+tkF9LkNZdrzXur/Pn
-	ybrDtgWYFmh53VzhTN7NC07ETGElLI5oGomIUNzYWY+QTMbvBPOsxG8oJ9ERCav7f5gniz00S8JmI
-	+kAp6Vw3vidPy9V5zHgl5EQT5ZCzvcVmfeXrnBJ/5m1pF1kVd8mbyG/EuubkzQv1Rpfd3cwvgSBr/
-	ehCsOtpLkWXNcpLa9cIQ==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z/P7VU7jNR6ls/iZ+4S7Ocx7d2xUc6gFgb+3JQSxqcQ=; b=bCOvCnlac5EORZh4anGFRJLuUO
+	PE7H8gxFoybvEiMYgWn1bsgZphshlL7rbuf1xdZIcytiYJZdw4UHiSSFOIl2DDaGJD3ukO+5bg0Go
+	8QEaBt8eu3Y41R1BMzKxncu3ms3iNrLT0EoKk+8ExzxXPN2vY3LZVRi8El9RsfHVZ8LO/dotUNOei
+	DEKGxKoCqiCNldGERtTRFojvhfF9+nUrRvyLQ4gsgsZL5xXhmaTkatVW6bRbceVoXvaXu3bwbCG4n
+	V77XzkRkohGVfU3dYNHjxINdSdrJHSUKQSzzzLLh29SldGUfv1j5M9clG8yvN79n96EqHURY25aMp
+	H23xtx2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnZ14-00000008CAh-10ew;
-	Wed, 04 Feb 2026 09:17:42 +0000
-Received: from out-179.mta0.migadu.com ([91.218.175.179])
+	id 1vnZ1b-00000008CFO-2S97;
+	Wed, 04 Feb 2026 09:18:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnZ11-00000008C9e-3eJB
+	id 1vnZ1Y-00000008CEO-44Mm
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Feb 2026 09:17:41 +0000
-Message-ID: <aab19ab9-0946-4477-8ca2-bc93621a54a0@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1770196650;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4IM64raMxarRH21Rk3+wQo3JPtTbDyko4g9ZllcP0l4=;
-	b=cQ1myd0Je2JXYaEJUEmGa3aP13WgndYrjdtGgnsuEw9PBYGbegG2HOz3JB+OeS9YforUNa
-	/BfqNOHRZXXZV8XbQQJcBz2tOfNeZpHG/L6E13oPGE2P2fRlfYpIocrp2g0doyVp636mSP
-	8kAmvv2aRav2U86omWAUbftKt+EsBuY=
-Date: Wed, 4 Feb 2026 01:17:25 -0800
+	Wed, 04 Feb 2026 09:18:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1522543D4D;
+	Wed,  4 Feb 2026 09:18:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68986C4CEF7;
+	Wed,  4 Feb 2026 09:18:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770196690;
+	bh=P7VVEj/kLKZsCTZNYZCLsTQXk/QsOpa5tXm+pUPfS2Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BvsZkZO9i1X4RmX9IPdfJ9CVV3Maf+wiFIbDIV6TgxTvWvlV15dyPg9p8RyasquYQ
+	 tjV/8plk39JIiBN9hJCPmneVZNjzu68bk/BRAgN9SPDJWJ9b+hns2QuL42v/Orguid
+	 IknUvK/KpqQIqBcF3oJwteG2sDsuC+mFlCVUtpan/eI03oo/LN7EneOH1JLejpub2r
+	 0TGqdeLh7EJU3F3KYkPmyVFLzlF5dZo7y5j5HT+nNUrP08TaOFPpWF5eFrdnIvs+ZC
+	 U/G3Xk8EuoltbuCdape+1kvy+j1k0BZeiTfIpCtgOxZrI4cHqr2FuaSvsJby/iHzC2
+	 cm4/ArpITD9nw==
+Date: Wed, 4 Feb 2026 10:18:08 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Cc: Gary Guo <gary@garyguo.net>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Alice Ryhl <aliceryhl@google.com>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Fu Wei <wefu@redhat.com>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, =?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Trevor Gross <tmgross@umich.edu>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, 
+	linux-clk@vger.kernel.org, rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
+Message-ID: <20260204-cunning-strange-bittern-2bb569@houat>
+References: <20260119-thundering-tested-robin-4be817@houat>
+ <aW4lCfUyumOKRRJm@google.com>
+ <20260203113902.501e5803@fedora>
+ <E7286D12-0BD9-4726-B072-FE5A040312B1@collabora.com>
+ <20260203150855.77c93e22@fedora>
+ <4DD13AE1-C85F-450F-93F2-C7C75766E518@collabora.com>
+ <DG5HJPIYMS7B.152WPGG9MZZJ5@garyguo.net>
+ <B94452FD-5F6F-44D4-80D8-4D4B7004C4B5@collabora.com>
+ <DG5M5MVHTNS4.1CUD61S0PD9NU@garyguo.net>
+ <20260204091104.0a9c4a13@fedora>
 MIME-Version: 1.0
-Subject: Re: [PATCH] drivers/perf: riscv: Keep the fixed counter counting
-To: cp0613@linux.alibaba.com, anup@brainfault.org, alex@ghiti.fr,
- pjw@kernel.org, guoren@kernel.org
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260131112440.2915-1-cp0613@linux.alibaba.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <20260131112440.2915-1-cp0613@linux.alibaba.com>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <20260204091104.0a9c4a13@fedora>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_011740_088508_1BD42310 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20260204_011813_050498_E05B6CA3 
+X-CRM114-Status: GOOD (  34.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,60 +86,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============0904429639665533797=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 1/31/26 3:24 AM, cp0613@linux.alibaba.com wrote:
-> From: Chen Pei <cp0613@linux.alibaba.com>
->
-> The RISC-V SBI PMU driver disables all PMU counters during initialization
-> via pmu_sbi_stop_all. For fixed counters CYCLE, TIME and INSTRET, this is
-> unnecessary for the following two reasons:
->
-> 1. Some kernel driver code may directly read CYCLE and INSTRET to perform
->     simple performance analysis.
+--===============0904429639665533797==
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="o6nwitrag23dn734"
+Content-Disposition: inline
 
-Is this for some debugging purpose to read the instret/cycle count at 
-boot time or real use case for driver performance analysis ?
 
-If it is the latter, that will be problematic for various reasons such 
-as context switching will lead to inaccurate numbers.
+--o6nwitrag23dn734
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
+MIME-Version: 1.0
 
-> 2. In legacy mode, user space directly reads CYCLE and INSTRET. (echo 2 >
->     /proc/sys/kernel/perf_user_access)
->
-> Therefore, We keep counting CYCLE, TIME and INSTRET.
->
-> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
-> ---
->   drivers/perf/riscv_pmu_sbi.c | 3 +++
->   1 file changed, 3 insertions(+)
->
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index 7dd282da67ce..93aaab324443 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -899,6 +899,9 @@ static int pmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
->   
->   static inline void pmu_sbi_stop_all(struct riscv_pmu *pmu)
->   {
-> +	/* We keep counting CYCLE, TIME and INSTRET. */
-> +	pmu->cmask &= ~0x7;
-> +
+On Wed, Feb 04, 2026 at 09:11:04AM +0100, Boris Brezillon wrote:
+> Hi Gary, Daniel,
+>=20
+> On Tue, 03 Feb 2026 20:36:30 +0000
+> "Gary Guo" <gary@garyguo.net> wrote:
+>=20
+> > On Tue Feb 3, 2026 at 7:26 PM GMT, Daniel Almeida wrote:
+> > > =20
+> > >>=20
+> > >> I think it's fine to have all of these:
+> > >> * `Clone` impl
+> > >> * `enable` which consumes `Clk<Prepared>` by value and spit out `Clk=
+<Enabled>`
+> > >> * `with_enabled` that gives `&Clk<Enabled>`
+> > >>=20
+> > >> This way, if you only want to enable in short time, you can do `with=
+_enabled`.
+> > >> If the closure callback wants to keep clock enabled for longer, it c=
+an just do
+> > >> `.clone()` inside the closure and obtain an owned `Clk<Enabled>`.
+> > >>=20
+> > >> If the user just have a reference and want to enable the callback th=
+ey can do
+> > >> `prepared_clk.clone().enable()` which gives an owned `Clk<Enabled>`.=
+ Thoughts?
+> > >>=20
+> > >> Best,
+> > >> Gary =20
+> > >
+> > >
+> > > I=E2=80=99m ok with what you proposed above. The only problem is that=
+ implementing
+> > > clone() is done through an Arc<*mut bindings::clk>  in Boris=E2=80=99=
+ current
+> > > design, so this requires an extra allocation. =20
+> >=20
+> > Hmm, that's a very good point. `struct clk` is already a reference into
+> > clk_core, so having to put another level of indirection over is not ide=
+al.
+> > However, if we're going to keep C code unchanged and do a zero-cost abs=
+traction
+> > on the Rust side, then we won't be able to have have multiple prepare/e=
+nable to
+> > the same `struct clk` with the current design.
+> >=20
+> > It feels like we can to do a trade-off and choose from:
+> > 1. Not be able to have multiple prepare/enable calls on the same `clk` =
+(this can
+> >    limit users that need dynamically enable/disable clocks, with the ve=
+ry limited
+> >    exception that closure-callback is fine).
+> > 2. Do an extra allocation
+> > 3. Put lifetime on types that represent a prepared/enabled `Clk`
+> > 4. Change C to make `struct clk` refcounted.
+>=20
+> It probably comes to no surprise that I'd be more in favor of option 2
+> or 4. Maybe option 2 first, so we can get the user-facing API merged
+> without too much churn, and then we can see if the clk maintainers are
+> happy adding a refcnt to struct clk to optimize things.
+>=20
+> If we really feel that the indirection/memory overhead is going to
+> hurt us, we can also start with option 1, and extend it to 2 and/or 4
+> (needed to add a Clone support) when it becomes evident we can't do
+> without it. But as I was saying in my previous reply to Daniel, I
+> expect the extra indirection/memory overhead to be negligible since:
+>=20
+> 1. clks are usually not {prepared,enabled}/{disabled,unprepared} in a
+>    hot path
+> 2. in the rare occasions where they might be ({dev,cpu}freq ?), this
+>    clk state change is usually one operation in an ocean of other
+>    slower operations (regulator reconfiguration, for instance, which
+>    usually goes over a slow I2C bus, or a
+>    relatively-faster-but-still-slow SPI one, at least when we compare
+>    it to an IoMem access for in-SoCs clks). So overall, the clk state
+>    change might account for a very small portion of the CPU cycles
+>    spent in this bigger operation
 
-This is incorrect. The cmask should be set based on the perf_user_access 
-value. We should not continue counting the CYCLE/INSTRET when legacy 
-mode is not set. if (sysctl_perf_user_access == SYSCTL_LEGACY) 
-csr_write(CSR_SCOUNTEREN, 0x7); else csr_write(CSR_SCOUNTEREN, 0x2);
+I'm not even too worried about that one. devfreq and cpufreq will
+typically adjust the clock rate while device is active, and thus the
+clock is enabled. So we shouldn't have a prepared -> enabled transition
+in the path that adjust the device / cpu rate, it would have happened
+before.
 
->   	/*
->   	 * No need to check the error because we are disabling all the counters
->   	 * which may include counters that are not enabled yet.
+Maxime
+
+--o6nwitrag23dn734
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaYMOzwAKCRAnX84Zoj2+
+doB8AYCfx9IZOlLCZ2nw2gkPQkwwMDlcj5etfelzJqKGoQ1Blw8+W8r6ng1eq07z
+cLHVaE0BgJrwYQAoxvhIjBTgEYBe2ph4BRLtr784a1qlhn5ISI7HvPvTlIAIQY6Z
+X2wiFMonHg==
+=OqKD
+-----END PGP SIGNATURE-----
+
+--o6nwitrag23dn734--
+
+
+--===============0904429639665533797==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0904429639665533797==--
+
