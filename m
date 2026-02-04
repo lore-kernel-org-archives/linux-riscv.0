@@ -4,80 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52727E8B396
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 03:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A859E8B396
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 03:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2wwbhxfNWYbsyRF9RH5Bzs5lNwdPk5Ad9sVC4mRTWVQ=; b=PfHwToOtecc+hI
-	GL6fpjCoQ4XoX4FlQ2KQ+5R/JgoUeDmO/4CNh4toNqmQZD2LRR2+gLZVKIFqvo81XxqhCbbinnvnA
-	6DSEhQBj8mX/THcM3pELF42nb69fjM6+LqRDbfImLjjD5+KJZo1lXi+jeknX0eIhPt5pyc98vQHqk
-	T7rrg1NLUGpmNSHnjLU8od9usF4DEkcQ6voh4WelIslMs9EhkDrQimf51MX9uwJCa/0XgyMwNq2g3
-	etkO1TCRFE/Km6X8Y1A1bMlb/5QR3+ETZwh0S/Q1VNgi5yJ2scOER2r7lKaVyufb1QPvrH1tl9s5c
-	w8zW54jmymh9L9/+EidQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=F3qVN9OkEasxv7rtt11W5FaOYCkhPGIoviUYCu1vE2Q=; b=wIpyiNg8EYNYkn
+	dUwimbqRohgHxANTpDOeUytD0eZDnAqp5LmEgx8fEBE2qE96aRxStup2kxs2sSpAO2On8hJWGOBvs
+	VJ0fcoowyOtX301+Xg7UVsNeLHWIdkh9/Dx2eCBvwMY9ssvgo2CBLaGiz5ZQQVdT/KZNgosP5PhEb
+	SvDtMlYVeQ7R2tRixzcjDaOKh+xs1Nx6X39RXbjhoDPHO5KRSdiBzkKMbwz3HztWoJ/3bUuOKSY5M
+	anhwr/KTw1r0ku/Xokp+uLW1pZTH1fByhydgJrjNkLgsYicqi1PAKG1/+ksvBG1C+1ewI28xLaekQ
+	7EuaxkBTN0/gw/cS8Dgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnTmo-00000007qhl-3V7r;
-	Wed, 04 Feb 2026 03:42:38 +0000
-Received: from out-177.mta1.migadu.com ([95.215.58.177])
+	id 1vnTva-00000007rJQ-0ZCZ;
+	Wed, 04 Feb 2026 03:51:42 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnTml-00000007qLg-43F3
+	id 1vnTvY-00000007rJ0-0pEX
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Feb 2026 03:42:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1770176430;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Onih74rKhXQNkfzkcTR+Zq0Kg1PNfu8onD0zt1Z+qOs=;
-	b=usqKfjbjQqGhGMX7b2myIEJwHkIgCA2hiWToeEcUL8WqIF6QvZMpKyiHrZTCEotjc/XuU5
-	hrDYwyyf/mkZYKRDIdwxGzjQqypNpRQ2ezxi2dWRzE5gQ301xxUaeKxtXnz1t8CvaMPyEY
-	CPkmIkZoqEon51/SAo3Y3y1+pjFyNM0=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
-Subject: Re: [PATCHv6 17/17] mm/slab: Use compound_head() in page_slab()
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <20260202155634.650837-18-kas@kernel.org>
-Date: Wed, 4 Feb 2026 11:39:42 +0800
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>,
- Matthew Wilcox <willy@infradead.org>,
- Usama Arif <usamaarif642@gmail.com>,
- Frank van der Linden <fvdl@google.com>,
- Oscar Salvador <osalvador@suse.de>,
- Mike Rapoport <rppt@kernel.org>,
- Vlastimil Babka <vbabka@suse.cz>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Zi Yan <ziy@nvidia.com>,
- Baoquan He <bhe@redhat.com>,
- Michal Hocko <mhocko@suse.com>,
- Johannes Weiner <hannes@cmpxchg.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>,
- kernel-team@meta.com,
- linux-mm@kvack.org,
- linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org,
- loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org
-Message-Id: <69CF3AD0-F761-48FE-A7A9-20061ADA1A5C@linux.dev>
-References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-18-kas@kernel.org>
-To: Kiryl Shutsemau <kas@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+	Wed, 04 Feb 2026 03:51:41 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-88a35a00506so112418246d6.2
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Feb 2026 19:51:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770177097; x=1770781897; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=kCf4lzrMziBndOsmo8GuusOdBN8cx0cDMD3sdQZPXW0=;
+        b=AW+H5b2QbMj9UAaYNqLRHVUn814H+FtZkcMUTyv+abl7Tk91mEHb8PaTIvEviAsnpL
+         m503fs+W8/fUwgeaJxX8CrURvitVbCzEuUE5gIBCpDbPtr/mpcub5C30HMJ8eUaVYQRe
+         Zt3a3uin1Mn8mzPkFWBf9QcwYrOjOHHGtM1Pfuwi4wLGWK6OiOdnaq/fZAmCS+GjN5WP
+         sWKcuoTtlUwtOeWegcjpjnG7a83XEVM32NMuPhDM/W6wWHIxYHGbyXZPBR5Kol5+H1BQ
+         wUKAh3NKd1UeiF1Xkws9C0e4+LV1XDTyfqpPhWdnAD31E08cMs5CKj1eHTR2tC2IAev+
+         QlfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770177097; x=1770781897;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kCf4lzrMziBndOsmo8GuusOdBN8cx0cDMD3sdQZPXW0=;
+        b=ulcKQRrsrzHWBdNfGqfXUSgiL1iM16i/sW4yUusQ/+/+aduS+RQhC+XkLQYl3I4dVz
+         SU4G7kTnLjOxg1dcjPvTbANFHRxH1PczJ/BMwloOLWJwPsvlBEI/3MDv3sio4JstqXO1
+         Pu1PzNs35JJp1CBUumdYytC1HfGA/3s+QFREBV1Rap1KBGeK2Ezc6zsTKbww+R6TAEx6
+         H061yB0nWGrdJaWbkjODc2X3Zdd1BTSHlqa5QVU2oO4t4tjpcfshHPhHgAGwP/dX8dRW
+         4ZswDMJmUcqj1kosqK4U8NSjxZti1WCE/RSeBnzUN15J/d7XzhM3VMDsn5sUe4QVAook
+         ESmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUQHVsVtFSrwBj7spgNbByg4FIGdYm3t1LRUa4UpIpdJs4+IA56k07GHwVyxBrQfaA0eiFJvgSjhBUWjg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHzNPbCnBZyLdNLNgneLsGIhZHBNx+Zd1ddt74doJN3ASIGzR+
+	UcyNqVKzHKN/6TwcI7vJdM3KivCT9vUDkEieKQ5KJgCtlmdCdeYiGVMp
+X-Gm-Gg: AZuq6aKA62vH+dX6TFQXMM1Y/KYmeDHiBGBN1CGhvNVTLSlXwDiSGAl36tcJ5TqwFcJ
+	DlPjR1kAvKybUr+Feqd7+R8ptEwuZszl/Wzq9sYzbCwzpdfDwCimL1dySTEnTwLlVzP3R1LbEFU
+	kLmiVJI411h+kcRMHbsUUV9iccrL8gf32M4bmgUfM3pZKvebUWndrV+zFYI6mUfcSLi90C35V+X
+	PuWuFyfAvz0bV1Jq7VZ+9TkiWShBvMVJ1DqZF7j9OC1Eel2mVhIn1iIDrYUm7UYcQVlUft0np2H
+	eKvycZO68YgTIJ9JzWANLHFWuc8wQxe9XxuwMcPd+IahU8D33eBiC6fr0AnztS2TXrMQjDB5w0a
+	QTujiwcrdsem1M8bWcwsHAc43TNG/QVQqLlGrY5Lqa+XzPaaeWhkg94911PSMk8LApW4OEVQlw9
+	o8lPPS48OwjQ==
+X-Received: by 2002:a05:7301:7003:b0:2b7:32fe:4bbb with SMTP id 5a478bee46e88-2b832895197mr603971eec.11.1770171121283;
+        Tue, 03 Feb 2026 18:12:01 -0800 (PST)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b832fafc2fsm746589eec.24.2026.02.03.18.12.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Feb 2026 18:12:00 -0800 (PST)
+Date: Wed, 4 Feb 2026 10:11:36 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Yanteng Si <siyanteng@cqsoftware.com.cn>, 
+	Yao Zi <ziyao@disroot.org>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Shangjuan Wei <weishangjuan@eswincomputing.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Chen-Yu Tsai <wens@kernel.org>, Zhi Li <lizhi2@eswincomputing.com>, 
+	Boon Khai Ng <boon.khai.ng@altera.com>, Quentin Schulz <quentin.schulz@cherry.de>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v4 1/3] dt-bindings: net: Add support for
+ Spacemit K3 dwmac
+Message-ID: <aYKqh7SmoHO83Avr@inochi.infowork>
+References: <20260130022705.1059214-1-inochiama@gmail.com>
+ <20260130022705.1059214-2-inochiama@gmail.com>
+ <aYIyuulFADU_j3V0@shell.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <aYIyuulFADU_j3V0@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_194236_154850_E39DEB54 
-X-CRM114-Status: UNSURE (   6.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260203_195140_246076_03C9EB62 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,18 +116,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-> On Feb 2, 2026, at 23:56, Kiryl Shutsemau <kas@kernel.org> wrote:
+On Tue, Feb 03, 2026 at 05:39:06PM +0000, Russell King (Oracle) wrote:
+> On Fri, Jan 30, 2026 at 10:27:02AM +0800, Inochi Amaoto wrote:
+> > +  clocks:
+> > +    items:
+> > +      - description: GMAC main clock
 > 
-> page_slab() contained an open-coded implementation of compound_head().
+> If you know what this is in terms of dwmac databook clock terms, it
+> would be helpful to use it here. I suspect "application clock" would
+> probably summarise it, that being the clock for the bus interfaces
+> that dwmac provides to the host.
 > 
-> Replace the duplicated code with a direct call to compound_head().
-> 
-> Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
+> -- 
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
-Acked-by: Muchun Song <muchun.song@linux.dev>
+That's a good point, In fact, I have no dwmac databook now. So if you
+think it is fine, I will change this description to the "application
+clock". Thanks.
 
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
