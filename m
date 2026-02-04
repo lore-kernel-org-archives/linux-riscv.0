@@ -4,92 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E81E9539B
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 13:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA3E0E9539B
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 13:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:Subject:Mime-Version:From:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BUlYMFZIyaXgET0l8tUQPnPw5l9+62aoJsv7yorKQA4=; b=mcG2qfxSAmiC/q
-	l51msOMqYW+6mlkY4HKxHTWZJNkMddW3JbdiEci+jIPg7m8RPp15kx7/ErTn6Lce1aFs8juySvkkw
-	UGQ20HxlNypo24Kke+j9yVqTq/M1T0BpIDqxmv043g4FoSlU2Re5o611yHW+BwDR7TwWFhXXPRmo1
-	NRcUeThkubOqir+yccx6+2cFJxl9O3Ax9UtkRbtJiCwEwG3Tz3pK1NAHanyXZwhNI/WbQ+rLzSQn1
-	XtTgrHZ/K1GxaJ6ORZL9/HWvKlqEGrYnpdPtKF1auG2a8CqIcz9CQDe0QG7tUiWNkXGXet839QV6T
-	Qc8WUQwUsfkIfUJC03ww==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xN0OpoFkO1UJ2PEp9sz/aMPIRSoamuJo5fYlOdWRVbI=; b=3L30P1+8uD1EiW
+	J2AsfthA2GMCsOHHcdZiqfwGNptVLRYvG7YnI3EUAS6Q5cpy2o8vN1Mv2rTHgx3jjr0DjMCVC50BD
+	xK7dv3BHFjC0HopW5qhLDlDP28KYjZzgclrPI4OL9DKCH/OjrdjhrXfJlvC2pk85hZKWSySddKibh
+	zNMCFuLZbbwAHmfkYRlFTNHtGlZQ2jt9SMfJNWg5+jVsM/+YhaDIgN5tYVGAyV4PNMSB9FhMhz9Ok
+	v9Zj91G2qjticJCFu7OVujecHHBLEjXSzEZSKHoZO1DDJWcHgiwoAG9OnZbirwjc7mhh+54aC9gUz
+	Ro59DcnRvGF3qAZgnfeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnchy-00000008U24-15vE;
-	Wed, 04 Feb 2026 13:14:14 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1vncqh-00000008Uyf-0sza;
+	Wed, 04 Feb 2026 13:23:15 +0000
+Received: from mail-dy1-x1329.google.com ([2607:f8b0:4864:20::1329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnchu-00000008U1R-2Jhj
+	id 1vncqe-00000008UyJ-3A2s
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Feb 2026 13:14:12 +0000
-Received: by mail-pg1-x542.google.com with SMTP id 41be03b00d2f7-c6c45a843f7so237614a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Feb 2026 05:14:10 -0800 (PST)
+	Wed, 04 Feb 2026 13:23:14 +0000
+Received: by mail-dy1-x1329.google.com with SMTP id 5a478bee46e88-2b7381d2d95so472989eec.0
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Feb 2026 05:23:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770210849; x=1770815649; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:subject:mime-version:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NAG3m8IBpqTTnP8iKv9QMXvVwIBkXqd4q0Hh3xxvt0E=;
-        b=FgUoCUwNlx0K0tS2awLXHR5n6FkzcXDExsK1bnKvtMKaR0Kl950zz9zoGFXnr/nz2P
-         zhy4/5/dfztfy3RWCYHGdsZe5bir3RpW+lUuu+XhgFgVTzfOoU6r3+WlazTwTkrxnJNb
-         7Jcs4OoTaR1mqIdHM8EolHzlhVS4UI6MFmJBozWPeaYLt3lHA4K58xknavWqA+Jfupx8
-         /iQ6DF5yryAuTY9sDTApNciObvn/+IXRlTWlEO/35SgTU5T/PyN7e/cZinBwYvPljBOs
-         A26TGGTEAzF9OgXG3Tor0OZ+zQ58LXUXok0vrlKTpbP/4S+Y6A+W4FYGXS8rqLHH3Qxy
-         3d8A==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1770211392; x=1770816192; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kIfSdKgtKPIDZe3e+f9p01Ulu42xE4j1piPC/F3kvqE=;
+        b=pFPNWAfVmklhPugT3QvcEh7CuDLha1Qx9VC+xqNRD4HqBEm0O3fOpIVWLUZYOV+rdX
+         8mDgx9JTIYd2VSIsVdjwg1L+DXsUex6V088ELGq8w0C4DkkyrK3z0/6rMMbsooQgXfWi
+         K5H8kaLegMdIG58mxMRjdUEng+no+6v45Fdzp7tbwXcDZC+otifwVWkb3KWDDd1xeerM
+         orUTbfknOSVLPMc65ywbJ0cEAnFGTkNor2HYPIKxYoeiG41dhAlqiv/lw5dilb9kjyq2
+         DMaqe8kzc+yA18aSlkSVpSQgpStyMl6p1zqBB3eRoATUQMEX4ANFpGWS6qCzxYKIc2kT
+         g4hg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770210849; x=1770815649;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:subject:mime-version:from:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=NAG3m8IBpqTTnP8iKv9QMXvVwIBkXqd4q0Hh3xxvt0E=;
-        b=wli9/QMR1GZ9f1xkZWJa/UFtQbJeY011zPuNgx7XQBBx13SzRIS4XmAnf0FAlguZh5
-         EHbX5QVSHwwTMh4KHnpiX1qtbHg63JxyKusGD6g04tZIvA45FL4bHm1oRWnLSk8KvkIU
-         Byn07rD1mLXFuZ4Y6aaTFD0N+jX3ZBeFJkFt+hexXfCwFXsvV717SlpDBj4GrfcILMtG
-         sB5O+rI7BvSE8KiHn323SQTSUjqsp26C/IQycH5Dyjhg1QTycS+bdLhoUrzgs6XKOpfG
-         HO44AabLAPsg1Ro7jqfNsbq8Lv9lyXoBE0aHBYoPnMQsZQzvgMXWIbV2+/wj9EK/m6sr
-         ASaw==
-X-Forwarded-Encrypted: i=1; AJvYcCU//8DWwx3vMCU/rEp9J4i8jpc7bGonk9FFi081lpJ293+r2YY0jRnByzFdOaq6ag4Vzic/Fp3GUl3O+A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQxWxWGRkkQjZFusyI9yqWsQdrHMTfxIYAFGicTGvRY3+Mrls1
-	z1cSqiF4yfGkNdu+35fXVBaRQFU7YhWpDJK463gNgkxuHwcj9oseX4d3
-X-Gm-Gg: AZuq6aJ1aQzgKUX+InPhSIQJou6aFMZB93vmDjORp3xEsBDJ5iDDs16XQ1TnoGbgTh4
-	GPiBf1kYG13pJ9npgbba43iZ2TW58clWFIQLNzbEYjulBclXG8Df2IXLlg95eCjnQjstAtepumR
-	qXJmIu09fh9yrAxfiZfobaIxMphtHkF5f4gGHt/mnSQ55eqioOpO3Sy9dEJ7YIjAnv5WH7//jj+
-	4FIg1iEroZAhVXf7BnQnRb6KeG6epLyU1XwSyIg2YpfkWXOE/6RsF4eyUprdc6aiHHm0mbKAyrh
-	OfSSAoLAWdSd3Nklb7eGMooXgr6BO39f3jZ2B80a79rL1if521NXGDJensoiZL4RTt4c3PAWbPb
-	i2s0SeIYQQcX83OTsJmKOx3mxprOSMYvej0d9NM1KqhpmT3YC3aEoMkO5X/hZTBaUc/9O9Vrpmn
-	8iWI9E5SIYmzLrou6Yxk3LBgKfm+gDjtE=
-X-Received: by 2002:a05:6a21:4910:b0:371:53a7:a4aa with SMTP id adf61e73a8af0-393720dd396mr2935854637.29.1770210849324;
-        Wed, 04 Feb 2026 05:14:09 -0800 (PST)
-Received: from smtpclient.apple ([61.213.176.9])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a93394e1ccsm34868165ad.59.2026.02.04.05.14.06
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 04 Feb 2026 05:14:08 -0800 (PST)
-From: qingwei hu <huqingwei.kernel@gmail.com>
-X-Google-Original-From: qingwei hu <qingwei.hu@bytedance.com>
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
-Subject: Re: [PATCH] drivers/perf: riscv: Keep the fixed counter counting
-In-Reply-To: <aab19ab9-0946-4477-8ca2-bc93621a54a0@linux.dev>
-Date: Wed, 4 Feb 2026 21:13:53 +0800
-Cc: cp0613@linux.alibaba.com,
- anup@brainfault.org,
- alex@ghiti.fr,
- pjw@kernel.org,
- guoren@kernel.org,
- linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Message-Id: <0E982A8E-9CD2-4712-AC59-56D7CA043A2A@bytedance.com>
-References: <20260131112440.2915-1-cp0613@linux.alibaba.com>
- <aab19ab9-0946-4477-8ca2-bc93621a54a0@linux.dev>
-To: Atish Patra <atish.patra@linux.dev>
-X-Mailer: Apple Mail (2.3864.300.41.1.7)
+        d=1e100.net; s=20230601; t=1770211392; x=1770816192;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kIfSdKgtKPIDZe3e+f9p01Ulu42xE4j1piPC/F3kvqE=;
+        b=CWjn89Jbbw5tcMcSWmNXUGZwcGmKES99dqQS1HGb9uYG+tXUne2pC7Ngs4C4yKUYPY
+         xwkDQZcC7J3ddJydzHXKVhXwi7Awrpn9/R7IWPGAmUzis1x0Jtai8Dh84leA4QP0DKZs
+         xkK3Ee9plqmccS7/OG6ITgIlDOX/ZE+uzeg9uUR+2CPx0nwI/3UDNgYRA4zVbky69TxO
+         ti7rTnDAJp8nAkw/y0fHUidivL83XDa+w6QuxsStGUUO0LbkJFJ+Kuh2oG6G1r7pN4CX
+         uKBcDaSk57mQTy8IFjn2RFNb6fzewNjPxwNP5onMolXHDkTRl4f9G1yPsZSxGYHdYatd
+         CrLw==
+X-Forwarded-Encrypted: i=1; AJvYcCUubPZwDuWu7ziRlhF96UjlZDyLLQuDhPu3esivHVTH08WlSb6+v79P/rg35T7LkUkI4alQ63gGkhvfOQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxnmsxPWLDxMUMGdmcqhIR9PLdMBkps27QnASO3iRf+cLBtzHj
+	6zdxbKbkNRU28ObQGgZuuY709H79yetgyVJrVG1HVGNApJPg+6TfxKOcUR5TIQdl7qg=
+X-Gm-Gg: AZuq6aIroyvlPaY+zaJ/a0ePhyGz6GI/laiBKCClan5EnYjIYSasfWxYAIKJVeaq7e8
+	0MwtPkb6eh2ujLJF1l64n5+qA4bOWzGSBgA/1cjaz/CpkVcGQqCNkn4B947jedjwoki6lv3awuD
+	GB/Odu2nqxOJY85se4fduwbFY/ROtF7nQ8Rx4HSB5neCygaxgXnYryPBSPEcW5tGTweRMU/5vpc
+	aBxWjvOtOYzG7kKRfafzdJjrJJeV+kMFYGtnQBOah/asWpmAuZJtQjs6Oi2m4S0w5mVTd+aQUNj
+	TwM08evZGrcDZrIOXnIsPFTBFc0sPckYJM+vhn3V54KOQfDnRs4BKXfvn6CflOlIPFfeLC0JGlH
+	9QtXQF0dnZU/g5GH0y9mNb4HfpngBypVXQb/Z4y/NFUHimnL9an5zL7Gvy0ZTqzDAQ12R3J9VC3
+	R/uva5KP9mzEfS4iwXxbEI2yiBx6cE68I=
+X-Received: by 2002:a05:7300:7301:b0:2b7:1dd3:585b with SMTP id 5a478bee46e88-2b820e47fe9mr2509188eec.7.1770211391556;
+        Wed, 04 Feb 2026 05:23:11 -0800 (PST)
+Received: from [127.0.1.1] ([2604:a840:3::303d])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b832fc1d50sm1416731eec.27.2026.02.04.05.23.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Feb 2026 05:23:11 -0800 (PST)
+From: Guodong Xu <guodong@riscstar.com>
+Subject: [PATCH v3 0/3] regulator: spacemit-p1: Support board power tree
+ via DT properties
+Date: Wed, 04 Feb 2026 21:23:00 +0800
+Message-Id: <20260204-spacemit-p1-v3-0-a894b3057026@riscstar.com>
+MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIADRIg2kC/22PQW7DIBBFr2KxLhWMGQxe9R5RF4CHmkViB6iVK
+ vLdS5xNW3X5v/Ten7mzQjlRYWN3Z5m2VNJyaaF/6ViY3eWDeJpaZiBACwnAy+oCnVPlq+SO0Gq
+ KZAxG1og1U0y3w3Z6f+ZM188mrc+Sra6GuSnHTqLyk4oDiEAoNE5ovDVmIhNh6EEMXikcgB5e7
+ wrxsJzb7Nih1IosYkN69liZU6lL/jpe2OQx8++1m+SC98J6giH6GO1bTiWU6vJrcx+qDX7i6jc
+ ODYdgtBdaW+XdH3zf928xwq3dTgEAAA==
+X-Change-ID: 20260122-spacemit-p1-ae596efe885f
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Yixun Lan <dlan@gentoo.org>, Alex Elder <elder@riscstar.com>, 
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, devicetree@vger.kernel.org, 
+ Guodong Xu <guodong@riscstar.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_051410_596581_C4C293E6 
-X-CRM114-Status: GOOD (  22.26  )
+X-CRM114-CacheID: sfid-20260204_052312_935756_D1C41D2B 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,76 +111,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The patch (Patch 1 in v1 and v2) fixing hardware voltage constraints was
+applied to regulator.git for-next, so it is dropped from this series.
 
-> On Feb 4, 2026, at 17:17, Atish Patra <atish.patra@linux.dev> wrote:
-> 
-> 
-> On 1/31/26 3:24 AM, cp0613@linux.alibaba.com wrote:
->> From: Chen Pei <cp0613@linux.alibaba.com>
->> 
->> The RISC-V SBI PMU driver disables all PMU counters during initialization
->> via pmu_sbi_stop_all. For fixed counters CYCLE, TIME and INSTRET, this is
->> unnecessary for the following two reasons:
->> 
->> 1. Some kernel driver code may directly read CYCLE and INSTRET to perform
->>    simple performance analysis.
-> 
-> Is this for some debugging purpose to read the instret/cycle count at boot time or real use case for driver performance analysis ?
-> 
-> If it is the latter, that will be problematic for various reasons such as context switching will lead to inaccurate numbers.
+Patch 1, 2 and 3 (previously 2-4) enables flexible power tree
+configurations for the SpacemiT P1 PMIC. Hardcoded supply assumptions
+are replaced with explicit devicetree properties. PMIC supply connections
+are board-design decisions. Moving this to DT allows supporting varied
+topologies without driver modifications.
 
-Hello Atish.
+The supply binding change is an ABI change. The breakage is acceptable:
+Yixun Lan checked the DTS tree queued for v6.20 and found no consumers
+of the P1/PMIC regulator yet [1]. For the two K1 boards in-tree
+(BPI-F3 and Jupiter), initial power settings come from boot firmware and
+a probe failure of pmic node "spacemit,p1" has minimal impact.
 
-Besides boot time scenarios and performance analysis, there is another case
-where user mode needs to access the cycle counter via rdcycle.
+Link: https://lore.kernel.org/lkml/20260125110333-GYD71302@gentoo.org/ [1]
 
-> 
->> 2. In legacy mode, user space directly reads CYCLE and INSTRET. (echo 2 >
->>    /proc/sys/kernel/perf_user_access)
->> 
->> Therefore, We keep counting CYCLE, TIME and INSTRET.
->> 
->> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
->> ---
->>  drivers/perf/riscv_pmu_sbi.c | 3 +++
->>  1 file changed, 3 insertions(+)
->> 
->> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
->> index 7dd282da67ce..93aaab324443 100644
->> --- a/drivers/perf/riscv_pmu_sbi.c
->> +++ b/drivers/perf/riscv_pmu_sbi.c
->> @@ -899,6 +899,9 @@ static int pmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
->>    static inline void pmu_sbi_stop_all(struct riscv_pmu *pmu)
->>  {
->> + /* We keep counting CYCLE, TIME and INSTRET. */
->> + pmu->cmask &= ~0x7;
->> +
-> 
-> This is incorrect. The cmask should be set based on the perf_user_access value. We should not continue counting the CYCLE/INSTRET when legacy mode is not set. if (sysctl_perf_user_access == SYSCTL_LEGACY) csr_write(CSR_SCOUNTEREN, 0x7); else csr_write(CSR_SCOUNTEREN, 0x2);
+Changes in v3:
+- Drop Patch 1 of previous series, already applied to regulator.git
+    for-next (commit 41399c5d4761).
+- Patch 1 (previous 2): Mark "vin-supply" as deprecated to avoid
+    cross-tree warnings.
+- Patch 2 (previous 3): Describe the ABI change explicitly. Add
+    justification.
+- Link to v2: https://lore.kernel.org/r/20260124-spacemit-p1-v2-0-2c86b06694ba@riscstar.com
 
-Legacy mode refers to the perf framework. When perf_user_access is not in
-legacy mode, the application may need to use rdcycle.
+Changes in v2:
+- Patch 2: dt-bindings, remove providers from the example dts.
+- Patch 4: Added the pmic supply properties for K1 Milkv Jupiter.
+           Updated the commit message accordingly.
+- Link to v1: https://lore.kernel.org/r/20260122-spacemit-p1-v1-0-309be27fbff9@riscstar.com
 
-As discussed in [1], the rdcycle is necessary, and applications such as
-DPDK should use rdcycle in user mode.
+Signed-off-by: Guodong Xu <guodong@riscstar.com>
+---
+Guodong Xu (3):
+      dt-bindings: mfd: spacemit,p1: Add individual regulator supply properties
+      regulator: spacemit-p1: Update supply names
+      riscv: dts: spacemit: Update PMIC supply properties for BPI-F3 and Jupiter
 
-So how to use the rdcycle when perf_user_access is not in legacy mode?
+ .../devicetree/bindings/mfd/spacemit,p1.yaml       | 53 +++++++++++++++++++++-
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    | 12 ++++-
+ arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts  | 12 ++++-
+ drivers/regulator/spacemit-p1.c                    | 25 +++++-----
+ 4 files changed, 86 insertions(+), 16 deletions(-)
+---
+base-commit: 5164e95565d3fd508ca8a95351323f5716dfb695
+change-id: 20260122-spacemit-p1-ae596efe885f
+prerequisite-patch-id: 154bd4f720ce5065d58b988de8f273207b44572e
 
-[1] https://lists.riscv.org/g/tech-privileged/topic/should_rdcycle_be_deprecated/115162737
-
-Best Regards,
-Qingwei Hu
-
-> 
->>   /*
->>    * No need to check the error because we are disabling all the counters
->>    * which may include counters that are not enabled yet.
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
+Best regards,
+-- 
+Guodong Xu <guodong@riscstar.com>
 
 
 _______________________________________________
