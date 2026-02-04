@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1E5E83EF9
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 09:10:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96270E83EF5
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 09:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vle2kQK5YGBepGKKiGy37k2peBjkXJxDLbOGH6+TGsM=; b=AksKDlV5DEZtNH
-	XeJRpu0Sz0p28hfcaFMiJsRuFr490h3yQaXpBuMKTIaY/EDbVMjpTVi26NkYm6j7xLPueYrm0132G
-	teGHKEEoXtKL9DKumopL4dsgxj2wo0H5LMiUjBPkX7PQaRPvGz8j81TgDQI3j6ZhdxaKpWpgp8eEv
-	CJqPhm5TU7PqElfs+6g4KIX4DRL5e3zWXDFqpTzARWDSe0qD0V1mWKPYT5GC91BcrCkpwmCzJ9tqo
-	67OVL/VSOp0V+vm7vdWTs1V0+s8asOgMJFveKTHRAbIOq3SSWj2cg2TYewVeEplDF6CLS4k0SlbN1
-	7tMi83gjt+3rGHVyXi5g==;
+	List-Owner; bh=Mjs49p9wpEAaldqkiAGeIo7pYTZxHMaj/x+Fx4CbX3w=; b=WlfXrHwhgNUHgP
+	IUT+DAry20atbK9UNe47fo8sEbt6kj7d2DLEu6bYslrzQPaGU9YcmCMDBtdrZsDRkkNnjjMZQpqM/
+	LHdMKFK6s3xNcfOPb31i9Ymfpys0NFrL2c9zIZ0DlFP2ySr68Rs3YH7iTHOYSHhu3Cke5yPoU3yLC
+	7r//bVe9Jx5VoAH1sVLVBszFoo8gCoxYGh588dzWHsGLuhTcQGGEPqFCL8bdGADJo3aJ6uf0Q/Uk0
+	V200flJOPBevLJFmpAmpjVFW/Jei9vpdHaICYIIbTXEpyIJd29h43UQVHDUjJrCWsFRbKwRhIAe9S
+	6BD7UMliun/DivU1UW/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnYtW-00000008AKJ-3C5N;
-	Wed, 04 Feb 2026 09:09:54 +0000
-Received: from smtpbgsg1.qq.com ([54.254.200.92])
+	id 1vnYtk-00000008AQE-0JUT;
+	Wed, 04 Feb 2026 09:10:08 +0000
+Received: from smtpbgeu2.qq.com ([18.194.254.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnYtU-00000008AC4-3ZuR
+	id 1vnYte-00000008AFL-2Yby
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Feb 2026 09:09:54 +0000
+	Wed, 04 Feb 2026 09:10:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1770196169;
-	bh=9p3twHDaUqc2iP6C1Th5oUPw6tcNjjsFdmvTfaJG2PY=;
+	s=mxsw2412; t=1770196179;
+	bh=y9DkLzUrYbFPycckmGkiUce2gXOr2hFfNyty0O3R4MY=;
 	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=M/ytgpqP/93rnYTa2g41VFN9YetxoNM6yBJhwy4umJxGUmj32hOVQgy2zhpIUqxfV
-	 vTyDdeZuRCXY/to1NW4F3TNux/o9YgL0REDhhE7hz+qUDA4B4zI6tJ6N5/GvqNciyk
-	 hDRESSfvKYFJm8AkGccOJQBS6RwS6iFFbbTISGTs=
-X-QQ-mid: esmtpsz11t1770196167tc89ab0a1
-X-QQ-Originating-IP: dOQSd0sgXrqQFSqDaWAiT5eRXS3TmovakX/BJqqKSqc=
+	b=yn7OK24TpJG5WTImUvjZVMrm7SZlk1rMK6ni64S+D9ZaYZ37NpjqD5PCyCdN7RQPG
+	 Glsq7yTSC1jCphc3Nepc/Q64nNRwTJfRf5+JhSqtFI3RRUnpkUTF/gmK7pWg5dRynp
+	 3XkEocPIcr0D8By+GXaPaY96mVky4nHNYB6vXq+s=
+X-QQ-mid: zesmtpsz2t1770196177t740f2e62
+X-QQ-Originating-IP: fw2+2nrGLsqH3N4ZDiZZXh9Cx9/Ufu7lLgRpIlNcvJc=
 Received: from SurfaceBook2-B.localdomain ( [101.70.125.34])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 04 Feb 2026 17:09:24 +0800 (CST)
+	id ; Wed, 04 Feb 2026 17:09:34 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 15720136353001849999
+X-BIZMAIL-ID: 5616500725209696300
 EX-QQ-RecipientCnt: 19
 From: Lv Zheng <lv.zheng@linux.spacemit.com>
 To: Tomasz Jeznach <tjeznach@rivosinc.com>,
@@ -63,36 +63,37 @@ Cc: Jingyu Li <joey.li@spacemit.com>,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev,
 	devicetree@vger.kernel.org
-Subject: [PATCH v3 5/8] riscv/iommu: Add vendor event support for RISC-V IOMMU HPM
-Date: Wed,  4 Feb 2026 17:09:21 +0800
-Message-ID: <66EE5293179955C2+b36c442fcfc891d472e9465a83b6521ef747faac.1770195980.git.lv.zheng@linux.spacemit.com>
+Subject: [PATCH v3 6/8] spacemit/t100: Add global filter awareness for RISC-V IOMMU HPM
+Date: Wed,  4 Feb 2026 17:09:31 +0800
+Message-ID: <F398E8A96DC9FD91+fbe3e9426509fc888b82d076eb061f9186f25f2a.1770195980.git.lv.zheng@linux.spacemit.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1770195980.git.lv.zheng@linux.spacemit.com>
 References: <cover.1769562575.git.lv.zheng@spacemit.com> <cover.1770195980.git.lv.zheng@linux.spacemit.com>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-1
-X-QQ-XMAILINFO: MK5U7QanZrCwQbCeBYwZmqAu46GgLebUm/CSRk/8Z7OVmOFKPvwYRINM
-	ksy9O5S9COxUOHxafc9VO+gE6RVP0iEHe4kN9gtSNhNl2nKRTQq+zEP5N8c75CJLI5+tSlp
-	rWfrMouxiSwUmGn+HfvmFjfyxjQiA6DuGX1F9HSUm1N60HwmicaK3qFZMi+xzeMpZEiqmPY
-	XIrsMiL/JAofDoKvV0wJDq94z/TddjNoYN6/emfkG+8KxkYYTmLBDCCZaFzIq2wN0M/SX9V
-	NzBz7mgnFDdWYtoOtCk9YSsORtsQd4jCLyEDfAirE2ZSWErfJdoMAYgFtZyUxPK29gaizG8
-	7TFet1gv1JDp2rTnSB+rPuTmtWa2V/nPEY6XaktRdzj2Z738W2LvZRr6CfgNOoBwcnXf+II
-	hFHxE3u1KJhTaoHF7vDTA2QWbFq33LKronAac6igs65jegHLtXLJkrkmGctUjeQdoCbE1e1
-	gu31OeoEK4hlVqf05bf7zOeGNIrlJRIRqhRMQX+g3iH0VH6nAoyez8RW4SMFez25QUV9TIJ
-	RDW/+FIgzBx2w/2ct5yTbGMr+TmbAST6wMBfDZZ72AsuG7c5F0yL7Tzl1xtfW3bTjBV56EY
-	0D/NEfnhuEW4x6/6daimpaa11RqiPv0V29qzQG5VoaSaNwyQIumfR/TN8fMP9+88Z7iuqBE
-	g+cqJzZmg46S8T1jwqcc254kIVTD5KT5oKdXdZpz/SS5xDgmbxKTUEQAA5s3kX5Z0HIPVH1
-	qDFCCX+MO6ez6CV02dl6y4Es/a1dAYphccOvV+8pRNRnikI3mr+h2FwI66wKzqbuYZDE9Dl
-	T//JxrYajwrKSwrJJkv4evd0bwMNgTE5aOq1xIom9KC1ntEByMDd81LdY2yCaqwsqd9qNM7
-	MOeJ0ksGgFF6DtCXvoNy9nLXxUqE/cISbmy86W4BZnD+0XC77GLVnktdc9hkWfpF58HHhYk
-	cET+4zuLsr41wUiXvXa+Kj1+7qP6hK7cHNVpACezSy0FMZwv5oJR43Qyy9yUK7hraAf/4fK
-	BLnv5sGzBPi3UEi4g6eR4fEcZYuFrYeNba2j7slbAWR7kxAcN3
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-1
+X-QQ-XMAILINFO: NafziRg7Bx69t5Sy4C0zjzUUCZJOm5JzZ42BiTQbrPCM1Vyk7pY3ba51
+	Pmp7RSTu5pqmOeXx1irWIB2OKNFgpmv5z/z0vafOwmqVyXrU2Cv6zgetVXj3AYATtk0YWcH
+	TvyifIqXLgrBgKoAx+DtDLigKmP0e/NIUs0h2e3EMmk981XWoPrvC0huirBzKtC/i2AwygM
+	SdLJRNxVmZEtT9pHDHqDGpZA0KtJtRlKDAbkY84JvvUFrIPWldWXVP0NLy2GD6SV7HPPke1
+	Dei5W7iQ6QywWR+POXxmPmtIQ7Jqq+De7EA1anYbnwE/geNgIqgXNg15lrpvNosSnF92jI3
+	+qOxSm2KcYxjodeuJRB9a4T7lNvQt9/Hk06vXMt3HgEQy4LNuYI931LRg1glf7VFEuxJrul
+	OwgiHnL4y72jbBIwIs0dH9OyQYsCApPsKXtsSAoLSJ9P7WdkP+p5m0HV9wtqaF1oKdBVafv
+	600xwkqCl+ANPN83tbRSWaZSgFKP8wjddaicbNxRfDUYZiWazkcgSZZvWOA/OdGTcT0QrBI
+	JOZWYj/NmRCSVRD1LGRtYIdDz2vhLHr8WvK4HDOFTY6l3vIKk0+mOk5T5yYkbDyckIv1KDg
+	WEootRH5aAhmUtjtcIN+tPYecNhCuDQSkhu7yUkn1KmiEA+IscasliTJeeLAxSUZRMDPpeT
+	VypZh1BKKznblyl1vsLkWgFAG+FSkxYI+2zAuzAl05NC1JScRm3/hFEVHYcMTsbqeNqe+b/
+	7BUh+DE2GvYDFOatJqu89sGAL3alIiIALw+pKqkcWmSj4huB951YrYLx9hCRt3MtDRPahjA
+	IJI9jXGUwND49uNzMcdSiyLg0RUeQdsJYffy7oHUcRjlQdt4gNUkubiILqNVUa+aCsp/x9+
+	mv0DY2b3mgIZRC6b6SW9k/mgLaw22lfxUiZsXUi6JpJgPfikaCLDSKEkL63MgrU/Qp+udwR
+	Ljqnlc+h7syD5iMVpnJh24fSHvQxhLWvmJZ8faWZJ6TYq/nrhHUxa1no4SowuvS6ortdt2F
+	JEi3WgUh9J1kaXHPminJPMBMNoeMN7Og5NiqiWgr8c6hLBWn/2yXUvhmGiwIL0VgHkHM5gU
+	Q==
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_010953_282281_94B3F0C0 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20260204_011003_142600_4AE41FC9 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,143 +110,169 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Adds mechanism to allow vendor events to be registered via userspace
-jevents. By default, vendor event identifier matches "riscv,iommu", and
-the events are registered as "riscv_iommu_hpm" events.
+Introduces global filter support for RISC-V IOMMU HPM. The global filter
+can be seen in SpacemiT T100 which only supports single filter to be
+applied to all event counters.
+
+Drivers can program filters in each iohpmevt registers as normal in such a
+silicon design, however the underlying hardware filters are wired together
+as a global filter applying to all iohpmevt(s). Since the mechanism is
+compatible with standard iohpmevt in programming interface, only adds
+sanity checks to allow it to be configured with "global" awareness to
+inform users a filter incompatiblity.
 
 Signed-off-by: Lv Zheng <lv.zheng@linux.spacemit.com>
 Signed-off-by: Jingyu Li <joey.li@spacemit.com>
 ---
- drivers/iommu/riscv/iommu-hpm.c | 63 +++++++++++++++++++++++++++++++++
+ drivers/iommu/riscv/iommu-hpm.c | 68 ++++++++++++++++++++++++++++++---
  drivers/iommu/riscv/iommu.h     |  1 +
- 2 files changed, 64 insertions(+)
+ 2 files changed, 63 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/iommu/riscv/iommu-hpm.c b/drivers/iommu/riscv/iommu-hpm.c
-index f1b265634e51..e140cf59c408 100644
+index e140cf59c408..4a739cb0887c 100644
 --- a/drivers/iommu/riscv/iommu-hpm.c
 +++ b/drivers/iommu/riscv/iommu-hpm.c
-@@ -447,6 +447,30 @@ static const struct attribute_group riscv_iommu_hpm_cpumask_group = {
- 	.attrs = riscv_iommu_hpm_cpumask_attrs,
- };
- 
-+static ssize_t riscv_iommu_hpm_identifier_show(struct device *dev,
-+					       struct device_attribute *attr,
-+					       char *buf)
-+{
-+	struct riscv_iommu_hpm *iommu_hpm = to_iommu_hpm(dev_get_drvdata(dev));
-+
-+	if (!iommu_hpm->identifier)
-+		return 0;
-+
-+	return sysfs_emit(buf, "%s\n", iommu_hpm->identifier);
-+}
-+
-+static struct device_attribute riscv_iommu_hpm_identifier_attr =
-+	__ATTR(identifier, 0444, riscv_iommu_hpm_identifier_show, NULL);
-+
-+static struct attribute *riscv_iommu_hpm_identifier_attrs[] = {
-+	&riscv_iommu_hpm_identifier_attr.attr,
-+	NULL
-+};
-+
-+static const struct attribute_group riscv_iommu_hpm_identifier_group = {
-+	.attrs = riscv_iommu_hpm_identifier_attrs,
-+};
-+
- #define IOMMU_HPM_EVENT_ATTR(name, config)		\
- 	PMU_EVENT_ATTR_ID(name, riscv_iommu_hpm_event_show, config)
- 
-@@ -522,6 +546,7 @@ static const struct attribute_group *riscv_iommu_hpm_attr_grps[] = {
- 	&riscv_iommu_hpm_cpumask_group,
- 	&riscv_iommu_hpm_events_group,
- 	&riscv_iommu_hpm_format_group,
-+	&riscv_iommu_hpm_identifier_group,
- 	NULL
- };
- 
-@@ -624,6 +649,36 @@ static void riscv_iommu_hpm_reset(struct riscv_iommu_hpm *iommu_hpm)
- 	riscv_iommu_hpm_interrupt_clear(iommu_hpm);
+@@ -134,6 +134,30 @@ static inline void riscv_iommu_hpm_interrupt_clear(struct riscv_iommu_hpm *hpm)
+ 	riscv_iommu_hpm_writel(hpm, RISCV_IOMMU_REG_IPSR, RISCV_IOMMU_IPSR_PMIP);
  }
  
-+static bool riscv_iommu_hpm_is_identifier_compat(const char *compat)
++static bool riscv_iommu_hpm_check_global_filter(struct perf_event *curr,
++						struct perf_event *new)
 +{
-+	return !strcmp(compat, "riscv,iommu");
++	return get_filter_pid_pscid(curr) == get_filter_pid_pscid(new) &&
++	       get_filter_did_gscid(curr) == get_filter_did_gscid(new) &&
++	       get_filter_pv_pscv(curr) == get_filter_pv_pscv(new) &&
++	       get_filter_dv_gscv(curr) == get_filter_dv_gscv(new) &&
++	       get_filter_idt(curr) == get_filter_idt(new) &&
++	       get_filter_dmask(curr) == get_filter_dmask(new);
 +}
 +
-+static const char *riscv_iommu_hpm_get_identifier(struct device *dev)
++static bool riscv_iommu_hpm_events_compatible(struct perf_event *curr,
++					      struct perf_event *new)
 +{
-+	struct device_node *np = dev->of_node;
-+	const char *compat;
-+	int count, i;
++	if (new->pmu != curr->pmu)
++		return false;
 +
-+	if (!np)
-+		return NULL;
++	if (to_iommu_hpm(new->pmu)->global_filter &&
++	    !riscv_iommu_hpm_check_global_filter(curr, new))
++		return false;
 +
-+	count = of_property_count_strings(np, "compatible");
-+	if (count <= 0)
-+		return NULL;
++	return true;
++}
 +
-+	for (i = 0; i < count; i++) {
-+		if (of_property_read_string_index(np, "compatible",
-+						  i, &compat))
-+			continue;
-+
-+		if (riscv_iommu_hpm_is_identifier_compat(compat))
-+			return devm_kstrdup(dev, compat, GFP_KERNEL);
+ /**
+  * riscv_iommu_hpm_event_update() - Update and return RISC-V IOMMU HPM
+  *                                  event counters
+@@ -268,9 +292,10 @@ static void riscv_iommu_hpm_set_event_filter(struct perf_event *event, int idx,
+ 			       RISCV_IOMMU_REG_IOHPMEVT(idx), event_cfg);
+ }
+ 
+-static void riscv_iommu_hpm_apply_event_filter(struct riscv_iommu_hpm *iommu_hpm,
+-					       struct perf_event *event, int idx)
++static int riscv_iommu_hpm_apply_event_filter(struct riscv_iommu_hpm *iommu_hpm,
++					      struct perf_event *event, int idx)
+ {
++	unsigned int cur_idx, num_ctrs = iommu_hpm->num_counters;
+ 	u32 pid_pscid, did_gscid, pv_pscv, dv_gscv, idt, dmask;
+ 
+ 	pid_pscid = get_filter_pid_pscid(event);
+@@ -280,14 +305,36 @@ static void riscv_iommu_hpm_apply_event_filter(struct riscv_iommu_hpm *iommu_hpm
+ 	idt = get_filter_idt(event);
+ 	dmask = get_filter_dmask(event);
+ 
++	if (iommu_hpm->global_filter) {
++		cur_idx = find_first_bit(iommu_hpm->used_counters, num_ctrs - 1);
++		if (cur_idx == num_ctrs - 1) {
++			/* First event, set the global filter */
++			riscv_iommu_hpm_set_event_filter(event, 0, pid_pscid,
++							 did_gscid,
++							 pv_pscv, dv_gscv, idt, dmask);
++		} else {
++			/* Check if the new event's filter is compatible with
++			 * the global filter
++			 */
++			if (!riscv_iommu_hpm_check_global_filter(iommu_hpm->events[cur_idx + 1],
++								 event)) {
++				dev_dbg(iommu_hpm->pmu.dev,
++					"HPM: Filter incompatible with global filter\n");
++				return -EAGAIN;
++			}
++		}
++		return 0;
 +	}
 +
-+	return NULL;
-+}
-+
- static void riscv_iommu_hpm_set_standard_events(struct riscv_iommu_hpm *iommu_hpm)
- {
- 	/* Cycles counter is always supported */
-@@ -650,6 +705,7 @@ static void riscv_iommu_hpm_remove(void *data)
- static int riscv_iommu_hpm_register_unit(struct riscv_iommu_device *iommu,
- 					 struct riscv_iommu_hpm *iommu_hpm,
- 					 u32 offset, int irq,
-+					 const char *identifier,
- 					 const struct attribute_group **attr_groups,
- 					 const char *prefix)
- {
-@@ -663,6 +719,7 @@ static int riscv_iommu_hpm_register_unit(struct riscv_iommu_device *iommu,
- 	unique_id = atomic_fetch_inc(&riscv_iommu_hpm_ids);
- 	memset(iommu_hpm, 0, sizeof(*iommu_hpm));
- 	iommu_hpm->iommu = iommu;
-+	iommu_hpm->identifier = identifier;
+ 	riscv_iommu_hpm_set_event_filter(event, idx, pid_pscid, did_gscid,
+ 					 pv_pscv, dv_gscv, idt, dmask);
++	return 0;
+ }
  
- 	if (offset + RISCV_IOMMU_REG_SIZE <= iommu->reg_size)
- 		base = iommu->reg + offset;
-@@ -791,6 +848,7 @@ static void riscv_iommu_hpm_exit(void)
- int riscv_iommu_add_hpm(struct riscv_iommu_device *iommu)
+ static int riscv_iommu_hpm_get_event_idx(struct riscv_iommu_hpm *iommu_hpm,
+ 					 struct perf_event *event)
  {
- 	struct device *dev = iommu->dev;
-+	const char *identifier;
- 	int irq, rc;
+-	int idx;
++	int idx, err;
+ 	unsigned int num_ctrs = iommu_hpm->num_counters;
+ 	u16 event_id = get_event(event);
  
- 	if (!FIELD_GET(RISCV_IOMMU_CAPABILITIES_HPM, iommu->caps)) {
-@@ -809,7 +867,12 @@ int riscv_iommu_add_hpm(struct riscv_iommu_device *iommu)
- 	if (rc < 0)
- 		return rc;
+@@ -309,7 +356,9 @@ static int riscv_iommu_hpm_get_event_idx(struct riscv_iommu_hpm *iommu_hpm,
+ 		return -EAGAIN;
+ 	}
  
-+	identifier = riscv_iommu_hpm_get_identifier(dev);
-+	if (identifier)
-+		dev_info(dev, "HPM: Vendor identifier: %s\n", identifier);
-+
- 	rc = riscv_iommu_hpm_register_unit(iommu, &iommu->hpm, 0, irq,
-+					   identifier,
- 					   riscv_iommu_hpm_attr_grps,
- 					   "riscv_iommu_hpm");
- 	if (rc < 0)
+-	riscv_iommu_hpm_apply_event_filter(iommu_hpm, event, idx);
++	err = riscv_iommu_hpm_apply_event_filter(iommu_hpm, event, idx);
++	if (err)
++		return err;
+ 	set_bit(idx, iommu_hpm->used_counters);
+ 
+ 	return idx;
+@@ -409,6 +458,8 @@ static int riscv_iommu_hpm_event_init(struct perf_event *event)
+ 	}
+ 
+ 	if (!is_software_event(event->group_leader)) {
++		if (!riscv_iommu_hpm_events_compatible(event->group_leader, event))
++			return -EINVAL;
+ 		if (++group_num_events > iommu_hpm->num_counters)
+ 			return -EINVAL;
+ 	}
+@@ -416,6 +467,8 @@ static int riscv_iommu_hpm_event_init(struct perf_event *event)
+ 	for_each_sibling_event(sibling, event->group_leader) {
+ 		if (is_software_event(sibling))
+ 			continue;
++		if (!riscv_iommu_hpm_events_compatible(sibling, event))
++			return -EINVAL;
+ 		if (++group_num_events > iommu_hpm->num_counters)
+ 			return -EINVAL;
+ 	}
+@@ -733,6 +786,8 @@ static int riscv_iommu_hpm_register_unit(struct riscv_iommu_device *iommu,
+ 	bitmap_zero(iommu_hpm->used_counters, RISCV_IOMMU_HPMCOUNTER_MAX);
+ 	bitmap_zero(iommu_hpm->supported_events, RISCV_IOMMU_HPMEVENT_MAX);
+ 
++	iommu_hpm->global_filter = of_device_is_compatible(dev->of_node,
++							   "spacemit,t100");
+ 	riscv_iommu_hpm_writel(iommu_hpm,
+ 			       RISCV_IOMMU_REG_IOCOUNTINH, 0xFFFFFFFF);
+ 	val = riscv_iommu_hpm_readl(iommu_hpm,
+@@ -796,8 +851,9 @@ static int riscv_iommu_hpm_register_unit(struct riscv_iommu_device *iommu,
+ 	if (err)
+ 		goto err_cpuhp;
+ 
+-	dev_info(dev, "HPM: Registered %s (%d counters, IRQ %d)\n",
+-		 pmu_name, iommu_hpm->num_counters, iommu_hpm->irq);
++	dev_info(dev, "HPM: Registered %s (%d counters, IRQ %d, %s filter)\n",
++		 pmu_name, iommu_hpm->num_counters, iommu_hpm->irq,
++		 iommu_hpm->global_filter ? "global" : "per-counter");
+ 	return 0;
+ 
+ err_cpuhp:
 diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
-index 0ad9f5cad4de..d3c11abef5cf 100644
+index d3c11abef5cf..80e96fd7e164 100644
 --- a/drivers/iommu/riscv/iommu.h
 +++ b/drivers/iommu/riscv/iommu.h
-@@ -41,6 +41,7 @@ struct riscv_iommu_hpm {
- 	int irq;
+@@ -42,6 +42,7 @@ struct riscv_iommu_hpm {
  	int on_cpu;
  	struct hlist_node node;
-+	const char *identifier;
+ 	const char *identifier;
++	bool global_filter;
  	/*
  	 * Layout of events:
  	 * 0       -> HPMCYCLES
