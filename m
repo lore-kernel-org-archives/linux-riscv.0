@@ -4,117 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6EF3EA7940
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 18:54:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D76CEA7941
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 19:04:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X7vYzHooVzv5iAIBePd2dcAMg3Uif9t4c95uWj87pT4=; b=zIcb4COs0hjdac
-	UVP7aKPOQ72SNASVQP5v4ta7UtDa8EgvDcYartYKAkLeaF4Q9sN8VR2R0TXylWNf/xamV0KaabrWc
-	WpEd8KZx291+E1zQHbfEBVV1ZfvuwZ4Ad5wJsds1IPKH1bEcq1TuhmhMqEOxlZzs4u8JHDQRNoc9b
-	r9EmeTBVh2syGZyKPoVnZqwoEoXQpokuZko/1/feRE05iZcyDzR3Su2U+SqXi683G7f9ZhdkDqbO+
-	VLCOqtVldqOYJH9YbCqNAeFFlysG6+Hmj8RTbkbcULkM0BDylbIcqKNq4O7tVmHcn9/9raipTd2sl
-	R2+aluo8xV6t0GktkRIw==;
+	List-Owner; bh=Oh0Ce6N6LbVMmeSJXyIzWquTGaCKZ97BireL7zrrIIA=; b=W8QcsOdCBX/xUW
+	DNWmV9UWsz2bl7TfNYq4XwRoiG09H97m/yO9RVHTSNF+4Q7fW4NHbLLQd2Jxe0oneGv7rVVvej9wU
+	xXVsFXV0ckU0wXg1Y1iYW0tUsHlfXAOV3nEyeu0PH+bBM0LoNB0tEkBNeFkWF5TXdg8eSu9EwbB26
+	mBdyz84Tc6Qawoc/x0X2jFrNFnJ+WT9Hb7b4GTgEKifiLBPx+S48Yke6AFSukF3+tW9GHhnsttUBs
+	WeAodUT17aMNzbF2k0U1/wOb84HZUUa6fW/ArXu/zh82BeRrXd5ksGSD0KJlUctDpjKmFjVXj484+
+	d0F1M8LqGNuM40ZZGBRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vni1G-00000008x2K-3Wwd;
-	Wed, 04 Feb 2026 18:54:30 +0000
-Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
+	id 1vniB7-00000008xdB-3vWf;
+	Wed, 04 Feb 2026 19:04:41 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vni1E-00000008x1O-18q9
+	id 1vniB5-00000008xco-1SXV
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Feb 2026 18:54:29 +0000
-Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-2b703e04984so5101eec.3
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Feb 2026 10:54:27 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770231267; cv=none;
-        d=google.com; s=arc-20240605;
-        b=WiBWRX46LHXy7Kv7Kn3Swh/fgR3deoJuQtDK4sl9fQaAs6OVLIA3VbS9N08vouVSvr
-         GxNbyVJE7iFET8DNnYYIRquRzr6b4WzrrF6R6ettu5Cr1Zf2PO3BJX2C1zrsRd2PJ809
-         v8rfShb4WnLn+9yQEQzd7fhcs0DuSqPZmWMsJSqy6PbOBmZ09oJkHZsCX7acs/3JNlU2
-         Yqy6ThVjsKBUtDCRPwX4U6hZrofB/UeJ+g6MOI6rRuIFeQZp+65MTTCxY12FTSegc/XW
-         PPXwDDYHTjyapJ+17rwg7UVb+0bP60mBJ4tVnXcJADTVLow/T2G8COYANrRhZjkMs5zu
-         Hebg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=1RPD11HPFnCejVcKGso6kkcyi791BttWY+zwBXmHJDg=;
-        fh=hud5VFJT5g5VNi6pO+VMGzaMRs9MtdqQprT8K7vjFW8=;
-        b=jltxOVtfTbEtAkoxDcsYe7GeEXJM4uIj8OOUo9G9pqmdozK2aoHveOI3wfiP8I1GeE
-         BwQjQ+u8BW0i9pODLCVQ1qulywP07iztT4Vo2b7sACs6CCy2HSQ0s12EQbjLzFBRKuWy
-         SZasaM3XImxzwZzocl+XgcCtmN+drGVTDSqZ2kAFoOvd/Cy6ncAFVOGdY5TNA98Sp6P1
-         Zke3+OdtQ5p9cNwfoqehHxuB92Jy2oSrROO4mQ/SdeXwhrcJxzbRvFw+pQpHVcKOsPzP
-         Und6NAJPEOefZ7olYV/H9qu7qNozo/rCXGWYmKgtNvv31jhorY5uWUcnJ80w8PXQX9YW
-         pBXw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770231267; x=1770836067; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1RPD11HPFnCejVcKGso6kkcyi791BttWY+zwBXmHJDg=;
-        b=geBxHOoTeuSPk/7eEnCrkCJTgpyzhYanxfptsnzwyV+jN3yWiTyHY15Xp21uQIasKf
-         nM6oBbDvkuxC76XAtyHbUJ/yPCf4BnfNtoCdka4uhhgwku5QVNzkKKyzDMGRmfbGzKWr
-         nYFa1S5qaHo5R63kW0Qac7wUqN23rfvU+62YPezrHCov8VIizTmefwqwUVpbIR/F9jbd
-         N9y99abltvSQRgkTrBgqhbXn/7kTJUYzGt8nJqOYPrEjZJkW+lUVcHv7A+o1OBY0fY/w
-         Rdy0kcyJ6X/VRFT6EZo9tVFMQri0z23Y+h0YMxbtmPchScq7ZE0CCbzlSFn4c33TuoPD
-         Y1Pg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770231267; x=1770836067;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=1RPD11HPFnCejVcKGso6kkcyi791BttWY+zwBXmHJDg=;
-        b=VIYkhTYQulN41doVZn6AE78UaIMNcdqkQ/6VJllbwTsAcjlFG6BvhXWnD984ys1hrn
-         M9NeAUjddCTRK+visIZ86+voVejJlNn4+s0qAOEjSuLbe26sHA64aLIGsx9XPZY7wVLi
-         pF/o4PHfo47TEjUt0ji9t1qBGIlR/t5Rh2W85S27jHYD8HAZzQmB2FITSGlsLLSYnjwG
-         Z74UxVqZ5wszknNNqegHBgpWnJ+teb8OhCIA6uTzJSEbQg/+iEhCinTKL+IJEzQ+7XCA
-         2QauXJS/ldwGgKNU5ct8D6wZu/C9aGBXElgXha8wogVYVwsWKorlEIqQMNTJaTwpE8Hs
-         zFxw==
-X-Forwarded-Encrypted: i=1; AJvYcCUgAoEAz2NlP8mZoCulPvldxGdbJr9A1EkseEu5ZJD3D9dmp0zMzvkPynDx2ksJu152hzmhOLVNkssjAg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYDHuOJuhT2yE/9A9425FQdNtHNeWW2Hkh4gLKOHSkmgYxoZic
-	Vszx4Wrx9Mv6QPCAeWDri83faqqzdICWjDifV9QKAZUEpEXckR9nsWiuS9UrrFAdg4/suMoLy5J
-	XoApeMoK8euEnT5Fjc+cq2OjdpL1ivCI=
-X-Gm-Gg: AZuq6aIxR2iYMdScBVAo9l2HJLYzFoWaLfT5FkeEKGAU3LyCzk5YMy/00SaWaaf5pyd
-	43C0/xO8JJQF5Lq0tdCRnWmFrunggIosp12nVoWNCzhmOwlC3+P/5vjWQmDjKaqSLcZQIklyg7W
-	bT/f54wZmrffrDov+DLS3LHD417AXzv6ORBOu7A6kMh7tWursMEviG3rPQEDs9tRDTYV8aeENIX
-	q0Lg7xk5H9yCunS3/ufBqhaX8A76O9mRYewyK0AO//qStlOkmQqLEQlRPJrAkRdWTFK/uocmPXM
-	maUErmq7nRuX9iZKpEG4JepP/+agBq54usOmj1067DX4xxcS4/VWLRM+A9oQbJi07zRtNt7eFrx
-	VhH4Y/lRWJbtK
-X-Received: by 2002:a05:7301:fa07:b0:2b7:f145:a66 with SMTP id
- 5a478bee46e88-2b832895203mr863567eec.2.1770231266769; Wed, 04 Feb 2026
- 10:54:26 -0800 (PST)
-MIME-Version: 1.0
-References: <20260126202305.2526618-1-joelagnelf@nvidia.com>
- <20260126202305.2526618-2-joelagnelf@nvidia.com> <DG0607SU943F.1FDOPYPN38FCS@kernel.org>
- <259bdacf-d16e-4fff-9f6b-f860feb40aa8@nvidia.com> <DG0N5PNS1ZQ0.13WMT4XYDXNUS@kernel.org>
- <8859d68f-ca38-469e-8345-84059573ac97@nvidia.com> <DG5OGLH0BHNE.2XSVBQHAAXHGI@nvidia.com>
-In-Reply-To: <DG5OGLH0BHNE.2XSVBQHAAXHGI@nvidia.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Wed, 4 Feb 2026 19:54:14 +0100
-X-Gm-Features: AZwV_Qga4SHaJVbqnKL6-k_z0NAbFWIYrZ90umh2b3m2XbOK6FLc8RcS6JCVOMk
-Message-ID: <CANiq72nhzix4Dr9_gbaFwZQQq=3cDY=oAYVgG5hDAmMgaYKQJg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/5] gpu: nova-core: use checked arithmetic in FWSEC
- firmware parsing
-To: Alexandre Courbot <acourbot@nvidia.com>
-Cc: John Hubbard <jhubbard@nvidia.com>, Danilo Krummrich <dakr@kernel.org>, 
-	Joel Fernandes <joelagnelf@nvidia.com>, linux-kernel@vger.kernel.org, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, 
-	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Alistair Popple <apopple@nvidia.com>, Zhi Wang <zhiw@nvidia.com>, Simona Vetter <simona@ffwll.ch>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Dirk Behme <dirk.behme@gmail.com>, nouveau@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org, 
+	Wed, 04 Feb 2026 19:04:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1770231879; x=1801767879;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=aEgivNh6lf5umyGVj1PNqoU0kduEbNPMta4Z0lh4ySg=;
+  b=TWH4g7e2wARj848PC4LWL5mzbbjPYl0GYHOIH5N3gCI3ISx/lTzUgivf
+   KYEr/S6Gkn54ecJe9LTN4DB+rPpv52PGBfzaBnAeH2IANVPqIRvyjjLTN
+   huhhRMCWuBhzvWAdp5oxh9QWn9kpdSkRIOiunR0foec/4GIAlt/skKTK3
+   7fW6Q3ylmhUK1Yf9Ev0Zp5KwzM0JvO3Pgg7+ZCU4B2zkvX3zJcY8eOb+P
+   6lR9KDqUQtnZFI9GDv6z2pGoilT6B3Oy15Dy3jC1gSux4mS+PzWl5xdnf
+   UwBulrz6M/pS9sF0rrm6/qezt7kCZzUcIKnN+WNkOjkLeKvMUydyKWHX2
+   A==;
+X-CSE-ConnectionGUID: RKiJCK2JT96ISBkzCl5a0Q==
+X-CSE-MsgGUID: icKfF4MxSB6wgeWdccmjrg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11691"; a="82797740"
+X-IronPort-AV: E=Sophos;i="6.21,273,1763452800"; 
+   d="scan'208";a="82797740"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2026 11:04:38 -0800
+X-CSE-ConnectionGUID: Fa3lG6CZSvagjstaQ6uPDA==
+X-CSE-MsgGUID: tcXmNBmaQnSzW20DrV4KTw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,273,1763452800"; 
+   d="scan'208";a="233178785"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 04 Feb 2026 11:04:33 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vniAx-00000000j7U-08MJ;
+	Wed, 04 Feb 2026 19:04:31 +0000
+Date: Thu, 5 Feb 2026 03:03:32 +0800
+From: kernel test robot <lkp@intel.com>
+To: Zixing Liu <liushuyu@aosc.io>, WANG Xuerui <kernel@xen0n.name>,
+	Huacai Chen <chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Kexy Biscuit <kexybiscuit@aosc.io>, Mingcong Bai <jeffbai@aosc.io>,
+	Zixing Liu <liushuyu@aosc.io>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
 	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4] KVM: Add KVM_GET_REG_LIST ioctl for LoongArch
+Message-ID: <202602050229.BAdKUB3a-lkp@intel.com>
+References: <20260204113601.912413-1-liushuyu@aosc.io>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260204113601.912413-1-liushuyu@aosc.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_105428_310773_869C5E03 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20260204_110439_439266_A0986CFE 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,27 +92,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBGZWIgMywgMjAyNiBhdCAxMToyNeKAr1BNIEFsZXhhbmRyZSBDb3VyYm90IDxhY291
-cmJvdEBudmlkaWEuY29tPiB3cm90ZToKPgo+IFRodXMgZm9yIGFueXRoaW5nIG5vbi10cml2aWFs
-LCBJJ2QgbGlrZSB0byBrZWVwIGEgYC8vIENBTEM6IGAgaGVhZGVyCj4gZGVzY3JpYmluZyB0aGUg
-aW50ZW5kZWQgb3BlcmF0aW9uLiBJIGFsc28gbm90aWNlZCB0aGF0IExMTXMgY2hlY2sgdGhhdAo+
-IHRoZSBjb2RlIGlzIGluIGFjY29yZGFuY2Ugd2l0aCBjb21tZW50cywgd2hpY2ggcHJvdmlkZXMg
-YW4gYWRkaXRpb25hbAo+IGxheWVyIG9mIGNoZWNraW5nLgoKWWVhaCwgaXQgaXMgdGhlIHNhbWUg
-cmVhc29uIHdoeSBkb2N1bWVudGF0aW9uIGFzIHdlbGwgYXMgb3RoZXIgdGFnZ2VkCmNvbW1lbnRz
-IGxpa2UgYC8vIFNBRkVUWTpgIGNvbW1lbnRzIGVuYWJsZSB0byBjYXRjaCBtaXN0YWtlcyBldmVu
-IGlmCnRoZXkgbWF5IGJlIHJlZHVuZGFudCBpbiBhIGNlcnRhaW4gc2Vuc2UuCgpJIHdvdWxkbid0
-IG1pbmQgaGF2aW5nIHRob3NlIHRhZ2dlZCBjb21tZW50cyBhZnRlciBhIGNlcnRhaW4KY29tcGxl
-eGl0eSAtLSBwZXJoYXBzIGl0IGNvdWxkIGJlIHBvc3NpYmxlIHRvIGRlZmluZSBhIGhldXJpc3Rp
-YyBmb3IgYQp0aHJlc2hvbGQgd2hlcmUgc3VjaCBhIGNvbW1lbnQgaXMgcmVxdWlyZWQsIGFuZCBn
-ZXQgQ2xpcHB5IHRvIHdhcm4KYWJvdXQgaXQgKHdlIGFyZSB0cnlpbmcgdG8gZ2V0IG90aGVyIHRh
-Z2dlZCBjb21tZW50cyBpbXBsZW1lbnRlZCwgc28KaXQgaXMgYSBnb29kIG9wcG9ydHVuaXR5KS4K
-CkkgZ3Vlc3MgYSBmYW5jeSBJREUgY291bGQgcGVyaGFwcyByZW5kZXIgdGhlIG1hdGggZXhwcmVz
-c2lvbiBvbiBob3ZlciBhcyB3ZWxsLgoKQ2hlZXJzLApNaWd1ZWwKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Zixing,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on kvm/queue]
+[also build test ERROR on kvm/next linus/master v6.19-rc8]
+[cannot apply to kvm/linux-next next-20260204]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Zixing-Liu/KVM-Add-KVM_GET_REG_LIST-ioctl-for-LoongArch/20260204-193844
+base:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git queue
+patch link:    https://lore.kernel.org/r/20260204113601.912413-1-liushuyu%40aosc.io
+patch subject: [PATCH v4] KVM: Add KVM_GET_REG_LIST ioctl for LoongArch
+config: loongarch-defconfig (https://download.01.org/0day-ci/archive/20260205/202602050229.BAdKUB3a-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260205/202602050229.BAdKUB3a-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202602050229.BAdKUB3a-lkp@intel.com/
+
+All error/warnings (new ones prefixed by >>):
+
+   In file included from arch/loongarch/kvm/vcpu.c:6:
+   In file included from arch/loongarch/include/asm/kvm_host.h:21:
+   In file included from arch/loongarch/include/asm/kvm_mmu.h:9:
+>> include/linux/kvm_host.h:389:23: error: field has incomplete type 'struct kvm_vcpu_arch'
+     389 |         struct kvm_vcpu_arch arch;
+         |                              ^
+   include/linux/kvm_host.h:389:9: note: forward declaration of 'struct kvm_vcpu_arch'
+     389 |         struct kvm_vcpu_arch arch;
+         |                ^
+>> include/linux/kvm_host.h:390:23: error: field has incomplete type 'struct kvm_vcpu_stat'
+     390 |         struct kvm_vcpu_stat stat;
+         |                              ^
+   include/linux/kvm_host.h:390:9: note: forward declaration of 'struct kvm_vcpu_stat'
+     390 |         struct kvm_vcpu_stat stat;
+         |                ^
+>> include/linux/kvm_host.h:601:30: error: field has incomplete type 'struct kvm_arch_memory_slot'
+     601 |         struct kvm_arch_memory_slot arch;
+         |                                     ^
+   include/linux/kvm_host.h:601:9: note: forward declaration of 'struct kvm_arch_memory_slot'
+     601 |         struct kvm_arch_memory_slot arch;
+         |                ^
+>> include/linux/kvm_host.h:831:21: error: field has incomplete type 'struct kvm_vm_stat'
+     831 |         struct kvm_vm_stat stat;
+         |                            ^
+   include/linux/kvm_host.h:831:9: note: forward declaration of 'struct kvm_vm_stat'
+     831 |         struct kvm_vm_stat stat;
+         |                ^
+>> include/linux/kvm_host.h:832:18: error: field has incomplete type 'struct kvm_arch'
+     832 |         struct kvm_arch arch;
+         |                         ^
+   include/linux/kvm_host.h:832:9: note: forward declaration of 'struct kvm_arch'
+     832 |         struct kvm_arch arch;
+         |                ^
+>> include/linux/kvm_host.h:1023:11: error: use of undeclared identifier 'KVM_MAX_VCPUS'
+    1023 |         if (id < KVM_MAX_VCPUS)
+         |                  ^
+   In file included from arch/loongarch/kvm/vcpu.c:6:
+>> arch/loongarch/include/asm/kvm_host.h:46:9: warning: 'KVM_DIRTY_LOG_MANUAL_CAPS' macro redefined [-Wmacro-redefined]
+      46 | #define KVM_DIRTY_LOG_MANUAL_CAPS       \
+         |         ^
+   include/linux/kvm_host.h:643:9: note: previous definition is here
+     643 | #define KVM_DIRTY_LOG_MANUAL_CAPS KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE
+         |         ^
+>> arch/loongarch/kvm/vcpu.c:48:10: error: assigning to 'struct kvm_context *' from incompatible type 'void'
+      48 |         context = this_cpu_ptr(vcpu->kvm->arch.vmcs);
+         |                 ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/loongarch/kvm/vcpu.c:63:10: error: assigning to 'struct kvm_context *' from incompatible type 'void'
+      63 |         context = this_cpu_ptr(vcpu->kvm->arch.vmcs);
+         |                 ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/loongarch/kvm/vcpu.c:1669:11: error: assigning to 'struct kvm_context *' from incompatible type 'void'
+    1669 |                 context = per_cpu_ptr(vcpu->kvm->arch.vmcs, cpu);
+         |                         ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/loongarch/kvm/vcpu.c:1691:10: error: assigning to 'struct kvm_context *' from incompatible type 'void'
+    1691 |         context = per_cpu_ptr(vcpu->kvm->arch.vmcs, cpu);
+         |                 ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 warning and 10 errors generated.
+
+
+vim +389 include/linux/kvm_host.h
+
+af585b921e5d1e include/linux/kvm_host.h Gleb Natapov        2010-10-14  372  
+4c088493c8d07e include/linux/kvm_host.h Raghavendra K T     2012-07-18  373  #ifdef CONFIG_HAVE_KVM_CPU_RELAX_INTERCEPT
+4c088493c8d07e include/linux/kvm_host.h Raghavendra K T     2012-07-18  374  	/*
+4c088493c8d07e include/linux/kvm_host.h Raghavendra K T     2012-07-18  375  	 * Cpu relax intercept or pause loop exit optimization
+4c088493c8d07e include/linux/kvm_host.h Raghavendra K T     2012-07-18  376  	 * in_spin_loop: set when a vcpu does a pause loop exit
+4c088493c8d07e include/linux/kvm_host.h Raghavendra K T     2012-07-18  377  	 *  or cpu relax intercepted.
+4c088493c8d07e include/linux/kvm_host.h Raghavendra K T     2012-07-18  378  	 * dy_eligible: indicates whether vcpu is eligible for directed yield.
+4c088493c8d07e include/linux/kvm_host.h Raghavendra K T     2012-07-18  379  	 */
+4c088493c8d07e include/linux/kvm_host.h Raghavendra K T     2012-07-18  380  	struct {
+4c088493c8d07e include/linux/kvm_host.h Raghavendra K T     2012-07-18  381  		bool in_spin_loop;
+4c088493c8d07e include/linux/kvm_host.h Raghavendra K T     2012-07-18  382  		bool dy_eligible;
+4c088493c8d07e include/linux/kvm_host.h Raghavendra K T     2012-07-18  383  	} spin_loop;
+4c088493c8d07e include/linux/kvm_host.h Raghavendra K T     2012-07-18  384  #endif
+a6816314af5749 include/linux/kvm_host.h David Matlack       2024-05-03  385  	bool wants_to_run;
+3a08a8f9f0936e include/linux/kvm_host.h Raghavendra K T     2013-03-04  386  	bool preempted;
+d73eb57b80b98a include/linux/kvm_host.h Wanpeng Li          2019-07-18  387  	bool ready;
+d1ae567fb8b559 include/linux/kvm_host.h Sean Christopherson 2024-05-21  388  	bool scheduled_out;
+d657a98e3c2053 drivers/kvm/kvm.h        Zhang Xiantao       2007-12-14 @389  	struct kvm_vcpu_arch arch;
+ce55c049459cff include/linux/kvm_host.h Jing Zhang          2021-06-18 @390  	struct kvm_vcpu_stat stat;
+ce55c049459cff include/linux/kvm_host.h Jing Zhang          2021-06-18  391  	char stats_id[KVM_STATS_NAME_SIZE];
+fb04a1eddb1a65 include/linux/kvm_host.h Peter Xu            2020-09-30  392  	struct kvm_dirty_ring dirty_ring;
+fe22ed827c5b60 include/linux/kvm_host.h David Matlack       2021-08-04  393  
+fe22ed827c5b60 include/linux/kvm_host.h David Matlack       2021-08-04  394  	/*
+a54d806688fe1e include/linux/kvm_host.h Maciej S. Szmigiero 2021-12-06  395  	 * The most recently used memslot by this vCPU and the slots generation
+a54d806688fe1e include/linux/kvm_host.h Maciej S. Szmigiero 2021-12-06  396  	 * for which it is valid.
+a54d806688fe1e include/linux/kvm_host.h Maciej S. Szmigiero 2021-12-06  397  	 * No wraparound protection is needed since generations won't overflow in
+a54d806688fe1e include/linux/kvm_host.h Maciej S. Szmigiero 2021-12-06  398  	 * thousands of years, even assuming 1M memslot operations per second.
+fe22ed827c5b60 include/linux/kvm_host.h David Matlack       2021-08-04  399  	 */
+a54d806688fe1e include/linux/kvm_host.h Maciej S. Szmigiero 2021-12-06  400  	struct kvm_memory_slot *last_used_slot;
+a54d806688fe1e include/linux/kvm_host.h Maciej S. Szmigiero 2021-12-06  401  	u64 last_used_slot_gen;
+d657a98e3c2053 drivers/kvm/kvm.h        Zhang Xiantao       2007-12-14  402  };
+d657a98e3c2053 drivers/kvm/kvm.h        Zhang Xiantao       2007-12-14  403  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
