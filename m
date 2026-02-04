@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FFBAE9D407
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 16:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA49EE9D3FB
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 16:15:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Bffho1MZwbI4iOvHhKoCL+hhRxrjvd4RS7oql5E6nqk=; b=3VW5gB/AHlJ64s
-	d2zi9VbMOso3+hcp4nT5NxfY5PuH+g5dckNERD0ulTWBF0gaRxDavfdkyPGxbSp9rahltSYH0v63K
-	3oYUFubwUe3UT/MeorzKJeymnZYJViR3R3ZKs7agMOlGO0wsGlqGa4bQS31co9IBTIvmL2UUA3vYn
-	+PBkgnVKYRMi+dIK/pmPe3QV3dO6l33BwipHD3vDJ5sH9x7GjhJC5PD0J48aJEO5ndJ3wWsREfGhl
-	dXuiL3XCWaFHnolvyAfncq5FzQuif4vQWAYWBd9Si5B5KriXIglBrbJtyPc+yaFz/FDHr7KRFha6g
-	jvO0FhX1+wqGOPwWJ8JQ==;
+	List-Owner; bh=25ERkgwW0BzJZsuZYmAagNhyHkB6YubaOW9PsHtzmFE=; b=3DJRlyyKl4Bbjz
+	Q2hupZwp4IZ8pYRAlIe3on8i0hxc6Xoi2yi0sLankQlZjTofaRIsha/8HFN3FgVVs+0V1jnR0wL3Y
+	+zKLj8aIO2nXJXpmCO/1PFloIVhmtB2rY+G2mW3xOj62CjPvBWxwZwZnZYvx/Myq0kbRaJszpKfDd
+	6HjMw4UDIYakipl2DvNHuYecrabBdx/NfgP1SYaoXV16UJ6VL27hTIPIWWhd+ZrfPuiJKrBo/DNtJ
+	5vv0MYVB9MNJPOkdkR6XZeDOImSQ4jcidtWp3+Y5wK270HhPiC9kggr1BaZVvCXpI0dBcjyeK/bIw
+	hA56anhXJzLKVfi2PFaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnfWL-00000008jjx-1D3F;
-	Wed, 04 Feb 2026 16:14:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vnfWu-00000008joc-2ZH0;
+	Wed, 04 Feb 2026 16:15:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnfWI-00000008jie-0zNa
+	id 1vnfWs-00000008joF-1gpJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Feb 2026 16:14:23 +0000
+	Wed, 04 Feb 2026 16:14:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 40EDE44194;
-	Wed,  4 Feb 2026 16:14:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0BC7C19423;
-	Wed,  4 Feb 2026 16:14:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 096D043B62;
+	Wed,  4 Feb 2026 16:14:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD053C4CEF7;
+	Wed,  4 Feb 2026 16:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770221661;
-	bh=fpIWi3ZlUU6GICbdztTffdwV8kcfmInvBOHJZpSmhzI=;
+	s=k20201202; t=1770221697;
+	bh=Yq7rjOmFg4CcgdWMbNPzzzqdWj+uSBMikYGgvwuzD/M=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=H1vPGXhUwV6c5NaktCTjngbifuDhCiF+MY5C9rAm7aQpM5UhZIbsPHjKUaCIe3UbT
-	 ZPan+cYjuPFcRTfiQwRp/Dsej0VELkl9kaMOIAbUzkJDkyGz4L2UiwDsU4b36C51v9
-	 MhKrNeaY79muH+KxquiZQbjLHI1Qj3LOb13NqQsfOiWDxqSVlKUPgnxqy6QmZiuULt
-	 Vg2X4M5Z2v2caTdEbzzI6mAwcTsbi7IWZPydTFK985L+WavMc0OfHDgPnUmU7HI5dX
-	 WOWKlCW/gGBMqBOCbmtqu11Dwr8VTP/CMpea3GpAszgJcoyFcHseGtZXiUIxONMT6U
-	 W6EDNps1rC7pg==
-Message-ID: <a61bc0a8-cf5a-418a-aeb4-96553b87f043@kernel.org>
-Date: Wed, 4 Feb 2026 17:14:12 +0100
+	b=qq6PmPjD7zhT9ot2QC9bw/em+sjKidISKx+M6635S/VLsnSzIHdkjtN3GpT67jcVr
+	 QKlfXbkrjUsEQPFC2Jpef0f3usL6xPZI9xZieC3loEmehrI+znscnN4is22oUYPksR
+	 rLNA6LbvFNFQvaNtCFMw/183u+J4q4YjuNpPXp6sffxhBR5wqIFTUEdaQ65autXc19
+	 r+6Ehby9ipL0DS9jDaoAPiPGn1RaSy1oDCFzEP+D7twyWyIz1qzdBZUqdAS0Aunubc
+	 msROGZeqxyTwEBrXiYGhpKhc4MQLyN1l+teThtvVP0lC0IvtsOE4AYyeMp8bbmQasP
+	 Zp78VUUPu8HZg==
+Message-ID: <7904198f-f4cb-492b-9e6b-4d9989b8d40d@kernel.org>
+Date: Wed, 4 Feb 2026 17:14:48 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv6 02/17] mm: Change the interface of prep_compound_tail()
+Subject: Re: [PATCHv6 03/17] mm: Rename the 'compound_head' field in the
+ 'struct page' to 'compound_info'
 To: Kiryl Shutsemau <kas@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Muchun Song <muchun.song@linux.dev>, David Hildenbrand <david@redhat.com>,
@@ -64,7 +65,7 @@ Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
 References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-3-kas@kernel.org>
+ <20260202155634.650837-4-kas@kernel.org>
 From: "David Hildenbrand (arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -111,10 +112,11 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260202155634.650837-3-kas@kernel.org>
+In-Reply-To: <20260202155634.650837-4-kas@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_081422_327281_A60896BC 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20260204_081458_482409_79BCED29 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,79 +134,17 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2/2/26 16:56, Kiryl Shutsemau wrote:
-> Instead of passing down the head page and tail page index, pass the tail
-> and head pages directly, as well as the order of the compound page.
+> The 'compound_head' field in the 'struct page' encodes whether the page
+> is a tail and where to locate the head page. Bit 0 is set if the page is
+> a tail, and the remaining bits in the field point to the head page.
 > 
-> This is a preparation for changing how the head position is encoded in
-> the tail page.
+> As preparation for changing how the field encodes information about the
+> head page, rename the field to 'compound_info'.
 > 
 > Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
 > Reviewed-by: Muchun Song <muchun.song@linux.dev>
 > Reviewed-by: Zi Yan <ziy@nvidia.com>
 > ---
->   include/linux/page-flags.h |  4 +++-
->   mm/hugetlb.c               |  8 +++++---
->   mm/internal.h              | 12 ++++++------
->   mm/mm_init.c               |  2 +-
->   mm/page_alloc.c            |  2 +-
->   5 files changed, 16 insertions(+), 12 deletions(-)
-> 
-> diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
-> index f7a0e4af0c73..8a3694369e15 100644
-> --- a/include/linux/page-flags.h
-> +++ b/include/linux/page-flags.h
-> @@ -865,7 +865,9 @@ static inline bool folio_test_large(const struct folio *folio)
->   	return folio_test_head(folio);
->   }
->   
-> -static __always_inline void set_compound_head(struct page *page, struct page *head)
-> +static __always_inline void set_compound_head(struct page *page,
-> +					      const struct page *head,
-> +					      unsigned int order)
-
-Two tab indents please on second+ parameter list whenever you touch code.
-
->   {
->   	WRITE_ONCE(page->compound_head, (unsigned long)head + 1);
->   }
-> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-> index 6e855a32de3d..54ba7cd05a86 100644
-
-
-[...]
-
-> diff --git a/mm/internal.h b/mm/internal.h
-> index d67e8bb75734..037ddcda25ff 100644
-> --- a/mm/internal.h
-> +++ b/mm/internal.h
-> @@ -879,13 +879,13 @@ static inline void prep_compound_head(struct page *page, unsigned int order)
->   		INIT_LIST_HEAD(&folio->_deferred_list);
->   }
->   
-> -static inline void prep_compound_tail(struct page *head, int tail_idx)
-> +static inline void prep_compound_tail(struct page *tail,
-
-Just wondering whether we should call this "struct page *page" for 
-consistency with set_compound_head().
-
-Or alternatively, call it also "tail" in set_compound_head().
-
-> +				      const struct page *head,
-> +				      unsigned int order)
-
-Two tab indent, then this fits into two lines in total.
-
->   {
-> -	struct page *p = head + tail_idx;
-> -
-> -	p->mapping = TAIL_MAPPING;
-> -	set_compound_head(p, head);
-> -	set_page_private(p, 0);
-> +	tail->mapping = TAIL_MAPPING;
-> +	set_compound_head(tail, head, order);
-> +	set_page_private(tail, 0);
->   }
-Only nits, in general LGTM
 
 Acked-by: David Hildenbrand (arm) <david@kernel.org>
 
