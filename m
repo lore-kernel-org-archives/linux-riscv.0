@@ -4,127 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FDD5EF99D3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E116EF99DE
 	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 20:26:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+UtwDmNoDPXNa3iAHFurRqBFTViPCxOzp024MxqE4fU=; b=tSboYZyKj7YVDr
-	4fPC9QT92bHoQ789282Qpbk8y3+lcunONxNwQ9kjqdZDP4HZcmPMD6vuEKZrfLqXKi8owgEm8n4Wi
-	e75+nBKEaZm2jM0NXmqI5NbD9dmb9lezFXP0iHF0qPzxy5j2L1LOBmqPAYyThDgIAJiaTZPD2VK1k
-	4PMVXSBRE/4GIGBhEWILLp5wdaHppfZiWA1RiyEFIs+QA2KIzR0CmthL3JrAB5FpPbmjuYfc+YyV0
-	RCVJOkhNMJgNnJYNMphWAZ9fSrJo7B34381rU2Ymi1zla7NaeOty2Kurgvftw2e/sbL+BB7zFckW6
-	sR4Tga4RInogiCq6Xg+w==;
+	List-Archive:List-Unsubscribe:List-Id:To:Cc:Date:Message-Id:Subject:
+	Mime-Version:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=mmC69hXfNKZDwCSo7P0+W1pzSM5xoNX1kPBEKt8f40Y=; b=EE5
+	DtmiJ1ipoE+6UIeckMY2cs7YYunweoOvhek2/fPCfWdSK5oACcCl/go4wudzW95uIT+/EP3PMnMee
+	57rWV23WYTDlCn1gRqAcypi+qXPBhQomMt3reIXXsKXqZeX0Kzrt1tFrKN0f/vmYv4wqAYc/p/Z/3
+	kXlb1yaaF0YwjLLWxbJh/BQmUcdj3CarIb8kZo1U/4YovJKutNOa+n2kpMbWMaC9kp/vJBkPi66Ss
+	QBQ0brcRFM6TNfDDYmEFW8bE5giofQocZOgwyH8Wqkn+v5YX5WjLKj3Rkass7Nf0xsDD2OzZVx/Dr
+	7sir5yr91uiEyaPowIMPcEs1ScUdcyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqzkX-00000003uM2-29bk;
+	id 1vqzkX-00000003uLe-0UQg;
 	Fri, 13 Feb 2026 20:26:49 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqU1M-00000001wf8-0PSV
+	id 1vnTmR-00000007qda-2JhD
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Feb 2026 10:34:05 +0000
-Received: from hawking.nue2.suse.org (unknown [IPv6:2a07:de40:a101:3:92b1:1cff:fe69:ddc])
-	by smtp-out2.suse.de (Postfix) with ESMTP id C33FC5BDAD;
-	Thu, 12 Feb 2026 10:34:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1770892441; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BeqIufAnYFkDobcmSJZWZ2CF3hg0EmflNlkkrGIm70U=;
-	b=nsLKylHB2RCOPy8131sxnnODIOADcYH6mFmK5mdtcESmMXnNjDYV9fJUN6QJ0+8dNVULwL
-	OeiKltQzlUQahubViNh8d4ygNwYOc4um3TApa4/R0ZRycLJdWM6Hx3iUZvCmRECW6xtIF4
-	PKFbO6etyfBYAw8rR7+S2mMhtY2rjqg=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1770892441;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BeqIufAnYFkDobcmSJZWZ2CF3hg0EmflNlkkrGIm70U=;
-	b=ctraEmnnzOPGB2pjH+6bObn5UnOpNRFk6wffYbCuXaSwDTXjXcrDSLpgAAUyDMX/a11Wjr
-	4spUj71SJeEfgqBA==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=d8llgl8Y;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=UKHSTwsz
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1770892440; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BeqIufAnYFkDobcmSJZWZ2CF3hg0EmflNlkkrGIm70U=;
-	b=d8llgl8YGpXU3bLR71G4BOLv8H8nzNx0xCNaqYEQBknIKOLnjDf4H5XulvGAl35mQYAyQU
-	ZyoB4rYuJ/JgMYuDvVxsafSNZEgwbCmJdaOupDN8LRrLSzgJfLNLTAUBMZ+Ba9hOJFx5+t
-	9LuoN6rmuJB16LahLniFFfNRmdCF19I=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1770892440;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BeqIufAnYFkDobcmSJZWZ2CF3hg0EmflNlkkrGIm70U=;
-	b=UKHSTwsz4ggPCOXEVZLqlnng5t29saErflvm5qpBVM1LvWZpGvIj4K8uAuyKCXJzH53e20
-	QzPVzB+HlRXI3DCQ==
-Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
-	id A8E114A0A2B; Thu, 12 Feb 2026 11:34:00 +0100 (CET)
-From: Andreas Schwab <schwab@suse.de>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org,  linux-kernel@vger.kernel.org,  Ard
- Biesheuvel <ardb@kernel.org>,  "Jason A . Donenfeld" <Jason@zx2c4.com>,
-  Herbert Xu <herbert@gondor.apana.org.au>,  Vivian Wang
- <wangruikang@iscas.ac.cn>,  Jerry Shih <jerry.shih@sifive.com>,  "David S
- . Miller" <davem@davemloft.net>,  Palmer Dabbelt <palmer@dabbelt.com>,
-  Paul Walmsley <pjw@kernel.org>,  Alexandre Ghiti <alex@ghiti.fr>,
-  "Martin K . Petersen" <martin.petersen@oracle.com>,  Han Gao
- <gaohan@iscas.ac.cn>,  linux-riscv@lists.infradead.org,
-  stable@vger.kernel.org
-Subject: Re: [PATCH] lib/crypto: riscv: Depend on
- RISCV_EFFICIENT_VECTOR_UNALIGNED_ACCESS
-In-Reply-To: <20251206213750.81474-1-ebiggers@kernel.org> (Eric Biggers's
-	message of "Sat, 6 Dec 2025 13:37:50 -0800")
-References: <20251206213750.81474-1-ebiggers@kernel.org>
-Date: Thu, 12 Feb 2026 11:34:00 +0100
-Message-ID: <mvm1piq9ron.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
-MIME-Version: 1.0
-X-Spamd-Result: default: False [15.29 / 50.00];
-	SPAM_FLAG(5.00)[];
-	NEURAL_SPAM_LONG(3.50)[0.999];
-	BAYES_HAM(-3.00)[99.99%];
-	NEURAL_SPAM_SHORT(3.00)[1.000];
-	HFILTER_HOSTNAME_UNKNOWN(2.50)[];
-	RDNS_NONE(2.00)[];
-	ONCE_RECEIVED(1.20)[];
-	HFILTER_HELO_IP_A(1.00)[hawking.nue2.suse.org];
-	HFILTER_HELO_NORES_A_OR_MX(0.30)[hawking.nue2.suse.org];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_NO_TLS_LAST(0.10)[];
-	MX_GOOD(-0.01)[];
-	FROM_HAS_DN(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	DIRECT_TO_MX(0.00)[Gnus/5.13 (Gnus v5.13)];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[16];
-	RCVD_COUNT_ONE(0.00)[1];
-	FROM_EQ_ENVFROM(0.00)[];
-	R_RATELIMIT(0.00)[from(RLajr16mudzow8bnf6sy)];
-	DNSWL_BLOCKED(0.00)[2a07:de40:a101:3:92b1:1cff:fe69:ddc:from];
-	DKIM_TRACE(0.00)[suse.de:+];
-	TO_DN_SOME(0.00)[]
-X-Spamd-Bar: +++++++++++++++
-X-Rspamd-Queue-Id: C33FC5BDAD
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: add header
-X-Spam: Yes
+	Wed, 04 Feb 2026 03:42:17 +0000
+Received: by mail-pl1-x642.google.com with SMTP id d9443c01a7336-2a93210fcc2so5044405ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Feb 2026 19:42:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770176534; x=1770781334; darn=lists.infradead.org;
+        h=to:cc:date:message-id:subject:mime-version
+         :content-transfer-encoding:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uxaGgiCs5zBYpfLxe5C7ES0aKYY8NFq6Tb6uEQsWDRI=;
+        b=ILb7QmxJ0r7vc1/acWzJEQgT/tzeWbvf+Mu7PZpzbx1zvm80qjPdNLtp8yQ1lM66k/
+         auc3hh5+KeameuIqFW3hy396IY1RuR1OSFm878OCu+XjiQoCavgn4nKvKsnCC4noT2Bl
+         fGWkp/SzFK1rb3fBnkzOVvIaA9o+g/3l5SuFVDVdSyo1WFTNiaOc/H74rvcGS1rc978t
+         1Cmn9JvfUYuYioqkXmXEzq76/rFdClcqLfkteNy43gqPBC5F488t7S1D6CnJbJzYG08F
+         Uf/KyRWK1eXtH8z26zij5xgABYx3M9Z0N6qbtmvLuO84mc6MY4X2LchO8+O1ESGd98LA
+         kNCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770176534; x=1770781334;
+        h=to:cc:date:message-id:subject:mime-version
+         :content-transfer-encoding:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=uxaGgiCs5zBYpfLxe5C7ES0aKYY8NFq6Tb6uEQsWDRI=;
+        b=QJzJDiJAyWePMEKEL0q8JHdHD8D4bZ/HXAWnoqlCcaYG4NgcF0iOjHTVkYQas659aZ
+         4yjjZHUtRkS4SjwkaYaj7edSrl9QCOC3QntSqDSG2roD9fvbgzDMvX5QA+B41U62p7LB
+         1oyb0MGuGtjdv1p0VOrQ563Mlx4YHLOnRrTIXCT4+X4OZElN8Fw5mxdA92SLh3gIQDXk
+         AAKDv4RNnguDwPRKXGAaA+kieVxaaQFJdLsd01Q/cA2vxe0kmVvLdnxtipVTS3A5Ajlv
+         zRYUT7sQwHyHaYmVnjgodZsp0ndjNBkvJAV4Y7LMMyc1uv7WotwAEWvM0cmo6bawX3Up
+         Gp7w==
+X-Forwarded-Encrypted: i=1; AJvYcCUa4C69cW4nknIpfSQ+UxEdHrcZ+EiL4dgGBDbxWxkh0UWgj4/THQmtsg/z08WBbaHKhm1gRAIX4GdfDA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YweNshXaMDE968hOCCX8FCggI9BE1d3G0A8ObdRg0eYHRyELx2k
+	dFYCNENli8cNNV0UI2AMo98NcJ7+wSVxtlQS9TOddPSvTnaFRlqPmfwB
+X-Gm-Gg: AZuq6aJsnRb8ebSUIFDjsWGUPzwnSz0yCdWL3MTcT82LQKEb/9v0tHeGCqtu+/+lmsz
+	LRSYFREYh3cWvrVYwKqP6VTN3lASAZMgGkKF/elnfYauexVDCNXf73i6VbJi33ok47IdEp/KlTQ
+	e1avort2PCL5F7Lb4s89k37QEzR7Pd3C0IvJNRvbr4ipsx+GqsapgG+5QD821Oxb2xKLXXHdBlg
+	zNMCs27mJhJc4GIYuGZMorJ5K/FCm938NUeI/Qt+n9bgRwe0cLbPCb0F8CzQYb7Ak29w96VWQJ5
+	hq2DM+lnMoHiVglEp3VXSpdZtiP9EnwGlJdyvqvscsAbcuRK2ddmXjTdza8ImcO+MRzN40Z58NK
+	N2ubpczsGWWO5PH8AyBmiONqDdix6ctfDl6WiOcx5KkWO30AI6RyZDKh8Mqzlcdw6O+g3wj/wHa
+	Hg9OpelACR3UyukKD7o7r+q4orONJqyp25djwMZwMmKFO5D7s=
+X-Received: by 2002:a17:903:228e:b0:2a7:5dbc:ed69 with SMTP id d9443c01a7336-2a933e42981mr16684595ad.27.1770176534174;
+        Tue, 03 Feb 2026 19:42:14 -0800 (PST)
+Received: from smtpclient.apple ([61.213.176.9])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a93397cb23sm8257695ad.93.2026.02.03.19.42.11
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 03 Feb 2026 19:42:13 -0800 (PST)
+From: qingwei hu <huqingwei.kernel@gmail.com>
+X-Google-Original-From: qingwei hu <qingwei.hu@bytedance.com>
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
+Subject: Re: [PATCH] RISC-V: Skip stopping cycle counter
+Message-Id: <5A50DBFA-261B-4C12-9291-4FA0190FCC13@bytedance.com>
+Date: Wed, 4 Feb 2026 11:41:59 +0800
+Cc: alex@ghiti.fr,
+ anup@brainfault.org,
+ aou@eecs.berkeley.edu,
+ atish.patra@linux.dev,
+ linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org,
+ linux-riscv@lists.infradead.org,
+ mark.rutland@arm.com,
+ palmer@dabbelt.com,
+ pjw@kernel.org,
+ qingwei.hu@bytedance.com,
+ will@kernel.org
+To: andrew.jones@oss.qualcomm.com
+X-Mailer: Apple Mail (2.3864.300.41.1.7)
+X-Bad-Reply: 'Re:' in Subject but no References or In-Reply-To headers
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_023404_312412_0D51AB23 
-X-CRM114-Status: UNSURE (   5.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260203_194215_593381_165D16C1 
+X-CRM114-Status: GOOD (  21.11  )
 X-Mailman-Approved-At: Fri, 13 Feb 2026 12:26:48 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -137,25 +106,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Dez 06 2025, Eric Biggers wrote:
-
-> Replace the RISCV_ISA_V dependency of the RISC-V crypto code with
-> RISCV_EFFICIENT_VECTOR_UNALIGNED_ACCESS, which implies RISCV_ISA_V as
-> well as vector unaligned accesses being efficient.
-
-That should be a runtime dependency.
-
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgRHJldywKClRoYW5rcyBmb3IgdGhlIGhlYWRzLXVwLgoKWWVzLCBDaGVuIFBlaeKAmXMgcGF0
+Y2ggZ290IHRoZXJlIGZpcnN0LCBhbmQgSSBub3RpY2VkIGl0IGFsc28gYXZvaWRzIHN0b3BwaW5n
+CmBUSU1FYCBhbmQgYElOU1RSRVRgLiBJ4oCZbGwgZm9sbG93IHVwIHRoZXJlIGlmIEkgaGF2ZSBh
+bnkgY29tbWVudHMgb3IgdGVzdApyZXN1bHRzIHRvIHNoYXJlLgoKVGhhbmtzLApRaW5nd2VpCgpP
+biBXZWQsIEZlYiA0LCAyMDI2IGF0IDg6MzjigK9BTSBBbmRyZXcgSm9uZXMgPGFuZHJldy5qb25l
+c0Bvc3MucXVhbGNvbW0uY29tPiB3cm90ZToKPiAKPiBPbiBNb24sIEZlYiAwMiwgMjAyNiBhdCAw
+NzoxNzoyOFBNICswODAwLCBxaW5nd2VpLmh1IHdyb3RlOgo+PiBGcm9tOiBRaW5nd2VpIEh1IDxx
+aW5nd2VpLmh1QGJ5dGVkYW5jZS5jb20+Cj4+IAo+PiBJbiB0aGUgcmlzY3ZfcG11X3NiaSBkcml2
+ZXIsIHBtdV9zYmlfc3RvcF9hbGwoKSBpcyBpbnRlbmRlZCB0byBzdG9wCj4+IGFsbCBhdmFpbGFi
+bGUgY291bnRlcnMuIEhvd2V2ZXIsIGNvdW50ZXIgMCAodGhlIGN5Y2xlIGNvdW50ZXIpIHNob3Vs
+ZAo+PiBiZSBleGNsdWRlZCBmcm9tIHRoaXMgb3BlcmF0aW9uIGJlY2F1c2UgdGhlIGNvdW50ZXIg
+bWF5IGJlIHVzZWQgaW4KPj4gdXNlciBtb2RlIGJ5IHJkY3ljbGUuCj4gCj4gSGkgUWluZ3dlaSwK
+PiAKPiBJdCBsb29rcyBsaWtlIENoZW4gUGVpIGJlYXQgeW91IHRvIHRoaXNbMV0sIGJ1dCB0aGF0
+IHBhdGNoIGFsc28gYXZvaWRzCj4gc3RvcHBpbmcgVElNRSBhbmQgSU5TVFJFVC4KPiAKPiBbMV0g
+aHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjYwMTMxMTEyNDQwLjI5MTUtMS1jcDA2MTNA
+bGludXguYWxpYmFiYS5jb20vCj4gCj4gVGhhbmtzLAo+IGRyZXcKPiAKPj4gCj4+IFNpZ25lZC1v
+ZmYtYnk6IFFpbmd3ZWkgSHUgPHFpbmd3ZWkuaHVAYnl0ZWRhbmNlLmNvbT4KPj4gLS0tCj4+IGRy
+aXZlcnMvcGVyZi9yaXNjdl9wbXVfc2JpLmMgfCAxMCArKysrKysrLS0tCj4+IDEgZmlsZSBjaGFu
+Z2VkLCA3IGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCj4+IAo+PiBkaWZmIC0tZ2l0IGEv
+ZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYyBiL2RyaXZlcnMvcGVyZi9yaXNjdl9wbXVfc2Jp
+LmMKPj4gaW5kZXggN2RkMjgyZGE2N2NlLi4yYmMwMDUwZGFiZDIgMTAwNjQ0Cj4+IC0tLSBhL2Ry
+aXZlcnMvcGVyZi9yaXNjdl9wbXVfc2JpLmMKPj4gKysrIGIvZHJpdmVycy9wZXJmL3Jpc2N2X3Bt
+dV9zYmkuYwo+PiBAQCAtOTAwLDExICs5MDAsMTUgQEAgc3RhdGljIGludCBwbXVfc2JpX2dldF9j
+dHJpbmZvKGludCBuY3RyLCB1bnNpZ25lZCBsb25nICptYXNrKQo+PiBzdGF0aWMgaW5saW5lIHZv
+aWQgcG11X3NiaV9zdG9wX2FsbChzdHJ1Y3QgcmlzY3ZfcG11ICpwbXUpCj4+IHsKPj4gICAgIC8q
+Cj4+IC0gICAgICAqIE5vIG5lZWQgdG8gY2hlY2sgdGhlIGVycm9yIGJlY2F1c2Ugd2UgYXJlIGRp
+c2FibGluZyBhbGwgdGhlIGNvdW50ZXJzCj4+IC0gICAgICAqIHdoaWNoIG1heSBpbmNsdWRlIGNv
+dW50ZXJzIHRoYXQgYXJlIG5vdCBlbmFibGVkIHlldC4KPj4gKyAgICAgICogTm8gbmVlZCB0byBj
+aGVjayB0aGUgZXJyb3IgYmVjYXVzZSB3ZSBhcmUgZGlzYWJsaW5nIGFsbCBhdmFpbGFibGUKPj4g
+KyAgICAgICogY291bnRlcnMgKGV4Y2VwdCB0aGUgY3ljbGUgY291bnRlcikgd2hpY2ggbWF5IGlu
+Y2x1ZGUgY291bnRlcnMKPj4gKyAgICAgICogdGhhdCBhcmUgbm90IGVuYWJsZWQgeWV0Lgo+PiAr
+ICAgICAgKgo+PiArICAgICAgKiBDeWNsZSBjb3VudGVyIGlzIGV4Y2x1ZGVkIGJlY2F1c2UgaXQg
+bWlnaHQgYmUgYWNjZXNzZWQgYnkgdXNlcgo+PiArICAgICAgKiBtb2RlIHZpYSByZGN5Y2xlLgo+
+PiAgICAgICovCj4+ICAgICBzYmlfZWNhbGwoU0JJX0VYVF9QTVUsIFNCSV9FWFRfUE1VX0NPVU5U
+RVJfU1RPUCwKPj4gLSAgICAgICAgICAgICAgIDAsIHBtdS0+Y21hc2ssIFNCSV9QTVVfU1RPUF9G
+TEFHX1JFU0VULCAwLCAwLCAwKTsKPj4gKyAgICAgICAgICAgICAgIDAsIHBtdS0+Y21hc2sgJiB+
+QklUKDApLCBTQklfUE1VX1NUT1BfRkxBR19SRVNFVCwgMCwgMCwgMCk7Cj4+IH0KPj4gCj4+IHN0
+YXRpYyBpbmxpbmUgdm9pZCBwbXVfc2JpX3N0b3BfaHdfY3RycyhzdHJ1Y3QgcmlzY3ZfcG11ICpw
+bXUpCj4+IC0tCj4+IDIuMzkuNQo+PiAKPj4gCj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCj4+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+PiBsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
