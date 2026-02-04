@@ -4,83 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA32FEA7944
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 20:58:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08DA5EA7946
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 21:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M0ksj1n3/24X28kbTcbceJ6U0RRtFX2ONNQHX5724zQ=; b=iYAG9ZjFLlb2zk
-	a+7eo1mPBYBQi7T8mVekgu2o9u++7PzzR8116RXap11zmK1/rDULcGLYHXtL9LI67pewJcX1DQHVh
-	ZnkZ/zj1fhEW1cWRX1v1bxBa5fJrlQZdpLyjacWqt8Ly/elXploPPsnuAJhiHGDD4l8BNbismussF
-	UXniP9WSUKHPcz7lNAt2wr7F41JCDxwR0W08+WI6e7W8p3Dufe6knk18FivWWAm6zuEkF2WSL1l7L
-	m1mdm/bKsCjRlmEzEnVknKwXYsUInhjEa2Dy4y8dIa/N9gznJB0JQtkpXS7fqpMbV2ao/IhdmeE6W
-	bkDBOSAZiS120IvXiNhA==;
+	List-Owner; bh=7vv8ACT2hZYfWs8fLy52YjehqR+uTfpyekN0SoExsWs=; b=Bykuxcql/FUsQ7
+	8BGrrVBwJQc02nfP1lABE0x+PwRgBnGBxS61WMlr6lfjLQlUe7geJvCfIuwmNlJNEDM5jA4G40KLi
+	nzT6M7z8ELybnTdxQ7jWqNgF6Kn5ItPh3j7+rVSYDdevdvul/odnjBwnulLt8A+70f1TZ+73dkWVH
+	0DPu33rKlFv7tivo4tcCv2d6GJLnKGzawPXS2zqv9owMzYdm+r8gdoUBds7RhUOGfNEaMxoGT1NiZ
+	U9KdVQQXiUS/Z/ND5tDCVWVFzwpK3zr08njA6h9HZ+hT0LLUyMqMCLpDe68A7+chbT/p1e1JTLfu/
+	x2L0JAmepWvDaQYP55hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnjxW-000000094kb-0RWC;
-	Wed, 04 Feb 2026 20:58:46 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1vnk7Y-000000095F3-2GxK;
+	Wed, 04 Feb 2026 21:09:08 +0000
+Received: from mail-westusazon11010059.outbound.protection.outlook.com ([52.101.85.59] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnjxT-000000094k9-11XU
+	id 1vnk7U-000000095ER-36RQ
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Feb 2026 20:58:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1770238723; x=1801774723;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=CN9YO0PgY9VI+ArnyPEylWMxEb/sOXmyT3jzqAtcOVc=;
-  b=AMWNZ/USTX45AhU3qxUJGntrUJmv9f7GSIsXoPuxzdl0aQlEEZUgkI5q
-   OMsno0D42fewTBdA4TdqiDG6vre3ixc+8hCTMzB5r+kX1127peZyNYbR8
-   xujLPvU+Jy51bpjMUPB3dI/gBs/kbaXMNVFKWtmY5kJAf7ykAFLT/Fr1R
-   Rfmjkx5ljTzC40cGA/VfIz1GgBUtnFwC28dbKDKU6Cl9QAar0oV+4sLGA
-   23xhD5JE2lCiB32iUqOlWz7DNF+HEd+p0pqkq14bu2/J1xhy25RSBeKo+
-   7HdzBPN0NLqzVYYnRLOrk5S131c64iCFAJbtkOOCgKm0xJtbvJprMMYok
-   g==;
-X-CSE-ConnectionGUID: oz6QlUgbT5K6/EjjwGe3EA==
-X-CSE-MsgGUID: O6xJg2fwQOe4saewW2q6fA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11691"; a="59010632"
-X-IronPort-AV: E=Sophos;i="6.21,273,1763452800"; 
-   d="scan'208";a="59010632"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2026 12:58:41 -0800
-X-CSE-ConnectionGUID: Gm0rRqvATbeCSULMVTyJrw==
-X-CSE-MsgGUID: CsULfVJxTu2u8gi1KxvG6A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,273,1763452800"; 
-   d="scan'208";a="210058685"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 04 Feb 2026 12:58:36 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vnjxJ-00000000jAa-24qd;
-	Wed, 04 Feb 2026 20:58:33 +0000
-Date: Thu, 5 Feb 2026 04:57:33 +0800
-From: kernel test robot <lkp@intel.com>
-To: Zixing Liu <liushuyu@aosc.io>, WANG Xuerui <kernel@xen0n.name>,
-	Huacai Chen <chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>
-Cc: oe-kbuild-all@lists.linux.dev, Kexy Biscuit <kexybiscuit@aosc.io>,
-	Mingcong Bai <jeffbai@aosc.io>, Zixing Liu <liushuyu@aosc.io>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4] KVM: Add KVM_GET_REG_LIST ioctl for LoongArch
-Message-ID: <202602050419.lwzj2i73-lkp@intel.com>
-References: <20260204113601.912413-1-liushuyu@aosc.io>
+	Wed, 04 Feb 2026 21:09:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QQ3eBsz7nJC6G9YoImJ94K7FszXmW/s7TfbEAhPKO9L8ABFJtGDoBN+DuJnmhn4qQv1uDed1ausYNWPdv+NJzqUuVK3fgKN4PBLD367Sb5p/nFysu18HHepMbgFC7USDl6xGMgCUpvCqTCb1lESWDHpBHLVXQRdXxrdclkp1UL7G6ludarmCAlxuGMGSX6Q8QZVPedgUNOvhfGdGmBMKyhdlb3bxsEWZO7zbJjAGvSRx+P1voBZZZoBsWpIRUAQy/BhJW8WyPDu2gx1lX9MFk8LQuk5coetfGLRYrUUo6J951ybrfDfuA7Wh32lnyyLXPIL9h74lilxNtwJ0TxVEyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6iNXzY34BKTmIgsOMU/F63iy3bxJTiH4FD2H5q2emNA=;
+ b=i3h4fOr5qsU+yegWWQmg/EZuFYCYfXZvIgXpDu2pgOpcJAkbiX1oCLyOaLcrL02jwJafzZleJ8SsNlAaTYinXGLfCtOt3ghx1Q8DI6zcG1IV8/0Tus/xZ2X4DbieYvvqI/Wip54EsWF7Y3ka4nFnxhOa4vTSj9mfD7JRwHImcpPx/HnSm++68dd/RJK56VMBGofRiz7rWEyIwlZP//yqqZZo2YjIEr6Jb5xn4I97ZdcfKQirAEiQtWCxeRh0u0RLFl24P4kKac44ULvbPdwG5kBI4rGNPoNryzwDOBa+F8F1G+RGk6MhvXR7QKTmoORgVRZ/9EMEDugVlOLN7GPsZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6iNXzY34BKTmIgsOMU/F63iy3bxJTiH4FD2H5q2emNA=;
+ b=pIq83CJ6yctap7K1GqslwH6d3pmaHMUWneDaZ/RaLx7N1WnzbyS+QDsOPWxe1/eEaKDlsO/wirbz1ixRRDvf/SduV41qAXwn8FAuW26IF/yvFdMoCMh1F9W8H7kBfV5uIdnPXlzLEqhPHAhlgCKUId7WJyc7qhuvI5y4hFVK4nT9fkzSAo7eLNratxuV8TXjdoHQJNFPpWTGErtBM1uMXGAW3Me3/zw1ONTzN+mvNmcAbNPrUOCCOEoRQnej2i0m8bLMt2T/ik9CpcsVyJyLIKHjVQvrY+Iw+jrBhLX24BZx2LjsBCxwdLHTJ2HytRmL9/xqdCSv1GgunktEDAgJmw==
+Received: from DS0PR12MB6486.namprd12.prod.outlook.com (2603:10b6:8:c5::21) by
+ SJ2PR12MB8062.namprd12.prod.outlook.com (2603:10b6:a03:4c8::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Wed, 4 Feb
+ 2026 21:08:52 +0000
+Received: from DS0PR12MB6486.namprd12.prod.outlook.com
+ ([fe80::88a9:f314:c95f:8b33]) by DS0PR12MB6486.namprd12.prod.outlook.com
+ ([fe80::88a9:f314:c95f:8b33%4]) with mapi id 15.20.9587.010; Wed, 4 Feb 2026
+ 21:08:52 +0000
+From: Joel Fernandes <joelagnelf@nvidia.com>
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+CC: Alexandre Courbot <acourbot@nvidia.com>, John Hubbard
+	<jhubbard@nvidia.com>, Danilo Krummrich <dakr@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Paul Walmsley
+	<pjw@kernel.org>, Dabbelt Palmer <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Miguel Ojeda
+	<ojeda@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo
+	<gary@garyguo.net>, =?utf-8?B?QmrDtnJuIFJveSBCYXJvbg==?=
+	<bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, Andreas
+ Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, Trevor
+ Gross <tmgross@umich.edu>, Alistair Popple <apopple@nvidia.com>, Zhi Wang
+	<zhiw@nvidia.com>, Simona Vetter <simona@ffwll.ch>, Bjorn Helgaas
+	<bhelgaas@google.com>, Alex Gaynor <alex.gaynor@gmail.com>, Dirk Behme
+	<dirk.behme@gmail.com>, "nouveau@lists.freedesktop.org"
+	<nouveau@lists.freedesktop.org>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "rust-for-linux@vger.kernel.org"
+	<rust-for-linux@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v2 1/5] gpu: nova-core: use checked arithmetic in FWSEC
+ firmware parsing
+Thread-Topic: [PATCH v2 1/5] gpu: nova-core: use checked arithmetic in FWSEC
+ firmware parsing
+Thread-Index: AQHcjwGXVkRTHzW2UUWwhJzkgIcyjbVnar8AgABI+YCAAJhcAIAACr0AgAlC/4CAAVd8AIAAJZ7M
+Date: Wed, 4 Feb 2026 21:08:52 +0000
+Message-ID: <B65E1B54-C5FB-4076-8DD7-8202F69471C1@nvidia.com>
+References: <20260126202305.2526618-1-joelagnelf@nvidia.com>
+ <20260126202305.2526618-2-joelagnelf@nvidia.com>
+ <DG0607SU943F.1FDOPYPN38FCS@kernel.org>
+ <259bdacf-d16e-4fff-9f6b-f860feb40aa8@nvidia.com>
+ <DG0N5PNS1ZQ0.13WMT4XYDXNUS@kernel.org>
+ <8859d68f-ca38-469e-8345-84059573ac97@nvidia.com>
+ <DG5OGLH0BHNE.2XSVBQHAAXHGI@nvidia.com>
+ <CANiq72nhzix4Dr9_gbaFwZQQq=3cDY=oAYVgG5hDAmMgaYKQJg@mail.gmail.com>
+In-Reply-To: <CANiq72nhzix4Dr9_gbaFwZQQq=3cDY=oAYVgG5hDAmMgaYKQJg@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DS0PR12MB6486:EE_|SJ2PR12MB8062:EE_
+x-ms-office365-filtering-correlation-id: 9159c99c-2b85-4a32-c893-08de643199ab
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?RmcvYjlVU25naUNrZGV3ZVpXYWZnMmQ0dlFidmx5MU5ZbXgzRGhFeW9vY0Vj?=
+ =?utf-8?B?K1JQVnJLSjZPb1B2YmFnamN0T3ZLdWVzbGYxaUxGYmJ4LzRQMDFSQWhCRDQ3?=
+ =?utf-8?B?UDlNVmYyWmhRNFRyTlNWNDhmVWJVSkh6MFNGU2xGeXB2eWh1R2ZiQmZvS3Q2?=
+ =?utf-8?B?ZGtOZ0hYb1RSMVNlRWFHV2hnaUZNWWFqYmErU3JWdEhmVitkSFhkRjh0RWdr?=
+ =?utf-8?B?bUh2MDF0a25oYjFWdkRvOHF4OUlVaFNRNTN1TzgybXgvZFJCenkzVTRyVlZy?=
+ =?utf-8?B?YTBPUVF5b0pCcDRzeUFTVkxuUDFzN0dKbHcxaTBsNnNpNjlkNzg2QjhTcDNQ?=
+ =?utf-8?B?NXc3ck5tN0NTY2dGQlZHSXRQTE1YcC9XZ0RYSFJSVkhZQlF4eEFxZWloQzMz?=
+ =?utf-8?B?emhTaUJibnBxNy9Ba1RxMmRCSmtaKy9xMkVZSmFYa24zblVZNzE0cGN6SVNM?=
+ =?utf-8?B?elloSGIxTEFHb0xKekFBbS8xVENXa0k0bVZsanpMakhaRTc2M0ZjUHE4Q3Rv?=
+ =?utf-8?B?YUtlVmgwQm1SeWhlMWNReFZXdjg2KzRIQTBBUlRDeEFmTFpuT25wMThjU25F?=
+ =?utf-8?B?WCtUeU1RMHF3a0NXZnAyeEYxZC93eURrNHdTeGl4OUUzdU9SSHFRL0FCYi91?=
+ =?utf-8?B?b3RuMk9wSFFjTEp6TXFuZXYvazNDWEk1YmFwWHE2Z1lWOVBDZWJXU0Q4WUNJ?=
+ =?utf-8?B?dm9tcjVybGNwSWlEUklzRm5BNGQwVUtjSElHUi9HdFJ2c0tETTBUb2ltbXlo?=
+ =?utf-8?B?QkwrdzZRdERaV1gxb2swMXpoZU91VllMQVR0NUp6UTRyejg1cDQ1SFpjQlpn?=
+ =?utf-8?B?MURZUlVoWGUvZ0VMaERmSEdsVmpjb0QyUndaZ0ZCblpFUHZpZDh5ZEJkRHJp?=
+ =?utf-8?B?NTVRNmxpbjlaTnNtVVFkS3BDMFRNQUFUWXN4VWhsYXJVc0hWdkMvZnZMYnpB?=
+ =?utf-8?B?RUwwS3h6cDArYmFwb3VoY2dTeG5kNjNjTVBhd01KWVhOTjF2TnYrazlxdHIz?=
+ =?utf-8?B?N1RkdkVUQ3RhZ29HdVdpRnZVWHhIMWRNazNCTGJ0MUdWeHRzTzdqZkh1QzFu?=
+ =?utf-8?B?UncyNWM0N0k2ZXRNRmhvcHNWQ29TajVmUGFDUjA5eVkzMTFnZjJPbjM4T2w5?=
+ =?utf-8?B?VjhqSXBKcXFtQ1BqcGpraGNkN0U0cUJNWWhPdkNTaFlxZUExV2RlNXFJV0Rm?=
+ =?utf-8?B?VXlmYVFIUU51TW1WWkNIYTd4ZEVCY2c2Yjlzc0NBeTYzcnphZEVDeHR5OGdN?=
+ =?utf-8?B?QmNhVnpqTnhWYmk0Ym0vaDRYb05iaHQrcGF2MmxNTk03c2lLWUtOWTBrMW9O?=
+ =?utf-8?B?Q0FZVFZoYVppN2ZLcUtjWlZseTdTT2xTTlJIMDJIQUJwam1vcVlKRVl3c2pn?=
+ =?utf-8?B?emVWVlRoalJJVUZKOS80aGgzS3VZaGRLWHA1VUYzNzhpVzVFM0YrRXRsQkpS?=
+ =?utf-8?B?c1Q0c3lGekd1NFhzR3Z0YXRpelBzbUZ3YVg0TmQzWlVpMnMvSEFKVSt5cmZ0?=
+ =?utf-8?B?NkNKTGVPZHFFbGxOcUtFUnJxb3REZlRxeGh4QlYvU3oxNFZiekV0b05WN0R4?=
+ =?utf-8?B?eFZQSGIxKzNrRkJNWGZjNFhGbWdnVCtud2UrUk45QkVDZjhSZXBSaExWMDFN?=
+ =?utf-8?B?QjVvWWg0YlFhS0lSdGNCaUdieGljWWZIdkRVNFdoRjErVVlCRTA1eG8reHVq?=
+ =?utf-8?B?VnJhS2hFQ3pIK1JRRUdZeDZrZTcwQ1ZaOUNaRmhOZW9mQ1dDRWJScS91Z1hT?=
+ =?utf-8?B?Slc4TkNZZDNjcEIweUIrMlg1SERqalR3K1VhL1FlM21oS3RYd1ZhRmt0bFo0?=
+ =?utf-8?B?VEJ3Um45S0FvR2pveitpOFowOHVkbVd1SXh6V2E3VGM1Mjc4TDhMZDJXanhI?=
+ =?utf-8?B?VEd3SVJHVlE1SXB0SURWSFlPWHlFbFJwcVJkenB4cjlGam9HL0wxaDBFcC8y?=
+ =?utf-8?B?Q0lvUk5zd2xYaG9PVnIyUWMyUzEyMkVnRlNERi9XTEQzb3AzWW1oMTIxUHZU?=
+ =?utf-8?B?R2svemxXVmtNVGN5UTEwd1Jqb0c5OUFtdzd3aXRJU1lLalZleVRVRjRMNWF6?=
+ =?utf-8?B?WEV4bUZBOGZ6Q2dQM09aK1Z3OXk2Zk5yZXVwUE5oWUxoZUVoL0QvcWFFalJj?=
+ =?utf-8?B?L2RJYzdKdG84NWhobjdjNFVJSzczNnJGVisrbXNGUHQ5bWo1V1VYK0N1bUFo?=
+ =?utf-8?Q?lYK98uScuCV4OhNjAvrT+hk=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6486.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?eno4RzJFNnZkS2tGR2cwTW9GTmVQTGlzQjNkYjJHWmg0akdXY01ZTGFzKzNS?=
+ =?utf-8?B?M2xwcytPeW9KN0pVQThoVmhLM0NQc0c5NFljdFBMQ1crcUpTRTBnL0xURllC?=
+ =?utf-8?B?K0VYaWNMTzk4bGRqUmhGaDFSMlhZZm10VllmeUNxQW02Z000TXgyQUdSK3lF?=
+ =?utf-8?B?NitJbDYzbzE0WEhySzI2cWc4WHZSeGdtU1Z5OGppUDc5eGt2OXlUSTdQb0dS?=
+ =?utf-8?B?bWdvZmxpSEMxdkRvUm1CamMzZzc2Skx4M3ZJU09XaTFuMkxLbVhkZis0eEE5?=
+ =?utf-8?B?ZVczVWdPZHpVS2xoVkFhbWtGUG1Yd1NTREVtZmRndVZFMFNhemdKbVhNZ3Ix?=
+ =?utf-8?B?aEIrWWtBNlNrQ0ZhY0xYNXVrbktpODMrZ0tmdVptMDFzWTRkS0czR3psQlVt?=
+ =?utf-8?B?c2NRMW9NbWRMTkhKOFNqd1NTL3M0ZWZXV0R0SGZMUVhDZ3Vid2dmQjFXa1Ra?=
+ =?utf-8?B?d25MajlyK0pnQlpSQWFJcksvMUxCZ1FwV0VUTEV6bCtkUlVXU1BvVDlwMGZ1?=
+ =?utf-8?B?SHB2QlFkUW5KbGt0amFjZEhFbm1LYmhuVERqaUlmaUkyU3M3eDZVOTRIdWU1?=
+ =?utf-8?B?OFZJWTZTcmZpWXo2RitSUUQ3T0pEV2ZOYXYxNzYzNFRLMStNQ00wQndVWEVI?=
+ =?utf-8?B?VVZGckxydWlrS1o3dXZSQzJZVWR1UE9xOVlDYU90OGlHM0lXQk1CdU5ROU56?=
+ =?utf-8?B?U2crWmJQTVlBYUFvVGVwNEhvZVlLN0p6VzRNZEhsc3hSai9USVBPS2Ivcytn?=
+ =?utf-8?B?KzJvTmlKT3RGNXkzQ2ZxYVpUVFJHbDBLdTh6dXc4OG1ybXBQQlh0YVhIN1hy?=
+ =?utf-8?B?QUJvYVNEamRnM2N1OEZZaDcrcGdoL01wTWtpaXlGMDF4VE5KdnNrR0o3SmZZ?=
+ =?utf-8?B?WUxTK2xCcmJxYTlZdEtFMXBqQm04ZERIMlBsak85cWx2VWQrWmptOXc1eHZY?=
+ =?utf-8?B?RFNJNmdsTGlaazd3K3orbUg1Qmh0Y2hYb3hFM2lzMlhzZ0RycnJEcnNCSjl1?=
+ =?utf-8?B?SDVseUFLTXhkWW9SMnF4SXNtSGlSUFRWYlhGTmRjSkl0YTZXUnRCYm95OUNV?=
+ =?utf-8?B?T0dqcEdJanNsM1FRQlNJbjRlM3Z6Tk9PN0RHanA1MnBDdllRM3YrNVdFZmtR?=
+ =?utf-8?B?WlJKNUdtNU1YMlQ2c3RyNm9PZmk2OEl5RUsvbm13MXlQcmdHcGtmMm5qdGVK?=
+ =?utf-8?B?TjU3VnhFWHFzSElOWU5FWG9ETDJXYy9vQVhyRG91YUN0WGpZUnJNK0k1Zndi?=
+ =?utf-8?B?YVFTaFR3SWJSQURUYXREVi9lcjlVc0Q3SHc0NDFFZ2FjczFEdUI4eGVnK3pI?=
+ =?utf-8?B?UGZRU0gzeHZocEtiaFNVZDdDTlFUdWFuQVErNS9qcElNbnhKVjk1MmEyZjUz?=
+ =?utf-8?B?bS9lT1RrbUMxWHdxbTZFanQ1ZDZUNkVSWEJEenZxZGlDazFKdFJRK1N4ZWlp?=
+ =?utf-8?B?RkFFSFM5bVpkQkVnUFdOM2dMZ1MwN0ZzdWw2WjluVVRWNmJVMU5Semg2SmUw?=
+ =?utf-8?B?TlRZb20yMVBMYnZVaU9uRzdxUWRTY2xBM0dzUEdWSkxNclYwSVNxdnVTRlF4?=
+ =?utf-8?B?dTVlQjhEam1qdkNMT1FQZFZhMG52bjkwalNieWNmTUVRTkJ0R01HNmZYaEFW?=
+ =?utf-8?B?YXViSVZRdGQweUtoL0cxZ1VZSkRPRktHc3RxNG5UNjQvK0hUNzU0dm5rcEhv?=
+ =?utf-8?B?ZXN0bWlpc0ZHTFpud1RsZ0hTN2l3OGZaK1QxeWtqVmY3ZGRNOHVCUHNXRDdT?=
+ =?utf-8?B?UXNxZ0liRUFmZWVONnBHdjI2dm9lN3lkcG9tZWNVRm1JNVVGVjJrQkxxaHVS?=
+ =?utf-8?B?RmprdjJpS2dBeVB6QTJmclF0a1lFUzBMdzF1UUxCTXZwYlBXVUZWM3A2bTJ2?=
+ =?utf-8?B?R1RHbmk1a1NsOWdJWlVvenA4Z3V1Rlo0akUwUTRQWFVIeHJKT2hTRDlqMXE4?=
+ =?utf-8?B?NFh5dDdiQi8zVmorYVNhWkx5N3U5K0xKQ2hma0JkSms2YldQMmtLcCt1c1V0?=
+ =?utf-8?B?Qm1nbmhOVElibWRQWmtHNUJXMTBoZHZmejgxb2hUbUZVZFZZa2xCdFMxYi9U?=
+ =?utf-8?B?Yk9GM0tRTUo1dUd5UW1JRUZuMDBVamRzSElkdTlZaVk0Nmo1UGtGYyswa2Fs?=
+ =?utf-8?B?MDFuS1Y2ZmR5VGhKYTNxVnQ2RDdrekZIR1J2YTFwMGxiUUdWRnFidGxmR08y?=
+ =?utf-8?B?ejdjL3VMMHNKVUo0RVFKOGVKTzNQenpCM2JQcnhhSk1JdHRzM2FlbEUrTXcr?=
+ =?utf-8?B?VTBva1lZaC9hVllwNlZoUVNlUS9lSTJoV0lSNlR3OHB5WmR2YVNqeEgzdDN1?=
+ =?utf-8?B?VXRPRlIySHdjbkExTlhoUTdrQTZ2MUxZdE5uSlphS1c4S0U0NnNtdz09?=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260204113601.912413-1-liushuyu@aosc.io>
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6486.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9159c99c-2b85-4a32-c893-08de643199ab
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Feb 2026 21:08:52.7123
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: hADIoXJEx9JsdKJuvU+0iMufs9Y1OQQnV9UPddxigI3tqzPMtf86lggThxjAgJmUcD5gfi5b2F/605ahmWvmEQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8062
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_125843_338138_E8ADC1C7 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20260204_130905_366243_9D8E12A4 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,320 +202,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Zixing,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on kvm/queue]
-[also build test ERROR on kvm/next linus/master v6.19-rc8]
-[cannot apply to kvm/linux-next next-20260204]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Zixing-Liu/KVM-Add-KVM_GET_REG_LIST-ioctl-for-LoongArch/20260204-193844
-base:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git queue
-patch link:    https://lore.kernel.org/r/20260204113601.912413-1-liushuyu%40aosc.io
-patch subject: [PATCH v4] KVM: Add KVM_GET_REG_LIST ioctl for LoongArch
-config: loongarch-randconfig-002-20260204 (https://download.01.org/0day-ci/archive/20260205/202602050419.lwzj2i73-lkp@intel.com/config)
-compiler: loongarch64-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260205/202602050419.lwzj2i73-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202602050419.lwzj2i73-lkp@intel.com/
-
-All error/warnings (new ones prefixed by >>):
-
-   In file included from arch/loongarch/include/asm/kvm_mmu.h:9,
-                    from arch/loongarch/include/asm/kvm_host.h:21,
-                    from arch/loongarch/kvm/vcpu.c:6:
->> include/linux/kvm_host.h:389:30: error: field 'arch' has incomplete type
-     389 |         struct kvm_vcpu_arch arch;
-         |                              ^~~~
->> include/linux/kvm_host.h:390:30: error: field 'stat' has incomplete type
-     390 |         struct kvm_vcpu_stat stat;
-         |                              ^~~~
-   include/linux/kvm_host.h:601:37: error: field 'arch' has incomplete type
-     601 |         struct kvm_arch_memory_slot arch;
-         |                                     ^~~~
-   include/linux/kvm_host.h:831:28: error: field 'stat' has incomplete type
-     831 |         struct kvm_vm_stat stat;
-         |                            ^~~~
-   include/linux/kvm_host.h:832:25: error: field 'arch' has incomplete type
-     832 |         struct kvm_arch arch;
-         |                         ^~~~
-   include/linux/kvm_host.h: In function 'kvm_get_vcpu_by_id':
->> include/linux/kvm_host.h:1023:18: error: 'KVM_MAX_VCPUS' undeclared (first use in this function); did you mean 'KVM_MAX_VCPU_IDS'?
-    1023 |         if (id < KVM_MAX_VCPUS)
-         |                  ^~~~~~~~~~~~~
-         |                  KVM_MAX_VCPU_IDS
-   include/linux/kvm_host.h:1023:18: note: each undeclared identifier is reported only once for each function it appears in
-   arch/loongarch/include/asm/kvm_host.h: At top level:
->> arch/loongarch/include/asm/kvm_host.h:46:9: warning: 'KVM_DIRTY_LOG_MANUAL_CAPS' redefined
-      46 | #define KVM_DIRTY_LOG_MANUAL_CAPS       \
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/kvm_host.h:643:9: note: this is the location of the previous definition
-     643 | #define KVM_DIRTY_LOG_MANUAL_CAPS KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
->> arch/loongarch/include/asm/kvm_host.h:337:20: error: static declaration of 'kvm_arch_memslots_updated' follows non-static declaration
-     337 | static inline void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen) {}
-         |                    ^~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/kvm_host.h:1237:6: note: previous declaration of 'kvm_arch_memslots_updated' with type 'void(struct kvm *, u64)' {aka 'void(struct kvm *, long long unsigned int)'}
-    1237 | void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen);
-         |      ^~~~~~~~~~~~~~~~~~~~~~~~~
->> arch/loongarch/include/asm/kvm_host.h:338:20: error: static declaration of 'kvm_arch_vcpu_blocking' follows non-static declaration
-     338 | static inline void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu) {}
-         |                    ^~~~~~~~~~~~~~~~~~~~~~
-   include/linux/kvm_host.h:1522:6: note: previous declaration of 'kvm_arch_vcpu_blocking' with type 'void(struct kvm_vcpu *)'
-    1522 | void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu);
-         |      ^~~~~~~~~~~~~~~~~~~~~~
->> arch/loongarch/include/asm/kvm_host.h:339:20: error: static declaration of 'kvm_arch_vcpu_unblocking' follows non-static declaration
-     339 | static inline void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu) {}
-         |                    ^~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/kvm_host.h:1523:6: note: previous declaration of 'kvm_arch_vcpu_unblocking' with type 'void(struct kvm_vcpu *)'
-    1523 | void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu);
-         |      ^~~~~~~~~~~~~~~~~~~~~~~~
->> arch/loongarch/include/asm/kvm_host.h:341:20: error: static declaration of 'kvm_arch_free_memslot' follows non-static declaration
-     341 | static inline void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot *slot) {}
-         |                    ^~~~~~~~~~~~~~~~~~~~~
-   include/linux/kvm_host.h:1236:6: note: previous declaration of 'kvm_arch_free_memslot' with type 'void(struct kvm *, struct kvm_memory_slot *)'
-    1236 | void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot *slot);
-         |      ^~~~~~~~~~~~~~~~~~~~~
-   In file included from arch/loongarch/include/asm/kvm_csr.h:12,
-                    from arch/loongarch/kvm/trace.h:10,
-                    from arch/loongarch/kvm/vcpu.c:16:
-   arch/loongarch/include/asm/kvm_vcpu.h: In function 'kvm_read_reg':
->> arch/loongarch/include/asm/kvm_vcpu.h:120:69: warning: parameter 'num' set but not used [-Wunused-but-set-parameter]
-     120 | static inline unsigned long kvm_read_reg(struct kvm_vcpu *vcpu, int num)
-         |                                                                 ~~~~^~~
-   arch/loongarch/include/asm/kvm_vcpu.h: In function 'kvm_write_reg':
-   arch/loongarch/include/asm/kvm_vcpu.h:125:61: warning: parameter 'num' set but not used [-Wunused-but-set-parameter]
-     125 | static inline void kvm_write_reg(struct kvm_vcpu *vcpu, int num, unsigned long val)
-         |                                                         ~~~~^~~
-   In file included from include/linux/string.h:386,
-                    from include/linux/bitmap.h:13,
-                    from include/linux/cpumask.h:11,
-                    from arch/loongarch/include/asm/kvm_host.h:9:
-   arch/loongarch/kvm/vcpu.c: In function 'kvm_set_one_reg':
-   include/linux/fortify-string.h:503:65: warning: left-hand operand of comma expression has no effect [-Wunused-value]
-     503 |         fortify_memset_chk(__fortify_size, p_size, p_size_field),       \
-         |                                                                 ^
-   include/linux/fortify-string.h:512:25: note: in expansion of macro '__fortify_memset_chk'
-     512 | #define memset(p, c, s) __fortify_memset_chk(p, c, s,                   \
-         |                         ^~~~~~~~~~~~~~~~~~~~
-   arch/loongarch/kvm/vcpu.c:920:25: note: in expansion of macro 'memset'
-     920 |                         memset(&vcpu->arch.irq_pending, 0, sizeof(vcpu->arch.irq_pending));
-         |                         ^~~~~~
-   include/linux/fortify-string.h:503:65: warning: left-hand operand of comma expression has no effect [-Wunused-value]
-     503 |         fortify_memset_chk(__fortify_size, p_size, p_size_field),       \
-         |                                                                 ^
-   include/linux/fortify-string.h:512:25: note: in expansion of macro '__fortify_memset_chk'
-     512 | #define memset(p, c, s) __fortify_memset_chk(p, c, s,                   \
-         |                         ^~~~~~~~~~~~~~~~~~~~
-   arch/loongarch/kvm/vcpu.c:921:25: note: in expansion of macro 'memset'
-     921 |                         memset(&vcpu->arch.irq_clear, 0, sizeof(vcpu->arch.irq_clear));
-         |                         ^~~~~~
-   In file included from include/asm-generic/barrier.h:16,
-                    from arch/loongarch/include/asm/barrier.h:137,
-                    from arch/loongarch/include/asm/atomic.h:11,
-                    from include/linux/atomic.h:7,
-                    from include/linux/cpumask.h:10:
-   arch/loongarch/kvm/vcpu.c: In function 'kvm_arch_vcpu_ioctl_get_regs':
->> include/linux/compiler.h:201:82: error: expression in static assertion is not an integer
-     201 | #define __BUILD_BUG_ON_ZERO_MSG(e, msg, ...) ((int)sizeof(struct {_Static_assert(!(e), msg);}))
-         |                                                                                  ^
-   include/linux/compiler.h:206:33: note: in expansion of macro '__BUILD_BUG_ON_ZERO_MSG'
-     206 | #define __must_be_array(a)      __BUILD_BUG_ON_ZERO_MSG(!__is_array(a), \
-         |                                 ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/array_size.h:11:59: note: in expansion of macro '__must_be_array'
-      11 | #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]) + __must_be_array(arr))
-         |                                                           ^~~~~~~~~~~~~~~
-   arch/loongarch/kvm/vcpu.c:975:25: note: in expansion of macro 'ARRAY_SIZE'
-     975 |         for (i = 0; i < ARRAY_SIZE(vcpu->arch.gprs); i++)
-         |                         ^~~~~~~~~~
-   arch/loongarch/kvm/vcpu.c: In function 'kvm_arch_vcpu_ioctl_set_regs':
->> include/linux/compiler.h:201:82: error: expression in static assertion is not an integer
-     201 | #define __BUILD_BUG_ON_ZERO_MSG(e, msg, ...) ((int)sizeof(struct {_Static_assert(!(e), msg);}))
-         |                                                                                  ^
-   include/linux/compiler.h:206:33: note: in expansion of macro '__BUILD_BUG_ON_ZERO_MSG'
-     206 | #define __must_be_array(a)      __BUILD_BUG_ON_ZERO_MSG(!__is_array(a), \
-         |                                 ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/array_size.h:11:59: note: in expansion of macro '__must_be_array'
-      11 | #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]) + __must_be_array(arr))
-         |                                                           ^~~~~~~~~~~~~~~
-   arch/loongarch/kvm/vcpu.c:987:25: note: in expansion of macro 'ARRAY_SIZE'
-     987 |         for (i = 1; i < ARRAY_SIZE(vcpu->arch.gprs); i++)
-         |                         ^~~~~~~~~~
---
-   In file included from arch/loongarch/include/asm/kvm_mmu.h:9,
-                    from arch/loongarch/include/asm/kvm_host.h:21,
-                    from vcpu.c:6:
->> include/linux/kvm_host.h:389:30: error: field 'arch' has incomplete type
-     389 |         struct kvm_vcpu_arch arch;
-         |                              ^~~~
->> include/linux/kvm_host.h:390:30: error: field 'stat' has incomplete type
-     390 |         struct kvm_vcpu_stat stat;
-         |                              ^~~~
-   include/linux/kvm_host.h:601:37: error: field 'arch' has incomplete type
-     601 |         struct kvm_arch_memory_slot arch;
-         |                                     ^~~~
-   include/linux/kvm_host.h:831:28: error: field 'stat' has incomplete type
-     831 |         struct kvm_vm_stat stat;
-         |                            ^~~~
-   include/linux/kvm_host.h:832:25: error: field 'arch' has incomplete type
-     832 |         struct kvm_arch arch;
-         |                         ^~~~
-   include/linux/kvm_host.h: In function 'kvm_get_vcpu_by_id':
->> include/linux/kvm_host.h:1023:18: error: 'KVM_MAX_VCPUS' undeclared (first use in this function); did you mean 'KVM_MAX_VCPU_IDS'?
-    1023 |         if (id < KVM_MAX_VCPUS)
-         |                  ^~~~~~~~~~~~~
-         |                  KVM_MAX_VCPU_IDS
-   include/linux/kvm_host.h:1023:18: note: each undeclared identifier is reported only once for each function it appears in
-   arch/loongarch/include/asm/kvm_host.h: At top level:
->> arch/loongarch/include/asm/kvm_host.h:46:9: warning: 'KVM_DIRTY_LOG_MANUAL_CAPS' redefined
-      46 | #define KVM_DIRTY_LOG_MANUAL_CAPS       \
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/kvm_host.h:643:9: note: this is the location of the previous definition
-     643 | #define KVM_DIRTY_LOG_MANUAL_CAPS KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
->> arch/loongarch/include/asm/kvm_host.h:337:20: error: static declaration of 'kvm_arch_memslots_updated' follows non-static declaration
-     337 | static inline void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen) {}
-         |                    ^~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/kvm_host.h:1237:6: note: previous declaration of 'kvm_arch_memslots_updated' with type 'void(struct kvm *, u64)' {aka 'void(struct kvm *, long long unsigned int)'}
-    1237 | void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen);
-         |      ^~~~~~~~~~~~~~~~~~~~~~~~~
->> arch/loongarch/include/asm/kvm_host.h:338:20: error: static declaration of 'kvm_arch_vcpu_blocking' follows non-static declaration
-     338 | static inline void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu) {}
-         |                    ^~~~~~~~~~~~~~~~~~~~~~
-   include/linux/kvm_host.h:1522:6: note: previous declaration of 'kvm_arch_vcpu_blocking' with type 'void(struct kvm_vcpu *)'
-    1522 | void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu);
-         |      ^~~~~~~~~~~~~~~~~~~~~~
->> arch/loongarch/include/asm/kvm_host.h:339:20: error: static declaration of 'kvm_arch_vcpu_unblocking' follows non-static declaration
-     339 | static inline void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu) {}
-         |                    ^~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/kvm_host.h:1523:6: note: previous declaration of 'kvm_arch_vcpu_unblocking' with type 'void(struct kvm_vcpu *)'
-    1523 | void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu);
-         |      ^~~~~~~~~~~~~~~~~~~~~~~~
->> arch/loongarch/include/asm/kvm_host.h:341:20: error: static declaration of 'kvm_arch_free_memslot' follows non-static declaration
-     341 | static inline void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot *slot) {}
-         |                    ^~~~~~~~~~~~~~~~~~~~~
-   include/linux/kvm_host.h:1236:6: note: previous declaration of 'kvm_arch_free_memslot' with type 'void(struct kvm *, struct kvm_memory_slot *)'
-    1236 | void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot *slot);
-         |      ^~~~~~~~~~~~~~~~~~~~~
-   In file included from arch/loongarch/include/asm/kvm_csr.h:12,
-                    from trace.h:10,
-                    from vcpu.c:16:
-   arch/loongarch/include/asm/kvm_vcpu.h: In function 'kvm_read_reg':
->> arch/loongarch/include/asm/kvm_vcpu.h:120:69: warning: parameter 'num' set but not used [-Wunused-but-set-parameter]
-     120 | static inline unsigned long kvm_read_reg(struct kvm_vcpu *vcpu, int num)
-         |                                                                 ~~~~^~~
-   arch/loongarch/include/asm/kvm_vcpu.h: In function 'kvm_write_reg':
-   arch/loongarch/include/asm/kvm_vcpu.h:125:61: warning: parameter 'num' set but not used [-Wunused-but-set-parameter]
-     125 | static inline void kvm_write_reg(struct kvm_vcpu *vcpu, int num, unsigned long val)
-         |                                                         ~~~~^~~
-   In file included from include/linux/string.h:386,
-                    from include/linux/bitmap.h:13,
-                    from include/linux/cpumask.h:11,
-                    from arch/loongarch/include/asm/kvm_host.h:9:
-   vcpu.c: In function 'kvm_set_one_reg':
-   include/linux/fortify-string.h:503:65: warning: left-hand operand of comma expression has no effect [-Wunused-value]
-     503 |         fortify_memset_chk(__fortify_size, p_size, p_size_field),       \
-         |                                                                 ^
-   include/linux/fortify-string.h:512:25: note: in expansion of macro '__fortify_memset_chk'
-     512 | #define memset(p, c, s) __fortify_memset_chk(p, c, s,                   \
-         |                         ^~~~~~~~~~~~~~~~~~~~
-   vcpu.c:920:25: note: in expansion of macro 'memset'
-     920 |                         memset(&vcpu->arch.irq_pending, 0, sizeof(vcpu->arch.irq_pending));
-         |                         ^~~~~~
-   include/linux/fortify-string.h:503:65: warning: left-hand operand of comma expression has no effect [-Wunused-value]
-     503 |         fortify_memset_chk(__fortify_size, p_size, p_size_field),       \
-         |                                                                 ^
-   include/linux/fortify-string.h:512:25: note: in expansion of macro '__fortify_memset_chk'
-     512 | #define memset(p, c, s) __fortify_memset_chk(p, c, s,                   \
-         |                         ^~~~~~~~~~~~~~~~~~~~
-   vcpu.c:921:25: note: in expansion of macro 'memset'
-     921 |                         memset(&vcpu->arch.irq_clear, 0, sizeof(vcpu->arch.irq_clear));
-         |                         ^~~~~~
-   In file included from include/asm-generic/barrier.h:16,
-                    from arch/loongarch/include/asm/barrier.h:137,
-                    from arch/loongarch/include/asm/atomic.h:11,
-                    from include/linux/atomic.h:7,
-                    from include/linux/cpumask.h:10:
-   vcpu.c: In function 'kvm_arch_vcpu_ioctl_get_regs':
->> include/linux/compiler.h:201:82: error: expression in static assertion is not an integer
-     201 | #define __BUILD_BUG_ON_ZERO_MSG(e, msg, ...) ((int)sizeof(struct {_Static_assert(!(e), msg);}))
-         |                                                                                  ^
-   include/linux/compiler.h:206:33: note: in expansion of macro '__BUILD_BUG_ON_ZERO_MSG'
-     206 | #define __must_be_array(a)      __BUILD_BUG_ON_ZERO_MSG(!__is_array(a), \
-         |                                 ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/array_size.h:11:59: note: in expansion of macro '__must_be_array'
-      11 | #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]) + __must_be_array(arr))
-         |                                                           ^~~~~~~~~~~~~~~
-   vcpu.c:975:25: note: in expansion of macro 'ARRAY_SIZE'
-     975 |         for (i = 0; i < ARRAY_SIZE(vcpu->arch.gprs); i++)
-         |                         ^~~~~~~~~~
-   vcpu.c: In function 'kvm_arch_vcpu_ioctl_set_regs':
->> include/linux/compiler.h:201:82: error: expression in static assertion is not an integer
-     201 | #define __BUILD_BUG_ON_ZERO_MSG(e, msg, ...) ((int)sizeof(struct {_Static_assert(!(e), msg);}))
-         |                                                                                  ^
-   include/linux/compiler.h:206:33: note: in expansion of macro '__BUILD_BUG_ON_ZERO_MSG'
-     206 | #define __must_be_array(a)      __BUILD_BUG_ON_ZERO_MSG(!__is_array(a), \
-         |                                 ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/array_size.h:11:59: note: in expansion of macro '__must_be_array'
-      11 | #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]) + __must_be_array(arr))
-         |                                                           ^~~~~~~~~~~~~~~
-   vcpu.c:987:25: note: in expansion of macro 'ARRAY_SIZE'
-     987 |         for (i = 1; i < ARRAY_SIZE(vcpu->arch.gprs); i++)
-         |                         ^~~~~~~~~~
-
-
-vim +/arch +389 include/linux/kvm_host.h
-
-af585b921e5d1e9 include/linux/kvm_host.h Gleb Natapov        2010-10-14  372  
-4c088493c8d07e4 include/linux/kvm_host.h Raghavendra K T     2012-07-18  373  #ifdef CONFIG_HAVE_KVM_CPU_RELAX_INTERCEPT
-4c088493c8d07e4 include/linux/kvm_host.h Raghavendra K T     2012-07-18  374  	/*
-4c088493c8d07e4 include/linux/kvm_host.h Raghavendra K T     2012-07-18  375  	 * Cpu relax intercept or pause loop exit optimization
-4c088493c8d07e4 include/linux/kvm_host.h Raghavendra K T     2012-07-18  376  	 * in_spin_loop: set when a vcpu does a pause loop exit
-4c088493c8d07e4 include/linux/kvm_host.h Raghavendra K T     2012-07-18  377  	 *  or cpu relax intercepted.
-4c088493c8d07e4 include/linux/kvm_host.h Raghavendra K T     2012-07-18  378  	 * dy_eligible: indicates whether vcpu is eligible for directed yield.
-4c088493c8d07e4 include/linux/kvm_host.h Raghavendra K T     2012-07-18  379  	 */
-4c088493c8d07e4 include/linux/kvm_host.h Raghavendra K T     2012-07-18  380  	struct {
-4c088493c8d07e4 include/linux/kvm_host.h Raghavendra K T     2012-07-18  381  		bool in_spin_loop;
-4c088493c8d07e4 include/linux/kvm_host.h Raghavendra K T     2012-07-18  382  		bool dy_eligible;
-4c088493c8d07e4 include/linux/kvm_host.h Raghavendra K T     2012-07-18  383  	} spin_loop;
-4c088493c8d07e4 include/linux/kvm_host.h Raghavendra K T     2012-07-18  384  #endif
-a6816314af5749c include/linux/kvm_host.h David Matlack       2024-05-03  385  	bool wants_to_run;
-3a08a8f9f0936e1 include/linux/kvm_host.h Raghavendra K T     2013-03-04  386  	bool preempted;
-d73eb57b80b98ae include/linux/kvm_host.h Wanpeng Li          2019-07-18  387  	bool ready;
-d1ae567fb8b5594 include/linux/kvm_host.h Sean Christopherson 2024-05-21  388  	bool scheduled_out;
-d657a98e3c20537 drivers/kvm/kvm.h        Zhang Xiantao       2007-12-14 @389  	struct kvm_vcpu_arch arch;
-ce55c049459cff0 include/linux/kvm_host.h Jing Zhang          2021-06-18 @390  	struct kvm_vcpu_stat stat;
-ce55c049459cff0 include/linux/kvm_host.h Jing Zhang          2021-06-18  391  	char stats_id[KVM_STATS_NAME_SIZE];
-fb04a1eddb1a65b include/linux/kvm_host.h Peter Xu            2020-09-30  392  	struct kvm_dirty_ring dirty_ring;
-fe22ed827c5b60b include/linux/kvm_host.h David Matlack       2021-08-04  393  
-fe22ed827c5b60b include/linux/kvm_host.h David Matlack       2021-08-04  394  	/*
-a54d806688fe1e4 include/linux/kvm_host.h Maciej S. Szmigiero 2021-12-06  395  	 * The most recently used memslot by this vCPU and the slots generation
-a54d806688fe1e4 include/linux/kvm_host.h Maciej S. Szmigiero 2021-12-06  396  	 * for which it is valid.
-a54d806688fe1e4 include/linux/kvm_host.h Maciej S. Szmigiero 2021-12-06  397  	 * No wraparound protection is needed since generations won't overflow in
-a54d806688fe1e4 include/linux/kvm_host.h Maciej S. Szmigiero 2021-12-06  398  	 * thousands of years, even assuming 1M memslot operations per second.
-fe22ed827c5b60b include/linux/kvm_host.h David Matlack       2021-08-04  399  	 */
-a54d806688fe1e4 include/linux/kvm_host.h Maciej S. Szmigiero 2021-12-06  400  	struct kvm_memory_slot *last_used_slot;
-a54d806688fe1e4 include/linux/kvm_host.h Maciej S. Szmigiero 2021-12-06  401  	u64 last_used_slot_gen;
-d657a98e3c20537 drivers/kvm/kvm.h        Zhang Xiantao       2007-12-14  402  };
-d657a98e3c20537 drivers/kvm/kvm.h        Zhang Xiantao       2007-12-14  403  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+DQoNCj4gT24gRmViIDQsIDIwMjYsIGF0IDE6NTTigK9QTSwgTWlndWVsIE9qZWRhIDxtaWd1ZWwu
+b2plZGEuc2FuZG9uaXNAZ21haWwuY29tPiB3cm90ZToNCj4gDQo+IO+7v09uIFR1ZSwgRmViIDMs
+IDIwMjYgYXQgMTE6MjXigK9QTSBBbGV4YW5kcmUgQ291cmJvdCA8YWNvdXJib3RAbnZpZGlhLmNv
+bT4gd3JvdGU6DQo+PiANCj4+IFRodXMgZm9yIGFueXRoaW5nIG5vbi10cml2aWFsLCBJJ2QgbGlr
+ZSB0byBrZWVwIGEgYC8vIENBTEM6IGAgaGVhZGVyDQo+PiBkZXNjcmliaW5nIHRoZSBpbnRlbmRl
+ZCBvcGVyYXRpb24uIEkgYWxzbyBub3RpY2VkIHRoYXQgTExNcyBjaGVjayB0aGF0DQo+PiB0aGUg
+Y29kZSBpcyBpbiBhY2NvcmRhbmNlIHdpdGggY29tbWVudHMsIHdoaWNoIHByb3ZpZGVzIGFuIGFk
+ZGl0aW9uYWwNCj4+IGxheWVyIG9mIGNoZWNraW5nLg0KPiANCj4gWWVhaCwgaXQgaXMgdGhlIHNh
+bWUgcmVhc29uIHdoeSBkb2N1bWVudGF0aW9uIGFzIHdlbGwgYXMgb3RoZXIgdGFnZ2VkDQo+IGNv
+bW1lbnRzIGxpa2UgYC8vIFNBRkVUWTpgIGNvbW1lbnRzIGVuYWJsZSB0byBjYXRjaCBtaXN0YWtl
+cyBldmVuIGlmDQo+IHRoZXkgbWF5IGJlIHJlZHVuZGFudCBpbiBhIGNlcnRhaW4gc2Vuc2UuDQo+
+IA0KPiBJIHdvdWxkbid0IG1pbmQgaGF2aW5nIHRob3NlIHRhZ2dlZCBjb21tZW50cyBhZnRlciBh
+IGNlcnRhaW4NCj4gY29tcGxleGl0eSAtLSBwZXJoYXBzIGl0IGNvdWxkIGJlIHBvc3NpYmxlIHRv
+IGRlZmluZSBhIGhldXJpc3RpYyBmb3IgYQ0KPiB0aHJlc2hvbGQgd2hlcmUgc3VjaCBhIGNvbW1l
+bnQgaXMgcmVxdWlyZWQsIGFuZCBnZXQgQ2xpcHB5IHRvIHdhcm4NCj4gYWJvdXQgaXQgKHdlIGFy
+ZSB0cnlpbmcgdG8gZ2V0IG90aGVyIHRhZ2dlZCBjb21tZW50cyBpbXBsZW1lbnRlZCwgc28NCj4g
+aXQgaXMgYSBnb29kIG9wcG9ydHVuaXR5KS4NCj4gDQo+IEkgZ3Vlc3MgYSBmYW5jeSBJREUgY291
+bGQgcGVyaGFwcyByZW5kZXIgdGhlIG1hdGggZXhwcmVzc2lvbiBvbiBob3ZlciBhcyB3ZWxsLg0K
+DQpBbGwgb2YgdGhlc2Ugc3VnZ2VzdGlvbnMgc291bmQgZ29vZCB0byBtZSENCg0KVGhhbmtzLA0K
+DQpKb2VsIEZlcm5hbmRlcw0KDQoNCj4gDQo+IENoZWVycywNCj4gTWlndWVsDQpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
