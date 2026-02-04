@@ -4,133 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB828E9D408
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 16:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FFBAE9D407
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 16:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i6unvi4IGCAmN6ENfgHFJwTcdgE5zjadrZBXdF6cbOU=; b=PsYVedqHUmlEED
-	E2pZi1w3mQJq9XkA3YTe2tJ5HSXry6vSu0YIMTSkYd31jvFUBw91PGe/77izzYVR2cAR+saU0p02n
-	Gx+hIpu/RZl9i5aNnPSC9PuCGwyaswk21I3KsAEg1emcJqYAmcjRD8Fq2pLOVCNG5mcRA6M0NqWDH
-	ShuPPTQAeiDzLTN/hzrivMuJwGfAnN4H08v6hAuZW1z0RuQw0I6q3mkK+1+1sQphsgj12t8SVK/Bh
-	qjPbt4fASLSE4yc7nMz5oLDCLDfrycM17ZFFukB3XgTKzVig1oimGTlY+YMzjWb4VdnDQJjgcc8Ns
-	jwfc7ZYmKWQ+x5GUSv7A==;
+	List-Owner; bh=Bffho1MZwbI4iOvHhKoCL+hhRxrjvd4RS7oql5E6nqk=; b=3VW5gB/AHlJ64s
+	d2zi9VbMOso3+hcp4nT5NxfY5PuH+g5dckNERD0ulTWBF0gaRxDavfdkyPGxbSp9rahltSYH0v63K
+	3oYUFubwUe3UT/MeorzKJeymnZYJViR3R3ZKs7agMOlGO0wsGlqGa4bQS31co9IBTIvmL2UUA3vYn
+	+PBkgnVKYRMi+dIK/pmPe3QV3dO6l33BwipHD3vDJ5sH9x7GjhJC5PD0J48aJEO5ndJ3wWsREfGhl
+	dXuiL3XCWaFHnolvyAfncq5FzQuif4vQWAYWBd9Si5B5KriXIglBrbJtyPc+yaFz/FDHr7KRFha6g
+	jvO0FhX1+wqGOPwWJ8JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnfS9-00000008jR7-1bn2;
-	Wed, 04 Feb 2026 16:10:05 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vnfWL-00000008jjx-1D3F;
+	Wed, 04 Feb 2026 16:14:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnfS7-00000008jQk-06La
+	id 1vnfWI-00000008jie-0zNa
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Feb 2026 16:10:04 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 614E4V0i946588
-	for <linux-riscv@lists.infradead.org>; Wed, 4 Feb 2026 16:10:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=Cfk2AxvSUaOW6gTcg737om3J
-	rAPlsakGmZKpL4ObUwU=; b=iotCLpR+MUNKsJaGaSaLwpHUjtrsFLqlafbgHX47
-	QEq1AOjsjDh87wO13lUIj8MSyXlPbLm9icxg1UVJA4g3EX1SG2/qv5RaoCChX5Ve
-	EpxiQRQjsWclmrEINKGbfJ581H+s6+2dneGGHsGtQTKOByV4wHx1mX0fMOFWCKBt
-	hC1DHFFDbKwJSOdufwbidZZ/RwLMStXJuEd4utvc8FboH8DP4frVq6E4dMDRfsj9
-	f9cYM03E6QvB5bRZ8ivO58Zs2V1lLm9hHmQjEJGQooXx2fNpauUOqVD3WPFStd4M
-	xF07fj+1+5DhTvpmq1FrKzJLvlzfl2MyO23pOuv4zAWU4Q==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c47ja0eac-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Wed, 04 Feb 2026 16:10:01 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-2b8295e5703so10997784eec.0
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Feb 2026 08:10:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1770221400; x=1770826200; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Cfk2AxvSUaOW6gTcg737om3JrAPlsakGmZKpL4ObUwU=;
-        b=hZocqm0AbigCIVHoQpOa9394bKhJUFqDvkM4BtSFjPIJB95xSeLYm2p8SGbMW2ECnK
-         SORlXb0IFV61jBxkM0Yk3jUBvi8ew/TqrwtM6oxzEDE9RDA+mkitD8APyyAVQwGl/gWO
-         ouRMYOUoOoi6dCdz9gl5pE2kA2N+xZiXlQVTKSf7dfIzVm78TYvfQd3eERCFt5AqO/lx
-         L3TmjEFlNda9pi2L8m/irnd9VFArFoMEAWOdZ11+NEC+ErtqVSjWRfZtJckds/pzgfM7
-         7lJrELJtRu4fC1KJKp1u+TP4GYEYtQI5B6MdQ0UNMpp1iEg3rAm6AKOYNBHef3DOsjgz
-         Vi1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770221400; x=1770826200;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Cfk2AxvSUaOW6gTcg737om3JrAPlsakGmZKpL4ObUwU=;
-        b=FwNxsqozrv24OKH2/Qz3kqnoZ57crmhhICIn9mSY9ZEyYUMAy1cauY9khJ2uAgJD7m
-         d6z1SFjkIoA/MHAGPXmwaZE+ydsDVixHqvzXIM1x+gYOBtBXHrfV4wDERVjStNqCGuHp
-         k1+DqXogvlG7RvV/NliLSf+Z0rqN6wnm9TVwbY/OeLf+SdV+ROyfu4uxWmwwgpchfg/C
-         ZGtDseUUoeXjlG1CEukQAxDFPHj2wi4Wm9R7BOEMmswdjHGnRgrVLejLRdMdptFPo2id
-         nqqvt9WQfmGK+wicH6Q9vqY7798BSBGKfE1xGGnWTlJBcwbxzFRAjJvZXeXGmyNJRDiM
-         S9oQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV+Yv2NTwmeMGAr5x+XzcKfjtSxHNEUHtELEe7mRlfenjPhYodFHgOGcBP7ChdmYZi25a2Cdlj08rcjoQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuuU7TIMpXNX28rf7ln4dmmcryhoBJO+vZKIGS/gEr2J68BRAC
-	LK2YmDW+QZzNjjDdHqGGYnK1d8OKaS5cmHYJdsUcZ4fTTQ/uQMGAe4QIHkCcLNLRYvwyIW2OKy5
-	To0V9VMtlVUHMpXm85+CdbRzTpgqlRunIYl/cuipVJrX9TjBAKlkM8y8umTk2E9Jy2zSiEG4=
-X-Gm-Gg: AZuq6aLkFrxlF8Eg64B3M9cOL9sew3BSWdUwX/JYCc9GzOt+f0OpJ6pl5TVMK+MFDNg
-	B39mtwJRXQ9jV1tJha9t85oD49jSc2SmBtLbLaLc/bdOlE7UK5Z4zmwZxdFTK8lHZ9jTFhGpsqP
-	l1s5yAilzxu1INlyr+NNIMtfQD4+DNHnXdC376ApzLYJNKlntoOJ3UjJ74uGFAgGSlvtc8HHSNx
-	zqtdECxK8PngdvGWRQFqeK29dBgW/eTJXm2MJfARGN/wC4orN1Ydc/LMOXqcMK0lHaY7A5ih1as
-	HYLJAhf+884xqwglogkj/Qo9godBcgDcfoYy4/m1KfzYXo2wRaxLtEuJBWOg4DjfSzyqAI1vt3l
-	RRwfszAFjTJohDlHSIMU=
-X-Received: by 2002:a05:7301:1296:b0:2a4:3593:646b with SMTP id 5a478bee46e88-2b832a556a6mr1776492eec.27.1770221398519;
-        Wed, 04 Feb 2026 08:09:58 -0800 (PST)
-X-Received: by 2002:a05:7301:1296:b0:2a4:3593:646b with SMTP id 5a478bee46e88-2b832a556a6mr1776447eec.27.1770221396480;
-        Wed, 04 Feb 2026 08:09:56 -0800 (PST)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b832f8e78esm1613358eec.16.2026.02.04.08.09.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Feb 2026 08:09:55 -0800 (PST)
-Date: Wed, 4 Feb 2026 10:09:54 -0600
-From: Andrew Jones <andrew.jones@oss.qualcomm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-        iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
-        linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
-        Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Tomasz Jeznach <tjeznach@rivosinc.com>, Will Deacon <will@kernel.org>,
-        lihangjing@bytedance.com, Xu Lu <luxu.kernel@bytedance.com>,
-        patches@lists.linux.dev, xieyongji@bytedance.com
-Subject: Re: [PATCH v2 5/5] iommu/riscv: Allow RISC_VIOMMU to COMPILE_TEST
-Message-ID: <5vwi2ayg7mr7ug7ydlyonlrcser5o44pycjsjhg7nyvppuwhhx@gd3s5x6gzhhe>
-References: <0-v2-b11ebca8abb6+c096-iommu_pt_riscv_jgg@nvidia.com>
- <5-v2-b11ebca8abb6+c096-iommu_pt_riscv_jgg@nvidia.com>
- <dn7bsft2qvjod3sm6omneq37pwr2jtdzgobapy6obpgccg7soc@ctvs3c2w4vob>
- <20260130234434.GK2223369@nvidia.com>
+	Wed, 04 Feb 2026 16:14:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 40EDE44194;
+	Wed,  4 Feb 2026 16:14:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0BC7C19423;
+	Wed,  4 Feb 2026 16:14:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770221661;
+	bh=fpIWi3ZlUU6GICbdztTffdwV8kcfmInvBOHJZpSmhzI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=H1vPGXhUwV6c5NaktCTjngbifuDhCiF+MY5C9rAm7aQpM5UhZIbsPHjKUaCIe3UbT
+	 ZPan+cYjuPFcRTfiQwRp/Dsej0VELkl9kaMOIAbUzkJDkyGz4L2UiwDsU4b36C51v9
+	 MhKrNeaY79muH+KxquiZQbjLHI1Qj3LOb13NqQsfOiWDxqSVlKUPgnxqy6QmZiuULt
+	 Vg2X4M5Z2v2caTdEbzzI6mAwcTsbi7IWZPydTFK985L+WavMc0OfHDgPnUmU7HI5dX
+	 WOWKlCW/gGBMqBOCbmtqu11Dwr8VTP/CMpea3GpAszgJcoyFcHseGtZXiUIxONMT6U
+	 W6EDNps1rC7pg==
+Message-ID: <a61bc0a8-cf5a-418a-aeb4-96553b87f043@kernel.org>
+Date: Wed, 4 Feb 2026 17:14:12 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260130234434.GK2223369@nvidia.com>
-X-Proofpoint-ORIG-GUID: 6OfnU8XE2IDhpDoKwHCfKV4gW0NKqlk2
-X-Proofpoint-GUID: 6OfnU8XE2IDhpDoKwHCfKV4gW0NKqlk2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjA0MDEyMiBTYWx0ZWRfX7VYqFYzwPCr0
- oEeLyL+NLEyCuJ38QwOK4329cMc6wHNvjTRkC+1HeV9sflTSWTMnNq/ONXjZnKe6V9wSf6vwkQF
- hiCu0FHtiCkbuV7Yuk+AgSIVCZQHMFjVu+rcfIfYW0w3FCFVINtKmjfaXlZ0t2Cg1gZ/us4yR7v
- EpucP194yklGxxUkaYyJjCQ1c0MQXZ1hLoMqfPAThcrJKIZyG8ai+6KWQoNlndoHOftKl68WEa4
- 6IxKHwE0LUqtkZcOiwwX8sRoURyHZ6Y4zTSGMK37k1gIL4Gh97XCxywCo1S7AFFeFoWaGaw5CnT
- abxklenl1qHndHS/Xvpo+S2Um6+VNGG3JGG9HNnN5duMcV1a0txnK5m27AKeUoqSKi+yAN3sE6b
- 4N5xE+3mNTnKk3akgKfyg68/VoVMWxyNGLcbo2KcfAlCum9fRpwOx+KnA9nLNhJoI8Lwp/EjLbY
- WcAOxzY9yyAP1GX8Wig==
-X-Authority-Analysis: v=2.4 cv=a8E9NESF c=1 sm=1 tr=0 ts=69836f59 cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
- a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=mqPRyWp8_4GUfDidQbUA:9 a=CjuIK1q_8ugA:10
- a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-04_05,2026-02-04_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 priorityscore=1501 bulkscore=0 malwarescore=0
- spamscore=0 adultscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602040122
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCHv6 02/17] mm: Change the interface of prep_compound_tail()
+To: Kiryl Shutsemau <kas@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Muchun Song <muchun.song@linux.dev>, David Hildenbrand <david@redhat.com>,
+ Matthew Wilcox <willy@infradead.org>, Usama Arif <usamaarif642@gmail.com>,
+ Frank van der Linden <fvdl@google.com>
+Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
+ Vlastimil Babka <vbabka@suse.cz>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Zi Yan <ziy@nvidia.com>,
+ Baoquan He <bhe@redhat.com>, Michal Hocko <mhocko@suse.com>,
+ Johannes Weiner <hannes@cmpxchg.org>, Jonathan Corbet <corbet@lwn.net>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, kernel-team@meta.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
+References: <20260202155634.650837-1-kas@kernel.org>
+ <20260202155634.650837-3-kas@kernel.org>
+From: "David Hildenbrand (arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260202155634.650837-3-kas@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_081003_208266_A7EA2965 
-X-CRM114-Status: GOOD (  19.88  )
+X-CRM114-CacheID: sfid-20260204_081422_327281_A60896BC 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,36 +126,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30, 2026 at 07:44:34PM -0400, Jason Gunthorpe wrote:
-> On Fri, Jan 30, 2026 at 01:58:51PM -0600, Andrew Jones wrote:
-> > >  config RISCV_IOMMU
-> > >  	bool "RISC-V IOMMU Support"
-> > > -	depends on RISCV && 64BIT
-> > > -	default y
-> > > +	default RISCV
-> > > +	depends on (RISCV || COMPILE_TEST) && 64BIT
-> > > +	depends on GENERIC_MSI_IRQ
-> > 
-> > This new depends isn't called out in the commit message. Maybe it should
-> > even be its own patch with a fixes d5f88acdd6ff ("iommu/riscv: Add support
-> > for platform msi") tag, but, either way, thanks for the fix.
+On 2/2/26 16:56, Kiryl Shutsemau wrote:
+> Instead of passing down the head page and tail page index, pass the tail
+> and head pages directly, as well as the order of the compound page.
 > 
-> I think if riscv has a 32 bit configuration with iommu HW available
-> then you'd want a different fix to make it work.. Probably include one
-> of the high/low headers to get emulated writeq
+> This is a preparation for changing how the head position is encoded in
+> the tail page.
 > 
-> This is just intended to make it work with COMPILE_TEST on eg ARM32.
+> Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
+> Reviewed-by: Muchun Song <muchun.song@linux.dev>
+> Reviewed-by: Zi Yan <ziy@nvidia.com>
+> ---
+>   include/linux/page-flags.h |  4 +++-
+>   mm/hugetlb.c               |  8 +++++---
+>   mm/internal.h              | 12 ++++++------
+>   mm/mm_init.c               |  2 +-
+>   mm/page_alloc.c            |  2 +-
+>   5 files changed, 16 insertions(+), 12 deletions(-)
+> 
+> diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
+> index f7a0e4af0c73..8a3694369e15 100644
+> --- a/include/linux/page-flags.h
+> +++ b/include/linux/page-flags.h
+> @@ -865,7 +865,9 @@ static inline bool folio_test_large(const struct folio *folio)
+>   	return folio_test_head(folio);
+>   }
+>   
+> -static __always_inline void set_compound_head(struct page *page, struct page *head)
+> +static __always_inline void set_compound_head(struct page *page,
+> +					      const struct page *head,
+> +					      unsigned int order)
 
-I was pointing out the new 'depends on GENERIC_MSI_IRQ'. We had the
-64BIT already.
+Two tab indents please on second+ parameter list whenever you touch code.
 
-Thanks,
-drew
+>   {
+>   	WRITE_ONCE(page->compound_head, (unsigned long)head + 1);
+>   }
+> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+> index 6e855a32de3d..54ba7cd05a86 100644
+
+
+[...]
+
+> diff --git a/mm/internal.h b/mm/internal.h
+> index d67e8bb75734..037ddcda25ff 100644
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -879,13 +879,13 @@ static inline void prep_compound_head(struct page *page, unsigned int order)
+>   		INIT_LIST_HEAD(&folio->_deferred_list);
+>   }
+>   
+> -static inline void prep_compound_tail(struct page *head, int tail_idx)
+> +static inline void prep_compound_tail(struct page *tail,
+
+Just wondering whether we should call this "struct page *page" for 
+consistency with set_compound_head().
+
+Or alternatively, call it also "tail" in set_compound_head().
+
+> +				      const struct page *head,
+> +				      unsigned int order)
+
+Two tab indent, then this fits into two lines in total.
+
+>   {
+> -	struct page *p = head + tail_idx;
+> -
+> -	p->mapping = TAIL_MAPPING;
+> -	set_compound_head(p, head);
+> -	set_page_private(p, 0);
+> +	tail->mapping = TAIL_MAPPING;
+> +	set_compound_head(tail, head, order);
+> +	set_page_private(tail, 0);
+>   }
+Only nits, in general LGTM
+
+Acked-by: David Hildenbrand (arm) <david@kernel.org>
+
+-- 
+Cheers,
+
+David
 
 _______________________________________________
 linux-riscv mailing list
