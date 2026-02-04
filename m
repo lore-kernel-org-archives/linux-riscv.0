@@ -4,118 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA49EE9D3FB
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 16:15:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36308E9D3FB
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 16:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=25ERkgwW0BzJZsuZYmAagNhyHkB6YubaOW9PsHtzmFE=; b=3DJRlyyKl4Bbjz
-	Q2hupZwp4IZ8pYRAlIe3on8i0hxc6Xoi2yi0sLankQlZjTofaRIsha/8HFN3FgVVs+0V1jnR0wL3Y
-	+zKLj8aIO2nXJXpmCO/1PFloIVhmtB2rY+G2mW3xOj62CjPvBWxwZwZnZYvx/Myq0kbRaJszpKfDd
-	6HjMw4UDIYakipl2DvNHuYecrabBdx/NfgP1SYaoXV16UJ6VL27hTIPIWWhd+ZrfPuiJKrBo/DNtJ
-	5vv0MYVB9MNJPOkdkR6XZeDOImSQ4jcidtWp3+Y5wK270HhPiC9kggr1BaZVvCXpI0dBcjyeK/bIw
-	hA56anhXJzLKVfi2PFaQ==;
+	List-Owner; bh=/I8R0YKEB/aIST6U3L1joZ46tRTgZjcmEfJhcw65XWM=; b=2CiJ0UPjnxgfRv
+	KhyCHSl/zXc1kVLe/xdUeSIBdwvRoC5centNGsOJEzxcr3cRNJbb6PETUA5WG7arZWDQ43Lv8+bYN
+	5DTCVhTeC+R21l2uJa/6mhN5yj1P+D8zllPfph4IlejVkoCdT5MsW7w9r7y0a1trs2Hd54Pmf6loR
+	9Ccam45fdVn4S4O8vQ1m7acl+N+kqDyRX5PBqik39XWc3B995p1oKPtwurHSRDhfDXDNMqScpgQNx
+	Hlaf1IzkQxOcSidT26mYkvxHlGzKDgTJGgsq8eg3vWnGuJn2aWchgBDO6hAviXPnIOSkJvMXlytjj
+	gociDj07fsZo+STSerjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnfWu-00000008joc-2ZH0;
-	Wed, 04 Feb 2026 16:15:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vnfXQ-00000008jud-3zKR;
+	Wed, 04 Feb 2026 16:15:32 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnfWs-00000008joF-1gpJ
+	id 1vnfXN-00000008jtm-0wnh
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Feb 2026 16:14:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 096D043B62;
-	Wed,  4 Feb 2026 16:14:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD053C4CEF7;
-	Wed,  4 Feb 2026 16:14:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770221697;
-	bh=Yq7rjOmFg4CcgdWMbNPzzzqdWj+uSBMikYGgvwuzD/M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qq6PmPjD7zhT9ot2QC9bw/em+sjKidISKx+M6635S/VLsnSzIHdkjtN3GpT67jcVr
-	 QKlfXbkrjUsEQPFC2Jpef0f3usL6xPZI9xZieC3loEmehrI+znscnN4is22oUYPksR
-	 rLNA6LbvFNFQvaNtCFMw/183u+J4q4YjuNpPXp6sffxhBR5wqIFTUEdaQ65autXc19
-	 r+6Ehby9ipL0DS9jDaoAPiPGn1RaSy1oDCFzEP+D7twyWyIz1qzdBZUqdAS0Aunubc
-	 msROGZeqxyTwEBrXiYGhpKhc4MQLyN1l+teThtvVP0lC0IvtsOE4AYyeMp8bbmQasP
-	 Zp78VUUPu8HZg==
-Message-ID: <7904198f-f4cb-492b-9e6b-4d9989b8d40d@kernel.org>
-Date: Wed, 4 Feb 2026 17:14:48 +0100
+	Wed, 04 Feb 2026 16:15:31 +0000
+Received: from duge-virtual-machine (unknown [183.192.223.177])
+	by APP-03 (Coremail) with SMTP id rQCowABnhdybcINpU1WvBw--.42131S2;
+	Thu, 05 Feb 2026 00:15:24 +0800 (CST)
+Date: Thu, 5 Feb 2026 00:15:22 +0800
+From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+To: Xukai Wang <kingxukai@zohomail.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Troy Mitchell <TroyMitchell988@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v10 0/3] riscv: canaan: Add support for K230 clock
+Message-ID: <aYNwmqEjvfAahGA+@duge-virtual-machine>
+References: <20260116-b4-k230-clk-v10-0-de59033c5d30@zohomail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv6 03/17] mm: Rename the 'compound_head' field in the
- 'struct page' to 'compound_info'
-To: Kiryl Shutsemau <kas@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Muchun Song <muchun.song@linux.dev>, David Hildenbrand <david@redhat.com>,
- Matthew Wilcox <willy@infradead.org>, Usama Arif <usamaarif642@gmail.com>,
- Frank van der Linden <fvdl@google.com>
-Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
- Vlastimil Babka <vbabka@suse.cz>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Zi Yan <ziy@nvidia.com>,
- Baoquan He <bhe@redhat.com>, Michal Hocko <mhocko@suse.com>,
- Johannes Weiner <hannes@cmpxchg.org>, Jonathan Corbet <corbet@lwn.net>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, kernel-team@meta.com, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
-References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-4-kas@kernel.org>
-From: "David Hildenbrand (arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260202155634.650837-4-kas@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20260116-b4-k230-clk-v10-0-de59033c5d30@zohomail.com>
+X-CM-TRANSID: rQCowABnhdybcINpU1WvBw--.42131S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUY57k0a2IF6F4UM7kC6x804xWl14x267AK
+	xVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGw
+	A2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26r1j
+	6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r1j6r4UM28EF7xvwVC2z280aVAFwI0_Jr
+	0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r1j6r4UM2AIxVAIcxkEcVAq07x20xvEncxI
+	r21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87
+	Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l42xK82IYc2Ij
+	64vIr41l4c8EcI0Ec7CjxVAaw2AFwI0_JF0_Jw1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2
+	IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v2
+	6r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2
+	IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv
+	67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf
+	9x07j189NUUUUU=
+X-Originating-IP: [183.192.223.177]
+X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_081458_482409_79BCED29 
-X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-CacheID: sfid-20260204_081529_645306_DE730A67 
+X-CRM114-Status: UNSURE (   7.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,30 +76,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/2/26 16:56, Kiryl Shutsemau wrote:
-> The 'compound_head' field in the 'struct page' encodes whether the page
-> is a tail and where to locate the head page. Bit 0 is set if the page is
-> a tail, and the remaining bits in the field point to the head page.
-> 
-> As preparation for changing how the field encodes information about the
-> head page, rename the field to 'compound_info'.
-> 
-> Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
-> Reviewed-by: Muchun Song <muchun.song@linux.dev>
-> Reviewed-by: Zi Yan <ziy@nvidia.com>
-> ---
+On Fri, Jan 16, 2026 at 09:26:18PM +0800, Xukai Wang wrote:
+> This patch series adds clock controller support for the Canaan Kendryte
+> K230 SoC. The K230 SoC includes an external 24MHz OSC, 4 internal
+> PLLs and an external pulse input, with the controller managing these
+> sources and their derived clocks.
+ 
+Hi, Xukai. Currently, the k230 initial series and the patch 3 of the
+pinctrl series has been in the linux next. So if possible, you need
+to rebase your clock series onto the latest linux-next.
 
-Acked-by: David Hildenbrand (arm) <david@kernel.org>
+Then I will proceed with the development based on your v11 of the
+clock series.
 
--- 
-Cheers,
+Regards,
+Jiayu Du
 
-David
 
 _______________________________________________
 linux-riscv mailing list
