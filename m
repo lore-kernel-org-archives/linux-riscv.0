@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F351E8307C
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 13:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF8DE9538B
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Feb 2026 13:51:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rpwx6IexmJYFn1nr/MP0gbM+A5XH8dRFlGXUo5jsLSY=; b=qHNUsSO8JHfX7j
-	6inJytMJCPv9MQlfS4ICRREPOsc1FJrv63LSjlqoqgQ9BnKVSFeYqpNEqgpFChgm4+Fr3fW/pnRDg
-	DYvdsCV8i/ab3/GtIftISa6qubzEwn9u4dDFuydvLZzJpfJ2G2KqcpLuZbK0KyIlIZPkv2cvLQ2ML
-	SqQtXniNkM4y3oZyXR3ltZhBwsW1KmpK6xMjzvDhjvVS57ssx9KSUS6HyEcujk5s57GaafKR9IaL8
-	EpT6nNwyuyBs7nHCHkaKHkCf2/J7ZvQZ8WtJfM5EcfRiyuFt7J+8M9qb2Zod+PFgKpsJktKaJeBsl
-	L2WdFhYafKP3dcFtsQqw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WrIlbQqhXC8ZTZuPGvQoPYQYguVTX2efn3U7JzGh4gI=; b=tpP7sLrpGPTSLK
+	6IPRL3RnMbKDc1ZFyPJ/hzcEhZdXCOmkjztNX/PXgHSA7tUEQKnvr/SWrFhDPriBQB4yOxOWP1XND
+	i+6Wg4Ks1R6YtYN2v9WSKycEpBcD8zEGjB8+Qu6dOfMzuzzqws9wxOl3F7CAIEk744mafa9h2T7DA
+	B/9Tvxtny+Cib000ZKoA15QFAC6VBFlPWKOFfzIWrm3QhyY+stObpO7wpRuawSwdeVn0JufWfXC5g
+	mqOtjihfqoyoSc4x4saoDzVBv94xlfJ/I4IpOAAp2PV0ynCZMs4NqsItawtEKXiejNEw31X8x+1MR
+	te/tMJLwg0+LxdLGckOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vndCC-00000008XM1-37pV;
-	Wed, 04 Feb 2026 13:45:28 +0000
-Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
+	id 1vndHU-00000008Y63-31g6;
+	Wed, 04 Feb 2026 13:50:56 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vndC9-00000008XJo-0uoY;
-	Wed, 04 Feb 2026 13:45:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1770212718; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=om1FUqBBj9rquR58NW7QTlpJTDIIM+QxVVQ3WntmFgM=;
-	b=aXKIyDTOB1jH1bO7+h0HIy0MvmQWYxGjzeHmigOvUTh8LHAngdnzMTTRi6s88rc3Tyu5aWJNjqNQG30b4amk/JryR+2DmJKkD75qQGK217OdXLKVEzuF9LXHBxpRBWFjQXZjcLbL+OIumF5LHegTS2h0xxX2ZINw8Xh4KzX5Fb0=
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0WyXBz6r_1770212714 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 04 Feb 2026 21:45:16 +0800
-From: fangyu.yu@linux.alibaba.com
-To: pbonzini@redhat.com,
-	corbet@lwn.net,
-	anup@brainfault.org,
-	atish.patra@linux.dev,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
+	id 1vndHP-00000008Y4x-02gn
+	for linux-riscv@lists.infradead.org;
+	Wed, 04 Feb 2026 13:50:54 +0000
+Received: from localhost.localdomain (unknown [58.61.141.99])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 331d2b19c;
+	Wed, 4 Feb 2026 21:50:41 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: gaohan@iscas.ac.cn
+Cc: alex@ghiti.fr,
 	aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: guoren@kernel.org,
-	radim.krcmar@oss.qualcomm.com,
-	andrew.jones@oss.qualcomm.com,
-	linux-doc@vger.kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	dlan@gentoo.org,
+	krzk+dt@kernel.org,
 	linux-kernel@vger.kernel.org,
-	Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Subject: [PATCH v5 0/3] Support runtime configuration for per-VM's HGATP mode
-Date: Wed,  4 Feb 2026 21:45:04 +0800
-Message-Id: <20260204134507.33912-1-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	rabenda.cn@gmail.com,
+	robh@kernel.org,
+	spacemit@lists.linux.dev,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: Re: [PATCH 6/7] riscv: dts: spacemit: Add a PCIe regulator for OrangePi RV2
+Date: Wed,  4 Feb 2026 21:50:32 +0800
+Message-Id: <20260204135032.46172-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <fbeb8b9f1c3453cb6907247aecbf62675d2e9de9.1769895215.git.gaohan@iscas.ac.cn>
+References: <fbeb8b9f1c3453cb6907247aecbf62675d2e9de9.1769895215.git.gaohan@iscas.ac.cn>
 MIME-Version: 1.0
+X-HM-Tid: 0a9c28eb639203a2kunm98d059402ccf93
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDGE5JVkNIHRoaGU5DTRpNTVYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlOQ1VNSlVKT0pVQkJZV1kWGg8SFR0UWUFZT0tIVUpLSUJNSEpVSktLVUtZBg
+	++
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_054525_440876_7D93946F 
-X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-CacheID: sfid-20260204_055051_271115_0EF62A4E 
+X-CRM114-Status: UNSURE (   4.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,73 +79,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Hi,
 
-Currently, RISC-V KVM hardcodes the G-stage page table format (HGATP mode)
-to the maximum mode detected at boot time (e.g., SV57x4 if supported). but
-often such a wide GPA is unnecessary, just as a host sometimes doesn't need
-sv57.
+> Define a 3.3v fixed voltage regulator to be used by PCIe on the
+> OrangePi RV2. On this platform, this regulator is always on.
 
-This patch introduces per-VM configurability of the G-stage mode via a new
-KVM capability: KVM_CAP_RISCV_SET_HGATP_MODE. User-space can now explicitly
-request a specific HGATP mode (SV39x4, SV48x4, SV57x4 or SV32x4) during
-VM creation.
+(...)
 
----
-Changes in v5:
-    - Use architectural HGATP.MODE encodings as the bit index for the supported-mode
-      bitmap and for the VM-mode selection UAPI; no new UAPI mode/bit defines are
-      introduced(per Radim).
-    - Allow KVM_CAP_RISCV_SET_HGATP_MODE on RV32 as well(per Drew).
-    - Link to v4:
-      https://lore.kernel.org/linux-riscv/20260202140716.34323-1-fangyu.yu@linux.alibaba.com/
----
-Changes in v4:
-    - Extend kvm_riscv_gstage_mode_detect() to probe all HGATP.MODE values
-      supported by the host and record them in a bitmask.
-    - Treat unexpected pgd_levels in kvm_riscv_gstage_mode() as an internal error
-      (e.g. WARN_ON_ONCE())(per Radim).
-    - Move kvm_riscv_gstage_gpa_bits() and kvm_riscv_gstage_gpa_size() to header
-      as static inline helpers(per Radim).
-    - Drop gstage_mode_user_initialized and Remove the kvm_debug() message from
-      KVM_CAP_RISCV_SET_HGATP_MODE(per Radim).
-    - Link to v3:
-      https://lore.kernel.org/linux-riscv/20260125150450.27068-1-fangyu.yu@linux.alibaba.com/
----
-Changes in v3:
-    - Reworked the patch formatting (per Drew).
-    - Dropped kvm->arch.kvm_riscv_gstage_mode and derive HGATP.MODE from
-      kvm_riscv_gstage_pgd_levels via a helper, avoiding redundant per-VM state(per Drew).
-    - Removed kvm_riscv_gstage_max_mode and keep only kvm_riscv_gstage_max_pgd_levels
-      for host capability detection(per Drew).
-    - Other initialization and return value issues(per Drew).
-    - Enforce that KVM_CAP_RISCV_SET_HGATP_MODE can only be enabled before any vCPUs
-      are created by rejecting the ioctl once kvm->created_vcpus is non-zero(per Radim).
-    - Add a memslot safety check and reject the capability unless
-      kvm_are_all_memslots_empty(kvm) is true, ensuring the G-stage format is not
-      changed after any memslots have been installed(per Radim).
-    - Link to v2:
-      https://lore.kernel.org/linux-riscv/20260105143232.76715-1-fangyu.yu@linux.alibaba.com/
+> +		regulator-always-on;
+> +		gpio = <&gpio K1_GPIO(116) GPIO_ACTIVE_HIGH>;
 
-Fangyu Yu (3):
-  RISC-V: KVM: Support runtime configuration for per-VM's HGATP mode
-  RISC-V: KVM: Detect and expose supported HGATP G-stage modes
-  RISC-V: KVM: add KVM_CAP_RISCV_SET_HGATP_MODE
+Why is this regulator always on?
+It is clearly controlled by gpio.
 
- Documentation/virt/kvm/api.rst      |  27 ++++++++
- arch/riscv/include/asm/kvm_gstage.h |  31 +++++++--
- arch/riscv/include/asm/kvm_host.h   |  19 ++++++
- arch/riscv/kvm/gstage.c             | 102 ++++++++++++++--------------
- arch/riscv/kvm/main.c               |  12 ++--
- arch/riscv/kvm/mmu.c                |  20 +++---
- arch/riscv/kvm/vm.c                 |  21 +++++-
- arch/riscv/kvm/vmid.c               |   3 +-
- include/uapi/linux/kvm.h            |   1 +
- 9 files changed, 160 insertions(+), 76 deletions(-)
-
--- 
-2.50.1
-
+Thanks,
+Chukun
 
 _______________________________________________
 linux-riscv mailing list
