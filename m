@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3015FEC1EAF
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 12:56:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC2CBEC1EB5
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 13:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nJgcT58N73zTitUmGeujJFa0lHZywM4+U7gEW/99cdU=; b=EmIDAOezk5OPVr
-	xNxJJajkfvZhBQQ0wmGYVRwIY2WItng35rk4S1RKspATXQjHHFp4/+LU/0zrGtT6+bd4cOu9MbqM6
-	wjICKQJNZbeH956G4/2mbybwNBwDR4l4bbOKXmeza+LoJ3cmdLPvS5BQn/Ubm+07rsLgOTEQPB4P4
-	PBCYoeBu3cozlmEcmLl5qM/kJebarPIvvMnSEyrYC1kUxPQjvjMg2f5p5i01aiA0oLFmxdoBYoCfL
-	T5+ByXKT9jLmB5dxMCCwWSmB+4b/ce4QOlyn40EAzO7cq64PXTP+ZiR/cr7kuJmjvEwXDAmkrJ/6A
-	Fn1vBH8cpOXq8Vz9mSKQ==;
+	List-Owner; bh=0y2HurGjwvJOEBHTnoKDU91l+iThlDqo2K3qMQ5NdqY=; b=kyc01dPWUrH/Ko
+	cC0vtxgQm0xxyAXaMQoMdm0D1mqYBRsOo9w+kvg/BQ3yE5PAFWM0xaTK799+lq1ktyHAHCQb4Re7u
+	lV2ZI/ehH8EDvpsGf2qQAyTus9Gj8C1HFuXkJNc/W+8oewtOs8RQOLVJiNrRkndhyDx4n7QMp6pik
+	jVCBoabytZ1+EUc4y8NjUlTzUQtbw1FJrtgiLazzOPxqmARWnQz/wsAfGAHTlrCOi4cGgQKGfONzG
+	CekMGUczLrUjM1SC3tUA+/SLW2+0HKjZ4aMmQHhdOqEVcLU+2DRR7a3IHj00TKm5/fjG86EvszSLc
+	VQUQ36pWo9haeukRiSCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnyud-00000009uwL-3Pzb;
-	Thu, 05 Feb 2026 12:56:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vnz8F-00000009vw9-1GJn;
+	Thu, 05 Feb 2026 13:10:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnyub-00000009uwC-2LBK
+	id 1vnz8D-00000009vvk-1HHu
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Feb 2026 12:56:45 +0000
+	Thu, 05 Feb 2026 13:10:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 989FC60010;
-	Thu,  5 Feb 2026 12:56:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37BABC4CEF7;
-	Thu,  5 Feb 2026 12:56:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 21812433B5;
+	Thu,  5 Feb 2026 13:10:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EFC0C4CEF7;
+	Thu,  5 Feb 2026 13:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770296204;
-	bh=e5VyJ5rggvxgVaaTXdiX2bO8uDhtniRYd2c5UWCrvPU=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=AEzNcPowN4BXmt/D6Aou5d8c+1I3HBIPjz0gA7sikgv0Ip1rzk5T6BtqxHkZb5VkE
-	 DePut29gHzvT8VyvfG9xbgwY+Kibkxt4Pb5EjnOaeBTV5BMNyVVVLMFUNjpBMd1Ugk
-	 mPQBR5np1zulD6HftFxxFg09JX0BLr6DopqBYv2cA87ylu0Mt8qe60WVBtaHupSjIe
-	 bLmBOpbkINgrjrAieAMtg9kVh9w4PfCG4/U4g6dxJUvV67RnqoDmVI4M9E6VV8PHBh
-	 Kt0gJ+sj6BjoBSDBo0z+ZQb2tH1OkHtkHK+Ki2AyawzNqqsCg9diht8nNeNd/ZXMSg
-	 GTBttbb6q2jYQ==
-Message-ID: <062900fa-6419-4748-81d1-9128ce6c46d0@kernel.org>
-Date: Thu, 5 Feb 2026 13:56:36 +0100
+	s=k20201202; t=1770297048;
+	bh=YNe9Nz9GlYTd64O1KTiTpwt9/xT1kD1kmstkqnvmOSI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pNYfAeQaHzQS4JAIIf5RMJS4M1jrbWEl3KdV5wQ1CVfmAFYOtRX+59SIn8fmPO8Ex
+	 tkfXAh3SXYC3mzPHaYTYbNsTm8rtvbpWyuIcuhhDdcNdq377k6vzTZdarqvtilL3D4
+	 Xf7+yiULCpU1+aEzuPb0FLB9CQSTB8MvWMkcFMDB5mJWXPUZ0ommmMGYPHmT6kL3rY
+	 qyMG/T2JtOKIm/hWkO7u/asLSIi4rUjArZSx8eVYVe3SeX/U9MUJb01oH/jG6auYNX
+	 sdh+Fq9oU+SuPthWrlrJpd2rDQNhsEp6q9NPXTzVBkBmuBLwpHUR29VvLiXSZaTSkg
+	 51OS4qEEhW6Pg==
+Message-ID: <e5831f0b-88c5-4a20-82b3-6e5952388132@kernel.org>
+Date: Thu, 5 Feb 2026 14:10:40 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv6 06/17] LoongArch/mm: Align vmemmap to maximal folio size
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCHv6 08/17] mm: Make page_zonenum() use head page
 To: Kiryl Shutsemau <kas@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
@@ -64,8 +63,8 @@ Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
 References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-7-kas@kernel.org>
- <2ce0e684-de54-43ec-be7d-c58bbffb3f4e@kernel.org>
+ <20260202155634.650837-9-kas@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -111,7 +110,10 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <2ce0e684-de54-43ec-be7d-c58bbffb3f4e@kernel.org>
+In-Reply-To: <20260202155634.650837-9-kas@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260205_051049_447615_32CA14BE 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,57 +125,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMi80LzI2IDE3OjU2LCBEYXZpZCBIaWxkZW5icmFuZCAoYXJtKSB3cm90ZToKPiBPbiAyLzIv
-MjYgMTY6NTYsIEtpcnlsIFNodXRzZW1hdSB3cm90ZToKPj4gVGhlIHVwY29taW5nIGNoYW5nZSB0
-byB0aGUgSHVnZVRMQiB2bWVtbWFwIG9wdGltaXphdGlvbiAoSFZPKSByZXF1aXJlcwo+PiBzdHJ1
-Y3QgcGFnZXMgb2YgdGhlIGhlYWQgcGFnZSB0byBiZSBuYXR1cmFsbHkgYWxpZ25lZCB3aXRoIHJl
-Z2FyZCB0byB0aGUKPj4gZm9saW8gc2l6ZS4KPj4KPj4gQWxpZ24gdm1lbW1hcCB0byBNQVhfRk9M
-SU9fTlJfUEFHRVMuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IEtpcnlsIFNodXRzZW1hdSA8a2FzQGtl
-cm5lbC5vcmc+Cj4+IC0tLQo+PiDCoCBhcmNoL2xvb25nYXJjaC9pbmNsdWRlL2FzbS9wZ3RhYmxl
-LmggfCAzICsrLQo+PiDCoCAxIGZpbGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCAxIGRlbGV0
-aW9uKC0pCj4+Cj4+IGRpZmYgLS1naXQgYS9hcmNoL2xvb25nYXJjaC9pbmNsdWRlL2FzbS9wZ3Rh
-YmxlLmggYi9hcmNoL2xvb25nYXJjaC8gCj4+IGluY2x1ZGUvYXNtL3BndGFibGUuaAo+PiBpbmRl
-eCBjMzNiM2JjYjczM2UuLmY5NDE2YWNiOTE1NiAxMDA2NDQKPj4gLS0tIGEvYXJjaC9sb29uZ2Fy
-Y2gvaW5jbHVkZS9hc20vcGd0YWJsZS5oCj4+ICsrKyBiL2FyY2gvbG9vbmdhcmNoL2luY2x1ZGUv
-YXNtL3BndGFibGUuaAo+PiBAQCAtMTEzLDcgKzExMyw4IEBAIGV4dGVybiB1bnNpZ25lZCBsb25n
-IGVtcHR5X3plcm9fcGFnZVtQQUdFX1NJWkUgLyAKPj4gc2l6ZW9mKHVuc2lnbmVkIGxvbmcpXTsK
-Pj4gwqDCoMKgwqDCoMKgIG1pbihQVFJTX1BFUl9QR0QgKiBQVFJTX1BFUl9QVUQgKiBQVFJTX1BF
-Ul9QTUQgKiBQVFJTX1BFUl9QVEUgKiAKPj4gUEFHRV9TSVpFLCAoMVVMIDw8IGNwdV92YWJpdHMp
-IC8gMikgLSBQTURfU0laRSAtIFZNRU1NQVBfU0laRSAtIAo+PiBLRkVOQ0VfQVJFQV9TSVpFKQo+
-PiDCoCAjZW5kaWYKPj4gLSNkZWZpbmUgdm1lbW1hcMKgwqDCoMKgwqDCoMKgICgoc3RydWN0IHBh
-Z2UgKikoKFZNQUxMT0NfRU5EICsgUE1EX1NJWkUpICYgCj4+IFBNRF9NQVNLKSkKPj4gKyNkZWZp
-bmUgVk1FTU1BUF9BTElHTsKgwqDCoCBtYXgoUE1EX1NJWkUsIE1BWF9GT0xJT19OUl9QQUdFUyAq
-IAo+PiBzaXplb2Yoc3RydWN0IHBhZ2UpKQo+PiArI2RlZmluZSB2bWVtbWFwwqDCoMKgwqDCoMKg
-wqAgKChzdHJ1Y3QgcGFnZSAqKShBTElHTihWTUFMTE9DX0VORCwgCj4+IFZNRU1NQVBfQUxJR04p
-KSkKPiAKPiAKPiBTYW1lIGNvbW1lbnQsIHRoZSAiTUFYX0ZPTElPX05SX1BBR0VTICogc2l6ZW9m
-KHN0cnVjdCBwYWdlKSIgaXMganVzdCAKPiBibGFjayBtYWdpYyBoZXJlCj4gYW5kIHRoZSBkZXNj
-cmlwdGlvbiBvZiB0aGUgc2l0dWF0aW9uIGlzIHdyb25nLgo+IAo+IE1heWJlIHlvdSB3YW50IHRv
-IHB1bGwgdGhlIG1hZ2ljICJNQVhfRk9MSU9fTlJfUEFHRVMgKiBzaXplb2Yoc3RydWN0IAo+IHBh
-Z2UpIiBpbnRvIHRoZSBjb3JlIGFuZCBjYWxsIGl0Cj4gCj4gI2RlZmluZSBNQVhfRk9MSU9fVk1F
-TU1BUF9BTElHTsKgwqDCoCAoTUFYX0ZPTElPX05SX1BBR0VTICogc2l6ZW9mKHN0cnVjdCAKPiBw
-YWdlKSkKPiAKPiBCdXQgdGhlbiBzcGVjaWFsIGNhc2UgaXQgYmFzZSBvbiAoYSkgSFZPIGJlaW5n
-IGNvbmZpZ3VyZWQgaW4gYW4gKGIpIEhWTyAKPiBiZWluZyBwb3NzaWJsZQo+IAo+ICNpZmRlZiBI
-VUdFVExCX1BBR0VfT1BUSU1JWkVfVk1FTU1BUCAmJiBpc19wb3dlcl9vZl8yKHNpemVvZihzdHJ1
-Y3QgcGFnZSkKPiAvKiBBIHZlcnkgaGVscGZ1bCBjb21tZW50IGV4cGxhaW5pbmcgdGhlIHNpdHVh
-dGlvbi4gKi8KPiAjZGVmaW5lIE1BWF9GT0xJT19WTUVNTUFQX0FMSUdOwqDCoMKgIChNQVhfRk9M
-SU9fTlJfUEFHRVMgKiBzaXplb2Yoc3RydWN0IAo+IHBhZ2UpKQo+ICNlbHNlCj4gI2RlZmluZSBN
-QVhfRk9MSU9fVk1FTU1BUF9BTElHTsKgwqDCoCAwCj4gI2VuZGlmCj4gCj4gU29tZXRoaW5nIGxp
-a2UgdGhhdC4KPiAKClRoaW5raW5nIGFib3V0IHRoaXMgLi4uCgp0aGUgdm1lbW1hcCBzdGFydCBp
-cyBhbHdheXMgc3RydWN0LXBhZ2UtYWxpZ25lZC4gT3RoZXJ3aXNlIHdlJ2QgYmUgaW4gCnRyb3Vi
-bGUgYWxyZWFkeS4KCklzbid0IGl0IHRoZW4gc3VmZmljaWVudCB0byBqdXN0IGFsaWduIHRoZSBz
-dGFydCB0byBNQVhfRk9MSU9fTlJfUEFHRVM/CgpMZXQncyBhc3N1bWUgc2l6ZW9mKHN0cnVjdCBw
-YWdlKSA9PSA2NCBhbmQgTUFYX0ZPTElPX05SX1BBR0VTID0gNTEyIGZvciAKc2ltcGxpY2l0eS4K
-CnZtZW1tYXAgc3RhcnQgd291bGQgYmUgbXVsdGlwbGVzIG9mIDUxMiAoMHgwMDEwMDAwMDAwKS4K
-CjUxMiwgMTAyNCwgMTUzNiwgMjA0OCAuLi4KCkFzc3VtZSB3ZSBoYXZlIGFuIDI1Ni1wYWdlcyBm
-b2xpbyBhdCAxNTM2KzI1NiA9IDB4MTExMDAwMDAwCgpBc3N1bWUgd2UgaGF2ZSB0aGUgbGFzdCBw
-YWdlIG9mIHRoYXQgZm9saW8gKDB4MDExMTExMTExMTExKSwgd2Ugd291bGQgCmp1c3QgZ2V0IHRv
-IHRoZSBzdGFydCBvZiB0aGF0IGZvbGlvIGJ5IEFORC1pbmcgd2l0aCB+KDI1Ni0xKS4KCldoaWNo
-IGNhc2UgYW0gSSBpZ25vcmluZz8KCi0tIApDaGVlcnMsCgpEYXZpZAoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 2/2/26 16:56, Kiryl Shutsemau wrote:
+> With the upcoming changes to HVO, a single page of tail struct pages
+> will be shared across all huge pages of the same order on a node. Since
+> huge pages on the same node may belong to different zones, the zone
+> information stored in shared tail page flags would be incorrect.
+> 
+> Always fetch zone information from the head page, which has unique and
+> correct zone flags for each compound page.
+> 
+> Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
+> Acked-by: Zi Yan <ziy@nvidia.com>
+> ---
+>   include/linux/mmzone.h | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
+> index be8ce40b5638..192143b5cdc0 100644
+> --- a/include/linux/mmzone.h
+> +++ b/include/linux/mmzone.h
+> @@ -1219,6 +1219,7 @@ static inline enum zone_type memdesc_zonenum(memdesc_flags_t flags)
+>   
+>   static inline enum zone_type page_zonenum(const struct page *page)
+>   {
+> +	page = compound_head(page);
+>   	return memdesc_zonenum(page->flags);
+
+We end up calling page_zonenum() without holding a reference.
+
+Given that _compound_head() does a READ_ONCE(), this should work even if 
+we see concurrent page freeing etc.
+
+However, this change implies that we now perform a compound page lookup 
+for every PageHighMem() [meh], page_zone() [quite some users in the 
+buddy, including for pageblock access and page freeing].
+
+That's a nasty compromise for making HVO better? :)
+
+We should likely limit that special casing to kernels that really rquire 
+it (HVO).
+
+-- 
+Cheers,
+
+David
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
