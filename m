@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98F00E91294
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 08:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05B96E91298
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 08:56:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=36xdciLs/xKuyiXeLOhc/IUNfySMQ+dbV4zgeG6iG5g=; b=x7uhdF593K8VyL
-	0CDnaqEkkHzcoZeE56tiPtg1QGRwF5EwdFCChQ0jNKL6g2R4jqz3sck/imqH05NEt6oAAJVakguB/
-	S/uSW+v+uODEymJVI5Qx1wh/Bk4tyMYdElrSxoJjnhg8bhWb2IjNau9P1sI5iKA749dERf00DD5ey
-	BKWQgwJIJOg5FmILBZ3mtLei3eY7jc3uokSk5k4zaOwLVrWZ/aXfMcam6rkQkdkKHUfxAnRsTpFqZ
-	cEKIjmrR+rMHanFIlXTPr/exMK5mTsE24DOumokfnxbTexj+Dm0ayCEDT4Fuv8G+LGID2uNd8ZAFT
-	2YCUSFP5JwC/4Te7ZIDw==;
+	List-Owner; bh=YZmj4uWJAMPejHuUuoizPdQ5EuD5rPrZc7Cvp/LATTM=; b=JyIlOd5AvGlgdz
+	/1JiQ+GZXLWLg0eGmqCT6aayycvcR1KqQHhBUtmcGzD5hSeql2p5FCH7SOGXCXhEI2QgOvxJhClIa
+	sqxSCGx1IomdWLr0cw8MS6GM2y103+Ba2lnc1WYRT5EtG0k0rLKHKMuhqv4CfCPrypfAI3UnwWd2o
+	ocNpqmy6SwcXGTAVv1MVCInUdcakBgJZGMcmyFytUvKBNk9GJbNrnMGg108+TZ2wwJTlcMF3kGN34
+	q+9+420MXYZrZPSJXA3207FXeN/9dgJ7QrJk3U/0JVEO6TB9kYDfbryaodNw16cy1VpKdAXksjxGE
+	3LTqnM7uoUMUFtOmYqcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnv7I-00000009dTK-1pMq;
-	Thu, 05 Feb 2026 08:53:36 +0000
+	id 1vnvAR-00000009dlj-1F1d;
+	Thu, 05 Feb 2026 08:56:51 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnv7F-00000009dSY-1hFe;
-	Thu, 05 Feb 2026 08:53:34 +0000
+	id 1vnvAO-00000009dl4-1kKq;
+	Thu, 05 Feb 2026 08:56:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BAD8743F57;
-	Thu,  5 Feb 2026 08:53:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CF4EC4CEF7;
-	Thu,  5 Feb 2026 08:53:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 01B164354B;
+	Thu,  5 Feb 2026 08:56:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E1D4C4CEF7;
+	Thu,  5 Feb 2026 08:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770281612;
-	bh=hGfoS2SrOUSUcNbo4lzcjQ1KpCcVybs+F31qmzUiqIQ=;
+	s=k20201202; t=1770281807;
+	bh=EpeKVSUECcB0qRTU/0YGWj2Tn1oofcM/dtc2qrBjOCE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ph8JSWSrJDO/nNl/EDjq1HLoqZ7oqDk9ZkC8ZHgNJIoJYcGndSMn7dt+ixyyNs/NN
-	 soxAKOh22cP02z6s2AiMyvZ1HbQWiajQRn61b20N8nZyffm45mcUB/DlaIr+me8aHW
-	 N9+MwiMvy8w+Y6xebb5w93SOs6lMxfHP6pc9kbFdUJdOv81Rd2NcBfWIe6fmslQ/dK
-	 ET4UPmOBMUrDRiwQ6kH0bSwxwmeLauLWbHrdYUMm+FCBnvB6MfqXaabQBmV8nKEerO
-	 WblDJBfsDaJNAt1kqJP7j4vl8zUnVcnH7CF2+9aUpyJ3wVj/jN5QRZJ5o+xO4Rvx9I
-	 NiWLf248P3bGQ==
-Date: Thu, 5 Feb 2026 09:53:30 +0100
+	b=VEqnGVOAoESTGAH1kB0Oty8u2WWao6axm3BidFtcpHznfrpYXSrc/a7v55Q6z+DGh
+	 iOcCxtSKu6pINMwf9h3nbdFgopXZWj2ZtBocy+n/FP3+gEbCio2NJuZPKA4H4L42Qj
+	 wcLsE38wpK1r1L1QRNrkPvyVM0/8ZTpqcfmVeLnMSZ8hAs9iI8ILQe+gJ8ugHtX3ZV
+	 k6UKX/HQ7GcLOlYspbbkhddXgkOtnY3dglQ1jZtlFDbbOF9/yk+8tDOvwkWIgLUwdh
+	 WDQg1xdSnzDg0kIHnBJdRRlIngHV33u6pFR44VxvoSp7Kdy3aJjFf/3Z6QE6XposNS
+	 S5GOd9t+tLwkw==
+Date: Thu, 5 Feb 2026 09:56:45 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Ryan Chen <ryan_chen@aspeedtech.com>
 Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
@@ -51,18 +51,17 @@ Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, 
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-aspeed@lists.ozlabs.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/4] dt-bindings: interrupt-controller: aspeed: Add
- ASPEED AST2700 INTC0/INTC1
-Message-ID: <20260205-hysterical-crouching-beetle-e0d1b5@quoll>
+Subject: Re: [PATCH 4/4] dt-bindings: interrupt-controller: aspeed: Remove
+ legacy AST2700 interrupt binding
+Message-ID: <20260205-neat-honored-monkey-74d37a@quoll>
 References: <20260205-irqchip-v1-0-b0310e06c087@aspeedtech.com>
- <20260205-irqchip-v1-1-b0310e06c087@aspeedtech.com>
+ <20260205-irqchip-v1-4-b0310e06c087@aspeedtech.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260205-irqchip-v1-1-b0310e06c087@aspeedtech.com>
+In-Reply-To: <20260205-irqchip-v1-4-b0310e06c087@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_005333_460442_ACE3F010 
-X-CRM114-Status: UNSURE (   6.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260205_005648_496853_C125682D 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,13 +78,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 05, 2026 at 02:07:19PM +0800, Ryan Chen wrote:
-> INTC0 is used to assert GIC if interrupt in INTC1 asserted.
-> INTC1 is used to assert INTC0 if interrupt of modules asserted.
+On Thu, Feb 05, 2026 at 02:07:22PM +0800, Ryan Chen wrote:
+> Remove the legacy AST2700 interrupt controller Devicetree binding.
+> 
+> The legacy binding was limited to a PSP-centric view of the interrupt
+> architecture and cannot describe interrupt routing and protection for
+> the full AST2700 system.
+> 
+> It is superseded by the new ASPEED AST2700 INTC0/INTC1 binding, which
+> describes the interrupt controllers at the block-function level.
 
-What happened with 20 revisions of previous discussions?
+You just added all this ~year ago. I also do not understand how multiple
+previous revisions of patchset [1] were just ignored. No versioning, no
+references.
 
-Did you just ignore entire feedback?
+This is either unprofessional or just wasting our time.
+
+[1] https://lore.kernel.org/all/20251030060155.2342604-1-ryan_chen@aspeedtech.com/
 
 Best regards,
 Krzysztof
