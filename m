@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB05FECD995
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 18:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B22ECD995
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 18:47:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=83vFkAB6WaSuB1nKueOWMKQ/k+ekDkglD+NHM9QgC+w=; b=zr8WCnzcbw8El8
-	INj597mpMYmwlprTrDAao47sOpIFYZJ7UsMZC0uF9XZIUH6wyoEORYLwcm6BxCf6ZPQbhM3dhbLm/
-	JsUA1fWdF2HKJCXpWgfj0seau4eDsARiAgc8wCm90sDcP5iLgZYPNOEw1HLa8gGHMNn9BZnoKcyBJ
-	JOMYJFbP5X2fyqGQWU0YLM3+xxOTi3L6iyonZ1zWK+evz864ZQLfJjJnjNW8BJ+K15RYw0dZamNa8
-	fJgiY3xm9yccv2UFsd7MDOj43NPBwRg6poS+QLzqQ2E+sH6QfIcKGPoO85uxK0C7UcfwWsGaSd/cQ
-	COiNeWPm2h2DbhbRL4nQ==;
+	List-Owner; bh=1d0dBRX87jThfLgbGYHWaJ1dOzRGr8L5i3AXjnmey/Y=; b=djGEo5uTpOAsYY
+	QDk0or07nIE2qsrBhYpUViH6X7H5iIb3RCtBvKdAO5dHBRTOgNN2smnaVL+4mjCoGgswOJUQZQsja
+	j0L6H2Nddno0ywynhrCbm2m4l8WYLfDG7eAGSVkbx9PkT6HYt+ci+s8MWd8v9knSnj/9RqasSOZLU
+	MrRoDqdQIowIrdtVxof8YCaLtMnsbXNYD0A/pwCBCi9NkfcaLxY1B2QAhqeCpbusWzXWmkUTwjeRU
+	/rSukOSGkNNaImg0DNSNv68HaBqc1IqOn6JCtsN/p9Da4Vuv7KFpFRh3+uuOPyzf0ilRo+8pr2OEa
+	geo8+XiGElYRyhNZ/uoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo4Lv-0000000ANc6-41pI;
-	Thu, 05 Feb 2026 18:45:19 +0000
+	id 1vo4ON-0000000ANsW-09fW;
+	Thu, 05 Feb 2026 18:47:51 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo4Lu-0000000ANc0-2ZET
+	id 1vo4OL-0000000ANsL-2P55
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Feb 2026 18:45:18 +0000
+	Thu, 05 Feb 2026 18:47:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF4CE60010;
-	Thu,  5 Feb 2026 18:45:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29D4DC4CEF7;
-	Thu,  5 Feb 2026 18:45:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DAEA360010;
+	Thu,  5 Feb 2026 18:47:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6819C4CEF7;
+	Thu,  5 Feb 2026 18:47:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770317117;
-	bh=ZdulHp81VzQKd1Z3eSdf6JTAzvounjXm+PyUoDwuQ2Y=;
+	s=k20201202; t=1770317268;
+	bh=xlt7tCr9N5Z8VZCWEEDmknncqKKsGQxBS+VomxFPp94=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ey/M0ZvWxBp8gFtEYBSLzkEBKE6o/OcQltEXsEPDdQBWeeC87IZLRoRXijrRIzEdA
-	 Qzag38EEespagJNjnRpn6drg5BmQRS+ZXvb115o43fjV8tyQRNMbY4jg/MUlFraaJh
-	 eYO444S5C4SmX7pZ/IRS0JYmNW2qFVUZ8YsvTxQgimOSK3qgRZtMe6FhArqTi29SzD
-	 vuXF6WDbYMZf9m2c+57KbDYvtH9nAmWcjJwJImI60uYazspWFusa7DsJygsvfWMTUM
-	 kUn0GkSGh2s3tQuqPuLIyewn1XF4wc0jrolQo1Xu3dIeii5JIiYkd427Sinr9XMIiv
-	 WiJFhYPIOm4iQ==
-Message-ID: <92512903-4651-4ac3-b3ea-c9297e866a3a@kernel.org>
-Date: Thu, 5 Feb 2026 19:45:11 +0100
+	b=TTB1ax84YQCaIuJBblnZHNHLcMTxGBol/UYmFOfbLYyWuB3izvBPvyrlmVMwIq3KA
+	 yFDbAPWcIn4DdKJ+W33msfVNBpoQkQRPjU1f0GIFs4X0ACOEW2NVK8TlMM/WDEUSUv
+	 DW7HIyePxoXyKjhgPB+fiG8veZBZPew4hrKKiXObG1liq82RVgPJLXieaKd/ijIDvR
+	 JwA8vSXGvZF2/SVOIQ1SMYTHhac+CKYEUiM4tOlb6zBSg2y9MK9ggK53QPVgr3FI/s
+	 Qewow3Iuk2j070bWCuPK092Q5+4VIB87ZWcp0YkQgXWL41Yz8ps8kE6+lobJfiuMa9
+	 dM12TUp92DsHw==
+Message-ID: <cb18f760-500b-4417-b706-cdc7448441a4@kernel.org>
+Date: Thu, 5 Feb 2026 19:47:42 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/3] dt-bindings: clk: tenstorrent: Add
- tenstorrent,atlantis-prcm
+Subject: Re: [PATCH v5 2/3] reset: tenstorrent: Add reset controller for
+ Atlantis
 To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 Cc: Drew Fustini <dfustini@oss.tenstorrent.com>,
  Joel Stanley <jms@oss.tenstorrent.com>, Rob Herring <robh@kernel.org>,
@@ -60,9 +60,9 @@ Cc: Drew Fustini <dfustini@oss.tenstorrent.com>,
  npiggin@oss.tenstorrent.com, agross@kernel.org, agross@oss.tenstorrent.com,
  bmasney@redhat.com
 References: <20260202-atlantis-clocks-v5-0-0922e43acaba@oss.tenstorrent.com>
- <20260202-atlantis-clocks-v5-1-0922e43acaba@oss.tenstorrent.com>
- <20260205-upbeat-tortoise-of-admiration-b3c0eb@quoll>
- <CAEev2e8_4LSLNvHsiC4d7Rrd2GmjQ_5GRHU6b9-Ha69+yvn5cA@mail.gmail.com>
+ <20260202-atlantis-clocks-v5-2-0922e43acaba@oss.tenstorrent.com>
+ <20260205-spiffy-bizarre-doberman-184d2b@quoll>
+ <CAEev2e_S9LYV609VmrHCqNneuTro=hbAjzgHFLAO6RD0_fErwA@mail.gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,7 +108,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <CAEev2e8_4LSLNvHsiC4d7Rrd2GmjQ_5GRHU6b9-Ha69+yvn5cA@mail.gmail.com>
+In-Reply-To: <CAEev2e_S9LYV609VmrHCqNneuTro=hbAjzgHFLAO6RD0_fErwA@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,67 +120,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 05/02/2026 15:31, Anirudh Srinivasan wrote:
->>> +examples:
->>> +  - |
->>> +    clock-controller@a8000000 {
->>> +      compatible = "tenstorrent,atlantis-prcm-rcpu";
->>> +      reg = <0xa8000000 0x10000>;
->>> +      clocks = <&osc_24m>;
->>> +      #clock-cells = <1>;
->>> +      #reset-cells = <1>;
->>> +    };
->>> diff --git a/MAINTAINERS b/MAINTAINERS
->>> index dc731d37c8fe..0fc7bc6d0458 100644
->>> --- a/MAINTAINERS
->>> +++ b/MAINTAINERS
->>> @@ -22534,8 +22534,10 @@ M:   Joel Stanley <jms@oss.tenstorrent.com>
->>>  L:   linux-riscv@lists.infradead.org
->>>  S:   Maintained
->>>  T:   git https://github.com/tenstorrent/linux.git
->>> +F:   Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm.yaml
->>>  F:   Documentation/devicetree/bindings/riscv/tenstorrent.yaml
->>>  F:   arch/riscv/boot/dts/tenstorrent/
->>> +F:   include/dt-bindings/clock/tenstorrent,atlantis-prcm.h
->>>
->>>  RISC-V THEAD SoC SUPPORT
->>>  M:   Drew Fustini <fustini@kernel.org>
->>> diff --git a/include/dt-bindings/clock/tenstorrent,atlantis-prcm.h b/include/dt-bindings/clock/tenstorrent,atlantis-prcm.h
->>> new file mode 100644
->>> index 000000000000..3820781127c3
->>> --- /dev/null
->>> +++ b/include/dt-bindings/clock/tenstorrent,atlantis-prcm.h
->>
->> Still wrong name... Look at your compatible.
->>
->> Please read writing bindings doc in DT dir.
-> 
-> We will have multiple compatibles in the future (I dropped these in
-
-Maybe you will, maybe not. But you do not have now.
-
-> this version and I have mentioned this in the changelog in the cover
-> letter) named "tenstorrent,atlantis-prcm-xyz". The bindings document
-
-Where did you mention it? I went TWICE through it.
-
-> suggests picking a more generic name in this case, so isn't
-> "tenstorrent,atlantis-prcm" okay for that?
-
-No, because I don't want to keep guessing this. The docs clearly ask you
-to post complete bindings, which now became less-complete, but fine.
-Then the next rule asks you to use compatible as filename. You cannot
-keep skipping the rules.
-
-Best regards,
-Krzysztof
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMDUvMDIvMjAyNiAxNToxOCwgQW5pcnVkaCBTcmluaXZhc2FuIHdyb3RlOgo+IEhlbGxvIEty
+enlzenRvZiwKPiAKPiBPbiBUaHUsIEZlYiA1LCAyMDI2IGF0IDM6MjfigK9BTSBLcnp5c3p0b2Yg
+S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+IHdyb3RlOgo+Pgo+PiBPbiBNb24sIEZlYiAwMiwg
+MjAyNiBhdCAwMTo0Njo1MFBNIC0wNjAwLCBBbmlydWRoIFNyaW5pdmFzYW4gd3JvdGU6Cj4+PiBk
+aWZmIC0tZ2l0IGEvaW5jbHVkZS9zb2MvdGVuc3RvcnJlbnQvYXRsYW50aXMtcHJjbS5oIGIvaW5j
+bHVkZS9zb2MvdGVuc3RvcnJlbnQvYXRsYW50aXMtcHJjbS5oCj4+PiBuZXcgZmlsZSBtb2RlIDEw
+MDY0NAo+Pj4gaW5kZXggMDAwMDAwMDAwMDAwLi44NDE1MTZjYmVmZDkKPj4+IC0tLSAvZGV2L251
+bGwKPj4+ICsrKyBiL2luY2x1ZGUvc29jL3RlbnN0b3JyZW50L2F0bGFudGlzLXByY20uaAo+Pj4g
+QEAgLTAsMCArMSwzMSBAQAo+Pj4gKy8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiAoR1BMLTIu
+MC1vbmx5IE9SIEJTRC0yLUNsYXVzZSkgKi8KPj4+ICsvKgo+Pj4gKyAqIFNoYXJlZCBkZWZpbml0
+aW9ucyBmb3IgQXRsYW50aXMgUFJDTSBDbG9jayBhbmQgUmVzZXQgRHJpdmVycwo+Pj4gKyAqCj4+
+PiArICogQ29weXJpZ2h0IChjKSAyMDI2IFRlbnN0b3JyZW50Cj4+PiArICovCj4+PiArI2lmbmRl
+ZiBfX1NPQ19BVExBTlRJU19QUkNNX0hfXwo+Pj4gKyNkZWZpbmUgX19TT0NfQVRMQU5USVNfUFJD
+TV9IX18KPj4+ICsKPj4+ICsjaW5jbHVkZSA8bGludXgvYml0cy5oPgo+Pj4gKyNpbmNsdWRlIDxs
+aW51eC90eXBlcy5oPgo+Pj4gKwo+Pj4gK3N0cnVjdCBhdGxhbnRpc19wcmNtX2FkZXYgewo+Pj4g
+KyAgICAgc3RydWN0IGF1eGlsaWFyeV9kZXZpY2UgYWRldjsKPj4+ICsgICAgIHN0cnVjdCByZWdt
+YXAgKnJlZ21hcDsKPj4+ICt9Owo+Pgo+PiBEcm9wLCB0aGVyZSBpcyBubyBkcml2ZXItd2lkZSB1
+c2VyIG9mIHRoaXMuCj4gCj4+Cj4+PiArCj4+PiArc3RhdGljIGlubGluZSBzdHJ1Y3QgYXRsYW50
+aXNfcHJjbV9hZGV2ICoKPj4+ICt0b19hdGxhbnRpc19wcmNtX2FkZXYoc3RydWN0IGF1eGlsaWFy
+eV9kZXZpY2UgKmFkZXYpCj4+Cj4+IFNhbWUgaGVyZS4KPj4KPj4gRG8gbm90IGFkZCBzeW1ib2xz
+IHRvIGhlYWRlcnMgd2hpY2ggbm90aGluZyB1c2VzLiBUaGVzZSBhcmUgcHJpdmF0ZSB0bwo+PiB0
+aGUgZHJpdmVyIHNvIHRoZXkgbXVzdCBzdGF5IE9OTFkgaW4gdGhlIGRyaXZlci4KPiAKPiBUaGUg
+ZGVmaW5pdGlvbnMgaW4gdGhlc2UgZmlsZXMgYXJlIHNoYXJlZCBiZXR3ZWVuIHRoZSBjbG9jayBh
+bmQgcmVzZXQKPiBkcml2ZXIgKHdoaWNoIGFyZSBpbiBkcml2ZXJzL2Nsay90ZW5zdG9ycmVudC8g
+YW5kIGRyaXZlcnMvcmVzZXQvKSwKPiBoZW5jZSB0aGV5IGhhdmUgYmVlbiBwdXQgaGVyZS4KCgpB
+aCwgYnV0IHRoZW4gSSB3b25kZXIgd2h5IHlvdXIgY2xvY2sgZHJpdmVyIG5lZWRzIHRvIGFjY2Vz
+cyByZXNldCBkcml2ZXIKc3RydWN0dXJlcy4gT3IgdmljZSB2ZXJzYS4gWW91IGFyZSBvbmx5IGV4
+cGVjdGVkIHRvIGdldCByZWdtYXAgZnJvbSB0aGUKcGFyZW50LCBubz8KCgpCZXN0IHJlZ2FyZHMs
+CktyenlzenRvZgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
