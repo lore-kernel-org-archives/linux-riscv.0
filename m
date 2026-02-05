@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006DBEC1EB9
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 13:59:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 221F7E83F05
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 14:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eAmFP+It+IC3ZbBFV8vN2PQSVCadoHVhh2mwQSpyrXw=; b=Vq2nxAzNr35MeI
-	etEOA+RgSzzzcza8RgZqyjVJs0S/L7XomLHWHFEPPeun1umm/K69BrjiJIRBBnrburjWDxP8YIXxe
-	V8QqYNokx1BfBDqg6HaPLEmW5SRrfU+WWEhwGdzcfu9z7SoEMuNYm3Ar0FP6OVIIV30kVsl4SdQX+
-	FJFC8lAQtZvgqAkADFIjbU+sP4xNih9e5CM83DZCnBCe2eYaLNPWg9A0mv/A5TwmloEpAg0gre7P6
-	tkd8V4W9Yzg8iprTIJJbBthQZjAZsv6EyL3TpbNgm95v+57lqpSIV5IO4m750LlEvV/cFhcTOdVIw
-	3Xpy+JA3rUF4uFSESTqA==;
+	List-Owner; bh=xtw9LoE7vG5oNMCaOfkoXy30GR+ZMBvZ5S9rAqYoWg0=; b=xiIuVSqYb5stTX
+	8MJSn3EWYBxhXosF12GKisF2fXucamVC+vPbgWCO15A8JJo/zIKM0qYS+WjSjnYtV+HGvf71R76fE
+	8BwJvGVAMad4EAISITSBf/KXTskjsGzBxXIyfB2loQPpOX6wEJ4S4OHA1HoB4agZ6AdtHvoehXv2X
+	xNifs6ZdfLX4723NR++F4GbXpCiCJnQGcorrSVxJMPB8aPtsapqpQmYFARjZ1nVvacV/uaEFdoaO6
+	J3ioBQicHvPBU/s8Cy6ZYRXOE2G7pErCRLY1y4mZKD9ya0qP/Oukplr5AMTTNiOpZd9VITp2k9OTz
+	RcSPDkhzgJ8RW45xFmZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnzt0-0000000A0Cj-0YcH;
-	Thu, 05 Feb 2026 13:59:10 +0000
+	id 1vo02z-0000000A0hc-3DT5;
+	Thu, 05 Feb 2026 14:09:29 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnzsx-0000000A0Bg-1F80
+	id 1vo02w-0000000A0h2-3ApT
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Feb 2026 13:59:08 +0000
+	Thu, 05 Feb 2026 14:09:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7A508444FC;
-	Thu,  5 Feb 2026 13:59:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E9A4C4CEF7;
-	Thu,  5 Feb 2026 13:58:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E11B144216;
+	Thu,  5 Feb 2026 14:09:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F349C4CEF7;
+	Thu,  5 Feb 2026 14:09:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770299946;
-	bh=NrgItkvDCDI0JdjjTiJgmYN8Hu+I5JatU6qOApBTUkQ=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=UDgEXs2326E6nluf1TRc8JSNvhmzOon3wFQO4IGhep2GcsTFGb51oZnfVZiY1GAaR
-	 AP8fzqcnv7eYrYj9lL4FNmIylIXtktJO6S/8lPEsr9/blHUuTeaYrMQZrCri1qieYO
-	 cq0gkqvEXFYLEhEOZv7vi4RklL+UFVEE6ysMw5CnfQHGwPi5Qp1XZ6xxWiFW46pN2N
-	 kiqi1m6pj9kSW9RPBUIsDiBzSO344zesdF59KRQwvqScPSbSq4fhaJHCL1XMX/KL6Z
-	 AGh6cTxV+hX4OwAQ5pwgwcuIpE1fW7fngurZgxukYKy1X9RCDc7bsKDUrmmVxEI6CF
-	 RZ/PweRaGfL5Q==
-Message-ID: <a3f454aa-7cff-4e85-b046-5d4c55d8ccb9@kernel.org>
-Date: Thu, 5 Feb 2026 14:58:56 +0100
+	s=k20201202; t=1770300565;
+	bh=0kbSVa7phW9AqGFlXTnauWNQcCHubPrgNwvp7uwjvu8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=sCGRM+PRyGgOyssVyvdukY1De8h4831Ciolpqds8PUVcS1ysLBcjh7HmmnfiahlQR
+	 UEXl9gsl4cXbGZt7Pl9PPyfqHFngUDeiC96ASVObz5Wm3SFr9Vj870kosRSNYWwg6W
+	 3v/P6rUMXfnQiJmBrEVHMshasXlyXWezvOHZAPyfQU0UV8qxGguqtLa+rw6j8PEZjb
+	 crNbWr2uHHmV3BAJjRCL4br0SKX5mQf33giCaBsVhYi6Q4BiAldqsMxjZM01v+Yvok
+	 HGbiIw+EZRp7gBs6rDtcPQpTSvRfzNHJWuFPHPngRj6oChfnL7YZv7vBEEE4VgTvHN
+	 zsskoDr8poN5Q==
+Message-ID: <6e182cb7-6f32-41c0-ba86-520728b161c7@kernel.org>
+Date: Thu, 5 Feb 2026 15:09:16 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv6 09/17] mm/sparse: Check memmap alignment for
- compound_info_has_mask()
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCHv6 07/17] mm: Rework compound_head() for power-of-2
+ sizeof(struct page)
 To: Kiryl Shutsemau <kas@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
@@ -65,8 +64,8 @@ Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
 References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-10-kas@kernel.org>
- <ef1f6ec1-7036-400c-9d4f-fc4f6f969ef7@kernel.org>
+ <20260202155634.650837-8-kas@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -112,10 +111,10 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <ef1f6ec1-7036-400c-9d4f-fc4f6f969ef7@kernel.org>
+In-Reply-To: <20260202155634.650837-8-kas@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_055907_373746_17D0946F 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20260205_060926_843519_81F840AD 
+X-CRM114-Status: GOOD (  23.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,33 +126,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMi81LzI2IDE0OjMxLCBEYXZpZCBIaWxkZW5icmFuZCAoQXJtKSB3cm90ZToKPiBPbiAyLzIv
-MjYgMTY6NTYsIEtpcnlsIFNodXRzZW1hdSB3cm90ZToKPj4gSWYgcGFnZS0+Y29tcG91bmRfaW5m
-byBlbmNvZGVzIGEgbWFzaywgaXQgaXMgZXhwZWN0ZWQgdGhhdCB2bWVtbWFwIHRvIGJlCj4+IG5h
-dHVyYWxseSBhbGlnbmVkIHRvIHRoZSBtYXhpbXVtIGZvbGlvIHNpemUuCj4+Cj4+IEFkZCBhIFZN
-X0JVR19PTigpIHRvIGNoZWNrIHRoZSBhbGlnbm1lbnQuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IEtp
-cnlsIFNodXRzZW1hdSA8a2FzQGtlcm5lbC5vcmc+Cj4+IEFja2VkLWJ5OiBaaSBZYW4gPHppeUBu
-dmlkaWEuY29tPgo+PiAtLS0KPj4gwqAgbW0vc3BhcnNlLmMgfCA3ICsrKysrKysKPj4gwqAgMSBm
-aWxlIGNoYW5nZWQsIDcgaW5zZXJ0aW9ucygrKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvbW0vc3BhcnNl
-LmMgYi9tbS9zcGFyc2UuYwo+PiBpbmRleCBiNWIyYjZmNzA0MWIuLjZjOWI2MjYwN2YzZiAxMDA2
-NDQKPj4gLS0tIGEvbW0vc3BhcnNlLmMKPj4gKysrIGIvbW0vc3BhcnNlLmMKPj4gQEAgLTYwMCw2
-ICs2MDAsMTMgQEAgdm9pZCBfX2luaXQgc3BhcnNlX2luaXQodm9pZCkKPj4gwqDCoMKgwqDCoCBC
-VUlMRF9CVUdfT04oIWlzX3Bvd2VyX29mXzIoc2l6ZW9mKHN0cnVjdCBtZW1fc2VjdGlvbikpKTsK
-Pj4gwqDCoMKgwqDCoCBtZW1ibG9ja3NfcHJlc2VudCgpOwo+PiArwqDCoMKgIGlmIChjb21wb3Vu
-ZF9pbmZvX2hhc19tYXNrKCkpIHsKPj4gK8KgwqDCoMKgwqDCoMKgIHVuc2lnbmVkIGxvbmcgYWxp
-Z25tZW50Owo+PiArCj4+ICvCoMKgwqDCoMKgwqDCoCBhbGlnbm1lbnQgPSBNQVhfRk9MSU9fTlJf
-UEFHRVMgKiBzaXplb2Yoc3RydWN0IHBhZ2UpOwo+PiArwqDCoMKgwqDCoMKgwqAgVk1fQlVHX09O
-KCFJU19BTElHTkVEKCh1bnNpZ25lZCBsb25nKSBwZm5fdG9fcGFnZSgwKSwgCj4+IGFsaWdubWVu
-dCkpOwo+IAo+IE5vIFZNX0JVR19PTi4gVk1fV0FSTl9PTl9PTkNFKCkgc2hvdWxkIGJlIGdvb2Qg
-ZW5vdWdoLCBubz8KPiAKPiBBcyBkaXNjdXNzZWQgaW4gdGhlIG90aGVyIHRocmVhZCwgaXMgY2hl
-Y2tpbmcgZm9yIE1BWF9GT0xJT19OUl9QQUdFUyAKPiBhbGlnbm1lbnQgc3VmZmljaWVudD8KCkFu
-ZCBhZnRlciBmdXJ0aGVyIGRpc2N1c3Npb25zLCB3ZSBjb3VsZCB1c2UgTUFYX0ZPTElPX1ZNRU1N
-QVBfQUxJR04gCm1hY3JvIG9uY2Ugd2UgaGF2ZSB0aGF0LgoKLS0gCkNoZWVycywKCkRhdmlkCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 2/2/26 16:56, Kiryl Shutsemau wrote:
+> For tail pages, the kernel uses the 'compound_info' field to get to the
+> head page. The bit 0 of the field indicates whether the page is a
+> tail page, and if set, the remaining bits represent a pointer to the
+> head page.
+> 
+> For cases when size of struct page is power-of-2, change the encoding of
+> compound_info to store a mask that can be applied to the virtual address
+> of the tail page in order to access the head page. It is possible
+> because struct page of the head page is naturally aligned with regards
+> to order of the page.
+> 
+> The significant impact of this modification is that all tail pages of
+> the same order will now have identical 'compound_info', regardless of
+> the compound page they are associated with. This paves the way for
+> eliminating fake heads.
+> 
+> The HugeTLB Vmemmap Optimization (HVO) creates fake heads and it is only
+> applied when the sizeof(struct page) is power-of-2. Having identical
+> tail pages allows the same page to be mapped into the vmemmap of all
+> pages, maintaining memory savings without fake heads.
+> 
+> If sizeof(struct page) is not power-of-2, there is no functional
+> changes.
+> 
+> Limit mask usage to HugeTLB vmemmap optimization (HVO) where it makes
+> a difference. The approach with mask would work in the wider set of
+> conditions, but it requires validating that struct pages are naturally
+> aligned for all orders up to the MAX_FOLIO_ORDER, which can be tricky.
+> 
+> Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
+> Reviewed-by: Muchun Song <muchun.song@linux.dev>
+> Reviewed-by: Zi Yan <ziy@nvidia.com>
+
+[...]
+
+>   	struct folio *foliop;
+>   	int loops = 5;
+>   
+> @@ -1247,8 +1247,8 @@ void snapshot_page(struct page_snapshot *ps, const struct page *page)
+>   again:
+>   	memset(&ps->folio_snapshot, 0, sizeof(struct folio));
+>   	memcpy(&ps->page_snapshot, page, sizeof(*page));
+> -	head = ps->page_snapshot.compound_info;
+> -	if ((head & 1) == 0) {
+> +	info = ps->page_snapshot.compound_info;
+> +	if (!(info & 1)) {
+>   		ps->idx = 0;
+>   		foliop = (struct folio *)&ps->page_snapshot;
+>   		if (!folio_test_large(foliop)) {
+> @@ -1259,7 +1259,15 @@ void snapshot_page(struct page_snapshot *ps, const struct page *page)
+>   		}
+>   		foliop = (struct folio *)page;
+>   	} else {
+> -		foliop = (struct folio *)(head - 1);
+> +		/* See compound_head() */
+> +		if (compound_info_has_mask()) {
+> +			unsigned long p = (unsigned long)page;
+> +
+> +			foliop = (struct folio *)(p & info);
+
+IIUC, we don't care about clearing bit0 before the & as the page pointer 
+shouldn't have set it in the first page.
+
+Pretty neat
+
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+
+-- 
+Cheers,
+
+David
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
