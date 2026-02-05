@@ -4,135 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4929AECD983
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 15:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D066CECD992
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 18:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6ah3+TIAjQHnaR0r5nYF9S1+3nXFCIgzxd1JtDCNWew=; b=YHHPVDdpCLRLCC
-	QAPhdkki3C5wlarBFFaN+VTT0X5mzxDHf6x9IdyiGwoHwqvwSOQ4vPAEgvKi4hZ+Pe0KgeASvqVJq
-	5opO1aOHyIDsVfUt7hzT0bJR8hhoLgaiZVs4JHNishjRtdD5fwoIZaAUHY+tDAJBghzmwHEUhUVIY
-	I8a1YvyW1fzuOZaMiKykXgN6M7wwP8z1ooTUnmy18YtsvQr+bXJ949IMems+bo8czwgSKGZqrhzvB
-	1eDvUbEe7Ex6QrehwnmxgO7z44OSaE39R+AdYsDHy1HKb26zB6o7jE+mUfTmOqK+Tcx6E2D9E6x8N
-	+25rgimjAoLEw8BNRVoQ==;
+	List-Owner; bh=fcsObG+FHtj0kXxtmmE1UzW8LQ5/ktYrqhJ75BdkaaY=; b=e/4sGql/NA2VNk
+	J9xfi2r8rRjrBI+RdkIcS8Oclt1Fvu4qzEjp0VkqsZ+JElwkjjjNpl6Oogwr+qp+TI5jLkdLjhuAz
+	DVn04eU+NuPtUQEWfScYLuKdUVFhZMMZ9LcAPTJJ8O1IsVYZY4bckE1qytm6v9nxTtIVNqRVESCBW
+	1+CEH1fyq4SaZpIcMOYZIqR1bfn78WT7fTHO/AtXoEo/e4IDlb2xaQ2Q6S7PD+uLBAsJ6k3Z4M3Il
+	FCppyoJoj1KJ4P0P9yEp9SiQOZToLsgqLXIv5FmU0pltbN5YkhZpbxBUoEgIr+hm9Z8v8t0bAfM+O
+	tGsYuxhhMaFBw6hn/4qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo1kN-0000000ABmv-22x2;
-	Thu, 05 Feb 2026 15:58:23 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vo3yp-0000000AMEI-3LHM;
+	Thu, 05 Feb 2026 18:21:27 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo1kK-0000000ABlZ-0hNW
+	id 1vo3yn-0000000AMDG-172W
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Feb 2026 15:58:22 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 615Bjjo34125698
-	for <linux-riscv@lists.infradead.org>; Thu, 5 Feb 2026 15:58:19 GMT
+	Thu, 05 Feb 2026 18:21:26 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 615AjhKq2157615
+	for <linux-riscv@lists.infradead.org>; Thu, 5 Feb 2026 18:21:24 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=reJd7/At3u/sqytH15vAL/oA
-	6cLufQfOxqNK9KuV5k4=; b=HSuWCLqgch53TzV1zbT0mlcPKlCQp7Qr4bLHE7+Y
-	cNWEZhnnKeTTIXTtOG0K1tnYZB5zwCPZJdFy3wxXmTNOIqBapUAI+E1kSNggsZ+S
-	M+qgKYok/LypjwqRxRmeb7a4JlLbO6X+LVc0ZWi8ZSKqzFa4GbD4ldowA4QnKEwM
-	5R2Im+xhHxd2nBx2ti+HNGv7gBq3G0AAL7SnqCkirBRopRZL2MQOrsp/NTI73sfc
-	L0Cgus6rjordj1lLzWhVBoiL7nLMcmdFxplw+SrMIYSiEp6cEny74WFuGYhaP9jB
-	Wz7EIEBLiG6A/J8hBEyBBesMvViHFFXW+ljtr9i9sQkNRw==
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c4tm8rs8m-1
+	:references:subject:to; s=qcppdkim1; bh=xaaQh/d3o4zexWT6KtAUFHYS
+	pjo/w8LAVOendENj7o0=; b=LArKC8QWlqq5EcIWlj+OY0MIC45250XWIdws7g6y
+	gmkRgQt6miW+cRwLwSAiYuzLl31ZvH13otJV+Yrt3BpBaq+Dvfm4AlTmSkRIV/1O
+	SZw59uGnr0QktqzxSEDcJdPVZ0/nZGZWlzAZxWXPh9oZda+R0+/8U7AVUEZ9SJbC
+	UiVLyy3JBjcLvKkWSXy4mb3rolYVeJhY8wVgXkbLttFDVr2aKrU6Ejo+/IG7FXrW
+	wOm+Ph3auIYIkL9qnkb3adXSm7q1Y09IQNp43KNA+V9NlTjb1a16uo0/waGuDfh3
+	IdO1e6DPo52khXRIQGSJX9abbqmsySY3pWStqaOW9CCggw==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c4gynu23h-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 05 Feb 2026 15:58:19 +0000 (GMT)
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-2b7155ca88cso934085eec.1
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Feb 2026 07:58:19 -0800 (PST)
+	for <linux-riscv@lists.infradead.org>; Thu, 05 Feb 2026 18:21:23 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-2b71041d135so1519622eec.1
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Feb 2026 10:21:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1770307099; x=1770911899; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1770315683; x=1770920483; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=reJd7/At3u/sqytH15vAL/oA6cLufQfOxqNK9KuV5k4=;
-        b=gyPtynRvG39rwnT6/NScPElwA43jUru0xkWA2GcweCfc+EIr+F48BQckqD87bMA4PM
-         cazQ2nL52HxQ+R7+ThixNfxoOzg4bKc+qgjBA1uhEmLMbAFwETYphkIviB97tEQRQE0D
-         TwnmlxPGEnDeLTuA/9WrnW6VR0fd8VlpyF4pLa4saRvQaVSffy79dXWSgZEZlbg/5aGJ
-         6E+mDLE0Od+6vqm7PjdGBRL7El6PKgY0EtpZ2vE89rjPqUVnznDDXeykR0RlqTKNt+5C
-         UdCu/Qfs+B4DcWkG5Q5Oy3ZLAJpXjxC+40bjlWCXAiUkBpKyd0yTGJsw0fpwLAiScDZK
-         dD6w==
+        bh=xaaQh/d3o4zexWT6KtAUFHYSpjo/w8LAVOendENj7o0=;
+        b=edNSgvIBhk34xTKpCWDTl9Shs0F2t7dNpWh3vxaqhMtaWn9Uzbkw5NwFELy03D8vtt
+         imarzWoz025I31ndVHIN+beD6FAeU1rLjROi4zMODdf/yJpuFJ4+Nq5rA4Y7K6aI3HBw
+         C/D9v5T0Yyapq3zR4iRxoubMwImtjMw9/PsonCOyNFKMpRp33XwRKExCvcnNEBPOVR5d
+         hSHhdabwf8IUDD6QrGRFe8KuBsM2Pom04fSyJLS/fNL/5mM7JyyUCZGjfsrXrKgxB3Jh
+         U68ahsvWXYsPbT4cnbLI0huTxxxZxVWo0gjcHSuXYVZhnlDRtSzNcY8aYIUusuvKodqz
+         A76Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770307099; x=1770911899;
+        d=1e100.net; s=20230601; t=1770315683; x=1770920483;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=reJd7/At3u/sqytH15vAL/oA6cLufQfOxqNK9KuV5k4=;
-        b=dpkVdwWvHIKSkzVzGD/ZggfChhp9CjadZQrprMbh5+rYT5e2P2dYTvX2J9FXcVILaL
-         7BIGAWbDv2KMAodBgSVx0aG4Qh2u+gk48K5JFu34rqPN3WrQ6ag+yxOEOLbI6+n8DyxB
-         XrW45PHlo7pKdgHdQ1/sAE9R8G/Zt7s6U6aCudAbweO0bmIVsC6cxb9VC7KCpE49wut6
-         ryhkUmPDbogrIdKFHqR0oHVSKuofX2fiTRgndknK6RV8TgKXPLQ5p1dnEfQ/syUcC3c3
-         69LlL/DIlbXG2qzkfDnf4U69ythFY9QhT7xu2Xv6wzxFVlBMOUmXgRWuG74m08o8piEU
-         CdTg==
-X-Forwarded-Encrypted: i=1; AJvYcCU2l+83KLqF/xvqmQHSgrR0iuTjmLliu8TCr5vRLfzyMfMGsj2o56gFl66/1s9sUP83PscNgAQ2He2AQg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPjCeIqjLa83BfLVi8zuXkafDQTmPTeBDWT9Ud0lhc1Wu2U2Zx
-	lhmv4s4Rohg03gwzImBgVW6oEtN13SXQuE0IVDhuWcpf2PhsMzW+pAXLx6zq7fxxJqH9U+OJdYk
-	jSKPdAouS0ZIcnLPAkbtrU+7y+O8UaoCQZc7oo5CiU7UofXyx0+oJKZ1PDS3/rGnrl94qeqh+z+
-	Ft/lU=
-X-Gm-Gg: AZuq6aIlGt3ZwnXLmQgWC7A+c26uASn7snu2aLqoIl/xuNtl9BqW9ANyg3EwoApDAFi
-	mfcoJ3dG+Q6fPrtTTOiM8RZAIgIzp6xqvWgHzkcDr3T71cx72W6PLXSxjhDfhEBU24FeJ+JSuIF
-	WYWK4FF+H7Urui/aA91SGV9K7tovRy7a3/EGMQf18i2TzQz7O7pVdI0q2uI8bMJO5Y9YXNHKtbj
-	8MUw0ga5x32XsOSPyTaqfuEf4h1enF7eKhXoDl8VK68zEsieuh6FD0mBivxhLakrP53qCocDg1k
-	nkrXavfH4nhyvT7pnC3gFSIsYXQzkhus0AXvezvbJLJ/UyHriQlmjQKU6bi8M9WCcnI69h60sg1
-	IOhFEOMMeo3cV+LhbOXs=
-X-Received: by 2002:a05:7300:cd8d:b0:2b6:fa0c:6c44 with SMTP id 5a478bee46e88-2b83291cd6dmr2805954eec.12.1770307098406;
-        Thu, 05 Feb 2026 07:58:18 -0800 (PST)
-X-Received: by 2002:a05:7300:cd8d:b0:2b6:fa0c:6c44 with SMTP id 5a478bee46e88-2b83291cd6dmr2805941eec.12.1770307097841;
-        Thu, 05 Feb 2026 07:58:17 -0800 (PST)
+        bh=xaaQh/d3o4zexWT6KtAUFHYSpjo/w8LAVOendENj7o0=;
+        b=rNH24cTV+E9jUfQorjEj6ESRY83gAOOXAV3W27Le6uWuuc9KblSjzRad2brjT/eit1
+         eiL/0h3xfJFQPGQPSUZhvuSaitK7rZ45OrFcsFveoF9C3O9EDMp5E56HZlQ6PVNlR0re
+         CrvoUlo+XCP7fSZ9EQkhpubhw5SWT+0yc5MKv6yF/mY92Es901H5Te+m3k6UpOBSL3Wt
+         J+CTEiskk0Q6JHKp+zEXuNQUKDOgEh/7Y9BDwhufkOiAgDgYJPPdltANjoyKpaYTKeSo
+         2+zBm2svO2JHxgJ4sTXWefRpDxAtPD0XneAxwbI2fbmpU84QR3UjNxH6mMp4SRTU6EV/
+         Ko2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXuQ9yiLymASkDFl1eAplmY7IFvbyox8UwMwQ09olLH8FsubJmKxYR421IvlwNkhAbmP57qw2KRHFD0OQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6qStEKssiQfyS2TvwX2xvymISa3FfcEKOXbU6ivmjUC1/pR24
+	cbYxxKDavoFD0uhg5Qj47SXt/hoMpBttlpCscxjuRSjdebDqF6DqsEuqNGPeDvmCNO0S3TidWW7
+	pFvRfcopfaioPIeH347rayl7KSYTIzeD1m54kgKInSVOqNrk9VrpKV0uGF4INOwwAqM/Gfk630M
+	Get0k=
+X-Gm-Gg: AZuq6aKdgNPajivVciAZC8s0Bj2d1Dr+sPfUct8ri4gzBvy7ynoIirmELBXVbPo54/I
+	4hVEnwTeMfVUJMzx6y3/NrLWRW1Oe3A2IlhA5rdxNv82M7aojNvuPUHV9kRANfFpRBWBTDGRcsK
+	4cVV4v2lFk+KF9ZiXgNGi673IgvrM5PdL8ct655vW+8egbmfYWIFxo7BzKMxIUVRae/BpDZMJTS
+	TUUFkVUAMnnNoEEF3ghMl76byiNtffuM3LOieU2kBoF3Xjp0DtSu0OSEyWk8TEuCVvKen/WxNVn
+	aEVKmSB2Z9SyZwznm8CCYgNcEXjZSKzVF9akVspPAb6k0D5lL2a8lnkP6Z6jDGoI2/xy64+vpfB
+	VNYxjgviJlmun1rnlu2o=
+X-Received: by 2002:a05:7022:408a:b0:127:fa:7758 with SMTP id a92af1059eb24-12700fa842dmr590926c88.9.1770315682521;
+        Thu, 05 Feb 2026 10:21:22 -0800 (PST)
+X-Received: by 2002:a05:7022:408a:b0:127:fa:7758 with SMTP id a92af1059eb24-12700fa842dmr590911c88.9.1770315681918;
+        Thu, 05 Feb 2026 10:21:21 -0800 (PST)
 Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b832fe59fasm3427697eec.34.2026.02.05.07.58.16
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-127041e5e3asm18160c88.7.2026.02.05.10.21.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Feb 2026 07:58:17 -0800 (PST)
-Date: Thu, 5 Feb 2026 09:58:15 -0600
+        Thu, 05 Feb 2026 10:21:21 -0800 (PST)
+Date: Thu, 5 Feb 2026 12:21:20 -0600
 From: Andrew Jones <andrew.jones@oss.qualcomm.com>
-To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Cc: linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-        linux-kselftest@vger.kernel.org, Anup Patel <anup@brainfault.org>,
-        Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Alexandre Ghiti <alex@ghiti.fr>,
-        Andrew Jones <ajones@ventanamicro.com>,
-        Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
-        Jiakai Xu <jiakaiPeanut@gmail.com>
-Subject: Re: [PATCH v6 2/2] RISC-V: KVM: selftests: Add RISC-V SBI STA shmem
- alignment tests
-Message-ID: <gcspbbvqkr7y53c4ytkqqycygkcqkiakle4aelq2z7nsnlyegl@addv4v655cbg>
-References: <20260205010502.2554381-1-xujiakai2025@iscas.ac.cn>
- <20260205010502.2554381-3-xujiakai2025@iscas.ac.cn>
+To: cp0613@linux.alibaba.com
+Cc: pjw@kernel.org, anup@brainfault.org, alex@ghiti.fr, guoren@kernel.org,
+        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: smp: Align secondary_start_sbi to 4 bytes
+Message-ID: <o7fbcofuyu3nuqk2bituvfr7fitsiiimvu55h4wyefezpuqniw@34xczmgjn5lm>
+References: <20260205121625.716-1-cp0613@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260205010502.2554381-3-xujiakai2025@iscas.ac.cn>
-X-Authority-Analysis: v=2.4 cv=Vd76/Vp9 c=1 sm=1 tr=0 ts=6984be1b cx=c_pps
- a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
+In-Reply-To: <20260205121625.716-1-cp0613@linux.alibaba.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjA1MDEzOSBTYWx0ZWRfXxP44mW2lsp+g
+ hUHTdrezzfHDl0BNWOzrGdpGRvUKLyP/cOVdDXZ0wBpHQxOtjXqMhM3WAtrVcqpOR4QFmXgqk07
+ XHdxSWaFIC3p5eoygzX1K+KxCYrX2nmLWiZ45soBARpvKfJnEylQ5RDQNGjnX3S9cTE2Yi28CUn
+ B9RW75jfKwamtR0XHOH2i/RUPNu2SJt4IpEy8PSFZ8pRpEDhCFcXm5p114VCAq65rf6TmfATnAP
+ +PXig++YmvYEKhNXJcIWN7pIgaGNncpkpmIFPTZMbi4OQ93iqjXy8G2mHPremlZ65cTweIC1K5J
+ 5n2aqarEIPrMU4siSab3bJrHuS8PAd0KedM31Jp2YTFVwkJQniryIEDBkwvHPAFJrRZx0/iDpiC
+ HDyqPa55OUfxob9GoX6rMB69Cf3vW82+UGn0AbHa4qcwoWg8d/f4iRPRkTA2GLfOL27ZrSG4jyU
+ moYXNKVJcJ4fKsI9OxQ==
+X-Authority-Analysis: v=2.4 cv=GdcaXAXL c=1 sm=1 tr=0 ts=6984dfa4 cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
  a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=pGLkceISAAAA:8 a=reGFDpqf7T0RaJXXVMIA:9
- a=CjuIK1q_8ugA:10 a=6Ab_bkdmUrQuMsNx7PHu:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjA1MDEyMCBTYWx0ZWRfXyvoV+sTHi0Cz
- vQJx+w3uBviyFpzAKZK8B5ykds09qOtUeES4o5QITDeQPLXIzinnXnxKpabxzjzLX1U6XBehjyR
- 4lP1HBP1On8qNu3zt+dJ16tORc1gOEKxEz17j08xoR1c0nDaV7BCde81eL2IcUg1WH9gcpC7vm9
- NpiUM4vHxpKtwSH1MK9CVQry6ZHmhePtCbV3L6WBrQPSgyTdhgWAoxSUwbaQ5Jhp1G/ewFzc4Jb
- U+egG7vMy++Wvq1WhUIeMaA/mg+XgXTCSajKRclMIPTENnh5zWgbEHShy5Ufh5P0KCUgBuPyOH9
- KqK36vcIknbwyvWxvXi4g/kcoiG2LkqNYuyZmefVDfzPAhZNorjNdEN4iQ44+UQhz4rZkHdTZBL
- 7yWG8de0IkbMM40td+7jrLxPL9ffum7Qe3DYcEOJ9812hQlzf1B1r6eDss1GPCguUycjU02KRXk
- tbmd2NGgdhMoVzTe6yA==
-X-Proofpoint-ORIG-GUID: D6c9cmEsZAgD2mVX_mP-q5fpb8GOuhA4
-X-Proofpoint-GUID: D6c9cmEsZAgD2mVX_mP-q5fpb8GOuhA4
+ a=VkNPw1HP01LnGYTKEx00:22 a=SRrdq9N9AAAA:8 a=EUspDBNiAAAA:8
+ a=nd4HULJE9tGIbypOo2AA:9 a=CjuIK1q_8ugA:10 a=PxkB5W3o20Ba91AHUih5:22
+X-Proofpoint-ORIG-GUID: AOEejJYbBu_abAJUjJD7Zp2fo-MYqYhD
+X-Proofpoint-GUID: AOEejJYbBu_abAJUjJD7Zp2fo-MYqYhD
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-05_03,2026-02-05_02,2025-10-01_01
+ definitions=2026-02-05_04,2026-02-05_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 bulkscore=0 phishscore=0 suspectscore=0
- priorityscore=1501 lowpriorityscore=0 adultscore=0 spamscore=0 malwarescore=0
+ lowpriorityscore=0 suspectscore=0 malwarescore=0 bulkscore=0 phishscore=0
+ impostorscore=0 clxscore=1015 priorityscore=1501 spamscore=0 adultscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602050120
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602050139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_075820_604155_77057B72 
-X-CRM114-Status: GOOD (  30.09  )
+X-CRM114-CacheID: sfid-20260205_102125_463113_647BFFBF 
+X-CRM114-Status: GOOD (  25.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,141 +140,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 05, 2026 at 01:05:02AM +0000, Jiakai Xu wrote:
-> Add RISC-V KVM selftests to verify the SBI Steal-Time Accounting (STA)
-> shared memory alignment requirements.
+On Thu, Feb 05, 2026 at 08:16:25PM +0800, cp0613@linux.alibaba.com wrote:
+> From: Chen Pei <cp0613@linux.alibaba.com>
 > 
-> The SBI specification requires the STA shared memory GPA to be 64-byte
-> aligned, or set to all-ones to explicitly disable steal-time accounting.
-> This test verifies that KVM enforces the expected behavior when
-> configuring the SBI STA shared memory via KVM_SET_ONE_REG.
+> During SMP boot, the secondary_start_sbi address is passed to the
+> slave core via sbi_hsm_hart_start. In OpenSBI, this address is
+> written to STVEC in sbi_hart_switch_mode.
 > 
-> Specifically, the test checks that:
-> - misaligned GPAs are rejected with -EINVAL
-> - 64-byte aligned GPAs are accepted
-> - INVALID_GPA correctly disables steal-time accounting
+> According to the privileged specification, the BASE field of STVEC
+> must always be aligned on a 4-byte boundary. However, System.map
+> reveals that secondary_start_sbi is not a 4-byte aligned address.
 > 
-> Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-> Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+> For example, the address of secondary_start_sbi is
+> 0xffffffff80001066, and the disassembly is as follows:
+> 
+> Dump of assembler code from 0xffffffff80001052 to 0xffffffff8000107a:
+>    0xffffffff80001052 <_start+4178>:    c.nop   -11
+>    0xffffffff80001054 <_start+4180>:    auipc   gp,0x1a1f
+>    0xffffffff80001058 <_start+4184>:    addi    gp,gp,84
+>    0xffffffff8000105c <_start+4188>:    csrw    satp,a2
+>    0xffffffff80001060 <_start+4192>:    sfence.vma
+>    0xffffffff80001064 <_start+4196>:    ret
+>    0xffffffff80001066 <_start+4198>:    csrw    sie,zero
+>    0xffffffff8000106a <_start+4202>:    csrw    sip,zero
+>    0xffffffff8000106e <_start+4206>:    li      t0,2
+>    0xffffffff80001070 <_start+4208>:    csrw    scounteren,t0
+>    0xffffffff80001074 <_start+4212>:    auipc   gp,0x1a1f
+>    0xffffffff80001078 <_start+4216>:    addi    gp,gp,52
+> 
+> When writing to STVEC at address 0xffffffff80001066, the actual
+> write address is 0xffffffff80001064, corresponding to the address
+> of the previous ret instruction. This is unexpected, and if an
+> interrupt occurs at this point, it will cause unpredictable results.
+> 
+> However, secondary_start_sbi immediately masks all interrupts and
+> updates STVEC, so no problems occurred.
+> 
+> In summary, it is more reasonable to make secondary_start_sbi
+> satisfy 4-byte alignment.
+> 
+> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 > ---
->  .../selftests/kvm/include/riscv/processor.h   |  4 +++
->  tools/testing/selftests/kvm/steal_time.c      | 33 +++++++++++++++++++
->  2 files changed, 37 insertions(+)
+>  arch/riscv/kernel/head.S | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
-> index e58282488beb3..c3551d129d2f6 100644
-> --- a/tools/testing/selftests/kvm/include/riscv/processor.h
-> +++ b/tools/testing/selftests/kvm/include/riscv/processor.h
-> @@ -62,6 +62,10 @@ static inline uint64_t __kvm_reg_id(uint64_t type, uint64_t subtype,
->  						     KVM_REG_RISCV_SBI_SINGLE,		\
->  						     idx, KVM_REG_SIZE_ULONG)
+> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> index bdf3352acf4c..f35dbfa79505 100644
+> --- a/arch/riscv/kernel/head.S
+> +++ b/arch/riscv/kernel/head.S
+> @@ -124,6 +124,7 @@ relocate_enable_mmu:
 >  
-> +#define RISCV_SBI_STA_REG(idx)	__kvm_reg_id(KVM_REG_RISCV_SBI_STATE,	\
-> +						     KVM_REG_RISCV_SBI_STA,			\
-> +						     idx, KVM_REG_SIZE_ULONG)
+>  	ret
+>  #endif /* CONFIG_MMU */
+> +.align 2
+>  #ifdef CONFIG_SMP
+>  	.global secondary_start_sbi
+>  secondary_start_sbi:
+> -- 
+> 2.50.1
+>
 
-We don't need this because...
+Looks good, but the .align 2 would ideally go inside the
+#ifdef CONFIG_SMP, just above the label.
 
-> +
->  bool __vcpu_has_ext(struct kvm_vcpu *vcpu, uint64_t ext);
->  
->  static inline bool __vcpu_has_isa_ext(struct kvm_vcpu *vcpu, uint64_t isa_ext)
-> diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
-> index 8edc1fca345ba..30b98d1b601c3 100644
-> --- a/tools/testing/selftests/kvm/steal_time.c
-> +++ b/tools/testing/selftests/kvm/steal_time.c
-> @@ -209,6 +209,7 @@ static void steal_time_dump(struct kvm_vm *vm, uint32_t vcpu_idx)
->  
->  /* SBI STA shmem must have 64-byte alignment */
->  #define STEAL_TIME_SIZE		((sizeof(struct sta_struct) + 63) & ~63)
-> +#define INVALID_GPA (~(u64)0)
->  
->  static vm_paddr_t st_gpa[NR_VCPUS];
->  
-> @@ -301,6 +302,34 @@ static void steal_time_dump(struct kvm_vm *vm, uint32_t vcpu_idx)
->  	pr_info("\n");
->  }
->  
-> +static void test_riscv_sta_shmem_alignment(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm_one_reg reg;
-> +	uint64_t shmem;
-> +	int ret;
-> +
-> +	reg.id = RISCV_SBI_STA_REG(0);
-
-...here we should use KVM_REG_RISCV_SBI_STA_REG(shmem_lo)
-
-> +	reg.addr = (uint64_t)&shmem;
-> +
-> +	/* Case 1: misaligned GPA */
-> +	shmem = ST_GPA_BASE + 1;
-> +	ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
-> +	TEST_ASSERT(ret == -1 && errno == EINVAL,
-> +		    "misaligned STA shmem should return -EINVAL");
-
-remove the word 'should'
-
-"misaligned STA shmem returns -EINVAL"
-
-> +
-> +	/* Case 2: 64-byte aligned GPA */
-> +	shmem = ST_GPA_BASE;
-> +	ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
-> +	TEST_ASSERT(ret == 0,
-> +		    "aligned STA shmem should succeed");
-
-same comment about 'should'
-
-> +
-> +	/* Case 3: INVALID_GPA disables STA */
-> +	shmem = INVALID_GPA;
-> +	ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
-> +	TEST_ASSERT(ret == 0,
-> +		    "INVALID_GPA should disable STA successfully");
-
-We're not testing that STA was successfully disabled, only that all-ones
-input doesn't generate an error. So the message should be along the lines
-of "all-ones for STA shmem succeeds"
-
-> +}
-> +
->  #endif
->  
->  static void *do_steal_time(void *arg)
-> @@ -369,6 +398,10 @@ int main(int ac, char **av)
->  	TEST_REQUIRE(is_steal_time_supported(vcpus[0]));
->  	ksft_set_plan(NR_VCPUS);
->  
-> +#ifdef __riscv
-> +	test_riscv_sta_shmem_alignment(vcpus[0]);
-> +#endif
-
-We like to try to avoid #ifdefs in common functions by providing stubs for
-architectures that don't need them [yet]. So we should rename this to
-something more generic, like
-
- check_steal_time_uapi()
-
-and then call it for all architectures. Actually the other architectures
-can already make use of it since both x86 and arm64 do uapi tests in
-their steal_time_init() functions and that's not really the right
-place to do that. I suggest creating another patch that first moves those
-tests into new functions (check_steal_time_uapi()) which only needs to
-be called once for vcpu[0] outside the vcpu loop, as you do here. In
-that patch check_steal_time_uapi() will be a stub for riscv. Then in 
-a second patch fill in that stub with the tests above.
+Reviewed-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
 
 Thanks,
 drew
-
-> +
->  	/* Run test on each VCPU */
->  	for (i = 0; i < NR_VCPUS; ++i) {
->  		steal_time_init(vcpus[i], i);
-> -- 
-> 2.34.1
-> 
 
 _______________________________________________
 linux-riscv mailing list
