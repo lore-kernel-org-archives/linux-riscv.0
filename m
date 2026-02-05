@@ -4,97 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C092AE91299
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 09:12:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C3CEE9129A
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 09:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JbzRXHupUTiPMT3E9dsg96/qNjF4LhAF5yysr8v4Wx0=; b=KGalRnLSNKlXOh
-	Rpn4MRMmQLn44afVftaNDkOV6CQjTdhe2mI7JwygTQaomHPG6wY7SPo4qRpFv131JhKEVl1eU3JYM
-	gpsnI/SQoJ05aoEb2BTtHkQrzOmgA+rtUCaxrXGpyp5CirbgzbryCIZweaS/wo7mKiEF4hxQS2q28
-	Eahg8c7AP6RddzB6Cj0FB1rMbi0WBBpqshVo5BGe7CRUbp7+FOe6Ek+RRPqG/L4OgOKVKq5vOL8CK
-	GTpATH9u3QKNAfae15VWI+xkWOtrzHFYVLv4ExWBRLiPGZuUSAfbyn3V4TJAxltA3tNOYBX89kPrQ
-	5yQvVwP17AkHFDaX28dw==;
+	List-Owner; bh=rDNe/Xsy6sW/tjoPwDeCP4Nnb3tohZVq68bT5GyjIm4=; b=vblfg357tmJdOU
+	MPD8vYGe6hy++Sb1Y32dEAiUI6i3xqhrlJV1Q91K858bQPN/pQkx7lFALLMPIDOXWKlIVAL8/L8tN
+	u6K41CS7G2ShR5nXgBwnyT9iCUVWeZ+7Y7DLTN5KXUm4/lyRL/hOS1sgZ8FlRmBSgudEUwbJJ4eyU
+	Rk7fp5uL9TxQTQc9GTWY54i08vs/Yth0b4kbM1N816Pa281p8IcaCO4CPukl5g5Uf8/FrZWwpwzl4
+	K/aWRnMcIA7isY5vc3eeWKXnHGXAL4n3xfPXUEMp+WzqdxHAXxifHpJqnheRUNmZobbrI6V9RDw4g
+	nWQHnmiJhfhSAE5R7vJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvP3-00000009flr-2MTP;
-	Thu, 05 Feb 2026 09:11:57 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1vnvaU-00000009h9A-0s4i;
+	Thu, 05 Feb 2026 09:23:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvP0-00000009fZz-11gm
+	id 1vnvaR-00000009h8o-3wXg
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Feb 2026 09:11:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1770282691;
-	bh=EgJIHnad+b6A2LOWWhy4BtoavbNU0zZtyzPE8zCjc4w=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=lt+kaZBzxAJ6VeyQdi2BanMI3CPXrcpPQzT48fdUrQGDRM/b71DHOnrGut4SqBRLC
-	 Boc8qFimjUo9jd7GLIkxO+FFmJv/lI06tyJFYO8hlmcI56CY7WVuob6/x0H9H9/Rkj
-	 0tCVc+8AnEZfJak9MN6ha447Bodbrn5HTQGsB/FQ=
-X-QQ-mid: esmtpgz15t1770282689t4f2e1d4f
-X-QQ-Originating-IP: gjSembEr54IOZFG1eB0aBlTfNba+EJQW0AsSm/ltcp4=
-Received: from SurfaceBook2-B.localdomain ( [101.70.125.34])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 05 Feb 2026 17:11:26 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 2782802990881728978
-EX-QQ-RecipientCnt: 19
-From: Lv Zheng <lv.zheng@linux.spacemit.com>
-To: Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Jingyu Li <joey.li@spacemit.com>,
-	Lv Zheng <lv.zheng@linux.spacemit.com>,
-	Zhijian Chen <zhijian@spacemit.com>,
-	iommu@lists.linux.dev,
-	linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	devicetree@vger.kernel.org
-Subject: [PATCH v4 7/7] perf vendor events riscv:: Add support for spacemit,riscv-iommu HPM aliasing
-Date: Thu,  5 Feb 2026 17:11:22 +0800
-Message-ID: <762890DF43A3CF05+a58564f568dbbf8ccac8224e33f5e7513e48309e.1770281596.git.lv.zheng@linux.spacemit.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1770281596.git.lv.zheng@linux.spacemit.com>
-References: <cover.1769562575.git.lv.zheng@spacemit.com> <cover.1770281596.git.lv.zheng@linux.spacemit.com>
+	Thu, 05 Feb 2026 09:23:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6056143FC9;
+	Thu,  5 Feb 2026 09:23:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1135C19424;
+	Thu,  5 Feb 2026 09:23:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770283423;
+	bh=E/fTeLbfqctiMfvtIIsD2A13p3FJxkamI/aB67QXm90=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZY0VV/YmQw9o3HykKI5oDkB8+0FGY59+TgUOhOg3fTxPl2mWD82zfitDPj8fnTgGe
+	 iXePQbf1JmtXQyVZoEh18wv+dLiyc7Gwnlfw5BmrncDORENE68PpFIJ+s/qhDazbBC
+	 z38/+ZW7yEEDn7kPx/vJ32EkCZF+NiK0Qz8dnRh4TnWBtZrZIKO7fc2ToqCR+bnVyz
+	 H2DnFQMM9d1R9DKoJDzv+j0O3wynB4L+m231TkYQt0lzQlb/sVAXDHw3TtN1P8RU3l
+	 y+Q/IyvvrWsFpC+AA3Ip2IIhnQWNzU1vFAfaODaK+2qbFp4pLGUZCzghYUxya2734M
+	 tsUIKe8Vbjrrw==
+Date: Thu, 5 Feb 2026 10:23:40 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Cc: Drew Fustini <dfustini@oss.tenstorrent.com>, 
+	Joel Stanley <jms@oss.tenstorrent.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, joel@jms.id.au, fustini@kernel.org, 
+	mpe@kernel.org, mpe@oss.tenstorrent.com, npiggin@oss.tenstorrent.com, 
+	agross@kernel.org, agross@oss.tenstorrent.com, bmasney@redhat.com
+Subject: Re: [PATCH v5 1/3] dt-bindings: clk: tenstorrent: Add
+ tenstorrent,atlantis-prcm
+Message-ID: <20260205-upbeat-tortoise-of-admiration-b3c0eb@quoll>
+References: <20260202-atlantis-clocks-v5-0-0922e43acaba@oss.tenstorrent.com>
+ <20260202-atlantis-clocks-v5-1-0922e43acaba@oss.tenstorrent.com>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-1
-X-QQ-XMAILINFO: NcrqiFVQ6ItSSEUpcdL8nNI2KH+LcYeJaB1LQDOpa+IHeW+o3nSrKqkG
-	xfYeKUONs5GMpwEpoiSW7NKwQ3GUnCQl37bqLxOWJ1/1D87qL6JvvqD53XNAjXQWW6G5Ua6
-	H5321K+YTVLBay/Z0aGimN+r9G2mdFGXWTbHvOlMLAZFoD28uVvpTxrFohghS3uoceXKUYk
-	D9svtbesTLXDimaYT80B6A8sb9boXwA4RrFIbHJ+UoPVt9kvmqmdlPWmuFQQk6soPWK0YtN
-	sZu5qpe6TWy+EMuR4jZKdnYFJq0kGrn+nYVmslIzx1Tv356Ip7kFHh3pE4DSz92+68QMSoH
-	qNBAhMY4rAjrDmx6IrPYoQwf4T57jfdolUB760xkE3dFOmDMDzKNQRXzEnRtWdIRSfenuau
-	JaeKLREaIxP5eTTpOWG2Vz57Wb9GC4okHw+8ni9kCHJeVgEXA7yS3Y0jdUShlNJdSUM3AqY
-	bokElju9fCPeL7iCzMT/dGxJT+65Ca1ZutlK2IAgGX4h5V/CbNITuB1Aj5tNxycuG538xub
-	Yj8IxHA0z/nOEsmkJZx4s+NbZfTv6Y5oWA2DKD27h+S/n6hgIfUW6GmX0EtkUf2x1zTtRPd
-	sahnj936EMTdUGKFTZPFeY/nmEvnIWhokMNy9dFKQ9Frkit+6WOidF2sFsju6C+pbF6CzJR
-	8O1ovu1TUp+0i6SUAesKJPcsoI+KJtTZtkB65CnqHabab8OLP8n3LCioMhNNlHo0Uzf3Eyd
-	NKCLVmFWaKKrAYJTgZ1RJmSZ3/osP8EXGWc6P4Xx2v4CRWBhv9peUodrB5aluE3E7MOXJXS
-	nWpKEX+ZH+6Qq9DA0D7oV3tdsZXilFX3giCt8pomB3/LhT79iJLkEV46Om15EbDCdo+F+5J
-	CFj/ipA5j4B1s3SgnQJMjOtpYPjdaoyDXPwlEb87y1K5fL65Eck8EtHRCqdb3M/6Yvj3+rR
-	PVpwtTNMeqeyIlgCo/jcqfE63LBa5q7iULJPjuQodwIjw33XCD3Kogp2sRPv2AJQ9N9gxCm
-	sG051con/l+WidtpnPAD26Lm/tKXxfVdWNb+Mm5BY8pFgMpJ/FUSH9aQ9aV4ZwQ84Cu4sjY
-	V+wAtKyL8tOh84QrRtqH+nlKJ8sbPaQ42lzsf+lWkfzKOMYmiOn68ybhxX8SZ92uxSfHM3d
-	6TPcaE0wODkr8Hs=
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-X-QQ-RECHKSPAM: 0
+Content-Disposition: inline
+In-Reply-To: <20260202-atlantis-clocks-v5-1-0922e43acaba@oss.tenstorrent.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_011154_754659_04B088F7 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20260205_012344_023548_3DCA1ACE 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,246 +80,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add JSON HPM event aliases for SpacemiT distributed IOMMU (T100) which is
-general and compatible for all SpacemiT RISC-V SoCs.
+On Mon, Feb 02, 2026 at 01:46:49PM -0600, Anirudh Srinivasan wrote:
+> Document bindings for Tenstorrent Atlantis PRCM that manages clocks
+> and resets. This block is instantiated multiple times in the SoC.
+> This commit documents the clocks from the RCPU PRCM block.
+> 
+> Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+> ---
+>  .../bindings/clock/tenstorrent,atlantis-prcm.yaml  |  54 +++++++++++
+>  MAINTAINERS                                        |   2 +
+>  .../dt-bindings/clock/tenstorrent,atlantis-prcm.h  | 103 +++++++++++++++++++++
+>  3 files changed, 159 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm.yaml b/Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm.yaml
+> new file mode 100644
+> index 000000000000..0f3e18f5ea1a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm.yaml
 
-Signed-off-by: Lv Zheng <lv.zheng@linux.spacemit.com>
-Signed-off-by: Jingyu Li <joey.li@spacemit.com>
----
- MAINTAINERS                                   |   3 +
- .../arch/riscv/spacemit/iommu/sys/ioatc.json  |  30 ++++
- .../arch/riscv/spacemit/iommu/sys/ioats.json  | 163 ++++++++++++++++++
- 3 files changed, 196 insertions(+)
- create mode 100644 tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioatc.json
- create mode 100644 tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioats.json
+Still wrong name. Look how is your compatible called.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 7c50701b6001..4d91f99aa742 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22459,12 +22459,15 @@ K:	riscv
- 
- RISC-V IOMMU
- M:	Tomasz Jeznach <tjeznach@rivosinc.com>
-+M:	Lv Zheng <lv.zheng@linux.spacemit.com>
-+M:	Jingyu Li <joey.li@spacemit.com>
- L:	iommu@lists.linux.dev
- L:	linux-riscv@lists.infradead.org
- S:	Maintained
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git
- F:	Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
- F:	drivers/iommu/riscv/
-+F:	tools/perf/pmu-events/arch/riscv/spacemit/iommu/
- 
- RISC-V MICROCHIP SUPPORT
- M:	Conor Dooley <conor.dooley@microchip.com>
-diff --git a/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioatc.json b/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioatc.json
-new file mode 100644
-index 000000000000..a16610ba2274
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioatc.json
-@@ -0,0 +1,30 @@
-+[
-+  {
-+    "EventName": "mtlb_lkp",
-+    "EventCode": "0x38",
-+    "BriefDescription": "IOATC main TLB (MTLB) lookups",
-+    "Unit": "spacemit_ioatc_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "mtlb_mis",
-+    "EventCode": "0x39",
-+    "BriefDescription": "IOATC main TLB (MTLB) misses",
-+    "Unit": "spacemit_ioatc_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "utlb_lkp",
-+    "EventCode": "0x3A",
-+    "BriefDescription": "IOATC micro TLB (uTLB) lookups",
-+    "Unit": "spacemit_ioatc_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "utlb_mis",
-+    "EventCode": "0x3B",
-+    "BriefDescription": "IOATC micro TLB (uTLB) misses",
-+    "Unit": "spacemit_ioatc_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  }
-+]
-diff --git a/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioats.json b/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioats.json
-new file mode 100644
-index 000000000000..e1fea4e8125c
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioats.json
-@@ -0,0 +1,163 @@
-+[
-+  {
-+    "EventName": "pri_rq",
-+    "EventCode": "0x10",
-+    "BriefDescription": "IOATS PCIe page request interface (PRI) requests",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "ptwc_rq",
-+    "EventCode": "0x11",
-+    "BriefDescription": "IOATS page table walk (PTW) cache requests",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "dtwc_rq",
-+    "EventCode": "0x12",
-+    "BriefDescription": "IOATS directory table walk (DTW) cache requests",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "dtwc_mis",
-+    "EventCode": "0x13",
-+    "BriefDescription": "IOATS directory table walk (DTW) cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "ptwc_mis",
-+    "EventCode": "0x14",
-+    "BriefDescription": "IOATS page table walk (PTW) cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "all_trans_rq",
-+    "EventCode": "0x15",
-+    "BriefDescription": "IOATS all translation requests",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "dtwc_lkp",
-+    "EventCode": "0x20",
-+    "BriefDescription": "IOATS directory table walk (DTW) cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s0_ptwc_lkp",
-+    "EventCode": "0x28",
-+    "BriefDescription": "IOATS s-stage level-0 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s0_ptwc_mis",
-+    "EventCode": "0x29",
-+    "BriefDescription": "IOATS s-stage level-0 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s1_ptwc_lkp",
-+    "EventCode": "0x2A",
-+    "BriefDescription": "IOATS s-stage level-1 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s1_ptwc_mis",
-+    "EventCode": "0x2B",
-+    "BriefDescription": "IOATS s-stage level-1 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s2_ptwc_lkp",
-+    "EventCode": "0x2C",
-+    "BriefDescription": "IOATS s-stage level-2 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s2_ptwc_mis",
-+    "EventCode": "0x2D",
-+    "BriefDescription": "IOATS s-stage level-2 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s3_ptwc_lkp",
-+    "EventCode": "0x2E",
-+    "BriefDescription": "IOATS s-stage level-3 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "s3_ptwc_mis",
-+    "EventCode": "0x2F",
-+    "BriefDescription": "IOATS s-stage level-3 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g0_ptwc_lkp",
-+    "EventCode": "0x30",
-+    "BriefDescription": "IOATS g-stage level-0 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g0_ptwc_mis",
-+    "EventCode": "0x31",
-+    "BriefDescription": "IOATS g-stage level-0 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g1_ptwc_lkp",
-+    "EventCode": "0x32",
-+    "BriefDescription": "IOATS g-stage level-1 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g1_ptwc_mis",
-+    "EventCode": "0x33",
-+    "BriefDescription": "IOATS g-stage level-1 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g2_ptwc_lkp",
-+    "EventCode": "0x34",
-+    "BriefDescription": "IOATS g-stage level-2 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g2_ptwc_mis",
-+    "EventCode": "0x35",
-+    "BriefDescription": "IOATS g-stage level-2 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g3_ptwc_lkp",
-+    "EventCode": "0x36",
-+    "BriefDescription": "IOATS g-stage level-3 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  },
-+  {
-+    "EventName": "g3_ptwc_mis",
-+    "EventCode": "0x37",
-+    "BriefDescription": "IOATS g-stage level-3 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,riscv-iommu"
-+  }
-+]
--- 
-2.43.0
+> @@ -0,0 +1,54 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/tenstorrent,atlantis-prcm.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Tenstorrent Atlantis PRCM (Power, Reset, Clock Management) Module
+> +
+> +maintainers:
+> +  - Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+> +
+> +description:
+> +  Multifunctional register block found in Tenstorrent Atlantis SoC whose main
+> +  function is to control clocks and resets. This block is instantiated multiple
+> +  times in the SoC, each block controls clock and resets for a different
+> +  subsystem. RCPU prcm serves low speed IO interfaces.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - tenstorrent,atlantis-prcm-rcpu
+
+Nothing in the changelog explained why 2 other compatibles were dropped.
+
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  "#clock-cells":
+> +    const: 1
+> +    description:
+> +      See <dt-bindings/clock/tenstorrent,atlantis-prcm.h> for valid indices.
+> +
+> +  "#reset-cells":
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - "#clock-cells"
+> +  - "#reset-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    clock-controller@a8000000 {
+> +      compatible = "tenstorrent,atlantis-prcm-rcpu";
+> +      reg = <0xa8000000 0x10000>;
+> +      clocks = <&osc_24m>;
+> +      #clock-cells = <1>;
+> +      #reset-cells = <1>;
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index dc731d37c8fe..0fc7bc6d0458 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -22534,8 +22534,10 @@ M:	Joel Stanley <jms@oss.tenstorrent.com>
+>  L:	linux-riscv@lists.infradead.org
+>  S:	Maintained
+>  T:	git https://github.com/tenstorrent/linux.git
+> +F:	Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm.yaml
+>  F:	Documentation/devicetree/bindings/riscv/tenstorrent.yaml
+>  F:	arch/riscv/boot/dts/tenstorrent/
+> +F:	include/dt-bindings/clock/tenstorrent,atlantis-prcm.h
+>  
+>  RISC-V THEAD SoC SUPPORT
+>  M:	Drew Fustini <fustini@kernel.org>
+> diff --git a/include/dt-bindings/clock/tenstorrent,atlantis-prcm.h b/include/dt-bindings/clock/tenstorrent,atlantis-prcm.h
+> new file mode 100644
+> index 000000000000..3820781127c3
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/tenstorrent,atlantis-prcm.h
+
+Still wrong name... Look at your compatible.
+
+Please read writing bindings doc in DT dir.
+
+Best regards,
+Krzysztof
 
 
 _______________________________________________
