@@ -4,64 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F59EA794C
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 01:28:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD04AEA794F
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 01:33:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y/GbSSb7VmMEBZ8p0JxLyWBcR17zn1QnUmawpu5TCBk=; b=ENQb2I0QtDrjs1
-	nqpFQ71+qinw9nbCyOJehkPlig6/xuFxUN36aP8osq55l/MvmjRSxyP7aqzWPv+H2R+l6LFYN/BdN
-	f/vUzfMdrb+tVJwWD1ICKA5i4uWSgaZ7SWFNTF8NmH+dJC6i4UIi4FPK+beYe7Kk+gWd1nQ1YmtT1
-	8Y9TVSZyw+dAa32kd6/CjxRLgEGZVFGtfln785RT5lzC1Zqkwz4MENkZXk5MiXMMe3yZxuFu8Zmbw
-	w+h9FKBJShiYFGDtykZDa7hP4ei+lMM1EPlQXb75Q1tmxcwSzYMFXFCK6wZlODBTh5uQXwFVeR9u9
-	5BdARjv+WaQF8Z2MwnXw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HD/DhBaTd3DtWsNhUwvDEnCXd5Z60kRiYjR8/eNuuW0=; b=mDWqIwvrKJ4k2n0Gk0+PnRAtpf
+	P410MchVKpKLVokuQbuk6zwb74ziGuZ0we6xCcf0znsaXsYXT2e1U9Mjp8AxEO4/f+92I0klGvTwV
+	fuboj9WO3OLe07+3E/0h+34zlrZzEVYTDnNVXBCHIUPf88fcdsk23OsYuUAgO0HBAZq7lwZojtgkj
+	LuOxaG2wyhic82WZsCbH1ZcOJ41FDU/KmYwAuauKGj3KNRrN5BU7LVEj5BrSn8zAuXc5OehqqD7nZ
+	dL/43PfpbQRf3Xh6VMmrParbisIRYy8gM/f0AhTGRVNRwxpki2wdI+DFfGWa152FznJrFIUSs0MWb
+	xmdYywJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnoAV-00000009GMT-2XP3;
-	Thu, 05 Feb 2026 01:28:27 +0000
-Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	id 1vnoFY-00000009GhW-2lrk;
+	Thu, 05 Feb 2026 01:33:40 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnoAQ-00000009GLO-3B0y;
-	Thu, 05 Feb 2026 01:28:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1770254895; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=ch2lw3Gkx/tmSQGhjBy06LxNeqZ/lvoi8ni6rWgh66M=;
-	b=yGA9ZSnFPe0kW6jneI9Ffxs11MOU+imY89sxh+VOCRLTMJaz51YukP0nsdL58YoC4VnIDQd56+2E6L+jXCLkakcZhZcqbPKwgd/FcqMQJbpyaAhwvcflUOyxsUCqHkrmlHX7LC8nci8EKv2S86uUhOM+6Khz/Akk8nKVnYVQ3e0=
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0WyZ3nte_1770254889 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 05 Feb 2026 09:28:11 +0800
-From: fangyu.yu@linux.alibaba.com
-To: andrew.jones@oss.qualcomm.com
-Cc: alex@ghiti.fr,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	atish.patra@linux.dev,
-	corbet@lwn.net,
-	fangyu.yu@linux.alibaba.com,
-	guoren@kernel.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pbonzini@redhat.com,
-	pjw@kernel.org,
-	radim.krcmar@oss.qualcomm.com
-Subject: Re: Re: [PATCH v5 3/3] RISC-V: KVM: add KVM_CAP_RISCV_SET_HGATP_MODE
-Date: Thu,  5 Feb 2026 09:28:08 +0800
-Message-Id: <20260205012808.98973-1-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <ocfqo4zpsg6yyaz6kd65jrvudtb35uerdsueazqdk6w7c5lvdf@wvwzhc57gxez>
-References: <ocfqo4zpsg6yyaz6kd65jrvudtb35uerdsueazqdk6w7c5lvdf@wvwzhc57gxez>
+	id 1vnoFX-00000009GhN-2y2P
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 05 Feb 2026 01:33:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=kgy0rfYDU7EIOroTBPjh3dc4BFOH94cR+/oto5o2QU0=; b=Ka2yosFoyGpz6FGufTfnCvQ9wl
+	qTyOMTOW8goX1CMBamRxOk+AYDM71+j/zWtuR1WXmqbAugTX7u0mfNQMVfutKSjo+025Vxa4wARI7
+	RZdfRCmlEKjdh0QqXnEX3LzoQ5USkloYRzp4VgJhjSJ76pQRiuBSn4qFLpTJANbpAmcXoNjBaRs4e
+	mSqi5caK9p4gdyCTqsjFmXfbqEtJHeKUdRhWatRL48I2eVOv/0eSu19zblnr2jwY/x2o4sz9nhIHC
+	mXcFTbeMaDU3sZFvx2a9S49e4rPOwj2jiqv6GK12BTNT8saUzHM4bifnny11SIY/+5ad3XEpmt+ko
+	4KHwXWGg==;
+Received: from mail.loongson.cn ([114.242.206.163])
+	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vnoFT-00000002uMR-2uI3
+	for linux-riscv@lists.infradead.org;
+	Thu, 05 Feb 2026 01:33:38 +0000
+Received: from loongson.cn (unknown [10.20.42.62])
+	by gateway (Coremail) with SMTP id _____8AxEvFo84Npv_YPAA--.52080S3;
+	Thu, 05 Feb 2026 09:33:28 +0800 (CST)
+Received: from [10.20.42.62] (unknown [10.20.42.62])
+	by front1 (Coremail) with SMTP id qMiowJBxSeBd84Np3BtAAA--.54343S3;
+	Thu, 05 Feb 2026 09:33:19 +0800 (CST)
+Subject: Re: [PATCH v4] KVM: Add KVM_GET_REG_LIST ioctl for LoongArch
+To: Zixing Liu <liushuyu@aosc.io>, WANG Xuerui <kernel@xen0n.name>,
+ Huacai Chen <chenhuacai@kernel.org>
+Cc: Kexy Biscuit <kexybiscuit@aosc.io>, Mingcong Bai <jeffbai@aosc.io>,
+ Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+ Tianrui Zhao <zhaotianrui@loongson.cn>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, kvm@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
+References: <20260204113601.912413-1-liushuyu@aosc.io>
+From: Bibo Mao <maobibo@loongson.cn>
+Message-ID: <02f9aed7-d435-fd0b-4f7e-4b59dd62dcb2@loongson.cn>
+Date: Thu, 5 Feb 2026 09:30:43 +0800
+User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
 MIME-Version: 1.0
+In-Reply-To: <20260204113601.912413-1-liushuyu@aosc.io>
+Content-Language: en-US
+X-CM-TRANSID: qMiowJBxSeBd84Np3BtAAA--.54343S3
+X-CM-SenderInfo: xpdruxter6z05rqj20fqof0/
+X-Coremail-Antispam: 1Uk129KBj93XoWxCw1rXrW3uryrXr15GF43CFX_yoW7Jw13pF
+	W3CrnxXrW5Ar1Ik34rZ3ZxuF98Xrs2grsrZa43Wa48Ar4Yyr1ftFsYkrZrXFWrJ3y8CF40
+	vF1YqF1q9FZ0q3gCm3ZEXasCq-sJn29KB7ZKAUJUUUUx529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUPYb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
+	Gr0_Gr1UM2kKe7AKxVWUAVWUtwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYI
+	kI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWU
+	twAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMx
+	k0xIA0c2IEe2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_JF0_Jw1l42xK82IYc2Ij64vIr41l
+	4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l4IxYO2xFxVAFwI0_JF0_Jw1lx2IqxVAqx4xG67AKxV
+	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI
+	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
+	1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
+	42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07j5o7tUUUUU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_172823_797958_F12B5C22 
-X-CRM114-Status: GOOD (  22.25  )
+X-CRM114-CacheID: sfid-20260205_013336_342064_03166E49 
+X-CRM114-Status: GOOD (  24.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,155 +100,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
->> 
->> Add a VM capability that allows userspace to select the G-stage page table
->> format by setting HGATP.MODE on a per-VM basis.
->> 
->> Userspace enables the capability via KVM_ENABLE_CAP, passing the requested
->> HGATP.MODE in args[0]. The request is rejected with -EINVAL if the mode is
->> not supported by the host, and with -EBUSY if the VM has already been
->> committed (e.g. vCPUs have been created or any memslot is populated).
->> 
->> KVM_CHECK_EXTENSION(KVM_CAP_RISCV_SET_HGATP_MODE) returns a bitmask of the
->> HGATP.MODE formats supported by the host.
->> 
->> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
->> ---
->>  Documentation/virt/kvm/api.rst | 27 +++++++++++++++++++++++++++
->>  arch/riscv/kvm/vm.c            | 19 +++++++++++++++++--
->>  include/uapi/linux/kvm.h       |  1 +
->>  3 files changed, 45 insertions(+), 2 deletions(-)
->> 
->> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
->> index 01a3abef8abb..62dc120857c1 100644
->> --- a/Documentation/virt/kvm/api.rst
->> +++ b/Documentation/virt/kvm/api.rst
->> @@ -8765,6 +8765,33 @@ helpful if user space wants to emulate instructions which are not
->>  This capability can be enabled dynamically even if VCPUs were already
->>  created and are running.
->>  
->> +7.47 KVM_CAP_RISCV_SET_HGATP_MODE
->> +---------------------------------
->> +
->> +:Architectures: riscv
->> +:Type: VM
->> +:Parameters: args[0] contains the requested HGATP mode
->> +:Returns:
->> +  - 0 on success.
->> +  - -EINVAL if args[0] is outside the range of HGATP modes supported by the
->> +    hardware.
->> +  - -EBUSY if vCPUs have already been created for the VM, if the VM has any
->> +    non-empty memslots.
->> +
->
->Currently the documentation for KVM_SET_ONE_REG has this for EBUSY
->
->  EBUSY    (riscv) changing register value not allowed after the vcpu
->           has run at least once
->
->I suggest we update the KVM_SET_ONE_REG EBUSY description to say
->
->(riscv) changing register value not allowed. This may occur after the vcpu
->has run at least once or when other setup has completed which depends on
->the value of the register.
-
-Thanks for the suggestion.
-
-In this series the HGATP mode is configured via KVM_ENABLE_CAP at the VM level
-(kvm_vm_ioctl_enable_cap), not via KVM_SET_ONE_REG. Updating the KVM_SET_ONE_REG
--EBUSY description might be misleading since it is vCPU one-reg specific and not
-directly related to this series.
-
->> +This capability allows userspace to explicitly select the HGATP mode for
->> +the VM. The selected mode must be supported by both KVM and hardware. This
->> +capability must be enabled before creating any vCPUs or memslots.
->> +
->> +If this capability is not enabled, KVM will select the default HGATP mode
->> +automatically. The default is the highest HGATP.MODE value supported by
->> +hardware.
->> +
->> +``KVM_CHECK_EXTENSION(KVM_CAP_RISCV_SET_HGATP_MODE)`` returns a bitmask of
->> +HGATP.MODE values supported by the host. A return value of 0 indicates that
->> +the capability is not supported. Supported-mode bitmask use HGATP.MODE
->> +encodings as defined by the RISC-V privileged specification, such as Sv39x4
->> +corresponds to HGATP.MODE=8, so userspace should test bitmask & BIT(8).
->> +
->>  8. Other capabilities.
->>  ======================
->>  
->> diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
->> index 4b2156df40fc..7d1e1d257df5 100644
->> --- a/arch/riscv/kvm/vm.c
->> +++ b/arch/riscv/kvm/vm.c
->> @@ -202,6 +202,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->>  	case KVM_CAP_VM_GPA_BITS:
->>  		r = kvm_riscv_gstage_gpa_bits(&kvm->arch);
->>  		break;
->> +	case KVM_CAP_RISCV_SET_HGATP_MODE:
->> +		r = kvm_riscv_get_hgatp_mode_mask();
->> +		break;
->>  	default:
->>  		r = 0;
->>  		break;
->> @@ -212,12 +215,24 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->>  
->>  int kvm_vm_ioctl_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap)
->>  {
->> +	if (cap->flags)
->> +		return -EINVAL;
->> +
->>  	switch (cap->cap) {
->>  	case KVM_CAP_RISCV_MP_STATE_RESET:
->> -		if (cap->flags)
->> -			return -EINVAL;
->>  		kvm->arch.mp_state_reset = true;
->>  		return 0;
->> +	case KVM_CAP_RISCV_SET_HGATP_MODE:
->> +		if (!kvm_riscv_hgatp_mode_is_valid(cap->args[0]))
->> +			return -EINVAL;
->> +
->> +		if (kvm->created_vcpus || !kvm_are_all_memslots_empty(kvm))
->> +			return -EBUSY;
->> +#ifdef CONFIG_64BIT
->> +		kvm->arch.kvm_riscv_gstage_pgd_levels =
->> +				3 + cap->args[0] - HGATP_MODE_SV39X4;
->> +#endif
->
-> 'if (IS_ENABLED(CONFIG_64BIT))' is preferred to the #ifdef.
->
->> +		return 0;
->>  	default:
->>  		return -EINVAL;
->>  	}
->> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
->> index dddb781b0507..00c02a880518 100644
->> --- a/include/uapi/linux/kvm.h
->> +++ b/include/uapi/linux/kvm.h
->> @@ -974,6 +974,7 @@ struct kvm_enable_cap {
->>  #define KVM_CAP_GUEST_MEMFD_FLAGS 244
->>  #define KVM_CAP_ARM_SEA_TO_USER 245
->>  #define KVM_CAP_S390_USER_OPEREXEC 246
->> +#define KVM_CAP_RISCV_SET_HGATP_MODE 247
->>  
->>  struct kvm_irq_routing_irqchip {
->>  	__u32 irqchip;
->> -- 
->> 2.50.1
->>
->
->Thanks,
->drew
-
-Thanks,
-Fangyu
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgWml4aW5nLAoKVGhhbmtzIGZvciBkb2luZyB0aGlzLgoKT24gMjAyNi8yLzQg5LiL5Y2INzoz
+NiwgWml4aW5nIExpdSB3cm90ZToKPiBUaGlzIGlvY3RsIGNhbiBiZSB1c2VkIGJ5IHRoZSB1c2Vy
+c3BhY2UgYXBwbGljYXRpb25zIHRvIGRldGVybWluZSB3aGljaAo+IChzcGVjaWFsKSByZWdpc3Rl
+cnMgYXJlIGdldC9zZXQtYWJsZSBpbiBhIG1lYW5pbmdmdWwgd2F5Lgo+IAo+IFRoaXMgY2FuIGJl
+IHZlcnkgdXNlZnVsIGZvciBjcm9zcy1wbGF0Zm9ybSBWTU1zIHNvIHRoYXQgdGhleSBkbyBub3Qg
+aGF2ZQo+IHRvIGhhcmRjb2RlIHJlZ2lzdGVyIGluZGljZXMgZm9yIGVhY2ggc3VwcG9ydGVkIGFy
+Y2hpdGVjdHVyZXMuCj4gCj4gU2lnbmVkLW9mZi1ieTogWml4aW5nIExpdSA8bGl1c2h1eXVAYW9z
+Yy5pbz4KPiAtLS0KPiAgIERvY3VtZW50YXRpb24vdmlydC9rdm0vYXBpLnJzdCB8ICAyICstCj4g
+ICBhcmNoL2xvb25nYXJjaC9rdm0vdmNwdS5jICAgICAgfCA4NyArKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrCj4gICAyIGZpbGVzIGNoYW5nZWQsIDg4IGluc2VydGlvbnMoKyksIDEg
+ZGVsZXRpb24oLSkKPiAKPiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi92aXJ0L2t2bS9hcGku
+cnN0IGIvRG9jdW1lbnRhdGlvbi92aXJ0L2t2bS9hcGkucnN0Cj4gaW5kZXggMDFhM2FiZWY4YWJi
+Li5mNDZkZDhiZTI4MmYgMTAwNjQ0Cj4gLS0tIGEvRG9jdW1lbnRhdGlvbi92aXJ0L2t2bS9hcGku
+cnN0Cj4gKysrIGIvRG9jdW1lbnRhdGlvbi92aXJ0L2t2bS9hcGkucnN0Cj4gQEAgLTM2MDMsNyAr
+MzYwMyw3IEBAIFZDUFUgbWF0Y2hpbmcgdW5kZXJseWluZyBob3N0Lgo+ICAgLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tCj4gICAKPiAgIDpDYXBhYmlsaXR5OiBiYXNpYwo+IC06QXJjaGl0ZWN0dXJlczog
+YXJtNjQsIG1pcHMsIHJpc2N2LCB4ODYgKGlmIEtWTV9DQVBfT05FX1JFRykKPiArOkFyY2hpdGVj
+dHVyZXM6IGFybTY0LCBsb29uZ2FyY2gsIG1pcHMsIHJpc2N2LCB4ODYgKGlmIEtWTV9DQVBfT05F
+X1JFRykKPiAgIDpUeXBlOiB2Y3B1IGlvY3RsCj4gICA6UGFyYW1ldGVyczogc3RydWN0IGt2bV9y
+ZWdfbGlzdCAoaW4vb3V0KQo+ICAgOlJldHVybnM6IDAgb24gc3VjY2VzczsgLTEgb24gZXJyb3IK
+PiBkaWZmIC0tZ2l0IGEvYXJjaC9sb29uZ2FyY2gva3ZtL3ZjcHUuYyBiL2FyY2gvbG9vbmdhcmNo
+L2t2bS92Y3B1LmMKPiBpbmRleCA2NTZiOTU0YzExMzQuLmJkODU1ZWUyMGVlMiAxMDA2NDQKPiAt
+LS0gYS9hcmNoL2xvb25nYXJjaC9rdm0vdmNwdS5jCj4gKysrIGIvYXJjaC9sb29uZ2FyY2gva3Zt
+L3ZjcHUuYwo+IEBAIC0zLDYgKzMsNyBAQAo+ICAgICogQ29weXJpZ2h0IChDKSAyMDIwLTIwMjMg
+TG9vbmdzb24gVGVjaG5vbG9neSBDb3Jwb3JhdGlvbiBMaW1pdGVkCj4gICAgKi8KPiAgIAo+ICsj
+aW5jbHVkZSAiYXNtL2t2bV9ob3N0LmgiCkhhZCBiZXR0ZXIgcHV0IGFmdGVyICNpbmNsdWRlIDxh
+c20vZnB1Lmg+LCBhbmQga2VlcCBhbHBoYWJldGljYWwgb3JkZXIuCj4gICAjaW5jbHVkZSA8bGlu
+dXgva3ZtX2hvc3QuaD4KPiAgICNpbmNsdWRlIDxhc20vZnB1Lmg+Cj4gICAjaW5jbHVkZSA8YXNt
+L2xidC5oPgo+IEBAIC0xNCw2ICsxNSw4IEBACj4gICAjZGVmaW5lIENSRUFURV9UUkFDRV9QT0lO
+VFMKPiAgICNpbmNsdWRlICJ0cmFjZS5oIgo+ICAgCj4gKyNkZWZpbmUgTlVNX0xCVF9SRUdTIDYK
+PiArCj4gICBjb25zdCBzdHJ1Y3QgX2t2bV9zdGF0c19kZXNjIGt2bV92Y3B1X3N0YXRzX2Rlc2Nb
+XSA9IHsKPiAgIAlLVk1fR0VORVJJQ19WQ1BVX1NUQVRTKCksCj4gICAJU1RBVFNfREVTQ19DT1VO
+VEVSKFZDUFUsIGludF9leGl0cyksCj4gQEAgLTExODYsNiArMTE4OSw3MiBAQCBzdGF0aWMgaW50
+IGt2bV9sb29uZ2FyY2hfdmNwdV9zZXRfYXR0cihzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsCj4gICAJ
+cmV0dXJuIHJldDsKPiAgIH0KPiAgIAo+ICtzdGF0aWMgaW50IGt2bV9sb29uZ2FyY2hfd2Fsa19j
+c3JzKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwgdTY0IF9fdXNlciAqdWluZGljZXMpCj4gK3sKPiAr
+CXVuc2lnbmVkIGludCBpLCBjb3VudDsKPiArCj4gKwlmb3IgKGkgPSAwLCBjb3VudCA9IDA7IGkg
+PCBDU1JfTUFYX05VTVM7IGkrKykgewo+ICsJCWlmICghKGdldF9nY3NyX2ZsYWcoaSkgJiAoU1df
+R0NTUiB8IEhXX0dDU1IpKSkKPiArCQkJY29udGludWU7Cj4gKwkJaWYgKGkgPj0gTE9PTkdBUkNI
+X0NTUl9QRVJGQ1RSTDAgJiYgaSA8PSBMT09OR0FSQ0hfQ1NSX1BFUkZDTlRSMykgewo+ICsJCQkv
+KiBTa2lwIFBNVSBDU1JzIGlmIG5vdCBzdXBwb3J0ZWQgYnkgdGhlIGd1ZXN0ICovCj4gKwkJCWlm
+ICgha3ZtX2d1ZXN0X2hhc19wbXUoJnZjcHUtPmFyY2gpKQo+ICsJCQkJY29udGludWU7Cj4gKwkJ
+fQpUaGlzIGlzIHdvcmthYmxlLCBnY3NyX2ZsYWcgY2FuIGJlIGNoYW5nZWQgd2l0aCBzdHJ1Y3R1
+cmUsIGFuZCBuZXcgCmVsZW1lbnQgImludCByZXF1aXJlZF9mZWF0dXJlcyIgYWRkZWQuIEhvd2V2
+ZXIgaXQgZG9lcyBub3QgbWF0dGVyLCBpdCAKY2FuIGJlIGRvbmUgaW4gbGF0ZXIuCgpDU1IgcmVn
+aXN0ZXJzIHJlbGF0aXZlIHdpdGggbXNnaW50IGZlYXR1cmUgY2FuIGJlIGRvbmUgd2l0aCB0aGlz
+IG1ldGhvZCAKYWxzby4KCkhvdyBhYm91dCBkZWJ1Zy93YXRjaCBDU1IgcmVnaXN0ZXJzPyBjYW4g
+aXQgYmUgc2tpcHBlZCBhbHNvPyAgdGhlIHNhbWUgCk1FUlIgQ1NSIHJlZ2lzdGVycyB3aXRoIExP
+T05HQVJDSF9DU1JfTUVSUiouCgpUaGUgQ1NSIHJlZ2lzdGVyIGxpc3QgZGlmZmVyZW5jZSBjYW4g
+YmUgY2hlY2tlZCB3aXRoIAprdm1fbG9vbmdhcmNoX2dldF9jc3IoKSBpbiBxZW11IFZNTSwgd2l0
+aCB3ZWJzaXRlCmh0dHBzOi8vZ2l0bGFiLmNvbS9xZW11LXByb2plY3QvcWVtdS8tL2Jsb2IvbWFz
+dGVyL3RhcmdldC9sb29uZ2FyY2gva3ZtL2t2bS5jP3JlZl90eXBlPWhlYWRzCgpSZWdhcmRzCkJp
+Ym8gTWFvCj4gKwkJY29uc3QgdTY0IHJlZyA9IEtWTV9JT0NfQ1NSSUQoaSk7Cj4gKwkJaWYgKHVp
+bmRpY2VzICYmIHB1dF91c2VyKHJlZywgdWluZGljZXMrKykpCj4gKwkJCXJldHVybiAtRUZBVUxU
+Owo+ICsJCWNvdW50Kys7Cj4gKwl9Cj4gKwo+ICsJcmV0dXJuIGNvdW50Owo+ICt9Cj4gKwo+ICtz
+dGF0aWMgdW5zaWduZWQgbG9uZyBrdm1fbG9vbmdhcmNoX251bV9yZWdzKHN0cnVjdCBrdm1fdmNw
+dSAqdmNwdSkKPiArewo+ICsJLyogKzEgZm9yIHRoZSBLVk1fUkVHX0xPT05HQVJDSF9DT1VOVEVS
+IHJlZ2lzdGVyICovCj4gKwl1bnNpZ25lZCBsb25nIHJlcyA9Cj4gKwkJa3ZtX2xvb25nYXJjaF93
+YWxrX2NzcnModmNwdSwgTlVMTCkgKyBLVk1fTUFYX0NQVUNGR19SRUdTICsgMTsKPiArCj4gKwlp
+ZiAoa3ZtX2d1ZXN0X2hhc19sYnQoJnZjcHUtPmFyY2gpKQo+ICsJCXJlcyArPSBOVU1fTEJUX1JF
+R1M7Cj4gKwo+ICsJcmV0dXJuIHJlczsKPiArfQo+ICsKPiArc3RhdGljIGludCBrdm1fbG9vbmdh
+cmNoX2NvcHlfcmVnX2luZGljZXMoc3RydWN0IGt2bV92Y3B1ICp2Y3B1LAo+ICsJCQkJCSAgdTY0
+IF9fdXNlciAqdWluZGljZXMpCj4gK3sKPiArCXU2NCByZWc7Cj4gKwl1bnNpZ25lZCBpbnQgaTsK
+PiArCj4gKwlpID0ga3ZtX2xvb25nYXJjaF93YWxrX2NzcnModmNwdSwgdWluZGljZXMpOwo+ICsJ
+aWYgKGkgPCAwKQo+ICsJCXJldHVybiBpOwo+ICsJdWluZGljZXMgKz0gaTsKPiArCj4gKwlmb3Ig
+KGkgPSAwOyBpIDwgS1ZNX01BWF9DUFVDRkdfUkVHUzsgaSsrKSB7Cj4gKwkJcmVnID0gS1ZNX0lP
+Q19DUFVDRkcoaSk7Cj4gKwkJaWYgKHB1dF91c2VyKHJlZywgdWluZGljZXMrKykpCj4gKwkJCXJl
+dHVybiAtRUZBVUxUOwo+ICsJfQo+ICsKPiArCXJlZyA9IEtWTV9SRUdfTE9PTkdBUkNIX0NPVU5U
+RVI7Cj4gKwlpZiAocHV0X3VzZXIocmVnLCB1aW5kaWNlcysrKSkKPiArCQlyZXR1cm4gLUVGQVVM
+VDsKPiArCj4gKwlpZiAoIWt2bV9ndWVzdF9oYXNfbGJ0KCZ2Y3B1LT5hcmNoKSkKPiArCQlyZXR1
+cm4gMDsKPiArCj4gKwlmb3IgKGkgPSAxOyBpIDw9IE5VTV9MQlRfUkVHUzsgaSsrKSB7Cj4gKwkJ
+cmVnID0gKEtWTV9SRUdfTE9PTkdBUkNIX0xCVCB8IEtWTV9SRUdfU0laRV9VNjQgfCBpKTsKPiAr
+CQlpZiAocHV0X3VzZXIocmVnLCB1aW5kaWNlcysrKSkKPiArCQkJcmV0dXJuIC1FRkFVTFQ7Cj4g
+Kwl9Cj4gKwo+ICsJcmV0dXJuIDA7Cj4gK30KPiArCj4gICBsb25nIGt2bV9hcmNoX3ZjcHVfaW9j
+dGwoc3RydWN0IGZpbGUgKmZpbHAsCj4gICAJCQkgdW5zaWduZWQgaW50IGlvY3RsLCB1bnNpZ25l
+ZCBsb25nIGFyZykKPiAgIHsKPiBAQCAtMTI1MSw2ICsxMzIwLDI0IEBAIGxvbmcga3ZtX2FyY2hf
+dmNwdV9pb2N0bChzdHJ1Y3QgZmlsZSAqZmlscCwKPiAgIAkJciA9IGt2bV9sb29uZ2FyY2hfdmNw
+dV9zZXRfYXR0cih2Y3B1LCAmYXR0cik7Cj4gICAJCWJyZWFrOwo+ICAgCX0KPiArCWNhc2UgS1ZN
+X0dFVF9SRUdfTElTVDogewo+ICsJCXN0cnVjdCBrdm1fcmVnX2xpc3QgX191c2VyICp1c2VyX2xp
+c3QgPSBhcmdwOwo+ICsJCXN0cnVjdCBrdm1fcmVnX2xpc3QgcmVnX2xpc3Q7Cj4gKwkJdW5zaWdu
+ZWQgbjsKPiArCj4gKwkJciA9IC1FRkFVTFQ7Cj4gKwkJaWYgKGNvcHlfZnJvbV91c2VyKCZyZWdf
+bGlzdCwgdXNlcl9saXN0LCBzaXplb2YocmVnX2xpc3QpKSkKPiArCQkJYnJlYWs7Cj4gKwkJbiA9
+IHJlZ19saXN0Lm47Cj4gKwkJcmVnX2xpc3QubiA9IGt2bV9sb29uZ2FyY2hfbnVtX3JlZ3ModmNw
+dSk7Cj4gKwkJaWYgKGNvcHlfdG9fdXNlcih1c2VyX2xpc3QsICZyZWdfbGlzdCwgc2l6ZW9mKHJl
+Z19saXN0KSkpCj4gKwkJCWJyZWFrOwo+ICsJCXIgPSAtRTJCSUc7Cj4gKwkJaWYgKG4gPCByZWdf
+bGlzdC5uKQo+ICsJCQlicmVhazsKPiArCQlyID0ga3ZtX2xvb25nYXJjaF9jb3B5X3JlZ19pbmRp
+Y2VzKHZjcHUsIHVzZXJfbGlzdC0+cmVnKTsKPiArCQlicmVhazsKPiArCX0KPiAgIAlkZWZhdWx0
+Ogo+ICAgCQlyID0gLUVOT0lPQ1RMQ01EOwo+ICAgCQlicmVhazsKPiAKCgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
