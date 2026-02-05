@@ -4,54 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59AE1EC1EB9
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 13:57:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006DBEC1EB9
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 13:59:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JIvpEHVxlfJ7N3D2Z01dX1G0foQcm1R72J5wf/35bWU=; b=JbmH8K4NaRv96Y
-	Y1itQ5vFj2VLECz3hkXWEaRxbKpNxTE9eRLrrYMhy1UtMRtVD2K1lnzjiDw78rUKbP0OV2Vs3B2NZ
-	zRIKaerQPoXM5ykl6DhC1i6cRYZ7cDUJRB0SIHFcVG6883UhsjpAVTGU6N/zHKCNTaGFRapQD0D2a
-	TDpcseyZIiPBns6pJFYDoBQlzkCD2y+UxWH1ZhIHUQypeMmSYlcnbcyW5rsNGFw5JxSzRtyC4KAop
-	zzqeMSGy4Gh69bCWR59ic5WT+xKK8V9qtdTarN/5OOBzBW2AqIMMiWmdgotU1g4CtCpFPdvjofCMU
-	LUZDLbo09fwDTTwSXMqQ==;
+	List-Owner; bh=eAmFP+It+IC3ZbBFV8vN2PQSVCadoHVhh2mwQSpyrXw=; b=Vq2nxAzNr35MeI
+	etEOA+RgSzzzcza8RgZqyjVJs0S/L7XomLHWHFEPPeun1umm/K69BrjiJIRBBnrburjWDxP8YIXxe
+	V8QqYNokx1BfBDqg6HaPLEmW5SRrfU+WWEhwGdzcfu9z7SoEMuNYm3Ar0FP6OVIIV30kVsl4SdQX+
+	FJFC8lAQtZvgqAkADFIjbU+sP4xNih9e5CM83DZCnBCe2eYaLNPWg9A0mv/A5TwmloEpAg0gre7P6
+	tkd8V4W9Yzg8iprTIJJbBthQZjAZsv6EyL3TpbNgm95v+57lqpSIV5IO4m750LlEvV/cFhcTOdVIw
+	3Xpy+JA3rUF4uFSESTqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnzrT-0000000A04D-2knc;
-	Thu, 05 Feb 2026 13:57:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vnzt0-0000000A0Cj-0YcH;
+	Thu, 05 Feb 2026 13:59:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnzrR-0000000A03b-1z1q
+	id 1vnzsx-0000000A0Bg-1F80
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Feb 2026 13:57:34 +0000
+	Thu, 05 Feb 2026 13:59:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 78EA640E4F;
-	Thu,  5 Feb 2026 13:57:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DF58C19423;
-	Thu,  5 Feb 2026 13:57:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7A508444FC;
+	Thu,  5 Feb 2026 13:59:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E9A4C4CEF7;
+	Thu,  5 Feb 2026 13:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770299852;
-	bh=YgSQhIBpOA3HW8EbEt3blJrVqZkel/jdRwOh/YYBIUk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=q39m7elVTMOdAUZ3gtFOs84ev6K57RNMhUYJsVToLHZKCvAnQvtp3+zEz+a/b+SI/
-	 RnXBXUojJPAjWQqk/htBWeP+19oL76zfpyK/nNWFsUHY6FeKTYPBBYAtVsLIj/OWnG
-	 dfvIqfHFiHcKlC3K/xrgWrki9QloCOii0ElF3y618geSEZBcavKzu3wW4lcytA5ZuS
-	 36BliToUO4iSE7eUV/TVdVEFtblvdYpy50YwGu1h8DJ6eW+bYXBj+SoMl8+/NAshwV
-	 kUjoFY9XRy7YIYt/ldP3ct+JgHKzsFLxuurXIk26EvCGXZSkiDzjq2uONRCBjwNb0Z
-	 cSl8TM7e9oy0w==
-Message-ID: <45b8ab60-8721-414b-a54c-008269e28a90@kernel.org>
-Date: Thu, 5 Feb 2026 14:57:24 +0100
+	s=k20201202; t=1770299946;
+	bh=NrgItkvDCDI0JdjjTiJgmYN8Hu+I5JatU6qOApBTUkQ=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=UDgEXs2326E6nluf1TRc8JSNvhmzOon3wFQO4IGhep2GcsTFGb51oZnfVZiY1GAaR
+	 AP8fzqcnv7eYrYj9lL4FNmIylIXtktJO6S/8lPEsr9/blHUuTeaYrMQZrCri1qieYO
+	 cq0gkqvEXFYLEhEOZv7vi4RklL+UFVEE6ysMw5CnfQHGwPi5Qp1XZ6xxWiFW46pN2N
+	 kiqi1m6pj9kSW9RPBUIsDiBzSO344zesdF59KRQwvqScPSbSq4fhaJHCL1XMX/KL6Z
+	 AGh6cTxV+hX4OwAQ5pwgwcuIpE1fW7fngurZgxukYKy1X9RCDc7bsKDUrmmVxEI6CF
+	 RZ/PweRaGfL5Q==
+Message-ID: <a3f454aa-7cff-4e85-b046-5d4c55d8ccb9@kernel.org>
+Date: Thu, 5 Feb 2026 14:58:56 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv6 06/17] LoongArch/mm: Align vmemmap to maximal folio size
-To: Kiryl Shutsemau <kas@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
+Subject: Re: [PATCHv6 09/17] mm/sparse: Check memmap alignment for
+ compound_info_has_mask()
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+To: Kiryl Shutsemau <kas@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
  Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
- Usama Arif <usamaarif642@gmail.com>, Frank van der Linden <fvdl@google.com>,
- Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
+ Usama Arif <usamaarif642@gmail.com>, Frank van der Linden <fvdl@google.com>
+Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
  Vlastimil Babka <vbabka@suse.cz>,
  Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Zi Yan <ziy@nvidia.com>,
  Baoquan He <bhe@redhat.com>, Michal Hocko <mhocko@suse.com>,
@@ -63,10 +65,8 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
 References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-7-kas@kernel.org>
- <2ce0e684-de54-43ec-be7d-c58bbffb3f4e@kernel.org>
- <aYSgQknBNs5r-Tf5@thinkstation>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+ <20260202155634.650837-10-kas@kernel.org>
+ <ef1f6ec1-7036-400c-9d4f-fc4f6f969ef7@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -112,10 +112,10 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <aYSgQknBNs5r-Tf5@thinkstation>
+In-Reply-To: <ef1f6ec1-7036-400c-9d4f-fc4f6f969ef7@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_055733_638031_AF3F967B 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20260205_055907_373746_17D0946F 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,62 +127,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/5/26 14:52, Kiryl Shutsemau wrote:
-> On Wed, Feb 04, 2026 at 05:56:45PM +0100, David Hildenbrand (arm) wrote:
->> On 2/2/26 16:56, Kiryl Shutsemau wrote:
->>> The upcoming change to the HugeTLB vmemmap optimization (HVO) requires
->>> struct pages of the head page to be naturally aligned with regard to the
->>> folio size.
->>>
->>> Align vmemmap to MAX_FOLIO_NR_PAGES.
->>>
->>> Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
->>> ---
->>>    arch/loongarch/include/asm/pgtable.h | 3 ++-
->>>    1 file changed, 2 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/arch/loongarch/include/asm/pgtable.h b/arch/loongarch/include/asm/pgtable.h
->>> index c33b3bcb733e..f9416acb9156 100644
->>> --- a/arch/loongarch/include/asm/pgtable.h
->>> +++ b/arch/loongarch/include/asm/pgtable.h
->>> @@ -113,7 +113,8 @@ extern unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)];
->>>    	 min(PTRS_PER_PGD * PTRS_PER_PUD * PTRS_PER_PMD * PTRS_PER_PTE * PAGE_SIZE, (1UL << cpu_vabits) / 2) - PMD_SIZE - VMEMMAP_SIZE - KFENCE_AREA_SIZE)
->>>    #endif
->>> -#define vmemmap		((struct page *)((VMALLOC_END + PMD_SIZE) & PMD_MASK))
->>> +#define VMEMMAP_ALIGN	max(PMD_SIZE, MAX_FOLIO_NR_PAGES * sizeof(struct page))
->>> +#define vmemmap		((struct page *)(ALIGN(VMALLOC_END, VMEMMAP_ALIGN)))
->>
->>
->> Same comment, the "MAX_FOLIO_NR_PAGES * sizeof(struct page)" is just black magic here
->> and the description of the situation is wrong.
->>
->> Maybe you want to pull the magic "MAX_FOLIO_NR_PAGES * sizeof(struct page)" into the core and call it
->>
->> #define MAX_FOLIO_VMEMMAP_ALIGN	(MAX_FOLIO_NR_PAGES * sizeof(struct page))
->>
->> But then special case it base on (a) HVO being configured in an (b) HVO being possible
->>
->> #ifdef HUGETLB_PAGE_OPTIMIZE_VMEMMAP && is_power_of_2(sizeof(struct page)
-> 
-> This would require some kind of asm-offsets.c/bounds.c magic to pull the
-> struct page size condition to the preprocessor level.
-> 
-
-Right.
-
-I guess you could move that into the macro and let the compiler handle it.
-
--- 
-Cheers,
-
-David
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMi81LzI2IDE0OjMxLCBEYXZpZCBIaWxkZW5icmFuZCAoQXJtKSB3cm90ZToKPiBPbiAyLzIv
+MjYgMTY6NTYsIEtpcnlsIFNodXRzZW1hdSB3cm90ZToKPj4gSWYgcGFnZS0+Y29tcG91bmRfaW5m
+byBlbmNvZGVzIGEgbWFzaywgaXQgaXMgZXhwZWN0ZWQgdGhhdCB2bWVtbWFwIHRvIGJlCj4+IG5h
+dHVyYWxseSBhbGlnbmVkIHRvIHRoZSBtYXhpbXVtIGZvbGlvIHNpemUuCj4+Cj4+IEFkZCBhIFZN
+X0JVR19PTigpIHRvIGNoZWNrIHRoZSBhbGlnbm1lbnQuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IEtp
+cnlsIFNodXRzZW1hdSA8a2FzQGtlcm5lbC5vcmc+Cj4+IEFja2VkLWJ5OiBaaSBZYW4gPHppeUBu
+dmlkaWEuY29tPgo+PiAtLS0KPj4gwqAgbW0vc3BhcnNlLmMgfCA3ICsrKysrKysKPj4gwqAgMSBm
+aWxlIGNoYW5nZWQsIDcgaW5zZXJ0aW9ucygrKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvbW0vc3BhcnNl
+LmMgYi9tbS9zcGFyc2UuYwo+PiBpbmRleCBiNWIyYjZmNzA0MWIuLjZjOWI2MjYwN2YzZiAxMDA2
+NDQKPj4gLS0tIGEvbW0vc3BhcnNlLmMKPj4gKysrIGIvbW0vc3BhcnNlLmMKPj4gQEAgLTYwMCw2
+ICs2MDAsMTMgQEAgdm9pZCBfX2luaXQgc3BhcnNlX2luaXQodm9pZCkKPj4gwqDCoMKgwqDCoCBC
+VUlMRF9CVUdfT04oIWlzX3Bvd2VyX29mXzIoc2l6ZW9mKHN0cnVjdCBtZW1fc2VjdGlvbikpKTsK
+Pj4gwqDCoMKgwqDCoCBtZW1ibG9ja3NfcHJlc2VudCgpOwo+PiArwqDCoMKgIGlmIChjb21wb3Vu
+ZF9pbmZvX2hhc19tYXNrKCkpIHsKPj4gK8KgwqDCoMKgwqDCoMKgIHVuc2lnbmVkIGxvbmcgYWxp
+Z25tZW50Owo+PiArCj4+ICvCoMKgwqDCoMKgwqDCoCBhbGlnbm1lbnQgPSBNQVhfRk9MSU9fTlJf
+UEFHRVMgKiBzaXplb2Yoc3RydWN0IHBhZ2UpOwo+PiArwqDCoMKgwqDCoMKgwqAgVk1fQlVHX09O
+KCFJU19BTElHTkVEKCh1bnNpZ25lZCBsb25nKSBwZm5fdG9fcGFnZSgwKSwgCj4+IGFsaWdubWVu
+dCkpOwo+IAo+IE5vIFZNX0JVR19PTi4gVk1fV0FSTl9PTl9PTkNFKCkgc2hvdWxkIGJlIGdvb2Qg
+ZW5vdWdoLCBubz8KPiAKPiBBcyBkaXNjdXNzZWQgaW4gdGhlIG90aGVyIHRocmVhZCwgaXMgY2hl
+Y2tpbmcgZm9yIE1BWF9GT0xJT19OUl9QQUdFUyAKPiBhbGlnbm1lbnQgc3VmZmljaWVudD8KCkFu
+ZCBhZnRlciBmdXJ0aGVyIGRpc2N1c3Npb25zLCB3ZSBjb3VsZCB1c2UgTUFYX0ZPTElPX1ZNRU1N
+QVBfQUxJR04gCm1hY3JvIG9uY2Ugd2UgaGF2ZSB0aGF0LgoKLS0gCkNoZWVycywKCkRhdmlkCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
