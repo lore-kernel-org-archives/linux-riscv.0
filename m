@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF46EC1EBA
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 13:52:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FA0EEC1EB9
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 13:55:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gzq82+x/I/nlCxYpmlMV5VKZ2FrwHc1aPm3MRZqhElQ=; b=ZMYpLnJBhR1fpV
-	oil+FNftpLjxnUjVZjPoLthWBWs8l/9SpH3xCS8kaeVABv0+12GNznBcZ3WX6Q/FN4du9pPn2xiUY
-	hfLDPe12hae6YBxfaJlwm2BNwpVwv4cIBvxxANUPJKTQYE5h2CozoPHYujYookpL9Zy+gnqBTNqRx
-	U7xbqyzZEL4Eh2RVgSzb9+JNFTShF3MIhZ/lnFCXI0o0QlJ5SLKE9lDsKLHx4MynWCRhKDI9AvGp8
-	BzIAg1bPtiv1UshRqg2z5u6MUsNj6nTFbVhSytW7V8DXV3DER6PEopx18uzI1EmTlJ19hY42LTohr
-	yYr2UNKAyGUh2fry4d+w==;
+	List-Owner; bh=1vMqICJDWuCxQ/M5hVRJI2BPVsEyEKjlk3wI2fh1zDM=; b=qL1kROqRAwqOki
+	P/3uDFZZtZGLPk6m0WU/I2PhrUukagJddkWAiVVunsjE0pVSaksSvPCa5Ui+DmOY5i4cDu4zrH8Qn
+	KT4hQMsGrXCAlKpfvyJ9RBGMEJrXs7TmRKRycN6Ro4WHWL0D6C/mkC2njIdf4l1I2dBwUNn+c/q9v
+	0Pf9e0UEQzbpPSEPOzIPGAmWcx9eGFW6vv2wT9AFJEA8UiH4isRTj3hCijvWwiPjVIB3jFSlM9nse
+	WEA/Rj+WFkndji4C6bC4KQl/7K3qFxdFYXW/J6Nn/5SVi39QKL87BMA7HzeZlazPmXTOFpvHtw/CE
+	xlAyFheCqrj0wRExOPYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnzmg-00000009zZ5-3LnE;
-	Thu, 05 Feb 2026 13:52:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vnzp0-00000009zrC-3Ust;
+	Thu, 05 Feb 2026 13:55:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnzmf-00000009zYp-1ii8
+	id 1vnzoy-00000009zqO-1NPd
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Feb 2026 13:52:37 +0000
+	Thu, 05 Feb 2026 13:55:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B077A600AD;
-	Thu,  5 Feb 2026 13:52:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65A40C4CEF7;
-	Thu,  5 Feb 2026 13:52:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 310E343C74;
+	Thu,  5 Feb 2026 13:54:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00BBDC4CEF7;
+	Thu,  5 Feb 2026 13:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770299556;
-	bh=ZKRLdfY8j+3tSCOhu7lXU/4i+dGzR6BqlTNQ2fMayes=;
+	s=k20201202; t=1770299699;
+	bh=sFil3yu86GERvqyxBASqk6D+b92nzCIAxVRDzXFk5IE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PABi8CWRapGvnWwD6wZA0gWf2kzC85OADNDNQ+5ZsMgQULKe7P+pTF23HBeTY30cO
-	 KncdahQa08a9SOtjZiIXcDaq0NA2sMxkMtq3Vx8YJS6VwVo5vg1hX5RPIsKZbe7TER
-	 gHSDA6A11s1XLgW1RnDZgeE6tIS0vcfjGeqvQY7P1Apfb+CW9XPlcRH/QVyqUWwWrS
-	 p/zLhgjBcOqqzYiOQ7v+xph6zhf1Kd9yvckyXNT4+DjrG0tCeCWk/n1KFI0jzBgM8r
-	 YpeBP8DHGBG3KF0r/0gQlrl5i9l0jcR/amYMxz8bYX5bGsWBk7+qINuqHd4b9uJv6K
-	 O8YXH7FHEUCEQ==
-Message-ID: <460457b0-64c5-48a2-a5e4-d88ecc222884@kernel.org>
-Date: Thu, 5 Feb 2026 14:52:27 +0100
+	b=VVxV98426Dh4XEprkhO91xKxeVP1Npp1yUwzn3nwz3RVGemzysZC6GWZIpGvjw9jj
+	 QmSyc6sxsBqFRjV4mF8OH8LOYc675cgH1vSsOOGBsEvavV8rsZfEdh08n3Z9ny1swQ
+	 QIrrQJBoL3WAgulMHMBcV8GaAtZvYTC1wnWKl/Q2N7b1eBQpA+qqvTv5K87WGlWbfA
+	 lTFLgWuRrYh1ejR45a70HRnbd+9Sofv5aszwiUMTOB30+16EhwvH4vYVFA+6ES/1QU
+	 7VSVmcUn+x1bqVi9f9woMoqXOdgGfGUOTgO90Wsrpw4q6gfowvKjxTh5WSmGQoWPr0
+	 VXfHz2EgbE6AA==
+Message-ID: <f47be155-8e3c-4bd2-b312-0e7c57620797@kernel.org>
+Date: Thu, 5 Feb 2026 14:54:51 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv6 06/17] LoongArch/mm: Align vmemmap to maximal folio size
+Subject: Re: [PATCHv6 05/17] riscv/mm: Align vmemmap to maximal folio size
 To: Kiryl Shutsemau <kas@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
  Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
@@ -63,10 +63,9 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
 References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-7-kas@kernel.org>
- <2ce0e684-de54-43ec-be7d-c58bbffb3f4e@kernel.org>
- <062900fa-6419-4748-81d1-9128ce6c46d0@kernel.org>
- <aYSdW2YaJdpgXYos@thinkstation>
+ <20260202155634.650837-6-kas@kernel.org>
+ <1b80b189-b549-40ba-800c-8037ce12b081@kernel.org>
+ <aYSe0TAIzxJ9i1Wy@thinkstation>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -113,7 +112,10 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <aYSdW2YaJdpgXYos@thinkstation>
+In-Reply-To: <aYSe0TAIzxJ9i1Wy@thinkstation>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260205_055500_495581_55014CD3 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,46 +127,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMi81LzI2IDE0OjQzLCBLaXJ5bCBTaHV0c2VtYXUgd3JvdGU6Cj4gT24gVGh1LCBGZWIgMDUs
-IDIwMjYgYXQgMDE6NTY6MzZQTSArMDEwMCwgRGF2aWQgSGlsZGVuYnJhbmQgKEFybSkgd3JvdGU6
-Cj4+IE9uIDIvNC8yNiAxNzo1NiwgRGF2aWQgSGlsZGVuYnJhbmQgKGFybSkgd3JvdGU6Cj4+Pgo+
-Pj4KPj4+IFNhbWUgY29tbWVudCwgdGhlICJNQVhfRk9MSU9fTlJfUEFHRVMgKiBzaXplb2Yoc3Ry
-dWN0IHBhZ2UpIiBpcyBqdXN0Cj4+PiBibGFjayBtYWdpYyBoZXJlCj4+PiBhbmQgdGhlIGRlc2Ny
-aXB0aW9uIG9mIHRoZSBzaXR1YXRpb24gaXMgd3JvbmcuCj4+Pgo+Pj4gTWF5YmUgeW91IHdhbnQg
-dG8gcHVsbCB0aGUgbWFnaWMgIk1BWF9GT0xJT19OUl9QQUdFUyAqIHNpemVvZihzdHJ1Y3QKPj4+
-IHBhZ2UpIiBpbnRvIHRoZSBjb3JlIGFuZCBjYWxsIGl0Cj4+Pgo+Pj4gI2RlZmluZSBNQVhfRk9M
-SU9fVk1FTU1BUF9BTElHTsKgwqDCoCAoTUFYX0ZPTElPX05SX1BBR0VTICogc2l6ZW9mKHN0cnVj
-dAo+Pj4gcGFnZSkpCj4+Pgo+Pj4gQnV0IHRoZW4gc3BlY2lhbCBjYXNlIGl0IGJhc2Ugb24gKGEp
-IEhWTyBiZWluZyBjb25maWd1cmVkIGluIGFuIChiKSBIVk8KPj4+IGJlaW5nIHBvc3NpYmxlCj4+
-Pgo+Pj4gI2lmZGVmIEhVR0VUTEJfUEFHRV9PUFRJTUlaRV9WTUVNTUFQICYmIGlzX3Bvd2VyX29m
-XzIoc2l6ZW9mKHN0cnVjdCBwYWdlKQo+Pj4gLyogQSB2ZXJ5IGhlbHBmdWwgY29tbWVudCBleHBs
-YWluaW5nIHRoZSBzaXR1YXRpb24uICovCj4+PiAjZGVmaW5lIE1BWF9GT0xJT19WTUVNTUFQX0FM
-SUdOwqDCoMKgIChNQVhfRk9MSU9fTlJfUEFHRVMgKiBzaXplb2Yoc3RydWN0Cj4+PiBwYWdlKSkK
-Pj4+ICNlbHNlCj4+PiAjZGVmaW5lIE1BWF9GT0xJT19WTUVNTUFQX0FMSUdOwqDCoMKgIDAKPj4+
-ICNlbmRpZgo+Pj4KPj4+IFNvbWV0aGluZyBsaWtlIHRoYXQuCj4+Pgo+Pgo+PiBUaGlua2luZyBh
-Ym91dCB0aGlzIC4uLgo+Pgo+PiB0aGUgdm1lbW1hcCBzdGFydCBpcyBhbHdheXMgc3RydWN0LXBh
-Z2UtYWxpZ25lZC4gT3RoZXJ3aXNlIHdlJ2QgYmUgaW4KPj4gdHJvdWJsZSBhbHJlYWR5Lgo+Pgo+
-PiBJc24ndCBpdCB0aGVuIHN1ZmZpY2llbnQgdG8ganVzdCBhbGlnbiB0aGUgc3RhcnQgdG8gTUFY
-X0ZPTElPX05SX1BBR0VTPwo+Pgo+PiBMZXQncyBhc3N1bWUgc2l6ZW9mKHN0cnVjdCBwYWdlKSA9
-PSA2NCBhbmQgTUFYX0ZPTElPX05SX1BBR0VTID0gNTEyIGZvcgo+PiBzaW1wbGljaXR5Lgo+Pgo+
-PiB2bWVtbWFwIHN0YXJ0IHdvdWxkIGJlIG11bHRpcGxlcyBvZiA1MTIgKDB4MDAxMDAwMDAwMCku
-Cj4+Cj4+IDUxMiwgMTAyNCwgMTUzNiwgMjA0OCAuLi4KPj4KPj4gQXNzdW1lIHdlIGhhdmUgYW4g
-MjU2LXBhZ2VzIGZvbGlvIGF0IDE1MzYrMjU2ID0gMHgxMTEwMDAwMDAKPiAKPiBzLzB4LzBiLywg
-YnV0IG9rYXkuCgo6KQoKPiAKPj4gQXNzdW1lIHdlIGhhdmUgdGhlIGxhc3QgcGFnZSBvZiB0aGF0
-IGZvbGlvICgweDAxMTExMTExMTExMSksIHdlIHdvdWxkIGp1c3QKPj4gZ2V0IHRvIHRoZSBzdGFy
-dCBvZiB0aGF0IGZvbGlvIGJ5IEFORC1pbmcgd2l0aCB+KDI1Ni0xKS4KPj4KPj4gV2hpY2ggY2Fz
-ZSBhbSBJIGlnbm9yaW5nPwo+IAo+IElJVUMsIHlvdSBhcmUgaWdub3JpbmcgdGhlIGFjdHVhbCBz
-aXplIG9mIHN0cnVjdCBwYWdlLiBJdCBpcyBub3QgMSBieXRlIDpQCgpJIHRob3VnaHQgaXQgd291
-bGRuJ3QgbWF0dGVyIGJ1dCwgeWVhaCwgdGhhdCdzIGl0LgoKIkFsaWduIHRoZSB2bWVtbWFwIHRv
-IHRoZSBtYXhpbXVtIGZvbGlvIG1ldGFkYXRhIHNpemUiIGl0IGlzLgoKVGhlbiB5b3UgY2FuIGV4
-cGxhaW4gdGhlIHNpdHVhdGlvbiBhbHNvIGFsb25nc2lkZSAKTUFYX0ZPTElPX1ZNRU1NQVBfQUxJ
-R04sIGFuZCB0aGF0IHdlIGV4cGVjdCB0aGlzIHRvIGJlIGEgcG93ZXIgb2YgMi4KCi0tIApDaGVl
-cnMsCgpEYXZpZAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+On 2/5/26 14:50, Kiryl Shutsemau wrote:
+> On Wed, Feb 04, 2026 at 05:50:23PM +0100, David Hildenbrand (arm) wrote:
+>> On 2/2/26 16:56, Kiryl Shutsemau wrote:
+>>> The upcoming change to the HugeTLB vmemmap optimization (HVO) requires
+>>> struct pages of the head page to be naturally aligned with regard to the
+>>> folio size.
+>>>
+>>> Align vmemmap to MAX_FOLIO_NR_PAGES.
+>>
+>> I think neither that statement nor the one in the patch description is
+>> correct?
+>>
+>> "MAX_FOLIO_NR_PAGES * sizeof(struct page)" is neither the maximum folio size
+>> nor MAX_FOLIO_NR_PAGES.
+>>
+>> It's the size of the memmap that a large folio could span at maximum.
+>>
+>>
+>> Assuming we have a 16 GiB folio, the calculation would give us
+>>
+>> 	4194304 * sizeof(struct page)
+>>
+>> Which could be something like (assuming 80 bytes)
+>>
+>> 	335544320
+>>
+>> -> not even a power of 2, weird? (for HVO you wouldn't care as HVO would be
+>> disabled, but that aliment is super weird?)
+>>
+>>
+>> Assuming 64 bytes, it would be a power of two (as 64 is a power of two).
+>>
+>> 	268435456 (1<< 28)
+>>
+>>
+>> Which makes me wonder whether there is a way to avoid sizeof(struct page)
+>> here completely.
+> 
+> I don't think we can. See the other thread.
+
+Agreed. You could only go for something larger (like PAGE_SIZE).
+
+> 
+> What about using roundup_pow_of_two(sizeof(struct page)) here.
+
+Better I think.
+
+> 
+>> Or limit the alignment to the case where HVO is actually active and
+>> sizeof(struct page) makes any sense?
+> 
+> The annoying part of HVO is that it is unknown at compile-time if it
+> will be used. You can compile kernel with HVO that will no be activated
+> due to non-power-of-2 sizeof(struct page) because of a debug config option.
+Ah, and now I remember that sizeof cannot be used in macros, damnit.
+
+-- 
+Cheers,
+
+David
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
