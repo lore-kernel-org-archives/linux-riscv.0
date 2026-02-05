@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C3CEE9129A
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 09:23:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05DCCE9129A
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 09:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rDNe/Xsy6sW/tjoPwDeCP4Nnb3tohZVq68bT5GyjIm4=; b=vblfg357tmJdOU
-	MPD8vYGe6hy++Sb1Y32dEAiUI6i3xqhrlJV1Q91K858bQPN/pQkx7lFALLMPIDOXWKlIVAL8/L8tN
-	u6K41CS7G2ShR5nXgBwnyT9iCUVWeZ+7Y7DLTN5KXUm4/lyRL/hOS1sgZ8FlRmBSgudEUwbJJ4eyU
-	Rk7fp5uL9TxQTQc9GTWY54i08vs/Yth0b4kbM1N816Pa281p8IcaCO4CPukl5g5Uf8/FrZWwpwzl4
-	K/aWRnMcIA7isY5vc3eeWKXnHGXAL4n3xfPXUEMp+WzqdxHAXxifHpJqnheRUNmZobbrI6V9RDw4g
-	nWQHnmiJhfhSAE5R7vJg==;
+	List-Owner; bh=Wsh4ZHK+fqTSiWcCvipw75p3rusFQQyu4ymgnXFSfWM=; b=3nYR98q5bi8we+
+	jEsu3/O1YttVtrU2Q5UUGNdfhx0qEAP6c2lqE0QWAhIqenzyD3o4ic+bBC/tSn1Eu6MAqyrp6DddK
+	tRdX9NXOWfTUb+YjxHQq+T625PjaiN3RLkyrWNcmRd9pDMPDhIWaSPyYkR7ZbwGxGEf9MNdOri/GZ
+	siue11LIBGYTnJCP/VtIOLeBC/Q61XJqlD4OwGqZtey5ABnvxge6g/xyRkE5HKLmQeM0nWEDMngwQ
+	vaXyErldJ99lme7c81cFwYO40UOODwiOJSSzYzQDD4jXagAybUMFL3oQr+vQyZZ+Gboh85f/Ih5K0
+	KTBA5X+W+zGKZirIHBjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvaU-00000009h9A-0s4i;
-	Thu, 05 Feb 2026 09:23:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vnvcU-00000009hKN-2ggz;
+	Thu, 05 Feb 2026 09:25:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvaR-00000009h8o-3wXg
+	id 1vnvcR-00000009hK7-36B4
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Feb 2026 09:23:45 +0000
+	Thu, 05 Feb 2026 09:25:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6056143FC9;
-	Thu,  5 Feb 2026 09:23:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1135C19424;
-	Thu,  5 Feb 2026 09:23:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 219D6600AD;
+	Thu,  5 Feb 2026 09:25:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46EBFC4CEF7;
+	Thu,  5 Feb 2026 09:25:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770283423;
-	bh=E/fTeLbfqctiMfvtIIsD2A13p3FJxkamI/aB67QXm90=;
+	s=k20201202; t=1770283546;
+	bh=L342l1lGkleNHTukSL9PWnoU9lED8KcrpH6aDkUVB9c=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZY0VV/YmQw9o3HykKI5oDkB8+0FGY59+TgUOhOg3fTxPl2mWD82zfitDPj8fnTgGe
-	 iXePQbf1JmtXQyVZoEh18wv+dLiyc7Gwnlfw5BmrncDORENE68PpFIJ+s/qhDazbBC
-	 z38/+ZW7yEEDn7kPx/vJ32EkCZF+NiK0Qz8dnRh4TnWBtZrZIKO7fc2ToqCR+bnVyz
-	 H2DnFQMM9d1R9DKoJDzv+j0O3wynB4L+m231TkYQt0lzQlb/sVAXDHw3TtN1P8RU3l
-	 y+Q/IyvvrWsFpC+AA3Ip2IIhnQWNzU1vFAfaODaK+2qbFp4pLGUZCzghYUxya2734M
-	 tsUIKe8Vbjrrw==
-Date: Thu, 5 Feb 2026 10:23:40 +0100
+	b=G+RkB7kG7TqrFVHproWgVJXCAvOSpZO+ur7YRmB4miXv0fHXWc7JmYxFFjcNNEbNU
+	 VQw8WB6EJQoXC4u5Tp3T3rDnFrK6YMrL0ULpXN5HINjpYy2xqQrmhrWoaBusVgOuTq
+	 z6MA+GK68izAo16RcRCiU6IU1CSYHI/M9LyXwli2gD/57Mp0M7kG6pybO9+gL3J9Zh
+	 HNZLTeDDo546YFdF4lLWZnh1QcLO1b/6a4tcYzby3xiobspFF+JzfoIMvFFCwn9c4G
+	 H9t+ZLrp/jENz8gq1gdhTI7DlMwyD4og0X1W2j+fTBeZgZQ7Ztt05avRGCGlOTailg
+	 hSiGBsiConfzg==
+Date: Thu, 5 Feb 2026 10:25:44 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 Cc: Drew Fustini <dfustini@oss.tenstorrent.com>, 
@@ -53,17 +53,14 @@ Cc: Drew Fustini <dfustini@oss.tenstorrent.com>,
 	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, joel@jms.id.au, fustini@kernel.org, 
 	mpe@kernel.org, mpe@oss.tenstorrent.com, npiggin@oss.tenstorrent.com, 
 	agross@kernel.org, agross@oss.tenstorrent.com, bmasney@redhat.com
-Subject: Re: [PATCH v5 1/3] dt-bindings: clk: tenstorrent: Add
- tenstorrent,atlantis-prcm
-Message-ID: <20260205-upbeat-tortoise-of-admiration-b3c0eb@quoll>
+Subject: Re: [PATCH v5 3/3] clk: tenstorrent: Add Atlantis clock controller
+ driver
+Message-ID: <20260205-abiding-dragonfly-of-success-5ff9bf@quoll>
 References: <20260202-atlantis-clocks-v5-0-0922e43acaba@oss.tenstorrent.com>
- <20260202-atlantis-clocks-v5-1-0922e43acaba@oss.tenstorrent.com>
+ <20260202-atlantis-clocks-v5-3-0922e43acaba@oss.tenstorrent.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260202-atlantis-clocks-v5-1-0922e43acaba@oss.tenstorrent.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_012344_023548_3DCA1ACE 
-X-CRM114-Status: GOOD (  17.03  )
+In-Reply-To: <20260202-atlantis-clocks-v5-3-0922e43acaba@oss.tenstorrent.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,108 +77,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 02, 2026 at 01:46:49PM -0600, Anirudh Srinivasan wrote:
-> Document bindings for Tenstorrent Atlantis PRCM that manages clocks
-> and resets. This block is instantiated multiple times in the SoC.
-> This commit documents the clocks from the RCPU PRCM block.
-> 
-> Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-> ---
->  .../bindings/clock/tenstorrent,atlantis-prcm.yaml  |  54 +++++++++++
->  MAINTAINERS                                        |   2 +
->  .../dt-bindings/clock/tenstorrent,atlantis-prcm.h  | 103 +++++++++++++++++++++
->  3 files changed, 159 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm.yaml b/Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm.yaml
-> new file mode 100644
-> index 000000000000..0f3e18f5ea1a
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm.yaml
-
-Still wrong name. Look how is your compatible called.
-
-> @@ -0,0 +1,54 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/tenstorrent,atlantis-prcm.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Tenstorrent Atlantis PRCM (Power, Reset, Clock Management) Module
-> +
-> +maintainers:
-> +  - Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-> +
-> +description:
-> +  Multifunctional register block found in Tenstorrent Atlantis SoC whose main
-> +  function is to control clocks and resets. This block is instantiated multiple
-> +  times in the SoC, each block controls clock and resets for a different
-> +  subsystem. RCPU prcm serves low speed IO interfaces.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - tenstorrent,atlantis-prcm-rcpu
-
-Nothing in the changelog explained why 2 other compatibles were dropped.
-
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  "#clock-cells":
-> +    const: 1
-> +    description:
-> +      See <dt-bindings/clock/tenstorrent,atlantis-prcm.h> for valid indices.
-> +
-> +  "#reset-cells":
-> +    const: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - "#clock-cells"
-> +  - "#reset-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    clock-controller@a8000000 {
-> +      compatible = "tenstorrent,atlantis-prcm-rcpu";
-> +      reg = <0xa8000000 0x10000>;
-> +      clocks = <&osc_24m>;
-> +      #clock-cells = <1>;
-> +      #reset-cells = <1>;
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index dc731d37c8fe..0fc7bc6d0458 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -22534,8 +22534,10 @@ M:	Joel Stanley <jms@oss.tenstorrent.com>
->  L:	linux-riscv@lists.infradead.org
->  S:	Maintained
->  T:	git https://github.com/tenstorrent/linux.git
-> +F:	Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm.yaml
->  F:	Documentation/devicetree/bindings/riscv/tenstorrent.yaml
->  F:	arch/riscv/boot/dts/tenstorrent/
-> +F:	include/dt-bindings/clock/tenstorrent,atlantis-prcm.h
+On Mon, Feb 02, 2026 at 01:46:51PM -0600, Anirudh Srinivasan wrote:
+> +MODULE_DESCRIPTION("Tenstorrent Atlantis PRCM Clock Controller Driver");
+> +MODULE_AUTHOR("Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>");
+> +MODULE_LICENSE("GPL");
+> diff --git a/include/soc/tenstorrent/atlantis-prcm.h b/include/soc/tenstorrent/atlantis-prcm.h
+> index 841516cbefd9..ff2c6a7c9a62 100644
+> --- a/include/soc/tenstorrent/atlantis-prcm.h
+> +++ b/include/soc/tenstorrent/atlantis-prcm.h
+> @@ -21,6 +21,17 @@ to_atlantis_prcm_adev(struct auxiliary_device *adev)
+>  	return container_of(adev, struct atlantis_prcm_adev, adev);
+>  }
 >  
->  RISC-V THEAD SoC SUPPORT
->  M:	Drew Fustini <fustini@kernel.org>
-> diff --git a/include/dt-bindings/clock/tenstorrent,atlantis-prcm.h b/include/dt-bindings/clock/tenstorrent,atlantis-prcm.h
-> new file mode 100644
-> index 000000000000..3820781127c3
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/tenstorrent,atlantis-prcm.h
+> +/* RCPU Clock Register Offsets */
+> +#define RCPU_PLL_CFG_REG	0x0000
+> +#define RCPU_NOCC_PLL_CFG_REG	0x0004
+> +#define RCPU_NOCC_CLK_CFG_REG	0x0008
+> +#define RCPU_DIV_CFG_REG	0x000C
+> +#define RCPU_BLK_CG_REG		0x0014
+> +#define LSIO_BLK_CG_REG		0x0018
+> +#define PLL_RCPU_EN_REG		0x011c
+> +#define PLL_NOCC_EN_REG		0x0120
+> +#define BUS_CG_REG		0x01FC
 
-Still wrong name... Look at your compatible.
+Why are clock registers added to a global SoC header?
 
-Please read writing bindings doc in DT dir.
+Do not create system wide header with your entire register space. It
+serves no purpose, breaks encapsulation and enncourages sloppy
+programming liked drivers poking everywhere.
 
 Best regards,
 Krzysztof
