@@ -4,89 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1803EEA7960
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 03:53:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1494E8B364
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 05:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=599vXCjK1jMuFWagbTKTNx6duXOyt1f8Yr/zTyf4RM4=; b=FBfkvTGY2TlX1B
-	xqkNDUkOmMbEP5G9OISI6JwfdrWtso2ZlF3WNlxRU9NCLE7V54NUYa2IbIe6n7tweIJSDi0KPJ7th
-	T6aG0Ofi9Y6/rWtA4dok65T9epaa0/XgdALffbgAQqxgnJDSMJaKYtj6/mN+o9jN/ugUGgWlvxIZx
-	PZDxRPPU06srcmeAKh5h/ovPy2gY/H3zHIXJj18gxmxg6OZD5F5sZGnLqFeS9QD+QFfRx+r3mF0JG
-	9nbEwGWRz5Y0/bU4L0tFbiq4sz1739DiQlJk/rmWvtl83uyrv7ULPrrRalLfW6NjvsqD4vxBQ6c/k
-	XHGqD0HAy0RBcDgknSCg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=BDD+VAc65u0WakE/BUiBMwb643Inucn237SJ6QJXCkc=; b=xPGdAHyfV22IK2
+	tRaKlxj78hd+YqUtYwjMEotOq4A92etWE5RpX4vg0/+8yE2xYajH/7blTw8v9F+J8NMq3WQ/acrUN
+	WfeOneHJ0FtvMBNvDQyg7HtucxyzuJ94dcjveecgE1cgAcNmTu/wfhcHplpm3n542DG2uY/SpN6q1
+	SdQtTRGVJ2V3JqpLkXHn3yvh9ek3YqGsqiCk76+BoZU/nWuKVsBC2At+Hx7fQNC0P49oqmMQSs8/a
+	k/dOh5K0FgWVqulLoNgdM/5idUTKRm7/vCJjlFftPO0KlyChZF585tyVadvUhO4WfDw53IVAcA/8M
+	UwzC2T3boMWPPNqJknPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnqQw-00000009On7-0ukp;
-	Thu, 05 Feb 2026 03:53:34 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1vnrms-00000009Rre-2dlG;
+	Thu, 05 Feb 2026 05:20:18 +0000
+Received: from relay3.mymailcheap.com ([217.182.119.155])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnqQr-00000009OmN-3i2o
+	id 1vnrmp-00000009Rqm-1gH1
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Feb 2026 03:53:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1770263587;
-	bh=wm69aKVjK11vnsxnHJGFhJ/kRVDFOCLUX2gZdnB/g8I=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=XlenU/tt4yQUCIrJDC+2/APViDsEw4d00JQvlV0iwlZ2uuiQF7lDbo9uSlSRCNFMr
-	 hEMphAOcNd3dtaQbzJ6dxTmO5C9wxtItD+Dxi1uG5bdof0ukAqUOE0EGOupBOvGYLM
-	 9iREnwjbv5GQyB688icYQeuRrZkl5gB3n1B6tTnc=
-X-QQ-mid: zesmtpgz9t1770263580t421bb8f8
-X-QQ-Originating-IP: EPC+6trZL3LdU7ynQgp73ZdxqgtF89P3sFaSDK6EZQ0=
-Received: from [10.3.91.191] ( [101.70.125.34])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 05 Feb 2026 11:52:57 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1569306416083050966
-Message-ID: <927D288E956D61AD+d1488c72-afff-49d2-bb6b-5ef5ea08b627@linux.spacemit.com>
-Date: Thu, 5 Feb 2026 11:52:57 +0800
+	Thu, 05 Feb 2026 05:20:16 +0000
+Received: from nf1.mymailcheap.com (nf1.mymailcheap.com [51.75.14.91])
+	by relay3.mymailcheap.com (Postfix) with ESMTPS id AE9E93EC2C;
+	Thu,  5 Feb 2026 05:20:11 +0000 (UTC)
+Received: from mail20.mymailcheap.com (mail20.mymailcheap.com [51.83.111.147])
+	by nf1.mymailcheap.com (Postfix) with ESMTPSA id 4AB0B400D5;
+	Thu,  5 Feb 2026 05:20:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=aosc.io; s=default;
+	t=1770268811; bh=rKiM9obf5J95LrwQvikvlTBi0k90jrSuoyJmI+GnCrU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ai3P1gKBXn10pa96H5KA6uSSJZM2T3JxUesA04AItcASi5hdcIId+ImAbvzXfrTIK
+	 /hsHqp5/f4KU5nQc8ZNrHgQl5m5+4i2KZLOy7xunBQDBmrktWhcPlsY7x/tbgeBR6C
+	 MbNBUPyNzyhM8hxvAQmqOZITM40b8IjE5t6IRTwQ=
+Received: from liushuyu-p15 (unknown [117.151.13.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail20.mymailcheap.com (Postfix) with ESMTPSA id 6A3EC4017F;
+	Thu,  5 Feb 2026 05:20:03 +0000 (UTC)
+From: Zixing Liu <liushuyu@aosc.io>
+To: WANG Xuerui <kernel@xen0n.name>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Bibo Mao <maobibo@loongson.cn>
+Cc: Kexy Biscuit <kexybiscuit@aosc.io>,
+	Mingcong Bai <jeffbai@aosc.io>,
+	Zixing Liu <liushuyu@aosc.io>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v5] KVM: Add KVM_GET_REG_LIST ioctl for LoongArch
+Date: Thu,  5 Feb 2026 13:18:21 +0800
+Message-ID: <20260205051822.1318253-1-liushuyu@aosc.io>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/8] iommu/riscv: Fix WSI mode IRQ number handling
-To: Andrew Jones <andrew.jones@oss.qualcomm.com>
-Cc: Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Jingyu Li <joey.li@spacemit.com>,
- iommu@lists.linux.dev, linux-perf-users@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- devicetree@vger.kernel.org
-References: <cover.1769562575.git.lv.zheng@spacemit.com>
- <cover.1770195980.git.lv.zheng@linux.spacemit.com>
- <F77F878EF7C59BD3+a9078997d97dacd05d1271a5390dfd08a402b325.1770195980.git.lv.zheng@linux.spacemit.com>
- <2ueryrki7uzpjn6rbqz7scy46sjhw76jjilddz2naslz3eyfdp@ycwf42eaw5yy>
-Content-Language: en-US
-From: Lv Zheng <lv.zheng@linux.spacemit.com>
-In-Reply-To: <2ueryrki7uzpjn6rbqz7scy46sjhw76jjilddz2naslz3eyfdp@ycwf42eaw5yy>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-1
-X-QQ-XMAILINFO: NkcbD1JCaMYVot0ytSeIR7Dz6bzvlckuXTyS4hOhnUigvUCllm6MGiMN
-	/BLUvEGgC1Stx1pm62pHC8S4zCGpznfJSMRS2ZTrFHXc+6cFN7T6uDveXanpClvzm6K5r/C
-	lmi7fSEfffeQANGGKdohROR+rcsxANxbe6YCgPA8MXWcpM2QfuLD69VWe8NkGBgQQMLXo+A
-	5jqITmrz5dQXSKWZP1dN/X5kU0RyUqoKcWdhDzz/vp1HgKXmvS5s7Yukx8QWgSz/EIN1fAW
-	KDlepZO49gPVFCu1IC3GX/lVjAG09kSTDXjmMOjxjJ7VeaEHZ9Sm1WFFyfacKHynV0wjIcf
-	s2j1uUNvIAh7Oz1QM6y5cEfs8ZBGHcb7yZLB9WK+WwrqDKH3iACiH9nfzZZW1TjPNF3GH5g
-	EnHgsuZPx8Xs8axjTAKSgA8b7Ywf/4iZyMNf3aw3qzOx8RZ3F0bpl6MyVzjW2KoeS0R9i0V
-	ce409LN0yXuVNpElzLmWY5vxRC7CnEi6cKrF+Pf1wjzAMbhTcAbAf22QuVTdmGwZ0trTp1C
-	hVbr+lTcNhRIE6GARbcftpOadWOM7nLwuZKDq8Gdtnhyw8O+73KxKP7fqKF29ByVc8nIWWw
-	ZP1UidPBfBXc9fp04xDVq2JPSOmycZUaQ3Ii3jSBB8TzNa50Kh8ygSpaN/Db1YJwAQWE4uO
-	K8wjJF7DJ6ienD/rVR5GxWsb/RGRp3of3EQMG4k1nmFEOlt6nmhl5ibqJe313ohvquujU6d
-	zDz7QGrCDzMzntK5Txt1fcLvaNPvkLN2c6+Awu4zPWm/TZFg40rOyvtc879pNpqL/dzGvVW
-	TNfCNqcL4z/gBRs8j622dAN+YTldYaW3F6gkPVZf66nsSja9NOecU6GBFYvWvQEIH78B30F
-	eoXInXTP7yVfImX4YrVBgUD1HhPQrTUGEDUFgXnay6nQLS3bpcLT9yfIojkqQL1BE6/lVSK
-	nfw2aXh/Mu0BCtcT4cTGcQVt/8h/wJFvnuuKJw96M/AIsyluDvL2cx1/0mzVkl3hNw4xlFo
-	Kbo3xJVdfAeKtUunaOU86X2n4F9AMZjh3P5Van4bd2c2vTRcNC
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-X-QQ-RECHKSPAM: 0
+X-Rspamd-Queue-Id: 4AB0B400D5
+X-Spamd-Result: default: False [1.40 / 10.00];
+	MID_CONTAINS_FROM(1.00)[];
+	R_MISSING_CHARSET(0.50)[];
+	MIME_GOOD(-0.10)[text/plain];
+	ASN(0.00)[asn:16276, ipnet:51.83.0.0/16, country:FR];
+	ARC_NA(0.00)[];
+	RCVD_COUNT_ONE(0.00)[1];
+	RCPT_COUNT_TWELVE(0.00)[18];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	LOCAL_OUTBOUND(0.00)[];
+	RCVD_TLS_ALL(0.00)[]
+X-Rspamd-Action: no action
+X-Rspamd-Server: nf1.mymailcheap.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_195330_661775_D9630C3B 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20260204_212015_589400_0577504D 
+X-CRM114-Status: GOOD (  20.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,86 +103,190 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/5/2026 1:20 AM, Andrew Jones wrote:
-> On Wed, Feb 04, 2026 at 05:08:52PM +0800, Lv Zheng wrote:
->> From: Jingyu Li <joey.li@spacemit.com>
->>
->> In WSI mode, ICVEC doesn't exist, thus reading it returns 0, which
->> causes IOMMU driver to fail to find IRQ numbers from device tree
->> IRQ arrary. The issue is fixed by applying icvec indexes of WSI IRQs.
-> 
-> ICVEC always exists, however it may be hardwired to zero when an
-> implementation only supports a single vector. But, that has nothing
-> to do with whether wired interrupts or MSIs are used.
-> 
-> If ICVEC on this IOMMU is always reading as zero, even when 0xf is
-> written to it first, then it should be interpreted as there only
-> being a single vector (or that the IOMMU's ICVEC is broken, if the
-> number of sources is known to be more).
-> 
->>
->> Signed-off-by: Jingyu Li <joey.li@spacemit.com>
->> Signed-off-by: Lv Zheng <lv.zheng@linux.spacemit.com>
->> ---
->>   drivers/iommu/riscv/iommu.c | 25 ++++++++++++++++++++-----
->>   1 file changed, 20 insertions(+), 5 deletions(-)
->>
->> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
->> index d9429097a2b5..26630979473b 100644
->> --- a/drivers/iommu/riscv/iommu.c
->> +++ b/drivers/iommu/riscv/iommu.c
->> @@ -1593,11 +1593,26 @@ static int riscv_iommu_init_check(struct riscv_iommu_device *iommu)
->>   		       FIELD_PREP(RISCV_IOMMU_ICVEC_PMIV, 3 % iommu->irqs_count);
->>   	riscv_iommu_writeq(iommu, RISCV_IOMMU_REG_ICVEC, iommu->icvec);
->>   	iommu->icvec = riscv_iommu_readq(iommu, RISCV_IOMMU_REG_ICVEC);
->> -	if (max(max(FIELD_GET(RISCV_IOMMU_ICVEC_CIV, iommu->icvec),
->> -		    FIELD_GET(RISCV_IOMMU_ICVEC_FIV, iommu->icvec)),
->> -		max(FIELD_GET(RISCV_IOMMU_ICVEC_PIV, iommu->icvec),
->> -		    FIELD_GET(RISCV_IOMMU_ICVEC_PMIV, iommu->icvec))) >= iommu->irqs_count)
->> -		return -EINVAL;
->> +	/*
->> +	 * In WSI mode, ICVEC may read as zero. Only validate if using MSI.
->> +	 * Check if FCTL.WSI is set to determine interrupt mode.
->> +	 */
->> +	if (!(iommu->fctl & RISCV_IOMMU_FCTL_WSI)) {
-> 
-> The behavior of ICVEC does not depend on FCTL.WSI
-> 
->> +		if (max(max(FIELD_GET(RISCV_IOMMU_ICVEC_CIV, iommu->icvec),
->> +			    FIELD_GET(RISCV_IOMMU_ICVEC_FIV, iommu->icvec)),
->> +			max(FIELD_GET(RISCV_IOMMU_ICVEC_PIV, iommu->icvec),
->> +			    FIELD_GET(RISCV_IOMMU_ICVEC_PMIV, iommu->icvec))) >= iommu->irqs_count)
->> +			return -EINVAL;
->> +	} else {
->> +		/*
->> +		 * WSI mode: ICVEC is not used. Set to identity mapping for
->> +		 * riscv_iommu_queue_vec() to work correctly.
->> +		 */
->> +		iommu->icvec = FIELD_PREP(RISCV_IOMMU_ICVEC_CIV, 0) |
->> +			       FIELD_PREP(RISCV_IOMMU_ICVEC_FIV, 1) |
->> +			       FIELD_PREP(RISCV_IOMMU_ICVEC_PIV, 2) |
->> +			       FIELD_PREP(RISCV_IOMMU_ICVEC_PMIV, 3);
-> 
-> It's certainly not correct to set iommu->icvec to anything that can't be
-> written to the IOMMU's WARL ICVEC fields and read back again.
+This ioctl can be used by the userspace applications to determine which
+(special) registers are get/set-able in a meaningful way.
 
-Indeed.
-It looks I can keep icvec returned for WSI and keeps the write-and-read 
-check logic only for MSI.
+This can be very useful for cross-platform VMMs so that they do not have
+to hardcode register indices for each supported architectures.
 
-Thanks,
-Lv
+Signed-off-by: Zixing Liu <liushuyu@aosc.io>
+---
+ Documentation/virt/kvm/api.rst |   2 +-
+ arch/loongarch/kvm/vcpu.c      | 120 +++++++++++++++++++++++++++++++++
+ 2 files changed, 121 insertions(+), 1 deletion(-)
 
-> 
-> Thanks,
-> drew
-> 
-
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 01a3abef8abb..f46dd8be282f 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -3603,7 +3603,7 @@ VCPU matching underlying host.
+ ---------------------
+ 
+ :Capability: basic
+-:Architectures: arm64, mips, riscv, x86 (if KVM_CAP_ONE_REG)
++:Architectures: arm64, loongarch, mips, riscv, x86 (if KVM_CAP_ONE_REG)
+ :Type: vcpu ioctl
+ :Parameters: struct kvm_reg_list (in/out)
+ :Returns: 0 on success; -1 on error
+diff --git a/arch/loongarch/kvm/vcpu.c b/arch/loongarch/kvm/vcpu.c
+index 656b954c1134..de02e409ae39 100644
+--- a/arch/loongarch/kvm/vcpu.c
++++ b/arch/loongarch/kvm/vcpu.c
+@@ -5,6 +5,7 @@
+ 
+ #include <linux/kvm_host.h>
+ #include <asm/fpu.h>
++#include <asm/kvm_host.h>
+ #include <asm/lbt.h>
+ #include <asm/loongarch.h>
+ #include <asm/setup.h>
+@@ -14,6 +15,8 @@
+ #define CREATE_TRACE_POINTS
+ #include "trace.h"
+ 
++#define NUM_LBT_REGS 6
++
+ const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	STATS_DESC_COUNTER(VCPU, int_exits),
+@@ -1186,6 +1189,105 @@ static int kvm_loongarch_vcpu_set_attr(struct kvm_vcpu *vcpu,
+ 	return ret;
+ }
+ 
++static int kvm_loongarch_walk_csrs(struct kvm_vcpu *vcpu, u64 __user *uindices)
++{
++	unsigned int i, count;
++	const unsigned int csrs_to_save[] = {
++		LOONGARCH_CSR_CRMD,	  LOONGARCH_CSR_PRMD,
++		LOONGARCH_CSR_EUEN,	  LOONGARCH_CSR_MISC,
++		LOONGARCH_CSR_ECFG,	  LOONGARCH_CSR_ESTAT,
++		LOONGARCH_CSR_ERA,	  LOONGARCH_CSR_BADV,
++		LOONGARCH_CSR_BADI,	  LOONGARCH_CSR_EENTRY,
++		LOONGARCH_CSR_TLBIDX,	  LOONGARCH_CSR_TLBEHI,
++		LOONGARCH_CSR_TLBELO0,	  LOONGARCH_CSR_TLBELO1,
++		LOONGARCH_CSR_ASID,	  LOONGARCH_CSR_PGDL,
++		LOONGARCH_CSR_PGDH,	  LOONGARCH_CSR_PGD,
++		LOONGARCH_CSR_PWCTL0,	  LOONGARCH_CSR_PWCTL1,
++		LOONGARCH_CSR_STLBPGSIZE, LOONGARCH_CSR_RVACFG,
++		LOONGARCH_CSR_CPUID,	  LOONGARCH_CSR_PRCFG1,
++		LOONGARCH_CSR_PRCFG2,	  LOONGARCH_CSR_PRCFG3,
++		LOONGARCH_CSR_KS0,	  LOONGARCH_CSR_KS1,
++		LOONGARCH_CSR_KS2,	  LOONGARCH_CSR_KS3,
++		LOONGARCH_CSR_KS4,	  LOONGARCH_CSR_KS5,
++		LOONGARCH_CSR_KS6,	  LOONGARCH_CSR_KS7,
++		LOONGARCH_CSR_TMID,	  LOONGARCH_CSR_CNTC,
++		LOONGARCH_CSR_TINTCLR,	  LOONGARCH_CSR_LLBCTL,
++		LOONGARCH_CSR_IMPCTL1,	  LOONGARCH_CSR_IMPCTL2,
++		LOONGARCH_CSR_TLBRENTRY,  LOONGARCH_CSR_TLBRBADV,
++		LOONGARCH_CSR_TLBRERA,	  LOONGARCH_CSR_TLBRSAVE,
++		LOONGARCH_CSR_TLBRELO0,	  LOONGARCH_CSR_TLBRELO1,
++		LOONGARCH_CSR_TLBREHI,	  LOONGARCH_CSR_TLBRPRMD,
++		LOONGARCH_CSR_DMWIN0,	  LOONGARCH_CSR_DMWIN1,
++		LOONGARCH_CSR_DMWIN2,	  LOONGARCH_CSR_DMWIN3,
++		LOONGARCH_CSR_TVAL,	  LOONGARCH_CSR_TCFG,
++	};
++
++	for (i = 0, count = 0;
++	     i < sizeof(csrs_to_save) / sizeof(csrs_to_save[0]); i++) {
++		const u64 reg = KVM_IOC_CSRID(i);
++		if (uindices && put_user(reg, uindices++))
++			return -EFAULT;
++		count++;
++	}
++
++	/* Skip PMU CSRs if not supported by the guest */
++	if (!kvm_guest_has_pmu(&vcpu->arch))
++		return count;
++	for (i = LOONGARCH_CSR_PERFCTRL0; i <= LOONGARCH_CSR_PERFCNTR3; i++) {
++		const u64 reg = KVM_IOC_CSRID(i);
++		if (uindices && put_user(reg, uindices++))
++			return -EFAULT;
++		count++;
++	}
++
++	return count;
++}
++
++static unsigned long kvm_loongarch_num_regs(struct kvm_vcpu *vcpu)
++{
++	/* +1 for the KVM_REG_LOONGARCH_COUNTER register */
++	unsigned long res =
++		kvm_loongarch_walk_csrs(vcpu, NULL) + KVM_MAX_CPUCFG_REGS + 1;
++
++	if (kvm_guest_has_lbt(&vcpu->arch))
++		res += NUM_LBT_REGS;
++
++	return res;
++}
++
++static int kvm_loongarch_copy_reg_indices(struct kvm_vcpu *vcpu,
++					  u64 __user *uindices)
++{
++	u64 reg;
++	unsigned int i;
++
++	i = kvm_loongarch_walk_csrs(vcpu, uindices);
++	if (i < 0)
++		return i;
++	uindices += i;
++
++	for (i = 0; i < KVM_MAX_CPUCFG_REGS; i++) {
++		reg = KVM_IOC_CPUCFG(i);
++		if (put_user(reg, uindices++))
++			return -EFAULT;
++	}
++
++	reg = KVM_REG_LOONGARCH_COUNTER;
++	if (put_user(reg, uindices++))
++		return -EFAULT;
++
++	if (!kvm_guest_has_lbt(&vcpu->arch))
++		return 0;
++
++	for (i = 1; i <= NUM_LBT_REGS; i++) {
++		reg = (KVM_REG_LOONGARCH_LBT | KVM_REG_SIZE_U64 | i);
++		if (put_user(reg, uindices++))
++			return -EFAULT;
++	}
++
++	return 0;
++}
++
+ long kvm_arch_vcpu_ioctl(struct file *filp,
+ 			 unsigned int ioctl, unsigned long arg)
+ {
+@@ -1251,6 +1353,24 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
+ 		r = kvm_loongarch_vcpu_set_attr(vcpu, &attr);
+ 		break;
+ 	}
++	case KVM_GET_REG_LIST: {
++		struct kvm_reg_list __user *user_list = argp;
++		struct kvm_reg_list reg_list;
++		unsigned n;
++
++		r = -EFAULT;
++		if (copy_from_user(&reg_list, user_list, sizeof(reg_list)))
++			break;
++		n = reg_list.n;
++		reg_list.n = kvm_loongarch_num_regs(vcpu);
++		if (copy_to_user(user_list, &reg_list, sizeof(reg_list)))
++			break;
++		r = -E2BIG;
++		if (n < reg_list.n)
++			break;
++		r = kvm_loongarch_copy_reg_indices(vcpu, user_list->reg);
++		break;
++	}
+ 	default:
+ 		r = -ENOIOCTLCMD;
+ 		break;
+-- 
+2.53.0
 
 
 _______________________________________________
