@@ -4,109 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9996E91297
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 14:32:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55609E9129A
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 14:41:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BAe5wAI9JyY3UnGgMpAWAfZeoxPHk88XGAWQ8qwKS6I=; b=sZuDR4S6BI9m1d
-	NMvfrpmZE81HRxLgnZQ2elqjKTXHFeZnFOEIE3KzKlBqeb5idqa8nKktZxbxY2I4eOM+oqH7pXUrL
-	3hSnffZYQ9+eoyTHysXFpA5SpaksZmqxtsZ4o9IdyBE7ViOi67oHCg3B09vd21kkL9+oboPlIXA2K
-	adBaDGnc3nze9KzGpAPOKFynbk2/HECes0jqENceDu4VTmtrjlZ+J4AMzH7hgo9edePTIXqVg4WON
-	oMHmrywVfDeFCl1HWhTTPMlVNvMlQdVBwpJgyrew2C+2/hT5Q9ePC6ZtzKjLaHdzgwsV2+EwD0JQn
-	DXpmes0awR2SiIZW2P6g==;
+	List-Owner; bh=As/BiKGW13h9ptXeO15x9nGh5G5a5hdxMDZZqHeQRfo=; b=n4woFkrH2kENwD
+	ov0CnfDT+q1gcmXhUEYOnX62x52xx6Wv+pETefLDCv8yvNRexaDdLDbNOJC0B+72Axt8GkKFQpFuj
+	S6weEVhZbKG0R64eRyVwzPpgmskr4voWkSd9oGD6XNefz26wv/5HsRPr17/1Kuo80HUj3eEzMjXYO
+	EGkz24zMjuM2FsdIyyyUG21BnQz3bbEYS2YlUL6xPoDjrINlW9PodNYnQrfvc6pmJdcf/yxOKnYum
+	dfFiDi/mVYerc0CQO4g7X72AHT+gVrIl4zkjIN8aJe0zzXyh/fyCe+Kz6HgHv3ToCpKXokIlHVmhk
+	Smc0BN5Ty8vlzR+/7uZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo0Os-0000000A1no-1MEl;
-	Thu, 05 Feb 2026 14:32:06 +0000
-Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
+	id 1vo0Xp-0000000A2d3-2d7f;
+	Thu, 05 Feb 2026 14:41:21 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo0Op-0000000A1mm-0Ojg
-	for linux-riscv@lists.infradead.org;
-	Thu, 05 Feb 2026 14:32:05 +0000
-Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-64965ee303dso1108064d50.0
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Feb 2026 06:32:02 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770301922; cv=none;
-        d=google.com; s=arc-20240605;
-        b=k9ZFHfvjcbZTe/gAeYlIBng8dUOaW7wFrVu71hpplAep/HZ74VvD91JdC1YM/k/fP3
-         pKYEGuPYHAT/Q2nHH09OnEDzEbzj2VP4O7GwY9SvH8j6uuR+KDv44hy+PlnIwZ34YKtg
-         20uSV/4yjiOh3uQq8gM32pb1rCu54QNBH5kMth9jBhAHlCQQ8KAkGEZzh/uwV0nLLvK8
-         oF9rZOwR+laoffCpFC1Ad1RTdw0CwOquZ8S7GdahcWuv+nJ3ZWVEO5HtTG/Zzc20CV3U
-         Tedl1CF/dKVhFBj+u12PPD3K10Xwh3V5wUsaS4Vq7zkYMpLkp8mNyM8omKP3KSgWM7ue
-         oWxw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=s5mMNeV59BxNuCmPNiqNLJdD8q5E/v+np7SsY+Ptj4Y=;
-        fh=pTlBxYmzP5cLHAJM/FM7jSYhC4UvyQ2mbmQx7KpIgGw=;
-        b=AeL1ItdSW99BL2/cxBc/TgXUeIh5yXr96942srqDz2nqKiuFe8K0TkvPZWyYNgW06y
-         TCWKaIHPelvgLSMVWSsstM6N4BuSyNNHbN1ZjjC8F3+EVPAlZozf3a0R7y4D0n9W3iEy
-         pl0yncs9AeeWnxXU3RV77YKnpKNo7ViH7/TLyhmJKnSRoJLTH14Slm93gvcDNRxD3yGf
-         eK9ZbZuxb0I6sl7/emBR8r8p5bm5sYdWbVsLNJXZGvIRUkbw7erktetrV2llLhlGl+8j
-         SPsu4NF2BpVyug980QafeoVwFts37u2TZYg6QyxSO06bOL4pztUYBiLXnumEIFdaVTvu
-         yTmg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1770301922; x=1770906722; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=s5mMNeV59BxNuCmPNiqNLJdD8q5E/v+np7SsY+Ptj4Y=;
-        b=EGLAZ27XZxsEP9bdn4sUt/OqODQkG+evWaARAGyk9zem67q4Wbc2VJp40RvDoBtetU
-         IUKt+ZfXit+QC7Ich1ww74Xlf9BVPOrsEXXDmNRCP6y0Co+xLsy+gd5dhcY5eLrJZYST
-         8LzfxyfMdQqmneCB7LN68o4EJdzA7tlN3ppy9dkpKzrEJNUgt9LRTDutCjpFqogiKvwB
-         HPi3ahXmZsHxWvQ6kWCT96d4a264XnvdKUleVURaK1066HAfK0hZ4LkVHBybWpHHpT3E
-         6OkWN0cTJdrjCpMxa8CeKs8aeWF46Wr97hefuGu981VemYWj0zZ4qLJ/UDdigKLHDrBI
-         xuqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770301922; x=1770906722;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=s5mMNeV59BxNuCmPNiqNLJdD8q5E/v+np7SsY+Ptj4Y=;
-        b=v9/RzWflhK/NUy1q+J/spJK3Ia2TFpdh6BXZYVk2r//FPwmt/NPyfSrGC3Ahczbn1f
-         21jY5OAAik9K0xs/u5VMx07OVidAyTwSRAznENtUoDecQkSs9JOzqQ+QY7xFTMJ1xIjK
-         azMjFsUMfnRXw+7ABaCSxLWNOHExzMJMifteqriTeBIYicD+gciNvcSjp5hOJpMQIkKW
-         zkIIrLZ2600o2Rzx9MMJ3Pjq9ukx+1z5VPWSnxh+IfJSMdKiUjzEPH9Id2EFYK28tNSZ
-         lyG+ZPyPfMKTcCD0NpbxG9fq9WyHpRuqOd0s1RbZdxZocfVGa9WulHdRHB90PjZgEl2Y
-         DYWg==
-X-Forwarded-Encrypted: i=1; AJvYcCVZuPD+nmxlOPWqhrjMfyCL0kcEGJVTIjVVDwxSNFZ1P/C+Oi76zSZ5irHVrS3uUDgpPHyA/pbC05zvug==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMJyf+AVm2v7FBy92NRl+9+LDqfDGq1GUQbuJn8DFRvZ23Xg/b
-	O6/3FCDgzzNWRHmKsRVUhnFeV5PkveAlssW5apOTii15y2Ot5Pkl701LI9pXPCweXR+phwzUAcU
-	SvHNeBdS71tw/maMmquPpYlVPmCIBlP4OgTBeSyhcww==
-X-Gm-Gg: AZuq6aLMqKDGEnt1byP4bpfPjHWJI+QfIgIDCsaJu74ilOD4/4RMoKXkc6YWLzMGICC
-	JsfgtBPh/LuRD0GaEXu+PMHAzILk6hozvvr67iHdLTpJiR8PlR9SqIjz8QNmgAI3ylHWTaE3bCm
-	z//t87w7m97t1dkxS+w82B2N7OkKaFRjYiWedN+Hr5AgyalvzM0a3IvkNbwneEISdSAsIgluaQP
-	Isj+Yz+HlVJ6c37ooqICN8B/7++W04xFwJo/BWZVw2elt4z0cDPOpC2fpzbo55GYGMuqyMMNuBn
-	vSGdOKak/37ieVTi3U48VOctRDDmvtuAdI4uNtCj9nKhgtVg9M78I7a3o19WA17SJpSKGzU=
-X-Received: by 2002:a05:690e:e88:b0:649:e501:21b2 with SMTP id
- 956f58d0204a3-649e501241cmr3675188d50.12.1770301921673; Thu, 05 Feb 2026
- 06:32:01 -0800 (PST)
+	id 1vo0Xl-0000000A2cP-3Vb5;
+	Thu, 05 Feb 2026 14:41:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1770302478; x=1801838478;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=FmPLymbxSkS6U6kJpeEY2WkMo/UmdyrGf9Tt681r5mY=;
+  b=LdIzppzDmkf5ypLIMxDuEL+wqYCLLqprp8wH0P6mdlRYM39f/BPtelSu
+   7q7a1bJiUE6j3ANYTjBd+MlD92oGqKx9LcuWChn69sCOIlpiCRkqK6JKZ
+   XPoQlR+NGCN1hnpsvhZujLK4N37RiHQdl6l/Y/bM/JWOpTFuhrGvQU7uN
+   qXO6pRQk0nrdHmZ3QS9QZgOxS7kXOfq13qfV6Bkc7xTEx/fUNzZefcm9s
+   97gy4s91+NbAWcWzc8Y/Ik7JcVjZZBF5bpub2vJLdeOWyV9tMhVHE0mym
+   3IUwpjdLdeGbnHmrb4P2EkuYXXKNYGkGo0kHbHUL4Z5ss1WtKDMyVTzKA
+   w==;
+X-CSE-ConnectionGUID: PMZSqKHvSUi8BGn/TLRk+w==
+X-CSE-MsgGUID: zGWq7ymjSjiI34uAiM1XFg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11692"; a="71491819"
+X-IronPort-AV: E=Sophos;i="6.21,274,1763452800"; 
+   d="scan'208";a="71491819"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Feb 2026 06:41:17 -0800
+X-CSE-ConnectionGUID: gwzhyyZTTlyt4QR0mPSMeQ==
+X-CSE-MsgGUID: //mxS/HdQ7ujR8qFHU0j5g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,274,1763452800"; 
+   d="scan'208";a="215064085"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 05 Feb 2026 06:41:12 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vo0Xd-00000000jsy-0v0o;
+	Thu, 05 Feb 2026 14:41:09 +0000
+Date: Thu, 5 Feb 2026 22:40:38 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ryan Chen <ryan_chen@aspeedtech.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	Ryan Chen <ryan_chen@aspeedtech.com>
+Subject: Re: [PATCH 2/4] irqchip/ast2700-intcx: Add AST2700 INTC0/INTC1
+ support
+Message-ID: <202602052259.vW8lLakZ-lkp@intel.com>
+References: <20260205-irqchip-v1-2-b0310e06c087@aspeedtech.com>
 MIME-Version: 1.0
-References: <20260202-atlantis-clocks-v5-0-0922e43acaba@oss.tenstorrent.com>
- <20260202-atlantis-clocks-v5-1-0922e43acaba@oss.tenstorrent.com> <20260205-upbeat-tortoise-of-admiration-b3c0eb@quoll>
-In-Reply-To: <20260205-upbeat-tortoise-of-admiration-b3c0eb@quoll>
-From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Date: Thu, 5 Feb 2026 08:31:50 -0600
-X-Gm-Features: AZwV_Qh-ae-dWwwvtEXuKahrL02iNou0eQ7ZulAZRSirBJyrvo1tifhCxLYVs9s
-Message-ID: <CAEev2e8_4LSLNvHsiC4d7Rrd2GmjQ_5GRHU6b9-Ha69+yvn5cA@mail.gmail.com>
-Subject: Re: [PATCH v5 1/3] dt-bindings: clk: tenstorrent: Add tenstorrent,atlantis-prcm
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Drew Fustini <dfustini@oss.tenstorrent.com>, Joel Stanley <jms@oss.tenstorrent.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-clk@vger.kernel.org, joel@jms.id.au, fustini@kernel.org, mpe@kernel.org, 
-	mpe@oss.tenstorrent.com, npiggin@oss.tenstorrent.com, agross@kernel.org, 
-	agross@oss.tenstorrent.com, bmasney@redhat.com
+Content-Disposition: inline
+In-Reply-To: <20260205-irqchip-v1-2-b0310e06c087@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_063203_148087_8D6A057A 
-X-CRM114-Status: GOOD (  22.57  )
+X-CRM114-CacheID: sfid-20260205_064117_942290_0F02A942 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,86 +91,387 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgS3J6eXN6dG9mLAoKT24gVGh1LCBGZWIgNSwgMjAyNiBhdCAzOjIz4oCvQU0gS3J6eXN6dG9m
-IEtvemxvd3NraSA8a3J6a0BrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIE1vbiwgRmViIDAyLCAy
-MDI2IGF0IDAxOjQ2OjQ5UE0gLTA2MDAsIEFuaXJ1ZGggU3Jpbml2YXNhbiB3cm90ZToKPiA+IERv
-Y3VtZW50IGJpbmRpbmdzIGZvciBUZW5zdG9ycmVudCBBdGxhbnRpcyBQUkNNIHRoYXQgbWFuYWdl
-cyBjbG9ja3MKPiA+IGFuZCByZXNldHMuIFRoaXMgYmxvY2sgaXMgaW5zdGFudGlhdGVkIG11bHRp
-cGxlIHRpbWVzIGluIHRoZSBTb0MuCj4gPiBUaGlzIGNvbW1pdCBkb2N1bWVudHMgdGhlIGNsb2Nr
-cyBmcm9tIHRoZSBSQ1BVIFBSQ00gYmxvY2suCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogQW5pcnVk
-aCBTcmluaXZhc2FuIDxhc3Jpbml2YXNhbkBvc3MudGVuc3RvcnJlbnQuY29tPgo+ID4gLS0tCj4g
-PiAgLi4uL2JpbmRpbmdzL2Nsb2NrL3RlbnN0b3JyZW50LGF0bGFudGlzLXByY20ueWFtbCAgfCAg
-NTQgKysrKysrKysrKysKPiA+ICBNQUlOVEFJTkVSUyAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICB8ICAgMiArCj4gPiAgLi4uL2R0LWJpbmRpbmdzL2Nsb2NrL3RlbnN0b3Jy
-ZW50LGF0bGFudGlzLXByY20uaCAgfCAxMDMgKysrKysrKysrKysrKysrKysrKysrCj4gPiAgMyBm
-aWxlcyBjaGFuZ2VkLCAxNTkgaW5zZXJ0aW9ucygrKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9Eb2N1
-bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvY2xvY2svdGVuc3RvcnJlbnQsYXRsYW50aXMt
-cHJjbS55YW1sIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Nsb2NrL3RlbnN0
-b3JyZW50LGF0bGFudGlzLXByY20ueWFtbAo+ID4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiA+IGlu
-ZGV4IDAwMDAwMDAwMDAwMC4uMGYzZTE4ZjVlYTFhCj4gPiAtLS0gL2Rldi9udWxsCj4gPiArKysg
-Yi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvY2xvY2svdGVuc3RvcnJlbnQsYXRs
-YW50aXMtcHJjbS55YW1sCj4KPiBTdGlsbCB3cm9uZyBuYW1lLiBMb29rIGhvdyBpcyB5b3VyIGNv
-bXBhdGlibGUgY2FsbGVkLgoKPgo+ID4gQEAgLTAsMCArMSw1NCBAQAo+ID4gKyMgU1BEWC1MaWNl
-bnNlLUlkZW50aWZpZXI6IChHUEwtMi4wLW9ubHkgT1IgQlNELTItQ2xhdXNlKQo+ID4gKyVZQU1M
-IDEuMgo+ID4gKy0tLQo+ID4gKyRpZDogaHR0cDovL2RldmljZXRyZWUub3JnL3NjaGVtYXMvY2xv
-Y2svdGVuc3RvcnJlbnQsYXRsYW50aXMtcHJjbS55YW1sIwo+ID4gKyRzY2hlbWE6IGh0dHA6Ly9k
-ZXZpY2V0cmVlLm9yZy9tZXRhLXNjaGVtYXMvY29yZS55YW1sIwo+ID4gKwo+ID4gK3RpdGxlOiBU
-ZW5zdG9ycmVudCBBdGxhbnRpcyBQUkNNIChQb3dlciwgUmVzZXQsIENsb2NrIE1hbmFnZW1lbnQp
-IE1vZHVsZQo+ID4gKwo+ID4gK21haW50YWluZXJzOgo+ID4gKyAgLSBBbmlydWRoIFNyaW5pdmFz
-YW4gPGFzcmluaXZhc2FuQG9zcy50ZW5zdG9ycmVudC5jb20+Cj4gPiArCj4gPiArZGVzY3JpcHRp
-b246Cj4gPiArICBNdWx0aWZ1bmN0aW9uYWwgcmVnaXN0ZXIgYmxvY2sgZm91bmQgaW4gVGVuc3Rv
-cnJlbnQgQXRsYW50aXMgU29DIHdob3NlIG1haW4KPiA+ICsgIGZ1bmN0aW9uIGlzIHRvIGNvbnRy
-b2wgY2xvY2tzIGFuZCByZXNldHMuIFRoaXMgYmxvY2sgaXMgaW5zdGFudGlhdGVkIG11bHRpcGxl
-Cj4gPiArICB0aW1lcyBpbiB0aGUgU29DLCBlYWNoIGJsb2NrIGNvbnRyb2xzIGNsb2NrIGFuZCBy
-ZXNldHMgZm9yIGEgZGlmZmVyZW50Cj4gPiArICBzdWJzeXN0ZW0uIFJDUFUgcHJjbSBzZXJ2ZXMg
-bG93IHNwZWVkIElPIGludGVyZmFjZXMuCj4gPiArCj4gPiArcHJvcGVydGllczoKPiA+ICsgIGNv
-bXBhdGlibGU6Cj4gPiArICAgIGVudW06Cj4gPiArICAgICAgLSB0ZW5zdG9ycmVudCxhdGxhbnRp
-cy1wcmNtLXJjcHUKPgo+IE5vdGhpbmcgaW4gdGhlIGNoYW5nZWxvZyBleHBsYWluZWQgd2h5IDIg
-b3RoZXIgY29tcGF0aWJsZXMgd2VyZSBkcm9wcGVkLgoKSSBoYXZlIG1lbnRpb25lZCBpbiB0aGUg
-Y2hhbmdlbG9nIGluIHRoZSBjb3ZlciBsZXR0ZXIgdGhhdCB0aGVzZSB3aWxsCmJlIGFkZGVkIGJh
-Y2sgd2hlbiB0aGUgZHJpdmVyIGZvciB0aGVtIGlzIGFkZGVkIChiYXNlZCBvbiBteQpkaXNjdXNz
-aW9uIHdpdGggQ29ub3IpLgoKPgo+ID4gKwo+ID4gKyAgcmVnOgo+ID4gKyAgICBtYXhJdGVtczog
-MQo+ID4gKwo+ID4gKyAgY2xvY2tzOgo+ID4gKyAgICBtYXhJdGVtczogMQo+ID4gKwo+ID4gKyAg
-IiNjbG9jay1jZWxscyI6Cj4gPiArICAgIGNvbnN0OiAxCj4gPiArICAgIGRlc2NyaXB0aW9uOgo+
-ID4gKyAgICAgIFNlZSA8ZHQtYmluZGluZ3MvY2xvY2svdGVuc3RvcnJlbnQsYXRsYW50aXMtcHJj
-bS5oPiBmb3IgdmFsaWQgaW5kaWNlcy4KPiA+ICsKPiA+ICsgICIjcmVzZXQtY2VsbHMiOgo+ID4g
-KyAgICBjb25zdDogMQo+ID4gKwo+ID4gK3JlcXVpcmVkOgo+ID4gKyAgLSBjb21wYXRpYmxlCj4g
-PiArICAtIHJlZwo+ID4gKyAgLSBjbG9ja3MKPiA+ICsgIC0gIiNjbG9jay1jZWxscyIKPiA+ICsg
-IC0gIiNyZXNldC1jZWxscyIKPiA+ICsKPiA+ICthZGRpdGlvbmFsUHJvcGVydGllczogZmFsc2UK
-PiA+ICsKPiA+ICtleGFtcGxlczoKPiA+ICsgIC0gfAo+ID4gKyAgICBjbG9jay1jb250cm9sbGVy
-QGE4MDAwMDAwIHsKPiA+ICsgICAgICBjb21wYXRpYmxlID0gInRlbnN0b3JyZW50LGF0bGFudGlz
-LXByY20tcmNwdSI7Cj4gPiArICAgICAgcmVnID0gPDB4YTgwMDAwMDAgMHgxMDAwMD47Cj4gPiAr
-ICAgICAgY2xvY2tzID0gPCZvc2NfMjRtPjsKPiA+ICsgICAgICAjY2xvY2stY2VsbHMgPSA8MT47
-Cj4gPiArICAgICAgI3Jlc2V0LWNlbGxzID0gPDE+Owo+ID4gKyAgICB9Owo+ID4gZGlmZiAtLWdp
-dCBhL01BSU5UQUlORVJTIGIvTUFJTlRBSU5FUlMKPiA+IGluZGV4IGRjNzMxZDM3YzhmZS4uMGZj
-N2JjNmQwNDU4IDEwMDY0NAo+ID4gLS0tIGEvTUFJTlRBSU5FUlMKPiA+ICsrKyBiL01BSU5UQUlO
-RVJTCj4gPiBAQCAtMjI1MzQsOCArMjI1MzQsMTAgQEAgTTogICBKb2VsIFN0YW5sZXkgPGptc0Bv
-c3MudGVuc3RvcnJlbnQuY29tPgo+ID4gIEw6ICAgbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwo+ID4gIFM6ICAgTWFpbnRhaW5lZAo+ID4gIFQ6ICAgZ2l0IGh0dHBzOi8vZ2l0aHViLmNv
-bS90ZW5zdG9ycmVudC9saW51eC5naXQKPiA+ICtGOiAgIERvY3VtZW50YXRpb24vZGV2aWNldHJl
-ZS9iaW5kaW5ncy9jbG9jay90ZW5zdG9ycmVudCxhdGxhbnRpcy1wcmNtLnlhbWwKPiA+ICBGOiAg
-IERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi90ZW5zdG9ycmVudC55YW1s
-Cj4gPiAgRjogICBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3RlbnN0b3JyZW50Lwo+ID4gK0Y6ICAgaW5j
-bHVkZS9kdC1iaW5kaW5ncy9jbG9jay90ZW5zdG9ycmVudCxhdGxhbnRpcy1wcmNtLmgKPiA+Cj4g
-PiAgUklTQy1WIFRIRUFEIFNvQyBTVVBQT1JUCj4gPiAgTTogICBEcmV3IEZ1c3RpbmkgPGZ1c3Rp
-bmlAa2VybmVsLm9yZz4KPiA+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2R0LWJpbmRpbmdzL2Nsb2Nr
-L3RlbnN0b3JyZW50LGF0bGFudGlzLXByY20uaCBiL2luY2x1ZGUvZHQtYmluZGluZ3MvY2xvY2sv
-dGVuc3RvcnJlbnQsYXRsYW50aXMtcHJjbS5oCj4gPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+ID4g
-aW5kZXggMDAwMDAwMDAwMDAwLi4zODIwNzgxMTI3YzMKPiA+IC0tLSAvZGV2L251bGwKPiA+ICsr
-KyBiL2luY2x1ZGUvZHQtYmluZGluZ3MvY2xvY2svdGVuc3RvcnJlbnQsYXRsYW50aXMtcHJjbS5o
-Cj4KPiBTdGlsbCB3cm9uZyBuYW1lLi4uIExvb2sgYXQgeW91ciBjb21wYXRpYmxlLgo+Cj4gUGxl
-YXNlIHJlYWQgd3JpdGluZyBiaW5kaW5ncyBkb2MgaW4gRFQgZGlyLgoKV2Ugd2lsbCBoYXZlIG11
-bHRpcGxlIGNvbXBhdGlibGVzIGluIHRoZSBmdXR1cmUgKEkgZHJvcHBlZCB0aGVzZSBpbgp0aGlz
-IHZlcnNpb24gYW5kIEkgaGF2ZSBtZW50aW9uZWQgdGhpcyBpbiB0aGUgY2hhbmdlbG9nIGluIHRo
-ZSBjb3ZlcgpsZXR0ZXIpIG5hbWVkICJ0ZW5zdG9ycmVudCxhdGxhbnRpcy1wcmNtLXh5eiIuIFRo
-ZSBiaW5kaW5ncyBkb2N1bWVudApzdWdnZXN0cyBwaWNraW5nIGEgbW9yZSBnZW5lcmljIG5hbWUg
-aW4gdGhpcyBjYXNlLCBzbyBpc24ndAoidGVuc3RvcnJlbnQsYXRsYW50aXMtcHJjbSIgb2theSBm
-b3IgdGhhdD8KCj4KPiBCZXN0IHJlZ2FyZHMsCj4gS3J6eXN6dG9mCj4KCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Ryan,
+
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on 8f0b4cce4481fb22653697cced8d0d04027cb1e8]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Chen/dt-bindings-interrupt-controller-aspeed-Add-ASPEED-AST2700-INTC0-INTC1/20260205-141046
+base:   8f0b4cce4481fb22653697cced8d0d04027cb1e8
+patch link:    https://lore.kernel.org/r/20260205-irqchip-v1-2-b0310e06c087%40aspeedtech.com
+patch subject: [PATCH 2/4] irqchip/ast2700-intcx: Add AST2700 INTC0/INTC1 support
+config: parisc-allyesconfig (https://download.01.org/0day-ci/archive/20260205/202602052259.vW8lLakZ-lkp@intel.com/config)
+compiler: hppa-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260205/202602052259.vW8lLakZ-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202602052259.vW8lLakZ-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from include/linux/err.h:8,
+                    from include/linux/cleanup.h:6,
+                    from include/linux/irqflags.h:17,
+                    from include/asm-generic/cmpxchg-local.h:6,
+                    from arch/parisc/include/asm/cmpxchg.h:87,
+                    from arch/parisc/include/asm/atomic.h:10,
+                    from include/linux/atomic.h:7,
+                    from arch/parisc/include/asm/bitops.h:13,
+                    from include/linux/bitops.h:67,
+                    from drivers/irqchip/irq-ast2700-intc0.c:9:
+>> arch/parisc/include/uapi/asm/errno.h:7:9: warning: 'ENOMSG' redefined
+       7 | #define ENOMSG          35      /* No message of desired type */
+         |         ^~~~~~
+   In file included from drivers/irqchip/irq-ast2700-intc0.c:8:
+   include/uapi/asm-generic/errno.h:23:9: note: this is the location of the previous definition
+      23 | #define ENOMSG          42      /* No message of desired type */
+         |         ^~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:8:9: warning: 'EIDRM' redefined
+       8 | #define EIDRM           36      /* Identifier removed */
+         |         ^~~~~
+   include/uapi/asm-generic/errno.h:24:9: note: this is the location of the previous definition
+      24 | #define EIDRM           43      /* Identifier removed */
+         |         ^~~~~
+>> arch/parisc/include/uapi/asm/errno.h:9:9: warning: 'ECHRNG' redefined
+       9 | #define ECHRNG          37      /* Channel number out of range */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:25:9: note: this is the location of the previous definition
+      25 | #define ECHRNG          44      /* Channel number out of range */
+         |         ^~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:10:9: warning: 'EL2NSYNC' redefined
+      10 | #define EL2NSYNC        38      /* Level 2 not synchronized */
+         |         ^~~~~~~~
+   include/uapi/asm-generic/errno.h:26:9: note: this is the location of the previous definition
+      26 | #define EL2NSYNC        45      /* Level 2 not synchronized */
+         |         ^~~~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:11:9: warning: 'EL3HLT' redefined
+      11 | #define EL3HLT          39      /* Level 3 halted */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:27:9: note: this is the location of the previous definition
+      27 | #define EL3HLT          46      /* Level 3 halted */
+         |         ^~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:12:9: warning: 'EL3RST' redefined
+      12 | #define EL3RST          40      /* Level 3 reset */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:28:9: note: this is the location of the previous definition
+      28 | #define EL3RST          47      /* Level 3 reset */
+         |         ^~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:13:9: warning: 'ELNRNG' redefined
+      13 | #define ELNRNG          41      /* Link number out of range */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:29:9: note: this is the location of the previous definition
+      29 | #define ELNRNG          48      /* Link number out of range */
+         |         ^~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:14:9: warning: 'EUNATCH' redefined
+      14 | #define EUNATCH         42      /* Protocol driver not attached */
+         |         ^~~~~~~
+   include/uapi/asm-generic/errno.h:30:9: note: this is the location of the previous definition
+      30 | #define EUNATCH         49      /* Protocol driver not attached */
+         |         ^~~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:15:9: warning: 'ENOCSI' redefined
+      15 | #define ENOCSI          43      /* No CSI structure available */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:31:9: note: this is the location of the previous definition
+      31 | #define ENOCSI          50      /* No CSI structure available */
+         |         ^~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:16:9: warning: 'EL2HLT' redefined
+      16 | #define EL2HLT          44      /* Level 2 halted */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:32:9: note: this is the location of the previous definition
+      32 | #define EL2HLT          51      /* Level 2 halted */
+         |         ^~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:17:9: warning: 'EDEADLK' redefined
+      17 | #define EDEADLK         45      /* Resource deadlock would occur */
+         |         ^~~~~~~
+   include/uapi/asm-generic/errno.h:7:9: note: this is the location of the previous definition
+       7 | #define EDEADLK         35      /* Resource deadlock would occur */
+         |         ^~~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:19:9: warning: 'ENOLCK' redefined
+      19 | #define ENOLCK          46      /* No record locks available */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:9:9: note: this is the location of the previous definition
+       9 | #define ENOLCK          37      /* No record locks available */
+         |         ^~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:20:9: warning: 'EILSEQ' redefined
+      20 | #define EILSEQ          47      /* Illegal byte sequence */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:67:9: note: this is the location of the previous definition
+      67 | #define EILSEQ          84      /* Illegal byte sequence */
+         |         ^~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:22:9: warning: 'ENONET' redefined
+      22 | #define ENONET          50      /* Machine is not on the network */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:47:9: note: this is the location of the previous definition
+      47 | #define ENONET          64      /* Machine is not on the network */
+         |         ^~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:23:9: warning: 'ENODATA' redefined
+      23 | #define ENODATA         51      /* No data available */
+         |         ^~~~~~~
+   include/uapi/asm-generic/errno.h:44:9: note: this is the location of the previous definition
+      44 | #define ENODATA         61      /* No data available */
+         |         ^~~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:24:9: warning: 'ETIME' redefined
+      24 | #define ETIME           52      /* Timer expired */
+         |         ^~~~~
+   include/uapi/asm-generic/errno.h:45:9: note: this is the location of the previous definition
+      45 | #define ETIME           62      /* Timer expired */
+         |         ^~~~~
+>> arch/parisc/include/uapi/asm/errno.h:25:9: warning: 'ENOSR' redefined
+      25 | #define ENOSR           53      /* Out of streams resources */
+         |         ^~~~~
+   include/uapi/asm-generic/errno.h:46:9: note: this is the location of the previous definition
+      46 | #define ENOSR           63      /* Out of streams resources */
+         |         ^~~~~
+>> arch/parisc/include/uapi/asm/errno.h:26:9: warning: 'ENOSTR' redefined
+      26 | #define ENOSTR          54      /* Device not a stream */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:43:9: note: this is the location of the previous definition
+      43 | #define ENOSTR          60      /* Device not a stream */
+         |         ^~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:27:9: warning: 'ENOPKG' redefined
+      27 | #define ENOPKG          55      /* Package not installed */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:48:9: note: this is the location of the previous definition
+      48 | #define ENOPKG          65      /* Package not installed */
+         |         ^~~~~~
+>> arch/parisc/include/uapi/asm/errno.h:29:9: warning: 'ENOLINK' redefined
+      29 | #define ENOLINK         57      /* Link has been severed */
+         |         ^~~~~~~
+   include/uapi/asm-generic/errno.h:50:9: note: this is the location of the previous definition
+      50 | #define ENOLINK         67      /* Link has been severed */
+         |         ^~~~~~~
+   arch/parisc/include/uapi/asm/errno.h:30:9: warning: 'EADV' redefined
+      30 | #define EADV            58      /* Advertise error */
+         |         ^~~~
+   include/uapi/asm-generic/errno.h:51:9: note: this is the location of the previous definition
+      51 | #define EADV            68      /* Advertise error */
+         |         ^~~~
+   arch/parisc/include/uapi/asm/errno.h:31:9: warning: 'ESRMNT' redefined
+      31 | #define ESRMNT          59      /* Srmount error */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:52:9: note: this is the location of the previous definition
+      52 | #define ESRMNT          69      /* Srmount error */
+         |         ^~~~~~
+   arch/parisc/include/uapi/asm/errno.h:32:9: warning: 'ECOMM' redefined
+      32 | #define ECOMM           60      /* Communication error on send */
+         |         ^~~~~
+   include/uapi/asm-generic/errno.h:53:9: note: this is the location of the previous definition
+      53 | #define ECOMM           70      /* Communication error on send */
+         |         ^~~~~
+   arch/parisc/include/uapi/asm/errno.h:33:9: warning: 'EPROTO' redefined
+      33 | #define EPROTO          61      /* Protocol error */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:54:9: note: this is the location of the previous definition
+      54 | #define EPROTO          71      /* Protocol error */
+         |         ^~~~~~
+   arch/parisc/include/uapi/asm/errno.h:35:9: warning: 'EMULTIHOP' redefined
+      35 | #define EMULTIHOP       64      /* Multihop attempted */
+         |         ^~~~~~~~~
+   include/uapi/asm-generic/errno.h:55:9: note: this is the location of the previous definition
+      55 | #define EMULTIHOP       72      /* Multihop attempted */
+         |         ^~~~~~~~~
+   arch/parisc/include/uapi/asm/errno.h:37:9: warning: 'EDOTDOT' redefined
+      37 | #define EDOTDOT         66      /* RFS specific error */
+         |         ^~~~~~~
+   include/uapi/asm-generic/errno.h:56:9: note: this is the location of the previous definition
+      56 | #define EDOTDOT         73      /* RFS specific error */
+         |         ^~~~~~~
+   arch/parisc/include/uapi/asm/errno.h:38:9: warning: 'EBADMSG' redefined
+      38 | #define EBADMSG         67      /* Not a data message */
+         |         ^~~~~~~
+   include/uapi/asm-generic/errno.h:57:9: note: this is the location of the previous definition
+      57 | #define EBADMSG         74      /* Not a data message */
+         |         ^~~~~~~
+   arch/parisc/include/uapi/asm/errno.h:39:9: warning: 'EUSERS' redefined
+      39 | #define EUSERS          68      /* Too many users */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:70:9: note: this is the location of the previous definition
+      70 | #define EUSERS          87      /* Too many users */
+         |         ^~~~~~
+   arch/parisc/include/uapi/asm/errno.h:40:9: warning: 'EDQUOT' redefined
+      40 | #define EDQUOT          69      /* Quota exceeded */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:105:9: note: this is the location of the previous definition
+     105 | #define EDQUOT          122     /* Quota exceeded */
+         |         ^~~~~~
+   arch/parisc/include/uapi/asm/errno.h:41:9: warning: 'ESTALE' redefined
+      41 | #define ESTALE          70      /* Stale file handle */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:99:9: note: this is the location of the previous definition
+      99 | #define ESTALE          116     /* Stale file handle */
+         |         ^~~~~~
+   arch/parisc/include/uapi/asm/errno.h:42:9: warning: 'EREMOTE' redefined
+      42 | #define EREMOTE         71      /* Object is remote */
+         |         ^~~~~~~
+   include/uapi/asm-generic/errno.h:49:9: note: this is the location of the previous definition
+      49 | #define EREMOTE         66      /* Object is remote */
+         |         ^~~~~~~
+   arch/parisc/include/uapi/asm/errno.h:43:9: warning: 'EOVERFLOW' redefined
+      43 | #define EOVERFLOW       72      /* Value too large for defined data type */
+         |         ^~~~~~~~~
+   include/uapi/asm-generic/errno.h:58:9: note: this is the location of the previous definition
+      58 | #define EOVERFLOW       75      /* Value too large for defined data type */
+         |         ^~~~~~~~~
+   arch/parisc/include/uapi/asm/errno.h:47:9: warning: 'EBADE' redefined
+      47 | #define EBADE           160     /* Invalid exchange */
+         |         ^~~~~
+   include/uapi/asm-generic/errno.h:33:9: note: this is the location of the previous definition
+      33 | #define EBADE           52      /* Invalid exchange */
+         |         ^~~~~
+   arch/parisc/include/uapi/asm/errno.h:48:9: warning: 'EBADR' redefined
+      48 | #define EBADR           161     /* Invalid request descriptor */
+         |         ^~~~~
+   include/uapi/asm-generic/errno.h:34:9: note: this is the location of the previous definition
+      34 | #define EBADR           53      /* Invalid request descriptor */
+         |         ^~~~~
+   arch/parisc/include/uapi/asm/errno.h:49:9: warning: 'EXFULL' redefined
+      49 | #define EXFULL          162     /* Exchange full */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:35:9: note: this is the location of the previous definition
+      35 | #define EXFULL          54      /* Exchange full */
+         |         ^~~~~~
+   arch/parisc/include/uapi/asm/errno.h:50:9: warning: 'ENOANO' redefined
+      50 | #define ENOANO          163     /* No anode */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:36:9: note: this is the location of the previous definition
+      36 | #define ENOANO          55      /* No anode */
+
+
+vim +/ENOMSG +7 arch/parisc/include/uapi/asm/errno.h
+
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16    6  
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16   @7  #define	ENOMSG		35	/* No message of desired type */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16   @8  #define	EIDRM		36	/* Identifier removed */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16   @9  #define	ECHRNG		37	/* Channel number out of range */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @10  #define	EL2NSYNC	38	/* Level 2 not synchronized */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @11  #define	EL3HLT		39	/* Level 3 halted */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @12  #define	EL3RST		40	/* Level 3 reset */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @13  #define	ELNRNG		41	/* Link number out of range */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @14  #define	EUNATCH		42	/* Protocol driver not attached */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @15  #define	ENOCSI		43	/* No CSI structure available */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @16  #define	EL2HLT		44	/* Level 2 halted */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @17  #define	EDEADLK		45	/* Resource deadlock would occur */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16   18  #define	EDEADLOCK	EDEADLK
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @19  #define	ENOLCK		46	/* No record locks available */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @20  #define	EILSEQ		47	/* Illegal byte sequence */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16   21  
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @22  #define	ENONET		50	/* Machine is not on the network */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @23  #define	ENODATA		51	/* No data available */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @24  #define	ETIME		52	/* Timer expired */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @25  #define	ENOSR		53	/* Out of streams resources */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @26  #define	ENOSTR		54	/* Device not a stream */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @27  #define	ENOPKG		55	/* Package not installed */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16   28  
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @29  #define	ENOLINK		57	/* Link has been severed */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @30  #define	EADV		58	/* Advertise error */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @31  #define	ESRMNT		59	/* Srmount error */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @32  #define	ECOMM		60	/* Communication error on send */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @33  #define	EPROTO		61	/* Protocol error */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16   34  
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @35  #define	EMULTIHOP	64	/* Multihop attempted */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16   36  
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @37  #define	EDOTDOT		66	/* RFS specific error */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @38  #define	EBADMSG		67	/* Not a data message */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @39  #define	EUSERS		68	/* Too many users */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @40  #define	EDQUOT		69	/* Quota exceeded */
+0ca43435188b9f9 arch/parisc/include/uapi/asm/errno.h Eric Sandeen        2013-11-12  @41  #define	ESTALE		70	/* Stale file handle */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @42  #define	EREMOTE		71	/* Object is remote */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @43  #define	EOVERFLOW	72	/* Value too large for defined data type */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16   44  
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16   45  /* these errnos are defined by Linux but not HPUX. */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16   46  
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @47  #define	EBADE		160	/* Invalid exchange */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @48  #define	EBADR		161	/* Invalid request descriptor */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @49  #define	EXFULL		162	/* Exchange full */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @50  #define	ENOANO		163	/* No anode */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @51  #define	EBADRQC		164	/* Invalid request code */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @52  #define	EBADSLT		165	/* Invalid slot */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @53  #define	EBFONT		166	/* Bad font file format */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @54  #define	ENOTUNIQ	167	/* Name not unique on network */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @55  #define	EBADFD		168	/* File descriptor in bad state */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @56  #define	EREMCHG		169	/* Remote address changed */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @57  #define	ELIBACC		170	/* Can not access a needed shared library */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @58  #define	ELIBBAD		171	/* Accessing a corrupted shared library */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @59  #define	ELIBSCN		172	/* .lib section in a.out corrupted */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @60  #define	ELIBMAX		173	/* Attempting to link in too many shared libraries */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @61  #define	ELIBEXEC	174	/* Cannot exec a shared library directly */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @62  #define	ERESTART	175	/* Interrupted system call should be restarted */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @63  #define	ESTRPIPE	176	/* Streams pipe error */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @64  #define	EUCLEAN		177	/* Structure needs cleaning */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @65  #define	ENOTNAM		178	/* Not a XENIX named type file */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @66  #define	ENAVAIL		179	/* No XENIX semaphores available */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @67  #define	EISNAM		180	/* Is a named type file */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @68  #define	EREMOTEIO	181	/* Remote I/O error */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @69  #define	ENOMEDIUM	182	/* No medium found */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @70  #define	EMEDIUMTYPE	183	/* Wrong medium type */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @71  #define	ENOKEY		184	/* Required key not available */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @72  #define	EKEYEXPIRED	185	/* Key has expired */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @73  #define	EKEYREVOKED	186	/* Key has been revoked */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @74  #define	EKEYREJECTED	187	/* Key was rejected by service */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16   75  
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16   76  /* We now return you to your regularly scheduled HPUX. */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16   77  
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @78  #define	ENOTSOCK	216	/* Socket operation on non-socket */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @79  #define	EDESTADDRREQ	217	/* Destination address required */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @80  #define	EMSGSIZE	218	/* Message too long */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @81  #define	EPROTOTYPE	219	/* Protocol wrong type for socket */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @82  #define	ENOPROTOOPT	220	/* Protocol not available */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @83  #define	EPROTONOSUPPORT	221	/* Protocol not supported */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @84  #define	ESOCKTNOSUPPORT	222	/* Socket type not supported */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @85  #define	EOPNOTSUPP	223	/* Operation not supported on transport endpoint */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @86  #define	EPFNOSUPPORT	224	/* Protocol family not supported */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @87  #define	EAFNOSUPPORT	225	/* Address family not supported by protocol */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @88  #define	EADDRINUSE	226	/* Address already in use */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @89  #define	EADDRNOTAVAIL	227	/* Cannot assign requested address */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @90  #define	ENETDOWN	228	/* Network is down */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @91  #define	ENETUNREACH	229	/* Network is unreachable */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @92  #define	ENETRESET	230	/* Network dropped connection because of reset */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @93  #define	ECONNABORTED	231	/* Software caused connection abort */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @94  #define	ECONNRESET	232	/* Connection reset by peer */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @95  #define	ENOBUFS		233	/* No buffer space available */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @96  #define	EISCONN		234	/* Transport endpoint is already connected */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @97  #define	ENOTCONN	235	/* Transport endpoint is not connected */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @98  #define	ESHUTDOWN	236	/* Cannot send after transport endpoint shutdown */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  @99  #define	ETOOMANYREFS	237	/* Too many references: cannot splice */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16 @100  #define	ETIMEDOUT	238	/* Connection timed out */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16 @101  #define	ECONNREFUSED	239	/* Connection refused */
+3eb53b20d7bd137 arch/parisc/include/uapi/asm/errno.h Helge Deller        2016-08-20  102  #define	EREFUSED	ECONNREFUSED	/* for HP's NFS apparently */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16 @103  #define	EHOSTDOWN	241	/* Host is down */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16 @104  #define	EHOSTUNREACH	242	/* No route to host */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  105  
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16 @106  #define	EALREADY	244	/* Operation already in progress */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16 @107  #define	EINPROGRESS	245	/* Operation now in progress */
+f5a408d53edef3a arch/parisc/include/uapi/asm/errno.h Guy Martin          2014-01-16  108  #define	EWOULDBLOCK	EAGAIN	/* Operation would block (Not HPUX compliant) */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16 @109  #define	ENOTEMPTY	247	/* Directory not empty */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16 @110  #define	ENAMETOOLONG	248	/* File name too long */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16 @111  #define	ELOOP		249	/* Too many symbolic links encountered */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16 @112  #define	ENOSYS		251	/* Function not implemented */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  113  
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  114  #define ECANCELLED	253	/* aio request was canceled before complete (POSIX.4 / HPUX) */
+05aa10de701409b include/asm-parisc/errno.h           Grant Grundler      2005-10-21 @115  #define ECANCELED	ECANCELLED	/* SuSv3 and Solaris wants one 'L' */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  116  
+4750e2c0c59e0c8 include/asm-parisc/errno.h           Joe Korty           2005-05-01  117  /* for robust mutexes */
+4750e2c0c59e0c8 include/asm-parisc/errno.h           Joe Korty           2005-05-01 @118  #define EOWNERDEAD	254	/* Owner died */
+4750e2c0c59e0c8 include/asm-parisc/errno.h           Joe Korty           2005-05-01 @119  #define ENOTRECOVERABLE	255	/* State not recoverable */
+4750e2c0c59e0c8 include/asm-parisc/errno.h           Joe Korty           2005-05-01  120  
+7d217d7ffc3433d arch/parisc/include/asm/errno.h      Alexander Beregalov 2009-06-07 @121  #define	ERFKILL		256	/* Operation not possible due to RF-kill */
+^1da177e4c3f415 include/asm-parisc/errno.h           Linus Torvalds      2005-04-16  122  
+69ebb83e13e5142 arch/parisc/include/asm/errno.h      Ying Huang          2011-01-30 @123  #define EHWPOISON	257	/* Memory page has hardware error */
+69ebb83e13e5142 arch/parisc/include/asm/errno.h      Ying Huang          2011-01-30  124  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
