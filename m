@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC2CBEC1EB5
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 13:11:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C00EC1EB3
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 13:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0y2HurGjwvJOEBHTnoKDU91l+iThlDqo2K3qMQ5NdqY=; b=kyc01dPWUrH/Ko
-	cC0vtxgQm0xxyAXaMQoMdm0D1mqYBRsOo9w+kvg/BQ3yE5PAFWM0xaTK799+lq1ktyHAHCQb4Re7u
-	lV2ZI/ehH8EDvpsGf2qQAyTus9Gj8C1HFuXkJNc/W+8oewtOs8RQOLVJiNrRkndhyDx4n7QMp6pik
-	jVCBoabytZ1+EUc4y8NjUlTzUQtbw1FJrtgiLazzOPxqmARWnQz/wsAfGAHTlrCOi4cGgQKGfONzG
-	CekMGUczLrUjM1SC3tUA+/SLW2+0HKjZ4aMmQHhdOqEVcLU+2DRR7a3IHj00TKm5/fjG86EvszSLc
-	VQUQ36pWo9haeukRiSCw==;
+	List-Owner; bh=1WM4i5ezXxg+tYyujbZUQMn0EVTmlDLSYWxmXLwDcxY=; b=XH2hYYDqJQQyeS
+	4JNQOpSnyecvghh6WVj8v9dQKmL+lc8VCCZbVUsXfzwE4yVzTmMcjeIZqv1X8MUvjaea0FF9HE6SG
+	gjAeMaHvE/5p7ZQAPbsHnde81YO1y42Wd9QFENBFUGd+bM2KD74+uaHz/8kI34QYJeNJmtmW3l+nn
+	tMCg/Xo3+ytW8z1Vz/rtYbIWIggAwsalwnSLeObSztoF8HYBVu77xIQvYC7r8fbeiQ0a3pPGsiSyz
+	GkQFnKgpK/KscFbWDSv1U1NoUA3P86u9a55PmjWr+VEYtL9b6H9lTVVo00bkCXD75dRspIxbZjYsx
+	987jMqk5n/FMrq88MNaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnz8F-00000009vw9-1GJn;
-	Thu, 05 Feb 2026 13:10:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vnzSJ-00000009x5H-0hQB;
+	Thu, 05 Feb 2026 13:31:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnz8D-00000009vvk-1HHu
+	id 1vnzSG-00000009x4u-2O11
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Feb 2026 13:10:50 +0000
+	Thu, 05 Feb 2026 13:31:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 21812433B5;
-	Thu,  5 Feb 2026 13:10:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EFC0C4CEF7;
-	Thu,  5 Feb 2026 13:10:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DF2C040DB5;
+	Thu,  5 Feb 2026 13:31:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC1ABC4CEF7;
+	Thu,  5 Feb 2026 13:31:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770297048;
-	bh=YNe9Nz9GlYTd64O1KTiTpwt9/xT1kD1kmstkqnvmOSI=;
+	s=k20201202; t=1770298291;
+	bh=DkyAfYT/bvAKfYlPhoTvpNcAopuiG0l6VfM4hIZTwXQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pNYfAeQaHzQS4JAIIf5RMJS4M1jrbWEl3KdV5wQ1CVfmAFYOtRX+59SIn8fmPO8Ex
-	 tkfXAh3SXYC3mzPHaYTYbNsTm8rtvbpWyuIcuhhDdcNdq377k6vzTZdarqvtilL3D4
-	 Xf7+yiULCpU1+aEzuPb0FLB9CQSTB8MvWMkcFMDB5mJWXPUZ0ommmMGYPHmT6kL3rY
-	 qyMG/T2JtOKIm/hWkO7u/asLSIi4rUjArZSx8eVYVe3SeX/U9MUJb01oH/jG6auYNX
-	 sdh+Fq9oU+SuPthWrlrJpd2rDQNhsEp6q9NPXTzVBkBmuBLwpHUR29VvLiXSZaTSkg
-	 51OS4qEEhW6Pg==
-Message-ID: <e5831f0b-88c5-4a20-82b3-6e5952388132@kernel.org>
-Date: Thu, 5 Feb 2026 14:10:40 +0100
+	b=dN0ZAemYnR/7svCmpc2YMVy0ygxmA5qmYsXMLnQkjXGN8pxBM4Kzb3Q6QYrxUhlV/
+	 V/A3GBUffRSnH01yXfnI1EjAwYPsTbieyN+FBS5n0fPYEgAf/HkJVuRsTAJN0KKVIk
+	 H0WrP7ntllmKDPrDb034BI7RcNRY+cGT1tBqtp9847MhF3WHERfeVBzCbRuPfKy7H0
+	 nlVeyCzIy1aPOzqr0inqemLThwkUez9Z/Ec5JuFtdJILTAFlx/PSMRrTFEgikh+spS
+	 sBMQN2KLD2DLOvdZbRlAfiQRbmZZG57/gH2P1pE/Xm8SsncipN6YcGUj+pCeJOeesT
+	 /sSCaEO1GEt/A==
+Message-ID: <ef1f6ec1-7036-400c-9d4f-fc4f6f969ef7@kernel.org>
+Date: Thu, 5 Feb 2026 14:31:23 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv6 08/17] mm: Make page_zonenum() use head page
+Subject: Re: [PATCHv6 09/17] mm/sparse: Check memmap alignment for
+ compound_info_has_mask()
 To: Kiryl Shutsemau <kas@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
@@ -63,7 +64,7 @@ Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
 References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-9-kas@kernel.org>
+ <20260202155634.650837-10-kas@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -110,10 +111,10 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260202155634.650837-9-kas@kernel.org>
+In-Reply-To: <20260202155634.650837-10-kas@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_051049_447615_32CA14BE 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20260205_053132_675638_A8EA3895 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,44 +132,35 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2/2/26 16:56, Kiryl Shutsemau wrote:
-> With the upcoming changes to HVO, a single page of tail struct pages
-> will be shared across all huge pages of the same order on a node. Since
-> huge pages on the same node may belong to different zones, the zone
-> information stored in shared tail page flags would be incorrect.
+> If page->compound_info encodes a mask, it is expected that vmemmap to be
+> naturally aligned to the maximum folio size.
 > 
-> Always fetch zone information from the head page, which has unique and
-> correct zone flags for each compound page.
+> Add a VM_BUG_ON() to check the alignment.
 > 
 > Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
 > Acked-by: Zi Yan <ziy@nvidia.com>
 > ---
->   include/linux/mmzone.h | 1 +
->   1 file changed, 1 insertion(+)
+>   mm/sparse.c | 7 +++++++
+>   1 file changed, 7 insertions(+)
 > 
-> diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
-> index be8ce40b5638..192143b5cdc0 100644
-> --- a/include/linux/mmzone.h
-> +++ b/include/linux/mmzone.h
-> @@ -1219,6 +1219,7 @@ static inline enum zone_type memdesc_zonenum(memdesc_flags_t flags)
+> diff --git a/mm/sparse.c b/mm/sparse.c
+> index b5b2b6f7041b..6c9b62607f3f 100644
+> --- a/mm/sparse.c
+> +++ b/mm/sparse.c
+> @@ -600,6 +600,13 @@ void __init sparse_init(void)
+>   	BUILD_BUG_ON(!is_power_of_2(sizeof(struct mem_section)));
+>   	memblocks_present();
 >   
->   static inline enum zone_type page_zonenum(const struct page *page)
->   {
-> +	page = compound_head(page);
->   	return memdesc_zonenum(page->flags);
+> +	if (compound_info_has_mask()) {
+> +		unsigned long alignment;
+> +
+> +		alignment = MAX_FOLIO_NR_PAGES * sizeof(struct page);
+> +		VM_BUG_ON(!IS_ALIGNED((unsigned long) pfn_to_page(0), alignment));
 
-We end up calling page_zonenum() without holding a reference.
+No VM_BUG_ON. VM_WARN_ON_ONCE() should be good enough, no?
 
-Given that _compound_head() does a READ_ONCE(), this should work even if 
-we see concurrent page freeing etc.
-
-However, this change implies that we now perform a compound page lookup 
-for every PageHighMem() [meh], page_zone() [quite some users in the 
-buddy, including for pageblock access and page freeing].
-
-That's a nasty compromise for making HVO better? :)
-
-We should likely limit that special casing to kernels that really rquire 
-it (HVO).
+As discussed in the other thread, is checking for MAX_FOLIO_NR_PAGES 
+alignment sufficient?
 
 -- 
 Cheers,
