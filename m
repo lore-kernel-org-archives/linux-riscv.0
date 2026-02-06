@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B4AEEE2089
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 10:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 249EBEE2085
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 10:46:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PJ7lBSprvTb0TrMu4kKBvFzO4g1XfWBe4AXQOacPZPo=; b=dcx+lVSJq7zBvR
-	VLrptngVZmrcapjMH3e3/GqBTkB/vObKzjdHFdOX2NLGDvLrdC9L9hGI4s3sfYBkoGQOiQDG51GZX
-	DiarRzF0oMuFhmExZhZKIiZWvCdBbCHU0JQFHX465mni2HNGW5AwCbVMlWUoaARViKn8KcPlOC/Di
-	mv4edjTt/sIjXJtJC7MkVuCh5/AtffcCpZe6i8FUaP+YFh2AkX/h1Z5d895bmFL1xCh6KLGMOc6mN
-	KsP/AiAJKJUtbcxamh/MKdZcIVKr+fK4NSZiXYh39B3HFr2HSfOxPiCIovnPrX84rkU8RqcAfdJot
-	RVqtcgDU5O/4QmoNmPoQ==;
+	List-Owner; bh=Q5peEcv2/pyTdyfX14gGq2D/jbqRp8xSbxycWPnRLZM=; b=JQx8gDnOSuT5dC
+	Vpaakkspcf8Qv7ZhlGFNOuhzUjehRKEOfvwvloigjQJ1LgLN1NAd1b/KOlssERNTkX/bA44XrFcrp
+	ntoCq2Aq9oEEpIRas4fp4VFSkl2d8FFTt+FVqNt1ba5X69fNeRsRrtxx7DfqI+FsH8AIJZDyrjZRA
+	V4SX+4ovpKLGldM0eBd3Im+1iPslLW5hmmO465/S9Z0NJHPnyK91PWO0LFhB8oay1SDgPQHN9F/vc
+	8sxnuXePTn6Y21kjqcmu1HMDma7sqnYKHASYPEFCo+zvkAY3WmZzlyKT0vIfCn5SrH4vPEoispiwr
+	bYGdjpXd3/881qAGjSfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voJKb-0000000BByj-22OD;
-	Fri, 06 Feb 2026 10:44:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1voJLt-0000000BCEE-3cNZ;
+	Fri, 06 Feb 2026 10:46:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voJKZ-0000000BByC-46Hq
+	id 1voJLr-0000000BCDO-30Qg
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Feb 2026 10:44:56 +0000
+	Fri, 06 Feb 2026 10:46:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 479B26001A;
-	Fri,  6 Feb 2026 10:44:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ECA7C116C6;
-	Fri,  6 Feb 2026 10:44:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9085F434B3;
+	Fri,  6 Feb 2026 10:46:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D3C9C116C6;
+	Fri,  6 Feb 2026 10:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770374695;
-	bh=WWxkauQz3Xkhe7tgX7qiQ+gnrMgbvUJi1XGb2QE56gs=;
+	s=k20201202; t=1770374772;
+	bh=SgH3PVl9XDWqTOthcj1dd9B7pnDKtSF9D1Mzvlb6naM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WpkPW/6kZfxQ5vKWso8FMNKzNVqN3tURSFC581Z+7kv3V5htKdaTt5txoCnUyLz7U
-	 z8ol5+HmqJwS0KL90OuI67qwId9EHb1gEuuPeHYbyP3e2MwStzHm7p+ilGy8if5+qP
-	 jpdqPsoux5yGol3Vhxq4g2qqFu0NmHYrrp2QcmfYFJzx/mQO4w5oGFagQQBscbmTwM
-	 68S+vWcQWpyYfAULq38pLS0Tnxb/Yq+d08g/kVLnRbXoAM7q9VjxhTsDNqe23VuVoE
-	 7sCIbhwJ9662TwCwZsIYZNJBUHT5btE+n8UITCA538KM1qYv9ecA//+aBDQy14Bda9
-	 9NKWFkKB6K8TQ==
-Message-ID: <a9d9f43a-edf3-419b-bdf7-dbd6bf9e978f@kernel.org>
-Date: Fri, 6 Feb 2026 11:44:49 +0100
+	b=VDADRuAevPHEdEW3GWQ43kfKSftvTf7AR1gxZPVv6oP8X1og6EmSKbbn4h69GQPYD
+	 GfKxebuiyV34DIZ5liyCXRULlULtRB/2rHSxEaCMY717d4HS0RVfE/N4F57tZtg2ci
+	 h2eKgKzxEIlWTVm7IePjtOppaoRbBYLJH6wb50boZnxNTYGunou1G8sFFBJIPVPGeC
+	 rpBXFYGZXV5iGfCIVnTih3GQXPDAQEBSqdWKK/PrZrh/59Nh2LWWhwvMUxvHfwMJX2
+	 ZNF2DH2V1JoV85XUMWmjqXGVkM4syvam4aA4mehrkObV9squ215mMCRrbwsPZnu3Xt
+	 F7ukv50++cP/A==
+Message-ID: <2ca4a5c1-9267-4177-b339-e1ac28812c46@kernel.org>
+Date: Fri, 6 Feb 2026 11:46:06 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/8] iommu/riscv: Add HPM support for RISC-V IOMMU
+Subject: Re: [PATCH v4 0/7] iommu/riscv: Add HPM support for RISC-V IOMMU
 To: Lv Zheng <lv.zheng@linux.spacemit.com>,
  Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
  Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
@@ -59,7 +59,7 @@ Cc: Jingyu Li <joey.li@spacemit.com>, Zhijian Chen <zhijian@spacemit.com>,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
  devicetree@vger.kernel.org
 References: <cover.1769562575.git.lv.zheng@spacemit.com>
- <F9748E3984D2A6F9+cover.1770195980.git.lv.zheng@linux.spacemit.com>
+ <DACC013F46A47459+cover.1770281596.git.lv.zheng@linux.spacemit.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,7 +105,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <F9748E3984D2A6F9+cover.1770195980.git.lv.zheng@linux.spacemit.com>
+In-Reply-To: <DACC013F46A47459+cover.1770281596.git.lv.zheng@linux.spacemit.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260206_024615_797698_B7E9A861 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,7 +126,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 04/02/2026 10:08, Lv Zheng wrote:
+On 05/02/2026 10:09, Lv Zheng wrote:
 > Includes HPM support for RISC-V IOMMU. The HPM hardware mechanism can be
 > found in the recent announced SpacemiT SoCs (K3, V100), where T100
 > (SpacemiT distributed IOMMU) is shipped. 
@@ -133,14 +137,13 @@ On 04/02/2026 10:08, Lv Zheng wrote:
 > v2 (sent as v1.1)
 >  Split and cleanup DT-bindings.
 > v3
->  Refactor using vendor specific compatible.
-> 
+>  1. Refactor using vendor specific compatible.
+>  2. Implement vendor events with a userspace identifier.
+> v4
 
+And now also v4 is in the same thread? This is total mess!
 
-Do not attach (thread) your patchsets to some other threads (unrelated
-or older versions). This buries them deep in the mailbox and might
-interfere with applying entire sets. See also:
-https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
+How tools are supposed to handle this?
 
 Best regards,
 Krzysztof
