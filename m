@@ -4,105 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8C21EE209F
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 13:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED8AEE20A3
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 13:42:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SevvCxx4M7zjSnyfTMMNWLIPL5N9A0LK16VUQZ9Cggs=; b=LUuMDtoHWTW2uI
-	Ikq7ivcooZvhbQEJyNBGuRLFQrehnnqeN3QJDzeb+TNo+5cYtGlIXQwi6czI0eklelHkc/qFYL9Mq
-	d7QFiOuhqjYFQSYPhZi0UwfDoEtaI8fCvNY7fOgTg/OkhXzw7G8+BlVfmCxwLEH8iBGQkK4XeYIzu
-	D+hyUjKQ6pX5Q/w9HyZx45WcMs7+qpxMEGozjpRveIkLVuTVqZ4K4k0w2lR6JYyXG4L0Apy4M4dbH
-	OrHOI2p8MddTuIs3ShvdLGZ/DnueYINAFtz2AHL+sCfCRtX6wVgI3E7dOV5RCh53BVjR9yshiFKcv
-	xYyUcDfnE4112pZdNxGA==;
+	List-Owner; bh=V30PXqAXEJwI5GhwPBW/85KmdXGnEmJhEtaVX2QJ6Q4=; b=UAIoOiybA+QjBh
+	NFL48CCmlnMQBmim2aTN2KZN7erT8yIx0fwcsy08SRRkWKHyHkSE8LrJeXmFGWcDeO7d0k5wd1VSd
+	IJw9cD+68cnNbWNY5I6BBYrS+Wh8NLOTSkdXHeM5MpXWSBoJOw1+pWKXtbjZ/L13KpD6K/hixoUkk
+	lcTnLsGuNes1ClTTFxjLeGHewKMnr8Q6TEt1uTf76znQCiwozB3z5pOA0/NuSG4zFMvSpKQOIcwTu
+	nnqg2mMcLbOQTNlN179SurtPPhBsaOa1UuwF7+9FImH4Fu4efdxXOfG2o86CUBxtD3CyDcq+06sJA
+	bGQbyTnUk7yAG1ywZMyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voLrD-0000000BMQg-3vSR;
-	Fri, 06 Feb 2026 13:26:47 +0000
+	id 1voM6X-0000000BNvv-0C2A;
+	Fri, 06 Feb 2026 13:42:37 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voLrC-0000000BMQa-3ABl
+	id 1voM6W-0000000BNvj-0Y1F
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Feb 2026 13:26:46 +0000
+	Fri, 06 Feb 2026 13:42:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF1036001A;
-	Fri,  6 Feb 2026 13:26:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 363B9C116C6;
-	Fri,  6 Feb 2026 13:26:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F1A84600AD
+	for <linux-riscv@lists.infradead.org>; Fri,  6 Feb 2026 13:42:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A89FFC19424
+	for <linux-riscv@lists.infradead.org>; Fri,  6 Feb 2026 13:42:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770384405;
-	bh=oJHVy75SFVRMUlFGhtQOJ6ZioOzAKeIEQtFpWlVXd60=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Zdrie+5PnfGAKyXQ8OTEdnV88LjAQpW3IHYK1FcvqLnZzBXU2mcKZuWu6IT/knTBN
-	 gQUq9eX8sVQhU+uz99KJ5ZmekM7CjA0TR1dgrAnxkeHMJgiDuhLQ5fDs26VzXLABRV
-	 eHBq3ZnYzXyFIOFgRx2F3XiQksoX/CY+QSL2uGf2AnidzvhdNz0eVwla1Xq56evvY4
-	 Mk2Up4KWRp5Km7UEW3RWxARXXo8lKxUpwKqKdez9h3+oHSv/+dK/eGzCAA1uYMqL1N
-	 fV6vuQLFH4S3q4yjYFA6/t8Rq9Exl4YPE0XTQ1oOsd+omFAu8P5kx9uIPCOmK7YhKg
-	 +6A/HqUckGrJw==
-Message-ID: <e06bd9ca-11bb-4d87-9db5-87139731f181@kernel.org>
-Date: Fri, 6 Feb 2026 14:26:40 +0100
+	s=k20201202; t=1770385354;
+	bh=rGBbb+cAh8cXdLw7bkpja62+z4B0+I2tQhqSEHc5exE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=sKNPp4ASwuDJh6J3uuLKftMnuPZhlF/r3Ulpe7aRMkshyt1ktlpyMZNYTt+T80Us0
+	 WTQ+WBoBRpD1zf/IerngC9z3FBikrNW6K9zdXm/jL6VAdJXbOvbagaLuSk8+uuS4C9
+	 njZ7gdfpETVFid46/Ek04EzIuen+RT5TPXsyPB1vdyEMTsgtOcuEV4xn/xlLm4XceJ
+	 +ZvAFaBLKlN+p8BsPJF3FSCHynOmAgvWAj9h+QEc+O9xttgjudNnldXaWPxlkGTMWi
+	 DkTCEGrWXUEn6HtKV5w9oPNaXjVfRK8QWrycsK3ISCmdqHf/qiehllMzxq34L0G0mM
+	 Y+GfytlkyVQzQ==
+Received: by mail-qv1-f41.google.com with SMTP id 6a1803df08f44-8947e6ffd30so7793976d6.0
+        for <linux-riscv@lists.infradead.org>; Fri, 06 Feb 2026 05:42:34 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXtahLQ2q2FMiNqwAWwyIzJK2IE0Hcg69dNY4jr8uKKKgzMVJrupSlANMNPwL5IfguUoKP21iK6OAnjDw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxKRA/bHH2J5Qj1crqwzKCj3BHMxG37XCuHXz/YvIBG6y1y4rA
+	WTFoecqieB6+KJGRqpLuyomwuygIMWK9gklq2gcIoL22RwyZW7xaQKuHEBDJYWufQTcoFzKYHU1
+	DBkyNic8Pd17OWS6HPHtnLZyoHr4iweY=
+X-Received: by 2002:ad4:596f:0:b0:88f:9670:d107 with SMTP id
+ 6a1803df08f44-8953cd9c4f3mr32553666d6.66.1770385353802; Fri, 06 Feb 2026
+ 05:42:33 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] mmc: sdhci-dwcmshc: Add Canaan K230 DWCMSHC
- controller support
-To: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>, ulf.hansson@linaro.org,
- adrian.hunter@intel.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- gaohan@iscas.ac.cn, me@ziyao.cc
-References: <20260204082908.27501-1-jiayu.riscv@isrc.iscas.ac.cn>
- <20260204082908.27501-3-jiayu.riscv@isrc.iscas.ac.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260204082908.27501-3-jiayu.riscv@isrc.iscas.ac.cn>
+References: <20260206122002.1494125-3-dongml2@chinatelecom.cn> <444267200b59241e9da104eab8af2d7189aa401005887a2cd0128cd6aeda98e2@mail.kernel.org>
+In-Reply-To: <444267200b59241e9da104eab8af2d7189aa401005887a2cd0128cd6aeda98e2@mail.kernel.org>
+From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Date: Fri, 6 Feb 2026 14:42:22 +0100
+X-Gmail-Original-Message-ID: <CAJ+HfNj5JZJ-k5bJibSgLPD5xnTzf7kfvma4kJOBKoNTnSLLDg@mail.gmail.com>
+X-Gm-Features: AZwV_Qgp30xu6TweGeMW0sgxJKdeBZnllbFPIwwNJDP6mSLbXtqNecZzsDiMGlk
+Message-ID: <CAJ+HfNj5JZJ-k5bJibSgLPD5xnTzf7kfvma4kJOBKoNTnSLLDg@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v3 2/3] bpf, riscv: add fsession support for trampolines
+To: menglong8.dong@gmail.com
+Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org, 
+	martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org, 
+	yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org, 
+	sdf@fomichev.me, haoluo@google.com, jolsa@kernel.org, pulehui@huawei.com, 
+	puranjay@kernel.org, pjw@kernel.org, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, alex@ghiti.fr, bpf@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	jiang.biao@linux.dev, martin.lau@kernel.org, clm@meta.com, 
+	ihor.solodrai@linux.dev
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,54 +86,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 04/02/2026 09:29, Jiayu Du wrote:
-> +static int dwcmshc_k230_init(struct device *dev, struct sdhci_host *host,
-> +			     struct dwcmshc_priv *dwc_priv)
-> +{
-> +	static const char * const clk_ids[] = {"base", "timer", "ahb"};
-> +	struct device_node *usb_phy_node;
-> +	struct k230_priv *k230_priv;
-> +	u32 data;
-> +	int ret;
-> +
-> +	k230_priv = devm_kzalloc(dev, sizeof(struct k230_priv), GFP_KERNEL);
-> +	if (!k230_priv)
-> +		return -ENOMEM;
-> +	dwc_priv->priv = k230_priv;
-> +
-> +	usb_phy_node = of_find_compatible_node(NULL, NULL, "canaan,k230-usb-phy");
+Menglong!
 
-Hm? You should use phandles, not look for various nodes.
+On Fri, 6 Feb 2026 at 13:51, <bot+bpf-ci@kernel.org> wrote:
+>
+> > diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+> > --- a/arch/riscv/net/bpf_jit_comp64.c
+> > +++ b/arch/riscv/net/bpf_jit_comp64.c
+>
+> [ ... ]
+>
+> > +static int invoke_bpf(struct bpf_tramp_links *tl, int args_off, int retval_off,
+> > +                   int run_ctx_off, int func_meta_off, bool save_ret, u64 func_meta,
+> > +                   int cookie_off, struct rv_jit_context *ctx)
+> > +{
+> > +     int i, cur_cookie = (cookie_off - args_off) / 8;
+> > +
+> > +     for (i = 0; i < tl->nr_links; i++) {
+> > +             int err;
+> > +
+> > +             if (bpf_prog_calls_session_cookie(&tl->links[i])) {
+>                                                 ^^^^^^^^^^^^^^
+>
+> Should this be tl->links[i] instead of &tl->links[i]?
+>
+> The function bpf_prog_calls_session_cookie() expects a struct bpf_tramp_link
+> pointer, but tl->links is an array of pointers, so tl->links[i] is already
+> a struct bpf_tramp_link pointer. The extra & passes a pointer-to-pointer.
+>
+> For comparison, arm64 uses:
+>
+>     if (bpf_prog_calls_session_cookie(fentry->links[i]))
+>
+> And include/linux/bpf.h uses:
+>
+>     if (bpf_prog_calls_session_cookie(fentries.links[i]))
+>
+> Both without the &.
+>
+> > +                     u64 meta = func_meta | ((u64)cur_cookie << BPF_TRAMP_COOKIE_INDEX_SHIFT);
+> > +
+> > +                     emit_store_stack_imm64(RV_REG_T1, -func_meta_off, meta, ctx);
+> > +                     cur_cookie--;
+> > +             }
+> > +             err = invoke_bpf_prog(tl->links[i], args_off, retval_off, run_ctx_off,
+> > +                                   save_ret, ctx);
+>
+> Note that invoke_bpf_prog() correctly uses tl->links[i] without the &.
 
-> +	if (!usb_phy_node) {
-
-Please follow Linux coding style.
-
-> +		return dev_err_probe(dev, -ENODEV,
-> +				     "Failed to find k230-usb-phy node\n");
-> +	}
-> +
-> +	k230_priv->hi_sys_regmap = device_node_to_regmap(usb_phy_node);
-> +	of_node_put(usb_phy_node);
-> +	if (IS_ERR(k230_priv->hi_sys_regmap)) {
-> +		return dev_err_probe(dev, PTR_ERR(k230_priv->hi_sys_regmap),
-> +				     "Failed to get k230-usb-phy regmap\n");
-> +	}
-> +
-> +	ret = dwcmshc_get_enable_other_clks(mmc_dev(host->mmc), dwc_priv,
-> +					    ARRAY_SIZE(clk_ids), clk_ids);
-> +	if (ret) {
-> +		return dev_err_probe(dev, ret,
-> +				     "Failed to get/enable k230 mmc other clocks\n");
-> +	}
-> +
-> +	if (of_device_is_compatible(dev->of_node, "canaan,k230-sdio")) {
-
-Driver match data is for this.
-
-
-Best regards,
-Krzysztof
+Menglong, the v3 doesn't build. Please refrain from just stressing
+versions out. For v4, make sure you properly build/test. On that note;
+on what hardware/simulator did you perform the tests on?
 
 _______________________________________________
 linux-riscv mailing list
