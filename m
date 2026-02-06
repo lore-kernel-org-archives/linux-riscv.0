@@ -4,71 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C23EE2084
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 10:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCEA5EE2086
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 10:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/r8wuTK7BYntphNGUniN/gcjBexZHxAeYzANyx7OD7g=; b=wzbJfDM0ZXiYaqJ0QJpG6Y3wfu
-	K1o9W0xNxPzMaUQ/FDJOVb17tEjeYjbngxVLVlFJf2viy0JTg1oUL+/riXLZXw0AIKz1ep+vcvXWg
-	6MC5QPd/y8f1y+kmd9/rfBSoeGPd+YqZvoCpNdlGom4uRUO+sMFpgst/7wLtCjC3pVXNtmKmexrEA
-	9V04tjXx09JvcVP5I0KYRdGQm3rtwx6GViT5h/GQ2PvMwkzgFvRVU1LweWoj8ElA0a4CHmCTUEteP
-	Q06MFM2IKyTSQEa3rysRq1at2TJypRZjoyks3ToHUf+N2PYnm4cGlK0jueLnGNJFhVrg/J557jDHq
-	IqyvuA8A==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OFixbIuU81W+j8PyH6JMuLZSGrIR0bhPFdJRt0BrLEA=; b=H9g/XNtBToCkRS
+	Ot+CsNJpEvOp6hNB5kZzKNXClVnh5aKygrPz59nUyFGn6GoKTvOkVpU3lZ1Ejz5hjvvefGxdEyxu3
+	HcIjTSLj4IkOWeFO9mMLaamccrNyTfs/6upme8uY7yDbSjQxxcJmnBNf0/xxAoTbAeEofVulcdlNk
+	yqksNSxvBAsGwG97w4OXzMh+gBCiLOOJ42L0D08P2s+cM/1Fhc98uuZzVaY5D8o1K7vyxy4t0rY75
+	kQTYhVVd8dtvoGswjo2J+7jLlDO2R7/OPLrnzqIRRnT9/reMgfP+E/Ls6r2YX3BjA1j9uhx99qQEi
+	GKbceFzYTtzkxMiIrdBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voJ1I-0000000BAzg-1sxr;
-	Fri, 06 Feb 2026 10:25:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1voJBb-0000000BBTW-3kKD;
+	Fri, 06 Feb 2026 10:35:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voJ1G-0000000BAzA-11oK
+	id 1voJBa-0000000BBTQ-3kgh
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Feb 2026 10:24:59 +0000
+	Fri, 06 Feb 2026 10:35:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E45C243DD5;
-	Fri,  6 Feb 2026 10:24:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C47FC116C6;
-	Fri,  6 Feb 2026 10:24:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E532860010;
+	Fri,  6 Feb 2026 10:35:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9ADBFC116C6;
+	Fri,  6 Feb 2026 10:35:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770373497;
-	bh=nSlDqHzMQr152avoDT8llEAGQVSmXKKZSUd4Xq6kY2M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qd6XDHLl3otd4l7745FgtPHKCh+28ET+4Gh4od6CGkx9KS7Rmrnkuzrnifg94r/rN
-	 OLjfInm8mgJh7ONidOWK8Gh54/rKF5snHY8nmT4Q4rMwo4SMe0HxDvtC4zbTBBC+e4
-	 zsyr/lwEOHpNtwSNo56ArmBaMDE4QvCgrJqonWp4CUmMGXLAeJUaMUe9VxH0u/xiYT
-	 dy/j+hH186tZh0Y5Ys1YxM8w8QfAoSSH3ZITUu59upINGLkB1Aze4mRHoP1RhTTyWL
-	 SP+MmDr0FSVqiQj0GIN3bxtbFhxX7Q2wVHBlvgqfRPoInqSTYpWc1ytvp+bh9ts4Eo
-	 ueh0byIlBA+0A==
-Date: Fri, 6 Feb 2026 10:24:52 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Lv Zheng <lv.zheng@linux.spacemit.com>
-Cc: Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Jingyu Li <joey.li@spacemit.com>, iommu@lists.linux.dev,
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 4/8] dt-bindings: iommu: Add spacemit/t100 features
-Message-ID: <20260206-buffed-scrubbed-36fc49ada496@spud>
-References: <cover.1769562575.git.lv.zheng@spacemit.com>
- <cover.1770195980.git.lv.zheng@linux.spacemit.com>
- <A0E91F323138E92F+a27d73b00f3324f0d3885128f5596230b3f1370b.1770195980.git.lv.zheng@linux.spacemit.com>
- <20260204-primer-wrought-6f64b14bf152@spud>
- <53171BEB06F43599+7c1f54bc-e72d-4cbd-9d10-194ae6b13744@linux.spacemit.com>
- <20260205-attitude-customer-129fe2bd5dc7@spud>
- <B8005DB6301AACB4+374512e1-f561-4d2f-afd6-7a4b51012501@linux.spacemit.com>
+	s=k20201202; t=1770374137;
+	bh=4eHKEhmEK8xsEIAIBEaQ/Y5Lb5Y5nnEuAYz1Q4HZ+SU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=S6dc09FXA/oslyvgU5XYJDzbCDyPHsKVIty3YtaZStxu0DwL5tirjTKmYgh/T9eCa
+	 MlLAjkLZP2A+XpbtVzHQ5Hz16O2G1paaoIzPh2aoh42Kpm3eyzKze2jUxg0BBedXS2
+	 s0zLAKQGkVIYs9iA7x4O3L+mjVW6FOgKEcEJkqoHCqohjarOqhC1D2k7FP3EF/jaRQ
+	 tzQLNwDlYLIgmWgUZgs4ly60PYVii+9ZTKLF/Xl5C74FJwKJ6isZZy1sDvMWNNjura
+	 pNWziuoPV3Q2aXliocKXSW2xjWG7kteH3CBWMUYoiMoM/1nrnYcrBfDVRyjSuuWQQ3
+	 C+or9FiaofU8w==
+Message-ID: <bf413c9c-eabf-4eb7-bae4-947dd7e012cd@kernel.org>
+Date: Fri, 6 Feb 2026 11:35:30 +0100
 MIME-Version: 1.0
-In-Reply-To: <B8005DB6301AACB4+374512e1-f561-4d2f-afd6-7a4b51012501@linux.spacemit.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_022458_324389_3A817C57 
-X-CRM114-Status: GOOD (  38.32  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCHv6 16/17] hugetlb: Update vmemmap_dedup.rst
+To: Kiryl Shutsemau <kas@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
+ Usama Arif <usamaarif642@gmail.com>, Frank van der Linden <fvdl@google.com>
+Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
+ Vlastimil Babka <vbabka@suse.cz>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Zi Yan <ziy@nvidia.com>,
+ Baoquan He <bhe@redhat.com>, Michal Hocko <mhocko@suse.com>,
+ Johannes Weiner <hannes@cmpxchg.org>, Jonathan Corbet <corbet@lwn.net>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, kernel-team@meta.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
+References: <20260202155634.650837-1-kas@kernel.org>
+ <20260202155634.650837-17-kas@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260202155634.650837-17-kas@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,149 +122,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6529944387949995013=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 2/2/26 16:56, Kiryl Shutsemau wrote:
+> Update the documentation regarding vmemmap optimization for hugetlb to
+> reflect the changes in how the kernel maps the tail pages.
+> 
+> Fake heads no longer exist. Remove their description.
+> 
+> Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
+> Reviewed-by: Muchun Song <muchun.song@linux.dev>
+> ---
+>   Documentation/mm/vmemmap_dedup.rst | 60 +++++++++++++-----------------
+>   1 file changed, 26 insertions(+), 34 deletions(-)
+> 
+> diff --git a/Documentation/mm/vmemmap_dedup.rst b/Documentation/mm/vmemmap_dedup.rst
+> index 1863d88d2dcb..fca9d0ce282a 100644
+> --- a/Documentation/mm/vmemmap_dedup.rst
+> +++ b/Documentation/mm/vmemmap_dedup.rst
+> @@ -124,33 +124,35 @@ Here is how things look before optimization::
+>    |           |
+>    +-----------+
+>   
+> -The value of page->compound_info is the same for all tail pages. The first
+> -page of ``struct page`` (page 0) associated with the HugeTLB page contains the 4
+> -``struct page`` necessary to describe the HugeTLB. The only use of the remaining
+> -pages of ``struct page`` (page 1 to page 7) is to point to page->compound_info.
+> -Therefore, we can remap pages 1 to 7 to page 0. Only 1 page of ``struct page``
+> -will be used for each HugeTLB page. This will allow us to free the remaining
+> -7 pages to the buddy allocator.
+> +The first page of ``struct page`` (page 0) associated with the HugeTLB page
+> +contains the 4 ``struct page`` necessary to describe the HugeTLB. The remaining
+> +pages of ``struct page`` (page 1 to page 7) are tail pages.
+> +
+> +The optimization is only applied when the size of the struct page is a power-of-2
+> +In this case, all tail pages of the same order are identical. See
+> +compound_head(). This allows us to remap the tail pages of the vmemmap to a
+> +shared, read-only page. The head page is also remapped to a new page. This
+> +allows the original vmemmap pages to be freed.
+>   
+>   Here is how things look after remapping::
+>   
+> -    HugeTLB                  struct pages(8 pages)         page frame(8 pages)
+> - +-----------+ ---virt_to_page---> +-----------+   mapping to   +-----------+
+> - |           |                     |     0     | -------------> |     0     |
+> - |           |                     +-----------+                +-----------+
+> - |           |                     |     1     | ---------------^ ^ ^ ^ ^ ^ ^
+> - |           |                     +-----------+                  | | | | | |
+> - |           |                     |     2     | -----------------+ | | | | |
+> - |           |                     +-----------+                    | | | | |
+> - |           |                     |     3     | -------------------+ | | | |
+> - |           |                     +-----------+                      | | | |
+> - |           |                     |     4     | ---------------------+ | | |
+> - |    PMD    |                     +-----------+                        | | |
+> - |   level   |                     |     5     | -----------------------+ | |
+> - |  mapping  |                     +-----------+                          | |
+> - |           |                     |     6     | -------------------------+ |
+> - |           |                     +-----------+                            |
+> - |           |                     |     7     | ---------------------------+
+> +    HugeTLB                  struct pages(8 pages)                 page frame
 
---===============6529944387949995013==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8z5ZdYiefbay1YtF"
-Content-Disposition: inline
+You could highlight that we allocate a new head page like "page frame 
+(new)".
 
+Wasn't aware of that detail before reading your change above.
 
---8z5ZdYiefbay1YtF
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
-On Fri, Feb 06, 2026 at 09:33:09AM +0800, Lv Zheng wrote:
-> On 2/6/2026 2:24 AM, Conor Dooley wrote:
-> > On Thu, Feb 05, 2026 at 11:11:51AM +0800, Lv Zheng wrote:
-> > > On 2/5/2026 1:37 AM, Conor Dooley wrote:
-> > > > On Wed, Feb 04, 2026 at 05:09:12PM +0800, Lv Zheng wrote:
-> > > > > Adds device tree bindings for SpacemiT T100 specific features by
-> > > > > introducing spacemit,100 compatible. T100 contains distributed IO=
-ATCs,
-> > > > > each of which exposes pmiv interrupt.
-> > > > >=20
-> > > > > Signed-off-by: Lv Zheng <lv.zheng@linux.spacemit.com>
-> > > > > Signed-off-by: Jingyu Li <joey.li@spacemit.com>
-> > > > > ---
-> > > > >    .../bindings/iommu/riscv,iommu.yaml           | 37 +++++++++++=
-++++++++
-> > > > >    1 file changed, 37 insertions(+)
-> > > > >=20
-> > > > > diff --git a/Documentation/devicetree/bindings/iommu/riscv,iommu.=
-yaml b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
-> > > > > index d4838c3b3741..2da3456e7402 100644
-> > > > > --- a/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
-> > > > > +++ b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
-> > > > > @@ -32,6 +32,12 @@ properties:
-> > > > >      # should be specified along with 'reg' property providing MM=
-IO location.
-> > > > >      compatible:
-> > > > >        oneOf:
-> > > > > +      - description: SpacemiT distributed IOMMUs
-> > > > > +        items:
-> > > > > +          - enum:
-> > > > > +              - spacemit,t100
-> > > > > +          - const: spacemit,riscv-iommu
-> > > >=20
-> > > > What actually is the t100? Is it an SoC or is it the name of the co=
-re
-> > > > complex IP that spacemit is using in multiple SoCs?
-> > >=20
-> > > T100 is the name of the IOMMU IP developed by SpacemiT, announced in =
-RISC-V
-> > > 2024 China Summit:
-> > > https://www.bilibili.com/video/BV1DNtCeiEBk/
-> > > It's world first server SPEC IOMMU in RISC-V, supports IOTLB placed in
-> > > adjacent to the DMA masters and supports PCIe ATS and PRI.
-> > > You can find it shipped in the recent publicly purchasable SoC Spacem=
-iT K3.
-> >=20
-> > Right, then what you need here is something like:
-> >=20
-> > items:
-> >    - enum:
-> >        - spacemit,k3-iommu
-> >    - spacemit,t100-iommu
-> >    - riscv,iommu
-> >=20
-> > Driver can then match on spacemit,t100-iommu - but you need to have
-> > soc-specific compatibles.
-> > I'm not convinced that riscv,iommu is suitable here though, does the
-> > driver work on your platform without the portions of code that are added
-> > by this series and enabled by your new compatible? If not, the I don't
-> > think the riscv,iommu fallback should be here.
-> >=20
-> > Additionally, please stop sending new versions so frequently and in
-> > response to earlier submissions. I have a v4 in my inbox while we are
-> > still discussing v3.
->=20
-> SpacemiT provides RISC-V IOMMU implementation, T100 is the first
-> generation of the this IP product line, we have plan to develop T200,
-> T300, etc., with more features introduced to be adoptive to new
-> RISC-V IOMMU specifications.
-> Besides, T100 is not only shipped in K3, but also shipped in V100 and
-> the follow-up SoCs, like Kn, Vn00, they will likely use the same
-> synthesis result of T100 RTLs.
->=20
-> From SpacemiT's point of view, we need a common sense of this IP
-> series for something like IOATCs, that's why spacemit,riscv-iommu
-> (this is same like qemu,riscv-iommu) is introduced. And a common sense
-
-No, it's not the same as qemu,riscv-iommu. That exists to avoid
-riscv,iommu being allowed in isolation and as a "SoC"/integration
-specific compatible. The driver matches against riscv,iommu not
-qemu,riscv-iommu and has no qemu,riscv-iommu specific behaviours.
-It is akin to having spacemit,k3-iommu.
-
-> of T100 for all SoCs shipped T100 (like global filters, vendor events
-> and etc.,).
->=20
-> IMO, the current compatible is proper to reflect these concerns.
-> What do you think?
-
-I pretty much already told you what I think, that you need SoC-specific
-compatibles for SoCs that integrate this IP and that the you should drop
-the spacemit,riscv-iommu compatible. The spacemit,riscv-iommu compatible
-doesn't provide any additional value over spacemit,t100-iommu, and has
-the downside of maybe being confusing in the future if spacemit
-produces a iommu that doesn't have the IOATC behaviour.
-
-Also, I don't see an answer to my question about whether the hardware
-will work without the driver changes this series introduces and enables
-with the new compatible?
-
+-- 
 Cheers,
-Conor.
 
---8z5ZdYiefbay1YtF
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaYXBcwAKCRB4tDGHoIJi
-0jyPAP9isV7zyFlG71V/A10awaNoOnM6vetdkFyMEwJt5Yj2ZgD/U8AKoodPKvnt
-PY1aMEIn8pr+p3KARKfZhb9DFBcT2w0=
-=XWl+
------END PGP SIGNATURE-----
-
---8z5ZdYiefbay1YtF--
-
-
---===============6529944387949995013==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+David
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6529944387949995013==--
-
