@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E66ECD9B9
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 00:24:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD04ECD9B5
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 00:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VBVeuJZO8v8tC7RLXsDFxEqTUGjknwtNUNb4/CYg8Vk=; b=Rh84jBkxhhl3Fi
-	5ZfLBIwgInPoLcqVX4DkwnJqot+QruJFjswRyQumtO+RcbQeKQnjskhQe6oAbySm1SHvqqFObA0lZ
-	gc01Jq96uxUbLZIBvgOusAKMdzxhvFHSNpmUsqkCr95fqBMT+roGPzljOov0Kl8L9h8p8LgqmIKYV
-	6RRFq7CZBnL55yXXARwKBarn66qmHUOWwL9M9UoQk+16NbbSea+YZecFsN0xUm9N2H8ORiFIp9hl9
-	WSdQ9NFuVnYIWwBuGF+PQCkHcdcFABlttPe8RQ+SL2+MuQv+lzItzJNZ8mVLCSH8H49d+HhHnlLJe
-	J/Wj2aphm1mOC7toGJdQ==;
+	List-Owner; bh=pzgttvN6Z7Fe4d+5sItjXpq7J3U/PEVYDQqKAM8wWUA=; b=Oqwkw7LwmTBlAN
+	/4Gp2MSkwuW+kOkJNjfLntu5p2Su+pzPC/AU7zeymBrKFFJR8VnZIVFjyNpV6iDj8/TLfnBPcO3Pp
+	9GDry1UBD+DmVoPwil/iZlPVonz/yN+IJMYg8IRdC+RCc/1QxIt39NLZVp73FvWlCaMGMnk/2fUKO
+	4CYj6Fxdrtb/O2KbRQpZWublrXboPG4fSrpejEyhA4pZAgXZ5nYuWhzDAySZGn4pFzp8y/cZfdXy5
+	0Na1CUhUN0pAdHbznf/O1Fapv3RIIc4ow+ESQGz6YiadLAd7XwLwTdwJJ1Bhb6uQ8PKwosImL8gkc
+	GJJlMXTcDSq273EgAS8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo9dl-0000000AdyV-1FnA;
-	Fri, 06 Feb 2026 00:24:05 +0000
+	id 1vo9dm-0000000Ae0j-3W0w;
+	Fri, 06 Feb 2026 00:24:06 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo9di-0000000AdvB-1kEp
+	id 1vo9dj-0000000Adwk-2NY0
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Feb 2026 00:24:03 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 615JuOeL176913
-	for <linux-riscv@lists.infradead.org>; Fri, 6 Feb 2026 00:24:01 GMT
+	Fri, 06 Feb 2026 00:24:04 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 615MXPj6989438
+	for <linux-riscv@lists.infradead.org>; Fri, 6 Feb 2026 00:24:02 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=DkB7Ob67zo2
-	H0cVB+6PUohLPiXcNGFnT5QvoddvcFAk=; b=CIscHv8Vl4kM43sqkJEBFmJINqB
-	jVOnONXtZ0fhnKofFIr/8Kk5W3Qnk0Els4Rkulq/lJHSwISasV+NKyuXC5vz0mJF
-	uPlztQOrp49rKkHnLu+Fyd04wUTF0XZDNnjHzmdJIAhvtW7G7vpIsoJgRI0sdoa+
-	T/hdwEDFAup7Ce8tqNRMZYyM2ntakAuenfDPakM3oVMQcKf0dE4HhviV/J6EYuAb
-	NeizsENeY3oXuScICI5r0OV5H4Kob9HDgqyBolq5fgTFu0x6+6369DhYoOt5WvKY
-	3DdgSSeo8QKbebaksc2tAQpoRoIt5v84y3AWoLm08XYIPawt/aA6QytSOkA==
+	:mime-version:references:subject:to; s=qcppdkim1; bh=khQx4CnsxrI
+	KfW3vEXmfF4aXf0Jm31HPz3k9tr+YE8w=; b=PpX1Y8rD9eCF+HPoploepd+UF1f
+	cY0MLRNcqfLL+8T6C1IMkKvwqzLGVaELpX8hmiFfQGQ2pwytDZlB32/aRXxmLwDM
+	Bc0h1e4DYg59rW2qlxhgICN9n6O9OkarS48OOTJ5BB7/ChFM4HgvSfNtkA9TdWZW
+	ayH1rccBJUbroPN2YtFDN5XzX8SH5+lyGP9c/IcdXwUgNlzl1L8/3uxJ5X5pPGH2
+	NlRiGxLl5IOtFuFDPv9PdkZelEIkjiN7/JDwPULc+DMqj5ng3M8YWWKaH6GxdLDn
+	qXj62R4SYSmiJkvlIOAgRjfU3LgUT9d6GAmst+vnZ0jBhf11DPpsAzdFGbg==
 Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c4t0p2dqy-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c4vxhstqe-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Fri, 06 Feb 2026 00:24:01 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-2b82974bd26so148621eec.1
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Feb 2026 16:24:01 -0800 (PST)
+	for <linux-riscv@lists.infradead.org>; Fri, 06 Feb 2026 00:24:02 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-2b75222e9easo8352860eec.1
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Feb 2026 16:24:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1770337441; x=1770942241; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1770337442; x=1770942242; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=DkB7Ob67zo2H0cVB+6PUohLPiXcNGFnT5QvoddvcFAk=;
-        b=Tlqox+j5hKbF0nOkFQRrm4l/J7BZQRieunPRZVcODvmfG9igyrUbk0bZiTYppaUKKB
-         rPP7GGcoldKi+xjWbURBYxxBO0wEp7LskdPCm8ZAvSeeUV0yEIRuhoHjt9nFeVX+7FUd
-         8PHOd3v+xlx4eGxf/qxZtyFepCC0PCWiYl8D4xpKlYlf9zI7Qswc6xaQHvU3f9DCyyku
-         Zi+2I91k7+qOv+EEX30F25BJ+h4OFmCA0NQCO7FkquGhQoEnr4l4QzaxwzDAqKhA8kdP
-         44mM89+OkYbVg2xtHgLccxkDFXavPZM0avhkd0m2CelUBjRq+vDKg8OfLdJQ97OANIcE
-         ZLzQ==
+        bh=khQx4CnsxrIKfW3vEXmfF4aXf0Jm31HPz3k9tr+YE8w=;
+        b=crqb6RSYPIcmRXaIRhBWkL9pCsBHKP+9pBLNiCPkxZkN4nYRiMoY5IKk00d21mpICV
+         bgA7EzIyGYClfdB3rF4HqAaKbJslVy1UPZXN2Fvqol+oFu6uepZmHyXQSdtq90eECyjp
+         Fwhf1DFrVzmppPbCHn52lHEfsrGcqm/0tAPZCj3mjdk1DRPJnNrBAjEZEUZg7FmGY9WP
+         MNUnNSWReA7CpzxHW9pVs0lIWPPhOcqOav4DFl8styNRNSzHKdAGwDtXu2PybAMFlxJt
+         UqOb0e4ZA1LQZRqo67XMcGVdhdInVLOlNhqFoFxGuc6r9Yp1Ll8pj07rE1+mUH2n3zaf
+         dMdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770337441; x=1770942241;
+        d=1e100.net; s=20230601; t=1770337442; x=1770942242;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=DkB7Ob67zo2H0cVB+6PUohLPiXcNGFnT5QvoddvcFAk=;
-        b=A1wYnpg2ZsnqiF/ICYYLM5mJl9+cQWJyIkjZyPpC1WU03E4Wv+KUSxQvPaKF2BPWI1
-         pfWnQmFJfW8RwPLIbBAgnKz++LaU7vuI74EsAKikbtZQobEZRnsTLDxqIhLIckUZsRdX
-         nk44cfdqRtju+7Ep+E1nsLtUF7qSLA1dQAsWADmJgf1SVeOkYKde1zjgwvusYuzn2YrE
-         tcsAF25VEl8dF1DqnifKrGlwLN9PmuzC0jiZB2Hj6VRYUrxfI3UMDVzsISsQkyhlm56f
-         nwLGLSLZAtHhBpiIdjmmiYaTbrusXToYteN9eH9s7yGQEUosDcUmicAIrfo2s5159PEr
-         o/8A==
-X-Forwarded-Encrypted: i=1; AJvYcCXufxwnx0GeV/MF/deT6GmIfXPXht2dX+xs1M7SHIxDPoD463MY/dgYNjgcUJb4FOQbp5lEbr+vYN8jlA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+aDckwLUh9I+dLsj9ZeLtBkBr2zl6PPqBoUASo58wwEGYgV1V
-	3oKC+cKnk0kBn0Zt6lJ9K/ZQ6CWYNwxXWl9SCd4w9j5DivMhfhpInh+Bpr7nAgkza3G7yNWgb8G
-	1T27ZOK3MVSgHht0rKfyuGEJZU1jdhFQlbBKkn3l69me5MYkTgK3th/qpVtThXXpLu649zKc=
-X-Gm-Gg: AZuq6aIVqdnzZpciIeDFqZhf50n5owZupTRM2hkXW0n5v7lfnmIvHWpX//GO/5SEq0a
-	bm3Fza4OG+2RG0NOO4teNxTiR54WTyNfEpEFdKHVFVlC6EyjLFc5hiOG5zu1c11QQGYK7p9ZTXk
-	zf+vqdELbhTxV7pwGGHlyORvApkKYhyRxmDswTc+yTdzXdtPLaB1aD2J/rZFSh416+A78pylvpt
-	+9EcWdkB+pEHd3w8PIs4Ex7P46jvk8xP82pMU3JgPQu4vlvMq5VWRWxcPezLaKMdq4sBRT/VqvK
-	LcKNANu4Pq86sNIfLfEWdlV8M0+DccUCYchX+12Jn51iNEv/kLgMVG5nYpoQTEjI7gChhqmQGXf
-	HKku0qdMUB3th5G+xsGk=
-X-Received: by 2002:a05:7300:f602:b0:2b6:af85:dd2d with SMTP id 5a478bee46e88-2b856833be8mr445018eec.32.1770337439883;
-        Thu, 05 Feb 2026 16:23:59 -0800 (PST)
-X-Received: by 2002:a05:7300:f602:b0:2b6:af85:dd2d with SMTP id 5a478bee46e88-2b856833be8mr444996eec.32.1770337439354;
-        Thu, 05 Feb 2026 16:23:59 -0800 (PST)
+        bh=khQx4CnsxrIKfW3vEXmfF4aXf0Jm31HPz3k9tr+YE8w=;
+        b=C6pks69vjV1QQormvwhDfRHCAvJmaIfyhVojHAegOmik212cqmUG5uTLxS75FiSqJG
+         DDkbLSmDhSnsrWk7g6skLHFEh7RO25sj1OCj67RCS6tuPWAHxaFE2pZGBaVaZd1le9ln
+         O6FUy7s1qioHnlbPcW58VeJCFS/2QMTnqbAgZw3He0Bu5jDZy/542xlO8RBMqwqX/QjM
+         Fqarnfu2HmyDWod7GhhfmljV63QB7vwFVpNtiS2P/4SfVNbXDAwHoIqeG4CoK3FsCWBl
+         NLTNYnW/PWJT+8NiE8zy1HSoeMMecwzTBsRFnvar/v2R2/X5OMJiRz/OFqDgcXsUn2Pg
+         52uA==
+X-Forwarded-Encrypted: i=1; AJvYcCXAuz1lSG4f7KS0nnjM+1LJ2eQhQmgiv3oC8gD+Ty3WNng6SJLlL+xrgL/P4QTlYkcRX8tRkFqxa0oBOA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9R60Yf/WHD1YfoWQ2npn88f+bvh+My/nBU9nFvvFw1Hb5i268
+	1sr2TmbYyT/3E+VU683X2cGMfocNPY9u5R4bpti3FeDMSQ5WXRvtR9N2zzKI/cO1j8DgHePl+sI
+	HM8Q8rafb5mElL1+ekwm1lJqvzSipXQ3c/L58Hkyg6d5RMEWMT+cwLZdvHx9smaQi51C9TJU=
+X-Gm-Gg: AZuq6aKi5AJ+0qlPAmfNcTqJ7fprx/tX3jY3qpBNSsoCh1B/oPtPGF9Kyx28eO5bIrk
+	6NYO/d9G1i89wRZK0yx46phpJcpEw4Ln6rBnnFI2pd2UaiXYfyX3CAfyhsvriDJUCkqkjk9Pr1B
+	7/Obe9BOr2kPzJJzW1CLgl7HhMmgig0H8YPFf1EZDi4Vlt7LgGnfcKjg/kQ1NI5WzkHbcjM3SXD
+	YYsj0yEZC/9Gy7bsfkfLD1hrbsPHZ8hsRyhiVnQtJDUWm14tSlJQYk+qkQFANXiqojHBs29edg1
+	5fftC3HxIgJQLyugE8cO7TSDjSet5gGEPDTmi4oQU5oj9nPqa3/73EKRt5j3b2c74KTfnnDh9E1
+	yyu6vSveWALB+vVn7cT6xVrA2sp7k1uQ=
+X-Received: by 2002:a05:7300:e7a4:b0:2ab:ca55:b762 with SMTP id 5a478bee46e88-2b856a45fdbmr432288eec.41.1770337441609;
+        Thu, 05 Feb 2026 16:24:01 -0800 (PST)
+X-Received: by 2002:a05:7300:e7a4:b0:2ab:ca55:b762 with SMTP id 5a478bee46e88-2b856a45fdbmr432268eec.41.1770337441051;
+        Thu, 05 Feb 2026 16:24:01 -0800 (PST)
 Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b855ad8c62sm618387eec.3.2026.02.05.16.23.58
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b855af6452sm700373eec.9.2026.02.05.16.24.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Feb 2026 16:23:58 -0800 (PST)
+        Thu, 05 Feb 2026 16:24:00 -0800 (PST)
 From: Andrew Jones <andrew.jones@oss.qualcomm.com>
 To: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
         kvm-riscv@lists.infradead.org
@@ -98,39 +98,39 @@ Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
         Charlie Jenkins <charlie@rivosinc.com>,
         Charlie Jenkins <thecharlesjenkins@gmail.com>,
         Samuel Holland <samuel.holland@sifive.com>
-Subject: [RFC PATCH v1 04/11] riscv: Add B to hwcap
-Date: Thu,  5 Feb 2026 18:23:42 -0600
-Message-ID: <20260206002349.96740-5-andrew.jones@oss.qualcomm.com>
+Subject: [RFC PATCH v1 05/11] riscv: hwprobe.rst: Replace tabs with spaces
+Date: Thu,  5 Feb 2026 18:23:43 -0600
+Message-ID: <20260206002349.96740-6-andrew.jones@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260206002349.96740-1-andrew.jones@oss.qualcomm.com>
 References: <20260206002349.96740-1-andrew.jones@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Authority-Analysis: v=2.4 cv=ItITsb/g c=1 sm=1 tr=0 ts=698534a1 cx=c_pps
+X-Authority-Analysis: v=2.4 cv=GLoF0+NK c=1 sm=1 tr=0 ts=698534a2 cx=c_pps
  a=cFYjgdjTJScbgFmBucgdfQ==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
  a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
  a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=EUspDBNiAAAA:8
- a=y3MMSYwnWwWQE3oEGTgA:9 a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-ORIG-GUID: d1hYpC4HobDGdAa0d-ImCS8qdjRbRrS_
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjA2MDAwMSBTYWx0ZWRfX8FykaN1S5qyC
- lItOEKhaUyVU3eXm+GPrHt6dke3EvnGKemtT1l4QLXTX+kjoRa/szK6fsPrkwQz8FsHLP5IfQLi
- YTTVbpTzNGfEuP1nMCycg+Ys0CcW4/pGkodks4jgREmpHBqS0UklD8Yrn8VU/LInd4i3Z1bxjOd
- rdDDdCASV4wEq2cf0fLUcMhV87p9q9SExv+QizHo08QBAm60HhXgpO+Th5YqxgCEn1YIgVnLmvK
- nZ+wXbaKD4+oZXLmR1DQJ6Xd8avrq6iUkJnGxDXXZ9XYJa/wYZbOg3EhYb4kNknhvibu+PNG5ZY
- fpd5ZX+lZhSGTexIKNi+Hd2sKkTzvBu9blg+njLcTiEWL/SocyZ2a/C83CufdtstLl5uBvDQ7lW
- vnLKf4Ky3Ki8DP/ceDwJyoCXNYgp0UCtPf5p3i1QLZPm2bGTgeT0DbSBcqeBpUxbxMDhu5HzmOh
- mBkNnXYoE8rgjFN+Fhw==
-X-Proofpoint-GUID: d1hYpC4HobDGdAa0d-ImCS8qdjRbRrS_
+ a=DjeV1u91x-28HgnErZYA:9 a=scEy_gLbYbu1JhEsrz4S:22
+X-Proofpoint-GUID: iyQf8Kdt4iUUJk2YSIXD3JVt3gVWB9jD
+X-Proofpoint-ORIG-GUID: iyQf8Kdt4iUUJk2YSIXD3JVt3gVWB9jD
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjA2MDAwMSBTYWx0ZWRfXzTznidG/nF3g
+ h6ipIeFBzHLW2QjG4eocEGOZIGwNMJCwLG8Z5rmKVQFikigtYHSj1D9d5bq2C1iHlPFDvTsQuGz
+ 3oeDJqx+nKiyabY3CT2dy+1fK2OOdeAPte2kCUygvvQogoPWac0KyC91Jq7KCdLijjF+j/pOrYB
+ oh4aQqwFz/xnO28JSWhHCknCJeQ5LJvsQ9OJUii8+rX1yZeI7R/s5iQ+hoTHqcfmtChBobFkM0b
+ rkZQ/cM50wlLXftURFu60N39R6BLI0v0dl9/2JnVFfJv85EeavNpVaZONEsZHR11G7l8kE+7ktE
+ ZKdpLw5cgBPx8Q6Jyy2iGApoz/d+4gyhZpnyGe3DZf7oW6Qix8/I5n3VD+KEOBSnJO/3N37Mu7M
+ UZOHOmvo5Z0kxS7wxCYT/00dBI7VVSa3kj3i+q2FXux301isSy6Tyq6imPKl8J4xJ/3ASvOcAKj
+ X5tLFDLw0n6UxIqj1HQ==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-02-05_06,2026-02-05_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 bulkscore=0 spamscore=0 lowpriorityscore=0 adultscore=0
- suspectscore=0 malwarescore=0 priorityscore=1501 impostorscore=0 phishscore=0
+ spamscore=0 suspectscore=0 priorityscore=1501 lowpriorityscore=0 bulkscore=0
+ malwarescore=0 clxscore=1015 impostorscore=0 adultscore=0 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602060001
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_162402_565459_8371C2ED 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20260205_162403_713306_1B5881AC 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,73 +147,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add B to hwcap and ensure when B is present that Zba, Zbb, and Zbs
-are all set.
-
 Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
 ---
- arch/riscv/include/asm/hwcap.h      | 1 +
- arch/riscv/include/uapi/asm/hwcap.h | 1 +
- arch/riscv/kernel/cpufeature.c      | 8 ++++++++
- 3 files changed, 10 insertions(+)
+ Documentation/arch/riscv/hwprobe.rst | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index 03acd22bbbaa..c17e11caca83 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -11,6 +11,7 @@
- #include <uapi/asm/hwcap.h>
+diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+index 0598c9ddd73f..4484f2a7f798 100644
+--- a/Documentation/arch/riscv/hwprobe.rst
++++ b/Documentation/arch/riscv/hwprobe.rst
+@@ -362,7 +362,7 @@ The following keys are defined:
  
- #define RISCV_ISA_EXT_A		('a' - 'a')
-+#define RISCV_ISA_EXT_B		('b' - 'a')
- #define RISCV_ISA_EXT_C		('c' - 'a')
- #define RISCV_ISA_EXT_D		('d' - 'a')
- #define RISCV_ISA_EXT_F		('f' - 'a')
-diff --git a/arch/riscv/include/uapi/asm/hwcap.h b/arch/riscv/include/uapi/asm/hwcap.h
-index c52bb7bbbabe..96b7cf854e09 100644
---- a/arch/riscv/include/uapi/asm/hwcap.h
-+++ b/arch/riscv/include/uapi/asm/hwcap.h
-@@ -21,6 +21,7 @@
- #define COMPAT_HWCAP_ISA_F	(1 << ('F' - 'A'))
- #define COMPAT_HWCAP_ISA_D	(1 << ('D' - 'A'))
- #define COMPAT_HWCAP_ISA_C	(1 << ('C' - 'A'))
-+#define COMPAT_HWCAP_ISA_B	(1 << ('B' - 'A'))
- #define COMPAT_HWCAP_ISA_V	(1 << ('V' - 'A'))
+     * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XTHEADVECTOR`: The xtheadvector vendor
+         extension is supported in the T-Head ISA extensions spec starting from
+-	commit a18c801634 ("Add T-Head VECTOR vendor extension. ").
++        commit a18c801634 ("Add T-Head VECTOR vendor extension. ").
  
- #endif /* _UAPI_ASM_RISCV_HWCAP_H */
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 25ed1d6958d7..ca7a34f66738 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -429,6 +429,12 @@ static const unsigned int riscv_c_exts[] = {
- 	RISCV_ISA_EXT_ZCD,
- };
+ * :c:macro:`RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE`: An unsigned int which
+   represents the size of the Zicbom block in bytes.
+@@ -375,19 +375,19 @@ The following keys are defined:
  
-+static const unsigned int riscv_b_exts[] = {
-+	RISCV_ISA_EXT_ZBA,
-+	RISCV_ISA_EXT_ZBB,
-+	RISCV_ISA_EXT_ZBS,
-+};
-+
- /*
-  * The canonical order of ISA extension names in the ISA string is defined in
-  * chapter 27 of the unprivileged specification.
-@@ -476,6 +482,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_DATA_VALIDATE(d, RISCV_ISA_EXT_D, riscv_ext_d_validate),
- 	__RISCV_ISA_EXT_DATA(q, RISCV_ISA_EXT_Q),
- 	__RISCV_ISA_EXT_SUPERSET(c, RISCV_ISA_EXT_C, riscv_c_exts),
-+	__RISCV_ISA_EXT_SUPERSET(b, RISCV_ISA_EXT_B, riscv_b_exts),
- 	__RISCV_ISA_EXT_SUPERSET_VALIDATE(v, RISCV_ISA_EXT_V, riscv_v_exts, riscv_ext_vector_float_validate),
- 	__RISCV_ISA_EXT_DATA(h, RISCV_ISA_EXT_H),
- 	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicbom, RISCV_ISA_EXT_ZICBOM, riscv_xlinuxenvcfg_exts, riscv_ext_zicbom_validate),
-@@ -1089,6 +1096,7 @@ void __init riscv_fill_hwcap(void)
- 	isa2hwcap['f' - 'a'] = COMPAT_HWCAP_ISA_F;
- 	isa2hwcap['d' - 'a'] = COMPAT_HWCAP_ISA_D;
- 	isa2hwcap['c' - 'a'] = COMPAT_HWCAP_ISA_C;
-+	isa2hwcap['b' - 'a'] = COMPAT_HWCAP_ISA_B;
- 	isa2hwcap['v' - 'a'] = COMPAT_HWCAP_ISA_V;
+     * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XSFVQMACCDOD`: The Xsfqmaccdod vendor
+         extension is supported in version 1.1 of SiFive Int8 Matrix Multiplication
+-	Extensions Specification.
++        Extensions Specification.
  
- 	if (!acpi_disabled) {
+     * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XSFVQMACCQOQ`: The Xsfqmaccqoq vendor
+         extension is supported in version 1.1 of SiFive Int8 Matrix Multiplication
+-	Instruction Extensions Specification.
++        Instruction Extensions Specification.
+ 
+     * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XSFVFNRCLIPXFQF`: The Xsfvfnrclipxfqf
+         vendor extension is supported in version 1.0 of SiFive FP32-to-int8 Ranged
+-	Clip Instructions Extensions Specification.
++        Clip Instructions Extensions Specification.
+ 
+     * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XSFVFWMACCQQQ`: The Xsfvfwmaccqqq
+         vendor extension is supported in version 1.0 of Matrix Multiply Accumulate
+-	Instruction Extensions Specification.
++        Instruction Extensions Specification.
+ 
+ * :c:macro:`RISCV_HWPROBE_KEY_ZICBOP_BLOCK_SIZE`: An unsigned int which
+   represents the size of the Zicbop block in bytes.
 -- 
 2.43.0
 
