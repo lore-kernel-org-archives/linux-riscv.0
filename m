@@ -4,56 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3361EE6B4D
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 19:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41FFAEE6B4D
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 20:23:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pUxL/hmBiz5ZP5CP0oUbrYnKogCNGj2hYNOA9jC0CkE=; b=gjeR1VIRlx6AW8Wd+44MVSipu5
-	9x5NnbGl906mX+pOR++GUVjWD4bep1g6holz1WwxQQpyl+e5kOnotFdJTMQpsV0d1lQbghnWuPtkA
-	cfAlHaA23NJLYZSZ266gw03J8ic77cFvL3jzp4sGf7ihWWBcfyFWHcjYRRIN1whptcBfoQArY/2ef
-	izi7fL6YS0C33FuB0yB7VMjEDSdDRqjewJ9EhJb0l28qg4jXbSbqZ8E8hSGxxFRmuGTbin8rLbvWp
-	tnXEQdo3FqWy84r6gXMlwKrKNjmWKWHm8yo63TDIhOsF/WtNT3NgW7BslhQbY95bLBFmLglYtqI6J
-	3SllYUpQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qq/9VVgrXMxXKmlOuvzg0+fWAEFHp/oBQoS8U+l/qrI=; b=b3zs6lMvVq+qEj
+	E+rS7CxMSLtYOP23OWbdn/uUe4oAVARue3OdJG0gb+S2lwyFfSzlIf8mdo9motor1tRbuy91gaanB
+	+NqU/k8YsULEqqqHbarKHiwpzKUKw9KnWwlwzGtLqdtcNSKl4CPfbkwk5C2Lc35mB2zIBTuXzW0nV
+	CKGY0s4KDJcOON2+MJDJy7JNG/Jr8npQSc6iqPPzx2Siv+tvKDKFsQugZwSFRxBl/7HVQnDOVNdl1
+	F4bOd+8byHfBJYYOj99DjGJ/xTiqIcEeEVaBeVs8XOkqOQ8hJJRQQVgbPRBn6sdAvkmWyG8PHarac
+	u6nkyS7vw+ZDQW1mx40A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voRsL-0000000BlPE-2RIj;
-	Fri, 06 Feb 2026 19:52:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1voSMP-0000000BnIM-41NZ;
+	Fri, 06 Feb 2026 20:23:25 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voRsK-0000000BlP8-1eZA
+	id 1voSMN-0000000BnHf-0Q9u
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Feb 2026 19:52:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 328A8600CB;
-	Fri,  6 Feb 2026 19:52:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFD25C116C6;
-	Fri,  6 Feb 2026 19:52:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770407538;
-	bh=CJFSsWdO5Opr8LpgB3J13to1nCjR+HtWwfNjRTQ8Yw0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DIFXG6KH++T6V7fSAY4mYvzOkKP9bxZiq1zidtMLZdDLmfBL58dGSbwPfLzI9FaYI
-	 Goceerc3EDi99VYSJ9FHJY0sPKyoZ085W2dvpusduE9QlUDe1EXT4QOU8nzryfEwdL
-	 6jR7BsF4sZKNMjtNrOUBW+sxeLxlyAJcaloVZ1Voug7yA/wpY4iY/f8C7D/44JSFpC
-	 8um+lwPJL+rlaTz0JoU6UmK0DKdNQ69qf+kwILlKOteQEJXNYZYLQAq8CCuJigafY5
-	 Pcns0wQAmKgoEJk0YUEPl07dk5foc3cNtut5vWR5FqY/lMmNRRNSo0tCO6PU+v9Qfv
-	 VPvJyteI1PfXw==
-Date: Fri, 6 Feb 2026 19:52:15 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] soc: microchip: mpfs: Fix a memory leak in
- mpfs_sys_controller_probe()
-Message-ID: <20260206-neurosis-partner-009242f0ac16@spud>
-References: <20260203-mpfs-v1-1-666b8704f8f7@gmail.com>
+	Fri, 06 Feb 2026 20:23:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1770409403; x=1801945403;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ZWMzhVSsuFWA8/ih7p2SAqQIt6FnkD+vZqt/ciGixAc=;
+  b=hsdUDqPadYI/cykrCYcc4mgSSZ/J5poinSuy4AuX4csWcTPxM0HK9fjv
+   gMC5xfpga50p6ubx4Rum6h6axkWDLjg5OEjlaXtxTIkmuPIKsfFvHTIcd
+   RKVXY4qIEOjUvISZKFGdeRkXoNEbeqqqBNXWYaov4Q7cQcKDhPEy22A2K
+   ANKAxetVqPe2c58y4QDmURocGGa/CqYn1EUfvXXZzOmUHXoAc57fZZAFr
+   3qbMLW4syVYYeoK0MYlcyXCkPeGC7Rt3r+A7DtxJb4K1WydcIrchKG2aQ
+   qnkJdp/sFCRk71A5R2AqwASpd6yFoOGPYxMMjiPm+ig89jJ0aURa/aq15
+   Q==;
+X-CSE-ConnectionGUID: +shZulkpRQOI2biEXpVNqw==
+X-CSE-MsgGUID: apLlKsTBS8WAz5boqOwptA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11693"; a="83062528"
+X-IronPort-AV: E=Sophos;i="6.21,277,1763452800"; 
+   d="scan'208";a="83062528"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Feb 2026 12:23:20 -0800
+X-CSE-ConnectionGUID: 6yKFI4BGS2KXCCJIJN6sBQ==
+X-CSE-MsgGUID: h7YTw79iTb+WMmdilYntNQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,277,1763452800"; 
+   d="scan'208";a="210253095"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa010.jf.intel.com with ESMTP; 06 Feb 2026 12:23:15 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1voSMC-00000000l6i-4C6F;
+	Fri, 06 Feb 2026 20:23:13 +0000
+Date: Sat, 7 Feb 2026 04:22:42 +0800
+From: kernel test robot <lkp@intel.com>
+To: Menglong Dong <menglong8.dong@gmail.com>, ast@kernel.org,
+	bjorn@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, daniel@iogearbox.net, andrii@kernel.org,
+	martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
+	yonghong.song@linux.dev, john.fastabend@gmail.com,
+	kpsingh@kernel.org, sdf@fomichev.me, haoluo@google.com,
+	jolsa@kernel.org, pulehui@huawei.com, puranjay@kernel.org,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, jiang.biao@linux.dev
+Subject: Re: [PATCH bpf-next v3 2/3] bpf, riscv: add fsession support for
+ trampolines
+Message-ID: <202602070435.BuX0TvvF-lkp@intel.com>
+References: <20260206122002.1494125-3-dongml2@chinatelecom.cn>
 MIME-Version: 1.0
-In-Reply-To: <20260203-mpfs-v1-1-666b8704f8f7@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20260206122002.1494125-3-dongml2@chinatelecom.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260206_122323_204443_F62209A6 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,86 +91,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0904493530939966964=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Menglong,
 
---===============0904493530939966964==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="17ifevd45IYDWzDL"
-Content-Disposition: inline
+kernel test robot noticed the following build errors:
 
+[auto build test ERROR on bpf-next/master]
 
---17ifevd45IYDWzDL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+url:    https://github.com/intel-lab-lkp/linux/commits/Menglong-Dong/bpf-riscv-introduce-emit_store_stack_imm64-for-trampoline/20260206-202356
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
+patch link:    https://lore.kernel.org/r/20260206122002.1494125-3-dongml2%40chinatelecom.cn
+patch subject: [PATCH bpf-next v3 2/3] bpf, riscv: add fsession support for trampolines
+config: riscv-randconfig-r112-20260206 (https://download.01.org/0day-ci/archive/20260207/202602070435.BuX0TvvF-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 10.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260207/202602070435.BuX0TvvF-lkp@intel.com/reproduce)
 
-On Tue, Feb 03, 2026 at 09:03:52PM +0800, Felix Gu wrote:
-> In mpfs_sys_controller_probe(), when of_get_mtd_device_by_node() fails,
-> the previously allocated sys_controller was leaked.
->=20
-> Add kfree() to fix this.
->=20
-> Fixes: 742aa6c563d2 ("soc: microchip: mpfs: enable access to the system c=
-ontroller's flash")
-> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
-> ---
->  drivers/soc/microchip/mpfs-sys-controller.c | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/mi=
-crochip/mpfs-sys-controller.c
-> index 30bc45d17d34..a7401cb79e97 100644
-> --- a/drivers/soc/microchip/mpfs-sys-controller.c
-> +++ b/drivers/soc/microchip/mpfs-sys-controller.c
-> @@ -142,8 +142,11 @@ static int mpfs_sys_controller_probe(struct platform=
-_device *pdev)
-> =20
->  	sys_controller->flash =3D of_get_mtd_device_by_node(np);
->  	of_node_put(np);
-> -	if (IS_ERR(sys_controller->flash))
-> -		return dev_err_probe(dev, PTR_ERR(sys_controller->flash), "Failed to g=
-et flash\n");
-> +	if (IS_ERR(sys_controller->flash)) {
-> +		ret =3D dev_err_probe(dev, PTR_ERR(sys_controller->flash), "Failed to =
-get flash\n");
-> +		kfree(sys_controller);
-> +		return ret;
-> +	}
-> =20
->  no_flash:
->  	sys_controller->client.dev =3D dev;
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202602070435.BuX0TvvF-lkp@intel.com/
 
-This is a duplicate of a patch in my riscv-soc-fixes branch, that for
-whatever reason I forgot to push. I'll keep the original but thanks for
-your patch.
+All errors (new ones prefixed by >>):
 
---17ifevd45IYDWzDL
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaYZGawAKCRB4tDGHoIJi
-0jPjAPoDwTApwoTXqPLgAccyGeWmdXouPdw6RxYbgSJAGbmG4wD/frfXvCbNsNRD
-BFX0xlMD1pXQbUJI4Q0QCgdOQuEuNAw=
-=TeL1
------END PGP SIGNATURE-----
-
---17ifevd45IYDWzDL--
+   arch/riscv/net/bpf_jit_comp64.c: In function 'invoke_bpf':
+>> arch/riscv/net/bpf_jit_comp64.c:1008:37: error: passing argument 1 of 'bpf_prog_calls_session_cookie' from incompatible pointer type [-Werror=incompatible-pointer-types]
+    1008 |   if (bpf_prog_calls_session_cookie(&tl->links[i])) {
+         |                                     ^~~~~~~~~~~~~
+         |                                     |
+         |                                     struct bpf_tramp_link **
+   In file included from arch/riscv/net/bpf_jit_comp64.c:9:
+   include/linux/bpf.h:2199:73: note: expected 'struct bpf_tramp_link *' but argument is of type 'struct bpf_tramp_link **'
+    2199 | static inline bool bpf_prog_calls_session_cookie(struct bpf_tramp_link *link)
+         |                                                  ~~~~~~~~~~~~~~~~~~~~~~~^~~~
+   cc1: some warnings being treated as errors
 
 
---===============0904493530939966964==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+vim +/bpf_prog_calls_session_cookie +1008 arch/riscv/net/bpf_jit_comp64.c
+
+   998	
+   999	static int invoke_bpf(struct bpf_tramp_links *tl, int args_off, int retval_off,
+  1000			      int run_ctx_off, int func_meta_off, bool save_ret, u64 func_meta,
+  1001			      int cookie_off, struct rv_jit_context *ctx)
+  1002	{
+  1003		int i, cur_cookie = (cookie_off - args_off) / 8;
+  1004	
+  1005		for (i = 0; i < tl->nr_links; i++) {
+  1006			int err;
+  1007	
+> 1008			if (bpf_prog_calls_session_cookie(&tl->links[i])) {
+  1009				u64 meta = func_meta | ((u64)cur_cookie << BPF_TRAMP_COOKIE_INDEX_SHIFT);
+  1010	
+  1011				emit_store_stack_imm64(RV_REG_T1, -func_meta_off, meta, ctx);
+  1012				cur_cookie--;
+  1013			}
+  1014			err = invoke_bpf_prog(tl->links[i], args_off, retval_off, run_ctx_off,
+  1015					      save_ret, ctx);
+  1016			if (err)
+  1017				return err;
+  1018		}
+  1019		return 0;
+  1020	}
+  1021	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0904493530939966964==--
-
