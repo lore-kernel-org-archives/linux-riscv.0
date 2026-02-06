@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCEA5EE2086
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 10:35:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 128D0EE2086
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 10:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OFixbIuU81W+j8PyH6JMuLZSGrIR0bhPFdJRt0BrLEA=; b=H9g/XNtBToCkRS
-	Ot+CsNJpEvOp6hNB5kZzKNXClVnh5aKygrPz59nUyFGn6GoKTvOkVpU3lZ1Ejz5hjvvefGxdEyxu3
-	HcIjTSLj4IkOWeFO9mMLaamccrNyTfs/6upme8uY7yDbSjQxxcJmnBNf0/xxAoTbAeEofVulcdlNk
-	yqksNSxvBAsGwG97w4OXzMh+gBCiLOOJ42L0D08P2s+cM/1Fhc98uuZzVaY5D8o1K7vyxy4t0rY75
-	kQTYhVVd8dtvoGswjo2J+7jLlDO2R7/OPLrnzqIRRnT9/reMgfP+E/Ls6r2YX3BjA1j9uhx99qQEi
-	GKbceFzYTtzkxMiIrdBw==;
+	List-Owner; bh=DeiQ0A30/w4WwBZS8W4VAgthMJxJex9DIqx7POzLwto=; b=IJFlRGOM9dOifT
+	7lGit5RAlH4FzhfbBZyn+lVD6wRTwCzW9xobFprOF5HrU2Z6ZSrP3VL0e+IBB89muYu5O4Hvk9c/q
+	ziIqUW/PYkcrMluHmthyTTaLc0IBk2uWZfoOk1OUBZt0JOxjuhb64NRHyw7M8pQnvepS2lkFkHmud
+	VkdPb6D8exw+faKWmJNFXQ07Ny8gWS5zxMHcamn0DidOO2xtyDsHF/6GBAhqHctF5GJTbnru3moCx
+	99az+Pxnm6n/rY7X7Z2sKybOTj6r17ZzDryknZcDmp4RnD61E+llUv5KXoHn4nUI9je7gSM9sNOev
+	tetyd0q4rfrGoXH24C+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voJBb-0000000BBTW-3kKD;
-	Fri, 06 Feb 2026 10:35:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1voJI5-0000000BBjA-2yPh;
+	Fri, 06 Feb 2026 10:42:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voJBa-0000000BBTQ-3kgh
+	id 1voJI3-0000000BBj3-1E6j
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Feb 2026 10:35:39 +0000
+	Fri, 06 Feb 2026 10:42:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E532860010;
-	Fri,  6 Feb 2026 10:35:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9ADBFC116C6;
-	Fri,  6 Feb 2026 10:35:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3316360051;
+	Fri,  6 Feb 2026 10:42:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAA05C116C6;
+	Fri,  6 Feb 2026 10:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770374137;
-	bh=4eHKEhmEK8xsEIAIBEaQ/Y5Lb5Y5nnEuAYz1Q4HZ+SU=;
+	s=k20201202; t=1770374537;
+	bh=X4ulH2AmDkCSg3stSWU0qmNiUtFh+CTtBIZg9eTnXM0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=S6dc09FXA/oslyvgU5XYJDzbCDyPHsKVIty3YtaZStxu0DwL5tirjTKmYgh/T9eCa
-	 MlLAjkLZP2A+XpbtVzHQ5Hz16O2G1paaoIzPh2aoh42Kpm3eyzKze2jUxg0BBedXS2
-	 s0zLAKQGkVIYs9iA7x4O3L+mjVW6FOgKEcEJkqoHCqohjarOqhC1D2k7FP3EF/jaRQ
-	 tzQLNwDlYLIgmWgUZgs4ly60PYVii+9ZTKLF/Xl5C74FJwKJ6isZZy1sDvMWNNjura
-	 pNWziuoPV3Q2aXliocKXSW2xjWG7kteH3CBWMUYoiMoM/1nrnYcrBfDVRyjSuuWQQ3
-	 C+or9FiaofU8w==
-Message-ID: <bf413c9c-eabf-4eb7-bae4-947dd7e012cd@kernel.org>
-Date: Fri, 6 Feb 2026 11:35:30 +0100
+	b=VTysHtsFbDZOc9nla0Q2lgBis/brgO6Tu+kf3ZjW0lCZpL1uJplM9eZTkXQhCcum2
+	 UIQVwE1+A3z9/osnfEUHa5wrcr52RX4ivjXktLIzY5oVFuwODBON2ufk5tTgU6mn+R
+	 kRQjtEeQq2irifXeO/1G3CFjPn3stmMk/VvAx3qvWB8gbBiWAQl6yd0+kYztL1a+QJ
+	 eagSYMaSu7JIt54TiZMwJU+j3SfNPW7mc3mRGstPV06L/k2NOUTqClojWUxdl8PEiw
+	 /vumUJqdqpNOYsec/0f6JZTDY41m2mszc4Rs+BB36RPHPk/B4ZAjutUf6q1FNZNSrq
+	 eP+Xw8P8QMVAg==
+Message-ID: <0ecdd75e-ccd8-4217-a409-51da756ff1fe@kernel.org>
+Date: Fri, 6 Feb 2026 11:42:10 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv6 16/17] hugetlb: Update vmemmap_dedup.rst
+Subject: Re: [PATCHv6 17/17] mm/slab: Use compound_head() in page_slab()
 To: Kiryl Shutsemau <kas@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
@@ -63,7 +63,7 @@ Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
 References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-17-kas@kernel.org>
+ <20260202155634.650837-18-kas@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -110,7 +110,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260202155634.650837-17-kas@kernel.org>
+In-Reply-To: <20260202155634.650837-18-kas@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,69 +128,41 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2/2/26 16:56, Kiryl Shutsemau wrote:
-> Update the documentation regarding vmemmap optimization for hugetlb to
-> reflect the changes in how the kernel maps the tail pages.
+> page_slab() contained an open-coded implementation of compound_head().
 > 
-> Fake heads no longer exist. Remove their description.
+> Replace the duplicated code with a direct call to compound_head().
 > 
 > Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
-> Reviewed-by: Muchun Song <muchun.song@linux.dev>
-> ---
->   Documentation/mm/vmemmap_dedup.rst | 60 +++++++++++++-----------------
->   1 file changed, 26 insertions(+), 34 deletions(-)
 > 
-> diff --git a/Documentation/mm/vmemmap_dedup.rst b/Documentation/mm/vmemmap_dedup.rst
-> index 1863d88d2dcb..fca9d0ce282a 100644
-> --- a/Documentation/mm/vmemmap_dedup.rst
-> +++ b/Documentation/mm/vmemmap_dedup.rst
-> @@ -124,33 +124,35 @@ Here is how things look before optimization::
->    |           |
->    +-----------+
->   
-> -The value of page->compound_info is the same for all tail pages. The first
-> -page of ``struct page`` (page 0) associated with the HugeTLB page contains the 4
-> -``struct page`` necessary to describe the HugeTLB. The only use of the remaining
-> -pages of ``struct page`` (page 1 to page 7) is to point to page->compound_info.
-> -Therefore, we can remap pages 1 to 7 to page 0. Only 1 page of ``struct page``
-> -will be used for each HugeTLB page. This will allow us to free the remaining
-> -7 pages to the buddy allocator.
-> +The first page of ``struct page`` (page 0) associated with the HugeTLB page
-> +contains the 4 ``struct page`` necessary to describe the HugeTLB. The remaining
-> +pages of ``struct page`` (page 1 to page 7) are tail pages.
-> +
-> +The optimization is only applied when the size of the struct page is a power-of-2
-> +In this case, all tail pages of the same order are identical. See
-> +compound_head(). This allows us to remap the tail pages of the vmemmap to a
-> +shared, read-only page. The head page is also remapped to a new page. This
-> +allows the original vmemmap pages to be freed.
->   
->   Here is how things look after remapping::
->   
-> -    HugeTLB                  struct pages(8 pages)         page frame(8 pages)
-> - +-----------+ ---virt_to_page---> +-----------+   mapping to   +-----------+
-> - |           |                     |     0     | -------------> |     0     |
-> - |           |                     +-----------+                +-----------+
-> - |           |                     |     1     | ---------------^ ^ ^ ^ ^ ^ ^
-> - |           |                     +-----------+                  | | | | | |
-> - |           |                     |     2     | -----------------+ | | | | |
-> - |           |                     +-----------+                    | | | | |
-> - |           |                     |     3     | -------------------+ | | | |
-> - |           |                     +-----------+                      | | | |
-> - |           |                     |     4     | ---------------------+ | | |
-> - |    PMD    |                     +-----------+                        | | |
-> - |   level   |                     |     5     | -----------------------+ | |
-> - |  mapping  |                     +-----------+                          | |
-> - |           |                     |     6     | -------------------------+ |
-> - |           |                     +-----------+                            |
-> - |           |                     |     7     | ---------------------------+
-> +    HugeTLB                  struct pages(8 pages)                 page frame
+> ---
+> 
+> I am not sure if this open-coded version is intentional and required for
+> memdesc transition. Drop the patch if it is.
 
-You could highlight that we allocate a new head page like "page frame 
-(new)".
+commit 2bcd3800f2da1be13b972858f63c66d035b1ec6d
+Author: Matthew Wilcox (Oracle) <willy@infradead.org>
+Date:   Thu Nov 13 00:09:15 2025 +0000
 
-Wasn't aware of that detail before reading your change above.
+     slab: Reimplement page_slab()
+     
+     In order to separate slabs from folios, we need to convert from any page
+     in a slab to the slab directly without going through a page to folio
+     conversion first.
 
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+     Up to this point, page_slab() has followed the example of other memdesc
+     converters (page_folio(), page_ptdesc() etc) and just cast the pointer
+     to the requested type, regardless of whether the pointer is actually a
+     pointer to the correct type or not.
+     
+     That changes with this commit; we check that the page actually belongs
+     to a slab and return NULL if it does not.  Other memdesc converters will
+     adopt this convention in future.
+
+
+I think using compound_head() is fine. For memdescs the function has to be changed to
+lookup the memdesc either way, and not go through the head page.
+
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
