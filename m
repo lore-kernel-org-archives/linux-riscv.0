@@ -4,70 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C061BEE20AF
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 15:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3361EE6B4D
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 19:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j8HPb8FZy4UfY2g+g0ZMkj+4za/7ncPE/WY9s3TpixU=; b=RTFBjWgNOElMWn
-	ZtWydnWwbR0s8/prYofP13UdJmIFnfsEqiZSEPxpVhfC54tz4qQ3TEY19Q0xSjXYWlxQm/7Y1RI12
-	+NOQ+ZvW60GXYQDx3+mZPsTQLbqEdvRNfngbb4Y1Xaymod/qTA9zy9kIfeDGjVTWg52DIkwGIa/QL
-	kGYQ7YsB6Njhu12kGzONWsvDdScYvX1cyhS5ZrJxoX7R8L+74wOWXd7hU0X/7+/DpDSiegjCDudGo
-	DAgKdXzFE/t6uT7Pom5QBYHLiyuTuKDZyX/LgWK6K2vJ4lfLkSFtYpdCTUqcciWrHNLlcoTL4mirv
-	HkAH2FLckLBa38zNyTTA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pUxL/hmBiz5ZP5CP0oUbrYnKogCNGj2hYNOA9jC0CkE=; b=gjeR1VIRlx6AW8Wd+44MVSipu5
+	9x5NnbGl906mX+pOR++GUVjWD4bep1g6holz1WwxQQpyl+e5kOnotFdJTMQpsV0d1lQbghnWuPtkA
+	cfAlHaA23NJLYZSZ266gw03J8ic77cFvL3jzp4sGf7ihWWBcfyFWHcjYRRIN1whptcBfoQArY/2ef
+	izi7fL6YS0C33FuB0yB7VMjEDSdDRqjewJ9EhJb0l28qg4jXbSbqZ8E8hSGxxFRmuGTbin8rLbvWp
+	tnXEQdo3FqWy84r6gXMlwKrKNjmWKWHm8yo63TDIhOsF/WtNT3NgW7BslhQbY95bLBFmLglYtqI6J
+	3SllYUpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voNaP-0000000BUOy-0vyf;
-	Fri, 06 Feb 2026 15:17:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1voRsL-0000000BlPE-2RIj;
+	Fri, 06 Feb 2026 19:52:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voNaL-0000000BUON-2ZIj;
-	Fri, 06 Feb 2026 15:17:31 +0000
+	id 1voRsK-0000000BlP8-1eZA
+	for linux-riscv@lists.infradead.org;
+	Fri, 06 Feb 2026 19:52:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6176A44022;
-	Fri,  6 Feb 2026 15:17:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B452C116C6;
-	Fri,  6 Feb 2026 15:17:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 328A8600CB;
+	Fri,  6 Feb 2026 19:52:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFD25C116C6;
+	Fri,  6 Feb 2026 19:52:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770391047;
-	bh=6mz/3w0UjpTEHMbTpW4AIj0Grix3lL6MyzuhtcoRSic=;
+	s=k20201202; t=1770407538;
+	bh=CJFSsWdO5Opr8LpgB3J13to1nCjR+HtWwfNjRTQ8Yw0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VlAOXJcFe4nga7Co7rthFiRF+OTrMkuvkC7VLx301zD3DttlJ9cwinHFhpJFtMBBd
-	 3ngn0fnOslHfDn/rzIQG0+7N9oxPG1N+EKewk8rJHggIKFVzImQIDSI79x8NNFf5vu
-	 3hlM0p2dmflv+x3Sh6C5CpkqqFIlC+d06GaVtH/OsChouzd6cPnUttTXv17XAk4Gi9
-	 l8j31GXwzzXDrYx/XSKXehj0znte90kvWBaHOpF5gTIlLDSWT0mVzjgfbN7F6w/Itb
-	 Mgl+Rle4jQ1iDdiCKMbjK2lqOihrs4IqtQXkV6Lmcmp6dKTJ6+IZoyrt3sY8xPXHFs
-	 jq3hXzro+kiOg==
-Date: Fri, 6 Feb 2026 12:17:23 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Dapeng Mi <dapeng1.mi@linux.intel.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Guo Ren <guoren@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Zide Chen <zide.chen@intel.com>,
-	Falcon Thomas <thomas.falcon@intel.com>,
-	Dapeng Mi <dapeng1.mi@intel.com>, Xudong Hao <xudong.hao@intel.com>
-Subject: Re: [Patch v3 0/4] Perf tools: perf-regs bug fix and optimization
-Message-ID: <aYYGA_Mo1ppwdTH0@x1>
-References: <20260203024356.444942-1-dapeng1.mi@linux.intel.com>
+	b=DIFXG6KH++T6V7fSAY4mYvzOkKP9bxZiq1zidtMLZdDLmfBL58dGSbwPfLzI9FaYI
+	 Goceerc3EDi99VYSJ9FHJY0sPKyoZ085W2dvpusduE9QlUDe1EXT4QOU8nzryfEwdL
+	 6jR7BsF4sZKNMjtNrOUBW+sxeLxlyAJcaloVZ1Voug7yA/wpY4iY/f8C7D/44JSFpC
+	 8um+lwPJL+rlaTz0JoU6UmK0DKdNQ69qf+kwILlKOteQEJXNYZYLQAq8CCuJigafY5
+	 Pcns0wQAmKgoEJk0YUEPl07dk5foc3cNtut5vWR5FqY/lMmNRRNSo0tCO6PU+v9Qfv
+	 VPvJyteI1PfXw==
+Date: Fri, 6 Feb 2026 19:52:15 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Felix Gu <ustc.gu@gmail.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] soc: microchip: mpfs: Fix a memory leak in
+ mpfs_sys_controller_probe()
+Message-ID: <20260206-neurosis-partner-009242f0ac16@spud>
+References: <20260203-mpfs-v1-1-666b8704f8f7@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260203024356.444942-1-dapeng1.mi@linux.intel.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_071729_754748_21E9967B 
-X-CRM114-Status: GOOD (  16.94  )
+In-Reply-To: <20260203-mpfs-v1-1-666b8704f8f7@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,126 +65,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0904493530939966964=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 03, 2026 at 10:43:52AM +0800, Dapeng Mi wrote:
-> Changes:
->  v2 -> v3:
->   * Fix the abort issue for "-I" or "--user-regs" options. (Patch 1/4)
->   * Address Ian's comments.
 
-Fixed up somme fuzz with powerpc, x86, riscv and s390  Build files wrt
-removing perf_regs.o
+--===============0904493530939966964==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="17ifevd45IYDWzDL"
+Content-Disposition: inline
 
-Thanks, applied to perf-tools-next,
 
-- Arnaldo
- 
->  v1 -> v2:
->   * Fixing "PERF_REG_EXTENDED_MASK" redefinition building error by
->     changing the "asm/perf_regs.h" header path to relative UAPI path.
->     (Patch 1/3)
->   * Spliting xxx_reg_mask() and xxx_sdt_arg_parse_op() conversion into 2
->     patches.
-> 
-> This patch-set remove the below three architecture specific __weak
-> functions and converted them into the general architecture specific
-> functions which are dispatched base on "em_machine".
-> 
-> uint64_t arch__intr_reg_mask(void);
-> uint64_t arch__user_reg_mask(void);
-> int arch_sdt_arg_parse_op(char *old_op, char **new_op);
-> 
-> The advantage of this conversion is that these architectural functions
-> can be called even for a different architecture with host instead of
-> only called on the host architecture.
-> 
-> Although the converted functions shown below can be called on any
-> architecture, currently they are still only called for the host
-> architecture (EM_HOST).
-> 
-> int perf_sdt_arg_parse_op(uint16_t e_machine, char *old_op, char **new_op);
-> uint64_t perf_intr_reg_mask(uint16_t e_machine);
-> uint64_t perf_user_reg_mask(uint16_t e_machine);
-> 
-> Tests:
->   * This patch-set is only tested on x86 platforms. No issues are found
->     for both intr-regs and user-regs options.
->   * Tests on other architectures are welcomed and appreciated.
-> 
-> History:
->   v1: https://lore.kernel.org/all/20260123090938.2222960-1-dapeng1.mi@linux.intel.com/
->   v2: https://lore.kernel.org/all/20260127070259.2720468-1-dapeng1.mi@linux.intel.com/
-> 
-> Dapeng Mi (4):
->   perf regs: Fix abort for "-I" or "--user-regs" options
->   perf arch: Update arch headers to use relative UAPI paths
->   perf regs: Remove __weak attributive arch__xxx_reg_mask() functions
->   perf regs: Remove __weak attributive arch_sdt_arg_parse_op() function
-> 
->  tools/perf/arch/arm/include/perf_regs.h       |   2 +-
->  tools/perf/arch/arm/util/Build                |   2 -
->  tools/perf/arch/arm/util/perf_regs.c          |  13 -
->  tools/perf/arch/arm64/include/perf_regs.h     |   2 +-
->  tools/perf/arch/arm64/util/Build              |   1 -
->  tools/perf/arch/arm64/util/perf_regs.c        | 141 ---------
->  tools/perf/arch/csky/Build                    |   1 -
->  tools/perf/arch/csky/include/perf_regs.h      |   2 +-
->  tools/perf/arch/csky/util/Build               |   1 -
->  tools/perf/arch/csky/util/perf_regs.c         |  13 -
->  tools/perf/arch/loongarch/include/perf_regs.h |   2 +-
->  tools/perf/arch/loongarch/util/Build          |   1 -
->  tools/perf/arch/loongarch/util/perf_regs.c    |  13 -
->  tools/perf/arch/mips/include/perf_regs.h      |   2 +-
->  tools/perf/arch/mips/util/Build               |   1 -
->  tools/perf/arch/mips/util/perf_regs.c         |  13 -
->  tools/perf/arch/powerpc/include/perf_regs.h   |   2 +-
->  tools/perf/arch/powerpc/util/Build            |   1 -
->  tools/perf/arch/powerpc/util/perf_regs.c      | 172 -----------
->  tools/perf/arch/riscv/include/perf_regs.h     |   9 +-
->  tools/perf/arch/riscv/util/Build              |   1 -
->  tools/perf/arch/riscv/util/perf_regs.c        |  13 -
->  tools/perf/arch/s390/include/perf_regs.h      |   2 +-
->  tools/perf/arch/s390/util/Build               |   1 -
->  tools/perf/arch/s390/util/perf_regs.c         |  13 -
->  tools/perf/arch/x86/include/perf_regs.h       |   2 +-
->  tools/perf/arch/x86/util/Build                |   1 -
->  tools/perf/arch/x86/util/perf_regs.c          | 283 ------------------
->  tools/perf/util/evsel.c                       |   4 +-
->  tools/perf/util/parse-regs-options.c          |  13 +-
->  .../util/perf-regs-arch/perf_regs_aarch64.c   | 139 ++++++++-
->  .../perf/util/perf-regs-arch/perf_regs_arm.c  |   7 +-
->  .../perf/util/perf-regs-arch/perf_regs_csky.c |   7 +-
->  .../util/perf-regs-arch/perf_regs_loongarch.c |   7 +-
->  .../perf/util/perf-regs-arch/perf_regs_mips.c |   7 +-
->  .../util/perf-regs-arch/perf_regs_powerpc.c   | 183 ++++++++++-
->  .../util/perf-regs-arch/perf_regs_riscv.c     |   7 +-
->  .../perf/util/perf-regs-arch/perf_regs_s390.c |   7 +-
->  .../perf/util/perf-regs-arch/perf_regs_x86.c  | 281 ++++++++++++++++-
->  tools/perf/util/perf_regs.c                   | 109 ++++++-
->  tools/perf/util/perf_regs.h                   |  27 +-
->  tools/perf/util/probe-file.c                  |   3 +-
->  42 files changed, 787 insertions(+), 724 deletions(-)
->  delete mode 100644 tools/perf/arch/arm/util/perf_regs.c
->  delete mode 100644 tools/perf/arch/arm64/util/perf_regs.c
->  delete mode 100644 tools/perf/arch/csky/Build
->  delete mode 100644 tools/perf/arch/csky/util/Build
->  delete mode 100644 tools/perf/arch/csky/util/perf_regs.c
->  delete mode 100644 tools/perf/arch/loongarch/util/perf_regs.c
->  delete mode 100644 tools/perf/arch/mips/util/perf_regs.c
->  delete mode 100644 tools/perf/arch/powerpc/util/perf_regs.c
->  delete mode 100644 tools/perf/arch/riscv/util/perf_regs.c
->  delete mode 100644 tools/perf/arch/s390/util/perf_regs.c
->  delete mode 100644 tools/perf/arch/x86/util/perf_regs.c
-> 
-> -- 
-> 2.34.1
-> 
+--17ifevd45IYDWzDL
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Feb 03, 2026 at 09:03:52PM +0800, Felix Gu wrote:
+> In mpfs_sys_controller_probe(), when of_get_mtd_device_by_node() fails,
+> the previously allocated sys_controller was leaked.
+>=20
+> Add kfree() to fix this.
+>=20
+> Fixes: 742aa6c563d2 ("soc: microchip: mpfs: enable access to the system c=
+ontroller's flash")
+> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+> ---
+>  drivers/soc/microchip/mpfs-sys-controller.c | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/mi=
+crochip/mpfs-sys-controller.c
+> index 30bc45d17d34..a7401cb79e97 100644
+> --- a/drivers/soc/microchip/mpfs-sys-controller.c
+> +++ b/drivers/soc/microchip/mpfs-sys-controller.c
+> @@ -142,8 +142,11 @@ static int mpfs_sys_controller_probe(struct platform=
+_device *pdev)
+> =20
+>  	sys_controller->flash =3D of_get_mtd_device_by_node(np);
+>  	of_node_put(np);
+> -	if (IS_ERR(sys_controller->flash))
+> -		return dev_err_probe(dev, PTR_ERR(sys_controller->flash), "Failed to g=
+et flash\n");
+> +	if (IS_ERR(sys_controller->flash)) {
+> +		ret =3D dev_err_probe(dev, PTR_ERR(sys_controller->flash), "Failed to =
+get flash\n");
+> +		kfree(sys_controller);
+> +		return ret;
+> +	}
+> =20
+>  no_flash:
+>  	sys_controller->client.dev =3D dev;
+
+This is a duplicate of a patch in my riscv-soc-fixes branch, that for
+whatever reason I forgot to push. I'll keep the original but thanks for
+your patch.
+
+--17ifevd45IYDWzDL
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaYZGawAKCRB4tDGHoIJi
+0jPjAPoDwTApwoTXqPLgAccyGeWmdXouPdw6RxYbgSJAGbmG4wD/frfXvCbNsNRD
+BFX0xlMD1pXQbUJI4Q0QCgdOQuEuNAw=
+=TeL1
+-----END PGP SIGNATURE-----
+
+--17ifevd45IYDWzDL--
+
+
+--===============0904493530939966964==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0904493530939966964==--
+
