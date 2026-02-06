@@ -4,63 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ACC6ECD98B
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 10:05:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3B3DEE2084
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 10:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FL6gYnnZGFA+INctums1TybOIUf2PJxU/Z42KIFy6AY=; b=REgUw26owCKJOO
-	CmZdVq2h3qod6osGAdG/UTyEZwfeER8jgw8S1l6gxUmc+xDD5skZoKM7W5ydDulH+ktcBjp3C0X7Z
-	7eBiY6F/6zKIKQVxVZ57BfUfTaeJnG3pra0wFyQq2ftN880WLQ+qG4MfoN7Kgr4r2lFWY3yTtoHaM
-	efhFLRe/svIkzqxNPsSaWv1tAvOoS1MARGQysUbj3IdLLFYteEHZpGsQF1oQZXuYSl8G5fVn71+TQ
-	lQT2HGP8UFXhyG+kf2JosHJM8ph6NowE3I31lZnsMgihAITotb4V4cs4y0atUkoaCsIljJVYPnLo9
-	PMzoW/sCLZF8cPdcYg4g==;
+	List-Owner; bh=/vaLMLX8xTo8NwibDz3MsXSv8tgAdewHV5Ngzn+uBo4=; b=mpbhflxlVzAUI6
+	PjTjBfQm37flrbrsPd6T0vdE0Mp3tjtmtJrK4RyoEVc+ARN0Ei/5hhVDdToKtUzUJQm4RR5NdwHdu
+	leEqsf8uJJMiBk7fSZdVRIMrMKRNOkE4pVm08GgdfMZNv+i28USotf8RFNWMnaVxWNWZMGtjv74KA
+	3/3UnXqB27i31DdnW/h7eo+x7e8XmBp7yWEOjpzqIINn0c1IkuP7KmwAE0TxZV+4bNF3CvbhyR89G
+	9HEOqHI1cBAQ8sylLazop5+XHSVHqTSr1edMJpW0FCXkbu4exjgdjEj+E0WK287r16DT6nQPhANOn
+	1/4eVLqO9tZ3G65Vl91Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voIiL-0000000B8jB-1Q3n;
-	Fri, 06 Feb 2026 10:05:25 +0000
-Received: from mail-m49198.qiye.163.com ([45.254.49.198])
+	id 1voJ0K-0000000BAup-0mpt;
+	Fri, 06 Feb 2026 10:24:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voIiI-0000000B8hY-3Ed7;
-	Fri, 06 Feb 2026 10:05:23 +0000
-Received: from localhost.localdomain (unknown [58.61.141.99])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 335ee35ab;
-	Fri, 6 Feb 2026 18:05:20 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: Yixun Lan <dlan@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Ze Huang <huang.ze@linux.dev>
-Cc: Rob Herring <robh@kernel.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Mark Brown <broonie@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	linux-riscv@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	spacemit@lists.linux.dev
-Subject: [PATCH 2/2] phy: spacemit: add regulator support to K1 USB2 PHY
-Date: Fri,  6 Feb 2026 18:00:09 +0800
-Message-Id: <20260206100009.873182-2-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260206100009.873182-1-amadeus@jmu.edu.cn>
-References: <20260206100009.873182-1-amadeus@jmu.edu.cn>
+	id 1voJ0G-0000000BAuQ-2v6P
+	for linux-riscv@lists.infradead.org;
+	Fri, 06 Feb 2026 10:23:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 01C7444214;
+	Fri,  6 Feb 2026 10:23:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA86DC19422;
+	Fri,  6 Feb 2026 10:23:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770373435;
+	bh=CVRfjenhPNZ53C5ptXLpHu6G+l5qThn6T1w+S3R43J4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lkgsOVjM8345QQjYJiRfQfJ0oSMWqIL/dF3b44KB/OYvtFa5wtksT4epKW7dc7zQK
+	 n13iIxkGzKpBzMaIzGDTNhk7k+VRqM3ICVJzDUOySg0Dee4z13wjFn7Cl2EN1ekcLW
+	 XWt4/jPFLIpPhf3JY1BeyzKTbyedA1v9JDaYVUAjI9tYMJtEuJsfrVQR+lDly5qhC1
+	 zCwWghcKG4Qbwjg/A1hG6Xsrw28MryrTIl0yqvYqtw7HzK9njc9BhbXFrF7jt0cFdj
+	 aloqve3suzVNAbni2tS3Lc0IjWEudBVqDr37kT5BZXF3tUmnGa4ntBhXN5Von7/OEX
+	 EKyVfiMLATw8A==
+Message-ID: <ac8ea0ef-4175-4563-b312-d888b31b83a9@kernel.org>
+Date: Fri, 6 Feb 2026 11:23:48 +0100
 MIME-Version: 1.0
-X-HM-Tid: 0a9c3269cc2d03a2kunmb90599ad38e393
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCGhkaVkodGE0fTh1OGB1PSVYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlOQ1VNSlVKT0pVQkJZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE5VSktLVUpCS0
-	tZBg++
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCHv6 15/17] mm: Remove the branch from compound_head()
+To: Kiryl Shutsemau <kas@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
+ Usama Arif <usamaarif642@gmail.com>, Frank van der Linden <fvdl@google.com>
+Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
+ Vlastimil Babka <vbabka@suse.cz>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Zi Yan <ziy@nvidia.com>,
+ Baoquan He <bhe@redhat.com>, Michal Hocko <mhocko@suse.com>,
+ Johannes Weiner <hannes@cmpxchg.org>, Jonathan Corbet <corbet@lwn.net>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, kernel-team@meta.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
+References: <20260202155634.650837-1-kas@kernel.org>
+ <20260202155634.650837-16-kas@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260202155634.650837-16-kas@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_020522_981964_EEF839A8 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20260206_022358_249662_544E27BA 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,74 +125,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-USB VBUS may have a regulator supply. Add optional phy-supply
-support to avoid the need for the regulator to be always-on.
+On 2/2/26 16:56, Kiryl Shutsemau wrote:
+> The compound_head() function is a hot path. For example, the zap path
+> calls it for every leaf page table entry.
+> 
+> Rewrite the helper function in a branchless manner to eliminate the risk
+> of CPU branch misprediction.
+> 
+> Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
+> Reviewed-by: Muchun Song <muchun.song@linux.dev>
+> Reviewed-by: Zi Yan <ziy@nvidia.com>
+> ---
+>   include/linux/page-flags.h | 27 +++++++++++++++++----------
+>   1 file changed, 17 insertions(+), 10 deletions(-)
+> 
+> diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
+> index 1aaa604f4b9b..16384cb6f962 100644
+> --- a/include/linux/page-flags.h
+> +++ b/include/linux/page-flags.h
+> @@ -224,25 +224,32 @@ static __always_inline bool compound_info_has_mask(void)
+>   static __always_inline unsigned long _compound_head(const struct page *page)
+>   {
+>   	unsigned long info = READ_ONCE(page->compound_info);
+> +	unsigned long mask;
+> +
+> +	if (!compound_info_has_mask()) {
+> +		/* Bit 0 encodes PageTail() */
+> +		if (info & 1)
+> +			return info - 1;
+>   
+> -	/* Bit 0 encodes PageTail() */
+> -	if (!(info & 1))
+>   		return (unsigned long)page;
+> -
+> -	/*
+> -	 * If compound_info_has_mask() is false, the rest of compound_info is
+> -	 * the pointer to the head page.
+> -	 */
+> -	if (!compound_info_has_mask())
+> -		return info - 1;
+> +	}
+>   
+>   	/*
+>   	 * If compoun_info_has_mask() is true the rest of the info encodes
+>   	 * the mask that converts the address of the tail page to the head page.
+>   	 *
+>   	 * No need to clear bit 0 in the mask as 'page' always has it clear.
+> +	 *
+> +	 * Let's do it in a branchless manner.
+>   	 */
+> -	return (unsigned long)page & info;
+> +
+> +	/* Non-tail: -1UL, Tail: 0 */
+> +	mask = (info & 1) - 1;
+> +
+> +	/* Non-tail: -1UL, Tail: info */
+> +	mask |= info;
+> +
+> +	return (unsigned long)page & mask;
+>   }
+>   
+>   #define compound_head(page)	((typeof(page))_compound_head(page))
 
-Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
----
- drivers/phy/spacemit/phy-k1-usb2.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+Nice!
 
-diff --git a/drivers/phy/spacemit/phy-k1-usb2.c b/drivers/phy/spacemit/phy-k1-usb2.c
-index 342061380012..c163a29dabf9 100644
---- a/drivers/phy/spacemit/phy-k1-usb2.c
-+++ b/drivers/phy/spacemit/phy-k1-usb2.c
-@@ -75,6 +75,7 @@ struct spacemit_usb2phy {
- 	struct phy *phy;
- 	struct clk *clk;
- 	struct regmap *regmap_base;
-+	struct regulator *regulator;
- };
- 
- static const struct regmap_config phy_regmap_config = {
-@@ -98,6 +99,12 @@ static int spacemit_usb2phy_init(struct phy *phy)
- 		return ret;
- 	}
- 
-+	if (sphy->regulator) {
-+		ret = regulator_enable(sphy->regulator);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	/*
- 	 * make sure the usb controller is not under reset process before
- 	 * any configuration
-@@ -139,6 +146,9 @@ static int spacemit_usb2phy_exit(struct phy *phy)
- 
- 	clk_disable(sphy->clk);
- 
-+	if (sphy->regulator)
-+		return regulator_disable(sphy->regulator);
-+
- 	return 0;
- }
- 
-@@ -171,6 +181,16 @@ static int spacemit_usb2phy_probe(struct platform_device *pdev)
- 	if (IS_ERR(sphy->regmap_base))
- 		return dev_err_probe(dev, PTR_ERR(sphy->regmap_base), "Failed to init regmap\n");
- 
-+	sphy->regulator = devm_regulator_get_optional(dev, "phy");
-+	if (IS_ERR(sphy->regulator)) {
-+		int ret = PTR_ERR(sphy->regulator);
-+
-+		if (ret != -ENODEV)
-+			return dev_err_probe(dev, ret, "Failed to get regulator\n");
-+
-+		sphy->regulator = NULL;
-+	}
-+
- 	sphy->phy = devm_phy_create(dev, NULL, &spacemit_usb2phy_ops);
- 	if (IS_ERR(sphy->phy))
- 		return dev_err_probe(dev, PTR_ERR(sphy->phy), "Failed to create phy\n");
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+
 -- 
-2.34.1
+Cheers,
 
+David
 
 _______________________________________________
 linux-riscv mailing list
