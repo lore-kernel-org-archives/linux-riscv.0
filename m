@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE76EE2089
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 10:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B4AEEE2089
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 10:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LRpoaRi7cl6z2gWvFkcW1TCWCE2GMQDlsDiIMGQldpg=; b=DAqUllcBEDGpjK
-	EONFBdvQe+g7ISM40FrO2bw+wfKO+kupgEUJRh2h+rj103rc4y1DIIBis2RHzI3Ukw3mh/YZnK4xI
-	eOgfSJCb1zZcoE6sGkMUzaG/GFUEsnGux6z6MA3G158cOnj70X5ETSPNYot+eAIypUllNRfHNayM1
-	OjXweP1AoM1iq3p6KDQdaKjiGuQGWgLyPyxn2vsP+prZ16K6Ik96qlPCBk2ADifLlo4PqblFx5BpY
-	y/SKM4PBFjKdtH0XPaaeNHtZWQKt85rjkn7mBd71Jcpj7XBcl454tpCa7eZ+vzIRA26WisosgEVW5
-	Oo9jzRjdRopimGOFCA/A==;
+	List-Owner; bh=PJ7lBSprvTb0TrMu4kKBvFzO4g1XfWBe4AXQOacPZPo=; b=dcx+lVSJq7zBvR
+	VLrptngVZmrcapjMH3e3/GqBTkB/vObKzjdHFdOX2NLGDvLrdC9L9hGI4s3sfYBkoGQOiQDG51GZX
+	DiarRzF0oMuFhmExZhZKIiZWvCdBbCHU0JQFHX465mni2HNGW5AwCbVMlWUoaARViKn8KcPlOC/Di
+	mv4edjTt/sIjXJtJC7MkVuCh5/AtffcCpZe6i8FUaP+YFh2AkX/h1Z5d895bmFL1xCh6KLGMOc6mN
+	KsP/AiAJKJUtbcxamh/MKdZcIVKr+fK4NSZiXYh39B3HFr2HSfOxPiCIovnPrX84rkU8RqcAfdJot
+	RVqtcgDU5O/4QmoNmPoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voJKB-0000000BBtF-3pZN;
-	Fri, 06 Feb 2026 10:44:32 +0000
+	id 1voJKb-0000000BByj-22OD;
+	Fri, 06 Feb 2026 10:44:57 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voJK9-0000000BBsf-3zpe
+	id 1voJKZ-0000000BByC-46Hq
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Feb 2026 10:44:30 +0000
+	Fri, 06 Feb 2026 10:44:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 623EA6001A;
-	Fri,  6 Feb 2026 10:44:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3873EC116C6;
-	Fri,  6 Feb 2026 10:44:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 479B26001A;
+	Fri,  6 Feb 2026 10:44:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ECA7C116C6;
+	Fri,  6 Feb 2026 10:44:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770374669;
-	bh=xugydUcthMTZyRmenwneIs8e9qCUTdgGq+o8ojDfb3E=;
+	s=k20201202; t=1770374695;
+	bh=WWxkauQz3Xkhe7tgX7qiQ+gnrMgbvUJi1XGb2QE56gs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qOkxMYuL8xnqwxL5a2cxQ9jCE5UNd9K/TXUy1eMwIuIUBkR5cqoh8GvZN7+aZ1K41
-	 RgGLneKHvCWR2p+fivyW0PeO+JHq9vveNORB2NesqTwtfSDFwDmshnuvuKQQuYJ3EX
-	 wIrHFRLtKU1w5IspSbfGhzXicn/aY2NjnH0GWD8qzHlGnUZ0BDQz+MfDI6hMKxppOx
-	 TiFLEOEpVIXQ1umJcNp+kIflSkUYvNSX7xdau5ulwdk2Jec7F/brYMjfEzPzVy5wNa
-	 ckf7Mu3Y4/QTzavxGuusNWoeCXsua2MIQNI7p3ycrJfEw8jHrgB1J4jXa4hTx+G8s+
-	 KrbuyIgqCbgGg==
-Message-ID: <6c251cb2-4b13-4837-9a06-883726007bd9@kernel.org>
-Date: Fri, 6 Feb 2026 11:44:23 +0100
+	b=WpkPW/6kZfxQ5vKWso8FMNKzNVqN3tURSFC581Z+7kv3V5htKdaTt5txoCnUyLz7U
+	 z8ol5+HmqJwS0KL90OuI67qwId9EHb1gEuuPeHYbyP3e2MwStzHm7p+ilGy8if5+qP
+	 jpdqPsoux5yGol3Vhxq4g2qqFu0NmHYrrp2QcmfYFJzx/mQO4w5oGFagQQBscbmTwM
+	 68S+vWcQWpyYfAULq38pLS0Tnxb/Yq+d08g/kVLnRbXoAM7q9VjxhTsDNqe23VuVoE
+	 7sCIbhwJ9662TwCwZsIYZNJBUHT5btE+n8UITCA538KM1qYv9ecA//+aBDQy14Bda9
+	 9NKWFkKB6K8TQ==
+Message-ID: <a9d9f43a-edf3-419b-bdf7-dbd6bf9e978f@kernel.org>
+Date: Fri, 6 Feb 2026 11:44:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1.1 0/7] iommu/riscv: Add HPM support for RISC-V IOMMU
-To: Lv Zheng <lv.zheng@spacemit.com>, Tomasz Jeznach <tjeznach@rivosinc.com>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+Subject: Re: [PATCH v3 0/8] iommu/riscv: Add HPM support for RISC-V IOMMU
+To: Lv Zheng <lv.zheng@linux.spacemit.com>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Alexandre Ghiti <alex@ghiti.fr>
 Cc: Jingyu Li <joey.li@spacemit.com>, Zhijian Chen <zhijian@spacemit.com>,
@@ -59,7 +59,7 @@ Cc: Jingyu Li <joey.li@spacemit.com>, Zhijian Chen <zhijian@spacemit.com>,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
  devicetree@vger.kernel.org
 References: <cover.1769562575.git.lv.zheng@spacemit.com>
- <cover.1769666438.git.lv.zheng@spacemit.com>
+ <F9748E3984D2A6F9+cover.1770195980.git.lv.zheng@linux.spacemit.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <cover.1769666438.git.lv.zheng@spacemit.com>
+In-Reply-To: <F9748E3984D2A6F9+cover.1770195980.git.lv.zheng@linux.spacemit.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,15 +122,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 29/01/2026 07:08, Lv Zheng wrote:
-> Includes HPM support for RISC-V IOMMU. The HPM hardware mechnism can be
+On 04/02/2026 10:08, Lv Zheng wrote:
+> Includes HPM support for RISC-V IOMMU. The HPM hardware mechanism can be
 > found in the recent announced SpacemiT SoCs (K3, V100), where T100
 > (SpacemiT distributed IOMMU) is shipped. 
 > 
-> The tested result can be found as follows:
+> Revisions:
+> v1
+>  Initial release.
+> v2 (sent as v1.1)
+>  Split and cleanup DT-bindings.
+> v3
+>  Refactor using vendor specific compatible.
+> 
 
-What is v1.1 in this patch? Why aren't you following standard process
-which allows us to make review easier (try yourself with b4 diff)?
+
+Do not attach (thread) your patchsets to some other threads (unrelated
+or older versions). This buries them deep in the mailbox and might
+interfere with applying entire sets. See also:
+https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
 
 Best regards,
 Krzysztof
