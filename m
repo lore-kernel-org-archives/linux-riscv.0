@@ -4,78 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09684ECD9B1
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Feb 2026 22:27:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A15FCECD9B7
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 00:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qXZSP0F+zQ1wiqdxsM/JguomtiQsm/sUfx8DWGAF/7o=; b=YdLxRkvG43q8M0
-	IjmYJE+FL7HA/M7d/FjXBOJz0nC3jcimQlb8y+e3HyxRhbD7yC6ko7crlqMOyHPBZFIAafHPxz1lJ
-	OUqz8qS3q+e1uwNi9VxNn7ds5tZZDkLS0THYNGLcoukVi3v67U47405grkLPFYducQUhoE4/Mfz2m
-	jKsRH+hqyIJoFMwInkFcZcWQIIRoj5ERwL4TDlQF8Y9Bu/0zNa3Mz/1u9SqrcUKx51pM0T5pG3Vmk
-	MMHAJvdeY6MC+LLs5jiRLau04XHERQg4ZpDWDWE3xb31ShUUsij3gxfkUj9Enpey5VI3go+Ic4EEO
-	4HLqNrkewyS08gNhZ2Dw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mx4SadPGezsHHBR8ty/jmaLPvISh0Ne2yVkENWvxJfs=; b=G1aHIB4rjq6IzA
+	P80aKroZzMMgst4CKxTmUN0HicIBBMUejsnhSx3ug1mstPgRXxYfO/IpepajPOjviun10YUPZzMlb
+	lsxmDOU16ayqwLwrSwe6A31lFzZi/EPZkHQa3mHuwXEEt9+yiuhX3Wp76TvT4WMywdGdJZ1m8PT//
+	quTOKKCCNMu7B7I7AaUDKBB4S+Nrw9FgDCClm4hGwoBNBiOTrW+7TTkPO+9mgUxVnLGGSFT538P5G
+	ZGK4q0uMAkQjs7Hqkcb4dTXAa3yOGBS/BuxinYCTt2qytvf2XpnYT3NrMRvgKL3HlEut15ic3xbCC
+	mcyg0kJTLNbCGPki0BgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo7oE-0000000AZTP-3lg8;
-	Thu, 05 Feb 2026 22:26:46 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1vo9db-0000000Adr8-3GMv;
+	Fri, 06 Feb 2026 00:23:55 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo7oC-0000000AZT4-1fvS
+	id 1vo9dZ-0000000Adpz-12uj
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Feb 2026 22:26:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1770330404; x=1801866404;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=KfhvFJCEiYU8ibu2onwLPmE5nmIIqNX6E5IYpPaWj5g=;
-  b=Q5xFc9AJ4vHadRjRK/uaUYhNyJv+gq9+aJYwez6fT2OiLD0Q/VJ2HnL7
-   vfHUR6Gh+mDusB5MiStG94WCHkAwgR1BRI6i91GP4CSwo8NsTqsFMlKfK
-   ubJ2cNJTaSpyWVQDoIoupIMhHm60vlcE1fUf8a2r7DgbxlDckaLk+zD3/
-   vzYxdYRxyXCg6zcoaf2SI7CLucyXxtXKbLwppWc9EgJkP4oTUSocvheCL
-   2RqmW/Q/xO2AQdWSrogvSBHEQIzqbihH25YPz0yLoXU4Q3Dim8HCQsomQ
-   SaSPyBoLdh9pMq6H4yJ2UxKBHk2hQVehfljH6IIA9j3yFawcuV00gD0yb
-   Q==;
-X-CSE-ConnectionGUID: 2gtlGmPERRWBa7+uGSoF3Q==
-X-CSE-MsgGUID: 5oAjJkscR2Cu9nfbifFgwQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11692"; a="74141579"
-X-IronPort-AV: E=Sophos;i="6.21,275,1763452800"; 
-   d="scan'208";a="74141579"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Feb 2026 14:26:42 -0800
-X-CSE-ConnectionGUID: A1OHIjxpQpGQFlpkLKgWGg==
-X-CSE-MsgGUID: wuZAjYwCQ0WQDvfh69HTBQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,275,1763452800"; 
-   d="scan'208";a="214855220"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa003.jf.intel.com with ESMTP; 05 Feb 2026 14:26:35 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vo7o0-00000000kG0-0Owz;
-	Thu, 05 Feb 2026 22:26:32 +0000
-Date: Fri, 6 Feb 2026 06:26:28 +0800
-From: kernel test robot <lkp@intel.com>
-To: Hui Min Mina Chou <minachou@andestech.com>, pjw@kernel.org,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	arnd@arndb.de, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, tim609@andestech.com,
-	ben717@andestech.com, minachou@andestech.com, az70021@gmail.com,
-	Randolph <randolph@andestech.com>
-Subject: Re: [PATCH] riscv: Fix __kernel_off_t to 64 Bits in RV32
-Message-ID: <202602060639.0bNNrmAg-lkp@intel.com>
-References: <20260205055800.586458-1-minachou@andestech.com>
+	Fri, 06 Feb 2026 00:23:54 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 615JAriZ4126723
+	for <linux-riscv@lists.infradead.org>; Fri, 6 Feb 2026 00:23:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=xegBm8Ht1K+rohwyqkHn7WCR11J2WbTKWil
+	8+XhbjdU=; b=BFjRJW3FJaQ/nbEJPseoZgFmP7+Xe7HlyQCDz1vhGNfr6eT9VR1
+	jpJy21+UNK/2+7EOCNfyF+Grf6XC04WtjUouceaYNQBas+FI1BSnuZJeaheixoJ9
+	AH7FGDrxSHxq20z60PE3QtSAlrxjgSCp+Wb3yvcCUuBFD+yStmRNmpe8Xa4ilLrO
+	X/Ti8mPn391In3mKT+gqfjQtDW0yZLGgaSKQloJOutJaOQ3sYsMzvVrCgUamkEV5
+	ZK6GrMee+BQexCG7MJH963jnfHcKm9MBbFr8YDm4IGPA4iQohj9BgDCrz+MOVc1N
+	MN8NILXXwYIsM0lAas7d+7U7QNztJ7ATzDQ==
+Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c4tm8tc23-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Fri, 06 Feb 2026 00:23:52 +0000 (GMT)
+Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-12339eea50bso751136c88.1
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Feb 2026 16:23:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1770337432; x=1770942232; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=xegBm8Ht1K+rohwyqkHn7WCR11J2WbTKWil8+XhbjdU=;
+        b=DvrmN37Zrpe3g3GDczFUZbKNijE+tMWL2MXzfQfukIHmdU6mlXN7SIN/p1gpOtLJvV
+         jmYYxsrze4XN7HPDfUbBm9JHuoet6QvVdGczCWJQaddUH9Yv6ULiAgaT1SN+55h7MXBR
+         /i0lvD67N6dKlYaEE06GQTJWZ8Ncpn8JHSPiFRNByDGR6P2Dxa3jdgeWgN1haqFsETYJ
+         6k1VjvsOxEBSlY7RpfU5/7kyDreRzZm+GdGRYJ3fkW62h4hBEQOBPBJ1BGdYfk9DvLN8
+         1ZwVL/3wUUQ7LOykSurIViLqQ8SltAbX493tn9I/DqeAp+1dpwRkJnx29mxmpFo4zaxQ
+         sIpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770337432; x=1770942232;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xegBm8Ht1K+rohwyqkHn7WCR11J2WbTKWil8+XhbjdU=;
+        b=ULtGS5clXaG+ITw9JhZgAnKWlHbe3zQH4p3pwrmqorH4hd+wGTqohJi1OwS0DdkLXE
+         E+2EzebHd32SAHyFdkfDfZ0E84aaSIPH/5Cm4QTU+IQr6zzggkdEbLR3LglwOKSxMWLt
+         Fgv9R5LQUzr3apLkom0JFGZCQils96ABCLLOiAI0GCu1BLEP2vetCQjqnIdSicH1ZRE/
+         LTHGvY3jPyxThjALrUwAxPh8rfbexWRiNzqKqsTJQImMuUHPCdp5C1SEZa4lDg5PkZrX
+         WebWQkYd5I2vLpkfzEY8lo6cZMOwN+hC5PXpoRcDeCJ4mq9tzQQVFyOl2YhaOCwiYbbu
+         R7Ag==
+X-Forwarded-Encrypted: i=1; AJvYcCVASa7fhD9wqrnheaVVQNbXhtHqzM7Rh7aHD0SvoQvRdealoeqrLBMzmACAKotDDdnnJwUSsExmm0Phfg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZC8hfUzvhn6NY3avMTvWfr86OH9vHe9Hjqv8UKKu+q9VqeYLr
+	IKS0L9Qxf8SxigbYdeRkrVMlrGUeMzTquOvRn/5fyFdC/h2bAartlIwjkIwnNZbz7ZXHlmZ57x5
+	8+ODRZlzfrcyhWwOxCJlptdZT3qoCoToU5GTiPiqNn1w4NCoN3O8/2Shai0zBjjGmBXQ4X/0=
+X-Gm-Gg: AZuq6aKit2kHTwwQpLuLvQAuJ1cZk1vNtbHnfDC5schM+Ef4n4uKz+JtlDqSFNpMRUg
+	fGcQ74jZeUiWU81jTjyB3ppcisP9c8LZYan2Dp5UidwVwB6w0z+7ZCO42syVrk6sGMBDgtwZq+C
+	ceWRPCVxiExUr63proSzP/T/5PtOcBS+ReZHWfF15FTNBu/miRNJct067Phlsj52xDsMfj/J7jc
+	892u+Nf2erjMMfXcr+3A8ggBv4l5NbnJR1KxaGXlrMSvMi45r3bOnt0iZP7T42GyYxMl5joACQv
+	TvaQZt++Lz4A6cPdD1KMKd+OVWpXcvkr1TgZPMOIz21Xu11osj+f6MsxuWQpRSbvKIllzyDtbIo
+	RIuDYRFDnTXSLjJkqcLw=
+X-Received: by 2002:a05:7022:62aa:b0:11b:d4a8:d24d with SMTP id a92af1059eb24-12703ff2045mr430370c88.12.1770337431922;
+        Thu, 05 Feb 2026 16:23:51 -0800 (PST)
+X-Received: by 2002:a05:7022:62aa:b0:11b:d4a8:d24d with SMTP id a92af1059eb24-12703ff2045mr430344c88.12.1770337431386;
+        Thu, 05 Feb 2026 16:23:51 -0800 (PST)
+Received: from localhost ([140.82.166.162])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1270433ac00sm575694c88.9.2026.02.05.16.23.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Feb 2026 16:23:50 -0800 (PST)
+From: Andrew Jones <andrew.jones@oss.qualcomm.com>
+To: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+        kvm-riscv@lists.infradead.org
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Anup Patel <anup@brainfault.org>,
+        =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+        Conor Dooley <conor.dooley@microchip.com>,
+        Guodong Xu <guodong@riscstar.com>,
+        Charlie Jenkins <charlie@rivosinc.com>,
+        Charlie Jenkins <thecharlesjenkins@gmail.com>,
+        Samuel Holland <samuel.holland@sifive.com>
+Subject: [RFC PATCH v1 00/11] riscv: hwprobe: Introduce rva23u64 base behavior
+Date: Thu,  5 Feb 2026 18:23:38 -0600
+Message-ID: <20260206002349.96740-1-andrew.jones@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260205055800.586458-1-minachou@andestech.com>
+X-Authority-Analysis: v=2.4 cv=Vd76/Vp9 c=1 sm=1 tr=0 ts=69853498 cx=c_pps
+ a=bS7HVuBVfinNPG3f6cIo3Q==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
+ a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=8arYDEdLfb4oE3fV1TAA:9
+ a=vBUdepa8ALXHeOFLBtFW:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjA2MDAwMSBTYWx0ZWRfX6OBakk/woyrV
+ bb1LI6B2lU80/2Gfobnqi44/+0Lufi8B9qfkXvmvobkGPhPXMD8lar2XzrIVE6Xbu7bJF6/QsC0
+ 57EM+5YICn/4ZWkcIZXH/VtYshfTWTWQ1aXqpAn+sKzg2M5OhNRkUR/9r60/8j5yJzH+JhOva3r
+ kBp98zv3czPYYExnc2sfUOLGJ1n3HF8Qx55qrbMNZic+R93O+bHVkLkGVD4Rnf1MLpjwmq0Sa9p
+ aBQ8Z8PCZaykwbOLJLtIJRM/3Hp9uV3Ozq+xVJ5TcRuoEnnb7S48nBc+AiBlXe9kBQHNGX8JvBL
+ Yfc3vWX/ieIJnC8nC08yN3QfUqGr31Uc/TIdaWc+n8kZv8Dj40Kh3MdlORKZzoYtfvF0HaZox6m
+ ks/HTQUhgYDHRhl3sinIbLoSe1BkoenhCQvMoDFveUdlZQZy+k1DD6frbEgcJRPIZ+v+m8UcsCs
+ mf+VryKnkDZZHVnFXPA==
+X-Proofpoint-ORIG-GUID: KxX_Ohl2avEoMngd5_9belaZvp96pEp6
+X-Proofpoint-GUID: KxX_Ohl2avEoMngd5_9belaZvp96pEp6
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-05_06,2026-02-05_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 bulkscore=0 phishscore=0 suspectscore=0
+ priorityscore=1501 lowpriorityscore=0 adultscore=0 spamscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602060001
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_142644_538243_E1B9BFF0 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20260205_162353_320606_AA4BD1FA 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,335 +144,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Hui,
+Users need a way determine that their harts conform to rva23u64 that
+isn't error-prone. While patches 2 and 6 make it possible to determine,
+it requires a bunch of probes and checks themselves (see patch9 for the
+recipe). This RFC proposes adding an RVA23U64 hwprobe base behavior
+(patch8) allowing easy determination. It also proposes adding the bases
+to /proc/cpuinfo (patches 10 and 11) -- but those two patches are probably
+even more RFCy than the hwprobe proposal...
 
-kernel test robot noticed the following build warnings:
+The first three patches have been posted previously by their respective
+authors and are currently under active review (except patch2 which
+appears to have gotten lost in the shuffle). I've collected these
+patches into the series since they're necessary for the base and
+because I wanted to repost patch2 and patch3 with some changes. patch4
+and patch6 expose more extensions to userspace. patch9 adds a consistency
+test for the new hwprobe base behavior bit.
 
-[auto build test WARNING on arnd-asm-generic/master]
-[also build test WARNING on soc/for-next linus/master v6.19-rc8 next-20260205]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Hui-Min-Mina-Chou/riscv-Fix-__kernel_off_t-to-64-Bits-in-RV32/20260205-140215
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/arnd/asm-generic.git master
-patch link:    https://lore.kernel.org/r/20260205055800.586458-1-minachou%40andestech.com
-patch subject: [PATCH] riscv: Fix __kernel_off_t to 64 Bits in RV32
-config: riscv-randconfig-r052-20260206 (https://download.01.org/0day-ci/archive/20260206/202602060639.0bNNrmAg-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 9b8addffa70cee5b2acc5454712d9cf78ce45710)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260206/202602060639.0bNNrmAg-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202602060639.0bNNrmAg-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/dma/dw-edma/dw-edma-pcie.c:305:22: warning: format specifies type 'unsigned long' but the argument has type 'off_t' (aka 'long long') [-Wformat]
-     304 |         pci_dbg(pdev, "Registers:\tBAR=%u, off=0x%.8lx, sz=0x%zx bytes, addr(v=%p)\n",
-         |                                                  ~~~~~
-         |                                                  %.8llx
-     305 |                 vsec_data->rg.bar, vsec_data->rg.off, vsec_data->rg.sz,
-         |                                    ^~~~~~~~~~~~~~~~~
-   include/linux/pci.h:2829:65: note: expanded from macro 'pci_dbg'
-    2829 | #define pci_dbg(pdev, fmt, arg...)      dev_dbg(&(pdev)->dev, fmt, ##arg)
-         |                                                               ~~~    ^~~
-   include/linux/dev_printk.h:165:39: note: expanded from macro 'dev_dbg'
-     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                      ~~~     ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:285:19: note: expanded from macro 'dynamic_dev_dbg'
-     285 |                            dev, fmt, ##__VA_ARGS__)
-         |                                 ~~~    ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:261:59: note: expanded from macro '_dynamic_func_call'
-     261 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
-         |                                                                  ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:259:65: note: expanded from macro '_dynamic_func_call_cls'
-     259 |         __dynamic_func_call_cls(__UNIQUE_ID(ddebug), cls, fmt, func, ##__VA_ARGS__)
-         |                                                                        ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:231:15: note: expanded from macro '__dynamic_func_call_cls'
-     231 |                 func(&id, ##__VA_ARGS__);                       \
-         |                             ^~~~~~~~~~~
-   drivers/dma/dw-edma/dw-edma-pcie.c:312:4: warning: format specifies type 'unsigned long' but the argument has type 'off_t' (aka 'long long') [-Wformat]
-     310 |                 pci_dbg(pdev, "L. List:\tWRITE CH%.2u, BAR=%u, off=0x%.8lx, sz=0x%zx bytes, addr(v=%p, p=%pa)\n",
-         |                                                                      ~~~~~
-         |                                                                      %.8llx
-     311 |                         i, vsec_data->ll_wr[i].bar,
-     312 |                         vsec_data->ll_wr[i].off, chip->ll_region_wr[i].sz,
-         |                         ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/pci.h:2829:65: note: expanded from macro 'pci_dbg'
-    2829 | #define pci_dbg(pdev, fmt, arg...)      dev_dbg(&(pdev)->dev, fmt, ##arg)
-         |                                                               ~~~    ^~~
-   include/linux/dev_printk.h:165:39: note: expanded from macro 'dev_dbg'
-     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                      ~~~     ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:285:19: note: expanded from macro 'dynamic_dev_dbg'
-     285 |                            dev, fmt, ##__VA_ARGS__)
-         |                                 ~~~    ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:261:59: note: expanded from macro '_dynamic_func_call'
-     261 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
-         |                                                                  ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:259:65: note: expanded from macro '_dynamic_func_call_cls'
-     259 |         __dynamic_func_call_cls(__UNIQUE_ID(ddebug), cls, fmt, func, ##__VA_ARGS__)
-         |                                                                        ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:231:15: note: expanded from macro '__dynamic_func_call_cls'
-     231 |                 func(&id, ##__VA_ARGS__);                       \
-         |                             ^~~~~~~~~~~
-   drivers/dma/dw-edma/dw-edma-pcie.c:317:4: warning: format specifies type 'unsigned long' but the argument has type 'off_t' (aka 'long long') [-Wformat]
-     315 |                 pci_dbg(pdev, "Data:\tWRITE CH%.2u, BAR=%u, off=0x%.8lx, sz=0x%zx bytes, addr(v=%p, p=%pa)\n",
-         |                                                                   ~~~~~
-         |                                                                   %.8llx
-     316 |                         i, vsec_data->dt_wr[i].bar,
-     317 |                         vsec_data->dt_wr[i].off, chip->dt_region_wr[i].sz,
-         |                         ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/pci.h:2829:65: note: expanded from macro 'pci_dbg'
-    2829 | #define pci_dbg(pdev, fmt, arg...)      dev_dbg(&(pdev)->dev, fmt, ##arg)
-         |                                                               ~~~    ^~~
-   include/linux/dev_printk.h:165:39: note: expanded from macro 'dev_dbg'
-     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                      ~~~     ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:285:19: note: expanded from macro 'dynamic_dev_dbg'
-     285 |                            dev, fmt, ##__VA_ARGS__)
-         |                                 ~~~    ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:261:59: note: expanded from macro '_dynamic_func_call'
-     261 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
-         |                                                                  ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:259:65: note: expanded from macro '_dynamic_func_call_cls'
-     259 |         __dynamic_func_call_cls(__UNIQUE_ID(ddebug), cls, fmt, func, ##__VA_ARGS__)
-         |                                                                        ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:231:15: note: expanded from macro '__dynamic_func_call_cls'
-     231 |                 func(&id, ##__VA_ARGS__);                       \
-         |                             ^~~~~~~~~~~
-   drivers/dma/dw-edma/dw-edma-pcie.c:324:4: warning: format specifies type 'unsigned long' but the argument has type 'off_t' (aka 'long long') [-Wformat]
-     322 |                 pci_dbg(pdev, "L. List:\tREAD CH%.2u, BAR=%u, off=0x%.8lx, sz=0x%zx bytes, addr(v=%p, p=%pa)\n",
-         |                                                                     ~~~~~
-         |                                                                     %.8llx
-     323 |                         i, vsec_data->ll_rd[i].bar,
-     324 |                         vsec_data->ll_rd[i].off, chip->ll_region_rd[i].sz,
-         |                         ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/pci.h:2829:65: note: expanded from macro 'pci_dbg'
-    2829 | #define pci_dbg(pdev, fmt, arg...)      dev_dbg(&(pdev)->dev, fmt, ##arg)
-         |                                                               ~~~    ^~~
-   include/linux/dev_printk.h:165:39: note: expanded from macro 'dev_dbg'
-     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                      ~~~     ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:285:19: note: expanded from macro 'dynamic_dev_dbg'
-     285 |                            dev, fmt, ##__VA_ARGS__)
-         |                                 ~~~    ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:261:59: note: expanded from macro '_dynamic_func_call'
-     261 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
-         |                                                                  ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:259:65: note: expanded from macro '_dynamic_func_call_cls'
-     259 |         __dynamic_func_call_cls(__UNIQUE_ID(ddebug), cls, fmt, func, ##__VA_ARGS__)
-         |                                                                        ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:231:15: note: expanded from macro '__dynamic_func_call_cls'
-     231 |                 func(&id, ##__VA_ARGS__);                       \
-         |                             ^~~~~~~~~~~
-   drivers/dma/dw-edma/dw-edma-pcie.c:329:4: warning: format specifies type 'unsigned long' but the argument has type 'off_t' (aka 'long long') [-Wformat]
-     327 |                 pci_dbg(pdev, "Data:\tREAD CH%.2u, BAR=%u, off=0x%.8lx, sz=0x%zx bytes, addr(v=%p, p=%pa)\n",
+Thanks,
+drew
 
 
-vim +305 drivers/dma/dw-edma/dw-edma-pcie.c
+Andrew Jones (8):
+  riscv: Add B to hwcap
+  riscv: hwprobe.rst: Replace tabs with spaces
+  riscv: Add Ziccamoa, Ziccif, Ziccrse, and Za64rs to hwprobe
+  riscv: Export have_user_pmlen* booleans
+  riscv: hwprobe: Introduce rva23u64 base behavior
+  riscv: selftests: hwprobe: Check rva23u64 consistency
+  riscv: /proc/cpuinfo: Add rva23 bases to output
+  riscv: /proc/cpuinfo: Also output rva20 and rva22 isa bases
 
-1aef6ffe999eec Gustavo Pimentel   2021-02-18  159  
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  160  static int dw_edma_pcie_probe(struct pci_dev *pdev,
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  161  			      const struct pci_device_id *pid)
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  162  {
-1aef6ffe999eec Gustavo Pimentel   2021-02-18  163  	struct dw_edma_pcie_data *pdata = (void *)pid->driver_data;
-3df63fa8f2afd0 Abinash Singh      2025-07-05  164  	struct dw_edma_pcie_data *vsec_data __free(kfree) = NULL;
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  165  	struct device *dev = &pdev->dev;
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  166  	struct dw_edma_chip *chip;
-e0c1d53891c43a Gustavo Pimentel   2021-02-18  167  	int err, nr_irqs;
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  168  	int i, mask;
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  169  
-3df63fa8f2afd0 Abinash Singh      2025-07-05  170  	vsec_data = kmalloc(sizeof(*vsec_data), GFP_KERNEL);
-3df63fa8f2afd0 Abinash Singh      2025-07-05  171  	if (!vsec_data)
-3df63fa8f2afd0 Abinash Singh      2025-07-05  172  		return -ENOMEM;
-3df63fa8f2afd0 Abinash Singh      2025-07-05  173  
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  174  	/* Enable PCI device */
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  175  	err = pcim_enable_device(pdev);
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  176  	if (err) {
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  177  		pci_err(pdev, "enabling device failed\n");
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  178  		return err;
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  179  	}
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  180  
-3df63fa8f2afd0 Abinash Singh      2025-07-05  181  	memcpy(vsec_data, pdata, sizeof(struct dw_edma_pcie_data));
-1aef6ffe999eec Gustavo Pimentel   2021-02-18  182  
-1aef6ffe999eec Gustavo Pimentel   2021-02-18  183  	/*
-1aef6ffe999eec Gustavo Pimentel   2021-02-18  184  	 * Tries to find if exists a PCIe Vendor-Specific Extended Capability
-1aef6ffe999eec Gustavo Pimentel   2021-02-18  185  	 * for the DMA, if one exists, then reconfigures it.
-1aef6ffe999eec Gustavo Pimentel   2021-02-18  186  	 */
-3df63fa8f2afd0 Abinash Singh      2025-07-05  187  	dw_edma_pcie_get_vsec_dma_data(pdev, vsec_data);
-1aef6ffe999eec Gustavo Pimentel   2021-02-18  188  
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  189  	/* Mapping PCI BAR regions */
-3df63fa8f2afd0 Abinash Singh      2025-07-05  190  	mask = BIT(vsec_data->rg.bar);
-3df63fa8f2afd0 Abinash Singh      2025-07-05  191  	for (i = 0; i < vsec_data->wr_ch_cnt; i++) {
-3df63fa8f2afd0 Abinash Singh      2025-07-05  192  		mask |= BIT(vsec_data->ll_wr[i].bar);
-3df63fa8f2afd0 Abinash Singh      2025-07-05  193  		mask |= BIT(vsec_data->dt_wr[i].bar);
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  194  	}
-3df63fa8f2afd0 Abinash Singh      2025-07-05  195  	for (i = 0; i < vsec_data->rd_ch_cnt; i++) {
-3df63fa8f2afd0 Abinash Singh      2025-07-05  196  		mask |= BIT(vsec_data->ll_rd[i].bar);
-3df63fa8f2afd0 Abinash Singh      2025-07-05  197  		mask |= BIT(vsec_data->dt_rd[i].bar);
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  198  	}
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  199  	err = pcim_iomap_regions(pdev, mask, pci_name(pdev));
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  200  	if (err) {
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  201  		pci_err(pdev, "eDMA BAR I/O remapping failed\n");
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  202  		return err;
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  203  	}
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  204  
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  205  	pci_set_master(pdev);
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  206  
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  207  	/* DMA configuration */
-ecb8c88bd31cce Wang Qing          2021-10-07  208  	err = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(64));
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  209  	if (err) {
-1ffc6f359f7ab1 Christophe JAILLET 2021-11-09  210  		pci_err(pdev, "DMA mask 64 set failed\n");
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  211  		return err;
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  212  	}
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  213  
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  214  	/* Data structure allocation */
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  215  	chip = devm_kzalloc(dev, sizeof(*chip), GFP_KERNEL);
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  216  	if (!chip)
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  217  		return -ENOMEM;
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  218  
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  219  	/* IRQs allocation */
-3df63fa8f2afd0 Abinash Singh      2025-07-05  220  	nr_irqs = pci_alloc_irq_vectors(pdev, 1, vsec_data->irqs,
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  221  					PCI_IRQ_MSI | PCI_IRQ_MSIX);
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  222  	if (nr_irqs < 1) {
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  223  		pci_err(pdev, "fail to alloc IRQ vector (number of IRQs=%u)\n",
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  224  			nr_irqs);
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  225  		return -EPERM;
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  226  	}
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  227  
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  228  	/* Data structure initialization */
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  229  	chip->dev = dev;
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  230  
-3df63fa8f2afd0 Abinash Singh      2025-07-05  231  	chip->mf = vsec_data->mf;
-203184571388a9 Frank Li           2022-05-24  232  	chip->nr_irqs = nr_irqs;
-487517557f9780 Cai Huoqing        2023-05-20  233  	chip->ops = &dw_edma_pcie_plat_ops;
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  234  
-3df63fa8f2afd0 Abinash Singh      2025-07-05  235  	chip->ll_wr_cnt = vsec_data->wr_ch_cnt;
-3df63fa8f2afd0 Abinash Singh      2025-07-05  236  	chip->ll_rd_cnt = vsec_data->rd_ch_cnt;
-84b0aa2e0d91d7 Gustavo Pimentel   2021-02-18  237  
-3df63fa8f2afd0 Abinash Singh      2025-07-05  238  	chip->reg_base = pcim_iomap_table(pdev)[vsec_data->rg.bar];
-e51b3048116a6e Frank Li           2022-05-24  239  	if (!chip->reg_base)
-203184571388a9 Frank Li           2022-05-24  240  		return -ENOMEM;
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  241  
-6951ee96c649f6 Frank Li           2022-05-24  242  	for (i = 0; i < chip->ll_wr_cnt; i++) {
-203184571388a9 Frank Li           2022-05-24  243  		struct dw_edma_region *ll_region = &chip->ll_region_wr[i];
-203184571388a9 Frank Li           2022-05-24  244  		struct dw_edma_region *dt_region = &chip->dt_region_wr[i];
-3df63fa8f2afd0 Abinash Singh      2025-07-05  245  		struct dw_edma_block *ll_block = &vsec_data->ll_wr[i];
-3df63fa8f2afd0 Abinash Singh      2025-07-05  246  		struct dw_edma_block *dt_block = &vsec_data->dt_wr[i];
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  247  
-16f8a08643b6d6 Serge Semin        2023-01-13  248  		ll_region->vaddr.io = pcim_iomap_table(pdev)[ll_block->bar];
-16f8a08643b6d6 Serge Semin        2023-01-13  249  		if (!ll_region->vaddr.io)
-84b0aa2e0d91d7 Gustavo Pimentel   2021-02-18  250  			return -ENOMEM;
-84b0aa2e0d91d7 Gustavo Pimentel   2021-02-18  251  
-16f8a08643b6d6 Serge Semin        2023-01-13  252  		ll_region->vaddr.io += ll_block->off;
-002bbaa2f60e07 Serge Semin        2023-01-13  253  		ll_region->paddr = pci_bus_address(pdev, ll_block->bar);
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  254  		ll_region->paddr += ll_block->off;
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  255  		ll_region->sz = ll_block->sz;
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  256  
-16f8a08643b6d6 Serge Semin        2023-01-13  257  		dt_region->vaddr.io = pcim_iomap_table(pdev)[dt_block->bar];
-16f8a08643b6d6 Serge Semin        2023-01-13  258  		if (!dt_region->vaddr.io)
-84b0aa2e0d91d7 Gustavo Pimentel   2021-02-18  259  			return -ENOMEM;
-84b0aa2e0d91d7 Gustavo Pimentel   2021-02-18  260  
-16f8a08643b6d6 Serge Semin        2023-01-13  261  		dt_region->vaddr.io += dt_block->off;
-002bbaa2f60e07 Serge Semin        2023-01-13  262  		dt_region->paddr = pci_bus_address(pdev, dt_block->bar);
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  263  		dt_region->paddr += dt_block->off;
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  264  		dt_region->sz = dt_block->sz;
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  265  	}
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  266  
-6951ee96c649f6 Frank Li           2022-05-24  267  	for (i = 0; i < chip->ll_rd_cnt; i++) {
-203184571388a9 Frank Li           2022-05-24  268  		struct dw_edma_region *ll_region = &chip->ll_region_rd[i];
-203184571388a9 Frank Li           2022-05-24  269  		struct dw_edma_region *dt_region = &chip->dt_region_rd[i];
-3df63fa8f2afd0 Abinash Singh      2025-07-05  270  		struct dw_edma_block *ll_block = &vsec_data->ll_rd[i];
-3df63fa8f2afd0 Abinash Singh      2025-07-05  271  		struct dw_edma_block *dt_block = &vsec_data->dt_rd[i];
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  272  
-16f8a08643b6d6 Serge Semin        2023-01-13  273  		ll_region->vaddr.io = pcim_iomap_table(pdev)[ll_block->bar];
-16f8a08643b6d6 Serge Semin        2023-01-13  274  		if (!ll_region->vaddr.io)
-84b0aa2e0d91d7 Gustavo Pimentel   2021-02-18  275  			return -ENOMEM;
-84b0aa2e0d91d7 Gustavo Pimentel   2021-02-18  276  
-16f8a08643b6d6 Serge Semin        2023-01-13  277  		ll_region->vaddr.io += ll_block->off;
-002bbaa2f60e07 Serge Semin        2023-01-13  278  		ll_region->paddr = pci_bus_address(pdev, ll_block->bar);
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  279  		ll_region->paddr += ll_block->off;
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  280  		ll_region->sz = ll_block->sz;
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  281  
-16f8a08643b6d6 Serge Semin        2023-01-13  282  		dt_region->vaddr.io = pcim_iomap_table(pdev)[dt_block->bar];
-16f8a08643b6d6 Serge Semin        2023-01-13  283  		if (!dt_region->vaddr.io)
-84b0aa2e0d91d7 Gustavo Pimentel   2021-02-18  284  			return -ENOMEM;
-84b0aa2e0d91d7 Gustavo Pimentel   2021-02-18  285  
-16f8a08643b6d6 Serge Semin        2023-01-13  286  		dt_region->vaddr.io += dt_block->off;
-002bbaa2f60e07 Serge Semin        2023-01-13  287  		dt_region->paddr = pci_bus_address(pdev, dt_block->bar);
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  288  		dt_region->paddr += dt_block->off;
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  289  		dt_region->sz = dt_block->sz;
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  290  	}
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  291  
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  292  	/* Debug info */
-203184571388a9 Frank Li           2022-05-24  293  	if (chip->mf == EDMA_MF_EDMA_LEGACY)
-203184571388a9 Frank Li           2022-05-24  294  		pci_dbg(pdev, "Version:\teDMA Port Logic (0x%x)\n", chip->mf);
-203184571388a9 Frank Li           2022-05-24  295  	else if (chip->mf == EDMA_MF_EDMA_UNROLL)
-203184571388a9 Frank Li           2022-05-24  296  		pci_dbg(pdev, "Version:\teDMA Unroll (0x%x)\n", chip->mf);
-203184571388a9 Frank Li           2022-05-24  297  	else if (chip->mf == EDMA_MF_HDMA_COMPAT)
-203184571388a9 Frank Li           2022-05-24  298  		pci_dbg(pdev, "Version:\tHDMA Compatible (0x%x)\n", chip->mf);
-d7130902abb40e Devendra K Verma   2025-05-13  299  	else if (chip->mf == EDMA_MF_HDMA_NATIVE)
-d7130902abb40e Devendra K Verma   2025-05-13  300  		pci_dbg(pdev, "Version:\tHDMA Native (0x%x)\n", chip->mf);
-e0c1d53891c43a Gustavo Pimentel   2021-02-18  301  	else
-203184571388a9 Frank Li           2022-05-24  302  		pci_dbg(pdev, "Version:\tUnknown (0x%x)\n", chip->mf);
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  303  
-203184571388a9 Frank Li           2022-05-24  304  	pci_dbg(pdev, "Registers:\tBAR=%u, off=0x%.8lx, sz=0x%zx bytes, addr(v=%p)\n",
-3df63fa8f2afd0 Abinash Singh      2025-07-05 @305  		vsec_data->rg.bar, vsec_data->rg.off, vsec_data->rg.sz,
-e51b3048116a6e Frank Li           2022-05-24  306  		chip->reg_base);
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  307  
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  308  
-6951ee96c649f6 Frank Li           2022-05-24  309  	for (i = 0; i < chip->ll_wr_cnt; i++) {
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  310  		pci_dbg(pdev, "L. List:\tWRITE CH%.2u, BAR=%u, off=0x%.8lx, sz=0x%zx bytes, addr(v=%p, p=%pa)\n",
-3df63fa8f2afd0 Abinash Singh      2025-07-05  311  			i, vsec_data->ll_wr[i].bar,
-3df63fa8f2afd0 Abinash Singh      2025-07-05  312  			vsec_data->ll_wr[i].off, chip->ll_region_wr[i].sz,
-16f8a08643b6d6 Serge Semin        2023-01-13  313  			chip->ll_region_wr[i].vaddr.io, &chip->ll_region_wr[i].paddr);
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  314  
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  315  		pci_dbg(pdev, "Data:\tWRITE CH%.2u, BAR=%u, off=0x%.8lx, sz=0x%zx bytes, addr(v=%p, p=%pa)\n",
-3df63fa8f2afd0 Abinash Singh      2025-07-05  316  			i, vsec_data->dt_wr[i].bar,
-3df63fa8f2afd0 Abinash Singh      2025-07-05  317  			vsec_data->dt_wr[i].off, chip->dt_region_wr[i].sz,
-16f8a08643b6d6 Serge Semin        2023-01-13  318  			chip->dt_region_wr[i].vaddr.io, &chip->dt_region_wr[i].paddr);
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  319  	}
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  320  
-6951ee96c649f6 Frank Li           2022-05-24  321  	for (i = 0; i < chip->ll_rd_cnt; i++) {
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  322  		pci_dbg(pdev, "L. List:\tREAD CH%.2u, BAR=%u, off=0x%.8lx, sz=0x%zx bytes, addr(v=%p, p=%pa)\n",
-3df63fa8f2afd0 Abinash Singh      2025-07-05  323  			i, vsec_data->ll_rd[i].bar,
-3df63fa8f2afd0 Abinash Singh      2025-07-05  324  			vsec_data->ll_rd[i].off, chip->ll_region_rd[i].sz,
-16f8a08643b6d6 Serge Semin        2023-01-13  325  			chip->ll_region_rd[i].vaddr.io, &chip->ll_region_rd[i].paddr);
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  326  
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  327  		pci_dbg(pdev, "Data:\tREAD CH%.2u, BAR=%u, off=0x%.8lx, sz=0x%zx bytes, addr(v=%p, p=%pa)\n",
-3df63fa8f2afd0 Abinash Singh      2025-07-05  328  			i, vsec_data->dt_rd[i].bar,
-3df63fa8f2afd0 Abinash Singh      2025-07-05  329  			vsec_data->dt_rd[i].off, chip->dt_region_rd[i].sz,
-16f8a08643b6d6 Serge Semin        2023-01-13  330  			chip->dt_region_rd[i].vaddr.io, &chip->dt_region_rd[i].paddr);
-31fb8c1ff962d9 Gustavo Pimentel   2021-02-18  331  	}
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  332  
-203184571388a9 Frank Li           2022-05-24  333  	pci_dbg(pdev, "Nr. IRQs:\t%u\n", chip->nr_irqs);
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  334  
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  335  	/* Validating if PCI interrupts were enabled */
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  336  	if (!pci_dev_msi_enabled(pdev)) {
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  337  		pci_err(pdev, "enable interrupt failed\n");
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  338  		return -EPERM;
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  339  	}
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  340  
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  341  	/* Starting eDMA driver */
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  342  	err = dw_edma_probe(chip);
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  343  	if (err) {
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  344  		pci_err(pdev, "eDMA probe failed\n");
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  345  		return err;
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  346  	}
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  347  
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  348  	/* Saving data structure reference */
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  349  	pci_set_drvdata(pdev, chip);
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  350  
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  351  	return 0;
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  352  }
-41aaff2a2ac01c Gustavo Pimentel   2019-06-04  353  
+Charlie Jenkins (1):
+  riscv: Standardize extension capitilization
+
+Jesse Taube (1):
+  RISC-V: Add Zicclsm to cpufeature and hwprobe
+
+Paul Walmsley (1):
+  riscv: hwprobe: add support for RISCV_HWPROBE_KEY_IMA_EXT_1
+
+ Documentation/arch/riscv/hwprobe.rst          |  42 ++-
+ arch/riscv/include/asm/cpufeature.h           |  14 +
+ arch/riscv/include/asm/hwcap.h                |  23 +-
+ arch/riscv/include/asm/hwprobe.h              |   3 +-
+ arch/riscv/include/asm/switch_to.h            |   4 +-
+ arch/riscv/include/uapi/asm/hwcap.h           |   1 +
+ arch/riscv/include/uapi/asm/hwprobe.h         |   9 +-
+ arch/riscv/kernel/cpu.c                       |  38 +++
+ arch/riscv/kernel/cpufeature.c                | 168 ++++++++++--
+ arch/riscv/kernel/process.c                   |  12 +-
+ arch/riscv/kernel/sys_hwprobe.c               | 249 +++++++++++++-----
+ arch/riscv/kvm/main.c                         |   2 +-
+ arch/riscv/kvm/vcpu_fp.c                      |  28 +-
+ arch/riscv/kvm/vcpu_onereg.c                  |  22 +-
+ arch/riscv/kvm/vcpu_vector.c                  |  14 +-
+ .../testing/selftests/riscv/hwprobe/hwprobe.c | 112 +++++++-
+ .../selftests/riscv/hwprobe/which-cpus.c      |  20 +-
+ 17 files changed, 610 insertions(+), 151 deletions(-)
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
