@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFC8BEB28FA
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 09:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F05ACEA795E
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Feb 2026 09:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PT3y/h65oJjRH7gsu9qGsj8GVUvAa+UK9w2T1nOMH1o=; b=xnze/52ZzUW08l
-	jLzRK7819WbDAYcQkqbT6LaaGu/trwZ9MhxpTWxM1xIMTse6k+vE6uzXRbFHWj9nqmeXnPfJESFdB
-	dwKIBBP6p74FToN489ELlSzADRvEDhOrZX2hgGDJgA/lw7rTgMCCyV5U2eV8ah1RgEtAJMBlZSigV
-	OVJWPzUojF6spURjFceZWwHpoUKU56JrVov2ZGvEIQQPgrtL8BwAMweHJ8Ml8Ae/9/Et5aXE9R8/G
-	oapgUSUXkLoq8xGH7zGagpwkOzwrkoPrVw3yd8widTMaIHtLVdatuQoWumofPstcm+5TlBLWpuNlr
-	vWsmyUz+qO6JitOuK6Og==;
+	List-Owner; bh=v05GuNkANYvbXpdwaKNaihcDMN32IOOj91FGx+NbVcU=; b=ItpXGfQ39dcKuI
+	SGGBESTi4xtSft/eTBZpwboUItGY+D2fX8JgpNwIG5V/7kilROr2Um3vDe2F/LQO4L6vbOcS7eWsQ
+	VWGSdcplD5T8JRqXj3oyDGhoxTvo4XTe5l5+6DJaaVoylCXDxgcYWPEvXXVUuppd/EMRu2FrmRNDD
+	dVh3sTvg7f4qqlmV/+4u881Rq444bzzsWC+zMEr/WAarOjtAlC+UuC8ifQ6S1d9bdJ08DqpDYfXsf
+	/APeTW7yZCpBZcyiiuIoh9ZYZ7r0lQXP0AsiHYtDzXibJid70N8sLJZsVoxNri41IQ8KKVZ8S0jwD
+	rEwjtTjNRsKW23KlBHcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voILb-0000000B7HU-0e5z;
-	Fri, 06 Feb 2026 09:41:55 +0000
+	id 1voIMF-0000000B7Lz-20ai;
+	Fri, 06 Feb 2026 09:42:35 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voILZ-0000000B7HB-1Dsh
+	id 1voIMD-0000000B7LX-0KWt
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Feb 2026 09:41:54 +0000
+	Fri, 06 Feb 2026 09:42:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8211143F58;
-	Fri,  6 Feb 2026 09:41:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6227EC116C6;
-	Fri,  6 Feb 2026 09:41:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A4F5A43867;
+	Fri,  6 Feb 2026 09:42:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07FF4C116C6;
+	Fri,  6 Feb 2026 09:42:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770370912;
-	bh=83rnD8t3DNJ6QPw39Ew9UXjnTNb13axZkWJb6v64MTg=;
+	s=k20201202; t=1770370952;
+	bh=LhrTzSWf7NEah6Z7Oux3u9gbfwj2MNl56bdSDhRmPl8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RUCfLDqu4SJx8/KJLBbnt2bOOruTXTFBRj3zfNkkKbLB/6TbEbz0Zv7LmeTW5kEb3
-	 Ndti+ks1LLtKOQ5cKLBEoSYmrf26R1l/Uieb9s4ACUmCYAxAaOt6RElMgtu/NSy0hQ
-	 ty0IXApx24A3cS3dVj8/zxAYlnOkfwlb+8O3YqzK3kuc9QEJAeZJOMpnxjfjzfpGxG
-	 ZS+aq70CmWJNi8hzlzLfgMW/SPn0Yf5MY92b5kkon/PPpe4z6LDqZq1ydO0FYbYQsR
-	 vVER/vc/M3/bb1+mj8BjP6ZAph5B33SqPo6eA7qvylTuEdkb0Pk1HbEic1QMOi1sPu
-	 GivGlnw+Zi3bw==
-Message-ID: <f417576d-ab79-44f5-99a1-3f672b490bf2@kernel.org>
-Date: Fri, 6 Feb 2026 10:41:45 +0100
+	b=GSvVnMTCcRhkxqlqeDx3rM6srCHZuDenv1DdtPoFP9SUQF8TtuPX/r+4ffLF35a1z
+	 Ya3vXMuTz4OOJrBpC3QVOcQytVqQMUT1mJ5GxbGIGf7EJGU+N6gJF9KKyPHkdhuied
+	 j04tYZXUUvXAkbj2ysXMysEc59RfXPQGZHhTSA6i6PI4+j57T7VPUOH69hOp+j/cy2
+	 yVhWELbxXuWm5SP2qxoGok6mGdD2AiEEDOTR9oIxhwob/7H52+k1jLuQMGzMgKqnNt
+	 u8PlegUm+gteaVi/n5UohU/uGYeeR/8vQpstamEQl+CsHkiUMRiikbcO/+Ojwu/bls
+	 wMOHaiNU6bRzA==
+Message-ID: <ad1a6ccd-d542-420f-b862-b41b7a29054b@kernel.org>
+Date: Fri, 6 Feb 2026 10:42:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv6 12/17] mm: Drop fake head checks
+Subject: Re: [PATCHv6 13/17] hugetlb: Remove VMEMMAP_SYNCHRONIZE_RCU
 To: Kiryl Shutsemau <kas@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
@@ -63,7 +63,7 @@ Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
 References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-13-kas@kernel.org>
+ <20260202155634.650837-14-kas@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -110,10 +110,10 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260202155634.650837-13-kas@kernel.org>
+In-Reply-To: <20260202155634.650837-14-kas@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_014153_397221_95D1B773 
-X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-CacheID: sfid-20260206_014233_166160_85C83FCE 
+X-CRM114-Status: UNSURE (   8.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -132,30 +132,22 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2/2/26 16:56, Kiryl Shutsemau wrote:
-> With fake head pages eliminated in the previous commit, remove the
-> supporting infrastructure:
+> The VMEMMAP_SYNCHRONIZE_RCU flag triggered synchronize_rcu() calls to
+> prevent a race between HVO remapping and page_ref_add_unless(). The
+> race could occur when a speculative PFN walker tried to modify the
+> refcount on a struct page that was in the process of being remapped
+> to a fake head.
 > 
->    - page_fixed_fake_head(): no longer needed to detect fake heads;
->    - page_is_fake_head(): no longer needed;
->    - page_count_writable(): no longer needed for RCU protection;
->    - RCU read_lock in page_ref_add_unless(): no longer needed;
+> With fake heads eliminated, page_ref_add_unless() no longer needs RCU
+> protection.
 > 
-> This substantially simplifies compound_head() and page_ref_add_unless(),
-> removing both branches and RCU overhead from these hot paths.
+> Remove the flag and synchronize_rcu() calls.
+> 
+> Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
+> Reviewed-by: Muchun Song <muchun.song@linux.dev>
+> ---
 
-Can you say a bit words more why RCU was required and is now no longer 
-needed?
-
-IIRC, it's because we now no longer reuse the real head page (page 0) 
-for a tail, and there could have been a race where we could have 
-attempted to write to that page0 while already mapped (r/o) to page1.
-
-Also good to mention that the corresponding RCU sync will be removed 
-separately in a following commit.
-
-Nothing jumped at me and it's a great simplification for core-mm.
-
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
