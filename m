@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E48ACEE0AE7
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 14:54:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45638EE0ADC
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 14:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qKCWnPFP7cp6vzbb94YMsdVNZM5W2couODzfaimIGdY=; b=SoFpt+yFwQGm52m4mbWWB1kpyh
-	2J/dkGDVNSDyw+krpPXS1M6Asvjod+IcxU66Kf7PFEivRSgs3vgcMf6WZJsJrVzkONInzI089VdLa
-	4XLd9tfZLHqOD92TskvnYwU2ST/w7FQphYA0hBT5cc/jVN82g/a06a11KBClpURBTifUTs7N5skFe
-	7XLr+mAZDdj2E0dED2v+nZzcqQq1P2EBJHw83YDXrpbF4ZQsmRBbbLYSNyxjN4wpgI1mfa31fmc0t
-	Amfplbg4+BKHYxX0w2FbraDVwrjzMvNw+tiOwXZmGP6WkgKP6gAV0FJYlcKcpS6Tu3ptZF1jwy6Op
-	nY2Tx05g==;
+	bh=9GcmbuEutNI9dUhUY/QmtP9iFEKh0Ag2zKIlfSZtUxI=; b=HgD6EDjvrQ6OoGYvvJIyptTr27
+	T6pK0fle2epzny+7fN61QDT+1ohGfIN5R/k4pLPIJaSn6cMMv7wmDZOGCVPY/DUG3XzTRhdYz0C8h
+	Rpr+gF/F8s9v96h0diAPfwQp4SwP1imik6InK2/0TjHJI1vwkqwPo4Q62PLTGeCKWx7+z7Wm4F7QQ
+	yVMPlJiq5XNy9Az/A/ttPkQog+qk5LVOGC6VsTF/7T5gMo4Wjp2emttmHdzuCvnh07f+XX5zEB13R
+	S9dxxuvVg9joFTU30WUUYLLjx3sh9+g1hV9IvHlKqioDWwvOVM9o+TYy2ozkCLb20JdWf+VLM2TNL
+	suvlc/QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vojhP-0000000CYKp-1xiN;
-	Sat, 07 Feb 2026 14:54:15 +0000
+	id 1vojiW-0000000CYR0-3TC9;
+	Sat, 07 Feb 2026 14:55:24 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vojhN-0000000CYKg-3vqm
+	id 1vojiU-0000000CYQo-3tiH
 	for linux-riscv@lists.infradead.org;
-	Sat, 07 Feb 2026 14:54:14 +0000
+	Sat, 07 Feb 2026 14:55:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 963406001D;
-	Sat,  7 Feb 2026 14:54:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F089C116D0;
-	Sat,  7 Feb 2026 14:54:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5DA8B6001D;
+	Sat,  7 Feb 2026 14:55:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD3EDC116D0;
+	Sat,  7 Feb 2026 14:55:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770476052;
-	bh=RFfl8gMPLYha6nVERWdbRdNuFFRlEftacWu5PZE7Ow8=;
+	s=k20201202; t=1770476122;
+	bh=/Vn1e2hoVlCMMBL+WFkQl4UcnH2Hfa5hsCRlW3VBLWs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RRz3imbZXKljLoQRsrMI27f58kgGqZL1LQJPSlufrNrPQ4P2RzA8kyNUvO2x9HDxi
-	 3+/b6z0VZfax178pfmVPw7ntVnURDncjdDQCAiuk0h4MIcBMUDkYpZ2iXYy8ccUCl0
-	 v6ZZuOT0L3pIZhhWlFL7f6Zm9SK3Wc6MOFa9axJddTlTAplxCzqb1SCt9QhU/ZGeO6
-	 jfyrJeKTD2TmzsYQKwBA9K8fapmSBtWQ4xWfMb3jFhamMqhTEoWS0OUVFzsTuTe5u2
-	 1VH3S3vEYB3X40RKJakVlzznap6UGViXPZWHiKqNza69C66WNAdZu1TsyiBMBD1+NH
-	 27V+760s/EJiQ==
-Date: Sat, 7 Feb 2026 14:54:05 +0000
+	b=Rei9Oyl4Wxf2xzDBJ9LwHboVDd0CBlU2GARJoyFyj1VldpMGSmc/r1sHbhjwVzbFQ
+	 jA5mH24TAFNtiLcE22pTKmo/kg/qFkk1I1ONJWyKeRTvlpF5jKV/CsQhwW+MvgxXCU
+	 PlHwaWzAjcYXzlIQt+CVOqXycKWu5encomi/wDThmt9jgL9dK1eY2hi6e1Jb1Vzgfp
+	 nJDulxCwkAYxInL0vypevNk8UyeGxW3zwq/oUUuKUpevEmZB6s3+QL2h+Qtz3IYU63
+	 NUv1zUKNkOhvQMpAIyBP+9BKM0hbwNCl4wvkiDRxWzngc0/B5Ycuja/ckHK+SqrnsO
+	 xGt0RX3aqKNog==
+Date: Sat, 7 Feb 2026 14:55:16 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
-	Drew Fustini <dfustini@oss.tenstorrent.com>,
-	Joel Stanley <jms@oss.tenstorrent.com>,
+To: Lv Zheng <lv.zheng@linux.spacemit.com>
+Cc: Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	joel@jms.id.au, fustini@kernel.org, mpe@kernel.org,
-	mpe@oss.tenstorrent.com, npiggin@oss.tenstorrent.com,
-	agross@kernel.org, agross@oss.tenstorrent.com, bmasney@redhat.com
-Subject: Re: [PATCH v5 1/3] dt-bindings: clk: tenstorrent: Add
- tenstorrent,atlantis-prcm
-Message-ID: <20260207-stifle-chowtime-8502c0a57f70@spud>
-References: <20260202-atlantis-clocks-v5-0-0922e43acaba@oss.tenstorrent.com>
- <20260202-atlantis-clocks-v5-1-0922e43acaba@oss.tenstorrent.com>
- <20260205-upbeat-tortoise-of-admiration-b3c0eb@quoll>
- <CAEev2e8_4LSLNvHsiC4d7Rrd2GmjQ_5GRHU6b9-Ha69+yvn5cA@mail.gmail.com>
- <92512903-4651-4ac3-b3ea-c9297e866a3a@kernel.org>
- <CAEev2e99LEoi83_d09NEJwzcSiYdFFZvLOFZUTRRrYtL_qCErw@mail.gmail.com>
- <e242a327-b53e-4b24-a9c1-9ae990de901e@kernel.org>
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Jingyu Li <joey.li@spacemit.com>, iommu@lists.linux.dev,
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 4/8] dt-bindings: iommu: Add spacemit/t100 features
+Message-ID: <20260207-gap-taekwondo-40c0661eaa08@spud>
+References: <cover.1769562575.git.lv.zheng@spacemit.com>
+ <cover.1770195980.git.lv.zheng@linux.spacemit.com>
+ <A0E91F323138E92F+a27d73b00f3324f0d3885128f5596230b3f1370b.1770195980.git.lv.zheng@linux.spacemit.com>
+ <20260204-primer-wrought-6f64b14bf152@spud>
+ <53171BEB06F43599+7c1f54bc-e72d-4cbd-9d10-194ae6b13744@linux.spacemit.com>
+ <20260205-attitude-customer-129fe2bd5dc7@spud>
+ <B8005DB6301AACB4+374512e1-f561-4d2f-afd6-7a4b51012501@linux.spacemit.com>
+ <20260206-buffed-scrubbed-36fc49ada496@spud>
+ <7433DA16B96EE987+9b6398e6-edad-4a2e-814d-921483e5f1da@linux.spacemit.com>
 MIME-Version: 1.0
-In-Reply-To: <e242a327-b53e-4b24-a9c1-9ae990de901e@kernel.org>
+In-Reply-To: <7433DA16B96EE987+9b6398e6-edad-4a2e-814d-921483e5f1da@linux.spacemit.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,79 +79,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7244119806376852218=="
+Content-Type: multipart/mixed; boundary="===============7796107975879175106=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7244119806376852218==
+--===============7796107975879175106==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jHVaJZpxu2xKHNVj"
+	protocol="application/pgp-signature"; boundary="mN4chUiAHJni2zvS"
 Content-Disposition: inline
 
 
---jHVaJZpxu2xKHNVj
+--mN4chUiAHJni2zvS
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Sat, Feb 07, 2026 at 10:37:02AM +0100, Krzysztof Kozlowski wrote:
-> On 07/02/2026 05:18, Anirudh Srinivasan wrote:
-> >>
-> >>> this version and I have mentioned this in the changelog in the cover
-> >>> letter) named "tenstorrent,atlantis-prcm-xyz". The bindings document
-> >>
-> >> Where did you mention it? I went TWICE through it.
-> >=20
-> > Conor and I were discussing these in a previous series and were
-> > referring to them as rcpu prcm and !rcpu prcms. I use these terms to
-> > refer to it in "Changes in v4".
->=20
-> There is no way I could have guessed it. If you remove a compatible you
-> say "removed compatible" not "removed !rcpu".
+On Sat, Feb 07, 2026 at 12:24:30PM +0800, Lv Zheng wrote:
 >=20
 > >=20
-> >>
-> >>> suggests picking a more generic name in this case, so isn't
-> >>> "tenstorrent,atlantis-prcm" okay for that?
-> >>
-> >> No, because I don't want to keep guessing this. The docs clearly ask y=
-ou
-> >> to post complete bindings, which now became less-complete, but fine.
-
-I don't think it actually is "less complete" without the other
-compatibles. The non-rcpu prcms function differently to the rcpu prcm
-(they seem to be consumers of clocks that the rcpu produces) and are not
-supported by the drivers in this series. They're different devices and I
-think should only be documented when support for them comes along. v4
-had problems that were caused by trying to document them without
-actually having driver support figured out.
-
-> >> Then the next rule asks you to use compatible as filename. You cannot
-> >> keep skipping the rules.
-> >=20
-> > I will add all the compatibles back, so there will be 4 of them named
-> > "tenstorrent,atlantis-prcm-xyz". In that case is it appropriate for
-> > the filename to be "tenstorrent,atlantis-prcm.yaml"?
+> > Also, I don't see an answer to my question about whether the hardware
+> > will work without the driver changes this series introduces and enables
+> > with the new compatible?
 >=20
-> Yes
+> Basically, T100 is riscv,iommu compatible, its IOATS part should be able
+> to work using standard HPM events with standard riscv,iommu HPM
+> compatible driver.
 
+That's fine, that's all I wanted to know. The riscv,iommu compatible can
+stay :)
 
---jHVaJZpxu2xKHNVj
+--mN4chUiAHJni2zvS
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaYdSCgAKCRB4tDGHoIJi
-0uoHAQCaCjMG/cpV7RHWl20TNwzsA3A4KKkeZmrUhJiHt4QHMQEAx/dKSWtHh9np
-+LtAoExBU4w5bFzgofZEw3ZwR36quQY=
-=qWUU
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaYdSVAAKCRB4tDGHoIJi
+0n51AP4035S/CKCxinCsG9YuPN4rFYU+scihXululGWkNe1FfwEAi9PnqZh5dPw+
+dqNXvYjrQVtAVZ215qZDKcazpcqFHAI=
+=pm4A
 -----END PGP SIGNATURE-----
 
---jHVaJZpxu2xKHNVj--
+--mN4chUiAHJni2zvS--
 
 
---===============7244119806376852218==
+--===============7796107975879175106==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -165,5 +134,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7244119806376852218==--
+--===============7796107975879175106==--
 
