@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8960DEE20B6
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 09:33:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BD87EE20B6
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 09:37:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gEAGEFEPWXXm2VHShF8wp8vlKeTfdFlHrj+0jzb7mpw=; b=ISUAdB9TLTDSJi
-	teo7PJXRSgGhJvX4RED0RPL5mZaUgvrhyRFtLN4ZzWIMZ+oXXtlPPzVa/DmDG9u0T2+nf/hyoygt1
-	JxmGenUfx5gIIBGiwLrPsN4HL5M7hAKHBG8j70+ESw6EKXtn6bMyxWKkuIrgpguUszBfLH54F+fv5
-	HnuBzbprP+hhqpz2+UlWVIcvj4FuC+SpPCECaTUtySecnKYMchYCJBlIxy5wDeaIFgDERBY64OD1Q
-	Hwfg5rQt6I1/XVDRN3PoAGAmX2hDP2pjANnq1R7Ggu6QE7rlaWJoQ2Ne26la4hGVFi1WJGDYeawrv
-	4ssttry6E4JCean555yg==;
+	List-Owner; bh=JESxi2RYwJ0GkglUabDj1AXOZasFLfChcitcsXWUp1s=; b=LADQq8d/zcZ+GE
+	zBVtCwAcnJMhYA5lTFTW+sRqtBGXccx5HOg85XTOwH30FMnpKbijHUNzS3wbZqCEnVTE3sQrDcq2y
+	9MBQhHyBlblmiW9fUNZViIMJYt3GdhnUxop5UB7kkjuQG7//d8GrKbRlEjBl1NbZ4QWAOaocxO+gI
+	ydHMSN9kSDC5wFiqrri5uLLSq5rSv3zA5aupPSJFLhjS8/EMcCi0M+wl7WEVkccAjg+Q9+yweAKwQ
+	yS18IB77gA4n4B/TRX3CIvTbqiKrk0V8gvCiE+R7EZTKZ76+mSsBG+2gsKEae/i+7xclJ0KJe1bZy
+	XeIj91dm3Oueorzz0IfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voega-0000000CHFm-0gHF;
-	Sat, 07 Feb 2026 09:33:04 +0000
+	id 1voekY-0000000CHST-3IpZ;
+	Sat, 07 Feb 2026 09:37:10 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voegY-0000000CHFH-32mx
+	id 1voekX-0000000CHSN-3CnW
 	for linux-riscv@lists.infradead.org;
-	Sat, 07 Feb 2026 09:33:02 +0000
+	Sat, 07 Feb 2026 09:37:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2B8856001A;
-	Sat,  7 Feb 2026 09:33:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE907C116D0;
-	Sat,  7 Feb 2026 09:32:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 229816001D;
+	Sat,  7 Feb 2026 09:37:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DD3CC116D0;
+	Sat,  7 Feb 2026 09:37:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770456780;
-	bh=m28hVEoYGXGdSVHJTvId02ur1GW69gv/fYpnU07qYLQ=;
+	s=k20201202; t=1770457028;
+	bh=35J3+W6jdlsGjix4fs8E3xu0wjRISw5Oh69jYh09yXw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Bpm7RajQ4+/4DDwLZQcG/B8g2SwBqBUzD4TeGeQ7YaPOWJSX+79wk5sePsPFxy2VV
-	 k+Yegsu2dAGMeIcSJWkQUvS+Z9aKD8GNMbPDfUE6Vo8/At4J8JAWgtUMayQYtdCAPt
-	 VsAG6HVRu7ZvUd72+TGT/vHm3hwKHz5JljfIc4R7hKIJ8MLJYulYgPVWbwNKSUecMz
-	 0FGVxietb0gqpbMTfxhbCnUIJiTdjX4TH1qaIka5QF7cxEXrq83BhG6gs7I/9ocGbs
-	 Y6FSkdo5S7MDCHc7R6RBdzNSWbikJJceG03KlBGf9jlLAOD3ceDNYKvgcRDAO8uB6N
-	 ehS4b83JwKQHg==
-Message-ID: <def032d1-b1c5-4a75-88de-cbb7c1293e61@kernel.org>
-Date: Sat, 7 Feb 2026 10:32:55 +0100
+	b=gozu+8U+B0SRx/qzzzkVKaUsBpkVWXT2xJpbxQwX7mDPuQ7ZUF06AUTntnKz2xqCR
+	 kQUtrZBSnMLqfs9YIXTQNxgEFZo2yI+iF25XBt2pPKVv3/kkkMIXq5paQJkRm29M9w
+	 XwBM8V1678+HVkQPhUiVNWU8H3Kx43i5F74J09YODL58FzByhjLb/fnLcK6Rl7cPUR
+	 gc01QgGktVl5B92RSgzI94YX8hpg1SRiJvkYOYlPAoNwHNYelvFgaTIwSWvMBUm6RU
+	 ChT9T/n0ddi9yEGSUumNicpgyD6K8KmExvYk3pP4TVeNBhRCSkEcOZ9WalBs68+PH9
+	 uYHy/rh/LM8Ag==
+Message-ID: <e242a327-b53e-4b24-a9c1-9ae990de901e@kernel.org>
+Date: Sat, 7 Feb 2026 10:37:02 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] mmc: sdhci-dwcmshc: Add Canaan K230 DWCMSHC
- controller support
-To: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>, ulf.hansson@linaro.org,
- adrian.hunter@intel.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- gaohan@iscas.ac.cn, me@ziyao.cc
-References: <20260204082908.27501-1-jiayu.riscv@isrc.iscas.ac.cn>
- <20260204082908.27501-3-jiayu.riscv@isrc.iscas.ac.cn>
- <e06bd9ca-11bb-4d87-9db5-87139731f181@kernel.org>
- <aYb7m+ioAmqXFhWX@duge-virtual-machine>
+Subject: Re: [PATCH v5 1/3] dt-bindings: clk: tenstorrent: Add
+ tenstorrent,atlantis-prcm
+To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Cc: Drew Fustini <dfustini@oss.tenstorrent.com>,
+ Joel Stanley <jms@oss.tenstorrent.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, joel@jms.id.au,
+ fustini@kernel.org, mpe@kernel.org, mpe@oss.tenstorrent.com,
+ npiggin@oss.tenstorrent.com, agross@kernel.org, agross@oss.tenstorrent.com,
+ bmasney@redhat.com
+References: <20260202-atlantis-clocks-v5-0-0922e43acaba@oss.tenstorrent.com>
+ <20260202-atlantis-clocks-v5-1-0922e43acaba@oss.tenstorrent.com>
+ <20260205-upbeat-tortoise-of-admiration-b3c0eb@quoll>
+ <CAEev2e8_4LSLNvHsiC4d7Rrd2GmjQ_5GRHU6b9-Ha69+yvn5cA@mail.gmail.com>
+ <92512903-4651-4ac3-b3ea-c9297e866a3a@kernel.org>
+ <CAEev2e99LEoi83_d09NEJwzcSiYdFFZvLOFZUTRRrYtL_qCErw@mail.gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,7 +110,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aYb7m+ioAmqXFhWX@duge-virtual-machine>
+In-Reply-To: <CAEev2e99LEoi83_d09NEJwzcSiYdFFZvLOFZUTRRrYtL_qCErw@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,74 +127,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 07/02/2026 09:45, Jiayu Du wrote:
-> On Fri, Feb 06, 2026 at 02:26:40PM +0100, Krzysztof Kozlowski wrote:
->> On 04/02/2026 09:29, Jiayu Du wrote:
->>> +static int dwcmshc_k230_init(struct device *dev, struct sdhci_host *host,
->>> +			     struct dwcmshc_priv *dwc_priv)
->>> +{
->>> +	static const char * const clk_ids[] = {"base", "timer", "ahb"};
->>> +	struct device_node *usb_phy_node;
->>> +	struct k230_priv *k230_priv;
->>> +	u32 data;
->>> +	int ret;
->>> +
->>> +	k230_priv = devm_kzalloc(dev, sizeof(struct k230_priv), GFP_KERNEL);
->>> +	if (!k230_priv)
->>> +		return -ENOMEM;
->>> +	dwc_priv->priv = k230_priv;
->>> +
->>> +	usb_phy_node = of_find_compatible_node(NULL, NULL, "canaan,k230-usb-phy");
+On 07/02/2026 05:18, Anirudh Srinivasan wrote:
 >>
->> Hm? You should use phandles, not look for various nodes.
-> 
-> Only one usbphy node has the canaan, k230-usb-phy compatibility.
-> So in this situation, is it ok to continue using of_find_compatible_node?
-
-Amount of nodes does not matter. This is not how you express
-links/dependencies between devices. Phandle is for this. This is wrong
-on many levels, including missing device links, bypassing kernel API/layers.
-
-
-> 
->>> +	if (!usb_phy_node) {
+>>> this version and I have mentioned this in the changelog in the cover
+>>> letter) named "tenstorrent,atlantis-prcm-xyz". The bindings document
 >>
->> Please follow Linux coding style.
+>> Where did you mention it? I went TWICE through it.
 > 
-> I will fix it in next version.
-> 
->>> +		return dev_err_probe(dev, -ENODEV,
->>> +				     "Failed to find k230-usb-phy node\n");
->>> +	}
->>> +
->>> +	k230_priv->hi_sys_regmap = device_node_to_regmap(usb_phy_node);
->>> +	of_node_put(usb_phy_node);
->>> +	if (IS_ERR(k230_priv->hi_sys_regmap)) {
->>> +		return dev_err_probe(dev, PTR_ERR(k230_priv->hi_sys_regmap),
->>> +				     "Failed to get k230-usb-phy regmap\n");
->>> +	}
->>> +
->>> +	ret = dwcmshc_get_enable_other_clks(mmc_dev(host->mmc), dwc_priv,
->>> +					    ARRAY_SIZE(clk_ids), clk_ids);
->>> +	if (ret) {
->>> +		return dev_err_probe(dev, ret,
->>> +				     "Failed to get/enable k230 mmc other clocks\n");
->>> +	}
->>> +
->>> +	if (of_device_is_compatible(dev->of_node, "canaan,k230-sdio")) {
->>
->> Driver match data is for this.
-> 
-> What you mean is that I shouldn't use of_find_compatible_node, but I can
-> use device_get_match_data instead? Then I can continue to distinguish
-> between SDIO and eMMC to do parameter configuration
-> 
-> Or do you mean that I should put the parameters to be adjusted into the
-> pdata structure? But currently, the dwcmshc structure is not suitable for
-> containing vendor-specific properties.
+> Conor and I were discussing these in a previous series and were
+> referring to them as rcpu prcm and !rcpu prcms. I use these terms to
+> refer to it in "Changes in v4".
 
-Parameters should go to driver match data. I already requested this for
-some other driver and this has to be fixed.
+There is no way I could have guessed it. If you remove a compatible you
+say "removed compatible" not "removed !rcpu".
+
+> 
+>>
+>>> suggests picking a more generic name in this case, so isn't
+>>> "tenstorrent,atlantis-prcm" okay for that?
+>>
+>> No, because I don't want to keep guessing this. The docs clearly ask you
+>> to post complete bindings, which now became less-complete, but fine.
+>> Then the next rule asks you to use compatible as filename. You cannot
+>> keep skipping the rules.
+> 
+> I will add all the compatibles back, so there will be 4 of them named
+> "tenstorrent,atlantis-prcm-xyz". In that case is it appropriate for
+> the filename to be "tenstorrent,atlantis-prcm.yaml"?
+
+Yes
 
 Best regards,
 Krzysztof
