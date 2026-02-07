@@ -4,94 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66562EE6B4E
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 04:25:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B3CEE6B76
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 08:45:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3XW7geM3GNU8r0iAAFwVWkZe2sl1H7J5cgvUwcyTqeY=; b=OQKMUOdXOyOiur
-	d/lJFcEd4pmR8whMN/GSs4zIYr8WhdWWS5QHglvQW9SXMyrLz+UHro6ITubnKwjPURK7scAPZC0l0
-	KGeIXwsnlS6KvWCvoQSfbaKD9w4Vzs55AqOUEhZAxC5NkLrYwoOeZNL5ThlLmydpHqUTgaA2Zhntd
-	UdZrvx3Vte4DR5Mhl/pjJfM9YceFWQ92p1eaEPjiIZO1cibBY+N6eYHZAd4eyv4A4QlvlRz21OuMK
-	3ZKVzn7JhG58KeERbG560XsXyFA/Au5LcMpnVI7C2ISS8caTNxgv8VvoQfut1HRgDFr3A3exuirYx
-	6fKRKZVb78Yzkbp9XCrA==;
+	List-Owner; bh=tpts2hALVEGjkZE4KTeBkWnpjB8Ko5SBj2XE68d2EnI=; b=H2lRXcm8KHLr20
+	dsar7gHbVcZL1NTwto3V6Y+PwHCQjuqBYSnfoManBlnUhd6HIvDUQ9QfWL6DLpSg5EzmmovRrN2/l
+	elQgn9cT+A1O251rBwN4hFiuOm9ki8vxuWCIl/puAr5tEScxOaUCmwOrvwpbRBwl4t+xcF7orqZjJ
+	TOp8vsiY8PAlvtAqSH5bprPceM40HKQDm5hCRXrGYYJV4ILLy1T2JdrSounRHMLHCWvc2OSg9P70n
+	ko9WmMDFXd4PqtGuNXYPZYzwy0UhWw7PbR7BTnpTbTniwvXkgZufDlOxhLUXclrk981grLUi4l4Bw
+	wyXuoGozCJP3ze//WwiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voZsq-0000000C7Ie-0v3M;
-	Sat, 07 Feb 2026 04:25:24 +0000
-Received: from smtpbg154.qq.com ([15.184.224.54])
+	id 1vodwc-0000000CFZ8-1MAu;
+	Sat, 07 Feb 2026 08:45:34 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voZsj-0000000C7Hh-3B6x
+	id 1vodwY-0000000CFYl-1VQi
 	for linux-riscv@lists.infradead.org;
-	Sat, 07 Feb 2026 04:25:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1770438281;
-	bh=CQYvnaGEzgZpCE74zg7SoO/TB2ehyMWN1aSoI7gi5Is=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=y5yY3fbvgXFlrgoDvs0dxqrJHB6qr/Dc6qUU8I9OWHE/7UVZvr3Fv1Ro2HNK0seDV
-	 rZgTZSGmBnh927GtiuB19N+uyqC+7vU4vkNx64QytkL5z3BLJpJyx1tgwMGL+AJFM4
-	 2tBJ+eXkY6ETflFIJmhmBVsbIJI36fpto/licoRI=
-X-QQ-mid: zesmtpip4t1770438274t6e2f2d0d
-X-QQ-Originating-IP: SiYifUz4R84wVKt78tfvZCqvpi89f2wr1I4Vp6P87qE=
-Received: from [IPV6:2409:8a1e:3015:50f0:29fb: ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 07 Feb 2026 12:24:31 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 13206828355001701766
-Message-ID: <7433DA16B96EE987+9b6398e6-edad-4a2e-814d-921483e5f1da@linux.spacemit.com>
-Date: Sat, 7 Feb 2026 12:24:30 +0800
+	Sat, 07 Feb 2026 08:45:33 +0000
+Received: from duge-virtual-machine (unknown [112.53.146.143])
+	by APP-01 (Coremail) with SMTP id qwCowACnUm6b+4ZpnYJXBw--.38548S2;
+	Sat, 07 Feb 2026 16:45:16 +0800 (CST)
+Date: Sat, 7 Feb 2026 16:45:15 +0800
+From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+To: Krzysztof Kozlowski <krzk@kernel.org>, ulf.hansson@linaro.org,
+	adrian.hunter@intel.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	gaohan@iscas.ac.cn, me@ziyao.cc
+Subject: Re: [PATCH 2/3] mmc: sdhci-dwcmshc: Add Canaan K230 DWCMSHC
+ controller support
+Message-ID: <aYb7m+ioAmqXFhWX@duge-virtual-machine>
+References: <20260204082908.27501-1-jiayu.riscv@isrc.iscas.ac.cn>
+ <20260204082908.27501-3-jiayu.riscv@isrc.iscas.ac.cn>
+ <e06bd9ca-11bb-4d87-9db5-87139731f181@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/8] dt-bindings: iommu: Add spacemit/t100 features
-To: Conor Dooley <conor@kernel.org>
-Cc: Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Jingyu Li <joey.li@spacemit.com>,
- iommu@lists.linux.dev, linux-perf-users@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- devicetree@vger.kernel.org
-References: <cover.1769562575.git.lv.zheng@spacemit.com>
- <cover.1770195980.git.lv.zheng@linux.spacemit.com>
- <A0E91F323138E92F+a27d73b00f3324f0d3885128f5596230b3f1370b.1770195980.git.lv.zheng@linux.spacemit.com>
- <20260204-primer-wrought-6f64b14bf152@spud>
- <53171BEB06F43599+7c1f54bc-e72d-4cbd-9d10-194ae6b13744@linux.spacemit.com>
- <20260205-attitude-customer-129fe2bd5dc7@spud>
- <B8005DB6301AACB4+374512e1-f561-4d2f-afd6-7a4b51012501@linux.spacemit.com>
- <20260206-buffed-scrubbed-36fc49ada496@spud>
-Content-Language: en-US
-From: Lv Zheng <lv.zheng@linux.spacemit.com>
-In-Reply-To: <20260206-buffed-scrubbed-36fc49ada496@spud>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-1
-X-QQ-XMAILINFO: OVMqbsUyNYbucEUZokUuD6PFEVoLvf2aVkZWQ8LhTuAGNWu1GuprdAx3
-	dfpCWVZ+TBvIaMAwA1UVoR4cT0N+2CdCxkxBOnj8Eq3fI3njpyQzbgGmXT2QtEHM5/pOFMe
-	6QyoBserxzfJgYzoUqUYQ688W5lVj/Go5myQ0zhOlS0F9X98xcIpxl05rR3uOfgvUu5aliS
-	vX+QV1sNJ+Nk1QUHMte5hDbicVFkAvuQpaJzoXSnCw/eIZqOrFwOGKSSkvnIiwLSFI/NrZY
-	vNRIHvO40Ha0nZmnpW7FOXBKtEPZyVT59MYB12jjB1IVJ1au4aRbQG2yyQ1fxQ0GJl8SsHw
-	DC3UtR/j7TuoMrQ+0tz0U+7Vh/WYI9j/1mZBcv4OzQ2XC1HYmUJSRyq9NPf5ae0/tuij2Uh
-	jJvzFxNZRViJUgWj+fOZ6WoKusaNF5rQYs4ai/VOuSjK5to7RY6mSQm1e5D4u4MUOYoUDGd
-	NZNEZD+tYPyhLvTJHyYSujUAfrv/bHYHtAJxsGuUHX4OZMjZN5rPpsRk41cS0YljMza0Kbn
-	zBSRGF0LBaTKrfPGgG0RzlmUQgH1DsoyHPQveyg32myXHoX+FY7cjPXRCzQE83FCZdvRwSI
-	FV5ry2662bCclLzw49kOB9gO2l6E9OjsCm10O6DJ5k8X/qwR++JydrxM12fkuiu4ZF9tDm9
-	wQAoh3tsetpyBp5JkcRPIHUGZw075ghQrID95Cjx3NiH9tZ5A2IoT0WFt8g/q75eqosWVmx
-	9rJVpSs2JvJ+gWOA88d7qylhLuPS8KDsa8gdOsrGdIpU8PyI8ApbiGgb2QdoTIlVpfMjD7+
-	c07+NHEjdMXnIRsY9J37F42IDrxMkmdbjSi9UvQBkkC4xsnGUJnK7oT52ISCZCQO30wIUAE
-	8SyoHudANNS5wjyurSrcoseGEUTnzUxik3lgm1QAa3YrstLii+zsyRfWBuNrkhwLVRIg6yc
-	AP+AMME/5HuqYnb5uZYoSI2qTqbptV7xZNsh7C+0C35Pd8tawta3xXHy4HjkugicIfy/pl1
-	5xcQH9baxM5CgDHjwf1ejNNa17+xhy5A6LBFjAk/F8LAsQYGMLWPY+9jv4M9LdidGuFLFZr
-	lvpwnNjess/
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-X-QQ-RECHKSPAM: 0
+Content-Disposition: inline
+In-Reply-To: <e06bd9ca-11bb-4d87-9db5-87139731f181@kernel.org>
+X-CM-TRANSID: qwCowACnUm6b+4ZpnYJXBw--.38548S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KryDKw18Zr1UJF4UXr47Arb_yoW8uF1fpF
+	ykJFW5tFy8JF1Sgw1ktF4kCa4ayw1DGF4aqw4ft34UKwnFyryxWF40gryY9as5AFW5CF4Y
+	v3yjqr9rCanrGrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjxUqiFxDUUUU
+X-Originating-IP: [112.53.146.143]
+X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_202521_137282_929C1EAE 
-X-CRM114-Status: GOOD (  28.78  )
+X-CRM114-CacheID: sfid-20260207_004530_801860_CAC33AF2 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,147 +81,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/6/2026 6:24 PM, Conor Dooley wrote:
-> On Fri, Feb 06, 2026 at 09:33:09AM +0800, Lv Zheng wrote:
->> On 2/6/2026 2:24 AM, Conor Dooley wrote:
->>> On Thu, Feb 05, 2026 at 11:11:51AM +0800, Lv Zheng wrote:
->>>> On 2/5/2026 1:37 AM, Conor Dooley wrote:
->>>>> On Wed, Feb 04, 2026 at 05:09:12PM +0800, Lv Zheng wrote:
->>>>>> Adds device tree bindings for SpacemiT T100 specific features by
->>>>>> introducing spacemit,100 compatible. T100 contains distributed IOATCs,
->>>>>> each of which exposes pmiv interrupt.
->>>>>>
->>>>>> Signed-off-by: Lv Zheng <lv.zheng@linux.spacemit.com>
->>>>>> Signed-off-by: Jingyu Li <joey.li@spacemit.com>
->>>>>> ---
->>>>>>     .../bindings/iommu/riscv,iommu.yaml           | 37 +++++++++++++++++++
->>>>>>     1 file changed, 37 insertions(+)
->>>>>>
->>>>>> diff --git a/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
->>>>>> index d4838c3b3741..2da3456e7402 100644
->>>>>> --- a/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
->>>>>> +++ b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
->>>>>> @@ -32,6 +32,12 @@ properties:
->>>>>>       # should be specified along with 'reg' property providing MMIO location.
->>>>>>       compatible:
->>>>>>         oneOf:
->>>>>> +      - description: SpacemiT distributed IOMMUs
->>>>>> +        items:
->>>>>> +          - enum:
->>>>>> +              - spacemit,t100
->>>>>> +          - const: spacemit,riscv-iommu
->>>>>
->>>>> What actually is the t100? Is it an SoC or is it the name of the core
->>>>> complex IP that spacemit is using in multiple SoCs?
->>>>
->>>> T100 is the name of the IOMMU IP developed by SpacemiT, announced in RISC-V
->>>> 2024 China Summit:
->>>> https://www.bilibili.com/video/BV1DNtCeiEBk/
->>>> It's world first server SPEC IOMMU in RISC-V, supports IOTLB placed in
->>>> adjacent to the DMA masters and supports PCIe ATS and PRI.
->>>> You can find it shipped in the recent publicly purchasable SoC SpacemiT K3.
->>>
->>> Right, then what you need here is something like:
->>>
->>> items:
->>>     - enum:
->>>         - spacemit,k3-iommu
->>>     - spacemit,t100-iommu
->>>     - riscv,iommu
->>>
->>> Driver can then match on spacemit,t100-iommu - but you need to have
->>> soc-specific compatibles.
->>> I'm not convinced that riscv,iommu is suitable here though, does the
->>> driver work on your platform without the portions of code that are added
->>> by this series and enabled by your new compatible? If not, the I don't
->>> think the riscv,iommu fallback should be here.
->>>
->>> Additionally, please stop sending new versions so frequently and in
->>> response to earlier submissions. I have a v4 in my inbox while we are
->>> still discussing v3.
->>
->> SpacemiT provides RISC-V IOMMU implementation, T100 is the first
->> generation of the this IP product line, we have plan to develop T200,
->> T300, etc., with more features introduced to be adoptive to new
->> RISC-V IOMMU specifications.
->> Besides, T100 is not only shipped in K3, but also shipped in V100 and
->> the follow-up SoCs, like Kn, Vn00, they will likely use the same
->> synthesis result of T100 RTLs.
->>
->>  From SpacemiT's point of view, we need a common sense of this IP
->> series for something like IOATCs, that's why spacemit,riscv-iommu
->> (this is same like qemu,riscv-iommu) is introduced. And a common sense
+On Fri, Feb 06, 2026 at 02:26:40PM +0100, Krzysztof Kozlowski wrote:
+> On 04/02/2026 09:29, Jiayu Du wrote:
+> > +static int dwcmshc_k230_init(struct device *dev, struct sdhci_host *host,
+> > +			     struct dwcmshc_priv *dwc_priv)
+> > +{
+> > +	static const char * const clk_ids[] = {"base", "timer", "ahb"};
+> > +	struct device_node *usb_phy_node;
+> > +	struct k230_priv *k230_priv;
+> > +	u32 data;
+> > +	int ret;
+> > +
+> > +	k230_priv = devm_kzalloc(dev, sizeof(struct k230_priv), GFP_KERNEL);
+> > +	if (!k230_priv)
+> > +		return -ENOMEM;
+> > +	dwc_priv->priv = k230_priv;
+> > +
+> > +	usb_phy_node = of_find_compatible_node(NULL, NULL, "canaan,k230-usb-phy");
 > 
-> No, it's not the same as qemu,riscv-iommu. That exists to avoid
-> riscv,iommu being allowed in isolation and as a "SoC"/integration
-> specific compatible. The driver matches against riscv,iommu not
-> qemu,riscv-iommu and has no qemu,riscv-iommu specific behaviours.
-> It is akin to having spacemit,k3-iommu.
+> Hm? You should use phandles, not look for various nodes.
 
-Got it.
+Only one usbphy node has the canaan, k230-usb-phy compatibility.
+So in this situation, is it ok to continue using of_find_compatible_node?
 
+> > +	if (!usb_phy_node) {
 > 
->> of T100 for all SoCs shipped T100 (like global filters, vendor events
->> and etc.,).
->>
->> IMO, the current compatible is proper to reflect these concerns.
->> What do you think?
+> Please follow Linux coding style.
+
+I will fix it in next version.
+
+> > +		return dev_err_probe(dev, -ENODEV,
+> > +				     "Failed to find k230-usb-phy node\n");
+> > +	}
+> > +
+> > +	k230_priv->hi_sys_regmap = device_node_to_regmap(usb_phy_node);
+> > +	of_node_put(usb_phy_node);
+> > +	if (IS_ERR(k230_priv->hi_sys_regmap)) {
+> > +		return dev_err_probe(dev, PTR_ERR(k230_priv->hi_sys_regmap),
+> > +				     "Failed to get k230-usb-phy regmap\n");
+> > +	}
+> > +
+> > +	ret = dwcmshc_get_enable_other_clks(mmc_dev(host->mmc), dwc_priv,
+> > +					    ARRAY_SIZE(clk_ids), clk_ids);
+> > +	if (ret) {
+> > +		return dev_err_probe(dev, ret,
+> > +				     "Failed to get/enable k230 mmc other clocks\n");
+> > +	}
+> > +
+> > +	if (of_device_is_compatible(dev->of_node, "canaan,k230-sdio")) {
 > 
-> I pretty much already told you what I think, that you need SoC-specific
-> compatibles for SoCs that integrate this IP and that the you should drop
-> the spacemit,riscv-iommu compatible. The spacemit,riscv-iommu compatible
-> doesn't provide any additional value over spacemit,t100-iommu, and has
-> the downside of maybe being confusing in the future if spacemit
-> produces a iommu that doesn't have the IOATC behaviour.
+> Driver match data is for this.
 
-Sounds reasonable. Thanks.
+What you mean is that I shouldn't use of_find_compatible_node, but I can
+use device_get_match_data instead? Then I can continue to distinguish
+between SDIO and eMMC to do parameter configuration
 
+Or do you mean that I should put the parameters to be adjusted into the
+pdata structure? But currently, the dwcmshc structure is not suitable for
+containing vendor-specific properties.
+
+Regards,
+Jiayu Du
 > 
-> Also, I don't see an answer to my question about whether the hardware
-> will work without the driver changes this series introduces and enables
-> with the new compatible?
-
-Basically, T100 is riscv,iommu compatible, its IOATS part should be able
-to work using standard HPM events with standard riscv,iommu HPM
-compatible driver. People can now test the real hardware of spacemit
-T100 on K3.
-https://canonical.com/blog/spacemit-announces-availability-of-ubuntu-on-k3-k1-series
-I'll try to ask our product team to find third party testers, and if
-any, adds Cc(s) in the next revision.
-
-Without the awareness of this compatible, hardware will face the
-following problems:
-
-Handled in this series:
-1. No vendor event matches
-2. No global filter awareness
-3. No IOATC enumeration
-That's the basic support introduced in this series to enable some basic
-features of T100 that we couldn't find in the upstream.
-
-And there are other features not handled in this series:
-4. No identities matching vendors
-5. No awareness of only PMIV working as WSI, others (CIV/FIV/PIV) are
-    configurable as MSI to make IOATS/IOATC PMIV behaves same and more
-    suitable for kernel performance sampling.
-6. And many other SpacemiT specific features people can find the
-    discussions in the IOMMU spec community that is not limited to HPM,
-    ex., RISC-V DMA64 compliance, QEMU old style MSI-PTE support, etc.
-7. ACPI support for spacemit,v100-iommu.
-8. PCIe ATS/PRI support for spacemit,k3-iommu/spacemit,v100-iommu.
-9. etc.
-
-Cheers,
-Lv
-
-> 
-> Cheers,
-> Conor.
+> Best regards,
+> Krzysztof
 
 
 _______________________________________________
