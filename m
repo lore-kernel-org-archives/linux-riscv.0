@@ -4,62 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F33BEEE0AC4
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 10:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57543EE0ADA
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 11:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8xEwsyA8lm0rfChfkKJwre2DLm8Et4fet2G1AeiDJLA=; b=yZtQ+VflYhqwed
-	8MBZ1CbqzGrnb+EvwQQZEq1VWbDfBmsj1rEKLTXZgPfu2tLmfjf6kU/fD8tjn/QOE9RTNLQ/4Dimv
-	ZPrIQ3ML5HqnzyjF/rspIsknJEaj578qPMIvShZbwEh2OHGrPP+ztiqCgQy0NiHz6vtgaIhvmzj9K
-	gYbAZxzDmKCfPsppLJGx5hqBtop8k6mBvEYn+39Kw5REHV0/fCijB724eGVPpjx0oA4yvF5mPbh1G
-	DP4LwqLZLDT0xGuRuwzA2Efrx0WuAvCJPRslyuNqu9bS8Uv1mUG3ANhoM5NyD1qrteQa5Llioh9n9
-	3ZWmriXwilpPMTfZtgYQ==;
+	List-Owner; bh=c2jM24c1UX0XVDzJJcfp54x6i9hk6mLL3qsNI9GQ2Ek=; b=oSVHHmeRljMXup
+	Lw5nevGKu21/fWT9H2G3nLyryTi1UdnxXnCfHgyJqC6ZA0xSbERMG26mp5qtl7OcHzdomMkozJstx
+	2zgtrnVnQKzeTVQ/yF6WseYRrj8GlQIuXeOj0+nq01s6ZBFcMZjk7jQ6f2pvGbWotAVva3fw5O0HN
+	0s+9ZjFDCe7AHK+nkKqGxaUi5+xJwe5eG/SEKLesMFnhWzpePRtDYcotdmANAlfGLnULOnpx0kDxy
+	poG9Y5FB7hV24ZFgn8C3fU/aoc4A06Y2K5cgmKIwULuFTRxCc9ZQQR2W7DpDAiXrkhi0+jXtKFZyK
+	O7kT7tPFWz90GM8px/2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vofwu-0000000CMig-2l9u;
-	Sat, 07 Feb 2026 10:54:00 +0000
-Received: from out-172.mta0.migadu.com ([91.218.175.172])
+	id 1vogv6-0000000CPnV-39yV;
+	Sat, 07 Feb 2026 11:56:12 +0000
+Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vofwr-0000000CMiK-1B92
-	for linux-riscv@lists.infradead.org;
-	Sat, 07 Feb 2026 10:53:59 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1770461633;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QZh0R8vWCBol722cPbD/0P1LqMJ0zb7aYvYr9xYxFi4=;
-	b=bzUM415ICosLe1IDqKekKvGuBGnaE93Ls22T+cW13EdVzFOfz/SdTc8KnhnLARVUR1PmRn
-	bk3OIUrVs0K20T4YUWHwF7nOVuAcVHmIStsoeZksoKIL61VDngtDsuQlXA5RChztsDWeFP
-	JwpzHVJKArWlK7xAOKnGwcbgcQVe9i0=
-From: Menglong Dong <menglong.dong@linux.dev>
-To: Menglong Dong <menglong8.dong@gmail.com>, Pu Lehui <pulehui@huawei.com>
-Cc: bjorn@kernel.org, ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
- martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
- yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
- sdf@fomichev.me, haoluo@google.com, jolsa@kernel.org, puranjay@kernel.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, jiang.biao@linux.dev
-Subject: Re: [PATCH bpf-next v3 1/3] bpf,
- riscv: introduce emit_store_stack_imm64() for trampoline
-Date: Sat, 07 Feb 2026 18:53:17 +0800
-Message-ID: <3042323.e9J7NaK4W3@7950hx>
-In-Reply-To: <d6281121-b39b-41ac-a166-69dbfa1f4f79@huawei.com>
-References: <20260206122002.1494125-1-dongml2@chinatelecom.cn>
- <20260206122002.1494125-2-dongml2@chinatelecom.cn>
- <d6281121-b39b-41ac-a166-69dbfa1f4f79@huawei.com>
+	id 1vogv3-0000000CPn2-2RCn;
+	Sat, 07 Feb 2026 11:56:11 +0000
+Received: from localhost (unknown [116.232.48.232])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id D436D341F0D;
+	Sat, 07 Feb 2026 11:56:03 +0000 (UTC)
+Date: Sat, 7 Feb 2026 19:55:51 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Yixun Lan <dlan@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Ze Huang <huang.ze@linux.dev>, Rob Herring <robh@kernel.org>,
+	Mark Brown <broonie@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	linux-riscv@lists.infradead.org, linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH 1/2] dt-bindings: phy: spacemit: add regulator support to
+ K1 USB2 PHY
+Message-ID: <20260207115551-GYA130548@gentoo.org>
+References: <20260206100009.873182-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-X-Migadu-Flow: FLOW_OUT
+Content-Disposition: inline
+In-Reply-To: <20260206100009.873182-1-amadeus@jmu.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260207_025357_478859_E248DDF0 
-X-CRM114-Status: GOOD (  18.35  )
+X-CRM114-CacheID: sfid-20260207_035609_662777_5C3E1D3F 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,65 +66,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNi8yLzcgMDk6MTMsIFB1IExlaHVpIHdyb3RlOgo+IAo+IE9uIDIwMjYvMi82IDIwOjIw
-LCBNZW5nbG9uZyBEb25nIHdyb3RlOgo+ID4gSW50cm9kdWNlIGEgaGVscGVyIHRvIHN0b3JlIDY0
-LWJpdCBpbW1lZGlhdGUgb24gdGhlIHRyYW1wb2xpbmUgc3RhY2sgd2l0aAo+ID4gYSBoZWxwIG9m
-IGEgcmVnaXN0ZXIuCj4gPiAKPiA+IFNpZ25lZC1vZmYtYnk6IE1lbmdsb25nIERvbmcgPGRvbmdt
-bDJAY2hpbmF0ZWxlY29tLmNuPgo+ID4gVGVzdGVkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkBr
-ZXJuZWwub3JnPgo+ID4gQWNrZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtlcm5lbC5vcmc+
-Cj4gPiAtLS0KPiA+ICAgYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYyB8IDI1ICsrKysr
-KysrKysrKysrLS0tLS0tLS0tLS0KPiA+ICAgMSBmaWxlIGNoYW5nZWQsIDE0IGluc2VydGlvbnMo
-KyksIDExIGRlbGV0aW9ucygtKQo+ID4gCj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9uZXQv
-YnBmX2ppdF9jb21wNjQuYyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMKPiA+IGlu
-ZGV4IDM3ODg4YWJlZTcwYy4uZTRmNDVlMmU3ZTJmIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNj
-di9uZXQvYnBmX2ppdF9jb21wNjQuYwo+ID4gKysrIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9j
-b21wNjQuYwo+ID4gQEAgLTkyNiw2ICs5MjYsMTQgQEAgc3RhdGljIHZvaWQgcmVzdG9yZV9zdGFj
-a19hcmdzKGludCBucl9zdGFja19hcmdzLCBpbnQgYXJnc19vZmYsIGludCBzdGtfYXJnX29mZiwK
-PiA+ICAgCX0KPiA+ICAgfQo+ID4gICAKPiA+ICtzdGF0aWMgdm9pZCBlbWl0X3N0b3JlX3N0YWNr
-X2ltbTY0KHU4IHJlZywgaW50IHN0YWNrX29mZiwgdTY0IGltbTY0LAo+ID4gKwkJCQkgICBzdHJ1
-Y3QgcnZfaml0X2NvbnRleHQgKmN0eCkKPiAKPiBTb21lIG5pdC4gVGhlIGZpcnN0IHBhcmFtZXRl
-ciBjYW4gYmUgcmVtb3ZlZCBieSB1c2luZyBhIGZpeGVkIFJWX1JFR19UMS4gCj4gQWxzbywgcGxh
-Y2luZyBpbW02NCBiZWZvcmUgc3RhY2tfb2ZmIG1pZ2h0IGxvb2tzIGJldHRlci4KCkhpLCBMZWh1
-aS4gV2hlbiBJIGltcGxlbWVudCB0aGUgZW1pdF9zdG9yZV9zdGFja19pbW02NCgpIGluIHg4NiwK
-QW5kcmlpIHN1Z2dlc3RlZCB0aGF0IHdlJ2QgYmV0dGVyIHVzZSB0aGUgcmVnaXN0ZXIgZXhwbGlj
-aXRseSB0byBpbmRpY2F0ZQp0aGUgcmVnaXN0ZXIgaXMgdXNlZC4gU28gbWF5YmUgaXQncyBiZXR0
-ZXIgdG8ga2VlcCB0aGlzIHBhcnQgc3RpbGw/CgpJIGNhbiBwbGFjZSB0aGUgaW1tNjQgYmVmb3Jl
-IHN0YWNrX29mZi4KClRoYW5rcyEKTWVuZ2xvbmcgRG9uZwoKPiAKPiA+ICt7Cj4gPiArCS8qIExv
-YWQgaW1tNjQgaW50byByZWcgYW5kIHN0b3JlIGl0IGF0IFtGUCArIHN0YWNrX29mZl0uICovCj4g
-PiArCWVtaXRfaW1tKHJlZywgKHM2NClpbW02NCwgY3R4KTsKPiA+ICsJZW1pdF9zZChSVl9SRUdf
-RlAsIHN0YWNrX29mZiwgcmVnLCBjdHgpOwo+ID4gK30KPiA+ICsKPiA+ICAgc3RhdGljIGludCBp
-bnZva2VfYnBmX3Byb2coc3RydWN0IGJwZl90cmFtcF9saW5rICpsLCBpbnQgYXJnc19vZmYsIGlu
-dCByZXR2YWxfb2ZmLAo+ID4gICAJCQkgICBpbnQgcnVuX2N0eF9vZmYsIGJvb2wgc2F2ZV9yZXQs
-IHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4KQo+ID4gICB7Cj4gPiBAQCAtOTMzLDEyICs5NDEs
-MTAgQEAgc3RhdGljIGludCBpbnZva2VfYnBmX3Byb2coc3RydWN0IGJwZl90cmFtcF9saW5rICps
-LCBpbnQgYXJnc19vZmYsIGludCByZXR2YWxfb2YKPiA+ICAgCXN0cnVjdCBicGZfcHJvZyAqcCA9
-IGwtPmxpbmsucHJvZzsKPiA+ICAgCWludCBjb29raWVfb2ZmID0gb2Zmc2V0b2Yoc3RydWN0IGJw
-Zl90cmFtcF9ydW5fY3R4LCBicGZfY29va2llKTsKPiA+ICAgCj4gPiAtCWlmIChsLT5jb29raWUp
-IHsKPiA+IC0JCWVtaXRfaW1tKFJWX1JFR19UMSwgbC0+Y29va2llLCBjdHgpOwo+ID4gLQkJZW1p
-dF9zZChSVl9SRUdfRlAsIC1ydW5fY3R4X29mZiArIGNvb2tpZV9vZmYsIFJWX1JFR19UMSwgY3R4
-KTsKPiA+IC0JfSBlbHNlIHsKPiA+ICsJaWYgKGwtPmNvb2tpZSkKPiA+ICsJCWVtaXRfc3RvcmVf
-c3RhY2tfaW1tNjQoUlZfUkVHX1QxLCAtcnVuX2N0eF9vZmYgKyBjb29raWVfb2ZmLCBsLT5jb29r
-aWUsIGN0eCk7Cj4gPiArCWVsc2UKPiA+ICAgCQllbWl0X3NkKFJWX1JFR19GUCwgLXJ1bl9jdHhf
-b2ZmICsgY29va2llX29mZiwgUlZfUkVHX1pFUk8sIGN0eCk7Cj4gPiAtCX0KPiA+ICAgCj4gPiAg
-IAkvKiBhcmcxOiBwcm9nICovCj4gPiAgIAllbWl0X2ltbShSVl9SRUdfQTAsIChjb25zdCBzNjQp
-cCwgY3R4KTsKPiA+IEBAIC0xMTIzLDEzICsxMTI5LDEwIEBAIHN0YXRpYyBpbnQgX19hcmNoX3By
-ZXBhcmVfYnBmX3RyYW1wb2xpbmUoc3RydWN0IGJwZl90cmFtcF9pbWFnZSAqaW0sCj4gPiAgIAll
-bWl0X3NkKFJWX1JFR19GUCwgLXNyZWdfb2ZmLCBSVl9SRUdfUzEsIGN0eCk7Cj4gPiAgIAo+ID4g
-ICAJLyogc3RvcmUgaXAgYWRkcmVzcyBvZiB0aGUgdHJhY2VkIGZ1bmN0aW9uICovCj4gPiAtCWlm
-IChmbGFncyAmIEJQRl9UUkFNUF9GX0lQX0FSRykgewo+ID4gLQkJZW1pdF9pbW0oUlZfUkVHX1Qx
-LCAoY29uc3QgczY0KWZ1bmNfYWRkciwgY3R4KTsKPiA+IC0JCWVtaXRfc2QoUlZfUkVHX0ZQLCAt
-aXBfb2ZmLCBSVl9SRUdfVDEsIGN0eCk7Cj4gPiAtCX0KPiA+ICsJaWYgKGZsYWdzICYgQlBGX1RS
-QU1QX0ZfSVBfQVJHKQo+ID4gKwkJZW1pdF9zdG9yZV9zdGFja19pbW02NChSVl9SRUdfVDEsIC1p
-cF9vZmYsICh1NjQpZnVuY19hZGRyLCBjdHgpOyA+Cj4gPiAtCWVtaXRfbGkoUlZfUkVHX1QxLCBu
-cl9hcmdfc2xvdHMsIGN0eCk7Cj4gPiAtCWVtaXRfc2QoUlZfUkVHX0ZQLCAtbnJlZ3Nfb2ZmLCBS
-Vl9SRUdfVDEsIGN0eCk7Cj4gPiArCWVtaXRfc3RvcmVfc3RhY2tfaW1tNjQoUlZfUkVHX1QxLCAt
-bnJlZ3Nfb2ZmLCBucl9hcmdfc2xvdHMsIGN0eCk7Cj4gPiAgIAo+ID4gICAJc3RvcmVfYXJncyhu
-cl9hcmdfc2xvdHMsIGFyZ3Nfb2ZmLCBjdHgpOwo+ID4gICAKPiAKPiAKCgoKCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Chukun,
+
+On 18:00 Fri 06 Feb     , Chukun Pan wrote:
+> Add an optional phy-supply property to describe the regulator
+> supplying for USB VBUS.
+> 
+No, the phy itself doesn't require regulator supply
+
+We previously had a discussion about this, and I personally agree it 
+should be handled at USB port level, see Ze's comment
+
+https://lore.kernel.org/all/aWJAT3n_KcND8bOz@monica.localdomain/
+
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> ---
+>  Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml b/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
+> index 43eaca90d88c..74a1cd5bcdbe 100644
+> --- a/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
+> @@ -19,6 +19,10 @@ properties:
+>    clocks:
+>      maxItems: 1
+>  
+> +  phy-supply:
+> +    description:
+> +      Phandle to a regulator that provides power to VBUS.
+> +
+>    "#phy-cells":
+>      const: 0
+>  
+> -- 
+> 2.34.1
+> 
+
+-- 
+Yixun Lan (dlan)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
