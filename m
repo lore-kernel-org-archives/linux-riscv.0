@@ -4,62 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E9E4EE0AC8
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 10:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19EC1EE0AC4
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 10:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5N9XJKvG9IKBRp17zcmYdxAqKozUd24Tu5Sa2c25Q9M=; b=S4ZCIEeqdnMRv2
-	GbfDWbn4+7hOBX9aDQQvBWI9RAedOeG+zN2DU4Ncj/GBQLnE60/BvBFWksQM1PN8SQMcebaVSrmkG
-	sSlyoHaIxcxFJchBXq+eo/kCRaN701lLP/EMwcTrR3cD4vfii+U6aROxn/qOisVW9hRRYp4o4qnE7
-	DpSMw8tQ7T6DOvz0qOKCPVKWB7POueIxOjc5wycOYdvtp+0IgDllND0688N+K1iz54pRUh1J+ZZcw
-	2ZBV61gS/0as8BPZxoyxM11+l7+HsIBVqZlxb9qfeCoZOYkZ+VEulkL6jwax/3BnuFmGdNB9NzYW+
-	crIvRbPXdASkGBTE4JHg==;
+	List-Owner; bh=EFrmTcNdcp/QJBKCTA/VgxmiW/G+SJm+oKS3U18WfIM=; b=0htscclXOEIhO5
+	9SLoW2NSS+9OWX8378PTy8dacgYba5DEVkwzwli/tcQVdqTa0OaVDmlh1tsRIotzHAwBZCmXvKiEo
+	O0sINagYiJFsYkXtGbh7yIfgqqGeWnWEk9TH/7OZqcj8259lGyJphQFXIowHqAG4Tmo54yKTSXPQI
+	KwJ+1aImBxdlLtu3v3KBGMMr5iS+2PqKqfTuVWR5PDQibGZXD0OQRv9Gi1jl/U9IZyh/UlLPGKZh9
+	pUL22azYMuDzC0RHRPETY8Ep6nQ3UqHuANa/FWMnNC+mkqcuKGrCQ8Lg5rRoXTwp0CD35ddelxlKX
+	pF4b7/QRszTA3YiUJtIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vofrM-0000000CM7B-2aWJ;
-	Sat, 07 Feb 2026 10:48:16 +0000
+	id 1vofsU-0000000CMEW-0xz3;
+	Sat, 07 Feb 2026 10:49:26 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vofrK-0000000CM6c-2DuH;
-	Sat, 07 Feb 2026 10:48:15 +0000
+	id 1vofsR-0000000CMDq-32vs;
+	Sat, 07 Feb 2026 10:49:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7E9B844146;
-	Sat,  7 Feb 2026 10:48:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC80BC116D0;
-	Sat,  7 Feb 2026 10:48:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 540494185F;
+	Sat,  7 Feb 2026 10:49:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F20C7C116D0;
+	Sat,  7 Feb 2026 10:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770461293;
-	bh=xeIkHvV7X3pvMez0kiFePRC11Tm26GnXlWP39PuhWhU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ksVO1FtuUTzaYWMGPzjhuSXulWE/KIuHT5l//UyeYCcEqsbaOcoXazouqbnND68zk
-	 j9U+sFfkbvvZN+eZlB6DNu0JrC5vKVK37hlGPW14EZEKjmwdpkk2seElekYswT6ZbI
-	 JGbmoxU1vNU0xscvmrIDGby7LIN7yQjwUz0LwMxV6YdLUlCReQU9nmAWuSSxmXDXOH
-	 3Iq7dQBz+FlWE9yBO6WsUT4PyE4OzBFXLBOMpKJMFbIhJmjHg1ypYpvmdjfU7AuKU/
-	 lt5CFqR+ho3L1sZ4yzABCumZkEGbbjS2bYbEPyG7DCwfv7870p16qBfL30HtMS00qe
-	 w9udnIWkQDllA==
-Date: Sat, 7 Feb 2026 11:48:10 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Yixun Lan <dlan@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
-	Ze Huang <huang.ze@linux.dev>, Rob Herring <robh@kernel.org>, Mark Brown <broonie@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	linux-riscv@lists.infradead.org, linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, spacemit@lists.linux.dev
+	s=k20201202; t=1770461363;
+	bh=vR/diDxqa1OFN1W0xmqG5HflpJfwRP+WkZ+7TLOMKGM=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=o/AmsU2Parvgl6nqB3SiA0GGC4av+vWpc3R+nvqMn8KlDtUges2+5IJ25ViRmAA3g
+	 dH8YQc4RXIeKoLjoCual9KA9bfKbEgNmRBwOpS+BKE7fL2jHsjfmg3VAaYQQvEs/UL
+	 fhpnudCcRIYjeriweBngewAgKFm6JUeIgSOV/rBlk8vWuZILpIZRHlO3jykX487Cq0
+	 ATohj0PWTg9lhcDF/xLcA8W/JtFkUjCwcn9UgVTAYqo0q6hAaa8fRy58uY5wNugn/1
+	 4hibOyUS+MD3NfB6BM2fE0BmjW5UpFutqlrZ61QfIG8JfhZHju5m0tPgax4fP8t/Hc
+	 oYzXFw8gqPrVQ==
+Message-ID: <89882b75-dc80-479b-b2b2-199bebe4ecc3@kernel.org>
+Date: Sat, 7 Feb 2026 11:49:17 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 1/2] dt-bindings: phy: spacemit: add regulator support to
  K1 USB2 PHY
-Message-ID: <20260207-dancing-finch-of-chemistry-f98cf2@quoll>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Yixun Lan <dlan@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Ze Huang <huang.ze@linux.dev>, Rob Herring <robh@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ linux-riscv@lists.infradead.org, linux-phy@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ spacemit@lists.linux.dev
 References: <20260206100009.873182-1-amadeus@jmu.edu.cn>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260206100009.873182-1-amadeus@jmu.edu.cn>
+ <20260207-dancing-finch-of-chemistry-f98cf2@quoll>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260207-dancing-finch-of-chemistry-f98cf2@quoll>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260207_024814_590050_C43206FA 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20260207_024923_815430_A4E37914 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,44 +123,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 06, 2026 at 06:00:08PM +0800, Chukun Pan wrote:
-> Add an optional phy-supply property to describe the regulator
-> supplying for USB VBUS.
-
-Why wasn't it there before? USB did not have VBUS?
-
-Explanation is so incomplete I suspect you are patching broken things,
-so as well this could be completely different hardware (e.g. there is no
-regulator for this block but e.g. connector).
-
-
+On 07/02/2026 11:48, Krzysztof Kozlowski wrote:
+> On Fri, Feb 06, 2026 at 06:00:08PM +0800, Chukun Pan wrote:
+>> Add an optional phy-supply property to describe the regulator
+>> supplying for USB VBUS.
 > 
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-> ---
->  Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml | 4 ++++
->  1 file changed, 4 insertions(+)
+> Why wasn't it there before? USB did not have VBUS?
 > 
-> diff --git a/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml b/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
-> index 43eaca90d88c..74a1cd5bcdbe 100644
-> --- a/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
-> @@ -19,6 +19,10 @@ properties:
->    clocks:
->      maxItems: 1
->  
-> +  phy-supply:
-> +    description:
-> +      Phandle to a regulator that provides power to VBUS.
+> Explanation is so incomplete I suspect you are patching broken things,
+> so as well this could be completely different hardware (e.g. there is no
+> regulator for this block but e.g. connector).
+> 
+> 
+>>
+>> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+>> ---
+>>  Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml | 4 ++++
+>>  1 file changed, 4 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml b/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
+>> index 43eaca90d88c..74a1cd5bcdbe 100644
+>> --- a/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
+>> +++ b/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
+>> @@ -19,6 +19,10 @@ properties:
+>>    clocks:
+>>      maxItems: 1
+>>  
+>> +  phy-supply:
+>> +    description:
+>> +      Phandle to a regulator that provides power to VBUS.
+> 
+> Drop redundant part. This cannot be anything else than phandle and
+> regulator.
+> 
+> "VBUS power supply" for example. But anyway, I don't have certainty that
+> this is correct hardware representation. It's your task to provide that.
 
-Drop redundant part. This cannot be anything else than phandle and
-regulator.
 
-"VBUS power supply" for example. But anyway, I don't have certainty that
-this is correct hardware representation. It's your task to provide that.
+Plus, if this was a vbus regulator it would not be called "phy"... Even
+more confusing.
 
 Best regards,
 Krzysztof
-
 
 _______________________________________________
 linux-riscv mailing list
