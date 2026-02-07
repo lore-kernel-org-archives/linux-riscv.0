@@ -4,115 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F1EEE6B71
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 02:13:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31497EE6B4E
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 03:21:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EGqtRE1oiqS03pdXCrfwBtY56sFGmcDmGRNZTg1fPM0=; b=5DbRpWQ83N5Qcs
-	knzURVWe0+zNiJ7UQT3ng8mvJnzTDkMzkTXKkuX6nltR4SEbFEMR5dws23fwxFllyRhlF8JsGGKXx
-	BV7XaIKaVg8UadcPyuvkCyPvfGryzNYXGbJFr4WAKQGhaR/Xh4tSSFONsgzfttpRMq0+EjPMOGzkw
-	pSoAFj+XzXU3ny1G6zMeSjN1LzO7753KM865aUR1QSMN+av3lBHuvl2cPlp7RB/obNKhd1+oe4PIs
-	JcJLf4G2KVB1Fmzhru0v+9JCfRJREvFI4pdDqC0xIVHGRvNXdqrz8RkoeO0dGQMhwPp81MW4mP4k4
-	gNOs4Z4f2JAzQLBIDlPg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WyBvFlqL5rGKT8rnNAodoV/8JVwwMsh9hlscgF40pLE=; b=2CU9eSlneF6c7L
+	yWOyM0TwFWjHRNVhrKmziigoXjpMo8CjSKqbYg/CsXIsra+guLas4ZhVPULMqc3j12SYGvGRrATTW
+	cYMPSQ/r1Ek8WJo/c9qKy7LlN2TFnjNIyPH+ELy8zYD/1qQa39Txsg6I4+XTOmgXqGIy9GLfF82/i
+	G6GwT98TIMXysd+2yC8+8M8RyISFK36jmcrtrvWDEyiB8T7f6dGyK+h4ApESGpKRUUlNPsC2ILy0R
+	Gp69TboUWICmy/fa3UNvMB1M1ZH92e3HHk6N6izu6QnaVf/0lsrKsaYF0TWm1MCyYRFrrIgcl+KRC
+	hrOl2VZ+/gQdsDOoroUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voXpX-0000000C2Xx-0mVM;
-	Sat, 07 Feb 2026 02:13:51 +0000
-Received: from mout.gmx.net ([212.227.15.19])
+	id 1voYsy-0000000C4qw-2BxM;
+	Sat, 07 Feb 2026 03:21:28 +0000
+Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voXpT-0000000C2Wq-2rHh;
-	Sat, 07 Feb 2026 02:13:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1770430398; x=1771035198; i=deller@gmx.de;
-	bh=EAlJH2wdGLPJvpxRE2kPJnzarDPa5Sy3AlVNuwC9Hl8=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=iGFFRo/Y59M3TZztFppsVEDMJfarLe4HqZWmOcPg8/ZD6w153S9G8HdS3amh2ZW5
-	 hsuzmqVpzqoAY9iQFaS7qDfugkFFT4YyRfHBsfc5u0/hX0Pbyu4AhWR3P6j69G4yw
-	 u7PPVzgTukAlGb16/nmj1jYk61nWIBTY6ABjr4mw52GdLJaC+0rnI88MXqhp5WdQU
-	 i1+n9NTaYoNjYwUdyXtl2baYHUipTOetzY+UUPRI6YvRzAzD5zEtqNBzIgqmKzIGs
-	 ohMdQWMdXYcjR9iYxvGpJzZenvJCLt0pF7QPnJkTlmqZTj6zRz0SMrwtzMLLuFJ8R
-	 fwy7hO9RnjLlz/N7Vw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.20.55] ([109.250.50.105]) by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MK3W0-1w6kOO0FGo-00SaWY; Sat, 07
- Feb 2026 03:13:18 +0100
-Message-ID: <aa9f72af-55b8-471f-afd2-5fc7f2328ba3@gmx.de>
-Date: Sat, 7 Feb 2026 03:13:14 +0100
+	id 1voYsv-0000000C4qH-2t91
+	for linux-riscv@lists.infradead.org;
+	Sat, 07 Feb 2026 03:21:27 +0000
+Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-66a12c77a2cso1561510eaf.3
+        for <linux-riscv@lists.infradead.org>; Fri, 06 Feb 2026 19:21:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770434483; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Elc+pm5VW6U9fkfrG1WtOedbLyWTjE+/DNLPN4WqMPZRwcyVDsVYIOnxeFMzDBoTh/
+         9b3HIAsakbcvyO6jQZVH6a0K6/dCEM61OvbzQZO8dBxJonSuepaQDORk8SMrVNxtxd0e
+         kktHX3TzzVhUWUJSdRiYaYNAi/zfhArWS9oUNb+zeKGfFYOtHwTnfoAZX7zkTwRYM/FX
+         YdeM00fTQ1fye8Dkp0xBkM7GHBGgLOnh9td/BjL6cUTPzm5P115uf9MtvF5fEX36BCf6
+         ptoRLY+fOVO5NOgORTYqvhnLzhxbfVUrWOAoJKkeP93mZBq528Bnt5Nqg4JHmSGAFxEM
+         ZdUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=DDnvhXep83DlBOrKWoBYx9m4Ze6xzsCfCU7TNyv34F8=;
+        fh=5ICUUZRx7Q0G+fcZyG0tNjPaLmZTgP+/rLYcjwjgfW0=;
+        b=Fz+MycbvxNH/ro43aCkl4GEN5Akrhcba7EDWDufbOtrshOnsiWXq3Lt7GMaa/igQ1t
+         riPFQ7Ys+OxU1Itxycqjs5nKO3SSkxQQhJFBvhaihXKPfGJaT2CjUgOC6x6h9VpWirBh
+         KVc+SmSnpgon2vxKp0xoQa8j8myk/4QPmQtSAIlOxlAPpkp/SwIxBdkgFxh/w+tSPTQR
+         LXIdX9uN2cogImAbF3xrN20sNRLwEYiMxrcWnxuSs3QXJlSaA1A5Sly0sBOhRXK/eu9V
+         mBgvbh/vhzs3XWp26quQKuANfBoytq+zScVNtg3By3iSQ41sTE5DOQZrwtrMX3ssgZJu
+         rD0A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1770434483; x=1771039283; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=DDnvhXep83DlBOrKWoBYx9m4Ze6xzsCfCU7TNyv34F8=;
+        b=3Spdo7iMpZ8C0xTfCubgMczFUV4l3TRjATUbz97SVBEdbpEEwHpVgaWGIWk3Vzzgvt
+         Ly9Zk15IKPQZkzTM77Gdo6qTatxOwo19mKZBxV4DUb3dqNybFAn4438O7G6a1cewl4Mj
+         e2d7NcnmRSF8XKSIDB1t/0yEl7jKqWdzri811oRnsvhnRu/pgWDtYUhKOdmp+t7fURWM
+         uRfH4hR57+SGq6GJZ2LFYcksQTMJf3/6Zq17VZT70q5b8/09CMGDtfU91kZNxE4UTpw8
+         LAVvHjy9+xGE1um4NuZlaPPTYtE8zxM3hZpvwkwAPq4ksVF2H4fzLihblw6VWCSJI4iI
+         i5og==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770434483; x=1771039283;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DDnvhXep83DlBOrKWoBYx9m4Ze6xzsCfCU7TNyv34F8=;
+        b=TiEr7fQqFtWPjJUy5cgB1Y8sAhorpeIEmmd6HvvUWlcBtTk4r9Ti83xY98XeJK36d8
+         C9yX0g4NxOOuI5sWY9F8xxXHloW/0AHNTVjidjZ0WK9r5bXxPVG05MY66JNQpiAmHmMT
+         DjdWyieoqw4PCN9+YGGBwSot995LNvHWhFOnjCQH8n4wioO4iYBsnuwO9YjAQFxAjdE4
+         8fGa7iznd0q9tFUiTfrP9mhtR2RC2XcUmX/xm1y+/r2B/QbvwGQHCPeUaQtbGbq1EEEl
+         Nl/J7QZsM3WqvUlggYh9nTRskw7YPNcJJPgwejiQfFE2w9tTUA/aR2g13l9Wv6FisQ8+
+         9q8g==
+X-Forwarded-Encrypted: i=1; AJvYcCVF4BpjpdjT6M+Lvq5ukiU0kU5lbFpt2LO1pqT9+afuAjBeJUV4mKyAtaTcQH4VZWWmSt8T8gLbwR5TvQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxw/RkQvPAnj+XM17GrGO0wXtVSVMvVhFL6UAoof1yWuuMIZ9QL
+	261P7Qo7cjoQlJ9KOQLoeA+9DHKSUajVEFt6MhrY6/vPS11HlptHMBJAECAciFKfCgYP28m/Dg9
+	YusS9li3V7nnWi1pHUTy0x7ecr019CwQVDNgnbJbT0A==
+X-Gm-Gg: AZuq6aL5I4eQEHfjdr5qxBjhCBw+b9xxHaZ/SfgGcbpw1ue1YhCnjLXVkLrhotxa1kq
+	YY6rng21uwlMYCivicKdrqv8RyNtYI7g0mpROS17TMq1KP6lz7BX4T4Aaso23eHexUyohQI4jF6
+	OOOXXcQ2Ajq0plybY/olzioN9RyNXWsRyvRy5jSDMpdU+iUingp+pwzbL/MyPh5AyPVxUcyuToL
+	tNuS3qlOpWMTOQNe7gZIv/eW2j1UBnb9x5CdsfuDgAM5Zo4ao3WtuiebGwjYqi7AuE72KxwXHYJ
+	I4GKamun2C8EZcqwlRK4O5cVCN3T76KS37QVztGUCQby5ule2rAwOXk0FQ==
+X-Received: by 2002:a05:6820:180e:b0:662:f347:75ea with SMTP id
+ 006d021491bc7-66d0a380580mr2281379eaf.28.1770434483383; Fri, 06 Feb 2026
+ 19:21:23 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH mm-unstable] arch, mm: consolidate empty_zero_page
-To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, linux-mm@kvack.org
-References: <20260124095628.668870-1-rppt@kernel.org>
-Content-Language: en-US
-From: Helge Deller <deller@gmx.de>
-Autocrypt: addr=deller@gmx.de; keydata=
- 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
-In-Reply-To: <20260124095628.668870-1-rppt@kernel.org>
-X-Provags-ID: V03:K1:ckJ9uICnC2KzZfMGScbkszoe3tJwid4EQMcHnKznQaIeHVj3lHk
- qEWVv45ooVrZf6199cKjQ2UmjQ1rTQ5GCIFqDFI/cBIKZm80I/jl8rSgthy5cMlQKPshHCe
- wABC6qDRcrsFfS+JPelc82LDtGJ4jgKaL1tZBup+OSqgzB/1iY0VBf2qQwt4HUEq8N1kLRl
- UfiVpP6RtvApG+R5VLKnQ==
-UI-OutboundReport: notjunk:1;M01:P0:qul66nSOCXc=;4mo2hvNiceQrWi27PrLmcGklCpf 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 P/k8CIxY=
+From: Anup Patel <anup@brainfault.org>
+Date: Sat, 7 Feb 2026 08:51:12 +0530
+X-Gm-Features: AZwV_Qgt6jGZeh_4zfnnbt8_F11u5jr2-fPeHJpG-DyOXqW_XCH4wBnJqmdFURc
+Message-ID: <CAAhSdy3z70oEePkgOBziVOKgFGae-0xMD+8xmsMV2PWM1v0ToA@mail.gmail.com>
+Subject: [GIT PULL] KVM/riscv changes for 6.20
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+	Andrew Jones <andrew.jones@oss.qualcomm.com>, Atish Patra <atish.patra@linux.dev>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_181348_368284_AF200774 
-X-CRM114-Status: UNSURE (   4.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260206_192125_997888_CC2AED4A 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,33 +108,169 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 1/24/26 10:56, Mike Rapoport wrote:
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> 
-> Reduce 22 declarations of empty_zero_page to 3 and 23 declarations of
-> ZERO_PAGE() to 4.
-> 
-...
-> 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> ---
-...
+Hi Paolo,
 
->   arch/parisc/include/asm/pgtable.h         | 11 -----------
->   arch/parisc/mm/init.c                     |  6 ------
+We have the following KVM RISC-V changes for 6.20:
+1) Fixes for issues discovered by KVM API fuzzing in
+    AIA virtualization
+2) Allow Zalasr, Zilsd and Zclsd extensions for Guest/VM
+3) Add riscv vm satp modes in KVM selftests
+4) Transparent huge support for G-stage
+5) Adjust the number of available guest irq files based
+    on MMIO register sizes
 
-I reviewed and tested the patch on parisc, so:
+Please pull.
 
-Acked-by: Helge Deller <deller@gmx.de>   # parisc
-Tested-by: Helge Deller <deller@gmx.de>  # parisc
+Also, please note that we have a conflict with kvm-x86
+tree in tools/testing/selftests/kvm/lib/riscv/processor.c due
+to patch "KVM: riscv: selftests: Add riscv vm satp modes"
+discovered on linux-next. This can be resolved as follows:
 
-Thanks!
-Helge
+diff --cc tools/testing/selftests/kvm/lib/riscv/processor.c
+index 373cf4d1ed809,e6ec7c224fc3e..0000000000000
+--- a/tools/testing/selftests/kvm/lib/riscv/processor.c
++++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
+@@@ -64,15 -68,15 +64,15 @@@ static uint64_t pte_index(struct kvm_v
+
+  void virt_arch_pgd_alloc(struct kvm_vm *vm)
+  {
+ -      size_t nr_pages = page_align(vm, ptrs_per_pte(vm) * 8) / vm->page_size;
+ +      size_t nr_pages = vm_page_align(vm, ptrs_per_pte(vm) * 8) /
+vm->page_size;
+
+-       if (vm->pgd_created)
++       if (vm->mmu.pgd_created)
+                return;
+
+-       vm->pgd = vm_phy_pages_alloc(vm, nr_pages,
+-                                    KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+-                                    vm->memslots[MEM_REGION_PT]);
+-       vm->pgd_created = true;
++       vm->mmu.pgd = vm_phy_pages_alloc(vm, nr_pages,
++                                        KVM_GUEST_PAGE_TABLE_MIN_PADDR,
++                                        vm->memslots[MEM_REGION_PT]);
++       vm->mmu.pgd_created = true;
+  }
+
+  void virt_arch_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr)
+@@@ -220,14 -212,8 +221,14 @@@ void riscv_vcpu_mmu_setup(struct kvm_vc
+                TEST_FAIL("Unknown guest mode, mode: 0x%x", vm->mode);
+        }
+
+ +      max_satp_mode = vcpu_get_reg(vcpu, RISCV_CONFIG_REG(satp_mode));
+ +
+ +      if ((satp_mode >> SATP_MODE_SHIFT) > max_satp_mode)
+ +              TEST_FAIL("Unable to set satp mode 0x%lx, max mode 0x%lx\n",
+ +                        satp_mode >> SATP_MODE_SHIFT, max_satp_mode);
+ +
+-       satp = (vm->pgd >> PGTBL_PAGE_SIZE_SHIFT) & SATP_PPN;
++       satp = (vm->mmu.pgd >> PGTBL_PAGE_SIZE_SHIFT) & SATP_PPN;
+ -      satp |= SATP_MODE_48;
+ +      satp |= satp_mode;
+
+        vcpu_set_reg(vcpu, RISCV_GENERAL_CSR_REG(satp), satp);
+  }
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c
+b/tools/testing/selftests/kvm/lib/kvm_util.c
+index 265e173b73709..1959bf556e88e 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -359,17 +359,17 @@ struct kvm_vm *____vm_create(struct vm_shape shape)
+        case VM_MODE_P56V57_4K:
+        case VM_MODE_P50V57_4K:
+        case VM_MODE_P41V57_4K:
+-               vm->pgtable_levels = 5;
++               vm->mmu.pgtable_levels = 5;
+                break;
+        case VM_MODE_P56V48_4K:
+        case VM_MODE_P50V48_4K:
+        case VM_MODE_P41V48_4K:
+-               vm->pgtable_levels = 4;
++               vm->mmu.pgtable_levels = 4;
+                break;
+        case VM_MODE_P56V39_4K:
+        case VM_MODE_P50V39_4K:
+        case VM_MODE_P41V39_4K:
+-               vm->pgtable_levels = 3;
++               vm->mmu.pgtable_levels = 3;
+                break;
+        default:
+                TEST_FAIL("Unknown guest mode: 0x%x", vm->mode);
+
+Regards,
+Anup
+
+The following changes since commit 63804fed149a6750ffd28610c5c1c98cce6bd377:
+
+  Linux 6.19-rc7 (2026-01-25 14:11:24 -0800)
+
+are available in the Git repository at:
+
+  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-6.20-1
+
+for you to fetch changes up to 376e2f8cca2816c489a9196e65cc904d1a907fd2:
+
+  irqchip/riscv-imsic: Adjust the number of available guest irq files
+(2026-02-06 19:05:34 +0530)
+
+----------------------------------------------------------------
+KVM/riscv changes for 6.20
+
+- Fixes for issues discovered by KVM API fuzzing in
+  kvm_riscv_aia_imsic_has_attr(), kvm_riscv_aia_imsic_rw_attr(),
+  and kvm_riscv_vcpu_aia_imsic_update()
+- Allow Zalasr, Zilsd and Zclsd extensions for Guest/VM
+- Add riscv vm satp modes in KVM selftests
+- Transparent huge support for G-stage
+- Adjust the number of available guest irq files based on
+  MMIO register sizes in DeviceTree or ACPI
+
+----------------------------------------------------------------
+Jessica Liu (1):
+      RISC-V: KVM: Transparent huge page support
+
+Jiakai Xu (3):
+      RISC-V: KVM: Fix null pointer dereference in
+kvm_riscv_aia_imsic_has_attr()
+      RISC-V: KVM: Fix null pointer dereference in kvm_riscv_aia_imsic_rw_attr()
+      RISC-V: KVM: Skip IMSIC update if vCPU IMSIC state is not initialized
+
+Pincheng Wang (2):
+      riscv: KVM: allow Zilsd and Zclsd extensions for Guest/VM
+      KVM: riscv: selftests: add Zilsd and Zclsd extension to get-reg-list test
+
+Qiang Ma (1):
+      RISC-V: KVM: Remove unnecessary 'ret' assignment
+
+Wu Fei (1):
+      KVM: riscv: selftests: Add riscv vm satp modes
+
+Xu Lu (3):
+      RISC-V: KVM: Allow Zalasr extensions for Guest/VM
+      RISC-V: KVM: selftests: Add Zalasr extensions to get-reg-list test
+      irqchip/riscv-imsic: Adjust the number of available guest irq files
+
+ arch/riscv/include/uapi/asm/kvm.h                  |   3 +
+ arch/riscv/kvm/aia.c                               |   2 +-
+ arch/riscv/kvm/aia_imsic.c                         |  13 +-
+ arch/riscv/kvm/mmu.c                               | 140 +++++++++++++++++++++
+ arch/riscv/kvm/vcpu_onereg.c                       |   4 +
+ arch/riscv/kvm/vcpu_pmu.c                          |   5 +-
+ arch/riscv/mm/pgtable.c                            |   2 +
+ drivers/irqchip/irq-riscv-imsic-state.c            |  12 +-
+ include/linux/irqchip/riscv-imsic.h                |   3 +
+ tools/testing/selftests/kvm/include/kvm_util.h     |  17 ++-
+ .../selftests/kvm/include/riscv/processor.h        |   2 +
+ tools/testing/selftests/kvm/lib/guest_modes.c      |  41 ++++--
+ tools/testing/selftests/kvm/lib/kvm_util.c         |  33 +++++
+ tools/testing/selftests/kvm/lib/riscv/processor.c  |  63 +++++++++-
+ tools/testing/selftests/kvm/riscv/get-reg-list.c   |  12 ++
+ 15 files changed, 330 insertions(+), 22 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
