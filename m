@@ -4,93 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0281FEE0AC3
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 10:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E9E4EE0AC8
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 10:48:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zglrtFC0Fp057UBtPhL8Dwn27cQsR/8auu8AJI2M9HQ=; b=YSMMkhnhvZFRSd
-	IhdzanCTQNFtsyq4eLQZUbx+g6grQbNfQzyf7zxivB1cG7i3/T3vEMuOEh5JMvy0WP0l6884ewbJr
-	xNZ4h2edzoRAF4pVEntJIYJam6pZ5RniKQcnmlJwM/wXwZ8BT5ltDYH9W4IAgwN8Th2xAYVuTB7Tm
-	YUCais+Z/ej9Y79FXrhAMbasjDnU2/h73n3GaUgxFzDq8wYoJdmD4Ld4jPdlu4iiOfjdc8Mt6VgPz
-	y/g6qnfX37fWExfxyZA95lwjwtcG/pI3x/hmakTqljwugUB2sK1sXix0XL556+kdqiX/l2t4NEt12
-	jhIQGACCiXxI0CDwLtSg==;
+	List-Owner; bh=5N9XJKvG9IKBRp17zcmYdxAqKozUd24Tu5Sa2c25Q9M=; b=S4ZCIEeqdnMRv2
+	GbfDWbn4+7hOBX9aDQQvBWI9RAedOeG+zN2DU4Ncj/GBQLnE60/BvBFWksQM1PN8SQMcebaVSrmkG
+	sSlyoHaIxcxFJchBXq+eo/kCRaN701lLP/EMwcTrR3cD4vfii+U6aROxn/qOisVW9hRRYp4o4qnE7
+	DpSMw8tQ7T6DOvz0qOKCPVKWB7POueIxOjc5wycOYdvtp+0IgDllND0688N+K1iz54pRUh1J+ZZcw
+	2ZBV61gS/0as8BPZxoyxM11+l7+HsIBVqZlxb9qfeCoZOYkZ+VEulkL6jwax/3BnuFmGdNB9NzYW+
+	crIvRbPXdASkGBTE4JHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vofgZ-0000000CLZS-1jIO;
-	Sat, 07 Feb 2026 10:37:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vofrM-0000000CM7B-2aWJ;
+	Sat, 07 Feb 2026 10:48:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vofgW-0000000CLYv-0ehp;
-	Sat, 07 Feb 2026 10:37:05 +0000
+	id 1vofrK-0000000CM6c-2DuH;
+	Sat, 07 Feb 2026 10:48:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B848344328;
-	Sat,  7 Feb 2026 10:37:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A2BFC116D0;
-	Sat,  7 Feb 2026 10:36:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7E9B844146;
+	Sat,  7 Feb 2026 10:48:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC80BC116D0;
+	Sat,  7 Feb 2026 10:48:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770460622;
-	bh=5txootZk9XnxQipltUnu1uJG2kCaI77i7XiNzSKLg6I=;
+	s=k20201202; t=1770461293;
+	bh=xeIkHvV7X3pvMez0kiFePRC11Tm26GnXlWP39PuhWhU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cfYuL09YPhGMJd7P35kyjr0lAxa/iHu/YfsEkzH8LubrxmisxkzKdBFcs1Y2N2MU2
-	 dvs+BpQiIMu7RNuFgOa2U4lhfkQQMWEApPyUIFI4G5jPDx5SxM7vGgvEgcMaAZR3wb
-	 b5TmWeYHqGOnIP6RUJQS0EZeSOfMx7DmDO3xOwzBoST0J5Zd5mVF9jwQn1yVKcNfBE
-	 uWSTfKP2vKbdUd2LRGCkPloiDZT2rrMv/eHBuetCIurcEWl+GxWXDT1apLvIJsW7lK
-	 ecWz7qUsRKRAGOnHYFNSzWF/NyB7DB8z+ZPDngeTtgHQpWl15K7AQ1eM41lt8lTvb6
-	 U9okHU4kls45Q==
-Date: Sat, 7 Feb 2026 12:36:43 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Andreas Larsson <andreas@gaisler.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@kernel.org>, Vineet Gupta <vgupta@kernel.org>,
-	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
-	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH mm-unstable] arch, mm: consolidate empty_zero_page
-Message-ID: <aYcVu7gs65S1CeST@kernel.org>
-References: <20260124095628.668870-1-rppt@kernel.org>
- <2157220c-0394-40fa-9918-a8514171bd10@gaisler.com>
- <aXj_x5CyUeys7ONM@kernel.org>
- <ec965a79-dad8-4358-a8e9-ebc9f330b67b@gaisler.com>
+	b=ksVO1FtuUTzaYWMGPzjhuSXulWE/KIuHT5l//UyeYCcEqsbaOcoXazouqbnND68zk
+	 j9U+sFfkbvvZN+eZlB6DNu0JrC5vKVK37hlGPW14EZEKjmwdpkk2seElekYswT6ZbI
+	 JGbmoxU1vNU0xscvmrIDGby7LIN7yQjwUz0LwMxV6YdLUlCReQU9nmAWuSSxmXDXOH
+	 3Iq7dQBz+FlWE9yBO6WsUT4PyE4OzBFXLBOMpKJMFbIhJmjHg1ypYpvmdjfU7AuKU/
+	 lt5CFqR+ho3L1sZ4yzABCumZkEGbbjS2bYbEPyG7DCwfv7870p16qBfL30HtMS00qe
+	 w9udnIWkQDllA==
+Date: Sat, 7 Feb 2026 11:48:10 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Yixun Lan <dlan@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
+	Ze Huang <huang.ze@linux.dev>, Rob Herring <robh@kernel.org>, Mark Brown <broonie@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	linux-riscv@lists.infradead.org, linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH 1/2] dt-bindings: phy: spacemit: add regulator support to
+ K1 USB2 PHY
+Message-ID: <20260207-dancing-finch-of-chemistry-f98cf2@quoll>
+References: <20260206100009.873182-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ec965a79-dad8-4358-a8e9-ebc9f330b67b@gaisler.com>
+In-Reply-To: <20260206100009.873182-1-amadeus@jmu.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260207_023704_262583_282B20F9 
-X-CRM114-Status: GOOD (  33.99  )
+X-CRM114-CacheID: sfid-20260207_024814_590050_C43206FA 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,162 +76,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 03, 2026 at 11:17:08AM +0100, Andreas Larsson wrote:
-> On 2026-01-27 19:11, Mike Rapoport wrote:
-> > On Tue, Jan 27, 2026 at 05:02:39PM +0100, Andreas Larsson wrote:
-> >> On 2026-01-24 10:56, Mike Rapoport wrote:
-> >>
-> >>> Every architecture defines empty_zero_page that way or another, but for the
-> >>> most of them it is always a page aligned page in BSS and most definitions
-> >>> of ZERO_PAGE do virt_to_page(empty_zero_page).
-> >>
-> >> Running this in an LDOM on an UltraSparc T4 sparc64, the entire LDOM
-> >> hangs after a while during boot.
-> >>
-> >>> diff --git a/arch/sparc/mm/init_64.c b/arch/sparc/mm/init_64.c
-> >>> index c2d19c9a9244..2bd99944176d 100644
-> >>> --- a/arch/sparc/mm/init_64.c
-> >>> +++ b/arch/sparc/mm/init_64.c
-> >>> @@ -177,9 +177,6 @@ extern unsigned long sparc_ramdisk_image64;
-> >>>  extern unsigned int sparc_ramdisk_image;
-> >>>  extern unsigned int sparc_ramdisk_size;
-> >>>  
-> >>> -struct page *mem_map_zero __read_mostly;
-> >>> -EXPORT_SYMBOL(mem_map_zero);
-> >>> -
-> >>>  unsigned int sparc64_highest_unlocked_tlb_ent __read_mostly;
-> >>>  
-> >>>  unsigned long sparc64_kern_pri_context __read_mostly;
-> >>> @@ -2506,18 +2503,6 @@ void __init mem_init(void)
-> >>>  	 */
-> >>>  	register_page_bootmem_info();
-> >>>  
-> >>> -	/*
-> >>> -	 * Set up the zero page, mark it reserved, so that page count
-> >>> -	 * is not manipulated when freeing the page from user ptes.
-> >>> -	 */
-> >>> -	mem_map_zero = alloc_pages(GFP_KERNEL|__GFP_ZERO, 0);
-> >>> -	if (mem_map_zero == NULL) {
-> >>> -		prom_printf("paging_init: Cannot alloc zero page.\n");
-> >>> -		prom_halt();
-> >>> -	}
-> >>> -	mark_page_reserved(mem_map_zero);
-> >>> -
-> >>> -
-> >>>  	if (tlb_type == cheetah || tlb_type == cheetah_plus)
-> >>>  		cheetah_ecache_flush_init();
-> >>>  }
-> >>
-> >> This just removes the mark_page_reserved(mem_map_zero) without 
-> >> replacing it with something corresponding to that. Perhaps part
-> >> of the problem?
-> > 
-> > I don't think so, empty_zero_page is in BSS now an it's reserved as a part
-> > of the kernel image.
-> > 
-> > I suspect that virt_to_page() does not work BSS symbols on sparc64. Can you
-> > please try with this patch:
-> > 
-> > diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
-> > index 74ede706fb32..0578c5172d4e 100644
-> > --- a/arch/sparc/include/asm/pgtable_64.h
-> > +++ b/arch/sparc/include/asm/pgtable_64.h
-> > @@ -22,6 +22,7 @@
-> >  #include <asm/adi.h>
-> >  #include <asm/page.h>
-> >  #include <asm/processor.h>
-> > +#include <asm/vaddrs.h>
-> >  
-> >  /* The kernel image occupies 0x4000000 to 0x6000000 (4MB --> 96MB).
-> >   * The page copy blockops can use 0x6000000 to 0x8000000.
-> > @@ -210,6 +211,11 @@ extern unsigned long _PAGE_CACHE;
-> >  extern unsigned long pg_iobits;
-> >  extern unsigned long _PAGE_ALL_SZ_BITS;
-> >  
-> > +extern unsigned long kern_base;
-> > +#define ZERO_PAGE(vaddr)						   \
-> > +	(virt_to_page(empty_zero_page + ((unsigned long)__va(kern_base)) - \
-> > +		      ((unsigned long)KERNBASE)))
-> > +
-> >  /* PFNs are real physical page numbers.  However, mem_map only begins to record
-> >   * per-page information starting at pfn_base.  This is to handle systems where
-> >   * the first physical page in the machine is at some huge physical address,
-> > diff --git a/arch/sparc/mm/init_64.c b/arch/sparc/mm/init_64.c
-> > index 2bd99944176d..d2d724ba4f83 100644
-> > --- a/arch/sparc/mm/init_64.c
-> > +++ b/arch/sparc/mm/init_64.c
-> > @@ -170,6 +170,8 @@ static void __init read_obp_memory(const char *property,
-> >  
-> >  /* Kernel physical address base and size in bytes.  */
-> >  unsigned long kern_base __read_mostly;
-> > +EXPORT_SYMBOL(kern_base);
-> > +
-> >  unsigned long kern_size __read_mostly;
-> >  
-> >  /* Initial ramdisk setup */
-> Hi,
+On Fri, Feb 06, 2026 at 06:00:08PM +0800, Chukun Pan wrote:
+> Add an optional phy-supply property to describe the regulator
+> supplying for USB VBUS.
+
+Why wasn't it there before? USB did not have VBUS?
+
+Explanation is so incomplete I suspect you are patching broken things,
+so as well this could be completely different hardware (e.g. there is no
+regulator for this block but e.g. connector).
+
+
 > 
-> Unfortunately, that does not help. The LDOM goes down in the same fashion.
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> ---
+>  Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml b/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
+> index 43eaca90d88c..74a1cd5bcdbe 100644
+> --- a/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
+> @@ -19,6 +19,10 @@ properties:
+>    clocks:
+>      maxItems: 1
+>  
+> +  phy-supply:
+> +    description:
+> +      Phandle to a regulator that provides power to VBUS.
 
-Apparently something is wrong with my pointer arithmetics :/
+Drop redundant part. This cannot be anything else than phandle and
+regulator.
 
-Can you try this one instead?
+"VBUS power supply" for example. But anyway, I don't have certainty that
+this is correct hardware representation. It's your task to provide that.
 
-diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
-index 74ede706fb32..615f460c50af 100644
---- a/arch/sparc/include/asm/pgtable_64.h
-+++ b/arch/sparc/include/asm/pgtable_64.h
-@@ -210,6 +210,9 @@ extern unsigned long _PAGE_CACHE;
- extern unsigned long pg_iobits;
- extern unsigned long _PAGE_ALL_SZ_BITS;
- 
-+extern struct page *mem_map_zero;
-+#define ZERO_PAGE(vaddr)	(mem_map_zero)
-+
- /* PFNs are real physical page numbers.  However, mem_map only begins to record
-  * per-page information starting at pfn_base.  This is to handle systems where
-  * the first physical page in the machine is at some huge physical address,
-diff --git a/arch/sparc/mm/init_64.c b/arch/sparc/mm/init_64.c
-index 2bd99944176d..aa1f9f071fb2 100644
---- a/arch/sparc/mm/init_64.c
-+++ b/arch/sparc/mm/init_64.c
-@@ -177,6 +177,9 @@ extern unsigned long sparc_ramdisk_image64;
- extern unsigned int sparc_ramdisk_image;
- extern unsigned int sparc_ramdisk_size;
- 
-+struct page *mem_map_zero __read_mostly;
-+EXPORT_SYMBOL(mem_map_zero);
-+
- unsigned int sparc64_highest_unlocked_tlb_ent __read_mostly;
- 
- unsigned long sparc64_kern_pri_context __read_mostly;
-@@ -2495,6 +2498,9 @@ static void __init register_page_bootmem_info(void)
- }
- void __init mem_init(void)
- {
-+	phys_addr_t zero_page_pa = kern_base +
-+		((unsigned long)&empty_zero_page[0] - KERNBASE);
-+
- 	/*
- 	 * Must be done after boot memory is put on freelist, because here we
- 	 * might set fields in deferred struct pages that have not yet been
-@@ -2503,6 +2509,12 @@ void __init mem_init(void)
- 	 */
- 	register_page_bootmem_info();
- 
-+	/*
-+	 * Set up the zero page, mark it reserved, so that page count
-+	 * is not manipulated when freeing the page from user ptes.
-+	 */
-+	mem_map_zero = pfn_to_page(PHYS_PFN(zero_page_pa));
-+
- 	if (tlb_type == cheetah || tlb_type == cheetah_plus)
- 		cheetah_ecache_flush_init();
- }
+Best regards,
+Krzysztof
 
--- 
-Sincerely yours,
-Mike.
 
 _______________________________________________
 linux-riscv mailing list
