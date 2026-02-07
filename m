@@ -4,111 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C93CEE6B74
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 04:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66562EE6B4E
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 04:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FwEN4VDqS7bsgb/0outUK40kvcQaHuRu7cM0xrNMGrE=; b=b3D2CpM5tetdcx
-	uJTbQN/qKYidheYBUSso/vbAH7qnqM3tlMUz8Zscf893pSPjoTAfLGQ53Od7cdwu9t4DKHrZYG+BH
-	aXjY6n/xgRSrirmBSKTyo+0V8SzsyKnJWRRQHsjYk/Ibl7M+OYxNXPsMi9OpTk0jJOC0u6GzwTLAS
-	0Ao6vkB8gA2//FNvVPurSNPuhbdFEEvLi4ON7FmY2GDB2DLGK/0lLGNB7KkQPaiAqrhUTadvT1Phk
-	x8TlfdFr9gvZOibgNhcEoUr9tgNuPqbkUbWYeRG7whDFPfTcROWXSJrbf2+Ex4ooWoUg7jJv++pFg
-	iUOJFRt2dlbNxoeoq64g==;
+	List-Owner; bh=3XW7geM3GNU8r0iAAFwVWkZe2sl1H7J5cgvUwcyTqeY=; b=OQKMUOdXOyOiur
+	d/lJFcEd4pmR8whMN/GSs4zIYr8WhdWWS5QHglvQW9SXMyrLz+UHro6ITubnKwjPURK7scAPZC0l0
+	KGeIXwsnlS6KvWCvoQSfbaKD9w4Vzs55AqOUEhZAxC5NkLrYwoOeZNL5ThlLmydpHqUTgaA2Zhntd
+	UdZrvx3Vte4DR5Mhl/pjJfM9YceFWQ92p1eaEPjiIZO1cibBY+N6eYHZAd4eyv4A4QlvlRz21OuMK
+	3ZKVzn7JhG58KeERbG560XsXyFA/Au5LcMpnVI7C2ISS8caTNxgv8VvoQfut1HRgDFr3A3exuirYx
+	6fKRKZVb78Yzkbp9XCrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voZm8-0000000C6y9-1JBr;
-	Sat, 07 Feb 2026 04:18:28 +0000
-Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	id 1voZsq-0000000C7Ie-0v3M;
+	Sat, 07 Feb 2026 04:25:24 +0000
+Received: from smtpbg154.qq.com ([15.184.224.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voZm5-0000000C6x1-3dOs
+	id 1voZsj-0000000C7Hh-3B6x
 	for linux-riscv@lists.infradead.org;
-	Sat, 07 Feb 2026 04:18:27 +0000
-Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-79088484065so26228767b3.1
-        for <linux-riscv@lists.infradead.org>; Fri, 06 Feb 2026 20:18:25 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770437904; cv=none;
-        d=google.com; s=arc-20240605;
-        b=TbnKLL3tYFRYsJiHqPMZXHJQuH3PR8u2shbG+GtLsr0fB1XT/nechunrUUu9bN5Q/9
-         Yd+yjAfd3/hH3uMKHE0+adbgnTDWcOU/ICZaA4T2O7WptXZLSjsaCn3ZIpguSqQl8CyV
-         pRLmBwc2f0o3/MRCoN5MT+eOM9IisApJqXBa6xgRWTOKksMBccDRdbl09QHJtoAWpD07
-         ghK8eSbuOWKXMX0b4tKMQD5PbSpEUL2d2N4LxnHomBqhgDrAXtDfgGAtf2vjiKD5ysJ3
-         NRtNKAD/WnPh+qg4jgwOtmHHr94/rRwHmbzCrkhGB/+A+qc0lB8XBA8u2srJboBarZpE
-         sJTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=rlqj60mTlKp9vljDo1EyV+FIHM/jq0ew3HejDNdwclg=;
-        fh=41UXHNDff3ivnsl+70G9DWekB/kxg0VA/vI6vVU5lQM=;
-        b=hPlrdXUSH+Vz0+G4VwHD6Cb8w0G2noMKU0Va/XUevRwDDB7ze9fGHG+3rptuCFS6bo
-         FXbY7UJiKJT9inocAUAj+BBZuWKqdtfQTYNwEOb+b48/kB7381vYYWSL/UvYrqeQyx5x
-         flXO7vC6P+v/wjwuq8/TDjtFvynIWMNhVjKzXVHN2TkJrPuBF/i1EXXbm5wCv88q1uo/
-         Z6iDUFGiXqyXsRc53kCC8r7y1fZF8NU1XcMvIZ1DodJxeONfqxz+ZhJD2Xlsae3EtfX9
-         KK+7fnFtRGx4n9hf7SJSaRc8KWIjLtFt22DGuJMLnvr4ZeXwKeyb4SqxR1dmLf1hrpzA
-         Kd4g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1770437904; x=1771042704; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rlqj60mTlKp9vljDo1EyV+FIHM/jq0ew3HejDNdwclg=;
-        b=cRxBxMSQQAIg9DinR9+PeP1J5BGkbBiiWQNSKI1Ie61rVrY5CC2pOlG2T2TGqGiymi
-         OBqSW8a0Maxjrht0AsaVJucryRaAAwCehXHUCL9le1e7KRPSb25zMmXeC2s26yNeIDxP
-         KqYWELU1xvbvio/kDNCbMkvg8hQrFPDAYC2hC8j/U4IS9i0ZQ9YzDPmg3u08PcDNZCvn
-         KjdegwQ2ubFOF7RtuzdhflqKQiPIFZB+GdsFz3Tc0QtRL9UE5Su5fCDfOKaHmJzS9vAP
-         hldsCpe6vCc+LXkVtHbSVFuL2ZZKPIbWo3loQgRtOkxK/YSAGEq64hT9EsvJff04ZZnt
-         mIsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770437904; x=1771042704;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=rlqj60mTlKp9vljDo1EyV+FIHM/jq0ew3HejDNdwclg=;
-        b=GKr52VekxWS4t7YrgRbX0p6AY8jSDgSJHpoiNhCJ8ISNoFX2gT+X7/9JO9+n5YWSxw
-         P2UVHAE8mvWhrICMHyM+pmPMTbb8bq5KLnOh2bFhO71dL++1Z4H0fTU7Dxu7Ew/oN7as
-         fKcf+jMMPa/Urv4pBrCDMjRVy9fLFXB7wP/PmGx5Mhs4DlBuMjCEsWWy/UaXmRs0TT4J
-         35ZWrvy9TNZl02iHyA4DVm6Q26d9feRRVqZR7sfESPkWXw3yx3OmJrU+opBUvIgvE1B+
-         kR7Szr2RAHmANJhKgKEwzG8HCLtvXr/FYUqRkb8y/Y8qtr9xypXF4AM3cHWYJnhvc1uV
-         k7lw==
-X-Forwarded-Encrypted: i=1; AJvYcCWnS0TRBC1xQqa4Rg3cRJjuHVCXOOQ7IqmMsxqSZyfCYomW7u18jzELSrkhL7q3dPqfDlourMNawVIqIQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOSlEnqTj9m6AHUloRRr+CO3XZ6UPD8ugBnpgeL+cxTn0mIQdi
-	Gv1IjTLqcj3+qpWPaduprDOqUutAgC7u89bGQFxuenHIFArKl3qbVwCLLc3AifcrQmuuEQ43UGx
-	/2ZpRqEP77TakzPmwzC2etQaX7z6KW4ZcTjtnpS4vjw==
-X-Gm-Gg: AZuq6aK7qAtYSo35wXVHZLBlvmveVtxstHTTSANeZIvmBuVV2/YjXhBCFUtb6/JzyXe
-	cyCYNk4XJkR7DtbtYgI4Fioqo1CFhFGAERaxsEslbh+FqcieQq0NwuRx69Gb8JtljkcKZmxg3eV
-	LJMTyBMwSSEjCnufKtLpL4VmnBzDELbQa8EFAS0UO//l01waXxpB1ZuzBz2QYqzJWopFXUJAQXr
-	pC51H++bUEcMIeCc+C1st124JyWZ+B/5Wh9spjne+veHOWZTmsaY/nCIe5my6DyVx+F+47frGxr
-	RshszCwZgBLqYtVF6mXw7S9n+H8ukJC4ePs58NViV7otOzHD4hMtZh3kEq2g
-X-Received: by 2002:a05:690c:61c2:b0:793:c9d4:3c8c with SMTP id
- 00721157ae682-7952a92b6b7mr103670897b3.0.1770437904547; Fri, 06 Feb 2026
- 20:18:24 -0800 (PST)
+	Sat, 07 Feb 2026 04:25:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1770438281;
+	bh=CQYvnaGEzgZpCE74zg7SoO/TB2ehyMWN1aSoI7gi5Is=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=y5yY3fbvgXFlrgoDvs0dxqrJHB6qr/Dc6qUU8I9OWHE/7UVZvr3Fv1Ro2HNK0seDV
+	 rZgTZSGmBnh927GtiuB19N+uyqC+7vU4vkNx64QytkL5z3BLJpJyx1tgwMGL+AJFM4
+	 2tBJ+eXkY6ETflFIJmhmBVsbIJI36fpto/licoRI=
+X-QQ-mid: zesmtpip4t1770438274t6e2f2d0d
+X-QQ-Originating-IP: SiYifUz4R84wVKt78tfvZCqvpi89f2wr1I4Vp6P87qE=
+Received: from [IPV6:2409:8a1e:3015:50f0:29fb: ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sat, 07 Feb 2026 12:24:31 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 13206828355001701766
+Message-ID: <7433DA16B96EE987+9b6398e6-edad-4a2e-814d-921483e5f1da@linux.spacemit.com>
+Date: Sat, 7 Feb 2026 12:24:30 +0800
 MIME-Version: 1.0
-References: <20260202-atlantis-clocks-v5-0-0922e43acaba@oss.tenstorrent.com>
- <20260202-atlantis-clocks-v5-1-0922e43acaba@oss.tenstorrent.com>
- <20260205-upbeat-tortoise-of-admiration-b3c0eb@quoll> <CAEev2e8_4LSLNvHsiC4d7Rrd2GmjQ_5GRHU6b9-Ha69+yvn5cA@mail.gmail.com>
- <92512903-4651-4ac3-b3ea-c9297e866a3a@kernel.org>
-In-Reply-To: <92512903-4651-4ac3-b3ea-c9297e866a3a@kernel.org>
-From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Date: Fri, 6 Feb 2026 22:18:13 -0600
-X-Gm-Features: AZwV_QiHNac6LgRRtfDmS7__jtmHqoGGjoj97IGh3VIDiCdpb8PGDE9Igjmveao
-Message-ID: <CAEev2e99LEoi83_d09NEJwzcSiYdFFZvLOFZUTRRrYtL_qCErw@mail.gmail.com>
-Subject: Re: [PATCH v5 1/3] dt-bindings: clk: tenstorrent: Add tenstorrent,atlantis-prcm
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Drew Fustini <dfustini@oss.tenstorrent.com>, Joel Stanley <jms@oss.tenstorrent.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-clk@vger.kernel.org, joel@jms.id.au, fustini@kernel.org, mpe@kernel.org, 
-	mpe@oss.tenstorrent.com, npiggin@oss.tenstorrent.com, agross@kernel.org, 
-	agross@oss.tenstorrent.com, bmasney@redhat.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/8] dt-bindings: iommu: Add spacemit/t100 features
+To: Conor Dooley <conor@kernel.org>
+Cc: Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Jingyu Li <joey.li@spacemit.com>,
+ iommu@lists.linux.dev, linux-perf-users@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ devicetree@vger.kernel.org
+References: <cover.1769562575.git.lv.zheng@spacemit.com>
+ <cover.1770195980.git.lv.zheng@linux.spacemit.com>
+ <A0E91F323138E92F+a27d73b00f3324f0d3885128f5596230b3f1370b.1770195980.git.lv.zheng@linux.spacemit.com>
+ <20260204-primer-wrought-6f64b14bf152@spud>
+ <53171BEB06F43599+7c1f54bc-e72d-4cbd-9d10-194ae6b13744@linux.spacemit.com>
+ <20260205-attitude-customer-129fe2bd5dc7@spud>
+ <B8005DB6301AACB4+374512e1-f561-4d2f-afd6-7a4b51012501@linux.spacemit.com>
+ <20260206-buffed-scrubbed-36fc49ada496@spud>
+Content-Language: en-US
+From: Lv Zheng <lv.zheng@linux.spacemit.com>
+In-Reply-To: <20260206-buffed-scrubbed-36fc49ada496@spud>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-1
+X-QQ-XMAILINFO: OVMqbsUyNYbucEUZokUuD6PFEVoLvf2aVkZWQ8LhTuAGNWu1GuprdAx3
+	dfpCWVZ+TBvIaMAwA1UVoR4cT0N+2CdCxkxBOnj8Eq3fI3njpyQzbgGmXT2QtEHM5/pOFMe
+	6QyoBserxzfJgYzoUqUYQ688W5lVj/Go5myQ0zhOlS0F9X98xcIpxl05rR3uOfgvUu5aliS
+	vX+QV1sNJ+Nk1QUHMte5hDbicVFkAvuQpaJzoXSnCw/eIZqOrFwOGKSSkvnIiwLSFI/NrZY
+	vNRIHvO40Ha0nZmnpW7FOXBKtEPZyVT59MYB12jjB1IVJ1au4aRbQG2yyQ1fxQ0GJl8SsHw
+	DC3UtR/j7TuoMrQ+0tz0U+7Vh/WYI9j/1mZBcv4OzQ2XC1HYmUJSRyq9NPf5ae0/tuij2Uh
+	jJvzFxNZRViJUgWj+fOZ6WoKusaNF5rQYs4ai/VOuSjK5to7RY6mSQm1e5D4u4MUOYoUDGd
+	NZNEZD+tYPyhLvTJHyYSujUAfrv/bHYHtAJxsGuUHX4OZMjZN5rPpsRk41cS0YljMza0Kbn
+	zBSRGF0LBaTKrfPGgG0RzlmUQgH1DsoyHPQveyg32myXHoX+FY7cjPXRCzQE83FCZdvRwSI
+	FV5ry2662bCclLzw49kOB9gO2l6E9OjsCm10O6DJ5k8X/qwR++JydrxM12fkuiu4ZF9tDm9
+	wQAoh3tsetpyBp5JkcRPIHUGZw075ghQrID95Cjx3NiH9tZ5A2IoT0WFt8g/q75eqosWVmx
+	9rJVpSs2JvJ+gWOA88d7qylhLuPS8KDsa8gdOsrGdIpU8PyI8ApbiGgb2QdoTIlVpfMjD7+
+	c07+NHEjdMXnIRsY9J37F42IDrxMkmdbjSi9UvQBkkC4xsnGUJnK7oT52ISCZCQO30wIUAE
+	8SyoHudANNS5wjyurSrcoseGEUTnzUxik3lgm1QAa3YrstLii+zsyRfWBuNrkhwLVRIg6yc
+	AP+AMME/5HuqYnb5uZYoSI2qTqbptV7xZNsh7C+0C35Pd8tawta3xXHy4HjkugicIfy/pl1
+	5xcQH9baxM5CgDHjwf1ejNNa17+xhy5A6LBFjAk/F8LAsQYGMLWPY+9jv4M9LdidGuFLFZr
+	lvpwnNjess/
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_201825_920462_3F6F7B6C 
-X-CRM114-Status: GOOD (  19.83  )
+X-CRM114-CacheID: sfid-20260206_202521_137282_929C1EAE 
+X-CRM114-Status: GOOD (  28.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,57 +103,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBGZWIgNSwgMjAyNiBhdCAxMjo0NeKAr1BNIEtyenlzenRvZiBLb3psb3dza2kgPGty
-emtAa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiAwNS8wMi8yMDI2IDE1OjMxLCBBbmlydWRoIFNy
-aW5pdmFzYW4gd3JvdGU6Cj4gPj4+ICtleGFtcGxlczoKPiA+Pj4gKyAgLSB8Cj4gPj4+ICsgICAg
-Y2xvY2stY29udHJvbGxlckBhODAwMDAwMCB7Cj4gPj4+ICsgICAgICBjb21wYXRpYmxlID0gInRl
-bnN0b3JyZW50LGF0bGFudGlzLXByY20tcmNwdSI7Cj4gPj4+ICsgICAgICByZWcgPSA8MHhhODAw
-MDAwMCAweDEwMDAwPjsKPiA+Pj4gKyAgICAgIGNsb2NrcyA9IDwmb3NjXzI0bT47Cj4gPj4+ICsg
-ICAgICAjY2xvY2stY2VsbHMgPSA8MT47Cj4gPj4+ICsgICAgICAjcmVzZXQtY2VsbHMgPSA8MT47
-Cj4gPj4+ICsgICAgfTsKPiA+Pj4gZGlmZiAtLWdpdCBhL01BSU5UQUlORVJTIGIvTUFJTlRBSU5F
-UlMKPiA+Pj4gaW5kZXggZGM3MzFkMzdjOGZlLi4wZmM3YmM2ZDA0NTggMTAwNjQ0Cj4gPj4+IC0t
-LSBhL01BSU5UQUlORVJTCj4gPj4+ICsrKyBiL01BSU5UQUlORVJTCj4gPj4+IEBAIC0yMjUzNCw4
-ICsyMjUzNCwxMCBAQCBNOiAgIEpvZWwgU3RhbmxleSA8am1zQG9zcy50ZW5zdG9ycmVudC5jb20+
-Cj4gPj4+ICBMOiAgIGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiA+Pj4gIFM6ICAg
-TWFpbnRhaW5lZAo+ID4+PiAgVDogICBnaXQgaHR0cHM6Ly9naXRodWIuY29tL3RlbnN0b3JyZW50
-L2xpbnV4LmdpdAo+ID4+PiArRjogICBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mv
-Y2xvY2svdGVuc3RvcnJlbnQsYXRsYW50aXMtcHJjbS55YW1sCj4gPj4+ICBGOiAgIERvY3VtZW50
-YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi90ZW5zdG9ycmVudC55YW1sCj4gPj4+ICBG
-OiAgIGFyY2gvcmlzY3YvYm9vdC9kdHMvdGVuc3RvcnJlbnQvCj4gPj4+ICtGOiAgIGluY2x1ZGUv
-ZHQtYmluZGluZ3MvY2xvY2svdGVuc3RvcnJlbnQsYXRsYW50aXMtcHJjbS5oCj4gPj4+Cj4gPj4+
-ICBSSVNDLVYgVEhFQUQgU29DIFNVUFBPUlQKPiA+Pj4gIE06ICAgRHJldyBGdXN0aW5pIDxmdXN0
-aW5pQGtlcm5lbC5vcmc+Cj4gPj4+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2R0LWJpbmRpbmdzL2Ns
-b2NrL3RlbnN0b3JyZW50LGF0bGFudGlzLXByY20uaCBiL2luY2x1ZGUvZHQtYmluZGluZ3MvY2xv
-Y2svdGVuc3RvcnJlbnQsYXRsYW50aXMtcHJjbS5oCj4gPj4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0
-Cj4gPj4+IGluZGV4IDAwMDAwMDAwMDAwMC4uMzgyMDc4MTEyN2MzCj4gPj4+IC0tLSAvZGV2L251
-bGwKPiA+Pj4gKysrIGIvaW5jbHVkZS9kdC1iaW5kaW5ncy9jbG9jay90ZW5zdG9ycmVudCxhdGxh
-bnRpcy1wcmNtLmgKPiA+Pgo+ID4+IFN0aWxsIHdyb25nIG5hbWUuLi4gTG9vayBhdCB5b3VyIGNv
-bXBhdGlibGUuCj4gPj4KPiA+PiBQbGVhc2UgcmVhZCB3cml0aW5nIGJpbmRpbmdzIGRvYyBpbiBE
-VCBkaXIuCj4gPgo+ID4gV2Ugd2lsbCBoYXZlIG11bHRpcGxlIGNvbXBhdGlibGVzIGluIHRoZSBm
-dXR1cmUgKEkgZHJvcHBlZCB0aGVzZSBpbgo+Cj4gTWF5YmUgeW91IHdpbGwsIG1heWJlIG5vdC4g
-QnV0IHlvdSBkbyBub3QgaGF2ZSBub3cuCgpMZXQgbWUgYWRkIHRoZW0gbm93LgoKPgo+ID4gdGhp
-cyB2ZXJzaW9uIGFuZCBJIGhhdmUgbWVudGlvbmVkIHRoaXMgaW4gdGhlIGNoYW5nZWxvZyBpbiB0
-aGUgY292ZXIKPiA+IGxldHRlcikgbmFtZWQgInRlbnN0b3JyZW50LGF0bGFudGlzLXByY20teHl6
-Ii4gVGhlIGJpbmRpbmdzIGRvY3VtZW50Cj4KPiBXaGVyZSBkaWQgeW91IG1lbnRpb24gaXQ/IEkg
-d2VudCBUV0lDRSB0aHJvdWdoIGl0LgoKQ29ub3IgYW5kIEkgd2VyZSBkaXNjdXNzaW5nIHRoZXNl
-IGluIGEgcHJldmlvdXMgc2VyaWVzIGFuZCB3ZXJlCnJlZmVycmluZyB0byB0aGVtIGFzIHJjcHUg
-cHJjbSBhbmQgIXJjcHUgcHJjbXMuIEkgdXNlIHRoZXNlIHRlcm1zIHRvCnJlZmVyIHRvIGl0IGlu
-ICJDaGFuZ2VzIGluIHY0Ii4KCj4KPiA+IHN1Z2dlc3RzIHBpY2tpbmcgYSBtb3JlIGdlbmVyaWMg
-bmFtZSBpbiB0aGlzIGNhc2UsIHNvIGlzbid0Cj4gPiAidGVuc3RvcnJlbnQsYXRsYW50aXMtcHJj
-bSIgb2theSBmb3IgdGhhdD8KPgo+IE5vLCBiZWNhdXNlIEkgZG9uJ3Qgd2FudCB0byBrZWVwIGd1
-ZXNzaW5nIHRoaXMuIFRoZSBkb2NzIGNsZWFybHkgYXNrIHlvdQo+IHRvIHBvc3QgY29tcGxldGUg
-YmluZGluZ3MsIHdoaWNoIG5vdyBiZWNhbWUgbGVzcy1jb21wbGV0ZSwgYnV0IGZpbmUuCj4gVGhl
-biB0aGUgbmV4dCBydWxlIGFza3MgeW91IHRvIHVzZSBjb21wYXRpYmxlIGFzIGZpbGVuYW1lLiBZ
-b3UgY2Fubm90Cj4ga2VlcCBza2lwcGluZyB0aGUgcnVsZXMuCgpJIHdpbGwgYWRkIGFsbCB0aGUg
-Y29tcGF0aWJsZXMgYmFjaywgc28gdGhlcmUgd2lsbCBiZSA0IG9mIHRoZW0gbmFtZWQKInRlbnN0
-b3JyZW50LGF0bGFudGlzLXByY20teHl6Ii4gSW4gdGhhdCBjYXNlIGlzIGl0IGFwcHJvcHJpYXRl
-IGZvcgp0aGUgZmlsZW5hbWUgdG8gYmUgInRlbnN0b3JyZW50LGF0bGFudGlzLXByY20ueWFtbCI/
-Cgo+Cj4gQmVzdCByZWdhcmRzLAo+IEtyenlzenRvZgoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 2/6/2026 6:24 PM, Conor Dooley wrote:
+> On Fri, Feb 06, 2026 at 09:33:09AM +0800, Lv Zheng wrote:
+>> On 2/6/2026 2:24 AM, Conor Dooley wrote:
+>>> On Thu, Feb 05, 2026 at 11:11:51AM +0800, Lv Zheng wrote:
+>>>> On 2/5/2026 1:37 AM, Conor Dooley wrote:
+>>>>> On Wed, Feb 04, 2026 at 05:09:12PM +0800, Lv Zheng wrote:
+>>>>>> Adds device tree bindings for SpacemiT T100 specific features by
+>>>>>> introducing spacemit,100 compatible. T100 contains distributed IOATCs,
+>>>>>> each of which exposes pmiv interrupt.
+>>>>>>
+>>>>>> Signed-off-by: Lv Zheng <lv.zheng@linux.spacemit.com>
+>>>>>> Signed-off-by: Jingyu Li <joey.li@spacemit.com>
+>>>>>> ---
+>>>>>>     .../bindings/iommu/riscv,iommu.yaml           | 37 +++++++++++++++++++
+>>>>>>     1 file changed, 37 insertions(+)
+>>>>>>
+>>>>>> diff --git a/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
+>>>>>> index d4838c3b3741..2da3456e7402 100644
+>>>>>> --- a/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
+>>>>>> +++ b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
+>>>>>> @@ -32,6 +32,12 @@ properties:
+>>>>>>       # should be specified along with 'reg' property providing MMIO location.
+>>>>>>       compatible:
+>>>>>>         oneOf:
+>>>>>> +      - description: SpacemiT distributed IOMMUs
+>>>>>> +        items:
+>>>>>> +          - enum:
+>>>>>> +              - spacemit,t100
+>>>>>> +          - const: spacemit,riscv-iommu
+>>>>>
+>>>>> What actually is the t100? Is it an SoC or is it the name of the core
+>>>>> complex IP that spacemit is using in multiple SoCs?
+>>>>
+>>>> T100 is the name of the IOMMU IP developed by SpacemiT, announced in RISC-V
+>>>> 2024 China Summit:
+>>>> https://www.bilibili.com/video/BV1DNtCeiEBk/
+>>>> It's world first server SPEC IOMMU in RISC-V, supports IOTLB placed in
+>>>> adjacent to the DMA masters and supports PCIe ATS and PRI.
+>>>> You can find it shipped in the recent publicly purchasable SoC SpacemiT K3.
+>>>
+>>> Right, then what you need here is something like:
+>>>
+>>> items:
+>>>     - enum:
+>>>         - spacemit,k3-iommu
+>>>     - spacemit,t100-iommu
+>>>     - riscv,iommu
+>>>
+>>> Driver can then match on spacemit,t100-iommu - but you need to have
+>>> soc-specific compatibles.
+>>> I'm not convinced that riscv,iommu is suitable here though, does the
+>>> driver work on your platform without the portions of code that are added
+>>> by this series and enabled by your new compatible? If not, the I don't
+>>> think the riscv,iommu fallback should be here.
+>>>
+>>> Additionally, please stop sending new versions so frequently and in
+>>> response to earlier submissions. I have a v4 in my inbox while we are
+>>> still discussing v3.
+>>
+>> SpacemiT provides RISC-V IOMMU implementation, T100 is the first
+>> generation of the this IP product line, we have plan to develop T200,
+>> T300, etc., with more features introduced to be adoptive to new
+>> RISC-V IOMMU specifications.
+>> Besides, T100 is not only shipped in K3, but also shipped in V100 and
+>> the follow-up SoCs, like Kn, Vn00, they will likely use the same
+>> synthesis result of T100 RTLs.
+>>
+>>  From SpacemiT's point of view, we need a common sense of this IP
+>> series for something like IOATCs, that's why spacemit,riscv-iommu
+>> (this is same like qemu,riscv-iommu) is introduced. And a common sense
+> 
+> No, it's not the same as qemu,riscv-iommu. That exists to avoid
+> riscv,iommu being allowed in isolation and as a "SoC"/integration
+> specific compatible. The driver matches against riscv,iommu not
+> qemu,riscv-iommu and has no qemu,riscv-iommu specific behaviours.
+> It is akin to having spacemit,k3-iommu.
+
+Got it.
+
+> 
+>> of T100 for all SoCs shipped T100 (like global filters, vendor events
+>> and etc.,).
+>>
+>> IMO, the current compatible is proper to reflect these concerns.
+>> What do you think?
+> 
+> I pretty much already told you what I think, that you need SoC-specific
+> compatibles for SoCs that integrate this IP and that the you should drop
+> the spacemit,riscv-iommu compatible. The spacemit,riscv-iommu compatible
+> doesn't provide any additional value over spacemit,t100-iommu, and has
+> the downside of maybe being confusing in the future if spacemit
+> produces a iommu that doesn't have the IOATC behaviour.
+
+Sounds reasonable. Thanks.
+
+> 
+> Also, I don't see an answer to my question about whether the hardware
+> will work without the driver changes this series introduces and enables
+> with the new compatible?
+
+Basically, T100 is riscv,iommu compatible, its IOATS part should be able
+to work using standard HPM events with standard riscv,iommu HPM
+compatible driver. People can now test the real hardware of spacemit
+T100 on K3.
+https://canonical.com/blog/spacemit-announces-availability-of-ubuntu-on-k3-k1-series
+I'll try to ask our product team to find third party testers, and if
+any, adds Cc(s) in the next revision.
+
+Without the awareness of this compatible, hardware will face the
+following problems:
+
+Handled in this series:
+1. No vendor event matches
+2. No global filter awareness
+3. No IOATC enumeration
+That's the basic support introduced in this series to enable some basic
+features of T100 that we couldn't find in the upstream.
+
+And there are other features not handled in this series:
+4. No identities matching vendors
+5. No awareness of only PMIV working as WSI, others (CIV/FIV/PIV) are
+    configurable as MSI to make IOATS/IOATC PMIV behaves same and more
+    suitable for kernel performance sampling.
+6. And many other SpacemiT specific features people can find the
+    discussions in the IOMMU spec community that is not limited to HPM,
+    ex., RISC-V DMA64 compliance, QEMU old style MSI-PTE support, etc.
+7. ACPI support for spacemit,v100-iommu.
+8. PCIe ATS/PRI support for spacemit,k3-iommu/spacemit,v100-iommu.
+9. etc.
+
+Cheers,
+Lv
+
+> 
+> Cheers,
+> Conor.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
