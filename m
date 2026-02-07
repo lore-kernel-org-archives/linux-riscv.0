@@ -4,109 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE438EE0AE4
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 13:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B525EE0AE4
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Feb 2026 13:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
+	Message-Id:Date:Mime-Version:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tqhB63qsfjAD/BjpoEgVEz54AS2w6wgCSwUHk4GK5yQ=; b=B9hwUm9Tgr4m8A
-	HV/bprq5sCf4qcJXfouQ2U7E1lUtnK8kGuZyTg7tCLvSoPJ7MX4D6iPqwSn3ryhX7fnww+VV/fqzP
-	uhZitgrxIeleLoeMHPyutquxWi7h8lHLZ9aFxO/6nA8jWAV7Z8+M7gh8rtaAoWFd75H7kDIW56LaB
-	cwAh+/wJEYGOpnruuWO/WJduhsSXWecqRvLgjU/ak52sD5LsIlU1PD3XbgCzQ3EBDCWcTJ8xHrDQK
-	3Q6wzMLY9W+ql5TMKrB942D/hFH2syad5wWxVeV3bKKwDtubecsl6cszix7phkFb2BDMrSwIQ4umF
-	nSUXK4tSG5rM/OjrlUrg==;
+	List-Owner; bh=MS4yBYxgFEFBQCP1Dy0zYhJWq+uARapaER8mPX/sMVo=; b=x1ehOn4YeqPkao
+	GicfQpXTYJvvKb2kLs5iMSgaJnrNri4WfGeCiSMqO0EpwncUNJVclXR3fvBU1C1fz/L0/qBb5JZRe
+	mfhajBDsD2fAgfnVoBwtd2BXEfLYy7eXbs5GriGvy15G4l3GAVa1wr8I2wgSrpKrgNLTACafjaIHy
+	QyOqYASmVfeenHXFNe04V4+rxGoRZnJJGdxkvP5K2mbNzZYPEei/5/1IuU8lhGCYQDwgMM7qRDwSf
+	mzePee4+kPQEWPhEMZLFlqM1RkFUpt1FnvOJ+jOPpd+XaxRkQmFVCdcKy87uS35LO/xJVcrX8O9dL
+	5lpiqteyvxMm2RZu0W3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voicV-0000000CV9k-31If;
-	Sat, 07 Feb 2026 13:45:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1voih8-0000000CVT9-0nJy;
+	Sat, 07 Feb 2026 13:49:54 +0000
+Received: from mail-dy1-x1341.google.com ([2607:f8b0:4864:20::1341])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voicT-0000000CV99-29sf;
-	Sat, 07 Feb 2026 13:45:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A25AF4447B;
-	Sat,  7 Feb 2026 13:45:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F835C116D0;
-	Sat,  7 Feb 2026 13:45:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770471904;
-	bh=Fcg7QBGlOtQbed/3P4oI5lcao5EQQ/HrCDZfMumyuCI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Qbn1qHc6lUrKbMPzzgWKq9vZPEJ5bUGVPedLhLKD8PPzQnk0mdZH17CAxFkqIDSyr
-	 Q86aVZWIWFBugvb4g7P1TqzbBJKV/gd0c8h607JUgZeQry/qJdcUWVcGTyOvq0JQur
-	 KEjV1Hm3ercnG7hQFageEvR0B2ADXlDs52EcThKNZ556SZRyhCy48SfbQ1uO56ScL0
-	 Xww7xd1BYxMFIy6A47C/k8zgIMbjhsiQS5/kWiqu6ScnAGSdcH+PajhipN398yjiZp
-	 Q5mZHckqvj/BHfQl0i+THKnyD24AnFcuVEppEaZc/A8wgegLmwynzeDfd6F0gu1tYF
-	 Cnav442jy+/Fg==
-Message-ID: <8c3835c4-3602-4cee-9631-0551b0341918@kernel.org>
-Date: Sat, 7 Feb 2026 14:44:59 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: phy: spacemit: add regulator support to
- K1 USB2 PHY
-To: Ze Huang <huang.ze@linux.dev>, Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Yixun Lan <dlan@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Rob Herring <robh@kernel.org>, Mark Brown <broonie@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, linux-riscv@lists.infradead.org,
- linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, spacemit@lists.linux.dev
-References: <20260206100009.873182-1-amadeus@jmu.edu.cn>
- <20260207-dancing-finch-of-chemistry-f98cf2@quoll>
- <DG8QBWSJ79MP.2MVIHFRBX3WXX@linux.dev>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <DG8QBWSJ79MP.2MVIHFRBX3WXX@linux.dev>
+	id 1voih5-0000000CVSL-2QAG
+	for linux-riscv@lists.infradead.org;
+	Sat, 07 Feb 2026 13:49:53 +0000
+Received: by mail-dy1-x1341.google.com with SMTP id 5a478bee46e88-2b7da62b487so5797427eec.1
+        for <linux-riscv@lists.infradead.org>; Sat, 07 Feb 2026 05:49:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770472190; x=1771076990; darn=lists.infradead.org;
+        h=in-reply-to:references:cc:to:subject:message-id:date
+         :content-transfer-encoding:mime-version:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9IzXDpLFwSkLNbwyD+8cYCZma/FvcMBgne+jWBUI0S0=;
+        b=LKIAskISnawhF/eR1smvBMA80yLq2mRo4uICYAYj6sC3sl8loOU8vvyltFfMR97KwN
+         /mGAwnTrfG/rZ7Jia52dCo9fUxWSisieC/b3/KRWy5w0pHsHPk2jQnEo1d2hSel/lZ0v
+         R+r3I5VfWjTax17xuVGb/9jx9ZU7nD7fqSZzLGU9lpqbhG/L0NjcBjCELT9rX/W4fdU2
+         pn/gNm55+NMsbQgaSGcyA4ohIWHCNf6PX1uwAvweLWw4TgZOE5IYvZhSN1/+dhZtWANy
+         dR7Fwtf5skdLfJL0IiwuQkgECcTOgfIsvOBT2P9X/N8FDOv9zJYE8yYE/TVfCnjIJ1hF
+         fArA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770472190; x=1771076990;
+        h=in-reply-to:references:cc:to:subject:message-id:date
+         :content-transfer-encoding:mime-version:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9IzXDpLFwSkLNbwyD+8cYCZma/FvcMBgne+jWBUI0S0=;
+        b=J9vz3uZFww3v/681gXztKg5NDelbJFMdu+TO9P0M7MCYyr6jgsXKeIjQZ9dL/G1Kfd
+         gTJ7Ij8MmQzEk0xl6rg1H+ofIx6c152QCWHQe9LeSkyjaxKupAPauvRYY/bgBcmR+MXG
+         QyB/3vu39tt2ie6ux+ju+kFALse8PpeB8gbQ+z2OJ/W0AyDwWJo8/OUzKiyVQqENRAYb
+         yyqLcYKyj6GC4X0VX8Z7+YZq87+Gebo2bQYs+pJ26PzMvD99903dGuuc4F+NyPyPIdyE
+         qvNSlmGFxM11YYoZOWWdL3K4LB3myG1UASRQ0ISzmDg8GkfMNSfDrMCinPmiOyv10D8B
+         uD5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU+X94813ZKKGgLHGXoJQdzVgSmHDqBwcL49DB6zrLJMdd+45Xb3qvLnFuuycH9QZ5KFKMxTy+zAfaYNw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJYI/oTcNk5ECBNVp+NPoPjS+TbtdvNr5TjHcUSgZ/1B4jYqIJ
+	h0MQHAdQJ+4Pv1WPvWAxM2UseWQ56VCh9Zl/d9VDC1nCzi4Z7j5/vPkC
+X-Gm-Gg: AZuq6aJsgP3jmI6xPA1FH12DH0VkE4Tn2AX8BqeL5xP5A39D2W/jPSsPu5t7i5Ka6kV
+	nxefeBwPoY151oghYYR3J3rohaQ03aAv4blkbTd5R8KNtRgIeFz1VUHJuGwyE5a0jfzUV/Q8Rot
+	LsyrtW/s8VubwPWYwRry4bjpPMXT7svGB+BSbe3+6anrQ+ehH9vAECHD1xzUsWs6/CnFrxndVku
+	DF7xvltEffnTkmRqrdIR7lbXNMsN1FBDPP76YC3/IZ9k83wv0BO3g7pMcMNpgnByyb01csG6ufA
+	Ks+9wOIT+XzpLBwy0h0MELGCbyo5QlHB9HNoqdTyGKiz93xSplScsJk46OHs0Z5jOUFekT8Map6
+	KnGvsW9KghI4Yn5Yl+FwiF+yjNQbbzwysdR1rakHEpGSSHUXzqGPz7w8JIm7zzW9JeUP7GX8U4A
+	V98UQKctbOhEMPZQ==
+X-Received: by 2002:a05:7301:3d19:b0:2b7:f809:9c38 with SMTP id 5a478bee46e88-2b85642b483mr3550098eec.18.1770472190215;
+        Sat, 07 Feb 2026 05:49:50 -0800 (PST)
+Received: from localhost ([72.11.140.113])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b855c3db30sm3684099eec.21.2026.02.07.05.49.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 07 Feb 2026 05:49:49 -0800 (PST)
+From: Troy Mitchell <troymitchell988@gmail.com>
+X-Google-Original-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+Mime-Version: 1.0
+Date: Sat, 07 Feb 2026 21:49:47 +0800
+Message-Id: <DG8S0EEA55Z6.3RVC23NWTEW1S@linux.spacemit.com>
+Subject: Re: [PATCH v6 2/2] i2c: spacemit: introduce pio for k1
+To: "Andi Shyti" <andi.shyti@kernel.org>, "Troy Mitchell"
+ <troy.mitchell@linux.spacemit.com>
+Cc: "Yixun Lan" <dlan@gentoo.org>, "Alex Elder" <elder@riscstar.com>,
+ "Aurelien Jarno" <aurelien@aurel32.net>, "Michael Opdenacker"
+ <michael.opdenacker@rootcommit.com>, "Troy Mitchell"
+ <troymitchell988@gmail.com>, <linux-i2c@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260108-k1-i2c-atomic-v6-0-41b132b70f68@linux.spacemit.com>
+ <20260108-k1-i2c-atomic-v6-2-41b132b70f68@linux.spacemit.com>
+ <aWeyT8gb8Z31S_V9@zenone.zhora.eu>
+In-Reply-To: <aWeyT8gb8Z31S_V9@zenone.zhora.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260207_054505_602010_EBAD95E9 
-X-CRM114-Status: GOOD (  26.26  )
+X-CRM114-CacheID: sfid-20260207_054951_617929_C53B59DE 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,161 +107,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 07/02/2026 13:30, Ze Huang wrote:
-> On Sat Feb 7, 2026 at 6:48 PM CST, Krzysztof Kozlowski wrote:
->> On Fri, Feb 06, 2026 at 06:00:08PM +0800, Chukun Pan wrote:
->>> Add an optional phy-supply property to describe the regulator
->>> supplying for USB VBUS.
->>
->> Why wasn't it there before? USB did not have VBUS?
-> 
-> Previously, the VBUS regulator was defined as regulator-always-on in
-> the device tree as a workaround.
+On Wed Jan 14, 2026 at 11:47 PM CST, Andi Shyti wrote:
+> Hi Troy,
+>
+> ...
+>
+>> @@ -171,6 +176,16 @@ static int spacemit_i2c_handle_err(struct spacemit_i2c_dev *i2c)
+>>  	return i2c->status & SPACEMIT_SR_ACKNAK ? -ENXIO : -EIO;
+>>  }
+>>  
+>> +static inline void spacemit_i2c_delay(struct spacemit_i2c_dev *i2c,
+>> +				      unsigned int min_us,
+>> +				      unsigned int max_us)
+>> +{
+>> +	if (i2c->use_pio)
+>> +		udelay(max_us);
+>
+> We need some control on how much we want to sleep in atomic. This
+> can have effects on the whole system.
+>
+>> +	else
+>> +		usleep_range(min_us, max_us);
+>
+> If we assume that max_us = min_us * 2 we don't need to pass it as
+> a parameter. Even better you can use fsleep here which does it
+> for you.
+Thanks. I'll use fsleep here and remove max_us.
+>
+...
+>> +}
+>
+> ...
+>
+>> +
+>> +	if (i2c->state != SPACEMIT_STATE_IDLE) {
+>> +		val |= SPACEMIT_CR_TB;
+>> +		if (i2c->use_pio)
+>> +			val |= SPACEMIT_CR_ALDIE;
+>
+> Why are we enabling ALDIE here?
+Should be:
+if (!i2c->use_pio)
+>
+>> +
+>> +
+>
+> please drop one blank line here
+>
+>> +		if (spacemit_i2c_is_last_msg(i2c)) {
+>> +			/* trigger next byte with stop */
+>> +			val |= SPACEMIT_CR_STOP;
+>> +
+>> +			if (i2c->read)
+>> +				val |= SPACEMIT_CR_ACKNAK;
+>> +		}
+>> +		writel(val, i2c->base + SPACEMIT_ICR);
+>> +	}
+>
+> ...
+>
+>> @@ -431,41 +605,8 @@ static irqreturn_t spacemit_i2c_irq_handler(int irq, void *devid)
+>>  
+>>  	spacemit_i2c_clear_int_status(i2c, status);
+>>  
+>> -	if (i2c->status & SPACEMIT_SR_ERR)
+>> -		goto err_out;
+>> -
+>> -	val = readl(i2c->base + SPACEMIT_ICR);
+>> -	val &= ~(SPACEMIT_CR_TB | SPACEMIT_CR_ACKNAK | SPACEMIT_CR_STOP | SPACEMIT_CR_START);
+>> -
+>> -	switch (i2c->state) {
+>> -	case SPACEMIT_STATE_START:
+>> -		spacemit_i2c_handle_start(i2c);
+>> -		break;
+>> -	case SPACEMIT_STATE_READ:
+>> -		spacemit_i2c_handle_read(i2c);
+>> -		break;
+>> -	case SPACEMIT_STATE_WRITE:
+>> -		spacemit_i2c_handle_write(i2c);
+>> -		break;
+>> -	default:
+>> -		break;
+>> -	}
+>> -
+>> -	if (i2c->state != SPACEMIT_STATE_IDLE) {
+>> -		val |= SPACEMIT_CR_TB | SPACEMIT_CR_ALDIE;
+>> -
+>> -		if (spacemit_i2c_is_last_msg(i2c)) {
+>> -			/* trigger next byte with stop */
+>> -			val |= SPACEMIT_CR_STOP;
+>> -
+>> -			if (i2c->read)
+>> -				val |= SPACEMIT_CR_ACKNAK;
+>> -		}
+>> -		writel(val, i2c->base + SPACEMIT_ICR);
+>> -	}
+>> +	spacemit_i2c_handle_state(i2c);
+>
+> Next time this can be on a separate patch as a preparatory patch
+> to make the review of this one a bit easier.
+Thanks. I'll do that.
 
-Bindings are supposed to be complete regardless what driver does (or
-does not).
+                              - Troy
+>
+>>  
+>> -err_out:
+>> -	spacemit_i2c_err_check(i2c);
+>>  	return IRQ_HANDLED;
+>>  }
+>
+> Thanks,
+> Andi
 
-You must list all supplies with proper names.
-
-If this regulator was missing, then what else?
-
-> 
->>
->> Explanation is so incomplete I suspect you are patching broken things,
->> so as well this could be completely different hardware (e.g. there is no
->> regulator for this block but e.g. connector).
->>
-> 
-> usb ports under usb hub node can describe the topology well, but
-> still regulator always-on is necessary as no driver toggles it.
-> 
->     usb3 {
->      dr_mode = "host";
->      #address-cells = <1>;
->      #size-cells = <0>;
->      status = "okay";
-> 
->      hub_2_0: hub@1 {
->       compatible = "usb2109,2817";
->       reg = <0x1>;
->       #address-cells = <1>;
->       #size-cells = <0>;
->       vdd-supply = <&usb3_vhub>;
->       peer-hub = <&hub_3_0>;
->       reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
-> 
->       port@1 {
->        reg = <1>;
->        vbus-supply = <&usb3_vbus>;
->       };
-> 
->       port@2 {
->        reg = <2>;
->        vbus-supply = <&usb3_vbus>;
->       };
-> 
->       ...
-> 
->       hub_3_0: hub@2 {
->         ...
->       };
->     };
-> 
-> Here is the diagram for the USB2, USB3 controller on K1 Jupiter board [1] (page 21)
-> 
->     +-----------------------+
->     |        K1 SoC         |
->     |                       |
->     |  +-----------------+  |   (USB 3.0)
->     |  | USB3 Controller |--|---------------------------------->+--------------------------+
->     |  +-----------------+  |                                   |        VL817 Hub         |
->     |                       |                                   |                          |---> [USB3 Ports]
->     |      HUB_PWREN        |                                   | +----------------------+ |     ^
->     |       (GPIO)  --------|---------------------------------->| | Enable Chip Power    | |     |
->     |                       |                                   | +----------------------+ |     |
->     |                       |                                   +--------------------------+     |
->     |      USB3_PWREN       |                                                                    |
->     |       (GPIO)   -------|----------------------------------------------------------> [VBUS of USB3 Ports]
->     |                       |
->     |                       |
->     |~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->     |                       |
->     |  +-----------------+  |   (USB 2.0)
->     |  | USB2 Controller |--|---------------------------------->+--------------------------+
->     |  +-----------------+  |                                   |      FE1_1S Hub          |---> [USB2 Ports]
->     |                       |                                   +--------------------------+     ^
->     |   USB_HOST_PWREN_H    |                                                                    |
->     |       (GPIO)      ----|-----------------------------------------------------------> [VBUS of USB2 Ports]
->     |                       |
->     |                       |
->     +-----------------------+
-
-
-I do not see here a "phy" regulator supply. Are you sure this is how
-your pin or supply is called?
-
-> 
-> [1] https://github.com/milkv-jupiter/jupiter-files/blob/main/hardware/v1_0/jupiter-sch-v1_0.pdf
-
-This page shows the connector, so not the phy.
-
-> 
->>
->>>
->>> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
->>> ---
->>>  Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml | 4 ++++
->>>  1 file changed, 4 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml b/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
->>> index 43eaca90d88c..74a1cd5bcdbe 100644
->>> --- a/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
->>> +++ b/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
->>> @@ -19,6 +19,10 @@ properties:
->>>    clocks:
->>>      maxItems: 1
->>>  
->>> +  phy-supply:
->>> +    description:
->>> +      Phandle to a regulator that provides power to VBUS.
->>
-> 
-> "vbus-supply" should be more accurate.
-> 
->> Drop redundant part. This cannot be anything else than phandle and
->> regulator.
->>
->> "VBUS power supply" for example.
->>
-> 
->> But anyway, I don't have certainty that
->> this is correct hardware representation. It's your task to provide that.
->>
->> Best regards,
->> Krzysztof
-> 
-> I initially considered handling VBUS via the onboard_usb_dev driver, as
-> we discussed previously for the BananaPi-F3 board (which uses a VL817
-> Hub) [2]. I was waiting for Marco Felsch's patch series "onboard-dev USB
-> hub host managed vbus" to land [3].
-> 
-> [2] https://lore.kernel.org/linux-riscv/aWJAT3n_KcND8bOz@monica.localdomain/
-> [3] https://lore.kernel.org/all/20250911-v6-16-topic-usb-onboard-dev-v4-0-1af288125d74@pengutronix.de/
-> 
-> I am not certain if managing VBUS in the PHY driver (e.g.,
-> phy-stm32-usbphyc.c and phy-rockchip-usb.c) is the standard method.
-> I would not insist on the "onboard_usb_dev managed vbus" if this patch
-> (PHY managed) is considered proper way.
-
-I am not talking about driver here at all.
-
-Please start describing in the bindings your complete hardware, not your
-drivers.
-
-That's a no for this patch, because phy does not have such supply.
-
-Best regards,
-Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
