@@ -4,104 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59051EF06E2
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Feb 2026 06:39:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CEBEF06E2
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Feb 2026 09:32:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PJs2O2yE0MOL+DJbfRbDlk086Qil+mVGrPBbD8mdoxw=; b=wrMXBWQJHUGXmc
-	R4O2IamsSNFUaRCj+yKH/x9gNIXQzrczXAwOLpohzrS5iEdlhhHCExKIf14sbDn56ROlV7vq8Tnwk
-	jktyilHwj3lU2+H/n+guPN5cvtI+piZhq8Fyp73AwDCSJC76cg0/KHQWIQPdx5PSRgLgzm2LJxVsg
-	z1l5LrciBNqYTyK2O1hrGrQDFxoIhuIbxZq18C90gjDzmEQpVZX3L/t0nR+v6tivd1bhAKWEt+Gda
-	H+UljJBglX2hYxtis4iAQmNsX2SDdqV2+ZMgZQRi0+Eq/NaK5UDtHrdTuQczqOhbLBK0gmbVyet3k
-	RECsj6F91XhLm7pqpRUQ==;
+	List-Owner; bh=OWHuYYTlHmFvy4PibezgiUe///r7yTAvbkYALzmVsaQ=; b=e1F/eoEQlXkhXc
+	VcCVtESHR2bQYC9mllMT9PhqFhvW4UtOuw0gbS4H5MZuo8fDiEeJuBrD2P+NRC+/3Ald8Gk0mVQ7k
+	tp7lROj4irSTTD+mRWARmKJ8ZapX3t62nZW+fUlnOfGD42GGY5WkFx5ogPbL08xi9j6/LODjL0zQt
+	GT5asm3NalU/2hWNHByVWQibRZO1r9U/ZXBMnhdPUTbFhavlV5ixI3YeN6yoPWTkriYvUfHGu/9GB
+	HmHIYuCHrMhVvoeqT7I90j87Be0qXK6LwFQawK1nt9fKvmXxTID4NrgkIm764XPIXl0wQGv98CaTL
+	RQtph5iftE1yFzyjmZ9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voyRm-0000000D5az-2Y9M;
-	Sun, 08 Feb 2026 06:39:06 +0000
-Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
+	id 1vp19Q-0000000DCKt-44Ya;
+	Sun, 08 Feb 2026 09:32:21 +0000
+Received: from out-182.mta0.migadu.com ([91.218.175.182])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voyRj-0000000D5aM-2liE
+	id 1vp19N-0000000DCKS-1T2m
 	for linux-riscv@lists.infradead.org;
-	Sun, 08 Feb 2026 06:39:04 +0000
-Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-124afd03fd1so2703054c88.0
-        for <linux-riscv@lists.infradead.org>; Sat, 07 Feb 2026 22:39:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1770532743; x=1771137543; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SqJrVLmLyHXBLluZVvcfbrCnXHVEtGPNlw21Z5ct3vE=;
-        b=HemD9ZglV3Pruh0jnFgRCPGzhKRBjjqw4X4la0oRhM4ocBXPf0JNmGSmCUlckdT5ww
-         7Im8Xov0xjlJQJZ/yllErUckQxLpzIZvUCxMTr/2SDdqMEAkuIcAVqjqmJYAGUG4bQIS
-         +27laJI68sQTx6fcYiwlLh6kOMXhUu+CeheWY7QLUspkyJCLi1jRI6kzAJYFP+40hKrg
-         1ElcBWc6Ow6ltjzjPTuTNQtEW00geaSiAUrxj3VD5nLV2xXRnMOJZ3v0ZjBaBISdyPs6
-         gDw5DrdVWTeIM/Siy/HT0VxbO72+kfJ4/sxdJWzBpwx6ulkYuh9Y4VW1SlB+FgYQtYpi
-         wkzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770532743; x=1771137543;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=SqJrVLmLyHXBLluZVvcfbrCnXHVEtGPNlw21Z5ct3vE=;
-        b=K4t4QYECp09KFt8CEqtqlhomBSnZkeZ+pJhw9lv/3My+uA7YPN9O1PdxHQC+GjvquZ
-         iuZXvkrIFyZNzfTmVdOqyBADL7+q6UGs8ql+mL7Rb93CBKNcegJdomla2n4EuD1d6CHy
-         Xqpv0kDcA8olI1GFoXdwAP+oy4zmwXmYuFA4nJw7WSz+K3tlS/LLbXwYbt5heTa1IUTJ
-         aaClnw3/RTAN3hsrvKxljvu46AvT79H+11rwqJvE6Wx05uaCv8R+N9OdZ9gqcdwlleAd
-         15ShU9x4B40hVtMZp8lo2rI676gBKLrnwKk26B5hABL3mwlJ8kQl8IDzzeHMabcruF7c
-         UjCw==
-X-Forwarded-Encrypted: i=1; AJvYcCXMZJfHHKo7cLYpnq6TKZ4/sQ/n0kUWYoAx10Pqep/XtTFB9AWvjWlNWiLAXKe/nI9KL2gfSyo2Y83q0g==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx31gncnvRJUwvVrv2iECdPalOwsEnDSfpBNjJ9chnaA7VN+8A4
-	fO9x6kXrXFZG0X93sh3ejQGkoA6h45LH4Cqq0pal3H+vEC6Xr9UpZDuzOcyFh1LpEvk=
-X-Gm-Gg: AZuq6aLaBOnXrANdLcdUFgsy1ZpGsHF67SkbPWjXClebmUnODVppRfJ+TSyKY8+Fzse
-	4sy2Rg12pGk/+8G6zrTNVqcPmnTqN7vgxxAk90EvnEH1w/WuGfCT1PA4HOq4RuVt5w3lv+dtmbj
-	ReqHMSN3xf3jY1pEm/qEXMZvE3e71AXRhsuiVhinEMkzjTX9Agm4uAQxKtqJGWg5/z94gRF1zH6
-	1BKMfY1acnjeFf+DsNc/IGq10s3jKCQUW6adm9Q+Lv8HWrtaFFjFHyYwPrQutz45LMZGJyrdM80
-	OdYHJF8vDXzRM00N5PaTA9w+rFSP+taEa1tayx8avNj1XZ7UQqiEBdLXmXL5AY/BOR/LLtEuav8
-	QQw3ZUj4E8gXRXwhVsJJvNv7jwCNegUtjvB9rHRZ4YEFr3DpTK8YrC4yv7TmncIMFjJOIXIvjss
-	SSqnK7B87heLxtCEbx/HNLdwE=
-X-Received: by 2002:a05:7022:2527:b0:123:2d4f:ef1c with SMTP id a92af1059eb24-12703ff4c81mr3247994c88.26.1770532742709;
-        Sat, 07 Feb 2026 22:39:02 -0800 (PST)
-Received: from sw04.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1270c9ff2bcsm5114647c88.1.2026.02.07.22.38.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 07 Feb 2026 22:39:00 -0800 (PST)
-From: Zong Li <zong.li@sifive.com>
-To: tjeznach@rivosinc.com,
-	joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	robh@kernel.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	mark.rutland@arm.com,
-	conor+dt@kernel.org,
-	krzk@kernel.org,
-	guoyaxing@bosc.ac.cn,
-	luxu.kernel@bytedance.com,
-	lv.zheng@linux.spacemit.com,
-	andrew.jones@oss.qualcomm.com,
-	linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-perf-users@vger.kernel.org
-Cc: Zong Li <zong.li@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v2 2/2] iommu/riscv: create a auxiliary device for HPM
-Date: Sat,  7 Feb 2026 22:38:36 -0800
-Message-ID: <20260208063848.3547817-3-zong.li@sifive.com>
-X-Mailer: git-send-email @GIT_VERSION@
-In-Reply-To: <20260208063848.3547817-1-zong.li@sifive.com>
-References: <20260208063848.3547817-1-zong.li@sifive.com>
+	Sun, 08 Feb 2026 09:32:19 +0000
+Message-ID: <fd316311-91cb-4a95-bc56-4f2b6c8fb87c@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1770543130;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1CWhrmyvp8UhILa66Gxm7tpIQjK5QG/i9orbqL8doRk=;
+	b=nxafQ58sCCuEIytdobpH10lnLTdLcUlboS9wCoPJ8kf02MBcLcPMi0zl8FPCOV7Cw6u/uF
+	gsNUizTfwdcbimsblyD/6d5lgBuUVI13YKDmuO9cRMEiZHWDssJydwbblGdjx/s4mjnXry
+	4p5eaQGzFCH1+F37mSh4zw7Mqr4dYTc=
+Date: Sun, 8 Feb 2026 01:32:02 -0800
 MIME-Version: 1.0
+Subject: Re: [PATCH] drivers/perf: riscv: Keep the fixed counter counting
+To: qingwei hu <huqingwei.kernel@gmail.com>
+Cc: cp0613@linux.alibaba.com, anup@brainfault.org, alex@ghiti.fr,
+ pjw@kernel.org, guoren@kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260131112440.2915-1-cp0613@linux.alibaba.com>
+ <aab19ab9-0946-4477-8ca2-bc93621a54a0@linux.dev>
+ <0E982A8E-9CD2-4712-AC59-56D7CA043A2A@bytedance.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Atish Patra <atish.patra@linux.dev>
+In-Reply-To: <0E982A8E-9CD2-4712-AC59-56D7CA043A2A@bytedance.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260207_223903_702749_F346CEB7 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20260208_013217_649300_FD0C8075 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,68 +67,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Create an auxiliary device for HPM when the IOMMU supports a
-hardware performance monitor.
 
-Suggested-by: Samuel Holland <samuel.holland@sifive.com>
-Signed-off-by: Zong Li <zong.li@sifive.com>
----
- drivers/iommu/riscv/iommu.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+On 2/4/26 5:13 AM, qingwei hu wrote:
+>> On Feb 4, 2026, at 17:17, Atish Patra <atish.patra@linux.dev> wrote:
+>>
+>>
+>> On 1/31/26 3:24 AM, cp0613@linux.alibaba.com wrote:
+>>> From: Chen Pei <cp0613@linux.alibaba.com>
+>>>
+>>> The RISC-V SBI PMU driver disables all PMU counters during initialization
+>>> via pmu_sbi_stop_all. For fixed counters CYCLE, TIME and INSTRET, this is
+>>> unnecessary for the following two reasons:
+>>>
+>>> 1. Some kernel driver code may directly read CYCLE and INSTRET to perform
+>>>     simple performance analysis.
+>> Is this for some debugging purpose to read the instret/cycle count at boot time or real use case for driver performance analysis ?
+>>
+>> If it is the latter, that will be problematic for various reasons such as context switching will lead to inaccurate numbers.
+> Hello Atish.
+>
+> Besides boot time scenarios and performance analysis, there is another case
+> where user mode needs to access the cycle counter via rdcycle.
+>
+>>> 2. In legacy mode, user space directly reads CYCLE and INSTRET. (echo 2 >
+>>>     /proc/sys/kernel/perf_user_access)
+>>>
+>>> Therefore, We keep counting CYCLE, TIME and INSTRET.
+>>>
+>>> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+>>> ---
+>>>   drivers/perf/riscv_pmu_sbi.c | 3 +++
+>>>   1 file changed, 3 insertions(+)
+>>>
+>>> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+>>> index 7dd282da67ce..93aaab324443 100644
+>>> --- a/drivers/perf/riscv_pmu_sbi.c
+>>> +++ b/drivers/perf/riscv_pmu_sbi.c
+>>> @@ -899,6 +899,9 @@ static int pmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
+>>>     static inline void pmu_sbi_stop_all(struct riscv_pmu *pmu)
+>>>   {
+>>> + /* We keep counting CYCLE, TIME and INSTRET. */
+>>> + pmu->cmask &= ~0x7;
+>>> +
+>> This is incorrect. The cmask should be set based on the perf_user_access value. We should not continue counting the CYCLE/INSTRET when legacy mode is not set. if (sysctl_perf_user_access == SYSCTL_LEGACY) csr_write(CSR_SCOUNTEREN, 0x7); else csr_write(CSR_SCOUNTEREN, 0x2);
+> Legacy mode refers to the perf framework. When perf_user_access is not in
+> legacy mode, the application may need to use rdcycle.
+>
+> As discussed in [1], the rdcycle is necessary, and applications such as
+> DPDK should use rdcycle in user mode.
+>
+> So how to use the rdcycle when perf_user_access is not in legacy mode?
+>
+> [1] https://lists.riscv.org/g/tech-privileged/topic/should_rdcycle_be_deprecated/115162737
 
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index d9429097a2b5..7cdb80d4343d 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -14,6 +14,7 @@
- 
- #include <linux/acpi.h>
- #include <linux/acpi_rimt.h>
-+#include <linux/auxiliary_bus.h>
- #include <linux/compiler.h>
- #include <linux/crash_dump.h>
- #include <linux/init.h>
-@@ -559,6 +560,22 @@ static irqreturn_t riscv_iommu_fltq_process(int irq, void *data)
- 	return IRQ_HANDLED;
- }
- 
-+/*
-+ * IOMMU Hardware performance monitor
-+ */
-+static int riscv_iommu_hpm_enable(struct riscv_iommu_device *iommu)
-+{
-+	struct auxiliary_device *auxdev;
-+
-+	/* TODO: for custom event support, the modname should come from compatible */
-+	auxdev = __devm_auxiliary_device_create(iommu->dev, KBUILD_MODNAME,
-+						"pmu", iommu, 0);
-+	if (!auxdev)
-+		return -ENODEV;
-+
-+	return 0;
-+}
-+
- /* Lookup and initialize device context info structure. */
- static struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iommu,
- 						 unsigned int devid)
-@@ -1669,6 +1686,9 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
- 		goto err_remove_sysfs;
- 	}
- 
-+	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_HPM)
-+		riscv_iommu_hpm_enable(iommu);
-+
- 	return 0;
- 
- err_remove_sysfs:
--- 
-2.43.7
+Based on this thread, it was very clear that the dpdk use case of 
+rdcycle is incorrect.
 
+We also had many discussions why enabling rdcycle without perf is a bad 
+idea. That's the reason
+why we added the *sysctl_perf_user_access* legacy to preserve legacy 
+usage. Eventually, it is expected that folks would move away from 
+rdcycle usage which was incorrect to begin with.
+
+Let me know if you want me dig up the old threads about the discussion.
+
+> Best Regards,
+> Qingwei Hu
+>
+>>>    /*
+>>>     * No need to check the error because we are disabling all the counters
+>>>     * which may include counters that are not enabled yet.
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
 
 _______________________________________________
 linux-riscv mailing list
