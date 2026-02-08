@@ -4,91 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58315EF06E3
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Feb 2026 14:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A44EF06E2
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Feb 2026 15:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Subject:Cc:
-	Message-Id:Date:Mime-Version:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jzy6a52lnLnmtS/BUlb+UNZwsVs5EAlRrUd27QVH7UI=; b=cAOlhKn2lr22Mv
-	LWrXfe0R00UU+VBGkVzN4cZfI846g0b5QdAqOK0o90XiS9P2kLX4SzMt/FemBvtE+JTxXDx7nlCqx
-	+JSNqjg6u7qUUWypMCoH2eCD7C03ED87d9OTlSypmEwdwpKbL1EVJOAh16ku0/WJPtJjsxkfL+UTX
-	WuO2TMSID76jfpvvWXl67EVOJltXUSEhL7XOHLV0o1ONFWb1z/JcD9LuV/TK04c46lpLshhjFsioW
-	7cN2rPA7WAgFxJekgpvSFLx0+NqEuSG4rJHH/myFovAOKgy6YhMvb0m9Ehbvt1yOAip0KRRDnoWBG
-	VG2ODv9ozD0OwP8LXcHw==;
+	List-Owner; bh=eoISeyeAayIETIqCZor0FdncWUreGVZHvZ3dPlTgSNk=; b=twFqYjZaaGQ6v8
+	2sh9Ne+64HdVRflcWBYO9oBkyzXlG7f6Iw9Qr4EPhm6uyHOQHk3jZjmh+GkWG1Lr+8xxD3HzYIy5M
+	CENa3osfzNjde6pgUlrs8DfY1oxTaX2FGXotZmPUw6HbU3Qhr+Z46f8c72WZqJcYaBCsVba/R8Ka4
+	qEEB+evwgKbdKvs0P6KIwlzK5DKt3vTmHPT7il0dqs4bOtaO8kJHpJUQBi1yB8/pKnkhEzds9jm8L
+	Tqs8rWj8nJd1tWSVUyThTnM/ddQkMrgwL77Qp2NtcCtGFD16N5K6+rWYXE5OTfdjgr/vyH6grbd7j
+	PZ0Il0ZY8r5IqJPGpb0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vp69y-0000000DOnu-3i2Z;
-	Sun, 08 Feb 2026 14:53:14 +0000
-Received: from mail-dl1-x1242.google.com ([2607:f8b0:4864:20::1242])
+	id 1vp6y8-0000000DQVh-0eNV;
+	Sun, 08 Feb 2026 15:45:04 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vp69w-0000000DOnb-3h1e
+	id 1vp6xu-0000000DQUm-18qw
 	for linux-riscv@lists.infradead.org;
-	Sun, 08 Feb 2026 14:53:14 +0000
-Received: by mail-dl1-x1242.google.com with SMTP id a92af1059eb24-124a1b4dd40so125213c88.0
-        for <linux-riscv@lists.infradead.org>; Sun, 08 Feb 2026 06:53:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770562391; x=1771167191; darn=lists.infradead.org;
-        h=in-reply-to:references:to:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8h+xkqNhYlCxgIu3rSmKZo7/K9DidHR1ZXFR3pIVmKY=;
-        b=H7kaPH8yj4gmfShT8a5vNGfaQIjebDt1g2zyMgmiuoAHet0QCxpDiepusYcnqWyWEA
-         yLDYPTKeD/8FlGY2vzsKAnl+IA1ChMa3XbLXpma2NcgBGuev2L2n/kG4rfwGiJYbIZGo
-         m/TaK4Z52KTIlGXb57IYVfD0JVBXdtpcKIof9MInkxV6n/S7o3FFQS7vev/o9o6LTZOS
-         fL6W9Zaq8oVzpLVKy5kVLuq2nSCyZejdRbL+aK654zBaLyGKLKqabXxqvmpKZDbGWL0E
-         q8Liiqed4AFemfOICVTS/oa9/pGFQ2WkNPAukkXhzAt608JKwFISMaXUpUNiPUBr5aZZ
-         /1Hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770562391; x=1771167191;
-        h=in-reply-to:references:to:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8h+xkqNhYlCxgIu3rSmKZo7/K9DidHR1ZXFR3pIVmKY=;
-        b=rqb98Gc+a/qdMhRRjeBR0qcPIMccdMV233f1HlDV1nnWz4ZQppSx1PD+SszamQSTAi
-         D0UYd4DIPRG3RohF/mjsaeSsbfl5DwjchQhTgsHDEX6XvychlmgK5Tg1I2UdOWhKJ2UP
-         BlG66WPJJj3XNU0TFelYyiXHF0wGab0fihzyDc6Qd9EJ++2Vdj3LFVXQzV8uTv3W0ndn
-         9iA4Jrr/YEy8kR4qgzzPGZsqpA6DKAr40bEe3cvtZmeYkht7/zsE7ETAE9uYUrW5YjHl
-         XFzbqdWz25H7ozR6YMR9RwqC/1WEX8VT2RejWyePwOHCkkmnym/ZPn7exeQV0ln6wc51
-         SqQw==
-X-Forwarded-Encrypted: i=1; AJvYcCWEgwjZOxJ2pqPQ9YVJdAkWYHy8CGmJl44NbAYE5PgA2YnZpYXFn6BhujYe82PM6uCNJiR4KAj2la+ldg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoOqI81BAZ745otoKEzTUpM578cV9MI/Htkd6H6ttM3N264e9r
-	4O6Y6EV5dTM+p4kZ715CyqhqGUJQhdIkYyQ12uuDYY7orend+ro4fDc48AVjZFK/
-X-Gm-Gg: AZuq6aLoPNMPtYzEXotj27YuapFdquft3FK6jY59GICz5xltQoWV+Xa3R/IF5aMFj31
-	r3/QbJFbpxf+/LD3Yxd2cv/OrCCftqI5+YT3LE5bgxSzWxKq5u1P9CyamvkERjYftvboBzdT8RX
-	ZZK4h0RqgqzaJl3ouhNoSsklBHUlK/GWjNajcTRwInV/nbBqutttL+FV28kJCC0VAfIJCJF1Mz7
-	i3cIn4qfovgtJjG83N0Iqk9ogGUlZ00cSrwxXxG7R8aJfqCDszcFuoIJFVgwtO0UIw/eNyQ1oT/
-	6xAYjENcwjlo9XIg21lKI2dfgekowFVE44wvww5ss3tJs4ijgUpTA5SBf0qMV2y21LQFvdvHK8+
-	vRn7lMA/Di7SOyUcRFNanCzcNGEr1NRV4+C77ZJzDBiKITaKpVbjbm3fUINHvxgH2YR1mWlmwjP
-	m/Cxoxge5LkRGQZg==
-X-Received: by 2002:a05:7022:ff43:b0:127:874:af0a with SMTP id a92af1059eb24-1270874af69mr3714033c88.5.1770562390862;
-        Sun, 08 Feb 2026 06:53:10 -0800 (PST)
-Received: from localhost ([72.11.140.113])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-127041e61b9sm8128977c88.8.2026.02.08.06.53.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Feb 2026 06:53:10 -0800 (PST)
-From: Troy Mitchell <troymitchell988@gmail.com>
-X-Google-Original-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-Mime-Version: 1.0
-Date: Sun, 08 Feb 2026 22:53:07 +0800
-Message-Id: <DG9NZG0N2T3V.3DZ7YPCZAMD36@linux.spacemit.com>
-Cc: "Andi Shyti" <andi.shyti@kernel.org>, "Yixun Lan" <dlan@gentoo.org>,
- <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>, "Alex Elder"
- <elder@riscstar.com>
-Subject: Re: [PATCH v7 0/2] i2c: spacemit: introduce pio for k1
-To: "Aurelien Jarno" <aurelien@aurel32.net>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260207-b4-k3-i2c-pio-v7-0-626942d94d91@linux.spacemit.com>
- <aYiR0VQXvBJDSQPh@aurel32.net>
-In-Reply-To: <aYiR0VQXvBJDSQPh@aurel32.net>
+	Sun, 08 Feb 2026 15:45:02 +0000
+Received: from duge-virtual-machine (unknown [223.66.170.192])
+	by APP-05 (Coremail) with SMTP id zQCowAAnvA9jr4hp9bvOBw--.26116S2;
+	Sun, 08 Feb 2026 23:44:37 +0800 (CST)
+Date: Sun, 8 Feb 2026 23:44:35 +0800
+From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+To: Krzysztof Kozlowski <krzk@kernel.org>, ulf.hansson@linaro.org,
+	adrian.hunter@intel.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	gaohan@iscas.ac.cn, me@ziyao.cc
+Subject: Re: [PATCH 2/3] mmc: sdhci-dwcmshc: Add Canaan K230 DWCMSHC
+ controller support
+Message-ID: <aYivY6jh3aEQCkAr@duge-virtual-machine>
+References: <20260204082908.27501-1-jiayu.riscv@isrc.iscas.ac.cn>
+ <20260204082908.27501-3-jiayu.riscv@isrc.iscas.ac.cn>
+ <e06bd9ca-11bb-4d87-9db5-87139731f181@kernel.org>
+ <aYb7m+ioAmqXFhWX@duge-virtual-machine>
+ <def032d1-b1c5-4a75-88de-cbb7c1293e61@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <def032d1-b1c5-4a75-88de-cbb7c1293e61@kernel.org>
+X-CM-TRANSID: zQCowAAnvA9jr4hp9bvOBw--.26116S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWw1xuF4fWFWrWr4fKw1ftFb_yoW5Ar17pr
+	W8JFWUKr48JF1Ygw1vgw18GasIyw1DGFW3Xr1fG34UWw1qyr17Gr40gr1Y9as5uF13AF1Y
+	vayUtr9xCFsxJrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjxUqiFxDUUUU
+X-Originating-IP: [223.66.170.192]
+X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260208_065312_922522_CC1340FE 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260208_074450_690236_1E8C6F35 
+X-CRM114-Status: GOOD (  24.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,37 +88,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun Feb 8, 2026 at 9:38 PM CST, Aurelien Jarno wrote:
-> Hi Troy,
->
-> On 2026-02-07 23:08, Troy Mitchell wrote:
->> This patch introduces I2C PIO functionality for the Spacemit K1 SoC,
->> enabling the use of I2C in atomic context.
->> 
->> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
->> ---
->> Troy Mitchell (2):
->>       i2c: spacemit: move i2c_xfer_msg()
->>       i2c: spacemit: introduce pio for k1
->> 
->>  drivers/i2c/busses/i2c-k1.c | 316 +++++++++++++++++++++++++++++++++-----------
->>  1 file changed, 236 insertions(+), 80 deletions(-)
->> ---
->> base-commit: 2fe0719258a48c204270366ef574066122e81924
->> change-id: 20260207-b4-k3-i2c-pio-318088c1b3b7
->> 
->
-> Thanks for this new version. This is:
->
-> Tested-by: Aurelien Jarno <aurelien@aurel32.net>
-Thanks for your tag. I have collected all of your tags in this version.
-Apologies for the delay in sending this version.
-I hope it hasn't held up your patch queue (p1-reboot)
+On Sat, Feb 07, 2026 at 10:32:55AM +0100, Krzysztof Kozlowski wrote:
+> On 07/02/2026 09:45, Jiayu Du wrote:
+> > On Fri, Feb 06, 2026 at 02:26:40PM +0100, Krzysztof Kozlowski wrote:
+> >> On 04/02/2026 09:29, Jiayu Du wrote:
+> >>> +static int dwcmshc_k230_init(struct device *dev, struct sdhci_host *host,
+> >>> +			     struct dwcmshc_priv *dwc_priv)
+> >>> +{
+> >>> +	static const char * const clk_ids[] = {"base", "timer", "ahb"};
+> >>> +	struct device_node *usb_phy_node;
+> >>> +	struct k230_priv *k230_priv;
+> >>> +	u32 data;
+> >>> +	int ret;
+> >>> +
+> >>> +	k230_priv = devm_kzalloc(dev, sizeof(struct k230_priv), GFP_KERNEL);
+> >>> +	if (!k230_priv)
+> >>> +		return -ENOMEM;
+> >>> +	dwc_priv->priv = k230_priv;
+> >>> +
+> >>> +	usb_phy_node = of_find_compatible_node(NULL, NULL, "canaan,k230-usb-phy");
+> >>
+> >> Hm? You should use phandles, not look for various nodes.
+> > 
+> > Only one usbphy node has the canaan, k230-usb-phy compatibility.
+> > So in this situation, is it ok to continue using of_find_compatible_node?
+> 
+> Amount of nodes does not matter. This is not how you express
+> links/dependencies between devices. Phandle is for this. This is wrong
+> on many levels, including missing device links, bypassing kernel API/layers.
 
-                                  - Troy
->
-> Regards
-> Aurelien
+Thank you for your review. I will fix it.
+
+> 
+> 
+> > 
+> >>> +	if (!usb_phy_node) {
+> >>
+> >> Please follow Linux coding style.
+> > 
+> > I will fix it in next version.
+> > 
+> >>> +		return dev_err_probe(dev, -ENODEV,
+> >>> +				     "Failed to find k230-usb-phy node\n");
+> >>> +	}
+> >>> +
+> >>> +	k230_priv->hi_sys_regmap = device_node_to_regmap(usb_phy_node);
+> >>> +	of_node_put(usb_phy_node);
+> >>> +	if (IS_ERR(k230_priv->hi_sys_regmap)) {
+> >>> +		return dev_err_probe(dev, PTR_ERR(k230_priv->hi_sys_regmap),
+> >>> +				     "Failed to get k230-usb-phy regmap\n");
+> >>> +	}
+> >>> +
+> >>> +	ret = dwcmshc_get_enable_other_clks(mmc_dev(host->mmc), dwc_priv,
+> >>> +					    ARRAY_SIZE(clk_ids), clk_ids);
+> >>> +	if (ret) {
+> >>> +		return dev_err_probe(dev, ret,
+> >>> +				     "Failed to get/enable k230 mmc other clocks\n");
+> >>> +	}
+> >>> +
+> >>> +	if (of_device_is_compatible(dev->of_node, "canaan,k230-sdio")) {
+> >>
+> >> Driver match data is for this.
+> > 
+> > What you mean is that I shouldn't use of_find_compatible_node, but I can
+> > use device_get_match_data instead? Then I can continue to distinguish
+> > between SDIO and eMMC to do parameter configuration
+> > 
+> > Or do you mean that I should put the parameters to be adjusted into the
+> > pdata structure? But currently, the dwcmshc structure is not suitable for
+> > containing vendor-specific properties.
+> 
+> Parameters should go to driver match data. I already requested this for
+> some other driver and this has to be fixed.
+
+I will make fix to enable dwcmshc_pltfm_data to support the addition of
+vendor-specific properties. And if possible, could you give me with some
+examples? I would be very grateful.
+
+> 
+> Best regards,
+> Krzysztof
 
 
 _______________________________________________
