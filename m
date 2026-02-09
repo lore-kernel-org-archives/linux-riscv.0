@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C114E81BCB
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Feb 2026 14:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D0AE81BCF
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Feb 2026 14:42:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qFOjOuFzfw4gstL4e0fH/MPNI2oyqO+O8FUW56ss8MI=; b=WWtSvu4HPHyDNO
-	1G5CzG0uxRK4RYHqwVGSPJ1dBPAauBjqrbr4GqBercg8HC2GLeeW5G1561GyYdbyRj8aQykuseVy/
-	jPQqC3hFDuCXgCaUxQJq4m8OJkb7c4vX7nmnVSRsQ9Z0HLG96LiezmLW1H9iOgMJr/nT+4HYvLQhk
-	Z83Go2M3Z0FI/TruI+u2H7/TeJij4onOl+WiGzcNSU0LtxVtoX7GFGB9z4XLW0VYphtFgk2ZTATkr
-	3EvzD7LWKkKE0dLAgMdDMxxjqFda5yFjRdZLON088YsedDpsPv3EoavWutATc7hZSRtwUb8WVbV9d
-	wEjasy8+FQp9ZMjX0Xtw==;
+	List-Owner; bh=6EDd+Tc1zq63hhQJNBTGl1sC0JI519V5JLB3hyN59m4=; b=kRNC88qzHcJuDh
+	KO/JfoaX71EXQ57+pu3fgbFbp2lWZHItLlyt/taoElsiRkXddFsJYQ77qroac6UjehZPRKbmO6eRg
+	hYSKyezo75zBBgzHBzAJAmAR/UJiZbsHKCeKN457Wh+Tev2vwKlj+E1U8knep9nwZuUcNo9O8y2rR
+	f/CSNeggODMkedtvBk7KGcw84VYGjYL/zEAsaR/cueqWUYl29C/HAZGx4yu3Kk0J8mFya7al5yBnF
+	VXEQPRgi0HdzqCNhR/GO1QauXnnGqV7DTqQYjTW9a9ui+zfNH/XrnGwF4d/iN8HBH1yAId4xwc9DP
+	bdoV/5+6th/ZUnNrF4LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpSSL-0000000FWlc-2qgU;
-	Mon, 09 Feb 2026 14:41:42 +0000
+	id 1vpSSk-0000000FWvr-1jTu;
+	Mon, 09 Feb 2026 14:42:06 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpSSK-0000000FWl0-0rUh;
-	Mon, 09 Feb 2026 14:41:40 +0000
+	id 1vpSSi-0000000FWu7-3Lep;
+	Mon, 09 Feb 2026 14:42:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4700460008;
-	Mon,  9 Feb 2026 14:41:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D57DC116C6;
-	Mon,  9 Feb 2026 14:41:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 308FB6011E;
+	Mon,  9 Feb 2026 14:42:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E801C2BCB2;
+	Mon,  9 Feb 2026 14:41:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770648099;
-	bh=dIkOhzWY1xuDq5ewEz/XDIyATuNWlEhxlmAB0qWidMk=;
+	s=k20201202; t=1770648123;
+	bh=7cFSZFlwjTUh9dvWnOCSVBRELIfKAznQbQnIrGVc1RU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IoiSaopDKfrfSZ7+rlBU8LjocFAFB8EJgAVaUZ/W+cBxwixSmGT1x/E8BIkMkjYP8
-	 SzhptbW3ELmnRGgPqG0GC6S3X5YQ0NFlsp7/MwlGEwmonjJfjX36w6Zrid+02MdXYD
-	 aD13CKitrIkfiTc+tMswjO0GZ7FkCVjL6pg6DrkfeYhc3cdJymj5D1FMzCONDpjNPt
-	 CRTH696/5neg33D9wpXGgfmmIGyqUJnxX11v6uXDMEkOIdpDtKcYEzjVktAE2R8WVo
-	 jD3MvmL5DA+h5y6UTuTlFtK2d3SzKn7oXhmb/Hq02WBSEx3CHrl4//hhcmH0UMQ0G3
-	 Ad/W6NbiDr+Ig==
+	b=DDgSgdMNcu8MC1lYLmXATQwVlsww827kGX+kQhoP9oBkxEato8f7lCaW7MzSVppYE
+	 vnuhm9TRAGD7I0eZEOf+FdtZ8QO8ZF2WHm0ZXC9xIluaIJEqyJb8X/2UGxGIkN8IIg
+	 UwdgNZMnuG+YBw7wCFKOrhU899+4nYALZbpNrY2eBuP55WLVFxP/KmFG3uCKFZq1al
+	 +PK5CSMtZ3z95edte2A/41O84/sVxmqechk/vFA1tpe66/dp8vA3A5WXjyalGDQ9Tm
+	 McNeIWZeIxMGcXE+cVmPScCvJeKJ54Skywte8/oP/sjxAe9lb1jOUAt2RlWxv20GUY
+	 rNUn6xy6sD5yA==
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Andreas Larsson <andreas@gaisler.com>,
@@ -95,9 +95,9 @@ Cc: Andreas Larsson <andreas@gaisler.com>,
 	linux-um@lists.infradead.org,
 	linux-mm@kvack.org,
 	x86@kernel.org
-Subject: [PATCH v2 2/4] mm: rename my_zero_pfn() to zero_pfn()
-Date: Mon,  9 Feb 2026 16:40:55 +0200
-Message-ID: <20260209144058.2092871-3-rppt@kernel.org>
+Subject: [PATCH v2 4/4] mm: cache struct page for empty_zero_page and return it from ZERO_PAGE()
+Date: Mon,  9 Feb 2026 16:40:57 +0200
+Message-ID: <20260209144058.2092871-5-rppt@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260209144058.2092871-1-rppt@kernel.org>
 References: <20260209144058.2092871-1-rppt@kernel.org>
@@ -120,207 +120,264 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-my_zero_pfn() is a silly name.
+For most architectures every invocation of ZERO_PAGE() does
+virt_to_page(empty_zero_page). But empty_zero_page is in BSS and it is
+enough to get its struct page once at initialization time and then use
+it whenever a zero page should be accessed.
 
-Rename zero_pfn variable to zero_page_pfn and my_zero_pfn() function to
-zero_pfn().
+Add yet another __zero_page variable that will be initialized as
+virt_to_page(empty_zero_page) for most architectures in a weak
+arch_setup_zero_pages() function.
 
-While on it, move extern declarations of zero_page_pfn outside the
-functions that use it and add a comment about what ZERO_PAGE is.
+For architectures that use colored zero pages (MIPS and s390) rename their
+setup_zero_pages() to arch_setup_zero_pages() and make it global rather
+than static.
+
+For architectures that cannot use virt_to_page() for BSS (arm64 and
+sparc64) add override of arch_setup_zero_pages().
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/x86/kvm/mmu/spte.h |  2 +-
- fs/dax.c                |  2 +-
- fs/proc/vmcore.c        |  2 +-
- include/linux/pgtable.h | 25 +++++++++++++++++--------
- mm/huge_memory.c        |  2 +-
- mm/memory.c             |  2 +-
- mm/migrate.c            |  2 +-
- mm/mm_init.c            | 10 +++++-----
- mm/userfaultfd.c        |  4 ++--
- 9 files changed, 30 insertions(+), 21 deletions(-)
+ arch/arm64/include/asm/pgtable.h    |  6 ------
+ arch/arm64/mm/init.c                |  5 +++++
+ arch/mips/mm/init.c                 | 11 +----------
+ arch/s390/mm/init.c                 |  4 +---
+ arch/sparc/include/asm/pgtable_64.h |  3 ---
+ arch/sparc/mm/init_64.c             | 17 +++++++----------
+ include/linux/pgtable.h             | 11 ++++++++---
+ mm/mm_init.c                        | 21 +++++++++++++++++----
+ 8 files changed, 39 insertions(+), 39 deletions(-)
 
-diff --git a/arch/x86/kvm/mmu/spte.h b/arch/x86/kvm/mmu/spte.h
-index 91ce29fd6f1b..8c0ffa2cded6 100644
---- a/arch/x86/kvm/mmu/spte.h
-+++ b/arch/x86/kvm/mmu/spte.h
-@@ -248,7 +248,7 @@ extern u64 __read_mostly shadow_nonpresent_or_rsvd_lower_gfn_mask;
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 63da07398a30..2c1ec7cc8612 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -106,12 +106,6 @@ static inline void arch_leave_lazy_mmu_mode(void)
+ #define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)	\
+ 	local_flush_tlb_page_nonotify(vma, address)
  
- static inline hpa_t kvm_mmu_get_dummy_root(void)
- {
--	return my_zero_pfn(0) << PAGE_SHIFT;
-+	return zero_pfn(0) << PAGE_SHIFT;
+-/*
+- * ZERO_PAGE is a global shared page that is always zero: used
+- * for zero-mapped memory areas etc..
+- */
+-#define ZERO_PAGE(vaddr)	phys_to_page(__pa_symbol(empty_zero_page))
+-
+ #define pte_ERROR(e)	\
+ 	pr_err("%s:%d: bad pte %016llx.\n", __FILE__, __LINE__, pte_val(e))
+ 
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index 96711b8578fd..417ec7efe569 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -328,6 +328,11 @@ void __init bootmem_init(void)
+ 	memblock_dump_all();
  }
  
- static inline bool kvm_mmu_is_dummy_root(hpa_t shadow_page)
-diff --git a/fs/dax.c b/fs/dax.c
-index 289e6254aa30..b78cff9c91b3 100644
---- a/fs/dax.c
-+++ b/fs/dax.c
-@@ -1360,7 +1360,7 @@ static vm_fault_t dax_load_hole(struct xa_state *xas, struct vm_fault *vmf,
++void __init arch_setup_zero_pages(void)
++{
++	__zero_page = phys_to_page(__pa_symbol(empty_zero_page));
++}
++
+ void __init arch_mm_preinit(void)
  {
- 	struct inode *inode = iter->inode;
- 	unsigned long vaddr = vmf->address;
--	unsigned long pfn = my_zero_pfn(vaddr);
-+	unsigned long pfn = zero_pfn(vaddr);
- 	vm_fault_t ret;
+ 	unsigned int flags = SWIOTLB_VERBOSE;
+diff --git a/arch/mips/mm/init.c b/arch/mips/mm/init.c
+index 4f6449ad02ca..55b25e85122a 100644
+--- a/arch/mips/mm/init.c
++++ b/arch/mips/mm/init.c
+@@ -56,10 +56,7 @@ unsigned long empty_zero_page, zero_page_mask;
+ EXPORT_SYMBOL_GPL(empty_zero_page);
+ EXPORT_SYMBOL(zero_page_mask);
  
- 	*entry = dax_insert_entry(xas, vmf, iter, *entry, pfn, DAX_ZERO_PAGE);
-diff --git a/fs/proc/vmcore.c b/fs/proc/vmcore.c
-index f188bd900eb2..44d15436439f 100644
---- a/fs/proc/vmcore.c
-+++ b/fs/proc/vmcore.c
-@@ -525,7 +525,7 @@ static int remap_oldmem_pfn_checked(struct vm_area_struct *vma,
+-/*
+- * Not static inline because used by IP27 special magic initialization code
+- */
+-static void __init setup_zero_pages(void)
++void __init arch_setup_zero_pages(void)
  {
- 	unsigned long map_size;
- 	unsigned long pos_start, pos_end, pos;
--	unsigned long zeropage_pfn = my_zero_pfn(0);
-+	unsigned long zeropage_pfn = zero_pfn(0);
- 	size_t len = 0;
+ 	unsigned int order;
  
- 	pos_start = pfn;
+@@ -450,7 +447,6 @@ void __init arch_mm_preinit(void)
+ 	BUILD_BUG_ON(IS_ENABLED(CONFIG_32BIT) && (PFN_PTE_SHIFT > PAGE_SHIFT));
+ 
+ 	maar_init();
+-	setup_zero_pages();	/* Setup zeroed pages.  */
+ 	highmem_init();
+ 
+ #ifdef CONFIG_64BIT
+@@ -461,11 +457,6 @@ void __init arch_mm_preinit(void)
+ 				0x80000000 - 4, KCORE_TEXT);
+ #endif
+ }
+-#else  /* CONFIG_NUMA */
+-void __init arch_mm_preinit(void)
+-{
+-	setup_zero_pages();	/* This comes from node 0 */
+-}
+ #endif /* !CONFIG_NUMA */
+ 
+ void free_init_pages(const char *what, unsigned long begin, unsigned long end)
+diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
+index 3c20475cbee2..1f72efc2a579 100644
+--- a/arch/s390/mm/init.c
++++ b/arch/s390/mm/init.c
+@@ -69,7 +69,7 @@ unsigned long empty_zero_page, zero_page_mask;
+ EXPORT_SYMBOL(empty_zero_page);
+ EXPORT_SYMBOL(zero_page_mask);
+ 
+-static void __init setup_zero_pages(void)
++void __init arch_setup_zero_pages(void)
+ {
+ 	unsigned long total_pages = memblock_estimated_nr_free_pages();
+ 	unsigned int order;
+@@ -159,8 +159,6 @@ void __init arch_mm_preinit(void)
+ 	cpumask_set_cpu(0, mm_cpumask(&init_mm));
+ 
+ 	pv_init();
+-
+-	setup_zero_pages();	/* Setup zeroed pages. */
+ }
+ 
+ unsigned long memory_block_size_bytes(void)
+diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
+index 615f460c50af..74ede706fb32 100644
+--- a/arch/sparc/include/asm/pgtable_64.h
++++ b/arch/sparc/include/asm/pgtable_64.h
+@@ -210,9 +210,6 @@ extern unsigned long _PAGE_CACHE;
+ extern unsigned long pg_iobits;
+ extern unsigned long _PAGE_ALL_SZ_BITS;
+ 
+-extern struct page *mem_map_zero;
+-#define ZERO_PAGE(vaddr)	(mem_map_zero)
+-
+ /* PFNs are real physical page numbers.  However, mem_map only begins to record
+  * per-page information starting at pfn_base.  This is to handle systems where
+  * the first physical page in the machine is at some huge physical address,
+diff --git a/arch/sparc/mm/init_64.c b/arch/sparc/mm/init_64.c
+index 0cc8de2fea90..707c1df67d79 100644
+--- a/arch/sparc/mm/init_64.c
++++ b/arch/sparc/mm/init_64.c
+@@ -177,9 +177,6 @@ extern unsigned long sparc_ramdisk_image64;
+ extern unsigned int sparc_ramdisk_image;
+ extern unsigned int sparc_ramdisk_size;
+ 
+-struct page *mem_map_zero __read_mostly;
+-EXPORT_SYMBOL(mem_map_zero);
+-
+ unsigned int sparc64_highest_unlocked_tlb_ent __read_mostly;
+ 
+ unsigned long sparc64_kern_pri_context __read_mostly;
+@@ -2496,11 +2493,17 @@ static void __init register_page_bootmem_info(void)
+ 			register_page_bootmem_info_node(NODE_DATA(i));
+ #endif
+ }
+-void __init mem_init(void)
++
++void __init arch_setup_zero_pages(void)
+ {
+ 	phys_addr_t zero_page_pa = kern_base +
+ 		((unsigned long)&empty_zero_page[0] - KERNBASE);
+ 
++	__zero_page = phys_to_page(zero_page_pa);
++}
++
++void __init mem_init(void)
++{
+ 	/*
+ 	 * Must be done after boot memory is put on freelist, because here we
+ 	 * might set fields in deferred struct pages that have not yet been
+@@ -2509,12 +2512,6 @@ void __init mem_init(void)
+ 	 */
+ 	register_page_bootmem_info();
+ 
+-	/*
+-	 * Set up the zero page, mark it reserved, so that page count
+-	 * is not manipulated when freeing the page from user ptes.
+-	 */
+-	mem_map_zero = pfn_to_page(PHYS_PFN(zero_page_pa));
+-
+ 	if (tlb_type == cheetah || tlb_type == cheetah_plus)
+ 		cheetah_ecache_flush_init();
+ }
 diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 08a88b0d56e5..a965e2f8b8de 100644
+index 9ba1f03fca54..722df2149d58 100644
 --- a/include/linux/pgtable.h
 +++ b/include/linux/pgtable.h
-@@ -1882,27 +1882,36 @@ static inline void pfnmap_setup_cachemode_pfn(unsigned long pfn, pgprot_t *prot)
- 	pfnmap_setup_cachemode(pfn, PAGE_SIZE, prot);
- }
- 
-+/*
-+ * ZERO_PAGE() is global shared page(s) that is always zero. It is used for
-+ * zero-mapped memory areas, CoW etc.
-+ *
-+ * On architectures that __HAVE_COLOR_ZERO_PAGE there are several such pages
-+ * for different ranges in the virtual address space.
-+ *
-+ * zero_page_pfn identifies the first (or the only) pfn for these pages.
-+ */
-+extern unsigned long zero_page_pfn;
+@@ -1894,6 +1894,8 @@ static inline void pfnmap_setup_cachemode_pfn(unsigned long pfn, pgprot_t *prot)
+  * For architectures that don't __HAVE_COLOR_ZERO_PAGE the zero page lives in
+  * empty_zero_page in BSS.
+  */
++void arch_setup_zero_pages(void);
 +
+ extern unsigned long zero_page_pfn;
+ 
  #ifdef __HAVE_COLOR_ZERO_PAGE
- static inline int is_zero_pfn(unsigned long pfn)
- {
--	extern unsigned long zero_pfn;
--	unsigned long offset_from_zero_pfn = pfn - zero_pfn;
-+	unsigned long offset_from_zero_pfn = pfn - zero_page_pfn;
-+
- 	return offset_from_zero_pfn <= (zero_page_mask >> PAGE_SHIFT);
+@@ -1918,10 +1920,13 @@ static inline unsigned long zero_pfn(unsigned long addr)
  }
  
--#define my_zero_pfn(addr)	page_to_pfn(ZERO_PAGE(addr))
-+#define zero_pfn(addr)	page_to_pfn(ZERO_PAGE(addr))
+ extern uint8_t empty_zero_page[PAGE_SIZE];
++extern struct page *__zero_page;
  
- #else
- static inline int is_zero_pfn(unsigned long pfn)
- {
--	extern unsigned long zero_pfn;
--	return pfn == zero_pfn;
-+	return pfn == zero_page_pfn;
- }
+-#ifndef ZERO_PAGE
+-#define ZERO_PAGE(vaddr) ((void)(vaddr),virt_to_page(empty_zero_page))
+-#endif
++static inline struct page *_zero_page(unsigned long addr)
++{
++	return __zero_page;
++}
++#define ZERO_PAGE(vaddr) _zero_page(vaddr)
  
--static inline unsigned long my_zero_pfn(unsigned long addr)
-+static inline unsigned long zero_pfn(unsigned long addr)
- {
--	extern unsigned long zero_pfn;
--	return zero_pfn;
-+	return zero_page_pfn;
- }
  #endif /* __HAVE_COLOR_ZERO_PAGE */
  
-diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-index 44ff8a648afd..bc15fd152526 100644
---- a/mm/huge_memory.c
-+++ b/mm/huge_memory.c
-@@ -2968,7 +2968,7 @@ static void __split_huge_zero_page_pmd(struct vm_area_struct *vma,
- 	for (i = 0, addr = haddr; i < HPAGE_PMD_NR; i++, addr += PAGE_SIZE) {
- 		pte_t entry;
- 
--		entry = pfn_pte(my_zero_pfn(addr), vma->vm_page_prot);
-+		entry = pfn_pte(zero_pfn(addr), vma->vm_page_prot);
- 		entry = pte_mkspecial(entry);
- 		if (pmd_uffd_wp(old_pmd))
- 			entry = pte_mkuffd_wp(entry);
-diff --git a/mm/memory.c b/mm/memory.c
-index 51d2018a387a..ae610afa9cea 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -5165,7 +5165,7 @@ static vm_fault_t do_anonymous_page(struct vm_fault *vmf)
- 	/* Use the zero-page for reads */
- 	if (!(vmf->flags & FAULT_FLAG_WRITE) &&
- 			!mm_forbids_zeropage(vma->vm_mm)) {
--		entry = pte_mkspecial(pfn_pte(my_zero_pfn(vmf->address),
-+		entry = pte_mkspecial(pfn_pte(zero_pfn(vmf->address),
- 						vma->vm_page_prot));
- 		vmf->pte = pte_offset_map_lock(vma->vm_mm, vmf->pmd,
- 				vmf->address, &vmf->ptl);
-diff --git a/mm/migrate.c b/mm/migrate.c
-index 1bf2cf8c44dd..739c4e03769b 100644
---- a/mm/migrate.c
-+++ b/mm/migrate.c
-@@ -321,7 +321,7 @@ static bool try_to_map_unused_to_zeropage(struct page_vma_mapped_walk *pvmw,
- 	if (!pages_identical(page, ZERO_PAGE(0)))
- 		return false;
- 
--	newpte = pte_mkspecial(pfn_pte(my_zero_pfn(pvmw->address),
-+	newpte = pte_mkspecial(pfn_pte(zero_pfn(pvmw->address),
- 					pvmw->vma->vm_page_prot));
- 
- 	if (pte_swp_soft_dirty(old_pte))
 diff --git a/mm/mm_init.c b/mm/mm_init.c
-index dcf9eff34f83..a0ca236eb4f5 100644
+index 1eac634ece1a..b08608c1b71d 100644
 --- a/mm/mm_init.c
 +++ b/mm/mm_init.c
-@@ -53,8 +53,8 @@ EXPORT_SYMBOL(mem_map);
- void *high_memory;
- EXPORT_SYMBOL(high_memory);
- 
--unsigned long zero_pfn __ro_after_init;
--EXPORT_SYMBOL(zero_pfn);
-+unsigned long zero_page_pfn __ro_after_init;
-+EXPORT_SYMBOL(zero_page_pfn);
+@@ -59,7 +59,10 @@ EXPORT_SYMBOL(zero_page_pfn);
+ #ifndef __HAVE_COLOR_ZERO_PAGE
+ uint8_t empty_zero_page[PAGE_SIZE] __page_aligned_bss;
+ EXPORT_SYMBOL(empty_zero_page);
+-#endif
++
++struct page *__zero_page __ro_after_init;
++EXPORT_SYMBOL(__zero_page);
++#endif /* __HAVE_COLOR_ZERO_PAGE */
  
  #ifdef CONFIG_DEBUG_MEMORY_INIT
  int __meminitdata mminit_loglevel;
-@@ -2670,12 +2670,12 @@ static void __init mem_init_print_info(void)
+@@ -2675,12 +2678,21 @@ static void __init mem_init_print_info(void)
  		);
  }
  
--static int __init init_zero_pfn(void)
-+static int __init init_zero_page_pfn(void)
+-static int __init init_zero_page_pfn(void)
++#ifndef __HAVE_COLOR_ZERO_PAGE
++/*
++ * architectures that __HAVE_COLOR_ZERO_PAGE must define this function
++ */
++void __init __weak arch_setup_zero_pages(void)
++{
++	__zero_page = virt_to_page(empty_zero_page);
++}
++#endif
++
++static void __init init_zero_page_pfn(void)
  {
--	zero_pfn = page_to_pfn(ZERO_PAGE(0));
-+	zero_page_pfn = page_to_pfn(ZERO_PAGE(0));
- 	return 0;
++	arch_setup_zero_pages();
+ 	zero_page_pfn = page_to_pfn(ZERO_PAGE(0));
+-	return 0;
  }
--early_initcall(init_zero_pfn);
-+early_initcall(init_zero_page_pfn);
+-early_initcall(init_zero_page_pfn);
  
  void __init __weak arch_mm_preinit(void)
  {
-diff --git a/mm/userfaultfd.c b/mm/userfaultfd.c
-index 927086bb4a3c..e19872e51878 100644
---- a/mm/userfaultfd.c
-+++ b/mm/userfaultfd.c
-@@ -357,7 +357,7 @@ static int mfill_atomic_pte_zeropage(pmd_t *dst_pmd,
- 	if (mm_forbids_zeropage(dst_vma->vm_mm))
- 		return mfill_atomic_pte_zeroed_folio(dst_pmd, dst_vma, dst_addr);
+@@ -2704,6 +2716,7 @@ void __init mm_core_init_early(void)
+ void __init mm_core_init(void)
+ {
+ 	arch_mm_preinit();
++	init_zero_page_pfn();
  
--	_dst_pte = pte_mkspecial(pfn_pte(my_zero_pfn(dst_addr),
-+	_dst_pte = pte_mkspecial(pfn_pte(zero_pfn(dst_addr),
- 					 dst_vma->vm_page_prot));
- 	ret = -EAGAIN;
- 	dst_pte = pte_offset_map_lock(dst_vma->vm_mm, dst_pmd, dst_addr, &ptl);
-@@ -1229,7 +1229,7 @@ static int move_zeropage_pte(struct mm_struct *mm,
- 		return -EAGAIN;
- 	}
- 
--	zero_pte = pte_mkspecial(pfn_pte(my_zero_pfn(dst_addr),
-+	zero_pte = pte_mkspecial(pfn_pte(zero_pfn(dst_addr),
- 					 dst_vma->vm_page_prot));
- 	ptep_clear_flush(src_vma, src_addr, src_pte);
- 	set_pte_at(mm, dst_addr, dst_pte, zero_pte);
+ 	/* Initializations relying on SMP setup */
+ 	BUILD_BUG_ON(MAX_ZONELISTS > 2);
 -- 
 2.51.0
 
