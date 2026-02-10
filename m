@@ -4,93 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 827FDEA810E
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Feb 2026 13:02:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20412EA8124
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Feb 2026 14:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fN+5G58Or/GMRP73ESlK3CvKA3H6FIwYY/uFXQIfLuA=; b=lOZa0NXfI5G5BK
-	PiyBAZDepWDteRtW/hYunIxcxh9l6CcgzC+eID6b4+U4CGXs3HU9kzmlWej0UnSMcsBdKYGYsWFx1
-	YYPEXieFxrFPjF473ubWFFqSkb+WBTkcxIa26/xXm4zUYcVo43PJ9PjxtqpXA86aVfENeqGXhp3UG
-	6jkftNu47+Li5bOJEXq4OhxDAgka/auILZml7BSZSgnVaLKbwGK6ExnUJopIGCstjHJw9Hww5rYfb
-	UXwNIUlQ/8OI4ZbNKW1/V0OI18rzVSdGBiJ1loPxTXccAXKOfszwyITwh8FCLhxtE1gC+p/GukJrn
-	d4dhkMz9LM06/DblbXgg==;
+	List-Owner; bh=O3OKcaoQyjsSnSjGKnkRtOo6mcb/R5FgtfzO49jBYUU=; b=Ho+NvF5xu6QPdK
+	QbDa0KUXNK5KMux8hDVk7VOMTsuhaoZfoauMuU3Ct1cgRWpFljDcSLm0pvuYs6eEHjJL3QJMrVnBc
+	fc7xgyWA+qHKDYlqqyIESXZa+mZ0mtWhQ99zxVcYwaKnEylZzQ7Cq/Gb/jKK6IUK8l72hTFFRUSyd
+	deW6rLkprYOllUsxtGeBFGNawYyopX4N4tlvQKpjhTGnCEBz9PZ22j7gExrmMNBj0KyTSX20gHg4l
+	nwXq/UR0bDT92gDt0uxYnrHzNF/wNSg37B0zhSrxZ/hOWeeFoVa9ske9kaXpaNvVOnB4p/lL7r7Ab
+	YdJ7hDtCXzfUV6eUge3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpnNr-0000000GyFa-0Q9a;
-	Tue, 10 Feb 2026 13:02:27 +0000
-Received: from mail-qk1-x743.google.com ([2607:f8b0:4864:20::743])
+	id 1vpp4J-0000000H4OL-041k;
+	Tue, 10 Feb 2026 14:50:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpnNo-0000000GyF4-3j5V
-	for linux-riscv@lists.infradead.org;
-	Tue, 10 Feb 2026 13:02:26 +0000
-Received: by mail-qk1-x743.google.com with SMTP id af79cd13be357-8c5384ee23fso445353285a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Feb 2026 05:02:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1770728543; x=1771333343; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CukWcBoPz7v4d6E1diLj/dADiY14CHwtYahwJE8UFu0=;
-        b=lGNSitFLXMjSPQhmYG/lGVgG9pP/NrfhBGoELD9P/prRq35gEOyL057viAnqQO86LC
-         6KBhRidVNg8/pE1JTo0zOA/MBO3jHKZAA6EXdfaja0AuxChoQy2lcTwmUGG/Tw7AqVcr
-         L3qA9TmHO1UPjfplxZj15TxfBDcVxnPcUvusR3uhRSldbEve3VeSNaKn/sPJrhRGXssd
-         RUL3yNTDx2Uynd4HTqAAS5qi90InFuSM9a/llC7ZfN/tJKajtsXfJnuNnTcWaKkRvhOE
-         b33B7+6ulEDzxbs0Mk+v3dLilrMMTCs+EfHgpxyg4ImeuQXuRkgFJhtzU24cBhbqmLE9
-         QoAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770728543; x=1771333343;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CukWcBoPz7v4d6E1diLj/dADiY14CHwtYahwJE8UFu0=;
-        b=OJEBj7QlXO1KSQOXhoN0utESzPCYNIM9Hj35S9a2NwCKQjRUfM96kf2Pe3ioKWb/tb
-         EgLQFvxaedRHs+mijPl/ZE2chKR4zVX568YHGXY8bH+3EHzlvxd7yh0AGiudW8S2GJNq
-         tiSDK8+GO8pgn+AD3xNYYhxhzjxPGNwpjmrLApjiUTTq65jrd6DzgrO69CCZwBCbDJT3
-         KWpRgEf6LRmw2Z2AptQe7NpoHvkqgFmLf4N53feWhZEVz3siKbP59ElPjCWpVfm1rp8U
-         Ge6FBdFtHx3lpd8zzrU+2xOb94pdzZhe9VhnPHON18Z6RPRR8Fbro9jgyUbtftsImLl7
-         9L/g==
-X-Forwarded-Encrypted: i=1; AJvYcCXwozgWyu/6mYp8eOLBdN4q7n0PJZJ97eJV6bAPZt3DGh+ktGdNWmMt1E9bBWwQBw2y2Ww0JjtuSmQ0ag==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBx+zGkDerw8jwugUqcmTb0Lc94S6Qvn9KiPu9AZ8LM/ciMjAM
-	ajIK+wGmHx9nsrf+IRuJAu1pNH4MoBW8v/XzoTbD6i07KotOhUXTtQYDAKnLb9dJaVw=
-X-Gm-Gg: AZuq6aKCs4RVmM8hZCo6a8axewuKeh7BU6D9w4ThdMjzguKIt0mgtfYMb/ngpxWHRJC
-	HkVIINmm8LCwITYesMsLZqxYXFUQqIewiSSvLQ85MT+yCdse0MAap/beF/LzSaFlbPPGp1/vIJ0
-	UIz9PksIh1ZWiO75LmmiNDLxtM9hPFVx64MoyPjQ2U5acZGdxxQRYlvWunB3x8NycWH8jGTiRg6
-	VVVyfEPXQznSGitp+JdmLZQoF6We8mQT2ZM82ftHrHKmG241u+sTsXEwhm1qiLKm/oBKL/Fa3Iu
-	8Pp/dAUSjBO7LsAgFHlEr7MYksDx1yZcJK0zDi6x0+nCnG8MUvROc24eZutiAPbeDgfgIeXSLTY
-	6+xfPHy+/sEwS3wyzsFdI/6uYx2HaanlmJWvvOEM412CtaX9QQJB59TXXlRYXAotTADr5fUXMjT
-	jQByBbVekXZtaHmK14IonZbA8ht75SNs8nLKEi6EYIUSvklYPCbW8UEonwap9E4EYZZDo2jr7QT
-	fcA+5w=
-X-Received: by 2002:a05:620a:4006:b0:8b5:9f45:cce3 with SMTP id af79cd13be357-8caf13078ecmr1893502485a.69.1770728542911;
-        Tue, 10 Feb 2026 05:02:22 -0800 (PST)
-Received: from ziepe.ca (hlfxns017vw-142-162-112-119.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.162.112.119])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8caf9ee8662sm1119957785a.37.2026.02.10.05.02.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Feb 2026 05:02:22 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1vpnNl-00000003784-1qfn;
-	Tue, 10 Feb 2026 09:02:21 -0400
-Date: Tue, 10 Feb 2026 09:02:21 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: fangyu.yu@linux.alibaba.com
-Cc: tjeznach@rivosinc.com, joro@8bytes.org, will@kernel.org,
-	robin.murphy@arm.com, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, andrew.jones@oss.qualcomm.com,
-	guoren@kernel.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 0/2] iommu/riscv: support range and non-leaf IOTLB
- invalidation
-Message-ID: <20260210130221.GE943673@ziepe.ca>
-References: <20260208144213.94856-1-fangyu.yu@linux.alibaba.com>
+	id 1vpp4F-0000000H4NR-2VPF;
+	Tue, 10 Feb 2026 14:50:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9BDB860137;
+	Tue, 10 Feb 2026 14:50:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E02CC116C6;
+	Tue, 10 Feb 2026 14:50:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770735018;
+	bh=YqNhqDan6ig5Eg8FfWiJBfgfNLXjdOvNf1vIcFRh5H8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=W3ex2H+6njMxfdkQtt4hfXP8xNYoYvUybMgCjkdXkRHCgKGQQudxPVj6r6Yq4X87J
+	 qKQk4SPbkNxJjifgbRHYB0LIbaEKgNT1q7EAGZDodtYWpYtXt+PLTjreRRyYh0ZuB+
+	 0XRCg3HQoTLA4LhyIdFuLZzdVr/SSw9/Ndr1QL+8Jlw7RzN+PIW/LRCopkpQH6Rwal
+	 J24gsB2JhUZnmKMnS2yaIoTinVPtyDQgj4UHrG750qhTNlhIvb22kewZVjFgo8FCOz
+	 fm9CerA5/tgkSQquoEeuWIQfz2qcaZ22uCaDVSNGjTWlgBnoS+i6Uy7a10vU89BO1/
+	 TkxTBVLkg+EFQ==
+Date: Tue, 10 Feb 2026 16:50:00 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@kernel.org>, Vineet Gupta <vgupta@kernel.org>,
+	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v2 2/4] mm: rename my_zero_pfn() to zero_pfn()
+Message-ID: <aYtFmCQQMYkZh7Wh@kernel.org>
+References: <20260209144058.2092871-1-rppt@kernel.org>
+ <20260209144058.2092871-3-rppt@kernel.org>
+ <0f15b363-a5e5-4a58-89b0-13b5112772b0@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260208144213.94856-1-fangyu.yu@linux.alibaba.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_050224_933223_69D9A18E 
-X-CRM114-Status: GOOD (  14.08  )
+In-Reply-To: <0f15b363-a5e5-4a58-89b0-13b5112772b0@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,49 +99,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 08, 2026 at 10:42:11PM +0800, fangyu.yu@linux.alibaba.com wrote:
-> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
-> 
-> This series adds support for two RISC-V IOMMU v1.0.1 invalidation extensions in
-> the RISC-V IOMMU driver:
-> 
->   - Address Range Invalidation (capabilities.S), which allows encoding a NAPOT
->     address range in the IOTINVAL.{VMA,GVMA} ADDR operand when the S bit is set,
->     reducing the number of invalidation commands for large or superpage-backed
->     mappings.
-> 
->   - Non-leaf PTE Invalidation (capabilities.NL), which allows IOTINVAL.VMA with
->     AV=1 and NL=1 to invalidate cached non-leaf PTE information for the given
->     IOVA, addressing cases where updating mappings replaces a non-leaf entry.
-> 
-> Patch 1 introduces the missing capability/operand definitions and switches the
-> IOTLB invalidation path to use NAPOT range invalidations when supported.
-> 
-> Patch 2 adds the NL capability/operand definitions and extends the invalidation
-> path to optionally request non-leaf invalidation. When map_pages() replaces
-> non-leaf page-table entries, the driver invalidates the affected IOVA range with
-> non-leaf semantics.
-> 
-> No functional changes are expected on hardware that does not advertise these
-> capabilities; the driver continues to fall back to the existing invalidation
-> behavior.
-> 
-> Fangyu Yu (2):
->   iommu/riscv: Add NAPOT range invalidation support for IOTINVAL
->   iommu/riscv: Add non-leaf invalidation support
+On Mon, Feb 09, 2026 at 04:08:32PM +0100, Christophe Leroy (CS GROUP) wrote:
+> =
 
-These will need to be redone on top of the new page table code for riscv:
+> =
 
-https://patch.msgid.link/r/0-v3-9dbf0a72a51c+302-iommu_pt_riscv_jgg@nvidia.com
+> Le 09/02/2026 =E0 15:40, Mike Rapoport a =E9crit=A0:
+> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> > =
 
-It should get picked up early in the next cycle
+> > my_zero_pfn() is a silly name.
+> > =
 
-Jason
+> > Rename zero_pfn variable to zero_page_pfn and my_zero_pfn() function to
+> > zero_pfn().
+> > =
+
+> > While on it, move extern declarations of zero_page_pfn outside the
+> > functions that use it and add a comment about what ZERO_PAGE is.
+> =
+
+> I guess the idea of the extern declaration being inside its only external
+> users was to ensure nobody would start using it directly, hence bypassing
+> the overloadable helpers.
+> =
+
+> Should we at least call the variable __zero_page_pfn instead in order to
+> warn people that using it directly requires care ?
+
+I'd better move it back inside the helpers.
+ =
+
+> Christophe
+> =
+
+
+-- =
+
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
