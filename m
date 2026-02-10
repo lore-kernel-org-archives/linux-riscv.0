@@ -4,96 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B19ABEA8130
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Feb 2026 15:41:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F93EA813A
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Feb 2026 15:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kfCe7gT9+tftMNeUbb+BdsrSUUez1nqlurE+UFpTs+o=; b=hScG8rzTMev34n
-	nlyT4jxgRQlwodf3HSvRul4A5cnyQf/sMP17H25PFCZrScry3T2kcAva3mWVtD+jvhkjW69Pma3eD
-	XttN0ciM30QGm+pbL5H9gAZK7XmDbAZ6xcUL2K41dqpjbQPOHHx5oKeKMV8UvyrUrgic1ffxUR8J2
-	6kgugB5Xfvd9YlZb4ExPdY1TJi4fzuKNb/u5ie57zfn44J8WX6AddReZo9W48WB4VWaMb7fr3WcSp
-	Dw0GgPR/Ukk8JN4p1u+e1LFpaVX5OCeGLfj1OKT3iZ3tec//r4/AYr/aOF04TzK5IM/ZXgRPnbvQG
-	zFFhVIrTRfIlgDJN1JDQ==;
+	List-Owner; bh=WAiQBeziogYOMDOHonYEpATPD6HK+S2EQs1yDIfrmD8=; b=wc7pAlMzkwtCeK
+	Kl66N082Xcn+VPMlqlXyECwT4Y350DEdM2uwe2f7hoz20M9SoiCd/aXDOXo6XFCfiEzLyQiiHBuNL
+	LKIFUA0IigMvttpeQVuqe/OtkoQl1IEy8WTdm5j/yrFWpTFh+H1394cmZa7MEyzALPvH/zTkuBJFZ
+	nU6IFnjbZtnNKQxkFN+abkl/n9rGOyitWS8/hjJAh/HVKYVldrZvgacQs1llChFaNXCaEC9C6BpOG
+	G+J4XZeXLJCEmsR6wGvfZANT6JNqfuZCnRi9pLHlut0k2iYZ4mSipZpbfy+WrHKY+FFJceQNjhhPh
+	V1Pf9Sp63FnI+WTq+gvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vppqy-0000000H8Ss-0ckQ;
-	Tue, 10 Feb 2026 15:40:40 +0000
+	id 1vpq7l-0000000HAKT-29RC;
+	Tue, 10 Feb 2026 15:58:01 +0000
 Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vppqv-0000000H8SV-1pcg
+	id 1vpq7i-0000000HAIg-1OwW
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Feb 2026 15:40:38 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	Tue, 10 Feb 2026 15:57:59 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 845DB5BD70;
-	Tue, 10 Feb 2026 15:40:34 +0000 (UTC)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 46DAC5BD70;
+	Tue, 10 Feb 2026 15:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1770738035; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1770739076; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=w1SBLCqUDehKLVPMXDlPrAAaq85Rv1cIjWdbaILAeeM=;
-	b=R07jyVUrORVmME1tz6d4RAcxWtYFSxWruoYeWOgeKxj/oXwfoKORCI2Qyg2T08C2+MgsDJ
-	/znzwTCoSMjQjW12XYhz8kBE7luRX+qO45YENuYsD+bZZhx20c/4TUgoZOeSyheBH7GlJj
-	zq7bcTbyXj+cCfcLS0U5U5KSdWFqLlQ=
+	bh=Z9/lO/qqaMMm4Dq73M8QNgl6Zi3LDNpEhWBh2+zdw1g=;
+	b=t3ljFgC/mEXNQ9OSOppz2BbMe3r2vULoRoxGsUAtDhb2ZEWagS4NWvRO3m4g265XGDrLFn
+	PG5gY3+RvCFTyrZ9uccGJnf0i4OAkTeusnenEKoOdVLTWDl60F4K+5U7i6lRromWgY7Ta3
+	TLp/SS8zed73UoupqU6TQd9a8DiRgDc=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1770738035;
+	s=susede2_ed25519; t=1770739076;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=w1SBLCqUDehKLVPMXDlPrAAaq85Rv1cIjWdbaILAeeM=;
-	b=vro/yLieGuw6paUeVmci1At6eI3Ahp/S6PtPoMNDXXG/zClgKfVTfxVvzmpnCgWmrkGm6p
-	c5vSnK/Gw1rIzYCQ==
+	bh=Z9/lO/qqaMMm4Dq73M8QNgl6Zi3LDNpEhWBh2+zdw1g=;
+	b=uqn0XRPjp4MF1EhaPb1p9AlGOU/Pe57Hw4PrCsufsj6/m5U8ih+a7VnWLUj3oXrNEp3YG7
+	O8xMjwFLuQP4r7CA==
 Authentication-Results: smtp-out2.suse.de;
-	none
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b="t3ljFgC/";
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=uqn0XRPj
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1770738034; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1770739076; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=w1SBLCqUDehKLVPMXDlPrAAaq85Rv1cIjWdbaILAeeM=;
-	b=Y948V8dLau51t+6BB1cC/p1m2+JQMMnbAdgk7g0rLQcebP1LYqJE0CZznfBdh997VQYkmc
-	7k1ohgLVwN/Mami0n7j4Ouev3cUhQ6i7dc6pBE9bLY28vvIhJbpFOpknapjNjlinA6RIzk
-	QcQ+W6upfrqeIv5VWx5EOQsi+GLv9tQ=
+	bh=Z9/lO/qqaMMm4Dq73M8QNgl6Zi3LDNpEhWBh2+zdw1g=;
+	b=t3ljFgC/mEXNQ9OSOppz2BbMe3r2vULoRoxGsUAtDhb2ZEWagS4NWvRO3m4g265XGDrLFn
+	PG5gY3+RvCFTyrZ9uccGJnf0i4OAkTeusnenEKoOdVLTWDl60F4K+5U7i6lRromWgY7Ta3
+	TLp/SS8zed73UoupqU6TQd9a8DiRgDc=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1770738034;
+	s=susede2_ed25519; t=1770739076;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=w1SBLCqUDehKLVPMXDlPrAAaq85Rv1cIjWdbaILAeeM=;
-	b=ImZ6N4Ck9+LL7JcKWdCAdPyiK+Vrw/yHZU+ozaIVDUA6hW77kj+EyMas8oGDv+9XnhOCRt
-	ISC3+HdBvNI1iwBA==
+	bh=Z9/lO/qqaMMm4Dq73M8QNgl6Zi3LDNpEhWBh2+zdw1g=;
+	b=uqn0XRPjp4MF1EhaPb1p9AlGOU/Pe57Hw4PrCsufsj6/m5U8ih+a7VnWLUj3oXrNEp3YG7
+	O8xMjwFLuQP4r7CA==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 416E53EA62;
-	Tue, 10 Feb 2026 15:40:34 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id E96DB3EA62;
+	Tue, 10 Feb 2026 15:57:55 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id KVJmDnJRi2k7ewAAD6G6ig
-	(envelope-from <vbabka@suse.cz>); Tue, 10 Feb 2026 15:40:34 +0000
-Message-ID: <12237347-e997-489b-9a62-dfb8ae00c9e3@suse.cz>
-Date: Tue, 10 Feb 2026 16:40:33 +0100
+	id LAOiOINVi2liEwAAD6G6ig
+	(envelope-from <vbabka@suse.cz>); Tue, 10 Feb 2026 15:57:55 +0000
+Message-ID: <6afd7334-82e8-4f87-8ed3-6448e89328c2@suse.cz>
+Date: Tue, 10 Feb 2026 16:57:55 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv6 07/17] mm: Rework compound_head() for power-of-2
- sizeof(struct page)
+Subject: Re: [PATCHv6 08/17] mm: Make page_zonenum() use head page
 Content-Language: en-US
 To: Kiryl Shutsemau <kas@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Muchun Song <muchun.song@linux.dev>, David Hildenbrand <david@redhat.com>,
- Matthew Wilcox <willy@infradead.org>, Usama Arif <usamaarif642@gmail.com>,
- Frank van der Linden <fvdl@google.com>
-Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
+ "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
+ Usama Arif <usamaarif642@gmail.com>, Frank van der Linden <fvdl@google.com>,
+ Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
  Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Zi Yan <ziy@nvidia.com>,
  Baoquan He <bhe@redhat.com>, Michal Hocko <mhocko@suse.com>,
  Johannes Weiner <hannes@cmpxchg.org>, Jonathan Corbet <corbet@lwn.net>,
@@ -104,7 +104,9 @@ Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
 References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-8-kas@kernel.org>
+ <20260202155634.650837-9-kas@kernel.org>
+ <e5831f0b-88c5-4a20-82b3-6e5952388132@kernel.org>
+ <aYnJCnE5vooLROnu@thinkstation>
 From: Vlastimil Babka <vbabka@suse.cz>
 Autocrypt: addr=vbabka@suse.cz; keydata=
  xsFNBFZdmxYBEADsw/SiUSjB0dM+vSh95UkgcHjzEVBlby/Fg+g42O7LAEkCYXi/vvq31JTB
@@ -145,32 +147,41 @@ Autocrypt: addr=vbabka@suse.cz; keydata=
  rywqgzTUhHFKKF6/9L/lYtrNcHU8Z6Y4Ju/MLUiNYkmtrGIMnkjKCiRqlRrZE/v5YFHbayRD
  dJKXobXTtCBYpLJM4ZYRpGZXne/FAtWNe4KbNJJqxMvrTOrnIatPj8NhBVI0RSJRsbilh6TE
  m6M14QORSWTLRg==
-In-Reply-To: <20260202155634.650837-8-kas@kernel.org>
-X-Spamd-Result: default: False [-4.30 / 50.00];
+In-Reply-To: <aYnJCnE5vooLROnu@thinkstation>
+X-Spamd-Result: default: False [-4.51 / 50.00];
 	BAYES_HAM(-3.00)[100.00%];
 	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.995];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
 	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	MIME_TRACE(0.00)[0:+];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[27];
-	FREEMAIL_TO(0.00)[kernel.org,linux-foundation.org,linux.dev,redhat.com,infradead.org,gmail.com,google.com];
-	MID_RHS_MATCH_FROM(0.00)[];
+	MX_GOOD(-0.01)[];
 	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[27];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	FREEMAIL_CC(0.00)[linux-foundation.org,linux.dev,infradead.org,gmail.com,google.com,suse.de,kernel.org,oracle.com,nvidia.com,redhat.com,suse.com,cmpxchg.org,lwn.net,xen0n.name,dabbelt.com,sifive.com,eecs.berkeley.edu,ghiti.fr,meta.com,kvack.org,vger.kernel.org,lists.linux.dev,lists.infradead.org];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
 	FROM_EQ_ENVFROM(0.00)[];
 	FROM_HAS_DN(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RL8ogcagzi1y561i1mcnzpnkwh)];
-	RCVD_TLS_ALL(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
+	TO_DN_SOME(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	DKIM_TRACE(0.00)[suse.cz:+];
+	R_RATELIMIT(0.00)[to_ip_from(RLduzbn1medsdpg3i8igc4rk67)];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:dkim,suse.cz:mid]
+X-Rspamd-Queue-Id: 46DAC5BD70
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_074037_658797_7D544470 
-X-CRM114-Status: GOOD (  33.25  )
+X-CRM114-CacheID: sfid-20260210_075758_522986_DE95D92B 
+X-CRM114-Status: GOOD (  20.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,116 +198,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/2/26 16:56, Kiryl Shutsemau wrote:
-> For tail pages, the kernel uses the 'compound_info' field to get to the
-> head page. The bit 0 of the field indicates whether the page is a
-> tail page, and if set, the remaining bits represent a pointer to the
-> head page.
+On 2/9/26 12:52, Kiryl Shutsemau wrote:
+> On Thu, Feb 05, 2026 at 02:10:40PM +0100, David Hildenbrand (Arm) wrote:
+>> On 2/2/26 16:56, Kiryl Shutsemau wrote:
+>> > With the upcoming changes to HVO, a single page of tail struct pages
+>> > will be shared across all huge pages of the same order on a node. Since
+>> > huge pages on the same node may belong to different zones, the zone
+>> > information stored in shared tail page flags would be incorrect.
+>> > 
+>> > Always fetch zone information from the head page, which has unique and
+>> > correct zone flags for each compound page.
+>> > 
+>> > Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
+>> > Acked-by: Zi Yan <ziy@nvidia.com>
+>> > ---
+>> >   include/linux/mmzone.h | 1 +
+>> >   1 file changed, 1 insertion(+)
+>> > 
+>> > diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
+>> > index be8ce40b5638..192143b5cdc0 100644
+>> > --- a/include/linux/mmzone.h
+>> > +++ b/include/linux/mmzone.h
+>> > @@ -1219,6 +1219,7 @@ static inline enum zone_type memdesc_zonenum(memdesc_flags_t flags)
+>> >   static inline enum zone_type page_zonenum(const struct page *page)
+>> >   {
+>> > +	page = compound_head(page);
+>> >   	return memdesc_zonenum(page->flags);
+>> 
+>> We end up calling page_zonenum() without holding a reference.
+>> 
+>> Given that _compound_head() does a READ_ONCE(), this should work even if we
+>> see concurrent page freeing etc.
+>> 
+>> However, this change implies that we now perform a compound page lookup for
+>> every PageHighMem() [meh], page_zone() [quite some users in the buddy,
+>> including for pageblock access and page freeing].
+>> 
+>> That's a nasty compromise for making HVO better? :)
+>> 
+>> We should likely limit that special casing to kernels that really rquire it
+>> (HVO).
 > 
-> For cases when size of struct page is power-of-2, change the encoding of
-> compound_info to store a mask that can be applied to the virtual address
-> of the tail page in order to access the head page. It is possible
-> because struct page of the head page is naturally aligned with regards
-> to order of the page.
-> 
-> The significant impact of this modification is that all tail pages of
-> the same order will now have identical 'compound_info', regardless of
-> the compound page they are associated with. This paves the way for
-> eliminating fake heads.
-> 
-> The HugeTLB Vmemmap Optimization (HVO) creates fake heads and it is only
-> applied when the sizeof(struct page) is power-of-2. Having identical
-> tail pages allows the same page to be mapped into the vmemmap of all
-> pages, maintaining memory savings without fake heads.
-> 
-> If sizeof(struct page) is not power-of-2, there is no functional
-> changes.
-> 
-> Limit mask usage to HugeTLB vmemmap optimization (HVO) where it makes
-> a difference. The approach with mask would work in the wider set of
-> conditions, but it requires validating that struct pages are naturally
-> aligned for all orders up to the MAX_FOLIO_ORDER, which can be tricky.
-> 
-> Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
-> Reviewed-by: Muchun Song <muchun.song@linux.dev>
-> Reviewed-by: Zi Yan <ziy@nvidia.com>
+> I will add compound_info_has_mask() check.
 
-Reviewed-by: Vlastimil Babka <vbabka@suse.cz>
+Not thrilled by this indeed. Would it be a problem to have the shared tail
+pages per node+zone instead of just per node?
 
-nit:
 
-> ---
->  include/linux/page-flags.h | 81 ++++++++++++++++++++++++++++++++++----
->  mm/slab.h                  | 16 ++++++--
->  mm/util.c                  | 16 ++++++--
->  3 files changed, 97 insertions(+), 16 deletions(-)
-> 
-> diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
-> index d14a17ffb55b..8f2c7fbc739b 100644
-> --- a/include/linux/page-flags.h
-> +++ b/include/linux/page-flags.h
-> @@ -198,6 +198,29 @@ enum pageflags {
->  
->  #ifndef __GENERATING_BOUNDS_H
->  
-> +/*
-> + * For tail pages, if the size of struct page is power-of-2 ->compound_info
-> + * encodes the mask that converts the address of the tail page address to
-> + * the head page address.
-> + *
-> + * Otherwise, ->compound_info has direct pointer to head pages.
-> + */
-> +static __always_inline bool compound_info_has_mask(void)
-> +{
-> +	/*
-> +	 * Limit mask usage to HugeTLB vmemmap optimization (HVO) where it
-> +	 * makes a difference.
-> +	 *
-> +	 * The approach with mask would work in the wider set of conditions,
-> +	 * but it requires validating that struct pages are naturally aligned
-> +	 * for all orders up to the MAX_FOLIO_ORDER, which can be tricky.
-> +	 */
-> +	if (!IS_ENABLED(CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP))
-> +		return false;
-> +
-> +	return is_power_of_2(sizeof(struct page));
-> +}
-> +
->  #ifdef CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
->  DECLARE_STATIC_KEY_FALSE(hugetlb_optimize_vmemmap_key);
->  
-> @@ -210,6 +233,10 @@ static __always_inline const struct page *page_fixed_fake_head(const struct page
->  	if (!static_branch_unlikely(&hugetlb_optimize_vmemmap_key))
->  		return page;
->  
-> +	/* Fake heads only exists if compound_info_has_mask() is true */
-> +	if (!compound_info_has_mask())
-> +		return page;
-> +
 
-Could we move this compile-time-constant test above the static branch test?
-
->  	/*
->  	 * Only addresses aligned with PAGE_SIZE of struct page may be fake head
->  	 * struct page. The alignment check aims to avoid access the fields (
-> @@ -223,10 +250,14 @@ static __always_inline const struct page *page_fixed_fake_head(const struct page
->  		 * because the @page is a compound page composed with at least
->  		 * two contiguous pages.
->  		 */
-> -		unsigned long head = READ_ONCE(page[1].compound_info);
-> +		unsigned long info = READ_ONCE(page[1].compound_info);
->  
-> -		if (likely(head & 1))
-> -			return (const struct page *)(head - 1);
-> +		/* See set_compound_head() */
-> +		if (likely(info & 1)) {
-> +			unsigned long p = (unsigned long)page;
-> +
-> +			return (const struct page *)(p & info);
-> +		}
->  	}
->  	return page;
->  }
 
 _______________________________________________
 linux-riscv mailing list
