@@ -4,89 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10455EA3F22
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Feb 2026 16:18:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE7EEB26E9
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Feb 2026 16:42:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vltc44rm37j675v1Ak86XKKsfO3Vt8/L6JOt5+wa6ro=; b=Xp5pZCXP8b2MKs
-	Zt7QpmBE5WdKAoOrvzOHuD76JMaaDBpPYl6t07QHGLAcLlzs204udr2yv23b5ennOiQmimr9GtCPm
-	jH7dLgF9iOA37Wf7ycbCA9/XOVP1ztbSeDuFKnNcH5scqlDc5UcbIE5wrS2s0Kth5iWLAx1r9zwjx
-	1xjTVSjAhLAm22mUx8mXfaBnnUGC2eEePrvMl2X3i9UNOzclGlRCBpsAH+PrArdWSxbnaBYbAl867
-	5RgO+6UNptoxmZa0bCS6xUyjVP0P9AAOZu7al4ChXVzsRrC+J3JytSdU7b3bxeVSZ31hJOnionQgp
-	n0gLITrF7IsXtPxs74DA==;
+	List-Owner; bh=d0YB3sCdNtuFKADo0qRM4k3D8HPWM7S0m64vGF6e7cc=; b=ekCaKQakID0Q/G
+	sr63blVkmjBCoOZLA+FFLLCwcqYYIKSCu+7B1J1J3iFB8N2NNT+scNZP51fjQ/J1Y7mG8U/ns6/eg
+	Tojy6bOJbBQQs0vu01E1XTaVX0VQCBxIdVuikBceQ0ufvzIsQyq4TWqENjRfFxH57h0ldHmUmnMrv
+	TSw6WclPPTaCHCe/eFTohNcfryRtCX1/SngyWzVfQ6uQM1GiplH2D/malWLzBWKB+umGQvZ6IOKva
+	XJ2jit9WtU5UG2rXAFhn9YSvwpVUaBKLoi5+xgoxLF80PANHhGyQdvUzQvvGx9tskujh1NRA+YJCU
+	NNZXvX7MoobcnwVqfdcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqRu-0000000HDFI-0CwP;
-	Tue, 10 Feb 2026 16:18:50 +0000
+	id 1vpqon-0000000HG7z-1KqI;
+	Tue, 10 Feb 2026 16:42:29 +0000
 Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqRr-0000000HDEZ-1Nlf
+	id 1vpqok-0000000HG7c-1CzX
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Feb 2026 16:18:48 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	Tue, 10 Feb 2026 16:42:27 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 72BB55BD70;
-	Tue, 10 Feb 2026 16:18:45 +0000 (UTC)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 2F86B5BD6B;
+	Tue, 10 Feb 2026 16:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1770740325; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1770741743; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=AWAHMKXyBrxfBf69pBcoJZiRyKZIcjQ3u+E8dpyzTIw=;
-	b=J6tIx6D95KB80m9fGTh2TvNmjCHG5fxuWYA++kYdpTF5CUPzEPE6Y27ROec8++ZKiXC8jc
-	BTW7YpEmAOjK4wIlGKE65+gpazYd22/8sW2kEXc0qzTZppdYi9rb9ZwHxwmnpZGT4bcWnZ
-	EetyOrJ4f3DWGqJuoYCozdnZpH4eVHM=
+	bh=USoLikAerZRv3MReWwa4j20dP6GBkJFN1kwtKunN8SI=;
+	b=MmwFjtpIPDEIl2vxov+/gYVl1xz901bss+y63s52uS9ZEiemSCpJyMnWXpj5g9VLNPMgtk
+	ZEs3zirJHjWbzIpNfsXgO9OW/jBFJxXPRZFI+h25xTm6L7pd8BIrd9jtzKZPcNEcqTXjJe
+	9ZgU4wobjoYtwJTMdvP/4Yu7aF3+DMs=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1770740325;
+	s=susede2_ed25519; t=1770741743;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=AWAHMKXyBrxfBf69pBcoJZiRyKZIcjQ3u+E8dpyzTIw=;
-	b=8aX6TdNeeQQlCcrkh2WiCDuyS2sI6CHZ6ha1b8LqZjvmgmakt1EWA0RCl51+boIW2xcNir
-	s1WXULnmB7OOI7CQ==
+	bh=USoLikAerZRv3MReWwa4j20dP6GBkJFN1kwtKunN8SI=;
+	b=+H8pOSBxdHMKysWrhnAQxA76eY15Rl1pmx6/8SmrTh316iQS7Uag/YuGQkpJAbGfT1YW9f
+	8oCPEBWI8bqyFcAA==
 Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=J6tIx6D9;
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=8aX6TdNe
+	none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1770740325; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1770741743; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=AWAHMKXyBrxfBf69pBcoJZiRyKZIcjQ3u+E8dpyzTIw=;
-	b=J6tIx6D95KB80m9fGTh2TvNmjCHG5fxuWYA++kYdpTF5CUPzEPE6Y27ROec8++ZKiXC8jc
-	BTW7YpEmAOjK4wIlGKE65+gpazYd22/8sW2kEXc0qzTZppdYi9rb9ZwHxwmnpZGT4bcWnZ
-	EetyOrJ4f3DWGqJuoYCozdnZpH4eVHM=
+	bh=USoLikAerZRv3MReWwa4j20dP6GBkJFN1kwtKunN8SI=;
+	b=MmwFjtpIPDEIl2vxov+/gYVl1xz901bss+y63s52uS9ZEiemSCpJyMnWXpj5g9VLNPMgtk
+	ZEs3zirJHjWbzIpNfsXgO9OW/jBFJxXPRZFI+h25xTm6L7pd8BIrd9jtzKZPcNEcqTXjJe
+	9ZgU4wobjoYtwJTMdvP/4Yu7aF3+DMs=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1770740325;
+	s=susede2_ed25519; t=1770741743;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=AWAHMKXyBrxfBf69pBcoJZiRyKZIcjQ3u+E8dpyzTIw=;
-	b=8aX6TdNeeQQlCcrkh2WiCDuyS2sI6CHZ6ha1b8LqZjvmgmakt1EWA0RCl51+boIW2xcNir
-	s1WXULnmB7OOI7CQ==
+	bh=USoLikAerZRv3MReWwa4j20dP6GBkJFN1kwtKunN8SI=;
+	b=+H8pOSBxdHMKysWrhnAQxA76eY15Rl1pmx6/8SmrTh316iQS7Uag/YuGQkpJAbGfT1YW9f
+	8oCPEBWI8bqyFcAA==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2D77F3EA62;
-	Tue, 10 Feb 2026 16:18:45 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D9F393EA62;
+	Tue, 10 Feb 2026 16:42:22 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 0ryiCWVai2lJYgAAD6G6ig
-	(envelope-from <vbabka@suse.cz>); Tue, 10 Feb 2026 16:18:45 +0000
-Message-ID: <f80f6ea8-2988-461b-ad6d-c1b23408c45f@suse.cz>
-Date: Tue, 10 Feb 2026 17:18:44 +0100
+	id g5F6M+5fi2k6XQAAD6G6ig
+	(envelope-from <vbabka@suse.cz>); Tue, 10 Feb 2026 16:42:22 +0000
+Message-ID: <3a5ef8c7-3a75-4014-b565-540af09f7d06@suse.cz>
+Date: Tue, 10 Feb 2026 17:42:22 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv6 12/17] mm: Drop fake head checks
+Subject: Re: [PATCHv6 15/17] mm: Remove the branch from compound_head()
 Content-Language: en-US
 To: Kiryl Shutsemau <kas@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
@@ -104,7 +103,7 @@ Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
 References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-13-kas@kernel.org>
+ <20260202155634.650837-16-kas@kernel.org>
 From: Vlastimil Babka <vbabka@suse.cz>
 Autocrypt: addr=vbabka@suse.cz; keydata=
  xsFNBFZdmxYBEADsw/SiUSjB0dM+vSh95UkgcHjzEVBlby/Fg+g42O7LAEkCYXi/vvq31JTB
@@ -145,42 +144,31 @@ Autocrypt: addr=vbabka@suse.cz; keydata=
  rywqgzTUhHFKKF6/9L/lYtrNcHU8Z6Y4Ju/MLUiNYkmtrGIMnkjKCiRqlRrZE/v5YFHbayRD
  dJKXobXTtCBYpLJM4ZYRpGZXne/FAtWNe4KbNJJqxMvrTOrnIatPj8NhBVI0RSJRsbilh6TE
  m6M14QORSWTLRg==
-In-Reply-To: <20260202155634.650837-13-kas@kernel.org>
-X-Spamd-Result: default: False [-4.51 / 50.00];
+In-Reply-To: <20260202155634.650837-16-kas@kernel.org>
+X-Spamd-Result: default: False [-4.30 / 50.00];
 	BAYES_HAM(-3.00)[99.99%];
 	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
 	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	ARC_NA(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	RCPT_COUNT_TWELVE(0.00)[27];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FREEMAIL_TO(0.00)[kernel.org,linux-foundation.org,linux.dev,redhat.com,infradead.org,gmail.com,google.com];
 	FUZZY_RATELIMITED(0.00)[rspamd.com];
 	MIME_TRACE(0.00)[0:+];
-	URIBL_BLOCKED(0.00)[suse.cz:mid,suse.cz:dkim,suse.cz:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,linux.dev:email];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	ARC_NA(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_TO(0.00)[kernel.org,linux-foundation.org,linux.dev,redhat.com,infradead.org,gmail.com,google.com];
 	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	MID_RHS_MATCH_FROM(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RL8ogcagzi1y561i1mcnzpnkwh)];
+	RCPT_COUNT_TWELVE(0.00)[27];
 	FROM_EQ_ENVFROM(0.00)[];
 	FROM_HAS_DN(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	R_RATELIMIT(0.00)[to_ip_from(RLduzbn1medsdpg3i8igc4rk67)];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
 	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.cz:+];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:mid,suse.cz:dkim,suse.cz:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,linux.dev:email]
-X-Rspamd-Queue-Id: 72BB55BD70
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+	RCVD_COUNT_TWO(0.00)[2];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	TO_DN_SOME(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_081847_521937_499F6FDB 
-X-CRM114-Status: UNSURE (   7.30  )
+X-CRM114-CacheID: sfid-20260210_084226_547605_69E917E6 
+X-CRM114-Status: UNSURE (   6.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -199,19 +187,15 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2/2/26 16:56, Kiryl Shutsemau wrote:
-> With fake head pages eliminated in the previous commit, remove the
-> supporting infrastructure:
+> The compound_head() function is a hot path. For example, the zap path
+> calls it for every leaf page table entry.
 > 
->   - page_fixed_fake_head(): no longer needed to detect fake heads;
->   - page_is_fake_head(): no longer needed;
->   - page_count_writable(): no longer needed for RCU protection;
->   - RCU read_lock in page_ref_add_unless(): no longer needed;
-> 
-> This substantially simplifies compound_head() and page_ref_add_unless(),
-> removing both branches and RCU overhead from these hot paths.
+> Rewrite the helper function in a branchless manner to eliminate the risk
+> of CPU branch misprediction.
 > 
 > Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
 > Reviewed-by: Muchun Song <muchun.song@linux.dev>
+> Reviewed-by: Zi Yan <ziy@nvidia.com>
 
 Reviewed-by: Vlastimil Babka <vbabka@suse.cz>
 
