@@ -4,55 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E100FEB5946
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Feb 2026 00:57:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FD7AEB595E
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Feb 2026 04:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CJCsX7/4NPrSf1r+3w3LHPZZZl4CmgA+NHCg+wqDHgc=; b=yVeGvxxw9deELJ
-	2aM/401vBfWBC6HaFUKEWh7iQbrVL263HvkvYc5ZZaDYnn7M7sRXh12/hzYeMa8EjoYVAnspf8VZT
-	M8ZttDgFt7L01/qOKse9i6PKJDRvbiu8/kmZXiP1gmNWePHV0NaB7R6IoGzflBdpd4DOPgicANa8k
-	+Hcq/GyhQ/ph3bJmkQSwZbqobFCij9BNJyN3k6fivd3BFKU3l3JWgoaXSVpUxjougEHh1dIcqrj1B
-	nxn+eqDdd0oaXmfyrTz1ntCiJTbTaa5GqFg2NyA/Rqmsk3e6Gt7qzH3Iy4q6vzJOdVOSvh3D7xriY
-	UTh9NBvuNdLejCX7rBFQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mEWiczz0Gxi/nnpEERpfMhzfc5nhO4C3oMcAJGJklzg=; b=L621Jq8DJ9sSeL
+	PMUnbfTgBlfx3D40PgaDFXvyc7Huojcy3zA+13NlO3RltJWKzw0onfXBLgMIcKxjS0m55Rk5H3nUQ
+	G6YjvdA6otJFoOtcII3GKjz6bpbFWYNgoZ6lA8lj3aRVQlzZXbxU6vBZA8QEAS59VrZhl1Mgy1DOK
+	+0ICyRrvQPwVX+wzQzwwR7pgdqJU6LBSFtjLZhx9q9UzDM/CRqDqQkRAsT2Uh4U1+pGlYXmoX2IRi
+	yRjEd/83UtQ+1xKUrfH8De4c8lMIZ8HxJJJIgAyo9uklROHMzQTWCDW6BO0HKJ+aVfdAxcXhJUFq4
+	17Eu7aeCoaW0knq3+2Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpyXV-000000004Jg-1f53;
-	Wed, 11 Feb 2026 00:57:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vq28n-00000000Cgz-2zlc;
+	Wed, 11 Feb 2026 04:47:53 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpyXT-000000004Ja-3lap
+	id 1vq28j-00000000Cgd-2qTa
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Feb 2026 00:57:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8328160136;
-	Wed, 11 Feb 2026 00:57:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92776C116C6;
-	Wed, 11 Feb 2026 00:57:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770771426;
-	bh=yzkylkEQyMlLPX3kedBSzjU8RsbSf5Jk4i2N65fCL30=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Vsd+Xx+447hSpwSmZtlt6wlU5Hsp407El/yFKvfrSUqG3FQLSrDuVoVM2V36u6YDn
-	 1mo+o/9mKLtQoy/ggzuyPhHQ90EZlJ5/SJcYf0kxikYec8x+iqQ7dj690JynShMoiw
-	 7iWldpWyz+lEAyyK4Gqz4ZtYUJ344F3VnoTZbuU2Q0EbOykBR4n/0+YM03kjkyajTH
-	 k49D3J6/m8KCdRCyjHnLyE6jOnu9uAhfn/SnU5gh8XKWyeuwXazTEo2syDUuEgGHC5
-	 8ybe5SdKk8diqA5JAdonfw4eNFzGAZ0saK5NJLG3bJ+DQ04fk2I8NCFr8GYJzAM8Wm
-	 pnz+0JYn9w8yw==
-Date: Tue, 10 Feb 2026 16:57:04 -0800
-From: Drew Fustini <fustini@kernel.org>
-To: Gong Shuai <gsh517025@gmail.com>
-Subject: Re: [PATCH RFC v2 08/17] RISC-V: QoS: add resctrl interface for
- CBQRI controllers
-Message-ID: <aYvT4I7qWyJGuMDR@gen8>
-References: <20260128-ssqosid-cbqri-v2-8-dca586b091b9@kernel.org>
- <20260209141649.330184-1-gong.shuai@sanechips.com.cn>
+	Wed, 11 Feb 2026 04:47:51 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2a7b47a5460so2516005ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Feb 2026 20:47:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770785268; x=1771390068; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=eDNE5BES6mjx46ADmVSuSrLvpbM3wrn3TxoCyTkI3Mc=;
+        b=JFEuJoxEnhLZ1Cii+uCOs1QW+gUEJZ2xZ1TahWDktb1BuErveJZ27HOG1/JoHs50q1
+         2YM9zhklQhEq2dzo2DD23c7/G8iyc5VUzQOSbU2JRiqHp7fuq3ZpIZPcJxgUo5cb8AhD
+         nmuJCQDB/zcTSGOCljKayZFMfPq7LICLTfqfSszwQkNvi4FmhGAfrwehXH7wgKi33HeZ
+         Rgf1H267+Tb0e3YDHJENwLla8Ij3TZrDB5ShuvNxMjHPHekkEWSsI0iuWumvyZOwzvWM
+         aKBOmN0Cgj5UqTN3U59x5EWyP2KvEw113/3PeP5iMauDUAgFXWz8o7rcuPVP0zndJ+cR
+         5JbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770785268; x=1771390068;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eDNE5BES6mjx46ADmVSuSrLvpbM3wrn3TxoCyTkI3Mc=;
+        b=O71L5CDNG12jHDNJwdmnkJ1L9g8pyNDiwvol61gwyvuOgAM7Dii9AL1f3O5TLZC9gD
+         +mwEJmBz21+l9OBciMwqHu3Fdv+WQjZpiB+19Vs6grwtgBkd4uBJnRld4cogWotMUuNj
+         1CpnXP4iGLqd9wMrrDnGXYxsRJVBLONgDZekDrcpDgdq2JhRB2yhl9Sjx2ff8LtfcQvE
+         XpR+868Adp/TPgCMAYpf5JhlzZ4Z/hrR9AIbKto78+JvznwQIBYEm4FvUush8fgLYu38
+         0Mfz18yiZ82r738RYF0gbvKJvvyZJOf71o/ZccLnmEMYBvWuNkOjhV2dKSy1akt2YymB
+         w8xg==
+X-Forwarded-Encrypted: i=1; AJvYcCWj969ON5AkPoTAVQzrDooSh4pi8XS8XFE01S4zeqojt7AFBc7vQdvBvx+q4+P77Wr1tYhjvILZWaJtyg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJENZqHXIj1Va65+OwtJnp1kMeZh6mM5pTdNSxzaDa6TGUbu/e
+	yBHh7PUc5AKdSH1lPg/4q53CE0SiZ5dE7rw5+3flW9/75Cohh2brm5q0
+X-Gm-Gg: AZuq6aL5EOWGUQEjzdLiH8GNdfcy932wypa2CxGYwcOU//JXjsAwPUql2RtHkRxvhR0
+	TodgEAz1vlXPlR1EP+0W+ZzLsy2Q0igz9Y2GV3hIaRwkVqTZ0c4fWSKo8vvrk9WpNtUE2mDET9N
+	61IS6pwB3xi3yMG4LosZmWdHJ7OEk5YqczuhhEtiXvLa0RduZXUyIkUe9cWg9Qbypgd+GstUplD
+	HFBLur02krePU0nplpjDhD0aeBPSYP8O4YJRdavIStNScw3fgtq4HjydDPxw9Dp9d3aj9VxFFur
+	DdNhdy0lniuqwVlnNGUaWsEMemUvuJUSEuhQRIXX+Q9kWoNlNs4GSiZRidBQLwj92jGsd2EiUBd
+	HBcm5xKYmSI2ENNJapTCV+qAxysXWWR3UGPuw30GygTooczO6OfsliZzGxTtGvbK0HLcaCVh/Oo
+	MhnplY/vWBAX1R9V2ObpNFhnBEXHd5vNh5grJFwz8=
+X-Received: by 2002:a17:903:2b04:b0:2a7:5f26:aaf9 with SMTP id d9443c01a7336-2ab0fe291bamr48593325ad.14.1770785268026;
+        Tue, 10 Feb 2026 20:47:48 -0800 (PST)
+Received: from adminpc-PowerEdge-R7525 ([27.122.242.81])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ab29965031sm8879665ad.46.2026.02.10.20.47.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Feb 2026 20:47:47 -0800 (PST)
+Date: Wed, 11 Feb 2026 13:47:43 +0900
+From: Austin Kim <austindh.kim@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	austindh.kim@gmail.com, austin.kim@lge.com
+Subject: [PATCH 1/2] riscv: move kaslr_offset() to page.h as a static inline
+ function
+Message-ID: <aYwJ76yHaMbbQVJA@adminpc-PowerEdge-R7525>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260209141649.330184-1-gong.shuai@sanechips.com.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260210_204749_741585_5AD003C2 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,72 +93,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: x86@kernel.org, atish.patra@linux.dev, aricciardi@baylibre.com, atishp@rivosinc.com, cp0613@linux.alibaba.com, cuiyunhui@bytedance.com, gong.shuai@sanechips.com.cn, zhiwei_liu@linux.alibaba.com, guo.wenjia23@zte.com.cn, linux-riscv@lists.infradead.org, vasu@rivosinc.com, robh@kernel.org, alex@ghiti.fr, rafael@kernel.org, acpica-devel@lists.linux.dev, robert.moore@intel.com, liu.qingtao2@zte.com.cn, linux-acpi@vger.kernel.org, ben.horgan@arm.com, palmer@dabbelt.com, rkrcmar@ventanamicro.com, Dave.Martin@arm.com, lenb@kernel.org, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, mindal@semihalf.com, babu.moger@amd.com, liwei1518@gmail.com, npitre@baylibre.com, paul.walmsley@sifive.com, ved@rivosinc.com, reinette.chatre@intel.com, pjw@kernel.org, tony.luck@intel.com, peternewman@google.com, linux-kernel@vger.kernel.org, fenghua.yu@intel.com, samuel.holland@sifive.com, james.morse@arm.com, krzk+dt@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 09, 2026 at 10:16:49PM +0800, Gong Shuai wrote:
-> Hi, Drew
-> 
-> > Add interface for CBQRI controller drivers to make use of the resctrl
-> > filesystem.
-> > 
-> > Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> > Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> > Signed-off-by: Drew Fustini <fustini@kernel.org>
-> >
-> > ...
-> >
-> > +u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
-> > +			    u32 closid, enum resctrl_conf_type type)
-> > +{
-> > +	struct cbqri_resctrl_dom *hw_dom;
-> > +	struct cbqri_controller *ctrl;
-> > +	int reg_offset;
-> > +	u32 percent;
-> > +	u32 rbwb;
-> > +	u64 reg;
-> > +	int err;
-> > +
-> > +	hw_dom = container_of(d, struct cbqri_resctrl_dom, resctrl_ctrl_dom);
-> > +
-> > +	ctrl = hw_dom->hw_ctrl;
-> > +
-> > +	if (!r->alloc_capable)
-> > +		return resctrl_get_default_ctrl(r);
-> > +
-> > +	switch (r->rid) {
-> > +	case RDT_RESOURCE_L2:
-> > +	case RDT_RESOURCE_L3:
-> > +		/* Clear cc_block_mask before read limit operation */
-> > +		cbqri_set_cbm(ctrl, 0);
-> > +
-> > +		/* Capacity read limit operation for RCID (closid) */
-> > +		err = cbqri_cc_alloc_op(ctrl, CBQRI_CC_ALLOC_CTL_OP_READ_LIMIT, type, closid);
-> 
-> It looks like the parameter order might be incorrect. I believe it
-> should be:
-> cbqri_cc_alloc_op(ctrl, CBQRI_CC_ALLOC_CTL_OP_READ_LIMIT, closid, type);
+From: Austin Kim <austin.kim@lge.com>
 
-Thanks, I will fix so that closid and type are the correct order.
-> 
-> > +		if (err < 0) {
-> > +			pr_err("%s(): operation failed: err = %d", __func__, err);
-> > +			return resctrl_get_default_ctrl(r);
-> > +		}
-> > ...
-> 
-> Sorry for the resend, my company email had some formatting issues,
-> so I'm sending this from my personal address.
-> 
-> Hope it doesn't cause any trouble!
+The kaslr_offset() function is a simple accessor that returns
+kernel_map.virt_offset. This commit change also ensures that kaslr_offset()
+is consistently available across various kernel configurations without
+requiring explicit linkage to mm/init.c.
 
-No problem.
+Signed-off-by: Austin Kim <austin.kim@lge.com>
+---
+ arch/riscv/include/asm/page.h | 5 ++++-
+ arch/riscv/mm/init.c          | 5 -----
+ 2 files changed, 4 insertions(+), 6 deletions(-)
 
-Thanks
-Drew
+diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+index 187aad0a7..813b6da57 100644
+--- a/arch/riscv/include/asm/page.h
++++ b/arch/riscv/include/asm/page.h
+@@ -190,7 +190,10 @@ extern phys_addr_t __phys_addr_symbol(unsigned long x);
+ 
+ #define sym_to_pfn(x)           __phys_to_pfn(__pa_symbol(x))
+ 
+-unsigned long kaslr_offset(void);
++static inline unsigned long kaslr_offset(void)
++{
++	return kernel_map.virt_offset;
++}
+ 
+ static __always_inline void *pfn_to_kaddr(unsigned long pfn)
+ {
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 811e03786..257df6bd2 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -1078,11 +1078,6 @@ static int __init print_nokaslr(char *p)
+ 	return 0;
+ }
+ early_param("nokaslr", print_nokaslr);
+-
+-unsigned long kaslr_offset(void)
+-{
+-	return kernel_map.virt_offset;
+-}
+ #endif
+ 
+ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+-- 
+2.34.1
 
 
 _______________________________________________
