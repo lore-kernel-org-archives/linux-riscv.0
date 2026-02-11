@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4BC0E9E2F9
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Feb 2026 12:31:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FDE5E9E2FC
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Feb 2026 12:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A5hubcod/Z9F4U6HgNCWp7CRmtRtiw4bU/v+Bh+Kytw=; b=5AaBYBU6CBZwyB
-	F8CQE0ZHAHVJ3FnYqprd25mpq8ZlOCEsIZpOHXxghtbeAR82CxtXx8M27unL2mIECA2xtkJpdyMcU
-	zaYzmM8gRCaHr4otGXXlcPy04p25xVqwE5gu//PSdP3B3tSW6+4b6qXjkUNZcNs64z+nF2rua/Ok0
-	0cgs/cSiF3MPfUP00NRyD4K+2b3WW1iO1P2t5k+na57asnniTj/xQfZn30Od2sFaGe/iUQNlAUUFh
-	UYmAmIQR9IW70i1LJ9BaUsMYPv2BMJ2V9/u2aRIKK3p9qG3AVtNnSrkc2+PDjXwyHoQMmmPltWT6h
-	bCVIJ8XzqbtAIyto+odw==;
+	List-Owner; bh=2kWTSD9AFF80p/iTtvHsJDoeV35Ft1Hdc/dT2a01egE=; b=47CvXOVSoS/Vb0
+	GlIOzSHtJct4mmxbvGH/MMAh9pIwvUCAG2caH3eQYVTU9YgY0TAp0XWXzWItZU/VL9CXNIrsNsywZ
+	NmmfyevNrP9wsQI0wBQNCi/Wha5ebsqKR0/3MOX6gxMFXzzppa6ZvDeE3CSLr2aJsixUGvHW56XzC
+	/cQyk6oxeGpgN+IoKxJajaR5HJ5xG5EeB6t78WNOMsVLvakcvZXhxr8eCB229n5xryGqRWIZfEcMv
+	YvHaUydKfwGdsnJwDBTEP418+4PVKLm6wp/801cSCelsSaKRd3/czraAWRFSVAp4giweSDWhSyAoU
+	Cf+/1xwO9hG/N5Ly7D0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq9NN-00000000cS2-2TI2;
-	Wed, 11 Feb 2026 12:31:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vq9Nd-00000000cVu-32Fv;
+	Wed, 11 Feb 2026 12:31:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq9NL-00000000cRp-1jtl
+	id 1vq9Nc-00000000cVd-1kJd
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Feb 2026 12:31:23 +0000
+	Wed, 11 Feb 2026 12:31:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7826860122;
-	Wed, 11 Feb 2026 12:31:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9338C19424;
-	Wed, 11 Feb 2026 12:31:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A705C60122;
+	Wed, 11 Feb 2026 12:31:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F872C19421;
+	Wed, 11 Feb 2026 12:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770813082;
-	bh=rVbYVH5bi8fooUyJXJC6Biqqc9cbSFiCjTBvVVoWd2c=;
+	s=k20201202; t=1770813099;
+	bh=SDCjvHPoW3LHwRCJAqQbBv25bM9dKzNqDYoB9f0uios=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oH/jLeI4lLNHbT9IXFrFTm62G8/0Mogn8ClU0A6lrNX7b4anwUXIKGn2KUeCtobRc
-	 bBU+zKfhvKENDCQyalUkPve1b/cOqlcgnYE4/VESGmK70z3I5TcjyLM/ZJ6nHXYZQy
-	 RuUC1SB+YzjGoeNozS87C5oCDRpetKdIROiV1n/vibkn+XSiJdKUW23OfFrtUm0FYE
-	 E3ybasbzVRVC5GteOi/EC1KUBgTFbM0VwiR2n9FdyQpFx67VrL8xF7e81lcdANupkV
-	 U/53DGPh8e+oHUZj1w9+yGW91jd3GPoGaAvwwHf777QoE2u1bKHb0w08MeJsYU6qYr
-	 s2j6b9m/eWBNw==
+	b=aFlFwU/iay7eRagnXJsmaiFy5mdqvcWf9lDpxNsm20SOoYItb1Mqr5M7KE0mPVy+7
+	 GPEPV6GmO12dCjva6mg0tppV++ABLXt1vMiXW/hoaqpLwQ7hRvxGipCrI60eJ/cfN7
+	 S0KW4kMXxlHh9iSnU33xV2xnhJz3n0mruPMHLmbDjDe674vLOV4Kx6qqsMV7KOOI4n
+	 vnG10GHbB7MD1JsqhG+Y3OyW3Df8qXgk/n876FqeHUN0JtkLQwsDQa0lFWp5izyAqB
+	 jRluzgZkmAPo/aT/zhY2avx1SUEGDMM7uYZW5QnXwicrYm1uew7VxaUgmG4vNwt4WC
+	 G0tZlKrEbZ85A==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Heiko Carstens <hca@linux.ibm.com>,
+Cc: Yicong Yang <yang.yicong@picoheart.com>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
 	Sasha Levin <sashal@kernel.org>,
+	rafael@kernel.org,
 	pjw@kernel.org,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
-	nathan@kernel.org,
-	gor@linux.ibm.com,
-	ardb@kernel.org,
-	samitolvanen@google.com,
-	linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev
-Subject: [PATCH AUTOSEL 6.19-5.10] s390/purgatory: Add -Wno-default-const-init-unsafe to KBUILD_CFLAGS
-Date: Wed, 11 Feb 2026 07:30:14 -0500
-Message-ID: <20260211123112.1330287-4-sashal@kernel.org>
+	linux-acpi@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.19] ACPI: scan: Use async schedule function in acpi_scan_clear_dep_fn()
+Date: Wed, 11 Feb 2026 07:30:22 -0500
+Message-ID: <20260211123112.1330287-12-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260211123112.1330287-1-sashal@kernel.org>
 References: <20260211123112.1330287-1-sashal@kernel.org>
@@ -77,128 +75,321 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogSGVpa28gQ2Fyc3RlbnMgPGhjYUBsaW51eC5pYm0uY29tPgoKWyBVcHN0cmVhbSBjb21t
-aXQgYjQ3ODBmZTRkZGYwNGI1MTEyN2EzM2Q3MDVmNGEyZTIyNGRmMDBmYSBdCgpBZGQgLVduby1k
-ZWZhdWx0LWNvbnN0LWluaXQtdW5zYWZlIHRvIHB1cmdhdG9yeSBLQlVJTERfQ0ZMQUdTLCBzaW1p
-bGFyCnRvIHNjcmlwdHMvTWFrZWZpbGUuZXh0cmF3YXJuLCBzaW5jZSBjbGFuZyBnZW5lcmF0ZXMg
-d2FybmluZ3MgZm9yIHRoZQpkdW1teSB2YXJpYWJsZSBpbiB0eXBlY2hlY2soKToKCiAgICBDQyAg
-ICAgIGFyY2gvczM5MC9wdXJnYXRvcnkvcHVyZ2F0b3J5Lm8KICAgICAgYXJjaC9zMzkwL2luY2x1
-ZGUvYXNtL3B0cmFjZS5oOjIyMTo5OiB3YXJuaW5nOiBkZWZhdWx0IGluaXRpYWxpemF0aW9uIG9m
-IGFuIG9iamVjdCBvZiB0eXBlICd0eXBlb2YgKHJlZ3MtPnBzdyknIChha2EgJ2NvbnN0IHBzd190
-JykgbGVhdmVzIHRoZSBvYmplY3QgdW5pbml0aWFsaXplZCBbLVdkZWZhdWx0LWNvbnN0LWluaXQt
-dmFyLXVuc2FmZV0KICAgICAgICAyMjEgfCAgICAgICAgIHJldHVybiBwc3dfYml0cyhyZWdzLT5w
-c3cpLnBzdGF0ZTsKICAgICAgICAgICAgfCAgICAgICAgICAgICAgICBeCiAgICAgIGFyY2gvczM5
-MC9pbmNsdWRlL2FzbS9wdHJhY2UuaDo5ODoyOiBub3RlOiBleHBhbmRlZCBmcm9tIG1hY3JvICdw
-c3dfYml0cycKICAgICAgICAgOTggfCAgICAgICAgIHR5cGVjaGVjayhwc3dfdCwgX19wc3cpOyAg
-ICAgICAgICAgICAgICBcCiAgICAgICAgICAgIHwgICAgICAgICBeCiAgICAgIGluY2x1ZGUvbGlu
-dXgvdHlwZWNoZWNrLmg6MTE6MTI6IG5vdGU6IGV4cGFuZGVkIGZyb20gbWFjcm8gJ3R5cGVjaGVj
-aycKICAgICAgICAgMTEgfCAgICAgICAgIHR5cGVvZih4KSBfX2R1bW15MjsgXAogICAgICAgICAg
-ICB8ICAgICAgICAgICAgICAgICAgIF4KClNpZ25lZC1vZmYtYnk6IEhlaWtvIENhcnN0ZW5zIDxo
-Y2FAbGludXguaWJtLmNvbT4KU2lnbmVkLW9mZi1ieTogU2FzaGEgTGV2aW4gPHNhc2hhbEBrZXJu
-ZWwub3JnPgotLS0KCkxMTSBHZW5lcmF0ZWQgZXhwbGFuYXRpb25zLCBtYXkgYmUgY29tcGxldGVs
-eSBib2d1czoKCk5vdyBJIGhhdmUgYSB0aG9yb3VnaCB1bmRlcnN0YW5kaW5nLiBMZXQgbWUgY29t
-cGlsZSBteSBhbmFseXNpcy4KCiMjIEFuYWx5c2lzOiBzMzkwL3B1cmdhdG9yeTogQWRkIC1Xbm8t
-ZGVmYXVsdC1jb25zdC1pbml0LXVuc2FmZSB0bwpLQlVJTERfQ0ZMQUdTCgojIyMgMS4gQ29tbWl0
-IE1lc3NhZ2UgQW5hbHlzaXMKClRoZSBjb21taXQgYWRkcyB0aGUgYC1Xbm8tZGVmYXVsdC1jb25z
-dC1pbml0LXVuc2FmZWAgY29tcGlsZXIgZmxhZyB0bwp0aGUgczM5MCBwdXJnYXRvcnkncyBgS0JV
-SUxEX0NGTEFHU2AuIFRoZSBjb21taXQgbWVzc2FnZSBjbGVhcmx5CmV4cGxhaW5zIHRoZSBwcm9i
-bGVtOiAqKmNsYW5nIDIxKyoqIGludHJvZHVjZWQgYSBuZXcgb24tYnktZGVmYXVsdAp3YXJuaW5n
-IChgLVdkZWZhdWx0LWNvbnN0LWluaXQtdmFyLXVuc2FmZWApIHRoYXQgdHJpZ2dlcnMgb24gdGhl
-CmB0eXBlY2hlY2soKWAgbWFjcm8ncyBkdW1teSB2YXJpYWJsZS4gVGhlIHdhcm5pbmcgZmlyZXMg
-aW4KYGFyY2gvczM5MC9pbmNsdWRlL2FzbS9wdHJhY2UuaDoyMjFgIHZpYSBgcHN3X2JpdHMoKWAg
-LT4gYHR5cGVjaGVjaygpYAotPiBgX19kdW1teTJgIChsaW5lIDExIG9mIGBpbmNsdWRlL2xpbnV4
-L3R5cGVjaGVjay5oYCkuCgpUaGUgY29tbWl0IGF1dGhvciBpcyBIZWlrbyBDYXJzdGVucywgdGhl
-IHMzOTAgc3Vic3lzdGVtIG1haW50YWluZXIuCgojIyMgMi4gQ29kZSBDaGFuZ2UgQW5hbHlzaXMK
-ClRoZSBjaGFuZ2UgaXMgZXhhY3RseSAqKm9uZSBsaW5lKiogYWRkZWQgdG8KYGFyY2gvczM5MC9w
-dXJnYXRvcnkvTWFrZWZpbGVgOgoKYGBgCitLQlVJTERfQ0ZMQUdTICs9ICQoY2FsbCBjYy1vcHRp
-b24sIC1Xbm8tZGVmYXVsdC1jb25zdC1pbml0LXVuc2FmZSkKYGBgCgpUaGlzIGlzIHdyYXBwZWQg
-aW4gYCQoY2FsbCBjYy1vcHRpb24sIC4uLilgLCB3aGljaCBtZWFucyBpdCdzIG9ubHkKYXBwbGll
-ZCB3aGVuIHRoZSBjb21waWxlciBzdXBwb3J0cyB0aGUgZmxhZywgcHJvdmlkaW5nIGJhY2t3YXJk
-CmNvbXBhdGliaWxpdHkuCgojIyMgMy4gUm9vdCBDYXVzZTogV2h5IHMzOTAgUHVyZ2F0b3J5IE5l
-ZWRzIEl0cyBPd24gRml4CgpUaGlzIGlzIHRoZSBjcml0aWNhbCB0ZWNobmljYWwgZGV0YWlsLiBU
-aGUgczM5MCBwdXJnYXRvcnkgTWFrZWZpbGUKKipjb21wbGV0ZWx5IHJlcGxhY2VzKiogYEtCVUlM
-RF9DRkxBR1NgIGZyb20gc2NyYXRjaCAobGluZSAxNik6CgpgYGAxNjoxNjphcmNoL3MzOTAvcHVy
-Z2F0b3J5L01ha2VmaWxlCktCVUlMRF9DRkxBR1MgOj0gLXN0ZD1nbnUxMSAtZm1zLWV4dGVuc2lv
-bnMgLWZuby1zdHJpY3QtYWxpYXNpbmcgLVdhbGwKLVdzdHJpY3QtcHJvdG90eXBlcwpgYGAKCk5v
-dGUgdGhlIGA6PWAgYXNzaWdubWVudCBvcGVyYXRvciDigJQgdGhpcyBkaXNjYXJkcyBBTEwgcHJl
-dmlvdXNseS1zZXQKZ2xvYmFsIGZsYWdzLCBpbmNsdWRpbmcgdGhlIGAtV25vLWRlZmF1bHQtY29u
-c3QtaW5pdC11bnNhZmVgIHRoYXQgd2FzCmFscmVhZHkgYWRkZWQgdG8gYHNjcmlwdHMvTWFrZWZp
-bGUud2FybmAgKGZvcm1lcmx5CmBzY3JpcHRzL01ha2VmaWxlLmV4dHJhd2FybmApIGJ5IGNvbW1p
-dCBgZDBhZmNmZWI5ZTM4MWAgKCJrYnVpbGQ6CkRpc2FibGUgLVdkZWZhdWx0LWNvbnN0LWluaXQt
-dW5zYWZlIikuCgpJbiBjb250cmFzdCwgb3RoZXIgcHVyZ2F0b3J5IE1ha2VmaWxlcyAoeDg2LCBy
-aXNjdiwgcG93ZXJwYykgdXNlCmBmaWx0ZXItb3V0YCBwYXR0ZXJucyBsaWtlOgpgYGAKS0JVSUxE
-X0NGTEFHUyA6PSAkKGZpbHRlci1vdXQgLWZwcm9maWxlLXNhbXBsZS11c2U9JQouLi4sJChLQlVJ
-TERfQ0ZMQUdTKSkKYGBgCndoaWNoICoqcHJlc2VydmUqKiB0aGUgZ2xvYmFsIGZsYWdzIChpbmNs
-dWRpbmcgdGhlIHdhcm5pbmcgc3VwcHJlc3Npb24pLgpPbmx5IHMzOTAncyBwdXJnYXRvcnkgYnVp
-bGRzIGZyb20gc2NyYXRjaCBhbmQgbmVlZHMgdGhpcyBjb21wYW5pb24gZml4LgoKIyMjIDQuIElz
-IFRoaXMgYSBCdWlsZCBGaXg/CgoqKlllcywgZGVmaW5pdGl2ZWx5LioqIFdpdGggYENPTkZJR19X
-RVJST1I9eWAgKGVuYWJsZWQgaW4gbWFueSBkaXN0cm8KY29uZmlncyBhbmQgQ0kgc3lzdGVtcyks
-IHRoZSBjbGFuZyAyMSsgd2FybmluZyBiZWNvbWVzIGEgYnVpbGQgZXJyb3IuClRoZSBjb21taXQg
-bWVzc2FnZSBzaG93cyB0aGUgZXhhY3Qgd2FybmluZyBvdXRwdXQgZnJvbSBgQ0MKYXJjaC9zMzkw
-L3B1cmdhdG9yeS9wdXJnYXRvcnkub2AuIFRoZSB0cmlnZ2VyIHBhdGggaXM6CgotIGBwdXJnYXRv
-cnkub2AgaW5jbHVkZXMgYGFzbS9wdHJhY2UuaGAKLSBgcHRyYWNlLmg6MjIxYCBjYWxscyBgcHN3
-X2JpdHMocmVncy0+cHN3KS5wc3RhdGVgCi0gYHBzd19iaXRzYCBtYWNybyAobGluZSA5OCkgY2Fs
-bHMgYHR5cGVjaGVjayhwc3dfdCwgX19wc3cpYAotIGB0eXBlY2hlY2tgIG1hY3JvIChgaW5jbHVk
-ZS9saW51eC90eXBlY2hlY2suaDoxMWApIGRlY2xhcmVzIGB0eXBlb2YoeCkKICBfX2R1bW15Mjtg
-IOKAlCBhbiB1bmluaXRpYWxpemVkIGNvbnN0IHZhcmlhYmxlCi0gY2xhbmcgMjErIGZsYWdzIHRo
-aXMgd2l0aCBgLVdkZWZhdWx0LWNvbnN0LWluaXQtdmFyLXVuc2FmZWAKCiMjIyA1LiBSZWxhdGlv
-bnNoaXAgdG8gUGFyZW50IENvbW1pdAoKVGhlIHBhcmVudCBjb21taXQgYGQwYWZjZmViOWUzODFg
-ICgia2J1aWxkOiBEaXNhYmxlIC1XZGVmYXVsdC1jb25zdC0KaW5pdC11bnNhZmUiKSB3YXMgZXhw
-bGljaXRseSB0YWdnZWQgd2l0aCBgQ2M6IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmdgLAppbmRpY2F0
-aW5nIHRoZSBrZXJuZWwgY29tbXVuaXR5IGNvbnNpZGVycyB0aGlzIHdhcm5pbmcgZml4IGltcG9y
-dGFudCBmb3IKc3RhYmxlLiBUaGF0IGNvbW1pdCBmaXhlZCB0aGUgZ2xvYmFsIGJ1aWxkIHN5c3Rl
-bSwgYnV0IHRoZSBzMzkwCnB1cmdhdG9yeSB3YXMgbWlzc2VkIGJlY2F1c2UgaXQgYnVpbGRzIGl0
-cyBvd24gQ0ZMQUdTIGZyb20gc2NyYXRjaC4gVGhpcwpjb21taXQgaXMgdGhlIG5lY2Vzc2FyeSBj
-b21wYW5pb24gZml4LgoKSG93ZXZlciwgdGhpcyBjb21taXQgaXMgKipzZWxmLWNvbnRhaW5lZCoq
-IOKAlCBpdCBkb2Vzbid0IGRlcGVuZCBvbgpgZDBhZmNmZWI5ZTM4MWAgYmVpbmcgcHJlc2VudCBp
-biBzdGFibGUuIFRoZSBzMzkwIHB1cmdhdG9yeSBhbHdheXMKYnVpbGRzIGl0cyBvd24gQ0ZMQUdT
-IGluZGVwZW5kZW50bHkuCgojIyMgNi4gUmlzayBBc3Nlc3NtZW50CgotICoqTGluZXMgY2hhbmdl
-ZCoqOiAxCi0gKipGaWxlcyBjaGFuZ2VkKio6IDEgTWFrZWZpbGUKLSAqKlJ1bnRpbWUgcmlzayoq
-OiAqKlplcm8qKi4gVGhpcyBpcyBwdXJlbHkgYSBjb21waWxlLXRpbWUgZmxhZyB0aGF0CiAgc3Vw
-cHJlc3NlcyBhIHNwdXJpb3VzIGNvbXBpbGVyIHdhcm5pbmcuIE5vIHJ1bnRpbWUgYmVoYXZpb3Ig
-Y2hhbmdlCiAgd2hhdHNvZXZlci4KLSAqKkJhY2t3YXJkIGNvbXBhdGliaWxpdHkqKjogVGhlIGAk
-KGNhbGwgY2Mtb3B0aW9uLCAuLi4pYCB3cmFwcGVyCiAgZW5zdXJlcyB0aGUgZmxhZyBpcyBzaWxl
-bnRseSBpZ25vcmVkIG9uIGNvbXBpbGVycyB0aGF0IGRvbid0IHN1cHBvcnQKICBpdCAob2xkZXIg
-Y2xhbmcsIGFsbCBnY2MpLgotICoqU2lkZSBlZmZlY3RzKio6IE5vbmUuIFRoZSB3YXJuaW5nIGJl
-aW5nIHN1cHByZXNzZWQgKGAtV2RlZmF1bHQtCiAgY29uc3QtaW5pdC12YXItdW5zYWZlYCkgaXMg
-d2VsbC1hdWRpdGVkIOKAlCB0aGUgYHR5cGVjaGVjaygpYCBtYWNybydzCiAgZHVtbXkgdmFyaWFi
-bGUgaXMgbmV2ZXIgdXNlZDsgaXQgZXhpc3RzIHNvbGVseSBmb3IgY29tcGlsZS10aW1lIHR5cGUK
-ICBjaGVja2luZy4KCiMjIyA3LiBTdGFibGUgUmVsZXZhbmNlCgotIFRoZSBzMzkwIHB1cmdhdG9y
-eSAoa2V4ZWMgY29kZSkgZXhpc3RzIGluIGFsbCBzdGFibGUga2VybmVsIHRyZWVzCiAgZ29pbmcg
-YmFjayBtYW55IHllYXJzLgotIFRoZSBgcHN3X2JpdHMoKWAgLyBgdHlwZWNoZWNrKClgIGNvZGUg
-cGF0aCBleGlzdHMgaW4gYWxsIHRoZXNlIHRyZWVzLgotIFVzZXJzIGJ1aWxkaW5nIHN0YWJsZSBr
-ZXJuZWxzIHdpdGggbmV3ZXIgY2xhbmcgKyBgQ09ORklHX1dFUlJPUj15YAogICoqd2lsbCoqIGdl
-dCBidWlsZCBmYWlsdXJlcy4KLSBCdWlsZCBmaXhlcyBhcmUgZXhwbGljaXRseSBsaXN0ZWQgYXMg
-YXBwcm9wcmlhdGUgZm9yIHN0YWJsZSBpbgogIGBEb2N1bWVudGF0aW9uL3Byb2Nlc3Mvc3RhYmxl
-LWtlcm5lbC1ydWxlcy5yc3RgLgoKIyMjIDguIERlcGVuZGVuY3kgQ2hlY2sKClRoZSBjb21taXQg
-aXMgZnVsbHkgc2VsZi1jb250YWluZWQuIFRoZSBvbmx5ICJkZXBlbmRlbmN5IiBpcyB0aGUgczM5
-MApwdXJnYXRvcnkgTWFrZWZpbGUgaXRzZWxmLCB3aGljaCBoYXMgZXhpc3RlZCB1bmNoYW5nZWQg
-KGluIHRlcm1zIG9mIHRoZQpLQlVJTERfQ0ZMQUdTIHN0cnVjdHVyZSkgZm9yIG1hbnkga2VybmVs
-IHZlcnNpb25zLiBUaGUgYCQoY2FsbCBjYy0Kb3B0aW9uLCAuLi4pYCBtZWNoYW5pc20gaXMgYXZh
-aWxhYmxlIGluIGFsbCBzdGFibGUgdHJlZXMuCgojIyMgU3VtbWFyeQoKVGhpcyBpcyBhIHRleHRi
-b29rIGJ1aWxkIGZpeCBmb3Igc3RhYmxlOgotICoqT25lIGxpbmUqKiwgemVybyByaXNrLCB6ZXJv
-IHJ1bnRpbWUgaW1wYWN0Ci0gRml4ZXMgYSAqKnJlYWwgYnVpbGQgZmFpbHVyZSoqIHdpdGggbmV3
-ZXIgY2xhbmcgKyBDT05GSUdfV0VSUk9SCi0gU2VsZi1jb250YWluZWQsIG5vIGRlcGVuZGVuY2ll
-cwotIENvbXBhbmlvbiB0byBhIGNvbW1pdCBhbHJlYWR5IHRhZ2dlZCBgQ2M6IHN0YWJsZUB2Z2Vy
-Lmtlcm5lbC5vcmdgCi0gVXNlcyBgY2Mtb3B0aW9uYCBmb3IgYmFja3dhcmQgY29tcGF0aWJpbGl0
-eQotIFdyaXR0ZW4gYnkgdGhlIHMzOTAgc3Vic3lzdGVtIG1haW50YWluZXIKCioqWUVTKioKCiBh
-cmNoL3MzOTAvcHVyZ2F0b3J5L01ha2VmaWxlIHwgMSArCiAxIGZpbGUgY2hhbmdlZCwgMSBpbnNl
-cnRpb24oKykKCmRpZmYgLS1naXQgYS9hcmNoL3MzOTAvcHVyZ2F0b3J5L01ha2VmaWxlIGIvYXJj
-aC9zMzkwL3B1cmdhdG9yeS9NYWtlZmlsZQppbmRleCAwYzE5NmE1YjE5NGFmLi42MWQyNDBhMzc2
-MzNkIDEwMDY0NAotLS0gYS9hcmNoL3MzOTAvcHVyZ2F0b3J5L01ha2VmaWxlCisrKyBiL2FyY2gv
-czM5MC9wdXJnYXRvcnkvTWFrZWZpbGUKQEAgLTIzLDYgKzIzLDcgQEAgS0JVSUxEX0NGTEFHUyAr
-PSAtRF9fRElTQUJMRV9FWFBPUlRTCiBLQlVJTERfQ0ZMQUdTICs9ICQoQ0xBTkdfRkxBR1MpCiBL
-QlVJTERfQ0ZMQUdTICs9ICQoaWYgJChDT05GSUdfQ0NfSVNfQ0xBTkcpLC1Xbm8tbWljcm9zb2Z0
-LWFub24tdGFnKQogS0JVSUxEX0NGTEFHUyArPSAkKGNhbGwgY2Mtb3B0aW9uLC1mbm8tUElFKQor
-S0JVSUxEX0NGTEFHUyArPSAkKGNhbGwgY2Mtb3B0aW9uLCAtV25vLWRlZmF1bHQtY29uc3QtaW5p
-dC11bnNhZmUpCiBLQlVJTERfQUZMQUdTIDo9ICQoZmlsdGVyLW91dCAtRENDX1VTSU5HX0VYUE9M
-SU5FLCQoS0JVSUxEX0FGTEFHUykpCiBLQlVJTERfQUZMQUdTICs9IC1EX19ESVNBQkxFX0VYUE9S
-VFMKIAotLSAKMi41MS4wCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+From: Yicong Yang <yang.yicong@picoheart.com>
+
+[ Upstream commit 7cf28b3797a81b616bb7eb3e90cf131afc452919 ]
+
+The device object rescan in acpi_scan_clear_dep_fn() is scheduled on a
+system workqueue which is not guaranteed to be finished before entering
+userspace. This may cause some key devices to be missing when userspace
+init task tries to find them. Two issues observed on RISCV platforms:
+
+ - Kernel panic due to userspace init cannot have an opened
+   console.
+
+   The console device scanning is queued by acpi_scan_clear_dep_queue()
+   and not finished by the time userspace init process running, thus by
+   the time userspace init runs, no console is present.
+
+ - Entering rescue shell due to the lack of root devices (PCIe nvme in
+   our case).
+
+   Same reason as above, the PCIe host bridge scanning is queued on
+   a system workqueue and finished after init process runs.
+
+The reason is because both devices (console, PCIe host bridge) depend on
+riscv-aplic irqchip to serve their interrupts (console's wired interrupt
+and PCI's INTx interrupts). In order to keep the dependency, these
+devices are scanned and created after initializing riscv-aplic. The
+riscv-aplic is initialized in device_initcall() and a device scan work
+is queued via acpi_scan_clear_dep_queue(), which is close to the time
+userspace init process is run. Since system_dfl_wq is used in
+acpi_scan_clear_dep_queue() with no synchronization, the issues will
+happen if userspace init runs before these devices are ready.
+
+The solution is to wait for the queued work to complete before entering
+userspace init. One possible way would be to use a dedicated workqueue
+instead of system_dfl_wq, and explicitly flush it somewhere in the
+initcall stage before entering userspace. Another way is to use
+async_schedule_dev_nocall() for scanning these devices. It's designed
+for asynchronous initialization and will work in the same way as before
+because it's using a dedicated unbound workqueue as well, but the kernel
+init code calls async_synchronize_full() right before entering userspace
+init which will wait for the work to complete.
+
+Compared to a dedicated workqueue, the second approach is simpler
+because the async schedule framework takes care of all of the details.
+The ACPI code only needs to focus on its job. A dedicated workqueue for
+this could also be redundant because some platforms don't need
+acpi_scan_clear_dep_queue() for their device scanning.
+
+Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
+[ rjw: Subject adjustment, changelog edits ]
+Link: https://patch.msgid.link/20260128132848.93638-1-yang.yicong@picoheart.com
+Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+
+LLM Generated explanations, may be completely bogus:
+
+## Detailed Analysis
+
+### 1. COMMIT MESSAGE ANALYSIS
+
+The commit fixes two concrete, severe boot failures on RISC-V platforms
+with ACPI:
+
+1. **Kernel panic** - userspace init cannot open a console because the
+   console device hasn't been scanned yet. The device scan work was
+   queued via `acpi_scan_clear_dep_queue()` to `system_dfl_wq` (or
+   `system_unbound_wq` in stable) and hasn't completed by the time
+   userspace init runs.
+
+2. **Boot failure into rescue shell** - root device (PCIe NVMe via PCIe
+   host bridge) is missing for the same reason: the scan work is still
+   queued and not completed.
+
+Both are caused by a race: the deferred device scan (queued by
+`acpi_scan_clear_dep_queue()`) is scheduled on a system workqueue with
+**no synchronization barrier** before userspace init starts. Devices
+that depend on RISC-V APLIC (interrupt controller) are scanned
+asynchronously after APLIC initialization in `device_initcall()`, and if
+init runs before the workqueue work completes, critical devices are
+missing.
+
+The commit message is well-written by both the author (Yicong Yang) and
+was reviewed/edited by the ACPI maintainer (Rafael J. Wysocki), who
+signed it off.
+
+### 2. CODE CHANGE ANALYSIS
+
+The change is **small and surgical** (~30 net lines removed):
+
+**Before (old code):**
+- A `struct acpi_scan_clear_dep_work` wraps `work_struct` + `acpi_device
+  *`
+- `acpi_scan_clear_dep_fn()` is a `work_struct` callback that calls
+  `acpi_bus_attach()` under `acpi_scan_lock`, then releases the device
+  reference and frees the wrapper
+- `acpi_scan_clear_dep_queue()` allocates the wrapper via `kmalloc()`,
+  initializes the work, and queues it on
+  `system_dfl_wq`/`system_unbound_wq`
+
+**After (new code):**
+- `acpi_scan_clear_dep_fn()` signature changes to `(void *dev,
+  async_cookie_t cookie)` - an `async_func_t` callback
+- It uses `to_acpi_device(dev)` directly instead of `container_of` on a
+  wrapper struct
+- `acpi_scan_clear_dep_queue()` calls `async_schedule_dev_nocall()`
+  instead of `queue_work()`
+- The `struct acpi_scan_clear_dep_work` wrapper is removed entirely
+- No more `kmalloc()` for the wrapper (the async framework handles its
+  own allocation internally)
+
+**Why this fixes the bug:** `async_schedule_dev_nocall()` schedules work
+on the async framework's dedicated domain (`async_dfl_domain`). The
+critical property is that `kernel_init()` in `init/main.c` calls
+`async_synchronize_full()` **before** entering userspace (before
+`run_init_process()`):
+
+```1569:1642:init/main.c
+static int __ref kernel_init(void *unused)
+{
+        // ...
+        kernel_init_freeable();
+        /* need to finish all async __init code before freeing the
+memory */
+        async_synchronize_full();
+        // ...
+        // <userspace init happens after this point>
+```
+
+This guarantees all async-scheduled work (including the device scans)
+completes before userspace init starts. The old
+`queue_work(system_unbound_wq, ...)` had no such synchronization
+barrier.
+
+**Reference counting correctness:** The reference counting is preserved
+identically:
+- On success: `acpi_scan_clear_dep_fn()` releases the reference via
+  `acpi_dev_put(adev)`
+- On failure: `acpi_scan_clear_dep_queue()` returns `false`, and the
+  caller `acpi_scan_clear_dep()` releases the reference via
+  `acpi_dev_put(adev)`
+
+### 3. CLASSIFICATION
+
+This is a **real bug fix** for a **race condition** that causes **kernel
+panics and boot failures**. It is not a feature, cleanup, or
+optimization.
+
+### 4. SCOPE AND RISK ASSESSMENT
+
+- **Files changed:** 1 (`drivers/acpi/scan.c`)
+- **Net lines:** Reduced - removes the wrapper struct, simplifies both
+  functions
+- **Subsystem:** ACPI scan, a core subsystem
+- **Risk:** LOW. The change replaces one deferred scheduling mechanism
+  (workqueue) with another (async framework) that has the specific
+  property of being synchronized before userspace init. The functional
+  behavior of the callback is identical. The async framework is well-
+  established and already used extensively in the kernel for device
+  probing.
+- **Could this break something?** Very unlikely. The
+  `async_schedule_dev_nocall()` function uses an unbound workqueue
+  internally just like the old code, with the added benefit of the
+  synchronization barrier. The only behavior change is that work is
+  guaranteed to complete before userspace init, which is strictly
+  desirable.
+
+### 5. USER IMPACT
+
+- **Severity:** CRITICAL - kernel panics and inability to boot
+- **Affected platforms:** Primarily RISC-V ACPI platforms right now, but
+  the underlying race could affect any platform using
+  `acpi_dev_clear_dependencies()` (Intel camera IVSC, INT3472, Surface
+  devices, ACPI EC, PCI link, GPIO, I2C - 18 different callers)
+- **Who benefits:** RISC-V ACPI users are the primary beneficiaries.
+  Other platforms could theoretically hit this race too under heavy load
+  at boot time, though it's most likely on RISC-V where interrupt
+  controller dependency chains are deeper.
+
+### 6. DEPENDENCY CHECK
+
+- **`async_schedule_dev_nocall()`:** Already backported to all active
+  stable trees (6.1.y, 6.6.y, 6.12.y) - verified by checking commit
+  history
+- **`acpi_scan_clear_dep_queue()` / `acpi_scan_clear_dep_fn()`:**
+  Present in all active stable trees (introduced before v5.17)
+- **`#include <linux/async.h>`:** The new header include is the only
+  other change needed
+- **Backport adjustment:** Stable trees (6.1.y through 6.14.y) use
+  `system_unbound_wq` instead of `system_dfl_wq`, but since the commit
+  removes the `queue_work()` call entirely, the diff will need a trivial
+  context adjustment (the old `queue_work(system_unbound_wq, ...)` line
+  vs `queue_work(system_dfl_wq, ...)`)
+- **RISC-V ACPI dependency IDs:** The RSCV0001/RSCV0002 entries are in
+  6.12.y but not in 6.6.y or 6.1.y. However, the fix is still valid for
+  older trees because the same race exists for Intel camera/IVSC/PCI-
+  link devices that use this code path
+
+### 7. STABILITY INDICATORS
+
+- Authored by Yicong Yang (kernel contributor)
+- Reviewed and edited by Rafael J. Wysocki (ACPI maintainer, signed off)
+- The approach was explicitly chosen over a dedicated workqueue because
+  it leverages the existing async synchronization framework which "takes
+  care of all the details"
+- Real-world tested (the bug was observed on actual RISC-V hardware)
+
+### CONCLUSION
+
+This commit fixes a **critical race condition** causing **kernel panics
+and boot failures**. The fix is:
+- **Small and surgical** (single file, removes complexity)
+- **Obviously correct** (leverages the well-established async
+  synchronization barrier before userspace init)
+- **Self-contained** (no dependencies beyond `async_schedule_dev_nocall`
+  which already exists in all stable trees)
+- **Low risk** (functionally equivalent deferred execution, just with
+  proper synchronization)
+- **High impact** (prevents kernel panics and boot failures on RISC-V
+  ACPI platforms; potentially prevents similar races on other platforms
+  using the same code path)
+
+The only minor concern is the trivial context difference
+(`system_unbound_wq` vs `system_dfl_wq`) for backport to pre-6.19 stable
+trees, which requires a trivial adaptation of the diff context but does
+not affect the logic (the line is removed, not modified).
+
+**YES**
+
+ drivers/acpi/scan.c | 41 +++++++++++++++--------------------------
+ 1 file changed, 15 insertions(+), 26 deletions(-)
+
+diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+index 416d87f9bd107..b78f6be2f9468 100644
+--- a/drivers/acpi/scan.c
++++ b/drivers/acpi/scan.c
+@@ -5,6 +5,7 @@
+ 
+ #define pr_fmt(fmt) "ACPI: " fmt
+ 
++#include <linux/async.h>
+ #include <linux/module.h>
+ #include <linux/init.h>
+ #include <linux/slab.h>
+@@ -2360,46 +2361,34 @@ static int acpi_dev_get_next_consumer_dev_cb(struct acpi_dep_data *dep, void *da
+ 	return 0;
+ }
+ 
+-struct acpi_scan_clear_dep_work {
+-	struct work_struct work;
+-	struct acpi_device *adev;
+-};
+-
+-static void acpi_scan_clear_dep_fn(struct work_struct *work)
++static void acpi_scan_clear_dep_fn(void *dev, async_cookie_t cookie)
+ {
+-	struct acpi_scan_clear_dep_work *cdw;
+-
+-	cdw = container_of(work, struct acpi_scan_clear_dep_work, work);
++	struct acpi_device *adev = to_acpi_device(dev);
+ 
+ 	acpi_scan_lock_acquire();
+-	acpi_bus_attach(cdw->adev, (void *)true);
++	acpi_bus_attach(adev, (void *)true);
+ 	acpi_scan_lock_release();
+ 
+-	acpi_dev_put(cdw->adev);
+-	kfree(cdw);
++	acpi_dev_put(adev);
+ }
+ 
+ static bool acpi_scan_clear_dep_queue(struct acpi_device *adev)
+ {
+-	struct acpi_scan_clear_dep_work *cdw;
+-
+ 	if (adev->dep_unmet)
+ 		return false;
+ 
+-	cdw = kmalloc(sizeof(*cdw), GFP_KERNEL);
+-	if (!cdw)
+-		return false;
+-
+-	cdw->adev = adev;
+-	INIT_WORK(&cdw->work, acpi_scan_clear_dep_fn);
+ 	/*
+-	 * Since the work function may block on the lock until the entire
+-	 * initial enumeration of devices is complete, put it into the unbound
+-	 * workqueue.
++	 * Async schedule the deferred acpi_scan_clear_dep_fn() since:
++	 * - acpi_bus_attach() needs to hold acpi_scan_lock which cannot
++	 *   be acquired under acpi_dep_list_lock (held here)
++	 * - the deferred work at boot stage is ensured to be finished
++	 *   before userspace init task by the async_synchronize_full()
++	 *   barrier
++	 *
++	 * Use _nocall variant since it'll return on failure instead of
++	 * run the function synchronously.
+ 	 */
+-	queue_work(system_dfl_wq, &cdw->work);
+-
+-	return true;
++	return async_schedule_dev_nocall(acpi_scan_clear_dep_fn, &adev->dev);
+ }
+ 
+ static void acpi_scan_delete_dep_data(struct acpi_dep_data *dep)
+-- 
+2.51.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
