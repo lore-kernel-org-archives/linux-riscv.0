@@ -4,84 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB04EB5961
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Feb 2026 04:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1DADEA8125
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Feb 2026 10:32:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=63cNnGMBAGWC5nzL3QbwLtWys+9g96Zn+8eBBeQMuio=; b=dFN8PdJ26DfJBV
-	YWCjcC3COj84VCI6faVON5NrzFeiRa/Uu2HmQjbU8bfjz/midoKhjhH3cy1wDw5N/vG3vCCIrR74L
-	mF0gxYLczxQl77v0eqSnWqsVfpRwqZdAX0hsbqA7gzKfIaJ8S2/sdoEaaXjIyiHUKqR6iCazBraQ7
-	0it1u/ggb2MOmT6QVLQr44Z5WaMC3wHjvPfrb8kzCp26ruoPV7+6eSDJNmkdgN/FuvnKkTRlqpl2K
-	bMvnOx6Ma9Yy2ajSevalkwdN3RPuMVr8w6uF1pmzK6Y+skG71/Mxp2F4tSVP5Abl8pbqyEzvpZoxl
-	ttK0ZtZm98XchN3yGfJQ==;
+	List-Owner; bh=YCnsuesno+7OgXRMI35TqvzI29GAf0jI2dk5bmXd95Y=; b=m71Zmkfv2Q9xxw
+	P6GAH0Jwbl6/0RO+bAf6fiER3ZGpv5gZAFSjrdq2OFHQ5qZ86x1JfDbeZGvYiXQixdYqrGFnUJnJ+
+	EZtMd/bXRaJGbh6PfNJHi09oXjwcwXdsozf1qjKhq7eloMgZqqXqCUiLP8QK+zC8EN6N3aHX8VMqW
+	WZstTC28cuPVtyk8LiD3HZ/qCicOE/gMga8bZXpgFt3lkZLVE3O0Irf3Oao7pddCJZXNJj3Gm221C
+	zCaS/0Tnp58LeajAVBsshpZCgEplXYzXLjgXLYn9erGO7t5dqBFl0toxTwHFYmLdaZxDLKqMfGGnJ
+	3rjq6v71Pmxd1XBmEZAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq2AK-00000000Co5-0QsO;
-	Wed, 11 Feb 2026 04:49:28 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1vq7Vq-00000000VQc-1pCn;
+	Wed, 11 Feb 2026 10:32:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq2AH-00000000CnZ-34Fq
-	for linux-riscv@lists.infradead.org;
-	Wed, 11 Feb 2026 04:49:26 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2aaf9191da3so10695585ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Feb 2026 20:49:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770785365; x=1771390165; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Nvr2xv+8/kE2Yaa160xiVghqX5wMbpe9ZaewCjQfr5c=;
-        b=O/yUVw3AXcjPXQ+oyETbzn2caUeXGS33QsDUGGWC/cBEIKJlL9es9xPUgQ+enBBipP
-         Zm1gYrbicmliEQyc1JlkrM24G91AVNw5ybezk4mZyg6ar1zA5gc76wTJNtqT8bw/maXg
-         9LWPx6DvRKaDKgqy9Pf3OoO5y82xyveMxX1Ic0sXhVQLHOJoGGT2AkUHit0ALiDUafs5
-         YU37aOMs/PkgvtqEXBVAjFWJcgKO7mVvgBdAOZNEsVd4CjGpi0y4CUpo+5cWEH7wG613
-         tbIyV9/dv4npyk3MSEATw+eSBhV+rVT0/5KrCxSdXmKesa/xe1vifAKVg8ysOL1r6uL4
-         7O6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770785365; x=1771390165;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Nvr2xv+8/kE2Yaa160xiVghqX5wMbpe9ZaewCjQfr5c=;
-        b=cFHUdOcZDWRbQA4OTmHqMuTev1qvTphZIt47gER81gpROBaAPrSsAUfZ+b4QjHq1+r
-         L/ojv4JnojwT42DIGx09pnz79M+yL5vbkQKyxR+vBXyykSa4KAaK7ptDwgYtlMEkIalL
-         C98MoK8AZgdETngs8PnkG6iwBF84uVwm1qKz/AU/8BYC7Kp5UGu4HJ3KEK9oeNuuM36R
-         m/0faTV8sBO7vUUGewv0DSSImYFOY4gZ7kvhfw53XOXrJwU1X/mGjRCvCDZbNNOxuQVO
-         a7s9W7aRUaQNNYRRD3B8BcqJ8ZNQlW4CJ57Kgk6ydGudxu2aKIOj3kpLFx2TfTq95M9F
-         kWVg==
-X-Forwarded-Encrypted: i=1; AJvYcCXah67k2I2yWsLZ9Le4MUq45K3R0dQuYaA01J8hNzI4vij2u/qaarVSrIKP1Df3dg6F5LVJeXo0lGc9GA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJrQjFICSKIAHmN7YyUtFt01FmsEG6w29QBDcOyUFOq0rFS+vC
-	R+ig4rdz4mkkDb0bG0kuklehCdaz/6gvgxxoQDmsUlQMPIjdaBVx2uCt
-X-Gm-Gg: AZuq6aJ++Ndvb0eG9nryN0ArXaKVGBUVCeAqrdbxKpYkg4LzTVsmwvMwKuo9Qg410W3
-	HbQNQJ5miMfVPVSmTEy0kWAlYOKAOuE95o9D+Fdt4L43B5l7MC9IiflmVotU3jxsxy0KpLVZ9uQ
-	yT9jLEwftdUOfESEXkwlE3stZ22TiezaDWj71P71d5uF2+o1V658qOT2J1qT1AZtOv7eZR8+wKl
-	3KSfoYzQVujhXOQoa0cvYFgLoeS/PFNQoPh1pZRFYmxtyvOYRiSSV1bHI9/MFfHoosZuLhf5h71
-	G4KlgF24MogITNAN7QxN0YJf+7e5HtXclkS22ruEjiCn7a8JEEP6XQpxRAwY+oq5+8KxEWxAkNy
-	ua57P6PyoqW3D2zIbyNjZG1CYHkLwBXsIdurR5f+bW2MkEKHus9PanQ2kCU+uFHMHIugAvnXoBV
-	3jQmTMBOa2FsNv/Y01I9J5JcS7UJPaPLO+VV642QE=
-X-Received: by 2002:a17:902:d4ca:b0:2aa:dee9:dcf4 with SMTP id d9443c01a7336-2aadee9df81mr107222595ad.25.1770785364726;
-        Tue, 10 Feb 2026 20:49:24 -0800 (PST)
-Received: from adminpc-PowerEdge-R7525 ([27.122.242.81])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ab29965093sm7599595ad.52.2026.02.10.20.49.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Feb 2026 20:49:24 -0800 (PST)
-Date: Wed, 11 Feb 2026 13:49:20 +0900
-From: Austin Kim <austindh.kim@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	austindh.kim@gmail.com, austin.kim@lge.com
-Subject: [PATCH 2/2] riscv: export kaslr offset and satp in VMCOREINFO ELF
- notes
-Message-ID: <aYwKUE3ZzN7/ZY/A@adminpc-PowerEdge-R7525>
+	id 1vq7Vn-00000000VQ4-2F45;
+	Wed, 11 Feb 2026 10:32:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 80DAE43D75;
+	Wed, 11 Feb 2026 10:31:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D364AC19421;
+	Wed, 11 Feb 2026 10:31:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770805918;
+	bh=BzPjss/o79E8vniYif3vhWCcMbpnh+bfpm0PwJifv0s=;
+	h=From:To:Cc:Subject:Date:From;
+	b=PV/jXKpFwT8Fev+iuIdzwDQGCp1d9tQZwQOxpL0LXiHzOkF4CIyDk3VR8KHKDtHPW
+	 95broCDwDG6FDa0dsrh08bvjDtJvEVi+8U3bdfQGt0/3GFehuGtNXEfr5rcfZqIyHe
+	 4Gas0OFpDJ0b6cdfz9zvpAFeNg4A3xRSvqWBEmxAoCac9/v12nM5/tozP4vCWoIt3t
+	 WM1Df8XDDZbZ4yrkjS35IzQoTegVuVT5cx/AIkgGipbvq47QF+8iCUbZqSYaNcR9kd
+	 /L0GUWtHeBli4O4MUGnMTsxwsezchH/soEQNYXQrx3YIGnwJ/R226FAA4/HIBChyBn
+	 bpfII91wxqjeA==
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Andreas Larsson <andreas@gaisler.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>,
+	Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	Matt Turner <mattst88@gmail.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Hocko <mhocko@suse.com>,
+	Michal Simek <monstr@monstr.eu>,
+	Mike Rapoport <rppt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Will Deacon <will@kernel.org>,
+	linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-mm@kvack.org,
+	x86@kernel.org
+Subject: [PATCH v3 0/4] arch, mm: consolidate empty_zero_page
+Date: Wed, 11 Feb 2026 12:31:37 +0200
+Message-ID: <20260211103141.3215197-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_204925_835489_3785F1DE 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20260211_023159_621507_705EC5AF 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,53 +119,192 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Austin Kim <austin.kim@lge.com>
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-The following options are required by the kdump crash utility for RISC-V
-based vmcore file:
+Hi,
 
-- kaslr: If the vmcore is generated from a KASLR-enabled Linux kernel,
-         the KASLR offset is required for the crash utility to load
-         the vmcore. Without the proper kaslr option, the crash utility
-         fails to load the vmcore file.
-- satp: The exact root page table address helps determine the correct base
-        PGD address.
+These patches cleanup handling of ZERO_PAGE() and zero_pfn.
 
-With this patch, RISC-V VMCOREINFO ELF notes now include both kaslr
-and satp information.
+v3 changes:
+* move zero_page_pfn extern declaration back inside the helpers
+* add tags, thanks all!
 
-Signed-off-by: Austin Kim <austin.kim@lge.com>
----
- arch/riscv/kernel/vmcore_info.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+v2: https://lore.kernel.org/all/20260209144058.2092871-1-rppt@kernel.org
+* add patches that cleanup zero_pfn code a bit (patches 1,2)
+* add a patch that caches struct page for empty_zero_page (patch 4)
+* use uint8_t instead of unsigned long for empty_zero_page
+* fix sparc64 changes in patch 3
 
-diff --git a/arch/riscv/kernel/vmcore_info.c b/arch/riscv/kernel/vmcore_info.c
-index d5e448aa9..682ba423c 100644
---- a/arch/riscv/kernel/vmcore_info.c
-+++ b/arch/riscv/kernel/vmcore_info.c
-@@ -3,6 +3,11 @@
- #include <linux/vmcore_info.h>
- #include <linux/pagemap.h>
- 
-+static inline u64 get_satp_value(void)
-+{
-+	return csr_read(CSR_SATP);
-+}
-+
- void arch_crash_save_vmcoreinfo(void)
- {
- 	VMCOREINFO_NUMBER(phys_ram_base);
-@@ -27,5 +32,7 @@ void arch_crash_save_vmcoreinfo(void)
- #else
- 	vmcoreinfo_append_str("NUMBER(va_kernel_pa_offset)=0x%lx\n",
- 						kernel_map.va_kernel_pa_offset);
-+	vmcoreinfo_append_str("KERNELOFFSET=%lx\n", kaslr_offset());
-+	vmcoreinfo_append_str("NUMBER(satp)=0x%llx\n", get_satp_value());
- #endif
- }
--- 
-2.34.1
+v1: https://lore.kernel.org/all/20260124095628.668870-1-rppt@kernel.org
 
+Mike Rapoport (Microsoft) (4):
+  mm: don't special case !MMU for is_zero_pfn() and my_zero_pfn()
+  mm: rename my_zero_pfn() to zero_pfn()
+  arch, mm: consolidate empty_zero_page
+  mm: cache struct page for empty_zero_page and return it from ZERO_PAGE()
+
+ arch/alpha/include/asm/pgtable.h          |  6 ---
+ arch/arc/include/asm/pgtable.h            |  3 --
+ arch/arc/mm/init.c                        |  2 -
+ arch/arm/include/asm/pgtable.h            |  9 -----
+ arch/arm/mm/mmu.c                         |  7 ----
+ arch/arm/mm/nommu.c                       |  7 ----
+ arch/arm64/include/asm/pgtable.h          |  7 ----
+ arch/arm64/mm/init.c                      |  5 +++
+ arch/arm64/mm/mmu.c                       |  7 ----
+ arch/csky/include/asm/pgtable.h           |  3 --
+ arch/csky/mm/init.c                       |  3 --
+ arch/hexagon/include/asm/pgtable.h        |  6 ---
+ arch/hexagon/kernel/head.S                |  5 ---
+ arch/hexagon/kernel/hexagon_ksyms.c       |  1 -
+ arch/loongarch/include/asm/pgtable.h      |  9 -----
+ arch/loongarch/mm/init.c                  |  3 --
+ arch/m68k/include/asm/pgtable_mm.h        |  9 -----
+ arch/m68k/include/asm/pgtable_no.h        |  7 ----
+ arch/m68k/mm/init.c                       |  9 -----
+ arch/m68k/mm/mcfmmu.c                     |  2 -
+ arch/m68k/mm/motorola.c                   |  6 ---
+ arch/m68k/mm/sun3mmu.c                    |  2 -
+ arch/microblaze/include/asm/pgtable.h     | 10 -----
+ arch/microblaze/kernel/head.S             |  4 --
+ arch/microblaze/kernel/microblaze_ksyms.c |  2 -
+ arch/mips/mm/init.c                       | 11 +-----
+ arch/nios2/include/asm/pgtable.h          |  7 ----
+ arch/nios2/kernel/head.S                  | 10 -----
+ arch/nios2/kernel/nios2_ksyms.c           |  1 -
+ arch/openrisc/include/asm/pgtable.h       |  4 --
+ arch/openrisc/kernel/head.S               |  3 --
+ arch/openrisc/kernel/or32_ksyms.c         |  1 -
+ arch/openrisc/mm/init.c                   |  3 --
+ arch/parisc/include/asm/pgtable.h         | 11 ------
+ arch/parisc/mm/init.c                     |  6 ---
+ arch/powerpc/include/asm/pgtable.h        |  6 ---
+ arch/powerpc/mm/mem.c                     |  3 --
+ arch/riscv/include/asm/pgtable.h          |  7 ----
+ arch/riscv/mm/init.c                      |  4 --
+ arch/s390/mm/init.c                       |  4 +-
+ arch/sh/include/asm/pgtable.h             |  8 ----
+ arch/sh/include/asm/setup.h               |  3 +-
+ arch/sh/kernel/head_32.S                  |  4 +-
+ arch/sh/kernel/sh_ksyms_32.c              |  1 -
+ arch/sh/mm/init.c                         |  1 -
+ arch/sparc/include/asm/pgtable_32.h       |  8 ----
+ arch/sparc/include/asm/pgtable_64.h       |  3 --
+ arch/sparc/include/asm/setup.h            |  2 -
+ arch/sparc/kernel/head_32.S               |  7 ----
+ arch/sparc/mm/init_32.c                   |  4 --
+ arch/sparc/mm/init_64.c                   | 24 +++++-------
+ arch/um/include/asm/pgtable.h             |  9 -----
+ arch/um/include/shared/kern_util.h        |  1 -
+ arch/um/kernel/mem.c                      | 16 --------
+ arch/um/kernel/um_arch.c                  |  1 -
+ arch/x86/include/asm/pgtable.h            |  8 ----
+ arch/x86/kernel/head_32.S                 |  4 --
+ arch/x86/kernel/head_64.S                 |  7 ----
+ arch/x86/kvm/mmu/spte.h                   |  2 +-
+ arch/xtensa/include/asm/pgtable.h         |  4 --
+ arch/xtensa/kernel/head.S                 |  3 --
+ arch/xtensa/kernel/xtensa_ksyms.c         |  2 -
+ fs/dax.c                                  |  2 +-
+ fs/proc/vmcore.c                          |  2 +-
+ include/linux/pgtable.h                   | 48 ++++++++++++++---------
+ mm/huge_memory.c                          |  2 +-
+ mm/memory.c                               | 15 +------
+ mm/migrate.c                              |  2 +-
+ mm/mm_init.c                              | 28 +++++++++++++
+ mm/userfaultfd.c                          |  4 +-
+ 70 files changed, 86 insertions(+), 354 deletions(-)
+
+
+base-commit: 50c7f34c5c7403a12003c6759f6f6ca9a5a10872
+--
+2.51.0
+
+*** BLURB HERE ***
+
+Mike Rapoport (Microsoft) (4):
+  mm: don't special case !MMU for is_zero_pfn() and my_zero_pfn()
+  mm: rename my_zero_pfn() to zero_pfn()
+  arch, mm: consolidate empty_zero_page
+  mm: cache struct page for empty_zero_page and return it from
+    ZERO_PAGE()
+
+ arch/alpha/include/asm/pgtable.h          |  6 ---
+ arch/arc/include/asm/pgtable.h            |  3 --
+ arch/arc/mm/init.c                        |  2 -
+ arch/arm/include/asm/pgtable.h            |  9 ----
+ arch/arm/mm/mmu.c                         |  7 ----
+ arch/arm/mm/nommu.c                       |  7 ----
+ arch/arm64/include/asm/pgtable.h          |  7 ----
+ arch/arm64/mm/init.c                      |  5 +++
+ arch/arm64/mm/mmu.c                       |  7 ----
+ arch/csky/include/asm/pgtable.h           |  3 --
+ arch/csky/mm/init.c                       |  3 --
+ arch/hexagon/include/asm/pgtable.h        |  6 ---
+ arch/hexagon/kernel/head.S                |  5 ---
+ arch/hexagon/kernel/hexagon_ksyms.c       |  1 -
+ arch/loongarch/include/asm/pgtable.h      |  9 ----
+ arch/loongarch/mm/init.c                  |  3 --
+ arch/m68k/include/asm/pgtable_mm.h        |  9 ----
+ arch/m68k/include/asm/pgtable_no.h        |  7 ----
+ arch/m68k/mm/init.c                       |  9 ----
+ arch/m68k/mm/mcfmmu.c                     |  2 -
+ arch/m68k/mm/motorola.c                   |  6 ---
+ arch/m68k/mm/sun3mmu.c                    |  2 -
+ arch/microblaze/include/asm/pgtable.h     | 10 -----
+ arch/microblaze/kernel/head.S             |  4 --
+ arch/microblaze/kernel/microblaze_ksyms.c |  2 -
+ arch/mips/mm/init.c                       | 11 +----
+ arch/nios2/include/asm/pgtable.h          |  7 ----
+ arch/nios2/kernel/head.S                  | 10 -----
+ arch/nios2/kernel/nios2_ksyms.c           |  1 -
+ arch/openrisc/include/asm/pgtable.h       |  4 --
+ arch/openrisc/kernel/head.S               |  3 --
+ arch/openrisc/kernel/or32_ksyms.c         |  1 -
+ arch/openrisc/mm/init.c                   |  3 --
+ arch/parisc/include/asm/pgtable.h         | 11 -----
+ arch/parisc/mm/init.c                     |  6 ---
+ arch/powerpc/include/asm/pgtable.h        |  6 ---
+ arch/powerpc/mm/mem.c                     |  3 --
+ arch/riscv/include/asm/pgtable.h          |  7 ----
+ arch/riscv/mm/init.c                      |  4 --
+ arch/s390/mm/init.c                       |  4 +-
+ arch/sh/include/asm/pgtable.h             |  8 ----
+ arch/sh/include/asm/setup.h               |  3 +-
+ arch/sh/kernel/head_32.S                  |  4 +-
+ arch/sh/kernel/sh_ksyms_32.c              |  1 -
+ arch/sh/mm/init.c                         |  1 -
+ arch/sparc/include/asm/pgtable_32.h       |  8 ----
+ arch/sparc/include/asm/pgtable_64.h       |  3 --
+ arch/sparc/include/asm/setup.h            |  2 -
+ arch/sparc/kernel/head_32.S               |  7 ----
+ arch/sparc/mm/init_32.c                   |  4 --
+ arch/sparc/mm/init_64.c                   | 24 ++++-------
+ arch/um/include/asm/pgtable.h             |  9 ----
+ arch/um/include/shared/kern_util.h        |  1 -
+ arch/um/kernel/mem.c                      | 16 -------
+ arch/um/kernel/um_arch.c                  |  1 -
+ arch/x86/include/asm/pgtable.h            |  8 ----
+ arch/x86/kernel/head_32.S                 |  4 --
+ arch/x86/kernel/head_64.S                 |  7 ----
+ arch/x86/kvm/mmu/spte.h                   |  2 +-
+ arch/xtensa/include/asm/pgtable.h         |  4 --
+ arch/xtensa/kernel/head.S                 |  3 --
+ arch/xtensa/kernel/xtensa_ksyms.c         |  2 -
+ fs/dax.c                                  |  2 +-
+ fs/proc/vmcore.c                          |  2 +-
+ include/linux/pgtable.h                   | 51 +++++++++++++++--------
+ mm/huge_memory.c                          |  2 +-
+ mm/memory.c                               | 15 +------
+ mm/migrate.c                              |  2 +-
+ mm/mm_init.c                              | 28 +++++++++++++
+ mm/userfaultfd.c                          |  4 +-
+ 70 files changed, 89 insertions(+), 354 deletions(-)
+
+
+base-commit: 50c7f34c5c7403a12003c6759f6f6ca9a5a10872
+--
+2.51.0
 
 _______________________________________________
 linux-riscv mailing list
