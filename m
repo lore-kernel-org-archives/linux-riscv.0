@@ -4,107 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4624EB2700
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Feb 2026 10:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA66CE9E2F8
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Feb 2026 12:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VcJPD5isjXhY0NUqfhz2XvbHB9Iz8Pn3lpvo3boHwLU=; b=lo8T1W0BQ3zvLM
-	E7qAlFWnMnNJPOQku7XxCL3kbMTCglNIjfReN+0HmXbj6iWxe2ef48wyf1Jjh+Ij5k9+w4Ih9bBeo
-	2auiEhx4FZYvTKgQNoB7Qo9WoztuCTUSFul9rI4nctK8x4v7Szg3/kFaWpkWH8SCbIcvGuNdpXIVn
-	NrhNT5Xxl+Io7MS6htv8OBtpgvmsUsKpdw3Kf9STgrhmsYSlz5Iv50nmUsUM3faouqBpTvh/nNDUF
-	ydKVz6BwJYZIEJ3dKmbsbpGFtn/hqyvj4Whk7EXzP4hbnMUYaya4NW+1R/YYQ31MC35eh/bEb7/mh
-	zd0q3vbbYnJvWGyiR7/w==;
+	List-Owner; bh=qzcCI6i9hm5rRlUS3//oilxyqCZ1aHakzS373ldZwwM=; b=AJ/6SESdd4ozQS
+	TRgUi/+pmyPVq442DFj7jQZJwqzONepBsAUtA+P5MHQkViFgyyJ5aVhTnsBmovRg86NgvcBPjForr
+	kEyL36kpSm7dJDFCbYAv3Wv5cSnh17PCcjTXIN4Ru0KCk93DuMUsBK2lgPLh0kzhkBOHoynXOqPhy
+	rid7tAgvTNQYggunRnJn026T+QTJQPdpMSRo+9vBG1+R+RTlRmZLKKiyp1TZP2OTZfUW/9a3jg3Ch
+	8VXZrNG+D011nKoZvMdBkSu9mZBtUnJo2SuGRArwRbUS6Zg3OfqXsL6zpAsli24F0S2K2TJPa+z7a
+	hHvfPE+foVksqPHaqX7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq7Wf-00000000Vm1-46UD;
-	Wed, 11 Feb 2026 10:32:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vq90C-00000000bHn-34DX;
+	Wed, 11 Feb 2026 12:07:28 +0000
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq7Wd-00000000Vkj-0Zxg;
-	Wed, 11 Feb 2026 10:32:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9DD6140DFA;
-	Wed, 11 Feb 2026 10:32:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F37C2C2BCAF;
-	Wed, 11 Feb 2026 10:32:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770805970;
-	bh=WXj3bDUynhmJwIWcqszyv0wbTX5I8QPCpk4+eeqSnq4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VUycx2g0refsXHYPZVpEU+UC7PHYsiruAyCk0E2NjULDdTGpkmomFQafKHUOTFGfN
-	 gxdwH68dJxpGp5uoQ4bCIYVF9q/ZtWZyBrRXQKklHUNBBv4tXopKimIWb6HO1xITWD
-	 v5Le7kpV2WyO2ymXn0Iru7RhLgig1FDLpKEZLiaW4uloDE3fqoRPWZQHcg4WZLcxzC
-	 Dem6wAhAyVX6Jeh2Hi5hO5aKu49m5ADtB9baTMfm2NL2MQ5Xgny2uugfwPkwNfT/Sh
-	 55TTMaB6nztE9wmgPYA3G+uvSqqAXPlhRNT70FMQNqDaWyvoaKR0G5d15Xri9RCkaK
-	 z/9dYoHmO4k7Q==
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Andreas Larsson <andreas@gaisler.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>,
-	Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Matt Turner <mattst88@gmail.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>,
-	Michal Simek <monstr@monstr.eu>,
-	Mike Rapoport <rppt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Vineet Gupta <vgupta@kernel.org>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Will Deacon <will@kernel.org>,
-	linux-alpha@vger.kernel.org,
+	id 1vq908-00000000bHT-3s5l
+	for linux-riscv@lists.infradead.org;
+	Wed, 11 Feb 2026 12:07:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1770811635; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
+	bh=F/xti1QAvF9cEi5hXsm9eD/PRlUwjRYPQBfR6jIjJ0o=;
+	b=nqV6Bvj7/yOU5Ikcj9op5IfxGcL3GP7rZY0oYq/vqGZoRCePkcABdYsD+0iBj+d08nar8r0d+llDPH4Wwq11ROyYSdxPKOOG6xSPrSqaBkGWW/xkxbXiIuszBy8AyKx+0gvqEEl5661ShCdELy6T9Mv/r3M6ryf7yy69erTgV9Y=
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0Wz13zdh_1770811631 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 11 Feb 2026 20:07:13 +0800
+From: fangyu.yu@linux.alibaba.com
+To: jgg@ziepe.ca
+Cc: alex@ghiti.fr,
+	andrew.jones@oss.qualcomm.com,
+	aou@eecs.berkeley.edu,
+	fangyu.yu@linux.alibaba.com,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
+	joro@8bytes.org,
 	linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	linux-mm@kvack.org,
-	x86@kernel.org
-Subject: [PATCH v3 4/4] mm: cache struct page for empty_zero_page and return it from ZERO_PAGE()
-Date: Wed, 11 Feb 2026 12:31:41 +0200
-Message-ID: <20260211103141.3215197-5-rppt@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260211103141.3215197-1-rppt@kernel.org>
-References: <20260211103141.3215197-1-rppt@kernel.org>
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robin.murphy@arm.com,
+	tjeznach@rivosinc.com,
+	will@kernel.org
+Subject: Re: Re: [PATCH 0/2] iommu/riscv: support range and non-leaf IOTLB invalidation 
+Date: Wed, 11 Feb 2026 20:07:09 +0800
+Message-Id: <20260211120709.51070-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20260210130221.GE943673@ziepe.ca>
+References: <20260210130221.GE943673@ziepe.ca>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_023251_227759_BA1C43F0 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20260211_040725_652477_364896B2 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,277 +73,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-
-For most architectures every invocation of ZERO_PAGE() does
-virt_to_page(empty_zero_page). But empty_zero_page is in BSS and it is
-enough to get its struct page once at initialization time and then use
-it whenever a zero page should be accessed.
-
-Add yet another __zero_page variable that will be initialized as
-virt_to_page(empty_zero_page) for most architectures in a weak
-arch_setup_zero_pages() function.
-
-For architectures that use colored zero pages (MIPS and s390) rename their
-setup_zero_pages() to arch_setup_zero_pages() and make it global rather
-than static.
-
-For architectures that cannot use virt_to_page() for BSS (arm64 and
-sparc64) add override of arch_setup_zero_pages().
-
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
----
- arch/arm64/include/asm/pgtable.h    |  6 ------
- arch/arm64/mm/init.c                |  5 +++++
- arch/mips/mm/init.c                 | 11 +----------
- arch/s390/mm/init.c                 |  4 +---
- arch/sparc/include/asm/pgtable_64.h |  3 ---
- arch/sparc/mm/init_64.c             | 17 +++++++----------
- include/linux/pgtable.h             | 11 ++++++++---
- mm/mm_init.c                        | 21 +++++++++++++++++----
- 8 files changed, 39 insertions(+), 39 deletions(-)
-
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 63da07398a30..2c1ec7cc8612 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -106,12 +106,6 @@ static inline void arch_leave_lazy_mmu_mode(void)
- #define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)	\
- 	local_flush_tlb_page_nonotify(vma, address)
- 
--/*
-- * ZERO_PAGE is a global shared page that is always zero: used
-- * for zero-mapped memory areas etc..
-- */
--#define ZERO_PAGE(vaddr)	phys_to_page(__pa_symbol(empty_zero_page))
--
- #define pte_ERROR(e)	\
- 	pr_err("%s:%d: bad pte %016llx.\n", __FILE__, __LINE__, pte_val(e))
- 
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index 96711b8578fd..417ec7efe569 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -328,6 +328,11 @@ void __init bootmem_init(void)
- 	memblock_dump_all();
- }
- 
-+void __init arch_setup_zero_pages(void)
-+{
-+	__zero_page = phys_to_page(__pa_symbol(empty_zero_page));
-+}
-+
- void __init arch_mm_preinit(void)
- {
- 	unsigned int flags = SWIOTLB_VERBOSE;
-diff --git a/arch/mips/mm/init.c b/arch/mips/mm/init.c
-index 4f6449ad02ca..55b25e85122a 100644
---- a/arch/mips/mm/init.c
-+++ b/arch/mips/mm/init.c
-@@ -56,10 +56,7 @@ unsigned long empty_zero_page, zero_page_mask;
- EXPORT_SYMBOL_GPL(empty_zero_page);
- EXPORT_SYMBOL(zero_page_mask);
- 
--/*
-- * Not static inline because used by IP27 special magic initialization code
-- */
--static void __init setup_zero_pages(void)
-+void __init arch_setup_zero_pages(void)
- {
- 	unsigned int order;
- 
-@@ -450,7 +447,6 @@ void __init arch_mm_preinit(void)
- 	BUILD_BUG_ON(IS_ENABLED(CONFIG_32BIT) && (PFN_PTE_SHIFT > PAGE_SHIFT));
- 
- 	maar_init();
--	setup_zero_pages();	/* Setup zeroed pages.  */
- 	highmem_init();
- 
- #ifdef CONFIG_64BIT
-@@ -461,11 +457,6 @@ void __init arch_mm_preinit(void)
- 				0x80000000 - 4, KCORE_TEXT);
- #endif
- }
--#else  /* CONFIG_NUMA */
--void __init arch_mm_preinit(void)
--{
--	setup_zero_pages();	/* This comes from node 0 */
--}
- #endif /* !CONFIG_NUMA */
- 
- void free_init_pages(const char *what, unsigned long begin, unsigned long end)
-diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-index 3c20475cbee2..1f72efc2a579 100644
---- a/arch/s390/mm/init.c
-+++ b/arch/s390/mm/init.c
-@@ -69,7 +69,7 @@ unsigned long empty_zero_page, zero_page_mask;
- EXPORT_SYMBOL(empty_zero_page);
- EXPORT_SYMBOL(zero_page_mask);
- 
--static void __init setup_zero_pages(void)
-+void __init arch_setup_zero_pages(void)
- {
- 	unsigned long total_pages = memblock_estimated_nr_free_pages();
- 	unsigned int order;
-@@ -159,8 +159,6 @@ void __init arch_mm_preinit(void)
- 	cpumask_set_cpu(0, mm_cpumask(&init_mm));
- 
- 	pv_init();
--
--	setup_zero_pages();	/* Setup zeroed pages. */
- }
- 
- unsigned long memory_block_size_bytes(void)
-diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
-index 615f460c50af..74ede706fb32 100644
---- a/arch/sparc/include/asm/pgtable_64.h
-+++ b/arch/sparc/include/asm/pgtable_64.h
-@@ -210,9 +210,6 @@ extern unsigned long _PAGE_CACHE;
- extern unsigned long pg_iobits;
- extern unsigned long _PAGE_ALL_SZ_BITS;
- 
--extern struct page *mem_map_zero;
--#define ZERO_PAGE(vaddr)	(mem_map_zero)
--
- /* PFNs are real physical page numbers.  However, mem_map only begins to record
-  * per-page information starting at pfn_base.  This is to handle systems where
-  * the first physical page in the machine is at some huge physical address,
-diff --git a/arch/sparc/mm/init_64.c b/arch/sparc/mm/init_64.c
-index 0cc8de2fea90..707c1df67d79 100644
---- a/arch/sparc/mm/init_64.c
-+++ b/arch/sparc/mm/init_64.c
-@@ -177,9 +177,6 @@ extern unsigned long sparc_ramdisk_image64;
- extern unsigned int sparc_ramdisk_image;
- extern unsigned int sparc_ramdisk_size;
- 
--struct page *mem_map_zero __read_mostly;
--EXPORT_SYMBOL(mem_map_zero);
--
- unsigned int sparc64_highest_unlocked_tlb_ent __read_mostly;
- 
- unsigned long sparc64_kern_pri_context __read_mostly;
-@@ -2496,11 +2493,17 @@ static void __init register_page_bootmem_info(void)
- 			register_page_bootmem_info_node(NODE_DATA(i));
- #endif
- }
--void __init mem_init(void)
-+
-+void __init arch_setup_zero_pages(void)
- {
- 	phys_addr_t zero_page_pa = kern_base +
- 		((unsigned long)&empty_zero_page[0] - KERNBASE);
- 
-+	__zero_page = phys_to_page(zero_page_pa);
-+}
-+
-+void __init mem_init(void)
-+{
- 	/*
- 	 * Must be done after boot memory is put on freelist, because here we
- 	 * might set fields in deferred struct pages that have not yet been
-@@ -2509,12 +2512,6 @@ void __init mem_init(void)
- 	 */
- 	register_page_bootmem_info();
- 
--	/*
--	 * Set up the zero page, mark it reserved, so that page count
--	 * is not manipulated when freeing the page from user ptes.
--	 */
--	mem_map_zero = pfn_to_page(PHYS_PFN(zero_page_pa));
--
- 	if (tlb_type == cheetah || tlb_type == cheetah_plus)
- 		cheetah_ecache_flush_init();
- }
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 3d48eea57cd2..1da21ec62836 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1894,6 +1894,8 @@ static inline void pfnmap_setup_cachemode_pfn(unsigned long pfn, pgprot_t *prot)
-  * For architectures that don't __HAVE_COLOR_ZERO_PAGE the zero page lives in
-  * empty_zero_page in BSS.
-  */
-+void arch_setup_zero_pages(void);
-+
- #ifdef __HAVE_COLOR_ZERO_PAGE
- static inline int is_zero_pfn(unsigned long pfn)
- {
-@@ -1921,10 +1923,13 @@ static inline unsigned long zero_pfn(unsigned long addr)
- }
- 
- extern uint8_t empty_zero_page[PAGE_SIZE];
-+extern struct page *__zero_page;
- 
--#ifndef ZERO_PAGE
--#define ZERO_PAGE(vaddr) ((void)(vaddr),virt_to_page(empty_zero_page))
--#endif
-+static inline struct page *_zero_page(unsigned long addr)
-+{
-+	return __zero_page;
-+}
-+#define ZERO_PAGE(vaddr) _zero_page(vaddr)
- 
- #endif /* __HAVE_COLOR_ZERO_PAGE */
- 
-diff --git a/mm/mm_init.c b/mm/mm_init.c
-index 1eac634ece1a..b08608c1b71d 100644
---- a/mm/mm_init.c
-+++ b/mm/mm_init.c
-@@ -59,7 +59,10 @@ EXPORT_SYMBOL(zero_page_pfn);
- #ifndef __HAVE_COLOR_ZERO_PAGE
- uint8_t empty_zero_page[PAGE_SIZE] __page_aligned_bss;
- EXPORT_SYMBOL(empty_zero_page);
--#endif
-+
-+struct page *__zero_page __ro_after_init;
-+EXPORT_SYMBOL(__zero_page);
-+#endif /* __HAVE_COLOR_ZERO_PAGE */
- 
- #ifdef CONFIG_DEBUG_MEMORY_INIT
- int __meminitdata mminit_loglevel;
-@@ -2675,12 +2678,21 @@ static void __init mem_init_print_info(void)
- 		);
- }
- 
--static int __init init_zero_page_pfn(void)
-+#ifndef __HAVE_COLOR_ZERO_PAGE
-+/*
-+ * architectures that __HAVE_COLOR_ZERO_PAGE must define this function
-+ */
-+void __init __weak arch_setup_zero_pages(void)
-+{
-+	__zero_page = virt_to_page(empty_zero_page);
-+}
-+#endif
-+
-+static void __init init_zero_page_pfn(void)
- {
-+	arch_setup_zero_pages();
- 	zero_page_pfn = page_to_pfn(ZERO_PAGE(0));
--	return 0;
- }
--early_initcall(init_zero_page_pfn);
- 
- void __init __weak arch_mm_preinit(void)
- {
-@@ -2704,6 +2716,7 @@ void __init mm_core_init_early(void)
- void __init mm_core_init(void)
- {
- 	arch_mm_preinit();
-+	init_zero_page_pfn();
- 
- 	/* Initializations relying on SMP setup */
- 	BUILD_BUG_ON(MAX_ZONELISTS > 2);
--- 
-2.51.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Pj4gRnJvbTogRmFuZ3l1IFl1IDxmYW5neXUueXVAbGludXguYWxpYmFiYS5jb20+Cj4+Cj4+IFRo
+aXMgc2VyaWVzIGFkZHMgc3VwcG9ydCBmb3IgdHdvIFJJU0MtViBJT01NVSB2MS4wLjEgaW52YWxp
+ZGF0aW9uIGV4dGVuc2lvbnMgaW4KPj4gdGhlIFJJU0MtViBJT01NVSBkcml2ZXI6Cj4+Cj4+ICAg
+LSBBZGRyZXNzIFJhbmdlIEludmFsaWRhdGlvbiAoY2FwYWJpbGl0aWVzLlMpLCB3aGljaCBhbGxv
+d3MgZW5jb2RpbmcgYSBOQVBPVAo+PiAgICAgYWRkcmVzcyByYW5nZSBpbiB0aGUgSU9USU5WQUwu
+e1ZNQSxHVk1BfSBBRERSIG9wZXJhbmQgd2hlbiB0aGUgUyBiaXQgaXMgc2V0LAo+PiAgICAgcmVk
+dWNpbmcgdGhlIG51bWJlciBvZiBpbnZhbGlkYXRpb24gY29tbWFuZHMgZm9yIGxhcmdlIG9yIHN1
+cGVycGFnZS1iYWNrZWQKPj4gICAgIG1hcHBpbmdzLgo+Pgo+PiAgIC0gTm9uLWxlYWYgUFRFIElu
+dmFsaWRhdGlvbiAoY2FwYWJpbGl0aWVzLk5MKSwgd2hpY2ggYWxsb3dzIElPVElOVkFMLlZNQSB3
+aXRoCj4+ICAgICBBVj0xIGFuZCBOTD0xIHRvIGludmFsaWRhdGUgY2FjaGVkIG5vbi1sZWFmIFBU
+RSBpbmZvcm1hdGlvbiBmb3IgdGhlIGdpdmVuCj4+ICAgICBJT1ZBLCBhZGRyZXNzaW5nIGNhc2Vz
+IHdoZXJlIHVwZGF0aW5nIG1hcHBpbmdzIHJlcGxhY2VzIGEgbm9uLWxlYWYgZW50cnkuCj4+Cj4+
+IFBhdGNoIDEgaW50cm9kdWNlcyB0aGUgbWlzc2luZyBjYXBhYmlsaXR5L29wZXJhbmQgZGVmaW5p
+dGlvbnMgYW5kIHN3aXRjaGVzIHRoZQo+PiBJT1RMQiBpbnZhbGlkYXRpb24gcGF0aCB0byB1c2Ug
+TkFQT1QgcmFuZ2UgaW52YWxpZGF0aW9ucyB3aGVuIHN1cHBvcnRlZC4KPj4KPj4gUGF0Y2ggMiBh
+ZGRzIHRoZSBOTCBjYXBhYmlsaXR5L29wZXJhbmQgZGVmaW5pdGlvbnMgYW5kIGV4dGVuZHMgdGhl
+IGludmFsaWRhdGlvbgo+PiBwYXRoIHRvIG9wdGlvbmFsbHkgcmVxdWVzdCBub24tbGVhZiBpbnZh
+bGlkYXRpb24uIFdoZW4gbWFwX3BhZ2VzKCkgcmVwbGFjZXMKPj4gbm9uLWxlYWYgcGFnZS10YWJs
+ZSBlbnRyaWVzLCB0aGUgZHJpdmVyIGludmFsaWRhdGVzIHRoZSBhZmZlY3RlZCBJT1ZBIHJhbmdl
+IHdpdGgKPj4gbm9uLWxlYWYgc2VtYW50aWNzLgo+Pgo+PiBObyBmdW5jdGlvbmFsIGNoYW5nZXMg
+YXJlIGV4cGVjdGVkIG9uIGhhcmR3YXJlIHRoYXQgZG9lcyBub3QgYWR2ZXJ0aXNlIHRoZXNlCj4+
+IGNhcGFiaWxpdGllczsgdGhlIGRyaXZlciBjb250aW51ZXMgdG8gZmFsbCBiYWNrIHRvIHRoZSBl
+eGlzdGluZyBpbnZhbGlkYXRpb24KPj4gYmVoYXZpb3IuCj4+Cj4+IEZhbmd5dSBZdSAoMik6Cj4+
+ICAgaW9tbXUvcmlzY3Y6IEFkZCBOQVBPVCByYW5nZSBpbnZhbGlkYXRpb24gc3VwcG9ydCBmb3Ig
+SU9USU5WQUwKPj4gICBpb21tdS9yaXNjdjogQWRkIG5vbi1sZWFmIGludmFsaWRhdGlvbiBzdXBw
+b3J0Cj4KPlRoZXNlIHdpbGwgbmVlZCB0byBiZSByZWRvbmUgb24gdG9wIG9mIHRoZSBuZXcgcGFn
+ZSB0YWJsZSBjb2RlIGZvciByaXNjdjoKPgo+aHR0cHM6Ly9wYXRjaC5tc2dpZC5saW5rL3IvMC12
+My05ZGJmMGE3MmE1MWMrMzAyLWlvbW11X3B0X3Jpc2N2X2pnZ0BudmlkaWEuY29tCj4KPkl0IHNo
+b3VsZCBnZXQgcGlja2VkIHVwIGVhcmx5IGluIHRoZSBuZXh0IGN5Y2xlCgpUaGFua3MuIEFja25v
+d2xlZGdlZOKAlEnigJlsbCByZXdvcmsgdGhlIHNlcmllcyBvbiB0b3Agb2YgdGhlIG5ldyBSSVND
+LVYgSU9NTVUgcGFnZQp0YWJsZSBwYXRjaGVzIG9uY2UgdGhleeKAmXJlIGluIGZvciB0aGUgbmV4
+dCBjeWNsZS4KCj4KPkphc29uCgpGYW5neXUsClRoYW5rcwoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
