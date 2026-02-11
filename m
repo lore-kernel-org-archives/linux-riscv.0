@@ -4,57 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E26EECD6CA
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Feb 2026 17:05:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9A07ECD6C1
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Feb 2026 17:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KkRQeCTzapUSFYnKc2gL4ypYpmiqRGDFzzp543ej4kI=; b=t7io7wFoagSpH4pIirAEmT0kmi
-	caWC8E6jiZsQ0+UduJOmf1Ynrvh11VqRIFHPWvQzGHGsd46ufUa9VpHY0mlerXuPpoRuXXLJvpaXg
-	pUqpaoLIWyHXLHr5p8Dh74vdXxYUXPJ3GJO2qLbjb7PFyiPifcQ6h3sSNdFCzp3w7TyikMTwm6di2
-	wzhu4tDEL0fDss4m4Bt3Srf5pIicDGWKxc3kokaNFMJJ1ZoOat0ef4258ZJbq8gDM/AP8hIbibosn
-	TFzYdRG2G7j15005gPL83089180YI3vAQCebQMYiZFOvgN8NB6QBVvYK48CtrkytZTgDGt5JP/cVe
-	LM4I2Dbg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kjwwpUWDw+Rp9wpPtckm16pb7vchZHXM6VJYikh4oWg=; b=j5L7ztdM87RfYA
+	p3IB/u63zjderNlfqL9IrlK4hCQP37nF6XPxmZSHxfy75UvQ1ZwTdMNKVQYuP/N5PFWY/X89iJAnA
+	idcwSGr4+Cy6yMMmqFQ/qPOQXFDQ/jLSU4ZBgaROCKBjWDS9WeJBB+n31Ghr6d0ulw2qjPuV0kWln
+	IvtmrX5gmKLnB9BBp60ecA3MB6dlFSvYk7ktSG6O1Oj4v55xgOgvwd3v1uiyin2H+EszKvM8aIlXJ
+	EkT+1msaVaiC49ARX+mIZkhnNptA42rVPdVXxLK/GhWGYeyzaBuPWMD8E2hfeZlGohL4jA9tr4RSQ
+	74SEMxO+pGGabdOh3zkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqDer-00000000sAN-1yY1;
-	Wed, 11 Feb 2026 17:05:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vqE3E-00000000tmF-3gmK;
+	Wed, 11 Feb 2026 17:30:56 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqDep-00000000sA2-3MWn
+	id 1vqE3B-00000000tk0-3CES
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Feb 2026 17:05:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D09AC40C3F;
-	Wed, 11 Feb 2026 17:05:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BD29C4CEF7;
-	Wed, 11 Feb 2026 17:05:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770829542;
-	bh=t7CI+yj3Fr5Xqkb8J8nWZldkzPof4joyVukHWqtE9vI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LDJ2Q9muRduA6UjMgMHcWcTGrl6hrRRTbQkNLH18mLWWixEjNqzXZCFC08CJH/McZ
-	 rxdtZ3OzsogjZXZk1PBvHtO301cf2jwPya8cEQhG43jWNBiB2E/84El3GjQWERGrjl
-	 rDPyMEgGa3kAzGlSu1UjSibPM+3W2fEKjmg4lcdnvsIVfYPXaceMGzOcazOyPq8yZQ
-	 Ph8RIIW7yQ+UEqXzysr0lO2QQy5D1Vkc+SAHfXuoEVULQpkrBID9Pvgc8X+YTqHQMn
-	 03xLjJJ3RJR3zpqNXwxqnkbmiO8Ny6O9i5cU5KT9Suqaeqf845p5dgZwbWrUJtRmmD
-	 pf/Z9WqxVuovg==
-Date: Wed, 11 Feb 2026 17:05:39 +0000
-From: Conor Dooley <conor@kernel.org>
-To: seanwascoding <seanwascoding@gmail.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	linux-riscv@lists.infradead.org, kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH] riscv: fix various typos in comments and code
-Message-ID: <20260211-trash-eldest-aebdecd512c4@spud>
-References: <20260211165827.78574-1-seanwascoding@gmail.com>
+	Wed, 11 Feb 2026 17:30:55 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1770831051;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=r/8y0dAsi1KhYQOwI9LZZG8LjkoOsEKw49Zlrv+dlAg=;
+	b=SdZMaVtpDXnlEmf2pEmfwTyNcS8A9Qiqs5CvVQO5Ve9E/z1NFbyHRpPF69btIw3HMZuMuz
+	Ors8Gsuj4kctnAXXSgAj1daq2F0OUZwEQHzd+tKjXrP72zUWUHJqMdA9/7M1vx0zhQdafx
+	74OaIVPnrIgxKMuTn/iUsFFQHPDKkBy4ufbhyVr3HwB8h+A0wA5iqURQVAffd3O1A6Atvs
+	oNY2TC64pR5zFjFq0ZnoKzKVU9Y5WvbRuDLxqukC3jv85WN5UFqBIqiiy7nYxGvtKdR1Er
+	WZ38UfnJ1kwuWaqHfiegaqEdVZqWl3RRYG4qwY7ZmafQzecKyOXOyhB16yaEuQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1770831051;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=r/8y0dAsi1KhYQOwI9LZZG8LjkoOsEKw49Zlrv+dlAg=;
+	b=k6LTFLm3s31j4+B5eetbSfi6TJuNhE43D3HIdciKWDDFdd3YzCd25qygSntBdy8nxc/iVj
+	VAKUMRhPWZDhUxCQ==
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Nam Cao <namcao@linutronix.de>
+Subject: [PATCH 3/5] riscv: Reuse measure_cycles() in check_vector_unaligned_access()
+Date: Wed, 11 Feb 2026 18:30:33 +0100
+Message-ID: <be4c66fd4120952195fdcd0e62d245c55f0711e2.1770830596.git.namcao@linutronix.de>
+In-Reply-To: <cover.1770830596.git.namcao@linutronix.de>
+References: <cover.1770830596.git.namcao@linutronix.de>
 MIME-Version: 1.0
-In-Reply-To: <20260211165827.78574-1-seanwascoding@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_090543_901680_E7BC61BC 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20260211_093053_983522_E163F6D0 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,113 +78,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2055605673031092122=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+check_vector_unaligned_access() duplicates the logic in measure_cycles().
 
---===============2055605673031092122==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="C1psYPQDO/Em2GeW"
-Content-Disposition: inline
+Reuse measure_cycles() and deduplicate.
 
+Signed-off-by: Nam Cao <namcao@linutronix.de>
+---
+ arch/riscv/kernel/unaligned_access_speed.c | 54 ++++------------------
+ 1 file changed, 8 insertions(+), 46 deletions(-)
 
---C1psYPQDO/Em2GeW
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+index b964a666a973..c0d39c4b2150 100644
+--- a/arch/riscv/kernel/unaligned_access_speed.c
++++ b/arch/riscv/kernel/unaligned_access_speed.c
+@@ -16,7 +16,6 @@
+ 
+ #include "copy-unaligned.h"
+ 
+-#define MISALIGNED_ACCESS_JIFFIES_LG2 1
+ #define MISALIGNED_ACCESS_NS 8000000
+ #define MISALIGNED_BUFFER_SIZE 0x4000
+ #define MISALIGNED_BUFFER_ORDER get_order(MISALIGNED_BUFFER_SIZE)
+@@ -30,9 +29,9 @@ static long unaligned_vector_speed_param = RISCV_HWPROBE_MISALIGNED_VECTOR_UNKNO
+ 
+ static cpumask_t fast_misaligned_access;
+ 
+-#ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
+-static u64 measure_cycles(void (*func)(void *dst, const void *src, size_t len),
+-			  void *dst, void *src, size_t len)
++static u64 __maybe_unused
++measure_cycles(void (*func)(void *dst, const void *src, size_t len),
++	       void *dst, void *src, size_t len)
+ {
+ 	u64 start_cycles, end_cycles, cycles = -1ULL;
+ 	u64 start_ns;
+@@ -64,6 +63,7 @@ static u64 measure_cycles(void (*func)(void *dst, const void *src, size_t len),
+ 	return cycles;
+ }
+ 
++#ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
+ static int check_unaligned_access(void *param)
+ {
+ 	int cpu = smp_processor_id();
+@@ -270,11 +270,9 @@ static int riscv_offline_cpu(unsigned int cpu)
+ static void check_vector_unaligned_access(struct work_struct *work __always_unused)
+ {
+ 	int cpu = smp_processor_id();
+-	u64 start_cycles, end_cycles;
+ 	u64 word_cycles;
+ 	u64 byte_cycles;
+ 	int ratio;
+-	unsigned long start_jiffies, now;
+ 	struct page *page;
+ 	void *dst;
+ 	void *src;
+@@ -294,50 +292,14 @@ static void check_vector_unaligned_access(struct work_struct *work __always_unus
+ 	/* Unalign src as well, but differently (off by 1 + 2 = 3). */
+ 	src = dst + (MISALIGNED_BUFFER_SIZE / 2);
+ 	src += 2;
+-	word_cycles = -1ULL;
+ 
+-	/* Do a warmup. */
+ 	kernel_vector_begin();
+-	__riscv_copy_vec_words_unaligned(dst, src, MISALIGNED_COPY_SIZE);
+-
+-	start_jiffies = jiffies;
+-	while ((now = jiffies) == start_jiffies)
+-		cpu_relax();
+-
+-	/*
+-	 * For a fixed amount of time, repeatedly try the function, and take
+-	 * the best time in cycles as the measurement.
+-	 */
+-	while (time_before(jiffies, now + (1 << MISALIGNED_ACCESS_JIFFIES_LG2))) {
+-		start_cycles = get_cycles64();
+-		/* Ensure the CSR read can't reorder WRT to the copy. */
+-		mb();
+-		__riscv_copy_vec_words_unaligned(dst, src, MISALIGNED_COPY_SIZE);
+-		/* Ensure the copy ends before the end time is snapped. */
+-		mb();
+-		end_cycles = get_cycles64();
+-		if ((end_cycles - start_cycles) < word_cycles)
+-			word_cycles = end_cycles - start_cycles;
+-	}
+-
+-	byte_cycles = -1ULL;
+-	__riscv_copy_vec_bytes_unaligned(dst, src, MISALIGNED_COPY_SIZE);
+-	start_jiffies = jiffies;
+-	while ((now = jiffies) == start_jiffies)
+-		cpu_relax();
+ 
+-	while (time_before(jiffies, now + (1 << MISALIGNED_ACCESS_JIFFIES_LG2))) {
+-		start_cycles = get_cycles64();
+-		/* Ensure the CSR read can't reorder WRT to the copy. */
+-		mb();
+-		__riscv_copy_vec_bytes_unaligned(dst, src, MISALIGNED_COPY_SIZE);
+-		/* Ensure the copy ends before the end time is snapped. */
+-		mb();
+-		end_cycles = get_cycles64();
+-		if ((end_cycles - start_cycles) < byte_cycles)
+-			byte_cycles = end_cycles - start_cycles;
+-	}
++	word_cycles = measure_cycles(__riscv_copy_vec_words_unaligned,
++				     dst, src, MISALIGNED_COPY_SIZE);
+ 
++	byte_cycles = measure_cycles(__riscv_copy_vec_bytes_unaligned,
++				     dst, src, MISALIGNED_COPY_SIZE);
+ 	kernel_vector_end();
+ 
+ 	/* Don't divide by zero. */
+-- 
+2.47.3
 
-On Thu, Feb 12, 2026 at 12:58:27AM +0800, seanwascoding wrote:
-> Signed-off-by: seanwascoding <seanwascoding@gmail.com>
-
-You need to add a commit message body and use your full name
-in the author field.
-
-> ---
->  arch/riscv/errata/thead/errata.c     | 2 +-
->  arch/riscv/include/asm/atomic.h      | 4 ++--
->  arch/riscv/include/asm/elf.h         | 2 +-
->  arch/riscv/include/asm/processor.h   | 2 +-
->  arch/riscv/include/asm/thread_info.h | 2 +-
->  arch/riscv/kernel/acpi.c             | 2 +-
->  arch/riscv/kernel/ftrace.c           | 2 +-
->  arch/riscv/kernel/head.S             | 2 +-
->  arch/riscv/kernel/mcount-dyn.S       | 2 +-
->  arch/riscv/kernel/module-sections.c  | 2 +-
->  arch/riscv/kernel/probes/kprobes.c   | 2 +-
->  arch/riscv/kernel/probes/uprobes.c   | 2 +-
->  arch/riscv/kernel/soc.c              | 2 +-
->  arch/riscv/kernel/suspend.c          | 2 +-
->  arch/riscv/kvm/tlb.c                 | 2 +-
->  arch/riscv/kvm/vcpu_pmu.c            | 2 +-
->  arch/riscv/lib/csum.c                | 2 +-
->  arch/riscv/lib/memmove.S             | 4 ++--
->  arch/riscv/mm/cacheflush.c           | 2 +-
->  arch/riscv/mm/physaddr.c             | 4 ++--
->  20 files changed, 23 insertions(+), 23 deletions(-)
-
-> diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
-> index c7aea7886d22..04bc662cabbb 100644
-> --- a/arch/riscv/include/asm/elf.h
-> +++ b/arch/riscv/include/asm/elf.h
-> @@ -59,7 +59,7 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
->  #endif
-> =20
->  /*
-> - * Provides information on the availiable set of ISA extensions to users=
-pace,
-> + * Provides information on the available set of ISA extensions to usersp=
-ace,
->   * via a bitmap that coorespends to each single-letter ISA extension.  T=
-his is
-
-You missed one in this line.
-
->   * essentially defunct, but will remain for compatibility with userspace.
->   */
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/=
-processor.h
-> index da5426122d28..c571c276b2e9 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -85,7 +85,7 @@ struct pt_regs;
->   *    preempt_v. All preempt_v context should be dropped in such case be=
-cause
->   *    V-regs are caller-saved. Only sstatus.VS=3DON is persisted across a
->   *    schedule() call.
-> - *  - bit 30: The in-kernel preempt_v context is saved, and requries to =
-be
-> + *  - bit 30: The in-kernel preempt_v context is saved, and requires to =
-be
-
-"requires to be" should be "is required to be", no?
-
-
-
---C1psYPQDO/Em2GeW
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaYy2xwAKCRB4tDGHoIJi
-0uWrAP99CzaD/fkJqMJWZtvGcN5LM68bYJWGd6jrNR6YnAmMZAD+NDtSQR34uRqo
-OWnQ2gZFKRXZwqtQGGO2L7xvDxjEWQg=
-=Uc+8
------END PGP SIGNATURE-----
-
---C1psYPQDO/Em2GeW--
-
-
---===============2055605673031092122==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2055605673031092122==--
-
