@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FDE5E9E2FC
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Feb 2026 12:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B0B6ECD6C1
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Feb 2026 16:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2kWTSD9AFF80p/iTtvHsJDoeV35Ft1Hdc/dT2a01egE=; b=47CvXOVSoS/Vb0
-	GlIOzSHtJct4mmxbvGH/MMAh9pIwvUCAG2caH3eQYVTU9YgY0TAp0XWXzWItZU/VL9CXNIrsNsywZ
-	NmmfyevNrP9wsQI0wBQNCi/Wha5ebsqKR0/3MOX6gxMFXzzppa6ZvDeE3CSLr2aJsixUGvHW56XzC
-	/cQyk6oxeGpgN+IoKxJajaR5HJ5xG5EeB6t78WNOMsVLvakcvZXhxr8eCB229n5xryGqRWIZfEcMv
-	YvHaUydKfwGdsnJwDBTEP418+4PVKLm6wp/801cSCelsSaKRd3/czraAWRFSVAp4giweSDWhSyAoU
-	Cf+/1xwO9hG/N5Ly7D0g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gzwmI4Tprr3eJp1xHVFeG/tWY5T4b1QvmcoXuadRhww=; b=UaqE54U0G/3MjCilMBKvyqLAba
+	h36b/lbtJ/RXsH7Mp6XDj0pY7oaq9i2+ZN7iXZFSdm3BflaJQxCh226SJahLnDZHf16H9MP0W/dar
+	31kpUACCWkCqVPmhwA0M70grJqMvLW9ljYwL3fvA9OPObrz2ucbElT5L3yj2m5z0EcqHD9vYlzRsU
+	tPuP29m2BoThl9bvRBfQpmn48fckRAnckPnPatEF7KUWgfK+HbU++20P3HvDxoCfvsAh5doXAjg5x
+	KjtS7ROk9F5uoTcMTWt9juSipHJCm9mhzNOrEQ30GrEBKiXg3ebcyfZeHDh+BmxQjRtdjtqjkCmoL
+	XTXPBInw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq9Nd-00000000cVu-32Fv;
-	Wed, 11 Feb 2026 12:31:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vqDDz-00000000qoR-35xk;
+	Wed, 11 Feb 2026 16:37:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq9Nc-00000000cVd-1kJd
+	id 1vqDDw-00000000qo0-3T8J
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Feb 2026 12:31:40 +0000
+	Wed, 11 Feb 2026 16:37:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A705C60122;
-	Wed, 11 Feb 2026 12:31:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F872C19421;
-	Wed, 11 Feb 2026 12:31:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2B1C5443A6;
+	Wed, 11 Feb 2026 16:37:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F105C4CEF7;
+	Wed, 11 Feb 2026 16:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770813099;
-	bh=SDCjvHPoW3LHwRCJAqQbBv25bM9dKzNqDYoB9f0uios=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aFlFwU/iay7eRagnXJsmaiFy5mdqvcWf9lDpxNsm20SOoYItb1Mqr5M7KE0mPVy+7
-	 GPEPV6GmO12dCjva6mg0tppV++ABLXt1vMiXW/hoaqpLwQ7hRvxGipCrI60eJ/cfN7
-	 S0KW4kMXxlHh9iSnU33xV2xnhJz3n0mruPMHLmbDjDe674vLOV4Kx6qqsMV7KOOI4n
-	 vnG10GHbB7MD1JsqhG+Y3OyW3Df8qXgk/n876FqeHUN0JtkLQwsDQa0lFWp5izyAqB
-	 jRluzgZkmAPo/aT/zhY2avx1SUEGDMM7uYZW5QnXwicrYm1uew7VxaUgmG4vNwt4WC
-	 G0tZlKrEbZ85A==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Yicong Yang <yang.yicong@picoheart.com>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Sasha Levin <sashal@kernel.org>,
-	rafael@kernel.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	linux-acpi@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.19] ACPI: scan: Use async schedule function in acpi_scan_clear_dep_fn()
-Date: Wed, 11 Feb 2026 07:30:22 -0500
-Message-ID: <20260211123112.1330287-12-sashal@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260211123112.1330287-1-sashal@kernel.org>
-References: <20260211123112.1330287-1-sashal@kernel.org>
+	s=k20201202; t=1770827875;
+	bh=N4BFmuWQ/WPOUmQeIFOT/JQw3aZcuNZ5Ic0+qE7JO5A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YTrP6Ifgrg5QMICHMqBxdHlpO2tyOdVv6eoq2NRvoIBL5ZJg5/FGwIJGuQ6hTShf6
+	 QyNyhheDUm/u4Y+R2nhlRVH6fOB69LV3xfGaMcnc56Kgk1Dnx14hl9aZNNWVcPVkwS
+	 bElLBxZT1KuRNO1Y3tDFHWr+618kqWCvcsdmfotCjre41jFdSYgNAdYjbTHchFzeqe
+	 xBpgNs7DeR2zQn5CLt86nzEM1gqZrls2adrD0thGMYE1ex2V9/eqyIc83/sVgeNYJ7
+	 xAWYlp5he/08r44o/x1f4S39Pu4vU2kcTop7JcuQhtOHUwsD/Wr1BqfPMITELR+UV2
+	 bAGpo6qi4PWIw==
+Date: Wed, 11 Feb 2026 17:37:52 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Cc: Daniel Almeida <daniel.almeida@collabora.com>, 
+	Danilo Krummrich <dakr@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org, 
+	linux-pwm@vger.kernel.org, linux-clk@vger.kernel.org, rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
+Message-ID: <20260211-flawless-feathered-boar-0b87ad@houat>
+References: <518D8B09-B9A1-4DB4-85CD-37A2DD3D5FB1@collabora.com>
+ <DFSLCI9U4NCW.2HI2UPUI7G134@kernel.org>
+ <20260119-weightless-pelican-of-anger-190db0@houat>
+ <DFSN4FDCYHMW.3J3237PEBV2ZP@kernel.org>
+ <20260122-majestic-masterful-jaguarundi-d0abde@houat>
+ <2F3D3A40-6EF9-46FC-A769-E5A3AAF67E65@collabora.com>
+ <20260204-nickel-seal-of-poetry-8fdefb@houat>
+ <91A92D84-1F2E-45F3-82EC-6A97D32E2A78@collabora.com>
+ <20260204-angelic-vermilion-beagle-fd1507@houat>
+ <20260209105047.693f2515@fedora>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.19
+In-Reply-To: <20260209105047.693f2515@fedora>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260211_083756_909048_9BB70E94 
+X-CRM114-Status: GOOD (  56.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,321 +86,242 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5936849245097639452=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yang.yicong@picoheart.com>
 
-[ Upstream commit 7cf28b3797a81b616bb7eb3e90cf131afc452919 ]
+--===============5936849245097639452==
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="va37xmuzn6sqyd6c"
+Content-Disposition: inline
 
-The device object rescan in acpi_scan_clear_dep_fn() is scheduled on a
-system workqueue which is not guaranteed to be finished before entering
-userspace. This may cause some key devices to be missing when userspace
-init task tries to find them. Two issues observed on RISCV platforms:
 
- - Kernel panic due to userspace init cannot have an opened
-   console.
+--va37xmuzn6sqyd6c
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
+MIME-Version: 1.0
 
-   The console device scanning is queued by acpi_scan_clear_dep_queue()
-   and not finished by the time userspace init process running, thus by
-   the time userspace init runs, no console is present.
+On Mon, Feb 09, 2026 at 10:50:47AM +0100, Boris Brezillon wrote:
+> Hi Maxime,
+>=20
+> On Wed, 4 Feb 2026 15:34:29 +0100
+> Maxime Ripard <mripard@kernel.org> wrote:
+>=20
+> > On Wed, Feb 04, 2026 at 09:43:55AM -0300, Daniel Almeida wrote:
+> > > > I'm probably missing something then, but let's assume you have a dr=
+iver
+> > > > that wants its clock prepared and enabled in an hypothetical enable=
+()
+> > > > callback, and disabled / unprepared in a disable() callback.
+> > > >=20
+> > > > From a PM management perspective, this usecase makes total sense, i=
+s a
+> > > > valid usecase, is widely used in the kernel, and is currently suppo=
+rted
+> > > > by both the C and Rust clk APIs.
+> > > >=20
+> > > > The only solution to this you suggested so far (I think?) to implem=
+ent
+> > > > this on top of the new clk API you propose is to have a driver spec=
+ific
+> > > > enum that would store each of the possible state transition. =20
+> > >=20
+> > > Yes, you need an enum _if_ you want to model transitions at runtime. =
+IIUC you
+> > > only need two variants to implement the pattern you described. I do n=
+ot
+> > > consider this  =E2=80=9Cboilerplate=E2=80=9D, but rather a small cost=
+ to pay. =20
+> >=20
+> > A maintenance cost to pay by every driver is kind of the textbook
+> > definition of boilerplate to me.
+> >=20
+> > > I would understand if this was some elaborate pattern that had to be
+> > > implemented by all drivers, but a two-variant enum is as
+> > > straightforward as it gets. =20
+> >=20
+> > And yet, that framework has dozens of helpers that do not remove
+> > anything from drivers but a couple of lines. So surely its users must
+> > find value in reducing that boilerplate as much as possible. And you do
+> > implement some of them, so you must find value in that too.
+> >=20
+> > > > That's the boilerplate I'm talking about. If every driver wanting to
+> > > > implement that pattern has to make such an enum, with all the relev=
+ant
+> > > > traits implementation that might come with it, we go from an API wh=
+ere
+> > > > everything works at no-cost from a code-size perspective to a situa=
+tion
+> > > > where every driver has to develop and maintain that enum. =20
+> > >
+> > > There are no "traits that come with it". It's just an enum, with two
+> > > variants.
+> > >  =20
+> > > > API where everything works at no-cost =20
+> > >=20
+> > > The previous API was far from =E2=80=9Ceverything works=E2=80=9D. It =
+was fundamentally
+> > > broken by design in multiple ways, i.e.: =20
+> >=20
+> > Out of context and not what I meant, but ok.
+> >=20
+> > > > a) It only keeps track of a count to clk_get(), which means that us=
+ers have
+> > > > to manually call disable() and unprepare(), or a variation of those=
+, like
+> > > > disable_unprepare().
+> > > >=20
+> > > > b) It allows repeated calls to prepare() or enable(), but it keeps =
+no track
+> > > > of how often these were called, i.e., it's currently legal to write=
+ the
+> > > > following:
+> > > >=20
+> > > > clk.prepare();
+> > > > clk.prepare();
+> > > > clk.enable();
+> > > > clk.enable();
+> > > >=20
+> > > > And nothing gets undone on drop(). =20
+> > >=20
+> > > IMHO, what we have here is an improvement that has been long overdue.=
+ =20
+> >=20
+> > Nothing is absolute. It is indeed an improvement on the refcounting side
+> > of things and general safety of the API for the general case. I don't
+> > think I ever questionned that.
+> >=20
+> > However, for the use-cases we've been discussing (and dozens of drivers
+> > implementing it), it also comes with a regression in the amount of code
+> > to create and maintain. They used to be able to only deal with the Clk
+> > structure, and now they can't anymore.
+> >=20
+> > You might find that neglible, you might have a plan to address that in
+> > the future, etc. and that's fine, but if you can't acknowledge that it's
+> > indeed happening, there's no point in me raising the issue and
+> > continuing the discussion.
+>=20
+>=20
+> Okay, let's see if I can sum-up the use case you'd like to support. You
+> have some PM hooks, which I'm assuming are (or will be) written in
+> rust. It will probably take the form of some Device{Rpm,Pm} trait to
+> implement for your XxxDeviceData (Xxx being the bus under which is
+> device is) object (since I've only recently joined the R4L effort, I
+> wouldn't be surprised if what I'm describing already exists or is
+> currently being proposed/reviewed somewhere, so please excuse my
+> ignorance if that's the case :-)).
+>=20
+> The way I see it, rather than having one enum per clk/regulator/xxx
+> where we keep track of each state individually, what we could have is a
+>=20
+> trait DevicePm {
+> 	type ResumedState;
+> 	type SuspendedState;
+>=20
+> 	fn resume(&self, state: SuspendedState) -> Result<ResumedState, Error<Su=
+spendedState>>;
+> 	fn suspend(&self, state: SuspendedState) -> Result<SuspendedState, Error=
+<ResumedState>>;
+> };
+>=20
+> enum DeviceState<T: DevicePm> {
+> 	Resumed(T::ResumedState),
+> 	Suspended(T::SuspendedState),
+> };
+>=20
+> and then in your driver:
+>=20
+> MySuspendedDeviceResources {
+> 	xxx_clk: Clk<Unprepared>,
+> };
+>=20
+> MyResumedDeviceResources {
+> 	xxx_clk: Clk<Enabled>,
+> };
+>=20
+> implem DevicePm for MyDevice {
+> 	type ResumedState =3D MyResumedDeviceResources;
+> 	type SuspendedState =3D MySuspendedDeviceResources;
+>=20
+> 	fn resume(&self, state: SuspendedState) -> Result<ResumedState, Error<Su=
+spendedState>> {
+> 		// FIXME: error propagation not handled
+> 		let enabled_clk =3D state.xxx_clk.clone().prepare()?.enable()?;
+>=20
+> 		Ok(ResumedState {
+> 			xxx_clk: enabled_clk,
+> 		});
+> 	}
+>=20
+> 	fn suspend(&self, state: ResumedState) -> Result<SuspendedState, Error<R=
+esumedState>> {
+> 		// FIXME: error propagation not handled
+> 		let unprep_clk =3D state.xxx_clk.clone().disable().unprepare();
+>=20
+> 		Ok(SuspendedState {
+> 			xxx_clk: unprep_clk,
+> 		});
+> 	}
+> };
 
- - Entering rescue shell due to the lack of root devices (PCIe nvme in
-   our case).
+I'm not sure we need to associate this with the suspend/resume state either.
 
-   Same reason as above, the PCIe host bridge scanning is queued on
-   a system workqueue and finished after init process runs.
+> With this model, I don't think Daniel's refactor goes in the way of more
+> generalization at the core level, it's just expressed differently than
+> it would be if it was written in C. And I say that as someone who struggl=
+es
+> with his C developer bias every time I'm looking at or trying to write
+> rust code.
+>
+> As others have said in this thread (Danilo and Gary), and after having
+> played myself with both approaches in Tyr, I do see this shift from manual
+> prepare/enable to an RAII approach as an improvement, so I hope we can
+> find a middle-ground where every one is happy.
 
-The reason is because both devices (console, PCIe host bridge) depend on
-riscv-aplic irqchip to serve their interrupts (console's wired interrupt
-and PCI's INTx interrupts). In order to keep the dependency, these
-devices are scanned and created after initializing riscv-aplic. The
-riscv-aplic is initialized in device_initcall() and a device scan work
-is queued via acpi_scan_clear_dep_queue(), which is close to the time
-userspace init process is run. Since system_dfl_wq is used in
-acpi_scan_clear_dep_queue() with no synchronization, the issues will
-happen if userspace init runs before these devices are ready.
+I do think we can find a compromise though. Miguel suggested for example
+to make the current enable/prepare/disable/unprepare function unsafe,
+and that's totally reasonable to me.
 
-The solution is to wait for the queued work to complete before entering
-userspace init. One possible way would be to use a dedicated workqueue
-instead of system_dfl_wq, and explicitly flush it somewhere in the
-initcall stage before entering userspace. Another way is to use
-async_schedule_dev_nocall() for scanning these devices. It's designed
-for asynchronous initialization and will work in the same way as before
-because it's using a dedicated unbound workqueue as well, but the kernel
-init code calls async_synchronize_full() right before entering userspace
-init which will wait for the work to complete.
+Then we can implement the "managed" clock version on that unsafe API,
+and we would end up with a "raw", unsafe, version kind of equivalent to
+the one we have today, and where callers would have to justify why their
+usage of the API is actually safe, or the new, managed, variant that is
+safe and can be easily used by most drivers.
 
-Compared to a dedicated workqueue, the second approach is simpler
-because the async schedule framework takes care of all of the details.
-The ACPI code only needs to focus on its job. A dedicated workqueue for
-this could also be redundant because some platforms don't need
-acpi_scan_clear_dep_queue() for their device scanning.
+And we can call these RawClk vs Clk, or Clk vs ManagedClk, or whatever.
 
-Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
-[ rjw: Subject adjustment, changelog edits ]
-Link: https://patch.msgid.link/20260128132848.93638-1-yang.yicong@picoheart.com
-Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
+How does that sound?
 
-LLM Generated explanations, may be completely bogus:
+Maxime
 
-## Detailed Analysis
+--va37xmuzn6sqyd6c
+Content-Type: application/pgp-signature; name="signature.asc"
 
-### 1. COMMIT MESSAGE ANALYSIS
+-----BEGIN PGP SIGNATURE-----
 
-The commit fixes two concrete, severe boot failures on RISC-V platforms
-with ACPI:
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaYywWgAKCRAnX84Zoj2+
+diFgAX9NbiTV8lVrQ44u9f4DSVUDq686eOaj7uci6rHY5OPcA0wNpSJTAhKA8TuV
+919XgiwBgM5+jjSrFFfXQ56tF54ch32+uMVDYbpBRp2fx+0+OfxMqCuAQkASAYrZ
+mfHt8q7GSg==
+=MEar
+-----END PGP SIGNATURE-----
 
-1. **Kernel panic** - userspace init cannot open a console because the
-   console device hasn't been scanned yet. The device scan work was
-   queued via `acpi_scan_clear_dep_queue()` to `system_dfl_wq` (or
-   `system_unbound_wq` in stable) and hasn't completed by the time
-   userspace init runs.
+--va37xmuzn6sqyd6c--
 
-2. **Boot failure into rescue shell** - root device (PCIe NVMe via PCIe
-   host bridge) is missing for the same reason: the scan work is still
-   queued and not completed.
 
-Both are caused by a race: the deferred device scan (queued by
-`acpi_scan_clear_dep_queue()`) is scheduled on a system workqueue with
-**no synchronization barrier** before userspace init starts. Devices
-that depend on RISC-V APLIC (interrupt controller) are scanned
-asynchronously after APLIC initialization in `device_initcall()`, and if
-init runs before the workqueue work completes, critical devices are
-missing.
-
-The commit message is well-written by both the author (Yicong Yang) and
-was reviewed/edited by the ACPI maintainer (Rafael J. Wysocki), who
-signed it off.
-
-### 2. CODE CHANGE ANALYSIS
-
-The change is **small and surgical** (~30 net lines removed):
-
-**Before (old code):**
-- A `struct acpi_scan_clear_dep_work` wraps `work_struct` + `acpi_device
-  *`
-- `acpi_scan_clear_dep_fn()` is a `work_struct` callback that calls
-  `acpi_bus_attach()` under `acpi_scan_lock`, then releases the device
-  reference and frees the wrapper
-- `acpi_scan_clear_dep_queue()` allocates the wrapper via `kmalloc()`,
-  initializes the work, and queues it on
-  `system_dfl_wq`/`system_unbound_wq`
-
-**After (new code):**
-- `acpi_scan_clear_dep_fn()` signature changes to `(void *dev,
-  async_cookie_t cookie)` - an `async_func_t` callback
-- It uses `to_acpi_device(dev)` directly instead of `container_of` on a
-  wrapper struct
-- `acpi_scan_clear_dep_queue()` calls `async_schedule_dev_nocall()`
-  instead of `queue_work()`
-- The `struct acpi_scan_clear_dep_work` wrapper is removed entirely
-- No more `kmalloc()` for the wrapper (the async framework handles its
-  own allocation internally)
-
-**Why this fixes the bug:** `async_schedule_dev_nocall()` schedules work
-on the async framework's dedicated domain (`async_dfl_domain`). The
-critical property is that `kernel_init()` in `init/main.c` calls
-`async_synchronize_full()` **before** entering userspace (before
-`run_init_process()`):
-
-```1569:1642:init/main.c
-static int __ref kernel_init(void *unused)
-{
-        // ...
-        kernel_init_freeable();
-        /* need to finish all async __init code before freeing the
-memory */
-        async_synchronize_full();
-        // ...
-        // <userspace init happens after this point>
-```
-
-This guarantees all async-scheduled work (including the device scans)
-completes before userspace init starts. The old
-`queue_work(system_unbound_wq, ...)` had no such synchronization
-barrier.
-
-**Reference counting correctness:** The reference counting is preserved
-identically:
-- On success: `acpi_scan_clear_dep_fn()` releases the reference via
-  `acpi_dev_put(adev)`
-- On failure: `acpi_scan_clear_dep_queue()` returns `false`, and the
-  caller `acpi_scan_clear_dep()` releases the reference via
-  `acpi_dev_put(adev)`
-
-### 3. CLASSIFICATION
-
-This is a **real bug fix** for a **race condition** that causes **kernel
-panics and boot failures**. It is not a feature, cleanup, or
-optimization.
-
-### 4. SCOPE AND RISK ASSESSMENT
-
-- **Files changed:** 1 (`drivers/acpi/scan.c`)
-- **Net lines:** Reduced - removes the wrapper struct, simplifies both
-  functions
-- **Subsystem:** ACPI scan, a core subsystem
-- **Risk:** LOW. The change replaces one deferred scheduling mechanism
-  (workqueue) with another (async framework) that has the specific
-  property of being synchronized before userspace init. The functional
-  behavior of the callback is identical. The async framework is well-
-  established and already used extensively in the kernel for device
-  probing.
-- **Could this break something?** Very unlikely. The
-  `async_schedule_dev_nocall()` function uses an unbound workqueue
-  internally just like the old code, with the added benefit of the
-  synchronization barrier. The only behavior change is that work is
-  guaranteed to complete before userspace init, which is strictly
-  desirable.
-
-### 5. USER IMPACT
-
-- **Severity:** CRITICAL - kernel panics and inability to boot
-- **Affected platforms:** Primarily RISC-V ACPI platforms right now, but
-  the underlying race could affect any platform using
-  `acpi_dev_clear_dependencies()` (Intel camera IVSC, INT3472, Surface
-  devices, ACPI EC, PCI link, GPIO, I2C - 18 different callers)
-- **Who benefits:** RISC-V ACPI users are the primary beneficiaries.
-  Other platforms could theoretically hit this race too under heavy load
-  at boot time, though it's most likely on RISC-V where interrupt
-  controller dependency chains are deeper.
-
-### 6. DEPENDENCY CHECK
-
-- **`async_schedule_dev_nocall()`:** Already backported to all active
-  stable trees (6.1.y, 6.6.y, 6.12.y) - verified by checking commit
-  history
-- **`acpi_scan_clear_dep_queue()` / `acpi_scan_clear_dep_fn()`:**
-  Present in all active stable trees (introduced before v5.17)
-- **`#include <linux/async.h>`:** The new header include is the only
-  other change needed
-- **Backport adjustment:** Stable trees (6.1.y through 6.14.y) use
-  `system_unbound_wq` instead of `system_dfl_wq`, but since the commit
-  removes the `queue_work()` call entirely, the diff will need a trivial
-  context adjustment (the old `queue_work(system_unbound_wq, ...)` line
-  vs `queue_work(system_dfl_wq, ...)`)
-- **RISC-V ACPI dependency IDs:** The RSCV0001/RSCV0002 entries are in
-  6.12.y but not in 6.6.y or 6.1.y. However, the fix is still valid for
-  older trees because the same race exists for Intel camera/IVSC/PCI-
-  link devices that use this code path
-
-### 7. STABILITY INDICATORS
-
-- Authored by Yicong Yang (kernel contributor)
-- Reviewed and edited by Rafael J. Wysocki (ACPI maintainer, signed off)
-- The approach was explicitly chosen over a dedicated workqueue because
-  it leverages the existing async synchronization framework which "takes
-  care of all the details"
-- Real-world tested (the bug was observed on actual RISC-V hardware)
-
-### CONCLUSION
-
-This commit fixes a **critical race condition** causing **kernel panics
-and boot failures**. The fix is:
-- **Small and surgical** (single file, removes complexity)
-- **Obviously correct** (leverages the well-established async
-  synchronization barrier before userspace init)
-- **Self-contained** (no dependencies beyond `async_schedule_dev_nocall`
-  which already exists in all stable trees)
-- **Low risk** (functionally equivalent deferred execution, just with
-  proper synchronization)
-- **High impact** (prevents kernel panics and boot failures on RISC-V
-  ACPI platforms; potentially prevents similar races on other platforms
-  using the same code path)
-
-The only minor concern is the trivial context difference
-(`system_unbound_wq` vs `system_dfl_wq`) for backport to pre-6.19 stable
-trees, which requires a trivial adaptation of the diff context but does
-not affect the logic (the line is removed, not modified).
-
-**YES**
-
- drivers/acpi/scan.c | 41 +++++++++++++++--------------------------
- 1 file changed, 15 insertions(+), 26 deletions(-)
-
-diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index 416d87f9bd107..b78f6be2f9468 100644
---- a/drivers/acpi/scan.c
-+++ b/drivers/acpi/scan.c
-@@ -5,6 +5,7 @@
- 
- #define pr_fmt(fmt) "ACPI: " fmt
- 
-+#include <linux/async.h>
- #include <linux/module.h>
- #include <linux/init.h>
- #include <linux/slab.h>
-@@ -2360,46 +2361,34 @@ static int acpi_dev_get_next_consumer_dev_cb(struct acpi_dep_data *dep, void *da
- 	return 0;
- }
- 
--struct acpi_scan_clear_dep_work {
--	struct work_struct work;
--	struct acpi_device *adev;
--};
--
--static void acpi_scan_clear_dep_fn(struct work_struct *work)
-+static void acpi_scan_clear_dep_fn(void *dev, async_cookie_t cookie)
- {
--	struct acpi_scan_clear_dep_work *cdw;
--
--	cdw = container_of(work, struct acpi_scan_clear_dep_work, work);
-+	struct acpi_device *adev = to_acpi_device(dev);
- 
- 	acpi_scan_lock_acquire();
--	acpi_bus_attach(cdw->adev, (void *)true);
-+	acpi_bus_attach(adev, (void *)true);
- 	acpi_scan_lock_release();
- 
--	acpi_dev_put(cdw->adev);
--	kfree(cdw);
-+	acpi_dev_put(adev);
- }
- 
- static bool acpi_scan_clear_dep_queue(struct acpi_device *adev)
- {
--	struct acpi_scan_clear_dep_work *cdw;
--
- 	if (adev->dep_unmet)
- 		return false;
- 
--	cdw = kmalloc(sizeof(*cdw), GFP_KERNEL);
--	if (!cdw)
--		return false;
--
--	cdw->adev = adev;
--	INIT_WORK(&cdw->work, acpi_scan_clear_dep_fn);
- 	/*
--	 * Since the work function may block on the lock until the entire
--	 * initial enumeration of devices is complete, put it into the unbound
--	 * workqueue.
-+	 * Async schedule the deferred acpi_scan_clear_dep_fn() since:
-+	 * - acpi_bus_attach() needs to hold acpi_scan_lock which cannot
-+	 *   be acquired under acpi_dep_list_lock (held here)
-+	 * - the deferred work at boot stage is ensured to be finished
-+	 *   before userspace init task by the async_synchronize_full()
-+	 *   barrier
-+	 *
-+	 * Use _nocall variant since it'll return on failure instead of
-+	 * run the function synchronously.
- 	 */
--	queue_work(system_dfl_wq, &cdw->work);
--
--	return true;
-+	return async_schedule_dev_nocall(acpi_scan_clear_dep_fn, &adev->dev);
- }
- 
- static void acpi_scan_delete_dep_data(struct acpi_dep_data *dep)
--- 
-2.51.0
-
+--===============5936849245097639452==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5936849245097639452==--
+
