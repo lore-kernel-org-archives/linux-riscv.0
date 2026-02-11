@@ -4,178 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77310EB26E9
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Feb 2026 16:45:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E100FEB5946
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Feb 2026 00:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HRr5P+pjH+afaCCNFFcx2nAd9pq1acKbKe/I7w6YZ7E=; b=jtyKMdcWDwaXtd
-	A/GN7q7sNSL4n8RDhD0LUkkXlepqgQwHE5q6H0lf7ZYdPdoDk+O1pDQD2sj8ZXZDgW3rqzHM6N1sP
-	3BrSuY+Il4siBtWUQA8s0k8crEVYVzEsFlrEDMRGzqqwp/dnnAoSD4kJGdUSMn5aN1M/JQwluqzRm
-	dDbs0IdD2LERiUBSwwpW+rg39XXQAaX0hcEgVjWLmGeJuyY2T7AQJc7l09+omo8a7QMa54umMALnA
-	LJ+4AcoihHRPK+SKcnIm5zpRCCJC3/wATyQBdKKQtlCDei5mP6o9w8vvs61vxIhvF32oQpVWX6QMA
-	lzXXm85nhbPX62oVhDEw==;
+	List-Owner; bh=CJCsX7/4NPrSf1r+3w3LHPZZZl4CmgA+NHCg+wqDHgc=; b=yVeGvxxw9deELJ
+	2aM/401vBfWBC6HaFUKEWh7iQbrVL263HvkvYc5ZZaDYnn7M7sRXh12/hzYeMa8EjoYVAnspf8VZT
+	M8ZttDgFt7L01/qOKse9i6PKJDRvbiu8/kmZXiP1gmNWePHV0NaB7R6IoGzflBdpd4DOPgicANa8k
+	+Hcq/GyhQ/ph3bJmkQSwZbqobFCij9BNJyN3k6fivd3BFKU3l3JWgoaXSVpUxjougEHh1dIcqrj1B
+	nxn+eqDdd0oaXmfyrTz1ntCiJTbTaa5GqFg2NyA/Rqmsk3e6Gt7qzH3Iy4q6vzJOdVOSvh3D7xriY
+	UTh9NBvuNdLejCX7rBFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqrW-0000000HGTL-29Wb;
-	Tue, 10 Feb 2026 16:45:18 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1vpyXV-000000004Jg-1f53;
+	Wed, 11 Feb 2026 00:57:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqrU-0000000HGSk-0NuH
+	id 1vpyXT-000000004Ja-3lap
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Feb 2026 16:45:17 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id EFE815BD6B;
-	Tue, 10 Feb 2026 16:45:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1770741914; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=yeaH7+vlyRcZLcRTTBOYd4ClLWs7uv7EFXOnFep6uuM=;
-	b=P/GwZ3bHN8WQ53C7mFMuQDtS9mEOBKn70al+4Dd/NsxMaNXctyvhHVM8sSK4Osh7P2Yes1
-	Mt6BuxPNRcxF+DQHXNVg1Pgq+1Hr6DZvcUwT+rG1DB5dLoYwFMv7fZB4zfMLST7KlEaxow
-	mjPNW8mz4hy/StHg/Wf/P3//7xuFc3s=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1770741914;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=yeaH7+vlyRcZLcRTTBOYd4ClLWs7uv7EFXOnFep6uuM=;
-	b=1FRppl9eHyXofmsLCOAX+siCbC6Hs9pQmvxyOs29M8FaZgEpXz/FRZDk+GHG2fQUqG01gc
-	VGgpSdITMDQ+wIBg==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b="P/GwZ3bH";
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=1FRppl9e
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1770741914; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=yeaH7+vlyRcZLcRTTBOYd4ClLWs7uv7EFXOnFep6uuM=;
-	b=P/GwZ3bHN8WQ53C7mFMuQDtS9mEOBKn70al+4Dd/NsxMaNXctyvhHVM8sSK4Osh7P2Yes1
-	Mt6BuxPNRcxF+DQHXNVg1Pgq+1Hr6DZvcUwT+rG1DB5dLoYwFMv7fZB4zfMLST7KlEaxow
-	mjPNW8mz4hy/StHg/Wf/P3//7xuFc3s=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1770741914;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=yeaH7+vlyRcZLcRTTBOYd4ClLWs7uv7EFXOnFep6uuM=;
-	b=1FRppl9eHyXofmsLCOAX+siCbC6Hs9pQmvxyOs29M8FaZgEpXz/FRZDk+GHG2fQUqG01gc
-	VGgpSdITMDQ+wIBg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id AC2CB3EA62;
-	Tue, 10 Feb 2026 16:45:13 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 1rFTKJlgi2lUDAAAD6G6ig
-	(envelope-from <vbabka@suse.cz>); Tue, 10 Feb 2026 16:45:13 +0000
-Message-ID: <abf27055-cf2f-4ac2-a9cc-7b28bf4dbf5a@suse.cz>
-Date: Tue, 10 Feb 2026 17:45:13 +0100
+	Wed, 11 Feb 2026 00:57:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8328160136;
+	Wed, 11 Feb 2026 00:57:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92776C116C6;
+	Wed, 11 Feb 2026 00:57:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770771426;
+	bh=yzkylkEQyMlLPX3kedBSzjU8RsbSf5Jk4i2N65fCL30=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Vsd+Xx+447hSpwSmZtlt6wlU5Hsp407El/yFKvfrSUqG3FQLSrDuVoVM2V36u6YDn
+	 1mo+o/9mKLtQoy/ggzuyPhHQ90EZlJ5/SJcYf0kxikYec8x+iqQ7dj690JynShMoiw
+	 7iWldpWyz+lEAyyK4Gqz4ZtYUJ344F3VnoTZbuU2Q0EbOykBR4n/0+YM03kjkyajTH
+	 k49D3J6/m8KCdRCyjHnLyE6jOnu9uAhfn/SnU5gh8XKWyeuwXazTEo2syDUuEgGHC5
+	 8ybe5SdKk8diqA5JAdonfw4eNFzGAZ0saK5NJLG3bJ+DQ04fk2I8NCFr8GYJzAM8Wm
+	 pnz+0JYn9w8yw==
+Date: Tue, 10 Feb 2026 16:57:04 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Gong Shuai <gsh517025@gmail.com>
+Subject: Re: [PATCH RFC v2 08/17] RISC-V: QoS: add resctrl interface for
+ CBQRI controllers
+Message-ID: <aYvT4I7qWyJGuMDR@gen8>
+References: <20260128-ssqosid-cbqri-v2-8-dca586b091b9@kernel.org>
+ <20260209141649.330184-1-gong.shuai@sanechips.com.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv6 17/17] mm/slab: Use compound_head() in page_slab()
-Content-Language: en-US
-To: Kiryl Shutsemau <kas@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Muchun Song <muchun.song@linux.dev>, David Hildenbrand <david@redhat.com>,
- Matthew Wilcox <willy@infradead.org>, Usama Arif <usamaarif642@gmail.com>,
- Frank van der Linden <fvdl@google.com>
-Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Zi Yan <ziy@nvidia.com>,
- Baoquan He <bhe@redhat.com>, Michal Hocko <mhocko@suse.com>,
- Johannes Weiner <hannes@cmpxchg.org>, Jonathan Corbet <corbet@lwn.net>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, kernel-team@meta.com, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
-References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-18-kas@kernel.org>
-From: Vlastimil Babka <vbabka@suse.cz>
-Autocrypt: addr=vbabka@suse.cz; keydata=
- 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
- m6M14QORSWTLRg==
-In-Reply-To: <20260202155634.650837-18-kas@kernel.org>
-X-Spamd-Result: default: False [-4.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[27];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	MID_RHS_MATCH_FROM(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLduzbn1medsdpg3i8igc4rk67)];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_TO(0.00)[kernel.org,linux-foundation.org,linux.dev,redhat.com,infradead.org,gmail.com,google.com];
-	RCVD_TLS_ALL(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	DKIM_TRACE(0.00)[suse.cz:+]
-X-Rspamd-Queue-Id: EFE815BD6B
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_084516_435300_78A76915 
-X-CRM114-Status: GOOD (  16.58  )
+Content-Disposition: inline
+In-Reply-To: <20260209141649.330184-1-gong.shuai@sanechips.com.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,55 +64,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: x86@kernel.org, atish.patra@linux.dev, aricciardi@baylibre.com, atishp@rivosinc.com, cp0613@linux.alibaba.com, cuiyunhui@bytedance.com, gong.shuai@sanechips.com.cn, zhiwei_liu@linux.alibaba.com, guo.wenjia23@zte.com.cn, linux-riscv@lists.infradead.org, vasu@rivosinc.com, robh@kernel.org, alex@ghiti.fr, rafael@kernel.org, acpica-devel@lists.linux.dev, robert.moore@intel.com, liu.qingtao2@zte.com.cn, linux-acpi@vger.kernel.org, ben.horgan@arm.com, palmer@dabbelt.com, rkrcmar@ventanamicro.com, Dave.Martin@arm.com, lenb@kernel.org, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, mindal@semihalf.com, babu.moger@amd.com, liwei1518@gmail.com, npitre@baylibre.com, paul.walmsley@sifive.com, ved@rivosinc.com, reinette.chatre@intel.com, pjw@kernel.org, tony.luck@intel.com, peternewman@google.com, linux-kernel@vger.kernel.org, fenghua.yu@intel.com, samuel.holland@sifive.com, james.morse@arm.com, krzk+dt@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/2/26 16:56, Kiryl Shutsemau wrote:
-> page_slab() contained an open-coded implementation of compound_head().
+On Mon, Feb 09, 2026 at 10:16:49PM +0800, Gong Shuai wrote:
+> Hi, Drew
 > 
-> Replace the duplicated code with a direct call to compound_head().
+> > Add interface for CBQRI controller drivers to make use of the resctrl
+> > filesystem.
+> > 
+> > Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+> > Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+> > Signed-off-by: Drew Fustini <fustini@kernel.org>
+> >
+> > ...
+> >
+> > +u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
+> > +			    u32 closid, enum resctrl_conf_type type)
+> > +{
+> > +	struct cbqri_resctrl_dom *hw_dom;
+> > +	struct cbqri_controller *ctrl;
+> > +	int reg_offset;
+> > +	u32 percent;
+> > +	u32 rbwb;
+> > +	u64 reg;
+> > +	int err;
+> > +
+> > +	hw_dom = container_of(d, struct cbqri_resctrl_dom, resctrl_ctrl_dom);
+> > +
+> > +	ctrl = hw_dom->hw_ctrl;
+> > +
+> > +	if (!r->alloc_capable)
+> > +		return resctrl_get_default_ctrl(r);
+> > +
+> > +	switch (r->rid) {
+> > +	case RDT_RESOURCE_L2:
+> > +	case RDT_RESOURCE_L3:
+> > +		/* Clear cc_block_mask before read limit operation */
+> > +		cbqri_set_cbm(ctrl, 0);
+> > +
+> > +		/* Capacity read limit operation for RCID (closid) */
+> > +		err = cbqri_cc_alloc_op(ctrl, CBQRI_CC_ALLOC_CTL_OP_READ_LIMIT, type, closid);
 > 
-> Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
+> It looks like the parameter order might be incorrect. I believe it
+> should be:
+> cbqri_cc_alloc_op(ctrl, CBQRI_CC_ALLOC_CTL_OP_READ_LIMIT, closid, type);
 
-Reviewed-by: Vlastimil Babka <vbabka@suse.cz>
+Thanks, I will fix so that closid and type are the correct order.
+> 
+> > +		if (err < 0) {
+> > +			pr_err("%s(): operation failed: err = %d", __func__, err);
+> > +			return resctrl_get_default_ctrl(r);
+> > +		}
+> > ...
+> 
+> Sorry for the resend, my company email had some formatting issues,
+> so I'm sending this from my personal address.
+> 
+> Hope it doesn't cause any trouble!
 
+No problem.
 
-> 
-> ---
-> 
-> I am not sure if this open-coded version is intentional and required for
-> memdesc transition. Drop the patch if it is.
-> ---
->  mm/slab.h | 14 +-------------
->  1 file changed, 1 insertion(+), 13 deletions(-)
-> 
-> diff --git a/mm/slab.h b/mm/slab.h
-> index f68c3ac8126f..970a13ac5b8e 100644
-> --- a/mm/slab.h
-> +++ b/mm/slab.h
-> @@ -137,19 +137,7 @@ static_assert(IS_ALIGNED(offsetof(struct slab, freelist), sizeof(struct freelist
->   */
->  static inline struct slab *page_slab(const struct page *page)
->  {
-> -	unsigned long info;
-> -
-> -	info = READ_ONCE(page->compound_info);
-> -	if (info & 1) {
-> -		/* See compound_head() */
-> -		if (compound_info_has_mask()) {
-> -			unsigned long p = (unsigned long)page;
-> -			page = (struct page *)(p & info);
-> -		} else {
-> -			page = (struct page *)(info - 1);
-> -		}
-> -	}
-> -
-> +	page = compound_head(page);
->  	if (data_race(page->page_type >> 24) != PGTY_slab)
->  		page = NULL;
->  
+Thanks
+Drew
 
 
 _______________________________________________
