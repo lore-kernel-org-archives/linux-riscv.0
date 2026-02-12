@@ -4,58 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0ACDEE3691
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 14:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 394B6EE3691
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 14:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bDdjO6MB1nLJl0PQtqZKtQg4R4bpEGGDeRGxdY72uNc=; b=fqZ99TO0Vzrxcv
-	o4Ncg5v0dOjdjowpE85koWTpMdClxJ/OWnHrxyIi58oPMOpzT9AYpQQ2xVp/ifT1hsKOx03hHlIMz
-	4Vr4yIO3V07tplMBo/6TLb3yL15EW1IDm9tBTLP05DPASW1QOQ6A0bKV4JwA+ZYToWgvYYtrr6Lxv
-	fwYn2XKVMYFNWeuI6vjZOHSUdbGgzHUQn3Z4j+OHg0WSi2/qDAbixxn8K4nxk/b67ToNiMHQzRGq9
-	sNK0t/kM4OlEDbfN5xSEw42RtY+88bkKnNG7XowV4hBUX2fhoa01LmhZnU1IozPxV3oOKXnAttDuL
-	3d+UxXm2Slf//4o6/pfQ==;
+	List-Owner; bh=f0TMzJYcACUjUxAlYPEmgBHPk/nEUaWdYHWALBOgr8k=; b=AvEpdFH1TUk9cb
+	cJYGlZIm1jeMzT5JTzQNTQWNK5LZCMRxL0tIyp6J5H9fe0YnOzZxfUhpbQUBciJr9Ivji4iz5hzvh
+	FlrsvxVEZLMi+MJ0gHAgmLWy15tXkm0/AhenppFGfnPlJUrX9bNjo4vmwFXq73PjW5Gh4I+GpzKNL
+	rUHjXkqK4gLBvHCSfTf8GxayApmWOeEyX1xwjZN9gzVf8WmGJJulIRzAo1AsWFgno8vX0voz7z8CS
+	IBpiLhGcxlqFbfD9A2iIRNZETOIaexzv0z3Cp/N9t2nFOZkMer8vUPSu2W87zYCnspsGIQFEuoHtu
+	sQsS0VkItawzpfsCEH/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqXut-00000002DFV-2YNk;
-	Thu, 12 Feb 2026 14:43:39 +0000
-Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
+	id 1vqXvI-00000002DJ0-40u4;
+	Thu, 12 Feb 2026 14:44:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqXur-00000002DEv-1GH0;
-	Thu, 12 Feb 2026 14:43:38 +0000
-Received: from localhost (unknown [116.232.48.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 4DB58342445;
-	Thu, 12 Feb 2026 14:43:34 +0000 (UTC)
-Date: Thu, 12 Feb 2026 22:43:25 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Yao Zi <me@ziyao.cc>
-Cc: Yixun Lan <dlan@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Ze Huang <huang.ze@linux.dev>,
-	Junzhong Pan <panjunzhong@linux.spacemit.com>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] phy: k1-usb: add disconnect function support
-Message-ID: <20260212144325-GYA164498@gentoo.org>
-References: <20260212-11-k3-usb2-phy-v1-0-43578592405d@kernel.org>
- <20260212-11-k3-usb2-phy-v1-2-43578592405d@kernel.org>
- <aY24UOvYsnh_7ZCO@pie>
+	id 1vqXvF-00000002DI5-2SJC;
+	Thu, 12 Feb 2026 14:44:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7DEA040A48;
+	Thu, 12 Feb 2026 14:44:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6E60C4CEF7;
+	Thu, 12 Feb 2026 14:43:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770907440;
+	bh=JgHytrfIoVHvSrB+ZHqvgP9qOCOR6LftqPuUXmXPewE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ko6YX0yEFe4E0jrbp3XxgX4zcX+pt5kKGo3qsoUNXAjP6BmajfjaWMR7EZwObD3mv
+	 RaQE4z+0+Y4Gvw1ciyp3sCoy9AWoV51k6SCkkX3HI2r8w9NGPYJAIaOZZnUH2/CyAt
+	 FCBngxnZE5xc2/k3bOXFQAM1G/mpwsKy3pmOJK8ljYA+CUHAY9etU2AWnTdKmHe6kI
+	 HZlhRcgRSjONrL5wCWjVGmpSaYyE8ivrPjr5pZvM5QJmgaMHdUy9DFX0Ke6voUeoPk
+	 feWHia6y6PLrBYPJdAa4URtO8gt/Nen7sw+LzrielacYjoBKTAX8sR6v3rAfEPlgAn
+	 olPDejjZ8fPrA==
+Date: Thu, 12 Feb 2026 16:43:38 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: corbet@lwn.net, skhan@linuxfoundation.org, catalin.marinas@arm.com,
+	will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name,
+	maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
+	chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	hpa@zytor.com, akpm@linux-foundation.org, bhe@redhat.com,
+	vgoyal@redhat.com, dyoung@redhat.com, rdunlap@infradead.org,
+	kees@kernel.org, elver@google.com, paulmck@kernel.org,
+	arnd@arndb.de, fvdl@google.com, thuth@redhat.com, ardb@kernel.org,
+	leitao@debian.org, osandov@fb.com, cfsworks@gmail.com,
+	sourabhjain@linux.ibm.com, ryan.roberts@arm.com,
+	tangyouling@kylinos.cn, eajames@linux.ibm.com,
+	hbathini@linux.ibm.com, ritesh.list@gmail.com,
+	songshuaishuai@tinylab.org, bjorn@rivosinc.com,
+	samuel.holland@sifive.com, kevin.brodsky@arm.com,
+	junhui.liu@pigmoral.tech, vishal.moola@gmail.com, dwmw@amazon.co.uk,
+	pbonzini@redhat.com, kai.huang@intel.com, ubizjak@gmail.com,
+	coxu@redhat.com, fuqiang.wang@easystack.cn, liaoyuanhong@vivo.com,
+	brgerst@gmail.com, jbohac@suse.cz, x86@kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	kexec@lists.infradead.org
+Subject: Re: [PATCH v5 1/4] powerpc/crash: sort crash memory ranges before
+ preparing elfcorehdr
+Message-ID: <aY3nGuredkMTCZIm@kernel.org>
+References: <20260212101001.343158-1-ruanjinjie@huawei.com>
+ <20260212101001.343158-2-ruanjinjie@huawei.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aY24UOvYsnh_7ZCO@pie>
+In-Reply-To: <20260212101001.343158-2-ruanjinjie@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_064337_395135_E34E83EC 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20260212_064401_671648_E824FB38 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,24 +95,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yao,
-
-On 11:24 Thu 12 Feb     , Yao Zi wrote:
-> On Thu, Feb 12, 2026 at 09:38:55AM +0800, Yixun Lan wrote:
-> > A disconnect status BIT of USB2 PHY need to be cleared, otherwise
-> > it will fail to work properly during next connection when devices
-> > connect to roothub directly.
+On Thu, Feb 12, 2026 at 06:09:58PM +0800, Jinjie Ruan wrote:
+> From: Sourabh Jain <sourabhjain@linux.ibm.com>
 > 
-> This sounds like a bug. Does it affect K1 SoC as well? If so, I think
-> it deserves a Fixes tag and backporting.
+> During a memory hot-remove event, the elfcorehdr is rebuilt to exclude
+> the removed memory. While updating the crash memory ranges for this
+> operation, the crash memory ranges array can become unsorted. This
+> happens because remove_mem_range() may split a memory range into two
+> parts and append the higher-address part as a separate range at the end
+> of the array.
 > 
-yes, but I haven't checked if it will affect real case since the problem
-exist with devices connected to roothub directly only..
+> So far, no issues have been observed due to the unsorted crash memory
+> ranges. However, this could lead to problems once crash memory range
+> removal is handled by generic code, as introduced in the upcoming
+> patches in this series.
+> 
+> Currently, powerpc uses a platform-specific function,
+> remove_mem_range(), to exclude hot-removed memory from the crash memory
+> ranges. This function performs the same task as the generic
+> crash_exclude_mem_range() in crash_core.c. The generic helper also
+> ensures that the crash memory ranges remain sorted. So remove the
+> redundant powerpc-specific implementation and instead call
+> crash_exclude_mem_range_guarded() (which internally calls
+> crash_exclude_mem_range()) to exclude the hot-removed memory ranges.
+> 
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Baoquan he <bhe@redhat.com>
+> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: Hari Bathini <hbathini@linux.ibm.com>
+> Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+> Cc: Mahesh Salgaonkar <mahesh@linux.ibm.com>
+> Cc: Michael Ellerman <mpe@ellerman.id.au>
+> Cc: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+> Cc: Shivang Upadhyay <shivangu@linux.ibm.com>
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Sourabh Jain <sourabhjain@linux.ibm.com>
+> ---
+>  arch/powerpc/include/asm/kexec_ranges.h |  4 +-
+>  arch/powerpc/kexec/crash.c              |  5 +-
+>  arch/powerpc/kexec/ranges.c             | 87 +------------------------
+>  3 files changed, 7 insertions(+), 89 deletions(-)
 
-anyway, I think it deserves to add a Fixes tag, so will do in next version
+This looks like a nice improvement!
+FWIW
+
+Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
 -- 
-Yixun Lan (dlan)
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
