@@ -4,80 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17364EEA84A
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 18:59:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E99EEA870
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 23:40:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sO/SWTzkh7aXpNpHt/T6/1Ni8xMr+z/P2oHcjnAhMHw=; b=SS9Ap/fGOle5gf
-	q+X83S/8lOJNVfjktWSMc70MWHK4KYvZUd4l0fX7094u4iL4iU6yzD+E+qQI5RMFLC22yKqVHZRAq
-	8HDe4Vy4kAHHN8dkP9tawYHsU2VOi2AQLUDma6+Lbyca2MSTdfmtyA/g7rDsLIn2O4u+QIrWF4w2h
-	tSh0hk6vw/0OovIg6MRyz16lHr9TjpRvol1rtXVMpaRVGyovsY4VdsjM3V/jfg3wCtxgMYbk2UCSt
-	Wtg3pC3ieEKwaTHSGI0HQrO2v/uM+N8Ax/zKe0jznJInw7zlsOKtrrkZeOoWUWd8OFS+giF2uku3n
-	vHxzHw1Dso4fYC6p+BFA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aexedzJ3Ju1trdR89+huc1uii4fVQSCRTMeHgr5E0gk=; b=JjVH27Hg1nM3F8vFcTnH7qpmCK
+	SmBVXqw65uuuvfSzAp16o5jPaYkAQeG3NXserju/shaXkWGLaiCo4pIiVC/wWxNLCx+U5V5OtJLV6
+	oUby1Tlw6N+EE6kQGb++09Yb1cOtDaNUp8AJNrlGwy8qK1DlDWxrpWCeWn4xvNmb7r7CzQbG/kZq1
+	XsMeCtuqNMTYjzmK8OR6433hqIiFkGaPmounVuiTxrVKhSFAFdLfLqBPEt1WIA2mqPKPdqrGhOSf9
+	GfytVRfdiD/qmyb+bt2+7EhW+r6jPSLZusCESFXy3mv8plrbVGPTed03bibshEAAUwuiFiZ/CsXH5
+	ZBWa047g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqbtq-00000002YMe-3Csz;
-	Thu, 12 Feb 2026 18:58:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vqgHt-00000002jlQ-00Lv;
+	Thu, 12 Feb 2026 23:39:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqbtk-00000002YLO-3Kd0;
-	Thu, 12 Feb 2026 18:58:48 +0000
+	id 1vqgHq-00000002jku-3Wbx
+	for linux-riscv@lists.infradead.org;
+	Thu, 12 Feb 2026 23:39:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 79F9B438E7;
-	Thu, 12 Feb 2026 18:58:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B85BBC4CEF7;
-	Thu, 12 Feb 2026 18:58:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 58E3440914;
+	Thu, 12 Feb 2026 23:39:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA24EC4CEF7;
+	Thu, 12 Feb 2026 23:39:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770922723;
-	bh=91JEbORi8cZATePOXljSILBrY7NvtuS/LMHFA58X25E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hNvxAA/gD8Nglx6/HdVOQPAYQ0ti2mhlNiirfiW56pFOjwMy18hKfDkolrWh7Py9A
-	 570IzFCA/Ho7OxYT3QuGWkdK40GhpZJqVWWYRfeZ9MehwyDiGIQewXEEsVT7v9EbEl
-	 bsFNZ/srICM0D3GdOWdng+AwI0LEQqBkT+T/zZDvCoql/wtrmd/4x/TMjoYg3m96oV
-	 9+sPWxRMnUsvU/PGBCUzHopwauPcLOp3++dJXebcWbOj16Cb7p6xfAB2/Bhmu+HOs3
-	 iB1tifcXlF5wuPmIijKFafwbY68C7LdYHwMyFFbe09dB4TeaPzD7wb3GhUBVuaoiEC
-	 WwwxPA3M5Pbyw==
-Date: Thu, 12 Feb 2026 20:58:21 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: corbet@lwn.net, skhan@linuxfoundation.org, catalin.marinas@arm.com,
-	will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name,
-	maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
-	chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	hpa@zytor.com, akpm@linux-foundation.org, bhe@redhat.com,
-	vgoyal@redhat.com, dyoung@redhat.com, rdunlap@infradead.org,
-	kees@kernel.org, elver@google.com, paulmck@kernel.org,
-	arnd@arndb.de, fvdl@google.com, thuth@redhat.com, ardb@kernel.org,
-	leitao@debian.org, osandov@fb.com, cfsworks@gmail.com,
-	sourabhjain@linux.ibm.com, ryan.roberts@arm.com,
-	tangyouling@kylinos.cn, eajames@linux.ibm.com,
-	hbathini@linux.ibm.com, ritesh.list@gmail.com,
-	songshuaishuai@tinylab.org, bjorn@rivosinc.com,
-	samuel.holland@sifive.com, kevin.brodsky@arm.com,
-	junhui.liu@pigmoral.tech, vishal.moola@gmail.com, dwmw@amazon.co.uk,
-	pbonzini@redhat.com, kai.huang@intel.com, ubizjak@gmail.com,
-	coxu@redhat.com, fuqiang.wang@easystack.cn, liaoyuanhong@vivo.com,
-	brgerst@gmail.com, jbohac@suse.cz, x86@kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	kexec@lists.infradead.org
-Subject: Re: [PATCH v5 2/4] crash: Exclude crash kernel memory in crash core
-Message-ID: <aY4izR61SWal5BAg@kernel.org>
-References: <20260212101001.343158-1-ruanjinjie@huawei.com>
- <20260212101001.343158-3-ruanjinjie@huawei.com>
+	s=k20201202; t=1770939593;
+	bh=WsYIgkPfA2mHH9mji2/jdYYmGM1CPLwR8EZKZg6x3Z0=;
+	h=Date:From:To:cc:Subject:From;
+	b=DxQmW1jgLkZoSSE206N3Ma2XeaD8yd/xXNExNmT4/gljO1w/znWBlkBaDHI32K8Ke
+	 pbAdtDMrwKfLZLPcXH20I/BVNBgSUhqMGT0e1lhda9+QPTMUnPm1jjFUQcR5vg7rud
+	 owExI0xmRFYHD3MFLKNk4FHVfitEddEUC8GyqdOlNTKfcd+ckcc7B7JNCGn3jzSVpc
+	 VG0GqOpIaHV+K5JfCMTv0acdOr+C3Xh865BQsiu7eYrPOFa7Kua3J4D0wN9nn1TM9j
+	 cnKxuFCTe5mbkGiOgDzEnVBJOKjcT0nDedWWG/LmYWZEyvrBEjRWLm9mXovPL1Jbab
+	 VtxUDnwIKAWfw==
+Date: Thu, 12 Feb 2026 16:39:48 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: torvalds@linux-foundation.org
+cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [GIT PULL] RISC-V updates for v7.0
+Message-ID: <c554c02e-a791-5c4a-d329-7632de7a194d@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260212101001.343158-3-ruanjinjie@huawei.com>
+Content-Type: multipart/mixed; boundary="8323329-1524609356-1770939592=:1277519"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_105844_879218_396952D0 
-X-CRM114-Status: GOOD (  44.88  )
+X-CRM114-CacheID: sfid-20260212_153954_927972_8C44B7F1 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,411 +64,282 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-On Thu, Feb 12, 2026 at 06:09:59PM +0800, Jinjie Ruan wrote:
-> The exclude of crashk_res, crashk_low_res and crashk_cma memory
-> are almost identical across different architectures, handling them
-> in the crash core would eliminate a lot of duplication, so do
-> them in the common code.
-> 
-> And move the size calculation (and the realloc if needed) into the
-> generic crash core so that:
-> 
-> - New CMA regions or future crash-memory types can automatically
->   accounted for in crash core;
-> 
-> - Each architecture no longer has to play whack-a-mole with
->   its private array size.
-> 
-> To achieve the above goal, 4 architecture-specific functions are
-> introduced:
-> 
-> - arch_get_system_nr_ranges() and arch_prepare_elf64_ram_headers().
->   The 1st function pre-counts the number of memory ranges, and
->   the 2st function fill the memory ranges into the cmem->ranges[] array,
->   and count the actual number of ranges filled.
+--8323329-1524609356-1770939592=:1277519
+Content-Type: text/plain; charset=ISO-8859-15
+Content-Transfer-Encoding: 8BIT
 
-The names should reflect that these function deal with crash memory ranges.
- 
-> - arch_crash_exclude_mem_range(). Realloc for powerpc. The default
->   implementation is crash_exclude_mem_range(), and use
->   crash_exclude_mem_range_guarded() to implement the arch version
->   for powerpc.
->
-> - arch_get_crash_memory_ranges(). Get crash memory ranges for arch and
->   the default implementation is generic across x86, arm64, riscv, and
->   loongson by using the first two arch functions above. powerpc has its
->   own implementation by calling get_crash_memory_ranges().
+Linus,
 
-Hmm, powerpc seems too different from the rest, maybe we shouldn't try to
-squeeze it in?
+Please pull these RISC-V updates for v7.0.  The primary new feature
+here is support for CFI in user processes.  This feature has been
+tested by a set of RISC-V community participants, including by CPU
+IP/hardware vendors and by a major Linux distribution.  Other changes
+are described in the signed tag.
 
-> Tested on x86, arm64 and riscv with QEMU.
-> 
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  arch/arm64/include/asm/kexec.h             |   9 +-
->  arch/arm64/kernel/machine_kexec_file.c     |  41 +++-----
->  arch/loongarch/include/asm/kexec.h         |   9 +-
->  arch/loongarch/kernel/machine_kexec_file.c |  41 +++-----
->  arch/powerpc/include/asm/kexec.h           |  13 +++
->  arch/powerpc/include/asm/kexec_ranges.h    |   3 -
->  arch/powerpc/kexec/crash.c                 |  68 ++++++++------
->  arch/powerpc/kexec/file_load_64.c          |  17 ++--
->  arch/powerpc/kexec/ranges.c                |  18 +---
->  arch/riscv/include/asm/kexec.h             |   9 +-
->  arch/riscv/kernel/machine_kexec_file.c     |  37 +++-----
->  arch/x86/include/asm/kexec.h               |   9 ++
->  arch/x86/kernel/crash.c                    | 104 +++------------------
->  include/linux/crash_core.h                 |  75 +++++++++++++--
->  kernel/crash_core.c                        |  85 +++++++++++++++--
->  15 files changed, 289 insertions(+), 249 deletions(-)
+The code in this PR has been sitting in linux-next for a few weeks.  I
+did repush some of the vector ptrace patches a few days ago to fix a
+missing Signed-off-by: tag (thanks Mark); no code was changed during
+the repush.
 
-TBH, I'd expect this to produce negative diffstat :/
- 
-> diff --git a/arch/arm64/include/asm/kexec.h b/arch/arm64/include/asm/kexec.h
-> index 892e5bebda95..67f790e3ba14 100644
-> --- a/arch/arm64/include/asm/kexec.h
-> +++ b/arch/arm64/include/asm/kexec.h
-> @@ -119,6 +119,7 @@ struct kimage_arch {
->  };
->  
->  #ifdef CONFIG_KEXEC_FILE
-> +struct crash_mem;
->  extern const struct kexec_file_ops kexec_image_ops;
->  
->  int arch_kimage_file_post_load_cleanup(struct kimage *image);
-> @@ -128,7 +129,13 @@ extern int load_other_segments(struct kimage *image,
->  		unsigned long kernel_load_addr, unsigned long kernel_size,
->  		char *initrd, unsigned long initrd_len,
->  		char *cmdline);
-> -#endif
-> +
-> +int arch_get_system_nr_ranges(unsigned int *nr_ranges);
-> +#define arch_get_system_nr_ranges arch_get_system_nr_ranges
-> +
-> +int arch_prepare_elf64_ram_headers(struct crash_mem *cmem);
-> +#define arch_prepare_elf64_ram_headers arch_prepare_elf64_ram_headers
 
-I think a better practice would be to declare all functions that an
-architecture may override in include/linux/crash_core.h and provide a
-default __weak implementation in kernel/crash_core.c.
+thanks,
 
-> +#endif /* CONFIG_KEXEC_FILE */
->  
->  #endif /* __ASSEMBLER__ */
->  
-> diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-> index 410060ebd86d..506a165117b1 100644
-> --- a/arch/arm64/kernel/machine_kexec_file.c
-> +++ b/arch/arm64/kernel/machine_kexec_file.c
-> @@ -40,23 +40,22 @@ int arch_kimage_file_post_load_cleanup(struct kimage *image)
->  }
->  
->  #ifdef CONFIG_CRASH_DUMP
-> -static int prepare_elf_headers(void **addr, unsigned long *sz)
-> +int arch_get_system_nr_ranges(unsigned int *nr_ranges)
->  {
-> -	struct crash_mem *cmem;
-> -	unsigned int nr_ranges;
-> -	int ret;
-> -	u64 i;
->  	phys_addr_t start, end;
-> +	u64 i;
->  
-> -	nr_ranges = 2; /* for exclusion of crashkernel region */
->  	for_each_mem_range(i, &start, &end)
-> -		nr_ranges++;
-> +		(*nr_ranges)++;
-> +
+- Paul
 
-Won't be simpler to make it 
 
-	unsigned int arch_get_system_nr_ranges(void)
+The following changes since commit 28a12ef366ecb118db19b92120a07b0491c1958e:
 
-count the ranges and return the result?
+  errata/sifive: remove unreliable warn_miss_errata (2026-01-25 21:09:04 -0700)
 
-> +	return 0;
-> +}
->  
-> -	cmem = kmalloc(struct_size(cmem, ranges, nr_ranges), GFP_KERNEL);
-> -	if (!cmem)
-> -		return -ENOMEM;
-> +int arch_prepare_elf64_ram_headers(struct crash_mem *cmem)
-> +{
+are available in the Git repository at:
 
-It seems that this function collects the memory ranges and fills them into
-cmem rather than prepares elf headers.
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.0-mw1
 
-> +	phys_addr_t start, end;
-> +	u64 i;
->  
-> -	cmem->max_nr_ranges = nr_ranges;
->  	cmem->nr_ranges = 0;
->  	for_each_mem_range(i, &start, &end) {
->  		cmem->ranges[cmem->nr_ranges].start = start;
-> @@ -64,22 +63,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
->  		cmem->nr_ranges++;
->  	}
->  
-> -	/* Exclude crashkernel region */
-> -	ret = crash_exclude_mem_range(cmem, crashk_res.start, crashk_res.end);
-> -	if (ret)
-> -		goto out;
-> -
-> -	if (crashk_low_res.end) {
-> -		ret = crash_exclude_mem_range(cmem, crashk_low_res.start, crashk_low_res.end);
-> -		if (ret)
-> -			goto out;
-> -	}
-> -
-> -	ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
-> -
-> -out:
-> -	kfree(cmem);
-> -	return ret;
-> +	return 0;
->  }
->  #endif
->  
-> @@ -109,7 +93,8 @@ int load_other_segments(struct kimage *image,
->  	void *headers;
->  	unsigned long headers_sz;
->  	if (image->type == KEXEC_TYPE_CRASH) {
-> -		ret = prepare_elf_headers(&headers, &headers_sz);
-> +		ret = crash_prepare_elf64_headers(true, &headers, &headers_sz,
-> +						  NULL, NULL, NULL);
->  		if (ret) {
->  			pr_err("Preparing elf core header failed\n");
->  			goto out_err;
+for you to fetch changes up to 18be4ca5cb4e5a86833de97d331f5bc14a6c5a6d:
 
-Same comments as for arm64 apply for other architectures as well. 
+  riscv: lib: optimize strlen loop efficiency (2026-02-09 15:27:33 -0700)
 
-> diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
-> index d35726d6a415..3105d28fd0c6 100644
-> --- a/include/linux/crash_core.h
-> +++ b/include/linux/crash_core.h
-> @@ -2,11 +2,14 @@
->  #ifndef LINUX_CRASH_CORE_H
->  #define LINUX_CRASH_CORE_H
->  
-> -#include <linux/linkage.h>
->  #include <linux/elfcore.h>
->  #include <linux/elf.h>
-> +#include <linux/kexec.h>
-> +#include <linux/linkage.h>
-> +#include <linux/vmalloc.h>
->  
->  struct kimage;
-> +struct memory_notify;
->  
->  struct crash_mem {
->  	unsigned int max_nr_ranges;
-> @@ -54,6 +57,66 @@ static inline int arch_crash_hotplug_support(struct kimage *image, unsigned long
->  }
->  #endif
->  
-> +extern int crash_exclude_mem_range(struct crash_mem *mem,
-> +				   unsigned long long mstart,
-> +				   unsigned long long mend);
-> +
-> +#ifndef arch_crash_exclude_mem_range
-> +static __always_inline int arch_crash_exclude_mem_range(struct crash_mem **mem_ranges,
-> +							unsigned long long mstart,
-> +							unsigned long long mend)
-> +{
-> +	return crash_exclude_mem_range(*mem_ranges, mstart, mend);
-> +}
-> +#endif
-> +
-> +#ifndef arch_get_system_nr_ranges
-> +static inline int arch_get_system_nr_ranges(unsigned int *nr_ranges)
-> +{
-> +	return -EINVAL;
-> +}
-> +#endif
-> +
-> +#ifndef arch_prepare_elf64_ram_headers
-> +static inline int arch_prepare_elf64_ram_headers(struct crash_mem *cmem)
-> +{
-> +	return -EINVAL;
-> +}
-> +#endif
-> +
-> +#ifndef arch_get_crash_memory_ranges
-> +static inline int arch_get_crash_memory_ranges(struct crash_mem **cmem,
-> +					       unsigned long *nr_mem_ranges,
-> +					       struct kimage *image,
-> +					       struct memory_notify *mn)
-> +{
-> +	unsigned int nr_ranges;
-> +	int ret;
-> +
-> +	/*
-> +	 * Exclusion of crash region, crashk_low_res and/or crashk_cma_ranges
-> +	 * may cause range splits. So add extra slots here.
-> +	 */
-> +	nr_ranges = 1 + (crashk_low_res.end != 0) + crashk_cma_cnt;
-> +	ret = arch_get_system_nr_ranges(&nr_ranges);
-> +	if (ret)
-> +		return ret;
-> +
-> +	*cmem = kvzalloc(struct_size(*cmem, ranges, nr_ranges), GFP_KERNEL);
-> +	if (!(*cmem))
-> +		return -ENOMEM;
-> +
-> +	(*cmem)->max_nr_ranges = nr_ranges;
-> +	ret = arch_prepare_elf64_ram_headers(*cmem);
-> +	if (ret) {
-> +		kvfree(*cmem);
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
+----------------------------------------------------------------
+RISC-V updates for v7.0
 
-This function is quite large for an inline, should be in
-kernel/crash_core.c IMHO.
+- Add support for control flow integrity for userspace processes.
+  This is based on the standard RISC-V ISA extensions Zicfiss and
+  Zicfilp
 
-> +#endif
-> +
->  #ifndef crash_get_elfcorehdr_size
->  static inline unsigned int crash_get_elfcorehdr_size(void) { return 0; }
->  #endif
-> @@ -61,11 +124,11 @@ static inline unsigned int crash_get_elfcorehdr_size(void) { return 0; }
->  /* Alignment required for elf header segment */
->  #define ELF_CORE_HEADER_ALIGN   4096
->  
-> -extern int crash_exclude_mem_range(struct crash_mem *mem,
-> -				   unsigned long long mstart,
-> -				   unsigned long long mend);
-> -extern int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
-> -				       void **addr, unsigned long *sz);
-> +extern int crash_prepare_elf64_headers(int need_kernel_map,
-> +				       void **addr, unsigned long *sz,
-> +				       unsigned long *nr_mem_ranges,
-> +				       struct kimage *image,
-> +				       struct memory_notify *mn);
->  
->  struct kimage;
->  struct kexec_segment;
-> diff --git a/kernel/crash_core.c b/kernel/crash_core.c
-> index 99dac1aa972a..99a0d6abf88e 100644
-> --- a/kernel/crash_core.c
-> +++ b/kernel/crash_core.c
-> @@ -18,6 +18,7 @@
->  #include <linux/memblock.h>
->  #include <linux/kmemleak.h>
->  #include <linux/crash_core.h>
-> +#include <linux/crash_reserve.h>
->  #include <linux/reboot.h>
->  #include <linux/btf.h>
->  #include <linux/objtool.h>
-> @@ -161,19 +162,80 @@ static inline resource_size_t crash_resource_size(const struct resource *res)
->  	return !res->end ? 0 : resource_size(res);
->  }
->  
-> +static int crash_exclude_mem_ranges(struct crash_mem *cmem,
-> +				    unsigned long *nr_mem_ranges)
-> +{
-> +	int ret, i;
-> +
-> +#if defined(CONFIG_X86_64) || defined(CONFIG_X86_32)
-> +	/*
-> +	 * Exclusion of low 1M may not cause another range split, because the
-> +	 * range of exclude is [0, 1M] and the condition for splitting a new
-> +	 * region is that the start, end parameters are both in a certain
-> +	 * existing region in cmem and cannot be equal to existing region's
-> +	 * start or end. Obviously, the start of [0, 1M] cannot meet this
-> +	 * condition.
-> +	 *
-> +	 * But in order to lest the low 1M could be changed in the future,
-> +	 * (e.g. [start, 1M]), add a extra slot.
-> +	 */
-> +	cmem->max_nr_ranges++;
->  
-> +	/* Exclude the low 1M because it is always reserved */
-> +	ret = arch_crash_exclude_mem_range(&cmem, 0, SZ_1M - 1);
-> +	if (ret)
-> +		return ret;
-> +#endif
+- Improve ptrace behavior regarding vector registers, and add some selftests
 
-This should remain in x86.
+- Optimize our strlen() assembly
 
->  
-> +	/* Exclude crashkernel region */
-> +	ret = arch_crash_exclude_mem_range(&cmem, crashk_res.start, crashk_res.end);
-> +	if (ret)
-> +		return ret;
->  
-> -int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
-> -			  void **addr, unsigned long *sz)
-> +	if (crashk_low_res.end) {
-> +		ret = arch_crash_exclude_mem_range(&cmem, crashk_low_res.start, crashk_low_res.end);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	for (i = 0; i < crashk_cma_cnt; ++i) {
-> +		ret = arch_crash_exclude_mem_range(&cmem, crashk_cma_ranges[i].start,
-> +						   crashk_cma_ranges[i].end);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	/* Return the computed number of memory ranges, for hotplug usage */
-> +	if (nr_mem_ranges)
-> +		*nr_mem_ranges = cmem->nr_ranges;
-> +
-> +	return 0;
-> +}
-> +
-> +int crash_prepare_elf64_headers(int need_kernel_map, void **addr,
-> +				unsigned long *sz, unsigned long *nr_mem_ranges,
-> +				struct kimage *image, struct memory_notify *mn)
+- Enable the ISO-8859-1 code page as built-in, similar to ARM64, for EFI
+  volume mounting
 
-Hmm, we are adding image and mn parameters only for powerpc and we already
-have arch_crash_exclude_mem_range() and arch_get_crash_memory_ranges() to
-accommodate powerpc differences.
+- Clean up some code slightly, including defining copy_user_page() as
+  copy_page() rather than memcpy(), aligning us with other
+  architectures; and using max3() to slightly simplify an expression
+  in riscv_iommu_init_check()
 
-I'd suggest to take a slightly different approach. I'm thinking that we can
-add crash_prepare_elf_headers() that will be similar to current
-x86/arm64/loongarch prepare_elf_headers(), leave
-crash_prepare_elf64_headers() alone and add a helper to exclude common
-ranges, e.g crash_exclude_core_ranges(struct crash_mem *mem).
+----------------------------------------------------------------
+Deepak Gupta (26):
+      mm: add VM_SHADOW_STACK definition for riscv
+      dt-bindings: riscv: document zicfilp and zicfiss in extensions.yaml
+      riscv: zicfiss / zicfilp enumeration
+      riscv: add Zicfiss / Zicfilp extension CSR and bit definitions
+      riscv: Add usercfi state for task and save/restore of CSR_SSP on trap entry/exit
+      riscv/mm: ensure PROT_WRITE leads to VM_READ | VM_WRITE
+      riscv/mm: manufacture shadow stack ptes
+      riscv/mm: teach pte_mkwrite to manufacture shadow stack PTEs
+      riscv/mm: update write protect to work on shadow stacks
+      riscv/mm: Implement map_shadow_stack() syscall
+      riscv/shstk: If needed allocate a new shadow stack on clone
+      riscv: Implement arch-agnostic shadow stack prctls
+      prctl: add arch-agnostic prctl()s for indirect branch tracking
+      riscv: Implement indirect branch tracking prctls
+      riscv/traps: Introduce software check exception and uprobe handling
+      riscv/signal: save and restore the shadow stack on a signal
+      riscv/kernel: update __show_regs() to print shadow stack register
+      riscv/ptrace: expose riscv CFI status and state via ptrace and in core files
+      riscv/hwprobe: add zicfilp / zicfiss enumeration in hwprobe
+      riscv: add kernel command line option to opt out of user CFI
+      riscv: enable kernel access to shadow stack memory via the FWFT SBI call
+      arch/riscv: add dual vdso creation logic and select vdso based on hw
+      riscv: create a Kconfig fragment for shadow stack and landing pad support
+      riscv: add documentation for landing pad / indirect branch tracking
+      riscv: add documentation for shadow stack
+      kselftest/riscv: add kselftest for user mode CFI
 
-The crash_prepare_headers() would be something like this (error handling
-omitted):
+Feng Jiang (1):
+      riscv: lib: optimize strlen loop efficiency
 
-int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz)
-{
-	unsigned int nr;
-	struct crash_mem *cmem;
+Florian Schmaus (1):
+      riscv: mm: define copy_user_page() as copy_page()
 
-	nr = arch_get_system_nr_ranges();
-	cmem = alloc_cmem(nr);
-	arch_crash_populate_cmem(cmem);
-	crash_exclude_core_ranges(cmem);
-	arch_crash_exclude_ranges(cmem);
-	crash_prepare_elf64_headers(cmem, need_kernel_map, addr, sz);
-}
+Ilya Mamay (1):
+      riscv: ptrace: return ENODATA for inactive vector extension
 
-powerpc could reuse crash_exclude_core_ranges() provided the latter call
-an overridable arch_crash_exclude_range()
+Javier Carrasco (1):
+      riscv: defconfig: enable NLS_ISO8859_1
 
-What do you think?
+Jim Shu (1):
+      arch/riscv: compile vdso with landing pad and shadow stack note
 
--- 
-Sincerely yours,
-Mike.
+Markus Elfring (1):
+      iommu/riscv: Simplify maximum determination in riscv_iommu_init_check()
+
+Paul Walmsley (1):
+      riscv: hwprobe: add support for RISCV_HWPROBE_KEY_IMA_EXT_1
+
+Sergey Matyukevich (8):
+      riscv: vector: init vector context with proper vlenb
+      riscv: csr: define vtype register elements
+      riscv: ptrace: validate input vector csr registers
+      selftests: riscv: test ptrace vector interface
+      selftests: riscv: verify initial vector state with ptrace
+      selftests: riscv: verify syscalls discard vector context
+      selftests: riscv: verify ptrace rejects invalid vector csr inputs
+      selftests: riscv: verify ptrace accepts valid vector csr values
+
+Thomas Weiﬂschuh (1):
+      selftests: riscv: vstate_exec_nolibc: Use the regular prctl() function
+
+ Documentation/admin-guide/kernel-parameters.txt    |   8 +
+ Documentation/arch/riscv/hwprobe.rst               |   6 +-
+ Documentation/arch/riscv/index.rst                 |   2 +
+ Documentation/arch/riscv/zicfilp.rst               | 122 +++
+ Documentation/arch/riscv/zicfiss.rst               | 194 +++++
+ .../devicetree/bindings/riscv/extensions.yaml      |  14 +
+ arch/riscv/Kconfig                                 |  22 +
+ arch/riscv/Makefile                                |   8 +-
+ arch/riscv/configs/defconfig                       |   2 +-
+ arch/riscv/configs/hardening.config                |   4 +
+ arch/riscv/include/asm/asm-prototypes.h            |   1 +
+ arch/riscv/include/asm/assembler.h                 |  44 +
+ arch/riscv/include/asm/cpufeature.h                |  12 +
+ arch/riscv/include/asm/csr.h                       |  31 +
+ arch/riscv/include/asm/entry-common.h              |   2 +
+ arch/riscv/include/asm/hwcap.h                     |   2 +
+ arch/riscv/include/asm/hwprobe.h                   |   3 +-
+ arch/riscv/include/asm/mman.h                      |  26 +
+ arch/riscv/include/asm/mmu_context.h               |   7 +
+ arch/riscv/include/asm/page.h                      |   3 +-
+ arch/riscv/include/asm/pgtable.h                   |  30 +-
+ arch/riscv/include/asm/processor.h                 |   1 +
+ arch/riscv/include/asm/thread_info.h               |   3 +
+ arch/riscv/include/asm/usercfi.h                   |  97 +++
+ arch/riscv/include/asm/vdso.h                      |  13 +-
+ arch/riscv/include/uapi/asm/hwprobe.h              |   4 +
+ arch/riscv/include/uapi/asm/ptrace.h               |  34 +
+ arch/riscv/include/uapi/asm/sigcontext.h           |   1 +
+ arch/riscv/kernel/Makefile                         |   2 +
+ arch/riscv/kernel/asm-offsets.c                    |  10 +
+ arch/riscv/kernel/cpufeature.c                     |  25 +
+ arch/riscv/kernel/entry.S                          |  38 +
+ arch/riscv/kernel/head.S                           |  27 +
+ arch/riscv/kernel/process.c                        |  27 +-
+ arch/riscv/kernel/ptrace.c                         | 193 ++++-
+ arch/riscv/kernel/signal.c                         |  86 ++
+ arch/riscv/kernel/sys_hwprobe.c                    | 170 ++--
+ arch/riscv/kernel/sys_riscv.c                      |  10 +
+ arch/riscv/kernel/traps.c                          |  54 ++
+ arch/riscv/kernel/usercfi.c                        | 542 ++++++++++++
+ arch/riscv/kernel/vdso.c                           |   7 +
+ arch/riscv/kernel/vdso/Makefile                    |  40 +-
+ arch/riscv/kernel/vdso/flush_icache.S              |   4 +
+ arch/riscv/kernel/vdso/gen_vdso_offsets.sh         |   4 +-
+ arch/riscv/kernel/vdso/getcpu.S                    |   4 +
+ arch/riscv/kernel/vdso/note.S                      |   3 +
+ arch/riscv/kernel/vdso/rt_sigreturn.S              |   4 +
+ arch/riscv/kernel/vdso/sys_hwprobe.S               |   4 +
+ arch/riscv/kernel/vdso/vgetrandom-chacha.S         |   5 +-
+ arch/riscv/kernel/vdso_cfi/Makefile                |  25 +
+ arch/riscv/kernel/vdso_cfi/vdso-cfi.S              |  11 +
+ arch/riscv/kernel/vector.c                         |  12 +-
+ arch/riscv/lib/strlen.S                            |   8 +-
+ arch/riscv/mm/init.c                               |   2 +-
+ arch/riscv/mm/pgtable.c                            |  16 +
+ drivers/iommu/riscv/iommu.c                        |   8 +-
+ include/linux/cpu.h                                |   4 +
+ include/linux/mm.h                                 |   5 +-
+ include/uapi/linux/elf.h                           |   2 +
+ include/uapi/linux/prctl.h                         |  27 +
+ kernel/sys.c                                       |  30 +
+ tools/testing/selftests/riscv/Makefile             |   2 +-
+ tools/testing/selftests/riscv/cfi/.gitignore       |   2 +
+ tools/testing/selftests/riscv/cfi/Makefile         |  23 +
+ tools/testing/selftests/riscv/cfi/cfi_rv_test.h    |  82 ++
+ tools/testing/selftests/riscv/cfi/cfitests.c       | 173 ++++
+ tools/testing/selftests/riscv/cfi/shadowstack.c    | 385 +++++++++
+ tools/testing/selftests/riscv/cfi/shadowstack.h    |  27 +
+ tools/testing/selftests/riscv/hwprobe/which-cpus.c |  18 +-
+ tools/testing/selftests/riscv/vector/.gitignore    |   2 +
+ tools/testing/selftests/riscv/vector/Makefile      |  10 +-
+ tools/testing/selftests/riscv/vector/v_helpers.c   |  23 +
+ tools/testing/selftests/riscv/vector/v_helpers.h   |   2 +
+ .../selftests/riscv/vector/validate_v_ptrace.c     | 915 +++++++++++++++++++++
+ .../selftests/riscv/vector/vstate_exec_nolibc.c    |   8 +-
+ 75 files changed, 3655 insertions(+), 122 deletions(-)
+ create mode 100644 Documentation/arch/riscv/zicfilp.rst
+ create mode 100644 Documentation/arch/riscv/zicfiss.rst
+ create mode 100644 arch/riscv/configs/hardening.config
+ create mode 100644 arch/riscv/include/asm/mman.h
+ create mode 100644 arch/riscv/include/asm/usercfi.h
+ create mode 100644 arch/riscv/kernel/usercfi.c
+ create mode 100644 arch/riscv/kernel/vdso_cfi/Makefile
+ create mode 100644 arch/riscv/kernel/vdso_cfi/vdso-cfi.S
+ create mode 100644 tools/testing/selftests/riscv/cfi/.gitignore
+ create mode 100644 tools/testing/selftests/riscv/cfi/Makefile
+ create mode 100644 tools/testing/selftests/riscv/cfi/cfi_rv_test.h
+ create mode 100644 tools/testing/selftests/riscv/cfi/cfitests.c
+ create mode 100644 tools/testing/selftests/riscv/cfi/shadowstack.c
+ create mode 100644 tools/testing/selftests/riscv/cfi/shadowstack.h
+ create mode 100644 tools/testing/selftests/riscv/vector/validate_v_ptrace.c
+
+vmlinux size differences in bytes (from 28a12ef366ec):
+  text   data bss    dec   hex filename                             
+ +6290  +8892  +8 +15190 +3b56 vmlinux.defconfig.gcc-15             
+ +5684  +9668  +8 +15360 +3c00 vmlinux.nosmp_defconfig.gcc-15       
+ +1672  +2720   .  +4392 +1128 vmlinux.rv32_defconfig.gcc-15        
+ +1188   +288   .  +1476  +5c4 vmlinux.rv32_nosmp_defconfig.gcc-15  
+ +1628   +128   .  +1756  +6dc vmlinux.nommu_virt_defconfig.gcc-15  
+  +692  +3864   .  +4556 +11cc vmlinux.defconfig.clang-20           
+ +1024   +256   .  +1280  +500 vmlinux.nosmp_defconfig.clang-20     
+  +940  +2616   .  +3556  +de4 vmlinux.rv32_defconfig.clang-20      
+ +1188   +288   .  +1476  +5c4 vmlinux.rv32_nosmp_defconfig.clang-20
+ +1762  -3904   .  -2142  -85e vmlinux.nommu_virt_defconfig.clang-20
+ +1620  +3624   .  +5244 +147c vmlinux.defconfig.gcc-14             
+ +1380   +240   .  +1620  +654 vmlinux.nosmp_defconfig.gcc-14       
+ +1604  +2752   .  +4356 +1104 vmlinux.rv32_defconfig.gcc-14        
+ +1192   +320   .  +1512  +5e8 vmlinux.rv32_nosmp_defconfig.gcc-14  
+ +1616   +448   .  +2064  +810 vmlinux.nommu_virt_defconfig.gcc-14  
+  +980  +3576   .  +4556 +11cc vmlinux.defconfig.clang-19           
+ +1228    -32   .  +1196  +4ac vmlinux.nosmp_defconfig.clang-19     
+  +904  +2656   .  +3560  +de8 vmlinux.rv32_defconfig.clang-19      
+ +1204   +288   .  +1492  +5d4 vmlinux.rv32_nosmp_defconfig.clang-19
+ +1770  -7744   .  -5974 -1756 vmlinux.nommu_virt_defconfig.clang-19
+ +1352  +3688   .  +5040 +13b0 vmlinux.defconfig.gcc-13             
+ +1168   +224   .  +1392  +570 vmlinux.nosmp_defconfig.gcc-13       
+ +1416  +2752   .  +4168 +1048 vmlinux.rv32_defconfig.gcc-13        
+  +944   +320   .  +1264  +4f0 vmlinux.rv32_nosmp_defconfig.gcc-13  
+ +1568   +384   .  +1952  +7a0 vmlinux.nommu_virt_defconfig.gcc-13  
+  +836  +3832   .  +4668 +123c vmlinux.defconfig.clang-18           
+ +1228   +224   .  +1452  +5ac vmlinux.nosmp_defconfig.clang-18     
+  +896  +2648   .  +3544  +dd8 vmlinux.rv32_defconfig.clang-18      
+ +1252   +320   .  +1572  +624 vmlinux.rv32_nosmp_defconfig.clang-18
+ +1762   +256   .  +2018  +7e2 vmlinux.nommu_virt_defconfig.clang-18
+ +1500  +3752   .  +5252 +1484 vmlinux.defconfig.gcc-12             
+ +1228   +304   .  +1532  +5fc vmlinux.nosmp_defconfig.gcc-12       
+ +1324  +2752   .  +4076  +fec vmlinux.rv32_defconfig.gcc-12        
+  +988   +352   .  +1340  +53c vmlinux.rv32_nosmp_defconfig.gcc-12  
+ +1580   +384   .  +1964  +7ac vmlinux.nommu_virt_defconfig.gcc-12  
+ +1144  +3832   .  +4976 +1370 vmlinux.defconfig.clang-17           
+ +1716   +224   .  +1940  +794 vmlinux.nosmp_defconfig.clang-17     
+ +1520  +2616   .  +4136 +1028 vmlinux.rv32_defconfig.clang-17      
+ +1884   +352   .  +2236  +8bc vmlinux.rv32_nosmp_defconfig.clang-17
+ +2134 +12736   . +14870 +3a16 vmlinux.nommu_virt_defconfig.clang-17
+ +1524  +3432   .  +4956 +135c vmlinux.defconfig.gcc-11             
+  +996    -32   .   +964  +3c4 vmlinux.nosmp_defconfig.gcc-11       
+ +1460  +2784   .  +4244 +1094 vmlinux.rv32_defconfig.gcc-11        
+ +1084   +320   .  +1404  +57c vmlinux.rv32_nosmp_defconfig.gcc-11  
+ +1564   +128   .  +1692  +69c vmlinux.nommu_virt_defconfig.gcc-11  
+ +1028   +224   .  +1252  +4e4 vmlinux.allnoconfig.gcc-14           
+ +8858  +2172   . +11030 +2b16 vmlinux.allmodconfig.gcc-14          
+  +768    -32   .   +736  +2e0 vmlinux.allnoconfig.clang-19         
++26214  +1404  -8 +27610 +6bda vmlinux.allmodconfig.clang-19        
+--8323329-1524609356-1770939592=:1277519
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--8323329-1524609356-1770939592=:1277519--
+
