@@ -4,54 +4,254 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68FE5EE36AE
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 17:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006ADEEA848
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 18:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mcEtlxvizEDf4jLPrjnHTX3/DmTWnBo0/Yka8lccyL4=; b=mmL0320XwZxtl/YbGv0Bs9o385
-	BQX3Bf/j0sqpJ86I2mc3H6pKkwY7NopFH7Tza9X32PDDeMCFta2cS/UDTlRmCreVYzd8HoF8NlvzE
-	d4ec6Ra0h0V1Ta7MbY0QFtoSiriKN9Kwzh6NvqKKx2QPj/nrjNj/q1fBbjIHSRaPj1WYAltxGXr1w
-	OCg2SivkwPxpm5PQDAY66M+AkZJyEwF/W7zDtG2aiAVQrb8xMmYlSgKXQd7RR3Ehd+SQpeM2n9eNA
-	3Nx1reKUQTMbZRJkEmHWJtPJKJYGuGtDhNjxmmc522cZ3NruMf24d8XgY1gvhkvhmbeD40/ns09fQ
-	KeeLDkJQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rcHaDZSP2uXYEMIXjvsboQZf647RjIvp/Bioyg7ELEQ=; b=a4kFeU4nmYkICP
+	2O3Yjkej6Wq7CVVhSClbUrNN2Bvw/GXLVe1qTvXaq0JO/7Z9nHBkIxi030j2lrDZq+f8j62lqX1et
+	xngVjpTxJyOnvDviYgJy5a2+Un9t4fdeWszSBTgOo5q4R9m+ZGAmlwHGh3w4gQLmCAUvTDq4LJJ8U
+	yz7SWaqU9PAzRL5EaqLUSuVxGs48IGbSd8UPYOARU5Ycd5/PNCfQB2QH500j/tVOqC7sTI3v3BVZb
+	yGkobP4XUNF5kNdVOV4OryubgcAAV0Q2Gp0wbQN7r3KzCyi51JqGWs0U7tKyHNbgpaK6dbNowW+7u
+	nBrCa02V4FrWrsn89QBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqaqM-00000002TdN-12uM;
-	Thu, 12 Feb 2026 17:51:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vqbTK-00000002W0u-3s8H;
+	Thu, 12 Feb 2026 18:31:26 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqaqL-00000002TdF-1CHB
-	for linux-riscv@lists.infradead.org;
-	Thu, 12 Feb 2026 17:51:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5255360010;
-	Thu, 12 Feb 2026 17:51:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA8ABC4CEF7;
-	Thu, 12 Feb 2026 17:51:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770918668;
-	bh=tVbscBlvX5MU2g7eUlmicDhpSLT1c7Ut0PUEhqLNj3U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WXohiu/cw0WFXN3JZsxH8Sn6Z84OMl1RNtywe32HxNJ551oHkNj5ag15e7F/H5Ixe
-	 6/G+FbTC7tty1yd4L8STBsbinEQxtTC8+JAX+BPPvQZGN9mQWGgwSRe457m3WGUx7i
-	 XSWCMlMuUi2t18x2MyKEsc6WVaIvKwrpBOcWAK2L+J2EeYPITg1Ls30JT95mZ4R3I8
-	 E8L7tESZpXojzlKlRlxhmXJZoBj9eB2iABuuB5GSqYHlCWlmVyBYwghWua7GrKXt/U
-	 ThWxO43c50S+5Codli85URNz84hekLsNx6lGvbGBE8vY7+0pF5uacU/7vM4qSGAU5s
-	 jukPg3XSI2jRA==
-Date: Thu, 12 Feb 2026 17:51:04 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Sean Chang <seanwascoding@gmail.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, pjw@kernel.org,
-	kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH v3] riscv: fix various typos in comments and code
-Message-ID: <20260212-rush-exclude-b292151e13a3@spud>
-References: <20260212163325.60389-1-seanwascoding@gmail.com>
+	id 1vqbTH-00000002W09-2v61;
+	Thu, 12 Feb 2026 18:31:25 +0000
+Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61CGNAWL2001106;
+	Thu, 12 Feb 2026 18:30:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2025-04-25; bh=ZBU8zuh1B6u2NrK0f0
+	xUAkJQ/ncEkHu8Pynqg4xlBCc=; b=JEoHJsLwRXSRnSw6wsrv5SPp3yKQRzK7XN
+	iXPggXvtFnovZbtqB1BaQW+icL0sb9U+eIlWq15H/vLapoOidpxYUgEUcgB5YmNt
+	b0A2wU1fjyVgFLQLUSzla/qmPTcy0Rs0SlLV6xtfx8A1+CmEZRqbGuvbhHd+mUb/
+	FV0fXyaagSFMhYw8mVA2W1isD+j8qxQHjhtyrI713ESphfGuzJr2pTZ/CgNhUUK7
+	UMYUoXbUNTJNTSD+ZJbxt+HJXX8P8mttvGnWHswu1kZYOpofgEAzN5ufPVSwJha1
+	wRBusB46+VdYsON6r1DDHa5YY7WNxuibY3G6arxRiEgJiUt3+zgQ==
+Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta01.appoci.oracle.com [138.1.114.2])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4c88df412h-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 12 Feb 2026 18:30:35 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 61CIKKi9029995;
+	Thu, 12 Feb 2026 18:30:34 GMT
+Received: from bn1pr04cu002.outbound.protection.outlook.com (mail-eastus2azon11010063.outbound.protection.outlook.com [52.101.56.63])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4c822b9t2k-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 12 Feb 2026 18:30:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CPJ5acgubwe5j310VbaK1N6RUBvikbMtusSMiubCzump6H1wC0lgsPmzXZZc+7M7LcagmTz5+vI7Crj+LSnC9NtQIWwVmmKOg9Tin2aoRGoQ/UcTtxZVnmwg5LvzbuZnJ+Lt7+5Rg/3R9gHhdG36f6ePQbero9AXDdGFGFrTBuxob6KIFscqm4Nx0E9oDgc+wim/gclHCZB/Ake/W4uWe0/CckD4mgQ/FHsRcbjX6ZsuJ43ruOj95rIsirTZb1IIjVfFSr+zeEvlTXHzt1GR8EA/00whajcHLEk/xEGa4P4IoWsnWc0NfHiejTmvb3d7Adg9sITbkUsK03c1CbAfow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZBU8zuh1B6u2NrK0f0xUAkJQ/ncEkHu8Pynqg4xlBCc=;
+ b=Fnn3NUPCB6T+pSB2NqxgVH+KXoJWmp9aBnd5P5ykgyQX0DYNEhIBa/7yFtQUfA3O5QHOxpr6Pd6HwspsqfycFTPlzltIW4MzQ5DDPohRvCRYljv20TstWHBVbf1nZofOcs+fOaP09f4KQTaeqaWg/3e4yKgaNkq/DgcwUvfGAUlsXhM40WpCpPEGhfhFbvGkfshUXMvpkF5bN2Ymq2CB+hY9I3DbldLDBDB/u7S0cfo77+Vyf1vF255Du65j2ptxZjRqn4C5Z5jPoj5Po6O/bkdP1MdDeAFYE1LpH3ze0VFIUbxPkT/8viFkZuhqicTYtdKax031OBgoJ002HAQjow==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZBU8zuh1B6u2NrK0f0xUAkJQ/ncEkHu8Pynqg4xlBCc=;
+ b=jm25xSsc2Oo2uGW/i1TtxOCtbFqYMcQ4yL+ilggC4lqVM9Q6k/0IKb8EJpBFSlf+5vuTrxxvoIIti2tKQZrVVXtv4g+i12AU0nobWwsjnEvVBo1KTnJmdxV4SusdxrXJOy6puYqqg7JFcRMNcVgzOIhSKFtY7HQPFlzyV4MA7ps=
+Received: from PH0PR10MB5777.namprd10.prod.outlook.com (2603:10b6:510:128::16)
+ by PH8PR10MB6337.namprd10.prod.outlook.com (2603:10b6:510:1cc::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.10; Thu, 12 Feb
+ 2026 18:30:26 +0000
+Received: from PH0PR10MB5777.namprd10.prod.outlook.com
+ ([fe80::4b84:e58d:c708:c8ce]) by PH0PR10MB5777.namprd10.prod.outlook.com
+ ([fe80::4b84:e58d:c708:c8ce%4]) with mapi id 15.20.9611.008; Thu, 12 Feb 2026
+ 18:30:26 +0000
+Date: Thu, 12 Feb 2026 13:30:20 -0500
+From: "Liam R. Howlett" <Liam.Howlett@oracle.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+        Andreas Larsson <andreas@gaisler.com>, Borislav Petkov <bp@alien8.de>,
+        Brian Cain <bcain@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        "David S. Miller" <davem@davemloft.net>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        David Hildenbrand <david@kernel.org>,
+        Dinh Nguyen <dinguyen@kernel.org>,
+        Geert Uytterhoeven <geert@linux-m68k.org>, Guo Ren <guoren@kernel.org>,
+        Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+        Ingo Molnar <mingo@redhat.com>,
+        Johannes Berg <johannes@sipsolutions.net>,
+        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Magnus Lindholm <linmag7@gmail.com>, Matt Turner <mattst88@gmail.com>,
+        Max Filippov <jcmvbkbc@gmail.com>,
+        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+        Michal Simek <monstr@monstr.eu>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Richard Weinberger <richard@nod.at>,
+        Russell King <linux@armlinux.org.uk>,
+        Stafford Horne <shorne@gmail.com>,
+        Suren Baghdasaryan <surenb@google.com>,
+        Thomas Gleixner <tglx@kernel.org>, Vineet Gupta <vgupta@kernel.org>,
+        Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+        linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-snps-arc@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+        linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
+        linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+        linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v3 1/4] mm: don't special case !MMU for is_zero_pfn() and
+ my_zero_pfn()
+Message-ID: <74vseqlrkdx7fnkfovc36uyjc3vugi2gs5wwpp2nn4c64ryjnn@6t3obq6o44zu>
+Mail-Followup-To: "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+	Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Andreas Larsson <andreas@gaisler.com>, Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	"David S. Miller" <davem@davemloft.net>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	David Hildenbrand <david@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>, 
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Magnus Lindholm <linmag7@gmail.com>, Matt Turner <mattst88@gmail.com>, 
+	Max Filippov <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Richard Weinberger <richard@nod.at>, 
+	Russell King <linux@armlinux.org.uk>, Stafford Horne <shorne@gmail.com>, 
+	Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
+	Vineet Gupta <vgupta@kernel.org>, Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>, 
+	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
+	linux-mm@kvack.org, x86@kernel.org
+References: <20260211103141.3215197-1-rppt@kernel.org>
+ <20260211103141.3215197-2-rppt@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20260211103141.3215197-2-rppt@kernel.org>
+User-Agent: NeoMutt/20250510
+X-ClientProxiedBy: YT4PR01CA0063.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:111::15) To PH0PR10MB5777.namprd10.prod.outlook.com
+ (2603:10b6:510:128::16)
 MIME-Version: 1.0
-In-Reply-To: <20260212163325.60389-1-seanwascoding@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH0PR10MB5777:EE_|PH8PR10MB6337:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9fc62780-d820-4aca-e163-08de6a64ca9c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1yxbEGuRwbbuPkMZSpbiXh9Y37p+cD1UWvR5ajfo7rEWsjKpqK3EslIV4NDX?=
+ =?us-ascii?Q?uWxBsB7i5DEB6LWbZS4JThVZWyHhkBPtq/Pxuss1H20zu/NY4juTXtwzI2iI?=
+ =?us-ascii?Q?rgsc2aUkLfNUiP5CaHULe5uhfjSiB9nBIpDdB+KW5bpmHS3pU8S/sAZYYkdF?=
+ =?us-ascii?Q?Lx0zr+Yu/EEFwecXyx1RL4AMJIsMitKw2glad2TtVA0vBNt8Xzhz13MfMMVM?=
+ =?us-ascii?Q?cbzJkrekkGAYlGWVcEliNjmqhvCBRe0dkdohckKzrx0Lidlf7rAKBJ22hjzg?=
+ =?us-ascii?Q?d91Lzmz8gMsWSeFwKy16cNmVB5PwmkXzxV32/QybjZBfB6FuW6nJCQiuZngu?=
+ =?us-ascii?Q?XwRDzm73mpr3tW+2wzUl+vZxNI0FRxtVBpqAemSj7LkyU6bJbECVqNGcZv5E?=
+ =?us-ascii?Q?BGW3DYqEd9Okg3gKJbhHHIoofU+5/sZBUbvhfTxkGaYnEVxKN3+mVLhcCXdt?=
+ =?us-ascii?Q?V+pzCLj3HwGyolLlrX3S07/kFOuijBFwrn3tk0ogXFWKrQzWZMRgtLI+lD2E?=
+ =?us-ascii?Q?UnRl5LByhul5kSxFGqhnRvTXmoR0FPHF1QaytPRqPYy3JidlqMT+ZJ01qlLz?=
+ =?us-ascii?Q?jyauEWRd+RuuNq5oVzczIc3KEWaNN8gfESX5hRES6gFrMetx/jCS+3fTOG/U?=
+ =?us-ascii?Q?xc2uXhSglvqf42kItIu8gAehTBJTqODGPeCiEmMrmv7TMlcAmat3m03w5QPh?=
+ =?us-ascii?Q?VoD8m7DuRZcJ5WQ6WuH3ISj2zaQsRgQjTr4R3aS/kaYudtfU9N5OJNC4DaBz?=
+ =?us-ascii?Q?jkPlszXr2xWfeFtwQKZjFOAAE+2aMREk1cU13lbfzXK2MVq7GPu2fiUSLDhp?=
+ =?us-ascii?Q?61i/xA9lEQJLtslVm3pWYzFUvOl2hrXVe2msJTNxgT4Vc3nZSbXqKvqC5+bY?=
+ =?us-ascii?Q?kK3KKep/+X7RlSDQE4C2d34+Fc/0/+9P+c5YfsqaDjAZ/OYFnlQGUZkKD4ZD?=
+ =?us-ascii?Q?ZMJHCtizRz/tuDkGBXXmhNJz9Y6gzqc6PVsYZI8tsZj8R0s5sgKb82lkKB3y?=
+ =?us-ascii?Q?bSL6LsEfp/YOqM4/gfECNXLhTRFW6RJhEkXX006KkbVGW8bWNGdCBa4iuNzP?=
+ =?us-ascii?Q?f74wx7Yuahwul+8tI89uMmfoyavQBIljHgHeQThduCk415XOXSp5H5jNDnDo?=
+ =?us-ascii?Q?fhwdAjoFik2lfLUH5hRl9QgJqR8tFlnk4BRGpcQUzPTWQOWJ+XvMtl69keH5?=
+ =?us-ascii?Q?gO7Yi3vOXvHX85/IovIwgYK/eYFqVyxcUSRfl2HfCB6Fgkfnh0BTv9+8gWg7?=
+ =?us-ascii?Q?Hn3d8J/So780C1YZ5H3wYRBW6atL8OA9fJp51J5RjvZ3i3f7klTWofaVfJ5g?=
+ =?us-ascii?Q?Tat2QJO3PGHKcY0UGbB7RWF9qNaGO04SYB8Cev90hEBReWP8j5K5UIZxky6m?=
+ =?us-ascii?Q?clUGyBxPoRCsfsHEq5zo7zZBnlntTqY9vkW/1Epd9ho/o0EYRThu3CF3tOXS?=
+ =?us-ascii?Q?603jv5o6250Rdy3dnQjxExvB0dnDd738nyoiMBvpokUW1aOo5Ey41J+Ug18c?=
+ =?us-ascii?Q?ynkKU2IHF81qUi1RCAm7q7Ib5vVrDxjG71xkGSsNxYDvhZz4lm3mDCLKK5AM?=
+ =?us-ascii?Q?7lJwTCjoMN8pClBeQUs=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR10MB5777.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?o6CMKY+O3bjSiWHDLxx8FaOT6egEe4X5AUsikQxIN8CgywlR1uMrFclIRDoW?=
+ =?us-ascii?Q?W4YB3uON26Est48Zu829hwBI5jjqfhlHhHUGOIwt/7c6PnEgm4eG+wt4z2py?=
+ =?us-ascii?Q?ZgUju6vpJrdL8zfAajounm7nqSw7DoVW3DUNgi1S3o3txcxTODhrcEfuR0Ys?=
+ =?us-ascii?Q?5d2CNJAgz1qJ2090Uco3jQimZAHHSNP+MILGWcECtUwp+HO48dMVarL8zZVE?=
+ =?us-ascii?Q?a0Y3nM9yrLZ1TU06q0TnthJ1b7cRnQFXlodYUBvEXL9ZuQ419R3thcOFegA7?=
+ =?us-ascii?Q?90eoxx+f69lNnCE3gqXtypOYyxfZKI9oGCboyAXi2IQdXtEuJb6FKc+eKObG?=
+ =?us-ascii?Q?ID8ylTToS24G8j6s5GBTmBJ+EiajyIwSBQUTjwaHGn6UOzGeckCQcKX6WkQr?=
+ =?us-ascii?Q?Be0+v2lT0gYblARD8HrEJrBzRM99wOWjCV/5gGDQMC19V/7qB9bnb7w62j3F?=
+ =?us-ascii?Q?uw9hCWoehrr5IuC+pD6E8bTiKn12x6CJTsUTpFHUUyzOUdrQ6jkIg2LoRg1C?=
+ =?us-ascii?Q?nl6B2emJc0ycMtxKChs+BHIHP7wd8RlertW2aUsTr98hEpyDc0FsQnm9aPRN?=
+ =?us-ascii?Q?lnVt5G4FAwg5ByyBLlQ8R73G+rZ98TeYpf4enVsW9ze/m8BZMHJ7Rv6LGTSM?=
+ =?us-ascii?Q?UCMAMSQLV0ShB0bzqb+rX820lR2cpzQAmN9f0i79xIhfC0F+t5lZurQud+5s?=
+ =?us-ascii?Q?8XvyR61eY37cLgsVDR08uU4rPt3xy+de5uXyu876Hr5+XdhKkILsnhk5Eow3?=
+ =?us-ascii?Q?31MXUxNjt/i6hqHLLeiqigZKA3Y6Dubd+QwmJitPO6FpTl5tWtGhUjs7M3/V?=
+ =?us-ascii?Q?s2LkI4Zt/GRqchpOQOavS+7CB4NU64IAWf5RNMvMI9D1uTeB6h6uBv0t3lPX?=
+ =?us-ascii?Q?nGI70UrKscvuKT/HBn31T/gpVIcst6KbQaL8rZxJlAV/8TKCBfTXDuEY3/mx?=
+ =?us-ascii?Q?4WkFiX7gH8A9y+J9F5ZG83+RZpqYfF6dQT316SGIUPm/pDWHEtHG/SeTLjhN?=
+ =?us-ascii?Q?zKx2mfXZ7Eu++lhT9gCNcHrMjPpa79EaEj6hQKTKWg+b/pXqTYttvGAKvNvy?=
+ =?us-ascii?Q?JAaBCCI2W5eCaokXF0RZvjeTxtqjEV16DtgVYj4TIcLFBJ6UgNFm/aLBrW3c?=
+ =?us-ascii?Q?YLcfHnzKw47842UluF8xM1AxObgtIxlDncd/hcbosTN3DdbbQNYcS2Aa4/zf?=
+ =?us-ascii?Q?U0vcO0QaPrHbsrFbGKVvHCrrdCbe+rhq9Se3DQTIn2yZtLPFUspY1Yi6hv0j?=
+ =?us-ascii?Q?6hFANWPRtA/iMwOHjXcePACmu55bd39Dnx8zsZpc7iw2OTb/mTierpw7GVZA?=
+ =?us-ascii?Q?PPkhX/4ZoCqifxYGtBjukxq+NO2DEmaJxFDyPN806mx38d4KvF7Q3hTeRJNc?=
+ =?us-ascii?Q?tJJh+kLMTeYQrXxtnHj0VL7Zgza+TBu+fflMMeWgJBWCKG98iaDCz6cojFpY?=
+ =?us-ascii?Q?eRiYF8vihfuct5P9heZ3FgeIxpDdmLcWUrvcSmxk/fAwX4R2GI4xIuDXIw+x?=
+ =?us-ascii?Q?K27+SwfXc8eN5a70FjQaAD0fWaIKDxVqbmJVQqLoIYATtmt0HT7HJJZyB04k?=
+ =?us-ascii?Q?NY6bY88716qzVR+Ak01Ntv6FMADIF5M1TJ5TJ4/rG6SuBNMgQ1ljKzwmsgqk?=
+ =?us-ascii?Q?ax99kB8Fpu4WTMZ5AGe0DV0tsAcb3s4fzAk/qmS2VgYQx8yXf5VRrHTv4wR4?=
+ =?us-ascii?Q?kdY3C0AzzQ4Z+eIRvO9grUWoCdDm7yML5JPcEPe9Y+147QgTQqRQO1o3SHNU?=
+ =?us-ascii?Q?n00++oouzA=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: unJwT33p5njrPQGqhhRSXuL6ZzjvulF7nljHxBenG25y9uHdvfemwKx3LaLHwS0i8692VAfomtXxpJlptSTUccXkyUzzWdgfg1xltLiFfMxgJYeOJH5ocUUlBrcUteixTnJtLJkkub9Q2R9vsTytD81TuKGEbXIJSGkO/451nEeZHzQ2wD2cdIQizV9lz/oCgJ9I6vydZ0NV2+YWrqj6YrzkFYsFdCFUojI/Oj+eiDitnY0v5Ha0M0mO27htZhIuprsfYgAXDrMXp7+vGOI2hdNsuOJvk5FJKwbwdg32rJEnEdHhK2IGOjb8/zu0epfPavkMQxcsz8W+MOZgLsSGA2iwnov7GMJJedD0cMMJjEXQcFtJmf+DetU6HPQcXzvF0xhrc1eVgvK7kPUIoCXPxmifICALNleM4rBxmgww18hnTs+wFvu8bJ9n/aQ5hsgsqJidn7cFMx9qjoLWPDbZHvIRsYUihmaBOj9fAQkMKQXHtnQ/e10pvsC/CzCZgiPzFXjc+pyoHfJRgddhjOw16Nh7EwfnPWt6m/bBUNu4bYhYzsWdRvx291RfS2v78qkHRIk/A0MyTtn2zKmUBo562zuks/BNuVHm7bxv89otvWs=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9fc62780-d820-4aca-e163-08de6a64ca9c
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR10MB5777.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2026 18:30:26.3091
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0N7Qt/UF6Jc6jR07PnLZBOwW2WX6gQJvloc203xzFkg6sB34ROMpb5iZWL2z6pCQS8MIb9ej/n3tpALgR8qtdw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR10MB6337
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-12_05,2026-02-12_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 adultscore=0
+ mlxlogscore=999 malwarescore=0 phishscore=0 suspectscore=0 bulkscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2601150000 definitions=main-2602120143
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjEyMDE0MyBTYWx0ZWRfX9i8YDvDs1e4J
+ JC0g+svE0HkcQ2tA3henhHE4RdO0f77ASzSttboeQgfV+RqrZNexAeEzAPGb51jR+Vka5ffkDPV
+ 1u/ZHZlMAjZveu3Dw7GLngqbdcfGzwvXBCS55mvc6ScSWXb/+hl+SWNvit4LYt31YEr9wWjlvtl
+ qiFg3a54fTxf1so+L38z8JkRXzU2iz9RZe7cHtHhHbu7bSXgrHPswb2ojvzPSm24/VvZntvdUfN
+ ssItwjnZe/r7lyzHL5y4FAfZgpdXW72cbIJaJuoVvtHKcUPvhAbNj38JqzygAN45VBiZsrtfmDi
+ JAjXiGPfV8Yx95bNGz55LMjf5J7sKm214KbC5pIIxjkkhaS3ETaAhVcmLU/h6IodB9vXiBtW7Ua
+ thdkGH+qNs2iFHyM5ZdXVRxhYBp1K1fpWRlLImipcXWIlffiMyBVyMbDqpTonvyP+o679cozaNN
+ rOzgNpZZQogc7vQ/Ryw==
+X-Proofpoint-GUID: okW_qj-7OWhB1JoDgzI0Iz8v-k0JbCd-
+X-Authority-Analysis: v=2.4 cv=AqbjHe9P c=1 sm=1 tr=0 ts=698e1c4b cx=c_pps
+ a=XiAAW1AwiKB2Y8Wsi+sD2Q==:117 a=XiAAW1AwiKB2Y8Wsi+sD2Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=HzLeVaNsDn8A:10 a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=VwQbUJbxAAAA:8
+ a=yPCof4ZbAAAA:8 a=ugCoQTybQTWSj32fGnYA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: okW_qj-7OWhB1JoDgzI0Iz8v-k0JbCd-
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260212_103123_856924_3CDD9B89 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,77 +263,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0927735595254507284=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+* Mike Rapoport <rppt@kernel.org> [260211 05:32]:
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> 
+> nommu architectures have empty_zero_page and define ZERO_PAGE() and
+> although they don't really use it to populate page tables, there is no
+> reason to hardwire !MMU implementation of is_zero_pfn() and my_zero_pfn()
+> to 0.
+> 
+> Drop #ifdef CONFIG_MMU around implementations of is_zero_pfn() and
+> my_zero_pfn() and remove !MMU version.
+> 
+> While on it, make zero_pfn __ro_after_init.
+> 
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
---===============0927735595254507284==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ALjf8vcF+BVGhfLH"
-Content-Disposition: inline
+Acked-by: Liam R. Howlett <Liam.Howlett@oracle.com>
 
-
---ALjf8vcF+BVGhfLH
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Feb 13, 2026 at 12:33:25AM +0800, Sean Chang wrote:
-> Fix various typos in RISC-V architecture code and comments.
-> The following changes are included:
->=20
-> - arch/riscv/errata/thead/errata.c: "futher" =E2=86=92 "further"
-> - arch/riscv/include/asm/atomic.h: "therefor" =E2=86=92 "therefore", "ari=
-thmatic" =E2=86=92 "arithmetic"
-> - arch/riscv/include/asm/elf.h: "availiable" =E2=86=92 "available", "coor=
-espends" =E2=86=92 "corresponds"
-> - arch/riscv/include/asm/processor.h: "requries" =E2=86=92 "is required"
-> - arch/riscv/include/asm/thread_info.h: "returing" =E2=86=92 "returning"
-> - arch/riscv/kernel/acpi.c: "compliancy" =E2=86=92 "compliance"
-> - arch/riscv/kernel/ftrace.c: "therefor" =E2=86=92 "therefore"
-> - arch/riscv/kernel/head.S: "intruction" =E2=86=92 "instruction"
-> - arch/riscv/kernel/mcount-dyn.S: "localtion =E2=86=92 "location"
-> - arch/riscv/kernel/module-sections.c: "maxinum" =E2=86=92 "maximum"
-> - arch/riscv/kernel/probes/kprobes.c: "reenabled" =E2=86=92 "re-enabled"
-> - arch/riscv/kernel/probes/uprobes.c: "probbed" =E2=86=92 "probed"
-> - arch/riscv/kernel/soc.c: "extremly" =E2=86=92 "extremely"
-> - arch/riscv/kernel/suspend.c: "incosistent" =E2=86=92 "inconsistent"
-> - arch/riscv/kvm/tlb.c: "cahce" =E2=86=92 "cache"
-> - arch/riscv/kvm/vcpu_pmu.c: "indicies" =E2=86=92 "indices"
-> - arch/riscv/lib/csum.c: "implmentations" =E2=86=92 "implementations"
-> - arch/riscv/lib/memmove.S: "ammount" =E2=86=92 "amount"
-> - arch/riscv/mm/cacheflush.c: "visable" =E2=86=92 "visible"
-> - arch/riscv/mm/physaddr.c: "aginst" =E2=86=92 "against"
->=20
-> Signed-off-by: Sean Chang <seanwascoding@gmail.com>
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
---ALjf8vcF+BVGhfLH
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaY4TBAAKCRB4tDGHoIJi
-0qx2APwLMPaOJdTCJZ77zwBCcoJxv1OCebheJ1jz+NzZZsQBPQD9GI14E6hJEgbP
-qoq+dOR1vc4ktT34X8O8lg5uew2cfQ0=
-=1pzJ
------END PGP SIGNATURE-----
-
---ALjf8vcF+BVGhfLH--
-
-
---===============0927735595254507284==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> ---
+>  include/linux/pgtable.h | 14 +-------------
+>  mm/memory.c             | 13 -------------
+>  mm/mm_init.c            | 10 ++++++++++
+>  3 files changed, 11 insertions(+), 26 deletions(-)
+> 
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index 827dca25c0bc..08a88b0d56e5 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -1882,7 +1882,6 @@ static inline void pfnmap_setup_cachemode_pfn(unsigned long pfn, pgprot_t *prot)
+>  	pfnmap_setup_cachemode(pfn, PAGE_SIZE, prot);
+>  }
+>  
+> -#ifdef CONFIG_MMU
+>  #ifdef __HAVE_COLOR_ZERO_PAGE
+>  static inline int is_zero_pfn(unsigned long pfn)
+>  {
+> @@ -1905,18 +1904,7 @@ static inline unsigned long my_zero_pfn(unsigned long addr)
+>  	extern unsigned long zero_pfn;
+>  	return zero_pfn;
+>  }
+> -#endif
+> -#else
+> -static inline int is_zero_pfn(unsigned long pfn)
+> -{
+> -	return 0;
+> -}
+> -
+> -static inline unsigned long my_zero_pfn(unsigned long addr)
+> -{
+> -	return 0;
+> -}
+> -#endif /* CONFIG_MMU */
+> +#endif /* __HAVE_COLOR_ZERO_PAGE */
+>  
+>  #ifdef CONFIG_MMU
+>  
+> diff --git a/mm/memory.c b/mm/memory.c
+> index 187f16b7e996..51d2018a387a 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -162,21 +162,8 @@ static int __init disable_randmaps(char *s)
+>  }
+>  __setup("norandmaps", disable_randmaps);
+>  
+> -unsigned long zero_pfn __read_mostly;
+> -EXPORT_SYMBOL(zero_pfn);
+> -
+>  unsigned long highest_memmap_pfn __read_mostly;
+>  
+> -/*
+> - * CONFIG_MMU architectures set up ZERO_PAGE in their paging_init()
+> - */
+> -static int __init init_zero_pfn(void)
+> -{
+> -	zero_pfn = page_to_pfn(ZERO_PAGE(0));
+> -	return 0;
+> -}
+> -early_initcall(init_zero_pfn);
+> -
+>  void mm_trace_rss_stat(struct mm_struct *mm, int member)
+>  {
+>  	trace_rss_stat(mm, member);
+> diff --git a/mm/mm_init.c b/mm/mm_init.c
+> index 1a29a719af58..dcf9eff34f83 100644
+> --- a/mm/mm_init.c
+> +++ b/mm/mm_init.c
+> @@ -53,6 +53,9 @@ EXPORT_SYMBOL(mem_map);
+>  void *high_memory;
+>  EXPORT_SYMBOL(high_memory);
+>  
+> +unsigned long zero_pfn __ro_after_init;
+> +EXPORT_SYMBOL(zero_pfn);
+> +
+>  #ifdef CONFIG_DEBUG_MEMORY_INIT
+>  int __meminitdata mminit_loglevel;
+>  
+> @@ -2667,6 +2670,13 @@ static void __init mem_init_print_info(void)
+>  		);
+>  }
+>  
+> +static int __init init_zero_pfn(void)
+> +{
+> +	zero_pfn = page_to_pfn(ZERO_PAGE(0));
+> +	return 0;
+> +}
+> +early_initcall(init_zero_pfn);
+> +
+>  void __init __weak arch_mm_preinit(void)
+>  {
+>  }
+> -- 
+> 2.51.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0927735595254507284==--
-
