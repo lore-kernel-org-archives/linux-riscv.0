@@ -4,83 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63178EF99C1
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 17:51:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FDD5EF99D3
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 20:26:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YfevSqNW1XNj78b++HA6Lm4IjL0iPEQnfAhoOHq1V5w=; b=Xee5/C/jN+JcK1
-	zqjvCb1gvrN9dsu0xK8s5cl2WP5iyGiae3V2Pkk3v+Hs9ElLWu8d5vD67dYXF09lHhVzUVEngKo8Q
-	vrnbbxc/GDx9f9He8hODLadHowcmo4S54dnlC62c1fHx5R0niR0DFA0nrNePj3ht0REwl3IwNjjLP
-	QE3icsAqqHv6SfM4X8cYdV4yty6Y5RuTSXCs2Haz9lJT70/5fzRAZ3WzHYU2XQTaFHFQ4A4cISynp
-	ei2khb3pmxaeY4xD0rdK4h6QMzBQ2GjsPBJDSeUQV+AUK8ySCnMzRVabgPVg/CKbbgrvMEaQDNhrs
-	CMhjztEfU9lwQnh1KWjg==;
+	List-Owner; bh=+UtwDmNoDPXNa3iAHFurRqBFTViPCxOzp024MxqE4fU=; b=tSboYZyKj7YVDr
+	4fPC9QT92bHoQ789282Qpbk8y3+lcunONxNwQ9kjqdZDP4HZcmPMD6vuEKZrfLqXKi8owgEm8n4Wi
+	e75+nBKEaZm2jM0NXmqI5NbD9dmb9lezFXP0iHF0qPzxy5j2L1LOBmqPAYyThDgIAJiaTZPD2VK1k
+	4PMVXSBRE/4GIGBhEWILLp5wdaHppfZiWA1RiyEFIs+QA2KIzR0CmthL3JrAB5FpPbmjuYfc+YyV0
+	RCVJOkhNMJgNnJYNMphWAZ9fSrJo7B34381rU2Ymi1zla7NaeOty2Kurgvftw2e/sbL+BB7zFckW6
+	sR4Tga4RInogiCq6Xg+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqxJc-00000003lh2-2J2Q;
-	Fri, 13 Feb 2026 17:50:52 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1vqzkX-00000003uM2-29bk;
+	Fri, 13 Feb 2026 20:26:49 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqxJZ-00000003lgf-3jP2
+	id 1vqU1M-00000001wf8-0PSV
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Feb 2026 17:50:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1771005049; x=1802541049;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Hn/YbMCFPNwy7WqclUnTHTDS9PREVwpYJ6OC8kfWHYQ=;
-  b=jIOcIYtddz3lem8fu3qMx8fi05juP5zJo9QmH4mo0ubfZIH16YAnekDZ
-   14xPi79aZhDZM/OZsEuDa6VLVw3FM6yBOOzYV/qVZSOpargAuQI+VZKXt
-   Ug04+toVnhNKibTNgAi7ImbEUwSMLIPcbEfae+bDOC6w/yF1O3sM6Cw4n
-   uqh0yZkF6D0OTvBcTo3uPrRbXlzxtFkxHOqVSi7mrWRplozbuD14s1Co6
-   /KZaxTzHLjGQyyIDOolPCBNgXFvb+jy9JocGg6VRh0kOH9uyjhWSPg94U
-   k9/V9LYKCbHCeMJ56lIoC9TvaTVXNuCkR3vPp/kVyHlISy8vEPcp3XLMB
-   w==;
-X-CSE-ConnectionGUID: dYhk3ohuT/uX99gaBe57pg==
-X-CSE-MsgGUID: 9e8Eg4JiSmKW6L1DUsQcCQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11700"; a="76042152"
-X-IronPort-AV: E=Sophos;i="6.21,289,1763452800"; 
-   d="scan'208";a="76042152"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2026 09:50:46 -0800
-X-CSE-ConnectionGUID: HsqJDspKS4WjuQjo+NXLxQ==
-X-CSE-MsgGUID: bqD5zFG7TJa7NeOs2yrG/Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,289,1763452800"; 
-   d="scan'208";a="212227967"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 13 Feb 2026 09:50:40 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vqxJN-00000000viu-43MR;
-	Fri, 13 Feb 2026 17:50:38 +0000
-Date: Sat, 14 Feb 2026 01:50:20 +0800
-From: kernel test robot <lkp@intel.com>
-To: LiuQingtao <qtliu@mail.ustc.edu.cn>, gregkh@linuxfoundation.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	jirislaby@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, neil.armstrong@linaro.org,
-	bjorn.andersson@oss.qualcomm.com, marex@nabladev.com, dev@kael-k.io,
-	mani@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com,
-	linux-serial@vger.kernel.org, linux-riscv@lists.infradead.org,
-	liu.wenhong35@zte.com.cn, liu.qingtao2@zte.com.cn,
-	hu.yuye@zte.com.cn, dai.hualiang@zte.com.cn,
-	deng.weixian@zte.com.cn, jia.yunxiang@zte.com.cn,
-	bai.lu5@zte.com.cn, yang.susheng@zte.com.cn, shen.lin1@zte.com.cn,
-	tan.hu@zte.com.cn, zuo.jiang@zte.com.cn
-Subject: Re: [PATCH v1 2/2] LRW UART: serial: add driver for the LRW UART
-Message-ID: <202602140108.kLMOYbwS-lkp@intel.com>
-References: <20260213093334.9217-3-qtliu@mail.ustc.edu.cn>
+	Thu, 12 Feb 2026 10:34:05 +0000
+Received: from hawking.nue2.suse.org (unknown [IPv6:2a07:de40:a101:3:92b1:1cff:fe69:ddc])
+	by smtp-out2.suse.de (Postfix) with ESMTP id C33FC5BDAD;
+	Thu, 12 Feb 2026 10:34:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1770892441; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BeqIufAnYFkDobcmSJZWZ2CF3hg0EmflNlkkrGIm70U=;
+	b=nsLKylHB2RCOPy8131sxnnODIOADcYH6mFmK5mdtcESmMXnNjDYV9fJUN6QJ0+8dNVULwL
+	OeiKltQzlUQahubViNh8d4ygNwYOc4um3TApa4/R0ZRycLJdWM6Hx3iUZvCmRECW6xtIF4
+	PKFbO6etyfBYAw8rR7+S2mMhtY2rjqg=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1770892441;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BeqIufAnYFkDobcmSJZWZ2CF3hg0EmflNlkkrGIm70U=;
+	b=ctraEmnnzOPGB2pjH+6bObn5UnOpNRFk6wffYbCuXaSwDTXjXcrDSLpgAAUyDMX/a11Wjr
+	4spUj71SJeEfgqBA==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=d8llgl8Y;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=UKHSTwsz
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1770892440; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BeqIufAnYFkDobcmSJZWZ2CF3hg0EmflNlkkrGIm70U=;
+	b=d8llgl8YGpXU3bLR71G4BOLv8H8nzNx0xCNaqYEQBknIKOLnjDf4H5XulvGAl35mQYAyQU
+	ZyoB4rYuJ/JgMYuDvVxsafSNZEgwbCmJdaOupDN8LRrLSzgJfLNLTAUBMZ+Ba9hOJFx5+t
+	9LuoN6rmuJB16LahLniFFfNRmdCF19I=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1770892440;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BeqIufAnYFkDobcmSJZWZ2CF3hg0EmflNlkkrGIm70U=;
+	b=UKHSTwsz4ggPCOXEVZLqlnng5t29saErflvm5qpBVM1LvWZpGvIj4K8uAuyKCXJzH53e20
+	QzPVzB+HlRXI3DCQ==
+Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
+	id A8E114A0A2B; Thu, 12 Feb 2026 11:34:00 +0100 (CET)
+From: Andreas Schwab <schwab@suse.de>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org,  linux-kernel@vger.kernel.org,  Ard
+ Biesheuvel <ardb@kernel.org>,  "Jason A . Donenfeld" <Jason@zx2c4.com>,
+  Herbert Xu <herbert@gondor.apana.org.au>,  Vivian Wang
+ <wangruikang@iscas.ac.cn>,  Jerry Shih <jerry.shih@sifive.com>,  "David S
+ . Miller" <davem@davemloft.net>,  Palmer Dabbelt <palmer@dabbelt.com>,
+  Paul Walmsley <pjw@kernel.org>,  Alexandre Ghiti <alex@ghiti.fr>,
+  "Martin K . Petersen" <martin.petersen@oracle.com>,  Han Gao
+ <gaohan@iscas.ac.cn>,  linux-riscv@lists.infradead.org,
+  stable@vger.kernel.org
+Subject: Re: [PATCH] lib/crypto: riscv: Depend on
+ RISCV_EFFICIENT_VECTOR_UNALIGNED_ACCESS
+In-Reply-To: <20251206213750.81474-1-ebiggers@kernel.org> (Eric Biggers's
+	message of "Sat, 6 Dec 2025 13:37:50 -0800")
+References: <20251206213750.81474-1-ebiggers@kernel.org>
+Date: Thu, 12 Feb 2026 11:34:00 +0100
+Message-ID: <mvm1piq9ron.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260213093334.9217-3-qtliu@mail.ustc.edu.cn>
+X-Spamd-Result: default: False [15.29 / 50.00];
+	SPAM_FLAG(5.00)[];
+	NEURAL_SPAM_LONG(3.50)[0.999];
+	BAYES_HAM(-3.00)[99.99%];
+	NEURAL_SPAM_SHORT(3.00)[1.000];
+	HFILTER_HOSTNAME_UNKNOWN(2.50)[];
+	RDNS_NONE(2.00)[];
+	ONCE_RECEIVED(1.20)[];
+	HFILTER_HELO_IP_A(1.00)[hawking.nue2.suse.org];
+	HFILTER_HELO_NORES_A_OR_MX(0.30)[hawking.nue2.suse.org];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_NO_TLS_LAST(0.10)[];
+	MX_GOOD(-0.01)[];
+	FROM_HAS_DN(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	DIRECT_TO_MX(0.00)[Gnus/5.13 (Gnus v5.13)];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[16];
+	RCVD_COUNT_ONE(0.00)[1];
+	FROM_EQ_ENVFROM(0.00)[];
+	R_RATELIMIT(0.00)[from(RLajr16mudzow8bnf6sy)];
+	DNSWL_BLOCKED(0.00)[2a07:de40:a101:3:92b1:1cff:fe69:ddc:from];
+	DKIM_TRACE(0.00)[suse.de:+];
+	TO_DN_SOME(0.00)[]
+X-Spamd-Bar: +++++++++++++++
+X-Rspamd-Queue-Id: C33FC5BDAD
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: add header
+X-Spam: Yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_095049_973701_6F490FED 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20260212_023404_312412_0D51AB23 
+X-CRM114-Status: UNSURE (   5.10  )
+X-CRM114-Notice: Please train this message.
+X-Mailman-Approved-At: Fri, 13 Feb 2026 12:26:48 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,98 +142,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi LiuQingtao,
+On Dez 06 2025, Eric Biggers wrote:
 
-kernel test robot noticed the following build warnings:
+> Replace the RISCV_ISA_V dependency of the RISC-V crypto code with
+> RISCV_EFFICIENT_VECTOR_UNALIGNED_ACCESS, which implies RISCV_ISA_V as
+> well as vector unaligned accesses being efficient.
 
-[auto build test WARNING on tty/tty-testing]
-[also build test WARNING on tty/tty-next tty/tty-linus robh/for-next usb/usb-testing usb/usb-next usb/usb-linus linus/master v6.19 next-20260212]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/LiuQingtao/LRW-UART-dt-bindings-Add-binding-for-LRW-UART/20260213-173610
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty.git tty-testing
-patch link:    https://lore.kernel.org/r/20260213093334.9217-3-qtliu%40mail.ustc.edu.cn
-patch subject: [PATCH v1 2/2] LRW UART: serial: add driver for the LRW UART
-config: riscv-allyesconfig (https://download.01.org/0day-ci/archive/20260214/202602140108.kLMOYbwS-lkp@intel.com/config)
-compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260214/202602140108.kLMOYbwS-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202602140108.kLMOYbwS-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/tty/serial/lrw_uart.c:2266:3: warning: variable 'new_mcfg' is uninitialized when used here [-Wuninitialized]
-                   new_mcfg |= UARTMCFG_UARTEN | UARTMCFG_TXE;
-                   ^~~~~~~~
-   drivers/tty/serial/lrw_uart.c:2246:37: note: initialize the variable 'new_mcfg' to silence this warning
-           unsigned int old_mcfg = 0, new_mcfg;
-                                              ^
-                                               = 0
-   1 warning generated.
-
-
-vim +/new_mcfg +2266 drivers/tty/serial/lrw_uart.c
-
-  2240	
-  2241	static void
-  2242	lrw_uart_console_write(struct console *co, const char *s, unsigned int count)
-  2243	{
-  2244		struct lrw_uart_port *sup = lrw_uart_console_ports[co->index];
-  2245		unsigned int old_fccr = 0, new_fccr;
-  2246		unsigned int old_mcfg = 0, new_mcfg;
-  2247		unsigned long flags;
-  2248		int locked = 1;
-  2249	
-  2250		clk_enable(sup->clk);
-  2251	
-  2252		if (oops_in_progress)
-  2253			locked = uart_port_trylock_irqsave(&sup->port, &flags);
-  2254		else
-  2255			uart_port_lock_irqsave(&sup->port, &flags);
-  2256	
-  2257		/*
-  2258		 *	First save the FCCR then disable the interrupts
-  2259		 */
-  2260		if (!sup->vendor->always_enabled) {
-  2261			old_fccr = lrw_uart_read(sup, REG_FCCR);
-  2262			new_fccr = old_fccr & ~UARTFCCR_CTSEN;
-  2263			lrw_uart_write(new_fccr, sup, REG_FCCR);
-  2264	
-  2265			old_mcfg = lrw_uart_read(sup, REG_MCFG);
-> 2266			new_mcfg |= UARTMCFG_UARTEN | UARTMCFG_TXE;
-  2267			lrw_uart_write(new_mcfg, sup, REG_MCFG);
-  2268		}
-  2269	
-  2270		uart_console_write(&sup->port, s, count, lrw_uart_console_putchar);
-  2271	
-  2272		/*
-  2273		 *	Finally, wait for transmitter to become empty and restore the
-  2274		 *	TCR. Allow feature register bits to be inverted to work around
-  2275		 *	errata.
-  2276		 */
-  2277		while ((lrw_uart_read(sup, REG_FR) ^ sup->vendor->inv_fr)
-  2278							& sup->vendor->fr_busy)
-  2279			cpu_relax();
-  2280		if (!sup->vendor->always_enabled) {
-  2281			lrw_uart_write(old_fccr, sup, REG_FCCR);
-  2282			lrw_uart_write(old_mcfg, sup, REG_MCFG);
-  2283		}
-  2284	
-  2285		if (locked)
-  2286			uart_port_unlock_irqrestore(&sup->port, flags);
-  2287	
-  2288		clk_disable(sup->clk);
-  2289	}
-  2290	
+That should be a runtime dependency.
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
