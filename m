@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA79EB4906
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 11:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 506B9EB4907
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 11:31:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b0ZKNyzv3gzWmJ8LVSWCoEIn6enk9bsfKok9SaLet1I=; b=dJFJNvp57/rHwm
-	zCQnlHIoQYQDP81i6Uy0arJ6yDMHes0tAtXtFql1rYM6/oDxCCgV3kh6tY4qlKaUMTFiedsUVSgOA
-	Ba8qsCxCb4EC267fkE+pkRPPio0fq0Ej2CYlmYRwUzCVDnPgni5eRK+BszAeEPf/Q/C5w1p+DmMJe
-	h7cMRH4D44nAOxz+FwU40vTw5rs/W/FucbpHBFk5/In9fGBHBi9HWq2fTst8XrOKjwu0TAkovdP+V
-	vs1D8kt8mTPAVcB2k2V2XuG3AusZ4zhLV6RbSyXvrmM3TsM1FpXk/ICtYdGCJrqpA86AnW0879TWq
-	ptCln0b+Nqrv4HOvXe5g==;
+	List-Owner; bh=qHwcZkRbTARte+znNPWdtMvPor1S4A+CX6WWZGVYTk0=; b=mirVxwOG9T5FF6
+	Cy9FEiR6FL5mwh8bnF1EEkScpNvL/99Vomo9yf27rolhlaBT4XNCvcIN4em2J/kOrbOK3uNNDV+3c
+	+8d+0W+OOTrLHIulSkSHmhgKcMWqMmA7NEjMzBsd8XujFA07KpLySuDAhYLIiPRjyy4jp2naWMqK1
+	4qk8WR8rWvg6Ed6AXFvaBMz/7wlttdn+AxqmCn5a0FZVzdN6SV0VoRPN1Be6oC7N8LybaNd0uDTIS
+	nbH+4LkXY3Dg3pwNz1mx+rqsjgqP8l3ZA9ewELAYYGIePHrlTeTAB5AVExx/ADLQ2xC3hLsZE7dov
+	omJuQkEgkOdo6G41IXZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqUo6-00000001zcM-1Rdv;
-	Thu, 12 Feb 2026 11:24:26 +0000
+	id 1vqUuR-0000000205o-0D7j;
+	Thu, 12 Feb 2026 11:30:59 +0000
 Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqUo3-00000001zbp-0MGc;
-	Thu, 12 Feb 2026 11:24:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1770895450; cv=none; 
+	id 1vqUuN-00000002052-3QCw;
+	Thu, 12 Feb 2026 11:30:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1770895849; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=ciM/MCKewRmR3bpICPa2OinU9RB2ElstD1FLBBLLLfT3Zn1YWeN3dnJ2WJNgbLjboHgBrO8Snftjgj5nas9lAhH8hs2Mw8gWqxsGvW6mrhTcQNpXNlLXGmOHMv/4/cg4Jzv9arFaHRKJPsWxdD2ZvLpEUWlD3OUMmNS8aky+9+M=
+	b=HVKbNxgsmBVFEAlsnx8KyqWs619i3Xdcq0ugbutcRJ/rreEGuQ0r2AaPUgIuyUwgPJoMqAVkBpzHTZlUw3pstFFZvzSiN1RsNIeJ2LYzF3/YhysoUBJcMZWc4ejLweR6TPqcx0U2+s6pSJvjLPFNqpTplyR+BCtPdQR7I/maH2M=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1770895450; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=aF3qO+3sk8KCbgBGOu+WadDm4gK00VEQqM6dxzce1CQ=; 
-	b=Bpznyr1Ce/65abpW4ea9rNZ+n5wf8SPKFQcKbaItC44rTuLXkticjBfXdSnqDhW0arIS4vi0+PdsvxCclLD7hmj7w4J+PfOA8Mt6gGCZ0BPLUdXfY6hAjOVdbYE0vZory1abzWOid2FeZqwzmcvpq2cZuRM7JCgnAOn7LNVIU6M=
+	t=1770895849; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=G8IqrDcbAUJ2cX6HzRhCxQ7mt8YTvz969YgV8457uCI=; 
+	b=Qa8iUZMdmMHy46JsRB7124zN9TKnyctzdMBy7mUZlAJaO9P2xs2f6maFmYvxGsg1j33LgdsGTdMk3aXNGlrFPbkrBiZyFjpoz3d2Xgl34vxa/E538obsZ8p6fVF/abvUEFYYa3l+CyNjTGrKoouqN2lXbG4PrElhsk5zJ1H8+xo=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=ziyao.cc;
 	spf=pass  smtp.mailfrom=me@ziyao.cc;
 	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1770895450;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1770895849;
 	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
 	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=aF3qO+3sk8KCbgBGOu+WadDm4gK00VEQqM6dxzce1CQ=;
-	b=Dnzo+cx4JVdOzyJ/jbd+Q2XJX4i+Ojct3KAPLJSuX3Yd9ZSmj4quJVrY0hXpBSA/
-	jDA6LbuAA2RbV0JfoNxI1JIb4zTBxzHGztYDAeIHKvyUzA6x8V85qY3g8PRhSa89Tpu
-	/P1Lyf3ZlzKzK7b/iL++/uhyBSCxdEgErpo6z4Ak=
-Received: by mx.zohomail.com with SMTPS id 1770895448118306.0552867056007;
-	Thu, 12 Feb 2026 03:24:08 -0800 (PST)
-Date: Thu, 12 Feb 2026 11:24:00 +0000
+	bh=G8IqrDcbAUJ2cX6HzRhCxQ7mt8YTvz969YgV8457uCI=;
+	b=a+67Y4XZFbkUF+RtSrlNZsmMfBVoxBthDopV9txjtnmrV/K+c7SkrdMZ/gfKaQAZ
+	BGuCxAtVEsopD4cAuzC/q1GiY9gM7bJclaG6/u+whWubwDZT3OgqDUuFiAPCXJGowd3
+	xq+XJnSY5e60aOuAa+ZkORVX6YR+aPWIycgNmKaU=
+Received: by mx.zohomail.com with SMTPS id 1770895846550396.2075278392381;
+	Thu, 12 Feb 2026 03:30:46 -0800 (PST)
+Date: Thu, 12 Feb 2026 11:30:39 +0000
 From: Yao Zi <me@ziyao.cc>
 To: Yixun Lan <dlan@kernel.org>, Vinod Koul <vkoul@kernel.org>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -57,18 +57,17 @@ Cc: Junzhong Pan <panjunzhong@linux.spacemit.com>,
 	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] phy: k1-usb: add disconnect function support
-Message-ID: <aY24UOvYsnh_7ZCO@pie>
+Subject: Re: [PATCH 3/3] phy: k1-usb: k3: add USB2 PHY support
+Message-ID: <aY253_fOkoQKbi8g@pie>
 References: <20260212-11-k3-usb2-phy-v1-0-43578592405d@kernel.org>
- <20260212-11-k3-usb2-phy-v1-2-43578592405d@kernel.org>
+ <20260212-11-k3-usb2-phy-v1-3-43578592405d@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260212-11-k3-usb2-phy-v1-2-43578592405d@kernel.org>
+In-Reply-To: <20260212-11-k3-usb2-phy-v1-3-43578592405d@kernel.org>
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_032423_289799_75A1C18F 
-X-CRM114-Status: UNSURE (   7.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260212_033055_893110_4233D279 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,18 +84,121 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 12, 2026 at 09:38:55AM +0800, Yixun Lan wrote:
-> A disconnect status BIT of USB2 PHY need to be cleared, otherwise
-> it will fail to work properly during next connection when devices
-> connect to roothub directly.
+On Thu, Feb 12, 2026 at 09:38:56AM +0800, Yixun Lan wrote:
+> Add USB2 PHY support for SpacemiT K3 SoC.
+> 
+> Register layout of handling USB disconnect operation has been changed,
+> So introducing a platform data to distinguish the different SoCs.
 
-This sounds like a bug. Does it affect K1 SoC as well? If so, I think
-it deserves a Fixes tag and backporting.
-
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
+Would it be clearer and simpler if you define separate phy_ops for
+k1 and k3, and point of_device_id.data directly to the corresponding
+phy_ops? Then there's no need to introduce either spacemit_usb2phy_data
+structure, or spacemit_usb2phy_disconnect wrapper.
 
 Best regards,
 Yao Zi
+
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
+> ---
+>  drivers/phy/spacemit/phy-k1-usb2.c | 40 ++++++++++++++++++++++++++++++++++++--
+>  1 file changed, 38 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/phy/spacemit/phy-k1-usb2.c b/drivers/phy/spacemit/phy-k1-usb2.c
+> index 959bf79c7a72..b0ce0a92861e 100644
+> --- a/drivers/phy/spacemit/phy-k1-usb2.c
+> +++ b/drivers/phy/spacemit/phy-k1-usb2.c
+> @@ -51,6 +51,9 @@
+>  #define PHY_K1_HS_HOST_DISC		0x40
+>  #define  PHY_K1_HS_HOST_DISC_CLR		BIT(0)
+>  
+> +#define PHY_K3_HS_HOST_DISC		0x20
+> +#define  PHY_K3_HS_HOST_DISC_CLR		BIT(8)
+> +
+>  #define PHY_PLL_DIV_CFG			0x98
+>  #define  PHY_FDIV_FRACT_8_15		GENMASK(7, 0)
+>  #define  PHY_FDIV_FRACT_16_19		GENMASK(11, 8)
+> @@ -74,10 +77,15 @@
+>  
+>  #define K1_USB2PHY_RESET_TIME_MS	50
+>  
+> +struct spacemit_usb2phy_data {
+> +	int (*disconnect)(struct phy *phy, int port);
+> +};
+> +
+>  struct spacemit_usb2phy {
+>  	struct phy *phy;
+>  	struct clk *clk;
+>  	struct regmap *regmap_base;
+> +	const struct spacemit_usb2phy_data *data;
+>  };
+>  
+>  static const struct regmap_config phy_regmap_config = {
+> @@ -145,7 +153,7 @@ static int spacemit_usb2phy_exit(struct phy *phy)
+>  	return 0;
+>  }
+>  
+> -static int spacemit_usb2phy_disconnect(struct phy *phy, int port)
+> +static int spacemit_k1_usb2phy_disconnect(struct phy *phy, int port)
+>  {
+>  	struct spacemit_usb2phy *sphy = phy_get_drvdata(phy);
+>  
+> @@ -155,6 +163,23 @@ static int spacemit_usb2phy_disconnect(struct phy *phy, int port)
+>  	return 0;
+>  }
+>  
+> +static int spacemit_k3_usb2phy_disconnect(struct phy *phy, int port)
+> +{
+> +	struct spacemit_usb2phy *sphy = phy_get_drvdata(phy);
+> +
+> +	regmap_update_bits(sphy->regmap_base, PHY_K3_HS_HOST_DISC,
+> +					   PHY_K3_HS_HOST_DISC_CLR, PHY_K3_HS_HOST_DISC_CLR);
+> +
+> +	return 0;
+> +}
+> +
+> +static int spacemit_usb2phy_disconnect(struct phy *phy, int port)
+> +{
+> +	struct spacemit_usb2phy *sphy = phy_get_drvdata(phy);
+> +
+> +	return sphy->data->disconnect(phy, port);
+> +}
+> +
+>  static const struct phy_ops spacemit_usb2phy_ops = {
+>  	.init = spacemit_usb2phy_init,
+>  	.exit = spacemit_usb2phy_exit,
+> @@ -173,6 +198,8 @@ static int spacemit_usb2phy_probe(struct platform_device *pdev)
+>  	if (!sphy)
+>  		return -ENOMEM;
+>  
+> +	sphy->data = device_get_match_data(dev);
+> +
+>  	sphy->clk = devm_clk_get_prepared(&pdev->dev, NULL);
+>  	if (IS_ERR(sphy->clk))
+>  		return dev_err_probe(dev, PTR_ERR(sphy->clk), "Failed to get clock\n");
+> @@ -195,8 +222,17 @@ static int spacemit_usb2phy_probe(struct platform_device *pdev)
+>  	return PTR_ERR_OR_ZERO(phy_provider);
+>  }
+>  
+> +static const struct spacemit_usb2phy_data k1_usb2phy_data = {
+> +	.disconnect = spacemit_k1_usb2phy_disconnect,
+> +};
+> +
+> +static const struct spacemit_usb2phy_data k3_usb2phy_data = {
+> +	.disconnect = spacemit_k3_usb2phy_disconnect,
+> +};
+> +
+>  static const struct of_device_id spacemit_usb2phy_dt_match[] = {
+> -	{ .compatible = "spacemit,k1-usb2-phy", },
+> +	{ .compatible = "spacemit,k1-usb2-phy", .data = &k1_usb2phy_data },
+> +	{ .compatible = "spacemit,k3-usb2-phy", .data = &k3_usb2phy_data },
+>  	{ /* sentinel */ }
+>  };
+>  MODULE_DEVICE_TABLE(of, spacemit_usb2phy_dt_match);
+> 
+> -- 
+> 2.52.0
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
