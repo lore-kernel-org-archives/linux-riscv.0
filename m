@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B4B1EB48EC
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 08:58:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F7FBEB48EA
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 09:02:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TMAfX6vIN4tv/LH26sZb7CZgWz3irpr0u3seyx7wLKI=; b=Uo55IOJ+dB9cfb
-	O65RS3+pvAsRauj5rtChYNhiXzpBS5npq66W8J/OE9L0ffIdEfS7RHlLUGXGVNT3LqCjbVpq0+W+/
-	TToeX6XoqpuSrAlw/DJCjNggRW2L9xe0k2xOnyWXEg6VasNSRPaGhyM5/30nhgF66o7w6XEiCXcq1
-	OxXmtJV+ZcxRa1sc9MdoxLiZQC8wykt3Ob+nDBP5mOx3Af5uyoODn+PHY0qD0r/gc4id0zQ/moLvL
-	pHs668oD1Hvb+xW5tbi5lGV1UzMhBkUsMnzHMdshA9kI8tK4otnk8FRZtFTvP9lCU23Qnsgt+7AjW
-	ZSMtAK8EUIR6e4jSZk/Q==;
+	List-Owner; bh=p/AVnAI2Dq3g+YLpgtndRdQjLWhM+SP8CwpKt1rcTPQ=; b=1CgeEo1+FlpYSf
+	Tka+D1moZJZKsXe78VUUReZp/pq8JuIC3mLGo6KOG4hxsg2ql/2nn6EndiIztxOjdkD25EiWMR5LG
+	BIB7bqZVzflSORQPfd7yr968KNhaTpdnRlM/WP/L/boS03+TiCj9L3ldvdFgy3pRFT090D3018y1Y
+	9qwOqXslFs0T/J30jLNEP0lrw3XlG6rKVfQzbZPHwaadhkBoX7Juw6Xa2qTh6x3RUseAFXDxb3Xrt
+	Ea34NYrkLlHimLnnOXc7UUAiJO5KS3G9SN4xJN4Se5/+CdTgehiAUfzpKUaJPoprzHNHCWvqfka4l
+	iH1DVujgsqMFmh3sNk1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqSX8-00000001nHa-0oIX;
-	Thu, 12 Feb 2026 08:58:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vqSa9-00000001nVq-4Brh;
+	Thu, 12 Feb 2026 09:01:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqSX6-00000001nHF-0LiB;
-	Thu, 12 Feb 2026 08:58:44 +0000
+	id 1vqSa5-00000001nVG-2uiG;
+	Thu, 12 Feb 2026 09:01:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7B62960128;
-	Thu, 12 Feb 2026 08:58:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0155DC16AAE;
-	Thu, 12 Feb 2026 08:58:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3A70941980;
+	Thu, 12 Feb 2026 09:01:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B128C4CEF7;
+	Thu, 12 Feb 2026 09:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770886723;
-	bh=O72aDxD0jjZlGGwbJFSDSKCAXe0FHSLzulcP/3B+3gA=;
+	s=k20201202; t=1770886907;
+	bh=mbeyKAvym1Evnd03SXCqu1tAKf52BxUCYkSrs6de9OY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HT5R6kpvSukfg5IN9nlS4YbpAP2leknMovU4Qa/hAHCkiDLHNZCK/gaEeXQHxyP1T
-	 EeaWGdiI6XLZNPc7qylXP4VxUBbfiWCiPR0OOrU3ukw4sHt8o/tbgJHm1EXYuVKv5l
-	 TBZNfkmh8mxb3m+xGctyA2sWLPBXy+8bVH6k/ChG6pgU9xLYtMCirmrNSdekZUSMr1
-	 rcLqmGD6U2Zf3RltXhzmv3O0aVtAoGjJuEnP61CUcxzzuUEYvxoWOwO1f80x8bs6UX
-	 gPY2bh3g5BAn1TNdodmkMMpjKpSAgB1l7qIcZJmbGe5SiaAuLLViJ5jFEfzgOeHrZb
-	 3ef+PtYkktc6A==
-Message-ID: <a9834da2-67c5-4641-8ca1-fc5ba067572e@kernel.org>
-Date: Thu, 12 Feb 2026 09:58:24 +0100
+	b=EzC7pZZ31+AvqkeNbZ+v1uBdrrQu/Ug8+evZxdKrZiDdRxVQ9FJ6YzrNMAOjK6l1l
+	 lmA2Vqe7Yd2Y1fOK/Gf/bHij4F99vPL/NoVeb/p4w5i3b0ZJOx0+iUhnJYpQoDl79S
+	 vvU8wl5F2oYQ0e22bB7hT79dtpzdPxIQO89tikEAnB0VTGRwU2yhWdh4sD6hFlZMj8
+	 HpUICv7+9ultjVQRagyYsoL6VB2fxPVVT5hFfxy0PlrOl41v9xEYNuIAuSVc1vAmlJ
+	 JDfwSZ+HNeo4rjkOTyrcFsmfy2SUffMK2Adtr7i2FrD0mIutj8T5KgIQM6xp8QRIZa
+	 Mu5waAMtsSfSw==
+Message-ID: <74103a51-cada-4645-91d3-e0807b32c2a7@kernel.org>
+Date: Thu, 12 Feb 2026 10:01:27 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/4] mm: don't special case !MMU for is_zero_pfn() and
- my_zero_pfn()
+Subject: Re: [PATCH v3 2/4] mm: rename my_zero_pfn() to zero_pfn()
 To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
 Cc: Andreas Larsson <andreas@gaisler.com>, Borislav Petkov <bp@alien8.de>,
  Brian Cain <bcain@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
@@ -78,7 +77,7 @@ Cc: Andreas Larsson <andreas@gaisler.com>, Borislav Petkov <bp@alien8.de>,
  sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
  linux-mm@kvack.org, x86@kernel.org
 References: <20260211103141.3215197-1-rppt@kernel.org>
- <20260211103141.3215197-2-rppt@kernel.org>
+ <20260211103141.3215197-3-rppt@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -125,7 +124,11 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260211103141.3215197-2-rppt@kernel.org>
+In-Reply-To: <20260211103141.3215197-3-rppt@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260212_010149_795608_3ED2BBA0 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,15 +148,13 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 2/11/26 11:31, Mike Rapoport wrote:
 > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> nommu architectures have empty_zero_page and define ZERO_PAGE() and
-> although they don't really use it to populate page tables, there is no
-> reason to hardwire !MMU implementation of is_zero_pfn() and my_zero_pfn()
-> to 0.
+> my_zero_pfn() is a silly name.
 > 
-> Drop #ifdef CONFIG_MMU around implementations of is_zero_pfn() and
-> my_zero_pfn() and remove !MMU version.
+> Rename zero_pfn variable to zero_page_pfn and my_zero_pfn() function to
+> zero_pfn().
 > 
-> While on it, make zero_pfn __ro_after_init.
+> While on it, move extern declarations of zero_page_pfn outside the
+> functions that use it and add a comment about what ZERO_PAGE is.
 > 
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > ---
