@@ -4,80 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00004EB48EB
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 09:23:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80932EB48F3
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 10:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
-	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jyso2rOupqYhIqW62mlF7WLYbKdD9GlweImkTMP14tc=; b=C9dDp7qUqwJFQY
-	uA8l7tTW0nm6cSLspbdzZd7cXI5PRjGst3iQTa5Gz/WOq9O14C3uqJjfTtoBJAIzSDAhYjshoV8kp
-	D0VrAgmySJVFC4DVv2zVwlI2/lFYyhWnzT6VnkkmRct3Ld1Qj5r4H+OHRdssEOzStA+CxwsXC0GhU
-	quHskDg2lqPwnfYjKZl2k19h4gEN1wqIaxe2VVt/Y512mfz8ollVahwChJUHtYhpy8MHvEBdXlWY2
-	/lXCPYhjasmxXc2PlvzdQZFPo27435XEjxJfF14BX5cNAvDKvDc7/A2FByu8aKsPLOobcl/5kZr93
-	ypArT5wsV5SX1vn+2S9g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=y27sesVIxb4pMm3P5C84qytkHu13zPs801GtOdbUqvA=; b=x94nIetifWSLdO
+	ePEH0hheM4ZS3HIfvTCcMgj9swa+bzhnmykmv7z/C2bRsAKkb0mcaLO9jJAJ/PCy+A5ZPFe7+89au
+	mPjAT+BZ+RpkyCvPd1vtYVuGsrIC+kUsVhrTAslzkpZABtw21JA8g1kacGcYYGcZxPB8+WnYyuads
+	dHjU6ujuzZ1orauGICR82qvVgtIMKNF065okUQXJ3GFOEX0gYbJl1i2UBTuLhwvooNQ3f2L0XUMoy
+	5Lq/p/7gPpfr6P95xT1gPa0a7cXERJ6zjSqIyMNxsK2dz3NOCLkcz7njp9tMaV0J++jpo2NyAJ8oZ
+	bROAEpcBz1L7qkyiJqLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqSv0-00000001pQs-1xOi;
-	Thu, 12 Feb 2026 09:23:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vqTdX-00000001u1N-3EQF;
+	Thu, 12 Feb 2026 10:09:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqSuy-00000001pQl-1h4L
-	for linux-riscv@lists.infradead.org;
-	Thu, 12 Feb 2026 09:23:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6C68460010;
-	Thu, 12 Feb 2026 09:23:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A151BC19424;
-	Thu, 12 Feb 2026 09:23:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770888203;
-	bh=Bd0vkkESwpTKZrM6Vj4/m5riIZawL87UTsB4+AHYnNg=;
-	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
-	b=tu8+kgNTsI25fjEIsePbpW59UwxIvafjlf1pasP2zMu512PKeIgPylM/1OArUzV6T
-	 vf/ycxcTeVizc6s4S3CnGwKJS4UDfVhHqOj4BHC3HIVQdyfjr3HbQTM+iPghBAGWsc
-	 vUIzJH4quJs90SP6wD5GFiadmkJlIRKdmOjuYZx0KcOjryG0S5fq4+lhH3yrEEHP8n
-	 WoFhQqjaPatTkRju6OnjsCIWDVehxF8EiDB8nrUdvlRm5PNubZV6+hPXWC4wtMYwqf
-	 DeYNpb4bIDz8lByRQXpC/fVg8EmZfmZozq0mNVeOGBi5y/RK+4jkixgwHk15ZDoYK5
-	 r0Q42I2WSLPXg==
-Mime-Version: 1.0
-Date: Thu, 12 Feb 2026 10:23:16 +0100
-Message-Id: <DGCVH2B2OSFR.1C912TO7G7DGL@kernel.org>
-Subject: Re: [PATCH v3 1/3] rust: clk: use the type-state pattern
-Cc: "Boris Brezillon" <boris.brezillon@collabora.com>, "Daniel Almeida"
- <daniel.almeida@collabora.com>, "Alice Ryhl" <aliceryhl@google.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, "Viresh Kumar"
- <viresh.kumar@linaro.org>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Thomas Zimmermann"
- <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>, "Simona Vetter"
- <simona@ffwll.ch>, "Drew Fustini" <fustini@kernel.org>, "Guo Ren"
- <guoren@kernel.org>, "Fu Wei" <wefu@redhat.com>,
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>,
- "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng" <boqun.feng@gmail.com>,
- "Gary Guo" <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
- Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
- <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <dri-devel@lists.freedesktop.org>, <linux-riscv@lists.infradead.org>,
- <linux-pwm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
- <rust-for-linux@vger.kernel.org>
-To: "Maxime Ripard" <mripard@kernel.org>
-From: "Danilo Krummrich" <dakr@kernel.org>
-References: <20260119-weightless-pelican-of-anger-190db0@houat>
- <DFSN4FDCYHMW.3J3237PEBV2ZP@kernel.org>
- <20260122-majestic-masterful-jaguarundi-d0abde@houat>
- <2F3D3A40-6EF9-46FC-A769-E5A3AAF67E65@collabora.com>
- <20260204-nickel-seal-of-poetry-8fdefb@houat>
- <91A92D84-1F2E-45F3-82EC-6A97D32E2A78@collabora.com>
- <20260204-angelic-vermilion-beagle-fd1507@houat>
- <20260209105047.693f2515@fedora>
- <20260211-flawless-feathered-boar-0b87ad@houat>
- <DGCAAE4YEDLO.299F5M641E90B@kernel.org>
- <20260212-obedient-faithful-koel-d8aaf6@houat>
-In-Reply-To: <20260212-obedient-faithful-koel-d8aaf6@houat>
+	id 1vqTdV-00000001u0w-2cEK;
+	Thu, 12 Feb 2026 10:09:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=DJBahsVO2buYBRo6uanQ4akOube4lASCcn5Wc5JuHA0=; b=Vi0o7dgqkGdVGsWoZuK9pDk3HR
+	HqqPp8XWk9H8xe6pmS+pgkyeFvld1MmhOBMRaZ7FNlWj4i6WjspfhwCGgKqXdPKC5SaPAGjPikqp4
+	d+E2LelT0u6K5ETeevvjDEioeKn17aUvTKyTCOzfRobf1tDTDoYfAR+YGHZEmHFj6ef176HmvJXAe
+	C2OfxX64hnUzPOLfaytwzoCTv/yDdCBf20ROTCGPUVn7glFuVgkvjhKAuYgyKYaTi4+Kd81Th4PPP
+	S58P8OeCbmJsxlaLBuBH0Uiio7j7bm98wwrS6Ysv5SbcMGHbn3xfPm+6lv0lYvzxdmfrAr2nuvm/L
+	w6g55ntg==;
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vqTdR-0000000Alnp-3wD3;
+	Thu, 12 Feb 2026 10:09:24 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=DJBahsVO2buYBRo6uanQ4akOube4lASCcn5Wc5JuHA0=;
+	b=N1Lb/dyTE2h5HOJHrh+NRJNvn9yj1KvCbqkIn6VqWUGF70dIauXoQMrrYoYNwdNWlg3+8a/E2
+	vGe1QBnODc9pH2mKsoaHcQbTyBL1aa76SvP3u+XYQm95+qiCFBlYzCsJrRLeFozkScfrLE4vows
+	heKtPwy0ISFWrMHfm+RuWZA=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4fBW9p5KLtzRhTq;
+	Thu, 12 Feb 2026 18:04:30 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id C35A4201EB;
+	Thu, 12 Feb 2026 18:09:08 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 12 Feb
+ 2026 18:09:06 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
+	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
+	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <akpm@linux-foundation.org>, <bhe@redhat.com>,
+	<vgoyal@redhat.com>, <dyoung@redhat.com>, <rdunlap@infradead.org>,
+	<kees@kernel.org>, <elver@google.com>, <paulmck@kernel.org>, <arnd@arndb.de>,
+	<ruanjinjie@huawei.com>, <fvdl@google.com>, <thuth@redhat.com>,
+	<ardb@kernel.org>, <leitao@debian.org>, <rppt@kernel.org>, <osandov@fb.com>,
+	<cfsworks@gmail.com>, <sourabhjain@linux.ibm.com>, <ryan.roberts@arm.com>,
+	<tangyouling@kylinos.cn>, <eajames@linux.ibm.com>, <hbathini@linux.ibm.com>,
+	<ritesh.list@gmail.com>, <songshuaishuai@tinylab.org>, <bjorn@rivosinc.com>,
+	<samuel.holland@sifive.com>, <kevin.brodsky@arm.com>,
+	<junhui.liu@pigmoral.tech>, <vishal.moola@gmail.com>, <dwmw@amazon.co.uk>,
+	<pbonzini@redhat.com>, <kai.huang@intel.com>, <ubizjak@gmail.com>,
+	<coxu@redhat.com>, <fuqiang.wang@easystack.cn>, <liaoyuanhong@vivo.com>,
+	<brgerst@gmail.com>, <jbohac@suse.cz>, <x86@kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+	<kexec@lists.infradead.org>
+Subject: [PATCH v5 0/4] arm64/riscv: Add support for crashkernel CMA reservation
+Date: Thu, 12 Feb 2026 18:09:57 +0800
+Message-ID: <20260212101001.343158-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260212_100922_540884_A283E65D 
+X-CRM114-Status: UNSURE (   6.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,64 +109,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu Feb 12, 2026 at 8:59 AM CET, Maxime Ripard wrote:
-> On Wed, Feb 11, 2026 at 05:47:09PM +0100, Danilo Krummrich wrote:
->> On Wed Feb 11, 2026 at 5:37 PM CET, Maxime Ripard wrote:
->> > I do think we can find a compromise though. Miguel suggested for example
->> > to make the current enable/prepare/disable/unprepare function unsafe,
->> > and that's totally reasonable to me.
->> >
->> > Then we can implement the "managed" clock version on that unsafe API,
->> 
->> What do you mean with "managed" clock? Do you mean devres managed? If so, I
->> don't think there is any reason to switch to the unsafe API to be able to
->> implement devres managed APIs (see also [1]).
->> 
->> [1] https://lore.kernel.org/all/DFVW9MS5YLON.CVJDBYQKJ0P6@kernel.org/
->
-> By that, I mean what Daniel has been proposing to achieve with this series.
->
->> > and we would end up with a "raw", unsafe, version kind of equivalent to
->> > the one we have today, and where callers would have to justify why their
->> > usage of the API is actually safe, or the new, managed, variant that is
->> > safe and can be easily used by most drivers.
->> >
->> > And we can call these RawClk vs Clk, or Clk vs ManagedClk, or whatever.
->> >
->> > How does that sound?
->> 
->> What about we just wait until we have a user that really requires an unsafe API
->> for some reason? And if it never appears, even better. :)
->
-> It works *today*.
->
-> And the "oh but driver is using the API" is kind of ironic in the
-> context of the Rust bindings which have globally been in that situation
-> for years. You can't argue it both ways.
+Exclude crash kernel memory in crash core to avoid duplication. Also move
+the size calculation (and the realloc if needed) into crash core.
 
-I can't remember ever advocating for merging code that does not have at least a
-user in prospect.
+And add support for crashkernel CMA reservation for arm64 and riscv.
 
-> Either way, I'm not sure what the point of that submission was if you
-> will just dismiss diverging opinions, including attempts to compromise.
+Changes in v5:
+- Fix the kernel test robot build warnings.
+- Sort crash memory ranges before preparing elfcorehdr for powerpc
+- Link to v4: https://lore.kernel.org/all/20260209095931.2813152-1-ruanjinjie@huawei.com/
 
-Sorry -- I'm a bit confused here, since I did not submit this code.
+Changes in v4:
+- Move the size calculation (and the realloc if needed) into the
+  generic crash.
+- Link to v3: https://lore.kernel.org/all/20260204093728.1447527-1-ruanjinjie@huawei.com/
 
-I'm also not dismissing your opinion; I just have a different one.
+Changs in v3:
+- Exclude crash kernel memory in crash core as Mike suggested.
+- Add acked-by.
 
-In particular, I don't think we need an unsafe API until we see a concrete
-example where the proposed safe API does not work (and no other safe API would
-work either).
+Jinjie Ruan (3):
+  crash: Exclude crash kernel memory in crash core
+  arm64: kexec: Add support for crashkernel CMA reservation
+  riscv: kexec: Add support for crashkernel CMA reservation
 
-Framing a difference in opinion as "dismissing diverging opinions" doesn't feel
-fair to me.
+Sourabh Jain (1):
+  powerpc/crash: sort crash memory ranges before preparing elfcorehdr
 
-> Do whatever you want, but it's really hard to root for you some times.
+ .../admin-guide/kernel-parameters.txt         |  16 +--
+ arch/arm64/include/asm/kexec.h                |   9 +-
+ arch/arm64/kernel/machine_kexec_file.c        |  43 +++-----
+ arch/arm64/mm/init.c                          |   5 +-
+ arch/loongarch/include/asm/kexec.h            |   9 +-
+ arch/loongarch/kernel/machine_kexec_file.c    |  41 +++----
+ arch/powerpc/include/asm/kexec.h              |  13 +++
+ arch/powerpc/include/asm/kexec_ranges.h       |   1 -
+ arch/powerpc/kexec/crash.c                    |  67 ++++++-----
+ arch/powerpc/kexec/file_load_64.c             |  17 +--
+ arch/powerpc/kexec/ranges.c                   | 103 +----------------
+ arch/riscv/include/asm/kexec.h                |   9 +-
+ arch/riscv/kernel/machine_kexec_file.c        |  39 +++----
+ arch/riscv/mm/init.c                          |   5 +-
+ arch/x86/include/asm/kexec.h                  |   9 ++
+ arch/x86/kernel/crash.c                       | 104 ++----------------
+ include/linux/crash_core.h                    |  75 ++++++++++++-
+ kernel/crash_core.c                           |  85 ++++++++++++--
+ 18 files changed, 314 insertions(+), 336 deletions(-)
 
-I'm starting to wonder if the mail is addressed to me in the first place.
+-- 
+2.34.1
 
-Thanks,
-Danilo
 
 _______________________________________________
 linux-riscv mailing list
