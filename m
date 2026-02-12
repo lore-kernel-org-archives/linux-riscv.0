@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E516DECD6FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 01:10:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F5AECD6FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 01:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FIafRR6cpCR+j9WXEne1rokR4EWUsoDFZMSjgLPCeOM=; b=46eSztcdg97S1b
-	k7eWffjqWBLIaeqbZ/6k2UwnjYDPctqC5/89LVS0qk5mpXsb8Eg3D7HNL9nt8d44cI+sRHoAp7hx+
-	uz35l69q/kPg/cJZFBEBErKiphrz8XPtpPIdKIpEMV9Q//gEdQ9t8yNmtZoO+s08MlEal6CuvPAOK
-	r49XCtg/84vtYE9X6Qy6AClL4qNZnymcwzmSe88Ywv7lWueOnUyEn2hkRusDsz9qvOtg0kTRnGTKF
-	qHCo4iwNFVHskycFshVN4Zi4WFoSEshjs97fGgQkKwHFr7zJ4r8VcC0a87zbS8AkH+8LyjjwZS1s0
-	33qp15LBjQYab3Z8W2AA==;
+	List-Owner; bh=Ih8mUZBUsqL7kSLl7tLbMxxwi/sh6Zyjj1Mfc4awrJI=; b=B3ucreW0fn4IaZ
+	g4BGZXlcFCVIJSpOLyYnI5fc1cYcS6LzFlk2Mg7YyVqbi4zQU507gUv3pQdJFkIbGh7yU/csBIJVY
+	OkwlrpeNAD+/JK2GmH35IyWSeBopRMEcrxQ+/jduV3St0mnnM/QEYtnVFX2pSEDu5zjlieZCMM90a
+	ZtzflQW97f5Kl3In9K1GIhRSuTr51r7G9BZiK5/eteCDVAYr2t5THdpIDc+rNLaOtPShv7DQLUXHu
+	KCTZTP28wpiApJHniSluylmBk3IYIli9xgIY5ypE7hHZ+2eMjJUk77JvMisXDy8pOzxY1BxeV8huI
+	t8fVtP7Z9/pmDvHzs3jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqLDh-00000001FXz-31EB;
-	Thu, 12 Feb 2026 01:10:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vqLE3-00000001Fat-0AGu;
+	Thu, 12 Feb 2026 01:10:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqLDe-00000001FWp-18U4
+	id 1vqLE1-00000001FaQ-0WeZ
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Feb 2026 01:10:12 +0000
+	Thu, 12 Feb 2026 01:10:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 74D094324C;
-	Thu, 12 Feb 2026 01:10:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF6C0C16AAE;
-	Thu, 12 Feb 2026 01:10:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F392A60053;
+	Thu, 12 Feb 2026 01:10:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 015E0C16AAE;
+	Thu, 12 Feb 2026 01:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770858609;
-	bh=2BUTkqvGtxM61N9vkMccq26T/Mth1/H/gYa0x+OTFfc=;
+	s=k20201202; t=1770858631;
+	bh=7fS8DbbI9q6WGNP9aei1xHrTmn5Ib3i+d78ooTbcE3U=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=r9qokTK/jitWKBPIpcQUjPZGTCuyN477yxFKyjqUe+Lr+IiBOp2PXNkSz0sVJtGoY
-	 JAXDsVAWw6OHCZl+ZDl0VjP/zZjdY2P/zFlMQ98IehwnQkZBEAcsF4h1O9pIfHMYvR
-	 IveOR7HyUvr+6HDsPu4k9yQi52L/H5OUoB8AH/WpILCQPvpx4ZaqTyo6mRm/nd9QjG
-	 8kQXNogQwp9xOCMDrn1DgqvoD07BLbkuSmag7o4x/Cju+MI9VtZk8wC8hk3GHpFD08
-	 UU8/7+Y4QeQXkEsUA0vwqRVxsKB0Je2hdR1b9xX0rAeswN8i81eDvqc66GGxrNphiC
-	 ZlVkQVc1zGz7Q==
+	b=ST01HzW7L6hpwQnAWJjtiVrQTeAtv3+se0/XztnWY+TiRnM7RGnVXan226hU78eV2
+	 rv8H3v67ga9ZKZerHVNjGibJt/ZduA3QaRrrZydZlykt50g84/1f9srfq/yckLZNt5
+	 5ft2OopN3Mm0R8KkX3DZ20F7R7aWHxRB/Bd5hg0virqPXpyQKeBOE3Jk7OBkxtL4IN
+	 go1Lw9NzSwFSQV11EypoqQalb9PCVz0c8uMCkdnPfkkwaL+eq3Cc+QL5YzOdY5qRSu
+	 YHa/qfKm0GucjN1X0c08MLG7pWtUvdXFi12Y8KbiWRF0LH7v/cR2R2shdZuGJeALVH
+	 e25v3+xKNGySg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Jarkko Sakkinen <jarkko@kernel.org>,
+Cc: Nick Hu <nick.hu@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+	Cyan Yang <cyan.yang@sifive.com>,
+	Anup Patel <anup@brainfault.org>,
+	Nutty Liu <liujingqi@lanxincomputing.com>,
 	Sasha Levin <sashal@kernel.org>,
-	peterhuewe@gmx.de,
-	clrkwllms@kernel.org,
-	rostedt@goodmis.org,
-	dlan@kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
+	tglx@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
 	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev
-Subject: [PATCH AUTOSEL 6.19-5.15] char: tpm: cr50: Remove IRQF_ONESHOT
-Date: Wed, 11 Feb 2026 20:09:30 -0500
-Message-ID: <20260212010955.3480391-7-sashal@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.19-6.18] irqchip/riscv-imsic: Add a CPU pm notifier to restore the IMSIC on exit
+Date: Wed, 11 Feb 2026 20:09:44 -0500
+Message-ID: <20260212010955.3480391-21-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260212010955.3480391-1-sashal@kernel.org>
 References: <20260212010955.3480391-1-sashal@kernel.org>
@@ -67,9 +68,6 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.19
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_171010_357056_AD42938D 
-X-CRM114-Status: GOOD (  26.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,210 +79,170 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-
-[ Upstream commit 1affd29ffbd50125a5492c6be1dbb1f04be18d4f ]
-
-Passing IRQF_ONESHOT ensures that the interrupt source is masked until
-the secondary (threaded) handler is done. If only a primary handler is
-used then the flag makes no sense because the interrupt can not fire
-(again) while its handler is running.
-
-The flag also prevents force-threading of the primary handler and the
-irq-core will warn about this.
-
-Remove IRQF_ONESHOT from irqflags.
-
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
-Link: https://patch.msgid.link/20260128095540.863589-10-bigeasy@linutronix.de
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-
-LLM Generated explanations, may be completely bogus:
-
-Now I have a complete understanding. Let me write up the comprehensive
-analysis.
-
----
-
-## Comprehensive Analysis
-
-### 1. Commit Message Analysis
-
-The commit subject is "char: tpm: cr50: Remove IRQF_ONESHOT" and the
-message explains three points:
-1. `IRQF_ONESHOT` is for masking the interrupt source until the
-   **threaded** (secondary) handler completes
-2. These drivers only have primary handlers, so the flag is meaningless
-3. The flag **prevents force-threading** of the primary handler, and the
-   irq-core will warn about this
-
-The commit is authored by **Sebastian Andrzej Siewior** (bigeasy), the
-PREEMPT_RT maintainer, and signed off by **Thomas Gleixner**, the IRQ
-subsystem maintainer and co-maintainer of the Linux kernel. It was
-reviewed by **Jarkko Sakkinen**, the TPM subsystem maintainer.
-
-### 2. Code Change Analysis
-
-The change is minimal and surgical:
-- **`tpm_tis_i2c_cr50.c`**: Removes `IRQF_ONESHOT` from the flags in
-  `devm_request_irq()`, keeping `IRQF_TRIGGER_FALLING | IRQF_NO_AUTOEN`
-- **`tpm_tis_spi_cr50.c`**: Removes `IRQF_ONESHOT` from the flags in
-  `devm_request_irq()`, keeping `IRQF_TRIGGER_RISING`
-
-Both interrupt handlers (`tpm_cr50_i2c_int_handler` at line 74 and
-`cr50_spi_irq_handler` at line 65) are trivially simple - they just call
-`complete()` and return `IRQ_HANDLED`. There is no thread_fn.
-`devm_request_irq()` is a wrapper that calls
-`devm_request_threaded_irq()` with `thread_fn = NULL`.
-
-### 3. The Real Bug
-
-The companion commit **`aef30c8d569c`** ("genirq: Warn about using
-IRQF_ONESHOT without a threaded handler") was merged on 2026-01-12 and
-adds a `WARN_ON_ONCE()` in `__setup_irq()`:
-
-```c
-WARN_ON_ONCE(new->flags & IRQF_ONESHOT && !new->thread_fn);
-```
-
-This means that **without this cr50 fix**, every time the cr50 TPM
-driver probes on a system with the updated IRQ core, it will emit a
-`WARN_ON_ONCE` kernel warning at boot. This is a real runtime issue that
-would affect all Chromebook and other systems using cr50/ti50 TPM chips.
-
-More importantly, the core technical issue is that `IRQF_ONESHOT`
-prevents force-threading of the primary handler. From
-`irq_setup_forced_threading()` in `kernel/irq/manage.c`:
-
-```c
-if (new->flags & (IRQF_NO_THREAD | IRQF_PERCPU | IRQF_ONESHOT))
-    return 0;  // Skip force-threading!
-```
-
-On **PREEMPT_RT kernels** (where `force_irqthreads()` returns `true`),
-this means the cr50 interrupt handler runs in hardirq context instead of
-being force-threaded. While the handler itself (`complete()`) is safe in
-hardirq context, this defeats the PREEMPT_RT design goal of having all
-interrupt handlers run in thread context. On non-RT systems with
-`threadirqs` boot parameter, the same issue occurs.
-
-### 4. Classification
-
-This is a **bug fix** that addresses:
-1. **A spurious kernel warning** triggered by the new `WARN_ON_ONCE`
-   check added in `aef30c8d569c`
-2. **Incorrect IRQ flags** - `IRQF_ONESHOT` has never been semantically
-   correct for these drivers since they only use primary handlers
-3. **PREEMPT_RT compatibility** - the flag prevents force-threading,
-   which can be problematic
-
-The fix is not a feature addition - it removes an incorrect flag that
-was always wrong.
-
-### 5. Scope and Risk Assessment
-
-- **Lines changed**: 2 files, 2 lines total (removing `IRQF_ONESHOT`
-  from two flag constants)
-- **Risk**: Extremely low. `IRQF_ONESHOT` had no functional effect on
-  these drivers since they use only primary handlers. The interrupt
-  cannot fire while its primary handler is already running (hardware
-  guarantee), so removing the flag changes nothing about interrupt
-  masking behavior.
-- **Subsystem**: TPM drivers, well-understood, mature code
-- **Testing**: Reviewed by TPM maintainer (Jarkko Sakkinen), authored by
-  PREEMPT_RT maintainer, signed off by IRQ core maintainer
-
-### 6. User Impact
-
-- **Who is affected**: All users with cr50/ti50 TPM chips (primarily
-  Chromebooks and Google-based embedded devices)
-- **Severity without fix**: Kernel `WARN_ON_ONCE` at boot if the
-  `aef30c8d569c` warning commit is also backported; PREEMPT_RT
-  degradation
-- **Severity of regression risk**: Essentially zero - the flag had no
-  functional purpose
-
-### 7. Dependencies
-
-This commit is **self-contained**. It does not require any other patches
-to apply cleanly. However, the motivating warning comes from
-`aef30c8d569c` - if that commit is backported to stable, this fix
-becomes essential to avoid warnings. Even without the warning commit,
-this fix is correct and beneficial (enables proper force-threading on RT
-systems).
-
-The i2c-spacemit driver already got a similar fix (`e351836a54e3`) with
-`Cc: stable@vger.kernel.org` tag, establishing precedent that these
-IRQF_ONESHOT removal patches are considered stable material.
-
-### 8. Stability Indicators
-
-- Author: Sebastian Andrzej Siewior (PREEMPT_RT maintainer) - domain
-  expert
-- Signed-off-by: Thomas Gleixner (IRQ subsystem maintainer) - domain
-  expert
-- Reviewed-by: Jarkko Sakkinen (TPM maintainer) - domain expert
-- Part of a systematic cleanup pattern with prior art (i2c-exynos5,
-  i2c-hix5hd2, i2c-spacemit, drm/msm)
-
-### Conclusion
-
-This is a small, surgical, obviously correct bug fix. The `IRQF_ONESHOT`
-flag was always semantically wrong for these primary-only handlers. The
-fix removes a flag that had no functional benefit but actively prevented
-force-threading on PREEMPT_RT systems and will trigger a `WARN_ON_ONCE`
-with the companion IRQ core warning check. The risk is near-zero, the
-change is trivial (2 lines across 2 files), it was reviewed by all three
-relevant subsystem maintainers, and there is clear precedent for
-identical fixes being marked as stable material (the i2c-spacemit fix
-had `Cc: stable@vger.kernel.org`).
-
-**YES**
-
- drivers/char/tpm/tpm_tis_i2c_cr50.c | 3 +--
- drivers/char/tpm/tpm_tis_spi_cr50.c | 2 +-
- 2 files changed, 2 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/char/tpm/tpm_tis_i2c_cr50.c b/drivers/char/tpm/tpm_tis_i2c_cr50.c
-index fc6891a0b6936..b48cacacc0664 100644
---- a/drivers/char/tpm/tpm_tis_i2c_cr50.c
-+++ b/drivers/char/tpm/tpm_tis_i2c_cr50.c
-@@ -749,8 +749,7 @@ static int tpm_cr50_i2c_probe(struct i2c_client *client)
- 
- 	if (client->irq > 0) {
- 		rc = devm_request_irq(dev, client->irq, tpm_cr50_i2c_int_handler,
--				      IRQF_TRIGGER_FALLING | IRQF_ONESHOT |
--				      IRQF_NO_AUTOEN,
-+				      IRQF_TRIGGER_FALLING | IRQF_NO_AUTOEN,
- 				      dev->driver->name, chip);
- 		if (rc < 0) {
- 			dev_err(dev, "Failed to probe IRQ %d\n", client->irq);
-diff --git a/drivers/char/tpm/tpm_tis_spi_cr50.c b/drivers/char/tpm/tpm_tis_spi_cr50.c
-index f4937280e9406..32920b4cecfb4 100644
---- a/drivers/char/tpm/tpm_tis_spi_cr50.c
-+++ b/drivers/char/tpm/tpm_tis_spi_cr50.c
-@@ -287,7 +287,7 @@ int cr50_spi_probe(struct spi_device *spi)
- 	if (spi->irq > 0) {
- 		ret = devm_request_irq(&spi->dev, spi->irq,
- 				       cr50_spi_irq_handler,
--				       IRQF_TRIGGER_RISING | IRQF_ONESHOT,
-+				       IRQF_TRIGGER_RISING,
- 				       "cr50_spi", cr50_phy);
- 		if (ret < 0) {
- 			if (ret == -EPROBE_DEFER)
--- 
-2.51.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogTmljayBIdSA8bmljay5odUBzaWZpdmUuY29tPgoKWyBVcHN0cmVhbSBjb21taXQgZjQ4
+YjRiZDA5MTViZjYxYWMxMmI4YzY1Yzc5MzllYmQwM2JjOGFiZiBdCgpUaGUgSU1TSUMgbWlnaHQg
+YmUgcmVzZXQgd2hlbiB0aGUgc3lzdGVtIGVudGVycyBhIGxvdyBwb3dlciBzdGF0ZSwgYnV0IG9u
+CmV4aXQgbm90aGluZyByZXN0b3JlcyB0aGUgcmVnaXN0ZXJzLCB3aGljaCBwcmV2ZW50cyBpbnRl
+cnJ1cHQgZGVsaXZlcnkuCgpTb2x2ZSB0aGlzIGJ5IHJlZ2lzdGVyaW5nIGEgQ1BVIHBvd2VyIG1h
+bmFnZW1lbnQgbm90aWZpZXIsIHdoaWNoIHJlc3RvcmVzCnRoZSBJTVNJQyBvbiBleGl0LgoKU2ln
+bmVkLW9mZi1ieTogTmljayBIdSA8bmljay5odUBzaWZpdmUuY29tPgpTaWduZWQtb2ZmLWJ5OiBU
+aG9tYXMgR2xlaXhuZXIgPHRnbHhAbGludXRyb25peC5kZT4KUmV2aWV3ZWQtYnk6IFlvbmctWHVh
+biBXYW5nIDx5b25neHVhbi53YW5nQHNpZml2ZS5jb20+ClJldmlld2VkLWJ5OiBDeWFuIFlhbmcg
+PGN5YW4ueWFuZ0BzaWZpdmUuY29tPgpSZXZpZXdlZC1ieTogQW51cCBQYXRlbCA8YW51cEBicmFp
+bmZhdWx0Lm9yZz4KUmV2aWV3ZWQtYnk6IE51dHR5IExpdSA8bGl1amluZ3FpQGxhbnhpbmNvbXB1
+dGluZy5jb20+Ckxpbms6IGh0dHBzOi8vcGF0Y2gubXNnaWQubGluay8yMDI1MTIwMi1wcmVzZXJ2
+ZS1hcGxpYy1pbXNpYy12My0xLTE4NDRmYmYxZmU5MkBzaWZpdmUuY29tClNpZ25lZC1vZmYtYnk6
+IFNhc2hhIExldmluIDxzYXNoYWxAa2VybmVsLm9yZz4KLS0tCgpMTE0gR2VuZXJhdGVkIGV4cGxh
+bmF0aW9ucywgbWF5IGJlIGNvbXBsZXRlbHkgYm9ndXM6CgpOb3cgSSBoYXZlIGEgY29tcHJlaGVu
+c2l2ZSB1bmRlcnN0YW5kaW5nLiBMZXQgbWUgc3VtbWFyaXplIHRoZSBhbmFseXNpcy4KCi0tLQoK
+IyMgRGV0YWlsZWQgQW5hbHlzaXMKCiMjIyAxLiBDb21taXQgTWVzc2FnZSBBbmFseXNpcwoKVGhl
+IGNvbW1pdCBtZXNzYWdlIGlzIGNsZWFyIGFuZCBkaXJlY3RseSBkZXNjcmliZXMgYSAqKmJ1ZyBm
+aXgqKjogIlRoZQpJTVNJQyBtaWdodCBiZSByZXNldCB3aGVuIHRoZSBzeXN0ZW0gZW50ZXJzIGEg
+bG93IHBvd2VyIHN0YXRlLCBidXQgb24KZXhpdCBub3RoaW5nIHJlc3RvcmVzIHRoZSByZWdpc3Rl
+cnMsIHdoaWNoIHByZXZlbnRzIGludGVycnVwdCBkZWxpdmVyeS4iClRoaXMgaXMgdW5hbWJpZ3Vv
+dXMg4oCUIHdpdGhvdXQgdGhlIGZpeCwgKippbnRlcnJ1cHQgZGVsaXZlcnkgaXMgYnJva2VuKioK
+YWZ0ZXIgcmV0dXJuaW5nIGZyb20gYSBsb3cgcG93ZXIgc3RhdGUuCgpUaGUgcGF0Y2ggaXMgZnJv
+bSBOaWNrIEh1IGF0IFNpRml2ZSAoYSBtYWpvciBSSVNDLVYgc2lsaWNvbiB2ZW5kb3IpLApzaWdu
+ZWQtb2ZmIGJ5IFRob21hcyBHbGVpeG5lciAodGhlIG92ZXJhbGwgaXJxY2hpcCBtYWludGFpbmVy
+KSwgYW5kCnJldmlld2VkIGJ5OgotIEFudXAgUGF0ZWwgKG9yaWdpbmFsIElNU0lDIGRyaXZlciBh
+dXRob3IvbWFpbnRhaW5lciBhdCBWZW50YW5hIE1pY3JvKQotIFlvbmctWHVhbiBXYW5nLCBDeWFu
+IFlhbmcgKFNpRml2ZSByZXZpZXdlcnMpCi0gTnV0dHkgTGl1IChMYW54aW4gQ29tcHV0aW5nKQoK
+VGhpcyBsZXZlbCBvZiByZXZpZXcgYnkgZG9tYWluIGV4cGVydHMgZGVtb25zdHJhdGVzIHRoZSBm
+aXggaXMgd2VsbC0KdmV0dGVkLgoKIyMjIDIuIENvZGUgQ2hhbmdlIEFuYWx5c2lzCgpUaGUgY2hh
+bmdlIGlzIG1pbmltYWwgKDMxIGxpbmVzIGFkZGVkLCA4IHJlbW92ZWQsIHNpbmdsZSBmaWxlKSBh
+bmQKY29uc2lzdHMgb2YgdGhyZWUgbG9naWNhbCBwYXJ0czoKCioqYSkgUmVmYWN0b3Jpbmcg4oCU
+IGV4dHJhY3RpbmcgYGltc2ljX2h3X3N0YXRlc19pbml0KClgOioqCgpUaGUgZXhpc3RpbmcgY29k
+ZSBmcm9tIGBpbXNpY19zdGFydGluZ19jcHUoKWAgdGhhdCBoYW5kbGVzIGhhcmR3YXJlCnJlZ2lz
+dGVyIGluaXRpYWxpemF0aW9uIGlzIG1vdmVkIGludG8gYSBuZXcgaGVscGVyOgoKYGBgMTI2OjE0
+Nzpkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWltc2ljLWVhcmx5LmMKc3RhdGljIGludCBpbXNp
+Y19zdGFydGluZ19jcHUodW5zaWduZWQgaW50IGNwdSkKewogICAgICAgIC8qIE1hcmsgcGVyLUNQ
+VSBJTVNJQyBzdGF0ZSBhcyBvbmxpbmUgKi8KICAgICAgICBpbXNpY19zdGF0ZV9vbmxpbmUoKTsK
+CiAgICAgICAgLyogRW5hYmxlIHBlci1DUFUgcGFyZW50IGludGVycnVwdCAqLwogICAgICAgIGVu
+YWJsZV9wZXJjcHVfaXJxKGltc2ljX3BhcmVudF9pcnEsCmlycV9nZXRfdHJpZ2dlcl90eXBlKGlt
+c2ljX3BhcmVudF9pcnEpKTsKCiAgICAgICAgLyogU2V0dXAgSVBJcyAqLwogICAgICAgIGltc2lj
+X2lwaV9zdGFydGluZ19jcHUoKTsKCiAgICAgICAgLyoKICAtIEludGVycnVwdHMgaWRlbnRpdGll
+cyBtaWdodCBoYXZlIGJlZW4gZW5hYmxlZC9kaXNhYmxlZCB3aGlsZQogIC0gdGhpcyBDUFUgd2Fz
+IG5vdCBydW5uaW5nIHNvIHN5bmMtdXAgbG9jYWwgZW5hYmxlL2Rpc2FibGUgc3RhdGUuCiAgICAg
+ICAgICovCiAgICAgICAgaW1zaWNfbG9jYWxfc3luY19hbGwodHJ1ZSk7CgogICAgICAgIC8qIEVu
+YWJsZSBsb2NhbCBpbnRlcnJ1cHQgZGVsaXZlcnkgKi8KICAgICAgICBpbXNpY19sb2NhbF9kZWxp
+dmVyeSh0cnVlKTsKCiAgICAgICAgcmV0dXJuIDA7Cn0KYGBgCgpUaGUgdGhyZWUgb3BlcmF0aW9u
+cyAoYGltc2ljX2lwaV9zdGFydGluZ19jcHUoKWAsCmBpbXNpY19sb2NhbF9zeW5jX2FsbCh0cnVl
+KWAsIGBpbXNpY19sb2NhbF9kZWxpdmVyeSh0cnVlKWApIGFyZQpleHRyYWN0ZWQgaW50byBgaW1z
+aWNfaHdfc3RhdGVzX2luaXQoKWAsIHdoaWNoIGlzIHRoZW4gY2FsbGVkIGZyb20gYm90aApgaW1z
+aWNfc3RhcnRpbmdfY3B1KClgIGFuZCB0aGUgbmV3IFBNIG5vdGlmaWVyLgoKKipiKSBBZGRpbmcg
+dGhlIENQVSBQTSBub3RpZmllcjoqKgoKQSBuZXcgYGltc2ljX3BtX25vdGlmaWVyYCBmdW5jdGlv
+biBoYW5kbGVzIGBDUFVfUE1fRVhJVGAgYnkgY2FsbGluZwpgaW1zaWNfaHdfc3RhdGVzX2luaXQo
+KWAuIFRoaXMgaXMgdGhlICoqZXhhY3Qgc2FtZSBwYXR0ZXJuKiogdXNlZCBieQpHSUN2MyAoYGly
+cS1naWMtdjMuYzoxNDgyYCkgYW5kIEdJQyAoYGlycS1naWMuY2ApLCB3aGljaCBoYXZlIGJlZW4K
+c3RhYmxlIGZvciB5ZWFycy4KCioqYykgUmVnaXN0ZXJpbmcgdGhlIG5vdGlmaWVyOioqCgpUaGUg
+YGltc2ljX2Vhcmx5X3Byb2JlKClgIHJldHVybiBpcyBjaGFuZ2VkIGZyb20gYHJldHVybiAwYCB0
+byBgcmV0dXJuCmNwdV9wbV9yZWdpc3Rlcl9ub3RpZmllcigmaW1zaWNfcG1fbm90aWZpZXJfYmxv
+Y2spYC4KCiMjIyAzLiBCdWcgTWVjaGFuaXNtIGFuZCBTZXZlcml0eQoKKipUaGUgYnVnKio6IE9u
+IFJJU0MtViBzeXN0ZW1zIHdpdGggU0JJLWJhc2VkIGNwdWlkbGUgKHRoZSBzdGFuZGFyZCBDUFUK
+aWRsZSBtZWNoYW5pc20pLCB3aGVuIGEgQ1BVIGVudGVycyBhIGRlZXAgaWRsZSBzdGF0ZSwgdGhl
+IFNCSSBmaXJtd2FyZQptYXkgcG93ZXIgZG93biB0aGUgSU1TSUMuIFRoZSBgY3B1aWRsZS1yaXNj
+di1zYmkuY2AgZHJpdmVyIGNhbGxzCmBjcHVfcG1fZW50ZXIoKWAgYmVmb3JlIGFuZCBgY3B1X3Bt
+X2V4aXQoKWAgYWZ0ZXIgdGhlIGlkbGUgdHJhbnNpdGlvbi4KYGNwdV9wbV9leGl0KClgIGZpcmVz
+IGBDUFVfUE1fRVhJVGAgbm90aWZpY2F0aW9ucyB0byBhbGwgcmVnaXN0ZXJlZApoYW5kbGVycy4g
+V2l0aG91dCB0aGlzIHBhdGNoLCBubyBoYW5kbGVyIGV4aXN0cyBmb3IgSU1TSUMsIHNvOgoKMS4g
+YGltc2ljX2xvY2FsX2RlbGl2ZXJ5YCDigJQgdGhlIEVJREVMSVZFUlkvRUlUSFJFU0hPTEQgQ1NS
+cyBtYXkgYmUKICAgcmVzZXQsIGRpc2FibGluZyBhbGwgaW50ZXJydXB0IGRlbGl2ZXJ5CjIuIGBp
+bXNpY19sb2NhbF9zeW5jX2FsbGAg4oCUIGluZGl2aWR1YWwgaW50ZXJydXB0IGVuYWJsZSBiaXRz
+IG1heSBiZQogICByZXNldCwgbGVhdmluZyBhbGwgaW50ZXJydXB0IHNvdXJjZXMgZGlzYWJsZWQK
+My4gYGltc2ljX2lwaV9zdGFydGluZ19jcHVgIOKAlCB0aGUgSVBJIGVuYWJsZSBiaXQgbWF5IGJl
+IHJlc2V0LCBicmVha2luZwogICBpbnRlci1wcm9jZXNzb3IgaW50ZXJydXB0cwoKKipJbXBhY3Qq
+KjogVGhlIENQVSBlZmZlY3RpdmVseSBiZWNvbWVzIGRlYWYgdG8gYWxsIGludGVycnVwdHMg4oCU
+IElQSXMsCmRldmljZSBpbnRlcnJ1cHRzLCB0aW1lciBpbnRlcnJ1cHRzIHJvdXRlZCB0aHJvdWdo
+IElNU0lDIOKAlCBhZnRlcgpyZXR1cm5pbmcgZnJvbSBhIGRlZXAgaWRsZSBzdGF0ZS4gVGhpcyBj
+YW4gY2F1c2U6Ci0gU3lzdGVtIGhhbmdzIChubyB0aW1lciBpbnRlcnJ1cHRzKQotIElQSSBmYWls
+dXJlcyAoc2NoZWR1bGVyIGhhbmdzLCBSQ1Ugc3RhbGxzKQotIERldmljZSBpbnRlcnJ1cHQgbG9z
+cyAoSS9PIGZhaWx1cmVzLCBuZXR3b3JrIHRpbWVvdXRzKQoKVGhpcyBidWcgYWZmZWN0cyBhbnkg
+UklTQy1WIHN5c3RlbSB1c2luZyBJTVNJQyB3aXRoIGNwdWlkbGUgZGVlcCBzdGF0ZXMK4oCUIHdo
+aWNoIGluY2x1ZGVzIFNpRml2ZSBib2FyZHMgYW5kIG90aGVyIHByb2R1Y3Rpb24gUklTQy1WIGhh
+cmR3YXJlLgoKIyMjIDQuIERlcGVuZGVuY3kgQ2hlY2sKClRoZSBwYXRjaCBpcyAqKnNlbGYtY29u
+dGFpbmVkKiouIEl0IGRlcGVuZHMgb25seSBvbjoKLSBgaW1zaWNfaXBpX3N0YXJ0aW5nX2NwdSgp
+YCDigJQgZXhpc3RzIGluIGFsbCBzdGFibGUgdHJlZXMgd2l0aCBJTVNJQwogICg2LjEyLnkrKQot
+IGBpbXNpY19sb2NhbF9zeW5jX2FsbCgpYCDigJQgZXhpc3RzIGluIGFsbCBzdGFibGUgdHJlZXMg
+d2l0aCBJTVNJQwogICg2LjEyLnkrKQotIGBpbXNpY19sb2NhbF9kZWxpdmVyeSgpYCDigJQgZXhp
+c3RzIGluIGFsbCBzdGFibGUgdHJlZXMgd2l0aCBJTVNJQwogICg2LjEyLnkrKQotIGBjcHVfcG1f
+cmVnaXN0ZXJfbm90aWZpZXIoKWAg4oCUIGV4aXN0cyBpbiBhbGwga2VybmVsIHZlcnNpb25zIChj
+b3JlCiAga2VybmVsIFBNIEFQSSkKLSBgY3B1aWRsZS1yaXNjdi1zYmkuY2Ag4oCUIGV4aXN0cyBp
+biBhbGwgc3RhYmxlIHRyZWVzIHdpdGggSU1TSUMsIGFuZAogIGNhbGxzIGBjcHVfcG1fZW50ZXIo
+KWAvYGNwdV9wbV9leGl0KClgCgpUaGUgY29tcGFuaW9uIEFQTElDIHBhdGNoICg5NWE4ZGRkZTM2
+NjAxKSB0b3VjaGVzIGEgZGlmZmVyZW50IGRyaXZlcgplbnRpcmVseSBhbmQgaXMgbm90IGEgZGVw
+ZW5kZW5jeS4KCiMjIyA1LiBCYWNrcG9ydCBBcHBsaWNhYmlsaXR5CgotICoqSU1TSUMgZHJpdmVy
+IGV4aXN0cyoqOiA2LjEyLnkgdGhyb3VnaCA2LjE5LnkgKGFkZGVkIGluIHY2LjEwKQotICoqQ2xl
+YW4gYmFja3BvcnQqKjogVGhlIGBpbXNpY19zdGFydGluZ19jcHVgIGZ1bmN0aW9uIGlzIGJ5dGUt
+CiAgaWRlbnRpY2FsIGJldHdlZW4gdGhlIG1haW5saW5lIHByZS1pbWFnZSBhbmQgNi4xMi55LiBP
+bmx5IG1pbm9yCiAgY29udGV4dCBjb25mbGljdCBpbiB0aGUgYCNpbmNsdWRlYCBzZWN0aW9uICg2
+LjEyLnkgbGFja3MKICBgPGxpbnV4L2V4cG9ydC5oPmAgdGhhdCBtYWlubGluZSBoYXMpLCB0cml2
+aWFsbHkgcmVzb2x2ZWQuCi0gKipCdWcgdHJpZ2dlcmFibGUqKjogVGhlIGNwdWlkbGUtcmlzY3Yt
+c2JpIGRyaXZlciBpbiA2LjEyLnkgYWxyZWFkeQogIGNhbGxzIGBjcHVfcG1fZW50ZXIoKWAvYGNw
+dV9wbV9leGl0KClgLCBtZWFuaW5nIHRoZSBJTVNJQyByZWdpc3RlcnMKICBnZXQgcmVzZXQgd2l0
+aCBubyByZXN0b3JhdGlvbi4KCiMjIyA2LiBSaXNrIEFzc2Vzc21lbnQKCioqVmVyeSBsb3cgcmlz
+ayoqOgotIFRoZSByZWZhY3RvcmVkIGNvZGUgKGBpbXNpY19od19zdGF0ZXNfaW5pdGApIHBlcmZv
+cm1zIGV4YWN0bHkgdGhlIHNhbWUKICBvcGVyYXRpb25zIGFzIGJlZm9yZSDigJQganVzdCBmcm9t
+IGFuIGFkZGl0aW9uYWwgY2FsbCBzaXRlCi0gVGhlIEdJQ3YzIGRyaXZlciBoYXMgdXNlZCB0aGlz
+IGV4YWN0IHBhdHRlcm4gKENQVSBQTSBub3RpZmllcgogIHJlc3RvcmluZyBpbnRlcnJ1cHQgY29u
+dHJvbGxlciBzdGF0ZSkgZm9yIG92ZXIgYSBkZWNhZGUKLSBObyBiZWhhdmlvciBjaGFuZ2VzIHRv
+IHRoZSBleGlzdGluZyBDUFUgaG90cGx1ZyBwYXRoCi0gV2VsbC1yZXZpZXdlZCBieSBhbGwga2V5
+IHN0YWtlaG9sZGVycwoKIyMjIDcuIENvbmNsdXNpb24KClRoaXMgaXMgYSBjbGVhci1jdXQgYnVn
+IGZpeCBmb3IgYSBjcml0aWNhbCBpc3N1ZTogKipjb21wbGV0ZSBsb3NzIG9mCmludGVycnVwdCBk
+ZWxpdmVyeSoqIGFmdGVyIFJJU0MtViBDUFVzIHJldHVybiBmcm9tIGRlZXAgaWRsZSBzdGF0ZXMu
+IFRoZQpmaXggaXM6Ci0gU21hbGwgYW5kIHN1cmdpY2FsICgzMSBsaW5lcyBhZGRlZCB0byBhIHNp
+bmdsZSBmaWxlKQotIEJhc2VkIG9uIGEgd2VsbC1lc3RhYmxpc2hlZCBwYXR0ZXJuIChpZGVudGlj
+YWwgdG8gR0lDdjMvR0lDIENQVSBQTQogIGhhbmRsaW5nKQotIFRob3JvdWdobHkgcmV2aWV3ZWQg
+YnkgZG9tYWluIGV4cGVydHMKLSBTZWxmLWNvbnRhaW5lZCB3aXRoIG5vIGRlcGVuZGVuY2llcyBv
+biBvdGhlciBwYXRjaGVzCi0gQ2xlYW5seSBiYWNrcG9ydGFibGUgdG8gYWxsIHN0YWJsZSB0cmVl
+cyBjb250YWluaW5nIElNU0lDICg2LjEyLnkrKQoKKipZRVMqKgoKIGRyaXZlcnMvaXJxY2hpcC9p
+cnEtcmlzY3YtaW1zaWMtZWFybHkuYyB8IDM5ICsrKysrKysrKysrKysrKysrKysrLS0tLS0KIDEg
+ZmlsZSBjaGFuZ2VkLCAzMSBpbnNlcnRpb25zKCspLCA4IGRlbGV0aW9ucygtKQoKZGlmZiAtLWdp
+dCBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW1zaWMtZWFybHkuYyBiL2RyaXZlcnMvaXJx
+Y2hpcC9pcnEtcmlzY3YtaW1zaWMtZWFybHkuYwppbmRleCA2YmFjNjdjYzBiNmQ5Li5iYTkwM2Zh
+Njg5YmQ1IDEwMDY0NAotLS0gYS9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWltc2ljLWVhcmx5
+LmMKKysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbXNpYy1lYXJseS5jCkBAIC03LDYg
+KzcsNyBAQAogI2RlZmluZSBwcl9mbXQoZm10KSAicmlzY3YtaW1zaWM6ICIgZm10CiAjaW5jbHVk
+ZSA8bGludXgvYWNwaS5oPgogI2luY2x1ZGUgPGxpbnV4L2NwdS5oPgorI2luY2x1ZGUgPGxpbnV4
+L2NwdV9wbS5oPgogI2luY2x1ZGUgPGxpbnV4L2V4cG9ydC5oPgogI2luY2x1ZGUgPGxpbnV4L2lu
+dGVycnVwdC5oPgogI2luY2x1ZGUgPGxpbnV4L2luaXQuaD4KQEAgLTEyMywxNCArMTI0LDggQEAg
+c3RhdGljIHZvaWQgaW1zaWNfaGFuZGxlX2lycShzdHJ1Y3QgaXJxX2Rlc2MgKmRlc2MpCiAJY2hh
+aW5lZF9pcnFfZXhpdChjaGlwLCBkZXNjKTsKIH0KIAotc3RhdGljIGludCBpbXNpY19zdGFydGlu
+Z19jcHUodW5zaWduZWQgaW50IGNwdSkKK3N0YXRpYyB2b2lkIGltc2ljX2h3X3N0YXRlc19pbml0
+KHZvaWQpCiB7Ci0JLyogTWFyayBwZXItQ1BVIElNU0lDIHN0YXRlIGFzIG9ubGluZSAqLwotCWlt
+c2ljX3N0YXRlX29ubGluZSgpOwotCi0JLyogRW5hYmxlIHBlci1DUFUgcGFyZW50IGludGVycnVw
+dCAqLwotCWVuYWJsZV9wZXJjcHVfaXJxKGltc2ljX3BhcmVudF9pcnEsIGlycV9nZXRfdHJpZ2dl
+cl90eXBlKGltc2ljX3BhcmVudF9pcnEpKTsKLQogCS8qIFNldHVwIElQSXMgKi8KIAlpbXNpY19p
+cGlfc3RhcnRpbmdfY3B1KCk7CiAKQEAgLTE0Miw2ICsxMzcsMTggQEAgc3RhdGljIGludCBpbXNp
+Y19zdGFydGluZ19jcHUodW5zaWduZWQgaW50IGNwdSkKIAogCS8qIEVuYWJsZSBsb2NhbCBpbnRl
+cnJ1cHQgZGVsaXZlcnkgKi8KIAlpbXNpY19sb2NhbF9kZWxpdmVyeSh0cnVlKTsKK30KKworc3Rh
+dGljIGludCBpbXNpY19zdGFydGluZ19jcHUodW5zaWduZWQgaW50IGNwdSkKK3sKKwkvKiBNYXJr
+IHBlci1DUFUgSU1TSUMgc3RhdGUgYXMgb25saW5lICovCisJaW1zaWNfc3RhdGVfb25saW5lKCk7
+CisKKwkvKiBFbmFibGUgcGVyLUNQVSBwYXJlbnQgaW50ZXJydXB0ICovCisJZW5hYmxlX3BlcmNw
+dV9pcnEoaW1zaWNfcGFyZW50X2lycSwgaXJxX2dldF90cmlnZ2VyX3R5cGUoaW1zaWNfcGFyZW50
+X2lycSkpOworCisJLyogSW5pdGlhbGl6ZSB0aGUgSU1TSUMgcmVnaXN0ZXJzIHRvIGVuYWJsZSB0
+aGUgaW50ZXJydXB0IGRlbGl2ZXJ5ICovCisJaW1zaWNfaHdfc3RhdGVzX2luaXQoKTsKIAogCXJl
+dHVybiAwOwogfQpAQCAtMTU3LDYgKzE2NCwyMiBAQCBzdGF0aWMgaW50IGltc2ljX2R5aW5nX2Nw
+dSh1bnNpZ25lZCBpbnQgY3B1KQogCXJldHVybiAwOwogfQogCitzdGF0aWMgaW50IGltc2ljX3Bt
+X25vdGlmaWVyKHN0cnVjdCBub3RpZmllcl9ibG9jayAqc2VsZiwgdW5zaWduZWQgbG9uZyBjbWQs
+IHZvaWQgKnYpCit7CisJc3dpdGNoIChjbWQpIHsKKwljYXNlIENQVV9QTV9FWElUOgorCQkvKiBJ
+bml0aWFsaXplIHRoZSBJTVNJQyByZWdpc3RlcnMgdG8gZW5hYmxlIHRoZSBpbnRlcnJ1cHQgZGVs
+aXZlcnkgKi8KKwkJaW1zaWNfaHdfc3RhdGVzX2luaXQoKTsKKwkJYnJlYWs7CisJfQorCisJcmV0
+dXJuIE5PVElGWV9PSzsKK30KKworc3RhdGljIHN0cnVjdCBub3RpZmllcl9ibG9jayBpbXNpY19w
+bV9ub3RpZmllcl9ibG9jayA9IHsKKwkubm90aWZpZXJfY2FsbCA9IGltc2ljX3BtX25vdGlmaWVy
+LAorfTsKKwogc3RhdGljIGludCBfX2luaXQgaW1zaWNfZWFybHlfcHJvYmUoc3RydWN0IGZ3bm9k
+ZV9oYW5kbGUgKmZ3bm9kZSkKIHsKIAlzdHJ1Y3QgaXJxX2RvbWFpbiAqZG9tYWluOwpAQCAtMTk0
+LDcgKzIxNyw3IEBAIHN0YXRpYyBpbnQgX19pbml0IGltc2ljX2Vhcmx5X3Byb2JlKHN0cnVjdCBm
+d25vZGVfaGFuZGxlICpmd25vZGUpCiAJY3B1aHBfc2V0dXBfc3RhdGUoQ1BVSFBfQVBfSVJRX1JJ
+U0NWX0lNU0lDX1NUQVJUSU5HLCAiaXJxY2hpcC9yaXNjdi9pbXNpYzpzdGFydGluZyIsCiAJCQkg
+IGltc2ljX3N0YXJ0aW5nX2NwdSwgaW1zaWNfZHlpbmdfY3B1KTsKIAotCXJldHVybiAwOworCXJl
+dHVybiBjcHVfcG1fcmVnaXN0ZXJfbm90aWZpZXIoJmltc2ljX3BtX25vdGlmaWVyX2Jsb2NrKTsK
+IH0KIAogc3RhdGljIGludCBfX2luaXQgaW1zaWNfZWFybHlfZHRfaW5pdChzdHJ1Y3QgZGV2aWNl
+X25vZGUgKm5vZGUsIHN0cnVjdCBkZXZpY2Vfbm9kZSAqcGFyZW50KQotLSAKMi41MS4wCgoKX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
+bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
+LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
