@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 506B9EB4907
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 11:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46BC6EB490D
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Feb 2026 11:41:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qHwcZkRbTARte+znNPWdtMvPor1S4A+CX6WWZGVYTk0=; b=mirVxwOG9T5FF6
-	Cy9FEiR6FL5mwh8bnF1EEkScpNvL/99Vomo9yf27rolhlaBT4XNCvcIN4em2J/kOrbOK3uNNDV+3c
-	+8d+0W+OOTrLHIulSkSHmhgKcMWqMmA7NEjMzBsd8XujFA07KpLySuDAhYLIiPRjyy4jp2naWMqK1
-	4qk8WR8rWvg6Ed6AXFvaBMz/7wlttdn+AxqmCn5a0FZVzdN6SV0VoRPN1Be6oC7N8LybaNd0uDTIS
-	nbH+4LkXY3Dg3pwNz1mx+rqsjgqP8l3ZA9ewELAYYGIePHrlTeTAB5AVExx/ADLQ2xC3hLsZE7dov
-	omJuQkEgkOdo6G41IXZQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FWy2QImsaPfzSGVChvvaAy7Gz+Uit1s5+xnoZoM1oG0=; b=zU/Tf4ZpHH9mFx
+	dgCBNtQqTcv2gC6+N3qbgqa89vZS6yK8Y77LpPi2jqaHrXkz7T8+sLj9yzeCM9mdVwXKKCFADxYtT
+	rMBjJ+gNhg9RHtrFS7dhZNvGor0J5HOL2nIdmI1eXI/S6ArfYOVjKAnEx/WXzhqzh57bDXJRZ8Utr
+	74Rbz2lHtSd7Pepzz336tKJzephQlIYuvaaK7uW4iR6RqfPzfCZFT70STxswPNsb1KF/x/o8fUSYQ
+	jD5/K+BVEeqTLI7dxgppEAVBc0Fm6e5JASe2TSQVgTbWY53LLCzMUCSkbp0EOPoUOQlEAHz9yjr8w
+	7JNgqUqadGfbrYYypajQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqUuR-0000000205o-0D7j;
-	Thu, 12 Feb 2026 11:30:59 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1vqV4n-000000020zN-2kpv;
+	Thu, 12 Feb 2026 11:41:41 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqUuN-00000002052-3QCw;
-	Thu, 12 Feb 2026 11:30:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1770895849; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=HVKbNxgsmBVFEAlsnx8KyqWs619i3Xdcq0ugbutcRJ/rreEGuQ0r2AaPUgIuyUwgPJoMqAVkBpzHTZlUw3pstFFZvzSiN1RsNIeJ2LYzF3/YhysoUBJcMZWc4ejLweR6TPqcx0U2+s6pSJvjLPFNqpTplyR+BCtPdQR7I/maH2M=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1770895849; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=G8IqrDcbAUJ2cX6HzRhCxQ7mt8YTvz969YgV8457uCI=; 
-	b=Qa8iUZMdmMHy46JsRB7124zN9TKnyctzdMBy7mUZlAJaO9P2xs2f6maFmYvxGsg1j33LgdsGTdMk3aXNGlrFPbkrBiZyFjpoz3d2Xgl34vxa/E538obsZ8p6fVF/abvUEFYYa3l+CyNjTGrKoouqN2lXbG4PrElhsk5zJ1H8+xo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1770895849;
-	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=G8IqrDcbAUJ2cX6HzRhCxQ7mt8YTvz969YgV8457uCI=;
-	b=a+67Y4XZFbkUF+RtSrlNZsmMfBVoxBthDopV9txjtnmrV/K+c7SkrdMZ/gfKaQAZ
-	BGuCxAtVEsopD4cAuzC/q1GiY9gM7bJclaG6/u+whWubwDZT3OgqDUuFiAPCXJGowd3
-	xq+XJnSY5e60aOuAa+ZkORVX6YR+aPWIycgNmKaU=
-Received: by mx.zohomail.com with SMTPS id 1770895846550396.2075278392381;
-	Thu, 12 Feb 2026 03:30:46 -0800 (PST)
-Date: Thu, 12 Feb 2026 11:30:39 +0000
-From: Yao Zi <me@ziyao.cc>
-To: Yixun Lan <dlan@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Ze Huang <huang.ze@linux.dev>
-Cc: Junzhong Pan <panjunzhong@linux.spacemit.com>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] phy: k1-usb: k3: add USB2 PHY support
-Message-ID: <aY253_fOkoQKbi8g@pie>
-References: <20260212-11-k3-usb2-phy-v1-0-43578592405d@kernel.org>
- <20260212-11-k3-usb2-phy-v1-3-43578592405d@kernel.org>
+	id 1vqV4l-000000020xg-1EV6
+	for linux-riscv@lists.infradead.org;
+	Thu, 12 Feb 2026 11:41:40 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1770896496;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=1xbsh6Z18XgLpEVhl943YbQBKoHtlngksvhjy78Lq7A=;
+	b=E7WTjDT/+RLI5EYNgw9AIIF/f0sDGk/+olMBrAdyKzMIMibJ9Mhg3QKcWyuBaE9NKahORF
+	DousRcOROnp3X9LMKs2sz1lYO9F409dKAEUJwCNFXe4iepUfhImz96F1pJmg+LDJEOopdU
+	ZO4tNxH6SOWcUrXZA6tibZzuPsq8Qexm2bZZ/AaD/IZ6ZbYlcI+RPVpxmPcAhQ36vaK/W5
+	s2es1aSajp1BJavEFk4KQjycFyjdDU9QMDQT9e0fnXrpPc6Ltqjb+QBscbpjLr3uwNlcYc
+	QVh+N07Qbti2d2IvfsIjxvf4PprsRK9PYf0d8D6OaAl7vOWLJFa0WjtLZKjahQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1770896496;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=1xbsh6Z18XgLpEVhl943YbQBKoHtlngksvhjy78Lq7A=;
+	b=0voUlkdguKHaSNq5HfWeenUIIkeRaeVyOsrDZ4CBjZVNz8kI6QjNfkxth3pB2jo9V8R2As
+	XUKdzQUGzd/jaUCw==
+To: Thomas Gleixner <tglx@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Nam Cao <namcao@linutronix.de>
+Subject: [PATCH] irqchip/sifive-plic: Fix frozen interrupt due to affinity setting
+Date: Thu, 12 Feb 2026 12:41:25 +0100
+Message-ID: <20260212114125.3148067-1-namcao@linutronix.de>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260212-11-k3-usb2-phy-v1-3-43578592405d@kernel.org>
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_033055_893110_4233D279 
-X-CRM114-Status: GOOD (  22.31  )
+X-CRM114-CacheID: sfid-20260212_034139_511731_B884F27C 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,121 +78,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 12, 2026 at 09:38:56AM +0800, Yixun Lan wrote:
-> Add USB2 PHY support for SpacemiT K3 SoC.
-> 
-> Register layout of handling USB disconnect operation has been changed,
-> So introducing a platform data to distinguish the different SoCs.
+PLIC ignores interrupt completion message for disabled interrupt, explained
+by the specification:
 
-Would it be clearer and simpler if you define separate phy_ops for
-k1 and k3, and point of_device_id.data directly to the corresponding
-phy_ops? Then there's no need to introduce either spacemit_usb2phy_data
-structure, or spacemit_usb2phy_disconnect wrapper.
+    The PLIC signals it has completed executing an interrupt handler by
+    writing the interrupt ID it received from the claim to the
+    claim/complete register. The PLIC does not check whether the completion
+    ID is the same as the last claim ID for that target. If the completion
+    ID does not match an interrupt source that is currently enabled for
+    the target, the completion is silently ignored.
 
-Best regards,
-Yao Zi
+This caused problem in the past, because an interrupt can be disabled while
+still being handled and plic_irq_eoi() had no effect. That was fixed by
+checking if the interrupt is disabled, and if so enable it, before sending
+the completion message. That check is done with irqd_irq_disabled().
 
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-> ---
->  drivers/phy/spacemit/phy-k1-usb2.c | 40 ++++++++++++++++++++++++++++++++++++--
->  1 file changed, 38 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/phy/spacemit/phy-k1-usb2.c b/drivers/phy/spacemit/phy-k1-usb2.c
-> index 959bf79c7a72..b0ce0a92861e 100644
-> --- a/drivers/phy/spacemit/phy-k1-usb2.c
-> +++ b/drivers/phy/spacemit/phy-k1-usb2.c
-> @@ -51,6 +51,9 @@
->  #define PHY_K1_HS_HOST_DISC		0x40
->  #define  PHY_K1_HS_HOST_DISC_CLR		BIT(0)
->  
-> +#define PHY_K3_HS_HOST_DISC		0x20
-> +#define  PHY_K3_HS_HOST_DISC_CLR		BIT(8)
-> +
->  #define PHY_PLL_DIV_CFG			0x98
->  #define  PHY_FDIV_FRACT_8_15		GENMASK(7, 0)
->  #define  PHY_FDIV_FRACT_16_19		GENMASK(11, 8)
-> @@ -74,10 +77,15 @@
->  
->  #define K1_USB2PHY_RESET_TIME_MS	50
->  
-> +struct spacemit_usb2phy_data {
-> +	int (*disconnect)(struct phy *phy, int port);
-> +};
-> +
->  struct spacemit_usb2phy {
->  	struct phy *phy;
->  	struct clk *clk;
->  	struct regmap *regmap_base;
-> +	const struct spacemit_usb2phy_data *data;
->  };
->  
->  static const struct regmap_config phy_regmap_config = {
-> @@ -145,7 +153,7 @@ static int spacemit_usb2phy_exit(struct phy *phy)
->  	return 0;
->  }
->  
-> -static int spacemit_usb2phy_disconnect(struct phy *phy, int port)
-> +static int spacemit_k1_usb2phy_disconnect(struct phy *phy, int port)
->  {
->  	struct spacemit_usb2phy *sphy = phy_get_drvdata(phy);
->  
-> @@ -155,6 +163,23 @@ static int spacemit_usb2phy_disconnect(struct phy *phy, int port)
->  	return 0;
->  }
->  
-> +static int spacemit_k3_usb2phy_disconnect(struct phy *phy, int port)
-> +{
-> +	struct spacemit_usb2phy *sphy = phy_get_drvdata(phy);
-> +
-> +	regmap_update_bits(sphy->regmap_base, PHY_K3_HS_HOST_DISC,
-> +					   PHY_K3_HS_HOST_DISC_CLR, PHY_K3_HS_HOST_DISC_CLR);
-> +
-> +	return 0;
-> +}
-> +
-> +static int spacemit_usb2phy_disconnect(struct phy *phy, int port)
-> +{
-> +	struct spacemit_usb2phy *sphy = phy_get_drvdata(phy);
-> +
-> +	return sphy->data->disconnect(phy, port);
-> +}
-> +
->  static const struct phy_ops spacemit_usb2phy_ops = {
->  	.init = spacemit_usb2phy_init,
->  	.exit = spacemit_usb2phy_exit,
-> @@ -173,6 +198,8 @@ static int spacemit_usb2phy_probe(struct platform_device *pdev)
->  	if (!sphy)
->  		return -ENOMEM;
->  
-> +	sphy->data = device_get_match_data(dev);
-> +
->  	sphy->clk = devm_clk_get_prepared(&pdev->dev, NULL);
->  	if (IS_ERR(sphy->clk))
->  		return dev_err_probe(dev, PTR_ERR(sphy->clk), "Failed to get clock\n");
-> @@ -195,8 +222,17 @@ static int spacemit_usb2phy_probe(struct platform_device *pdev)
->  	return PTR_ERR_OR_ZERO(phy_provider);
->  }
->  
-> +static const struct spacemit_usb2phy_data k1_usb2phy_data = {
-> +	.disconnect = spacemit_k1_usb2phy_disconnect,
-> +};
-> +
-> +static const struct spacemit_usb2phy_data k3_usb2phy_data = {
-> +	.disconnect = spacemit_k3_usb2phy_disconnect,
-> +};
-> +
->  static const struct of_device_id spacemit_usb2phy_dt_match[] = {
-> -	{ .compatible = "spacemit,k1-usb2-phy", },
-> +	{ .compatible = "spacemit,k1-usb2-phy", .data = &k1_usb2phy_data },
-> +	{ .compatible = "spacemit,k3-usb2-phy", .data = &k3_usb2phy_data },
->  	{ /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, spacemit_usb2phy_dt_match);
-> 
-> -- 
-> 2.52.0
-> 
-> 
+However, that is not sufficient because the enable bit for the handling
+hart can be zero despite irqd_irq_disabled(d) being false. This can happen
+when affinity setting is changed while a hart is still handling the
+interrupt.
+
+This problem is easily reproducible by dumping a large file to uart (which
+generates lots of interrupts) and at the same time keep changing the uart
+interrupt's affinity setting. The uart port becomes frozen almost
+jnstantly.
+
+Fix by checking PLIC's enable bit instead of irqd_irq_disabled().
+
+Fixes: cc9f04f9a84f ("irqchip/sifive-plic: Implement irq_set_affinity() for SMP host")
+Signed-off-by: Nam Cao <namcao@linutronix.de>
+---
+ drivers/irqchip/irq-sifive-plic.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index 210a57959637..1565aab895bc 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -164,8 +164,13 @@ static void plic_irq_disable(struct irq_data *d)
+ static void plic_irq_eoi(struct irq_data *d)
+ {
+ 	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
++	u32 __iomem *reg;
++	bool enabled;
++
++	reg = handler->enable_base + (d->hwirq / 32) * sizeof(u32);
++	enabled = readl(reg) & BIT(d->hwirq % 32);
+ 
+-	if (unlikely(irqd_irq_disabled(d))) {
++	if (unlikely(!enabled)) {
+ 		plic_toggle(handler, d->hwirq, 1);
+ 		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+ 		plic_toggle(handler, d->hwirq, 0);
+-- 
+2.47.3
+
 
 _______________________________________________
 linux-riscv mailing list
