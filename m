@@ -4,64 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A097EEA875
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 02:31:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11EA9EF48C1
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 02:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sIAwE09lx45dd6dLuc6gtBFVYX93xNV2mXHoKT9WRCY=; b=LfJr1Gw2qo1DZi
-	tWv2X9/2RwHTs4zEICC0IiUxNH1qYWM2+b8DOFz84cVD2WgmrB8uZoB/VULNucGCWgdvTM7w19ZRQ
-	MQ1qzHRMq7Bn6EO/7ifTddTZW7vo3mxk/giwta4Yrbksgg9eUnnUtqd43hlueJRsV4tHR/hd2I000
-	05oW89KkcmGgvfVZUN96240BNmCfQrYLLPRO4irVmqQ6ODTzUIZXWmYxo1FbMZuzZHI2dmN6gutNy
-	ke9knKH+pwHDFumbtPu1QAMkkd7LDu5x2JsiYUAEKxXXnFrlKZnr/b/QWnJXYBGyOZxswD0pwU029
-	jOYQb7aP16F7G7tVzRDg==;
+	List-Owner; bh=cKYAmRMfrCYaMY8MrL+vHf1nLPYTBnZQ5ean8F3byrk=; b=cNdoPX3c4PSUVd
+	DvtCFWEB5Xzzp2Np6KGxKGvau5xpaTZRumJEOXmar2izuv3p36V9u9uCIC5/79hz0tn1UFidJd93A
+	jB8Ga7b3W7y04yEk804bJiWz6CpTXDtUlWn8+QpwEjbsJskTR6kWy+kyJUb54vJ3SHAJN40aiA2rX
+	SGAE7uG3ggO/x3z56fC5W5jm9mBTzYxlmlnZT2pSQbS7+zT+e+TEymKH/WcBibIZOynOsfnM7z640
+	WsoHjlhYJB/vEkaIuDLwadXlNemsYpLySkPdjNiqq7jDF2i1koBsOMfG15tgcR9QPicoTVDawkoJ4
+	xRmQ0Z9z2kF45hKWgLqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqiy2-00000002rMj-49x7;
-	Fri, 13 Feb 2026 02:31:38 +0000
+	id 1vqjI7-00000002sSO-2mg4;
+	Fri, 13 Feb 2026 02:52:23 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqiy0-00000002rML-36Z1
+	id 1vqjI5-00000002sS3-07zk
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Feb 2026 02:31:37 +0000
+	Fri, 13 Feb 2026 02:52:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B366441906;
-	Fri, 13 Feb 2026 02:31:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B20D4C4CEF7;
-	Fri, 13 Feb 2026 02:31:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 486CD43BB7;
+	Fri, 13 Feb 2026 02:52:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8552C4CEF7;
+	Fri, 13 Feb 2026 02:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770949893;
-	bh=ozPHT1rtCw2SY7id1srqH0gTFj0yy/Ghv+IA3dow14Q=;
+	s=k20201202; t=1770951140;
+	bh=l3Gi66JZvER/YDr+cJ4GCr6bDEVhkqVzTtQeB4gKZkA=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=O8EsVa1Q2jgoGGubGPlkXCpxpJiy93DfncVYhBPbM2H/kLePh4I1zGog1fLxkceLJ
-	 ESUsZdarFm5vD7OOdcJwFtIVQ9ynAia4jFPcGP+u8BwLNXrVeZgn627aWoUShs5LVx
-	 skducfxWrJ9PMUj0ZF+2t5YvbFDh2wn1E/62drwGNxzp3HARSLLje/Lyr3VGYkRTnQ
-	 ih4f9EQ7+xbuN1Ltxnk6mA17ipoy5tqMg7VnUShtgHpfxEWQ99rMcEeZdvJrbOKhef
-	 0BgKW7agLP0jc6HDkF7KxAwieq3RkBAwlgja6vTCZuJwi0M68CWds3WQ3Q/XSGrBa8
-	 riBMasVbxlriw==
-Date: Thu, 12 Feb 2026 19:31:28 -0700 (MST)
+	b=TZipnZHCitrPfNkYz+K1qGTNWFvD8cZcIuftTC1wUzqJpsU2sk/krnZJyEJwCBL9j
+	 awcoH+41pCty/0PBUgJqC6ykZCGExu8vPB7OxTFVvdTUlEfMz/BELcwo4LIq27Oq34
+	 j62e5A/QiK6pcKj+KtD6NLv4YRz/uVeUISxT5xxgujh58F//zoabmOBnQE4c7Ckphs
+	 VSro7N7qyF1v2B39xZ7yEN2rW7UvWvMktTD7JNLBl6m5R9GbMuVozyq8IaqtJufZfM
+	 mwZvuqb2uwGEHlzCVvhl8WzyBbi6IWUKHTdNjS6QWMm6KesAfm3BmwagUjFE5KFqGa
+	 8mh4VLDpwlxgw==
+Date: Thu, 12 Feb 2026 19:52:18 -0700 (MST)
 From: Paul Walmsley <pjw@kernel.org>
-To: Thorsten Blum <thorsten.blum@linux.dev>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Andrew Morton <akpm@linux-foundation.org>, 
-    Anshuman Khandual <anshuman.khandual@arm.com>, 
-    David Hildenbrand <david@kernel.org>, Dev Jain <dev.jain@arm.com>, 
-    Josephine Pfeiffer <hi@josie.lol>, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: ptdump: Replace unbounded sprintf() in
- dump_prot()
-In-Reply-To: <20260127110543.436242-1-thorsten.blum@linux.dev>
-Message-ID: <c2f12753-a977-ba81-e44a-bec1e7135cbe@kernel.org>
-References: <20260127110543.436242-1-thorsten.blum@linux.dev>
+To: "\"$(name)\" <$(mail address)>" <qirui.001@bytedance.com>
+cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] riscv: add hardware error trap handler support
+In-Reply-To: <20260202094200.53735-1-qirui.001@bytedance.com>
+Message-ID: <ca29aa74-a164-f585-aeb3-4695c6a25464@kernel.org>
+References: <20260202094200.53735-1-qirui.001@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_183136_830326_5DE9DF90 
-X-CRM114-Status: UNSURE (   6.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260212_185221_110347_E1C3CD57 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,12 +70,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 27 Jan 2026, Thorsten Blum wrote:
+Hi,
 
-> Replace the unbounded sprintf("%s", ...) with the faster and safer
-> strscpy(). Replace all other sprintf() calls with the safer snprintf().
+On Mon, 2 Feb 2026, "$(name)" <$(mail address)> wrote:
+
+Looks like your mail user agent is broken - can you fix that, please?
+
+> From: Rui Qi <qirui.001@bytedance.com>
 > 
-> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+> adds support for handling hardware error traps (exception code 19)
+> in the RISC-V architecture. The changes include:
+> 
+> - Add do_trap_hardware_error function declaration in asm-prototypes.h
+> - Add hardware error trap vector entry in entry.S exception vector table
+> - Implement do_trap_hardware_error handler in traps.c that generates
+>   SIGBUS with BUS_MCEERR_AR for hardware errors
+> 
+> This enables proper handling of hardware error exceptions that may occur
+> in RISC-V systems, providing appropriate error reporting and signal
+> generation for user space processes.
+> 
+> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
 
 Thanks, queued for v7.1.
 
