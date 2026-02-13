@@ -4,82 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A64C1EDF143
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 16:28:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A822BEDF17D
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 16:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fsF0yuzjmKagBZPxqiFyikEU+3W0jkOV5km6MKygX9o=; b=olkGdKSzraq9v2
-	Y2qasltraHz2xnUZESM18PdgyM5xKSOd9XXfIuag7vxee2IF3MHmSDnRvZj/nzZP+mol07y6x4/gC
-	mc1N0ZNu23yNXeur+L5J7xY45qO5LmGybb9xqZ2RErgUgnHNNe6Go+mWgcSq7TMKr9PR0VlidRdm0
-	85tt+X9PBPYkdXmjxWTIYGXiwjPPmLPgJuahJ0rbI3isQvagApPZ4OAc8SPzewiequaHxexvEHbos
-	IjhVj04pcqyIN0HbksDImvQFAOvCgE5y/h9Z3BYjRrk/nbzoVHOZxI456AUnamN5Q5+xDslsuAZdB
-	kdmgqPrFsnGxuMYxfQHA==;
+	List-Owner; bh=68MCrOzF9KEUKQEiYLNIu911aN3SxlM6Mw5njVkZi48=; b=C/O7vQKMBLRiRN
+	5wg2PSwtP/gE/EqlsTHJ3IsNKJJXqVSIX6t217IZ4vFxUBwQmVttSiwSbJhvg7SYd6WhaG+YizB1f
+	IaJTJfelwfKwiZ/D19rQQc1+6itz/zhziL3wLd2pvIEj4uqESiW7NVX57OjJaPdlaGT5NyyxY+peo
+	LdXmFoLRUhKlQXeb545tIQ4CnIeW6MY4stGQP3ZKh/sBptrag/3p77FLS+07P+nEz0Bbn7cbhqUtq
+	WOW7S8wbMAeTltqP2QIIZkfLIh1lozHOItQYE328utfYEE+Y9PJZtElu5qS3BDPrFpJN9HmcT+q/d
+	0y4W+pn438kuc/09hC1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqw1C-00000003gCz-2qvs;
-	Fri, 13 Feb 2026 16:27:47 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1vqwAq-00000003gwH-126U;
+	Fri, 13 Feb 2026 16:37:44 +0000
+Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqw19-00000003gCa-3ulF
+	id 1vqwAn-00000003gvv-4By9
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Feb 2026 16:27:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1771000064; x=1802536064;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=loXZez4fU6bTVN0GB9jS/17xXYK/cezQdjrmGTcZACM=;
-  b=B0/a7ha1v+v8NcDDlRH76+5J5KhLPhluz6jOe29oy6LB1cIAQ/mDPVAj
-   Lv8/y3pM/pvRTCRLEqstevXvQ8dDVK5OUjkiDOzG1WrG/d7dfoF2LfJI0
-   xcilDsgZq2cmmbwJ7qbFhbfriqcqsgg4HGlaOA0h1ahmEwZUMGEFvfYDv
-   /5ViQaP8Gxxr+RKV/ppyPgGvEGjoc/Ae+XWXCwfA5QSzaha0W0ScJyIA8
-   SOiBfGKt2NguRDgCpFN7TANfwVMVpBRQyMUnCM1NR/3BorpKq0V/z82+H
-   eN/f35SfVoP0+O+JvNglqzTQ50l1DvuSP16RlZGThuFdkXVzSwmXzdSHO
-   A==;
-X-CSE-ConnectionGUID: uQ0+mV/bSGKffzkF+vE5NA==
-X-CSE-MsgGUID: gGxIaVXaQ4Cn5wE+UUVyIg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11700"; a="72080403"
-X-IronPort-AV: E=Sophos;i="6.21,288,1763452800"; 
-   d="scan'208";a="72080403"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2026 08:27:43 -0800
-X-CSE-ConnectionGUID: qjkegM0URdKv5bNMpcxCNw==
-X-CSE-MsgGUID: oOBomfvvQiC05aSwqnejxA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,288,1763452800"; 
-   d="scan'208";a="212057138"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 13 Feb 2026 08:27:37 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vqw11-00000000vfA-1389;
-	Fri, 13 Feb 2026 16:27:35 +0000
-Date: Sat, 14 Feb 2026 00:27:22 +0800
-From: kernel test robot <lkp@intel.com>
-To: LiuQingtao <qtliu@mail.ustc.edu.cn>, gregkh@linuxfoundation.org
-Cc: oe-kbuild-all@lists.linux.dev, jirislaby@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, neil.armstrong@linaro.org,
-	bjorn.andersson@oss.qualcomm.com, marex@nabladev.com, dev@kael-k.io,
-	mani@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com,
-	linux-serial@vger.kernel.org, linux-riscv@lists.infradead.org,
-	liu.wenhong35@zte.com.cn, liu.qingtao2@zte.com.cn,
-	hu.yuye@zte.com.cn, dai.hualiang@zte.com.cn,
-	deng.weixian@zte.com.cn, jia.yunxiang@zte.com.cn,
-	bai.lu5@zte.com.cn, yang.susheng@zte.com.cn, shen.lin1@zte.com.cn,
-	tan.hu@zte.com.cn, zuo.jiang@zte.com.cn
-Subject: Re: [PATCH v1 2/2] LRW UART: serial: add driver for the LRW UART
-Message-ID: <202602140029.NXkDToZ7-lkp@intel.com>
-References: <20260213093334.9217-3-qtliu@mail.ustc.edu.cn>
+	Fri, 13 Feb 2026 16:37:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1771000658; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=M4DX0+b0/lyG76BbVQ1go5Ol9LD43YqFCdpFpRl4llknomFzWY91HaPgfrc/3btFQUS+Uz4iX0M8cajsNIRclGp04hjiXHg7u5rbnjilLkF0GYjYW+9iMXpgAQe710IzbbjvVhjW5d8tgOCKbh6T1eEZW+DxkOEUwa++7Y/6yXk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1771000658; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=YofNjb9F7nJnYLObALJPsqyds5MUF3wsfDl2RGiiVUA=; 
+	b=Ygy+OjV4AJfOSSMaZvvRWd0EG1rfZwtZnhFDbhhsLPJenpZf/LwN34G7cz8vaPWeRj7nG2u+TSIqBW+VJBVRE2xEbT+S5vZz38uq0pOqgXoGIVDh73grbdz4p6K9x1YFLbuysq9dtl3KlSSisgEfM2zTG1ueL4NvghsXuNDa7OQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
+	dmarc=pass header.from=<kingxukai@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771000658;
+	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
+	bh=YofNjb9F7nJnYLObALJPsqyds5MUF3wsfDl2RGiiVUA=;
+	b=EHlR26S2RoJS9MGAbCknTzVl52mHXVvYunIvqgJfof/yDEK2RvAzMjHFwS9yWx+N
+	SLaWuFmhgYXrU8aJhdaf009uhaa5WW5x32mcHhTFshXE/0g9FTFr6Cp/x5Ayo2jPCrT
+	d0NB9cKJySJQDjLE4clZznEoJx6aIPJPr/kTTYTo=
+Received: by mx.zohomail.com with SMTPS id 1771000650820508.8971456627156;
+	Fri, 13 Feb 2026 08:37:30 -0800 (PST)
+Message-ID: <f97dbaa3-b6d6-4dd2-aab9-f24a68c4adfe@zohomail.com>
+Date: Sat, 14 Feb 2026 00:37:24 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260213093334.9217-3-qtliu@mail.ustc.edu.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 0/3] riscv: canaan: Add support for K230 clock
+To: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Troy Mitchell <TroyMitchell988@gmail.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20260116-b4-k230-clk-v10-0-de59033c5d30@zohomail.com>
+ <aYNwmqEjvfAahGA+@duge-virtual-machine>
+From: Xukai Wang <kingxukai@zohomail.com>
+Content-Language: en-US
+In-Reply-To: <aYNwmqEjvfAahGA+@duge-virtual-machine>
+Feedback-ID: rr08011227773c48f09a28a37a0491e606000077113171c0afaafa5a929e7dc2ff82c0f8a2d6c87de7653125:zu08011227c7fca2267c3403ca2151b9a800000f0b0b4c1ec5ea9754d945c5804b4d6ef907f6d390bd70c97d:rf0801122c6b91044fa389d2e8eb47a6ce0000d4c63a5dec18103768d77ba63014ebb43c195e29e27dd0dd30ae3497c706:ZohoMail
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_082744_024731_3FE43D53 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20260213_083742_095673_798956D6 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,148 +84,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi LiuQingtao,
 
-kernel test robot noticed the following build warnings:
+On 2026/2/5 00:15, Jiayu Du wrote:
+> On Fri, Jan 16, 2026 at 09:26:18PM +0800, Xukai Wang wrote:
+>> This patch series adds clock controller support for the Canaan Kendryte
+>> K230 SoC. The K230 SoC includes an external 24MHz OSC, 4 internal
+>> PLLs and an external pulse input, with the controller managing these
+>> sources and their derived clocks.
+>  
+> Hi, Xukai. Currently, the k230 initial series and the patch 3 of the
+> pinctrl series has been in the linux next. So if possible, you need
+> to rebase your clock series onto the latest linux-next.
+>
+> Then I will proceed with the development based on your v11 of the
+> clock series.
+I've rebased my patch series to `linux-next` (20260212). I noticed that
+the patch which updated the `k230.dtsi` format has been merged into
+`linux-next`.
 
-[auto build test WARNING on tty/tty-testing]
-[also build test WARNING on tty/tty-next tty/tty-linus robh/for-next usb/usb-testing usb/usb-next usb/usb-linus linus/master v6.19 next-20260212]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Consequently, I've updated the `prerequisite-patch-id` for my series
+from `deda3c472f0000ffd40cddd7cf6d3b5e2d7da7dc` [1] to
+`9a2d01f55574b538dad572e193f81c44661f0853` [2]. Is this change correct?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/LiuQingtao/LRW-UART-dt-bindings-Add-binding-for-LRW-UART/20260213-173610
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty.git tty-testing
-patch link:    https://lore.kernel.org/r/20260213093334.9217-3-qtliu%40mail.ustc.edu.cn
-patch subject: [PATCH v1 2/2] LRW UART: serial: add driver for the LRW UART
-config: m68k-allmodconfig (https://download.01.org/0day-ci/archive/20260214/202602140029.NXkDToZ7-lkp@intel.com/config)
-compiler: m68k-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260214/202602140029.NXkDToZ7-lkp@intel.com/reproduce)
+Separately, I sent you my v11 clock series for PREVIEW, but it seems you
+haven't received it.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202602140029.NXkDToZ7-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   In file included from arch/m68k/include/asm/bug.h:32,
-                    from include/linux/bug.h:5,
-                    from include/linux/thread_info.h:13,
-                    from include/asm-generic/preempt.h:5,
-                    from ./arch/m68k/include/generated/asm/preempt.h:1,
-                    from include/linux/preempt.h:79,
-                    from include/linux/spinlock.h:56,
-                    from include/linux/mmzone.h:8,
-                    from include/linux/gfp.h:7,
-                    from include/linux/umh.h:4,
-                    from include/linux/kmod.h:9,
-                    from include/linux/module.h:18,
-                    from drivers/tty/serial/lrw_uart.c:8:
-   drivers/tty/serial/lrw_uart.c: In function 'lrw_uart_dma_rx_irq':
->> drivers/tty/serial/lrw_uart.c:973:23: warning: format '%zu' expects argument of type 'size_t', but argument 6 has type 'long unsigned int' [-Wformat=]
-     973 |                       "pending %zu exceeds DMA buffer size %zu\n",
-         |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/asm-generic/bug.h:142:62: note: in definition of macro '__WARN_printf'
-     142 |                 warn_slowpath_fmt(__FILE__, __LINE__, taint, arg);      \
-         |                                                              ^~~
-   include/linux/once_lite.h:31:25: note: in expansion of macro 'WARN'
-      31 |                         func(__VA_ARGS__);                              \
-         |                         ^~~~
-   include/asm-generic/bug.h:185:9: note: in expansion of macro 'DO_ONCE_LITE_IF'
-     185 |         DO_ONCE_LITE_IF(condition, WARN, 1, format)
-         |         ^~~~~~~~~~~~~~~
-   drivers/tty/serial/lrw_uart.c:972:13: note: in expansion of macro 'WARN_ONCE'
-     972 |         if (WARN_ONCE(pending > LRW_UART_DMA_BUFFER_SIZE,
-         |             ^~~~~~~~~
-   drivers/tty/serial/lrw_uart.c:973:62: note: format string is defined here
-     973 |                       "pending %zu exceeds DMA buffer size %zu\n",
-         |                                                            ~~^
-         |                                                              |
-         |                                                              unsigned int
-         |                                                            %lu
-   drivers/tty/serial/lrw_uart.c: In function 'lrw_uart_dma_rx_callback':
-   drivers/tty/serial/lrw_uart.c:1022:23: warning: format '%zu' expects argument of type 'size_t', but argument 6 has type 'long unsigned int' [-Wformat=]
-    1022 |                       "pending %zu exceeds DMA buffer size %zu\n",
-         |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/asm-generic/bug.h:142:62: note: in definition of macro '__WARN_printf'
-     142 |                 warn_slowpath_fmt(__FILE__, __LINE__, taint, arg);      \
-         |                                                              ^~~
-   include/linux/once_lite.h:31:25: note: in expansion of macro 'WARN'
-      31 |                         func(__VA_ARGS__);                              \
-         |                         ^~~~
-   include/asm-generic/bug.h:185:9: note: in expansion of macro 'DO_ONCE_LITE_IF'
-     185 |         DO_ONCE_LITE_IF(condition, WARN, 1, format)
-         |         ^~~~~~~~~~~~~~~
-   drivers/tty/serial/lrw_uart.c:1021:13: note: in expansion of macro 'WARN_ONCE'
-    1021 |         if (WARN_ONCE(pending > LRW_UART_DMA_BUFFER_SIZE,
-         |             ^~~~~~~~~
-   drivers/tty/serial/lrw_uart.c:1022:62: note: format string is defined here
-    1022 |                       "pending %zu exceeds DMA buffer size %zu\n",
-         |                                                            ~~^
-         |                                                              |
-         |                                                              unsigned int
-         |                                                            %lu
-
-
-vim +973 drivers/tty/serial/lrw_uart.c
-
-   943	
-   944	static void lrw_uart_dma_rx_irq(struct lrw_uart_port *sup)
-   945	{
-   946		struct lrw_uart_dmarx_data *dmarx = &sup->dmarx;
-   947		struct dma_chan *rxchan = dmarx->chan;
-   948		struct lrw_uart_dmabuf *dbuf = dmarx->use_buf_b ?
-   949			&dmarx->dbuf_b : &dmarx->dbuf_a;
-   950		size_t pending;
-   951		struct dma_tx_state state;
-   952		enum dma_status dmastat;
-   953	
-   954		/*
-   955		 * Pause the transfer so we can trust the current counter,
-   956		 * do this before we pause the LRW UART block, else we may
-   957		 * overflow the FIFO.
-   958		 */
-   959		if (dmaengine_pause(rxchan))
-   960			dev_err(sup->port.dev, "unable to pause DMA transfer\n");
-   961		dmastat = rxchan->device->device_tx_status(rxchan,
-   962							   dmarx->cookie, &state);
-   963		if (dmastat != DMA_PAUSED)
-   964			dev_err(sup->port.dev, "unable to pause DMA transfer\n");
-   965	
-   966		/* Disable RX DMA - incoming data will wait in the FIFO */
-   967		sup->dmacr &= ~UARTFCCR_RXDMAE;
-   968		lrw_uart_write(sup->dmacr, sup, REG_FCCR);
-   969		sup->dmarx.running = false;
-   970	
-   971		pending = dbuf->len - state.residue;
-   972		if (WARN_ONCE(pending > LRW_UART_DMA_BUFFER_SIZE,
- > 973			      "pending %zu exceeds DMA buffer size %zu\n",
-   974			      pending, LRW_UART_DMA_BUFFER_SIZE))
-   975			pending = LRW_UART_DMA_BUFFER_SIZE;
-   976		/* Then we terminate the transfer - we now know our residue */
-   977		dmaengine_terminate_all(rxchan);
-   978	
-   979		/*
-   980		 * This will take the chars we have so far and insert
-   981		 * into the framework.
-   982		 */
-   983		lrw_uart_dma_rx_chars(sup, pending, dmarx->use_buf_b, true);
-   984	
-   985		/* Switch buffer & re-trigger DMA job */
-   986		dmarx->use_buf_b = !dmarx->use_buf_b;
-   987		if (lrw_uart_dma_rx_trigger_dma(sup)) {
-   988			dev_dbg(sup->port.dev,
-   989				"could not retrigger RX DMA job fall back to interrupt mode\n");
-   990			sup->im |= UARTIMSC_RXIM;
-   991			lrw_uart_write(sup->im, sup, REG_IMSC);
-   992		}
-   993	}
-   994	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Link:
+https://lore.kernel.org/linux-clk/tencent_F76EB8D731C521C18D5D7C4F8229DAA58E08@qq.com/
+[1]
+Link:
+https://lore.kernel.org/linux-devicetree/20251227092355.42825-1-jiayu.riscv@isrc.iscas.ac.cn/
+[2]
 
 _______________________________________________
 linux-riscv mailing list
