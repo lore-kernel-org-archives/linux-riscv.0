@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C08BEDF148
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 10:44:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1260EEDF150
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 10:47:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cF9mtoDmvboTDncBEInmUnLqyEkzTwduPkbMvBnviBw=; b=0mT+GikzKreru9i9ZmtuGKD5Qg
-	vcmdWZIyEZaMoNaILiJv44UTLyO5ENiDDJ28JBt4JVXopAQi3lmpb7LRB0Cn/0t5cx9ej0SWkDNpO
-	rNoH+Qv4AMn+BS5lC1HccSQwGMNudYwZDtQsquUHlrMXCJaXTwggBw+5qiyu5kJz23Q+toZElXfaP
-	B2nsoz5WJ4XkUAj8BtIRINYDpUAF42Hs9RVgc6i8LRgt5JKOs2J1ZG3A9ko74+RYeGZVihgk2GTFM
-	iMQPa+l4DJWt0iiDrt7eeJPrI2t4DmhVhWlGebYmLovYDeCFlhwAGDne/f24yIQ2NnqwChCAhPW0a
-	H5UY2MTg==;
+	bh=z3pvGYwNPeOZKFqbL+/98LjDEUpbclxu4LaUuMAVCZ8=; b=wFQ0zb9s8yxKev0aUGYhHMwH93
+	jRMjfUnlLTYJuMnoCXAE6R6aLNnLR5IF5148/7RPCSDkg9NdhGzZI4rqJB/Qs2lDlGbbhxdEefYeT
+	17D5fgJQgUgH48haAaLllh428H0Yy/taa8DWYN3+CpjMqxch0VOcMC+0+iD9S0dBRroxSihUAnFTm
+	qb8cgfN2uMRNF2tz+EAMbNP8dUwe7EOsR1VpHJVoTZyMuJj6DW96RPvY9Gyc04kQhU2qUdmGLlDgE
+	UNUcGQa+qysE9dQBNmH6qMBUJzE/TAfG5EbNIY/GTNoArXc0KjgtnHL+mubVfaOUpGArahltJ99G2
+	fzZjXuKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqqeT-00000003LCL-1QOL;
-	Fri, 13 Feb 2026 10:43:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vqqhu-00000003LQU-1EZb;
+	Fri, 13 Feb 2026 10:47:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqqeQ-00000003LBw-2FJM
+	id 1vqqht-00000003LPx-08UV
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Feb 2026 10:43:55 +0000
+	Fri, 13 Feb 2026 10:47:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38AA943EF9;
-	Fri, 13 Feb 2026 10:43:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA8ECC116C6;
-	Fri, 13 Feb 2026 10:43:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 696046132B;
+	Fri, 13 Feb 2026 10:47:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8D51C116C6;
+	Fri, 13 Feb 2026 10:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770979433;
-	bh=vGc3n4emY398xDLM5KRJZpeBd9ipRoZH+lOVT/weyAs=;
+	s=k20201202; t=1770979648;
+	bh=MPhmJdSbmkLCcTbhIAWsiuKeTmpUaTlJpmlGSv8jbNA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WRz4wTuwQ5rXtLBd0Vv+UgoG0NKSsDkuqRg9ok2YkBLqAEXrQnFuGE6BNP68glFL+
-	 eZyFgfXziOerWq68iLb0FlihIrZ47RndofRBQr0jr0xpQSHRw9UtExpIG+mjaj788I
-	 YA5pPgmPEw+F/I8T5ehlLt83VUkuRkn/6GS4m1/lqkGY0GjoflihVZy2jC3GSIV8Ek
-	 VPnzO2Rh7c3tUIcrrdNXFfxqsjm42hVlehfTcOuCF573AYdfr2k8hpOrzpR2ZSwPru
-	 NQCBtYKsbI9Rn81auxoHbbJWiIaZq6ExEu0atNMciNziSjYORpPZjp5TCp1HUYPYNc
-	 vPh6f+fX/BweQ==
-Date: Fri, 13 Feb 2026 10:43:48 +0000
+	b=LXREe9GuNj4Q/WDDAI/ysmEyLIGoTtGvQPAVbQooVxd0DX/d/sx+TWu2uESiVvc9v
+	 gOjPwTQoevriFfdwhdeeOeR+mflUlSzTX3ULFix1m/aUPo7NoaCHLwbhywj5W1ZZZi
+	 r2C1IGobD3f8byGmtkhs5rmCGDFnWxKNBrgyyws05/Blt2RPB5nwqmzR1ufP3na6/B
+	 C3mPq2udmHmXOCehg6o5cMnxl1Jw5V7t4P84rhYTI0yoDxO0HAT2yIYu1RdkWxnap1
+	 7+CNePIWwaA7fM2xp5uyuiHWeO4pihNp7b+/BACBkD/zLrAIqsb/8e8L3p0+9Vb2FJ
+	 aSzWIaVXr7+Zw==
+Date: Fri, 13 Feb 2026 10:47:23 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Kunwu Chan <kunwu.chan@linux.dev>
-Cc: Nam Cao <namcao@linutronix.de>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Zhouyi Zhou <zhouzhouyi@gmail.com>, Frederik Haxel <haxel@fzi.de>,
-	Vitaly Wool <vitaly.wool@konsulko.com>
-Subject: Re: [PATCH] riscv: Remove support for XIP kernel
-Message-ID: <20260213-canteen-diffuser-5ecc80f264b4@spud>
-References: <20260202115403.2119218-1-namcao@linutronix.de>
- <e5bb59c7-efd9-4706-978d-cb8f1249a535@linux.dev>
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
+	Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>,
+	zhouzhouyi <zhouzhouyi@gmail.com>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/2] riscv: fix minor typos and style issues in XIP code
+Message-ID: <20260213-entomb-ambulance-ec51cd9ea179@spud>
+References: <20260213094739.397762-1-kunwu.chan@linux.dev>
 MIME-Version: 1.0
-In-Reply-To: <e5bb59c7-efd9-4706-978d-cb8f1249a535@linux.dev>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_024354_647054_2320E95E 
-X-CRM114-Status: GOOD (  17.00  )
+In-Reply-To: <20260213094739.397762-1-kunwu.chan@linux.dev>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,79 +67,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4558267156188092159=="
+Content-Type: multipart/mixed; boundary="===============6302598129185646495=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4558267156188092159==
+--===============6302598129185646495==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="71d8aEI9VjEj3On7"
+	protocol="application/pgp-signature"; boundary="BEIjFZm0cacbTy0b"
 Content-Disposition: inline
 
 
---71d8aEI9VjEj3On7
+--BEIjFZm0cacbTy0b
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Feb 13, 2026 at 05:37:45PM +0800, Kunwu Chan wrote:
-> On 2/2/26 19:54, Nam Cao wrote:
-> > XIP has a history of being broken for long periods of time. In 2023, it=
- was
-> > broken for 18 months before getting fixed [1]. In 2024 it was 4 months =
-[2].
-> >
-> > And now it is broken again since commit a44fb5722199 ("riscv: Add runti=
-me
-> > constant support"), 10 months ago.
-> >
-> > These are clear signs that XIP feature is not being used.
-> >
-> > I occasionally looked after XIP, but mostly because I was bored and had
-> > nothing better to do.
-> >
-> > Remove XIP support. Revert is possible if someone shows up complaining.
-> >
-> > Link: https://lore.kernel.org/linux-riscv/20231212-customary-hardcover-=
-e19462bf8e75@wendy/ [1]
-> > Link: https://lore.kernel.org/linux-riscv/20240526110104.470429-1-namca=
-o@linutronix.de/ [2]
-> > Signed-off-by: Nam Cao <namcao@linutronix.de>
-> Hi,
+On Fri, Feb 13, 2026 at 05:47:37PM +0800, Kunwu Chan wrote:
+> Fix a few minor issues found in riscv XIP-related code:
 >=20
-> Please don't remove CONFIG_XIP_KERNEL.
+> - xip_fixup.h: comment typo (_start vs _sdata) and spaces-vs-tab
+> - head.S: spelling typo and wrong #endif comment
 >=20
-> Zhouyi Zhou zhouzhouyi@gmail.com <mailto:zhouzhouyi@gmail.com>and I are
-> willing to take over
-> maintainership and keep it build-tested and maintained going forward.
+> Kunwu Chan (2):
+>   riscv: xip_fixup.h: fix comment typo and whitespace issue
+>   riscv: head.S: fix typo and wrong #endif comment
 >=20
-> We will send a MAINTAINERS patch shortly.
+>  arch/riscv/include/asm/xip_fixup.h | 4 ++--
+>  arch/riscv/kernel/head.S           | 4 ++--
+>  2 files changed, 4 insertions(+), 4 deletions(-)
 
-I dunno what a MAINTAINERS patch for something like this would even look
-like, since XIP stuff is scattered all over the place. More meaningful
-would be fixing the purported break due to runtime constants? Sounds
-like it would something that could demonstrate your ability to do what
-you claim.
+The patches should be sent in reply to the cover letter.
 
-Cheers,
-Conor.
-
---71d8aEI9VjEj3On7
+--BEIjFZm0cacbTy0b
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaY8AZAAKCRB4tDGHoIJi
-0hArAP9H2Auz8yTI+UQl9RBGxsEx28/znC807eXSxRAq4QkyOAD/ejFzgZAd948F
-PIFJT1XG7YjxW5l5zbK+7c2E/5yXTQI=
-=U/SE
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaY8BOwAKCRB4tDGHoIJi
+0r9PAP9uCIBEydePL8Tn39iS1gQNdwYLxnZ+I6SDRz8KVT6/ywD+KNwZeaK8dXuN
+KZ/ruhoa7DzBMFn/ZXqJKHJFbBvyfg8=
+=c+lv
 -----END PGP SIGNATURE-----
 
---71d8aEI9VjEj3On7--
+--BEIjFZm0cacbTy0b--
 
 
---===============4558267156188092159==
+--===============6302598129185646495==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -154,5 +124,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4558267156188092159==--
+--===============6302598129185646495==--
 
