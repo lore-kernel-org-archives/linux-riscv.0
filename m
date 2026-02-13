@@ -4,64 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B404EEA877
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 09:53:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF37AEDF141
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 10:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j/OCZuXGxGxdpaNvVB7YHlRToP+jvn921ooJtJ752fI=; b=BCheE0HgdunXrU
-	9Vs8EzGKf8tc63HebuT4mNI2LpXBG+/QcuaDPbCxamV847j9fJhKVVYtnO1b13BNtNNRMvDFq+NJ7
-	p5W6LD+RztVnBNsilO07MiwV6YrHr9irsy/bOkutWz0+5SosXBzsOZUy479+cWWsQpJ+tdOacF8FS
-	jEPYkuWaDClJQ8+nOo97sj9wBhTDOE4RNUwX2VGz1VjKqYDUm7/cwh2ivMWry9xkpMA2IWQ4e86de
-	WFjr78fy+WFC1VfTlFYQAamQn/XkUhPS42WEv91Pe9sNHz+CBqSBK56qaAmgAHaZiPx5qMp8rbG59
-	/sckcGfRK8IT4GWaVBoA==;
+	List-Owner; bh=tpuNQmwCrGoP1XKOw930XhiOSfqx9ncPH5S9tYmvWMM=; b=z7Yw+J5TzL/kVu
+	y7NXHSGnPXFPcp3tzb9dS3iBE8aaAYU10cw3VZXWVaTC5Qqk+ehEKGAK4thtGFHN6mfhKqzsIXLea
+	S+AFCEiurWCf/kWFGOkhcSmJurz1UeG+QLAVBjp/d+3yjCG1gOZnDXqq4sZf1UX4WZc/UBqlAUkQH
+	L0yb2RJnKzGY+EiI+/NboW00NxSSrl7PcNHgATzsreTkLavChXQf+iCk9Tjt6Z1tPXyPOD3FZVozF
+	UMnnO+LOk+gUZa76C8pMzSrQ2buEsroVCyoFwW4G+li9Ok+S9AHSF7EFXFsW5nXUKCK+1qKxoLdQm
+	k5u3MGqjmHpVlc1TuvUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqprv-00000003Gkn-1uYJ;
-	Fri, 13 Feb 2026 09:53:47 +0000
-Received: from out-174.mta1.migadu.com ([2001:41d0:203:375::ae])
+	id 1vqpyI-00000003HVc-13Df;
+	Fri, 13 Feb 2026 10:00:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqprs-00000003GjE-2B5g
+	id 1vqpyF-00000003HU1-1ra2
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Feb 2026 09:53:46 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1770976422;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=72eoGgJO5ddhbol9MbsMucS0SkPZEg51bHhsJPdTAVs=;
-	b=gVpRnejPyYJwmtliXsmDS6NFLhmTgmFAwznoFyCZajguD1iqJt51pDF9I0GIq6woTomhEh
-	RatFLLyUD2ywFQxggsXxBxmeVw46hWSEU4+WlGo9IFSpp6N99O1AQiKmMoEdT+1o8fL+DX
-	LwbQCLzI1KxgDzkF2C9UoxAjD1DHekQ=
-From: Kunwu Chan <kunwu.chan@linux.dev>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@rivosinc.com>,
-	Zong Li <zong.li@sifive.com>,
-	Deepak Gupta <debug@rivosinc.com>,
-	zhouzhouyi <zhouzhouyi@gmail.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Kunwu Chan <kunwu.chan@linux.dev>
-Subject: [PATCH 2/2] riscv: head.S: fix typo and wrong #endif comment
-Date: Fri, 13 Feb 2026 17:52:41 +0800
-Message-Id: <20260213095241.399068-2-kunwu.chan@linux.dev>
-In-Reply-To: <20260213095241.399068-1-kunwu.chan@linux.dev>
-References: <20260213095241.399068-1-kunwu.chan@linux.dev>
+	Fri, 13 Feb 2026 10:00:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DDFFA41E51;
+	Fri, 13 Feb 2026 10:00:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C697CC116C6;
+	Fri, 13 Feb 2026 10:00:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770976818;
+	bh=hYdt0mOemDPJEc1IUoghgDpAbwCI//ho6Xs7557o2JY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Z0rhLaauXaXdw5GMiCVZvlmuVttugUxltUA9KgFX/KsmRmoxwGgcdk/fvtRntc//H
+	 Sl7GW4RpkO9eqxZieH3Ce630v+UunWvAeLhzavWO8jvPXV8e7nMZMfyayX2YHo82Aj
+	 l+glx2nuyEFItjnua9LmDA4QjsvLNA2eijR5zZD8no37y+xdi4xjMeTK/Sd/MUFRmQ
+	 1TCUOkw7IUnBH5XhDY/Kr9Om4JqByhQ9Y8ff+kgDEAlpQs/6bTwmYsqngrdms6X+5I
+	 AxlL926a0ISwK7gcKuuXqtusobA0dOvmNRejkyHd/w3UI61EZbLKkioQDi1wxg/FPR
+	 2tcL/ZyvUa8lQ==
+Message-ID: <6ba2a916-739c-4c4a-92a6-951707aaa212@kernel.org>
+Date: Fri, 13 Feb 2026 11:00:10 +0100
 MIME-Version: 1.0
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/2] LRW UART: dt-bindings: Add binding for LRW UART
+To: LiuQingtao <qtliu@mail.ustc.edu.cn>, gregkh@linuxfoundation.org
+Cc: jirislaby@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, neil.armstrong@linaro.org,
+ bjorn.andersson@oss.qualcomm.com, marex@nabladev.com, dev@kael-k.io,
+ mani@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com,
+ linux-serial@vger.kernel.org, linux-riscv@lists.infradead.org,
+ liu.wenhong35@zte.com.cn, liu.qingtao2@zte.com.cn, hu.yuye@zte.com.cn,
+ dai.hualiang@zte.com.cn, deng.weixian@zte.com.cn, jia.yunxiang@zte.com.cn,
+ bai.lu5@zte.com.cn, yang.susheng@zte.com.cn, shen.lin1@zte.com.cn,
+ tan.hu@zte.com.cn, zuo.jiang@zte.com.cn
+References: <20260213093334.9217-1-qtliu@mail.ustc.edu.cn>
+ <20260213093334.9217-2-qtliu@mail.ustc.edu.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260213093334.9217-2-qtliu@mail.ustc.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_015345_174753_6DF7A0B6 
-X-CRM114-Status: UNSURE (   8.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260213_020019_531363_EB807D7C 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,42 +124,114 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-- Fix spelling: "intruction" -> "instruction".
+On 13/02/2026 10:33, LiuQingtao wrote:
+> From: Wenhong Liu <liu.wenhong35@zte.com.cn>
+> 
+> Add documentation for LRW UART devicetree bindings.
+> 
+> Signed-off-by: Wenhong Liu <liu.wenhong35@zte.com.cn>
+> Signed-off-by: Qingtao Liu <liu.qingtao2@zte.com.cn>
 
-- Fix #endif comment: the matching #ifdef is CONFIG_XIP_KERNEL,
-  not CONFIG_XIP.
+Please use subject prefixes matching the subsystem. You can get them for
+example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+your patch is touching. For bindings, the preferred subjects are
+explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
 
-Reviewed-by: zhouzhouyi <zhouzhouyi@gmail.com>
-Signed-off-by: Kunwu Chan <kunwu.chan@linux.dev>
----
- arch/riscv/kernel/head.S | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 9c99c5ad6fe8..1618d2cb91b3 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -81,7 +81,7 @@ relocate_enable_mmu:
- 	sub a1, a1, a2
- 	add ra, ra, a1
- 
--	/* Point stvec to virtual address of intruction after satp write */
-+	/* Point stvec to virtual address of instruction after satp write */
- 	la a2, 1f
- 	add a2, a2, a1
- 	csrw CSR_TVEC, a2
-@@ -287,7 +287,7 @@ SYM_CODE_START(_start_kernel)
- 	/* first time here if hart_lottery in RAM is not set */
- 	beq t0, t1, .Lsecondary_start
- 
--#endif /* CONFIG_XIP */
-+#endif /* CONFIG_XIP_KERNEL */
- #endif /* CONFIG_RISCV_BOOT_SPINWAIT */
- 
- #ifdef CONFIG_XIP_KERNEL
--- 
-2.25.1
+A nit, subject: drop second/last, redundant "bindings". The
+"dt-bindings" prefix is already stating that these are bindings.
+See also:
+https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
 
+> ---
+>  .../bindings/serial/lrw,lrw-uart.yaml         | 49 +++++++++++++++++++
+>  .../devicetree/bindings/vendor-prefixes.yaml  |  2 +
+>  MAINTAINERS                                   |  7 +++
+>  3 files changed, 58 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/serial/lrw,lrw-uart.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/serial/lrw,lrw-uart.yaml b/Documentation/devicetree/bindings/serial/lrw,lrw-uart.yaml
+> new file mode 100644
+> index 000000000000..a2d41c278c4f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/serial/lrw,lrw-uart.yaml
+> @@ -0,0 +1,49 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/serial/lrw-uart.yaml#
+
+Never tested, NAK. There are several other issues here, but I am not
+going through rest of review if you did not bother to even build test
+it. Please open any other recent binding and apply same style here
+(filename, descriptions etc), so you won't be repeating SAME mistakes.
+
+
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: LRW serial UART
+> +
+> +maintainers:
+> +  - Wenhong Liu <liu.wenhong35@zte.com.cn>
+> +  - Qingtao Liu <liu.qingtao2@zte.com.cn>
+> +
+> +description: |
+> +  Should be something similar to "lrw,<chip>-uart"
+> +  for the UART as integrated on a particular chip, It supports
+> +  multiple CPU architectures, currently including e.g. RISC-V and ARM.
+> +
+> +properties:
+> +  compatible:
+> +    const: lrw,lrw-uart
+
+No way lrw is a chip if this is a company.
+
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - current-speed
+> +  - clocks
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    uart0: serial@e0001800 {
+> +      compatible = "lrw,lrw-uart";
+> +      interrupt-parent = <&aplic0>;
+> +      interrupts = <0x12 0x4>;
+> +      reg = <0xe0001800 0x100>;
+> +      clocks = <&bar_clk>;
+> +      current-speed = <115200>;
+> +    };
+> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> index ee7fd3cfe203..ec9bf262f466 100644
+> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> @@ -961,6 +961,8 @@ patternProperties:
+>      description: Loongson Technology Corporation Limited
+>    "^loongmasses,.*":
+>      description: Nanjing Loongmasses Ltd.
+> +  "^lrw,.*":
+> +    description: LRW Corp.
+
+What is the website/domain address?
+
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
