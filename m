@@ -4,56 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A3BEDF157
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 12:20:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B553EDF168
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 14:24:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=9dawGy9INKz9p77Dprwf2KmUFf7wnW59ipuUTRT8IqM=; b=qUZ
-	AFPYf/mua5stnVBssS9T5CRb570t7Bon5eeBbrV/vTp3aUnrFOUkOyJli27F/IqbZWA/nBOlL3zk2
-	tkpOvhmkqyYbCxtAIQpLCjM2E7Ecth4a3TYkKJ3sbBhybUYt71htVkZ/aVPPRvaxK0qAfUCL/RoMO
-	Wfll/IzQ7AM1K5tlrJAWOzBs8NdCMS9ri8TS5m4eJXolWcpWjWGqxHLaMJ+0VpkrQ052VsC2bCyq7
-	ipjDYuHCPs1xyHyMhuCLI8p12CM0FjRsfTn5Z7BkWKw3ezeX7mTWxqA+1B9B+yfhRAEyU7D9bA3LE
-	PImatPpjaPb151/Hywzp1oro7ARCa4A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RaipcEVUGF0E6GV6uTt0yPQqp14uSjfIjHGfh2ExsPI=; b=erJUkg4wxd2Hhd
+	2vckLsVsVG/liHx0howz0ydI/akCGIbF3fmpDOgJxCjeviljNBpWI8u55gRQiBCzpmN4eMEhk3cME
+	YRGsGx3DTC45kjX181DK15oOupyS7OL4HRlr6IIlomH5PPn54qa4uTrVYssdNw9rIGEYu5jBZn06g
+	vbfCep0prGa4kj2waFFT9R5O/A7sX5aMDN4tCk5VRlU01DeuTnyImiuOd76XmL29V35wedMcEUS1N
+	fRAdf0wKhpwCy5nByz0BJbspkIwpRhH8hlMtOSsDP0nOmBriIpevPMULlJTOGGU0U1TBJzqph0M4U
+	ANP3mEPnJvcUdFoRPK0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqs9n-00000003RRh-3ZPR;
-	Fri, 13 Feb 2026 12:20:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vqu63-00000003XHk-3YCM;
+	Fri, 13 Feb 2026 14:24:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqs9l-00000003RRM-1Tqs
+	id 1vqu62-00000003XHe-3Jay
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Feb 2026 12:20:22 +0000
+	Fri, 13 Feb 2026 14:24:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 90E924363A;
-	Fri, 13 Feb 2026 12:20:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53B2DC116C6;
-	Fri, 13 Feb 2026 12:20:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EC91660054;
+	Fri, 13 Feb 2026 14:24:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7FC3C116C6;
+	Fri, 13 Feb 2026 14:24:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770985220;
-	bh=mRj5YS/dbQQfv6rmffWCjJcONP8Aig83NSsn4JexlVA=;
-	h=Date:From:To:Cc:Subject:From;
-	b=m37q9ytrj7hRF7yZqySYYxgA7Nnsk+Tg1N4OY6jYBbUcRVIpnjr3Awih6iGQLkY0r
-	 yf8ZPDs4x/r/ysMwkvc3euJr6sepFJRTpK7I4uMElqomSc3Cr5HIAMPl+yb8GLFBxb
-	 RA4tF2ke9mNQDbohTKPcwnPje5mMPQ28CsnX85MluwzMz1sSz+MXvXBXic4X26Mlhe
-	 hU2oYAAqpFMzfPUdcl+oEFg9rQD7QvXE7Wr08tvz0FyurDazx1hSW7WvnMqXTrEjey
-	 PvFarKGdV/2pCho4pZd0haQO9KsmOQoLKmcp5AOqVrd0LA+dXeP4cUbKUQLItN95u3
-	 s1KbahlkU0U8g==
-Date: Fri, 13 Feb 2026 12:20:16 +0000
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: conor@kernel.org, jonathan.cameron@huawei.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [GIT PULL] RISC-V soc fixes for v7.0-rc1
-Message-ID: <20260213-stole-economist-d5b0ac711d42@spud>
+	s=k20201202; t=1770992677;
+	bh=LTM88QDgWH48zOj70bQNAZ6+1rhc+CZE+svnF4hyZmE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qHA17cgVkm2k1hxnIs9bmhkKDOXAD4l/5JF7JuIGloky3YqRKR0z4LkILJ9pMmuQL
+	 dOwR8BFP7myde6Ual1ByYX2DMWfYS9Sqh9aiXUqp+Ib4kHHyL3Pjexbnz8EUM06sCZ
+	 2u4Hzj4olMmEC+mkLj6fi7+c1UyGexG6eoVExlVCoz89N2OZ/TKJa+D5S3nwvTdiGp
+	 ovkcSBELOhLXjdBKVo1UoJh/+dNk7Bn61Dkp7SGITdoGlEuP9euB5FVhiy2HIGMamR
+	 6Tf7kjxJpeIy+HVEwgAN61ZXDIAoUWXRGN4tMkcinPyFVzYZOuMILMhWWMPh/DqQtc
+	 o0+TjVd3ylIsQ==
+Message-ID: <deffd8c5-df19-495f-8d0d-768e2b9aed0f@kernel.org>
+Date: Fri, 13 Feb 2026 15:24:30 +0100
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_042021_444029_11EDBAC0 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/2] LRW UART: dt-bindings: Add binding for LRW UART
+To: LiuQingtao <qtliu@mail.ustc.edu.cn>, gregkh@linuxfoundation.org
+Cc: jirislaby@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, neil.armstrong@linaro.org,
+ bjorn.andersson@oss.qualcomm.com, marex@nabladev.com, dev@kael-k.io,
+ mani@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com,
+ linux-serial@vger.kernel.org, linux-riscv@lists.infradead.org,
+ liu.wenhong35@zte.com.cn, liu.qingtao2@zte.com.cn, hu.yuye@zte.com.cn,
+ dai.hualiang@zte.com.cn, deng.weixian@zte.com.cn, jia.yunxiang@zte.com.cn,
+ bai.lu5@zte.com.cn, yang.susheng@zte.com.cn, shen.lin1@zte.com.cn,
+ tan.hu@zte.com.cn, zuo.jiang@zte.com.cn
+References: <20260213093334.9217-1-qtliu@mail.ustc.edu.cn>
+ <20260213093334.9217-2-qtliu@mail.ustc.edu.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260213093334.9217-2-qtliu@mail.ustc.edu.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,96 +116,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4875588275468673381=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 13/02/2026 10:33, LiuQingtao wrote:
+> From: Wenhong Liu <liu.wenhong35@zte.com.cn>
+> 
+> Add documentation for LRW UART devicetree bindings.
+> 
+> Signed-off-by: Wenhong Liu <liu.wenhong35@zte.com.cn>
+> Signed-off-by: Qingtao Liu <liu.qingtao2@zte.com.cn>
 
---===============4875588275468673381==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1bHQZNbPCAIvSPgV"
-Content-Disposition: inline
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
 
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
 
---1bHQZNbPCAIvSPgV
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
 
-Hey folks,
+Please kindly resend and include all necessary To/Cc entries.
 
-Nothing super urgent here, but figured I'd send before -rc1 in case
-there's a second new content PR this window and you can squeeze them
-in. Otherwise, of course this can just go into whatever regular fixes
-PR occurs later in the cycle.
-
-Cheers,
-Conor.
-
-The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
-
-  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/riscv-soc-fixes-for-v7.0-rc1
-
-for you to fetch changes up to 0528a348b04b327a4611e29589beb4c9ae81304a:
-
-  cache: ax45mp: Fix device node reference leak in ax45mp_cache_init() (2026-02-06 19:54:40 +0000)
-
-----------------------------------------------------------------
-RISC-V soc fixes for v7.0-rc1
-
-drivers:
-Fix leaks in probe/init function teardown code in three drivers.
-
-microchip:
-Fix a warning introduced by a recent binding change, that made resets
-required on Polarfire SoC's CAN IP.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Conor Dooley (1):
-      riscv: dts: microchip: add can resets to mpfs
-
-Felix Gu (2):
-      cache: starfive: fix device node leak in starlink_cache_init()
-      cache: ax45mp: Fix device node reference leak in ax45mp_cache_init()
-
-Zilin Guan (1):
-      soc: microchip: mpfs: Fix memory leak in mpfs_sys_controller_probe()
-
- arch/riscv/boot/dts/microchip/mpfs.dtsi     |  2 ++
- drivers/cache/ax45mp_cache.c                |  4 ++--
- drivers/cache/starfive_starlink_cache.c     |  4 ++--
- drivers/soc/microchip/mpfs-sys-controller.c | 13 +++++++++----
- 4 files changed, 15 insertions(+), 8 deletions(-)
-
---1bHQZNbPCAIvSPgV
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaY8XAAAKCRB4tDGHoIJi
-0ukwAP9U3k8dWwMY8LV6dorfZ+gwYjZ3OeZNfxsaz2YoLhGpTwD/Q0v3VCZ2EbNu
-Crx4v2DxOQw4BBRKUu8BC+DgwTuz2Aw=
-=MF+S
------END PGP SIGNATURE-----
-
---1bHQZNbPCAIvSPgV--
-
-
---===============4875588275468673381==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4875588275468673381==--
-
