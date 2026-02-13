@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2858AEE369A
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 09:24:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80223EE36A0
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 09:26:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gV6CrXvX7hy20CWIyzoZv/cFFYMADIrzqrwUzLN9Hx4=; b=s5eTQ/IkMe0xXC
-	8ZSOaclLWdtleKQjnA91Tndwm7X+6VgJfpTLDldQD3BUiirKdxx8Y93Wne44busv1q6jQTikJECjD
-	PhfmSM1rNCXbSsxF8oqkvVnGvO73AbHMSyRdCzpb7fDORESFpq+E24rjodc2K9bgY9I8SJL9KhDKb
-	vN1EAJEjClAzKx5xSuKhpTiZe8VvqNCI7jEjaz46q/+rpzyawKdthJlW+KI6ey5lYt980fSdu73Wm
-	ZvleMRPq2hnYGJG60f7GCpiRfGKoCvmCmB9/x6//GdqfMSVtVDv4M9JQaHhWyHif6X/bcdfvdVqqW
-	czEyAjq3uoecNp0V1R7Q==;
+	List-Owner; bh=gV6CrXvX7hy20CWIyzoZv/cFFYMADIrzqrwUzLN9Hx4=; b=QFpwPzcRGdgcDs
+	SPOjy8lOdfuXKwVQnZ4DMxvAOYlLVceZVh/drGHjOyRlN4biuIUDqpeHLfccLqL0ccAt2nlRQDnHY
+	NGS8iM4CC/1skiOVEYX4wrsTHIrnRKWMZoEFct+bosoRhcYamX4e/WxbUMHNVw0G+RPHGKz56UsjH
+	o5/UqvcyPrK6hrB9oe/FvQBHgatK37pQsrWBi2phC4b6BjPoLTCC+qucoxELzee+AuJVGcAKZaKVz
+	YukFal96RPSQ6EIBFJs2qqhZ+6XyiyT+2LngGz4OwRUSYnuxOMsn/enaGArXvE4K0X+kzPyi3PcEL
+	GNnrbLSwfYk9c7pLnyJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqpOz-00000003Dy4-2JwE;
-	Fri, 13 Feb 2026 09:23:53 +0000
+	id 1vqpRU-00000003EJ2-0Dtg;
+	Fri, 13 Feb 2026 09:26:28 +0000
 Received: from smtp2.ustc.edu.cn ([202.38.64.46] helo=ustc.edu.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqpOs-00000003Dx6-2Amm
+	id 1vqpRP-00000003EI1-3yxL
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Feb 2026 09:23:51 +0000
+	Fri, 13 Feb 2026 09:26:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
 	Message-ID:In-Reply-To:References:MIME-Version:
 	Content-Transfer-Encoding; bh=aIy8H9sqDuJdjsiYxc3g4Tminz7xF1jG1m
-	mAfBXkOLU=; b=Bp77bQdjXKL53gsxe63yDlrD8lJxQbY+PdwWWJ+8FLdEPI4wbT
-	N6H4ojR+A+4vFgM+XwZbcxCpCdWhyznQUrCOFcY9jNKUtWcU/55gdHhor+YPRutR
-	W0g/5eWJOilis87PQjoWfxOHd60YonNwFWMvXucSsWpwk34z2nxDdkbF8=
+	mAfBXkOLU=; b=eqHhZUt9IUct012VbpGa0py9UgVhE825FDo1+U5Ankm+6JMNL5
+	yRRLxylQ4ITqrOVOAQUb3wR4HATqCFJbuMIsrimsuva7H5aXNGI5nt9wsCqfJ3KB
+	T8h2VOiEhxxq+pU9wqrjFXz388cUicyb9LN3/vG9eobe4d7JjILHvlkH8=
 Received: from mail.ustc.edu.cn (unknown [116.130.208.26])
-	by mailimap2024 (Coremail) with SMTP id 3pYKCgDXEdJ27Y5p_L08AA--.987S4;
-	Fri, 13 Feb 2026 17:23:30 +0800 (CST)
+	by mailimap2024 (Coremail) with SMTP id 3pYKCgBXebk57o5pa8Q8AA--.1111S4;
+	Fri, 13 Feb 2026 17:26:21 +0800 (CST)
 From: LiuQingtao <qtliu@mail.ustc.edu.cn>
 To: liu.qingtao2@zte.com.cn
 Cc: Wenhong Liu <liu.wenhong35@zte.com.cn>,
 	linux-serial@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 2/2] tty: serial: add driver for the LRW UART
-Date: Fri, 13 Feb 2026 17:22:52 +0800
-Message-ID: <20260213092252.8244-3-qtliu@mail.ustc.edu.cn>
+Subject: [PATCH 2/2] LRW UART: serial: add driver for the LRW UART
+Date: Fri, 13 Feb 2026 17:26:15 +0800
+Message-ID: <20260213092615.8584-3-qtliu@mail.ustc.edu.cn>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260213092252.8244-1-qtliu@mail.ustc.edu.cn>
-References: <20260213092252.8244-1-qtliu@mail.ustc.edu.cn>
+In-Reply-To: <20260213092615.8584-1-qtliu@mail.ustc.edu.cn>
+References: <20260213092615.8584-1-qtliu@mail.ustc.edu.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: 3pYKCgDXEdJ27Y5p_L08AA--.987S4
+X-CM-TRANSID: 3pYKCgBXebk57o5pa8Q8AA--.1111S4
 X-Coremail-Antispam: 1UD129KBjvAXoWkWr48Wr4UZrWxtr4DXr4kCrg_yoW3trWUKo
 	WIqF43trWrKr1xXws5ZF1fJr1xX3W5Xr15Ar1rZrZ7W3Z8Xr1Yqayxu3yrt3WYyFs0kr13
-	WFySq3WxZrs3Ar95n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UjIYCTnIWjp_UUUYG7k0a2IF6w4kM7kC6x804xWl14x267AKxVW8JVW5JwAFc2x0
+	WFySq3WxZrs3Ar95n29KB7ZKAUJUUUU5529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UjIYCTnIWjp_UUUO17k0a2IF6w4kM7kC6x804xWl14x267AKxVW8JVW5JwAFc2x0
 	x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87
 	I2jVAFwI0_Jryl82xGYIkIc2x26xkF7I0E14v26r1Y6r1xM28lY4IEw2IIxxk0rwA2F7IY
 	1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20x
 	vEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv
 	6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c
-	02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE
-	4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lc2xSY4AK67AK6r4fMxAIw28IcxkI7V
-	AKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCj
-	r7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6x
-	IIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAI
-	w20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x
-	0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU5vzutUUUUU==
-X-CM-SenderInfo: 5twox3o6pdxzwoxv3uoohg3hdfq/1tbiARERAGmN67Eo2QAEsK
+	02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8JwAm72CE
+	4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lc7CjxVAaw2AFwI0_JF0_Jw1lc2xSY4
+	AK67AK6r4fMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8C
+	rVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtw
+	CIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x02
+	67AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr
+	0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU5Gh
+	FDUUUUU==
+X-CM-SenderInfo: 5twox3o6pdxzwoxv3uoohg3hdfq/1tbiARERAGmN67Eo2QAHsJ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_012348_707213_34009BE4 
+X-CRM114-CacheID: sfid-20260213_012624_652157_BC8BEB4D 
 X-CRM114-Status: GOOD (  24.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
