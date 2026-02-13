@@ -4,77 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D931AEF48C4
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 03:10:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F08EF48C8
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 03:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fBodCcqx2f9u0HplWQkpCCSOs4ygHtSj5fYT/FqeFts=; b=VQfZAZnnmo/JJt
-	0dlfiwcd/DdM5EP+tCCNV+4siuvkgRGLJxujQfGXEwr314qmlaOkx+CZfsVMn2cO2Z08Kd1rS4o4/
-	USkpF5xDU0Euy8GkHANLb/YVvCWPjdeBd32ResllAebY5QOymZAtDHhyiJkXmm0LOeAGcDsFenl7c
-	kNVvMT1HF1IyWJYZyBSHHmkpv5GK+21URSyJMtguUPPb5eC/sf2RcosOEEPv5QiQEoVvpZUkmdf/R
-	8svypuIvBCBr22jbjXr53v0fM6KDciHBeiwZR7A+j9pIF4PAq3mrhicbqQpo2TRwQPeWhSP/N+1y8
-	qTIgQtRZZ4XQMNA4mK1A==;
+	List-Owner; bh=9dSqypfQdauNkJBdkmnxtYYZdhhBRNAd/2xEZyPTQlU=; b=eVMcyXhSn2yaBo
+	2gYFmkkDq+z7bo4oKnYNOW9HCEy8bIAtjtUaI+nAxDqZxQ2zC4JfOrTkWvFfqEemtzX2srpKwgSTu
+	4tVRZEYOPwoNFvrHQgD5aMt2xptKOKNbENqrx0kpmQSut2m5dQmwqziayPSYdbQ0bI0YJEnXDcslW
+	KwCx5/eRNwhWELDTCRrUxv09p0263Iq2AJsiZTQp0l/CZvpBltYLae6xj2p2MENccMQfj29Dbdn9g
+	f6Am01eDL/83fmcH/px/mKsqhzFNMvXDhYMccs9MaQGJkjiGDNGqdvb9MHE+8/yj4RAuQqzjiH9yB
+	gBIWeAAAsgtNLshg/+9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqjZZ-00000002tPy-2G5Q;
-	Fri, 13 Feb 2026 03:10:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vqjyI-00000002v8t-2k4k;
+	Fri, 13 Feb 2026 03:35:58 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqjZW-00000002tPL-2aQ7;
-	Fri, 13 Feb 2026 03:10:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 71CDE44481;
-	Fri, 13 Feb 2026 03:10:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52C7CC2BC87;
-	Fri, 13 Feb 2026 03:10:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770952221;
-	bh=DlVfwlabE/UrECF6UV6WXsGt9/oBuJ/GsD7QC77Cks8=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=UqncZvbj0SmNgh6HQ/8D5uoY1GFs2E42UQc+n7sxEIeVzpQSz2IMx9zVWyz7j4P7+
-	 tfOiJuyBxCrBsc2bAheTKpm+HdgmlfqnLuZA8ABBgI8BB4Lb7+u/ibAQCcDmZLMtyq
-	 Dq96qaThsOFsKMLtIO2NcWVBj+w9FzkKz/VUtZt1faNqiV0NkWWQW2B8WwY9y04Gcd
-	 aYQgjkp6ysc/U+JYrKXXYSXRfOItiv0ulvtW6qVQy79wnnzFOinDd0RjM46o52YLFs
-	 e8YKvqJaZE43RDWwzJya1N+H3cjiEt8a6WCf6LJlnzNFusrJSTRdUBupc/JwHn7iy/
-	 2DRGVckeUTNTA==
-Date: Thu, 12 Feb 2026 20:10:16 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-cc: corbet@lwn.net, skhan@linuxfoundation.org, catalin.marinas@arm.com, 
-    will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name, 
-    maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, 
-    chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com, 
-    aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org, mingo@redhat.com, 
-    bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com, 
-    akpm@linux-foundation.org, bhe@redhat.com, vgoyal@redhat.com, 
-    dyoung@redhat.com, rdunlap@infradead.org, kees@kernel.org, 
-    elver@google.com, paulmck@kernel.org, arnd@arndb.de, fvdl@google.com, 
-    thuth@redhat.com, ardb@kernel.org, leitao@debian.org, rppt@kernel.org, 
-    osandov@fb.com, cfsworks@gmail.com, sourabhjain@linux.ibm.com, 
-    ryan.roberts@arm.com, tangyouling@kylinos.cn, eajames@linux.ibm.com, 
-    hbathini@linux.ibm.com, ritesh.list@gmail.com, songshuaishuai@tinylab.org, 
-    bjorn@rivosinc.com, samuel.holland@sifive.com, kevin.brodsky@arm.com, 
-    junhui.liu@pigmoral.tech, vishal.moola@gmail.com, dwmw@amazon.co.uk, 
-    pbonzini@redhat.com, kai.huang@intel.com, ubizjak@gmail.com, 
-    coxu@redhat.com, fuqiang.wang@easystack.cn, liaoyuanhong@vivo.com, 
-    brgerst@gmail.com, jbohac@suse.cz, x86@kernel.org, 
-    linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
-    linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-    kexec@lists.infradead.org
-Subject: Re: [PATCH v5 4/4] riscv: kexec: Add support for crashkernel CMA
- reservation
-In-Reply-To: <20260212101001.343158-5-ruanjinjie@huawei.com>
-Message-ID: <97c57b38-2970-bdd7-2303-6de9a5c14d14@kernel.org>
-References: <20260212101001.343158-1-ruanjinjie@huawei.com> <20260212101001.343158-5-ruanjinjie@huawei.com>
+	id 1vqjyG-00000002v8V-29cq
+	for linux-riscv@lists.infradead.org;
+	Fri, 13 Feb 2026 03:35:57 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b8f92f3db6fso77040166b.0
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Feb 2026 19:35:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1770953753; x=1771558553; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=qzFSEtQ+qaXHMroLlHfklD+qEuGo29r/msTHscPRp24=;
+        b=A+tEnyMSdqCvV46hdbVybf5Wqs3pxYcuRSD7NrATxkGmabMeIgUlhtfo6U0NGPue5j
+         yPYvoo42cPEqfPnqcXTmx/OmEobnDPgnSb3Jbbuurs+v2chGm2IHyNMxDObcnPf5FyqT
+         9wDIFvsEOLxZwBAlQaY4VSlPDy7YrG/HfDU2Q=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770953753; x=1771558553;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qzFSEtQ+qaXHMroLlHfklD+qEuGo29r/msTHscPRp24=;
+        b=jLC/Nq4+uGdCokvQMD7IlgsMHrIyh+WMkhOZyqD3mwMM49DeqE21BErhVKhgDa+ahn
+         RIhsEYvhHrkRUaRU7LZmKDueRilzBqHY9Y3/eqIBEl6jWVh3rfAilVAq1FEKDQy1bNhT
+         QEsHnVRO8ZVwpKyeNTgBIg2jf9LuDclklTpUlLTW/k3VLqBJiTyZFK8adgwpbhH7L4/j
+         Oaeo4etutiqxxx+E3y681KuLhN/pJYweLKvdmy+sf1mxOoHj5jMczbKsEnoYm7BGy5AX
+         yJwHKqYVMOTHaML3nyRKbUuBSAmLZSeGIQwGmKgYgVbE+OIRT2UGQUMJ8riKeQIWnlzh
+         holA==
+X-Gm-Message-State: AOJu0YxuEYTWAGyjQrJClk7SJ+TMM/h4JJWTx4SdTgO1W0Mc3jZxnT80
+	7F1yOJ2wi9OYcd80u0bTs8Sh88gzMgYAs1Bx81Srgm6MrT71lMPrLWQKyroqe0nxj0Of4L716av
+	nKwfXc8w=
+X-Gm-Gg: AZuq6aK6Qley7fKwOUx1aaNSqD10Swgsq7iCZP5rp4U2XClsrWhD7NqlQH9AOK8+zqJ
+	4jLuk6/ISN9J1BoRU8+M4bPgOusG4xRphAqAlBhYDuf7ZZCM0OCHbOW6CObJqE8EU5q16NFcPtt
+	4jLv1Ty28FWHnySyldWZ+vdGveDgumbbOzVlMlXn0/bmGj+uF3HtZt0k4knX8uxt+u0iB5ZjRr9
+	5yx/NUfYIhqGWOj1RVUI17wfCBDP14zH8Rc7rIUgAxGmV3dSwx8e2nBgA+JtpzNsR/qfdjkZVTF
+	HJ2gM5R8fmJyAtb3gvGxxnQupICVycjPbgoceVx7Ywd/tBkTW1ikr0FY53HHqKJnvoY6wEwtWhJ
+	B5nG50YeZPrXYGJHdT0kJAdo5fTjdLb4sHDE3xmDdQ87j9XFV0cM4ovPzjAAYzF0eXLovOORUg3
+	x3jKG6GfwyfrUsjGGcSM4KsVlckM+tAlpRmqHn+MDUs+HwagJXxGyr/MdDMQbTBX0dkyAjgVcXQ
+	nq7XZkHDts=
+X-Received: by 2002:a17:907:944f:b0:b87:15a7:85f7 with SMTP id a640c23a62f3a-b8fb41c366cmr15052766b.15.1770953753451;
+        Thu, 12 Feb 2026 19:35:53 -0800 (PST)
+Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com. [209.85.208.53])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8fa0cf9093sm79984566b.29.2026.02.12.19.35.52
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Feb 2026 19:35:53 -0800 (PST)
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-65a3527c5easo654056a12.0
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Feb 2026 19:35:52 -0800 (PST)
+X-Received: by 2002:a05:6402:4303:b0:64b:3225:b771 with SMTP id
+ 4fb4d7f45d1cf-65bb112fb56mr157055a12.6.1770953752743; Thu, 12 Feb 2026
+ 19:35:52 -0800 (PST)
 MIME-Version: 1.0
+References: <c554c02e-a791-5c4a-d329-7632de7a194d@kernel.org>
+In-Reply-To: <c554c02e-a791-5c4a-d329-7632de7a194d@kernel.org>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Thu, 12 Feb 2026 19:35:36 -0800
+X-Gmail-Original-Message-ID: <CAHk-=whUXMRa3py11kpZiDMau8uauiwZCok2UMQAecTshfTrVA@mail.gmail.com>
+X-Gm-Features: AZwV_QjR3bW_fOFlM9xikHyy41Momz23tw2RtontR2CUdx5DwgkJ5GcccKfGuKU
+Message-ID: <CAHk-=whUXMRa3py11kpZiDMau8uauiwZCok2UMQAecTshfTrVA@mail.gmail.com>
+Subject: Re: [GIT PULL] RISC-V updates for v7.0
+To: Paul Walmsley <pjw@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Peter Zijlstra <peterz@infradead.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_191022_705843_C0761E91 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20260212_193556_640009_B5C854B5 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,38 +103,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Feb 2026, Jinjie Ruan wrote:
+On Thu, 12 Feb 2026 at 15:39, Paul Walmsley <pjw@kernel.org> wrote:
+>
+> Deepak Gupta (26):
+>       prctl: add arch-agnostic prctl()s for indirect branch tracking
 
-> Commit 35c18f2933c5 ("Add a new optional ",cma" suffix to the
-> crashkernel= command line option") and commit ab475510e042 ("kdump:
-> implement reserve_crashkernel_cma") added CMA support for kdump
-> crashkernel reservation. This allows the kernel to dynamically allocate
-> contiguous memory for crash dumping when needed, rather than permanently
-> reserving a fixed region at boot time.
-> 
-> So extend crashkernel CMA reservation support to riscv. The following
-> changes are made to enable CMA reservation:
-> 
-> - Parse and obtain the CMA reservation size along with other crashkernel
->   parameters.
-> - Call reserve_crashkernel_cma() to allocate the CMA region for kdump.
-> - Include the CMA-reserved ranges for kdump kernel to use.
-> - Exclude the CMA-reserved ranges from the crash kernel memory to
->   prevent them from being exported through /proc/vmcore, which is already
->   done in the crash core.
-> 
-> Update kernel-parameters.txt to document CMA support for crashkernel on
-> riscv architecture.
-> 
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Hmm. In the meantime, I had pulled the RSEQ time slice extensions
+stuff first, so what happened was that these prctl numbers got bumped
+up from 79-81 to 80-82.
 
-Looks reasonable.  If the plan is to have the kdump maintainers merge 
-this, then:
+I note that it looks like linux-next ended up merging things in a
+different order, and so instead left the indirect branch status prctls
+alone, and instead modified the RSEQ one.
 
-Acked-by: Paul Walmsley <pjw@kernel.org> # arch/riscv
+Just letting everybody involved know - maybe this was obvious to
+people, and maybe this came as a surprise.
 
+And only very tangentially related: I think the indirect branch
+locking could have been just a separate bit from the enable bit. I
+don't see why it needed separate prctls for "set status" and "set
+lock".
 
-- Paul
+On a similar theme: why is it called "indir_br_lp"? That's a horrible name.
+
+This was supposed to be architecture-neutral, but I get the feeling
+that "lp" does not stand for "Long Play" and has nothing to do with
+12-inch vinyl records.
+
+I think it probably is shorthand for "lpad", which is RISC-V thing.
+Which is complete nonsense for something that is documented to be
+architecture-neutral.
+
+So the naming is wrong, and needs to be fixed. So maybe just as well
+that the numbers also changed.
+
+In other words: I've pulled this, but I expect this to be fixed asap.
+
+               Linus
 
 _______________________________________________
 linux-riscv mailing list
