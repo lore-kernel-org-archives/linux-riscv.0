@@ -4,93 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3E5DEE36B2
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 09:34:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0255CEDF023
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 09:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fb+lJQ+SkH3ShunFFH8BTqLc1Fu5h+UftPhff/IKwTw=; b=fBLEHIcDyq0i94
-	YbQgQi4YK2cSx4c8FeOiO0XFjoW4/zJLT14M8anPUyR7S/lxWA6oKId1lw4gyPcZ39qK8n845K9bU
-	8DMFxMcwxedTq7g55R8WjyDmJW8Nxlr0R7z9BnyHgRkVFMvIzFRrnQydYkINnEcff7RoJjb2VgcnJ
-	ABx1I0GyXuafHEMw2N72KmNN7vJgWsCE40Y/uh0xtZPirzmqLJHce6pDhabeZYLtXSamNIx7obcVQ
-	pgN9uURs0dm38n2DIg7KYauFjtuBUBkfa0dZ3SVbXPD1jUe2W6ZqHcac0C+CltUHdWNbQWgQSfQ6J
-	BgfsO0bo/DCNnIr4Crng==;
+	List-Owner; bh=VWR/v617eptc+aNkO/386xT64qL4bYhI9h+Sg34fdx4=; b=nX4E1Y4cdw0Bx1
+	JLOvoXuxorRzufxkmduQP8rtCKj0UPWi6heB0fDuuukEsQ4na2gXdWAfvxrfHR5i7cfopzW96Qil/
+	/E6rEj+4/MXdwO/SNUlOL/bJINfP74bAVlt3uqa8YBDyy4yztStRdR5Or5mA5cRzdb3cNuleuGmlk
+	+3ZqoQQWUMAK/MiI+WPVFG7+iyQJVljaFikEQghYOKFawFRW3Wf7BIgoOLTt8wvs+ncIqaaPcwFMp
+	SEhOa8QGgM7dvqHAqs1l0T/raYDlhCrr8CUahEU8D+a+Kybz8hFKrC5aiNtFq/N1+v/7EK8SI+YGe
+	lH3ehk3T0Lv7AUAYawuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqpYu-00000003F7v-0tkk;
-	Fri, 13 Feb 2026 09:34:08 +0000
-Received: from smtp2.ustc.edu.cn ([202.38.64.46] helo=ustc.edu.cn)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqpYp-00000003F6S-3XNe
+	id 1vqpdb-00000003Fnf-35Yu;
+	Fri, 13 Feb 2026 09:39:00 +0000
+Received: from out-185.mta0.migadu.com ([91.218.175.185])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vqpdX-00000003Fms-40wo
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Feb 2026 09:34:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-ID:In-Reply-To:References:MIME-Version:
-	Content-Transfer-Encoding; bh=5hfCrGQORiLdS9o8YlVztUeorZLQkVYZaC
-	99qUVC/SA=; b=UIe1dl08HnnNfG4dABcdBNyKUPKsGY4rRYBAdqmpZiRPkvEH+Z
-	1Vtxc44jOsCj8oQtkY6lL8vkDqL2+L1TGWuDiA5IKG2fzJpfBESs8OUsv5CMdzeo
-	dxbtflppcWCwfpJCT5hwpdQm11ZOwfmX188kulyYp4U2duQVKni+oywUg=
-Received: from mail.ustc.edu.cn (unknown [116.130.208.26])
-	by mailimap2024 (Coremail) with SMTP id 3pYKCgCHssL2745p89E8AA--.917S4;
-	Fri, 13 Feb 2026 17:33:57 +0800 (CST)
-From: LiuQingtao <qtliu@mail.ustc.edu.cn>
-To: gregkh@linuxfoundation.org
-Cc: jirislaby@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	neil.armstrong@linaro.org,
-	bjorn.andersson@oss.qualcomm.com,
-	marex@nabladev.com,
-	dev@kael-k.io,
-	mani@kernel.org,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	linux-serial@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	liu.wenhong35@zte.com.cn,
-	liu.qingtao2@zte.com.cn,
-	hu.yuye@zte.com.cn,
-	dai.hualiang@zte.com.cn,
-	deng.weixian@zte.com.cn,
-	jia.yunxiang@zte.com.cn,
-	bai.lu5@zte.com.cn,
-	yang.susheng@zte.com.cn,
-	shen.lin1@zte.com.cn,
-	tan.hu@zte.com.cn,
-	zuo.jiang@zte.com.cn
-Subject: [PATCH v1 2/2] LRW UART: serial: add driver for the LRW UART
-Date: Fri, 13 Feb 2026 17:33:34 +0800
-Message-ID: <20260213093334.9217-3-qtliu@mail.ustc.edu.cn>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260213093334.9217-1-qtliu@mail.ustc.edu.cn>
-References: <20260213093334.9217-1-qtliu@mail.ustc.edu.cn>
+	Fri, 13 Feb 2026 09:38:58 +0000
+Message-ID: <e5bb59c7-efd9-4706-978d-cb8f1249a535@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1770975519;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=d+6JXMOBGKkwziRhe+U/1Eoa0NlKFn4w7ph9/iJYG3Q=;
+	b=njxXf7eNd5AaJwUDQo0dlZC0O+J0anGYUrmqce68QsUNg7mZwJmAnZgvsGB0ZOlmcb1SsJ
+	JDutijlw3Gf2iN6Dmv9CGdOOS3yNyYiK0vde9eEeLbJVeiYNknqtKQXQWf/cH1XySmM7rS
+	oYkgZKingDrKRdZ9RBwfSwP3ZmUUP3k=
+Date: Fri, 13 Feb 2026 17:37:45 +0800
 MIME-Version: 1.0
-X-CM-TRANSID: 3pYKCgCHssL2745p89E8AA--.917S4
-X-Coremail-Antispam: 1UD129KBjvAXoWkWr48Wr4UZrWxtr4DXr4kCrg_yoW3try7Ao
-	WIqF43trWrKr1xXws5ZF1fJr1xX3W5Xr15Ar1rZrZ7W3Z8Xr1Yqayxu3yrt3WYyFs0kr13
-	WFySq3WxZrs3Ar95n29KB7ZKAUJUUUUr529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UjIYCTnIWjp_UUUOP7k0a2IF6w4kM7kC6x804xWl14x267AKxVWrJVCq3wAFc2x0
-	x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87
-	I2jVAFwI0_Jryl82xGYIkIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY
-	1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20x
-	vEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2
-	jsIEc7CjxVAFwI0_GcCE3s1ln4kS14v26r1Y6r17M2AIxVAIcxkEcVAq07x20xvEncxIr2
-	1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv
-	67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7
-	CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK67AK6r4fMxAIw28IcxkI
-	7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxV
-	Cjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY
-	6xIIjxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcV
-	CF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIE
-	c7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07b-FxUUUUUU=
-X-CM-SenderInfo: 5twox3o6pdxzwoxv3uoohg3hdfq/1tbiARERAGmN67Eo2QAKsE
+Subject: Re: [PATCH] riscv: Remove support for XIP kernel
+To: Nam Cao <namcao@linutronix.de>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Zhouyi Zhou <zhouzhouyi@gmail.com>,
+ "Kunwu.Chan" <kunwu.chan@linux.dev>
+Cc: Frederik Haxel <haxel@fzi.de>, Vitaly Wool <vitaly.wool@konsulko.com>
+References: <20260202115403.2119218-1-namcao@linutronix.de>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Kunwu Chan <kunwu.chan@linux.dev>
+In-Reply-To: <20260202115403.2119218-1-namcao@linutronix.de>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_013404_590769_08EC9A31 
-X-CRM114-Status: GOOD (  24.51  )
+X-CRM114-CacheID: sfid-20260213_013856_750300_7697D657 
+X-CRM114-Status: GOOD (  37.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,2953 +67,630 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Wenhong Liu <liu.wenhong35@zte.com.cn>
-
-This commit introduces a serial driver for the LRW UART controller
-
-Key features implemented:
-- Support for FIFO mode (16-byte depth)
-- Baud rate configuration
-- Standard asynchronous communication formats:
-  * Data bits: 5, 6, 7, 8, 9 bits
-  * Parity: odd, even, fixed, none
-  * Stop bits: 1 or 2 bits
-- Hardware flow control (RTS/CTS)
-- Multiple interrupt reporting mechanisms
-
-Signed-off-by: Wenhong Liu <liu.wenhong35@zte.com.cn>
-Signed-off-by: Qingtao Liu <liu.qingtao2@zte.com.cn>
----
- MAINTAINERS                      |    3 +
- drivers/tty/serial/Kconfig       |   33 +
- drivers/tty/serial/Makefile      |    1 +
- drivers/tty/serial/lrw_uart.c    | 2822 ++++++++++++++++++++++++++++++
- include/uapi/linux/serial_core.h |    3 +
- 5 files changed, 2862 insertions(+)
- create mode 100644 drivers/tty/serial/lrw_uart.c
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ad6acbe24544..a97fbd205f75 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -15041,6 +15041,9 @@ R:	Qingtao Liu <liu.qingtao2@zte.com.cn>
- L:	linux-serial@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/serial/lrw,lrw-uart.yaml
-+F:	drivers/tty/serial/Kconfig
-+F:	drivers/tty/serial/Makefile
-+F:	drivers/tty/serial/lrw_uart.c
- 
- LSILOGIC MPT FUSION DRIVERS (FC/SAS/SPI)
- M:	Sathya Prakash <sathya.prakash@broadcom.com>
-diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
-index f86775cfdcc9..a8f2d750c5b4 100644
---- a/drivers/tty/serial/Kconfig
-+++ b/drivers/tty/serial/Kconfig
-@@ -1619,6 +1619,39 @@ config SERIAL_ESP32_ACM
- 	  snippet may be used:
- 	    earlycon=esp32s3acm,mmio32,0x60038000
- 
-+config SERIAL_LRW_UART
-+	tristate "LRW UART support"
-+	select SERIAL_CORE
-+	help
-+	  This option enables support for the LRW Universal Asynchronous
-+	  Receiver/Transmitter (UART) serial controller.
-+
-+	  Select this option if you are building a kernel for a device that
-+	  contains a LRW UART IP block.
-+
-+	  This driver can be built as a module; if so, the module will be
-+	  called lrw_uart.
-+
-+	  If you are using a system with an LRW UART controller, say Y or M here.
-+	  If unsure, say N.
-+
-+config SERIAL_LRW_UART_CONSOLE
-+	bool "Console on LRW UART"
-+	depends on SERIAL_LRW_UART=y
-+	select SERIAL_CORE_CONSOLE
-+	select SERIAL_EARLYCON
-+	help
-+	  Say Y here if you wish to use an LRW UART as the system
-+	  console (the system console is the device which receives all kernel
-+	  messages and warnings and which allows logins in single user mode).
-+
-+	  Even if you say Y here, the currently visible framebuffer console
-+	  (/dev/tty0) will still be used as the system console by default, but
-+	  you can alter that using a kernel command line option such as
-+	  "console=ttyLRW0". (Try "man bootparam" or see the documentation of
-+	  your boot loader (lilo or loadlin) about how to pass options to the
-+	  kernel at boot time.)
-+
- endmenu
- 
- config SERIAL_MCTRL_GPIO
-diff --git a/drivers/tty/serial/Makefile b/drivers/tty/serial/Makefile
-index a2ccbc508ec5..0f694c4a4e22 100644
---- a/drivers/tty/serial/Makefile
-+++ b/drivers/tty/serial/Makefile
-@@ -94,6 +94,7 @@ obj-$(CONFIG_SERIAL_UARTLITE)		+= uartlite.o
- obj-$(CONFIG_SERIAL_VT8500)		+= vt8500_serial.o
- obj-$(CONFIG_SERIAL_XILINX_PS_UART)	+= xilinx_uartps.o
- obj-$(CONFIG_SERIAL_ZS)			+= zs.o
-+obj-$(CONFIG_SERIAL_LRW_UART) 		+= lrw_uart.o
- 
- # GPIOLIB helpers for modem control lines
- obj-$(CONFIG_SERIAL_MCTRL_GPIO)	+= serial_mctrl_gpio.o
-diff --git a/drivers/tty/serial/lrw_uart.c b/drivers/tty/serial/lrw_uart.c
-new file mode 100644
-index 000000000000..e2399bef203f
---- /dev/null
-+++ b/drivers/tty/serial/lrw_uart.c
-@@ -0,0 +1,2822 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ *  Serial Port driver for LRW
-+ *
-+ *  Copyright (c) 2025, LRW CORPORATION. All rights reserved.
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/ioport.h>
-+#include <linux/init.h>
-+#include <linux/console.h>
-+#include <linux/platform_device.h>
-+#include <linux/sysrq.h>
-+#include <linux/device.h>
-+#include <linux/tty.h>
-+#include <linux/tty_flip.h>
-+#include <linux/serial_core.h>
-+#include <linux/serial.h>
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
-+#include <linux/clk.h>
-+#include <linux/slab.h>
-+#include <linux/dmaengine.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/scatterlist.h>
-+#include <linux/delay.h>
-+#include <linux/types.h>
-+#include <linux/of.h>
-+#include <linux/pinctrl/consumer.h>
-+#include <linux/sizes.h>
-+#include <linux/io.h>
-+#include <linux/acpi.h>
-+
-+#define UART_NR			14
-+
-+#define ISR_PASS_LIMIT		256
-+
-+#define LRW_UART_NAME		"lrw-uart"
-+
-+#define LRW_UART_TTY_PREFIX	"ttyLRW"
-+
-+/* LRW_UART_TX_FIFO_DEPTH: depth of the TX FIFO (in bytes) */
-+#define LRW_UART_TX_FIFO_DEPTH	16
-+
-+/* LRW_UART_RX_FIFO_DEPTH: depth of the RX FIFO (in bytes) */
-+#define LRW_UART_RX_FIFO_DEPTH	16
-+
-+/* LRW UART register offsets */
-+#define UARTDR			0x00	/* Data register */
-+#define UARTRSR			0x04	/* Receive status register */
-+#define UARTECR			0x04	/* Error clear register */
-+#define UARTSC			0x08	/* Special character register */
-+#define UARTMDR			0x0C	/* RS485 Muti-drop register */
-+#define UARTTAT			0x10	/* RS485 turn-around time register */
-+#define UARTFCR			0x14	/* FIFO control register */
-+#define UARTFR			0x18	/* Flag register */
-+#define UARTIND			0x1C	/* Integer baud rate register */
-+#define UARTFD			0x20	/* Fractional baud rate register */
-+#define UARTBSR			0x24	/* Baud sample rate register */
-+#define	UARTFRCR		0x28	/* Frame control register */
-+#define UARTMCFG		0x2C	/* config register */
-+#define	UARTMCR			0x30	/* Modem control register */
-+#define	UARTIRCR		0x34	/* IrDA mode control register */
-+#define UARTIMSC		0x38	/* Interrupt mask set/clear register */
-+#define UARTRIS			0x3C	/* Raw interrupt status register */
-+#define UARTMIS			0x40	/* Masked interrupt states register */
-+#define UARTICR			0x44	/* Interrupt clear register */
-+#define UARTFCCR		0x48	/* Flow control register */
-+#define UARTRVS			0x58	/* Version register */
-+
-+#define UARTDR_OE		BIT(11)
-+#define UARTDR_BE		BIT(10)
-+#define UARTDR_PE		BIT(9)
-+#define UARTDR_FE		BIT(8)
-+
-+#define UARTRSR_OE		BIT(3)
-+#define UARTRSR_BE		BIT(2)
-+#define UARTRSR_PE		BIT(1)
-+#define UARTRSR_FE		BIT(0)
-+
-+#define UARTFCR_RXFTRS		GENMASK(7, 5)
-+#define UARTFCR_RXFTRS_RX1_8	FIELD_PREP_CONST(UARTFCR_RXFTRS, 0)
-+#define UARTFCR_RXFTRS_RX2_8	FIELD_PREP_CONST(UARTFCR_RXFTRS, 1)
-+#define UARTFCR_RXFTRS_RX4_8	FIELD_PREP_CONST(UARTFCR_RXFTRS, 2)
-+#define UARTFCR_RXFTRS_RX6_8	FIELD_PREP_CONST(UARTFCR_RXFTRS, 3)
-+#define UARTFCR_RXFTRS_RX7_8	FIELD_PREP_CONST(UARTFCR_RXFTRS, 4)
-+#define UARTFCR_TXFTRS		GENMASK(4, 2)
-+#define UARTFCR_TXFTRS_TX1_8	FIELD_PREP_CONST(UARTFCR_TXFTRS, 0)
-+#define UARTFCR_TXFTRS_TX2_8	FIELD_PREP_CONST(UARTFCR_TXFTRS, 1)
-+#define UARTFCR_TXFTRS_TX4_8	FIELD_PREP_CONST(UARTFCR_TXFTRS, 2)
-+#define UARTFCR_TXFTRS_TX6_8	FIELD_PREP_CONST(UARTFCR_TXFTRS, 3)
-+#define UARTFCR_TXFTRS_TX7_8	FIELD_PREP_CONST(UARTFCR_TXFTRS, 4)
-+#define UARTFCR_FEN		BIT(0)
-+
-+#define UARTFR_RI		BIT(8)
-+#define UARTFR_TXFE		BIT(7)
-+#define UARTFR_RXFF		BIT(6)
-+#define UARTFR_TXFF		(1 << 5)	/* used in ASM */
-+#define UARTFR_RXFE		BIT(4)
-+#define UARTFR_BUSY		(1 << 3)	/* used in ASM */
-+#define UARTFR_DCD		BIT(2)
-+#define UARTFR_DSR		BIT(1)
-+#define UARTFR_CTS		BIT(0)
-+#define UARTFR_TMSK		(UARTFR_TXFF + UARTFR_BUSY)
-+
-+#define UARTFRCR_STP2		BIT(5)
-+#define UARTFRCR_SPS		BIT(4)
-+#define UARTFRCR_EOP		BIT(3)
-+#define UARTFRCR_PEN		BIT(2)
-+#define UARTFRCR_WLEN_8		0x3
-+#define UARTFRCR_WLEN_7		0x2
-+#define UARTFRCR_WLEN_6		0x1
-+#define UARTFRCR_WLEN_5		0x0
-+
-+#define UARTMCFG_LBE		BIT(7)	/* loopback enable */
-+#define UARTMCFG_RXE		BIT(3)	/* receive enable */
-+#define UARTMCFG_TXE		BIT(2)	/* transmit enable */
-+#define UARTMCFG_BRK		BIT(1)	/* send break */
-+#define UARTMCFG_UARTEN		BIT(0)	/* UART enable */
-+
-+#define UARTMCR_OUT2		BIT(3)	/* OUT2 */
-+#define UARTMCR_OUT1		BIT(2)	/* OUT1 */
-+#define UARTMCR_RTS		BIT(1)	/* RTS */
-+#define UARTMCR_DTR		BIT(0)	/* DTR */
-+
-+#define UARTIMSC_OEIM		BIT(10)	/* overrun error interrupt mask */
-+#define UARTIMSC_BEIM		BIT(9)	/* break error interrupt mask */
-+#define UARTIMSC_PEIM		BIT(8)	/* parity error interrupt mask */
-+#define UARTIMSC_FEIM		BIT(7)	/* framing error interrupt mask */
-+#define UARTIMSC_RTIM		BIT(6)	/* receive timeout interrupt mask */
-+#define UARTIMSC_TXIM		BIT(5)	/* transmit interrupt mask */
-+#define UARTIMSC_RXIM		BIT(4)	/* receive interrupt mask */
-+#define UARTIMSC_DSRMIM		BIT(3)	/* DSR interrupt mask */
-+#define UARTIMSC_DCDMIM		BIT(2)	/* DCD interrupt mask */
-+#define UARTIMSC_CTSMIM		BIT(1)	/* CTS interrupt mask */
-+#define UARTIMSC_RIMIM		BIT(0)	/* RI interrupt mask */
-+
-+#define UARTICR_OEIC		BIT(10)	/* overrun error interrupt clear */
-+#define UARTICR_BEIC		BIT(9)	/* break error interrupt clear */
-+#define UARTICR_PEIC		BIT(8)	/* parity error interrupt clear */
-+#define UARTICR_FEIC		BIT(7)	/* framing error interrupt clear */
-+#define UARTICR_RTIC		BIT(6)	/* receive timeout interrupt clear */
-+#define UARTICR_TXIC		BIT(5)	/* transmit interrupt clear */
-+#define UARTICR_RXIC		BIT(4)	/* receive interrupt clear */
-+#define UARTICR_DSRMIC		BIT(3)	/* DSR interrupt clear */
-+#define UARTICR_DCDMIC		BIT(2)	/* DCD interrupt clear */
-+#define UARTICR_CTSMIC		BIT(1)	/* CTS interrupt clear */
-+#define UARTICR_RIMIC		BIT(0)	/* RI interrupt clear */
-+
-+#define UARTFCCR_CTSEN		BIT(5)	/* CTS hardware flow control */
-+#define UARTFCCR_RTSEN		BIT(4)	/* RTS hardware flow control */
-+#define UARTFCCR_DMAONERR	BIT(2)	/* disable dma on error */
-+#define UARTFCCR_TXDMAE		BIT(1)	/* enable transmit dma */
-+#define UARTFCCR_RXDMAE		BIT(0)	/* enable receive dma */
-+
-+#define UARTRSR_ANY		(UARTRSR_OE | UARTRSR_BE | UARTRSR_PE | UARTRSR_FE)
-+#define UARTFR_MODEM_ANY	(UARTFR_DCD | UARTFR_DSR | UARTFR_CTS)
-+
-+#define UART_DR_ERROR		(UARTDR_OE | UARTDR_BE | UARTDR_PE | UARTDR_FE)
-+#define UART_DUMMY_DR_RX	BIT(16)
-+
-+enum {
-+	REG_DR,
-+	REG_FCR,
-+	REG_FR,
-+	REG_IND,
-+	REG_FD,
-+	REG_BSR,
-+	REG_FRCR,
-+	REG_MCFG,
-+	REG_MCR,
-+	REG_IMSC,
-+	REG_RIS,
-+	REG_MIS,
-+	REG_ICR,
-+	REG_FCCR,
-+
-+	/* The size of the array - must be last */
-+	REG_ARRAY_SIZE,
-+};
-+
-+static u16 lrw_uart_std_offsets[REG_ARRAY_SIZE] = {
-+	[REG_DR] = UARTDR,
-+	[REG_FCR] = UARTFCR,
-+	[REG_FR] = UARTFR,
-+	[REG_IND] = UARTIND,
-+	[REG_FD] = UARTFD,
-+	[REG_BSR] = UARTBSR,
-+	[REG_FRCR] = UARTFRCR,
-+	[REG_MCFG] = UARTMCFG,
-+	[REG_MCR] = UARTMCR,
-+	[REG_IMSC] = UARTIMSC,
-+	[REG_RIS] = UARTRIS,
-+	[REG_MIS] = UARTMIS,
-+	[REG_ICR] = UARTICR,
-+	[REG_FCCR] = UARTFCCR,
-+};
-+
-+/* There is by now at least one vendor with differing details, so handle it */
-+struct vendor_data {
-+	const u16		*reg_offset;
-+	unsigned int		fcr;
-+	unsigned int		fr_busy;
-+	unsigned int		fr_dsr;
-+	unsigned int		fr_cts;
-+	unsigned int		fr_ri;
-+	unsigned int		inv_fr;
-+	bool			access_32b;
-+	bool			oversampling;
-+	bool			dma_threshold;
-+	bool			cts_event_workaround;
-+	bool			always_enabled;
-+	bool			fixed_options;
-+};
-+
-+static struct vendor_data vendor_lrw = {
-+	.reg_offset		= lrw_uart_std_offsets,
-+	.fcr			= UARTFCR_RXFTRS_RX4_8 | UARTFCR_TXFTRS_TX4_8 | UARTFCR_FEN,
-+	.fr_busy		= UARTFR_BUSY,
-+	.fr_dsr			= UARTFR_DSR,
-+	.fr_cts			= UARTFR_CTS,
-+	.fr_ri			= UARTFR_RI,
-+	.access_32b		= true,
-+	.oversampling		= false,
-+	.dma_threshold		= false,
-+	.cts_event_workaround	= false,
-+	.always_enabled		= false,
-+	.fixed_options		= true,
-+};
-+
-+/* Deals with DMA transactions */
-+
-+struct lrw_uart_dmabuf {
-+	dma_addr_t		dma;
-+	size_t			len;
-+	char			*buf;
-+};
-+
-+struct lrw_uart_dmarx_data {
-+	struct dma_chan		*chan;
-+	struct completion	complete;
-+	bool			use_buf_b;
-+	struct lrw_uart_dmabuf	dbuf_a;
-+	struct lrw_uart_dmabuf	dbuf_b;
-+	dma_cookie_t		cookie;
-+	bool			running;
-+	struct timer_list	timer;
-+	unsigned int last_residue;
-+	unsigned long last_jiffies;
-+	bool auto_poll_rate;
-+	unsigned int poll_rate;
-+	unsigned int poll_timeout;
-+};
-+
-+struct lrw_uart_dmatx_data {
-+	struct dma_chan		*chan;
-+	dma_addr_t		dma;
-+	size_t			len;
-+	char			*buf;
-+	bool			queued;
-+};
-+
-+struct lrw_uart_data {
-+	bool (*dma_filter)(struct dma_chan *chan, void *filter_param);
-+	void *dma_rx_param;
-+	void *dma_tx_param;
-+	bool dma_rx_poll_enable;
-+	unsigned int dma_rx_poll_rate;
-+	unsigned int dma_rx_poll_timeout;
-+	void (*init)(void);
-+	void (*exit)(void);
-+};
-+
-+/*
-+ * We wrap our port structure around the generic uart_port.
-+ */
-+struct lrw_uart_port {
-+	struct uart_port	port;
-+	const u16		*reg_offset;
-+	struct clk		*clk;
-+	const struct vendor_data *vendor;
-+	unsigned int		im;		/* interrupt mask */
-+	unsigned int		old_status;
-+	unsigned int		fifosize;	/* vendor-specific */
-+	unsigned int		fixed_baud;	/* vendor-set fixed baud rate */
-+	char			type[12];
-+	bool			rs485_tx_started;
-+	unsigned int		rs485_tx_drain_interval; /* usecs */
-+#ifdef CONFIG_DMA_ENGINE
-+	/* DMA stuff */
-+	unsigned int		dmacr;		/* dma control reg */
-+	bool			using_tx_dma;
-+	bool			using_rx_dma;
-+	struct lrw_uart_dmarx_data dmarx;
-+	struct lrw_uart_dmatx_data dmatx;
-+	bool			dma_probed;
-+#endif
-+};
-+
-+static unsigned int lrw_uart_tx_empty(struct uart_port *port);
-+
-+static unsigned int lrw_uart_reg_to_offset(const struct lrw_uart_port *sup,
-+	unsigned int reg)
-+{
-+	return sup->reg_offset[reg];
-+}
-+
-+static unsigned int lrw_uart_read(const struct lrw_uart_port *sup,
-+	unsigned int reg)
-+{
-+	void __iomem *addr = sup->port.membase + lrw_uart_reg_to_offset(sup, reg);
-+
-+	return (sup->port.iotype == UPIO_MEM32) ?
-+		readl_relaxed(addr) : readw_relaxed(addr);
-+}
-+
-+static void lrw_uart_write(unsigned int val, const struct lrw_uart_port *sup,
-+	unsigned int reg)
-+{
-+	void __iomem *addr = sup->port.membase + lrw_uart_reg_to_offset(sup, reg);
-+
-+	if (sup->port.iotype == UPIO_MEM32)
-+		writel_relaxed(val, addr);
-+	else
-+		writew_relaxed(val, addr);
-+}
-+
-+/*
-+ * Reads up to 256 characters from the FIFO or until it's empty and
-+ * inserts them into the TTY layer. Returns the number of characters
-+ * read from the FIFO.
-+ */
-+static int lrw_uart_fifo_to_tty(struct lrw_uart_port *sup)
-+{
-+	unsigned int ch, fifotaken;
-+	int sysrq;
-+	u16 status;
-+	u8 flag;
-+
-+	for (fifotaken = 0; fifotaken != 256; fifotaken++) {
-+		status = lrw_uart_read(sup, REG_FR);
-+		if (status & UARTFR_RXFE)
-+			break;
-+
-+		/* Take chars from the FIFO and update status */
-+		ch = lrw_uart_read(sup, REG_DR) | UART_DUMMY_DR_RX;
-+		flag = TTY_NORMAL;
-+		sup->port.icount.rx++;
-+
-+		if (unlikely(ch & UART_DR_ERROR)) {
-+			if (ch & UARTDR_BE) {
-+				ch &= ~(UARTDR_FE | UARTDR_PE);
-+				sup->port.icount.brk++;
-+				if (uart_handle_break(&sup->port))
-+					continue;
-+			} else if (ch & UARTDR_PE) {
-+				sup->port.icount.parity++;
-+			} else if (ch & UARTDR_FE) {
-+				sup->port.icount.frame++;
-+			}
-+			if (ch & UARTDR_OE)
-+				sup->port.icount.overrun++;
-+
-+			ch &= sup->port.read_status_mask;
-+
-+			if (ch & UARTDR_BE)
-+				flag = TTY_BREAK;
-+			else if (ch & UARTDR_PE)
-+				flag = TTY_PARITY;
-+			else if (ch & UARTDR_FE)
-+				flag = TTY_FRAME;
-+		}
-+
-+		sysrq = uart_prepare_sysrq_char(&sup->port, ch & 255);
-+		if (!sysrq)
-+			uart_insert_char(&sup->port, ch, UARTDR_OE, ch, flag);
-+	}
-+
-+	return fifotaken;
-+}
-+
-+/*
-+ * All the DMA operation mode stuff goes inside this ifdef.
-+ * This assumes that you have a generic DMA device interface,
-+ * no custom DMA interfaces are supported.
-+ */
-+#ifdef CONFIG_DMA_ENGINE
-+
-+#define LRW_UART_DMA_BUFFER_SIZE PAGE_SIZE
-+
-+static int lrw_uart_dmabuf_init(struct dma_chan *chan, struct lrw_uart_dmabuf *db,
-+	enum dma_data_direction dir)
-+{
-+	db->buf = dma_alloc_coherent(chan->device->dev, LRW_UART_DMA_BUFFER_SIZE,
-+				     &db->dma, GFP_KERNEL);
-+	if (!db->buf)
-+		return -ENOMEM;
-+	db->len = LRW_UART_DMA_BUFFER_SIZE;
-+
-+	return 0;
-+}
-+
-+static void lrw_uart_dmabuf_free(struct dma_chan *chan, struct lrw_uart_dmabuf *db,
-+	enum dma_data_direction dir)
-+{
-+	if (db->buf) {
-+		dma_free_coherent(chan->device->dev,
-+				  LRW_UART_DMA_BUFFER_SIZE, db->buf, db->dma);
-+	}
-+}
-+
-+static void lrw_uart_dma_probe(struct lrw_uart_port *sup)
-+{
-+	/* DMA is the sole user of the platform data right now */
-+	struct lrw_uart_data *plat = dev_get_platdata(sup->port.dev);
-+	struct device *dev = sup->port.dev;
-+	struct dma_slave_config tx_conf = {
-+		.dst_addr = sup->port.mapbase +
-+				 lrw_uart_reg_to_offset(sup, REG_DR),
-+		.dst_addr_width = DMA_SLAVE_BUSWIDTH_1_BYTE,
-+		.direction = DMA_MEM_TO_DEV,
-+		.dst_maxburst = sup->fifosize >> 1,
-+		.device_fc = false,
-+	};
-+	struct dma_chan *chan;
-+	dma_cap_mask_t mask;
-+
-+	sup->dma_probed = true;
-+	chan = dma_request_chan(dev, "tx");
-+	if (IS_ERR(chan)) {
-+		if (PTR_ERR(chan) == -EPROBE_DEFER) {
-+			sup->dma_probed = false;
-+			return;
-+		}
-+
-+		/* We need platform data */
-+		if (!plat || !plat->dma_filter) {
-+			dev_dbg(sup->port.dev, "no DMA platform data\n");
-+			return;
-+		}
-+
-+		/* Try to acquire a generic DMA engine slave TX channel */
-+		dma_cap_zero(mask);
-+		dma_cap_set(DMA_SLAVE, mask);
-+
-+		chan = dma_request_channel(mask, plat->dma_filter,
-+					   plat->dma_tx_param);
-+		if (!chan) {
-+			dev_err(sup->port.dev, "no TX DMA channel!\n");
-+			return;
-+		}
-+	}
-+
-+	dmaengine_slave_config(chan, &tx_conf);
-+	sup->dmatx.chan = chan;
-+
-+	dev_info(sup->port.dev, "DMA channel TX %s\n",
-+		 dma_chan_name(sup->dmatx.chan));
-+
-+	/* Optionally make use of an RX channel as well */
-+	chan = dma_request_chan(dev, "rx");
-+
-+	if (IS_ERR(chan) && plat && plat->dma_rx_param) {
-+		chan = dma_request_channel(mask, plat->dma_filter, plat->dma_rx_param);
-+
-+		if (!chan) {
-+			dev_err(sup->port.dev, "no RX DMA channel!\n");
-+			return;
-+		}
-+	}
-+
-+	if (!IS_ERR(chan)) {
-+		struct dma_slave_config rx_conf = {
-+			.src_addr = sup->port.mapbase +
-+				lrw_uart_reg_to_offset(sup, REG_DR),
-+			.src_addr_width = DMA_SLAVE_BUSWIDTH_1_BYTE,
-+			.direction = DMA_DEV_TO_MEM,
-+			.src_maxburst = sup->fifosize >> 2,
-+			.device_fc = false,
-+		};
-+		struct dma_slave_caps caps;
-+
-+		/*
-+		 * Some DMA controllers provide information on their capabilities.
-+		 * If the controller does, check for suitable residue processing
-+		 * otherwise assime all is well.
-+		 */
-+		if (dma_get_slave_caps(chan, &caps) == 0) {
-+			if (caps.residue_granularity ==
-+					DMA_RESIDUE_GRANULARITY_DESCRIPTOR) {
-+				dma_release_channel(chan);
-+				dev_info(sup->port.dev,
-+					 "RX DMA disabled - no residue processing\n");
-+				return;
-+			}
-+		}
-+		dmaengine_slave_config(chan, &rx_conf);
-+		sup->dmarx.chan = chan;
-+
-+		sup->dmarx.auto_poll_rate = false;
-+		if (plat && plat->dma_rx_poll_enable) {
-+			/* Set poll rate if specified. */
-+			if (plat->dma_rx_poll_rate) {
-+				sup->dmarx.auto_poll_rate = false;
-+				sup->dmarx.poll_rate = plat->dma_rx_poll_rate;
-+			} else {
-+				/*
-+				 * 100 ms defaults to poll rate if not
-+				 * specified. This will be adjusted with
-+				 * the baud rate at set_termios.
-+				 */
-+				sup->dmarx.auto_poll_rate = true;
-+				sup->dmarx.poll_rate =  100;
-+			}
-+			/* 3 secs defaults poll_timeout if not specified. */
-+			if (plat->dma_rx_poll_timeout)
-+				sup->dmarx.poll_timeout =
-+					plat->dma_rx_poll_timeout;
-+			else
-+				sup->dmarx.poll_timeout = 3000;
-+		} else if (!plat && dev->of_node) {
-+			sup->dmarx.auto_poll_rate =
-+					of_property_read_bool(dev->of_node, "auto-poll");
-+			if (sup->dmarx.auto_poll_rate) {
-+				u32 x;
-+
-+				if (of_property_read_u32(dev->of_node, "poll-rate-ms", &x) == 0)
-+					sup->dmarx.poll_rate = x;
-+				else
-+					sup->dmarx.poll_rate = 100;
-+				if (of_property_read_u32(dev->of_node, "poll-timeout-ms", &x) == 0)
-+					sup->dmarx.poll_timeout = x;
-+				else
-+					sup->dmarx.poll_timeout = 3000;
-+			}
-+		}
-+		dev_info(sup->port.dev, "DMA channel RX %s\n",
-+			 dma_chan_name(sup->dmarx.chan));
-+	}
-+}
-+
-+static void lrw_uart_dma_remove(struct lrw_uart_port *sup)
-+{
-+	if (sup->dmatx.chan)
-+		dma_release_channel(sup->dmatx.chan);
-+	if (sup->dmarx.chan)
-+		dma_release_channel(sup->dmarx.chan);
-+}
-+
-+/* Forward declare these for the refill routine */
-+static int lrw_uart_dma_tx_refill(struct lrw_uart_port *sup);
-+static void lrw_uart_start_tx_pio(struct lrw_uart_port *sup);
-+
-+/*
-+ * The current DMA TX buffer has been sent.
-+ * Try to queue up another DMA buffer.
-+ */
-+static void lrw_uart_dma_tx_callback(void *data)
-+{
-+	struct lrw_uart_port *sup = data;
-+	struct tty_port *tport = &sup->port.state->port;
-+	struct lrw_uart_dmatx_data *dmatx = &sup->dmatx;
-+	unsigned long flags;
-+	u16 dmacr;
-+
-+	uart_port_lock_irqsave(&sup->port, &flags);
-+	if (sup->dmatx.queued)
-+		dma_unmap_single(dmatx->chan->device->dev, dmatx->dma,
-+				 dmatx->len, DMA_TO_DEVICE);
-+
-+	dmacr = sup->dmacr;
-+	sup->dmacr = dmacr & ~UARTFCCR_TXDMAE;
-+	lrw_uart_write(sup->dmacr, sup, REG_FCCR);
-+
-+	/*
-+	 * If TX DMA was disabled, it means that we've stopped the DMA for
-+	 * some reason (eg, XOFF received, or we want to send an X-char.)
-+	 *
-+	 * Note: we need to be careful here of a potential race between DMA
-+	 * and the rest of the driver - if the driver disables TX DMA while
-+	 * a TX buffer completing, we must update the tx queued status to
-+	 * get further refills (hence we check dmacr).
-+	 */
-+	if (!(dmacr & UARTFCCR_TXDMAE) || uart_tx_stopped(&sup->port) ||
-+	    kfifo_is_empty(&tport->xmit_fifo)) {
-+		sup->dmatx.queued = false;
-+		uart_port_unlock_irqrestore(&sup->port, flags);
-+		return;
-+	}
-+
-+	if (lrw_uart_dma_tx_refill(sup) <= 0)
-+		/*
-+		 * We didn't queue a DMA buffer for some reason, but we
-+		 * have data pending to be sent.  Re-enable the TX IRQ.
-+		 */
-+		lrw_uart_start_tx_pio(sup);
-+
-+	uart_port_unlock_irqrestore(&sup->port, flags);
-+}
-+
-+/*
-+ * Try to refill the TX DMA buffer.
-+ * Locking: called with port lock held and IRQs disabled.
-+ * Returns:
-+ *   1 if we queued up a TX DMA buffer.
-+ *   0 if we didn't want to handle this by DMA
-+ *  <0 on error
-+ */
-+static int lrw_uart_dma_tx_refill(struct lrw_uart_port *sup)
-+{
-+	struct lrw_uart_dmatx_data *dmatx = &sup->dmatx;
-+	struct dma_chan *chan = dmatx->chan;
-+	struct dma_device *dma_dev = chan->device;
-+	struct dma_async_tx_descriptor *desc;
-+	struct tty_port *tport = &sup->port.state->port;
-+	unsigned int count;
-+
-+	/*
-+	 * Try to avoid the overhead involved in using DMA if the
-+	 * transaction fits in the first half of the FIFO, by using
-+	 * the standard interrupt handling.  This ensures that we
-+	 * issue a uart_write_wakeup() at the appropriate time.
-+	 */
-+	count = kfifo_len(&tport->xmit_fifo);
-+	if (count < (sup->fifosize >> 1)) {
-+		sup->dmatx.queued = false;
-+		return 0;
-+	}
-+
-+	/*
-+	 * Bodge: don't send the last character by DMA, as this
-+	 * will prevent XON from notifying us to restart DMA.
-+	 */
-+	count -= 1;
-+
-+	/* Else proceed to copy the TX chars to the DMA buffer and fire DMA */
-+	if (count > LRW_UART_DMA_BUFFER_SIZE)
-+		count = LRW_UART_DMA_BUFFER_SIZE;
-+
-+	count = kfifo_out_peek(&tport->xmit_fifo, dmatx->buf, count);
-+	dmatx->len = count;
-+	dmatx->dma = dma_map_single(dma_dev->dev, dmatx->buf, count,
-+				    DMA_TO_DEVICE);
-+	if (dmatx->dma == DMA_MAPPING_ERROR) {
-+		sup->dmatx.queued = false;
-+		dev_dbg(sup->port.dev, "unable to map TX DMA\n");
-+		return -EBUSY;
-+	}
-+
-+	desc = dmaengine_prep_slave_single(chan, dmatx->dma, dmatx->len, DMA_MEM_TO_DEV,
-+					   DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
-+	if (!desc) {
-+		dma_unmap_single(dma_dev->dev, dmatx->dma, dmatx->len, DMA_TO_DEVICE);
-+		sup->dmatx.queued = false;
-+		/*
-+		 * If DMA cannot be used right now, we complete this
-+		 * transaction via IRQ and let the TTY layer retry.
-+		 */
-+		dev_dbg(sup->port.dev, "TX DMA busy\n");
-+		return -EBUSY;
-+	}
-+
-+	/* Some data to go along to the callback */
-+	desc->callback = lrw_uart_dma_tx_callback;
-+	desc->callback_param = sup;
-+
-+	/* All errors should happen at prepare time */
-+	dmaengine_submit(desc);
-+
-+	/* Fire the DMA transaction */
-+	dma_dev->device_issue_pending(chan);
-+
-+	sup->dmacr |= UARTFCCR_TXDMAE;
-+	lrw_uart_write(sup->dmacr, sup, REG_FCCR);
-+	sup->dmatx.queued = true;
-+
-+	/*
-+	 * Now we know that DMA will fire, so advance the ring buffer
-+	 * with the stuff we just dispatched.
-+	 */
-+	uart_xmit_advance(&sup->port, count);
-+
-+	if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
-+		uart_write_wakeup(&sup->port);
-+
-+	return 1;
-+}
-+
-+/*
-+ * We received a transmit interrupt without a pending X-char but with
-+ * pending characters.
-+ * Locking: called with port lock held and IRQs disabled.
-+ * Returns:
-+ *   false if we want to use PIO to transmit
-+ *   true if we queued a DMA buffer
-+ */
-+static bool lrw_uart_dma_tx_irq(struct lrw_uart_port *sup)
-+{
-+	if (!sup->using_tx_dma)
-+		return false;
-+
-+	/*
-+	 * If we already have a TX buffer queued, but received a
-+	 * TX interrupt, it will be because we've just sent an X-char.
-+	 * Ensure the TX DMA is enabled and the TX IRQ is disabled.
-+	 */
-+	if (sup->dmatx.queued) {
-+		sup->dmacr |= UARTFCCR_TXDMAE;
-+		lrw_uart_write(sup->dmacr, sup, REG_FCCR);
-+		sup->im &= ~UARTIMSC_TXIM;
-+		lrw_uart_write(sup->im, sup, REG_IMSC);
-+		return true;
-+	}
-+
-+	/*
-+	 * We don't have a TX buffer queued, so try to queue one.
-+	 * If we successfully queued a buffer, mask the TX IRQ.
-+	 */
-+	if (lrw_uart_dma_tx_refill(sup) > 0) {
-+		sup->im &= ~UARTIMSC_TXIM;
-+		lrw_uart_write(sup->im, sup, REG_IMSC);
-+		return true;
-+	}
-+	return false;
-+}
-+
-+/*
-+ * Stop the DMA transmit (eg, due to received XOFF).
-+ * Locking: called with port lock held and IRQs disabled.
-+ */
-+static inline void lrw_uart_dma_tx_stop(struct lrw_uart_port *sup)
-+{
-+	if (sup->dmatx.queued) {
-+		sup->dmacr &= ~UARTFCCR_TXDMAE;
-+		lrw_uart_write(sup->dmacr, sup, REG_FCCR);
-+	}
-+}
-+
-+/*
-+ * Try to start a DMA transmit, or in the case of an XON/OFF
-+ * character queued for send, try to get that character out ASAP.
-+ * Locking: called with port lock held and IRQs disabled.
-+ * Returns:
-+ *   false if we want the TX IRQ to be enabled
-+ *   true if we have a buffer queued
-+ */
-+static inline bool lrw_uart_dma_tx_start(struct lrw_uart_port *sup)
-+{
-+	u16 dmacr;
-+
-+	if (!sup->using_tx_dma)
-+		return false;
-+
-+	if (!sup->port.x_char) {
-+		/* no X-char, try to push chars out in DMA mode */
-+		bool ret = true;
-+
-+		if (!sup->dmatx.queued) {
-+			if (lrw_uart_dma_tx_refill(sup) > 0) {
-+				sup->im &= ~UARTIMSC_TXIM;
-+				lrw_uart_write(sup->im, sup, REG_IMSC);
-+			} else {
-+				ret = false;
-+			}
-+		} else if (!(sup->dmacr & UARTFCCR_TXDMAE)) {
-+			sup->dmacr |= UARTFCCR_TXDMAE;
-+			lrw_uart_write(sup->dmacr, sup, REG_FCCR);
-+		}
-+		return ret;
-+	}
-+
-+	/*
-+	 * We have an X-char to send.  Disable DMA to prevent it loading
-+	 * the TX fifo, and then see if we can stuff it into the FIFO.
-+	 */
-+	dmacr = sup->dmacr;
-+	sup->dmacr &= ~UARTFCCR_TXDMAE;
-+	lrw_uart_write(sup->dmacr, sup, REG_FCCR);
-+
-+	if (lrw_uart_read(sup, REG_FR) & UARTFR_TXFF) {
-+		/*
-+		 * No space in the FIFO, so enable the transmit interrupt
-+		 * so we know when there is space.  Note that once we've
-+		 * loaded the character, we should just re-enable DMA.
-+		 */
-+		return false;
-+	}
-+
-+	lrw_uart_write(sup->port.x_char, sup, REG_DR);
-+	sup->port.icount.tx++;
-+	sup->port.x_char = 0;
-+
-+	/* Success - restore the DMA state */
-+	sup->dmacr = dmacr;
-+	lrw_uart_write(dmacr, sup, REG_FCCR);
-+
-+	return true;
-+}
-+
-+/*
-+ * Flush the transmit buffer.
-+ * Locking: called with port lock held and IRQs disabled.
-+ */
-+static void lrw_uart_dma_flush_buffer(struct uart_port *port)
-+__releases(&sup->port.lock)
-+__acquires(&sup->port.lock)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+
-+	if (!sup->using_tx_dma)
-+		return;
-+
-+	dmaengine_terminate_async(sup->dmatx.chan);
-+
-+	if (sup->dmatx.queued) {
-+		dma_unmap_single(sup->dmatx.chan->device->dev, sup->dmatx.dma,
-+				 sup->dmatx.len, DMA_TO_DEVICE);
-+		sup->dmatx.queued = false;
-+		sup->dmacr &= ~UARTFCCR_TXDMAE;
-+		lrw_uart_write(sup->dmacr, sup, REG_FCCR);
-+	}
-+}
-+
-+static void lrw_uart_dma_rx_callback(void *data);
-+
-+static int lrw_uart_dma_rx_trigger_dma(struct lrw_uart_port *sup)
-+{
-+	struct dma_chan *rxchan = sup->dmarx.chan;
-+	struct lrw_uart_dmarx_data *dmarx = &sup->dmarx;
-+	struct dma_async_tx_descriptor *desc;
-+	struct lrw_uart_dmabuf *dbuf;
-+
-+	if (!rxchan)
-+		return -EIO;
-+
-+	/* Start the RX DMA job */
-+	dbuf = sup->dmarx.use_buf_b ?
-+		&sup->dmarx.dbuf_b : &sup->dmarx.dbuf_a;
-+	desc = dmaengine_prep_slave_single(rxchan, dbuf->dma, dbuf->len,
-+					   DMA_DEV_TO_MEM,
-+					   DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
-+	/*
-+	 * If the DMA engine is busy and cannot prepare a
-+	 * channel, no big deal, the driver will fall back
-+	 * to interrupt mode as a result of this error code.
-+	 */
-+	if (!desc) {
-+		sup->dmarx.running = false;
-+		dmaengine_terminate_all(rxchan);
-+		return -EBUSY;
-+	}
-+
-+	/* Some data to go along to the callback */
-+	desc->callback = lrw_uart_dma_rx_callback;
-+	desc->callback_param = sup;
-+	dmarx->cookie = dmaengine_submit(desc);
-+	dma_async_issue_pending(rxchan);
-+
-+	sup->dmacr |= UARTFCCR_RXDMAE;
-+	lrw_uart_write(sup->dmacr, sup, REG_FCCR);
-+	sup->dmarx.running = true;
-+
-+	sup->im &= ~UARTIMSC_RXIM;
-+	lrw_uart_write(sup->im, sup, REG_IMSC);
-+
-+	return 0;
-+}
-+
-+/*
-+ * This is called when either the DMA job is complete, or
-+ * the FIFO timeout interrupt occurred. This must be called
-+ * with the port spinlock sup->port.lock held.
-+ */
-+static void lrw_uart_dma_rx_chars(struct lrw_uart_port *sup,
-+				  u32 pending, bool use_buf_b,
-+				  bool readfifo)
-+{
-+	struct tty_port *port = &sup->port.state->port;
-+	struct lrw_uart_dmabuf *dbuf = use_buf_b ?
-+		&sup->dmarx.dbuf_b : &sup->dmarx.dbuf_a;
-+	int dma_count = 0;
-+	u32 fifotaken = 0; /* only used for vdbg() */
-+
-+	struct lrw_uart_dmarx_data *dmarx = &sup->dmarx;
-+	int dmataken = 0;
-+
-+	if (sup->dmarx.poll_rate) {
-+		/* The data can be taken by polling */
-+		dmataken = dbuf->len - dmarx->last_residue;
-+		/* Recalculate the pending size */
-+		if (pending >= dmataken)
-+			pending -= dmataken;
-+	}
-+
-+	/* Pick the remain data from the DMA */
-+	if (pending) {
-+		/*
-+		 * First take all chars in the DMA pipe, then look in the FIFO.
-+		 * Note that tty_insert_flip_buf() tries to take as many chars
-+		 * as it can.
-+		 */
-+		dma_count = tty_insert_flip_string(port, dbuf->buf + dmataken, pending);
-+
-+		sup->port.icount.rx += dma_count;
-+		if (dma_count < pending)
-+			dev_warn(sup->port.dev,
-+				 "couldn't insert all characters (TTY is full?)\n");
-+	}
-+
-+	/* Reset the last_residue for Rx DMA poll */
-+	if (sup->dmarx.poll_rate)
-+		dmarx->last_residue = dbuf->len;
-+
-+	/*
-+	 * Only continue with trying to read the FIFO if all DMA chars have
-+	 * been taken first.
-+	 */
-+	if (dma_count == pending && readfifo) {
-+		/* Clear any error flags */
-+		lrw_uart_write(UARTICR_OEIC | UARTICR_BEIC | UARTICR_PEIC |
-+			      UARTICR_FEIC, sup, REG_ICR);
-+
-+		/*
-+		 * If we read all the DMA'd characters, and we had an
-+		 * incomplete buffer, that could be due to an rx error, or
-+		 * maybe we just timed out. Read any pending chars and check
-+		 * the error status.
-+		 *
-+		 * Error conditions will only occur in the FIFO, these will
-+		 * trigger an immediate interrupt and stop the DMA job, so we
-+		 * will always find the error in the FIFO, never in the DMA
-+		 * buffer.
-+		 */
-+		fifotaken = lrw_uart_fifo_to_tty(sup);
-+	}
-+
-+	dev_vdbg(sup->port.dev,
-+		 "Took %d chars from DMA buffer and %d chars from the FIFO\n",
-+		 dma_count, fifotaken);
-+	tty_flip_buffer_push(port);
-+}
-+
-+static void lrw_uart_dma_rx_irq(struct lrw_uart_port *sup)
-+{
-+	struct lrw_uart_dmarx_data *dmarx = &sup->dmarx;
-+	struct dma_chan *rxchan = dmarx->chan;
-+	struct lrw_uart_dmabuf *dbuf = dmarx->use_buf_b ?
-+		&dmarx->dbuf_b : &dmarx->dbuf_a;
-+	size_t pending;
-+	struct dma_tx_state state;
-+	enum dma_status dmastat;
-+
-+	/*
-+	 * Pause the transfer so we can trust the current counter,
-+	 * do this before we pause the LRW UART block, else we may
-+	 * overflow the FIFO.
-+	 */
-+	if (dmaengine_pause(rxchan))
-+		dev_err(sup->port.dev, "unable to pause DMA transfer\n");
-+	dmastat = rxchan->device->device_tx_status(rxchan,
-+						   dmarx->cookie, &state);
-+	if (dmastat != DMA_PAUSED)
-+		dev_err(sup->port.dev, "unable to pause DMA transfer\n");
-+
-+	/* Disable RX DMA - incoming data will wait in the FIFO */
-+	sup->dmacr &= ~UARTFCCR_RXDMAE;
-+	lrw_uart_write(sup->dmacr, sup, REG_FCCR);
-+	sup->dmarx.running = false;
-+
-+	pending = dbuf->len - state.residue;
-+	if (WARN_ONCE(pending > LRW_UART_DMA_BUFFER_SIZE,
-+		      "pending %zu exceeds DMA buffer size %zu\n",
-+		      pending, LRW_UART_DMA_BUFFER_SIZE))
-+		pending = LRW_UART_DMA_BUFFER_SIZE;
-+	/* Then we terminate the transfer - we now know our residue */
-+	dmaengine_terminate_all(rxchan);
-+
-+	/*
-+	 * This will take the chars we have so far and insert
-+	 * into the framework.
-+	 */
-+	lrw_uart_dma_rx_chars(sup, pending, dmarx->use_buf_b, true);
-+
-+	/* Switch buffer & re-trigger DMA job */
-+	dmarx->use_buf_b = !dmarx->use_buf_b;
-+	if (lrw_uart_dma_rx_trigger_dma(sup)) {
-+		dev_dbg(sup->port.dev,
-+			"could not retrigger RX DMA job fall back to interrupt mode\n");
-+		sup->im |= UARTIMSC_RXIM;
-+		lrw_uart_write(sup->im, sup, REG_IMSC);
-+	}
-+}
-+
-+static void lrw_uart_dma_rx_callback(void *data)
-+{
-+	struct lrw_uart_port *sup = data;
-+	struct lrw_uart_dmarx_data *dmarx = &sup->dmarx;
-+	struct dma_chan *rxchan = dmarx->chan;
-+	bool lastbuf = dmarx->use_buf_b;
-+	struct lrw_uart_dmabuf *dbuf = dmarx->use_buf_b ?
-+		&dmarx->dbuf_b : &dmarx->dbuf_a;
-+	size_t pending;
-+	struct dma_tx_state state;
-+	int ret;
-+
-+	/*
-+	 * This completion interrupt occurs typically when the
-+	 * RX buffer is totally stuffed but no timeout has yet
-+	 * occurred. When that happens, we just want the RX
-+	 * routine to flush out the secondary DMA buffer while
-+	 * we immediately trigger the next DMA job.
-+	 */
-+	uart_port_lock_irq(&sup->port);
-+	/*
-+	 * Rx data can be taken by the UART interrupts during
-+	 * the DMA irq handler. So we check the residue here.
-+	 */
-+	rxchan->device->device_tx_status(rxchan, dmarx->cookie, &state);
-+	pending = dbuf->len - state.residue;
-+	if (WARN_ONCE(pending > LRW_UART_DMA_BUFFER_SIZE,
-+		      "pending %zu exceeds DMA buffer size %zu\n",
-+		      pending, LRW_UART_DMA_BUFFER_SIZE))
-+		pending = LRW_UART_DMA_BUFFER_SIZE;
-+	/* Then we terminate the transfer - we now know our residue */
-+	dmaengine_terminate_all(rxchan);
-+
-+	sup->dmarx.running = false;
-+	dmarx->use_buf_b = !lastbuf;
-+	ret = lrw_uart_dma_rx_trigger_dma(sup);
-+
-+	lrw_uart_dma_rx_chars(sup, pending, lastbuf, false);
-+	uart_unlock_and_check_sysrq(&sup->port);
-+	/*
-+	 * Do this check after we picked the DMA chars so we don't
-+	 * get some IRQ immediately from RX.
-+	 */
-+	if (ret) {
-+		dev_dbg(sup->port.dev,
-+			"could not retrigger RX DMA job fall back to interrupt mode\n");
-+		sup->im |= UARTIMSC_RXIM;
-+		lrw_uart_write(sup->im, sup, REG_IMSC);
-+	}
-+}
-+
-+/*
-+ * Stop accepting received characters, when we're shutting down or
-+ * suspending this port.
-+ * Locking: called with port lock held and IRQs disabled.
-+ */
-+static inline void lrw_uart_dma_rx_stop(struct lrw_uart_port *sup)
-+{
-+	if (!sup->using_rx_dma)
-+		return;
-+
-+	/* FIXME.  Just disable the DMA enable */
-+	sup->dmacr &= ~UARTFCCR_RXDMAE;
-+	lrw_uart_write(sup->dmacr, sup, REG_FCCR);
-+}
-+
-+/*
-+ * Timer handler for Rx DMA polling.
-+ * Every polling, It checks the residue in the dma buffer and transfer
-+ * data to the tty. Also, last_residue is updated for the next polling.
-+ */
-+static void lrw_uart_dma_rx_poll(struct timer_list *t)
-+{
-+	struct lrw_uart_port *sup = timer_container_of(sup, t, dmarx.timer);
-+	struct tty_port *port = &sup->port.state->port;
-+	struct lrw_uart_dmarx_data *dmarx = &sup->dmarx;
-+	struct dma_chan *rxchan = sup->dmarx.chan;
-+	unsigned long flags;
-+	unsigned int dmataken = 0;
-+	unsigned int size = 0;
-+	struct lrw_uart_dmabuf *dbuf;
-+	int dma_count;
-+	struct dma_tx_state state;
-+
-+	dbuf = dmarx->use_buf_b ? &sup->dmarx.dbuf_b : &sup->dmarx.dbuf_a;
-+	rxchan->device->device_tx_status(rxchan, dmarx->cookie, &state);
-+	if (likely(state.residue < dmarx->last_residue)) {
-+		dmataken = dbuf->len - dmarx->last_residue;
-+		size = dmarx->last_residue - state.residue;
-+		dma_count = tty_insert_flip_string(port, dbuf->buf + dmataken,
-+						   size);
-+		if (dma_count == size)
-+			dmarx->last_residue =  state.residue;
-+		dmarx->last_jiffies = jiffies;
-+	}
-+	tty_flip_buffer_push(port);
-+
-+	/*
-+	 * If no data is received in poll_timeout, the driver will fall back
-+	 * to interrupt mode. We will retrigger DMA at the first interrupt.
-+	 */
-+	if (jiffies_to_msecs(jiffies - dmarx->last_jiffies)
-+			> sup->dmarx.poll_timeout) {
-+		uart_port_lock_irqsave(&sup->port, &flags);
-+		lrw_uart_dma_rx_stop(sup);
-+		sup->im |= UARTIMSC_RXIM;
-+		lrw_uart_write(sup->im, sup, REG_IMSC);
-+		uart_port_unlock_irqrestore(&sup->port, flags);
-+
-+		sup->dmarx.running = false;
-+		dmaengine_terminate_all(rxchan);
-+		timer_delete(&sup->dmarx.timer);
-+	} else {
-+		mod_timer(&sup->dmarx.timer,
-+			  jiffies + msecs_to_jiffies(sup->dmarx.poll_rate));
-+	}
-+}
-+
-+static void lrw_uart_dma_startup(struct lrw_uart_port *sup)
-+{
-+	int ret;
-+
-+	if (!sup->dma_probed)
-+		lrw_uart_dma_probe(sup);
-+
-+	if (!sup->dmatx.chan)
-+		return;
-+
-+	sup->dmatx.buf = kmalloc(LRW_UART_DMA_BUFFER_SIZE, GFP_KERNEL | __GFP_DMA);
-+	if (!sup->dmatx.buf) {
-+		sup->port.fifosize = sup->fifosize;
-+		return;
-+	}
-+
-+	sup->dmatx.len = LRW_UART_DMA_BUFFER_SIZE;
-+
-+	/* The DMA buffer is now the FIFO the TTY subsystem can use */
-+	sup->port.fifosize = LRW_UART_DMA_BUFFER_SIZE;
-+	sup->using_tx_dma = true;
-+
-+	if (!sup->dmarx.chan)
-+		goto skip_rx;
-+
-+	/* Allocate and map DMA RX buffers */
-+	ret = lrw_uart_dmabuf_init(sup->dmarx.chan, &sup->dmarx.dbuf_a,
-+				  DMA_FROM_DEVICE);
-+	if (ret) {
-+		dev_err(sup->port.dev, "failed to init DMA %s: %d\n",
-+			"RX buffer A", ret);
-+		goto skip_rx;
-+	}
-+
-+	ret = lrw_uart_dmabuf_init(sup->dmarx.chan, &sup->dmarx.dbuf_b,
-+				  DMA_FROM_DEVICE);
-+	if (ret) {
-+		dev_err(sup->port.dev, "failed to init DMA %s: %d\n",
-+			"RX buffer B", ret);
-+		lrw_uart_dmabuf_free(sup->dmarx.chan, &sup->dmarx.dbuf_a,
-+				    DMA_FROM_DEVICE);
-+		goto skip_rx;
-+	}
-+
-+	sup->using_rx_dma = true;
-+
-+skip_rx:
-+	/* Turn on DMA error (RX/TX will be enabled on demand) */
-+	sup->dmacr |= UARTFCCR_DMAONERR;
-+	lrw_uart_write(sup->dmacr, sup, REG_FCCR);
-+
-+	if (sup->using_rx_dma) {
-+		if (lrw_uart_dma_rx_trigger_dma(sup))
-+			dev_dbg(sup->port.dev,
-+				"could not trigger initial RX DMA job, fall back to interrupt mode\n");
-+		if (sup->dmarx.poll_rate) {
-+			timer_setup(&sup->dmarx.timer, lrw_uart_dma_rx_poll, 0);
-+			mod_timer(&sup->dmarx.timer,
-+				  jiffies + msecs_to_jiffies(sup->dmarx.poll_rate));
-+			sup->dmarx.last_residue = LRW_UART_DMA_BUFFER_SIZE;
-+			sup->dmarx.last_jiffies = jiffies;
-+		}
-+	}
-+}
-+
-+static void lrw_uart_dma_shutdown(struct lrw_uart_port *sup)
-+{
-+	if (!(sup->using_tx_dma || sup->using_rx_dma))
-+		return;
-+
-+	/* Disable RX and TX DMA */
-+	while (lrw_uart_read(sup, REG_FR) & sup->vendor->fr_busy)
-+		cpu_relax();
-+
-+	uart_port_lock_irq(&sup->port);
-+	sup->dmacr &= ~(UARTFCCR_DMAONERR | UARTFCCR_RXDMAE | UARTFCCR_TXDMAE);
-+	lrw_uart_write(sup->dmacr, sup, REG_FCCR);
-+	uart_port_unlock_irq(&sup->port);
-+
-+	if (sup->using_tx_dma) {
-+		/* In theory, this should already be done by lrw_uart_dma_flush_buffer */
-+		dmaengine_terminate_all(sup->dmatx.chan);
-+		if (sup->dmatx.queued) {
-+			dma_unmap_single(sup->dmatx.chan->device->dev,
-+					 sup->dmatx.dma, sup->dmatx.len,
-+					 DMA_TO_DEVICE);
-+			sup->dmatx.queued = false;
-+		}
-+
-+		kfree(sup->dmatx.buf);
-+		sup->using_tx_dma = false;
-+	}
-+
-+	if (sup->using_rx_dma) {
-+		dmaengine_terminate_all(sup->dmarx.chan);
-+		/* Clean up the RX DMA */
-+		lrw_uart_dmabuf_free(sup->dmarx.chan, &sup->dmarx.dbuf_a, DMA_FROM_DEVICE);
-+		lrw_uart_dmabuf_free(sup->dmarx.chan, &sup->dmarx.dbuf_b, DMA_FROM_DEVICE);
-+		if (sup->dmarx.poll_rate)
-+			timer_delete_sync(&sup->dmarx.timer);
-+		sup->using_rx_dma = false;
-+	}
-+}
-+
-+static inline bool lrw_uart_dma_rx_available(struct lrw_uart_port *sup)
-+{
-+	return sup->using_rx_dma;
-+}
-+
-+static inline bool lrw_uart_dma_rx_running(struct lrw_uart_port *sup)
-+{
-+	return sup->using_rx_dma && sup->dmarx.running;
-+}
-+
-+#else
-+/* Blank functions if the DMA engine is not available */
-+static inline void lrw_uart_dma_remove(struct lrw_uart_port *sup)
-+{
-+}
-+
-+static inline void lrw_uart_dma_startup(struct lrw_uart_port *sup)
-+{
-+}
-+
-+static inline void lrw_uart_dma_shutdown(struct lrw_uart_port *sup)
-+{
-+}
-+
-+static inline bool lrw_uart_dma_tx_irq(struct lrw_uart_port *sup)
-+{
-+	return false;
-+}
-+
-+static inline void lrw_uart_dma_tx_stop(struct lrw_uart_port *sup)
-+{
-+}
-+
-+static inline bool lrw_uart_dma_tx_start(struct lrw_uart_port *sup)
-+{
-+	return false;
-+}
-+
-+static inline void lrw_uart_dma_rx_irq(struct lrw_uart_port *sup)
-+{
-+}
-+
-+static inline void lrw_uart_dma_rx_stop(struct lrw_uart_port *sup)
-+{
-+}
-+
-+static inline int lrw_uart_dma_rx_trigger_dma(struct lrw_uart_port *sup)
-+{
-+	return -EIO;
-+}
-+
-+static inline bool lrw_uart_dma_rx_available(struct lrw_uart_port *sup)
-+{
-+	return false;
-+}
-+
-+static inline bool lrw_uart_dma_rx_running(struct lrw_uart_port *sup)
-+{
-+	return false;
-+}
-+
-+#define lrw_uart_dma_flush_buffer	NULL
-+#endif
-+
-+static void lrw_uart_rs485_tx_stop(struct lrw_uart_port *sup)
-+{
-+	/*
-+	 * To be on the safe side only time out after twice as many iterations
-+	 * as fifo size.
-+	 */
-+	const int MAX_TX_DRAIN_ITERS = sup->port.fifosize * 2;
-+	struct uart_port *port = &sup->port;
-+	int i = 0;
-+	u32 mcr, mcfg;
-+
-+	/* Wait until hardware tx queue is empty */
-+	while (!lrw_uart_tx_empty(port)) {
-+		if (i > MAX_TX_DRAIN_ITERS) {
-+			dev_warn(port->dev,
-+				 "timeout while draining hardware tx queue\n");
-+			break;
-+		}
-+
-+		udelay(sup->rs485_tx_drain_interval);
-+		i++;
-+	}
-+
-+	if (port->rs485.delay_rts_after_send)
-+		mdelay(port->rs485.delay_rts_after_send);
-+
-+	mcr = lrw_uart_read(sup, REG_MCR);
-+
-+	if (port->rs485.flags & SER_RS485_RTS_AFTER_SEND)
-+		mcr &= ~UARTMCR_RTS;
-+	else
-+		mcr |= UARTMCR_RTS;
-+
-+	lrw_uart_write(mcr, sup, REG_MCR);
-+
-+	/* Disable the transmitter and reenable the transceiver */
-+	mcfg = lrw_uart_read(sup, REG_MCFG);
-+	mcfg &= ~UARTMCFG_TXE;
-+	mcfg |= UARTMCFG_RXE;
-+	lrw_uart_write(mcfg, sup, REG_MCFG);
-+
-+	sup->rs485_tx_started = false;
-+}
-+
-+static void lrw_uart_stop_tx(struct uart_port *port)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+
-+	sup->im &= ~UARTIMSC_TXIM;
-+	lrw_uart_write(sup->im, sup, REG_IMSC);
-+	lrw_uart_dma_tx_stop(sup);
-+
-+	if ((port->rs485.flags & SER_RS485_ENABLED) && sup->rs485_tx_started)
-+		lrw_uart_rs485_tx_stop(sup);
-+}
-+
-+static bool lrw_uart_tx_chars(struct lrw_uart_port *sup, bool from_irq);
-+
-+/* Start TX with programmed I/O only (no DMA) */
-+static void lrw_uart_start_tx_pio(struct lrw_uart_port *sup)
-+{
-+	if (lrw_uart_tx_chars(sup, false)) {
-+		sup->im |= UARTIMSC_TXIM;
-+		lrw_uart_write(sup->im, sup, REG_IMSC);
-+	}
-+}
-+
-+static void lrw_uart_rs485_tx_start(struct lrw_uart_port *sup)
-+{
-+	struct uart_port *port = &sup->port;
-+	u32 mcr, mcfg;
-+
-+	/* Enable transmitter */
-+	mcfg = lrw_uart_read(sup, REG_MCFG);
-+	mcfg |= UARTMCFG_TXE;
-+
-+	/* Disable receiver if half-duplex */
-+	if (!(port->rs485.flags & SER_RS485_RX_DURING_TX))
-+		mcfg &= ~UARTMCFG_RXE;
-+
-+	lrw_uart_write(mcfg, sup, REG_MCFG);
-+
-+	mcr = lrw_uart_read(sup, REG_MCR);
-+	if (port->rs485.flags & SER_RS485_RTS_ON_SEND)
-+		mcr &= ~UARTMCR_RTS;
-+	else
-+		mcr |= UARTMCR_RTS;
-+
-+	lrw_uart_write(mcr, sup, REG_MCR);
-+
-+	if (port->rs485.delay_rts_before_send)
-+		mdelay(port->rs485.delay_rts_before_send);
-+
-+	sup->rs485_tx_started = true;
-+}
-+
-+static void lrw_uart_start_tx(struct uart_port *port)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+
-+	if ((sup->port.rs485.flags & SER_RS485_ENABLED) &&
-+	    !sup->rs485_tx_started)
-+		lrw_uart_rs485_tx_start(sup);
-+
-+	if (!lrw_uart_dma_tx_start(sup))
-+		lrw_uart_start_tx_pio(sup);
-+}
-+
-+static void lrw_uart_stop_rx(struct uart_port *port)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+
-+	sup->im &= ~(UARTIMSC_RXIM | UARTIMSC_RTIM | UARTIMSC_FEIM |
-+		     UARTIMSC_PEIM | UARTIMSC_BEIM | UARTIMSC_OEIM);
-+	lrw_uart_write(sup->im, sup, REG_IMSC);
-+
-+	lrw_uart_dma_rx_stop(sup);
-+}
-+
-+static void lrw_uart_throttle_rx(struct uart_port *port)
-+{
-+	unsigned long flags;
-+
-+	uart_port_lock_irqsave(port, &flags);
-+	lrw_uart_stop_rx(port);
-+	uart_port_unlock_irqrestore(port, flags);
-+}
-+
-+static void lrw_uart_enable_ms(struct uart_port *port)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+
-+	sup->im |= UARTIMSC_RIMIM | UARTIMSC_CTSMIM | UARTIMSC_DCDMIM | UARTIMSC_DSRMIM;
-+	lrw_uart_write(sup->im, sup, REG_IMSC);
-+}
-+
-+static void lrw_uart_rx_chars(struct lrw_uart_port *sup)
-+__releases(&sup->port.lock)
-+__acquires(&sup->port.lock)
-+{
-+	lrw_uart_fifo_to_tty(sup);
-+
-+	uart_port_unlock(&sup->port);
-+	tty_flip_buffer_push(&sup->port.state->port);
-+	/*
-+	 * If we were temporarily out of DMA mode for a while,
-+	 * attempt to switch back to DMA mode again.
-+	 */
-+	if (lrw_uart_dma_rx_available(sup)) {
-+		if (lrw_uart_dma_rx_trigger_dma(sup)) {
-+			dev_dbg(sup->port.dev,
-+				"could not trigger RX DMA job fall back to interrupt mode again\n");
-+			sup->im |= UARTIMSC_RXIM;
-+			lrw_uart_write(sup->im, sup, REG_IMSC);
-+		} else {
-+#ifdef CONFIG_DMA_ENGINE
-+			/* Start Rx DMA poll */
-+			if (sup->dmarx.poll_rate) {
-+				sup->dmarx.last_jiffies = jiffies;
-+				sup->dmarx.last_residue	= LRW_UART_DMA_BUFFER_SIZE;
-+				mod_timer(&sup->dmarx.timer,
-+					  jiffies + msecs_to_jiffies(sup->dmarx.poll_rate));
-+			}
-+#endif
-+		}
-+	}
-+	uart_port_lock(&sup->port);
-+}
-+
-+static bool lrw_uart_tx_char(struct lrw_uart_port *sup, unsigned char c,
-+			    bool from_irq)
-+{
-+	if (unlikely(!from_irq) &&
-+	    lrw_uart_read(sup, REG_FR) & UARTFR_TXFF)
-+		return false; /* unable to transmit character */
-+
-+	lrw_uart_write(c, sup, REG_DR);
-+	sup->port.icount.tx++;
-+
-+	return true;
-+}
-+
-+/* Returns true if tx interrupts have to be (kept) enabled  */
-+static bool lrw_uart_tx_chars(struct lrw_uart_port *sup, bool from_irq)
-+{
-+	struct tty_port *tport = &sup->port.state->port;
-+	int count = sup->fifosize >> 1;
-+
-+	if (sup->port.x_char) {
-+		if (!lrw_uart_tx_char(sup, sup->port.x_char, from_irq))
-+			return true;
-+		sup->port.x_char = 0;
-+		--count;
-+	}
-+	if (kfifo_is_empty(&tport->xmit_fifo) || uart_tx_stopped(&sup->port)) {
-+		lrw_uart_stop_tx(&sup->port);
-+		return false;
-+	}
-+
-+	/* If we are using DMA mode, try to send some characters. */
-+	if (lrw_uart_dma_tx_irq(sup))
-+		return true;
-+
-+	while (1) {
-+		unsigned char c;
-+
-+		if (likely(from_irq) && count-- == 0)
-+			break;
-+
-+		if (!kfifo_peek(&tport->xmit_fifo, &c))
-+			break;
-+
-+		if (!lrw_uart_tx_char(sup, c, from_irq))
-+			break;
-+
-+		kfifo_skip(&tport->xmit_fifo);
-+	}
-+
-+	if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
-+		uart_write_wakeup(&sup->port);
-+
-+	if (kfifo_is_empty(&tport->xmit_fifo)) {
-+		lrw_uart_stop_tx(&sup->port);
-+		return false;
-+	}
-+	return true;
-+}
-+
-+static void lrw_uart_modem_status(struct lrw_uart_port *sup)
-+{
-+	unsigned int status, delta;
-+
-+	status = lrw_uart_read(sup, REG_FR) & UARTFR_MODEM_ANY;
-+
-+	delta = status ^ sup->old_status;
-+	sup->old_status = status;
-+
-+	if (!delta)
-+		return;
-+
-+	if (delta & UARTFR_DCD)
-+		uart_handle_dcd_change(&sup->port, status & UARTFR_DCD);
-+
-+	if (delta & sup->vendor->fr_dsr)
-+		sup->port.icount.dsr++;
-+
-+	if (delta & sup->vendor->fr_cts)
-+		uart_handle_cts_change(&sup->port,
-+				       status & sup->vendor->fr_cts);
-+
-+	wake_up_interruptible(&sup->port.state->port.delta_msr_wait);
-+}
-+
-+static void check_apply_cts_event_workaround(struct lrw_uart_port *sup)
-+{
-+	if (!sup->vendor->cts_event_workaround)
-+		return;
-+
-+	/* workaround to make sure that all bits are unlocked.. */
-+	lrw_uart_write(0x00, sup, REG_ICR);
-+
-+	/*
-+	 * WA: introduce 26ns(1 uart clk) delay before W1C;
-+	 * single apb access will incur 2 pclk(133.12Mhz) delay,
-+	 * so add 2 dummy reads
-+	 */
-+	lrw_uart_read(sup, REG_ICR);
-+	lrw_uart_read(sup, REG_ICR);
-+}
-+
-+static irqreturn_t lrw_uart_int(int irq, void *dev_id)
-+{
-+	struct lrw_uart_port *sup = dev_id;
-+	unsigned int status, pass_counter = ISR_PASS_LIMIT;
-+	int handled = 0;
-+
-+	uart_port_lock(&sup->port);
-+	status = lrw_uart_read(sup, REG_RIS) & sup->im;
-+	if (status) {
-+		do {
-+			check_apply_cts_event_workaround(sup);
-+
-+			lrw_uart_write(status & ~(UARTICR_TXIC | UARTICR_RTIC | UARTICR_RXIC),
-+				      sup, REG_ICR);
-+
-+			if (status & (UARTICR_RTIC | UARTICR_RXIC)) {
-+				if (lrw_uart_dma_rx_running(sup))
-+					lrw_uart_dma_rx_irq(sup);
-+				else
-+					lrw_uart_rx_chars(sup);
-+			}
-+			if (status & (UARTICR_DSRMIC | UARTICR_DCDMIC |
-+				      UARTICR_CTSMIC | UARTICR_RIMIC))
-+				lrw_uart_modem_status(sup);
-+			if (status & UARTICR_TXIC)
-+				lrw_uart_tx_chars(sup, true);
-+
-+			if (pass_counter-- == 0)
-+				break;
-+
-+			status = lrw_uart_read(sup, REG_RIS) & sup->im;
-+		} while (status != 0);
-+		handled = 1;
-+	}
-+
-+	uart_unlock_and_check_sysrq(&sup->port);
-+
-+	return IRQ_RETVAL(handled);
-+}
-+
-+static unsigned int lrw_uart_tx_empty(struct uart_port *port)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+
-+	/* Allow feature register bits to be inverted to work around errata */
-+	unsigned int status = lrw_uart_read(sup, REG_FR) ^ sup->vendor->inv_fr;
-+
-+	return status & (sup->vendor->fr_busy | UARTFR_TXFF) ?
-+							0 : TIOCSER_TEMT;
-+}
-+
-+static void lrw_uart_maybe_set_bit(bool cond, unsigned int *ptr, unsigned int mask)
-+{
-+	if (cond)
-+		*ptr |= mask;
-+}
-+
-+static unsigned int lrw_uart_get_mctrl(struct uart_port *port)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+	unsigned int result = 0;
-+	unsigned int status = lrw_uart_read(sup, REG_FR);
-+
-+	lrw_uart_maybe_set_bit(status & UARTFR_DCD, &result, TIOCM_CAR);
-+	lrw_uart_maybe_set_bit(status & sup->vendor->fr_dsr, &result, TIOCM_DSR);
-+	lrw_uart_maybe_set_bit(status & sup->vendor->fr_cts, &result, TIOCM_CTS);
-+	lrw_uart_maybe_set_bit(status & sup->vendor->fr_ri, &result, TIOCM_RNG);
-+
-+	return result;
-+}
-+
-+static void lrw_uart_assign_bit(bool cond, unsigned int *ptr, unsigned int mask)
-+{
-+	if (cond)
-+		*ptr |= mask;
-+	else
-+		*ptr &= ~mask;
-+}
-+
-+static void lrw_uart_set_mctrl(struct uart_port *port, unsigned int mctrl)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+	unsigned int mcr;
-+	unsigned int mcfg;
-+	unsigned int fccr;
-+
-+	mcr = lrw_uart_read(sup, REG_MCR);
-+	mcfg = lrw_uart_read(sup, REG_MCFG);
-+	fccr = lrw_uart_read(sup, REG_FCCR);
-+
-+	lrw_uart_assign_bit(mctrl & TIOCM_RTS, &mcr, UARTMCR_RTS);
-+	lrw_uart_assign_bit(mctrl & TIOCM_DTR, &mcr, UARTMCR_DTR);
-+	lrw_uart_assign_bit(mctrl & TIOCM_OUT1, &mcr, UARTMCR_OUT1);
-+	lrw_uart_assign_bit(mctrl & TIOCM_OUT2, &mcr, UARTMCR_OUT2);
-+	lrw_uart_assign_bit(mctrl & TIOCM_LOOP, &mcfg, UARTMCFG_LBE);
-+
-+	if (port->status & UPSTAT_AUTORTS) {
-+		/* We need to disable auto-RTS if we want to turn RTS off */
-+		lrw_uart_assign_bit(mctrl & TIOCM_RTS, &fccr, UARTFCCR_RTSEN);
-+	}
-+
-+	lrw_uart_write(mcr, sup, REG_MCR);
-+	lrw_uart_write(mcfg, sup, REG_MCFG);
-+	lrw_uart_write(fccr, sup, REG_FCCR);
-+}
-+
-+static void lrw_uart_break_ctl(struct uart_port *port, int break_state)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+	unsigned long flags;
-+	unsigned int mcfg;
-+
-+	uart_port_lock_irqsave(&sup->port, &flags);
-+	mcfg = lrw_uart_read(sup, REG_MCFG);
-+	if (break_state == -1)
-+		mcfg |= UARTMCFG_BRK;
-+	else
-+		mcfg &= ~UARTMCFG_BRK;
-+	lrw_uart_write(mcfg, sup, REG_MCFG);
-+	uart_port_unlock_irqrestore(&sup->port, flags);
-+}
-+
-+#ifdef CONFIG_CONSOLE_POLL
-+
-+static void lrw_uart_quiesce_irqs(struct uart_port *port)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+
-+	lrw_uart_write(lrw_uart_read(sup, REG_MIS), sup, REG_ICR);
-+	/*
-+	 * There is no way to clear TXIM as this is "ready to transmit IRQ", so
-+	 * we simply mask it. start_tx() will unmask it.
-+	 *
-+	 * Note we can race with start_tx(), and if the race happens, the
-+	 * polling user might get another interrupt just after we clear it.
-+	 * But it should be OK and can happen even w/o the race, e.g.
-+	 * controller immediately got some new data and raised the IRQ.
-+	 *
-+	 * And whoever uses polling routines assumes that it manages the device
-+	 * (including tx queue), so we're also fine with start_tx()'s caller
-+	 * side.
-+	 */
-+	lrw_uart_write(lrw_uart_read(sup, REG_IMSC) & ~UARTIMSC_TXIM, sup,
-+		    REG_IMSC);
-+}
-+
-+static int lrw_uart_get_poll_char(struct uart_port *port)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+	unsigned int status;
-+
-+	/*
-+	 * The caller might need IRQs lowered, e.g. if used with KDB NMI
-+	 * debugger.
-+	 */
-+	lrw_uart_quiesce_irqs(port);
-+
-+	status = lrw_uart_read(sup, REG_FR);
-+	if (status & UARTFR_RXFE)
-+		return NO_POLL_CHAR;
-+
-+	return lrw_uart_read(sup, REG_DR);
-+}
-+
-+static void lrw_uart_put_poll_char(struct uart_port *port, unsigned char ch)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+
-+	while (lrw_uart_read(sup, REG_FR) & UARTFR_TXFF)
-+		cpu_relax();
-+
-+	lrw_uart_write(ch, sup, REG_DR);
-+}
-+
-+#endif /* CONFIG_CONSOLE_POLL */
-+
-+static int lrw_uart_hwinit(struct uart_port *port)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+	int retval;
-+	unsigned int clk;
-+
-+	/* Optionaly enable pins to be muxed in and configured */
-+	pinctrl_pm_select_default_state(port->dev);
-+
-+	/*
-+	 * Try to enable the clock producer.
-+	 */
-+	retval = clk_prepare_enable(sup->clk);
-+	if (retval)
-+		return retval;
-+
-+	if (has_acpi_companion(sup->port.dev)) {
-+		device_property_read_u32(sup->port.dev, "clock-frequency", &clk);
-+		sup->port.uartclk = clk;
-+	} else {
-+		sup->port.uartclk = clk_get_rate(sup->clk);
-+	}
-+
-+	/* Clear pending error and receive interrupts */
-+	lrw_uart_write(UARTICR_OEIC | UARTICR_BEIC | UARTICR_PEIC |
-+		      UARTICR_FEIC | UARTICR_RTIC | UARTICR_RXIC,
-+		      sup, REG_ICR);
-+
-+	/*
-+	 * Save interrupts enable mask, and enable RX interrupts in case if
-+	 * the interrupt is used for NMI entry.
-+	 */
-+	sup->im = lrw_uart_read(sup, REG_IMSC);
-+	lrw_uart_write(UARTIMSC_RTIM | UARTIMSC_RXIM, sup, REG_IMSC);
-+
-+	if (dev_get_platdata(sup->port.dev)) {
-+		struct lrw_uart_data *plat;
-+
-+		plat = dev_get_platdata(sup->port.dev);
-+		if (plat->init)
-+			plat->init();
-+	}
-+	return 0;
-+}
-+
-+static int lrw_uart_allocate_irq(struct lrw_uart_port *sup)
-+{
-+	lrw_uart_write(sup->im, sup, REG_IMSC);
-+
-+	return request_irq(sup->port.irq, lrw_uart_int, IRQF_SHARED, "lrw-uart", sup);
-+}
-+
-+/*
-+ * Enable interrupts, only timeouts when using DMA
-+ * if initial RX DMA job failed, start in interrupt mode
-+ * as well.
-+ */
-+static void lrw_uart_enable_interrupts(struct lrw_uart_port *sup)
-+{
-+	unsigned long flags;
-+	unsigned int i;
-+
-+	uart_port_lock_irqsave(&sup->port, &flags);
-+
-+	/* Clear out any spuriously appearing RX interrupts */
-+	lrw_uart_write(UARTICR_RTIC | UARTICR_RXIC, sup, REG_ICR);
-+
-+	/*
-+	 * RXIS is asserted only when the RX FIFO transitions from below
-+	 * to above the trigger threshold.  If the RX FIFO is already
-+	 * full to the threshold this can't happen and RXIS will now be
-+	 * stuck off.  Drain the RX FIFO explicitly to fix this:
-+	 */
-+	for (i = 0; i < sup->fifosize * 2; ++i) {
-+		if (lrw_uart_read(sup, REG_FR) & UARTFR_RXFE)
-+			break;
-+
-+		lrw_uart_read(sup, REG_DR);
-+	}
-+
-+	sup->im = UARTIMSC_RTIM;
-+	if (!lrw_uart_dma_rx_running(sup))
-+		sup->im |= UARTIMSC_RXIM;
-+	lrw_uart_write(sup->im, sup, REG_IMSC);
-+	uart_port_unlock_irqrestore(&sup->port, flags);
-+}
-+
-+static void lrw_uart_unthrottle_rx(struct uart_port *port)
-+{
-+	struct lrw_uart_port *sup = container_of(port, struct lrw_uart_port, port);
-+	unsigned long flags;
-+
-+	uart_port_lock_irqsave(&sup->port, &flags);
-+
-+	sup->im = UARTIMSC_RTIM;
-+	if (!lrw_uart_dma_rx_running(sup))
-+		sup->im |= UARTIMSC_RXIM;
-+
-+	lrw_uart_write(sup->im, sup, REG_IMSC);
-+
-+	uart_port_unlock_irqrestore(&sup->port, flags);
-+}
-+
-+static int lrw_uart_startup(struct uart_port *port)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+	unsigned int mcr;
-+	unsigned int mcfg;
-+	int retval;
-+
-+	retval = lrw_uart_hwinit(port);
-+	if (retval)
-+		goto clk_dis;
-+
-+	retval = lrw_uart_allocate_irq(sup);
-+	if (retval)
-+		goto clk_dis;
-+
-+	lrw_uart_write(sup->vendor->fcr, sup, REG_FCR);
-+
-+	uart_port_lock_irq(&sup->port);
-+
-+	mcr = lrw_uart_read(sup, REG_MCR);
-+	mcr &= UARTMCR_RTS | UARTMCR_DTR;
-+
-+	lrw_uart_write(mcr, sup, REG_MCR);
-+
-+	mcfg = lrw_uart_read(sup, REG_MCFG);
-+
-+	mcfg |= UARTMCFG_UARTEN | UARTMCFG_RXE;
-+
-+	if (!(port->rs485.flags & SER_RS485_ENABLED))
-+		mcfg |= UARTMCFG_TXE;
-+
-+	lrw_uart_write(mcfg, sup, REG_MCFG);
-+
-+	uart_port_unlock_irq(&sup->port);
-+
-+	/*
-+	 * initialise the old status of the modem signals
-+	 */
-+	sup->old_status = lrw_uart_read(sup, REG_FR) & UARTFR_MODEM_ANY;
-+
-+	/* Startup DMA */
-+	lrw_uart_dma_startup(sup);
-+
-+	lrw_uart_enable_interrupts(sup);
-+
-+	return 0;
-+
-+ clk_dis:
-+	clk_disable_unprepare(sup->clk);
-+	return retval;
-+}
-+
-+static void lrw_uart_shutdown_channel(struct lrw_uart_port *sup,
-+	unsigned int mcfg, unsigned int fcr)
-+{
-+	unsigned long val;
-+
-+	val = lrw_uart_read(sup, mcfg);
-+	val &= ~(UARTMCFG_BRK);
-+	lrw_uart_write(val, sup, mcfg);
-+
-+	val = lrw_uart_read(sup, fcr);
-+	val &= ~(UARTFCR_FEN);
-+	lrw_uart_write(val, sup, fcr);
-+}
-+
-+/*
-+ * disable the port. It should not disable RTS and DTR.
-+ * Also RTS and DTR state should be preserved to restore
-+ * it during startup().
-+ */
-+static void lrw_uart_disable_uart(struct lrw_uart_port *sup)
-+{
-+	unsigned int mcr;
-+	unsigned int mcfg;
-+
-+	sup->port.status &= ~(UPSTAT_AUTOCTS | UPSTAT_AUTORTS);
-+	uart_port_lock_irq(&sup->port);
-+	mcr = lrw_uart_read(sup, REG_MCR);
-+	mcr &= UARTMCR_RTS | UARTMCR_DTR;
-+	lrw_uart_write(mcr, sup, REG_MCR);
-+
-+	mcfg = lrw_uart_read(sup, REG_MCFG);
-+	mcfg |= UARTMCFG_UARTEN | UARTMCFG_TXE;
-+	lrw_uart_write(mcfg, sup, REG_MCFG);
-+	uart_port_unlock_irq(&sup->port);
-+
-+	/*
-+	 * disable break condition and fifos
-+	 */
-+	lrw_uart_shutdown_channel(sup, REG_MCFG, REG_FCR);
-+}
-+
-+static void lrw_uart_disable_interrupts(struct lrw_uart_port *sup)
-+{
-+	uart_port_lock_irq(&sup->port);
-+
-+	/* mask all interrupts and clear all pending ones */
-+	sup->im = 0;
-+	lrw_uart_write(sup->im, sup, REG_IMSC);
-+	lrw_uart_write(0xffff, sup, REG_ICR);
-+
-+	uart_port_unlock_irq(&sup->port);
-+}
-+
-+static void lrw_uart_shutdown(struct uart_port *port)
-+{
-+	struct lrw_uart_port *sup =
-+		container_of(port, struct lrw_uart_port, port);
-+
-+	lrw_uart_disable_interrupts(sup);
-+
-+	lrw_uart_dma_shutdown(sup);
-+
-+	if ((port->rs485.flags & SER_RS485_ENABLED) && sup->rs485_tx_started)
-+		lrw_uart_rs485_tx_stop(sup);
-+
-+	free_irq(sup->port.irq, sup);
-+
-+	lrw_uart_disable_uart(sup);
-+
-+	/*
-+	 * Shut down the clock producer
-+	 */
-+	clk_disable_unprepare(sup->clk);
-+	/* Optionally let pins go into sleep states */
-+	pinctrl_pm_select_sleep_state(port->dev);
-+
-+	if (dev_get_platdata(sup->port.dev)) {
-+		struct lrw_uart_data *plat;
-+
-+		plat = dev_get_platdata(sup->port.dev);
-+		if (plat->exit)
-+			plat->exit();
-+	}
-+
-+	if (sup->port.ops->flush_buffer)
-+		sup->port.ops->flush_buffer(port);
-+}
-+
-+static void
-+lrw_uart_setup_status_masks(struct uart_port *port, struct ktermios *termios)
-+{
-+	port->read_status_mask = UARTDR_OE | 255;
-+	if (termios->c_iflag & INPCK)
-+		port->read_status_mask |= UARTDR_FE | UARTDR_PE;
-+	if (termios->c_iflag & (IGNBRK | BRKINT | PARMRK))
-+		port->read_status_mask |= UARTDR_BE;
-+
-+	/*
-+	 * Characters to ignore
-+	 */
-+	port->ignore_status_mask = 0;
-+	if (termios->c_iflag & IGNPAR)
-+		port->ignore_status_mask |= UARTDR_FE | UARTDR_PE;
-+	if (termios->c_iflag & IGNBRK) {
-+		port->ignore_status_mask |= UARTDR_BE;
-+		/*
-+		 * If we're ignoring parity and break indicators,
-+		 * ignore overruns too (for real raw support).
-+		 */
-+		if (termios->c_iflag & IGNPAR)
-+			port->ignore_status_mask |= UARTDR_OE;
-+	}
-+
-+	/*
-+	 * Ignore all characters if CREAD is not set.
-+	 */
-+	if ((termios->c_cflag & CREAD) == 0)
-+		port->ignore_status_mask |= UART_DUMMY_DR_RX;
-+}
-+
-+static void
-+lrw_uart_set_termios(struct uart_port *port, struct ktermios *termios,
-+		     const struct ktermios *old)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+	unsigned int frcr;
-+	unsigned int mcr, fccr;
-+	unsigned int mcfg;
-+	unsigned long flags;
-+	unsigned int baud, quot, clkdiv;
-+	unsigned int bits;
-+	unsigned int clk;
-+
-+	if (sup->vendor->oversampling)
-+		clkdiv = 8;
-+	else
-+		clkdiv = 16;
-+
-+	if (has_acpi_companion(sup->port.dev)) {
-+		device_property_read_u32(sup->port.dev, "clock-frequency", &clk);
-+		sup->port.uartclk = clk;
-+	}
-+
-+	/*
-+	 * Ask the core to calculate the divisor for us.
-+	 */
-+	baud = uart_get_baud_rate(port, termios, old, 0,
-+				  port->uartclk / clkdiv);
-+
-+#ifdef CONFIG_DMA_ENGINE
-+	/*
-+	 * Adjust RX DMA polling rate with baud rate if not specified.
-+	 */
-+	if (sup->dmarx.auto_poll_rate)
-+		sup->dmarx.poll_rate = DIV_ROUND_UP(10000000, baud);
-+#endif
-+
-+	if (baud > port->uartclk / 16)
-+		quot = DIV_ROUND_CLOSEST(port->uartclk * 8, baud);
-+	else
-+		quot = DIV_ROUND_CLOSEST(port->uartclk * 4, baud);
-+
-+	switch (termios->c_cflag & CSIZE) {
-+	case CS5:
-+		frcr = UARTFRCR_WLEN_5;
-+		break;
-+	case CS6:
-+		frcr = UARTFRCR_WLEN_6;
-+		break;
-+	case CS7:
-+		frcr = UARTFRCR_WLEN_7;
-+		break;
-+	default: // CS8
-+		frcr = UARTFRCR_WLEN_8;
-+		break;
-+	}
-+
-+	if (termios->c_cflag & CSTOPB)
-+		frcr |= UARTFRCR_STP2;
-+	if (termios->c_cflag & PARENB) {
-+		frcr |= UARTFRCR_PEN;
-+		if (!(termios->c_cflag & PARODD))
-+			frcr |= UARTFRCR_EOP;
-+		if (termios->c_cflag & CMSPAR)
-+			frcr |= UARTFRCR_SPS;
-+	}
-+
-+
-+	bits = tty_get_frame_size(termios->c_cflag);
-+
-+	uart_port_lock_irqsave(port, &flags);
-+
-+	/*
-+	 * Update the per-port timeout.
-+	 */
-+	uart_update_timeout(port, termios->c_cflag, baud);
-+
-+	/*
-+	 * Calculate the approximated time it takes to transmit one character
-+	 * with the given baud rate. We use this as the poll interval when we
-+	 * wait for the tx queue to empty.
-+	 */
-+	sup->rs485_tx_drain_interval = DIV_ROUND_UP(bits * 1000 * 1000, baud);
-+
-+	lrw_uart_setup_status_masks(port, termios);
-+
-+	if (UART_ENABLE_MS(port, termios->c_cflag))
-+		lrw_uart_enable_ms(port);
-+
-+	if (port->rs485.flags & SER_RS485_ENABLED)
-+		termios->c_cflag &= ~CRTSCTS;
-+
-+	mcr = lrw_uart_read(sup, REG_MCR);
-+	mcfg = lrw_uart_read(sup, REG_MCFG);
-+	fccr = lrw_uart_read(sup, REG_FCCR);
-+
-+	if (termios->c_cflag & CRTSCTS) {
-+		if (mcr & UARTMCR_RTS)
-+			fccr |= UARTFCCR_RTSEN;
-+
-+		fccr |= UARTFCCR_CTSEN;
-+		port->status |= UPSTAT_AUTOCTS | UPSTAT_AUTORTS;
-+	} else {
-+		fccr &= ~(UARTFCCR_CTSEN | UARTFCCR_RTSEN);
-+		port->status &= ~(UPSTAT_AUTOCTS | UPSTAT_AUTORTS);
-+	}
-+
-+	/* Set baud rate */
-+	lrw_uart_write(quot & 0x3f, sup, REG_FD);
-+	lrw_uart_write(quot >> 6, sup, REG_IND);
-+
-+	/*
-+	 * ----------v----------v----------v----------v-----
-+	 * NOTE: REG_FRCR MUST BE WRITTEN AFTER REG_FD & REG_IND.
-+	 * ----------^----------^----------^----------^-----
-+	 */
-+	lrw_uart_write(frcr, sup, REG_FRCR);
-+
-+	lrw_uart_write(fccr, sup, REG_FCCR);
-+
-+	/*
-+	 * Receive was disabled by lrw_uart_disable_uart during shutdown.
-+	 * Need to reenable receive if you need to use a tty_driver
-+	 * returns from tty_find_polling_driver() after a port shutdown.
-+	 */
-+	mcfg |= UARTMCFG_RXE;
-+	lrw_uart_write(mcfg, sup, REG_MCFG);
-+
-+	uart_port_unlock_irqrestore(port, flags);
-+}
-+
-+static const char *lrw_uart_type(struct uart_port *port)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+	return sup->port.type == PORT_LRW ? sup->type : NULL;
-+}
-+
-+/*
-+ * Configure/autoconfigure the port.
-+ */
-+static void lrw_uart_config_port(struct uart_port *port, int flags)
-+{
-+	if (flags & UART_CONFIG_TYPE)
-+		port->type = PORT_LRW;
-+}
-+
-+/*
-+ * verify the new serial_struct (for TIOCSSERIAL).
-+ */
-+static int lrw_uart_verify_port(struct uart_port *port, struct serial_struct *ser)
-+{
-+	int ret = 0;
-+
-+	if (ser->type != PORT_UNKNOWN && ser->type != PORT_LRW)
-+		ret = -EINVAL;
-+	if (ser->irq < 0 || ser->irq >= irq_get_nr_irqs())
-+		ret = -EINVAL;
-+	if (ser->baud_base < 9600)
-+		ret = -EINVAL;
-+	if (port->mapbase != (unsigned long)ser->iomem_base)
-+		ret = -EINVAL;
-+	return ret;
-+}
-+
-+static int lrw_uart_rs485_config(struct uart_port *port, struct ktermios *termios,
-+			      struct serial_rs485 *rs485)
-+{
-+	struct lrw_uart_port *sup =
-+		container_of(port, struct lrw_uart_port, port);
-+
-+	if (port->rs485.flags & SER_RS485_ENABLED)
-+		lrw_uart_rs485_tx_stop(sup);
-+
-+	/* Make sure auto RTS is disabled */
-+	if (rs485->flags & SER_RS485_ENABLED) {
-+		u32 fccr = lrw_uart_read(sup, REG_FCCR);
-+
-+		fccr &= ~UARTFCCR_RTSEN;
-+		lrw_uart_write(fccr, sup, REG_FCCR);
-+		port->status &= ~UPSTAT_AUTORTS;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct uart_ops lrw_uart_pops = {
-+	.tx_empty	= lrw_uart_tx_empty,
-+	.set_mctrl	= lrw_uart_set_mctrl,
-+	.get_mctrl	= lrw_uart_get_mctrl,
-+	.stop_tx	= lrw_uart_stop_tx,
-+	.start_tx	= lrw_uart_start_tx,
-+	.stop_rx	= lrw_uart_stop_rx,
-+	.throttle	= lrw_uart_throttle_rx,
-+	.unthrottle	= lrw_uart_unthrottle_rx,
-+	.enable_ms	= lrw_uart_enable_ms,
-+	.break_ctl	= lrw_uart_break_ctl,
-+	.startup	= lrw_uart_startup,
-+	.shutdown	= lrw_uart_shutdown,
-+	.flush_buffer	= lrw_uart_dma_flush_buffer,
-+	.set_termios	= lrw_uart_set_termios,
-+	.type		= lrw_uart_type,
-+	.config_port	= lrw_uart_config_port,
-+	.verify_port	= lrw_uart_verify_port,
-+#ifdef CONFIG_CONSOLE_POLL
-+	.poll_init     = lrw_uart_hwinit,
-+	.poll_get_char = lrw_uart_get_poll_char,
-+	.poll_put_char = lrw_uart_put_poll_char,
-+#endif
-+};
-+
-+static struct lrw_uart_port *lrw_uart_console_ports[UART_NR];
-+
-+#ifdef CONFIG_SERIAL_LRW_UART_CONSOLE
-+
-+static void lrw_uart_console_putchar(struct uart_port *port, unsigned char ch)
-+{
-+	struct lrw_uart_port *sup =
-+	    container_of(port, struct lrw_uart_port, port);
-+
-+	while (lrw_uart_read(sup, REG_FR) & UARTFR_TXFF)
-+		cpu_relax();
-+	lrw_uart_write(ch, sup, REG_DR);
-+}
-+
-+static void
-+lrw_uart_console_write(struct console *co, const char *s, unsigned int count)
-+{
-+	struct lrw_uart_port *sup = lrw_uart_console_ports[co->index];
-+	unsigned int old_fccr = 0, new_fccr;
-+	unsigned int old_mcfg = 0, new_mcfg;
-+	unsigned long flags;
-+	int locked = 1;
-+
-+	clk_enable(sup->clk);
-+
-+	if (oops_in_progress)
-+		locked = uart_port_trylock_irqsave(&sup->port, &flags);
-+	else
-+		uart_port_lock_irqsave(&sup->port, &flags);
-+
-+	/*
-+	 *	First save the FCCR then disable the interrupts
-+	 */
-+	if (!sup->vendor->always_enabled) {
-+		old_fccr = lrw_uart_read(sup, REG_FCCR);
-+		new_fccr = old_fccr & ~UARTFCCR_CTSEN;
-+		lrw_uart_write(new_fccr, sup, REG_FCCR);
-+
-+		old_mcfg = lrw_uart_read(sup, REG_MCFG);
-+		new_mcfg |= UARTMCFG_UARTEN | UARTMCFG_TXE;
-+		lrw_uart_write(new_mcfg, sup, REG_MCFG);
-+	}
-+
-+	uart_console_write(&sup->port, s, count, lrw_uart_console_putchar);
-+
-+	/*
-+	 *	Finally, wait for transmitter to become empty and restore the
-+	 *	TCR. Allow feature register bits to be inverted to work around
-+	 *	errata.
-+	 */
-+	while ((lrw_uart_read(sup, REG_FR) ^ sup->vendor->inv_fr)
-+						& sup->vendor->fr_busy)
-+		cpu_relax();
-+	if (!sup->vendor->always_enabled) {
-+		lrw_uart_write(old_fccr, sup, REG_FCCR);
-+		lrw_uart_write(old_mcfg, sup, REG_MCFG);
-+	}
-+
-+	if (locked)
-+		uart_port_unlock_irqrestore(&sup->port, flags);
-+
-+	clk_disable(sup->clk);
-+}
-+
-+static void lrw_uart_console_get_options(struct lrw_uart_port *sup, int *baud,
-+					 int *parity, int *bits)
-+{
-+	unsigned int frcr, ind, fd;
-+
-+	if (!(lrw_uart_read(sup, REG_MCFG) & UARTMCFG_UARTEN))
-+		return;
-+
-+	frcr = lrw_uart_read(sup, REG_FRCR);
-+
-+	*parity = 'n';
-+	if (frcr & UARTFRCR_PEN) {
-+		if (frcr & UARTFRCR_EOP)
-+			*parity = 'e';
-+		else
-+			*parity = 'o';
-+	}
-+
-+	if ((frcr & 0x3) == UARTFRCR_WLEN_7)
-+		*bits = 7;
-+	else
-+		*bits = 8;
-+
-+	ind = lrw_uart_read(sup, REG_IND);
-+	fd = lrw_uart_read(sup, REG_FD);
-+
-+	*baud = sup->port.uartclk * 4 / (64 * ind + fd);
-+}
-+
-+static int lrw_uart_console_setup(struct console *co, char *options)
-+{
-+	struct lrw_uart_port *sup;
-+	int baud = 38400;
-+	int bits = 8;
-+	int parity = 'n';
-+	int flow = 'n';
-+	int ret;
-+	unsigned int clk;
-+
-+	/*
-+	 * Check whether an invalid uart number has been specified, and
-+	 * if so, search for the first available port that does have
-+	 * console support.
-+	 */
-+	if (co->index >= UART_NR)
-+		co->index = 0;
-+	sup = lrw_uart_console_ports[co->index];
-+	if (!sup)
-+		return -ENODEV;
-+
-+	/* Allow pins to be muxed in and configured */
-+	pinctrl_pm_select_default_state(sup->port.dev);
-+
-+	ret = clk_prepare(sup->clk);
-+	if (ret)
-+		return ret;
-+
-+	if (dev_get_platdata(sup->port.dev)) {
-+		struct lrw_uart_data *plat;
-+
-+		plat = dev_get_platdata(sup->port.dev);
-+		if (plat->init)
-+			plat->init();
-+	}
-+
-+	if (has_acpi_companion(sup->port.dev)) {
-+		device_property_read_u32(sup->port.dev, "clock-frequency", &clk);
-+		sup->port.uartclk = clk;
-+	} else {
-+		sup->port.uartclk = clk_get_rate(sup->clk);
-+	}
-+
-+	if (sup->vendor->fixed_options) {
-+		baud = sup->fixed_baud;
-+	} else {
-+		if (options)
-+			uart_parse_options(options,
-+					   &baud, &parity, &bits, &flow);
-+		else
-+			lrw_uart_console_get_options(sup, &baud, &parity, &bits);
-+	}
-+
-+	return uart_set_options(&sup->port, co, baud, parity, bits, flow);
-+}
-+
-+/**
-+ *	lrw_uart_console_match - non-standard console matching
-+ *	@co:	  registering console
-+ *	@name:	  name from console command line
-+ *	@idx:	  index from console command line
-+ *	@options: ptr to option string from console command line
-+ *
-+ *	Only attempts to match console command lines of the form:
-+ *	    console=lrw_uart,mmio|mmio32,<addr>[,<options>]
-+ *	    console=lrw_uart,0x<addr>[,<options>]
-+ *	This form is used to register an initial earlycon boot console and
-+ *	replace it with the lrw_uart_console at lrw_uart driver init.
-+ *
-+ *	Performs console setup for a match (as required by interface)
-+ *	If no <options> are specified, then assume the h/w is already setup.
-+ *
-+ *	Returns 0 if console matches; otherwise non-zero to use default matching
-+ */
-+static int lrw_uart_console_match(struct console *co, char *name, int idx,
-+				  char *options)
-+{
-+	enum uart_iotype iotype;
-+	resource_size_t addr;
-+	int i;
-+
-+	if (strcmp(name, "lrw_uart") != 0)
-+		return -ENODEV;
-+
-+	if (uart_parse_earlycon(options, &iotype, &addr, &options))
-+		return -ENODEV;
-+
-+	if (iotype != UPIO_MEM && iotype != UPIO_MEM32)
-+		return -ENODEV;
-+
-+	/* try to match the port specified on the command line */
-+	for (i = 0; i < ARRAY_SIZE(lrw_uart_console_ports); i++) {
-+		struct uart_port *port;
-+
-+		if (!lrw_uart_console_ports[i])
-+			continue;
-+
-+		port = &lrw_uart_console_ports[i]->port;
-+
-+		if (port->mapbase != addr)
-+			continue;
-+
-+		co->index = i;
-+		uart_port_set_cons(port, co);
-+		return lrw_uart_console_setup(co, options);
-+	}
-+
-+	return -ENODEV;
-+}
-+
-+static struct uart_driver lrw_uart_driver;
-+
-+static struct console lrw_uart_console = {
-+	.name		= LRW_UART_TTY_PREFIX,
-+	.write		= lrw_uart_console_write,
-+	.device		= uart_console_device,
-+	.setup		= lrw_uart_console_setup,
-+	.match		= lrw_uart_console_match,
-+	.flags		= CON_PRINTBUFFER | CON_ANYTIME,
-+	.index		= -1,
-+	.data		= &lrw_uart_driver,
-+};
-+
-+#define LRW_UART_CONSOLE	(&lrw_uart_console)
-+
-+static void lrw_uart_putc(struct uart_port *port, unsigned char c)
-+{
-+	while (readl(port->membase + UARTFR) & UARTFR_TXFF)
-+		cpu_relax();
-+	if (port->iotype == UPIO_MEM32)
-+		writel(c, port->membase + UARTDR);
-+	else
-+		writeb(c, port->membase + UARTDR);
-+	while (readl(port->membase + UARTFR) & UARTFR_BUSY)
-+		cpu_relax();
-+}
-+
-+static void lrw_uart_early_write(struct console *con, const char *s, unsigned int n)
-+{
-+	struct earlycon_device *dev = con->data;
-+
-+	uart_console_write(&dev->port, s, n, lrw_uart_putc);
-+}
-+
-+#ifdef CONFIG_CONSOLE_POLL
-+static int lrw_uart_getc(struct uart_port *port)
-+{
-+	if (readl(port->membase + UARTFR) & UARTFR_RXFE)
-+		return NO_POLL_CHAR;
-+
-+	if (port->iotype == UPIO_MEM32)
-+		return readl(port->membase + UARTDR);
-+	else
-+		return readb(port->membase + UARTDR);
-+}
-+
-+static int lrw_uart_early_read(struct console *con, char *s, unsigned int n)
-+{
-+	struct earlycon_device *dev = con->data;
-+	int ch, num_read = 0;
-+
-+	while (num_read < n) {
-+		ch = lrw_uart_getc(&dev->port);
-+		if (ch == NO_POLL_CHAR)
-+			break;
-+
-+		s[num_read++] = ch;
-+	}
-+
-+	return num_read;
-+}
-+#else
-+#define lrw_uart_early_read NULL
-+#endif
-+
-+/*
-+ * On non-ACPI systems, earlycon is enabled by specifying
-+ * "earlycon=lrw_uart,<address>" on the kernel command line.
-+ *
-+ * On ACPI ARM64 systems, an "early" console is enabled via the SPCR table,
-+ * by specifying only "earlycon" on the command line.  Because it requires
-+ * SPCR, the console starts after ACPI is parsed, which is later than a
-+ * traditional early console.
-+ *
-+ * To get the traditional early console that starts before ACPI is parsed,
-+ * specify the full "earlycon=lrw_uart,<address>" option.
-+ */
-+static int __init lrw_uart_early_console_setup(struct earlycon_device *device,
-+					      const char *opt)
-+{
-+	if (!device->port.membase)
-+		return -ENODEV;
-+
-+	device->con->write = lrw_uart_early_write;
-+	device->con->read = lrw_uart_early_read;
-+
-+	return 0;
-+}
-+
-+OF_EARLYCON_DECLARE(lrw_uart, "lrw-uart", lrw_uart_early_console_setup);
-+
-+#else
-+#define LRW_UART_CONSOLE	NULL
-+#endif
-+
-+static struct uart_driver lrw_uart_driver = {
-+	.owner			= THIS_MODULE,
-+	.driver_name		= LRW_UART_NAME,
-+	.dev_name		= LRW_UART_TTY_PREFIX,
-+	.nr			= UART_NR,
-+	.cons			= LRW_UART_CONSOLE,
-+};
-+
-+static int lrw_uart_probe_dt_alias(int index, struct device *dev)
-+{
-+	struct device_node *np;
-+	static bool seen_dev_with_alias;
-+	static bool seen_dev_without_alias;
-+	int ret = index;
-+
-+	if (!IS_ENABLED(CONFIG_OF))
-+		return ret;
-+
-+	np = dev->of_node;
-+	if (!np)
-+		return ret;
-+
-+	ret = of_alias_get_id(np, "serial");
-+	if (ret < 0) {
-+		seen_dev_without_alias = true;
-+		ret = index;
-+	} else {
-+		seen_dev_with_alias = true;
-+		if (ret >= ARRAY_SIZE(lrw_uart_console_ports) || lrw_uart_console_ports[ret]) {
-+			dev_warn(dev, "requested serial port %d  not available.\n", ret);
-+			ret = index;
-+		}
-+	}
-+
-+	if (seen_dev_with_alias && seen_dev_without_alias)
-+		dev_warn(dev, "aliased and non-aliased serial devices found in device tree. Serial port enumeration may be unpredictable.\n");
-+
-+	return ret;
-+}
-+
-+/* unregisters the driver also if no more ports are left */
-+static void lrw_uart_unregister_port(struct lrw_uart_port *sup)
-+{
-+	int i;
-+	bool busy = false;
-+
-+	for (i = 0; i < ARRAY_SIZE(lrw_uart_console_ports); i++) {
-+		if (lrw_uart_console_ports[i] == sup)
-+			lrw_uart_console_ports[i] = NULL;
-+		else if (lrw_uart_console_ports[i])
-+			busy = true;
-+	}
-+	lrw_uart_dma_remove(sup);
-+	if (!busy)
-+		uart_unregister_driver(&lrw_uart_driver);
-+}
-+
-+static int lrw_uart_find_free_port(void)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(lrw_uart_console_ports); i++)
-+		if (!lrw_uart_console_ports[i])
-+			return i;
-+
-+	return -EBUSY;
-+}
-+
-+static int lrw_uart_setup_port(struct device *dev, struct lrw_uart_port *sup,
-+			      struct resource *mmiobase, int index)
-+{
-+	void __iomem *base;
-+	int ret;
-+
-+	base = devm_ioremap_resource(dev, mmiobase);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	index = lrw_uart_probe_dt_alias(index, dev);
-+
-+	sup->port.dev = dev;
-+	sup->port.mapbase = mmiobase->start;
-+	sup->port.membase = base;
-+	sup->port.fifosize = sup->fifosize;
-+	sup->port.has_sysrq = IS_ENABLED(CONFIG_SERIAL_LRW_UART_CONSOLE);
-+	sup->port.flags = UPF_BOOT_AUTOCONF;
-+	sup->port.line = index;
-+
-+	ret = uart_get_rs485_mode(&sup->port);
-+	if (ret)
-+		return ret;
-+
-+	lrw_uart_console_ports[index] = sup;
-+
-+	return 0;
-+}
-+
-+static int lrw_uart_register_port(struct lrw_uart_port *sup)
-+{
-+	int ret, i;
-+
-+	/* Ensure interrupts from this UART are masked and cleared */
-+	lrw_uart_write(0, sup, REG_IMSC);
-+	lrw_uart_write(0xffff, sup, REG_ICR);
-+
-+	if (!lrw_uart_driver.state) {
-+		ret = uart_register_driver(&lrw_uart_driver);
-+		if (ret < 0) {
-+			dev_err(sup->port.dev,
-+				"Failed to register LRW UART driver\n");
-+			for (i = 0; i < ARRAY_SIZE(lrw_uart_console_ports); i++)
-+				if (lrw_uart_console_ports[i] == sup)
-+					lrw_uart_console_ports[i] = NULL;
-+			return ret;
-+		}
-+	}
-+
-+	ret = uart_add_one_port(&lrw_uart_driver, &sup->port);
-+	if (ret)
-+		lrw_uart_unregister_port(sup);
-+
-+	return ret;
-+}
-+
-+static const struct serial_rs485 lrw_uart_rs485_supported = {
-+	.flags = SER_RS485_ENABLED | SER_RS485_RTS_ON_SEND | SER_RS485_RTS_AFTER_SEND |
-+		 SER_RS485_RX_DURING_TX,
-+	.delay_rts_before_send = 1,
-+	.delay_rts_after_send = 1,
-+};
-+
-+static int lrw_uart_probe(struct platform_device *pdev)
-+{
-+	struct lrw_uart_port *sup;
-+	struct resource *r;
-+	int portnr, ret;
-+	unsigned int clk;
-+	unsigned int baudrate;
-+
-+	/*
-+	 * Check the mandatory baud rate parameter in the DT node early
-+	 * so that we can easily exit with the error.
-+	 */
-+	if (pdev->dev.of_node) {
-+		struct device_node *np = pdev->dev.of_node;
-+
-+		ret = of_property_read_u32(np, "current-speed", &baudrate);
-+		if (ret)
-+			return ret;
-+	} else if (has_acpi_companion(&pdev->dev)) {
-+		ret = device_property_read_u32(&pdev->dev, "current-speed", &baudrate);
-+		if (ret)
-+			return ret;
-+	} else {
-+		baudrate = 115200;
-+	}
-+
-+	portnr = lrw_uart_find_free_port();
-+	if (portnr < 0)
-+		return portnr;
-+
-+	sup = devm_kzalloc(&pdev->dev, sizeof(struct lrw_uart_port),
-+			   GFP_KERNEL);
-+	if (!sup)
-+		return -ENOMEM;
-+
-+	if (has_acpi_companion(&pdev->dev)) {
-+		device_property_read_u32(&pdev->dev, "clock-frequency", &clk);
-+		sup->port.uartclk = clk;
-+	} else {
-+		sup->clk = devm_clk_get(&pdev->dev, NULL);
-+		if (IS_ERR(sup->clk))
-+			return PTR_ERR(sup->clk);
-+	}
-+
-+	ret = platform_get_irq(pdev, 0);
-+	if (ret < 0)
-+		return ret;
-+	sup->port.irq	= ret;
-+
-+	sup->vendor = &vendor_lrw;
-+
-+	sup->reg_offset = sup->vendor->reg_offset;
-+	sup->fifosize	= LRW_UART_TX_FIFO_DEPTH;
-+	sup->port.iotype = sup->vendor->access_32b ? UPIO_MEM32 : UPIO_MEM;
-+	sup->port.ops = &lrw_uart_pops;
-+	sup->port.rs485_config = lrw_uart_rs485_config;
-+	sup->port.rs485_supported = lrw_uart_rs485_supported;
-+	sup->fixed_baud = baudrate;
-+
-+	snprintf(sup->type, sizeof(sup->type), "LRW UART");
-+
-+	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+
-+	ret = lrw_uart_setup_port(&pdev->dev, sup, r, portnr);
-+	if (ret)
-+		return ret;
-+
-+	platform_set_drvdata(pdev, sup);
-+
-+	return lrw_uart_register_port(sup);
-+}
-+
-+static void lrw_uart_remove(struct platform_device *dev)
-+{
-+	struct lrw_uart_port *sup = platform_get_drvdata(dev);
-+
-+	uart_remove_one_port(&lrw_uart_driver, &sup->port);
-+	lrw_uart_unregister_port(sup);
-+}
-+
-+#ifdef CONFIG_PM_SLEEP
-+static int lrw_uart_suspend(struct device *dev)
-+{
-+	struct lrw_uart_port *sup = dev_get_drvdata(dev);
-+
-+	if (!sup)
-+		return -EINVAL;
-+
-+	return uart_suspend_port(&lrw_uart_driver, &sup->port);
-+}
-+
-+static int lrw_uart_resume(struct device *dev)
-+{
-+	struct lrw_uart_port *sup = dev_get_drvdata(dev);
-+
-+	if (!sup)
-+		return -EINVAL;
-+
-+	return uart_resume_port(&lrw_uart_driver, &sup->port);
-+}
-+#endif
-+
-+static SIMPLE_DEV_PM_OPS(lrw_uart_pm_ops, lrw_uart_suspend, lrw_uart_resume);
-+
-+static const struct of_device_id lrw_uart_of_match[] = {
-+	{ .compatible = "lrw,lrw-uart" },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, lrw_uart_of_match);
-+
-+static const struct acpi_device_id __maybe_unused lrw_uart_acpi_match[] = {
-+	{ "LRWX0000", 0 },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(acpi, lrw_uart_acpi_match);
-+
-+static struct platform_driver lrw_uart_platform_driver = {
-+	.probe		= lrw_uart_probe,
-+	.remove		= lrw_uart_remove,
-+	.driver		= {
-+		.name	= LRW_UART_NAME,
-+		.pm = pm_sleep_ptr(&lrw_uart_pm_ops),
-+		.of_match_table = of_match_ptr(lrw_uart_of_match),
-+		.acpi_match_table = ACPI_PTR(lrw_uart_acpi_match),
-+		.suppress_bind_attrs = IS_BUILTIN(CONFIG_SERIAL_LRW_UART),
-+	},
-+};
-+
-+static int __init lrw_uart_init(void)
-+{
-+	pr_info("Serial: LRW UART driver\n");
-+
-+	int ret;
-+
-+	ret = uart_register_driver(&lrw_uart_driver);
-+	if (ret < 0) {
-+		pr_err("Could not register %s driver\n",
-+			lrw_uart_driver.driver_name);
-+		return ret;
-+	}
-+
-+	ret = platform_driver_register(&lrw_uart_platform_driver);
-+	if (ret < 0) {
-+		pr_err("LRW UART platform driver register failed, e = %d\n", ret);
-+		uart_unregister_driver(&lrw_uart_driver);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static void __exit lrw_uart_exit(void)
-+{
-+	platform_driver_unregister(&lrw_uart_platform_driver);
-+	uart_unregister_driver(&lrw_uart_driver);
-+}
-+
-+/*
-+ * While this can be a module, if builtin it's most likely the console
-+ * So let's leave module_exit but move module_init to an earlier place
-+ */
-+arch_initcall(lrw_uart_init);
-+module_exit(lrw_uart_exit);
-+
-+MODULE_AUTHOR("Wenhong Liu/Qingtao Liu");
-+MODULE_DESCRIPTION("LRW UART serial driver");
-+MODULE_LICENSE("GPL");
-diff --git a/include/uapi/linux/serial_core.h b/include/uapi/linux/serial_core.h
-index 9c007a106330..8e7322067e1f 100644
---- a/include/uapi/linux/serial_core.h
-+++ b/include/uapi/linux/serial_core.h
-@@ -231,6 +231,9 @@
- /* Sunplus UART */
- #define PORT_SUNPLUS	123
- 
-+/* LRW UART */
-+#define PORT_LRW	124
-+
- /* Generic type identifier for ports which type is not important to userspace. */
- #define PORT_GENERIC	(-1)
- 
--- 
-2.27.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksCgpQbGVhc2UgZG9uJ3QgcmVtb3ZlIENPTkZJR19YSVBfS0VSTkVMLgoKWmhvdXlpIFpob3Ug
+emhvdXpob3V5aUBnbWFpbC5jb20gPG1haWx0bzp6aG91emhvdXlpQGdtYWlsLmNvbT5hbmQgSSBh
+cmUKd2lsbGluZyB0byB0YWtlIG92ZXIKbWFpbnRhaW5lcnNoaXAgYW5kIGtlZXAgaXQgYnVpbGQt
+dGVzdGVkIGFuZCBtYWludGFpbmVkIGdvaW5nIGZvcndhcmQuCgpXZSB3aWxsIHNlbmQgYSBNQUlO
+VEFJTkVSUyBwYXRjaCBzaG9ydGx5LgoKClRoYW54LMKgIEt1bnd1CgpPbiAyLzIvMjYgMTk6NTQs
+IE5hbSBDYW8gd3JvdGU6Cj4gWElQIGhhcyBhIGhpc3Rvcnkgb2YgYmVpbmcgYnJva2VuIGZvciBs
+b25nIHBlcmlvZHMgb2YgdGltZS4gSW4gMjAyMywgaXQgd2FzCj4gYnJva2VuIGZvciAxOCBtb250
+aHMgYmVmb3JlIGdldHRpbmcgZml4ZWQgWzFdLiBJbiAyMDI0IGl0IHdhcyA0IG1vbnRocyBbMl0u
+Cj4KPiBBbmQgbm93IGl0IGlzIGJyb2tlbiBhZ2FpbiBzaW5jZSBjb21taXQgYTQ0ZmI1NzIyMTk5
+ICgicmlzY3Y6IEFkZCBydW50aW1lCj4gY29uc3RhbnQgc3VwcG9ydCIpLCAxMCBtb250aHMgYWdv
+Lgo+Cj4gVGhlc2UgYXJlIGNsZWFyIHNpZ25zIHRoYXQgWElQIGZlYXR1cmUgaXMgbm90IGJlaW5n
+IHVzZWQuCj4KPiBJIG9jY2FzaW9uYWxseSBsb29rZWQgYWZ0ZXIgWElQLCBidXQgbW9zdGx5IGJl
+Y2F1c2UgSSB3YXMgYm9yZWQgYW5kIGhhZAo+IG5vdGhpbmcgYmV0dGVyIHRvIGRvLgo+Cj4gUmVt
+b3ZlIFhJUCBzdXBwb3J0LiBSZXZlcnQgaXMgcG9zc2libGUgaWYgc29tZW9uZSBzaG93cyB1cCBj
+b21wbGFpbmluZy4KPgo+IExpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2
+LzIwMjMxMjEyLWN1c3RvbWFyeS1oYXJkY292ZXItZTE5NDYyYmY4ZTc1QHdlbmR5LyBbMV0KPiBM
+aW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDI0MDUyNjExMDEwNC40
+NzA0MjktMS1uYW1jYW9AbGludXRyb25peC5kZS8gWzJdCj4gU2lnbmVkLW9mZi1ieTogTmFtIENh
+byA8bmFtY2FvQGxpbnV0cm9uaXguZGU+Cj4gQ2M6IEZyZWRlcmlrIEhheGVsIDxoYXhlbEBmemku
+ZGU+Cj4gQ2M6IFZpdGFseSBXb29sIDx2aXRhbHkud29vbEBrb25zdWxrby5jb20+Cj4gLS0tCj4g
+IGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgICAgIHwgIDg2ICsrKysrKy0tLS0tLS0t
+LS0tLS0tLQo+ICBhcmNoL3Jpc2N2L0tjb25maWcuc29jcyAgICAgICAgICAgICB8ICAgOCArLQo+
+ICBhcmNoL3Jpc2N2L01ha2VmaWxlICAgICAgICAgICAgICAgICB8ICAgMyAtCj4gIGFyY2gvcmlz
+Y3YvYm9vdC9NYWtlZmlsZSAgICAgICAgICAgIHwgIDExIC0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL3BhZ2UuaCAgICAgICB8ICAyOSAtLS0tLS0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL3BndGFibGUuaCAgICB8ICAyMCAtLS0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Nj
+cy5oICAgICAgICB8ICAgMSAtCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2V0X21lbW9yeS5o
+IHwgICAyICstCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20veGlwX2ZpeHVwLmggIHwgIDQ5IC0t
+LS0tLS0tLS0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9oZWFkLlMgICAgICAgICAgICB8ICA0MSAt
+LS0tLS0tLS0tCj4gIGFyY2gvcmlzY3Yva2VybmVsL2hlYWQuaCAgICAgICAgICAgIHwgICAzIC0K
+PiAgYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYyAgICAgICAgICAgfCAgIDYgKy0KPiAgYXJjaC9y
+aXNjdi9rZXJuZWwvc3VzcGVuZF9lbnRyeS5TICAgfCAgIDIgLQo+ICBhcmNoL3Jpc2N2L2tlcm5l
+bC90cmFwcy5jICAgICAgICAgICB8ICAgNCAtCj4gIGFyY2gvcmlzY3Yva2VybmVsL3ZtY29yZV9p
+bmZvLmMgICAgIHwgICA3IC0tCj4gIGFyY2gvcmlzY3Yva2VybmVsL3ZtbGludXgubGRzLlMgICAg
+IHwgICA1IC0tCj4gIGFyY2gvcmlzY3YvbW0vaW5pdC5jICAgICAgICAgICAgICAgIHwgMTExICsr
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiAgMTcgZmlsZXMgY2hhbmdlZCwgMzcgaW5zZXJ0
+aW9ucygrKSwgMzUxIGRlbGV0aW9ucygtKQo+ICBkZWxldGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS94aXBfZml4dXAuaAo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2Nv
+bmZpZyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+IGluZGV4IDdlNzZiNjMxNjQyNS4uZThhYzZjNjFl
+MjdkIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+ICsrKyBiL2FyY2gvcmlzY3Yv
+S2NvbmZpZwo+IEBAIC00OCw4ICs0OCw4IEBAIGNvbmZpZyBSSVNDVgo+ICAJc2VsZWN0IEFSQ0hf
+SEFTX1BURV9TUEVDSUFMCj4gIAlzZWxlY3QgQVJDSF9IQVNfU0VUX0RJUkVDVF9NQVAgaWYgTU1V
+Cj4gIAlzZWxlY3QgQVJDSF9IQVNfU0VUX01FTU9SWSBpZiBNTVUKPiAtCXNlbGVjdCBBUkNIX0hB
+U19TVFJJQ1RfS0VSTkVMX1JXWCBpZiBNTVUgJiYgIVhJUF9LRVJORUwKPiAtCXNlbGVjdCBBUkNI
+X0hBU19TVFJJQ1RfTU9EVUxFX1JXWCBpZiBNTVUgJiYgIVhJUF9LRVJORUwKPiArCXNlbGVjdCBB
+UkNIX0hBU19TVFJJQ1RfS0VSTkVMX1JXWCBpZiBNTVUKPiArCXNlbGVjdCBBUkNIX0hBU19TVFJJ
+Q1RfTU9EVUxFX1JXWCBpZiBNTVUKPiAgCXNlbGVjdCBBUkNIX0hBU19TWU5DX0NPUkVfQkVGT1JF
+X1VTRVJNT0RFCj4gIAlzZWxlY3QgQVJDSF9IQVNfU1lTQ0FMTF9XUkFQUEVSCj4gIAlzZWxlY3Qg
+QVJDSF9IQVNfVElDS19CUk9BRENBU1QgaWYgR0VORVJJQ19DTE9DS0VWRU5UU19CUk9BRENBU1QK
+PiBAQCAtODUsNyArODUsNyBAQCBjb25maWcgUklTQ1YKPiAgCXNlbGVjdCBBUkNIX1dBTlRfRlJB
+TUVfUE9JTlRFUlMKPiAgCXNlbGVjdCBBUkNIX1dBTlRfR0VORVJBTF9IVUdFVExCIGlmICFSSVND
+Vl9JU0FfU1ZOQVBPVAo+ICAJc2VsZWN0IEFSQ0hfV0FOVF9IVUdFX1BNRF9TSEFSRSBpZiA2NEJJ
+VAo+IC0Jc2VsZWN0IEFSQ0hfV0FOVF9MRF9PUlBIQU5fV0FSTiBpZiAhWElQX0tFUk5FTAo+ICsJ
+c2VsZWN0IEFSQ0hfV0FOVF9MRF9PUlBIQU5fV0FSTgo+ICAJc2VsZWN0IEFSQ0hfV0FOVF9PUFRJ
+TUlaRV9EQVhfVk1FTU1BUAo+ICAJc2VsZWN0IEFSQ0hfV0FOVF9PUFRJTUlaRV9IVUdFVExCX1ZN
+RU1NQVAKPiAgCXNlbGVjdCBBUkNIX1dBTlRTX05PX0lOU1RSCj4gQEAgLTEzMCwxMyArMTMwLDEz
+IEBAIGNvbmZpZyBSSVNDVgo+ICAJc2VsZWN0IEhBVkVfQVJDSF9BVURJVFNZU0NBTEwKPiAgCXNl
+bGVjdCBIQVZFX0FSQ0hfSFVHRV9WTUFMTE9DIGlmIEhBVkVfQVJDSF9IVUdFX1ZNQVAKPiAgCXNl
+bGVjdCBIQVZFX0FSQ0hfSFVHRV9WTUFQIGlmIE1NVSAmJiA2NEJJVAo+IC0Jc2VsZWN0IEhBVkVf
+QVJDSF9KVU1QX0xBQkVMIGlmICFYSVBfS0VSTkVMCj4gLQlzZWxlY3QgSEFWRV9BUkNIX0pVTVBf
+TEFCRUxfUkVMQVRJVkUgaWYgIVhJUF9LRVJORUwKPiArCXNlbGVjdCBIQVZFX0FSQ0hfSlVNUF9M
+QUJFTAo+ICsJc2VsZWN0IEhBVkVfQVJDSF9KVU1QX0xBQkVMX1JFTEFUSVZFCj4gIAlzZWxlY3Qg
+SEFWRV9BUkNIX0tBU0FOIGlmIE1NVSAmJiA2NEJJVAo+ICAJc2VsZWN0IEhBVkVfQVJDSF9LQVNB
+Tl9WTUFMTE9DIGlmIE1NVSAmJiA2NEJJVAo+ICAJc2VsZWN0IEhBVkVfQVJDSF9LRkVOQ0UgaWYg
+TU1VICYmIDY0QklUCj4gIAlzZWxlY3QgSEFWRV9BUkNIX0tTVEFDS19FUkFTRQo+IC0Jc2VsZWN0
+IEhBVkVfQVJDSF9LR0RCIGlmICFYSVBfS0VSTkVMCj4gKwlzZWxlY3QgSEFWRV9BUkNIX0tHREIK
+PiAgCXNlbGVjdCBIQVZFX0FSQ0hfS0dEQl9RWEZFUl9QS1QKPiAgCXNlbGVjdCBIQVZFX0FSQ0hf
+TU1BUF9STkRfQklUUyBpZiBNTVUKPiAgCXNlbGVjdCBIQVZFX0FSQ0hfTU1BUF9STkRfQ09NUEFU
+X0JJVFMgaWYgQ09NUEFUCj4gQEAgLTE1NCw3ICsxNTQsNyBAQCBjb25maWcgUklTQ1YKPiAgCXNl
+bGVjdCBIQVZFX0NPTlRFWFRfVFJBQ0tJTkdfVVNFUgo+ICAJc2VsZWN0IEhBVkVfREVCVUdfS01F
+TUxFQUsKPiAgCXNlbGVjdCBIQVZFX0RNQV9DT05USUdVT1VTIGlmIE1NVQo+IC0Jc2VsZWN0IEhB
+VkVfRFlOQU1JQ19GVFJBQ0UgaWYgIVhJUF9LRVJORUwgJiYgTU1VICYmIChDTEFOR19TVVBQT1JU
+U19EWU5BTUlDX0ZUUkFDRSB8fCBHQ0NfU1VQUE9SVFNfRFlOQU1JQ19GVFJBQ0UpCj4gKwlzZWxl
+Y3QgSEFWRV9EWU5BTUlDX0ZUUkFDRSBpZiBNTVUgJiYgKENMQU5HX1NVUFBPUlRTX0RZTkFNSUNf
+RlRSQUNFIHx8IEdDQ19TVVBQT1JUU19EWU5BTUlDX0ZUUkFDRSkKPiAgCXNlbGVjdCBGVU5DVElP
+Tl9BTElHTk1FTlRfNEIgaWYgSEFWRV9EWU5BTUlDX0ZUUkFDRSAmJiBSSVNDVl9JU0FfQwo+ICAJ
+c2VsZWN0IEhBVkVfRFlOQU1JQ19GVFJBQ0VfV0lUSF9ESVJFQ1RfQ0FMTFMgaWYgSEFWRV9EWU5B
+TUlDX0ZUUkFDRV9XSVRIX0NBTExfT1BTCj4gIAlzZWxlY3QgSEFWRV9EWU5BTUlDX0ZUUkFDRV9X
+SVRIX0NBTExfT1BTIGlmIChEWU5BTUlDX0ZUUkFDRV9XSVRIX0FSR1MgJiYgIUNGSSkKPiBAQCAt
+MTYyLDcgKzE2Miw3IEBAIGNvbmZpZyBSSVNDVgo+ICAJc2VsZWN0IEhBVkVfRlRSQUNFX0dSQVBI
+X0ZVTkMKPiAgCXNlbGVjdCBIQVZFX0ZVTkNUSU9OX0dSQVBIX1RSQUNFUiBpZiBIQVZFX0RZTkFN
+SUNfRlRSQUNFX1dJVEhfQVJHUwo+ICAJc2VsZWN0IEhBVkVfRlVOQ1RJT05fR1JBUEhfRlJFR1MK
+PiAtCXNlbGVjdCBIQVZFX0ZVTkNUSU9OX1RSQUNFUiBpZiAhWElQX0tFUk5FTCAmJiBIQVZFX0RZ
+TkFNSUNfRlRSQUNFCj4gKwlzZWxlY3QgSEFWRV9GVU5DVElPTl9UUkFDRVIgaWYgSEFWRV9EWU5B
+TUlDX0ZUUkFDRQo+ICAJc2VsZWN0IEhBVkVfRUJQRl9KSVQgaWYgTU1VCj4gIAlzZWxlY3QgSEFW
+RV9HRU5FUklDX1RJRl9CSVRTCj4gIAlzZWxlY3QgSEFWRV9HVVBfRkFTVCBpZiBNTVUKPiBAQCAt
+MTcxLDE2ICsxNzEsMTYgQEAgY29uZmlnIFJJU0NWCj4gIAlzZWxlY3QgSEFWRV9HQ0NfUExVR0lO
+Uwo+ICAJc2VsZWN0IEhBVkVfR0VORVJJQ19WRFNPIGlmIE1NVQo+ICAJc2VsZWN0IEhBVkVfSVJR
+X1RJTUVfQUNDT1VOVElORwo+IC0Jc2VsZWN0IEhBVkVfS0VSTkVMX0JaSVAyIGlmICFYSVBfS0VS
+TkVMICYmICFFRklfWkJPT1QKPiAtCXNlbGVjdCBIQVZFX0tFUk5FTF9HWklQIGlmICFYSVBfS0VS
+TkVMICYmICFFRklfWkJPT1QKPiAtCXNlbGVjdCBIQVZFX0tFUk5FTF9MWjQgaWYgIVhJUF9LRVJO
+RUwgJiYgIUVGSV9aQk9PVAo+IC0Jc2VsZWN0IEhBVkVfS0VSTkVMX0xaTUEgaWYgIVhJUF9LRVJO
+RUwgJiYgIUVGSV9aQk9PVAo+IC0Jc2VsZWN0IEhBVkVfS0VSTkVMX0xaTyBpZiAhWElQX0tFUk5F
+TCAmJiAhRUZJX1pCT09UCj4gLQlzZWxlY3QgSEFWRV9LRVJORUxfVU5DT01QUkVTU0VEIGlmICFY
+SVBfS0VSTkVMICYmICFFRklfWkJPT1QKPiAtCXNlbGVjdCBIQVZFX0tFUk5FTF9aU1REIGlmICFY
+SVBfS0VSTkVMICYmICFFRklfWkJPT1QKPiAtCXNlbGVjdCBIQVZFX0tFUk5FTF9YWiBpZiAhWElQ
+X0tFUk5FTCAmJiAhRUZJX1pCT09UCj4gLQlzZWxlY3QgSEFWRV9LUFJPQkVTIGlmICFYSVBfS0VS
+TkVMCj4gLQlzZWxlY3QgSEFWRV9LUkVUUFJPQkVTIGlmICFYSVBfS0VSTkVMCj4gKwlzZWxlY3Qg
+SEFWRV9LRVJORUxfQlpJUDIgaWYgIUVGSV9aQk9PVAo+ICsJc2VsZWN0IEhBVkVfS0VSTkVMX0da
+SVAgaWYgIUVGSV9aQk9PVAo+ICsJc2VsZWN0IEhBVkVfS0VSTkVMX0xaNCBpZiAhRUZJX1pCT09U
+Cj4gKwlzZWxlY3QgSEFWRV9LRVJORUxfTFpNQSBpZiAhRUZJX1pCT09UCj4gKwlzZWxlY3QgSEFW
+RV9LRVJORUxfTFpPIGlmICFFRklfWkJPT1QKPiArCXNlbGVjdCBIQVZFX0tFUk5FTF9VTkNPTVBS
+RVNTRUQgaWYgIUVGSV9aQk9PVAo+ICsJc2VsZWN0IEhBVkVfS0VSTkVMX1pTVEQgaWYgIUVGSV9a
+Qk9PVAo+ICsJc2VsZWN0IEhBVkVfS0VSTkVMX1haIGlmICFFRklfWkJPT1QKPiArCXNlbGVjdCBI
+QVZFX0tQUk9CRVMKPiArCXNlbGVjdCBIQVZFX0tSRVRQUk9CRVMKPiAgCSMgaHR0cHM6Ly9naXRo
+dWIuY29tL0NsYW5nQnVpbHRMaW51eC9saW51eC9pc3N1ZXMvMTg4MQo+ICAJc2VsZWN0IEhBVkVf
+TERfREVBRF9DT0RFX0RBVEFfRUxJTUlOQVRJT04gaWYgIUxEX0lTX0xMRAo+ICAJc2VsZWN0IEhB
+VkVfTU9WRV9QTUQKPiBAQCAtMTkxLDkgKzE5MSw5IEBAIGNvbmZpZyBSSVNDVgo+ICAJc2VsZWN0
+IEhBVkVfUEVSRl9SRUdTCj4gIAlzZWxlY3QgSEFWRV9QRVJGX1VTRVJfU1RBQ0tfRFVNUAo+ICAJ
+c2VsZWN0IEhBVkVfUE9TSVhfQ1BVX1RJTUVSU19UQVNLX1dPUksKPiAtCXNlbGVjdCBIQVZFX1BS
+RUVNUFRfRFlOQU1JQ19LRVkgaWYgIVhJUF9LRVJORUwKPiArCXNlbGVjdCBIQVZFX1BSRUVNUFRf
+RFlOQU1JQ19LRVkKPiAgCXNlbGVjdCBIQVZFX1JFR1NfQU5EX1NUQUNLX0FDQ0VTU19BUEkKPiAt
+CXNlbGVjdCBIQVZFX1JFVEhPT0sgaWYgIVhJUF9LRVJORUwKPiArCXNlbGVjdCBIQVZFX1JFVEhP
+T0sKPiAgCXNlbGVjdCBIQVZFX1JTRVEKPiAgCXNlbGVjdCBIQVZFX1JVU1QgaWYgUlVTVENfU1VQ
+UE9SVFNfUklTQ1YgJiYgQ0NfSVNfQ0xBTkcKPiAgCXNlbGVjdCBIQVZFX1NBTVBMRV9GVFJBQ0Vf
+RElSRUNUCj4gQEAgLTIxNCw3ICsyMTQsNyBAQCBjb25maWcgUklTQ1YKPiAgCXNlbGVjdCBQQ0lf
+RUNBTSBpZiAoQUNQSSAmJiBQQ0kpCj4gIAlzZWxlY3QgUENJX01TSSBpZiBQQ0kKPiAgCXNlbGVj
+dCBSRUxPQ0FUQUJMRSBpZiAhTU1VICYmICFQSFlTX1JBTV9CQVNFX0ZJWEVECj4gLQlzZWxlY3Qg
+UklTQ1ZfQUxURVJOQVRJVkUgaWYgIVhJUF9LRVJORUwKPiArCXNlbGVjdCBSSVNDVl9BTFRFUk5B
+VElWRQo+ICAJc2VsZWN0IFJJU0NWX0FQTElDCj4gIAlzZWxlY3QgUklTQ1ZfSU1TSUMKPiAgCXNl
+bGVjdCBSSVNDVl9JTlRDCj4gQEAgLTU0MSw3ICs1NDEsNiBAQCBlbmRjaG9pY2UKPiAgCj4gIGNv
+bmZpZyBSSVNDVl9BTFRFUk5BVElWRQo+ICAJYm9vbAo+IC0JZGVwZW5kcyBvbiAhWElQX0tFUk5F
+TAo+ICAJaGVscAo+ICAJICBUaGlzIEtjb25maWcgYWxsb3dzIHRoZSBrZXJuZWwgdG8gYXV0b21h
+dGljYWxseSBwYXRjaCB0aGUKPiAgCSAgZXJyYXR1bSBvciBjcHVmZWF0dXJlIHJlcXVpcmVkIGJ5
+IHRoZSBleGVjdXRpb24gcGxhdGZvcm0gYXQgcnVuCj4gQEAgLTExMjksNyArMTEyOCw2IEBAIGNv
+bmZpZyBQQVJBVklSVF9USU1FX0FDQ09VTlRJTkcKPiAgCj4gIGNvbmZpZyBSRUxPQ0FUQUJMRQo+
+ICAJYm9vbCAiQnVpbGQgYSByZWxvY2F0YWJsZSBrZXJuZWwiCj4gLQlkZXBlbmRzIG9uICFYSVBf
+S0VSTkVMCj4gIAlzZWxlY3QgTU9EVUxFX1NFQ1RJT05TIGlmIE1PRFVMRVMKPiAgCXNlbGVjdCBB
+UkNIX1ZNTElOVVhfTkVFRFNfUkVMT0NTCj4gIAloZWxwCj4gQEAgLTExNDYsNyArMTE0NCw3IEBA
+IGNvbmZpZyBSRUxPQ0FUQUJMRQo+ICBjb25maWcgUkFORE9NSVpFX0JBU0UKPiAgICAgICAgICBi
+b29sICJSYW5kb21pemUgdGhlIGFkZHJlc3Mgb2YgdGhlIGtlcm5lbCBpbWFnZSIKPiAgICAgICAg
+ICBzZWxlY3QgUkVMT0NBVEFCTEUKPiAtICAgICAgICBkZXBlbmRzIG9uIE1NVSAmJiA2NEJJVCAm
+JiAhWElQX0tFUk5FTAo+ICsgICAgICAgIGRlcGVuZHMgb24gTU1VICYmIDY0QklUCj4gICAgICAg
+ICAgaGVscAo+ICAgICAgICAgICAgUmFuZG9taXplcyB0aGUgdmlydHVhbCBhZGRyZXNzIGF0IHdo
+aWNoIHRoZSBrZXJuZWwgaW1hZ2UgaXMKPiAgICAgICAgICAgIGxvYWRlZCwgYXMgYSBzZWN1cml0
+eSBmZWF0dXJlIHRoYXQgZGV0ZXJzIGV4cGxvaXQgYXR0ZW1wdHMKPiBAQCAtMTIzNiw3ICsxMjM0
+LDcgQEAgY29uZmlnIEVGSV9TVFVCCj4gIAo+ICBjb25maWcgRUZJCj4gIAlib29sICJVRUZJIHJ1
+bnRpbWUgc3VwcG9ydCIKPiAtCWRlcGVuZHMgb24gT0YgJiYgIVhJUF9LRVJORUwKPiArCWRlcGVu
+ZHMgb24gT0YKPiAgCWRlcGVuZHMgb24gTU1VCj4gIAlkZWZhdWx0IHkKPiAgCXNlbGVjdCBBUkNI
+X1NVUFBPUlRTX0FDUEkgaWYgNjRCSVQKPiBAQCAtMTI4Nyw0NCArMTI4NSw2IEBAIGNvbmZpZyBQ
+SFlTX1JBTV9CQVNFCj4gIAkgIGV4cGxpY2l0bHkgc3BlY2lmaWVkIHRvIHJ1biBlYXJseSByZWxv
+Y2F0aW9ucyBvZiByZWFkLXdyaXRlIGRhdGEKPiAgCSAgZnJvbSBmbGFzaCB0byBSQU0uCj4gIAo+
+IC1jb25maWcgWElQX0tFUk5FTAo+IC0JYm9vbCAiS2VybmVsIEV4ZWN1dGUtSW4tUGxhY2UgZnJv
+bSBST00iCj4gLQlkZXBlbmRzIG9uIE1NVSAmJiBTUEFSU0VNRU0gJiYgTk9OUE9SVEFCTEUKPiAt
+CSMgVGhpcyBwcmV2ZW50cyBYSVAgZnJvbSBiZWluZyBlbmFibGVkIGJ5IGFsbHt5ZXMsbW9kfWNv
+bmZpZywgd2hpY2gKPiAtCSMgZmFpbCB0byBidWlsZCBzaW5jZSBYSVAgZG9lc24ndCBzdXBwb3J0
+IGxhcmdlIGtlcm5lbHMuCj4gLQlkZXBlbmRzIG9uICFDT01QSUxFX1RFU1QKPiAtCXNlbGVjdCBQ
+SFlTX1JBTV9CQVNFX0ZJWEVECj4gLQloZWxwCj4gLQkgIEV4ZWN1dGUtSW4tUGxhY2UgYWxsb3dz
+IHRoZSBrZXJuZWwgdG8gcnVuIGZyb20gbm9uLXZvbGF0aWxlIHN0b3JhZ2UKPiAtCSAgZGlyZWN0
+bHkgYWRkcmVzc2FibGUgYnkgdGhlIENQVSwgc3VjaCBhcyBOT1IgZmxhc2guIFRoaXMgc2F2ZXMg
+UkFNCj4gLQkgIHNwYWNlIHNpbmNlIHRoZSB0ZXh0IHNlY3Rpb24gb2YgdGhlIGtlcm5lbCBpcyBu
+b3QgbG9hZGVkIGZyb20gZmxhc2gKPiAtCSAgdG8gUkFNLiAgUmVhZC13cml0ZSBzZWN0aW9ucywg
+c3VjaCBhcyB0aGUgZGF0YSBzZWN0aW9uIGFuZCBzdGFjaywKPiAtCSAgYXJlIHN0aWxsIGNvcGll
+ZCB0byBSQU0uICBUaGUgWElQIGtlcm5lbCBpcyBub3QgY29tcHJlc3NlZCBzaW5jZQo+IC0JICBp
+dCBoYXMgdG8gcnVuIGRpcmVjdGx5IGZyb20gZmxhc2gsIHNvIGl0IHdpbGwgdGFrZSBtb3JlIHNw
+YWNlIHRvCj4gLQkgIHN0b3JlIGl0LiAgVGhlIGZsYXNoIGFkZHJlc3MgdXNlZCB0byBsaW5rIHRo
+ZSBrZXJuZWwgb2JqZWN0IGZpbGVzLAo+IC0JICBhbmQgZm9yIHN0b3JpbmcgaXQsIGlzIGNvbmZp
+Z3VyYXRpb24gZGVwZW5kZW50LiBUaGVyZWZvcmUsIGlmIHlvdQo+IC0JICBzYXkgWSBoZXJlLCB5
+b3UgbXVzdCBrbm93IHRoZSBwcm9wZXIgcGh5c2ljYWwgYWRkcmVzcyB3aGVyZSB0bwo+IC0JICBz
+dG9yZSB0aGUga2VybmVsIGltYWdlIGRlcGVuZGluZyBvbiB5b3VyIG93biBmbGFzaCBtZW1vcnkg
+dXNhZ2UuCj4gLQo+IC0JICBBbHNvIG5vdGUgdGhhdCB0aGUgbWFrZSB0YXJnZXQgYmVjb21lcyAi
+bWFrZSB4aXBJbWFnZSIgcmF0aGVyIHRoYW4KPiAtCSAgIm1ha2UgekltYWdlIiBvciAibWFrZSBJ
+bWFnZSIuICBUaGUgZmluYWwga2VybmVsIGJpbmFyeSB0byBwdXQgaW4KPiAtCSAgUk9NIG1lbW9y
+eSB3aWxsIGJlIGFyY2gvcmlzY3YvYm9vdC94aXBJbWFnZS4KPiAtCj4gLQkgIFNQQVJTRU1FTSBp
+cyByZXF1aXJlZCBiZWNhdXNlIHRoZSBrZXJuZWwgdGV4dCBhbmQgcm9kYXRhIHRoYXQgYXJlCj4g
+LQkgIGZsYXNoIHJlc2lkZW50IGFyZSBub3QgYmFja2VkIGJ5IG1lbW1hcCwgdGhlbiBhbnkgYXR0
+ZW1wdCB0byBnZXQKPiAtCSAgYSBzdHJ1Y3QgcGFnZSBvbiB0aG9zZSByZWdpb25zIHdpbGwgdHJp
+Z2dlciBhIGZhdWx0Lgo+IC0KPiAtCSAgSWYgdW5zdXJlLCBzYXkgTi4KPiAtCj4gLWNvbmZpZyBY
+SVBfUEhZU19BRERSCj4gLQloZXggIlhJUCBLZXJuZWwgUGh5c2ljYWwgTG9jYXRpb24iCj4gLQlk
+ZXBlbmRzIG9uIFhJUF9LRVJORUwKPiAtCWRlZmF1bHQgIjB4MjEwMDAwMDAiCj4gLQloZWxwCj4g
+LQkgIFRoaXMgaXMgdGhlIHBoeXNpY2FsIGFkZHJlc3MgaW4geW91ciBmbGFzaCBtZW1vcnkgdGhl
+IGtlcm5lbCB3aWxsCj4gLQkgIGJlIGxpbmtlZCBmb3IgYW5kIHN0b3JlZCB0by4gIFRoaXMgYWRk
+cmVzcyBpcyBkZXBlbmRlbnQgb24geW91cgo+IC0JICBvd24gZmxhc2ggdXNhZ2UuCj4gLQo+ICBj
+b25maWcgUklTQ1ZfSVNBX0ZBTExCQUNLCj4gIAlib29sICJQZXJtaXQgZmFsbGluZyBiYWNrIHRv
+IHBhcnNpbmcgcmlzY3YsaXNhIGZvciBleHRlbnNpb24gc3VwcG9ydCBieSBkZWZhdWx0Igo+ICAJ
+ZGVmYXVsdCB5Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZy5zb2NzIGIvYXJjaC9y
+aXNjdi9LY29uZmlnLnNvY3MKPiBpbmRleCBkNjIxYjg1ZGQ2M2IuLmMxNzRhYzBlYzQ2YiAxMDA2
+NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L0tjb25maWcuc29jcwo+ICsrKyBiL2FyY2gvcmlzY3YvS2Nv
+bmZpZy5zb2NzCj4gQEAgLTIsNyArMiw3IEBAIG1lbnUgIlNvQyBzZWxlY3Rpb24iCj4gIAo+ICBj
+b25maWcgQVJDSF9BTkRFUwo+ICAJYm9vbCAiQW5kZXMgU29DcyIKPiAtCWRlcGVuZHMgb24gTU1V
+ICYmICFYSVBfS0VSTkVMCj4gKwlkZXBlbmRzIG9uIE1NVQo+ICAJc2VsZWN0IEVSUkFUQV9BTkRF
+Uwo+ICAJaGVscAo+ICAJICBUaGlzIGVuYWJsZXMgc3VwcG9ydCBmb3IgQW5kZXMgU29DIHBsYXRm
+b3JtIGhhcmR3YXJlLgo+IEBAIC0zMyw3ICszMyw3IEBAIGNvbmZpZyBBUkNIX1JFTkVTQVMKPiAg
+Cj4gIGNvbmZpZyBBUkNIX1NJRklWRQo+ICAJYm9vbCAiU2lGaXZlIFNvQ3MiCj4gLQlzZWxlY3Qg
+RVJSQVRBX1NJRklWRSBpZiAhWElQX0tFUk5FTAo+ICsJc2VsZWN0IEVSUkFUQV9TSUZJVkUKPiAg
+CWhlbHAKPiAgCSAgVGhpcyBlbmFibGVzIHN1cHBvcnQgZm9yIFNpRml2ZSBTb0MgcGxhdGZvcm0g
+aGFyZHdhcmUuCj4gIAo+IEBAIC02MSw3ICs2MSw3IEBAIGNvbmZpZyBTT0NfU1RBUkZJVkUKPiAg
+Cj4gIGNvbmZpZyBBUkNIX1NVTlhJCj4gIAlib29sICJBbGx3aW5uZXIgc3VuMjBpIFNvQ3MiCj4g
+LQlkZXBlbmRzIG9uIE1NVSAmJiAhWElQX0tFUk5FTAo+ICsJZGVwZW5kcyBvbiBNTVUKPiAgCXNl
+bGVjdCBFUlJBVEFfVEhFQUQKPiAgCXNlbGVjdCBTVU40SV9USU1FUgo+ICAJaGVscAo+IEBAIC03
+OCw3ICs3OCw3IEBAIGNvbmZpZyBBUkNIX1RFTlNUT1JSRU5UCj4gIAo+ICBjb25maWcgQVJDSF9U
+SEVBRAo+ICAJYm9vbCAiVC1IRUFEIFJJU0MtViBTb0NzIgo+IC0JZGVwZW5kcyBvbiBNTVUgJiYg
+IVhJUF9LRVJORUwKPiArCWRlcGVuZHMgb24gTU1VCj4gIAlzZWxlY3QgRVJSQVRBX1RIRUFECj4g
+IAlzZWxlY3QgUE1fR0VORVJJQ19ET01BSU5TIGlmIFBNCj4gIAloZWxwCj4gZGlmZiAtLWdpdCBh
+L2FyY2gvcmlzY3YvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L01ha2VmaWxlCj4gaW5kZXggMzcxZGE3
+NWE0N2Y5Li4yY2RhODdhNWFhZjEgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9NYWtlZmlsZQo+
+ICsrKyBiL2FyY2gvcmlzY3YvTWFrZWZpbGUKPiBAQCAtMTUwLDcgKzE1MCw2IEBAIGlmZGVmIENP
+TkZJR19SSVNDVl9NX01PREUKPiAgYm9vdC1pbWFnZS0kKENPTkZJR19TT0NfQ0FOQUFOX0syMTAp
+CTo9IGxvYWRlci5iaW4KPiAgZW5kaWYKPiAgYm9vdC1pbWFnZS0kKENPTkZJR19FRklfWkJPT1Qp
+CQk6PSB2bWxpbnV6LmVmaQo+IC1ib290LWltYWdlLSQoQ09ORklHX1hJUF9LRVJORUwpCQk6PSB4
+aXBJbWFnZQo+ICBLQlVJTERfSU1BR0UJCQkJOj0gJChib290KS8kKGJvb3QtaW1hZ2UteSkKPiAg
+Cj4gIGxpYnMteSArPSBhcmNoL3Jpc2N2L2xpYi8KPiBAQCAtMjE4LDggKzIxNyw2IEBAIGRlZmlu
+ZSBhcmNoaGVscAo+ICAgIGVjaG8gICcgIEltYWdlLnh6CS0gQ29tcHJlc3NlZCBrZXJuZWwgaW1h
+Z2UgKGFyY2gvcmlzY3YvYm9vdC9JbWFnZS54eiknCj4gICAgZWNobyAgJyAgdm1saW51ei5lZmkJ
+LSBDb21wcmVzc2VkIEVGSSBrZXJuZWwgaW1hZ2UgKGFyY2gvcmlzY3YvYm9vdC92bWxpbnV6LmVm
+aSknCj4gICAgZWNobyAgJwkJICBEZWZhdWx0IHdoZW4gQ09ORklHX0VGSV9aQk9PVD15Jwo+IC0g
+IGVjaG8gICcgIHhpcEltYWdlCS0gRXhlY3V0ZS1pbi1wbGFjZSBrZXJuZWwgaW1hZ2UgKGFyY2gv
+cmlzY3YvYm9vdC94aXBJbWFnZSknCj4gLSAgZWNobyAgJwkJICBEZWZhdWx0IHdoZW4gQ09ORklH
+X1hJUF9LRVJORUw9eScKPiAgICBlY2hvICAnICBpbnN0YWxsCS0gSW5zdGFsbCBrZXJuZWwgdXNp
+bmcgKHlvdXIpIH4vYmluLyQoSU5TVEFMTEtFUk5FTCkgb3InCj4gICAgZWNobyAgJwkJICAoZGlz
+dHJpYnV0aW9uKSAvc2Jpbi8kKElOU1RBTExLRVJORUwpIG9yIGluc3RhbGwgdG8gJwo+ICAgIGVj
+aG8gICcJCSAgJCQoSU5TVEFMTF9QQVRIKScKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9ib290
+L01ha2VmaWxlIGIvYXJjaC9yaXNjdi9ib290L01ha2VmaWxlCj4gaW5kZXggNTMwMWFkZjVmM2Y1
+Li5mY2ZiZTNmODE0ZDYgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9ib290L01ha2VmaWxlCj4g
+KysrIGIvYXJjaC9yaXNjdi9ib290L01ha2VmaWxlCj4gQEAgLTIwLDE3ICsyMCw2IEBAIE9CSkNP
+UFlGTEFHU194aXBJbWFnZSA6PS1PIGJpbmFyeSAtUiAubm90ZSAtUiAubm90ZS5nbnUuYnVpbGQt
+aWQgLVIgLmNvbW1lbnQgLVMKPiAgCj4gIHRhcmdldHMgOj0gSW1hZ2UgSW1hZ2UuKiBsb2FkZXIg
+bG9hZGVyLm8gbG9hZGVyLmxkcyBsb2FkZXIuYmluIHhpcEltYWdlCj4gIAo+IC1pZmVxICgkKENP
+TkZJR19YSVBfS0VSTkVMKSx5KQo+IC0KPiAtcXVpZXRfY21kX21reGlwID0gJChxdWlldF9jbWRf
+b2JqY29weSkKPiAtY21kX21reGlwID0gJChjbWRfb2JqY29weSkKPiAtCj4gLSQob2JqKS94aXBJ
+bWFnZTogdm1saW51eCBGT1JDRQo+IC0JJChjYWxsIGlmX2NoYW5nZWQsbWt4aXApCj4gLQlAJChr
+ZWNobykgJyAgUGh5c2ljYWwgQWRkcmVzcyBvZiB4aXBJbWFnZTogJChDT05GSUdfWElQX1BIWVNf
+QUREUiknCj4gLQo+IC1lbmRpZgo+IC0KPiAgJChvYmopL0ltYWdlOiB2bWxpbnV4IEZPUkNFCj4g
+IAkkKGNhbGwgaWZfY2hhbmdlZCxvYmpjb3B5KQo+ICAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS9wYWdlLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhZ2UuaAo+IGlu
+ZGV4IDNjNTE3YmM5ZWFjNS4uOWNjZDgwZDU3ZmZlIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vcGFnZS5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYWdlLmgK
+PiBAQCAtMjksMTEgKzI5LDcgQEAKPiAgI2RlZmluZSBQQUdFX09GRlNFVF9MNQkJX0FDKDB4ZmY2
+MDAwMDAwMDAwMDAwMCwgVUwpCj4gICNkZWZpbmUgUEFHRV9PRkZTRVRfTDQJCV9BQygweGZmZmZh
+ZjgwMDAwMDAwMDAsIFVMKQo+ICAjZGVmaW5lIFBBR0VfT0ZGU0VUX0wzCQlfQUMoMHhmZmZmZmZk
+NjAwMDAwMDAwLCBVTCkKPiAtI2lmZGVmIENPTkZJR19YSVBfS0VSTkVMCj4gLSNkZWZpbmUgUEFH
+RV9PRkZTRVQJCVBBR0VfT0ZGU0VUX0wzCj4gLSNlbHNlCj4gICNkZWZpbmUgUEFHRV9PRkZTRVQJ
+CWtlcm5lbF9tYXAucGFnZV9vZmZzZXQKPiAtI2VuZGlmIC8qIENPTkZJR19YSVBfS0VSTkVMICov
+Cj4gICNlbHNlCj4gICNkZWZpbmUgUEFHRV9PRkZTRVQJCV9BQygweGMwMDAwMDAwLCBVTCkKPiAg
+I2VuZGlmIC8qIENPTkZJR182NEJJVCAqLwo+IEBAIC0xMDUsMTUgKzEwMSw4IEBAIHN0cnVjdCBr
+ZXJuZWxfbWFwcGluZyB7Cj4gIAkvKiBPZmZzZXQgYmV0d2VlbiBsaW5lYXIgbWFwcGluZyB2aXJ0
+dWFsIGFkZHJlc3MgYW5kIGtlcm5lbCBsb2FkIGFkZHJlc3MgKi8KPiAgCXVuc2lnbmVkIGxvbmcg
+dmFfcGFfb2Zmc2V0Owo+ICAJLyogT2Zmc2V0IGJldHdlZW4ga2VybmVsIG1hcHBpbmcgdmlydHVh
+bCBhZGRyZXNzIGFuZCBrZXJuZWwgbG9hZCBhZGRyZXNzICovCj4gLSNpZmRlZiBDT05GSUdfWElQ
+X0tFUk5FTAo+IC0JdW5zaWduZWQgbG9uZyB2YV9rZXJuZWxfeGlwX3RleHRfcGFfb2Zmc2V0Owo+
+IC0JdW5zaWduZWQgbG9uZyB2YV9rZXJuZWxfeGlwX2RhdGFfcGFfb2Zmc2V0Owo+IC0JdWludHB0
+cl90IHhpcHJvbTsKPiAtCXVpbnRwdHJfdCB4aXByb21fc3o7Cj4gLSNlbHNlCj4gIAl1bnNpZ25l
+ZCBsb25nIHBhZ2Vfb2Zmc2V0Owo+ICAJdW5zaWduZWQgbG9uZyB2YV9rZXJuZWxfcGFfb2Zmc2V0
+Owo+IC0jZW5kaWYKPiAgfTsKPiAgCj4gIGV4dGVybiBzdHJ1Y3Qga2VybmVsX21hcHBpbmcga2Vy
+bmVsX21hcDsKPiBAQCAtMTMyLDE2ICsxMjEsNyBAQCBleHRlcm4gdW5zaWduZWQgbG9uZyB2bWVt
+bWFwX3N0YXJ0X3BmbjsKPiAgdm9pZCAqbGluZWFyX21hcHBpbmdfcGFfdG9fdmEodW5zaWduZWQg
+bG9uZyB4KTsKPiAgI2VuZGlmCj4gIAo+IC0jaWZkZWYgQ09ORklHX1hJUF9LRVJORUwKPiAtI2Rl
+ZmluZSBrZXJuZWxfbWFwcGluZ19wYV90b192YSh5KQkoewkJCQkJXAo+IC0JdW5zaWduZWQgbG9u
+ZyBfeSA9ICh1bnNpZ25lZCBsb25nKSh5KTsJCQkJCVwKPiAtCShfeSA8IHBoeXNfcmFtX2Jhc2Up
+ID8JCQkJCQkJXAo+IC0JCSh2b2lkICopKF95ICsga2VybmVsX21hcC52YV9rZXJuZWxfeGlwX3Rl
+eHRfcGFfb2Zmc2V0KSA6CVwKPiAtCQkodm9pZCAqKShfeSArIGtlcm5lbF9tYXAudmFfa2VybmVs
+X3hpcF9kYXRhX3BhX29mZnNldCk7CQlcCj4gLQl9KQo+IC0jZWxzZQo+ICAjZGVmaW5lIGtlcm5l
+bF9tYXBwaW5nX3BhX3RvX3ZhKHkpICgodm9pZCAqKSgodW5zaWduZWQgbG9uZykoeSkgKyBrZXJu
+ZWxfbWFwLnZhX2tlcm5lbF9wYV9vZmZzZXQpKQo+IC0jZW5kaWYKPiAgCj4gICNkZWZpbmUgX19w
+YV90b192YV9ub2RlYnVnKHgpCQlsaW5lYXJfbWFwcGluZ19wYV90b192YSh4KQo+ICAKPiBAQCAt
+MTUxLDE2ICsxMzEsNyBAQCB2b2lkICpsaW5lYXJfbWFwcGluZ19wYV90b192YSh1bnNpZ25lZCBs
+b25nIHgpOwo+ICBwaHlzX2FkZHJfdCBsaW5lYXJfbWFwcGluZ192YV90b19wYSh1bnNpZ25lZCBs
+b25nIHgpOwo+ICAjZW5kaWYKPiAgCj4gLSNpZmRlZiBDT05GSUdfWElQX0tFUk5FTAo+IC0jZGVm
+aW5lIGtlcm5lbF9tYXBwaW5nX3ZhX3RvX3BhKHkpICh7CQkJCQkJXAo+IC0JdW5zaWduZWQgbG9u
+ZyBfeSA9ICh1bnNpZ25lZCBsb25nKSh5KTsJCQkJCVwKPiAtCShfeSA8IGtlcm5lbF9tYXAudmly
+dF9hZGRyICsga2VybmVsX21hcC54aXByb21fc3opID8JCQlcCj4gLQkJKF95IC0ga2VybmVsX21h
+cC52YV9rZXJuZWxfeGlwX3RleHRfcGFfb2Zmc2V0KSA6CQlcCj4gLQkJKF95IC0ga2VybmVsX21h
+cC52YV9rZXJuZWxfeGlwX2RhdGFfcGFfb2Zmc2V0KTsJCQlcCj4gLQl9KQo+IC0jZWxzZQo+ICAj
+ZGVmaW5lIGtlcm5lbF9tYXBwaW5nX3ZhX3RvX3BhKHkpICgodW5zaWduZWQgbG9uZykoeSkgLSBr
+ZXJuZWxfbWFwLnZhX2tlcm5lbF9wYV9vZmZzZXQpCj4gLSNlbmRpZgo+ICAKPiAgI2RlZmluZSBf
+X3ZhX3RvX3BhX25vZGVidWcoeCkJKHsJCQkJCQlcCj4gIAl1bnNpZ25lZCBsb25nIF94ID0geDsJ
+CQkJCQkJXAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaCBi
+L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oCj4gaW5kZXggMTM0MGFhMzk4YTc0Li5h
+MThjMGY2MmI0NTIgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxl
+LmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAo+IEBAIC0xMzQsMjEg
+KzEzNCw2IEBACj4gIAo+ICAjaW5jbHVkZSA8bGludXgvcGFnZV90YWJsZV9jaGVjay5oPgo+ICAK
+PiAtI2lmZGVmIENPTkZJR19YSVBfS0VSTkVMCj4gLSNkZWZpbmUgWElQX0ZJWFVQKGFkZHIpICh7
+CQkJCQkJCVwKPiAtCWV4dGVybiBjaGFyIF9zZGF0YVtdLCBfc3RhcnRbXSwgX2VuZFtdOwkJCQkJ
+XAo+IC0JdWludHB0cl90IF9fcm9tX3N0YXJ0X2RhdGEgPSBDT05GSUdfWElQX1BIWVNfQUREUgkJ
+CVwKPiAtCQkJCSsgKHVpbnRwdHJfdCkmX3NkYXRhIC0gKHVpbnRwdHJfdCkmX3N0YXJ0OwlcCj4g
+LQl1aW50cHRyX3QgX19yb21fZW5kX2RhdGEgPSBDT05GSUdfWElQX1BIWVNfQUREUgkJCQlcCj4g
+LQkJCQkrICh1aW50cHRyX3QpJl9lbmQgLSAodWludHB0cl90KSZfc3RhcnQ7CVwKPiAtCXVpbnRw
+dHJfdCBfX2EgPSAodWludHB0cl90KShhZGRyKTsJCQkJCVwKPiAtCShfX2EgPj0gX19yb21fc3Rh
+cnRfZGF0YSAmJiBfX2EgPCBfX3JvbV9lbmRfZGF0YSkgPwkJCVwKPiAtCQlfX2EgLSBfX3JvbV9z
+dGFydF9kYXRhICsgQ09ORklHX1BIWVNfUkFNX0JBU0UgOglfX2E7CQlcCj4gLQl9KQo+IC0jZWxz
+ZQo+IC0jZGVmaW5lIFhJUF9GSVhVUChhZGRyKQkJKGFkZHIpCj4gLSNlbmRpZiAvKiBDT05GSUdf
+WElQX0tFUk5FTCAqLwo+IC0KPiAgc3RydWN0IHB0X2FsbG9jX29wcyB7Cj4gIAlwdGVfdCAqKCpn
+ZXRfcHRlX3ZpcnQpKHBoeXNfYWRkcl90IHBhKTsKPiAgCXBoeXNfYWRkcl90ICgqYWxsb2NfcHRl
+KSh1aW50cHRyX3QgdmEpOwo+IEBAIC0xMjcyLDEzICsxMjU3LDggQEAgc3RhdGljIGlubGluZSBw
+dGVfdCBwdGVfc3dwX2NsZWFyX2V4Y2x1c2l2ZShwdGVfdCBwdGUpCj4gIGV4dGVybiBjaGFyIF9z
+dGFydFtdOwo+ICBleHRlcm4gdm9pZCAqX2R0Yl9lYXJseV92YTsKPiAgZXh0ZXJuIHVpbnRwdHJf
+dCBfZHRiX2Vhcmx5X3BhOwo+IC0jaWYgZGVmaW5lZChDT05GSUdfWElQX0tFUk5FTCkgJiYgZGVm
+aW5lZChDT05GSUdfTU1VKQo+IC0jZGVmaW5lIGR0Yl9lYXJseV92YQkoKih2b2lkICoqKVhJUF9G
+SVhVUCgmX2R0Yl9lYXJseV92YSkpCj4gLSNkZWZpbmUgZHRiX2Vhcmx5X3BhCSgqKHVpbnRwdHJf
+dCAqKVhJUF9GSVhVUCgmX2R0Yl9lYXJseV9wYSkpCj4gLSNlbHNlCj4gICNkZWZpbmUgZHRiX2Vh
+cmx5X3ZhCV9kdGJfZWFybHlfdmEKPiAgI2RlZmluZSBkdGJfZWFybHlfcGEJX2R0Yl9lYXJseV9w
+YQo+IC0jZW5kaWYgLyogQ09ORklHX1hJUF9LRVJORUwgKi8KPiAgZXh0ZXJuIHU2NCBzYXRwX21v
+ZGU7Cj4gIAo+ICB2b2lkIHBhZ2luZ19pbml0KHZvaWQpOwo+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL3Njcy5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zY3MuaAo+IGlu
+ZGV4IGFiNzcxNGFhOTNiZC4uMDIzYTQxMmZlMzhkIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vc2NzLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Njcy5oCj4g
+QEAgLTEwLDcgKzEwLDYgQEAKPiAgLyogTG9hZCBpbml0X3NoYWRvd19jYWxsX3N0YWNrIHRvIGdw
+LiAqLwo+ICAubWFjcm8gc2NzX2xvYWRfaW5pdF9zdGFjawo+ICAJbGEJZ3AsIGluaXRfc2hhZG93
+X2NhbGxfc3RhY2sKPiAtCVhJUF9GSVhVUF9PRkZTRVQgZ3AKPiAgLmVuZG0KPiAgCj4gIC8qIExv
+YWQgdGhlIHBlci1DUFUgSVJRIHNoYWRvdyBjYWxsIHN0YWNrIHRvIGdwLiAqLwo+IGRpZmYgLS1n
+aXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NldF9tZW1vcnkuaCBiL2FyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vc2V0X21lbW9yeS5oCj4gaW5kZXggODczODllOTMzMjVhLi5lZjU5ZTE3MTZhMmMg
+MTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zZXRfbWVtb3J5LmgKPiArKysg
+Yi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NldF9tZW1vcnkuaAo+IEBAIC00Nyw3ICs0Nyw3IEBA
+IGJvb2wga2VybmVsX3BhZ2VfcHJlc2VudChzdHJ1Y3QgcGFnZSAqcGFnZSk7Cj4gIAo+ICAjZW5k
+aWYgLyogX19BU1NFTUJMRVJfXyAqLwo+ICAKPiAtI2lmIGRlZmluZWQoQ09ORklHX1NUUklDVF9L
+RVJORUxfUldYKSB8fCBkZWZpbmVkKENPTkZJR19YSVBfS0VSTkVMKQo+ICsjaWYgZGVmaW5lZChD
+T05GSUdfU1RSSUNUX0tFUk5FTF9SV1gpCj4gICNpZmRlZiBDT05GSUdfNjRCSVQKPiAgI2RlZmlu
+ZSBTRUNUSU9OX0FMSUdOICgxIDw8IDIxKQo+ICAjZWxzZQo+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL3hpcF9maXh1cC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS94aXBf
+Zml4dXAuaAo+IGRlbGV0ZWQgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4IGYzZDU2Mjk5YmMyMi4u
+MDAwMDAwMDAwMDAwCj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS94aXBfZml4dXAuaAo+
+ICsrKyAvZGV2L251bGwKPiBAQCAtMSw0OSArMCwwIEBACj4gLS8qIFNQRFgtTGljZW5zZS1JZGVu
+dGlmaWVyOiBHUEwtMi4wLW9ubHkgKi8KPiAtLyoKPiAtICogWElQIGZpeHVwIG1hY3Jvcywgb25s
+eSB1c2VmdWwgaW4gYXNzZW1ibHkuCj4gLSAqLwo+IC0jaWZuZGVmIF9BU01fUklTQ1ZfWElQX0ZJ
+WFVQX0gKPiAtI2RlZmluZSBfQVNNX1JJU0NWX1hJUF9GSVhVUF9ICj4gLQo+IC0jaW5jbHVkZSA8
+bGludXgvcGd0YWJsZS5oPgo+IC0KPiAtI2lmZGVmIENPTkZJR19YSVBfS0VSTkVMCj4gLS5tYWNy
+byBYSVBfRklYVVBfT0ZGU0VUIHJlZwo+IC0JLyogRml4LXVwIGFkZHJlc3MgaW4gRmxhc2ggaW50
+byBhZGRyZXNzIGluIFJBTSBlYXJseSBkdXJpbmcgYm9vdCBiZWZvcmUKPiAtCSAqIE1NVSBpcyB1
+cC4gQmVjYXVzZSBnZW5lcmF0ZWQgY29kZSAidGhpbmtzIiBkYXRhIGlzIGluIEZsYXNoLCBidXQg
+aXQKPiAtCSAqIGlzIGFjdHVhbGx5IGluIFJBTSAoYWN0dWFsbHkgZGF0YSBpcyBhbHNvIGluIEZs
+YXNoLCBidXQgRmxhc2ggaXMKPiAtCSAqIHJlYWQtb25seSwgdGh1cyB3ZSBuZWVkIHRvIHVzZSB0
+aGUgZGF0YSByZXNpZGluZyBpbiBSQU0pLgo+IC0JICoKPiAtCSAqIFRoZSBzdGFydCBvZiBkYXRh
+IGluIEZsYXNoIGlzIF9zZGF0YSBhbmQgdGhlIHN0YXJ0IG9mIGRhdGEgaW4gUkFNIGlzCj4gLQkg
+KiBDT05GSUdfUEhZU19SQU1fQkFTRS4gU28gdGhpcyBmaXgtdXAgZXNzZW50aWFsbHkgZG9lcyB0
+aGlzOgo+IC0JICogcmVnICs9IENPTkZJR19QSFlTX1JBTV9CQVNFIC0gX3N0YXJ0Cj4gLQkgKi8K
+PiAtCWxpIHQwLCBDT05GSUdfUEhZU19SQU1fQkFTRQo+IC0gICAgICAgIGFkZCBccmVnLCBccmVn
+LCB0MAo+IC0JbGEgdDAsIF9zZGF0YQo+IC0Jc3ViIFxyZWcsIFxyZWcsIHQwCj4gLS5lbmRtCj4g
+LS5tYWNybyBYSVBfRklYVVBfRkxBU0hfT0ZGU0VUIHJlZwo+IC0JLyogSW4gbGlua2VyIHNjcmlw
+dCwgYXQgdGhlIHRyYW5zaXRpb24gZnJvbSByZWFkLW9ubHkgc2VjdGlvbiB0bwo+IC0JICogd3Jp
+dGFibGUgc2VjdGlvbiwgdGhlIFZNQSBpcyBpbmNyZWFzZWQgd2hpbGUgTE1BIHJlbWFpbnMgdGhl
+IHNhbWUuCj4gLQkgKiAoU2VlIGluIGxpbmtlciBzY3JpcHQgaG93IF9zZGF0YSwgX19kYXRhX2xv
+YyBhbmQgTE9BRF9PRkZTRVQgaXMKPiAtCSAqIGNoYW5nZWQpCj4gLQkgKgo+IC0JICogQ29uc2Vx
+dWVudGx5LCBlYXJseSBkdXJpbmcgYm9vdCBiZWZvcmUgTU1VIGlzIHVwLCB0aGUgZ2VuZXJhdGVk
+IGNvZGUKPiAtCSAqIHJlYWRzIHRoZSAid3JpdGFibGUiIHNlY3Rpb24gYXQgd3JvbmcgYWRkcmVz
+c2VzLCBiZWNhdXNlIFZNQSBpcyB1c2VkCj4gLQkgKiBieSBjb21waWxlciB0byBnZW5lcmF0ZSBj
+b2RlLCBidXQgdGhlIGRhdGEgaXMgbG9jYXRlZCBpbiBGbGFzaCB1c2luZwo+IC0JICogTE1BLgo+
+IC0JICovCj4gLQlsYSB0MCwgX3NkYXRhCj4gLQlzdWIgXHJlZywgXHJlZywgdDAKPiAtCWxhIHQw
+LCBfX2RhdGFfbG9jCj4gLQlhZGQgXHJlZywgXHJlZywgdDAKPiAtLmVuZG0KPiAtI2Vsc2UKPiAt
+Lm1hY3JvIFhJUF9GSVhVUF9PRkZTRVQgcmVnCj4gLS5lbmRtCj4gLS5tYWNybyBYSVBfRklYVVBf
+RkxBU0hfT0ZGU0VUIHJlZwo+IC0uZW5kbQo+IC0jZW5kaWYgLyogQ09ORklHX1hJUF9LRVJORUwg
+Ki8KPiAtCj4gLSNlbmRpZgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9oZWFkLlMg
+Yi9hcmNoL3Jpc2N2L2tlcm5lbC9oZWFkLlMKPiBpbmRleCA5Yzk5YzVhZDZmZTguLjY1MDM5OTA0
+NDM2OCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9oZWFkLlMKPiArKysgYi9hcmNo
+L3Jpc2N2L2tlcm5lbC9oZWFkLlMKPiBAQCAtMTQsNyArMTQsNiBAQAo+ICAjaW5jbHVkZSA8YXNt
+L2h3Y2FwLmg+Cj4gICNpbmNsdWRlIDxhc20vaW1hZ2UuaD4KPiAgI2luY2x1ZGUgPGFzbS9zY3Mu
+aD4KPiAtI2luY2x1ZGUgPGFzbS94aXBfZml4dXAuaD4KPiAgI2luY2x1ZGUgPGFzbS91c2VyY2Zp
+Lmg+Cj4gICNpbmNsdWRlICJlZmktaGVhZGVyLlMiCj4gIAo+IEBAIC03NSw3ICs3NCw2IEBAIHBl
+X2hlYWRfc3RhcnQ6Cj4gIHJlbG9jYXRlX2VuYWJsZV9tbXU6Cj4gIAkvKiBSZWxvY2F0ZSByZXR1
+cm4gYWRkcmVzcyAqLwo+ICAJbGEgYTEsIGtlcm5lbF9tYXAKPiAtCVhJUF9GSVhVUF9PRkZTRVQg
+YTEKPiAgCVJFR19MIGExLCBLRVJORUxfTUFQX1ZJUlRfQUREUihhMSkKPiAgCWxhIGEyLCBfc3Rh
+cnQKPiAgCXN1YiBhMSwgYTEsIGEyCj4gQEAgLTg5LDcgKzg3LDYgQEAgcmVsb2NhdGVfZW5hYmxl
+X21tdToKPiAgCS8qIENvbXB1dGUgc2F0cCBmb3Iga2VybmVsIHBhZ2UgdGFibGVzLCBidXQgZG9u
+J3QgbG9hZCBpdCB5ZXQgKi8KPiAgCXNybCBhMiwgYTAsIFBBR0VfU0hJRlQKPiAgCWxhIGExLCBz
+YXRwX21vZGUKPiAtCVhJUF9GSVhVUF9PRkZTRVQgYTEKPiAgCVJFR19MIGExLCAwKGExKQo+ICAJ
+b3IgYTIsIGEyLCBhMQo+ICAKPiBAQCAtMTAwLDcgKzk3LDYgQEAgcmVsb2NhdGVfZW5hYmxlX21t
+dToKPiAgCSAqIHRvIGVuc3VyZSB0aGUgbmV3IHRyYW5zbGF0aW9ucyBhcmUgaW4gdXNlLgo+ICAJ
+ICovCj4gIAlsYSBhMCwgdHJhbXBvbGluZV9wZ19kaXIKPiAtCVhJUF9GSVhVUF9PRkZTRVQgYTAK
+PiAgCXNybCBhMCwgYTAsIFBBR0VfU0hJRlQKPiAgCW9yIGEwLCBhMCwgYTEKPiAgCXNmZW5jZS52
+bWEKPiBAQCAtMTU0LDExICsxNTAsOSBAQCBzZWNvbmRhcnlfc3RhcnRfc2JpOgo+ICAKPiAgCS8q
+IGEwIGNvbnRhaW5zIHRoZSBoYXJ0aWQgJiBhMSBjb250YWlucyBib290IGRhdGEgKi8KPiAgCWxp
+IGEyLCBTQklfSEFSVF9CT09UX1RBU0tfUFRSX09GRlNFVAo+IC0JWElQX0ZJWFVQX09GRlNFVCBh
+Mgo+ICAJYWRkIGEyLCBhMiwgYTEKPiAgCVJFR19MIHRwLCAoYTIpCj4gIAlsaSBhMywgU0JJX0hB
+UlRfQk9PVF9TVEFDS19QVFJfT0ZGU0VUCj4gLQlYSVBfRklYVVBfT0ZGU0VUIGEzCj4gIAlhZGQg
+YTMsIGEzLCBhMQo+ICAJUkVHX0wgc3AsIChhMykKPiAgCj4gQEAgLTE2Nyw3ICsxNjEsNiBAQCBz
+ZWNvbmRhcnlfc3RhcnRfc2JpOgo+ICAjaWZkZWYgQ09ORklHX01NVQo+ICAJLyogRW5hYmxlIHZp
+cnR1YWwgbWVtb3J5IGFuZCByZWxvY2F0ZSB0byB2aXJ0dWFsIGFkZHJlc3MgKi8KPiAgCWxhIGEw
+LCBzd2FwcGVyX3BnX2Rpcgo+IC0JWElQX0ZJWFVQX09GRlNFVCBhMAo+ICAJY2FsbCByZWxvY2F0
+ZV9lbmFibGVfbW11Cj4gICNlbmRpZgo+ICAJY2FsbCAuTHNldHVwX3RyYXBfdmVjdG9yCj4gQEAg
+LTI2OSw0MCArMjYyLDEzIEBAIFNZTV9DT0RFX1NUQVJUKF9zdGFydF9rZXJuZWwpCj4gIC5MZ29v
+ZF9jb3JlczoKPiAgCj4gIAkvKiBUaGUgbG90dGVyeSBzeXN0ZW0gaXMgb25seSByZXF1aXJlZCBm
+b3Igc3BpbndhaXQgYm9vdGluZyBtZXRob2QgKi8KPiAtI2lmbmRlZiBDT05GSUdfWElQX0tFUk5F
+TAo+ICAJLyogUGljayBvbmUgaGFydCB0byBydW4gdGhlIG1haW4gYm9vdCBzZXF1ZW5jZSAqLwo+
+ICAJbGEgYTMsIGhhcnRfbG90dGVyeQo+ICAJbGkgYTIsIDEKPiAgCWFtb2FkZC53IGEzLCBhMiwg
+KGEzKQo+ICAJYm5leiBhMywgLkxzZWNvbmRhcnlfc3RhcnQKPiAtCj4gLSNlbHNlCj4gLQkvKiBo
+YXJ0X2xvdHRlcnkgaW4gZmxhc2ggY29udGFpbnMgYSBtYWdpYyBudW1iZXIgKi8KPiAtCWxhIGEz
+LCBoYXJ0X2xvdHRlcnkKPiAtCW12IGEyLCBhMwo+IC0JWElQX0ZJWFVQX09GRlNFVCBhMgo+IC0J
+WElQX0ZJWFVQX0ZMQVNIX09GRlNFVCBhMwo+IC0JbHcgdDEsIChhMykKPiAtCWFtb3N3YXAudyB0
+MCwgdDEsIChhMikKPiAtCS8qIGZpcnN0IHRpbWUgaGVyZSBpZiBoYXJ0X2xvdHRlcnkgaW4gUkFN
+IGlzIG5vdCBzZXQgKi8KPiAtCWJlcSB0MCwgdDEsIC5Mc2Vjb25kYXJ5X3N0YXJ0Cj4gLQo+IC0j
+ZW5kaWYgLyogQ09ORklHX1hJUCAqLwo+ICAjZW5kaWYgLyogQ09ORklHX1JJU0NWX0JPT1RfU1BJ
+TldBSVQgKi8KPiAgCj4gLSNpZmRlZiBDT05GSUdfWElQX0tFUk5FTAo+IC0JbGEgc3AsIF9lbmQg
+KyBUSFJFQURfU0laRQo+IC0JWElQX0ZJWFVQX09GRlNFVCBzcAo+IC0JbXYgczAsIGEwCj4gLQlt
+diBzMSwgYTEKPiAtCWNhbGwgX19jb3B5X2RhdGEKPiAtCj4gLQkvKiBSZXN0b3JlIGEwICYgYTEg
+Y29weSAqLwo+IC0JbXYgYTAsIHMwCj4gLQltdiBhMSwgczEKPiAtI2VuZGlmCj4gLQo+IC0jaWZu
+ZGVmIENPTkZJR19YSVBfS0VSTkVMCj4gIAkvKiBDbGVhciBCU1MgZm9yIGZsYXQgbm9uLUVMRiBp
+bWFnZXMgKi8KPiAgCWxhIGEzLCBfX2Jzc19zdGFydAo+ICAJbGEgYTQsIF9fYnNzX3N0b3AKPiBA
+QCAtMzEyLDIwICsyNzgsMTYgQEAgU1lNX0NPREVfU1RBUlQoX3N0YXJ0X2tlcm5lbCkKPiAgCWFk
+ZCBhMywgYTMsIFJJU0NWX1NaUFRSCj4gIAlibHQgYTMsIGE0LCAuTGNsZWFyX2Jzcwo+ICAuTGNs
+ZWFyX2Jzc19kb25lOgo+IC0jZW5kaWYKPiAgCWxhIGEyLCBib290X2NwdV9oYXJ0aWQKPiAtCVhJ
+UF9GSVhVUF9PRkZTRVQgYTIKPiAgCVJFR19TIGEwLCAoYTIpCj4gIAo+ICAJLyogSW5pdGlhbGl6
+ZSBwYWdlIHRhYmxlcyBhbmQgcmVsb2NhdGUgdG8gdmlydHVhbCBhZGRyZXNzZXMgKi8KPiAgCWxh
+IHRwLCBpbml0X3Rhc2sKPiAgCWxhIHNwLCBpbml0X3RocmVhZF91bmlvbiArIFRIUkVBRF9TSVpF
+Cj4gLQlYSVBfRklYVVBfT0ZGU0VUIHNwCj4gIAlhZGRpIHNwLCBzcCwgLVBUX1NJWkVfT05fU1RB
+Q0sKPiAgCXNjc19sb2FkX2luaXRfc3RhY2sKPiAgI2lmZGVmIENPTkZJR19CVUlMVElOX0RUQgo+
+ICAJbGEgYTAsIF9fZHRiX3N0YXJ0Cj4gLQlYSVBfRklYVVBfT0ZGU0VUIGEwCj4gICNlbHNlCj4g
+IAltdiBhMCwgYTEKPiAgI2VuZGlmIC8qIENPTkZJR19CVUlMVElOX0RUQiAqLwo+IEBAIC0zMzUs
+NyArMjk3LDYgQEAgU1lNX0NPREVfU1RBUlQoX3N0YXJ0X2tlcm5lbCkKPiAgCWNhbGwgc2V0dXBf
+dm0KPiAgI2lmZGVmIENPTkZJR19NTVUKPiAgCWxhIGEwLCBlYXJseV9wZ19kaXIKPiAtCVhJUF9G
+SVhVUF9PRkZTRVQgYTAKPiAgCWNhbGwgcmVsb2NhdGVfZW5hYmxlX21tdQo+ICAjZW5kaWYgLyog
+Q09ORklHX01NVSAqLwo+ICAKPiBAQCAtMzc0LDkgKzMzNSw3IEBAIFNZTV9DT0RFX1NUQVJUKF9z
+dGFydF9rZXJuZWwpCj4gIAo+ICAJc2xsaSBhMywgYTAsIExHUkVHCj4gIAlsYSBhMSwgX19jcHVf
+c3BpbndhaXRfc3RhY2tfcG9pbnRlcgo+IC0JWElQX0ZJWFVQX09GRlNFVCBhMQo+ICAJbGEgYTIs
+IF9fY3B1X3NwaW53YWl0X3Rhc2tfcG9pbnRlcgo+IC0JWElQX0ZJWFVQX09GRlNFVCBhMgo+ICAJ
+YWRkIGExLCBhMywgYTEKPiAgCWFkZCBhMiwgYTMsIGEyCj4gIAo+IGRpZmYgLS1naXQgYS9hcmNo
+L3Jpc2N2L2tlcm5lbC9oZWFkLmggYi9hcmNoL3Jpc2N2L2tlcm5lbC9oZWFkLmgKPiBpbmRleCBh
+NTU2ZmRhYWZlZDkuLjA1YTA0YmVmNDQyYiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5l
+bC9oZWFkLmgKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9oZWFkLmgKPiBAQCAtMTEsOSArMTEs
+NiBAQAo+ICBleHRlcm4gYXRvbWljX3QgaGFydF9sb3R0ZXJ5Owo+ICAKPiAgYXNtbGlua2FnZSB2
+b2lkIF9faW5pdCBzZXR1cF92bSh1aW50cHRyX3QgZHRiX3BhKTsKPiAtI2lmZGVmIENPTkZJR19Y
+SVBfS0VSTkVMCj4gLWFzbWxpbmthZ2Ugdm9pZCBfX2luaXQgX19jb3B5X2RhdGEodm9pZCk7Cj4g
+LSNlbmRpZgo+ICAKPiAgI2lmZGVmIENPTkZJR19SSVNDVl9CT09UX1NQSU5XQUlUCj4gIGV4dGVy
+biB2b2lkICpfX2NwdV9zcGlud2FpdF9zdGFja19wb2ludGVyW107Cj4gZGlmZiAtLWdpdCBhL2Fy
+Y2gvcmlzY3Yva2VybmVsL3NldHVwLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCj4gaW5k
+ZXggYjViYzVmYzY1Y2VhLi5jODljYzI3MjQ0MGIgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9r
+ZXJuZWwvc2V0dXAuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMKPiBAQCAtNDYs
+MTEgKzQ2LDcgQEAKPiAgICogVGhpcyBpcyB1c2VkIGJlZm9yZSB0aGUga2VybmVsIGluaXRpYWxp
+emVzIHRoZSBCU1Mgc28gaXQgY2FuJ3QgYmUgaW4gdGhlCj4gICAqIEJTUy4KPiAgICovCj4gLWF0
+b21pY190IGhhcnRfbG90dGVyeSBfX3NlY3Rpb24oIi5zZGF0YSIpCj4gLSNpZmRlZiBDT05GSUdf
+WElQX0tFUk5FTAo+IC09IEFUT01JQ19JTklUKDB4QzAwMUJFRUYpCj4gLSNlbmRpZgo+IC07Cj4g
+K2F0b21pY190IGhhcnRfbG90dGVyeSBfX3NlY3Rpb24oIi5zZGF0YSIpOwo+ICB1bnNpZ25lZCBs
+b25nIGJvb3RfY3B1X2hhcnRpZDsKPiAgRVhQT1JUX1NZTUJPTF9HUEwoYm9vdF9jcHVfaGFydGlk
+KTsKPiAgCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3N1c3BlbmRfZW50cnkuUyBi
+L2FyY2gvcmlzY3Yva2VybmVsL3N1c3BlbmRfZW50cnkuUwo+IGluZGV4IDJkNTRmMzA5YzE0MC4u
+ZDcxYjU1ZmQ2MjU5IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3N1c3BlbmRfZW50
+cnkuUwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3N1c3BlbmRfZW50cnkuUwo+IEBAIC0xMCw3
+ICsxMCw2IEBACj4gICNpbmNsdWRlIDxhc20vYXNtLW9mZnNldHMuaD4KPiAgI2luY2x1ZGUgPGFz
+bS9hc3NlbWJsZXIuaD4KPiAgI2luY2x1ZGUgPGFzbS9jc3IuaD4KPiAtI2luY2x1ZGUgPGFzbS94
+aXBfZml4dXAuaD4KPiAgCj4gIAkudGV4dAo+ICAJLmFsdG1hY3JvCj4gQEAgLTcwLDcgKzY5LDYg
+QEAgU1lNX1RZUEVEX0ZVTkNfU1RBUlQoX19jcHVfcmVzdW1lX2VudGVyKQo+ICAKPiAgCS8qIEVu
+YWJsZSBNTVUgKi8KPiAgCWxhCWEwLCBzd2FwcGVyX3BnX2Rpcgo+IC0JWElQX0ZJWFVQX09GRlNF
+VCBhMAo+ICAJY2FsbAlyZWxvY2F0ZV9lbmFibGVfbW11Cj4gIAo+ICAJLyogUmVzdG9yZSBBMCBh
+bmQgQTEgKi8KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYyBiL2FyY2gv
+cmlzY3Yva2VybmVsL3RyYXBzLmMKPiBpbmRleCA1ZmI1N2ZhZDE4OGEuLmJkZWM1NGQxMmIyYSAx
+MDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jCj4gKysrIGIvYXJjaC9yaXNj
+di9rZXJuZWwvdHJhcHMuYwo+IEBAIC0xNDIsMTEgKzE0Miw3IEBAIHN0YXRpYyB2b2lkIGRvX3Ry
+YXBfZXJyb3Ioc3RydWN0IHB0X3JlZ3MgKnJlZ3MsIGludCBzaWdubywgaW50IGNvZGUsCj4gIAl9
+Cj4gIH0KPiAgCj4gLSNpZiBkZWZpbmVkKENPTkZJR19YSVBfS0VSTkVMKSAmJiBkZWZpbmVkKENP
+TkZJR19SSVNDVl9BTFRFUk5BVElWRSkKPiAtI2RlZmluZSBfX3RyYXBfc2VjdGlvbiBfX25vaW5z
+dHJfc2VjdGlvbigiLnhpcC50cmFwcyIpCj4gLSNlbHNlCj4gICNkZWZpbmUgX190cmFwX3NlY3Rp
+b24gbm9pbnN0cgo+IC0jZW5kaWYKPiAgI2RlZmluZSBET19FUlJPUl9JTkZPKG5hbWUsIHNpZ25v
+LCBjb2RlLCBzdHIpCQkJCQlcCj4gIGFzbWxpbmthZ2UgX192aXNpYmxlIF9fdHJhcF9zZWN0aW9u
+IHZvaWQgbmFtZShzdHJ1Y3QgcHRfcmVncyAqcmVncykJCVwKPiAgewkJCQkJCQkJCQlcCj4gZGlm
+ZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3ZtY29yZV9pbmZvLmMgYi9hcmNoL3Jpc2N2L2tl
+cm5lbC92bWNvcmVfaW5mby5jCj4gaW5kZXggZDVlNDQ4YWE5MGU3Li42ZDdhMjI1MjJkNjMgMTAw
+NjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvdm1jb3JlX2luZm8uYwo+ICsrKyBiL2FyY2gv
+cmlzY3Yva2VybmVsL3ZtY29yZV9pbmZvLmMKPiBAQCAtMTksMTMgKzE5LDYgQEAgdm9pZCBhcmNo
+X2NyYXNoX3NhdmVfdm1jb3JlaW5mbyh2b2lkKQo+ICAjZW5kaWYKPiAgI2VuZGlmCj4gIAl2bWNv
+cmVpbmZvX2FwcGVuZF9zdHIoIk5VTUJFUihLRVJORUxfTElOS19BRERSKT0weCVseFxuIiwgS0VS
+TkVMX0xJTktfQUREUik7Cj4gLSNpZmRlZiBDT05GSUdfWElQX0tFUk5FTAo+IC0JLyogVE9ETzog
+Q29tbXVuaWNhdGUgd2l0aCBjcmFzaC11dGlsaXR5IGRldmVsb3BlcnMgb24gdGhlIGluZm9ybWF0
+aW9uIHRvCj4gLQkgKiBleHBvcnQuIFRoZSBYSVAgY2FzZSBpcyBtb3JlIGNvbXBsaWNhdGVkLCBi
+ZWNhdXNlIHRoZSB2aXJ0dWFsLXBoeXNpY2FsCj4gLQkgKiBhZGRyZXNzIG9mZnNldCBkZXBlbmRz
+IG9uIHdoZXRoZXIgdGhlIGFkZHJlc3MgaXMgaW4gUk9NIG9yIGluIFJBTS4KPiAtCSAqLwo+IC0j
+ZWxzZQo+ICAJdm1jb3JlaW5mb19hcHBlbmRfc3RyKCJOVU1CRVIodmFfa2VybmVsX3BhX29mZnNl
+dCk9MHglbHhcbiIsCj4gIAkJCQkJCWtlcm5lbF9tYXAudmFfa2VybmVsX3BhX29mZnNldCk7Cj4g
+LSNlbmRpZgo+ICB9Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3ZtbGludXgubGRz
+LlMgYi9hcmNoL3Jpc2N2L2tlcm5lbC92bWxpbnV4Lmxkcy5TCj4gaW5kZXggNjFiZDViYTY2ODBh
+Li4zYjVmZmNmMzIxNmQgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvdm1saW51eC5s
+ZHMuUwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3ZtbGludXgubGRzLlMKPiBAQCAtNywxMCAr
+Nyw2IEBACj4gICNkZWZpbmUgUk9fRVhDRVBUSU9OX1RBQkxFX0FMSUdOCTQKPiAgI2RlZmluZSBS
+VU5USU1FX0RJU0NBUkRfRVhJVAo+ICAKPiAtI2lmZGVmIENPTkZJR19YSVBfS0VSTkVMCj4gLSNp
+bmNsdWRlICJ2bWxpbnV4LXhpcC5sZHMuUyIKPiAtI2Vsc2UKPiAtCj4gICNpbmNsdWRlIDxhc20v
+cGd0YWJsZS5oPgo+ICAjZGVmaW5lIExPQURfT0ZGU0VUIEtFUk5FTF9MSU5LX0FERFIKPiAgCj4g
+QEAgLTE3NSw0ICsxNzEsMyBAQCBTRUNUSU9OUwo+ICAKPiAgCURJU0NBUkRTCj4gIH0KPiAtI2Vu
+ZGlmIC8qIENPTkZJR19YSVBfS0VSTkVMICovCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbW0v
+aW5pdC5jIGIvYXJjaC9yaXNjdi9tbS9pbml0LmMKPiBpbmRleCAyNWE4ZjY5M2E3NjUuLmM3ZWM2
+YzAyMzVlMSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L21tL2luaXQuYwo+ICsrKyBiL2FyY2gv
+cmlzY3YvbW0vaW5pdC5jCj4gQEAgLTQxLDIwICs0MSwxNyBAQCB1NjQgbmV3X3ZtYWxsb2NbTlJf
+Q1BVUyAvIHNpemVvZih1NjQpICsgMV07Cj4gIAo+ICBzdHJ1Y3Qga2VybmVsX21hcHBpbmcga2Vy
+bmVsX21hcCBfX3JvX2FmdGVyX2luaXQ7Cj4gIEVYUE9SVF9TWU1CT0woa2VybmVsX21hcCk7Cj4g
+LSNpZmRlZiBDT05GSUdfWElQX0tFUk5FTAo+IC0jZGVmaW5lIGtlcm5lbF9tYXAJKCooc3RydWN0
+IGtlcm5lbF9tYXBwaW5nICopWElQX0ZJWFVQKCZrZXJuZWxfbWFwKSkKPiAtI2VuZGlmCj4gIAo+
+ICAjaWZkZWYgQ09ORklHXzY0QklUCj4gLXU2NCBzYXRwX21vZGUgX19yb19hZnRlcl9pbml0ID0g
+IUlTX0VOQUJMRUQoQ09ORklHX1hJUF9LRVJORUwpID8gU0FUUF9NT0RFXzU3IDogU0FUUF9NT0RF
+XzM5Owo+ICt1NjQgc2F0cF9tb2RlIF9fcm9fYWZ0ZXJfaW5pdCA9IFNBVFBfTU9ERV81NzsKPiAg
+I2Vsc2UKPiAgdTY0IHNhdHBfbW9kZSBfX3JvX2FmdGVyX2luaXQgPSBTQVRQX01PREVfMzI7Cj4g
+ICNlbmRpZgo+ICBFWFBPUlRfU1lNQk9MKHNhdHBfbW9kZSk7Cj4gIAo+ICAjaWZkZWYgQ09ORklH
+XzY0QklUCj4gLWJvb2wgcGd0YWJsZV9sNF9lbmFibGVkIF9fcm9fYWZ0ZXJfaW5pdCA9ICFJU19F
+TkFCTEVEKENPTkZJR19YSVBfS0VSTkVMKTsKPiAtYm9vbCBwZ3RhYmxlX2w1X2VuYWJsZWQgX19y
+b19hZnRlcl9pbml0ID0gIUlTX0VOQUJMRUQoQ09ORklHX1hJUF9LRVJORUwpOwo+ICtib29sIHBn
+dGFibGVfbDRfZW5hYmxlZCBfX3JvX2FmdGVyX2luaXQgPSB0cnVlOwo+ICtib29sIHBndGFibGVf
+bDVfZW5hYmxlZCBfX3JvX2FmdGVyX2luaXQgPSB0cnVlOwo+ICBFWFBPUlRfU1lNQk9MKHBndGFi
+bGVfbDRfZW5hYmxlZCk7Cj4gIEVYUE9SVF9TWU1CT0wocGd0YWJsZV9sNV9lbmFibGVkKTsKPiAg
+I2VuZGlmCj4gQEAgLTE5Nyw5ICsxOTQsNiBAQCB2b2lkIF9faW5pdCBhcmNoX21tX3ByZWluaXQo
+dm9pZCkKPiAgCj4gIC8qIExpbWl0IHRoZSBtZW1vcnkgc2l6ZSB2aWEgbWVtLiAqLwo+ICBzdGF0
+aWMgcGh5c19hZGRyX3QgbWVtb3J5X2xpbWl0Owo+IC0jaWZkZWYgQ09ORklHX1hJUF9LRVJORUwK
+PiAtI2RlZmluZSBtZW1vcnlfbGltaXQJKCoocGh5c19hZGRyX3QgKilYSVBfRklYVVAoJm1lbW9y
+eV9saW1pdCkpCj4gLSNlbmRpZiAvKiBDT05GSUdfWElQX0tFUk5FTCAqLwo+ICAKPiAgc3RhdGlj
+IGludCBfX2luaXQgZWFybHlfbWVtKGNoYXIgKnApCj4gIHsKPiBAQCAtMjIzLDEwICsyMTcsNyBA
+QCBzdGF0aWMgdm9pZCBfX2luaXQgc2V0dXBfYm9vdG1lbSh2b2lkKQo+ICAJcGh5c19hZGRyX3Qg
+bWF4X21hcHBlZF9hZGRyOwo+ICAJcGh5c19hZGRyX3QgcGh5c19yYW1fZW5kLCB2bWxpbnV4X3N0
+YXJ0Owo+ICAKPiAtCWlmIChJU19FTkFCTEVEKENPTkZJR19YSVBfS0VSTkVMKSkKPiAtCQl2bWxp
+bnV4X3N0YXJ0ID0gX19wYV9zeW1ib2woJl9zZGF0YSk7Cj4gLQllbHNlCj4gLQkJdm1saW51eF9z
+dGFydCA9IF9fcGFfc3ltYm9sKCZfc3RhcnQpOwo+ICsJdm1saW51eF9zdGFydCA9IF9fcGFfc3lt
+Ym9sKCZfc3RhcnQpOwo+ICAKPiAgCW1lbWJsb2NrX2VuZm9yY2VfbWVtb3J5X2xpbWl0KG1lbW9y
+eV9saW1pdCk7Cj4gIAo+IEBAIC0yNDYsMTIgKzIzNywxMCBAQCBzdGF0aWMgdm9pZCBfX2luaXQg
+c2V0dXBfYm9vdG1lbSh2b2lkKQo+ICAJICogTWFrZSBzdXJlIHdlIGFsaWduIHRoZSBzdGFydCBv
+ZiB0aGUgbWVtb3J5IG9uIGEgUE1EIGJvdW5kYXJ5IHNvIHRoYXQKPiAgCSAqIGF0IHdvcnN0LCB3
+ZSBtYXAgdGhlIGxpbmVhciBtYXBwaW5nIHdpdGggUE1EIG1hcHBpbmdzLgo+ICAJICovCj4gLQlp
+ZiAoIUlTX0VOQUJMRUQoQ09ORklHX1hJUF9LRVJORUwpKSB7Cj4gLQkJcGh5c19yYW1fYmFzZSA9
+IG1lbWJsb2NrX3N0YXJ0X29mX0RSQU0oKSAmIFBNRF9NQVNLOwo+ICsJcGh5c19yYW1fYmFzZSA9
+IG1lbWJsb2NrX3N0YXJ0X29mX0RSQU0oKSAmIFBNRF9NQVNLOwo+ICAjaWZkZWYgQ09ORklHX1NQ
+QVJTRU1FTV9WTUVNTUFQCj4gLQkJdm1lbW1hcF9zdGFydF9wZm4gPSByb3VuZF9kb3duKHBoeXNf
+cmFtX2Jhc2UsIFZNRU1NQVBfQUREUl9BTElHTikgPj4gUEFHRV9TSElGVDsKPiArCXZtZW1tYXBf
+c3RhcnRfcGZuID0gcm91bmRfZG93bihwaHlzX3JhbV9iYXNlLCBWTUVNTUFQX0FERFJfQUxJR04p
+ID4+IFBBR0VfU0hJRlQ7Cj4gICNlbmRpZgo+IC0JfQo+ICAKPiAgCS8qCj4gIAkgKiBJbiA2NC1i
+aXQsIGFueSB1c2Ugb2YgX192YS9fX3BhIGJlZm9yZSB0aGlzIHBvaW50IGlzIHdyb25nIGFzIHdl
+Cj4gQEAgLTM2NiwxMyArMzU1LDYgQEAgc3RhdGljIHB0ZV90IGZpeG1hcF9wdGVbUFRSU19QRVJf
+UFRFXSBfX3BhZ2VfYWxpZ25lZF9ic3M7Cj4gIAo+ICBwZ2RfdCBlYXJseV9wZ19kaXJbUFRSU19Q
+RVJfUEdEXSBfX2luaXRkYXRhIF9fYWxpZ25lZChQQUdFX1NJWkUpOwo+ICAKPiAtI2lmZGVmIENP
+TkZJR19YSVBfS0VSTkVMCj4gLSNkZWZpbmUgcHRfb3BzCQkJKCooc3RydWN0IHB0X2FsbG9jX29w
+cyAqKVhJUF9GSVhVUCgmcHRfb3BzKSkKPiAtI2RlZmluZSB0cmFtcG9saW5lX3BnX2RpciAgICAg
+ICgocGdkX3QgKilYSVBfRklYVVAodHJhbXBvbGluZV9wZ19kaXIpKQo+IC0jZGVmaW5lIGZpeG1h
+cF9wdGUgICAgICAgICAgICAgKChwdGVfdCAqKVhJUF9GSVhVUChmaXhtYXBfcHRlKSkKPiAtI2Rl
+ZmluZSBlYXJseV9wZ19kaXIgICAgICAgICAgICgocGdkX3QgKilYSVBfRklYVVAoZWFybHlfcGdf
+ZGlyKSkKPiAtI2VuZGlmIC8qIENPTkZJR19YSVBfS0VSTkVMICovCj4gLQo+ICBzdGF0aWMgY29u
+c3QgcGdwcm90X3QgcHJvdGVjdGlvbl9tYXBbMTZdID0gewo+ICAJW1ZNX05PTkVdCQkJCQk9IFBB
+R0VfTk9ORSwKPiAgCVtWTV9SRUFEXQkJCQkJPSBQQUdFX1JFQUQsCj4gQEAgLTQ2OSwzMiArNDUx
+LDE0IEBAIHN0YXRpYyBwbWRfdCB0cmFtcG9saW5lX3BtZFtQVFJTX1BFUl9QTURdIF9fcGFnZV9h
+bGlnbmVkX2JzczsKPiAgc3RhdGljIHBtZF90IGZpeG1hcF9wbWRbUFRSU19QRVJfUE1EXSBfX3Bh
+Z2VfYWxpZ25lZF9ic3M7Cj4gIHN0YXRpYyBwbWRfdCBlYXJseV9wbWRbUFRSU19QRVJfUE1EXSBf
+X2luaXRkYXRhIF9fYWxpZ25lZChQQUdFX1NJWkUpOwo+ICAKPiAtI2lmZGVmIENPTkZJR19YSVBf
+S0VSTkVMCj4gLSNkZWZpbmUgdHJhbXBvbGluZV9wbWQgKChwbWRfdCAqKVhJUF9GSVhVUCh0cmFt
+cG9saW5lX3BtZCkpCj4gLSNkZWZpbmUgZml4bWFwX3BtZCAgICAgKChwbWRfdCAqKVhJUF9GSVhV
+UChmaXhtYXBfcG1kKSkKPiAtI2RlZmluZSBlYXJseV9wbWQgICAgICAoKHBtZF90ICopWElQX0ZJ
+WFVQKGVhcmx5X3BtZCkpCj4gLSNlbmRpZiAvKiBDT05GSUdfWElQX0tFUk5FTCAqLwo+IC0KPiAg
+c3RhdGljIHA0ZF90IHRyYW1wb2xpbmVfcDRkW1BUUlNfUEVSX1A0RF0gX19wYWdlX2FsaWduZWRf
+YnNzOwo+ICBzdGF0aWMgcDRkX3QgZml4bWFwX3A0ZFtQVFJTX1BFUl9QNERdIF9fcGFnZV9hbGln
+bmVkX2JzczsKPiAgc3RhdGljIHA0ZF90IGVhcmx5X3A0ZFtQVFJTX1BFUl9QNERdIF9faW5pdGRh
+dGEgX19hbGlnbmVkKFBBR0VfU0laRSk7Cj4gIAo+IC0jaWZkZWYgQ09ORklHX1hJUF9LRVJORUwK
+PiAtI2RlZmluZSB0cmFtcG9saW5lX3A0ZCAoKHA0ZF90ICopWElQX0ZJWFVQKHRyYW1wb2xpbmVf
+cDRkKSkKPiAtI2RlZmluZSBmaXhtYXBfcDRkICAgICAoKHA0ZF90ICopWElQX0ZJWFVQKGZpeG1h
+cF9wNGQpKQo+IC0jZGVmaW5lIGVhcmx5X3A0ZCAgICAgICgocDRkX3QgKilYSVBfRklYVVAoZWFy
+bHlfcDRkKSkKPiAtI2VuZGlmIC8qIENPTkZJR19YSVBfS0VSTkVMICovCj4gLQo+ICBzdGF0aWMg
+cHVkX3QgdHJhbXBvbGluZV9wdWRbUFRSU19QRVJfUFVEXSBfX3BhZ2VfYWxpZ25lZF9ic3M7Cj4g
+IHN0YXRpYyBwdWRfdCBmaXhtYXBfcHVkW1BUUlNfUEVSX1BVRF0gX19wYWdlX2FsaWduZWRfYnNz
+Owo+ICBzdGF0aWMgcHVkX3QgZWFybHlfcHVkW1BUUlNfUEVSX1BVRF0gX19pbml0ZGF0YSBfX2Fs
+aWduZWQoUEFHRV9TSVpFKTsKPiAgCj4gLSNpZmRlZiBDT05GSUdfWElQX0tFUk5FTAo+IC0jZGVm
+aW5lIHRyYW1wb2xpbmVfcHVkICgocHVkX3QgKilYSVBfRklYVVAodHJhbXBvbGluZV9wdWQpKQo+
+IC0jZGVmaW5lIGZpeG1hcF9wdWQgICAgICgocHVkX3QgKilYSVBfRklYVVAoZml4bWFwX3B1ZCkp
+Cj4gLSNkZWZpbmUgZWFybHlfcHVkICAgICAgKChwdWRfdCAqKVhJUF9GSVhVUChlYXJseV9wdWQp
+KQo+IC0jZW5kaWYgLyogQ09ORklHX1hJUF9LRVJORUwgKi8KPiAtCj4gIHN0YXRpYyBwbWRfdCAq
+X19pbml0IGdldF9wbWRfdmlydF9lYXJseShwaHlzX2FkZHJfdCBwYSkKPiAgewo+ICAJLyogQmVm
+b3JlIE1NVSBpcyBlbmFibGVkICovCj4gQEAgLTc2NSwyMSArNzI5LDYgQEAgc3RhdGljIHVpbnRw
+dHJfdCBfX21lbWluaXQgYmVzdF9tYXBfc2l6ZShwaHlzX2FkZHJfdCBwYSwgdWludHB0cl90IHZh
+LCBwaHlzX2FkZHIKPiAgCXJldHVybiBQQUdFX1NJWkU7Cj4gIH0KPiAgCj4gLSNpZmRlZiBDT05G
+SUdfWElQX0tFUk5FTAo+IC0jZGVmaW5lIHBoeXNfcmFtX2Jhc2UgICgqKHBoeXNfYWRkcl90ICop
+WElQX0ZJWFVQKCZwaHlzX3JhbV9iYXNlKSkKPiAtZXh0ZXJuIGNoYXIgX3hpcHJvbVtdLCBfZXhp
+cHJvbVtdLCBfX2RhdGFfbG9jOwo+IC0KPiAtLyogY2FsbGVkIGZyb20gaGVhZC5TIHdpdGggTU1V
+IG9mZiAqLwo+IC1hc21saW5rYWdlIHZvaWQgX19pbml0IF9fY29weV9kYXRhKHZvaWQpCj4gLXsK
+PiAtCXZvaWQgKmZyb20gPSAodm9pZCAqKSgmX19kYXRhX2xvYyk7Cj4gLQl2b2lkICp0byA9ICh2
+b2lkICopQ09ORklHX1BIWVNfUkFNX0JBU0U7Cj4gLQlzaXplX3Qgc3ogPSAoc2l6ZV90KSgodWlu
+dHB0cl90KSgmX2VuZCkgLSAodWludHB0cl90KSgmX3NkYXRhKSk7Cj4gLQo+IC0JbWVtY3B5KHRv
+LCBmcm9tLCBzeik7Cj4gLX0KPiAtI2VuZGlmCj4gLQo+ICAjaWZkZWYgQ09ORklHX1NUUklDVF9L
+RVJORUxfUldYCj4gIHN0YXRpYyBfX21lbWluaXQgcGdwcm90X3QgcGdwcm90X2Zyb21fdmEodWlu
+dHB0cl90IHZhKQo+ICB7Cj4gQEAgLTgxNSw3ICs3NjQsNyBAQCBzdGF0aWMgX19tZW1pbml0IHBn
+cHJvdF90IHBncHJvdF9mcm9tX3ZhKHVpbnRwdHJfdCB2YSkKPiAgfQo+ICAjZW5kaWYgLyogQ09O
+RklHX1NUUklDVF9LRVJORUxfUldYICovCj4gIAo+IC0jaWYgZGVmaW5lZChDT05GSUdfNjRCSVQp
+ICYmICFkZWZpbmVkKENPTkZJR19YSVBfS0VSTkVMKQo+ICsjaWYgZGVmaW5lZChDT05GSUdfNjRC
+SVQpCj4gIHU2NCBfX3BpX3NldF9zYXRwX21vZGVfZnJvbV9jbWRsaW5lKHVpbnRwdHJfdCBkdGJf
+cGEpOwo+ICB1NjQgX19waV9zZXRfc2F0cF9tb2RlX2Zyb21fZmR0KHVpbnRwdHJfdCBkdGJfcGEp
+Owo+ICAKPiBAQCAtOTQwLDI4ICs4ODksNiBAQCBzdGF0aWMgX19pbml0IHZvaWQgc2V0X3NhdHBf
+bW9kZSh1aW50cHRyX3QgZHRiX3BhKQo+ICAjZXJyb3IgInNldHVwX3ZtKCkgaXMgY2FsbGVkIGZy
+b20gaGVhZC5TIGJlZm9yZSByZWxvY2F0ZSBzbyBpdCBzaG91bGQgbm90IHVzZSBhYnNvbHV0ZSBh
+ZGRyZXNzaW5nLiIKPiAgI2VuZGlmCj4gIAo+IC0jaWZkZWYgQ09ORklHX1hJUF9LRVJORUwKPiAt
+c3RhdGljIHZvaWQgX19pbml0IGNyZWF0ZV9rZXJuZWxfcGFnZV90YWJsZShwZ2RfdCAqcGdkaXIs
+Cj4gLQkJCQkJICAgIF9fYWx3YXlzX3VudXNlZCBib29sIGVhcmx5KQo+IC17Cj4gLQl1aW50cHRy
+X3QgdmEsIHN0YXJ0X3ZhLCBlbmRfdmE7Cj4gLQo+IC0JLyogTWFwIHRoZSBmbGFzaCByZXNpZGVu
+dCBwYXJ0ICovCj4gLQllbmRfdmEgPSBrZXJuZWxfbWFwLnZpcnRfYWRkciArIGtlcm5lbF9tYXAu
+eGlwcm9tX3N6Owo+IC0JZm9yICh2YSA9IGtlcm5lbF9tYXAudmlydF9hZGRyOyB2YSA8IGVuZF92
+YTsgdmEgKz0gUE1EX1NJWkUpCj4gLQkJY3JlYXRlX3BnZF9tYXBwaW5nKHBnZGlyLCB2YSwKPiAt
+CQkJCSAgIGtlcm5lbF9tYXAueGlwcm9tICsgKHZhIC0ga2VybmVsX21hcC52aXJ0X2FkZHIpLAo+
+IC0JCQkJICAgUE1EX1NJWkUsIFBBR0VfS0VSTkVMX0VYRUMpOwo+IC0KPiAtCS8qIE1hcCB0aGUg
+ZGF0YSBpbiBSQU0gKi8KPiAtCXN0YXJ0X3ZhID0ga2VybmVsX21hcC52aXJ0X2FkZHIgKyAodWlu
+dHB0cl90KSZfc2RhdGEgLSAodWludHB0cl90KSZfc3RhcnQ7Cj4gLQllbmRfdmEgPSBrZXJuZWxf
+bWFwLnZpcnRfYWRkciArIGtlcm5lbF9tYXAuc2l6ZTsKPiAtCWZvciAodmEgPSBzdGFydF92YTsg
+dmEgPCBlbmRfdmE7IHZhICs9IFBNRF9TSVpFKQo+IC0JCWNyZWF0ZV9wZ2RfbWFwcGluZyhwZ2Rp
+ciwgdmEsCj4gLQkJCQkgICBrZXJuZWxfbWFwLnBoeXNfYWRkciArICh2YSAtIHN0YXJ0X3ZhKSwK
+PiAtCQkJCSAgIFBNRF9TSVpFLCBQQUdFX0tFUk5FTCk7Cj4gLX0KPiAtI2Vsc2UKPiAgc3RhdGlj
+IHZvaWQgX19pbml0IGNyZWF0ZV9rZXJuZWxfcGFnZV90YWJsZShwZ2RfdCAqcGdkaXIsIGJvb2wg
+ZWFybHkpCj4gIHsKPiAgCXVpbnRwdHJfdCB2YSwgZW5kX3ZhOwo+IEBAIC05NzQsNyArOTAxLDYg
+QEAgc3RhdGljIHZvaWQgX19pbml0IGNyZWF0ZV9rZXJuZWxfcGFnZV90YWJsZShwZ2RfdCAqcGdk
+aXIsIGJvb2wgZWFybHkpCj4gIAkJCQkgICBlYXJseSA/Cj4gIAkJCQkJUEFHRV9LRVJORUxfRVhF
+QyA6IHBncHJvdF9mcm9tX3ZhKHZhKSk7Cj4gIH0KPiAtI2VuZGlmCj4gIAo+ICAvKgo+ICAgKiBT
+ZXR1cCBhIDRNQiBtYXBwaW5nIHRoYXQgZW5jb21wYXNzZXMgdGhlIGRldmljZSB0cmVlOiBmb3Ig
+NjQtYml0IGtlcm5lbCwKPiBAQCAtMTExNiwyNyArMTA0MiwxMSBAQCBhc21saW5rYWdlIHZvaWQg
+X19pbml0IHNldHVwX3ZtKHVpbnRwdHJfdCBkdGJfcGEpCj4gIAo+ICAJa2VybmVsX21hcC52aXJ0
+X2FkZHIgPSBLRVJORUxfTElOS19BRERSICsga2VybmVsX21hcC52aXJ0X29mZnNldDsKPiAgCj4g
+LSNpZmRlZiBDT05GSUdfWElQX0tFUk5FTAo+IC0Ja2VybmVsX21hcC54aXByb20gPSAodWludHB0
+cl90KUNPTkZJR19YSVBfUEhZU19BRERSOwo+IC0Ja2VybmVsX21hcC54aXByb21fc3ogPSAodWlu
+dHB0cl90KSgmX2V4aXByb20pIC0gKHVpbnRwdHJfdCkoJl94aXByb20pOwo+IC0KPiAtCXBoeXNf
+cmFtX2Jhc2UgPSBDT05GSUdfUEhZU19SQU1fQkFTRTsKPiAtI2lmZGVmIENPTkZJR19TUEFSU0VN
+RU1fVk1FTU1BUAo+IC0Jdm1lbW1hcF9zdGFydF9wZm4gPSByb3VuZF9kb3duKHBoeXNfcmFtX2Jh
+c2UsIFZNRU1NQVBfQUREUl9BTElHTikgPj4gUEFHRV9TSElGVDsKPiAtI2VuZGlmCj4gLQlrZXJu
+ZWxfbWFwLnBoeXNfYWRkciA9ICh1aW50cHRyX3QpQ09ORklHX1BIWVNfUkFNX0JBU0U7Cj4gLQlr
+ZXJuZWxfbWFwLnNpemUgPSAodWludHB0cl90KSgmX2VuZCkgLSAodWludHB0cl90KSgmX3N0YXJ0
+KTsKPiAtCj4gLQlrZXJuZWxfbWFwLnZhX2tlcm5lbF94aXBfdGV4dF9wYV9vZmZzZXQgPSBrZXJu
+ZWxfbWFwLnZpcnRfYWRkciAtIGtlcm5lbF9tYXAueGlwcm9tOwo+IC0Ja2VybmVsX21hcC52YV9r
+ZXJuZWxfeGlwX2RhdGFfcGFfb2Zmc2V0ID0ga2VybmVsX21hcC52aXJ0X2FkZHIgLSBrZXJuZWxf
+bWFwLnBoeXNfYWRkcgo+IC0JCQkJCQkrICh1aW50cHRyX3QpJl9zZGF0YSAtICh1aW50cHRyX3Qp
+Jl9zdGFydDsKPiAtI2Vsc2UKPiAgCWtlcm5lbF9tYXAucGh5c19hZGRyID0gKHVpbnRwdHJfdCko
+Jl9zdGFydCk7Cj4gIAlrZXJuZWxfbWFwLnNpemUgPSAodWludHB0cl90KSgmX2VuZCkgLSBrZXJu
+ZWxfbWFwLnBoeXNfYWRkcjsKPiAgCWtlcm5lbF9tYXAudmFfa2VybmVsX3BhX29mZnNldCA9IGtl
+cm5lbF9tYXAudmlydF9hZGRyIC0ga2VybmVsX21hcC5waHlzX2FkZHI7Cj4gLSNlbmRpZgo+ICAK
+PiAtI2lmIGRlZmluZWQoQ09ORklHXzY0QklUKSAmJiAhZGVmaW5lZChDT05GSUdfWElQX0tFUk5F
+TCkKPiArI2lmIGRlZmluZWQoQ09ORklHXzY0QklUKQo+ICAJc2V0X3NhdHBfbW9kZShkdGJfcGEp
+Owo+ICAJc2V0X21tYXBfcm5kX2JpdHNfbWF4KCk7Cj4gICNlbmRpZgo+IEBAIC0xMjA5LDEzICsx
+MTE5LDggQEAgYXNtbGlua2FnZSB2b2lkIF9faW5pdCBzZXR1cF92bSh1aW50cHRyX3QgZHRiX3Bh
+KQo+ICAJaWYgKHBndGFibGVfbDRfZW5hYmxlZCkKPiAgCQljcmVhdGVfcHVkX21hcHBpbmcodHJh
+bXBvbGluZV9wdWQsIGtlcm5lbF9tYXAudmlydF9hZGRyLAo+ICAJCQkJICAgKHVpbnRwdHJfdCl0
+cmFtcG9saW5lX3BtZCwgUFVEX1NJWkUsIFBBR0VfVEFCTEUpOwo+IC0jaWZkZWYgQ09ORklHX1hJ
+UF9LRVJORUwKPiAtCWNyZWF0ZV9wbWRfbWFwcGluZyh0cmFtcG9saW5lX3BtZCwga2VybmVsX21h
+cC52aXJ0X2FkZHIsCj4gLQkJCSAgIGtlcm5lbF9tYXAueGlwcm9tLCBQTURfU0laRSwgUEFHRV9L
+RVJORUxfRVhFQyk7Cj4gLSNlbHNlCj4gIAljcmVhdGVfcG1kX21hcHBpbmcodHJhbXBvbGluZV9w
+bWQsIGtlcm5lbF9tYXAudmlydF9hZGRyLAo+ICAJCQkgICBrZXJuZWxfbWFwLnBoeXNfYWRkciwg
+UE1EX1NJWkUsIFBBR0VfS0VSTkVMX0VYRUMpOwo+IC0jZW5kaWYKPiAgI2Vsc2UKPiAgCS8qIFNl
+dHVwIHRyYW1wb2xpbmUgUEdEICovCj4gIAljcmVhdGVfcGdkX21hcHBpbmcodHJhbXBvbGluZV9w
+Z19kaXIsIGtlcm5lbF9tYXAudmlydF9hZGRyLAoKLS0gClRoYW54LCBLdW53dQoKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
