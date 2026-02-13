@@ -4,110 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ECEEEDF145
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 10:03:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B2DEDF148
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Feb 2026 10:37:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=osJNHuhgbY9D1OVmPUD9t0InH+DxjPOe3BhBiVbcEME=; b=qbOtY0UiSIViih
-	hm8BNC+rHrby89jpPuPXcnCShPSi7nt9nmW2EPmSeBWT/TrFdWWCCiim+kEalu2ppEZKVN/24hGNS
-	T6OMj5mMfANMY9Gb18X2VzH+ltzzCX5KeCLhKO5HwloDTyDr/yRqyunqch0+zzYT7B3fGYE+t1Hdg
-	6gxFdmwjtpaBuJU8HN2Hi0R2AKCm3GCJP7mI0NfIv5lZ3XezKNS7g10h5HS4J9aj0hR08U3pGHiDc
-	Ug9o5HHywkuHU3HNi8c9+x/Gm7uklYM567v5GeMCoBSdV4fKpn7YU9BbVwhfkviadfpsYb1Ig5zx2
-	jiHbDMqbAKzdaDjU5s8A==;
+	List-Owner; bh=ahpnJA3UeZd454xioEUR9D1O+ydz3rqj7ldif/IXbPM=; b=IEC5I1F1mEusNE
+	ZWT8ED2xQnwoR4gx7NkIn3K83Lg9Wo+nTarb32BmEf9qy2O2kXiEubJDurYs7jcWChRctFyiBsQNY
+	OBzKKIQ2IrxCwyJ6G8kucYaNPwdM07S5ya4S+HfyJWyLRFXD+mFiZGxZsHhAlh157GpjDQFdhw2u7
+	l8C3hyXOBIBLiARFNdO5X+Yz3dC8ZJrB1qh/ZwfV4+Rms3vRCs9F8Kz1QzH/+pnPa6p2vZy8YopYo
+	ChbYryWebYJQRkTOs5qwussXToXZgu12/vnm847RJHiCdvzRvI0gCS4fDTmu2jiFLF3T3sDS1aT9D
+	8+hRtwYQA+g4VvY3EZTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqq0y-00000003HuP-02O3;
-	Fri, 13 Feb 2026 10:03:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vqqXg-00000003KLq-2QzO;
+	Fri, 13 Feb 2026 10:36:56 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqq0v-00000003Htu-1qaD
-	for linux-riscv@lists.infradead.org;
-	Fri, 13 Feb 2026 10:03:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C6BDF43CBD;
-	Fri, 13 Feb 2026 10:03:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BD2AC16AAE;
-	Fri, 13 Feb 2026 10:02:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770976984;
-	bh=3aEbedt9KqMlW+VjNiPv5T8wSDV+Ls+DMvJhNjjdjxk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JP6s900sXDn7dvVOnrhRAvNNM8Qzlm52t6tSiJTkKeJxviMsDefAX3aVb6cyMK+/I
-	 UiM2BsC/nHzPraX86v5IeecNbEPVEL0rChKTuZxeVjb80hNOM68LcsboXaRXZsCuxY
-	 gY7TFeYfU9tDaQfTOAZ8lSvdyxM075NfpmJsZbpfCYYlOWu7Li8GoJDsLIs9gnuIdJ
-	 yxsOABTs6B1Pte1OAObEUJLeMNJ9MB+r94Tb350YUPowbGy6+rGVujgStrah/88GqT
-	 RaXKgo0xJSKk+XipkYeP9OvRbZoqD4ui+L2sAvfC6jI901g17GUWNHXq0eaeTHSSFY
-	 ep7iuRxmiGTiA==
-Message-ID: <3387b1bd-c945-4b9d-915a-baf9412f656f@kernel.org>
-Date: Fri, 13 Feb 2026 11:02:57 +0100
+	id 1vqqXY-00000003KDg-31ye;
+	Fri, 13 Feb 2026 10:36:52 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-05 (Coremail) with SMTP id zQCowAC3RgqO_o5pQN4uCA--.25463S3;
+	Fri, 13 Feb 2026 18:36:00 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org
+Cc: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Jiakai Xu <jiakaiPeanut@gmail.com>,
+	Andrew Jones <andrew.jones@oss.qualcomm.com>
+Subject: [PATCH v7 1/3] RISC-V: KVM: Validate SBI STA shmem alignment in  kvm_sbi_ext_sta_set_reg()
+Date: Fri, 13 Feb 2026 10:35:55 +0000
+Message-Id: <20260213103557.3207335-2-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260213103557.3207335-1-xujiakai2025@iscas.ac.cn>
+References: <20260213103557.3207335-1-xujiakai2025@iscas.ac.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/2] LRW UART: serial: add driver for the LRW UART
-To: LiuQingtao <qtliu@mail.ustc.edu.cn>, gregkh@linuxfoundation.org
-Cc: jirislaby@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, neil.armstrong@linaro.org,
- bjorn.andersson@oss.qualcomm.com, marex@nabladev.com, dev@kael-k.io,
- mani@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com,
- linux-serial@vger.kernel.org, linux-riscv@lists.infradead.org,
- liu.wenhong35@zte.com.cn, liu.qingtao2@zte.com.cn, hu.yuye@zte.com.cn,
- dai.hualiang@zte.com.cn, deng.weixian@zte.com.cn, jia.yunxiang@zte.com.cn,
- bai.lu5@zte.com.cn, yang.susheng@zte.com.cn, shen.lin1@zte.com.cn,
- tan.hu@zte.com.cn, zuo.jiang@zte.com.cn
-References: <20260213093334.9217-1-qtliu@mail.ustc.edu.cn>
- <20260213093334.9217-3-qtliu@mail.ustc.edu.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260213093334.9217-3-qtliu@mail.ustc.edu.cn>
+X-CM-TRANSID: zQCowAC3RgqO_o5pQN4uCA--.25463S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxXF4xXFyfKw4fZrW5Cry7trb_yoWrJF1UpF
+	42kw15ZrW8tFZ2k39rZw4vgr15u3ykKr1jqFy3W34xZF4kta4Yyrna93y7ZF98JryvvFWI
+	yF10vF1DCw45AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUHYb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUGwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
+	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcV
+	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY
+	1x0267AKxVW0oVCq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv04
+	87Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280
+	aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67
+	IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVW8ZVWr
+	XwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r
+	1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij
+	64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr
+	0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF
+	0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07je-erUUUUU=
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiCRARCWmOigf8bAAAs7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_020305_527616_69FDA211 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20260213_023649_133558_3B6AF693 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,87 +93,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/02/2026 10:33, LiuQingtao wrote:
-> From: Wenhong Liu <liu.wenhong35@zte.com.cn>
-> 
-> This commit introduces a serial driver for the LRW UART controller
+The RISC-V SBI Steal-Time Accounting (STA) extension requires the shared
+memory physical address to be 64-byte aligned, or set to all-ones to
+explicitly disable steal-time accounting.
 
+KVM exposes the SBI STA shared memory configuration to userspace via
+KVM_SET_ONE_REG. However, the current implementation of
+kvm_sbi_ext_sta_set_reg() does not validate the alignment of the configured
+shared memory address. As a result, userspace can install a misaligned
+shared memory address that violates the SBI specification.
 
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
+Such an invalid configuration may later reach runtime code paths that
+assume a valid and properly aligned shared memory region. In particular,
+KVM_RUN can trigger the following WARN_ON in
+kvm_riscv_vcpu_record_steal_time():
 
-> 
-> Key features implemented:
-> - Support for FIFO mode (16-byte depth)
-> - Baud rate configuration
-> - Standard asynchronous communication formats:
->   * Data bits: 5, 6, 7, 8, 9 bits
->   * Parity: odd, even, fixed, none
->   * Stop bits: 1 or 2 bits
-> - Hardware flow control (RTS/CTS)
-> - Multiple interrupt reporting mechanisms
-> 
-> Signed-off-by: Wenhong Liu <liu.wenhong35@zte.com.cn>
-> Signed-off-by: Qingtao Liu <liu.qingtao2@zte.com.cn>
+  WARNING: arch/riscv/kvm/vcpu_sbi_sta.c:49 at
+  kvm_riscv_vcpu_record_steal_time
 
-Mismatched DCO/SoB.
+WARN_ON paths are not expected to be reachable during normal runtime
+execution, and may result in a kernel panic when panic_on_warn is enabled.
 
-Run checkpatch on your code.
+Fix this by validating the computed shared memory GPA at the
+KVM_SET_ONE_REG boundary. A temporary GPA is constructed and checked
+before committing it to vcpu->arch.sta.shmem. The validation allows
+either a 64-byte aligned GPA or INVALID_GPA (all-ones), which disables
+STA as defined by the SBI specification.
 
-> ---
->  MAINTAINERS                      |    3 +
->  drivers/tty/serial/Kconfig       |   33 +
->  drivers/tty/serial/Makefile      |    1 +
->  drivers/tty/serial/lrw_uart.c    | 2822 ++++++++++++++++++++++++++++++
->  include/uapi/linux/serial_core.h |    3 +
->  5 files changed, 2862 insertions(+)
->  create mode 100644 drivers/tty/serial/lrw_uart.c
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index ad6acbe24544..a97fbd205f75 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -15041,6 +15041,9 @@ R:	Qingtao Liu <liu.qingtao2@zte.com.cn>
->  L:	linux-serial@vger.kernel.org
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/serial/lrw,lrw-uart.yaml
-> +F:	drivers/tty/serial/Kconfig
-> +F:	drivers/tty/serial/Makefile
+This prevents invalid userspace state from reaching runtime code paths
+that assume SBI STA invariants and avoids unexpected WARN_ON behavior.
 
-Why do you claim you maintain these files?
+Fixes: f61ce890b1f074 ("RISC-V: KVM: Add support for SBI STA registers")
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+Reviewed-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+---
+V5 -> V6: Initialized new_shmem to INVALID_GPA as suggested.
+V4 -> V5: Added parentheses to function name in subject.
+V3 -> V4: Declared new_shmem at the top of kvm_sbi_ext_sta_set_reg().
+          Initialized new_shmem to 0 instead of vcpu->arch.sta.shmem.
+          Added blank lines per review feedback.
+V2 -> V3: Added parentheses to function name in subject.
+V1 -> V2: Added Fixes tag.
+---
+ arch/riscv/kvm/vcpu_sbi_sta.c | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
 
-> +F:	drivers/tty/serial/lrw_uart.c
->  
+diff --git a/arch/riscv/kvm/vcpu_sbi_sta.c b/arch/riscv/kvm/vcpu_sbi_sta.c
+index afa0545c3bcfc..3b834709b429f 100644
+--- a/arch/riscv/kvm/vcpu_sbi_sta.c
++++ b/arch/riscv/kvm/vcpu_sbi_sta.c
+@@ -181,6 +181,7 @@ static int kvm_sbi_ext_sta_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
+ 				   unsigned long reg_size, const void *reg_val)
+ {
+ 	unsigned long value;
++	gpa_t new_shmem = INVALID_GPA;
+ 
+ 	if (reg_size != sizeof(unsigned long))
+ 		return -EINVAL;
+@@ -191,18 +192,18 @@ static int kvm_sbi_ext_sta_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
+ 		if (IS_ENABLED(CONFIG_32BIT)) {
+ 			gpa_t hi = upper_32_bits(vcpu->arch.sta.shmem);
+ 
+-			vcpu->arch.sta.shmem = value;
+-			vcpu->arch.sta.shmem |= hi << 32;
++			new_shmem = value;
++			new_shmem |= hi << 32;
+ 		} else {
+-			vcpu->arch.sta.shmem = value;
++			new_shmem = value;
+ 		}
+ 		break;
+ 	case KVM_REG_RISCV_SBI_STA_REG(shmem_hi):
+ 		if (IS_ENABLED(CONFIG_32BIT)) {
+ 			gpa_t lo = lower_32_bits(vcpu->arch.sta.shmem);
+ 
+-			vcpu->arch.sta.shmem = ((gpa_t)value << 32);
+-			vcpu->arch.sta.shmem |= lo;
++			new_shmem = ((gpa_t)value << 32);
++			new_shmem |= lo;
+ 		} else if (value != 0) {
+ 			return -EINVAL;
+ 		}
+@@ -211,6 +212,11 @@ static int kvm_sbi_ext_sta_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
+ 		return -ENOENT;
+ 	}
+ 
++	if (new_shmem != INVALID_GPA && !IS_ALIGNED(new_shmem, 64))
++		return -EINVAL;
++
++	vcpu->arch.sta.shmem = new_shmem;
++
+ 	return 0;
+ }
+ 
+-- 
+2.34.1
 
-
-...
-
-
-> +
-> +static int lrw_uart_probe(struct platform_device *pdev)
-> +{
-> +	struct lrw_uart_port *sup;
-> +	struct resource *r;
-> +	int portnr, ret;
-> +	unsigned int clk;
-> +	unsigned int baudrate;
-> +
-> +	/*
-> +	 * Check the mandatory baud rate parameter in the DT node early
-> +	 * so that we can easily exit with the error.
-> +	 */
-> +	if (pdev->dev.of_node) {
-> +		struct device_node *np = pdev->dev.of_node;
-> +
-> +		ret = of_property_read_u32(np, "current-speed", &baudrate);
-
-Test your code/DTS - there is no such property allowed and you would see
-warnings on DTS.
-
-
-Best regards,
-Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
