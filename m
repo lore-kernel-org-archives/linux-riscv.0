@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A230EEF48C5
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Feb 2026 12:30:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 099A6EF99FF
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Feb 2026 12:30:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fWksORoFLvoBwUF/SbAA/zURPCBb8TI99MuG6Guyc3o=; b=ZUpnEPQQRwodro
-	PzKIs0Mt/Lmm6+aPrwtHZmOLYsQ9kKqHyIt2WxHwyP55Y1d2BWXwfLOVKvElSUtyfvllxDCUZWW/h
-	vc4LVnF8FmtFhyl8HuXWNeGXe1kzrzha6PW9RPDEQmhucQi/Gozq8Q42P6sUfrhWwjKeRC22Iso1z
-	suhHzBkQC7/rCFybsUncFPQGAGWLPyASli7eZf4MzQSjp1o2KA5KovVblnOLp8TtDO3XM+OgvOu17
-	WBRb7XCkfWFVcyr+1jIRoR5kNqPRs/ASOudfiBZjeJkT/Ie712Hwmqyaw7nMDcSnL7UlHoTqap5CG
-	4gNGFf45FwQtD82V1BbA==;
+	List-Owner; bh=0Im12BJXVNE/i9JDer6F2/+UcSRAZbLU85+1Gp4Q7l8=; b=aPC+3UrctQ7izn
+	1lJKm2WkK9Uw/S+Lo0ldlRHLKCr3eXoCKv3Ho6WpWUUPlX5VDvWQ2XAGvYsMNF8M6UHs85EDGCcj4
+	1JxebDtD9bjbWIqTM7ZHrgJJntBUn41TB2OWnQbQuyxeQuclSaKpMLmDdabSyTOaK4k5LmfiK+QNc
+	Rao9TpyqDDvPxlXSXkChlCekGTJtXJ/3ATvpbaUm+giSt1lxCEsY8fatCGqajIK/jNhLFLKIIBn/d
+	WmhPg8NTjbf/IS2FAuJbcieoH9a6LocY9iqYQ59/xxDGVqv8EBn0SstWfhk0w8YYNbndKBYyq4zU1
+	jqDrOqdwq/HPCNSLfXwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrEmQ-00000004WzR-1Myw;
-	Sat, 14 Feb 2026 12:29:46 +0000
+	id 1vrEmY-00000004X1Z-1tA4;
+	Sat, 14 Feb 2026 12:29:54 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrEmM-00000004WxY-3Z7m;
-	Sat, 14 Feb 2026 12:29:44 +0000
+	id 1vrEmV-00000004X0n-2EgA;
+	Sat, 14 Feb 2026 12:29:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 89A6E4448D;
-	Sat, 14 Feb 2026 12:29:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61A2FC19423;
-	Sat, 14 Feb 2026 12:29:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 28ACA43515;
+	Sat, 14 Feb 2026 12:29:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 262E8C16AAE;
+	Sat, 14 Feb 2026 12:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771072182;
-	bh=VfmU0lUs4Slg/JGUcPBhIcqCQuDwGNKonQhkwpcEyFU=;
+	s=k20201202; t=1771072191;
+	bh=d3leH17O1fRr5mMSAHm8v+e6UyTxO6lBZs5fKTZ9z7U=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=dYYvjytUAC3NXiq0SGPRURADH309yF5j7sKkzD2FZaggGJgm8SL5TrAOjM2npwOnQ
-	 NtCJc2SPVPfT6hTnYU6LIrzWuQoud5GyO8IAy0E98UxkuxnuIaobTxyHqnO94w7+oY
-	 iWmc87Tx02GXtrEFVBOHgLLCOLl7MqRg73d+uW0E0A0TiX9wyiG76lJ83WrlzqvKe/
-	 FluisyammkRfQTTGpHfuYGtUrqLF7tSH1IALKM+NnHaJr5A7gJ/M88ibFIHJ7TGnLO
-	 OefebFD1QvZH1VGeHHjN0xsw1WW5+xC9bNoP929G8r+PrQ2fKjIrKGVhPvUs5Tu67o
-	 xIS54AkxIXTlg==
+	b=ttk9aR1mtR3IiwgGLsojTMmyzW4IMjwT84h2Q0JmBdHtS7HfXXcvWax/vcI03CVYJ
+	 ibbaLJRweyDiH6LqfD1SDzEZ7DU3dIUSA8YxeQ3X0ixTNNEQvkSdZ5aKiWbmW2BQYD
+	 omKnT9PooJZFGgcSIQMbCiRUEldJuuJU7CgLgXsmRiMM/GL7tmZ0yrUMp+AJDpziJI
+	 owF4Hq/eHGMW9GKa6kfRuDcg2spac3yDgxMXvmBb07V4LmHatl0y8KcVybzs/GrwO3
+	 JT5n+6Nh5nm7S/7rqlRfePHnJG/zU/GhKg5BYelUp1aAR6qqIObz2gMNJQHzCvlsMO
+	 6o0nSpK2I2E1g==
 From: Yixun Lan <dlan@kernel.org>
-Date: Sat, 14 Feb 2026 20:29:14 +0800
-Subject: [PATCH v2 1/3] dt-bindings: phy: spacemit: k3: add USB2 PHY
- support
+Date: Sat, 14 Feb 2026 20:29:16 +0800
+Subject: [PATCH v2 3/3] phy: k1-usb: k3: add USB2 PHY support
 MIME-Version: 1.0
-Message-Id: <20260214-11-k3-usb2-phy-v2-1-6ed31e031ab4@kernel.org>
+Message-Id: <20260214-11-k3-usb2-phy-v2-3-6ed31e031ab4@kernel.org>
 References: <20260214-11-k3-usb2-phy-v2-0-6ed31e031ab4@kernel.org>
 In-Reply-To: <20260214-11-k3-usb2-phy-v2-0-6ed31e031ab4@kernel.org>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -56,31 +55,29 @@ To: Vinod Koul <vkoul@kernel.org>,
 Cc: Junzhong Pan <panjunzhong@linux.spacemit.com>, 
  linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1204; i=dlan@kernel.org;
- h=from:subject:message-id; bh=VfmU0lUs4Slg/JGUcPBhIcqCQuDwGNKonQhkwpcEyFU=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpkGqk74oeID65Ro92lCV4S1UmpfWqKztQkaHpX
- wm05uUOB8SJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaZBqpBsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3516; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=d3leH17O1fRr5mMSAHm8v+e6UyTxO6lBZs5fKTZ9z7U=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpkGqqiAsrSYoorc6rdtzJ9k4ECHdzurifSHXgt
+ Pnruaj99I2JAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaZBqqhsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+1/NQ/9EPpkiSAM4flTUD6Z54ieBpT27zD2O/Qb/o94Ub7O38OVWgKEjffKf
- IjF3QC+Yg1CC9uNhzolxccCY9Rd61lqHh0gYSvg223HNztJb/3KVIh46dOvdeOKRHX35z87Buix
- 0jX05MkKsBUwj4ZcoWo7+DCMx4GMl3vOxt4yYUT6YMFh/hiZuHHZPh7f6BSBPx/hvxD0esP7e6U
- mAt6+Zss+ge7WzmP8SMGDaO3CWmB1LXysncj8D01AUx8tjUn8ljgHfAJt8yLThSlyl/nROZyfHU
- iWMqXzpF4n307jNO25kRLQ0x+Pa+MvqFmI/bcAoCZbzGG2j3mkLX9Fx7D1n6IkCdFBQ09JsdAKL
- i5CLV8twPoBw3ZXPXxUI7yzRgwnT4z+EMxGtSWlL9ALW7v+BJFVmTOTVbgxdqqE1ZPnvDl7LEW8
- Ol5Qhf2M9GWfvpbJIGKHUe90RY+oH6yMRB3Av4p+DyTI4SIjt/qRHLNh8GKOf1GpR+/YU1Y4iak
- yNHCxOHVqRbk6WYI8ItFQ6jeTecqG3eFDH2arZU1QHs+0iiPY0nh0fFXaKkMrfjl0Iy+0VEdMqt
- gJQmltBJikJY2MtIGq/idMcc50gf4tRa/0oIOdcIUs2k/GnxiB55FXxwLgZbhFHl+JkzCa6VNXk
- zrxYjLgmq1unKCr4cZ0o3gHkQOhQd4=
+ QACgkQMarqR1lNu+0y8g/+L3eRbB3FLRDjz8/jGbdsPiqTzHX+LyoDY+H3eL2gL+hakz7GTfjW+
+ wBqlcvaDJXPvDCYJvVPqO/sFqI1I9iGfy9QVexM+VYeYas1gBQmBOqMkio6m10NRZ0dUc29u9+Q
+ KCJuV5eqP+4OlvHQ8FUGdTlM5BKtcmoCoRbjuCwjJDvsP30jx04ePtmGTWnCKgeF6TCpGcPdWrf
+ U+MajHTJYd3nBJ8LOP5bFBe2Xb5Hj29tuLN73lW17nifaoTOY6ie572UoifdXj60lrhRJX+tARC
+ S1UsY30c2FaLqMK9aKsflx4UO7Wa/YApk7x/SCZSRW3mPL6Bt+eyKCIx6+z4b6HrYWUGJ/FvX9s
+ YA3x0t972Ag4b1Ljfa2ymC619c+sTHfcB05Ofvq/nO/dfBo8UhHOEk+UQ13/ttprgJfvi04VtNz
+ k23thIwnMyozuEKPCCP0/YEZtChDrfZH5WjB3pgAiPGGqmli2YvPz7WRUkS/qYlYjDZ8YRGwlS5
+ iJunFzRU0xzZS4/dGGjbd6X1gHbqX6MshLa19LAsQiYvuSyc1mmZp+3QJ6xXQ+VlqrylJHU5RbJ
+ l8rhREur8DpAEtIbgZckYCK/ua2Owy0JxXdJRYaSec74dczjJ28KZ5eSirKyDKYLaCvHvcKqqV6
+ ZcldLzLo4cEajcJSw1u1ItOcikaFWg=
 X-Developer-Key: i=dlan@kernel.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260214_042942_932375_2BF31A3E 
-X-CRM114-Status: UNSURE (   6.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260214_042951_615590_1A6AEDB9 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,39 +94,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce a compatible string for the USB2 PHY in SpacemiT K3 SoC. The IP
-of USB2 PHY mostly shares the same functionalities with K1 SoC, while has
-some register layout changes.
+Add USB2 PHY support for SpacemiT K3 SoC.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Register layout of handling USB disconnect operation has been changed,
+So introducing a platform data to distinguish the different SoCs.
+
 Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
- Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/phy/spacemit/phy-k1-usb2.c | 34 +++++++++++++++++++++++++++++-----
+ 1 file changed, 29 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml b/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
-index 43eaca90d88c..18025e5f60d6 100644
---- a/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
-@@ -4,14 +4,16 @@
- $id: http://devicetree.org/schemas/phy/spacemit,usb2-phy.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/phy/spacemit/phy-k1-usb2.c b/drivers/phy/spacemit/phy-k1-usb2.c
+index 959bf79c7a72..b4ba97481ddd 100644
+--- a/drivers/phy/spacemit/phy-k1-usb2.c
++++ b/drivers/phy/spacemit/phy-k1-usb2.c
+@@ -51,6 +51,9 @@
+ #define PHY_K1_HS_HOST_DISC		0x40
+ #define  PHY_K1_HS_HOST_DISC_CLR		BIT(0)
  
--title: SpacemiT K1 SoC USB 2.0 PHY
-+title: SpacemiT K1/K3 SoC USB 2.0 PHY
++#define PHY_K3_HS_HOST_DISC		0x20
++#define  PHY_K3_HS_HOST_DISC_CLR		BIT(8)
++
+ #define PHY_PLL_DIV_CFG			0x98
+ #define  PHY_FDIV_FRACT_8_15		GENMASK(7, 0)
+ #define  PHY_FDIV_FRACT_16_19		GENMASK(11, 8)
+@@ -145,7 +148,7 @@ static int spacemit_usb2phy_exit(struct phy *phy)
+ 	return 0;
+ }
  
- maintainers:
-   - Ze Huang <huang.ze@linux.dev>
+-static int spacemit_usb2phy_disconnect(struct phy *phy, int port)
++static int spacemit_k1_usb2phy_disconnect(struct phy *phy, int port)
+ {
+ 	struct spacemit_usb2phy *sphy = phy_get_drvdata(phy);
  
- properties:
-   compatible:
--    const: spacemit,k1-usb2-phy
-+    enum:
-+      - spacemit,k1-usb2-phy
-+      - spacemit,k3-usb2-phy
+@@ -155,10 +158,27 @@ static int spacemit_usb2phy_disconnect(struct phy *phy, int port)
+ 	return 0;
+ }
  
-   reg:
-     maxItems: 1
+-static const struct phy_ops spacemit_usb2phy_ops = {
++static int spacemit_k3_usb2phy_disconnect(struct phy *phy, int port)
++{
++	struct spacemit_usb2phy *sphy = phy_get_drvdata(phy);
++
++	regmap_update_bits(sphy->regmap_base, PHY_K3_HS_HOST_DISC,
++					   PHY_K3_HS_HOST_DISC_CLR, PHY_K3_HS_HOST_DISC_CLR);
++
++	return 0;
++}
++
++static const struct phy_ops spacemit_k1_usb2phy_ops = {
+ 	.init = spacemit_usb2phy_init,
+ 	.exit = spacemit_usb2phy_exit,
+-	.disconnect = spacemit_usb2phy_disconnect,
++	.disconnect = spacemit_k1_usb2phy_disconnect,
++	.owner = THIS_MODULE,
++};
++
++static const struct phy_ops spacemit_k3_usb2phy_ops = {
++	.init = spacemit_usb2phy_init,
++	.exit = spacemit_usb2phy_exit,
++	.disconnect = spacemit_k3_usb2phy_disconnect,
+ 	.owner = THIS_MODULE,
+ };
+ 
+@@ -167,12 +187,15 @@ static int spacemit_usb2phy_probe(struct platform_device *pdev)
+ 	struct phy_provider *phy_provider;
+ 	struct device *dev = &pdev->dev;
+ 	struct spacemit_usb2phy *sphy;
++	const struct phy_ops *ops;
+ 	void __iomem *base;
+ 
+ 	sphy = devm_kzalloc(dev, sizeof(*sphy), GFP_KERNEL);
+ 	if (!sphy)
+ 		return -ENOMEM;
+ 
++	ops = device_get_match_data(dev);
++
+ 	sphy->clk = devm_clk_get_prepared(&pdev->dev, NULL);
+ 	if (IS_ERR(sphy->clk))
+ 		return dev_err_probe(dev, PTR_ERR(sphy->clk), "Failed to get clock\n");
+@@ -185,7 +208,7 @@ static int spacemit_usb2phy_probe(struct platform_device *pdev)
+ 	if (IS_ERR(sphy->regmap_base))
+ 		return dev_err_probe(dev, PTR_ERR(sphy->regmap_base), "Failed to init regmap\n");
+ 
+-	sphy->phy = devm_phy_create(dev, NULL, &spacemit_usb2phy_ops);
++	sphy->phy = devm_phy_create(dev, NULL, ops);
+ 	if (IS_ERR(sphy->phy))
+ 		return dev_err_probe(dev, PTR_ERR(sphy->phy), "Failed to create phy\n");
+ 
+@@ -196,7 +219,8 @@ static int spacemit_usb2phy_probe(struct platform_device *pdev)
+ }
+ 
+ static const struct of_device_id spacemit_usb2phy_dt_match[] = {
+-	{ .compatible = "spacemit,k1-usb2-phy", },
++	{ .compatible = "spacemit,k1-usb2-phy", .data = &spacemit_k1_usb2phy_ops },
++	{ .compatible = "spacemit,k3-usb2-phy", .data = &spacemit_k3_usb2phy_ops },
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, spacemit_usb2phy_dt_match);
 
 -- 
 2.52.0
