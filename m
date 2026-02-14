@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9531EF5849
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Feb 2026 16:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17C48EF584B
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Feb 2026 16:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zf0UJZ69/BUmc5ho/JqRZJDZqW5/F0770bshOlyaGSk=; b=ajsiHRmtWrFF1M
-	nc6pvY4RzBSKTL4OkOHGeTSDFz7ZO9CIveFtLLS9sxUtoSVdnDYQHFkMXM6d4m85wGu6rmkE9Akve
-	GFuIsnLZ6rpEZsM3LQBYv7v5f2dn8+a/dJw1E2RxC5xsqXPJygnzEGQ6DXt/IVRlH7meiW9bmnGww
-	X4wj7jJ5GcmE37CIdotFknoVGSQ4sua0/3IT6bketb3tHu6+/+WoPOULHcxMRGyg+q5fR2JYTcEu5
-	WBDH+oAMrZWHO5Cv/2mTfh4AgssAHy2fR2yyOQo5irp+4pBcVjdx1JmPGPwY8sVzYZ31S1gFEcJzw
-	hYWkLt3apw6689t6Yrcw==;
+	List-Owner; bh=YAWdWqolMBMslnUSko0kBkNEkmVY5pjDIFYxsv5u6rc=; b=MZbRexWdGgxnWU
+	047v7BPySvXnQMyzPRohl7db0CKBq2fiOjdGh1AfOQeRRlxyV2ha83yMf9pdy05xesHiSmPO+uIhJ
+	cXdSe0Co3HO4eca2ZvdS8rOub0vbligQEGVWiD3HXjaRdzcNzwKSxqHu+kXGo6shWYxNqOZBEIWoZ
+	iOyorhF/rjtiA5inYI9RBuNXSwn8ukquhu0Tz4pZnVDS2y2mIRa+Dl2+0yI4Yi3fxjnhvcU/Hd/fl
+	klCx0wcncmCWbf8C60Rb6geC5XYOqOovMjBMX2vSvODFyE3JjtkQJzROzyuDWMMEoH/vFIrwinao5
+	aKHTfrFgJ+rDjXx7duFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrIRw-00000004kQ8-1Lde;
-	Sat, 14 Feb 2026 16:24:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vrIap-00000004kvH-1YEK;
+	Sat, 14 Feb 2026 16:34:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrIRt-00000004kPo-3cKz
+	id 1vrIan-00000004kvB-3cXE
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Feb 2026 16:24:51 +0000
+	Sat, 14 Feb 2026 16:34:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 56E3643F29;
-	Sat, 14 Feb 2026 16:24:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6FEDC16AAE;
-	Sat, 14 Feb 2026 16:24:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BF912600BB;
+	Sat, 14 Feb 2026 16:34:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA927C16AAE;
+	Sat, 14 Feb 2026 16:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771086288;
-	bh=b2fAA/6LiIRnE5uC+fyY6XY1BAVSpPQMAo5szwC5qS0=;
+	s=k20201202; t=1771086840;
+	bh=4W58A1qF2KMzD+CNPgn+QF1OmJw16hqgvTE9E1HsVeg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lSuljZt07B+CaREOkzyeuVoDOVGRuiv8ypd6iBLKVG+gQRSOVdFo72/dlOAoX5Q8q
-	 y8kx1kuEZSLtIfmVo6RPrr68Jk5UXObQXEXY2Rnc33INnOp/SnY9TEZcmObRlTHrXW
-	 Nar/oSM3CsWXW+wSyyMfEsZy2hKnDgoj1TU0Xj7Uy2iCdkjWrpLPK1qbVRtRRo5iLW
-	 OzSqFr8wRvf6Fw1pfHGKuCqlTDdD5QT3xz1YTFw9tu7UCmbSmn8xkSLiRNUEEty4RF
-	 2kG4YNYTx/YvKPad++FCYm+7BcLi3BZQ2Ddf3naU+PFffzJG/GhFlgzEovIKnRAOZS
-	 USVUhvBHe+BGg==
-Date: Sat, 14 Feb 2026 08:25:00 -0800
+	b=cs9v7tEMNej7LNy7z7/h2afCc6HElvd5q9t+qse1Y1zd66p7wDvC2meIBgHJTTHfn
+	 RG0micMqePg+kAByNIQfRKLoCBurORHuzEbiQ6FB8qIpytQhBhowe8TG72e12U28ng
+	 io0Rb4ItKzI6PJvfj7x6BFlyfaEAK7Z+NAht2HzzxQvzYdmsGIUed6RYuS6wc0iFiu
+	 Usi43vf67e7RZwNwTE2ydq2nGkezYIJhXzxgel++t2dMSCc9NnleO1fUEcklxhMFLA
+	 UQuyHFuhmvsbmXHNg7RUu0UKO0I8Xc+astLdSmxQEnIH4s+kG9j0Ca2R6e7OejEoDx
+	 9vffDt9JGbUIw==
+Date: Sat, 14 Feb 2026 08:34:12 -0800
 From: Drew Fustini <fustini@kernel.org>
 To: Reinette Chatre <reinette.chatre@intel.com>
-Subject: Re: [PATCH RFC v2 05/17] RISC-V: QoS: define CBQRI capacity and
- bandwidth capabilities
-Message-ID: <aZCh3JaS2V0pLWXm@gen8>
+Subject: Re: [PATCH RFC v2 06/17] RISC-V: QoS: define CBQRI resctrl resources
+ and domains
+Message-ID: <aZCkBOPLof_Wr0t4@gen8>
 References: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
- <20260128-ssqosid-cbqri-v2-5-dca586b091b9@kernel.org>
- <3f53c823-74ab-46c3-9cf0-c28b062f2c89@intel.com>
+ <20260128-ssqosid-cbqri-v2-6-dca586b091b9@kernel.org>
+ <34bb3ae7-b48e-4c29-8762-0d16e0e7838f@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <3f53c823-74ab-46c3-9cf0-c28b062f2c89@intel.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260214_082449_963376_9223B24F 
-X-CRM114-Status: GOOD (  17.96  )
+In-Reply-To: <34bb3ae7-b48e-4c29-8762-0d16e0e7838f@intel.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,47 +71,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 13, 2026 at 03:13:42PM -0800, Reinette Chatre wrote:
+On Fri, Feb 13, 2026 at 03:15:57PM -0800, Reinette Chatre wrote:
 > Hi Drew,
+> 
+> (caveat for all my comments)
+> I scanned this series for resctrl interactions and my comments are
+> focused around that instead of a thorough review of all the code
+> within. 
 
-Hi! Thanks for your detailed feedback on this series.
+Thanks for spending the time to review. It has helped me to realize that
+there is a lot cruft leftover from when I was developing based on the
+mpam snapshot at the time (2023) and never reorganized after rebasing on
+upstream.
 
+> 
 > On 1/28/26 12:27 PM, Drew Fustini wrote:
-> > Define data structures to store the capacity and bandwidth capabilities
-> > that are discovered for a CBQRI-capable controller.
-> > 
-> > Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> > Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> > Signed-off-by: Drew Fustini <fustini@kernel.org>
-> > ---
-> >  arch/riscv/kernel/qos/internal.h | 128 +++++++++++++++++++++++++++++++++++++++
-> >  1 file changed, 128 insertions(+)
-> > 
 > > diff --git a/arch/riscv/kernel/qos/internal.h b/arch/riscv/kernel/qos/internal.h
-> > new file mode 100644
-> > index 000000000000..ff2c7eff50be
-> > --- /dev/null
+> > index ff2c7eff50be..c0402dd06cfa 100644
+> > --- a/arch/riscv/kernel/qos/internal.h
 > > +++ b/arch/riscv/kernel/qos/internal.h
-> > @@ -0,0 +1,128 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +#ifndef _ASM_RISCV_QOS_INTERNAL_H
-> > +#define _ASM_RISCV_QOS_INTERNAL_H
+> > @@ -65,6 +65,11 @@
+> >  #define CBQRI_BC_ALLOC_CTL_OP_READ_LIMIT   2
+> >  #define CBQRI_BC_ALLOC_CTL_STATUS_SUCCESS  1
+> >  
+> > +int qos_resctrl_setup(void);
+> > +void qos_resctrl_exit(void);
+> > +int qos_resctrl_online_cpu(unsigned int cpu);
+> > +int qos_resctrl_offline_cpu(unsigned int cpu);
 > > +
-> > +#include <linux/resctrl.h>
+> >  /* Capacity Controller hardware capabilities */
+> >  struct riscv_cbqri_capacity_caps {
+> >  	u16 ncblks; /* number of capacity blocks */
+> > @@ -125,4 +130,26 @@ struct cbqri_controller {
+> >  	bool mon_capable;
+> >  };
+> >  
+> > +struct cbqri_resctrl_res {
+> > +	struct rdt_resource     resctrl_res;
+> > +	struct cbqri_controller controller;
+> > +	u32 max_rcid;
+> > +	u32 max_mcid;
+> > +};
+> > +
+> > +struct cbqri_resctrl_dom {
+> > +	struct rdt_domain_hdr       resctrl_dom_hdr;
 > 
-> The include caught my eye but I did not notice any additions in this patch
-> refer to it.
+> The resctrl_dom_hdr above should not be needed and indeed does
+> not seem to be used in this series. The two members below it,
+> struct rdt_ctrl_domain and struct rdt_mon_domain (now named
+> rdt_l3_mon_domain), have the necessary struct rdt_domain_hdr as
+> their first member.
+
+Thank you for the insight. I think added this when trying get the code
+working again after rebasing from an old mpam snapshot to upstream last
+year. It does seem like I didn't understand the data structures well
+enough and should clean up cbqri_resctrl_dom.
 > 
-> Reinette
+> Without any comments or changelog that describes the other members
+> I am not able to really consider their inclusion here. From the
+> names it seems that most members are intended to support the
+> control domain usage so it is not clear to me why the cbqri domain
+> contains both a control and monitor domain while they are interacted
+> with separately by resctrl. From what I can tell resctrl_mon_dom
+> is not used by this implementation.
 > 
+> As hinted above, when you rebase you will find that struct rdt_mon_domain
+> is now named struct rdt_l3_mon_domain (see commit 4bc3ef46ff41
+> ("x86,fs/resctrl: Rename struct rdt_mon_domain and rdt_hw_mon_domain")) to
+> make it obvious that it is specific to L3 monitoring. Having this
+> as a member for all cbqri domains will then become increasingly confusing
+> since the cbqri_resctrl_dom is also used for L2 cache allocation as well as the
+> memory bandwidth allocation that are not at L3 scope.
+> 
+> I think it may be simplest to drop the resctrl_mon_dom member until
+> monitoring is supported?
 
-I was using this to make resctrl structs available in the code that
-includdes this header:
-
-arch/riscv/kernel/qos/qos.c
-arch/riscv/kernel/qos/qos_resctrl.c
-
-Should I rearrange to include resctrl.h directly where it is needed?
+Thanks for the suggestion. Monitoring broke when rebasing on upstream
+and also the realization that my approach to MBM was too much of a hack.
+I think that does make sense for me to remove all the monitoring code
+until I have a working implementation based on the current upstream.
 
 Thanks,
 Drew
