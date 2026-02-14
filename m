@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C67DEEF99EA
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Feb 2026 00:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E09DDEF99F1
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Feb 2026 02:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PmkJva0bRoD4ShCNaM6U/0DZHeBZ+R8sHh05ZdU3ARg=; b=1PCUk0LiGtNPDD
-	wq9MAVFN4ZVdY2zniEJahYdEdmB0T1G+ChApG9dL42pKJWeIroizDffx7pMG6iJrXih2SVNpXgIEG
-	7GEuQs7a4jDYh58EmiHWheT33CI5TUU32umxwph70WpFd65RHk7ovIQqDWUj8lvB8h9aUa/JzndM1
-	3Gwr3dZ4W1h0dD2iYQJdfz3AHVw467JkV+jG58dS8SnPvpTKBMrhavHNlXgpkavE6vKgCBLIkyfdR
-	OMZV5bnlwQ5vzzABfSl0p9fULDRCTMTa3uVP6blRFChTzS61XRit3XR26PfqfC2fFjRDOHTuj8lLU
-	GhnXvpYjPymgOVmazMJQ==;
+	List-Owner; bh=qr1kp58VFcHVUbnCZKvcjVnJCuJ8S+pmibSWpFxL9RE=; b=H74kF1nTFV0ubU
+	LKcVT6qZxiioSlTM9KXu2xbr4bcqL6s8fNBhzKoe84PUsjD7KspaYgZD/eP+rNXQl7EgPmKh7nuLo
+	mscDs6H2TDISxzbfWF1xVrHsqg8d5BpKrclBcqHQciDxuaoD9wOkx0gyXwQBI/lzqs1piviS5yH1l
+	VBHCqp9Wkav90h19xatt+DskxmJpepOzSrZ/ABmBmGZFb8i1WFVN/86dymqSDoZT3QAXn9jNnI7b9
+	iXQGs85lRYblqhPITTAXFDzVQSH+FkpTCmRxmSueDE7XaAq01T2fTGIqu8TP7YFQ4E2+NrXbH4ZB4
+	/oD08l+/yusrDC77smyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr3Rv-000000044RP-0SWq;
-	Sat, 14 Feb 2026 00:23:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vr5Mu-00000004AOR-0KdW;
+	Sat, 14 Feb 2026 02:26:48 +0000
+Received: from out-178.mta0.migadu.com ([2001:41d0:1004:224b::b2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vr3Rt-000000044R2-07J5
+	id 1vr5Mq-00000004AO3-230f
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Feb 2026 00:23:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8284143AC6;
-	Sat, 14 Feb 2026 00:23:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C33B4C116C6;
-	Sat, 14 Feb 2026 00:23:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771028625;
-	bh=0Uxm6w5KJWRLnm+fT3A+MmNRIjXeTQ9g/qdsDSMeoTY=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=CXVL7C0KF162uiO1bN0qqeIsBTfTxkb8N8Lr/YLk5G0nm5Y8kQbpY9VLYzfOgvgQj
-	 ieyz/yFO/gMZBPI7LJxinaM+QdfP0yTFcMjLPUWlQnuX7kvtH32KH9pRPbHoRL5KQ+
-	 Br/tdTHBDt+9EVxSBqNXUF0zMCpvhhcG9qDxJomoi1QaW/j/k+B5bQwp+emKjJGWxK
-	 QWZyfN1MJSkRr4eVIKKQj94eUoZUAq9D4kEC8HiCvA7tnPuKrJVZVVjwqkIHvKWG+Q
-	 xbVouvQgu2FJAYNn7QepriX5sePOhqME6fgVCS2NolltWK/ZdLCU/pJ+dzvNRgqklO
-	 soyocSRblusqA==
-Date: Fri, 13 Feb 2026 17:23:41 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-cc: Paul Walmsley <pjw@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-    Peter Zijlstra <peterz@infradead.org>, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, broonie@kernel.org, debug@rivosinc.com, 
-    zong.li@sifive.com
-Subject: Re: [GIT PULL] RISC-V updates for v7.0
-In-Reply-To: <CAHk-=whUXMRa3py11kpZiDMau8uauiwZCok2UMQAecTshfTrVA@mail.gmail.com>
-Message-ID: <2248971d-d69c-65fb-93b4-10f0d7d8bbad@kernel.org>
-References: <c554c02e-a791-5c4a-d329-7632de7a194d@kernel.org> <CAHk-=whUXMRa3py11kpZiDMau8uauiwZCok2UMQAecTshfTrVA@mail.gmail.com>
+	Sat, 14 Feb 2026 02:26:47 +0000
+Message-ID: <8ee1b065-b021-411b-b5ee-22c4a108cbce@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1771035999;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0G0v4sVDDa/rU7cSPsEm3DDPPtxN/YGFfMN1h9Ze2E4=;
+	b=ivIJMQtRNW1E0gGE8YTM0oKtbIK0OFy5AMJCJqoYa/c3LykfEWRHJpcCa9K4BS0Kwx85pd
+	s/Nh+tMRLR9XfMlulroHGKed2CJyyjncrh8p7KecACNtIkEKXc6uZTcSWJFi2dMHgDfO2A
+	YT9xe2xuWlVgyTid3BQxdF7WNKK+YT0=
+Date: Sat, 14 Feb 2026 10:25:57 +0800
 MIME-Version: 1.0
+Subject: Re: [PATCH 0/2] riscv: fix minor typos and style issues in XIP code
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
+ Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>,
+ zhouzhouyi <zhouzhouyi@gmail.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260213094739.397762-1-kunwu.chan@linux.dev>
+ <20260213-entomb-ambulance-ec51cd9ea179@spud>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Kunwu Chan <kunwu.chan@linux.dev>
+In-Reply-To: <20260213-entomb-ambulance-ec51cd9ea179@spud>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260213_162349_089725_10816183 
-X-CRM114-Status: GOOD (  22.36  )
+X-CRM114-CacheID: sfid-20260213_182645_761773_E60B4B64 
+X-CRM114-Status: UNSURE (   7.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,64 +75,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Feb 2026, Linus Torvalds wrote:
+On 2/13/26 18:47, Conor Dooley wrote:
+> On Fri, Feb 13, 2026 at 05:47:37PM +0800, Kunwu Chan wrote:
+>> Fix a few minor issues found in riscv XIP-related code:
+>>
+>> - xip_fixup.h: comment typo (_start vs _sdata) and spaces-vs-tab
+>> - head.S: spelling typo and wrong #endif comment
+>>
+>> Kunwu Chan (2):
+>>   riscv: xip_fixup.h: fix comment typo and whitespace issue
+>>   riscv: head.S: fix typo and wrong #endif comment
+>>
+>>  arch/riscv/include/asm/xip_fixup.h | 4 ++--
+>>  arch/riscv/kernel/head.S           | 4 ++--
+>>  2 files changed, 4 insertions(+), 4 deletions(-)
+> The patches should be sent in reply to the cover letter.
 
-> On Thu, 12 Feb 2026 at 15:39, Paul Walmsley <pjw@kernel.org> wrote:
-> >
-> > Deepak Gupta (26):
-> >       prctl: add arch-agnostic prctl()s for indirect branch tracking
-> 
-> Hmm. In the meantime, I had pulled the RSEQ time slice extensions
-> stuff first, so what happened was that these prctl numbers got bumped
-> up from 79-81 to 80-82.
-> 
-> I note that it looks like linux-next ended up merging things in a
-> different order, and so instead left the indirect branch status prctls
-> alone, and instead modified the RSEQ one.
-> 
-> Just letting everybody involved know - maybe this was obvious to
-> people, and maybe this came as a surprise.
+Thanks. I'll resend the series properly threaded.
 
-Thanks for the heads-up; shouldn't be a problem.
-
-> And only very tangentially related: I think the indirect branch
-> locking could have been just a separate bit from the enable bit. I
-> don't see why it needed separate prctls for "set status" and "set
-> lock".
-
-Will think this through and respond back.
-
-> On a similar theme: why is it called "indir_br_lp"? That's a horrible name.
-> 
-> This was supposed to be architecture-neutral, but I get the feeling
-> that "lp" does not stand for "Long Play" and has nothing to do with
-> 12-inch vinyl records.
-> 
-> I think it probably is shorthand for "lpad", which is RISC-V thing.
-> Which is complete nonsense for something that is documented to be
-> architecture-neutral.
-
-RISC-V didn't invent that term; here are some earlier CFI-related uses:
-
-* ARM (2019): https://developer.arm.com/-/media/Arm%20Developer%20Community/PDF/Learn%20the%20Architecture/Providing%20protection%20for%20complex%20software.pdf
-* LWN (2022): https://lwn.net/Articles/900099/
-* FineIBT (2023): https://cs.brown.edu/~vpk/papers/fineibt.raid23.pdf
-
-If you're okay with keeping the term "landing pad," we could get rid of 
-the "LP" and use something like "branch_landing_pad" instead.  Or 
-perhaps "verified_branch_target" could be another option.  It would be 
-nice to avoid using IBT or BTI, since those are definitely associated with 
-specific architectures.  Any preference?
-
-> In other words: I've pulled this, but I expect this to be fixed asap.
-
-Will do, once we stop bikeshedding on the name :-)
-
-
-thanks
-
-- Paul
-
+-- 
+Thanx, Kunwu
 
 
 _______________________________________________
