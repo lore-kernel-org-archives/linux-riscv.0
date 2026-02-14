@@ -4,74 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFCCDEF99FF
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Feb 2026 12:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9531EF5849
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Feb 2026 16:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eNkJjWt0ZQY0cNkWTUWVdp/grK4aq7P3mP1OXUwiHa8=; b=1WR2EUV8VIQ0+P
-	hl5or24xh9lxshhF47C+1xVdYqK9Ug6Kte2T9CL0qM51/bXrVjD0wV1XDL41DtpknINrGpausczMW
-	ZwKJ5UOG0VxHPGoFOAeZwvI8+28c0fIO7ZjMMnugsht/6EZlwzqZaDDIWKAQeoaNbKz77WWTmUqwQ
-	3tPQnC8nkC7HA+EtziUxguuB8sM4bhw1nOgY06xAf/ay+xj4696Sd3jf1ox0DgaaXRs1Nw2xJwQhY
-	kYqmnl3Ou7KGDEVa1M/dI0JmluERzvl/PcyRGjG4LRRbLQCHthWRKwH1UNGI0t9JYq4zkj6vH/LmM
-	bz5iEV/Cf6ifusIyTsgw==;
+	List-Owner; bh=Zf0UJZ69/BUmc5ho/JqRZJDZqW5/F0770bshOlyaGSk=; b=ajsiHRmtWrFF1M
+	nc6pvY4RzBSKTL4OkOHGeTSDFz7ZO9CIveFtLLS9sxUtoSVdnDYQHFkMXM6d4m85wGu6rmkE9Akve
+	GFuIsnLZ6rpEZsM3LQBYv7v5f2dn8+a/dJw1E2RxC5xsqXPJygnzEGQ6DXt/IVRlH7meiW9bmnGww
+	X4wj7jJ5GcmE37CIdotFknoVGSQ4sua0/3IT6bketb3tHu6+/+WoPOULHcxMRGyg+q5fR2JYTcEu5
+	WBDH+oAMrZWHO5Cv/2mTfh4AgssAHy2fR2yyOQo5irp+4pBcVjdx1JmPGPwY8sVzYZ31S1gFEcJzw
+	hYWkLt3apw6689t6Yrcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrFEP-00000004Z6x-1lfo;
-	Sat, 14 Feb 2026 12:58:41 +0000
-Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
+	id 1vrIRw-00000004kQ8-1Lde;
+	Sat, 14 Feb 2026 16:24:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrFEK-00000004Z57-26UU
+	id 1vrIRt-00000004kPo-3cKz
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Feb 2026 12:58:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1771073884; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=EFZa8obvZdsp9IY5pnFQ7RvlObQA97MxkO6M92oIuE7Wj5ZU1VH8pT4CkrSczu/8bNTrDbXYCKGlQiSqYBk8W0qzlaHErOjl0RmFlOd+6WlG3uTHXTToyRbBEmCOnrY2AkQry6rCSfk1a8Qkk4wIK72FCDwN9rLOHSMJIhRQC1o=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1771073884; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=8Rp5Hww2ob9dr4bjhNKWXvgLWq6gmlUka9uKN6WtVPo=; 
-	b=NRdAQaKrBM3dWCrWC+e5GEwxMGjhjNXzBOxhOaCx8Vh38Ll5CmXxbQucVys/lPildyC7khNfmbWknyyjFGwfcyhOteGSXu1oar3VOjpzYAZjhQz04NyoSu9oevwwxeWQNQZQolJ4uYyt3QLqpYU+ArtNSEpjGTHhRFofOPvk/DM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=zohomail.com;
-	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
-	dmarc=pass header.from=<kingxukai@zohomail.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771073884;
-	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Feedback-ID:Reply-To;
-	bh=8Rp5Hww2ob9dr4bjhNKWXvgLWq6gmlUka9uKN6WtVPo=;
-	b=JMFiWQSYJSRURoy5DYSbruccbg/Sq7YP5nOralGsAE6mxIRLkPR98f8Ixead/byk
-	qOx5yynqSbvNrQ07+afh0secrXS4DLl1Y7k+18hXBmnjhwSPlit1LnH0MuiEzyEcrSZ
-	RZBVepBOl+lhaj25bdUsdx6zN5s/KdtKNUk1R6JA=
-Received: by mx.zohomail.com with SMTPS id 1771073881704551.7420160087022;
-	Sat, 14 Feb 2026 04:58:01 -0800 (PST)
-From: Xukai Wang <kingxukai@zohomail.com>
-Date: Sat, 14 Feb 2026 20:54:39 +0800
-Subject: [PATCH v11 3/3] riscv: dts: canaan: Add clock definition for K230
+	Sat, 14 Feb 2026 16:24:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 56E3643F29;
+	Sat, 14 Feb 2026 16:24:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6FEDC16AAE;
+	Sat, 14 Feb 2026 16:24:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771086288;
+	bh=b2fAA/6LiIRnE5uC+fyY6XY1BAVSpPQMAo5szwC5qS0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lSuljZt07B+CaREOkzyeuVoDOVGRuiv8ypd6iBLKVG+gQRSOVdFo72/dlOAoX5Q8q
+	 y8kx1kuEZSLtIfmVo6RPrr68Jk5UXObQXEXY2Rnc33INnOp/SnY9TEZcmObRlTHrXW
+	 Nar/oSM3CsWXW+wSyyMfEsZy2hKnDgoj1TU0Xj7Uy2iCdkjWrpLPK1qbVRtRRo5iLW
+	 OzSqFr8wRvf6Fw1pfHGKuCqlTDdD5QT3xz1YTFw9tu7UCmbSmn8xkSLiRNUEEty4RF
+	 2kG4YNYTx/YvKPad++FCYm+7BcLi3BZQ2Ddf3naU+PFffzJG/GhFlgzEovIKnRAOZS
+	 USVUhvBHe+BGg==
+Date: Sat, 14 Feb 2026 08:25:00 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Reinette Chatre <reinette.chatre@intel.com>
+Subject: Re: [PATCH RFC v2 05/17] RISC-V: QoS: define CBQRI capacity and
+ bandwidth capabilities
+Message-ID: <aZCh3JaS2V0pLWXm@gen8>
+References: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
+ <20260128-ssqosid-cbqri-v2-5-dca586b091b9@kernel.org>
+ <3f53c823-74ab-46c3-9cf0-c28b062f2c89@intel.com>
 MIME-Version: 1.0
-Message-Id: <20260214-b4-k230-clk-v11-3-6de365489b89@zohomail.com>
-References: <20260214-b4-k230-clk-v11-0-6de365489b89@zohomail.com>
-In-Reply-To: <20260214-b4-k230-clk-v11-0-6de365489b89@zohomail.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Xukai Wang <kingxukai@zohomail.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Troy Mitchell <TroyMitchell988@gmail.com>, jiayu.riscv@isrc.iscas.ac.cn
-X-Mailer: b4 0.14.2
-Feedback-ID: rr080112276725751e768d2d5023020cae0000deaaa4797553921fbbf3320ea9b031fa982a1a4eab617b30d6:zu08011227a067aec1c8ebdec0af6391ea0000aacc3b2e52d957375c95d6d32978af63e930ab0fe56f6fda4c:rf0801122cc9dc982664869ce0c87aed23000043dc36565f0fbd71d2b9c6f6c6ebb9dae345e405bcbee5820a774c03d48f:ZohoMail
-X-ZohoMailClient: External
+Content-Disposition: inline
+In-Reply-To: <3f53c823-74ab-46c3-9cf0-c28b062f2c89@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260214_045836_569405_7182C705 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260214_082449_963376_9223B24F 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,164 +68,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Atish Patra <atish.patra@linux.dev>, Adrien Ricciardi <aricciardi@baylibre.com>, Atish Kumar Patra <atishp@rivosinc.com>, Conor Dooley <conor+dt@kernel.org>, Nicolas Pitre <npitre@baylibre.com>, devicetree@vger.kernel.org, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, guo.wenjia23@zte.com.cn, linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Peter Newman <peternewman@google.com>, x86@kernel.org, acpica-devel@lists.linux.dev, Robert Moore <robert.moore@intel.com>, liu.qingtao2@zte.com.cn, linux-acpi@vger.kernel.org, Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>, Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Dave Martin <Dave.Martin@arm.com>, Len Brown <lenb@kernel.org>, Fenghua Yu <fenghua.yu@intel.com>, Chen Pei <cp0613@linux.alibaba.com>, Albert Ou <aou@eecs.berkeley.edu>, Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>, Babu Moger <babu.moger@amd.com>, Weiwei Li <liwei1518@gmail.com>, yunhui cui <cuiyunhui@bytedance.com>, Paul Walmsley <paul.walmsley@sifive.com>, Ved Shanbhogue <ved@rivosinc.com>, Vasudevan Srinivasan <vasu@rivosinc.com>, Tony Luck <tony.luck@intel.com>, Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Paul Walmsley <pjw@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch describes the clock controller integrated in K230 SoC
-and replace dummy clocks with the real ones for UARTs.
+On Fri, Feb 13, 2026 at 03:13:42PM -0800, Reinette Chatre wrote:
+> Hi Drew,
 
-For k230-canmv and k230-evb, they provide an additional external
-pulse input through a pin to serve as clock source.
+Hi! Thanks for your detailed feedback on this series.
 
-Co-developed-by: Troy Mitchell <TroyMitchell988@gmail.com>
-Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
-Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
----
- arch/riscv/boot/dts/canaan/k230-canmv.dts | 11 +++++++++++
- arch/riscv/boot/dts/canaan/k230-evb.dts   | 11 +++++++++++
- arch/riscv/boot/dts/canaan/k230.dtsi      | 26 ++++++++++++++++++--------
- 3 files changed, 40 insertions(+), 8 deletions(-)
+> On 1/28/26 12:27 PM, Drew Fustini wrote:
+> > Define data structures to store the capacity and bandwidth capabilities
+> > that are discovered for a CBQRI-capable controller.
+> > 
+> > Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+> > Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+> > Signed-off-by: Drew Fustini <fustini@kernel.org>
+> > ---
+> >  arch/riscv/kernel/qos/internal.h | 128 +++++++++++++++++++++++++++++++++++++++
+> >  1 file changed, 128 insertions(+)
+> > 
+> > diff --git a/arch/riscv/kernel/qos/internal.h b/arch/riscv/kernel/qos/internal.h
+> > new file mode 100644
+> > index 000000000000..ff2c7eff50be
+> > --- /dev/null
+> > +++ b/arch/riscv/kernel/qos/internal.h
+> > @@ -0,0 +1,128 @@
+> > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > +#ifndef _ASM_RISCV_QOS_INTERNAL_H
+> > +#define _ASM_RISCV_QOS_INTERNAL_H
+> > +
+> > +#include <linux/resctrl.h>
+> 
+> The include caught my eye but I did not notice any additions in this patch
+> refer to it.
+> 
+> Reinette
+> 
 
-diff --git a/arch/riscv/boot/dts/canaan/k230-canmv.dts b/arch/riscv/boot/dts/canaan/k230-canmv.dts
-index 32ba53d17c0000ed00293d6834c631397548e6b9..2ba555f6de131f5b111cead31fef13579d42ac58 100644
---- a/arch/riscv/boot/dts/canaan/k230-canmv.dts
-+++ b/arch/riscv/boot/dts/canaan/k230-canmv.dts
-@@ -21,6 +21,12 @@ ddr: memory@0 {
- 		device_type = "memory";
- 		reg = <0x0 0x0 0x0 0x20000000>;
- 	};
-+
-+	timerx_pulse_in: clock-50000000 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <50000000>;
-+	};
- };
- 
- &uart0 {
-@@ -330,3 +336,8 @@ mmc1-data-cfg {
- 		};
- 	};
- };
-+
-+&sysclk {
-+	clocks = <&osc24m>, <&timerx_pulse_in>;
-+	clock-names = "osc24m", "timer-pulse-in";
-+};
-diff --git a/arch/riscv/boot/dts/canaan/k230-evb.dts b/arch/riscv/boot/dts/canaan/k230-evb.dts
-index bfa53f2e240334b7442ab22d18ef7c309ca11b7e..4246e4bba6ccd9d0c53d9b926e40cd63fde46e75 100644
---- a/arch/riscv/boot/dts/canaan/k230-evb.dts
-+++ b/arch/riscv/boot/dts/canaan/k230-evb.dts
-@@ -21,8 +21,19 @@ ddr: memory@0 {
- 		device_type = "memory";
- 		reg = <0x0 0x0 0x0 0x20000000>;
- 	};
-+
-+	timerx_pulse_in: clock-50000000 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <50000000>;
-+	};
- };
- 
- &uart0 {
- 	status = "okay";
- };
-+
-+&sysclk {
-+	clocks = <&osc24m>, <&timerx_pulse_in>;
-+	clock-names = "osc24m", "timer-pulse-in";
-+};
-diff --git a/arch/riscv/boot/dts/canaan/k230.dtsi b/arch/riscv/boot/dts/canaan/k230.dtsi
-index a73b1926ab9342f757a70c9b857de32746e96389..6dcb628a960b05c3c9542fcd2e4205539211fb0d 100644
---- a/arch/riscv/boot/dts/canaan/k230.dtsi
-+++ b/arch/riscv/boot/dts/canaan/k230.dtsi
-@@ -3,6 +3,7 @@
-  * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
-  */
- 
-+#include <dt-bindings/clock/canaan,k230-clk.h>
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/reset/canaan,k230-rst.h>
- #include "k230-pinctrl.h"
-@@ -57,11 +58,11 @@ l2_cache: l2-cache {
- 		};
- 	};
- 
--	apb_clk: apb-clk-clock {
-+	osc24m: clock-24000000 {
- 		compatible = "fixed-clock";
--		clock-frequency = <50000000>;
--		clock-output-names = "apb_clk";
- 		#clock-cells = <0>;
-+		clock-frequency = <24000000>;
-+		clock-output-names = "osc24m";
- 	};
- 
- 	soc {
-@@ -99,10 +100,19 @@ pinctrl: pinctrl@91105000 {
- 			reg = <0x0 0x91105000 0x0 0x100>;
- 		};
- 
-+		sysclk: clock-controller@91102000 {
-+			compatible = "canaan,k230-clk";
-+			reg = <0x0 0x91102000 0x0 0x40>,
-+			      <0x0 0x91100000 0x0 0x108>;
-+			clocks = <&osc24m>;
-+			clock-names = "osc24m";
-+			#clock-cells = <1>;
-+		};
-+
- 		uart0: serial@91400000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x91400000 0x0 0x1000>;
--			clocks = <&apb_clk>;
-+			clocks = <&sysclk K230_LS_UART0_RATE>;
- 			interrupts = <16 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -113,7 +123,7 @@ uart0: serial@91400000 {
- 		uart1: serial@91401000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x91401000 0x0 0x1000>;
--			clocks = <&apb_clk>;
-+			clocks = <&sysclk K230_LS_UART1_RATE>;
- 			interrupts = <17 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -124,7 +134,7 @@ uart1: serial@91401000 {
- 		uart2: serial@91402000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x91402000 0x0 0x1000>;
--			clocks = <&apb_clk>;
-+			clocks = <&sysclk K230_LS_UART2_RATE>;
- 			interrupts = <18 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -135,7 +145,7 @@ uart2: serial@91402000 {
- 		uart3: serial@91403000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x91403000 0x0 0x1000>;
--			clocks = <&apb_clk>;
-+			clocks = <&sysclk K230_LS_UART3_RATE>;
- 			interrupts = <19 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -146,7 +156,7 @@ uart3: serial@91403000 {
- 		uart4: serial@91404000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x91404000 0x0 0x1000>;
--			clocks = <&apb_clk>;
-+			clocks = <&sysclk K230_LS_UART4_RATE>;
- 			interrupts = <20 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
+I was using this to make resctrl structs available in the code that
+includdes this header:
 
--- 
-2.34.1
+arch/riscv/kernel/qos/qos.c
+arch/riscv/kernel/qos/qos_resctrl.c
 
+Should I rearrange to include resctrl.h directly where it is needed?
+
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
