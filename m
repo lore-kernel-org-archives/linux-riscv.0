@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 546A1E63F1E
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Feb 2026 23:14:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB4CEE63F2A
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Feb 2026 04:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CUvQUhNOaSlrwhnJa0anCEJt56zA3FtYFY0sj8w0uRI=; b=cniwKrf4OtUysr
-	hXitKDPY+MHyVI/CcHxt76wslzDrPvePD2b+BrOujK/udVz5daVy8p/HFB/E+lHoXWvOv256n4UR1
-	HVEdN1EpXT6A9YHvuLIjvM/G2St2xdWJkazGHa69cCXCNspHGq1CqprXM+8jhANF7t7pjZ+DDat2m
-	fmX2K+WjMowN8HCOZpL0xW0Po5MY2rzrW4So8rM7UW/Tjk6GJIvHBolx/C589frjqU+nVJ77V/Hvw
-	tUrQJswufnCKuPEFuIVyyljDGJk4N0N+QAeuUNDbVR77mr1x1eVgbDmyyDhMYrVyPG6EvKIcEdJIZ
-	9YaZ/47I5830Z5f39QNA==;
+	List-Owner; bh=Sxyb+Dsx1MqSUExhMp/zWl4q4WyJDH1JUVP/ik9QAas=; b=qP1uWqj+iCiD2F
+	1AA/azdJfXJmmgPXiTYrk+f8Tpw+hxw9ehS9cfARK9NYpEWhYXiU5zAlXKH00HXW0LHZQLKqSbfLc
+	hZ7Rh60qsD+glmBCcV21sQ6gCYQc9huhIStcoV7ZMZ2BFUG0SdR3yyqQjfEnckrCugQavSCPXijTb
+	jsk7x3LYjo36+NH7Y8qm0vTI4PmGw+LFWidJRv/M54Dk7mdzG8citzUEKGimLEpe165wBTK6yKETv
+	jdgxbox0JF5guiuOQ3CVeUnXRhiO9798ZZevoL7Obu16GYySqz2TLfGbD5FZSZtYR1iAgEyQTkeUn
+	JIhyYS99e5dezDbQHW3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrlJQ-00000005l5S-0Hkm;
-	Sun, 15 Feb 2026 23:14:00 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vrqPT-00000005x5h-27Mr;
+	Mon, 16 Feb 2026 04:40:35 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrlJO-00000005l5K-3jth
-	for linux-riscv@bombadil.infradead.org;
-	Sun, 15 Feb 2026 23:13:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Orx67w0OdZsiD/sxqMgXoLutvDapJy44psufStBNd34=; b=Tq38ZBkwHinLdgKHuJ2F6wb0Lw
-	nuKJ0utimPTEs5necEg4OiOp93omwKGRX71185wTqzVACW8X/Btm5RQFtI2l9t/0LXp/dZlyaIOLM
-	GehWSFz/SBsnkXJyZynrq8iJyDwnyPiZ75nYhPdeisBx/mBVpuALLKyyepWJzVzLGdsoKKXUpVTrP
-	UiG1h5BkIqArcpktGdrJGEQfcuC7wHIfdw2rR8FSTBse3ekOr3x0SqqKT2TOwpGA16cFQh9WQ4mcJ
-	1LELudn4ti3SdkfASP4GSMU16UMLBkxEsG2Ob5cpm0F+uWJ/zPQ4zd/VuW57a7wmiDUp7TXRaurH9
-	jJ6U3oAw==;
-Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vrlJH-00000001duk-2IlM;
-	Sun, 15 Feb 2026 23:13:51 +0000
-Date: Sun, 15 Feb 2026 23:13:51 +0000
-From: Matthew Wilcox <willy@infradead.org>
-To: Kiryl Shutsemau <kas@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	David Hildenbrand <david@redhat.com>,
-	Usama Arif <usamaarif642@gmail.com>,
-	Frank van der Linden <fvdl@google.com>,
-	Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Zi Yan <ziy@nvidia.com>, Baoquan He <bhe@redhat.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	kernel-team@meta.com, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCHv6 08/17] mm: Make page_zonenum() use head page
-Message-ID: <aZJTLwV2SaaKu1k_@casper.infradead.org>
-References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-9-kas@kernel.org>
+	id 1vrqPQ-00000005x4m-2Oro;
+	Mon, 16 Feb 2026 04:40:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1771216819; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Dws1CK1Ncg9xfL/bS9uHyb+7p3KS8L1uqY7QMUaOA0sMjQCoGnZ5ioWSEuNNOf2TbnDg1lw5x6dGXe+QExV7XBvL4moUTYJL+ty3pbEB+O9pOvV7ajEKzsovSghr/7BLAymeY02Pp1F30+O2uNkmGDY8u+i/+xStD6VkJcGP7b0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1771216819; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=E4yO3rtfux2YLjw+kJJwbVUfdaJfx7vt8Qi+ogorLoo=; 
+	b=PssSJJmcWSrgvJU4zlJ4vTHv+I0gbVHZ3AL7AuQ7nVdlQ9kk6QnIqP4nWG5+usMK/cslDitSjX7wnfcKha4Tfj/p9Vv2TkpTEJ6k6cB7jniBwGNSpQgpkjM2SQgYsPWQvgiddoy6qZh/ZqNJOYyh9FBjjV2Xrxm7mJZuUT3lTEw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ziyao.cc;
+	spf=pass  smtp.mailfrom=me@ziyao.cc;
+	dmarc=pass header.from=<me@ziyao.cc>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771216819;
+	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=E4yO3rtfux2YLjw+kJJwbVUfdaJfx7vt8Qi+ogorLoo=;
+	b=G4dlI7ufZwJI2frTfOUFrNS2HUXmxpcCrDB19BiMj3NUCN6NLqqMhJQLkrm0QQvP
+	eYGWT9WpT+Ctm5n8207y1cStIYIwkEc4WscNjcjNiGdWPB3KNF4pp6l+myEw6TBs88A
+	cclrcxZn2zeS0zsNzA103SmaqJfXpJgKHe8+Zbow=
+Received: by mx.zohomail.com with SMTPS id 1771216817194335.9362570477522;
+	Sun, 15 Feb 2026 20:40:17 -0800 (PST)
+Date: Mon, 16 Feb 2026 04:39:59 +0000
+From: Yao Zi <me@ziyao.cc>
+To: Yixun Lan <dlan@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Ze Huang <huang.ze@linux.dev>
+Cc: Junzhong Pan <panjunzhong@linux.spacemit.com>,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] phy: k1-usb: k3: add USB2 PHY support
+Message-ID: <aZKfnxXrYVXE8oP4@pie>
+References: <20260214-11-k3-usb2-phy-v2-0-6ed31e031ab4@kernel.org>
+ <20260214-11-k3-usb2-phy-v2-3-6ed31e031ab4@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260202155634.650837-9-kas@kernel.org>
+In-Reply-To: <20260214-11-k3-usb2-phy-v2-3-6ed31e031ab4@kernel.org>
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260215_204032_688841_0264BA16 
+X-CRM114-Status: UNSURE (   7.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,24 +85,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 02, 2026 at 03:56:24PM +0000, Kiryl Shutsemau wrote:
-> With the upcoming changes to HVO, a single page of tail struct pages
-> will be shared across all huge pages of the same order on a node. Since
-> huge pages on the same node may belong to different zones, the zone
-> information stored in shared tail page flags would be incorrect.
+On Sat, Feb 14, 2026 at 08:29:16PM +0800, Yixun Lan wrote:
+> Add USB2 PHY support for SpacemiT K3 SoC.
 > 
-> Always fetch zone information from the head page, which has unique and
-> correct zone flags for each compound page.
+> Register layout of handling USB disconnect operation has been changed,
+> So introducing a platform data to distinguish the different SoCs.
+> 
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
 
-You're right that different pages in the same folio can have different
-zone number.  But does it matter ... or to put it another way, why is
-returning the zone number of the head page the correct way to resolve
-this?
-
-Arguably, the caller is asking for the zone number of _this page_, and
-does not care about the zone number of the head page.  It would be good
-to have a short discussion of this in the commit message (but probably
-not worth putting this in a comment).
+Reviewed-by: Yao Zi <me@ziyao.cc>
 
 _______________________________________________
 linux-riscv mailing list
