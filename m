@@ -4,74 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B75E81A36
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Feb 2026 15:22:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C17DAE81A36
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Feb 2026 15:27:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=or6T2PdxYcq6y0GWrohR8HvXPhkL15MDSlcPaqKbR9s=; b=zoNxpfHojUb4MG
-	zanSVweXD3orjZU7oJGzM1CfwwRzc3bLDmxTItQxv6SDEfdHg4xZUM28U0RfTezQcYRsaQJquPXII
-	F6o8yLk9FWasb8Y1QLU80rYfqTrX4uOR7AXA4mRFcsUlEGg6Jg4twdJxq90DBWJGZIxLLT3q+NJwp
-	Xl8m9gDVNBbZtQexz1ca9aHQZ6RLk1MFhcMFPP0gNFafwP2eRaOaZJYb7QtVpZLVuqcbsiFVTwhRx
-	YXnh0znUJCw7A9UGvF5Lhth64/B0XN50PRgHXUc6CM/ZHAiFq2YaNoAljr2HKGkfXAKp1waWWceFs
-	3p56+QDJLSefd6UIDLwg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UnWBm4pF2C6wnoU4+Vm3FCMrj9sil9QIZnljd/9riRo=; b=G7fQtkHnpVeZfM
+	kSt757igo6oDxjGbLlrDxJizMyBco9A8PW71XQ+xRjAKnvpPy4Mc9kMfkMKvWvts8LdlgZKfGJHem
+	jyLhEGI1e8/R1GewhxYxU0epnjpZYYrWnYWWsjIzcSRJLymKpNhbocayjjjp0du3zLNs14YeRZ33G
+	7ySaZMqJlmAePQVTvCo/lFD2PvxpM4EFg+RQU9oFytQjReGyB/FRmV8JWIQaitHFrxgk/reMZ7ozV
+	nC14Zl5g7tBIP8csSUCIP7ZE36Z8QmrngrZFuomtTA/lykp5fBchG1XT9/nuU7iyzOPeWMzyFeNu7
+	ke+F/2M8qVo4DYAeG8Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs0QU-00000006sfW-3NLh;
-	Mon, 16 Feb 2026 15:22:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vs0VR-00000006tVL-3lVG;
+	Mon, 16 Feb 2026 15:27:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vs0QR-00000006sex-3rVk;
-	Mon, 16 Feb 2026 15:22:17 +0000
+	id 1vs0VP-00000006tUs-3DHR;
+	Mon, 16 Feb 2026 15:27:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 19E4043815;
-	Mon, 16 Feb 2026 15:22:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8B5FC116C6;
-	Mon, 16 Feb 2026 15:22:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 955E161118;
+	Mon, 16 Feb 2026 15:27:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B71DC116C6;
+	Mon, 16 Feb 2026 15:27:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771255335;
-	bh=+AXEKgqENXU9fJ8gY4Qy3D4BbMROQCeB1cT+WULKFsE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bVke98TKQHCmPp7aYCSq+FzJJwd1N7cDuLhGNulVsi3kDISO5a7AJFBm3a7kNw1Zs
-	 5Iw5iKyil96Yjb2kaa996XtcP99USdiZnGFwboQyf93SxLti2oOp6RGusQa6tt0bF4
-	 0vFtMznN3MpwWhSDzdS8LxrL4xOzXYaj2wJ8GWUrAJQmsxB/Oz7vODRYewD2J5wMOt
-	 n/r6PbRevelbv2CgDMGB0hBJqf0/kttTTaqCaKmPDvRwbv46S7eNobKjhJZnoznYuD
-	 xBCbX73IzTj1XGCShRVaUjJ2yNu4RTgdTUiUhws1iLJYbGP9PhfuNu3gDI2EgmCiUz
-	 8W3J0k0Pz4V9A==
-Date: Mon, 16 Feb 2026 20:51:51 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Sumit Kumar <sumit.kumar@oss.qualcomm.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Richard Zhu <hongxing.zhu@nxp.com>, 
-	Lucas Stach <l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Yue Wang <yue.wang@amlogic.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Greentime Hu <greentime.hu@sifive.com>, 
-	Samuel Holland <samuel.holland@sifive.com>, Chuanhua Lei <lchuanhua@maxlinear.com>, 
-	Marek Vasut <marek.vasut+renesas@gmail.com>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Pratyush Anand <pratyush.anand@gmail.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-amlogic@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-tegra@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/2] PCI: API changes for multi-port controller support
-Message-ID: <qoz2odrfe5w47ibjskg2fa3bkgtqd3ctkqqeua446sfjrc2e2m@tg4vynyonu3r>
-References: <20260105-dt-parser-v1-0-b11c63cb5e2c@oss.qualcomm.com>
- <20260105-dt-parser-v1-1-b11c63cb5e2c@oss.qualcomm.com>
+	s=k20201202; t=1771255642;
+	bh=X/o7kKrycyJfueFLIcDFGwo8oG/j/XDcQ+Ni+9bU7j0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=SnetH2sUG0YxWO7tIfyYOK82VUo2EX0zdjXSSTQwAaX0E08C2sIH7RXfkkN9RIiZU
+	 rnX972LJIZ1/7iixrUEiL9mve+TtmxHoMDps6OfNwchcThfT5Wg0jydb/lAuDD527s
+	 C75k0qbBB6sVH4eH1e6e9OPnygAGybOLumrzk8PzGJs+zepcsqXrauAxKvSGpf4qoA
+	 R7S6CV46E5opJv9L+WA2xNTuIwifHHxl1BIV1P1822wnqrBtunnUIv4RE0sb9VzTbm
+	 FdP2oFEJ0XCy+hL61mXuwKZjvIilCtnufx5CDeNszAgFEQztD04ulJSMvbs7cGNp29
+	 uyEB/eUygtuGw==
+From: Yixun Lan <dlan@kernel.org>
+To: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Ze Huang <huang.ze@linux.dev>
+Cc: Yixun Lan <dlan@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Junzhong Pan <panjunzhong@linux.spacemit.com>,
+	spacemit@lists.linux.dev,
+	linux-phy@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] phy: k1-usb: add disconnect function support
+Date: Mon, 16 Feb 2026 23:26:53 +0800
+Message-ID: <20260216152653.25244-1-dlan@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260105-dt-parser-v1-1-b11c63cb5e2c@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260216_072215_995208_D4D71168 
-X-CRM114-Status: GOOD (  19.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,70 +68,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKYW4gMDUsIDIwMjYgYXQgMDU6NTc6NTRQTSArMDUzMCwgU3VtaXQgS3VtYXIgd3Jv
-dGU6Cj4gRm9yIG11bHRpLXBvcnQgY29udHJvbGxlcnMsIGVxdWFsaXphdGlvbiBwcmVzZXQgcHJv
-cGVydGllcyBzaG91bGQgYmUKPiBzcGVjaWZpZWQgaW4gaW5kaXZpZHVhbCByb290IHBvcnQgbm9k
-ZXMgcmF0aGVyIHRoYW4gdGhlIGNvbnRyb2xsZXIgbm9kZSwKCnMvcm9vdCBwb3J0L1Jvb3QgUG9y
-dAoKLSBNYW5pCgo+IGFsbG93aW5nIGVhY2ggcG9ydCB0byBoYXZlIGl0cyBvd24gY29uZmlndXJh
-dGlvbi4KPiAKPiBDaGFuZ2Ugb2ZfcGNpX2dldF9lcXVhbGl6YXRpb25fcHJlc2V0cygpIHRvIGFj
-Y2VwdCBhIGRldmljZV9ub2RlIHBvaW50ZXIuCj4gVGhpcyBhbGxvd3MgcGFyc2luZyBlcXVhbGl6
-YXRpb24gcHJlc2V0cyBmcm9tIGFueSBkZXZpY2UgdHJlZSBub2RlLAo+IHdoaWNoIGlzIG5lZWRl
-ZCBmb3IgbXVsdGktcG9ydCBQQ0llIGNvbnRyb2xsZXJzLgo+IAo+IFNpZ25lZC1vZmYtYnk6IFN1
-bWl0IEt1bWFyIDxzdW1pdC5rdW1hckBvc3MucXVhbGNvbW0uY29tPgo+IC0tLQo+ICBkcml2ZXJz
-L3BjaS9vZi5jICB8IDYgKysrKy0tCj4gIGRyaXZlcnMvcGNpL3BjaS5oIHwgMiArKwo+ICAyIGZp
-bGVzIGNoYW5nZWQsIDYgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPiAKPiBkaWZmIC0t
-Z2l0IGEvZHJpdmVycy9wY2kvb2YuYyBiL2RyaXZlcnMvcGNpL29mLmMKPiBpbmRleCAzNTc5MjY1
-ZjExOTg0NTYzN2UxNjNkOTA1MTQzN2M4OTY2Mjc2MmY4Li5kMDllZmY0MGI1MjNjOTIwYzljYTNl
-YWE2NGY3ODQ3NjViM2M1YmY4IDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvcGNpL29mLmMKPiArKysg
-Yi9kcml2ZXJzL3BjaS9vZi5jCj4gQEAgLTk3MSw2ICs5NzEsNyBAQCBFWFBPUlRfU1lNQk9MX0dQ
-TChvZl9wY2lfZ2V0X3Nsb3RfcG93ZXJfbGltaXQpOwo+ICAgKiBvZl9wY2lfZ2V0X2VxdWFsaXph
-dGlvbl9wcmVzZXRzIC0gUGFyc2VzIHRoZSAiZXEtcHJlc2V0cy1OZ3RzIiBwcm9wZXJ0eS4KPiAg
-ICoKPiAgICogQGRldjogRGV2aWNlIGNvbnRhaW5pbmcgdGhlIHByb3BlcnRpZXMuCj4gKyAqIEBu
-b2RlOiBEZXZpY2UgdHJlZSBub2RlIGNvbnRhaW5pbmcgdGhlIHByb3BlcnRpZXMuCj4gICAqIEBw
-cmVzZXRzOiBQb2ludGVyIHRvIHN0b3JlIHRoZSBwYXJzZWQgZGF0YS4KPiAgICogQG51bV9sYW5l
-czogTWF4aW11bSBudW1iZXIgb2YgbGFuZXMgc3VwcG9ydGVkLgo+ICAgKgo+IEBAIC05ODEsNiAr
-OTgyLDcgQEAgRVhQT1JUX1NZTUJPTF9HUEwob2ZfcGNpX2dldF9zbG90X3Bvd2VyX2xpbWl0KTsK
-PiAgICogZXJybm8gb3RoZXJ3aXNlLgo+ICAgKi8KPiAgaW50IG9mX3BjaV9nZXRfZXF1YWxpemF0
-aW9uX3ByZXNldHMoc3RydWN0IGRldmljZSAqZGV2LAo+ICsJCQkJICAgIHN0cnVjdCBkZXZpY2Vf
-bm9kZSAqbm9kZSwKPiAgCQkJCSAgICBzdHJ1Y3QgcGNpX2VxX3ByZXNldHMgKnByZXNldHMsCj4g
-IAkJCQkgICAgaW50IG51bV9sYW5lcykKPiAgewo+IEBAIC05ODgsNyArOTkwLDcgQEAgaW50IG9m
-X3BjaV9nZXRfZXF1YWxpemF0aW9uX3ByZXNldHMoc3RydWN0IGRldmljZSAqZGV2LAo+ICAJaW50
-IHJldDsKPiAgCj4gIAlwcmVzZXRzLT5lcV9wcmVzZXRzXzhndHNbMF0gPSBQQ0lfRVFfUkVTVjsK
-PiAtCXJldCA9IG9mX3Byb3BlcnR5X3JlYWRfdTE2X2FycmF5KGRldi0+b2Zfbm9kZSwgImVxLXBy
-ZXNldHMtOGd0cyIsCj4gKwlyZXQgPSBvZl9wcm9wZXJ0eV9yZWFkX3UxNl9hcnJheShub2RlLCAi
-ZXEtcHJlc2V0cy04Z3RzIiwKPiAgCQkJCQkgcHJlc2V0cy0+ZXFfcHJlc2V0c184Z3RzLCBudW1f
-bGFuZXMpOwo+ICAJaWYgKHJldCAmJiByZXQgIT0gLUVJTlZBTCkgewo+ICAJCWRldl9lcnIoZGV2
-LCAiRXJyb3IgcmVhZGluZyBlcS1wcmVzZXRzLThndHM6ICVkXG4iLCByZXQpOwo+IEBAIC05OTgs
-NyArMTAwMCw3IEBAIGludCBvZl9wY2lfZ2V0X2VxdWFsaXphdGlvbl9wcmVzZXRzKHN0cnVjdCBk
-ZXZpY2UgKmRldiwKPiAgCWZvciAoaW50IGkgPSAwOyBpIDwgRVFfUFJFU0VUX1RZUEVfTUFYIC0g
-MTsgaSsrKSB7Cj4gIAkJcHJlc2V0cy0+ZXFfcHJlc2V0c19OZ3RzW2ldWzBdID0gUENJX0VRX1JF
-U1Y7Cj4gIAkJc25wcmludGYobmFtZSwgc2l6ZW9mKG5hbWUpLCAiZXEtcHJlc2V0cy0lZGd0cyIs
-IDggPDwgKGkgKyAxKSk7Cj4gLQkJcmV0ID0gb2ZfcHJvcGVydHlfcmVhZF91OF9hcnJheShkZXYt
-Pm9mX25vZGUsIG5hbWUsCj4gKwkJcmV0ID0gb2ZfcHJvcGVydHlfcmVhZF91OF9hcnJheShub2Rl
-LCBuYW1lLAo+ICAJCQkJCQlwcmVzZXRzLT5lcV9wcmVzZXRzX05ndHNbaV0sCj4gIAkJCQkJCW51
-bV9sYW5lcyk7Cj4gIAkJaWYgKHJldCAmJiByZXQgIT0gLUVJTlZBTCkgewo+IGRpZmYgLS1naXQg
-YS9kcml2ZXJzL3BjaS9wY2kuaCBiL2RyaXZlcnMvcGNpL3BjaS5oCj4gaW5kZXggMzRmNjVkNjk2
-NjJlOWY2MWYwYzQ4OWVjNThkZTJjZTE3ZDIxYzBjNi4uNzJmYTZkYjk1YjhhNzVmNmU2OWI4MDE5
-ZDFlYjIyNjJiNmE0NmMxMyAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL3BjaS9wY2kuaAo+ICsrKyBi
-L2RyaXZlcnMvcGNpL3BjaS5oCj4gQEAgLTk2NSw2ICs5NjUsNyBAQCB2b2lkIHBjaV9yZWxlYXNl
-X2J1c19vZl9ub2RlKHN0cnVjdCBwY2lfYnVzICpidXMpOwo+ICBpbnQgZGV2bV9vZl9wY2lfYnJp
-ZGdlX2luaXQoc3RydWN0IGRldmljZSAqZGV2LCBzdHJ1Y3QgcGNpX2hvc3RfYnJpZGdlICpicmlk
-Z2UpOwo+ICBib29sIG9mX3BjaV9zdXBwbHlfcHJlc2VudChzdHJ1Y3QgZGV2aWNlX25vZGUgKm5w
-KTsKPiAgaW50IG9mX3BjaV9nZXRfZXF1YWxpemF0aW9uX3ByZXNldHMoc3RydWN0IGRldmljZSAq
-ZGV2LAo+ICsJCQkJICAgIHN0cnVjdCBkZXZpY2Vfbm9kZSAqbm9kZSwKPiAgCQkJCSAgICBzdHJ1
-Y3QgcGNpX2VxX3ByZXNldHMgKnByZXNldHMsCj4gIAkJCQkgICAgaW50IG51bV9sYW5lcyk7Cj4g
-ICNlbHNlCj4gQEAgLTEwMTMsNiArMTAxNCw3IEBAIHN0YXRpYyBpbmxpbmUgYm9vbCBvZl9wY2lf
-c3VwcGx5X3ByZXNlbnQoc3RydWN0IGRldmljZV9ub2RlICpucCkKPiAgfQo+ICAKPiAgc3RhdGlj
-IGlubGluZSBpbnQgb2ZfcGNpX2dldF9lcXVhbGl6YXRpb25fcHJlc2V0cyhzdHJ1Y3QgZGV2aWNl
-ICpkZXYsCj4gKwkJCQkJCSAgc3RydWN0IGRldmljZV9ub2RlICpub2RlLAo+ICAJCQkJCQkgIHN0
-cnVjdCBwY2lfZXFfcHJlc2V0cyAqcHJlc2V0cywKPiAgCQkJCQkJICBpbnQgbnVtX2xhbmVzKQo+
-ICB7Cj4gCj4gLS0gCj4gMi4zNC4xCj4gCgotLSAK4K6u4K6j4K6/4K614K6j4K+N4K6j4K6p4K+N
-IOCumuCupOCuvuCumuCuv+CuteCuruCvjQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+A disconnect status BIT of USB2 PHY need to be cleared, otherwise
+it will fail to work properly during next connection when devices
+connect to roothub directly.
+
+Fixes: fe4bc1a08638 ("phy: spacemit: support K1 USB2.0 PHY controller")
+Signed-off-by: Yixun Lan <dlan@kernel.org>
+---
+To: Vinod Koul <vkoul@kernel.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>
+To: Ze Huang <huang.ze@linux.dev>
+Cc: Vladimir Oltean <olteanv@gmail.com>
+Cc: Junzhong Pan <panjunzhong@linux.spacemit.com>
+Cc: spacemit@lists.linux.dev
+Cc: linux-phy@lists.infradead.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+
+Change in v3:
+ - split from v2 as bug fix
+ - fix alignment to open parenthesis
+ - http://lore.kernel.org/r/20260216090112.n5jjpui3luqsybb5@skbuf
+ - Link to v2: https://lore.kernel.org/r/20260214-11-k3-usb2-phy-v2-0-6ed31e031ab4@kernel.org
+---
+ drivers/phy/spacemit/phy-k1-usb2.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/drivers/phy/spacemit/phy-k1-usb2.c b/drivers/phy/spacemit/phy-k1-usb2.c
+index 342061380012..9215d0b223b2 100644
+--- a/drivers/phy/spacemit/phy-k1-usb2.c
++++ b/drivers/phy/spacemit/phy-k1-usb2.c
+@@ -48,6 +48,9 @@
+ #define  PHY_CLK_HSTXP_EN		BIT(3)		/* clock hstxp enable */
+ #define  PHY_HSTXP_MODE			BIT(4)		/* 0: force en_txp to be 1; 1: no force */
+ 
++#define PHY_K1_HS_HOST_DISC		0x40
++#define  PHY_K1_HS_HOST_DISC_CLR		BIT(0)
++
+ #define PHY_PLL_DIV_CFG			0x98
+ #define  PHY_FDIV_FRACT_8_15		GENMASK(7, 0)
+ #define  PHY_FDIV_FRACT_16_19		GENMASK(11, 8)
+@@ -142,9 +145,20 @@ static int spacemit_usb2phy_exit(struct phy *phy)
+ 	return 0;
+ }
+ 
++static int spacemit_usb2phy_disconnect(struct phy *phy, int port)
++{
++	struct spacemit_usb2phy *sphy = phy_get_drvdata(phy);
++
++	regmap_update_bits(sphy->regmap_base, PHY_K1_HS_HOST_DISC,
++			   PHY_K1_HS_HOST_DISC_CLR, PHY_K1_HS_HOST_DISC_CLR);
++
++	return 0;
++}
++
+ static const struct phy_ops spacemit_usb2phy_ops = {
+ 	.init = spacemit_usb2phy_init,
+ 	.exit = spacemit_usb2phy_exit,
++	.disconnect = spacemit_usb2phy_disconnect,
+ 	.owner = THIS_MODULE,
+ };
+ 
+-- 
+2.52.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
