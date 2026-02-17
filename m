@@ -4,204 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 233D1E909D3
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Feb 2026 16:34:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E0E4E9A034
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Feb 2026 18:29:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:To:Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=glb/pmwEqZ9IjeWkeS5yM+c+bM4NpRBuqjQjqtsG74k=; b=wQhB5Zyean/WaJ
-	ggkeSOKqG2GepaN9vmQBJ/qi9lCFMhI/O7buT2sL8FcvS0JLa8Yk4yKu1vgT2ujDqBoSZ2PaiNst9
-	X5pQG5t9Ilm9Cmbu5zdmkulOSW6bdGdrhElZQpt78ca3tci8muGgbtqDjGEZVu/ym8LQvUVmlPXA1
-	xLhavR5sCldqMFSlhTzIHP2DBfa8hXALzF6wPu0DE03wDKUvWJI6+kvaCI5FIYll9Wf6/R7w97QcY
-	8rdYEptJCWclAY0t8FijrOCN8CfGOn3BdvqVmRVCeGrPxo77SCT6xdsEbwwSKOdHdxrHin0DUz1yu
-	a1SlRopBfc7ycQbJxx0w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wWBwpfbGWykmtLPFIl9n+Fwb/+BU9OkzgPgz/83X5Ps=; b=Aa2LTZmjX5NRhk
+	Tuz7a4oKnTjqbzOGpa8gzK6UcmN/sHPGy1qXpOBmTycVEqS8KgD17+aZeQeAB4p+SAffvfBxmEGRn
+	SQT7s/3FKCqJ4YY30dBBTGA+pVZkDtQ0dYfh+pZynGnUTpigy3oqDYMAErToxpxdMd0kctsJnRR1a
+	Di/VGPSHwcv0w/jhHWBqgx2Mqj65x3GAWdhUizdIouI1a3ewmvq3+VC5BRZcK9X+pRwfNFmW6bIXc
+	XO23io9Ix9FdZfybKnl9mXa4p3A8UyuxH5vOew/7m1pUQN2tWLnahJy3NwkhFNr81g8HQm88mT39U
+	MuOMFmP8+nm/ptn8T8MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsO1d-00000008ZoK-3oj4;
-	Tue, 17 Feb 2026 16:34:14 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1vsPob-00000008ier-0J3K;
+	Tue, 17 Feb 2026 18:28:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsO1W-00000008ZnG-45xa
+	id 1vsPoZ-00000008iel-1DlU
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Feb 2026 16:34:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1771346047; x=1802882047;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=3XP8FD8UYfM+IPKBRZDDUXaoVhDuiKcvpNGz7/4FawU=;
-  b=LXgrw+TRZ91XzJMQObFrUS+28achDY/VL+dYBILU5fCckPB+ZmwCqhb8
-   eqKIf1jP5tgpcmFrbWgVO1e1h0SJCGmUZc8ID8rLmjiWqx3DCDW84omtA
-   gDX23Ja1RW75ThwbrtuZ5N6ZmlISDI4U7rAKNWaK+POTzQVPRa6bqZv3p
-   a+oibQaRAg9Z61BrGJbCR5ye27rytB/RRDfH/BrMFKK5GBXuydrB0nMZe
-   DKrMaoL2jSzarup7mIS8cMOvR0hSVaw838tKGoJrsOVF40mx1enhaAiVW
-   +5F7sSSIw8xA7uxACrl+oNfjXtSQBkMzwtoO4UulgfxTMtu7erVkWWmxc
-   A==;
-X-CSE-ConnectionGUID: D2LZPTf5QdW2rnLcHuJSgA==
-X-CSE-MsgGUID: /LjwnO6uTgCFnYqqvcsUmg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11704"; a="72463621"
-X-IronPort-AV: E=Sophos;i="6.21,296,1763452800"; 
-   d="scan'208";a="72463621"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Feb 2026 08:34:03 -0800
-X-CSE-ConnectionGUID: lANBpRrrRGGeNZ+xg5FNXw==
-X-CSE-MsgGUID: TYvlJDfWT7q0o9arLTUs/A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,296,1763452800"; 
-   d="scan'208";a="213941678"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Feb 2026 08:34:03 -0800
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.35; Tue, 17 Feb 2026 08:34:02 -0800
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.35 via Frontend Transport; Tue, 17 Feb 2026 08:34:02 -0800
-Received: from BL2PR02CU003.outbound.protection.outlook.com (52.101.52.67) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.35; Tue, 17 Feb 2026 08:34:02 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DBZ2QWlkLSFpNueuqm7X3j2QfqkrkyGFFuKFne+1m4BfVIWp4SLXvwJPWnXVKiHTK3nKBiiSakdaGjzPzAaGV8TbWqs8/6IcplyYmBnaZDU3TO8QrXEGn16I+jSmRO4LENJQ1Md6GeaUV3JkAhbovYPoGk5ZRt5q9+8hfEAKoY/PZz7KWcBINuq8jkXJbRfqfRribyRtGjf8sQrwGfCAPrmnEUquY3b97UXgcxrvrkAyvLSFl232XM+9uISORF8FF92ucG2rX/+Qf5DbeKFcBPT9Gx7qJVvp3RzT7y7CL8kHxPc1Kn9xOI3MSLawQouIrmc+/XqDa34r8/9X2fDU6g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sTZqsmtMveNkGAPuLrlEE2kBjRLKnGUuXmDNYwUbNdU=;
- b=snzo3XBcOrZfeBVCff7NjgXTLDLXJCNIbjJP9h4o0GODXaz9DDo3I5sAycToxCLOUwHAe1uwjpFuhXd9QBI53/l5lSMpACkuKnYirxxdUviumNAGDC4Ou3Vrbz0GjBInR+2p6jhgDk+p6hAufl1oHirUROOF1xJ/ZoUkiIv6zi/F9PrP91S74WKwRYfAhW525+8Be3bouw6b4nPlMSg3o2Zz7nrYhr1UwqbIRPt+s41R1OQb4iZNDyGEhyCYZHKNF6Z9FFiUFl/IgYfm3TYe1cZcbr7HcCLkSPPnVwdYiIzPC/t3/8HmrLhmeGeY+cgMwD4klR+WRrSUc03wPJm1cw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB7573.namprd11.prod.outlook.com (2603:10b6:a03:4d2::10)
- by PH7PR11MB6524.namprd11.prod.outlook.com (2603:10b6:510:210::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.16; Tue, 17 Feb
- 2026 16:33:59 +0000
-Received: from SJ2PR11MB7573.namprd11.prod.outlook.com
- ([fe80::bfe:4ce1:556:4a9d]) by SJ2PR11MB7573.namprd11.prod.outlook.com
- ([fe80::bfe:4ce1:556:4a9d%6]) with mapi id 15.20.9611.013; Tue, 17 Feb 2026
- 16:33:58 +0000
-Message-ID: <0ba158fc-0c44-4b83-b733-9fc00c4d7f3a@intel.com>
-Date: Tue, 17 Feb 2026 08:32:41 -0800
-User-Agent: Mozilla Thunderbird
+	Tue, 17 Feb 2026 18:28:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 36DFA61858;
+	Tue, 17 Feb 2026 18:28:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E0EFC4CEF7;
+	Tue, 17 Feb 2026 18:28:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771352928;
+	bh=6VEW5d7AQFJxxetsXBI84a7st2FxJT4K5c5ALxF0BlE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nP4xUFSLToWnOwwa4nhEUkF5sMvpVR7KgCPHfM5ocvrhmdQ2qdKf3rGu6kGOB3j5n
+	 hjWBs0euPbe56pJK4oYINPNhuTSnzogVtM8Ms2p3I1NLofyMLPVSxUhkOvC+jxotKy
+	 jxBj/EOajDew9rXSQMNdQJ+4+N2VTKnUeOIXFLxsE85z6wkqRFoV7JOYawVsA++mn4
+	 FJi0HSs5vAUP/s9og47Tdw7ofCy5jYe1gVjRnQMOntrLbLxMN4h3GeWXiLOB2q0Nfs
+	 2YxcjZTtybCIjgtdTL9nBKBT+JbqrbI2SWBbejs8A+ea3hiBTN3hdMoV+d8SAALbhS
+	 cwDRpS+QRNn/A==
+Date: Tue, 17 Feb 2026 10:28:52 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Reinette Chatre <reinette.chatre@intel.com>
 Subject: Re: [PATCH RFC v2 05/17] RISC-V: QoS: define CBQRI capacity and
  bandwidth capabilities
-To: Drew Fustini <fustini@kernel.org>
+Message-ID: <aZSzZChSrjXeZmf1@gen8>
 References: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
  <20260128-ssqosid-cbqri-v2-5-dca586b091b9@kernel.org>
- <3f53c823-74ab-46c3-9cf0-c28b062f2c89@intel.com> <aZCh3JaS2V0pLWXm@gen8>
-From: Reinette Chatre <reinette.chatre@intel.com>
-Content-Language: en-US
-In-Reply-To: <aZCh3JaS2V0pLWXm@gen8>
-X-ClientProxiedBy: MW4PR04CA0347.namprd04.prod.outlook.com
- (2603:10b6:303:8a::22) To SJ2PR11MB7573.namprd11.prod.outlook.com
- (2603:10b6:a03:4d2::10)
+ <3f53c823-74ab-46c3-9cf0-c28b062f2c89@intel.com>
+ <aZCh3JaS2V0pLWXm@gen8>
+ <0ba158fc-0c44-4b83-b733-9fc00c4d7f3a@intel.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB7573:EE_|PH7PR11MB6524:EE_
-X-MS-Office365-Filtering-Correlation-Id: d3c322e4-286c-41a1-8bc1-08de6e4259dd
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZXJkd1U0T1pvT01ldnJEY2JsZmt5SHZJUWV1aE1DTGZGQ0Q3cFg3TnBxbW9T?=
- =?utf-8?B?OUk1VElVTkJobzMzejNxZkRtT2dSdzZXbUM3T0RRS3g0RlhqaUhtQnladEhm?=
- =?utf-8?B?cDVnNEhLM2VRS2ZCajFDOHVXWE1RK2FzelAzaUxPL3dEdGJqOEw3NmlHbTRY?=
- =?utf-8?B?WndqRERBeTRvN3FwS2ZWL3lmT1gweGtxVmxQWWJnRndONTRTVk0rb2duSVh4?=
- =?utf-8?B?cWhQSnhZZkVscFVTT0liTWNveC9XOFZhcXkwV0tYNmNvUkl3NUFCditSUEVk?=
- =?utf-8?B?eExxUlJCM2RYdGk3Y1dNV3cxSC9QMlJLRm84ZzVxQm1WdmliV1gyVzY4RXZ5?=
- =?utf-8?B?dTMwZUpaNy9icE5NUHI5dDdlZDlaV1NPRW5ldW9hdDVpMUozVTRFQ2I4d3Na?=
- =?utf-8?B?cElXR3V2LzZtSGRENnFDd0Q2dmw0ZGRqWjlORGwxcGRaWHZ1aWhGQVlnWGs3?=
- =?utf-8?B?RXlXQmlQRnRIKzhiVUpZN1NZQ1E0Z0l6ZTZqeElrQnA4RGJVM0lxak9DejJ2?=
- =?utf-8?B?RENmNlF0TDJKMlhLbVpIc2lVN0g5OHMyM2tiU3dQNm5oeHIwYk41R3BySTVI?=
- =?utf-8?B?K1ZlYmYyd0drWXdOOW5LeVdXSmdaSzh5QWwwcVFsQkMrN1o5ZHZZbityeTV5?=
- =?utf-8?B?dWNySUgvQ2x3V3E1ZGMwYVpXdHZ6Qm1qbitZRmhkdURnSzJyamZjaFZIRXEw?=
- =?utf-8?B?OG4vNk5EcjgydllEWG9XeHlkMFkxOXNNN1lKWVM3U00xbXRxU1hTQklsUEJF?=
- =?utf-8?B?WFFHeUV0VnI5Szd5VEFTaEM1YStJMjlzUVVtVHpWUDYwaTJ5ZHpyWWFuQjQ0?=
- =?utf-8?B?enJHUGNIdUxja1k5alVEa05uNU1wVXZMbDgrRk9NNVAzdlY4UEdKSk03blhm?=
- =?utf-8?B?cXluM21DeFFYUU12TTR3Y2FQeFVvenlMNUJlVFM0aWdMcWFvbTdJWmFNSWNy?=
- =?utf-8?B?cU5kNG5tTDhNUWcwT254dWlTL1ZpVWJHVnlzQXNRYnNjeGdhOG5MT1JpVFhq?=
- =?utf-8?B?RVc5L2xZQzJ0Q3Jic3FMS1c1dGV6N2NkTG12citPa2VkdW00cExadXJEMGk1?=
- =?utf-8?B?eTZCeUVHVUhOQ1pkV2t6Vm5tejFGVG9tR0liVzdzTGNyOGMwbElBajR0MUFG?=
- =?utf-8?B?dkIyQU9oYW5WWmNjUjJKbjROTjZUazZ0UkdTbUdXdnhVRDVUN0ZBWllwQzRo?=
- =?utf-8?B?SGhZVEQ1NlQ1M0tLdTVvREhkUUgyM2V0b09MNjVVdXd2L0c0ejVIN01leTFT?=
- =?utf-8?B?Ymt5MlJ0YTFyNzhLcXZtcWs3eVNzdTIwTVVxVGh4ZHFDTXVLL00yZHBvVCts?=
- =?utf-8?B?dEtzbUxLdDJTaURySlN3OG9WVUlsTFU4cXdsVEs5QzlnaTN6UHh3eEl0TnJM?=
- =?utf-8?B?MlRISXZqNmpvakhlLzFrVy8yalFVdElESmgyMzc4UGlreENmZXptbmxRZGc1?=
- =?utf-8?B?dThXOUxuYTJMQ0d3a1dTV3BtNlV2YWZEYS84a0Q3VmlocTd2bkFQS21vVUox?=
- =?utf-8?B?anVBM0FuRm5IUWFnc3BlMGk0eVY4Mnc5dGdxL3BRRGtRUTZQRnhmYWxhMUJD?=
- =?utf-8?B?L2pKNDd4N1BtSW1ZL0dDMWllbk41MURERmpDN0tzaUxCZFduNzlGYllkNEtp?=
- =?utf-8?B?T3ZQTUNsUFNGRnNHN3pSNkJwT0F4MzFFZkYrRVBranVVc0hmV0ZRZ0hkT0pN?=
- =?utf-8?B?emhnWFFNRkh6WkZjanRSWVM0MFdzbUZtZ0VjbzF6ajRTM1lKRGlZNWJRNXF6?=
- =?utf-8?B?d3pocDkxUEJYQzI2YmNieWJKTlVuT2M2U2dBWXJlT3hNNGpibWVBNWRHZTJH?=
- =?utf-8?B?VUdPVUJ3dzZKczcvMlVGK0U1RTZ6TWVPWGViR2RuOUl2eWpVTUVGMWRvd3BU?=
- =?utf-8?B?MWVtU0QrYVAxTzhNaXphWklyS1NhQUhIODhxUFc5cmpoWEtBSkRlMERCa2tV?=
- =?utf-8?B?MjNCaFZrR3M3RlF6N3FJWHZScThXZTR6UDlrUnVSZzZVY3QvSFQrVFgrL3JM?=
- =?utf-8?B?dDJaWnVndUNlRjJtRmc0M0V6Y0hCcUdiY0k0RjZGZnZWYzlOc2hVbWtvUjdW?=
- =?utf-8?B?clc5ZlV2TWF4eTY5RFVPSU0vT2ovL1BZMHJrUXZvTk45UkU2clV3N0NRdzFN?=
- =?utf-8?Q?VZrI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB7573.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UG5DNFBJdWdFd1k1a01OejEralZsQnU0ZExaMzNrWUlUYng1cmVlNFFjTUht?=
- =?utf-8?B?NFJrMnNTbDR0ZVh6Rm5JVUdpTFk2SEFaV0VGSW43YmpjMk1UTWV5VkVTTXEw?=
- =?utf-8?B?U1JSWmhlaTY1N1BiZlNLUmpienp0QUNyVHF5UTRMUy9ZRDAwREtYdU1tM050?=
- =?utf-8?B?VWhFenRkT0ZOTGNDT1JOUDV6QmgvYm5ROGR6RmpGUXpiOTMwOUw3QlhabEJV?=
- =?utf-8?B?OUcraTB2WDYyQXREWHowaVA3SFpObURKblNZdnVEZ1FMNTdzdWFGellLYTRT?=
- =?utf-8?B?MkprM0ZWZTdCOEVjUDYyaW5Qb0tCN3dzbSs5UWF5d24vTDd2T3dPbkgrN2Zo?=
- =?utf-8?B?TDR6MUxZUkVrNmY3NXY3RUZhNFhLTXB1ZlFFKy9hVFJLYm8wdzRiYnJxTmlE?=
- =?utf-8?B?aXAyd1JjTW5UQmdkVUl6SzRwUERCYWRWYU5rdzVKZkxrR3EybU5TKzhld3Ey?=
- =?utf-8?B?OUdVQkp1MVZpdjhDNCsrKy9wMW51ZGt0bGFmS2E2MjgvYUM3Vkk0T0RJQVBo?=
- =?utf-8?B?UWhHR3luOGZHWFRQU3JWdy83VHk4T1NqWjFkbndUSUg1eURHeTdmZ2wzRGx4?=
- =?utf-8?B?c3ViOGxPa3VpZjUyelFuSDQ4aVJabnBZUnBVOVVtODJFYWJaTkFSaytkQll1?=
- =?utf-8?B?bEx0VmVNeXNnWjZSNmNvRGdPZzB4NWlrN3E5Q3dndW8yeERIVDVSaTlqdm5v?=
- =?utf-8?B?TmFubTc1YTZXNWU2U2ZRSkcreE44b0E1andzbzNSTW1ULzJ1UDNoRVFiZnZW?=
- =?utf-8?B?L1NmOUhzVFQ5S09vTFNhcUo5Y1Vad3BqbDVKWS9idVVhcm80dnZYSUFJZmFX?=
- =?utf-8?B?eC9XWnRQUFdJZEdoZ3R6bU1OZC9iTGZFTTIvWVZGNm4ydllFUUNqek9HVHZU?=
- =?utf-8?B?MEJQdXBDWVNRVHNSc25EcS9vVnZpeDJiWnRXa2plQndEeS9XUHNSalNtdTFn?=
- =?utf-8?B?VktjOGRlKzRGWllKc0dScWlGRllBWUQrbWpBVjY5a0R6K01keG4xdkJJb1l6?=
- =?utf-8?B?MU02UWR3cWJCS05QbFlLT29mM282WnhCbTFRYUZSaXZDNkJIdkNQUisxSjE1?=
- =?utf-8?B?dWx4T1NUeTRwamY1THRTcG14UDN2VkRwL1g2VGFBTngyQWQ0cFVUUFlYeDd6?=
- =?utf-8?B?NDZYRmNyOEJqREFqcXBReC9XVkwzeGwyMDVES0hRdlNqa2pRMll0d3JkMUt2?=
- =?utf-8?B?SlNHTHpia3hRNXkyYnpsZHVTTUxJYnpkSVRwQWFXYythNlphSHQ2WFNUakxK?=
- =?utf-8?B?bnNTVDUxdWlTWWo5ejVMU1Nobk1LVUJhN0lFck9XTWtpZzhSMTE0R0JpV0R5?=
- =?utf-8?B?TEtmaSttYmplNHJoamxia0MwSGtoSWhlQjBidDl4aXZDdzdCMk5KdTBrdGlJ?=
- =?utf-8?B?T1AxVGxQelphQmJ0N1YxblFjYUdTN0RVUER1MUY5TUdBRldLN09ZK2ZYL0Ri?=
- =?utf-8?B?cjB4Q0Y0S0JjMHo0VTFFRHJsVDZKYzlrbDNFa0ZVdnFTc1JjOFVZUVJlS2dK?=
- =?utf-8?B?dm4yTUxuOG1yRHFrTUR4UGtiMG9YbFEyZnNSY2JadEgwdGhnSWpQYlkwN3pI?=
- =?utf-8?B?Z2ZYNEdrK01JRm5oVHNzSHJja05Zcmo3VGNKSlVLRjh4VnBVVUJ6Y01pbXky?=
- =?utf-8?B?YXhMOCtDeWtzeS83WTYzTXpMT3FjOFhYelpWQmZzb09md1lpQTRGTmlkYTlL?=
- =?utf-8?B?RkI0QjBabDRFY0U0dFJvanZMZExvV1V6MVhTUFNNRjBpLyt3SHQzUWxOYXlH?=
- =?utf-8?B?ZjF4NmhRb1FjNXdjbnJUVXpDNU1hWEZPUlFvaDVPdDNTWnZnTy82UDFWbk9M?=
- =?utf-8?B?aGRUSGlWa0diYjRnUmcwcWxTU3Q1clJFczQ5VnRSbXZJVHBZcDJ3TXNMdTVS?=
- =?utf-8?B?ZVAxL0lQWEtPN2sycXY1TXhyeVczdkNlenJoVlZLUmlLMDArcitXcmhjR3dT?=
- =?utf-8?B?dkl0ZTdHaVpMRXRvOXR4OFM0L2k2cUVveFRnT3Y2dTVoYlBmcVd0bnVINU8w?=
- =?utf-8?B?YTFjMG1YRzhSM2ExdkVPMU9HRWUyN3ZsMjhwTVFhQ0VYQ2RrUXdvbUk2K0dh?=
- =?utf-8?B?cFE2bG9DaXB3VWZHMTgyNk9OQTJoZnJ5dmZnS0U3cVQ5M2JZVFk1dFczUnhW?=
- =?utf-8?B?aGxEQlRIeFhzempRTUovU2h4bnQyM3d0dE93TzFhd2Z0ZG1MZ0dIQ3pCOERC?=
- =?utf-8?B?ekVuU1o3Z1ZGa1gyQkVkdzdCQnRrZitteGcxZEVYWDEvcytKMEtGdHloc0RE?=
- =?utf-8?B?YzZDVXJnVFhiRmdpTzZzVE1HQW9nQnRiU253ZzhsT3IvT1VrcXJWRlNncHFE?=
- =?utf-8?B?MG4vWUFvb3BNNU54RGw2Qk40bjlGUTRrTzhGb0tKUUZWUjNOMkQ4RGdxdEEx?=
- =?utf-8?Q?1LKiWQMun4/YboQ4=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: d3c322e4-286c-41a1-8bc1-08de6e4259dd
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB7573.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Feb 2026 16:33:58.9389
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: T6yR6i+8TME+vOywfTDwCnGaDQEJtaNhgnn5oFE+2W4daNQnJ1NgkkmFWK4z+0+aBtWYXaEWGjUO5a0eTAItnJ1Oa3EA6HKRKMv4XRwQ0Jc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB6524
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_083409_297852_EF176321 
-X-CRM114-Status: GOOD (  21.15  )
+Content-Disposition: inline
+In-Reply-To: <0ba158fc-0c44-4b83-b733-9fc00c4d7f3a@intel.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -213,78 +67,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <atish.patra@linux.dev>, Adrien Ricciardi <aricciardi@baylibre.com>, Atish Kumar Patra <atishp@rivosinc.com>, Conor Dooley <conor+dt@kernel.org>, Nicolas Pitre <npitre@baylibre.com>, devicetree@vger.kernel.org, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, guo.wenjia23@zte.com.cn, linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Peter Newman <peternewman@google.com>, x86@kernel.org, acpica-devel@lists.linux.dev, Robert Moore <robert.moore@intel.com>, liu.qingtao2@zte.com.cn, linux-acpi@vger.kernel.org, Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>, =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Dave Martin <Dave.Martin@arm.com>, Len Brown <lenb@kernel.org>, Fenghua Yu <fenghua.yu@intel.com>, Chen Pei <cp0613@linux.alibaba.com>, Albert Ou <aou@eecs.berkeley.edu>, =?UTF-8?Q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>, Babu Moger <babu.moger@amd.com>, Weiwei Li <liwei1518@gmail.com>, yunhui cui <cuiyunhui@bytedance.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Ved
- Shanbhogue <ved@rivosinc.com>, Vasudevan Srinivasan <vasu@rivosinc.com>, Tony Luck <tony.luck@intel.com>, Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Paul Walmsley <pjw@kernel.org>
+Cc: Atish Patra <atish.patra@linux.dev>, Adrien Ricciardi <aricciardi@baylibre.com>, Atish Kumar Patra <atishp@rivosinc.com>, Conor Dooley <conor+dt@kernel.org>, Nicolas Pitre <npitre@baylibre.com>, devicetree@vger.kernel.org, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, guo.wenjia23@zte.com.cn, linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Peter Newman <peternewman@google.com>, x86@kernel.org, acpica-devel@lists.linux.dev, Robert Moore <robert.moore@intel.com>, liu.qingtao2@zte.com.cn, linux-acpi@vger.kernel.org, Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>, Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Dave Martin <Dave.Martin@arm.com>, Len Brown <lenb@kernel.org>, Fenghua Yu <fenghua.yu@intel.com>, Chen Pei <cp0613@linux.alibaba.com>, Albert Ou <aou@eecs.berkeley.edu>, Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>, Babu Moger <babu.moger@amd.com>, Weiwei Li <liwei1518@gmail.com>, yunhui cui <cuiyunhui@bytedance.com>, Paul Walmsley <paul.walmsley@sifive.com>, Ved Shanbhogue <ved@rivosinc.com>, Vasudevan Srinivasan <vasu@rivosinc.com>, Tony Luck <tony.luck@intel.com>, Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Paul Walmsley <pjw@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Drew,
-
-On 2/14/26 8:25 AM, Drew Fustini wrote:
-> On Fri, Feb 13, 2026 at 03:13:42PM -0800, Reinette Chatre wrote:
->> Hi Drew,
+On Tue, Feb 17, 2026 at 08:32:41AM -0800, Reinette Chatre wrote:
+> Hi Drew,
 > 
-> Hi! Thanks for your detailed feedback on this series.
+> On 2/14/26 8:25 AM, Drew Fustini wrote:
+> > On Fri, Feb 13, 2026 at 03:13:42PM -0800, Reinette Chatre wrote:
+> >> Hi Drew,
+> > 
+> > Hi! Thanks for your detailed feedback on this series.
+> > 
+> >> On 1/28/26 12:27 PM, Drew Fustini wrote:
+> >>> Define data structures to store the capacity and bandwidth capabilities
+> >>> that are discovered for a CBQRI-capable controller.
+> >>>
+> >>> Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+> >>> Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+> >>> Signed-off-by: Drew Fustini <fustini@kernel.org>
+> >>> ---
+> >>>  arch/riscv/kernel/qos/internal.h | 128 +++++++++++++++++++++++++++++++++++++++
+> >>>  1 file changed, 128 insertions(+)
+> >>>
+> >>> diff --git a/arch/riscv/kernel/qos/internal.h b/arch/riscv/kernel/qos/internal.h
+> >>> new file mode 100644
+> >>> index 000000000000..ff2c7eff50be
+> >>> --- /dev/null
+> >>> +++ b/arch/riscv/kernel/qos/internal.h
+> >>> @@ -0,0 +1,128 @@
+> >>> +/* SPDX-License-Identifier: GPL-2.0-only */
+> >>> +#ifndef _ASM_RISCV_QOS_INTERNAL_H
+> >>> +#define _ASM_RISCV_QOS_INTERNAL_H
+> >>> +
+> >>> +#include <linux/resctrl.h>
+> >>
+> >> The include caught my eye but I did not notice any additions in this patch
+> >> refer to it.
+> >>
+> >> Reinette
+> >>
+> > 
+> > I was using this to make resctrl structs available in the code that
+> > includdes this header:
+> > 
+> > arch/riscv/kernel/qos/qos.c
+> > arch/riscv/kernel/qos/qos_resctrl.c
 > 
->> On 1/28/26 12:27 PM, Drew Fustini wrote:
->>> Define data structures to store the capacity and bandwidth capabilities
->>> that are discovered for a CBQRI-capable controller.
->>>
->>> Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
->>> Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
->>> Signed-off-by: Drew Fustini <fustini@kernel.org>
->>> ---
->>>  arch/riscv/kernel/qos/internal.h | 128 +++++++++++++++++++++++++++++++++++++++
->>>  1 file changed, 128 insertions(+)
->>>
->>> diff --git a/arch/riscv/kernel/qos/internal.h b/arch/riscv/kernel/qos/internal.h
->>> new file mode 100644
->>> index 000000000000..ff2c7eff50be
->>> --- /dev/null
->>> +++ b/arch/riscv/kernel/qos/internal.h
->>> @@ -0,0 +1,128 @@
->>> +/* SPDX-License-Identifier: GPL-2.0-only */
->>> +#ifndef _ASM_RISCV_QOS_INTERNAL_H
->>> +#define _ASM_RISCV_QOS_INTERNAL_H
->>> +
->>> +#include <linux/resctrl.h>
->>
->> The include caught my eye but I did not notice any additions in this patch
->> refer to it.
->>
->> Reinette
->>
+> I see. The changelog made me believe that this patch defines new data structures
+> used by the patches that follow and the inclusion of resctrl.h created expectation
+> that some of these new data structures contain resctrl members that I was interested
+> in seeing used. If keeping this style then a snippet in changelog that explains the
+> header inclusion/organization would be helpful.
+>  
+> > Should I rearrange to include resctrl.h directly where it is needed?
+> I'll defer to the RISC-V folks since I understand that not all subsystems follow/enforce
+> rule #1 of Documentation/process/submit-checklist.rst the same (also called "Include
+> What You Use (IWYU)") quoted for convenience:
 > 
-> I was using this to make resctrl structs available in the code that
-> includdes this header:
+> 	1) If you use a facility then #include the file that defines/declares           
+> 	   that facility.  Don't depend on other header files pulling in ones           
+> 	   that you use.
 > 
-> arch/riscv/kernel/qos/qos.c
-> arch/riscv/kernel/qos/qos_resctrl.c
+> I have worked with code following different customs and personally I do find code
+> following IWYU easier to maintain.
 
-I see. The changelog made me believe that this patch defines new data structures
-used by the patches that follow and the inclusion of resctrl.h created expectation
-that some of these new data structures contain resctrl members that I was interested
-in seeing used. If keeping this style then a snippet in changelog that explains the
-header inclusion/organization would be helpful.
- 
-> Should I rearrange to include resctrl.h directly where it is needed?
-I'll defer to the RISC-V folks since I understand that not all subsystems follow/enforce
-rule #1 of Documentation/process/submit-checklist.rst the same (also called "Include
-What You Use (IWYU)") quoted for convenience:
+Thank you for the explanation. I agree that IWYU makes more sense so
+I'll rearrange how I do includes in the series.
 
-	1) If you use a facility then #include the file that defines/declares           
-	   that facility.  Don't depend on other header files pulling in ones           
-	   that you use.
+BTW, I'm working through all the comments in patch 8. In short, there
+are a lot of shortcomings in my current implementation that need to be
+fixed and I will explain in my reply how I plan to address them.
 
-I have worked with code following different customs and personally I do find code
-following IWYU easier to maintain.
-
-Reinette
-
+Drew
 
 _______________________________________________
 linux-riscv mailing list
