@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 913B2E9A03B
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Feb 2026 21:12:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F3F2E9A03E
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Feb 2026 22:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+fCxASfOlpdCHJy9RfCKKOF+1iF9TJrefpEEVScZFVE=; b=mh7+NrvpE+EWvL
-	eMSivpaVpk+Is+xEHN3hLRQ3kGeREqwEUZ+jQV8kFXXw1/dVUz8sUxyYa8Tra5Q6B2AnjDK+b8d5w
-	P3HMhL2pAGb3ZUCP8W1z1m17/h7LfeAIsZPSbC3T5IUcv2uhcT1T3ft0cumDilef9uSbyHysNcJ0v
-	u0NE2y9bfI3BN3MrA9PsLAT1J8y7rmBIOnA9P5tJ1uisxWyP06Ifq7OWba1FA/bBASsN4sGToqXfK
-	appsmRSQpOprLT0MlQtUT0pDlIZ+5rNX+4KxfsvFoMZgxy/QWpbsNqM7V6zpQRMaz7VVQ79Yo/Ruf
-	tcxfhprjCSMDiaxlVdpw==;
+	List-Owner; bh=2a5NcslfP+lH6l2q4OYjzjr8PuHXd0cNII/SrFZd1FE=; b=OTU7x7xZRHB01I
+	+LTA6Dm1Bw+hM+epYZdjDkdqcbCT264BuL4MVM+ley5PVNoNJIjqIroTZCslZWXxjDPzCLAm47Hyw
+	eCbvpEfBPd3msOVZtNn6sMce0mqnzeU8IQZs0FsAfnP1y9kjdgF6TzCq426e/xMKhzXxkOSSx797l
+	RU5Y3mG4QGC2nY1R10NuI1MI3Ty5YmFpVCW/mSHe72BnxCLKShJpE9Sc0Rr/7/URtkIfG5bEGvv6q
+	X7AUJI6IYrgJZDXTTZeTiskES0X48os+1zsb6vQfw+VBkff6N4lhvRm9oqoCgowEAY43uWM8WlkjP
+	fPP4f/JeXxEv+pMp+KAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsSNA-00000008t4d-42uf;
-	Tue, 17 Feb 2026 21:12:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vsTg8-00000008zhN-22HE;
+	Tue, 17 Feb 2026 22:36:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsSN7-00000008t41-2Pb3
+	id 1vsTg5-00000008zh1-3oEr
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Feb 2026 21:12:42 +0000
+	Tue, 17 Feb 2026 22:36:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 23D1442A32;
-	Tue, 17 Feb 2026 21:12:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13A6AC19421;
-	Tue, 17 Feb 2026 21:12:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C62041AA1;
+	Tue, 17 Feb 2026 22:36:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C88FC4CEF7;
+	Tue, 17 Feb 2026 22:36:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771362760;
-	bh=p9Cuh7jV01riqByEHWOnkwIMeAOedx6kRn+SkqSMcMY=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=hs9/BSWAHzwxVmMyCDjF6xO5O9TsZxZ5Ib++0vwwExcm0EbE8HnAXmvd8sECLjsbq
-	 IJM9iB8DBybkybl4zh8jC6sKL6BZn8uB+32YmqxcBlpPWoNplgRLZUSluMONtcJIpJ
-	 OZshfquItwitekWM7L4zWbnhzoVLf0guaWbTn16cqQPGBvLB1/SZMd4RO/EMxZQRWR
-	 jesFUGjV8qlJJqws1JICzMfWDw+oFCgbZTpc2A6J+uVDaO7PLZ2A1w2Zi5A4q8o1WL
-	 u9gllsJ7QLy9fUMJ1jGOC4TaqfH2mUGpPB4/olGc4FrRYYSm/z44jQcmvtpgo4IjY5
-	 XXNOoULni+zRA==
-Date: Tue, 17 Feb 2026 14:12:36 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Kunwu Chan <kunwu.chan@linux.dev>, igor.b@beldev.am
-cc: namcao@linutronix.de, Paul Walmsley <pjw@kernel.org>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Conor Dooley <conor@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, 
-    Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>, 
-    Zhouyi Zhou <zhouzhouyi@gmail.com>, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND 0/2] riscv: fix minor typos and style issues in
- XIP code
-In-Reply-To: <20260214023804.677127-1-kunwu.chan@linux.dev>
-Message-ID: <609b889a-8bb1-d2b5-8de6-ddeec27cac04@kernel.org>
-References: <20260214023804.677127-1-kunwu.chan@linux.dev>
+	s=k20201202; t=1771367780;
+	bh=fpWLMGake2nbfxsw2JifRPbV4C4cu+jMNO44Y5INPqI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dVDxJWBgs59sS3DNxLuPVsiywvYc5gg06lYoYmr4QUYlSsVuXX7xjFE8AjIVTS8Vb
+	 7cdlbqo9AwPlF6Ad4qfJ0RLNh3nDI/NbARpWf7V7NHJ4aQWhITLrAGimkdW1PX6Gx0
+	 qBmOkOpQWTVNsJ+k8KIfBGVGtC2g/PRXTtlqQVPC2Kh+5LbPxcy929mC4IZvcepjcO
+	 sqMJ9IPoPgqwmcJ138AWW8AFx+Tgl52SSCZcd2riPmJrMh217bRCxpxsFNo3apBXiW
+	 7X46IAKqZHHvHWRTSdxaZlGVdootEufHv7cBSJn2jgoe1onumUHeHa/WBYMvyAE3Ta
+	 6c1veuC92kKqg==
+Date: Tue, 17 Feb 2026 14:36:23 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Reinette Chatre <reinette.chatre@intel.com>
+Subject: Re: [PATCH RFC v2 05/17] RISC-V: QoS: define CBQRI capacity and
+ bandwidth capabilities
+Message-ID: <aZTtZwE03nHj0S98@gen8>
+References: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
+ <20260128-ssqosid-cbqri-v2-5-dca586b091b9@kernel.org>
+ <3f53c823-74ab-46c3-9cf0-c28b062f2c89@intel.com>
+ <aZCh3JaS2V0pLWXm@gen8>
+ <0ba158fc-0c44-4b83-b733-9fc00c4d7f3a@intel.com>
+ <aZSzZChSrjXeZmf1@gen8>
+ <538dcb97-2699-4220-9df2-0bc6d5f64412@intel.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <538dcb97-2699-4220-9df2-0bc6d5f64412@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_131241_634719_B1793321 
-X-CRM114-Status: UNSURE (   7.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260217_143621_970394_429E08F7 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,38 +72,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Atish Patra <atish.patra@linux.dev>, Adrien Ricciardi <aricciardi@baylibre.com>, Atish Kumar Patra <atishp@rivosinc.com>, Conor Dooley <conor+dt@kernel.org>, Nicolas Pitre <npitre@baylibre.com>, devicetree@vger.kernel.org, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, guo.wenjia23@zte.com.cn, linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Peter Newman <peternewman@google.com>, x86@kernel.org, acpica-devel@lists.linux.dev, Robert Moore <robert.moore@intel.com>, liu.qingtao2@zte.com.cn, linux-acpi@vger.kernel.org, Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>, Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Dave Martin <Dave.Martin@arm.com>, Len Brown <lenb@kernel.org>, Fenghua Yu <fenghua.yu@intel.com>, Chen Pei <cp0613@linux.alibaba.com>, Albert Ou <aou@eecs.berkeley.edu>, Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>, Babu Moger <babu.moger@amd.com>, Weiwei Li <liwei1518@gmail.com>, yunhui cui <cuiyunhui@bytedance.com>, Paul Walmsley <paul.walmsley@sifive.com>, Ved Shanbhogue <ved@rivosinc.com>, Vasudevan Srinivasan <vasu@rivosinc.com>, Tony Luck <tony.luck@intel.com>, Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Paul Walmsley <pjw@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 14 Feb 2026, Kunwu Chan wrote:
-
-> Fix a few minor issues found in riscv XIP-related code:
+On Tue, Feb 17, 2026 at 11:02:30AM -0800, Reinette Chatre wrote:
+> Hi Drew,
 > 
-> - xip_fixup.h: comment typo (_start vs _sdata) and spaces-vs-tab
-> - head.S: spelling typo and wrong #endif comment
+> On 2/17/26 10:28 AM, Drew Fustini wrote:
+>  
+> > BTW, I'm working through all the comments in patch 8. In short, there
+> > are a lot of shortcomings in my current implementation that need to be
+> > fixed and I will explain in my reply how I plan to address them.
+> 
+> Thank you very much for considering the feedback. Could you please also
+> consider splitting patch 8 up into more manageable chunks that have
+> descriptive changelogs? Even for an RFC it would help digest this work.
 
-Thanks for fixing the threading, but, Conor's message:
+That's a good idea. I'll think about how I can divide up the code into a
+larger series.
 
-  https://lore.kernel.org/linux-riscv/20260213-canteen-diffuser-5ecc80f264b4@spud/   
-
-was exactly right.  Folks who care about XIP support for RISC-V first need 
-to send patches to fix it in mainline.  These typo fixes should be rolled 
-in to that series.  Until that happens, I plan to keep the XIP removal 
-patches queued.
-
-I also want to see the XIP folks participating in testing and reviewing 
-upstream patches going forward to confirm that they don't break XIP 
-support.  Otherwise, the burden is just getting pushed to patch submitters 
-and maintainers, most of whom probably don't care much about XIP.  And 
-there's a good chance that we'll just go through this cycle again in 
-another few months.
-
-
-- Paul
-
-
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
