@@ -4,92 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C01E9A02C
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Feb 2026 19:57:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B9D4E9A02C
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Feb 2026 21:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pg5MkJRbrJTlfuQguAkPxQK971dSj6sXi04BLm5fp0g=; b=ajWt1FMHY0Og19LFJ/96h+ni1G
-	VtrVMOXhWx7Cjb/LKvixxp3lgohPPGnwXaZxEHEWvpsnO0cK0WbQP7MCIjSwPZIVVWK5mb0rM0kaW
-	ohdDFfw4g+WuJbuQDlkxtYqbpXZEcx+uOYsnI5Zgc+TncdZCDP7MaPrwBTOkq1DLIHgWOBa3XFV/r
-	ENcdDuV+OZFfQflsY9uY8keYQ+NDyXKJmQ/aZZTs+Ffw6UmHuk3mVOWco5YZoNDXIBr+vtwAEyC+W
-	6PSR3hnBQs/wBNCLec5EyG5MJh7jxKWIpNtjNNWGCc7JCDcl5UOOKCEVCBPKPCCOJunwibice1n03
-	2zxjXqug==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=iz0K0y1BmH5KxJKMtTfEGbdx55/5/6FkrVU/xVqaG20=; b=mhKUHallTIHl7M/nmAuNySB0bv
+	UotYblYbKEg1Vc4xTIapeTLCsAY2BZfTsebjB/PqxNArNwbxFch7TXwjfZYMBRnrxYn5R9p30gqRF
+	GCGgsQEa/le6lWe08NQpls68AOn+lPjn1WdMidz7Ix+g5DoPAKDoIP9GUoo3H1x73kPhBvs00dNgE
+	4IZjRp3K5wkbhc/x+oPyip03a8zne5Y9mNrNEJ/EubtoErCuDI8TN4mA9IUtxC2q4DworH346lihN
+	UhYpQyWktGb6labDr1dOUCTluZXe4Ri/xFr3Gnife283U6YGX4A2eYHtQzOJCIH6Jt1DqDxuQoKGx
+	Tak4xrzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsng6-0000000AL8b-03xf;
-	Wed, 18 Feb 2026 19:57:42 +0000
-Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
+	id 1vsokQ-0000000AQMC-3KZY;
+	Wed, 18 Feb 2026 21:06:14 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsng3-0000000AL7p-2mlr
+	id 1vsokN-0000000AQKQ-0nGS
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Feb 2026 19:57:40 +0000
-Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-12732165d1eso161135c88.1
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Feb 2026 11:57:39 -0800 (PST)
+	Wed, 18 Feb 2026 21:06:13 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-354c7a38429so1136710a91.0
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Feb 2026 13:06:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1771444658; x=1772049458; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=iKYkZR4doNKAqI71WoYaMA5DL3zj5NX+5I6qS1ZsCY0=;
-        b=BV4CCTs/iF0oqDA6NPGvtqWDjk/nr/S3DTKoUO7t6mgW2wuPFvK6g/xjsZZDB8oQqg
-         k+TATs8e3TmlJiX9ntXE4cvHaifw/oFQy19WbmkW/Q0dlmzbiMjINP4HEoKkNqWMzikl
-         mXyE1gopX9b7U56WNQmE+CKn6V4XNQVoP47qgfcp9TOJsVQK2brYAZcovRBsILc1UBJV
-         KPBVbFT2oXxm3A0nzFNB0R+Ezv9aeRRf+L5MFT7ol00V2fP5hG8+x/Voh1C2WNlTc8iB
-         hHBAz2uPH2c5LwyMm+OscerBD/DovfGjoELr1A0WLOiTA6zudJxoOfLXzTE3VQfLApnY
-         X5Hg==
+        d=google.com; s=20230601; t=1771448769; x=1772053569; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ccWJDzJ7m4S4l+nz4VuzRpZZrXnjyW9kyBaNIifc8MY=;
+        b=YNY80BqNjB+Y1BWl0u6kQHx0Yl5dS3K8LHx9UrJBmIidMd7qedtPqsNfXoO7LMXs5D
+         EHmFrLJ75Z/4/z5GMPom9zd/71UIlLdW8dLFZzwY2QSjYeJqe4fE1eNTmu/EKQ0vOEzs
+         8e3ppoT3kdyWCv2/aBb3UZ8o28/Fr14o/5fNKdr/7j5oekFpTJmMXj+mT5c1iifGXKFG
+         Xq0EqXpcklGmi2u1pW8YKKBIrKKtT6XRa0W9ZCkmeN2Cuadisq9ADhmcNZisw1+2RpPJ
+         r6WrslBOhUhCu7I5D2VjVsNMy5sa5m5fRRUlro1fYNSDyhJZiuYpmlhANiQYXed0d3tA
+         mMUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771444658; x=1772049458;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=iKYkZR4doNKAqI71WoYaMA5DL3zj5NX+5I6qS1ZsCY0=;
-        b=o4mSzWuoQ7aCqdXF0NB4mR7pYX4Yoe0o9kYKH9/b32ERP9qcatCYvITdXbQHRoboy6
-         N1U38GTWV7ZSkSRqnoANgrv/5omcy4mDiesdPtQj14Ix43K4JfkgQy1Jrn8kyMT/ndIb
-         dkGHrirNytyAgqTJPDQaiZPSINaGToy52D7UUg1+WhZ3Fg99ERbEgndyeIfc7ximf/Xc
-         QgyqANb805NQXrWP6fbe+uBB1ITDJPG3mvob2A+px9MGOuLMSSIosJoPTjWa3LvI6gXj
-         bKGgFMdUQhS/ZMBUVsWXTmr11s80x60peBY2cNfcdo+iC1yBy+fmjKXtWFJj90fz35dB
-         +yAA==
-X-Forwarded-Encrypted: i=1; AJvYcCXHCXpIpfetE24NHAdqYRz7PNBkOoGcHfZRuRrd8lIIN2LmwXYBU69lTNqEWMFx37MbcHoGVTRMhW+M2w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuUim7EAZH5rLLKsU39cfYaLizMwVKcbkg8I2tvn50zbpFz02O
-	s/LL443q5COVUwxqxbi4zxDv6ySgiyAHzGG4sksZXseacH3QcQOJLsh659sQGR6hSoE=
-X-Gm-Gg: AZuq6aK1iWxD1tRYNMuw80gd5AK0UcEndm9pZ32AklmallIu/946+lUb5FjSuy90BTl
-	RGC/ep8ZKbz/I/ZRCX/ASTEj9g4mPo1He3eigI1Xam1ihTBS6W4NitPdwEMo6iRt32cs/+TKUEx
-	LWS2WqZejluQ8AUcFg5KdhvSlFVj2D81CCZYtLFIJC3cMGGNwsAQk/n+TNdKs5luEvOYVZLs0Pp
-	s/o1Y3h6Y5OF1wLdRkHPiykRxKQNIIsYPCJbxxDVG6RnBAmxBjBil3o1kSrI9Z3trDXfGVGmcpK
-	pBCZSmacf3V0V+V/swXoiNJOkcvj2RH41c70qeum1CJWMbW5O2EnvLQejJ0MxDA8soS43ZBLyoa
-	e0tY4xUjFP3k6AEmVR3dls8P3aNSYEwFUOi9WGQStbJoP65uWbix3N4zrE0SdCFOdm/wAL3403F
-	PwXQ+ar7Y2sCqd5A+sKZiumrNzDNzzjAV4
-X-Received: by 2002:a05:7022:a81:b0:127:3b1d:f593 with SMTP id a92af1059eb24-12759a043c6mr1438756c88.9.1771444658229;
-        Wed, 18 Feb 2026 11:57:38 -0800 (PST)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12742c63feesm24060077c88.4.2026.02.18.11.57.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Feb 2026 11:57:37 -0800 (PST)
-Date: Wed, 18 Feb 2026 11:57:36 -0800
-From: Deepak Gupta <debug@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Mark Brown <broonie@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Peter Zijlstra <peterz@infradead.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	zong.li@sifive.com, rick.p.edgecombe@intel.com,
-	yu-cheng.yu@intel.com
-Subject: Re: [GIT PULL] RISC-V updates for v7.0
-Message-ID: <aZYZsBlH_tVxnZIf@debug.ba.rivosinc.com>
-References: <c554c02e-a791-5c4a-d329-7632de7a194d@kernel.org>
- <CAHk-=whUXMRa3py11kpZiDMau8uauiwZCok2UMQAecTshfTrVA@mail.gmail.com>
- <2248971d-d69c-65fb-93b4-10f0d7d8bbad@kernel.org>
- <b2aae256-7d3c-447d-aa8b-5904848cff6a@sirena.org.uk>
- <CAHk-=whfQXKr3Sgoc7R1tPWFD3A1gEhUh=j7GGwz8yg_EQVhNA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAHk-=whfQXKr3Sgoc7R1tPWFD3A1gEhUh=j7GGwz8yg_EQVhNA@mail.gmail.com>
+        d=1e100.net; s=20230601; t=1771448769; x=1772053569;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ccWJDzJ7m4S4l+nz4VuzRpZZrXnjyW9kyBaNIifc8MY=;
+        b=n98udWQsBwdeJCPLgaBKZU64EeapYEJ/uEZQOLIG2kw9GzpFnyxk/2SBuB+o6jdhRR
+         NwUY6AWHOe21jJiIuTWK3/wSZmgke9hbiBH58kQj41N+hkgr0qdxpfGMnbuhmad2H70u
+         B99AH/aZIFY9BLlG/8S4gm5PjZ9R8VaZP1ccN1RBPxIExDjgjZPASHyUv4xT/Eo05UVm
+         BwiPKPaD8+OVBQV8n7a2IEneKi4aV+1+RNz0e83UAA1XzCk8bRXL3x/urHPi+LuyAEkv
+         YUhB/35BCkTPP0ND6ca46m9aqDWZySAtTUbWIPRCEEXAMveRE6LSvP762yUPPmbo2b8i
+         xgqA==
+X-Forwarded-Encrypted: i=1; AJvYcCVs8/q7N9s/Je+EcJMmfn5bmml09imbnQcLOEcI3J35iJYIHlAG3dNJQ54Gv68aQ47iwEs6nOTw3/wyhg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyt+UaxELML+/E5j84rk6+HrOUXmRREKofJZ4VanM8H/HPxhfkm
+	SmhEas1iirOAgJs0sfzrYgxWytp3wAg9OoyJW4a+IwNhSwFu/YzZbXty8hodm5bDzz9dvyXkBWS
+	UHNMHlw==
+X-Received: from pjbne18.prod.google.com ([2002:a17:90b:3752:b0:356:1da4:5dd1])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5584:b0:34a:c671:50df
+ with SMTP id 98e67ed59e1d1-35888d58b61mr2639291a91.17.1771448768639; Wed, 18
+ Feb 2026 13:06:08 -0800 (PST)
+Date: Wed, 18 Feb 2026 13:06:07 -0800
+In-Reply-To: <CALzav=fN4FpZsfzwbdLeNSj4nx4OpRkwHvKiZNVgP8S-zsUvJA@mail.gmail.com>
+Mime-Version: 1.0
+References: <20250501183304.2433192-1-dmatlack@google.com> <aBPhs39MJz-rt_Ob@google.com>
+ <CALzav=eqv0Fh9pzaBgjZ-fehwFbD4YscoLQz0=o0TKQT_zLTwQ@mail.gmail.com>
+ <aRZ9SQ_G2lsmXtur@google.com> <CALzav=fN4FpZsfzwbdLeNSj4nx4OpRkwHvKiZNVgP8S-zsUvJA@mail.gmail.com>
+Message-ID: <aZYpv6O15YMlGkzT@google.com>
+Subject: Re: [PATCH 00/10] KVM: selftests: Convert to kernel-style types
+From: Sean Christopherson <seanjc@google.com>
+To: David Matlack <dmatlack@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, David Hildenbrand <david@redhat.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Isaku Yamahata <isaku.yamahata@intel.com>, 
+	Reinette Chatre <reinette.chatre@intel.com>, Eric Auger <eric.auger@redhat.com>, 
+	James Houghton <jthoughton@google.com>, Colin Ian King <colin.i.king@gmail.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_115739_863619_FEF2C9F7 
-X-CRM114-Status: GOOD (  21.57  )
+X-CRM114-CacheID: sfid-20260218_130611_236200_BC686129 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,90 +99,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 16, 2026 at 01:55:11PM -0800, Linus Torvalds wrote:
->On Mon, 16 Feb 2026 at 06:20, Mark Brown <broonie@kernel.org> wrote:
->>
->> If that's the part I think it is it's following the same pattern as
->> shadow stacks, originally inherited from x86 then generalised.
->
->That makes sense. I was looking at the speculation control ones -
->which I honestly think are done much better in that they are a bit
->more future-proof and won't need yet another random prctl just because
->some architecture comes up with a slight variation on a theme.
->
->They don't technically do the locking (the speculation control has a
->different kind of locking), but because of how they do things - by
->having separate "which control do you want to change", and "how do you
->want to change it", it would actually be very natural to make "lock
->it" just another thing.
->
->So I actually wish we didn't have that shadow stack prctl - or this
->new one - at all, and they'd just use the speculation mitigation
->pattern instead.
->
->I think the shadow stack case is probably too late to fix and people
->presumably already use it, but maybe it's not too late to fix this new
->control flow integrity case?
-
-A little bit of history on this. I was at Intel back when Intel was trying
-to enable support for "shadow stack" and "enbranch (branch terminating instr)"
-feature. Given no other ISAs at that time had any notion of "shadow stack"
-and "indirect branch tracking", IIRC it was advised on list that "shadow
-stack" enabling for x86 should be done via arch specific prctl. Yu-cheng/Rick
-Edgecombe can correct me if I am missing something here.
-
-"x86 indirect branch tracking" enabling for userspace never made it to kernel
-(although most distros when they compile userspace/packages, `endbr64` is
-compiled-in so that whenever it lands, enabling is one step away).
-
-Later in 2022 when I started doing work for cfi extensions on RISC-V, I started
-with arch-agnostic prctl for enabling shadow stack and branch tracking. I was
-hoping that all arches would end up converging on that. Soon Mark Brown sent
-out arm's "Guarded Control Stack" (aka shadow stack) which used the
-arch-agnostic shadow stack prctl.
-
-So today we have 
-- arch specific shadow stack prctl for managing (enable/lock/disable) shadow
-   stack on x86
-
-- arch-agnostic prctl for shadow stack management on arm64 and RISC-V
-
-
-If we land arch-agnostic prctl for enabling branch tracking for userspace as
-part of risc-v patches, I am hoping we can leverage that for x86 "branch
-tracking enabling" as well. I don't know if "BTI" is enabled for userspace in
-the arm64 world but if it isn't then it can use the same prctl. This creates
-symmetry and convergence as well between major 3 arches for branch tracking
-support.
-
-Furthermore, Control-flow integrity is shadow stack (for backward cfi) and
-branch tracking (for forward cfi) both. It'll look odd and ugly (to an extent
-it already is because x86 and arm64/riscv use different prctls for shstk) that
-shadow stack has its own prctl and we invent new cfi prctl just for branch
-tracking.
-
-Ideally, it would have been nicer if we had
-`PR_GET/SET_TASK_EXPLOIT_MITIGATIONS` and sub-codes under them to enable all
-sort of things like "Manage CFI", "Manage memory tagging", "Manage speculation
-control", etc. But things evolved on their own pace at different timelines.
-
-Given that we already have a fragmentation in prctl space, I propose we go for
-arch-agnostic branch tracking prctl and let other ISAs implement support as
-they go about it.
-
-If you agree, I'll let Paul choose the right name for it (given that indir_lp
-isn't a favorite)
-
-
->
->                 Linus
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBEZWMgMDMsIDIwMjUsIERhdmlkIE1hdGxhY2sgd3JvdGU6Cj4gT24gVGh1LCBOb3Yg
+MTMsIDIwMjUgYXQgNDo1MuKAr1BNIFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNlYW5qY0Bnb29nbGUu
+Y29tPiB3cm90ZToKPiA+IE15IHNsb3duZXNzIGlzIGxhcmdlbHkgYmVjYXVzZSBJJ20gbm90IHN1
+cmUgaG93IHRvIGxhbmQvYXBwcm9hY2ggdGhpcy4gIEknbSAxMDAlCj4gPiBpbiBmYXZvciBvZiB0
+aGUgcmVuYW1lcywgaXQncyB0aGUgdGltaW5nIGFuZCBjb29yZGluYXRpb24gSSdtIHVuc3VyZSBv
+Zi4KPiA+Cj4gPiBJbiBoaW5kc2lnaHQsIGl0IHByb2JhYmx5IHdvdWxkIGhhdmUgYmVzdCB0byBz
+cXVlZXplIGl0IGludG8gNi4xOCwgc28gYXQgbGVhc3QKPiA+IHRoZSBtb3N0IHJlY2VudCBMVFMg
+d291bGRuJ3QgZ2VuZXJhdGUgY29uZmxpY3RzIGFsbCBvdmVyIHRoZSBwbGFjZS4gIFRoZSBuZXh0
+Cj4gPiBiZXN0IG9wdGlvbiB3b3VsZCBwcm9iYWJseSBiZSB0byBzcGluIGEgbmV3IHZlcnNpb24s
+IGJyaWJlIFBhb2xvIHRvIGFwcGx5IGl0IGF0Cj4gPiB0aGUgZW5kIG9mIHRoZSBuZXh0IG1lcmdl
+IHdpbmRvdywgYW5kIHRhZyB0aGUgd2hvbGUgdGhpbmcgZm9yIHN0YWJsZUAgKG1heWJlCj4gPiBs
+aW1pdGVkIHRvIDYuMTgrPykgdG8gbWluaW1pemUgZG93bnN0cmVhbSBwYWluLgo+IAo+IFdpdGgg
+TFBDIGNvbWluZyB1cCBJIHdvbid0IGhhdmUgY3ljbGVzIHRvIHBvc3QgYSBuZXcgdmVyc2lvbiBi
+ZWZvcmUKPiB0aGUgNi4xOSBtZXJnZSB3aW5kb3cgY2xvc2VzLgo+IAo+IEknbSB0ZW1wdGVkIHRv
+IHNheSBsZXQncyBqdXN0IHdhaXQgZm9yIHRoZSBuZXh0IExUUyByZWxlYXNlIGFuZCBtZXJnZQo+
+IGl0IGluIHRoZW4uIFRoaXMgaXMgbG93IHByaW9yaXQsIHNvIEknbSBmaW5lIHdpdGggd2FpdGlu
+Zy4KCkkgcmFuIHRoaXMgYnkgUGFvbG8gaW4gbGFzdCB3ZWVrJ3MgUFVDSywgYW5kIGhlJ3MgaW4g
+ZmF2b3Igb2YgdGhlIHJlbmFtZXMgKG9yIGF0CmxlYXN0LCBpcyBhLW9rIHdpdGggdXMgZG9pbmcg
+aXQpLiAgSWYgeW91IGNhbiBwcmVwIGEgbmV3IHZlcnNpb24gaW4gdGhlIG5leHQgd2VlawpvciBz
+bywgd2UgY2FuIGdldCBpdCBhcHBsaWVkIGZvciA3LjEgc2hvcnRseSBhZnRlciB0aGUgbWVyZ2Ug
+d2luZG93IGNsb3Nlcy4KCldlIGRvbid0IHNlbmQgYWxsIHRoYXQgbWFueSBzZWxmdGVzdHMgcGF0
+Y2hlcyB0byBMVFMga2VybmVscywgc28gSU1PIGl0J3Mgbm90CndvcnRoIHdhaXRpbmcgZm9yIHRo
+ZSBuZXh0IExUUyB0byBjb21lIGFyb3VuZC4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
