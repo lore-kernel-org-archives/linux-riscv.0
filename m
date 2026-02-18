@@ -4,116 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B3BE9A02C
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Feb 2026 21:18:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A19CCE9A049
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Feb 2026 21:49:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I8Jnf+DjhqF4og5xmdlbbX27cCi+CCY6wNo7TSuopGI=; b=CeHyER5cAMjpIm
-	cRN1aGYw+L1wGbaEf74sg4Cf9QuySmDk+YJzN/1udWKx0Py6Ffr8OTE0Oz8CR0IkEMpf8QoCM8J8q
-	ICmO1N54pEk/f8mpbKMmaYsdc+SED92WWChYGiCpl1QngMW+5FS753M2E7FnOL1cLonr4XPNmOnR3
-	sk3u7J1UszWKOnPu2D0CzxAXITLGeZUEmOl48IhEISy/D/UvUjj6mTGuNB8nVFeBhF/zaq/p6dX6a
-	M518YrlhehQlD5kgpTGeqKXO0//lbF3VxlNQVwZHp6mqCTuELbJ1OWAuUpC6duUNpU2pCFC9E5VK4
-	E98vHrDwnwf7qBHTdDLQ==;
+	List-Owner; bh=sWVniN69fX/R6hYE+xCDcETlyb+VNA3IuCdJMqWxlgk=; b=P+KhwvmsltZtjx
+	VaqmyDc9F/fTnP+W/+K71u/BZ7mFcj3Hdf+QCW3EdTnrCRSv+Wz+LVTFYAAVGpwICSG3fOhYb2ejm
+	6ctsLL8wbjXuwpMYoQ9u59ZP+c6Y4BD2wVS1HvYKKGHiiWWhbDzuvQ0sgPL77Bkw+tkeJN0sOTh4s
+	OM6pJ9C9hpnj1EyLjUru5th4pcFhd9E0p1PUVMLD+nYmA2ORyA3RBeMGxO+d5VBdezSvQ6tW0CA2i
+	4MRgcWvhwaJeZIUwabMFdJIJwJGXgP1Cbi2ctBnny6Kk4NIdsYYtCxbfU3e9Fpblfmaeyn8y5AzW5
+	Tg47+YnOdm+Ckz7jQG4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsowA-0000000AR7A-2QTO;
-	Wed, 18 Feb 2026 21:18:22 +0000
-Received: from mail-ua1-x934.google.com ([2607:f8b0:4864:20::934])
+	id 1vspQX-0000000AUOD-2Y30;
+	Wed, 18 Feb 2026 21:49:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsow7-0000000AR5I-3YMN
+	id 1vspQV-0000000AUNs-28uH
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Feb 2026 21:18:21 +0000
-Received: by mail-ua1-x934.google.com with SMTP id a1e0cc1a2514c-948a2d37896so188000241.0
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Feb 2026 13:18:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1771449498; cv=none;
-        d=google.com; s=arc-20240605;
-        b=SmKiG2PAsdu4nOt9liaAylBHD37e4kJJ6wMMGFdhrw6d2VgQF43OUPWUEIBJfVrIye
-         4fUtTC530YJHw/1FPvIaquo1K7qpGEqe6pk9H5IzvWk5rHIPuMQSz0XiF1OcB6MC1Z1H
-         3LMoumuR2JwoHIXG0uQLgafCNqpTEsSTqnFm3CTsJldNR9WCCEdrLrewLDznbtVZ8zBO
-         qc/Y1eezPgA3xQM+qBmyVXjMDI2L++GaI2e9EfXsKzck/PY4NDB0833dPmKEM76brzr4
-         lcRsXslF+Jfnwb0xymnQ3RGvWUnuIx6ceTn4r09dk4llGiUH+TSUPZatoWAgigJ+8bIX
-         0HUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=bRlThRjj5FGBFKrZjR9u+oYoIGMr3781os1xSOsBbRo=;
-        fh=00D6ZbQ6CUU45tnRbBZ6a/WIPtjwFMNLb8TP4FZ9g24=;
-        b=fWArDFSo6GK6794m82Gkljw1BaWX9v37aIYTnVW5ZkAtvNCKVXBifBUwb+a7YW1mm+
-         vfQiURU+PDQ7Cmh+E0cbvrMFFWMrvNRhpxXl+D9JwRCsXfqdzh6LlHP/6valGLkazYMA
-         DcG9ZFRq+jYZFa9DKihUXgHfLj2eXBFI3ykvm9bXKz0m2LtAgHUrDefTlRDickWlMOPx
-         BulFKXLw9u3LGDrmVQFBhh1OJh1lB5w9bW034og55Tf6A4ooKIHdP3CU+zUB0c2SP1T1
-         E+fHP+pFnb0NESsk+1h/tqEvbEGAZKC2PjSlg7VfhQxTlvQCCnn/ldSdsBW18e8zLYzu
-         MSmw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1771449498; x=1772054298; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bRlThRjj5FGBFKrZjR9u+oYoIGMr3781os1xSOsBbRo=;
-        b=WERPIGLQdtPso091LX8r2Vuc0JBV7ZQo2cl2lvFOyKUZJQ2yl4XkWFe1FPMadG5pL0
-         hDuAD2yurPsY00N+urI6smL4ft83n883m76gAybj6NtiJZ4eeCd8rp9RotWjDIaAL5bo
-         uyrzogAe1VF2kSEArO0qGsa7M5b5SZWQf3tmfNWhtDhj5Z/0EXGV3LTdFcGszof6+hS/
-         KR5Unj42X8cb7wMeyxjbvHcdRHfzfzWIEzhilNO6Kpx5LiaPiRMZkzgCVheZPRfDdtFl
-         MidoQZ+w/PteaU205xYOKX6ep02tLjCRIWAzaIRQ2ETehqLSXPCdgi71vk1/Vo3ohPRJ
-         S/hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771449498; x=1772054298;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=bRlThRjj5FGBFKrZjR9u+oYoIGMr3781os1xSOsBbRo=;
-        b=bSPIqa2TzXHq8ZtsNia8BA2nO/omdeT8mE3xDFTzz2wBMuvwySSVNZiOghjcOGSW+l
-         sVGEsZpPermij/HoKjnxy80xjm8jnIg9pETeZ1gyl8EIvz734AERjbyUbmu9MJY6Lzro
-         xKl9M3VPaCBoiTZqexTA4/4aziPduGadR10BgsXuLpTKtkDBqhTgjGjW5dMH8OxbWMgX
-         lXUS9jWr6H6DI/EsQI5Qlms5A+6aGXOkCZp2uHZQhgCMqGd/LG0ZqP6rWgG3vuSu+5Jb
-         wesJVA0V15dgxp810kWodqXZjsywwvyZfuaK/b+5FpWcS0w7drh0k0NvbgirqtyYGkcT
-         k4VQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVnoc+8oUJAkWhFdUfmx8mZmLVmArhlwc43qOkGx/P9fs5TiUJknM69psCGkLwvUEnk9k5PftZishdCLA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YytJYjBiYo1w3i5YGG2SvvEmRll7OLG34B1xjJXXzbKc4ibdfEL
-	FgRSvn9uyZEsbZG2jtCY7GYtrULcRd6Yg6OPQCRTtOCif6A6f/CKd8KbpYxsOs6/en/upduad+1
-	Odv6v2YpEcv/j1ny74whW5Nfb2KpKLjfJpNUzU4aA
-X-Gm-Gg: AZuq6aKrLZ7cAJH2gF3Kypk0hmdniF0bRMRL7akl4tuWlveDOygSwsgg/D3NngBQ0YH
-	/5l72W821unhGp+7YA5pj4NDWgZcSmrYu3N700oCRh7CDvrfkeHRsthmkYqnD12KZvhg8h0NCo2
-	1L2+Wpwv1IE1NlJUJHJZx/drQBHFWqLrCiHs9P/te5JfAPci8EQMJqZldbBG+KcdPgA5hW+6fdS
-	2o3zqDUWrXYnG47qtwoIQhuMTXsp2q5w35R6MIAqDIllvRzk6Va9bV63UQFAQJlkdP2hxk+0MDP
-	bXKdIeQ=
-X-Received: by 2002:a05:6102:32cd:b0:5db:efcb:72 with SMTP id
- ada2fe7eead31-5fe2ad39b83mr6208741137.6.1771449497123; Wed, 18 Feb 2026
- 13:18:17 -0800 (PST)
+	Wed, 18 Feb 2026 21:49:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DC3EC432AF;
+	Wed, 18 Feb 2026 21:49:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B780C116D0;
+	Wed, 18 Feb 2026 21:49:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771451382;
+	bh=5Wow3tGz8vWN2FjI9QWepeH3NjBnFKf7jkpS8AoiwKo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VUCOmhRep5WrbGPxFOM7trI4QpMie6JRRKWIJHL+qtvq1zLBZ1v56Zl7KFZOAdtlz
+	 FO5G0Fq9qp56N7EhtCOUTgv2+0xg4Ew4fY3Q2Vf2xJ6oeZJeoRC/DpGFZkAZjPJnxG
+	 mJuUFhkhBonzQrPWfeFmG+C7osUXw17LsY3G9hV1/SYQmVT+KEDCatXSBY4VgvEJOx
+	 Jov87Rot02ozPSl8/G6fxJgiT//TOwBSjYY/bl6YV+MBHo+6NLPrsbdeYXZGPzDDVe
+	 d78/xEVrR7K2zWpzNeMm+aUobNVqCkTdXKYgD1T/EWnh2x89i7vSbhQb+2/RPrW1Y0
+	 4ERk7NL+NI0fg==
+Date: Wed, 18 Feb 2026 13:49:40 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Reinette Chatre <reinette.chatre@intel.com>
+Subject: Re: [PATCH RFC v2 08/17] RISC-V: QoS: add resctrl interface for
+ CBQRI controllers
+Message-ID: <aZYz9IdnnnsGZJr9@gen8>
+References: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
+ <20260128-ssqosid-cbqri-v2-8-dca586b091b9@kernel.org>
+ <7e35f79c-df56-4cab-9a8b-1a9ffbca053a@intel.com>
 MIME-Version: 1.0
-References: <20250501183304.2433192-1-dmatlack@google.com> <aBPhs39MJz-rt_Ob@google.com>
- <CALzav=eqv0Fh9pzaBgjZ-fehwFbD4YscoLQz0=o0TKQT_zLTwQ@mail.gmail.com>
- <aRZ9SQ_G2lsmXtur@google.com> <CALzav=fN4FpZsfzwbdLeNSj4nx4OpRkwHvKiZNVgP8S-zsUvJA@mail.gmail.com>
- <aZYpv6O15YMlGkzT@google.com>
-In-Reply-To: <aZYpv6O15YMlGkzT@google.com>
-From: David Matlack <dmatlack@google.com>
-Date: Wed, 18 Feb 2026 13:17:48 -0800
-X-Gm-Features: AaiRm50oQAsne8PMukHk2_Ehws0mlHrvXf3-klwm2DNfi8keZfRuu7miCV2uiLE
-Message-ID: <CALzav=cc9y2sp66QRwv=DCpb1j8fNjLWbsiqDVK9UE4e2kthzQ@mail.gmail.com>
-Subject: Re: [PATCH 00/10] KVM: selftests: Convert to kernel-style types
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, David Hildenbrand <david@redhat.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, Isaku Yamahata <isaku.yamahata@intel.com>, 
-	Reinette Chatre <reinette.chatre@intel.com>, Eric Auger <eric.auger@redhat.com>, 
-	James Houghton <jthoughton@google.com>, Colin Ian King <colin.i.king@gmail.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <7e35f79c-df56-4cab-9a8b-1a9ffbca053a@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_131819_895545_66134618 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20260218_134943_599100_03D2B895 
+X-CRM114-Status: GOOD (  62.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,35 +68,304 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Atish Patra <atish.patra@linux.dev>, Adrien Ricciardi <aricciardi@baylibre.com>, Atish Kumar Patra <atishp@rivosinc.com>, Conor Dooley <conor+dt@kernel.org>, Nicolas Pitre <npitre@baylibre.com>, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, guo.wenjia23@zte.com.cn, linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Peter Newman <peternewman@google.com>, x86@kernel.org, acpica-devel@lists.linux.dev, Robert Moore <robert.moore@intel.com>, liu.qingtao2@zte.com.cn, linux-acpi@vger.kernel.org, Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>, Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Dave Martin <Dave.Martin@arm.com>, Len Brown <lenb@kernel.org>, devicetree@vger.kernel.org, Chen Pei <cp0613@linux.alibaba.com>, Albert Ou <aou@eecs.berkeley.edu>, Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>, Babu Moger <babu.moger@amd.com>, Weiwei Li <liwei1518@gmail.com>, yunhui cui <cuiyunhui@bytedance.com>, Paul Walmsley <paul.walmsley@sifive.com>, Ved Shanbhogue <ved@rivosinc.com>, Vasudevan Srinivasan <vasu@rivosinc.com>, Tony Luck <tony.luck@intel.com>, Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Paul Walmsley <pjw@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBGZWIgMTgsIDIwMjYgYXQgMTowNuKAr1BNIFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNl
-YW5qY0Bnb29nbGUuY29tPiB3cm90ZToKPgo+IE9uIFdlZCwgRGVjIDAzLCAyMDI1LCBEYXZpZCBN
-YXRsYWNrIHdyb3RlOgo+ID4gT24gVGh1LCBOb3YgMTMsIDIwMjUgYXQgNDo1MuKAr1BNIFNlYW4g
-Q2hyaXN0b3BoZXJzb24gPHNlYW5qY0Bnb29nbGUuY29tPiB3cm90ZToKPiA+ID4gTXkgc2xvd25l
-c3MgaXMgbGFyZ2VseSBiZWNhdXNlIEknbSBub3Qgc3VyZSBob3cgdG8gbGFuZC9hcHByb2FjaCB0
-aGlzLiAgSSdtIDEwMCUKPiA+ID4gaW4gZmF2b3Igb2YgdGhlIHJlbmFtZXMsIGl0J3MgdGhlIHRp
-bWluZyBhbmQgY29vcmRpbmF0aW9uIEknbSB1bnN1cmUgb2YuCj4gPiA+Cj4gPiA+IEluIGhpbmRz
-aWdodCwgaXQgcHJvYmFibHkgd291bGQgaGF2ZSBiZXN0IHRvIHNxdWVlemUgaXQgaW50byA2LjE4
-LCBzbyBhdCBsZWFzdAo+ID4gPiB0aGUgbW9zdCByZWNlbnQgTFRTIHdvdWxkbid0IGdlbmVyYXRl
-IGNvbmZsaWN0cyBhbGwgb3ZlciB0aGUgcGxhY2UuICBUaGUgbmV4dAo+ID4gPiBiZXN0IG9wdGlv
-biB3b3VsZCBwcm9iYWJseSBiZSB0byBzcGluIGEgbmV3IHZlcnNpb24sIGJyaWJlIFBhb2xvIHRv
-IGFwcGx5IGl0IGF0Cj4gPiA+IHRoZSBlbmQgb2YgdGhlIG5leHQgbWVyZ2Ugd2luZG93LCBhbmQg
-dGFnIHRoZSB3aG9sZSB0aGluZyBmb3Igc3RhYmxlQCAobWF5YmUKPiA+ID4gbGltaXRlZCB0byA2
-LjE4Kz8pIHRvIG1pbmltaXplIGRvd25zdHJlYW0gcGFpbi4KPiA+Cj4gPiBXaXRoIExQQyBjb21p
-bmcgdXAgSSB3b24ndCBoYXZlIGN5Y2xlcyB0byBwb3N0IGEgbmV3IHZlcnNpb24gYmVmb3JlCj4g
-PiB0aGUgNi4xOSBtZXJnZSB3aW5kb3cgY2xvc2VzLgo+ID4KPiA+IEknbSB0ZW1wdGVkIHRvIHNh
-eSBsZXQncyBqdXN0IHdhaXQgZm9yIHRoZSBuZXh0IExUUyByZWxlYXNlIGFuZCBtZXJnZQo+ID4g
-aXQgaW4gdGhlbi4gVGhpcyBpcyBsb3cgcHJpb3JpdCwgc28gSSdtIGZpbmUgd2l0aCB3YWl0aW5n
-Lgo+Cj4gSSByYW4gdGhpcyBieSBQYW9sbyBpbiBsYXN0IHdlZWsncyBQVUNLLCBhbmQgaGUncyBp
-biBmYXZvciBvZiB0aGUgcmVuYW1lcyAob3IgYXQKPiBsZWFzdCwgaXMgYS1vayB3aXRoIHVzIGRv
-aW5nIGl0KS4gIElmIHlvdSBjYW4gcHJlcCBhIG5ldyB2ZXJzaW9uIGluIHRoZSBuZXh0IHdlZWsK
-PiBvciBzbywgd2UgY2FuIGdldCBpdCBhcHBsaWVkIGZvciA3LjEgc2hvcnRseSBhZnRlciB0aGUg
-bWVyZ2Ugd2luZG93IGNsb3Nlcy4KCldpbGwgZG8uIEknbGwgdHJ5IHRvIGhhdmUgaXQgb3V0IGJ5
-IG5leHQgd2Vlay4gVGhhbmtzIQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+On Fri, Feb 13, 2026 at 03:30:44PM -0800, Reinette Chatre wrote:
+> Hi Drew,
+> 
+> On 1/28/26 12:27 PM, Drew Fustini wrote:
+> > +struct rdt_domain_hdr *resctrl_arch_find_domain(struct list_head *domain_list, int id)
+> > +{
+> > +	struct rdt_domain_hdr *hdr;
+> > +
+> > +	lockdep_assert_cpus_held();
+> > +
+> > +	list_for_each_entry(hdr, domain_list, list) {
+> > +		if (hdr->id == id)
+> > +			return hdr;
+> > +	}
+> > +
+> > +	return NULL;
+> > +}
+> 
+> This indeed looks like a duplicate of resctrl_find_domain(). From what I can tell it
+> is not used in this series nor is it an arch call called by resctrl fs so can be dropped?
+
+Yes, this does not seem to be needed so I've will drop it.
+
+> > +void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid)
+> > +{
+> > +	*closid = ((u32)~0); /* refer to X86_RESCTRL_BAD_CLOSID */
+> 
+> The name is actually X86_RESCTRL_EMPTY_CLOSID - and if RISC-V also needs it we could
+> make it generally available.A
+
+There is no dependency between closid (RCID for CBQRI) and rmid (MCID
+for CBQRI), so resctrl_arch_rmid_idx_decode() is essentially the same
+for RISC-V.
+
+What do you think would be the best way to share that between X86 and
+RISC-V?
+
+Or is it is simpler to just defiend RISCV_RESCTRL_EMPTY_CLOSID?
+
+> > +	*rmid = idx;
+> > +}
+> > +
+> > +/* RISC-V resctrl interface does not maintain a default srmcfg value for a given CPU */
+> 
+> This means that when user space uses resctrl fs to assign a CPU to a resource group and
+> then run a task belonging to the default resource group on that CPU then the task will not
+> obtain the allocations that user assigned to that resource group. Here is what the resctrl
+> docs currently contain wrt "Resource allocation rules"
+> 
+> 	Resource allocation rules                                                       
+> 	-------------------------                                                       
+>                                                                                 
+> 	When a task is running the following rules define which resources are           
+> 	available to it:                                                                
+>                                                                                 
+> 	1) If the task is a member of a non-default group, then the schemata            
+> 	   for that group is used.                                                      
+>                                                                                 
+> 	2) Else if the task belongs to the default group, but is running on a           
+> 	   CPU that is assigned to some specific group, then the schemata for the       
+> 	   CPU's group is used.                                                         
+>                                                                                 
+> 	3) Otherwise the schemata for the default group is used.         
+> 
+> If I understand correctly RISC-V thus does not support CPU assignment but user space cannot
+> tell. That is, user may write to the cpus/cpus_list file and resctrl will show that it
+> succeeds and actually display the new cpumask but underneath it all the actual allocations will
+> not reflect that?
+
+RISC-V should be able to support this but my implementation is too
+simplistic. I will work on adding this capability.
+
+> > +void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid) { }
+> > +
+> > +void resctrl_arch_sched_in(struct task_struct *tsk)
+> > +{
+> > +	__switch_to_srmcfg(tsk);
+> > +}
+> > +
+> > +void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid)
+> > +{
+> > +	u32 srmcfg;
+> > +
+> > +	WARN_ON_ONCE((closid & SRMCFG_RCID_MASK) != closid);
+> > +	WARN_ON_ONCE((rmid & SRMCFG_MCID_MASK) != rmid);
+> > +
+> > +	srmcfg = rmid << SRMCFG_MCID_SHIFT;
+> > +	srmcfg |= closid;
+> > +	WRITE_ONCE(tsk->thread.srmcfg, srmcfg);
+> > +}
+> > +
+> > +void resctrl_arch_sync_cpu_closid_rmid(void *info)
+> > +{
+> > +	struct resctrl_cpu_defaults *r = info;
+> > +
+> > +	lockdep_assert_preemption_disabled();
+> > +
+> > +	if (r) {
+> > +		resctrl_arch_set_cpu_default_closid_rmid(smp_processor_id(),
+> > +							 r->closid, r->rmid);
+> 
+> This just calls the empty function above?
+
+I'll improve the implementation to add real logic to
+resctrl_arch_set_cpu_default_closid_rmid().
+
+> > +/* Set capacity block mask (cc_block_mask) */
+> > +static void cbqri_set_cbm(struct cbqri_controller *ctrl, u64 cbm)
+> > +{
+> > +	int reg_offset;
+> > +	u64 reg;
+> > +
+> > +	reg_offset = CBQRI_CC_BLOCK_MASK_OFF;
+> > +	reg = ioread64(ctrl->base + reg_offset);
+> > +
+> > +	reg = cbm;
+> > +	iowrite64(reg, ctrl->base + reg_offset);
+> 
+> This just writes the new 64bit value without any modifications. Is it necessary to
+> read it first?
+
+No, I believe it was left over from when I was printing the value in
+debug logging. I will cleanup the function.
+
+> > +static int cbqri_apply_cache_config(struct cbqri_resctrl_dom *hw_dom, u32 closid,
+> > +				    enum resctrl_conf_type type, struct cbqri_config *cfg)
+> > +{
+> > +	struct cbqri_controller *ctrl = hw_dom->hw_ctrl;
+> > +	int reg_offset;
+> > +	int err = 0;
+> > +	u64 reg;
+> > +
+> > +	if (cfg->cbm != hw_dom->ctrl_val[closid]) {
+> > +		/* Store the new cbm in the ctrl_val array for this closid in this domain */
+> > +		hw_dom->ctrl_val[closid] = cfg->cbm;
+> 
+> How this hw_dom->ctrl_val[] is used is not clear ... it almost seems unnecessary? It seems to
+> resemble the x86 rdt_hw_ctrl_domain::ctrl_val that essentially contains a copy of the values
+> set on hardware but its use during config read and write does not reflect that.
+> 
+> In cbqri_apply_cache_config() hw_dom->ctrl_val[closid] is set before any attempt is made to
+> write it to hardware and below it is clear that code doing the writing may fail. Does this mean
+> that the driver may think that it set the control value correctly (because it will not retry
+> based on the  cfg->cbm != hw_dom->ctrl_val[closid] check) but that is actually not the case?
+
+This is a flaw in my implementation.
+
+> Jumping ahead to the partner code in resctrl_arch_get_config() that reads the current
+> configuration value it is unexpected that the implementation refers to the hardware and
+> not hw_dom->ctrl_val[closid] ... but actually sets hw_dom->ctrl_val[closid] there also
+> to reflect the hardware when the configuration is *read*?
+> 
+> As I understand there can be two possibilities, either cache the hardware value or don't:
+> One possibility could thus be to move hw_dom->ctrl_val[closid] assignment in this function to
+> be after hardware is configured so that it reflects accurate state and then resctrl_arch_get_config()
+> could just get the value from it instead of hardware.
+> Another possibility may be to drop hw_dom->ctrl_val[] entirely and just read from/write to
+> hardware every time, something that is much cheaper to do with this design that does not require IPIs.
+> 
+> This implementation seems to be a bit of both?
+
+Thanks for pointing out these flaws as now I realize that this
+implementation does not make sense. I had been looking at the x86 code
+alot when working on proof of concept and never reconsidered whether it
+was necessary to cache values in ctrl_val.
+
+CBQRI controllers are accessible by all harts (e.g. cpus) through mmio
+registers so access should not burden other harts. I think I will modify
+the implementation to just directly read/write the mmio registers when
+necessary rather than caching them in ctrl_val.
+
+> > +static int cbqri_apply_bw_config(struct cbqri_resctrl_dom *hw_dom, u32 closid,
+> > +				 enum resctrl_conf_type type, struct cbqri_config *cfg)
+> > +{
+> > +	struct cbqri_controller *ctrl = hw_dom->hw_ctrl;
+> > +	int ret = 0;
+> > +	u64 reg;
+> > +
+> > +	if (cfg->rbwb != hw_dom->ctrl_val[closid]) {
+> > +		/* Store the new rbwb in the ctrl_val array for this closid in this domain */
+> > +		hw_dom->ctrl_val[closid] = cfg->rbwb;
+> 
+> (similar comment as above about ctrl_val[])
+
+I'll drop ctrl_val[] and read/write directly to the CBQRI registers.
+
+> > +u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
+> > +			    u32 closid, enum resctrl_conf_type type)
+> > +{
+> > +	struct cbqri_resctrl_dom *hw_dom;
+> > +	struct cbqri_controller *ctrl;
+> > +	int reg_offset;
+> > +	u32 percent;
+> > +	u32 rbwb;
+> > +	u64 reg;
+> > +	int err;
+> > +
+> > +	hw_dom = container_of(d, struct cbqri_resctrl_dom, resctrl_ctrl_dom);
+> > +
+> > +	ctrl = hw_dom->hw_ctrl;
+> > +
+> > +	if (!r->alloc_capable)
+> > +		return resctrl_get_default_ctrl(r);
+> > +
+> > +	switch (r->rid) {
+> > +	case RDT_RESOURCE_L2:
+> > +	case RDT_RESOURCE_L3:
+> > +		/* Clear cc_block_mask before read limit operation */
+> > +		cbqri_set_cbm(ctrl, 0);
+> > +
+> > +		/* Capacity read limit operation for RCID (closid) */
+> > +		err = cbqri_cc_alloc_op(ctrl, CBQRI_CC_ALLOC_CTL_OP_READ_LIMIT, type, closid);
+> > +		if (err < 0) {
+> > +			pr_err("%s(): operation failed: err = %d", __func__, err);
+> > +			return resctrl_get_default_ctrl(r);
+> > +		}
+> > +
+> > +		/* Read capacity block mask for RCID (closid) */
+> > +		reg_offset = CBQRI_CC_BLOCK_MASK_OFF;
+> > +		reg = ioread64(ctrl->base + reg_offset);
+> > +
+> > +		/* Update the config value for the closid in this domain */
+> > +		hw_dom->ctrl_val[closid] = reg;
+> 
+> This is what I refer to above, why is it necessary to read from hardware here and not
+> just return hw_dom->ctrl_val[closid] directly?
+
+I will drop ctrl_val[] and just do direct read/write as needed.
+
+> > +static int cbqri_probe_controller(struct cbqri_controller_info *ctrl_info,
+> > +				  struct cbqri_controller *ctrl)
+> > +{
+> > +	int err = 0, status;
+> > +	u64 reg;
+> > +
+> > +	pr_info("controller info: type=%d addr=0x%lx size=%lu max-rcid=%u max-mcid=%u",
+> > +		ctrl_info->type, ctrl_info->addr, ctrl_info->size,
+> > +		ctrl_info->rcid_count, ctrl_info->mcid_count);
+> > +
+> > +	/* max_rmid is used by resctrl_arch_system_num_rmid_idx() */
+> > +	max_rmid = ctrl_info->mcid_count;
+> 
+> It looks like the max is just the MCID count of the last probed controller as opposed to
+> the maximum among all controllers.
+
+Good point, I will modify the logic to take the max among all
+controllers.
+
+> > +static int qos_resctrl_add_controller_domain(struct cbqri_controller *ctrl, int *id)
+> > +{
+> > +	struct rdt_ctrl_domain *domain = NULL;
+> > +	struct cbqri_resctrl_res *cbqri_res = NULL;
+> > +	struct rdt_resource *res = NULL;
+> > +	int internal_id = *id;
+> > +	int err = 0;
+> > +
+> > +	domain = qos_new_domain(ctrl);
+> > +	if (!domain)
+> > +		return -ENOSPC;
+> > +
+[..]
+> > +	domain->hdr.id = internal_id;
+> 
+> I am missing something here. For the cache resources I expected the ID to be initialized
+> to ctrl->ctrl_info->cache_id instead (which is only introduced later in patch 15 though). 
+> When interacting with the L2 and L3 resources the domain ID should be the cache ID since that
+> is the ID printed to user space where the cache ID is expected. 
+> 
+> How is this "internal id" used?
+> 
+> Also please note there are a couple of other fields in the header that needs initializing.
+
+You are right that hdr.id should be ctrl->ctrl_info->cache.cache_id for
+a cache. I need to figure out how to order this patch with the rqsc
+driver which populates the cache_id field in acpi_parse_rqsc
+
+> > +	err = qos_init_domain_ctrlval(res, domain);
+> > +	if (err)
+> > +		goto err_free_domain;
+> > +
+> > +	if (cbqri_res) {
+> > +		list_add_tail(&domain->hdr.list, &cbqri_res->resctrl_res.ctrl_domains);
+> 
+> There is an expectation that the domain list be sorted. For reference, resctrl_find_domain().
+
+Thank you for letting me know. I'll work on sorting the domains before
+adding to the list.
+
+-Drew
+ 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
