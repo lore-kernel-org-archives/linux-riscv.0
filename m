@@ -4,59 +4,217 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A19CCE9A049
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Feb 2026 21:49:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B344E9A02C
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Feb 2026 21:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sWVniN69fX/R6hYE+xCDcETlyb+VNA3IuCdJMqWxlgk=; b=P+KhwvmsltZtjx
-	VaqmyDc9F/fTnP+W/+K71u/BZ7mFcj3Hdf+QCW3EdTnrCRSv+Wz+LVTFYAAVGpwICSG3fOhYb2ejm
-	6ctsLL8wbjXuwpMYoQ9u59ZP+c6Y4BD2wVS1HvYKKGHiiWWhbDzuvQ0sgPL77Bkw+tkeJN0sOTh4s
-	OM6pJ9C9hpnj1EyLjUru5th4pcFhd9E0p1PUVMLD+nYmA2ORyA3RBeMGxO+d5VBdezSvQ6tW0CA2i
-	4MRgcWvhwaJeZIUwabMFdJIJwJGXgP1Cbi2ctBnny6Kk4NIdsYYtCxbfU3e9Fpblfmaeyn8y5AzW5
-	Tg47+YnOdm+Ckz7jQG4Q==;
+	List-Owner; bh=gKPnniwTA27kjrsLJsH+Uh3Jrf43FIyQXlvaUTVgZOg=; b=fBXKzuckyp3f7g
+	r90738OFRGmUui0Ewik/0UTB83ID5wfkFWtOnDyZp8d0bB8HcQTpwBYrkA2WMP9lGWhrxIsNyI8ep
+	28w6GRHPw9YX+y6Pct4AkTK3NcbwfwqhTbHXcuvaNtpOx1rr3FOojb9szYivNOXpjfOlO0ngK2b18
+	VS/PT8KEQbf4EzjOXjqwdphuTAnfUeHu1Sfy5Ltv0bAuNcT11ZYVZXnXzdnIjZHilCWGlTJJG7hjU
+	ejCRITf/ehiHyR+pupEpPXjCgZ+M+HEapoOfemVvKuS9HrHxYm+qnBYGAOUEEn5nTqe63Rkkp1drZ
+	EFaYgcUV4irLcPKdxmBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspQX-0000000AUOD-2Y30;
-	Wed, 18 Feb 2026 21:49:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vspZJ-0000000AV2R-0k0w;
+	Wed, 18 Feb 2026 21:58:49 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vspQV-0000000AUNs-28uH
+	id 1vspZG-0000000AV1p-2XHX
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Feb 2026 21:49:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DC3EC432AF;
-	Wed, 18 Feb 2026 21:49:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B780C116D0;
-	Wed, 18 Feb 2026 21:49:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771451382;
-	bh=5Wow3tGz8vWN2FjI9QWepeH3NjBnFKf7jkpS8AoiwKo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VUCOmhRep5WrbGPxFOM7trI4QpMie6JRRKWIJHL+qtvq1zLBZ1v56Zl7KFZOAdtlz
-	 FO5G0Fq9qp56N7EhtCOUTgv2+0xg4Ew4fY3Q2Vf2xJ6oeZJeoRC/DpGFZkAZjPJnxG
-	 mJuUFhkhBonzQrPWfeFmG+C7osUXw17LsY3G9hV1/SYQmVT+KEDCatXSBY4VgvEJOx
-	 Jov87Rot02ozPSl8/G6fxJgiT//TOwBSjYY/bl6YV+MBHo+6NLPrsbdeYXZGPzDDVe
-	 d78/xEVrR7K2zWpzNeMm+aUobNVqCkTdXKYgD1T/EWnh2x89i7vSbhQb+2/RPrW1Y0
-	 4ERk7NL+NI0fg==
-Date: Wed, 18 Feb 2026 13:49:40 -0800
-From: Drew Fustini <fustini@kernel.org>
-To: Reinette Chatre <reinette.chatre@intel.com>
-Subject: Re: [PATCH RFC v2 08/17] RISC-V: QoS: add resctrl interface for
- CBQRI controllers
-Message-ID: <aZYz9IdnnnsGZJr9@gen8>
-References: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
- <20260128-ssqosid-cbqri-v2-8-dca586b091b9@kernel.org>
- <7e35f79c-df56-4cab-9a8b-1a9ffbca053a@intel.com>
+	Wed, 18 Feb 2026 21:58:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1771451926; x=1802987926;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=5VSjoGtmac2CDU4eYm0LHn+UJqdA3gs9BmLIQjQEehs=;
+  b=FfBfmztzqFgMQjmvA2A8wUabnZIkZtMfteeP8HuGZmdS0SZlRGWjb3V1
+   vO+seuZ1dbpdBrSBmY029Zy/w2FNeWq5SmjMkvvAoHjMOCr7KCHn2RXxk
+   tZ1OwzbHrdzym4rljuc+UV69QLL6963pJZduxxpbpUTb5Ubgf02Xnf2dD
+   f/QhrzLosLMZ5w4XZUNFqMhgRRnyFHlDd17PD8FOUaIJjlkbONiof14Ms
+   v2It/Nj/Ms1LZjU/0Xq0jJWQsvuNsMebl8u59e3Y55MPRt4bBMwyPuFf0
+   IgPNdU/Z8CrqQt+Ip4cItOxzQZketMCDUEDxYt0e7kUrB3gZ7E+Z5RI31
+   g==;
+X-CSE-ConnectionGUID: qrFFqivITB2NJ0TmI8CtXg==
+X-CSE-MsgGUID: R2gJspf8SQaeOyIJuLNukA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11705"; a="72528840"
+X-IronPort-AV: E=Sophos;i="6.21,299,1763452800"; 
+   d="scan'208";a="72528840"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2026 13:58:45 -0800
+X-CSE-ConnectionGUID: RMjNbe6CTpGmTMZhHSTwaw==
+X-CSE-MsgGUID: 7CVT3/j8SJq+SsJjSCxk2g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,299,1763452800"; 
+   d="scan'208";a="218140945"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2026 13:58:44 -0800
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.35; Wed, 18 Feb 2026 13:58:44 -0800
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.35 via Frontend Transport; Wed, 18 Feb 2026 13:58:44 -0800
+Received: from PH7PR06CU001.outbound.protection.outlook.com (52.101.201.68) by
+ edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.35; Wed, 18 Feb 2026 13:58:44 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ewBJdKGogd3rD++KFoadQjgxMvR3Ap4ZDW05WNVALgfuvKYEz5Ib6IjNAhwPP4lI/foGY3RlHSs+WzKvmRT+qEM3XLXQDtPSXV9df0PflUPBYNbYkpTP7Z8Ii/k7Mdr6fkre3k5BCcHR+B+LOcBE55gf6CNvMh79BMIINNZNLsYU6PIcjpiS3UqTHsPWYkkG98q2ndWT7+/395vazc+oJH8c+Tayv9HD+Id05fzqrRfKwEletdLWdqQKI/kemEFD88m7eJwjv94UtrqCaNiyy3BMLjYN6Jb2ZRT7SpRogN7PsFqcdcy+NoKviqbWe1+xPWwZfJGysFdWoWp+fF1wjg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5VSjoGtmac2CDU4eYm0LHn+UJqdA3gs9BmLIQjQEehs=;
+ b=PKMipHbnh4Mh9ptnz7LqkMzYUfCcft4W4+qwEGVvNYwP89R8UBXmQRcC+7c5ozK+H+qle97I+5TymDPIs9JVAVQbLF/jKtZHwVK4y3w6QvZKNkyli3xFwYnfwRPOs5mnFerTatVMi14IGxYafHLGUP1VIrBmjY4dBa54nG2wTQ8d1j1DodJYOvV1QByjGvb/niTdpLGOWpZzxmSiNWGBTt6OALZn/k8xKAW9yax2GEwu/v5GdCbqIawLdLD/Qv1jCFBb8r6F8Zgse5L7YEKxiWyJaSt+JQcDKaYCtLMAFdIV5bgltXB2XX5hH1nIZ+c0Nz4ZqzmBoSPgesb+h4KOdw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from MN0PR11MB5963.namprd11.prod.outlook.com (2603:10b6:208:372::10)
+ by DS0PR11MB8082.namprd11.prod.outlook.com (2603:10b6:8:157::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.14; Wed, 18 Feb
+ 2026 21:58:41 +0000
+Received: from MN0PR11MB5963.namprd11.prod.outlook.com
+ ([fe80::3ad:5845:3ab9:5b65]) by MN0PR11MB5963.namprd11.prod.outlook.com
+ ([fe80::3ad:5845:3ab9:5b65%6]) with mapi id 15.20.9632.010; Wed, 18 Feb 2026
+ 21:58:41 +0000
+From: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+To: "torvalds@linux-foundation.org" <torvalds@linux-foundation.org>,
+	"debug@rivosinc.com" <debug@rivosinc.com>
+CC: "Yu, Yu-cheng" <yu-cheng.yu@intel.com>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "broonie@kernel.org" <broonie@kernel.org>,
+	"peterz@infradead.org" <peterz@infradead.org>, "pjw@kernel.org"
+	<pjw@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "tglx@linutronix.de" <tglx@linutronix.de>,
+	"zong.li@sifive.com" <zong.li@sifive.com>
+Subject: Re: [GIT PULL] RISC-V updates for v7.0
+Thread-Topic: [GIT PULL] RISC-V updates for v7.0
+Thread-Index: AQHcoRDb1MjTrqD39UWBYVZ0RnvrUrWJAVkA
+Date: Wed, 18 Feb 2026 21:58:41 +0000
+Message-ID: <196537b2933567d1781901f813a72ffffedd10fd.camel@intel.com>
+References: <c554c02e-a791-5c4a-d329-7632de7a194d@kernel.org>
+	 <CAHk-=whUXMRa3py11kpZiDMau8uauiwZCok2UMQAecTshfTrVA@mail.gmail.com>
+	 <2248971d-d69c-65fb-93b4-10f0d7d8bbad@kernel.org>
+	 <b2aae256-7d3c-447d-aa8b-5904848cff6a@sirena.org.uk>
+	 <CAHk-=whfQXKr3Sgoc7R1tPWFD3A1gEhUh=j7GGwz8yg_EQVhNA@mail.gmail.com>
+	 <aZYZsBlH_tVxnZIf@debug.ba.rivosinc.com>
+In-Reply-To: <aZYZsBlH_tVxnZIf@debug.ba.rivosinc.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.44.4-0ubuntu2.1 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN0PR11MB5963:EE_|DS0PR11MB8082:EE_
+x-ms-office365-filtering-correlation-id: ae8881f0-c888-455a-0f16-08de6f38e0bc
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?RVBnTzBzZlpOWlAyUzhZcjBHNkU0SWpKeEI2SjQ3T2tmNUVuckRGcGt1Y2VT?=
+ =?utf-8?B?TGVhSmJtNVFuTWIxNC91eFN0K2o0bHpWSnpkYm93a05pTkhOR3cwOGEwY0dy?=
+ =?utf-8?B?L1kzWVJEQnZhVllHSTVUQnBHMmpuYWFVMHcrdlVaOGNrVnp6M3FydjRwOUhW?=
+ =?utf-8?B?cjNPQmN0MmhRRVE2WXpnTjBXTU45YVF0TXM5bVdlcUlOb3B3UWVEWmVKZjRS?=
+ =?utf-8?B?ZFBoZlNXNzFsbEFMMGltMVBqVEhOamJUQjJzUzdGUE0rSFR0WUZLekNxWmpr?=
+ =?utf-8?B?aEhQd2JqcGp3T0FGYkhMUUZiZWl4RTB6QUFFdHZlRm16SThiOW1HVmQ4SUJF?=
+ =?utf-8?B?NkpMUGpoTEdBY2Z3VkxDdWNHYmVEeDkwR1drTjhNWmE4Y3E3cDd4U1d5ZS9t?=
+ =?utf-8?B?ZzFsR0I4Y3pMN2dtWXlHNW9XQ1RUaEJjWjFpdkFKYnRoR3ZFZks4dVBldXNw?=
+ =?utf-8?B?NkxtSVhpbDhIbEFhUnExMEFZaEdhSUNJdnhOekhNS2ROdk44WnZ1OUFBWUd4?=
+ =?utf-8?B?dWFmclJtUDBKcHdqdzBJSng2N042WHBMWUtmRlZmRzdPRFg2Um0vdnVOTGpw?=
+ =?utf-8?B?NE1FUVAzRjgrVFZ3NzNuZGpoS05lTVBiWXVoWS8yZkRiTGVWaHg0NnIxcUZF?=
+ =?utf-8?B?WGRxRXg2cEFaeG0yK2pIVEJCYXMzTjdRaFdnSkk5NGZCSWk5Rk5ra0J2V3Fk?=
+ =?utf-8?B?UVVackFrR3Fiazl0d1IwWE9PbXZoY3JQaExUTUwrMWtZdWd0NUJpdm1hbEd4?=
+ =?utf-8?B?UnFRNHc5eXpydmlOZVU5a0dzdGpNOENlWGlxZGtOcTlFWW1YSEhQL0szZFQ2?=
+ =?utf-8?B?V1VINTBlT0p2aHowWkJ6OVdNdnFOa0N6S3dURExLRkt2LytRaU01TzMrZ2h3?=
+ =?utf-8?B?U0FRUmV6bUw3ejFDUytXN2t1UGhiM0JZMklpekRtcmk5K3B4NkNVTC9GQ2o3?=
+ =?utf-8?B?NVJKVUVFQk05OUtTb1FSTjVyek5GWnZ4MmJ5REgzTklacEd2SEx2dm9UMUVP?=
+ =?utf-8?B?cHpTNXRyUUVoWlZOZEg2TmJaaEsrNVMvUGZFb28wUmtuWGVSekNyZldxaTF4?=
+ =?utf-8?B?NjFuZTNOSU5tNGJOTHdabm94bm05cjNGVWM2NjB3MkNMVzJDdHdnQXNpWm9z?=
+ =?utf-8?B?eGcyRXhsY2hEcWx4aEY1T1Q3SEJpTHY3M0JtSnZkamVGWlYxcEFVVGpQczZH?=
+ =?utf-8?B?L200M29kNTN5Y0plRTRzZVNtaUFCN2dBejk1ZGVpcTNBQldoWW50TVplc0Vt?=
+ =?utf-8?B?b1VpM013Q09FN1JHYk5ubS9SUnhMUG82RDdNUHNSNUZ6MVQ4bkxlZnhpTmlN?=
+ =?utf-8?B?Si9YckkydlB2R2lwNm5MOUhrU3JtUUZvRjc5bFNNWm1OZjlHNEQ4T1VFUTFI?=
+ =?utf-8?B?ZkNsbyttNmRXeEU1bGNUZEhaZ0RvUG5BWnV1UlZ4dWIvZHFHbkd5QXlrQ0E2?=
+ =?utf-8?B?VTgrcHNJVU5JMmJaS0ZBSmRzYnBrdkowd0NSOWxBT0pBaDduaWVYR2RrSVdF?=
+ =?utf-8?B?bFZHdHBwR2lJeldUT2lLM1RCMmNQcWEvaXJIRUxBaCtDRW1xVnVWcGlYcyti?=
+ =?utf-8?B?NUlKODBwYmVyY2JLTDZIQmVzRlRYVUJ1ek5Ob1I2OHJJRHdPMW51d0xuRy8z?=
+ =?utf-8?B?cDRZUnF3NXZaaGovK0tURE82RmdlWGhpMFU5ZVV2Q2JsTkRBN3pjM0ZwS0Zo?=
+ =?utf-8?B?TlMrL0hsVDFOeStqMjNXaHlXTDJoNGZNVWRIbnpJMi9JQU5JYUJDOGF3aSth?=
+ =?utf-8?B?TU9jbVZtSWhtMzFmRkRLaHc1dUxKM0pGSEJqL1FDa2t0QWdmZEdmdUdkNmRE?=
+ =?utf-8?B?TlRyK3J1MVFFc25zSnl4VEFHa1NUbkVXU2VaYVFuaHREU0RpWmt2MDNYeVBP?=
+ =?utf-8?B?ZXZBQzBKUkViUy9IR1RlK1dKQU4rNjVJNkhDREY4T1I4MlRlWWlIWElwZ0o1?=
+ =?utf-8?B?L3JCaDlkR1FyQzljRi85VndIbEZEcnYyemVyRklCb1RrbCtYMEh2T2xNbTF1?=
+ =?utf-8?B?ekNJQUFVaFM5NzBDMCtIQjRvTVNnNUcwYld0ZGJINEtmN2FFTlFIRStITFpP?=
+ =?utf-8?B?TDJXenI1K2d2UG55ZzNlZ1duT0dyYlpjOVYxbUJ2alRDTml0QmJnT2o1Zmty?=
+ =?utf-8?B?bEpIalRuM1JXNUhpU3RjUC91UjlwZlR6ajNFdVMwQkhZbWhIbTkzSnpOcUow?=
+ =?utf-8?Q?HWJsUM/7YVcXOMBxToLRDSQ=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR11MB5963.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Qm5DL2ZoUEJLVlc3R3hpaGJyOXc4M3ZxZndsbGJaa0pMQVFtWjZTQU16L01p?=
+ =?utf-8?B?MTRjOHhWSGJDTE1xRzBlQ3VwRG1rNFZINlJmSEM0azcyZlY3bU1wV3ZYK2po?=
+ =?utf-8?B?bEtiSjU3UWpKQjJLNzZOVGdiV0p2QlJ3MVM5aVNWUHh2QTVRcXpFSUpyMStr?=
+ =?utf-8?B?QmdVZCs0SUJPSTdyOEt1aldHVHJnUXFIL1F0QjA3TXlJQUhXUXhGaStBbThK?=
+ =?utf-8?B?Q1pHejc1RnplR3hBQTZLelZNQ2tVZ29mVlFRWmlBWFFRUGhhQ1RqSU9LNEIz?=
+ =?utf-8?B?M2FIY251b3FwWFNSdCtVS2prQWRabXRvZTBENkVPbk53K2FpVW9jZmt5MVRO?=
+ =?utf-8?B?VzB2RHczQVhvS0pxbjNSM0VmUGtxSHJselVPZlBnbWdNN0pwcmJWSExWMlI3?=
+ =?utf-8?B?a0NaQzN0VEUyYnZGWE5TakZsT0I5LzFLNkVZb3VRUld2UEF1YlZta3BBcjhw?=
+ =?utf-8?B?aytORU1yUEVWcEw3bVpZWlJCa3RTWFBmR2d5T2FlUENUUGNwc2JQSmZWeWR1?=
+ =?utf-8?B?TlphdEZMaHdPamtTR01vRXBlVGdYa0xwbFU5cVRKbFhJd0V3TklZVjk0R3du?=
+ =?utf-8?B?N1NzVkIrUk12L0FEWGZSbHYySmluOGpjVVpOWFBkbE84RU5MS0NySVJLSWky?=
+ =?utf-8?B?ZmZlMlRKNGJ6a2tNMFFhUlE3K1M3WWcrMFRsSlZXMzYvREJOdlFzOEltV0dV?=
+ =?utf-8?B?RVJjMm5OcktRc0RBOVhlY3VxSHdrZEFON3VYSGRJTnF5UThKSG02QnVMcnhJ?=
+ =?utf-8?B?Y3I2UFdxeFIyQnBBOEgrckpITW9pTkJ1dHZhWEVTaFJ2bzNhV2tUSjNVb1ZF?=
+ =?utf-8?B?N1hCcFdBRnZhY1VoWFRvRWJDbnFaVmcxc0VjbXFwNEsySi95M2g5aWNGelph?=
+ =?utf-8?B?cVJqQ0FPTjNMNWlZZElhMTRxQXM0SGM4RmhnbWhjTVI2M2d0alZTb3BHL3R2?=
+ =?utf-8?B?TExxSjloTTN3aitacitzdWk1WW44RDc4eWNWUWpiWjU2UEdaN0VxWDFrY0xS?=
+ =?utf-8?B?dlBxOFN4RGRaM2xIdENCak0yRFUrTDVMRGZZZXBidHYwOTNxeUFWMXdqb1JX?=
+ =?utf-8?B?WjZqd3Ntci9TVVREWWoyOHlPSlEvM29xaG1nRXhCZmtNek1ZdkRITjRPWEN4?=
+ =?utf-8?B?aml6blAraHZ4a0JIQlVBVTNRRHdWbm5CakVvakJHZVFnQ1VmQVR4MFJicVZB?=
+ =?utf-8?B?TWhRQitFMWVnaGZqRktrcnZnRktpNTAycXJLYVNGZU4xTk1TYmxCTGJTV01U?=
+ =?utf-8?B?eTJHVWRtZzRTcmNnbFBWNmZPU29tMEM0cjlnUTlkb1ptT1E0WGYrMmJRdko2?=
+ =?utf-8?B?OExGdXRXVWhoNmIwV1M5d1I2M1NEVW52bDlDM0F6WlF2UGhCREFySEdtcFEz?=
+ =?utf-8?B?enpWd1U0QzhadEZOR2x1Z2p1b3dTOVVUVUpKYXc4Z013Z2RVNjlMTzBvUFg3?=
+ =?utf-8?B?L2lROUt4Y1VuRStRWHI2ejViMlljamF5YmJxNU96QUsvV3ErMVVHWFdHbTJ2?=
+ =?utf-8?B?V3ROdnRrNytMb2ZsQ09LYW40UmpPZEZxdFlNRllWQ2FqWHR6eHo0WVJ0eGFk?=
+ =?utf-8?B?VTlENnl3SEFybmdMckJnYkJPR1VLbm1Vb1A2UklRdzBZMUlZN1g1TFJIWTJS?=
+ =?utf-8?B?dXBSTExBcFpSN2JiSFhNem14QkZLelJFdlloN3J6Qjd2OUFXTjNTN2pUNW5Q?=
+ =?utf-8?B?MVBZOHMrNkpMbGdOdlluNERiVUxLdnpabG92eFdSWGJwVVdGVXhBdHU0dHNX?=
+ =?utf-8?B?RHBuc1FwTS8rV20zU2hiUDFHOTJFRjNLdHpEcmd0alc5L2dnNFFsaVBKZGdx?=
+ =?utf-8?B?RzIyMG5qekZBRW02UE1aVlZSN1gyakM1eHd2dDdKbVpWTzczNUJXUjBvVUEw?=
+ =?utf-8?B?WFg0U1U5VE9DMHFCUVJiL1pYR0dSMXRYVnk4OGcvcmp6OHdCU0d5TEtTQkpN?=
+ =?utf-8?B?TWQwSFNrQStDRmpoeW5hSy9XZXQxTXBaTzdqSjNQUFBWTUpGSEhDdDN2QzFp?=
+ =?utf-8?B?YWQ1WFBGN0MxaFRLOEQxVzZYNVhaeFU1Qm45bkZWcEkyQzU3V0N2Wmg5SU5T?=
+ =?utf-8?B?ZWdBS2drcXhCZTRXcFQ4d213YjZoWGs1WTkydCtsb3V1NDVWSTd2SXRQOVVk?=
+ =?utf-8?B?RHJ3Ny84Q0orRlNNSmJBMmQ3MWhMejRMdUxGMGpFbUpJdk14NDN0Y1RPb1hl?=
+ =?utf-8?B?aUl0a0x5MG1WS3Zvcmp2b0lnM3krNVRhZEI0cXcyTGNKa3RmS1JrdHNTTWhE?=
+ =?utf-8?B?TlhZa1hrUERjejQxWXhaQU5VLzJpTE9KcEZyUVJCU2pMbjFHVXRYZlpYa3h4?=
+ =?utf-8?B?SHdDL2N3Y3lIN3N3NzZ6ekJjb3NldTEwWFlnbExBUzZSMldGVVMzT3AwR3ZU?=
+ =?utf-8?Q?EFh485JHtuIhye7Q=3D?=
+Content-ID: <FCAC91609FB73A48BA4E11AA04931308@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <7e35f79c-df56-4cab-9a8b-1a9ffbca053a@intel.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR11MB5963.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ae8881f0-c888-455a-0f16-08de6f38e0bc
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Feb 2026 21:58:41.1944
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: j3EvDlS4WaJIE+pRiHwuPS6A4d4RHdsl5iFVezWZ05pN7d/xWz/7y7idMHGPkup0etDwQyEBaAIv3MtIaMBJb9kHt7l4YwcGYo7IeQdYwwU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB8082
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260218_134943_599100_03D2B895 
-X-CRM114-Status: GOOD (  62.28  )
+X-CRM114-CacheID: sfid-20260218_135846_704999_37739BE1 
+X-CRM114-Status: GOOD (  19.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,304 +226,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <atish.patra@linux.dev>, Adrien Ricciardi <aricciardi@baylibre.com>, Atish Kumar Patra <atishp@rivosinc.com>, Conor Dooley <conor+dt@kernel.org>, Nicolas Pitre <npitre@baylibre.com>, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, guo.wenjia23@zte.com.cn, linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Peter Newman <peternewman@google.com>, x86@kernel.org, acpica-devel@lists.linux.dev, Robert Moore <robert.moore@intel.com>, liu.qingtao2@zte.com.cn, linux-acpi@vger.kernel.org, Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>, Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Dave Martin <Dave.Martin@arm.com>, Len Brown <lenb@kernel.org>, devicetree@vger.kernel.org, Chen Pei <cp0613@linux.alibaba.com>, Albert Ou <aou@eecs.berkeley.edu>, Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>, Babu Moger <babu.moger@amd.com>, Weiwei Li <liwei1518@gmail.com>, yunhui cui <cuiyunhui@bytedance.com>, Paul Walmsley <paul.walmsley@sifive.com>, Ved Shanbhogue <ved@rivosinc.com>, Vasudevan Srinivasan <vasu@rivosinc.com>, Tony Luck <tony.luck@intel.com>, Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Paul Walmsley <pjw@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 13, 2026 at 03:30:44PM -0800, Reinette Chatre wrote:
-> Hi Drew,
-> 
-> On 1/28/26 12:27 PM, Drew Fustini wrote:
-> > +struct rdt_domain_hdr *resctrl_arch_find_domain(struct list_head *domain_list, int id)
-> > +{
-> > +	struct rdt_domain_hdr *hdr;
-> > +
-> > +	lockdep_assert_cpus_held();
-> > +
-> > +	list_for_each_entry(hdr, domain_list, list) {
-> > +		if (hdr->id == id)
-> > +			return hdr;
-> > +	}
-> > +
-> > +	return NULL;
-> > +}
-> 
-> This indeed looks like a duplicate of resctrl_find_domain(). From what I can tell it
-> is not used in this series nor is it an arch call called by resctrl fs so can be dropped?
-
-Yes, this does not seem to be needed so I've will drop it.
-
-> > +void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid)
-> > +{
-> > +	*closid = ((u32)~0); /* refer to X86_RESCTRL_BAD_CLOSID */
-> 
-> The name is actually X86_RESCTRL_EMPTY_CLOSID - and if RISC-V also needs it we could
-> make it generally available.A
-
-There is no dependency between closid (RCID for CBQRI) and rmid (MCID
-for CBQRI), so resctrl_arch_rmid_idx_decode() is essentially the same
-for RISC-V.
-
-What do you think would be the best way to share that between X86 and
-RISC-V?
-
-Or is it is simpler to just defiend RISCV_RESCTRL_EMPTY_CLOSID?
-
-> > +	*rmid = idx;
-> > +}
-> > +
-> > +/* RISC-V resctrl interface does not maintain a default srmcfg value for a given CPU */
-> 
-> This means that when user space uses resctrl fs to assign a CPU to a resource group and
-> then run a task belonging to the default resource group on that CPU then the task will not
-> obtain the allocations that user assigned to that resource group. Here is what the resctrl
-> docs currently contain wrt "Resource allocation rules"
-> 
-> 	Resource allocation rules                                                       
-> 	-------------------------                                                       
->                                                                                 
-> 	When a task is running the following rules define which resources are           
-> 	available to it:                                                                
->                                                                                 
-> 	1) If the task is a member of a non-default group, then the schemata            
-> 	   for that group is used.                                                      
->                                                                                 
-> 	2) Else if the task belongs to the default group, but is running on a           
-> 	   CPU that is assigned to some specific group, then the schemata for the       
-> 	   CPU's group is used.                                                         
->                                                                                 
-> 	3) Otherwise the schemata for the default group is used.         
-> 
-> If I understand correctly RISC-V thus does not support CPU assignment but user space cannot
-> tell. That is, user may write to the cpus/cpus_list file and resctrl will show that it
-> succeeds and actually display the new cpumask but underneath it all the actual allocations will
-> not reflect that?
-
-RISC-V should be able to support this but my implementation is too
-simplistic. I will work on adding this capability.
-
-> > +void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid) { }
-> > +
-> > +void resctrl_arch_sched_in(struct task_struct *tsk)
-> > +{
-> > +	__switch_to_srmcfg(tsk);
-> > +}
-> > +
-> > +void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid)
-> > +{
-> > +	u32 srmcfg;
-> > +
-> > +	WARN_ON_ONCE((closid & SRMCFG_RCID_MASK) != closid);
-> > +	WARN_ON_ONCE((rmid & SRMCFG_MCID_MASK) != rmid);
-> > +
-> > +	srmcfg = rmid << SRMCFG_MCID_SHIFT;
-> > +	srmcfg |= closid;
-> > +	WRITE_ONCE(tsk->thread.srmcfg, srmcfg);
-> > +}
-> > +
-> > +void resctrl_arch_sync_cpu_closid_rmid(void *info)
-> > +{
-> > +	struct resctrl_cpu_defaults *r = info;
-> > +
-> > +	lockdep_assert_preemption_disabled();
-> > +
-> > +	if (r) {
-> > +		resctrl_arch_set_cpu_default_closid_rmid(smp_processor_id(),
-> > +							 r->closid, r->rmid);
-> 
-> This just calls the empty function above?
-
-I'll improve the implementation to add real logic to
-resctrl_arch_set_cpu_default_closid_rmid().
-
-> > +/* Set capacity block mask (cc_block_mask) */
-> > +static void cbqri_set_cbm(struct cbqri_controller *ctrl, u64 cbm)
-> > +{
-> > +	int reg_offset;
-> > +	u64 reg;
-> > +
-> > +	reg_offset = CBQRI_CC_BLOCK_MASK_OFF;
-> > +	reg = ioread64(ctrl->base + reg_offset);
-> > +
-> > +	reg = cbm;
-> > +	iowrite64(reg, ctrl->base + reg_offset);
-> 
-> This just writes the new 64bit value without any modifications. Is it necessary to
-> read it first?
-
-No, I believe it was left over from when I was printing the value in
-debug logging. I will cleanup the function.
-
-> > +static int cbqri_apply_cache_config(struct cbqri_resctrl_dom *hw_dom, u32 closid,
-> > +				    enum resctrl_conf_type type, struct cbqri_config *cfg)
-> > +{
-> > +	struct cbqri_controller *ctrl = hw_dom->hw_ctrl;
-> > +	int reg_offset;
-> > +	int err = 0;
-> > +	u64 reg;
-> > +
-> > +	if (cfg->cbm != hw_dom->ctrl_val[closid]) {
-> > +		/* Store the new cbm in the ctrl_val array for this closid in this domain */
-> > +		hw_dom->ctrl_val[closid] = cfg->cbm;
-> 
-> How this hw_dom->ctrl_val[] is used is not clear ... it almost seems unnecessary? It seems to
-> resemble the x86 rdt_hw_ctrl_domain::ctrl_val that essentially contains a copy of the values
-> set on hardware but its use during config read and write does not reflect that.
-> 
-> In cbqri_apply_cache_config() hw_dom->ctrl_val[closid] is set before any attempt is made to
-> write it to hardware and below it is clear that code doing the writing may fail. Does this mean
-> that the driver may think that it set the control value correctly (because it will not retry
-> based on the  cfg->cbm != hw_dom->ctrl_val[closid] check) but that is actually not the case?
-
-This is a flaw in my implementation.
-
-> Jumping ahead to the partner code in resctrl_arch_get_config() that reads the current
-> configuration value it is unexpected that the implementation refers to the hardware and
-> not hw_dom->ctrl_val[closid] ... but actually sets hw_dom->ctrl_val[closid] there also
-> to reflect the hardware when the configuration is *read*?
-> 
-> As I understand there can be two possibilities, either cache the hardware value or don't:
-> One possibility could thus be to move hw_dom->ctrl_val[closid] assignment in this function to
-> be after hardware is configured so that it reflects accurate state and then resctrl_arch_get_config()
-> could just get the value from it instead of hardware.
-> Another possibility may be to drop hw_dom->ctrl_val[] entirely and just read from/write to
-> hardware every time, something that is much cheaper to do with this design that does not require IPIs.
-> 
-> This implementation seems to be a bit of both?
-
-Thanks for pointing out these flaws as now I realize that this
-implementation does not make sense. I had been looking at the x86 code
-alot when working on proof of concept and never reconsidered whether it
-was necessary to cache values in ctrl_val.
-
-CBQRI controllers are accessible by all harts (e.g. cpus) through mmio
-registers so access should not burden other harts. I think I will modify
-the implementation to just directly read/write the mmio registers when
-necessary rather than caching them in ctrl_val.
-
-> > +static int cbqri_apply_bw_config(struct cbqri_resctrl_dom *hw_dom, u32 closid,
-> > +				 enum resctrl_conf_type type, struct cbqri_config *cfg)
-> > +{
-> > +	struct cbqri_controller *ctrl = hw_dom->hw_ctrl;
-> > +	int ret = 0;
-> > +	u64 reg;
-> > +
-> > +	if (cfg->rbwb != hw_dom->ctrl_val[closid]) {
-> > +		/* Store the new rbwb in the ctrl_val array for this closid in this domain */
-> > +		hw_dom->ctrl_val[closid] = cfg->rbwb;
-> 
-> (similar comment as above about ctrl_val[])
-
-I'll drop ctrl_val[] and read/write directly to the CBQRI registers.
-
-> > +u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
-> > +			    u32 closid, enum resctrl_conf_type type)
-> > +{
-> > +	struct cbqri_resctrl_dom *hw_dom;
-> > +	struct cbqri_controller *ctrl;
-> > +	int reg_offset;
-> > +	u32 percent;
-> > +	u32 rbwb;
-> > +	u64 reg;
-> > +	int err;
-> > +
-> > +	hw_dom = container_of(d, struct cbqri_resctrl_dom, resctrl_ctrl_dom);
-> > +
-> > +	ctrl = hw_dom->hw_ctrl;
-> > +
-> > +	if (!r->alloc_capable)
-> > +		return resctrl_get_default_ctrl(r);
-> > +
-> > +	switch (r->rid) {
-> > +	case RDT_RESOURCE_L2:
-> > +	case RDT_RESOURCE_L3:
-> > +		/* Clear cc_block_mask before read limit operation */
-> > +		cbqri_set_cbm(ctrl, 0);
-> > +
-> > +		/* Capacity read limit operation for RCID (closid) */
-> > +		err = cbqri_cc_alloc_op(ctrl, CBQRI_CC_ALLOC_CTL_OP_READ_LIMIT, type, closid);
-> > +		if (err < 0) {
-> > +			pr_err("%s(): operation failed: err = %d", __func__, err);
-> > +			return resctrl_get_default_ctrl(r);
-> > +		}
-> > +
-> > +		/* Read capacity block mask for RCID (closid) */
-> > +		reg_offset = CBQRI_CC_BLOCK_MASK_OFF;
-> > +		reg = ioread64(ctrl->base + reg_offset);
-> > +
-> > +		/* Update the config value for the closid in this domain */
-> > +		hw_dom->ctrl_val[closid] = reg;
-> 
-> This is what I refer to above, why is it necessary to read from hardware here and not
-> just return hw_dom->ctrl_val[closid] directly?
-
-I will drop ctrl_val[] and just do direct read/write as needed.
-
-> > +static int cbqri_probe_controller(struct cbqri_controller_info *ctrl_info,
-> > +				  struct cbqri_controller *ctrl)
-> > +{
-> > +	int err = 0, status;
-> > +	u64 reg;
-> > +
-> > +	pr_info("controller info: type=%d addr=0x%lx size=%lu max-rcid=%u max-mcid=%u",
-> > +		ctrl_info->type, ctrl_info->addr, ctrl_info->size,
-> > +		ctrl_info->rcid_count, ctrl_info->mcid_count);
-> > +
-> > +	/* max_rmid is used by resctrl_arch_system_num_rmid_idx() */
-> > +	max_rmid = ctrl_info->mcid_count;
-> 
-> It looks like the max is just the MCID count of the last probed controller as opposed to
-> the maximum among all controllers.
-
-Good point, I will modify the logic to take the max among all
-controllers.
-
-> > +static int qos_resctrl_add_controller_domain(struct cbqri_controller *ctrl, int *id)
-> > +{
-> > +	struct rdt_ctrl_domain *domain = NULL;
-> > +	struct cbqri_resctrl_res *cbqri_res = NULL;
-> > +	struct rdt_resource *res = NULL;
-> > +	int internal_id = *id;
-> > +	int err = 0;
-> > +
-> > +	domain = qos_new_domain(ctrl);
-> > +	if (!domain)
-> > +		return -ENOSPC;
-> > +
-[..]
-> > +	domain->hdr.id = internal_id;
-> 
-> I am missing something here. For the cache resources I expected the ID to be initialized
-> to ctrl->ctrl_info->cache_id instead (which is only introduced later in patch 15 though). 
-> When interacting with the L2 and L3 resources the domain ID should be the cache ID since that
-> is the ID printed to user space where the cache ID is expected. 
-> 
-> How is this "internal id" used?
-> 
-> Also please note there are a couple of other fields in the header that needs initializing.
-
-You are right that hdr.id should be ctrl->ctrl_info->cache.cache_id for
-a cache. I need to figure out how to order this patch with the rqsc
-driver which populates the cache_id field in acpi_parse_rqsc
-
-> > +	err = qos_init_domain_ctrlval(res, domain);
-> > +	if (err)
-> > +		goto err_free_domain;
-> > +
-> > +	if (cbqri_res) {
-> > +		list_add_tail(&domain->hdr.list, &cbqri_res->resctrl_res.ctrl_domains);
-> 
-> There is an expectation that the domain list be sorted. For reference, resctrl_find_domain().
-
-Thank you for letting me know. I'll work on sorting the domains before
-adding to the list.
-
--Drew
- 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCAyMDI2LTAyLTE4IGF0IDExOjU3IC0wODAwLCBEZWVwYWsgR3VwdGEgd3JvdGU6DQo+
+IExhdGVyIGluIDIwMjIgd2hlbiBJIHN0YXJ0ZWQgZG9pbmcgd29yayBmb3IgY2ZpIGV4dGVuc2lv
+bnMgb24gUklTQy1WLCBJIHN0YXJ0ZWQNCj4gd2l0aCBhcmNoLWFnbm9zdGljIHByY3RsIGZvciBl
+bmFibGluZyBzaGFkb3cgc3RhY2sgYW5kIGJyYW5jaCB0cmFja2luZy4gSSB3YXMNCj4gaG9waW5n
+IHRoYXQgYWxsIGFyY2hlcyB3b3VsZCBlbmQgdXAgY29udmVyZ2luZyBvbiB0aGF0LiBTb29uIE1h
+cmsgQnJvd24gc2VudA0KPiBvdXQgYXJtJ3MgIkd1YXJkZWQgQ29udHJvbCBTdGFjayIgKGFrYSBz
+aGFkb3cgc3RhY2spIHdoaWNoIHVzZWQgdGhlDQo+IGFyY2gtYWdub3N0aWMgc2hhZG93IHN0YWNr
+IHByY3RsLg0KPiANCj4gU28gdG9kYXkgd2UgaGF2ZSANCj4gLSBhcmNoIHNwZWNpZmljIHNoYWRv
+dyBzdGFjayBwcmN0bCBmb3IgbWFuYWdpbmcgKGVuYWJsZS9sb2NrL2Rpc2FibGUpIHNoYWRvdw0K
+PiDCoMKgIHN0YWNrIG9uIHg4Ng0KPiANCj4gLSBhcmNoLWFnbm9zdGljIHByY3RsIGZvciBzaGFk
+b3cgc3RhY2sgbWFuYWdlbWVudCBvbiBhcm02NCBhbmQgUklTQy1WDQo+IA0KPiANCj4gSWYgd2Ug
+bGFuZCBhcmNoLWFnbm9zdGljIHByY3RsIGZvciBlbmFibGluZyBicmFuY2ggdHJhY2tpbmcgZm9y
+IHVzZXJzcGFjZSBhcw0KPiBwYXJ0IG9mIHJpc2MtdiBwYXRjaGVzLCBJIGFtIGhvcGluZyB3ZSBj
+YW4gbGV2ZXJhZ2UgdGhhdCBmb3IgeDg2ICJicmFuY2gNCj4gdHJhY2tpbmcgZW5hYmxpbmciIGFz
+IHdlbGwuIEkgZG9uJ3Qga25vdyBpZiAiQlRJIiBpcyBlbmFibGVkIGZvciB1c2Vyc3BhY2UgaW4N
+Cj4gdGhlIGFybTY0IHdvcmxkIGJ1dCBpZiBpdCBpc24ndCB0aGVuIGl0IGNhbiB1c2UgdGhlIHNh
+bWUgcHJjdGwuIFRoaXMgY3JlYXRlcw0KPiBzeW1tZXRyeSBhbmQgY29udmVyZ2VuY2UgYXMgd2Vs
+bCBiZXR3ZWVuIG1ham9yIDMgYXJjaGVzIGZvciBicmFuY2ggdHJhY2tpbmcNCj4gc3VwcG9ydC4N
+Cg0KQXJtIGFscmVhZHkgdXNlcyBQUk9UX0JUSSB0byBlbmFibGUgdGhlaXIgbGFuZGluZyBwYWQg
+bGlrZSB0aGluZy4gSXQgZG9lc24ndA0KbmVlZCBhIHByY3RsIEFGQUlVLiBQZXRlcnogaGFkIGJl
+ZW4gc3VnZ2VzdGluZyB3ZSBkbyBhIHNpbWlsYXIgUFJPVCBmb3IgeDg2IHVzZXINCklCVC4gQWx0
+aG91Z2ggYW4gYWRkaXRpb25hbCBwcmN0bCBtaWdodCBzdGlsbCBiZSByZXF1aXJlZCBmb3IgeDg2
+LiBXZSdkIGhhdmUgdG8NCmFjdHVhbGx5IHN0YXJ0IHRha2luZyB0aGUgcGF0Y2hlcyB1cHN0cmVh
+bSB0byBzZWUuDQoNCj4gDQo+IEZ1cnRoZXJtb3JlLCBDb250cm9sLWZsb3cgaW50ZWdyaXR5IGlz
+IHNoYWRvdyBzdGFjayAoZm9yIGJhY2t3YXJkIGNmaSkgYW5kDQo+IGJyYW5jaCB0cmFja2luZyAo
+Zm9yIGZvcndhcmQgY2ZpKSBib3RoLiBJdCdsbCBsb29rIG9kZCBhbmQgdWdseSAodG8gYW4gZXh0
+ZW50DQo+IGl0IGFscmVhZHkgaXMgYmVjYXVzZSB4ODYgYW5kIGFybTY0L3Jpc2N2IHVzZSBkaWZm
+ZXJlbnQgcHJjdGxzIGZvciBzaHN0aykgdGhhdA0KPiBzaGFkb3cgc3RhY2sgaGFzIGl0cyBvd24g
+cHJjdGwgYW5kIHdlIGludmVudCBuZXcgY2ZpIHByY3RsIGp1c3QgZm9yIGJyYW5jaA0KPiB0cmFj
+a2luZy4NCj4gDQo+IElkZWFsbHksIGl0IHdvdWxkIGhhdmUgYmVlbiBuaWNlciBpZiB3ZSBoYWQN
+Cj4gYFBSX0dFVC9TRVRfVEFTS19FWFBMT0lUX01JVElHQVRJT05TYCBhbmQgc3ViLWNvZGVzIHVu
+ZGVyIHRoZW0gdG8gZW5hYmxlIGFsbA0KPiBzb3J0IG9mIHRoaW5ncyBsaWtlICJNYW5hZ2UgQ0ZJ
+IiwgIk1hbmFnZSBtZW1vcnkgdGFnZ2luZyIsICJNYW5hZ2Ugc3BlY3VsYXRpb24NCj4gY29udHJv
+bCIsIGV0Yy4gQnV0IHRoaW5ncyBldm9sdmVkIG9uIHRoZWlyIG93biBwYWNlIGF0IGRpZmZlcmVu
+dCB0aW1lbGluZXMuDQoNCkR1cmluZyBzaGFkb3cgc3RhY2svbGFtIGVuYWJsaW5nIHdlIHRyaWVk
+IHRvIGNyZWF0ZSBhIGdlbmVyaWMgeDg2IGludGVyZmFjZSBmb3INCiJwZXItdGhyZWFkIGZlYXR1
+cmVzIiB3aXRoIHRoZSBpZGVhIHRoYXQgSUJUIHdvdWxkIGFsc28gZ28gaW4gdGhlcmUuIEhvd2V2
+ZXIsDQp0Z2x4IG1hZGUgYSBidW5jaCBvZiBwb2ludHNbMF0gYWdhaW5zdCB0cnlpbmcgdG8gZG8g
+YSB1bml2ZXJzYWwgdGhpbmcuDQoNCkFmdGVyIHRoYXQgYXR0ZW1wdCB3ZSBraW5kIG9mIGdhdmUg
+dXAgYW5kIGp1c3QgbGV0IHRoZW0gYmUgc3BlY2lmaWMuIEFsdGhvdWdoLA0KaXQgd2FzIG5vdCBh
+cHByZWNpYXRlZCBhdCB0aGUgdGltZSB0aGF0IGFybSBhbmQgcmlzY3Ygc2hhZG93IHN0YWNrIHdv
+dWxkIGJlIHNvDQpzaW1pbGFyLg0KDQpJIGRvbid0IHRoaW5rIHdlIHNob3VsZCBoYXZlIGEgZ2Vu
+ZXJpYyAiQ0ZJIiBjb250cm9sIHRob3VnaCwgYmVjYXVzZSB0aGVyZSBhcmUNCm90aGVyIHZlcnkg
+ZGlmZmVyZW50IGZvcm1zIG9mIGJhY2t3YXJkIGVkZ2UgQ0ZJIGxpa2UgUEFDLg0KDQpbMF0gaHR0
+cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC84N3pnampxaWNvLmZmc0B0Z2x4Lw0KDQo+IA0KPiBH
+aXZlbiB0aGF0IHdlIGFscmVhZHkgaGF2ZSBhIGZyYWdtZW50YXRpb24gaW4gcHJjdGwgc3BhY2Us
+IEkgcHJvcG9zZSB3ZSBnbyBmb3INCj4gYXJjaC1hZ25vc3RpYyBicmFuY2ggdHJhY2tpbmcgcHJj
+dGwgYW5kIGxldCBvdGhlciBJU0FzIGltcGxlbWVudCBzdXBwb3J0IGFzDQo+IHRoZXkgZ28gYWJv
+dXQgaXQuDQoNCkkgdGhpbmsgdGhlIHNpdHVhdGlvbiBmb3IgZm9yd2FyZCBlZGdlIGlzbid0IHRo
+ZSBzYW1lIGFzIHNoYWRvdyBzdGFjaywgd2hlcmUgdGhlDQpmZWF0dXJlcyBtYXRjaGVkIHNvIHdl
+bGwuIEF0IGxlYXN0IGZvciBBUk0uIE15IGJlc3QgZ3Vlc3MgaXMgdGhhdCB4ODYgY291bGQNCnBv
+c3NpYmx5IHVzZSBpdCBpZi93aGVuIHdlIGdldCB0byB1c2VyIElCVC4gQnV0IGJlc3QgZ3Vlc3Ms
+IHdvdWxkIGhhdmUgYSBQUk9UDQppbnZvbHZlZCB0b28uIFNvIHRoYXQgY291bGQgYmUgZGlmZmVy
+ZW50IHNlbWFudGljcy4gU29ycnksIEkgbmV2ZXIgbG9va2VkIGF0DQp5b3VyIGZvcndhcmQgZWRn
+ZSBwYXRjaGVzLiBJIHRoaW5rIHlvdSBkb24ndCBoYXZlIGEgUFJPVCwgcmlnaHQ/DQoNCj4gDQo+
+IElmIHlvdSBhZ3JlZSwgSSdsbCBsZXQgUGF1bCBjaG9vc2UgdGhlIHJpZ2h0IG5hbWUgZm9yIGl0
+IChnaXZlbiB0aGF0IGluZGlyX2xwDQo+IGlzbid0IGEgZmF2b3JpdGUpDQoNCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
