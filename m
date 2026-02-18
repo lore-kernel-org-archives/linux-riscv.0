@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5CE4E9A03B
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Feb 2026 00:59:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BC99E9A03E
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Feb 2026 08:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=px3aW2UfSkmXK4R5kqmy00D8f0B6BpSzKDmDihkjN24=; b=sBqDRQe459q0i0
-	trixz+DglZPI1ntbpGLsFJgtcUCeYaNzhqUwCDYENoQ2Ri0kS+0a24s8NNluV68v4YuCMBBTEMGrS
-	5LsSU9ni7wGmRPHPAsa28ldPZVYLnGZZp99D/rNmyx4kelKc7+LVquWhpphwcPnfgRyi/CAfTYWzr
-	pBDXBD12/VuQyVLY1xfECmAxGYQzhBtdvttEebShr2pHUKI3jZ0ak3N6o6x2/rnaH/oFaUSue8dOm
-	fYh6MjjBSnKx2P5a1LUEL8AOXTCT+gAAs482bYCc8csmc3yJS2PA28Tv9Qudduz3BfG5HOm84n8wk
-	PONtmx3ktpz7LLwubJSQ==;
+	List-Owner; bh=PcEqG/wV9/XPwzbio2+ZHolkcP4TvqZtkPawIT55zNI=; b=4bUgNf89HC8sZK
+	1NiqsMRU9WDAJcV80nkMsEBm8fbxMWZk+wFA7mRVvmNej3XQavSYrgNigPXSskpji2Cv6eAtG+A4s
+	YrKafdY7npycLoKQ8Uvvk7Xz3Z8kTjJjINUsK8KIZ1R+mOQ4Q+VTbYE7cC3uEtQh8MyffTQo57zbG
+	9J+eZFb2ZF9jTVHjVyK/0dW7sCk4aZ55gnc+LznZe74/epKSuYMujeCBqpNFytWW+Ms7SvbwzFhZ1
+	VQfpN80rejm/967KXVjWmTJY9emIsOIZ7WO/Hs4uIm4N4q++cZ7TmYVwbx5L2n5vb0njHf8yF3FPi
+	p8WSmO1AElufeEyjRSPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsVuH-000000096ij-2YcH;
-	Wed, 18 Feb 2026 00:59:09 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vsdKQ-00000009V1R-1QFf;
+	Wed, 18 Feb 2026 08:54:38 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vsVuF-000000096iL-2JDb
+	id 1vsdKM-00000009V11-3aDS
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Feb 2026 00:59:08 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1771376342;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EZY7Jy8pTotmlxQ3pM2iUcBHpEQWakq+iVDvtxWeULQ=;
-	b=jlcIsG16/6y3vBK7BVTvXKtZ/LhQx5ebNgQudK36LamVzMh9NrjCLZwEK5BEtE6R/tSsWa
-	QSZuVzA8/BeO3+Ue1+KUp8vYelBMn57paHLjOw5fdv3Vg2eAqD4QNlbMFOIKIQH0RDUgEZ
-	2Bi41zfVkgfNzAbClkUMDduH7DQziQC6+DN08GNQuu26eHakXDs3/0ckCcL4uMswVWnvSJ
-	BLaRQfAOdVahpO0Os2U7FF7vVZJf8rXMM2w7dQ2fir2RgA+0xPH+009yYcFi8buz6Bxcc8
-	D6uFq24wHscPO1mDeBOqybWb0P2slw/YmdK9nxgoqC4NYWPoxpp6cP4sTGdcpA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1771376342;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EZY7Jy8pTotmlxQ3pM2iUcBHpEQWakq+iVDvtxWeULQ=;
-	b=Fr39y4AwjG5OWzq2ykoiC7DQTshV2RosypWRF37bRICny1Yy+RPLulfsQrHCr6EEjs/4xh
-	ruZLYpowzlIt7zBg==
-To: Paul Walmsley <pjw@kernel.org>, Kunwu Chan <kunwu.chan@linux.dev>,
- igor.b@beldev.am
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
- Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Atish
- Patra <atishp@rivosinc.com>, Zong Li <zong.li@sifive.com>, Deepak Gupta
- <debug@rivosinc.com>, Zhouyi Zhou <zhouzhouyi@gmail.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND 0/2] riscv: fix minor typos and style issues in
- XIP code
-In-Reply-To: <609b889a-8bb1-d2b5-8de6-ddeec27cac04@kernel.org>
-References: <20260214023804.677127-1-kunwu.chan@linux.dev>
- <609b889a-8bb1-d2b5-8de6-ddeec27cac04@kernel.org>
-Date: Wed, 18 Feb 2026 07:58:56 +0700
-Message-ID: <874ineeujz.fsf@yellow.woof>
+	Wed, 18 Feb 2026 08:54:36 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vsdKI-0007hc-GA; Wed, 18 Feb 2026 09:54:30 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vsdKG-001NLe-0Q;
+	Wed, 18 Feb 2026 09:54:29 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vsdKH-000000001Hj-1f9a;
+	Wed, 18 Feb 2026 09:54:29 +0100
+Message-ID: <d5c50646f309f82009e2fcac0607d0a485ed1174.camel@pengutronix.de>
+Subject: Re: [PATCH v6 2/3] reset: tenstorrent: Add reset controller for
+ Atlantis
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Cc: Drew Fustini <dfustini@oss.tenstorrent.com>, Joel Stanley	
+ <jms@oss.tenstorrent.com>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Michael Turquette	 <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, 	linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, joel@jms.id.au, 	fustini@kernel.org,
+ mpe@kernel.org, mpe@oss.tenstorrent.com, 	npiggin@oss.tenstorrent.com,
+ agross@kernel.org, agross@oss.tenstorrent.com, 	bmasney@redhat.com
+Date: Wed, 18 Feb 2026 09:54:29 +0100
+In-Reply-To: <CAEev2e-tHySkWQBE6qUNQq+zayc+P30DV0=0LJw09saSoh8fNA@mail.gmail.com>
+References: <20260216-atlantis-clocks-v6-0-cb46d6a59c73@oss.tenstorrent.com>
+	 <20260216-atlantis-clocks-v6-2-cb46d6a59c73@oss.tenstorrent.com>
+	 <015b88b520db434fca21e83958c68cf6308f0f79.camel@pengutronix.de>
+	 <CAEev2e-tHySkWQBE6qUNQq+zayc+P30DV0=0LJw09saSoh8fNA@mail.gmail.com>
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260217_165907_730182_64503807 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260218_005434_915416_B0E15923 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,34 +82,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Paul Walmsley <pjw@kernel.org> writes:
-> Thanks for fixing the threading, but, Conor's message:
->
->   https://lore.kernel.org/linux-riscv/20260213-canteen-diffuser-5ecc80f264b4@spud/   
->
-> was exactly right.  Folks who care about XIP support for RISC-V first need 
-> to send patches to fix it in mainline.  These typo fixes should be rolled 
-> in to that series.  Until that happens, I plan to keep the XIP removal 
-> patches queued.
->
-> I also want to see the XIP folks participating in testing and reviewing 
-> upstream patches going forward to confirm that they don't break XIP 
-> support.  Otherwise, the burden is just getting pushed to patch submitters 
-> and maintainers, most of whom probably don't care much about XIP.  And 
-> there's a good chance that we'll just go through this cycle again in 
-> another few months.
-
-I would be happy to take that responsibility, if there are users. But
-that does not seem to be the case.
-
-Nam
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRGksIDIwMjYtMDItMTcgYXQgMTY6NDkgLTA2MDAsIEFuaXJ1ZGggU3Jpbml2YXNhbiB3cm90
+ZToKPiBIZWxvIFBoaWxpcHAsCj4gCj4gT24gVHVlLCBGZWIgMTcsIDIwMjYgYXQgNTo1OeKAr0FN
+IFBoaWxpcHAgWmFiZWwgPHAuemFiZWxAcGVuZ3V0cm9uaXguZGU+IHdyb3RlOgo+ID4gCj4gPiBP
+biBNbywgMjAyNi0wMi0xNiBhdCAxNjoxNiAtMDYwMCwgQW5pcnVkaCBTcmluaXZhc2FuIHdyb3Rl
+Ogo+ID4gPiBBZGRzIEF0bGFudGlzIFJlc2V0IENvbnRyb2xsZXIgZHJpdmVyLCB3aGljaCBzaGFy
+ZXMgdGhlIHNhbWUgcmVnbWFwIGFzCj4gPiA+IHByY20gKCBjbG9jayBjb250cm9sbGVyKS4KPiA+
+ID4gCj4gPiA+IFRoaXMgdmVyc2lvbiBvZiB0aGUgcmVzZXQgY29udHJvbGxlciBkcml2ZXIgY292
+ZXJzIHJlc2V0cyBmcm9tIHRoZSBSQ1BVCj4gPiA+IHByY20uCj4gPiA+IAo+ID4gPiBTaWduZWQt
+b2ZmLWJ5OiBBbmlydWRoIFNyaW5pdmFzYW4gPGFzcmluaXZhc2FuQG9zcy50ZW5zdG9ycmVudC5j
+b20+Cj4gPiAKPiA+IFJldmlld2VkLWJ5OiBQaGlsaXBwIFphYmVsIDxwLnphYmVsQHBlbmd1dHJv
+bml4LmRlPgo+ID4gCj4gPiBhbmQKPiA+IAo+ID4gQWNrZWQtYnk6IFBoaWxpcHAgWmFiZWwgPHAu
+emFiZWxAcGVuZ3V0cm9uaXguZGU+Cj4gCj4gWW91IHNlZW0gdG8gaGF2ZSBhZGRlZCBhIFJiIGFu
+ZCBhbiBBY2tlZC1CeS4gRGlkIHlvdSBpbnRlbmQgdG8gYWRkCj4gYm90aCBvciBqdXN0IGEgUmI/
+CgpCb3RoLiBSLWIgZm9yIHRoZSBjb250ZW50LCBBLWIgZm9yIHRoZSBwYXRjaCBnb2luZyB0aHJv
+dWdoIGFub3RoZXIgdHJlZQp0aGFuIHJlc2V0LgoKPiA+IHRvIGJlIG1lcmdlZCB2aWEgdGhlIGNs
+b2NrIHRyZWUsIHNpbmNlIHRoaXMgZGVwZW5kcyBvbiBwYXRjaCAxLgo+IAo+IFdlIGhhdmUgYSB0
+ZW5zdG9ycmVudCBzb2MgdHJlZSBub3cgYW5kIHdlcmUgdGhpbmtpbmcgb2YgdGFraW5nIHRoaXMK
+PiBzZXJpZXMgZm9yIDcuMSB2aWEgdGhhdC4KCkknZCBiZSBmaW5lIHdpdGggdGhhdCBhcyB3ZWxs
+LgoKcmVnYXJkcwpQaGlsaXBwCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
