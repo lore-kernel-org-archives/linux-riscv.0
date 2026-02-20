@@ -4,74 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 801DBC53209
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 04:11:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF82FC53214
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 04:11:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xXFh7JrbTAjaPhOrJouVZq9mXnHm70AOtyhlx93x74U=; b=UBHIlBw+Oej0jD
-	kQUxDZCZ28saamt8yGgDrExyoPzaeJrGwwctc51JbR/sTK8jMhS2ohRC+stUWs/yGiw5W05nvmdzb
-	09VD7ieXlAyE7p5cw+EaXErP6/xvIpElikSkeIRpooAzSKVBYjl+vss1ktoqMVnNANzdd/LIUgYmf
-	2+/WvCUPPV31sInpWWhB+bZZHSt8I8u/2WX4nd7RVlvG0rUZzx40IoMaifCLBfIV6A9OGdO4yi8Wp
-	wvpb66vkryvTyz06nEFj2fcDICaZXTFevASgLiK0U12j3VwbNmf/9dpAeesj/HvwtxvoKuEqiLLlF
-	03Vit6Q0O1Prt123U2gw==;
+	List-Owner; bh=KCfQdv0tRdtms4Ti16L0yCt6rwPuyjzdrphCQUTSR2Y=; b=nndMsnSWKc5nJ5
+	Jm5dm7f2d1lq2DK/l2YB+1oyQDgetepGcL6kAKpRX4fXR8Y6yhlGVqkgjjb67FqwVpIQo0OKZZsZ1
+	w8PFf4qYLPeSZDpKKwSZziJruU9u8vv2R1UEovmQF8gTo1Ud8sEGv/nY3P5LXBEPx/xSuso52/c/I
+	1Bd9y/H/d4x0+j1rjf25pO+27FbhClcxNF55rOYRsxMl0D6IERmVr+59mFvdpVK/vToBJAyW73TcD
+	MnUp57qvKjQJv83GkC+jMswX5BVgOys1Xwb0wSIxdIa8z4NwY0k51wwV8JndoJIOKWP1D3d+M7FU5
+	VC6K/Bx/bvSzMrt3pHVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtHr1-0000000DCdw-1aJa;
-	Fri, 20 Feb 2026 04:10:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vtHr3-0000000DCgT-09Ed;
+	Fri, 20 Feb 2026 04:11:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtHqq-0000000DCQ4-0DAD;
-	Fri, 20 Feb 2026 04:10:49 +0000
+	id 1vtHqt-0000000DCSz-0NBg
+	for linux-riscv@lists.infradead.org;
+	Fri, 20 Feb 2026 04:10:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 570116187C;
-	Fri, 20 Feb 2026 04:10:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B4F7C116D0;
-	Fri, 20 Feb 2026 04:10:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5535660054;
+	Fri, 20 Feb 2026 04:10:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 215C2C116D0;
+	Fri, 20 Feb 2026 04:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771560647;
-	bh=DjnngyKQ6dmi0gCTo1xCIRCHL1ludrKw3TKGvuwo0Ug=;
+	s=k20201202; t=1771560650;
+	bh=lEDphkNfF/wAgNK1oaGZmspeVX/R9zMsEPgz0V/STnY=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=UDXlT4NaQgzahQOt/dvMDQ39sYRD52/c4qNbvdVS19EyX+doX2VR1jGpM6fKTK5hg
-	 rCFmqTKrXa0b5vcg1CKJuJbKtS2lu3bnOvOY1ZcjS8kyszRsQ2ihER7WY0j0/TjBVf
-	 ESR58G8Wv5UXiZfVQgBBL/VOfCL/cCWmW3eJdCd7YiiZjvIc5PshOYVmUb7FMpdqCZ
-	 VR22LNGw4/8tgtnLSks4YTRJWofn1TLmsJ8G9rz+7byiQ7KQhujWiVq++1aXqr5MNK
-	 QsNQ2UwnhyOvc9Xw93nbkQEhuN5Pu9Vx+F7bxbEBDe/gC+mfrfvQgRuyWi/5t61Vpf
-	 lawUTNXKdiYlA==
+	b=mS91MNvuIqqLzou99GQPnJOtxPbp7TFCM4hnhUPz8WRCLO676Lugl0BDU9+4oEmk+
+	 p6NI7jfQpy8JDW1fs6AyX+94muIDzlzhr9XswIwJ5d+FGCg4iIzvrvoEoGGOkf3OIL
+	 FuQt8DOqUOCkllkSt9jxSrgvQGqsrZ5z5Vh9/RUc9K0iH5+yD7wmYLrHLjkfcwFKiZ
+	 55cIHDO9RvjTrRSynKAtJuGuD0Nc9blXkNt90go8xyLe5IXZBFMAgOwS12mFwavrh1
+	 lvHX4uAmKSanqIRkqiYOJjOXwvCxfcBrTIlaVblBD5skCTd2qyaiWbwRBZj7js+05E
+	 V8t+h/RAzbQPw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA1363809A88;
-	Fri, 20 Feb 2026 04:10:56 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA1EB3809A88;
+	Fri, 20 Feb 2026 04:10:59 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 00/21] paravirt: cleanup and reorg
+Subject: Re: [PATCH] Re: Typo in pinctrl-th1520.c
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177156065529.189817.17016822219300820690.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Feb 2026 04:10:55 +0000
-References: <20251006074606.1266-1-jgross@suse.com>
-In-Reply-To: <20251006074606.1266-1-jgross@suse.com>
-To: =?utf-8?b?SsO8cmdlbiBHcm/DnyA8amdyb3NzQHN1c2UuY29tPg==?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- x86@kernel.org, linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- kvm@vger.kernel.org, luto@kernel.org, tglx@linutronix.de, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com, kys@microsoft.com,
- haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
- peterz@infradead.org, will@kernel.org, boqun.feng@gmail.com,
- longman@redhat.com, jikos@kernel.org, jpoimboe@kernel.org,
- pawan.kumar.gupta@linux.intel.com, boris.ostrovsky@oracle.com,
- xen-devel@lists.xenproject.org, ajay.kaher@broadcom.com,
- alexey.makhalov@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
- linux@armlinux.org.uk, catalin.marinas@arm.com, chenhuacai@kernel.org,
- kernel@xen0n.name, maddy@linux.ibm.com, mpe@ellerman.id.au,
- npiggin@gmail.com, christophe.leroy@csgroup.eu, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- juri.lelli@redhat.com, vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
- rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
- vschneid@redhat.com, linux-arm-kernel@lists.infradead.org,
- pbonzini@redhat.com, vkuznets@redhat.com, sstabellini@kernel.org,
- oleksandr_tyshchenko@epam.com, daniel.lezcano@linaro.org, oleg@redhat.com
+Message-Id: <177156065829.189817.12382540253108472501.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Feb 2026 04:10:58 +0000
+References: <20260119152004.166749-1-thomas.gerner@muenchen-mail.de>
+In-Reply-To: <20260119152004.166749-1-thomas.gerner@muenchen-mail.de>
+To: Thomas Gerner <thomas.gerner@muenchen-mail.de>
+Cc: linux-riscv@lists.infradead.org, linusw@kernel.org, fustini@kernel.org,
+ guoren@kernel.org, wefu@redhat.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,46 +66,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to riscv/linux.git (fixes)
-by Borislav Petkov (AMD) <bp@alien8.de>:
-
-On Mon,  6 Oct 2025 09:45:45 +0200 you wrote:
-> Some cleanups and reorg of paravirt code and headers:
-> 
-> - The first 2 patches should be not controversial at all, as they
->   remove just some no longer needed #include and struct forward
->   declarations.
-> 
-> - The 3rd patch is removing CONFIG_PARAVIRT_DEBUG, which IMO has
->   no real value, as it just changes a crash to a BUG() (the stack
->   trace will basically be the same). As the maintainer of the main
->   paravirt user (Xen) I have never seen this crash/BUG() to happen.
-> 
-> [...]
-
-Here is the summary with links:
-  - [v3,05/21] paravirt: Remove asm/paravirt_api_clock.h
-    https://git.kernel.org/riscv/c/68b10fd40d49
-  - [v3,06/21] sched: Move clock related paravirt code to kernel/sched
-    (no matching commit)
-  - [v3,10/21] riscv/paravirt: Use common code for paravirt_steal_clock()
-    https://git.kernel.org/riscv/c/ee9ffcf99f07
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIHJpc2N2L2xpbnV4LmdpdCAoZml4ZXMp
+CmJ5IExpbnVzIFdhbGxlaWogPGxpbnVzd0BrZXJuZWwub3JnPjoKCk9uIE1vbiwgMTkgSmFuIDIw
+MjYgMTY6MjA6MDIgKzAxMDAgeW91IHdyb3RlOgo+IE9uIDE5LjAxLjI2IGF0IDE1OjMyIExpbnVz
+IFdhbGxlaWogd3JvdGU6Cj4gPiBPbiBNb24sIEphbiAxOSwgMjAyNiBhdCAyOjU24oCvUE0gVGhv
+bWFzIEdlcm5lcgo+ID4gPHRob21hcy5nZXJuZXJAbXVlbmNoZW4tbWFpbC5kZT4gd3JvdGU6Cj4g
+Pj4gT24gTW9uLCAxOSBKYW4gMjAyNiBhdCAxMDowMDowNiArMDEwMCBMaW51cyBXYWxsZWlqIHdy
+b3RlCj4gPj4KPiA+Pj4gT24gVGh1LCBKYW4gMTUsIDIwMjYgYXQgODoxNiBUaG9tYXMgR2VybmVy
+Cj4gPj4+IDx0aG9tYXMuZ2VybmVyQG11ZW5jaGVuLW1haWwuZGU+IHdyb3RlOgo+ID4+Pgo+ID4+
+Pj4gSSdtIG5ldyBpbiB3b3JraW5nIG9uIHRoZSBMaW51eCBrZXJuZWwgYmVjYXVzZSBvZiBteSBC
+ZWFnbGVWLUFoZWFkLiBOZXh0Cj4gPj4+PiB0aW1lIHdoZW4gSSBzZW5kIGEgcGF0Y2ggSSB3aWxs
+IHVzZSBnaXQgc2VuZC1lbWFpbC4KPiA+Pj4KPiA+Pj4gV2lsbCB5b3Ugc2VuZCBhIHByb3BlciBw
+YXRjaCBmb3IgdGhpcz8KPiA+Pj4KPiA+Pj4gT3RoZXJ3aXNlIHBlcmhhcHMgRHJldyBjYW4gc2Vu
+ZCBhIHByb3BlciBwYXRjaCB0byBmaXggdGhpcyBidWcKPiA+Pj4gc28gSSBjYW4gYXBwbHkgaXQ/
+Cj4gPj4KPiA+PiBJIGhvcGUgdGhpcyB0aW1lIHRoZSBwYXRjaCBpcyBwcm9wZXIgZm9ybWF0dGVk
+Lgo+ID4KPiA+IE5haCBpdCBkb2Vzbid0IHdvcmsuLi4gYnV0IEkgY291bGQgZml4IHRoYXQgdXAg
+aWYgeW91IHNlbmQgaXQgYWdhaW4KPiA+IGFuZCBwcm92aWRlIHlvdXIgIlNpZ25lZC1vZmYtYnki
+IGJlY2F1c2Ugb3RoZXJ3aXNlIEkgY2Fubm90IGxlZ2FsbHkKPiA+IGFwcGx5IGl0Lgo+ID4KPiAK
+PiBbLi4uXQoKSGVyZSBpcyB0aGUgc3VtbWFyeSB3aXRoIGxpbmtzOgogIC0gUmU6IFR5cG8gaW4g
+cGluY3RybC10aDE1MjAuYwogICAgaHR0cHM6Ly9naXQua2VybmVsLm9yZy9yaXNjdi9jLzMwNGMz
+ZWJjYWZmMwoKWW91IGFyZSBhd2Vzb21lLCB0aGFuayB5b3UhCi0tIApEZWV0LWRvb3QtZG90LCBJ
+IGFtIGEgYm90LgpodHRwczovL2tvcmcuZG9jcy5rZXJuZWwub3JnL3BhdGNod29yay9wd2JvdC5o
+dG1sCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
