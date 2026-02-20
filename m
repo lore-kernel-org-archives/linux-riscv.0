@@ -4,56 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1269C55ABE
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 12:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E023C55ABF
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 13:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dIQ662o4068DcJb+zA465IDg5zDWK0rWDoF+kyp6vNg=; b=LBC0i82NmJC+AV
-	8MUvd/VkiUEYYXVWqVxfTE70NLtfhdP8DMrGpng09tHM7zaZJSK4p5D1DaunmlNu3NYl7prw7FXsW
-	V6lN8XlpKRHFUuDTx4Ry69i5MBzefofgOkW9+Q9W4uTag9qgXhv+Y0jpqUEntxSLl9iE9pBaw9DlW
-	8IVNJPtbIFWLCOhLq7bEXzKe7YGW5vUVCeLhVaLkrantLM46hUfcbXP2czLiO6UNT9Jn2OPS2DbY6
-	a6T+K7/jrz6EccH390u5VS7Ak4ZivR0XN/MKruMouSKbSDA1UIfVwDwp+hR6eAEtev+EuQBoRL0Ag
-	p0o1ivwegWQFe947K/Kg==;
+	List-Owner; bh=WpfsdmlO5zqZ/eewEOd4S3JGpmBIKlBz30qPEus42iw=; b=johePSQ6AzXHjh
+	bGsjMyM0/DEbYdFhnV/ewUvGlRvvwlPtCrxleOJJxLDgbFp2Yo+mZqFqySMZQu8DzDgN2h0g1aWgF
+	lRcAYYoxAWxGiFFIKuWQ6WgqZdCYqAVBpLfy9uKLUwt69S2rq7jh/a0DgzcaiKfoXjACZ6819/7gs
+	8LoB4kqiFdQvKwrGeRr3C4jjQYj3GrlXpuBs8SiYFPGDLop8zvJalcTftHYvmpBE84VlGOVBxJVtt
+	dtCEtMSNT2VYr0Ti5SgLWWiOjJDNr0lyK/arzWZp5laIlym4TXr4PqQz9u313W7ldCnaSj6cVZMe+
+	lv5L8JPBMVHjHClc+7aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtPiA-0000000EUGf-0cvQ;
-	Fri, 20 Feb 2026 12:34:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtPi6-0000000EUFf-3Yyy;
-	Fri, 20 Feb 2026 12:34:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 65805339;
-	Fri, 20 Feb 2026 04:34:10 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 41B0F3F62B;
-	Fri, 20 Feb 2026 04:34:16 -0800 (PST)
-Date: Fri, 20 Feb 2026 12:34:14 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	id 1vtQKN-0000000EWgv-2deS;
+	Fri, 20 Feb 2026 13:13:51 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vtQKK-0000000EWga-0eEQ
+	for linux-riscv@lists.infradead.org;
+	Fri, 20 Feb 2026 13:13:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=63PZ5ikUAAIUS3H+LncoEFZzYKIrjKtt3if4XIt6msc=; b=0CuWvvNpbCYIP7ytGRFlaGjNy9
+	7Li+Do5DI9p9LJ1rh9vWN7+ON6VDwnZ8sV6WUOk2CQ1jgRULJlNFRmLgtQxcJVHUXY0LGqU9+u3oo
+	/0tEbSMWJ+xOaBkGWDBhHukhLN2/awYRgH+eDEl6t8hYK5DjyOiBqBcpClVQQYEZkp9Q=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vtQK5-0084O8-IN; Fri, 20 Feb 2026 14:13:33 +0100
+Date: Fri, 20 Feb 2026 14:13:33 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Max Hsu <max.hsu@sifive.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Thomas Gleixner <tglx@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Guo Ren <guoren@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
-Subject: Re: [PATCH 3/3] arm64: use runtime constant to optimize
- handle_arch_irq access
-Message-ID: <20260220123414.GF136967@e132581.arm.com>
-References: <20260220090922.1506-1-jszhang@kernel.org>
- <20260220090922.1506-4-jszhang@kernel.org>
+	Conor Dooley <conor@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [PATCH 3/5] net: macb: Add support for SiFive FU740-C000
+Message-ID: <45821cd4-214c-43c0-ab2d-bbf34d9ec911@lunn.ch>
+References: <20260220-fu740-v1-0-c8af54130c58@sifive.com>
+ <20260220-fu740-v1-3-c8af54130c58@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260220090922.1506-4-jszhang@kernel.org>
+In-Reply-To: <20260220-fu740-v1-3-c8af54130c58@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_043418_930086_DEACF7B8 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20260220_051349_877262_A2720C34 
+X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,58 +85,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jisheng,
+On Fri, Feb 20, 2026 at 04:27:07PM +0800, Max Hsu wrote:
+> Add a distinct configuration for the SiFive FU740-C000 ethernet
+> controller to comply with the SiFive IP versioning guidelines.
 
-On Fri, Feb 20, 2026 at 05:09:22PM +0800, Jisheng Zhang wrote:
-> Currently, on arm64 platforms, the handle_arch_irq is a pointer which
-> is set during booting, and every irq processing needs to access it,
-> so it sits in hot code path. We can use the runtime constant mechanism
-> which was introduced by Linus to speed up its accessing.
-> 
-> Tested on Quad CA55 platform, the perf sched benchmark is improved
-> by ~6.5%
+We are in the merge window at the moment, so net-next is closed.
 
-6.5% is a quite high margin, especially for only one pointer's change.
-Maybe it is good to share more info for which compiler you are using,
-how you tested and the detailed results.
+As requested, please reword the commit messages to replace the SiFive
+guidelines with the generic DT guidelines. And repost when net-next
+reopens.
 
-I played a bit on my juno board on CA73 cores with the command:
+https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
 
-  perf bench sched all
+The Subject line also needs to indicate which tree this is for.
 
-Run 3 iterations, and measures three metrics (messaging/pipe/seccomp)
-and results in seconds. Less is better.
+    Andrew
 
-  +---------------------+--------+--------+--------+--------+
-  |Without change       |   run1 |   run2 |   run3 |    avg |
-  +---------------------+--------+--------+--------+--------+
-  |messaging (sec)      |  4.546 |  4.508 |  4.591 |  4.548 |
-  |pipe (sec)           | 24.258 | 24.224 | 24.017 | 24.166 |
-  |seccomp-notify (sec) | 48.393 | 48.457 | 48.232 | 48.361 |
-  +---------------------+--------+--------+--------+--------+
-
-  +---------------------+--------+--------+--------+--------+--------+
-  |With change          |   run1 |   run2 |   run3 |    avg |   diff |
-  +---------------------+--------+--------+--------+--------+--------+
-  |messaging (sec)      |  4.493 |  4.523 |  4.556 |  4.524 | +0.52% |
-  |pipe (sec)           | 23.159 | 23.702 | 28.649 | 25.170 | -4.15% |
-  |seccomp-notify (sec) | 46.848 | 46.938 | 46.973 | 46.920 | +2.98% |
-  +---------------------+--------+--------+--------+--------+--------+
-
-With this patch, the messaging test shows a minor improvement (0.52%).
-
-The pipe test performs worse (-4.15%) after applying the patch. However,
-one positive signal is that the minimum latency is 23.159, which is
-lower than without the change (24.017).
-
-For seccomp, the results indicate a benefit (2.98%) from the change.
-
-Hope this is helpful for maintainers to judge the change.
-
-I'd leave maintainers to review the code.
-
-Thanks,
-Leo
+---
+pw-bot: cr
 
 _______________________________________________
 linux-riscv mailing list
