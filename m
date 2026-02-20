@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB022C531F8
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 04:10:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD4AC53215
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 04:10:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FARBdeSz0eC7cFLBvNfwQFicUlryYTP2J7jA4vSyZGc=; b=tErmPQQyE2Ojhg
-	UpttxPvCd7Po1L5SUipVW50N1APZAqqBTDeho5X4sDt7mbLwU0DDHPXAkRdw5BmV0m/njU+7H4Rnm
-	pvxvuz5pLdbngdWyHDk2s7ibrlhgAjlrY7IGzjwB04q/AQGlHukUdv4Jebu95QC5PciJ9xbgrZSFt
-	qoKH+eqOUQaqmBpEKzTHckSWb5U75aEfajzCgFpQ/sTzBBmPtXex3z5Hl34aYikSOtlZXz818hU3p
-	eu0PoKgRpO8qbTY6gM4aaRfCimvsp08gKyTZKv0zs3l6s4la8PzZZDrf+5hg2fcp6oeR8lRc4gL+b
-	Dah7Ou7P5eB4i5m7EqoA==;
+	List-Owner; bh=bldgCJrVQt+sDAGJwKimoqWHB7tl8y+c+jrr7l4xvrk=; b=N2WXg7VJtJFN04
+	Z0Az3J+OL+bxudFLlSVQH4IgEpaUco2PD9HaFRsM6I/2D5LAc3+Jz+zP4Sw5tucoNMN7ypr4BYxDD
+	1/g381UBzAuCJVDeBr3PloLRS4IvfSzmH2zpEhnYDFGvqGdkYtFRscJrTUUvraEV0fZSRXpW/2cXP
+	2Ubs96PQJURUe8elJShznhBJqtdgEwUKSEJaw2FWjc9bE9T5MeZ+sFJEDAi9NEkyuWto3hx2DoS2X
+	iuThBIIMrCAlFi2NxhEC/TkwtMRLGuEf39cLlsZTqaIih65z/TwML5UVlO3IgtiaqSToRhendwwCD
+	92xcZJvoClg9saJIs2Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtHql-0000000DCMP-3SmA;
+	id 1vtHqm-0000000DCN9-2OS0;
 	Fri, 20 Feb 2026 04:10:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtHqg-0000000DCIH-3uYO;
-	Fri, 20 Feb 2026 04:10:38 +0000
+	id 1vtHqi-0000000DCJL-36OZ
+	for linux-riscv@lists.infradead.org;
+	Fri, 20 Feb 2026 04:10:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 562A86187D;
-	Fri, 20 Feb 2026 04:10:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2047BC116D0;
-	Fri, 20 Feb 2026 04:10:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D938E61887;
+	Fri, 20 Feb 2026 04:10:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B270C2BCB0;
+	Fri, 20 Feb 2026 04:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771560638;
-	bh=GmIn9ZeGRzlEikXjbn7PLITSKNkbNMHLY/Yf0fqF/IU=;
+	s=k20201202; t=1771560639;
+	bh=0PM3EvHMCr8BvaAe9tsZy3ke/nSbfi2Vm8wcUfyZoLQ=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=VlSJ+SBeeAPfhnON1ZyXqzphBgx4V3bgTvauvu85YeiI5mlTREBkb61m+04o3wIWh
-	 6Pno9LXCnhI8nC/hRuhMd+fgshIq0F1mAH/DEcZO4aKOqExOeYtnuKxBzsIJIvpQze
-	 kdL6hhYvFuStENEHeFVIsSx0Au5ENsZWIX8atJWOiOnN2444grbOsGlgPysnVsmu9E
-	 V8116kPklhvS6giKFOfwBSN9DJyoDX0edjy80ThUYXR7VyxfB9IkYX0z/CHc2Wnpsg
-	 m5FnCTC63lZ+rp27A0NoXGnjEIsJQjZpptu6p3QNXtBcuAzBXZ7aD+CXrcMpktT189
-	 t7CzKaZ1g1AUA==
+	b=IVx2kUNSxwdn74f3azX658a2kTXvhnAo2uYJ0bpEMr+c6aO+cz8pL8626VIS81zgm
+	 Hm3ohw27VvABIpU01I09pS6tpRkCKzGBFkizfiQXloXkQcFj535JY1NtJlcUUz/yQz
+	 zI76CKiCR6bQjllggKkYdueNsdTPXwg+xKkV36RH19CiBgxQu7xPPz0+xBQu5qw0M6
+	 vwGsQ+XlvFXFuRYrufowmz9SeyWMjUvTD8CENbNArppvg1nbNfcMdcv3TryDcEhFlz
+	 q/Og6P925mDm6YJX8HiVuSIqJEiyiW79umNtOcgxrYOC5QBWJMXHsx+jot4W3TOkKB
+	 m8Y5bX+jeVa3A==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9FD93809A88;
-	Fri, 20 Feb 2026 04:10:47 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FE3B3809A88;
+	Fri, 20 Feb 2026 04:10:49 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 0/9] arch,sysfb,efi: Support EDID on non-x86 EFI
- systems
+Subject: Re: [PATCH v2 00/10] kbuild: userprogs: introduce
+ architecture-specific CC_CAN_LINK and userprog flags
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177156064628.189817.770597310770698604.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Feb 2026 04:10:46 +0000
-References: <20251126160854.553077-1-tzimmermann@suse.de>
-In-Reply-To: <20251126160854.553077-1-tzimmermann@suse.de>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: linux-riscv@lists.infradead.org, ardb@kernel.org, javierm@redhat.com,
- arnd@arndb.de, richard.lyu@suse.com, helgaas@kernel.org, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-efi@vger.kernel.org, loongarch@lists.linux.dev,
- dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-fbdev@vger.kernel.org
+Message-Id: <177156064779.189817.8600732238018283033.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Feb 2026 04:10:47 +0000
+References: <20251014-kbuild-userprogs-bits-v2-0-faeec46e887a@linutronix.de>
+In-Reply-To: <20251014-kbuild-userprogs-bits-v2-0-faeec46e887a@linutronix.de>
+To: =?utf-8?q?Thomas_Wei=C3=9Fschuh_=3Cthomas=2Eweissschuh=40linutronix=2Ede=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
+Cc: linux-riscv@lists.infradead.org, nathan@kernel.org,
+ nicolas.schier@linux.dev, nsc@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, hca@linux.ibm.com, gor@linux.ibm.com,
+ agordeev@linux.ibm.com, borntraeger@linux.ibm.com, svens@linux.ibm.com,
+ maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
+ christophe.leroy@csgroup.eu, tsbogend@alpha.franken.de, tglx@linutronix.de,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+ hpa@zytor.com, davem@davemloft.net, andreas@gaisler.com,
+ linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+ masahiroy@kernel.org, linux-s390@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
+ sparclinux@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,38 +85,38 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Ard Biesheuvel <ardb@kernel.org>:
+by Andreas Larsson <andreas@gaisler.com>:
 
-On Wed, 26 Nov 2025 17:03:17 +0100 you wrote:
-> Replace screen_info and edid_info with sysfb_primary_device of type
-> struct sysfb_display_info. Update all users. Then implement EDID support
-> in the kernel EFI code.
+On Tue, 14 Oct 2025 15:05:15 +0200 you wrote:
+> The current logic to inherit -m32/-m64 from the kernel build only works
+> for a few architectures. It does not handle byte order differences,
+> architectures using different compiler flags or different kinds of ABIs.
 > 
-> Sysfb DRM drivers currently fetch the global edid_info directly, when
-> they should get that information together with the screen_info from their
-> device. Wrapping screen_info and edid_info in sysfb_primary_display and
-> passing this to drivers enables this.
+> Introduce a per-architecture override mechanism to set CC_CAN_LINK and
+> the flags used for userprogs.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v3,1/9] efi: earlycon: Reduce number of references to global screen_info
-    https://git.kernel.org/riscv/c/b868070fbc02
-  - [v3,2/9] efi: sysfb_efi: Reduce number of references to global screen_info
+  - [v2,01/10] kbuild: don't enable CC_CAN_LINK if the dummy program generates warnings
     (no matching commit)
-  - [v3,3/9] sysfb: Add struct sysfb_display_info
-    https://git.kernel.org/riscv/c/b945922619b7
-  - [v3,4/9] sysfb: Replace screen_info with sysfb_primary_display
+  - [v2,02/10] init: deduplicate cc-can-link.sh invocations
     (no matching commit)
-  - [v3,5/9] sysfb: Pass sysfb_primary_display to devices
-    https://git.kernel.org/riscv/c/08e583ad6857
-  - [v3,6/9] sysfb: Move edid_info into sysfb_primary_display
-    https://git.kernel.org/riscv/c/4fcae6358871
-  - [v3,7/9] efi: Refactor init_primary_display() helpers
+  - [v2,03/10] kbuild: allow architectures to override CC_CAN_LINK
     (no matching commit)
-  - [v3,8/9] efi: Support EDID information
+  - [v2,04/10] riscv: Implement custom CC_CAN_LINK
     (no matching commit)
-  - [v3,9/9] efi: libstub: Simplify interfaces for primary_display
+  - [v2,05/10] s390: Implement custom CC_CAN_LINK
+    (no matching commit)
+  - [v2,06/10] powerpc: Implement custom CC_CAN_LINK
+    (no matching commit)
+  - [v2,07/10] MIPS: Implement custom CC_CAN_LINK
+    (no matching commit)
+  - [v2,08/10] x86/Kconfig: Implement custom CC_CAN_LINK
+    (no matching commit)
+  - [v2,09/10] sparc: Implement custom CC_CAN_LINK
+    https://git.kernel.org/riscv/c/dc2f4d41a6b6
+  - [v2,10/10] kbuild: simplify CC_CAN_LINK
     (no matching commit)
 
 You are awesome, thank you!
