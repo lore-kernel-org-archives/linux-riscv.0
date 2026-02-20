@@ -4,76 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01FE0E9A054
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Feb 2026 19:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F9AC531EA
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 00:42:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mRzYCwmKKTqCB4Hr3oH25+XEbgEluH+w+A/6p6PIQ6Q=; b=O9rRIT4nkdeihC
-	osVdNqmpT3BqLEjqQ4JowIHEPjLqKyO8OqQKakoorU6QemfEP2wDhLZ2CgDJXnHC/z9bP+mAeJihm
-	3oxfS5vBanFtZNdOY/jm4cpn51BmEEqN4Q3BO9pXHt0KP3jMmBV9z08khe6Q/RNoulF+8oeo4vfid
-	JbDkUo7ASfqIkdZnEJpKigmxfCOIaX5xvGaxLHLcw4N3W4fWoJMY+ngr4dVDWQPEba5mHqfscynrP
-	pBuOC/fDUhem0zXzyD/I2VwZ+t/+FZ2fizbTksnoVfn1DcbVpvUjN2MvUuv6ZSznHAk/+Tp+ATZ56
-	3LeIDZDQuQ2vxwyjRLkQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=TVjFkMZI7J+9o797hEWsjfPrUtpPQ1WahSYNkDjjibU=; b=wA1k7fBjmwNOcJzJKaeDO9Camf
+	/F11VeqwszGJCNUWpO+BzF+bYOQRG9I+I6AgCAxmXpsP3iX+kMP8u+LmTEqf8fK8KX5MkC32tvvqC
+	/Rrj0Zh5aXkbhYBbpRCbx8xXHhO75++qf4V6UTdAWfvgTHvEvR795XPzgylfk8lPCsXxSNTvvSMaF
+	VBnQvjlxblsxLbqhdfVqlP+mBHiOwhzpHZ/E8Z1RLHNlclLqFkT+uSOLK/IfUJo76aHGGav0P5UZP
+	jbQ995oLTJ85xDmA0lopb1LAq8bZL11CZCTaA5qj1HLsk8VBk1GJUlMIMbXqEHKRbIg6RGZExnGer
+	iOHA9tWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt9kC-0000000Bqb8-2Fh4;
-	Thu, 19 Feb 2026 19:31:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vtEbX-0000000ClxJ-2IHT;
+	Fri, 20 Feb 2026 00:42:47 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vt9kA-0000000Bqaj-2UtM;
-	Thu, 19 Feb 2026 19:31:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9FE7560054;
-	Thu, 19 Feb 2026 19:31:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0939BC4CEF7;
-	Thu, 19 Feb 2026 19:31:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771529481;
-	bh=eEbIoo2q1/IW9azGPa53pZmcMQrNecjqCKNKnaoLUAY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eFaGOqs/Ut2CksfJcyyCXPz/G+49WQAqARVkkt7s0uuz77lzNCcFABEsPoxLrM/+/
-	 stFVezcwfKsdB5T+uHpWZIfYS+Xkw+9tMLF2j9W7gXqlB2NK2jloyauUQ5R1KtMQ+C
-	 pEy8TliEZzi8KHpeXkl39ilFhF+tz5Z7pFd+wMpggDxJcQxP7N1LWGJ+O+4gytrAnf
-	 FHPVhqTzXarIfMAIh88xDSwQ9dAJ8j2Tyg6iW+wqHVBG+M2S/f7rDdHSvEn10qzOF7
-	 Nt+ju4WrkNa+cagWpaRY3uoJtyitTIw3KEO2S0qTJbt9irBD5+Lm3zpUm4L0Icp1F8
-	 QvqvcyrboX9nA==
-Date: Thu, 19 Feb 2026 11:31:18 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, loongarch@lists.linux.dev,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	Mingwei Zhang <mizhang@google.com>,
-	Xudong Hao <xudong.hao@intel.com>,
-	Sandipan Das <sandipan.das@amd.com>,
-	Dapeng Mi <dapeng1.mi@linux.intel.com>,
-	Xiong Zhang <xiong.y.zhang@linux.intel.com>,
-	Manali Shukla <manali.shukla@amd.com>,
-	Jim Mattson <jmattson@google.com>
-Subject: Re: [PATCH v6 42/44] KVM: VMX: Dedup code for adding MSR to VMCS's
- auto list
-Message-ID: <aZdlBkLEQyv9q5ll@google.com>
-References: <20251206001720.468579-1-seanjc@google.com>
- <20251206001720.468579-43-seanjc@google.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251206001720.468579-43-seanjc@google.com>
+	id 1vtEbQ-0000000ClqG-1wYS
+	for linux-riscv@lists.infradead.org;
+	Fri, 20 Feb 2026 00:42:42 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2a7d7b87977so16329525ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 19 Feb 2026 16:42:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1771548159; x=1772152959; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=sQBtHoV4k6KEICmmP/ngOD0EM850XDOZaHNBuV2LJiQ=;
+        b=CzMd6QqNHTKJceIOgQV8NrWXAteF2h3LCpt9JiEpXYmn7tJ0sJrREsCR1DW9G9vZnl
+         zQnYBEjusTeQ2ofBIfXCoOI9d+u4r7phFWt1vZG5yeMo0ZIicMFe01dGT2taIJpRWhEu
+         Honn9xOe/kjg/eei4YKH/AlnkBDsyK9/TWevrgktZL7x7CKWPnZE3MATG/+NgMvtmN8H
+         MlV3MgDAydXTugN9zTg4fRzy9mlFc/crWg1WqT8MDXavfssRJB1fDYrLaaNu1UqGGvjn
+         1Nmt0PzlCz+hvq9iPQeexpblryEUUIVViZVQDQiXEECnvADavV3Jrf9ah3pSruHkLQPU
+         0LEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771548159; x=1772152959;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=sQBtHoV4k6KEICmmP/ngOD0EM850XDOZaHNBuV2LJiQ=;
+        b=iQPODQCUgyWWVJxlLesEM1KJrk3TWmwRMJOuKuHYGp5MwKmE7aoMszhUNfpyU4nemw
+         1cxBSDrROZFCRKWijsU/lDDQeoATC39w/XZmNXlD7znU7txequyXoFFEjKS8fdXZ/Mbr
+         3p4EVQ5Up3cGeASXF6jCFaqFy3o9XxlOlUxDY2xcb1HhghUoYw86Z2O/nDyY5eWeBhAp
+         +wmLt+274d695cZlVIybthg1rbhr4YzjoXT81A0qjFpvCbQUBNkJhpbTWDPzRlAxWDa/
+         HeqTkWlrh3n0Tpoa5z4AiKVsTBTfH/upuWEfMQgwyZScevVq15ZiGKf5RyEQxYOv94cw
+         mdnw==
+X-Forwarded-Encrypted: i=1; AJvYcCXBTodaKPxmsJHqaQKriFlmGJembPNjTklaMV19KDnJkyYk3sfxDzvnjcC3mMacEYUURMLjmNcZbAwnnQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YykZ+8Gcv3np5rtzR+d9sRn30nTrncBa/x49kA0kzKycdQBP7R7
+	UI9up5C8gPR3W6CiowUZvbXV6Rpo/k5vwEZ5IMQyy9BfuLmgWsuJsUfCahGfpDzbX1PcK+47cKF
+	KpTaCVd96qsrrMg==
+X-Received: from pllk12.prod.google.com ([2002:a17:902:760c:b0:2a9:8200:4985])
+ (user=dmatlack job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:903:41c7:b0:2aa:dee9:dcf4 with SMTP id d9443c01a7336-2ad50ecdb29mr69263015ad.25.1771548159168;
+ Thu, 19 Feb 2026 16:42:39 -0800 (PST)
+Date: Fri, 20 Feb 2026 00:42:16 +0000
+In-Reply-To: <20260220004223.4168331-1-dmatlack@google.com>
+Mime-Version: 1.0
+References: <20260220004223.4168331-1-dmatlack@google.com>
+X-Mailer: git-send-email 2.53.0.414.gf7e9f6c205-goog
+Message-ID: <20260220004223.4168331-4-dmatlack@google.com>
+Subject: [PATCH v2 03/10] KVM: selftests: Use gpa_t for GPAs in Hyper-V selftests
+From: David Matlack <dmatlack@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Ackerley Tng <ackerleytng@google.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+	Bibo Mao <maobibo@loongson.cn>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Colin Ian King <colin.i.king@gmail.com>, 
+	David Hildenbrand <david@kernel.org>, David Matlack <dmatlack@google.com>, Fuad Tabba <tabba@google.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, James Houghton <jthoughton@google.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, kvmarm@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Lisa Wang <wyihan@google.com>, loongarch@lists.linux.dev, 
+	Marc Zyngier <maz@kernel.org>, Maxim Levitsky <mlevitsk@redhat.com>, Nutty Liu <nutty.liu@hotmail.com>, 
+	Oliver Upton <oupton@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+	"Pratik R. Sampat" <prsampat@amd.com>, Rahul Kumar <rk0006818@gmail.com>, 
+	Sean Christopherson <seanjc@google.com>, Shuah Khan <shuah@kernel.org>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Wu Fei <wu.fei9@sanechips.com.cn>, Yosry Ahmed <yosry.ahmed@linux.dev>, 
+	Zenghui Yu <yuzenghui@huawei.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260219_164240_571090_A8017984 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,93 +107,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Fix various Hyper-V selftests to use gpa_t for variables that contain
+guest physical addresses, rather than gva_t.
 
-On Fri, Dec 05, 2025 at 04:17:18PM -0800, Sean Christopherson wrote:
-> Add a helper to add an MSR to a VMCS's "auto" list to deduplicate the code
-> in add_atomic_switch_msr(), and so that the functionality can be used in
-> the future for managing the MSR auto-store list.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/x86/kvm/vmx/vmx.c | 41 +++++++++++++++++++----------------------
->  1 file changed, 19 insertions(+), 22 deletions(-)
-> 
-> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> index 018e01daab68..3f64d4b1b19c 100644
-> --- a/arch/x86/kvm/vmx/vmx.c
-> +++ b/arch/x86/kvm/vmx/vmx.c
-> @@ -1093,12 +1093,28 @@ static __always_inline void add_atomic_switch_msr_special(struct vcpu_vmx *vmx,
->  	vm_exit_controls_setbit(vmx, exit);
->  }
->  
-> +static void vmx_add_auto_msr(struct vmx_msrs *m, u32 msr, u64 value,
-> +			     unsigned long vmcs_count_field, struct kvm *kvm)
-> +{
-> +	int i;
-> +
-> +	i = vmx_find_loadstore_msr_slot(m, msr);
-> +	if (i < 0) {
-> +		if (KVM_BUG_ON(m->nr == MAX_NR_LOADSTORE_MSRS, kvm))
-> +			return;
-> +
-> +		i = m->nr++;
-> +		m->val[i].index = msr;
-> +		vmcs_write32(vmcs_count_field, m->nr);
-> +	}
-> +	m->val[i].value = value;
-> +}
-> +
->  static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
->  				  u64 guest_val, u64 host_val)
->  {
->  	struct msr_autoload *m = &vmx->msr_autoload;
->  	struct kvm *kvm = vmx->vcpu.kvm;
-> -	int i;
->  
->  	switch (msr) {
->  	case MSR_EFER:
-> @@ -1132,27 +1148,8 @@ static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
->  		wrmsrq(MSR_IA32_PEBS_ENABLE, 0);
->  	}
->  
-> -	i = vmx_find_loadstore_msr_slot(&m->guest, msr);
-> -	if (i < 0) {
-> -		if (KVM_BUG_ON(m->guest.nr == MAX_NR_LOADSTORE_MSRS, kvm))
-> -			return;
-> -
-> -		i = m->guest.nr++;
-> -		m->guest.val[i].index = msr;
-> -		vmcs_write32(VM_ENTRY_MSR_LOAD_COUNT, m->guest.nr);
-> -	}
-> -	m->guest.val[i].value = guest_val;
-> -
-> -	i = vmx_find_loadstore_msr_slot(&m->host, msr);
-> -	if (i < 0) {
-> -		if (KVM_BUG_ON(m->host.nr == MAX_NR_LOADSTORE_MSRS, kvm))
-> -			return;
-> -
-> -		i = m->host.nr++;
-> -		m->host.val[i].index = msr;
-> -		vmcs_write32(VM_EXIT_MSR_LOAD_COUNT, m->host.nr);
-> -	}
-> -	m->host.val[i].value = host_val;
-> +	vmx_add_auto_msr(&m->guest, msr, guest_val, VM_ENTRY_MSR_LOAD_COUNT, kvm);
-> +	vmx_add_auto_msr(&m->guest, msr, host_val, VM_EXIT_MSR_LOAD_COUNT, kvm);
+No functional change intended.
 
-Shouldn't it be &m->host for the host_val?
+Signed-off-by: David Matlack <dmatlack@google.com>
+---
+ tools/testing/selftests/kvm/x86/hyperv_evmcs.c    | 2 +-
+ tools/testing/selftests/kvm/x86/hyperv_features.c | 2 +-
+ tools/testing/selftests/kvm/x86/hyperv_ipi.c      | 6 +++---
+ tools/testing/selftests/kvm/x86/hyperv_svm_test.c | 2 +-
+ 4 files changed, 6 insertions(+), 6 deletions(-)
 
-Thanks,
-Namhyung
+diff --git a/tools/testing/selftests/kvm/x86/hyperv_evmcs.c b/tools/testing/selftests/kvm/x86/hyperv_evmcs.c
+index 58f27dcc3d5f..9fa91b0f168a 100644
+--- a/tools/testing/selftests/kvm/x86/hyperv_evmcs.c
++++ b/tools/testing/selftests/kvm/x86/hyperv_evmcs.c
+@@ -76,7 +76,7 @@ void l2_guest_code(void)
+ }
+ 
+ void guest_code(struct vmx_pages *vmx_pages, struct hyperv_test_pages *hv_pages,
+-		gva_t hv_hcall_page_gpa)
++		gpa_t hv_hcall_page_gpa)
+ {
+ #define L2_GUEST_STACK_SIZE 64
+ 	unsigned long l2_guest_stack[L2_GUEST_STACK_SIZE];
+diff --git a/tools/testing/selftests/kvm/x86/hyperv_features.c b/tools/testing/selftests/kvm/x86/hyperv_features.c
+index 3fe5f52e404b..fde6682c49eb 100644
+--- a/tools/testing/selftests/kvm/x86/hyperv_features.c
++++ b/tools/testing/selftests/kvm/x86/hyperv_features.c
+@@ -82,7 +82,7 @@ static void guest_msr(struct msr_data *msr)
+ 	GUEST_DONE();
+ }
+ 
+-static void guest_hcall(gva_t pgs_gpa, struct hcall_data *hcall)
++static void guest_hcall(gpa_t pgs_gpa, struct hcall_data *hcall)
+ {
+ 	u64 res, input, output;
+ 	uint8_t vector;
+diff --git a/tools/testing/selftests/kvm/x86/hyperv_ipi.c b/tools/testing/selftests/kvm/x86/hyperv_ipi.c
+index f6385346dd10..f239923e232d 100644
+--- a/tools/testing/selftests/kvm/x86/hyperv_ipi.c
++++ b/tools/testing/selftests/kvm/x86/hyperv_ipi.c
+@@ -45,13 +45,13 @@ struct hv_send_ipi_ex {
+ 	struct hv_vpset vp_set;
+ };
+ 
+-static inline void hv_init(gva_t pgs_gpa)
++static inline void hv_init(gpa_t pgs_gpa)
+ {
+ 	wrmsr(HV_X64_MSR_GUEST_OS_ID, HYPERV_LINUX_OS_ID);
+ 	wrmsr(HV_X64_MSR_HYPERCALL, pgs_gpa);
+ }
+ 
+-static void receiver_code(void *hcall_page, gva_t pgs_gpa)
++static void receiver_code(void *hcall_page, gpa_t pgs_gpa)
+ {
+ 	u32 vcpu_id;
+ 
+@@ -85,7 +85,7 @@ static inline void nop_loop(void)
+ 		asm volatile("nop");
+ }
+ 
+-static void sender_guest_code(void *hcall_page, gva_t pgs_gpa)
++static void sender_guest_code(void *hcall_page, gpa_t pgs_gpa)
+ {
+ 	struct hv_send_ipi *ipi = (struct hv_send_ipi *)hcall_page;
+ 	struct hv_send_ipi_ex *ipi_ex = (struct hv_send_ipi_ex *)hcall_page;
+diff --git a/tools/testing/selftests/kvm/x86/hyperv_svm_test.c b/tools/testing/selftests/kvm/x86/hyperv_svm_test.c
+index 436c16460fe0..b7f35424c838 100644
+--- a/tools/testing/selftests/kvm/x86/hyperv_svm_test.c
++++ b/tools/testing/selftests/kvm/x86/hyperv_svm_test.c
+@@ -67,7 +67,7 @@ void l2_guest_code(void)
+ 
+ static void __attribute__((__flatten__)) guest_code(struct svm_test_data *svm,
+ 						    struct hyperv_test_pages *hv_pages,
+-						    gva_t pgs_gpa)
++						    gpa_t pgs_gpa)
+ {
+ 	unsigned long l2_guest_stack[L2_GUEST_STACK_SIZE];
+ 	struct vmcb *vmcb = svm->vmcb;
+-- 
+2.53.0.414.gf7e9f6c205-goog
 
->  }
->  
->  static bool update_transition_efer(struct vcpu_vmx *vmx)
-> -- 
-> 2.52.0.223.gf5cc29aaa4-goog
-> 
 
 _______________________________________________
 linux-riscv mailing list
