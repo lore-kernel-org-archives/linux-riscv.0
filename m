@@ -4,89 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42FABC5ACD3
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 16:46:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66197C5AD05
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 16:47:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=MOVxnw8kQMWnBchf7MEfesQtusJ8c7roJPVKtcFO+JE=; b=nO4Zz4mcsfgJy8B9MAhkGaVqOw
-	0syGhHisiCNTJqecfeWnxldvUKPbUqsPjStaNVYiTLsbV2DP0ggROfeQDK6wGW1GS5is89iD3OqXB
-	NEJ/R9eTvDKWG9GHgEyCjvLJ6slhWcBXYx8+Ag4DGN6e7NsUptlTu4MsV5iyrDPojqiKfC2MZmIq+
-	XR5lNWSlNLBjRtX3zRdL/TDxCBpX82/8TtV2IpctECyaVN/co/zrmZGh2+V/XtUIHqtcPslkb5V5Q
-	tKlDYM63Biu2Q6eh1SjSKFxws16b+pYMJBmoECilEktEfI8du2D/HUbYh3OMZsi4QpN7VEu6p9IBg
-	d9wHUjPg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=huilpr65MJYUVFk5H90DT3hnFc7meX2pxw1bcBqOW+s=; b=HLgnL9L6vgRLl9
+	tF6C2LCcb9fO2luxoDfEwv/6g+2nko0g4bzaVw5B7SAXI75rNUNbEJ40uiueOJJCZIMDqC4RrY5Tj
+	9bm0mZj2j/i5ozAgwR9WZS5M/vwFREwKCaDcMnbLtUkZ82GtCZ2IgL2dXqU9CMkeMrF/9qK0SSSoC
+	YUkU38Fm5Vq/znsdqP6MDASYX0Q7J2Gmhn8STJjhUBbv5EGN8kItnCmHpvPEO+hiqdHMKPPcAAx/7
+	/VapYt/Rr5fzkqslRCT8Gwt67K1gHtkAD4Uh5y5hvo99clr0l9JnMfwh1zLHcUH2kOhFoJuSU7+63
+	NOsIx7MvRDYaxThbGCig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtTdw-0000000FJan-2Skb;
-	Fri, 20 Feb 2026 16:46:16 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtTdr-0000000FJXk-2MDu
-	for linux-riscv@lists.infradead.org;
-	Fri, 20 Feb 2026 16:46:14 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2aad6045810so23613035ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 20 Feb 2026 08:46:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1771605969; x=1772210769; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=o2NjEt0nlzd3sSfAI7ozchxl45oY7orW7xyZnr6QEkg=;
-        b=LQWCe5f3XmIjbise9KGht1W67PR/CECsFeB06ivaU8xg/6Ei9A2Laj9muG9icO2Ph2
-         hco1N0hIBUr0T2N3411kodWqYhNE9LzX0mNJNth4Fuzn6ORR47sfVwX7Vp8SAwpDTCmx
-         mp79UittUckifmNYO66w1w9zDOs91ikLqYyKyfMwaiPYu3IMXH281+3Nl+bZt+QkexWu
-         27abSCCF68guKM5YQQoKXmzTY/wKlQ7C9Hk7IuWMsRXxSgZBxLYyYhykOpa/WfrX7SaQ
-         afU+6Pr/9pDtC0q0I+zFh9pftuR2nWU2SMDxsbR2SUifWrJ0HLW+un8XQqAXydsyNxjk
-         1Kgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771605969; x=1772210769;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=o2NjEt0nlzd3sSfAI7ozchxl45oY7orW7xyZnr6QEkg=;
-        b=VpMSGgPrZPnVviJhaR0sr0N4sksYo/cv3NZWaIKoegLJehrBFnyK7MsDsgnv0gs9Vi
-         186CqC2eY4/fnOrcivWUNrGoVJm/LTSSHQkhKJlD8DXGYTlJ7NPeDaKHNVUlXQVcNil/
-         P4euP8LpVHl8Vmw7TO04As9vRMmr/8ehWvZH0l4kHhvGpApeAymjzsF4q0E6O2ri9PtD
-         kcVXo7ip06AOP8opGpQMzvRds7AQCjFdh0SNOfeZbyMr5OkBNOO3/KqpxwVv4ciFZD89
-         LXTvn7BAS8S7PH0z+aw+JsjdT9I3DFkB7mBCT/zjQ9SrMPO0PljmfBvfYbLnNb8HAIvQ
-         AvXA==
-X-Forwarded-Encrypted: i=1; AJvYcCWWAXpaduq3cFFR1HcTiRoU6vkNZN30wMb+N1p7XMdkxhrarCI/kMhiPzcePO4PCXehoYXbhiXLSifS3Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyO/DIveJOhokQx5Obouucm6M+2gBCz1CceiQO3CGQbjVUfG2xS
-	XHUYrydpPol6Y2wFQP5nUgBVQhmxkffpEmelbdFqGS8k9s5SuBVKoSC4ueCpX9wTQgKTlJ5X0Up
-	70GtqWw==
-X-Received: from plma6.prod.google.com ([2002:a17:902:7d86:b0:2a9:622c:47d6])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e80c:b0:2a1:388d:8ef3
- with SMTP id d9443c01a7336-2ad7444e7fcmr1749985ad.18.1771605969111; Fri, 20
- Feb 2026 08:46:09 -0800 (PST)
-Date: Fri, 20 Feb 2026 08:46:07 -0800
-In-Reply-To: <aZdlBkLEQyv9q5ll@google.com>
-Mime-Version: 1.0
-References: <20251206001720.468579-1-seanjc@google.com> <20251206001720.468579-43-seanjc@google.com>
- <aZdlBkLEQyv9q5ll@google.com>
-Message-ID: <aZe6UR1EGg0RcB69@google.com>
-Subject: Re: [PATCH v6 42/44] KVM: VMX: Dedup code for adding MSR to VMCS's
- auto list
-From: Sean Christopherson <seanjc@google.com>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, Mingwei Zhang <mizhang@google.com>, 
-	Xudong Hao <xudong.hao@intel.com>, Sandipan Das <sandipan.das@amd.com>, 
-	Dapeng Mi <dapeng1.mi@linux.intel.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
-	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
+	id 1vtTfN-0000000FJv0-1S24;
+	Fri, 20 Feb 2026 16:47:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vtTfJ-0000000FJtw-3qml;
+	Fri, 20 Feb 2026 16:47:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 542A4339;
+	Fri, 20 Feb 2026 08:47:34 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2DEE53F62B;
+	Fri, 20 Feb 2026 08:47:40 -0800 (PST)
+Date: Fri, 20 Feb 2026 16:47:38 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Guo Ren <guoren@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
+Subject: Re: [PATCH 3/3] arm64: use runtime constant to optimize
+ handle_arch_irq access
+Message-ID: <20260220164738.GH136967@e132581.arm.com>
+References: <20260220090922.1506-1-jszhang@kernel.org>
+ <20260220090922.1506-4-jszhang@kernel.org>
+ <20260220123414.GF136967@e132581.arm.com>
+ <aZheqINXslxlrmTt@xhacker>
+ <aZhi1p0NJH5ug8CA@xhacker>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <aZhi1p0NJH5ug8CA@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_084611_652624_7F0D9924 
-X-CRM114-Status: GOOD (  23.95  )
+X-CRM114-CacheID: sfid-20260220_084742_000289_AFF56D1A 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,94 +73,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 19, 2026, Namhyung Kim wrote:
-> Hello,
+On Fri, Feb 20, 2026 at 09:34:14PM +0800, Jisheng Zhang wrote:
+
+[...]
+
+> > > Run 3 iterations, and measures three metrics (messaging/pipe/seccomp)
+> > > and results in seconds. Less is better.
+> > > 
+> > >   +---------------------+--------+--------+--------+--------+
+> > >   |Without change       |   run1 |   run2 |   run3 |    avg |
+> > >   +---------------------+--------+--------+--------+--------+
+> > >   |messaging (sec)      |  4.546 |  4.508 |  4.591 |  4.548 |
+> > >   |pipe (sec)           | 24.258 | 24.224 | 24.017 | 24.166 |
+> > >   |seccomp-notify (sec) | 48.393 | 48.457 | 48.232 | 48.361 |
+> > >   +---------------------+--------+--------+--------+--------+
+> > > 
+> > >   +---------------------+--------+--------+--------+--------+--------+
+> > >   |With change          |   run1 |   run2 |   run3 |    avg |   diff |
+> > >   +---------------------+--------+--------+--------+--------+--------+
+> > >   |messaging (sec)      |  4.493 |  4.523 |  4.556 |  4.524 | +0.52% |
+> > >   |pipe (sec)           | 23.159 | 23.702 | 28.649 | 25.170 | -4.15% |
+> > 
+> > If you check the result, this result variance is abnormal, it means
+> > your OS is noiser.
 > 
-> On Fri, Dec 05, 2025 at 04:17:18PM -0800, Sean Christopherson wrote:
-> > Add a helper to add an MSR to a VMCS's "auto" list to deduplicate the code
-> > in add_atomic_switch_msr(), and so that the functionality can be used in
-> > the future for managing the MSR auto-store list.
-> > 
-> > No functional change intended.
-> > 
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > ---
-> >  arch/x86/kvm/vmx/vmx.c | 41 +++++++++++++++++++----------------------
-> >  1 file changed, 19 insertions(+), 22 deletions(-)
-> > 
-> > diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> > index 018e01daab68..3f64d4b1b19c 100644
-> > --- a/arch/x86/kvm/vmx/vmx.c
-> > +++ b/arch/x86/kvm/vmx/vmx.c
-> > @@ -1093,12 +1093,28 @@ static __always_inline void add_atomic_switch_msr_special(struct vcpu_vmx *vmx,
-> >  	vm_exit_controls_setbit(vmx, exit);
-> >  }
-> >  
-> > +static void vmx_add_auto_msr(struct vmx_msrs *m, u32 msr, u64 value,
-> > +			     unsigned long vmcs_count_field, struct kvm *kvm)
-> > +{
-> > +	int i;
-> > +
-> > +	i = vmx_find_loadstore_msr_slot(m, msr);
-> > +	if (i < 0) {
-> > +		if (KVM_BUG_ON(m->nr == MAX_NR_LOADSTORE_MSRS, kvm))
-> > +			return;
-> > +
-> > +		i = m->nr++;
-> > +		m->val[i].index = msr;
-> > +		vmcs_write32(vmcs_count_field, m->nr);
-> > +	}
-> > +	m->val[i].value = value;
-> > +}
-> > +
-> >  static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
-> >  				  u64 guest_val, u64 host_val)
-> >  {
-> >  	struct msr_autoload *m = &vmx->msr_autoload;
-> >  	struct kvm *kvm = vmx->vcpu.kvm;
-> > -	int i;
-> >  
-> >  	switch (msr) {
-> >  	case MSR_EFER:
-> > @@ -1132,27 +1148,8 @@ static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
-> >  		wrmsrq(MSR_IA32_PEBS_ENABLE, 0);
-> >  	}
-> >  
-> > -	i = vmx_find_loadstore_msr_slot(&m->guest, msr);
-> > -	if (i < 0) {
-> > -		if (KVM_BUG_ON(m->guest.nr == MAX_NR_LOADSTORE_MSRS, kvm))
-> > -			return;
-> > -
-> > -		i = m->guest.nr++;
-> > -		m->guest.val[i].index = msr;
-> > -		vmcs_write32(VM_ENTRY_MSR_LOAD_COUNT, m->guest.nr);
-> > -	}
-> > -	m->guest.val[i].value = guest_val;
-> > -
-> > -	i = vmx_find_loadstore_msr_slot(&m->host, msr);
-> > -	if (i < 0) {
-> > -		if (KVM_BUG_ON(m->host.nr == MAX_NR_LOADSTORE_MSRS, kvm))
-> > -			return;
-> > -
-> > -		i = m->host.nr++;
-> > -		m->host.val[i].index = msr;
-> > -		vmcs_write32(VM_EXIT_MSR_LOAD_COUNT, m->host.nr);
-> > -	}
-> > -	m->host.val[i].value = host_val;
-> > +	vmx_add_auto_msr(&m->guest, msr, guest_val, VM_ENTRY_MSR_LOAD_COUNT, kvm);
-> > +	vmx_add_auto_msr(&m->guest, msr, host_val, VM_EXIT_MSR_LOAD_COUNT, kvm);
-> 
-> Shouldn't it be &m->host for the host_val?
+> BTW: if you remove the abnormal run3 result, you'll find that the
+> benchmark is improved by ~3.5% on CA73:
+> (23.159 + 23.702) / 2 = 23.43
+> (24.258 + 24.224) / 2 = 24.24
+> (24.24 - 23.43)*100 / 23.43 = ~3.5
 
-Ouch.  Yes.  How on earth did this escape testing...  Ah, because in practice
-only MSR_IA32_PEBS_ENABLE goes through the load lists, and the VM-Entry load list
-will use the guest's value due to VM_ENTRY_MSR_LOAD_COUNT not covering the bad
-host value.
+TBH, I don't think we should subjectively select data.  But I agree a
+clean test env is important to avoid noise, and I also agree that the
+current results already show positive signals.
 
-Did you happen to run into problems when using PEBS events in the host?
-
-Regardless, do you want to send a patch?  Either way, I'll figure out a way to
-verify the bug and the fix.
+Thanks,
+Leo
 
 _______________________________________________
 linux-riscv mailing list
