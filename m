@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD4AC53215
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 04:10:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA6B8C531E4
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 04:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bldgCJrVQt+sDAGJwKimoqWHB7tl8y+c+jrr7l4xvrk=; b=N2WXg7VJtJFN04
-	Z0Az3J+OL+bxudFLlSVQH4IgEpaUco2PD9HaFRsM6I/2D5LAc3+Jz+zP4Sw5tucoNMN7ypr4BYxDD
-	1/g381UBzAuCJVDeBr3PloLRS4IvfSzmH2zpEhnYDFGvqGdkYtFRscJrTUUvraEV0fZSRXpW/2cXP
-	2Ubs96PQJURUe8elJShznhBJqtdgEwUKSEJaw2FWjc9bE9T5MeZ+sFJEDAi9NEkyuWto3hx2DoS2X
-	iuThBIIMrCAlFi2NxhEC/TkwtMRLGuEf39cLlsZTqaIih65z/TwML5UVlO3IgtiaqSToRhendwwCD
-	92xcZJvoClg9saJIs2Bw==;
+	List-Owner; bh=oPy7KkVfe0BWh+uW+kHR+xoknmPo93Zd2e+yYcHr6Ps=; b=McdQAlqi3s2iq0
+	tQieVTgiX5MNQZ6oNjJwQQh0Ow2Kbhm9pkNf0j/TH4bqHzZU8+QodsGp5IJ5+WqyOcQbuIPtZlXyT
+	ouKdtKCS1pbMuDAMKctBZvpHjtfJhceQlp1zsBr7bAW8jci8KDiwAogDTogtGmD59ZNYQj8xTwi1f
+	rFiyrUvpYYjBheQkqcDh+yZhU6YG+jYCxkTbwv3+yt9hzUh8+nepukU/7Tm/38E16JSFmOp97THPy
+	ETv/0pToRbl74fIEz6cWvh2g62bcQfZg7cV5n08rDgSKZ2BegG5SkPILqBN+GhC5NMW5N5WO5Wj1b
+	ETqo5PLfSksciz9eTQCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtHqm-0000000DCN9-2OS0;
-	Fri, 20 Feb 2026 04:10:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vtHqo-0000000DCP9-0TC1;
+	Fri, 20 Feb 2026 04:10:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtHqi-0000000DCJL-36OZ
+	id 1vtHql-0000000DCLE-2RyT
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Feb 2026 04:10:40 +0000
+	Fri, 20 Feb 2026 04:10:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D938E61887;
-	Fri, 20 Feb 2026 04:10:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B270C2BCB0;
-	Fri, 20 Feb 2026 04:10:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 033A861855;
+	Fri, 20 Feb 2026 04:10:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B32FC116D0;
+	Fri, 20 Feb 2026 04:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771560639;
-	bh=0PM3EvHMCr8BvaAe9tsZy3ke/nSbfi2Vm8wcUfyZoLQ=;
+	s=k20201202; t=1771560642;
+	bh=vY3RNXjFg5jE/lRwJrLxbPR1SDUOknv1RwuQChIByMA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=IVx2kUNSxwdn74f3azX658a2kTXvhnAo2uYJ0bpEMr+c6aO+cz8pL8626VIS81zgm
-	 Hm3ohw27VvABIpU01I09pS6tpRkCKzGBFkizfiQXloXkQcFj535JY1NtJlcUUz/yQz
-	 zI76CKiCR6bQjllggKkYdueNsdTPXwg+xKkV36RH19CiBgxQu7xPPz0+xBQu5qw0M6
-	 vwGsQ+XlvFXFuRYrufowmz9SeyWMjUvTD8CENbNArppvg1nbNfcMdcv3TryDcEhFlz
-	 q/Og6P925mDm6YJX8HiVuSIqJEiyiW79umNtOcgxrYOC5QBWJMXHsx+jot4W3TOkKB
-	 m8Y5bX+jeVa3A==
+	b=ibVtTQMqgNkDai+LkCqmzmqiemxWToTM02koymKY8eaha8BdQ93O8uV4DTA0YIXHn
+	 Yu9q274SIY/8RzECnMV2tA9xaFQhKKNyCEo/keISiyWCbn7hcPJ4piIrhOLW3WlcmE
+	 aypdlfN0YeV+WaNKmSNlriwjWq4uu9xgrVVwcJhL/4CicmsKWqV1fxiA2JqgQT7o4f
+	 Xa+wncnZlXxR9gELWoslXYZ9JtTTmtmm2yeKBtnZ7a+iiiK64ww3mxdeg1AKLg6MGV
+	 Y+tXzOGZzlwCl4ENNcnoLsKQQoBv/HCQQvtGycBBhRCAoX+SVud5btd3he6EEBBGz5
+	 vs9wUNmodP6/Q==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FE3B3809A88;
-	Fri, 20 Feb 2026 04:10:49 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FF503809A88;
+	Fri, 20 Feb 2026 04:10:52 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 00/10] kbuild: userprogs: introduce
- architecture-specific CC_CAN_LINK and userprog flags
+Subject: Re: [PATCH v3 0/2] irqchip/sifive-plic: Fix wrong nr_irqs handling
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177156064779.189817.8600732238018283033.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Feb 2026 04:10:47 +0000
-References: <20251014-kbuild-userprogs-bits-v2-0-faeec46e887a@linutronix.de>
-In-Reply-To: <20251014-kbuild-userprogs-bits-v2-0-faeec46e887a@linutronix.de>
-To: =?utf-8?q?Thomas_Wei=C3=9Fschuh_=3Cthomas=2Eweissschuh=40linutronix=2Ede=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, nathan@kernel.org,
- nicolas.schier@linux.dev, nsc@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, hca@linux.ibm.com, gor@linux.ibm.com,
- agordeev@linux.ibm.com, borntraeger@linux.ibm.com, svens@linux.ibm.com,
- maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
- christophe.leroy@csgroup.eu, tsbogend@alpha.franken.de, tglx@linutronix.de,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
- hpa@zytor.com, davem@davemloft.net, andreas@gaisler.com,
- linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
- masahiroy@kernel.org, linux-s390@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
- sparclinux@vger.kernel.org
+Message-Id: <177156065079.189817.10993105171560022947.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Feb 2026 04:10:50 +0000
+References: <tencent_AEBB719FAF49D05B5BDF7118D729463F6405@qq.com>
+In-Reply-To: <tencent_AEBB719FAF49D05B5BDF7118D729463F6405@qq.com>
+To: Yangyu Chen <cyy@cyyself.name>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ anup.patel@oss.qualcomm.com, samuel.holland@sifive.com, cmirabil@redhat.com,
+ lzampier@redhat.com, tglx@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+ mason.huo@starfivetech.com, zhangxincheng@ultrarisc.com,
+ charlie@rivosinc.com, maz@kernel.org, jeeheng.sia@starfivetech.com,
+ leyfoon.tan@starfivetech.com, krzk+dt@kernel.org, robh@kernel.org,
+ conor+dt@kernel.org, alex@ghiti.fr, devicetree@vger.kernel.org,
+ yash.shah@sifive.com, wangjia@ultrarisc.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,39 +80,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Andreas Larsson <andreas@gaisler.com>:
+by Thomas Gleixner <tglx@kernel.org>:
 
-On Tue, 14 Oct 2025 15:05:15 +0200 you wrote:
-> The current logic to inherit -m32/-m64 from the kernel build only works
-> for a few architectures. It does not handle byte order differences,
-> architectures using different compiler flags or different kinds of ABIs.
-> 
-> Introduce a per-architecture override mechanism to set CC_CAN_LINK and
-> the flags used for userprogs.
+On Wed,  4 Feb 2026 01:17:07 +0800 you wrote:
+> This patch series fixes long standing bugs in sifive-plic driver regarding
+> the handling of nr_irqs. Some code assumes the first irq source is 0 while
+> some assumes it is 1. Since the first irq source is actually 1, this causes
+> various issues including memory corruption when the number of irqs is
+> multiple of 32. Also, some code assumes nr_irqs is the maximum irq source
+> ID while some assumes it is the total number of irq sources including the
+> reserved source 0. This patch series standardizes the handling of nr_irqs
+> to be the maximum irq source ID, and the first irq source is 1.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,01/10] kbuild: don't enable CC_CAN_LINK if the dummy program generates warnings
+  - [v3,1/2] irqchip/sifive-plic: Fix wrong nr_irqs handling
     (no matching commit)
-  - [v2,02/10] init: deduplicate cc-can-link.sh invocations
-    (no matching commit)
-  - [v2,03/10] kbuild: allow architectures to override CC_CAN_LINK
-    (no matching commit)
-  - [v2,04/10] riscv: Implement custom CC_CAN_LINK
-    (no matching commit)
-  - [v2,05/10] s390: Implement custom CC_CAN_LINK
-    (no matching commit)
-  - [v2,06/10] powerpc: Implement custom CC_CAN_LINK
-    (no matching commit)
-  - [v2,07/10] MIPS: Implement custom CC_CAN_LINK
-    (no matching commit)
-  - [v2,08/10] x86/Kconfig: Implement custom CC_CAN_LINK
-    (no matching commit)
-  - [v2,09/10] sparc: Implement custom CC_CAN_LINK
-    https://git.kernel.org/riscv/c/dc2f4d41a6b6
-  - [v2,10/10] kbuild: simplify CC_CAN_LINK
-    (no matching commit)
+  - [v3,2/2] dt-binding: riscv: Clarify the riscv,ndev meaning in PLIC
+    https://git.kernel.org/riscv/c/889588d75050
 
 You are awesome, thank you!
 -- 
