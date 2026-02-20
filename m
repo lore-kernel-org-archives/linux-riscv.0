@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51A7AC55170
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 09:23:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D3DC5516E
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 09:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ueSHZouAZrgurw3feOemnPcpukzk60j6dnFNS2fPPYw=; b=IMCBCsoH7sbVqCNxpZ5VvPqF/K
-	3/vwLvcaNLEm05i8y5i3FILcMSSe/lFC0MC4u589pThltwyyCVbRk3XMmcU5YeBo6iFBdiiRPSp+M
-	Pdgh8Bp89dEXaPTvmEI/yBS8aPSbgUm+8s2DTJIL92Tp/VIAaVGF1oXVz8vBQvPYoorVIULmx1U9P
-	e+HnjLx3c/8lERwFGRpKb5QYYIabSiZuMmKsmjurq3xSKoeC0UHR0hMzt+wYFFajuyh8DcdVxcihG
-	vooIBm6RQeeU/GW7/MVEYd/feka6LLp5mMkbpIx6NVaZdwz+L6k8h47ysiVKfUOdWPHC+Jy0iZVhO
-	PduFXsRQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lWO5JuAvprj2NbPttEHJJuImamrU4K3lsLS7oINk0F0=; b=cOeJlqzNVBphlB
+	5pOmsL/0q8IbtCbPQhv3sXWkULNl7lVSQscRXlesURMApUu/EuvQd2KR2vQxeq38D3zcuOBp0PLtG
+	FAAIPDDSEZzGBofhsUyIhxlfccEqaWj3EBTAP+Ws7XoYTaeQ5W4J3f8HXIHpuoU3K/Uw4QFiOPaEP
+	vVPZmw0KIk5vo62euKH4TVenY6u3u3GVyKWiUdq9Yl+1DIsJc1Bqfkhk4IDLqzH5xJ3GJPQI0Df9d
+	compuhbgUGoz4chQOpH97gxZ2/apst1pCPGK9Q20MwbM7pI32GQlk1jOpJbDiV5N8I+M11gjIyd5V
+	JfY6p2odsIGLtG1ZlrlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtMjP-0000000DTS2-2Djo;
-	Fri, 20 Feb 2026 09:23:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vtMnl-0000000DVNJ-2y8W;
+	Fri, 20 Feb 2026 09:27:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtMjN-0000000DTQy-35FF
-	for linux-riscv@lists.infradead.org;
-	Fri, 20 Feb 2026 09:23:25 +0000
+	id 1vtMnj-0000000DVLY-03m6;
+	Fri, 20 Feb 2026 09:27:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CCDD160054;
-	Fri, 20 Feb 2026 09:23:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E031C116C6;
-	Fri, 20 Feb 2026 09:23:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 116CC444B9;
+	Fri, 20 Feb 2026 09:27:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE24CC116D0;
+	Fri, 20 Feb 2026 09:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771579404;
-	bh=ZVuv+x9tPz+fDZyhArJNw6i1SChHYu51WPdKwBP8+Bw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Hyv6KPsNMuwhEbvzZUJbwLNH0LcFZBIWp64TFIMsMaQcjJy2M3zCIwNREfnyporKy
-	 kFOOZRxjAoYtnAIlYeyS3+fcuY8pRih7PfL5ZR7k5dF8WBDEAwzpVdC80pnPTO2s0O
-	 6RbqyrKQlnKidPOjyuTTJjrxlZs8vnLZQE13kiuTrjkAtXmZeR8fQK6ZGp/0IhW6SW
-	 tg/csmgsV1lSz/gBE91qjXkaAKxDJRe0C6m9z5gnN4lL4RBXPp7WJXnZ5vPoxg8KVW
-	 j/OG3ZcT6rvz/BoDP+YvC/BTT8fOGozqViAdbfj7ABjxoC/LrO+AyTdRY4hGiY9QKU
-	 nh3IEhKMLGkvw==
-Date: Fri, 20 Feb 2026 09:23:18 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Max Hsu <max.hsu@sifive.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	s=k20201202; t=1771579674;
+	bh=NJPGvTmlDcLmtgZEyJBgLqYqr3TADL+hhrIydbb16zw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=RU4q3K6dTajkeNAMGx5MkM68MOQQHw+mrUfNV5Nzof3hNgHHADZg8J4ZN28jLsmta
+	 V+sMp+AuJkBCbLD9dOPlOLgirPzBEYsp8kPLFUlcEYOH+X2Cn09t39iCHEkYVnOAwb
+	 quH4qTw//as3CZwFrxflIbJcFBINjaPTVrhcCWPQnuF9w9H17MSfYa9+RgFxA5+Wx3
+	 O0otf8+dj9Un942DFEIE7tRSbwwhh2m3w6CQoFWhs2mC8XKdQ85J9/6m+4DXFX+Fik
+	 g6CY1BxdLUQIAWFd9kRazbYgEAaIZ08jw1nbjUTH8lHvkQyY8U70XhFcoTn7Md89eY
+	 BceCyzoQ0n9AA==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
 	Thomas Gleixner <tglx@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH 2/5] dt-bindings: interrupt-controller: Add SiFive
- FU740-C000 PLIC
-Message-ID: <20260220-contest-ambiguity-1a4099520bdf@spud>
-References: <20260220-fu740-v1-0-c8af54130c58@sifive.com>
- <20260220-fu740-v1-2-c8af54130c58@sifive.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Guo Ren <guoren@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-csky@vger.kernel.org
+Subject: [PATCH 0/3] use runtime constant to optimize handle_arch_irq access
+Date: Fri, 20 Feb 2026 17:09:19 +0800
+Message-ID: <20260220090922.1506-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-In-Reply-To: <20260220-fu740-v1-2-c8af54130c58@sifive.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260220_012755_090641_B5266BC2 
+X-CRM114-Status: UNSURE (   6.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,86 +76,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1272031671342282753=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Currently, on GENERIC_IRQ_MULTI_HANDLER or arm64 platforms, the
+handle_arch_irq is a pointer which is set during booting, and every
+irq processing needs to access it, so it sits in hot code path. We can
+use the runtime constant mechanism which was introduced by Linus to
+speed up its accessing.
 
---===============1272031671342282753==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mSZIL8+HAWfjN46u"
-Content-Disposition: inline
+Tested on Sipeed Lichee Pi 4A (riscv64) board, the perf sched benchmark is
+improved by ~5.8%
 
+Tested on Quad CA55 platform, the perf sched benchmark is improved
+by ~6.5%
 
---mSZIL8+HAWfjN46u
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+As for the GENERIC_IRQ_MULTI_HANDLER platforms but without runtime const
+support, such as arm, csky, loongarch, microblaze and openrisc, there
+should be no changes.
 
-On Fri, Feb 20, 2026 at 04:27:06PM +0800, Max Hsu wrote:
-> Add the SiFive FU740-C000 PLIC compatible string to the binding
-> documentation.
->=20
-> This follows the SiFive IP versioning scheme which requires SoC-specific
-> compatible strings for proper hardware identification, even when the IP
-> blocks are functionally identical.
+Jisheng Zhang (3):
+  vmlinux.lds.h: add _handle_arch_irq RUNTIME_CONST section
+  genirq: use runtime constant to optimize handle_arch_irq access
+  arm64: use runtime constant to optimize handle_arch_irq access
 
-So do the general rules for devicetree bindings, that's not something
-SiFive specific FWIW.
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+ arch/arm64/kernel/entry-common.c  | 4 +++-
+ arch/arm64/kernel/irq.c           | 9 ++++++---
+ include/asm-generic/vmlinux.lds.h | 3 ++-
+ include/linux/irq.h               | 4 +++-
+ kernel/irq/handle.c               | 8 +++++---
+ 5 files changed, 19 insertions(+), 9 deletions(-)
 
->=20
-> Signed-off-by: Max Hsu <max.hsu@sifive.com>
-> ---
->  .../devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml     =
- | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifiv=
-e,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/=
-sifive,plic-1.0.0.yaml
-> index e0267223887e..351d26ab1956 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-=
-1.0.0.yaml
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-=
-1.0.0.yaml
-> @@ -63,6 +63,7 @@ properties:
->                - eswin,eic7700-plic
->                - microchip,pic64gx-plic
->                - sifive,fu540-c000-plic
-> +              - sifive,fu740-c000-plic
->                - spacemit,k1-plic
->                - starfive,jh7100-plic
->                - starfive,jh7110-plic
->=20
-> --=20
-> 2.43.0
->=20
+-- 
+2.51.0
 
---mSZIL8+HAWfjN46u
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaZgoAgAKCRB4tDGHoIJi
-0iyBAQD6/QrKP5wWk8N0yZGMywRDF9hJKlEcvyWXA/wDi+YeYgD+NOLhtmQyyOmQ
-LB+WDVS88sSEEulhWbQdhniOZQPG/gc=
-=DGDe
------END PGP SIGNATURE-----
-
---mSZIL8+HAWfjN46u--
-
-
---===============1272031671342282753==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1272031671342282753==--
-
