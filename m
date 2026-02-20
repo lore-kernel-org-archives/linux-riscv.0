@@ -4,81 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AF76C561E6
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 19:15:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C1EC5AE49
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 19:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l92kjiDmPu5PYBfbPMZiG29G/NvrkvUcOukZg2cy3lY=; b=Ce5fWrL21hWdS/
-	xXzMyou9oBqfs89d52Hx1AqdpvSlLj0BfC8WIPvwMBVe3w3Mo/lDmRV51ohU5zgWrEmcEAPTbWXVd
-	D/ULwSBqG87Ur616KtmDRBZ8kW3sIx3oCLRpSgvIvXUEOT63GSIw3HvUzkvtFHKN54A/iJVJuRI6w
-	LJ9DD8sFogxnaVpa2Qq43kki5/eznd5zL9/kXOoDk9N/YDbva05EYQy5qOrjDqagHiW0iuauPLsyf
-	Afg/pvY7FsnYFrq5B6Q2K4xpaPSj+eCzAHrZqCiU0xIA+ZgYw2jyZxaoRpwVaPRRfiFm/hPHWmnLj
-	rUbp1nWowIp86ZahYplA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1fg9fEyWYNgcSy32Rk9FmCC9v3YxIZE4FxRu26ZKi5o=; b=wEYADdSYkuNQrQ
+	IfycEsGtW0Cts1LZobcx4xVuvGoh81Q+pJ3t90+VVS5uwbE7lw95FXTitIfa+NSmH5S8OWzhdGDEw
+	H3wpmwPM/aeYWwBTs5lH1Exh2KW0H/1FEvns+2fetb9GsePBzTHUnxGlL7dRoJ4U/Y+SQxHpRZNa4
+	E9a5tyeJC3cp1y2goWywEaj1tIDKgK1Iz+RWe2/784bB+8tlzru6yshtKrIGqMTkfxCqE2H/cFA+p
+	ss9VvAyXVYQoRScu1xBsXhplxNmo3dP/cwZ7e3jBofq2IMqruatbs3c7Gnp7jpnUbEynn2UivMx+F
+	0HaREyi2dGYgJiLTWe7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtVxo-0000000FUoR-3y6S;
-	Fri, 20 Feb 2026 19:14:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vtWQ2-0000000FWTW-1ycM;
+	Fri, 20 Feb 2026 19:44:06 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtVxm-0000000FUnG-0EIu;
-	Fri, 20 Feb 2026 19:14:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 56FE8418D8;
-	Fri, 20 Feb 2026 19:14:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA755C116C6;
-	Fri, 20 Feb 2026 19:14:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771614892;
-	bh=N/dul5YjHzDXPfrduHVCi4Yg6lOyDfk2HzDDWaV+YQQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Dl4K9twKTKk+64XuV3tx697p+tSKE4KpQAY+Nm3YF1p4RQ05z2krCL7vET+svQbq5
-	 VG8ENPLrxvLm/+whZxz7wR4sSkpTeUfkYv0ng1u1YVUiDdnp8o8K/ltQpAb0sRhhOy
-	 rXgnEi1fxdVV7wKy6o/+ac2dBU905VE6WwRTURFE2/UJPkevi35wRQJ3wcx8pxvJL3
-	 qH7yoJBL8zTJatIySTsfhPDUB1BBxBRzyo1NKjJzbcnEssXaEJKTQi0Oye1uhAaXPh
-	 P3BILrh7CooTpzS9Xd2cs8bvXzY3zgzfP1rVyzHWfNebJK+Q3V4jNuZh9AQyF9VNxU
-	 mNL8AGmVqa1wA==
-Date: Fri, 20 Feb 2026 11:14:49 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, loongarch@lists.linux.dev,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	Mingwei Zhang <mizhang@google.com>,
-	Xudong Hao <xudong.hao@intel.com>,
-	Sandipan Das <sandipan.das@amd.com>,
-	Dapeng Mi <dapeng1.mi@linux.intel.com>,
-	Xiong Zhang <xiong.y.zhang@linux.intel.com>,
-	Manali Shukla <manali.shukla@amd.com>,
-	Jim Mattson <jmattson@google.com>
-Subject: Re: [PATCH v6 42/44] KVM: VMX: Dedup code for adding MSR to VMCS's
- auto list
-Message-ID: <aZiyqcd2V6Ncm6wY@google.com>
-References: <20251206001720.468579-1-seanjc@google.com>
- <20251206001720.468579-43-seanjc@google.com>
- <aZdlBkLEQyv9q5ll@google.com>
- <aZe6UR1EGg0RcB69@google.com>
+	id 1vtWQ0-0000000FWSi-0Bfd
+	for linux-riscv@lists.infradead.org;
+	Fri, 20 Feb 2026 19:44:05 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-48371119eacso23669485e9.2
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Feb 2026 11:44:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1771616642; x=1772221442; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=QfuC8wYvmgXv6e0lpDTw84mMEMfi1vaHFSvb7DY2Jxo=;
+        b=IFMomFttpLezl/kzReorCz/kKtd+rWc5S2g92fbYNRYGAt+hR2kXcM/ueJeZim4gwE
+         /fh1nlchTxWxd1aKay5Na0Y4Q81wgy/hWDdk+9W84toOBCoVThk1or2/x7+H2nUHjnxm
+         yTtULDFUHbBIOVb9FfwNGzvgnu6Zwo+OpSyRM/fyTI0y+2kzPXUpMZlhsgH6Tqw5HSLQ
+         xxqE1xQudhYr70Kmm6gcUDAMKua9zySQpSMhJbp21xjCYEHFMF3L33i0hd9IgxNmhsUA
+         U4VYG3W6V+fBmBMDIPIRW4nGbVRLIqTgDpZLndcDnFJWJXayV24VveS0zVREbwO44Uw+
+         4kWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771616642; x=1772221442;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QfuC8wYvmgXv6e0lpDTw84mMEMfi1vaHFSvb7DY2Jxo=;
+        b=M8levAm2Tag7boA0g/vCMkWFEyXQ5SJCSTyyC0UGL8wXoXX/vlhDi7h1g7RQ8L7qAe
+         Ghb7fZ+fvZltWuHqnaH+zTis/Uv6IJord7onUAEPBocOVVGxHQu9JGtJm9TsrVGS0ekI
+         +aIRc5/s/AaqnD1GL/UsomZeox2ShHS/Df15opy6t1zZ57KOF/HQ6J/N2if2xz+PnG5Q
+         3ZIW2hOOhzDo5tgsdNjZJ4KKQdxBc0bay0atlk8HIumrDz4omssr4usCdWAQUk5pnfIo
+         mAFfLWZpVLQ6831wJ0SGLj8XRjP1MQ77IIyB51r28k30YdHkaHjIp5fzYWstpA742kto
+         y+rA==
+X-Gm-Message-State: AOJu0YwVPauKTwITX63Knzqy6dJZwifbBU7pmuu8xa5XshIJ8fxkYhl1
+	HlIHFdjdRFgbzB4VHGR51anSwjlJ2OuYYR+K4kLLjgqgbLjlHdpl1cvM/usnec+O0s0=
+X-Gm-Gg: AZuq6aL53EyMyzaSrk+286PtK3HZIaVCHqAawLRwAr0g+JISqReAk8cxgbujCCcYnAM
+	2xJmbDvUlvSGMskbDk6zRqZZ58w5VFCmdmJtyt3QxB3PAzqj1WkWjex5sNclDF9JIovPHqvFv57
+	1eMbyXMWug9Egn0bnScZgqHefoHdY4wU527PZAGJHnF/OWKr8Nckrk9DYlc53kTOEL7aW4SxDpL
+	DTV+Fi2UrHKYQtzY19bG04JgklH5UnWSmM1qV45wHmOOrdoydD//NE26GtWgxEDTYZeJEq5x51r
+	w30G48gE6Dh+Bb4NsOOUzjD6BK2JBbFABV2W5MP313sUCZu6wB/dPdEvima3hI9xc6avAL5ZsnS
+	CQz0Gp7dQh9e+RhGIY7q9z6442E9DTdLi+Hb4nUv0NGJvtrN67MrZks9C1jT2vAdeaJUB2ICVIa
+	SFy9W06vZKDjdba4JtR1A/
+X-Received: by 2002:a05:600c:6298:b0:477:5c58:3d42 with SMTP id 5b1f17b1804b1-483a95fb23amr11365705e9.10.1771616641935;
+        Fri, 20 Feb 2026 11:44:01 -0800 (PST)
+Received: from [127.0.1.1] ([210.176.154.34])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483a3e1b7ccsm24460755e9.11.2026.02.20.11.43.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Feb 2026 11:44:01 -0800 (PST)
+From: Max Hsu <max.hsu@sifive.com>
+Subject: [PATCH 0/5] dmaengine: sf-pdma: critical fixes and FU740 support
+Date: Sat, 21 Feb 2026 03:43:52 +0800
+Message-Id: <20260221-pdma-v1-0-838d929c2326@sifive.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aZe6UR1EGg0RcB69@google.com>
+X-B4-Tracking: v=1; b=H4sIAHi5mGkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDQ0ND3YKU3ERdAxMjwySDVBOLREMDJaDSgqLUtMwKsDHRsbW1AEiI36l
+ WAAAA
+X-Change-ID: 20260111-pdma-0421b0e48a10
+To: Paul Walmsley <pjw@kernel.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, Vinod Koul <vkoul@kernel.org>, 
+ Frank Li <Frank.Li@kernel.org>, Green Wan <green.wan@sifive.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Palmer Debbelt <palmer@sifive.com>, 
+ Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, dmaengine@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+ devicetree@vger.kernel.org, Max Hsu <max.hsu@sifive.com>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2537; i=max.hsu@sifive.com;
+ h=from:subject:message-id; bh=Ly4iEjx6uZ+rJ9+G/vlKsJCinNauJ5e6oyNiW9ulKl8=;
+ b=owEB7QES/pANAwAKAdID/Z0HeUC9AcsmYgBpmLl7l/9teiwq1b0uEqS6AzBQvvq9KwMuuyxvo
+ Hllat95F1qJAbMEAAEKAB0WIQTqXmcbOhS2KZE9X2jSA/2dB3lAvQUCaZi5ewAKCRDSA/2dB3lA
+ vfitC/wNrgFNBVPVRVSl1TVKWOE7GbVcK8IJOazLaHl6+IC6NBJKUSQaBtYSLNPntLIfd4Zq/3S
+ A3IqmGTSo+JJPcTGgaMfNEBazujzQ3UPslRRGOyMXg/spiAJs7IqnD03WYZZ0Pajntzc1cpz7XV
+ OK9BEc/q6wn/GKslOuz5cWvUhEd5IXo+7OvSWvYrOhDF0bNmPKOZzJh2xuVfQaViupGywWxwgbb
+ hgB5nkavL5jSOu0/mR00PAjr9NF+Ug+enB2Ap8eW7Mw6hWogEAXih7V7kbvdQ6S9Ll7PERBnoPQ
+ EufsAIGwP91QJRlQt9+XvgWoIRm1QfmVEfC3ObbQ0LZyvpxExqVUSnDSvW8CN5+prB4bekwXe3/
+ ZFAAhitkqABVNl0lBx/MVrG6xcyQ1NwsMHoWFOLdHIcRAXQs1bgNQ2hergH5V3U3KeVVVZojJmL
+ mVoqRcz5BDnQY1LuDAzEwDa6xyvSQPxs0+wyofj20dWS3DuGRCzM1FQy+OXssQtibHM4A=
+X-Developer-Key: i=max.hsu@sifive.com; a=openpgp;
+ fpr=EA5E671B3A14B629913D5F68D203FD9D077940BD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_111454_134905_5CED456F 
-X-CRM114-Status: GOOD (  26.16  )
+X-CRM114-CacheID: sfid-20260220_114404_130684_7F4F9A18 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,103 +120,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 20, 2026 at 08:46:07AM -0800, Sean Christopherson wrote:
-> On Thu, Feb 19, 2026, Namhyung Kim wrote:
-> > Hello,
-> > 
-> > On Fri, Dec 05, 2025 at 04:17:18PM -0800, Sean Christopherson wrote:
-> > > Add a helper to add an MSR to a VMCS's "auto" list to deduplicate the code
-> > > in add_atomic_switch_msr(), and so that the functionality can be used in
-> > > the future for managing the MSR auto-store list.
-> > > 
-> > > No functional change intended.
-> > > 
-> > > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > > ---
-> > >  arch/x86/kvm/vmx/vmx.c | 41 +++++++++++++++++++----------------------
-> > >  1 file changed, 19 insertions(+), 22 deletions(-)
-> > > 
-> > > diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> > > index 018e01daab68..3f64d4b1b19c 100644
-> > > --- a/arch/x86/kvm/vmx/vmx.c
-> > > +++ b/arch/x86/kvm/vmx/vmx.c
-> > > @@ -1093,12 +1093,28 @@ static __always_inline void add_atomic_switch_msr_special(struct vcpu_vmx *vmx,
-> > >  	vm_exit_controls_setbit(vmx, exit);
-> > >  }
-> > >  
-> > > +static void vmx_add_auto_msr(struct vmx_msrs *m, u32 msr, u64 value,
-> > > +			     unsigned long vmcs_count_field, struct kvm *kvm)
-> > > +{
-> > > +	int i;
-> > > +
-> > > +	i = vmx_find_loadstore_msr_slot(m, msr);
-> > > +	if (i < 0) {
-> > > +		if (KVM_BUG_ON(m->nr == MAX_NR_LOADSTORE_MSRS, kvm))
-> > > +			return;
-> > > +
-> > > +		i = m->nr++;
-> > > +		m->val[i].index = msr;
-> > > +		vmcs_write32(vmcs_count_field, m->nr);
-> > > +	}
-> > > +	m->val[i].value = value;
-> > > +}
-> > > +
-> > >  static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
-> > >  				  u64 guest_val, u64 host_val)
-> > >  {
-> > >  	struct msr_autoload *m = &vmx->msr_autoload;
-> > >  	struct kvm *kvm = vmx->vcpu.kvm;
-> > > -	int i;
-> > >  
-> > >  	switch (msr) {
-> > >  	case MSR_EFER:
-> > > @@ -1132,27 +1148,8 @@ static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
-> > >  		wrmsrq(MSR_IA32_PEBS_ENABLE, 0);
-> > >  	}
-> > >  
-> > > -	i = vmx_find_loadstore_msr_slot(&m->guest, msr);
-> > > -	if (i < 0) {
-> > > -		if (KVM_BUG_ON(m->guest.nr == MAX_NR_LOADSTORE_MSRS, kvm))
-> > > -			return;
-> > > -
-> > > -		i = m->guest.nr++;
-> > > -		m->guest.val[i].index = msr;
-> > > -		vmcs_write32(VM_ENTRY_MSR_LOAD_COUNT, m->guest.nr);
-> > > -	}
-> > > -	m->guest.val[i].value = guest_val;
-> > > -
-> > > -	i = vmx_find_loadstore_msr_slot(&m->host, msr);
-> > > -	if (i < 0) {
-> > > -		if (KVM_BUG_ON(m->host.nr == MAX_NR_LOADSTORE_MSRS, kvm))
-> > > -			return;
-> > > -
-> > > -		i = m->host.nr++;
-> > > -		m->host.val[i].index = msr;
-> > > -		vmcs_write32(VM_EXIT_MSR_LOAD_COUNT, m->host.nr);
-> > > -	}
-> > > -	m->host.val[i].value = host_val;
-> > > +	vmx_add_auto_msr(&m->guest, msr, guest_val, VM_ENTRY_MSR_LOAD_COUNT, kvm);
-> > > +	vmx_add_auto_msr(&m->guest, msr, host_val, VM_EXIT_MSR_LOAD_COUNT, kvm);
-> > 
-> > Shouldn't it be &m->host for the host_val?
-> 
-> Ouch.  Yes.  How on earth did this escape testing...  Ah, because in practice
-> only MSR_IA32_PEBS_ENABLE goes through the load lists, and the VM-Entry load list
-> will use the guest's value due to VM_ENTRY_MSR_LOAD_COUNT not covering the bad
-> host value.
-> 
-> Did you happen to run into problems when using PEBS events in the host?
+This series addresses critical bugs in the SiFive Platform DMA (PDMA)
+driver and adds support for the FU740 SoC.
 
-No, I just found it by reading the patch.
+The first three patches fix serious issues in the existing sf-pdma driver:
 
-> 
-> Regardless, do you want to send a patch?  Either way, I'll figure out a way to
-> verify the bug and the fix.
+1. Missing PDMA base offset (0x80000) in register calculations. While
+   the hardware provides an alias at offset 0x0, the driver should use
+   the canonical offset 0x80000 as documented in the specification to
+   ensure consistency and maintainability.
 
-Sure, will do.
+2. Race condition between done and error interrupts on SMP systems. Per
+   the FU540-C000 and FU740-C000 specs, both DONE and ERROR interrupt
+   bits are set simultaneously when a DMA error occurs, which can cause
+   concurrent execution of done_isr and err_isr on different CPUs,
+   leading to undefined behavior.
 
-Thanks,
-Namhyung
+3. NULL pointer dereferences in both error and done tasklets due to race
+   conditions during channel termination. Both tasklets unconditionally
+   dereference chan->desc, which can be NULL during legitimate scenarios
+   like sf_pdma_terminate_all() or when interrupts fire after channel
+   cleanup. The fix adds NULL checks in both tasklets, protected by
+   vchan.lock to ensure atomicity.
+
+These three fixes are tagged for stable as they address bugs present
+since the driver's introduction in commit 6973886ad58e ("dmaengine:
+sf-pdma: add platform DMA support for HiFive Unleashed A00").
+
+The last two patches add FU740 support:
+
+4. Add "sifive,fu740-c000-pdma" compatible string to the dt-bindings.
+
+5. Add PDMA device node to the FU740 device tree to enable DMA support.
+
+All patches have been tested on HiFive Unmatched (FU740-C000) hardware.
+
+Signed-off-by: Max Hsu <max.hsu@sifive.com>
+---
+Max Hsu (5):
+      dmaengine: sf-pdma: add missing PDMA base offset to register calculations
+      dmaengine: sf-pdma: fix race between done and error interrupts
+      dmaengine: sf-pdma: fix NULL pointer dereference in error and done handlers
+      dt-bindings: dma: sifive,fu540-c000-pdma: add fu740 support
+      riscv: dts: sifive: fu740: add PDMA device node
+
+ .../bindings/dma/sifive,fu540-c000-pdma.yaml       |  1 +
+ arch/riscv/boot/dts/sifive/fu740-c000.dtsi         |  9 ++++
+ drivers/dma/sf-pdma/sf-pdma.c                      | 63 +++++++++++++++++-----
+ drivers/dma/sf-pdma/sf-pdma.h                      |  4 +-
+ 4 files changed, 63 insertions(+), 14 deletions(-)
+---
+base-commit: 8bf22c33e7a172fbc72464f4cc484d23a6b412ba
+change-id: 20260111-pdma-0421b0e48a10
+
+Best regards,
+-- 
+Max Hsu <max.hsu@sifive.com>
 
 
 _______________________________________________
