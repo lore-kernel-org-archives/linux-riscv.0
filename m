@@ -4,61 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD32AC5AC80
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 15:56:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42FABC5ACD3
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 16:46:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Uw7hRIfVZ5IH5u/oZ231F92LYzS0iDC+fWgEwrwdxEY=; b=i16A5v05v1I3Zw
-	1O34wURDEaP37jXhdQMuBOxGZeFTlZnfbm4dNMkPajuEYLMtFHWD7MkGELLU5TF8o1vP1DaXVP22+
-	qV+tn6YeoUg0gQ9A6K72Kyoidm7QPKsY0206zjGcp6YYeJ6pbc41+88TTqGKZDMAo2UO2oDHtECQB
-	ZdySCST3k7xyl00wyn4WcDNT/DWYyk8BIKbf8uVWl6FfU1/QROrfIGWgAwkgONW46YuDAekUsIDZy
-	XeewR01n4LjXMRelldv89E0oZE9kEr5Zq2w6wdl95Tk8J4sNgFk90aFItmrhMd7sqqoCheiCnxcdP
-	FzZf1qKBpkYV8BcXL9Yw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=MOVxnw8kQMWnBchf7MEfesQtusJ8c7roJPVKtcFO+JE=; b=nO4Zz4mcsfgJy8B9MAhkGaVqOw
+	0syGhHisiCNTJqecfeWnxldvUKPbUqsPjStaNVYiTLsbV2DP0ggROfeQDK6wGW1GS5is89iD3OqXB
+	NEJ/R9eTvDKWG9GHgEyCjvLJ6slhWcBXYx8+Ag4DGN6e7NsUptlTu4MsV5iyrDPojqiKfC2MZmIq+
+	XR5lNWSlNLBjRtX3zRdL/TDxCBpX82/8TtV2IpctECyaVN/co/zrmZGh2+V/XtUIHqtcPslkb5V5Q
+	tKlDYM63Biu2Q6eh1SjSKFxws16b+pYMJBmoECilEktEfI8du2D/HUbYh3OMZsi4QpN7VEu6p9IBg
+	d9wHUjPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtSrv-0000000F84P-1x9I;
-	Fri, 20 Feb 2026 15:56:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vtTdw-0000000FJan-2Skb;
+	Fri, 20 Feb 2026 16:46:16 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtSru-0000000F83s-2wtZ
+	id 1vtTdr-0000000FJXk-2MDu
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Feb 2026 15:56:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 298F160134;
-	Fri, 20 Feb 2026 15:56:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F59FC116C6;
-	Fri, 20 Feb 2026 15:56:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771602997;
-	bh=lsJRWKysIL8aeyzSTgTOUKlJ13kiiXwHbXQJZUVl7co=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YN8fXPbbEFT+duqDNZltyflLcS5sX07jZD9MDDbhP256mhydzUF+UL2Vzun+TPVSO
-	 gyvqrA+EH+Oshf3MA6XV3JBLi3rEcPYg6anCj93/F/dlbi7XmQE5VRFaMy5I9v64Uo
-	 yAO8V29EBdtjCzd9nSX1L81VMw+UDB4Xypp6LaUgow1vlE5W9joXNXBsusk/ElJGpE
-	 5GrzvOvCWWAV1zXaM83j/jJK3AEGv6Tb4SUcl4I/fSMXAGx9jyrk5yiRX68ydH24Qg
-	 TBCogSBYXFLkSQH2aNoQyPh0TsPP/2R26vIiNs8zWxA7FYhyI3wkKzf0dJr80ukQ5q
-	 PcEiLY7uYDzIg==
-Date: Fri, 20 Feb 2026 23:38:03 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Kunwu Chan <kunwu.chan@linux.dev>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@rivosinc.com>, Zong Li <zong.li@sifive.com>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Zhouyi Zhou <zhouzhouyi@gmail.com>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND 0/2] riscv: fix minor typos and style issues in
- XIP code
-Message-ID: <aZh_25dtac8wDFNe@xhacker>
-References: <20260214023804.677127-1-kunwu.chan@linux.dev>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260214023804.677127-1-kunwu.chan@linux.dev>
+	Fri, 20 Feb 2026 16:46:14 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2aad6045810so23613035ad.3
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Feb 2026 08:46:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1771605969; x=1772210769; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=o2NjEt0nlzd3sSfAI7ozchxl45oY7orW7xyZnr6QEkg=;
+        b=LQWCe5f3XmIjbise9KGht1W67PR/CECsFeB06ivaU8xg/6Ei9A2Laj9muG9icO2Ph2
+         hco1N0hIBUr0T2N3411kodWqYhNE9LzX0mNJNth4Fuzn6ORR47sfVwX7Vp8SAwpDTCmx
+         mp79UittUckifmNYO66w1w9zDOs91ikLqYyKyfMwaiPYu3IMXH281+3Nl+bZt+QkexWu
+         27abSCCF68guKM5YQQoKXmzTY/wKlQ7C9Hk7IuWMsRXxSgZBxLYyYhykOpa/WfrX7SaQ
+         afU+6Pr/9pDtC0q0I+zFh9pftuR2nWU2SMDxsbR2SUifWrJ0HLW+un8XQqAXydsyNxjk
+         1Kgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771605969; x=1772210769;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=o2NjEt0nlzd3sSfAI7ozchxl45oY7orW7xyZnr6QEkg=;
+        b=VpMSGgPrZPnVviJhaR0sr0N4sksYo/cv3NZWaIKoegLJehrBFnyK7MsDsgnv0gs9Vi
+         186CqC2eY4/fnOrcivWUNrGoVJm/LTSSHQkhKJlD8DXGYTlJ7NPeDaKHNVUlXQVcNil/
+         P4euP8LpVHl8Vmw7TO04As9vRMmr/8ehWvZH0l4kHhvGpApeAymjzsF4q0E6O2ri9PtD
+         kcVXo7ip06AOP8opGpQMzvRds7AQCjFdh0SNOfeZbyMr5OkBNOO3/KqpxwVv4ciFZD89
+         LXTvn7BAS8S7PH0z+aw+JsjdT9I3DFkB7mBCT/zjQ9SrMPO0PljmfBvfYbLnNb8HAIvQ
+         AvXA==
+X-Forwarded-Encrypted: i=1; AJvYcCWWAXpaduq3cFFR1HcTiRoU6vkNZN30wMb+N1p7XMdkxhrarCI/kMhiPzcePO4PCXehoYXbhiXLSifS3Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyO/DIveJOhokQx5Obouucm6M+2gBCz1CceiQO3CGQbjVUfG2xS
+	XHUYrydpPol6Y2wFQP5nUgBVQhmxkffpEmelbdFqGS8k9s5SuBVKoSC4ueCpX9wTQgKTlJ5X0Up
+	70GtqWw==
+X-Received: from plma6.prod.google.com ([2002:a17:902:7d86:b0:2a9:622c:47d6])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e80c:b0:2a1:388d:8ef3
+ with SMTP id d9443c01a7336-2ad7444e7fcmr1749985ad.18.1771605969111; Fri, 20
+ Feb 2026 08:46:09 -0800 (PST)
+Date: Fri, 20 Feb 2026 08:46:07 -0800
+In-Reply-To: <aZdlBkLEQyv9q5ll@google.com>
+Mime-Version: 1.0
+References: <20251206001720.468579-1-seanjc@google.com> <20251206001720.468579-43-seanjc@google.com>
+ <aZdlBkLEQyv9q5ll@google.com>
+Message-ID: <aZe6UR1EGg0RcB69@google.com>
+Subject: Re: [PATCH v6 42/44] KVM: VMX: Dedup code for adding MSR to VMCS's
+ auto list
+From: Sean Christopherson <seanjc@google.com>
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, Mingwei Zhang <mizhang@google.com>, 
+	Xudong Hao <xudong.hao@intel.com>, Sandipan Das <sandipan.das@amd.com>, 
+	Dapeng Mi <dapeng1.mi@linux.intel.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
+	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260220_084611_652624_7F0D9924 
+X-CRM114-Status: GOOD (  23.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,39 +103,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 14, 2026 at 10:38:02AM +0800, Kunwu Chan wrote:
-> Fix a few minor issues found in riscv XIP-related code:
+On Thu, Feb 19, 2026, Namhyung Kim wrote:
+> Hello,
+> 
+> On Fri, Dec 05, 2025 at 04:17:18PM -0800, Sean Christopherson wrote:
+> > Add a helper to add an MSR to a VMCS's "auto" list to deduplicate the code
+> > in add_atomic_switch_msr(), and so that the functionality can be used in
+> > the future for managing the MSR auto-store list.
+> > 
+> > No functional change intended.
+> > 
+> > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > ---
+> >  arch/x86/kvm/vmx/vmx.c | 41 +++++++++++++++++++----------------------
+> >  1 file changed, 19 insertions(+), 22 deletions(-)
+> > 
+> > diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+> > index 018e01daab68..3f64d4b1b19c 100644
+> > --- a/arch/x86/kvm/vmx/vmx.c
+> > +++ b/arch/x86/kvm/vmx/vmx.c
+> > @@ -1093,12 +1093,28 @@ static __always_inline void add_atomic_switch_msr_special(struct vcpu_vmx *vmx,
+> >  	vm_exit_controls_setbit(vmx, exit);
+> >  }
+> >  
+> > +static void vmx_add_auto_msr(struct vmx_msrs *m, u32 msr, u64 value,
+> > +			     unsigned long vmcs_count_field, struct kvm *kvm)
+> > +{
+> > +	int i;
+> > +
+> > +	i = vmx_find_loadstore_msr_slot(m, msr);
+> > +	if (i < 0) {
+> > +		if (KVM_BUG_ON(m->nr == MAX_NR_LOADSTORE_MSRS, kvm))
+> > +			return;
+> > +
+> > +		i = m->nr++;
+> > +		m->val[i].index = msr;
+> > +		vmcs_write32(vmcs_count_field, m->nr);
+> > +	}
+> > +	m->val[i].value = value;
+> > +}
+> > +
+> >  static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
+> >  				  u64 guest_val, u64 host_val)
+> >  {
+> >  	struct msr_autoload *m = &vmx->msr_autoload;
+> >  	struct kvm *kvm = vmx->vcpu.kvm;
+> > -	int i;
+> >  
+> >  	switch (msr) {
+> >  	case MSR_EFER:
+> > @@ -1132,27 +1148,8 @@ static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
+> >  		wrmsrq(MSR_IA32_PEBS_ENABLE, 0);
+> >  	}
+> >  
+> > -	i = vmx_find_loadstore_msr_slot(&m->guest, msr);
+> > -	if (i < 0) {
+> > -		if (KVM_BUG_ON(m->guest.nr == MAX_NR_LOADSTORE_MSRS, kvm))
+> > -			return;
+> > -
+> > -		i = m->guest.nr++;
+> > -		m->guest.val[i].index = msr;
+> > -		vmcs_write32(VM_ENTRY_MSR_LOAD_COUNT, m->guest.nr);
+> > -	}
+> > -	m->guest.val[i].value = guest_val;
+> > -
+> > -	i = vmx_find_loadstore_msr_slot(&m->host, msr);
+> > -	if (i < 0) {
+> > -		if (KVM_BUG_ON(m->host.nr == MAX_NR_LOADSTORE_MSRS, kvm))
+> > -			return;
+> > -
+> > -		i = m->host.nr++;
+> > -		m->host.val[i].index = msr;
+> > -		vmcs_write32(VM_EXIT_MSR_LOAD_COUNT, m->host.nr);
+> > -	}
+> > -	m->host.val[i].value = host_val;
+> > +	vmx_add_auto_msr(&m->guest, msr, guest_val, VM_ENTRY_MSR_LOAD_COUNT, kvm);
+> > +	vmx_add_auto_msr(&m->guest, msr, host_val, VM_EXIT_MSR_LOAD_COUNT, kvm);
+> 
+> Shouldn't it be &m->host for the host_val?
 
-'RESEND' isn't expected to be used as you did in this series.
-You sent the v1 series on Feb 14, only 4 days ago, the series doesn't
-miss any dev window.
-https://lore.kernel.org/linux-riscv/8ee1b065-b021-411b-b5ee-22c4a108cbce@linux.dev/T/#t
+Ouch.  Yes.  How on earth did this escape testing...  Ah, because in practice
+only MSR_IA32_PEBS_ENABLE goes through the load lists, and the VM-Entry load list
+will use the guest's value due to VM_ENTRY_MSR_LOAD_COUNT not covering the bad
+host value.
 
-> 
-> - xip_fixup.h: comment typo (_start vs _sdata) and spaces-vs-tab
-> - head.S: spelling typo and wrong #endif comment
+Did you happen to run into problems when using PEBS events in the host?
 
-I'm sorry, but how important is fixing comment/spelling typo or #endif
-comment among maintainship? The riscv XIP code doesn't stand on itself,
-but heavily affects and is affected by other riscv arch common code.
-
-> 
-> Kunwu Chan (2):
->   riscv: xip_fixup.h: fix comment typo and whitespace issue
->   riscv: head.S: fix typo and wrong #endif comment
-> 
->  arch/riscv/include/asm/xip_fixup.h | 4 ++--
->  arch/riscv/kernel/head.S           | 4 ++--
->  2 files changed, 4 insertions(+), 4 deletions(-)
-> 
-> -- 
-> 2.25.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Regardless, do you want to send a patch?  Either way, I'll figure out a way to
+verify the bug and the fix.
 
 _______________________________________________
 linux-riscv mailing list
