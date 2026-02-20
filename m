@@ -4,71 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E023C55ABF
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 13:14:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA8ECC54FD2
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 13:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WpfsdmlO5zqZ/eewEOd4S3JGpmBIKlBz30qPEus42iw=; b=johePSQ6AzXHjh
-	bGsjMyM0/DEbYdFhnV/ewUvGlRvvwlPtCrxleOJJxLDgbFp2Yo+mZqFqySMZQu8DzDgN2h0g1aWgF
-	lRcAYYoxAWxGiFFIKuWQ6WgqZdCYqAVBpLfy9uKLUwt69S2rq7jh/a0DgzcaiKfoXjACZ6819/7gs
-	8LoB4kqiFdQvKwrGeRr3C4jjQYj3GrlXpuBs8SiYFPGDLop8zvJalcTftHYvmpBE84VlGOVBxJVtt
-	dtCEtMSNT2VYr0Ti5SgLWWiOjJDNr0lyK/arzWZp5laIlym4TXr4PqQz9u313W7ldCnaSj6cVZMe+
-	lv5L8JPBMVHjHClc+7aA==;
+	List-Owner; bh=oHgfz5JJ95jZwUXZ2u74kXjVe5QyP40bf+dOxEt0/ns=; b=AdK+GQ02Z6fhxW
+	+jyrKQ1+HfKw+Au7xzKCH2DhCi8cFi2F/ECJL9+HG7TR8SLw2cjOLUqM4UCIHGk3OldWa47ARfecI
+	ly+Sx/ixPxetBhtlUgXCZdy1OLNUwtIk23+TmG17SAzJbaU5HO6jsAPhmz/ZmhHpN7jx0SO1OezJ2
+	BGzAqDn0eLllcvzShvJKr4rJEDg7jnBDkjG7oLbL5F6CeywKbnIj7cRjFA4Y+usvd7RKCTBJ0AxkS
+	jmEWXuwRGmBZwvvax8QcDBHrUH7RY/nUP90lqg9ddCrE7F5LO9PAQTiK9POPnvtzAtjPPySy9fcKj
+	bY+zic5728xhmKQCtC7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtQKN-0000000EWgv-2deS;
-	Fri, 20 Feb 2026 13:13:51 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vtQer-0000000EYBx-44d7;
+	Fri, 20 Feb 2026 13:35:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtQKK-0000000EWga-0eEQ
-	for linux-riscv@lists.infradead.org;
-	Fri, 20 Feb 2026 13:13:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=63PZ5ikUAAIUS3H+LncoEFZzYKIrjKtt3if4XIt6msc=; b=0CuWvvNpbCYIP7ytGRFlaGjNy9
-	7Li+Do5DI9p9LJ1rh9vWN7+ON6VDwnZ8sV6WUOk2CQ1jgRULJlNFRmLgtQxcJVHUXY0LGqU9+u3oo
-	/0tEbSMWJ+xOaBkGWDBhHukhLN2/awYRgH+eDEl6t8hYK5DjyOiBqBcpClVQQYEZkp9Q=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vtQK5-0084O8-IN; Fri, 20 Feb 2026 14:13:33 +0100
-Date: Fri, 20 Feb 2026 14:13:33 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Max Hsu <max.hsu@sifive.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Thomas Gleixner <tglx@kernel.org>,
+	id 1vtQeq-0000000EYB8-25xS;
+	Fri, 20 Feb 2026 13:35:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F09936185C;
+	Fri, 20 Feb 2026 13:34:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B66FEC116D0;
+	Fri, 20 Feb 2026 13:34:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771594497;
+	bh=AcCgdl1ixmtQCKW0/E72Mc6cyQFcgDdc8WvDb3uwuew=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=P75Q2c6r3045iw1qXNVWll6dfE9z92DkfnF7/GQdhlsAvUcHHRby/XOWiKlOpA70k
+	 nMAGbpAi73Nw4WIw9EuAG0w081KlV5yO/GZoiBCSkzjEbzOqw5Vr4y8bR7H9oW7BI9
+	 1Ph4VkkNc7Ph6BYRG7e8K0+7wTdpLR7T4/kv4tfPDnftd2nI+Yu+vXKk7XoIWNq7Ge
+	 Un3qnFIHfFohYIAhryx9s+VIvkVNFTnSZ2PQIgZV+M/DqD7yL7R0E/Np52C3/fZlI7
+	 uuuJgGfu0/swResjGHugnhC9kqi/fM8Nh7BXXefNHsWcou8POYr1KYcmWfSTj9NOVF
+	 2fvSTA1lVoOSg==
+Date: Fri, 20 Feb 2026 21:16:24 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Conor Dooley <conor@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH 3/5] net: macb: Add support for SiFive FU740-C000
-Message-ID: <45821cd4-214c-43c0-ab2d-bbf34d9ec911@lunn.ch>
-References: <20260220-fu740-v1-0-c8af54130c58@sifive.com>
- <20260220-fu740-v1-3-c8af54130c58@sifive.com>
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Guo Ren <guoren@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
+Subject: Re: [PATCH 3/3] arm64: use runtime constant to optimize
+ handle_arch_irq access
+Message-ID: <aZheqINXslxlrmTt@xhacker>
+References: <20260220090922.1506-1-jszhang@kernel.org>
+ <20260220090922.1506-4-jszhang@kernel.org>
+ <20260220123414.GF136967@e132581.arm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260220-fu740-v1-3-c8af54130c58@sifive.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_051349_877262_A2720C34 
-X-CRM114-Status: UNSURE (   8.01  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260220123414.GF136967@e132581.arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,24 +77,278 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 20, 2026 at 04:27:07PM +0800, Max Hsu wrote:
-> Add a distinct configuration for the SiFive FU740-C000 ethernet
-> controller to comply with the SiFive IP versioning guidelines.
+On Fri, Feb 20, 2026 at 12:34:14PM +0000, Leo Yan wrote:
+> Hi Jisheng,
 
-We are in the merge window at the moment, so net-next is closed.
+Hi Leo,
 
-As requested, please reword the commit messages to replace the SiFive
-guidelines with the generic DT guidelines. And repost when net-next
-reopens.
+> 
+> On Fri, Feb 20, 2026 at 05:09:22PM +0800, Jisheng Zhang wrote:
+> > Currently, on arm64 platforms, the handle_arch_irq is a pointer which
+> > is set during booting, and every irq processing needs to access it,
+> > so it sits in hot code path. We can use the runtime constant mechanism
+> > which was introduced by Linus to speed up its accessing.
+> > 
+> > Tested on Quad CA55 platform, the perf sched benchmark is improved
+> > by ~6.5%
+> 
+> 6.5% is a quite high margin, especially for only one pointer's change.
+> Maybe it is good to share more info for which compiler you are using,
+> how you tested and the detailed results.
 
-https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
+Sure. 
+aarch64-linux-gnu-gcc version 15.2.0
 
-The Subject line also needs to indicate which tree this is for.
+my kernel defconfig is a minimal arm64 version which disables most
+drivers, only keep timer, gic, pll/clk, uart, regulator and i2c controller
+The reason is to avoid OS noise as much as possible.
+It's also put at the end of the email for reference.
 
-    Andrew
+testing cmd:
+perf bench sched pipe
 
----
-pw-bot: cr
+testing steps:
+booting into a buildroot minimal initramfs
+force cpufreq governor as performance
+run above cmd
+
+testing resuls:
+before the patch:
+9.471988 usecs/op
+  105574 ops/sec
+
+after the patch:
+8.896280 usecs/op
+  112406 ops/sec
+
+(112406 - 105574) * 100 / 105574 = ~6.5 %
+
+Let me know if you need more details
+
+
+> 
+> I played a bit on my juno board on CA73 cores with the command:
+
+IIRC, Juno is powered by a big.little SoC, then we need to ensure
+the benchmark is always running on big or little cores when testing, to
+ensure apple to apple comparison.
+
+I also have a CA73 platform, but can't access it now. I'll test the
+patch next week.
+> 
+>   perf bench sched all
+> 
+> Run 3 iterations, and measures three metrics (messaging/pipe/seccomp)
+> and results in seconds. Less is better.
+> 
+>   +---------------------+--------+--------+--------+--------+
+>   |Without change       |   run1 |   run2 |   run3 |    avg |
+>   +---------------------+--------+--------+--------+--------+
+>   |messaging (sec)      |  4.546 |  4.508 |  4.591 |  4.548 |
+>   |pipe (sec)           | 24.258 | 24.224 | 24.017 | 24.166 |
+>   |seccomp-notify (sec) | 48.393 | 48.457 | 48.232 | 48.361 |
+>   +---------------------+--------+--------+--------+--------+
+> 
+>   +---------------------+--------+--------+--------+--------+--------+
+>   |With change          |   run1 |   run2 |   run3 |    avg |   diff |
+>   +---------------------+--------+--------+--------+--------+--------+
+>   |messaging (sec)      |  4.493 |  4.523 |  4.556 |  4.524 | +0.52% |
+>   |pipe (sec)           | 23.159 | 23.702 | 28.649 | 25.170 | -4.15% |
+
+If you check the result, this result variance is abnormal, it means
+your OS is noiser.
+
+>   |seccomp-notify (sec) | 46.848 | 46.938 | 46.973 | 46.920 | +2.98% |
+>   +---------------------+--------+--------+--------+--------+--------+
+> 
+> With this patch, the messaging test shows a minor improvement (0.52%).
+> 
+> The pipe test performs worse (-4.15%) after applying the patch. However,
+> one positive signal is that the minimum latency is 23.159, which is
+> lower than without the change (24.017).
+
+The perf bench is sensitive to OS noise, so I disable most devices, only
+uart, timer, irq chip, i2c and regulator is kept,  and stop all daemons
+only keep a usespace process bash shell.
+
+defconfig for reference:
+
+# CONFIG_LOCALVERSION_AUTO is not set
+CONFIG_SYSVIPC=y
+CONFIG_NO_HZ_IDLE=y
+CONFIG_HIGH_RES_TIMERS=y
+CONFIG_PREEMPT=y
+# CONFIG_CPU_ISOLATION is not set
+CONFIG_BLK_DEV_INITRD=y
+# CONFIG_RD_GZIP is not set
+# CONFIG_RD_BZIP2 is not set
+# CONFIG_RD_LZMA is not set
+# CONFIG_RD_XZ is not set
+# CONFIG_RD_LZO is not set
+# CONFIG_RD_LZ4 is not set
+# CONFIG_INITRAMFS_PRESERVE_MTIME is not set
+CONFIG_EXPERT=y
+# CONFIG_UID16 is not set
+# CONFIG_SYSFS_SYSCALL is not set
+CONFIG_PROFILING=y
+CONFIG_ARCH_BERLIN=y
+# CONFIG_ARM64_ERRATUM_826319 is not set
+# CONFIG_ARM64_ERRATUM_827319 is not set
+# CONFIG_ARM64_ERRATUM_824069 is not set
+# CONFIG_ARM64_ERRATUM_819472 is not set
+# CONFIG_ARM64_ERRATUM_832075 is not set
+# CONFIG_ARM64_ERRATUM_845719 is not set
+# CONFIG_ARM64_ERRATUM_843419 is not set
+# CONFIG_ARM64_ERRATUM_1418040 is not set
+# CONFIG_ARM64_ERRATUM_1165522 is not set
+# CONFIG_ARM64_ERRATUM_1463225 is not set
+# CONFIG_CAVIUM_ERRATUM_22375 is not set
+# CONFIG_CAVIUM_ERRATUM_23154 is not set
+# CONFIG_CAVIUM_ERRATUM_27456 is not set
+# CONFIG_CAVIUM_ERRATUM_30115 is not set
+# CONFIG_CAVIUM_TX2_ERRATUM_219 is not set
+# CONFIG_FUJITSU_ERRATUM_010001 is not set
+# CONFIG_HISILICON_ERRATUM_161600802 is not set
+# CONFIG_QCOM_FALKOR_ERRATUM_1003 is not set
+# CONFIG_QCOM_FALKOR_ERRATUM_1009 is not set
+# CONFIG_QCOM_QDF2400_ERRATUM_0065 is not set
+# CONFIG_QCOM_FALKOR_ERRATUM_E1041 is not set
+# CONFIG_SOCIONEXT_SYNQUACER_PREITS is not set
+CONFIG_NR_CPUS=4
+CONFIG_HOTPLUG_CPU=y
+CONFIG_HZ_100=y
+# CONFIG_UNMAP_KERNEL_AT_EL0 is not set
+CONFIG_COMPAT=y
+CONFIG_ARMV8_DEPRECATED=y
+CONFIG_SWP_EMULATION=y
+CONFIG_CP15_BARRIER_EMULATION=y
+CONFIG_SETEND_EMULATION=y
+# CONFIG_ARM64_HW_AFDBM is not set
+# CONFIG_ARM64_PTR_AUTH is not set
+# CONFIG_ARM64_AMU_EXTN is not set
+# CONFIG_ARM64_SVE is not set
+# CONFIG_EFI is not set
+# CONFIG_SUSPEND is not set
+CONFIG_CPU_IDLE=y
+CONFIG_CPU_IDLE_GOV_TEO=y
+CONFIG_ARM_PSCI_CPUIDLE=y
+CONFIG_CPU_FREQ=y
+CONFIG_CPU_FREQ_GOV_USERSPACE=y
+CONFIG_CPUFREQ_DT=y
+CONFIG_JUMP_LABEL=y
+# CONFIG_VMAP_STACK is not set
+# CONFIG_BLOCK is not set
+# CONFIG_COMPAT_BRK is not set
+# CONFIG_COMPACTION is not set
+CONFIG_CMA=y
+# CONFIG_ZONE_DMA32 is not set
+# CONFIG_VM_EVENT_COUNTERS is not set
+CONFIG_SYNA_DOLPHIN_PLL=y
+CONFIG_SYNA_CLK_BASE=y
+CONFIG_SYNA_MYNA2_CLK=y
+CONFIG_PINCTRL_MYNA2=y
+CONFIG_USB_DWC3_SYNA=y
+# CONFIG_SYNAPTICS_PCIE is not set
+CONFIG_REGULATOR_HL7593=y
+CONFIG_PHY_SYNA_USB=y
+# CONFIG_SYNAPTICS_I2C is not set
+CONFIG_BERLIN_CHIPID=y
+CONFIG_BERLIN_AXI_METER=y
+# CONFIG_SYNAPTICS_NET is not set
+# CONFIG_SYNAPTICS_VIDEO is not set
+# CONFIG_SYNAPTICS_SOUND is not set
+# CONFIG_SYNAPTICS_DEVFREQ is not set
+# CONFIG_SYNAPTICS_DMABUF is not set
+# CONFIG_SYNAPTICS_IRQCHIP is not set
+# CONFIG_SYNAPTICS_INPUT is not set
+# CONFIG_SYNAPTICS_BLUETOOTH is not set
+# CONFIG_SYNAPTICS_CLOCKSOURCE is not set
+# CONFIG_SYNAPTICS_DMA is not set
+# CONFIG_SYNAPTICS_TTY is not set
+# CONFIG_SYNAPTICS_LEDS is not set
+# CONFIG_SYNAPTICS_MFD is not set
+# CONFIG_SYNAPTICS_MISC is not set
+# CONFIG_SYNAPTICS_MTD is not set
+# CONFIG_SYNAPTICS_PWM is not set
+# CONFIG_SYNAPTICS_RTC is not set
+# CONFIG_SYNAPTICS_SPI is not set
+# CONFIG_SYNAPTICS_STAGING is not set
+# CONFIG_SYNAPTICS_WATCHDOG is not set
+# CONFIG_SYNAPTICS_MAILBOX is not set
+# CONFIG_SYNAPTICS_RPMSG is not set
+# CONFIG_SYNAPTICS_CRYPTO is not set
+CONFIG_UEVENT_HELPER=y
+CONFIG_DEVTMPFS=y
+CONFIG_DEVTMPFS_MOUNT=y
+# CONFIG_ALLOW_DEV_COREDUMP is not set
+CONFIG_INPUT_EVDEV=y
+# CONFIG_INPUT_KEYBOARD is not set
+# CONFIG_INPUT_MOUSE is not set
+# CONFIG_SERIO is not set
+# CONFIG_VT is not set
+# CONFIG_LEGACY_PTYS is not set
+# CONFIG_LEGACY_TIOCSTI is not set
+CONFIG_SERIAL_8250=y
+# CONFIG_SERIAL_8250_DEPRECATED_OPTIONS is not set
+CONFIG_SERIAL_8250_CONSOLE=y
+CONFIG_SERIAL_8250_NR_UARTS=2
+CONFIG_SERIAL_8250_RUNTIME_UARTS=2
+CONFIG_SERIAL_8250_DW=y
+# CONFIG_HW_RANDOM is not set
+# CONFIG_DEVPORT is not set
+CONFIG_I2C=y
+CONFIG_I2C_CHARDEV=y
+CONFIG_I2C_DESIGNWARE_CORE=y
+CONFIG_GPIO_SYSFS=y
+CONFIG_GPIO_DWAPB=y
+CONFIG_GPIO_FXL6408=y
+# CONFIG_HWMON is not set
+CONFIG_MFD_SYSCON=y
+CONFIG_REGULATOR=y
+CONFIG_REGULATOR_FIXED_VOLTAGE=y
+CONFIG_REGULATOR_GPIO=y
+CONFIG_REGULATOR_TPS6286X=y
+# CONFIG_HID_SUPPORT is not set
+# CONFIG_USB_SUPPORT is not set
+CONFIG_DMABUF_HEAPS=y
+CONFIG_DMABUF_SYSFS_STATS=y
+CONFIG_DMABUF_HEAPS_CMA=y
+# CONFIG_VIRTIO_MENU is not set
+# CONFIG_VHOST_MENU is not set
+# CONFIG_SURFACE_PLATFORMS is not set
+# CONFIG_ARM64_PLATFORM_DEVICES is not set
+# CONFIG_ARM_ARCH_TIMER_EVTSTREAM is not set
+# CONFIG_FSL_ERRATUM_A008585 is not set
+# CONFIG_HISILICON_ERRATUM_161010101 is not set
+# CONFIG_ARM64_ERRATUM_858921 is not set
+# CONFIG_IOMMU_SUPPORT is not set
+CONFIG_RESET_CONTROLLER=y
+# CONFIG_DNOTIFY is not set
+# CONFIG_PROC_PAGE_MONITOR is not set
+CONFIG_TMPFS=y
+CONFIG_CONFIGFS_FS=y
+# CONFIG_MISC_FILESYSTEMS is not set
+CONFIG_DMA_CMA=y
+CONFIG_PRINTK_TIME=y
+# CONFIG_SECTION_MISMATCH_WARN_ONLY is not set
+CONFIG_DEBUG_FS=y
+# CONFIG_SLUB_DEBUG is not set
+CONFIG_SOFTLOCKUP_DETECTOR=y
+CONFIG_DEBUG_ATOMIC_SLEEP=y
+CONFIG_STACKTRACE=y
+# CONFIG_RCU_TRACE is not set
+# CONFIG_FTRACE is not set
+# CONFIG_STRICT_DEVMEM is not set
+# CONFIG_RUNTIME_TESTING_MENU is not set
+> 
+> For seccomp, the results indicate a benefit (2.98%) from the change.
+> 
+> Hope this is helpful for maintainers to judge the change.
+> 
+> I'd leave maintainers to review the code.
+> 
+> Thanks,
+> Leo
 
 _______________________________________________
 linux-riscv mailing list
