@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9628FC5CFEB
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 22:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AEEAC5ACC0
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 22:33:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ql3hYKXAAr2U1CHissmh/0YJvcZhEJGM+DYdW6uX95s=; b=YO/3bXyOCwCrk2rhZpqAvbiXYA
-	E4uQqaG7VOOy5ePTA3vqpf4AphfEKaorDBHtvKRIx8GmPyYioWi44337bLlRnctFGngzv3BQY6EQG
-	czruhMourFCOwL+oH89w11uX+Tr38XoIUnplLJhRHeE/zaGB8mWpEQ6ryewKp0nZ1sT5FXvxl73Z0
-	8S4YhgkRyFu1QqRQZF7soikEgbueVvmNKKmoMFTar97LO1Slz9EF9gbwARzYPc0PyvrD2dqAb3QdS
-	cQQQyyV8uInVs28lHEXRyJ/9LVUz+m6a0GO5Onh+X92jCwv5oRxZ+aRV/KeUio/IyFSSTJ/oetZkH
-	1wvfAw3Q==;
+	bh=CacDm8iWjdJPomAkSB1M8SXMx6dQkICRV0HfFqlu9/k=; b=WYImebWd9TeycV8zkQW/byk2d2
+	x+nVfwLhOURs3ZBHmSxYAFcbnQxOuZYJwIWUXjIvqavTOLKT4iInShFIJTG6lQUKIwgsD0M1qMJ3c
+	lINietrXdXXScrDeP1sZoutEtj4mB66jwkPWwrVk06b+62NWHh82Yb2IwF+0CUxbGP8Ki/ON3kRPp
+	gePlXrj0kUa4KLOOStMQTL1xrvwkShyR4zg05Vn5318NIzkojsJawrqPGWr5itXvmIA4pMZIGl8zD
+	zZ7Rrejpws/bKFeZfxmdxcHaC9IhZ040WzF7q9c1fukc7lJBSkDNJQ/uL+tJNhj9YfYxwAf5BRE7f
+	i1j/udKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtZ08-0000000Fezo-1u3B;
-	Fri, 20 Feb 2026 22:29:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vtZ41-0000000FfBT-0Hbx;
+	Fri, 20 Feb 2026 22:33:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtZ07-0000000FezZ-1fap
+	id 1vtZ3z-0000000FfBN-3fUH
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Feb 2026 22:29:31 +0000
+	Fri, 20 Feb 2026 22:33:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D25EE60123;
-	Fri, 20 Feb 2026 22:29:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 341BBC116C6;
-	Fri, 20 Feb 2026 22:28:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ECC5060123;
+	Fri, 20 Feb 2026 22:33:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A792BC116C6;
+	Fri, 20 Feb 2026 22:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771626540;
-	bh=11otB+0C7jYVhaDxWBeram0e1X5fMU/f0Ln1ESpvEjs=;
+	s=k20201202; t=1771626810;
+	bh=G9PuysDIOK/utZRbimCSxhU/vbP4rAjGxg+IEV+ae54=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z3h/4uFOa/J5BG0X4/6yM6a07SKXwLgiBv+QCvuuyf2FmME4xpAKnWETPBeSX/xed
-	 UrSmCDomq8BlunEIKGC+u3se+LW/r9nxhn9ivo4onmKVsa5D9rO3QgBa0ixs0+7qdJ
-	 XKwz382H/4jfyu3ojeABxVz6NKAQ+wXWUfdixU99s64YWJVn4YPqUp3sJ8pWjOQStI
-	 n+9gmFJLQE070EdcdUR7Cvdwpl0kLgZ1kUAIwRFUnA2pwjwxXCspPWiXYP8KynT5SG
-	 hwOxgyRsL5+MWR4N8IsD/t8R+d+R/LijnQDWuKKQ6hzivoKgxBiAlRKuuSdQxA9KYr
-	 xHojA/+IIQ1HA==
-Date: Fri, 20 Feb 2026 22:28:54 +0000
+	b=SNXx+2cPe2NT7jVmcXy7HE3rBU8gwmDxq6hL5mJOFf02N4LMXhG1I18E9a/bDBo95
+	 bAJraTFMNy6JFmPIPfqhegVu1VGFhNE2uSGy55whYy+FUwAoN5DewVQyGoDpuOhobf
+	 NFa2rAV4bDOUAvjlRUTrjN7Nku+/Y60InifvB2G4kLa15yfaqv1cbAowVl0KDPzxpd
+	 1S2NqywtjlmmBwP3q6HCNJzF0BXLIX9WBZdS+5o0c/yOsaIWeMgCWdEy61WpIHoUG5
+	 Z86BcMyrkXz1EE9ram94kvly2XqDkzL6Ry0uy8W/82ZixMUrF8iNARRjT6ndArXMDH
+	 pDvQDdqyzrLIA==
+Date: Fri, 20 Feb 2026 22:33:24 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Max Hsu <max.hsu@sifive.com>
-Cc: Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Green Wan <green.wan@sifive.com>, Rob Herring <robh@kernel.org>,
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Debbelt <palmer@sifive.com>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Thomas Gleixner <tglx@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 4/5] dt-bindings: dma: sifive,fu540-c000-pdma: add fu740
- support
-Message-ID: <20260220-gonad-plutonium-60e1baddecec@spud>
-References: <20260221-pdma-v1-0-838d929c2326@sifive.com>
- <20260221-pdma-v1-4-838d929c2326@sifive.com>
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [PATCH 2/5] dt-bindings: interrupt-controller: Add SiFive
+ FU740-C000 PLIC
+Message-ID: <20260220-outdoors-shortwave-1d96b888d6c2@spud>
+References: <20260220-fu740-v1-0-c8af54130c58@sifive.com>
+ <20260220-fu740-v1-2-c8af54130c58@sifive.com>
+ <20260220-contest-ambiguity-1a4099520bdf@spud>
+ <CAHibDyy1mA2s9_UjKGPemRaKNSvyq07Ok5+4yruQ1uXX+R-Pkg@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20260221-pdma-v1-4-838d929c2326@sifive.com>
+In-Reply-To: <CAHibDyy1mA2s9_UjKGPemRaKNSvyq07Ok5+4yruQ1uXX+R-Pkg@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,73 +81,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2411147909744912250=="
+Content-Type: multipart/mixed; boundary="===============1351006555236416630=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2411147909744912250==
+--===============1351006555236416630==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="4diucl4xuCXo0x14"
+	protocol="application/pgp-signature"; boundary="1+7JBjJXa3ddPAxb"
 Content-Disposition: inline
 
 
---4diucl4xuCXo0x14
+--1+7JBjJXa3ddPAxb
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Sat, Feb 21, 2026 at 03:43:56AM +0800, Max Hsu wrote:
-> Add "sifive,fu740-c000-pdma" compatible string.
+On Sat, Feb 21, 2026 at 02:49:19AM +0800, Max Hsu wrote:
+> On Fri, Feb 20, 2026 at 09:23:18 +0000, Conor Dooley wrote:
+> > So do the general rules for devicetree bindings, that's not something
+> > SiFive specific FWIW.
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
 >=20
-> Signed-off-by: Max Hsu <max.hsu@sifive.com>
-> ---
->  Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml | 1 +
->  1 file changed, 1 insertion(+)
+> Thanks for the review and the ack, Conor.
 >=20
-> diff --git a/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma=
-=2Eyaml b/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
-> index 609e38901434..b6c49060bc6f 100644
-> --- a/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
-> +++ b/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
-> @@ -36,6 +36,7 @@ properties:
->            - enum:
->                - microchip,mpfs-pdma
->                - sifive,fu540-c000-pdma
-> +              - sifive,fu740-c000-pdma
+> I'll update the commit message in v2 to reference the general device
+> tree conventions.
 
-Based on the driver change and related discussion, I'm not sure that
-this is the correct change to make.
-This shouldn't be applied til the discussion on the driver is figured
-out.
+It's fine as-is, was just pointing out that this is a general guideline.
+The SiFive document is mostly about the naming of the fallback
+compatibles etc that represent the IP core, rather than the soc-specific
+part.
 
-Cheers,
-Conor.
-pw-bot: not-applicable
-
->            - const: sifive,pdma0
->      description:
->        Should be "sifive,<chip>-pdma" and "sifive,pdma<version>".
->=20
-> --=20
-> 2.43.0
->=20
-
---4diucl4xuCXo0x14
+--1+7JBjJXa3ddPAxb
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaZjgJgAKCRB4tDGHoIJi
-0sF9AP46m1QKgFzFZtWRE8BffzPh9vx1iQM4ymKZBIOR3oErdQD/QJsiq/QotQMJ
-wEpnHgIGg5SaNrX+xWsBYxthqnvQ9gE=
-=Ni+J
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaZjhNAAKCRB4tDGHoIJi
+0iSNAP9hJhb7PGWy2jnnfpHwcJa19CkzkGwxwor9OoYtlCtP7AEAwzDYTk1Mm1E8
+1RRVikALQOU4P5c2hFz7flV/0fZGfws=
+=WXTM
 -----END PGP SIGNATURE-----
 
---4diucl4xuCXo0x14--
+--1+7JBjJXa3ddPAxb--
 
 
---===============2411147909744912250==
+--===============1351006555236416630==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -153,5 +138,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2411147909744912250==--
+--===============1351006555236416630==--
 
