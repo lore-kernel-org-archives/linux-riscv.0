@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61778C531E4
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 04:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C8EFC53209
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 04:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rSQ/aRY4LzBLS7CdJQ6LfB7E1LriJ7HG19vzYvypMW8=; b=w/mYiasGaNPJ2v
-	vUSgk2QQX1Y1Rarl6K9JI0ORwJObt1P/Y3JZHKHfVVbr6/Em2345b2VaZjXbOeMTmpMezSAY6wY8D
-	3qonsPT2BrUQV2nvfGkVExQo37wx7DkbIuTXCiFyQcBW/kuUEIckhnSDAY1DUdQPGLpno+VznAaYR
-	xK3wlJbrBTcmM+4zI4TePR4Bvp9+KtijGou/Usufy3MkUf15WGomtUhBvsJUVRhw645Vfb+aRDLZr
-	kr22p38TDO5BPuUfkwHokzI1cJxcRW4KI+1crnhmj+L8w5NGqc432aqbwL3hvxiulHx8wS1l+7V4k
-	j+yMJtuHONKhxNMCeMKg==;
+	List-Owner; bh=D1zoAEyRrP33SVx8wVPeOTlX0ASQM4KpB08aiTl0iuY=; b=Ht1i7JqFW+9/Ym
+	5MgoawDbr8Xl6NQ9kAJE3FmDJUYMGAa9tomTk0um0EHU6rK7ZdMxtvc56o/0YV8xNrx9sm7RIvnE7
+	PcnG8hvU0QrGGxXx5YwsQ87jsbQYsCn41lf58kQSgioG2udO5+g0PsPAk1PXgc78RIEtTfoJxu7BG
+	EuaLUIK2k0BlL43K/flYHm5tbxoRkXteEO9cp/5myYtz07Jp2KIe/W87/6o7fbAiUzMdtZevzygUb
+	REp+pa+20QRITh0fd/g0eTxyNZZWmLIQVQ6jP/Ss8ntvYMmK609SIlX93SP4NyGBhTtP+PTNwRAuX
+	EMXT00j9N44WEqtRLvxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtHqe-0000000DCH5-41hq;
-	Fri, 20 Feb 2026 04:10:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vtHqj-0000000DCJb-3KQ0;
+	Fri, 20 Feb 2026 04:10:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtHqa-0000000DCFQ-3nOA;
-	Fri, 20 Feb 2026 04:10:34 +0000
+	id 1vtHqd-0000000DCG5-0ot4;
+	Fri, 20 Feb 2026 04:10:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D305F40016;
-	Fri, 20 Feb 2026 04:10:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2BA7C116D0;
-	Fri, 20 Feb 2026 04:10:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4DD1061853;
+	Fri, 20 Feb 2026 04:10:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E068FC116D0;
+	Fri, 20 Feb 2026 04:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771560629;
-	bh=gZxt4xZuUjXGGHmHKN+uEL1LSaVN4uFpnXdEPutVfBo=;
+	s=k20201202; t=1771560633;
+	bh=im5T2AhfGDyXaPXyhpLfgJGQ91DbQgM5VZmwKBunt1A=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=MzlOe0JtKCyX1m5ydTdmOVzcXvTdxMfSVFRW1WDwedpZ8p2JQgmRJOZGFUgTlts71
-	 Hr60ts3TI6hMa3MEyxinxB57rKfjHU2uxE59BpIu/+eB5f3N+qA9HfZ/y9pxXHSsMe
-	 L3ExxJrJPNmdBaRO6LklAWgLCZeMQM4SfZe7oXCSEv7YKA985b7AFKtdTkGKs4O6Cg
-	 uqRH8XvnpIhuAXM6oqK780uPGKVGplX4xHqu5H1I49NkIMc68H4gUVOHdiYrMaHLJA
-	 Q+bm4rmFxd0LDsuO3oJm/VkUkisIdSk1ra0ERiEMWoHPkm/KA2dJz7OtlmZRoOGqC+
-	 GRRuuHhKY8EgA==
+	b=BY31bXLuYwaDNUvbU0KhmqMJP3M/Awj2XilOUUrqfd5tse5Bs+Sof47ei7f2ySnfn
+	 tFNi7q7K9gluSvI0HlMVWVeaLxpkyoeKBDi/rrNOewr0OuAFpDC7j/iRqwMKPlJ5Wa
+	 P3ScJYlX18vFMmmARgpPLIChzrvUE2kp6Q3jnE9jYkAe7srv3PTOOcxMtCzqbU7qAw
+	 IToOjDmvHez/A8mTg3Q3sBsLUBSNAWxLa0iZsksGoJ/G/rax+WVfDfh7lH4OceXS15
+	 qVM1jLAxgENfoZP8fJU+Wp+4V3bOt53kAg6T75fF/G3mbGiObvL/fXyvhcTJ2XNYm0
+	 uwW0QrKe9zoGw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FE293809A88;
-	Fri, 20 Feb 2026 04:10:39 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7CFE83809A88;
+	Fri, 20 Feb 2026 04:10:43 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/5] uprobes: transition from kmap_atomic to
- kmap_local_page
+Subject: Re: [PATCH v3 00/29] arch, mm: consolidate hugetlb early reservation
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177156063804.189817.17364776119081008453.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Feb 2026 04:10:38 +0000
-References: <20260103084243.195125-1-ming.jvle@gmail.com>
-In-Reply-To: <20260103084243.195125-1-ming.jvle@gmail.com>
-To: Keke Ming <ming.jvle@gmail.com>
-Cc: linux-riscv@lists.infradead.org, mhiramat@kernel.org, oleg@redhat.com,
- peterz@infradead.org, linux@armlinux.org.uk, catalin.marinas@arm.com,
- will@kernel.org, tsbogend@alpha.franken.de, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, akpm@linux-foundation.org,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-mips@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260219_201032_967001_D3BA0AE1 
-X-CRM114-Status: UNSURE (   8.27  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <177156064229.189817.6698956997773300471.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Feb 2026 04:10:42 +0000
+References: <20260111082105.290734-1-rppt@kernel.org>
+In-Reply-To: <20260111082105.290734-1-rppt@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
+ alexs@kernel.org, agordeev@linux.ibm.com, andreas@gaisler.com, bp@alien8.de,
+ bcain@kernel.org, chleroy@kernel.org, catalin.marinas@arm.com,
+ davem@davemloft.net, dave.hansen@linux.intel.com, david@kernel.org,
+ dinguyen@kernel.org, geert@linux-m68k.org, guoren@kernel.org,
+ hca@linux.ibm.com, deller@gmx.de, chenhuacai@kernel.org, mingo@redhat.com,
+ johannes@sipsolutions.net, glaubitz@physik.fu-berlin.de, corbet@lwn.net,
+ klarasmodin@gmail.com, Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com,
+ linmag7@gmail.com, mattst88@gmail.com, jcmvbkbc@gmail.com,
+ mpe@ellerman.id.au, mhocko@suse.com, monstr@monstr.eu, muchun.song@linux.dev,
+ osalvador@suse.de, palmer@dabbelt.com, pratyush@kernel.org, richard@nod.at,
+ ritesh.list@gmail.com, linux@armlinux.org.uk, shorne@gmail.com,
+ surenb@google.com, tsbogend@alpha.franken.de, tglx@linutronix.de,
+ gor@linux.ibm.com, vgupta@kernel.org, vbabka@suse.cz, will@kernel.org,
+ x86@kernel.org, linux-alpha@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-mm@kvack.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-um@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ loongarch@lists.linux.dev, sparclinux@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,31 +95,77 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Peter Zijlstra <peterz@infradead.org>:
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Sat,  3 Jan 2026 16:42:38 +0800 you wrote:
-> The use of kmap_atomic/kunmap_atomic is deprecated. The purpose of
-> kmap-like functions is to create temporary mappings.
+On Sun, 11 Jan 2026 10:20:34 +0200 you wrote:
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> kmap_atomic() typically disables preemption, while kmap_local_page()
-> allows preemption.
+> Hi,
 > 
-> According to the documentation, kmap_atomic() is primarily necessary
-> for contexts that cannot sleep.
+> Order in which early memory reservation for hugetlb happens depends on
+> architecture, on configuration options and on command line parameters.
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/5] riscv/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
-    https://git.kernel.org/riscv/c/a18dfb5dd332
-  - [2/5] arm64/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
-    https://git.kernel.org/riscv/c/094cc7bb5fc3
-  - [3/5] mips/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
-    https://git.kernel.org/riscv/c/e6eb9acc024c
-  - [4/5] arm/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
-    https://git.kernel.org/riscv/c/1752a1ad43a1
-  - [5/5] uprobes: use kmap_local_page() for temporary page mappings
-    https://git.kernel.org/riscv/c/a491c02c2770
+  - [v3,01/29] alpha: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/ba1c86874e25
+  - [v3,02/29] arc: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/7988e8518904
+  - [v3,03/29] arm: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/30a66f8a8cd3
+  - [v3,04/29] arm: make initialization of zero page independent of the memory map
+    https://git.kernel.org/riscv/c/18b7cc70dea8
+  - [v3,05/29] arm64: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/60b35af0a6aa
+  - [v3,06/29] csky: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/37318eb97f23
+  - [v3,07/29] hexagon: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/934afdf7f4cc
+  - [v3,08/29] loongarch: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/63cadcb731c9
+  - [v3,09/29] m68k: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/41b08a7abf89
+  - [v3,10/29] microblaze: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/2ce38c9ae840
+  - [v3,11/29] mips: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/f61385e29444
+  - [v3,12/29] nios2: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/3b1b0e5797bd
+  - [v3,13/29] openrisc: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/1d28b1142383
+  - [v3,14/29] parisc: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/950696afe400
+  - [v3,15/29] powerpc: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/27bebe446f8d
+  - [v3,16/29] riscv: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/db8cdb0ad603
+  - [v3,17/29] s390: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/76c4c463bbc0
+  - [v3,18/29] sh: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/8bfa6c2259f4
+  - [v3,19/29] sparc: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/6ad7ea22cf6f
+  - [v3,20/29] um: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/531de7f02d51
+  - [v3,21/29] x86: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/34f6b9c6e417
+  - [v3,22/29] xtensa: introduce arch_zone_limits_init()
+    https://git.kernel.org/riscv/c/2d3c8c5f33e0
+  - [v3,23/29] arch, mm: consolidate initialization of nodes, zones and memory map
+    https://git.kernel.org/riscv/c/d49004c5f0c1
+  - [v3,24/29] arch, mm: consolidate initialization of SPARSE memory model
+    https://git.kernel.org/riscv/c/4267739cabb8
+  - [v3,25/29] mips: drop paging_init()
+    https://git.kernel.org/riscv/c/5dea39496c68
+  - [v3,26/29] x86: don't reserve hugetlb memory in setup_arch()
+    https://git.kernel.org/riscv/c/6632314fddc4
+  - [v3,27/29] mm, arch: consolidate hugetlb CMA reservation
+    https://git.kernel.org/riscv/c/9fac145b6d3f
+  - [v3,28/29] mm/hugetlb: drop hugetlb_cma_check()
+    https://git.kernel.org/riscv/c/7a9c0bf0aec6
+  - [v3,29/29] Revert "mm/hugetlb: deal with multiple calls to hugetlb_bootmem_alloc"
+    https://git.kernel.org/riscv/c/743758ccf8be
 
 You are awesome, thank you!
 -- 
