@@ -4,72 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AEEAC5ACC0
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 22:33:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D95C5ACC0
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 22:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CacDm8iWjdJPomAkSB1M8SXMx6dQkICRV0HfFqlu9/k=; b=WYImebWd9TeycV8zkQW/byk2d2
-	x+nVfwLhOURs3ZBHmSxYAFcbnQxOuZYJwIWUXjIvqavTOLKT4iInShFIJTG6lQUKIwgsD0M1qMJ3c
-	lINietrXdXXScrDeP1sZoutEtj4mB66jwkPWwrVk06b+62NWHh82Yb2IwF+0CUxbGP8Ki/ON3kRPp
-	gePlXrj0kUa4KLOOStMQTL1xrvwkShyR4zg05Vn5318NIzkojsJawrqPGWr5itXvmIA4pMZIGl8zD
-	zZ7Rrejpws/bKFeZfxmdxcHaC9IhZ040WzF7q9c1fukc7lJBSkDNJQ/uL+tJNhj9YfYxwAf5BRE7f
-	i1j/udKw==;
+	bh=eKHZEwj+8mvyFp9PIDPdXa1wktRidsrEtIYxIQxqOEg=; b=MltjsFcNFbIsIJgqZk6ppcbrey
+	NSsXw6PlXBlid9pja6j9Mteg9r4nsK4oJbKLgCVYU7G1KjXlR+DepQGOcice7RXF6tGFF9lcMONkY
+	AORfeexjdbF5uW/1zoqtbr2fEU9hbOvm3n1yR34C2VM2Mtf/71N8gqCM2WbGVk2b2boLUatKNt3dW
+	1asQcylIgeUL9H9VyGjQgFZ+9811A4txH56oXTXMsgDfyBMRYEJFpAxEnJKkO74wwm18F+gzdmxON
+	hDpQ8XXwgi3zcJ8/Xz1CBZgyqT49n5x22znjaotQQ3jOOi+77aJNXq4pkYnXHgv+G5M6/EuLa6FLK
+	G+oss9fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtZ41-0000000FfBT-0Hbx;
-	Fri, 20 Feb 2026 22:33:33 +0000
+	id 1vtZ9Q-0000000FfP0-3ww3;
+	Fri, 20 Feb 2026 22:39:08 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtZ3z-0000000FfBN-3fUH
+	id 1vtZ9O-0000000FfOu-3ne6
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Feb 2026 22:33:31 +0000
+	Fri, 20 Feb 2026 22:39:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ECC5060123;
-	Fri, 20 Feb 2026 22:33:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A792BC116C6;
-	Fri, 20 Feb 2026 22:33:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1885560123;
+	Fri, 20 Feb 2026 22:39:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 566C0C116C6;
+	Fri, 20 Feb 2026 22:39:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771626810;
-	bh=G9PuysDIOK/utZRbimCSxhU/vbP4rAjGxg+IEV+ae54=;
+	s=k20201202; t=1771627145;
+	bh=mI3DiEAWC0QgxvWgebPwZRRwG+6G2ivTegh9FS0XPY4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SNXx+2cPe2NT7jVmcXy7HE3rBU8gwmDxq6hL5mJOFf02N4LMXhG1I18E9a/bDBo95
-	 bAJraTFMNy6JFmPIPfqhegVu1VGFhNE2uSGy55whYy+FUwAoN5DewVQyGoDpuOhobf
-	 NFa2rAV4bDOUAvjlRUTrjN7Nku+/Y60InifvB2G4kLa15yfaqv1cbAowVl0KDPzxpd
-	 1S2NqywtjlmmBwP3q6HCNJzF0BXLIX9WBZdS+5o0c/yOsaIWeMgCWdEy61WpIHoUG5
-	 Z86BcMyrkXz1EE9ram94kvly2XqDkzL6Ry0uy8W/82ZixMUrF8iNARRjT6ndArXMDH
-	 pDvQDdqyzrLIA==
-Date: Fri, 20 Feb 2026 22:33:24 +0000
+	b=DtqyY89S8+Y3uZXsSTb8oCWlweAUkqOy4n1TuPeCmBAuuiA2v85rhrFetnYZkegKo
+	 /cuSwMJ+GKjTxc/DEE1PYsoFUYwnWWbgS2+1fUmVJLjmQhe93W+hIEE3W/PkJw1LKV
+	 kK/Hnts8aXOt22Ju3aqqXZHhXeLFwsnOSIvCqydESsB0gKFXCfPKQxbnj13Rffcxl5
+	 Q5zjs8M4H2ygyJQMShEilcflT1pYH0zCDt16s6F2rW7Hx9hT+Sj3UrpYLZyT4sjJZ6
+	 tvEHWS4gHrEf5KgpP+pOg7td5pLy3ujqkCLghzi2BWWYd+pVxbD6sE+fwPdy4mIVFo
+	 2N1FTDkGtCW+w==
+Date: Fri, 20 Feb 2026 22:39:01 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Max Hsu <max.hsu@sifive.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Thomas Gleixner <tglx@kernel.org>,
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Kunwu Chan <kunwu.chan@linux.dev>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH 2/5] dt-bindings: interrupt-controller: Add SiFive
- FU740-C000 PLIC
-Message-ID: <20260220-outdoors-shortwave-1d96b888d6c2@spud>
-References: <20260220-fu740-v1-0-c8af54130c58@sifive.com>
- <20260220-fu740-v1-2-c8af54130c58@sifive.com>
- <20260220-contest-ambiguity-1a4099520bdf@spud>
- <CAHibDyy1mA2s9_UjKGPemRaKNSvyq07Ok5+4yruQ1uXX+R-Pkg@mail.gmail.com>
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
+	Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>,
+	Zhouyi Zhou <zhouzhouyi@gmail.com>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND 0/2] riscv: fix minor typos and style issues in
+ XIP code
+Message-ID: <20260220-cardigan-scanning-da6647279ea8@spud>
+References: <20260214023804.677127-1-kunwu.chan@linux.dev>
+ <aZh_25dtac8wDFNe@xhacker>
 MIME-Version: 1.0
-In-Reply-To: <CAHibDyy1mA2s9_UjKGPemRaKNSvyq07Ok5+4yruQ1uXX+R-Pkg@mail.gmail.com>
+In-Reply-To: <aZh_25dtac8wDFNe@xhacker>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,53 +70,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1351006555236416630=="
+Content-Type: multipart/mixed; boundary="===============0076145769552584093=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1351006555236416630==
+--===============0076145769552584093==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1+7JBjJXa3ddPAxb"
+	protocol="application/pgp-signature"; boundary="WCtFJNCIevePJJ7C"
 Content-Disposition: inline
 
 
---1+7JBjJXa3ddPAxb
+--WCtFJNCIevePJJ7C
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Sat, Feb 21, 2026 at 02:49:19AM +0800, Max Hsu wrote:
-> On Fri, Feb 20, 2026 at 09:23:18 +0000, Conor Dooley wrote:
-> > So do the general rules for devicetree bindings, that's not something
-> > SiFive specific FWIW.
-> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+On Fri, Feb 20, 2026 at 11:38:03PM +0800, Jisheng Zhang wrote:
+> On Sat, Feb 14, 2026 at 10:38:02AM +0800, Kunwu Chan wrote:
+> > Fix a few minor issues found in riscv XIP-related code:
 >=20
-> Thanks for the review and the ack, Conor.
+> 'RESEND' isn't expected to be used as you did in this series.
+> You sent the v1 series on Feb 14, only 4 days ago, the series doesn't
+> miss any dev window.
+> https://lore.kernel.org/linux-riscv/8ee1b065-b021-411b-b5ee-22c4a108cbce@=
+linux.dev/T/#t
+
+v1 wasn't threaded correctly, so I think a resend is fine as the content
+didn't change.
+
+> > - xip_fixup.h: comment typo (_start vs _sdata) and spaces-vs-tab
+> > - head.S: spelling typo and wrong #endif comment
 >=20
-> I'll update the commit message in v2 to reference the general device
-> tree conventions.
+> I'm sorry, but how important is fixing comment/spelling typo or #endif
+> comment among maintainship?
 
-It's fine as-is, was just pointing out that this is a general guideline.
-The SiFive document is mostly about the naming of the fallback
-compatibles etc that represent the IP core, rather than the soc-specific
-part.
+It's not, but I think we've made this point already!
 
---1+7JBjJXa3ddPAxb
+> The riscv XIP code doesn't stand on itself,
+> but heavily affects and is affected by other riscv arch common code.
+
+--WCtFJNCIevePJJ7C
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaZjhNAAKCRB4tDGHoIJi
-0iSNAP9hJhb7PGWy2jnnfpHwcJa19CkzkGwxwor9OoYtlCtP7AEAwzDYTk1Mm1E8
-1RRVikALQOU4P5c2hFz7flV/0fZGfws=
-=WXTM
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaZjihAAKCRB4tDGHoIJi
+0iWWAP41tLmKr1IGVMl/E/wbeln1O2Hjk1pJKmW1r7JdMht2/wD+MEwUc0+gdCto
+x/VOvGbhkbNUS2r4Q8BYG3Is38CDXQY=
+=ZR/J
 -----END PGP SIGNATURE-----
 
---1+7JBjJXa3ddPAxb--
+--WCtFJNCIevePJJ7C--
 
 
---===============1351006555236416630==
+--===============0076145769552584093==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -138,5 +135,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1351006555236416630==--
+--===============0076145769552584093==--
 
