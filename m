@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1508BC531FC
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 04:10:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61778C531E4
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 04:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HzX6ME2JKe4LbRw0jN3jOUGJ21gmQIzoFaFBaHlpqIo=; b=kC6fXbs9sQXICG
-	Q4gJXJM14KKbogq1lwNRYHhs/VOILRPbZyz1/ROzl9RMbSRwAx8rehwm+kgP8UBkBfxA/JLRkOVSE
-	rrCP/9t1A5wl+9Da62ZIFsJXDnOrrpCA1OrvE5kSFepmTdLJM9yB1kPWVU+h7rsGJlPowwou7VdQy
-	hFoqG5EIH9/BcvVi4OR14NiIkUulsElny8WeEHfUKUVS8eSU79rvfN6eChEBgNUIxZYrES+cCBojI
-	yjOyWhdbSGrsoOK0XxWIKNFyDNX9KpscmegNHq02MjbR60oVGvlOrjTOQNy3TLadAN3XwRKr0p2if
-	6CAWdTT/AED8t3gb9wSw==;
+	List-Owner; bh=rSQ/aRY4LzBLS7CdJQ6LfB7E1LriJ7HG19vzYvypMW8=; b=w/mYiasGaNPJ2v
+	vUSgk2QQX1Y1Rarl6K9JI0ORwJObt1P/Y3JZHKHfVVbr6/Em2345b2VaZjXbOeMTmpMezSAY6wY8D
+	3qonsPT2BrUQV2nvfGkVExQo37wx7DkbIuTXCiFyQcBW/kuUEIckhnSDAY1DUdQPGLpno+VznAaYR
+	xK3wlJbrBTcmM+4zI4TePR4Bvp9+KtijGou/Usufy3MkUf15WGomtUhBvsJUVRhw645Vfb+aRDLZr
+	kr22p38TDO5BPuUfkwHokzI1cJxcRW4KI+1crnhmj+L8w5NGqc432aqbwL3hvxiulHx8wS1l+7V4k
+	j+yMJtuHONKhxNMCeMKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtHqk-0000000DCKX-2SH4;
-	Fri, 20 Feb 2026 04:10:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtHqe-0000000DCGT-1cu8
-	for linux-riscv@lists.infradead.org;
+	id 1vtHqe-0000000DCH5-41hq;
 	Fri, 20 Feb 2026 04:10:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vtHqa-0000000DCFQ-3nOA;
+	Fri, 20 Feb 2026 04:10:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB1206187E;
-	Fri, 20 Feb 2026 04:10:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BB6AC2BCC7;
-	Fri, 20 Feb 2026 04:10:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D305F40016;
+	Fri, 20 Feb 2026 04:10:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2BA7C116D0;
+	Fri, 20 Feb 2026 04:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771560635;
-	bh=Xis41vA84Ib6Iac3csxCMpPDnfg/BYT4y4VrELxBXk8=;
+	s=k20201202; t=1771560629;
+	bh=gZxt4xZuUjXGGHmHKN+uEL1LSaVN4uFpnXdEPutVfBo=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=qPSxnHkPCTbPreq1C6URnn6R2Kvk+nWireKZh2YyJvgeTt4+DXdhXTaI4nxXmNQJS
-	 vVnMcEuwqFFhI5qM9y84pm7NUKcL9HrtJia5al8ueCVq39h5+whMmLQXWInG4wrSgH
-	 Yi48etiCuS4MVbtc1FYZGguCoNqu8kEeu+M3YidHMC28614rEPFezAtQUMhH9GNvJf
-	 QsG/A0NJ10WvjEy7SCbqEDrO0X8jmjx9lVoHoumlkx38QEB3GnCTpWECY6EItVV3pj
-	 x1qnM7FfQ1AooHty+ey95A5Yz4URfoeiD+OfC2q/kRLw3Mv7vTY8KLu+qu6GJznIm0
-	 TUdYYt4i46+8A==
+	b=MzlOe0JtKCyX1m5ydTdmOVzcXvTdxMfSVFRW1WDwedpZ8p2JQgmRJOZGFUgTlts71
+	 Hr60ts3TI6hMa3MEyxinxB57rKfjHU2uxE59BpIu/+eB5f3N+qA9HfZ/y9pxXHSsMe
+	 L3ExxJrJPNmdBaRO6LklAWgLCZeMQM4SfZe7oXCSEv7YKA985b7AFKtdTkGKs4O6Cg
+	 uqRH8XvnpIhuAXM6oqK780uPGKVGplX4xHqu5H1I49NkIMc68H4gUVOHdiYrMaHLJA
+	 Q+bm4rmFxd0LDsuO3oJm/VkUkisIdSk1ra0ERiEMWoHPkm/KA2dJz7OtlmZRoOGqC+
+	 GRRuuHhKY8EgA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 02DA83809A88;
-	Fri, 20 Feb 2026 04:10:45 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FE293809A88;
+	Fri, 20 Feb 2026 04:10:39 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 0/2] riscv-imsic/aplic: Preserve IMSIC and APLIC states
- during suspend
+Subject: Re: [PATCH 0/5] uprobes: transition from kmap_atomic to
+ kmap_local_page
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177156064355.189817.13911084684524665897.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Feb 2026 04:10:43 +0000
-References: <20251202-preserve-aplic-imsic-v3-0-1844fbf1fe92@sifive.com>
-In-Reply-To: <20251202-preserve-aplic-imsic-v3-0-1844fbf1fe92@sifive.com>
-To: Nick Hu <nick.hu@sifive.com>
-Cc: linux-riscv@lists.infradead.org, anup@brainfault.org, tglx@linutronix.de,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-kernel@vger.kernel.org, yongxuan.wang@sifive.com, cyan.yang@sifive.com,
- liujingqi@lanxincomputing.com
+Message-Id: <177156063804.189817.17364776119081008453.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Feb 2026 04:10:38 +0000
+References: <20260103084243.195125-1-ming.jvle@gmail.com>
+In-Reply-To: <20260103084243.195125-1-ming.jvle@gmail.com>
+To: Keke Ming <ming.jvle@gmail.com>
+Cc: linux-riscv@lists.infradead.org, mhiramat@kernel.org, oleg@redhat.com,
+ peterz@infradead.org, linux@armlinux.org.uk, catalin.marinas@arm.com,
+ will@kernel.org, tsbogend@alpha.franken.de, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, akpm@linux-foundation.org,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-mips@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260219_201032_967001_D3BA0AE1 
+X-CRM114-Status: UNSURE (   8.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +83,31 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Thomas Gleixner <tglx@linutronix.de>:
+by Peter Zijlstra <peterz@infradead.org>:
 
-On Tue, 02 Dec 2025 14:07:39 +0800 you wrote:
-> Since the APLIC and IMSIC may be reset when the platform enters a deep
-> sleep state, it is necessary to implement save and restore functions
-> to ensure their states are correctly preserved and restored.
+On Sat,  3 Jan 2026 16:42:38 +0800 you wrote:
+> The use of kmap_atomic/kunmap_atomic is deprecated. The purpose of
+> kmap-like functions is to create temporary mappings.
 > 
-> Chagnes in V3:
-> - Refine the commit messages and comments
-> - Rename "imsic_restore()" to "imsic_hw_states_init()"
-> - Rename "aplic_direct_restore()" to "aplic_direct_restore_states()"
-> - Rename "aplic_add()" to "aplic_pm_add()"
-> - Rename "aplic_remove()" to "aplic_pm_remove()"
-> - Rename "aplic_save()" to "aplic_save_states()"
-> - Rename "aplic_restore()" to "aplic_restore_states()"
-> - Use "struct aplic_saved_regs" and "struct aplic_src_ctrl" to preserve
->   the APLIC states
+> kmap_atomic() typically disables preemption, while kmap_local_page()
+> allows preemption.
+> 
+> According to the documentation, kmap_atomic() is primarily necessary
+> for contexts that cannot sleep.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v3,1/2] irqchip/riscv-imsic: Add a CPU pm notifier to restore the IMSIC on exit
-    https://git.kernel.org/riscv/c/f48b4bd0915b
-  - [v3,2/2] irqchip/riscv-aplic: Preserve APLIC states across suspend/resume
-    https://git.kernel.org/riscv/c/95a8ddde3660
+  - [1/5] riscv/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
+    https://git.kernel.org/riscv/c/a18dfb5dd332
+  - [2/5] arm64/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
+    https://git.kernel.org/riscv/c/094cc7bb5fc3
+  - [3/5] mips/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
+    https://git.kernel.org/riscv/c/e6eb9acc024c
+  - [4/5] arm/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
+    https://git.kernel.org/riscv/c/1752a1ad43a1
+  - [5/5] uprobes: use kmap_local_page() for temporary page mappings
+    https://git.kernel.org/riscv/c/a491c02c2770
 
 You are awesome, thank you!
 -- 
