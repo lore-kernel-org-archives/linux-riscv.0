@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E73FBC53200
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 08:28:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2AEDC53200
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 08:28:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T0bUuLxZTVdglfvQV2T3+ourXGq3/Dmb/j1UNKbWBms=; b=JwubyrtNAjwt2H
-	bzHzsgGMl2WHP50gaq7gbv6ah3hcjUNC9sz6YRdRox6/0QWI7rkiwDt7cgOw+tWitVWiLsXy5Kkq8
-	Pl3FB9GF/ySlh4V0Bv/uaXpdgen8jE+98vpYUD7rREZFhwJM491tmqYScueJMNkH2XAKaaHTDUnqR
-	WoWKYFRbDMiq/35s6vbM3I70QmkETTVwgL4xzt91JuR/s13HV0sPyUR2c8Gd770x/jPm2a7SpyNs8
-	SR5v015LBwMhL56DOe5ZVEnmS6UoQXpD2+qDBLpUk8hBdO/Q0oztTPdpOsABk1mltI9RKAn55Ws5z
-	k8zopwKAjIHBbHstschw==;
+	List-Owner; bh=B4B83iNod5/HkWPI4jWTK/DGxr58sbetMYNL2a7CAWY=; b=REwYfZvxRpWtAq
+	3k7WqoueznQYbXDWDLeRsduEv6/D5Kj8znT/XYdS8jUcSFvEXhkYsPAufZOkn+htvMd6GbMG11ItH
+	D1J0Jcdw/dFOGMUFsC6SC65v10tF+gPwBoASBNuKQTdaVkMS3zIe+wCnb/HchtHb39RKsGm9kqxxK
+	QBmeY8JvlOsCpgC8X/Unlxs/zuXrB6ht4+xZCXtZGsP11HhR3qcQh0JLB4R1UOXkCHABQ2rYmt+Rn
+	03fJa9mfDgAjziOvFrPzwf38Bh64HvwWUOL+JXcxKFRBN5VGzzIHOCWzdgbJnq67h8K2H1JYQU936
+	/T4rBa+GmabE5FdQ/feQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtLrh-0000000DPg7-3Ngl;
-	Fri, 20 Feb 2026 08:27:57 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1vtLro-0000000DPhP-0Qq3;
+	Fri, 20 Feb 2026 08:28:04 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtLrf-0000000DPfT-2i8y
+	id 1vtLrm-0000000DPh2-0Sii
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Feb 2026 08:27:56 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-43626796202so1643219f8f.3
-        for <linux-riscv@lists.infradead.org>; Fri, 20 Feb 2026 00:27:55 -0800 (PST)
+	Fri, 20 Feb 2026 08:28:03 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-4362507f396so1826072f8f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Feb 2026 00:28:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1771576074; x=1772180874; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1771576080; x=1772180880; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=i/igY8Az/VsZJlm1xDZMRduuC4c0JTGDigxQuwADxBg=;
-        b=fK8aM2RqX+Nw24Z8FBm59eDEJainRJlqn6HH2hp4LydvO1z+/SxOAICC6eK5Ss5D1f
-         i4o93vryoEgxPl18hXRC2EuqylRGoaay47lvc2I0HrXmqe6Oz07EKSlHnVLb0ipMYYGw
-         xqK962pT5Bu0w/QBEq+9xmjcRxwDeDGZ5GAx47/XlFc60LajZHcwcsfwh3K/VyY0zaWT
-         jryfbEJFkhuRd+0xok0310hDHkq8a38kjefdb7hcO0byjYUOMaPP+gnD7H7jWlQovO+P
-         hMVWdhLB43XKlkbtj/dTu1q+uyshd4gQ5NdHQL8PKDYIetc6RD6NIA1w0r/2NRbhgCzo
-         /nYw==
+        bh=C5eLGfJrbtVWLlMPc5LreUV+HmegSvmbmdOtuZdLViE=;
+        b=ZCCV2sUfuvxXM0rxCLT0JOSoQ4Uha0VU4Pew2J0WHoW+cRs/NQZrNN7OqxEHNm7+Xg
+         T6c9MX9bcHtPumNrZLM0DpxtbXaQxL7s+mYODRhaYe485m12ln11Q1IlI/fa49V2D5hk
+         rBu3mIHf8qXeVlNsyR6qlU2JMAW5bHYT+dctIjXZbA0tkEsKTvtej8LkqQgOoCYHoe91
+         iYJo0yTWeTncAV+86dksCzvtwmJNR/aLMDzzvwJV9NU8ba503/7bNju79egluRjRFhOy
+         gNIXudbki7Mebng/25wKR1s2LMpLwvzjvk9KUC3SA8Zo7v7KAx/EWFOH3u/EVgzqRF+K
+         zm+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771576074; x=1772180874;
+        d=1e100.net; s=20230601; t=1771576080; x=1772180880;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=i/igY8Az/VsZJlm1xDZMRduuC4c0JTGDigxQuwADxBg=;
-        b=tcMrSRPTLnD0eLgWi6VJ86D9AdSGvHooo/FnOhjRsy9AaAxvrhJwWW2Dhh5C2jv1qU
-         8HEsO+2UyXSntZYciOlDEjTS/UqSkxlo90AI0o4eeuO0Ct1Iq+kx9nkGxgZEoGR/6fOo
-         Tgsac4wYO7GkOgBhmiED/mZvbqceacGubbsP+rnd1HwltWrsMQuFnBaoYvnwXxkQIBX5
-         TayDz/Qw0aHmO7xSmmnIlwNTJPUVAEYpjTKb1KIO0KECxYXx2nIt04CJeGb5oZ/T5D8V
-         wpPEXtHoiSS2M7ltYvPMDZu5YtKJW+f8JAZmXalQPQcladZQ5w4kZgbFraEnhUXM5fXA
-         f9pw==
-X-Forwarded-Encrypted: i=1; AJvYcCXnWS3SvrClsi3uPRcRN6Xt5U8Sl/hPzzKpY7kZ+SuHG6CvRrpU1ZysNmaNP7lyIZ45W1gOXNipUWF1Lw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmibZCMhyA3ll/lFR00WcEovXbuf1DRf7diCSI36SplWklbva3
-	X6y0mrhnR3zjWfmclT3+3x+P+LFkp8J0Sqp8xllAxZM7gbrAEfTqQy01LUikc8erRfo=
-X-Gm-Gg: AZuq6aJH6y4dRgSEE+G65uT1/TOFJZEGajBnSVPhIg2RqBchf5R8iDqFjrJxUB82A5T
-	DgiN0XY5tuRisUf+3W9verOsz3s2GNXIykDO1Ipaabyz6HJZgSPMCZePQDar24s2f0agn4fKl0Z
-	FTnk5kElsfKWFlavey19IjdeDX7jCJ8f4HHPm4+hLuHEtW0EINlNNV5F7g2ACN0a2oCcXP/flzR
-	sTCaCMOtyrdUMYgZIZ+QjEsM6MK20psgUCyxobfXg25c/x8V762H1MrrscPNsWU+6NYpc8faRVU
-	1UM/X/lFf5oKlSMK9bSItc5GFGyWFcCl7RXAN+If65cFeCnpu2ICqsuoeGkDQm4QfXuWHj+cjRo
-	fGH6mnw+1XzkV0X5HG9Hb2oqC4PieQFWSxihpSctDu8Y6U8Zs5v6aYjqBi6Q7m7u+ajnvH8wODo
-	y+mR/15QRvGdu5Q320OREc
-X-Received: by 2002:a05:6000:3103:b0:430:f68f:ee96 with SMTP id ffacd0b85a97d-43958e4a763mr14559959f8f.36.1771576073712;
-        Fri, 20 Feb 2026 00:27:53 -0800 (PST)
+        bh=C5eLGfJrbtVWLlMPc5LreUV+HmegSvmbmdOtuZdLViE=;
+        b=Q6SpMkWkgCiqOU58/cs4EnddCP8gDWaC77wWagrtLSNFg+dTg63pVN9WyNrEOs2n/i
+         Vra9mzLZsKaAdn/CAVaYIwU5BgMHVD9NMPMOiWIU7p1UJbW2d2XFnKnI1vqErVO5178l
+         /LSmKKp9eDv6JjrsYfYwqis+3GVybBhn3k9baOhJaBFwcOIej8mD4E4VS7/KgSBy/OUm
+         a1gTblJ9S4FIYicm8wOMGfskJYZ9+z27NdUUeSA68H4893ag3yUL1L0v9kz0V3zgBX/u
+         ZPBRVDzYnkd8g2dqoMXXJqlr+jGQ/Fj/4dwPh6XyiR8JS+U9wBHqaZ282f8DvcI8zO4X
+         DxzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUnzis5XzJWRzk7tqAxSk1tELW0pQU7FBz5MwClOdmIuwOZWUFgWuoTq1l5hOcAhPxX4EObZ3D5Wp18Vw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGq9OIKpRqvX44Msbgo1ZdYgyhNgIu8RVUM1xse24bjN6iN1vy
+	Cy92sOvao+HvL9+w/Hj3+nfmD8rSVt9Ljed8sK6sCk3BN+RZ3RrrTMOq8fdRiLG/628=
+X-Gm-Gg: AZuq6aJXlc73E6zxxSCztZJNHZlO7Gre7mVChYRAzBbeLKFjuPvn59vcvQ6tl0pgUOI
+	EXKR/L2k4p7LTrKhXwfXrS6R2OnJ3UBs5mmFrT4eVmUOMXSJagj+mjAQwhtU/rsfc7GFTdfnjZ2
+	x2vBmuig0u70kdamUP8B4nEkXebMd0pB5wjOTc+tA2Y4Cg+DtVg5nAD8GT3uqlRoyeeK4cxVz3Z
+	Dh8Ae5I3cyNjLT2PxfRTkvxltj0z1U2sybsRIFESumfJTInA+IW27W4RibTvXVPVjlcTRSwdMCE
+	iKnuvfExYnmqv6a/mrVY9E2u3WdUJm4gSlIfcMlAXANWBSS9qJwYVKA106XJU1ADh+nfm97XWkr
+	s09lfwimUaYkvttThtj7SMK80NZ+jtiKGtMBDsxyXldOazw4EDJ5mEwmVMObNKzLu2ujV3DQoSJ
+	zO89e8/y1tSKqfHbrKE3BJ
+X-Received: by 2002:a05:6000:208a:b0:437:4872:fc83 with SMTP id ffacd0b85a97d-43958e40264mr16112584f8f.33.1771576080263;
+        Fri, 20 Feb 2026 00:28:00 -0800 (PST)
 Received: from [127.0.1.1] ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796a6c1bfsm54717688f8f.13.2026.02.20.00.27.47
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43796a6c1bfsm54717688f8f.13.2026.02.20.00.27.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Feb 2026 00:27:53 -0800 (PST)
+        Fri, 20 Feb 2026 00:27:59 -0800 (PST)
 From: Max Hsu <max.hsu@sifive.com>
-Date: Fri, 20 Feb 2026 16:27:05 +0800
-Subject: [PATCH 1/5] dt-bindings: net: macb: Add SiFive FU740-C000 support
+Date: Fri, 20 Feb 2026 16:27:06 +0800
+Subject: [PATCH 2/5] dt-bindings: interrupt-controller: Add SiFive
+ FU740-C000 PLIC
 MIME-Version: 1.0
-Message-Id: <20260220-fu740-v1-1-c8af54130c58@sifive.com>
+Message-Id: <20260220-fu740-v1-2-c8af54130c58@sifive.com>
 References: <20260220-fu740-v1-0-c8af54130c58@sifive.com>
 In-Reply-To: <20260220-fu740-v1-0-c8af54130c58@sifive.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -91,22 +92,22 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Paul Walmsley <paul.walmsley@sifive.com>, Max Hsu <max.hsu@sifive.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1795; i=max.hsu@sifive.com;
- h=from:subject:message-id; bh=YJgGJZFBEeFnKwCZBKtMF/4z3f6ENQ0IR89Zow+dMes=;
- b=owEB7QES/pANAwAKAdID/Z0HeUC9AcsmYgBpmBr8Oji0/4OVhQOIUlKAIgJBQ5IPR4YxPGYhh
- goHXM5+HRiJAbMEAAEKAB0WIQTqXmcbOhS2KZE9X2jSA/2dB3lAvQUCaZga/AAKCRDSA/2dB3lA
- vdGEDACBZOQzifNbSjKgt1DwPNhFpnL3Bj+UAEIr0weXbZ7rZsZ2J71Bn7D2TjtbPF6gSUQh9TB
- u23Gvon4ro7QrbdH9K+Sg9Dhe50X7LjXj978B2jLf48Jb2xVvo32OBNuvHZidvgOv5ZGsuMvfak
- xlX0HB2czT1jn/Orh1i/zz1UW4/pMcGGgOhZ4/BMg6LutjuEic9quiKJo+oXqeBwySJmq4RTVbK
- zC87a0yqs40PXIHgUC76c9JjqspvRjEFVXRqY9vYgi5DQhRPOZIrjO196ZK6WDj5vrVT67yCkEc
- gRZeiums12ErPNalqrAOMceY3J1vHscNh2BzhAUmh50Hztck0BMHRc7TO/S/ExWT4yXFbwA2pfy
- 41fHmAxMxpliC7zdowFN4ftLDrnxI05dS31ML9SgUoz82WPlypMS47DOw3bPrIMeI95HF3zRgDM
- 7QdyG5280seME+oT3I9NUn6bVru2yTmihfXUlKeQs+7F+34waoB8I+wODhRbKVuwkaRpY=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1136; i=max.hsu@sifive.com;
+ h=from:subject:message-id; bh=+TEwwtm2PIIgCWLeUnV15+Q2Dgy5dOcAStHu0XOpeeI=;
+ b=owEB7QES/pANAwAKAdID/Z0HeUC9AcsmYgBpmBr8cO7VEZscQY0zwzt3wIUXXTtpZ7n9utbAR
+ BIceK0tIVCJAbMEAAEKAB0WIQTqXmcbOhS2KZE9X2jSA/2dB3lAvQUCaZga/AAKCRDSA/2dB3lA
+ vacmDACN3HpL09hYqpED9ADdDNvaGs2XPvXqwYYTw4Q8Gi2omOHC6ANk2+p4FIhtZGNWF1DCAXW
+ 39uj6PCsaAmKbD0AlImrsZehkQstr8ZxWWGSyF/A8lHHiUo72DALiy0f9Le5/Q7lFP1WHxEKJUD
+ ZB/tvXmGE1zaH8Xd9zyDy+Y+TtCzTSjsS7TJIDvWWI5ty1XBDwgu74OIl/Oj4mNYXsuLRMQhs+o
+ kIFTfsAkwm3m69y8ehbu/866xrxHAwczikLK7CJKOC+yz8Nuh6TiiFxtkhIJhyglChhwP4Omg/R
+ mBRwMMWjgrZzJrja9MRKAKqz7McqQ9klazip2tG+OqdK1A+I9ohjvjSDUYv7WHeuTYLppErpejq
+ JgjnKzhh5jHNt0eCX8LimCCjkAMKZU17YdierhFwYY2/WHBZIWTT0U66retiUgH7QJLo0AUwCHu
+ 1jQYUohMD0CTJtilFGYcx7r/3kBgSXpUhuPyuxLFvU2Mks8SEjk3cI+0d6YRBC6L9eR8w=
 X-Developer-Key: i=max.hsu@sifive.com; a=openpgp;
  fpr=EA5E671B3A14B629913D5F68D203FD9D077940BD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_002755_716837_88A46B6E 
-X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-CacheID: sfid-20260220_002802_171099_07F7D586 
+X-CRM114-Status: UNSURE (   7.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,51 +125,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the SiFive FU740-C000 ethernet controller compatible string to the
-Cadence MACB binding documentation.
+Add the SiFive FU740-C000 PLIC compatible string to the binding
+documentation.
 
-The FU740 ethernet controller uses the same GEMGXL management block as
-the FU540, which is tightly coupled with the Cadence MACB IP. This
-follows the SiFive IP versioning scheme which requires SoC-specific
-compatible strings for proper hardware identification.
+This follows the SiFive IP versioning scheme which requires SoC-specific
+compatible strings for proper hardware identification, even when the IP
+blocks are functionally identical.
 
 Signed-off-by: Max Hsu <max.hsu@sifive.com>
 ---
- Documentation/devicetree/bindings/net/cdns,macb.yaml | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ .../devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml      | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/net/cdns,macb.yaml b/Documentation/devicetree/bindings/net/cdns,macb.yaml
-index cb14c35ba996..b46dde1da170 100644
---- a/Documentation/devicetree/bindings/net/cdns,macb.yaml
-+++ b/Documentation/devicetree/bindings/net/cdns,macb.yaml
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+index e0267223887e..351d26ab1956 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
 @@ -63,6 +63,7 @@ properties:
-           - mobileye,eyeq5-gem        # Mobileye EyeQ5 SoCs
-           - raspberrypi,rp1-gem       # Raspberry Pi RP1 gigabit ethernet interface
-           - sifive,fu540-c000-gem     # SiFive FU540-C000 SoC
-+          - sifive,fu740-c000-gem     # SiFive FU740-C000 SoC
- 
-       - items:
-           - enum:
-@@ -74,7 +75,7 @@ properties:
-     minItems: 1
-     items:
-       - description: Basic register set
--      - description: GEMGXL Management block registers on SiFive FU540-C000 SoC
-+      - description: GEMGXL Management block registers on SiFive FU540/FU740 SoCs
- 
-   interrupts:
-     minItems: 1
-@@ -181,7 +182,9 @@ allOf:
-         properties:
-           compatible:
-             contains:
--              const: sifive,fu540-c000-gem
-+              enum:
-+                - sifive,fu540-c000-gem
-+                - sifive,fu740-c000-gem
-     then:
-       properties:
-         reg:
+               - eswin,eic7700-plic
+               - microchip,pic64gx-plic
+               - sifive,fu540-c000-plic
++              - sifive,fu740-c000-plic
+               - spacemit,k1-plic
+               - starfive,jh7100-plic
+               - starfive,jh7110-plic
 
 -- 
 2.43.0
