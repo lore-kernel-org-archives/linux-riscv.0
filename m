@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D61A2C53217
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 04:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46D48C531E4
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 04:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5fz4BLTdDYZqi8uO5bCsuIJc78yjAYmvkP7ed+f0MN4=; b=nryQJTHasa+uvJ
-	D6J2hJVyvjHEY6ZtmbyxFRq8TGSAN7N/mEdFal2vh8WlgRsiG/sqTRAu73Xsc8JT1xvpbUqVV/IpP
-	oxmFCfYMCV0GiXpcV3mq3gLiN7jGL8ZNQEz+MWz2q71sNZKzPLrU44dOec5JgwAw+EU7rL45vN44x
-	z4oa9t8c4ntU3nH0ErcZlsTHl59sFRo46O5U37QtyVwSHTjmHaYa16dC25jbp0gkvAOO8jb+TZYjq
-	Ml+3GTomb5cwiAqVrHHGaSelIFuxgfFzzM+WJD0C+dUo7uAeF9e89Szm9kygaLofxaC0B1aRdNSQs
-	g89HXcr/gDNBjh8bRFWQ==;
+	List-Owner; bh=TMXqeN/ialig6S9q5bVSZNpRgsRCTNbnXH6EdahPSdQ=; b=E+aEASsk7neLzi
+	w9a3HGINs7uTbTvfwJM+KYpYMAn1V4NorjsKc21xJ1A34/SKPM6LKuihEWi8ALrWK+sSoUO06iuEy
+	C1zO24Sm7bzG6cJVW5bby4JTNJ1RJxujuzxYunRZCr1WBXgwy/MxpG8801BaV7zUbTbL7IkJAOcXn
+	MUmNFL1do8PUNbx1vkziLgPQN6gIK6ZNo0p9rkqUbsgUYJbye9MDXankaFemApuEDKcZxdJ/e9jAL
+	bGvl4Jf08kFNzeA78VdbY9tBrEPNK2mlZq9mrqIC2jTXGafiReqvSmLTs63AAgKaCCXxApf4GnBJi
+	CZsG+IxMkdeTr6kNCDvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtHr4-0000000DCj7-0fHr;
+	id 1vtHr4-0000000DCjy-2eWC;
 	Fri, 20 Feb 2026 04:11:02 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtHqu-0000000DCUw-1iyG;
-	Fri, 20 Feb 2026 04:10:52 +0000
+	id 1vtHqv-0000000DCX0-3qsC
+	for linux-riscv@lists.infradead.org;
+	Fri, 20 Feb 2026 04:10:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CA3A46184C;
-	Fri, 20 Feb 2026 04:10:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96E5DC19421;
-	Fri, 20 Feb 2026 04:10:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 541C861872;
+	Fri, 20 Feb 2026 04:10:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21517C116D0;
+	Fri, 20 Feb 2026 04:10:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771560651;
-	bh=evdnVFP154xQL1h2OcymHWYDUXgDAm2JlzKuv7gRIj4=;
+	s=k20201202; t=1771560653;
+	bh=XFOf5aDi+Dah56RKFi8JABtwBzPV/6dCOoY6VnWTf4s=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=bjHLnJFfgZqUcJ1oX9WN/ZiccgQNg8JncNFzs31xxTRWUlnKNa5PO/Dqb47ef+sZR
-	 tFn9N/9le0ZAudJ7/uH2aX06UIMGI3v7VClm3KFESeJbQ4yVgjXNOiSow0kMioK4bb
-	 +4y7mS5u1w8idSQwRC8gIWoCH/vBjV5R3Ng4+W2S/XBnq7o1ygM4/2Bq6qr59DqBIS
-	 b9yPRl+ijbS/nL2/WQlYKBxcDMN3Rp9LR0xmvmysoAn9mqlh/Hs6uadGaPHl+0Xw4K
-	 mMs0Ywfb/nzhhkMJCR5PFwm6AJklxceQtA3747QdjMCBWOB2pLNkkxV1+pLRmWam41
-	 PtY6CIM6IMP+Q==
+	b=SUdAya5+Kfp1xY+mMHIa6hI5DL0Rca6wNjp29XpQAiUT78JgbqN08os32jUXBQJij
+	 Af4iYH7fKLWgMTLFvLe0UhkhGUg2jGNhQoYh81aIBvKi6jsQFhbWTWVgCPet7JyP3g
+	 dySg6H/ll7C7o1OQSnCgbuojUYhajA+M+r+lg8NFGeUxgR6+UIHJLGatemSOiiCZdE
+	 HhviGb2T1wgtyFZXl53JwGpQpXqqegkcGns61+lqNMXOZpZKe8uLs+isEQkteuWusg
+	 yQSeRkyzLrNat68+RUqlp3BTJc3n1Xp/6VGLx3Fp4Ae/pX7XJrA24whu3Oui6V8O1v
+	 ipkaqWZY0MQcQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 400BA3809A88;
-	Fri, 20 Feb 2026 04:11:01 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9E9E3809A88;
+	Fri, 20 Feb 2026 04:11:02 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v4] RISC-V: KVM: Fix null pointer dereference in
- kvm_riscv_aia_imsic_has_attr()
+Subject: Re: [GIT PULL] RISC-V updates for v7.0
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177156065978.189817.14743297362954778130.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Feb 2026 04:10:59 +0000
-References: <20260125143344.2515451-1-xujiakai2025@iscas.ac.cn>
-In-Reply-To: <20260125143344.2515451-1-xujiakai2025@iscas.ac.cn>
-To: eanut 6 <jiakaipeanut@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, alex@ghiti.fr,
- aou@eecs.berkeley.edu, palmer@dabbelt.com, pjw@kernel.org,
- atish.patra@linux.dev, anup@brainfault.org, xujiakai2025@iscas.ac.cn,
- jiakaiPeanut@gmail.com
+Message-Id: <177156066128.189817.1042347255874728240.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Feb 2026 04:11:01 +0000
+References: <c554c02e-a791-5c4a-d329-7632de7a194d@kernel.org>
+In-Reply-To: <c554c02e-a791-5c4a-d329-7632de7a194d@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
+ linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,25 +73,23 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Anup Patel <anup@brainfault.org>:
+This pull request was applied to riscv/linux.git (fixes)
+by Linus Torvalds <torvalds@linux-foundation.org>:
 
-On Sun, 25 Jan 2026 14:33:44 +0000 you wrote:
-> Add a null pointer check for imsic_state before dereferencing it in
-> kvm_riscv_aia_imsic_has_attr(). While the function checks that the
-> vcpu exists, it doesn't verify that the vcpu's imsic_state has been
-> initialized, leading to a null pointer dereference when accessed.
+On Thu, 12 Feb 2026 16:39:48 -0700 (MST) you wrote:
+> Linus,
 > 
-> This issue was discovered during fuzzing of RISC-V KVM code. The
-> crash occurs when userspace calls KVM_HAS_DEVICE_ATTR ioctl on an
-> AIA IMSIC device before the IMSIC state has been fully initialized
-> for a vcpu.
+> Please pull these RISC-V updates for v7.0.  The primary new feature
+> here is support for CFI in user processes.  This feature has been
+> tested by a set of RISC-V community participants, including by CPU
+> IP/hardware vendors and by a major Linux distribution.  Other changes
+> are described in the signed tag.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v4] RISC-V: KVM: Fix null pointer dereference in kvm_riscv_aia_imsic_has_attr()
-    https://git.kernel.org/riscv/c/11366ead4f14
+  - [GIT,PULL] RISC-V updates for v7.0
+    https://git.kernel.org/riscv/c/cee73b1e840c
 
 You are awesome, thank you!
 -- 
