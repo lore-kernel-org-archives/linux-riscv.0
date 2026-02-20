@@ -4,111 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F4CC5AD4E
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 18:49:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AF76C561E6
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Feb 2026 19:15:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WfSS72ZfALFy1PfHdbKxpsZSAMx+QuccsrW2Bvlw9IM=; b=Wf5xtjbP79pV3j
-	DFSJyUOUNgwALDiDuAn457161sMdrDqpeU/1Kqi2oUZEk20BcqeS5LoXX6YOKtdLzNV7FHxbOMF9N
-	+eypnBB2hilN5Kkbv1xddxsXIaRErpLaJJoMHTPRv/ZCgCe/Hyjmemb51oGwzggv7Khzvva1auaPK
-	LJY570Ko9L0iWt68fyiSr3fUsuPG5QnpS9OxYLW9m7tiWw/QNhHF5zRmsewqIgMEgMgv3fjaMN54f
-	udMWhFqOydm/lkEkW8QAZJeulTLVxM7Nr3rHizWBi3f4E9MZ8UW31SDlxq6iEvHOs2tCC0BLbKexy
-	7G3KAo04uqd+FjDNgyvA==;
+	List-Owner; bh=l92kjiDmPu5PYBfbPMZiG29G/NvrkvUcOukZg2cy3lY=; b=Ce5fWrL21hWdS/
+	xXzMyou9oBqfs89d52Hx1AqdpvSlLj0BfC8WIPvwMBVe3w3Mo/lDmRV51ohU5zgWrEmcEAPTbWXVd
+	D/ULwSBqG87Ur616KtmDRBZ8kW3sIx3oCLRpSgvIvXUEOT63GSIw3HvUzkvtFHKN54A/iJVJuRI6w
+	LJ9DD8sFogxnaVpa2Qq43kki5/eznd5zL9/kXOoDk9N/YDbva05EYQy5qOrjDqagHiW0iuauPLsyf
+	Afg/pvY7FsnYFrq5B6Q2K4xpaPSj+eCzAHrZqCiU0xIA+ZgYw2jyZxaoRpwVaPRRfiFm/hPHWmnLj
+	rUbp1nWowIp86ZahYplA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtVZI-0000000FTFN-10yF;
-	Fri, 20 Feb 2026 18:49:36 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1vtVxo-0000000FUoR-3y6S;
+	Fri, 20 Feb 2026 19:14:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtVZF-0000000FTEy-19B8
-	for linux-riscv@lists.infradead.org;
-	Fri, 20 Feb 2026 18:49:34 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-65a2fea1a1eso5526155a12.0
-        for <linux-riscv@lists.infradead.org>; Fri, 20 Feb 2026 10:49:32 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1771613371; cv=none;
-        d=google.com; s=arc-20240605;
-        b=QdlvkpEuLGuNhop60JNfblJhesXq3dVfhaG2PqiprOb1enxWGnustCVGeLHLA3BtHb
-         3TgzceXo1MkoqPX+j8ibBn7rHdRqia1PdGkvCZTvJxuoc2zZfSutQKK5hcKGOzjelTFP
-         bMPen1YJR5/ocmRO9Wv0TNnIVzrSxvbMBAGPJPIzon3gw9d2JqhLZYFIFyYExszqKv2p
-         hDggn9ASaIHrz9/22yDCM6IJb0ZDFGBOz9cRk7CSwdVIqXbwk3Yh9yp5Q3FycgK0mi3H
-         0fo9LR9ot1huQaTIzauW1xtPXBzNN3ODC7btkW/QW0ydmfXUgDE942j2ncpMkPaYrUmp
-         1Xow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=wx+eX0mBS59Zy6hvZp9IaEVvMB66mMGe+OdOIYRjb5w=;
-        fh=6U0TJSPF6yF8lDDzEpQtmsLHnB9C+cOHj05f9LJTjFA=;
-        b=ixAl2iU4mGUf02pdELW6bSwg697xk18qWiW9czzyeEII8lYJk9D7fISSqHd3zAoVTL
-         1xmqliBzyLJbikgZxpFjxhPQ2tkkUtil3F9GvPyVC+47l6XdcCsiXV4QqxrZhUXA37F7
-         CuNyH8oJeQcydBek/+gpHfz0slfy5HJJ06/3E5i24GaciNj0NetPUhnyjJEZzC/MGd4q
-         j8oKBUV+Y2gOQ/j0HYGaQUVCUbb8W1G55bs1lGP0j4NMGem65FGoEXgk42547WI2vSWu
-         ZcOZIe/buXQDLGskKe6V0LpNz+1h70jZEyHXDmV+K+QgUSwXjRkqF1UkQn9y95HTDe4Y
-         EwYw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1771613371; x=1772218171; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wx+eX0mBS59Zy6hvZp9IaEVvMB66mMGe+OdOIYRjb5w=;
-        b=CL/zCQadS7ysPcywPPmMtubi8/8FDzocZ0fIK4k1eY1R3qXWZt/icVSPlpbuYR6kq1
-         cOvdggjg9VGO08bxKGPLooTIa3wwS6WWOBvU7VhpTAhUzwIs9LTxd8VrVVEAsj7Xkt2M
-         ZTWr18B6AsI4gXRtK7/RkbS1p7J3p9W0GT1a+BL0jO4dAUhwgMWqoNp1t+mYmkMdcW8E
-         6izUUECkeHk45i18SsZgMWvQ8ZARibZP7xUzw1CdMCNDvyeIxpU1HajprgNDX48vG5Ic
-         dx4yjxqyrl2I6/VRPEvBOZKUctAs/MN7itXgSF4wEFyiJAwyo3/uQvVgALtT4DtnYfSC
-         eWfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771613371; x=1772218171;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=wx+eX0mBS59Zy6hvZp9IaEVvMB66mMGe+OdOIYRjb5w=;
-        b=O9rbwpaIGtWbGgb+HRivlkNQlhTjgsv+Y1wSEP/iR2EryIAr6zsYEB1egBbxCLA4dk
-         WRFLmpuQ3GqdQkaCpqSRQjmJtQtFu1lI8uTkeTDBFBQC2usNbPuPQjDp5Vgm6o7a/OOP
-         gyq7RDFnqAhBMY/di7AkvmWqpn3rKKd7d2X1XQ0Iqg/UNWZ7YL8eUWxBdfE4YYogDZFr
-         dX3BAgzcwt7eR3lV88VpqnDFrPwNKFjIeCDrnYoAewkuSVggb4BKzs26F1PKFOEi5ZBZ
-         ScaIS0H9wGZnkBvfhSmrEj/Dt6vD4z9WZxFDTz3F3vlCv4pQzzDiOinf769uXLizvihF
-         /1kA==
-X-Forwarded-Encrypted: i=1; AJvYcCUXi3JFUyVP2rn8t2hPf9xBVFJxY4yCnqGJBeUdDlVIS5QEoAyJA/jtBZHkmekTi4a2Q+C1ZmBMXtxHmA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzN2YpovY4tJngvN/XDNstf7vltC1WiMOecF/vMpuNjRDCKoSi
-	jzhuZvGz99eVEWSmtvnHZfJoTGMz0qgzp38j8fuRqSMTVcCgWck4jwOyB1t1C2jaltzztnldDJg
-	HpOKTucr3tCwjPAsvtC0TuxAuwyMPX4OXKPXEMP9Yvg==
-X-Gm-Gg: AZuq6aIIKwP+cZB5ryTEtUgExdu+b3D5dOfCW3l0vTNnJTD9Nkf0ENekHpNIz7eKYyv
-	qcYF59iNuJyImis91LEDXR5g/wzcRskhGah2ZgZ8TmZUg8KdyWyg0zayGT3WXsb1QaBywEyj0L0
-	XV+Vp5nAWrjSidipw6kF790+FZhewsiwjbUQT6tqJ+FbGbsG79Dep6MG+77v4zbTifD3ASUYXeK
-	65R1Y5xVQL4tYkVgFjJVByiLFzOjGt6OPNXgnjM85aMP7HJyCfXZuGcdgha64be+xAtmhkVT4F9
-	nAUhSHKFZg==
-X-Received: by 2002:a17:906:99c1:b0:b8f:dec3:6606 with SMTP id
- a640c23a62f3a-b90810d9416mr39173466b.23.1771613371158; Fri, 20 Feb 2026
- 10:49:31 -0800 (PST)
+	id 1vtVxm-0000000FUnG-0EIu;
+	Fri, 20 Feb 2026 19:14:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 56FE8418D8;
+	Fri, 20 Feb 2026 19:14:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA755C116C6;
+	Fri, 20 Feb 2026 19:14:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1771614892;
+	bh=N/dul5YjHzDXPfrduHVCi4Yg6lOyDfk2HzDDWaV+YQQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Dl4K9twKTKk+64XuV3tx697p+tSKE4KpQAY+Nm3YF1p4RQ05z2krCL7vET+svQbq5
+	 VG8ENPLrxvLm/+whZxz7wR4sSkpTeUfkYv0ng1u1YVUiDdnp8o8K/ltQpAb0sRhhOy
+	 rXgnEi1fxdVV7wKy6o/+ac2dBU905VE6WwRTURFE2/UJPkevi35wRQJ3wcx8pxvJL3
+	 qH7yoJBL8zTJatIySTsfhPDUB1BBxBRzyo1NKjJzbcnEssXaEJKTQi0Oye1uhAaXPh
+	 P3BILrh7CooTpzS9Xd2cs8bvXzY3zgzfP1rVyzHWfNebJK+Q3V4jNuZh9AQyF9VNxU
+	 mNL8AGmVqa1wA==
+Date: Fri, 20 Feb 2026 11:14:49 -0800
+From: Namhyung Kim <namhyung@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	Mingwei Zhang <mizhang@google.com>,
+	Xudong Hao <xudong.hao@intel.com>,
+	Sandipan Das <sandipan.das@amd.com>,
+	Dapeng Mi <dapeng1.mi@linux.intel.com>,
+	Xiong Zhang <xiong.y.zhang@linux.intel.com>,
+	Manali Shukla <manali.shukla@amd.com>,
+	Jim Mattson <jmattson@google.com>
+Subject: Re: [PATCH v6 42/44] KVM: VMX: Dedup code for adding MSR to VMCS's
+ auto list
+Message-ID: <aZiyqcd2V6Ncm6wY@google.com>
+References: <20251206001720.468579-1-seanjc@google.com>
+ <20251206001720.468579-43-seanjc@google.com>
+ <aZdlBkLEQyv9q5ll@google.com>
+ <aZe6UR1EGg0RcB69@google.com>
 MIME-Version: 1.0
-References: <20260220-fu740-v1-0-c8af54130c58@sifive.com> <20260220-fu740-v1-2-c8af54130c58@sifive.com>
- <20260220-contest-ambiguity-1a4099520bdf@spud>
-In-Reply-To: <20260220-contest-ambiguity-1a4099520bdf@spud>
-From: Max Hsu <max.hsu@sifive.com>
-Date: Sat, 21 Feb 2026 02:49:19 +0800
-X-Gm-Features: AaiRm50P1Nlh0T0vDWni0aUkbrbTe6xYAsBq75SA6rKDY3TAVmB4kTeN4YB9xj8
-Message-ID: <CAHibDyy1mA2s9_UjKGPemRaKNSvyq07Ok5+4yruQ1uXX+R-Pkg@mail.gmail.com>
-Subject: Re: [PATCH 2/5] dt-bindings: interrupt-controller: Add SiFive
- FU740-C000 PLIC
-To: Conor Dooley <conor@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Thomas Gleixner <tglx@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Paul Walmsley <paul.walmsley@sifive.com>
+Content-Disposition: inline
+In-Reply-To: <aZe6UR1EGg0RcB69@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_104933_352956_5EACF0C5 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20260220_111454_134905_5CED456F 
+X-CRM114-Status: GOOD (  26.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,44 +90,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBGZWIgMjAsIDIwMjYgYXQgMDk6MjM6MTggKzAwMDAsIENvbm9yIERvb2xleSB3cm90
-ZToKPiBTbyBkbyB0aGUgZ2VuZXJhbCBydWxlcyBmb3IgZGV2aWNldHJlZSBiaW5kaW5ncywgdGhh
-dCdzIG5vdCBzb21ldGhpbmcKPiBTaUZpdmUgc3BlY2lmaWMgRldJVy4KPiBBY2tlZC1ieTogQ29u
-b3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4KClRoYW5rcyBmb3IgdGhlIHJl
-dmlldyBhbmQgdGhlIGFjaywgQ29ub3IuCgpJJ2xsIHVwZGF0ZSB0aGUgY29tbWl0IG1lc3NhZ2Ug
-aW4gdjIgdG8gcmVmZXJlbmNlIHRoZSBnZW5lcmFsIGRldmljZQp0cmVlIGNvbnZlbnRpb25zLgoK
-VGhhbmtzLApNYXggSHN1CgpPbiBGcmksIEZlYiAyMCwgMjAyNiBhdCA1OjIz4oCvUE0gQ29ub3Ig
-RG9vbGV5IDxjb25vckBrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIEZyaSwgRmViIDIwLCAyMDI2
-IGF0IDA0OjI3OjA2UE0gKzA4MDAsIE1heCBIc3Ugd3JvdGU6Cj4gPiBBZGQgdGhlIFNpRml2ZSBG
-VTc0MC1DMDAwIFBMSUMgY29tcGF0aWJsZSBzdHJpbmcgdG8gdGhlIGJpbmRpbmcKPiA+IGRvY3Vt
-ZW50YXRpb24uCj4gPgo+ID4gVGhpcyBmb2xsb3dzIHRoZSBTaUZpdmUgSVAgdmVyc2lvbmluZyBz
-Y2hlbWUgd2hpY2ggcmVxdWlyZXMgU29DLXNwZWNpZmljCj4gPiBjb21wYXRpYmxlIHN0cmluZ3Mg
-Zm9yIHByb3BlciBoYXJkd2FyZSBpZGVudGlmaWNhdGlvbiwgZXZlbiB3aGVuIHRoZSBJUAo+ID4g
-YmxvY2tzIGFyZSBmdW5jdGlvbmFsbHkgaWRlbnRpY2FsLgo+Cj4gU28gZG8gdGhlIGdlbmVyYWwg
-cnVsZXMgZm9yIGRldmljZXRyZWUgYmluZGluZ3MsIHRoYXQncyBub3Qgc29tZXRoaW5nCj4gU2lG
-aXZlIHNwZWNpZmljIEZXSVcuCj4gQWNrZWQtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5
-QG1pY3JvY2hpcC5jb20+Cj4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBNYXggSHN1IDxtYXguaHN1
-QHNpZml2ZS5jb20+Cj4gPiAtLS0KPiA+ICAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9pbnRlcnJ1
-cHQtY29udHJvbGxlci9zaWZpdmUscGxpYy0xLjAuMC55YW1sICAgICAgfCAxICsKPiA+ICAxIGZp
-bGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKykKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRh
-dGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2ludGVycnVwdC1jb250cm9sbGVyL3NpZml2ZSxwbGlj
-LTEuMC4wLnlhbWwgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvaW50ZXJydXB0
-LWNvbnRyb2xsZXIvc2lmaXZlLHBsaWMtMS4wLjAueWFtbAo+ID4gaW5kZXggZTAyNjcyMjM4ODdl
-Li4zNTFkMjZhYjE5NTYgMTAwNjQ0Cj4gPiAtLS0gYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUv
-YmluZGluZ3MvaW50ZXJydXB0LWNvbnRyb2xsZXIvc2lmaXZlLHBsaWMtMS4wLjAueWFtbAo+ID4g
-KysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2ludGVycnVwdC1jb250cm9s
-bGVyL3NpZml2ZSxwbGljLTEuMC4wLnlhbWwKPiA+IEBAIC02Myw2ICs2Myw3IEBAIHByb3BlcnRp
-ZXM6Cj4gPiAgICAgICAgICAgICAgICAtIGVzd2luLGVpYzc3MDAtcGxpYwo+ID4gICAgICAgICAg
-ICAgICAgLSBtaWNyb2NoaXAscGljNjRneC1wbGljCj4gPiAgICAgICAgICAgICAgICAtIHNpZml2
-ZSxmdTU0MC1jMDAwLXBsaWMKPiA+ICsgICAgICAgICAgICAgIC0gc2lmaXZlLGZ1NzQwLWMwMDAt
-cGxpYwo+ID4gICAgICAgICAgICAgICAgLSBzcGFjZW1pdCxrMS1wbGljCj4gPiAgICAgICAgICAg
-ICAgICAtIHN0YXJmaXZlLGpoNzEwMC1wbGljCj4gPiAgICAgICAgICAgICAgICAtIHN0YXJmaXZl
-LGpoNzExMC1wbGljCj4gPgo+ID4gLS0KPiA+IDIuNDMuMAo+ID4KCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Fri, Feb 20, 2026 at 08:46:07AM -0800, Sean Christopherson wrote:
+> On Thu, Feb 19, 2026, Namhyung Kim wrote:
+> > Hello,
+> > 
+> > On Fri, Dec 05, 2025 at 04:17:18PM -0800, Sean Christopherson wrote:
+> > > Add a helper to add an MSR to a VMCS's "auto" list to deduplicate the code
+> > > in add_atomic_switch_msr(), and so that the functionality can be used in
+> > > the future for managing the MSR auto-store list.
+> > > 
+> > > No functional change intended.
+> > > 
+> > > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > > ---
+> > >  arch/x86/kvm/vmx/vmx.c | 41 +++++++++++++++++++----------------------
+> > >  1 file changed, 19 insertions(+), 22 deletions(-)
+> > > 
+> > > diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+> > > index 018e01daab68..3f64d4b1b19c 100644
+> > > --- a/arch/x86/kvm/vmx/vmx.c
+> > > +++ b/arch/x86/kvm/vmx/vmx.c
+> > > @@ -1093,12 +1093,28 @@ static __always_inline void add_atomic_switch_msr_special(struct vcpu_vmx *vmx,
+> > >  	vm_exit_controls_setbit(vmx, exit);
+> > >  }
+> > >  
+> > > +static void vmx_add_auto_msr(struct vmx_msrs *m, u32 msr, u64 value,
+> > > +			     unsigned long vmcs_count_field, struct kvm *kvm)
+> > > +{
+> > > +	int i;
+> > > +
+> > > +	i = vmx_find_loadstore_msr_slot(m, msr);
+> > > +	if (i < 0) {
+> > > +		if (KVM_BUG_ON(m->nr == MAX_NR_LOADSTORE_MSRS, kvm))
+> > > +			return;
+> > > +
+> > > +		i = m->nr++;
+> > > +		m->val[i].index = msr;
+> > > +		vmcs_write32(vmcs_count_field, m->nr);
+> > > +	}
+> > > +	m->val[i].value = value;
+> > > +}
+> > > +
+> > >  static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
+> > >  				  u64 guest_val, u64 host_val)
+> > >  {
+> > >  	struct msr_autoload *m = &vmx->msr_autoload;
+> > >  	struct kvm *kvm = vmx->vcpu.kvm;
+> > > -	int i;
+> > >  
+> > >  	switch (msr) {
+> > >  	case MSR_EFER:
+> > > @@ -1132,27 +1148,8 @@ static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
+> > >  		wrmsrq(MSR_IA32_PEBS_ENABLE, 0);
+> > >  	}
+> > >  
+> > > -	i = vmx_find_loadstore_msr_slot(&m->guest, msr);
+> > > -	if (i < 0) {
+> > > -		if (KVM_BUG_ON(m->guest.nr == MAX_NR_LOADSTORE_MSRS, kvm))
+> > > -			return;
+> > > -
+> > > -		i = m->guest.nr++;
+> > > -		m->guest.val[i].index = msr;
+> > > -		vmcs_write32(VM_ENTRY_MSR_LOAD_COUNT, m->guest.nr);
+> > > -	}
+> > > -	m->guest.val[i].value = guest_val;
+> > > -
+> > > -	i = vmx_find_loadstore_msr_slot(&m->host, msr);
+> > > -	if (i < 0) {
+> > > -		if (KVM_BUG_ON(m->host.nr == MAX_NR_LOADSTORE_MSRS, kvm))
+> > > -			return;
+> > > -
+> > > -		i = m->host.nr++;
+> > > -		m->host.val[i].index = msr;
+> > > -		vmcs_write32(VM_EXIT_MSR_LOAD_COUNT, m->host.nr);
+> > > -	}
+> > > -	m->host.val[i].value = host_val;
+> > > +	vmx_add_auto_msr(&m->guest, msr, guest_val, VM_ENTRY_MSR_LOAD_COUNT, kvm);
+> > > +	vmx_add_auto_msr(&m->guest, msr, host_val, VM_EXIT_MSR_LOAD_COUNT, kvm);
+> > 
+> > Shouldn't it be &m->host for the host_val?
+> 
+> Ouch.  Yes.  How on earth did this escape testing...  Ah, because in practice
+> only MSR_IA32_PEBS_ENABLE goes through the load lists, and the VM-Entry load list
+> will use the guest's value due to VM_ENTRY_MSR_LOAD_COUNT not covering the bad
+> host value.
+> 
+> Did you happen to run into problems when using PEBS events in the host?
+
+No, I just found it by reading the patch.
+
+> 
+> Regardless, do you want to send a patch?  Either way, I'll figure out a way to
+> verify the bug and the fix.
+
+Sure, will do.
+
+Thanks,
+Namhyung
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
