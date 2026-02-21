@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48739C54FD2
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Feb 2026 02:56:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E8BC5DF6C
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Feb 2026 03:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=68/KqvqY8f+qwsOjnTcdE/GW46JvjePS9BvcWGK1ZKQ=; b=aJ2n9IM6uMCsTR
-	mpjyoU0vtnWDsgDGSXqTFp+xxDxTBeli9QeQcWTcPyUHWDK+Yzn7jbNWE+/YJCkaZCw9KkT+A/SJo
-	8LOc2sEPyXc1ckDPXvn0UAEtYijoF851v0936CEOy3DPMxXSNndjrJdtZyS24lZcdGfrtYsYQcnQK
-	5rI98LFkrAmQREvTL9g/0cg24orayu4VIcIaTWYgc7/nH7rJkkXoeSc2cEzvV+fmj8HfT19/rcoig
-	mCVDxUIQ/AuyR68JEpfFa4891jHLV+Hli5UUCdiGZ9cC7piuL/KuXREc+xGlryOzKbft7rPfud1SV
-	+WIkHlDFhLMbbgAL2kWw==;
+	List-Owner; bh=aL9Pm3cqEuxQIDfhbZzJVs92REUa4Udnq97X/NB7Hww=; b=LVslgsg26sdzRu
+	XtSHObdcDiZipZ/xYM22SB5gmyR+idHjgK3NvL5RRnPuMIvJsf4zzqoR4mB/timym6n9v5fD1x6qR
+	xf6M0311BqbQimULxejNHJ3F9AaErvBj9zClT7ONoXD0+v3QztUT5903D8/IMdwmA8JeFXBZ+Wzym
+	gAoLIDpFM288v7DMlvuJwERDy1ZedcIwPqyBF/nWjJhQRIsegMgkyqiTXmQet/gf98ZGOH4HmtKje
+	rKzVYcfCBE/9kqFERl6LSfL62chSapv6dxbuV9evzcn4nhDA3SIbyJmgf1q/HJ2GxImJqqXYAGP6u
+	yfLWebxti6QJzQrajyVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtdA3-0000000FmPZ-3ykB;
-	Sat, 21 Feb 2026 02:56:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vtdFG-0000000Fmkg-44dY;
+	Sat, 21 Feb 2026 03:01:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtdA2-0000000FmOv-1KUW
+	id 1vtdFF-0000000FmkK-0Jpj
 	for linux-riscv@lists.infradead.org;
-	Sat, 21 Feb 2026 02:56:02 +0000
+	Sat, 21 Feb 2026 03:01:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CDE7060123;
-	Sat, 21 Feb 2026 02:56:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17D8EC116C6;
-	Sat, 21 Feb 2026 02:55:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A5D94441C2;
+	Sat, 21 Feb 2026 03:01:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BF38C116C6;
+	Sat, 21 Feb 2026 03:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771642560;
-	bh=CWYITnkXgzNyfLnHj5X6xXIaWL2MvqJ/EQQYMsFAqRw=;
+	s=k20201202; t=1771642884;
+	bh=KwctpyjVLKsXQ7U5+18olYPJ9bygXjS/yrPcSLoGGVg=;
 	h=From:To:Cc:Subject:Date:From;
-	b=SA/NzOzNr00ofjEGxz1dT6rP+E4jUWDm4xsr0fzgyjAjwjChonPiZmgXbfa949diq
-	 bDPU9f2FVgWYvtt2JHpNdp+5+tEZaWirfPCylx6z6Ynsa16jrbU9IztOgMW1YYuNUd
-	 F7IMSK8Xo3d8PPfYMh0F8NEoDBJq18ZJ1OaI14+3s5Yr2IqoB4ZjyT9KWnv/0Fr5F7
-	 Ojr5kvynGWda/UtDyEifJ3kgh+ND0MssG4FgdEGbPv+9DP8TPmeHrNqN+HpkbTmabM
-	 rBAbIshWUX4sNKX0ANVf73O/41oCnLsqnt0+HmwBtc9NaStzMEsLRnhRu1zuJJ2NKq
-	 LDPSnD76lMhEA==
+	b=Mk/vOXPUXpDFG20dryKfkHg7K8wbnpwMFirn+E/2sfFv79+C81XlI/MkqJuaViq3X
+	 Ma3EW5NSRwrWXJVKaDiimVMDDuvdw3LhT3RUZyCkHHN7+iOfy/S6OK6w8B4g9uffWn
+	 tSfmZaDZhER9qKuTY7AqDyrsi2pXL9YY3u61X9DB6eJduqk/Z6zVqNdKw3fuhBCvFc
+	 5+B0gkvZINPyY/JvZjwX/nVvkiV7i+s7AbaCdgASjil928ttfaql+ian/HF98iYk9m
+	 zEMMkOGCODYkg8nbFonbYv1LDxCU3bQF1ul0KZb0iCfB3q6Sx02GDycjX3rk4bbmif
+	 UQ3MpPIi4uLmQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -49,11 +49,15 @@ To: Paul Walmsley <pjw@kernel.org>,
 	Alexandre Ghiti <alex@ghiti.fr>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: make runtime const not usable by modules
-Date: Sat, 21 Feb 2026 10:37:31 +0800
-Message-ID: <20260221023731.3476-1-jszhang@kernel.org>
+Subject: [PATCH] riscv: bug: Make RV32 use GENERIC_BUG_RELATIVE_POINTERS
+Date: Sat, 21 Feb 2026 10:42:55 +0800
+Message-ID: <20260221024255.3552-1-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260220_190125_159749_DD595B35 
+X-CRM114-Status: UNSURE (   8.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,34 +74,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Similar as commit 284922f4c563 ("x86: uaccess: don't use runtime-const
-rewriting in modules") does, make riscv's runtime const not usable by
-modules too, to "make sure this doesn't get forgotten the next time
-somebody wants to do runtime constant optimizations". The reason is
-well explained in the above commit: "The runtime-const infrastructure
-was never designed to handle the modular case, because the constant
-fixup is only done at boot time for core kernel code."
+x86 did this in commit b0a848f4a47a ("x86/bugs: Make i386 use
+GENERIC_BUG_RELATIVE_POINTERS")
+
+powerpc did this in commit 1baa1f70ef77 ("powerpc: Allow relative
+pointers in bug table entries")
+
+Similar as x86 and powerpc does, make RV32 use
+GENERIC_BUG_RELATIVE_POINTERS for "there is only one code path." and
+"less #ifdef is more better".
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- arch/riscv/include/asm/runtime-const.h | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/riscv/Kconfig           | 2 +-
+ arch/riscv/include/asm/bug.h | 5 -----
+ 2 files changed, 1 insertion(+), 6 deletions(-)
 
-diff --git a/arch/riscv/include/asm/runtime-const.h b/arch/riscv/include/asm/runtime-const.h
-index d766e2b9e6df..900db0a103d0 100644
---- a/arch/riscv/include/asm/runtime-const.h
-+++ b/arch/riscv/include/asm/runtime-const.h
-@@ -2,6 +2,10 @@
- #ifndef _ASM_RISCV_RUNTIME_CONST_H
- #define _ASM_RISCV_RUNTIME_CONST_H
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 90c531e6abf5..d0c8ffed1992 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -324,7 +324,7 @@ config STACKTRACE_SUPPORT
+ config GENERIC_BUG
+ 	def_bool y
+ 	depends on BUG
+-	select GENERIC_BUG_RELATIVE_POINTERS if 64BIT
++	select GENERIC_BUG_RELATIVE_POINTERS
  
-+#ifdef MODULE
-+  #error "Cannot use runtime-const infrastructure from modules"
-+#endif
-+
- #include <asm/asm.h>
- #include <asm/alternative.h>
- #include <asm/cacheflush.h>
+ config GENERIC_BUG_RELATIVE_POINTERS
+ 	bool
+diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
+index 6f581b84d8fc..699c0cf3e4ef 100644
+--- a/arch/riscv/include/asm/bug.h
++++ b/arch/riscv/include/asm/bug.h
+@@ -29,13 +29,8 @@
+ 
+ typedef u32 bug_insn_t;
+ 
+-#ifdef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
+ #define __BUG_ENTRY_ADDR	RISCV_INT " 1b - ."
+ #define __BUG_ENTRY_FILE(file)	RISCV_INT " " file " - ."
+-#else
+-#define __BUG_ENTRY_ADDR	RISCV_PTR " 1b"
+-#define __BUG_ENTRY_FILE(file)	RISCV_PTR " " file
+-#endif
+ 
+ #ifdef CONFIG_DEBUG_BUGVERBOSE
+ #define __BUG_ENTRY(file, line, flags)	\
 -- 
 2.51.0
 
