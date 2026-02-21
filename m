@@ -4,69 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ACBFC5CFF1
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Feb 2026 00:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48739C54FD2
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Feb 2026 02:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tJdPLL4uEDpzFarzbI2ocLravIjB/WJNGcJ5tYzQ314=; b=Huur4bRxKGGXp9
-	rNiPzcCOnZIhiNQbrwiPiMRaVqTx7yVoWnpG0PMPH+OJKfghD+RakvR9Mf2M82rJH+1PvcfxlJF7C
-	Xrrs48gMwrY5rlbfEHWjHJXdaZMAv66/gBVRPcrA0k/xTjegcb5onE6qjBofQk7d73UuT8YYRmuFM
-	6WpZ/X/5XqNQphQPj1o5+K1ANybeSozk0nZuzlF96/1YNXuMI20DWvLk7EPCAtoiDXmKrfTTq+Cgf
-	oerCfjh+5CRtpQnc0dPMu7c233dRNx7ylHtvS+dLSxsZseQgL3nKP2tGuNbhvszz8+iG1bdr5B+G8
-	sa4zH09KXZtOVHrJwXnA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=68/KqvqY8f+qwsOjnTcdE/GW46JvjePS9BvcWGK1ZKQ=; b=aJ2n9IM6uMCsTR
+	mpjyoU0vtnWDsgDGSXqTFp+xxDxTBeli9QeQcWTcPyUHWDK+Yzn7jbNWE+/YJCkaZCw9KkT+A/SJo
+	8LOc2sEPyXc1ckDPXvn0UAEtYijoF851v0936CEOy3DPMxXSNndjrJdtZyS24lZcdGfrtYsYQcnQK
+	5rI98LFkrAmQREvTL9g/0cg24orayu4VIcIaTWYgc7/nH7rJkkXoeSc2cEzvV+fmj8HfT19/rcoig
+	mCVDxUIQ/AuyR68JEpfFa4891jHLV+Hli5UUCdiGZ9cC7piuL/KuXREc+xGlryOzKbft7rPfud1SV
+	+WIkHlDFhLMbbgAL2kWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtavT-0000000Fift-1JDC;
-	Sat, 21 Feb 2026 00:32:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vtdA3-0000000FmPZ-3ykB;
+	Sat, 21 Feb 2026 02:56:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtavR-0000000FifP-1Ig7;
-	Sat, 21 Feb 2026 00:32:50 +0000
+	id 1vtdA2-0000000FmOv-1KUW
+	for linux-riscv@lists.infradead.org;
+	Sat, 21 Feb 2026 02:56:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 37BC2436DB;
-	Sat, 21 Feb 2026 00:32:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71CFFC116C6;
-	Sat, 21 Feb 2026 00:32:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CDE7060123;
+	Sat, 21 Feb 2026 02:56:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17D8EC116C6;
+	Sat, 21 Feb 2026 02:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771633968;
-	bh=kwlKI7Kb62LlHiwnwWmHi20ea2Opc01sVtwHb3z1XRw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tQMkNQ3zrB9bFmSsQll8RGmasXbrw+cZiGTiWcGGacpVS6Zh+QzSBYwEcNSIvcGEp
-	 qa3yMvBKE48mCd0PnjHXqDRCfoxz+EHkCHd+w7rt5xPHxboI163pbPe0PyQL0U4t2X
-	 zozPONVkp8Vqn8pmfrv6JAWXBQTy9KvN/o4fHf6pIt8Wt5HtOwYb4S/+nwbp7cKmCE
-	 Qzj0vAnqF3g4TGUXuW0me4Cf2GVmjQft9kd3h8nGrN9frsbhXLIm1sdg3yQ1qWT/LR
-	 ujpqI506aqQwvCcIqCRbHHAGMOyycQsOZewcFaaedlA3CFjGrGttRpiZkD5fG3UJfW
-	 IQBSLT3lqnLNg==
-Date: Sat, 21 Feb 2026 08:14:17 +0800
+	s=k20201202; t=1771642560;
+	bh=CWYITnkXgzNyfLnHj5X6xXIaWL2MvqJ/EQQYMsFAqRw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=SA/NzOzNr00ofjEGxz1dT6rP+E4jUWDm4xsr0fzgyjAjwjChonPiZmgXbfa949diq
+	 bDPU9f2FVgWYvtt2JHpNdp+5+tEZaWirfPCylx6z6Ynsa16jrbU9IztOgMW1YYuNUd
+	 F7IMSK8Xo3d8PPfYMh0F8NEoDBJq18ZJ1OaI14+3s5Yr2IqoB4ZjyT9KWnv/0Fr5F7
+	 Ojr5kvynGWda/UtDyEifJ3kgh+ND0MssG4FgdEGbPv+9DP8TPmeHrNqN+HpkbTmabM
+	 rBAbIshWUX4sNKX0ANVf73O/41oCnLsqnt0+HmwBtc9NaStzMEsLRnhRu1zuJJ2NKq
+	 LDPSnD76lMhEA==
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Guo Ren <guoren@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
-Subject: Re: [PATCH 3/3] arm64: use runtime constant to optimize
- handle_arch_irq access
-Message-ID: <aZj42cyIHADECszW@xhacker>
-References: <20260220090922.1506-1-jszhang@kernel.org>
- <20260220090922.1506-4-jszhang@kernel.org>
- <20260220123414.GF136967@e132581.arm.com>
- <aZheqINXslxlrmTt@xhacker>
- <aZhi1p0NJH5ug8CA@xhacker>
- <20260220164738.GH136967@e132581.arm.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: make runtime const not usable by modules
+Date: Sat, 21 Feb 2026 10:37:31 +0800
+Message-ID: <20260221023731.3476-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260220164738.GH136967@e132581.arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260220_163249_392132_4733227D 
-X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,52 +70,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 20, 2026 at 04:47:38PM +0000, Leo Yan wrote:
-> On Fri, Feb 20, 2026 at 09:34:14PM +0800, Jisheng Zhang wrote:
-> 
-> [...]
-> 
-> > > > Run 3 iterations, and measures three metrics (messaging/pipe/seccomp)
-> > > > and results in seconds. Less is better.
-> > > > 
-> > > >   +---------------------+--------+--------+--------+--------+
-> > > >   |Without change       |   run1 |   run2 |   run3 |    avg |
-> > > >   +---------------------+--------+--------+--------+--------+
-> > > >   |messaging (sec)      |  4.546 |  4.508 |  4.591 |  4.548 |
-> > > >   |pipe (sec)           | 24.258 | 24.224 | 24.017 | 24.166 |
-> > > >   |seccomp-notify (sec) | 48.393 | 48.457 | 48.232 | 48.361 |
-> > > >   +---------------------+--------+--------+--------+--------+
-> > > > 
-> > > >   +---------------------+--------+--------+--------+--------+--------+
-> > > >   |With change          |   run1 |   run2 |   run3 |    avg |   diff |
-> > > >   +---------------------+--------+--------+--------+--------+--------+
-> > > >   |messaging (sec)      |  4.493 |  4.523 |  4.556 |  4.524 | +0.52% |
-> > > >   |pipe (sec)           | 23.159 | 23.702 | 28.649 | 25.170 | -4.15% |
-> > > 
-> > > If you check the result, this result variance is abnormal, it means
-> > > your OS is noiser.
-> > 
-> > BTW: if you remove the abnormal run3 result, you'll find that the
-> > benchmark is improved by ~3.5% on CA73:
-> > (23.159 + 23.702) / 2 = 23.43
-> > (24.258 + 24.224) / 2 = 24.24
-> > (24.24 - 23.43)*100 / 23.43 = ~3.5
-> 
-> TBH, I don't think we should subjectively select data.  But I agree a
+Similar as commit 284922f4c563 ("x86: uaccess: don't use runtime-const
+rewriting in modules") does, make riscv's runtime const not usable by
+modules too, to "make sure this doesn't get forgotten the next time
+somebody wants to do runtime constant optimizations". The reason is
+well explained in the above commit: "The runtime-const infrastructure
+was never designed to handle the modular case, because the constant
+fixup is only done at boot time for core kernel code."
 
-The precondition of this is testing the benchmark properly. And I just
-tried perf bench sched in noisy OS, I didn't get the similar abnormal
-variance as you got, so I think your run3 result was CA53's result.
-This isn't an apple-to-apple comparison.
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/include/asm/runtime-const.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-If possible, could you plz test after forcing CA53 offline or test on
-non big.little platform. Anyway, I will test CA73 next week too.
+diff --git a/arch/riscv/include/asm/runtime-const.h b/arch/riscv/include/asm/runtime-const.h
+index d766e2b9e6df..900db0a103d0 100644
+--- a/arch/riscv/include/asm/runtime-const.h
++++ b/arch/riscv/include/asm/runtime-const.h
+@@ -2,6 +2,10 @@
+ #ifndef _ASM_RISCV_RUNTIME_CONST_H
+ #define _ASM_RISCV_RUNTIME_CONST_H
+ 
++#ifdef MODULE
++  #error "Cannot use runtime-const infrastructure from modules"
++#endif
++
+ #include <asm/asm.h>
+ #include <asm/alternative.h>
+ #include <asm/cacheflush.h>
+-- 
+2.51.0
 
-> clean test env is important to avoid noise, and I also agree that the
-> current results already show positive signals.
-> 
-> Thanks,
-> Leo
 
 _______________________________________________
 linux-riscv mailing list
