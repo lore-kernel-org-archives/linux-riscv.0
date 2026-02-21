@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D92C61DFD
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Feb 2026 18:36:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26808C61DFB
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Feb 2026 18:36:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ByFf1aE+mFgdugxwa+DbVBPn1UclFpZyEVm2Zump30g=; b=cLj31A715OF/ck
-	chlK0uowvznLerUs/qiTNEGaiLZ1Atl7pzpigKwJqpmAEOgNnSKMzNiykDeOQjPbN419BdD2hqRwd
-	AFPtOgjQdAZJyyK2c5mjWuqsV2TAfDwF6xrCwt4N8ZpJ4WZbiIujtklT2+FtgI5paR+lRCANGyYpM
-	GiBClKEJ/x2gsXvXu1fyFlF0cA6tOsSovwFGdvsZlnO0AGzMVSz/LKO8cvc3pEbBfqRc9aGgT9WlZ
-	zNr99Jb5yhX10dPX5Wl54sSI/jWndHQACVanShgviOF92jK+0hLiR3zssxh8mjkLN8e0OXCtnAuJq
-	3If7KDXXxnFLjKRR+0iQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lcSNp4RZhTsHgzzQbNNXbCMNETLiwf4Snfasf9YqfNA=; b=tLHjPJGKdBPPi0
+	p8ADAsJ4llnln2gtsiXQlQJ7go/XojP0uhS0VodArRNTGOuZYptUzNVoQ4IHG/0gr3yfmiXYilhA3
+	sz0RYm624rcMU7XRjpF7m10zXylFkR9qiu4T4dsbE1/Ucie6g7M7kgc30TuWdx6j7oA5Rilx5rks9
+	tT6R4FwPxTavd3AlyCi0BGfx/WPiKqifK4EI4qa/cNCHcGD/f/0AgB/EkLVjp3VmGawqUV4lTjs2h
+	BHO3N+nyC5mksA88aflVaOA3+WcHJToWda/cZCmlB3auZ/MQVhbeSrSSnNalj4IPTRC8LCO84syzh
+	alqHynrTfHfkDAdzLRwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtrqI-0000000GFU6-3NVr;
-	Sat, 21 Feb 2026 18:36:38 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1vtrqQ-0000000GFW3-0ZLl;
+	Sat, 21 Feb 2026 18:36:46 +0000
+Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtrqG-0000000GFTK-3fv6
+	id 1vtrqN-0000000GFUt-0Qiw
 	for linux-riscv@lists.infradead.org;
-	Sat, 21 Feb 2026 18:36:38 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-38713b53915so29331741fa.0
-        for <linux-riscv@lists.infradead.org>; Sat, 21 Feb 2026 10:36:36 -0800 (PST)
+	Sat, 21 Feb 2026 18:36:44 +0000
+Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-38707d4c8b9so39189521fa.2
+        for <linux-riscv@lists.infradead.org>; Sat, 21 Feb 2026 10:36:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771698994; x=1772303794; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=XJ4mlxz9+qmH9SFVDphbLCUFby68qXbPqoJ0t+cVd+E=;
-        b=eac3VG41+nD5u82AO0qC9PY4h6S+BEaG6Zr4Fcpn/OW4NBbl+yz7ZmPhbymVf9tRKX
-         g0xw3oCVBt5pkbTZ6kcVyPINyyGKoSUpNH3Aak1BY0CqZvVNLEHDYeP0yBmoKnS9xQqW
-         8jkh5EhjSwbuwTl6WLU7aKKAGbzJqCPSm2Ft8UgLFQra2APHCogpXA0wQwjGc0DLVGnh
-         VzuLKBaUSEO7iZ13MmfmYob+Dewa6NTr7j51sm/DD/65s80DZ5O1Zi9SWAFh8o66fhAP
-         vPA7hnaMQMJ116ivlwjLdEb78UajJNWW3r173Lm+qqEx0pnLCy5AnXwIUyVKeUaaHPe8
-         r75g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771698994; x=1772303794;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1771699001; x=1772303801; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XJ4mlxz9+qmH9SFVDphbLCUFby68qXbPqoJ0t+cVd+E=;
-        b=UyQbd5wRlC/XtEjh5IG1ebaTXviquaRfs24JKDFutMwTf4Ou2/Nnye2fetwgekZgiV
-         HwOFFNn+ik4fDc6WadNTMXaqYYz60/cPQCoq49lSYFJhBYQq6X/SzPanrosaErKmfan4
-         6ZQq1bC9hNk2fLiTEPt4YmnWKryj3ZFjFBvaTyNgE5TjeJU8ZOLOo1uGiXxBzSLRnspQ
-         nstasXVzpzP9S6gkqaNXav8DrRZgDbd0XXNBV0zZLG2+nf/0CEIHn/mDjxK7L7682Y1N
-         Ffs0nuuIl6k66X89JIJEEgtTPlxYrjh5bic+t4whr1+ZOQUc9TYSQLgMfyZplZ7QVmc3
-         Z5jQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXXteSjXirWttZU7PnA5SV3E1zt7XktDrDUKZSRh5c5t47oioraGD6aGR/Vrk6CkCwBSWggJglwh+jYag==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyyUvW5ZhbHr7ijOtYMdn/rhUnK8Y9H6K4RxXZjQHWQpSeULFiV
-	TEjYtWAfDoGhw03OSGZjZ0FBS1eUp5JYpVD6XYr2PTrz+S8vbiOQnGI=
-X-Gm-Gg: AZuq6aIM+aGBi9f1LagEeAUiqZryaxndciplkP9jWNFwB1E7FBPDAeEtjEJGLFWZvxV
-	oJMoxI5lywejAhQDExrmBkweYa/5wORYey1o1L8wj+ZTxYOx7EkZasTDr92MOkwepmlFdBkHLHP
-	KNrynHNU21jSNaUTT2UDtOKEBItQHpJhEpFCNW+JcvGoKjHLA85nxArEBB4aq0VefJA1NwUp2LG
-	ZQ6ERT7FLp8/1HNevoFHkYP/Nm6MDmBBlUieT2tsO5CFHrZOeTPuRGUv4fD00y4IbuM18MF6d7t
-	ODIdumPqvT8cgxY2QZ1dc7L3UH8oZHYwJzA/1FfGIiBJHbKvdIiA0orTbJpApiak/vegty8XZtn
-	BqMXDHFBZNH7itstjiLyQSy4CHCRJZVKKy7k7jeNTHrnUIDpDtKjrMY1ehEjbZj2IoinhSVQzRu
-	bEvDAXr0bl2TVj21s4aku8u1iy8Ro05toLCi532jusSWUH0G0=
-X-Received: by 2002:a2e:868a:0:b0:387:e03:147c with SMTP id 38308e7fff4ca-388536cef04mr25730261fa.1.1771698994175;
-        Sat, 21 Feb 2026 10:36:34 -0800 (PST)
+        bh=tuboJBenXywBLFqud7lu9/BOWrHh+KcmgCOX5jvamjk=;
+        b=jH+iLAdwE+d4XXiv4mOq81H9PbqaohdD3MZsO1V3Gg/xym6VfcZX/GinmZXVNL9h/O
+         WAv4e8+yTOiRLqMgtttwVNOS19d5YqOOeX9MWaUAV5dyieIXWlCRVpcdwk35H5U+HiCI
+         ebU6QX39/sBz3SuEoqo4jQ+R94nPRlTevdioNVzUblJlSHEpaw+jKlef09Q1AJv9pgDG
+         ncRTftCgcygrWgrR6XZwdMwNzxZRalA/Cvy3VlNhfqIqqdaTqtGuK1ctrY8X0HqSH9zH
+         LZ3Vgr0ymxg3e3vc76u9WfpPNaxWC/+b/Ubap8dXlxKt/B+KHdu77eMbLc0oe0FQiBFD
+         4KGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771699001; x=1772303801;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=tuboJBenXywBLFqud7lu9/BOWrHh+KcmgCOX5jvamjk=;
+        b=gCNJdhzod2dCzW1Dx7WHUjK9G2ZqeKxhTRYu1Y89XfHxyxKrAVmFiYhamIg4yuv3lb
+         TzOikzZoB81v/VjgxDmHRZ1rBCt/cqu0jIHySJKP0PTuaoYuy6ccpli1U2/E31Mq3Wnx
+         9ZuHId1fMwjT6a22VzQh+7UVjT5eL1I1ScMB1lIhYAcokN9uOp+gr8Cq0y1ck8RwbMsv
+         Mwbcj2mEGPtIVeI4iOAyK+LXNVy7YgUEUH1S4CW1N/w9jJF7ln8R8ERQaHZTJGHGeQNa
+         k/T6td6VyqdywbtYmwrc6XEi+U0721iDnctgy23qI1JTqwngxX4NeX4BFYS1E0g6H6x8
+         W9ZA==
+X-Forwarded-Encrypted: i=1; AJvYcCXpwOamLdsLQNoaubjD18MrJo9BDwYwEp/vSH5SnXRHx93w7IYKMIOnmADUJtBwDBJBonwvUdUg3Qcurw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFoi+ygxSjyCLJj85BrdfOXZ1Ac0G8PozuewCTTtUsNgcJSyW2
+	72COI3bGkIryA5aa1wHO++JHwTRP4GzINrifRF5RyTJQpbQMGOi2qO8=
+X-Gm-Gg: AZuq6aLZc6TAFt4ygjy4jSjJBxPe8g+XSvfqWxVphJjvdYaFkcH51XHLDk039wDbGmz
+	Z43rPpwydxWmsdezu8irKXj51N1m1jrlc0CClUHPaE+kHeQOIUbAU4bD6Q18iv8cdw365JqfVJr
+	yeXuMB/m7hL7R9OIBm5hVI8Oi8bvl3E1/Fr0UBhtRQDKjPibFOYEZQcr+JOMrIwwXrK7V+Q/9uH
+	sJWMj4T6ZTS4qYXcmcqwHQfleeSLJNXcEafwxFVVdoqIRLneJU5babL9Y9Wuj+Tw0/8wmGd9PjZ
+	G5I3BpbWd9TgUIU2XUboApWRjlQwNOYik3gWj4hUaRpeu512XRc0AJ9t4U5PxbJdY5+xoLsYA4+
+	Fji9a0JvEhf7524RLxIH4rzixblAvsw76q+yOVKSAlbwVcF06kN4Vjivv5j4fbwFXKrSc9uI4n3
+	JFjonK7k80eX2jtdnyTGl6mo7mMYaBbuI+BqQj
+X-Received: by 2002:a2e:be94:0:b0:386:eadd:9ddf with SMTP id 38308e7fff4ca-389a5cdd595mr8800811fa.12.1771699000922;
+        Sat, 21 Feb 2026 10:36:40 -0800 (PST)
 Received: from localhost.localdomain ([178.176.177.46])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-389a7af19d4sm5006841fa.42.2026.02.21.10.36.28
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-389a7af19d4sm5006841fa.42.2026.02.21.10.36.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Feb 2026 10:36:32 -0800 (PST)
+        Sat, 21 Feb 2026 10:36:40 -0800 (PST)
 From: Aleksandr Shubin <privatesub2@gmail.com>
 To: linux-kernel@vger.kernel.org
 Cc: Aleksandr Shubin <privatesub2@gmail.com>,
@@ -90,14 +91,16 @@ Cc: Aleksandr Shubin <privatesub2@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v13 0/3]  Add support for Allwinner PWM on D1/T113s/R329 SoCs
-Date: Sat, 21 Feb 2026 21:35:50 +0300
-Message-Id: <20260221183609.95403-1-privatesub2@gmail.com>
+Subject: [PATCH v13 1/3] dt-bindings: pwm: Add binding for Allwinner D1/T113-S3/R329 PWM controller
+Date: Sat, 21 Feb 2026 21:35:51 +0300
+Message-Id: <20260221183609.95403-2-privatesub2@gmail.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260221183609.95403-1-privatesub2@gmail.com>
+References: <20260221183609.95403-1-privatesub2@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260221_103636_934319_296851B7 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20260221_103643_163124_7B4942AA 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,73 +117,109 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-v2:
- - fix dt-bindings
- - fix a remark in the driver
+Allwinner's D1, T113-S3 and R329 SoCs have a new pwm
+controller which is different from the previous pwm-sun4i.
 
-v3:
- - fix dt-bindings
- - fix sunxi-d1s-t113.dtsi
+The D1 and T113 are identical in terms of peripherals,
+they differ only in the architecture of the CPU core, and
+even share the majority of their DT. Because of that,
+using the same compatible makes sense.
+The R329 is a different SoC though, and should have
+a different compatible string added, especially as there
+is a difference in the number of channels.
 
-v4:
- - fix a remark in the driver
+D1 and T113s SoCs have one PWM controller with 8 channels.
+R329 SoC has two PWM controllers in both power domains, one of
+them has 9 channels (CPUX one) and the other has 6 (CPUS one).
 
-v5:
- - dropped unused varibale in the driver
- - fix dt-bindings
+Add a device tree binding for them.
 
-v6:
- - add apb0 clock
-
-v7:
- - fix a remark in the driver
- - add maintainer
-
-v8:
- - fix compile driver for 6.8-rc
-
-v9:
- - fix a remark in the driver
- - fix dt-bindings
- - rename apb0 -> apb
-
-v10:
- - fix a remark in the driver
- - fix compile driver for 6.12-rc2
-
-v11:
- - fix a remark in the driver
- - fix compile driver for 6.14.0-rc2
-
-v12:
- - fix a remark in the driver
- - fix a remark in the dt-bindings
- - check driver build on 6.15.0-rc3
-
- v13:
- - rename driver sun20i -> sun8i to reflect wider SoC coverage
- - drop the misleading APB > HOSC dev_info() warning
- - require allwinner,npwms and validate it as 1..16
-   (remove default 8 and silent clamp)
- - adjust clock-source selection comment/logic:
-   when sibling is disabled, pick the faster parent (APB vs HOSC);
-   when sibling is enabled, keep existing shared settings
-
-Aleksandr Shubin (3):
-  dt-bindings: pwm: Add binding for Allwinner D1/T113-S3/R329 PWM
-    controller
-  pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM support
-  riscv: dts: allwinner: d1: Add pwm node
-
- .../bindings/pwm/allwinner,sun20i-d1-pwm.yaml |  74 ++++
- .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  13 +
- drivers/pwm/Kconfig                           |  10 +
- drivers/pwm/Makefile                          |   1 +
- drivers/pwm/pwm-sun8i.c                       | 393 ++++++++++++++++++
- 5 files changed, 491 insertions(+)
+Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
+---
+ .../bindings/pwm/allwinner,sun20i-d1-pwm.yaml | 74 +++++++++++++++++++
+ 1 file changed, 74 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-d1-pwm.yaml
- create mode 100644 drivers/pwm/pwm-sun8i.c
 
+diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun20i-d1-pwm.yaml b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-d1-pwm.yaml
+new file mode 100644
+index 000000000000..306e14a9c4d5
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-d1-pwm.yaml
+@@ -0,0 +1,74 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pwm/allwinner,sun20i-d1-pwm.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Allwinner D1, T113-S3 and R329 PWM
++
++maintainers:
++  - Aleksandr Shubin <privatesub2@gmail.com>
++  - Brandon Cheo Fusi <fusibrandon13@gmail.com>
++
++properties:
++  compatible:
++    oneOf:
++      - const: allwinner,sun20i-d1-pwm
++      - items:
++          - const: allwinner,sun50i-r329-pwm
++          - const: allwinner,sun20i-d1-pwm
++
++  reg:
++    maxItems: 1
++
++  "#pwm-cells":
++    const: 3
++
++  clocks:
++    items:
++      - description: Bus clock
++      - description: 24 MHz oscillator
++      - description: APB clock
++
++  clock-names:
++    items:
++      - const: bus
++      - const: hosc
++      - const: apb
++
++  resets:
++    maxItems: 1
++
++  allwinner,npwms:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: The number of PWM channels configured for this instance
++    minimum: 1
++    maximum: 16
++
++unevaluatedProperties: false
++
++required:
++  - compatible
++  - reg
++  - "#pwm-cells"
++  - clocks
++  - clock-names
++  - resets
++  - allwinner,npwms
++
++examples:
++  - |
++    #include <dt-bindings/clock/sun20i-d1-ccu.h>
++    #include <dt-bindings/reset/sun20i-d1-ccu.h>
++
++    pwm: pwm@2000c00 {
++      compatible = "allwinner,sun20i-d1-pwm";
++      reg = <0x02000c00 0x400>;
++      clocks = <&ccu CLK_BUS_PWM>, <&dcxo>, <&ccu CLK_APB0>;
++      clock-names = "bus", "hosc", "apb";
++      resets = <&ccu RST_BUS_PWM>;
++      #pwm-cells = <0x3>;
++      allwinner,npwms = <8>;
++    };
++
++...
 -- 
 2.25.1
 
