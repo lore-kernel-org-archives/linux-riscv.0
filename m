@@ -4,70 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84EC0C61DE4
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Feb 2026 12:15:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ABD6C5AD7B
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Feb 2026 15:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OGX15bNkjOGcUAsJyQlsPp2GvRVM4K3ZwTFbFjF7CF0=; b=H9tXhzBhHm6+ks5kmUrW3a9+zt
-	1i2f3QEDcfnXfQ296gYh7uXgCtcEUlgJ2WiyCaBl4yvTnz1ECzKhR1oFlS4+VxuwMnWsE7BmO4G2l
-	ZAK7EPtZVYODaDmjJLP1dScO3oZQjW8dCiEnL8afsdqciROZMCEzIOW1AYwnNGcw5yvAprwpG/Jrs
-	XkILRbB9kWi3r/g2gP3mSjKbzbErNgfVa5Lc0k3eOc6rdHVqIwRm0weYDtA4X0JnyZHl9BE5FnPh7
-	ixqmMUyFuaVu9Rmoio/AEdUECuQ4H5IZs6BFt4v0OSywaDXPWMd6sbNmYLj+g7/Vyxr45eKI9ISGw
-	FdB3DyLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lg100cohnM5O3HYdcxWH9LcDnxhg1FIdx7v1QEErmq8=; b=jljl7YhCjACKhE
+	vwq4gUulGF2zE+Gd/W2JknxsUI82qKwTn7DtYq6LY8v7JOpsnCyAYe60IG/k7xePziWiCWVkvEpoW
+	89f5cuUFqc0WSnAg60xVzrh81tVRFy3KEGq499onO1Yfau0gMka/CdoyEBLl8QRVv+OkrlsG6YCWL
+	rN6CirRLCaYPcMe/iRjXUbWnIKf5TGSc0MsPBIeVIk40vjEYf+/IKJsZfRHuXw+jF7bjJmeQ+qD61
+	0Nt1uSnUp7CsvI9stgHwQC1NaN/P/1uy7iuQkRCN6Hh036Up3ATPJ6e433glo4de7zDgLKKA22fuH
+	UefnXOIzbj4SRqhsK4dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtltW-0000000G26g-1Dht;
-	Sat, 21 Feb 2026 12:15:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vtohk-0000000G85j-2mId;
+	Sat, 21 Feb 2026 15:15:36 +0000
+Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vtltU-0000000G26J-0wjX
+	id 1vtohi-0000000G85O-06jS
 	for linux-riscv@lists.infradead.org;
-	Sat, 21 Feb 2026 12:15:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AA4154064C;
-	Sat, 21 Feb 2026 12:15:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBA48C4CEF7;
-	Sat, 21 Feb 2026 12:15:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771676130;
-	bh=QcS6puq4igmgHdAhDZWFh4gN//JGx3gAUs7ZFvn1Ylw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=otS4DkZ3T1lrkcZCubDtFSIlQJkV9ilR1uERlWOyUoa5ZAmP0IxkBLS4tDDaOZLhv
-	 +GgghefVmzRAGZHKQTljftoNgU+ehlVXWnTu+lO51v1FAbkV3bFQwqqNQzglhFxeaY
-	 X+VqODzkAbufqYww38qs715St2k4L/oLbWEGxLPQHj7Jf+CrImEMsK/G4PxMQtY/a/
-	 1D9C9+Wj9Xg18RGVj2YcLfGk6kfLISg1cJQY11E1bYRS36YcqKgqedhFWgE47dPszl
-	 84WT47zL7JxMa6eVjvLidS4X/s23b+QiRbWfVSux2p5jq+ouwV79zZi+klAcFKTaVh
-	 /ID0Uowl05z4A==
-Date: Sat, 21 Feb 2026 12:15:23 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Andy Chiu <andybnac@gmail.com>
-Cc: linux-riscv@lists.infradead.org, alexghiti@rivosinc.com,
-	palmer@dabbelt.com, Puranjay Mohan <puranjay12@gmail.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Mark Rutland <mark.rutland@arm.com>, paul.walmsley@sifive.com,
-	greentime.hu@sifive.com, nick.hu@sifive.com, nylon.chen@sifive.com,
-	eric.lin@sifive.com, vicent.chen@sifive.com, zong.li@sifive.com,
-	yongxuan.wang@sifive.com, samuel.holland@sifive.com,
-	olivia.chu@sifive.com, c2232430@gmail.com, arnd@arndb.de,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Kees Cook <kees@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
-	llvm@lists.linux.dev, pjw@kernel.org
-Subject: Re: [PATCH v4 10/12] riscv: Implement
- HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
-Message-ID: <20260221-repeal-emphatic-ddc2e9b94208@spud>
-References: <20250407180838.42877-1-andybnac@gmail.com>
- <20250407180838.42877-10-andybnac@gmail.com>
+	Sat, 21 Feb 2026 15:15:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1771686930; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=c3rqkvZ8f2YCKn6O2yrXwglaa9zp205092pNZVYggxkh9gjixWRYcIzykViMjgbD06xGxJZwtgNYJa/rgIJus8qULszChqvVwZ/eWYvSby4M6Pui5nvF8Ti5uuge2ge0795h1QwDgKY3qLRjjJxN9Jf+IJ7Ha1lwDck5p+r0h94=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1771686930; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=7PBZ6BV0pflgpkVmM7GZBrj5GAsILxdHcBbMFPLndVk=; 
+	b=OWP+sfRFICwwLR8snTogp2NWatEk2B2GvhURr2Cly8BYtcMbVpZZhW//ep73PnhpbIenwEJUUM6NSAGxRuP1ZSQBoCQNkgrN5nwAS0yDXfr8PL6zwNgFDAuM1zOx2+1hP3Tm+9Pko5hsLqdNcE06zCkIn9Tjl8p7nj6wsUlK3bE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
+	dmarc=pass header.from=<kingxukai@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1771686930;
+	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
+	bh=7PBZ6BV0pflgpkVmM7GZBrj5GAsILxdHcBbMFPLndVk=;
+	b=IxTlDxIoElob1meVtSdHlMH1GF/7ihjvp6A9PSf0nWA+E2BOncXyOP4DuA8PDGjE
+	QYzoWsGzfxtDT8rNDFcnn7NwQUqJRE6CA02MNEz/FnAR55dnik6bK6R0VgMCHJO36gj
+	25iqD8Gv0XOm+IOrf61tIroqShag3vrgJJ7+J3W8=
+Received: by mx.zohomail.com with SMTPS id 1771686923159333.11056390750844;
+	Sat, 21 Feb 2026 07:15:23 -0800 (PST)
+Message-ID: <f1452f53-a0c9-4580-be51-a29d94bd7691@zohomail.com>
+Date: Sat, 21 Feb 2026 23:15:15 +0800
 MIME-Version: 1.0
-In-Reply-To: <20250407180838.42877-10-andybnac@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 1/3] dt-bindings: clock: Add bindings for Canaan K230
+ clock controller
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor@kernel.org>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Samuel Holland <samuel.holland@sifive.com>,
+ Troy Mitchell <TroyMitchell988@gmail.com>, jiayu.riscv@isrc.iscas.ac.cn
+References: <20260214-b4-k230-clk-v11-0-6de365489b89@zohomail.com>
+ <20260214-b4-k230-clk-v11-1-6de365489b89@zohomail.com>
+ <20260214-lyrical-rabbit-from-camelot-2e1195@quoll>
+From: Xukai Wang <kingxukai@zohomail.com>
+Content-Language: en-US
+In-Reply-To: <20260214-lyrical-rabbit-from-camelot-2e1195@quoll>
+Feedback-ID: rr080112270177fa32e527f14d020f7646000082eb384bd644a03d1a473829161ee7e7031e2efda71e99c5a4:zu080112271340dbca08d2b8d2cd15d0db0000309bf73410f8398c9987581e74f2d478b2e9b4e654c8aca6fb:rf0801122c2b931f9241db5a1103ee22600000212592b58afb33456c686a6ec669e22222f8e52781f07090a3e9ae68a455:ZohoMail
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260221_041532_308822_2FFC60F5 
-X-CRM114-Status: GOOD (  31.04  )
+X-CRM114-CacheID: sfid-20260221_071534_142914_0FE0F369 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,183 +86,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2966794116541139318=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2966794116541139318==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="VpRs8NX3IpFJmH+q"
-Content-Disposition: inline
+On 2026/2/15 04:36, Krzysztof Kozlowski wrote:
+> On Sat, Feb 14, 2026 at 08:54:37PM +0800, Xukai Wang wrote:
+>> This patch adds the Device Tree binding for the clock controller
+>> on Canaan k230. The binding defines the clocks and the required
+>> properties to configure them correctly.
+>>
+>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> This review and the patchset has one year already... so I am afraid it
+> will be resend and resend, thus please also implement below:
+>
+> A nit, subject: drop second/last, redundant "bindings for". The
+> "dt-bindings" prefix is already stating that these are bindings.
+> See also:
+> https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
+Thank you for the review and for pointing this out.
 
-
---VpRs8NX3IpFJmH+q
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey,
-
-On Tue, Apr 08, 2025 at 02:08:34AM +0800, Andy Chiu wrote:
-> From: Puranjay Mohan <puranjay12@gmail.com>
->=20
-> This patch enables support for DYNAMIC_FTRACE_WITH_CALL_OPS on RISC-V.
-> This allows each ftrace callsite to provide an ftrace_ops to the common
-> ftrace trampoline, allowing each callsite to invoke distinct tracer
-> functions without the need to fall back to list processing or to
-> allocate custom trampolines for each callsite. This significantly speeds
-> up cases where multiple distinct trace functions are used and callsites
-> are mostly traced by a single tracer.
->=20
-> The idea and most of the implementation is taken from the ARM64's
-> implementation of the same feature. The idea is to place a pointer to
-> the ftrace_ops as a literal at a fixed offset from the function entry
-> point, which can be recovered by the common ftrace trampoline.
->=20
-> We use -fpatchable-function-entry to reserve 8 bytes above the function
-> entry by emitting 2 4 byte or 4 2 byte  nops depending on the presence of
-> CONFIG_RISCV_ISA_C. These 8 bytes are patched at runtime with a pointer
-> to the associated ftrace_ops for that callsite. Functions are aligned to
-> 8 bytes to make sure that the accesses to this literal are atomic.
->=20
-> This approach allows for directly invoking ftrace_ops::func even for
-> ftrace_ops which are dynamically-allocated (or part of a module),
-> without going via ftrace_ops_list_func.
->=20
-> We've benchamrked this with the ftrace_ops sample module on Spacemit K1
-> Jupiter:
->=20
-> Without this patch:
->=20
-> baseline (Linux rivos 6.14.0-09584-g7d06015d936c #3 SMP Sat Mar 29
-> +-----------------------+-----------------+----------------------------+
-> |  Number of tracers    | Total time (ns) | Per-call average time      |
-> |-----------------------+-----------------+----------------------------|
-> | Relevant | Irrelevant |    100000 calls | Total (ns) | Overhead (ns) |
-> |----------+------------+-----------------+------------+---------------|
-> |        0 |          0 |        1357958 |          13 |             - |
-> |        0 |          1 |        1302375 |          13 |             - |
-> |        0 |          2 |        1302375 |          13 |             - |
-> |        0 |         10 |        1379084 |          13 |             - |
-> |        0 |        100 |        1302458 |          13 |             - |
-> |        0 |        200 |        1302333 |          13 |             - |
-> |----------+------------+-----------------+------------+---------------|
-> |        1 |          0 |       13677833 |         136 |           123 |
-> |        1 |          1 |       18500916 |         185 |           172 |
-> |        1 |          2 |       22856459 |         228 |           215 |
-> |        1 |         10 |       58824709 |         588 |           575 |
-> |        1 |        100 |      505141584 |        5051 |          5038 |
-> |        1 |        200 |     1580473126 |       15804 |         15791 |
-> |----------+------------+-----------------+------------+---------------|
-> |        1 |          0 |       13561000 |         135 |           122 |
-> |        2 |          0 |       19707292 |         197 |           184 |
-> |       10 |          0 |       67774750 |         677 |           664 |
-> |      100 |          0 |      714123125 |        7141 |          7128 |
-> |      200 |          0 |     1918065668 |       19180 |         19167 |
-> +----------+------------+-----------------+------------+---------------+
->=20
-> Note: per-call overhead is estimated relative to the baseline case with
-> 0 relevant tracers and 0 irrelevant tracers.
->=20
-> With this patch:
->=20
-> v4-rc4 (Linux rivos 6.14.0-09598-gd75747611c93 #4 SMP Sat Mar 29
-> +-----------------------+-----------------+----------------------------+
-> |  Number of tracers    | Total time (ns) | Per-call average time      |
-> |-----------------------+-----------------+----------------------------|
-> | Relevant | Irrelevant |    100000 calls | Total (ns) | Overhead (ns) |
-> |----------+------------+-----------------+------------+---------------|
-> |        0 |          0 |         1459917 |         14 |             - |
-> |        0 |          1 |         1408000 |         14 |             - |
-> |        0 |          2 |         1383792 |         13 |             - |
-> |        0 |         10 |         1430709 |         14 |             - |
-> |        0 |        100 |         1383791 |         13 |             - |
-> |        0 |        200 |         1383750 |         13 |             - |
-> |----------+------------+-----------------+------------+---------------|
-> |        1 |          0 |         5238041 |         52 |            38 |
-> |        1 |          1 |         5228542 |         52 |            38 |
-> |        1 |          2 |         5325917 |         53 |            40 |
-> |        1 |         10 |         5299667 |         52 |            38 |
-> |        1 |        100 |         5245250 |         52 |            39 |
-> |        1 |        200 |         5238459 |         52 |            39 |
-> |----------+------------+-----------------+------------+---------------|
-> |        1 |          0 |         5239083 |         52 |            38 |
-> |        2 |          0 |        19449417 |        194 |           181 |
-> |       10 |          0 |        67718584 |        677 |           663 |
-> |      100 |          0 |       709840708 |       7098 |          7085 |
-> |      200 |          0 |      2203580626 |      22035 |         22022 |
-> +----------+------------+-----------------+------------+---------------+
->=20
-> Note: per-call overhead is estimated relative to the baseline case with
-> 0 relevant tracers and 0 irrelevant tracers.
->=20
-> As can be seen from the above:
->=20
->  a) Whenever there is a single relevant tracer function associated with a
->     tracee, the overhead of invoking the tracer is constant, and does not
->     scale with the number of tracers which are *not* associated with that
->     tracee.
->=20
->  b) The overhead for a single relevant tracer has dropped to ~1/3 of the
->     overhead prior to this series (from 122ns to 38ns). This is largely
->     due to permitting calls to dynamically-allocated ftrace_ops without
->     going through ftrace_ops_list_func.
->=20
-> Signed-off-by: Puranjay Mohan <puranjay12@gmail.com>
->=20
-> [update kconfig, asm, refactor]
->=20
-> Signed-off-by: Andy Chiu <andybnac@gmail.com>
-> Tested-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
-
-I bisected a boot failure to this commit [c217157bcd1df ("riscv:
-Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS")] yesterday, that appears
-to be affecting all LLVM versions that I currently have installed. From
-some initial testing of Kconfig options, it looks like the issue is
-CFI_CLANG related because when I disable CFI_CLANG things work once
-more. Since this option depends on !CFI_CLANG, but is def_bool y, I
-modified Kconfig to force disable it at all times and tested
-!DYNAMIC_FTRACE_WITH_CALL_OPS && !CFG_CLANG, which did boot.
-
-I dunno anything about what's going on in this patch, but so little in
-it relates to having DYNAMIC_FTRACE_WITH_CALL_OPS, that I was able to
-figure out that the problem is -fpatchable-function-entry=3D8,4
-
-FWIW, if anyone checks out this commit directly, you'll need to
-cherry-pick commit e9d86b8e17e72 ("scripts: Do not strip .rela.dyn
-section"), as the base of the branch that c217157bcd1df is on is
-v6.15-rc3, which is in itself broken in turn by the issue fixed by
-e9d86b8e17e72. Probably not someone anyone will do, but made for an
-awful time trying to figure out what commit was at fault!
-
-Cheers,
-Conor.
-
---VpRs8NX3IpFJmH+q
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaZmh1AAKCRB4tDGHoIJi
-0rwXAP4oeUdhTzMux7nYvcl7M5dz42Lb0tOrUvXmlraj1vYELAEA93zTofLfy9sc
-XOj0La1CaishFPd5WhF1Hy4/qnpl6wc=
-=AjmX
------END PGP SIGNATURE-----
-
---VpRs8NX3IpFJmH+q--
-
-
---===============2966794116541139318==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+I will adjust the subject accordingly and resend the patchset.
+>
+> Best regards,
+> Krzysztof
+>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2966794116541139318==--
-
