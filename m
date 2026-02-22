@@ -4,69 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCABFE9A02C
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Feb 2026 04:59:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E52C624D8
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Feb 2026 12:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=s1Afg/ZwDHt6tHGLcSCqPfM4Q1MGvyWXFZR5Saxb56I=; b=LOqMkZWFVsI1ey
-	VElczjTr6ET9uVK1c/X/deMu7LVsGTUdUHlfYAikxYKlzhWRhIh1dUWCfpdztlpJSITy4tpTd6tbW
-	oxu2ooWgLhJF321/NDOqgSA7/KsOkpiLXby3HeEg2gpjTBkZ/xSLrN6NS7X4sPeu8XoQgAQlBE+yr
-	g00QUnhvOW3kGGbXweurIQUfP2LirgLL3HQ3Ne6iNeOgxshoBf1TG7+MJIttQJjtFc/HwDg3cjYV7
-	wkk/JakbZgPr0invqr2bCRuQbWVj6gqW7/8c+nMZVUjhnJrPlTTa0C9d2mNLaiXFnoWUKe4vRu3GP
-	y6Cf+6XzWn1ENsaLIHHg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OQtbw1na+HYBfJ9vQWxCtEYAk1LA7yjrKhggC4T8jR8=; b=FtL/s47s52y+lb
+	F1kigx7HEQs3oxWSMkxECeFVkzoZRRqFZ47Ob0yCyxb88q/Ui5HH+bF3UidGP0+aAUGSfA+f9U/3L
+	dbsWQ985Tv+W6+LWmls83xOxYLg4Yw81yIkDrxpeQoxDR657MHaaIv2Ybtd7MmPNHg4mhsT9alL30
+	pQzVjgNHSP0WCMpg9ye+/2F6EtcwVyk5Nnz9WL9eFb0JiCjnxKh8T9SH6nwHAT3BpsVyAXGzUi/0m
+	M4XDdGPaJMaM1vg50F2t0O4BQFugTRnILCWwMzYdBY9H6h4liMbX4pGNxjr+4ftTcm9TVN5I9Doja
+	6N17xiPLY4R1bzXgBEmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vu1YY-0000000GU4M-1O3u;
-	Sun, 22 Feb 2026 04:58:58 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1vu8bg-0000000GhAS-3ngP;
+	Sun, 22 Feb 2026 12:30:40 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vu1YS-0000000GU37-2lMo;
-	Sun, 22 Feb 2026 04:58:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=V4
-	D22IhydwIrtHinjeBvBPepXWOWYmBE/Ufcmj1uLY8=; b=QfOrsMxr6EYsKqPEYN
-	88oFDNvUEQxopdllt0Plau4zWl9ZEjtxwZCUukwEeBcxZtxZX8s7sX13bjQq6jeV
-	l3RKkFy7bqY9gm1RmTSYFOfVYX6FSX//GrlEeRzfTA2DhJE0dN12DCUVvMxIh0Hm
-	rptn3vblFO4TN+rAxChNLqYS4=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wC3WqLHjJpp_NHdMA--.21662S2;
-	Sun, 22 Feb 2026 12:57:44 +0800 (CST)
-From: Jinyu Tang <tjytimi@163.com>
-To: anup@brainfault.org
-Cc: atish.patra@linux.dev,
-	ajones@ventanamicro.com,
-	conor.dooley@microchip.com,
-	yongxuan.wang@sifive.com,
-	nutty.liu@hotmail.com,
-	paul.walmsley@sifive.com,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jinyu Tang <tjytimi@163.com>
-Subject: [PATCH v4] KVM: riscv: Skip CSR restore if VCPU is reloaded on the same core
-Date: Sun, 22 Feb 2026 12:57:41 +0800
-Message-ID: <20260222045741.260325-1-tjytimi@163.com>
-X-Mailer: git-send-email 2.43.0
+	id 1vu8bd-0000000Gh9m-43ez
+	for linux-riscv@lists.infradead.org;
+	Sun, 22 Feb 2026 12:30:40 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4806f3fc50bso39283675e9.0
+        for <linux-riscv@lists.infradead.org>; Sun, 22 Feb 2026 04:30:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1771763435; x=1772368235; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oSJS2GkYexnr2R3qwinnT+ROgZLneAGoFNuJa+6p93s=;
+        b=kZiREeJvKt9QJUAosEAtF80fBget1+sHvv4Jlf2RkT7JYcWbNyzKnakyN7gA3oobuV
+         GRXnvUHeSNVOseCt2vBAnAHFmX3ebFNYfSzBwZTLdeFeXVEr0qo5ot3FZ1UBj5LkJKMi
+         75JGJIfpc4fyyCk7pVfhlFTgCV+z//p8SfyKwmFix+57w0cl6Xuq/5DYeb74CRPjcsPi
+         Vv82hJpMiiGz7r5D6EnIL/Es0Ot59VMl8euoifppIP/lEWBfCQtgbrxPECKMSAbMgfFY
+         H81wqOdK3dAQhp0SLpaOR+RjzmTp29NsjdXPj6r/7tQ/UZzFkS5+OjZBYQQGcWE1Ovx5
+         AZgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771763435; x=1772368235;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=oSJS2GkYexnr2R3qwinnT+ROgZLneAGoFNuJa+6p93s=;
+        b=ptDT7ef9uKyxrrhExuFmx10Q+1/5uEJc8qpV57C23SMXVsVxVkOOz4G0wwb4BXyBQD
+         XkiEtXCdE9uid7OlF0ARVmPaMry2eKuA1PoCXKSZutwsihwO+c5SM8sks6t+df0p+YA8
+         KNkFp24+AU6SxKn8Luov7MuvNNGoDJWIWq9HEB5PScf4hWCQ9VvYgFBUqO3hRJeYnM0L
+         ZvwjTIp/nzkOwRq5xQL2Y4xsXe4e486q+AafMCfayWDNny4uoWv7pr7xNPIKd4XEfta0
+         94gWxkDJuF4argcu8dm7otNJ5cyaYL5t7kH0RlO8wNAxcPNrnSnciHAPNBv3God9qYwA
+         Oomw==
+X-Forwarded-Encrypted: i=1; AJvYcCWM+SK8tblpdW/bIDq/w2FP97qIzmxdUawRUQkDa0HRHgxzCJuMWl/v1fhPm2zzKh93hXPzm2T5lg6VoQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5n9i83VC4Sqwx2UlqPlzLk8OSbz1KZ2VXmpOdzzOX27QSP/SB
+	PgWOx6pOvJO3LRoal86Nrv2BSHPzrsY6K9OcEAbsIyALo0n8NH4gSTJ9
+X-Gm-Gg: AZuq6aKb6Ws7+ZKcjYmX5adIpk98j03TniLeLw5+kNyvkUq2keaOiPhU4Akg56OR9GY
+	JE/BONjs8uoMIZhyIjt2t2WRT68gax6adNBxgyrvvyn6hKJsEu9NXqHuzsFUJn8gEyXiQyZPSfa
+	VkQCFCw2uSOwKJKTkoso9KhwkysoAbQoK/P/lyPCy1dt8p1XpkDinIWZfhtWByV9tyuWDrCV4Rc
+	4qrRbbm2aoCmZ13ldrcg3ICXF6RgMIL+8cUpQRGTZMi2Gp9xmJ1yXe4D4gFuuK/sLGTnIKf+VRj
+	L7AZz1hfpSoTJNpOOYXSbtl/tQliybpMuSbi8k9H5P2CM50zUMqBfQvuwT4HEttLTG/KfRhvYIl
+	srJyazdOarTgRaU+FO/0ycte3F2go2eohK5u+cyY8AQ4157gUVaE1kyF2iaobRzgJL5XKSut3Uf
+	4yEbNGFASir1D0t2qhZUpTatXYEmlRw3GGLFDTO377/Te+t5uy1qoMgWc0fHIi6/NgGTeHt02b4
+	KOQ9X3aQT2qEWosdQ==
+X-Received: by 2002:a05:600c:8183:b0:47d:3ffa:5f03 with SMTP id 5b1f17b1804b1-483a962e09fmr77433955e9.21.1771763435348;
+        Sun, 22 Feb 2026 04:30:35 -0800 (PST)
+Received: from jernej-laptop.localnet (86-58-126-118.dynamic.telemach.net. [86.58.126.118])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483a3dd3391sm124921405e9.1.2026.02.22.04.30.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Feb 2026 04:30:34 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: linux-kernel@vger.kernel.org, Aleksandr Shubin <privatesub2@gmail.com>
+Cc: Aleksandr Shubin <privatesub2@gmail.com>,
+ Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Lukas Schmid <lukas.schmid@netcube.li>, Cheo Fusi <fusibrandon13@gmail.com>,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v13 3/3] riscv: dts: allwinner: d1: Add pwm node
+Date: Sun, 22 Feb 2026 13:30:32 +0100
+Message-ID: <2265500.irdbgypaU6@jernej-laptop>
+In-Reply-To: <20260221183609.95403-4-privatesub2@gmail.com>
+References: <20260221183609.95403-1-privatesub2@gmail.com>
+ <20260221183609.95403-4-privatesub2@gmail.com>
 MIME-Version: 1.0
-X-CM-TRANSID: _____wC3WqLHjJpp_NHdMA--.21662S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxAFy5tw1xXrWDtr17ZF47Jwb_yoWrtrW5pF
-	W7Crs5Ww48Gr15G347Xr4v9r4FgrZYgw1fX34UW3ySyr4Utry5AFs5KrWUAFZ8GrW8ZFyI
-	yF1DKF109Fn0vw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pR58nOUUUUU=
-X-Originating-IP: [2408:823c:2011:2c65:d9c1:3ebe:3320:1144]
-X-CM-SenderInfo: xwm13xlpl6il2tof0z/xtbC8glWzmmajMmgyAAA39
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260221_205853_062837_C9FF8928 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20260222_043038_056374_81ECBD37 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,142 +104,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, kvm_arch_vcpu_load() unconditionally restores guest CSRs and
-HGATP. However, when a preempted VCPU is scheduled back on the same
-physical CPU, and no other KVM VCPU has run on this CPU in the meantime,
-the hardware CSRs are still valid.
-
-This patch optimizes the vcpu_load path by skipping the expensive CSR
-writes if all the following conditions are met:
-1. The VCPU was previously preempted (vcpu->scheduled_out == 1).
-2. It is being reloaded on the same CPU (vcpu->arch.last_exit_cpu == cpu).
-3. No other VCPU used this CPU (vcpu == __this_cpu_read(kvm_former_vcpu)).
-4. The CSRs are not dirty (!vcpu->arch.csr_dirty).
-
-To ensure this fast-path doesn't break corner cases:
-- Live migration and VCPU reset are naturally safe. KVM initializes
-  last_exit_cpu to -1, which guarantees the fast-path won't trigger.
-- A new 'csr_dirty' flag is introduced to track runtime userspace
-  interventions. If userspace modifies guest configurations (e.g.,
-  hedeleg via KVM_SET_GUEST_DEBUG, or CSRs via KVM_SET_ONE_REG) while
-  the VCPU is preempted, the flag is set to skip fast path.
-
-Note that kvm_riscv_vcpu_aia_load() is kept outside the skip logic
-to ensure IMSIC/AIA interrupt states are always properly
-synchronized.
-
-Signed-off-by: Jinyu Tang <tjytimi@163.com>
----
- v3 -> v4:
- - Addressed Anup Patel's review regarding hardware state inconsistency.
- - Introduced 'csr_dirty' flag to track dynamic userspace CSR/CONFIG
-   modifications (KVM_SET_ONE_REG, KVM_SET_GUEST_DEBUG), forcing a full
-   restore when debugging or modifying states at userspace.
- - Kept kvm_riscv_vcpu_aia_load() out of the skip block to resolve IMSIC
-   VS-file instability.
-
- v2 -> v3:
- v2 was missing a critical check because I generated the patch from my
- wrong (experimental) branch. This is fixed in v3. Sorry for my trouble.
-
- v1 -> v2:
- Apply the logic to aia csr load. Thanks for Andrew Jones's advice.
----
- arch/riscv/include/asm/kvm_host.h |  3 +++
- arch/riscv/kvm/vcpu.c             | 13 +++++++++++++
- arch/riscv/kvm/vcpu_onereg.c      |  3 +++
- 3 files changed, 19 insertions(+)
-
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 24585304c..7ee47b83c 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -273,6 +273,9 @@ struct kvm_vcpu_arch {
- 	/* 'static' configurations which are set only once */
- 	struct kvm_vcpu_config cfg;
- 
-+	/* Indicates modified guest CSRs */
-+	bool csr_dirty;
-+
- 	/* SBI steal-time accounting */
- 	struct {
- 		gpa_t shmem;
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index a55a95da5..f7f58f02c 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -24,6 +24,8 @@
- #define CREATE_TRACE_POINTS
- #include "trace.h"
- 
-+static DEFINE_PER_CPU(struct kvm_vcpu *, kvm_former_vcpu);
-+
- const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
- 	KVM_GENERIC_VCPU_STATS(),
- 	STATS_DESC_COUNTER(VCPU, ecall_exit_stat),
-@@ -537,6 +539,9 @@ int kvm_arch_vcpu_ioctl_set_guest_debug(struct kvm_vcpu *vcpu,
- 		vcpu->arch.cfg.hedeleg |= BIT(EXC_BREAKPOINT);
- 	}
- 
-+	/* Mark CSRs dirty on hedeleg update */
-+	vcpu->arch.csr_dirty = true;
-+
- 	return 0;
- }
- 
-@@ -581,6 +586,11 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
- 	struct kvm_vcpu_config *cfg = &vcpu->arch.cfg;
- 
-+	if (vcpu->scheduled_out && vcpu == __this_cpu_read(kvm_former_vcpu) &&
-+		vcpu->arch.last_exit_cpu == cpu && !vcpu->arch.csr_dirty)
-+		goto csr_restore_done;
-+
-+	vcpu->arch.csr_dirty = false;
- 	if (kvm_riscv_nacl_sync_csr_available()) {
- 		nsh = nacl_shmem();
- 		nacl_csr_write(nsh, CSR_VSSTATUS, csr->vsstatus);
-@@ -624,6 +634,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 
- 	kvm_riscv_mmu_update_hgatp(vcpu);
- 
-+csr_restore_done:
- 	kvm_riscv_vcpu_timer_restore(vcpu);
- 
- 	kvm_riscv_vcpu_host_fp_save(&vcpu->arch.host_context);
-@@ -645,6 +656,8 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
- 	void *nsh;
- 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
- 
-+	__this_cpu_write(kvm_former_vcpu, vcpu);
-+
- 	vcpu->cpu = -1;
- 
- 	kvm_riscv_vcpu_aia_put(vcpu);
-diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-index e7ab6cb00..88cfcb018 100644
---- a/arch/riscv/kvm/vcpu_onereg.c
-+++ b/arch/riscv/kvm/vcpu_onereg.c
-@@ -652,6 +652,9 @@ static int kvm_riscv_vcpu_set_reg_csr(struct kvm_vcpu *vcpu,
- 	if (rc)
- 		return rc;
- 
-+	/* Mark CSRs dirty after userspace update csr */
-+	vcpu->arch.csr_dirty = true;
-+
- 	return 0;
- }
- 
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RG5lIHNvYm90YSwgMjEuIGZlYnJ1YXIgMjAyNiBvYiAxOTozNTo1MyBTcmVkbmplZXZyb3Bza2kg
+c3RhbmRhcmRuaSDEjWFzIGplIEFsZWtzYW5kciBTaHViaW4gbmFwaXNhbChhKToKPiBEMSBhbmQg
+VDExM3MgY29udGFpbiBhIHB3bSBjb250cm9sbGVyIHdpdGggOCBjaGFubmVscy4KPiBUaGlzIGNv
+bnRyb2xsZXIgaXMgc3VwcG9ydGVkIGJ5IHRoZSBzdW44aS1wd20gZHJpdmVyLgo+IAo+IEFkZCBh
+IGRldmljZSB0cmVlIG5vZGUgZm9yIGl0Lgo+IAo+IFNpZ25lZC1vZmYtYnk6IEFsZWtzYW5kciBT
+aHViaW4gPHByaXZhdGVzdWIyQGdtYWlsLmNvbT4KPiAtLS0KPiAgYXJjaC9yaXNjdi9ib290L2R0
+cy9hbGx3aW5uZXIvc3VueGktZDFzLXQxMTMuZHRzaSB8IDEzICsrKysrKysrKysrKysKPiAgMSBm
+aWxlIGNoYW5nZWQsIDEzIGluc2VydGlvbnMoKykKPiAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
+di9ib290L2R0cy9hbGx3aW5uZXIvc3VueGktZDFzLXQxMTMuZHRzaSBiL2FyY2gvcmlzY3YvYm9v
+dC9kdHMvYWxsd2lubmVyL3N1bnhpLWQxcy10MTEzLmR0c2kKPiBpbmRleCA2M2UyNTJiNDQ5NzMu
+LjhlMzhhMGQ5NWY1YSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL2FsbHdpbm5l
+ci9zdW54aS1kMXMtdDExMy5kdHNpCj4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy9hbGx3aW5u
+ZXIvc3VueGktZDFzLXQxMTMuZHRzaQo+IEBAIC0xOTMsNiArMTkzLDE5IEBAIHVhcnQzX3BiX3Bp
+bnM6IHVhcnQzLXBiLXBpbnMgewo+ICAJCQl9Owo+ICAJCX07Cj4gIAo+ICsJCXB3bTogcHdtQDIw
+MDBjMDAgewo+ICsJCQljb21wYXRpYmxlID0gImFsbHdpbm5lcixzdW4yMGktZDEtcHdtIjsKPiAr
+CQkJcmVnID0gPDB4MDIwMDBjMDAgMHg0MDA+Owo+ICsJCQljbG9ja3MgPSA8JmNjdSBDTEtfQlVT
+X1BXTT4sCj4gKwkJCQkgPCZkY3hvPiwKPiArCQkJCSA8JmNjdSBDTEtfQVBCMD47Cj4gKwkJCWNs
+b2NrLW5hbWVzID0gImJ1cyIsICJob3NjIiwgImFwYiI7Cj4gKwkJCXJlc2V0cyA9IDwmY2N1IFJT
+VF9CVVNfUFdNPjsKPiArCQkJc3RhdHVzID0gImRpc2FibGVkIjsKCk1vdmUgc3RhdHVzIGF0IHRo
+ZSBib3R0b20uCgo+ICsJCQkjcHdtLWNlbGxzID0gPDB4Mz47CgpKdXN0IHVzZSBkZWNpbWFsIGZv
+cm1hdC4KCkJlc3QgcmVnYXJkcywKSmVybmVqCgo+ICsJCQlhbGx3aW5uZXIsbnB3bXMgPSA8OD47
+Cj4gKwkJfTsKPiArCj4gIAkJY2N1OiBjbG9jay1jb250cm9sbGVyQDIwMDEwMDAgewo+ICAJCQlj
+b21wYXRpYmxlID0gImFsbHdpbm5lcixzdW4yMGktZDEtY2N1IjsKPiAgCQkJcmVnID0gPDB4MjAw
+MTAwMCAweDEwMDA+Owo+IAoKCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
