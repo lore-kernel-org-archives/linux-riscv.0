@@ -4,74 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9209E98E15
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Feb 2026 10:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E377AEA4FB2
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Feb 2026 11:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5b70Pcurr3InYPO3Q3YIsH/07SqGBT2lMV+D7FXhdhU=; b=GN5nRY26xr3mCvL5I34dkCMoWO
-	9vL/kw+HnIjifNCMKNuAHCytp5uFHxnH0rVIiM3Wpet+DUiavr57AsKz5HJzRkRkVWUgiPdgliN0t
-	MXe0Jm+v20sqQ5RMmEIVgp1bkMYqGgURqlGq5sI3wbm2/IOen+JdLB0AYR0q+ajO0aNNAhx3zBGzA
-	36bIT5AUQg3u7rydcwDuNU8wblWqDJP4qilGk9jmtjpYmicjTdXXZn++Yd979hJ3sqL7cOyM5vmyQ
-	Ifg8CY9ORC6w2vFJ9aMhUu2U9vGZm8NHy9+dPoxIam2AC0w2Lx0QqbLMm6S1E3Yr7NuCgjVfsl/Xa
-	YettejzQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vmCQonl4BKhwNoc4yw3+9HXsXy1obcQ+eRHnGsPiF1w=; b=RG3oyQllc38MId
+	lNJN6G7qCRBk9688X/A4YLdC8ejji7ozVu1o8a5pZIqv+y4Z0VsaTu3TvWJosKmmmo5xSSxX1vGoW
+	4iMPR+8SS9B8UdeTKxZ4L90IvrZ0Eige6vARs6kScLYQgVDoDDoJAbUztxfv/CxE6KSNYL4ow8hn8
+	C/hYIb2ypCPSTI/bgVAcVHhLdLuniP4vLQFUg5gV+hvoiHqY1h7kKkbDNkMK9UZVXYnl/Ik38VvQt
+	RRlrX8MIuqPPtdrKn2WPil2KEq+6GA1PW0nD9mgmm6SfpnLFIwEJaEiXY3eeA9GwhlCKojHqbIDfp
+	IuNlvmsrQfqCiup6Nruw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuT84-000000003Yy-3VOv;
-	Mon, 23 Feb 2026 10:25:28 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1vuUVD-00000000E4Q-29HD;
+	Mon, 23 Feb 2026 11:53:27 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuT82-000000003Y6-1jwn
-	for linux-riscv@lists.infradead.org;
-	Mon, 23 Feb 2026 10:25:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1771842326; x=1803378326;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=lYJQ0s04uuY3Wl35fAWJ2aUlbd1T4PEXe2Xyn+eVL5w=;
-  b=N4Hse5t/vg52WS8+a9mMlMxx2YYWQNNS/btRUgQPbnrQSmxtUnKC0K7w
-   px83BtLsYOZqngT+kqZcP0RBZNlbA2Y04rR7z3lADHBNH4CyaHxTAtQ1z
-   JBnN3iRs2zpQbRaUsyzet4AkhkWD4aSSqXb6nMJGMk3JEWf79X3wVUF7f
-   bMNy+Q2PuiRkbhvJ48tOsgPGZinj1wzCwHi3O3swMGQ4til8mExtnRspe
-   RNBLw7R4TKd+eZn95m4CNcd+5bvN4BO+A7Xhi4DHlLleGDgEASIeR+z8k
-   1ckgtC/bRmwmOrl5h5u1lUYOMihz0CgjFBqXg4w4+JtLPDE/R2fe1QTiG
-   Q==;
-X-CSE-ConnectionGUID: dcasylaqRiGd7fkj9WTCcw==
-X-CSE-MsgGUID: rXdik328QsqbLxir4O0EvQ==
-X-IronPort-AV: E=Sophos;i="6.21,306,1763449200"; 
-   d="asc'?scan'208";a="220994822"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Feb 2026 03:25:25 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 23 Feb 2026 03:24:46 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Mon, 23 Feb 2026 03:24:45 -0700
-Date: Mon, 23 Feb 2026 10:24:20 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<alex@ghiti.fr>, <shuah@kernel.org>
-Subject: Re: [PATCH v3 1/2] riscv: Introduce support for hardware
- break/watchpoints
-Message-ID: <20260223-mouth-plated-50294c7a6ac0@wendy>
-References: <20260223044918.1359983-1-himanshu.chauhan@oss.qualcomm.com>
- <20260223044918.1359983-2-himanshu.chauhan@oss.qualcomm.com>
+	id 1vuUVB-00000000E33-3FfA;
+	Mon, 23 Feb 2026 11:53:26 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61MNFM642713432;
+	Mon, 23 Feb 2026 11:53:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=pp1; bh=VGeQemTVLA6CfGFEfwMKWDbtyAhZnxofgecnLX4C0
+	5E=; b=fLux+JNPrdMkDG7Z3qL5+oKlx39ZvYxtJ3avfWRwJsuVC5EGNOhSGXv3u
+	jbLR03UIckEncl1pd02dMS9RLqrzHTJyhvzX/1PpHVRVzGyuH6tslAQtlUf7kAG2
+	czFw/aV6lEWGUvfEBXlKXVSfUFsZQcSO8qKeYX0SXpBtETSa1F+MN36HPFw5IQwS
+	MKB0rsLwG/JW91bg0MFil+ZwEzmqWi5Ujm5HFbCoEyXUzR6RBSHQXGBLU5sSND+D
+	Nm1DsHimG71MnezeMUQ63l1H0cBiQBVID4hsRxjMRvJQ4kyRoPynhRw5tqTmkqkS
+	ENCQi1nP8lHW0F3u+kKzEknL6JRwg==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cf34bxhy1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Feb 2026 11:53:19 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 61NBVjIN003382;
+	Mon, 23 Feb 2026 11:53:18 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4cfs8jmd7u-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Feb 2026 11:53:18 +0000
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 61NBrGos44826882
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 23 Feb 2026 11:53:16 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 890CD2004B;
+	Mon, 23 Feb 2026 11:53:16 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 6151120043;
+	Mon, 23 Feb 2026 11:53:16 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with SMTP;
+	Mon, 23 Feb 2026 11:53:16 +0000 (GMT)
+Received: by tuxmaker.boeblingen.de.ibm.com (Postfix, from userid 55669)
+	id 3E42FE0B5A; Mon, 23 Feb 2026 12:53:16 +0100 (CET)
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Pasha Tatashin <pasha.tatashin@soleen.com>,
+        Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-s390@vger.kernel.org, linux-mm@kvack.org,
+        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, x86@kernel.org
+Subject: [PATCH 0/4] mm/pgtable: Support for page table check on s390
+Date: Mon, 23 Feb 2026 12:53:12 +0100
+Message-ID: <cover.1771845678.git.agordeev@linux.ibm.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-In-Reply-To: <20260223044918.1359983-2-himanshu.chauhan@oss.qualcomm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjIzMDA5OSBTYWx0ZWRfX3bwiMJwv1jXe
+ c4r0aVkh//XvZK3EBXuqKG9B0JraQiFOc8dQcg3L6hlHbNCSPBy354nHZYbOf3Z9UZlNVi+mRux
+ EeyDGkJUJBDyoK2GU1u5SyohvpgacRwgMGGKQXrxihP5qZl5F/DQuJZITynR4i1aGOv8LKibeSC
+ RGxHizdZO14zQnTCKgUY1FBF3JutdD5rOSEHxXURU6zKflVN9dkdE/EozKdxlSGa0kRFjzX/24Y
+ gMjuCTOZLLradKDnaisg7DvD5UIEq28QAz9KXPmGnX7Xd8oy7GBzzGTdP+VhA82rCLE6wjou7xH
+ Pn921Qn8QacYVzhh+1/7F+ZvAp/qVub2x3Fl96dY16DPIf9Z59BA44ZAQWLeFBS46z37smUj8Ta
+ XkNJr03kfjcFpQpwp0bZpqgJa3LePoO1YYZp/7JVKWBY2uDu6ffV8SZp7G3zh5eOU1l19MHnaqP
+ oT1eC76P9C+aiIo/j6w==
+X-Proofpoint-ORIG-GUID: CmD9jFH5k147Zt0zS8yAjMb88bgQYtmP
+X-Authority-Analysis: v=2.4 cv=F9lat6hN c=1 sm=1 tr=0 ts=699c3faf cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=HzLeVaNsDn8A:10 a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22
+ a=GgsMoib0sEa3-_RKJdDe:22 a=WJZKNU4qom20v2zI9iIA:9
+X-Proofpoint-GUID: CmD9jFH5k147Zt0zS8yAjMb88bgQYtmP
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-23_02,2026-02-20_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 phishscore=0 bulkscore=0 adultscore=0 spamscore=0
+ clxscore=1015 suspectscore=0 malwarescore=0 lowpriorityscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
+ definitions=main-2602230099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_022526_523040_A6004818 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20260223_035325_941103_57716D19 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,124 +113,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6011065177545139836=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6011065177545139836==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="c5AaKpA2g6pFDo65"
-Content-Disposition: inline
+Hi All,
 
---c5AaKpA2g6pFDo65
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+This series adds mm_struct parameter to pxx_user_accessible_page() hooks,
+which is only used on s390 and does not affect other archs.
 
-On Mon, Feb 23, 2026 at 10:19:17AM +0530, Himanshu Chauhan wrote:
-> +static void init_sbi_dbtr(void)
-> +{
-> +	unsigned long tdata1;
-> +	struct sbiret ret;
-> +
-> +	if (sbi_probe_extension(SBI_EXT_DBTR) <= 0) {
-> +		pr_warn("%s: SBI_EXT_DBTR is not supported\n", __func__);
+I reordered pxx_user_accessible_page() parameters to be consistent with
+the traditional order and removed unnecessary brackets in patch #1 - the
+only patch that touches the generic code and other archs.
 
-This is going to run an all systems, right? A pr_warn() seems
-inappropriate, given that not supporting this extension isn't a problem.
-If you want to produce warnings, only do it for < 0 return values and
-maybe print the actual error code too?
+Thanks!
 
-> +		dbtr_total_num = 0;
-> +		goto done;
-> +	}
-> +
-> +	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
-> +			0, 0, 0, 0, 0, 0);
-> +	if (ret.error) {
-> +		pr_warn("%s: Failed to detect triggers\n", __func__);
-> +		dbtr_total_num = 0;
-> +		goto done;
-> +	}
-> +
-> +	tdata1 = 0;
-> +	tdata1 = RV_DBTR_SET_TDATA1_TYPE(tdata1, RV_DBTR_TRIG_MCONTROL6);
-> +
-> +	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
-> +			tdata1, 0, 0, 0, 0, 0);
-> +	if (ret.error) {
-> +		pr_warn("%s: failed to detect mcontrol6 triggers\n", __func__);
-> +	} else if (!ret.value) {
-> +		pr_warn("%s: type 6 triggers not available\n", __func__);
-> +	} else {
-> +		dbtr_total_num = ret.value;
-> +		dbtr_type = RV_DBTR_TRIG_MCONTROL6;
-> +		pr_warn("%s: mcontrol6 trigger available.\n", __func__);
-> +		goto done;
-> +	}
-> +
-> +	/* fallback to type 2 triggers if type 6 is not available */
-> +
-> +	tdata1 = 0;
-> +	tdata1 = RV_DBTR_SET_TDATA1_TYPE(tdata1, RV_DBTR_TRIG_MCONTROL);
-> +
-> +	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
-> +			tdata1, 0, 0, 0, 0, 0);
-> +	if (ret.error) {
-> +		pr_warn("%s: failed to detect mcontrol triggers\n", __func__);
-> +	} else if (!ret.value) {
-> +		pr_warn("%s: type 2 triggers not available\n", __func__);
-> +	} else {
-> +		dbtr_total_num = ret.value;
-> +		dbtr_type = RV_DBTR_TRIG_MCONTROL;
-> +		goto done;
-> +	}
-> +
-> +done:
-> +	dbtr_init = 1;
-> +}
+Alexander Gordeev (2):
+  s390/pgtable: Use set_pmd_bit() to invalidate PMD entry
+  s390: Enable page table check for debug_defconfig
 
-> +
-> +void hw_breakpoint_pmu_read(struct perf_event *bp)
-> +{
-> +	/* TODO */
-> +}
-> +
-> +void clear_ptrace_hw_breakpoint(struct task_struct *tsk)
-> +{
-> +	/* TODO */
-> +}
-> +
-> +void flush_ptrace_hw_breakpoint(struct task_struct *tsk)
-> +{
-> +	/* TODO */
-> +}
+Tobias Huschle (2):
+  mm/page_table_check: Pass mm_struct to pxx_user_accessible_page()
+  s390/pgtable: Add s390 support for page table check
 
-This isn't an RFC, why does it have TODOs?
+ arch/arm64/include/asm/pgtable.h  |  6 ++--
+ arch/riscv/include/asm/pgtable.h  |  6 ++--
+ arch/s390/Kconfig                 |  1 +
+ arch/s390/configs/debug_defconfig |  2 ++
+ arch/s390/include/asm/pgtable.h   | 60 +++++++++++++++++++++++++++----
+ arch/x86/include/asm/pgtable.h    |  6 ++--
+ mm/page_table_check.c             | 15 ++++----
+ 7 files changed, 71 insertions(+), 25 deletions(-)
 
---c5AaKpA2g6pFDo65
-Content-Type: application/pgp-signature; name="signature.asc"
+-- 
+2.51.0
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaZwq1AAKCRB4tDGHoIJi
-0upiAQCLtgcVhN1YHI6iwZHUnWvpnnH9plmo8jVy34MtpsimigEA2HOgmhtAyLTZ
-ozQGgdUIOu8Qqqlb8Xg4zax29nNYqA0=
-=jG3k
------END PGP SIGNATURE-----
-
---c5AaKpA2g6pFDo65--
-
-
---===============6011065177545139836==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6011065177545139836==--
-
