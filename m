@@ -4,55 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0949BEC1118
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Feb 2026 18:13:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1D9CEC111A
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Feb 2026 18:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sAh2YLMdsPlCyA686PnnBclzy36rta6F6uk09dooWc8=; b=kq9pOJriAtudRc
-	0S6z7nRz+VAzR6VkAArd/OFswJ+U9mcqyilcL/YtPR5+IQMHIT6DUHq8ft4yKZQSc5HVxqQCSP4Mi
-	Hphn5aUp6JrC72WW3OLzxEHnIwqrk/65kbGhLp/kNqfs/rFN8inEb+YdaKeDx7lGrl7p1yTOOX4RK
-	/qHr3P9WheeKbvl3Sa1hxQM1ms4yf2Hnv7wNN17/AlYbuPTcEnj6aakdoL2ocMnV1wMp1l7W2NfR1
-	mlFkxywNPIriMz16FQXWG3b5f0uvTZkCH90gr0+Yk8iSbeAd5qSE5JZyy95J75vEbsVC0LW+k3fRB
-	UwRGwFxSf3Os4hSbGAFA==;
+	List-Owner; bh=iVfRbJQe3k6H9tofNMZhA7i5YU5vi14rHdzws1nvyU4=; b=MRNDs+a4J3w7HH
+	JnVn6E4YumMGfyHSg8uwkYs4woKimTtDEegLurjDIG+jAXBzuIwqlkFq+6qTgNYLg325oW1yHZAqD
+	rgUENe6ChKUWW3yG54qVtklDlFd+Qwoz1Bls60XZYBmIXoEck93B7jz2xf93K6MTV+199YSZSJFWK
+	pt+e8qlE3rmSL4wrI/3+06aH7tk5G6kOKFV7v7amA1VGT3LzM2dHU5RaEbGXga3mWbFy7p6bnuryN
+	RvpPhtaM6MY1Hg1szpR06Rd+5u+QU7BeCapsUOp6aFP53ScUn+OJtVUL/6rjxm9ZGmYeO2ejXuqhp
+	Lc7GVD6TpHsiAREXOsJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuaR9-00000000qhX-2gfD;
-	Mon, 23 Feb 2026 18:13:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vuaVY-00000000r2z-1HWI;
+	Mon, 23 Feb 2026 18:18:12 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuaR7-00000000qh8-3XjN;
-	Mon, 23 Feb 2026 18:13:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C5A656013A;
-	Mon, 23 Feb 2026 18:13:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 378FAC116C6;
-	Mon, 23 Feb 2026 18:13:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1771870416;
-	bh=pQshwKNqTCLj/FvhtbZgOYNC+VNMTBvEaSSSD2wSuHE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=B3HQ7V1CoKgaBIoteEnZFo//C1eOjQmBzA363dlSZJSPGnKwrPagzWWRWHEyGkx/1
-	 6MhwDWWeaCOz0KllZsOTIWSRv2FTaTTuUgO3maOmVNlVD3xKMqbal2bskvscPZ+Bhx
-	 31nhkKYtbH0jAtANiQoO7gCBg3ymcBqFZCfessdQ=
-Date: Mon, 23 Feb 2026 10:13:35 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: Pasha Tatashin <pasha.tatashin@soleen.com>, linux-s390@vger.kernel.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org
-Subject: Re: [PATCH 1/4] mm/page_table_check: Pass mm_struct to
- pxx_user_accessible_page()
-Message-Id: <20260223101335.aa3696d86341260e03989ac0@linux-foundation.org>
-In-Reply-To: <68c2f6df2955033cbf1ccbd2b5c2816e72ac345c.1771845678.git.agordeev@linux.ibm.com>
-References: <cover.1771845678.git.agordeev@linux.ibm.com>
-	<68c2f6df2955033cbf1ccbd2b5c2816e72ac345c.1771845678.git.agordeev@linux.ibm.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	id 1vuaVW-00000000r2i-3o7j
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 23 Feb 2026 18:18:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=FfglRdAZ7//oiLVr9rHZZA3KADO9fxzVK1RtdGfizyk=; b=DwysRZ8w8bsWlmYNGYULfAJmG7
+	hSJNuNbMf7YB6Bw+2+sdN+gpEHiWW8es4C0T6zJwktdLc3RhPZw2vHww2zYIaIWd9OMMo2f0GMQGB
+	+o+JmrdW5o641PR1oftCRk1CdSsMCxhp4d9yPIn62FPbQm05ucvWkQHqdVdKmus/qgvGWHPyoTMq0
+	Bi0bMdMVoMOK4+Y5UeEhXVzRwRMx69dUFCB7knGSbhp+g85lK+Ftmjm+AdVAocCgB4qJLd5e7BYXG
+	DwhcEFl1UkLOZyTvFO6oylY9vWhv/isIrE2AqJyzG9EjoCNjXR2fZEj1huiJ1sS22n3Y0H4myV9zV
+	XW3KWFzQ==;
+Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuaVP-0000000Et8q-2Mg0;
+	Mon, 23 Feb 2026 18:18:03 +0000
+Date: Mon, 23 Feb 2026 18:18:03 +0000
+From: Matthew Wilcox <willy@infradead.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Kiryl Shutsemau <kas@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Usama Arif <usamaarif642@gmail.com>,
+	Frank van der Linden <fvdl@google.com>,
+	Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Zi Yan <ziy@nvidia.com>, Baoquan He <bhe@redhat.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	kernel-team@meta.com, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [PATCHv6 08/17] mm: Make page_zonenum() use head page
+Message-ID: <aZyZ2-7Xr-zUnInC@casper.infradead.org>
+References: <20260202155634.650837-1-kas@kernel.org>
+ <20260202155634.650837-9-kas@kernel.org>
+ <aZJTLwV2SaaKu1k_@casper.infradead.org>
+ <ec4a9a1e-8c08-4879-a787-3b9e0bc38160@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <ec4a9a1e-8c08-4879-a787-3b9e0bc38160@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,28 +88,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Feb 2026 12:53:13 +0100 Alexander Gordeev <agordeev@linux.ibm.com> wrote:
-
-> From: Tobias Huschle <huschle@linux.ibm.com>
+On Mon, Feb 16, 2026 at 10:06:57AM +0100, David Hildenbrand (Arm) wrote:
+> On 2/16/26 00:13, Matthew Wilcox wrote:
+> > On Mon, Feb 02, 2026 at 03:56:24PM +0000, Kiryl Shutsemau wrote:
+> > > With the upcoming changes to HVO, a single page of tail struct pages
+> > > will be shared across all huge pages of the same order on a node. Since
+> > > huge pages on the same node may belong to different zones, the zone
+> > > information stored in shared tail page flags would be incorrect.
+> > > 
+> > > Always fetch zone information from the head page, which has unique and
+> > > correct zone flags for each compound page.
+> > 
+> > You're right that different pages in the same folio can have different
+> > zone number.  But does it matter ... or to put it another way, why is
+> > returning the zone number of the head page the correct way to resolve
+> > this?
 > 
-> Unlike other architectures, s390 does not have means to
-> distinguish kernel vs user page table entries - neither
-> an entry itself, nor the address could be used for that.
-> It is only the mm_struct that indicates whether an entry
-> in question is mapped to a user space. So pass mm_struct
-> to pxx_user_accessible_page() callbacks.
-> 
-> ...
->
->  arch/arm64/include/asm/pgtable.h |  6 +++---
->  arch/riscv/include/asm/pgtable.h |  6 +++---
->  arch/x86/include/asm/pgtable.h   |  6 +++---
->  mm/page_table_check.c            | 15 ++++++---------
->  4 files changed, 15 insertions(+), 18 deletions(-)
+> How can a folio cross zones?
 
-Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
+I thought 1GB pages in hugetlb could cross zones?  Maybe that used to be
+true and isn't any more, or maybe it was never true and I was just
+confused.
 
-I assume this can go into the s390 tree?
 
 _______________________________________________
 linux-riscv mailing list
