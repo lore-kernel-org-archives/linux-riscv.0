@@ -4,102 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48428E98DFF
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Feb 2026 09:42:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9209E98E15
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Feb 2026 10:25:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FZIyEhB2XSgR8nQ7meZ5AX6VinVq6AheXsTYXHKtNTo=; b=MdnLuQRKvHFI7W
-	++ukubfVJn0gtAoVaUSqCUlunFgO8sQ6142pqT5OQaqu4BXYRyWs0IijrTFBSIRzaCj4p/bc9c+E+
-	1VP6bk5hh38qVeUvyA8ovQTVKk3olLcbbbBAgGPlpEsfhrw3y11DgBvKCICVxh+OukPPUZGS/RFNY
-	Gvl5qzV/OwlfY3pNXenWLZ9qttLV9dH5hSg8GGxakLBldU5vvRk2sjEt4b/ICqsq67rcTbv+7JXwH
-	+Yc90AtT/rHC2UHrYZGpSRLLMzXfnC6+xZl8LG0c6tBvmFzpPh5TP+8uq7yFEOcCc0evuSKt6P6kl
-	vRAPuRgeW8ibc2NCFC6g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5b70Pcurr3InYPO3Q3YIsH/07SqGBT2lMV+D7FXhdhU=; b=GN5nRY26xr3mCvL5I34dkCMoWO
+	9vL/kw+HnIjifNCMKNuAHCytp5uFHxnH0rVIiM3Wpet+DUiavr57AsKz5HJzRkRkVWUgiPdgliN0t
+	MXe0Jm+v20sqQ5RMmEIVgp1bkMYqGgURqlGq5sI3wbm2/IOen+JdLB0AYR0q+ajO0aNNAhx3zBGzA
+	36bIT5AUQg3u7rydcwDuNU8wblWqDJP4qilGk9jmtjpYmicjTdXXZn++Yd979hJ3sqL7cOyM5vmyQ
+	Ifg8CY9ORC6w2vFJ9aMhUu2U9vGZm8NHy9+dPoxIam2AC0w2Lx0QqbLMm6S1E3Yr7NuCgjVfsl/Xa
+	YettejzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuSS5-0000000HYga-2uQw;
-	Mon, 23 Feb 2026 09:42:05 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vuT84-000000003Yy-3VOv;
+	Mon, 23 Feb 2026 10:25:28 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuSS3-0000000HYfh-1fSU
+	id 1vuT82-000000003Y6-1jwn
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Feb 2026 09:42:04 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-48370174e18so21873975e9.2
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Feb 2026 01:42:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1771839721; x=1772444521; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uP6bWvtU8eeL2/gAQvmkB1Apc9H5g4lS1edf4fQ7WfI=;
-        b=FMMqAQ4i8dq8MvxVqgTAlqW/kkuz1K4Uci5vONyv6xJNi9iwlHmIF8QSo5s6488klF
-         AHj4/CEZFw3k52slLgJaFrB5QTEJKULYnvWbuTn3XZQ78GTH1Cx7DUNxKm1cJmzGMplq
-         P/8qImQZ0wcjh1xbhgClZtN0r86Ce4fTNXYNzYqUSEhCWQYwt2JkRgvpyJZkQ2MbiTmn
-         CNpUDKnkMvfqMF5fZ042oHnsENE+u/BJT2Vl3A/30u+1EUHFrHeHAbnH/r1r7wVddH6v
-         pLds+7LybZfcJT1Mru1f1aiJ9yNYsZCygOepNCkwfaJExNbTtMsrFQbJoJ3+Y/FV+FIZ
-         UA0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771839721; x=1772444521;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=uP6bWvtU8eeL2/gAQvmkB1Apc9H5g4lS1edf4fQ7WfI=;
-        b=n1/+DvMiQCNCNBxufHf0AjiTGi6GoiakygX+YrWpybiyYxG2FVbRPRCshDGO08mlqS
-         m1j5/gZikIyZYpmU/8e7CYXdCBWNguSfwxHWyQx7NYR1Hw7manCvBQUemzJNDZWynE3r
-         suXHfC2fhJ5DBWuPrMsX66epFQ/RXM/bhQazD+zgcWZzvQt8GkVWHbO2QxiF0gGISK2m
-         qpZiQjro+Ga7MSKJPJGcP3402PjZRmv0qnNg+egZrS6BNNnquegAL5WD3HGLpoGCYgie
-         S5kLNqciZY3ftk6uMoakpSnYxCYYDdomgh8gCMPEvQp9XpBh8iz+tR7HySvzAODOZoOV
-         jwuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUIhibhR7sbP8EZHukCCGwX53YWoENwilCq6j69eurXVT8OH6AFkOQDRHElZwTw3AMIoyiGQYFOU0SzCQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3OHp+0YUITu0SixD8bjrlkiCtTf/LRv2MrRZsrcLtzb12sTek
-	YjUi5rTM0DwywrJHTYPhvx279ojILunM7EEaQkeBDwHiBh+vuKOVNq7o
-X-Gm-Gg: AZuq6aKjLfotM/eA60ITigluLmp8cMqBHKlEk1c7CDX1n+bSVee7lzNcNm8uqDHpjwK
-	5cQ3amM74H5yfUB8vxjx8cGyP/Ng5LjLojPGEHou2I/nE7002vGGeGWc2nfrgaBka7SaBMAOgwb
-	1dzintYa53amLvrQC66KBX6zT2/2JcqpS2CW+bxn+uYi6CbYZKlz7no1tn9O2IEHEGlK5esM+AE
-	X1IYTcIayWqg51G8qtvUcptCGYfnHlrKnvsGvGsv4McTVjeDDPFi2Lf+ui+wVvvzIn9zveE5D37
-	pv3u2zyUkSLA94Pu27za3LLpIpKgqNBFUwLPVvWhVzhJ2iwM4CEtQLtHlvpWuJdWBtiY8MSL97u
-	IPQS/jCjsO8LP6xiuzmqRDKrSemeWDy92MdngeET/oVExDerg/xoxemPMsHB5Wyq7PWCpLosbS+
-	R9GjqXk4dA8PgxnyqIvRvMAlmvdN20E4jHdbTWt6N+FHd3+gYK3AEvq8Xd+zCiUYWfy+wJ0Nkpz
-	sY=
-X-Received: by 2002:a05:600c:3b27:b0:483:702f:4641 with SMTP id 5b1f17b1804b1-483a95bd842mr121940845e9.3.1771839720960;
-        Mon, 23 Feb 2026 01:42:00 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483a31f0330sm222508405e9.9.2026.02.23.01.42.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Feb 2026 01:42:00 -0800 (PST)
-Date: Mon, 23 Feb 2026 09:41:58 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
- <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael
- Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko
- Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander
- Gordeev <agordeev@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, Kees Cook
- <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, Arnd
- Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>, "Jason A.
- Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>, Jeremy
- Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v4 3/3] randomize_kstack: Unify random source across
- arches
-Message-ID: <20260223094158.2197d7af@pumpkin>
-In-Reply-To: <87ecmcwjh9.ffs@tglx>
-References: <20260119130122.1283821-1-ryan.roberts@arm.com>
-	<20260119130122.1283821-4-ryan.roberts@arm.com>
-	<87ecmcwjh9.ffs@tglx>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Mon, 23 Feb 2026 10:25:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1771842326; x=1803378326;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=lYJQ0s04uuY3Wl35fAWJ2aUlbd1T4PEXe2Xyn+eVL5w=;
+  b=N4Hse5t/vg52WS8+a9mMlMxx2YYWQNNS/btRUgQPbnrQSmxtUnKC0K7w
+   px83BtLsYOZqngT+kqZcP0RBZNlbA2Y04rR7z3lADHBNH4CyaHxTAtQ1z
+   JBnN3iRs2zpQbRaUsyzet4AkhkWD4aSSqXb6nMJGMk3JEWf79X3wVUF7f
+   bMNy+Q2PuiRkbhvJ48tOsgPGZinj1wzCwHi3O3swMGQ4til8mExtnRspe
+   RNBLw7R4TKd+eZn95m4CNcd+5bvN4BO+A7Xhi4DHlLleGDgEASIeR+z8k
+   1ckgtC/bRmwmOrl5h5u1lUYOMihz0CgjFBqXg4w4+JtLPDE/R2fe1QTiG
+   Q==;
+X-CSE-ConnectionGUID: dcasylaqRiGd7fkj9WTCcw==
+X-CSE-MsgGUID: rXdik328QsqbLxir4O0EvQ==
+X-IronPort-AV: E=Sophos;i="6.21,306,1763449200"; 
+   d="asc'?scan'208";a="220994822"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Feb 2026 03:25:25 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Mon, 23 Feb 2026 03:24:46 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
+ Transport; Mon, 23 Feb 2026 03:24:45 -0700
+Date: Mon, 23 Feb 2026 10:24:20 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<alex@ghiti.fr>, <shuah@kernel.org>
+Subject: Re: [PATCH v3 1/2] riscv: Introduce support for hardware
+ break/watchpoints
+Message-ID: <20260223-mouth-plated-50294c7a6ac0@wendy>
+References: <20260223044918.1359983-1-himanshu.chauhan@oss.qualcomm.com>
+ <20260223044918.1359983-2-himanshu.chauhan@oss.qualcomm.com>
 MIME-Version: 1.0
+In-Reply-To: <20260223044918.1359983-2-himanshu.chauhan@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_014203_565313_4F93D338 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20260223_022526_523040_A6004818 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,41 +83,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6011065177545139836=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 22 Feb 2026 22:34:26 +0100
-Thomas Gleixner <tglx@kernel.org> wrote:
+--===============6011065177545139836==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="c5AaKpA2g6pFDo65"
+Content-Disposition: inline
 
-> On Mon, Jan 19 2026 at 13:01, Ryan Roberts wrote:
-> > I tested an earlier version of this change on x86 bare metal and it
-> > showed a smaller but still significant improvement. The bare metal
-> > system wasn't available this time around so testing was done in a VM
-> > instance. I'm guessing the cost of rdtsc is higher for VMs.  
-> 
-> No it's not, unless the hypervisor traps RDTSC, which would be insane as
-> that would cause massive regressions all over the place.
-> 
-> So guessing is not really helpful if you want to argue performance.
+--c5AaKpA2g6pFDo65
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-The cost of rdtsc will depend on the cpu architecture.
-To get valid comparisons you need to run on identical systems.
+On Mon, Feb 23, 2026 at 10:19:17AM +0530, Himanshu Chauhan wrote:
+> +static void init_sbi_dbtr(void)
+> +{
+> +	unsigned long tdata1;
+> +	struct sbiret ret;
+> +
+> +	if (sbi_probe_extension(SBI_EXT_DBTR) <= 0) {
+> +		pr_warn("%s: SBI_EXT_DBTR is not supported\n", __func__);
 
-Regardless, the cost of rdtsc could easily be larger than the
-cost of the prandom_u32_state() code (especially if inlined or
-without all the return thunk 'crap').
+This is going to run an all systems, right? A pr_warn() seems
+inappropriate, given that not supporting this extension isn't a problem.
+If you want to produce warnings, only do it for < 0 return values and
+maybe print the actual error code too?
 
-	David
+> +		dbtr_total_num = 0;
+> +		goto done;
+> +	}
+> +
+> +	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
+> +			0, 0, 0, 0, 0, 0);
+> +	if (ret.error) {
+> +		pr_warn("%s: Failed to detect triggers\n", __func__);
+> +		dbtr_total_num = 0;
+> +		goto done;
+> +	}
+> +
+> +	tdata1 = 0;
+> +	tdata1 = RV_DBTR_SET_TDATA1_TYPE(tdata1, RV_DBTR_TRIG_MCONTROL6);
+> +
+> +	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
+> +			tdata1, 0, 0, 0, 0, 0);
+> +	if (ret.error) {
+> +		pr_warn("%s: failed to detect mcontrol6 triggers\n", __func__);
+> +	} else if (!ret.value) {
+> +		pr_warn("%s: type 6 triggers not available\n", __func__);
+> +	} else {
+> +		dbtr_total_num = ret.value;
+> +		dbtr_type = RV_DBTR_TRIG_MCONTROL6;
+> +		pr_warn("%s: mcontrol6 trigger available.\n", __func__);
+> +		goto done;
+> +	}
+> +
+> +	/* fallback to type 2 triggers if type 6 is not available */
+> +
+> +	tdata1 = 0;
+> +	tdata1 = RV_DBTR_SET_TDATA1_TYPE(tdata1, RV_DBTR_TRIG_MCONTROL);
+> +
+> +	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
+> +			tdata1, 0, 0, 0, 0, 0);
+> +	if (ret.error) {
+> +		pr_warn("%s: failed to detect mcontrol triggers\n", __func__);
+> +	} else if (!ret.value) {
+> +		pr_warn("%s: type 2 triggers not available\n", __func__);
+> +	} else {
+> +		dbtr_total_num = ret.value;
+> +		dbtr_type = RV_DBTR_TRIG_MCONTROL;
+> +		goto done;
+> +	}
+> +
+> +done:
+> +	dbtr_init = 1;
+> +}
 
-> 
-> Thanks,
-> 
->         tglx
+> +
+> +void hw_breakpoint_pmu_read(struct perf_event *bp)
+> +{
+> +	/* TODO */
+> +}
+> +
+> +void clear_ptrace_hw_breakpoint(struct task_struct *tsk)
+> +{
+> +	/* TODO */
+> +}
+> +
+> +void flush_ptrace_hw_breakpoint(struct task_struct *tsk)
+> +{
+> +	/* TODO */
+> +}
 
+This isn't an RFC, why does it have TODOs?
+
+--c5AaKpA2g6pFDo65
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaZwq1AAKCRB4tDGHoIJi
+0upiAQCLtgcVhN1YHI6iwZHUnWvpnnH9plmo8jVy34MtpsimigEA2HOgmhtAyLTZ
+ozQGgdUIOu8Qqqlb8Xg4zax29nNYqA0=
+=jG3k
+-----END PGP SIGNATURE-----
+
+--c5AaKpA2g6pFDo65--
+
+
+--===============6011065177545139836==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6011065177545139836==--
+
