@@ -4,116 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB977EC1120
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Feb 2026 19:32:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE205EC1127
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Feb 2026 19:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z7O/GnCELYk2VV1npoeYQoqTwylkP2y3lPeM1c6toaI=; b=0ZPsSXDiu/RRNI
-	t77CZYEwf8yFFRET8M2lWfT3nIf80epFg3tGHfx/ggMRYR9s40zpIOGWiepXH1O1cHC09TndrnEPj
-	us2p6XrAZkgvwXNFIkaRM8TxnZPSOKFaUImD8lMIrjEbovbX0R0hppHUTFvV0BSN+FKraf6AirD3m
-	KVhx4JaQCcPAlrdwOg5fqsdf6gJHO+eqW+oIUPnMMH8xFuExECKvbqWXCoAqlSW+p2VOHJcZ5upOR
-	ReQ3L0KFsEBeIkZ6jiabaOsOsB/EyI/CL2fvS1v4eqfrnAoq8zCjhP0es+DQ0Hqz9KriTeMn8PQ11
-	GvvGmVJLmxjkaRIUo4RQ==;
+	List-Owner; bh=UtHww8U7GjYhRpCc16EJ6I5lq+j5m9bEbeRBZhPafRo=; b=Rqxx/k/Bl1zo11
+	iQK9Rtvo8SfQurbZ+6PYlGWkebTK7kabpJsRIG16BnHQv0CWKQspNEsZlmizoxrD3+n4bwz4RXZne
+	XDKV9xxJDgWmeZm/hTxbt5gRzXFKLX9k959MyqaxOuWBYkfvUwZc1FaK+MYahOZpAPWDQf7SvXKHF
+	+fL1QlPQYpAH7/9tLRMCfS0Rll/d7kRAanKp077y6668efKeFX9T1DY1zWyVvIBv53H0aVywbdaMO
+	Kz88iGyKDQliC8cmu+d24pTBaT4R4NqYvir/SzyEb8+GPQNxazAgmqgq5WSBHi4uBsVfM8M/eAXZc
+	E8FTshVkmDsKDoTgdUUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vubfh-00000000w4U-20kj;
-	Mon, 23 Feb 2026 19:32:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vubnq-00000000wca-2Ev2;
+	Mon, 23 Feb 2026 19:41:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vubfg-00000000w4O-3Viu
+	id 1vubno-00000000wcE-1dCj
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Feb 2026 19:32:44 +0000
+	Mon, 23 Feb 2026 19:41:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 92CA260123;
-	Mon, 23 Feb 2026 19:32:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1771AC116C6;
-	Mon, 23 Feb 2026 19:32:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0851A41A8C;
+	Mon, 23 Feb 2026 19:41:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8185CC116C6;
+	Mon, 23 Feb 2026 19:41:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771875163;
-	bh=AKjC73ZzhO2Cw8rIy39+iAnm5xnoxvOK6IN1Fx4kp+M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pX58LaGJiNo4oPkgO7P266+UDOIbdFCLvtF1Ak+cdkZcV98xkMMHwq3S3G16ESuPH
-	 dxixWT/2udHEy4HB/eCKI6Tcga6YzzEc99lE0y3C0SXq05By0Sp02EsNp5gsvRcTrP
-	 WBFVtPlHWbJwRPeKS1LVvlNf7SpghFS2C7+JC8fQLQj5rFkiymcCEeQMHoOX5eH4cr
-	 69pFQd4V3NtTJvt8AX3Xbp7Utumi+O7Nke3XJd2Mt8V+jIIrd2Y0vlr+qrKbmXV/n4
-	 mbTmUOf3VRy/b2v1pZHeLTLewp6ImQ2AB/dLu1tN7JG0DYjuN2jCKFk8FN4y5eTtUa
-	 3KZMT+lCZs/4A==
-Message-ID: <9a972701-00b4-440d-8bc2-24b8dc469843@kernel.org>
-Date: Mon, 23 Feb 2026 20:32:34 +0100
+	s=k20201202; t=1771875667;
+	bh=WEA6P95rkpZGExTdoo0RdXuU9UiczYMaZDEepqmmNf8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HHE7diwSspbMM7gFWFYKCy8L8ucllyJCnYSvp3iCleZ1TGGXI2au3miXIunOKIsJ+
+	 VBDHHzqtvSaMet6brn85yJfH+ndBeWY2y4uqBzIxb8dno1e3MfFjQX6Gc2yjDyIxSP
+	 pBA86kZeTw5qvbxPYqJaBLHt/9WEWufkPKOEqM+K7zVMGGe1f4G/Kqvl5ts4IeFIZr
+	 qszRyR4+lO2yG6+Clh6gDC+tt/IavaWv8EGjzPasQgM8umTyGCAEVhaQiAGuuwzQPL
+	 7QcSsNYgrrxCHge0KyVDHNl0ha1DYW70VaWBP6Kq9iNSPldoa66XNX1nIeg5G0ijvw
+	 elPrtlC69zfwg==
+Date: Mon, 23 Feb 2026 21:40:59 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, linux-mm@kvack.org
+Subject: Re: [PATCH v3 24/29] arch, mm: consolidate initialization of SPARSE
+ memory model
+Message-ID: <aZytSwzGj24lqkLU@kernel.org>
+References: <20260111082105.290734-1-rppt@kernel.org>
+ <20260111082105.290734-25-rppt@kernel.org>
+ <20260223144108-dcace0b9-02e8-4b67-a7ce-f263bed36f26@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv6 08/17] mm: Make page_zonenum() use head page
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Kiryl Shutsemau <kas@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Muchun Song <muchun.song@linux.dev>, Usama Arif <usamaarif642@gmail.com>,
- Frank van der Linden <fvdl@google.com>, Oscar Salvador <osalvador@suse.de>,
- Mike Rapoport <rppt@kernel.org>, Vlastimil Babka <vbabka@suse.cz>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Zi Yan <ziy@nvidia.com>,
- Baoquan He <bhe@redhat.com>, Michal Hocko <mhocko@suse.com>,
- Johannes Weiner <hannes@cmpxchg.org>, Jonathan Corbet <corbet@lwn.net>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, kernel-team@meta.com, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
-References: <20260202155634.650837-1-kas@kernel.org>
- <20260202155634.650837-9-kas@kernel.org>
- <aZJTLwV2SaaKu1k_@casper.infradead.org>
- <ec4a9a1e-8c08-4879-a787-3b9e0bc38160@kernel.org>
- <aZyZ2-7Xr-zUnInC@casper.infradead.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <aZyZ2-7Xr-zUnInC@casper.infradead.org>
+Content-Disposition: inline
+In-Reply-To: <20260223144108-dcace0b9-02e8-4b67-a7ce-f263bed36f26@linutronix.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260223_114108_490375_6E59565A 
+X-CRM114-Status: GOOD (  24.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,43 +78,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/23/26 19:18, Matthew Wilcox wrote:
-> On Mon, Feb 16, 2026 at 10:06:57AM +0100, David Hildenbrand (Arm) wrote:
->> On 2/16/26 00:13, Matthew Wilcox wrote:
->>>
->>> You're right that different pages in the same folio can have different
->>> zone number.  But does it matter ... or to put it another way, why is
->>> returning the zone number of the head page the correct way to resolve
->>> this?
->>
->> How can a folio cross zones?
-> 
-> I thought 1GB pages in hugetlb could cross zones?  Maybe that used to be
-> true and isn't any more, or maybe it was never true and I was just
-> confused.
+Hi Thomas,
 
-I recall that 1G folios could end up in ZONE_MOVABLE (comment in
-page_is_unmovable()), but my memory is fuzzy when it comes to crossing
-zones (ZONE_NORMAL -> ZONE_MOVABLE).
+On Mon, Feb 23, 2026 at 02:52:45PM +0100, Thomas Wei=DFschuh wrote:
+> Hi everyone,
+> =
 
-Freeing+reinitializing the vmemmap for HVO with such folios would
-already be problematic I suppose: we would silently switch the zone for
-some of these pages.
+> On Sun, Jan 11, 2026 at 10:20:58AM +0200, Mike Rapoport wrote:
+> > Every architecture calls sparse_init() during setup_arch() although the
+> > data structures created by sparse_init() are not used until the
+> > initialization of the core MM.
+> > =
 
-When freeing such (boottime) hugetlb folios to the buddy, we use
-free_frozen_pages(). In there we lookup the zone once.
+> > Beside the code duplication, calling sparse_init() from architecture
+> > specific code causes ordering differences of vmemmap and HVO initializa=
+tion
+> > on different architectures.
+> > =
 
-Likely also problematic :)
+> > Move the call to sparse_init() from architecture specific code to
+> > free_area_init() to ensure that vmemmap and HVO initialization order is
+> > always the same.
+> =
 
--- 
-Cheers,
+> This broke the boot on RISC-V 32-bit (rv32_defconfig) for me.
+> =
 
-David
+> Specifically if sparse_init() is *not* called before the following callch=
+ain,
+> the kernel dies at that point.
+> =
+
+> start_kernel()
+>   setup_arch()
+>     apply_boot_alternatives()
+>       _apply_alternatives()
+>         riscv_cpufeature_patch_func()
+>           patch_text_nosync()
+>           riscv_alternative_fix_offsets()
+
+Hm, most architectures do alternatives patching much later in the boot,
+when much more subsystems (including mm) is already initialized.
+
+Any particular reason riscv does it that early? =
+
+ =
+
+> Simple reproducer, using kunit:
+> =
+
+> ./tools/testing/kunit/kunit.py run --raw_output=3Dall --make_options LLVM=
+=3D1 --arch riscv32 --kconfig_add CONFIG_SPARSEMEM_MANUAL=3Dy --kconfig_add=
+ CONFIG_SPARSEMEM=3Dy
+
+Looking at patch_map it's quite clear why movement of sparse_init() cased a
+crash:
+
+	if (core_kernel_text(uintaddr) || is_kernel_exittext(uintaddr))
+		page =3D phys_to_page(__pa_symbol(addr));
+
+phys_to_page() with CONFIG_SPARSEMEM=3Dy will try to access memory section
+that are initialized in sparse_init().
+
+What I don't understand is why patch_map() needs a struct page for kernel
+text patching at all, __pa_symbol() should work just fine.
+And the BUG_ON(!page) is completely bogus for phys_to_page() conversion,
+because that one is pure arithmetics.
+
+If moving apply_boot_alternatives() is not an option for riscv, something
+like the patch below should fix the issue with access to nonexistent
+memory sections. But I think moving apply_boot_alternatives() later in boot
+would make things less fragile.
+
+diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+index db13c9ddf9e3..89b3c13f2865 100644
+--- a/arch/riscv/kernel/patch.c
++++ b/arch/riscv/kernel/patch.c
+@@ -43,18 +43,19 @@ static __always_inline void *patch_map(void *addr, cons=
+t unsigned int fixmap)
+ {
+ 	uintptr_t uintaddr =3D (uintptr_t) addr;
+ 	struct page *page;
++	phys_addr_t phys;
+ =
+
+-	if (core_kernel_text(uintaddr) || is_kernel_exittext(uintaddr))
+-		page =3D phys_to_page(__pa_symbol(addr));
+-	else if (IS_ENABLED(CONFIG_STRICT_MODULE_RWX))
++	if (core_kernel_text(uintaddr) || is_kernel_exittext(uintaddr)) {
++		phys =3D __pa_symbol(addr);
++	} else if (IS_ENABLED(CONFIG_STRICT_MODULE_RWX)) {
+ 		page =3D vmalloc_to_page(addr);
+-	else
++		BUG_ON(!page);
++		phys =3D page_to_phys(page);
++	} else {
+ 		return addr;
++	}
+ =
+
+-	BUG_ON(!page);
+-
+-	return (void *)set_fixmap_offset(fixmap, page_to_phys(page) +
+-					 offset_in_page(addr));
++	return (void *)set_fixmap_offset(fixmap, phys + offset_in_page(addr));
+ }
+ =
+
+ static void patch_unmap(int fixmap)
+
+-- =
+
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
