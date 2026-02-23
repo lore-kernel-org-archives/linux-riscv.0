@@ -4,69 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7165DEA4FC2
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Feb 2026 13:53:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69668EA4FC1
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Feb 2026 13:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8izg0cdLrHsZ7FKwshwrETmA8eSZUZPR8Gvj+5d+V5s=; b=MAKJZnUcmiod7Q
-	f2vhq9JwT7n89LQDurrPh56NFVzESmzFUtDgGrgbcIzF9cPnr/b530GRj/YHSf3UiP8z4H9hoHI40
-	2aY/Ry224Q9y4ctTkkChqFvQln9OnaUBYpG+UDucyueV+IgnR/b7uBOIHSf6uk+nm3RQJZtS+Oko/
-	GGm1WTS2cOlNFwIbgc+Vwi35ZlErn03j86sq6vXF0cjhusr55uumxkbYIZPb/lM1LIjELYyyafBo2
-	e+oPI+pQyVPjqVqhi6YY0GmUzsfqm8yF0m887qk0NvEW/kKXHx1uLZMl2R9EiVKG9VIWZrygNvret
-	FdcfRdcTmoX/zgPN0S0g==;
+	List-Owner; bh=lBFE2VbW07W1r4J/sgEa372pCGBKRzJEKeMv+yuctdU=; b=CIlxGFQMYVA1Qh
+	OBhl9jsq0xyA8ZjUUoC29ixSHDWrxU6jiEeoCrZeCW/iCiOxo+aU7CR1HPhPWyR/iw93LDciIyFsz
+	DeRGU8zQ1Pva661rzm9BObvtFV9b3gC5M7NgTA0H4IXpFhjLS76q4l33IWX7YrcE/AvtIjXmWpzjt
+	RaX2AZqqLtVaxCMu9xibddxTI/pc+RgKqYAUKz7lm5VT3iwpZh1eKrxaR1VoCxyODFuZt55xlyEfG
+	XUbSaLQJsoMk/CZdQFF1xh3nLGKYwhJrvjORQpym46hFjqf05XlFxbrcnph0BDFHKbC11ddbvXzUK
+	5bSnPHglKTv1xgW9S+oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuWMn-00000000Ppr-3X2E;
-	Mon, 23 Feb 2026 13:52:53 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vuWPa-00000000QPM-0VTe;
+	Mon, 23 Feb 2026 13:55:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuWMl-00000000Poh-3kO6
-	for linux-riscv@lists.infradead.org;
-	Mon, 23 Feb 2026 13:52:53 +0000
-Date: Mon, 23 Feb 2026 14:52:45 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1771854765;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YYN2ElQvz1bXGLb236MoycuOriEzIAg8a9PdtF1XU6M=;
-	b=dnVQezFKSeL4QlKI1KpAXqUZs5gfTKhrpyvYBrCxSx7N3Y1Gc3BT9Yp/FK+6UZkPyUwZxf
-	+yveBjQMn8jEK+BeoaY8Vk2G8cRZWQ7lIYdUky8JgEUOYqctFsPXaVFiAvy5i/+OdtEglC
-	bcnndOvuPuukWw6T0HE45JTvs/sQ7TYEPK6TxFLD/CwZh4pfg+exZGlzQsaUET/zWBk7CS
-	H9x3+Cmtk+dbKl8J3go/kjbh+WZzT57d6kvpH1x7iyCwLdwqFUM9oizXmOL/ySDdXJiv3V
-	TXNokG9tyt6pOIwkyleL2IEsooBViQqUU8HfUfCJDTPnB3OFqUyeItP/E3aFaQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1771854765;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YYN2ElQvz1bXGLb236MoycuOriEzIAg8a9PdtF1XU6M=;
-	b=Tk9zqDZoD56XAidgdo95hukb9YEaVDmXoZTjWWnY/9zTalzZjQJDPv5EHISHX0j/mEQA/j
-	LtlKIXw/crURzGAA==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Mike Rapoport <rppt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
-	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, linux-mm@kvack.org
-Subject: Re: [PATCH v3 24/29] arch, mm: consolidate initialization of SPARSE
- memory model
-Message-ID: <20260223144108-dcace0b9-02e8-4b67-a7ce-f263bed36f26@linutronix.de>
-References: <20260111082105.290734-1-rppt@kernel.org>
- <20260111082105.290734-25-rppt@kernel.org>
+	id 1vuWPY-00000000QOp-0VKG;
+	Mon, 23 Feb 2026 13:55:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=HW6N3rGU2ZBKiA5TO2fqe3PHPUs/lOREE9/IWMJ4tOU=; b=aawVdu4i1mo1dCrOic3p9eRbsp
+	Hd3IJZ7C8a60VdgJggU97MnBqnGnSf1BueQY77k1KbpP7jyxtPgQ03+unR7Z8NSfWZx1qRxe5w1ly
+	JcKhsq8LRiJxwkv3CkCdQvRbAvwYArz7kN5+3BsBhOruu6NyVnN+4BTg2PM+hacGmL9o2u+/JfzW5
+	HkbVy3C5jWGJQeggD3ZBk8pGCU97tHZ9wSTIlSPqvs8rrQeg9cNpqmPAqqBdP8//vbTqDKVSkWhil
+	zUsmBGvlAYRb5EVwQBVdD/yr2ySbuL4iut9m2iXcLpK5XdquDM0vayZ7P9BCDC2uzT3Rt8Ik49zdW
+	pB8SP2mA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vuWPT-00000005B0F-1Fkb;
+	Mon, 23 Feb 2026 13:55:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4E6F6339;
+	Mon, 23 Feb 2026 05:55:31 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 240543F59E;
+	Mon, 23 Feb 2026 05:55:35 -0800 (PST)
+Date: Mon, 23 Feb 2026 13:55:32 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Thomas Gleixner <tglx@kernel.org>, ardb@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Guo Ren <guoren@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
+Subject: Re: [PATCH 2/3] genirq: use runtime constant to optimize
+ handle_arch_irq access
+Message-ID: <aZxcVGr47wYM--nr@J2N7QTR9R3>
+References: <20260220090922.1506-1-jszhang@kernel.org>
+ <20260220090922.1506-3-jszhang@kernel.org>
+ <877bs4wi0c.ffs@tglx>
+ <aZxLE-wNGaEGDHGI@xhacker>
+ <aZxSEoFkXMg18qLV@J2N7QTR9R3>
+ <aZxUpATkNI5_PbNl@xhacker>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260111082105.290734-25-rppt@kernel.org>
+In-Reply-To: <aZxUpATkNI5_PbNl@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_055252_075847_9B7BEF71 
-X-CRM114-Status: GOOD (  13.70  )
+X-CRM114-CacheID: sfid-20260223_135539_709368_6D3464DB 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,66 +88,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
-
-On Sun, Jan 11, 2026 at 10:20:58AM +0200, Mike Rapoport wrote:
-> Every architecture calls sparse_init() during setup_arch() although the
-> data structures created by sparse_init() are not used until the
-> initialization of the core MM.
+On Mon, Feb 23, 2026 at 09:22:44PM +0800, Jisheng Zhang wrote:
+> On Mon, Feb 23, 2026 at 01:11:46PM +0000, Mark Rutland wrote:
+> > There are various reasons for not supporting static calls, and in
+> > general we end up having to have a fall-back path that's *more*
+> > expensive than just loading the pointer.
 > 
-> Beside the code duplication, calling sparse_init() from architecture
-> specific code causes ordering differences of vmemmap and HVO initialization
-> on different architectures.
+> indeed, if arch doesn't support static call, the fall-back addes one
+> more loading overhead.
+
+I think you've misunderstood my point.
+
+I'm saying that *even if* arm64 supported static calls, we'd have to
+have dynamic fallback paths that are more expensive. For example, where
+branch range limitations force indirection via an out-of-line stub,
+adding an extra BL+RET pair. Note that was the case in the patches you
+linked from Ard.
+
+[...]
+
+> > > and asked for static calls "critical rather than a nice-to-have"
+> > > usage.
+> > > 
+> > > Hi Ard, Mark,
+> > > 
+> > > Could this irq performance improvement be used as a "critical" usage for
+> > > arm64 static call? Per my test, about 6.5% improvement was seen on quad CA55.
+> > 
+> > As per my other mail, does this meaningfully affect a real workload?
 > 
-> Move the call to sparse_init() from architecture specific code to
-> free_area_init() to ensure that vmemmap and HVO initialization order is
-> always the same.
+> This improves generic irq processcing, I think all real workload is affected.
 
-This broke the boot on RISC-V 32-bit (rv32_defconfig) for me.
+I asked about meaningful impact. For a real workload, does this show up
+at all, or does this fall within the noise?
 
-Specifically if sparse_init() is *not* called before the following callchain,
-the kernel dies at that point.
+At present, I don't think your singular microbenchmark result changes
+our previous decisions regarding static calls. For various reasons, on
+arm64 static calls are nowhere near as significant an optimization (and
+can be worse).
 
-start_kernel()
-  setup_arch()
-    apply_boot_alternatives()
-      _apply_alternatives()
-        riscv_cpufeature_patch_func()
-          patch_text_nosync()
-          riscv_alternative_fix_offsets()
+I'd be happy to use a runtime constant (modulo my concerns about the
+initial value) given that the we already have the infrastructure and the
+maintenanace impact is minimal.
 
-
-Simple reproducer, using kunit:
-
-./tools/testing/kunit/kunit.py run --raw_output=all --make_options LLVM=1 --arch riscv32 --kconfig_add CONFIG_SPARSEMEM_MANUAL=y --kconfig_add CONFIG_SPARSEMEM=y
-
-> 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> ---
->  Documentation/mm/memory-model.rst                    |  3 ---
->  Documentation/translations/zh_CN/mm/memory-model.rst |  2 --
->  arch/alpha/kernel/setup.c                            |  1 -
->  arch/arm/mm/init.c                                   |  6 ------
->  arch/arm64/mm/init.c                                 |  6 ------
->  arch/csky/kernel/setup.c                             |  2 --
->  arch/loongarch/kernel/setup.c                        |  8 --------
->  arch/mips/kernel/setup.c                             | 11 -----------
->  arch/parisc/mm/init.c                                |  2 --
->  arch/powerpc/include/asm/setup.h                     |  4 ++++
->  arch/powerpc/mm/mem.c                                |  5 -----
->  arch/powerpc/mm/numa.c                               |  2 --
->  arch/riscv/mm/init.c                                 |  1 -
->  arch/s390/mm/init.c                                  |  1 -
->  arch/sh/mm/init.c                                    |  2 --
->  arch/sparc/mm/init_64.c                              |  2 --
->  arch/x86/mm/init_32.c                                |  1 -
->  arch/x86/mm/init_64.c                                |  2 --
->  include/linux/mmzone.h                               |  2 --
->  mm/internal.h                                        |  6 ++++++
->  mm/mm_init.c                                         |  1 +
->  21 files changed, 11 insertions(+), 59 deletions(-)
-
-(...)
+Mark.
 
 _______________________________________________
 linux-riscv mailing list
