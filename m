@@ -4,102 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B079EFB7EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 04:15:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE097EFB806
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 06:06:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W6W49QvPhSkJp4TBpJn0GMlV1VExIFjFxrqKd8BC/eE=; b=1FMWkNKk9M/CWx
-	KdLS7qx/rQRPdQH8UvaRs9p0WEQYXdhlra+dlxBafZV9EjI39gz0CJ80H3/OpJV7nH5eIUH2RkO8s
-	TjCy0+oc+udH1B7oO1QGsdTvF33XphSofrSAxll2DHSatG8RrUXViC4kAN8Kv4gIt0LU1N706m3Ub
-	pLg5NgJRWLwRPxbgKwYYczl2ndBQyVWHEEExkIiBfPOt6EP9WmZDabEzdoULYWGd8pDdy0VkDKvpc
-	7+5wgd3MUAt5c8M8OS3/1d0YrlU4fgrU4ZHm7Np2yqdlTMhDZ4ZH1NSM0U+xaWswq8Wx+cOVadkVt
-	+neJA5HvfwGX98skmUOg==;
+	List-Owner; bh=CzHpFbAXMGejAUZDlkALVJzlws6nyMXyv/TbXuKsnUY=; b=B297YGM6Jruhtz
+	ALnQQBSnlEjNgnrRy13d96sLQRt10XkiSbOLQBfrWiMk8DcDMXzizui3bSQkeXw6WUxyUiWbccaqK
+	RoWsIMIdEy3+iov9zENbc9UPEBaEe6+VgnNYb+niJjEkTD2uNwWupS9XSHS5KR7Pk2bcQf1qVEkyS
+	E8Xv69xwyzh3ulLx9j5rFajfkipeEd6YhUzHTtI0IQa1FifCq2wIwvKb5rZpvn+vJYbAhYf3QUuNw
+	EzU1M9+tRzzEs+Wr+2tblF4h03YfqHJ/XCleJoWCt0thibFcZgFZSnpdy9Jo6U34CKf9KJwyhil96
+	NLSDJFt78K7h+EzwufNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vujp2-00000001QO7-0Wr4;
-	Tue, 24 Feb 2026 04:14:56 +0000
-Received: from psionic.psi5.com ([2a02:c206:3008:6895::1])
+	id 1vulZG-00000001VgS-0F5v;
+	Tue, 24 Feb 2026 06:06:46 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vujoy-00000001QNL-0b9a;
-	Tue, 24 Feb 2026 04:14:54 +0000
-Received: from [IPV6:2400:2410:b120:f200:a1f3:73da:3a04:160d] (unknown [IPv6:2400:2410:b120:f200:a1f3:73da:3a04:160d])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by psionic.psi5.com (Postfix) with ESMTPSA id 583C83F01D;
-	Tue, 24 Feb 2026 05:14:19 +0100 (CET)
-Message-ID: <6223f3cb-693f-42e7-9147-30f659f08563@hogyros.de>
-Date: Tue, 24 Feb 2026 13:14:16 +0900
+	id 1vulZB-00000001Vg1-3E29;
+	Tue, 24 Feb 2026 06:06:45 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61NGPScP2832046;
+	Tue, 24 Feb 2026 06:06:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=uSwCN+J+wMeHyT6grODleBZy2GEkq0
+	PcaMF6dUqouaQ=; b=Q+sikCqdOnEu0m1X8P3rXKKxoogSH8A7M6OgY5QzabXD/K
+	vYEollVPH0SnHN0teWlne7IIGNzNYDEujC89EKknnkNyDCyx5PnTODBgQfPU7Syj
+	zmBozBkckkUyyToEo8FjD5Y8e4oj1zqu8cQ8X1NRVs446fGfpYAL9lFovpoKJGh9
+	YcLk6Qeg/Vt/PuWofk6Wixh9Qzu5lyy/lxm5GQw9Nkqwpl/QKWG/MmWQ7moOE7A9
+	yYx4l8o5pCUptYHXr0gmg6ogCYuP28bhcH28L7739jM9n6+QZxYYgXDHPhlEkNn/
+	AkII+GeeJIAyTZaUA34wruFzQThwlbxQMcrgA/kg==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cf4brsjfu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 24 Feb 2026 06:06:32 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 61O37WZf027821;
+	Tue, 24 Feb 2026 06:06:32 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4cfsr1qdvq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 24 Feb 2026 06:06:32 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 61O66UdD42402116
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 24 Feb 2026 06:06:30 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 45F022004B;
+	Tue, 24 Feb 2026 06:06:30 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 975FE20040;
+	Tue, 24 Feb 2026 06:06:29 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.111.3.229])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Tue, 24 Feb 2026 06:06:29 +0000 (GMT)
+Date: Tue, 24 Feb 2026 07:06:28 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+        Vasily Gorbik <gor@linux.ibm.com>
+Cc: Pasha Tatashin <pasha.tatashin@soleen.com>, linux-s390@vger.kernel.org,
+        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+        x86@kernel.org
+Subject: Re: [PATCH 1/4] mm/page_table_check: Pass mm_struct to
+ pxx_user_accessible_page()
+Message-ID: <cfdc9b3d-06fd-4cc1-b946-076ff1479c66-agordeev@linux.ibm.com>
+References: <cover.1771845678.git.agordeev@linux.ibm.com>
+ <68c2f6df2955033cbf1ccbd2b5c2816e72ac345c.1771845678.git.agordeev@linux.ibm.com>
+ <20260223101335.aa3696d86341260e03989ac0@linux-foundation.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/37] PCI/MSI: Enforce explicit IRQ vector management by
- removing devres auto-free
-To: Shawn Lin <shawn.lin@rock-chips.com>, Bjorn Helgaas
- <bhelgaas@google.com>, "Vaibhaav Ram T . L" <vaibhaavram.tl@microchip.com>,
- Kumaravel Thiagarajan <kumaravel.thiagarajan@microchip.com>,
- Even Xu <even.xu@intel.com>, Xinpeng Sun <xinpeng.sun@intel.com>,
- Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
- Jiri Kosina <jikos@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Zhou Wang <wangzhou1@hisilicon.com>, Longfang Liu <liulongfang@huawei.com>,
- Vinod Koul <vkoul@kernel.org>, Lee Jones <lee@kernel.org>,
- Jijie Shao <shaojijie@huawei.com>, Jian Shen <shenjian15@huawei.com>,
- Sunil Goutham <sgoutham@marvell.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- Heiner Kallweit <hkallweit1@gmail.com>,
- "David S . Miller" <davem@davemloft.net>,
- Jeff Hugo <jeff.hugo@oss.qualcomm.com>, Oded Gabbay <ogabbay@kernel.org>,
- Maciej Falkowski <maciej.falkowski@linux.intel.com>,
- Karol Wachowski <karol.wachowski@linux.intel.com>,
- Min Ma <mamin506@gmail.com>, Lizhi Hou <lizhi.hou@amd.com>,
- Andreas Noever <andreas.noever@gmail.com>,
- Mika Westerberg <westeri@kernel.org>, Tomasz Jeznach
- <tjeznach@rivosinc.com>, Will Deacon <will@kernel.org>,
- Xinliang Liu <xinliang.liu@linaro.org>, Tian Tao <tiantao6@hisilicon.com>,
- Davidlohr Bueso <dave@stgolabs.net>,
- Jonathan Cameron <jonathan.cameron@huawei.com>,
- Srujana Challa <schalla@marvell.com>, Bharat Bhushan
- <bbhushan2@marvell.com>, Antoine Tenart <atenart@kernel.org>,
- Herbert Xu <herbert@gondor.apana.org.au>, Raag Jadav <raag.jadav@intel.com>,
- Hans de Goede <hansg@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Andy Shevchenko <andy@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Mika Westerberg <mika.westerberg@linux.intel.com>,
- Andi Shyti <andi.shyti@kernel.org>, Robert Richter <rric@kernel.org>,
- Mark Brown <broonie@kernel.org>, Nirmal Patel
- <nirmal.patel@linux.intel.com>, Kurt Schwemmer
- <kurt.schwemmer@microsemi.com>, Logan Gunthorpe <logang@deltatee.com>,
- Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Bingbu Cao <bingbu.cao@intel.com>, Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Benjamin Tissoires <bentiss@kernel.org>,
- linux-input@vger.kernel.org, linux-i3c@lists.infradead.org,
- dmaengine@vger.kernel.org, Philipp Stanner <phasta@kernel.org>,
- netdev@vger.kernel.org, nic_swsd@realtek.com, linux-arm-msm@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-usb@vger.kernel.org,
- iommu@lists.linux.dev, linux-riscv@lists.infradead.org,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- linux-cxl@vger.kernel.org, linux-crypto@vger.kernel.org,
- platform-driver-x86@vger.kernel.org, linux-serial@vger.kernel.org,
- mhi@lists.linux.dev, Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Jan Dabros <jsd@semihalf.com>, linux-i2c@vger.kernel.org,
- Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>,
- linux-spi@vger.kernel.org, Jonathan Derrick <jonathan.derrick@linux.dev>,
- linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
- Mauro Carvalho Chehab <mchehab@kernel.org>, linux-media@vger.kernel.org,
- linux-mmc@vger.kernel.org
-References: <1771860581-82092-1-git-send-email-shawn.lin@rock-chips.com>
-Content-Language: en-US
-From: Simon Richter <Simon.Richter@hogyros.de>
-In-Reply-To: <1771860581-82092-1-git-send-email-shawn.lin@rock-chips.com>
+Content-Disposition: inline
+In-Reply-To: <20260223101335.aa3696d86341260e03989ac0@linux-foundation.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: GRFhXxJJ51Drfa5KN-RgSm71wqJuLn6I
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI0MDA0NiBTYWx0ZWRfX1uDOPTCSWGJm
+ H28pUjz7WGw4rD7VYhrEKjR3wg5TnqYAO9fws+uEqxvLRB07iiUVvPUWvke4PquoiaHy7cj8NP0
+ +5MgaPW34kffQmMJwrJOzID1NlSHyGC1xRPjjpVc0DJtk+Ei9BSKJrK/MTg/uBF7CHEUtyrBEgm
+ C8pv7ZPckr0Po4LPDbSsI/kid9Phn3VvVADlJGR+B0eZN9g8aP315xXoblRCeHkhcccGbVxpMJ1
+ DimKqPwVFtB0GfFZXnWVLOIyLev9XNuRnLc5gjtcxk7i3PSPH6DQO5CHGxAU88Fl1DSfNddJRpF
+ zCrD9OX+BuzNo5iPhvuxgVh5wzbSyJDcGk5cNKRYBcGOei2Gvk2vQF1A6X+6yzK7czC5GEBr7ms
+ xqNUd8nfV8wQ9NbpXHKeEzn6WXK2DXy33/wCLKadxjfeemckf67RPFYG2YMxjPHUYBrhwk/xpzH
+ aO9nMbTo1mWhHFFtwhg==
+X-Authority-Analysis: v=2.4 cv=eNceTXp1 c=1 sm=1 tr=0 ts=699d3fe9 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=Z4Rwk6OoAAAA:8
+ a=I00-mOCqQq542zIoxl0A:9 a=CjuIK1q_8ugA:10 a=HkZW87K1Qel5hWWM3VKY:22
+X-Proofpoint-GUID: GRFhXxJJ51Drfa5KN-RgSm71wqJuLn6I
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-23_06,2026-02-23_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 phishscore=0 suspectscore=0 adultscore=0
+ bulkscore=0 lowpriorityscore=0 malwarescore=0 impostorscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602240046
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_201452_356627_AA89AB97 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260223_220641_952179_E532FBA4 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,25 +117,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, Feb 23, 2026 at 10:13:35AM -0800, Andrew Morton wrote:
+> >  arch/arm64/include/asm/pgtable.h |  6 +++---
+> >  arch/riscv/include/asm/pgtable.h |  6 +++---
+> >  arch/x86/include/asm/pgtable.h   |  6 +++---
+> >  mm/page_table_check.c            | 15 ++++++---------
+> >  4 files changed, 15 insertions(+), 18 deletions(-)
+> 
+> Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
 
-On 2/24/26 12:29 AM, Shawn Lin wrote:
+Thank you, Andrew!
 
-> When such a driver also uses `pcim_enable_device()`, the devres framework may
-> attempt to free the IRQ vectors a second time upon device release, leading to
-> a double-free. Analysis of the tree shows this hazardous pattern exists widely,
-> while 35 other drivers correctly rely solely on the implicit cleanup.
+> I assume this can go into the s390 tree?
 
-Would it make sense to have a function pcim_free_irq_vectors(), to allow 
-explicit freeing even if the device is otherwise managed, analogous to 
-pcim_iounmap()?
-
-    Simon
+I think so.
+@Vasily?
 
 _______________________________________________
 linux-riscv mailing list
