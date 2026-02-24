@@ -4,101 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6EA9EEC2AB
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 00:04:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AFCEEEC2B7
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 00:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O0mo1GHC/zUQUXDwRbuSdoLIKZAmH0XuX1WJsCiO1z0=; b=T/A7oIoUfoox1i
-	3Yruo2VVO/VuXKg0E0EOLTfwq91DYNyxiDVh8yLJrN80xAHhkzW2oy8wJDXpCtAnn25BIOl/C/yCk
-	aCDiUXnavCPai5L2E7TqsrEWEzLx52ZrWBlE96smXYq9aZxJXfEStHRa3v8sHa6UexlxS9aUn8d2+
-	avewtpTdwqwxp+fGEvXkfoiSy+x/jtW2QwYei1EX5Qa/VpwLVeaCxtF+9sFQ1TBNuYB3uiS1kJLqp
-	elz8Zhp3F62wo3t/Fx0X8jG2bvjyR7D54J5ByGTaHqzoInx6QNPEdi0n5MUpL59F1AJ+GZr9RENW9
-	YSiqksZa59shEh7X9iYg==;
+	List-Owner; bh=KUEwgs1hv+B7S+ZWt+d/xieiHeVVg1aVb+sqJnDJFkE=; b=wjzjnVlIHty7yd
+	9uJ/m/O008crc5KcRMPNqv250EgPHZfddVMyuOWk2YqN//Vhz33mhWGMxVI03W80LTBoh7EjMfHi8
+	rPDa4FuhUlZjczVz3Grw/j/DgFIxxo9rCRKgVpBSg+1H8lu7YnqsV7nFdEc1F82TiQnzI/8Ade0+P
+	0TJfXsksfv6dnoRN2PCgXnIhQexznyV3wdw+M99GVJIoP4+QIaGXmxyPFqtunAPPxaXWFyGf/D+Wv
+	mSujmV7NK30JXIi8TEsQGnakqR61fDeJzIR8GdkResqaC0AvVBp2+V+WnUhZZSJYF3qIIgekjTbRZ
+	BbT+widRQc0UIkBSz2zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vufuL-00000001Dt6-48Vl;
-	Tue, 24 Feb 2026 00:04:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vugdD-00000001FZQ-2iV7;
+	Tue, 24 Feb 2026 00:50:31 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vufuL-00000001Dsx-0jzw;
-	Tue, 24 Feb 2026 00:04:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B311A600AE;
-	Tue, 24 Feb 2026 00:04:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E022C116C6;
-	Tue, 24 Feb 2026 00:04:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771891447;
-	bh=eSEVzSG1u7kDX0qIB57v1bGEdvuxp7q/644aS2mjq3Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=BiCxi3L9JoXgkrh8SC5MAkJMhbY/Gt/ee8dkTYQlEReSuB4BTdHAinqlJ2OFDp6yS
-	 K2IocFIKpN9ibOJpRL9+VOLTSUbH7qQsPiBKrovipxTbo9eajt0gUvhxCDhwVDhO+8
-	 5Rlxa1CWbGyQ9Q36KM5NC+FfklyKper67d1Qv2aJIuTZ7s4KnLHKQM7iB0zRPc84mq
-	 jsXCWBPoX2cNDpVLYgAQmic4uvU8sr2uc48rEwfkKkj6Mxf3f1OBn5Wx+AaROlWqSn
-	 ntIjCz+6RR634lgigRfzRx83aoqzpm4WdYAuAXJwSFy0UCaudKb02bX6tegaaBV0nb
-	 MfkMoAbVPBZkQ==
-Date: Mon, 23 Feb 2026 16:04:02 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Shawn Lin <shawn.lin@rock-chips.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, "Vaibhaav Ram T . L"
- <vaibhaavram.tl@microchip.com>, Kumaravel Thiagarajan
- <kumaravel.thiagarajan@microchip.com>, Even Xu <even.xu@intel.com>, Xinpeng
- Sun <xinpeng.sun@intel.com>, Srinivas Pandruvada
- <srinivas.pandruvada@linux.intel.com>, Jiri Kosina <jikos@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>, Zhou Wang
- <wangzhou1@hisilicon.com>, Longfang Liu <liulongfang@huawei.com>, Vinod
- Koul <vkoul@kernel.org>, Lee Jones <lee@kernel.org>, Jijie Shao
- <shaojijie@huawei.com>, Jian Shen <shenjian15@huawei.com>, Sunil Goutham
- <sgoutham@marvell.com>, Andrew Lunn <andrew+netdev@lunn.ch>, Heiner
- Kallweit <hkallweit1@gmail.com>, "David S . Miller" <davem@davemloft.net>,
- Jeff Hugo <jeff.hugo@oss.qualcomm.com>, Oded Gabbay <ogabbay@kernel.org>,
- Maciej Falkowski <maciej.falkowski@linux.intel.com>, Karol Wachowski
- <karol.wachowski@linux.intel.com>, Min Ma <mamin506@gmail.com>, Lizhi Hou
- <lizhi.hou@amd.com>, Andreas Noever <andreas.noever@gmail.com>, Mika
- Westerberg <westeri@kernel.org>, Tomasz Jeznach <tjeznach@rivosinc.com>,
- Will Deacon <will@kernel.org>, Xinliang Liu <xinliang.liu@linaro.org>, Tian
- Tao <tiantao6@hisilicon.com>, Davidlohr Bueso <dave@stgolabs.net>, Jonathan
- Cameron <jonathan.cameron@huawei.com>, Srujana Challa
- <schalla@marvell.com>, Bharat Bhushan <bbhushan2@marvell.com>, Antoine
- Tenart <atenart@kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>, Raag
- Jadav <raag.jadav@intel.com>, Hans de Goede <hansg@kernel.org>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
- <jirislaby@kernel.org>, Andy Shevchenko <andy@kernel.org>, Manivannan
- Sadhasivam <mani@kernel.org>, Mika Westerberg
- <mika.westerberg@linux.intel.com>, Andi Shyti <andi.shyti@kernel.org>,
- Robert Richter <rric@kernel.org>, Mark Brown <broonie@kernel.org>, Nirmal
- Patel <nirmal.patel@linux.intel.com>, Kurt Schwemmer
- <kurt.schwemmer@microsemi.com>, Logan Gunthorpe <logang@deltatee.com>,
- Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, Bingbu Cao
- <bingbu.cao@intel.com>, Ulf Hansson <ulf.hansson@linaro.org>, Arnd Bergmann
- <arnd@arndb.de>, Benjamin Tissoires <bentiss@kernel.org>,
- linux-input@vger.kernel.org, linux-i3c@lists.infradead.org,
- dmaengine@vger.kernel.org, Philipp Stanner <phasta@kernel.org>,
- netdev@vger.kernel.org, nic_swsd@realtek.com,
- linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-usb@vger.kernel.org, iommu@lists.linux.dev,
- linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, Simona
- Vetter <simona@ffwll.ch>, linux-cxl@vger.kernel.org,
- linux-crypto@vger.kernel.org, platform-driver-x86@vger.kernel.org,
- linux-serial@vger.kernel.org, mhi@lists.linux.dev, Andy Shevchenko
- <andriy.shevchenko@linux.intel.com>, Jan Dabros <jsd@semihalf.com>,
- linux-i2c@vger.kernel.org, Daniel Mack <daniel@zonque.org>, Haojian Zhuang
- <haojian.zhuang@gmail.com>, linux-spi@vger.kernel.org, Jonathan Derrick
- <jonathan.derrick@linux.dev>, linux-pci@vger.kernel.org,
- linux-gpio@vger.kernel.org, Mauro Carvalho Chehab <mchehab@kernel.org>,
- linux-media@vger.kernel.org, linux-mmc@vger.kernel.org
-Subject: Re: [PATCH 01/37] PCI/MSI: Add Devres managed IRQ vectors
- allocation
-Message-ID: <20260223160402.3ad8f079@kernel.org>
-In-Reply-To: <1771860581-82092-2-git-send-email-shawn.lin@rock-chips.com>
-References: <1771860581-82092-1-git-send-email-shawn.lin@rock-chips.com>
-	<1771860581-82092-2-git-send-email-shawn.lin@rock-chips.com>
+	id 1vugd9-00000001FYR-1BqR;
+	Tue, 24 Feb 2026 00:50:29 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-01 (Coremail) with SMTP id qwCowAC3X2vK9ZxpYRabCA--.55558S2;
+	Tue, 24 Feb 2026 08:50:18 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: xujiakai2025@iscas.ac.cn
+Cc: alex@ghiti.fr,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	jiakaiPeanut@gmail.com,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com
+Subject: Re: [PATCH] RISC-V: KVM: Fix null pointer dereference in kvm_riscv_vcpu_aia_rmw_topei()
+Date: Tue, 24 Feb 2026 00:50:18 +0000
+Message-Id: <20260224005018.3979656-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260130101557.1314385-1-xujiakai2025@iscas.ac.cn>
+References: <20260130101557.1314385-1-xujiakai2025@iscas.ac.cn>
 MIME-Version: 1.0
+X-CM-TRANSID: qwCowAC3X2vK9ZxpYRabCA--.55558S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUO57AC8VAFwI0_Gr0_Xr1l1xkIjI8I6I8E
+	6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28Cjx
+	kF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8I
+	cVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87
+	Iv6xkF7I0E14v26r4UJVWxJr1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28I
+	cVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx
+	0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwAC
+	jI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc2xSY4AK67AK6w
+	1l42xK82IYc2Ij64vIr41l4c8EcI0Ec7CjxVAaw2AFwI0_Jw0_GFyl4I8I3I0E4IkC6x0Y
+	z7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zV
+	AF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4l
+	IxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCw
+	CI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnI
+	WIevJa73UjIFyTuYvjfU5nmRUUUUU
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiCQ8ICWmcbKfMkwAAsm
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260223_165027_717857_4D43B707 
+X-CRM114-Status: UNSURE (   4.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,15 +87,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Feb 2026 23:29:40 +0800 Shawn Lin wrote:
-> pcim_alloc_irq_vectors() and pcim_alloc_irq_vectors_affinity() are created for
-> pci device drivers which rely on the devres machinery to help cleanup the IRQ
-> vectors.
+Hi all,
 
-If you can please add this API with just a few users, and then convert
-remaining users via the subsystem trees in the next cycle.
-There's no need to risk wasting maintainer time on conflicts with
-conversions like this.
+Just a gentle ping on the patch below, sent about three weeks ago.
+
+This fixes a NULL pointer dereference in the AIA TOPEI RMW path that can
+be triggered by fuzzed ioctl sequences before per-vCPU IMSIC state is
+initialized.
+
+Any feedback would be appreciated.
+
+Thanks,
+Jiakai
+
 
 _______________________________________________
 linux-riscv mailing list
