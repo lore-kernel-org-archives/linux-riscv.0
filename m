@@ -4,108 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE097EFB806
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 06:06:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3C7AEFB80E
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 07:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CzHpFbAXMGejAUZDlkALVJzlws6nyMXyv/TbXuKsnUY=; b=B297YGM6Jruhtz
-	ALnQQBSnlEjNgnrRy13d96sLQRt10XkiSbOLQBfrWiMk8DcDMXzizui3bSQkeXw6WUxyUiWbccaqK
-	RoWsIMIdEy3+iov9zENbc9UPEBaEe6+VgnNYb+niJjEkTD2uNwWupS9XSHS5KR7Pk2bcQf1qVEkyS
-	E8Xv69xwyzh3ulLx9j5rFajfkipeEd6YhUzHTtI0IQa1FifCq2wIwvKb5rZpvn+vJYbAhYf3QUuNw
-	EzU1M9+tRzzEs+Wr+2tblF4h03YfqHJ/XCleJoWCt0thibFcZgFZSnpdy9Jo6U34CKf9KJwyhil96
-	NLSDJFt78K7h+EzwufNw==;
+	List-Owner; bh=Saif7ko+2xPD10n0dvOVgEi/Tbc/OSjiNanSg9IcLF8=; b=q32lyJw0yR8yvD
+	Y5wYbMqEUcC9H0s31A4Dt2Pft/EfsIgtsUBE1sjVsltigwS5BGgGFKBMng9QIRHA0FNWaO5h1APa5
+	ef168sWIa1zRtWxUfufhWYGIfat9SWzPhMLP6HgeCMxi6qRsabY522/h51KRO1O/b1GPdCBuJfPIC
+	+8xLHQq0oruVxRE1lLfP0tEtScuMDVeMFbwnadixx2u5hXJlUFW5sGluHg8EzgKm1N1cJZEQAK+UA
+	QzA0qTvQmnHu+3ulQd2Kc1U40oR/t+S/E7C5Dv1RLSELCw6Go8yPJ4mH6lwnYj216EzC2oQGRZpP5
+	33dA/scWurqAQTT8cTSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vulZG-00000001VgS-0F5v;
-	Tue, 24 Feb 2026 06:06:46 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vumbA-00000001Z7o-1JWg;
+	Tue, 24 Feb 2026 07:12:48 +0000
+Received: from exmail.andestech.com ([60.248.187.195] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vulZB-00000001Vg1-3E29;
-	Tue, 24 Feb 2026 06:06:45 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61NGPScP2832046;
-	Tue, 24 Feb 2026 06:06:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=uSwCN+J+wMeHyT6grODleBZy2GEkq0
-	PcaMF6dUqouaQ=; b=Q+sikCqdOnEu0m1X8P3rXKKxoogSH8A7M6OgY5QzabXD/K
-	vYEollVPH0SnHN0teWlne7IIGNzNYDEujC89EKknnkNyDCyx5PnTODBgQfPU7Syj
-	zmBozBkckkUyyToEo8FjD5Y8e4oj1zqu8cQ8X1NRVs446fGfpYAL9lFovpoKJGh9
-	YcLk6Qeg/Vt/PuWofk6Wixh9Qzu5lyy/lxm5GQw9Nkqwpl/QKWG/MmWQ7moOE7A9
-	yYx4l8o5pCUptYHXr0gmg6ogCYuP28bhcH28L7739jM9n6+QZxYYgXDHPhlEkNn/
-	AkII+GeeJIAyTZaUA34wruFzQThwlbxQMcrgA/kg==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cf4brsjfu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Feb 2026 06:06:32 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 61O37WZf027821;
-	Tue, 24 Feb 2026 06:06:32 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4cfsr1qdvq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Feb 2026 06:06:32 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 61O66UdD42402116
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 24 Feb 2026 06:06:30 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 45F022004B;
-	Tue, 24 Feb 2026 06:06:30 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 975FE20040;
-	Tue, 24 Feb 2026 06:06:29 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.111.3.229])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue, 24 Feb 2026 06:06:29 +0000 (GMT)
-Date: Tue, 24 Feb 2026 07:06:28 +0100
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
-        Vasily Gorbik <gor@linux.ibm.com>
-Cc: Pasha Tatashin <pasha.tatashin@soleen.com>, linux-s390@vger.kernel.org,
-        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        x86@kernel.org
-Subject: Re: [PATCH 1/4] mm/page_table_check: Pass mm_struct to
- pxx_user_accessible_page()
-Message-ID: <cfdc9b3d-06fd-4cc1-b946-076ff1479c66-agordeev@linux.ibm.com>
-References: <cover.1771845678.git.agordeev@linux.ibm.com>
- <68c2f6df2955033cbf1ccbd2b5c2816e72ac345c.1771845678.git.agordeev@linux.ibm.com>
- <20260223101335.aa3696d86341260e03989ac0@linux-foundation.org>
+	id 1vumb6-00000001Z6r-1a3s
+	for linux-riscv@lists.infradead.org;
+	Tue, 24 Feb 2026 07:12:46 +0000
+Received: from mail.andestech.com (ATCPCS34.andestech.com [10.0.1.134])
+	by Atcsqr.andestech.com with ESMTP id 61O7Breb066493;
+	Tue, 24 Feb 2026 15:11:53 +0800 (+08)
+	(envelope-from minachou@andestech.com)
+Received: from atcsi01.andestech.com (10.0.15.32) by ATCPCS34.andestech.com
+ (10.0.1.134) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 24 Feb
+ 2026 15:11:53 +0800
+Date: Tue, 24 Feb 2026 15:11:48 +0800
+From: Mina Chou <minachou@andestech.com>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+CC: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <tim609@andestech.com>,
+        <ben717@andestech.com>, <az70021@gmail.com>,
+        Charles Ci-Jyun Wu
+	<dminus@andestech.com>
+Subject: Re: [PATCH] riscv: fpu: refine FPU save flow
+Message-ID: <aZ1PNEZC7XJQUUPG@atcsi01.andestech.com>
+References: <20260205055342.572379-1-minachou@andestech.com>
+ <3ed8b576-723f-4c3b-8394-cd9255c2b63c@iscas.ac.cn>
+ <aedfd0d8-271c-4b98-a826-a21f3a244a21@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260223101335.aa3696d86341260e03989ac0@linux-foundation.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: GRFhXxJJ51Drfa5KN-RgSm71wqJuLn6I
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI0MDA0NiBTYWx0ZWRfX1uDOPTCSWGJm
- H28pUjz7WGw4rD7VYhrEKjR3wg5TnqYAO9fws+uEqxvLRB07iiUVvPUWvke4PquoiaHy7cj8NP0
- +5MgaPW34kffQmMJwrJOzID1NlSHyGC1xRPjjpVc0DJtk+Ei9BSKJrK/MTg/uBF7CHEUtyrBEgm
- C8pv7ZPckr0Po4LPDbSsI/kid9Phn3VvVADlJGR+B0eZN9g8aP315xXoblRCeHkhcccGbVxpMJ1
- DimKqPwVFtB0GfFZXnWVLOIyLev9XNuRnLc5gjtcxk7i3PSPH6DQO5CHGxAU88Fl1DSfNddJRpF
- zCrD9OX+BuzNo5iPhvuxgVh5wzbSyJDcGk5cNKRYBcGOei2Gvk2vQF1A6X+6yzK7czC5GEBr7ms
- xqNUd8nfV8wQ9NbpXHKeEzn6WXK2DXy33/wCLKadxjfeemckf67RPFYG2YMxjPHUYBrhwk/xpzH
- aO9nMbTo1mWhHFFtwhg==
-X-Authority-Analysis: v=2.4 cv=eNceTXp1 c=1 sm=1 tr=0 ts=699d3fe9 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=Z4Rwk6OoAAAA:8
- a=I00-mOCqQq542zIoxl0A:9 a=CjuIK1q_8ugA:10 a=HkZW87K1Qel5hWWM3VKY:22
-X-Proofpoint-GUID: GRFhXxJJ51Drfa5KN-RgSm71wqJuLn6I
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-23_06,2026-02-23_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 phishscore=0 suspectscore=0 adultscore=0
- bulkscore=0 lowpriorityscore=0 malwarescore=0 impostorscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602240046
+In-Reply-To: <aedfd0d8-271c-4b98-a826-a21f3a244a21@iscas.ac.cn>
+User-Agent: Mutt/2.1.4 (2021-12-11)
+X-Originating-IP: [10.0.15.32]
+X-ClientProxiedBy: ATCPCS33.andestech.com (10.0.1.100) To
+ ATCPCS34.andestech.com (10.0.1.134)
+X-DKIM-Results: atcpcs34.andestech.com; dkim=none;
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 61O7Breb066493
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_220641_952179_E532FBA4 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20260223_231244_764750_EC6ED9E1 
+X-CRM114-Status: UNSURE (   5.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,21 +79,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 23, 2026 at 10:13:35AM -0800, Andrew Morton wrote:
-> >  arch/arm64/include/asm/pgtable.h |  6 +++---
-> >  arch/riscv/include/asm/pgtable.h |  6 +++---
-> >  arch/x86/include/asm/pgtable.h   |  6 +++---
-> >  mm/page_table_check.c            | 15 ++++++---------
-> >  4 files changed, 15 insertions(+), 18 deletions(-)
-> 
-> Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
+Hi Vivian,
 
-Thank you, Andrew!
+Thanks for the review.
 
-> I assume this can go into the s390 tree?
+You are right; the sstatus was caused by task_pt_regs(p) being incorrectly
+handled in older kernels, but the issue has already been fixed by:
 
-I think so.
-@Vasily?
+riscv: prevent stack corruption by reserving task_pt_regs(p) early 
+(merged in Linux v6.5).
+
+I should have checked the latest master before sending this over. 
+My apologies for the noise, please ignore this patch.
+
+Best regards,
+Mina
 
 _______________________________________________
 linux-riscv mailing list
