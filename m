@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92DBEF4BB6D
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 17:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2F22F4BB6B
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 17:58:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OERsVaP5WreynpppE5p2R7rBf8RlxtMkc8B7w+f/Npg=; b=NHdnB8atQtpcjw
-	afs6HEysKpLLMG0GiI8l4HLVDbymoYwLAzeIy2230mloP3gDgNwPA32+gNoHn5zqkTm2OZOSADY1w
-	1oUZ96uff/zWl2lGaA2mlbHaelLupaWCuB8ZSelRM4+KIFpne8fgbuquGCTNIi9W8ZeF5C+eYyNG7
-	Sei61Zc8KyZkP3MUx4cWT4I+GZ0q2/PFpvi8BByqGt1UUW2ypp+k6AOIeh6t3KF2WC8v0RjimEa+b
-	iBMQ1Zrp5gNsblgL2f9XDyvH0mqWBUuHoBfKpxc17m5LNo1icfwpMaQVFloSdYNrYt3h75mNsIUPW
-	IRdtFbtRcrJf7lpGYayw==;
+	List-Owner; bh=1azXXtSio5Cwnp0XNKVEYa63z1LnmzDXwPEjgMCgUSQ=; b=wMl9kYOjFiTu+S
+	tjSk32A3aFYCjOOSIJLv/tZ3jv77aD8owAr9dj+g15/fFtAL6okChQEwmeTYnDiMwesqvskIk0u+J
+	RTf29GvRz/bNRFu0+RzfwWz/4DBKA+9mtRMi5yO7ImJJYmbtjPtWhwtM4HggO+zuFgZAuvBSPj0NE
+	iPnxODlTX5OuIdzhMVRn/uBq4LSqTEiOFQlI0/woBDqI6+PQTf5+ibkTH31JqwY1VDqpWg9O9CKcI
+	Ih+Uq2N/wY/Bs1Xcm7gdeXWVcIRzpZBpKONyvwmwbloyJ8LOxSpRps+okMxFEOj00AHH5wQcOy9T/
+	PICluyMHuWtrrFE8iAHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwg1-00000002X9u-0WFK;
-	Tue, 24 Feb 2026 17:58:29 +0000
+	id 1vuwg5-00000002XFa-24JF;
+	Tue, 24 Feb 2026 17:58:33 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwfq-00000002Wu7-1HbX;
-	Tue, 24 Feb 2026 17:58:19 +0000
+	id 1vuwft-00000002WyM-2QcH;
+	Tue, 24 Feb 2026 17:58:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 777404414E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2DA3B43E59;
+	Tue, 24 Feb 2026 17:58:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B619DC19423;
 	Tue, 24 Feb 2026 17:58:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04822C19422;
-	Tue, 24 Feb 2026 17:58:13 +0000 (UTC)
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	David Hildenbrand <david@kernel.org>,
@@ -51,16 +51,16 @@ Cc: Will Deacon <will@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-mm@kvack.org
-Subject: [PATCH 3/5] riscv: shstk: Use the new common vm_mmap_shadow_stack() helper
-Date: Tue, 24 Feb 2026 17:57:55 +0000
-Message-ID: <20260224175800.2500729-4-catalin.marinas@arm.com>
+Subject: [PATCH 4/5] x86: shstk: Use the new common vm_mmap_shadow_stack() helper
+Date: Tue, 24 Feb 2026 17:57:56 +0000
+Message-ID: <20260224175800.2500729-5-catalin.marinas@arm.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260224175800.2500729-1-catalin.marinas@arm.com>
 References: <20260224175800.2500729-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_095818_388034_235C6E9D 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20260224_095821_649493_8D4CAA56 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,41 +77,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace part of the allocate_shadow_stack() content with a call to
+Replace part of the x86 alloc_shstk() content with a call to
 vm_mmap_shadow_stack().
 
 Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Paul Walmsley <pjw@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Deepak Gupta <debug@rivosinc.com>
+Cc: Thomas Gleixner <tglx@kernel.org>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: H. Peter Anvin <hpa@zytor.com>
+Cc: Rick Edgecombe <rick.p.edgecombe@intel.com>
 ---
- arch/riscv/kernel/usercfi.c | 12 +-----------
- 1 file changed, 1 insertion(+), 11 deletions(-)
+ arch/x86/kernel/shstk.c | 12 ++----------
+ 1 file changed, 2 insertions(+), 10 deletions(-)
 
-diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
-index 1adba746f164..7e57f54dc5b2 100644
---- a/arch/riscv/kernel/usercfi.c
-+++ b/arch/riscv/kernel/usercfi.c
-@@ -230,17 +230,7 @@ int restore_user_shstk(struct task_struct *tsk, unsigned long shstk_ptr)
- static unsigned long allocate_shadow_stack(unsigned long addr, unsigned long size,
- 					   unsigned long token_offset, bool set_tok)
+diff --git a/arch/x86/kernel/shstk.c b/arch/x86/kernel/shstk.c
+index 978232b6d48d..9725e7d89b1e 100644
+--- a/arch/x86/kernel/shstk.c
++++ b/arch/x86/kernel/shstk.c
+@@ -100,17 +100,9 @@ static int create_rstor_token(unsigned long ssp, unsigned long *token_addr)
+ static unsigned long alloc_shstk(unsigned long addr, unsigned long size,
+ 				 unsigned long token_offset, bool set_res_tok)
  {
--	int flags = MAP_ANONYMOUS | MAP_PRIVATE;
+-	int flags = MAP_ANONYMOUS | MAP_PRIVATE | MAP_ABOVE4G;
 -	struct mm_struct *mm = current->mm;
--	unsigned long populate;
--
+-	unsigned long mapped_addr, unused;
++	unsigned long mapped_addr;
+ 
 -	if (addr)
 -		flags |= MAP_FIXED_NOREPLACE;
 -
 -	mmap_write_lock(mm);
--	addr = do_mmap(NULL, addr, size, PROT_READ, flags,
--		       VM_SHADOW_STACK | VM_WRITE, 0, &populate, NULL);
+-	mapped_addr = do_mmap(NULL, addr, size, PROT_READ, flags,
+-			      VM_SHADOW_STACK | VM_WRITE, 0, &unused, NULL);
 -	mmap_write_unlock(mm);
-+	addr = vm_mmap_shadow_stack(addr, size, 0);
++	mapped_addr = vm_mmap_shadow_stack(addr, size, MAP_ABOVE4G);
  
- 	if (!set_tok || IS_ERR_VALUE(addr))
+ 	if (!set_res_tok || IS_ERR_VALUE(mapped_addr))
  		goto out;
 
 _______________________________________________
