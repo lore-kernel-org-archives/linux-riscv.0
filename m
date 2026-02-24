@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9090EFB810
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 07:40:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F86CEFB811
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 07:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:
 	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+1XSvUJCBIta43tHCuj4v8LnU8p1bjEY5MN3iWeFklw=; b=mxJ5LmOoHdCjxA
-	+1vIW4TBOhcQLuI/ipfrlnKq3lyxhoghQF30Unh8zaRTCpYvNVEUCGTA2tpsT42f3+WKADJa0lA+r
-	RaBQnBXRJxHlQf49AH3wIdo+5lLDcX8TOV8rQ30vh4WzrJAAabwyngBYCotiFYikRS43LV/cS2uL5
-	uvXCwqu7zw6L5eCgVMih31s9TtK8uSkRK7rKpoj9+J3u0ncrhblrjIJKZI3ApZNSQulINR+YSoBPc
-	4W7+rTiOHxsdPjL4cLRauIQraOk+OOmSIPK8qzkPOlkHtBZbNuGeN3B55D+3dR1Po5RgPJUR/Y/2G
-	ur52vOTLZQr5F+K1IMpQ==;
+	List-Owner; bh=J13eH7HFLG2eHTeh6V1sSfENxmRi7SkksdO/arGD51w=; b=NKUdAxf9TeWl6M
+	khE2yKOHS9clLl6db1IqDiGFQpjJi9qj+yqNbVQSQ1z21wl5ZuCs+Af3YJEz4CD9+SB9TPyEeN7id
+	tePrHDIu0wCCH79lJ0aax3HyKXK6LKGiwtqpbVawEW0tJ29MQKlJtxp0KQSm6wK367CvhHPiLoGhS
+	RHTDP2Rkg6IkOPJfxJ66+yUwlEnoy/yMNiqIOCFduXoqIl/gSz0h31e0JEVmVMyYoHNJYA3takB3p
+	hl9NhzQNe7bQdEKZdI1Yo50SSU33m4mabhQpslqYtoqp7dv80OptMUz6dHfsC2oJzhlDcgCHIoURS
+	TGgPuDv1FIeqCGtNjcjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vun2C-00000001an6-0ewv;
-	Tue, 24 Feb 2026 07:40:44 +0000
-Received: from mout-p-103.mailbox.org ([80.241.56.161])
+	id 1vun9E-00000001bCI-2ARJ;
+	Tue, 24 Feb 2026 07:48:00 +0000
+Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vun28-00000001am5-2puP;
-	Tue, 24 Feb 2026 07:40:42 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
+	id 1vun9C-00000001bB2-1jAC;
+	Tue, 24 Feb 2026 07:47:59 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4fKqQ11RwVz9v7N;
-	Tue, 24 Feb 2026 08:40:25 +0100 (CET)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4fKqZd0j7Gz9vf0;
+	Tue, 24 Feb 2026 08:47:53 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1771918825; h=from:from:reply-to:reply-to:subject:subject:date:date:
+	t=1771919273; h=from:from:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=nO29udC/TvyKqbOOxAxOz7i5aFfdank76tWIHV3k8yo=;
-	b=FKEAxwg8/2TVXMyYr/OiVCz5K1q4W+C/xn+JVXi//EMazudZywyjLwZrwzHNLYzROrIGjJ
-	WiOn32rHS7oEwHLLm6QL2yCRYinpfVLqqwTh7sT6RAQNG0u4EURZ5HxR4OK58Z3/n7gZZV
-	8caQG4lw5WqV9qVnTFk84Cn+SoVQbSZKgx07St5+8pxpkc99ybs0qQSpkSnjhqX/fK2fVh
-	R1e9tX2O0SBa7kFE1+a+xKqHOjB9jmAde03Ko6m7uo3zhkzAiDlzUONdZOidXL54Qs7PfF
-	bCIWc/77Lvrh1BnmhbO6+/6V4uapf65BSL0fwPQx8DWsFH0Szy8rGeRiOsWY+A==
-Message-ID: <7ca512d133f7a3bcfe00e9b0b2af5fe5f147ad77.camel@mailbox.org>
-Subject: Re: [PATCH 0/37] PCI/MSI: Enforce explicit IRQ vector management by
- removing devres auto-free
+	bh=YiLc2etffytjGPdDT50TNZbMLgAeU88xmrhfRIsoAkA=;
+	b=LlmbFV5RBp7xLppev4EyLfGR9yk3NSgp4k97/ZE38v/+7SN+fag4e2NPTVd6MywwYB3JoR
+	aECvO9Fv8AwXWQahEcQFmBMMy4oTTqbdSF7jsj3F9M1UASa8aCOGylBQ8PbGmnx3sEXV/X
+	xDlA0T3Yg9VbnOrGzG3Cu09qiMv5luZknnr33IhnpKKS7SEYP5J27eOqGJ+BMoxD7b2D7e
+	Wt4vHbFXLlArdA5ZAkztt7B6Zdjf3OctDzSWL+lDFIhoAe+dqsoo1LXHEJMGvF4BGO1wuN
+	FQvXuKvtRw6f680NUsqMBFFFC2kPPw/EMsvBpkdP95ooRBk0Xv0qmfZ7x7GZHA==
+Message-ID: <07fc896007d86b731cbfb3cf6bbdf4e5315d7a77.camel@mailbox.org>
+Subject: Re: [PATCH 01/37] PCI/MSI: Add Devres managed IRQ vectors allocation
 From: Philipp Stanner <phasta@mailbox.org>
-To: Simon Richter <Simon.Richter@hogyros.de>, Shawn Lin
- <shawn.lin@rock-chips.com>, Bjorn Helgaas <bhelgaas@google.com>, "Vaibhaav
- Ram T . L" <vaibhaavram.tl@microchip.com>, Kumaravel Thiagarajan
- <kumaravel.thiagarajan@microchip.com>,  Even Xu <even.xu@intel.com>,
- Xinpeng Sun <xinpeng.sun@intel.com>, Srinivas Pandruvada
+To: Shawn Lin <shawn.lin@rock-chips.com>, Jakub Kicinski <kuba@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, "Vaibhaav Ram T . L"
+ <vaibhaavram.tl@microchip.com>, Kumaravel Thiagarajan
+ <kumaravel.thiagarajan@microchip.com>, Even Xu <even.xu@intel.com>, Xinpeng
+ Sun <xinpeng.sun@intel.com>, Srinivas Pandruvada
  <srinivas.pandruvada@linux.intel.com>, Jiri Kosina <jikos@kernel.org>, 
  Alexandre Belloni <alexandre.belloni@bootlin.com>, Zhou Wang
  <wangzhou1@hisilicon.com>, Longfang Liu <liulongfang@huawei.com>, Vinod
@@ -80,33 +79,35 @@ To: Simon Richter <Simon.Richter@hogyros.de>, Shawn Lin
  <kurt.schwemmer@microsemi.com>,  Logan Gunthorpe <logang@deltatee.com>,
  Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
  Sakari Ailus <sakari.ailus@linux.intel.com>, Bingbu Cao
- <bingbu.cao@intel.com>, Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Benjamin Tissoires <bentiss@kernel.org>, 
- linux-input@vger.kernel.org, linux-i3c@lists.infradead.org, 
- dmaengine@vger.kernel.org, Philipp Stanner <phasta@kernel.org>, 
- netdev@vger.kernel.org, nic_swsd@realtek.com,
- linux-arm-msm@vger.kernel.org,  dri-devel@lists.freedesktop.org,
- linux-usb@vger.kernel.org,  iommu@lists.linux.dev,
+ <bingbu.cao@intel.com>, Ulf Hansson <ulf.hansson@linaro.org>, Arnd Bergmann
+ <arnd@arndb.de>, Benjamin Tissoires <bentiss@kernel.org>,
+ linux-input@vger.kernel.org,  linux-i3c@lists.infradead.org,
+ dmaengine@vger.kernel.org, Philipp Stanner <phasta@kernel.org>,
+ netdev@vger.kernel.org, nic_swsd@realtek.com, 
+ linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ linux-usb@vger.kernel.org, iommu@lists.linux.dev, 
  linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, Simona
- Vetter <simona@ffwll.ch>, linux-cxl@vger.kernel.org, 
- linux-crypto@vger.kernel.org, platform-driver-x86@vger.kernel.org, 
- linux-serial@vger.kernel.org, mhi@lists.linux.dev, Andy Shevchenko
- <andriy.shevchenko@linux.intel.com>, Jan Dabros <jsd@semihalf.com>, 
+ Vetter <simona@ffwll.ch>, linux-cxl@vger.kernel.org,
+ linux-crypto@vger.kernel.org,  platform-driver-x86@vger.kernel.org,
+ linux-serial@vger.kernel.org,  mhi@lists.linux.dev, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, Jan Dabros <jsd@semihalf.com>,
  linux-i2c@vger.kernel.org, Daniel Mack <daniel@zonque.org>, Haojian Zhuang
  <haojian.zhuang@gmail.com>, linux-spi@vger.kernel.org, Jonathan Derrick
  <jonathan.derrick@linux.dev>, linux-pci@vger.kernel.org, 
  linux-gpio@vger.kernel.org, Mauro Carvalho Chehab <mchehab@kernel.org>, 
  linux-media@vger.kernel.org, linux-mmc@vger.kernel.org
-Date: Tue, 24 Feb 2026 08:39:43 +0100
-In-Reply-To: <6223f3cb-693f-42e7-9147-30f659f08563@hogyros.de>
+Date: Tue, 24 Feb 2026 08:47:28 +0100
+In-Reply-To: <ec226aa1-5cc8-855f-8f90-1d7f89efe766@rock-chips.com>
 References: <1771860581-82092-1-git-send-email-shawn.lin@rock-chips.com>
-	 <6223f3cb-693f-42e7-9147-30f659f08563@hogyros.de>
+	 <1771860581-82092-2-git-send-email-shawn.lin@rock-chips.com>
+	 <20260223160402.3ad8f079@kernel.org>
+	 <ec226aa1-5cc8-855f-8f90-1d7f89efe766@rock-chips.com>
 MIME-Version: 1.0
-X-MBO-RS-META: nd43b1cq9px89dfwjyyj71p3i7rr7fs9
-X-MBO-RS-ID: 9e24931f76f65785344
+X-MBO-RS-ID: e66ae4685546ea4d94e
+X-MBO-RS-META: 6frywx3ts6ez4nj3bodhgna5o111q4gn
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260223_234040_885391_45D48F22 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20260223_234758_592325_A4D92D32 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,43 +120,36 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Reply-To: phasta@kernel.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2026-02-24 at 13:14 +0900, Simon Richter wrote:
-> Hi,
-> 
-> On 2/24/26 12:29 AM, Shawn Lin wrote:
-> 
-> > When such a driver also uses `pcim_enable_device()`, the devres framework may
-> > attempt to free the IRQ vectors a second time upon device release, leading to
-> > a double-free. Analysis of the tree shows this hazardous pattern exists widely,
-> > while 35 other drivers correctly rely solely on the implicit cleanup.
-> 
-> Would it make sense to have a function pcim_free_irq_vectors(), to allow 
-> explicit freeing even if the device is otherwise managed, analogous to 
-> pcim_iounmap()?
-
-We used to add those. In part because it is easier to port old users.
-
-Nowadays I tend to think that those APIs were more on the too-complex
-than too-simple side for a long time. As an expert or as the API
-designer you wouldn't expect it, but there are actually far too many
-users who came to believe they always have to use pcim_iounmap() and
-counter parts.
-
-If I could design it from scratch I would probably try to tell users to
-use the unmanaged versions instead of revoking the devres consequence.
-
-Devres is actually about your consequence always happening whenever the
-driver unloads, for whatever reason.
-
-
-P.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCAyMDI2LTAyLTI0IGF0IDEwOjA4ICswODAwLCBTaGF3biBMaW4gd3JvdGU6Cj4g5Zyo
+IDIwMjYvMDIvMjQg5pif5pyf5LqMIDg6MDQsIEpha3ViIEtpY2luc2tpIOWGmemBkzoKPiA+IE9u
+IE1vbiwgMjMgRmViIDIwMjYgMjM6Mjk6NDAgKzA4MDAgU2hhd24gTGluIHdyb3RlOgo+ID4gPiBw
+Y2ltX2FsbG9jX2lycV92ZWN0b3JzKCkgYW5kIHBjaW1fYWxsb2NfaXJxX3ZlY3RvcnNfYWZmaW5p
+dHkoKSBhcmUgY3JlYXRlZCBmb3IKPiA+ID4gcGNpIGRldmljZSBkcml2ZXJzIHdoaWNoIHJlbHkg
+b24gdGhlIGRldnJlcyBtYWNoaW5lcnkgdG8gaGVscCBjbGVhbnVwIHRoZSBJUlEKPiA+ID4gdmVj
+dG9ycy4KPiA+IAo+ID4gSWYgeW91IGNhbiBwbGVhc2UgYWRkIHRoaXMgQVBJIHdpdGgganVzdCBh
+IGZldyB1c2VycywgYW5kIHRoZW4gY29udmVydAo+ID4gcmVtYWluaW5nIHVzZXJzIHZpYSB0aGUg
+c3Vic3lzdGVtIHRyZWVzIGluIHRoZSBuZXh0IGN5Y2xlLgo+ID4gVGhlcmUncyBubyBuZWVkIHRv
+IHJpc2sgd2FzdGluZyBtYWludGFpbmVyIHRpbWUgb24gY29uZmxpY3RzIHdpdGgKPiA+IGNvbnZl
+cnNpb25zIGxpa2UgdGhpcy4KPiAKPiBUaGFua3MgZm9yIHRoZSBzdWdnZXN0aW9uLCBKYWt1Yi4g
+SSBoYXZlIGxpdHRsZSBleHBlcmllbmNlIHdpdGggCj4gY3Jvc3Mtc3Vic3lzdGVtIGNsZWFudXBz
+IGxpa2UgdGhpcywgc28geW91ciBzdWdnZXN0aW9uIGlzIHZlcnkgaGVscGZ1bC4KCgpXaGVuIEkg
+cmVtb3ZlZCB0aGUgaHlicmlkIG5hdHVyZSBvZiBwY2lfcmVxdWVzdF9yZWdpb24oKSBldCBhbC4s
+IEkKY29uY2x1ZGVkIHRoYXQgdGhlcmUgd2VyZSBzbyBmZXcgdXNlcnMgdGhhdCBkb2luZyB0aGVt
+IGFsbCBpbiBvbmUgcnVuCndhcyBzdWZmaWNpZW50LgoKRm9yIGxhcmdlciByZXdvcmtzLCBsaWtl
+IHJlbW92aW5nIHBjaW1faW9tYXBfdGFibGUoKSwgYSBzbG93ZXIgc3RlcC1ieS0Kc3RlcCBzdHJh
+dGVneSBpcyBuZWNlc3NhcnkgZm9yIHRoZSByZWFzb25zIHRoYXQgSmFrdWIgZGV0YWlscy4KCkl0
+IGlzIHRoZW4gc21hcnQgdG8gb21pdCBhbiBlYXN5IHRvIHBvcnQgc3Vic3lzdGVtIC8gZHJpdmVy
+IGZvciB0aGUKdWx0aW1hdGUgcGF0Y2ggc2VyaWVzIHdoZXJlIG9uZSB0aGVuIHJlbW92ZXMgdGhl
+IGh5YnJpZCBiZWhhdmlvciBmcm9tClBDSSBpdHNlbGYsIGFmdGVyIHBvcnRpbmcgdGhlIGxhc3Qg
+ZHJpdmVyLgoKSW4gZ2VuZXJhbCwgIGFzIEpha3ViIGRldGFpbHMsIHRob3NlIHN0ZXAtYnktc3Rl
+cCBjbGVhbnVwcyBhcmUgYSBiaXQKc2FmZXIsIHNpbmNlIHlvdSBjYW4gcHJvb2YgdmFsaWQgYmVo
+YXZpb3IgZWFybHkgb24gYW5kIGluIGNhc2Ugb2YgYW4KZXhwbG9zaW9uIHRoZXkgYXJlIHZlcnkg
+ZWFzeSB0byByZXZlcnQuCgoKUC4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
