@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C54DDF357B8
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 14:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9050FF357B2
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 14:30:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:References:
 	Mime-Version:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5YFZMr+NsOw9qdTwfBuopOoSWD+JXIrwRkHddI2GS80=; b=LrzLoUHigoAa38
-	a4fkffr7TtzlRYvG4rTAGaOOtm0GiXv4dy4xUrPZfI0cZL4LPl8yoGQlCp1sDlrYVF5DbWNexFzoU
-	QAnsZ7iFKFAAuggtownporTIMbcgWKABspCyzNF697fuMc6+g+r+0O/hnbOdGDQP9E9E8VuOFtgGo
-	2DwGDKaxZUUcxLk0816982lTSvSJFKvZoBRxMpXCmu4LcPEGQTOg5iG9skBA9ns8eGrNvsK+lV2Py
-	JWhLxe2OnDtRp7BaQjtu22UyEMmZwBOZp0+ah+5OgBeUjMMfvPm90vqyUqeKkx3g5QXSCQrFeoenm
-	6RmaAlfwliO/DtrFhaIA==;
+	List-Owner; bh=XZel6dDRZjzfHxpcQG4Bk5yG/2t32xB4OJEB86o254E=; b=F6JGN2UyYG0e6V
+	8xJgztJgbppetvhmpCUu4Bpi98uZ9dq0ah6M6u3EfxM99nIQ67NmLsRJJrAGI5p6f4NFAGCcHNUEa
+	p25+MpJkdNlrNO9xaaqqRCV4sbEP692tLUvWOseIzU1dmVUFwD0OVMnYjJyvJuC4ab8ypbKW9HLJ6
+	CZjlFVzTGrIUP14cFxnpyYnH/98Mv4dp4KcQ8HWb5C42cjl35dEo8jwrO8w+bO6WGzYEXP6ssyz6f
+	JxEmZzGNqBRQQi8dUfDd6VgDywWBiB6rSLSnAKvPxxgDmL3Uc/x0Sd/sS2c0mFBTrHYoVGzLN54WB
+	fYZlAf4CMTIZ4OvOrumw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vutQE-00000002CpV-0PAs;
-	Tue, 24 Feb 2026 14:29:58 +0000
-Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
+	id 1vutQC-00000002CoA-0fbv;
+	Tue, 24 Feb 2026 14:29:56 +0000
+Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vutQC-00000002CnY-0B3h
+	id 1vutQ9-00000002Cmf-1yHi
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Feb 2026 14:29:57 +0000
-Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12776bebeb3so9248345c88.1
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Feb 2026 06:29:55 -0800 (PST)
+	Tue, 24 Feb 2026 14:29:54 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2ba9f033a5bso49059805eec.0
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Feb 2026 06:29:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1771943395; x=1772548195; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1771943392; x=1772548192; darn=lists.infradead.org;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=SNCm7zq/RiIwV6cs6qsg5em/PwRpDVdooQ9sojmKhT8=;
-        b=brjMyj1HTwibQrp7GVSqsMhxoYvVneFirZ3pDsVLWPJuBsVNzdcWqVNMuTs9yfeRE1
-         Vam1g/LAYqZ69zi53Kqx9XrzhUQMR3kQtu2jNQeIou9SUHXAmqtEOYtHjHrfVQglZ/VU
-         zQjNrvbPNVcYK9Rj0prRsA0DPjCWZ77OJ9owdXVJOWuaEGmpZEf4JLkETGi9esTOXs+F
-         vAvwDc10lwvaP8IlZEKlmQO+8qaClWTeHDV5KK/9tle1atv5uAKjZzatikt5yprT+5om
-         MDJck/VOsyXQtXNpdjnu2bT8g+nUjJgVo4iskCwz5AKfftyzP6C1Mxyh8dbs67nOWZKU
-         7KPw==
+        bh=l6zGB6KXVZgGBJvevzesELin0ooFg0kJVSoJ6gwXlmk=;
+        b=BJ8PI0Aw+MRV9LC+AzuiQeVj4O3fKqZzbrAOOKGo1a2tIV6rFfyGYD0F8fgP0Q9icq
+         rKfz2wdX6DrR+wkzDme40rBWOaUE09d1rP6Uj6QHqGz/6qVvLeLpBS1tHUhoNRY4jHxM
+         uZJ5F/PiSpUCFocPXSXosvbeU6sAmYh2prr26hII4wfGuBD/sMhwe26x6WKOt5F7FCQc
+         p1ROnHRr8O6p5xVnRxdPqlKPeL8ZHz8hp5u+Pu1Ry7IeymG21fSIxwYwTRmpOj7nqc2m
+         bvMZhD6JaSR0IOyQneWooFmZrJ83Ry/C2KfHPbek0lzp9PZyqILqczfQBd8cAe5RNPfe
+         5/yg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771943395; x=1772548195;
+        d=1e100.net; s=20230601; t=1771943392; x=1772548192;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SNCm7zq/RiIwV6cs6qsg5em/PwRpDVdooQ9sojmKhT8=;
-        b=wJeIOC5QHnllw89xB65DxDVkf7rfiwNikQ8Vnw7m3jA4apXR4JB5k9E047hDwL/Tw4
-         7beoclWPBMPcS/8nFU35bsv4khjlntt215DG2JPy+1qRWW5xvF1Mcz6ZY+nqnrvK1CVH
-         sX+quLYex/3bZaUil9LIxCQfHwgDQPhTO54M4nvORgsrrrnt1t7PWA2JN6vigBO9ILg8
-         K+60wn77DjyovQ4eVINFN2pkKa+co2wXBggH5ubM7DXb3yRCWW7HTjuksBVCGFzU6OsB
-         9HOJVOeAbzxv8Zyte9+9DK9iOnLxYgXIzGJvacFzLh64zhXtOEFneCBcRPNRjp8ZLabS
-         DynA==
-X-Forwarded-Encrypted: i=1; AJvYcCW0rOebMv3U7jGO+Pa3Odip8k8huFdjA5/UlOfCU+M9tBzgSMElZvNhPYKdwhF6xYss+0JIsw8G1raIlg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5WhNJbbPOPgZh4a0/RlRMSj8adYnK/81OVmWXiaFrbxFDru/x
-	PBe58TvrDoTBzP34RXmUGDSjmJm8+sl9VNe9YZ8llwqbHYUDWkuf2L9+iFYbNLLq5pHuk32Qy5W
-	eHp15UnIiDg==
-X-Received: from dlai14.prod.google.com ([2002:a05:701b:270e:b0:127:2bdd:909])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6b8d:b0:11d:f440:b758
- with SMTP id a92af1059eb24-1276ad18a01mr5321398c88.25.1771943394553; Tue, 24
- Feb 2026 06:29:54 -0800 (PST)
-Date: Tue, 24 Feb 2026 06:29:32 -0800
+        bh=l6zGB6KXVZgGBJvevzesELin0ooFg0kJVSoJ6gwXlmk=;
+        b=Wo6M1usFtPuK9KAn14AVn4aZW4vYxwY3LtrTE2lNq7kjBAnvuhxd2anEViaAMVbguT
+         yJIxe8CDrgWmidUx5ZZT3WoEMhtmEV4egCeZ7el1RhM01TzJ0IMevyzzi4W+A0pIxfI1
+         1WObi/SEyJykOVILnjJ61xGNYnsdXqtsDU7eKi2vl3uAp9OcvE3rD0Z+VdNCZxnyYq8r
+         QUBM9fi/OrAIlCQQH5nZPJP34grjW0VixBtJahdfploFfhH2QcCV3G1xcq1UAzXEo36W
+         pVM8X1pmjj6jKBnT9yhLLiVjuwUmqft3B1UY9i0dthVnPb6mdEE69LKtuFdwjgTpWkC1
+         khAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXEZAr4W4eu5gP2mP5hefAPVeGZOjWBGCX5v5DeCf4zNOJFKA/s9VPLHpe8u7XaQh+v5G3c+zqIaQqg6g==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy74E1NmiERBIQgLd5Vk2lkCMRyHTxQJCBOqWW8SSPaCBEVJYSK
+	bBzNkMXC2c+nfuZgIMAlUvcEqgU5RS3GSBtJiqFJLVNbjP5muySSnZl3t1eQcAjJ9FViIDoj3tg
+	5Qhnk7hrbog==
+X-Received: from dybgx25.prod.google.com ([2002:a05:7301:2419:b0:2ba:7b4a:c331])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:7491:b0:2b7:2f29:648c
+ with SMTP id 5a478bee46e88-2bd7b9efb89mr5937089eec.8.1771943392130; Tue, 24
+ Feb 2026 06:29:52 -0800 (PST)
+Date: Tue, 24 Feb 2026 06:29:31 -0800
 In-Reply-To: <20260224142938.26088-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260224142938.26088-1-irogers@google.com>
 X-Mailer: git-send-email 2.53.0.371.g1d285c8824-goog
-Message-ID: <20260224142938.26088-3-irogers@google.com>
-Subject: [RFC PATCH v1 2/7] perf build: Be more programmatic when setting up
- libunwind variables
+Message-ID: <20260224142938.26088-2-irogers@google.com>
+Subject: [RFC PATCH v1 1/7] tools build: Deduplicate test-libunwind for
+ different architectures
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -84,8 +84,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-riscv@lists.infradead.org, Thomas Richter <tmricht@linux.ibm.com>, 
 	libunwind-devel@nongnu.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_062956_089248_9CA2BF59 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20260224_062953_534188_49FDF06F 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,295 +102,283 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Iterate LIBUNWIND_ARCHS when setting up CONFIG_ and HAVE_ definitions
-rather than treating each architecture individually. This sets up the
-libunwind build variables and C definitions beyond x86 and
-arm/aarch64. The existing naming convention is followed for
-compatibility.
+The separate test files only exist to pass a different #include,
+instead have a single source file and pass -include to $(CC) to
+include the relevant header file for the architecture being
+tested. Generate the rules using a foreach loop. Include tests for all
+current libunwind architectures.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/Makefile.config | 215 +++++++++++++++----------------------
- 1 file changed, 89 insertions(+), 126 deletions(-)
+ tools/build/feature/Makefile                  | 38 +++++++++----------
+ tools/build/feature/test-libunwind-aarch64.c  | 27 -------------
+ tools/build/feature/test-libunwind-arm.c      | 28 --------------
+ .../test-libunwind-debug-frame-aarch64.c      | 17 ---------
+ .../feature/test-libunwind-debug-frame-arm.c  | 17 ---------
+ .../feature/test-libunwind-debug-frame.c      |  1 -
+ tools/build/feature/test-libunwind-x86.c      | 28 --------------
+ tools/build/feature/test-libunwind-x86_64.c   | 28 --------------
+ tools/build/feature/test-libunwind.c          |  1 -
+ 9 files changed, 19 insertions(+), 166 deletions(-)
+ delete mode 100644 tools/build/feature/test-libunwind-aarch64.c
+ delete mode 100644 tools/build/feature/test-libunwind-arm.c
+ delete mode 100644 tools/build/feature/test-libunwind-debug-frame-aarch64.c
+ delete mode 100644 tools/build/feature/test-libunwind-debug-frame-arm.c
+ delete mode 100644 tools/build/feature/test-libunwind-x86.c
+ delete mode 100644 tools/build/feature/test-libunwind-x86_64.c
 
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index a8dc72cfe48e..f38213ecce08 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -65,95 +65,83 @@ $(call detected_var,SRCARCH)
+diff --git a/tools/build/feature/Makefile b/tools/build/feature/Makefile
+index 1fbcb3ce74d2..a0b40e826688 100644
+--- a/tools/build/feature/Makefile
++++ b/tools/build/feature/Makefile
+@@ -204,27 +204,27 @@ $(OUTPUT)test-numa_num_possible_cpus.bin:
+ 	$(BUILD) -lnuma
  
- CFLAGS += -I$(OUTPUT)arch/$(SRCARCH)/include/generated
+ $(OUTPUT)test-libunwind.bin:
+-	$(BUILD) -lelf -llzma
++	$(BUILD) -include libunwind.h -lelf -llzma -lunwind
  
--# Additional ARCH settings for ppc
--ifeq ($(SRCARCH),powerpc)
--  ifndef NO_LIBUNWIND
--    LIBUNWIND_LIBS := -lunwind -lunwind-ppc64
--  endif
--endif
+ $(OUTPUT)test-libunwind-debug-frame.bin:
+-	$(BUILD) -lelf -llzma
+-$(OUTPUT)test-libunwind-x86.bin:
+-	$(BUILD) -lelf -llzma -lunwind-x86
 -
- # Additional ARCH settings for x86
- ifeq ($(SRCARCH),x86)
-   $(call detected,CONFIG_X86)
-   ifeq (${IS_64_BIT}, 1)
-     CFLAGS += -DHAVE_ARCH_X86_64_SUPPORT
-     ARCH_INCLUDE = ../../arch/x86/lib/memcpy_64.S ../../arch/x86/lib/memset_64.S
--    ifndef NO_LIBUNWIND
--      LIBUNWIND_LIBS = -lunwind-x86_64 -lunwind -llzma
--    endif
-     $(call detected,CONFIG_X86_64)
--  else
--    ifndef NO_LIBUNWIND
--      LIBUNWIND_LIBS = -lunwind-x86 -llzma -lunwind
--    endif
-   endif
- endif
- 
--ifeq ($(SRCARCH),arm)
--  ifndef NO_LIBUNWIND
--    LIBUNWIND_LIBS = -lunwind -lunwind-arm
--  endif
-+ifeq ($(ARCH),s390)
-+  CFLAGS += -fPIC
- endif
- 
--ifeq ($(SRCARCH),arm64)
--  ifndef NO_LIBUNWIND
--    LIBUNWIND_LIBS = -lunwind -lunwind-aarch64
--  endif
-+ifneq ($(LIBUNWIND),1)
-+  NO_LIBUNWIND := 1
- endif
- 
--ifeq ($(SRCARCH),loongarch)
--  ifndef NO_LIBUNWIND
-+ifndef NO_LIBUNWIND
-+  ifeq ($(SRCARCH),arm)
-+    LIBUNWIND_LIBS = -lunwind -lunwind-arm
-+  endif
-+  ifeq ($(SRCARCH),arm64)
-+    LIBUNWIND_LIBS = -lunwind -lunwind-aarch64
-+  endif
-+  ifeq ($(SRCARCH),loongarch)
-     LIBUNWIND_LIBS = -lunwind -lunwind-loongarch64
-   endif
--endif
+-$(OUTPUT)test-libunwind-x86_64.bin:
+-	$(BUILD) -lelf -llzma -lunwind-x86_64
 -
--ifeq ($(ARCH),s390)
--  CFLAGS += -fPIC
--endif
+-$(OUTPUT)test-libunwind-arm.bin:
+-	$(BUILD) -lelf -llzma -lunwind-arm
 -
--ifeq ($(ARCH),mips)
--  ifndef NO_LIBUNWIND
-+  ifeq ($(ARCH),mips)
-     LIBUNWIND_LIBS = -lunwind -lunwind-mips
-   endif
-+  ifeq ($(SRCARCH),powerpc)
-+    LIBUNWIND_LIBS := -lunwind -lunwind-ppc64
-+  endif
-+  ifeq ($(SRCARCH),riscv)
-+    LIBUNWIND_LIBS := -lunwind -lunwind-riscv
-+  endif
-+  ifeq ($(SRCARCH),s390)
-+    LIBUNWIND_LIBS := -lunwind -lunwind-s390x
-+  endif
-+  ifeq ($(SRCARCH),x86)
-+    ifeq (${IS_64_BIT}, 1)
-+      LIBUNWIND_LIBS = -lunwind-x86_64 -lunwind -llzma
-+    else
-+      LIBUNWIND_LIBS = -lunwind-x86 -lunwind -llzma
-+    endif
-+  endif
-+  ifeq ($(LIBUNWIND_LIBS),)
-+    NO_LIBUNWIND := 1
-+  endif
- endif
- 
--ifneq ($(LIBUNWIND),1)
--  NO_LIBUNWIND := 1
--endif
+-$(OUTPUT)test-libunwind-aarch64.bin:
+-	$(BUILD) -lelf -llzma -lunwind-aarch64
 -
--ifeq ($(LIBUNWIND_LIBS),)
--  NO_LIBUNWIND := 1
--endif
- #
- # For linking with debug library, run like:
- #
- #   make DEBUG=1 LIBUNWIND_DIR=/opt/libunwind/
- #
+-$(OUTPUT)test-libunwind-debug-frame-arm.bin:
+-	$(BUILD) -lelf -llzma -lunwind-arm
 -
--libunwind_arch_set_flags = $(eval $(libunwind_arch_set_flags_code))
--define libunwind_arch_set_flags_code
--  FEATURE_CHECK_CFLAGS-libunwind-$(1)  = -I$(LIBUNWIND_DIR)/include
--  FEATURE_CHECK_LDFLAGS-libunwind-$(1) = -L$(LIBUNWIND_DIR)/lib
--endef
--
--ifdef LIBUNWIND_DIR
--  LIBUNWIND_CFLAGS  = -I$(LIBUNWIND_DIR)/include
--  LIBUNWIND_LDFLAGS = -L$(LIBUNWIND_DIR)/lib
--  LIBUNWIND_ARCHS = x86 x86_64 arm aarch64 debug-frame-arm debug-frame-aarch64 loongarch
--  $(foreach libunwind_arch,$(LIBUNWIND_ARCHS),$(call libunwind_arch_set_flags,$(libunwind_arch)))
--endif
+-$(OUTPUT)test-libunwind-debug-frame-aarch64.bin:
+-	$(BUILD) -lelf -llzma -lunwind-aarch64
++	$(BUILD) -include libunwind.h -lelf -llzma -lunwind
++
 +LIBUNWIND_ARCHS:=aarch64 arm loongarch64 mips ppc32 ppc64 riscv s390x x86 x86_64
++define LIBUNWIND_RULE
++$$(OUTPUT)test-libunwind-$(1).bin:
++	$$(CC) $$(CFLAGS) -MD -Wall -Werror -include libunwind-$(1).h -o $$@ \
++		test-libunwind.c $$(LDFLAGS) -lelf -llzma -lunwind-$(1) \
++		> $$(@:.bin=.make.output) 2>&1
++
++$$(OUTPUT)test-libunwind-debug-frame-$(1).bin:
++	$$(CC) $$(CFLAGS) -MD -Wall -Werror -include libunwind-$(1).h -o $$@ \
++		test-libunwind-debug-frame.c $$(LDFLAGS) -lelf -llzma -lunwind-$(1) \
++		> $$(@:.bin=.make.output) 2>&1
++
++endef
++$(foreach arch,$(LIBUNWIND_ARCHS), \
++    $(eval $(call LIBUNWIND_RULE,$(arch))) \
++)
  
- ifndef NO_LIBUNWIND
--  # Set per-feature check compilation flags
-   FEATURE_CHECK_CFLAGS-libunwind = $(LIBUNWIND_CFLAGS)
-   FEATURE_CHECK_LDFLAGS-libunwind = $(LIBUNWIND_LDFLAGS) $(LIBUNWIND_LIBS)
-   FEATURE_CHECK_CFLAGS-libunwind-debug-frame = $(LIBUNWIND_CFLAGS)
-   FEATURE_CHECK_LDFLAGS-libunwind-debug-frame = $(LIBUNWIND_LDFLAGS) $(LIBUNWIND_LIBS)
--  
--  FEATURE_CHECK_LDFLAGS-libunwind-arm += -lunwind -lunwind-arm
--  FEATURE_CHECK_LDFLAGS-libunwind-aarch64 += -lunwind -lunwind-aarch64
--  FEATURE_CHECK_LDFLAGS-libunwind-x86 += -lunwind -llzma -lunwind-x86
--  FEATURE_CHECK_LDFLAGS-libunwind-x86_64 += -lunwind -llzma -lunwind-x86_64
-+
-+  ifdef LIBUNWIND_DIR
-+    LIBUNWIND_CFLAGS  = -I$(LIBUNWIND_DIR)/include
-+    LIBUNWIND_LDFLAGS = -L$(LIBUNWIND_DIR)/lib
-+
-+    define libunwind_arch_set_flags
-+      FEATURE_CHECK_CFLAGS-libunwind-$(1)  = -I$(LIBUNWIND_DIR)/include
-+      FEATURE_CHECK_LDFLAGS-libunwind-$(1) = -L$(LIBUNWIND_DIR)/lib
-+    endef
-+    $(foreach arch,$(LIBUNWIND_ARCHS), \
-+      $(eval $(call libunwind_arch_set_flags,$(arch))) \
-+    )
-+  endif
- endif
+ $(OUTPUT)test-libslang.bin:
+ 	$(BUILD) -lslang
+diff --git a/tools/build/feature/test-libunwind-aarch64.c b/tools/build/feature/test-libunwind-aarch64.c
+deleted file mode 100644
+index 323803f49212..000000000000
+--- a/tools/build/feature/test-libunwind-aarch64.c
++++ /dev/null
+@@ -1,27 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-#include <libunwind-aarch64.h>
+-#include <stdlib.h>
+-
+-extern int UNW_OBJ(dwarf_search_unwind_table) (unw_addr_space_t as,
+-					       unw_word_t ip,
+-					       unw_dyn_info_t *di,
+-					       unw_proc_info_t *pi,
+-					       int need_unwind_info, void *arg);
+-
+-#define dwarf_search_unwind_table UNW_OBJ(dwarf_search_unwind_table)
+-
+-static unw_accessors_t accessors;
+-
+-int main(void)
+-{
+-	unw_addr_space_t addr_space;
+-
+-	addr_space = unw_create_addr_space(&accessors, 0);
+-	if (addr_space)
+-		return 0;
+-
+-	unw_init_remote(NULL, addr_space, NULL);
+-	dwarf_search_unwind_table(addr_space, 0, NULL, NULL, 0, NULL);
+-
+-	return 0;
+-}
+diff --git a/tools/build/feature/test-libunwind-arm.c b/tools/build/feature/test-libunwind-arm.c
+deleted file mode 100644
+index cb378b7d6866..000000000000
+--- a/tools/build/feature/test-libunwind-arm.c
++++ /dev/null
+@@ -1,28 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-#include <libunwind-arm.h>
+-#include <stdlib.h>
+-
+-extern int UNW_OBJ(dwarf_search_unwind_table) (unw_addr_space_t as,
+-					       unw_word_t ip,
+-					       unw_dyn_info_t *di,
+-					       unw_proc_info_t *pi,
+-					       int need_unwind_info, void *arg);
+-
+-
+-#define dwarf_search_unwind_table UNW_OBJ(dwarf_search_unwind_table)
+-
+-static unw_accessors_t accessors;
+-
+-int main(void)
+-{
+-	unw_addr_space_t addr_space;
+-
+-	addr_space = unw_create_addr_space(&accessors, 0);
+-	if (addr_space)
+-		return 0;
+-
+-	unw_init_remote(NULL, addr_space, NULL);
+-	dwarf_search_unwind_table(addr_space, 0, NULL, NULL, 0, NULL);
+-
+-	return 0;
+-}
+diff --git a/tools/build/feature/test-libunwind-debug-frame-aarch64.c b/tools/build/feature/test-libunwind-debug-frame-aarch64.c
+deleted file mode 100644
+index 36d6646c185e..000000000000
+--- a/tools/build/feature/test-libunwind-debug-frame-aarch64.c
++++ /dev/null
+@@ -1,17 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-#include <libunwind-aarch64.h>
+-#include <stdlib.h>
+-
+-extern int
+-UNW_OBJ(dwarf_find_debug_frame) (int found, unw_dyn_info_t *di_debug,
+-				 unw_word_t ip, unw_word_t segbase,
+-				 const char *obj_name, unw_word_t start,
+-				 unw_word_t end);
+-
+-#define dwarf_find_debug_frame UNW_OBJ(dwarf_find_debug_frame)
+-
+-int main(void)
+-{
+-	dwarf_find_debug_frame(0, NULL, 0, 0, NULL, 0, 0);
+-	return 0;
+-}
+diff --git a/tools/build/feature/test-libunwind-debug-frame-arm.c b/tools/build/feature/test-libunwind-debug-frame-arm.c
+deleted file mode 100644
+index 8696e48e1268..000000000000
+--- a/tools/build/feature/test-libunwind-debug-frame-arm.c
++++ /dev/null
+@@ -1,17 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-#include <libunwind-arm.h>
+-#include <stdlib.h>
+-
+-extern int
+-UNW_OBJ(dwarf_find_debug_frame) (int found, unw_dyn_info_t *di_debug,
+-				 unw_word_t ip, unw_word_t segbase,
+-				 const char *obj_name, unw_word_t start,
+-				 unw_word_t end);
+-
+-#define dwarf_find_debug_frame UNW_OBJ(dwarf_find_debug_frame)
+-
+-int main(void)
+-{
+-	dwarf_find_debug_frame(0, NULL, 0, 0, NULL, 0, 0);
+-	return 0;
+-}
+diff --git a/tools/build/feature/test-libunwind-debug-frame.c b/tools/build/feature/test-libunwind-debug-frame.c
+index efb55cdd8d01..4c57e37004b3 100644
+--- a/tools/build/feature/test-libunwind-debug-frame.c
++++ b/tools/build/feature/test-libunwind-debug-frame.c
+@@ -1,5 +1,4 @@
+ // SPDX-License-Identifier: GPL-2.0
+-#include <libunwind.h>
+ #include <stdlib.h>
  
- ifdef CSINCLUDES
-@@ -637,49 +625,6 @@ ifeq ($(SRCARCH),powerpc)
-   endif
- endif
+ extern int
+diff --git a/tools/build/feature/test-libunwind-x86.c b/tools/build/feature/test-libunwind-x86.c
+deleted file mode 100644
+index e5e0f6c89637..000000000000
+--- a/tools/build/feature/test-libunwind-x86.c
++++ /dev/null
+@@ -1,28 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-#include <libunwind-x86.h>
+-#include <stdlib.h>
+-
+-extern int UNW_OBJ(dwarf_search_unwind_table) (unw_addr_space_t as,
+-					       unw_word_t ip,
+-					       unw_dyn_info_t *di,
+-					       unw_proc_info_t *pi,
+-					       int need_unwind_info, void *arg);
+-
+-
+-#define dwarf_search_unwind_table UNW_OBJ(dwarf_search_unwind_table)
+-
+-static unw_accessors_t accessors;
+-
+-int main(void)
+-{
+-	unw_addr_space_t addr_space;
+-
+-	addr_space = unw_create_addr_space(&accessors, 0);
+-	if (addr_space)
+-		return 0;
+-
+-	unw_init_remote(NULL, addr_space, NULL);
+-	dwarf_search_unwind_table(addr_space, 0, NULL, NULL, 0, NULL);
+-
+-	return 0;
+-}
+diff --git a/tools/build/feature/test-libunwind-x86_64.c b/tools/build/feature/test-libunwind-x86_64.c
+deleted file mode 100644
+index 62ae4db597dc..000000000000
+--- a/tools/build/feature/test-libunwind-x86_64.c
++++ /dev/null
+@@ -1,28 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-#include <libunwind-x86_64.h>
+-#include <stdlib.h>
+-
+-extern int UNW_OBJ(dwarf_search_unwind_table) (unw_addr_space_t as,
+-					       unw_word_t ip,
+-					       unw_dyn_info_t *di,
+-					       unw_proc_info_t *pi,
+-					       int need_unwind_info, void *arg);
+-
+-
+-#define dwarf_search_unwind_table UNW_OBJ(dwarf_search_unwind_table)
+-
+-static unw_accessors_t accessors;
+-
+-int main(void)
+-{
+-	unw_addr_space_t addr_space;
+-
+-	addr_space = unw_create_addr_space(&accessors, 0);
+-	if (addr_space)
+-		return 0;
+-
+-	unw_init_remote(NULL, addr_space, NULL);
+-	dwarf_search_unwind_table(addr_space, 0, NULL, NULL, 0, NULL);
+-
+-	return 0;
+-}
+diff --git a/tools/build/feature/test-libunwind.c b/tools/build/feature/test-libunwind.c
+index 53fd26614ff0..5af5dc3a73d4 100644
+--- a/tools/build/feature/test-libunwind.c
++++ b/tools/build/feature/test-libunwind.c
+@@ -1,5 +1,4 @@
+ // SPDX-License-Identifier: GPL-2.0
+-#include <libunwind.h>
+ #include <stdlib.h>
  
--ifndef NO_LIBUNWIND
--  have_libunwind :=
--
--  $(call feature_check,libunwind)
--
--  $(call feature_check,libunwind-x86)
--  ifeq ($(feature-libunwind-x86), 1)
--    $(call detected,CONFIG_LIBUNWIND_X86)
--    CFLAGS += -DHAVE_LIBUNWIND_X86_SUPPORT
--    LDFLAGS += -lunwind-x86
--    EXTLIBS_LIBUNWIND += -lunwind-x86
--    have_libunwind = 1
--  endif
--
--  $(call feature_check,libunwind-aarch64)
--  ifeq ($(feature-libunwind-aarch64), 1)
--    $(call detected,CONFIG_LIBUNWIND_AARCH64)
--    CFLAGS += -DHAVE_LIBUNWIND_AARCH64_SUPPORT
--    LDFLAGS += -lunwind-aarch64
--    EXTLIBS_LIBUNWIND += -lunwind-aarch64
--    have_libunwind = 1
--    $(call feature_check,libunwind-debug-frame-aarch64)
--    ifneq ($(feature-libunwind-debug-frame-aarch64), 1)
--      $(warning No debug_frame support found in libunwind-aarch64)
--      CFLAGS += -DNO_LIBUNWIND_DEBUG_FRAME_AARCH64
--    endif
--  endif
--
--  ifneq ($(feature-libunwind), 1)
--    $(warning No libunwind found. Please install libunwind-dev[el] >= 1.1 and/or set LIBUNWIND_DIR and set LIBUNWIND=1 in the make command line as it is opt-in now)
--    NO_LOCAL_LIBUNWIND := 1
--  else
--    have_libunwind := 1
--    $(call detected,CONFIG_LOCAL_LIBUNWIND)
--  endif
--
--  ifneq ($(have_libunwind), 1)
--    NO_LIBUNWIND := 1
--  endif
--else
--  NO_LOCAL_LIBUNWIND := 1
--endif
--
- ifndef NO_LIBBPF
-   ifneq ($(feature-bpf), 1)
-     $(warning BPF API too old. Please install recent kernel headers. BPF support in 'perf record' is disabled.)
-@@ -738,6 +683,49 @@ ifndef GEN_VMLINUX_H
-   VMLINUX_H=$(src-perf)/util/bpf_skel/vmlinux/vmlinux.h
- endif
- 
-+ifndef NO_LIBUNWIND
-+  have_libunwind :=
-+
-+  $(call feature_check,libunwind)
-+  ifneq ($(feature-libunwind), 1)
-+    $(warning No libunwind found. Please install libunwind-dev[el] >= 1.1 and/or set LIBUNWIND_DIR and set LIBUNWIND=1 in the make command line as it is opt-in now)
-+    NO_LOCAL_LIBUNWIND := 1
-+  else
-+    have_libunwind := 1
-+    $(call detected,CONFIG_LOCAL_LIBUNWIND)
-+    CFLAGS  += -DHAVE_LIBUNWIND_SUPPORT
-+    CFLAGS  += $(LIBUNWIND_CFLAGS)
-+    LDFLAGS += $(LIBUNWIND_LDFLAGS)
-+    EXTLIBS += $(EXTLIBS_LIBUNWIND)
-+    $(call feature_check,libunwind-debug-frame)
-+    ifneq ($(feature-libunwind-debug-frame), 1)
-+      CFLAGS += -DNO_LIBUNWIND_DEBUG_FRAME
-+    endif
-+  endif
-+
-+  define PROCESS_REMOTE_LIBUNWIND_ARCH
-+    $(call feature_check,libunwind-$(1))
-+
-+    ifeq ($$(feature-libunwind-$(1)), 1)
-+      upper_arch := $$(shell echo $(1) | tr '[:lower:]' '[:upper:]')
-+      $$(call detected,CONFIG_LIBUNWIND_$$(upper_arch))
-+
-+      CFLAGS += -DHAVE_LIBUNWIND_$$(upper_arch)_SUPPORT
-+      LDFLAGS += -lunwind-$(1)
-+      EXTLIBS_LIBUNWIND += -lunwind-$(1)
-+      have_libunwind := 1
-+
-+      $$(call feature_check,libunwind-debug-frame-$(1))
-+      ifneq ($$(feature-libunwind-debug-frame-$(1)), 1)
-+        CFLAGS += -DNO_LIBUNWIND_DEBUG_FRAME_$$(upper_arch)
-+      endif
-+    endif
-+  endef
-+  $(foreach arch,$(LIBUNWIND_ARCHS), \
-+    $(eval $(call PROCESS_REMOTE_LIBUNWIND_ARCH,$(arch))) \
-+  )
-+endif
-+
- dwarf-post-unwind := 1
- dwarf-post-unwind-text := BUG
- 
-@@ -760,31 +748,6 @@ ifeq ($(dwarf-post-unwind),1)
-   $(call detected,CONFIG_DWARF_UNWIND)
- endif
- 
--ifndef NO_LIBUNWIND
--  ifndef NO_LOCAL_LIBUNWIND
--    ifeq ($(SRCARCH),$(filter $(SRCARCH),arm arm64))
--      $(call feature_check,libunwind-debug-frame)
--      ifneq ($(feature-libunwind-debug-frame), 1)
--        $(warning No debug_frame support found in libunwind)
--        CFLAGS += -DNO_LIBUNWIND_DEBUG_FRAME
--      endif
--    else
--      # non-ARM has no dwarf_find_debug_frame() function:
--      CFLAGS += -DNO_LIBUNWIND_DEBUG_FRAME
--    endif
--    EXTLIBS += $(LIBUNWIND_LIBS)
--    LDFLAGS += $(LIBUNWIND_LIBS)
--  endif
--  ifeq ($(findstring -static,${LDFLAGS}),-static)
--    # gcc -static links libgcc_eh which contans piece of libunwind
--    LIBUNWIND_LDFLAGS += -Wl,--allow-multiple-definition
--  endif
--  CFLAGS  += -DHAVE_LIBUNWIND_SUPPORT
--  CFLAGS  += $(LIBUNWIND_CFLAGS)
--  LDFLAGS += $(LIBUNWIND_LDFLAGS)
--  EXTLIBS += $(EXTLIBS_LIBUNWIND)
--endif
--
- ifneq ($(NO_LIBTRACEEVENT),1)
-   $(call detected,CONFIG_TRACE)
- endif
+ extern int UNW_OBJ(dwarf_search_unwind_table) (unw_addr_space_t as,
 -- 
 2.53.0.371.g1d285c8824-goog
 
