@@ -4,142 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 788FDE9B249
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 10:40:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26C3FE9B249
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 10:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M7i1doCOrNpcrUNSyiXGyv+rUwY4YCxeqrk+Zc/IBBA=; b=jZp26yzyEdy+RZ
-	tyftGpzfiIgjYZYrSGn3WPng3RzMSro2JdY650P1WtC2VhBMixFYwYFSGnVwiXdzsJdq2ThxXi0fg
-	0Z6V/47c9BpmGIeUiL1NO/BDXc/dpS1u797BRHEgYubhItnQkqzkMZpT2vCefpCQHjgDLk99QpbHw
-	ivabPQ77s4KJfJjT9DK2NPX2NUA4ZQt9Mfb+ppEDKQguyvHFoNMGHwgyoEv1p4eyzm9LWE6gLk7fJ
-	kd56fdQI794XBp4OtjNTQJ+7AfITCgrh+o9XXzI8R7+Dx+9Qjq/pGXSATskySYl912LEmRrcxIuWu
-	CWx1P0yY17Elo3eWB20w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ou4fQzNKx2dPZ+T3dYyLzSnBZRNyCf/LNK6eE4U1vzg=; b=2MfWMPDDmTYnd4
+	ST8U4/QEEct8Gttg0bYi02P9whxsAc+xObrhikZVdT/e14p6qx6G63L+VKHx1OjBv2l05DuQ5oGn4
+	FAJC/0gReaPh2VPLmeKZmbEwHuODq7iDuDsC9ult87bVIW/hAK8GuOaFv6SrEjtSdSWIQvbU0K2G4
+	RQRlCJmdJCPaZHdgx6mAQcBgVf+0qFK2ckt0Qsysa4mUR6EtFcqI6CutZOg+EsM3muFu1eUEAZwEP
+	q1/jzuRJ/XSQmxdkUWwP63iQOAHhCGJTKrffp9ZzyDKoc0vyNu1OwGqKbl0pvb1V3WTaaWRNXxYqN
+	NdYExN78jH4ZbKYfSmHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuppl-00000001rsA-1UHp;
-	Tue, 24 Feb 2026 10:40:05 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1vupuV-00000001sk8-1Pej;
+	Tue, 24 Feb 2026 10:44:59 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuppi-00000001rrL-0lhN;
-	Tue, 24 Feb 2026 10:40:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1771929603; x=1803465603;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NKaZi+5e3r7u58UMALFBdqyb3F151mM8t+8ODkTnkmk=;
-  b=Ggw1KY85J8NXlV6YnpXh0cL7UgxX1Mw+8XRqacBqt/VfMqsj3t8+S4DV
-   SRvdyMvIHPvAcDtVWX0O7sscChMIwUf6nXLc13pLIziQmfck/nysO6BMw
-   Th8iuU0y1QCxRqOa7VjM+0Wv9h1VceWnBLAN9d3oAqUtLYkb76X0cQUIy
-   0OQaXGftXDVfLlB2WkOQZaBYvLNvBx0KwV7L6N/d6cO0bASy5yybGp51/
-   ecBXbkBDHakkPTDu2GbpUCof49jNMgWiODcWTnDJ1oKWJNYa4H5znVHL4
-   t+mkHnzrHIVrFgtacjvEMenS1b1UmDGFOHiVejpz7hmh0IOJV8JGWy0c5
-   g==;
-X-CSE-ConnectionGUID: FDwajAbDRGe/hovcGNwA7A==
-X-CSE-MsgGUID: rFKEiU1hRuehLiLXXEACAQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11710"; a="95556115"
-X-IronPort-AV: E=Sophos;i="6.21,308,1763452800"; 
-   d="scan'208";a="95556115"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Feb 2026 02:40:01 -0800
-X-CSE-ConnectionGUID: 2vh5u/4QSUOjYuKUxqshOA==
-X-CSE-MsgGUID: IM2dRI81S8i45s0yX8WRUw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,308,1763452800"; 
-   d="scan'208";a="214955497"
-Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.244.146])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Feb 2026 02:39:43 -0800
-Date: Tue, 24 Feb 2026 12:39:40 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: phasta@kernel.org
-Cc: Simon Richter <Simon.Richter@hogyros.de>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	"Vaibhaav Ram T . L" <vaibhaavram.tl@microchip.com>,
-	Kumaravel Thiagarajan <kumaravel.thiagarajan@microchip.com>,
-	Even Xu <even.xu@intel.com>, Xinpeng Sun <xinpeng.sun@intel.com>,
-	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
-	Jiri Kosina <jikos@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Zhou Wang <wangzhou1@hisilicon.com>,
-	Longfang Liu <liulongfang@huawei.com>,
-	Vinod Koul <vkoul@kernel.org>, Lee Jones <lee@kernel.org>,
-	Jijie Shao <shaojijie@huawei.com>,
-	Jian Shen <shenjian15@huawei.com>,
-	Sunil Goutham <sgoutham@marvell.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Jeff Hugo <jeff.hugo@oss.qualcomm.com>,
-	Oded Gabbay <ogabbay@kernel.org>,
-	Maciej Falkowski <maciej.falkowski@linux.intel.com>,
-	Karol Wachowski <karol.wachowski@linux.intel.com>,
-	Min Ma <mamin506@gmail.com>, Lizhi Hou <lizhi.hou@amd.com>,
-	Andreas Noever <andreas.noever@gmail.com>,
-	Mika Westerberg <westeri@kernel.org>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Will Deacon <will@kernel.org>,
-	Xinliang Liu <xinliang.liu@linaro.org>,
-	Tian Tao <tiantao6@hisilicon.com>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Srujana Challa <schalla@marvell.com>,
-	Bharat Bhushan <bbhushan2@marvell.com>,
-	Antoine Tenart <atenart@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Raag Jadav <raag.jadav@intel.com>, Hans de Goede <hansg@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Robert Richter <rric@kernel.org>, Mark Brown <broonie@kernel.org>,
-	Nirmal Patel <nirmal.patel@linux.intel.com>,
-	Kurt Schwemmer <kurt.schwemmer@microsemi.com>,
-	Logan Gunthorpe <logang@deltatee.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Bingbu Cao <bingbu.cao@intel.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>, Arnd Bergmann <arnd@arndb.de>,
-	Benjamin Tissoires <bentiss@kernel.org>,
-	linux-input@vger.kernel.org, linux-i3c@lists.infradead.org,
-	dmaengine@vger.kernel.org, netdev@vger.kernel.org,
-	nic_swsd@realtek.com, linux-arm-msm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-usb@vger.kernel.org,
-	iommu@lists.linux.dev, linux-riscv@lists.infradead.org,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	linux-cxl@vger.kernel.org, linux-crypto@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org, linux-serial@vger.kernel.org,
-	mhi@lists.linux.dev, Jan Dabros <jsd@semihalf.com>,
-	linux-i2c@vger.kernel.org, Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	linux-spi@vger.kernel.org,
-	Jonathan Derrick <jonathan.derrick@linux.dev>,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	linux-media@vger.kernel.org, linux-mmc@vger.kernel.org
-Subject: Re: [PATCH 0/37] PCI/MSI: Enforce explicit IRQ vector management by
- removing devres auto-free
-Message-ID: <aZ1_7IwDYfiLbfQE@smile.fi.intel.com>
-References: <1771860581-82092-1-git-send-email-shawn.lin@rock-chips.com>
- <6223f3cb-693f-42e7-9147-30f659f08563@hogyros.de>
- <7ca512d133f7a3bcfe00e9b0b2af5fe5f147ad77.camel@mailbox.org>
- <aZ1rb8zoqmQmakDP@smile.fi.intel.com>
- <48297cc524736e7452def05448ece84260a4fd83.camel@mailbox.org>
+	id 1vupuR-00000001sh5-14Xa;
+	Tue, 24 Feb 2026 10:44:58 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-05 (Coremail) with SMTP id zQCowAAXrA8XgZ1pbTsKCQ--.27963S2;
+	Tue, 24 Feb 2026 18:44:40 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Jiakai Xu <jiakaiPeanut@gmail.com>
+Subject: [PATCH] RISC-V: KVM: Fix use-after-free in kvm_riscv_aia_aplic_has_attr()
+Date: Tue, 24 Feb 2026 10:44:38 +0000
+Message-Id: <20260224104438.57727-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <48297cc524736e7452def05448ece84260a4fd83.camel@mailbox.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CM-TRANSID: zQCowAAXrA8XgZ1pbTsKCQ--.27963S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWF4fGF45WF4DGrWrGF1rJFb_yoWruFyfpr
+	WUGryDAr45trn7Gr4a9wn7Ww4a9r4q9F15KrWUWrWI9r43trWft3s29w1jqF15AFyrZasI
+	vr4UK3s3Wa15AF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBY14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAG
+	YxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7V
+	AKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCj
+	r7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6x
+	IIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAI
+	w20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x
+	0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjEoGDUUUUU==
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBgwICWmdZOtWnQAAs7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_024002_309777_1BC316A3 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20260224_024455_675368_1122F106 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,35 +85,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 24, 2026 at 11:30:28AM +0100, Philipp Stanner wrote:
-> On Tue, 2026-02-24 at 11:12 +0200, Andy Shevchenko wrote:
-> > On Tue, Feb 24, 2026 at 08:39:43AM +0100, Philipp Stanner wrote:
-> > > On Tue, 2026-02-24 at 13:14 +0900, Simon Richter wrote:
+Fuzzer reports a KASAN use-after-free bug triggered by a race
+between KVM_HAS_DEVICE_ATTR and KVM_SET_DEVICE_ATTR ioctls on the AIA
+device. The root cause is that aia_has_attr() invokes
+kvm_riscv_aia_aplic_has_attr() without holding dev->kvm->lock, while
+a concurrent aia_set_attr() may call aia_init() under that lock. When
+aia_init() fails after kvm_riscv_aia_aplic_init() has succeeded, it
+calls kvm_riscv_aia_aplic_cleanup() in its fail_cleanup_imsics path,
+which frees both aplic_state and aplic_state->irqs. The concurrent
+has_attr path can then dereference the freed aplic->irqs in
+aplic_read_pending():
+	irqd = &aplic->irqs[irq];   /* UAF here */
 
-...
+KASAN report:
+ BUG: KASAN: slab-use-after-free in aplic_read_pending
+             arch/riscv/kvm/aia_aplic.c:119 [inline]
+ BUG: KASAN: slab-use-after-free in aplic_read_pending_word
+             arch/riscv/kvm/aia_aplic.c:351 [inline]
+ BUG: KASAN: slab-use-after-free in aplic_mmio_read_offset
+             arch/riscv/kvm/aia_aplic.c:406
+ Read of size 8 at addr ff600000ba965d58 by task 9498
+ Call Trace:
+  aplic_read_pending arch/riscv/kvm/aia_aplic.c:119 [inline]
+  aplic_read_pending_word arch/riscv/kvm/aia_aplic.c:351 [inline]
+  aplic_mmio_read_offset arch/riscv/kvm/aia_aplic.c:406
+  kvm_riscv_aia_aplic_has_attr arch/riscv/kvm/aia_aplic.c:566
+  aia_has_attr arch/riscv/kvm/aia_device.c:469
+ allocated by task 9473:
+  kvm_riscv_aia_aplic_init arch/riscv/kvm/aia_aplic.c:583
+  aia_init arch/riscv/kvm/aia_device.c:248 [inline]
+  aia_set_attr arch/riscv/kvm/aia_device.c:334
+ freed by task 9473:
+  kvm_riscv_aia_aplic_cleanup arch/riscv/kvm/aia_aplic.c:644
+  aia_init arch/riscv/kvm/aia_device.c:292 [inline]
+  aia_set_attr arch/riscv/kvm/aia_device.c:334
 
-> > > If I could design it from scratch I would probably try to tell users to
-> > > use the unmanaged versions instead of revoking the devres consequence.
-> > 
-> > +many.
+The patch replaces the actual MMIO read in kvm_riscv_aia_aplic_has_attr()
+with a new aplic_mmio_has_offset() that only validates whether the given
+offset falls within a known APLIC region, without touching any
+dynamically allocated state. This is consistent with the KVM API
+documentation for KVM_HAS_DEVICE_ATTR:
+  "Tests whether a device supports a particular attribute. A successful
+   return indicates the attribute is implemented. It does not necessarily
+   indicate that the attribute can be read or written in the device's
+   current state."
+The upper bounds of each region are taken directly from the
+RISC-V AIA specification, so the check is independent of the runtime
+values of nr_irqs and nr_words.
 
-> hm?
+This patch both fixes the use-after-free and makes the has_attr
+implementation semantically correct.
 
-I'm supporting you with many hands up (more than I possess)!
+Fixes: 289a007b98b06d ("RISC-V: KVM: Expose APLIC registers as attributes of AIA irqchip")
+Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+---
+ arch/riscv/kvm/aia_aplic.c | 28 ++++++++++++++++++++++++++--
+ 1 file changed, 26 insertions(+), 2 deletions(-)
 
-> > > Devres is actually about your consequence always happening whenever the
-> > > driver unloads, for whatever reason.
-> > 
-> > I believe you meant "unbinds". The device<-->driver link can be broken
-> > without unloading the driver.
-> 
-> Yes, thx for pointing that out. Greg KH AFAIK always calls it "driver
-> detach".
-
+diff --git a/arch/riscv/kvm/aia_aplic.c b/arch/riscv/kvm/aia_aplic.c
+index f59d1c0c8c43a..5e7a1055b2de6 100644
+--- a/arch/riscv/kvm/aia_aplic.c
++++ b/arch/riscv/kvm/aia_aplic.c
+@@ -527,6 +527,31 @@ static struct kvm_io_device_ops aplic_iodoev_ops = {
+ 	.write = aplic_mmio_write,
+ };
+ 
++static int aplic_mmio_has_offset(struct kvm *kvm, gpa_t off)
++{
++	if ((off & 0x3) != 0)
++		return -EOPNOTSUPP;
++
++	if ((off == APLIC_DOMAINCFG) ||
++		(off >= APLIC_SOURCECFG_BASE && off < (APLIC_SOURCECFG_BASE + 1023 * 4)) ||
++		(off >= APLIC_SETIP_BASE && off < (APLIC_SETIP_BASE + 32 * 4)) ||
++		(off == APLIC_SETIPNUM) ||
++		(off >= APLIC_CLRIP_BASE && off < (APLIC_CLRIP_BASE + 32 * 4)) ||
++		(off == APLIC_CLRIPNUM) ||
++		(off >= APLIC_SETIE_BASE && off < (APLIC_SETIE_BASE + 32 * 4)) ||
++		(off == APLIC_SETIENUM) ||
++		(off >= APLIC_CLRIE_BASE && off < (APLIC_CLRIE_BASE + 32 * 4)) ||
++		(off == APLIC_CLRIENUM) ||
++		(off == APLIC_SETIPNUM_LE) ||
++		(off == APLIC_SETIPNUM_BE) ||
++		(off == APLIC_GENMSI) ||
++		(off >= APLIC_TARGET_BASE && off < (APLIC_TARGET_BASE + 1203 * 4))
++	)
++		return 0;
++	else
++		return -ENODEV;
++}
++
+ int kvm_riscv_aia_aplic_set_attr(struct kvm *kvm, unsigned long type, u32 v)
+ {
+ 	int rc;
+@@ -558,12 +583,11 @@ int kvm_riscv_aia_aplic_get_attr(struct kvm *kvm, unsigned long type, u32 *v)
+ int kvm_riscv_aia_aplic_has_attr(struct kvm *kvm, unsigned long type)
+ {
+ 	int rc;
+-	u32 val;
+ 
+ 	if (!kvm->arch.aia.aplic_state)
+ 		return -ENODEV;
+ 
+-	rc = aplic_mmio_read_offset(kvm, type, &val);
++	rc = aplic_mmio_has_offset(kvm, type);
+ 	if (rc)
+ 		return rc;
+ 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.34.1
 
 
 _______________________________________________
