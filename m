@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5289FF4BB93
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 22:11:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D186CF4BB98
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 22:36:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ajBcugvmnipC1gWOUiEyiNv5c691s3MFgQ89vT1jm/o=; b=AHAnKXjvElhiKC
-	HXqtjLmYa4FZbTcJgLDApjDm3rCh1cpTMyAJwqMZPFzyAIXCKtfp38ScKx+ZYsZ8iNz5I3Fcl3jrq
-	ilqpkoS9JaNIyqfEGHVwnBbR1sHz8odz73QvEJXlzHPKG/kC4KtSndxvWOoRmB2zh4gkaeuyAQZ+v
-	EpqNe4dQRwQpZp548ax/jvvLaP7fQEWZ3CkMO1ezNR0uvKUgMGU59U7LwzIaTtWKO4zPQJfyDy9PG
-	9qT11Lk9NvuDGN1g0qIuGDqEsSnX2S6HgEbsoPRB7QlsQQFqqmp+fKJugnKHEvOHpl9DmJ2W2KEis
-	m6+RsJIRt+12SbGRUxow==;
+	List-Owner; bh=/3DK29SmzOcFf/PAEUUmRQ1JN1TsGo2b6l+zyVndbIY=; b=nhXJIOU0uMQBZ2
+	wk6zX1lEiBxSARevuFtWg1SYrUioIuEFVAncpSWfNgtUjUpDogCB8VI5C9jk7WnWZBY59dlZIgH1y
+	3gkdPPOXjnKvqrlaZjE6E1JPS0HNpT7WpIb5sldLPcRm8A8//6FmqmME8xSg82HU+LxO4rlFVftbK
+	W0BRcXQJAdOTxCblSQvKdf4iFoB1FxPp/YOWU5alFmcUWaG6Zp6//ZK/P3jN/ftzVmQLDhRPmQUfe
+	mz+Q6KR/Y8ffmH3XgOo63J5kYw4m0jL8JbGb/WRI3zNQvXpUlsE85nCFklJTPy+EoGFfXheWliivr
+	zR+IDXSsuPWPobZtdbIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv0ch-00000002qTO-3mka;
-	Tue, 24 Feb 2026 22:11:19 +0000
+	id 1vv10b-00000002sfX-1wSu;
+	Tue, 24 Feb 2026 22:36:01 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv0ce-00000002qSa-2zUL
+	id 1vv10Y-00000002seR-3sEl
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Feb 2026 22:11:17 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61OIG08d3333204
-	for <linux-riscv@lists.infradead.org>; Tue, 24 Feb 2026 22:11:16 GMT
+	Tue, 24 Feb 2026 22:36:00 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61OH5f4x2334766
+	for <linux-riscv@lists.infradead.org>; Tue, 24 Feb 2026 22:35:58 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=MpuMHOd/Hug9XUMO7ooIdgJu
-	G+bQRgf3rD7wfYuWTIk=; b=RNBG68nOWtnkct3pLRXTzFwfqNxyv6vii0G7syYk
-	Gc23n86pTdRvIWxNUEXvkzXkaElzJNwoVgMVMtZxbx/E/NeGYlgOznoziDx4Sa5w
-	zUpAVvy1V9/L9vWn9jzWTQt1Z5pFvztLL6/hc/IIFpqjXXBbKgy8WkfMO0Ng077J
-	5vX35Q9PL64/QejwiMXAGeocTONi4cpet6wS+cGKiaZtO5IxeMhaipCXReiEFTJx
-	P4VwUh1HghI7bHRP9SxSPgez2JoRwR9VjBi1gvTlNQN9ahpCvRx52lOTgIGwDqky
-	fvdWqraP3OWQbGkde2q56uMrrp4NJNllkbJvo2LiZzeNnQ==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4chh470rpd-1
+	:references:subject:to; s=qcppdkim1; bh=jl3/kGLy/uiPn4E9pCww6rxR
+	H2A13SEeo46Ae3ywkm8=; b=XX7g7Ft0xLvppEfCX8r7ER8OMh4f6cTzRW7dZQh4
+	mdVLfHdvzZ4Jm0VmMGs8S9EI/Y4DHbe+bTNRbQ19fQMgyH5CpiCyPjfFuMxuABHD
+	Y+2AuJ2RnGRO5Zuj6YZ2kw+kocvRKVcnmxMDub3GHTYW9JIwaknLrLFqaQaq33Px
+	8iZomqe07aMpgVANr0o5rXVVmWycHRPgu21YvPrlx9DAxvyaACW1w0rGd/pamkWD
+	e3EAoijW0pBfyEBlmqhQjggxFPHqdeLBvsYaFO/ibdLuHgqc30E8qeVAwsFxgb9w
+	3GaMKCADAWcLiQ4n6lGVSB2mWQQno3Hftd5NcV706zjxgQ==
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4chg37s3yy-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Tue, 24 Feb 2026 22:11:15 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-2bdc1b30ac8so1965056eec.1
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Feb 2026 14:11:15 -0800 (PST)
+	for <linux-riscv@lists.infradead.org>; Tue, 24 Feb 2026 22:35:58 +0000 (GMT)
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-2bd3bf5dde4so5801009eec.1
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Feb 2026 14:35:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1771971075; x=1772575875; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1771972557; x=1772577357; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=MpuMHOd/Hug9XUMO7ooIdgJuG+bQRgf3rD7wfYuWTIk=;
-        b=fzVec7s1RM/06FRuDMJvrsMHBmekrBhzC88f8NZjSq7cDnuT/YsAbMiPaqV5oJACg2
-         iku1ZnsA1q1R0P/knymMYKAgwhlKQ9qLaX0c2Ot0yxmfK6Ew1tgF9/rlo+2nDR2O2e/t
-         sSCS2RIvr24AVdPmonCwMi0eSFJAECEFyI+kIHA3GTZgc2vVCR2W5r9MQ1YbDMB0ZlLs
-         3fAS55aloycIu0VXWlS3q3pxY1jX7ysP428b44J12PBuZEPFVo/UBYFUYDNz5tQLDMPW
-         t1m+eIS/3vpv0MYm4kjeN9b/gCj5o416E7pIpEsQPD35/TGR0tf8q+jgtATvVte+dNW6
-         IshQ==
+        bh=jl3/kGLy/uiPn4E9pCww6rxRH2A13SEeo46Ae3ywkm8=;
+        b=cEWA0oNRyC1ibIbX59GYxtZg9QsFo3sMfWFDYcLUSq1DRYjD6jfcfMIw+NVwbcFaC8
+         292ZnNYJ3sOJ8djoDAukIpvmT4Z5WcNVaFGbxsngZ6dLVnkd5npAUw6gZI5XUdE0uxqP
+         DfFOMNhxj5XpsX9fStFM4/wDVWzn4y0RiY/9w/FkxpBi1YNWTsLwYNhBYKgf3uF4zoGW
+         jojh9evY0WCXOggg2xPI1aRbcD2xlAblVzeZeTa97zIhWiKQCQgQ1PB/V64afR7g125o
+         l75jyHm3RuO3KsmuuRE5l0NrGf+Ut011jrAxchKjJHMLxUfMddwAr60cGflY0VxsNXjp
+         lSXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1771971075; x=1772575875;
+        d=1e100.net; s=20230601; t=1771972557; x=1772577357;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MpuMHOd/Hug9XUMO7ooIdgJuG+bQRgf3rD7wfYuWTIk=;
-        b=NTAwr+z7vGD62dU+95eI++gQ1T6xl/KYCfi7AY/wioHTX7XY/kcdOqIHro3A8Ipbm3
-         +xw0zdIcEuZTf0CKlykJ581l2ZpHlJ6+ooqWXcILyvnVVWH5Gz5p2VYZq+hWumtAr9LF
-         1/9gJumIovgKAypigFdUPJRE0guJUY71MCKLuGUiGXpAFRoRHZCzjnRvfy35JA0xdmzU
-         Ez8dlq0ON/+5dO64VPxNQqpfDhYRcngDXs0ATBxZrR7G5HjkiZHf9E4eHDYWHSommBtJ
-         BViS8j3fBPzusoAn+JNgc+gAGmYLzh9A5bDS3WcksfsXnCjskfAh2zLPHeQLWrIgqngi
-         F9AA==
-X-Forwarded-Encrypted: i=1; AJvYcCVuRfEeFiEz5pRTiQ20Ll/56/Chf5fV0NhMV7MuqABKoEPsBCNtetFTSWpW7m24BvuiBelyj5UY5VecWg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyyMXVz+MO2x3sGoszT/dBBFbcB0iTUmIdkbl0II0l6kzWb9Evt
-	j3LvQFQenq0jURIKh3PwmP5VLPIQfwgzrHVFudPfKVjJo3qVvlj8vV691OFysYeQxVpMjKJ63pS
-	Npwc7qlKMLRIFfMoQWe9HbZJ1koxYrqPpPLOVwS1trEsemF+NR9qZtyCokygrk5HMozATxUY=
-X-Gm-Gg: ATEYQzxgFAinigiBG0Z2/rziF9RUluxkyzt04XKlSWEpf5HfxFt8y49qH0FoQ8PhVAe
-	JlSb8p21c0a4OHrtoBDf0bztiTugbdapYPMOGM7rF4/X7eCF5t6QcMsPENij61wYv0z0EThtzmH
-	PL5tKC/fK/U9KMs7Js/d/FYDqeT1Y9W8DjtoCV6wMuAzmI9e+EdMGViWjVqtW8HsECmVS7OPOqK
-	d6mYMQH5BNSHFjgLVF1ylXr07MqF2zR7KKKKiDJRNqZ3FD6KsYaal1NS1URY4GYGKK7Mr8yaK9z
-	nRad93nbRNpbi3b3ozWB3PLSvovoRHtQQU1Wask8eFcMWhXEw3RdrzVhd3GTjKe/zzgLfkICpds
-	GjaUXF+166kX5JarLSi9Ba48f7Uf+7kg=
-X-Received: by 2002:a05:7301:9bc5:b0:2ba:a0c6:ef5d with SMTP id 5a478bee46e88-2bd7bd2a538mr5920099eec.21.1771971075053;
-        Tue, 24 Feb 2026 14:11:15 -0800 (PST)
-X-Received: by 2002:a05:7301:9bc5:b0:2ba:a0c6:ef5d with SMTP id 5a478bee46e88-2bd7bd2a538mr5920085eec.21.1771971074444;
-        Tue, 24 Feb 2026 14:11:14 -0800 (PST)
+        bh=jl3/kGLy/uiPn4E9pCww6rxRH2A13SEeo46Ae3ywkm8=;
+        b=tP1NR67RD/uJgtG5NB0+/dc/IgMUYhMzrcoOvuloKT9fWOBA5jvX4YaQUD3vj8cZen
+         W0OkWdR1t8EDjr1yxxywXWS4JFsAqhhlbW+rDdwdsGwzSDBAzoOfatDb53j8guImwBOX
+         YYYr0QLKwrd1I+M5Zm4KEF1RspNLj2nXpMISZUNRQOXPDL7ELTH210uqYkhG3vd/2LQ+
+         MX8BU6Rtivtud+pf5wpEPBzLoTHzHtk4WkrBAIAcXdm+qU44eT4vLt99hBZmRTs+QuCW
+         8v1TXmU1IWKSFAdijwptC8Nnbp/7En/NJ010E5jlXgFNrAPVSKuOv1c0foXBKWlI2/S8
+         Z1yQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW9ZM8lElA/JsnfqKPxo6qVt+c6zqPGiMn9GTU8rJPWcNU16TVOSANaI5W94jefsuNBV6eZVYOsko87Tw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCJKe7upSM50YYJauVIGVLybPqXq4AM+HxRAOJhUPNPgjl4zxP
+	NtHxb246/EOxK1Xabwg4KnLPPQwIjrk3WQ1opaE6hy5t5O8MPYoVkpAyjpnff9IAkTKwkSTi8JN
+	8ry2h2GCr0EJYc+ANss2Tn+KkzjT+6n7GPYsiMJtnsB8uBJ+JTPakty2FMOskw8mu1Q8M7io=
+X-Gm-Gg: ATEYQzzdTxrO9koByHMlGlornQ4K8HC8Yhkfyd571sUS3YQHpT9+o73E8NL2i2qfToD
+	yesutR17mylNMD9AS3VDhbo6wH/oJQkCM5N9EaK5Y4Ul+A4IA3n9P/F0yDRwruwa3DWmXYZdfnN
+	3Jqc4CHw8xc6KjHh6dFBLypG7pKHc1ApJHLDxJ95hFW3IFkbr6aAgFmEcux4ITYOxU24UugpJlc
+	bi7XfggM+U+DjzG5ZzNCctwk/e1zhh5gp4sAcNtQF9C7nuq6Z+N0uridJ4rpKGB8xkInXAb5H/l
+	QJrZZpzZ0wguhfKdE1wj8ZRJKKORtepp9fsF0IOv7Pad/H6namRiC6WBI0wbQPrTHKCmqOMvBfJ
+	AXm8CgeqVtJcJ+YS5qVUjPtZRK5/zXUg=
+X-Received: by 2002:a05:7301:1e92:b0:2ba:9115:2fab with SMTP id 5a478bee46e88-2bdc31a9008mr50756eec.12.1771972557374;
+        Tue, 24 Feb 2026 14:35:57 -0800 (PST)
+X-Received: by 2002:a05:7301:1e92:b0:2ba:9115:2fab with SMTP id 5a478bee46e88-2bdc31a9008mr50743eec.12.1771972556842;
+        Tue, 24 Feb 2026 14:35:56 -0800 (PST)
 Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2bd7da47778sm7770942eec.6.2026.02.24.14.11.12
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2bd7dbe82desm8327254eec.20.2026.02.24.14.35.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Feb 2026 14:11:13 -0800 (PST)
-Date: Tue, 24 Feb 2026 16:11:11 -0600
+        Tue, 24 Feb 2026 14:35:55 -0800 (PST)
+Date: Tue, 24 Feb 2026 16:35:54 -0600
 From: Andrew Jones <andrew.jones@oss.qualcomm.com>
 To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
 Cc: linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
@@ -98,42 +98,42 @@ Cc: linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
         Andrew Jones <ajones@ventanamicro.com>,
         Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
         Jiakai Xu <jiakaiPeanut@gmail.com>
-Subject: Re: [PATCH v7 2/3] KVM: selftests: Refactor UAPI tests into
- dedicated function
-Message-ID: <bo356uh554twpg2jateqth7rqi7g6uoc26kao3yekcukitg6wc@eeyd2qdjpgff>
+Subject: Re: [PATCH v7 3/3] RISC-V: KVM: selftests: Add RISC-V SBI STA shmem
+ alignment tests
+Message-ID: <7spmby7jcusyegus2knlhb7nvnyk5c3yz4z5luu6piymj6rwsv@zgktge5bmgd5>
 References: <20260213103557.3207335-1-xujiakai2025@iscas.ac.cn>
- <20260213103557.3207335-3-xujiakai2025@iscas.ac.cn>
+ <20260213103557.3207335-4-xujiakai2025@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260213103557.3207335-3-xujiakai2025@iscas.ac.cn>
-X-Proofpoint-ORIG-GUID: oS6Fly_97AdTWhP2en15S3dtP3Y3jx0x
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI0MDE5NCBTYWx0ZWRfXynEtMltP9EKT
- EiIFvs7VhmxKLVEBndOi4AYgPwLLh33FnCLOfhS3AYimvdYZhcjIsDr2Ip6/rR+TKV2adKwbnP1
- AUAKbeGYtuQoikL9Msqtft/+OV+wdAwPfT7TSwVExqMllo7P1QAFfLl2MLEnhCVydeLP6ZC9k8z
- S3247l7CnmfvxuFW4SEJVJz+WbycTk5voOJQgNXteeqqCG7FTL4TmW1jDRVGq+Zm47NaojC1RzM
- DWQ77jBGq04ftIYJxNIhSLR63P5oJPjD/wopBVfgBLf1kAhcD18kqn8eOhvPnHTGjeALdWwnrPG
- INzi4ocIQpb+aNXrNVUINtWiAYlrlyvvFotWUrYGDo187IIlzlNebx/IuMR+2mj1ubvAtMu/Pg/
- Y7N3oz2RJjxARvXwQdOemP2qTas61AtxJfGezraggaWePFlZdr4rsPyTSyinPsUUv++Ek5LVec8
- 2cQPlxAv6/0QmH6FD/g==
-X-Authority-Analysis: v=2.4 cv=fvDRpV4f c=1 sm=1 tr=0 ts=699e2203 cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
+In-Reply-To: <20260213103557.3207335-4-xujiakai2025@iscas.ac.cn>
+X-Authority-Analysis: v=2.4 cv=br1BxUai c=1 sm=1 tr=0 ts=699e27ce cx=c_pps
+ a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
  a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=EUspDBNiAAAA:8 a=pGLkceISAAAA:8 a=HySIa_1SWE6k9wrxFvsA:9 a=CjuIK1q_8ugA:10
- a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-GUID: oS6Fly_97AdTWhP2en15S3dtP3Y3jx0x
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=pGLkceISAAAA:8 a=9ujUvY2DB1qyNZ7L-csA:9 a=CjuIK1q_8ugA:10
+ a=6Ab_bkdmUrQuMsNx7PHu:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI0MDE5NyBTYWx0ZWRfXx8PlJK/clknG
+ XS/0ePlTbBw0wfDFhN8qDjk9QbO9VUszWwyyIVHc6uFLhKPUdGOiMj2EDNW4UiafbvGxo6pzamG
+ R3gRFN27ea35mRI8aYmOWpHdvnKKMwMMghbHFAaNkE+eP8csTk9p9kVft+7PnEAs9FmPwY3BFN2
+ zpyfghYH9dSrYdj9CAPCm/R1vepbJnP5mArrTbxron8NIsnqIBJ9/TtQel+5X+Fvqy12YErqZ0g
+ Q3NQscogwI7YD0S03Zjn+tHGOib3slZMgYdaVHHKaU87pc2gFEmsb/k+ksTeE9e7oQRrAvNGuyN
+ YQ5DnpkbINyUo2QlzT7QB946+PFbh6jfJN/GxuSV6ge9aHbuD8JsdCOIhlnNUUXezZuMmR20siX
+ K8QYMf8Kjs2ur3oxMwRYtuQzE7zhelxf7sxUf46mDHRVivFLjtlvPdgvf+R8YyTD1U8S6arIfuj
+ 4GPVdYkzXKKX3+PSRRg==
+X-Proofpoint-ORIG-GUID: 8YiZPK_XMFzTQ05Cm0zG4uh3GuslkaS2
+X-Proofpoint-GUID: 8YiZPK_XMFzTQ05Cm0zG4uh3GuslkaS2
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-02-24_03,2026-02-23_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 lowpriorityscore=0 malwarescore=0 priorityscore=1501
- impostorscore=0 adultscore=0 phishscore=0 bulkscore=0 spamscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ lowpriorityscore=0 priorityscore=1501 spamscore=0 clxscore=1015
+ impostorscore=0 adultscore=0 bulkscore=0 phishscore=0 malwarescore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2602130000
- definitions=main-2602240194
+ definitions=main-2602240197
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_141116_785931_22298DB6 
-X-CRM114-Status: GOOD (  30.96  )
+X-CRM114-CacheID: sfid-20260224_143558_970507_B147CEFA 
+X-CRM114-Status: GOOD (  26.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,189 +150,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 13, 2026 at 10:35:56AM +0000, Jiakai Xu wrote:
-> Move steal time UAPI tests from steal_time_init() into a separate
-> check_steal_time_uapi() function for better code organization and
-> maintainability.
+On Fri, Feb 13, 2026 at 10:35:57AM +0000, Jiakai Xu wrote:
+> Add RISC-V KVM selftests to verify the SBI Steal-Time Accounting (STA)
+> shared memory alignment requirements.
 > 
-> Previously, x86 and ARM64 architectures performed UAPI validation
-> tests within steal_time_init(), mixing initialization logic with
-> uapi tests.
+> The SBI specification requires the STA shared memory GPA to be 64-byte
+> aligned, or set to all-ones to explicitly disable steal-time accounting.
+> This test verifies that KVM enforces the expected behavior when
+> configuring the SBI STA shared memory via KVM_SET_ONE_REG.
 > 
-> Changes by architecture:
-> x86_64:
->   - Extract MSR reserved bits test from steal_time_init()
->   - Move to check_steal_time_uapi() which tests that setting
->     MSR_KVM_STEAL_TIME with KVM_STEAL_RESERVED_MASK fails
-> ARM64:
->   - Extract three UAPI tests from steal_time_init():
->     	Device attribute support check
->     	Misaligned IPA rejection (EINVAL)
->     	Duplicate IPA setting rejection (EEXIST)
->   - Move all tests to check_steal_time_uapi()
-> RISC-V:
->   - Add empty check_steal_time_uapi() stub for future use
->   - No changes to steal_time_init() (had no tests to extract)
+> Specifically, the test checks that:
+> - misaligned GPAs are rejected with -EINVAL
+> - 64-byte aligned GPAs are accepted
+> - all-ones GPA is accepted
 > 
-> The new check_steal_time_uapi() function:
->   - Is called once before the per-VCPU test loop
-> 
-> No functional change intended.
-> 
-
-Suggested-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
-
 > Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
 > Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
 > ---
->  tools/testing/selftests/kvm/steal_time.c | 63 ++++++++++++++++++------
->  1 file changed, 47 insertions(+), 16 deletions(-)
+> V6 -> V7: 
+> - Removed RISCV_SBI_STA_REG() macro addition and used existing 
+> KVM_REG_RISCV_SBI_STA_REG(shmem_lo) instead.
+> - Refined assertion messages per review feedback.
+> - Split into two patches per Andrew Jones' suggestion:
+>     Refactored UAPI tests from steal_time_init() into dedicated 
+>     check_steal_time_uapi() function and added empty stub for 
+>     RISC-V.
+>     Filled in RISC-V stub with STA alignment tests. (this patch)
+> ---
+>  tools/testing/selftests/kvm/steal_time.c | 26 +++++++++++++++++++++++-
+>  1 file changed, 25 insertions(+), 1 deletion(-)
 > 
 > diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
-> index 8edc1fca345ba..a814f6f3f8b41 100644
+> index a814f6f3f8b41..2af7fd7513d55 100644
 > --- a/tools/testing/selftests/kvm/steal_time.c
 > +++ b/tools/testing/selftests/kvm/steal_time.c
-> @@ -69,16 +69,10 @@ static bool is_steal_time_supported(struct kvm_vcpu *vcpu)
->  
->  static void steal_time_init(struct kvm_vcpu *vcpu, uint32_t i)
->  {
-> -	int ret;
-> -
->  	/* ST_GPA_BASE is identity mapped */
->  	st_gva[i] = (void *)(ST_GPA_BASE + i * STEAL_TIME_SIZE);
->  	sync_global_to_guest(vcpu->vm, st_gva[i]);
->  
-> -	ret = _vcpu_set_msr(vcpu, MSR_KVM_STEAL_TIME,
-> -			    (ulong)st_gva[i] | KVM_STEAL_RESERVED_MASK);
-> -	TEST_ASSERT(ret == 0, "Bad GPA didn't fail");
-> -
->  	vcpu_set_msr(vcpu, MSR_KVM_STEAL_TIME, (ulong)st_gva[i] | KVM_MSR_ENABLED);
->  }
->  
-> @@ -99,6 +93,18 @@ static void steal_time_dump(struct kvm_vm *vm, uint32_t vcpu_idx)
->  			st->pad[8], st->pad[9], st->pad[10]);
->  }
->  
-> +static void check_steal_time_uapi(struct kvm_vcpu *vcpu)
-> +{
-> +	int ret;
-> +
-> +	st_gva[0] = (void *)(ST_GPA_BASE);
-> +	sync_global_to_guest(vcpu->vm, st_gva[0]);
-
-No need to use st_gva[] and sync_global_to_guest(). For this test we can
-just use ST_GPA_BASE directly.
-
-> +
-> +	ret = _vcpu_set_msr(vcpu, MSR_KVM_STEAL_TIME,
-> +			    (ulong)st_gva[0] | KVM_STEAL_RESERVED_MASK);
-> +	TEST_ASSERT(ret == 0, "Bad GPA didn't fail");
-> +}
-> +
->  #elif defined(__aarch64__)
->  
->  /* PV_TIME_ST must have 64-byte alignment */
-> @@ -170,7 +176,6 @@ static void steal_time_init(struct kvm_vcpu *vcpu, uint32_t i)
->  {
->  	struct kvm_vm *vm = vcpu->vm;
->  	uint64_t st_ipa;
-> -	int ret;
->  
->  	struct kvm_device_attr dev = {
->  		.group = KVM_ARM_VCPU_PVTIME_CTRL,
-> @@ -178,21 +183,12 @@ static void steal_time_init(struct kvm_vcpu *vcpu, uint32_t i)
->  		.addr = (uint64_t)&st_ipa,
->  	};
->  
-> -	vcpu_ioctl(vcpu, KVM_HAS_DEVICE_ATTR, &dev);
-> -
->  	/* ST_GPA_BASE is identity mapped */
->  	st_gva[i] = (void *)(ST_GPA_BASE + i * STEAL_TIME_SIZE);
->  	sync_global_to_guest(vm, st_gva[i]);
->  
-> -	st_ipa = (ulong)st_gva[i] | 1;
-> -	ret = __vcpu_ioctl(vcpu, KVM_SET_DEVICE_ATTR, &dev);
-> -	TEST_ASSERT(ret == -1 && errno == EINVAL, "Bad IPA didn't report EINVAL");
-> -
->  	st_ipa = (ulong)st_gva[i];
->  	vcpu_ioctl(vcpu, KVM_SET_DEVICE_ATTR, &dev);
-> -
-> -	ret = __vcpu_ioctl(vcpu, KVM_SET_DEVICE_ATTR, &dev);
-> -	TEST_ASSERT(ret == -1 && errno == EEXIST, "Set IPA twice without EEXIST");
->  }
->  
->  static void steal_time_dump(struct kvm_vm *vm, uint32_t vcpu_idx)
-> @@ -205,6 +201,34 @@ static void steal_time_dump(struct kvm_vm *vm, uint32_t vcpu_idx)
->  	ksft_print_msg("    st_time: %ld\n", st->st_time);
->  }
->  
-> +static void check_steal_time_uapi(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm_vm *vm = vcpu->vm;
-> +	uint64_t st_ipa;
-> +	int ret;
-> +
-> +	struct kvm_device_attr dev = {
-> +		.group = KVM_ARM_VCPU_PVTIME_CTRL,
-> +		.attr = KVM_ARM_VCPU_PVTIME_IPA,
-> +		.addr = (uint64_t)&st_ipa,
-> +	};
-> +
-> +	vcpu_ioctl(vcpu, KVM_HAS_DEVICE_ATTR, &dev);
-> +
-> +	st_gva[0] = (void *)(ST_GPA_BASE);
-> +	sync_global_to_guest(vm, st_gva[0]);
-
-Same comment as above.
-
-> +
-> +	st_ipa = (ulong)st_gva[0] | 1;
-> +	ret = __vcpu_ioctl(vcpu, KVM_SET_DEVICE_ATTR, &dev);
-> +	TEST_ASSERT(ret == -1 && errno == EINVAL, "Bad IPA didn't report EINVAL");
-> +
-> +	st_ipa = (ulong)st_gva[0];
-> +	vcpu_ioctl(vcpu, KVM_SET_DEVICE_ATTR, &dev);
-> +
-> +	ret = __vcpu_ioctl(vcpu, KVM_SET_DEVICE_ATTR, &dev);
-> +	TEST_ASSERT(ret == -1 && errno == EEXIST, "Set IPA twice without EEXIST");
-> +}
-
-Hmm... don't we now fail with EEXIST in arm64's steal_time_init() for i=0 ?
-I think the only way to avoid it is to create a temporary vcpu for the uapi
-tests which gets thrown away before creating the vcpus for the steal time
-tests.
-
-> +
->  #elif defined(__riscv)
+> @@ -233,6 +233,7 @@ static void check_steal_time_uapi(struct kvm_vcpu *vcpu)
 >  
 >  /* SBI STA shmem must have 64-byte alignment */
-> @@ -301,6 +325,11 @@ static void steal_time_dump(struct kvm_vm *vm, uint32_t vcpu_idx)
->  	pr_info("\n");
+>  #define STEAL_TIME_SIZE		((sizeof(struct sta_struct) + 63) & ~63)
+> +#define INVALID_GPA (~(u64)0)
+
+This belongs in kvm_util_types.h
+
+>  
+>  static vm_paddr_t st_gpa[NR_VCPUS];
+>  
+> @@ -327,7 +328,30 @@ static void steal_time_dump(struct kvm_vm *vm, uint32_t vcpu_idx)
+>  
+>  static void check_steal_time_uapi(struct kvm_vcpu *vcpu)
+>  {
+> -	/* RISC-V UAPI tests will be added in a subsequent patch */
+> +	struct kvm_one_reg reg;
+> +	uint64_t shmem;
+> +	int ret;
+> +
+> +	reg.id = KVM_REG_RISCV_SBI_STA_REG(shmem_lo);
+> +	reg.addr = (uint64_t)&shmem;
+> +
+> +	/* Case 1: misaligned GPA */
+> +	shmem = ST_GPA_BASE + 1;
+> +	ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
+> +	TEST_ASSERT(ret == -1 && errno == EINVAL,
+> +		    "misaligned STA shmem returns -EINVAL");
+> +
+> +	/* Case 2: 64-byte aligned GPA */
+> +	shmem = ST_GPA_BASE;
+> +	ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
+> +	TEST_ASSERT(ret == 0,
+> +		    "aligned STA shmem succeeds");
+> +
+> +	/* Case 3: INVALID_GPA disables STA */
+> +	shmem = INVALID_GPA;
+> +	ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
+> +	TEST_ASSERT(ret == 0,
+> +		    "all-ones for STA shmem succeeds");
 >  }
->  
-> +static void check_steal_time_uapi(struct kvm_vcpu *vcpu)
-> +{
-> +	/* RISC-V UAPI tests will be added in a subsequent patch */
 
-nit: no need for this comment.
-
-> +}
-> +
->  #endif
->  
->  static void *do_steal_time(void *arg)
-> @@ -369,6 +398,8 @@ int main(int ac, char **av)
->  	TEST_REQUIRE(is_steal_time_supported(vcpus[0]));
->  	ksft_set_plan(NR_VCPUS);
->  
-> +	check_steal_time_uapi(vcpus[0]);
-> +
->  	/* Run test on each VCPU */
->  	for (i = 0; i < NR_VCPUS; ++i) {
->  		steal_time_init(vcpus[i], i);
-> -- 
-> 2.34.1
->
+I'd remove the 'Case 1', 'Case 2', text from the comments because it'll
+be a pain to maintain when people want to add/remove test cases.
 
 Thanks,
 drew
