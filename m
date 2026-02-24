@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3BC9F4BB6C
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 17:58:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DAF4F4BB6C
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 17:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mNfvMJ5CNltIEOdYVS0n/M6lhtee3hjsNRrZnhAejaw=; b=QaLjEF+XpA/nh3
-	fEeEKpcf030C9xYGsReP0VrwwMyvtjaSsMg3P5E9SrR8+UdDzPlWc59P/mYAJLKV8YEVkLAi+3cHU
-	WFIqdAor9qmwpxFIaIIJlDGjkKZ9IZFjU+k3UqdGHf0GAMrGBnmopclCdP5fuE1v2lpFxh0geK9QM
-	2swQCSGxJi1D/zZPsjg3A1JqdBVR6OnVE3dhz3oGhg5mA1iMmZhKNKcxMnbwPATD06cZdszW8Wdkz
-	h4vjjHc9dfZzwa54WNEvEWUx2fhfBz+oAjIgh+dijZaFcpMJz6ULGfSno3VWXI/amTrb5/y3fwlRZ
-	uF0fEcFxs/Qkju3LbX4w==;
+	List-Owner; bh=gQmboWC5prO03Jzz3IsiCxnrQvxQh6VuPS9ut7Eo1so=; b=PUV4WFdU8Wt72O
+	D8PCUO/D7RcXgp52Y5oPOTIX3KVk9u8CIPvPboJ/aKYHrjTV9n/z37fSEeDpmXEUIUdGykIgBOULZ
+	swBFRr0x7qlVxlv+YFzJQteQfbh0yaPCdG0kaL3aQAP5eA2UgpVuS36xeaWVLUhZ/OAw/3DbMKNiS
+	ocx3voZpe6Cg91VfGwLLRGauzJWnweczHwv8XCYzl4lwhZ6Tng0RxLG1yriHBJm8mUgnNRmR48ZZ5
+	EqnpudBeb/4kSqJDEcJxT5bJx1peAJ8biF6QGzgcn+WW3gcvV9DtTwtyOcZlneMYyF5Bt9JbhHF5r
+	zAusOYs2/2X0bv5GSo4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwfr-00000002Wwn-3e3Z;
-	Tue, 24 Feb 2026 17:58:19 +0000
+	id 1vuwfw-00000002X2g-0bVN;
+	Tue, 24 Feb 2026 17:58:24 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuwfi-00000002Wl4-312P;
-	Tue, 24 Feb 2026 17:58:10 +0000
+	id 1vuwfm-00000002WqJ-1gJl;
+	Tue, 24 Feb 2026 17:58:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2439A60130;
+	by tor.source.kernel.org (Postfix) with ESMTP id C0F6F6012B;
+	Tue, 24 Feb 2026 17:58:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38832C19425;
 	Tue, 24 Feb 2026 17:58:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CCD0C116D0;
-	Tue, 24 Feb 2026 17:58:06 +0000 (UTC)
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	David Hildenbrand <david@kernel.org>,
@@ -51,9 +51,9 @@ Cc: Will Deacon <will@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-mm@kvack.org
-Subject: [PATCH 1/5] mm: Introduce vm_mmap_shadow_stack() as a helper for VM_SHADOW_STACK mappings
-Date: Tue, 24 Feb 2026 17:57:53 +0000
-Message-ID: <20260224175800.2500729-2-catalin.marinas@arm.com>
+Subject: [PATCH 2/5] arm64: gcs: Use the new common vm_mmap_shadow_stack() helper
+Date: Tue, 24 Feb 2026 17:57:54 +0000
+Message-ID: <20260224175800.2500729-3-catalin.marinas@arm.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260224175800.2500729-1-catalin.marinas@arm.com>
 References: <20260224175800.2500729-1-catalin.marinas@arm.com>
@@ -74,75 +74,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-arm64, riscv and x86 use a similar pattern for mapping the user shadow
-stack (cloned from x86). Extract this into a helper to facilitate code
-reuse.
-
-The call to do_mmap() from the new helper uses PROT_READ|PROT_WRITE prot
-bits instead of the PROT_READ with an explicit VM_WRITE vm_flag. The
-x86 intent was to avoid PROT_WRITE implying normal write since the
-shadow stack is not writable by normal stores. However, from a kernel
-perspective, the vma is writeable. Functionally there is no difference.
+Replace the arm64 map_shadow_stack() content with a call to
+vm_mmap_shadow_stack().
 
 Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
 ---
- include/linux/mm.h |  4 ++++
- mm/util.c          | 25 +++++++++++++++++++++++++
- 2 files changed, 29 insertions(+)
+ arch/arm64/mm/gcs.c | 14 +-------------
+ 1 file changed, 1 insertion(+), 13 deletions(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 5be3d8a8f806..1f28be975f86 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -3908,6 +3908,10 @@ extern int vm_munmap(unsigned long, size_t);
- extern unsigned long __must_check vm_mmap(struct file *, unsigned long,
-         unsigned long, unsigned long,
-         unsigned long, unsigned long);
-+#ifdef CONFIG_ARCH_HAS_USER_SHADOW_STACK
-+extern unsigned long __must_check vm_mmap_shadow_stack(unsigned long addr,
-+	unsigned long len, unsigned long flags);
-+#endif
+diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
+index 04a23a497f20..680749611a9a 100644
+--- a/arch/arm64/mm/gcs.c
++++ b/arch/arm64/mm/gcs.c
+@@ -12,19 +12,7 @@
  
- struct vm_unmapped_area_info {
- #define VM_UNMAPPED_AREA_TOPDOWN 1
-diff --git a/mm/util.c b/mm/util.c
-index b05ab6f97e11..2592291948f0 100644
---- a/mm/util.c
-+++ b/mm/util.c
-@@ -618,6 +618,31 @@ unsigned long vm_mmap(struct file *file, unsigned long addr,
+ static unsigned long alloc_gcs(unsigned long addr, unsigned long size)
+ {
+-	int flags = MAP_ANONYMOUS | MAP_PRIVATE;
+-	struct mm_struct *mm = current->mm;
+-	unsigned long mapped_addr, unused;
+-
+-	if (addr)
+-		flags |= MAP_FIXED_NOREPLACE;
+-
+-	mmap_write_lock(mm);
+-	mapped_addr = do_mmap(NULL, addr, size, PROT_READ, flags,
+-			      VM_SHADOW_STACK | VM_WRITE, 0, &unused, NULL);
+-	mmap_write_unlock(mm);
+-
+-	return mapped_addr;
++	return vm_mmap_shadow_stack(addr, size, 0);
  }
- EXPORT_SYMBOL(vm_mmap);
  
-+#ifdef CONFIG_ARCH_HAS_USER_SHADOW_STACK
-+/*
-+ * Perform a userland memory mapping for a shadow stack into the current
-+ * process address space. This is intended to be used by architectures that
-+ * support user shadow stacks.
-+ */
-+unsigned long vm_mmap_shadow_stack(unsigned long addr, unsigned long len,
-+				   unsigned long flags)
-+{
-+	struct mm_struct *mm = current->mm;
-+	unsigned long ret, unused;
-+
-+	flags |= MAP_ANONYMOUS | MAP_PRIVATE;
-+	if (addr)
-+		flags |= MAP_FIXED_NOREPLACE;
-+
-+	mmap_write_lock(mm);
-+	ret = do_mmap(NULL, addr, len, PROT_READ | PROT_WRITE, flags,
-+		      VM_SHADOW_STACK, 0, &unused, NULL);
-+	mmap_write_unlock(mm);
-+
-+	return ret;
-+}
-+#endif /* CONFIG_ARCH_HAS_USER_SHADOW_STACK */
-+
- /**
-  * __vmalloc_array - allocate memory for a virtually contiguous array.
-  * @n: number of elements.
+ static unsigned long gcs_size(unsigned long size)
 
 _______________________________________________
 linux-riscv mailing list
