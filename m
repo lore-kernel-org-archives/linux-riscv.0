@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF94EFB81A
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 08:55:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15009EFB81B
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 08:55:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NawxjRyGDc5hcJ2qGHxugqTgGeE/lZy9It7SeF2fF1s=; b=BoaXf8PqpIK/w6
-	PnP5k5xyT4Vuz8eEpYW67FKdc9DR+OMMGNpkwQPDbTBhdOxNde2+A78pMNYGtm5StHuaAeezVRjtc
-	bX35yhjQguXUZBRH7YTYPP/hrCYUwJGxXDgg+TlKQU0ZXpNZB7lcvArgMtyDB4sqKCvb0Cc2n+NVJ
-	nUKeNgAWfeOzSV6jU42/x6CG0KO5fw4jqWQna+SpXTT351KZEK1vSfGsObMKSkaJnQsH5Nh0E7zY+
-	fo/NDPtqqqfqliSIpr2jpByFnjC6iup3CZTGfJC+RH1PujHIsX60HBbqoW9jUuOYRr8LB2eTybEGj
-	aqkISUsOGv5t9qYBezFA==;
+	List-Owner; bh=BGupGb9iJkyH6VEhMCgBpo/vpTDqKNEj4fKaL4HypuI=; b=e//KXnWdlCpmxP
+	YUXqgOvvvxgEXcDQ6wTALxeDSjHToSLthpyki28wrWWQiEbrMdY9EPcjwW7tdckACajhNxzrE3Ba6
+	7nleVszcAAJIc36QDoBzDX3sj31oqrZ3aL/+8vd/DKuYADC7euKu+Ktp2+gVBRplReHkx+ibr6kVZ
+	Plm4+idArmjRis6aOz7LEhQMspYWS9g7W4vWy+cNayJzHUfBz3JyiaaoWD3Z+qtJagkHMHbZatpsC
+	X+R0qLAGiSj0KkdNdDaU51JrEowNc8L07u4ubT3R9sPN1mWdmQCPdnD76nf+qLOQ1SJKI9I8Pb3ND
+	qsf2hFXIbfdRkXV8jIhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuoCB-00000001gEi-2WEZ;
-	Tue, 24 Feb 2026 08:55:07 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1vuoCE-00000001gHo-0Nil;
+	Tue, 24 Feb 2026 08:55:10 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vuoC6-00000001g6m-0pG7;
-	Tue, 24 Feb 2026 08:55:03 +0000
+	id 1vuoCA-00000001g9d-37vQ;
+	Tue, 24 Feb 2026 08:55:08 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=NM621g/YN7qqZc3aOEqRwr5f/j+prUa2v+nsXWWrQb4=;
-	b=1chYo5gymxUupAkB1C6ccQJgeOGbSo5jMJlj/wuH+C+hDS/YyGbZ19LHlIYomM+oh08xsCgpr
-	jF50u72dLzHThtsOhqOUUfwzGKdlHAeMDnGqz/dVbAodZBAFM37HMBW3Ux6sF/onGScy1CdSgml
-	1fJqRz5fuK9OD+v2psN139E=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4fKryX1S5gzmVXK;
-	Tue, 24 Feb 2026 16:50:12 +0800 (CST)
+	bh=rNYav2yGpg/yhEliv79lwhJ8COerKJd3gx9DFjPKfgs=;
+	b=KAFY5ARO3lkVVlwifRHD59MvsYOIxlEqBKCuVdt9gR43+fi6kz761/nmCdIH8aKkL2My7T0x+
+	XSGqwaW1YlXTdSb0joV2Ga1dvUnO2qFrEpDnU5u9/XXt/LGEIsgjOvZSzDomn1uY9e6UrIk7gDS
+	PNte+t/SYwF58Yq+2OvlD8A=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4fKryM166Wzcb1W;
+	Tue, 24 Feb 2026 16:50:03 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 578EF402AB;
-	Tue, 24 Feb 2026 16:54:59 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 1A20240567;
+	Tue, 24 Feb 2026 16:55:02 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 24 Feb
- 2026 16:54:56 +0800
+ 2026 16:54:59 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
 	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
@@ -66,9 +66,9 @@ To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
 	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
 	<linux-riscv@lists.infradead.org>, <kexec@lists.infradead.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v6 4/5] arm64: kexec: Add support for crashkernel CMA reservation
-Date: Tue, 24 Feb 2026 16:53:41 +0800
-Message-ID: <20260224085342.387996-5-ruanjinjie@huawei.com>
+Subject: [PATCH v6 5/5] riscv: kexec: Add support for crashkernel CMA reservation
+Date: Tue, 24 Feb 2026 16:53:42 +0800
+Message-ID: <20260224085342.387996-6-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260224085342.387996-1-ruanjinjie@huawei.com>
 References: <20260224085342.387996-1-ruanjinjie@huawei.com>
@@ -77,8 +77,8 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_005502_611186_28343CA3 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20260224_005507_113663_493C71AC 
+X-CRM114-Status: GOOD (  23.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,86 +90,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Q29tbWl0IDM1YzE4ZjI5MzNjNSAoIkFkZCBhIG5ldyBvcHRpb25hbCAiLGNtYSIgc3VmZml4IHRv
-IHRoZQpjcmFzaGtlcm5lbD0gY29tbWFuZCBsaW5lIG9wdGlvbiIpIGFuZCBjb21taXQgYWI0NzU1
-MTBlMDQyICgia2R1bXA6CmltcGxlbWVudCByZXNlcnZlX2NyYXNoa2VybmVsX2NtYSIpIGFkZGVk
-IENNQSBzdXBwb3J0IGZvciBrZHVtcApjcmFzaGtlcm5lbCByZXNlcnZhdGlvbi4KCkNyYXNoIGtl
-cm5lbCBtZW1vcnkgcmVzZXJ2YXRpb24gd2FzdGVzIHByb2R1Y3Rpb24gcmVzb3VyY2VzIGlmIHRv
-bwpsYXJnZSwgcmlza3Mga2R1bXAgZmFpbHVyZSBpZiB0b28gc21hbGwsIGFuZCBmYWNlcyBhbGxv
-Y2F0aW9uIGRpZmZpY3VsdGllcwpvbiBmcmFnbWVudGVkIHN5c3RlbXMgZHVlIHRvIGNvbnRpZ3Vv
-dXMgYmxvY2sgY29uc3RyYWludHMuIFRoZSBuZXcKQ01BLWJhc2VkIGNyYXNoa2VybmVsIHJlc2Vy
-dmF0aW9uIHNjaGVtZSBzcGxpdHMgdGhlICJsYXJnZSBmaXhlZApyZXNlcnZhdGlvbiIgaW50byBh
-ICJzbWFsbCBmaXhlZCByZWdpb24gKyBsYXJnZSBDTUEgZHluYW1pYyByZWdpb24iOiB0aGUKQ01B
-IG1lbW9yeSBpcyBhdmFpbGFibGUgdG8gdXNlcnNwYWNlIGR1cmluZyBub3JtYWwgb3BlcmF0aW9u
-IHRvIGF2b2lkCndhc3RlLCBhbmQgaXMgcmVjbGFpbWVkIGZvciBrZHVtcCB1cG9uIGNyYXNo4oCU
-c2F2aW5nIG1lbW9yeSB3aGlsZQppbXByb3ZpbmcgcmVsaWFiaWxpdHkuCgpTbyBleHRlbmQgY3Jh
-c2hrZXJuZWwgQ01BIHJlc2VydmF0aW9uIHN1cHBvcnQgdG8gYXJtNjQuIFRoZSBmb2xsb3dpbmcK
-Y2hhbmdlcyBhcmUgbWFkZSB0byBlbmFibGUgQ01BIHJlc2VydmF0aW9uOgoKLSBQYXJzZSBhbmQg
-b2J0YWluIHRoZSBDTUEgcmVzZXJ2YXRpb24gc2l6ZSBhbG9uZyB3aXRoIG90aGVyIGNyYXNoa2Vy
-bmVsCiAgcGFyYW1ldGVycy4KLSBDYWxsIHJlc2VydmVfY3Jhc2hrZXJuZWxfY21hKCkgdG8gYWxs
-b2NhdGUgdGhlIENNQSByZWdpb24gZm9yIGtkdW1wLgotIEluY2x1ZGUgdGhlIENNQS1yZXNlcnZl
-ZCByYW5nZXMgZm9yIGtkdW1wIGtlcm5lbCB0byB1c2UuCi0gRXhjbHVkZSB0aGUgQ01BLXJlc2Vy
-dmVkIHJhbmdlcyBmcm9tIHRoZSBjcmFzaCBrZXJuZWwgbWVtb3J5IHRvCiAgcHJldmVudCB0aGVt
-IGZyb20gYmVpbmcgZXhwb3J0ZWQgdGhyb3VnaCAvcHJvYy92bWNvcmUsIHdoaWNoIGlzIGFscmVh
-ZHkKICBkb25lIGluIHRoZSBjcmFzaCBjb3JlLgoKVXBkYXRlIGtlcm5lbC1wYXJhbWV0ZXJzLnR4
-dCB0byBkb2N1bWVudCBDTUEgc3VwcG9ydCBmb3IgY3Jhc2hrZXJuZWwgb24KYXJtNjQgYXJjaGl0
-ZWN0dXJlLgoKQWNrZWQtYnk6IEFyZCBCaWVzaGV1dmVsIDxhcmRiQGtlcm5lbC5vcmc+ClNpZ25l
-ZC1vZmYtYnk6IEppbmppZSBSdWFuIDxydWFuamluamllQGh1YXdlaS5jb20+Ci0tLQp2MzoKLSBB
-ZGQgQWNrZWQtYnkuCnYyOgotIEZyZWUgY21lbSBpbiBwcmVwYXJlX2VsZl9oZWFkZXJzKCkKLSBB
-ZGQgdGhlIG10aXZhdGlvbi4KLS0tCiBEb2N1bWVudGF0aW9uL2FkbWluLWd1aWRlL2tlcm5lbC1w
-YXJhbWV0ZXJzLnR4dCB8IDIgKy0KIGFyY2gvYXJtNjQva2VybmVsL21hY2hpbmVfa2V4ZWNfZmls
-ZS5jICAgICAgICAgIHwgOCArKysrKysrLQogYXJjaC9hcm02NC9tbS9pbml0LmMgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgfCA1ICsrKy0tCiAzIGZpbGVzIGNoYW5nZWQsIDExIGluc2VydGlv
-bnMoKyksIDQgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9hZG1pbi1n
-dWlkZS9rZXJuZWwtcGFyYW1ldGVycy50eHQgYi9Eb2N1bWVudGF0aW9uL2FkbWluLWd1aWRlL2tl
-cm5lbC1wYXJhbWV0ZXJzLnR4dAppbmRleCBjYjg1MGU1MjkwYzIuLjQ5N2Y2M2I3Njg5OCAxMDA2
-NDQKLS0tIGEvRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlkZS9rZXJuZWwtcGFyYW1ldGVycy50eHQK
-KysrIGIvRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlkZS9rZXJuZWwtcGFyYW1ldGVycy50eHQKQEAg
-LTExMjEsNyArMTEyMSw3IEBAIEtlcm5lbCBwYXJhbWV0ZXJzCiAJCQlJdCB3aWxsIGJlIGlnbm9y
-ZWQgd2hlbiBjcmFzaGtlcm5lbD1YLGhpZ2ggaXMgbm90IHVzZWQKIAkJCW9yIG1lbW9yeSByZXNl
-cnZlZCBpcyBiZWxvdyA0Ry4KIAljcmFzaGtlcm5lbD1zaXplW0tNR10sY21hCi0JCQlbS05MLCBY
-ODYsIHBwY10gUmVzZXJ2ZSBhZGRpdGlvbmFsIGNyYXNoIGtlcm5lbCBtZW1vcnkgZnJvbQorCQkJ
-W0tOTCwgWDg2LCBBUk02NCwgcHBjXSBSZXNlcnZlIGFkZGl0aW9uYWwgY3Jhc2gga2VybmVsIG1l
-bW9yeSBmcm9tCiAJCQlDTUEuIFRoaXMgcmVzZXJ2YXRpb24gaXMgdXNhYmxlIGJ5IHRoZSBmaXJz
-dCBzeXN0ZW0ncwogCQkJdXNlcnNwYWNlIG1lbW9yeSBhbmQga2VybmVsIG1vdmFibGUgYWxsb2Nh
-dGlvbnMgKG1lbW9yeQogCQkJYmFsbG9vbiwgenN3YXApLiBQYWdlcyBhbGxvY2F0ZWQgZnJvbSB0
-aGlzIG1lbW9yeSByYW5nZQpkaWZmIC0tZ2l0IGEvYXJjaC9hcm02NC9rZXJuZWwvbWFjaGluZV9r
-ZXhlY19maWxlLmMgYi9hcmNoL2FybTY0L2tlcm5lbC9tYWNoaW5lX2tleGVjX2ZpbGUuYwppbmRl
-eCBjMzM4NTA2YTU4MGIuLmM4ODYyYTc2MmViMyAxMDA2NDQKLS0tIGEvYXJjaC9hcm02NC9rZXJu
-ZWwvbWFjaGluZV9rZXhlY19maWxlLmMKKysrIGIvYXJjaC9hcm02NC9rZXJuZWwvbWFjaGluZV9r
-ZXhlY19maWxlLmMKQEAgLTQyLDcgKzQyLDcgQEAgaW50IGFyY2hfa2ltYWdlX2ZpbGVfcG9zdF9s
-b2FkX2NsZWFudXAoc3RydWN0IGtpbWFnZSAqaW1hZ2UpCiAjaWZkZWYgQ09ORklHX0NSQVNIX0RV
-TVAKIHVuc2lnbmVkIGludCBhcmNoX2dldF9zeXN0ZW1fbnJfcmFuZ2VzKHZvaWQpCiB7Ci0JdW5z
-aWduZWQgaW50IG5yX3JhbmdlcyA9IDI7IC8qIGZvciBleGNsdXNpb24gb2YgY3Jhc2hrZXJuZWwg
-cmVnaW9uICovCisJdW5zaWduZWQgaW50IG5yX3JhbmdlcyA9IDIgKyBjcmFzaGtfY21hX2NudDsg
-LyogZm9yIGV4Y2x1c2lvbiBvZiBjcmFzaGtlcm5lbCByZWdpb24gKi8KIAlwaHlzX2FkZHJfdCBz
-dGFydCwgZW5kOwogCXU2NCBpOwogCkBAIC02NCw2ICs2NCwxMiBAQCBpbnQgYXJjaF9jcmFzaF9w
-b3B1bGF0ZV9jbWVtKHN0cnVjdCBjcmFzaF9tZW0gKmNtZW0pCiAJCWNtZW0tPm5yX3Jhbmdlcysr
-OwogCX0KIAorCWZvciAoaSA9IDA7IGkgPCBjcmFzaGtfY21hX2NudDsgaSsrKSB7CisJCWNtZW0t
-PnJhbmdlc1tjbWVtLT5ucl9yYW5nZXNdLnN0YXJ0ID0gY3Jhc2hrX2NtYV9yYW5nZXNbaV0uc3Rh
-cnQ7CisJCWNtZW0tPnJhbmdlc1tjbWVtLT5ucl9yYW5nZXNdLmVuZCA9IGNyYXNoa19jbWFfcmFu
-Z2VzW2ldLmVuZDsKKwkJY21lbS0+bnJfcmFuZ2VzKys7CisJfQorCiAJcmV0dXJuIDA7CiB9CiAj
-ZW5kaWYKZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQvbW0vaW5pdC5jIGIvYXJjaC9hcm02NC9tbS9p
-bml0LmMKaW5kZXggOTY3MTFiODU3OGZkLi4xNDRlMzBmZTlhNzUgMTAwNjQ0Ci0tLSBhL2FyY2gv
-YXJtNjQvbW0vaW5pdC5jCisrKyBiL2FyY2gvYXJtNjQvbW0vaW5pdC5jCkBAIC05Niw4ICs5Niw4
-IEBAIHBoeXNfYWRkcl90IF9fcm9fYWZ0ZXJfaW5pdCBhcm02NF9kbWFfcGh5c19saW1pdDsKIAog
-c3RhdGljIHZvaWQgX19pbml0IGFyY2hfcmVzZXJ2ZV9jcmFzaGtlcm5lbCh2b2lkKQogeworCXVu
-c2lnbmVkIGxvbmcgbG9uZyBjcmFzaF9iYXNlLCBjcmFzaF9zaXplLCBjbWFfc2l6ZSA9IDA7CiAJ
-dW5zaWduZWQgbG9uZyBsb25nIGxvd19zaXplID0gMDsKLQl1bnNpZ25lZCBsb25nIGxvbmcgY3Jh
-c2hfYmFzZSwgY3Jhc2hfc2l6ZTsKIAlib29sIGhpZ2ggPSBmYWxzZTsKIAlpbnQgcmV0OwogCkBA
-IC0xMDYsMTEgKzEwNiwxMiBAQCBzdGF0aWMgdm9pZCBfX2luaXQgYXJjaF9yZXNlcnZlX2NyYXNo
-a2VybmVsKHZvaWQpCiAKIAlyZXQgPSBwYXJzZV9jcmFzaGtlcm5lbChib290X2NvbW1hbmRfbGlu
-ZSwgbWVtYmxvY2tfcGh5c19tZW1fc2l6ZSgpLAogCQkJCSZjcmFzaF9zaXplLCAmY3Jhc2hfYmFz
-ZSwKLQkJCQkmbG93X3NpemUsIE5VTEwsICZoaWdoKTsKKwkJCQkmbG93X3NpemUsICZjbWFfc2l6
-ZSwgJmhpZ2gpOwogCWlmIChyZXQpCiAJCXJldHVybjsKIAogCXJlc2VydmVfY3Jhc2hrZXJuZWxf
-Z2VuZXJpYyhjcmFzaF9zaXplLCBjcmFzaF9iYXNlLCBsb3dfc2l6ZSwgaGlnaCk7CisJcmVzZXJ2
-ZV9jcmFzaGtlcm5lbF9jbWEoY21hX3NpemUpOwogfQogCiBzdGF0aWMgcGh5c19hZGRyX3QgX19p
-bml0IG1heF96b25lX3BoeXMocGh5c19hZGRyX3Qgem9uZV9saW1pdCkKLS0gCjIuMzQuMQoKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Commit 35c18f2933c5 ("Add a new optional ",cma" suffix to the
+crashkernel= command line option") and commit ab475510e042 ("kdump:
+implement reserve_crashkernel_cma") added CMA support for kdump
+crashkernel reservation. This allows the kernel to dynamically allocate
+contiguous memory for crash dumping when needed, rather than permanently
+reserving a fixed region at boot time.
+
+So extend crashkernel CMA reservation support to riscv. The following
+changes are made to enable CMA reservation:
+
+- Parse and obtain the CMA reservation size along with other crashkernel
+  parameters.
+- Call reserve_crashkernel_cma() to allocate the CMA region for kdump.
+- Include the CMA-reserved ranges for kdump kernel to use.
+- Exclude the CMA-reserved ranges from the crash kernel memory to
+  prevent them from being exported through /proc/vmcore, which is already
+  done in the crash core.
+
+Update kernel-parameters.txt to document CMA support for crashkernel on
+riscv architecture.
+
+Acked-by: Paul Walmsley <pjw@kernel.org> # arch/riscv
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ Documentation/admin-guide/kernel-parameters.txt | 16 ++++++++--------
+ arch/riscv/kernel/machine_kexec_file.c          | 16 ++++++++++++++--
+ arch/riscv/mm/init.c                            |  5 +++--
+ 3 files changed, 25 insertions(+), 12 deletions(-)
+
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 497f63b76898..3f9ca148167e 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -1121,14 +1121,14 @@ Kernel parameters
+ 			It will be ignored when crashkernel=X,high is not used
+ 			or memory reserved is below 4G.
+ 	crashkernel=size[KMG],cma
+-			[KNL, X86, ARM64, ppc] Reserve additional crash kernel memory from
+-			CMA. This reservation is usable by the first system's
+-			userspace memory and kernel movable allocations (memory
+-			balloon, zswap). Pages allocated from this memory range
+-			will not be included in the vmcore so this should not
+-			be used if dumping of userspace memory is intended and
+-			it has to be expected that some movable kernel pages
+-			may be missing from the dump.
++			[KNL, X86, ARM64, RISCV, ppc] Reserve additional crash
++			kernel memory from CMA. This reservation is usable by
++			the first system's userspace memory and kernel movable
++			allocations (memory balloon, zswap). Pages allocated
++			from this memory range will not be included in the vmcore
++			so this should not be used if dumping of userspace memory
++			is intended and it has to be expected that some movable
++			kernel pages may be missing from the dump.
+ 
+ 			A standard crashkernel reservation, as described above,
+ 			is still needed to hold the crash kernel and initrd.
+diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
+index d0e331d87155..605903e21c01 100644
+--- a/arch/riscv/kernel/machine_kexec_file.c
++++ b/arch/riscv/kernel/machine_kexec_file.c
+@@ -46,7 +46,7 @@ static int get_nr_ram_ranges_callback(struct resource *res, void *arg)
+ 
+ unsigned int arch_get_system_nr_ranges(void)
+ {
+-	unsigned int nr_ranges = 1; /* For exclusion of crashkernel region */
++	unsigned int nr_ranges = 1 + crashk_cma_cnt; /* For exclusion of crashkernel region */
+ 
+ 	walk_system_ram_res(0, -1, &nr_ranges, get_nr_ram_ranges_callback);
+ 
+@@ -66,8 +66,20 @@ static int prepare_elf64_ram_headers_callback(struct resource *res, void *arg)
+ 
+ int arch_crash_populate_cmem(struct crash_mem *cmem)
+ {
++	int ret, i;
++
+ 	cmem->nr_ranges = 0;
+-	return walk_system_ram_res(0, -1, cmem, prepare_elf64_ram_headers_callback);
++	ret = walk_system_ram_res(0, -1, cmem, prepare_elf64_ram_headers_callback);
++	if (ret)
++		return ret;
++
++	for (i = 0; i < crashk_cma_cnt; i++) {
++		cmem->ranges[cmem->nr_ranges].start = crashk_cma_ranges[i].start;
++		cmem->ranges[cmem->nr_ranges].end = crashk_cma_ranges[i].end;
++		cmem->nr_ranges++;
++	}
++
++	return 0;
+ }
+ 
+ static char *setup_kdump_cmdline(struct kimage *image, char *cmdline,
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 811e03786c56..4cd49afa9077 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -1398,7 +1398,7 @@ static inline void setup_vm_final(void)
+  */
+ static void __init arch_reserve_crashkernel(void)
+ {
+-	unsigned long long low_size = 0;
++	unsigned long long low_size = 0, cma_size = 0;
+ 	unsigned long long crash_base, crash_size;
+ 	bool high = false;
+ 	int ret;
+@@ -1408,11 +1408,12 @@ static void __init arch_reserve_crashkernel(void)
+ 
+ 	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
+ 				&crash_size, &crash_base,
+-				&low_size, NULL, &high);
++				&low_size, &cma_size, &high);
+ 	if (ret)
+ 		return;
+ 
+ 	reserve_crashkernel_generic(crash_size, crash_base, low_size, high);
++	reserve_crashkernel_cma(cma_size);
+ }
+ 
+ void __init paging_init(void)
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
