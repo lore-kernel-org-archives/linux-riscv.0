@@ -4,69 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC41E9B260
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 13:01:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFF5BE9B262
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Feb 2026 13:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mKPoL/L7ujxvIB6az6u5FGnQrtSwIvt+qvwuTDStblo=; b=hIvD00Tz3Ulpr7
-	g5nYnlM7leiMEyeKJEhzBIbW7WTA4kHIIXZmNDy458A5UTqWUYlKXIQ1J6BA5mboTc/eVxIYx5Zv/
-	r3bCCGUjILxJN1LIpHPxPQHOyLskt76CTlySnvm1HhyuwjlxY6peqyD0aXI0oRLOdRKe2PYZ+TQlx
-	Ixv8VZILowf9wr0etLlImTSDBlD0lJ5cG/v8UCY021xJL3X1rHnMoNz/B8kEor6LF/MTG80Qh6OXs
-	K/pUspq2/mZgqDnNhSj7SFHXmAmwAuASHw8s0Wq1u/Ty+xRqAS6W77K2DXSSVWPZkI6uw79veueWO
-	zhE/Se9DqABa6nfOnvvQ==;
+	List-Owner; bh=m6s39jDrkx6BkaddU+CEbI/QVCnByL/mQiUjDB7/UGQ=; b=g8ZGQB9JDz5wff
+	S5m/nM/z0jAgep9ASF28zBHcO/s3nM6eApOg20fmFFuyITmjfYMv1L9FSg7t9ub4vVQ40ABLvA6UH
+	EU1H5+ifdlRI7etL3vrHPDsDqz8aRDrfSi2Jo9LCFb5NA0OAHkEIFMbl1uRDK/iTBfE6rHwnTaCU3
+	MYwVoo8Tczn+VsdrYU0WLnhNCpylIo+6oFMMxZlJymabfb6hKTcOggVKE78DWgGaMchBvWNQ9NuAB
+	cd8Fdhask2KKAv18hLhaj/6ie9npvs33hPtPxiv9YbkwLRaF47y/T/5LbQNgaqy9sL+pzCmnrNTKz
+	oq5M23JOIElyD3J6FBqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vus1x-0000000269j-1Ciw;
-	Tue, 24 Feb 2026 13:00:49 +0000
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
+	id 1vus6I-000000026MA-3tGF;
+	Tue, 24 Feb 2026 13:05:18 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vus1s-0000000266I-05tN
-	for linux-riscv@lists.infradead.org;
-	Tue, 24 Feb 2026 13:00:48 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Fue2tVU858LZ38elo14sVk6gqI1+tCuiftRGjcHag5M=;
-	b=0Dri22NSRpnz5eN6q+1zdlhweMT9s4WRiPZ+j7U3LnNHQbyH8uZMWvPcuFL8IJQPUtAn1joPc
-	Abh8ITRNQNBs+9wdYrIk/vvx94LLo7DY90heyih62XOOVHGvJ1+CrETObVn50aAnXaKFuiGNYbB
-	Kvp8fs8gXTVCEl2lU+Fross=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fKyMh4WzfznTWL;
-	Tue, 24 Feb 2026 20:53:52 +0800 (CST)
-Received: from dggpemf100008.china.huawei.com (unknown [7.185.36.138])
-	by mail.maildlp.com (Postfix) with ESMTPS id D068140565;
-	Tue, 24 Feb 2026 20:58:33 +0800 (CST)
-Received: from [10.174.177.243] (10.174.177.243) by
- dggpemf100008.china.huawei.com (7.185.36.138) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 24 Feb 2026 20:58:32 +0800
-Message-ID: <64357180-b91a-4319-bd0f-5f09e38cebdb@huawei.com>
-Date: Tue, 24 Feb 2026 20:58:30 +0800
+	id 1vus6G-000000026Lm-3BxU;
+	Tue, 24 Feb 2026 13:05:17 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61O83maL2345992;
+	Tue, 24 Feb 2026 13:05:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=wO64/dkjbW/dvFC/vqTXMyNPJLKJF7
+	tJot1AAAqsBp4=; b=OVtLzw386cqqEN37RlRH6SOPVS0YfpM6+NNCREe1cEwYeg
+	O7FA3I9ee7WboClZR71kA5J+WFSubxzJC+nE+aJypc3bjKqXgQCeDf/4qTy5SKhr
+	ZhTaoJIPi9HIcvAtdUN8Ks8KIcJ6aB5ipwyzjSA7QQXQvsUl7hEtmuy7qpjD9ftr
+	fR7lnjFAJTuRe3c0ZX+kDTM29i9GtoqMqLZWyI6Po6asx10ZCZTh6RU0HlnLZqjZ
+	7z7LU2cq15D5/dVqRXUbKSvcly+RBU2lFfFWN9v4v/snifEbXfNrG+9nKnyuQnJP
+	ubiYhIbCCpi66j+0hwlJSYXTRljAozQhlnGyLidA==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ch858h0m3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 24 Feb 2026 13:05:04 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 61OCQq3G013438;
+	Tue, 24 Feb 2026 13:05:03 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4cfqdy118h-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 24 Feb 2026 13:05:03 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 61OD4xLB57475566
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 24 Feb 2026 13:04:59 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 63BDE2004B;
+	Tue, 24 Feb 2026 13:04:59 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id BCBA820043;
+	Tue, 24 Feb 2026 13:04:58 +0000 (GMT)
+Received: from localhost (unknown [9.111.88.84])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Tue, 24 Feb 2026 13:04:58 +0000 (GMT)
+Date: Tue, 24 Feb 2026 14:04:57 +0100
+From: Vasily Gorbik <gor@linux.ibm.com>
+To: Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+        Pasha Tatashin <pasha.tatashin@soleen.com>, linux-s390@vger.kernel.org,
+        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+        x86@kernel.org
+Subject: Re: [PATCH 1/4] mm/page_table_check: Pass mm_struct to
+ pxx_user_accessible_page()
+Message-ID: <your-ad-here.call-01771938297-ext-2808@work.hours>
+References: <cover.1771845678.git.agordeev@linux.ibm.com>
+ <68c2f6df2955033cbf1ccbd2b5c2816e72ac345c.1771845678.git.agordeev@linux.ibm.com>
+ <20260223101335.aa3696d86341260e03989ac0@linux-foundation.org>
+ <cfdc9b3d-06fd-4cc1-b946-076ff1479c66-agordeev@linux.ibm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: mm: Regression with v7.0-rc1 on RISC-V
-To: Ron Economos <re@w6rz.net>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-CC: <ziy@nvidia.com>, <jackmanb@google.com>, <david@redhat.com>,
-	<jane.chu@oracle.com>, <hannes@cmpxchg.org>, <willy@infradead.org>,
-	<muchun.song@linux.dev>, <osalvador@suse.de>, <sidhartha.kumar@oracle.com>,
-	<vbabka@suse.cz>, <claudiu.beznea.uj@bp.renesas.com>, Mark Brown
-	<broonie@kernel.org>, <akpm@linux-foundation.org>, <pjw@kernel.org>
-References: <1b17c38f-30d3-4bb4-a7e1-e74b19ada885@w6rz.net>
-Content-Language: en-US
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-In-Reply-To: <1b17c38f-30d3-4bb4-a7e1-e74b19ada885@w6rz.net>
-X-Originating-IP: [10.174.177.243]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf100008.china.huawei.com (7.185.36.138)
+Content-Disposition: inline
+In-Reply-To: <cfdc9b3d-06fd-4cc1-b946-076ff1479c66-agordeev@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI0MDEwMyBTYWx0ZWRfX82K/iej59Gbi
+ jcOJ4LV65vjd++THoXAxHcOdHzl9vxwXul+tKmMciocrWFcM4MzDCiFMma5wnoQRFwQzwk2EUBo
+ owgONljOlgoxYQ/sphxEac8MzWSTdSTmmJ1euVadS2kLw2mK651rPT6pc4Y8JUKpz9+kA0i3Qdr
+ 0NjLoQ/uXZ4ylbetYJiJi3eLDnxuBmvkISzhb5p3iHvDssAio/iJP3IhtlhLBtIntIKgtZ9jvQY
+ N9UvSFPPSWb+D7jqlrvouPooEObPd0Ls/OaMZsv0oPQpzoQWIDGhIC9pPsqz8KYKLAxWPGkOYqe
+ xvgEJpXH9jQLtd4G6OrmHss4/N8DuG3FasVJOptPVsjLFxrmQpgI9vS48WGLo4GGfHF/pUL//u+
+ dzDB3AI8mMgPzjh+Uue9Gm/engWga5K7G9IVgo/bX9fukaUzzkeWhv/HczqOxdZfsFvXjrwQOyl
+ SfanzqqZBDLrB1sjlbg==
+X-Proofpoint-GUID: -kGng4CI3unx1jXZ8zqVfjNMiflOOOSx
+X-Authority-Analysis: v=2.4 cv=S4HUAYsP c=1 sm=1 tr=0 ts=699da200 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=Z4Rwk6OoAAAA:8
+ a=8RkruKr-LY4rosFeA0QA:9 a=QEXdDO2ut3YA:10 a=HkZW87K1Qel5hWWM3VKY:22
+X-Proofpoint-ORIG-GUID: -kGng4CI3unx1jXZ8zqVfjNMiflOOOSx
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-24_01,2026-02-23_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 clxscore=1011 impostorscore=0 malwarescore=0 bulkscore=0
+ phishscore=0 adultscore=0 lowpriorityscore=0 spamscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602240103
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260224_050044_230176_9B4A7D8E 
-X-CRM114-Status: UNSURE (   6.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260224_050516_805981_1346403A 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,34 +118,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDI2LzIvMjQgMTY6MzcsIFJvbiBFY29ub21vcyB3cm90ZToKPiBJJ20gZ2V0dGluZyBh
-IEJVRyBkdW1wIGR1cmluZyBzaHV0ZG93biB3aXRoIExpbnV4IHY3LjAtcmMxIG9uIFJJU0MtVi4K
-PiAKPiBbwqAgT0vCoCBdIFJlYWNoZWQgdGFyZ2V0IHNodXRkb3duLnRhcmdldCAtIFN5c3RlbSBT
-aHV0ZG93bi4KPiBbwqAgT0vCoCBdIFJlYWNoZWQgdGFyZ2V0IGZpbmFsLnRhcmdldCAtIExhdGUg
-U2h1dGRvd24gU2VydmljZXMuCj4gW8KgIE9LwqAgXSBGaW5pc2hlZCBzeXN0ZW1kLXJlYm9vdC5z
-ZXJ2aWNlIC0gU3lzdGVtIFJlYm9vdC4KPiBbwqAgT0vCoCBdIFJlYWNoZWQgdGFyZ2V0IHJlYm9v
-dC50YXJnZXQgLSBTeXN0ZW0gUmVib290Lgo+IFvCoCAxNzMuOTg1MjQ5XSBCVUc6IEJhZCBwYWdl
-IHN0YXRlIGluIHByb2Nlc3Mgc2h1dGRvd27CoCBwZm46Zjg4NTAKPiBbwqAgMTczLjk4NTMxMV0g
-cGFnZTogcmVmY291bnQ6MSBtYXBjb3VudDowIG1hcHBpbmc6MDAwMDAwMDAwMDAwMDAwMCAKPiBp
-bmRleDoweDAgcGZuOjB4Zjg4NTAKPiBbwqAgMTczLjk4NTMzNl0gZmxhZ3M6IDB4ZmZmZjgwMDAw
-MDAwMDAwKG5vZGU9MHx6b25lPTB8IAo+IGxhc3RjcHVwaWQ9MHgxZmZmZikgQ01BCj4gW8KgIDE3
-My45ODUzNjVdIHJhdzogMGZmZmY4MDAwMDAwMDAwMCBmZmZmZmZjNTAxZTIxNDQ4IGZmZmZmZmM2
-MDBmMmFlODggCj4gMDAwMDAwMDAwMDAwMDAwMAo+IFvCoCAxNzMuOTg1Mzg2XSByYXc6IDAwMDAw
-MDAwMDAwMDAwMDAgMDAwMDAwMDAwMDAwMDAwMCAwMDAwMDAwMWZmZmZmZmZmIAo+IDAwMDAwMDAw
-MDAwMDAwMDAKPiBbwqAgMTczLjk4NTQwM10gcGFnZSBkdW1wZWQgYmVjYXVzZTogbm9uemVybyBf
-cmVmY291bnQKCgpUaGUgcmVmY291bnQgc2V0IHRvIDEgd2hlbiBjbWFfYWxsb2MoKSBieSBzZXRf
-cGFnZV9yZWZjb3VudGVkKCksIGFuZCBpdAp3aWxsIGJlIGRlYyB0byAwIGluIGNtYV9yZWxlYXNl
-KCkgYnkgcHV0X3BhZ2VfdGVzdHplcm8oKSwgdGhlcmUgbWF5IGJlIGEgCnByb2JsZW0gc29tZXdo
-ZXJlIGVsc2U/CgpDb3VsZCB5b3UgZW5hYmxlIENPTkZJR19ERUJVR19WTSBhbmQgQ09ORklHX0RF
-QlVHX1BBR0VfUkVGLCBhbmQgdHJ5IHRvIAp0cmFjayBkb3duIHBhZ2UgcmVmZXJlbmNlIG1hbmlw
-dWxhdGlvbiBieSB0cmFjZXBvaW50PyBvciBmb3IgQ01BLXJlbGF0ZWQKcGFnZXMsIGludHJvZHVj
-ZSBleHBsaWNpdCBwcmludGsgYm90aCBpbmNyZW1lbnRzIGFuZCBkZWNyZW1lbnRzIG9mIHRoZSAK
-cGFnZSByZWZlcmVuY2UgY291bnQgdG8gaWRlbnRpZnkgdGhlIHJvb3QgY2F1c2Ugb2YgdGhlIGlz
-c3VlLgoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Feb 24, 2026 at 07:06:28AM +0100, Alexander Gordeev wrote:
+> On Mon, Feb 23, 2026 at 10:13:35AM -0800, Andrew Morton wrote:
+> > >  arch/arm64/include/asm/pgtable.h |  6 +++---
+> > >  arch/riscv/include/asm/pgtable.h |  6 +++---
+> > >  arch/x86/include/asm/pgtable.h   |  6 +++---
+> > >  mm/page_table_check.c            | 15 ++++++---------
+> > >  4 files changed, 15 insertions(+), 18 deletions(-)
+> > 
+> > Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
+> 
+> Thank you, Andrew!
+> 
+> > I assume this can go into the s390 tree?
+> 
+> I think so.
+> @Vasily?
+
+I've picked it up, thank you!
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
