@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27F76EFD208
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 08:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26B06EFD209
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 08:16:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oSW/peZYVWubbhX6N0fAHJXKiNy99EUrB4rUNl72GEc=; b=lTbsjyXgT0+akO
-	Zhkkv31PL8Ssxxn/IDGmu3wii8esx8rGup5DasQcSeRzQmgChuJmSh/jgzW03Dx9+wFrh2Q4An4WW
-	rCC1MN8EL8Uf+y46YaNxZPvXt3/ujCpcpMi538maRivTxUjjr1cu03qQgbciI2xZpVkv/G/HlWpvw
-	25pEBKhnwV7rBX/V2RY40xirIZI6hPhbdje5Rm78XcxunkD8J2vjAT5LonMAuU3aUM8VMmtVPjvw2
-	QrUpFPcJJk4WE0cVsybPuIjQNm1gcRnED6Mdc8VInwNQX4Y0V8giKANYcKrAUao9bJQKTXuu7cfCi
-	BE9f5Jq4qQNQq180QQdQ==;
+	List-Owner; bh=i26OehpQICNeYVqiwmh0pH+YJXp9/a24hyCxCZ3qN9g=; b=35D57LRVUBR4hd
+	1jXmsQhr7SJ1Z+6aaWMjvn7hwK+WbVH310gk7dryTIXfyDetn9DMjk2pIXS21LKz6rlTGhQLAh1la
+	kAZ11nFeK+89mF3OxaKtEoJ11Ai30l7hB12oGGdw0QNjizTBV3CxGWD8B/98yuXt869rxnQUzzqpH
+	AQscxsppvnr4KWC2ag4Syb5dDeCK+SBACIpjEU2cH4xifiRvhVT6/uCieNmON6b8FISSzl0IXc4u/
+	JMZPqNIvUhbQ5G1i/bOBL5iDWBIdVnF+78TLLxgY5/G4IupHvdNb9bVFw81B4KLfSN3oJEVSoBtuM
+	mdCIKSjQZUYupRdbEHPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA3i-00000003UwB-18q7;
-	Wed, 25 Feb 2026 08:15:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vvA3r-00000003V6R-1DWh;
+	Wed, 25 Feb 2026 08:15:59 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA3c-00000003Uqv-1JAk
+	id 1vvA3n-00000003V0S-2sUz
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Feb 2026 08:15:45 +0000
+	Wed, 25 Feb 2026 08:15:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772007343;
+	s=mimecast20190719; t=1772007354;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=I228xoUl4+ZrgdKCBvI2rCmcNIzmRojWxOXL2gQGmtk=;
-	b=dObQvKzzD3MdQN93tAvBIg+Xp3mE40a5QCNv6TVVFKN54TmYsMAPebWcQUlVGzt5181dvx
-	lOqG2dY9Kdq5zsCIGeMo0NNnKKJraKpakz8ZWMKYitVxbpunJYa1IPI7T8UL//pIARW7LE
-	6zGZljXunaB0J7lRTN/BaMFmS+7QrDw=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+	bh=qbXEkZK+UBZ3F7j2MH1sXu6emUlCr8xCSA0nHJ3EKL0=;
+	b=V05vutQRqBf9h7tY4tzubeoZFRBlno0ELN3CUrsLkAINB3FbYIYR/Z3IQ3Ent1pVKAsYiT
+	4Y6gh+rrjqRGKL9p0Gm2bjdWZl2bA2aEPRAES0rzay52YvHPNRrvmwIAd2q4bhgGsroE2v
+	M78GaeMlbG4j4ZtQAHvgyPpWWxa0Mjs=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-675-rwD-1e3zOqOiSldVPhFTdg-1; Wed,
- 25 Feb 2026 03:15:40 -0500
-X-MC-Unique: rwD-1e3zOqOiSldVPhFTdg-1
-X-Mimecast-MFC-AGG-ID: rwD-1e3zOqOiSldVPhFTdg_1772007338
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-304-4chxBKYfMym28iynbNI3jg-1; Wed,
+ 25 Feb 2026 03:15:50 -0500
+X-MC-Unique: 4chxBKYfMym28iynbNI3jg-1
+X-Mimecast-MFC-AGG-ID: 4chxBKYfMym28iynbNI3jg_1772007348
 Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 01DB51956070;
-	Wed, 25 Feb 2026 08:15:38 +0000 (UTC)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0CB5F195609F;
+	Wed, 25 Feb 2026 08:15:48 +0000 (UTC)
 Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.112.55])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 68EB31800286;
-	Wed, 25 Feb 2026 08:15:29 +0000 (UTC)
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id C1E3A1800286;
+	Wed, 25 Feb 2026 08:15:38 +0000 (UTC)
 From: Baoquan He <bhe@redhat.com>
 To: kasan-dev@googlegroups.com
 Cc: linux-mm@kvack.org,
@@ -72,18 +72,18 @@ Cc: linux-mm@kvack.org,
 	linux-s390@vger.kernel.org,
 	hca@linux.ibm.com,
 	Baoquan He <bhe@redhat.com>
-Subject: [PATCH v5 06/15] arch/arm: don't initialize kasan if it's disabled
-Date: Wed, 25 Feb 2026 16:14:03 +0800
-Message-ID: <20260225081412.76502-7-bhe@redhat.com>
+Subject: [PATCH v5 07/15] arch/arm64: don't initialize kasan if it's disabled
+Date: Wed, 25 Feb 2026 16:14:04 +0800
+Message-ID: <20260225081412.76502-8-bhe@redhat.com>
 In-Reply-To: <20260225081412.76502-1-bhe@redhat.com>
 References: <20260225081412.76502-1-bhe@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-X-Mimecast-MFC-PROC-ID: dPVqobXXhrI5DU2appVSoShAdqAJt-U6DJKlk8YHlB4_1772007338
+X-Mimecast-MFC-PROC-ID: wkjeOC7ms39WRrbWCi0ShDFT0XAqWOO7ppllo3vuf34_1772007348
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_001544_445267_E685F312 
-X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-CacheID: sfid-20260225_001555_872177_04499E41 
+X-CRM114-Status: UNSURE (   8.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,49 +103,40 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Here, kasan is disabled if specified 'kasan=off' in kernel cmdline.
 
-And also call jump_label_init() early in setup_arch() so that later
-kasan_init() can enable static key kasan_flag_enabled. Put
-jump_label_init() beofre parse_early_param() as other architectures
-do.
+And also need skip kasan_populate_early_vm_area_shadow() if kasan
+is disabled.
 
 Signed-off-by: Baoquan He <bhe@redhat.com>
 Cc: linux-arm-kernel@lists.infradead.org
 ---
- arch/arm/kernel/setup.c  | 6 ++++++
- arch/arm/mm/kasan_init.c | 3 +++
- 2 files changed, 9 insertions(+)
+ arch/arm64/mm/kasan_init.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/arm/kernel/setup.c b/arch/arm/kernel/setup.c
-index 0bfd66c7ada0..453a47a4c715 100644
---- a/arch/arm/kernel/setup.c
-+++ b/arch/arm/kernel/setup.c
-@@ -1135,6 +1135,12 @@ void __init setup_arch(char **cmdline_p)
- 	early_fixmap_init();
- 	early_ioremap_init();
+diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
+index abeb81bf6ebd..4a58e609c81b 100644
+--- a/arch/arm64/mm/kasan_init.c
++++ b/arch/arm64/mm/kasan_init.c
+@@ -384,6 +384,9 @@ void __init kasan_populate_early_vm_area_shadow(void *start, unsigned long size)
+ {
+ 	unsigned long shadow_start, shadow_end;
  
-+	/*
-+	 * Initialise the static keys early as they may be enabled by the
-+	 * kasan_init() or early parameters.
-+	 */
-+	jump_label_init();
++	if (!kasan_enabled())
++		return;
 +
- 	parse_early_param();
+ 	if (!is_vmalloc_or_module_addr(start))
+ 		return;
  
- #ifdef CONFIG_MMU
-diff --git a/arch/arm/mm/kasan_init.c b/arch/arm/mm/kasan_init.c
-index c6625e808bf8..82ec043c891f 100644
---- a/arch/arm/mm/kasan_init.c
-+++ b/arch/arm/mm/kasan_init.c
-@@ -212,6 +212,9 @@ void __init kasan_init(void)
- 	phys_addr_t pa_start, pa_end;
- 	u64 i;
+@@ -397,6 +400,10 @@ void __init kasan_populate_early_vm_area_shadow(void *start, unsigned long size)
  
+ void __init kasan_init(void)
+ {
 +	/* If KASAN is disabled via command line, don't initialize it. */
 +	if (kasan_arg_disabled)
 +		return;
- 	/*
- 	 * We are going to perform proper setup of shadow memory.
- 	 *
++
+ 	kasan_init_shadow();
+ 	kasan_init_depth();
+ 	kasan_init_generic();
 -- 
 2.52.0
 
