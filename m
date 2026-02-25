@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C65FAF5543F
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 02:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67861F5544C
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 03:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pEQ1qOLOmRMv89bcyFwZBIoM41WCeQ3M9MCIBjMpfEI=; b=ItTF/sjWH277m8
-	WOSHAVEp6q++3oy0YSvGxM3oDDaN3fQMcyhurKqhdpQLbexFAClp4NKLMvHQwbB1lYx0P4nwoHFwz
-	GGOV622Vl+9YbyWpHbTFLnO/tFphM6nq2HTr7FDc81at6BX87BPgrTKqCUy7oyPKX7yaQ5wbSS9YX
-	G82V3JYw2xG6CxXHYNG1ZGn6OXwFUXom7R4HB4h7WX0JotqpUqwxjJVAPSG4cKfbkRjmQU8Hk3Aig
-	gt4KuEFb282MF6HxbM6Oc7jYz9lFLWi/d/EYmDisRrh9YZ1KBTHaWStqQIOz980v9d61fw3HO8m28
-	3716/9jU50K0soXAQj/w==;
+	List-Owner; bh=cPfVSWMqeegCppETVQrI3siRGJ/CwSEFhDw2Lqj3Hy8=; b=m45VH+qnmjjyv+
+	vBTlcBeVhnrg5tzP+J7pPsY110lSRxyH9bUKLI9Ee36ieFbgIoIdYax0q4hnaMBI3XN5zCfw2GwWf
+	Rp9ZEVx7hZGsorNu9GHxXH9CH/SBaIaRTp8tXsfADRNurSv19pXTH2wIAMJySeYId08GMWXiUDyhQ
+	FUBNj4ZQpLe17QPNEm5air3FECZJ8a7p7tR6zVPXJ1qsdSEuIaDtNkGt/WgEQ98JQDUPrtgWBACun
+	HDa1PT7H7JGOxzQ482Qw5L6X/4xdwBzZk2cjvar/biRd87Mls3JEABjDBJWXlR/T1dLb8FjEfp7ap
+	B144DLRw1Bh3LQ7bUx6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv4vu-000000036zz-1nrC;
-	Wed, 25 Feb 2026 02:47:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vv5Mc-00000003883-2uH5;
+	Wed, 25 Feb 2026 03:15:02 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vv4vs-000000036zt-3Slp
-	for linux-riscv@lists.infradead.org;
-	Wed, 25 Feb 2026 02:47:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F3BD060018;
-	Wed, 25 Feb 2026 02:47:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FAEBC116D0;
-	Wed, 25 Feb 2026 02:47:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1771987642;
-	bh=vnPzHx0X/qaS6meC3nBcsauKU3RBIOk3biR3/9t4ODk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=stDtDriJGui+0odZNwqsvA76+vpX+4SHYSS9OG+eD1s99Tg/Y42wjUOBagzvtdA4v
-	 69WWme479xenxH1MNW/u8YA+T6HnB1yHV2cV+g6ybyYAo451OPJh/Ys8+1DPNySX1K
-	 d4zce//Y8CmiRcCel8Q6I14Bbuj/cGX/dK4Sad3xfUiLLWdL25n1+86EOgWBOwNAvO
-	 UXlSXjma3TYYxewIRf0sTfI4THijJHVSXgPczPQ0m9uw0lJDZZXzLCaPm7ov6Yf8ii
-	 OrnjSr6yEhzp0qIhos/IgbLOBlUZlZ0LtOh3nyBtUgb6PZielmZ+as4EJ7uwQYMDl2
-	 CZ2qF7Nn4Emdg==
-From: Kees Cook <kees@kernel.org>
-To: Andy Lutomirski <luto@kernel.org>
-Cc: Kees Cook <kees@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	linux-arch@vger.kernel.org,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
+	id 1vv5MY-00000003872-3cHt;
+	Wed, 25 Feb 2026 03:15:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Rh
+	WDxjhmHsYf04KJ7B2Su/Ud3Vk3NEr58LAY8SzPANU=; b=BkhKrpTta8Omc+wcfD
+	jryxzC/AjgLzxlPDYCShwMxMHY/ZYPchz3NaMriQ0WsvzcxWaijWqbqTPk16hIxg
+	ZUamHNhb3nR58BH8PZLEGJaN11a+J5h1VMt3jgTpPzvbM5fKhcBapiw+Nau83U4k
+	9447b4flkk5AH2XKUmmcyQMXo=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3v5z9aJ5pQV4DMg--.27870S2;
+	Wed, 25 Feb 2026 11:14:06 +0800 (CST)
+From: Jinyu Tang <tjytimi@163.com>
+To: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Andrew Jones <andrew.jones@oss.qualcomm.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+	Nutty Liu <nutty.liu@hotmail.com>,
 	Paul Walmsley <pjw@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Jingwei Wang <wangjingwei@iscas.ac.cn>,
-	linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
-	linux-hardening@vger.kernel.org
-Subject: [PATCH] vdso/datapage: Define vdso data pointers as arrays
-Date: Tue, 24 Feb 2026 18:47:20 -0800
-Message-Id: <20260225024716.work.043-kees@kernel.org>
-X-Mailer: git-send-email 2.34.1
+	linux-kernel@vger.kernel.org,
+	Jinyu Tang <tjytimi@163.com>
+Subject: [PATCH v5] KVM: riscv: Skip CSR restore if VCPU is reloaded on the same core
+Date: Wed, 25 Feb 2026 11:14:02 +0800
+Message-ID: <20260225031402.841618-1-tjytimi@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5715; i=kees@kernel.org; h=from:subject:message-id; bh=vnPzHx0X/qaS6meC3nBcsauKU3RBIOk3biR3/9t4ODk=; b=owGbwMvMwCVmps19z/KJym7G02pJDJnzknZsuJb2USV14adTcQcCL30xvpOZcWfjhS/xfQ0iz 34HN5370lHKwiDGxSArpsgSZOce5+Lxtj3cfa4izBxWJpAhDFycAjCR3esYGS4o3/n2va/9ybWP /9cw/pPazPRPdnujnVb0LlVH+XZpc32Gf+ZTbkmweLeuSlCT8y8pa9Cy2LphcufXtfat/0K4NQ0 6OAE=
-X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
+X-CM-TRANSID: _____wD3v5z9aJ5pQV4DMg--.27870S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3WrWxurWxXr4xXr4xCw1UGFg_yoW7WFW5pF
+	ZrCrn5Ww48Gr1fG347Xr4v9r4Fg39Ygw13G34UX3yayr45try5AFs5KFyUAFZ8GrW8ZFyS
+	yF1DtFy0kFn8ZaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pR58nOUUUUU=
+X-Originating-IP: [2408:823c:2011:2c65:d9c1:3ebe:3320:1144]
+X-CM-SenderInfo: xwm13xlpl6il2tof0z/xtbC8h5b02meaP4MAAAA3J
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260224_191459_304114_E069BB59 
+X-CRM114-Status: GOOD (  21.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,140 +83,150 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The vdso_u_time_data, vdso_u_rng_data, and vdso_u_arch_data arrays
-are seen by GCC as single instances (due to their declarations in
-include/vdso/datapage.h). When the vdso data pointers are dereferenced
-with an offset, GCC thinks there is an access beyond the returned single
-instance. These are actually arrays constructed at link time, so declare
-them as such.
+Currently, kvm_arch_vcpu_load() unconditionally restores guest CSRs and
+HGATP. However, when a VCPU is loaded back on the same physical CPU, 
+and no other KVM VCPU has run on this CPU since it was last put,
+the hardware CSRs are still valid.
 
-Silence the warning seen with -Warray-bounds:
+This patch optimizes the vcpu_load path by skipping the expensive CSR
+writes if all the following conditions are met:
+1. It is being reloaded on the same CPU (vcpu->arch.last_exit_cpu == cpu).
+2. No other VCPU used this CPU (vcpu == __this_cpu_read(kvm_former_vcpu)).
+3. The CSRs are not dirty (!vcpu->arch.csr_dirty).
 
-In file included from ../include/linux/export.h:5,
-                 from ../include/linux/linkage.h:7,
-                 from ../arch/x86/include/asm/cache.h:5,
-                 from ../include/vdso/cache.h:5,
-                 from ../include/linux/cache.h:6,
-                 from ../include/linux/time.h:5,
-                 from ../arch/x86/entry/vdso/vclock_gettime.c:11:
-In function 'vdso_read_begin',
-    inlined from 'do_coarse_timens' at ../arch/x86/entry/vdso/../../../../lib/vdso/gettimeofday.c:204:9,
-    inlined from 'do_coarse' at ../arch/x86/entry/vdso/../../../../lib/vdso/gettimeofday.c:233:12,
-    inlined from '__cvdso_clock_gettime_common' at ../arch/x86/entry/vdso/../../../../lib/vdso/gettimeofday.c:305:10,
-    inlined from '__cvdso_clock_gettime_data.constprop' at ../arch/x86/entry/vdso/../../../../lib/vdso/gettimeofday.c:322:7:
-../include/asm-generic/rwonce.h:44:26: error: array subscript 1024 is outside array bounds of 'struct vdso_time_data[1]' [-Werror=array-bounds=]
-...
-../include/vdso/helpers.h:14:32: note: in expansion of macro 'READ_ONCE'
-   14 |         while (unlikely((seq = READ_ONCE(vc->seq)) & 1))
-      |                                ^~~~~~~~~
+To ensure this fast-path doesn't break corner cases:
+- Live migration and VCPU reset are naturally safe. KVM initializes
+  last_exit_cpu to -1, which guarantees the fast-path won't trigger.
+- A new 'csr_dirty' flag is introduced to track runtime userspace
+  interventions. If userspace modifies guest configurations (e.g.,
+  hedeleg via KVM_SET_GUEST_DEBUG, or CSRs via KVM_SET_ONE_REG) while
+  the VCPU is preempted, the flag is set to skip fast path.
 
-Reachable via:
+Note that kvm_riscv_vcpu_aia_load() is kept outside the skip logic
+to ensure IMSIC/AIA interrupt states are always properly
+synchronized.
 
-static __always_inline const struct vdso_time_data *__arch_get_vdso_u_time_data(void)
-{
-        return &vdso_u_time_data;
-}
-...
-        return __cvdso_clock_gettime_data(__arch_get_vdso_u_time_data(), clock, ts);
-...
-__cvdso_clock_gettime_common(const struct vdso_time_data *vd, ...)
-...
-	const struct vdso_clock *vc = vd->clock_data;
-...
-	if (likely(msk & VDSO_HRES))
-		vc = &vc[CS_HRES_COARSE];
-...
-	while (unlikely((seq = READ_ONCE(vc->seq)) & 1))
-
-Signed-off-by: Kees Cook <kees@kernel.org>
+Signed-off-by: Jinyu Tang <tjytimi@163.com>
 ---
-Cc: Andy Lutomirski <luto@kernel.org>
-Cc: Thomas Gleixner <tglx@kernel.org>
-Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: <linux-arch@vger.kernel.org>
----
- include/asm-generic/vdso/vsyscall.h | 4 ++--
- include/vdso/datapage.h             | 6 +++---
- arch/loongarch/vdso/vgetcpu.c       | 2 +-
- arch/riscv/kernel/vdso/hwprobe.c    | 4 ++--
- 4 files changed, 8 insertions(+), 8 deletions(-)
+ v4 -> v5:
+ - Dropped the 'vcpu->scheduled_out' check as Andrew Jones pointed out,
+   relying on 'last_exit_cpu', 'former_vcpu', and '!csr_dirty'
+   is sufficient and safe. This expands the optimization to cover many
+   userspace exits (e.g., MMIO) as well.
+ - Added a block comment in kvm_arch_vcpu_load() to warn future
+   developers about maintaining the 'csr_dirty' dependency, as Andrew's
+   suggestion to reduce fragility.
+ - Removed unnecessary single-line comments and fixed indentation nits.
 
-diff --git a/include/asm-generic/vdso/vsyscall.h b/include/asm-generic/vdso/vsyscall.h
-index 5c6d9799f4e7..743056f804ed 100644
---- a/include/asm-generic/vdso/vsyscall.h
-+++ b/include/asm-generic/vdso/vsyscall.h
-@@ -7,14 +7,14 @@
- #ifndef __arch_get_vdso_u_time_data
- static __always_inline const struct vdso_time_data *__arch_get_vdso_u_time_data(void)
- {
--	return &vdso_u_time_data;
-+	return vdso_u_time_data;
- }
- #endif
+ v3 -> v4:
+ - Addressed Anup Patel's review regarding hardware state inconsistency.
+ - Introduced 'csr_dirty' flag to track dynamic userspace CSR/CONFIG
+   modifications (KVM_SET_ONE_REG, KVM_SET_GUEST_DEBUG), forcing a full
+   restore when debugging or modifying states at userspace.
+ - Kept kvm_riscv_vcpu_aia_load() out of the skip block to resolve IMSIC
+   VS-file instability.
+
+ v2 -> v3:
+ v2 was missing a critical check because I generated the patch from my
+ wrong (experimental) branch. This is fixed in v3. Sorry for my trouble.
+
+ v1 -> v2:
+ Apply the logic to aia csr load. Thanks for Andrew Jones's advice.
+---
+ arch/riscv/include/asm/kvm_host.h |  3 +++
+ arch/riscv/kvm/vcpu.c             | 21 +++++++++++++++++++++
+ arch/riscv/kvm/vcpu_onereg.c      |  2 ++
+ 3 files changed, 26 insertions(+)
+
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index 24585304c..7ee47b83c 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -273,6 +273,9 @@ struct kvm_vcpu_arch {
+ 	/* 'static' configurations which are set only once */
+ 	struct kvm_vcpu_config cfg;
  
- #ifndef __arch_get_vdso_u_rng_data
- static __always_inline const struct vdso_rng_data *__arch_get_vdso_u_rng_data(void)
- {
--	return &vdso_u_rng_data;
-+	return vdso_u_rng_data;
- }
- #endif
++	/* Indicates modified guest CSRs */
++	bool csr_dirty;
++
+ 	/* SBI steal-time accounting */
+ 	struct {
+ 		gpa_t shmem;
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index a55a95da5..578f8693a 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -24,6 +24,8 @@
+ #define CREATE_TRACE_POINTS
+ #include "trace.h"
  
-diff --git a/include/vdso/datapage.h b/include/vdso/datapage.h
-index 23c39b96190f..8c3408c8b126 100644
---- a/include/vdso/datapage.h
-+++ b/include/vdso/datapage.h
-@@ -164,9 +164,9 @@ struct vdso_rng_data {
-  * With the hidden visibility, the compiler simply generates a PC-relative
-  * relocation, and this is what we need.
-  */
--extern struct vdso_time_data vdso_u_time_data __attribute__((visibility("hidden")));
--extern struct vdso_rng_data vdso_u_rng_data __attribute__((visibility("hidden")));
--extern struct vdso_arch_data vdso_u_arch_data __attribute__((visibility("hidden")));
-+extern struct vdso_time_data vdso_u_time_data[] __attribute__((visibility("hidden")));
-+extern struct vdso_rng_data vdso_u_rng_data[] __attribute__((visibility("hidden")));
-+extern struct vdso_arch_data vdso_u_arch_data[] __attribute__((visibility("hidden")));
++static DEFINE_PER_CPU(struct kvm_vcpu *, kvm_former_vcpu);
++
+ const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	STATS_DESC_COUNTER(VCPU, ecall_exit_stat),
+@@ -537,6 +539,8 @@ int kvm_arch_vcpu_ioctl_set_guest_debug(struct kvm_vcpu *vcpu,
+ 		vcpu->arch.cfg.hedeleg |= BIT(EXC_BREAKPOINT);
+ 	}
  
- extern struct vdso_time_data *vdso_k_time_data;
- extern struct vdso_rng_data *vdso_k_rng_data;
-diff --git a/arch/loongarch/vdso/vgetcpu.c b/arch/loongarch/vdso/vgetcpu.c
-index 73af49242ecd..d09f9d860bf0 100644
---- a/arch/loongarch/vdso/vgetcpu.c
-+++ b/arch/loongarch/vdso/vgetcpu.c
-@@ -39,7 +39,7 @@ int __vdso_getcpu(unsigned int *cpu, unsigned int *node, struct getcpu_cache *un
- 		*cpu = cpu_id;
- 
- 	if (node)
--		*node = vdso_u_arch_data.pdata[cpu_id].node;
-+		*node = vdso_u_arch_data->pdata[cpu_id].node;
- 
++	vcpu->arch.csr_dirty = true;
++
  	return 0;
  }
-diff --git a/arch/riscv/kernel/vdso/hwprobe.c b/arch/riscv/kernel/vdso/hwprobe.c
-index 8f45500d0a6e..fc2ab4e6a9ab 100644
---- a/arch/riscv/kernel/vdso/hwprobe.c
-+++ b/arch/riscv/kernel/vdso/hwprobe.c
-@@ -16,7 +16,7 @@ static int riscv_vdso_get_values(struct riscv_hwprobe *pairs, size_t pair_count,
- 				 size_t cpusetsize, unsigned long *cpus,
- 				 unsigned int flags)
- {
--	const struct vdso_arch_data *avd = &vdso_u_arch_data;
-+	const struct vdso_arch_data *avd = vdso_u_arch_data;
- 	bool all_cpus = !cpusetsize && !cpus;
- 	struct riscv_hwprobe *p = pairs;
- 	struct riscv_hwprobe *end = pairs + pair_count;
-@@ -50,7 +50,7 @@ static int riscv_vdso_get_cpus(struct riscv_hwprobe *pairs, size_t pair_count,
- 			       size_t cpusetsize, unsigned long *cpus,
- 			       unsigned int flags)
- {
--	const struct vdso_arch_data *avd = &vdso_u_arch_data;
-+	const struct vdso_arch_data *avd = vdso_u_arch_data;
- 	struct riscv_hwprobe *p = pairs;
- 	struct riscv_hwprobe *end = pairs + pair_count;
- 	unsigned char *c = (unsigned char *)cpus;
+ 
+@@ -581,6 +585,20 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+ 	struct kvm_vcpu_config *cfg = &vcpu->arch.cfg;
+ 
++	/*
++	 * If VCPU is being reloaded on the same physical CPU and no
++	 * other KVM VCPU has run on this CPU since it was last put,
++	 * we can skip the expensive CSR and HGATP writes.
++	 *
++	 * Note: If a new CSR is added to this fast-path skip block,
++	 * make sure that 'csr_dirty' is set to true in any
++	 * ioctl (e.g., KVM_SET_ONE_REG) that modifies it.
++	 */
++	if (vcpu == __this_cpu_read(kvm_former_vcpu) &&
++	    vcpu->arch.last_exit_cpu == cpu && !vcpu->arch.csr_dirty)
++		goto csr_restore_done;
++
++	vcpu->arch.csr_dirty = false;
+ 	if (kvm_riscv_nacl_sync_csr_available()) {
+ 		nsh = nacl_shmem();
+ 		nacl_csr_write(nsh, CSR_VSSTATUS, csr->vsstatus);
+@@ -624,6 +642,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 
+ 	kvm_riscv_mmu_update_hgatp(vcpu);
+ 
++csr_restore_done:
+ 	kvm_riscv_vcpu_timer_restore(vcpu);
+ 
+ 	kvm_riscv_vcpu_host_fp_save(&vcpu->arch.host_context);
+@@ -645,6 +664,8 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ 	void *nsh;
+ 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+ 
++	__this_cpu_write(kvm_former_vcpu, vcpu);
++
+ 	vcpu->cpu = -1;
+ 
+ 	kvm_riscv_vcpu_aia_put(vcpu);
+diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
+index e7ab6cb00..fc08bf833 100644
+--- a/arch/riscv/kvm/vcpu_onereg.c
++++ b/arch/riscv/kvm/vcpu_onereg.c
+@@ -652,6 +652,8 @@ static int kvm_riscv_vcpu_set_reg_csr(struct kvm_vcpu *vcpu,
+ 	if (rc)
+ 		return rc;
+ 
++	vcpu->arch.csr_dirty = true;
++
+ 	return 0;
+ }
+ 
 -- 
-2.34.1
+2.43.0
 
 
 _______________________________________________
