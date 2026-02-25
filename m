@@ -4,55 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80B03EFD20B
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 08:16:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D86FEFD20B
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 08:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JY5TJzrULh2PbHwggXmjPcBntJLb2K6fTWds4sONX1M=; b=Vmh+B++A/Jc5gS
-	VKUU1V2aRTrDRFBz3u26RHBSrf/ZlsEL231F8/iM5VxmDwB+xXPjEjVXM9cbW4JuwTcv51JzrkE4r
-	1XJacg5O+7iEVsRs0jCJqMdnjFBBwN0c8z3mAP6Mz91fN3zDSowzqjXkJkLEE3KR50UPP6evjrUWG
-	Vvc9Qn7wEcTQzEZTthemXmBJ3gxQECurMNCSMO5bXyiSH3CkpVVFpq5QfeMeMfYVyTFneTKoHxTQo
-	mwcOc7kIwhIUAWf/9m3ny/CwB4MQuBNIrH1p8LGj7Nu+2LchTM3M1ip8sHN+h8YSUq1oLCJhYXZGk
-	sraiMujgQEkxH0tR0zcg==;
+	List-Owner; bh=eMcsPqzy70doZqiUWdHTuxg29/6fpyuiPUW0UZdAym4=; b=xzPYrGdKpI4gcU
+	bIgNRV066UNP0l5Fw4kkiRkbammnHeENsZ4Lqtu71/R+s3bmf0o7IpP3DwPrDG8CL9meva29xkIfM
+	G5dB/FBGQAaEiDLkjzlHR71foWVBJCnvKGoO1AVSS+PhPaHhPOpkhnK1VjGPffnfNuLra7hTUwHpV
+	5JQebtRfvFfb1Vdeq/fEWY6G35krrp3n2J//9HuWNHPl8IJZlAqvuI2bwV0XBcbtIIzBCz4z12i35
+	QP2VBVAWpCWw05wA4LOW0gPeH3RZgRAMIb/uDHOvo4YzFalEDYKUfMopFYX1U6oVUh0GyEoV+ykcP
+	H7sGsGR+uIjNBtqcvV+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA4O-00000003VcZ-1Idu;
-	Wed, 25 Feb 2026 08:16:32 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vvA4c-00000003Vv6-0BKz;
+	Wed, 25 Feb 2026 08:16:46 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA4H-00000003VUv-1usM
+	id 1vvA4a-00000003Vs1-1sJs
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 25 Feb 2026 08:16:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-type:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=ufH5nmkXpWJzJI9ksuEPClUSVztzr8yoo3w4HNv6hNs=; b=Mmq68F8t9iXSChdGELiWDsNJLd
+	8OG/TPsvLoa5DbdGyQYZ3CJ4PkX3vOCVC35dsXgv5ND1ai7018gqDXkadwSMH89CkcMfFegwDAccK
+	P8dYsAB51W1AIqgpzjhCXiXDul4suw+606HO6zxGF2u1gX3MNk08VDIgn+h01ASmqO+pAD9pbUWLi
+	gjn4JsObv+v9KF8izkJodmHYkcd8CgVtzwDzOcJjyA/B2f86Bhp2awM5/ewVASI9ElpkCT1QXMBlb
+	K8rX2IDaXk4+ADfP4L40oyWOmsMOep/KWX16cJLLlF316U4ZZAXjFIpIw8vyKESdZx3i6H9qzOwYd
+	qrArBBpw==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvA4X-00000000jXF-2Ps1
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Feb 2026 08:16:26 +0000
+	Wed, 25 Feb 2026 08:16:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772007384;
+	s=mimecast20190719; t=1772007399;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=dmXeuzqCGEXbsFr6BMS6DZRu4kl8OFDlvdktSaTFzJk=;
-	b=eMqagXgoihrvjJwNmnuP93gA4gNMHrRCfbhR9w6m4v49llNoQmoDRn+7cGUuN5SgjO3VgT
-	3S6LYHl/cFs6QAxzBKX7CIdi7B9Ul7TxMeyZCIZ9n9YDWzv1MeTPyMEPXyT3kK7FcoD1VV
-	fZ4h64UB/ZJrXiiS6i/bYbTRo3LfIHk=
+	bh=ufH5nmkXpWJzJI9ksuEPClUSVztzr8yoo3w4HNv6hNs=;
+	b=e5kUXn/3mhffdK3f9Raaf/GTZGh/L6Ie1W/AsQ7SgVhmeoJCDKGLXPxi9DNqJnvFDyVNGX
+	9HCm6ucWNDeoJ88wccLJregxSzVz8/csWyKfgxA5jzOLkP37NA6uhyrzSy0CPcKuWWJnM3
+	vqBB7MHXLu2YQJ2Vl0rf8+CudM2NOPg=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1772007400;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ufH5nmkXpWJzJI9ksuEPClUSVztzr8yoo3w4HNv6hNs=;
+	b=HRqhc9PLD9SrWJunPqvxDVzXGrOv/La6n9M39SyDXv9rOiFnazq48VcmZC6dlgeETpnLr1
+	yJGQi6rkeBFqpRoI6Hf3LGRrprKHL/5JzL4p8PEy60rgoqfYjOUTRnXABew4BRbv07IkuF
+	LGPDeRSDwf0rfoqhyTFUglen2uV0Ni8=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1772007400;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ufH5nmkXpWJzJI9ksuEPClUSVztzr8yoo3w4HNv6hNs=;
+	b=HRqhc9PLD9SrWJunPqvxDVzXGrOv/La6n9M39SyDXv9rOiFnazq48VcmZC6dlgeETpnLr1
+	yJGQi6rkeBFqpRoI6Hf3LGRrprKHL/5JzL4p8PEy60rgoqfYjOUTRnXABew4BRbv07IkuF
+	LGPDeRSDwf0rfoqhyTFUglen2uV0Ni8=
 Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-74-YXdFjCA1Mnetuo5LYiwicw-1; Wed,
- 25 Feb 2026 03:16:22 -0500
-X-MC-Unique: YXdFjCA1Mnetuo5LYiwicw-1
-X-Mimecast-MFC-AGG-ID: YXdFjCA1Mnetuo5LYiwicw_1772007380
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-648-Jj4asdUeMuyAfccAe_OsEQ-1; Wed,
+ 25 Feb 2026 03:16:33 -0500
+X-MC-Unique: Jj4asdUeMuyAfccAe_OsEQ-1
+X-Mimecast-MFC-AGG-ID: Jj4asdUeMuyAfccAe_OsEQ_1772007391
 Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7F2CF1800282;
-	Wed, 25 Feb 2026 08:16:20 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B293618005BC;
+	Wed, 25 Feb 2026 08:16:31 +0000 (UTC)
 Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.112.55])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 37D111800465;
-	Wed, 25 Feb 2026 08:16:09 +0000 (UTC)
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 5C45A1800465;
+	Wed, 25 Feb 2026 08:16:20 +0000 (UTC)
 From: Baoquan He <bhe@redhat.com>
 To: kasan-dev@googlegroups.com
 Cc: linux-mm@kvack.org,
@@ -72,18 +107,18 @@ Cc: linux-mm@kvack.org,
 	linux-s390@vger.kernel.org,
 	hca@linux.ibm.com,
 	Baoquan He <bhe@redhat.com>
-Subject: [PATCH v5 10/15] arch/riscv: don't initialize kasan if it's disabled
-Date: Wed, 25 Feb 2026 16:14:07 +0800
-Message-ID: <20260225081412.76502-11-bhe@redhat.com>
+Subject: [PATCH v5 11/15] arch/x86: don't initialize kasan if it's disabled
+Date: Wed, 25 Feb 2026 16:14:08 +0800
+Message-ID: <20260225081412.76502-12-bhe@redhat.com>
 In-Reply-To: <20260225081412.76502-1-bhe@redhat.com>
 References: <20260225081412.76502-1-bhe@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-X-Mimecast-MFC-PROC-ID: Cg_UnSQtN_mkBXleLITZ9MNU_9jGyQkCZQSbQoD82yQ_1772007380
+X-Mimecast-MFC-PROC-ID: 63J6eSc5oUPYi1Ck7CdGbTBnoRXaUtwMVew0x7go_6w_1772007391
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_001625_572912_9C5FE6B3 
-X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-CacheID: sfid-20260225_081641_765691_D38B079B 
+X-CRM114-Status: UNSURE (   7.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,26 +139,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Here, kasan is disabled if specified 'kasan=off' in kernel cmdline.
 
 Signed-off-by: Baoquan He <bhe@redhat.com>
-Cc: linux-riscv@lists.infradead.org
+Cc: x86@kernel.org
 ---
- arch/riscv/mm/kasan_init.c | 4 ++++
+ arch/x86/mm/kasan_init_64.c | 4 ++++
  1 file changed, 4 insertions(+)
 
-diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-index c4a2a9e5586e..dc7cc0dcc7eb 100644
---- a/arch/riscv/mm/kasan_init.c
-+++ b/arch/riscv/mm/kasan_init.c
-@@ -485,6 +485,10 @@ void __init kasan_init(void)
- 	phys_addr_t p_start, p_end;
- 	u64 i;
+diff --git a/arch/x86/mm/kasan_init_64.c b/arch/x86/mm/kasan_init_64.c
+index 998b6010d6d3..5ebf2850c77d 100644
+--- a/arch/x86/mm/kasan_init_64.c
++++ b/arch/x86/mm/kasan_init_64.c
+@@ -343,6 +343,10 @@ void __init kasan_init(void)
+ 	unsigned long shadow_cea_begin, shadow_cea_per_cpu_begin, shadow_cea_end;
+ 	int i;
  
 +	/* If KASAN is disabled via command line, don't initialize it. */
 +	if (kasan_arg_disabled)
 +		return;
 +
- 	create_tmp_mapping();
- 	csr_write(CSR_SATP, PFN_DOWN(__pa(tmp_pg_dir)) | satp_mode);
+ 	memcpy(early_top_pgt, init_top_pgt, sizeof(early_top_pgt));
  
+ 	/*
 -- 
 2.52.0
 
