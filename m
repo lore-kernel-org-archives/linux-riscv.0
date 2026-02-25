@@ -4,99 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CDDFFD45FA
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 22:57:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD8C8FD45F9
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 23:12:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/mcN0V2J969NNbLkYwFijN0nODdv4aXVk7rbViHYUOI=; b=V7SR4GkeLukCLS
-	zHCIIo1UfpALeXXXgRjo1mgmalb9f8mOg6es2LGhv4nSR74D4YgHIoVuEG28gxMd69ZBqqFq/U+7i
-	RI9g0PXkNWj4MZyR7vqvYw4ICx8pIW7oBmfzKrSSeHU/viCM1k9UX1AoiR/812sBW/6sbodq/2n9B
-	cgCI4cMV3vKi/rKCwE/ln/l039cNISxCZF/N56PVyUbYajvgKATGrX43Kr8tjWteUq/pdWS91t9Tu
-	tKjf6uPnH7QPvbt7GpD8NTInsIm2qE4uu4LZKnIGm5ETnr7DHdvTQLQokjpxhvpFjGm4dXaCRwGRg
-	wO5YNVelqDisKfgjV7tA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=94KTB39Bz0D5j9lqp1AvgdDDKB0TPK/OJe9KfiFzWlA=; b=iOuH4xa3EyoXQgNaLpxd14WglU
+	CyU5vUS9ox+nKYqUm2v+T1EoNyQCGNmRfaNn1Z9bSapAvoGQ3tFQC02YZHgXnz2Jb8HCL4Tj0ZgCw
+	4P3TLggfHnj2I3IpS4oDjwvg9n6vbYH9cWgddvs45t7VnNtUIjflcYC9lPd70cD91lFcKq3ZX5dUp
+	eWgnl0cEbFsJq5eAjwJOAEZ8HISFZgpk6AgQXKd0IR4DxqPqYJkVp0GQgOcMeB9k/jJFDUHcmogYc
+	a/P071rmBtG2/y072oFKXHSNQ5nRaAgIVW0VQkbH20drluaMaYXBziRJMEp9exmoYIjLsEOiZkywB
+	o0OMQwmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvNoW-000000051zw-3x7e;
-	Wed, 25 Feb 2026 22:57:04 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vvO3g-0000000533G-45JQ;
+	Wed, 25 Feb 2026 23:12:44 +0000
+Received: from mail-westus3azon11012021.outbound.protection.outlook.com ([40.107.209.21] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvNoU-000000051zb-02Jp
+	id 1vvO3d-0000000532W-2R4f
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Feb 2026 22:57:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772060219;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7GoTj0XJIraxE36kErcF7CkdwsGLSTR+HFHvb50C3Fs=;
-	b=PeWLozsbsHlYhkqnrZeXqF+vk9nnOPhQFAtyc3MamUADTkzKQen1SWGc4j0/CAaUteSHol
-	esSPtATfvaLgnrQwSKSlRcy75xF3CMbnvdcpom7lTv+cD93CYTRDig2H7eygJsdVEnoFYa
-	fyBsvLVd2tx4csCOQPEmZ6tKpepbmJQ=
-Received: from mail-yw1-f198.google.com (mail-yw1-f198.google.com
- [209.85.128.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-638-bhiAQ3OiNdWjUIYQlzJG4Q-1; Wed, 25 Feb 2026 17:56:57 -0500
-X-MC-Unique: bhiAQ3OiNdWjUIYQlzJG4Q-1
-X-Mimecast-MFC-AGG-ID: bhiAQ3OiNdWjUIYQlzJG4Q_1772060217
-Received: by mail-yw1-f198.google.com with SMTP id 00721157ae682-79402e48414so3340247b3.2
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Feb 2026 14:56:57 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772060217; x=1772665017;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=7GoTj0XJIraxE36kErcF7CkdwsGLSTR+HFHvb50C3Fs=;
-        b=NxEssFNxCh+05c9OBm8hFAc5Dth4iN4H45lnsisx14Fqq4l/xsTUxJVu/CSUFy6Z23
-         yjWBXJ9Wp83Bztjhbp+fXy52e6g4+N7qkjj5KfV/95Yaz3hX7kKwuZ8G6Qvte2tg0HUR
-         IlYhuwu2jHXJU6YNgu+3Smx1OYYKYINjA79tLKPJhmUK8G4ADCMNROWAJcjXGwDc00bb
-         n6zuEWbwviOLJtddQ+Tx4yGbmf0NquZwapcdridPSdEPh6WMbyODj33tHpSj2s1ryYml
-         7C72sbmt3YFQG+nw1myKz6ydg/ZRmJStaERVK6QmGJJ1froT91MXz+hg55XhbI16jkT4
-         Rzbg==
-X-Forwarded-Encrypted: i=1; AJvYcCUQp1L9etXBVBKqWbq5t7NoEaL8LpgB0znmIF5DpeHJBdWpt8DexMx13igs5qT4A/J9hmhXVY16+dNAKA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1rFWxP+r1IqRF12s5Z6pI/bS1cTmaQNrwsKsP1tk631vFxVO1
-	CpOiwduplqaJcdq3IoNADr0SIVjcfN5a+evMUS2PXoa+KRDy9iz6W7cYKQz9PczE42lYak9G5tz
-	Y6OkoQSliqqddGj6VUKD0zM6sQUgOvRH60pvEtXAZ+HFmnUtkMrUA9SWymNp7vZK4diigoA==
-X-Gm-Gg: ATEYQzxcGNJJOGhVXFtmxhYCU6KCCASO/Wr6q4vrBLX14IYDM9qNHmgElbDsSGKpAqN
-	2mty2YMMMyjqOz1eWUoEafz2O8zNWV2/L6Qah1+ryOsYry7Klg7iFSujnfs6+AryTaOymGWZsD0
-	31kbN/ZoVZVje5uV2YN2LBWt7FW6HIApIuko8tdKyQgIjvVEsk8k8/lw2kIE2K2tFDbgOuWpAOa
-	4ESMOOkm688QgvXmB2P9hIEV5Bdr1B0zumqbBrJmcIGILW8+uZvPI3BiPzOLzjgMnayEIG1Zekm
-	yBz7hwCN3uOaPBQ9gelwVOowWgV75mHMcONDIli3gb9TC8jt8Mh5js/hc3wch5sp+RcbzzdMT/Z
-	2X7RVE+Iu//VAVqHXldQ=
-X-Received: by 2002:a05:690c:101:b0:796:4154:9fab with SMTP id 00721157ae682-7986ff520ddmr20295337b3.41.1772060217174;
-        Wed, 25 Feb 2026 14:56:57 -0800 (PST)
-X-Received: by 2002:a05:690c:101:b0:796:4154:9fab with SMTP id 00721157ae682-7986ff520ddmr20295137b3.41.1772060216778;
-        Wed, 25 Feb 2026 14:56:56 -0800 (PST)
-Received: from redhat.com ([2600:382:811f:bb35:ae9a:1ac7:e1d:86ce])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-79876ac3c0dsm1236297b3.12.2026.02.25.14.56.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Feb 2026 14:56:56 -0800 (PST)
-Date: Wed, 25 Feb 2026 17:56:53 -0500
-From: Brian Masney <bmasney@redhat.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-clk@vger.kernel.org, stable@vger.kernel.org,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] clk: microchip: mpfs-ccc: fix out of bounds access
- during output registration
-Message-ID: <aZ9-NWiX4wMH3Ay6@redhat.com>
-References: <20260224-briskly-scholar-294d13464721@wendy>
+	Wed, 25 Feb 2026 23:12:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SdEFM0PdcFvKnk+7wcHsDhvYp1z7iv+DAsviLHd5pClkmk381dkDmaiX2yuC7xbDcmlLOnX1MBM7sv6HYEH/Cp8UdL8kMFutOFaUL6CsCaaq/kijyTcppxhZehP+f6UqCulmBWOApIiF+6AqJBL3c7OGk0B0i62/J6rc6jDIaedef+UhTXggXy8vdg34ENf7NcnA0frFInwSXooYbQ8ikd8/qCi4oubnKOpI2HCfyRGKkYAnfw2veWZy+4eXXWV8Td7ncNGBZuTgutk3ByKffTHslGoTrFC2Ebk96I/U389tgmDSCrrxIYW4l+/kH+PKyX+R0kjHR3fa2p+AmEDHpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0aRLbep1mAoy/9FlVi1wIcO/l+Ji5XgfNPxwedWZCHs=;
+ b=fmKyXgdWaBUENeBggy1yxAtAXq4jeXBKsFApKwz5DUZmmpqJCvNs6cMesygR73k7/PBSjx9KYyDtl2iYjInyCrzcdyg+hLYnk3nPgL78rP5S9ATPUNjPXnVPynqT/ZAlNYZUMJbzcNkgBAtGXvg7sryf/uYLLOcF6Rmyf9cJYgM2TkKEerqXlXQSgYKVy7UY2pDTiT/CLUy0OCMp9gNT8u+qgiMyVkOKWA67s+wKULg3dKpjzjvd/cei88cjg54kS41OOd3sRe146Ce3Dg9INEWOYCjw4Uwz7IT5mOPVchGYSK+MyqH+i9ORnRJnPyKyGjVHK3LOSLLVn1DuHJJr4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0aRLbep1mAoy/9FlVi1wIcO/l+Ji5XgfNPxwedWZCHs=;
+ b=ijhWvnV0eYPBRqrqmflkuNhu9Lev5ahJHSlor78tIbS6uVa2dJHqQ03it2zZHJzAQNmHdvl4Mds4dNozTzgRaqaiq3YMOzzPCOP662fwmpzMYliQj82IDhG7QEbCa65q4+kC7ghDhZCcQ0ST0tqdKTGZv87Z7kcPX8L9jgkDjG0=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CH3PR12MB9194.namprd12.prod.outlook.com (2603:10b6:610:19f::7)
+ by SJ2PR12MB7868.namprd12.prod.outlook.com (2603:10b6:a03:4cd::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.21; Wed, 25 Feb
+ 2026 23:12:28 +0000
+Received: from CH3PR12MB9194.namprd12.prod.outlook.com
+ ([fe80::1e6b:ca8b:7715:6fee]) by CH3PR12MB9194.namprd12.prod.outlook.com
+ ([fe80::1e6b:ca8b:7715:6fee%4]) with mapi id 15.20.9654.007; Wed, 25 Feb 2026
+ 23:12:27 +0000
+Message-ID: <bc6817bd-4aa5-4033-b89d-88fef637de65@amd.com>
+Date: Thu, 26 Feb 2026 10:11:56 +1100
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH v8 07/15] iommupt: Add map_pages op
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
+ iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
+ Justin Stitt <justinstitt@google.com>, linux-doc@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
+ llvm@lists.linux.dev, Bill Wendling <morbo@google.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Miguel Ojeda <ojeda@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Shuah Khan <shuah@kernel.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Will Deacon <will@kernel.org>,
+ Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
+ James Gowans <jgowans@amazon.com>, Kevin Tian <kevin.tian@intel.com>,
+ Michael Roth <michael.roth@amd.com>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+ Samiullah Khawaja <skhawaja@google.com>, Vasant Hegde <vasant.hegde@amd.com>
+References: <7-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
+ <fc4f0354-4e6d-452d-abfb-fe24e53253a2@amd.com>
+ <20260117154347.GF1134360@nvidia.com>
+From: Alexey Kardashevskiy <aik@amd.com>
+Content-Language: en-US
+In-Reply-To: <20260117154347.GF1134360@nvidia.com>
+X-ClientProxiedBy: SY5PR01CA0095.ausprd01.prod.outlook.com
+ (2603:10c6:10:207::20) To CH3PR12MB9194.namprd12.prod.outlook.com
+ (2603:10b6:610:19f::7)
 MIME-Version: 1.0
-In-Reply-To: <20260224-briskly-scholar-294d13464721@wendy>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: vAPxdFwU52UmMDP2ToCbsjPD5FmgEJWlyKYbBis2yUk_1772060217
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB9194:EE_|SJ2PR12MB7868:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2a3b594b-c6f6-4184-9bbb-08de74c357f6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014;
+X-Microsoft-Antispam-Message-Info: Gt7jCSRSzNJRrVJS4u+8xYQw9hEXJrFqpdYH+FURSkZonbmXBt29QsUXShVX7a/TyP/iiJzOt0gxrg9N4P4Q6T6NlXmKmAwt63GvKiA5YgSNcqqxPfdMHdCli0oj1esZXqVCgR2mi7Ts4R6isc2wK6duZFzcf8RqnYTE4bcsnT3cRCG0aGkhVGH02t6J8fdRH6bJacB2MEAbbq7KJOpOipMbHb9Jqhj5pO2yYS6capi6f7+GX4dZN2XWQGB2P3uzfKjiiI5BHh7d6LrGWLhudQdohD8NYUEWqSm5ZkP839PLF2M8rQe3nTBEAXgT81iDcTHfhswbqr77Z2YJDoHz88ys9J9nIuaqSrnBr9tIL55SO8v/grKOd+FWV0gutovZ7+7Z9ekqBPrqsZEcdw+CFxMbAtmk3hfOlxKVcOrLE0ZsA6uwpciczCDkk6DT4ofCgYbcXp4sYiYaEP5LUHXHXUcBzl0Xncf8NkevpamUdU53W2jCJpbAnFQbt5jczZvM1Xs2t0zKBHEadgIAEye3/uLHbphtUohvIwVewArhTCkwIJgo/JSMNCraSwWtIwuLDhRxpKwQwgpl03z+3nivTXmcDb8iixcLR13juIpRgM4dl0qr1jR3zEfOh2dY59o/Hv8VNj9Z2GyVcm4hR086Wq+AJKkGPHR7agtotXuNFEugs6YzcREJkF32quY3cW/jmN8nZa/xJUIRwRDzP0LH7aUZqhtis7Id+jGyc7aCXOA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB9194.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NmdsV0NIZmFORVBKUjZBVHVoV21oenRxSS9lMEcwbzlyc3NQa1l3bExKdVBa?=
+ =?utf-8?B?bWJmMlUzT0M3RTVac2diZkJXZ1VyNTFWSWJIeWVYay9UeW43Uk1nQ29BY2pS?=
+ =?utf-8?B?Nk5vYVlJYy9mNmVJRkx2Wmc0ZXl3MENFRlV4UlNLaUlZVzVBWjBjY0x3Ris5?=
+ =?utf-8?B?SzFZY1JpRlp4WDNRZHE0eXQ1OXE5eTJvY0FGYW1YeTMxM0JxVG1OL3pWYm9i?=
+ =?utf-8?B?MzFmck5zRkZtdklNeHZYK3F0eXlhSjd2S0pZWGx2ZVhPNnBIZHVVcVAwSHRl?=
+ =?utf-8?B?azZkcXBvc0lMNzVVMkRBRldYVlJHYTN4S3NKZ1VLSGVJaE1hQm5aRS91WTJV?=
+ =?utf-8?B?czBPbFh6Wm5tLytpQlZ6UWJPQ0l4N3JEQTliR0ljRFc3RlE5V3MxNUFvMHFG?=
+ =?utf-8?B?U3J5M0RrU2pvb3RBejN3WlJpbEpodXRReTE2RTQwNUF0ZFRFci82WmlGNmdD?=
+ =?utf-8?B?VWlQb2JjTzNDL2Y0WVU5QTIxcG9MdkpLaEJ4UFhUK2JKY2lqbHlqd3hvR1Nq?=
+ =?utf-8?B?RXZLclJvd0JUNDJFRERSZTZySjhCY1JuNjcrMk9SMncxekJjZjBUU3BHVmRN?=
+ =?utf-8?B?V241YWRGaXV0WC92b0cvZ05XNUpOUHRsMmg1c21xNHVuNER0dDVyV1J3aG9R?=
+ =?utf-8?B?RXlOM3hsdHgrVTJlL1pUTHBqUlZLY0cwVmF4MS9ra0xabVVSREM1Q0ZsSE5k?=
+ =?utf-8?B?TWF2ZWhIUFcxTWU5dWJEemZEYWMzVDVpdktXaFVwWDFpdU1uRnBQRkxTQVRY?=
+ =?utf-8?B?NVpyNVpRVFZPYkg1WVh6Mm81UUZvMnZwNTNqdG9jc0YxRTBaSWQ3cmtBOE1z?=
+ =?utf-8?B?ZVI0VWg1SFJoMmpLQUw5cXQrTVJGS1VuTXBDeHlpZC9lM3pmeC9aS3JYUVZ1?=
+ =?utf-8?B?dHJhZW1kZEYzMmkrelpDeDlocTh3QTNDejdleUVOa0gwdDZvNS8vdWF5VkU3?=
+ =?utf-8?B?di9KS3RJMUhZSUdUQzV0dkxjb3N5dkF0czh4bWRodEJTUUovUGNzOVNGYUIz?=
+ =?utf-8?B?eVRuS1lnQTBCdWwvcGRUZ2J3N0ZWOUxBSTl1MExGdFBUM3RwWG1UL0NvZnVL?=
+ =?utf-8?B?cFJVbVJYczlyYzRaR2FhZGRMWEhBNks1Y1d2eWd1eXNCTHFmSmdDdVA4TDZp?=
+ =?utf-8?B?SW5DUGM1cWJmdU9EbGlwVmlDcTVQN0hCV2xNWHlUT29qZXpLZ3paUjIwWDJT?=
+ =?utf-8?B?empYUldrYnhURkNmbXBKb0JQVnlNWXlUbFlMdFhzQzBnRXBRTzFxRHo0TE5a?=
+ =?utf-8?B?VHBEVnA0NGdCRlFqYSs5dncyYWtBMWE1bXpmVllhamlJMkl1blNjNXhPYVNr?=
+ =?utf-8?B?WVVpMFU1TUNjRitDVVY3SDdzR0w4UzNROTVFaTlXTHp3Z2RXVEFsdGpqR1Vz?=
+ =?utf-8?B?REhCWjV4cHlleVBxdzc2ZnNQVGx0VnpJVXBFZVdYb3Rrdy9OK1pRK1pSMVFC?=
+ =?utf-8?B?b2xscnpWdlVxeG9KdklycXp6bERyVW40MVFDT2wrOHoyMnVJREpaRmpTMTlC?=
+ =?utf-8?B?VXJTWFdRa1lyaFllWWxBeXpLS21ERE9zT2VoTTlpQVBTR05pa2xTUzB4V1V3?=
+ =?utf-8?B?cmg2aFFKVHM0THVtTy9McGdybERsZTBubmFac1FGTDNkNEFlNXV6V05QSDMw?=
+ =?utf-8?B?TzA2bENrQjQ5OXZYemgrQ2NvU2hjMnA2cFZrSDltSy8vdkVRck9PdUFTOGZq?=
+ =?utf-8?B?S3dJYTdrWHcxZWZTNnArZUFmaVZYZllIamZKS1lWT3BjTDNiY28zVVpRUlVI?=
+ =?utf-8?B?dGxVaXlVcEVWZE9lYkZ6SUc5MzJuVG9NMjE3amVGNzNmYlV1dEtibmNZd21D?=
+ =?utf-8?B?TWozY2hVclZvblFZb1ZWTzR5UjZZczQ5eStvakJKQ2s2RmRzLzR2M2NmdFM1?=
+ =?utf-8?B?WmV3V3dTRm0wcFptc0YwcmszaGpmSFBLdGUwT1dFd0QrSlBVOVNnM3N3d2Ix?=
+ =?utf-8?B?WTgxN3A2UnhVeCtMSlYvdzFKcXFMT28wN3dObjlRdWFkRHNtT0xldld4TGlR?=
+ =?utf-8?B?S1VyUFA4Wkh2OE1GVFNXTld2VDZvaENYNmJDZUxqMHJVbUJwbFZ6dGlNdm5J?=
+ =?utf-8?B?clVsMURvb2VlbHY1QXpKb3c3blBscEh1OGNwbklud1BySWQ0NkZML0lta1h3?=
+ =?utf-8?B?K0lSSmlSalNFOTRjdGdSSTFDaE9kZTgxWm01dW8yZlVickVyUTdoTVVOT2RZ?=
+ =?utf-8?B?d3pSeXJjWDhNMTRhWUxmTnNhbkNTb3FxWHhiRnVsRW1HdmpSMXh4SThWbjln?=
+ =?utf-8?B?eVRjWHNpbnRFR0p6amI5WUdLUVdoQy81aGlhaS8va3hSdXNJUWNqSUVkcVpR?=
+ =?utf-8?B?eHRRRHk0ak1TdHhzT3N4c1pwajV3MnFZY3FYOHZIU3NCQVVJTk5mdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2a3b594b-c6f6-4184-9bbb-08de74c357f6
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB9194.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2026 23:12:27.7939
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UhK9gQBr9H0gJWCy0W9DyLayz/cE0two//r4REsLZ54Ak8fqK94csR9eSNuK+hGlI7TBkSQPN16mXmrEKalCug==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB7868
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_145702_122847_CE808414 
-X-CRM114-Status: GOOD (  24.33  )
+X-CRM114-CacheID: sfid-20260225_151241_898252_A155489E 
+X-CRM114-Status: GOOD (  31.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,59 +158,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
 
-On Tue, Feb 24, 2026 at 09:35:25AM +0000, Conor Dooley wrote:
-> UBSAN reported an out of bounds access during registration of the last
-> two outputs. This out of bounds access occurs because space is only
-> allocated in the hws array for two PLLs and the four output dividers
-> that each has, but the defined IDs contain two DLLS and their two
-> outputs each, which are not supported by the driver. The ID order is
-> PLLs -> DLLs -> PLL outputs -> DLL outputs. Decrement the PLL output IDs
-> by two while adding them to the array to avoid the problem.
+
+On 18/1/26 02:43, Jason Gunthorpe wrote:
+> On Sat, Jan 17, 2026 at 03:54:52PM +1100, Alexey Kardashevskiy wrote:
 > 
-> Fixes: d39fb172760e ("clk: microchip: add PolarFire SoC fabric clock support")
-> CC: stable@vger.kernel.org
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> CC: Conor Dooley <conor.dooley@microchip.com>
-> CC: Daire McNamara <daire.mcnamara@microchip.com>
-> CC: Michael Turquette <mturquette@baylibre.com>
-> CC: Stephen Boyd <sboyd@kernel.org>
-> CC: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-> CC: linux-riscv@lists.infradead.org
-> CC: linux-clk@vger.kernel.org
-> CC: linux-kernel@vger.kernel.org
-> ---
->  drivers/clk/microchip/clk-mpfs-ccc.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>> I am trying this with TEE-IO on AMD SEV and hitting problems.
 > 
-> diff --git a/drivers/clk/microchip/clk-mpfs-ccc.c b/drivers/clk/microchip/clk-mpfs-ccc.c
-> index 3a3ea2d142f8a..54cfbb8be8ab5 100644
-> --- a/drivers/clk/microchip/clk-mpfs-ccc.c
-> +++ b/drivers/clk/microchip/clk-mpfs-ccc.c
-> @@ -178,7 +178,7 @@ static int mpfs_ccc_register_outputs(struct device *dev, struct mpfs_ccc_out_hw_
->  			return dev_err_probe(dev, ret, "failed to register clock id: %d\n",
->  					     out_hw->id);
->  
-> -		data->hw_data.hws[out_hw->id] = &out_hw->divider.hw;
-> +		data->hw_data.hws[out_hw->id - 2] = &out_hw->divider.hw;
+> My understanding is that if you want to use SEV today you also have to
+> use the kernel command line parameter to force 4k IOMMU pages?
+> 
+> So, I think your questions are about trying to enhance this to get
+> larger pages in the IOMMU when possible?
+> 
+>> Now, from time to time the guest will share 4K pages which makes the
+>> host OS smash NPT's 2MB PDEs to 4K PTEs, and 2M RMP entries to 4K
+>> RMP entries, and since the IOMMU performs RMP checks - IOMMU PDEs
+>> have to use the same granularity as NPT and RMP.
+> 
+> IMHO this is a bad hardware choice, it is going to make some very
+> troublesome software, so sigh.
+> 
+>> So I end up in a situation when QEMU asks to map, for example, 2GB
+>> of guest RAM and I want most of it to be 2MB mappings, and only
+>> handful of 2MB pages to be split into 4K pages. But it appears so
+>> that the above enforces the same page size for entire range.
+> 
+>> In the old IOMMU code, I handled it like this:
+>>
+>> https://github.com/AMDESE/linux-kvm/commit/0a40130987b7b65c367390d23821cc4ecaeb94bd#diff-f22bea128ddb136c3adc56bc09de9822a53ba1ca60c8be662a48c3143c511963L341
+>>
+>> tl;dr: I constantly re-calculate the page size while mapping.
+> 
+> Doing it at mapping time doesn't seem right to me, AFAICT the RMP can
+> change dynamically whenever the guest decides to change the
+> private/shared status of memory?
+> 
+> My expectation for AMD was that the VMM would be monitoring the RMP
+> granularity and use cut or "increase/decrease page size" through
+> iommupt to adjust the S2 mapping so it works with these RMP
+> limitations.
+> 
+> Those don't fully exist yet, but they are in the plans.
+> 
+> It assumes that the VMM is continually aware of what all the RMP PTEs
+> look like and when they are changing so it can make the required
+> adjustments.
+> 
+> The flow would be some thing like..
+>   1) Create an IOAS
+>   2) Create a HWPT. If there is some known upper bound on RMP/etc page
+>      size then limit the HWPT page size to the upper bound
+>   3) Map stuff into the ioas
+>   4) Build the RMP/etc and map ranges of page granularity
+>   5) Call iommufd to adjust the page size within ranges
 
-What happens when / if the DLLs are supported by this driver in the
-future? This seems like a trap for the future.
 
-According to include/dt-bindings/clock/microchip,mpfs-clock.h, there are
-only 16 clock IDs. Could hws be initialized to have enough room for all
-16 structures, and would it be ok if it was a sparse array?
+I am about to try this approach now. 5) means splitting bigger pages to smaller and I remember you working on that hitless IO PDEs smashing, do you have something to play with? I could not spot anything on github but do not want to reinvent. Thanks,
 
-At the very least, I think it would be nice to include a comment here.
 
-Brian
+
+>   6) Guest changes encrypted state so RMP changes
+>   7) VMM adjusts the ranges of page granularity and calls iommufd with
+>      the updates
+>   8) iommput code increases/decreases page size as required.
+> 
+> Does this seem reasonable?
+> 
+>> I know, ideally we would only share memory in 2MB chunks but we are
+>> not there yet as I do not know the early boot stage on x86 enough to
+> 
+> Even 2M is too small, I'd expect realy scenarios to want to get up to
+> 1GB ??
+> 
+> Jason
+
+-- 
+Alexey
 
 
 _______________________________________________
