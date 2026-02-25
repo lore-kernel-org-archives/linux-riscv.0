@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FE57EFD20A
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 08:16:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80B03EFD20B
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 08:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dx8RXxPSaYVfwjZQ4uwJARxs4ekuXz1rmoNWFbJIeOY=; b=ktjvAHIvd/prhA
-	HVEGHuyHKmf5qRQcKRxrj1OSH53FEmdCh92QeN6anWWwA0OVIlzcNx/QvzdgwJ8pMX+bAtNQelSJF
-	AZqYAIlfr1EuYAEYtCl3Pcfy/JGiiXkMaeBSHkp/LvJ8IZ/CUMIuPpWxW/ntqQjwVbE+Ei1sXWoPW
-	XKGjHuLnYRlE4Mx7Q6YKmxX3j2QAILg8oKsymcdOHWwz08uIADXHHm6BAm6/89VJmkvBc77qW714E
-	9YbosbtK9B/rpsV3aecbNHAtIUJXD9pEMO+9sCH4gcFDJtoZZwN7IJMMKYhNsjm9IWJqlmslTK1+J
-	2HJybAs3sl0cTjq09afQ==;
+	List-Owner; bh=JY5TJzrULh2PbHwggXmjPcBntJLb2K6fTWds4sONX1M=; b=Vmh+B++A/Jc5gS
+	VKUU1V2aRTrDRFBz3u26RHBSrf/ZlsEL231F8/iM5VxmDwB+xXPjEjVXM9cbW4JuwTcv51JzrkE4r
+	1XJacg5O+7iEVsRs0jCJqMdnjFBBwN0c8z3mAP6Mz91fN3zDSowzqjXkJkLEE3KR50UPP6evjrUWG
+	Vvc9Qn7wEcTQzEZTthemXmBJ3gxQECurMNCSMO5bXyiSH3CkpVVFpq5QfeMeMfYVyTFneTKoHxTQo
+	mwcOc7kIwhIUAWf/9m3ny/CwB4MQuBNIrH1p8LGj7Nu+2LchTM3M1ip8sHN+h8YSUq1oLCJhYXZGk
+	sraiMujgQEkxH0tR0zcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA4B-00000003VPO-41yx;
-	Wed, 25 Feb 2026 08:16:20 +0000
+	id 1vvA4O-00000003VcZ-1Idu;
+	Wed, 25 Feb 2026 08:16:32 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA49-00000003VLO-1TNk
+	id 1vvA4H-00000003VUv-1usM
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Feb 2026 08:16:18 +0000
+	Wed, 25 Feb 2026 08:16:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772007376;
+	s=mimecast20190719; t=1772007384;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=3+N2FdzBXq7d0qBg17oIVx0hpSGWg6PAf2XJ4iYnD3A=;
-	b=c79YTB5dADik5Q5ZG4JqorEhC9/JEfKOcUe3+boTm9VzMjkrfWaA+8XWYVRPxq8WmLHy2W
-	JNM8tid1psfVpbrtHZVqN1wsUL4TjDcSJsNfXAtR/0IAyStg2BnoxPZvu55T5d/KMVECFA
-	vmT8La4yRm3XlOKjmkfibLfFVq+eS+A=
+	bh=dmXeuzqCGEXbsFr6BMS6DZRu4kl8OFDlvdktSaTFzJk=;
+	b=eMqagXgoihrvjJwNmnuP93gA4gNMHrRCfbhR9w6m4v49llNoQmoDRn+7cGUuN5SgjO3VgT
+	3S6LYHl/cFs6QAxzBKX7CIdi7B9Ul7TxMeyZCIZ9n9YDWzv1MeTPyMEPXyT3kK7FcoD1VV
+	fZ4h64UB/ZJrXiiS6i/bYbTRo3LfIHk=
 Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-36-5bDMHpyIN7qY2J9aFw6T_w-1; Wed,
- 25 Feb 2026 03:16:11 -0500
-X-MC-Unique: 5bDMHpyIN7qY2J9aFw6T_w-1
-X-Mimecast-MFC-AGG-ID: 5bDMHpyIN7qY2J9aFw6T_w_1772007369
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-74-YXdFjCA1Mnetuo5LYiwicw-1; Wed,
+ 25 Feb 2026 03:16:22 -0500
+X-MC-Unique: YXdFjCA1Mnetuo5LYiwicw-1
+X-Mimecast-MFC-AGG-ID: YXdFjCA1Mnetuo5LYiwicw_1772007380
 Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4C83718003F6;
-	Wed, 25 Feb 2026 08:16:09 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7F2CF1800282;
+	Wed, 25 Feb 2026 08:16:20 +0000 (UTC)
 Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.112.55])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 50E031800465;
-	Wed, 25 Feb 2026 08:15:58 +0000 (UTC)
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 37D111800465;
+	Wed, 25 Feb 2026 08:16:09 +0000 (UTC)
 From: Baoquan He <bhe@redhat.com>
 To: kasan-dev@googlegroups.com
 Cc: linux-mm@kvack.org,
@@ -72,18 +72,19 @@ Cc: linux-mm@kvack.org,
 	linux-s390@vger.kernel.org,
 	hca@linux.ibm.com,
 	Baoquan He <bhe@redhat.com>
-Subject: [PATCH v5 09/15] arch/powerpc: don't initialize kasan if it's disabled
-Date: Wed, 25 Feb 2026 16:14:06 +0800
-Message-ID: <20260225081412.76502-10-bhe@redhat.com>
+Subject: [PATCH v5 10/15] arch/riscv: don't initialize kasan if it's disabled
+Date: Wed, 25 Feb 2026 16:14:07 +0800
+Message-ID: <20260225081412.76502-11-bhe@redhat.com>
 In-Reply-To: <20260225081412.76502-1-bhe@redhat.com>
 References: <20260225081412.76502-1-bhe@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-X-Mimecast-MFC-PROC-ID: jYLzkSE0YjmOxsatF-zKrbjSL2eluyiauWcAqikngys_1772007369
+X-Mimecast-MFC-PROC-ID: Cg_UnSQtN_mkBXleLITZ9MNU_9jGyQkCZQSbQoD82yQ_1772007380
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_001617_502388_7D753D5C 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20260225_001625_572912_9C5FE6B3 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,70 +103,27 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Here, kasan is disabled if specified 'kasan=off' in kernel cmdline.
 
-This includes 32bit, book3s/64 and book3e/64.
-
 Signed-off-by: Baoquan He <bhe@redhat.com>
-Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-riscv@lists.infradead.org
 ---
- arch/powerpc/mm/kasan/init_32.c        | 6 +++++-
- arch/powerpc/mm/kasan/init_book3e_64.c | 4 ++++
- arch/powerpc/mm/kasan/init_book3s_64.c | 4 ++++
- 3 files changed, 13 insertions(+), 1 deletion(-)
+ arch/riscv/mm/kasan_init.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/powerpc/mm/kasan/init_32.c b/arch/powerpc/mm/kasan/init_32.c
-index 1d083597464f..0ea2a636c992 100644
---- a/arch/powerpc/mm/kasan/init_32.c
-+++ b/arch/powerpc/mm/kasan/init_32.c
-@@ -141,6 +141,10 @@ void __init kasan_init(void)
+diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+index c4a2a9e5586e..dc7cc0dcc7eb 100644
+--- a/arch/riscv/mm/kasan_init.c
++++ b/arch/riscv/mm/kasan_init.c
+@@ -485,6 +485,10 @@ void __init kasan_init(void)
+ 	phys_addr_t p_start, p_end;
  	u64 i;
- 	int ret;
  
 +	/* If KASAN is disabled via command line, don't initialize it. */
 +	if (kasan_arg_disabled)
 +		return;
 +
- 	for_each_mem_range(i, &base, &end) {
- 		phys_addr_t top = min(end, total_lowmem);
+ 	create_tmp_mapping();
+ 	csr_write(CSR_SATP, PFN_DOWN(__pa(tmp_pg_dir)) | satp_mode);
  
-@@ -170,7 +174,7 @@ void __init kasan_init(void)
- 
- void __init kasan_late_init(void)
- {
--	if (IS_ENABLED(CONFIG_KASAN_VMALLOC))
-+	if (IS_ENABLED(CONFIG_KASAN_VMALLOC) && kasan_enabled())
- 		kasan_unmap_early_shadow_vmalloc();
- }
- 
-diff --git a/arch/powerpc/mm/kasan/init_book3e_64.c b/arch/powerpc/mm/kasan/init_book3e_64.c
-index 0d3a73d6d4b0..fbe4c9a7e460 100644
---- a/arch/powerpc/mm/kasan/init_book3e_64.c
-+++ b/arch/powerpc/mm/kasan/init_book3e_64.c
-@@ -111,6 +111,10 @@ void __init kasan_init(void)
- 	u64 i;
- 	pte_t zero_pte = pfn_pte(virt_to_pfn(kasan_early_shadow_page), PAGE_KERNEL_RO);
- 
-+	/* If KASAN is disabled via command line, don't initialize it. */
-+	if (kasan_arg_disabled)
-+		return;
-+
- 	for_each_mem_range(i, &start, &end)
- 		kasan_init_phys_region(phys_to_virt(start), phys_to_virt(end));
- 
-diff --git a/arch/powerpc/mm/kasan/init_book3s_64.c b/arch/powerpc/mm/kasan/init_book3s_64.c
-index dcafa641804c..f7906f9ef9be 100644
---- a/arch/powerpc/mm/kasan/init_book3s_64.c
-+++ b/arch/powerpc/mm/kasan/init_book3s_64.c
-@@ -54,6 +54,10 @@ void __init kasan_init(void)
- 	u64 i;
- 	pte_t zero_pte = pfn_pte(virt_to_pfn(kasan_early_shadow_page), PAGE_KERNEL);
- 
-+	/* If KASAN is disabled via command line, don't initialize it. */
-+	if (kasan_arg_disabled)
-+		return;
-+
- 	if (!early_radix_enabled()) {
- 		pr_warn("KASAN not enabled as it requires radix!");
- 		return;
 -- 
 2.52.0
 
