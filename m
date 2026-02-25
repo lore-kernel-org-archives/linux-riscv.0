@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47222EFD23D
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 10:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB7A4FCEE86
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 11:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lAvVj0jjfP5MbMG0Y2CyyuX/Zu3iyBBcsiYGALo1rbU=; b=TfzUdzu9TsSW/8
-	1sT8FYzDjlxDpDxSGd+TJTZ2vY9/YHJwbKv1nXYaGVYh9vY+RTbxPiwegkoWtxxmRN/fOMrInLkCH
-	oTGCRhkPjNlG+2N737kMUl4NEgB4/RLECD+dEH819kr9qRIET+GgAYwJuq8uremgjoBfGxItu+ZQV
-	sW4n07HeCR0np3pCAMDXWKGJeSO47o+wpt3jZIULoeqvVEEntlZvOsCZuCQatku/H7BmjvjLTUB5h
-	2TKwAGlIp5jf0Elye+iZqexiHi2WFAQ0ujs2nMBwsthSRFb9uF24sHYMjSHmwRayOSLC4W3z/mS+V
-	id8oFI2gBi4LizSCW/Yg==;
+	List-Owner; bh=+yuwEMW+MuMHctLIZxm4XPqFY11BWXk6dyoH1NTcH7I=; b=a72JsR61umtPGu
+	sbHy3vaZueXL5S03RbqHDfqMpuzcTvgrZeN9g1QCN4ids+bBdzr+b/JrEbdAz9TxgQKsXdZdr4XjI
+	w0/3J8oupb8TQZtx5EUtdtWWwl7OAkjBK35M2SzRdJwkog3tDlRysA9OOXqEZ+qnkWyf2DQsyuF+e
+	RJB/mctQz0LAVG6X5PZzlp+McJFuRYSWI4ITUkYHnJEupf6I25T0Pgl8YkBUQ0G1qe4gVMY5Pk/yT
+	NkdAhPOKPj03XoTDWVv2AWlFXC38HYGptduv2jHN8QiZHYryIHTw1xsrbqVpwVZgQpggAaP04oLVj
+	pER8fag/ugzwRu6+nDTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvCNF-00000003pc9-0zxT;
-	Wed, 25 Feb 2026 10:44:09 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1vvD09-00000003uDr-4BH5;
+	Wed, 25 Feb 2026 11:24:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvCNC-00000003pbX-2tyd
+	id 1vvD07-00000003uDR-4Bbr
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Feb 2026 10:44:08 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-824484dba4dso4917115b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Feb 2026 02:44:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772016245; x=1772621045; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dOtyPf4DV0kGbhPpq+32kw+kEiZwwmgV8bS/8w37MW4=;
-        b=UB3pF3qGZwr0CvEX4y2lwIMkX+NtfyfpmJ+m6z7cMcNK/VJvxAxJjae9rb3j1SeRlD
-         09aX5R+hppu7X5a3s3WGCnVFEFe1kLlcJ529covHDFREIQ4cm28RY0C4hjq3Ynur6Luf
-         F477knPuRcyLqeWYmcvhEFhRaEQiPbtz+nWrOAJPQn405quRlo9Fpo9rOGjGr0UbYRRg
-         fgZxXD9vSiTeoCNDHJ2n15Jiap6sO3bhvvgyr8dVAxJKpCId1OC1+OdtzTVvmJHdlSuH
-         4cqpdTRdVUzzPy+XwK4tuNirEMlifYEpxnFq2mW/vyQm29YTWY69HH2iRm3HKCDTEDL5
-         XNqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772016245; x=1772621045;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dOtyPf4DV0kGbhPpq+32kw+kEiZwwmgV8bS/8w37MW4=;
-        b=GV2q74UxzqDy0c7NK4vgFxrBCm105Z2g1bl5cxKJUm8wO5KLW1QHW5OZfK9w61ndHv
-         x4HxumWUe4vLCwLerAHm/p16T8Ddj6IBCDPS7ZhXXIuL2lDDWqSOLTiwY0q9TynvKwOJ
-         eM2OPgfKdmJDEfjYjECp3/Apz8BdiTPoev2tDo/R+ZlztcM67W5kxrlaQ8OjNyBrWiHI
-         ETZ56GmLKfAc9W0ljdJWIdr34CwxCPJebqZfr9mw+eXp9L8rJd7ActQtVZoQQvFZgS2y
-         vNKKVMDQqOwxEbGR4+cpDZ1Hpven2TBAXFs49uoBkCTl62ZhM2ZfhoYe801q20RAWFpC
-         oGoA==
-X-Forwarded-Encrypted: i=1; AJvYcCVtNBdOPWs4VMhO56U5AKTKLc+qQDUxT+rwVnxUKZQUF6Tsue2AyHv7eKRLZrHUneITbs1mYQKLafWvhA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+acf/WGcUMLTYF9f8bizOygshURcM5Wnf82zQukW713SyxR3B
-	6Y7tJ6LxIXy9+PstpKLOJi59PRyemp1d9oU3Mu3jD9i5pz1FCCy/+6bql4mlfPDA
-X-Gm-Gg: ATEYQzzYboXMWvklFh/yLkP2xstuF2FaG5G3VS7fY2t+BWknZcoDCEolWehaMESvqhi
-	+oep2T1juPZodms4gpzQrCZ/BJ9roAxLmCyqOro4ESQIr6HXs+mIkiGO7Ere6rqSGY+q3SUZbR4
-	xvM1yRQVVxkR9AiY317g+eEJ3WD5+UpKJnEG7Bh6W0JrIwTVTyWbnm3m7K/rjetJ5TFmcWU635k
-	i9zvD/Mcs5IVy/D5J0pRL/wC8USRXnC1ziyDfIdjMjQPYNXe58HGLuvgXkWh6hkzyZvwYagtwCy
-	L1YFVdVl3dw1yju56RyS7vh1uA0sNLTYRU6lVi2ako0OkUDhilH2YyygjrqRDgA07uJwM6/0MXW
-	7rL7VlaRBxKEJ+hz2tFh4yFZLcZbC39aGINXyv9PkC+yGFZh/NDcCLD5p8TdGNFxMR+MgpA0bwZ
-	pZpqIsfT70ER/oUd2anz5iwg==
-X-Received: by 2002:a05:6a00:b8c:b0:824:a4c4:3b3a with SMTP id d2e1a72fcca58-826da8bdbcemr14510549b3a.7.1772016245518;
-        Wed, 25 Feb 2026 02:44:05 -0800 (PST)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-826dd86c93fsm13820247b3a.38.2026.02.25.02.44.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Feb 2026 02:44:05 -0800 (PST)
-Date: Wed, 25 Feb 2026 18:43:42 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>, Longbin Li <looong.bin@gmail.com>, 
-	Ze Huang <huangze@whut.edu.cn>, dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	Yixun Lan <dlan@gentoo.org>
-Subject: Re: [PATCH v3 1/3] dt-bindings: dma: snps,dw-axi-dmac: Add CV1800B
- compatible
-Message-ID: <aZ7SHVTkDeES_r72@inochi.infowork>
+	Wed, 25 Feb 2026 11:24:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 481F344056;
+	Wed, 25 Feb 2026 11:24:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E602C19423;
+	Wed, 25 Feb 2026 11:24:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772018659;
+	bh=mWAOa2Ep2Ez6ZEQGoQgZ/mO6Dbm5GWbW6wlc1/rnqYc=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=pkiNzdh4i3pYqn3YgxJfAcdpYDiClD2dq1EsaazuRHFNg6Rx1tnWrw+H3mVLpjGyf
+	 YipqqWM0jRWxnqfgRCrgKgp+R3bHzPDJm+F3dVJlolGnyM4ysI9unZ1rmk3fa8CpT/
+	 1BUnhe8XNVmvPBYBUBRYeu0Z0Pyqn46Yj3D7mltxHCUiJfA3DWYmPP6m1ckdicBsSh
+	 cqJAl9H2avs9CgSvfDF9MR4MCHMFWz6guPK0TZK5pnFlTF1chukcF0V5t1wzLypmAm
+	 zX3GjZwpWRrQPQn2Xk56AtOiXeg6c2a6XJ2kOIbRMN4Br7E5d71f3PEHuCLqCE74xz
+	 Y0/5Jkzu0Dqfw==
+From: Vinod Koul <vkoul@kernel.org>
+To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
+ Longbin Li <looong.bin@gmail.com>, Ze Huang <huangze@whut.edu.cn>, 
+ Inochi Amaoto <inochiama@gmail.com>
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, 
+ linux-riscv@lists.infradead.org, Yixun Lan <dlan@kernel.org>
+In-Reply-To: <20260120013706.436742-1-inochiama@gmail.com>
 References: <20260120013706.436742-1-inochiama@gmail.com>
- <20260120013706.436742-2-inochiama@gmail.com>
- <aZ7PLPFVnWjaBDpa@vaman>
+Subject: Re: (subset) [PATCH v3 0/3] riscv: sophgo: allow DMA multiplexer
+ set channel number for DMA controller
+Message-Id: <177201865381.93331.6104381063514168222.b4-ty@kernel.org>
+Date: Wed, 25 Feb 2026 16:54:13 +0530
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aZ7PLPFVnWjaBDpa@vaman>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_024406_753171_3DC77FAD 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20260225_032420_083722_0FF541AD 
+X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,48 +82,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 25, 2026 at 04:00:04PM +0530, Vinod Koul wrote:
-> On 20-01-26, 09:37, Inochi Amaoto wrote:
-> > The DMA controller on CV1800B needs to use the DMA phandle args
-> > as the channel number instead of hardware handshake number, so
-> > add a new compatible for the DMA controller on CV1800B.
+
+On Tue, 20 Jan 2026 09:37:02 +0800, Inochi Amaoto wrote:
+> As the DMA controller on Sophgo CV1800 series SoC only has 8 channels,
+> the SoC provides a dma multiplexer to reuse the DMA channel. However,
+> the dma multiplexer also controlls the DMA interrupt multiplexer, which
+> means that the dma multiplexer needs to know the channel number.
 > 
-> Applied this manually, please check if that is okay after push
+> Change the DMA phandle args parsing logic so it can use handshake
+> number as channel number if necessary.
 > 
+> [...]
 
-Hi Vinod,
- 
-I have send a new version for v7.0-rc1.
-https://lore.kernel.org/all/20260225104042.1138901-1-inochiama@gmail.com
+Applied, thanks!
 
-Can you try it?
+[1/3] dt-bindings: dma: snps,dw-axi-dmac: Add CV1800B compatible
+      commit: 5eda5f42d2fee87127b568206a9fcc07a2f6eab6
+[2/3] dmaengine: dw-axi-dmac: Add support for CV1800B DMA
+      commit: 02a380ea7ed2d737a42693d7957ec8c33a92d9fd
 
-Regards,
-Inochi
+Best regards,
+-- 
+~Vinod
 
-> > 
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > ---
-> >  Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml | 1 +
-> >  1 file changed, 1 insertion(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-> > index a393a33c8908..0b5c8314e25e 100644
-> > --- a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-> > +++ b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-> > @@ -20,6 +20,7 @@ properties:
-> >      enum:
-> >        - snps,axi-dma-1.01a
-> >        - intel,kmb-axi-dma
-> > +      - sophgo,cv1800b-axi-dma
-> >        - starfive,jh7110-axi-dma
-> >        - starfive,jh8100-axi-dma
-> >  
-> > -- 
-> > 2.52.0
-> 
-> -- 
-> ~Vinod
+
 
 _______________________________________________
 linux-riscv mailing list
