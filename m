@@ -4,37 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE77EFD20D
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 08:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC2D3EFD20F
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 08:56:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LX73/sdAGxjNzR8h5DGn+/NlS5HcGp3DR0y6xhUIhJ8=; b=YAfudqAzY2nZhd
-	boSp/2fnay/N101XufMQzw8EulwukF25Q1iHEGl6zLS9W2AwIjX0xSY5xO3ZPcSEUHCIUUJKXNKzb
-	6HWdXUMWKEJY/aXXfAlLgHjDXqtOL3sLjOawGLu2DQNH1QpcwKh/xvrKvKaLSPucyQQ7WzYz81q/t
-	gJQhMS+lpX/Yywlx/b7Uwf1XVVynJJufuZU2QpVJDgKh+ToD94iob1dBsxZOpTKx0L13rXsdliF0z
-	zJygAnPMBy6/fckfs1uDCpXna+slgkyRMvBZfn6nOtwZKbUJu/RDIOuDlJm79vvv5w0HbtEJEuiWm
-	loRIXQ01B7EEFULhnTbg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CMtm5zNukMSIc1w++CuwWoxi15t1H+B4nGzSSoun8gk=; b=cjwLnf5W9Aq3CE
+	HgvGG5rak453pMmX9u7Vp55fn3UJAhktmHEJ+1a7fvulrHSGkkwZn4S2mm9FDjtnbEwFabzDL9nkn
+	uzNj2EkW8sXU2lCRtpwA8W9NKOqiXz41tyNXdI8xd0cRFWFDQAk7JKNE2HTjIc/6Cd5X03S7dnixS
+	Qmcmh+/ww9l830VIuSVTbEAQtAtXI4Pkag9SOmBtouE7WnnZJlS7lnnFPaysdZZbIASw/Gvt8NLhV
+	3wt30Af8beHU+spOWLkNzzqoKaF/qjBxqvIR+la5SFAGi+glOT1I+/nV3fmoGiqxBQO7gDAd0p6Cs
+	bIOHGVdVE5F57Pyoi8ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvAh7-00000003au5-0B1A;
-	Wed, 25 Feb 2026 08:56:33 +0000
-Received: from exmail.andestech.com ([60.248.187.195] helo=Atcsqr.andestech.com)
+	id 1vvAhD-00000003awz-2zwC;
+	Wed, 25 Feb 2026 08:56:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvAh3-00000003arF-1xgH
+	id 1vvAhB-00000003avp-2tpK
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 25 Feb 2026 08:56:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=K5FPT8OUGzUskJkLIjQ4E9RO+n1wrH8FWd9P439M5Ng=; b=JSc7P8JfhwJe4U6w0OFlln56nY
+	M+gkjXX8mT8WUxUqjKPZeaFLGdbdcypWK3q9u6E0TMcg+sH6sxapAKP767R1uFrzVdcAnhvtzZ5/2
+	wuJbV6tFjY3TYbG+wbWuYA0o2HdmmmKnZ3NP3SUTzgYEtrkskGF/JBJ8SXCOJ9jly81Q0rice3581
+	rFFtqxgBGTanphgC2GUZqXdSpb40aw+hgf86BFs8F9xUkDlEuI/YVrgWV5Jis9xwDwk7uUXN+rNub
+	O8Ib8nCHzoEKwgz9HMV+rxoAEska1KwwtKsrMZlQH+lbmlRpI3TvMxGiEdvlsKXyW80CIGlkWnEgM
+	w3EZLziQ==;
+Received: from exmail.andestech.com ([60.248.187.195] helo=Atcsqr.andestech.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvAh7-00000008bne-3OSe
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Feb 2026 08:56:31 +0000
+	Wed, 25 Feb 2026 08:56:36 +0000
 Received: from mail.andestech.com (ATCPCS34.andestech.com [10.0.1.134])
-	by Atcsqr.andestech.com with ESMTP id 61P8tAPa077808;
-	Wed, 25 Feb 2026 16:55:10 +0800 (+08)
+	by Atcsqr.andestech.com with ESMTP id 61P8tBd8077809;
+	Wed, 25 Feb 2026 16:55:12 +0800 (+08)
 	(envelope-from randolph@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS34.andestech.com
  (10.0.1.134) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 25 Feb
- 2026 16:55:10 +0800
+ 2026 16:55:11 +0800
 From: Randolph <randolph@andestech.com>
 To: <linux-kernel@vger.kernel.org>
 CC: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
@@ -52,20 +67,23 @@ CC: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
         <elder@riscstar.com>, <s-vadapalli@ti.com>,
         <ciprianmarian.costea@nxp.com>, <randolph.sklin@gmail.com>,
         <tim609@andestech.com>, Randolph Lin <randolph@andestech.com>
-Subject: [PATCH v11 0/4] Add support for Andes Qilai SoC PCIe controller
-Date: Wed, 25 Feb 2026 16:55:00 +0800
-Message-ID: <20260225085504.3757601-1-randolph@andestech.com>
+Subject: [PATCH v11 4/4] MAINTAINERS: Add maintainers for Andes QiLai PCIe driver
+Date: Wed, 25 Feb 2026 16:55:04 +0800
+Message-ID: <20260225085504.3757601-5-randolph@andestech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260225085504.3757601-1-randolph@andestech.com>
+References: <20260225085504.3757601-1-randolph@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-ClientProxiedBy: ATCPCS33.andestech.com (10.0.1.100) To
  ATCPCS34.andestech.com (10.0.1.134)
 X-DKIM-Results: atcpcs34.andestech.com; dkim=none;
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 61P8tAPa077808
+X-MAIL: Atcsqr.andestech.com 61P8tBd8077809
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_005629_871054_0D5E5CE9 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20260225_085634_518993_9249CF8E 
+X-CRM114-Status: UNSURE (   6.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,81 +102,31 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Randolph Lin <randolph@andestech.com>
 
-Add support for Andes Qilai SoC PCIe controller
-
-These patches introduce driver support for the PCIe controller on the
-Andes Qilai SoC.
+Here add maintainer information for Andes QiLai PCIe driver.
 
 Signed-off-by: Randolph Lin <randolph@andestech.com>
 ---
-Changes in v11:
-- Make minor adjustments based on the reviewer's suggestions.
-- Use FIELD_GET() to check the link status.
-- Use dw_pcie_readl_dbi() when reading from the DBI region.
-- Enable runtime PM to participate in the PM hierarchy.
-- Add dma-coherent to the DT bindings and DTS.
-- Fix the interrupt-map-mask value in the DT bindings example.
-- Modify the maximum ranges size to support multiple iATU regions
-  in the DT bindings and DTS.
+ MAINTAINERS | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Changes in v10:
-- Use "qilai" instead of "andes" as the tag
-
-Changes in v9:
-- Drop the patch that adjusts the number of OB/IB windows.
-- Made minor adjustments based on the reviewer's suggestions.
-
-Changes in v8:
-- Fix the compile error reported by the kernel test robot.
-
-Changes in v7:
-- Remove unnecessary nodes and property in DTS bindings
-
-Changes in v6:
-- Fix typo in the logic for adjusting the number of OB/IB windows
-
-Changes in v5:
-- Add support to adjust the number of OB/IB windows in the glue driver.
-- Fix the number of OB windows in the Qilai PCIe driver.
-- Remove meaningless properties from the device tree.
-- Made minor adjustments based on the reviewer's suggestions.
-
-Changes in v4:
-- Add .post_init callback for enabling IOCP cache.  
-- Sort by vender name in Kconfig 
-- Using PROBE_PREFER_ASYNCHRONOUS as default probe type.
-- Made minor adjustments based on the reviewer's suggestions.
-
-Changes in v3:
-- Remove outbound ATU address range validation callback and logic.
-- Add logic to skip failed outbound iATU configuration and continue.
-- Using PROBE_PREFER_ASYNCHRONOUS as default probe type.
-- Made minor adjustments based on the reviewer's suggestions.
-
-Changes in v2:
-- Remove the patch that adds the dma-ranges property to the SoC node.
-- Add dma-ranges to the PCIe parent node bus node.
-- Refactor and rename outbound ATU address range validation callback and logic.
-- Use parent_bus_offset instead of cpu_addr_fixup().
-- Using PROBE_DEFAULT_STRATEGY as default probe type.
-- Made minor adjustments based on the reviewer's suggestions.
-
-Randolph Lin (4):
-  dt-bindings: PCI: Add Andes QiLai PCIe support
-  riscv: dts: qilai: Add PCIe node into the QiLai SoC
-  PCI: qilai: Add Andes QiLai SoC PCIe host driver support
-  MAINTAINERS: Add maintainers for Andes QiLai PCIe driver
-
- .../bindings/pci/andestech,qilai-pcie.yaml    |  89 ++++++++
- MAINTAINERS                                   |   7 +
- arch/riscv/boot/dts/andes/qilai.dtsi          | 109 ++++++++++
- drivers/pci/controller/dwc/Kconfig            |  13 ++
- drivers/pci/controller/dwc/Makefile           |   1 +
- drivers/pci/controller/dwc/pcie-andes-qilai.c | 199 ++++++++++++++++++
- 6 files changed, 418 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
- create mode 100644 drivers/pci/controller/dwc/pcie-andes-qilai.c
-
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 55af015174a5..02619b84e6ee 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20128,6 +20128,13 @@ S:	Supported
+ F:	Documentation/devicetree/bindings/pci/altr,pcie-root-port.yaml
+ F:	drivers/pci/controller/pcie-altera.c
+ 
++PCI DRIVER FOR ANDES QILAI PCIE
++M:	Randolph Lin <randolph@andestech.com>
++L:	linux-pci@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
++F:	drivers/pci/controller/dwc/pcie-andes-qilai.c
++
+ PCI DRIVER FOR APPLIEDMICRO XGENE
+ M:	Toan Le <toan@os.amperecomputing.com>
+ L:	linux-pci@vger.kernel.org
 -- 
 2.34.1
 
