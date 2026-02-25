@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D04EFD213
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 19:07:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6114FFD45EB
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 20:12:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xVVmuOYkNBfGKITY9obe0c4L2ragBoePlLWW3Vf6eQo=; b=bd1W6lRQjlCfUN
-	9mflIvPJ9gE1j7Njh01Hhfe+1iTUL5iVc3GX3CqjCnrqZf+W2poocjOg7YHg/P0c560Ct9oX2dsG9
-	b2rXOkaMeZGX4S/sbdUfYeHhtsMi7Gqg4L9d9jlXkdulvrRuuRjvXsoTczc+lucfqsdAiLiWkoupQ
-	OqLNEzm4bgRYh+KXp4c/KTGpd3WzUhGyDIdgom1KwaDYz7NUDVUvSwxvMMBVUnea62NQfZqj90ie+
-	zRUdCVndeRU39j/UeJ1TttQHKvaSULxH2cjEHIrB1brSNfdWeX1OzTVTnxVykMV7rdyNWzZ70g4jo
-	mVZXATgB4dBiLJioZmHw==;
+	List-Owner; bh=Wvk5/NjnKd18mUl8Chq2duufeXcMih4Qvs6LHNQzxEY=; b=bd7HyXLbBUjp9Q
+	kOvmSFuJQyWM0R3wIL5/fP2dIPLehylSiPUNB/Fkk8rRVhNpXKohOKFf8jAJdqJCLNRtm7BIbLMJt
+	J/a2yXdWo2Z1ktIgTmcRzwAsghwQPW6J290MbRh+1WoqVkw7R9axGmuLbGHqTsLaPylz+L2R0Uhb2
+	8aayJ9P6X+mv0lUBrWjv02rfCq+uH9I/FNC+IsWCKCo3hzwXlBdGmWZ+j1klmxPyuoMInXcig/ZiW
+	b2W+DP0PtNc4DpZETQhiUflAq6Gl3Qi14KiUelCP9A8nyqO7EBOybb+EUbnaqTcsCUX3d0ZoggL7l
+	SozNhM4KXScLsDVq7A2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvKEH-00000004lhi-1Nxb;
-	Wed, 25 Feb 2026 19:07:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvLF2-00000004pTL-1vDj;
+	Wed, 25 Feb 2026 20:12:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvKEF-00000004lha-3fOL
-	for linux-riscv@lists.infradead.org;
-	Wed, 25 Feb 2026 19:07:23 +0000
+	id 1vvLF1-00000004pSt-1PZU;
+	Wed, 25 Feb 2026 20:12:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E7F1360054;
-	Wed, 25 Feb 2026 19:07:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63176C19421;
-	Wed, 25 Feb 2026 19:07:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A64960053;
+	Wed, 25 Feb 2026 20:12:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D57AC116D0;
+	Wed, 25 Feb 2026 20:12:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772046442;
-	bh=UGnc2yVLBjOJ5bDB3H1khNOj/8vIce5Y8Yoi+iCQMyU=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=lecPiPqchaN4Uyd5EMQC1EphznXv7RUrLbFWfSCDaTnuy5bNKLVw1euxrNWZo4fo0
-	 pUDN8xo5d2A8fSuTZbtzcMyPFD7T4RWlWof1fKeQ1c7MX6LomD8sC8i+XErZtS0Gzz
-	 1ded8xGVpVNFE2hf8czTOQ7cTGQ4RnWgZzlVwagBJex1vyv8xdYFzTSI28WH3yaJyU
-	 SrpRS+vNekkwchbXAGGZHOelOZp2sqmGV2SwewmJVk9x2HLyWfrsxoOjW8POnpOKXE
-	 4URsYbQYDQaf2roED1HX+Q1VGvSkS6Ek+J0hgsgv3lcu7xX5+1NUoAuMrAGyeO6lOG
-	 7JDifDqd+SMwQ==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Alex Elder <elder@riscstar.com>, 
- Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Yixun Lan <dlan@kernel.org>, Guodong Xu <guodong@riscstar.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, devicetree@vger.kernel.org
-In-Reply-To: <20260206-spacemit-p1-v4-0-8f695d93811e@riscstar.com>
-References: <20260206-spacemit-p1-v4-0-8f695d93811e@riscstar.com>
-Subject: Re: (subset) [PATCH v4 0/3] regulator: spacemit-p1: Support board
- power tree via DT properties
-Message-Id: <177204643911.168523.3724548692200647978.b4-ty@kernel.org>
-Date: Wed, 25 Feb 2026 19:07:19 +0000
+	s=k20201202; t=1772050334;
+	bh=PjnaX0nrKvXjwoSWqMyc2RZCBMHlMtQJ84VIGiaaCKQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=g3ryCiLcJGsyHMU46ADgUo9zZyQbXK8ByyDOF6ZcP79iIzgOgLMp8mEQdmmUcqZf5
+	 Pxf++y4Y5IDWpJZbdark3vMfgh0qpC6jyr0Cs59TzUh+PhVJVr7yjO9PHAHFXkVuB+
+	 aII7SnpUP3wUPYgewdTvtioSYsECISw4h5NkzOYRc9FWs1BhDAuC8lA+bmmvWFVGjZ
+	 eg1b1L7gNZAOmxN0ZP2giZPs0eltQWZJZ1T2pzdz4tBSjGGKqRHqmfl3skOpCffwj2
+	 kIhQM6Il91b2LvNC+n/LzZHXloJl3DVXyOn1di3ZKkEPuxg7ZgbHQCLs1QBl6Jktj/
+	 LHkOZijjnfmWw==
+Date: Wed, 25 Feb 2026 22:12:05 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mark Brown <broonie@kernel.org>, Deepak Gupta <debug@rivosinc.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-mm@kvack.org
+Subject: Re: [PATCH v2 0/5] mm: arch/shstk: Common shadow stack mapping
+ helper and VM_NOHUGEPAGE
+Message-ID: <aZ9XlUAJvPux4xCQ@kernel.org>
+References: <20260225161404.3157851-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
-X-Mailer: b4 0.15-dev-47773
+Content-Disposition: inline
+In-Reply-To: <20260225161404.3157851-1-catalin.marinas@arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,48 +80,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 06 Feb 2026 10:32:01 +0800, Guodong Xu wrote:
-> The patch (Patch 1 in v1 and v2) fixing hardware voltage constraints was
-> applied to regulator.git for-next, so is no longer part of this series.
+On Wed, Feb 25, 2026 at 04:13:57PM +0000, Catalin Marinas wrote:
+> This is v2 of the series extracting the common shadow stack mmap into a
+> separate helper for arm64, riscv and x86. Thanks for the review.
 > 
-> Patch 1, 2 and 3 (previously 2-4) enable flexible power tree
-> configurations for the SpacemiT P1 PMIC. Hardcoded supply assumptions
-> are replaced with explicit devicetree properties. PMIC supply connections
-> are board-design decisions. Moving this to DT allows supporting varied
-> topologies without driver modifications.
+> Andrew, if you are happy with this, I think taking the patches through
+> the mm tree makes most sense.
 > 
-> [...]
+> Minor changes since v1:
+> 
+> - Removed #ifdef from the helper function declaration
+> - Used two tabs for the alignment of multi-line function arguments
+> - Added "There is no functional change" to the arch patches log
+> - Collected ack/review/test tags
+> 
+> v1:
+> 
+> https://lore.kernel.org/r/20260224175800.2500729-1-catalin.marinas@arm.com
+> 
+> Catalin Marinas (5):
+>   mm: Introduce vm_mmap_shadow_stack() as a helper for VM_SHADOW_STACK
+>     mappings
+>   arm64: gcs: Use the new common vm_mmap_shadow_stack() helper
+>   riscv: shstk: Use the new common vm_mmap_shadow_stack() helper
+>   x86: shstk: Use the new common vm_mmap_shadow_stack() helper
+>   mm: Do not map the shadow stack as THP
 
-Applied to
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+ 
+>  arch/arm64/mm/gcs.c         | 14 +-------------
+>  arch/riscv/kernel/usercfi.c | 12 +-----------
+>  arch/x86/kernel/shstk.c     | 12 ++----------
+>  include/linux/mm.h          |  2 ++
+>  mm/util.c                   | 29 +++++++++++++++++++++++++++++
+>  5 files changed, 35 insertions(+), 34 deletions(-)
+> 
+> 
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
-
-Thanks!
-
-[1/3] dt-bindings: mfd: spacemit,p1: Add individual regulator supply properties
-      commit: 82ffa9610ba39d3628a9bec968ddc68fe2fe6612
-[2/3] regulator: spacemit-p1: Update supply names
-      commit: fbb4c52ccdcb4a612d2b7f800aa57090eeee16d7
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
