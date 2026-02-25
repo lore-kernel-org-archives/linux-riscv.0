@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D07F8EFD206
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 08:15:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F33CEFD20A
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 08:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LurGdTkBuFizbIAGgTsiOR1DbUZIlKRI1Kug+0/ymjQ=; b=v1tmp9ZF6Xo6cE
-	FWLrJphEk4rXJV9MhLjGt4cGpW2AZtTcYYptKaXvDRQjzUsmuP3tITIjDujNcFhEKkEuSSwzDX0CC
-	XXXseQnqmJHHgO3zWETiBtzZdXvr5BUDlAF9U+fkmiPQu1/Jy2sw81XI0nzWDLADBfRqz60MuWY/z
-	5pcjrYVUGWTOWnTzLo1fxZrNbzdNd7noFo0Tj2bdofl9aR2FfubAzp6XAAXOUuf5sereldVjco7jQ
-	T+6QsuUmt+uC/BrCsOAMsG6WbXptLgWYGjdo8SISs6B0p2CytOzwkI2AnAzADnrik+M73oJ6zrYhD
-	zOMu/HzxgxeMSf4sD57g==;
+	List-Owner; bh=mIAppyJJGUvQp0KM2XFSbJN7rhpG79dGGZVfCZQY38U=; b=UdSRy+wiCKbkIn
+	t1lhD8r2OniEDU5/QyWeBiqblGFrHLQ+tHf/Ngk/LLbyxsIf6rhT5XsKxsaEzBHs2Sv6UmhJ7rs2D
+	9ewrsDppK5g71FlECaUy/gc4ajCJXQTHODTBdZt7L3MVkSVfFgSTTuDv0RSM4o1s47p/yW8oOaDfT
+	BpP5Hxc/NfaVrLhFdqIelJoFUqE8YDIbVW2ZZvjZZO3rLkus5kJ9ybyvKUb4YhOFKsfBKljqwuWoE
+	WY96eXTvFMtHNkDuNN47C9fpr4gJx5FyBya6WjNE4JbiqVTwkOKSsfhLrYEzJW6WRroq1TjWY48qW
+	k+3ddA79EKPNNCw//CvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA2t-00000003UJg-01yZ;
-	Wed, 25 Feb 2026 08:14:59 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vvA3K-00000003UZX-3Xpo;
+	Wed, 25 Feb 2026 08:15:26 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvA2q-00000003UHZ-2VRA
+	id 1vvA3G-00000003UWg-381G
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Feb 2026 08:14:57 +0000
+	Wed, 25 Feb 2026 08:15:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772007295;
+	s=mimecast20190719; t=1772007321;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=1+o8INxubcV2x/Jl5UdObmj+gfJwsgp0C09vqymuwDM=;
-	b=MJLjPbSNIYUKqpwUOELqdAC1lzgr3481N+uGvTxp76zbq//Cwfzsblx53+j/yx/sCkBpJz
-	5EmSgEqqqu+88HhnJcPAsFlw2x42m+j8MhAHVz2nCDvk5Ikyj9XAIX8QjiwVz7aByAkgQx
-	2+PR/UbJ5tTKDjfEiUp8SIPU8r5Epro=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+	bh=krRB48lflglDsnK+MbRSOk31duSyM0PDe9SlLiivSrU=;
+	b=L8lH5NRm1MJEeFnOge0c5hiH6crUmPFwlYZsZuD3ASdI1aJV4cXA2z7YzgRfdmuOVY98J3
+	0OnP88tAQj9WMeOeHy2BhHg7gxlvvETuJl6K21P897vaYS/pK1Qc5gTfbov6Q53HutNV/x
+	9eOGRAhzDb3ejKNEkUXPAUPpwityekY=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-556-nQ4DDfqXPK2cnN4hGIJDvA-1; Wed,
- 25 Feb 2026 03:14:51 -0500
-X-MC-Unique: nQ4DDfqXPK2cnN4hGIJDvA-1
-X-Mimecast-MFC-AGG-ID: nQ4DDfqXPK2cnN4hGIJDvA_1772007289
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-297-WO8-mb7BPemrfREQOcvRnw-1; Wed,
+ 25 Feb 2026 03:15:11 -0500
+X-MC-Unique: WO8-mb7BPemrfREQOcvRnw-1
+X-Mimecast-MFC-AGG-ID: WO8-mb7BPemrfREQOcvRnw_1772007308
 Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A0E82195609D;
-	Wed, 25 Feb 2026 08:14:48 +0000 (UTC)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 14EC918004AD;
+	Wed, 25 Feb 2026 08:15:08 +0000 (UTC)
 Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.112.55])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id DE8351800351;
-	Wed, 25 Feb 2026 08:14:38 +0000 (UTC)
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 860561800465;
+	Wed, 25 Feb 2026 08:14:58 +0000 (UTC)
 From: Baoquan He <bhe@redhat.com>
 To: kasan-dev@googlegroups.com
 Cc: linux-mm@kvack.org,
@@ -72,18 +72,18 @@ Cc: linux-mm@kvack.org,
 	linux-s390@vger.kernel.org,
 	hca@linux.ibm.com,
 	Baoquan He <bhe@redhat.com>
-Subject: [PATCH v5 01/15] mm/kasan: add conditional checks in functions to return directly if kasan is disabled
-Date: Wed, 25 Feb 2026 16:13:58 +0800
-Message-ID: <20260225081412.76502-2-bhe@redhat.com>
+Subject: [PATCH v5 03/15] mm/kasan: mm/kasan: move kasan= code to common place
+Date: Wed, 25 Feb 2026 16:14:00 +0800
+Message-ID: <20260225081412.76502-4-bhe@redhat.com>
 In-Reply-To: <20260225081412.76502-1-bhe@redhat.com>
 References: <20260225081412.76502-1-bhe@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-X-Mimecast-MFC-PROC-ID: r8TR8GxVoIK3VUliSXHhOWdmjceYke1_xvFrr1Ll-Yc_1772007289
+X-Mimecast-MFC-PROC-ID: 05uedoLK5FMuw2DHJIdMDq1FbwmwHB5HC2-GdEOxvCA_1772007308
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_001456_703175_DB69AAD8 
-X-CRM114-Status: GOOD (  18.25  )
+X-CRM114-CacheID: sfid-20260225_001522_922971_8542D53E 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,216 +100,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The current codes only check if kasan is disabled for hw_tags
-mode. Here add the conditional checks for functional functions of
-generic mode and sw_tags mode.
-
-And also add a helper __kasan_cache_shrink() in mm/kasan/generic.c
-so that the conditional check is done in include/linux/kasan.h.
-
-This is prepared for later adding kernel parameter kasan=on|off for
-all three kasan modes.
+This allows generic and sw_tags to be set in kernel cmdline too.
 
 Signed-off-by: Baoquan He <bhe@redhat.com>
 ---
- include/linux/kasan.h |  7 ++++++-
- mm/kasan/generic.c    | 16 ++++++++++++++--
- mm/kasan/init.c       |  6 ++++++
- mm/kasan/quarantine.c |  3 +++
- mm/kasan/report.c     |  4 +++-
- mm/kasan/shadow.c     | 11 ++++++++++-
- mm/kasan/sw_tags.c    |  3 +++
- 7 files changed, 45 insertions(+), 5 deletions(-)
+ include/linux/kasan-enabled.h |  2 ++
+ mm/kasan/common.c             | 21 +++++++++++++++++++++
+ mm/kasan/hw_tags.c            | 18 ------------------
+ 3 files changed, 23 insertions(+), 18 deletions(-)
 
-diff --git a/include/linux/kasan.h b/include/linux/kasan.h
-index 338a1921a50a..a9b8d58d8699 100644
---- a/include/linux/kasan.h
-+++ b/include/linux/kasan.h
-@@ -492,7 +492,12 @@ size_t kasan_metadata_size(struct kmem_cache *cache, bool in_object);
- void kasan_cache_create(struct kmem_cache *cache, unsigned int *size,
- 			slab_flags_t *flags);
+diff --git a/include/linux/kasan-enabled.h b/include/linux/kasan-enabled.h
+index 9eca967d8526..b7cb906825ca 100644
+--- a/include/linux/kasan-enabled.h
++++ b/include/linux/kasan-enabled.h
+@@ -35,6 +35,8 @@ static inline void kasan_enable(void) {}
+ #endif /* CONFIG_ARCH_DEFER_KASAN || CONFIG_KASAN_HW_TAGS */
  
--void kasan_cache_shrink(struct kmem_cache *cache);
-+void __kasan_cache_shrink(struct kmem_cache *cache);
-+static inline void kasan_cache_shrink(struct kmem_cache *cache)
+ #ifdef CONFIG_KASAN_HW_TAGS
++extern bool kasan_arg_disabled;
++
+ static inline bool kasan_hw_tags_enabled(void)
+ {
+ 	return kasan_enabled();
+diff --git a/mm/kasan/common.c b/mm/kasan/common.c
+index b7d05c2a6d93..0d788a468e96 100644
+--- a/mm/kasan/common.c
++++ b/mm/kasan/common.c
+@@ -42,6 +42,27 @@ DEFINE_STATIC_KEY_FALSE(kasan_flag_enabled);
+ EXPORT_SYMBOL_GPL(kasan_flag_enabled);
+ #endif
+ 
++#ifdef CONFIG_KASAN_HW_TAGS
++bool kasan_arg_disabled __ro_after_init;
++
++/* kasan=off/on */
++static int __init early_kasan_flag(char *arg)
 +{
-+	if (kasan_enabled())
-+		__kasan_cache_shrink(cache);
++	if (!arg)
++		return -EINVAL;
++
++	if (!strcmp(arg, "off"))
++		kasan_arg_disabled = true;
++	else if (!strcmp(arg, "on"))
++		kasan_arg_disabled = false;
++	else
++		return -EINVAL;
++
++	return 0;
 +}
- void kasan_cache_shutdown(struct kmem_cache *cache);
- void kasan_record_aux_stack(void *ptr);
- 
-diff --git a/mm/kasan/generic.c b/mm/kasan/generic.c
-index 2b8e73f5f6a7..25850e7c2e00 100644
---- a/mm/kasan/generic.c
-+++ b/mm/kasan/generic.c
-@@ -212,14 +212,14 @@ bool kasan_byte_accessible(const void *addr)
- 	return shadow_byte >= 0 && shadow_byte < KASAN_GRANULE_SIZE;
- }
- 
--void kasan_cache_shrink(struct kmem_cache *cache)
-+void __kasan_cache_shrink(struct kmem_cache *cache)
++early_param("kasan", early_kasan_flag);
++#endif
++
+ struct slab *kasan_addr_to_slab(const void *addr)
  {
- 	kasan_quarantine_remove_cache(cache);
- }
+ 	if (virt_addr_valid(addr))
+diff --git a/mm/kasan/hw_tags.c b/mm/kasan/hw_tags.c
+index 26a69f0d822c..9602ea4861e2 100644
+--- a/mm/kasan/hw_tags.c
++++ b/mm/kasan/hw_tags.c
+@@ -35,7 +35,6 @@ enum kasan_arg_vmalloc {
+ 	KASAN_ARG_VMALLOC_ON,
+ };
  
- void kasan_cache_shutdown(struct kmem_cache *cache)
+-bool kasan_arg_disabled __ro_after_init;
+ static enum kasan_arg_mode kasan_arg_mode __ro_after_init;
+ static enum kasan_arg_vmalloc kasan_arg_vmalloc __initdata;
+ 
+@@ -75,23 +74,6 @@ unsigned int kasan_page_alloc_sample_order = PAGE_ALLOC_SAMPLE_ORDER_DEFAULT;
+ 
+ DEFINE_PER_CPU(long, kasan_page_alloc_skip);
+ 
+-/* kasan=off/on */
+-static int __init early_kasan_flag(char *arg)
+-{
+-	if (!arg)
+-		return -EINVAL;
+-
+-	if (!strcmp(arg, "off"))
+-		kasan_arg_disabled = true;
+-	else if (!strcmp(arg, "on"))
+-		kasan_arg_disabled = false;
+-	else
+-		return -EINVAL;
+-
+-	return 0;
+-}
+-early_param("kasan", early_kasan_flag);
+-
+ /* kasan.mode=sync/async/asymm */
+ static int __init early_kasan_mode(char *arg)
  {
--	if (!__kmem_cache_empty(cache))
-+	if (kasan_enabled() && !__kmem_cache_empty(cache))
- 		kasan_quarantine_remove_cache(cache);
- }
- 
-@@ -239,6 +239,9 @@ void __asan_register_globals(void *ptr, ssize_t size)
- 	int i;
- 	struct kasan_global *globals = ptr;
- 
-+	if (!kasan_enabled())
-+		return;
-+
- 	for (i = 0; i < size; i++)
- 		register_global(&globals[i]);
- }
-@@ -369,6 +372,9 @@ void kasan_cache_create(struct kmem_cache *cache, unsigned int *size,
- 	unsigned int rem_free_meta_size;
- 	unsigned int orig_alloc_meta_offset;
- 
-+	if (!kasan_enabled())
-+		return;
-+
- 	if (!kasan_requires_meta())
- 		return;
- 
-@@ -518,6 +524,9 @@ size_t kasan_metadata_size(struct kmem_cache *cache, bool in_object)
- {
- 	struct kasan_cache *info = &cache->kasan_info;
- 
-+	if (!kasan_enabled())
-+		return 0;
-+
- 	if (!kasan_requires_meta())
- 		return 0;
- 
-@@ -543,6 +552,9 @@ void kasan_record_aux_stack(void *addr)
- 	struct kasan_alloc_meta *alloc_meta;
- 	void *object;
- 
-+	if (!kasan_enabled())
-+		return;
-+
- 	if (is_kfence_address(addr) || !slab)
- 		return;
- 
-diff --git a/mm/kasan/init.c b/mm/kasan/init.c
-index f084e7a5df1e..c78d77ed47bc 100644
---- a/mm/kasan/init.c
-+++ b/mm/kasan/init.c
-@@ -447,6 +447,9 @@ void kasan_remove_zero_shadow(void *start, unsigned long size)
- 	unsigned long addr, end, next;
- 	pgd_t *pgd;
- 
-+	if (!kasan_enabled())
-+		return;
-+
- 	addr = (unsigned long)kasan_mem_to_shadow(start);
- 	end = addr + (size >> KASAN_SHADOW_SCALE_SHIFT);
- 
-@@ -482,6 +485,9 @@ int kasan_add_zero_shadow(void *start, unsigned long size)
- 	int ret;
- 	void *shadow_start, *shadow_end;
- 
-+	if (!kasan_enabled())
-+		return 0;
-+
- 	shadow_start = kasan_mem_to_shadow(start);
- 	shadow_end = shadow_start + (size >> KASAN_SHADOW_SCALE_SHIFT);
- 
-diff --git a/mm/kasan/quarantine.c b/mm/kasan/quarantine.c
-index 6958aa713c67..a6dc2c3d8a15 100644
---- a/mm/kasan/quarantine.c
-+++ b/mm/kasan/quarantine.c
-@@ -405,6 +405,9 @@ static int __init kasan_cpu_quarantine_init(void)
- {
- 	int ret = 0;
- 
-+	if (!kasan_enabled())
-+		return 0;
-+
- 	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "mm/kasan:online",
- 				kasan_cpu_online, kasan_cpu_offline);
- 	if (ret < 0)
-diff --git a/mm/kasan/report.c b/mm/kasan/report.c
-index 27efb78eb32d..1a39b3f62c57 100644
---- a/mm/kasan/report.c
-+++ b/mm/kasan/report.c
-@@ -576,7 +576,9 @@ bool kasan_report(const void *addr, size_t size, bool is_write,
- 	unsigned long irq_flags;
- 	struct kasan_report_info info;
- 
--	if (unlikely(report_suppressed_sw()) || unlikely(!report_enabled())) {
-+	if (unlikely(report_suppressed_sw()) ||
-+	    unlikely(!report_enabled()) ||
-+	    !kasan_enabled()) {
- 		ret = false;
- 		goto out;
- 	}
-diff --git a/mm/kasan/shadow.c b/mm/kasan/shadow.c
-index d286e0a04543..87f517b76d6e 100644
---- a/mm/kasan/shadow.c
-+++ b/mm/kasan/shadow.c
-@@ -164,6 +164,8 @@ void kasan_unpoison(const void *addr, size_t size, bool init)
- {
- 	u8 tag = get_tag(addr);
- 
-+	if (!kasan_enabled())
-+		return;
- 	/*
- 	 * Perform shadow offset calculation based on untagged address, as
- 	 * some of the callers (e.g. kasan_unpoison_new_object) pass tagged
-@@ -277,7 +279,8 @@ static int __meminit kasan_mem_notifier(struct notifier_block *nb,
- 
- static int __init kasan_memhotplug_init(void)
- {
--	hotplug_memory_notifier(kasan_mem_notifier, DEFAULT_CALLBACK_PRI);
-+	if (kasan_enabled())
-+		hotplug_memory_notifier(kasan_mem_notifier, DEFAULT_CALLBACK_PRI);
- 
- 	return 0;
- }
-@@ -660,6 +663,9 @@ int kasan_alloc_module_shadow(void *addr, size_t size, gfp_t gfp_mask)
- 	size_t shadow_size;
- 	unsigned long shadow_start;
- 
-+	if (!kasan_enabled())
-+		return 0;
-+
- 	shadow_start = (unsigned long)kasan_mem_to_shadow(addr);
- 	scaled_size = (size + KASAN_GRANULE_SIZE - 1) >>
- 				KASAN_SHADOW_SCALE_SHIFT;
-@@ -696,6 +702,9 @@ int kasan_alloc_module_shadow(void *addr, size_t size, gfp_t gfp_mask)
- 
- void kasan_free_module_shadow(const struct vm_struct *vm)
- {
-+	if (!kasan_enabled())
-+		return;
-+
- 	if (IS_ENABLED(CONFIG_UML))
- 		return;
- 
-diff --git a/mm/kasan/sw_tags.c b/mm/kasan/sw_tags.c
-index c75741a74602..6c1caec4261a 100644
---- a/mm/kasan/sw_tags.c
-+++ b/mm/kasan/sw_tags.c
-@@ -79,6 +79,9 @@ bool kasan_check_range(const void *addr, size_t size, bool write,
- 	u8 *shadow_first, *shadow_last, *shadow;
- 	void *untagged_addr;
- 
-+	if (!kasan_enabled())
-+		return true;
-+
- 	if (unlikely(size == 0))
- 		return true;
- 
 -- 
 2.52.0
 
