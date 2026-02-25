@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27552FD374D
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 12:26:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EAD9FD375D
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 13:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8nXMGMyugejel24o+40MmjBy/hr66gfZbnSX3I6Dg3o=; b=GK1R4bVCmV+wXRZuyiFnkQ2MzD
-	YEITDnMqPdnFdaACrEeSPWupxRMBE0+6x9U0Mbf7mRXT0a2AdgfTqW0P9VJHKFY8oNLW7kbqmhinR
-	2tHk3NlVIeua2rVwTZv79Gml/RgUhAbUuTGarEGvYGR8sg61aYvsidZzyzggu6nZvJEjpaKWsiPE4
-	k9OANXk2k135PfOKVkY1DVGiosCUbPOpMwUwLhlTrUC7QScXsm+dCTU2xREST5McIMmAnxcF/bjj5
-	575MWth081dS+dqqhV6hJIWyEfElWpADtQalYg1Q7HNhO3eLMcFtOz/Dp7OJW3Bx/XmRmpnpaKxsS
-	YHOvcC1Q==;
+	bh=EITg8hTVfNwKVfHm8uW/IpMaKnwADT6NZ/+9KPuu2Tg=; b=uchi8w74G9FNpUmhb6yi/+bXbt
+	/mMXCWuRVaEJDI5cGsb/TjbB00RqULGySv8Kfi2mSSOf2tWV694Z2vIKPVEZvOtwNbt1HiOTzNKlT
+	CDDpjcTtt3pbBpSNBny0ZXztrb/eyr1io3Lr2K8obyR84+rDe0URn9HdKfGbLhz8evG0lL0B0l24B
+	hptwMsOuVVjLktqqqRMlUfXIelAVzl+8bpM9COIJQq3Aba5Y5BPG2242ODVVl83FliRQULxzxiHSY
+	vON0+5eHI2pwu2zCAzEM7uIAYVKPfmo2t65DbiDO68Ih8unKiSW07/ulWRU/jXxq8z2wsarLi1/Wl
+	BZ7nxtRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvDxw-00000003zw9-33W0;
-	Wed, 25 Feb 2026 12:26:08 +0000
+	id 1vvEXO-000000042X5-3oL9;
+	Wed, 25 Feb 2026 13:02:46 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvDxu-00000003zvi-0LzS;
-	Wed, 25 Feb 2026 12:26:07 +0000
+	id 1vvEXM-000000042Wd-2G55;
+	Wed, 25 Feb 2026 13:02:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4DFE34363E;
-	Wed, 25 Feb 2026 12:26:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACF66C116D0;
-	Wed, 25 Feb 2026 12:26:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C7A514330B;
+	Wed, 25 Feb 2026 13:02:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33C0AC19421;
+	Wed, 25 Feb 2026 13:02:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772022365;
-	bh=P0ftlwoh23q0Lh4FmkJJ5DqQfqj0aGSgEZ8NXwd0Ce0=;
+	s=k20201202; t=1772024562;
+	bh=bG6lGKiO/AQSqFZF8zcYKPFnP3iI8eQTbAgyFLNKPn4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FUwGJh7p2NABh//adJYr1tdRwi3VS6AFWHdQ/v9mfgJK/tw02ZzsStPYSSv3JZ3An
-	 tQrNm1eMTvB9eKIxxlDc79+hQjymCtRqZzp35qz4Yt8AOgLtDZuXLPK3Ob8LBN/pcL
-	 eVQozb5lMwBxPVenYEIB6BBOeKcHLB84p/RhULLf6KlzWhbhpP8FNGCO3NVvnuM3or
-	 7JFqu1DwEd0EQ0C+W5p6YIeEmp40sMONSt1eGB2lpz05oddr13f3STXP17pENJq2ZB
-	 /FVIpafk3o3/1zXJLjd8xHTdNk1NI44ne6UPyAhWzA4QVviAZ4g1VYXkuGzlI0PZpU
-	 LcQGDcFmVmguQ==
-Date: Wed, 25 Feb 2026 12:25:59 +0000
+	b=SE8sVtK83K2QC+fszgE6mdJqlWX4NOw4VxSEr/x/zobnV9TuTZGvyfRCcnl4q5/la
+	 PQiRd/1FLIOKG4HsfPqTGTflSF3IKNNMLvc+v2sUjGs2+k1XXsVIs6QQN8dqqNtSgo
+	 x9WV4Ez6VyRXwBjAgRbc6iJkdG7d4ZSrMpcXR6UV+pJkBMeCqNBf2L7nHVtqPi/QnK
+	 ZBiQiDprzbU4Ca2VbsVg9FOKpraWdix34QjN4zwYwSyQup0xNv4MuWDk+MaqG2lLoa
+	 uUMeVvk9qCmHaFMWS/FUKzmpaa2ZfalKOUKr4ROzTdpaN7qhbz59/wsT0w46uuCa4R
+	 uNxJbFgKgMAnw==
+Date: Wed, 25 Feb 2026 13:02:36 +0000
 From: Mark Brown <broonie@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -57,17 +57,16 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	"H. Peter Anvin" <hpa@zytor.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org, linux-mm@kvack.org
-Subject: Re: [PATCH 1/5] mm: Introduce vm_mmap_shadow_stack() as a helper for
- VM_SHADOW_STACK mappings
-Message-ID: <ba0e7ac0-d8b0-4ef9-904a-4ffa848ece7e@sirena.org.uk>
+Subject: Re: [PATCH 5/5] mm: Do not map the shadow stack as THP
+Message-ID: <5570c06d-fbc1-42c9-9b27-26211e8b033c@sirena.org.uk>
 References: <20260224175800.2500729-1-catalin.marinas@arm.com>
- <20260224175800.2500729-2-catalin.marinas@arm.com>
+ <20260224175800.2500729-6-catalin.marinas@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <20260224175800.2500729-2-catalin.marinas@arm.com>
+In-Reply-To: <20260224175800.2500729-6-catalin.marinas@arm.com>
 X-Cookie: From concentrate.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_042606_145279_ACA49599 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20260225_050244_618835_C013CDAF 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +78,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2902556775564673015=="
+Content-Type: multipart/mixed; boundary="===============8456581083271622502=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2902556775564673015==
+--===============8456581083271622502==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="clnvz1COm0CppSyu"
+	protocol="application/pgp-signature"; boundary="cXmct3hgznYcvsc+"
 Content-Disposition: inline
 
 
---clnvz1COm0CppSyu
+--cXmct3hgznYcvsc+
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-On Tue, Feb 24, 2026 at 05:57:53PM +0000, Catalin Marinas wrote:
-> arm64, riscv and x86 use a similar pattern for mapping the user shadow
-> stack (cloned from x86). Extract this into a helper to facilitate code
-> reuse.
-
-Thanks for following up on factoring this out.  This looks good to me,
-with or without the removal of the ifdefs that Rick suggested:
+On Tue, Feb 24, 2026 at 05:57:57PM +0000, Catalin Marinas wrote:
+> The default shadow stack size allocated on first prctl() for the main
+> thread or subsequently on clone() is either half of RLIMIT_STACK or half
+> of a thread's stack size (for arm64). Both of these are likely to be
+> suitable for a THP allocation and the kernel is more aggressive in
+> creating such mappings. However, it does not make much sense to use a
+> huge page. It didn't make sense for the normal stacks either, see commit
+> c4608d1bf7c6 ("mm: mmap: map MAP_STACK to VM_NOHUGEPAGE").
 
 Reviewed-by: Mark Brown <broonie@kernel.org>
 
---clnvz1COm0CppSyu
+The create THP and immediately splitting it pattern is very clear when
+checking the mm behaviour on new GCSs, this should help performance.
+
+--cXmct3hgznYcvsc+
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmme6lYACgkQJNaLcl1U
-h9C4gwf/eFxvG4xPkghLEHqpiQ4wKW3cqYV+F74MYRNm1tU/f1bLF0VsMCM8R5w2
-tS3AReZEZKC8Dp5vv0jk4YaZ5AmbqrIHf0vE8Ek7/UwvNtPofCrb0/ORQA43Zl6K
-N49WFkNMxs/rmMjWkGIUKbDQfIM8vHdUbBtWaMPHhdX5gaAc3iOIzi2qRoCADfKt
-lCO74lt9+bT1X88SaLykSwNL0d8DVC5kbW/9/fEgYCq1asUMh5fX9emJXAHwbqsi
-P1qNiMLg0rX4EJN0AVFVDxhjrj5zTGdQGI2Jqhfbekw6nRG+Yp1S0DX8YlCCgu1Q
-a2G0TDSF0uz8zqxnhtkgyWhi5apLDg==
-=Ev+O
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmme8usACgkQJNaLcl1U
+h9CDqwf6An6emWNltb5SR1AZIjifc5oF4Kkplg3VEBjz2qejH6O1DHtpUEPr90d1
+/Np0MHYou2I8q7SWp4mdaNs1ovD2UT5Gr1SMFxZZBviJ0r9/Eob3BrpxVrC3QT9J
+qybG0P8RYytpWk5rc2TJllnyTlY7gcVhjDT7BqCec6wWQOmLFeLinB845irNXV16
+fFjtAtMZw+1Gye+rZY1EeEKfdRZLlnkMneBaoKF0KSr4h5n8PvtcGAHHvzCral8n
+LS1poo8sjbOv0XtR6ZqTSEN0R7jQQ9w2QlZhaatEcZczugZRFs4jZDe7Q7HAZK1E
+yiaDOtnMo5LnFk3zQouQJMNjqU37lg==
+=SFPj
 -----END PGP SIGNATURE-----
 
---clnvz1COm0CppSyu--
+--cXmct3hgznYcvsc+--
 
 
---===============2902556775564673015==
+--===============8456581083271622502==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -133,5 +136,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2902556775564673015==--
+--===============8456581083271622502==--
 
