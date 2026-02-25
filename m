@@ -4,66 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6114FFD45EB
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 20:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24A5FFD45EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 20:24:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Wvk5/NjnKd18mUl8Chq2duufeXcMih4Qvs6LHNQzxEY=; b=bd7HyXLbBUjp9Q
-	kOvmSFuJQyWM0R3wIL5/fP2dIPLehylSiPUNB/Fkk8rRVhNpXKohOKFf8jAJdqJCLNRtm7BIbLMJt
-	J/a2yXdWo2Z1ktIgTmcRzwAsghwQPW6J290MbRh+1WoqVkw7R9axGmuLbGHqTsLaPylz+L2R0Uhb2
-	8aayJ9P6X+mv0lUBrWjv02rfCq+uH9I/FNC+IsWCKCo3hzwXlBdGmWZ+j1klmxPyuoMInXcig/ZiW
-	b2W+DP0PtNc4DpZETQhiUflAq6Gl3Qi14KiUelCP9A8nyqO7EBOybb+EUbnaqTcsCUX3d0ZoggL7l
-	SozNhM4KXScLsDVq7A2w==;
+	List-Owner; bh=Pq3kJ3y2EXyzJ6vtd1tEWEf4iKWvYX13HM0qCXFVpzw=; b=F+M71Nd+QeB8/D
+	ukCx3R7HRVEd1rzr7qRy8ewsaijXCSCyRK8jzo2IYFEcmTR57Fvw2hNdJPuuTvm9pGrHr1Bq+axKm
+	CZK0eiMeGcBOXm3uaroT7s1v5pQmU4zEgPbreX79cDPixLBJkE2gmuvpd9PGl2GRktmOYGIuNf7Ke
+	cOgef+26z+qN8yt5909YyZn/JZFOWNZ6RJj2d1FLgintr3uLZxf24HR62fnces7+XGefh6EuRmhyl
+	b8+mNHMitncEVeWiypE6DvNbelC3eC94KxtuWgJFaZa9lQEirvysBNx8bExrKYvJm+8+CJxy2lbMT
+	5/b+vHsnK6ocCP+KmTeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvLF2-00000004pTL-1vDj;
-	Wed, 25 Feb 2026 20:12:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vvLQw-00000004r6j-3EL9;
+	Wed, 25 Feb 2026 20:24:34 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvLF1-00000004pSt-1PZU;
-	Wed, 25 Feb 2026 20:12:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8A64960053;
-	Wed, 25 Feb 2026 20:12:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D57AC116D0;
-	Wed, 25 Feb 2026 20:12:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772050334;
-	bh=PjnaX0nrKvXjwoSWqMyc2RZCBMHlMtQJ84VIGiaaCKQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g3ryCiLcJGsyHMU46ADgUo9zZyQbXK8ByyDOF6ZcP79iIzgOgLMp8mEQdmmUcqZf5
-	 Pxf++y4Y5IDWpJZbdark3vMfgh0qpC6jyr0Cs59TzUh+PhVJVr7yjO9PHAHFXkVuB+
-	 aII7SnpUP3wUPYgewdTvtioSYsECISw4h5NkzOYRc9FWs1BhDAuC8lA+bmmvWFVGjZ
-	 eg1b1L7gNZAOmxN0ZP2giZPs0eltQWZJZ1T2pzdz4tBSjGGKqRHqmfl3skOpCffwj2
-	 kIhQM6Il91b2LvNC+n/LzZHXloJl3DVXyOn1di3ZKkEPuxg7ZgbHQCLs1QBl6Jktj/
-	 LHkOZijjnfmWw==
-Date: Wed, 25 Feb 2026 22:12:05 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Mark Brown <broonie@kernel.org>, Deepak Gupta <debug@rivosinc.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-mm@kvack.org
-Subject: Re: [PATCH v2 0/5] mm: arch/shstk: Common shadow stack mapping
- helper and VM_NOHUGEPAGE
-Message-ID: <aZ9XlUAJvPux4xCQ@kernel.org>
-References: <20260225161404.3157851-1-catalin.marinas@arm.com>
+	id 1vvLQu-00000004r5G-092w
+	for linux-riscv@lists.infradead.org;
+	Wed, 25 Feb 2026 20:24:33 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61PGkCB23632229
+	for <linux-riscv@lists.infradead.org>; Wed, 25 Feb 2026 20:24:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=ViM3bl/bhSwh8kkJsBsCCLgQ
+	HaybEDvS+RnPqWJYUig=; b=jycbxzVZxCPwB0Wm6fMD8BMxRMoCpxf3Fa8xUSwq
+	Q/95DIUkpR4zp/21/Ao3lTEm637b1sn0VzRZJw7y6LbIkT0dfNSfW3lJJpHBAP7z
+	MCL62hcovmylKC+yQJDBno3fX6oWA/cQyHnPG0J6Gprsil0O129pEzLqR9L6HBzw
+	RVKvX0ilA6zzRaW/dRvf31rNNG9tklNZ9ZPJtPgqJovWO1/5r2j8hfCuos8NL19N
+	hafj1hTUe5tvD8vdBYdkdEE47QdkjP2NhOBoB70NxTFJaFXZCB+iyyrqX3llIUEK
+	PlcMkgVwzsfeZXgb0uipGLq8xQkFB7nZ2vgmOTQ/MhQgXQ==
+Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cj4w4rpk8-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Wed, 25 Feb 2026 20:24:30 +0000 (GMT)
+Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-12721cd1a2aso1411010c88.1
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Feb 2026 12:24:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1772051070; x=1772655870; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ViM3bl/bhSwh8kkJsBsCCLgQHaybEDvS+RnPqWJYUig=;
+        b=HlMQX4lbXaT+Q0GAdJdTTwpdDyNYvIxeg/BiBYvi1GHdnF+5zvYRWjbBritfOfZ0Jy
+         HeJgdojkOpNTrgdEhpjrN3OyiKmHX9F6mz7sdbw68ydo+1GLpdmaB1IMopa594IakYHV
+         05qcADryeoqxKbu6qlKE2U5kU9Hu6rNCwOF1SZEslT8MSHubMsazisb5rYkxglkFtz/7
+         n++f3RJ5r3/hzAPQpgO3sT80h3p/LqGUE39pyKt7bxe+aBxN+NcAbX60VWmCzpYFCM/0
+         6FT69Rwma4bXUv163DD++aWk7pNs0FCnumCcHt/z7Ku4tvk+DFGRkATV0pzzvf/mlHMP
+         FKtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772051070; x=1772655870;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ViM3bl/bhSwh8kkJsBsCCLgQHaybEDvS+RnPqWJYUig=;
+        b=gXtFS72r0c3l7dFy7FadBgGcUXM+iZuqJeD7vpblb51btVm9oy0UnUY6/dS2WTbT0T
+         Ltr95A6LRrgc5YcqyQEYmtg6UltVQEw/SWQ9+appo+cynd/Uj7H04OBrrIY1sD0R/FWa
+         hKXizr/ouWNY4EIxGywjSUrRszLPFJYPAohwzD47LUb6IAZClwlf65HrR7+p1LX2CQ9y
+         Eabv5v7BYC3x5wU46v+yT7PAghBjvrAvDXC+CRcrtFAHPYfwOdNcjSTEANiTjtU7mJXx
+         YGn7iUL1bCTBbYshznE9/YCz97jAkaWEqoc9DLIb+qfjWwroNSbyLr53UCCE9RZ/XAUv
+         Z7tg==
+X-Forwarded-Encrypted: i=1; AJvYcCXAX1CZ7eGTW9piLfZ5GX7vKjuGmEujd9lUcLa1zB9kfySR7FV+Kqd4Vw/N2JoqljRWlR3I8WhfJ1uIsA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnNT8zr3XZcCQZbomY3HN6FyLwBFv2EM93d9QAbdVDH5O0viPI
+	nJP1vrlznrP4EKmOIDPehSF8KMReHVQDZwDwRmw5B7HyyNRZwj7WuCwJSgwtS6ZYlGpunsqzU4u
+	yU6wvQliicccu/lWS5gy52ABL/guB0zCd1nGYFKbGJ5E/TV4YEwBrCfUo7mkBaCVp2ttxB2g=
+X-Gm-Gg: ATEYQzw5r3w/aNKcXk40hoiCDwNB5aumktZnJdP1NGOwXkAZvldHfMEWpGlFrX0Ee8z
+	aEpYj+zBGBrmzyyiIwAGGjfX9t2GZ7IYdYsZoVD3Wb72KdEzZl01o33QuUDJ3DT7JAv38yZWFvF
+	O6VcCUYR45pufu55jLZTeQ5Sg1SCkVNi3rpoqC2Tu6rQFJJYNJXG+wJY3qoBVkFl5QeMY/aP1vc
+	fI6MUHPZt8Z+3zJUMJEq+7JBlEUACrh8hwmCm27i70PbAFB1O/m2skR52eJAE/aaZJl9aVvyikc
+	Ead6AwawrhFtBoxfe5qCYBwpi7bMad7wdjP8CA/8CFyM8uXM3Ey81NdXTml6rEdYslKzBZ0fllI
+	1pvuKvrh9Ag98WeRE8Uy2vdQ294WTZeP0
+X-Received: by 2002:a05:7022:1602:b0:11b:a3a7:65cd with SMTP id a92af1059eb24-1276acbc703mr7227449c88.12.1772051069887;
+        Wed, 25 Feb 2026 12:24:29 -0800 (PST)
+X-Received: by 2002:a05:7022:1602:b0:11b:a3a7:65cd with SMTP id a92af1059eb24-1276acbc703mr7227424c88.12.1772051069326;
+        Wed, 25 Feb 2026 12:24:29 -0800 (PST)
+Received: from localhost ([138.199.100.237])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1276af2ea06sm17068982c88.7.2026.02.25.12.24.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Feb 2026 12:24:28 -0800 (PST)
+Date: Wed, 25 Feb 2026 14:24:26 -0600
+From: Andrew Jones <andrew.jones@oss.qualcomm.com>
+To: Jinyu Tang <tjytimi@163.com>
+Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
+        Conor Dooley <conor.dooley@microchip.com>,
+        Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+        Nutty Liu <nutty.liu@hotmail.com>, Paul Walmsley <pjw@kernel.org>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Alexandre Ghiti <alex@ghiti.fr>, kvm@vger.kernel.org,
+        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5] KVM: riscv: Skip CSR restore if VCPU is reloaded on
+ the same core
+Message-ID: <srfopv36p4yeaok6qhew4md6uzo7mq4u75fr2wvxtjyk45lqvj@vuqap6n2szdo>
+References: <20260225031402.841618-1-tjytimi@163.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260225161404.3157851-1-catalin.marinas@arm.com>
+In-Reply-To: <20260225031402.841618-1-tjytimi@163.com>
+X-Proofpoint-ORIG-GUID: EngV3meVTfISUXuE8Clci5WyhPheNM2q
+X-Authority-Analysis: v=2.4 cv=IqMTsb/g c=1 sm=1 tr=0 ts=699f5a7e cx=c_pps
+ a=kVLUcbK0zfr7ocalXnG1qA==:117 a=OC80/TC5XWgnnCQ5Z9xtWg==:17
+ a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=xdnJNkqn3fnCMyRjZDMA:9 a=CjuIK1q_8ugA:10 a=vr4QvYf-bLy2KjpDp97w:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI1MDE5NSBTYWx0ZWRfXyiOPHYH0FbEO
+ 0LB9hJdsZT1gx6vHKRL974aLGt2PVd06+kHL4f7HSmvxH2oFjnc4xgLYZ3jer0doMoyYyQNVhIz
+ d5IiuHp15JtwMLEfbbl5Z8tgMFRM+w3ujBruGb6kwUS/CYYKzV1qbxQ1DT+BkHUaxXP/vTTnLpl
+ CreLW+X5lbpoA2ykRdz5zOzxzPTB6jmkn/Bdky1olYojX7qytjrkVz5Ewz42yJshG627JjuFKFp
+ +3b5f9/hUUY/zZGYGYXB1b6N7RF7OMk04OtyRjFzvlAnL/GhInI5gyzkH3lNDmqVZARF+0Lb52R
+ bv7kpAEQO7ERlrcf4zcZoQrWc7lOWoF0iVrvpo7w3mzArJqXDu5Wsu7n5ZHPjUQkJmYx03h+85U
+ RvkAffNZe7NMSxA6/6351opQ3LD/3A6GotREYNKZ+wa0p8aojWtzs+V6nfM4t4CUX3PBDj0aIZw
+ j+9fcbh2ZuF/QeIiMzw==
+X-Proofpoint-GUID: EngV3meVTfISUXuE8Clci5WyhPheNM2q
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-25_03,2026-02-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 lowpriorityscore=0 suspectscore=0 adultscore=0
+ impostorscore=0 spamscore=0 priorityscore=1501 malwarescore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602250195
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260225_122432_198892_72428E25 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,46 +147,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 25, 2026 at 04:13:57PM +0000, Catalin Marinas wrote:
-> This is v2 of the series extracting the common shadow stack mmap into a
-> separate helper for arm64, riscv and x86. Thanks for the review.
-> 
-> Andrew, if you are happy with this, I think taking the patches through
-> the mm tree makes most sense.
-> 
-> Minor changes since v1:
-> 
-> - Removed #ifdef from the helper function declaration
-> - Used two tabs for the alignment of multi-line function arguments
-> - Added "There is no functional change" to the arch patches log
-> - Collected ack/review/test tags
-> 
-> v1:
-> 
-> https://lore.kernel.org/r/20260224175800.2500729-1-catalin.marinas@arm.com
-> 
-> Catalin Marinas (5):
->   mm: Introduce vm_mmap_shadow_stack() as a helper for VM_SHADOW_STACK
->     mappings
->   arm64: gcs: Use the new common vm_mmap_shadow_stack() helper
->   riscv: shstk: Use the new common vm_mmap_shadow_stack() helper
->   x86: shstk: Use the new common vm_mmap_shadow_stack() helper
->   mm: Do not map the shadow stack as THP
+On Wed, Feb 25, 2026 at 11:14:02AM +0800, Jinyu Tang wrote:
+>  	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+>  	struct kvm_vcpu_config *cfg = &vcpu->arch.cfg;
+>  
+> +	/*
+> +	 * If VCPU is being reloaded on the same physical CPU and no
+> +	 * other KVM VCPU has run on this CPU since it was last put,
+> +	 * we can skip the expensive CSR and HGATP writes.
+> +	 *
+> +	 * Note: If a new CSR is added to this fast-path skip block,
+> +	 * make sure that 'csr_dirty' is set to true in any
+> +	 * ioctl (e.g., KVM_SET_ONE_REG) that modifies it.
+> +	 */
+> +	if (vcpu == __this_cpu_read(kvm_former_vcpu) &&
+> +	    vcpu->arch.last_exit_cpu == cpu && !vcpu->arch.csr_dirty)
 
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
- 
->  arch/arm64/mm/gcs.c         | 14 +-------------
->  arch/riscv/kernel/usercfi.c | 12 +-----------
->  arch/x86/kernel/shstk.c     | 12 ++----------
->  include/linux/mm.h          |  2 ++
->  mm/util.c                   | 29 +++++++++++++++++++++++++++++
->  5 files changed, 35 insertions(+), 34 deletions(-)
-> 
-> 
+The most expensive check condition, __this_cpu_read(), should come last
+in order to short-circuit it when either of the cheap checks fail.
 
--- 
-Sincerely yours,
-Mike.
+> +		goto csr_restore_done;
+> +
+> +	vcpu->arch.csr_dirty = false;
+>  	if (kvm_riscv_nacl_sync_csr_available()) {
+>  		nsh = nacl_shmem();
+>  		nacl_csr_write(nsh, CSR_VSSTATUS, csr->vsstatus);
+> @@ -624,6 +642,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+>  
+>  	kvm_riscv_mmu_update_hgatp(vcpu);
+>  
+> +csr_restore_done:
+>  	kvm_riscv_vcpu_timer_restore(vcpu);
+>  
+>  	kvm_riscv_vcpu_host_fp_save(&vcpu->arch.host_context);
+> @@ -645,6 +664,8 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+>  	void *nsh;
+>  	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+>  
+> +	__this_cpu_write(kvm_former_vcpu, vcpu);
+
+This write can be skipped by the fast path since kvm_former_vcpu is
+already set to vcpu.
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
