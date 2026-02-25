@@ -4,91 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10842FD45FA
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 22:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CDDFFD45FA
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 22:57:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8VoZaAZ7pZDqZdmr2qOIoRcLkRHU7/QbEybBTYKbaM0=; b=KZz2CpZY48IZxl
-	7KS+ve5sFPcxk1gozJor/BfT7Nb0HTSl27oCACjGfLmwFw7z0zyo51mf2vsLZEpLPpbOumheXUJuI
-	JGbvGMlJR1l6mXXRH8Clfr6HYwgzYnsuWMjzTKyZkEHRaDyaztpxVPNla0z5FZgrTdLwEh3b+MYHV
-	SNvrILf4yzQdUHCAGsiwFV/L6Ff5acP6yCUzOnUCJfF7JWGmsX8kTwuIWkZGlNtYfTfIlAJ11ODAG
-	8jLmMz3rYE8rJAgMwPv1EyEyUR7lUMHjFr+zO502+BeAc1YQU1a2YHs8X7x6rKhj5xf7T6pK4W6Px
-	LmvwF4WxQ7bt7qwnuN0g==;
+	List-Owner; bh=/mcN0V2J969NNbLkYwFijN0nODdv4aXVk7rbViHYUOI=; b=V7SR4GkeLukCLS
+	zHCIIo1UfpALeXXXgRjo1mgmalb9f8mOg6es2LGhv4nSR74D4YgHIoVuEG28gxMd69ZBqqFq/U+7i
+	RI9g0PXkNWj4MZyR7vqvYw4ICx8pIW7oBmfzKrSSeHU/viCM1k9UX1AoiR/812sBW/6sbodq/2n9B
+	cgCI4cMV3vKi/rKCwE/ln/l039cNISxCZF/N56PVyUbYajvgKATGrX43Kr8tjWteUq/pdWS91t9Tu
+	tKjf6uPnH7QPvbt7GpD8NTInsIm2qE4uu4LZKnIGm5ETnr7DHdvTQLQokjpxhvpFjGm4dXaCRwGRg
+	wO5YNVelqDisKfgjV7tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvNR7-000000050lA-006Y;
-	Wed, 25 Feb 2026 22:32:53 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1vvNoW-000000051zw-3x7e;
+	Wed, 25 Feb 2026 22:57:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvNR4-000000050kp-249g
+	id 1vvNoU-000000051zb-02Jp
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Feb 2026 22:32:51 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-824a829f9bbso142394b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Feb 2026 14:32:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772058769; x=1772663569; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=n4i2IRBgsk5p1jTMDi9j/dN7YnnN1etbWBu+Qol+1xk=;
-        b=gZq0yrX/08cr99i6De5sMvxa8veYYIyhAlB36LEXF/lCKpU6AHTUzAIUjh7NtsbXxK
-         HTMiZp8NHu/wxzSWGVQ1P9BUHw4+hfhuanfDNGpYVQoEyiJ7NCjIdwKCbdYssNFnEO9/
-         5BPrSpbXqTsM6ufInRVpFmx2adZPUG7ajTIBbASQW+NF6atRkeqkX03yoCPa0vzfRGMH
-         Sxl3/igHXj4vqJTyyHqXL1N+VUMYYuIj6ZvXkBYxqEgeMJQlBiR8qRwyl49YHFT6FJU7
-         tzKGy1WvyvMeQkD0KdRA2lSji3BSe8W4erBQVbUqmVGrePIsHj05t6u+Y/xmnsH3zR7X
-         LXsA==
+	Wed, 25 Feb 2026 22:57:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1772060219;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7GoTj0XJIraxE36kErcF7CkdwsGLSTR+HFHvb50C3Fs=;
+	b=PeWLozsbsHlYhkqnrZeXqF+vk9nnOPhQFAtyc3MamUADTkzKQen1SWGc4j0/CAaUteSHol
+	esSPtATfvaLgnrQwSKSlRcy75xF3CMbnvdcpom7lTv+cD93CYTRDig2H7eygJsdVEnoFYa
+	fyBsvLVd2tx4csCOQPEmZ6tKpepbmJQ=
+Received: from mail-yw1-f198.google.com (mail-yw1-f198.google.com
+ [209.85.128.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-638-bhiAQ3OiNdWjUIYQlzJG4Q-1; Wed, 25 Feb 2026 17:56:57 -0500
+X-MC-Unique: bhiAQ3OiNdWjUIYQlzJG4Q-1
+X-Mimecast-MFC-AGG-ID: bhiAQ3OiNdWjUIYQlzJG4Q_1772060217
+Received: by mail-yw1-f198.google.com with SMTP id 00721157ae682-79402e48414so3340247b3.2
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Feb 2026 14:56:57 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772058769; x=1772663569;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=n4i2IRBgsk5p1jTMDi9j/dN7YnnN1etbWBu+Qol+1xk=;
-        b=uskgDQ79W7EgYZaYQ+DjWUzStyACPgL3T8IgTJqhfd+KgC5S+k72aTJji/eo+sbKhr
-         M/RdkENY202NqZ65ws8Wv8Q/VtKNFRznxusTJCEQmtWD7SzKQHIAVP8q7OEf+WvYA5QZ
-         E4zOV9pqhwrM+CL4I7CyjfHYibyQI3OVq3c8kvtUpmjxgwGISAwuVRK54sGjJoSgpLfE
-         z6iMxWUhDWS5Xq8SzA+EEUdGvnxdx30qLv1l8ag/LRdwQiKAiQDW29+T0oZPKH7hDcB2
-         JdzPO1aVpRKutz8rPjAxCrvorSJ/jaFi4XR5PShw2yeNp/+osGc1gZ6NxZK86Y8fCy+X
-         3ZIg==
-X-Forwarded-Encrypted: i=1; AJvYcCXEu6hUfsCGEDPCUChaHO45Chi+2YKM+cTEF3aEZxtEsdSBtGuWRyzNRc03lF/Xut/N8u5c8vfH455XUg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgvTydiEQZY+TDPfcWSEHUVhOtpWh14mrt92zTfWY75q+/kQgd
-	pKZi3/VOTf3TX0/4oP3XH/RrtEobcn7nw3+aX/5d901r+9lEtRYDwZAw
-X-Gm-Gg: ATEYQzyu+ZQ6Xi3QNau3zFuQtfFcDDzh47IHlgM4DOpdm99oH19eIuR7TW1r7qwuZot
-	3iGUzhFqhw/Y0Rw9gH3elEOSJFze6/kf+pPjRfQ1L2u2kfxEFuvz33mmINFl9Y7FibbWa5d2NEO
-	3zGwkoUbKHws6byl8IwVpEmrsEj/PJPkHHpc+Qk6l1W5xYjBx297quJNy7rj9yqrnfncrMHVK6c
-	HwabTJ4Ss36ODopsq9QcpRckhPsrdVrm0jL9VoPb3zi3LQ9Z9LV9vrAf1HvXqq77sII8XZ38qjD
-	QCMqn6rgynpWLNYQ6iF3spxaWfxrc+RLWvjIWG/yKfpjbXxaZ43YY4m62LNBCgZCZz5r9brVTMD
-	SkljnyT6/ss5OplSPcILPpCYt2R2JkNBcLduIyAU9s0eUPSB2yR0ibKUTQ1dhn8XCoTO4vXmG/X
-	dceNYkZ0vw06ajS5/COLUGDw==
-X-Received: by 2002:a05:6a00:6d5a:10b0:827:28db:7a78 with SMTP id d2e1a72fcca58-82728db7ea0mr2323867b3a.17.1772058769463;
-        Wed, 25 Feb 2026 14:32:49 -0800 (PST)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8273a01a9dasm289317b3a.49.2026.02.25.14.32.48
+        d=1e100.net; s=20230601; t=1772060217; x=1772665017;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=7GoTj0XJIraxE36kErcF7CkdwsGLSTR+HFHvb50C3Fs=;
+        b=NxEssFNxCh+05c9OBm8hFAc5Dth4iN4H45lnsisx14Fqq4l/xsTUxJVu/CSUFy6Z23
+         yjWBXJ9Wp83Bztjhbp+fXy52e6g4+N7qkjj5KfV/95Yaz3hX7kKwuZ8G6Qvte2tg0HUR
+         IlYhuwu2jHXJU6YNgu+3Smx1OYYKYINjA79tLKPJhmUK8G4ADCMNROWAJcjXGwDc00bb
+         n6zuEWbwviOLJtddQ+Tx4yGbmf0NquZwapcdridPSdEPh6WMbyODj33tHpSj2s1ryYml
+         7C72sbmt3YFQG+nw1myKz6ydg/ZRmJStaERVK6QmGJJ1froT91MXz+hg55XhbI16jkT4
+         Rzbg==
+X-Forwarded-Encrypted: i=1; AJvYcCUQp1L9etXBVBKqWbq5t7NoEaL8LpgB0znmIF5DpeHJBdWpt8DexMx13igs5qT4A/J9hmhXVY16+dNAKA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1rFWxP+r1IqRF12s5Z6pI/bS1cTmaQNrwsKsP1tk631vFxVO1
+	CpOiwduplqaJcdq3IoNADr0SIVjcfN5a+evMUS2PXoa+KRDy9iz6W7cYKQz9PczE42lYak9G5tz
+	Y6OkoQSliqqddGj6VUKD0zM6sQUgOvRH60pvEtXAZ+HFmnUtkMrUA9SWymNp7vZK4diigoA==
+X-Gm-Gg: ATEYQzxcGNJJOGhVXFtmxhYCU6KCCASO/Wr6q4vrBLX14IYDM9qNHmgElbDsSGKpAqN
+	2mty2YMMMyjqOz1eWUoEafz2O8zNWV2/L6Qah1+ryOsYry7Klg7iFSujnfs6+AryTaOymGWZsD0
+	31kbN/ZoVZVje5uV2YN2LBWt7FW6HIApIuko8tdKyQgIjvVEsk8k8/lw2kIE2K2tFDbgOuWpAOa
+	4ESMOOkm688QgvXmB2P9hIEV5Bdr1B0zumqbBrJmcIGILW8+uZvPI3BiPzOLzjgMnayEIG1Zekm
+	yBz7hwCN3uOaPBQ9gelwVOowWgV75mHMcONDIli3gb9TC8jt8Mh5js/hc3wch5sp+RcbzzdMT/Z
+	2X7RVE+Iu//VAVqHXldQ=
+X-Received: by 2002:a05:690c:101:b0:796:4154:9fab with SMTP id 00721157ae682-7986ff520ddmr20295337b3.41.1772060217174;
+        Wed, 25 Feb 2026 14:56:57 -0800 (PST)
+X-Received: by 2002:a05:690c:101:b0:796:4154:9fab with SMTP id 00721157ae682-7986ff520ddmr20295137b3.41.1772060216778;
+        Wed, 25 Feb 2026 14:56:56 -0800 (PST)
+Received: from redhat.com ([2600:382:811f:bb35:ae9a:1ac7:e1d:86ce])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-79876ac3c0dsm1236297b3.12.2026.02.25.14.56.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Feb 2026 14:32:49 -0800 (PST)
-Date: Thu, 26 Feb 2026 06:32:27 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: "Anton D. Stavinskii" <stavinsky@gmail.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 6/6] riscv: dts: sophgo: dts nodes for i2s tdm modules
-Message-ID: <aZ939evsOs6nCd5I@inochi.infowork>
-References: <20260120-cv1800b-i2s-driver-v4-0-6ef787dc6426@gmail.com>
- <20260120-cv1800b-i2s-driver-v4-6-6ef787dc6426@gmail.com>
+        Wed, 25 Feb 2026 14:56:56 -0800 (PST)
+Date: Wed, 25 Feb 2026 17:56:53 -0500
+From: Brian Masney <bmasney@redhat.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-clk@vger.kernel.org, stable@vger.kernel.org,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] clk: microchip: mpfs-ccc: fix out of bounds access
+ during output registration
+Message-ID: <aZ9-NWiX4wMH3Ay6@redhat.com>
+References: <20260224-briskly-scholar-294d13464721@wendy>
 MIME-Version: 1.0
+In-Reply-To: <20260224-briskly-scholar-294d13464721@wendy>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: vAPxdFwU52UmMDP2ToCbsjPD5FmgEJWlyKYbBis2yUk_1772060217
+X-Mimecast-Originator: redhat.com
 Content-Disposition: inline
-In-Reply-To: <20260120-cv1800b-i2s-driver-v4-6-6ef787dc6426@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_143250_538868_D55AD381 
-X-CRM114-Status: GOOD (  19.40  )
+X-CRM114-CacheID: sfid-20260225_145702_122847_CE808414 
+X-CRM114-Status: GOOD (  24.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,165 +113,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 11:06:08PM +0400, Anton D. Stavinskii wrote:
-> Introduced I2S nodes and internal dac and adc nodes as well
-> The new header file provided in order to make DMA channel names
-> more readable.
+Hi Conor,
+
+On Tue, Feb 24, 2026 at 09:35:25AM +0000, Conor Dooley wrote:
+> UBSAN reported an out of bounds access during registration of the last
+> two outputs. This out of bounds access occurs because space is only
+> allocated in the hws array for two PLLs and the four output dividers
+> that each has, but the defined IDs contain two DLLS and their two
+> outputs each, which are not supported by the driver. The ID order is
+> PLLs -> DLLs -> PLL outputs -> DLL outputs. Decrement the PLL output IDs
+> by two while adding them to the array to avoid the problem.
 > 
-> Signed-off-by: Anton D. Stavinskii <stavinsky@gmail.com>
+> Fixes: d39fb172760e ("clk: microchip: add PolarFire SoC fabric clock support")
+> CC: stable@vger.kernel.org
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  arch/riscv/boot/dts/sophgo/cv180x-dmamux.h | 57 ++++++++++++++++++++++++++++++
->  arch/riscv/boot/dts/sophgo/cv180x.dtsi     | 55 ++++++++++++++++++++++++++++
->  2 files changed, 112 insertions(+)
+> CC: Conor Dooley <conor.dooley@microchip.com>
+> CC: Daire McNamara <daire.mcnamara@microchip.com>
+> CC: Michael Turquette <mturquette@baylibre.com>
+> CC: Stephen Boyd <sboyd@kernel.org>
+> CC: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+> CC: linux-riscv@lists.infradead.org
+> CC: linux-clk@vger.kernel.org
+> CC: linux-kernel@vger.kernel.org
+> ---
+>  drivers/clk/microchip/clk-mpfs-ccc.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/arch/riscv/boot/dts/sophgo/cv180x-dmamux.h b/arch/riscv/boot/dts/sophgo/cv180x-dmamux.h
-> new file mode 100644
-> index 000000000000..6314bf6e9dc8
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/sophgo/cv180x-dmamux.h
-> @@ -0,0 +1,57 @@
-> +/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
-> +/*
-> + * Copyright (C) 2025 Inochi Amaoto <inochiama@gmail.com>
-> + */
-> +
-> +#ifndef _SOPHGO_CV18XX_DMAMUX
-> +#define _SOPHGO_CV18XX_DMAMUX
-> +
-> +#define DMA_I2S0_RX		0
-> +#define DMA_I2S0_TX		1
-> +#define DMA_I2S1_RX		2
-> +#define DMA_I2S1_TX		3
-> +#define DMA_I2S2_RX		4
-> +#define DMA_I2S2_TX		5
-> +#define DMA_I2S3_RX		6
-> +#define DMA_I2S3_TX		7
-> +#define DMA_UART0_RX	8
-> +#define DMA_UART0_TX	9
-> +#define DMA_UART1_RX	10
-> +#define DMA_UART1_TX	11
-> +#define DMA_UART2_RX	12
-> +#define DMA_UART2_TX	13
-> +#define DMA_UART3_RX	14
-> +#define DMA_UART3_TX	15
-> +#define DMA_SPI0_RX		16
-> +#define DMA_SPI0_TX		17
-> +#define DMA_SPI1_RX		18
-> +#define DMA_SPI1_TX		19
-> +#define DMA_SPI2_RX		20
-> +#define DMA_SPI2_TX		21
-> +#define DMA_SPI3_RX		22
-> +#define DMA_SPI3_TX		23
-> +#define DMA_I2C0_RX		24
-> +#define DMA_I2C0_TX		25
-> +#define DMA_I2C1_RX		26
-> +#define DMA_I2C1_TX		27
-> +#define DMA_I2C2_RX		28
-> +#define DMA_I2C2_TX		29
-> +#define DMA_I2C3_RX		30
-> +#define DMA_I2C3_TX		31
-> +#define DMA_I2C4_RX		32
-> +#define DMA_I2C4_TX		33
-> +#define DMA_TDM0_RX		34
-> +#define DMA_TDM0_TX		35
-> +#define DMA_TDM1_RX		36
-> +#define DMA_AUDSRC		37
-> +#define DMA_SPI_NAND	38
-> +#define DMA_SPI_NOR		39
-> +#define DMA_UART4_RX	40
-> +#define DMA_UART4_TX	41
-> +#define DMA_SPI_NOR1	42
-> +
-> +#define DMA_CPU_A53		0
-> +#define DMA_CPU_C906_0	1
-> +#define DMA_CPU_C906_1	2
-> +
-> +#endif // _SOPHGO_CV18XX_DMAMUX
-> diff --git a/arch/riscv/boot/dts/sophgo/cv180x.dtsi b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-> index 06b0ce5a2db7..ebe5e8113939 100644
-> --- a/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-> @@ -8,6 +8,7 @@
->  #include <dt-bindings/gpio/gpio.h>
->  #include <dt-bindings/interrupt-controller/irq.h>
->  #include "cv18xx-reset.h"
-> +#include "cv180x-dmamux.h"
+> diff --git a/drivers/clk/microchip/clk-mpfs-ccc.c b/drivers/clk/microchip/clk-mpfs-ccc.c
+> index 3a3ea2d142f8a..54cfbb8be8ab5 100644
+> --- a/drivers/clk/microchip/clk-mpfs-ccc.c
+> +++ b/drivers/clk/microchip/clk-mpfs-ccc.c
+> @@ -178,7 +178,7 @@ static int mpfs_ccc_register_outputs(struct device *dev, struct mpfs_ccc_out_hw_
+>  			return dev_err_probe(dev, ret, "failed to register clock id: %d\n",
+>  					     out_hw->id);
 >  
->  / {
->  	#address-cells = <1>;
-> @@ -448,6 +449,60 @@ usb: usb@4340000 {
->  			status = "disabled";
->  		};
->  
-> +		i2s0: i2s@4100000 {
-> +			compatible = "sophgo,cv1800b-i2s";
-> +			reg = <0x04100000 0x1000>;
-> +			clocks = <&clk CLK_APB_I2S0>, <&clk CLK_SDMA_AUD0>;
-> +			clock-names = "i2s", "mclk";
-> +			dmas = <&dmamux DMA_I2S0_RX 1>, <&dmamux DMA_I2S0_TX 1>;
-> +			dma-names = "rx", "tx";
-> +			status = "disabled";
-> +		};
+> -		data->hw_data.hws[out_hw->id] = &out_hw->divider.hw;
+> +		data->hw_data.hws[out_hw->id - 2] = &out_hw->divider.hw;
 
-This magic number 1 is bind to the RISC-V cores, I think we should add a
-macro DMA_CPU_ID into CPU file to route the CPU id to real cores.
-Or, just let the borad dts configure which dma is enabled.
+What happens when / if the DLLs are supported by this driver in the
+future? This seems like a trap for the future.
 
-Regards,
-Inochi
+According to include/dt-bindings/clock/microchip,mpfs-clock.h, there are
+only 16 clock IDs. Could hws be initialized to have enough room for all
+16 structures, and would it be ok if it was a sparse array?
 
-> +
-> +		i2s1: i2s@4110000 {
-> +			compatible = "sophgo,cv1800b-i2s";
-> +			reg = <0x04110000 0x1000>;
-> +			clocks = <&clk CLK_APB_I2S1>, <&clk CLK_SDMA_AUD1>;
-> +			clock-names = "i2s", "mclk";
-> +			dmas = <&dmamux DMA_I2S1_RX 1>, <&dmamux DMA_I2S1_TX 1>;
-> +			dma-names = "rx", "tx";
-> +			status = "disabled";
-> +		};
-> +
-> +		i2s2: i2s@4120000 {
-> +			compatible = "sophgo,cv1800b-i2s";
-> +			reg = <0x04120000 0x1000>;
-> +			clocks = <&clk CLK_APB_I2S2>, <&clk CLK_SDMA_AUD2>;
-> +			clock-names = "i2s", "mclk";
-> +			dmas = <&dmamux DMA_I2S2_RX 1>, <&dmamux DMA_I2S2_TX 1>;
-> +			dma-names = "rx", "tx";
-> +			status = "disabled";
-> +		};
-> +
-> +		i2s3: i2s@4130000 {
-> +			compatible = "sophgo,cv1800b-i2s";
-> +			reg = <0x04130000 0x1000>;
-> +			clocks = <&clk CLK_APB_I2S3>, <&clk CLK_SDMA_AUD3>;
-> +			clock-names = "i2s", "mclk";
-> +			dmas = <&dmamux DMA_I2S3_RX 1>, <&dmamux DMA_I2S3_TX 1>;
-> +			dma-names = "rx", "tx";
-> +			status = "disabled";
-> +		};
-> +
-> +		int_adc: codec@300a100 {
-> +			compatible = "sophgo,cv1800b-sound-adc";
-> +			#sound-dai-cells = <0>;
-> +			reg = <0x300a100 0x100>;
-> +			status = "disabled";
-> +		};
-> +
-> +		int_dac: codec@300a000 {
-> +			compatible = "sophgo,cv1800b-sound-dac";
-> +			#sound-dai-cells = <0>;
-> +			reg = <0x300a000 0x100>;
-> +			status = "disabled";
-> +		};
-> +
->  		rtc@5025000 {
->  			compatible = "sophgo,cv1800b-rtc", "syscon";
->  			reg = <0x5025000 0x2000>;
-> 
-> -- 
-> 2.43.0
-> 
+At the very least, I think it would be nice to include a comment here.
+
+Brian
+
 
 _______________________________________________
 linux-riscv mailing list
