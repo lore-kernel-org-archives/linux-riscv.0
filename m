@@ -4,112 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 294ADFD3776
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 17:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D04EFD213
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 19:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JG10YjbxM+OY3JtuolGSPdLI34rzWLtbJ93jkt1dEFo=; b=UR/kAnx9BcWgZi
-	rTNo24pFrFDHNKKF12gWBcZulx2Pc/NyTrz4hBQ2SIb6hFLQjQzqOnb3lbeq46B6jV2aJu8Mcra/A
-	xhBFEffIkrVulSMEnbbWCI6i+bLNhBgdnWfYiErikEw5dGGt9Y+xCfmClTMxvGnrN29xF8jyFmQv1
-	re4Sl8aDDzMS7qtCrVdv/DXkXaBPLGs+Ry4Cq+wzMnz1yTlJfId7EdpqDZNhM/wMskdbPA2nBesno
-	aMzj6hnyBhpNXGSz5SC9ScZy2sboUoerj5egYLBrUtxhKulH9maY/oCimzU2JvhGclvDYgJY21SnI
-	CI1RM1wuf3pcAf97B7Ww==;
+	List-Owner; bh=xVVmuOYkNBfGKITY9obe0c4L2ragBoePlLWW3Vf6eQo=; b=bd1W6lRQjlCfUN
+	9mflIvPJ9gE1j7Njh01Hhfe+1iTUL5iVc3GX3CqjCnrqZf+W2poocjOg7YHg/P0c560Ct9oX2dsG9
+	b2rXOkaMeZGX4S/sbdUfYeHhtsMi7Gqg4L9d9jlXkdulvrRuuRjvXsoTczc+lucfqsdAiLiWkoupQ
+	OqLNEzm4bgRYh+KXp4c/KTGpd3WzUhGyDIdgom1KwaDYz7NUDVUvSwxvMMBVUnea62NQfZqj90ie+
+	zRUdCVndeRU39j/UeJ1TttQHKvaSULxH2cjEHIrB1brSNfdWeX1OzTVTnxVykMV7rdyNWzZ70g4jo
+	mVZXATgB4dBiLJioZmHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvItd-00000004gNu-1Rub;
-	Wed, 25 Feb 2026 17:42:01 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1vvKEH-00000004lhi-1Nxb;
+	Wed, 25 Feb 2026 19:07:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvIta-00000004gMK-2aRG
+	id 1vvKEF-00000004lha-3fOL
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Feb 2026 17:42:00 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-824c9da9928so12324b3a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Feb 2026 09:41:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772041318; x=1772646118; darn=lists.infradead.org;
-        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=aMnEPXSeAknTUn6pBGQAEqhzdOlacieP4zL+mwxArg0=;
-        b=adCGUZSvAmS6lagPpBWOUCjfnHP8YrtOw5+kNXdpeuONIdv9w5psZ7NrnW668wQW/0
-         XFcEOvfA1EW6npaAEZpjHKlmbcw92I+i+b8TGYCHncvIsKKSj4zM3qbnNkO3vi/qMJTV
-         HjUikMdG0SDGr5cM0Tcf+zN7uKrbKZwcCfOQCQOFJ0rThC0UrR6igjGMJ7Y0n7aTl9za
-         ogb/gGHx2doL0HyJr3NqPldbPa8msTVF7N+H4vmqVwQyWgCpA4TjzVlWi/XmAcBTYtPu
-         wRR0fd4YXAmByXMX6X0WrMORhbC0wRB+z1iu1IEb+ZSbxj9LiJnx8gvos4mcP1mxm5+G
-         J2ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772041318; x=1772646118;
-        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aMnEPXSeAknTUn6pBGQAEqhzdOlacieP4zL+mwxArg0=;
-        b=jAUE0S+vDAdo1qJl91TfpKE5JjgfM/d5IEiy7ZBe8DVust1fBith82fmDs9PAj049V
-         6MtxhBieUMAknIV5V8DpjGeD+DJjqsBvUOn5oVQaY4wvot248aDmuw7Fs6hB2WHtcS5O
-         XoaWifaK86GJ0ku60NxmDNTdmdSvxemE1LqGj7bK3zTGJzJCiukTUUWfr3Nf+lL82W9U
-         AVl/vaTKwtEOUfZbhcKltxEu+RjGl+GzqPQBsg6Cd+m+DqycCXQ3D/28fGOkp2SEw4VK
-         FNNFgzrxPrbEAkUohbOAqmbmgQjRe3gMQQp3sTcjN+JrB3v//4cYNNXS4vesxceYn8V7
-         c3pQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV3OShC5WKys5YnOgoTxjKTBkXBCqGUCCFlk4IlEh2m7P8jdTMivHejh0FcksgJ+0kdxSJrVZlQM/L2lg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEcxDezT1I+ma8UScse9G2TI7cvCdnNYrzWrPPCC/I+QrPEc58
-	CMW0c9vmG2ZNDuRpXF19oWwgK1QKeL63Bk+FWUUA0iEul+uCuJRA8Ofj
-X-Gm-Gg: ATEYQzyA+uwIHnVssTuc0UmY9SoHd74aP0KiUuD7LsOx1uYmI0NWYw9ug9+urU9XkEW
-	cKau75kFHuNve6RddxJsZwqDpH3ViOl5lCgckZKAFP3EP6Mj9hcKICEMyTL1IgqR8skaBoDKp1v
-	mHlcKrR2cKgKDCwH10IEUV3F9i7Y2jhFgNwg1y+hTV3y7VA12WUn8+FEl9UuV8y4sIJ5cRrX+9P
-	0cShhSypp1VSp5fkFUn292rcM7mDfmq2oQZ0siTwXt3EQSNjcQxzjrOlVTREFDmoVI0hIIlljZC
-	bNVtcD/LNUcEHER6bnQqjdiSFMM8Em6YWlXPfpUr0QWa/o6UHvqQU9AanetazeTJpD6IFE9gISR
-	OH5LSCRnfx+J1eA4lHq4zwHoDWE0u7fDDJ++jP7ZGEGZaWRmwdllyBbosfHZ2JzTswndrWS4tUp
-	Gj2q8rmA8HA69jQWpEDw==
-X-Received: by 2002:a05:6a21:3290:b0:38d:edd4:2fbe with SMTP id adf61e73a8af0-39545ed058emr15020115637.31.1772041317482;
-        Wed, 25 Feb 2026 09:41:57 -0800 (PST)
-Received: from dw-tp ([203.81.243.177])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-826dd8fdb81sm14825760b3a.64.2026.02.25.09.41.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Feb 2026 09:41:56 -0800 (PST)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Alex Shi <alexs@kernel.org>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, 
-	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>, 
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	"David S. Miller" <davem@davemloft.net>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	David Hildenbrand <david@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Guo Ren <guoren@kernel.org>, 
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Johannes Berg <johannes@sipsolutions.net>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Jonathan Corbet <corbet@lwn.net>, 
-	Klara Modin <klarasmodin@gmail.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Magnus Lindholm <linmag7@gmail.com>, 
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>, 
-	Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Pratyush Yadav <pratyush@kernel.org>, 
-	Richard Weinberger <richard@nod.at>, Russell King <linux@armlinux.org.uk>, 
-	Stafford Horne <shorne@gmail.com>, Suren Baghdasaryan <surenb@google.com>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>, Vlastimil Babka <vbabka@suse.cz>, 
-	Will Deacon <will@kernel.org>, x86@kernel.org, linux-alpha@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
-	linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	linux-mm@kvack.org, linux-openrisc@vger.kernel.org, 
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
-	sparclinux@vger.kernel.org
-Subject: Re: [PATCH v3 24/29] arch, mm: consolidate initialization of SPARSE memory model
-In-Reply-To: <aZ8idANginXzhf0_@kernel.org>
-Date: Wed, 25 Feb 2026 23:08:38 +0530
-Message-ID: <87seaohgf5.ritesh.list@gmail.com>
-References: <20260111082105.290734-1-rppt@kernel.org> <20260111082105.290734-25-rppt@kernel.org> <87tsv5h544.ritesh.list@gmail.com> <aZ8idANginXzhf0_@kernel.org>
+	Wed, 25 Feb 2026 19:07:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E7F1360054;
+	Wed, 25 Feb 2026 19:07:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63176C19421;
+	Wed, 25 Feb 2026 19:07:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772046442;
+	bh=UGnc2yVLBjOJ5bDB3H1khNOj/8vIce5Y8Yoi+iCQMyU=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=lecPiPqchaN4Uyd5EMQC1EphznXv7RUrLbFWfSCDaTnuy5bNKLVw1euxrNWZo4fo0
+	 pUDN8xo5d2A8fSuTZbtzcMyPFD7T4RWlWof1fKeQ1c7MX6LomD8sC8i+XErZtS0Gzz
+	 1ded8xGVpVNFE2hf8czTOQ7cTGQ4RnWgZzlVwagBJex1vyv8xdYFzTSI28WH3yaJyU
+	 SrpRS+vNekkwchbXAGGZHOelOZp2sqmGV2SwewmJVk9x2HLyWfrsxoOjW8POnpOKXE
+	 4URsYbQYDQaf2roED1HX+Q1VGvSkS6Ek+J0hgsgv3lcu7xX5+1NUoAuMrAGyeO6lOG
+	 7JDifDqd+SMwQ==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Alex Elder <elder@riscstar.com>, 
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Yixun Lan <dlan@kernel.org>, Guodong Xu <guodong@riscstar.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, devicetree@vger.kernel.org
+In-Reply-To: <20260206-spacemit-p1-v4-0-8f695d93811e@riscstar.com>
+References: <20260206-spacemit-p1-v4-0-8f695d93811e@riscstar.com>
+Subject: Re: (subset) [PATCH v4 0/3] regulator: spacemit-p1: Support board
+ power tree via DT properties
+Message-Id: <177204643911.168523.3724548692200647978.b4-ty@kernel.org>
+Date: Wed, 25 Feb 2026 19:07:19 +0000
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_094158_655184_4DB7748E 
-X-CRM114-Status: GOOD (  28.63  )
+X-Mailer: b4 0.15-dev-47773
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,123 +77,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Mike Rapoport <rppt@kernel.org> writes:
+On Fri, 06 Feb 2026 10:32:01 +0800, Guodong Xu wrote:
+> The patch (Patch 1 in v1 and v2) fixing hardware voltage constraints was
+> applied to regulator.git for-next, so is no longer part of this series.
+> 
+> Patch 1, 2 and 3 (previously 2-4) enable flexible power tree
+> configurations for the SpacemiT P1 PMIC. Hardcoded supply assumptions
+> are replaced with explicit devicetree properties. PMIC supply connections
+> are board-design decisions. Moving this to DT allows supporting varied
+> topologies without driver modifications.
+> 
+> [...]
 
-> Hello Ritesh,
->
-> On Wed, Feb 25, 2026 at 09:00:35AM +0530, Ritesh Harjani wrote:
->> Mike Rapoport <rppt@kernel.org> writes:
->> 
->> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
->> >
->> > Every architecture calls sparse_init() during setup_arch() although the
->> > data structures created by sparse_init() are not used until the
->> > initialization of the core MM.
->> >
->> > Beside the code duplication, calling sparse_init() from architecture
->> > specific code causes ordering differences of vmemmap and HVO initialization
->> > on different architectures.
->> >
->> > Move the call to sparse_init() from architecture specific code to
->> > free_area_init() to ensure that vmemmap and HVO initialization order is
->> > always the same.
->> >
->> 
->> Hello Mike,
->> 
->> [    0.000000][    T0] ------------[ cut here ]------------
->> [    0.000000][    T0] WARNING: arch/powerpc/include/asm/io.h:879 at virt_to_phys+0x44/0x1b8, CPU#0: swapper/0
->> [    0.000000][    T0] Modules linked in:
->> [    0.000000][    T0] CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 6.19.0-12139-gc57b1c00145a #31 PREEMPT
->> [    0.000000][    T0] Hardware name: IBM pSeries (emulated by qemu) POWER10 (architected) 0x801200 0xf000006 of:SLOF,git-ee03ae pSeries
->> [    0.000000][    T0] NIP:  c000000000601584 LR: c000000004075de4 CTR: c000000000601548
->> [    0.000000][    T0] REGS: c000000004d1f870 TRAP: 0700   Not tainted  (6.19.0-12139-gc57b1c00145a)
->> [    0.000000][    T0] MSR:  8000000000021033 <SF,ME,IR,DR,RI,LE>  CR: 48022448  XER: 20040000
->> [    0.000000][    T0] CFAR: c0000000006016c4 IRQMASK: 1
->> [    0.000000][    T0] GPR00: c000000004075dd4 c000000004d1fb10 c00000000304bb00 c000000180000000
->> [    0.000000][    T0] GPR04: 0000000000000009 0000000000000009 c000000004ec94a0 0000000000000000
->> [    0.000000][    T0] GPR08: 0000000000018000 0000000000000001 c000000004921280 0000000048022448
->> [    0.000000][    T0] GPR12: c000000000601548 c000000004fe0000 0000000000000004 0000000000000004
->> [    0.000000][    T0] GPR16: 000000000287fb08 0000000000000060 0000000000000002 0000000002831750
->> [    0.000000][    T0] GPR20: 0000000002831778 fffffffffffffffd c000000004d78050 00000000051cbb00
->> [    0.000000][    T0] GPR24: 0000000005a40008 c000000000000000 c000000000400000 0000000000000100
->> [    0.000000][    T0] GPR28: c000000004d78050 0000000000000000 c000000004ecd4a8 0000000000000001
->> [    0.000000][    T0] NIP [c000000000601584] virt_to_phys+0x44/0x1b8
->> [    0.000000][    T0] LR [c000000004075de4] alloc_bootmem+0x144/0x1a8
->> [    0.000000][    T0] Call Trace:
->> [    0.000000][    T0] [c000000004d1fb50] [c000000004075dd4] alloc_bootmem+0x134/0x1a8
->> [    0.000000][    T0] [c000000004d1fba0] [c000000004075fac] __alloc_bootmem_huge_page+0x164/0x230
->> [    0.000000][    T0] [c000000004d1fbe0] [c000000004030bc4] alloc_bootmem_huge_page+0x44/0x138
->> [    0.000000][    T0] [c000000004d1fc10] [c000000004076e48] hugetlb_hstate_alloc_pages+0x350/0x5ac
->> [    0.000000][    T0] [c000000004d1fd30] [c0000000040782f0] hugetlb_bootmem_alloc+0x15c/0x19c
->> [    0.000000][    T0] [c000000004d1fd70] [c00000000406d7b4] mm_core_init_early+0x7c/0xdf4
->> [    0.000000][    T0] [c000000004d1ff30] [c000000004011d84] start_kernel+0xac/0xc58
->> [    0.000000][    T0] [c000000004d1ffe0] [c00000000000e99c] start_here_common+0x1c/0x20
->> [    0.000000][    T0] Code: 6129ffff 792907c6 6529ffff 6129ffff 7c234840 40810018 3d2201e8 3929a7a8 e9290000 7c291840 41810044 3be00001 <0b1f0000> 3d20bfff 6129ffff 792907c6
->> 
->> 
->> I think this is happening because, now in mm_core_early_init(), the
->> order of initialization between hugetlb_bootmem_alloc() and
->> free_area_init() is reversed. Since free_area_init() -> sparse_init()
->> is responsible for setting SECTIONS and vmemmap area. 
->> 
->> Then in alloc_bootmem() (from hugetlb_bootmem_alloc() path), it uses virt_to_phys(m)...
->> 
->> 			/*
->> 			 * For pre-HVO to work correctly, pages need to be on
->> 			 * the list for the node they were actually allocated
->> 			 * from. That node may be different in the case of
->> 			 * fallback by memblock_alloc_try_nid_raw. So,
->> 			 * extract the actual node first.
->> 			 */
->> 			if (m)
->> 				listnode = early_pfn_to_nid(PHYS_PFN(virt_to_phys(m)));
->> 
->> 
->> ... virt_to_phys on powerpc uses:
->> 
->> static inline unsigned long virt_to_phys(const volatile void * address)
->> {
->> 	WARN_ON(IS_ENABLED(CONFIG_DEBUG_VIRTUAL) && !virt_addr_valid(address));
->> 
->> 	return __pa((unsigned long)address);
->> }
->> 
->> #define virt_addr_valid(vaddr)	({					\
->> 	unsigned long _addr = (unsigned long)vaddr;			\
->> 	_addr >= PAGE_OFFSET && _addr < (unsigned long)high_memory &&	\
->> 	pfn_valid(virt_to_pfn((void *)_addr));				\
->> })
->> 
->> 
->> I think the above warning in dmesg gets printed from above WARN_ON, i.e.
->> because pfn_valid() is false, since we haven't done sparse_init() yet.
->
-> Yes, I agree.
->  
->> So, what I wanted to check was - do you think instead of virt_to_phys(), we
->> could directly use __pa() here() in mm/hugetlb.c, since these are
->> memblock alloc addresses? i.e.: 
->> 
->> // alloc_bootmem():
->> -   listnode = early_pfn_to_nid(PHYS_PFN(virt_to_phys(m)));
->> +   listnode = early_pfn_to_nid(PHYS_PFN(__pa(m)));
->> 
->> // __alloc_bootmem_huge_page():
->> -   memblock_reserved_mark_noinit(virt_to_phys((void *)m + PAGE_SIZE),
->> +   memblock_reserved_mark_noinit(__pa((void *)m + PAGE_SIZE),
->
-> It surely will work for powerpc :)
-> I checked the definitions of __pa() on other architectures and it seems the
-> safest and the easiest way to fix this.
->  
-> Would you send a formal patch?
->
+Applied to
 
-Thanks Mike for taking a look at above and confirming. Sure, let me
-prepare the patch and send it by tomorrow. 
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
 
--ritesh
+Thanks!
+
+[1/3] dt-bindings: mfd: spacemit,p1: Add individual regulator supply properties
+      commit: 82ffa9610ba39d3628a9bec968ddc68fe2fe6612
+[2/3] regulator: spacemit-p1: Update supply names
+      commit: fbb4c52ccdcb4a612d2b7f800aa57090eeee16d7
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
 _______________________________________________
 linux-riscv mailing list
