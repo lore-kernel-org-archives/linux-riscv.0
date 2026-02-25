@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E250FD45F6
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 22:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10842FD45FA
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 22:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SsSuTdWjmJuCEaM1LrrlOl/YdR4sQVBXrmPffNcFWq0=; b=0Tujvfi4XE4qS1
-	VwKIr/46fPgtlICOxKfk6lJ1afbRcky15bzlFMQg3Qpqj6PeIWxQ2T2FpvvSgMYheeMbUxDskCw75
-	HewyQlRGRW93xqvTHToYaSbI4ReDFf1A/GtoCsUSCz1aqLdkHooxd2ZEX6k1hrrj5DXFgKuZKP5KY
-	2TrGggDun92qpmMVkG2NlU1ngyK7yJH9wAtwIEQ/QDh8jeLOpl+1Hkt7Ur0eaYvcMho2F5FWVn2gC
-	anSHPIeN5hvYC/2tywlthyC69tEZjn3LeJnqUneH08abalwxbfA5IzzruVuwVzIc6N9ZT5l/wxaA9
-	a2tkTV655B+CXKrCU5Sw==;
+	List-Owner; bh=8VoZaAZ7pZDqZdmr2qOIoRcLkRHU7/QbEybBTYKbaM0=; b=KZz2CpZY48IZxl
+	7KS+ve5sFPcxk1gozJor/BfT7Nb0HTSl27oCACjGfLmwFw7z0zyo51mf2vsLZEpLPpbOumheXUJuI
+	JGbvGMlJR1l6mXXRH8Clfr6HYwgzYnsuWMjzTKyZkEHRaDyaztpxVPNla0z5FZgrTdLwEh3b+MYHV
+	SNvrILf4yzQdUHCAGsiwFV/L6Ff5acP6yCUzOnUCJfF7JWGmsX8kTwuIWkZGlNtYfTfIlAJ11ODAG
+	8jLmMz3rYE8rJAgMwPv1EyEyUR7lUMHjFr+zO502+BeAc1YQU1a2YHs8X7x6rKhj5xf7T6pK4W6Px
+	LmvwF4WxQ7bt7qwnuN0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvNF9-00000004zCg-37tj;
-	Wed, 25 Feb 2026 22:20:31 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1vvNR7-000000050lA-006Y;
+	Wed, 25 Feb 2026 22:32:53 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvNF5-00000004zBG-3omN
+	id 1vvNR4-000000050kp-249g
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Feb 2026 22:20:30 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-82728e5680cso123406b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Feb 2026 14:20:27 -0800 (PST)
+	Wed, 25 Feb 2026 22:32:51 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-824a829f9bbso142394b3a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Feb 2026 14:32:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772058027; x=1772662827; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772058769; x=1772663569; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=F50crxFeK9XeDJJq/qBM5+VtsXIjYPfgaWG7L+GSg6s=;
-        b=LtnHZK5ujHpbvNxAUinW3WHt7Ggae6Of3jbhBI9OgE4tJP7pEWLIvU93wdc0r15R1P
-         pOTMYoQW7fiY1V/BFkLEOncBQnw+EFqTRQybVw2rAVN+tkQjqZmJqMxEdqJeuTkN9Lay
-         hPhle33RXUqGL53PoD6gPCVToQ+EHkY13WKJgOqcI8Yw2mptCxBFtstPMNmJkjuZnmFY
-         tT8eCt12D7lM8zsGDUmT6Z8m81OsEB9Q5Zetmzbz+o3BZowV3/9QM/WaM2CZwiEjRvib
-         dXA13Y2Y+4PYCC0B3DpQcKMEbDgHtaGI4M3qiLXx3H9jfM9KmEJY/tiKgD3Hb92D5sR4
-         Ztxw==
+        bh=n4i2IRBgsk5p1jTMDi9j/dN7YnnN1etbWBu+Qol+1xk=;
+        b=gZq0yrX/08cr99i6De5sMvxa8veYYIyhAlB36LEXF/lCKpU6AHTUzAIUjh7NtsbXxK
+         HTMiZp8NHu/wxzSWGVQ1P9BUHw4+hfhuanfDNGpYVQoEyiJ7NCjIdwKCbdYssNFnEO9/
+         5BPrSpbXqTsM6ufInRVpFmx2adZPUG7ajTIBbASQW+NF6atRkeqkX03yoCPa0vzfRGMH
+         Sxl3/igHXj4vqJTyyHqXL1N+VUMYYuIj6ZvXkBYxqEgeMJQlBiR8qRwyl49YHFT6FJU7
+         tzKGy1WvyvMeQkD0KdRA2lSji3BSe8W4erBQVbUqmVGrePIsHj05t6u+Y/xmnsH3zR7X
+         LXsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772058027; x=1772662827;
+        d=1e100.net; s=20230601; t=1772058769; x=1772663569;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=F50crxFeK9XeDJJq/qBM5+VtsXIjYPfgaWG7L+GSg6s=;
-        b=m50iO8mewKdR28AkEcKgvxPGO+xc8WGgLhrZ16qxVwwGyXL4qNIOnj/MG/4G9IyXvG
-         HmsW47swC2JUDuocSzMP+U/xBOqJFYe1FiK8m/qsKN3AZ0s7B6VsaGMq4YUr9YkyGy53
-         itsh2zDRd2P0uABTbIQmH0eEh5M6LhbgqQxuvrzYEX2r/Dt+0uawTJdrFcjsJFkIMsxL
-         N4p/65Zaeg+t2IevU5IsS3MFEZsHkNNgEt7yrYLDUnmQqabYsGywahmsVnKVWK+03LI2
-         CY2fcdQtlIeDYa4RKLoyxZ/yC76YFS1DBYDZSRrpa+oBHoiimbstBicVij+AzzbtWjDh
-         tkVA==
-X-Forwarded-Encrypted: i=1; AJvYcCWOl6aEuyOQo/FBY4Y1z28AOeinLltYnucdDUe3vpKaoMAUer3D9qTBCoCM2zmhRWh3fOfrNskiy48d+w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMwTI3TYhFwpCGyl+sPUURGoJiIF+MxLfjAU5+xUvRPHAmnTVg
-	dSfIxv/mR1v2Y9bGX3+X3fwHNAOfS3LIwEN1A0cuXUbLyOckZKDCtymt2Y7ULeeq
-X-Gm-Gg: ATEYQzzHVfUMUn/kuipxqGv8/VCw60EdVBbszvZoNVH+LVfJXLxv+1t4mkyiV1DdLqu
-	f6rduOIfYy4qdcbM7CzeyLaq+OWAxR/SlJ36P+KxbaBj8m/7xmj5yxTjLcbykHUvnTSV9e5Cq0i
-	CiTnFsiF+oF1i/P2NOvV/VCgefDl0KG3EpxJ4PW32oujRqbJPVNGL5U9J11gO+4wypCIInLNu6c
-	ZrwJGCSw/S/8TNdJXynTIG8DKwrQNDb9Q3qrWr0dwnmggrfYe+iu3JodaF/VQJ/ZovX2IG2QI5R
-	QV/fZKNsnI1b2UKsBr0qduBIs2TZEeMwO9Z+uQ8xZ47iNucJz903YNYp1Itq8h3+pEfGfBVaFOm
-	nf/UAbz8Z8zTN7TKuYKKE1CdEBtT883Eu/0cgNZKMPFfQD9A5+L2RKBncWGOnhuFcQGtDHds2PZ
-	8gl7Z0xGVrfSuq0TA4np1HEA==
-X-Received: by 2002:a05:6a20:6a05:b0:394:8455:d1aa with SMTP id adf61e73a8af0-39545ed55eamr16074081637.25.1772058026470;
-        Wed, 25 Feb 2026 14:20:26 -0800 (PST)
+        bh=n4i2IRBgsk5p1jTMDi9j/dN7YnnN1etbWBu+Qol+1xk=;
+        b=uskgDQ79W7EgYZaYQ+DjWUzStyACPgL3T8IgTJqhfd+KgC5S+k72aTJji/eo+sbKhr
+         M/RdkENY202NqZ65ws8Wv8Q/VtKNFRznxusTJCEQmtWD7SzKQHIAVP8q7OEf+WvYA5QZ
+         E4zOV9pqhwrM+CL4I7CyjfHYibyQI3OVq3c8kvtUpmjxgwGISAwuVRK54sGjJoSgpLfE
+         z6iMxWUhDWS5Xq8SzA+EEUdGvnxdx30qLv1l8ag/LRdwQiKAiQDW29+T0oZPKH7hDcB2
+         JdzPO1aVpRKutz8rPjAxCrvorSJ/jaFi4XR5PShw2yeNp/+osGc1gZ6NxZK86Y8fCy+X
+         3ZIg==
+X-Forwarded-Encrypted: i=1; AJvYcCXEu6hUfsCGEDPCUChaHO45Chi+2YKM+cTEF3aEZxtEsdSBtGuWRyzNRc03lF/Xut/N8u5c8vfH455XUg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgvTydiEQZY+TDPfcWSEHUVhOtpWh14mrt92zTfWY75q+/kQgd
+	pKZi3/VOTf3TX0/4oP3XH/RrtEobcn7nw3+aX/5d901r+9lEtRYDwZAw
+X-Gm-Gg: ATEYQzyu+ZQ6Xi3QNau3zFuQtfFcDDzh47IHlgM4DOpdm99oH19eIuR7TW1r7qwuZot
+	3iGUzhFqhw/Y0Rw9gH3elEOSJFze6/kf+pPjRfQ1L2u2kfxEFuvz33mmINFl9Y7FibbWa5d2NEO
+	3zGwkoUbKHws6byl8IwVpEmrsEj/PJPkHHpc+Qk6l1W5xYjBx297quJNy7rj9yqrnfncrMHVK6c
+	HwabTJ4Ss36ODopsq9QcpRckhPsrdVrm0jL9VoPb3zi3LQ9Z9LV9vrAf1HvXqq77sII8XZ38qjD
+	QCMqn6rgynpWLNYQ6iF3spxaWfxrc+RLWvjIWG/yKfpjbXxaZ43YY4m62LNBCgZCZz5r9brVTMD
+	SkljnyT6/ss5OplSPcILPpCYt2R2JkNBcLduIyAU9s0eUPSB2yR0ibKUTQ1dhn8XCoTO4vXmG/X
+	dceNYkZ0vw06ajS5/COLUGDw==
+X-Received: by 2002:a05:6a00:6d5a:10b0:827:28db:7a78 with SMTP id d2e1a72fcca58-82728db7ea0mr2323867b3a.17.1772058769463;
+        Wed, 25 Feb 2026 14:32:49 -0800 (PST)
 Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-359037afe31sm3693376a91.16.2026.02.25.14.20.25
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8273a01a9dasm289317b3a.49.2026.02.25.14.32.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Feb 2026 14:20:26 -0800 (PST)
-Date: Thu, 26 Feb 2026 06:20:03 +0800
+        Wed, 25 Feb 2026 14:32:49 -0800 (PST)
+Date: Thu, 26 Feb 2026 06:32:27 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
 To: "Anton D. Stavinskii" <stavinsky@gmail.com>, 
 	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -80,15 +80,15 @@ To: "Anton D. Stavinskii" <stavinsky@gmail.com>,
 Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
 	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 Subject: Re: [PATCH v4 6/6] riscv: dts: sophgo: dts nodes for i2s tdm modules
-Message-ID: <aZ91NjoJLr--BEmZ@inochi.infowork>
+Message-ID: <aZ939evsOs6nCd5I@inochi.infowork>
 References: <20260120-cv1800b-i2s-driver-v4-0-6ef787dc6426@gmail.com>
  <20260120-cv1800b-i2s-driver-v4-6-6ef787dc6426@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <20260120-cv1800b-i2s-driver-v4-6-6ef787dc6426@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_142028_748658_767D8343 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20260225_143250_538868_D55AD381 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -204,6 +204,14 @@ On Tue, Jan 20, 2026 at 11:06:08PM +0400, Anton D. Stavinskii wrote:
 > +			dma-names = "rx", "tx";
 > +			status = "disabled";
 > +		};
+
+This magic number 1 is bind to the RISC-V cores, I think we should add a
+macro DMA_CPU_ID into CPU file to route the CPU id to real cores.
+Or, just let the borad dts configure which dma is enabled.
+
+Regards,
+Inochi
+
 > +
 > +		i2s1: i2s@4110000 {
 > +			compatible = "sophgo,cv1800b-i2s";
@@ -235,7 +243,6 @@ On Tue, Jan 20, 2026 at 11:06:08PM +0400, Anton D. Stavinskii wrote:
 > +			status = "disabled";
 > +		};
 > +
-
 > +		int_adc: codec@300a100 {
 > +			compatible = "sophgo,cv1800b-sound-adc";
 > +			#sound-dai-cells = <0>;
@@ -250,15 +257,6 @@ On Tue, Jan 20, 2026 at 11:06:08PM +0400, Anton D. Stavinskii wrote:
 > +			status = "disabled";
 > +		};
 > +
-
-Hi, Anton,
-
-Can you send a new version with the all device nodes sorted by address?
-So I can take them, Thanks.
-
-Regards,
-Inochi
-
 >  		rtc@5025000 {
 >  			compatible = "sophgo,cv1800b-rtc", "syscon";
 >  			reg = <0x5025000 0x2000>;
