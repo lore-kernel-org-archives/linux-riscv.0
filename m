@@ -4,126 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 043E4EFD216
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 09:34:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC35F357DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 10:30:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K2m6AW3iYnuj3lCDbFEJ1HI4yq70L4Aa8VLFnz5Wi/g=; b=R88X8/NU5dsQP6
-	0Lp3eVsJ18l5MS5dg6sDK3EtCKQfMn/0ImKoOVQ4gWgm9oHyAwr2CYc/7rkSV3aQWX3mXgNuEjs7U
-	rC3z1QPpq2BKcZQxNGBKS/B6tzIcF8lbuF7RCzIQbqFC668UTFPwe45ywW+867JvlHoyMG2qpJ2/h
-	IyYqy1/Xv1Mxc7jtByppD6YQrsJawm3H/wtN+J9ZlqIllI6hvNFl5WLFQK8r+WHFnpdiCYoD2pNLQ
-	WpxHg5Fgb2yIC6t3RAwZlSLkQCUs6kTIwR+0EBS254w2YICIZ9+9z3Tohdn2xxJgMeY6EshzrwYm1
-	myeYJoqPMeFIVg0leovw==;
+	List-Owner; bh=R5KtIUK2z9b0Wwplu7HHLZlhxeCanouNildmO+aWffg=; b=Xa4m6yFX+5LVG4
+	P+lD3g5+bcxK3Ta+h8DoIJOlEs5Q6aMHMd2rZIP+tQAaplCRHvLaNazq2rn9PdQp32bynagDD//cU
+	rj/EVE0H/jL7vk6sVyImKRPpOsYTUMzQ10r7F1fxyZjP09ZtqOmCsOuFnG/iFj+4kVeA0g7vmfw3K
+	RNlJbs0LsD0yrp2fB5b3pxG/OUSMy4lxnbZNkY+veOAB/7g8DhpOUgLFoAFfEQAwnfmbiHMDYVrtH
+	qjFlgNZ+jYVdVmfqoT3Dd5vGxpa/O6ola0MkFKKKNNl91v5V9bKmp/IV2z+dDiau422CMG3W+cG9X
+	1EgZqHXjWibuAV113Low==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvBHh-00000003hV7-3XC3;
-	Wed, 25 Feb 2026 09:34:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vvC9j-00000003moL-0ggk;
+	Wed, 25 Feb 2026 10:30:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvBHg-00000003hUs-1mbt
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 25 Feb 2026 09:34:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	Message-ID:Date:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=JxnsaOQZey5wMq56BxN2EdEuMBW71mGq+RSuzcss/8M=; b=I3xldCR/We3duKCz8JTzE2mIH+
-	yQ+iRXFoDn8b4GcGz2296kIc1TS3Djwz++YMEuLBSzutfmcVMrcnTH8fcpMytaKfEAM8RkbOAaXYN
-	YxZwbD8yiMlIo+BU+zK9skrhc8seJ6+pV0Q5nJ0rbK4x/e1JG32pP8Gd+i7QTA3S/5iR35LWaBMnU
-	hItogWeqw+T1EN3nvPLhGx6g0NkgsXmzIEgLdQH08Ox4lwxXwudVtoxqYz3VFoO96vyEuROPc97aw
-	jdbio4Gv41dIUEJbtWNmtadg5hYcFhrMvNZ/GuqUJPBxLkp+ADu8b20FVDfBWIg5DQMNEiUgRmQtb
-	/kjCDsFQ==;
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvBHc-00000008gs2-25mc
+	id 1vvC9h-00000003mno-2dCz
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Feb 2026 09:34:19 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c70f191313cso59082a12.3
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Feb 2026 01:34:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772012054; x=1772616854; darn=lists.infradead.org;
-        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JxnsaOQZey5wMq56BxN2EdEuMBW71mGq+RSuzcss/8M=;
-        b=K9tjWff0olF7asopR7xuRd7yIgfULTywuptbho9XaTCLws0KJcXLOhocx+5rLF7k64
-         MrTZZmE27KWssZNdAEf2Xrl5AsnfYFyZtTvd0Ddg24mKh7UNqKzsUjflpDWQFvm/2XVX
-         w4NeEh8Lwj6ifwgn1jNOLl1QGN5GWuExCRYuxXSZBAyMT5h0he5B3H83kOthKPWKd0ks
-         TsW7tlV5s4SwspWZy6WyHn07LblJTdJQxOi+eWPxLjUXp5MWft9YtvxDqPtfIa+tIvLp
-         wDJxUagheVOkD6jVvln7lURv42iGouKgNYj7qZYXBz1aeAAw08a9Pk2/+fZ5aNqp8KhK
-         waXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772012054; x=1772616854;
-        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JxnsaOQZey5wMq56BxN2EdEuMBW71mGq+RSuzcss/8M=;
-        b=AUMXP7y7KGOJP8Y55ZjVY04y8WOahTFeRJYbpq9763kqYgIV6I+9vyVbvZ2KZiK4/T
-         M0VXkGDkrhMCHnb71OLC/Vzl9/SlaTZYjTBZgKSKqjZ+uj3fa7LbcJo2kHCKYnTB6/rr
-         IEopn76LDd2486Tho3DD+ggmsR5cCBYDbRKPg8RU3/itFljZQ0IDB1xSPdKvCiNjuiPi
-         lmlkpJ+7oa0taC+BsM0sgt83Y33BvrD0m08dZB8LpIpHLEZWECw1RfkSrgLg6m4U4M5u
-         X7prcEA7jbIRJXqBw7Qlw+joXzYkKW9Ha+5Q6Pc/uq17Wk4zvshGSyc5PAReOe/j3MN1
-         qwtA==
-X-Forwarded-Encrypted: i=1; AJvYcCVHKbVqc+WAvkp08IWu+YEqPZznPhjZirigONCe3d1ZAXaD6bougNTwfNKV93ROizuQIwCP+uX1+jc++w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRfMgUW7fvft8TKmwFA/b900GMvn0nPNQHjTX2Gm+Ox9eeMxk0
-	xrfxUdR0yFN/douv6L+w5cEJtbqafl70VHg0JMycEDkm2An3hFLUAEst
-X-Gm-Gg: ATEYQzwFMCNi7cxLqU4baa9JgRnU8m4aYAMPP6phKKfGJpQ8gHnYQahKLJl3nfvtoST
-	pAqLQOhSoEROfk06tZjvP5Yp8UBn4kPaSZVoh1hFMnktYXvmiLls0E6yHV2UTxDeN5BxRrCxFrm
-	PfKcpH0Mm4fkno7ctk2OIJFGZ13/yAjGa+qPabpG8gyFGQfQaPkKFv+qfe7G55bEw5LfoqtrnN6
-	/UB3FUKD/cLoE7bUyn7Z2/nZCuLkD0a77h1hgVadJVQC5Y95nZGih9Lx2D4p2VjrqlLI0hec0x4
-	+2mtQH8L8bHY+bFCvetaJzZxjWjvPe0F1LkuJ0ccNBeDfIpAEwjxunyWYu6L054RsIvcofCJHEg
-	ybf1NlQ3oT1xRo4Hoq7A3jCQCa73IJOW9UN4NIggKg1L7WuwBSeOILpHjpB929YcKyGYDDjgxp1
-	7aybfcguO8msIHJywJDw==
-X-Received: by 2002:a17:90b:3dcc:b0:340:c60b:f362 with SMTP id 98e67ed59e1d1-358ae7c6ca9mr13087754a91.6.1772012054135;
-        Wed, 25 Feb 2026 01:34:14 -0800 (PST)
-Received: from dw-tp ([203.81.242.210])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3590188126esm2256635a91.6.2026.02.25.01.33.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Feb 2026 01:34:13 -0800 (PST)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-Cc: Alex Shi <alexs@kernel.org>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Andreas Larsson <andreas@gaisler.com>, Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>, 
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	"David S. Miller" <davem@davemloft.net>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	David Hildenbrand <david@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Guo Ren <guoren@kernel.org>, 
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Johannes Berg <johannes@sipsolutions.net>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Jonathan Corbet <corbet@lwn.net>, 
-	Klara Modin <klarasmodin@gmail.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Magnus Lindholm <linmag7@gmail.com>, 
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>, 
-	Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
-	Oscar Salvador <osalvador@suse.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Pratyush Yadav <pratyush@kernel.org>, Richard Weinberger <richard@nod.at>, 
-	Russell King <linux@armlinux.org.uk>, Stafford Horne <shorne@gmail.com>, 
-	Suren Baghdasaryan <surenb@google.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Thomas Gleixner <tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>, 
-	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>, x86@kernel.org, 
-	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-cxl@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
-	linux-mips@vger.kernel.org, linux-mm@kvack.org, 
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
-	linux-um@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
-	loongarch@lists.linux.dev, sparclinux@vger.kernel.org
-Subject: Re: [PATCH v3 24/29] arch, mm: consolidate initialization of SPARSE memory model
-In-Reply-To: <20260111082105.290734-25-rppt@kernel.org>
-Date: Wed, 25 Feb 2026 09:00:35 +0530
-Message-ID: <87tsv5h544.ritesh.list@gmail.com>
-References: <20260111082105.290734-1-rppt@kernel.org> <20260111082105.290734-25-rppt@kernel.org>
+	Wed, 25 Feb 2026 10:30:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F2E9C43FF3;
+	Wed, 25 Feb 2026 10:30:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 203BAC116D0;
+	Wed, 25 Feb 2026 10:30:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772015408;
+	bh=yvsBqcgbBxN3PsC9TQJxXhhlhJlGMx/bZ4A6gDi5mYg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MAsB6zgEa3O9fbPh7dwCcqqTclghdnqipBOuMPspWVWuoNxQDb3//fq8tRK8ArZmq
+	 0CUZxHj4fr33OgI2iG3/4ZHFr+1uh2vNlhTzaHqgmWSmkTD/PT8/Wxvuz+LvVAamH0
+	 xtDUT64UKE2u0xQBZdLJfyD8w8NRDotV8r9xKJYP5r78sa7UB3zDNVI2Pw1/MBOMxg
+	 Pl/tV2Rx/AfRRppX5INg0Vzju3JCCAoMPeoGWCTU1jOWcFGSg+r3kZbdsQg2LULAGA
+	 OlB5Bdf43aCqAOo9uix2itads2FzNKm0dCOAKaLH+wpf3BoxrUMwlZ2Ia7NaiVkhA3
+	 ra/C1ac+C0j2A==
+Date: Wed, 25 Feb 2026 16:00:04 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Longbin Li <looong.bin@gmail.com>, Ze Huang <huangze@whut.edu.cn>,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, sophgo@lists.linux.dev,
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>
+Subject: Re: [PATCH v3 1/3] dt-bindings: dma: snps,dw-axi-dmac: Add CV1800B
+ compatible
+Message-ID: <aZ7PLPFVnWjaBDpa@vaman>
+References: <20260120013706.436742-1-inochiama@gmail.com>
+ <20260120013706.436742-2-inochiama@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260120013706.436742-2-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_093417_705737_7C8FC1D7 
-X-CRM114-Status: GOOD (  17.83  )
+X-CRM114-CacheID: sfid-20260225_023009_682453_0CBC8FAB 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,109 +84,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Mike Rapoport <rppt@kernel.org> writes:
+On 20-01-26, 09:37, Inochi Amaoto wrote:
+> The DMA controller on CV1800B needs to use the DMA phandle args
+> as the channel number instead of hardware handshake number, so
+> add a new compatible for the DMA controller on CV1800B.
 
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
->
-> Every architecture calls sparse_init() during setup_arch() although the
-> data structures created by sparse_init() are not used until the
-> initialization of the core MM.
->
-> Beside the code duplication, calling sparse_init() from architecture
-> specific code causes ordering differences of vmemmap and HVO initialization
-> on different architectures.
->
-> Move the call to sparse_init() from architecture specific code to
-> free_area_init() to ensure that vmemmap and HVO initialization order is
-> always the same.
->
+Applied this manually, please check if that is okay after push
 
-Hello Mike,
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+> index a393a33c8908..0b5c8314e25e 100644
+> --- a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+> +++ b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+> @@ -20,6 +20,7 @@ properties:
+>      enum:
+>        - snps,axi-dma-1.01a
+>        - intel,kmb-axi-dma
+> +      - sophgo,cv1800b-axi-dma
+>        - starfive,jh7110-axi-dma
+>        - starfive,jh8100-axi-dma
+>  
+> -- 
+> 2.52.0
 
-[    0.000000][    T0] ------------[ cut here ]------------
-[    0.000000][    T0] WARNING: arch/powerpc/include/asm/io.h:879 at virt_to_phys+0x44/0x1b8, CPU#0: swapper/0
-[    0.000000][    T0] Modules linked in:
-[    0.000000][    T0] CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 6.19.0-12139-gc57b1c00145a #31 PREEMPT
-[    0.000000][    T0] Hardware name: IBM pSeries (emulated by qemu) POWER10 (architected) 0x801200 0xf000006 of:SLOF,git-ee03ae pSeries
-[    0.000000][    T0] NIP:  c000000000601584 LR: c000000004075de4 CTR: c000000000601548
-[    0.000000][    T0] REGS: c000000004d1f870 TRAP: 0700   Not tainted  (6.19.0-12139-gc57b1c00145a)
-[    0.000000][    T0] MSR:  8000000000021033 <SF,ME,IR,DR,RI,LE>  CR: 48022448  XER: 20040000
-[    0.000000][    T0] CFAR: c0000000006016c4 IRQMASK: 1
-[    0.000000][    T0] GPR00: c000000004075dd4 c000000004d1fb10 c00000000304bb00 c000000180000000
-[    0.000000][    T0] GPR04: 0000000000000009 0000000000000009 c000000004ec94a0 0000000000000000
-[    0.000000][    T0] GPR08: 0000000000018000 0000000000000001 c000000004921280 0000000048022448
-[    0.000000][    T0] GPR12: c000000000601548 c000000004fe0000 0000000000000004 0000000000000004
-[    0.000000][    T0] GPR16: 000000000287fb08 0000000000000060 0000000000000002 0000000002831750
-[    0.000000][    T0] GPR20: 0000000002831778 fffffffffffffffd c000000004d78050 00000000051cbb00
-[    0.000000][    T0] GPR24: 0000000005a40008 c000000000000000 c000000000400000 0000000000000100
-[    0.000000][    T0] GPR28: c000000004d78050 0000000000000000 c000000004ecd4a8 0000000000000001
-[    0.000000][    T0] NIP [c000000000601584] virt_to_phys+0x44/0x1b8
-[    0.000000][    T0] LR [c000000004075de4] alloc_bootmem+0x144/0x1a8
-[    0.000000][    T0] Call Trace:
-[    0.000000][    T0] [c000000004d1fb50] [c000000004075dd4] alloc_bootmem+0x134/0x1a8
-[    0.000000][    T0] [c000000004d1fba0] [c000000004075fac] __alloc_bootmem_huge_page+0x164/0x230
-[    0.000000][    T0] [c000000004d1fbe0] [c000000004030bc4] alloc_bootmem_huge_page+0x44/0x138
-[    0.000000][    T0] [c000000004d1fc10] [c000000004076e48] hugetlb_hstate_alloc_pages+0x350/0x5ac
-[    0.000000][    T0] [c000000004d1fd30] [c0000000040782f0] hugetlb_bootmem_alloc+0x15c/0x19c
-[    0.000000][    T0] [c000000004d1fd70] [c00000000406d7b4] mm_core_init_early+0x7c/0xdf4
-[    0.000000][    T0] [c000000004d1ff30] [c000000004011d84] start_kernel+0xac/0xc58
-[    0.000000][    T0] [c000000004d1ffe0] [c00000000000e99c] start_here_common+0x1c/0x20
-[    0.000000][    T0] Code: 6129ffff 792907c6 6529ffff 6129ffff 7c234840 40810018 3d2201e8 3929a7a8 e9290000 7c291840 41810044 3be00001 <0b1f0000> 3d20bfff 6129ffff 792907c6
-
-
-I think this is happening because, now in mm_core_early_init(), the
-order of initialization between hugetlb_bootmem_alloc() and
-free_area_init() is reversed. Since free_area_init() -> sparse_init()
-is responsible for setting SECTIONS and vmemmap area. 
-
-Then in alloc_bootmem() (from hugetlb_bootmem_alloc() path), it uses virt_to_phys(m)...
-
-			/*
-			 * For pre-HVO to work correctly, pages need to be on
-			 * the list for the node they were actually allocated
-			 * from. That node may be different in the case of
-			 * fallback by memblock_alloc_try_nid_raw. So,
-			 * extract the actual node first.
-			 */
-			if (m)
-				listnode = early_pfn_to_nid(PHYS_PFN(virt_to_phys(m)));
-
-
-... virt_to_phys on powerpc uses:
-
-static inline unsigned long virt_to_phys(const volatile void * address)
-{
-	WARN_ON(IS_ENABLED(CONFIG_DEBUG_VIRTUAL) && !virt_addr_valid(address));
-
-	return __pa((unsigned long)address);
-}
-
-#define virt_addr_valid(vaddr)	({					\
-	unsigned long _addr = (unsigned long)vaddr;			\
-	_addr >= PAGE_OFFSET && _addr < (unsigned long)high_memory &&	\
-	pfn_valid(virt_to_pfn((void *)_addr));				\
-})
-
-
-I think the above warning in dmesg gets printed from above WARN_ON, i.e.
-because pfn_valid() is false, since we haven't done sparse_init() yet.
-
-So, what I wanted to check was - do you think instead of virt_to_phys(), we
-could directly use __pa() here() in mm/hugetlb.c, since these are
-memblock alloc addresses? i.e.: 
-
-// alloc_bootmem():
--   listnode = early_pfn_to_nid(PHYS_PFN(virt_to_phys(m)));
-+   listnode = early_pfn_to_nid(PHYS_PFN(__pa(m)));
-
-// __alloc_bootmem_huge_page():
--   memblock_reserved_mark_noinit(virt_to_phys((void *)m + PAGE_SIZE),
-+   memblock_reserved_mark_noinit(__pa((void *)m + PAGE_SIZE),
-
-
-Thoughts?
-
--ritesh
+-- 
+~Vinod
 
 _______________________________________________
 linux-riscv mailing list
