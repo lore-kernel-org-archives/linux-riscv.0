@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDFA0FD3758
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 13:33:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45244FD375D
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Feb 2026 13:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DqaoMzMyeNUilLh4nzzbhQ59wmZE8dfq9B70RiXUgwo=; b=i8HaN71ug0I+jf
-	Ss5rkkdpLqjo8ciND+aT/Ss64LSiDNmNIhuJlct21h07qQKXwpfkor0X2Pnsv74HoutywPgz2RowE
-	d4N0DEUuGuUvuyYV8RCZH8Ah5abfjJ8jq2V61Uo4oJmNTGjFjwYOcaZA1bCtN6dD+lWhBm5kSZjU/
-	Z13oJVaWmFI67usY1iHfRDRwsrdc71+2KEW+keJekjVaGghkHQzLJ8vfZMin+m2SDUyUoH+lpeUce
-	8TQPajs7XNdIO5odF5F8oD0iYU2wojHBu/mgHJrC6Fali5i2NYgFsS9DjtR6QCEObrTT+vYPmqhlF
-	dVR3xhIl+iHbMnAGnsKw==;
+	List-Owner; bh=ADpPkBRGuh7ngDhoVcg+sVffh9FgXfhefoT5+PQttO8=; b=2tQi1eQSsrxD3s
+	3gWd8Ew5/d4LHWguK5yM2htU29NiA2d+YdSRtuKqi1IJQAUFOPvBB5nswxxkEHFDbHSMpte22W4z/
+	kHttxQiV5tfyxpt0Jg15Ug+8E+1tsHxw0aDzKri6vtrM9vXfaBrni2qvsRVfulRR+CuXOv/L7mg9/
+	mImiROTSSVQJDGAaHgNEi63vewEy6lIH9nKJYQc9NAxBm38R6jQaaxDTXEVH9nP1IR5mXvgnv/0hx
+	De3TJVYg2MT3aFdEdi6g62vYA4WbOKhNXgAs/WWB8Jfq5KHeL3yKSNMStETvMqLcLRtBtxJetO7hb
+	C9WZDllcTSQ/Kp/iZD/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvF0g-000000046Gc-35qk;
-	Wed, 25 Feb 2026 13:33:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vvF10-000000046Ps-3XQP;
+	Wed, 25 Feb 2026 13:33:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvF0d-000000046Fa-343y;
-	Wed, 25 Feb 2026 13:33:00 +0000
+	id 1vvF0z-000000046OY-1pQF;
+	Wed, 25 Feb 2026 13:33:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE08A40A60;
-	Wed, 25 Feb 2026 13:32:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D50A0C116D0;
-	Wed, 25 Feb 2026 13:32:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D67CD60054;
+	Wed, 25 Feb 2026 13:33:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A58BEC19421;
+	Wed, 25 Feb 2026 13:33:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772026378;
-	bh=wmr6bT8akEtpLi1oziJGuiLkNQ2Ie8LcCOaUZTc1XwE=;
+	s=k20201202; t=1772026400;
+	bh=ZKEw1M2s7XFotvUcCDiETx2C3JnnIOtIpjsC1zCO9VI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ijl35Uv4hx6aBfx51WTjt9zLWon7TP2CTtDIUj/BWvpN5xkoWHsfV0LUtP4CuSdpR
-	 Sjpgg82MHS+X/gqDJ8sdXqQOAiQiXQGJEaoyv/vtwkTcL6Maoie3h49U95yj4td8z0
-	 KBfyp3TIgn7qE96b5c6SAtKYZhnM2+4L9svf1PyC2kjWbnk4AzOpb8sETykEjxwqZf
-	 OlAYJtNwnUEbO0PhU30jHgRJWuKC9CwWcB6d7cUyAkA+cyVOfikDYe+Zt5t4kglS3Y
-	 Om9uJezjM8DwfDkfJ8p37Pv0mi0LrJuJtv45QHWCEbsNfqNGsYGm0MQhrh0L6a8FXH
-	 2Jgw4GeyLD6jA==
-Message-ID: <923f69f8-7841-47ae-94a0-e624153732e2@kernel.org>
-Date: Wed, 25 Feb 2026 14:32:51 +0100
+	b=qJCkpZ0cc47LpObHi0ME+D+ssjzGR+srEweXb4I3/4hNUqYO3ivvqSYoLaTgWlu4Q
+	 SOOTLCCloxOVhAf3rKNOpaEZSDPQMp15xzjtNYjyA86ykO7vouTKUw04YJ80+rz7V/
+	 l0HYvmOpo1MCbQ9OpjnJ72iDP9+bvb6gcEQffzWvf2yLTEddhtC9VYnvvamRSAbbZR
+	 qcMFiI2SVb116plOcQo8ASLYucYpI6HsAabTgocn/PGVKVMmLuhxnrOavEEXvgkrs5
+	 l0zss6Li/KWG610eDCmUBAhLUe23uhKcKHt9pXIvA/54i0h0oAbFkB45RCMM8YUxqe
+	 mtBBUPx8BQeYQ==
+Message-ID: <5200f32b-6212-4ba0-ad6d-f8b30ae455e6@kernel.org>
+Date: Wed, 25 Feb 2026 14:33:14 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] arm64: gcs: Use the new common vm_mmap_shadow_stack()
- helper
+Subject: Re: [PATCH 3/5] riscv: shstk: Use the new common
+ vm_mmap_shadow_stack() helper
 To: Catalin Marinas <catalin.marinas@arm.com>,
  Andrew Morton <akpm@linux-foundation.org>, Mark Brown <broonie@kernel.org>,
  Deepak Gupta <debug@rivosinc.com>,
@@ -59,7 +59,7 @@ Cc: Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-mm@kvack.org
 References: <20260224175800.2500729-1-catalin.marinas@arm.com>
- <20260224175800.2500729-3-catalin.marinas@arm.com>
+ <20260224175800.2500729-4-catalin.marinas@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -106,11 +106,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260224175800.2500729-3-catalin.marinas@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260225_053259_816923_D004CEF3 
-X-CRM114-Status: UNSURE (   7.31  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260224175800.2500729-4-catalin.marinas@arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,13 +124,15 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2/24/26 18:57, Catalin Marinas wrote:
-> Replace the arm64 map_shadow_stack() content with a call to
+> Replace part of the allocate_shadow_stack() content with a call to
 > vm_mmap_shadow_stack().
 > 
 > Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Paul Walmsley <pjw@kernel.org>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: Alexandre Ghiti <alex@ghiti.fr>
+> Cc: Deepak Gupta <debug@rivosinc.com>
 > ---
 
 Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
