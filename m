@@ -4,94 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2379BFC5910
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 09:34:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4678FC5910
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 09:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pHY72V4DeRFltQtqTFiJpUgEoHch/2xmRX0vWpQk9gs=; b=lpFppI564DRGx+
-	MIFvzcKZSHU81YxH+nzEEubIEeP6QGHPiUz2KbOELrz7l+rLlYEYMSTHSRpY0s8ug76nL6wJgOvOl
-	WgghtAeQUDdWwVbR/N0MlZCEO/rbyKu/vMaa5fij/nrEsKUrOgqpbP5oG71QB2pp90CdAqP7a4BOa
-	SU1o9O9r5E95swdE1BjwQaYG55r48l8iKMo8vvqhCVuQLof9y4MeazAsjEATMKliZuj/W2zmM5nb8
-	wE0DqAsWS2AwEnGNnkjgB52vZuEHLwvV50eV30N608advNHYDDJ9qrjymLjvHjK3lmGA/pIpCkJrA
-	IsNI2esVKAz8t2NtD4rQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ya9TPBoow0BPgvo8cezwHaAqIYVhOoaypLxuEAxBdpA=; b=fixryuMLuqTQ+f
+	TihIq/TfSpEIqfl/e6kr/3yN6pWgrZ93p0BQ+wWSCe3GHdvVbyF6qLM7HbkXx+/09qC49uynOjbSk
+	c4H6lBl1/2dKcSNtMu708gNzajjRZ1T2YUgA1c21BQ9sJfuwTePW3TDsDUe0F2sto59wzf9W6Q0jl
+	2muNnH1rA3fNARLW3Rhc8aTdJtdHw/+JIDa4hlndjjWWQXXsMvK1n7IGl+DduPzsjUfgqns9SzeLD
+	zFa5Jy+evfy0waylOcaDzzdV/VdVCw0E46CoOl4j+NZ1IurqAmYN2R13+A2mrj879JtFMl6oStf36
+	iK4Xo40CPujc1EOV+A0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXl4-00000005p3E-0VNY;
-	Thu, 26 Feb 2026 09:34:10 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vvXm3-00000005pDB-1ZmP;
+	Thu, 26 Feb 2026 09:35:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXl0-00000005p2J-3mb6
+	id 1vvXm2-00000005pCj-07UF
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Feb 2026 09:34:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772098446;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XkGmC86NoLQjvZOxhyrqXHuM788hxYhHZtfwsGaL3u0=;
-	b=iO/LXXDkwdFZJzVmwtnM+Wwo4Ya+YjuCZG968XBmEJ6bxSFvLYuDP+vdoJ/vdb4TwYW8gu
-	gBLAFt258OD3OTdiErsBFUAhFeKdonht+/V4LncUgnfGWWD1pupPUqNnpaSy2H5DPBqGtv
-	k+NuvVszZ7f75wb6WdbwQmvGqodPiMY=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-609-cKoIy_McNXyrDuGueNJKMw-1; Thu,
- 26 Feb 2026 04:33:56 -0500
-X-MC-Unique: cKoIy_McNXyrDuGueNJKMw-1
-X-Mimecast-MFC-AGG-ID: cKoIy_McNXyrDuGueNJKMw_1772098431
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7373E18002FB;
-	Thu, 26 Feb 2026 09:33:49 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.101])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 88ECE30001B9;
-	Thu, 26 Feb 2026 09:33:44 +0000 (UTC)
-Date: Thu, 26 Feb 2026 17:33:36 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: corbet@lwn.net, skhan@linuxfoundation.org, catalin.marinas@arm.com,
-	will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name,
-	maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
-	chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	hpa@zytor.com, akpm@linux-foundation.org, vgoyal@redhat.com,
-	dyoung@redhat.com, rdunlap@infradead.org, pmladek@suse.com,
-	dapeng1.mi@linux.intel.com, kees@kernel.org, paulmck@kernel.org,
-	lirongqing@baidu.com, arnd@arndb.de, ardb@kernel.org,
-	leitao@debian.org, rppt@kernel.org, cfsworks@gmail.com,
-	ryan.roberts@arm.com, sourabhjain@linux.ibm.com,
-	tangyouling@kylinos.cn, eajames@linux.ibm.com,
-	hbathini@linux.ibm.com, ritesh.list@gmail.com,
-	songshuaishuai@tinylab.org, samuel.holland@sifive.com,
-	kevin.brodsky@arm.com, vishal.moola@gmail.com,
-	junhui.liu@pigmoral.tech, coxu@redhat.com, liaoyuanhong@vivo.com,
-	fuqiang.wang@easystack.cn, jbohac@suse.cz, brgerst@gmail.com,
-	x86@kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, kexec@lists.infradead.org
-Subject: Re: [PATCH v6 4/5] arm64: kexec: Add support for crashkernel CMA
- reservation
-Message-ID: <aaATcPGToAxEVIvh@MiWiFi-R3L-srv>
-References: <20260224085342.387996-1-ruanjinjie@huawei.com>
- <20260224085342.387996-5-ruanjinjie@huawei.com>
+	Thu, 26 Feb 2026 09:35:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 18517600AA;
+	Thu, 26 Feb 2026 09:35:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6A88C19423;
+	Thu, 26 Feb 2026 09:35:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772098508;
+	bh=nZoAG/AHgrRLPWFPuZBLaGkAy+EvSXlIPWoUqKxQB78=;
+	h=From:Date:Subject:To:Cc:From;
+	b=a6y1sbm68dMHKfvNAtLCUe1t/xibAQ2meXz7xeLsd5rLCegCkXZjY95llTyHf1aR6
+	 PZGbaXKo9ffD0Z53ZA09aJhGMNu1E4bhqiVbct/vXuWA+gIlqutptFD+H0dbBCrKTj
+	 XfeNR35Q5gN65vSNoslmLNFK1ck+BNtkuPw1P8CeAL36o8kNiNK6GYg/6WpzQxzHX6
+	 +7nounLe+k/8gEgsaCt/0vb1yQy6iKUZrJ+5i2YzTqb6lnMSHvWiFhkgibytzdbirq
+	 fviWgGR86sHSJ+SCfE4QOyUvOmPuBj1SbpRHL7ID07oaySXgE71a1OkyB1UwDxg/T1
+	 l8UIiAlhyVDNA==
+From: Yixun Lan <dlan@kernel.org>
+Date: Thu, 26 Feb 2026 09:35:00 +0000
+Subject: [PATCH] riscv: dts: spacemit: adapt regulator node name to
+ preferred form
 MIME-Version: 1.0
-In-Reply-To: <20260224085342.387996-5-ruanjinjie@huawei.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-X-Mimecast-MFC-PROC-ID: fujvzf2LkruTZTYyyti0TDvY6030bb3VePx_NHYLqlQ_1772098431
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_013407_002944_D3C3A186 
-X-CRM114-Status: GOOD (  22.52  )
+Message-Id: <20260226-02-k1-regulator-names-v1-1-e87695d50159@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAMMToGkC/x3MQQqEMAxA0atI1hNos6joVWQWYUw1qHVIVQTx7
+ haXb/H/BVlMJUNbXWByaNY1FfhPBb+R0yCofTGQo+CIAjrCyaPJsM+8rYaJF8kYqOZGoucYCEr
+ 7N4l6vt/ue98P8ySJB2cAAAA=
+X-Change-ID: 20260226-02-k1-regulator-names-627a9ef1af62
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Chukun Pan <amadeus@jmu.edu.cn>, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3164; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=nZoAG/AHgrRLPWFPuZBLaGkAy+EvSXlIPWoUqKxQB78=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpoBPGqE0mQhIlADJrWyaNKcuVJKGRqm+NeQHq9
+ 8y46aaHSOiJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaaATxhsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+1YDw//XGZxYpJhOKCIQWfvtntPeLPsGDRX1qoEjpRuTDLAjxh68cw7KLe5b
+ 1ynj0jaKEw/l45me9L0iQVI4kWQ/UAxkU1D4ATtcBR1RK8nBkYpNOud6MDd8dmZQz00d6pcPzDn
+ EBYrTHaY/QoIAz+urTg8zXRltdMRliytxr0QlOfngsLC2IaK7fxjcvxidshN72cMQ1Ya9g+RvUx
+ SOLbDWp3TTBzlSpxs/VGxA8Ryq4sFPSRfHm3V6LiH8laqTnZdhaR4+eVYb+ii1Ncx1Lm/Klu+Me
+ q6AHtYGzm00pG2OCDvOVR0F1L9btUhwpGa4xw5RuD5/AffAfePmZQv/H/dMW6m5kftlddzzsYum
+ nY8Lihd6M9psEiP5EybihzVBNhqrXpfPWLNwi6QlhMEjCIytCQL7QCQGUzylSN+sU3c2XwkSX2S
+ 7wKQrqmlRTM4h6ZzmO4TEttz4OrbVVNQ7NrLZVW8ZUkpOb+pXunqIM5zDSw4cM1o1oFEUzuEw10
+ dHugK7rzo+x6W2n7dt2yPZ+DkehdvcHuNmiSWZD23lr//vStetICEtwSqCqfDAKfFOqNkqVqoxs
+ qSsQUVJKLdPw1FnJfW7oW0Dt+Hr1W7IUq2ZuPQH10zELZJ4Y+i0KFNzC12sPBMDPDGpvG5uS2Lk
+ fiTiUUlEP2W9QpcADlWW9e0KMMf6cU=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,62 +89,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMDIvMjQvMjYgYXQgMDQ6NTNwbSwgSmluamllIFJ1YW4gd3JvdGU6Cj4gQ29tbWl0IDM1YzE4
-ZjI5MzNjNSAoIkFkZCBhIG5ldyBvcHRpb25hbCAiLGNtYSIgc3VmZml4IHRvIHRoZQo+IGNyYXNo
-a2VybmVsPSBjb21tYW5kIGxpbmUgb3B0aW9uIikgYW5kIGNvbW1pdCBhYjQ3NTUxMGUwNDIgKCJr
-ZHVtcDoKPiBpbXBsZW1lbnQgcmVzZXJ2ZV9jcmFzaGtlcm5lbF9jbWEiKSBhZGRlZCBDTUEgc3Vw
-cG9ydCBmb3Iga2R1bXAKPiBjcmFzaGtlcm5lbCByZXNlcnZhdGlvbi4KPiAKPiBDcmFzaCBrZXJu
-ZWwgbWVtb3J5IHJlc2VydmF0aW9uIHdhc3RlcyBwcm9kdWN0aW9uIHJlc291cmNlcyBpZiB0b28K
-PiBsYXJnZSwgcmlza3Mga2R1bXAgZmFpbHVyZSBpZiB0b28gc21hbGwsIGFuZCBmYWNlcyBhbGxv
-Y2F0aW9uIGRpZmZpY3VsdGllcwo+IG9uIGZyYWdtZW50ZWQgc3lzdGVtcyBkdWUgdG8gY29udGln
-dW91cyBibG9jayBjb25zdHJhaW50cy4gVGhlIG5ldwo+IENNQS1iYXNlZCBjcmFzaGtlcm5lbCBy
-ZXNlcnZhdGlvbiBzY2hlbWUgc3BsaXRzIHRoZSAibGFyZ2UgZml4ZWQKPiByZXNlcnZhdGlvbiIg
-aW50byBhICJzbWFsbCBmaXhlZCByZWdpb24gKyBsYXJnZSBDTUEgZHluYW1pYyByZWdpb24iOiB0
-aGUKPiBDTUEgbWVtb3J5IGlzIGF2YWlsYWJsZSB0byB1c2Vyc3BhY2UgZHVyaW5nIG5vcm1hbCBv
-cGVyYXRpb24gdG8gYXZvaWQKPiB3YXN0ZSwgYW5kIGlzIHJlY2xhaW1lZCBmb3Iga2R1bXAgdXBv
-biBjcmFzaOKAlHNhdmluZyBtZW1vcnkgd2hpbGUKPiBpbXByb3ZpbmcgcmVsaWFiaWxpdHkuCj4g
-Cj4gU28gZXh0ZW5kIGNyYXNoa2VybmVsIENNQSByZXNlcnZhdGlvbiBzdXBwb3J0IHRvIGFybTY0
-LiBUaGUgZm9sbG93aW5nCj4gY2hhbmdlcyBhcmUgbWFkZSB0byBlbmFibGUgQ01BIHJlc2VydmF0
-aW9uOgo+IAo+IC0gUGFyc2UgYW5kIG9idGFpbiB0aGUgQ01BIHJlc2VydmF0aW9uIHNpemUgYWxv
-bmcgd2l0aCBvdGhlciBjcmFzaGtlcm5lbAo+ICAgcGFyYW1ldGVycy4KPiAtIENhbGwgcmVzZXJ2
-ZV9jcmFzaGtlcm5lbF9jbWEoKSB0byBhbGxvY2F0ZSB0aGUgQ01BIHJlZ2lvbiBmb3Iga2R1bXAu
-Cj4gLSBJbmNsdWRlIHRoZSBDTUEtcmVzZXJ2ZWQgcmFuZ2VzIGZvciBrZHVtcCBrZXJuZWwgdG8g
-dXNlLgo+IC0gRXhjbHVkZSB0aGUgQ01BLXJlc2VydmVkIHJhbmdlcyBmcm9tIHRoZSBjcmFzaCBr
-ZXJuZWwgbWVtb3J5IHRvCj4gICBwcmV2ZW50IHRoZW0gZnJvbSBiZWluZyBleHBvcnRlZCB0aHJv
-dWdoIC9wcm9jL3ZtY29yZSwgd2hpY2ggaXMgYWxyZWFkeQo+ICAgZG9uZSBpbiB0aGUgY3Jhc2gg
-Y29yZS4KPiAKPiBVcGRhdGUga2VybmVsLXBhcmFtZXRlcnMudHh0IHRvIGRvY3VtZW50IENNQSBz
-dXBwb3J0IGZvciBjcmFzaGtlcm5lbCBvbgo+IGFybTY0IGFyY2hpdGVjdHVyZS4KPiAKPiBBY2tl
-ZC1ieTogQXJkIEJpZXNoZXV2ZWwgPGFyZGJAa2VybmVsLm9yZz4KPiBTaWduZWQtb2ZmLWJ5OiBK
-aW5qaWUgUnVhbiA8cnVhbmppbmppZUBodWF3ZWkuY29tPgo+IC0tLQo+IHYzOgo+IC0gQWRkIEFj
-a2VkLWJ5Lgo+IHYyOgo+IC0gRnJlZSBjbWVtIGluIHByZXBhcmVfZWxmX2hlYWRlcnMoKQo+IC0g
-QWRkIHRoZSBtdGl2YXRpb24uCj4gLS0tCj4gIERvY3VtZW50YXRpb24vYWRtaW4tZ3VpZGUva2Vy
-bmVsLXBhcmFtZXRlcnMudHh0IHwgMiArLQo+ICBhcmNoL2FybTY0L2tlcm5lbC9tYWNoaW5lX2tl
-eGVjX2ZpbGUuYyAgICAgICAgICB8IDggKysrKysrKy0KPiAgYXJjaC9hcm02NC9tbS9pbml0LmMg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgfCA1ICsrKy0tCj4gIDMgZmlsZXMgY2hhbmdlZCwg
-MTEgaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkKPiAKPiBkaWZmIC0tZ2l0IGEvRG9jdW1l
-bnRhdGlvbi9hZG1pbi1ndWlkZS9rZXJuZWwtcGFyYW1ldGVycy50eHQgYi9Eb2N1bWVudGF0aW9u
-L2FkbWluLWd1aWRlL2tlcm5lbC1wYXJhbWV0ZXJzLnR4dAo+IGluZGV4IGNiODUwZTUyOTBjMi4u
-NDk3ZjYzYjc2ODk4IDEwMDY0NAo+IC0tLSBhL0RvY3VtZW50YXRpb24vYWRtaW4tZ3VpZGUva2Vy
-bmVsLXBhcmFtZXRlcnMudHh0Cj4gKysrIGIvRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlkZS9rZXJu
-ZWwtcGFyYW1ldGVycy50eHQKPiBAQCAtMTEyMSw3ICsxMTIxLDcgQEAgS2VybmVsIHBhcmFtZXRl
-cnMKPiAgCQkJSXQgd2lsbCBiZSBpZ25vcmVkIHdoZW4gY3Jhc2hrZXJuZWw9WCxoaWdoIGlzIG5v
-dCB1c2VkCj4gIAkJCW9yIG1lbW9yeSByZXNlcnZlZCBpcyBiZWxvdyA0Ry4KPiAgCWNyYXNoa2Vy
-bmVsPXNpemVbS01HXSxjbWEKPiAtCQkJW0tOTCwgWDg2LCBwcGNdIFJlc2VydmUgYWRkaXRpb25h
-bCBjcmFzaCBrZXJuZWwgbWVtb3J5IGZyb20KPiArCQkJW0tOTCwgWDg2LCBBUk02NCwgcHBjXSBS
-ZXNlcnZlIGFkZGl0aW9uYWwgY3Jhc2gga2VybmVsIG1lbW9yeSBmcm9tCiAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgIH5+fn4gClRoaXMgc2hvdWxkIGJlIHdyaXR0ZW4g
-YXMgJ1BQQycsIGV2ZW4gdGhvdWdoIGl0J3Mgbm90IGludHJvZHVjZWQgaW4gdGhpcyBwYXRjaC4K
-PT09CiBQUEMgICAgIFBvd2VyUEMgYXJjaGl0ZWN0dXJlIGlzIGVuYWJsZWQuCj09PQoKT3RoZXIg
-dGhhbiB0aGlzIG5pdCwgdGhlIG92ZXJyYWwgbG9va3MgZ29vZCB0byBtZS4KCj4gIAkJCUNNQS4g
-VGhpcyByZXNlcnZhdGlvbiBpcyB1c2FibGUgYnkgdGhlIGZpcnN0IHN5c3RlbSdzCj4gIAkJCXVz
-ZXJzcGFjZSBtZW1vcnkgYW5kIGtlcm5lbCBtb3ZhYmxlIGFsbG9jYXRpb25zIChtZW1vcnkKPiAg
-CQkJYmFsbG9vbiwgenN3YXApLiBQYWdlcyBhbGxvY2F0ZWQgZnJvbSB0aGlzIG1lbW9yeSByYW5n
-ZQouLi4uLi5zbmlwLi4uCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+The preferred node name for fixed-regulators has changed to pattern [1]:
+ '^regulator(-[0-9]+v[0-9]+|-[0-9a-z-]+)?$'
+
+Adjust all SpacemiT DT regulator node names to fix this.
+
+Link: https://lore.kernel.org/r/20240426215147.3138211-1-robh@kernel.org [1]
+Signed-off-by: Yixun Lan <dlan@kernel.org>
+---
+In Review of adding DTS for OrangePi, Chukun mentioned fixed-regulator
+has preferred node names [1], so let's change it now.
+
+This isn't strictly a bug, so I've not added the Fixes tag.
+
+Link: https://lore.kernel.org/r/20260123145015.1926865-1-amadeus@jmu.edu.cn [1]
+---
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   | 10 +++++-----
+ arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts |  4 ++--
+ 2 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+index 5971605754b3..d55f3e148ed2 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+@@ -33,7 +33,7 @@ led1 {
+ 		};
+ 	};
+ 
+-	pcie_vcc_3v3: pcie-vcc3v3 {
++	pcie_vcc_3v3: regulator-pcie-vcc3v3 {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "PCIE_VCC3V3";
+ 		regulator-min-microvolt = <3300000>;
+@@ -41,7 +41,7 @@ pcie_vcc_3v3: pcie-vcc3v3 {
+ 		regulator-always-on;
+ 	};
+ 
+-	reg_dc_in: dc-in-12v {
++	reg_dc_in: regulator-dc-in-12v {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "dc_in_12v";
+ 		regulator-min-microvolt = <12000000>;
+@@ -50,7 +50,7 @@ reg_dc_in: dc-in-12v {
+ 		regulator-always-on;
+ 	};
+ 
+-	reg_vcc_4v: vcc-4v {
++	reg_vcc_4v: regulator-vcc-4v {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vcc_4v";
+ 		regulator-min-microvolt = <4000000>;
+@@ -60,7 +60,7 @@ reg_vcc_4v: vcc-4v {
+ 		vin-supply = <&reg_dc_in>;
+ 	};
+ 
+-	usb3-vbus-5v {
++	regulator-usb3-vbus-5v {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "USB30_VBUS";
+ 		regulator-min-microvolt = <5000000>;
+@@ -70,7 +70,7 @@ usb3-vbus-5v {
+ 		enable-active-high;
+ 	};
+ 
+-	usb3_hub_5v: usb3-hub-5v {
++	usb3_hub_5v: regulator-usb3-hub-5v {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "USB30_HUB";
+ 		regulator-min-microvolt = <5000000>;
+diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+index 800a112d5d70..931887aee8e0 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+@@ -21,7 +21,7 @@ chosen {
+ 		stdout-path = "serial0";
+ 	};
+ 
+-	reg_dc_in: dc-in-12v {
++	reg_dc_in: regulator-dc-in-12v {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "dc_in_12v";
+ 		regulator-min-microvolt = <12000000>;
+@@ -30,7 +30,7 @@ reg_dc_in: dc-in-12v {
+ 		regulator-always-on;
+ 	};
+ 
+-	reg_vcc_4v: vcc-4v {
++	reg_vcc_4v: regulator-vcc-4v {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vcc_4v";
+ 		regulator-min-microvolt = <4000000>;
+
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260226-02-k1-regulator-names-627a9ef1af62
+
+Best regards,
+-- 
+Yixun Lan <dlan@kernel.org>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
