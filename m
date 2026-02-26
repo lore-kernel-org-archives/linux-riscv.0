@@ -4,91 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3FFCFD8FC3
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 15:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545D5FD8FC4
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 15:04:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1lQt0TyH5XL/+cLrUTW5IJbjaXrN3BPf24Hai4aYu2w=; b=YDL6/vjd/H9USC
-	D2kJFmQmm+/OuWL8h2jMSC31pe4OkZfeIWtG3rRYU0Ut47Db5+AGp3bgVS2jQ3w1Fz4TU15pcAS2k
-	JLc29AtCrqLyz7l+PBLmPbhUMcSwJhgZPyo6bi8m18k0S19CoAzNuOOcNjuf660H/cr3tJ8O0RELa
-	fXFe64kA8o+1hrKqT4pZtsRD+WEb6UtvDWfdFXwcpYQxqEFdJ0VheHrEsCRwmypVkUtE7EVT73+1d
-	tI6kbWe/MMISSaxs1FkwQ0bjQSB8/j6C1QhOltpVlYYgtmzvMjjvZhc0C1h4Wl6lg4pxRVDogmLQy
-	VKg4CxSFDFCXqfwp+rSg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=66JGxH5DrAO960RP/mJpyQmcm7vyKXkOnH/oJW5otTY=; b=IZVH4RAa+JDkua
+	y4SY2jkpWu/FybOCC6LxJG9xRlBauTxKeu/raJzDmVR6w8asf464a7T69DQPbxSpSdMZukBjAfHTR
+	bEV+DtqmhvGMr8quEqKfCPSXf0Q9U9pex67XcqU1jNiYIG+WWyK7MPqp1N4S2WPu2TTKO6AaMyClk
+	/XCy8ps4CL8/jYQbm6O5jV18XEy/afc766qVUFfT2ae1pSlhDUekKXm+fhhBqcOSRBTUCIrzBoX9K
+	AMEYCAAu9Oi88S1oc8C5COX+C594+6leQ0VUZwOet505KfQtTfBfOjKb9zs4hPHWQK3dLtE2TJE6d
+	FAlDEMw0a8ZVSxPCX+0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvcuA-00000006Ou5-0LdS;
-	Thu, 26 Feb 2026 15:03:54 +0000
-Received: from mx-2023-1.gwdg.de ([134.76.10.21])
+	id 1vvcv7-00000006P1l-0Mgv;
+	Thu, 26 Feb 2026 15:04:53 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvcu7-00000006Otg-49W1
+	id 1vvcv4-00000006P0Y-2W7W
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Feb 2026 15:03:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=cispa.de;
-	s=2023-rsa; h=CC:To:Message-ID:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Subject:Date:From:Sender:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=e6M1tQVvDIkc+dV5Pa2VDS+xz7uDyD3Gvv7kQY0e+lY=; b=hkeKPiIdwY3mI+0W5T25sYZP/9
-	oNuznDb8m1zBW/f6+J0BULGhEHcsNRasAjxK0FnKNWxJX6jROm+iYAl/FOFwqPqmMMbSZsBWI+MG6
-	PDyzWWVsKKxUXcHP4gWNt5LIrnsNCOajTIt+oMhGGE+ZECesArTJ1aEHjN89+lGPmqsu7q9sXXz0Y
-	lnTiCDmHGd1FgETVer1kHGr50wzguqCWU1qa4id0C3YfYS9W+JYCpng0ghA2QSfkLh5nu9nPPfrVI
-	TMz3GWbJUNixxx+KuhowVml4TFC8LLCVcGj8qb6moP4boURegb4jk4cIorW5bBPClby6MvGsb/1G0
-	7ytUCSNQ==;
-Received: from mailer.gwdg.de ([134.76.10.26]:47548)
-	by mailer.gwdg.de with esmtp (GWDG Mailer)
-	(envelope-from <lukas.gerlach@cispa.de>)
-	id 1vvcu4-006Fja-1U;
-	Thu, 26 Feb 2026 16:03:49 +0100
-Received: from mbx19-sub-05.um.gwdg.de ([10.108.142.70] helo=email.gwdg.de)
-	by mailer.gwdg.de with esmtps (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
-	(GWDG Mailer)
-	(envelope-from <lukas.gerlach@cispa.de>)
-	id 1vvcu4-000Sr5-3D;
-	Thu, 26 Feb 2026 16:03:49 +0100
-Received: from
- 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
- (10.250.9.200) by MBX19-SUB-05.um.gwdg.de (10.108.142.70) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.37; Thu, 26 Feb 2026 16:03:48 +0100
-From: Lukas Gerlach <lukas.gerlach@cispa.de>
-Date: Thu, 26 Feb 2026 16:03:46 +0100
-Subject: [PATCH v2] riscv: Limit uaccess speculation using guard page
+	Thu, 26 Feb 2026 15:04:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ccG1ShkPxP8+iaNCPAco/UVvQ7B9jMSYAMpSXN/azRSviLbyTckn66iZrbJIYeWATJh2YZJHkNz7Kl0QAU7BbiyETWl5w3Vgk9rreqAZll0fydNfPJXlPNhi3pK9uhrEKEIfFXdbgLx1uglsONTstaFYjUfpSz00gXjLF5AJ6GZzJ5CoL/h7R3nDNGDIW1YAW1Ek6ym4bDDQFfJUIUEzAJvhL3V4Q5O86nl28QXZMPw9q3oPJtqkJoynIyodi8t3Q46q8h+WnfoKszx0aLOyDmofaFtfbAIuDOB81BAThFL91Op6S6idrbIlJvDHVShxnXLavSS/Lokdi8enWFijRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eguFhSG5ISZuZuY6zY8OpcZ3pTsMOJK5D6eaiFJ5gYQ=;
+ b=y0iKieeuYnRRyqrI3PsxDFyGZJOdDIlRKl3fjOIUm8+JKOswWqZPXSS6cOTthusRjinLy5BTDJ8CW9xt4uLLq+Uz8R2k5o/ctj8YAnLMqyxCxft/jmdNzc+BZLoodqkddnO366lNrxw4JyJJzdcC5qeRxk214kp7xWJSCtmrO7pFRBP7F4/eZKcDB5PJRazsJOylnxhc9FzN2+92rSMhIgqRkZCqd+Tv1/CjxalMGPChdM3Wxh1xsra3ETX9Mwh7gSG7Zp78xG4ahR1FtNRz1MhYMDBhPGRZyxT+CXpSP11PbXy0sSaMyMHSF8PgSJ0YD7ZDTcio7QweMigjz9/i+g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eguFhSG5ISZuZuY6zY8OpcZ3pTsMOJK5D6eaiFJ5gYQ=;
+ b=B7aL2gkOIVDWpGbiJe4uW+2Ecoy/8vHPQ8Rt32u4Ud8k+5zZN3Ooe0512+wD4S7aKfvXD6I1vAOSrO++bIbIDyqR8QJJ7jhZxyRD+TokiklAcN0ibGDGoGLFho1b+uiL10B2RH7zaKwWu+nqSt+wFZa0Gia+TAKuCluSoE/HKDUMhHdAmk7V7t42m0+xVRZG4EvUCfcjtLbwPgLIgxWBf4Minrc2OM5HRY16AdqTAeKFkEdZD/mUbGr1/cK4sFxK4/EqnG/Wh1rxaXIYq43THB7ibtOuYLPTp8jgfnbmr6dRmqnT9OhQRz8Uf6OpdsH+3kuCnqffwX6Dmfc14ECBmw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by MN0PR12MB6126.namprd12.prod.outlook.com (2603:10b6:208:3c6::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.14; Thu, 26 Feb
+ 2026 15:04:42 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9654.014; Thu, 26 Feb 2026
+ 15:04:42 +0000
+Date: Thu, 26 Feb 2026 11:04:40 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Alexey Kardashevskiy <aik@amd.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
+	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
+	Justin Stitt <justinstitt@google.com>, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
+	llvm@lists.linux.dev, Bill Wendling <morbo@google.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, Shuah Khan <shuah@kernel.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Will Deacon <will@kernel.org>,
+	Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
+	James Gowans <jgowans@amazon.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Michael Roth <michael.roth@amd.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Vasant Hegde <vasant.hegde@amd.com>
+Subject: Re: [PATCH v8 07/15] iommupt: Add map_pages op
+Message-ID: <20260226150440.GB5933@nvidia.com>
+References: <7-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
+ <fc4f0354-4e6d-452d-abfb-fe24e53253a2@amd.com>
+ <20260117154347.GF1134360@nvidia.com>
+ <bc6817bd-4aa5-4033-b89d-88fef637de65@amd.com>
+Content-Disposition: inline
+In-Reply-To: <bc6817bd-4aa5-4033-b89d-88fef637de65@amd.com>
+X-ClientProxiedBy: BLAPR03CA0097.namprd03.prod.outlook.com
+ (2603:10b6:208:32a::12) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-Message-ID: <20260226-uaccess-guard-v2-v2-1-765a314839bc@cispa.de>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MMQqAMAxA0atIZgMlahWvIg61jZqlSoMiFO9uc
- XzD/xmUk7DCWGVIfIvKEQuorsDvLm6MEoqBDFlDZPFy3rMqbpdLAW/C3jVNNyzMfUtQsjPxKs+
- /nOb3/QAGlbiBYgAAAA==
-X-Change-ID: 20260226-uaccess-guard-v2-7a3358bee742
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, David
- Laight <david.laight.linux@gmail.com>, Deepak Gupta <debug@rivosinc.com>,
-	Vivian Wang <wangruikang@iscas.ac.cn>, Daniel Weber <daniel.weber@cispa.de>,
-	Michael Schwarz <michael.schwarz@cispa.de>, Marton Bognar
-	<marton.bognar@kuleuven.be>, Jo Van Bulck <jo.vanbulck@kuleuven.be>, Lukas
- Gerlach <lukas.gerlach@cispa.de>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4767;
- i=lukas.gerlach@cispa.de; h=from:subject:message-id;
- bh=dDzSFQNPZcPTrUMGcmfEwmsreETTYY5zIvVeXw61NmM=;
- b=owGbwMvMwCGWoTIjqP/42kTG02pJDJkLEq5czDhyZMZT4ysem5kOzdKfxm/ywDhPUb3qktjR3
- 7xz6m5s7ShlYRDjYJAVU2SZKviasW+PA09S5uFzMHNYmUCGMHBxCsBEur0Y/lm03/765Nwzswsu
- pQsM1ANNL09xVjuveaDt8tfXFiw8N2cy/LNeorBmvTSXyeOE008EGS5Uvk9sXdi5z92RR/F191/
- GbC4A
-X-Developer-Key: i=lukas.gerlach@cispa.de; a=openpgp;
- fpr=9511EB018EBC400C6269C3CE682498528FC7AD61
-X-Originating-IP: [10.250.9.200]
-X-ClientProxiedBy: MBX19-GWD-06.um.gwdg.de (10.108.142.59) To
- MBX19-SUB-05.um.gwdg.de (10.108.142.70)
-X-Virus-Scanned: (clean) by clamav
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|MN0PR12MB6126:EE_
+X-MS-Office365-Filtering-Correlation-Id: aad7e03d-359d-4e8e-9ecd-08de75485ea0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: cXD5a7tWFYjmfB7Anr20ib1e4twdLxL+5eFQNtOV5JpIdlSzIepMc2bpHto142gPpesYWaYw+zNGl4z6BChkNk6PKWVFpyb+ng1X1QU08B0W3MGiIpREhtS98TWw6VqI2aXhja6bgPan13Ah5jfCl0aqCo6BGtMFDdr3T9L4862pYpmw+Bc/c95hwLrfivLc8MDt+9HwoveCKBgpF5OFKzngU3EYIvc8UpKIJTKiyxWCBAdqw9+TxFuStu94byDNCEuYr7EUkWRvF3uTw28RQABscElP4DHVhD8xCX88NGy9IZp73Q97aohMnwwmU29HxMCaX+r7Psqbn4y8W5j4nMp96v/2DCvg8sVaF7Kxbw1sc3TQlxX0/tZtOIAYiFvrfIMCx59OPnSwZ4+w1j+gwFqHaoVwDCRH/pEm4rSuruFxbhUeRtfpITo4/1L50wjUPNBlcoSXs9c/EX4t/1E6b0HqGQI3JiWTkKh+YYhyf7w4kjMz1EgpDJLOFTwjj/E1CrLXfzi6MKl12VI3i4gQe9ECye80ZXuncR7EVB/yqgdkE1yvPs1Cj+bH3u0jCnCWI5grac9O6UI7GUZKNVYh9WLMsYa6VobmDr2N9W4MA7Oc/Q8OfD5SHWtIlFA5E8nX8xZIyrlKDG2GyHoQitxWefshamLoO0ruhEs3IA+EPbem5ZqehSjE6NibEWrMUrqFvmay12Me+y2yd6U2FuBWzWl4OWcef7arjIOd0DV67cs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+/3of0oRL5EEcvWNIhqaRD6mIveHlwbZwqSsjAbiA+oBxzvId8QZkRakrqp4?=
+ =?us-ascii?Q?Yi7xxvY5ligL/dDPrBqgM5emlNU5RkjWZcvh7xmCjclBfOEm1oumdJW0+Cp8?=
+ =?us-ascii?Q?F8ijKRHkNvaktOI1cJ5El/E3PgaT93rbw08a0ue2YETKGpUXCDshdV2VyxDU?=
+ =?us-ascii?Q?Yuu3ag8wG/+iIpugMNv0jEJJvOgPb+b/zihfp5xykkPe5reIMkYzmLPvyvLu?=
+ =?us-ascii?Q?1Dcl9PNh5jPcX/HhrWQmYHY5XhLcVT3FqNb2fauZ7sCO9PZJKmak0uHRqJIK?=
+ =?us-ascii?Q?m4Hz1Jg+QdLc59V/xG1sZ8z81zz5/Se/pNWnFm82i9P8sRjEhYIcFPM6YXt/?=
+ =?us-ascii?Q?PZMh7xdbAssP3Uu2NQshjdHVY84ohZL0bxv0j9MVLDDQqJx8nFGh6FzWl+o0?=
+ =?us-ascii?Q?Mdj8BtsyrKep6ejXBR0V9bzNDCNkfJZYmLAVuRZNGjr8ZU9OXurv7hDiYcwW?=
+ =?us-ascii?Q?qz+SJB9xfLiab/SjNd5ac+nlYIpXKSlO9YHcZ8ERQt9//FRh6rOsN0JW56Kv?=
+ =?us-ascii?Q?5UJlM2adMgnuWKuyyTWw2cwoxHjHkFunJUoatw6vMsaJYJra1fP5atmXexZ+?=
+ =?us-ascii?Q?dKjxdM8h0HXqoKz50hlYDl4IuhZVdtwAKJM/bhZfAHEB9xkI10j0MZj69AQ5?=
+ =?us-ascii?Q?2WZDxtnIbu5uq80+gEwUEpcgxxYlxKrqDsN7wj1DjXMVrBWPpl8a0O7G/BR0?=
+ =?us-ascii?Q?dMuxAp0TvzG5z3Kl6MGTP4w4q82t0TizWCRv7vIb6wl156mqByt6d6fJZ6++?=
+ =?us-ascii?Q?WTJR6EZEOfBXPgH/dIx6EPA0RMDvBJcc4n0lHtnqXlj+wY4F42HxulofcTkH?=
+ =?us-ascii?Q?HDbTuX7gLnnz6U/IAy831d1mazADeeIG8qmeLxPbVd13jB8xllk+NQ4wbZJh?=
+ =?us-ascii?Q?gvNyUHmo3IpW+pp64YTey5H15cNJ+ywn9VynaPC6lAiTxmS/XuhxUqspUDHt?=
+ =?us-ascii?Q?n4eya2yNOSkY8I5PuzfA9QXtKL3OH8+BIWjTsNDeJWOikz3T0t4hImKOn90C?=
+ =?us-ascii?Q?Wxyq4oi8jBfa4pNbaJ7cA+sZgFqn4Z3ERAzfYS5O3uTwP5L5zhVX8JRuvl5C?=
+ =?us-ascii?Q?ZY/HlZjX7Cgdgja2jZs2+OWTq0ZAljw1Wi+V3TFIMMiwjrnOPNBw8b11raU8?=
+ =?us-ascii?Q?KjJZLJW8BB4GlWxhFqGEgIyic0CE7SOL9g0zmV0wr3zRzASEbnea3OqQW4VP?=
+ =?us-ascii?Q?cj8SKYcTD7fAlT/u2tHsIpLVkINCQxF5HMGQwAE+jYouRzDAwei0AkxEQexe?=
+ =?us-ascii?Q?WgLyT73HffgXpEA7UwLTwfvuNjkhSKDukRqdkz4vh8mBpQs8D/umGw5umqv1?=
+ =?us-ascii?Q?BuYMVFcT0IauaJPX1Nh037bxtSn9S9Sl/BdXCIiJZs2ev1RJRDfrb3pjjLla?=
+ =?us-ascii?Q?wLxGHG7ni6OFG3Gpfkf1vSt5SHbTr3QiGyFAcQpE0GKTnqIeI8ZneE05i7H5?=
+ =?us-ascii?Q?6KtzbXqW65MkBsfxpbeMaMJ+KMlYFxThqYPhgvrbJ4/ifZWAs62eAASqntAx?=
+ =?us-ascii?Q?4QKq/7IknCsdkUjnhs32I730ddcxwxk6c1baE90gOvzA00wcoE3xCarS1yOj?=
+ =?us-ascii?Q?TkKNkTIWpPdrtIcL9VewGQSrSvG6pRm1bxp+MygoE07fjPsRHy0IzMNYl8I5?=
+ =?us-ascii?Q?6tGzYMlj0zssi/L/ZzaWdBPoa0CHDOevPmQiwB3kzLuAphg6qmw6UpGqpKRj?=
+ =?us-ascii?Q?O05Ou0MyuwKTE0LTirtAgQeluzahYkpQBqmM+tzBa+SeHIJQ0Cm5N1jj3Sh+?=
+ =?us-ascii?Q?SBSSTyKGNg=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aad7e03d-359d-4e8e-9ecd-08de75485ea0
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 15:04:42.1493
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fWJo2Om+imwJ6avrIwUp87/XOwEwsWbcrz/GUNoPlz5Sx+J3ZTYVvUxGz7cQ5Wk7
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6126
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_070352_033560_50EDD718 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20260226_070450_637915_7E76BF8A 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,132 +157,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-User pointers passed to uaccess routines can be speculatively used
-before access_ok() validates them, potentially leaking kernel memory.
+On Thu, Feb 26, 2026 at 10:11:56AM +1100, Alexey Kardashevskiy wrote:
+> > The flow would be some thing like..
+> >   1) Create an IOAS
+> >   2) Create a HWPT. If there is some known upper bound on RMP/etc page
+> >      size then limit the HWPT page size to the upper bound
+> >   3) Map stuff into the ioas
+> >   4) Build the RMP/etc and map ranges of page granularity
+> >   5) Call iommufd to adjust the page size within ranges
+>
+> I am about to try this approach now. 5) means splitting bigger pages
+> to smaller and I remember you working on that hitless IO PDEs
+> smashing, do you have something to play with? I could not spot
+> anything on github but do not want to reinvent. Thanks,
 
-Clamp any address >= TASK_SIZE to the guard page at TASK_SIZE-1, which
-will always fault. The clamp is branchless to prevent speculative bypass.
+I thought this thread had concluded you needed to use the HW engines
+for this and if so then KVM should maintain the IOMMU S2 where it can
+synchronize things and access the HW engines?
 
-Unlike the v1 approach of clearing the sign bit, this works with all
-paging modes (Sv39/Sv48/Sv57) and does not interfere with the pointer
-masking extension (Smnpm).
+My draft for cut is here:
 
-Similar to commit 4d8efc2d5ee4 ("arm64: Use pointer masking to limit
-uaccess speculation").
+https://github.com/jgunthorpe/linux/commits/iommu_pt_all/
+iommupt: Add cut_mapping op
 
-Signed-off-by: Lukas Gerlach <lukas.gerlach@cispa.de>
----
- arch/riscv/include/asm/uaccess.h | 38 +++++++++++++++++++++++++++++---------
- 1 file changed, 29 insertions(+), 9 deletions(-)
-
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index 11c9886c3b70..df31df3bd55c 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -74,6 +74,20 @@ static inline unsigned long __untagged_addr_remote(struct mm_struct *mm, unsigne
- #define __typefits(x, type, not) \
- 	__builtin_choose_expr(sizeof(x) <= sizeof(type), (unsigned type)0, not)
- 
-+/*
-+ * Sanitize a uaccess pointer such that it cannot reach any kernel address.
-+ * Branchlessly clamp any address >= TASK_SIZE to the unmapped guard page
-+ * at TASK_SIZE-1, which will always fault on access.
-+ */
-+#define uaccess_mask_ptr(ptr) ((__typeof__(ptr))__uaccess_mask_ptr(ptr))
-+static inline void __user *__uaccess_mask_ptr(const void __user *ptr)
-+{
-+	unsigned long p = (unsigned long)ptr;
-+	unsigned long mask = (unsigned long)((long)(TASK_SIZE - 1 - p) >> 63);
-+
-+	return (void __user *)((p & ~mask) | ((TASK_SIZE - 1) & mask));
-+}
-+
- /*
-  * The exception table consists of pairs of addresses: the first is the
-  * address of an instruction that is allowed to fault, and the second is
-@@ -245,7 +259,8 @@ __gu_failed:								\
-  */
- #define __get_user(x, ptr)					\
- ({								\
--	const __typeof__(*(ptr)) __user *__gu_ptr = untagged_addr(ptr); \
-+	const __typeof__(*(ptr)) __user *__gu_ptr =		\
-+		uaccess_mask_ptr(untagged_addr(ptr));		\
- 	long __gu_err = 0;					\
- 	__typeof__(x) __gu_val;					\
- 								\
-@@ -376,7 +391,8 @@ err_label:							\
-  */
- #define __put_user(x, ptr)					\
- ({								\
--	__typeof__(*(ptr)) __user *__gu_ptr = untagged_addr(ptr); \
-+	__typeof__(*(ptr)) __user *__gu_ptr =			\
-+		uaccess_mask_ptr(untagged_addr(ptr));		\
- 	__typeof__(*__gu_ptr) __val = (x);			\
- 	long __pu_err = 0;					\
- 								\
-@@ -423,13 +439,15 @@ unsigned long __must_check __asm_copy_from_user(void *to,
- static inline unsigned long
- raw_copy_from_user(void *to, const void __user *from, unsigned long n)
- {
--	return __asm_copy_from_user(to, untagged_addr(from), n);
-+	return __asm_copy_from_user(to,
-+		uaccess_mask_ptr(untagged_addr(from)), n);
- }
- 
- static inline unsigned long
- raw_copy_to_user(void __user *to, const void *from, unsigned long n)
- {
--	return __asm_copy_to_user(untagged_addr(to), from, n);
-+	return __asm_copy_to_user(
-+		uaccess_mask_ptr(untagged_addr(to)), from, n);
- }
- 
- extern long strncpy_from_user(char *dest, const char __user *src, long count);
-@@ -444,7 +462,7 @@ unsigned long __must_check clear_user(void __user *to, unsigned long n)
- {
- 	might_fault();
- 	return access_ok(to, n) ?
--		__clear_user(untagged_addr(to), n) : n;
-+		__clear_user(uaccess_mask_ptr(untagged_addr(to)), n) : n;
- }
- 
- #define arch_get_kernel_nofault(dst, src, type, err_label)			\
-@@ -471,20 +489,22 @@ static inline void user_access_restore(unsigned long enabled) { }
-  * the error labels - thus the macro games.
-  */
- #define arch_unsafe_put_user(x, ptr, label)				\
--	__put_user_nocheck(x, (ptr), label)
-+	__put_user_nocheck(x, uaccess_mask_ptr(ptr), label)
- 
- #define arch_unsafe_get_user(x, ptr, label)	do {			\
- 	__inttype(*(ptr)) __gu_val;					\
--	__get_user_nocheck(__gu_val, (ptr), label);			\
-+	__get_user_nocheck(__gu_val, uaccess_mask_ptr(ptr), label);	\
- 	(x) = (__force __typeof__(*(ptr)))__gu_val;			\
- } while (0)
- 
- #define unsafe_copy_to_user(_dst, _src, _len, label)			\
--	if (__asm_copy_to_user_sum_enabled(_dst, _src, _len))		\
-+	if (__asm_copy_to_user_sum_enabled(				\
-+		uaccess_mask_ptr(_dst), _src, _len))			\
- 		goto label;
- 
- #define unsafe_copy_from_user(_dst, _src, _len, label)			\
--	if (__asm_copy_from_user_sum_enabled(_dst, _src, _len))		\
-+	if (__asm_copy_from_user_sum_enabled(				\
-+		_dst, uaccess_mask_ptr(_src), _len))			\
- 		goto label;
- 
- #else /* CONFIG_MMU */
-
----
-base-commit: f4d0ec0aa20d49f09dc01d82894ce80d72de0560
-change-id: 20260226-uaccess-guard-v2-7a3358bee742
-
-Best regards,
--- 
-Lukas Gerlach <lukas.gerlach@cispa.de>
-
+Jason
 
 _______________________________________________
 linux-riscv mailing list
