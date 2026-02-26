@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51698FCE087
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 14:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A35FCE08E
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 14:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References:Message-ID
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WHKVwNS8gKhvCxrVMB89bIAQOYTsFrm/rzj02RFm9wA=; b=Cq5rVM1RPrefpK
-	OtVJKuZb/VDqH3l074ZRckZByYJW3DWSBO9Ib4FjooXt4+b62y4C914uBW8GTNhCFiTF6IWUiKJy1
-	fWk/XYjlkLSyWIwcll3BU4HBtekZJJ/cg5MQp2C4JTdVk9z3xberhTxIrkUW/O3PK7ZkJAYYM+r+K
-	/2xvwotoIQRktVyIELgEQ8dxOfqHLY2sujeQJmfdgX9TUG5QHxqSTmY0BKp7TuW4X0mCB5NRglhFj
-	dokevIIroJgpy0c6TyO4fKyfYLZGflflmyETah+I0lnokZeboOZnCGj+OPVJ06WHH+RTT9utYoKGt
-	Utyt9BVEN5wmXBu60VVg==;
+	List-Owner; bh=aKM0WU/moUco5MeyA6UnhjWDI9H3u03iFT0cu+QxrJc=; b=b53d26LNS9zCfD
+	1AUpxedxg7wcG5lEqfot4CYKpaFiXvUqIpvTfcnf+7Ru9u3giIUEM/TAWhJPryr+pR4Qq+X/tXXEi
+	6TtqkIR3KmzXVuFpNZ3QeoQNOjvyYpcOaJ870dw8/LbZI8d7zMfvPKkCFdUDzmMTX61wkb3ZppJeU
+	1Apx3gu2BeL6I3j2d75BVNyUCpXi8xQtpWidO3HnO9adFYZJag/P4LQWGsK2J9Cvdd4rNv4Xf9AeE
+	5b9cUu8DoSBdTWz/OgQZDuNiUyOWigxY3FzzqWhhbRbot0Mmh/S2lgYI8eWpL7RAVWujsNQwUVxCA
+	C3vwZCsyGt1gktdPJYrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvcDQ-00000006JfV-0TVN;
-	Thu, 26 Feb 2026 14:19:44 +0000
+	id 1vvcDP-00000006Jek-1qWX;
+	Thu, 26 Feb 2026 14:19:43 +0000
 Received: from mx-2023-1.gwdg.de ([134.76.10.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvcDN-00000006JSR-0Xbo;
+	id 1vvcDM-00000006JTA-3Hjd;
 	Thu, 26 Feb 2026 14:19:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=cispa.de;
 	s=2023-rsa; h=CC:To:In-Reply-To:References:Message-ID:
@@ -32,33 +32,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=cispa.de;
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ZFcl30SuXm+JwQ5EbT5XB2vzMzMRZ5Ig39tXZ+wAMMU=; b=Tg5qcR4Q3rz50AyY0MXi6UFXA2
-	95a3R//Uyh6GL/HtfEy57b5I9SYP09nQTFnCvHXS4XD9y9XMaGArAsj8pkZ8rug4tq/foH/UexPj7
-	FNQK3GnWkECgm+YLBDjW8dKZih203aRH/Rs0H0CiubkBTsRp9i0p92pQ/XCuUhJiD8DOkDN7mc6oX
-	Tb+V7G+xPdBy3we8GQgG5UFpE7ZwGdv9e7RTXHpGLm/r4+Lg5xma0eq+3ZYrG0deauO3VdysDEfGW
-	zibiiAbTqpcHYyeoAcj+gytnA7MD1AgcnUFybDPm5Dws3TsFANQLRKi0eFX7OebNzkvLxmPnCAPhy
-	wrvwN2eA==;
-Received: from mailer.gwdg.de ([134.76.10.26]:36710)
+	bh=jAeCECNlZO1euMlCtdN550hykLYZFsNroN+0wfjKXiE=; b=U/Xd5ZKkugLw4jKH46vDneAvZt
+	thgWfeRlQiGg57cm5hQq1sFPZpOyeZpwDSvQHndFDsW8VhO1wCSNRxq2NKDBKTqGC2UR87ky/toI0
+	sv2v3QzTEeCIMwbHaRQO4JcyJXh7V2nYbFX9JGgHtgzOGaKu2KjHwz7Sy3S9L4ztcv40rHoeOm7g9
+	rhfAuT1aaHG78sjRl9Ji6OcEQSjjVO11rd4K6ltPFL5CssSp7DWii4qjvtthmWh4dWhOUY/C/igou
+	IHrMhsZ22Zw+SjzyLhpU3dNjMnuZlzvKgkoByFEBkytskW1PWxV0G5zZcT6eI8WbVhJ9BXrA25EI3
+	7pEMUIyQ==;
+Received: from mailer.gwdg.de ([134.76.10.26]:60674)
 	by mailer.gwdg.de with esmtp (GWDG Mailer)
 	(envelope-from <lukas.gerlach@cispa.de>)
-	id 1vvcD6-006EFr-08;
-	Thu, 26 Feb 2026 15:19:29 +0100
+	id 1vvcDC-006EG9-09;
+	Thu, 26 Feb 2026 15:19:30 +0100
 Received: from mbx19-sub-05.um.gwdg.de ([10.108.142.70] helo=email.gwdg.de)
 	by mailer.gwdg.de with esmtps (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
 	(GWDG Mailer)
 	(envelope-from <lukas.gerlach@cispa.de>)
-	id 1vvcD6-0009ur-1r;
-	Thu, 26 Feb 2026 15:19:24 +0100
+	id 1vvcDC-0009wl-1u;
+	Thu, 26 Feb 2026 15:19:30 +0100
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (10.250.9.200) by MBX19-SUB-05.um.gwdg.de (10.108.142.70) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.37; Thu, 26 Feb 2026 15:19:23 +0100
+ 15.2.2562.37; Thu, 26 Feb 2026 15:19:24 +0100
 From: Lukas Gerlach <lukas.gerlach@cispa.de>
-Date: Thu, 26 Feb 2026 15:18:58 +0100
-Subject: [PATCH 1/4] KVM: riscv: Fix Spectre-v1 in ONE_REG register access
+Date: Thu, 26 Feb 2026 15:18:59 +0100
+Subject: [PATCH 2/4] KVM: riscv: Fix Spectre-v1 in AIA CSR access
 MIME-Version: 1.0
-Message-ID: <20260226-kvm-riscv-spectre-v1-v1-1-5f930ea16691@cispa.de>
+Message-ID: <20260226-kvm-riscv-spectre-v1-v1-2-5f930ea16691@cispa.de>
 References: <20260226-kvm-riscv-spectre-v1-v1-0-5f930ea16691@cispa.de>
 In-Reply-To: <20260226-kvm-riscv-spectre-v1-v1-0-5f930ea16691@cispa.de>
 To: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
@@ -71,13 +71,13 @@ CC: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
 	Marton Bognar <marton.bognar@kuleuven.be>, Jo Van Bulck
 	<jo.vanbulck@kuleuven.be>, Lukas Gerlach <lukas.gerlach@cispa.de>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4768;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2015;
  i=lukas.gerlach@cispa.de; h=from:subject:message-id;
- bh=pjzrvKEuoSjY816OWcjYa5SX1DBMtRpisKeOqvc4J74=;
- b=owGbwMvMwCGWoTIjqP/42kTG02pJDJkLwuK9un98mr7lp8Cs9AbmJ7zn3Ir/bZCK/9uoJ+18I
- qT8H8/PjlIWBjEOBlkxRZapgq8Z+/Y48CRlHj4HM4eVCWQIAxenAEykRp3hf2XH8l1vN/t/yUxb
- MNfgcIjij8XvQ26xaH0XDOjuMNxva8fIsHGihnWni7bCBZnSneGuq/m/CN5qS56zfpXfBOEbPp0
- dPAA=
+ bh=GFfVWFqoNPRvvXxOXJ4Garf8GrDfVffFbdN0xbFwWQM=;
+ b=owGbwMvMwCGWoTIjqP/42kTG02pJDJkLwuIfLzVcePOR7OkbR7qXJLL5P7wzzfT4Pc9ZSyb8Z
+ g1+mqH3rqOUhUGMg0FWTJFlquBrxr49DjxJmYfPwcxhZQIZwsDFKQATyXrHyHC74nK1qUAi67n9
+ K6pE1sinnhXMZouL+RNyir+l+IfpV12G/xEpN+e9u7Pni+8smeeh8m0Ppr0MzihVuLpZoM64eGd
+ GEzcA
 X-Developer-Key: i=lukas.gerlach@cispa.de; a=openpgp;
  fpr=9511EB018EBC400C6269C3CE682498528FC7AD61
 X-Originating-IP: [10.250.9.200]
@@ -85,8 +85,9 @@ X-ClientProxiedBy: mbx19-sub-02.um.gwdg.de (10.108.142.55) To
  MBX19-SUB-05.um.gwdg.de (10.108.142.70)
 X-Virus-Scanned: (clean) by clamav
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_061941_183365_3C6F102D 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20260226_061940_853465_839B566D 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,135 +104,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-User-controlled register indices from the ONE_REG ioctl are used to
-index into arrays of register values. Sanitize them with
-array_index_nospec() to prevent speculative out-of-bounds access.
+User-controlled indices are used to access AIA CSR registers.
+Sanitize them with array_index_nospec() to prevent speculative
+out-of-bounds access.
+
+Similar to x86 commit 8c86405f606c ("KVM: x86: Protect
+ioapic_read_indirect() from Spectre-v1/L1TF attacks") and arm64
+commit 41b87599c743 ("KVM: arm/arm64: vgic: fix possible spectre-v1
+in vgic_get_irq()").
 
 Signed-off-by: Lukas Gerlach <lukas.gerlach@cispa.de>
 ---
- arch/riscv/kvm/vcpu_onereg.c | 36 ++++++++++++++++++++++++++++--------
- 1 file changed, 28 insertions(+), 8 deletions(-)
+ arch/riscv/kvm/aia.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-index e7ab6cb00646..a4c8703a96a9 100644
---- a/arch/riscv/kvm/vcpu_onereg.c
-+++ b/arch/riscv/kvm/vcpu_onereg.c
-@@ -10,6 +10,7 @@
- #include <linux/bitops.h>
- #include <linux/errno.h>
- #include <linux/err.h>
-+#include <linux/nospec.h>
- #include <linux/uaccess.h>
+diff --git a/arch/riscv/kvm/aia.c b/arch/riscv/kvm/aia.c
+index cac3c2b51d72..38de97d2f5b8 100644
+--- a/arch/riscv/kvm/aia.c
++++ b/arch/riscv/kvm/aia.c
+@@ -13,6 +13,7 @@
+ #include <linux/irqchip/riscv-imsic.h>
+ #include <linux/irqdomain.h>
  #include <linux/kvm_host.h>
- #include <asm/cacheflush.h>
-@@ -127,6 +128,7 @@ static int kvm_riscv_vcpu_isa_check_host(unsigned long kvm_ext, unsigned long *g
- 	    kvm_ext >= ARRAY_SIZE(kvm_isa_ext_arr))
- 		return -ENOENT;
- 
-+	kvm_ext = array_index_nospec(kvm_ext, ARRAY_SIZE(kvm_isa_ext_arr));
- 	*guest_ext = kvm_isa_ext_arr[kvm_ext];
- 	switch (*guest_ext) {
- 	case RISCV_ISA_EXT_SMNPM:
-@@ -443,13 +445,16 @@ static int kvm_riscv_vcpu_get_reg_core(struct kvm_vcpu *vcpu,
- 	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
- 					    KVM_REG_SIZE_MASK |
- 					    KVM_REG_RISCV_CORE);
-+	unsigned long regs_max = sizeof(struct kvm_riscv_core) / sizeof(unsigned long);
- 	unsigned long reg_val;
- 
- 	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
- 		return -EINVAL;
--	if (reg_num >= sizeof(struct kvm_riscv_core) / sizeof(unsigned long))
-+	if (reg_num >= regs_max)
- 		return -ENOENT;
- 
-+	reg_num = array_index_nospec(reg_num, regs_max);
-+
- 	if (reg_num == KVM_REG_RISCV_CORE_REG(regs.pc))
- 		reg_val = cntx->sepc;
- 	else if (KVM_REG_RISCV_CORE_REG(regs.pc) < reg_num &&
-@@ -476,13 +481,16 @@ static int kvm_riscv_vcpu_set_reg_core(struct kvm_vcpu *vcpu,
- 	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
- 					    KVM_REG_SIZE_MASK |
- 					    KVM_REG_RISCV_CORE);
-+	unsigned long regs_max = sizeof(struct kvm_riscv_core) / sizeof(unsigned long);
- 	unsigned long reg_val;
- 
- 	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
- 		return -EINVAL;
--	if (reg_num >= sizeof(struct kvm_riscv_core) / sizeof(unsigned long))
-+	if (reg_num >= regs_max)
- 		return -ENOENT;
- 
-+	reg_num = array_index_nospec(reg_num, regs_max);
-+
- 	if (copy_from_user(&reg_val, uaddr, KVM_REG_SIZE(reg->id)))
- 		return -EFAULT;
- 
-@@ -507,10 +515,13 @@ static int kvm_riscv_vcpu_general_get_csr(struct kvm_vcpu *vcpu,
- 					  unsigned long *out_val)
++#include <linux/nospec.h>
+ #include <linux/percpu.h>
+ #include <linux/spinlock.h>
+ #include <asm/cpufeature.h>
+@@ -182,10 +183,13 @@ int kvm_riscv_vcpu_aia_get_csr(struct kvm_vcpu *vcpu,
+ 			       unsigned long *out_val)
  {
- 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
-+	unsigned long regs_max = sizeof(struct kvm_riscv_csr) / sizeof(unsigned long);
+ 	struct kvm_vcpu_aia_csr *csr = &vcpu->arch.aia_context.guest_csr;
++	unsigned long regs_max = sizeof(struct kvm_riscv_aia_csr) / sizeof(unsigned long);
  
--	if (reg_num >= sizeof(struct kvm_riscv_csr) / sizeof(unsigned long))
+-	if (reg_num >= sizeof(struct kvm_riscv_aia_csr) / sizeof(unsigned long))
 +	if (reg_num >= regs_max)
  		return -ENOENT;
  
 +	reg_num = array_index_nospec(reg_num, regs_max);
 +
- 	if (reg_num == KVM_REG_RISCV_CSR_REG(sip)) {
- 		kvm_riscv_vcpu_flush_interrupts(vcpu);
- 		*out_val = (csr->hvip >> VSIP_TO_HVIP_SHIFT) & VSIP_VALID_MASK;
-@@ -526,10 +537,13 @@ static int kvm_riscv_vcpu_general_set_csr(struct kvm_vcpu *vcpu,
- 					  unsigned long reg_val)
+ 	*out_val = 0;
+ 	if (kvm_riscv_aia_available())
+ 		*out_val = ((unsigned long *)csr)[reg_num];
+@@ -198,10 +202,13 @@ int kvm_riscv_vcpu_aia_set_csr(struct kvm_vcpu *vcpu,
+ 			       unsigned long val)
  {
- 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
-+	unsigned long regs_max = sizeof(struct kvm_riscv_csr) / sizeof(unsigned long);
+ 	struct kvm_vcpu_aia_csr *csr = &vcpu->arch.aia_context.guest_csr;
++	unsigned long regs_max = sizeof(struct kvm_riscv_aia_csr) / sizeof(unsigned long);
  
--	if (reg_num >= sizeof(struct kvm_riscv_csr) / sizeof(unsigned long))
+-	if (reg_num >= sizeof(struct kvm_riscv_aia_csr) / sizeof(unsigned long))
 +	if (reg_num >= regs_max)
  		return -ENOENT;
  
 +	reg_num = array_index_nospec(reg_num, regs_max);
 +
- 	if (reg_num == KVM_REG_RISCV_CSR_REG(sip)) {
- 		reg_val &= VSIP_VALID_MASK;
- 		reg_val <<= VSIP_TO_HVIP_SHIFT;
-@@ -548,11 +562,14 @@ static inline int kvm_riscv_vcpu_smstateen_set_csr(struct kvm_vcpu *vcpu,
- 						   unsigned long reg_val)
- {
- 	struct kvm_vcpu_smstateen_csr *csr = &vcpu->arch.smstateen_csr;
-+	unsigned long regs_max = sizeof(struct kvm_riscv_smstateen_csr) /
-+		sizeof(unsigned long);
+ 	if (kvm_riscv_aia_available()) {
+ 		((unsigned long *)csr)[reg_num] = val;
  
--	if (reg_num >= sizeof(struct kvm_riscv_smstateen_csr) /
--		sizeof(unsigned long))
-+	if (reg_num >= regs_max)
- 		return -EINVAL;
- 
-+	reg_num = array_index_nospec(reg_num, regs_max);
-+
- 	((unsigned long *)csr)[reg_num] = reg_val;
- 	return 0;
- }
-@@ -562,11 +579,14 @@ static int kvm_riscv_vcpu_smstateen_get_csr(struct kvm_vcpu *vcpu,
- 					    unsigned long *out_val)
- {
- 	struct kvm_vcpu_smstateen_csr *csr = &vcpu->arch.smstateen_csr;
-+	unsigned long regs_max = sizeof(struct kvm_riscv_smstateen_csr) /
-+		sizeof(unsigned long);
- 
--	if (reg_num >= sizeof(struct kvm_riscv_smstateen_csr) /
--		sizeof(unsigned long))
-+	if (reg_num >= regs_max)
- 		return -EINVAL;
- 
-+	reg_num = array_index_nospec(reg_num, regs_max);
-+
- 	*out_val = ((unsigned long *)csr)[reg_num];
- 	return 0;
- }
 
 -- 
 2.51.0
