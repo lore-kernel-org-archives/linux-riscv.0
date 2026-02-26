@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3E25FD8FC3
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 15:12:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7A2BFD8FC4
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 15:12:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mSFdou+/Cj7iMYNB241g+nGdmCJ6kZAj3YYulRkd/Xs=; b=kEn8gfrV0dh2wA
-	YCw91qHwDHwHM+yvG1z8W9KAhMtnYgDjRM2MSXoiuASc2Am4PYaiI/fKJaeYQfhIP5hjzjPyPZDa6
-	9QoeOkGy66szFsVc9XcVISUz33FInkYFQu4zU5zO98b1R68SN9GzCNWamCebO48VRETGD8pLOVugN
-	ghOrQyTGmJ6yvGDDy+qFL8TMIEuay7Ce2Ta0gCcn2qANKtOrgREVJXP2P3gMxAxVNJPqY4C0oT/oc
-	Tr6PLFBOLp/6OJZQkZYI/ksYYWVHQb5RUAtGL82nTZn8dZPsGxAfo0X6MS0CCD36UsbH8T6VlM26z
-	QpiY4Vi27inAg3qvV8ew==;
+	List-Owner; bh=XpsNWJENIs9Hr8ZDI9hHmGKgOSDUQOrjouodz6nd3/c=; b=KlMrDDaDeXAz/S
+	M/g9iWjGdYc4RHZwfrz+TpHzBfrlLR4Yw77m0WTJCEnQqofcAadx5zHvOo4VLNWUfUASFAFxwkT+C
+	MJpci0RSao2bIFVoauK19GgxVFGqB/PWwoqN7bB2dXu7Ay++35iNlK3gtcCx2Cepjen0mqDF728Ov
+	3WHKd94rh2ca5Me4nvp0stymSuhFoe/hgS9ggAf3eyp4sxT/2xAF3IuWG+/q7pEa6OJphC3oJlJ4q
+	piT/705F/hQQCghqbShHHGyaUbeQkeKpQuFFCM3m10pOl/VqSMrIEdKXrgem34CwrQbs/ckDPvcjd
+	ZijtVR9omi4Aht0r+XoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvd1s-00000006Qwb-0Iuh;
-	Thu, 26 Feb 2026 15:11:52 +0000
+	id 1vvd23-00000006REt-3Gsz;
+	Thu, 26 Feb 2026 15:12:03 +0000
 Received: from [4.28.11.157] (helo=localhost)
 	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvd1V-00000006QLl-0jhv;
-	Thu, 26 Feb 2026 15:11:29 +0000
+	id 1vvd1Y-00000006QRG-1Ede;
+	Thu, 26 Feb 2026 15:11:32 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Richard Henderson <richard.henderson@linaro.org>,
@@ -81,9 +81,9 @@ Cc: Richard Henderson <richard.henderson@linaro.org>,
 	linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org,
 	linux-raid@vger.kernel.org
-Subject: [PATCH 15/25] riscv: move the XOR code to lib/raid/
-Date: Thu, 26 Feb 2026 07:10:27 -0800
-Message-ID: <20260226151106.144735-16-hch@lst.de>
+Subject: [PATCH 17/25] s390: move the XOR code to lib/raid/
+Date: Thu, 26 Feb 2026 07:10:29 -0800
+Message-ID: <20260226151106.144735-18-hch@lst.de>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260226151106.144735-1-hch@lst.de>
 References: <20260226151106.144735-1-hch@lst.de>
@@ -105,174 +105,61 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Move the optimized XOR into lib/raid and include it it in xor.ko
-instead of always building it into the main kernel image.
+instead of unconditionally building it into the main kernel image.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/riscv/include/asm/xor.h                 | 54 +------------------
- arch/riscv/lib/Makefile                      |  1 -
- lib/raid/xor/Makefile                        |  1 +
- lib/raid/xor/riscv/xor-glue.c                | 56 ++++++++++++++++++++
- {arch/riscv/lib => lib/raid/xor/riscv}/xor.S |  0
- 5 files changed, 59 insertions(+), 53 deletions(-)
- create mode 100644 lib/raid/xor/riscv/xor-glue.c
- rename {arch/riscv/lib => lib/raid/xor/riscv}/xor.S (100%)
+ arch/s390/lib/Makefile                     | 2 +-
+ lib/raid/xor/Makefile                      | 1 +
+ {arch/s390/lib => lib/raid/xor/s390}/xor.c | 2 --
+ 3 files changed, 2 insertions(+), 3 deletions(-)
+ rename {arch/s390/lib => lib/raid/xor/s390}/xor.c (98%)
 
-diff --git a/arch/riscv/include/asm/xor.h b/arch/riscv/include/asm/xor.h
-index ed5f27903efc..614d9209d078 100644
---- a/arch/riscv/include/asm/xor.h
-+++ b/arch/riscv/include/asm/xor.h
-@@ -2,60 +2,10 @@
- /*
-  * Copyright (C) 2021 SiFive
-  */
--
--#include <linux/hardirq.h>
--#include <asm-generic/xor.h>
--#ifdef CONFIG_RISCV_ISA_V
- #include <asm/vector.h>
--#include <asm/switch_to.h>
--#include <asm/asm-prototypes.h>
--
--static void xor_vector_2(unsigned long bytes, unsigned long *__restrict p1,
--			 const unsigned long *__restrict p2)
--{
--	kernel_vector_begin();
--	xor_regs_2_(bytes, p1, p2);
--	kernel_vector_end();
--}
--
--static void xor_vector_3(unsigned long bytes, unsigned long *__restrict p1,
--			 const unsigned long *__restrict p2,
--			 const unsigned long *__restrict p3)
--{
--	kernel_vector_begin();
--	xor_regs_3_(bytes, p1, p2, p3);
--	kernel_vector_end();
--}
--
--static void xor_vector_4(unsigned long bytes, unsigned long *__restrict p1,
--			 const unsigned long *__restrict p2,
--			 const unsigned long *__restrict p3,
--			 const unsigned long *__restrict p4)
--{
--	kernel_vector_begin();
--	xor_regs_4_(bytes, p1, p2, p3, p4);
--	kernel_vector_end();
--}
--
--static void xor_vector_5(unsigned long bytes, unsigned long *__restrict p1,
--			 const unsigned long *__restrict p2,
--			 const unsigned long *__restrict p3,
--			 const unsigned long *__restrict p4,
--			 const unsigned long *__restrict p5)
--{
--	kernel_vector_begin();
--	xor_regs_5_(bytes, p1, p2, p3, p4, p5);
--	kernel_vector_end();
--}
-+#include <asm-generic/xor.h>
+diff --git a/arch/s390/lib/Makefile b/arch/s390/lib/Makefile
+index f43f897d3fc0..2bf47204f6ab 100644
+--- a/arch/s390/lib/Makefile
++++ b/arch/s390/lib/Makefile
+@@ -5,7 +5,7 @@
  
--static struct xor_block_template xor_block_rvv = {
--	.name = "rvv",
--	.do_2 = xor_vector_2,
--	.do_3 = xor_vector_3,
--	.do_4 = xor_vector_4,
--	.do_5 = xor_vector_5
--};
--#endif /* CONFIG_RISCV_ISA_V */
-+extern struct xor_block_template xor_block_rvv;
- 
- #define arch_xor_init arch_xor_init
- static __always_inline void __init arch_xor_init(void)
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index bbc031124974..e220c35764eb 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -16,5 +16,4 @@ lib-$(CONFIG_MMU)	+= uaccess.o
- lib-$(CONFIG_64BIT)	+= tishift.o
- lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
- obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
--lib-$(CONFIG_RISCV_ISA_V)	+= xor.o
- lib-$(CONFIG_RISCV_ISA_V)	+= riscv_v_helpers.o
+ lib-y += delay.o string.o uaccess.o find.o spinlock.o tishift.o
+ lib-y += csum-partial.o
+-obj-y += mem.o xor.o
++obj-y += mem.o
+ lib-$(CONFIG_KPROBES) += probes.o
+ lib-$(CONFIG_UPROBES) += probes.o
+ obj-$(CONFIG_S390_KPROBES_SANITY_TEST) += test_kprobes_s390.o
 diff --git a/lib/raid/xor/Makefile b/lib/raid/xor/Makefile
-index 3df9e04a1a9b..c939fad43735 100644
+index eb7617b5c61b..15fd8797ae61 100644
 --- a/lib/raid/xor/Makefile
 +++ b/lib/raid/xor/Makefile
-@@ -18,6 +18,7 @@ endif
- xor-$(CONFIG_CPU_HAS_LSX)	+= loongarch/xor_simd.o
- xor-$(CONFIG_CPU_HAS_LSX)	+= loongarch/xor_simd_glue.o
- xor-$(CONFIG_ALTIVEC)		+= powerpc/xor_vmx.o powerpc/xor_vmx_glue.o
-+xor-$(CONFIG_RISCV_ISA_V)	+= riscv/xor.o riscv/xor-glue.o
+@@ -22,6 +22,7 @@ xor-$(CONFIG_RISCV_ISA_V)	+= riscv/xor.o riscv/xor-glue.o
+ xor-$(CONFIG_SPARC32)		+= sparc/xor-sparc32.o
+ xor-$(CONFIG_SPARC64)		+= sparc/xor-vis.o sparc/xor-vis-glue.o
+ xor-$(CONFIG_SPARC64)		+= sparc/xor-niagara.o sparc/xor-niagara-glue.o
++xor-$(CONFIG_S390)		+= s390/xor.o
  
  
  CFLAGS_arm/xor-neon.o		+= $(CC_FLAGS_FPU)
-diff --git a/lib/raid/xor/riscv/xor-glue.c b/lib/raid/xor/riscv/xor-glue.c
-new file mode 100644
-index 000000000000..11666a4b6b68
---- /dev/null
-+++ b/lib/raid/xor/riscv/xor-glue.c
-@@ -0,0 +1,56 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (C) 2021 SiFive
-+ */
-+
-+#include <linux/raid/xor_impl.h>
-+#include <asm/vector.h>
-+#include <asm/switch_to.h>
-+#include <asm/asm-prototypes.h>
-+#include <asm/xor.h>
-+
-+static void xor_vector_2(unsigned long bytes, unsigned long *__restrict p1,
-+			 const unsigned long *__restrict p2)
-+{
-+	kernel_vector_begin();
-+	xor_regs_2_(bytes, p1, p2);
-+	kernel_vector_end();
-+}
-+
-+static void xor_vector_3(unsigned long bytes, unsigned long *__restrict p1,
-+			 const unsigned long *__restrict p2,
-+			 const unsigned long *__restrict p3)
-+{
-+	kernel_vector_begin();
-+	xor_regs_3_(bytes, p1, p2, p3);
-+	kernel_vector_end();
-+}
-+
-+static void xor_vector_4(unsigned long bytes, unsigned long *__restrict p1,
-+			 const unsigned long *__restrict p2,
-+			 const unsigned long *__restrict p3,
-+			 const unsigned long *__restrict p4)
-+{
-+	kernel_vector_begin();
-+	xor_regs_4_(bytes, p1, p2, p3, p4);
-+	kernel_vector_end();
-+}
-+
-+static void xor_vector_5(unsigned long bytes, unsigned long *__restrict p1,
-+			 const unsigned long *__restrict p2,
-+			 const unsigned long *__restrict p3,
-+			 const unsigned long *__restrict p4,
-+			 const unsigned long *__restrict p5)
-+{
-+	kernel_vector_begin();
-+	xor_regs_5_(bytes, p1, p2, p3, p4, p5);
-+	kernel_vector_end();
-+}
-+
-+struct xor_block_template xor_block_rvv = {
-+	.name = "rvv",
-+	.do_2 = xor_vector_2,
-+	.do_3 = xor_vector_3,
-+	.do_4 = xor_vector_4,
-+	.do_5 = xor_vector_5
-+};
-diff --git a/arch/riscv/lib/xor.S b/lib/raid/xor/riscv/xor.S
-similarity index 100%
-rename from arch/riscv/lib/xor.S
-rename to lib/raid/xor/riscv/xor.S
+diff --git a/arch/s390/lib/xor.c b/lib/raid/xor/s390/xor.c
+similarity index 98%
+rename from arch/s390/lib/xor.c
+rename to lib/raid/xor/s390/xor.c
+index 4d5ed638d850..2d5e33eca2a8 100644
+--- a/arch/s390/lib/xor.c
++++ b/lib/raid/xor/s390/xor.c
+@@ -7,7 +7,6 @@
+  */
+ 
+ #include <linux/types.h>
+-#include <linux/export.h>
+ #include <linux/raid/xor_impl.h>
+ #include <asm/xor.h>
+ 
+@@ -134,4 +133,3 @@ struct xor_block_template xor_block_xc = {
+ 	.do_4 = xor_xc_4,
+ 	.do_5 = xor_xc_5,
+ };
+-EXPORT_SYMBOL(xor_block_xc);
 -- 
 2.47.3
 
