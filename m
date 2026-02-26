@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E5D9FD9E0C
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 19:54:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B482BFD9E0C
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 19:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W86euFzyiO/pjDKdvspuLfVmgKgJgtoPulvivZS4TEk=; b=LKI9kGQML7SyHt
-	va/LSVsL/zDrgV+1l27KNNq37Aut6RX3YKCSnEx1nJu23LmdTFGUByYKXQqgoEn3kfzJcxqtYWYAt
-	0QFeNKOo8v1199vDkT+0dO3bNf3eAXDWEZAHanMAXv3Pq7XBCvQdAfJpvohO8NERRMWzYoQGPsiaM
-	4ZgQo81uoS548rEBU3Z58peH83pxAH0Sg8CT+yI8q5P3PASlJ40nlW7gDNjUnH6SCqmykDloEs7fV
-	kV1IKNYDg5mfsnd7rAHGeafUwvRjlua2Al9brUsOq183dXHIADK00uBMnHJ8jHu85Iqtt0I4VqPyA
-	wlgbTpkYnwoRxM/h/V8w==;
+	List-Owner; bh=Wzc/k5NAQU9hDFq4iDBaVzyzikm2l0jt7o2wIAB22L0=; b=q1NiXVj0kYNlhw
+	QKC1BFKBKRDJfR8fLgBC1an6deWiXALB5EOjfXPS1pcnrwZF9bLTNCiITGienoklSy08+a0ohqQnJ
+	oCNPM8irlWStka4Ck9+6Bjr+QlMF1OziEEKZcy/vZiW3sawUxzX0WU3gi8JiwAhRBhwGs0vnPoO+N
+	3ND+Ih8Tui4Tb3zSW62XgJBZxe4tgMJ1WziQVOGVkxvQeXjfE4sDdBP80rY8/hnUvYUYvT+syiC4p
+	RYR1Lohs75sfFQIRaVcqwtgiksPQ5pcKX+BAiIs0VLKNem8UHHPc5Xa9s88Yo+mZOKLFpaFCBpnzT
+	p19+IiHpv8AnpENgcEuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvhRL-000000076yR-1oKj;
-	Thu, 26 Feb 2026 19:54:27 +0000
+	id 1vvhTv-000000077Dr-1ypO;
+	Thu, 26 Feb 2026 19:57:07 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvhRI-000000076xj-2i36
+	id 1vvhTs-000000077D8-3tRM
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Feb 2026 19:54:25 +0000
+	Thu, 26 Feb 2026 19:57:05 +0000
 Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61QHEbID2608713
-	for <linux-riscv@lists.infradead.org>; Thu, 26 Feb 2026 19:54:23 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61QHEpbT2608934
+	for <linux-riscv@lists.infradead.org>; Thu, 26 Feb 2026 19:57:04 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=gkS2kEkiD1AazRxh9MEv+lrE
-	cNwpZ9ngwbS4rZ3aYQY=; b=bQHQBnuY976RywjkkxRFoJe1aPFJ/Rc7+AJMIJmA
-	y+xV9ItFDwrV5VVJB0WoORNHY3ApR6lEBMjFWILzqRaKb08DNmPQgvI09pZ6uSBj
-	lfckXXnFndIkMCVi13Y4cS/FOC+SNPBuWAo2rpYzFC3/1TmZd9c0pLlrAIXBBAqG
-	LNgSp49rX3g7BoCy0C+iLcmAK6OkH9QEtrs8O3axSSprqElupwd1tuLXwbK4p1mi
-	KepYovkFCiN7wpy9Gs1QXWlb+I9U4W09ja3g6VbmI4PsB0+guOMfqWXkWtygp+wN
-	GXD+RBobmG5w/pfGQD46E3ztudBgi5Kq5Touq62EVny7LA==
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cjt7y8s2k-1
+	:references:subject:to; s=qcppdkim1; bh=e9T0r9qPbJXEHEbE1DDUwuy1
+	sFl7CYMlXpPV3+ZDZi4=; b=T1D30GlWpBTy7Fw5YVU5jHPnPcoQFM1DW5bOlomS
+	G7W2fA8KNbLusn4Qm442rSpHBAYDx9aibSMdsziJ2WvVDYfAFzBPzTUsWmVe6V9l
+	GJIQMqvHKa3Jo052jZirdYeWDM1RqDSMEvejXg3D8uvyMSePW51AYIKrShf+bLqB
+	J+Wah9TMbrRt/JKsxaHj/K2mseAquS6wmKUlP57UUI2QH1ctwHvaR4tQoU6TLcYE
+	qvoVVQz5nFb28OId1e2Rd9LLXVZk1kTBuG5aClPpZFNRPg6XTy7sarFi9ObtfdLd
+	PodhJWY20rkoq+08ayYZUN70ITDaGQjGrcD/9R5C9Rk4rQ==
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cjt7y8saj-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 26 Feb 2026 19:54:23 +0000 (GMT)
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-2bddd304622so530855eec.0
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Feb 2026 11:54:23 -0800 (PST)
+	for <linux-riscv@lists.infradead.org>; Thu, 26 Feb 2026 19:57:03 +0000 (GMT)
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1273665df8fso2063000c88.1
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Feb 2026 11:57:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1772135662; x=1772740462; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1772135823; x=1772740623; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gkS2kEkiD1AazRxh9MEv+lrEcNwpZ9ngwbS4rZ3aYQY=;
-        b=gp+hNlXXlQ6p50KNSTXSWZesRf8pyDTs8XKuKEHJO2GXShNVXpaoyI1E6bCCmdOrw2
-         B5SH5twDbWdrKyc7ssDsh5vCi2EbEC9EQ3l5CCAkU9ZKvs7pD+wQ2yOe2kXhEqeogMBA
-         S1ZVlxWP7ux27ibgWXQbC8aPNwXW9034qaNiRQOJGa9zkcmQeCx/3IVN7686cUD8nky7
-         C9a/GaFrN5KCn7XMo5Lm7cAXMcFtULGwyBM0Jglhk8YXypFb+Gvfsr2ToVvpyvGZD26x
-         fo++Ca3DY6MgpPbz+Ix5IGoMDHZcqEnaojnc0+GcqIqfDZxSl4t0NGiR6CKAWMEmQ0ke
-         Ybxg==
+        bh=e9T0r9qPbJXEHEbE1DDUwuy1sFl7CYMlXpPV3+ZDZi4=;
+        b=GyA3viNWJPuA1kMcQiiCMwifsWwTTFPczwnrwSPqp7LlFuhTAMOuQtAwLEV6dOhgaG
+         7zoypybf+8PVgl7nKOIpkn7SccRVr9Boc0+32CbICjHW7/gdanMEcgb0kYEgQbVNcT55
+         pHWCNl6kai+1JZtbyyh4YYc/K/8faA+ohwc/7yoEs0vKNaXMASI2MSOkQzzVhVLbDnCH
+         vRJi4uFwxDzMT0wKjEIvOiC6QDguS/BvZyF/1TYNZRwOg+72IFTVR8hOu1iKHGdc4yZk
+         JNxbn1Y/zK0d0b7zWJnapjrw7k/cQhAZWguYqjl6Uag7vXkc05RkVCMAIxaf2j8cASKS
+         tvlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772135662; x=1772740462;
+        d=1e100.net; s=20230601; t=1772135823; x=1772740623;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=gkS2kEkiD1AazRxh9MEv+lrEcNwpZ9ngwbS4rZ3aYQY=;
-        b=fJoSh85dM459UUD3J3RtrO6XGqyEx8+E1/J+ijTwFemNK198gO84H/mYXPqGzqL9y0
-         4iIgdmvr0ZlqEjj+A72zumLk1l1CEhGMWIxWDvpqVFs8aVHMqWnUOUVDckhe0cOdvXto
-         1vMzb94VRIjivhrQXu8Hhsz6HyR7+UpnqobuePU+uH+BVo28TjWDuA8K+FRCCe0ibH4V
-         wUoo/5W6CyP12N1Ji8hzUBOAv6YFGlfuGZmtA8fmGKZGRieIe3QozvrH1ho0yTUXX1ml
-         wOQZoPf9P8sFzV5jpZ/vTVQGPP8luloKgIQq1Ol6mjfkIS/X62VLj/DryJi++ZN6nrca
-         yAJQ==
-X-Gm-Message-State: AOJu0Yy1ApEiow5PWz2pEufrNnYBUm+0XzXUEOtJFQZAKFEAg5TZQdKo
-	hpNYp+F2hKdFdjDbYRD1nmM//4chNeENf3x0dxoZxZuMJrSJKAqU14Dq282XGilCIxmJrtXuMZI
-	9Z8XZLbcIjcwCKKIvplQDdKCI8euUsp3dFSqyS+s5yVdt/lHfQRyQko6DUNkbmPpsy+UqU6Y=
-X-Gm-Gg: ATEYQzylE8sAWPDkUP9XeSTCRMsoOWVh0VKEl0mS2Sngczvvm7WsGqJBWUYxbhTUkdh
-	esbSxy5ipaUNboCaTMPyIW2uP7gB9AEfQoz1a8JqL4G07XJQvI+WmkTZdCoAe0OrMo0Ff6KmrXF
-	6VdkIpIZuo5PhjahVDGirngAxE9OVObbew2piF8xO22VKvJGV5nGwpYPo2zd/BZbkq2TjpV70H1
-	87C37FaXneFvk2uIQitEL9iqKRy4o1CZP+MH0rBhQHLqpSVusO9K4OicJsPVPrCeKC4Qck/+3qS
-	LJrxZ33bqNDBHf8ZEzUzV81BjnKQQljIaW0XppO51JMzzkRz+oZl8/yIlZgL3G17xVytNjzjQZk
-	xblmZ88WMMEvllWltGwtve4FT64QQ5fE=
-X-Received: by 2002:a05:7301:5795:b0:2b8:26b8:3426 with SMTP id 5a478bee46e88-2bde1bb19d9mr133484eec.13.1772135662425;
-        Thu, 26 Feb 2026 11:54:22 -0800 (PST)
-X-Received: by 2002:a05:7301:5795:b0:2b8:26b8:3426 with SMTP id 5a478bee46e88-2bde1bb19d9mr133461eec.13.1772135661846;
-        Thu, 26 Feb 2026 11:54:21 -0800 (PST)
+        bh=e9T0r9qPbJXEHEbE1DDUwuy1sFl7CYMlXpPV3+ZDZi4=;
+        b=M0NCAGgETtH6D2fYnCBFq9CKQUVBJGjKTT/sHrUWFeHZCbJ8OJZ6KW2brxXyApRHo6
+         AXnzH0rokk6+uuDwWse1HO5UZ4YyX1m0g5hIcbXH6RkGZecXmiMEOZKZg1dxNttwzQhb
+         d4xPrilVyBAqfXovC3jENPxB/e8fp2gm12+zCouci2Eyi3GBgaciU7ggIfBljLNdeGdr
+         OxQROBJJz6kV8Ic0A15HbFa2a1rbM/11z6NqUgSVFirJUWhxYcyVhHISADMjerhybCl9
+         bBOAh9vmMmlJmfuFENWR1rAV6LNVQBwN3UIivs80FzEpcfIVAtE6T3bLJT85OreSS1rI
+         xUZA==
+X-Gm-Message-State: AOJu0YxV1iu0S/sl+I/fZ7Qp4xn/ajyTaSbLOOba4iPHUbUdFbvXgCn5
+	ssEaGGiXlZ7M5fYy0eKqnkvA73P7tMpnMFiAeFzZKM/UNmcPIpem4kjikBYlBARUfrPKmKc6aJh
+	HRVuqHJ+wLpWV9PmZW463S1SxC5dpO6U0M21dt6VkJOTy7rTScNEjVYYeF4KK3QhgSzgnowk=
+X-Gm-Gg: ATEYQzx9d+z9V5bpvXzVd9VpuQyTZS+Py2cDn15r/PSdIfmJ6aEyXfbrgjaz9N6yTrj
+	Uv9B52rXQdiI4HDDm9+BR/urcLF3RDXzgcWdhlbudXU8BrVb0lIQMIzZOJUtKhLHzx7r3XI57dp
+	c63J+o3pIdYBnosMfHPj4p8wCUWJCT9t79YuHntrOttUhBkn87UKJOzdOuPSaLKYY1BIdJpSj7J
+	H1kzaMCPjKcrJDEoB/0nt0s3msorYzbf5qYtF8sXi2PNCyzflFI/Flod2Lsr5LMsij9m0IbicDo
+	gKhXtGXNxQYQgZhTg10szl6GIe5nNOhJSR9shaNXVkdq/IcKvdM7Xtj1/1aWwRdRlG40jcmCoiy
+	j6GBE866LqjfakcgKDgxW8Xdn1uohJMM=
+X-Received: by 2002:a05:7022:512:b0:119:e55a:9c03 with SMTP id a92af1059eb24-1278fc3bf63mr58101c88.31.1772135823037;
+        Thu, 26 Feb 2026 11:57:03 -0800 (PST)
+X-Received: by 2002:a05:7022:512:b0:119:e55a:9c03 with SMTP id a92af1059eb24-1278fc3bf63mr58096c88.31.1772135822464;
+        Thu, 26 Feb 2026 11:57:02 -0800 (PST)
 Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2bdd1f7ee87sm2493752eec.31.2026.02.26.11.54.20
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2bdd1e04361sm2885359eec.14.2026.02.26.11.57.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Feb 2026 11:54:21 -0800 (PST)
-Date: Thu, 26 Feb 2026 13:54:19 -0600
+        Thu, 26 Feb 2026 11:57:01 -0800 (PST)
+Date: Thu, 26 Feb 2026 13:57:00 -0600
 From: Andrew Jones <andrew.jones@oss.qualcomm.com>
 To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -96,29 +96,30 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
         Andrew Jones <ajones@ventanamicro.com>,
         Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
         Albert Ou <aou@eecs.berkeley.edu>, Jiakai Xu <jiakaiPeanut@gmail.com>
-Subject: Re: [PATCH v8 2/3] KVM: selftests: Refactor UAPI tests into
- dedicated function
-Message-ID: <kycoxbbf7krrqaqivzin6twb4vnbl7g3xfnx2qwotwxkjklxad@37c66df75wv5>
+Subject: Re: [PATCH v8 3/3] RISC-V: KVM: selftests: Add RISC-V SBI STA shmem
+ alignment tests
+Message-ID: <ywgpwvhzvtkmhw26exwwam5hfo5euhiewbrzyzh2uzkls2rkbe@g7p5kxnhtgso>
 References: <20260226083234.634716-1-xujiakai2025@iscas.ac.cn>
- <20260226083234.634716-3-xujiakai2025@iscas.ac.cn>
+ <20260226083234.634716-4-xujiakai2025@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260226083234.634716-3-xujiakai2025@iscas.ac.cn>
-X-Proofpoint-ORIG-GUID: dvUrZT1SL4QVt2zQORrIEFT7SZZJh7mQ
-X-Authority-Analysis: v=2.4 cv=N7Mk1m9B c=1 sm=1 tr=0 ts=69a0a4ef cx=c_pps
- a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
+In-Reply-To: <20260226083234.634716-4-xujiakai2025@iscas.ac.cn>
+X-Proofpoint-ORIG-GUID: pieiaDrTqrp3kOKmxbAWYh6HV6t_XbnK
+X-Authority-Analysis: v=2.4 cv=N7Mk1m9B c=1 sm=1 tr=0 ts=69a0a58f cx=c_pps
+ a=SvEPeNj+VMjHSW//kvnxuw==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
  a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
  a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=a8_vTcVqeGFb8pxCYGAA:9 a=CjuIK1q_8ugA:10 a=6Ab_bkdmUrQuMsNx7PHu:22
-X-Proofpoint-GUID: dvUrZT1SL4QVt2zQORrIEFT7SZZJh7mQ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI2MDE4MiBTYWx0ZWRfX/A90tdU+v2O1
- AqvIgLgWSh4p5DajAWDf14jXIvVFRqHq7eAFH7i1SsCQC1rzehP8roXfJwOTk7zYg8tqiDK7rKJ
- nF19nvKF16aTwq9DvAfn+ztSsi7R5FQn8U9EWCPReQxTymtAcueXeYBOLzr0xV/zqZGEzd/5Myy
- Cx61iUSl5FPQF6C1ZbUZBjxoI+avCtZtXLy7eMCmAr2FHMfwD5WQy4Owaf64tkMsq+PjWtG1e1g
- e9/UjrCh1Y4FmzL6uOZpaE0i5lhUYMLtPf1dnnX6yrkgM9GTgl/5bRkzT2diyb4Zu7o7YXeHKS/
- lYxJTS64iiInsCkYZO3ixlui+KZzDXlR+ANC5WElvhITWXxm0/ZPHepiku2sJBz7v10nHJNVxdr
- fbVb5S6GFb3Y6OMGHThDwCHkV1hYy7rJ5kreB/JTocu3EwlQce+TCqcEshr/ZJShzXQfHUMdkz9
- yRNTYrUPvPChxySA8xw==
+ a=pGLkceISAAAA:8 a=xMjqbsr0sL_NellN6QoA:9 a=CjuIK1q_8ugA:10
+ a=Kq8ClHjjuc5pcCNDwlU0:22
+X-Proofpoint-GUID: pieiaDrTqrp3kOKmxbAWYh6HV6t_XbnK
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI2MDE4MiBTYWx0ZWRfX8FfP5nOE2g7H
+ 13xXf9zGITxuCHByVXYMs1hbmYzduyWvNAhjqWMwQTwmEa/RFXohrvJxwdtXHTtDOyr2MUUxuH7
+ zF+I6VoZuTfvTGRGoBetFQOUjzAAFiBDX7rIblZD505Zfj83nqdV+sLyDM4sDQhLxIFO09G+pPf
+ u0EouuM8pOArU/R86s29AE0QCTe40zbk9F1WVwfFBNNObKCq6TRapObLM7cyg3xYkpAjx7AbApy
+ wDRPZeTACsP8Y+sHDw88Psx1yokEwnd5zaq90yoVs4JKkEAfnmqoX4zDGADPU9XxTbjaZ3uMl8A
+ OtDPKxxUhSJ4aKod/6js1vaTWpd0jnFNEOuBrpyVe67XI8dJYMG62DSuVK9wtHJRJIvO66khenC
+ PW22ZxfEjxtYwIS/TbjslcqF6kQ2/7/Eyd0r9U//biAQyPXgwHKRU+9OjQPXFHeBqAGGxakCMfd
+ p10zMIf5JePwz5srlhg==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-02-26_02,2026-02-26_01,2025-10-01_01
@@ -128,8 +129,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602260182
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_115424_708851_E09C6AD6 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20260226_115704_993497_74821CAE 
+X-CRM114-Status: GOOD (  26.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,26 +147,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 08:32:33AM +0000, Jiakai Xu wrote:
-...
-> +static void check_steal_time_uapi(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm_vm *vm = vcpu->vm;
-> +	struct kvm_vcpu *tmp_vcpu = vm_vcpu_add(vm, NR_VCPUS, guest_code);
+On Thu, Feb 26, 2026 at 08:32:34AM +0000, Jiakai Xu wrote:
+> Add RISC-V KVM selftests to verify the SBI Steal-Time Accounting (STA)
+> shared memory alignment requirements.
+> 
+> The SBI specification requires the STA shared memory GPA to be 64-byte
+> aligned, or set to all-ones to explicitly disable steal-time accounting.
+> This test verifies that KVM enforces the expected behavior when
+> configuring the SBI STA shared memory via KVM_SET_ONE_REG.
+> 
+> Specifically, the test checks that:
+> - misaligned GPAs are rejected with -EINVAL
+> - 64-byte aligned GPAs are accepted
+> - all-ones GPA is accepted
+> 
+> Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+> Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+> ---
+> V7 -> V8: Moved INVALID_GPA definition to kvm_util_types.h.
+>           Removed comments in RISC-V check_steal_time_uapi().
+>           Corrected reg.id assignment for SBI STA.
+> V6 -> V7: Removed RISCV_SBI_STA_REG() macro addition and used existing
+>            KVM_REG_RISCV_SBI_STA_REG(shmem_lo) instead.
+>           Refined assertion messages per review feedback.
+>           Split into two patches per Andrew Jones' suggestion:
+>            Refactored UAPI tests from steal_time_init() into dedicated
+>             check_steal_time_uapi() function and added empty stub for
+>             RISC-V.
+>            Filled in RISC-V stub with STA alignment tests. (this patch)
+> ---
+>  .../selftests/kvm/include/kvm_util_types.h    |  4 +++
+>  tools/testing/selftests/kvm/steal_time.c      | 25 +++++++++++++++++++
+>  2 files changed, 29 insertions(+)
+> 
+> diff --git a/tools/testing/selftests/kvm/include/kvm_util_types.h b/tools/testing/selftests/kvm/include/kvm_util_types.h
+> index ec787b97cf184..90567f8243fe9 100644
+> --- a/tools/testing/selftests/kvm/include/kvm_util_types.h
+> +++ b/tools/testing/selftests/kvm/include/kvm_util_types.h
+> @@ -17,4 +17,8 @@
+>  typedef uint64_t vm_paddr_t; /* Virtual Machine (Guest) physical address */
+>  typedef uint64_t vm_vaddr_t; /* Virtual Machine (Guest) virtual address */
+>  
+> +#if defined(__riscv)
 
-We probably get away with adding NR_VCPUS+1 vcpus to a vm which was
-created with NR_VCPUS because we don't run it and rlimits happen to
-work out, but that's pretty fragile and not a correct use of the APIs.
-So, we should also create a throw-away vm,
+Why this #if ? INVALID_GPA is common to all architectures (see
+include/linux/kvm_types.h). That's why I suggested putting it in this
+shared header.
 
- vm_create_with_one_vcpu()
- ...
- kvm_vm_free()
-
-
-And, even if some archs don't require the temporary vm/vcpu we can use
-that same pattern for all of them. So, check_steal_time_uapi() doesn't
-need to take any parameters.
+> +#define INVALID_GPA (~(uint64_t)0)
+> +#endif
+> +
+>  #endif /* SELFTEST_KVM_UTIL_TYPES_H */
+> diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
+> index 6f77df4deaad3..e90aad9561ff7 100644
+> --- a/tools/testing/selftests/kvm/steal_time.c
+> +++ b/tools/testing/selftests/kvm/steal_time.c
+> @@ -324,6 +324,31 @@ static void steal_time_dump(struct kvm_vm *vm, uint32_t vcpu_idx)
+>  
+>  static void check_steal_time_uapi(struct kvm_vcpu *vcpu)
+>  {
+> +	struct kvm_one_reg reg;
+> +	uint64_t shmem;
+> +	int ret;
+> +
+> +	reg.id = KVM_REG_RISCV |
+> +			 KVM_REG_SIZE_ULONG |
+> +			 KVM_REG_RISCV_SBI_STATE |
+> +			 KVM_REG_RISCV_SBI_STA |
+> +			 KVM_REG_RISCV_SBI_STA_REG(shmem_lo);
+> +	reg.addr = (uint64_t)&shmem;
+> +
+> +	shmem = ST_GPA_BASE + 1;
+> +	ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
+> +	TEST_ASSERT(ret == -1 && errno == EINVAL,
+> +		    "misaligned STA shmem returns -EINVAL");
+> +
+> +	shmem = ST_GPA_BASE;
+> +	ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
+> +	TEST_ASSERT(ret == 0,
+> +		    "aligned STA shmem succeeds");
+> +
+> +	shmem = INVALID_GPA;
+> +	ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
+> +	TEST_ASSERT(ret == 0,
+> +		    "all-ones for STA shmem succeeds");
+>  }
+>  
+>  #endif
+> -- 
+> 2.34.1
+>
 
 Thanks,
 drew
