@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAA2AFD8FC6
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 15:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C90CEFD8FC4
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 15:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v959gjlBlAf0rUPyLFt1aSY4MWo9dqjPDYyyPVQVAnw=; b=JOCghZ7qvjuhkB
-	2Hn+EifP56dZK8rzBWGH1H3kMZ0m+VYGHhAjxyF3zxWhOAynEh6AbroEDic0i+UPkZX8fvJ2DrQ2X
-	TXiRizplXqvm/vP7ZZ4E+OaEykXJNNpusi/7LvvGoATHQbVfZLhbir5uz/ge0+Plnj3yjoFsGmJhR
-	0bzpsri7tz3LhP91i0xOYVs22U5b5dFYIw6NdbMbPnZsQg7bmP/5XaopgUAikkhSII5XOznSqia7I
-	EoEF4fYWJss2xU8pqa1w2lw1u59BhdQPr4I34oDTZll1yCTJzdnZBJyJv/Dcb79s8FJ4wWmW/QsFN
-	JzU7HYEn6MD74vXUbHJQ==;
+	List-Owner; bh=wGzTxM2IRTeOBuq23cx27SLC1uVNXFS0A2MU1T0qBus=; b=VcfkxdCZf+jvLi
+	VYLDgRcsulwTe0965qrfxscUc1KjpepslhN39FVjmUlj+Lo6nU8D0mbgiEVwUs34UgqeeJm31PwsE
+	yoI+Q0d6GDv7Hl1UGfErc0irwELhCneeQmegCyT1KGQMuLrORK1B+cO8hApKcpBJhnc9Js9p/N211
+	bbCFPCTTysTvXgLiPpyvWNiP/2KMxR8Qaq7tmEH0jHgNQxsaYs4QGHQVY76wFcYmlXiq5m+QKAfrV
+	J8r2SGGn0+EyNkCZ0vloy2+S7tM2UfQIiXbOK422m7uqNQUHAwU2Sc9VRJc12lAnkwheYe8qp0FR/
+	mHYin5bsM2pvyXAzbp4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvd1O-00000006QAa-1QUy;
-	Thu, 26 Feb 2026 15:11:22 +0000
+	id 1vvd1Q-00000006QFJ-3BCr;
+	Thu, 26 Feb 2026 15:11:24 +0000
 Received: from [4.28.11.157] (helo=localhost)
 	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvd1G-00000006Pyx-1Wx4;
-	Thu, 26 Feb 2026 15:11:14 +0000
+	id 1vvd1I-00000006Q0n-3U3e;
+	Thu, 26 Feb 2026 15:11:16 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Richard Henderson <richard.henderson@linaro.org>,
@@ -81,9 +81,9 @@ Cc: Richard Henderson <richard.henderson@linaro.org>,
 	linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org,
 	linux-raid@vger.kernel.org
-Subject: [PATCH 05/25] xor: small cleanups
-Date: Thu, 26 Feb 2026 07:10:17 -0800
-Message-ID: <20260226151106.144735-6-hch@lst.de>
+Subject: [PATCH 07/25] xor: split xor.h
+Date: Thu, 26 Feb 2026 07:10:19 -0800
+Message-ID: <20260226151106.144735-8-hch@lst.de>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260226151106.144735-1-hch@lst.de>
 References: <20260226151106.144735-1-hch@lst.de>
@@ -104,34 +104,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Update the to of file comment to be correct and non-redundant, and drop
-the unused BH_TRACE define.
+Keep xor.h for the public API, and split the struct xor_block_template
+definition that is only needed by the xor.ko core and
+architecture-specific optimizations into a separate xor_impl.h header.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- lib/raid/xor/xor-core.c | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+ arch/arm/lib/xor-neon.c       |  1 +
+ arch/s390/lib/xor.c           |  2 +-
+ include/linux/raid/xor.h      | 22 +---------------------
+ include/linux/raid/xor_impl.h | 25 +++++++++++++++++++++++++
+ lib/raid/xor/xor-core.c       |  1 +
+ 5 files changed, 29 insertions(+), 22 deletions(-)
+ create mode 100644 include/linux/raid/xor_impl.h
 
-diff --git a/lib/raid/xor/xor-core.c b/lib/raid/xor/xor-core.c
-index 864f3604e867..28aa654c288d 100644
---- a/lib/raid/xor/xor-core.c
-+++ b/lib/raid/xor/xor-core.c
-@@ -1,14 +1,11 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-- * xor.c : Multiple Devices driver for Linux
-- *
-  * Copyright (C) 1996, 1997, 1998, 1999, 2000,
-  * Ingo Molnar, Matti Aarnio, Jakub Jelinek, Richard Henderson.
-  *
-- * Dispatch optimized RAID-5 checksumming functions.
-+ * Dispatch optimized XOR parity functions.
+diff --git a/arch/arm/lib/xor-neon.c b/arch/arm/lib/xor-neon.c
+index cf57fca97908..282980b9bf2a 100644
+--- a/arch/arm/lib/xor-neon.c
++++ b/arch/arm/lib/xor-neon.c
+@@ -6,6 +6,7 @@
   */
  
--#define BH_TRACE 0
+ #include <linux/raid/xor.h>
++#include <linux/raid/xor_impl.h>
+ #include <linux/module.h>
+ 
+ MODULE_DESCRIPTION("NEON accelerated XOR implementation");
+diff --git a/arch/s390/lib/xor.c b/arch/s390/lib/xor.c
+index 1721b73b7803..4d5ed638d850 100644
+--- a/arch/s390/lib/xor.c
++++ b/arch/s390/lib/xor.c
+@@ -8,7 +8,7 @@
+ 
+ #include <linux/types.h>
+ #include <linux/export.h>
+-#include <linux/raid/xor.h>
++#include <linux/raid/xor_impl.h>
+ #include <asm/xor.h>
+ 
+ static void xor_xc_2(unsigned long bytes, unsigned long * __restrict p1,
+diff --git a/include/linux/raid/xor.h b/include/linux/raid/xor.h
+index 51b811b62322..02bda8d99534 100644
+--- a/include/linux/raid/xor.h
++++ b/include/linux/raid/xor.h
+@@ -7,24 +7,4 @@
+ extern void xor_blocks(unsigned int count, unsigned int bytes,
+ 	void *dest, void **srcs);
+ 
+-struct xor_block_template {
+-        struct xor_block_template *next;
+-        const char *name;
+-        int speed;
+-	void (*do_2)(unsigned long, unsigned long * __restrict,
+-		     const unsigned long * __restrict);
+-	void (*do_3)(unsigned long, unsigned long * __restrict,
+-		     const unsigned long * __restrict,
+-		     const unsigned long * __restrict);
+-	void (*do_4)(unsigned long, unsigned long * __restrict,
+-		     const unsigned long * __restrict,
+-		     const unsigned long * __restrict,
+-		     const unsigned long * __restrict);
+-	void (*do_5)(unsigned long, unsigned long * __restrict,
+-		     const unsigned long * __restrict,
+-		     const unsigned long * __restrict,
+-		     const unsigned long * __restrict,
+-		     const unsigned long * __restrict);
+-};
+-
+-#endif
++#endif /* _XOR_H */
+diff --git a/include/linux/raid/xor_impl.h b/include/linux/raid/xor_impl.h
+new file mode 100644
+index 000000000000..a1890cd66812
+--- /dev/null
++++ b/include/linux/raid/xor_impl.h
+@@ -0,0 +1,25 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _XOR_IMPL_H
++#define _XOR_IMPL_H
++
++struct xor_block_template {
++	struct xor_block_template *next;
++	const char *name;
++	int speed;
++	void (*do_2)(unsigned long, unsigned long * __restrict,
++		     const unsigned long * __restrict);
++	void (*do_3)(unsigned long, unsigned long * __restrict,
++		     const unsigned long * __restrict,
++		     const unsigned long * __restrict);
++	void (*do_4)(unsigned long, unsigned long * __restrict,
++		     const unsigned long * __restrict,
++		     const unsigned long * __restrict,
++		     const unsigned long * __restrict);
++	void (*do_5)(unsigned long, unsigned long * __restrict,
++		     const unsigned long * __restrict,
++		     const unsigned long * __restrict,
++		     const unsigned long * __restrict,
++		     const unsigned long * __restrict);
++};
++
++#endif /* _XOR_IMPL_H */
+diff --git a/lib/raid/xor/xor-core.c b/lib/raid/xor/xor-core.c
+index a2c529d7b7c2..ddb39dca1026 100644
+--- a/lib/raid/xor/xor-core.c
++++ b/lib/raid/xor/xor-core.c
+@@ -9,6 +9,7 @@
  #include <linux/module.h>
  #include <linux/gfp.h>
  #include <linux/raid/xor.h>
++#include <linux/raid/xor_impl.h>
+ #include <linux/jiffies.h>
+ #include <linux/preempt.h>
+ #include <asm/xor.h>
 -- 
 2.47.3
 
