@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E6C8FD8FC4
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 15:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C37AFD8FC5
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 15:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6Q803wnsa8AJ9X21nOHpg6wmCuheyL8igJobn59DprI=; b=vngb1WOk5aO86U
-	Vj+z8UDbTQq5xGCRIKMWWgbnGfW6+rYDM8FMv2ri3h6y3fIliQoRwST+DAq6bmfv0HCqK6LUP0CYI
-	Zf/3EOMH3cn5aijQ/0qMWl0GUC6v17WhpTqZbuTRKZS1tB3gm85TfK9LFBWo7wZKVpK12isEDEBtZ
-	qd0ccjoSXs7P2jfEz7TDF7b775oGJml0Rrh7iDkrc1R9SCUV4n4M7R1lu6cyF2WknWVU4z8O7L32Q
-	JkaX+zShZ3K2HVpD6oxVpnAMq9emIdCPB3+8g2QV2cmNkmzcobV8nHXxJVVvbXxfOJOI7hyqgGF6z
-	eG81D3yXkoDJ8RBnXZBQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nbgFH9yUt7J59r95LNWVyvJa0Wdh5t0h6ZQFQx6I0Ug=; b=LzcLAM85Wnzl3T
+	vRbQJeV/DgQpcAXBlG+lKAfe05TBPRnwIC//14wjOMypk0Qe2vIH/wVLH7PGYtOhxEAqa6cSN2/0z
+	9/g7aV4/QpDjOu3ECdP1CW1MsjZgk4NJMLhHniM2Q4uP0Oo5+Y58f9egyiFDsj+qMJ6QH5IhzSBjg
+	Nyy5sJP87QxMOqx7xQSB9+mNMApERYUDPiifcOyTuW8omAzGPZSkLQ2YE3VIqlda0gb0tzZm2PXr2
+	IeshrhdUhXU5zOwhCd0qejEKnHQiY5CnzbxemwG7lpJDOVfI6P/jhK/NxFXonNXkiyMO46xNEQ4Vl
+	ooHzeeZcy5PmP2y56Yqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvd1H-00000006Q0u-3g1r;
-	Thu, 26 Feb 2026 15:11:15 +0000
+	id 1vvd1I-00000006Q1D-0s8h;
+	Thu, 26 Feb 2026 15:11:16 +0000
 Received: from [4.28.11.157] (helo=localhost)
 	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvd1C-00000006PyB-3SQX;
-	Thu, 26 Feb 2026 15:11:10 +0000
+	id 1vvd1A-00000006Pxh-0z8F;
+	Thu, 26 Feb 2026 15:11:08 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Richard Henderson <richard.henderson@linaro.org>,
@@ -81,12 +81,10 @@ Cc: Richard Henderson <richard.henderson@linaro.org>,
 	linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org,
 	linux-raid@vger.kernel.org
-Subject: [PATCH 02/25] arm/xor: remove in_interrupt() handling
-Date: Thu, 26 Feb 2026 07:10:14 -0800
-Message-ID: <20260226151106.144735-3-hch@lst.de>
+Subject: cleanup the RAID5 XOR library
+Date: Thu, 26 Feb 2026 07:10:12 -0800
+Message-ID: <20260226151106.144735-1-hch@lst.de>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260226151106.144735-1-hch@lst.de>
-References: <20260226151106.144735-1-hch@lst.de>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,97 +102,115 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-xor_blocks can't be called from interrupt context, so remove the
-handling for that.
+Hi all,
 
-Signed-off-by: Christoph Hellwig <hch@lst.de>
----
- arch/arm/include/asm/xor.h | 41 +++++++++++---------------------------
- 1 file changed, 12 insertions(+), 29 deletions(-)
+the XOR library used for the RAID5 parity is a bit of a mess right now.
+The main file sits in crypto/ despite not being cryptography and not
+using the crypto API, with the generic implementations sitting in
+include/asm-generic and the arch implementations sitting in an asm/
+header in theory.  The latter doesn't work for many cases, so
+architectures often build the code directly into the core kernel, or
+create another module for the architecture code.
 
-diff --git a/arch/arm/include/asm/xor.h b/arch/arm/include/asm/xor.h
-index 934b549905f5..bca2a6514746 100644
---- a/arch/arm/include/asm/xor.h
-+++ b/arch/arm/include/asm/xor.h
-@@ -4,7 +4,6 @@
-  *
-  *  Copyright (C) 2001 Russell King
-  */
--#include <linux/hardirq.h>
- #include <asm-generic/xor.h>
- #include <asm/hwcap.h>
- #include <asm/neon.h>
-@@ -156,13 +155,9 @@ static void
- xor_neon_2(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p2)
- {
--	if (in_interrupt()) {
--		xor_arm4regs_2(bytes, p1, p2);
--	} else {
--		kernel_neon_begin();
--		xor_block_neon_inner.do_2(bytes, p1, p2);
--		kernel_neon_end();
--	}
-+	kernel_neon_begin();
-+	xor_block_neon_inner.do_2(bytes, p1, p2);
-+	kernel_neon_end();
- }
- 
- static void
-@@ -170,13 +165,9 @@ xor_neon_3(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p2,
- 	   const unsigned long * __restrict p3)
- {
--	if (in_interrupt()) {
--		xor_arm4regs_3(bytes, p1, p2, p3);
--	} else {
--		kernel_neon_begin();
--		xor_block_neon_inner.do_3(bytes, p1, p2, p3);
--		kernel_neon_end();
--	}
-+	kernel_neon_begin();
-+	xor_block_neon_inner.do_3(bytes, p1, p2, p3);
-+	kernel_neon_end();
- }
- 
- static void
-@@ -185,13 +176,9 @@ xor_neon_4(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p3,
- 	   const unsigned long * __restrict p4)
- {
--	if (in_interrupt()) {
--		xor_arm4regs_4(bytes, p1, p2, p3, p4);
--	} else {
--		kernel_neon_begin();
--		xor_block_neon_inner.do_4(bytes, p1, p2, p3, p4);
--		kernel_neon_end();
--	}
-+	kernel_neon_begin();
-+	xor_block_neon_inner.do_4(bytes, p1, p2, p3, p4);
-+	kernel_neon_end();
- }
- 
- static void
-@@ -201,13 +188,9 @@ xor_neon_5(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p4,
- 	   const unsigned long * __restrict p5)
- {
--	if (in_interrupt()) {
--		xor_arm4regs_5(bytes, p1, p2, p3, p4, p5);
--	} else {
--		kernel_neon_begin();
--		xor_block_neon_inner.do_5(bytes, p1, p2, p3, p4, p5);
--		kernel_neon_end();
--	}
-+	kernel_neon_begin();
-+	xor_block_neon_inner.do_5(bytes, p1, p2, p3, p4, p5);
-+	kernel_neon_end();
- }
- 
- static struct xor_block_template xor_block_neon = {
--- 
-2.47.3
+Changes this to a single module in lib/ that also contains the
+architecture optimizations, similar to the library work Eric Biggers
+has done for the CRC and crypto libraries later.  After that it changes
+to better calling conventions that allow for smarter architecture
+implementations (although none is contained here yet), and uses
+static_call to avoid indirection function call overhead.
 
+A git tree is also available here:
+
+    git://git.infradead.org/users/hch/misc.git xor-improvements
+
+Gitweb:
+
+    https://git.infradead.org/?p=users/hch/misc.git;a=shortlog;h=refs/heads/xor-improvements
+
+Diffstat:
+ arch/arm64/include/asm/xor.h              |   73 --
+ arch/loongarch/include/asm/xor.h          |   68 --
+ arch/loongarch/include/asm/xor_simd.h     |   34 -
+ arch/loongarch/lib/xor_simd_glue.c        |   72 --
+ arch/powerpc/include/asm/xor.h            |   47 -
+ arch/powerpc/include/asm/xor_altivec.h    |   22 
+ arch/powerpc/lib/xor_vmx.h                |   22 
+ arch/powerpc/lib/xor_vmx_glue.c           |   63 --
+ arch/riscv/include/asm/xor.h              |   68 --
+ arch/s390/include/asm/xor.h               |   21 
+ arch/sparc/include/asm/xor.h              |    9 
+ arch/sparc/include/asm/xor_64.h           |   79 ---
+ arch/um/include/asm/xor.h                 |   24 
+ arch/x86/include/asm/xor_64.h             |   28 -
+ b/arch/alpha/Kconfig                      |    1 
+ b/arch/arm/Kconfig                        |    1 
+ b/arch/arm/lib/Makefile                   |    5 
+ b/arch/arm64/Kconfig                      |    1 
+ b/arch/arm64/lib/Makefile                 |    6 
+ b/arch/loongarch/Kconfig                  |    1 
+ b/arch/loongarch/lib/Makefile             |    2 
+ b/arch/powerpc/Kconfig                    |    1 
+ b/arch/powerpc/lib/Makefile               |    5 
+ b/arch/riscv/Kconfig                      |    1 
+ b/arch/riscv/lib/Makefile                 |    1 
+ b/arch/s390/Kconfig                       |    1 
+ b/arch/s390/lib/Makefile                  |    2 
+ b/arch/sparc/Kconfig                      |    1 
+ b/arch/sparc/include/asm/asm-prototypes.h |    1 
+ b/arch/sparc/lib/Makefile                 |    2 
+ b/arch/um/Kconfig                         |    1 
+ b/arch/x86/Kconfig                        |    1 
+ b/crypto/Kconfig                          |    2 
+ b/crypto/Makefile                         |    1 
+ b/crypto/async_tx/async_xor.c             |   16 
+ b/fs/btrfs/raid56.c                       |   27 -
+ b/include/asm-generic/Kbuild              |    1 
+ b/include/linux/raid/xor.h                |   28 -
+ b/lib/Kconfig                             |    1 
+ b/lib/Makefile                            |    2 
+ b/lib/raid/Kconfig                        |    7 
+ b/lib/raid/Makefile                       |    2 
+ b/lib/raid/xor/Makefile                   |   50 ++
+ b/lib/raid/xor/alpha/xor.c                |   46 -
+ b/lib/raid/xor/alpha/xor_arch.h           |   22 
+ b/lib/raid/xor/arm/xor-neon-glue.c        |   19 
+ b/lib/raid/xor/arm/xor-neon.c             |   22 
+ b/lib/raid/xor/arm/xor.c                  |  105 ----
+ b/lib/raid/xor/arm/xor_arch.h             |   22 
+ b/lib/raid/xor/arm64/xor-neon-glue.c      |   26 +
+ b/lib/raid/xor/arm64/xor-neon.c           |   94 +--
+ b/lib/raid/xor/arm64/xor-neon.h           |    6 
+ b/lib/raid/xor/arm64/xor_arch.h           |   21 
+ b/lib/raid/xor/loongarch/xor_arch.h       |   33 +
+ b/lib/raid/xor/loongarch/xor_simd_glue.c  |   37 +
+ b/lib/raid/xor/powerpc/xor_arch.h         |   22 
+ b/lib/raid/xor/powerpc/xor_vmx.c          |   40 -
+ b/lib/raid/xor/powerpc/xor_vmx.h          |   10 
+ b/lib/raid/xor/powerpc/xor_vmx_glue.c     |   28 +
+ b/lib/raid/xor/riscv/xor-glue.c           |   25 +
+ b/lib/raid/xor/riscv/xor_arch.h           |   17 
+ b/lib/raid/xor/s390/xor.c                 |   15 
+ b/lib/raid/xor/s390/xor_arch.h            |   13 
+ b/lib/raid/xor/sparc/xor-niagara-glue.c   |   33 +
+ b/lib/raid/xor/sparc/xor-niagara.S        |  346 --------------
+ b/lib/raid/xor/sparc/xor-sparc32.c        |   32 -
+ b/lib/raid/xor/sparc/xor-vis-glue.c       |   34 +
+ b/lib/raid/xor/sparc/xor-vis.S            |  348 ++++++++++++++
+ b/lib/raid/xor/sparc/xor_arch.h           |   35 +
+ b/lib/raid/xor/um/xor_arch.h              |    9 
+ b/lib/raid/xor/x86/xor-avx.c              |   52 --
+ b/lib/raid/xor/x86/xor-mmx.c              |  120 +---
+ b/lib/raid/xor/x86/xor-sse.c              |  105 +---
+ b/lib/raid/xor/x86/xor_arch.h             |   36 +
+ b/lib/raid/xor/xor-32regs-prefetch.c      |  267 ++++++++++
+ b/lib/raid/xor/xor-32regs.c               |  217 ++++++++
+ b/lib/raid/xor/xor-8regs-prefetch.c       |  146 +++++
+ b/lib/raid/xor/xor-8regs.c                |  103 ++++
+ b/lib/raid/xor/xor-core.c                 |  187 +++++++
+ b/lib/raid/xor/xor_impl.h                 |   60 ++
+ crypto/xor.c                              |  174 -------
+ include/asm-generic/xor.h                 |  738 ------------------------------
+ 82 files changed, 2033 insertions(+), 2433 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
