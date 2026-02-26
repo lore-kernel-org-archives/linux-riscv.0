@@ -4,143 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545D5FD8FC4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F37FD8FC2
 	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 15:04:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:Subject:From:
+	To:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=66JGxH5DrAO960RP/mJpyQmcm7vyKXkOnH/oJW5otTY=; b=IZVH4RAa+JDkua
-	y4SY2jkpWu/FybOCC6LxJG9xRlBauTxKeu/raJzDmVR6w8asf464a7T69DQPbxSpSdMZukBjAfHTR
-	bEV+DtqmhvGMr8quEqKfCPSXf0Q9U9pex67XcqU1jNiYIG+WWyK7MPqp1N4S2WPu2TTKO6AaMyClk
-	/XCy8ps4CL8/jYQbm6O5jV18XEy/afc766qVUFfT2ae1pSlhDUekKXm+fhhBqcOSRBTUCIrzBoX9K
-	AMEYCAAu9Oi88S1oc8C5COX+C594+6leQ0VUZwOet505KfQtTfBfOjKb9zs4hPHWQK3dLtE2TJE6d
-	FAlDEMw0a8ZVSxPCX+0w==;
+	List-Owner; bh=CyFwGwhod+OpFhjJzZqH/kcOfWcC9Q378mQypW71QYg=; b=5CBAPBP4FGJp3T
+	zNwp3N2bUDvcXI+p1rWXb8LhwYemUJXjqLa+W+zWfxn5axByE/RqRL3zQDuY6haD8lcmJNKVwwDbv
+	89zVQ7uFOU0XvTwwhJlW6GGr5jPlOoYBFFaOE5S8b0KGFsW0b6GRfKlnQzY2rjeWhflTg5vnF5KKo
+	jw38lnQZHVADFiThn3byfYCAtb1nP5PnNw1mFOblqcyDnoLMdDzWjYNDqmWPQIpKhqsoCKjTyk9Sl
+	gN1JNtoqG7Z3iMYIIZS5WAFblWrX4EAOy3WPdRzvwYkM43H0Rz3YGb656CO7Hw9UMMSFuLNxumcSk
+	mmqPSypHTBaMr3P9+kJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvcv7-00000006P1l-0Mgv;
-	Thu, 26 Feb 2026 15:04:53 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1vvcv4-00000006P12-3Gp6;
+	Thu, 26 Feb 2026 15:04:50 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvcv4-00000006P0Y-2W7W
+	id 1vvcv2-00000006Ozs-1cO3
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Feb 2026 15:04:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ccG1ShkPxP8+iaNCPAco/UVvQ7B9jMSYAMpSXN/azRSviLbyTckn66iZrbJIYeWATJh2YZJHkNz7Kl0QAU7BbiyETWl5w3Vgk9rreqAZll0fydNfPJXlPNhi3pK9uhrEKEIfFXdbgLx1uglsONTstaFYjUfpSz00gXjLF5AJ6GZzJ5CoL/h7R3nDNGDIW1YAW1Ek6ym4bDDQFfJUIUEzAJvhL3V4Q5O86nl28QXZMPw9q3oPJtqkJoynIyodi8t3Q46q8h+WnfoKszx0aLOyDmofaFtfbAIuDOB81BAThFL91Op6S6idrbIlJvDHVShxnXLavSS/Lokdi8enWFijRw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eguFhSG5ISZuZuY6zY8OpcZ3pTsMOJK5D6eaiFJ5gYQ=;
- b=y0iKieeuYnRRyqrI3PsxDFyGZJOdDIlRKl3fjOIUm8+JKOswWqZPXSS6cOTthusRjinLy5BTDJ8CW9xt4uLLq+Uz8R2k5o/ctj8YAnLMqyxCxft/jmdNzc+BZLoodqkddnO366lNrxw4JyJJzdcC5qeRxk214kp7xWJSCtmrO7pFRBP7F4/eZKcDB5PJRazsJOylnxhc9FzN2+92rSMhIgqRkZCqd+Tv1/CjxalMGPChdM3Wxh1xsra3ETX9Mwh7gSG7Zp78xG4ahR1FtNRz1MhYMDBhPGRZyxT+CXpSP11PbXy0sSaMyMHSF8PgSJ0YD7ZDTcio7QweMigjz9/i+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eguFhSG5ISZuZuY6zY8OpcZ3pTsMOJK5D6eaiFJ5gYQ=;
- b=B7aL2gkOIVDWpGbiJe4uW+2Ecoy/8vHPQ8Rt32u4Ud8k+5zZN3Ooe0512+wD4S7aKfvXD6I1vAOSrO++bIbIDyqR8QJJ7jhZxyRD+TokiklAcN0ibGDGoGLFho1b+uiL10B2RH7zaKwWu+nqSt+wFZa0Gia+TAKuCluSoE/HKDUMhHdAmk7V7t42m0+xVRZG4EvUCfcjtLbwPgLIgxWBf4Minrc2OM5HRY16AdqTAeKFkEdZD/mUbGr1/cK4sFxK4/EqnG/Wh1rxaXIYq43THB7ibtOuYLPTp8jgfnbmr6dRmqnT9OhQRz8Uf6OpdsH+3kuCnqffwX6Dmfc14ECBmw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by MN0PR12MB6126.namprd12.prod.outlook.com (2603:10b6:208:3c6::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.14; Thu, 26 Feb
- 2026 15:04:42 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9654.014; Thu, 26 Feb 2026
- 15:04:42 +0000
-Date: Thu, 26 Feb 2026 11:04:40 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alexey Kardashevskiy <aik@amd.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
-	Justin Stitt <justinstitt@google.com>, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev, Bill Wendling <morbo@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Shuah Khan <shuah@kernel.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Will Deacon <will@kernel.org>,
-	Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
-	James Gowans <jgowans@amazon.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Michael Roth <michael.roth@amd.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Vasant Hegde <vasant.hegde@amd.com>
-Subject: Re: [PATCH v8 07/15] iommupt: Add map_pages op
-Message-ID: <20260226150440.GB5933@nvidia.com>
-References: <7-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
- <fc4f0354-4e6d-452d-abfb-fe24e53253a2@amd.com>
- <20260117154347.GF1134360@nvidia.com>
- <bc6817bd-4aa5-4033-b89d-88fef637de65@amd.com>
-Content-Disposition: inline
-In-Reply-To: <bc6817bd-4aa5-4033-b89d-88fef637de65@amd.com>
-X-ClientProxiedBy: BLAPR03CA0097.namprd03.prod.outlook.com
- (2603:10b6:208:32a::12) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|MN0PR12MB6126:EE_
-X-MS-Office365-Filtering-Correlation-Id: aad7e03d-359d-4e8e-9ecd-08de75485ea0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: cXD5a7tWFYjmfB7Anr20ib1e4twdLxL+5eFQNtOV5JpIdlSzIepMc2bpHto142gPpesYWaYw+zNGl4z6BChkNk6PKWVFpyb+ng1X1QU08B0W3MGiIpREhtS98TWw6VqI2aXhja6bgPan13Ah5jfCl0aqCo6BGtMFDdr3T9L4862pYpmw+Bc/c95hwLrfivLc8MDt+9HwoveCKBgpF5OFKzngU3EYIvc8UpKIJTKiyxWCBAdqw9+TxFuStu94byDNCEuYr7EUkWRvF3uTw28RQABscElP4DHVhD8xCX88NGy9IZp73Q97aohMnwwmU29HxMCaX+r7Psqbn4y8W5j4nMp96v/2DCvg8sVaF7Kxbw1sc3TQlxX0/tZtOIAYiFvrfIMCx59OPnSwZ4+w1j+gwFqHaoVwDCRH/pEm4rSuruFxbhUeRtfpITo4/1L50wjUPNBlcoSXs9c/EX4t/1E6b0HqGQI3JiWTkKh+YYhyf7w4kjMz1EgpDJLOFTwjj/E1CrLXfzi6MKl12VI3i4gQe9ECye80ZXuncR7EVB/yqgdkE1yvPs1Cj+bH3u0jCnCWI5grac9O6UI7GUZKNVYh9WLMsYa6VobmDr2N9W4MA7Oc/Q8OfD5SHWtIlFA5E8nX8xZIyrlKDG2GyHoQitxWefshamLoO0ruhEs3IA+EPbem5ZqehSjE6NibEWrMUrqFvmay12Me+y2yd6U2FuBWzWl4OWcef7arjIOd0DV67cs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+/3of0oRL5EEcvWNIhqaRD6mIveHlwbZwqSsjAbiA+oBxzvId8QZkRakrqp4?=
- =?us-ascii?Q?Yi7xxvY5ligL/dDPrBqgM5emlNU5RkjWZcvh7xmCjclBfOEm1oumdJW0+Cp8?=
- =?us-ascii?Q?F8ijKRHkNvaktOI1cJ5El/E3PgaT93rbw08a0ue2YETKGpUXCDshdV2VyxDU?=
- =?us-ascii?Q?Yuu3ag8wG/+iIpugMNv0jEJJvOgPb+b/zihfp5xykkPe5reIMkYzmLPvyvLu?=
- =?us-ascii?Q?1Dcl9PNh5jPcX/HhrWQmYHY5XhLcVT3FqNb2fauZ7sCO9PZJKmak0uHRqJIK?=
- =?us-ascii?Q?m4Hz1Jg+QdLc59V/xG1sZ8z81zz5/Se/pNWnFm82i9P8sRjEhYIcFPM6YXt/?=
- =?us-ascii?Q?PZMh7xdbAssP3Uu2NQshjdHVY84ohZL0bxv0j9MVLDDQqJx8nFGh6FzWl+o0?=
- =?us-ascii?Q?Mdj8BtsyrKep6ejXBR0V9bzNDCNkfJZYmLAVuRZNGjr8ZU9OXurv7hDiYcwW?=
- =?us-ascii?Q?qz+SJB9xfLiab/SjNd5ac+nlYIpXKSlO9YHcZ8ERQt9//FRh6rOsN0JW56Kv?=
- =?us-ascii?Q?5UJlM2adMgnuWKuyyTWw2cwoxHjHkFunJUoatw6vMsaJYJra1fP5atmXexZ+?=
- =?us-ascii?Q?dKjxdM8h0HXqoKz50hlYDl4IuhZVdtwAKJM/bhZfAHEB9xkI10j0MZj69AQ5?=
- =?us-ascii?Q?2WZDxtnIbu5uq80+gEwUEpcgxxYlxKrqDsN7wj1DjXMVrBWPpl8a0O7G/BR0?=
- =?us-ascii?Q?dMuxAp0TvzG5z3Kl6MGTP4w4q82t0TizWCRv7vIb6wl156mqByt6d6fJZ6++?=
- =?us-ascii?Q?WTJR6EZEOfBXPgH/dIx6EPA0RMDvBJcc4n0lHtnqXlj+wY4F42HxulofcTkH?=
- =?us-ascii?Q?HDbTuX7gLnnz6U/IAy831d1mazADeeIG8qmeLxPbVd13jB8xllk+NQ4wbZJh?=
- =?us-ascii?Q?gvNyUHmo3IpW+pp64YTey5H15cNJ+ywn9VynaPC6lAiTxmS/XuhxUqspUDHt?=
- =?us-ascii?Q?n4eya2yNOSkY8I5PuzfA9QXtKL3OH8+BIWjTsNDeJWOikz3T0t4hImKOn90C?=
- =?us-ascii?Q?Wxyq4oi8jBfa4pNbaJ7cA+sZgFqn4Z3ERAzfYS5O3uTwP5L5zhVX8JRuvl5C?=
- =?us-ascii?Q?ZY/HlZjX7Cgdgja2jZs2+OWTq0ZAljw1Wi+V3TFIMMiwjrnOPNBw8b11raU8?=
- =?us-ascii?Q?KjJZLJW8BB4GlWxhFqGEgIyic0CE7SOL9g0zmV0wr3zRzASEbnea3OqQW4VP?=
- =?us-ascii?Q?cj8SKYcTD7fAlT/u2tHsIpLVkINCQxF5HMGQwAE+jYouRzDAwei0AkxEQexe?=
- =?us-ascii?Q?WgLyT73HffgXpEA7UwLTwfvuNjkhSKDukRqdkz4vh8mBpQs8D/umGw5umqv1?=
- =?us-ascii?Q?BuYMVFcT0IauaJPX1Nh037bxtSn9S9Sl/BdXCIiJZs2ev1RJRDfrb3pjjLla?=
- =?us-ascii?Q?wLxGHG7ni6OFG3Gpfkf1vSt5SHbTr3QiGyFAcQpE0GKTnqIeI8ZneE05i7H5?=
- =?us-ascii?Q?6KtzbXqW65MkBsfxpbeMaMJ+KMlYFxThqYPhgvrbJ4/ifZWAs62eAASqntAx?=
- =?us-ascii?Q?4QKq/7IknCsdkUjnhs32I730ddcxwxk6c1baE90gOvzA00wcoE3xCarS1yOj?=
- =?us-ascii?Q?TkKNkTIWpPdrtIcL9VewGQSrSvG6pRm1bxp+MygoE07fjPsRHy0IzMNYl8I5?=
- =?us-ascii?Q?6tGzYMlj0zssi/L/ZzaWdBPoa0CHDOevPmQiwB3kzLuAphg6qmw6UpGqpKRj?=
- =?us-ascii?Q?O05Ou0MyuwKTE0LTirtAgQeluzahYkpQBqmM+tzBa+SeHIJQ0Cm5N1jj3Sh+?=
- =?us-ascii?Q?SBSSTyKGNg=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aad7e03d-359d-4e8e-9ecd-08de75485ea0
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2026 15:04:42.1493
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fWJo2Om+imwJ6avrIwUp87/XOwEwsWbcrz/GUNoPlz5Sx+J3ZTYVvUxGz7cQ5Wk7
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6126
+	Thu, 26 Feb 2026 15:04:49 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61QAL8WB3987242
+	for <linux-riscv@lists.infradead.org>; Thu, 26 Feb 2026 15:04:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	qp3TU7bzUr1B0vZ7uPapTlnahGO7pQVMf5jftO4wjJI=; b=GzGEF53SIu6p5rL2
+	FSzlRnRl/1ny7hdPTi7cfN1pijd2a8AUO4dm00PcTez3Uq4OMf1cO2K4EigAUEJm
+	9oZ5mw1R+zCmREzqwxByTbrKpVLrDX8UtHagBJ4JjNSHczqKXEK+L9aRfz5s8c/e
+	PXNZKU6e8gR/51X5T0nwNyiO2/GLfVpML2nvU/DEE3kv3Z6TNeSX/OaoXVw8ZQu5
+	3W9Cz5+M/wN6wq62tYf91lyVqwlmfyV7C8qyZ3ePUzRjlx5CkB4XsYEYFD7VneQy
+	JvelPj8eN/8bsDXt/swz/lt7ZUFonpXnhSvP+Pp3mr6p1N2is5u3j8ECBgfC/XOY
+	QmSXEA==
+Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com [209.85.161.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cjdph23t1-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Thu, 26 Feb 2026 15:04:47 +0000 (GMT)
+Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-67999892f00so20791758eaf.3
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Feb 2026 07:04:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1772118286; x=1772723086; darn=lists.infradead.org;
+        h=in-reply-to:references:cc:subject:from:to:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qp3TU7bzUr1B0vZ7uPapTlnahGO7pQVMf5jftO4wjJI=;
+        b=WzWhumxwYCRFfXHk9l+VV8n25O0ewUbBcOOUbDL/C7EcM5nt0XUdt73dgmPtpd+x2n
+         nK6QGdRmfWQyGK2x8zS/fxbNEAe5GqK+9ZRf/xXVoUuFcCwDsMT9v/Jn2Y67A+dMdU35
+         KoCeEOkzl7wywU7+7AAp9bgquiAP7A+su+eIZzMd/6KVkTYkUT8c2Mnq1bguo39WGCK1
+         16pJGroJjttuYNZ9JnKgKkY998C9jQLvQpKnYXBQ07kQ16LiKKoJEDOCPGHkyseMn10V
+         mujIY/EaWyEUfwJWoBD1VsiP3yeiKx09Uf7F2FSnARZwVfaSsxkuoQPj1eDjdON5m3TO
+         jAwA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772118286; x=1772723086;
+        h=in-reply-to:references:cc:subject:from:to:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=qp3TU7bzUr1B0vZ7uPapTlnahGO7pQVMf5jftO4wjJI=;
+        b=k005PZaEeEYRUkOaB188OlOXmhGzQjkwNW8gcHb0Fvp0zDtvYi7i14cDdAi4S5RXHu
+         oi4+H5xFizROHfDRcuCIe6Hn2VlX4C8VCBTMp2NG3+ZWTEjkc7C3Iyll7+j5ghcGBrxY
+         04wydol7KNGkTlIHmg36RnfoPR4NI9SGpWFC7sDsvImt7nSMn+Zk+AdmXSOIYROOXRnH
+         m/XPBjF10Q5PvmfAn7bis0RDCvsyGnESP6aVnsrAw6JLF2PJA+hHodCu+w917EIk9/ki
+         CRnM6HRlMyrR7CWEAuCqIc+Sxy85XH08vsy7us82vbkDBGy450BceMauSMR2z0V9H+8e
+         55bA==
+X-Forwarded-Encrypted: i=1; AJvYcCX7Au9XFYZDCUbwmv1RsqGthw6H/cU4VWzWbnALhzZVZ5ZorldEviaMRSjKS6UYt4cocZfFAqm6U82woQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAzw3VsobnXqXAkzv8G6Jn2JFrIDfRlT0tCRPvqBKScUkEDtUV
+	x7IGcWVPsAhvFrwKwbXYpHpYjSGKAYfEL5sBg1E14S4vlKD3lXrxGniPgV802W8AG3baExRcvIv
+	nSxR7foxsMwH6a8SPx2i/xiYi+uEvtiwfltCJaqUDaHGj8YAvGGpDzII8V4/yjAr4NdhSNR4=
+X-Gm-Gg: ATEYQzymcxgLyBrvJrfI/PR9uYHWsZVX7WHPgC9pYe/lY+m4+67yFzIR9FUoOXdvrwY
+	zMp2RzeVt9xRYqKHh3k06J0Ce3CpBKYQUddWX6f5ffayM5W99uOZ+HZZWlgG3Pl92596UntIFpp
+	siApn1Ajq3sEPhRIEwKrM1b1zVOhuiyPePN33iApY3z5bid6rH6t3W69FgIibZzqELaRmxA06Bu
+	zGu79NaoQNdS49fesUpNVxFSLgCb4Ta0Ax6oBsn6PP6uMGx8XI/An4qmuGusrDZ3G9E14dl79RV
+	zstRVcfgXwGT/BvVF43CPCZuK+zKID06yOlQjvUz+9du6vhYr2ZeZ39uLfoJgVMAamtcrZ32eiy
+	9be3ZH3ZhUSJ0ZnEQ+Iw7e7UvjtkRjk0/MUlgN/IsgCaAO1y7Jwzl9t11XsjX
+X-Received: by 2002:a4a:ee84:0:b0:663:3c7:421d with SMTP id 006d021491bc7-679ef9b9587mr2113799eaf.75.1772118286075;
+        Thu, 26 Feb 2026 07:04:46 -0800 (PST)
+X-Received: by 2002:a4a:ee84:0:b0:663:3c7:421d with SMTP id 006d021491bc7-679ef9b9587mr2113774eaf.75.1772118285481;
+        Thu, 26 Feb 2026 07:04:45 -0800 (PST)
+Received: from localhost (ip-86-49-242-13.bb.vodafone.cz. [86.49.242.13])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b935ae6131fsm65716166b.40.2026.02.26.07.04.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Feb 2026 07:04:44 -0800 (PST)
+Mime-Version: 1.0
+Date: Thu, 26 Feb 2026 15:04:43 +0000
+Message-Id: <DGOZI4Q6NSDS.7AQVQ7TEK9QH@oss.qualcomm.com>
+To: "Jinyu Tang" <tjytimi@163.com>, "Anup Patel" <anup@brainfault.org>,
+        "Atish Patra" <atish.patra@linux.dev>,
+        "Andrew Jones"
+ <andrew.jones@oss.qualcomm.com>,
+        "Conor Dooley"
+ <conor.dooley@microchip.com>,
+        "Yong-Xuan Wang" <yongxuan.wang@sifive.com>,
+        "Nutty Liu" <nutty.liu@hotmail.com>, "Paul Walmsley" <pjw@kernel.org>,
+        "Paul Walmsley" <paul.walmsley@sifive.com>,
+        "Palmer Dabbelt"
+ <palmer@dabbelt.com>,
+        "Albert Ou" <aou@eecs.berkeley.edu>,
+        "Alexandre
+ Ghiti" <alex@ghiti.fr>
+From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?=
+ <radim.krcmar@oss.qualcomm.com>
+Subject: Re: [PATCH v6] KVM: riscv: Skip CSR restore if VCPU is reloaded on
+ the same core
+Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20260226123802.154855-1-tjytimi@163.com>
+In-Reply-To: <20260226123802.154855-1-tjytimi@163.com>
+X-Proofpoint-ORIG-GUID: 2mq2fGcrCTPVerTeVWnt0MJt8msiJjTQ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI2MDEzNiBTYWx0ZWRfX1TNDeuP053YS
+ 5Xg2Cxpa5ICifdBnVlBzjyPQrvZuh9/F+NYqhvqVHTAghvxs9LmHUpHmDAYZlrUpDcKledXmRYn
+ qdvxvulTcJks/Qf4EA4e9I+q59AouABhbEshjaFmqYBdbsn5rNBE+CQRMtz4QmC+R1SjiFkeIVD
+ XjwXHdUWQuvlj9aa8vvkbclRxm3PF2tGTiosfZnxasQODlDEM44EczIGNT7FJyZcrEYGgtPn1PS
+ bvUvCNuKSFT9sBIKAoDmDQLhvrAyjkUazoW6Bmu5fuYo5AAD8Cc9/GbnJ3BwfWJl4PydxHQBAh7
+ dkfBiGb+gpz7yvO+AwtIkfidMCPE4sLOwiZ5nJ+0EQQ+6GmHywr1hPhD6ayVMgaiRs1KoTDQjfg
+ QDsk8CyoGRcYAMbKAjKQ8XrAVa2GuGlfXwD3Qyva8dfXBii+GDOcEFSFxQrle6RWUwB9KWEpU06
+ jCP1YTMGYAFPhzOuxGA==
+X-Authority-Analysis: v=2.4 cv=NJLYOk6g c=1 sm=1 tr=0 ts=69a0610f cx=c_pps
+ a=wURt19dY5n+H4uQbQt9s7g==:117 a=9tUHzIdeCh+UoOnba06Qjw==:17
+ a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=M51BFTxLslgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=Byx-y9mGAAAA:8 a=E61YY4l4AmgQ4UnPY0gA:9 a=QEXdDO2ut3YA:10
+ a=-UhsvdU3ccFDOXFxFb4l:22
+X-Proofpoint-GUID: 2mq2fGcrCTPVerTeVWnt0MJt8msiJjTQ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-26_01,2026-02-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 priorityscore=1501 impostorscore=0 bulkscore=0 suspectscore=0
+ malwarescore=0 clxscore=1015 adultscore=0 lowpriorityscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2602260136
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_070450_637915_7E76BF8A 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20260226_070448_531877_21BA4709 
+X-CRM114-Status: GOOD (  24.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,30 +156,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 10:11:56AM +1100, Alexey Kardashevskiy wrote:
-> > The flow would be some thing like..
-> >   1) Create an IOAS
-> >   2) Create a HWPT. If there is some known upper bound on RMP/etc page
-> >      size then limit the HWPT page size to the upper bound
-> >   3) Map stuff into the ioas
-> >   4) Build the RMP/etc and map ranges of page granularity
-> >   5) Call iommufd to adjust the page size within ranges
+2026-02-26T20:38:02+08:00, Jinyu Tang <tjytimi@163.com>:
+> Currently, kvm_arch_vcpu_load() unconditionally restores guest CSRs and
+> HGATP. However, when a VCPU is loaded back on the same physical CPU,
+> and no other KVM VCPU has run on this CPU since it was last put,
+> the hardware CSRs are still valid.
 >
-> I am about to try this approach now. 5) means splitting bigger pages
-> to smaller and I remember you working on that hitless IO PDEs
-> smashing, do you have something to play with? I could not spot
-> anything on github but do not want to reinvent. Thanks,
+> This patch optimizes the vcpu_load path by skipping the expensive CSR
+> writes if all the following conditions are met:
+> 1. It is being reloaded on the same CPU (vcpu->arch.last_exit_cpu == cpu).
+> 2. The CSRs are not dirty (!vcpu->arch.csr_dirty).
+> 3. No other VCPU used this CPU (vcpu == __this_cpu_read(kvm_former_vcpu)).
+>
+> To ensure this fast-path doesn't break corner cases:
+> - Live migration and VCPU reset are naturally safe. KVM initializes
+>   last_exit_cpu to -1, which guarantees the fast-path won't trigger.
+> - A new 'csr_dirty' flag is introduced to track runtime userspace
+>   interventions. If userspace modifies guest configurations (e.g.,
+>   hedeleg via KVM_SET_GUEST_DEBUG, or CSRs via KVM_SET_ONE_REG) while
+>   the VCPU is preempted, the flag is set to skip fast path.
+>
+> Note that kvm_riscv_vcpu_aia_load() is kept outside the skip logic
+> to ensure IMSIC/AIA interrupt states are always properly
+> synchronized.
+>
+> Signed-off-by: Jinyu Tang <tjytimi@163.com>
+> ---
+>  v3 -> v4:
+>  - Introduced 'csr_dirty' flag to track dynamic userspace CSR/CONFIG
+>    modifications (KVM_SET_ONE_REG, KVM_SET_GUEST_DEBUG), forcing a full
+>    restore when debugging or modifying states at userspace.
+>  - Kept kvm_riscv_vcpu_aia_load() out of the skip block to resolve IMSIC
+>    VS-file instability.
 
-I thought this thread had concluded you needed to use the HW engines
-for this and if so then KVM should maintain the IOMMU S2 where it can
-synchronize things and access the HW engines?
+Excluding AIA is disturbing as we're writing only vsiselect, hviprio1,
+and hviprio2...  It seems to me that it should be fine to optimize the
+AIA CSRs too.
 
-My draft for cut is here:
+Wasn't the issue that you originally didn't track csr_dirty, and the bug
+just manifested through IMSICs?
 
-https://github.com/jgunthorpe/linux/commits/iommu_pt_all/
-iommupt: Add cut_mapping op
+> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> @@ -581,6 +585,20 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+>  	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+>  	struct kvm_vcpu_config *cfg = &vcpu->arch.cfg;
+>  
+> +	/*
+> +	 * If VCPU is being reloaded on the same physical CPU and no
+> +	 * other KVM VCPU has run on this CPU since it was last put,
+> +	 * we can skip the expensive CSR and HGATP writes.
+> +	 *
+> +	 * Note: If a new CSR is added to this fast-path skip block,
+> +	 * make sure that 'csr_dirty' is set to true in any
+> +	 * ioctl (e.g., KVM_SET_ONE_REG) that modifies it.
+> +	 */
+> +	if (vcpu->arch.last_exit_cpu == cpu && !vcpu->arch.csr_dirty &&
+> +	    vcpu == __this_cpu_read(kvm_former_vcpu))
+> +		goto csr_restore_done;
 
-Jason
+I see a small optimization if we set the per-cpu variable here, instead
+of doing that in kvm_arch_vcpu_put:
+
+	if (vcpu != __this_cpu_read(kvm_former_vcpu))
+		__this_cpu_write(kvm_former_vcpu, vcpu);
+	else if (vcpu->arch.last_exit_cpu == cpu && !vcpu->arch.csr_dirty)
+		goto csr_restore_done;
+
+This means we never have to read the per-cpu twice in the get/put
+sequence: faster put at the cost of slightly slower get.
+
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
