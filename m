@@ -4,87 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F1AAFC5927
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 11:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86DAEFC592F
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 11:09:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6TWbLM8MGMIRlemplOQT4KWtGIkVF8GP+ZBNNJSGZHE=; b=dChn72VqyV60YI
-	c91X6BgyxYScGE3pCL0lI1ear8W2vu6WznFpHvuG45Pysun/lNcdZUD6V+t/4VcyRhJ9JWqBz6D7d
-	N1jWtsyuha2wS9O+/vwTxoIKd2ksL6TfcEjKvkIn4rioLhnqzqNHcKf/EOwi0Y8Dt8FqFhb3Btbaw
-	al9WuVxiCDbkZp8r8KXxvV/VnZ+VxRQTU5hgug+RxYxX/DlzYvPQ00HLOoROydgXYeUVBvqIk8AX0
-	hSw6Mkr9AQukLECG1jafAHUmx0dhJKfj3c1ZxqY5Yi6J2OeDQj61UhDDx2jl4iR4XpQbIVt7zi2HX
-	cYtsRwUaYpdfbyl2BX6w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qq6P5iVuKJjfbU/+QqY9UQRNYunLqViCs+d+7ylKMBc=; b=JA2vZMMMYpMYspj3BHGrAfqxIr
+	4Y/pQ6pyFWrL6Wsq3gKjey8qaAJ6amJcgzb+KRiJsJjjbF7X25ji+8PbpqWOoT+NwtaexFtB+iQKt
+	r43tQPZZbqCOerA05cj+WeBsqcEBa9aaUN32j8F9Ngwev6rme/uJukN4Ek6IvbbA6/LRFOuN7dHXj
+	lms4hj5++K44Ig02m7bT9c9/fshcjI+P5vIYivRskCLC/sf3GgAXd+ashsch7B1SzPTUXjVO8fuIK
+	2iFpDklVJT0byILe9NqiTAKkCkXMrcbytePNv3p6hxYNW2TSImsIRVwmT+mOLhSGvjAQraSvCXSIw
+	npIOYTtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZAT-00000005z57-0xb6;
-	Thu, 26 Feb 2026 11:04:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vvZFZ-00000006070-3sPY;
+	Thu, 26 Feb 2026 11:09:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZAQ-00000005z3V-2dC4
+	id 1vvZFX-0000000606H-2EMr
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Feb 2026 11:04:27 +0000
+	Thu, 26 Feb 2026 11:09:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 442CB42DDF;
-	Thu, 26 Feb 2026 11:04:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D38D5C116C6;
-	Thu, 26 Feb 2026 11:04:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CEC59405D3;
+	Thu, 26 Feb 2026 11:09:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CE57C116C6;
+	Thu, 26 Feb 2026 11:09:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772103866;
-	bh=2jj3tlUPwNJyQbcAlJb/OigLgav3z1nU51BP4RvIQIg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GckSiqhb0AxxsgsyCythZCvx+sJjErEC+mAIzuC/u+lef3vKn3Vtu/nRBzGxCv7VF
-	 e91X1p0Ym8p6+kVuwLdrZwO0vu6ADhv/ZbYJyKsyu0N0tuyNSHUBZ28ElCrPMCdtRD
-	 XKvcAkdervGCuLf9svjgDwJ7ATR87loTVGyQ212Qivs/0SfmoNINYD+A3FBW+gQaPF
-	 e84QK7c5Ww6RwPbm3C+e3aUkwfqlaJbTdshkq6ybWIxkobxVH3hhwFIKrWKOXfpV5V
-	 +uae31yqWuhal4LJs877VDNkN4qJNiZIdjGaJO7I6p/cpTBIjH+SYQBtTaujv5cQsb
-	 sdIg6EIEF2v3A==
+	s=k20201202; t=1772104182;
+	bh=Kc3y4vF5C5ht3a1XMvsgWskMHYvLykSYzITc23T1NDk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lMwXjfJRiBEVT78l5CXkOIawXNBob9Tdyzc3m9YFg/yr5NW3jo4xUaZtWPHv/0yac
+	 /Hly1F07PxVhWGDQNVpxeu2kGBaCqUkT2niVyH2Y51jDtlazKYy4ZzF0zT64lhSV5o
+	 LqftKpjqtq5SNHLyEZNtnrjab3+k7UHOZzkEAVCuK6S/GvLCFQcQA2x2unfm1lRdd+
+	 3dnowboT25KCF+kAVqUMa4lMBCn4RSwnSPU6Qw/z3VOAKkQZVJulE82qq1AlLjkWcv
+	 UStRFoipY7jmgC/3t5JHneFEUpm8fXDGBS6hTpKTLLiA2ZFH/pDkKky4e68MHVo1Z4
+	 9KfmULnHylmTw==
+Date: Thu, 26 Feb 2026 11:09:35 +0000
 From: Conor Dooley <conor@kernel.org>
 To: netdev@vger.kernel.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
+Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Valentina.FernandezAlanis@microchip.com,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Daire McNamara <daire.mcnamara@microchip.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	Nicolas Ferre <nicolas.ferre@microchip.com>,
 	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
 	Richard Cochran <richardcochran@gmail.com>,
 	Samuel Holland <samuel.holland@sifive.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Neil Armstrong <narmstrong@baylibre.com>,
 	Dave Stevenson <dave.stevenson@raspberrypi.com>,
 	Sean Anderson <sean.anderson@linux.dev>,
 	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
 	Abin Joseph <abin.joseph@amd.com>,
-	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>
-Subject: [PATCH net-next v2 8/8] net: macb: clean up tsu clk rate acquisition
-Date: Thu, 26 Feb 2026 11:03:23 +0000
-Message-ID: <20260226-mammary-relearn-bab7519111c0@spud>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260226-snowshoe-amusable-6716d4ddea11@spud>
+	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>
+Subject: Re: [PATCH net-next v2 1/8] riscv: dts: microchip: add tsu clock to
+ macb on mpfs
+Message-ID: <20260226-untimely-overcoat-a335a7016adc@spud>
 References: <20260226-snowshoe-amusable-6716d4ddea11@spud>
+ <20260226-briskly-severity-69c2988e8dc8@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1291; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=apFAb9W0Y5znFJfOtey/gSV/AiSmELU+MiBfWgmgUMI=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkLNCoMcy6v374hpsdCOEh8VmxBX0T3hknf5+WmVgrti /59T3NTRykLgxgXg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbC5MjwzyavVtNw0eIYg4Kp smejfnH965skt67qziItoQxBq2ub3Bj+53PZVMzbt2rKx4+XjuwQM5B+Wiso0PZi+d213z1l47L ruQE=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+In-Reply-To: <20260226-briskly-severity-69c2988e8dc8@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_030426_708377_495B405C 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20260226_030943_585783_3E31E6AA 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,54 +90,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5034384852285071922=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-tsu_clk is grabbed during probe, so doesn't need to be re-grabbed here.
-pclk is mandatory, probe will fail if it is err/NULL, so there's no need
-to check it here or have a !pclk 3rd arm. Simplify gem_get_tsu_rate() to
-account for these facts.
+--===============5034384852285071922==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="HXcvzNaRR2Bb/QYt"
+Content-Disposition: inline
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/net/ethernet/cadence/macb_main.c | 12 +++++-------
- 1 file changed, 5 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index 5c24ea146d63d..f5ec283ddb497 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -3527,16 +3527,14 @@ static unsigned int gem_get_tsu_rate(struct macb *bp)
- 	struct clk *tsu_clk;
- 	unsigned int tsu_rate;
- 
--	tsu_clk = devm_clk_get(&bp->pdev->dev, "tsu_clk");
--	if (!IS_ERR(tsu_clk))
--		tsu_rate = clk_get_rate(tsu_clk);
--	/* try pclk instead */
--	else if (!IS_ERR(bp->pclk)) {
-+	if (!IS_ERR_OR_NULL(bp->tsu_clk)) {
-+		tsu_rate = clk_get_rate(bp->tsu_clk);
-+	} else {
- 		tsu_clk = bp->pclk;
- 		tsu_rate = clk_get_rate(tsu_clk);
- 		dev_warn(&bp->pdev->dev, "devicetree missing tsu_clk, using pclk as fallback\n");
--	} else
--		return -ENOTSUPP;
-+	}
-+
- 	return tsu_rate;
- }
- 
--- 
-2.51.0
+--HXcvzNaRR2Bb/QYt
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Thu, Feb 26, 2026 at 11:03:16AM +0000, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> In increment mode, the tsu clock for the macb is provided separately to
+> the pck, usually the same clock as the reference to the rtc provided by
+> an off-chip oscillator. pclk is 150 MHz typically, and the reference is
+> either 100 MHz or 125 MHz, so having the tsu clock is required for
+> correct rate selection.
+>=20
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  arch/riscv/boot/dts/microchip/Makefile.orig | 26 +++++++++++++++++++++
+
+Of course I noticed this only after sending, but this patch isn't for
+net anyway so it's kinda moot and I could fix it myself on application
+or in the likely v3.
+
+--HXcvzNaRR2Bb/QYt
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaAp7wAKCRB4tDGHoIJi
+0uBQAP0Sp42MPDxWXYk+ByvyugQefv2Lt1layvBUVWDkCGvzLwD6A8UBJsHEysQT
+QWWCpEpvz0l96P/zT0bSG3dWzXFJhQI=
+=Mz+3
+-----END PGP SIGNATURE-----
+
+--HXcvzNaRR2Bb/QYt--
+
+
+--===============5034384852285071922==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5034384852285071922==--
+
