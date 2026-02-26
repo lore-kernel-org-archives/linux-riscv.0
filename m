@@ -4,127 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 334C5FD8FCC
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 15:41:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE8FFD8FCE
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 15:44:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UN/IsygLEkPKY+ogT9oQfGXs69kq5/TbMPjaIzAPMDY=; b=L7LZLkQGj7Doc9
-	b+MXb825YIt8LXpXDjFuZr8uJ0aXpPgTTUfaiI7/bMt8ajYfA55lb4tU8rXvgsd+CHeRZ/YImthvr
-	SzElDrikipNZQC32RrkQhy1Mj8IQx/7V6SjCr73ctQ67fuz+UiM8casyCb+G6uZloAXnuPN4kdNBw
-	4DW93oaMs3aLS9rpa3+3Dj/M3jPidR/HYBqX2sZO9jrDN8CnOVaa+iSUuE6YmraYbQnDEp6X42j0r
-	PV8zmLxTEu070aM6Z3INlQOVIYdfkWXZ8q8/lXkT2EyOFE6Z9vagM/TQd68Tf/6WZcadHSZ3GMFK3
-	oGQn/Xybk/piPnuM1r5g==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=+iQrsxJg1MgMVE6hbtz+XQvpTZGeEU2ihZFTYquPWYc=; b=oNvoUev9x0+UF7tAocsQJrcH+9
+	CYEzECbV44wcV9mzrvAUMuwCe+uzU5WNXAgLA9oAIBjnMP7gR7K7+75CjJ8C3Y8yerxZyPpQN2yHW
+	0SthpFsHg6qUlR567MjWH6PvlzsCCWASQZej2V7zIBM3uJShrIdVWaaNBNEhZWpUJZ5T21uCsbBgR
+	3QFE0sw12+az0HebUmHtq2hG7ohfKESFh1LHs7SIZMhOtpOaGnYS7lAfvnoHJa611K6tzQziSt2bU
+	jyEGam8ipDqJGljWQK3LiQcdfDKZhfcm0Jt67rIDJ/hH525r7dYl0nIgNTXQjmwBOG9ZoOK4j2SCl
+	iNgaZ7Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvdUG-00000006XJ3-3aTx;
-	Thu, 26 Feb 2026 15:41:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vvdX0-00000006XlR-08qF;
+	Thu, 26 Feb 2026 15:44:02 +0000
+Received: from flow-a8-smtp.messagingengine.com ([103.168.172.143])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvdUD-00000006XHg-1uYp
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 26 Feb 2026 15:41:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:In-Reply-To:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=1k5RnefQkAvGAiccxF2n3IZAxFH1TLXRjZjH5ND0iLo=; b=X6GEZk6yADp207MJzAHiKFUHYY
-	kGlHpFQ1vFZmgcM68j+PrN1AgBSeS3rE+6hu9rxttlCtCjuqqsNFtzgh7QjSgLphUolY1gF5S+77e
-	go4eLKe74MjqE/975vwIj6ALkoSz3S8zPaVVFVq6qCFS/Z4Xe35PWkZQIErnuR/y77ilBntSfPL2k
-	YzNj0lS9Gdk3sSARSGSR2FhyLjl0pq4+oY4k63PKzaPvKTZtVBNW3YaRkvD5YCVDXXtVF6BBAjOe7
-	YVOg7OdVMAceAgbRq5fEWgkhjitY1y0J6hJxN9L81+bh3f1rL+G3fKhYH97of6B5hCzkNdeKkToOL
-	A8xGZWqw==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvdU9-0000000BLwx-45NQ
-	for linux-riscv@lists.infradead.org;
-	Thu, 26 Feb 2026 15:41:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772120463;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1k5RnefQkAvGAiccxF2n3IZAxFH1TLXRjZjH5ND0iLo=;
-	b=hPby2ZOffjwdLt0ij3aQLIlGinYCoT4UnQlqDVMVUAebsbNlApAapyPRHpu9Gre+991lDo
-	8XCSVehCcVjdmqCvNS8iHh/He4Cmc2QZ2r4KuCu41oZd/BM7SwKpZXY7sA7WYf46i7pxzi
-	OPPppdr9emAqLwjj1V1CPZexz6SKjv8=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772120463;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1k5RnefQkAvGAiccxF2n3IZAxFH1TLXRjZjH5ND0iLo=;
-	b=hPby2ZOffjwdLt0ij3aQLIlGinYCoT4UnQlqDVMVUAebsbNlApAapyPRHpu9Gre+991lDo
-	8XCSVehCcVjdmqCvNS8iHh/He4Cmc2QZ2r4KuCu41oZd/BM7SwKpZXY7sA7WYf46i7pxzi
-	OPPppdr9emAqLwjj1V1CPZexz6SKjv8=
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
- [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-15-1NfOqNvDPJarCahVVXnggw-1; Thu, 26 Feb 2026 10:38:50 -0500
-X-MC-Unique: 1NfOqNvDPJarCahVVXnggw-1
-X-Mimecast-MFC-AGG-ID: 1NfOqNvDPJarCahVVXnggw_1772120329
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8cb4e37a796so635046485a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Feb 2026 07:38:49 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772120329; x=1772725129;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=1k5RnefQkAvGAiccxF2n3IZAxFH1TLXRjZjH5ND0iLo=;
-        b=SKtn+lqQeNXPZkDczk2SBClZ9MYxUkEO3oP0Qmv3BREDV52JAoROr+0VBbcwFmOBia
-         A5qS/0WUD2HPkInkCsAV5CocBCFxlJcSEZDbluqNBjESpw7Nw7BsTtQ81GAf7F5ifyy7
-         TNWC6L9vxu/kY1D4OOrmxn8vUHCPJanZqBIgIUygM5Od4HdmGRkL/Ge7SfoQLOjStU1A
-         XcyZv6SFhNgYwjx3m/kdy5tpm1JK2p+dfZUflB/k+2OoCkKiuaHJH8rRrLuxEeh0CEVo
-         L0CKzsmv/P88RW77yMPVoJb9E/L43XWwjspcDxqn9jJ+iIdGYh02TtNBOj7JFAto08Fr
-         ytsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV53gMdljCJGkPuXyFyZJD8Pq0CorcIqvKo2XdPhlIC8yIf7M+ymc6rwzVgbd4Zm/3gsCfVH3GEHJ1pvQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy81TRvfJ4+CGfgIHZjWBtHRv/M53/FE/bxBDtzN+Sv+Gnn3lMo
-	HnXq7vtxyd2/Gc+4KvVVGPQ5BT2re3e3LjBEiAvaootvLluf+g/lOoq9SeHaVFwCWTF91T5Ogwq
-	f4dBB0/NAqsRrn2nDoo97+WJ0SYMs2nOnAktgxt453VP/1Ys/3E/mIg9Mhc6H0tp1N3DK5w==
-X-Gm-Gg: ATEYQzy7eex2MboLyWghBzVBSliurENukgG/Yt/v5xdPArMjsmgTvTB6QDUo/EkcniK
-	leebpd/JemPMY6tfxE7JK1xTSlaIheVgGvjRv9aPZ86cy3QCG11UTpxOPgFqdE8DFRbiWi+1Vfg
-	XQHgE4/jJ6jqjx9yqCnrwBOyzODUEYfqpSrnAMLaOhCh/7fzcW/l/Z6Ox/F/ElPbvSASG5b22oM
-	WXw9guILcK1sYdFd0uU9Ttb4aIACIm05tdIJQkt9ga+P82Eoly0w9Ab2aj1Ctiy4eiFLvd4xJDs
-	/R2nmgadhOGkFs2xCFMH3xO8HqL2UQAyPXZ30qNiqffQnCG4WIp4oF2vL6yTUsj2reBtW/3YHAt
-	1wT8B80Z3GiQ0PTggzU971CdLco4SuniFPK7QxnBmCGiF8eQr2xTOUbUD
-X-Received: by 2002:a05:620a:4045:b0:8c0:cbd8:20b0 with SMTP id af79cd13be357-8cb8ca18f95mr1599112885a.34.1772120329391;
-        Thu, 26 Feb 2026 07:38:49 -0800 (PST)
-X-Received: by 2002:a05:620a:4045:b0:8c0:cbd8:20b0 with SMTP id af79cd13be357-8cb8ca18f95mr1599107585a.34.1772120328924;
-        Thu, 26 Feb 2026 07:38:48 -0800 (PST)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cbbf6534f3sm222534085a.5.2026.02.26.07.38.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Feb 2026 07:38:47 -0800 (PST)
-Date: Thu, 26 Feb 2026 10:38:45 -0500
-From: Brian Masney <bmasney@redhat.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, linux-clk@vger.kernel.org,
-	stable@vger.kernel.org,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] clk: microchip: mpfs-ccc: fix out of bounds access
- during output registration
-Message-ID: <aaBpBYVtt_VhuJws@redhat.com>
-References: <20260224-briskly-scholar-294d13464721@wendy>
- <aZ9-NWiX4wMH3Ay6@redhat.com>
- <20260225-cache-nebulizer-2f3669074fa4@spud>
- <20260225-thrive-endless-3168e0b0f916@spud>
+	id 1vvdWx-00000006XkM-0R1i;
+	Thu, 26 Feb 2026 15:44:00 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailflow.phl.internal (Postfix) with ESMTP id 702FC1380BA9;
+	Thu, 26 Feb 2026 10:43:55 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Thu, 26 Feb 2026 10:43:55 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1772120635;
+	 x=1772127835; bh=5NKb8s5uQsJxGoQ2AVBEtObpQ/CvaKcz4OqTIpIkbmc=; b=
+	BFOz5yqxSmg9S50IsSdLRGyQHw6zGY1eOdKa+Po1ZziBbN2GJ+4j9GfSK2vBzpb8
+	jke/0DjjeJ1N27rCrrDV17hYarBNm1Yv5Ef3DpswEsW5lXmy5P2MpCy6/j4n03oF
+	6AXtPA/NP2OgKRV62bfh5y074ZgZyuVK80kBotJiI5viaax3nK4TDXtsz7/fmWKi
+	Idb44puvspjnRxIVW8rRiXroKSe3UOJgw6SBDrDW/b4nrdVt9gRrGH0VYyTCCFI+
+	MaLql0ByGC1lAPGvtsNQy7knHDrJrYmiw6Z0TH7LP/fMQ/mbjchvlBUub+fpzM0z
+	AwgDVPMDWtHsSHNybdc70Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1772120635; x=
+	1772127835; bh=5NKb8s5uQsJxGoQ2AVBEtObpQ/CvaKcz4OqTIpIkbmc=; b=F
+	c2ByHch3ij59MUwgdS2tUPIb02ImNYf+PdWdDaqtx5ATw62eUpliVMY8iV5D7hR3
+	wYi0CHEzfkgh/mmBuCbJYAChbEOC/Yi8PJeN5l62Iy2psmFsZrqPUq0n/+vZEsQO
+	qYjytQD72iqh1ghXwEeBJ+WUnvc4Fp1Jeo/4mgECJRniva5kBNFlm6iANF8sqab6
+	oNPUlMV1dQUyv+GQi7/PfCZFIvgRRn3B9r6NcepO1/wYvQBeHCR1LEsGxh1+Og4p
+	FYPE0U4hjheq9evedYJAexwrwIPKQjOD7fllTYCzxyIBPwHANOFBQd6w9WsyZAmJ
+	opoR4yIXQlrQwxqExmjlA==
+X-ME-Sender: <xms:N2qgaaQjbD4lDTTpYYJW04n5-N_REynhDJNOjDcAsLpq8XoFDTIP1Q>
+    <xme:N2qgaalYz6oAwIkXti0ilmTZ4SAWzxEhI78J-NBiOcz8jBnpIMTvnyc8aM72hc_ES
+    ARSAHBEQvzfvqva9WEslWopqCs96M2xP3m79vrzlriTC5w2htjwEyM>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvgeeigeefucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohephedtpdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopegsphesrghlihgvnhekrdguvgdprhgtphhtthhopegtrghtrghlih
+    hnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtoheplhhinhhugiesrghrmhhl
+    ihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegrnhhtohhnrdhivhgrnhhovhestggrmh
+    gsrhhiughgvghgrhgvhihsrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggv
+    lhhtrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprh
+    gtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtohep
+    mhhpvgesvghllhgvrhhmrghnrdhiugdrrghupdhrtghpthhtoheptghlmhesfhgsrdgtoh
+    hm
+X-ME-Proxy: <xmx:N2qgaUJWUEXUlLEjkxtJWtWBvZvargLkJYDYLT1WCObuQQIhrpl4jg>
+    <xmx:N2qgabuNvv7e3NmdoP0u_IPqZN1TMDnyqD0tO35lBUa_NaOCzbSmCg>
+    <xmx:N2qgaRqz5OOPUoSW-rsw8dZEHVicCLZG3p0s42DHReFDaNuct761aw>
+    <xmx:N2qgafV0jsQUaX0mdJgZVSo50cBCHJXR9outsNs-5KBrOO1PzPsRXw>
+    <xmx:O2qgafUJmIOfDaRuA5FfQ3utukV1YK4slK3UAvn21GEOucPhAX52tGfc>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id A0F9D700065; Thu, 26 Feb 2026 10:43:51 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-In-Reply-To: <20260225-thrive-endless-3168e0b0f916@spud>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: idvdAKwNksWEl59DBGHOKNYrMwRQrhjH_1Dy1HmYJ_I_1772120329
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+X-ThreadId: AQu7KcbS869J
+Date: Thu, 26 Feb 2026 16:40:21 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Christoph Hellwig" <hch@lst.de>,
+ "Andrew Morton" <akpm@linux-foundation.org>
+Cc: "Richard Henderson" <richard.henderson@linaro.org>,
+ "Matt Turner" <mattst88@gmail.com>,
+ "Magnus Lindholm" <linmag7@gmail.com>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Huacai Chen" <chenhuacai@kernel.org>,
+ "WANG Xuerui" <kernel@xen0n.name>,
+ "Madhavan Srinivasan" <maddy@linux.ibm.com>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Christophe Leroy" <chleroy@kernel.org>,
+ "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
+ "Heiko Carstens" <hca@linux.ibm.com>,
+ "Vasily Gorbik" <gor@linux.ibm.com>,
+ "Alexander Gordeev" <agordeev@linux.ibm.com>,
+ "Christian Borntraeger" <borntraeger@linux.ibm.com>,
+ "Sven Schnelle" <svens@linux.ibm.com>,
+ "David S . Miller" <davem@davemloft.net>,
+ "Andreas Larsson" <andreas@gaisler.com>,
+ "Richard Weinberger" <richard@nod.at>,
+ "Anton Ivanov" <anton.ivanov@cambridgegreys.com>,
+ "Johannes Berg" <johannes@sipsolutions.net>,
+ "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>,
+ "Herbert Xu" <herbert@gondor.apana.org.au>,
+ "Dan Williams" <dan.j.williams@intel.com>, "Chris Mason" <clm@fb.com>,
+ "David Sterba" <dsterba@suse.com>, "Song Liu" <song@kernel.org>,
+ "Yu Kuai" <yukuai@fnnas.com>, "Li Nan" <linan122@huawei.com>,
+ linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-btrfs@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
+ linux-raid@vger.kernel.org
+Message-Id: <29afa24a-f659-481b-b5a8-7b8b9e009755@app.fastmail.com>
+In-Reply-To: <20260226151106.144735-10-hch@lst.de>
+References: <20260226151106.144735-1-hch@lst.de>
+ <20260226151106.144735-10-hch@lst.de>
+Subject: Re: [PATCH 09/25] xor: move generic implementations out of asm-generic/xor.h
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_154106_149514_03F6A3E5 
-X-CRM114-Status: GOOD (  37.77  )
+X-CRM114-CacheID: sfid-20260226_074359_634856_816F4FDF 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,76 +152,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 25, 2026 at 11:24:59PM +0000, Conor Dooley wrote:
-> On Wed, Feb 25, 2026 at 11:14:47PM +0000, Conor Dooley wrote:
-> > On Wed, Feb 25, 2026 at 05:56:53PM -0500, Brian Masney wrote:
-> > > Hi Conor,
-> > > 
-> > > On Tue, Feb 24, 2026 at 09:35:25AM +0000, Conor Dooley wrote:
-> > > > UBSAN reported an out of bounds access during registration of the last
-> > > > two outputs. This out of bounds access occurs because space is only
-> > > > allocated in the hws array for two PLLs and the four output dividers
-> > > > that each has, but the defined IDs contain two DLLS and their two
-> > > > outputs each, which are not supported by the driver. The ID order is
-> > > > PLLs -> DLLs -> PLL outputs -> DLL outputs. Decrement the PLL output IDs
-> > > > by two while adding them to the array to avoid the problem.
-> > > > 
-> > > > Fixes: d39fb172760e ("clk: microchip: add PolarFire SoC fabric clock support")
-> > > > CC: stable@vger.kernel.org
-> > > > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > > > ---
-> > > > CC: Conor Dooley <conor.dooley@microchip.com>
-> > > > CC: Daire McNamara <daire.mcnamara@microchip.com>
-> > > > CC: Michael Turquette <mturquette@baylibre.com>
-> > > > CC: Stephen Boyd <sboyd@kernel.org>
-> > > > CC: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-> > > > CC: linux-riscv@lists.infradead.org
-> > > > CC: linux-clk@vger.kernel.org
-> > > > CC: linux-kernel@vger.kernel.org
-> > > > ---
-> > > >  drivers/clk/microchip/clk-mpfs-ccc.c | 2 +-
-> > > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > > > 
-> > > > diff --git a/drivers/clk/microchip/clk-mpfs-ccc.c b/drivers/clk/microchip/clk-mpfs-ccc.c
-> > > > index 3a3ea2d142f8a..54cfbb8be8ab5 100644
-> > > > --- a/drivers/clk/microchip/clk-mpfs-ccc.c
-> > > > +++ b/drivers/clk/microchip/clk-mpfs-ccc.c
-> > > > @@ -178,7 +178,7 @@ static int mpfs_ccc_register_outputs(struct device *dev, struct mpfs_ccc_out_hw_
-> > > >  			return dev_err_probe(dev, ret, "failed to register clock id: %d\n",
-> > > >  					     out_hw->id);
-> > > >  
-> > > > -		data->hw_data.hws[out_hw->id] = &out_hw->divider.hw;
-> > > > +		data->hw_data.hws[out_hw->id - 2] = &out_hw->divider.hw;
-> > > 
-> > > What happens when / if the DLLs are supported by this driver in the
-> > > future? This seems like a trap for the future.
-> > > 
-> > > According to include/dt-bindings/clock/microchip,mpfs-clock.h, there are
-> > > only 16 clock IDs. Could hws be initialized to have enough room for all
-> > > 16 structures, and would it be ok if it was a sparse array?
-> > > 
-> > > At the very least, I think it would be nice to include a comment here.
-> > 
-> > I think I'd rather add a comment, I know it's at most only 24 extra
-> > allocations, but just feels bad to do it.
+On Thu, Feb 26, 2026, at 16:10, Christoph Hellwig wrote:
+> Move the generic implementations from asm-generic/xor.h to
+> per-implementaion .c files in lib/raid.
+>
+> Note that this would cause the second xor_block_8regs instance created by
+> arch/arm/lib/xor-neon.c to be generated instead of discarded as dead
+> code, so add a NO_TEMPLATE symbol to disable it for this case.
+>
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
+
+Acked-by: Arnd Bergmann <arnd@arndb.de> # for asm-generic
 > 
-> I'll add this, maybe on application.
-> 
-> @@ -234,6 +234,10 @@ static int mpfs_ccc_probe(struct platform_device *pdev)
->         unsigned int num_clks;
->         int ret;
->  
-> +       /*
-> +        * If DLLs get added here, mpfs_ccc_register_outputs() currently packs
-> +        * sparse clock IDs in the hws array
-> +        */
->         num_clks = ARRAY_SIZE(mpfs_ccc_pll_clks) + ARRAY_SIZE(mpfs_ccc_pll0out_clks) +
->                    ARRAY_SIZE(mpfs_ccc_pll1out_clks);
+> -#pragma GCC diagnostic ignored "-Wunused-variable"
+> -#include <asm-generic/xor.h>
+> +#define NO_TEMPLATE
+> +#include "../../../lib/raid/xor/xor-8regs.c"
 
-That makes sense.
+The #include is slightly ugly, but I see it gets better in a later patch,
+and is clearly worth it either way.
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+The rest of the series looks good to me as well. I had a brief
+look at each patch, but nothing to complain about.
 
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
