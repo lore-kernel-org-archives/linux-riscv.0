@@ -4,68 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FDF9FC5904
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 07:06:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF3DFC590C
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 08:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nGEig2pUvjB4A+gKK6rAR32ir793afcomc9aqPncgfk=; b=bQFJ/fKvKujvYa
-	UwTT9ZTxZmGBumzykAETk245I9YAaGuGXMYm3ixuK2ZOZNzslJj6y2JAaZWUThohrNb69V+BSu7z0
-	K4xQzHO56HCgg/dhKPBLW9PsPDMMcCPB2HZ3hE0Bvc4uBZxTeaL84WSwVrEsTfugNUoV0R92FiNiS
-	PlRCaI+QPXPHJUERjpkBXNEjcY522k+EQiBAGQUct1MwHXBmHoqp+HjPL40YxAbG0SN1GrE1tuawV
-	AIPM2XPPeqh1Bw3Svbocoa6JosLoOXe5tPnZpMk2NbVmEBrWGB2xqIodR0ePZP8/5s44nogw9/ZnF
-	h/UkH/HIEM+ttcXbylQg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WDrSDRWkjdd8U16Vt5RQWJL2uTqmnVcUoWrWrSkB4p8=; b=VNBXiKb8o27/qi
+	x1C1MdXZWm3tWsmAeZcYgUJw38evE7G4LV10bKSZpC3oanOrq2RF3YfhY894AolWJHY+Ej1avBGjX
+	5aTGiHXWQIIPbP5SA98eUCsEvtbSMoSDx52RlGbiG9vNtYkdQ7r9it072HK19p06uJ3eCtbeklgFd
+	UOlofy/uKwJvHpm6t2H+iI/Po28bAd0VdLH4O5uAZ0ZlMgT9uWehGUkWoeg+Bx7AvmsdqHZbed0OG
+	sbP6DZsdZq5qIZRY9Y9/Ein/nsHhTrzzkxvg9iXfQddhaAoVOHGyviIq9jJACvE6BTi0pn4mNEBp4
+	wM2XMZDz/+2Ur1pEuL6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvVRc-00000005XQK-0Z6E;
-	Thu, 26 Feb 2026 07:05:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvWZh-00000005d4n-1II5;
+	Thu, 26 Feb 2026 08:18:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvVRb-00000005XPt-1OPM
+	id 1vvWZg-00000005d4e-34lV
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Feb 2026 07:05:55 +0000
+	Thu, 26 Feb 2026 08:18:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 67D1860054;
-	Thu, 26 Feb 2026 07:05:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61791C19425;
-	Thu, 26 Feb 2026 07:05:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BFEA0600AD;
+	Thu, 26 Feb 2026 08:18:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 308EDC19422;
+	Thu, 26 Feb 2026 08:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772089554;
-	bh=r8kkku+RUrykKo8TzZsoSH0+1fI5bqsKXvST33G+y+Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fVOUerUrp1sd8OJYr/FayxxGSv+keS2OvEIftB8YxZm/B44KcMB+dWGzHdh+iJtgO
-	 Edo8ini3/qBAM2bn5TmdJj1j1rKeleWMYfuWf9rV6KV+pb0cmS/SmKMS6eW/uit2lo
-	 HqJI9P4wGKuDz+rWyZxJUIMD3I6LQ9Dy0rw2afNEhI5apJgSZerdALhTDfs2N+bl/C
-	 UwLL1W9rU91dKI3UICn0T4lNP4Etpj+B/RJ7YFjHXr+iwSmFk3j4+mroZ/61Hpc2uu
-	 hPfPqiMDaJxOAqPFA3jdRN/Njbu7Q8AemmGO4mMTjtWKanxil+gsr5tJHfWYOSs4Cw
-	 gURkzrb31HbDQ==
-Date: Thu, 26 Feb 2026 12:35:50 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	Longbin Li <looong.bin@gmail.com>, Ze Huang <huangze@whut.edu.cn>,
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, sophgo@lists.linux.dev,
-	linux-riscv@lists.infradead.org, Yixun Lan <dlan@kernel.org>
-Subject: Re: (subset) [PATCH v3 0/3] riscv: sophgo: allow DMA multiplexer set
- channel number for DMA controller
-Message-ID: <aZ_wziVgEPGOSAd3@vaman>
-References: <20260120013706.436742-1-inochiama@gmail.com>
- <177201865381.93331.6104381063514168222.b4-ty@kernel.org>
- <aZ9z0gV8ZrfpL2JG@inochi.infowork>
+	s=k20201202; t=1772093899;
+	bh=MEIK9bAonaqTMisJPkjUMTcLudbo3u5sZqZBpvbIB+0=;
+	h=From:Date:Subject:To:Cc:From;
+	b=mdrD0MoulcE3hvsq+DbnqJn2wHesZBge4nDY/7hXL4B3kOIcJBacjzAaRX09/CSKm
+	 2vf13Of9r2e6+yInQosbgdDfDcPnV8b65rWVF3KpiDqmwvUEK1H++9U2tX9J34ySHa
+	 WHoapQzMVIUO3qwhdXzfSapuTKkPXO3kz9KbSnO8oIUewfq+9gWyHimsXV+0MwtXs7
+	 UQHVbhxwF6pjQ7EQt4/zICK+JStVu5FhMRMHzzkOOP9LFpZrDI98gg2r7ekdeWi2gw
+	 xLLflivY0+5svHa7VWDndGmvR6YZJoNYBeTMQRSlzN6D7EZyl1yY0donOsYyTIw5z3
+	 esn2t9/0J2e9w==
+From: Yixun Lan <dlan@kernel.org>
+Date: Thu, 26 Feb 2026 08:17:55 +0000
+Subject: [PATCH] riscv: dts: spacemit: pcie: fix missing power regulator
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aZ9z0gV8ZrfpL2JG@inochi.infowork>
+Message-Id: <20260226-k1-pcie-fix-pwr-v1-1-94b493cd27e5@kernel.org>
+X-B4-Tracking: v=1; b=H4sIALIBoGkC/x2MQQqAMAzAviI9W7A9TPEr4kFmp0XQ0YEKY393e
+ AwhyZDEVBKMTQaTW5NeZwVqG/D7cm6CulYG7th1zA4PwuhVMOiL8THsAzuigZgWD7WKJlX9x2k
+ u5QNLtrPHYQAAAA==
+X-Change-ID: 20260226-k1-pcie-fix-pwr-7f26118121ac
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Alex Elder <elder@riscstar.com>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor@kernel.org>, Yixun Lan <dlan@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1949; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=MEIK9bAonaqTMisJPkjUMTcLudbo3u5sZqZBpvbIB+0=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpoAHDFweVSpXqP1GdH2N3rzRsEFkwSU6zAJFJj
+ GFXCeWkutuJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaaABwxsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+13WxAAgYPAolKHGdv6bCQUFjtMpZGrsG90LspaVZap1XKgJ9x2ed9s1nKFH
+ IBunzIGn9g796xq3ly0CK5SfputpNpYW0ZNjQLaCjy6DXvOSXbD1AxDviEvTBO1nslXc09IqfXi
+ ZHGQWr/Bh2YzNByCSJiK4Ej41UQS7engrmTU2FZ94JGDarDQuuQ4d8TvJK6xr7zL3YHDKypQBdD
+ D0O+J13Cm6xvQ+azNZk+zDZZxyqLWvjsPMUi1zwlQgrwFpgJgaOjrNp1SQajqbN/fXfrm3XW8qe
+ 7DELIq6sOIB17DFfYrNgflW7Z/cS9gMKwmZH0FVu6jnfvy4WOm/rDMQuN/uJbgKsb3kqyP6ihs+
+ zufIAJGJQ8dkLffmrW8Z1hwisK0O9UXkkx7XcrcdO+dmCe/1J1IoC7k+kwGG+NipGLyGMbafE77
+ Yc+gdYVer6GeG1/VwVy1vIYIuBm76CMIYD8U2flA1GrOKLK+9m2WDcoEenvW91vqIGRhwrMM+v1
+ q4FVjLpLYpzYaFbv+BR1F33xZytlm+5vSY/EovGbdCV+MGXLEI2pMoXxEmIOvOuetlYfuSCbyUj
+ aaT3BK4/2xrMr5qLJPpM5yRWZT0xdmSJkIjGfyxB1ohhGnARqHdXgeMxk76Xo9Oeibo+54RjhBW
+ wHwBYjo3Bv+j3coR+k/4Eqw8JdFKjw=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,41 +93,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 26-02-26, 06:13, Inochi Amaoto wrote:
-> On Wed, Feb 25, 2026 at 04:54:13PM +0530, Vinod Koul wrote:
-> > 
-> > On Tue, 20 Jan 2026 09:37:02 +0800, Inochi Amaoto wrote:
-> > > As the DMA controller on Sophgo CV1800 series SoC only has 8 channels,
-> > > the SoC provides a dma multiplexer to reuse the DMA channel. However,
-> > > the dma multiplexer also controlls the DMA interrupt multiplexer, which
-> > > means that the dma multiplexer needs to know the channel number.
-> > > 
-> > > Change the DMA phandle args parsing logic so it can use handshake
-> > > number as channel number if necessary.
-> > > 
-> > > [...]
-> > 
-> > Applied, thanks!
-> > 
-> > [1/3] dt-bindings: dma: snps,dw-axi-dmac: Add CV1800B compatible
-> >       commit: 5eda5f42d2fee87127b568206a9fcc07a2f6eab6
-> > [2/3] dmaengine: dw-axi-dmac: Add support for CV1800B DMA
-> >       commit: 02a380ea7ed2d737a42693d7957ec8c33a92d9fd
-> > 
-> > Best regards,
-> > -- 
-> > ~Vinod
-> > 
-> > 
-> 
-> Hi, Vinod
-> 
-> I guess you applied the version 4, but replied to the version 3?
+The PCIe port require 3.3v power regulator for device to work properly, So
+explicitly add it to fix the DT warning:
 
-Nope, I had already picked 3. so reply went on that.
+arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: pcie@ca400000 (spacemit,k1-pcie): pcie@0: 'vpcie3v3-supply' is a required property
+        from schema $id: http://devicetree.org/schemas/pci/spacemit,k1-pcie-host.yaml
 
+Fixes: 0be016a4b5d1 ("riscv: dts: spacemit: PCIe and PHY-related updates")
+Reported-by: Conor Dooley <conor@kernel.org>
+Signed-off-by: Yixun Lan <dlan@kernel.org>
+---
+This patch try to add power regulator to PCIe port node, thus will also
+fix the dts warning when doing DT schema check.
+
+Please also note driver of spacemit PCIe request 3.3v power regulator, see
+drivers/pci/controller/dwc/pcie-spacemit-k1.c:312, it's not necessary
+because the controller itself doesn't need it to work. But I do see other
+drivers that request the regulator in host controller driver, for example,
+to power it up early before PHY initilization. I'd intentionally leave
+this problem out of this fix, and will do further check & address it
+later.
+
+Problem reported by Conor Dooley, so I added a R-Y tag for him here.
+---
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+index 5971605754b3..51f6c6a774b0 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+@@ -305,6 +305,7 @@ &pcie1_phy {
+ 
+ &pcie1_port {
+ 	phys = <&pcie1_phy>;
++	vpcie3v3-supply = <&pcie_vcc_3v3>;
+ };
+ 
+ &pcie1 {
+@@ -320,6 +321,7 @@ &pcie2_phy {
+ 
+ &pcie2_port {
+ 	phys = <&pcie2_phy>;
++	vpcie3v3-supply = <&pcie_vcc_3v3>;
+ };
+ 
+ &pcie2 {
+
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260226-k1-pcie-fix-pwr-7f26118121ac
+
+Best regards,
 -- 
-~Vinod
+Yixun Lan <dlan@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
