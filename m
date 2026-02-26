@@ -4,69 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14372FCE068
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 12:39:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B707FCE074
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 13:04:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=AIeglAppD96yMUgBg+zu/3DLf81SxRmlOPkF0H13m/4=; b=uWeL9ooeJmU/y5
-	EYW33aEQF1nH2uZrjnq0fj+s0tTAH1BTTlDl+Uu4syuepj2jP3CQr7mf1PnKo/0YGL+XQnIza8LlG
-	OrTGAs0IXoCYS87Up9uVtgGRWE5Hn2wKIgV0SS2UWL+sW5GGQAzL5EHE9KR+UTdgdDwnhGdqUgbDA
-	Ao9oDPlNyZ+lCggon8loMVk7xGSkMQmsg7u2aFegwpBSez5yrde5WvDn24x5L/w/bs3rCkUS3E/aE
-	d8lhPOX5uYKAEr/rv6mRj1cBB1brrUdMlbHxmJJaaQ3PstiV1LNdnInvDsbFfn/WfeQYalP1WHVgS
-	8pTO2cdkThwr7qUJv8OA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=l6LQnxOXV7ZBFX8y/yf+biX8/jQDfFw+nz7NFjG6jzk=; b=zfC92HpR7IEgtv
+	fadSawtbM341oBlYBv/f/ENbq2oHUS6NPdynvmWc4FsSNRfHH/jOwOaeacBI4vUBkg/EpmUQv07hf
+	paHUpWq+kdHCv05Z74dAu8azEWtWpV5+cZQpyOnZeitQhliJxA7vsNQoEZP8NLjvraSw+FHtNYycD
+	pvaDbcGYwKCWNa7WGvSAzd/QnxJuZcpsuB7kVh/1nOD6jHEJ3Lf+vc+MnbGKyg5hr0+dpxMqLeK6D
+	4XJBnxm2vQcIdyARe6J1HjL4iwdD26oSxoROm1MuPPvozGtIaJHLNIUYk3ronWjo9SFi2CVufYunA
+	SN8JIkXJff2amQu90q7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvae9-000000068cY-0Bqd;
-	Thu, 26 Feb 2026 12:39:13 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
+	id 1vvb2E-00000006AFw-3S7v;
+	Thu, 26 Feb 2026 13:04:06 +0000
+Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvae5-000000068bI-1W7B;
-	Thu, 26 Feb 2026 12:39:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Y2
-	dSiRAjxppeg7/bGSsyFayGIlsunKAgYoY2n1sc7os=; b=pPqNYmPqDBptzKg1gY
-	xGF6A0ig0IRHqUa5DKQJfT+ziY/j/oM3HfaUoIPiLFWu7NyGmrjzSollUMGOzkUv
-	nNtSeNvgOnXctNOkbWZutFtgdnXyobC7jP09pm83J4YIluoep+bqciW15esTVvKX
-	MBJc1ktGn2nvA5H+SZ2yINfbw=
-Received: from whoami-MS-7D95.. (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wBXnkmsPqBppcMFMw--.51195S2;
-	Thu, 26 Feb 2026 20:38:05 +0800 (CST)
-From: Jinyu Tang <tjytimi@163.com>
-To: Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Andrew Jones <andrew.jones@oss.qualcomm.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Nutty Liu <nutty.liu@hotmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jinyu Tang <tjytimi@163.com>
-Subject: [PATCH v6] KVM: riscv: Skip CSR restore if VCPU is reloaded on the same core
-Date: Thu, 26 Feb 2026 20:38:02 +0800
-Message-ID: <20260226123802.154855-1-tjytimi@163.com>
-X-Mailer: git-send-email 2.43.0
+	id 1vvb2C-00000006AFE-2CMZ
+	for linux-riscv@lists.infradead.org;
+	Thu, 26 Feb 2026 13:04:05 +0000
+Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-89577f866d6so8439446d6.0
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Feb 2026 05:04:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772111043; cv=none;
+        d=google.com; s=arc-20240605;
+        b=BQO66wA6gUSF/OV95K63loyQnu6/BB5L2iEu37M9TKr8IL30G2yaP5IgW5u/Quid72
+         Ml+/D5cDsnkxjDjNTCv9LLyznE0XACysILgrOWKChwk7g2W9t7on9QGCc5QMbWEq3rZS
+         BBP4dTkjAa2mZrvkH1Uwrd5mehiCV0R92ufKnW9yzJf0j3ZT7hzv/nlrtDilMTbGImsa
+         XT5UGnv3i+ZNKyVQaBAUK6mnEqnoFaCWpQJUrncxTbaZhplQtrcTnLYDYIxDelp5VbrM
+         /jqgtHmjhyQnFwLWNUP9lkMv2naPwvCBLD2VahJEgXxp1A5/DVqIn5HxBZjB22luf07p
+         jjpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=mwjWT74ZELvW876QVLVh+669mSdTJGGgo8QMDlsj5zg=;
+        fh=HLhWgTwFzOO7LeV9R9S52V0GshYYDlKTTE4unwA5eJg=;
+        b=AKiVhlj1khoPIGGoQAMkmYo5HCB9cwsweC1RKVw2mUO7c1r37ti6WZewUnSCuygJPq
+         Z+nT7YJLT5Ceocr0HY8eYQfsdbC+Pe8OfmT3TCVNoaMFacxuQpX91fY5GzPaI/u0B1GG
+         OSHVrJsiYteQC5DFEEleTnpaARXzVKkt+gLquyzaa6/UoqoFCb1C7/5l28lSFbhW+9Q4
+         ny7F1D0yt6rdw36u/Tb9XAk3hqwNO0IRKi+1IW+TILhHZl4CCnEdpGjiITIYON9fgVIG
+         pknx25BVhGAZBkEhs7wtZymrtOJHJwdmUEyaUs8OiSQAdkCmYKYVZUjYZt4PKMjizu3W
+         BsPQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1772111043; x=1772715843; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mwjWT74ZELvW876QVLVh+669mSdTJGGgo8QMDlsj5zg=;
+        b=oUICgZX8I9bMInBHdxVBK6smdv3vvm5WlXRce0Yute80GEu/TMo4kAXIoHvRjPmQtR
+         MbVOz6+Bpw33e7gC/Q++CXkTxs/c9nByTQqpWTJIUJ+OY06oY5+AKVe1C/ayT8NF4kMm
+         nhr3M4XJl5+rZVc6CEbLb1gG+H8EZRD9xhDNudPJtjPU4IxBX83cT/Djv5ldiVdRInBw
+         n/dnM9NXCuLVZ0LIH/U1x2NumMzgGZ3ZrH2k3sQuBAVUrfyanS1WzS+CanH63FpGIuEY
+         uiXrR1WpbjlKZ37nk5eUqsrY9wh5TZlRntTZMVW8hWbihgQXTJyFyAekywUcnMTkmTkR
+         ujKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772111043; x=1772715843;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=mwjWT74ZELvW876QVLVh+669mSdTJGGgo8QMDlsj5zg=;
+        b=MEEce+nsyIF3IGcFHkPxz7Mz5sfRU+3aSRLaFsbQbAvq9u6rA1bszk6xjlYAihGK0t
+         IXS4L+dgDKr/RMW8D2Cx7GfVd9SMnn9pj9SJl6cHvoe90yu0jbdKsBME8VYzgEUgQpMO
+         Nkx6H1vaCx4izmaXDWzzjL9lH+uOOLcOZ5RO29S9TLg4jJMdS4wozsEQmCOHyU6dgSUy
+         KPACYStXMU3exZmnPrnHf/dSdB8/DIuGnvZ1KIVqnIHUcblspWsjOyK55RBMx87HDyhN
+         yCCXKQNYEy+mLc+H6TwexIqGZVqjIxCsXTdMofHy+sIEQ1NOjQWrBjMZevfQwdLeKxF5
+         ky/g==
+X-Forwarded-Encrypted: i=1; AJvYcCWOOPkkwrCIYeJ4ZwkDh1T2gZQPXYZ5I75SsTcqKM1UxGxE2bjeYSEUA/j5SGx+fAdzCtx7Sn+U9l57dQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGE6vHCaHMWM2CqfHZWR1tb0N6kEGfDtPB24NvL6YNeCTkPp58
+	UCGjH2jDeJWwVF/ZEqvwjBlX+SMuc718gqIHETgKPmB+nA3jAU1bdov2DgzGUX70DoBF/d/HOsQ
+	Nyg0HZH62z9KQUD39ZJrhCdGu6odjmE0/FQzR+BIyIBuYAlc9oLMJnn0BlQ==
+X-Gm-Gg: ATEYQzytA0bkgoogW0HDGqWJDmVQZOuAKVPY2j3NV26VdBejr2heSqW9hWQdFsekj3K
+	iuI23od2KWCFfMN4+YaBE08fV/p8QSk0JfDB9Q+vLOrFykWDRc4g4JERNjq4lqj6FeBAAiFD0d7
+	SSqWtkQ2FH9jsHvhH7C2mUW9sk5a0Z3IEbunM7o5o3QgEq7O42Vxq8xFsf41/5lh1CzSmyjiivp
+	zLspjAEYvVH4dnKn4/PmNcpjdHL/JUOxkqmEepxGKn2QBuck3ICeCl5jugbi0tvj0wlPL4r2BAy
+	eqbf2NJsmnMn8Iz5WXNWQbIPsFT/VLC36kn4/eHkUw34BiTaaQ6Ljed0WCmoiot6l0w4TPeB92d
+	QyPnJbJ+u6Dmdy6Lr7iVxiAIbiA==
+X-Received: by 2002:a05:6214:d47:b0:899:b181:1396 with SMTP id
+ 6a1803df08f44-899c67f203bmr34639236d6.21.1772111042977; Thu, 26 Feb 2026
+ 05:04:02 -0800 (PST)
 MIME-Version: 1.0
-X-CM-TRANSID: _____wBXnkmsPqBppcMFMw--.51195S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3WrWxurWxXr4xXr4xCw1UGFg_yoW7ZF15pF
-	W7CFn5Ww48Gr13G347Xr4v9r4YgwsYgw1fJ34UZ3yayr45try5AFs5KFyUAFZ8GrW8ZFyS
-	yF1DtFy09Fn0vaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pROdbbUUUUU=
-X-Originating-IP: [2408:823c:2011:64d4:ceda:9d2a:733a:aa1c]
-X-CM-SenderInfo: xwm13xlpl6il2tof0z/xtbC0A09tWmgPq1brgAA36
+References: <20260223044918.1359983-1-himanshu.chauhan@oss.qualcomm.com>
+ <20260223044918.1359983-2-himanshu.chauhan@oss.qualcomm.com>
+ <20260223-mouth-plated-50294c7a6ac0@wendy> <CA+Ht8=aoxQp-RcFGWXXsfDyNarCn=zRhUOoG9rUCGeEw83BQvw@mail.gmail.com>
+ <20260224-likewise-rimless-151f6a12b092@wendy> <CA+Ht8=Z-iaQ+zys5UOy6iNtdTsdtjq7mARwz=KJA_vbNYcfF6w@mail.gmail.com>
+ <20260225-compress-moody-400a1e2f46fb@spud> <CAAhSdy2WHLahqPMTCqoSff6Z3no8sX2j_g858jp4XW5Et4dJXw@mail.gmail.com>
+ <20260226-shifty-stingily-acfd81c08fde@spud> <CAK9=C2VmEWyPuvGLKhuU+Uew_x2nrj-CMuf_4=5UmNvFMb55qw@mail.gmail.com>
+ <D6694466-B57D-4B62-8E70-34B09A2B77DD@kernel.org>
+In-Reply-To: <D6694466-B57D-4B62-8E70-34B09A2B77DD@kernel.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 26 Feb 2026 18:33:51 +0530
+X-Gm-Features: AaiRm52-dvsGSNjRtMYzpPEJ0uq7etgHSQUXzH0QwjIv5AnuYjwXuec-NnzdDno
+Message-ID: <CAAhSdy0gCfeaFyh-M5MWxPDk8XWsi_qHrVd85mOD0UxaHVBJuQ@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] riscv: Introduce support for hardware break/watchpoints
+To: Conor Dooley <conor@kernel.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, 
+	Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, pjw@kernel.org, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, alex@ghiti.fr, shuah@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_043909_933615_6B3A45CA 
-X-CRM114-Status: GOOD (  21.41  )
+X-CRM114-CacheID: sfid-20260226_050404_709687_56A62A0B 
+X-CRM114-Status: GOOD (  27.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,165 +121,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, kvm_arch_vcpu_load() unconditionally restores guest CSRs and
-HGATP. However, when a VCPU is loaded back on the same physical CPU,
-and no other KVM VCPU has run on this CPU since it was last put,
-the hardware CSRs are still valid.
-
-This patch optimizes the vcpu_load path by skipping the expensive CSR
-writes if all the following conditions are met:
-1. It is being reloaded on the same CPU (vcpu->arch.last_exit_cpu == cpu).
-2. The CSRs are not dirty (!vcpu->arch.csr_dirty).
-3. No other VCPU used this CPU (vcpu == __this_cpu_read(kvm_former_vcpu)).
-
-To ensure this fast-path doesn't break corner cases:
-- Live migration and VCPU reset are naturally safe. KVM initializes
-  last_exit_cpu to -1, which guarantees the fast-path won't trigger.
-- A new 'csr_dirty' flag is introduced to track runtime userspace
-  interventions. If userspace modifies guest configurations (e.g.,
-  hedeleg via KVM_SET_GUEST_DEBUG, or CSRs via KVM_SET_ONE_REG) while
-  the VCPU is preempted, the flag is set to skip fast path.
-
-Note that kvm_riscv_vcpu_aia_load() is kept outside the skip logic
-to ensure IMSIC/AIA interrupt states are always properly
-synchronized.
-
-Signed-off-by: Jinyu Tang <tjytimi@163.com>
----
- v5 -> v6:
- As suggested by Andrew Jones, checking 'last_exit_cpu' first (most
- likely to fail on busy hosts) and placing the expensive
- __this_cpu_read() last, skipping __this_cpu_write() in kvm_arch_vcpu_put()
- if kvm_former_vcpu is already set to the current VCPU.
-
- v4 -> v5:
- - Dropped the 'vcpu->scheduled_out' check as Andrew Jones pointed out,
-   relying on 'last_exit_cpu', 'former_vcpu', and '!csr_dirty'
-   is sufficient and safe. This expands the optimization to cover many
-   userspace exits (e.g., MMIO) as well.
- - Added a block comment in kvm_arch_vcpu_load() to warn future
-   developers about maintaining the 'csr_dirty' dependency, as Andrew's
-   suggestion to reduce fragility.
- - Removed unnecessary single-line comments and fixed indentation nits.
-
- v3 -> v4:
- - Addressed Anup Patel's review regarding hardware state inconsistency.
- - Introduced 'csr_dirty' flag to track dynamic userspace CSR/CONFIG
-   modifications (KVM_SET_ONE_REG, KVM_SET_GUEST_DEBUG), forcing a full
-   restore when debugging or modifying states at userspace.
- - Kept kvm_riscv_vcpu_aia_load() out of the skip block to resolve IMSIC
-   VS-file instability.
-
- v2 -> v3:
- v2 was missing a critical check because I generated the patch from my
- wrong (experimental) branch. This is fixed in v3. Sorry for my trouble.
-
- v1 -> v2:
- Apply the logic to aia csr load. Thanks for Andrew Jones's advice.
----
- arch/riscv/include/asm/kvm_host.h |  3 +++
- arch/riscv/kvm/vcpu.c             | 22 ++++++++++++++++++++++
- arch/riscv/kvm/vcpu_onereg.c      |  2 ++
- 3 files changed, 27 insertions(+)
-
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 24585304c..7ee47b83c 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -273,6 +273,9 @@ struct kvm_vcpu_arch {
- 	/* 'static' configurations which are set only once */
- 	struct kvm_vcpu_config cfg;
- 
-+	/* Indicates modified guest CSRs */
-+	bool csr_dirty;
-+
- 	/* SBI steal-time accounting */
- 	struct {
- 		gpa_t shmem;
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index a55a95da5..ff51a312d 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -24,6 +24,8 @@
- #define CREATE_TRACE_POINTS
- #include "trace.h"
- 
-+static DEFINE_PER_CPU(struct kvm_vcpu *, kvm_former_vcpu);
-+
- const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
- 	KVM_GENERIC_VCPU_STATS(),
- 	STATS_DESC_COUNTER(VCPU, ecall_exit_stat),
-@@ -537,6 +539,8 @@ int kvm_arch_vcpu_ioctl_set_guest_debug(struct kvm_vcpu *vcpu,
- 		vcpu->arch.cfg.hedeleg |= BIT(EXC_BREAKPOINT);
- 	}
- 
-+	vcpu->arch.csr_dirty = true;
-+
- 	return 0;
- }
- 
-@@ -581,6 +585,20 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
- 	struct kvm_vcpu_config *cfg = &vcpu->arch.cfg;
- 
-+	/*
-+	 * If VCPU is being reloaded on the same physical CPU and no
-+	 * other KVM VCPU has run on this CPU since it was last put,
-+	 * we can skip the expensive CSR and HGATP writes.
-+	 *
-+	 * Note: If a new CSR is added to this fast-path skip block,
-+	 * make sure that 'csr_dirty' is set to true in any
-+	 * ioctl (e.g., KVM_SET_ONE_REG) that modifies it.
-+	 */
-+	if (vcpu->arch.last_exit_cpu == cpu && !vcpu->arch.csr_dirty &&
-+	    vcpu == __this_cpu_read(kvm_former_vcpu))
-+		goto csr_restore_done;
-+
-+	vcpu->arch.csr_dirty = false;
- 	if (kvm_riscv_nacl_sync_csr_available()) {
- 		nsh = nacl_shmem();
- 		nacl_csr_write(nsh, CSR_VSSTATUS, csr->vsstatus);
-@@ -624,6 +642,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 
- 	kvm_riscv_mmu_update_hgatp(vcpu);
- 
-+csr_restore_done:
- 	kvm_riscv_vcpu_timer_restore(vcpu);
- 
- 	kvm_riscv_vcpu_host_fp_save(&vcpu->arch.host_context);
-@@ -645,6 +664,9 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
- 	void *nsh;
- 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
- 
-+	if (vcpu != __this_cpu_read(kvm_former_vcpu))
-+		__this_cpu_write(kvm_former_vcpu, vcpu);
-+
- 	vcpu->cpu = -1;
- 
- 	kvm_riscv_vcpu_aia_put(vcpu);
-diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-index e7ab6cb00..fc08bf833 100644
---- a/arch/riscv/kvm/vcpu_onereg.c
-+++ b/arch/riscv/kvm/vcpu_onereg.c
-@@ -652,6 +652,8 @@ static int kvm_riscv_vcpu_set_reg_csr(struct kvm_vcpu *vcpu,
- 	if (rc)
- 		return rc;
- 
-+	vcpu->arch.csr_dirty = true;
-+
- 	return 0;
- }
- 
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBGZWIgMjYsIDIwMjYgYXQgNjowNeKAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPgo+Cj4gT24gMjYgRmVicnVhcnkgMjAyNiAxMTo0MDo1MSBHTVQs
+IEFudXAgUGF0ZWwgPGFwYXRlbEB2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPiA+T24gVGh1LCBG
+ZWIgMjYsIDIwMjYgYXQgMjoxNOKAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2VybmVsLm9yZz4g
+d3JvdGU6Cj4gPj4KPiA+PiBPbiBUaHUsIEZlYiAyNiwgMjAyNiBhdCAxMTowNToxNEFNICswNTMw
+LCBBbnVwIFBhdGVsIHdyb3RlOgo+ID4+ID4gT24gV2VkLCBGZWIgMjUsIDIwMjYgYXQgMjozMeKA
+r1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPj4gPiA+Cj4gPj4g
+PiA+IE9uIFdlZCwgRmViIDI1LCAyMDI2IGF0IDEwOjMzOjI3QU0gKzA1MzAsIEhpbWFuc2h1IENo
+YXVoYW4gd3JvdGU6Cj4gPj4gPiA+ID4gT24gVHVlLCBGZWIgMjQsIDIwMjYgYXQgMTozM+KAr1BN
+IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+IHdyb3RlOgo+ID4+ID4g
+PiA+ID4KPiA+PiA+ID4gPiA+IE9uIFR1ZSwgRmViIDI0LCAyMDI2IGF0IDA5OjMwOjI0QU0gKzA1
+MzAsIEhpbWFuc2h1IENoYXVoYW4gd3JvdGU6Cj4gPj4gPiA+ID4gPiA+IEhpLAo+ID4+ID4gPiA+
+ID4gPgo+ID4+ID4gPiA+ID4gPiBPbiBNb24sIEZlYiAyMywgMjAyNiBhdCAzOjU14oCvUE0gQ29u
+b3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4gd3JvdGU6Cj4gPj4gPiA+ID4g
+PiA+ID4KPiA+PiA+ID4gPiA+ID4gPiBPbiBNb24sIEZlYiAyMywgMjAyNiBhdCAxMDoxOToxN0FN
+ICswNTMwLCBIaW1hbnNodSBDaGF1aGFuIHdyb3RlOgo+ID4+ID4gPgo+ID4+ID4gPiA+ID4KPiA+
+PiA+ID4gPiA+IERpZCB5b3UgbWlzcyB0aGUgY29tbWVudCBhdCB0aGUgZW5kIGFib3V0IHRoZSBy
+ZW1haW5pbmcgVE9ET3M/Cj4gPj4gPiA+ID4KPiA+PiA+ID4gPiBOby4gQXMgSSBtZW50aW9uZWQg
+aW4gdGhlIGNvdmVyIGxldHRlciwgdGhlIHB0cmFjZSBzdXBwb3J0IGlzIG5vdAo+ID4+ID4gPiA+
+IGltcGxlbWVudGVkIGhlcmUuIEkgYW0gYWN0aXZlbHkgd29ya2luZyBvbiBpdCBhbmQgdGhlc2Ug
+YXJlCj4gPj4gPiA+ID4gaW1wbGVtZW50ZWQgaW4gcHRyYWNlIHdvcmsuCj4gPj4gPiA+ID4gVGhl
+IHRlc3QgaXMgZG9uZSB1c2luZyB0aGUgcGVyZiBldmVudHMgZGlyZWN0bHkuIFRoZSBzZWNvbmQg
+cGF0Y2ggaW4KPiA+PiA+ID4gPiB0aGlzIHBhdGNoIHNldCBoYXMgdGhlIHRlc3QgYXBwbGljYXRp
+b24uCj4gPj4gPiA+Cj4gPj4gPiA+IFRoZW4gdGhlIHBhdGNoc2V0IHNob3VsZCBzdGlsbCBiZSBt
+YXJrZWQgUkZDLCBzaW5jZSBpdCBpcyBub3QgZmluaXNoZWQuCj4gPj4gPgo+ID4+ID4gV293ISBs
+ZXQncyBhbGwgb2YgdXMgcG9zdCBvbmx5IGxhcmdlIHNlcmllcyAoY292ZXJpbmcgbXVsdGlwbGUg
+ZmVhdHVyZXMpCj4gPj4gPiB3aGljaCBhcmUgZGlmZmljdWx0IHRvIHJldmlldyBpbnN0ZWFkIG9m
+IG1ha2luZyBsaWZlIGVhc2llciBmb3IgcmV2aWV3ZXJzCj4gPj4gPiB0aHJvdWdoIGluY3JlbWVu
+dGFsIHNlcmllcyB3aGljaCBtYWtlIGdyYWR1YWwgcHJvZ3Jlc3Mgb3Zlci10aW1lLgo+ID4+Cj4g
+Pj4gV2hlcmUgZGlkIEkgc2F5IGRvbid0IHBvc3QgaXQ/IEluIGZhY3QsIG1hcmtpbmcgaXQgUkZD
+ICpyZXF1aXJlcyoKPiA+PiBwb3N0aW5nIGl0LiBEb24ndCBwdXQgd29yZHMgaW4gbXkgbW91dGgu
+Cj4gPj4KPiA+Cj4gPldlbGwsIEkgZGlzYWdyZWUgd2l0aCB5b3Ugc3VnZ2VzdGlvbiBvZiBtYXJr
+aW5nIHRoaXMgc2VyaWVzIGFzIFJGQy4KPiA+VGhpcyBzZXJpZXMgaGFzIHdlbGwgZGVmaW5lZCBz
+Y29wZSBhbmQgaXMgYmFzZWQgb24gcmF0aWZpZWQgc3BlYy4KPiA+QSBzZXJpZXMgbmVlZCBub3Qg
+Y292ZXIgYWxsIHBvc3NpYmxlIGZlYXR1cmVzIHRvIGJlIGEgcmVndWxhcgo+ID5ub24tUkZDIHBh
+dGNoZXMuCj4gPgo+ID5Eb24ndCB0aHJvdyB5b3VyIFJGQyByZWxhdGVkIG9waW5pb25zIHBvaW50
+bGVzc2x5Lgo+Cj4gSXQncyBjbGVhcmx5IG5vdCBwb2ludGxlc3Mgd2hlbiB0aGVyZSBhcmUgdW5l
+eHBsYWluZWQgVE9ET3MuCj4gU2VlaW5nIHRvLWRvIGl0ZW1zIGlzIGFic29sdXRlbHkgc3VmZmlj
+aWVudCBncm91bmRzIHRvIHF1ZXN0aW9uIHRoZW0sIGFuZCB3aGVuIHRoZSByZXNwb25zZSBkb2Vz
+bid0IGNsZWFybHkgZXhwbGFpbiB3aHkgdGhleSdyZSBva2F5LCBteSB0aG91Z2h0cyBhYm91dCBS
+RkMgYXJlIHJlYXNvbmFibGUgLSBldmVuIGlmIHVsdGltYXRlbHkgdGhleSBtaWdodCBiZSBpbmNv
+cnJlY3QuCgpUcmVhdGluZyBzZXJpZXMgUkZDIGp1c3QgYmVjYXVzZSB0aGVyZSBpcyBzb21lIGZ1
+dHVyZSB3b3JrIHRvIGJlIGRvbmUKaXMgY2xlYXJseSBhIHBvaW50bGVzcyBvcGluaW9uIG9mIHlv
+dXJzLgpQZW9wbGUgYWNyb3NzIGtlcm5lbCBzdWJzeXN0ZW0gZGV2ZWxvcCBmZWF0dXJlcyBpbmNy
+ZW1lbnRhbGx5IGFzCm11bHRpcGxlIHNlcmllcy4KCj4gSW5zdGVhZCBvZiBiZWluZyBwYXNzaXZl
+IGFnZ3Jlc3NpdmUgd2l0aCBtZSwgeW91IGNvdWxkIGhhdmUganVzdCBleHBsYWluZWQgd2h5IGl0
+IHdhcyBva2F5LgoKWW91IHN0YXJ0ZWQgdGhlIGFncmVzc2lvbiBieSBhc2tpbmcgdGhlIHNlcmll
+cyB0byBiZSBSRkMganVzdCBiYXNlZCBvbgp5b3VyIG9waW5pb24uCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
