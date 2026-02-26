@@ -4,80 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4678FC5910
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 09:35:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19A4AFC591C
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 09:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Ya9TPBoow0BPgvo8cezwHaAqIYVhOoaypLxuEAxBdpA=; b=fixryuMLuqTQ+f
-	TihIq/TfSpEIqfl/e6kr/3yN6pWgrZ93p0BQ+wWSCe3GHdvVbyF6qLM7HbkXx+/09qC49uynOjbSk
-	c4H6lBl1/2dKcSNtMu708gNzajjRZ1T2YUgA1c21BQ9sJfuwTePW3TDsDUe0F2sto59wzf9W6Q0jl
-	2muNnH1rA3fNARLW3Rhc8aTdJtdHw/+JIDa4hlndjjWWQXXsMvK1n7IGl+DduPzsjUfgqns9SzeLD
-	zFa5Jy+evfy0waylOcaDzzdV/VdVCw0E46CoOl4j+NZ1IurqAmYN2R13+A2mrj879JtFMl6oStf36
-	iK4Xo40CPujc1EOV+A0Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SHJU0GZAuNTdVEhOwJfRnD1InzsR7HUYhlqUM2SWh1Q=; b=GoZYjMnBfSgorI
+	ZtaJIImBxfdGYvOdydxa5unHL3g+dhLaIX8zgY3hHIo+XFZjciQQZwOuwe/COFqQSjRbWtTfUg7N1
+	4m9vGLGf6AHBzLyU7+stxT6TTy2pBFEhTSCweGqY7SK/NS9lcgVIktgUIA7yYQbp4NtXFU3/KMq0F
+	9rMOzQc/EKo7jvwzmevgGTHLSBXwA/r3vmA9ino25nppZZWgRlqDdrnuYgPSrYLT1TvB6ielSup5K
+	1NISH9oDZ6JFxrzgE6/frwdVq4ieNLEbKHiMgKZj5cqcG/6Bzv0uec9DNm54AzbFldiEQo8QAcivH
+	DYw+u5MOXPCVEtJy/JaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXm3-00000005pDB-1ZmP;
-	Thu, 26 Feb 2026 09:35:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvXmn-00000005pLX-0Utj;
+	Thu, 26 Feb 2026 09:35:57 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXm2-00000005pCj-07UF
-	for linux-riscv@lists.infradead.org;
-	Thu, 26 Feb 2026 09:35:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 18517600AA;
-	Thu, 26 Feb 2026 09:35:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6A88C19423;
-	Thu, 26 Feb 2026 09:35:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772098508;
-	bh=nZoAG/AHgrRLPWFPuZBLaGkAy+EvSXlIPWoUqKxQB78=;
-	h=From:Date:Subject:To:Cc:From;
-	b=a6y1sbm68dMHKfvNAtLCUe1t/xibAQ2meXz7xeLsd5rLCegCkXZjY95llTyHf1aR6
-	 PZGbaXKo9ffD0Z53ZA09aJhGMNu1E4bhqiVbct/vXuWA+gIlqutptFD+H0dbBCrKTj
-	 XfeNR35Q5gN65vSNoslmLNFK1ck+BNtkuPw1P8CeAL36o8kNiNK6GYg/6WpzQxzHX6
-	 +7nounLe+k/8gEgsaCt/0vb1yQy6iKUZrJ+5i2YzTqb6lnMSHvWiFhkgibytzdbirq
-	 fviWgGR86sHSJ+SCfE4QOyUvOmPuBj1SbpRHL7ID07oaySXgE71a1OkyB1UwDxg/T1
-	 l8UIiAlhyVDNA==
-From: Yixun Lan <dlan@kernel.org>
-Date: Thu, 26 Feb 2026 09:35:00 +0000
-Subject: [PATCH] riscv: dts: spacemit: adapt regulator node name to
- preferred form
+	id 1vvXmj-00000005pJv-3pm9;
+	Thu, 26 Feb 2026 09:35:55 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=cArUbXgPd0s4ZtREeL/7x46kP7PE/lat666eUsS6sDM=;
+	b=DWNv0GeHcKAOhD5xvaCowiagwlW275NAmdFdeG8qlLEXg0HK9DVne1d75o15RGyJa7vwcAWO6
+	vwEOtoSqxVKaatv+CDrTZSmvfXkTGoof3Dzf35VFrW/nnCipbp9TUQ6QsuUvS03Qv/DbB9CjEPb
+	Q7rsPApKKIvJvhGOP5dZOd0=
+Received: from canpmsgout01.his.huawei.com (unknown [172.19.92.178])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTPS id 4fM5sq1r7Jz1BGGB;
+	Thu, 26 Feb 2026 17:35:27 +0800 (CST)
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=cArUbXgPd0s4ZtREeL/7x46kP7PE/lat666eUsS6sDM=;
+	b=DWNv0GeHcKAOhD5xvaCowiagwlW275NAmdFdeG8qlLEXg0HK9DVne1d75o15RGyJa7vwcAWO6
+	vwEOtoSqxVKaatv+CDrTZSmvfXkTGoof3Dzf35VFrW/nnCipbp9TUQ6QsuUvS03Qv/DbB9CjEPb
+	Q7rsPApKKIvJvhGOP5dZOd0=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4fM5m15ySPz1T4Fg;
+	Thu, 26 Feb 2026 17:30:25 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 11EC340567;
+	Thu, 26 Feb 2026 17:35:19 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 26 Feb 2026 17:35:15 +0800
+Message-ID: <15ea8a98-2b0c-dd51-b0d4-911905b194c3@huawei.com>
+Date: Thu, 26 Feb 2026 17:35:14 +0800
 MIME-Version: 1.0
-Message-Id: <20260226-02-k1-regulator-names-v1-1-e87695d50159@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAMMToGkC/x3MQQqEMAxA0atI1hNos6joVWQWYUw1qHVIVQTx7
- haXb/H/BVlMJUNbXWByaNY1FfhPBb+R0yCofTGQo+CIAjrCyaPJsM+8rYaJF8kYqOZGoucYCEr
- 7N4l6vt/ue98P8ySJB2cAAAA=
-X-Change-ID: 20260226-02-k1-regulator-names-627a9ef1af62
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: Chukun Pan <amadeus@jmu.edu.cn>, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3164; i=dlan@kernel.org;
- h=from:subject:message-id; bh=nZoAG/AHgrRLPWFPuZBLaGkAy+EvSXlIPWoUqKxQB78=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpoBPGqE0mQhIlADJrWyaNKcuVJKGRqm+NeQHq9
- 8y46aaHSOiJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaaATxhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
- maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+1YDw//XGZxYpJhOKCIQWfvtntPeLPsGDRX1qoEjpRuTDLAjxh68cw7KLe5b
- 1ynj0jaKEw/l45me9L0iQVI4kWQ/UAxkU1D4ATtcBR1RK8nBkYpNOud6MDd8dmZQz00d6pcPzDn
- EBYrTHaY/QoIAz+urTg8zXRltdMRliytxr0QlOfngsLC2IaK7fxjcvxidshN72cMQ1Ya9g+RvUx
- SOLbDWp3TTBzlSpxs/VGxA8Ryq4sFPSRfHm3V6LiH8laqTnZdhaR4+eVYb+ii1Ncx1Lm/Klu+Me
- q6AHtYGzm00pG2OCDvOVR0F1L9btUhwpGa4xw5RuD5/AffAfePmZQv/H/dMW6m5kftlddzzsYum
- nY8Lihd6M9psEiP5EybihzVBNhqrXpfPWLNwi6QlhMEjCIytCQL7QCQGUzylSN+sU3c2XwkSX2S
- 7wKQrqmlRTM4h6ZzmO4TEttz4OrbVVNQ7NrLZVW8ZUkpOb+pXunqIM5zDSw4cM1o1oFEUzuEw10
- dHugK7rzo+x6W2n7dt2yPZ+DkehdvcHuNmiSWZD23lr//vStetICEtwSqCqfDAKfFOqNkqVqoxs
- qSsQUVJKLdPw1FnJfW7oW0Dt+Hr1W7IUq2ZuPQH10zELZJ4Y+i0KFNzC12sPBMDPDGpvG5uS2Lk
- fiTiUUlEP2W9QpcADlWW9e0KMMf6cU=
-X-Developer-Key: i=dlan@kernel.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v6 1/5] powerpc/crash: sort crash memory ranges before
+ preparing elfcorehdr
+Content-Language: en-US
+To: Baoquan He <bhe@redhat.com>
+CC: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
+	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
+	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <akpm@linux-foundation.org>, <vgoyal@redhat.com>,
+	<dyoung@redhat.com>, <rdunlap@infradead.org>, <pmladek@suse.com>,
+	<dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <paulmck@kernel.org>,
+	<lirongqing@baidu.com>, <arnd@arndb.de>, <ardb@kernel.org>,
+	<leitao@debian.org>, <rppt@kernel.org>, <cfsworks@gmail.com>,
+	<ryan.roberts@arm.com>, <sourabhjain@linux.ibm.com>,
+	<tangyouling@kylinos.cn>, <eajames@linux.ibm.com>, <hbathini@linux.ibm.com>,
+	<ritesh.list@gmail.com>, <songshuaishuai@tinylab.org>,
+	<samuel.holland@sifive.com>, <kevin.brodsky@arm.com>,
+	<vishal.moola@gmail.com>, <junhui.liu@pigmoral.tech>, <coxu@redhat.com>,
+	<liaoyuanhong@vivo.com>, <fuqiang.wang@easystack.cn>, <jbohac@suse.cz>,
+	<brgerst@gmail.com>, <x86@kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, <kexec@lists.infradead.org>
+References: <20260224085342.387996-1-ruanjinjie@huawei.com>
+ <20260224085342.387996-2-ruanjinjie@huawei.com>
+ <aaARRZh9k_0oG3Qo@MiWiFi-R3L-srv>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <aaARRZh9k_0oG3Qo@MiWiFi-R3L-srv>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260226_013554_314026_B00808C6 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,105 +110,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The preferred node name for fixed-regulators has changed to pattern [1]:
- '^regulator(-[0-9]+v[0-9]+|-[0-9a-z-]+)?$'
 
-Adjust all SpacemiT DT regulator node names to fix this.
 
-Link: https://lore.kernel.org/r/20240426215147.3138211-1-robh@kernel.org [1]
-Signed-off-by: Yixun Lan <dlan@kernel.org>
----
-In Review of adding DTS for OrangePi, Chukun mentioned fixed-regulator
-has preferred node names [1], so let's change it now.
+On 2026/2/26 17:24, Baoquan He wrote:
+> On 02/24/26 at 04:53pm, Jinjie Ruan wrote:
+>> From: Sourabh Jain <sourabhjain@linux.ibm.com>
+>>
+>> During a memory hot-remove event, the elfcorehdr is rebuilt to exclude
+>> the removed memory. While updating the crash memory ranges for this
+>> operation, the crash memory ranges array can become unsorted. This
+>> happens because remove_mem_range() may split a memory range into two
+>> parts and append the higher-address part as a separate range at the end
+>> of the array.
+>>
+>> So far, no issues have been observed due to the unsorted crash memory
+>> ranges. However, this could lead to problems once crash memory range
+>> removal is handled by generic code, as introduced in the upcoming
+>> patches in this series.
+>>
+>> Currently, powerpc uses a platform-specific function,
+>> remove_mem_range(), to exclude hot-removed memory from the crash memory
+>> ranges. This function performs the same task as the generic
+>> crash_exclude_mem_range() in crash_core.c. The generic helper also
+>> ensures that the crash memory ranges remain sorted. So remove the
+>> redundant powerpc-specific implementation and instead call
+>> crash_exclude_mem_range_guarded() (which internally calls
+>> crash_exclude_mem_range()) to exclude the hot-removed memory ranges.
+>>
+>> Cc: Andrew Morton <akpm@linux-foundation.org>
+>> Cc: Baoquan he <bhe@redhat.com>
+>> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+>> Cc: Hari Bathini <hbathini@linux.ibm.com>
+>> Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+>> Cc: Mahesh Salgaonkar <mahesh@linux.ibm.com>
+>> Cc: Michael Ellerman <mpe@ellerman.id.au>
+>> Cc: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+>> Cc: Shivang Upadhyay <shivangu@linux.ibm.com>
+>> Cc: linux-kernel@vger.kernel.org
+>> Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>> Signed-off-by: Sourabh Jain <sourabhjain@linux.ibm.com>
+> 
+> You should add your own Signed-off-by since you sent it out.
 
-This isn't strictly a bug, so I've not added the Fixes tag.
+Ack, I'll add my Signed-off-by in the next revision.
+Thanks,
 
-Link: https://lore.kernel.org/r/20260123145015.1926865-1-amadeus@jmu.edu.cn [1]
----
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   | 10 +++++-----
- arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts |  4 ++--
- 2 files changed, 7 insertions(+), 7 deletions(-)
-
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index 5971605754b3..d55f3e148ed2 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -33,7 +33,7 @@ led1 {
- 		};
- 	};
- 
--	pcie_vcc_3v3: pcie-vcc3v3 {
-+	pcie_vcc_3v3: regulator-pcie-vcc3v3 {
- 		compatible = "regulator-fixed";
- 		regulator-name = "PCIE_VCC3V3";
- 		regulator-min-microvolt = <3300000>;
-@@ -41,7 +41,7 @@ pcie_vcc_3v3: pcie-vcc3v3 {
- 		regulator-always-on;
- 	};
- 
--	reg_dc_in: dc-in-12v {
-+	reg_dc_in: regulator-dc-in-12v {
- 		compatible = "regulator-fixed";
- 		regulator-name = "dc_in_12v";
- 		regulator-min-microvolt = <12000000>;
-@@ -50,7 +50,7 @@ reg_dc_in: dc-in-12v {
- 		regulator-always-on;
- 	};
- 
--	reg_vcc_4v: vcc-4v {
-+	reg_vcc_4v: regulator-vcc-4v {
- 		compatible = "regulator-fixed";
- 		regulator-name = "vcc_4v";
- 		regulator-min-microvolt = <4000000>;
-@@ -60,7 +60,7 @@ reg_vcc_4v: vcc-4v {
- 		vin-supply = <&reg_dc_in>;
- 	};
- 
--	usb3-vbus-5v {
-+	regulator-usb3-vbus-5v {
- 		compatible = "regulator-fixed";
- 		regulator-name = "USB30_VBUS";
- 		regulator-min-microvolt = <5000000>;
-@@ -70,7 +70,7 @@ usb3-vbus-5v {
- 		enable-active-high;
- 	};
- 
--	usb3_hub_5v: usb3-hub-5v {
-+	usb3_hub_5v: regulator-usb3-hub-5v {
- 		compatible = "regulator-fixed";
- 		regulator-name = "USB30_HUB";
- 		regulator-min-microvolt = <5000000>;
-diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-index 800a112d5d70..931887aee8e0 100644
---- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-@@ -21,7 +21,7 @@ chosen {
- 		stdout-path = "serial0";
- 	};
- 
--	reg_dc_in: dc-in-12v {
-+	reg_dc_in: regulator-dc-in-12v {
- 		compatible = "regulator-fixed";
- 		regulator-name = "dc_in_12v";
- 		regulator-min-microvolt = <12000000>;
-@@ -30,7 +30,7 @@ reg_dc_in: dc-in-12v {
- 		regulator-always-on;
- 	};
- 
--	reg_vcc_4v: vcc-4v {
-+	reg_vcc_4v: regulator-vcc-4v {
- 		compatible = "regulator-fixed";
- 		regulator-name = "vcc_4v";
- 		regulator-min-microvolt = <4000000>;
-
----
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-change-id: 20260226-02-k1-regulator-names-627a9ef1af62
-
-Best regards,
--- 
-Yixun Lan <dlan@kernel.org>
-
+> 
+>> ---
+>>  arch/powerpc/include/asm/kexec_ranges.h |  4 +-
+>>  arch/powerpc/kexec/crash.c              |  5 +-
+>>  arch/powerpc/kexec/ranges.c             | 87 +------------------------
+>>  3 files changed, 7 insertions(+), 89 deletions(-)
+> ......snip...
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
