@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA8AFC592B
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 11:03:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7173FFC592B
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 11:04:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ntpf6BWgOwwbFdacXWZzzk1MCXQo7JloYzWhkZAO8Y0=; b=NsOI/Q2aASHBh1
-	KgsttsgofRAn2NrJkMFiFsjEi6wbLSxsArzaknJ31BNNnbytpS4piid6sXFg1jKx9EuP4tiJlcW5l
-	/iZ4iG33c7IGuG/f9pshhCS0YfXxF6TyCmWjsgqqwxxZ7Ga7Z+Mw9F/BvPKtrG1SmYx0bXGhXaG42
-	nKNdMAtRAdlZAVagO/9LIntbEyadGtmZP8hiDqpRrGIsB364KnM19lzDsRGrx/8LM04mmNTQyzvoU
-	wMMiJOi+sjkiljn3Eyj6g+xd1F++FhtGQzk3M8dG5KdpYAWugyjsFLFQPJBgTAxhBNKgEQ7XOLQaA
-	BD+GTx4LfL1XgRaV0UWA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jsMnCLkSUVrYlN05Wh8X2cGwbR9yd8uD0tEP8Ui38kw=; b=vRVodtRM+v5xav
+	gYEkZgItCvI/wwntXLM8iKVSGceCVt+SeKWPIwPVItEyiyw2eCk3FskyXaOd1mA/FO8bhjFk2qdq1
+	y25HS4btunOcFuziOXub8utfJlbUk6hrImlhcOTdbw++t9td5jh2xyB6LvegrXCvIxJJPP1vpLDJF
+	DuVAYQiVExqRPwKju0zEjhjKfGb0cKqkB5BWCM5bET2aeqU3om/es4qD3ePTQeI7iHm9o7NgkmdXx
+	C9ongD06h3F3ouaV3na6XNhM/Jf/HaoeLGESXuUe8MSJFrI/Wa6+Vkglp8GUtipBCZ01Cj6hlOmcb
+	N/PpFmmAzQwJuLrDjcpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZ9j-00000005ymR-2g5U;
-	Thu, 26 Feb 2026 11:03:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvZ9v-00000005yqd-1FoS;
+	Thu, 26 Feb 2026 11:03:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZ9i-00000005ylx-2JFO
+	id 1vvZ9s-00000005ypv-1k3U
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Feb 2026 11:03:42 +0000
+	Thu, 26 Feb 2026 11:03:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D164760054;
-	Thu, 26 Feb 2026 11:03:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AC34C116C6;
-	Thu, 26 Feb 2026 11:03:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1571A417AB;
+	Thu, 26 Feb 2026 11:03:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3738C116C6;
+	Thu, 26 Feb 2026 11:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772103820;
-	bh=7oga6iCNUk9jRhMm4u+2UIsjtpytJlnDqvcuGIHXtRc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=TvIKm+woEih2Tes1jsGgTSmm26ThO9+CG/I8T5F1peg2+E6BctWWl3tQBcXY70MUi
-	 EOZ/ZYGTc1QvKl89ZLkMFUOXxEl2ipsrwNISkgF+vh+S2/B6p+2YCOeQxh3vkYWYNJ
-	 CkQfOoIvurgTN1UEbYV2c5hh8VUC+APmvFX7V7YuhJqq+9qvzHtw+rpAkxQW9elBGV
-	 /mZYxqn48JXsoHs7KFNcMZ7fbsg7hS2NVPTq6LT46NgRBYCMwQfVSdkjwE2CgWAF1x
-	 p3AaiUzPhK0DITD9wStKzK6D/CyYwpuP9FN7dJNQSNKV6o975BLMa3xim0ptrRWctf
-	 zwTpz4QrdHk9Q==
+	s=k20201202; t=1772103831;
+	bh=E9amaoOmm7pX/DMUDHqpi4Pk9R8Itnc0dfb42Qcgnlw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Mr/Euy6/6+bqBGD3riPJhZEFTrLG6oV2cLAdW7rExTnNYEHQ8ZUChdbRXNOvrS8D2
+	 wMhENL/ydrY+6k7i2drb8sB3ngzV1THRB/ke2V0/vQegMnq9PLvEyZbT4bad6AE0rs
+	 olXpIK86nXUnAoqpj7ll35Y0EnSNbTVh7X/bVYqKVzBjDNHpbAkhsbgsx00hcXqxvD
+	 vy1OaA8+9CSIir4cKd+kjlEmuVF14JvtSOkKbpv3V/apCT94/GRCLXBmCLjza9fCCk
+	 Dq/y+ne2oDeMiVkvEiGGjHbrHbQYKeMBJtdJ23dJ3G4T3h/vDZnkddLBhlxBY3FSU+
+	 BhR6RyOMpgZog==
 From: Conor Dooley <conor@kernel.org>
 To: netdev@vger.kernel.org
 Cc: conor@kernel.org,
@@ -73,13 +73,18 @@ Cc: conor@kernel.org,
 	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
 	Abin Joseph <abin.joseph@amd.com>,
 	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>
-Subject: [PATCH net-next v2 0/8] macb usrio/tsu patches
-Date: Thu, 26 Feb 2026 11:03:15 +0000
-Message-ID: <20260226-snowshoe-amusable-6716d4ddea11@spud>
+Subject: [PATCH net-next v2 2/8] net: macb: rename macb_default_usrio to at91_default_usrio as not all platforms have mii mode control in usrio
+Date: Thu, 26 Feb 2026 11:03:17 +0000
+Message-ID: <20260226-enjoyer-shock-e17f9dc7cbdb@spud>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260226-snowshoe-amusable-6716d4ddea11@spud>
+References: <20260226-snowshoe-amusable-6716d4ddea11@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3780; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=UgZEol6xQ2MytN1F7eCnsymp6056llsTw5xmuhOo5f8=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkLNMpe5k09cf7y+pVVPKlbeJ5rehYprjk02SdHsfv0T oEzE+c+7ChlYRDjYpAVU2RJvN3XIrX+j8sO5563MHNYmUCGMHBxCsBE5JwYGX5tLahvnB1tadM+ 8exuCxWPffpbb5W94GFIrNrbEVj+6x7D/wKVk/bVKfqz3oswxK1jC+Kf1eGw8lbWrOxpYse53y6 K4AIA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10810; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=T9yy5Dq8adCJAfqRKnWHBtETHfilLNLHomuKtk1AoxY=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkLNMqfWO/jmVHsO1ei6E513TWOHX9rm/dHCsQq3anX2 hT672hYRykLgxgXg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbCfI6R4dnlDqW5cvZvS9/1 NBT4Lmo4eHRC6qRPW7ccCap3+SmRZMTIcLDVtbV3UaiEUuzJhLWdDctDl70Q/cxhEcTLt1Om9Zg sMwA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260226_030352_493667_535B8C20 
+X-CRM114-Status: GOOD (  21.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,77 +96,324 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4KCkhleSBmb2xr
-cywKCkFmdGVyIGRvaW5nIHNvbWUgZGVidWdnaW5nIG9mIGJyb2tlbiB0c3UvcHRwIHN1cHBvcnQg
-b24gbXBmcywgSSd2ZSBjb21lCnVwIHdpdGggc29tZSB2ZXJ5IHJmYyBwYXRjaGVzIHRoYXQgSSdk
-IGxpa2Ugb3BpbmlvbnMgb24gLSBwYXJ0aWN1bGFybHkKYmVjYXVzZSB0aGV5IGltcGFjdCBhIGJ1
-bmNoIG9mIHBsYXRmb3JtcyB0aGF0IEkgaGF2ZSBubyBhY2Nlc3MgdG8gYXQgYWxsCmFuZCBoYXZl
-IG5vIGlkZWEgaG93IHRoZXkgd29yay4gVGhlIGF0OTEgcGxhdGZvcm1zIEkgY2FuIGp1c3QgYXNr
-Ck5pY29sYXMgYWJvdXQgKGFuZCBoZSBhbHJlYWR5IHByb3ZpZGVkIHNvbWUgaW5mbyBkaXJlY3Rs
-eSwgc28gSSdtIG5vdApzdXBlciB3b3JyaWVkIGF0IGxlYXN0IGFib3V0IHRoZSB1c3JpbyBwb3J0
-aW9uIHRoZXJlKSBidXQgdGhlIG90aGVycwpteSBndXQgc2F5cyBhcmUgbGlrZWx5IGluY29ycmVj
-dCBpbiB0aGUgZHJpdmVyIGF0IHRoZSBtb21lbnQuCgpUaGVzZSBwYXRjaGVzIGFyZSBmYWlybHkg
-b3BpbmlvbmF0ZWQgYW5kIG5vdCBuZWNlc3NhcmlseSB0ZWNobmljYWxseQpjb3JyZWN0IG9yIHcv
-ZS4gVGhlIG9ubHkgdGhpbmcgSSBhbSBjb25maWRlbnQgaW4gc2F5aW5nIHRoYXQgdGhleSBhcmUg
-aXMKbW9yZSBkZWxpYmVyYXRlIHRoYW4gd2hhdCdzIGJlaW5nIGRvbmUgYXQgdGhlIG1vbWVudC4K
-CkF0IHRoZSB2ZXJ5IGxlYXN0LCBpdCdkIGJlIGdvb2Qgb2YgdGhlIHNvYyB2ZW5kb3IgZm9sa3Mg
-Y291bGQgY2hlY2sKdGhlaXIgcGxhdGZvcm1zIGFuZCBzZWUgaWYgdGhlaXIgdXNyaW8gc3R1ZmYg
-YWN0dWFsbHkgbGluZXMgdXAgd2l0aCB3aGF0CnRoZSBkcml2ZXIgY3VycmVudGx5IGNhbGxzICJt
-YWNiX2RlZmF1bHRfdXNyaW8iLiBPdXJzIGRpZG4ndCBhbmQgaXQgd2FzCmEgbmFzdHkgc3VycHJp
-c2UuCgpJIHNlbnQgdGhpcyBvbmNlIGJlZm9yZSwgYnV0IGdvdCBubyByZXNwb25zZXMsIG1heWJl
-IEknbGwgZ2V0IHNvbWUgdGhpcwp0aW1lISBUbyB0aGF0IGVuZCwgSSd2ZSBhbHNvIGRyb3BwZWQg
-dGhlIHJmYywgc2luY2Ugbm9vbmUgZXhwcmVzc2VkIHRoYXQKbGV2ZWwgb2YgcGFzc2luZyBpbnRl
-cmVzdCBhbmQgdGhpcyBkb2VzIGZpeCBhIHByb2JsZW0gb24gbXkgcGxhdGZvcm0uCkkndmUgbm90
-IG1hcmtlZCBpdCBuZXQgYmVjYXVzZSBJIGRvbid0IHRoaW5rIHRoZXJlJ3MgdGhhdCBsZXZlbCBv
-Zgp1cmdlbmN5LCBhcyB0aGUgdXNyaW8gZGVmYXVsdCBvbiBvdXIgcGxhdGZvcm0gZG9lcyB3aGF0
-IHdlIHdhbnQsIGFuZAp3ZSd2ZSBwcm92aWRlZCBhIHRlbXBvcmFyeSBzb2x1dGlvbiBvZiBkaXNh
-YmxpbmcgdXNyaW8gaW4gb3VyIG1hdGNoIGRhdGEKdG8gdGhlIHJlcG9ydGVyIGFuZCBpbiBvdXIg
-ZG93bnN0cmVhbSB0cmVlLgoKVGhlbywgeW91IGFkZGVkIGV5ZXE1IHJlY2VudGx5LiBEb2VzIGl0
-IGdlbnVpbmVseSBoYXZlIHRoZSBzYW1lIHVzcmlvCmJpdHMgYXMgdGhlIGF0OTEgZGV2aWNlcz8g
-VGhhdCB5b3Ugc2VuZCBwYXRjaGVzIGRlYWxpbmcgd2l0aCBwaHlzIG1ha2VzCml0IHNlZW0gdG8g
-bWUgbGlrZSBpdCBkb2Vzbid0IGhhdmUgdGhlIHVzcmlvIHN0dWZmIGFib3V0IG1paSBtb2Rlcy4u
-CgpDaGVlcnMsCkNvbm9yLgoKQ0M6IFZhbGVudGluYS5GZXJuYW5kZXpBbGFuaXNAbWljcm9jaGlw
-LmNvbQpDQzogQW5kcmV3IEx1bm4gPGFuZHJldytuZXRkZXZAbHVubi5jaD4KQ0M6IERhdmlkIFMu
-IE1pbGxlciA8ZGF2ZW1AZGF2ZW1sb2Z0Lm5ldD4KQ0M6IEVyaWMgRHVtYXpldCA8ZWR1bWF6ZXRA
-Z29vZ2xlLmNvbT4KQ0M6IEpha3ViIEtpY2luc2tpIDxrdWJhQGtlcm5lbC5vcmc+CkNDOiBQYW9s
-byBBYmVuaSA8cGFiZW5pQHJlZGhhdC5jb20+CkNDOiBSb2IgSGVycmluZyA8cm9iaEBrZXJuZWwu
-b3JnPgpDQzogS3J6eXN6dG9mIEtvemxvd3NraSA8a3J6aytkdEBrZXJuZWwub3JnPgpDQzogQ29u
-b3IgRG9vbGV5IDxjb25vcitkdEBrZXJuZWwub3JnPgpDQzogRGFpcmUgTWNOYW1hcmEgPGRhaXJl
-Lm1jbmFtYXJhQG1pY3JvY2hpcC5jb20+CkNDOiBQYXVsIFdhbG1zbGV5IDxwandAa2VybmVsLm9y
-Zz4KQ0M6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAZGFiYmVsdC5jb20+CkNDOiBBbGJlcnQgT3Ug
-PGFvdUBlZWNzLmJlcmtlbGV5LmVkdT4KQ0M6IEFsZXhhbmRyZSBHaGl0aSA8YWxleEBnaGl0aS5m
-cj4KQ0M6IE5pY29sYXMgRmVycmUgPG5pY29sYXMuZmVycmVAbWljcm9jaGlwLmNvbT4KQ0M6IENs
-YXVkaXUgQmV6bmVhIDxjbGF1ZGl1LmJlem5lYUB0dXhvbi5kZXY+CkNDOiBSaWNoYXJkIENvY2hy
-YW4gPHJpY2hhcmRjb2NocmFuQGdtYWlsLmNvbT4KQ0M6IFNhbXVlbCBIb2xsYW5kIDxzYW11ZWwu
-aG9sbGFuZEBzaWZpdmUuY29tPgpDQzogbmV0ZGV2QHZnZXIua2VybmVsLm9yZwpDQzogZGV2aWNl
-dHJlZUB2Z2VyLmtlcm5lbC5vcmcKQ0M6IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmcKQ0M6
-IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKQ0M6IE5laWwgQXJtc3Ryb25nIDxuYXJt
-c3Ryb25nQGJheWxpYnJlLmNvbT4KQ0M6IERhdmUgU3RldmVuc29uIDxkYXZlLnN0ZXZlbnNvbkBy
-YXNwYmVycnlwaS5jb20+CkNDOiBTZWFuIEFuZGVyc29uIDxzZWFuLmFuZGVyc29uQGxpbnV4LmRl
-dj4KQ0M6IFZpbmVldGggS2FydW1hbmNoaSA8dmluZWV0aC5rYXJ1bWFuY2hpQGFtZC5jb20+CkND
-OiBBYmluIEpvc2VwaCA8YWJpbi5qb3NlcGhAYW1kLmNvbT4KQ0M6IFRow6lvIExlYnJ1biA8dGhl
-by5sZWJydW5AYm9vdGxpbi5jb20+CgpDb25vciBEb29sZXkgKDgpOgogIHJpc2N2OiBkdHM6IG1p
-Y3JvY2hpcDogYWRkIHRzdSBjbG9jayB0byBtYWNiIG9uIG1wZnMKICBuZXQ6IG1hY2I6IHJlbmFt
-ZSBtYWNiX2RlZmF1bHRfdXNyaW8gdG8gYXQ5MV9kZWZhdWx0X3VzcmlvIGFzIG5vdCBhbGwKICAg
-IHBsYXRmb3JtcyBoYXZlIG1paSBtb2RlIGNvbnRyb2wgaW4gdXNyaW8KICBuZXQ6IG1hY2I6IG5w
-NCBkb2Vzbid0IG5lZWQgYSB1c3JpbyBwb2ludGVyCiAgZHQtYmluZGluZ3M6IG5ldDogbWFjYjog
-YWRkIHByb3BlcnR5IGluZGljYXRpbmcgdGltZXIgYWRqdXN0IG1vZGUKICBuZXQ6IG1hY2I6IHRp
-bWVyIGFkanVzdCBtb2RlIGlzIG5vdCBzdXBwb3J0ZWQKICBuZXQ6IG1hY2I6IGFkZCBtcGZzIHNw
-ZWNpZmljIHVzcmlvIGNvbmZpZ3VyYXRpb24KICBuZXQ6IG1hY2I6IHdhcm4gb24gcGNsayB1c2Ug
-YXMgYSB0c3VfY2xrIGZhbGxiYWNrCiAgbmV0OiBtYWNiOiBjbGVhbiB1cCB0c3UgY2xrIHJhdGUg
-YWNxdWlzaXRpb24KCiAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9uZXQvY2RucyxtYWNiLnlhbWwg
-ICAgfCAgMTUgKysKIGFyY2gvcmlzY3YvYm9vdC9kdHMvbWljcm9jaGlwL01ha2VmaWxlLm9yaWcg
-ICB8ICAyNiArKysrCiBhcmNoL3Jpc2N2L2Jvb3QvZHRzL21pY3JvY2hpcC9tcGZzLmR0c2kgICAg
-ICAgfCAgIDggKy0KIGRyaXZlcnMvbmV0L2V0aGVybmV0L2NhZGVuY2UvbWFjYi5oICAgICAgICAg
-ICB8ICAgMyArCiBkcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2JfbWFpbi5jICAgICAg
-fCAxMzcgKysrKysrKysrKystLS0tLS0tCiA1IGZpbGVzIGNoYW5nZWQsIDEzMSBpbnNlcnRpb25z
-KCspLCA1OCBkZWxldGlvbnMoLSkKIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2Jvb3Qv
-ZHRzL21pY3JvY2hpcC9NYWtlZmlsZS5vcmlnCgotLSAKMi41MS4wCgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Conor Dooley <conor.dooley@microchip.com>
+
+Calling this structure macb_default_usrio is misleading, I believe, as
+it implies that it should be used if your platform has nothing special
+to do in usrio. Since usrio is platform dependant, the default here is
+probably for each usrio to do nothing, with the macb documentation I
+have access to prescribing no standard behaviour here. We noticed that
+this was problematic because on mpfs, a bit that macb_default_usrio
+sets to deal with the MII mode actually changes the source for the
+tsu_clk to something with how the majority of mpfs devices are actually
+configured!
+
+Rename it to at91_default_usrio, since that's where the values actually
+come from for these. I have no idea if any of the other platforms that
+use the default actually copied at91's usrio configuration or if they
+have usrio configurations where what the driver does has no impact.
+
+Gate touching these bits behind a capability, like the clken refclock
+usrio knob, so that platforms without the MII mode stuff can avoid
+running this code.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ drivers/net/ethernet/cadence/macb.h      |   1 +
+ drivers/net/ethernet/cadence/macb_main.c | 108 +++++++++++++----------
+ 2 files changed, 63 insertions(+), 46 deletions(-)
+
+diff --git a/drivers/net/ethernet/cadence/macb.h b/drivers/net/ethernet/cadence/macb.h
+index 87414a2ddf6e3..8cb0b3778ee9e 100644
+--- a/drivers/net/ethernet/cadence/macb.h
++++ b/drivers/net/ethernet/cadence/macb.h
+@@ -779,6 +779,7 @@
+ #define MACB_CAPS_DMA_PTP			BIT(22)
+ #define MACB_CAPS_RSC				BIT(23)
+ #define MACB_CAPS_NO_LSO			BIT(24)
++#define MACB_CAPS_USRIO_HAS_MII			BIT(25)
+ 
+ /* LSO settings */
+ #define MACB_LSO_UFO_ENABLE			0x01
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index 5bc35f651ebd2..778d2115f66fc 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -4613,13 +4613,15 @@ static int macb_init(struct platform_device *pdev)
+ 
+ 	if (!(bp->caps & MACB_CAPS_USRIO_DISABLED)) {
+ 		val = 0;
+-		if (phy_interface_mode_is_rgmii(bp->phy_interface))
+-			val = bp->usrio->rgmii;
+-		else if (bp->phy_interface == PHY_INTERFACE_MODE_RMII &&
+-			 (bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
+-			val = bp->usrio->rmii;
+-		else if (!(bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
+-			val = bp->usrio->mii;
++		if (bp->caps & MACB_CAPS_USRIO_HAS_MII) {
++			if (phy_interface_mode_is_rgmii(bp->phy_interface))
++				val = bp->usrio->rgmii;
++			else if (bp->phy_interface == PHY_INTERFACE_MODE_RMII &&
++				 (bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
++				val = bp->usrio->rmii;
++			else if (!(bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
++				val = bp->usrio->mii;
++		}
+ 
+ 		if (bp->caps & MACB_CAPS_USRIO_HAS_CLKEN)
+ 			val |= bp->usrio->refclk;
+@@ -4637,13 +4639,6 @@ static int macb_init(struct platform_device *pdev)
+ 	return 0;
+ }
+ 
+-static const struct macb_usrio_config macb_default_usrio = {
+-	.mii = MACB_BIT(MII),
+-	.rmii = MACB_BIT(RMII),
+-	.rgmii = GEM_BIT(RGMII),
+-	.refclk = MACB_BIT(CLKEN),
+-};
+-
+ #if defined(CONFIG_OF)
+ /* 1518 rounded up */
+ #define AT91ETHER_MAX_RBUFF_SZ	0x600
+@@ -5218,6 +5213,13 @@ static int eyeq5_init(struct platform_device *pdev)
+ 	return ret;
+ }
+ 
++static const struct macb_usrio_config at91_default_usrio = {
++	.mii = MACB_BIT(MII),
++	.rmii = MACB_BIT(RMII),
++	.rgmii = GEM_BIT(RGMII),
++	.refclk = MACB_BIT(CLKEN),
++};
++
+ static const struct macb_usrio_config sama7g5_usrio = {
+ 	.mii = 0,
+ 	.rmii = 1,
+@@ -5228,104 +5230,114 @@ static const struct macb_usrio_config sama7g5_usrio = {
+ 
+ static const struct macb_config fu540_c000_config = {
+ 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_JUMBO |
+-		MACB_CAPS_GEM_HAS_PTP,
++		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
+ 	.clk_init = fu540_c000_clk_init,
+ 	.init = fu540_c000_init,
+ 	.jumbo_max_len = 10240,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ };
+ 
+ static const struct macb_config at91sam9260_config = {
+-	.caps = MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
++	.caps = MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.clk_init = macb_clk_init,
+ 	.init = macb_init,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ };
+ 
+ static const struct macb_config sama5d3macb_config = {
+ 	.caps = MACB_CAPS_SG_DISABLED |
+-		MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
++		MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.clk_init = macb_clk_init,
+ 	.init = macb_init,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ };
+ 
+ static const struct macb_config pc302gem_config = {
+-	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_GIGABIT_MODE_AVAILABLE,
++	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_GIGABIT_MODE_AVAILABLE |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
+ 	.clk_init = macb_clk_init,
+ 	.init = macb_init,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ };
+ 
+ static const struct macb_config sama5d2_config = {
+-	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO,
++	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
+ 	.clk_init = macb_clk_init,
+ 	.init = macb_init,
+ 	.jumbo_max_len = 10240,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ };
+ 
+ static const struct macb_config sama5d29_config = {
+-	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_GEM_HAS_PTP,
++	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_GEM_HAS_PTP |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
+ 	.clk_init = macb_clk_init,
+ 	.init = macb_init,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ };
+ 
+ static const struct macb_config sama5d3_config = {
+ 	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_GIGABIT_MODE_AVAILABLE |
+-		MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO,
++		MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
+ 	.clk_init = macb_clk_init,
+ 	.init = macb_init,
+ 	.jumbo_max_len = 10240,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ };
+ 
+ static const struct macb_config sama5d4_config = {
+-	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
++	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 4,
+ 	.clk_init = macb_clk_init,
+ 	.init = macb_init,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ };
+ 
+ static const struct macb_config emac_config = {
+-	.caps = MACB_CAPS_NEEDS_RSTONUBR | MACB_CAPS_MACB_IS_EMAC,
++	.caps = MACB_CAPS_NEEDS_RSTONUBR | MACB_CAPS_MACB_IS_EMAC |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.clk_init = at91ether_clk_init,
+ 	.init = at91ether_init,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ };
+ 
+ static const struct macb_config np4_config = {
+ 	.caps = MACB_CAPS_USRIO_DISABLED,
+ 	.clk_init = macb_clk_init,
+ 	.init = macb_init,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ };
+ 
+ static const struct macb_config zynqmp_config = {
+ 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE |
+ 		MACB_CAPS_JUMBO |
+-		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH,
++		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
+ 	.clk_init = macb_clk_init,
+ 	.init = init_reset_optional,
+ 	.jumbo_max_len = 10240,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ };
+ 
+ static const struct macb_config zynq_config = {
+ 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_NO_GIGABIT_HALF |
+-		MACB_CAPS_NEEDS_RSTONUBR,
++		MACB_CAPS_NEEDS_RSTONUBR |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
+ 	.clk_init = macb_clk_init,
+ 	.init = macb_init,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ };
+ 
+ static const struct macb_config mpfs_config = {
+@@ -5335,7 +5347,7 @@ static const struct macb_config mpfs_config = {
+ 	.dma_burst_length = 16,
+ 	.clk_init = macb_clk_init,
+ 	.init = init_reset_optional,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ 	.max_tx_length = 4040, /* Cadence Erratum 1686 */
+ 	.jumbo_max_len = 4040,
+ };
+@@ -5343,7 +5355,8 @@ static const struct macb_config mpfs_config = {
+ static const struct macb_config sama7g5_gem_config = {
+ 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_CLK_HW_CHG |
+ 		MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII |
+-		MACB_CAPS_MIIONRGMII | MACB_CAPS_GEM_HAS_PTP,
++		MACB_CAPS_MIIONRGMII | MACB_CAPS_GEM_HAS_PTP |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
+ 	.clk_init = macb_clk_init,
+ 	.init = macb_init,
+@@ -5353,7 +5366,8 @@ static const struct macb_config sama7g5_gem_config = {
+ static const struct macb_config sama7g5_emac_config = {
+ 	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII |
+ 		MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_MIIONRGMII |
+-		MACB_CAPS_GEM_HAS_PTP,
++		MACB_CAPS_GEM_HAS_PTP |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
+ 	.clk_init = macb_clk_init,
+ 	.init = macb_init,
+@@ -5364,12 +5378,13 @@ static const struct macb_config versal_config = {
+ 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_JUMBO |
+ 		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH |
+ 		MACB_CAPS_NEED_TSUCLK | MACB_CAPS_QUEUE_DISABLE |
+-		MACB_CAPS_QBV,
++		MACB_CAPS_QBV |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
+ 	.clk_init = macb_clk_init,
+ 	.init = init_reset_optional,
+ 	.jumbo_max_len = 10240,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ };
+ 
+ static const struct macb_config eyeq5_config = {
+@@ -5380,17 +5395,18 @@ static const struct macb_config eyeq5_config = {
+ 	.clk_init = macb_clk_init,
+ 	.init = eyeq5_init,
+ 	.jumbo_max_len = 10240,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ };
+ 
+ static const struct macb_config raspberrypi_rp1_config = {
+ 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_CLK_HW_CHG |
+ 		MACB_CAPS_JUMBO |
+-		MACB_CAPS_GEM_HAS_PTP,
++		MACB_CAPS_GEM_HAS_PTP |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
+ 	.clk_init = macb_clk_init,
+ 	.init = macb_init,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
+ 	.jumbo_max_len = 10240,
+ };
+ 
+@@ -5431,7 +5447,7 @@ static const struct macb_config default_gem_config = {
+ 	.dma_burst_length = 16,
+ 	.clk_init = macb_clk_init,
+ 	.init = macb_init,
+-	.usrio = &macb_default_usrio,
++	.usrio = NULL,
+ 	.jumbo_max_len = 10240,
+ };
+ 
+-- 
+2.51.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
