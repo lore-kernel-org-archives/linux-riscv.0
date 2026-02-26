@@ -4,58 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72471FC590D
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 08:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F23FC590F
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 08:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Mime-Version:Subject:From:
-	Date:To:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=I1q5I1Z7+HoPXSwlrJ1RljpqRXN9eLxUbsGbMUxsuew=; b=4jXtOgFvGv9TKz
-	NawsiMB7l74NJmPvhP8/Q1bu8IMu5fRdGo6w3ZkB57OM/gyUSaeT/hSiR8MnQzQmUtfCCwNXkvpbe
-	HHPaxuLD9pCpYJJOg06PNTcH25tQrl+dDKWzFeiv+3UxcJvlOCUtaWD5tiASXSMCeXcQOWLe3UB9O
-	U+3RSs5Z5uKCcePE/aL9FJrayJddFj9STdMyxzLVxIs0FjPrnLOOlRBcOhVMlfkk+TTaRXaXbh5x1
-	xeoxI97Oa9jkfeyjMPGaZdS+EbhUBL6Ak3ZcUL38H6Er6CuXzeJ50lvqDNnfkjhpvSZsJ/UMLoKYg
-	NlN3W7lrRYMQFzmK+RIA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ahpnJA3UeZd454xioEUR9D1O+ydz3rqj7ldif/IXbPM=; b=Z8EZQsf+EVBB0M
+	qXfV4ZwEIj3/GkTUO6PguFCtmPoGVEF55z4zU82fDxCX3gse9yZmRUTeDHLHKldZbu2d0+LSLWCeu
+	S1fWqz1Fk5KdU8kezfXRW7yv07huVesiCkH3EFz7fOPUguiZV/6WTyXYqOTUrGiROtVpzPdIr+rwt
+	iGZlWF943x5eKaNhYol+LMhSa3cUPH8TGtyup2gpzsgw9X3zaR86uHquI1NO34xJ95C9WwfCpnnR9
+	VBHRDLQoCIINto0M30gg2c3GBgygB78amS8s95Zcvacb1exU1nId1Dn8BXpSp1iAxie6f1lvwT3Wy
+	Nbusvy5yCd4+UJlTaZ5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvWjK-00000005eWg-1NSC;
-	Thu, 26 Feb 2026 08:28:18 +0000
-Received: from sg-1-102.ptr.blmpb.com ([118.26.132.102])
+	id 1vvWnp-00000005erD-1JmX;
+	Thu, 26 Feb 2026 08:32:57 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvWjG-00000005eVi-0xAo
-	for linux-riscv@lists.infradead.org;
-	Thu, 26 Feb 2026 08:28:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1772094479; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=YX4HotLpgLzmICZWnqayQwB2/3zVuyZwxBVhPxFXqpw=;
- b=ViJjUsg4BhMT0Sr2PEFFO6UNXOb9xTcEIxNWC6g72/x/krHvoK9rdAmvCmLBp63EIz/6DR
- RC5Wbd5qGLM8C12F7ll4tQpH3a7ZrF4C7UJPxL2oJyxkgWYobn7mlzrAUvZ5OeaW89+04D
- IKYoOBF/b6C+Xms6VYy8DylMmDYzITpwIdt02ZhYiFcnxAme6WqBa0FLJG4bYTDJ9S7400
- LioXDr3kiQjy6/KxmP2mop0aVXpl7CFYD7EC/lc2I/kTaraxhb0v7k9KQJ6B57FO5/p+it
- oZfPtO7HOuU9XNHFeyEpdlgTZDHeofK8lKVGQDOzJiDuwd2W4mRz0hJepzT2GA==
-Cc: <linux-arch@vger.kernel.org>, <linux-riscv@lists.infradead.org>, 
-	<linux-kernel@vger.kernel.org>, "Rui Qi" <qirui.001@bytedance.com>
-X-Original-From: Rui Qi <qirui.001@bytedance.com>
-X-Mailer: git-send-email 2.52.0
-X-Lms-Return-Path: <lba+269a0040d+2a17a4+lists.infradead.org+qirui.001@bytedance.com>
-To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, 
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <cyrilbur@tenstorrent.com>, 
-	<tglx@kernel.org>, <peterz@infradead.org>, <debug@rivosinc.com>, 
-	<andybnac@gmail.com>, <charlie@rivosinc.com>, <geomatsi@gmail.com>, 
-	<thuth@redhat.com>, <bjorn@rivosinc.com>, <songshuaishuai@tinylab.org>, 
-	<martin@kaiser.cx>, <masahiroy@kernel.org>, <kees@kernel.org>
-Date: Thu, 26 Feb 2026 16:27:35 +0800
-From: "Rui Qi" <qirui.001@bytedance.com>
-Subject: [PATCH] riscv: add system error interrupt handler support
-Mime-Version: 1.0
-Message-Id: <20260226082735.56108-1-qirui.001@bytedance.com>
+	id 1vvWnl-00000005eop-1fTg;
+	Thu, 26 Feb 2026 08:32:55 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-01 (Coremail) with SMTP id qwCowAB3HWkjBaBpUDDFCA--.13513S3;
+	Thu, 26 Feb 2026 16:32:37 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	kvm@vger.kernel.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Jiakai Xu <jiakaiPeanut@gmail.com>,
+	Andrew Jones <andrew.jones@oss.qualcomm.com>
+Subject: [PATCH v8 1/3] RISC-V: KVM: Validate SBI STA shmem alignment in  kvm_sbi_ext_sta_set_reg()
+Date: Thu, 26 Feb 2026 08:32:32 +0000
+Message-Id: <20260226083234.634716-2-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260226083234.634716-1-xujiakai2025@iscas.ac.cn>
+References: <20260226083234.634716-1-xujiakai2025@iscas.ac.cn>
+MIME-Version: 1.0
+X-CM-TRANSID: qwCowAB3HWkjBaBpUDDFCA--.13513S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxXF4xXFyfKw4fZrW5Cry7trb_yoWrJF1UpF
+	42kw15ZrW8tFZ2k39rZw4vgr15u3ykKr1jqFy3W34xZF4kta4Yyrna93y7ZF98JryvvFWI
+	yF10vF1DCw45AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUHFb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUGwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
+	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0cI8IcV
+	CY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIE
+	c7CjxVAFwI0_GcCE3s1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2
+	xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2
+	jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5V
+	A0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_
+	Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxV
+	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI
+	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
+	4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
+	42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU47KsUUUUU
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBwkJCWmeY4AargAEsq
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_002815_027506_55AAA613 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20260226_003253_808161_D895825C 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,161 +93,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a system error interrupt handler for RISC-V that panics
-the system when hardware errors are detected. The implementation includes:
+The RISC-V SBI Steal-Time Accounting (STA) extension requires the shared
+memory physical address to be 64-byte aligned, or set to all-ones to
+explicitly disable steal-time accounting.
 
-- Add IRQ_SYS_ERROR (23) interrupt definition to CSR header
-- Implement sys_error.c module with panic handler
-- Register per-CPU interrupt handler for system error interrupts
-- Add module to kernel build system
+KVM exposes the SBI STA shared memory configuration to userspace via
+KVM_SET_ONE_REG. However, the current implementation of
+kvm_sbi_ext_sta_set_reg() does not validate the alignment of the configured
+shared memory address. As a result, userspace can install a misaligned
+shared memory address that violates the SBI specification.
 
-When a system error interrupt occurs, the handler immediately panics
-the system with a descriptive message to ensure the error is properly
-captured and the system is halted safely.
+Such an invalid configuration may later reach runtime code paths that
+assume a valid and properly aligned shared memory region. In particular,
+KVM_RUN can trigger the following WARN_ON in
+kvm_riscv_vcpu_record_steal_time():
 
-Signed-off-by: Rui Qi <qirui.001@bytedance.com>
+  WARNING: arch/riscv/kvm/vcpu_sbi_sta.c:49 at
+  kvm_riscv_vcpu_record_steal_time
+
+WARN_ON paths are not expected to be reachable during normal runtime
+execution, and may result in a kernel panic when panic_on_warn is enabled.
+
+Fix this by validating the computed shared memory GPA at the
+KVM_SET_ONE_REG boundary. A temporary GPA is constructed and checked
+before committing it to vcpu->arch.sta.shmem. The validation allows
+either a 64-byte aligned GPA or INVALID_GPA (all-ones), which disables
+STA as defined by the SBI specification.
+
+This prevents invalid userspace state from reaching runtime code paths
+that assume SBI STA invariants and avoids unexpected WARN_ON behavior.
+
+Fixes: f61ce890b1f074 ("RISC-V: KVM: Add support for SBI STA registers")
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+Reviewed-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
 ---
- arch/riscv/include/asm/csr.h  |  4 +-
- arch/riscv/kernel/Makefile    |  1 +
- arch/riscv/kernel/sys_error.c | 80 +++++++++++++++++++++++++++++++++++
- include/linux/cpuhotplug.h    |  1 +
- 4 files changed, 85 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/kernel/sys_error.c
+V5 -> V6: Initialized new_shmem to INVALID_GPA as suggested.
+V4 -> V5: Added parentheses to function name in subject.
+V3 -> V4: Declared new_shmem at the top of kvm_sbi_ext_sta_set_reg().
+          Initialized new_shmem to 0 instead of vcpu->arch.sta.shmem.
+          Added blank lines per review feedback.
+V2 -> V3: Added parentheses to function name in subject.
+V1 -> V2: Added Fixes tag.
+---
+ arch/riscv/kvm/vcpu_sbi_sta.c | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 31b8988f4488..1f43c25b07ed 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -99,7 +99,8 @@
- #define IRQ_M_EXT		11
- #define IRQ_S_GEXT		12
- #define IRQ_PMU_OVF		13
--#define IRQ_LOCAL_MAX		(IRQ_PMU_OVF + 1)
-+#define IRQ_SYS_ERROR		23
-+#define IRQ_LOCAL_MAX		(IRQ_SYS_ERROR + 1)
- #define IRQ_LOCAL_MASK		GENMASK((IRQ_LOCAL_MAX - 1), 0)
+diff --git a/arch/riscv/kvm/vcpu_sbi_sta.c b/arch/riscv/kvm/vcpu_sbi_sta.c
+index afa0545c3bcfc..3b834709b429f 100644
+--- a/arch/riscv/kvm/vcpu_sbi_sta.c
++++ b/arch/riscv/kvm/vcpu_sbi_sta.c
+@@ -181,6 +181,7 @@ static int kvm_sbi_ext_sta_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
+ 				   unsigned long reg_size, const void *reg_val)
+ {
+ 	unsigned long value;
++	gpa_t new_shmem = INVALID_GPA;
  
- /* Exception causes */
-@@ -535,6 +536,7 @@
- # define RV_IRQ_TIMER	IRQ_S_TIMER
- # define RV_IRQ_EXT		IRQ_S_EXT
- # define RV_IRQ_PMU	IRQ_PMU_OVF
-+# define RV_IRQ_SYS_ERROR	IRQ_SYS_ERROR
- # define SIP_LCOFIP     (_AC(0x1, UL) << IRQ_PMU_OVF)
+ 	if (reg_size != sizeof(unsigned long))
+ 		return -EINVAL;
+@@ -191,18 +192,18 @@ static int kvm_sbi_ext_sta_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
+ 		if (IS_ENABLED(CONFIG_32BIT)) {
+ 			gpa_t hi = upper_32_bits(vcpu->arch.sta.shmem);
  
- #endif /* !CONFIG_RISCV_M_MODE */
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index cabb99cadfb6..3aaf16c75d6e 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -72,6 +72,7 @@ obj-y	+= vendor_extensions.o
- obj-y	+= vendor_extensions/
- obj-y	+= probes/
- obj-y	+= tests/
-+obj-y	+= sys_error.o
- obj-$(CONFIG_MMU) += vdso.o vdso/
- obj-$(CONFIG_RISCV_USER_CFI) += vdso_cfi/
+-			vcpu->arch.sta.shmem = value;
+-			vcpu->arch.sta.shmem |= hi << 32;
++			new_shmem = value;
++			new_shmem |= hi << 32;
+ 		} else {
+-			vcpu->arch.sta.shmem = value;
++			new_shmem = value;
+ 		}
+ 		break;
+ 	case KVM_REG_RISCV_SBI_STA_REG(shmem_hi):
+ 		if (IS_ENABLED(CONFIG_32BIT)) {
+ 			gpa_t lo = lower_32_bits(vcpu->arch.sta.shmem);
  
-diff --git a/arch/riscv/kernel/sys_error.c b/arch/riscv/kernel/sys_error.c
-new file mode 100644
-index 000000000000..5b88ff4a0e84
---- /dev/null
-+++ b/arch/riscv/kernel/sys_error.c
-@@ -0,0 +1,80 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2026 Bytedance, Inc.
-+ */
-+#define pr_fmt(fmt) "riscv-sys-error: " fmt
+-			vcpu->arch.sta.shmem = ((gpa_t)value << 32);
+-			vcpu->arch.sta.shmem |= lo;
++			new_shmem = ((gpa_t)value << 32);
++			new_shmem |= lo;
+ 		} else if (value != 0) {
+ 			return -EINVAL;
+ 		}
+@@ -211,6 +212,11 @@ static int kvm_sbi_ext_sta_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
+ 		return -ENOENT;
+ 	}
+ 
++	if (new_shmem != INVALID_GPA && !IS_ALIGNED(new_shmem, 64))
++		return -EINVAL;
 +
-+#include <linux/kernel.h>
-+#include <linux/irq.h>
-+#include <linux/irqdomain.h>
-+#include <linux/interrupt.h>
-+#include <linux/percpu.h>
-+#include <linux/module.h>
-+#include <asm/irq.h>
-+#include <linux/cpuhotplug.h>
-+#include <asm/csr.h>
++	vcpu->arch.sta.shmem = new_shmem;
 +
-+static unsigned int riscv_sys_error_irq;
-+static DEFINE_PER_CPU_READ_MOSTLY(int, sys_error_dummy_dev);
-+
-+static irqreturn_t sys_error_irq_handler(int irq, void *dev)
-+{
-+	panic("RISC-V System Error Interrupt - System Error Detected");
-+	return IRQ_HANDLED;
-+}
-+
-+static int riscv_serror_starting_cpu(unsigned int cpu)
-+{
-+	csr_set(CSR_IE, BIT(RV_IRQ_SYS_ERROR));
-+	enable_percpu_irq(riscv_sys_error_irq, irq_get_trigger_type(riscv_sys_error_irq));
-+	return 0;
-+}
-+
-+static int riscv_serror_dying_cpu(unsigned int cpu)
-+{
-+	csr_clear(CSR_IE, BIT(RV_IRQ_SYS_ERROR));
-+	disable_percpu_irq(riscv_sys_error_irq);
-+	return 0;
-+}
-+
-+static int __init sys_error_init(void)
-+{
-+	int ret;
-+	struct irq_domain *domain = NULL;
-+
-+	domain = irq_find_matching_fwnode(riscv_get_intc_hwnode(),
-+					  DOMAIN_BUS_ANY);
-+	if (!domain) {
-+		pr_err("Failed to find INTC IRQ root domain\n");
-+		return -ENODEV;
-+	}
-+
-+	riscv_sys_error_irq = irq_create_mapping(domain, RV_IRQ_SYS_ERROR);
-+	if (!riscv_sys_error_irq) {
-+		pr_err("Failed to map PMU interrupt for node\n");
-+		return -ENODEV;
-+	}
-+
-+	ret = request_percpu_irq(riscv_sys_error_irq, sys_error_irq_handler,
-+				 "riscv-syserror", &sys_error_dummy_dev);
-+	if (ret) {
-+		pr_err("registering percpu irq failed [%d]\n", ret);
-+		return ret;
-+	}
-+
-+	ret = cpuhp_setup_state(CPUHP_AP_RISCV_SERROR_STARTING,
-+			 "riscv/sys_error:starting",
-+			 riscv_serror_starting_cpu, riscv_serror_dying_cpu);
-+	if (ret) {
-+		pr_err("cpuhp setup state failed [%d]\n", ret);
-+		goto fail_free_irq;
-+	}
-+
-+	return 0;
-+
-+fail_free_irq:
-+	free_percpu_irq(riscv_sys_error_irq, &sys_error_dummy_dev);
-+	return ret;
-+}
-+
-+arch_initcall(sys_error_init)
-diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-index 62cd7b35a29c..f6d0c05f72df 100644
---- a/include/linux/cpuhotplug.h
-+++ b/include/linux/cpuhotplug.h
-@@ -174,6 +174,7 @@ enum cpuhp_state {
- 	CPUHP_AP_REALTEK_TIMER_STARTING,
- 	CPUHP_AP_RISCV_TIMER_STARTING,
- 	CPUHP_AP_CLINT_TIMER_STARTING,
-+	CPUHP_AP_RISCV_SERROR_STARTING,
- 	CPUHP_AP_CSKY_TIMER_STARTING,
- 	CPUHP_AP_TI_GP_TIMER_STARTING,
- 	CPUHP_AP_HYPERV_TIMER_STARTING,
+ 	return 0;
+ }
+ 
 -- 
-2.20.1
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
