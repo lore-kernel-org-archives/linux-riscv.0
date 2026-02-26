@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00B2AFC592B
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 11:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED163FC592B
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 11:04:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sK22ZAPUwUe6c/N0lZfKJ63IMvBbzI1mA8U3JsSK4Rk=; b=EqPXMgcW6asmUd
-	KZAQLGiG+G3roGNtjpF7FLfrTuAPoycmzidQ/TtFLgWRIAlQiUtVDVPS+7MsS/79Rgl45U0dX003S
-	xecbzdtIfa/DAKw9OUO5H/q58BTpE15L7P3pj78WeAWudLEcw4xiM+HlnVH/mBrDRxtuSfjK2sZsI
-	ytQBph55GD34wCxCbYYCfEzLtn06yjMumjzDYeoPtJWQUh7mUOi6qucbDJZBKbJJAAYSNOnlPcqbG
-	JNcKdeDpdbhtW8sbfAR8vOl5se7GwZtok9Ki3GCloiDXVemtZJlt4TUE8uddDLZd5P+7wO8d2T0Pk
-	QtxKa/DYkMrjRl3R/H+Q==;
+	List-Owner; bh=1Nhhe0P6kC5a5sUf7oC0s3P9t0jrzp+cwWjDGfJcw28=; b=er6ghCP/trzXPl
+	3eH3iv+1nDO03WFz4SlEiWILE9IjXUjQen+q58IhrqE5EJVi49dCkI07YYxmbQz11EHtYvOBII3W0
+	P65aQ8z8kr+55wFp2jaHmGKTmnstzlXZEPZl0302/7+LyW63FzVZSj8bfeVSTDsdHzsATf0d9glBx
+	BUCnxkSRyFYZYaYO3wGp5Rc/lk+PJKolBZVKyLg4P3kFlQQuJBePQxa3ZmVvqCf9c4vdKruxMKtqI
+	oy7k3HmHz38DXotaobGlGVxEbO25QxGNsCz1qkLjnJkkPg8uEKWAoYnMLVDv0oTRQVaTVktzLn8x5
+	gD5JERponU0vBZMzBjAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZA6-00000005yuY-3vJl;
-	Thu, 26 Feb 2026 11:04:06 +0000
+	id 1vvZAC-00000005ywI-0wm0;
+	Thu, 26 Feb 2026 11:04:12 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZA3-00000005ytg-3MOj
+	id 1vvZA9-00000005yvX-293Y
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Feb 2026 11:04:04 +0000
+	Thu, 26 Feb 2026 11:04:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 77502417AB;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2E8E343BA6;
+	Thu, 26 Feb 2026 11:04:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC113C19422;
 	Thu, 26 Feb 2026 11:04:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1075FC116C6;
-	Thu, 26 Feb 2026 11:03:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772103843;
-	bh=cRLy02UueWkhYtPAXqzBTz1JMrUCbuvc3pWwyLTa2RQ=;
+	s=k20201202; t=1772103849;
+	bh=eeYz6zI8m7LMZepqFrVEA7MQyer3DvTEMH8GCtn3pmI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AgsAhSG5LlZBGa6F6Ms0QXLm4aksoIvTotknOrr7O721zePHDEvwBY27NDHEpcWH0
-	 Cfd/DSM1PFDTbCAEuFBG8DbPdtcx7AYEVKse4r3ombyjyWLn0kZX7AN1Hu7d5Ncehb
-	 hPrjMVKefihFZXdtoGoLnJb/z8dJuPmnmPW2AQes+qiFRxTBPzO/EwAJIJzAVEP5tE
-	 vuNHlN9oD9DFAJQQ+3h9Fc+g9yAA1FYPuMnxLoDpnH6CHyLVIvW384WDXZICf64Iz5
-	 ZoW3KutaArRsluYmqtmH8WeqxMH/bYbkeqVYnvcqjqz6lgePJXtw45NR36YWOBhDyY
-	 nWkP3bLeoWCDg==
+	b=NoU8M3tbmKgO4ru/+HbIjF0dJZKZwCsfpCcEULrgHAHMfAjUrlbT2LbzzwQwo9PdQ
+	 UkEy4TwZX73nGKnP57QUrzk0KOYyRNPjn2gKfnqWHPKTcBdV4jiO7CQMt36E22wRvF
+	 9wa5NJESCGPU0+XBjAwl+ElS2KPvyBpby7qaSsENMtZpWk4wmmu/q0HX+CNLIJnScN
+	 JgaAMx3mPIHo1s2XfBcwGnmkOcN4vYC5nwAPEjZ79tAExtDW9rskZbv/swUdJ2aveX
+	 YbklJJh3/qTRXVCS0WUYgzLLPAuEOV0iXzqVQDxuFivrJ2XCRVbv/t0frp6pbIInxw
+	 7gun6YIW9uoBA==
 From: Conor Dooley <conor@kernel.org>
 To: netdev@vger.kernel.org
 Cc: conor@kernel.org,
@@ -73,18 +73,18 @@ Cc: conor@kernel.org,
 	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
 	Abin Joseph <abin.joseph@amd.com>,
 	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>
-Subject: [PATCH net-next v2 4/8] dt-bindings: net: macb: add property indicating timer adjust mode
-Date: Thu, 26 Feb 2026 11:03:19 +0000
-Message-ID: <20260226-sprung-universal-b3568492b3f0@spud>
+Subject: [PATCH net-next v2 5/8] net: macb: timer adjust mode is not supported
+Date: Thu, 26 Feb 2026 11:03:20 +0000
+Message-ID: <20260226-dollop-maturing-9e3c83192ee5@spud>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260226-snowshoe-amusable-6716d4ddea11@spud>
 References: <20260226-snowshoe-amusable-6716d4ddea11@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1946; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=h9iZgeoyt6LhJ0dyrZChFn6X/fZvC/7atHi56cOprkc=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkLNMqLKxUv/BQNs1XyMVogt8VwwX3nLzv4ymWZLU898 7y8VL2yo5SFQYyLQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABPZocnIcL+48M76bJPAm7xx SYcqTk6/nNsovqBsdWNEgIn19TMT9zL8r1XZpfWj/XkKb74+31LukJjIpBX/5bk6r7z+vr7J4Co zJwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1194; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=KRrduA/pCBBIY5BCiuiQyuvVljzb1F3SRIwOIkFLtvg=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkLNMqn1wXsTEopsHuprm2yJW2yfGLGgY3d109kRpRmm RzyaOruKGVhEONikBVTZEm83dcitf6Pyw7nnrcwc1iZQIYwcHEKwESev2NkmNoYsPpnlInajFud /66LMaZ+jl6rc+6A8owje/00lIofZzEyvLp65MGOr97211dU6AvLXD5TzzY94tSkFxt3sxVb5vD fYwYA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_030403_879757_C5C58285 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20260226_030409_588712_563679E5 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,58 +103,34 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The GEM IP has two methods for modifying the ptp timer. The first of
-these, named "increment mode", relies on software controlling the timer
-by setting tsu_timer_incr and tsu_timer_incr_sub_nsec and performing
-once-off adjustments via the tsu_timer_adjust register. This is what the
-macb driver uses. The second mechanism, "timer adjust mode" uses the
-gem_tsu_inc_ctrl and gem_tsu_ms signals to control the timer. These
-modes are not intended to be used in parallel, but both can be possible
-on the same device and which mode is used cannot be determined from the
-compatible on all devices, because some users of the GEM IP are SoC
-FPGAs that permit configuring how the IP is wired up.
-
-Add a property to indicate that gem_tsu_inc_ctrl and gem_tsu_ms are wired
-up for timer adjust mode.
+The ptp portion of this driver controls the tsu's timer using the
+controls for "increment mode", which is not compatible with the hardware
+trying to control it via the gem_tsu_inc_ctrl and gem_tsu_ms inputs in
+"timer adjust mode". Abort probe if the property signalling that the
+relevant signals have been wired up is present.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../devicetree/bindings/net/cdns,macb.yaml        | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ drivers/net/ethernet/cadence/macb_main.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/cdns,macb.yaml b/Documentation/devicetree/bindings/net/cdns,macb.yaml
-index cb14c35ba9969..292279499d9e6 100644
---- a/Documentation/devicetree/bindings/net/cdns,macb.yaml
-+++ b/Documentation/devicetree/bindings/net/cdns,macb.yaml
-@@ -120,6 +120,12 @@ properties:
-   power-domains:
-     maxItems: 1
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index ddbb0c327b303..fa55e6e7036f2 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -5535,6 +5535,12 @@ static int macb_probe(struct platform_device *pdev)
  
-+  cdns,timer-adjust:
-+    type: boolean
-+    description:
-+      Set when the hardware is operating in timer-adjust mode, where the timer
-+      is controlled by the gem_tsu_inc_ctrl and gem_tsu_ms inputs.
+ 	bp->usrio = macb_config->usrio;
+ 
++	if (of_property_read_bool(bp->pdev->dev.of_node, "cdns,timer-adjust") &&
++			IS_ENABLED(CONFIG_MACB_USE_HWSTAMP)) {
++		dev_err(&pdev->dev, "Timer adjust mode is not supported\n");
++		goto err_out_free_netdev;
++	}
 +
-   cdns,refclk-ext:
-     type: boolean
-     description:
-@@ -186,6 +192,15 @@ allOf:
-       properties:
-         reg:
-           maxItems: 1
-+  - if:
-+      not:
-+        properties:
-+          compatible:
-+            contains:
-+              const: microchip,mpfs-macb
-+    then:
-+      properties:
-+        cdns,timer-adjust: false
- 
-   - if:
-       properties:
+ 	/* By default we set to partial store and forward mode for zynqmp.
+ 	 * Disable if not set in devicetree.
+ 	 */
 -- 
 2.51.0
 
