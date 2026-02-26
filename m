@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB6ECFC5927
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA8AFC592B
 	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 11:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wzFfmZ88XAMIfu5kxlMWgJh41NrDlXhH+ZbijgVGsjY=; b=wCplM0NUcPlOaT
-	UkaL7eCgOsS9zOE7MnMczQ8jXgfp8ZSUxytu6I3wJsZ6T0DXszZkNpqLrvbSGFdCSD9wvAK0xa+/3
-	8cjuKefjA3IueWixWF8aq2LerAiKHYELX1wiyetenvBdWK++BImv/34xBIZFH1sefwqdi0yS4arnr
-	g46ZSA7Y2yvLwKateh789YfEgWTuPZYQxkBjAUhYSE0m/RVHPSOR/+sKlNfrXBDNfoOWQcTu42iue
-	LM5w2oes1ZOCLKmeOCTE5+YdmpkGcOb/0pXd4tiHUYpaP4qRJ33trRqoAcMJpOonyy6+x1o6X01rM
-	AMRHgadj2Qac0tmwzZjw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ntpf6BWgOwwbFdacXWZzzk1MCXQo7JloYzWhkZAO8Y0=; b=NsOI/Q2aASHBh1
+	KgsttsgofRAn2NrJkMFiFsjEi6wbLSxsArzaknJ31BNNnbytpS4piid6sXFg1jKx9EuP4tiJlcW5l
+	/iZ4iG33c7IGuG/f9pshhCS0YfXxF6TyCmWjsgqqwxxZ7Ga7Z+Mw9F/BvPKtrG1SmYx0bXGhXaG42
+	nKNdMAtRAdlZAVagO/9LIntbEyadGtmZP8hiDqpRrGIsB364KnM19lzDsRGrx/8LM04mmNTQyzvoU
+	wMMiJOi+sjkiljn3Eyj6g+xd1F++FhtGQzk3M8dG5KdpYAWugyjsFLFQPJBgTAxhBNKgEQ7XOLQaA
+	BD+GTx4LfL1XgRaV0UWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZ9p-00000005ypE-44d7;
-	Thu, 26 Feb 2026 11:03:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vvZ9j-00000005ymR-2g5U;
+	Thu, 26 Feb 2026 11:03:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvZ9n-00000005yni-0CLj
+	id 1vvZ9i-00000005ylx-2JFO
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Feb 2026 11:03:49 +0000
+	Thu, 26 Feb 2026 11:03:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5E43F44473;
-	Thu, 26 Feb 2026 11:03:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC173C19422;
+	by tor.source.kernel.org (Postfix) with ESMTP id D164760054;
 	Thu, 26 Feb 2026 11:03:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AC34C116C6;
+	Thu, 26 Feb 2026 11:03:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772103826;
-	bh=phQfqbyabbOdNqjOuj7NK2iAIoyPl/OhSuvCTIyQ0qo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=V4MlhLGiCDU2UEPxMRw+USykYsQpETX9z3k+qEG+CJYRUewxa4mpJjOC3lfBFo8xH
-	 5GdmM2pBxpu/V6i+UBEm62Ss7zBNtEVQwZReO9jjGPohBD5teUZf9nJ9IC2N/JCVQ5
-	 aeZ7X9T5axbqW6KKE3DeqHlUwjn5KdPD7H2L/CXj/yZysEd2KXNbJ5HqgppQi3Omdp
-	 iHrVvIERFvshZPz3kyvey1xBznsFW3TdA7L8Cy6dP3YIOoJzjBD/gz20RHLGE1crC4
-	 n7Qn8ly8+vD5muNoNL6BAYAPo/nZVjrnZiwk3Fow6UfCfE+4EVcboWzXF1K6zv4piM
-	 ukjFxiTBMfHVw==
+	s=k20201202; t=1772103820;
+	bh=7oga6iCNUk9jRhMm4u+2UIsjtpytJlnDqvcuGIHXtRc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=TvIKm+woEih2Tes1jsGgTSmm26ThO9+CG/I8T5F1peg2+E6BctWWl3tQBcXY70MUi
+	 EOZ/ZYGTc1QvKl89ZLkMFUOXxEl2ipsrwNISkgF+vh+S2/B6p+2YCOeQxh3vkYWYNJ
+	 CkQfOoIvurgTN1UEbYV2c5hh8VUC+APmvFX7V7YuhJqq+9qvzHtw+rpAkxQW9elBGV
+	 /mZYxqn48JXsoHs7KFNcMZ7fbsg7hS2NVPTq6LT46NgRBYCMwQfVSdkjwE2CgWAF1x
+	 p3AaiUzPhK0DITD9wStKzK6D/CyYwpuP9FN7dJNQSNKV6o975BLMa3xim0ptrRWctf
+	 zwTpz4QrdHk9Q==
 From: Conor Dooley <conor@kernel.org>
 To: netdev@vger.kernel.org
 Cc: conor@kernel.org,
@@ -73,18 +73,13 @@ Cc: conor@kernel.org,
 	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
 	Abin Joseph <abin.joseph@amd.com>,
 	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>
-Subject: [PATCH net-next v2 1/8] riscv: dts: microchip: add tsu clock to macb on mpfs
-Date: Thu, 26 Feb 2026 11:03:16 +0000
-Message-ID: <20260226-briskly-severity-69c2988e8dc8@spud>
+Subject: [PATCH net-next v2 0/8] macb usrio/tsu patches
+Date: Thu, 26 Feb 2026 11:03:15 +0000
+Message-ID: <20260226-snowshoe-amusable-6716d4ddea11@spud>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260226-snowshoe-amusable-6716d4ddea11@spud>
-References: <20260226-snowshoe-amusable-6716d4ddea11@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3466; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=YBmcAd9qnWn/x3Gu0jOv29xyhvfqaOmflkLzzges9dc=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkLNMoY0jNXFK98wBMobtnKtZbpHcfT4Ps15x/z7VzIE VIcM/9jRykLgxgXg6yYIkvi7b4WqfV/XHY497yFmcPKBDaEi1MAJhL2lOG/J3uF6xe+cON/yXdW 6M3efKrhtpzlfQ1Z4ak2J20nZHL0M/wV37Q3YGvYDbcnCS1hUdx+h4U/HtZdcm3qufilChtW7br OBwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3780; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=UgZEol6xQ2MytN1F7eCnsymp6056llsTw5xmuhOo5f8=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkLNMpe5k09cf7y+pVVPKlbeJ5rehYprjk02SdHsfv0T oEzE+c+7ChlYRDjYpAVU2RJvN3XIrX+j8sO5563MHNYmUCGMHBxCsBE5JwYGX5tLahvnB1tadM+ 8exuCxWPffpbb5W94GFIrNrbEVj+6x7D/wKVk/bVKfqz3oswxK1jC+Kf1eGw8lbWrOxpYse53y6 K4AIA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_030347_126596_4A773AB1 
-X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,89 +91,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
-
-In increment mode, the tsu clock for the macb is provided separately to
-the pck, usually the same clock as the reference to the rtc provided by
-an off-chip oscillator. pclk is 150 MHz typically, and the reference is
-either 100 MHz or 125 MHz, so having the tsu clock is required for
-correct rate selection.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- arch/riscv/boot/dts/microchip/Makefile.orig | 26 +++++++++++++++++++++
- arch/riscv/boot/dts/microchip/mpfs.dtsi     |  8 +++----
- 2 files changed, 30 insertions(+), 4 deletions(-)
- create mode 100644 arch/riscv/boot/dts/microchip/Makefile.orig
-
-diff --git a/arch/riscv/boot/dts/microchip/Makefile.orig b/arch/riscv/boot/dts/microchip/Makefile.orig
-new file mode 100644
-index 0000000000000..e94f4096fd401
---- /dev/null
-+++ b/arch/riscv/boot/dts/microchip/Makefile.orig
-@@ -0,0 +1,26 @@
-+# SPDX-License-Identifier: GPL-2.0
-+<<<<<<< HEAD
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-beaglev-fire.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-disco-kit.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-icicle-kit.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-icicle-kit-prod.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-m100pfsevp.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-polarberry.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-sev-kit.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-tysom-m.dtb
-+||||||| constructed fake ancestor
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-beaglev-fire.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-icicle-kit.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-m100pfsevp.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-polarberry.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-sev-kit.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-tysom-m.dtb
-+=======
-+dtb-$(CONFIG_ARCH_MICROCHIP) += mpfs-beaglev-fire.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP) += mpfs-icicle-kit.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP) += mpfs-m100pfsevp.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP) += mpfs-polarberry.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP) += mpfs-sev-kit.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP) += mpfs-tysom-m.dtb
-+>>>>>>> riscv: dts: microchip: remove POLARFIRE mention in Makefile
-+dtb-$(CONFIG_ARCH_MICROCHIP) += pic64gx-curiosity-kit.dtb
-diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-index 5c2963e269b83..ccd7c2e4724f4 100644
---- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-@@ -448,8 +448,8 @@ mac0: ethernet@20110000 {
- 			interrupt-parent = <&plic>;
- 			interrupts = <64>, <65>, <66>, <67>, <68>, <69>;
- 			local-mac-address = [00 00 00 00 00 00];
--			clocks = <&clkcfg CLK_MAC0>, <&clkcfg CLK_AHB>;
--			clock-names = "pclk", "hclk";
-+			clocks = <&clkcfg CLK_MAC0>, <&clkcfg CLK_AHB>, <&refclk>;
-+			clock-names = "pclk", "hclk", "tsu_clk";
- 			resets = <&mss_top_sysreg CLK_MAC0>;
- 			status = "disabled";
- 		};
-@@ -462,8 +462,8 @@ mac1: ethernet@20112000 {
- 			interrupt-parent = <&plic>;
- 			interrupts = <70>, <71>, <72>, <73>, <74>, <75>;
- 			local-mac-address = [00 00 00 00 00 00];
--			clocks = <&clkcfg CLK_MAC1>, <&clkcfg CLK_AHB>;
--			clock-names = "pclk", "hclk";
-+			clocks = <&clkcfg CLK_MAC1>, <&clkcfg CLK_AHB>, <&refclk>;
-+			clock-names = "pclk", "hclk", "tsu_clk";
- 			resets = <&mss_top_sysreg CLK_MAC1>;
- 			status = "disabled";
- 		};
--- 
-2.51.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4KCkhleSBmb2xr
+cywKCkFmdGVyIGRvaW5nIHNvbWUgZGVidWdnaW5nIG9mIGJyb2tlbiB0c3UvcHRwIHN1cHBvcnQg
+b24gbXBmcywgSSd2ZSBjb21lCnVwIHdpdGggc29tZSB2ZXJ5IHJmYyBwYXRjaGVzIHRoYXQgSSdk
+IGxpa2Ugb3BpbmlvbnMgb24gLSBwYXJ0aWN1bGFybHkKYmVjYXVzZSB0aGV5IGltcGFjdCBhIGJ1
+bmNoIG9mIHBsYXRmb3JtcyB0aGF0IEkgaGF2ZSBubyBhY2Nlc3MgdG8gYXQgYWxsCmFuZCBoYXZl
+IG5vIGlkZWEgaG93IHRoZXkgd29yay4gVGhlIGF0OTEgcGxhdGZvcm1zIEkgY2FuIGp1c3QgYXNr
+Ck5pY29sYXMgYWJvdXQgKGFuZCBoZSBhbHJlYWR5IHByb3ZpZGVkIHNvbWUgaW5mbyBkaXJlY3Rs
+eSwgc28gSSdtIG5vdApzdXBlciB3b3JyaWVkIGF0IGxlYXN0IGFib3V0IHRoZSB1c3JpbyBwb3J0
+aW9uIHRoZXJlKSBidXQgdGhlIG90aGVycwpteSBndXQgc2F5cyBhcmUgbGlrZWx5IGluY29ycmVj
+dCBpbiB0aGUgZHJpdmVyIGF0IHRoZSBtb21lbnQuCgpUaGVzZSBwYXRjaGVzIGFyZSBmYWlybHkg
+b3BpbmlvbmF0ZWQgYW5kIG5vdCBuZWNlc3NhcmlseSB0ZWNobmljYWxseQpjb3JyZWN0IG9yIHcv
+ZS4gVGhlIG9ubHkgdGhpbmcgSSBhbSBjb25maWRlbnQgaW4gc2F5aW5nIHRoYXQgdGhleSBhcmUg
+aXMKbW9yZSBkZWxpYmVyYXRlIHRoYW4gd2hhdCdzIGJlaW5nIGRvbmUgYXQgdGhlIG1vbWVudC4K
+CkF0IHRoZSB2ZXJ5IGxlYXN0LCBpdCdkIGJlIGdvb2Qgb2YgdGhlIHNvYyB2ZW5kb3IgZm9sa3Mg
+Y291bGQgY2hlY2sKdGhlaXIgcGxhdGZvcm1zIGFuZCBzZWUgaWYgdGhlaXIgdXNyaW8gc3R1ZmYg
+YWN0dWFsbHkgbGluZXMgdXAgd2l0aCB3aGF0CnRoZSBkcml2ZXIgY3VycmVudGx5IGNhbGxzICJt
+YWNiX2RlZmF1bHRfdXNyaW8iLiBPdXJzIGRpZG4ndCBhbmQgaXQgd2FzCmEgbmFzdHkgc3VycHJp
+c2UuCgpJIHNlbnQgdGhpcyBvbmNlIGJlZm9yZSwgYnV0IGdvdCBubyByZXNwb25zZXMsIG1heWJl
+IEknbGwgZ2V0IHNvbWUgdGhpcwp0aW1lISBUbyB0aGF0IGVuZCwgSSd2ZSBhbHNvIGRyb3BwZWQg
+dGhlIHJmYywgc2luY2Ugbm9vbmUgZXhwcmVzc2VkIHRoYXQKbGV2ZWwgb2YgcGFzc2luZyBpbnRl
+cmVzdCBhbmQgdGhpcyBkb2VzIGZpeCBhIHByb2JsZW0gb24gbXkgcGxhdGZvcm0uCkkndmUgbm90
+IG1hcmtlZCBpdCBuZXQgYmVjYXVzZSBJIGRvbid0IHRoaW5rIHRoZXJlJ3MgdGhhdCBsZXZlbCBv
+Zgp1cmdlbmN5LCBhcyB0aGUgdXNyaW8gZGVmYXVsdCBvbiBvdXIgcGxhdGZvcm0gZG9lcyB3aGF0
+IHdlIHdhbnQsIGFuZAp3ZSd2ZSBwcm92aWRlZCBhIHRlbXBvcmFyeSBzb2x1dGlvbiBvZiBkaXNh
+YmxpbmcgdXNyaW8gaW4gb3VyIG1hdGNoIGRhdGEKdG8gdGhlIHJlcG9ydGVyIGFuZCBpbiBvdXIg
+ZG93bnN0cmVhbSB0cmVlLgoKVGhlbywgeW91IGFkZGVkIGV5ZXE1IHJlY2VudGx5LiBEb2VzIGl0
+IGdlbnVpbmVseSBoYXZlIHRoZSBzYW1lIHVzcmlvCmJpdHMgYXMgdGhlIGF0OTEgZGV2aWNlcz8g
+VGhhdCB5b3Ugc2VuZCBwYXRjaGVzIGRlYWxpbmcgd2l0aCBwaHlzIG1ha2VzCml0IHNlZW0gdG8g
+bWUgbGlrZSBpdCBkb2Vzbid0IGhhdmUgdGhlIHVzcmlvIHN0dWZmIGFib3V0IG1paSBtb2Rlcy4u
+CgpDaGVlcnMsCkNvbm9yLgoKQ0M6IFZhbGVudGluYS5GZXJuYW5kZXpBbGFuaXNAbWljcm9jaGlw
+LmNvbQpDQzogQW5kcmV3IEx1bm4gPGFuZHJldytuZXRkZXZAbHVubi5jaD4KQ0M6IERhdmlkIFMu
+IE1pbGxlciA8ZGF2ZW1AZGF2ZW1sb2Z0Lm5ldD4KQ0M6IEVyaWMgRHVtYXpldCA8ZWR1bWF6ZXRA
+Z29vZ2xlLmNvbT4KQ0M6IEpha3ViIEtpY2luc2tpIDxrdWJhQGtlcm5lbC5vcmc+CkNDOiBQYW9s
+byBBYmVuaSA8cGFiZW5pQHJlZGhhdC5jb20+CkNDOiBSb2IgSGVycmluZyA8cm9iaEBrZXJuZWwu
+b3JnPgpDQzogS3J6eXN6dG9mIEtvemxvd3NraSA8a3J6aytkdEBrZXJuZWwub3JnPgpDQzogQ29u
+b3IgRG9vbGV5IDxjb25vcitkdEBrZXJuZWwub3JnPgpDQzogRGFpcmUgTWNOYW1hcmEgPGRhaXJl
+Lm1jbmFtYXJhQG1pY3JvY2hpcC5jb20+CkNDOiBQYXVsIFdhbG1zbGV5IDxwandAa2VybmVsLm9y
+Zz4KQ0M6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAZGFiYmVsdC5jb20+CkNDOiBBbGJlcnQgT3Ug
+PGFvdUBlZWNzLmJlcmtlbGV5LmVkdT4KQ0M6IEFsZXhhbmRyZSBHaGl0aSA8YWxleEBnaGl0aS5m
+cj4KQ0M6IE5pY29sYXMgRmVycmUgPG5pY29sYXMuZmVycmVAbWljcm9jaGlwLmNvbT4KQ0M6IENs
+YXVkaXUgQmV6bmVhIDxjbGF1ZGl1LmJlem5lYUB0dXhvbi5kZXY+CkNDOiBSaWNoYXJkIENvY2hy
+YW4gPHJpY2hhcmRjb2NocmFuQGdtYWlsLmNvbT4KQ0M6IFNhbXVlbCBIb2xsYW5kIDxzYW11ZWwu
+aG9sbGFuZEBzaWZpdmUuY29tPgpDQzogbmV0ZGV2QHZnZXIua2VybmVsLm9yZwpDQzogZGV2aWNl
+dHJlZUB2Z2VyLmtlcm5lbC5vcmcKQ0M6IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmcKQ0M6
+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKQ0M6IE5laWwgQXJtc3Ryb25nIDxuYXJt
+c3Ryb25nQGJheWxpYnJlLmNvbT4KQ0M6IERhdmUgU3RldmVuc29uIDxkYXZlLnN0ZXZlbnNvbkBy
+YXNwYmVycnlwaS5jb20+CkNDOiBTZWFuIEFuZGVyc29uIDxzZWFuLmFuZGVyc29uQGxpbnV4LmRl
+dj4KQ0M6IFZpbmVldGggS2FydW1hbmNoaSA8dmluZWV0aC5rYXJ1bWFuY2hpQGFtZC5jb20+CkND
+OiBBYmluIEpvc2VwaCA8YWJpbi5qb3NlcGhAYW1kLmNvbT4KQ0M6IFRow6lvIExlYnJ1biA8dGhl
+by5sZWJydW5AYm9vdGxpbi5jb20+CgpDb25vciBEb29sZXkgKDgpOgogIHJpc2N2OiBkdHM6IG1p
+Y3JvY2hpcDogYWRkIHRzdSBjbG9jayB0byBtYWNiIG9uIG1wZnMKICBuZXQ6IG1hY2I6IHJlbmFt
+ZSBtYWNiX2RlZmF1bHRfdXNyaW8gdG8gYXQ5MV9kZWZhdWx0X3VzcmlvIGFzIG5vdCBhbGwKICAg
+IHBsYXRmb3JtcyBoYXZlIG1paSBtb2RlIGNvbnRyb2wgaW4gdXNyaW8KICBuZXQ6IG1hY2I6IG5w
+NCBkb2Vzbid0IG5lZWQgYSB1c3JpbyBwb2ludGVyCiAgZHQtYmluZGluZ3M6IG5ldDogbWFjYjog
+YWRkIHByb3BlcnR5IGluZGljYXRpbmcgdGltZXIgYWRqdXN0IG1vZGUKICBuZXQ6IG1hY2I6IHRp
+bWVyIGFkanVzdCBtb2RlIGlzIG5vdCBzdXBwb3J0ZWQKICBuZXQ6IG1hY2I6IGFkZCBtcGZzIHNw
+ZWNpZmljIHVzcmlvIGNvbmZpZ3VyYXRpb24KICBuZXQ6IG1hY2I6IHdhcm4gb24gcGNsayB1c2Ug
+YXMgYSB0c3VfY2xrIGZhbGxiYWNrCiAgbmV0OiBtYWNiOiBjbGVhbiB1cCB0c3UgY2xrIHJhdGUg
+YWNxdWlzaXRpb24KCiAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9uZXQvY2RucyxtYWNiLnlhbWwg
+ICAgfCAgMTUgKysKIGFyY2gvcmlzY3YvYm9vdC9kdHMvbWljcm9jaGlwL01ha2VmaWxlLm9yaWcg
+ICB8ICAyNiArKysrCiBhcmNoL3Jpc2N2L2Jvb3QvZHRzL21pY3JvY2hpcC9tcGZzLmR0c2kgICAg
+ICAgfCAgIDggKy0KIGRyaXZlcnMvbmV0L2V0aGVybmV0L2NhZGVuY2UvbWFjYi5oICAgICAgICAg
+ICB8ICAgMyArCiBkcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2JfbWFpbi5jICAgICAg
+fCAxMzcgKysrKysrKysrKystLS0tLS0tCiA1IGZpbGVzIGNoYW5nZWQsIDEzMSBpbnNlcnRpb25z
+KCspLCA1OCBkZWxldGlvbnMoLSkKIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2Jvb3Qv
+ZHRzL21pY3JvY2hpcC9NYWtlZmlsZS5vcmlnCgotLSAKMi41MS4wCgoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
