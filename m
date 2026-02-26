@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9405DFC590E
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 08:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84460FC590F
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 09:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kZ8t/F6Cdk3gG697tDNcJ4eOXg833RvNFcKxn5w+nd4=; b=r1wf/Jpy3NL4jikwxJeFs3K1QY
-	A1Y06ZddtHvJrU+5rLa+Cy8AaqEWj3GzYpsie9JRHnUdwalTrAHmooBc3YYHhBHgIB5X577qbDdFI
-	NlzVXqPVHCJT0HgykHwE2xIuAgY8rOfl8PUVCx38gSmFzRJrG/JNHdMgws7ODuK06ulVbm/Z7frKz
-	XOWrt8hl1FaMQwvWdHO2p80tqjVHiNgEDzEjlXwFKMhMZL1vFNmYQrJpkN+YFZF+KK0rPKnphzYST
-	uYcxxZLZpI8TiYCGBgtZAGqCce5IQlzzqHv0i+2oIywHNuFp9ut67bNLiqndjwgrwbSWCwXm3Fyj9
-	rIT6GACg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TzJVwXW55pBJxlAKypifCXpV7mlIfSXdnIwkymfNI0o=; b=vmhIsfY82YV3Im
+	D6Xm50Fq2KxErR9MHz5HzQslRTTKYNk4zGpAzyLISBRyUMS9h+1wjr72yN0eaDpxteerjracCLx4c
+	nShZ/LjktFO4X6Aj5xifOiDHhsTl7BO2BuVftdu81XR9E+K70CiyyjoBo+3+BwcHY5GsPnnWSUdXt
+	7WVUGiDaJnLUyZ66K0W7JlW/ra1Wnh1wuQZ6WV5BziAw1e4WhJd0hKQEm0+oNZx/SuJu00w6pVPNo
+	ZYSnsXjjLCP54QNHpJGyxq2V67/ubJNOWz5AHlKU+nW91B3354O3P7XhslzesusPM0GVfEKLSx9dJ
+	YAaMkKB5B5vtzN6I5/BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvX2p-00000005h6I-1Ztk;
-	Thu, 26 Feb 2026 08:48:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvX5u-00000005i12-1b01;
+	Thu, 26 Feb 2026 08:51:38 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvX2o-00000005h6A-0kKX
-	for linux-riscv@lists.infradead.org;
-	Thu, 26 Feb 2026 08:48:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 86C9B60103;
-	Thu, 26 Feb 2026 08:48:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B671C19422;
-	Thu, 26 Feb 2026 08:48:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772095705;
-	bh=nlFAYkBePwUiakKi3KJIX6r1MW8vXqAHpGfGYf2J9ek=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AQqv9tcTAWzfp+TiryGk00/HXVZPwdHHCeTLxIUAPZGzlBbzCN8sZSH/71XyoP5tn
-	 R988vE2NGHldbGjr0X2KzZ9J9JYY+XUjQ1H4+sPSbpDAhRRHw46KuW8QJIuShPy2fT
-	 XeZjFF+DmY3wCAXEf7h4eniA4eVtOM2+MiHIPVh+OHcQIMZ0UDCbJbw460IY1q2L71
-	 LMMTq7m9nA2m2ym2N1xYaimdYSPT55x7ZXnvWIq7IkdBze4Ob3G6hXAuxjZlLmlGKn
-	 rEGPdJqf/PHKDeMvckg/PkR3p21AbA0uvNUWngPs25GmlBwYsduvCEx/NROxi3Q5nb
-	 NeHuM89uD4SJA==
-Date: Thu, 26 Feb 2026 08:48:21 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, shuah@kernel.org
-Subject: Re: [PATCH v3 1/2] riscv: Introduce support for hardware
- break/watchpoints
-Message-ID: <20260226-sappy-name-e8aa49b42e51@spud>
-References: <20260223044918.1359983-1-himanshu.chauhan@oss.qualcomm.com>
- <20260223044918.1359983-2-himanshu.chauhan@oss.qualcomm.com>
- <20260223-mouth-plated-50294c7a6ac0@wendy>
- <CA+Ht8=aoxQp-RcFGWXXsfDyNarCn=zRhUOoG9rUCGeEw83BQvw@mail.gmail.com>
- <20260224-likewise-rimless-151f6a12b092@wendy>
- <CA+Ht8=Z-iaQ+zys5UOy6iNtdTsdtjq7mARwz=KJA_vbNYcfF6w@mail.gmail.com>
- <20260225-compress-moody-400a1e2f46fb@spud>
- <CA+Ht8=ZF2nT+gWwtEi5QdoKuOQPX5ts66WmFcF2gaoTNKT8hgw@mail.gmail.com>
+	id 1vvX5k-00000005hzu-0eus;
+	Thu, 26 Feb 2026 08:51:37 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-01 (Coremail) with SMTP id qwCowADnkGyJCaBpC0_FCA--.1935S2;
+	Thu, 26 Feb 2026 16:51:22 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Anup Patel <anup@brainfault.org>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Jiakai Xu <jiakaiPeanut@gmail.com>
+Subject: [PATCH v2] RISC-V: KVM: Fix null pointer dereference in kvm_riscv_vcpu_aia_rmw_topei()
+Date: Thu, 26 Feb 2026 08:51:19 +0000
+Message-Id: <20260226085119.643295-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-In-Reply-To: <CA+Ht8=ZF2nT+gWwtEi5QdoKuOQPX5ts66WmFcF2gaoTNKT8hgw@mail.gmail.com>
+X-CM-TRANSID: qwCowADnkGyJCaBpC0_FCA--.1935S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7WFyUuryxKr4Dtr47Cry5twb_yoW8tw1Dpr
+	ZxCrnYkryxXF4xC39rAwn7Xr4vgr4jkF15Wr98W3y5Wr4UtFWFvr1vg348XFWUJFy8Zas2
+	yF1UCF4F9F1UXw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBE14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVW8JVWxJw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAG
+	YxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwV
+	W8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
+	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2
+	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
+	Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMI
+	IF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUx5rcUUUUU
+	=
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBwkKCWmf1qe6iQAAs5
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260226_005128_554876_932E85E2 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,85 +81,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3335682997277636213=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+kvm_riscv_vcpu_aia_rmw_topei() assumes that the per-vCPU IMSIC state has
+been initialized once AIA is reported as available and initialized at
+the VM level. This assumption does not always hold.
 
---===============3335682997277636213==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="5qqF07pXGASeadO9"
-Content-Disposition: inline
+Under fuzzed ioctl sequences, a guest may access the IMSIC TOPEI CSR
+before the vCPU IMSIC state is set up. In this case,
+vcpu->arch.aia_context.imsic_state is still NULL, and the TOPEI RMW path
+dereferences it unconditionally, leading to a host kernel crash.
 
+The crash manifests as:
+  Unable to handle kernel paging request at virtual address
+  dfffffff0000000e
+  ...
+  kvm_riscv_vcpu_aia_imsic_rmw arch/riscv/kvm/aia_imsic.c:909
+  kvm_riscv_vcpu_aia_rmw_topei arch/riscv/kvm/aia.c:231
+  csr_insn arch/riscv/kvm/vcpu_insn.c:208
+  system_opcode_insn arch/riscv/kvm/vcpu_insn.c:281
+  kvm_riscv_vcpu_virtual_insn arch/riscv/kvm/vcpu_insn.c:355
+  kvm_riscv_vcpu_exit arch/riscv/kvm/vcpu_exit.c:230
+  kvm_arch_vcpu_ioctl_run arch/riscv/kvm/vcpu.c:1008
+  ...
 
---5qqF07pXGASeadO9
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Fix this by explicitly checking whether the vCPU IMSIC state has been
+initialized before handling TOPEI CSR accesses. If not, forward the CSR
+emulation to user space.
 
-On Thu, Feb 26, 2026 at 08:17:47AM +0530, Himanshu Chauhan wrote:
-> On Wed, Feb 25, 2026 at 2:30=E2=80=AFPM Conor Dooley <conor@kernel.org> w=
-rote:
-> >
-> > On Wed, Feb 25, 2026 at 10:33:27AM +0530, Himanshu Chauhan wrote:
-> > > On Tue, Feb 24, 2026 at 1:33=E2=80=AFPM Conor Dooley <conor.dooley@mi=
-crochip.com> wrote:
-> > > >
-> > > > On Tue, Feb 24, 2026 at 09:30:24AM +0530, Himanshu Chauhan wrote:
-> > > > > Hi,
-> > > > >
-> > > > > On Mon, Feb 23, 2026 at 3:55=E2=80=AFPM Conor Dooley <conor.doole=
-y@microchip.com> wrote:
-> > > > > >
-> > > > > > On Mon, Feb 23, 2026 at 10:19:17AM +0530, Himanshu Chauhan wrot=
-e:
-> >
-> > > >
-> > > > Did you miss the comment at the end about the remaining TODOs?
-> > >
-> > > No. As I mentioned in the cover letter, the ptrace support is not
-> > > implemented here. I am actively working on it and these are
-> > > implemented in ptrace work.
-> > > The test is done using the perf events directly. The second patch in
-> > > this patch set has the test application.
-> >
-> > Then the patchset should still be marked RFC, since it is not finished.
->=20
-> Why? I disagree.
-> It enables the debug triggers support with perf. Ptrace will build upon i=
-t.
+Fixes: db8b7e97d6137 ("RISC-V: KVM: Add in-kernel virtualization of AIA IMSIC")
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+---
+V1 -> V2: Moved imsic_state NULL check into kvm_riscv_vcpu_aia_imsic_rmw().
+          Updated Fixes tag to db8b7e97d6137.
+---
+ arch/riscv/kvm/aia_imsic.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-If the functions marked TODO are are not required for the patchset to be
-merged, your commit message should clearly explain why these particular
-functions do not need to be implemented at this stage.
+diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
+index fda0346f0ea1f..60917f4789d84 100644
+--- a/arch/riscv/kvm/aia_imsic.c
++++ b/arch/riscv/kvm/aia_imsic.c
+@@ -892,6 +892,10 @@ int kvm_riscv_vcpu_aia_imsic_rmw(struct kvm_vcpu *vcpu, unsigned long isel,
+ 	int r, rc = KVM_INSN_CONTINUE_NEXT_SEPC;
+ 	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
+ 
++	/* If IMSIC vCPU state not initialized then forward to user space */
++	if (!imsic)
++		return KVM_INSN_EXIT_TO_USER_SPACE;
++
+ 	if (isel == KVM_RISCV_AIA_IMSIC_TOPEI) {
+ 		/* Read pending and enabled interrupt with highest priority */
+ 		topei = imsic_mrif_topei(imsic->swfile, imsic->nr_eix,
+-- 
+2.34.1
 
-Cheers,
-Conor.
-
---5qqF07pXGASeadO9
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaAI1AAKCRB4tDGHoIJi
-0uP+APkB/A2Iv/cu7UIBPwy7I3iD9GwXdS707KoKSkqBcZIhjwEAkJIMHOOpzXT1
-QoHKAKdQrPNwSAVxO4IWorUrbc28wQ4=
-=Df62
------END PGP SIGNATURE-----
-
---5qqF07pXGASeadO9--
-
-
---===============3335682997277636213==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3335682997277636213==--
-
