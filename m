@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C37AFD8FC5
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 15:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21CD4FD8FC3
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 15:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nbgFH9yUt7J59r95LNWVyvJa0Wdh5t0h6ZQFQx6I0Ug=; b=LzcLAM85Wnzl3T
-	vRbQJeV/DgQpcAXBlG+lKAfe05TBPRnwIC//14wjOMypk0Qe2vIH/wVLH7PGYtOhxEAqa6cSN2/0z
-	9/g7aV4/QpDjOu3ECdP1CW1MsjZgk4NJMLhHniM2Q4uP0Oo5+Y58f9egyiFDsj+qMJ6QH5IhzSBjg
-	Nyy5sJP87QxMOqx7xQSB9+mNMApERYUDPiifcOyTuW8omAzGPZSkLQ2YE3VIqlda0gb0tzZm2PXr2
-	IeshrhdUhXU5zOwhCd0qejEKnHQiY5CnzbxemwG7lpJDOVfI6P/jhK/NxFXonNXkiyMO46xNEQ4Vl
-	ooHzeeZcy5PmP2y56Yqw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=m1flPXjQ1ZO6cGaZG6VO15x5tvc2QbUiNJ6zeFmGjTY=; b=TQCHJY0HnBjDjx
+	G6/FxfTjIZz0eIq8yx84qgYtshMs3YqSmK904WhV5XbudrtS2B6YH6AuuBcvFyA2pCq4E1T15ciVk
+	2p1AjGu5cj9OrZaig3RJ/gGuDn13phGbdvxZACGhE5Kx2VWok3Xgtiq4Of7RwH/LJDmOg3JkJLS7c
+	e1iq+qmEI+qODViRNgQHAj0hDfBmjFhYcQK9clsQw775rtsiq0YSOeYPupqIR7hOwraQlokbQW36t
+	2vMu6xYdPtn/FWtEfY7CToykAgmy7JQa/sbkCS0fTjCj2iPbjYFJjiI9sMLV3hIQbIWHgJLaQF9oF
+	BwCyBftBGjh9M//Y4q8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvd1I-00000006Q1D-0s8h;
+	id 1vvd1I-00000006Q1x-2G2f;
 	Thu, 26 Feb 2026 15:11:16 +0000
 Received: from [4.28.11.157] (helo=localhost)
 	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvd1A-00000006Pxh-0z8F;
-	Thu, 26 Feb 2026 15:11:08 +0000
+	id 1vvd1D-00000006PyK-4AqV;
+	Thu, 26 Feb 2026 15:11:12 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Richard Henderson <richard.henderson@linaro.org>,
@@ -81,10 +81,12 @@ Cc: Richard Henderson <richard.henderson@linaro.org>,
 	linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org,
 	linux-raid@vger.kernel.org
-Subject: cleanup the RAID5 XOR library
-Date: Thu, 26 Feb 2026 07:10:12 -0800
-Message-ID: <20260226151106.144735-1-hch@lst.de>
+Subject: [PATCH 03/25] um/xor: don't override XOR_SELECT_TEMPLATE
+Date: Thu, 26 Feb 2026 07:10:15 -0800
+Message-ID: <20260226151106.144735-4-hch@lst.de>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260226151106.144735-1-hch@lst.de>
+References: <20260226151106.144735-1-hch@lst.de>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,115 +104,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+XOR_SELECT_TEMPLATE is only ever called with a NULL argument, so all the
+ifdef'ery doesn't do anything.  With our without this, the time travel
+mode should work fine on CPUs that support AVX2, as the AVX2
+implementation is forced in this case, and won't work otherwise.
 
-the XOR library used for the RAID5 parity is a bit of a mess right now.
-The main file sits in crypto/ despite not being cryptography and not
-using the crypto API, with the generic implementations sitting in
-include/asm-generic and the arch implementations sitting in an asm/
-header in theory.  The latter doesn't work for many cases, so
-architectures often build the code directly into the core kernel, or
-create another module for the architecture code.
+Signed-off-by: Christoph Hellwig <hch@lst.de>
+---
+ arch/um/include/asm/xor.h | 10 ----------
+ 1 file changed, 10 deletions(-)
 
-Changes this to a single module in lib/ that also contains the
-architecture optimizations, similar to the library work Eric Biggers
-has done for the CRC and crypto libraries later.  After that it changes
-to better calling conventions that allow for smarter architecture
-implementations (although none is contained here yet), and uses
-static_call to avoid indirection function call overhead.
+diff --git a/arch/um/include/asm/xor.h b/arch/um/include/asm/xor.h
+index 647fae200c5d..c9ddedc19301 100644
+--- a/arch/um/include/asm/xor.h
++++ b/arch/um/include/asm/xor.h
+@@ -4,21 +4,11 @@
+ 
+ #ifdef CONFIG_64BIT
+ #undef CONFIG_X86_32
+-#define TT_CPU_INF_XOR_DEFAULT (AVX_SELECT(&xor_block_sse_pf64))
+ #else
+ #define CONFIG_X86_32 1
+-#define TT_CPU_INF_XOR_DEFAULT (AVX_SELECT(&xor_block_8regs))
+ #endif
+ 
+ #include <asm/cpufeature.h>
+ #include <../../x86/include/asm/xor.h>
+-#include <linux/time-internal.h>
+-
+-#ifdef CONFIG_UML_TIME_TRAVEL_SUPPORT
+-#undef XOR_SELECT_TEMPLATE
+-/* pick an arbitrary one - measuring isn't possible with inf-cpu */
+-#define XOR_SELECT_TEMPLATE(x)	\
+-	(time_travel_mode == TT_MODE_INFCPU ? TT_CPU_INF_XOR_DEFAULT : x)
+-#endif
+ 
+ #endif
+-- 
+2.47.3
 
-A git tree is also available here:
-
-    git://git.infradead.org/users/hch/misc.git xor-improvements
-
-Gitweb:
-
-    https://git.infradead.org/?p=users/hch/misc.git;a=shortlog;h=refs/heads/xor-improvements
-
-Diffstat:
- arch/arm64/include/asm/xor.h              |   73 --
- arch/loongarch/include/asm/xor.h          |   68 --
- arch/loongarch/include/asm/xor_simd.h     |   34 -
- arch/loongarch/lib/xor_simd_glue.c        |   72 --
- arch/powerpc/include/asm/xor.h            |   47 -
- arch/powerpc/include/asm/xor_altivec.h    |   22 
- arch/powerpc/lib/xor_vmx.h                |   22 
- arch/powerpc/lib/xor_vmx_glue.c           |   63 --
- arch/riscv/include/asm/xor.h              |   68 --
- arch/s390/include/asm/xor.h               |   21 
- arch/sparc/include/asm/xor.h              |    9 
- arch/sparc/include/asm/xor_64.h           |   79 ---
- arch/um/include/asm/xor.h                 |   24 
- arch/x86/include/asm/xor_64.h             |   28 -
- b/arch/alpha/Kconfig                      |    1 
- b/arch/arm/Kconfig                        |    1 
- b/arch/arm/lib/Makefile                   |    5 
- b/arch/arm64/Kconfig                      |    1 
- b/arch/arm64/lib/Makefile                 |    6 
- b/arch/loongarch/Kconfig                  |    1 
- b/arch/loongarch/lib/Makefile             |    2 
- b/arch/powerpc/Kconfig                    |    1 
- b/arch/powerpc/lib/Makefile               |    5 
- b/arch/riscv/Kconfig                      |    1 
- b/arch/riscv/lib/Makefile                 |    1 
- b/arch/s390/Kconfig                       |    1 
- b/arch/s390/lib/Makefile                  |    2 
- b/arch/sparc/Kconfig                      |    1 
- b/arch/sparc/include/asm/asm-prototypes.h |    1 
- b/arch/sparc/lib/Makefile                 |    2 
- b/arch/um/Kconfig                         |    1 
- b/arch/x86/Kconfig                        |    1 
- b/crypto/Kconfig                          |    2 
- b/crypto/Makefile                         |    1 
- b/crypto/async_tx/async_xor.c             |   16 
- b/fs/btrfs/raid56.c                       |   27 -
- b/include/asm-generic/Kbuild              |    1 
- b/include/linux/raid/xor.h                |   28 -
- b/lib/Kconfig                             |    1 
- b/lib/Makefile                            |    2 
- b/lib/raid/Kconfig                        |    7 
- b/lib/raid/Makefile                       |    2 
- b/lib/raid/xor/Makefile                   |   50 ++
- b/lib/raid/xor/alpha/xor.c                |   46 -
- b/lib/raid/xor/alpha/xor_arch.h           |   22 
- b/lib/raid/xor/arm/xor-neon-glue.c        |   19 
- b/lib/raid/xor/arm/xor-neon.c             |   22 
- b/lib/raid/xor/arm/xor.c                  |  105 ----
- b/lib/raid/xor/arm/xor_arch.h             |   22 
- b/lib/raid/xor/arm64/xor-neon-glue.c      |   26 +
- b/lib/raid/xor/arm64/xor-neon.c           |   94 +--
- b/lib/raid/xor/arm64/xor-neon.h           |    6 
- b/lib/raid/xor/arm64/xor_arch.h           |   21 
- b/lib/raid/xor/loongarch/xor_arch.h       |   33 +
- b/lib/raid/xor/loongarch/xor_simd_glue.c  |   37 +
- b/lib/raid/xor/powerpc/xor_arch.h         |   22 
- b/lib/raid/xor/powerpc/xor_vmx.c          |   40 -
- b/lib/raid/xor/powerpc/xor_vmx.h          |   10 
- b/lib/raid/xor/powerpc/xor_vmx_glue.c     |   28 +
- b/lib/raid/xor/riscv/xor-glue.c           |   25 +
- b/lib/raid/xor/riscv/xor_arch.h           |   17 
- b/lib/raid/xor/s390/xor.c                 |   15 
- b/lib/raid/xor/s390/xor_arch.h            |   13 
- b/lib/raid/xor/sparc/xor-niagara-glue.c   |   33 +
- b/lib/raid/xor/sparc/xor-niagara.S        |  346 --------------
- b/lib/raid/xor/sparc/xor-sparc32.c        |   32 -
- b/lib/raid/xor/sparc/xor-vis-glue.c       |   34 +
- b/lib/raid/xor/sparc/xor-vis.S            |  348 ++++++++++++++
- b/lib/raid/xor/sparc/xor_arch.h           |   35 +
- b/lib/raid/xor/um/xor_arch.h              |    9 
- b/lib/raid/xor/x86/xor-avx.c              |   52 --
- b/lib/raid/xor/x86/xor-mmx.c              |  120 +---
- b/lib/raid/xor/x86/xor-sse.c              |  105 +---
- b/lib/raid/xor/x86/xor_arch.h             |   36 +
- b/lib/raid/xor/xor-32regs-prefetch.c      |  267 ++++++++++
- b/lib/raid/xor/xor-32regs.c               |  217 ++++++++
- b/lib/raid/xor/xor-8regs-prefetch.c       |  146 +++++
- b/lib/raid/xor/xor-8regs.c                |  103 ++++
- b/lib/raid/xor/xor-core.c                 |  187 +++++++
- b/lib/raid/xor/xor_impl.h                 |   60 ++
- crypto/xor.c                              |  174 -------
- include/asm-generic/xor.h                 |  738 ------------------------------
- 82 files changed, 2033 insertions(+), 2433 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
