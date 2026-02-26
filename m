@@ -4,64 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2659FFC5913
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 09:23:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6511FC5913
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 09:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=be45U0rU5v4Ljyifn0IXNc5BFxq/LiRfNynV37lbsGY=; b=L2ViMdO7RDKsnH
-	tsBtZnM6FLwL9pgzHGMCA6FoYEheWDoBw7z4CDX+UV8bc7ZHsCMNVu7ejzuZglRc8XC5KKVy0fn2V
-	HuKhUNdCOri+BArkRTtZ30v1mMorTDkIiR5Qve+VBaKd4OQ3Eo9AydAmY2U/EkVxpQd5YU6o6D8Dx
-	cEhwjNZfIlPPfm9qZN24H0YcdBUflloqOYzsDIWDe8T5c8LSdz8CYGhyY0O9LOWsgCYLUhzzFaBIe
-	Y36sCZgzuw0aAi0FdfQ44ReQql21K8L3Do7gB4Ln91YkqD8suLprzNFiU4c/daSHZJ6VJUBvAoSkk
-	yqzP6unU5m1TZATGMaZw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JAknyOeB0EBPgte0a0bpTgRfrjhD5NeIVkdnTGNYp2U=; b=i8tCe2Oq2zT1MdP0OnoNKMGeKW
+	WoG/97c6ejGLFRqqaly7supGgkiMz0SlNhH4aH+7s6u/sknSs6S+cL376h1GuXj7ayUH983BHk3cq
+	uk6JrwMtkXbi0q76Adijl564TcHlwECYcC76UGSyC2tEYKXCl81lZwOqptRQCsa1tiKoUNZfjV7G0
+	dN+N3houAHDIO3GfV6b2KN1jaBGjwofNbclEHzrfe1/oSRLWfwSAsM8yqOeE4nQeLBYzL4FygocHu
+	6OrLWLxmXXIkSmepfaeX/vrvV2eW3yJOgUqEk9ek/YidUsLvWDBKYk3u/Z/cQ4Il+1xX1JuSqumj+
+	5lHSqrcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXaQ-00000005mjq-14vy;
-	Thu, 26 Feb 2026 09:23:10 +0000
-Received: from mxct.zte.com.cn ([183.62.165.209])
+	id 1vvX6f-00000005i5c-4B5o;
+	Thu, 26 Feb 2026 08:52:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvXaN-00000005mgj-0ovA;
-	Thu, 26 Feb 2026 09:23:08 +0000
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4fM5bG064Bz51SW9;
-	Thu, 26 Feb 2026 17:22:50 +0800 (CST)
-Received: from szxlzmapp02.zte.com.cn ([10.5.231.79])
-	by mse-fl1.zte.com.cn with SMTP id 61Q9MgoL033919;
-	Thu, 26 Feb 2026 17:22:42 +0800 (+08)
-	(envelope-from wang.yechao255@zte.com.cn)
-Received: from mapi (szxl2zmapp07[null])
-	by mapi (Zmail) with MAPI id mid12;
-	Thu, 26 Feb 2026 17:22:45 +0800 (CST)
-X-Zmail-TransId: 2b0969a010e5ff4-658a5
-X-Mailer: Zmail v1.0
-Message-ID: <20260226172245358qVZavIykLL2QC0KoqTO-I@zte.com.cn>
-Date: Thu, 26 Feb 2026 17:22:45 +0800 (CST)
-Mime-Version: 1.0
-From: <wang.yechao255@zte.com.cn>
-To: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
-        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>
-Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: =?UTF-8?B?UklTQy1WOiBLVk06IEZpeCBodWdlcGFnZSBtYXBwaW5nIGhhbmRsaW5nIGR1cmluZyBkaXJ0eSBsb2dnaW5n?=
-X-MAIL: mse-fl1.zte.com.cn 61Q9MgoL033919
-X-TLS: YES
-X-SPF-DOMAIN: zte.com.cn
-X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
-X-SPF: None
-X-SOURCE-IP: 10.5.228.132 unknown Thu, 26 Feb 2026 17:22:50 +0800
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 69A010EA.000/4fM5bG064Bz51SW9
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_012307_396773_4417EBF0 
-X-CRM114-Status: UNSURE (   7.86  )
-X-CRM114-Notice: Please train this message.
+	id 1vvX6e-00000005i5V-1G07
+	for linux-riscv@lists.infradead.org;
+	Thu, 26 Feb 2026 08:52:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 633D060097;
+	Thu, 26 Feb 2026 08:52:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C776C19422;
+	Thu, 26 Feb 2026 08:52:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772095943;
+	bh=/QP/ifJFBVBr5gtAkpDepNA418WX/ZbmVBZRLYhC1Jg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CBNos0PMs0bQ3OcawkwD3VT+nkeHCrlfX7VuxrMfuOI5dT1rmtAC7D5jEGOocvmFJ
+	 BhE6vYXh6py4wkthaDRZEoie3OLQKZeYe7F2p6czow1yw4gom/hOQStCL/3/pZZNQA
+	 3LfiVteH3m25NuEYEH56ewlIeBeZOrpNX2lFsnPBmcNnn8a1XXVIREWpMAYDpFXA9N
+	 tbo6q/h7hyvKAd6vB+ZISfJSjIj7kRo2bcCHIQg8zoM9xQKnUxSYRk+zki/x4R94mF
+	 H6m7gwLN0Mf+VQEaGVgNB4Uh15jglEOz/BwDjuiVflCL4LeSoWkFULn7sfjYoT2eWn
+	 yog6tiAws8aVw==
+Date: Thu, 26 Feb 2026 08:52:19 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, shuah@kernel.org
+Subject: Re: [PATCH v3 1/2] riscv: Introduce support for hardware
+ break/watchpoints
+Message-ID: <20260226-lagging-showplace-5931d23fe69a@spud>
+References: <20260223044918.1359983-1-himanshu.chauhan@oss.qualcomm.com>
+ <20260223044918.1359983-2-himanshu.chauhan@oss.qualcomm.com>
+MIME-Version: 1.0
+In-Reply-To: <20260223044918.1359983-2-himanshu.chauhan@oss.qualcomm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,32 +66,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2020780621893986063=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogV2FuZyBZZWNoYW8gPHdhbmcueWVjaGFvMjU1QHp0ZS5jb20uY24+CgpXaGVuIGRpcnR5
-IGxvZ2dpbmcgaXMgZW5hYmxlZCwgdGhlIGdzdGFnZSBwYWdlIHRhYmxlcyBtdXN0IGJlIG1hcHBl
-ZAphdCBQQUdFX1NJWkUgZ3JhbnVsYXJpdHkgdG8gdHJhY2sgZGlydHkgcGFnZXMgYWNjdXJhdGVs
-eS4gQ3VycmVudGx5LAppZiBhIGh1Z2UgUFRFIGlzIGVuY291bnRlcmVkIGR1cmluZyB0aGUgd3Jp
-dGUtcHJvdGVjdCBmYXVsdCwgdGhlIGNvZGUKcmV0dXJucyAtRUVYSVNULCB3aGljaCBicmVha3Mg
-Vk0gbWlncmF0aW9uLgoKSW5zdGVhZCBvZiByZXR1cm5pbmcgYW4gZXJyb3IsIGRyb3AgdGhlIGh1
-Z2UgUFRFIGFuZCBtYXAgb25seSB0aGUgcGFnZQp0aGF0IGlzIGN1cnJlbnRseSBiZWluZyBhY2Nl
-c3NlZC4gVGhpcyBvbuKAkWRlbWFuZCBhcHByb2FjaCBhdm9pZHMgdGhlCm92ZXJoZWFkIG9mIHNw
-bGl0dGluZyB0aGUgZW50aXJlIGh1Z2UgcGFnZSBpbnRvIHNtYWxsIHBhZ2VzIHVwZnJvbnQuCgpT
-aWduZWQtb2ZmLWJ5OiBXYW5nIFllY2hhbyA8d2FuZy55ZWNoYW8yNTVAenRlLmNvbS5jbj4KLS0t
-CiBhcmNoL3Jpc2N2L2t2bS9nc3RhZ2UuYyB8IDIgKy0KIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2Vy
-dGlvbigrKSwgMSBkZWxldGlvbigtKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva3ZtL2dzdGFn
-ZS5jIGIvYXJjaC9yaXNjdi9rdm0vZ3N0YWdlLmMKaW5kZXggYjY3ZDYwZDcyMmMyLi4xNmM4YWZk
-YWZiZmIgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva3ZtL2dzdGFnZS5jCisrKyBiL2FyY2gvcmlz
-Y3Yva3ZtL2dzdGFnZS5jCkBAIC0xMzQsNyArMTM0LDcgQEAgaW50IGt2bV9yaXNjdl9nc3RhZ2Vf
-c2V0X3B0ZShzdHJ1Y3Qga3ZtX2dzdGFnZSAqZ3N0YWdlLAoKICAgICAgICB3aGlsZSAoY3VycmVu
-dF9sZXZlbCAhPSBtYXAtPmxldmVsKSB7CiAgICAgICAgICAgICAgICBpZiAoZ3N0YWdlX3B0ZV9s
-ZWFmKHB0ZXApKQotICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gLUVFWElTVDsKKyAgICAg
-ICAgICAgICAgICAgICAgICAgc2V0X3B0ZShwdGVwLCBfX3B0ZSgwKSk7CgogICAgICAgICAgICAg
-ICAgaWYgKCFwdGVfdmFsKHB0ZXBfZ2V0KHB0ZXApKSkgewogICAgICAgICAgICAgICAgICAgICAg
-ICBpZiAoIXBjYWNoZSkKLS0gCjIuMjcuMAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+
+--===============2020780621893986063==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="s+XNTX+MEfdZnmZG"
+Content-Disposition: inline
+
+
+--s+XNTX+MEfdZnmZG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Mon, Feb 23, 2026 at 10:19:17AM +0530, Himanshu Chauhan wrote:
+
+> +static int rv_init_mcontrol_trigger(const struct perf_event_attr *attr,
+> +static int rv_init_mcontrol6_trigger(const struct perf_event_attr *attr,
+
+Another minor thing in passing, can you do s/rv/riscv/ here? rv is
+actual subsystem and riscv arch code is almost exclusively using riscv
+as a prefix.
+
+Cheers,
+Conor.
+
+--s+XNTX+MEfdZnmZG
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaAJwwAKCRB4tDGHoIJi
+0gWpAP0W/THm8GnjU1SKWk5Z8tBo0z/SDG+Dt67x4kVg/6GsnwEAyaGHS/5zq+ux
+XnpMXWRkLdrIDduRQnb68tV5f/sa5Ac=
+=iYLY
+-----END PGP SIGNATURE-----
+
+--s+XNTX+MEfdZnmZG--
+
+
+--===============2020780621893986063==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2020780621893986063==--
+
