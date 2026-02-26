@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D037FC590F
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 08:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A06FC590F
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 08:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0J9Rmom6uxWCgh8VOpsZc1bEKev2kbkTG9oRcOwXuIA=; b=0mRTLuQelozeb3
-	heXalmShtUDz8/zbr5yoK6rTogBwoWjN6pETxIPCqJ9lRAvbUiNqlnhbwBwi7dh0rPUvMK5Rkp2Vr
-	QLugLKRWArwPM+vuaHIsIvJLgwFGAc2Kw3ToT/Bj7EmDlCN/z4VjUt/QlnX+7QyK3/qqPu/pYbfK4
-	/gzzNQ1odbmUr0sKSvvv9IK0yL2nAmyUkPstt8ZojLDGVG1y3ZKfz+gOOZ89QBwui1HM2OnfNZOD4
-	HheiH2eKVABclHEsv1yCoJ00bsAlbUs+2myQo9dFxLybvfAjweC+zhL+xo52qxs24/vuxyqn50kcU
-	bj+QFSQXhl44FW2i5ZgQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KJuQdEkE9hJJChK8f6QGRQDX2ek8JK1wbi8P8kTYiNE=; b=ddv7NRR9tbVMkh7delSXsOuZHg
+	bGcql+Ult1PNsHFBpSToSxV8QBqFddxRTqB7FCyEA3j6tfJshaPk/SJUNxPtRFQY/CB7b6xpfdePQ
+	7mXzUqvfIveg1CBMzd+r7mQyi9OrB1KGJ78O0HHoR7/1ZWcdI6clwDwAzmTNj8A9p74io9yUraaQS
+	wziuc2EdQehCjEqalPNbIhENrzLzDnbyIOP4dJuMrUkIZyh0vkFP58zlrAaAdk2PEXtX4yAaVkjsp
+	1dq//+wphW/3AO1OzltPf4YNJniGkE110FZjIBzmc5XVsflsRXeSMkHxlufyo0q0QZB4sCpkvCz6t
+	jm0vQBvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvWnr-00000005etC-4513;
-	Thu, 26 Feb 2026 08:32:59 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vvWyg-00000005gcP-0O2A;
+	Thu, 26 Feb 2026 08:44:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvWnl-00000005eor-1los;
-	Thu, 26 Feb 2026 08:32:57 +0000
-Received: from fric.. (unknown [210.73.43.101])
-	by APP-01 (Coremail) with SMTP id qwCowAB3HWkjBaBpUDDFCA--.13513S2;
-	Thu, 26 Feb 2026 16:32:36 +0800 (CST)
-From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	kvm@vger.kernel.org
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Subject: [PATCH v8 0/3] RISC-V: KVM: Validate SBI STA shmem alignment
-Date: Thu, 26 Feb 2026 08:32:31 +0000
-Message-Id: <20260226083234.634716-1-xujiakai2025@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1vvWyf-00000005gcC-0Nh4
+	for linux-riscv@lists.infradead.org;
+	Thu, 26 Feb 2026 08:44:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B19C60097;
+	Thu, 26 Feb 2026 08:44:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7792C19422;
+	Thu, 26 Feb 2026 08:44:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772095447;
+	bh=KT+n7lGou2MwWb/kPhjb2wieItjTek3mHY+ZvxMDcs8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Dh3ExGoBaw+jCSb0OM/XWNE+dZiU0bxQ3eM42o13hylnazJYhVxm0pxcAztbnaEsE
+	 MIljxm7A6t1Mmco51FTPgUr6KVY4yPpOhNMGzzrQi4piPuy07Ktml9ViXRHsKhG0OC
+	 1yfY3vfol03ILL5nb3zPliJqtZzPcbYcJC4b2Ei531flm13Pk1E+sRw/7Xe1I+YYqI
+	 tIdA6ibvAk9btg/Wy8TmqlLFc7FTZmsDAucB5NkIfJA6uCxXtm9at/Yn2JNNBmYbif
+	 8EQQ45AYQmTbdHQw//psdGP58IcONgvXeXIb4P7YkhO4SAVtjlS03L2hubh+X1d5XX
+	 t/DoV5iYYa7nA==
+Date: Thu, 26 Feb 2026 08:44:03 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Anup Patel <anup@brainfault.org>
+Cc: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, shuah@kernel.org
+Subject: Re: [PATCH v3 1/2] riscv: Introduce support for hardware
+ break/watchpoints
+Message-ID: <20260226-shifty-stingily-acfd81c08fde@spud>
+References: <20260223044918.1359983-1-himanshu.chauhan@oss.qualcomm.com>
+ <20260223044918.1359983-2-himanshu.chauhan@oss.qualcomm.com>
+ <20260223-mouth-plated-50294c7a6ac0@wendy>
+ <CA+Ht8=aoxQp-RcFGWXXsfDyNarCn=zRhUOoG9rUCGeEw83BQvw@mail.gmail.com>
+ <20260224-likewise-rimless-151f6a12b092@wendy>
+ <CA+Ht8=Z-iaQ+zys5UOy6iNtdTsdtjq7mARwz=KJA_vbNYcfF6w@mail.gmail.com>
+ <20260225-compress-moody-400a1e2f46fb@spud>
+ <CAAhSdy2WHLahqPMTCqoSff6Z3no8sX2j_g858jp4XW5Et4dJXw@mail.gmail.com>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAB3HWkjBaBpUDDFCA--.13513S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Gw4DZFW8ZFyDCr4UJFy5Jwb_yoW8Jr4rpa
-	93Ca4FgFy8JayxA3Z3Aw4ktryfWw48CrsFyw17t342yayUKFy8trsrKFWUAa43GF1kXFs0
-	va4xKa4ruF98ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBF14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
-	rcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x
-	0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E
-	7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcV
-	C0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF
-	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7
-	CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JU6c_3UUUUU=
-X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiCQ4KCWmf1uCqDAAAsi
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_003253_835113_F0056ABE 
-X-CRM114-Status: UNSURE (   5.46  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <CAAhSdy2WHLahqPMTCqoSff6Z3no8sX2j_g858jp4XW5Et4dJXw@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,44 +74,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7346138572288693376=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series fixes a missing validation in the RISC-V KVM SBI
-steal-time accounting (STA) register handling.
 
-Patch 1 validates the configured SBI STA shared memory GPA at
-KVM_SET_ONE_REG, enforcing the 64-byte alignment requirement
-defined by the SBI specification or allowing INVALID_GPA to explicitly
-disable steal-time accounting. This prevents invalid userspace state
-from reaching runtime code paths and avoids WARN_ON() triggers during
-KVM_RUN.
+--===============7346138572288693376==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="4uVDXKIANR8kRBf5"
+Content-Disposition: inline
 
-Patch 2 refactors existing UAPI tests from steal_time_init() into
-a dedicated check_steal_time_uapi() function for better code organization,
-and adds an empty stub for RISC-V.
 
-Patch 3 fills in the RISC-V stub with tests that verify KVM correctly
-enforces the STA alignment requirements.
+--4uVDXKIANR8kRBf5
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Jiakai Xu (3):
-  RISC-V: KVM: Validate SBI STA shmem alignment in 
-    kvm_sbi_ext_sta_set_reg()
-  KVM: selftests: Refactor UAPI tests into dedicated function
-  RISC-V: KVM: selftests: Add RISC-V SBI STA shmem alignment tests
+On Thu, Feb 26, 2026 at 11:05:14AM +0530, Anup Patel wrote:
+> On Wed, Feb 25, 2026 at 2:31=E2=80=AFPM Conor Dooley <conor@kernel.org> w=
+rote:
+> >
+> > On Wed, Feb 25, 2026 at 10:33:27AM +0530, Himanshu Chauhan wrote:
+> > > On Tue, Feb 24, 2026 at 1:33=E2=80=AFPM Conor Dooley <conor.dooley@mi=
+crochip.com> wrote:
+> > > >
+> > > > On Tue, Feb 24, 2026 at 09:30:24AM +0530, Himanshu Chauhan wrote:
+> > > > > Hi,
+> > > > >
+> > > > > On Mon, Feb 23, 2026 at 3:55=E2=80=AFPM Conor Dooley <conor.doole=
+y@microchip.com> wrote:
+> > > > > >
+> > > > > > On Mon, Feb 23, 2026 at 10:19:17AM +0530, Himanshu Chauhan wrot=
+e:
+> >
+> > > >
+> > > > Did you miss the comment at the end about the remaining TODOs?
+> > >
+> > > No. As I mentioned in the cover letter, the ptrace support is not
+> > > implemented here. I am actively working on it and these are
+> > > implemented in ptrace work.
+> > > The test is done using the perf events directly. The second patch in
+> > > this patch set has the test application.
+> >
+> > Then the patchset should still be marked RFC, since it is not finished.
+>=20
+> Wow! let's all of us post only large series (covering multiple features)
+> which are difficult to review instead of making life easier for reviewers
+> through incremental series which make gradual progress over-time.
 
- arch/riscv/kvm/vcpu_sbi_sta.c                 | 16 ++--
- .../selftests/kvm/include/kvm_util_types.h    |  4 +
- tools/testing/selftests/kvm/steal_time.c      | 84 +++++++++++++++----
- 3 files changed, 83 insertions(+), 21 deletions(-)
+Where did I say don't post it? In fact, marking it RFC *requires*
+posting it. Don't put words in my mouth.
 
--- 
-2.34.1
 
+--4uVDXKIANR8kRBf5
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaAH0wAKCRB4tDGHoIJi
+0irUAQD9jzZIENl7Ss7qLQhBYrb+IP2exfxBH958HMUbfJcIPAD/e1PRRrnbojxe
+gOrCfktdMAf68Wb1V46UylpoPPVoowE=
+=Wn2B
+-----END PGP SIGNATURE-----
+
+--4uVDXKIANR8kRBf5--
+
+
+--===============7346138572288693376==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7346138572288693376==--
+
