@@ -4,99 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F4EFFD9E0A
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 21:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44BF1FD9E0A
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Feb 2026 21:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gg/GPgAhYAi0B7upHbK8nFcOKO02wgW8aj+kzSKuy1Y=; b=QntGsGuGEEkOQ+UqBUZ9DjcqCo
-	+IXP7blXXHxUrBPB0FQ9F0cRyHVCUyxeorE5ZV+NI8HeT5RMbtbrNtEklI9N9HrRzZPNSnOglQdx0
-	Y1wsaALCuo3/vKheqPA5+tfFAH26JTCM9F4k4YnTMTgRVQJaPYgH7cZHWijaZGqszKKja/L7UYE53
-	VhFCBjKm/g+fs2A4iDDqH2byScmot1Of6/h2ji7Stes/bIWVGZu5Piuv0+br20mXQc7z4fpA4+0qC
-	aJ7nPbVxwVJraocqrcriw42fNRvAtVZXwwC/MWpkM+NVFqrQidz3tuePOcgCyCApnaeJgwo6wfVJW
-	9PchTQlw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=s3RUiRY17pLQtijyzBnBPtUxEqHCV1JblU0PIbGQeZI=; b=TZkcjjboJshDg6
+	vHzQc/OAE0/LPBZY+34Dw4Ut0E6llpmC2L7UpPeTZzeBQGWbn3087t5CfIgbfta5hGuqmdP1RES/i
+	k15n94l/k0gLIDz9yMR19dyBX9hMsLEz8s2XHcj94ElDD9vpW12yKE4nvCejtTiDVr9vSPnNKmkrH
+	EZX4XvyN7soX+dOn811WRwYs+Cc0YCLYINvOMTBHocKgoicQXhw/5g4QyMPBjschCRYU/rqloiRQ8
+	EkAAyEfoUJi1DnEWYBQoDJuDRrvnOyo87mOgFWAM+A9Viymd+HKGVq+gW1aER/IubSt2XGq7iq1xX
+	JFpBQ2iYFyU9B4FBj4lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vviX3-00000007C9S-2jZB;
-	Thu, 26 Feb 2026 21:04:25 +0000
-Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
+	id 1vviya-00000007Fok-2QYk;
+	Thu, 26 Feb 2026 21:32:52 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vviX1-00000007C90-0Ii6
+	id 1vviyY-00000007Fns-1xv0
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Feb 2026 21:04:24 +0000
-Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-2ba9c484e5eso1351430eec.1
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Feb 2026 13:04:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1772139861; x=1772744661; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=BfmlzwEDHS4WYea4lib/8b6e0GAArKK1a+mu7MGsjt8=;
-        b=D7IBPlgHNyRJTd9KNP9jbOO8iJPufBaaFBnG4QqekAmo24Bbwv6mAiqZubemgQVt6F
-         tJXMcac3X2+3B8TFKUxXz3Pe9k/FjWhtgDB1OxtTMl+Ds0/Pdij5OSDs2CE6obvBbRUI
-         41RfEjPqohrYCBNPAuwSK7T8ZS7GvNOQUptxYIoTK7Nf+4WlFbtWPIW+/YUVkJ4ZOwz4
-         J7CAFUY6my7x8pc1ZJOC+3Rc3UpgxMXJiwHxra+xk6kYXwjsNMtDZVJuXM4ToHAT4/Kg
-         Dazaj85XaL2G2LzH0hpBuRS8PL9bRgkahr/DsjsdtvAc9dj2Oxzd7LAOEy5lhJsXHgJ0
-         /y1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772139861; x=1772744661;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BfmlzwEDHS4WYea4lib/8b6e0GAArKK1a+mu7MGsjt8=;
-        b=D6y0D7DBVjkeaZVHwSJNOF0/+5kpUjH1HJzlCQEWAXR963CYuEA9lafil9l8XHEYls
-         fVq68uVekQ4kxFzjysPxY+PcVk0KIjBACsaz/roPwONJbb7Rc63hG6qdUFzfGTCZW/69
-         8N4jH0i83u+BIp/GST1qhkcDsKlxAbFQw3XLZYA9Xxs6jxFkgq9iXE5xVYpEWaY2Ify9
-         m85a5pkz7RznT3zyyTZp1UhTqthaVCiOqUSdIsTQLg4pR1ljXWIUhxdeoDKxLDSszNK2
-         bX7ktt98TEYIluXDm8NDzddddI3Ry/yK0TBVQQpcA5h51GvU5kSLcbRax+yXOHttc8F8
-         a7hQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVce9aITgS7j/02GZKdnrepCMfcZyEAd9Lio6aVsq9CuZ1er+wL6J3Ynv8aqJSDA3SeoZst6vS8v8YQmg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCFVvXeZUrDDKCOu6+BvlO/S6SwiEeyWiw/b2EqD5tlqgBM12U
-	JXuYYkXT5oVc1bIgpoKgFIEOcI/2MQSChJP3sVbXDs2Y16zNm54dFsWcIlXsa1kY0J0=
-X-Gm-Gg: ATEYQzya4y3uOnHJLTBC5vQEpJ7sim0eaJKdBJlS1VVQ/SaIfQ5bGRxI2BYsss0+TUa
-	pzXfUeZxkrfQgZ/qfehrUYlQD8Lv/jgyUyf1aDcsacU2Ys3/ki+UZvnx86jst+LCErX4SuxJH0l
-	Jz45wXOI/M8DDumozai6bsy/cvNMFSuH49cw147B1/Wigqu7f4FEEkaHRxxeDc8BN0SUYIBNlCp
-	3pZtCpJ63B1vCYHK1T3C6+nETNFlzmGvVd50sSd4OuBXEkrgW8c7gbdze26m24CSPzbw4YYhCss
-	M2OoQpAbSEwb5FGKjbpz5KpNkWAkUEMqV+OdK95yPSTS8jQWI2tM5vxDFLBxRrd6fJc81KUZCz5
-	YdHc5O+aR2q5X2QjJhOvLKASVEIBY6D1QsO7urKt/lUWQ2wy2li4jsYG4qYE0YZPxSlEgBwSaSZ
-	9K3yVbGDzdOXFPlSukGm1n6KrPMEI6BmNN
-X-Received: by 2002:a05:7300:3b24:b0:2ba:6b3a:7696 with SMTP id 5a478bee46e88-2bde1b504e4mr184408eec.8.1772139861383;
-        Thu, 26 Feb 2026 13:04:21 -0800 (PST)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2bdd1bcea4esm2597709eec.5.2026.02.26.13.04.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Feb 2026 13:04:20 -0800 (PST)
-Date: Thu, 26 Feb 2026 13:04:19 -0800
-From: Deepak Gupta <debug@rivosinc.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
-	"torvalds@linux-foundation.org" <torvalds@linux-foundation.org>,
-	"Yu, Yu-cheng" <yu-cheng.yu@intel.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"broonie@kernel.org" <broonie@kernel.org>,
-	"pjw@kernel.org" <pjw@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>,
-	"zong.li@sifive.com" <zong.li@sifive.com>
-Subject: Re: [GIT PULL] RISC-V updates for v7.0
-Message-ID: <aaC1UwUpGebEL5Rt@debug.ba.rivosinc.com>
-References: <c554c02e-a791-5c4a-d329-7632de7a194d@kernel.org>
- <CAHk-=whUXMRa3py11kpZiDMau8uauiwZCok2UMQAecTshfTrVA@mail.gmail.com>
- <2248971d-d69c-65fb-93b4-10f0d7d8bbad@kernel.org>
- <b2aae256-7d3c-447d-aa8b-5904848cff6a@sirena.org.uk>
- <CAHk-=whfQXKr3Sgoc7R1tPWFD3A1gEhUh=j7GGwz8yg_EQVhNA@mail.gmail.com>
- <aZYZsBlH_tVxnZIf@debug.ba.rivosinc.com>
- <196537b2933567d1781901f813a72ffffedd10fd.camel@intel.com>
- <aZZuGYQUy11Gse7x@debug.ba.rivosinc.com>
- <20260226132342.GC606826@noisy.programming.kicks-ass.net>
+	Thu, 26 Feb 2026 21:32:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=pEo3m7B3INBJlM8bhz6ltlUxFqOUPxhSBYLsN/1EwlM=; b=lSamVMAuYYH3idjj5lTpd2a7jX
+	+wBZ66r2CZ9iHUnEdPN7RXBNxrJKEGQt8LWSMdOP+iI8sPGErj6lmKfM31meZM3huWa7C1v5XYoi1
+	F3shYzQAMI2d8mwwG3L3ZqTCrxskky9Bq+fQo+Aq/zhWKX/w0ozGPN3j4cvXOXTa/SC2FCsaAV1jt
+	Q2300RVGUdE+ZOL8w6p68qJrWK9aJkRxM1cOtyWtxitFiZBmLFrkPtKFp4UsyFYh3pT2rIWo4mJo9
+	9q78BhF0wp/swRuh2ewaZj8wOtuge85Ezj3t/vgsWTbg4XL14G60eqB5WLQ2C/RFd6e8ssd6eaC2R
+	KqeF+Tlg==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1vviyH-00000008Bi9-1YrI;
+	Thu, 26 Feb 2026 22:32:33 +0100
+Date: Thu, 26 Feb 2026 22:32:32 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Yanko Kaneti <yaneti@declera.com>
+Cc: linux-kernel@vger.kernel.org, Lee Jones <lee@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
+Subject: Re: [PATCH v5 2/2] mfd: simple-mfd-i2c: add a reboot cell for the
+ SpacemiT P1 chip
+Message-ID: <aaC78FTN31QYaVg0@aurel32.net>
+Mail-Followup-To: Yanko Kaneti <yaneti@declera.com>,
+	linux-kernel@vger.kernel.org, Lee Jones <lee@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
+References: <20251102230352.914421-1-aurelien@aurel32.net>
+ <20251102230352.914421-3-aurelien@aurel32.net>
+ <b51a62513daa9d2390031ec350e0b33bdb7e54aa.camel@declera.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260226132342.GC606826@noisy.programming.kicks-ass.net>
+In-Reply-To: <b51a62513daa9d2390031ec350e0b33bdb7e54aa.camel@declera.com>
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260226_130423_185260_9BFF9A37 
-X-CRM114-Status: GOOD (  20.49  )
+X-CRM114-CacheID: sfid-20260226_133250_513315_98C53920 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,96 +89,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Peter,
+Hi,
 
-Responses inline.
+On 2026-02-26 16:32, Yanko Kaneti wrote:
+> Hello,
+> 
+> On Mon, 2025-11-03 at 00:02 +0100, Aurelien Jarno wrote:
+> > Add a "spacemit-p1-reboot" cell for the SpacemiT P1 chip.
+> > 
+> > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+> > ---
+> > v5: no changes
+> > 
+> >  drivers/mfd/simple-mfd-i2c.c | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/drivers/mfd/simple-mfd-i2c.c b/drivers/mfd/simple-mfd-i2c.c
+> > index 0a607a1e3ca1d..542d378cdcd1f 100644
+> > --- a/drivers/mfd/simple-mfd-i2c.c
+> > +++ b/drivers/mfd/simple-mfd-i2c.c
+> > @@ -99,6 +99,7 @@ static const struct regmap_config spacemit_p1_regmap_config = {
+> >  };
+> >  
+> >  static const struct mfd_cell spacemit_p1_cells[] = {
+> > +	{ .name = "spacemit-p1-reboot", },
+> >  	{ .name = "spacemit-p1-regulator", },
+> >  	{ .name = "spacemit-p1-rtc", },
+> >  };
+> 
+> Perhaps its safe to merge this one now that everything P1 and I2C is
+> already in linus tip ?
 
-On Thu, Feb 26, 2026 at 02:23:42PM +0100, Peter Zijlstra wrote:
->On Wed, Feb 18, 2026 at 05:57:45PM -0800, Deepak Gupta wrote:
->
->> x86 doesn't have any equivalent BTI bit in PTEs to mark code pages. IIRC, it
->> does have mechanism where a bitmap has to be prepared and each entry in bitmap
->> encodes whether a page is legacy code page (without `endbr64`) or a modern code
->> page (with `endbr64`). And CPU will consult this bitmap to suppress the fault.
->
->So; all of this is only ever relevant for programs that are mixing CFI
->and !CFI code. If a program has no CFI, all good. If a program is all
->CFI enabled, also all good.
->
->If it starts mixing things, then you get to be 'creative'.
->
->Now the thing is, if you start to do that you need to deal with both
->forward CFI (BTI) and backward CFI (shadow-stack) #CF exceptions. That
->bitmap, that can only deal with BTI, but doesn't help with shadow
->stack, so its useless.
->
->My proposal was to ignore that whole bitmap; that's dead hardware, never
->used. Instead use a software PTE bit, like ARM has, and simply eat the
->#CF look at PTE and figure out what to do.
+Unfortunately, this patchset is still missing:
+https://lore.kernel.org/all/20260207-b4-k3-i2c-pio-v7-0-626942d94d91@linux.spacemit.com/
 
-IIRC, arm has hardware PTE bit saying this is a guarded page. That can be kept
-in ITLB as part of virt addr translation during instruction fetch. So whenever
-indir_call --> target happens, if target translation was already in ITLB, CPU
-already knows whether to suppress the fault or not, without going to kernel.
+This means the reboots work most of the time, but are not 100% reliable, 
+and that's the reason why this patch got blocked from merging.
 
-In x86 case, using a software PTE bit would be different. There will be a fault
-always and kernel won't be able to make a decision on what to do. It'll need
-some delegating authority to make that decision. That delegating authority can
-be a signal handler in userspace which may need a bitmap/auxilliary data
-structure of sort to make that decision whether target address is a taken target
-or should not be taken.
+Regards
+Aurelien
 
-So decision point is either
-
-  - do a software bitmap or
-  - hardware bitmap (legacy interworking bitmap)
-    (both will be slow).
-
-OR
-
-  Just don't allow/support that configuration to enable CFI. And put onus on
-  workload owner to do the work to enable the feature.
-
-Sidenote: I wish we were able to convince someone certain in Redmond to give a
-sw bit back and this all would have been nicer. Given there wasn't a lot of
-traction from open source for this feature, it was mostly a redmond driven
-feature.
-
->
->Yes, this is 'slow', but my claim is that this doesn't matter. There are
->2 ways out of this slow-ness:
->
-> - fully disable CFI for your program (probably not the thing you want,
->   but a quick fix, and not really less secure than partial CFI anyway).
->
-> - fully enable CFI for your program (might be a bit of work).
->
->The whole mixed thing is a transition state where userspace doesn't have
->its ducks in a row. It will go away.
-
-
-I have spent 8 years defining features to kill class of low-level exploits back
-at Intel. And then next 6 years in places where software is deployed on these
-CPUs. 
-
-I am a security engineer and would have loved to get these features enabled.
-But in all honesty, I am yet to see anyone at these places (hyperscalars)
-willing to give up an ounce of perf budget (1-2% demands discussion and strong
-justification) for enabling just the shadow stack feature.
-
-So my advise would be not to care about enabling path where there is a perf hit.
-
-Keep it simple
-- Enable when all binaries have feature awareness.
-- Disable when there is one binary with no feature awareness.
-
->
->
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
