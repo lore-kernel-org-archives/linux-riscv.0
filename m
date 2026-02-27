@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3021FD8FFD
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 19:43:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A25FD9E2C
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 19:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ml2GJYNX3UvhQsfFxf8pEg00gS89t6OyzP2gTQ9FsHY=; b=aCzv9vbHWbI/pY
-	DnHX05pPKI4LdNAqXSCcvPT3jBmELSrIFi7o87TilDHNNsBEoTisqV8MqNeJ9vf5DAl4tmlEyDRb4
-	CQjUPnmxCoCd63OhLDMcmkPr+ihXstthN4LIllY+BnlZG2V8pOxlD5KQbuOF8gk2MRyOFWsuRGArE
-	PKyCIrk+kOYEUe9s5pWxV5HEm0gAkwmm5qylEabhBKoCLiCBvqVAqepfgXTkodZ+6XV93QwL9XhMC
-	oCtg/5bQsguVJRfh4dwiUz3xuykx2BXteqJ6FOAI4XfRqXKCxM8TG3wJswr9kNjs7jxT7MC9PXZom
-	lG9nzwiXGbxEJR7YLx3w==;
+	List-Owner; bh=pwcOQLRcMSh/2dRYhG5tBpO/H1OoW2WMnfoMF4Mpnw8=; b=nPyiTbUcIB6Cdc
+	vq9DlsNvx+KVem0EFt0D+kZ4bUhwibpzXQUWlM9eCSJuz3w6S7sguDVzm6DKtSDq/mfgECSXYEdHl
+	/v7TrFgBLp5NdUPxrshP1LQj5ewUjixyeplEaNy7OwyUGRrydzKulyr0G5Fhc5Q0jt2ARObE/oILq
+	6hcIEW2vj/nwBDS8DOiKAuayV2z5qZzJOKWTvVjADkOPE/rASCA73+zTpY44zzav0P45suDPZ7zTB
+	ruXeSiWgv6YMRHFE5K4btnJ2r4+mHx1OJVNws4387TkAbWbfyg7CaZxczs9E0yUwgd2xfiyuBkTcV
+	L+N5fG6sltaTCwi+5SqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw3k8-000000092fo-1q5l;
-	Fri, 27 Feb 2026 19:43:20 +0000
+	id 1vw3kA-000000092hd-36gq;
+	Fri, 27 Feb 2026 19:43:22 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw3k6-000000092e5-38YS
+	id 1vw3k8-000000092fL-0eYb
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Feb 2026 19:43:19 +0000
+	Fri, 27 Feb 2026 19:43:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 07D9F44581;
+	by sea.source.kernel.org (Postfix) with ESMTP id CAE41445B3;
+	Fri, 27 Feb 2026 19:43:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD949C19421;
 	Fri, 27 Feb 2026 19:43:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25694C19421;
-	Fri, 27 Feb 2026 19:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772221397;
-	bh=SAMYtAvGiq2l3siqpeP/HjyvgvsrRuVBB1mTlVx3THc=;
+	s=k20201202; t=1772221399;
+	bh=Qa3n5VKBU/DN+usEuz8+Om7G9sqmqxUGPeiY6zJ/Qrk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tcY8+B1pcBpmKdlfCS0uOZ512/5KyplcwQlwEN0riGqHbwjNQAx0jMfCuPwb+j7bo
-	 QTo7Hn26jsaBCD6x8+xZ3LAkO1InTpbihOC/cpljfElycYpd4ueewY83LtTyrULyhF
-	 9Vifg2QibBztU8orJDKm/LDbPjRiW0JDGXR9CADTTGwsi+b3bnNy9+xloQpsq2VNVb
-	 1lNLBIhny6cu8Zx0eNxyKG3ykqDSkVFU1KTYiOJVWtmg4Xg7LQcV0d3VC4ikEi6tOM
-	 Uv3/BD6OOJdE9kIOm7lAIi5l1pzPT5a/OVOxeLMKCzChMJ1RL0yIYWxctoc1mXy4Jx
-	 yVj1KvyY/leoA==
+	b=pz7x/zeRZhQ6xZh/JF2PLBA3UVxYt5R7fliDJqQsrA7EWawCcDrq6rzktU+2Xknfo
+	 tlAd7MbWAstB6zD7YDLt40LYBwiyBPtk/5130dQdxkHsr+jNi6oGQySAvmpDt3qVmf
+	 s19NFBZCsIh3k5ZDvNy4BUsvYkbTDpxXcqw3ONh/PgxkXxAbPpQQCRZE1xaiz/mlHK
+	 qmfkudr2BHhOHDDcJAFG8InHd4JESRAMaS8xCUrqhKkjlhhtSXUK647GOpOI4CgAHC
+	 2FjqjqC9OPN+yaDqpOYnL2vnDhijVJ8ie2lehbduuMxeQ4TjgqWr4dEq46b9Xiyci/
+	 CgMe6S4W/Rq3Q==
 Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 509F8F40068;
-	Fri, 27 Feb 2026 14:43:16 -0500 (EST)
+	by mailfauth.phl.internal (Postfix) with ESMTP id 167ACF40069;
+	Fri, 27 Feb 2026 14:43:18 -0500 (EST)
 Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Fri, 27 Feb 2026 14:43:16 -0500
-X-ME-Sender: <xms:1POhaTPYYIx41emnSltkSPqXLs7Hw07GkH2erO2UVreMOcH7aRHXNQ>
-    <xme:1POhaXLpLqC3CgEIU3xtszaBhGEElS7OpjSlH1TW8K67YmRAAYihChJIThB26_OZD
-    ghRVBh0nz2xziQRiabzH7hwp5sJSk1yvDsYP1IEgYQTv0FZpoNYRjA>
-X-ME-Received: <xmr:1POhacaye2j0k2NKv4CmZ5wSqYbQ02TxqLESpFRdQFKAPO59yh6ikDXxZP1KVA>
+  by phl-compute-06.internal (MEProxy); Fri, 27 Feb 2026 14:43:18 -0500
+X-ME-Sender: <xms:1vOhae7YFFAxZXh3_N19WWfb2lBzOwlSxqyevDM4BtfJ-BidljQ59w>
+    <xme:1vOhaRE734JhlpbsLxbnczaJk9g1Lhp3aCegQ1fJ8EFJ4sJbA-M1y887CyhX4tiTo
+    y-9nZD5a4huuGeV22LOqmIFkpBvSzEa3FJr1hUinhqyphyszHF_cplS>
+X-ME-Received: <xmr:1vOhaXlNd3fqpGJtnHBHpj_4sS5cx8LORSG1Zdqhuxo50BCkCNKJSopNR9EFxw>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvgeelkeejucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
@@ -68,14 +68,14 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvgeelkeejucetufdote
     rghilhdrtghomhdprhgtphhtthhopehfvhgulhesghhoohhglhgvrdgtohhmpdhrtghpth
     htohepohhsrghlvhgrughorhesshhushgvrdguvgdprhgtphhtthhopehrphhptheskhgv
     rhhnvghlrdhorhhgpdhrtghpthhtohepvhgsrggskhgrsehsuhhsvgdrtgii
-X-ME-Proxy: <xmx:1POhaYlV9F7FZhkhPP5UR7LfiXU6yPyJrPGzwTL6WRDORp1W2i3PAg>
-    <xmx:1POhaXZr6H8m-b0joZT-p1OXlbwkGQzpcQX-LIjAPoH-NN7_Jkf5IA>
-    <xmx:1POhaQBJlSdzCZ0oSCNa2A_5TTgq1iBBuH7YThh5LrfhqqRLl3vkBA>
-    <xmx:1POhadZ8i3JjbDQAlPlYfQHZOXHq8w7pPx_dv5VK1_lw6zxR2VRcIQ>
-    <xmx:1POhaUhL3C6uixSlUoBGYAj6w1gryeKqIB1jiI6nvwKAdmF3xLrwUeIM>
+X-ME-Proxy: <xmx:1vOhacAFFqSOI4885Zy7Iqo0us3SXf_Rk7cqi7_GkheLV8lhkcXWpQ>
+    <xmx:1vOhaeHcRVjpp47P7EB6ZOgUrov8X3dLllIUEtUN8eJcPa6fKn8mKA>
+    <xmx:1vOhaY-16JPOoDp2IoZQcFlovyvM32cGRyMZpOu_Xa4yYLoeawolRA>
+    <xmx:1vOhabkvbZv7ZqtIx-vd9H6Q44WMt4kD_MgZLhDFouQyirDnHmfbCA>
+    <xmx:1vOhae9n8SDoKW34ApDWeA6Vz33Dgkc3q7pqQGTX0-uJGpGArdUeqCRt>
 Feedback-ID: i10464835:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 27 Feb 2026 14:43:15 -0500 (EST)
+ 27 Feb 2026 14:43:17 -0500 (EST)
 From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	Muchun Song <muchun.song@linux.dev>,
@@ -105,17 +105,16 @@ Cc: Oscar Salvador <osalvador@suse.de>,
 	loongarch@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	Kiryl Shutsemau <kas@kernel.org>
-Subject: [PATCHv7 04/18] mm: Move set/clear_compound_head() next to compound_head()
-Date: Fri, 27 Feb 2026 19:42:42 +0000
-Message-ID: <20260227194302.274384-5-kas@kernel.org>
+Subject: [PATCHv7 05/18] riscv/mm: Align vmemmap to maximal folio size
+Date: Fri, 27 Feb 2026 19:42:43 +0000
+Message-ID: <20260227194302.274384-6-kas@kernel.org>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20260227194302.274384-1-kas@kernel.org>
 References: <20260227194302.274384-1-kas@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_114318_826916_BA05D5F8 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260227_114320_226609_C9266959 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,62 +133,54 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Kiryl Shutsemau <kas@kernel.org>
 
-Move set_compound_head() and clear_compound_head() to be adjacent to the
-compound_head() function in page-flags.h.
+The upcoming change to the HugeTLB vmemmap optimization (HVO) requires
+struct pages of the head page to be naturally aligned with regard to the
+folio size.
 
-These functions encode and decode the same compound_info field, so
-keeping them together makes it easier to verify their logic is
-consistent, especially when the encoding changes.
+Align vmemmap to the newly introduced MAX_FOLIO_VMEMMAP_ALIGN.
 
 Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
-Reviewed-by: Muchun Song <muchun.song@linux.dev>
-Reviewed-by: Zi Yan <ziy@nvidia.com>
-Acked-by: David Hildenbrand (arm) <david@kernel.org>
-Reviewed-by: Vlastimil Babka <vbabka@suse.cz>
 ---
- include/linux/page-flags.h | 22 +++++++++++-----------
- 1 file changed, 11 insertions(+), 11 deletions(-)
+ arch/riscv/mm/init.c   |  3 ++-
+ include/linux/mmzone.h | 11 +++++++++++
+ 2 files changed, 13 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
-index 70c4e43f2d9a..42bf8ed02a29 100644
---- a/include/linux/page-flags.h
-+++ b/include/linux/page-flags.h
-@@ -290,6 +290,17 @@ static __always_inline unsigned long _compound_head(const struct page *page)
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 811e03786c56..e8fb2239a0b5 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -63,7 +63,8 @@ phys_addr_t phys_ram_base __ro_after_init;
+ EXPORT_SYMBOL(phys_ram_base);
  
- #define compound_head(page)	((typeof(page))_compound_head(page))
+ #ifdef CONFIG_SPARSEMEM_VMEMMAP
+-#define VMEMMAP_ADDR_ALIGN	(1ULL << SECTION_SIZE_BITS)
++#define VMEMMAP_ADDR_ALIGN	max(1ULL << SECTION_SIZE_BITS, \
++				    MAX_FOLIO_VMEMMAP_ALIGN)
  
-+static __always_inline void set_compound_head(struct page *tail,
-+		const struct page *head, unsigned int order)
-+{
-+	WRITE_ONCE(tail->compound_info, (unsigned long)head + 1);
-+}
+ unsigned long vmemmap_start_pfn __ro_after_init;
+ EXPORT_SYMBOL(vmemmap_start_pfn);
+diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
+index be8ce40b5638..492a5be1090f 100644
+--- a/include/linux/mmzone.h
++++ b/include/linux/mmzone.h
+@@ -92,6 +92,17 @@
+ 
+ #define MAX_FOLIO_NR_PAGES	(1UL << MAX_FOLIO_ORDER)
+ 
++/*
++ * HugeTLB Vmemmap Optimization (HVO) requires struct pages of the head page to
++ * be naturally aligned with regard to the folio size.
++ *
++ * HVO which is only active if the size of struct page is a power of 2.
++ */
++#define MAX_FOLIO_VMEMMAP_ALIGN \
++	(IS_ENABLED(CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP) && \
++	 is_power_of_2(sizeof(struct page)) ? \
++	 MAX_FOLIO_NR_PAGES * sizeof(struct page) : 0)
 +
-+static __always_inline void clear_compound_head(struct page *page)
-+{
-+	WRITE_ONCE(page->compound_info, 0);
-+}
-+
- /**
-  * page_folio - Converts from page to folio.
-  * @p: The page.
-@@ -865,17 +876,6 @@ static inline bool folio_test_large(const struct folio *folio)
- 	return folio_test_head(folio);
- }
- 
--static __always_inline void set_compound_head(struct page *tail,
--		const struct page *head, unsigned int order)
--{
--	WRITE_ONCE(tail->compound_info, (unsigned long)head + 1);
--}
--
--static __always_inline void clear_compound_head(struct page *page)
--{
--	WRITE_ONCE(page->compound_info, 0);
--}
--
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- static inline void ClearPageCompound(struct page *page)
- {
+ enum migratetype {
+ 	MIGRATE_UNMOVABLE,
+ 	MIGRATE_MOVABLE,
 -- 
 2.51.2
 
