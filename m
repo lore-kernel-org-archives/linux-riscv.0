@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A25FD9E2C
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 19:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BD2DFD9E2C
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 19:43:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pwcOQLRcMSh/2dRYhG5tBpO/H1OoW2WMnfoMF4Mpnw8=; b=nPyiTbUcIB6Cdc
-	vq9DlsNvx+KVem0EFt0D+kZ4bUhwibpzXQUWlM9eCSJuz3w6S7sguDVzm6DKtSDq/mfgECSXYEdHl
-	/v7TrFgBLp5NdUPxrshP1LQj5ewUjixyeplEaNy7OwyUGRrydzKulyr0G5Fhc5Q0jt2ARObE/oILq
-	6hcIEW2vj/nwBDS8DOiKAuayV2z5qZzJOKWTvVjADkOPE/rASCA73+zTpY44zzav0P45suDPZ7zTB
-	ruXeSiWgv6YMRHFE5K4btnJ2r4+mHx1OJVNws4387TkAbWbfyg7CaZxczs9E0yUwgd2xfiyuBkTcV
-	L+N5fG6sltaTCwi+5SqQ==;
+	List-Owner; bh=YNu9C8gUxomq7kk30uQUzll1vjPTqBu1NXMWTLJJ0A8=; b=d8ZrswSCFPWOga
+	kfMwxA1Y7Wdaiu3674sQMw0sc4A/4UFQd2Fc6ZlKQgbI2E358t60xpAaHjeGWkDnyZ5doLJQS8yCJ
+	aHmpTptGEAFuMvflVfGmDuNr1HIrvHCeD2MALtKsT0pPyrxLg7WaaWjImIDNvDJhJLUIxkB9Dsfje
+	0/fUrOtxN05XOtbXethwvK3cGtbRMceb1RVcDeoIoEPeB1zYqiJKgplPZzo2Nmnnbsv6BXHNNIjUF
+	RtlILDzyXUUqq5ZvlKIVvpSNClPQMf8byqU6xGvLun0PPQGn4flY3E5VMOa0S+RnYn0IEDHw4k74x
+	A1cmWIq3sr3cd1D35ubg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw3kA-000000092hd-36gq;
-	Fri, 27 Feb 2026 19:43:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vw3kF-000000092kN-0Dg9;
+	Fri, 27 Feb 2026 19:43:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw3k8-000000092fL-0eYb
+	id 1vw3kB-000000092iQ-3kYR
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Feb 2026 19:43:21 +0000
+	Fri, 27 Feb 2026 19:43:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CAE41445B3;
-	Fri, 27 Feb 2026 19:43:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD949C19421;
-	Fri, 27 Feb 2026 19:43:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4837060133;
+	Fri, 27 Feb 2026 19:43:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25C06C4AF09;
+	Fri, 27 Feb 2026 19:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772221399;
-	bh=Qa3n5VKBU/DN+usEuz8+Om7G9sqmqxUGPeiY6zJ/Qrk=;
+	s=k20201202; t=1772221403;
+	bh=op4sRtUfkPTkGQoMOy4067b1J6icXmPW9c6oduSGytg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pz7x/zeRZhQ6xZh/JF2PLBA3UVxYt5R7fliDJqQsrA7EWawCcDrq6rzktU+2Xknfo
-	 tlAd7MbWAstB6zD7YDLt40LYBwiyBPtk/5130dQdxkHsr+jNi6oGQySAvmpDt3qVmf
-	 s19NFBZCsIh3k5ZDvNy4BUsvYkbTDpxXcqw3ONh/PgxkXxAbPpQQCRZE1xaiz/mlHK
-	 qmfkudr2BHhOHDDcJAFG8InHd4JESRAMaS8xCUrqhKkjlhhtSXUK647GOpOI4CgAHC
-	 2FjqjqC9OPN+yaDqpOYnL2vnDhijVJ8ie2lehbduuMxeQ4TjgqWr4dEq46b9Xiyci/
-	 CgMe6S4W/Rq3Q==
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 167ACF40069;
-	Fri, 27 Feb 2026 14:43:18 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Fri, 27 Feb 2026 14:43:18 -0500
-X-ME-Sender: <xms:1vOhae7YFFAxZXh3_N19WWfb2lBzOwlSxqyevDM4BtfJ-BidljQ59w>
-    <xme:1vOhaRE734JhlpbsLxbnczaJk9g1Lhp3aCegQ1fJ8EFJ4sJbA-M1y887CyhX4tiTo
-    y-9nZD5a4huuGeV22LOqmIFkpBvSzEa3FJr1hUinhqyphyszHF_cplS>
-X-ME-Received: <xmr:1vOhaXlNd3fqpGJtnHBHpj_4sS5cx8LORSG1Zdqhuxo50BCkCNKJSopNR9EFxw>
+	b=CtgFn6XBXFxOWlLFE2gle5jY5ibw8WX1eHeG5F6NIF9j3te6FsFzfsQmD/ApaKrCB
+	 WiJfb22SPYV5Odhck3Dgqs96h6CbEhmURe3oV9MMjzXDHCZQJ95i2eNuXE/B3etvKG
+	 E3mwixBhsVWgi/UTvikjq8SzhvNbyvLiQiWxXqOBKnLhrftquR9n0afM/qNZKzBgVh
+	 HrG/Hpc7zjPQdNwwiOQ8hq9DyGIv5+YO3lPnZbIkpzjL6zMFhau1LFLEyek6QRcmyd
+	 TF706ad9R4HAcdSVoHRjdMemSv1FdKITLzi3vD6EgqeDT94yDbA2lFsqGYUbXgX3u6
+	 LlWgXPSDI8Dow==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 4D197F40069;
+	Fri, 27 Feb 2026 14:43:21 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-01.internal (MEProxy); Fri, 27 Feb 2026 14:43:21 -0500
+X-ME-Sender: <xms:2fOhaeqKGRRIH1VXLgXVQbWQ_LaRkFfx1qDTw9rlutLp3ibgbvWiUw>
+    <xme:2fOhaV1rF82URTV0TkbeynvbfrljHayoNzbQdE_GeWx3B7QZkJWbXk0F1hWv_lWk4
+    R4YNwRddrNWr5ZwQAva_PNSDzgdPVRQ27zRDX2DPWVTkN8n0X59dwgF>
+X-ME-Received: <xmr:2fOhadUl2Ppw8-2ChPPLJTFxOAa_XjCuZtul2FVkqrvG12E1yz3YpZYCD7k2DA>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvgeelkeejucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
@@ -68,14 +68,14 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvgeelkeejucetufdote
     rghilhdrtghomhdprhgtphhtthhopehfvhgulhesghhoohhglhgvrdgtohhmpdhrtghpth
     htohepohhsrghlvhgrughorhesshhushgvrdguvgdprhgtphhtthhopehrphhptheskhgv
     rhhnvghlrdhorhhgpdhrtghpthhtohepvhgsrggskhgrsehsuhhsvgdrtgii
-X-ME-Proxy: <xmx:1vOhacAFFqSOI4885Zy7Iqo0us3SXf_Rk7cqi7_GkheLV8lhkcXWpQ>
-    <xmx:1vOhaeHcRVjpp47P7EB6ZOgUrov8X3dLllIUEtUN8eJcPa6fKn8mKA>
-    <xmx:1vOhaY-16JPOoDp2IoZQcFlovyvM32cGRyMZpOu_Xa4yYLoeawolRA>
-    <xmx:1vOhabkvbZv7ZqtIx-vd9H6Q44WMt4kD_MgZLhDFouQyirDnHmfbCA>
-    <xmx:1vOhae9n8SDoKW34ApDWeA6Vz33Dgkc3q7pqQGTX0-uJGpGArdUeqCRt>
+X-ME-Proxy: <xmx:2fOhaezMhNPYRIIh7I6pIsAkAEf9fYdengLDKyp7Ow88YAPwDRLe1A>
+    <xmx:2fOhaZ0y8tXkLPTnSPCbCrhWiATS9kXu0bVNT5QgaWBgpXkdLXH_dA>
+    <xmx:2fOhaZseoPzwjQWmYWTDSR5I9s6y6CQWvhhF8NNRsbGtXfuyskm4Zg>
+    <xmx:2fOhadWx9TiqSlashH7DNrmLvnpQLFieA6A5ngkfXtq2TIyIy7DVTw>
+    <xmx:2fOhadv1xRIvKyWR4OHHNwCHYg8OkDazisF5wv3m4XfBU2aJCCUMcD_O>
 Feedback-ID: i10464835:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 27 Feb 2026 14:43:17 -0500 (EST)
+ 27 Feb 2026 14:43:20 -0500 (EST)
 From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	Muchun Song <muchun.song@linux.dev>,
@@ -105,16 +105,13 @@ Cc: Oscar Salvador <osalvador@suse.de>,
 	loongarch@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	Kiryl Shutsemau <kas@kernel.org>
-Subject: [PATCHv7 05/18] riscv/mm: Align vmemmap to maximal folio size
-Date: Fri, 27 Feb 2026 19:42:43 +0000
-Message-ID: <20260227194302.274384-6-kas@kernel.org>
+Subject: [PATCHv7 07/18] mm: Rework compound_head() for power-of-2 sizeof(struct page)
+Date: Fri, 27 Feb 2026 19:42:45 +0000
+Message-ID: <20260227194302.274384-8-kas@kernel.org>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20260227194302.274384-1-kas@kernel.org>
 References: <20260227194302.274384-1-kas@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_114320_226609_C9266959 
-X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,54 +130,238 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Kiryl Shutsemau <kas@kernel.org>
 
-The upcoming change to the HugeTLB vmemmap optimization (HVO) requires
-struct pages of the head page to be naturally aligned with regard to the
-folio size.
+For tail pages, the kernel uses the 'compound_info' field to get to the
+head page. The bit 0 of the field indicates whether the page is a
+tail page, and if set, the remaining bits represent a pointer to the
+head page.
 
-Align vmemmap to the newly introduced MAX_FOLIO_VMEMMAP_ALIGN.
+For cases when size of struct page is power-of-2, change the encoding of
+compound_info to store a mask that can be applied to the virtual address
+of the tail page in order to access the head page. It is possible
+because struct page of the head page is naturally aligned with regards
+to order of the page.
+
+The significant impact of this modification is that all tail pages of
+the same order will now have identical 'compound_info', regardless of
+the compound page they are associated with. This paves the way for
+eliminating fake heads.
+
+The HugeTLB Vmemmap Optimization (HVO) creates fake heads and it is only
+applied when the sizeof(struct page) is power-of-2. Having identical
+tail pages allows the same page to be mapped into the vmemmap of all
+pages, maintaining memory savings without fake heads.
+
+If sizeof(struct page) is not power-of-2, there is no functional
+changes.
+
+Limit mask usage to HugeTLB vmemmap optimization (HVO) where it makes
+a difference. The approach with mask would work in the wider set of
+conditions, but it requires validating that struct pages are naturally
+aligned for all orders up to the MAX_FOLIO_ORDER, which can be tricky.
 
 Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
+Reviewed-by: Muchun Song <muchun.song@linux.dev>
+Reviewed-by: Zi Yan <ziy@nvidia.com>
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+Acked-by: Usama Arif <usamaarif642@gmail.com>
+Reviewed-by: Vlastimil Babka <vbabka@suse.cz>
 ---
- arch/riscv/mm/init.c   |  3 ++-
- include/linux/mmzone.h | 11 +++++++++++
- 2 files changed, 13 insertions(+), 1 deletion(-)
+ include/linux/page-flags.h | 81 ++++++++++++++++++++++++++++++++++----
+ mm/slab.h                  | 16 ++++++--
+ mm/util.c                  | 16 ++++++--
+ 3 files changed, 97 insertions(+), 16 deletions(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 811e03786c56..e8fb2239a0b5 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -63,7 +63,8 @@ phys_addr_t phys_ram_base __ro_after_init;
- EXPORT_SYMBOL(phys_ram_base);
+diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
+index 42bf8ed02a29..01970bd38bff 100644
+--- a/include/linux/page-flags.h
++++ b/include/linux/page-flags.h
+@@ -198,6 +198,29 @@ enum pageflags {
  
- #ifdef CONFIG_SPARSEMEM_VMEMMAP
--#define VMEMMAP_ADDR_ALIGN	(1ULL << SECTION_SIZE_BITS)
-+#define VMEMMAP_ADDR_ALIGN	max(1ULL << SECTION_SIZE_BITS, \
-+				    MAX_FOLIO_VMEMMAP_ALIGN)
- 
- unsigned long vmemmap_start_pfn __ro_after_init;
- EXPORT_SYMBOL(vmemmap_start_pfn);
-diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
-index be8ce40b5638..492a5be1090f 100644
---- a/include/linux/mmzone.h
-+++ b/include/linux/mmzone.h
-@@ -92,6 +92,17 @@
- 
- #define MAX_FOLIO_NR_PAGES	(1UL << MAX_FOLIO_ORDER)
+ #ifndef __GENERATING_BOUNDS_H
  
 +/*
-+ * HugeTLB Vmemmap Optimization (HVO) requires struct pages of the head page to
-+ * be naturally aligned with regard to the folio size.
++ * For tail pages, if the size of struct page is power-of-2 ->compound_info
++ * encodes the mask that converts the address of the tail page address to
++ * the head page address.
 + *
-+ * HVO which is only active if the size of struct page is a power of 2.
++ * Otherwise, ->compound_info has direct pointer to head pages.
 + */
-+#define MAX_FOLIO_VMEMMAP_ALIGN \
-+	(IS_ENABLED(CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP) && \
-+	 is_power_of_2(sizeof(struct page)) ? \
-+	 MAX_FOLIO_NR_PAGES * sizeof(struct page) : 0)
++static __always_inline bool compound_info_has_mask(void)
++{
++	/*
++	 * Limit mask usage to HugeTLB vmemmap optimization (HVO) where it
++	 * makes a difference.
++	 *
++	 * The approach with mask would work in the wider set of conditions,
++	 * but it requires validating that struct pages are naturally aligned
++	 * for all orders up to the MAX_FOLIO_ORDER, which can be tricky.
++	 */
++	if (!IS_ENABLED(CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP))
++		return false;
 +
- enum migratetype {
- 	MIGRATE_UNMOVABLE,
- 	MIGRATE_MOVABLE,
++	return is_power_of_2(sizeof(struct page));
++}
++
+ #ifdef CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
+ DECLARE_STATIC_KEY_FALSE(hugetlb_optimize_vmemmap_key);
+ 
+@@ -207,6 +230,10 @@ DECLARE_STATIC_KEY_FALSE(hugetlb_optimize_vmemmap_key);
+  */
+ static __always_inline const struct page *page_fixed_fake_head(const struct page *page)
+ {
++	/* Fake heads only exists if compound_info_has_mask() is true */
++	if (!compound_info_has_mask())
++		return page;
++
+ 	if (!static_branch_unlikely(&hugetlb_optimize_vmemmap_key))
+ 		return page;
+ 
+@@ -223,10 +250,14 @@ static __always_inline const struct page *page_fixed_fake_head(const struct page
+ 		 * because the @page is a compound page composed with at least
+ 		 * two contiguous pages.
+ 		 */
+-		unsigned long head = READ_ONCE(page[1].compound_info);
++		unsigned long info = READ_ONCE(page[1].compound_info);
+ 
+-		if (likely(head & 1))
+-			return (const struct page *)(head - 1);
++		/* See set_compound_head() */
++		if (likely(info & 1)) {
++			unsigned long p = (unsigned long)page;
++
++			return (const struct page *)(p & info);
++		}
+ 	}
+ 	return page;
+ }
+@@ -281,11 +312,26 @@ static __always_inline int page_is_fake_head(const struct page *page)
+ 
+ static __always_inline unsigned long _compound_head(const struct page *page)
+ {
+-	unsigned long head = READ_ONCE(page->compound_info);
++	unsigned long info = READ_ONCE(page->compound_info);
+ 
+-	if (unlikely(head & 1))
+-		return head - 1;
+-	return (unsigned long)page_fixed_fake_head(page);
++	/* Bit 0 encodes PageTail() */
++	if (!(info & 1))
++		return (unsigned long)page_fixed_fake_head(page);
++
++	/*
++	 * If compound_info_has_mask() is false, the rest of compound_info is
++	 * the pointer to the head page.
++	 */
++	if (!compound_info_has_mask())
++		return info - 1;
++
++	/*
++	 * If compound_info_has_mask() is true the rest of the info encodes
++	 * the mask that converts the address of the tail page to the head page.
++	 *
++	 * No need to clear bit 0 in the mask as 'page' always has it clear.
++	 */
++	return (unsigned long)page & info;
+ }
+ 
+ #define compound_head(page)	((typeof(page))_compound_head(page))
+@@ -293,7 +339,26 @@ static __always_inline unsigned long _compound_head(const struct page *page)
+ static __always_inline void set_compound_head(struct page *tail,
+ 		const struct page *head, unsigned int order)
+ {
+-	WRITE_ONCE(tail->compound_info, (unsigned long)head + 1);
++	unsigned int shift;
++	unsigned long mask;
++
++	if (!compound_info_has_mask()) {
++		WRITE_ONCE(tail->compound_info, (unsigned long)head | 1);
++		return;
++	}
++
++	/*
++	 * If the size of struct page is power-of-2, bits [shift:0] of the
++	 * virtual address of compound head are zero.
++	 *
++	 * Calculate mask that can be applied to the virtual address of
++	 * the tail page to get address of the head page.
++	 */
++	shift = order + order_base_2(sizeof(struct page));
++	mask = GENMASK(BITS_PER_LONG - 1, shift);
++
++	/* Bit 0 encodes PageTail() */
++	WRITE_ONCE(tail->compound_info, mask | 1);
+ }
+ 
+ static __always_inline void clear_compound_head(struct page *page)
+diff --git a/mm/slab.h b/mm/slab.h
+index 62dfa50c1f01..1a1b3758df05 100644
+--- a/mm/slab.h
++++ b/mm/slab.h
+@@ -131,11 +131,19 @@ static_assert(IS_ALIGNED(offsetof(struct slab, freelist), sizeof(struct freelist
+  */
+ static inline struct slab *page_slab(const struct page *page)
+ {
+-	unsigned long head;
++	unsigned long info;
++
++	info = READ_ONCE(page->compound_info);
++	if (info & 1) {
++		/* See compound_head() */
++		if (compound_info_has_mask()) {
++			unsigned long p = (unsigned long)page;
++			page = (struct page *)(p & info);
++		} else {
++			page = (struct page *)(info - 1);
++		}
++	}
+ 
+-	head = READ_ONCE(page->compound_head);
+-	if (head & 1)
+-		page = (struct page *)(head - 1);
+ 	if (data_race(page->page_type >> 24) != PGTY_slab)
+ 		page = NULL;
+ 
+diff --git a/mm/util.c b/mm/util.c
+index 3ebcb9e6035c..20dccf2881d7 100644
+--- a/mm/util.c
++++ b/mm/util.c
+@@ -1237,7 +1237,7 @@ static void set_ps_flags(struct page_snapshot *ps, const struct folio *folio,
+  */
+ void snapshot_page(struct page_snapshot *ps, const struct page *page)
+ {
+-	unsigned long head, nr_pages = 1;
++	unsigned long info, nr_pages = 1;
+ 	struct folio *foliop;
+ 	int loops = 5;
+ 
+@@ -1247,8 +1247,8 @@ void snapshot_page(struct page_snapshot *ps, const struct page *page)
+ again:
+ 	memset(&ps->folio_snapshot, 0, sizeof(struct folio));
+ 	memcpy(&ps->page_snapshot, page, sizeof(*page));
+-	head = ps->page_snapshot.compound_info;
+-	if ((head & 1) == 0) {
++	info = ps->page_snapshot.compound_info;
++	if (!(info & 1)) {
+ 		ps->idx = 0;
+ 		foliop = (struct folio *)&ps->page_snapshot;
+ 		if (!folio_test_large(foliop)) {
+@@ -1259,7 +1259,15 @@ void snapshot_page(struct page_snapshot *ps, const struct page *page)
+ 		}
+ 		foliop = (struct folio *)page;
+ 	} else {
+-		foliop = (struct folio *)(head - 1);
++		/* See compound_head() */
++		if (compound_info_has_mask()) {
++			unsigned long p = (unsigned long)page;
++
++			foliop = (struct folio *)(p & info);
++		} else {
++			foliop = (struct folio *)(info - 1);
++		}
++
+ 		ps->idx = folio_page_idx(foliop, page);
+ 	}
+ 
 -- 
 2.51.2
 
