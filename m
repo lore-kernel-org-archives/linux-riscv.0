@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94824FD7F9C
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 19:30:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 330C0FD530A
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 19:30:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GLXYJVsc2VydYz3EYZdZKyHjs9PHUo5sO8Vk/w3Cls8=; b=LyinXKikTJrEPe
-	Ih+EX3RQH1A+7SEWGDx+BKihyUuwW3mgeo0VG/JSVOkKP3usvmW5W5hpziF2jacgmNXy05RLG6Hlu
-	A9DV8eCmsMZbcBS9SYSn8RFi4WPJaB+mLbxvKSMb1QUKmCLFZKzMLG/9rsNxa+beVCiXZuCXWYRRN
-	6h9nOMkq2nqKDop8GCHjuCzT/Q5yqcr3Pzj54+4evvVOeVbv/azOkKCdfR19hM2/sh6Nt2jmhIYTl
-	XmjZuxgeO9Q5CnegoCyQtMU7TuIS1BjNBfmdwlqaNMs5k2TX0+/WMCaLST/Da3MsWtCAQv4rMbXyi
-	jslB4mGY01xEhvdSvUtw==;
+	List-Owner; bh=ZT374lJg36y3F+hVGcDh+AfpnfpV1/MhofMMEpExmLc=; b=JFt7nkEaCScmcx
+	VYTAUgfD66PxrCVQZYovbN2myLhNZs/Uaqev0iPWKfXKBXWGJ7SWBW1D+sEzWi7r7b2WHHK0+UMgU
+	wyCtSNboSWRMRdTpcLTyZNm2cj0jh1sawCPFa5coXrWshbF6wVPgLv9skKv8JHsMS8VwjNV2ycBBG
+	L7YKS6qEl+CE8em+iiBznEpMDtcY9RNv3mFrGEs6aEaqFGiw5S8e2RWneAYEfnqqIioEu6DgmCkPY
+	Q2A0h0fXVhmHkG3rMG827NbbID6P2fGGwGD2dPqxBqSJyhUa/4CUv2CnJ3PA5J6kgKzR6d61zy26W
+	1ryrsircxJKjwI7qD+hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw3Y2-00000008zzk-1Sq3;
-	Fri, 27 Feb 2026 19:30:51 +0000
+	id 1vw3Y5-00000009037-05Eu;
+	Fri, 27 Feb 2026 19:30:53 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw3Y0-00000008zyp-1oko
+	id 1vw3Y4-0000000901F-0OnC
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Feb 2026 19:30:48 +0000
+	Fri, 27 Feb 2026 19:30:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC7A061333;
-	Fri, 27 Feb 2026 19:30:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20974C2BC87;
-	Fri, 27 Feb 2026 19:30:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8576360137;
+	Fri, 27 Feb 2026 19:30:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2C20C4AF0B;
+	Fri, 27 Feb 2026 19:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772220647;
-	bh=TjFPR2A/aXv+e4Iy4206wqwlc1GWuPYPZlFrvQnaoZk=;
+	s=k20201202; t=1772220651;
+	bh=gud3FwwIClhEmyWoGuFCwJEp0m9beXo/gim58y+k7v0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LQCTe03k2GJInTEbTCNK2/2GeCIu4w/hyXbTxPvPBL6KRmnVLdXeyI3FS0Ysi8vsf
-	 aOhZD37HnurZ6z1FomEsxf3IRPcWQzNNwQr19agcM8UzMLreNcfFX0MP6WsxS2z0Wv
-	 fWnRouZWsBp7pnBgxNEQaKB4BojCQN2102OHPS2Pd6hTn+IP2hVJ/PRxkL/EYPFsqs
-	 lJSNGNDlM6bU3IVdcbHPGDjpwkbVaQXihMkJKmh9rB1sdlgVQyUaO8pHu7VzFz1T93
-	 OmiXowiWdkv6pV35jGMS8a9+ND9TTfjHEYpYCbkdA4SB2isIBQGJ6zZ+e6AIS5+UWv
-	 qoQwdVTGtRVmA==
-Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 450D4F40068;
-	Fri, 27 Feb 2026 14:30:46 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-07.internal (MEProxy); Fri, 27 Feb 2026 14:30:46 -0500
-X-ME-Sender: <xms:5vChaas37lCeo03y0kuZeDbEXCt7uyi4__EgqCKxU28opIbJzWJDfQ>
-    <xme:5vChaYpfxmbE375Sj5lL2I1JoS1XLx2O_pvVSpzk1roJ3MaRW3tq__isSZlpmZ1Ku
-    btAvQQQNH2aU093h04UAGU6cJunaR9Frb-VRWGLFaBnKrvwxnr7cww>
-X-ME-Received: <xmr:5vChaf6KMrnTNXpxwmlxkCSPUfiVr_qMBJBT1qx6bYg8H3ywAUdbGaAQFLGnvw>
+	b=D2PrcHfHu81LLdvhF2D6BNjZNEN6oX7/vLb3AFtE0rdIBwPRr1cAJcisrxqldZWr4
+	 AaskkHQKIklK3uoczNhujVHA8/8Eg8Itne8r8+dEOFSYtGjMiRBo0SCict04Jp2JGg
+	 z5PIPpftkSm2PJg92fp3ksmB0ubET+yfph8E+urwz56P+unmkzEAT2dONlGmt9JLEs
+	 KlABChkJcOVugXeM5CKPgPGfYiBdXhjTIQETz/7jlhtgu498MVYE5429fTUNVnVGE8
+	 zS6sGTdNGYgQml/mRhSUTGro3ssGjwTAUEJcwpa8YFIKnETITxNIUK8aAYVNcXnKcV
+	 mAjlfhI5OBg3Q==
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfauth.phl.internal (Postfix) with ESMTP id C9154F40068;
+	Fri, 27 Feb 2026 14:30:49 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-06.internal (MEProxy); Fri, 27 Feb 2026 14:30:49 -0500
+X-ME-Sender: <xms:6fChabRUFQq3Ypr_PkCHaCbpZdRSKDiOWq8pszP4RvCyE5QxGfLLCw>
+    <xme:6fChaV_Sz_JSjwhBgjw5BWEK7yiXz_eARxlJ0UyhoU3Kiko-5GBRc7fcR_GSajBz0
+    sckZLrV1CuJja23j3X1bwcl8iKQM7__atfoFR4cmlGq0uxcvQIo_eBJ>
+X-ME-Received: <xmr:6fChaa_Nv2g_2U2H1GMo861YVGU189Yy0Jrc8soePIfx7M-WKsHamNTVkcC6SA>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvgeelkeegucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
@@ -68,14 +68,14 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvgeelkeegucetufdote
     rghilhdrtghomhdprhgtphhtthhopehfvhgulhesghhoohhglhgvrdgtohhmpdhrtghpth
     htohepohhsrghlvhgrughorhesshhushgvrdguvgdprhgtphhtthhopehrphhptheskhgv
     rhhnvghlrdhorhhgpdhrtghpthhtohepvhgsrggskhgrsehsuhhsvgdrtgii
-X-ME-Proxy: <xmx:5vChaWG1sOaaUqkDujw0NKs4nOi4WEcTnwM-40iPQ-OVa1dQ10nPgA>
-    <xmx:5vChaW5KWTTZltoDT9WZjxUkDSuVPLZFcrVtQ4hoxLz_vFQFYPko8Q>
-    <xmx:5vChaZgIlwBQK449TIjzftWIYpJP4HSSxD7qFI2AkbBryLVBwLf5VA>
-    <xmx:5vChaY6gjNoiJTkMSy6Qt0wkudl9kmCg2AQrTDQu4_XHgyzS-rqsiw>
-    <xmx:5vChaaDQD_tOJHyCXX3lL9pyaucAIGXqgQr-zZW51fwD-kymJk5mdMLr>
+X-ME-Proxy: <xmx:6fChab4g7Yje_eHZGXGNW-NZ-ZJGpPNZbUu5T0-OTRpfJwu9ZPHoPw>
+    <xmx:6fChaQePRDBqGYrrhloEWgOn861tpvm-jb4BwZWFyN3symrjnjCRfA>
+    <xmx:6fChab2zcI6nTV3cIF4uhIBjnrYqtsjnWNphABGtpHe08D3NDZDTYg>
+    <xmx:6fChaU-9Gaz9eY2QGG-jf1vq6tXkJ6rp8wOzX23l5pt7XnEzZ7tgaQ>
+    <xmx:6fChac105tt_OixP0u-CokecW25fJ7NhpZ18ZMUUm6P8p1zlbwlNmXsq>
 Feedback-ID: i10464835:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 27 Feb 2026 14:30:45 -0500 (EST)
+ 27 Feb 2026 14:30:49 -0500 (EST)
 From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	Muchun Song <muchun.song@linux.dev>,
@@ -105,9 +105,9 @@ Cc: Oscar Salvador <osalvador@suse.de>,
 	loongarch@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	"Kiryl Shutsemau (Meta)" <kas@kernel.org>
-Subject: [PATCHv7 09/18] mm/hugetlb: Defer vmemmap population for bootmem hugepages
-Date: Fri, 27 Feb 2026 19:30:10 +0000
-Message-ID: <20260227193030.272078-9-kas@kernel.org>
+Subject: [PATCHv7 11/18] x86/vdso: Undefine CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP for vdso32
+Date: Fri, 27 Feb 2026 19:30:12 +0000
+Message-ID: <20260227193030.272078-11-kas@kernel.org>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20260202155634.650837-1-kas@kernel.org>
 References: <20260202155634.650837-1-kas@kernel.org>
@@ -128,183 +128,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the vmemmap for bootmem-allocated gigantic pages is populated
-early in hugetlb_vmemmap_init_early(). However, the zone information is
-only available after zones are initialized. If it is later discovered
-that a page spans multiple zones, the HVO mapping must be undone and
-replaced with a normal mapping using vmemmap_undo_hvo().
+The 32-bit VDSO build on x86_64 uses fake_32bit_build.h to undefine
+various kernel configuration options that are not suitable for the
+VDSO context or may cause build issues when including kernel headers.
 
-Defer the actual vmemmap population to hugetlb_vmemmap_init_late(). At
-this stage, zones are already initialized, so it can be checked if the
-page is valid for HVO before deciding how to populate the vmemmap.
-
-This allows us to remove vmemmap_undo_hvo() and the complex logic
-required to rollback HVO mappings.
-
-In hugetlb_vmemmap_init_late(), if HVO population fails or if the zones
-are invalid, fall back to a normal vmemmap population.
-
-Postponing population until hugetlb_vmemmap_init_late() also makes zone
-information available from within vmemmap_populate_hvo().
+Undefine CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP in fake_32bit_build.h to
+prepare for change in  HugeTLB Vmemmap Optimization.
 
 Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
 ---
- include/linux/mm.h   |  2 --
- mm/hugetlb_vmemmap.c | 37 +++++++++++++++----------------
- mm/sparse-vmemmap.c  | 53 --------------------------------------------
- 3 files changed, 18 insertions(+), 74 deletions(-)
+ arch/x86/entry/vdso/vdso32/fake_32bit_build.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 7f4dbbb9d783..0e2d45008ff4 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -4484,8 +4484,6 @@ int vmemmap_populate(unsigned long start, unsigned long end, int node,
- 		struct vmem_altmap *altmap);
- int vmemmap_populate_hvo(unsigned long start, unsigned long end, int node,
- 			 unsigned long headsize);
--int vmemmap_undo_hvo(unsigned long start, unsigned long end, int node,
--		     unsigned long headsize);
- void vmemmap_wrprotect_hvo(unsigned long start, unsigned long end, int node,
- 			  unsigned long headsize);
- void vmemmap_populate_print_last(void);
-diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
-index a9280259e12a..935ec5829be9 100644
---- a/mm/hugetlb_vmemmap.c
-+++ b/mm/hugetlb_vmemmap.c
-@@ -790,7 +790,6 @@ void __init hugetlb_vmemmap_init_early(int nid)
- {
- 	unsigned long psize, paddr, section_size;
- 	unsigned long ns, i, pnum, pfn, nr_pages;
--	unsigned long start, end;
- 	struct huge_bootmem_page *m = NULL;
- 	void *map;
+diff --git a/arch/x86/entry/vdso/vdso32/fake_32bit_build.h b/arch/x86/entry/vdso/vdso32/fake_32bit_build.h
+index db1b15f686e3..bc3e549795c3 100644
+--- a/arch/x86/entry/vdso/vdso32/fake_32bit_build.h
++++ b/arch/x86/entry/vdso/vdso32/fake_32bit_build.h
+@@ -11,6 +11,7 @@
+ #undef CONFIG_PGTABLE_LEVELS
+ #undef CONFIG_ILLEGAL_POINTER_VALUE
+ #undef CONFIG_SPARSEMEM_VMEMMAP
++#undef CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
+ #undef CONFIG_NR_CPUS
+ #undef CONFIG_PARAVIRT_XXL
  
-@@ -808,14 +807,6 @@ void __init hugetlb_vmemmap_init_early(int nid)
- 		paddr = virt_to_phys(m);
- 		pfn = PHYS_PFN(paddr);
- 		map = pfn_to_page(pfn);
--		start = (unsigned long)map;
--		end = start + nr_pages * sizeof(struct page);
--
--		if (vmemmap_populate_hvo(start, end, nid,
--					HUGETLB_VMEMMAP_RESERVE_SIZE) < 0)
--			continue;
--
--		memmap_boot_pages_add(HUGETLB_VMEMMAP_RESERVE_SIZE / PAGE_SIZE);
- 
- 		pnum = pfn_to_section_nr(pfn);
- 		ns = psize / section_size;
-@@ -850,28 +841,36 @@ void __init hugetlb_vmemmap_init_late(int nid)
- 		h = m->hstate;
- 		pfn = PHYS_PFN(phys);
- 		nr_pages = pages_per_huge_page(h);
-+		map = pfn_to_page(pfn);
-+		start = (unsigned long)map;
-+		end = start + nr_pages * sizeof(struct page);
- 
- 		if (!hugetlb_bootmem_page_zones_valid(nid, m)) {
- 			/*
- 			 * Oops, the hugetlb page spans multiple zones.
--			 * Remove it from the list, and undo HVO.
-+			 * Remove it from the list, and populate it normally.
- 			 */
- 			list_del(&m->list);
- 
--			map = pfn_to_page(pfn);
--
--			start = (unsigned long)map;
--			end = start + nr_pages * sizeof(struct page);
--
--			vmemmap_undo_hvo(start, end, nid,
--					 HUGETLB_VMEMMAP_RESERVE_SIZE);
--			nr_mmap = end - start - HUGETLB_VMEMMAP_RESERVE_SIZE;
-+			vmemmap_populate(start, end, nid, NULL);
-+			nr_mmap = end - start;
- 			memmap_boot_pages_add(DIV_ROUND_UP(nr_mmap, PAGE_SIZE));
- 
- 			memblock_phys_free(phys, huge_page_size(h));
- 			continue;
--		} else
-+		}
-+
-+		if (vmemmap_populate_hvo(start, end, nid,
-+					 HUGETLB_VMEMMAP_RESERVE_SIZE) < 0) {
-+			/* Fallback if HVO population fails */
-+			vmemmap_populate(start, end, nid, NULL);
-+			nr_mmap = end - start;
-+		} else {
- 			m->flags |= HUGE_BOOTMEM_ZONES_VALID;
-+			nr_mmap = HUGETLB_VMEMMAP_RESERVE_SIZE;
-+		}
-+
-+		memmap_boot_pages_add(DIV_ROUND_UP(nr_mmap, PAGE_SIZE));
- 	}
- }
- #endif
-diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
-index 37522d6cb398..032a81450838 100644
---- a/mm/sparse-vmemmap.c
-+++ b/mm/sparse-vmemmap.c
-@@ -302,59 +302,6 @@ int __meminit vmemmap_populate_basepages(unsigned long start, unsigned long end,
- 	return vmemmap_populate_range(start, end, node, altmap, -1, 0);
- }
- 
--/*
-- * Undo populate_hvo, and replace it with a normal base page mapping.
-- * Used in memory init in case a HVO mapping needs to be undone.
-- *
-- * This can happen when it is discovered that a memblock allocated
-- * hugetlb page spans multiple zones, which can only be verified
-- * after zones have been initialized.
-- *
-- * We know that:
-- * 1) The first @headsize / PAGE_SIZE vmemmap pages were individually
-- *    allocated through memblock, and mapped.
-- *
-- * 2) The rest of the vmemmap pages are mirrors of the last head page.
-- */
--int __meminit vmemmap_undo_hvo(unsigned long addr, unsigned long end,
--				      int node, unsigned long headsize)
--{
--	unsigned long maddr, pfn;
--	pte_t *pte;
--	int headpages;
--
--	/*
--	 * Should only be called early in boot, so nothing will
--	 * be accessing these page structures.
--	 */
--	WARN_ON(!early_boot_irqs_disabled);
--
--	headpages = headsize >> PAGE_SHIFT;
--
--	/*
--	 * Clear mirrored mappings for tail page structs.
--	 */
--	for (maddr = addr + headsize; maddr < end; maddr += PAGE_SIZE) {
--		pte = virt_to_kpte(maddr);
--		pte_clear(&init_mm, maddr, pte);
--	}
--
--	/*
--	 * Clear and free mappings for head page and first tail page
--	 * structs.
--	 */
--	for (maddr = addr; headpages-- > 0; maddr += PAGE_SIZE) {
--		pte = virt_to_kpte(maddr);
--		pfn = pte_pfn(ptep_get(pte));
--		pte_clear(&init_mm, maddr, pte);
--		memblock_phys_free(PFN_PHYS(pfn), PAGE_SIZE);
--	}
--
--	flush_tlb_kernel_range(addr, end);
--
--	return vmemmap_populate(addr, end, node, NULL);
--}
--
- /*
-  * Write protect the mirrored tail page structs for HVO. This will be
-  * called from the hugetlb code when gathering and initializing the
 -- 
 2.51.2
 
