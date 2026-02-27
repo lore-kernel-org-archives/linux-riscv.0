@@ -4,140 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0381FD5316
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 09:11:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 308C2FD5335
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 10:09:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5LaOlGnKY2H2I1mVI0XhJwyJgRPIk+QTcvSv+Opn38o=; b=2ah7mmYEJy8aqB
-	5XVwNSipuNkiGJZaNkPT9mqFXkIsvO5Mp1VHEe4eEvvBJM3Fd03TtuvWrTbqbMCVqeY5RW5+X6/6v
-	vyKZV1Oz1dYH/HVxo2l/sOLqYxadhJnRrso5/X6kXOsVlwlT5S6pNBkIUlsTLSc61fAli7rnczcqw
-	3hM6Lucaq2ymryUa2StsYeD5GnmDlkhtSCzGB/+pLvdczrPvEynnQi4luM/Oq2Xz/82beStVuS8Pi
-	cx04FAW/ttw+nSD1SN/m8HqihAINV2tEetOd3XKMy7E+tCoDfAk5Zn5miPpc8Q7Ks97vw57lVOtZp
-	X/2QWnsf98jvYgDspbfA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=26++REK34tuprPuNjOOAVX0rIsl75Y9967bd+hfInqM=; b=sbZ6ohUpV1SXV8uDmjyXpHpWdo
+	kY/Pr43+tl/YLSxPWSSckakRVj7yZx7KzUR+QzXyE3oxaJuAqpETB/zPhNWYN8j5OPs8p4w4aiu1Z
+	kLoU23ulF2YsiXPenVvax2k0QYuLFOmHa/xr1OINPlRlNIJGpOOhfA9VfU8nZIZ3SLegG/jHJ9xJE
+	LnAGT2DyiegWocipqJP5uRA7YqYt0WFWhSFO+nO5zTmWKSG7zhvPprrx+YedRSTnp0QwiaIBACdJL
+	pVsrNlrecypKJyQfqUkK1ruJDUWI+qd+wZSiB0xdsQ6verS4WWFIgsZ74pnagCyQGBfLtMuWhHuQe
+	U9O7yYiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvtsr-000000083m6-12cK;
-	Fri, 27 Feb 2026 09:11:41 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vvumP-00000008Cxv-1TMW;
+	Fri, 27 Feb 2026 10:09:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvtsp-000000083le-0373;
-	Fri, 27 Feb 2026 09:11:40 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61R42kun3100088;
-	Fri, 27 Feb 2026 09:10:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=9fJNQ8hFc6Hs06NykvFdnbwjP22Qa4
-	Czsab7f5+iT/s=; b=WsV8TR6rk52sfgi0yEDU4EhQlIECmYdEVoCyjTqw7gZ3F3
-	eeHg+aJhMwLYBfRrvCTB+X1E8112JloZG505tr4YoHOHpsA+0VMCmikGSenHxCgI
-	8HXR4cEHiWmwwkzLwBscjDqpDZO3ne2k4EEE07xYvkotrBxJdXJpgPVvwn27muSf
-	xqBav/gaocnH+/b+cmw7rtzjfv7peKnbFuS/n+xyS+NBW6dWAjUvlxf2Z1nhGNyZ
-	JW8mx8qyfv8JeTYDboY2RdD3NfJMbMKBk4Cfsm9yXyMH2NxCMnd5vEs8SgkmIVEz
-	9iyvjXnemPAPNRZVT+C81oevbnLXFbPBfFIhRcFg==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cf34cjvka-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Feb 2026 09:10:08 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 61R7xVgm027794;
-	Fri, 27 Feb 2026 09:10:07 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4cfsr291xx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Feb 2026 09:10:07 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 61R9A3w526345784
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 27 Feb 2026 09:10:03 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3E7ED20043;
-	Fri, 27 Feb 2026 09:10:03 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 88C6E20040;
-	Fri, 27 Feb 2026 09:10:00 +0000 (GMT)
-Received: from osiris (unknown [9.87.152.66])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 27 Feb 2026 09:10:00 +0000 (GMT)
-Date: Fri, 27 Feb 2026 10:09:59 +0100
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-        Richard Henderson <richard.henderson@linaro.org>,
-        Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-        WANG Xuerui <kernel@xen0n.name>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        Andreas Larsson <andreas@gaisler.com>,
-        Richard Weinberger <richard@nod.at>,
-        Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-        Johannes Berg <johannes@sipsolutions.net>,
-        Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-        "H. Peter Anvin" <hpa@zytor.com>,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-        David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-        Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
-        Li Nan <linan122@huawei.com>, linux-alpha@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-        linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
-        linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 17/25] s390: move the XOR code to lib/raid/
-Message-ID: <20260227090959.10882Af7-hca@linux.ibm.com>
-References: <20260226151106.144735-1-hch@lst.de>
- <20260226151106.144735-18-hch@lst.de>
+	id 1vvumN-00000008CxZ-3pQt
+	for linux-riscv@lists.infradead.org;
+	Fri, 27 Feb 2026 10:09:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C88844419D;
+	Fri, 27 Feb 2026 10:09:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA942C2BC86;
+	Fri, 27 Feb 2026 10:08:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772186942;
+	bh=xFINqK9SmWf/rzC1HoDp+l6DTGSQscXf1afCHJLGF9Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fjAxocGSfsizlTGEeRyT/9w8kG6RHUsTJbXrD7kwSbIzhl2K1uqX/AJKPl3bNt8XG
+	 lkTg3/kWICjhheb1LBHx4Mk14VHehTTIaslqB3kLEp+ifo8I4hX/MWh73HentGsPq1
+	 0FrIyNjPvj+VjWnRylpjPUHHLGppU7kn+igYm4c3dPh6mA6KVb/YBsZehC6nOglJKZ
+	 xUVe5XIWL7TK4OAvaYBWWHfFC7w5IogNIrG7Z5C2fTCHro+s0kQHR3pov5cSzl+1N4
+	 92mADU0sNt9PTp4ZuN2YaUnuMotOAlM4YpAAtBkct7qTXvVoFtsYxaYSGiioPUn4Fm
+	 573MXFW+wFXDg==
+Date: Fri, 27 Feb 2026 10:08:56 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Rui Qi <qirui.001@bytedance.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, cyrilbur@tenstorrent.com, tglx@kernel.org,
+	peterz@infradead.org, debug@rivosinc.com, andybnac@gmail.com,
+	charlie@rivosinc.com, geomatsi@gmail.com, thuth@redhat.com,
+	bjorn@rivosinc.com, songshuaishuai@tinylab.org, martin@kaiser.cx,
+	masahiroy@kernel.org, kees@kernel.org, linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: add system error interrupt handler support
+Message-ID: <20260227-scanner-trembling-5e41445f9e93@spud>
+References: <20260226082735.56108-1-qirui.001@bytedance.com>
+ <20260226-comprised-untold-1f2c0d2d48d6@spud>
+ <2bc446a4-0082-4525-baab-0ac4c332cfa8@bytedance.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260226151106.144735-18-hch@lst.de>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjI3MDA3OCBTYWx0ZWRfX82U5aVPSCKMj
- b+0tJb22GfHqv9v4ECkZvrQTVdwe0NpyD3M0iH/J0+Xwr+YNeZjI36wIQPTa9rvjnE1UWrx9YkQ
- JHFDvWeaZB3m0vLeSHPjQ41gZNyK3P7jz3/RMGU+PQUjTrl/esmjGZf3JQqOP9wpvYUJI8IGwZd
- /XesnT0Fp6f7P6zmIK4NRyzDQXfXKB/frdS7KrKVpjV7P2YYv2qXUSwm17bcz6D+3OU43mCcNJw
- VglTApNotpU5nP84m/1BO0OHu/I+7q5gBb6aF778m34dUw2mKpCO0GIw5iCL/18UvCIDVst+Cg2
- or+7hBFh9lVuTlBEIYrN26hWcqnQmJk+cg6nVuLOR39apbYgayyTTwj8euDUuBGnNDky60OnBzo
- zdR2VUTZDeHZGzwsBRd/sH8aRuZ3XZmPmK5c8OM2MVccRTGc8Hd/VLBtD8pqPq/pRTFgfAMLrBX
- 75ZY0FEa+686cu8Lnvw==
-X-Proofpoint-ORIG-GUID: F8S8ZNtQow6uofq1eM08rQyj9jFeslmn
-X-Authority-Analysis: v=2.4 cv=F9lat6hN c=1 sm=1 tr=0 ts=69a15f71 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=HzLeVaNsDn8A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=VnNF1IyMAAAA:8
- a=HpkjO1BTjMN3Ce6vPK4A:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: j1a5E8YeCxBUvXVfRM302zEA8A8N1Tzy
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-27_01,2026-02-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 bulkscore=0 adultscore=0 spamscore=0
- clxscore=1011 suspectscore=0 malwarescore=0 lowpriorityscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
- definitions=main-2602270078
+In-Reply-To: <2bc446a4-0082-4525-baab-0ac4c332cfa8@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_011139_172698_470082A4 
-X-CRM114-Status: GOOD (  20.12  )
+X-CRM114-CacheID: sfid-20260227_020903_990477_B638911A 
+X-CRM114-Status: GOOD (  39.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,34 +73,145 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5707761293782562474=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 07:10:29AM -0800, Christoph Hellwig wrote:
-> Move the optimized XOR into lib/raid and include it it in xor.ko
-> instead of unconditionally building it into the main kernel image.
-> 
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> ---
->  arch/s390/lib/Makefile                     | 2 +-
->  lib/raid/xor/Makefile                      | 1 +
->  {arch/s390/lib => lib/raid/xor/s390}/xor.c | 2 --
->  3 files changed, 2 insertions(+), 3 deletions(-)
->  rename {arch/s390/lib => lib/raid/xor/s390}/xor.c (98%)
 
-FWIW:
-Acked-by: Heiko Carstens <hca@linux.ibm.com>
+--===============5707761293782562474==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="+tjsKqlXNfeP48Lb"
+Content-Disposition: inline
 
-However, I just had a look at the s390 implementation and just saw that the
-inline assembly constraints for xor_xc_2() are incorrect. "bytes", "p1",
-and "p2" are input operands, while all three of them are modified within
-the inline assembly. Given that the function consists only of this inline
-assembly I doubt that this causes any harm, however I still want to fix
-this now; but your patch should apply fine with or without this fixed.
+
+--+tjsKqlXNfeP48Lb
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Feb 27, 2026 at 03:54:39PM +0800, Rui Qi wrote:
+> On 2/26/26 5:22 PM, Conor Dooley wrote:
+> > On Thu, Feb 26, 2026 at 04:27:35PM +0800, Rui Qi wrote:
+> >> Add a system error interrupt handler for RISC-V that panics
+> >> the system when hardware errors are detected. The implementation inclu=
+des:
+> >>
+> >> - Add IRQ_SYS_ERROR (23) interrupt definition to CSR header
+> >> - Implement sys_error.c module with panic handler
+> >> - Register per-CPU interrupt handler for system error interrupts
+> >> - Add module to kernel build system
+> >>
+> >> When a system error interrupt occurs, the handler immediately panics
+> >> the system with a descriptive message to ensure the error is properly
+> >> captured and the system is halted safely.
+> >>
+> >> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
+> >> ---
+> >>  arch/riscv/include/asm/csr.h  |  4 +-
+> >>  arch/riscv/kernel/Makefile    |  1 +
+> >>  arch/riscv/kernel/sys_error.c | 80 +++++++++++++++++++++++++++++++++++
+> >>  include/linux/cpuhotplug.h    |  1 +
+> >>  4 files changed, 85 insertions(+), 1 deletion(-)
+> >>  create mode 100644 arch/riscv/kernel/sys_error.c
+> >>
+> >> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr=
+=2Eh
+> >> index 31b8988f4488..1f43c25b07ed 100644
+> >> --- a/arch/riscv/include/asm/csr.h
+> >> +++ b/arch/riscv/include/asm/csr.h
+> >> @@ -99,7 +99,8 @@
+> >>  #define IRQ_M_EXT		11
+> >>  #define IRQ_S_GEXT		12
+> >>  #define IRQ_PMU_OVF		13
+> >> -#define IRQ_LOCAL_MAX		(IRQ_PMU_OVF + 1)
+> >> +#define IRQ_SYS_ERROR		23
+> >=20
+> > Hmmm, two problems I think with this. 23 is one of the interrupts that
+> > has been reserved for use with AIA. I don't think they use it right now,
+> > but in the future it might see use there.
+> >=20
+> > The first problem is kind of moot though, because reserving 16-23 for
+> > AIA is a retcon, and previously these interrupts were available custom
+> > use on any platform (as you have done here), so while it might be a
+> > system error on your platform, it could be something completely innocuo=
+us
+> > on mine!
+> >=20
+> > With that in mind, does having this in arch code make sense at all?
+> > Can this just be a normal driver, that'll only probe on your specific
+> > platform?
+>=20
+> Thanks for the comment.
+>=20
+> I checked the latest RISC-V Interrupt Spec (2025-03-12). In that
+> version, interrupts 16=E2=80=9323 are defined as architectural local inte=
+rrupts,
+> and interrupt 23 is tentatively proposed for a =E2=80=9CBus or system err=
+or=E2=80=9D
+
+Right, tentative is kinda no use to either of us though. Do you have
+hardware that does this?
+
+> type condition. That suggests this interrupt number is no longer just a
+> free, platform-defined slot =E2=80=94 it now carries architectural intent=
+ and a
+> potential standardized meaning.
+
+Emphasis on "potential", of course ;) Still a platform defined slot for
+anyone that doesn't implement AIA, I think...
+I don't understand the interaction between extensions and the priv spec
+here, since the priv spec still says that 16 and higher are platform
+specific.
+
+> Given this context, my current implementation treats interrupt 23 as a
+> local condition that matches the spec=E2=80=99s intent for a system-level=
+ error
+> signal, rather than an arbitrary, custom platform interrupt. This seemed
+> reasonable as long as it aligns with the architectural semantics for
+> local interrupts.
+>=20
+> That said, I=E2=80=99m open to the concern about placing this handling in
+> arch/riscv, and I=E2=80=99d like to understand your preference: do you th=
+ink
+> this should be entirely moved into platform-specific code, or would a
+> conditional, spec-aware arch implementation (e.g., gated on the presence
+> of the relevant AIA/local interrupt support) be acceptable? Please let
+
+It can't be gated on AIA, because AIA isn't the extension that says that
+this is what interrupt 23 does (it specifically says that new extensions
+are expected to define the use of the three interrupts "proposes"), and
+we don't permit extension related stuff that is not frozen. I couldn't
+find an extension at any stage that set the behaviour in stone, are you
+aware of one? If one exists, a spec-aware arch implementation would be
+okay. If one does not, you'll have to make this specific to your
+platform until that extension shows up.
+
+> me know what approach you=E2=80=99d suggest.
+
+--+tjsKqlXNfeP48Lb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaFtOAAKCRB4tDGHoIJi
+0v+8AQDBNb2Yu6k8hiU8nJccWxtlj0Ulo99efQToPff2nKAhTgEA1Kv4Fr3s7MZ4
+rNnLEypHbKIwRoY7IOt64iirHC5yFQc=
+=Wpzl
+-----END PGP SIGNATURE-----
+
+--+tjsKqlXNfeP48Lb--
+
+
+--===============5707761293782562474==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5707761293782562474==--
+
