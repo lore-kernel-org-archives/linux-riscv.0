@@ -4,62 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 775FCFEFB60
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 15:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10FA8FEFB6E
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 16:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RaUTs7PTG/K3RWjS3qkPhOzyukqMq+SCLJTcY4FkQJk=; b=spfBgyRIiT30fm
-	5oWUtIHXh5ZoXUz+PSwO9zblUEhfXbc7f29y1rbY5OpYE+Y5H3ZIp9Flk3vls9Gy1ZYHy4xJoi1aZ
-	wfIlCrVKYcRMwcz4ViXBmPjy6hPxABoj8l14zDBTTh+GA0uEnkXNkXFgmzejPm5extsn+BiQe92Kl
-	xSTZzhkoUUhjU3zU0nRKEbVNFs4SYqOfD+5eLIGx9+WKJfXa8bWzNdQkvG2H1riRUYojb9msglOZU
-	MquhZ0Rsz5j8Gx/iyRrmlIt+U7rMFxy5ojoNagl3thn0vm7r4b8oLbNGKYyahrxfNWq9czebF9uLg
-	V+TCwz46ExJLPBPUYtiQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=nMrVmu9/+ooHPmq59GgtKkXjgWJRpNVrIgv+69Z8ECc=; b=CVNItMT4K5G0kf
+	K/CgOqcqb0q+HB6RXKik7JDVM4sDBs3mTNz8xeOCFYachpxe+HfeC303ZHH3i0QCdSZSzKK5UFCNy
+	6/glKo4f790jhWbJ2JZD3nYQmiIesLmMgDE8rEThOrYVyWPMsTsa8igbgfIp7CgGB1w2oPb+Igd3g
+	2jAsVbGk6fLKTRWGNritgu1P79t6ieUPAtLctXCB3UjhF3M4kr/JyEQVidpwcaJyAykefWENu6tgR
+	nc+SZkH6zXwQlpqu9zQUSF3zz1tDKEhM79vt4P9Q8wVKGYWA7ZwjL024zD02dtjBqI5/UNjX9jLRO
+	eEv7q9/R1WvrJWmWsRMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzmK-00000008cxj-1AmB;
-	Fri, 27 Feb 2026 15:29:20 +0000
+	id 1vw11o-00000008ktA-0Aea;
+	Fri, 27 Feb 2026 16:49:24 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzmH-00000008cwy-1jh6;
-	Fri, 27 Feb 2026 15:29:18 +0000
+	id 1vw11l-00000008ksq-44bc
+	for linux-riscv@lists.infradead.org;
+	Fri, 27 Feb 2026 16:49:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 214B243FDD;
-	Fri, 27 Feb 2026 15:29:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EAB8C2BC9E;
-	Fri, 27 Feb 2026 15:29:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 269B9444D5;
+	Fri, 27 Feb 2026 16:49:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3011C116C6;
+	Fri, 27 Feb 2026 16:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772206157;
-	bh=De7bn/n8BhoSPhSHTVWvjQ3gSzdmOOwqj1HR6u32gyo=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=YdVCf4FF07nzKBY1Lm1XDnYJp3Zfeq6d1C57FvUX0RDDzQTd6AESAd9y3aA3dBqMb
-	 2Ug6nxcJMhE5ISeCuIVLrDrg2eWRW51S0A9F0UA0n6a7a8B3MGp0Nks3pENJN0AHFZ
-	 VOf3rxTVamIla2N8KwlTFd+3Z9tlnBTi9nuNcyswhLSI8gTvaMsa0R9+CJB9Z5pJCk
-	 tHQ7nZnMwIzYvNRw4OycN1IiOx2cxrKdV1EfOgQWEzf0N43NifX48T0LW5SFRC3WD0
-	 Y55Pwz+yXwykk4cTUJmG2VorAtndh0OMxtj0H7oUohmZConR+aLbHi1JwfErFc1ViF
-	 gWZ0bU48qigfw==
-From: Vinod Koul <vkoul@kernel.org>
-To: gregkh@linuxfoundation.org, conor@kernel.org, 
- Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-Cc: neil.armstrong@linaro.org, robh@kernel.org, krzk+dt@kernel.org, 
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
- linux-phy@lists.infradead.org, linux-usb@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260121145526.14672-1-jiayu.riscv@isrc.iscas.ac.cn>
-References: <20260121145526.14672-1-jiayu.riscv@isrc.iscas.ac.cn>
-Subject: Re: (subset) [PATCH v5 0/4] Add USB support for Canaan K230
-Message-Id: <177220615264.330302.188095105582835535.b4-ty@kernel.org>
-Date: Fri, 27 Feb 2026 20:59:12 +0530
+	s=k20201202; t=1772210961;
+	bh=jznU9LDSkQYILvcSIV46IxA3CrI9OTrcodpcP2KE/Rk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=BMGK66IlpUYHanCwORkjV1r5gD4tZdmf3FdgQyvpYqd87OnPE/XYM3XTkW4Ksw/Y2
+	 Y3jxv1rvP5tPMlEvJt5tjaSTDHFbZ6E0cmQiJ4sJ1nQ4Fa0ouKncl5VoVtiCuVxIzZ
+	 wWKIJt52O1sSUx08jbmlf8//snPIjiC+zltv0lkdOUs2BhGHuFA3bE4uAUcyVVBSxy
+	 qaQx337ysm56rZiMRyNkrrziyLzOmk1FheLkVIlnP9JOrOh9Vg2yq723loCPFce4ld
+	 PQ+fWhfMBe0FBUqcD3yCDZF4bHUCb4tFZLXFqqmmZy1DAO7HVlmZIQO39PRRlHaFGU
+	 +2b9qvGprKjDg==
+Date: Fri, 27 Feb 2026 10:49:19 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Vivian Wang <wangruikang@iscas.ac.cn>,
+	Thomas Gleixner <tglx@kernel.org>
+Cc: Mark Bloch <mbloch@nvidia.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Brett Creeley <brett.creeley@amd.com>, Han Gao <gaohan@iscas.ac.cn>,
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+	netdev@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org,
+	sophgo@lists.linux.dev, Takashi Iwai <tiwai@suse.de>,
+	Maor Gottlieb <maorg@nvidia.com>
+Subject: Re: [PATCH v4 1/4] PCI/MSI: Conservatively generalize no_64bit_msi
+ into msi_addr_mask
+Message-ID: <20260227164919.GA3897300@bhelgaas>
 MIME-Version: 1.0
-X-Mailer: b4 0.13.0
+Content-Disposition: inline
+In-Reply-To: <c9329ae2-721d-4127-9380-b1ea454bd8f2@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_072917_475312_8B05CD6D 
-X-CRM114-Status: UNSURE (   7.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260227_084922_048088_F84CD8A6 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,30 +92,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 21 Jan 2026 22:55:21 +0800, Jiayu Du wrote:
-> Add support for the USB PHY and DWC2 IP which is used by Canaan K230,
-> and made relevant changes to the DTS.
+On Fri, Feb 27, 2026 at 01:25:03PM +0800, Vivian Wang wrote:
+> On 2/27/26 02:25, Mark Bloch wrote:
+> > On 29/01/2026 3:56, Vivian Wang wrote:
+> >> Some PCI devices have PCI_MSI_FLAGS_64BIT in the MSI capability, but
+> >> implement less than 64 address bits. This breaks on platforms where such
+> >> a device is assigned an MSI address higher than what's reachable.
+> >>
+> >> Currently, the no_64bit_msi bit is set for these devices, meaning that
+> >> only 32-bit MSI addresses are allowed for them. However, on some
+> >> platforms the MSI doorbell address is above the 32-bit limit but within
+> >> the addressable range of the device.
+> >>
+> >> As a first step to enabling MSI on those combinations of devices and
+> >> platforms, conservatively generalize the single-bit flag no_64bit_msi
+> >> into msi_addr_mask. (The name msi_addr_mask is chosen to avoid confusion
+> >> with msi_mask.)
+> >>
+> >> The translation is essentially:
+> >>
+> >> - no_64bit_msi = 1    ->    msi_addr_mask = DMA_BIT_MASK(32)
+> >> - no_64bit_msi = 0    ->    msi_addr_mask = DMA_BIT_MASK(64)
+> >> - if (no_64bit_msi)   ->    if (msi_addr_mask < DMA_BIT_MASK(64))
+> >>
+> > Hey Vivian,
+> >
+> > We are seeing issues while reloading mlx5 on a PPC64 platform.
 > 
-> This series is based on the initial 100ask K230 DshanPi series [1] which
-> is based on the clock and pinctrl series. Check the details in the link.
+> Mea culpa. There's a fix on the list [1] since last Friday. I'm not sure
+> why it hasn't moved yet, but please take a look.
 > 
-> Link: https://lore.kernel.org/all/20260115060801.16819-1-jiayu.riscv@isrc.iscas.ac.cn/ [1]
-> 
-> [...]
+> [1]: https://lore.kernel.org/all/20260220070239.1693303-1-nilay@linux.ibm.com/
 
-Applied, thanks!
+We needed testing on powerpc and sparc, which has now been done,
+thanks to Han Gao (SPARC Enterprise T5220), Nathaniel Roach (SPARC
+T5-2), and Venkat Rao Bagalkote (IBM Power System LPAR (pseries)).
 
-[1/4] dt-bindings: phy: Add Canaan K230 USB PHY
-      commit: 50357e7d7992ba8f02c87ff7a5c4db17918635da
-[3/4] phy: usb: Add driver for Canaan K230 USB 2.0 PHY
-      commit: 8787fa1da603e9e51efff11841e97b5d374aef34
+It would be ideal to have acks from the powerpc and sparc maintainers,
+so I just solicited those.
 
-Best regards,
--- 
-~Vinod
+Thomas merged 386ced19e9a3 ("PCI/MSI: Convert the boolean no_64bit_msi
+flag to a DMA address mask"), and could merge the fixes.  Otherwise I
+can merge via PCI.
 
-
+Bjorn
 
 _______________________________________________
 linux-riscv mailing list
