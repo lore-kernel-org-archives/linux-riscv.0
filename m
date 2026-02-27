@@ -4,64 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 308C2FD5335
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 10:09:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC067FD7F90
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 10:55:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=26++REK34tuprPuNjOOAVX0rIsl75Y9967bd+hfInqM=; b=sbZ6ohUpV1SXV8uDmjyXpHpWdo
-	kY/Pr43+tl/YLSxPWSSckakRVj7yZx7KzUR+QzXyE3oxaJuAqpETB/zPhNWYN8j5OPs8p4w4aiu1Z
-	kLoU23ulF2YsiXPenVvax2k0QYuLFOmHa/xr1OINPlRlNIJGpOOhfA9VfU8nZIZ3SLegG/jHJ9xJE
-	LnAGT2DyiegWocipqJP5uRA7YqYt0WFWhSFO+nO5zTmWKSG7zhvPprrx+YedRSTnp0QwiaIBACdJL
-	pVsrNlrecypKJyQfqUkK1ruJDUWI+qd+wZSiB0xdsQ6verS4WWFIgsZ74pnagCyQGBfLtMuWhHuQe
-	U9O7yYiQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nujF6YZBHGeHGDrkoRoFMDuO3r5m6E9u2qCf6sgT/rI=; b=qxEegswTQqxcud
+	K7ipPRur57ciCalDE5LkzLrS6jH0jNxb0xtQBFL0ofE/4YEZldn0zZwgwZsxfEDqvruUtiEMf41vj
+	4KyHQ4UpBpGWlkciXs8wMJ9NIm33cqlPATMyp1R0VZVWs1Rh0IxZSFP05WN4xUhbz6P1QhHR/LGLA
+	vCiFccOmc5ABnJh5OPIfbaFNA+KrESe4aSVMZNle3MPt85ZZNx9OzJYtF7MiEZ0wgkMuuU9ekqfaG
+	fjHagXmcWwYCW7gF5O9IUh6pPV2DKp475S+HpbylEWAkRqFARzpW+Ikicoyjpss5F8PI9QMUPOL6Y
+	ZJgI26K2jfiWkBElmbMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvumP-00000008Cxv-1TMW;
-	Fri, 27 Feb 2026 10:09:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vvvVR-00000008GDe-17tZ;
+	Fri, 27 Feb 2026 10:55:37 +0000
+Received: from mout.perfora.net ([74.208.4.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvumN-00000008CxZ-3pQt
+	id 1vvvVN-00000008GDH-3dGx
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Feb 2026 10:09:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C88844419D;
-	Fri, 27 Feb 2026 10:09:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA942C2BC86;
-	Fri, 27 Feb 2026 10:08:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772186942;
-	bh=xFINqK9SmWf/rzC1HoDp+l6DTGSQscXf1afCHJLGF9Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fjAxocGSfsizlTGEeRyT/9w8kG6RHUsTJbXrD7kwSbIzhl2K1uqX/AJKPl3bNt8XG
-	 lkTg3/kWICjhheb1LBHx4Mk14VHehTTIaslqB3kLEp+ifo8I4hX/MWh73HentGsPq1
-	 0FrIyNjPvj+VjWnRylpjPUHHLGppU7kn+igYm4c3dPh6mA6KVb/YBsZehC6nOglJKZ
-	 xUVe5XIWL7TK4OAvaYBWWHfFC7w5IogNIrG7Z5C2fTCHro+s0kQHR3pov5cSzl+1N4
-	 92mADU0sNt9PTp4ZuN2YaUnuMotOAlM4YpAAtBkct7qTXvVoFtsYxaYSGiioPUn4Fm
-	 573MXFW+wFXDg==
-Date: Fri, 27 Feb 2026 10:08:56 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Rui Qi <qirui.001@bytedance.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, cyrilbur@tenstorrent.com, tglx@kernel.org,
-	peterz@infradead.org, debug@rivosinc.com, andybnac@gmail.com,
-	charlie@rivosinc.com, geomatsi@gmail.com, thuth@redhat.com,
-	bjorn@rivosinc.com, songshuaishuai@tinylab.org, martin@kaiser.cx,
-	masahiroy@kernel.org, kees@kernel.org, linux-arch@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: add system error interrupt handler support
-Message-ID: <20260227-scanner-trembling-5e41445f9e93@spud>
-References: <20260226082735.56108-1-qirui.001@bytedance.com>
- <20260226-comprised-untold-1f2c0d2d48d6@spud>
- <2bc446a4-0082-4525-baab-0ac4c332cfa8@bytedance.com>
+	Fri, 27 Feb 2026 10:55:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ziswiler.com;
+	s=s1-ionos; t=1772189713; x=1772794513; i=marcel@ziswiler.com;
+	bh=JyFGZnhkCDmplKwplIYatSCSWGTAEQ+3aRFjhHnYafc=;
+	h=X-UI-Sender-Class:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:MIME-Version:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=kvaOnlAQi+lwkujcaUXQnO6rygGM08xpCHqocpHdxZAq+EUe54z6NtSg4kN8OAcu
+	 O7Rclntg1NwDbiWloFpfvnQLASw8vkGN79sZZI+LiIO1uzjHG+q48X/GAL98xcUeO
+	 Ne4p6js+PxJ15UHUkpoeUqiZ6OPQ11KsWA8YhUiALyItOrNvSPfW0E9n4yKyQh4gr
+	 iPYdQMN3BkE+s4rk8xSlDB45MpNhTk3aEeZ7of2CT6WTkuZBcudMvJjcz3sKOrsGd
+	 /ErBldEDbPwKKGBoEi98UU5jpWe88JFzHvzw4rcidh3Lluka4iaeY4CiNkKcbzGzz
+	 An4df2cAcC2VnvnZ3Q==
+X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
+Received: from client.hidden.invalid by mrelay.perfora.net (mreueus002
+ [74.208.5.2]) with ESMTPSA (Nemesis) id 0MfFYy-1wKaBm3H4s-00XVO9; Fri, 27 Feb
+ 2026 11:55:13 +0100
+Message-ID: <d4e44b3659859e8967a1cee7cbbeeeeb399a4536.camel@ziswiler.com>
+Subject: Re: [PATCH v3 00/22] riscv: Memory type control for platforms with
+ physical memory aliases
+From: Marcel Ziswiler <marcel@ziswiler.com>
+To: patchwork-bot+linux-riscv@kernel.org, Samuel Holland
+	 <samuel.holland@sifive.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, pjw@kernel.org, 
+	akpm@linux-foundation.org, david@redhat.com, linux-mm@kvack.org, 
+	devicetree@vger.kernel.org, surenb@google.com,
+ linux-kernel@vger.kernel.org, 	rppt@kernel.org, mhocko@suse.com,
+ conor@kernel.org, lorenzo.stoakes@oracle.com, 	krzk+dt@kernel.org,
+ alex@ghiti.fr, kernel@esmil.dk, robh+dt@kernel.org, 	vbabka@suse.cz,
+ Liam.Howlett@oracle.com, apw@canonical.com, 	dwaipayanray1@gmail.com,
+ joe@perches.com, Julia.Lawall@inria.fr, 	lukas.bulwahn@gmail.com,
+ nicolas.palix@imag.fr
+Date: Fri, 27 Feb 2026 11:54:54 +0100
+In-Reply-To: <176613180179.3684357.1299267450443574866.git-patchwork-notify@kernel.org>
+References: <20251113014656.2605447-1-samuel.holland@sifive.com>
+	 <176613180179.3684357.1299267450443574866.git-patchwork-notify@kernel.org>
+User-Agent: Evolution 3.58.3 (by Flathub.org) 
 MIME-Version: 1.0
-In-Reply-To: <2bc446a4-0082-4525-baab-0ac4c332cfa8@bytedance.com>
+X-Provags-ID: V03:K1:UUplK9QahItW7favaUm4Q5d915hat+h5jRewnwaVbhTw3M+iOKz
+ NivRKam2ukd6XrGztVMAx7ufnqFaS0o0H8sAT8En/yEU0449jeV6Yxky+IHFvxmzpiIHgqc
+ e+oTWRBAZrV/b9JQcTj37R2Sw37SqeYcqEsP05M7zjZyx42P7HmWzbZLugPhPEWO73Nwlya
+ she/PX5fYi+oGB3VOdNGg==
+UI-OutboundReport: notjunk:1;M01:P0:+OThauVM/dQ=;T3PrC/aB3MTcKDZ+nVQmVOqdEzy
+ N2dU66/j0l3knCkOxj2rAa+UJg/YnO5J1PIzW6lESBJD6kbcdblu29UNdIdexnMyMo5TD7mLi
+ xESeyHnrqswHRBgoTrLyF4z8EkmVVcf159QIUGcYwNsoHmlt2GqMJpl3Jlfq6X6vUoeCvW4Qw
+ EpGJ8jHXrd/cdgRe0UTOeoG8ItQxw58irA8JBh3osLS3KQoaJ7jVaFGN3ClT65DPL+e4q+iwU
+ G7h6mnG1tsz6MXmFgemKc/9RFQ8XiJYXoQLHLr5+8cStFq2o+hNptRm5XB1XIeN8d/5CLPapC
+ PHUyXxQAsqvWlNydi2rKGqFDL3qXSV2RQLmWH6PgEtDKnOE7BwEsmFyeY4U3GBeBc+7ND5voB
+ EymOExcGAtoMaudGa3ODaRMiXG+zwzfDm15svkSNXeQU+vo8H+8lgzRtJNVLJdeQTiR3mTCOF
+ 7CscIhpLNsE/hHOd2Rch2OboqBLstKm8IbvCsKvXSIIuzM6LwAbOVAryP7H5z8hu9ACpF/w+d
+ TzQJXjoTKtExhIns58/uDKt/FtqAr0HjPbmyOslIxYKWckkY9qq3aviEEOXzas6z7eFy6HHaQ
+ hDnWevq1H9cXkwhc2iH0/U6TRNP48auqCeXyX+oaDv5P5pFU0AcFkmfKydm5UzBS3hGDGrZI2
+ nZx6pwYAv5X04i6sc+vZb7J+WJg9S8xKErLFlnBxYU8g+lrl2I8cc3X/TUPz5rLO+EMBMpGWM
+ KY4yMDBgChMOWfyFl4ju+copjhjJM+91bO+Y4SytOJ9sLq3JwWxuoQwJNFkQ8tt9ybvhItoMH
+ DPmzdUlYciRUuQHVZAzNO6mXRKtov+xLyhVWnookBjNUUEBBI33VkoXKKphBhsJsVetJtkwhM
+ byWhnSmGkTn7ok6pc9PC35OyJBiBOQN40yOfRj2AlKc7vfgaGqdwOtjMCGEjF/WDu6DZkrBt1
+ zYcj4+M1OWxoy4+FZChdsX1auRtC7hXIKpzIKZcVyzlbbj9EOW/wifIbXzXy1f1+1eWsji9FG
+ EjnDC2UfmcxsrQOueVdfMDddtKauvjq0kRl3OeDfUZMyhbAibXgCIjPagD1uXX3W7JDUIcl4b
+ a1pPFbRPXgzxeVSb2iwy47sxyDrIOfNXsadHHiqKOl8x3p/CzRMo6ljG4tKtE/mG9/WdUvpLW
+ 9uPnvImuZ80X20rqPEqha2mMSy97lkrQsh0Oc8u4bx2IH/WltVVox1mXfcLPrJrj9uBBL1iR/
+ jLtm7wyoOjakrucwgWhn0xsbBetL1xFlMPWS2dFvE+fnfgnti8e43NLDobz35JtA/X/RqZjgg
+ P5mEyZdvdy6du3mbJuh1awV8wkGjXjFWoWV7IkcP4vrdzMPJYoBBLF8kuRItqQXJu8KbrTWOm
+ to/3YCUwAlnXrM/JUQNMsKK9VOem1Q+iQXIiSwB7vxcn+CPwM+jteLn4LJ2YwtKTrw54BTd2h
+ NBFxAFjRtRO48jN7+Rx5qGPd6tGGztTEEeFX6AC+yOxzNNFh0afUEOBaynVGMftjHK8Tp+0Ds
+ GIRShmHNQoCBlDUCU11nTd13FkikovWXCQCqLBiBe/h3/XV58rGjtuuv6HezhlDQNA0oT7e+p
+ Sq3KKjkzU9RuE4lFbHHkHFdg3q0CNE61wXE6QKU+Ue108FZt8pSZZsWIui2pg9mGA5j6rMzfi
+ Z4GI4rJ8F/3zTi3qyYNxmEREKnbcSah2nJ9OGhkbAF0PzwAm9DdaRx7ZEqMwoF4qRxOc2lz2C
+ 1vAvmQX1rVRN0HtJM1f92+Oy90sRnGKBMTqQBU9MH/GYOGZ/rUL+Z9Q0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_020903_990477_B638911A 
-X-CRM114-Status: GOOD (  39.25  )
+X-CRM114-CacheID: sfid-20260227_025533_980584_72C3370F 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,145 +109,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5707761293782562474=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5707761293782562474==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+tjsKqlXNfeP48Lb"
-Content-Disposition: inline
-
-
---+tjsKqlXNfeP48Lb
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Feb 27, 2026 at 03:54:39PM +0800, Rui Qi wrote:
-> On 2/26/26 5:22 PM, Conor Dooley wrote:
-> > On Thu, Feb 26, 2026 at 04:27:35PM +0800, Rui Qi wrote:
-> >> Add a system error interrupt handler for RISC-V that panics
-> >> the system when hardware errors are detected. The implementation inclu=
-des:
-> >>
-> >> - Add IRQ_SYS_ERROR (23) interrupt definition to CSR header
-> >> - Implement sys_error.c module with panic handler
-> >> - Register per-CPU interrupt handler for system error interrupts
-> >> - Add module to kernel build system
-> >>
-> >> When a system error interrupt occurs, the handler immediately panics
-> >> the system with a descriptive message to ensure the error is properly
-> >> captured and the system is halted safely.
-> >>
-> >> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
-> >> ---
-> >>  arch/riscv/include/asm/csr.h  |  4 +-
-> >>  arch/riscv/kernel/Makefile    |  1 +
-> >>  arch/riscv/kernel/sys_error.c | 80 +++++++++++++++++++++++++++++++++++
-> >>  include/linux/cpuhotplug.h    |  1 +
-> >>  4 files changed, 85 insertions(+), 1 deletion(-)
-> >>  create mode 100644 arch/riscv/kernel/sys_error.c
-> >>
-> >> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr=
-=2Eh
-> >> index 31b8988f4488..1f43c25b07ed 100644
-> >> --- a/arch/riscv/include/asm/csr.h
-> >> +++ b/arch/riscv/include/asm/csr.h
-> >> @@ -99,7 +99,8 @@
-> >>  #define IRQ_M_EXT		11
-> >>  #define IRQ_S_GEXT		12
-> >>  #define IRQ_PMU_OVF		13
-> >> -#define IRQ_LOCAL_MAX		(IRQ_PMU_OVF + 1)
-> >> +#define IRQ_SYS_ERROR		23
-> >=20
-> > Hmmm, two problems I think with this. 23 is one of the interrupts that
-> > has been reserved for use with AIA. I don't think they use it right now,
-> > but in the future it might see use there.
-> >=20
-> > The first problem is kind of moot though, because reserving 16-23 for
-> > AIA is a retcon, and previously these interrupts were available custom
-> > use on any platform (as you have done here), so while it might be a
-> > system error on your platform, it could be something completely innocuo=
-us
-> > on mine!
-> >=20
-> > With that in mind, does having this in arch code make sense at all?
-> > Can this just be a normal driver, that'll only probe on your specific
-> > platform?
->=20
-> Thanks for the comment.
->=20
-> I checked the latest RISC-V Interrupt Spec (2025-03-12). In that
-> version, interrupts 16=E2=80=9323 are defined as architectural local inte=
-rrupts,
-> and interrupt 23 is tentatively proposed for a =E2=80=9CBus or system err=
-or=E2=80=9D
-
-Right, tentative is kinda no use to either of us though. Do you have
-hardware that does this?
-
-> type condition. That suggests this interrupt number is no longer just a
-> free, platform-defined slot =E2=80=94 it now carries architectural intent=
- and a
-> potential standardized meaning.
-
-Emphasis on "potential", of course ;) Still a platform defined slot for
-anyone that doesn't implement AIA, I think...
-I don't understand the interaction between extensions and the priv spec
-here, since the priv spec still says that 16 and higher are platform
-specific.
-
-> Given this context, my current implementation treats interrupt 23 as a
-> local condition that matches the spec=E2=80=99s intent for a system-level=
- error
-> signal, rather than an arbitrary, custom platform interrupt. This seemed
-> reasonable as long as it aligns with the architectural semantics for
-> local interrupts.
->=20
-> That said, I=E2=80=99m open to the concern about placing this handling in
-> arch/riscv, and I=E2=80=99d like to understand your preference: do you th=
-ink
-> this should be entirely moved into platform-specific code, or would a
-> conditional, spec-aware arch implementation (e.g., gated on the presence
-> of the relevant AIA/local interrupt support) be acceptable? Please let
-
-It can't be gated on AIA, because AIA isn't the extension that says that
-this is what interrupt 23 does (it specifically says that new extensions
-are expected to define the use of the three interrupts "proposes"), and
-we don't permit extension related stuff that is not frozen. I couldn't
-find an extension at any stage that set the behaviour in stone, are you
-aware of one? If one exists, a spec-aware arch implementation would be
-okay. If one does not, you'll have to make this specific to your
-platform until that extension shows up.
-
-> me know what approach you=E2=80=99d suggest.
-
---+tjsKqlXNfeP48Lb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaFtOAAKCRB4tDGHoIJi
-0v+8AQDBNb2Yu6k8hiU8nJccWxtlj0Ulo99efQToPff2nKAhTgEA1Kv4Fr3s7MZ4
-rNnLEypHbKIwRoY7IOt64iirHC5yFQc=
-=Wpzl
------END PGP SIGNATURE-----
-
---+tjsKqlXNfeP48Lb--
-
-
---===============5707761293782562474==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5707761293782562474==--
-
+SGkgU2FtdWVsCgpPbiBGcmksIDIwMjUtMTItMTkgYXQgMDg6MTAgKzAwMDAsIHBhdGNod29yay1i
+b3QrbGludXgtcmlzY3ZAa2VybmVsLm9yZyB3cm90ZToKPiBIZWxsbzoKPiAKPiBUaGlzIHNlcmll
+cyB3YXMgYXBwbGllZCB0byByaXNjdi9saW51eC5naXQgKGZpeGVzKQo+IGJ5IEFuZHJldyBNb3J0
+b24gPGFrcG1AbGludXgtZm91bmRhdGlvbi5vcmc+OgoKQW55IGlkZWEgd2hhdCBoYXBwZW5lZCB0
+byBwYXRjaGVzIDA0LTIyIGFzIEkgZG9uJ3QgdGhpbmsgYW55dGhpbmcgb3RoZXIgdGhhbiBwYXRj
+aGVzIDAxLTAzIGV2ZXIgZ290IGFwcGxpZWQKYW55d2hlcmUuIE9yIGFtIEkgbWlzc2luZyBhbnl0
+aGluZz8KCkZvciB3aGF0IGl0J3Mgd29ydGggSSBjYXJyaWVkIGFuIHVwZGF0ZWQgcGF0Y2ggc2V0
+IHRocm91Z2ggdXAgdG8gdjYuMTkuNCBbMV0gYW5kIGxhdGVzdCAtbmV4dCwgd2hpY2ggYXQgbGVh
+c3QKb24gRUJDNzcgc2VlbXMgdG8gd29yayBmaW5lLgoKVGhhbmtzIQoKQ2hlZXJzCgpNYXJjZWwK
+ClsxXSBodHRwczovL2dpdGh1Yi5jb20vcmlzY3YvbWV0YS1yaXNjdi9wdWxsLzYwMgoKPiBPbiBX
+ZWQsIDEyIE5vdiAyMDI1IDE3OjQ1OjEzIC0wODAwIHlvdSB3cm90ZToKPiA+IE9uIHNvbWUgUklT
+Qy1WIHBsYXRmb3JtcywgaW5jbHVkaW5nIFN0YXJGaXZlIEpINzEwMCBhbmQgRVNXSU4gRUlDNzcw
+MCwKPiA+IERSQU0gaXMgbWFwcGVkIHRvIG11bHRpcGxlIHBoeXNpY2FsIGFkZHJlc3MgcmFuZ2Vz
+LCB3aXRoIGVhY2ggYWxpYXMKPiA+IGhhdmluZyBhIGRpZmZlcmVudCBzZXQgb2Ygc3RhdGljYWxs
+eS1kZXRlcm1pbmVkIFBoeXNpY2FsIE1lbW9yeQo+ID4gQXR0cmlidXRlcyAoUE1BcyksIHN1Y2gg
+YXMgY2FjaGVhYmlsaXR5LiBTb2Z0d2FyZSBjYW4gYWx0ZXIgdGhlIFBNQXMgZm9yCj4gPiBhIHBh
+Z2UgYnkgc2VsZWN0aW5nIGEgUEZOIGZyb20gdGhlIGNvcnJlc3BvbmRpbmcgcGh5c2ljYWwgYWRk
+cmVzcyByYW5nZS4KPiA+IE9uIHRoZXNlIHBsYXRmb3JtcywgdGhpcyBpcyB0aGUgb25seSB3YXkg
+dG8gYWxsb2NhdGUgbm9uY2FjaGVkIG1lbW9yeQo+ID4gZm9yIHVzZSB3aXRoIG5vbmNvaGVyZW50
+IERNQS4KPiA+IAo+ID4gWy4uLl0KPiAKPiBIZXJlIGlzIHRoZSBzdW1tYXJ5IHdpdGggbGlua3M6
+Cj4gwqAgLSBbdjMsMDEvMjJdIG1tL3B0ZHVtcDogcmVwbGFjZSBSRUFEX09OQ0UoKSB3aXRoIHN0
+YW5kYXJkIHBhZ2UgdGFibGUgYWNjZXNzb3JzCj4gwqDCoMKgIGh0dHBzOi8vZ2l0Lmtlcm5lbC5v
+cmcvcmlzY3YvYy8xMTExOWIxOWY2MmQKPiDCoCAtIFt2MywwMi8yMl0gbW06IHJlcGxhY2UgUkVB
+RF9PTkNFKCkgd2l0aCBzdGFuZGFyZCBwYWdlIHRhYmxlIGFjY2Vzc29ycwo+IMKgwqDCoCBodHRw
+czovL2dpdC5rZXJuZWwub3JnL3Jpc2N2L2MvYzBlZmRiMzczYzNhCj4gwqAgLSBbdjMsMDMvMjJd
+IG1tL2RpcnR5OiByZXBsYWNlIFJFQURfT05DRSgpIHdpdGggcHVkcF9nZXQoKQo+IMKgwqDCoCBo
+dHRwczovL2dpdC5rZXJuZWwub3JnL3Jpc2N2L2MvYjRlNTM5ODRmMjQwCj4gwqAgLSBbdjMsMDQv
+MjJdIHBlcmYvZXZlbnRzOiByZXBsYWNlIFJFQURfT05DRSgpIHdpdGggc3RhbmRhcmQgcGFnZSB0
+YWJsZSBhY2Nlc3NvcnMKPiDCoMKgwqAgKG5vIG1hdGNoaW5nIGNvbW1pdCkKPiDCoCAtIFt2Myww
+NS8yMl0gbW06IE1vdmUgdGhlIGZhbGxiYWNrIGRlZmluaXRpb25zIG9mIHBYWHBfZ2V0KCkKPiDC
+oMKgwqAgKG5vIG1hdGNoaW5nIGNvbW1pdCkKPiDCoCAtIFt2MywwNi8yMl0gbW06IEFsd2F5cyB1
+c2UgcGFnZSB0YWJsZSBhY2Nlc3NvciBmdW5jdGlvbnMKPiDCoMKgwqAgKG5vIG1hdGNoaW5nIGNv
+bW1pdCkKPiDCoCAtIFt2MywwNy8yMl0gY2hlY2twYXRjaDogV2FybiBvbiBwYWdlIHRhYmxlIGFj
+Y2VzcyB3aXRob3V0IGFjY2Vzc29ycwo+IMKgwqDCoCAobm8gbWF0Y2hpbmcgY29tbWl0KQo+IMKg
+IC0gW3YzLDA4LzIyXSBtbTogQWxsb3cgcGFnZSB0YWJsZSBhY2Nlc3NvcnMgdG8gYmUgbm9uLWlk
+ZW1wb3RlbnQKPiDCoMKgwqAgKG5vIG1hdGNoaW5nIGNvbW1pdCkKPiDCoCAtIFt2MywwOS8yMl0g
+cmlzY3Y6IGhpYmVybmF0ZTogUmVwbGFjZSBvcGVuLWNvZGVkIHBYWHBfZ2V0KCkKPiDCoMKgwqAg
+KG5vIG1hdGNoaW5nIGNvbW1pdCkKPiDCoCAtIFt2MywxMC8yMl0gcmlzY3Y6IG1tOiBBbHdheXMg
+dXNlIHBhZ2UgdGFibGUgYWNjZXNzb3IgZnVuY3Rpb25zCj4gwqDCoMKgIChubyBtYXRjaGluZyBj
+b21taXQpCj4gwqAgLSBbdjMsMTEvMjJdIHJpc2N2OiBtbTogU2ltcGxpZnkgc2V0X3A0ZCgpIGFu
+ZCBzZXRfcGdkKCkKPiDCoMKgwqAgKG5vIG1hdGNoaW5nIGNvbW1pdCkKPiDCoCAtIFt2MywxMi8y
+Ml0gcmlzY3Y6IG1tOiBEZWR1cGxpY2F0ZSBfUEFHRV9DSEdfTUFTSyBkZWZpbml0aW9uCj4gwqDC
+oMKgIChubyBtYXRjaGluZyBjb21taXQpCj4gwqAgLSBbdjMsMTMvMjJdIHJpc2N2OiBwdGR1bXA6
+IE9ubHkgc2hvdyBOIGFuZCBNVCBiaXRzIHdoZW4gZW5hYmxlZCBpbiB0aGUga2VybmVsCj4gwqDC
+oMKgIChubyBtYXRjaGluZyBjb21taXQpCj4gwqAgLSBbdjMsMTQvMjJdIHJpc2N2OiBtbTogRml4
+IHVwIG1lbW9yeSB0eXBlcyB3aGVuIHdyaXRpbmcgcGFnZSB0YWJsZXMKPiDCoMKgwqAgKG5vIG1h
+dGNoaW5nIGNvbW1pdCkKPiDCoCAtIFt2MywxNS8yMl0gcmlzY3Y6IG1tOiBFeHBvc2UgYWxsIHBh
+Z2UgdGFibGUgYml0cyB0byBhc3NlbWJseSBjb2RlCj4gwqDCoMKgIChubyBtYXRjaGluZyBjb21t
+aXQpCj4gwqAgLSBbdjMsMTYvMjJdIHJpc2N2OiBhbHRlcm5hdGl2ZTogQWRkIGFuIEFMVEVSTkFU
+SVZFXzMgbWFjcm8KPiDCoMKgwqAgKG5vIG1hdGNoaW5nIGNvbW1pdCkKPiDCoCAtIFt2MywxNy8y
+Ml0gcmlzY3Y6IGFsdGVybmF0aXZlOiBBbGxvdyBjYWxscyB3aXRoIGFsdGVybmF0ZSBsaW5rIHJl
+Z2lzdGVycwo+IMKgwqDCoCAobm8gbWF0Y2hpbmcgY29tbWl0KQo+IMKgIC0gW3YzLDE4LzIyXSBy
+aXNjdjogRml4IGxvZ2ljIGZvciBzZWxlY3RpbmcgRE1BX0RJUkVDVF9SRU1BUAo+IMKgwqDCoCAo
+bm8gbWF0Y2hpbmcgY29tbWl0KQo+IMKgIC0gW3YzLDE5LzIyXSBkdC1iaW5kaW5nczogcmlzY3Y6
+IERlc2NyaWJlIHBoeXNpY2FsIG1lbW9yeSByZWdpb25zCj4gwqDCoMKgIChubyBtYXRjaGluZyBj
+b21taXQpCj4gwqAgLSBbdjMsMjAvMjJdIHJpc2N2OiBtbTogVXNlIHBoeXNpY2FsIG1lbW9yeSBh
+bGlhc2VzIHRvIGFwcGx5IFBNQXMKPiDCoMKgwqAgKG5vIG1hdGNoaW5nIGNvbW1pdCkKPiDCoCAt
+IFt2MywyMS8yMl0gcmlzY3Y6IGR0czogc3RhcmZpdmU6IGpoNzEwMDogVXNlIHBoeXNpY2FsIG1l
+bW9yeSByYW5nZXMgZm9yIERNQQo+IMKgwqDCoCAobm8gbWF0Y2hpbmcgY29tbWl0KQo+IMKgIC0g
+W3YzLDIyLzIyXSByaXNjdjogZHRzOiBlc3dpbjogZWljNzcwMDogVXNlIHBoeXNpY2FsIG1lbW9y
+eSByYW5nZXMgZm9yIERNQQo+IMKgwqDCoCAobm8gbWF0Y2hpbmcgY29tbWl0KQo+IAo+IFlvdSBh
+cmUgYXdlc29tZSwgdGhhbmsgeW91IQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
