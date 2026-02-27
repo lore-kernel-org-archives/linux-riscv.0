@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24671FEFB56
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 15:00:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A128AFEFB56
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 15:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M6lb3yQmyMMYgQeP7efFxGVoQGzD1o2qRL8obQAhgBw=; b=dRq+zFCeO0BVOq
-	7Nq/ZQg5g02Us2Y8j15GbMPT/5Z5tVZRJK12QV5ZY4t9Ltd1Ta1YsM+RrsoZTK18rHqPwK4Cuuicb
-	LQEfNf4P9C96MoMUr3BEHlFdP0nOBlaALt9lPx5l5mlwbi6RA/TuMew89D7E0P2kEp/buwP7xd8Zp
-	gP42woIjDFmKAphCuiYFsE5HCwJpacEluPxI2G40RsUy6+c03Wyh2D2GXzvIs24oGpDglY2yNGNwy
-	LF7SzqmZ/z/t35whlFNozW48dV1/vxptInCZdb35NqILXSvDLtX+GQQLi6nm2XCXdhy09Xg+EL7R7
-	j/9iwprLxAHKAWnWIRuw==;
+	List-Owner; bh=Tk2L5CBhPvfmcmg4fD5iGu/wydDt47vSoDH3H8dz07g=; b=KyRRux8WdmESq9
+	tsAHhMjpmmwWdS7SiHQZSVDi5GmItushb+41MizhuHZuj6iYl4WBHdc+uorsClBJZ6P/d/mujusg5
+	vtCwcGWOhGFu89vc07DBlY0HFu1B0nOlUeNehBjpkP08ZfRFn+erp3NjnGKxcqu6jBYz2jI67uFaQ
+	H6cKCD3rUv1vkhUaBdUsYuM12JAjFWDRFeSZnZUJtWAcXBrjoFO8FxyX4u41qsXvI2S8ZEW1kCN9w
+	0lJPadsQpzVuhBY3f1XHdBMml+hD5dvKsqRxGSeGClHLs01FFACAqzPyNtChAmN8J0krYzNeRZ/1e
+	6XcA5jxCQ/KSb3zUxPHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzJs-00000008Y2D-2KpG;
-	Fri, 27 Feb 2026 14:59:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vvzX1-00000008Yq7-2585;
+	Fri, 27 Feb 2026 15:13:31 +0000
+Received: from mx-2023-1.gwdg.de ([134.76.10.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzJq-00000008Y1r-3HmU;
-	Fri, 27 Feb 2026 14:59:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=K7r8Z1FlUMFRinIqgzxf/xf21Zt3QwRPfC2JIlyyqwU=; b=TRGGO44IVrK2kKf1lWtZC0Es36
-	Mg1+dOj/+kKydYYrBURGaaCIFKd6u/P1NGau5SPCPUkrOz2XTsNQogaaxah8j12znGMH248irNM9t
-	AatN/JD+A2uXVgEfLPZToUdeaiwkb2dQDVQoNAyWLYfXd13jKNgybB/4X1ATSeMp18gfqe9JKJycW
-	xtW2KInAcYga1qwtLjnUuY23rTyWdt587mGkDSNPEx/oItD1fa/jPMx9atfAP91WU4XUKtRtdhn8Y
-	ZfgvYIq4oN+CcvB5BnUdhLNXBU7ehAHhMy5LsUF3Cnz8hbsnE1R5/SvRnojRhn2zSavoUotBXHypp
-	H31qosBg==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzJl-0000000DIWx-3Z3O;
-	Fri, 27 Feb 2026 14:59:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 994174383C;
-	Fri, 27 Feb 2026 14:59:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0AD5C116C6;
-	Fri, 27 Feb 2026 14:59:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772204387;
-	bh=MZa9xWLiumaplzcIo8ZJptqQvtOjLhpO8tJPSbBzWug=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QL1/ckIeUXLAKmiHGzBfhKJwkndP36tCWXnb5pplxYMTpN1cZNCETQIVmfto9G2ii
-	 +cRsc+StQjLulD2ifCd+gtZijsMCJOBvKPgZsul21LjvCWu3/Ab79RqLekJ22E65a6
-	 B+hWEV6QhJ21xMZPjK3+MDj0TD/9Iy8sIYIFqsXBE7pZtRftya1ElAJngc4eQnLPuO
-	 9kTl6um+I7uyuaAdYsd94t4Sbic62Uj87k7gl4+reuKTllvOMpLfYcRWL5JvqvDMUQ
-	 XHVxOxA8iD/aoqagR5l8hwsvXiQMoVRcqo2m+kvlOa9A/yu0q+5BgSYLgXi0xB2yf9
-	 ql7iuT4JvW4aw==
-Date: Fri, 27 Feb 2026 20:29:43 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Yixun Lan <dlan@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Ze Huang <huang.ze@linux.dev>,
-	Junzhong Pan <panjunzhong@linux.spacemit.com>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] phy: k1-usb: k3: add USB2 PHY support
-Message-ID: <aaGxX_3FXjM1LT6y@vaman>
-References: <20260214-11-k3-usb2-phy-v2-0-6ed31e031ab4@kernel.org>
- <20260214-11-k3-usb2-phy-v2-3-6ed31e031ab4@kernel.org>
+	id 1vvzWz-00000008Ypb-118B;
+	Fri, 27 Feb 2026 15:13:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=cispa.de;
+	s=2023-rsa; h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=FWU+AoGX9eH3mCsh3LQUgdVuyGEg7A83/ykl1w+gkCQ=; b=VBFZUizvgZG78Youf4F+MeuRT2
+	zri9gJa8VJVZ5M6To8Tru9dkJszT42T+HnSu3Linjj54Cre1zTBIRISI2Y2bBBZzcBR/QsOFFXhxq
+	ta5/gvMUNi5XaBlqWdwXys81LGEl8Oq15xR6bbzo73PtB/vmOYhPpEzvtDSHj3E/dCyCXg4Uxjop+
+	EBWg04SLhWki8tp+QNbFBzkK7dcpZKPpKVvBo0Oqhd5LaipYyIaq5LE0HzdnTqy17Hd1BQ9M9+lVd
+	MMJ7Y72wIevZWLffmLfqJs7PD9o/ZNjE4Ebo4POqVfrCG9pLNOS0pQGM5R8OtCzT8ulNWsHGzN35Y
+	jsDMgJfQ==;
+Received: from mailer.gwdg.de ([134.76.10.26]:56296)
+	by mailer.gwdg.de with esmtp (GWDG Mailer)
+	(envelope-from <lukas.gerlach@cispa.de>)
+	id 1vvzWi-006hGu-0F;
+	Fri, 27 Feb 2026 16:13:12 +0100
+Received: from mbx19-sub-05.um.gwdg.de ([10.108.142.70] helo=email.gwdg.de)
+	by mailer.gwdg.de with esmtps (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
+	(GWDG Mailer)
+	(envelope-from <lukas.gerlach@cispa.de>)
+	id 1vvzWi-000PaN-2i;
+	Fri, 27 Feb 2026 16:13:12 +0100
+Received: from localhost.localdomain (10.250.9.200) by MBX19-SUB-05.um.gwdg.de
+ (10.108.142.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.37; Fri, 27 Feb
+ 2026 16:13:10 +0100
+From: Lukas Gerlach <lukas.gerlach@cispa.de>
+To: <radim.krcmar@oss.qualcomm.com>
+CC: <ajones@ventanamicro.com>, <alex@ghiti.fr>, <anup@brainfault.org>,
+	<aou@eecs.berkeley.edu>, <atish.patra@linux.dev>, <daniel.weber@cispa.de>,
+	<jo.vanbulck@kuleuven.be>, <kvm-riscv@lists.infradead.org>,
+	<kvm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <lukas.gerlach@cispa.de>,
+	<marton.bognar@kuleuven.be>, <michael.schwarz@cispa.de>,
+	<palmer@dabbelt.com>, <pjw@kernel.org>
+Subject: Re: [PATCH 4/4] KVM: riscv: Fix Spectre-v1 in PMU counter access
+Date: Fri, 27 Feb 2026 16:12:47 +0100
+Message-ID: <20260227151247.18602-1-lukas.gerlach@cispa.de>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <DGPS39X0VRTU.3ATPEH33LUF1G@oss.qualcomm.com>
+References: <DGPS39X0VRTU.3ATPEH33LUF1G@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260214-11-k3-usb2-phy-v2-3-6ed31e031ab4@kernel.org>
+X-Originating-IP: [10.250.9.200]
+X-ClientProxiedBy: MBX19-FMZ-06.um.gwdg.de (10.108.142.65) To
+ MBX19-SUB-05.um.gwdg.de (10.108.142.70)
+X-Virus-Scanned: (clean) by clamav
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_145951_141470_E9D15F94 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20260227_071329_325251_B064DCD5 
+X-CRM114-Status: UNSURE (   6.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,56 +93,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 14-02-26, 20:29, Yixun Lan wrote:
-> Add USB2 PHY support for SpacemiT K3 SoC.
-> 
-> Register layout of handling USB disconnect operation has been changed,
-> So introducing a platform data to distinguish the different SoCs.
-> 
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-> ---
->  drivers/phy/spacemit/phy-k1-usb2.c | 34 +++++++++++++++++++++++++++++-----
->  1 file changed, 29 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/phy/spacemit/phy-k1-usb2.c b/drivers/phy/spacemit/phy-k1-usb2.c
-> index 959bf79c7a72..b4ba97481ddd 100644
-> --- a/drivers/phy/spacemit/phy-k1-usb2.c
-> +++ b/drivers/phy/spacemit/phy-k1-usb2.c
-> @@ -51,6 +51,9 @@
->  #define PHY_K1_HS_HOST_DISC		0x40
->  #define  PHY_K1_HS_HOST_DISC_CLR		BIT(0)
->  
-> +#define PHY_K3_HS_HOST_DISC		0x20
-> +#define  PHY_K3_HS_HOST_DISC_CLR		BIT(8)
-> +
->  #define PHY_PLL_DIV_CFG			0x98
->  #define  PHY_FDIV_FRACT_8_15		GENMASK(7, 0)
->  #define  PHY_FDIV_FRACT_16_19		GENMASK(11, 8)
-> @@ -145,7 +148,7 @@ static int spacemit_usb2phy_exit(struct phy *phy)
->  	return 0;
->  }
->  
-> -static int spacemit_usb2phy_disconnect(struct phy *phy, int port)
-> +static int spacemit_k1_usb2phy_disconnect(struct phy *phy, int port)
->  {
->  	struct spacemit_usb2phy *sphy = phy_get_drvdata(phy);
->  
-> @@ -155,10 +158,27 @@ static int spacemit_usb2phy_disconnect(struct phy *phy, int port)
->  	return 0;
->  }
->  
-> -static const struct phy_ops spacemit_usb2phy_ops = {
-> +static int spacemit_k3_usb2phy_disconnect(struct phy *phy, int port)
-> +{
-> +	struct spacemit_usb2phy *sphy = phy_get_drvdata(phy);
-> +
-> +	regmap_update_bits(sphy->regmap_base, PHY_K3_HS_HOST_DISC,
-> +					   PHY_K3_HS_HOST_DISC_CLR, PHY_K3_HS_HOST_DISC_CLR);
+Thanks for the review!
 
-Please match this with preceding open parenthesis
+> This one also covers a non-speculation bug, since the previous condition
+> used cidx > RISCV_KVM_MAX_COUNTER. :)  I'll send a patch for that.
 
--- 
-~Vinod
+Nice catch, thanks for sending the fix.
+
+> I noticed a few other places where mis-speculation is possible,
+> see below; can you explain why they don't need protection?
+
+They do, I missed those. Will send a v2 incorporating all four sites.
+
+Thanks,
+Lukas
 
 _______________________________________________
 linux-riscv mailing list
