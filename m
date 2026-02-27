@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37CE7FEFB58
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 14:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED5BFEFB58
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 14:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fHWiulHUCaLA8Vu2QrDKPXhJv9ycIHhFJ7h3zvM0JWM=; b=TCxHO4opViMQD4
-	WVzlmQM+eZvZSceESLe4dPJ2MAGVVRQXIbq+ODoyeeGVPlNpsy/5lw9sMdMJDbXe69oymm6UTrT7N
-	liZE2SBndyh5/UmK5A01A1gpnuCK3GcnxeB8mmVZVazsXIWOT2QYdT6S0gaxL8z0ypc3r54XNyppv
-	PeaKL/EFvDriyy5YmG2dy4gic8lB8FoVz0BADTbPf6b5OvermyEIJo6AV7mNebpxO7ilxRRGf16Yd
-	czXCIEWqQWZi8+JgQJEDIsN2x1LA2iQWVsLt5on6EE+NOTrVFOGD6h0UuhjgmMlR1DWXxGnuO08Tu
-	rIZ2PUQscE/sY1pP03OA==;
+	List-Owner; bh=VG672BXTL4Zg1ropdEGHa1KzY1AlWRMJz8Sv9SyEKo0=; b=nw6z1ved55MQLl
+	Q4aA2LwfLy1Lf3pfKiMORleUp/apBq4DOs/WOSuEPt34Q/W2HS/q2JdgRAnGsPth36X1vWQ7shU3K
+	CcnAzSJYSCdR2sgG3cySVQSr1bPGl5fRk/heweNbyNvj5cJK+f4xpjH3LU4GC6f6988WaxJseMNk8
+	SVyitE7knD6ccGlBdZRUpIZgfo2MQSQAYYyAaZGa2WUJYGoN1mOn6058fgyPtv/lqLCYtA1OqNdQ4
+	2a1cqcU4a6CvrOHitkAN+LyAr45I5OthDqzbFIp163I5rAfx7cKzbtbriYVyuaQ/alLGWN/QAbPTx
+	J8Szm3eJqtTS4PJHjprA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvyrF-00000008V1w-3Dgv;
-	Fri, 27 Feb 2026 14:30:21 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vvyx3-00000008VMa-23bl;
+	Fri, 27 Feb 2026 14:36:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvyrE-00000008V1j-3MoV;
-	Fri, 27 Feb 2026 14:30:20 +0000
+	id 1vvyx2-00000008VMC-2x4V;
+	Fri, 27 Feb 2026 14:36:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=lOp11MEHkYYwHRuUi0PZxSk1JN5+nTDJOLnSpDaUbDc=; b=Z9TK/udXiurPXiytUakXbFeev1
-	ri7v9BFFO7R7ZiJvpbTW1JFNZRneKl3isIJyG3zHlkz9s2XQmusrQ/zacC5tOadz4Z7qmOWC49end
-	3fVssHWiU1uZPXJxiiQFriaeu9YgtBdmdglQ2CtYVshTHvu5aWjnfh1f3CqeCm2LMKGKqofhFMRq5
-	2FTQrOlmRLWH57X+/mT4zC19PNT7lNgxKvCQLn4m60NIZInXyfVhYVB3n68h6H+ZGw2r9VS0iGiNq
-	QnT1zFqHAqIdiC0LM2DhVATtSnPcGUsNzzjMV7n5w3njjHXBfMs/S6eMK73CqMCrr/PUyh+1FLh1J
-	kCLUtTiQ==;
+	bh=sd4Dk0zWsQwDRJSs7bWqIQywpiYjqUPgxmAIc0fK68w=; b=KD1L4Etwagd1eSmxZlo6KzsMbM
+	fONwzvtpqLYChdBJfr8NDHR8cZXcrwPHL+6MIUnFqjzp0jZOeTwkR++VxiE9mZ1Fxo7dbV/s6M719
+	JXFDIXO8UCIWQEeT56dTega0MPjMh5tY7+yrFo7oX79K+n7Q70KOFxLusSqDmlcp0JTF6MuobaJLg
+	ZSmFE4SvOnGKM4aBqQQdA/ZFNBGOvBjLR8Shx1hs85uSqO4Qz/GeLsp1DyW7Ixx3MzD/enr49FEf0
+	39cX6Lvq4zVc/FsVzQUKO0QukCMVTZ+GAl9JRmO5cYgboNvRfsG10Yh9iL/+2tvOLVN16tQiiLj7h
+	ldkMSYYw==;
 Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvyrB-00000004hgm-0psV;
-	Fri, 27 Feb 2026 14:30:17 +0000
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vvywq-0000000DG9M-0aeA;
+	Fri, 27 Feb 2026 14:36:08 +0000
 Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id B3685300CDE; Fri, 27 Feb 2026 15:30:16 +0100 (CET)
-Date: Fri, 27 Feb 2026 15:30:16 +0100
+	id AF18E300462; Fri, 27 Feb 2026 15:36:06 +0100 (CET)
+Date: Fri, 27 Feb 2026 15:36:06 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: Christoph Hellwig <hch@lst.de>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -84,13 +84,13 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
 	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 18/25] x86: move the XOR code to lib/raid/
-Message-ID: <20260227143016.GH1282955@noisy.programming.kicks-ass.net>
+Subject: Re: [PATCH 25/25] xor: use static_call for xor_gen
+Message-ID: <20260227143606.GI1282955@noisy.programming.kicks-ass.net>
 References: <20260226151106.144735-1-hch@lst.de>
- <20260226151106.144735-19-hch@lst.de>
+ <20260226151106.144735-26-hch@lst.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260226151106.144735-19-hch@lst.de>
+In-Reply-To: <20260226151106.144735-26-hch@lst.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,21 +107,10 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 07:10:30AM -0800, Christoph Hellwig wrote:
-> Move the optimized XOR code out of line into lib/raid.
-> 
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> ---
->  arch/x86/include/asm/xor.h                    | 518 ++----------------
->  arch/x86/include/asm/xor_64.h                 |  32 --
->  lib/raid/xor/Makefile                         |   8 +
->  .../xor_avx.h => lib/raid/xor/x86/xor-avx.c   |  14 +-
->  .../xor_32.h => lib/raid/xor/x86/xor-mmx.c    |  60 +-
->  lib/raid/xor/x86/xor-sse.c                    | 476 ++++++++++++++++
+On Thu, Feb 26, 2026 at 07:10:37AM -0800, Christoph Hellwig wrote:
+> Avoid the indirect call for xor_generation by using a static_call.
 
-I gotta ask, why lib/raid/xor/$arch/ instead of something like
-arch/$arch/lib/xor ?
-
+Nice!
 
 _______________________________________________
 linux-riscv mailing list
