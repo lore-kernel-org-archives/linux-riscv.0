@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33820FD530A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 979C81039880
 	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 19:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,52 +12,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZT374lJg36y3F+hVGcDh+AfpnfpV1/MhofMMEpExmLc=; b=0KcFHZUNeA8xaH
-	iUiOoCYk5FM96InUOTJ0Csq3ZONFD691jUyDJBRNGtM9znu+cL/EEcUJBVbcpGaq2ka0rpf6+4D+W
-	rwzIJy1lANVguoJivw0cyDQXFXZc58kgWhb7owvfSKDmqEbqp0tysEpNvOF+WX5uVVEMr9DAWtqQo
-	Oj0ysEc3FQz3LOQo7ebiqfmk2WR1nhlIOJYRA7fqQ8HTBwDG5bD3WZVAT97GsfhlllJIWg6TSp4bI
-	iqoTAwRhg1Z/nmQXmo/L8U7co9TNjzfq7i9H1Zf73yf3tbYSY2wSHDe7Zx3C5oGPDa1ScGuyx4kpZ
-	38B3jKyHTgVvwI6w9bcg==;
+	List-Owner; bh=A8ik//seXtJa78xkbsSU8aQDt645DuJnNNOwvpU4Ewc=; b=h9URoRx5TFuU+m
+	+m9leTgSXMpbDp5cZWBwv+o3e9jBd5CJAe6vhMrBqIJ2DovxXryGPjhcRNyyDn1vljMSocxcYP5Zg
+	8BfbMo+YMJagaFj9fl6aSEZ5HIf22hE6zE2Yi3HMVdAzv/h8trXzqP/Zt1JuPzIH+oiYtKAf9ai0r
+	6tywZa0nmxD5nNTW22GQ7PZu1BHyTZVGuuoO9dxNZ9d1TuuZiwdoKG465j553EN/tWJnEBGYVTZGf
+	XWQU9NM4fqn1LKM/jzWgFJ9CqHJnA13LFo5DqAwy+iUePX2ecfBOmYDn7JpawGPtLN7Bw20FHRcuS
+	st/JwZ02ObiYxOSgQt+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw3kL-000000092qr-07XL;
-	Fri, 27 Feb 2026 19:43:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vw3kK-000000092q9-2wOZ;
+	Fri, 27 Feb 2026 19:43:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw3kI-000000092mc-10ei
-	for linux-riscv@lists.infradead.org;
+	id 1vw3kI-000000092mg-3vij
+	for linux-riscv@bombadil.infradead.org;
 	Fri, 27 Feb 2026 19:43:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=psX1/RN4D7tc0hPQm6iUSxbTVKqJFYhFZ0jsRV8hStY=; b=TSsoTsNl27ZQbkon+iELLlsdRj
+	ZXRvcVt8MshEUSPcPMzGS7RRdM3/ai5pSoewiJAoVCg/I5272Seg5LOXE8ORnEIJzUcI/65Qv/OSE
+	U+Ia11hQL1SYTnylhDrEdyl5bFmNIJ/00w0yRWUIcHb0anuXO/min5umDbJvw6tAqXHVIqIOa8i0J
+	xrX4VwD3JLi9ix9c48+BmttgPlUIB/TzxzEkTL0Zfp4sRJEOocclHOIUs6kXguCZtoC8wGd4yBw3w
+	wTHyVEVTe1qhSGIojNafG0Yx9risxPwnTjtVSxKEHVd2D4TSMaU8+lN2Dd1oG9FXrY4FQrBc35onw
+	Jfig6Fzw==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vw3kE-0000000Dndr-2MQJ
+	for linux-riscv@lists.infradead.org;
+	Fri, 27 Feb 2026 19:43:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 82CF36013C;
-	Fri, 27 Feb 2026 19:43:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76356C4AF09;
-	Fri, 27 Feb 2026 19:43:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id ED7A2441FB;
+	Fri, 27 Feb 2026 19:43:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3D40C2BCAF;
+	Fri, 27 Feb 2026 19:43:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772221409;
-	bh=gud3FwwIClhEmyWoGuFCwJEp0m9beXo/gim58y+k7v0=;
+	s=k20201202; t=1772221404;
+	bh=qL/9y03XAUyVqo5OQVqiOiCFnXGU+LUEF5AtRX0sSeE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=iPVMHXXhYAi0AhUZq3bW+X6MD/K0c5MSJn+TsC8AOtTtbUFFz3ffyRMS0WviVcGni
-	 62mT9OgURd3x7sv9fsxrJdolzd8si5WsvQEnHCXatGff/w2mfIPm56k+FiSk3tMIEx
-	 CEyiWsjiEmW2J3Wh+7A+aIkbR1VAVxg68k2FmcxZALEpLRU3hLg0e6NHfNLuwcvyey
-	 NEVR96YD+9liaOwCJT+40rJsnlUv4jAWNMgIFVrp8pymkDJ8sCDTP+uSzW//0vE0dU
-	 UbN920BfT5alOYAzmv118aWwusSku8OQvk2Rya/EOE3wrXtpYPaR3F9sdfvr4+XMob
-	 rG0F1Izfn9mWg==
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 9B017F40069;
-	Fri, 27 Feb 2026 14:43:27 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-02.internal (MEProxy); Fri, 27 Feb 2026 14:43:27 -0500
-X-ME-Sender: <xms:3_OhabA1ohqHXNU5qyJNz3ayihbTvK3cA9c3NeIZ0xeM1MM9lSR44A>
-    <xme:3_OhaasFPoEyIuUpNv0wUZw1T9AsYpGPB5jur1OagdNAAOFIcXX1o6UmejzHply7o
-    JEos8QXdiJ4oJkKjwD55DpkuqErIqIWSxv7Y6t9b0j31TPHUpEvWJo>
-X-ME-Received: <xmr:3_OhaQvt0UEdCKMeu209siQA0Vdm7tWGKBCe5XARr7O-MZNZ_FnsHw8613Kmpg>
+	b=WsF21CnoBKn/lu9boe37TDd991flEHr2mvygK8jdP/xwI8tdRmQVyjCZER9cJ77bd
+	 a+xKo9EPLTjaUm02KQbN48MIsPjUB0Bqbwc0v+DXSO8dcdiUEazkFFCvOQf7XGoD9T
+	 qwc5r9YRPYTdMSGLsROHXn4Ya/jVx/CMYC7MR1I2r8h26pOMTbx0dRysIp6ErSeTHp
+	 PN9tBPIfquvjX4bVSXx3fiJRgHkZKGpc0qcfEoRNzy9TAxyu7yHtoT4AWqxZRAKRpT
+	 0uFnRKPN+6Zl8QErCy47zLpFS5GtwgNb8Pob4rFxCkirfbypkjwvX/q+6qB1hQKlI8
+	 HqVy0HE/zUghw==
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfauth.phl.internal (Postfix) with ESMTP id D98C7F40068;
+	Fri, 27 Feb 2026 14:43:22 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-06.internal (MEProxy); Fri, 27 Feb 2026 14:43:22 -0500
+X-ME-Sender: <xms:2vOhadyXya4yLvxIDvteB3YJYYeoMaYCq9g6E25uN0uh7yKbZoZuBQ>
+    <xme:2vOhaegxw06N82H9lXQ43oKiaJudI9bL7m1bafOf5Z23YvIWdZngQwsuSrCcQb1x9
+    HQHhsQZMt6JGQVDOBhsS2d-IEC418amrnc2eAhYKLCeS2WDtes8Cl4>
+X-ME-Received: <xmr:2vOhaQMD9laGwgWVQMSP9q5ubihdvEbhHlXEE6v4dCIlZNnTSwq-N13i1l6pCQ>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvgeelkeejucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
     gurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepfdfmihhrhihl
     ucfuhhhuthhsvghmrghuucdlofgvthgrmddfuceokhgrsheskhgvrhhnvghlrdhorhhgqe
     enucggtffrrghtthgvrhhnpefhudejfedvgeekffefvdekheekkeeuveeftdelheegteel
-    gfefveevueekhfdtteenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrih
+    gfefveevueekhfdtteenucevlhhushhtvghrufhiiigvpeefnecurfgrrhgrmhepmhgrih
     hlfhhrohhmpehkihhrihhllhdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidq
     udeiudduiedvieehhedqvdekgeeggeejvdekqdhkrghspeepkhgvrhhnvghlrdhorhhgse
     hshhhuthgvmhhovhdrnhgrmhgvpdhnsggprhgtphhtthhopedvkedpmhhouggvpehsmhht
@@ -68,14 +83,14 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvgeelkeejucetufdote
     rghilhdrtghomhdprhgtphhtthhopehfvhgulhesghhoohhglhgvrdgtohhmpdhrtghpth
     htohepohhsrghlvhgrughorhesshhushgvrdguvgdprhgtphhtthhopehrphhptheskhgv
     rhhnvghlrdhorhhgpdhrtghpthhtohepvhgsrggskhgrsehsuhhsvgdrtgii
-X-ME-Proxy: <xmx:3_Ohaeoioe6Sa8G-eKF1PjQM_fcot6QQ33vWyXbkJpHqPYj2ARiGUA>
-    <xmx:3_OhacMDbWD03RKTDgNiXsK3q3RADUxdVRA8AkVqkGTiT-ahMXTrJw>
-    <xmx:3_OhaclP2w1F1T-XaqMUWS1tmoLoPcwYmLOvusoieMwy1eq--4aKDw>
-    <xmx:3_OhaWv2wPdXpDysvWUxivqmsQUB-r_81ttU6zXN3TjjdRLKNtFNHA>
-    <xmx:3_OhabntOD3aP2UuglbO6GtArK7Cb_eZZ84aMTLBBXwLLWMSJplqa7Q9>
+X-ME-Proxy: <xmx:2vOhaWjk8lIr33h1293jPn5y6LMc3miT2U3bnD367YgKMKLx7RkndQ>
+    <xmx:2vOhaQo0zMbDHINM1yEBg-pnfKaI1Mb2MqjWOK6EjD2ObcuFzGVtIQ>
+    <xmx:2vOhaRiMUO1exAmM-IDCvqOhvN83Oj8h2KxUo766kyL0izRu4wwRGg>
+    <xmx:2vOhaWIWUc1NsaavpYvwG39l8_Q_GI0r6oI2iHag_LZH2QpiaoDLqg>
+    <xmx:2vOhae7x0N6Zdq1yCXZsP0Dh-1T8GeChfX4W3ZJwOmL57Lnp3nY0yskN>
 Feedback-ID: i10464835:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 27 Feb 2026 14:43:27 -0500 (EST)
+ 27 Feb 2026 14:43:22 -0500 (EST)
 From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	Muchun Song <muchun.song@linux.dev>,
@@ -104,14 +119,18 @@ Cc: Oscar Salvador <osalvador@suse.de>,
 	linux-doc@vger.kernel.org,
 	loongarch@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
-	"Kiryl Shutsemau (Meta)" <kas@kernel.org>
-Subject: [PATCHv7 11/18] x86/vdso: Undefine CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP for vdso32
-Date: Fri, 27 Feb 2026 19:42:49 +0000
-Message-ID: <20260227194302.274384-12-kas@kernel.org>
+	Kiryl Shutsemau <kas@kernel.org>
+Subject: [PATCHv7 08/18] mm/sparse: Check memmap alignment for compound_info_has_mask()
+Date: Fri, 27 Feb 2026 19:42:46 +0000
+Message-ID: <20260227194302.274384-9-kas@kernel.org>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20260227194302.274384-1-kas@kernel.org>
 References: <20260227194302.274384-1-kas@kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260227_194326_949645_80AC946C 
+X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,29 +147,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The 32-bit VDSO build on x86_64 uses fake_32bit_build.h to undefine
-various kernel configuration options that are not suitable for the
-VDSO context or may cause build issues when including kernel headers.
+From: Kiryl Shutsemau <kas@kernel.org>
 
-Undefine CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP in fake_32bit_build.h to
-prepare for change in  HugeTLB Vmemmap Optimization.
+If page->compound_info encodes a mask, it is expected that vmemmap to be
+naturally aligned to the maximum folio size.
 
-Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+Add a VM_WARN_ON_ONCE() to check the alignment.
+
+Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
+Acked-by: Zi Yan <ziy@nvidia.com>
 ---
- arch/x86/entry/vdso/vdso32/fake_32bit_build.h | 1 +
- 1 file changed, 1 insertion(+)
+ mm/sparse.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/x86/entry/vdso/vdso32/fake_32bit_build.h b/arch/x86/entry/vdso/vdso32/fake_32bit_build.h
-index db1b15f686e3..bc3e549795c3 100644
---- a/arch/x86/entry/vdso/vdso32/fake_32bit_build.h
-+++ b/arch/x86/entry/vdso/vdso32/fake_32bit_build.h
-@@ -11,6 +11,7 @@
- #undef CONFIG_PGTABLE_LEVELS
- #undef CONFIG_ILLEGAL_POINTER_VALUE
- #undef CONFIG_SPARSEMEM_VMEMMAP
-+#undef CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
- #undef CONFIG_NR_CPUS
- #undef CONFIG_PARAVIRT_XXL
+diff --git a/mm/sparse.c b/mm/sparse.c
+index b5b2b6f7041b..dfabe554adf8 100644
+--- a/mm/sparse.c
++++ b/mm/sparse.c
+@@ -600,6 +600,11 @@ void __init sparse_init(void)
+ 	BUILD_BUG_ON(!is_power_of_2(sizeof(struct mem_section)));
+ 	memblocks_present();
+ 
++	if (compound_info_has_mask()) {
++		VM_WARN_ON_ONCE(!IS_ALIGNED((unsigned long) pfn_to_page(0),
++				    MAX_FOLIO_VMEMMAP_ALIGN));
++	}
++
+ 	pnum_begin = first_present_section_nr();
+ 	nid_begin = sparse_early_nid(__nr_to_section(pnum_begin));
  
 -- 
 2.51.2
