@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C073BFEFB5A
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 14:53:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F99FEFB54
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 14:53:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vlnAzE4lzpPKaN33k5rkId5eH2cDAbZdxdbVmogmQxE=; b=1WyjcA5N9KQfMn
-	SCCcqSKh5ntDKl45I/StDGkmlPS2N/q4lxWnV5Gb+Fj4tx6DeyzMgpxqy24RdNWueYS0sXvR9sJnT
-	ijET3chzodH7u+ry2kKQl7bNqTD6ip0Hzf1h+lINCYvYsuMOFVgU0pgYmFKuc5/Bvn/ZOxiDTPnfq
-	kfwl/MmkghfB9ko3r1h/hA7UDLYck0gw7erb+u+xzwjJfbI/QSKouEdZN1i/Rs/CDGEwO2IpJcJ+H
-	Tg+voS1GNO9lV4nR/FDKL3jZEYptSuc9QD97bcFoDZ6j41y1eS181jUP/he7MBjLvOaTPuIyboKqR
-	WLAphnQj8smAa3Rq8l3g==;
+	List-Owner; bh=60xyBwq9ec7ydj4QtqKPMEMX295QnzBg+iDqlsm55ig=; b=d9u9OIHJC7fLoD
+	LXoz/WpNsUHMpuOuHG+MmsMGweG9csptQf3LdngfEFAS7aadNe/szQxo7R682d10ISc1cSJG7r3+Y
+	2zec0piCdEmwXFeNPPrRLvq2r4HWhvYJZFX4tDZizzlN+BESAzmd2HsMQjaQuQiFl785bNCB4rN+f
+	cKiRL5VCxpBVVP3die2h64Qfm704hKcsBuxGRZzKk2IdXDC6TiHslPE4WHzhhUQH14FPcSsDQtVA9
+	nEmBkfbJhq8D+pHDuemdByZ+0o1ejWm/25iWydWM/2I7qm7eur172axnhu3NhsuSVYH58T2ohPLNm
+	wnj2s3z7ig8hyPhxiE3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzDR-00000008WW4-2RxA;
-	Fri, 27 Feb 2026 14:53:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vvzDW-00000008WY6-3gGb;
+	Fri, 27 Feb 2026 14:53:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vvzDR-00000008WVf-0UTZ
+	id 1vvzDU-00000008WWq-0pv4
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Feb 2026 14:53:17 +0000
+	Fri, 27 Feb 2026 14:53:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2EAE8600CB;
+	by sea.source.kernel.org (Postfix) with ESMTP id 87C6743DD0;
+	Fri, 27 Feb 2026 14:53:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48CC8C2BC86;
 	Fri, 27 Feb 2026 14:53:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B71D3C116C6;
-	Fri, 27 Feb 2026 14:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772203995;
-	bh=gZr3gd4dKHEk1atNC6Y8Hfnb4BhiyOShXXIcekHSLK8=;
+	s=k20201202; t=1772203999;
+	bh=P6Y6LAfEMYufUAXyMOqjmgkk1lPdlaWQiDqTaii5reo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=toeEeVACp97TzY+AnJj5gh6vp3y+tcxanJViZSAGccv1N0O3HPT1QdmjuIbNjRd9u
-	 7JHePF03O7W0E9Kk6ToJ+cwflQKiatU1X8XsFzdQMa8T6lqEtOR+MwBn9qSEOmlHG5
-	 nqjpSeQCU3H3yCJHznrM4nFN7cGMbVukAiTHjaKXao1Lkp/N1bRQ2+nrxpFk2b3syh
-	 3G2xUvTm8i1rf5wqx6E1xs861bSgWOHQkfhm+xSy6nN5q8d2BTpD+04J5oHeYi88K+
-	 vjEaoGyUT75fMo5poFUOJ1u1g352slacQ6jEK4HCURHSKFKIHRCiughNHjg9w3fn83
-	 G2csBXUni0hEg==
+	b=Vj6q2YuQk+b7hRDjOYgsRlRLit36vkVL6Mvp9j9N9tOwatPv2COF+ejnzdvFvL29Y
+	 KQLyhHiBusjtkPXzAz5FSAmhZ2MVXt5MQL91jwQAG+1tn2yNQZrG4Khz/vSVMAfuGh
+	 wC0w3tcqNEBBmArh5cBs1IJOw/pMsUUq2bsp+CAqkXHGJVnNg/cyUAGmGqKDT+Eiw3
+	 9nZJbMXN+8rxVzX7ljr8OFAST/RBAR129saCAj+bR1d9cfzHzRBE3KbBMN4LQMwJ0t
+	 oR0NPjwoLpECdM/Jiwzs/uwD6CD6q8ymx7gf4UPqMyupVh2PM0x4HR/rWzXiFwosac
+	 a3YiJGX5bW1KA==
 From: Conor Dooley <conor@kernel.org>
 To: linux-gpio@vger.kernel.org
 Cc: conor@kernel.org,
@@ -60,15 +60,18 @@ Cc: conor@kernel.org,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [RFC v11 2/4] dt-bindings: soc: microchip: document PolarFire SoC's gpio interrupt mux
-Date: Fri, 27 Feb 2026 14:52:28 +0000
-Message-ID: <20260227-unbounded-disposal-dcac091b8ec2@spud>
+Subject: [RFC v11 3/4] soc: microchip: add mpfs gpio interrupt mux driver
+Date: Fri, 27 Feb 2026 14:52:29 +0000
+Message-ID: <20260227-flashing-overcast-85ff59b2e82c@spud>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260227-ajar-wolverine-7ce1ebd79821@spud>
 References: <20260227-ajar-wolverine-7ce1ebd79821@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3811; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=cNmHl/iHdChyACOE4c0qhyqCGE4DhF6jDYYYQU1loyQ=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkL16+91XzEWiVr6elDZ2YtPMsqz+r/7r6ODIuJeO2RZ 5orP/u4dZSyMIhxMciKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAiDomMDFcl99gUzTZVbvL+ zae6fP28L3pvXi+PFJ6Y8+zgb0dbpv+MDBd2bNmxoNhESeXKPZvFrQ65inWTKw1vnljuE1BXZOt xmR0A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8155; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=u5lEKiL0cHr1jSJp9L5HdwPjKGqXk6ZWpYyB9joPo0k=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkL169VWqxedOD7mk+nZ/zkkk29diPvvfmG7Fq5/iWP5 aPKxCqNOkpZGMS4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCR6+6MDGtCpnbFrdZ6c3Dd Cg3XvC2PJnbt7thacH3RAU9TU8ba018YGebVdH5c33Mp7cWljSV9SUf6ZYLX3j7icOeJ9twrUQZ z1ZkB
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260227_065320_311115_DF466B77 
+X-CRM114-Status: GOOD (  30.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,110 +95,231 @@ lines available on the PLIC, and a runtime configurable mux is used to
 decide which interrupts are assigned direct connections to the PLIC &
 which are relegated to sharing a line.
 
+Add a driver so that Linux can set the mux based on the interrupt
+mapping in the devicetree.
+
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../soc/microchip/microchip,mpfs-irqmux.yaml  | 76 +++++++++++++++++++
- .../microchip,mpfs-mss-top-sysreg.yaml        |  4 +
- 2 files changed, 80 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-irqmux.yaml
+ MAINTAINERS                         |   2 +-
+ drivers/soc/microchip/Kconfig       |  11 ++
+ drivers/soc/microchip/Makefile      |   1 +
+ drivers/soc/microchip/mpfs-irqmux.c | 167 ++++++++++++++++++++++++++++
+ 4 files changed, 180 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/soc/microchip/mpfs-irqmux.c
 
-diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-irqmux.yaml b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-irqmux.yaml
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 4044b28ca1818..55ed37ee53af0 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22691,7 +22691,7 @@ F:	Documentation/devicetree/bindings/pinctrl/microchip,mpfs-pinctrl-mssio.yaml
+ F:	Documentation/devicetree/bindings/pinctrl/microchip,pic64gx-pinctrl-gpio2.yaml
+ F:	Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
+ F:	Documentation/devicetree/bindings/riscv/microchip.yaml
+-F:	Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
++F:	Documentation/devicetree/bindings/soc/microchip/microchip,mpfs*.yaml
+ F:	Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
+ F:	Documentation/devicetree/bindings/usb/microchip,mpfs-musb.yaml
+ F:	arch/riscv/boot/dts/microchip/
+diff --git a/drivers/soc/microchip/Kconfig b/drivers/soc/microchip/Kconfig
+index bcf5546025610..7131f1b52d1bc 100644
+--- a/drivers/soc/microchip/Kconfig
++++ b/drivers/soc/microchip/Kconfig
+@@ -1,3 +1,14 @@
++config POLARFIRE_SOC_IRQ_MUX
++	bool "Microchip PolarFire SoC's GPIO IRQ Mux"
++	depends on ARCH_MICROCHIP
++	select REGMAP
++	select REGMAP_MMIO
++	default y
++	help
++	  Support for the interrupt mux on Polarfire SoC. It sits between
++	  the GPIO controllers and the PLIC, as only 35 interrupts are shared
++	  between 3 GPIO controllers with 32 interrupts each.
++
+ config POLARFIRE_SOC_SYS_CTRL
+ 	tristate "Microchip PolarFire SoC (MPFS) system controller support"
+ 	depends on POLARFIRE_SOC_MAILBOX
+diff --git a/drivers/soc/microchip/Makefile b/drivers/soc/microchip/Makefile
+index 1a3a1594b089b..55775db45ee76 100644
+--- a/drivers/soc/microchip/Makefile
++++ b/drivers/soc/microchip/Makefile
+@@ -1,2 +1,3 @@
++obj-$(CONFIG_POLARFIRE_SOC_IRQ_MUX)	+= mpfs-irqmux.o
+ obj-$(CONFIG_POLARFIRE_SOC_SYS_CTRL)	+= mpfs-sys-controller.o
+ obj-$(CONFIG_POLARFIRE_SOC_SYSCONS)	+= mpfs-control-scb.o mpfs-mss-top-sysreg.o
+diff --git a/drivers/soc/microchip/mpfs-irqmux.c b/drivers/soc/microchip/mpfs-irqmux.c
 new file mode 100644
-index 0000000000000..c8b0de9444dd6
+index 0000000000000..76c1afa1fe1c4
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-irqmux.yaml
-@@ -0,0 +1,76 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/soc/microchip/microchip,mpfs-irqmux.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/soc/microchip/mpfs-irqmux.c
+@@ -0,0 +1,167 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Largely copied from rzn1_irqmux.c
++ */
 +
-+title: Microchip Polarfire SoC GPIO Interrupt Mux
++#include <linux/bitmap.h>
++#include <linux/bitops.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_irq.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
 +
-+maintainers:
-+  - Conor Dooley <conor.dooley@microchip.com>
++#define MPFS_IRQMUX_CR		0x54
++#define MPFS_IRQMUX_NUM_OUTPUTS	70
 +
-+description: |
-+  There are 3 GPIO controllers on this SoC, of which:
-+  - GPIO controller 0 has 14 GPIOs
-+  - GPIO controller 1 has 24 GPIOs
-+  - GPIO controller 2 has 32 GPIOs
++static int mpfs_irqmux_is_direct_mode(struct device *dev,
++				      const struct of_phandle_args *parent_args)
++{
++	if (parent_args->args_count != 1) {
++		dev_err(dev, "Invalid interrupt-map item\n");
++		return -EINVAL;
++	}
 +
-+  All GPIOs are capable of generating interrupts, for a total of 70.
-+  There are only 41 IRQs available however, so a configurable mux is used to
-+  ensure all GPIOs can be used for interrupt generation.
-+  38 of the 41 interrupts are in what the documentation calls "direct mode",
-+  as they provide an exclusive connection from a GPIO to the PLIC.
-+  The 3 remaining interrupts are used to mux the interrupts which do not have
-+  a exclusive connection, one for each GPIO controller.
++	if (parent_args->args[0] < 13 || parent_args->args[0] > 53) {
++		dev_err(dev, "Invalid interrupt %u\n", parent_args->args[0]);
++		return -EINVAL;
++	}
 +
-+properties:
-+  compatible:
-+    const: microchip,mpfs-irqmux
++	if (parent_args->args[0] > 50)
++		return 0;
 +
-+  reg:
-+    maxItems: 1
++	return 1;
++}
 +
-+  "#address-cells":
-+    const: 0
++static int mpfs_irqmux_probe(struct platform_device *pdev)
++{
++	DECLARE_BITMAP(line_done, MPFS_IRQMUX_NUM_OUTPUTS) = {};
++	struct device *dev = &pdev->dev;
++	struct device_node *np = dev->of_node;
++	struct of_imap_parser imap_parser;
++	struct of_imap_item imap_item;
++	struct regmap *regmap;
++	int ret, direct_mode, line, controller, gpio;
++	u32 tmp, val = 0, old;
 +
-+  "#interrupt-cells":
-+    const: 1
++	regmap = device_node_to_regmap(pdev->dev.parent->of_node);
++	if (IS_ERR(regmap))
++		return dev_err_probe(dev, PTR_ERR(regmap), "Failed to find syscon regmap\n");
 +
-+  interrupt-map-mask:
-+    items:
-+      - const: 0x7f
++	/* We support only #interrupt-cells = <1> and #address-cells = <0> */
++	ret = of_property_read_u32(np, "#interrupt-cells", &tmp);
++	if (ret)
++		return ret;
++	if (tmp != 1)
++		return -EINVAL;
 +
-+  interrupt-map:
-+    description: |
-+      Specifies the mapping from GPIO interrupt lines to plic interrupts.
++	ret = of_property_read_u32(np, "#address-cells", &tmp);
++	if (ret)
++		return ret;
++	if (tmp != 0)
++		return -EINVAL;
 +
-+      The child interrupt number set in arrays items is computed using the
-+      following formula:
-+          gpio_bank * 32 + gpio_number
-+      with:
-+        - gpio_bank: The GPIO bank number
-+            - 0 for GPIO0,
-+            - 1 for GPIO1,
-+            - 2 for GPIO2
-+        - gpio_number: Number of the gpio in the bank (0..31)
-+    maxItems: 70
++	ret = of_imap_parser_init(&imap_parser, np, &imap_item);
++	if (ret)
++		return ret;
 +
-+required:
-+  - compatible
-+  - reg
-+  - "#address-cells"
-+  - "#interrupt-cells"
-+  - interrupt-map-mask
-+  - interrupt-map
++	for_each_of_imap_item(&imap_parser, &imap_item) {
 +
-+additionalProperties: false
++		direct_mode = mpfs_irqmux_is_direct_mode(dev, &imap_item.parent_args);
++		if (direct_mode < 0) {
++			of_node_put(imap_item.parent_args.np);
++			return direct_mode;
++		}
 +
-+examples:
-+  - |
-+    interrupt-controller@54 {
-+        compatible = "microchip,mpfs-irqmux";
-+        reg = <0x54 0x4>;
-+        #address-cells = <0>;
-+        #interrupt-cells = <1>;
-+        interrupt-map-mask = <0xff>;
-+    };
-diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-mss-top-sysreg.yaml b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-mss-top-sysreg.yaml
-index 44e4a50c31554..276d48ba15f01 100644
---- a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-mss-top-sysreg.yaml
-+++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-mss-top-sysreg.yaml
-@@ -38,6 +38,10 @@ properties:
-       of PolarFire clock/reset IDs.
-     const: 1
- 
-+  interrupt-controller@54:
-+    type: object
-+    $ref: /schemas/soc/microchip/microchip,mpfs-irqmux.yaml
++		line = imap_item.child_imap[0];
++		gpio = line % 32;
++		controller = line / 32;
 +
-   pinctrl@200:
-     type: object
-     $ref: /schemas/pinctrl/microchip,mpfs-pinctrl-iomux0.yaml
++		if (controller > 2) {
++			of_node_put(imap_item.parent_args.np);
++			dev_err(dev, "child interrupt number too large: %d\n", line);
++			return -EINVAL;
++		}
++
++		if (test_and_set_bit(line, line_done)) {
++			of_node_put(imap_item.parent_args.np);
++			dev_err(dev, "Mux output line %d already defined in interrupt-map\n",
++				line);
++			return -EINVAL;
++		}
++
++		/*
++		 * There are 41 interrupts assigned to GPIOs, of which 38 are "direct". Since the
++		 * mux has 32 bits only, 6 of these exclusive/"direct" interrupts remain. These
++		 * are used by GPIO controller 1's lines 18 to 23. Nothing needs to be done
++		 * for these interrupts.
++		 */
++		if (controller == 1 && gpio >= 18)
++			continue;
++
++		/*
++		 * The mux has a single register, where bits 0 to 13 mux between GPIO controller
++		 * 1's 14 GPIOs and GPIO controller 2's first 14 GPIOs. The remaining bits mux
++		 * between the first 18 GPIOs of controller 1 and the last 18 GPIOS of
++		 * controller 2. If a bit in the mux's control register is set, the
++		 * corresponding interrupt line for GPIO controller 0 or 1 will be put in
++		 * "non-direct" mode. If cleared, the "fabric" controller's will.
++		 *
++		 * Register layout:
++		 *    GPIO 1 interrupt line 17 | mux bit 31 | GPIO 2 interrupt line 31
++		 *    ...                      | ...        | ...
++		 *    ...                      | ...        | ...
++		 *    GPIO 1 interrupt line  0 | mux bit 14 | GPIO 2 interrupt line 14
++		 *    GPIO 0 interrupt line 13 | mux bit 13 | GPIO 2 interrupt line 13
++		 *    ...                      | ...        | ...
++		 *    ...                      | ...        | ...
++		 *    GPIO 0 interrupt line  0 | mux bit  0 | GPIO 2 interrupt line  0
++		 *
++		 * As the binding mandates 70 items, one for each GPIO line, there's no need to
++		 * handle anything for GPIO controller 2, since the bit will be set for the
++		 * corresponding line in GPIO controller 0 or 1.
++		 */
++		if (controller == 2)
++			continue;
++
++		/*
++		 * If in direct mode, the bit is cleared, nothing needs to be done as val is zero
++		 * initialised and that's the direct mode setting for GPIO controller 0 and 1.
++		 */
++		if (direct_mode)
++			continue;
++
++		if (controller == 0)
++			val |= 1U << gpio;
++		else
++			val |= 1U << (gpio + 14);
++	}
++
++	regmap_read(regmap, MPFS_IRQMUX_CR, &old);
++	regmap_write(regmap, MPFS_IRQMUX_CR, val);
++
++	if (val != old)
++		dev_info(dev, "firmware mux setting of 0x%x overwritten to 0x%x\n", old, val);
++
++	return 0;
++}
++
++static const struct of_device_id mpfs_irqmux_of_match[] = {
++	{ .compatible = "microchip,mpfs-irqmux", },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, mpfs_irqmux_of_match);
++
++static struct platform_driver mpfs_irqmux_driver = {
++	.probe = mpfs_irqmux_probe,
++	.driver = {
++		.name = "mpfs_irqmux",
++		.of_match_table = mpfs_irqmux_of_match,
++	},
++};
++module_platform_driver(mpfs_irqmux_driver);
++
++MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
++MODULE_DESCRIPTION("Polarfire SoC interrupt mux driver");
++MODULE_LICENSE("GPL");
 -- 
 2.51.0
 
