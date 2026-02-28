@@ -4,79 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C535D1048922
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 00:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 972961048922
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 01:22:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aAxZxtn0L52p+5zJLwVo3EjOSlpaievMQyIMpBTPshk=; b=Ok9k8Ka9NSxEz1
-	qBvZIoYbmJyCXjClvKv6MR7WIGCoUXeBkMPsb2M7X1VF2VtnGK8vILgWxYyt2ahufbmRHjbwsGB6w
-	f2ui3ZDCcWYv20qb8oA2rRGKR4O3Br/5K9gJpVLi24eMA8wnEsXutTS7UXB0fxu3lN+8JCunZgNCH
-	NPd0vC3YV2hKfWlMZ9Vg+7MvLtCD6lWe4kqtJ8QBmfF8zSi7Sss1IUE2jGXQJpadMSWyoLP5HX+tP
-	zmNk5MhV9BM93F1GaIR+Rv2XYTKuSCHGG24yIEMU1FlBh3t0BCJJSaku770F5s45+2hrmtT5UpnhZ
-	82rXXeDPOh0mFGDLhk8A==;
+	List-Owner; bh=MwsWa0k7zRxxdjDxY9o0HPEKkt9sFy0DPhE60BfX/5c=; b=o01xbb+V9dhfnv
+	KKhEPC2IpknOmpadhIwkDUZrW9gWusUdcUASQoefr7oax7HnzrfYBxE86qb+A8zVgjMe1vvZEnCNW
+	hddmsGwUQ5p5j6YTPXPDt6HHedNkX5Rfb39QgbhVauClY8P/89Jay+rVFUStO6ZCTqauzbcBjQL8A
+	MsS9uqQjcnx5LJX2Vgb62lQ0Pxt8Yrbvs7766BNZYv6RkM3+w54J9COWum6gNZdp+JsQ7TPBsWewC
+	O/n8MCgLRtNkTrZ3DGm94it61JgGVSPcAfB9oxxXnh9tnBE2Opq13rCGSRoS0Xi9v1av2VikSCem8
+	Ohsnp+dt80lHfFZetcEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw8b2-00000009LDN-2YRo;
-	Sat, 28 Feb 2026 00:54:16 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1vw91g-00000009O3k-34E5;
+	Sat, 28 Feb 2026 01:21:48 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw8ax-00000009LBI-3l5D;
-	Sat, 28 Feb 2026 00:54:15 +0000
-Received: from fric.. (unknown [210.73.43.101])
-	by APP-03 (Coremail) with SMTP id rQCowABXO+KkPKJpPMJ2CQ--.12049S4;
-	Sat, 28 Feb 2026 08:53:59 +0800 (CST)
-From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	kvm@vger.kernel.org
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
-	Andrew Jones <andrew.jones@oss.qualcomm.com>,
-	Jiakai Xu <jiakaiPeanut@gmail.com>
-Subject: [PATCH v9 2/3] KVM: selftests: Refactor UAPI tests into dedicated function
-Date: Sat, 28 Feb 2026 00:53:54 +0000
-Message-Id: <20260228005355.823048-3-xujiakai2025@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260228005355.823048-1-xujiakai2025@iscas.ac.cn>
-References: <20260228005355.823048-1-xujiakai2025@iscas.ac.cn>
+	id 1vw91e-00000009O2T-0Rr0;
+	Sat, 28 Feb 2026 01:21:47 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=g3ZfEIXgV3HlWkTi5COZHl8zAZUARnL7AI5EioOhi5c=;
+	b=y33XKsOjrl1QPprmFk09CWLS91eyuVn46hY5LCz9lV646qeLi/6dMSMulXugarz9N8ILeIO+N
+	bJLJXGjfRFU2PrRMleHTL4N1wZXFSd63gZzNuj1Fd5HTVKu8Q/eD9yscO5RcmIvCjgwCn0Mf3jK
+	U8P3Rbs9yf6dM6kXmFYTB9E=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4fN6jV3JjXzpT0X;
+	Sat, 28 Feb 2026 09:16:46 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 53C4740569;
+	Sat, 28 Feb 2026 09:21:38 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 28 Feb 2026 09:21:34 +0800
+Message-ID: <0a776b5f-5a88-2c71-7305-d30d9240c2cb@huawei.com>
+Date: Sat, 28 Feb 2026 09:21:33 +0800
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABXO+KkPKJpPMJ2CQ--.12049S4
-X-Coremail-Antispam: 1UD129KBjvJXoWxtr4kXr17Jw43Kw13WFy5twb_yoW7Zw1fpF
-	Z7CrZIqrW8Kr1fKw17Wr4kuF15Gw4kKr4kXrW3uw4rArs5KrZrJF1fCryUuF98GFZ5X3Wf
-	Za4SvF47uF4qkaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQI14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
-	8EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr1j6rxd
-	M2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64
-	kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm
-	72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYx
-	C7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAK
-	I48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7
-	xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xII
-	jxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw2
-	0EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x02
-	67AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sRiqjg3UUUUU==
-X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiCQ4MCWmhsqi6XwABs0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v7 3/5] crash: Use crash_exclude_core_ranges() on powerpc
+To: Sourabh Jain <sourabhjain@linux.ibm.com>, <corbet@lwn.net>,
+	<skhan@linuxfoundation.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <maddy@linux.ibm.com>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <chleroy@kernel.org>,
+	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<alex@ghiti.fr>, <tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <robh@kernel.org>,
+	<saravanak@kernel.org>, <akpm@linux-foundation.org>, <bhe@redhat.com>,
+	<vgoyal@redhat.com>, <dyoung@redhat.com>, <pmladek@suse.com>,
+	<rdunlap@infradead.org>, <dapeng1.mi@linux.intel.com>, <kees@kernel.org>,
+	<paulmck@kernel.org>, <lirongqing@baidu.com>, <arnd@arndb.de>,
+	<rppt@kernel.org>, <ardb@kernel.org>, <leitao@debian.org>, <jbohac@suse.cz>,
+	<cfsworks@gmail.com>, <ryan.roberts@arm.com>, <tangyouling@kylinos.cn>,
+	<ritesh.list@gmail.com>, <hbathini@linux.ibm.com>, <eajames@linux.ibm.com>,
+	<songshuaishuai@tinylab.org>, <samuel.holland@sifive.com>,
+	<kevin.brodsky@arm.com>, <vishal.moola@gmail.com>,
+	<junhui.liu@pigmoral.tech>, <coxu@redhat.com>, <liaoyuanhong@vivo.com>,
+	<brgerst@gmail.com>, <fuqiang.wang@easystack.cn>, <x86@kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <kexec@lists.infradead.org>
+References: <20260226130437.1867658-1-ruanjinjie@huawei.com>
+ <20260226130437.1867658-4-ruanjinjie@huawei.com>
+ <3576865b-65bd-4289-babc-975a543eb775@linux.ibm.com>
+Content-Language: en-US
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <3576865b-65bd-4289-babc-975a543eb775@linux.ibm.com>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_165412_315251_FCEC100B 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20260227_172146_441145_2FA6CD7B 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,192 +94,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move steal time UAPI tests from steal_time_init() into a separate
-check_steal_time_uapi() function for better code organization and
-maintainability.
-
-Previously, x86 and ARM64 architectures performed UAPI validation
-tests within steal_time_init(), mixing initialization logic with
-uapi tests.
-
-Changes by architecture:
-x86_64:
-  - Extract MSR reserved bits test from steal_time_init()
-  - Move to check_steal_time_uapi() which tests that setting
-    MSR_KVM_STEAL_TIME with KVM_STEAL_RESERVED_MASK fails
-ARM64:
-  - Extract three UAPI tests from steal_time_init():
-     Device attribute support check
-     Misaligned IPA rejection (EINVAL)
-     Duplicate IPA setting rejection (EEXIST)
-  - Move all tests to check_steal_time_uapi()
-RISC-V:
-  - Add empty check_steal_time_uapi() stub for future use
-  - No changes to steal_time_init() (had no tests to extract)
-
-The new check_steal_time_uapi() function:
-  - Is called once before the per-VCPU test loop
-
-No functional change intended.
-
-Suggested-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
-Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
----
-V8 -> V9: Created a temporary VM with one vCPU in
-           check_steal_time_uapi() instead of adding extra vCPUs to the
-           main VM.
-          Made check_steal_time_uapi() parameterless for all architectures.
-V7 -> V8: Used ST_GPA_BASE directly instead of
-           st_gva[]/sync_global_to_guest() in x86_64 and ARM64
-           check_steal_time_uapi().
-          Created a temporary vcpu in ARM64 check_steal_time_uapi() to
-           avoid EEXIST when steal_time_init() later sets IPA for vcpu[0].
-          Removed unnecessary comment in RISC-V check_steal_time_uapi().
----
- tools/testing/selftests/kvm/steal_time.c | 67 ++++++++++++++++++------
- 1 file changed, 51 insertions(+), 16 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
-index 8edc1fca345ba..75ad067f27260 100644
---- a/tools/testing/selftests/kvm/steal_time.c
-+++ b/tools/testing/selftests/kvm/steal_time.c
-@@ -69,16 +69,10 @@ static bool is_steal_time_supported(struct kvm_vcpu *vcpu)
- 
- static void steal_time_init(struct kvm_vcpu *vcpu, uint32_t i)
- {
--	int ret;
--
- 	/* ST_GPA_BASE is identity mapped */
- 	st_gva[i] = (void *)(ST_GPA_BASE + i * STEAL_TIME_SIZE);
- 	sync_global_to_guest(vcpu->vm, st_gva[i]);
- 
--	ret = _vcpu_set_msr(vcpu, MSR_KVM_STEAL_TIME,
--			    (ulong)st_gva[i] | KVM_STEAL_RESERVED_MASK);
--	TEST_ASSERT(ret == 0, "Bad GPA didn't fail");
--
- 	vcpu_set_msr(vcpu, MSR_KVM_STEAL_TIME, (ulong)st_gva[i] | KVM_MSR_ENABLED);
- }
- 
-@@ -99,6 +93,21 @@ static void steal_time_dump(struct kvm_vm *vm, uint32_t vcpu_idx)
- 			st->pad[8], st->pad[9], st->pad[10]);
- }
- 
-+static void check_steal_time_uapi()
-+{
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+	int ret;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, NULL);
-+
-+	ret = _vcpu_set_msr(vcpu, MSR_KVM_STEAL_TIME,
-+			    (ulong)ST_GPA_BASE | KVM_STEAL_RESERVED_MASK);
-+	TEST_ASSERT(ret == 0, "Bad GPA didn't fail");
-+
-+	kvm_vm_free(vm);
-+}
-+
- #elif defined(__aarch64__)
- 
- /* PV_TIME_ST must have 64-byte alignment */
-@@ -170,7 +179,6 @@ static void steal_time_init(struct kvm_vcpu *vcpu, uint32_t i)
- {
- 	struct kvm_vm *vm = vcpu->vm;
- 	uint64_t st_ipa;
--	int ret;
- 
- 	struct kvm_device_attr dev = {
- 		.group = KVM_ARM_VCPU_PVTIME_CTRL,
-@@ -178,21 +186,12 @@ static void steal_time_init(struct kvm_vcpu *vcpu, uint32_t i)
- 		.addr = (uint64_t)&st_ipa,
- 	};
- 
--	vcpu_ioctl(vcpu, KVM_HAS_DEVICE_ATTR, &dev);
--
- 	/* ST_GPA_BASE is identity mapped */
- 	st_gva[i] = (void *)(ST_GPA_BASE + i * STEAL_TIME_SIZE);
- 	sync_global_to_guest(vm, st_gva[i]);
- 
--	st_ipa = (ulong)st_gva[i] | 1;
--	ret = __vcpu_ioctl(vcpu, KVM_SET_DEVICE_ATTR, &dev);
--	TEST_ASSERT(ret == -1 && errno == EINVAL, "Bad IPA didn't report EINVAL");
--
- 	st_ipa = (ulong)st_gva[i];
- 	vcpu_ioctl(vcpu, KVM_SET_DEVICE_ATTR, &dev);
--
--	ret = __vcpu_ioctl(vcpu, KVM_SET_DEVICE_ATTR, &dev);
--	TEST_ASSERT(ret == -1 && errno == EEXIST, "Set IPA twice without EEXIST");
- }
- 
- static void steal_time_dump(struct kvm_vm *vm, uint32_t vcpu_idx)
-@@ -205,6 +204,36 @@ static void steal_time_dump(struct kvm_vm *vm, uint32_t vcpu_idx)
- 	ksft_print_msg("    st_time: %ld\n", st->st_time);
- }
- 
-+static void check_steal_time_uapi()
-+{
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+	uint64_t st_ipa;
-+	int ret;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, NULL);
-+
-+	struct kvm_device_attr dev = {
-+		.group = KVM_ARM_VCPU_PVTIME_CTRL,
-+		.attr = KVM_ARM_VCPU_PVTIME_IPA,
-+		.addr = (uint64_t)&st_ipa,
-+	};
-+
-+	vcpu_ioctl(vcpu, KVM_HAS_DEVICE_ATTR, &dev);
-+
-+	st_ipa = (ulong)ST_GPA_BASE | 1;
-+	ret = __vcpu_ioctl(vcpu, KVM_SET_DEVICE_ATTR, &dev);
-+	TEST_ASSERT(ret == -1 && errno == EINVAL, "Bad IPA didn't report EINVAL");
-+
-+	st_ipa = (ulong)ST_GPA_BASE;
-+	vcpu_ioctl(vcpu, KVM_SET_DEVICE_ATTR, &dev);
-+
-+	ret = __vcpu_ioctl(vcpu, KVM_SET_DEVICE_ATTR, &dev);
-+	TEST_ASSERT(ret == -1 && errno == EEXIST, "Set IPA twice without EEXIST");
-+
-+	kvm_vm_free(vm);
-+}
-+
- #elif defined(__riscv)
- 
- /* SBI STA shmem must have 64-byte alignment */
-@@ -301,6 +330,10 @@ static void steal_time_dump(struct kvm_vm *vm, uint32_t vcpu_idx)
- 	pr_info("\n");
- }
- 
-+static void check_steal_time_uapi()
-+{
-+}
-+
- #endif
- 
- static void *do_steal_time(void *arg)
-@@ -369,6 +402,8 @@ int main(int ac, char **av)
- 	TEST_REQUIRE(is_steal_time_supported(vcpus[0]));
- 	ksft_set_plan(NR_VCPUS);
- 
-+	check_steal_time_uapi();
-+
- 	/* Run test on each VCPU */
- 	for (i = 0; i < NR_VCPUS; ++i) {
- 		steal_time_init(vcpus[i], i);
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMDI2LzIvMjcgMjI6NTAsIFNvdXJhYmggSmFpbiB3cm90ZToKPiBSZXNlbmQgb2Y6Cj4g
+aHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzE5Y2YxOGI1LTM2MmQtNGZmMi04Yjg1LWUyZTcy
+ODA5MjUwY0BsaW51eC5pYm0uY29tLwo+IAo+IE9uIDI2LzAyLzI2IDE4OjM0LCBKaW5qaWUgUnVh
+biB3cm90ZToKPj4gVGhlIGNyYXNoIG1lbW9yeSBleGNsdWRlIG9mIGNyYXNoa19yZXMgYW5kIGNy
+YXNoa19jbWEgbWVtb3J5IG9uIHBvd2VycGMKPj4gYXJlIGFsbW9zdCBpZGVudGljYWwgdG8gdGhl
+IGdlbmVyaWMgY3Jhc2hfZXhjbHVkZV9jb3JlX3JhbmdlcygpLgo+Pgo+PiBCeSBpbnRyb2R1Y2lu
+ZyB0aGUgYXJjaGl0ZWN0dXJlLXNwZWNpZmljIGFyY2hfY3Jhc2hfZXhjbHVkZV9tZW1fcmFuZ2Uo
+KQo+PiBmdW5jdGlvbiB3aXRoIGEgZGVmYXVsdCBpbXBsZW1lbnRhdGlvbiBvZiBjcmFzaF9leGNs
+dWRlX21lbV9yYW5nZSgpLAo+PiBhbmQgdXNpbmcgY3Jhc2hfZXhjbHVkZV9tZW1fcmFuZ2VfZ3Vh
+cmRlZCBhcyBwb3dlcnBjJ3Mgc2VwYXJhdGUKPj4gaW1wbGVtZW50YXRpb24sIHRoZSBnZW5lcmlj
+IGNyYXNoX2V4Y2x1ZGVfY29yZV9yYW5nZXMoKSBoZWxwZXIgZnVuY3Rpb24KPj4gY2FuIGJlIHJl
+dXNlZC4KPj4KPj4gQWNrZWQtYnk6IE1pa2UgUmFwb3BvcnQgKE1pY3Jvc29mdCkgPHJwcHRAa2Vy
+bmVsLm9yZz4KPj4gU2lnbmVkLW9mZi1ieTogSmluamllIFJ1YW4gPHJ1YW5qaW5qaWVAaHVhd2Vp
+LmNvbT4KPj4gLS0tCj4+IMKgIGFyY2gvcG93ZXJwYy9rZXhlYy9yYW5nZXMuYyB8IDE2ICsrKyst
+LS0tLS0tLS0tLS0KPj4gwqAgaW5jbHVkZS9saW51eC9jcmFzaF9jb3JlLmjCoCB8wqAgNCArKysr
+Cj4+IMKgIGtlcm5lbC9jcmFzaF9jb3JlLmPCoMKgwqDCoMKgwqDCoMKgIHwgMTkgKysrKysrKysr
+KysrKy0tLS0tLQo+PiDCoCAzIGZpbGVzIGNoYW5nZWQsIDIxIGluc2VydGlvbnMoKyksIDE4IGRl
+bGV0aW9ucygtKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9wb3dlcnBjL2tleGVjL3Jhbmdlcy5j
+IGIvYXJjaC9wb3dlcnBjL2tleGVjL3Jhbmdlcy5jCj4+IGluZGV4IDZjNThiY2MzZTEzMC4uZTVm
+ZWEyM2IxOTFiIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Bvd2VycGMva2V4ZWMvcmFuZ2VzLmMKPj4g
+KysrIGIvYXJjaC9wb3dlcnBjL2tleGVjL3Jhbmdlcy5jCj4+IEBAIC01NTMsOSArNTUzLDkgQEAg
+aW50IGdldF91c2FibGVfbWVtb3J5X3JhbmdlcyhzdHJ1Y3QgY3Jhc2hfbWVtCj4+ICoqbWVtX3Jh
+bmdlcykKPj4gwqAgI2VuZGlmIC8qIENPTkZJR19LRVhFQ19GSUxFICovCj4+IMKgIMKgICNpZmRl
+ZiBDT05GSUdfQ1JBU0hfRFVNUAo+PiAtaW50IGNyYXNoX2V4Y2x1ZGVfbWVtX3JhbmdlX2d1YXJk
+ZWQoc3RydWN0IGNyYXNoX21lbSAqKm1lbV9yYW5nZXMsCj4+IC3CoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB1bnNpZ25lZCBsb25nIGxvbmcgbXN0YXJ0LAo+PiAt
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgdW5zaWduZWQgbG9u
+ZyBsb25nIG1lbmQpCj4+ICtpbnQgYXJjaF9jcmFzaF9leGNsdWRlX21lbV9yYW5nZShzdHJ1Y3Qg
+Y3Jhc2hfbWVtICoqbWVtX3JhbmdlcywKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgIHVuc2lnbmVkIGxvbmcgbG9uZyBtc3RhcnQsCj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoCB1bnNpZ25lZCBsb25nIGxvbmcgbWVuZCkKPiAKPiAKPiB1cGRhdGVfY3Jhc2hf
+ZWxmY29yZWhkcigpIGluIGFyY2gvcG93ZXJwYy9rZXhlYy9jcmFzaC5jIHN0aWxsIGNhbGxzCj4g
+Y3Jhc2hfZXhjbHVkZV9tZW1fcmFuZ2VfZ3VhcmRlZCgpLCBjYXVzaW5nIGEgYnVpbGQgZmFpbHVy
+ZS4KPiAKPiBsZDogYXJjaC9wb3dlcnBjL2tleGVjL2NyYXNoLm86IGluIGZ1bmN0aW9uIGB1cGRh
+dGVfY3Jhc2hfZWxmY29yZWhkcic6Cj4gL3Jvb3QvbGludXgvYXJjaC9wb3dlcnBjL2tleGVjL2Ny
+YXNoLmM6NDU0OiB1bmRlZmluZWQgcmVmZXJlbmNlIHRvCj4gYGNyYXNoX2V4Y2x1ZGVfbWVtX3Jh
+bmdlX2d1YXJkZWQnCj4gCj4gCj4gVG8gZml4IHRoaXM6Cj4gLS0tLS0tLS0tLS0tLS0KPiBkaWZm
+IC0tZ2l0IGEvYXJjaC9wb3dlcnBjL2tleGVjL2NyYXNoLmMgYi9hcmNoL3Bvd2VycGMva2V4ZWMv
+Y3Jhc2guYwo+IGluZGV4IDg5ODc0MmE1MjA1Yy4uZTU5ZTkwOWMzNjlkIDEwMDY0NAo+IC0tLSBh
+L2FyY2gvcG93ZXJwYy9rZXhlYy9jcmFzaC5jCj4gKysrIGIvYXJjaC9wb3dlcnBjL2tleGVjL2Ny
+YXNoLmMKPiBAQCAtNDUxLDcgKzQ1MSw3IEBAIHN0YXRpYyB2b2lkIHVwZGF0ZV9jcmFzaF9lbGZj
+b3JlaGRyKHN0cnVjdCBraW1hZ2UKPiAqaW1hZ2UsIHN0cnVjdCBtZW1vcnlfbm90aWZ5ICoKPiDC
+oCDCoCDCoCDCoCDCoCDCoCDCoCDCoCBiYXNlX2FkZHIgPSBQRk5fUEhZUyhtbi0+c3RhcnRfcGZu
+KTsKPiDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCBzaXplID0gbW4tPm5yX3BhZ2VzICogUEFHRV9T
+SVpFOwo+IMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIGVuZCA9IGJhc2VfYWRkciArIHNpemUgLSAx
+Owo+IC3CoCDCoCDCoCDCoCDCoCDCoCDCoCDCoHJldCA9IGNyYXNoX2V4Y2x1ZGVfbWVtX3Jhbmdl
+X2d1YXJkZWQoJmNtZW0sIGJhc2VfYWRkciwKPiBlbmQpOwo+ICvCoCDCoCDCoCDCoCDCoCDCoCDC
+oCByZXQgPSBhcmNoX2NyYXNoX2V4Y2x1ZGVfbWVtX3JhbmdlKCZjbWVtLCBiYXNlX2FkZHIsIGVu
+ZCk7Cj4gwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgaWYgKHJldCkgewo+IMKgIMKgIMKgIMKgIMKg
+IMKgIMKgIMKgIMKgIMKgIMKgIMKgIHByX2VycigiRmFpbGVkIHRvIHJlbW92ZSBob3QtdW5wbHVn
+Z2VkIG1lbW9yeQo+IGZyb20gY3Jhc2ggbWVtb3J5IHJhbmdlc1xuIik7Cj4gwqAgwqAgwqAgwqAg
+wqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgZ290byBvdXQ7Cj4gCj4gV2l0aCB0aGUgYWJvdmUgY2hh
+bmdlIGluY2x1ZGVkLCB0aGluZ3MgYXJlIHdvcmtpbmcgZmluZSBvbiBwb3dlcnBjLgoKSXQgc2Vl
+bXMgdGhlIGRlY2xhcmF0aW9uIG9mIGNyYXNoX2V4Y2x1ZGVfbWVtX3JhbmdlX2d1YXJkZWQoKSBh
+ZGRlZCBpbgphcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20va2V4ZWNfcmFuZ2VzLmggY2FuIGFsc28g
+YmUgcmVtb3ZlZC4KCj4gCj4gCj4+IMKgIHsKPj4gwqDCoMKgwqDCoCBzdHJ1Y3QgY3Jhc2hfbWVt
+ICp0bWVtID0gKm1lbV9yYW5nZXM7Cj4+IMKgIEBAIC02MDQsMTggKzYwNCwxMCBAQCBpbnQgZ2V0
+X2NyYXNoX21lbW9yeV9yYW5nZXMoc3RydWN0IGNyYXNoX21lbQo+PiAqKm1lbV9yYW5nZXMpCj4+
+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHNvcnRfbWVtb3J5X3JhbmdlcygqbWVtX3Jhbmdl
+cywgdHJ1ZSk7Cj4+IMKgwqDCoMKgwqAgfQo+PiDCoCAtwqDCoMKgIC8qIEV4Y2x1ZGUgY3Jhc2hr
+ZXJuZWwgcmVnaW9uICovCj4+IC3CoMKgwqAgcmV0ID0gY3Jhc2hfZXhjbHVkZV9tZW1fcmFuZ2Vf
+Z3VhcmRlZChtZW1fcmFuZ2VzLAo+PiBjcmFzaGtfcmVzLnN0YXJ0LCBjcmFzaGtfcmVzLmVuZCk7
+Cj4+ICvCoMKgwqAgcmV0ID0gY3Jhc2hfZXhjbHVkZV9jb3JlX3JhbmdlcyhtZW1fcmFuZ2VzKTsK
+Pj4gwqDCoMKgwqDCoCBpZiAocmV0KQo+PiDCoMKgwqDCoMKgwqDCoMKgwqAgZ290byBvdXQ7Cj4+
+IMKgIC3CoMKgwqAgZm9yIChpID0gMDsgaSA8IGNyYXNoa19jbWFfY250OyArK2kpIHsKPj4gLcKg
+wqDCoMKgwqDCoMKgIHJldCA9IGNyYXNoX2V4Y2x1ZGVfbWVtX3JhbmdlX2d1YXJkZWQobWVtX3Jh
+bmdlcywKPj4gY3Jhc2hrX2NtYV9yYW5nZXNbaV0uc3RhcnQsCj4+IC3CoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBjcmFzaGtfY21hX3Jhbmdlc1tpXS5l
+bmQpOwo+PiAtwqDCoMKgwqDCoMKgwqAgaWYgKHJldCkKPj4gLcKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqAgZ290byBvdXQ7Cj4+IC3CoMKgwqAgfQo+PiAtCj4+IMKgwqDCoMKgwqAgLyoKPj4gwqDCoMKg
+wqDCoMKgICogRklYTUU6IEZvciBub3csIHN0YXkgaW4gcGFyaXR5IHdpdGgga2V4ZWMtdG9vbHMg
+YnV0IGlmIFJUQVMvT1BBTAo+PiDCoMKgwqDCoMKgwqAgKsKgwqDCoMKgwqDCoMKgIHJlZ2lvbnMg
+YXJlIGV4cG9ydGVkIHRvIHNhdmUgdGhlaXIgY29udGV4dCBhdCB0aGUgdGltZSBvZgo+PiBkaWZm
+IC0tZ2l0IGEvaW5jbHVkZS9saW51eC9jcmFzaF9jb3JlLmggYi9pbmNsdWRlL2xpbnV4L2NyYXNo
+X2NvcmUuaAo+PiBpbmRleCAwMzNiMjAyMDRhY2EuLmRiZWM4MjZkYzUzYiAxMDA2NDQKPj4gLS0t
+IGEvaW5jbHVkZS9saW51eC9jcmFzaF9jb3JlLmgKPj4gKysrIGIvaW5jbHVkZS9saW51eC9jcmFz
+aF9jb3JlLmgKPj4gQEAgLTY4LDYgKzY4LDcgQEAgZXh0ZXJuIGludCBjcmFzaF9wcmVwYXJlX2Vs
+ZjY0X2hlYWRlcnMoc3RydWN0Cj4+IGNyYXNoX21lbSAqbWVtLCBpbnQgbmVlZF9rZXJuZWxfbWEK
+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHZvaWQg
+KiphZGRyLCB1bnNpZ25lZCBsb25nICpzeik7Cj4+IMKgIGV4dGVybiBpbnQgY3Jhc2hfcHJlcGFy
+ZV9oZWFkZXJzKGludCBuZWVkX2tlcm5lbF9tYXAsIHZvaWQgKiphZGRyLAo+PiDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgdW5zaWduZWQgbG9uZyAqc3osIHVuc2lnbmVkIGxv
+bmcgKm5yX21lbV9yYW5nZXMpOwo+PiArZXh0ZXJuIGludCBjcmFzaF9leGNsdWRlX2NvcmVfcmFu
+Z2VzKHN0cnVjdCBjcmFzaF9tZW0gKipjbWVtKTsKPj4gwqAgwqAgc3RydWN0IGtpbWFnZTsKPj4g
+wqAgc3RydWN0IGtleGVjX3NlZ21lbnQ7Cj4+IEBAIC04OCw2ICs4OSw5IEBAIGV4dGVybiBpbnQg
+a2ltYWdlX2NyYXNoX2NvcHlfdm1jb3JlaW5mbyhzdHJ1Y3QKPj4ga2ltYWdlICppbWFnZSk7Cj4+
+IMKgIGV4dGVybiB1bnNpZ25lZCBpbnQgYXJjaF9nZXRfc3lzdGVtX25yX3Jhbmdlcyh2b2lkKTsK
+Pj4gwqAgZXh0ZXJuIGludCBhcmNoX2NyYXNoX3BvcHVsYXRlX2NtZW0oc3RydWN0IGNyYXNoX21l
+bSAqY21lbSk7Cj4+IMKgIGV4dGVybiBpbnQgYXJjaF9jcmFzaF9leGNsdWRlX3JhbmdlcyhzdHJ1
+Y3QgY3Jhc2hfbWVtICpjbWVtKTsKPj4gK2V4dGVybiBpbnQgYXJjaF9jcmFzaF9leGNsdWRlX21l
+bV9yYW5nZShzdHJ1Y3QgY3Jhc2hfbWVtICoqbWVtLAo+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqAgdW5zaWduZWQgbG9uZyBsb25nIG1zdGFydCwKPj4gK8KgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHVuc2lnbmVkIGxvbmcgbG9uZyBtZW5kKTsK
+Pj4gwqAgwqAgI2Vsc2UgLyogIUNPTkZJR19DUkFTSF9EVU1QKi8KPj4gwqAgc3RydWN0IHB0X3Jl
+Z3M7Cj4+IGRpZmYgLS1naXQgYS9rZXJuZWwvY3Jhc2hfY29yZS5jIGIva2VybmVsL2NyYXNoX2Nv
+cmUuYwo+PiBpbmRleCA5NmE5NmU1MTFmNWEuLjMwMGQ0NGFkNTQ3MSAxMDA2NDQKPj4gLS0tIGEv
+a2VybmVsL2NyYXNoX2NvcmUuYwo+PiArKysgYi9rZXJuZWwvY3Jhc2hfY29yZS5jCj4+IEBAIC0y
+ODcsMjQgKzI4NywzMSBAQCB1bnNpZ25lZCBpbnQgX193ZWFrCj4+IGFyY2hfZ2V0X3N5c3RlbV9u
+cl9yYW5nZXModm9pZCkgeyByZXR1cm4gMDsgfQo+PiDCoCBpbnQgX193ZWFrIGFyY2hfY3Jhc2hf
+cG9wdWxhdGVfY21lbShzdHJ1Y3QgY3Jhc2hfbWVtICpjbWVtKSB7IHJldHVybgo+PiAtMTsgfQo+
+PiDCoCBpbnQgX193ZWFrIGFyY2hfY3Jhc2hfZXhjbHVkZV9yYW5nZXMoc3RydWN0IGNyYXNoX21l
+bSAqY21lbSkgewo+PiByZXR1cm4gMDsgfQo+PiDCoCAtc3RhdGljIGludCBjcmFzaF9leGNsdWRl
+X2NvcmVfcmFuZ2VzKHN0cnVjdCBjcmFzaF9tZW0gKmNtZW0pCj4+ICtpbnQgX193ZWFrIGFyY2hf
+Y3Jhc2hfZXhjbHVkZV9tZW1fcmFuZ2Uoc3RydWN0IGNyYXNoX21lbSAqKm1lbSwKPj4gK8KgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHVuc2lnbmVkIGxvbmcgbG9uZyBtc3Rh
+cnQsCj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB1bnNpZ25lZCBs
+b25nIGxvbmcgbWVuZCkKPj4gK3sKPj4gK8KgwqDCoCByZXR1cm4gY3Jhc2hfZXhjbHVkZV9tZW1f
+cmFuZ2UoKm1lbSwgbXN0YXJ0LCBtZW5kKTsKPj4gK30KPj4gKwo+PiAraW50IGNyYXNoX2V4Y2x1
+ZGVfY29yZV9yYW5nZXMoc3RydWN0IGNyYXNoX21lbSAqKmNtZW0pCj4+IMKgIHsKPj4gwqDCoMKg
+wqDCoCBpbnQgcmV0LCBpOwo+PiDCoCDCoMKgwqDCoMKgIC8qIEV4Y2x1ZGUgY3Jhc2hrZXJuZWwg
+cmVnaW9uICovCj4+IC3CoMKgwqAgcmV0ID0gY3Jhc2hfZXhjbHVkZV9tZW1fcmFuZ2UoY21lbSwg
+Y3Jhc2hrX3Jlcy5zdGFydCwKPj4gY3Jhc2hrX3Jlcy5lbmQpOwo+PiArwqDCoMKgIHJldCA9IGFy
+Y2hfY3Jhc2hfZXhjbHVkZV9tZW1fcmFuZ2UoY21lbSwgY3Jhc2hrX3Jlcy5zdGFydCwKPj4gY3Jh
+c2hrX3Jlcy5lbmQpOwo+PiDCoMKgwqDCoMKgIGlmIChyZXQpCj4+IMKgwqDCoMKgwqDCoMKgwqDC
+oCByZXR1cm4gcmV0Owo+PiDCoCDCoMKgwqDCoMKgIGlmIChjcmFzaGtfbG93X3Jlcy5lbmQpIHsK
+Pj4gLcKgwqDCoMKgwqDCoMKgIHJldCA9IGNyYXNoX2V4Y2x1ZGVfbWVtX3JhbmdlKGNtZW0sIGNy
+YXNoa19sb3dfcmVzLnN0YXJ0LAo+PiBjcmFzaGtfbG93X3Jlcy5lbmQpOwo+PiArwqDCoMKgwqDC
+oMKgwqAgcmV0ID0gYXJjaF9jcmFzaF9leGNsdWRlX21lbV9yYW5nZShjbWVtLAo+PiBjcmFzaGtf
+bG93X3Jlcy5zdGFydCwgY3Jhc2hrX2xvd19yZXMuZW5kKTsKPj4gwqDCoMKgwqDCoMKgwqDCoMKg
+IGlmIChyZXQpCj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJldHVybiByZXQ7Cj4+IMKg
+wqDCoMKgwqAgfQo+PiDCoCDCoMKgwqDCoMKgIGZvciAoaSA9IDA7IGkgPCBjcmFzaGtfY21hX2Nu
+dDsgKytpKSB7Cj4+IC3CoMKgwqDCoMKgwqDCoCByZXQgPSBjcmFzaF9leGNsdWRlX21lbV9yYW5n
+ZShjbWVtLCBjcmFzaGtfY21hX3Jhbmdlc1tpXS5zdGFydCwKPj4gLcKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGNyYXNoa19jbWFfcmFuZ2VzW2ldLmVu
+ZCk7Cj4+ICvCoMKgwqDCoMKgwqDCoCByZXQgPSBhcmNoX2NyYXNoX2V4Y2x1ZGVfbWVtX3Jhbmdl
+KGNtZW0sCj4+IGNyYXNoa19jbWFfcmFuZ2VzW2ldLnN0YXJ0LAo+PiArwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBjcmFzaGtfY21hX3Jhbmdlc1tp
+XS5lbmQpOwo+PiDCoMKgwqDCoMKgwqDCoMKgwqAgaWYgKHJldCkKPj4gwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgcmV0dXJuIHJldDsKPj4gwqDCoMKgwqDCoCB9Cj4+IEBAIC0zMzEsNyArMzM4
+LDcgQEAgaW50IGNyYXNoX3ByZXBhcmVfaGVhZGVycyhpbnQgbmVlZF9rZXJuZWxfbWFwLAo+PiB2
+b2lkICoqYWRkciwgdW5zaWduZWQgbG9uZyAqc3osCj4+IMKgwqDCoMKgwqAgaWYgKHJldCkKPj4g
+wqDCoMKgwqDCoMKgwqDCoMKgIGdvdG8gb3V0Owo+PiDCoCAtwqDCoMKgIHJldCA9IGNyYXNoX2V4
+Y2x1ZGVfY29yZV9yYW5nZXMoY21lbSk7Cj4+ICvCoMKgwqAgcmV0ID0gY3Jhc2hfZXhjbHVkZV9j
+b3JlX3JhbmdlcygmY21lbSk7Cj4+IMKgwqDCoMKgwqAgaWYgKHJldCkKPj4gwqDCoMKgwqDCoMKg
+wqDCoMKgIGdvdG8gb3V0Owo+PiDCoCAKPiAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
