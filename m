@@ -4,95 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8408EFEE4C5
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 04:35:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6507FFEE4C4
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 04:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h77Hfy9OxJ9lcXCehBgkRShTLSmfmCP8VlE7K2yGcqg=; b=z46z77q7rl3voV
-	RuG2KUByEVyvPSOux7gvfgpy0VO/F+xqtishx9uyoMiGhfWjMSfH+OD0sq9bVvgCkXq/sjeaH8EBP
-	SsEyPQWI0AA/ERh/rsIIHvXp46Wb/1jsZ0d1momzY6hiG5+AZgzW+Zt65XuxupaiVgXjiAD1g1+Aw
-	e51MIqsbJGWrilaCPmLuJUMmRmjHMMqLyasgUDzBDaJlzO4XhJLE7psOuZZ615WZeSCyt1Qb6WFLN
-	P+VKDGH+wXYeo1DZa/KWmTowrCJ19mQTHZDyzpecNRjOQgokX5ctaHjpllcEBzuGIt7iqyZE6m38E
-	i6ZnkWRj8hYaLS/hlgRg==;
+	List-Owner; bh=hb/6n1dYvoV1UK8eFrz9FCLQxUeCecOcgzabcPyv/cc=; b=AthceJ3G0EJvwz
+	9ifGqUMUJateU+Yh/AiwRjvmY9VxQSLhPR7zcMymAlmtP7ihGBFykwmH7ctuMa0Ds2Lk7WAy/bnvL
+	DFlj2axT3qi+2K2NRC0n/cQhQ4+1uc8eR0KgiQYcMxjfgILf10RGh80SLY9DHcIRuw92BSKdP9HgN
+	ysA2H3xwRY7FPCnRC+t8vi4X7C+nr+G+W3hOoGemKp5x8jBqAFpGVZN3GihRww9uBiizCWrDbLeOI
+	jERUsTYYB7xPWAUyfd3s5Ra8cFrDsGw9uDM+2kSAoRrLDZkxIyGSiQ0rr4aTtxGfqWK+jJQn34iuy
+	oOD2LlNVQRF9nMHKiOnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwC3B-00000009UHN-2Ug1;
-	Sat, 28 Feb 2026 04:35:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwC7I-00000009UUh-1XmB;
+	Sat, 28 Feb 2026 04:39:48 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwC38-00000009UGt-1Qrv;
-	Sat, 28 Feb 2026 04:35:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7D89B43B42;
-	Sat, 28 Feb 2026 04:35:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69FD3C116D0;
-	Sat, 28 Feb 2026 04:35:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772253327;
-	bh=7zmaVKtAh2Ji/dO9zQKMopZe2cxR3kulm8/sTdUvOcA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jvLMWT5QPfWf5fqwCu0b6jyf1JkY8VhTv+hzjbPZJIShl575Kc/hb2XB6K7qkymfN
-	 qwBqh029UG4QDt1k4o+yWv6HUuKWpWsplNNhaICJZz2k0ORPmJLnhkHAyONmX7M+TQ
-	 zDX6zjqvLirKpTtriXBUSdvtk9Yk8/30R2kYnR4XhUkO0qR3hMOqza11uJQ08QFz4S
-	 oQboCK+Z7P0MYthrxKSIcy3roPsAHLbVtIrOmNmHcNMgysOz0VoIhFow1SEkkuFGuP
-	 DaFupym5qTt9eY/XGsZgNFTL4RRcp5VoPtcdKHWNHmTzORlfM9TjONCOU+EFM4pkgz
-	 p45HIHdqNKblg==
-Date: Fri, 27 Feb 2026 20:35:23 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	id 1vwC7D-00000009UU9-1gMv;
+	Sat, 28 Feb 2026 04:39:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1772253583; x=1803789583;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=S9F20WCWh4WNQT9heMZVPcCyAc2mdy+zssVY544bAXg=;
+  b=BHosO+YtcDzHFjTDSZBmHTyIgD5Yqzn+HJSw5nbAmrGzpXOvJHblIBbg
+   zFol7eaLJja+Q8xXWjV8LfnOAuxp4Wwh0QGMru3+fPlago40TVmpvI5/D
+   MrXGAuSNZKhXOBznsNWvZm7vUWuf5T/GemvK2uApBLjbNM/WP8oQNIBpF
+   DR3mhnmV3RCxgfGlKhvEcKkQEZn2n5UJaZP/0P3XYihmAPcXwVFMu152c
+   GuFvIpeywWG1bY3BpTCnYn7UrSO6gTZVtLD8nwHHtJ6bx5qb9o3uU/fhE
+   CgFXgwCL2A2XdnPc7ThmyivP8YLLOnVPYT+N+uZIJroNxeD0+p5pNcbCe
+   A==;
+X-CSE-ConnectionGUID: p76sKq+ZQxaLn+ycU/ALPw==
+X-CSE-MsgGUID: fmsnT7XcRjelkT87Og+Q5Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11714"; a="84044899"
+X-IronPort-AV: E=Sophos;i="6.21,315,1763452800"; 
+   d="scan'208";a="84044899"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2026 20:39:42 -0800
+X-CSE-ConnectionGUID: Dg/4g3fLTWuVI4rhLvzZ1A==
+X-CSE-MsgGUID: PZz/gNCrR6+n+zwnOxmA4A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,315,1763452800"; 
+   d="scan'208";a="216991849"
+Received: from igk-lkp-server01.igk.intel.com (HELO 9958d990ccf2) ([10.211.93.152])
+  by orviesa009.jf.intel.com with ESMTP; 27 Feb 2026 20:39:38 -0800
+Received: from kbuild by 9958d990ccf2 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vwC76-000000000hd-1TaT;
+	Sat, 28 Feb 2026 04:39:36 +0000
+Date: Sat, 28 Feb 2026 05:38:50 +0100
+From: kernel test robot <lkp@intel.com>
+To: Jiakai Xu <xujiakai2025@iscas.ac.cn>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, kvm@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Alexandre Ghiti <alex@ghiti.fr>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>, linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 04/25] xor: move to lib/raid/
-Message-ID: <20260228043523.GB65277@quark>
-References: <20260226151106.144735-1-hch@lst.de>
- <20260226151106.144735-5-hch@lst.de>
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Subject: Re: [PATCH v9 2/3] KVM: selftests: Refactor UAPI tests into
+ dedicated function
+Message-ID: <202602280523.Y5Q8Pdft-lkp@intel.com>
+References: <20260228005355.823048-3-xujiakai2025@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260226151106.144735-5-hch@lst.de>
+In-Reply-To: <20260228005355.823048-3-xujiakai2025@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_203530_540892_8805D601 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20260227_203943_451406_334A020A 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,43 +97,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 07:10:16AM -0800, Christoph Hellwig wrote:
-> diff --git a/lib/Kconfig b/lib/Kconfig
-> index 0f2fb9610647..5be57adcd454 100644
-> --- a/lib/Kconfig
-> +++ b/lib/Kconfig
-> @@ -138,6 +138,7 @@ config TRACE_MMIO_ACCESS
->  
->  source "lib/crc/Kconfig"
->  source "lib/crypto/Kconfig"
-> +source "lib/raid/Kconfig"
+Hi Jiakai,
 
-This adds lib/raid/ alongside the existing lib/raid6/ directory.  Is
-that the intended final state, or is the intent for the code in
-lib/raid6/ to eventually be moved to a subdirectory of lib/raid/
-(alongside the "xor" subdirectory)?
+kernel test robot noticed the following build warnings:
 
-> diff --git a/lib/raid/Kconfig b/lib/raid/Kconfig
-> new file mode 100644
-> index 000000000000..4b720f3454a2
-> --- /dev/null
-> +++ b/lib/raid/Kconfig
-> @@ -0,0 +1,3 @@
-> +
-> +config XOR_BLOCKS
-> +	tristate
-> diff --git a/lib/raid/Makefile b/lib/raid/Makefile
-> new file mode 100644
-> index 000000000000..382f2d1694bd
-> --- /dev/null
-> +++ b/lib/raid/Makefile
-> @@ -0,0 +1,2 @@
-> +
-> +obj-y				+= xor/
+[auto build test WARNING on v6.19]
+[cannot apply to kvm/queue kvm/next linus/master kvm/linux-next v7.0-rc1 next-20260227]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Probably should add an SPDX-License-Identifier to these new files.
+url:    https://github.com/intel-lab-lkp/linux/commits/Jiakai-Xu/RISC-V-KVM-Validate-SBI-STA-shmem-alignment-in-kvm_sbi_ext_sta_set_reg/20260228-085648
+base:   v6.19
+patch link:    https://lore.kernel.org/r/20260228005355.823048-3-xujiakai2025%40iscas.ac.cn
+patch subject: [PATCH v9 2/3] KVM: selftests: Refactor UAPI tests into dedicated function
+config: arm64-allnoconfig-bpf (https://download.01.org/0day-ci/archive/20260228/202602280523.Y5Q8Pdft-lkp@intel.com/config)
+compiler: aarch64-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260228/202602280523.Y5Q8Pdft-lkp@intel.com/reproduce)
 
-- Eric
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202602280523.Y5Q8Pdft-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> steal_time.c:207:13: warning: function declaration isn't a prototype [-Wstrict-prototypes]
+     207 | static void check_steal_time_uapi()
+         |             ^~~~~~~~~~~~~~~~~~~~~
+   cc1: note: unrecognized command-line option '-Wno-gnu-variable-sized-type-not-at-end' may have been intended to silence earlier diagnostics
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
