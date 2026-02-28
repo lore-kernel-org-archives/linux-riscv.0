@@ -4,92 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE0F2FEE4EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 15:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B8B7FEE4EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 15:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/aNdgBXRvuZ8zH7a4v2BAtRTT+xDOgkxXbxnKjN2jcQ=; b=jmfc/QLpP0yk+B
-	TsqGSB28e+YIKubug1OhoDRoAI/Sbq7qh+8B6qkzA+zSZ1PHddzHVWn/Kn0tr4KWrr9S8s1YJOkoD
-	3xsw4Ld/LBCD00eyPgFnF5Ogfocpo0fl2y7GFnUnRk2tOTcpXcIme07hgO1X3jtnNc2SRhNf+xC7y
-	iJ0+1ZoD5Z4uerJ3ZZ2EMxsaOZ1UR+6JjuRksxE1zigMcNB+rNGfuPQueb2whdEEN81K7ACfnk97C
-	2PPu7Vlly+eKbNWeHXMBD1k8LsZx+Dx7n9zMqyWtAtUZKnWxabRmpp97PNBc/OVqz1o9k+neUFR0N
-	rIcwEtHoDdv7Ea4uXCLQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tEaa1lXjRnRCarnKSiBjtZzn0vM/TcJx7S2H1oEn29U=; b=uFvqV9hXQlwBUPf/Ck+SiG4ehn
+	SGVm8zkYq80zXlRtYT3/hL4Yty/Z1mrGJ7iI+JAAd3aox0db5bOQGVrPVhGIxslLZIOBiWTKgi9rW
+	56RrbzWLhOhwZuibaebJ9tCjYxjpTy3MBrGBF/NUvVKfN5AVQ92jIRFNPZsGQIUSCg5Loq85xm+wk
+	ZQp0sUsv5o/6gP0G9qDb2jdy92H2GQ5H+D7tsTuhIeS8oEWVTQMrgXDZVbYu7yXkLK4/VSrCGHNFx
+	NQfbvccm2LQrZYCj0U3qERxuG2cM9QsBw2UVokj40JjS2kT7/fT3GqIcheRxPKtesgkWgsFuonDqQ
+	W1uSCVcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwM9c-00000009zQt-30fY;
-	Sat, 28 Feb 2026 15:22:52 +0000
-Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	id 1vwMPM-0000000A09p-1YFm;
+	Sat, 28 Feb 2026 15:39:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwM9Y-00000009zQ3-2tx2
+	id 1vwMPK-0000000A09f-35HB
 	for linux-riscv@lists.infradead.org;
-	Sat, 28 Feb 2026 15:22:50 +0000
-Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-7982c3b7da9so30984067b3.1
-        for <linux-riscv@lists.infradead.org>; Sat, 28 Feb 2026 07:22:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772292167; x=1772896967; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=8gJIyL9AfQkuFfPNEXdWTtLgAIKWa7r6TpMrqBv02Ok=;
-        b=C58YAE1H6NmEI1FPm4RsVpuwfvyfLSutC3CIB1Hs5AO9BR61TqPN8jcZTTRqXzp8Yy
-         sLcuoySJMvNAwXbLQ/vClA8dLX0rkndhu+K0n/AZBAVc1wCkP7ZRc97iygGPBafqhbe5
-         4f/6ATO2dS4ksDlopVSBISkTB5uTLBPLFxVu9lSycb4dlrlmzn6Q9TtWjmPw4BVan3+y
-         p7fSuAbBvKVg77Ut4wN38wFUsrT5Zri7LXXb0XDuzx1PUEwzeT04f918NxbWDfPkLage
-         b9j7QHyjZ9+Ce+wwt83PpLiLTUL82OBTt4EuD8K4XT/3gW715xymUJjh/V0/F+q8zzJh
-         qaiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772292167; x=1772896967;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8gJIyL9AfQkuFfPNEXdWTtLgAIKWa7r6TpMrqBv02Ok=;
-        b=Eu0AzEI34ufJL4HXrBP3T83l9YmZJtgObg4nDTczBq247MaU/0kN2dKlCRDYF/ZtD9
-         RwC1WL+q4sPoWvSCfzA53U0yKT86G5WDn8QxO3cFUk26sEsAz1dbWWXRrzQf5DU1qH2J
-         D2fK0yQi7InubCLjEg45OZL3tCD/IiPYHIr2STATHqtnxqJnDACKhs7a7lIGBEMWSsMM
-         lqh/Fl1FX23K8DoqCsGoEOdlYkDsdsGZrJchShhzv1k6NuzUJjmBp6pkI2UAMNoBGJH+
-         P9mbWHsEegAqlctSXjCI7gzIKMN82rFUeyFJIjbCMw3+n/fVnpFdd5449ALvV9Nd5A2O
-         DSLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUavP/B2Ao7xW0X1iORRl0qmPbUk+vERwL9wu6Nfw/OjbDGbuKNQv/9Y4acWWIJliyCyWN9yQwxQifkUQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6MZYqgM/O1GnRLW7HqoCMZibPw4IMQsowY7MS1qB3pw0y21vV
-	6D5e4AlzS9D6yQkAJVI5dywggAPBATHkt4LrnjGVxpWRp7jFGtiJKqABlcFaSQJNX0I=
-X-Gm-Gg: ATEYQzxc5vRnt98dSOUjDjBygKI86fEYS98K+OeJEi1d6YyqT/v6Wn+MdHcId2J/1r3
-	Mrt+JcfEz9irB/VQhMxTqNs0PbicYfhQx/m72FjNDlUMOAD3lIIOsM39FNlyg8PEbWdKcy8xZfr
-	fePQfQOw3bivSo7XM7bYVlavcEifGoW3UB57XpTZe6v86BT1JXWqUPyi1pD4sdWcRHAXBncAQw5
-	BeXOKbz1MCTq6DiKVzox23C4FPeCpAmJMv0K2Q0MhHklNFgAp05zOtPGISVxogYQ2Q9chHHiORn
-	4YGP/4TX0IfYdm29WSWwf8p1PnxzeP/cMwWjXmKzmMS9TK3tzJRlFlY9LfKq+KONBcZ86KoHq2W
-	M1d9pZ73gzDL5RBfPc3bJ5j3YFxFlWgB4+JkXO5+PiJHL0Or0c24LOM1oCKh3LGdbAb+fuYPXex
-	dBeusL0mztEDafn2jbgOJJ1iMrOdQeUIsmZmpMGDtvxhLZsZzl0BGW/0RxU/8cBBRH+z67Y4W3I
-	hOn3M3j+kGZgQAQoYILgR8J
-X-Received: by 2002:a05:690c:1b:b0:796:74cf:df0c with SMTP id 00721157ae682-798855082c6mr61686407b3.24.1772292167012;
-        Sat, 28 Feb 2026 07:22:47 -0800 (PST)
-Received: from tux ([2601:7c0:c37c:4c00::5c0b])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-79876a92039sm32861897b3.8.2026.02.28.07.22.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Feb 2026 07:22:46 -0800 (PST)
-From: Ethan Tidmore <ethantidmore06@gmail.com>
-To: anup@brainfault.org
-Cc: atish.patra@linux.dev,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	ajones@ventanamicro.com,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ethan Tidmore <ethantidmore06@gmail.com>
-Subject: [PATCH] RISC-V: KVM: Fix out-of-bounds by 1
-Date: Sat, 28 Feb 2026 09:22:26 -0600
-Message-ID: <20260228152226.2116895-1-ethantidmore06@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Sat, 28 Feb 2026 15:39:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D1CF8600CB;
+	Sat, 28 Feb 2026 15:39:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18C61C116D0;
+	Sat, 28 Feb 2026 15:39:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772293145;
+	bh=RZ24zd2vtYiYR+Is5sPaHhlPzptzRZV6aZNyOrKUIVY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QnwKOAWDengg1oRY0dK5Fy+OeUeopzCcRU/T6Gp6kHFSbbT+nahq4oD9l+JO5iMQk
+	 42JBLQ7WMwPlQHsHnea65r/cAl/SDK7pKCHBtuFcf9GCn2FlW60Zd7Gk2flVKhhYJF
+	 j+EfqxigH/ZpnmKxImLF3CFLm8k4oShlCmTjKLxBhcMFsFsV3ejSrBIiQbIIAk/WI0
+	 MnPIGZVaxPgqBhk9YwZ71mtS77SV4HCIjZz/Qkbalhsb0JWfDyvi2mdBEyHgfipwLZ
+	 psyKw2HsToVjffGDun3BUAgb9HPiwK9QXYXJHtMXBJtOCbsKOdpxZgFdx0n+2QZ5n7
+	 NQTU1LHsbCO8Q==
+Date: Sat, 28 Feb 2026 15:39:01 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Ron Economos <re@w6rz.net>, miquel.raynal@bootlin.com,
+	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, wsa+renesas@sang-engineering.com
+Subject: Re: spi: Regression with v7.0-rc1 on VisionFive 2
+Message-ID: <20260228-defuse-extenuate-cf2a90ae66ea@spud>
+References: <a3ca5e9b-7446-497e-8df2-7ef2b42a02e9@w6rz.net>
+ <aaL2WVO_7bl6vNp5@sirena.co.uk>
+ <20260228-ragweed-theater-b02967937353@spud>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_072248_725195_F4BBF076 
-X-CRM114-Status: GOOD (  10.72  )
+In-Reply-To: <20260228-ragweed-theater-b02967937353@spud>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,48 +66,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8390305967409696965=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The array kvpmu->pmc is defined as:
 
-struct kvm_pmc pmc[RISCV_KVM_MAX_COUNTERS];
+--===============8390305967409696965==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="vHElSr6IrLxck0/S"
+Content-Disposition: inline
 
-So, accessing it with index RISCV_KVM_MAX_COUNTERS would be
-out-of-bounds by 1.
 
-Change index check from > to >=.
+--vHElSr6IrLxck0/S
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Detected by Smatch:
-arch/riscv/kvm/vcpu_pmu.c:528 kvm_riscv_vcpu_pmu_ctr_info() error:
-buffer overflow 'kvpmu->pmc' 64 <= 64
+On Sat, Feb 28, 2026 at 02:23:00PM +0000, Conor Dooley wrote:
+> On Sat, Feb 28, 2026 at 02:06:17PM +0000, Mark Brown wrote:
+> > On Sat, Feb 28, 2026 at 05:54:06AM -0800, Ron Economos wrote:
+> >=20
+> > > I'm getting an SPI failure with Linux v7.0-rc1 on the VisionFive 2 RI=
+SC-V board.
+> >=20
+> > > Feb 28 00:29:33 visionfive kernel: cadence-qspi 13010000.spi: QSPI is=
+ still busy after 500ms timeout.
+> > > Feb 28 00:29:33 visionfive kernel: cadence-qspi 13010000.spi: detecte=
+d FIFO depth (1) different from config (256)
+> > > Feb 28 00:29:33 visionfive kernel: cadence-qspi 13010000.spi: QSPI is=
+ still busy after 500ms timeout.
+> > > Feb 28 00:29:33 visionfive kernel: cadence-qspi 13010000.spi: QSPI is=
+ still busy after 500ms timeout.
+> > > Feb 28 00:29:33 visionfive kernel: spi-nor spi1.0: operation failed w=
+ith -110
+> > > Feb 28 00:29:33 visionfive kernel: spi-nor spi1.0: probe with driver =
+spi-nor failed with error -110
+> >=20
+> > FWIW confirmed on my system:
+> >=20
+> >    https://lava.sirena.org.uk/scheduler/job/2504026#L715
+> >=20
+> > (which I didn't notice as that was just buildroot and not running
+> > kselftest-dt...).
+>=20
+> This probably constitutes random speculation, but I am curious if
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/d=
+ts/starfive/jh7110.dtsi
+> index 6e56e9d20bb06..390fa87edbaf8 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -873,9 +873,9 @@ qspi: spi@13010000 {
+>  			      <0x0 0x21000000 0x0 0x400000>;
+>  			interrupts =3D <25>;
+>  			clocks =3D <&syscrg JH7110_SYSCLK_QSPI_REF>,
+> -				 <&syscrg JH7110_SYSCLK_QSPI_AHB>,
+> -				 <&syscrg JH7110_SYSCLK_QSPI_APB>;
+> -			clock-names =3D "ref", "ahb", "apb";
+> +				 <&syscrg JH7110_SYSCLK_QSPI_APB>,
+> +				 <&syscrg JH7110_SYSCLK_QSPI_AHB>;
+> +			clock-names =3D "ref", "apb", "ahb";
+>  			resets =3D <&syscrg JH7110_SYSRST_QSPI_APB>,
+>  				 <&syscrg JH7110_SYSRST_QSPI_AHB>,
+>  				 <&syscrg JH7110_SYSRST_QSPI_REF>;
+> has any impact. Going from jh7110 specific code to bulk apis is an
+> ordering change, right?
 
-Fixes: 8f0153ecd3bf1 ("RISC-V: KVM: Add skeleton support for perf")
-Signed-off-by: Ethan Tidmore <ethantidmore06@gmail.com>
----
- arch/riscv/kvm/vcpu_pmu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+According to Ron, it had no impact.
 
-diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-index 3a4d54aa96d8..51a12f90fb30 100644
---- a/arch/riscv/kvm/vcpu_pmu.c
-+++ b/arch/riscv/kvm/vcpu_pmu.c
-@@ -520,7 +520,7 @@ int kvm_riscv_vcpu_pmu_ctr_info(struct kvm_vcpu *vcpu, unsigned long cidx,
- {
- 	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
- 
--	if (cidx > RISCV_KVM_MAX_COUNTERS || cidx == 1) {
-+	if (cidx >= RISCV_KVM_MAX_COUNTERS || cidx == 1) {
- 		retdata->err_val = SBI_ERR_INVALID_PARAM;
- 		return 0;
- 	}
--- 
-2.53.0
+--vHElSr6IrLxck0/S
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaMMFQAKCRB4tDGHoIJi
+0riuAP9pcpOeD4G8LIGxBhND9gcHitN47yk6s3A5aZEOIx8/oAD+LKck9tLQJDn6
+CxytGbXbvq/03XGYg5BKaApP3uGaFQg=
+=yy+n
+-----END PGP SIGNATURE-----
+
+--vHElSr6IrLxck0/S--
+
+
+--===============8390305967409696965==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8390305967409696965==--
+
