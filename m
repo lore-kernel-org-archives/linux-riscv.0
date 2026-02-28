@@ -4,95 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA49BFEE4C7
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 05:47:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22910FEE4CB
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 06:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ylSJlWHvQvtvTWnGBxQjdUSkD+CmjQytrD+brb5E9HE=; b=4Dh0doP3G+2DMA
-	tmvpgBpY0lXmjnut6zdzvnoMwn7i/m3Qt1vvjamGDeQKgHQ1RSiE2PejNxjaLvZZHdbeNzJ6ss46D
-	vdQf2IFCy+4GCyi/JwGN+AN5IOtiabOIsGVJX2CkONphZ80ZgCgKeM8Hv2nv2Fc93czXMS0jEYKRF
-	dFnP+xzztT+J2ycgsU5e1TYwxXYE6uJamdjzYpDCIt4ZEF9uoJnUaxpu73l5LstZgSVfph/pCjFow
-	FIslbCYOEcgw+tWnhCeZIUs+lpy8ws995r7g1q4g+fVJghv/ZtGv4IAEqQ7WFsiOO7QRazVmiFoAh
-	pCQqbhFEFkdHn4AfmgNg==;
+	List-Owner; bh=yjUCiiBtc54j0tdXGXHE2G8hp8WMBrysEJ8ZXCYMKAo=; b=qHFyl61+R+dkCI
+	2YaAcngGH46zShmyk544mbvOgBvkRxUUrNDW459dl6qG90FfafK8AgOnzy5f0sTwAdJCWq2iTkohq
+	CCQiQPZMUXMnZO516JgOJ7iAVlUrLsOuEQN0Fb+yQRdim82ueYw09YKZg8Q9Mf6Y8m10+Le4yBby/
+	1fK8ouNkTW2/jQf1JMaqpMjmFOc0wIgKddE+srTCV8ly+LK7ZBNArcoOq4/267e9E8UH7yK1130mq
+	OTPGtrmmyYzU8ttq0WK+zJvEBqpPVJVI1jqcefdGw+8CT2EvbPydNeAcOwUPPBJ5Uw/sczWXsee8+
+	5Hk65Roa8XSimZgzSqng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwDAh-00000009Wi3-2yrE;
-	Sat, 28 Feb 2026 05:47:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwDqe-00000009Y8C-4AAQ;
+	Sat, 28 Feb 2026 06:30:44 +0000
+Received: from smtp37.cstnet.cn ([159.226.251.37] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwDAf-00000009Whc-26yN;
-	Sat, 28 Feb 2026 05:47:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2B33141E50;
-	Sat, 28 Feb 2026 05:47:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6374C116D0;
-	Sat, 28 Feb 2026 05:47:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772257640;
-	bh=3fhtDiEfYQIsR8xe5v1xLPzjOApnwt1LgQea0fiE/sk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZxnCfx5JDI332Qrr3aqcMLFE+Z8TXsT+uailOd+3AxcXf1coTOZ7vF5OtRVlFz27S
-	 I+XE3qJMsOy/NaWilUmpaeuY7J3oz+cG4Um71U6OgQ7NcFA0HIvDDJfrudH5EPWD3S
-	 jPn9xscU5HDErluyyxksFTvSuNR6X2vG6RGaNlRTZxMmerYr0sgLOhE7L00/8t5/MJ
-	 uNCGKSSPUVI6ufs4uUbVSf5rsbRTL4oD2BooogSyg1zZ0YWLvakCTY7IPYd2SyPwrp
-	 50+eB5Q59+IeVeLCa8yNWJbEZz5QSmLw3fDIRjKAzMjZdSuoZa7lO1W7LFFthLj2/W
-	 ELDld1Q34kANQ==
-Date: Fri, 27 Feb 2026 21:47:16 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>, linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 16/25] sparc: move the XOR code to lib/raid/
-Message-ID: <20260228054716.GF65277@quark>
-References: <20260226151106.144735-1-hch@lst.de>
- <20260226151106.144735-17-hch@lst.de>
+	id 1vwDqb-00000009Y7l-0JpM;
+	Sat, 28 Feb 2026 06:30:43 +0000
+Received: from xujiakai2025$iscas.ac.cn ( [210.73.43.101] ) by
+ ajax-webmail-APP-12 (Coremail) ; Sat, 28 Feb 2026 14:30:25 +0800
+ (GMT+08:00)
+X-Originating-IP: [210.73.43.101]
+Date: Sat, 28 Feb 2026 14:30:25 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: "Jiakai Xu" <xujiakai2025@iscas.ac.cn>
+To: "kernel test robot" <lkp@intel.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+	kvm@vger.kernel.org, oe-kbuild-all@lists.linux.dev, 
+	"Alexandre Ghiti" <alex@ghiti.fr>, 
+	"Paolo Bonzini" <pbonzini@redhat.com>, 
+	"Shuah Khan" <skhan@linuxfoundation.org>, 
+	"Paul Walmsley" <pjw@kernel.org>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Andrew Jones" <ajones@ventanamicro.com>, 
+	"Anup Patel" <anup@brainfault.org>, 
+	"Atish Patra" <atish.patra@linux.dev>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>
+Subject: Re: Re: [PATCH v9 2/3] KVM: selftests: Refactor UAPI tests into
+ dedicated function
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.1-cmXT5 build
+ 20240627(e6c6db66) Copyright (c) 2002-2026 www.mailtech.cn cnic.cn
+In-Reply-To: <202602280523.Y5Q8Pdft-lkp@intel.com>
+References: <20260228005355.823048-3-xujiakai2025@iscas.ac.cn>
+ <202602280523.Y5Q8Pdft-lkp@intel.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260226151106.144735-17-hch@lst.de>
+Message-ID: <6f5f1ca4.443dd.19ca2f0f358.Coremail.xujiakai2025@iscas.ac.cn>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: tgCowABnc9OBi6Jp1RITAA--.46891W
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiDAgMCWmiU3VFgAABso
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_214721_600120_BE099D08 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20260227_223041_522390_4CF25BDF 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,47 +76,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 07:10:28AM -0800, Christoph Hellwig wrote:
-> diff --git a/arch/sparc/lib/xor.S b/lib/raid/xor/sparc/xor-niagara.S
-> similarity index 53%
-> rename from arch/sparc/lib/xor.S
-> rename to lib/raid/xor/sparc/xor-niagara.S
-> index 35461e3b2a9b..f8749a212eb3 100644
-> --- a/arch/sparc/lib/xor.S
-> +++ b/lib/raid/xor/sparc/xor-niagara.S
-> @@ -1,11 +1,8 @@
->  /* SPDX-License-Identifier: GPL-2.0 */
->  /*
-> - * arch/sparc64/lib/xor.S
-> - *
->   * High speed xor_block operation for RAID4/5 utilizing the
-> - * UltraSparc Visual Instruction Set and Niagara store-init/twin-load.
-> + * Niagara store-init/twin-load.
->   *
-> - * Copyright (C) 1997, 1999 Jakub Jelinek (jj@ultra.linux.cz)
->   * Copyright (C) 2006 David S. Miller <davem@davemloft.net>
->   */
->  
-> @@ -16,343 +13,6 @@
->  #include <asm/dcu.h>
->  #include <asm/spitfire.h>
->  
-
-<linux/export.h> can be removed from the two assembly files, since all
-the invocations of EXPORT_SYMBOL() in them were removed.
-
-Also, xor-niagara.S ended up without a .text directive at the beginning.
-Probably it was unnecessary anyway.  However, this seems unintentional,
-given that xor-vis.S still has it.
-
-- Eric
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgYWxsLAoKSSByZWNlaXZlZCBhIG5vdGlmaWNhdGlvbiBmcm9tIHRoZSBrZXJuZWwgdGVzdCBy
+b2JvdCByZWdhcmRpbmcgbXkgcGF0Y2guIEl0IGluZGljYXRlcyB0aGF0IHZvaWQgY2hlY2tfc3Rl
+YWxfdGltZV91YXBpKCkgc2hvdWxkIGJlIGNoYW5nZWQgdG8gdm9pZCBjaGVja19zdGVhbF90aW1l
+X3VhcGkodm9pZCkgdG8gYXZvaWQgYSBjb21waWxlciB3YXJuaW5nLgoKSSB3b3VsZCBsaWtlIHRv
+IHdhaXQgZm9yIHRoZSByZXZpZXdlcnPigJkgZmVlZGJhY2sgb24gdGhpcyBwYXRjaC4gSWYgdGhl
+cmUgYXJlIG5vIGlzc3VlcyBhc2lkZSBmcm9tIHRoaXMgd2FybmluZywgSSB3aWxsIHN1Ym1pdCB0
+aGUgZmluYWwgdmVyc2lvbiBhZGRyZXNzaW5nIHRoZSBjb21waWxlciB3YXJuaW5nLiBJZiB0aGVy
+ZSBhcmUgb3RoZXIgc3VnZ2VzdGlvbnMsIEkgd2lsbCBpbmNvcnBvcmF0ZSB0aGVtIGFjY29yZGlu
+Z2x5LgoKVGhhbmtzLApKaWFrYWkKCiZxdW90O2tlcm5lbCB0ZXN0IHJvYm90JnF1b3Q7ICZsdDts
+a3BAaW50ZWwuY29tJmd0O+WGmemBk++8mgo+IEhpIEppYWthaSwNCj4gDQo+IGtlcm5lbCB0ZXN0
+IHJvYm90IG5vdGljZWQgdGhlIGZvbGxvd2luZyBidWlsZCB3YXJuaW5nczoNCj4gDQo+IFthdXRv
+IGJ1aWxkIHRlc3QgV0FSTklORyBvbiB2Ni4xOV0NCj4gW2Nhbm5vdCBhcHBseSB0byBrdm0vcXVl
+dWUga3ZtL25leHQgbGludXMvbWFzdGVyIGt2bS9saW51eC1uZXh0IHY3LjAtcmMxIG5leHQtMjAy
+NjAyMjddDQo+IFtJZiB5b3VyIHBhdGNoIGlzIGFwcGxpZWQgdG8gdGhlIHdyb25nIGdpdCB0cmVl
+LCBraW5kbHkgZHJvcCB1cyBhIG5vdGUuDQo+IEFuZCB3aGVuIHN1Ym1pdHRpbmcgcGF0Y2gsIHdl
+IHN1Z2dlc3QgdG8gdXNlICctLWJhc2UnIGFzIGRvY3VtZW50ZWQgaW4NCj4gaHR0cHM6Ly9naXQt
+c2NtLmNvbS9kb2NzL2dpdC1mb3JtYXQtcGF0Y2gjX2Jhc2VfdHJlZV9pbmZvcm1hdGlvbl0NCj4g
+DQo+IHVybDogICAgaHR0cHM6Ly9naXRodWIuY29tL2ludGVsLWxhYi1sa3AvbGludXgvY29tbWl0
+cy9KaWFrYWktWHUvUklTQy1WLUtWTS1WYWxpZGF0ZS1TQkktU1RBLXNobWVtLWFsaWdubWVudC1p
+bi1rdm1fc2JpX2V4dF9zdGFfc2V0X3JlZy8yMDI2MDIyOC0wODU2NDgNCj4gYmFzZTogICB2Ni4x
+OQ0KPiBwYXRjaCBsaW5rOiAgICBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjYwMjI4MDA1
+MzU1LjgyMzA0OC0zLXh1amlha2FpMjAyNSU0MGlzY2FzLmFjLmNuDQo+IHBhdGNoIHN1YmplY3Q6
+IFtQQVRDSCB2OSAyLzNdIEtWTTogc2VsZnRlc3RzOiBSZWZhY3RvciBVQVBJIHRlc3RzIGludG8g
+ZGVkaWNhdGVkIGZ1bmN0aW9uDQo+IGNvbmZpZzogYXJtNjQtYWxsbm9jb25maWctYnBmIChodHRw
+czovL2Rvd25sb2FkLjAxLm9yZy8wZGF5LWNpL2FyY2hpdmUvMjAyNjAyMjgvMjAyNjAyMjgwNTIz
+Llk1UThQZGZ0LWxrcEBpbnRlbC5jb20vY29uZmlnKQ0KPiBjb21waWxlcjogYWFyY2g2NC1saW51
+eC1nbnUtZ2NjIChEZWJpYW4gMTQuMi4wLTE5KSAxNC4yLjANCj4gcmVwcm9kdWNlICh0aGlzIGlz
+IGEgVz0xIGJ1aWxkKTogKGh0dHBzOi8vZG93bmxvYWQuMDEub3JnLzBkYXktY2kvYXJjaGl2ZS8y
+MDI2MDIyOC8yMDI2MDIyODA1MjMuWTVROFBkZnQtbGtwQGludGVsLmNvbS9yZXByb2R1Y2UpDQo+
+IA0KPiBJZiB5b3UgZml4IHRoZSBpc3N1ZSBpbiBhIHNlcGFyYXRlIHBhdGNoL2NvbW1pdCAoaS5l
+LiBub3QganVzdCBhIG5ldyB2ZXJzaW9uIG9mDQo+IHRoZSBzYW1lIHBhdGNoL2NvbW1pdCksIGtp
+bmRseSBhZGQgZm9sbG93aW5nIHRhZ3MNCj4gfCBSZXBvcnRlZC1ieToga2VybmVsIHRlc3Qgcm9i
+b3QgPGxrcEBpbnRlbC5jb20+DQo+IHwgQ2xvc2VzOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9v
+ZS1rYnVpbGQtYWxsLzIwMjYwMjI4MDUyMy5ZNVE4UGRmdC1sa3BAaW50ZWwuY29tLw0KPiANCj4g
+QWxsIHdhcm5pbmdzIChuZXcgb25lcyBwcmVmaXhlZCBieSA+Pik6DQo+IA0KPiA+PiBzdGVhbF90
+aW1lLmM6MjA3OjEzOiB3YXJuaW5nOiBmdW5jdGlvbiBkZWNsYXJhdGlvbiBpc24ndCBhIHByb3Rv
+dHlwZSBbLVdzdHJpY3QtcHJvdG90eXBlc10NCj4gICAgICAyMDcgfCBzdGF0aWMgdm9pZCBjaGVj
+a19zdGVhbF90aW1lX3VhcGkoKQ0KPiAgICAgICAgICB8ICAgICAgICAgICAgIF5+fn5+fn5+fn5+
+fn5+fn5+fn5+fg0KPiAgICBjYzE6IG5vdGU6IHVucmVjb2duaXplZCBjb21tYW5kLWxpbmUgb3B0
+aW9uICctV25vLWdudS12YXJpYWJsZS1zaXplZC10eXBlLW5vdC1hdC1lbmQnIG1heSBoYXZlIGJl
+ZW4gaW50ZW5kZWQgdG8gc2lsZW5jZSBlYXJsaWVyIGRpYWdub3N0aWNzDQo+IA0KPiAtLSANCj4g
+MC1EQVkgQ0kgS2VybmVsIFRlc3QgU2VydmljZQ0KPiBodHRwczovL2dpdGh1Yi5jb20vaW50ZWwv
+bGtwLXRlc3RzL3dpa2kNCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
