@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 885E1FEE4C9
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 14:44:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30C8FEE4D4
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 14:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JXN2XiBigbci/6tcMATYBJwf4qRZuk7aPnoJ/eXKp+g=; b=N00T1aiMrCbFOy
-	q3wk/8HOfvEbLG5W105ZOMZlT3PgFodQ/3NYfF6m5mRwKFh+yaGT4c7Q7z5uS7SzIJArxhscTx120
-	7ISnleQsOj788g0mc9UFPzGhLKLwoM57wM4pUR+3VkmUvdu+Oz2+Uv1sQJr+qbV/F5CeOpw8+RsTi
-	pGoEf8668pkKkp9vkQrLYWDhWBHGwZwcwUCJvOyS6DchDsw18AwZkedxcZUaKLtvT7dAV/O3vGrt6
-	gnOwzVcgfJrVRdhEWfyljnTRWTI+YNr/pNkncW5gaGZLlkEyx9iqQrMEr+HHf/XRdXKD6daoI3Lbx
-	3YPGTnx1ea+z5BLW9VhQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IzWkFc1zf3aWojrKHxKuAIav5QkcUjXMXtesS1ZxaOo=; b=ILW9kZtSyTzuVm
+	MLWvTT4BHnszIVQpy+rzshuwLwp6N4ErdVqSeBg4mk72BPuRDnWJU78UsAeyT+q0/aPtic70vPN08
+	cn2cghxpJMbY5ivKZAiXF/qjW4A67R6GaxpYjp4uLXEwT4SFDXzIQ11kb1ofjR5ZpRXdX8tcjrCOr
+	tzaHbDcVM++67A6f0bWjS/fGzd61TvaOfXB4qrBSIHLGv0eW9hrA8hZUN5VBHuIb2kK5wMNRg/hVT
+	TjQfPtgfqGLd/X6dFSwXZ0wTT6G0RqdCQT4Mj2m7+51Me6hYgeQ55dbpEZbfviy7R0/LhzervY8dc
+	j/ylKmqTPAvharRR54lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwLYd-00000009wJQ-0TEV;
-	Sat, 28 Feb 2026 14:44:39 +0000
-Received: from smtpbgbr1.qq.com ([54.207.19.206])
+	id 1vwLYv-00000009wQd-2fpb;
+	Sat, 28 Feb 2026 14:44:57 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwLYY-00000009w9Y-2Wor
+	id 1vwLYs-00000009wHT-1wQa
 	for linux-riscv@lists.infradead.org;
-	Sat, 28 Feb 2026 14:44:37 +0000
+	Sat, 28 Feb 2026 14:44:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1772289841;
-	bh=VFpZj6jKARnaID1I10ixu24mzXdyy5SN61+au0Q3ZPc=;
+	s=mxsw2412; t=1772289868;
+	bh=ZTc/n5ab9N9UFVgI6hT5/C+s+rP7drTHuNOBqqfhQGM=;
 	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=cdUhVrAnVOsRvbB2eYzrKAnB/tna4valCaKOwSU3723n/f9Z3LaOK2hkRHthFr7G2
-	 m8/LKDODnIeHfcQq+/lWH70XKFuH6we3HHbboG3dtEBDwqhXC20xILcCepsow2D7Qv
-	 1kgzcewL/SUKNm3jYn0/nxIUzOxrj58QsMOXNOUM=
-X-QQ-mid: zesmtpsz3t1772289839t48d62097
-X-QQ-Originating-IP: +vVQa2LLG+FVJ/e80s+itn7Z14UcwpwT8kcqAcUN2/M=
+	b=aw9fQC60GpN5je38nhl5HmBhaKDqlndi+wsPesNqbh4qDFYeOCii0w2pLDjwv+hkD
+	 +CTiONZm7VPiHltv4F6f7JnpEdnQcKW5VHoS9OVF5UjXuPj7z1B0go18WE0f/wTCIw
+	 sGz9weuzx6xxa6BCcQP2AL34gLZ/BkYWt2x+yHUc=
+X-QQ-mid: zesmtpgz1t1772289863t7d4037ae
+X-QQ-Originating-IP: skU+G2wfQkuL5RXnlGkMHnDK79YrWmLshwy4PnZu56k=
 Received: from SurfaceBook2-B.localdomain ( [183.193.112.19])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 28 Feb 2026 22:43:54 +0800 (CST)
+	id ; Sat, 28 Feb 2026 22:44:18 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 10233903411919513478
+X-BIZMAIL-ID: 18284969003832345071
 EX-QQ-RecipientCnt: 33
 From: Lv Zheng <lv.zheng@linux.spacemit.com>
 To: Tomasz Jeznach <tjeznach@rivosinc.com>,
@@ -77,35 +77,37 @@ Cc: Jingyu Li <joey.li@spacemit.com>,
 	spacemit@lists.linux.dev,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 0/8] iommu/riscv: Add HPM support for RISC-V IOMMU
-Date: Sat, 28 Feb 2026 22:43:38 +0800
-Message-ID: <0CA1C3965143B3A7+cover.1772289741.git.lv.zheng@linux.spacemit.com>
+Subject: [PATCH v5 2/8] iommu/riscv: Add auxiliary bus framework and HPM device support
+Date: Sat, 28 Feb 2026 22:44:14 +0800
+Message-ID: <BB440D6C2FBCE62A+298a7429e6a3c395d2d2c53449e38a47465e12b0.1772289741.git.lv.zheng@linux.spacemit.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1772289741.git.lv.zheng@linux.spacemit.com>
+References: <cover.1772289741.git.lv.zheng@linux.spacemit.com>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-1
-X-QQ-XMAILINFO: MSZecc01IPj5diyjRvIOeQg2lFZZ003e583DDRseQoWTiEz7vBEAgPMa
-	noYsdDxSZUPD3IL+brT+9sNb90GW/OpWvOsDs+wGGZ/TPvf6+igYfwXB4Kegqbu9ajzlR7S
-	tjb2jXOUPxDJptG8lb1jIqrJPzFMMgPF/l+JGpeHWAQkAe6AqrU08FmJ0xim2GfqwuEBvtt
-	Zsh9WjeTV9m7f53sU4JgMPg0suHsIGbW/+yR3ltOFZg/bj6QR/eDHyMhSbgIS8X4RucXugZ
-	/MgqVNPmALUqsZ4Eld/ACd+dZLva9CoOaLHxjgfPr4xu7sSWIflrUErPYhS7sCs5jt+d4dd
-	CgUlo4Sl+8erx8vj7G1QWC6gd4jsphwmv0OeUxhYRZhQ57cCoOR1Y33RNKt/xdIUxQjcjmF
-	EOQL/XGo+YNheCz7fMzaCF59PiL+QgZ/uagWD6k3lkEWjuckdHZeP4FdkxMSMVWb5/KmlgT
-	QI5IFishcGXozF54/G2PurI128vQebvTEk0u4qkY1WJFH4HUwoids+5h0XSJpXQAuJ5qc5m
-	6IKHb8PIvxgwE1UHFUopRICPA/qYSM3bCcSMvsZ0fwfAiakqdfF8JEUy08gEvci6FPWwi/L
-	14UQRsHdvzTsqdkovmFKd40kfi6N9RKmIXi6H228dEHh3yK3fiTRmceaI0HYMLDSokKdM4c
-	+DrsO38KmiGkkgZPox+YZWrPrprAUvmIG3yWjUEQtSLtm8RgvwEKslLLoNwxHSPp6c2T0wJ
-	WXt8aHfV8fRsuo105LAh/6Dh1yqMlBRzReZa6VSiqx/lbgK12Ox1ryV+MJvNaapUIccMQw7
-	njXtnZSqJjBVJjtb1woNipOX+PP5vwiwifXfy+D0lLDsTcANvndIjDh1irGdlZs5yItXu73
-	xKdhdr4QRdXriJdG5Q1vJqrvczlaS4Ap6pGDtzM51i6Z8wlDA9dJ1UotCc7nW75cF24qMP2
-	y6adiLIEulIWFWpBs9Oq5ZI7gu6cNqRzfWZIi3EXAeV3j7vi09Ghyr9j0pLw0cfZTudgzi2
-	7gBIhFCFFvnwMLggx5ZXf1HVfEPkELJJbOLJGgfQTXSef1tVTqkB7CubBFjhFn7JJ4fFr0H
-	nra7bdb2udXyF1/iE8KxGOx0Bz4E2kYiJSOJ6g5oSb0
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-1
+X-QQ-XMAILINFO: OLsBWtCIHsg6VNrwUi8/mc4jmBZisZKwByOferWTD3/GLqwmjD6ZWf2g
+	lWkH3WP/Tr6u0g880nUX3nAa2lAZITULXqFbt5oC+z84Dgo1MNvwVZOP7iQCSrDuKf9RReV
+	p0MxUbtJ9jhN6GbLx15e0o48CtECxwmqIkcJMeuofP4L/8not03VbpywjAcw1Z7WegO5I5K
+	/MDpJgxGhVnc1N3XdX6vJO4yYB+RWgwDYi/0BId8aJMw4vqasVBlC3iBOiXqML8SOhq8jdQ
+	TKJ+Ql4sEuGJFMTPGeEyDWAuC3vMiYGNrb0L6OMyb/QuqoFpVLJdvWKVJMASDqaSC/p09Y5
+	/X1WQRD3gA85RyFrkSRDQpyuji3D2IEiFVYA6QD/wesADpPAYD6IcFHmLMP84dlzYEbeaSN
+	mmN23VqzUcvC1nsU+HiBWoHcslGIzjVRWGns8ZQHN2tt4dhAWOMnK76RnF082EnnoM9J7PH
+	RDq7TXPBdMzVOuEamwupO4ailCWlp5CqVcKf6/NEVO0Nl5L226dfj0w6wCC1rLamgOx5rUF
+	sUWNVxw1by8y+3CE2TNSQvfVvbt+cEyWZWEQVvZ64cCulPPtY948IzHeX1s2vynMuALInBC
+	4CKFt8t+SkbqrRcapyUIDw4eKfpuBqRuZA4AoUL/Xzst/pyhdDAku8XEoZGFqQ3zT0hxgU4
+	gKTysewD39QmDufmFcNlB7O8HxeJRJXnxUR0nX6ZM7yvLxqIRSNYG7mcLzoTND+6mYnMgMS
+	RYjBsSyZqmsAzWR9VluQDiZZ+eLUrZsHW3v5gr6B7sx3XwkNe386HBfCyd5z9cd/ugVPDCI
+	CU6HY2LSXYVq0rxD1wuzPPO1BW/sfdFEED6N/daqDrUbAk+9C/U3S2I7iUU7BwiXPrvsDwy
+	j/6zZarrRneGzQj2dQCXj+0l+LgEWXHsxrKQlSCfm1TUovBwfgyQBZpFHnHOBz+FVZIqIWg
+	lvNRKUXfZUS3ezIKLH4QAudrbqDmPEhCRvtEggpr8rYSb2Vscscychjf2e9B0ktexu1wj5v
+	KvbgNoNt3RTVAxfeqDUOANVKlR58fz2A30Wbzv6Y5RUd5iIm4h5RKSi02DwG+gEaEajpqzc
+	g==
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_064435_972555_A64D2C69 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20260228_064455_090494_0ECF6081 
+X-CRM114-Status: GOOD (  27.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,126 +124,438 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Includes HPM support for RISC-V IOMMU. The HPM hardware mechanism can be
-found in the recent announced SpacemiT SoCs (K3, V100), where T100
-(SpacemiT distributed IOMMU) is shipped. 
+From: Jingyu Li <joey.li@spacemit.com>
 
-The RISC-V IOMMU specification defines optional HPM registers (IOHPMEVT,
-IOHPMCTR, etc.) for performance monitoring of transactions through the
-IOMMU. SpacemiT T100 implements this specification with a distributed
-architecture: the main IOMMU (IOATS) is complemented by up to 64 IOATC
-units that cache IOTLBs adjacent to DMA masters. Each IOATC has its own
-HPM counters and PMIV interrupt.
+Introduces auxiliary bus support for RISC-V IOMMU to enable modular
+extension of IOMMU capabilities. The framework allows creating auxiliary
+devices that can be bound to separate drivers.
 
-This series introduces an auxiliary bus framework to allow the HPM
-functionality to be implemented as a separate perf driver, keeping the
-IOMMU core focused on translation. Vendor-specific extensions (SpacemiT
-T100) are layered on top of the generic HPM infrastructure.
+The IOMMU HPM featured PMU device ("iommu.riscv_iommu_hpm.0") is created
+and registered as RISC-V IOMMU auxiliary device.
 
-History:
-The first revision of this series is posted without the awareness of
-other on-going discussions. There are other postings providing same
-functionality as [PATCH 2-3] in this thread:
-1. Zong Li:
-   https://lore.kernel.org/all/20250115030306.29735-1-zong.li@sifive.com/
-   We aligned with Zong in the community here:
-   https://lore.kernel.org/all/CANXhq0q8N5eHx9ytabZR97Y7AULKwgS2-uEGhcaOOGp9mvbtRQ@mail.gmail.com/
-   >> Perhaps I can first post my next revision to the mailing list (hope
-   >> it won't waste the community resource), so that you could have a
-   >> chance to review it and see whether that version is architecturally
-   >> closer to what the community is looking for, while also addressing
-   >> your issue. If you also feel that my next revision meets your needs,
-   >> perhaps you could append your additional implementations on top of
-   >> it.
-   >> Of course, if the community would prefer to go your version, I'm
-   >> perfectly fine with that as well.
-   His newest version can be found here:
-   https://lore.kernel.org/all/20260208063848.3547817-1-zong.li@sifive.com/
-2. Yaxing Guo:
-   https://lore.kernel.org/all/20250915020911.1313-1-guoyaxing@bosc.ac.cn/
-   Yaxing and Zong aligned each other in the community here:
-   https://lore.kernel.org/linux-iommu/2ce9d8be-10b3-48dd-b99e-7358347fc171@bosc.ac.cn/
-   >> Hi Zong Li,
-   >> Of course yes, absolutely - I wasn't aware of your earlier
-   >> submission. Please go ahead with your version.
-This is the newest revision of this patchset, and [PATCH 2-3] is the one
-that is competing with other contributions.
-
-Revisions:
-v1
- Initial release.
-v2 (sent as v1.1)
- Split and cleanup DT-bindings.
-v3
- 1. Refactor using vendor specific compatible.
- 2. Implement vendor events with a userspace identifier.
-v4
- 1. Drop ICVEC check which is not that usful as WSI device tree can use
-    only 1 vector for IOATS CIV/FIV/PIV/PMIV.
- 2. Solve DT binding check of "interrupts/maxItems" attribute.
- 3. Address Robin's comments for an old revision sent by "Zong Li".
- 4. Limit IOATC enumeration by referencing spacemit,riscv-iommu.
-v5:
- 1. Use correct style SoC/IP specific compatible.
- 2. Address all on-going comments in other threads.
- 3. Split compatible into SoC specific and IP specific.
- 4. Switch to use auxiliary device framework.
-
-The tested result can be found as follows:
-
- root@sdfirm:# perf stat --timeout 5000 -a -e spacemit_ioats_hpm_0/dd_walk,config1=0x20c0010000000000/ dmatest; sleep 1
- [  453.426404] dmatest: Started 1 threads using dma0chan0
- [  453.437152] dmatest: dma0chan0-copy0: summary 1 tests, 0 failures 212.04 iops 212 KB/s (0)
- 
-  Performance counter stats for 'system wide':
- 
-                  3      spacemit_ioats_hpm_0/dd_walk,config1=0x20c0010000000000/                                      
- 
-        0.190412000 seconds time elapsed
- 
- root@sdfirm:~# perf stat --timeout 5000 -a -e spacemit_ioatc_hpm_1/tlb_mis,config1=0x20c0010000000000/ dmatest; sleep 1
- [  117.599620] dmatest: Started 1 threads using dma0chan0
- [  117.610698] dmatest: dma0chan0-copy0: summary 1 tests, 0 failures 186.07 iops 186 KB/s (0)
- 
-  Performance counter stats for 'system wide':
- 
-                  7      spacemit_ioatc_hpm_1/tlb_mis,config1=0x20c0010000000000/                                      
- 
-        0.196982000 seconds time elapsed
-
-Jingyu Li (3):
-  iommu/riscv: Enable IOMMU DMA mapping support
-  iommu/riscv: Add auxiliary bus framework and HPM device support
-  iommu/riscv: Add HPM support for performance monitoring
-
-Lv Zheng (5):
-  dt-bindings: iommu: Add spacemit/t100 features
-  spacemit/t100: Add global filter awareness for RISC-V IOMMU HPM
-  iommu/riscv: Add SpacemiT T100 IOATC HPM support
-  iommu/riscv: Add vendor event support for RISC-V IOMMU HPM
-  perf vendor events riscv: Add SpacemiT T100 HPM event aliases
-
- .../bindings/iommu/riscv,iommu.yaml           |   58 +-
- MAINTAINERS                                   |    5 +
- drivers/iommu/Kconfig                         |    2 +-
- drivers/iommu/riscv/Kconfig                   |    1 +
- drivers/iommu/riscv/iommu-bits.h              |   12 +
- drivers/iommu/riscv/iommu-pci.c               |    8 +-
- drivers/iommu/riscv/iommu-platform.c          |    7 +-
- drivers/iommu/riscv/iommu.c                   |  306 +++++
- drivers/iommu/riscv/iommu.h                   |   25 +-
- drivers/perf/Kconfig                          |    9 +
- drivers/perf/Makefile                         |    1 +
- drivers/perf/riscv_iommu_hpm.c                | 1012 +++++++++++++++++
- include/linux/riscv_iommu.h                   |   83 ++
- .../arch/riscv/spacemit/iommu/sys/ioatc.json  |   30 +
- .../arch/riscv/spacemit/iommu/sys/ioats.json  |  163 +++
- 15 files changed, 1715 insertions(+), 7 deletions(-)
- create mode 100644 drivers/perf/riscv_iommu_hpm.c
+Signed-off-by: Jingyu Li <joey.li@spacemit.com>
+Signed-off-by: Lv Zheng <lv.zheng@linux.spacemit.com>
+Link: https://github.com/riscv-non-isa/riscv-iommu
+Cc: Zong Li <zong.li@sifive.com>
+Cc: Yaxing Guo <guoyaxing@bosc.ac.cn>
+---
+ drivers/iommu/riscv/Kconfig          |   1 +
+ drivers/iommu/riscv/iommu-pci.c      |   8 +-
+ drivers/iommu/riscv/iommu-platform.c |   3 +
+ drivers/iommu/riscv/iommu.c          | 169 +++++++++++++++++++++++++++
+ drivers/iommu/riscv/iommu.h          |  21 ++++
+ include/linux/riscv_iommu.h          |  75 ++++++++++++
+ 6 files changed, 276 insertions(+), 1 deletion(-)
  create mode 100644 include/linux/riscv_iommu.h
- create mode 100644 tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioatc.json
- create mode 100644 tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioats.json
 
+diff --git a/drivers/iommu/riscv/Kconfig b/drivers/iommu/riscv/Kconfig
+index c071816f59a6..26122a3a73d2 100644
+--- a/drivers/iommu/riscv/Kconfig
++++ b/drivers/iommu/riscv/Kconfig
+@@ -6,6 +6,7 @@ config RISCV_IOMMU
+ 	depends on RISCV && 64BIT
+ 	default y
+ 	select IOMMU_API
++	select AUXILIARY_BUS
+ 	help
+ 	  Support for implementations of the RISC-V IOMMU architecture that
+ 	  complements the RISC-V MMU capabilities, providing similar address
+diff --git a/drivers/iommu/riscv/iommu-pci.c b/drivers/iommu/riscv/iommu-pci.c
+index d82d2b00904c..478e72e9a285 100644
+--- a/drivers/iommu/riscv/iommu-pci.c
++++ b/drivers/iommu/riscv/iommu-pci.c
+@@ -34,6 +34,8 @@ static int riscv_iommu_pci_probe(struct pci_dev *pdev, const struct pci_device_i
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct riscv_iommu_device *iommu;
++	phys_addr_t reg_phys;
++	resource_size_t reg_size;
+ 	int rc, vec;
+ 
+ 	rc = pcim_enable_device(pdev);
+@@ -43,7 +45,9 @@ static int riscv_iommu_pci_probe(struct pci_dev *pdev, const struct pci_device_i
+ 	if (!(pci_resource_flags(pdev, 0) & IORESOURCE_MEM))
+ 		return -ENODEV;
+ 
+-	if (pci_resource_len(pdev, 0) < RISCV_IOMMU_REG_SIZE)
++	reg_phys = pci_resource_start(pdev, 0);
++	reg_size = pci_resource_len(pdev, 0);
++	if (reg_size < RISCV_IOMMU_REG_SIZE)
+ 		return -ENODEV;
+ 
+ 	rc = pcim_iomap_regions(pdev, BIT(0), pci_name(pdev));
+@@ -56,6 +60,8 @@ static int riscv_iommu_pci_probe(struct pci_dev *pdev, const struct pci_device_i
+ 
+ 	iommu->dev = dev;
+ 	iommu->reg = pcim_iomap_table(pdev)[0];
++	iommu->reg_phys = reg_phys;
++	iommu->reg_size = reg_size;
+ 
+ 	pci_set_master(pdev);
+ 	dev_set_drvdata(dev, iommu);
+diff --git a/drivers/iommu/riscv/iommu-platform.c b/drivers/iommu/riscv/iommu-platform.c
+index 83a28c83f991..e8e52bca8856 100644
+--- a/drivers/iommu/riscv/iommu-platform.c
++++ b/drivers/iommu/riscv/iommu-platform.c
+@@ -62,6 +62,9 @@ static int riscv_iommu_platform_probe(struct platform_device *pdev)
+ 		return dev_err_probe(dev, PTR_ERR(iommu->reg),
+ 				     "could not map register region\n");
+ 
++	iommu->reg_phys = res->start;
++	iommu->reg_size = resource_size(res);
++
+ 	dev_set_drvdata(dev, iommu);
+ 
+ 	/* Check device reported capabilities / features. */
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index d9429097a2b5..1aa942486e3a 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -16,6 +16,7 @@
+ #include <linux/acpi_rimt.h>
+ #include <linux/compiler.h>
+ #include <linux/crash_dump.h>
++#include <linux/idr.h>
+ #include <linux/init.h>
+ #include <linux/iommu.h>
+ #include <linux/iopoll.h>
+@@ -47,11 +48,28 @@
+ static DEFINE_IDA(riscv_iommu_pscids);
+ #define RISCV_IOMMU_MAX_PSCID		(BIT(20) - 1)
+ 
++static DEFINE_IDA(riscv_iommu_subdev_ida);
++
+ /* Device resource-managed allocations */
+ struct riscv_iommu_devres {
+ 	void *addr;
+ };
+ 
++bool riscv_iommu_pmip_status(struct riscv_iommu_subdev *subdev)
++{
++	u32 ipsr = riscv_iommu_readl(subdev->iommu, RISCV_IOMMU_REG_IPSR);
++
++	return !!(ipsr & RISCV_IOMMU_IPSR_PMIP);
++}
++EXPORT_SYMBOL_GPL(riscv_iommu_pmip_status);
++
++void riscv_iommu_clear_pmip(struct riscv_iommu_subdev *subdev)
++{
++	riscv_iommu_writel(subdev->iommu, RISCV_IOMMU_REG_IPSR,
++			   RISCV_IOMMU_IPSR_PMIP);
++}
++EXPORT_SYMBOL_GPL(riscv_iommu_clear_pmip);
++
+ static void riscv_iommu_devres_pages_release(struct device *dev, void *res)
+ {
+ 	struct riscv_iommu_devres *devres = res;
+@@ -1602,10 +1620,154 @@ static int riscv_iommu_init_check(struct riscv_iommu_device *iommu)
+ 	return 0;
+ }
+ 
++static void riscv_iommu_subdev_release(struct device *dev)
++{
++	struct riscv_iommu_subdev *subdev = riscv_iommu_get_subdev(dev);
++
++	ida_free(&riscv_iommu_subdev_ida, subdev->auxdev.id);
++	kfree(subdev->info);
++	kfree(subdev);
++}
++
++static int riscv_iommu_subdev_add(struct riscv_iommu_device *iommu,
++				  const struct riscv_iommu_subdev_params *params)
++{
++	struct riscv_iommu_subdev *subdev;
++	struct auxiliary_device *auxdev;
++	int id, ret;
++
++	if (!params->info)
++		return -EINVAL;
++
++	id = ida_alloc(&riscv_iommu_subdev_ida, GFP_KERNEL);
++	if (id < 0)
++		return id;
++
++	subdev = kzalloc(sizeof(*subdev), GFP_KERNEL);
++	if (!subdev) {
++		ret = -ENOMEM;
++		goto err_free;
++	}
++
++	subdev->base = params->base;
++	subdev->iommu = iommu;
++	subdev->info = params->info;
++
++	auxdev = &subdev->auxdev;
++	auxdev->name = params->name;
++	auxdev->id = id;
++	auxdev->dev.parent = iommu->dev;
++	auxdev->dev.release = riscv_iommu_subdev_release;
++
++	ret = auxiliary_device_init(auxdev);
++	if (ret) {
++		dev_err(iommu->dev, "Failed to init %s auxiliary device: %d\n",
++			params->name, ret);
++		goto err_free;
++	}
++
++	ret = auxiliary_device_add(auxdev);
++	if (ret) {
++		dev_err(iommu->dev, "Failed to add %s auxiliary device: %d\n",
++			params->name, ret);
++		goto err_uninit;
++	}
++
++	spin_lock(&iommu->subdev_lock);
++	list_add_tail(&subdev->link, &iommu->subdev_list);
++	spin_unlock(&iommu->subdev_lock);
++	dev_info(iommu->dev, "%s auxiliary device created\n", params->name);
++	return 0;
++
++err_uninit:
++	auxiliary_device_uninit(auxdev);
++	return ret;
++
++err_free:
++	kfree(subdev);
++	ida_free(&riscv_iommu_subdev_ida, id);
++	return ret;
++}
++
++static void riscv_iommu_enumerate_hpm(struct riscv_iommu_device *iommu)
++{
++	struct riscv_iommu_hpm_info *hpm_info;
++	struct riscv_iommu_subdev_params params;
++	int irq;
++	int ret;
++
++	if (!(iommu->caps & RISCV_IOMMU_CAPABILITIES_HPM))
++		return;
++
++	irq = iommu->irqs[riscv_iommu_queue_vec(iommu, RISCV_IOMMU_INTR_PM)];
++	if (irq <= 0) {
++		dev_err(iommu->dev, "HPM: No IRQ available\n");
++		return;
++	}
++
++	hpm_info = kzalloc(sizeof(*hpm_info), GFP_KERNEL);
++	if (!hpm_info)
++		return;
++
++	hpm_info->irq = irq;
++
++	params = (struct riscv_iommu_subdev_params) {
++		.name = "riscv_iommu_hpm",
++		.info = hpm_info,
++		.base = iommu->reg + RISCV_IOMMU_REG_IOCOUNTOVF,
++	};
++
++	ret = riscv_iommu_subdev_add(iommu, &params);
++	if (ret) {
++		kfree(hpm_info);
++		dev_warn(iommu->dev,
++			 "Failed to enumerate HPM auxiliary device: %d\n",
++			 ret);
++	}
++}
++
++/**
++ * riscv_iommu_subdev_setup - Enumerate auxiliary bus subdevices
++ *
++ * @iommu: RISC-V IOMMU device
++ *
++ * Enumerates HPM, or other extended subdevices via the auxiliary bus. To
++ * add new extended device types, implement an enumerate function and call
++ * it from here.
++ */
++void riscv_iommu_subdev_setup(struct riscv_iommu_device *iommu)
++{
++	riscv_iommu_enumerate_hpm(iommu);
++}
++
++/**
++ * riscv_iommu_subdev_cleanup - Remove all auxiliary bus subdevices
++ *
++ * @iommu: RISC-V IOMMU device
++ *
++ * Iterates over the subdev_list in reverse order, deletes each auxiliary
++ * device from the bus and uninitializes it.
++ */
++void riscv_iommu_subdev_cleanup(struct riscv_iommu_device *iommu)
++{
++	struct riscv_iommu_subdev *subdev, *next;
++
++	spin_lock(&iommu->subdev_lock);
++	list_for_each_entry_safe_reverse(subdev, next, &iommu->subdev_list, link) {
++		list_del_init(&subdev->link);
++		spin_unlock(&iommu->subdev_lock);
++		auxiliary_device_delete(&subdev->auxdev);
++		auxiliary_device_uninit(&subdev->auxdev);
++		spin_lock(&iommu->subdev_lock);
++	}
++	spin_unlock(&iommu->subdev_lock);
++}
++
+ void riscv_iommu_remove(struct riscv_iommu_device *iommu)
+ {
+ 	iommu_device_unregister(&iommu->iommu);
+ 	iommu_device_sysfs_remove(&iommu->iommu);
++	riscv_iommu_subdev_cleanup(iommu);
+ 	riscv_iommu_iodir_set_mode(iommu, RISCV_IOMMU_DDTP_IOMMU_MODE_OFF);
+ 	riscv_iommu_queue_disable(&iommu->cmdq);
+ 	riscv_iommu_queue_disable(&iommu->fltq);
+@@ -1615,6 +1777,8 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+ {
+ 	int rc;
+ 
++	spin_lock_init(&iommu->subdev_lock);
++	INIT_LIST_HEAD(&iommu->subdev_list);
+ 	RISCV_IOMMU_QUEUE_INIT(&iommu->cmdq, CQ);
+ 	RISCV_IOMMU_QUEUE_INIT(&iommu->fltq, FQ);
+ 
+@@ -1669,6 +1833,11 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+ 		goto err_remove_sysfs;
+ 	}
+ 
++	/* Initialize auxiliary devices for extended features. These are not
++	 * critical to IOMMU operation, so failures are non-fatal.
++	 */
++	riscv_iommu_subdev_setup(iommu);
++
+ 	return 0;
+ 
+ err_remove_sysfs:
+diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
+index 46df79dd5495..1296625488ef 100644
+--- a/drivers/iommu/riscv/iommu.h
++++ b/drivers/iommu/riscv/iommu.h
+@@ -14,6 +14,7 @@
+ #include <linux/iommu.h>
+ #include <linux/types.h>
+ #include <linux/iopoll.h>
++#include <linux/riscv_iommu.h>
+ 
+ #include "iommu-bits.h"
+ 
+@@ -42,6 +43,8 @@ struct riscv_iommu_device {
+ 
+ 	/* hardware control register space */
+ 	void __iomem *reg;
++	phys_addr_t reg_phys;
++	resource_size_t reg_size;
+ 
+ 	/* supported and enabled hardware capabilities */
+ 	u64 caps;
+@@ -60,11 +63,29 @@ struct riscv_iommu_device {
+ 	unsigned int ddt_mode;
+ 	dma_addr_t ddt_phys;
+ 	u64 *ddt_root;
++
++	/* auxiliary subdevices */
++	spinlock_t subdev_lock;
++	struct list_head subdev_list;
++};
++
++/**
++ * struct riscv_iommu_subdev_params - params for adding auxiliary subdevice
++ * @name: auxiliary device name
++ * @info: device-specific info, freed in release
++ * @base: PMU register base
++ */
++struct riscv_iommu_subdev_params {
++	const char *name;
++	void *info;
++	void __iomem *base;
+ };
+ 
+ int riscv_iommu_init(struct riscv_iommu_device *iommu);
+ void riscv_iommu_remove(struct riscv_iommu_device *iommu);
+ void riscv_iommu_disable(struct riscv_iommu_device *iommu);
++void riscv_iommu_subdev_setup(struct riscv_iommu_device *iommu);
++void riscv_iommu_subdev_cleanup(struct riscv_iommu_device *iommu);
+ 
+ #define riscv_iommu_readl(iommu, addr) \
+ 	readl_relaxed((iommu)->reg + (addr))
+diff --git a/include/linux/riscv_iommu.h b/include/linux/riscv_iommu.h
+new file mode 100644
+index 000000000000..0447bc4d1fab
+--- /dev/null
++++ b/include/linux/riscv_iommu.h
+@@ -0,0 +1,75 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * RISC-V IOMMU Common Interface
++ *
++ * This header provides a common interface for sharing resources between
++ * the RISC-V IOMMU driver and its auxiliary bus child drivers.
++ *
++ * Copyright (C) 2026 SpacemiT Technologies Inc.
++ *   Author: 2026 Jingyu Li <joey.li@spacemit.com>
++ *                Lv Zheng <lv.zheng@spacemit.com>
++ */
++
++#ifndef _LINUX_RISCV_IOMMU_H_
++#define _LINUX_RISCV_IOMMU_H_
++
++#include <linux/auxiliary_bus.h>
++
++struct riscv_iommu_device;
++
++/**
++ * struct riscv_iommu_subdev - RISC-V IOMMU auxiliary bus subdevice
++ * @link: list node for iommu->subdev_list
++ * @auxdev: auxiliary bus device ((use auxdev.id for unique id)
++ * @base: PMU register base
++ * @iommu: parent IOMMU (opaque)
++ * @info: subdevice-specific info, freed in release
++ */
++struct riscv_iommu_subdev {
++	struct list_head link;
++	struct auxiliary_device auxdev;
++	void __iomem *base;
++	struct riscv_iommu_device *iommu;
++	void *info;
++};
++
++/**
++ * struct riscv_iommu_hpm_info - HPM info for IOATS (main IOMMU HPM)
++ * @irq: interrupt number
++ */
++struct riscv_iommu_hpm_info {
++	unsigned int irq;
++};
++
++/**
++ * riscv_iommu_get_subdev - get riscv_iommu_subdev from device
++ *
++ * @dev: &device of the auxiliary device (auxdev->dev)
++ *
++ * Returns the riscv_iommu_subdev pointer, or NULL if @dev is NULL.
++ */
++static inline struct riscv_iommu_subdev *riscv_iommu_get_subdev(struct device *dev)
++{
++	if (!dev)
++		return NULL;
++	return container_of(container_of(dev, struct auxiliary_device, dev),
++			    struct riscv_iommu_subdev, auxdev);
++}
++
++/**
++ * riscv_iommu_pmip_status - test if PM interrupt is pending
++ *
++ * @subdev: subdevice with iommu
++ *
++ * Returns true if PM interrupt pending, false otherwise.
++ */
++bool riscv_iommu_pmip_status(struct riscv_iommu_subdev *subdev);
++
++/**
++ * riscv_iommu_clear_pmip - clear PMIP bit in IPSR to ack PMU interrupt
++ *
++ * @subdev: subdevice with iommu
++ */
++void riscv_iommu_clear_pmip(struct riscv_iommu_subdev *subdev);
++
++#endif /* _LINUX_RISCV_IOMMU_H_ */
 -- 
 2.43.0
 
