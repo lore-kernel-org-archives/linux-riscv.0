@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 993E31048925
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 00:54:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE291048927
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 00:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=sR3sZrQt94TkH8fBKqqlHxL9FrIyyAQwPATzaEm93S8=; b=i/UF1inJnhrAFd
-	OJM+m25D09ptUVhAWbdXfJum9xfLgOhQFiCcWySM3Eqdrca8ZM+9a0rscZsri3DKfp9A5HaRVehjy
-	I9+yacAULH1EDZnNc5BlWRQAN3HTfudZ8bW+fCrSQ/9UaiLB79A2bzDxkmeKeAv5eUMqmbkYfGJm7
-	zxZagbions8ynUzMMUZOABgoV1LUMgSYkC4HYDnHmMslv6qVid7NJGOswuHBDYrAc0JDx1sZ8Tq/o
-	T3bowkTou6XIYxAaFk9qjDud85DMf5I13SYPsGedHHJTEcYGST3f51MPV3udjHzv344A7esel2Yoe
-	lQ78OblSqMN7b6U/jhdQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DkikZXdbNTRZtNXgCPfrPZJq5IggsXVjlVXaOtMtNF8=; b=CoQarbMpSzufMY
+	Ek13or3nJJe6qf58s7n/ZeUTf9h+PYp6J1FOAXQWW0k1xMqqLvTm8WLqdNneTZpYoJmxtBdFEALic
+	FUjBTjQoRXUKjWBJ9AG0dXlzrUUYLcxvID3ZF9Fe1eYZY5MtFmGK9gZ8/1wj1A/M3PmIPf/qv67HF
+	FD2m3MfgtfuvWBEJaVIuBI7evAprY1ZEFC4HHt+CE/a9IWCClbSiKJTXPzSlfSZppAmSmd3vVjmf/
+	rfhqm8rQF8brR+XTxeTToTNfeDqnQe9WrFWUzJ02Lhf7OoOl3D6Bf8O9LTGv3LNoF4am4/yDZoARp
+	U+B2QrFxeXv58qRXsaLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw8b2-00000009LCu-0GWG;
-	Sat, 28 Feb 2026 00:54:16 +0000
+	id 1vw8b5-00000009LF3-2kPH;
+	Sat, 28 Feb 2026 00:54:19 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw8ax-00000009LBD-2jvr;
-	Sat, 28 Feb 2026 00:54:14 +0000
+	id 1vw8ax-00000009LBH-2x9c;
+	Sat, 28 Feb 2026 00:54:16 +0000
 Received: from fric.. (unknown [210.73.43.101])
-	by APP-03 (Coremail) with SMTP id rQCowABXO+KkPKJpPMJ2CQ--.12049S2;
-	Sat, 28 Feb 2026 08:53:57 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowABXO+KkPKJpPMJ2CQ--.12049S5;
+	Sat, 28 Feb 2026 08:54:00 +0800 (CST)
 From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -44,35 +44,38 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>,
 	Anup Patel <anup@brainfault.org>,
 	Atish Patra <atish.patra@linux.dev>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Subject: [PATCH v9 0/3] RISC-V: KVM: Validate SBI STA shmem alignment
-Date: Sat, 28 Feb 2026 00:53:52 +0000
-Message-Id: <20260228005355.823048-1-xujiakai2025@iscas.ac.cn>
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Jiakai Xu <jiakaiPeanut@gmail.com>
+Subject: [PATCH v9 3/3] RISC-V: KVM: selftests: Add RISC-V SBI STA shmem alignment tests
+Date: Sat, 28 Feb 2026 00:53:55 +0000
+Message-Id: <20260228005355.823048-4-xujiakai2025@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260228005355.823048-1-xujiakai2025@iscas.ac.cn>
+References: <20260228005355.823048-1-xujiakai2025@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABXO+KkPKJpPMJ2CQ--.12049S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Gw4DZFW8ZFyDCr4UJFy5Jwb_yoW8Jr45pa
-	9xCa4FqFy8JayxA3Z3Aw4ktryfWw48CrsFyw17J342yay8KFy8tr47KFWUAasxGF1kXF1Y
-	va4xK3WruF98ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBI14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
-	1j6rxdM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
-	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
-	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI2
-	0VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28Icx
-	kI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2Iq
-	xVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42
-	IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY
-	6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aV
-	CY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbQVy7UUUUU==
+X-CM-TRANSID: rQCowABXO+KkPKJpPMJ2CQ--.12049S5
+X-Coremail-Antispam: 1UD129KBjvJXoWxCr1fKw17CryftrW8KrW3Jrb_yoW5urWkpF
+	WkCrnagr18Kws3A3yxKr4kZFyrWw4vyr4kZry3Zw4Fka1xAFs7Ary7KF4DZas8ursYqF1S
+	vFySgF1UuF1DAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUQa14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
+	8EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr1j6rxd
+	M2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64
+	kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm
+	72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYx
+	C7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAK
+	I48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7
+	xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xII
+	jxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04
+	k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7Cj
+	xVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUmiifUUUUU=
 X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBgoKCWmgYKJ+jgADs3
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiDAcMCWmhss27agAAso
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_165412_058422_5D861F4E 
-X-CRM114-Status: UNSURE (   4.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260227_165412_116670_A2230111 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,34 +92,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series fixes a missing validation in the RISC-V KVM SBI
-steal-time accounting (STA) register handling.
+Add RISC-V KVM selftests to verify the SBI Steal-Time Accounting (STA)
+shared memory alignment requirements.
 
-Patch 1 validates the configured SBI STA shared memory GPA at
-KVM_SET_ONE_REG, enforcing the 64-byte alignment requirement
-defined by the SBI specification or allowing INVALID_GPA to explicitly
-disable steal-time accounting. This prevents invalid userspace state
-from reaching runtime code paths and avoids WARN_ON() triggers during
-KVM_RUN.
+The SBI specification requires the STA shared memory GPA to be 64-byte
+aligned, or set to all-ones to explicitly disable steal-time accounting.
+This test verifies that KVM enforces the expected behavior when
+configuring the SBI STA shared memory via KVM_SET_ONE_REG.
 
-Patch 2 refactors existing UAPI tests from steal_time_init() into
-a dedicated check_steal_time_uapi() function for better code organization,
-and adds an empty stub for RISC-V.
+Specifically, the test checks that:
+- misaligned GPAs are rejected with -EINVAL
+- 64-byte aligned GPAs are accepted
+- all-ones GPA is accepted
 
-Patch 3 fills in the RISC-V stub with tests that verify KVM correctly
-enforces the STA alignment requirements.
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+---
+V8 -> V9: Dropped __riscv guard around INVALID_GPA, which is common to
+           all architectures.
+V7 -> V8: Moved INVALID_GPA definition to kvm_util_types.h.
+          Removed comments in RISC-V check_steal_time_uapi().
+          Corrected reg.id assignment for SBI STA.
+V6 -> V7: Removed RISCV_SBI_STA_REG() macro addition and used existing
+           KVM_REG_RISCV_SBI_STA_REG(shmem_lo) instead.
+          Refined assertion messages per review feedback.
+          Split into two patches per Andrew Jones' suggestion:
+           Refactored UAPI tests from steal_time_init() into dedicated
+            check_steal_time_uapi() function and added empty stub for
+            RISC-V.
+           Filled in RISC-V stub with STA alignment tests. (this patch)
+---
+ .../selftests/kvm/include/kvm_util_types.h    |  2 ++
+ tools/testing/selftests/kvm/steal_time.c      | 31 +++++++++++++++++++
+ 2 files changed, 33 insertions(+)
 
-Jiakai Xu (3):
-  RISC-V: KVM: Validate SBI STA shmem alignment in 
-    kvm_sbi_ext_sta_set_reg()
-  KVM: selftests: Refactor UAPI tests into dedicated function
-  RISC-V: KVM: selftests: Add RISC-V SBI STA shmem alignment tests
-
- arch/riscv/kvm/vcpu_sbi_sta.c                 | 16 ++-
- .../selftests/kvm/include/kvm_util_types.h    |  2 +
- tools/testing/selftests/kvm/steal_time.c      | 98 ++++++++++++++++---
- 3 files changed, 95 insertions(+), 21 deletions(-)
-
+diff --git a/tools/testing/selftests/kvm/include/kvm_util_types.h b/tools/testing/selftests/kvm/include/kvm_util_types.h
+index ec787b97cf184..0366e9bce7f93 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util_types.h
++++ b/tools/testing/selftests/kvm/include/kvm_util_types.h
+@@ -17,4 +17,6 @@
+ typedef uint64_t vm_paddr_t; /* Virtual Machine (Guest) physical address */
+ typedef uint64_t vm_vaddr_t; /* Virtual Machine (Guest) virtual address */
+ 
++#define INVALID_GPA (~(uint64_t)0)
++
+ #endif /* SELFTEST_KVM_UTIL_TYPES_H */
+diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
+index 75ad067f27260..0708b94ead895 100644
+--- a/tools/testing/selftests/kvm/steal_time.c
++++ b/tools/testing/selftests/kvm/steal_time.c
+@@ -332,6 +332,37 @@ static void steal_time_dump(struct kvm_vm *vm, uint32_t vcpu_idx)
+ 
+ static void check_steal_time_uapi()
+ {
++	struct kvm_vm *vm;
++	struct kvm_vcpu *vcpu;
++	struct kvm_one_reg reg;
++	uint64_t shmem;
++	int ret;
++
++	vm = vm_create_with_one_vcpu(&vcpu, NULL);
++
++	reg.id = KVM_REG_RISCV |
++			 KVM_REG_SIZE_ULONG |
++			 KVM_REG_RISCV_SBI_STATE |
++			 KVM_REG_RISCV_SBI_STA |
++			 KVM_REG_RISCV_SBI_STA_REG(shmem_lo);
++	reg.addr = (uint64_t)&shmem;
++
++	shmem = ST_GPA_BASE + 1;
++	ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
++	TEST_ASSERT(ret == -1 && errno == EINVAL,
++		    "misaligned STA shmem returns -EINVAL");
++
++	shmem = ST_GPA_BASE;
++	ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
++	TEST_ASSERT(ret == 0,
++		    "aligned STA shmem succeeds");
++
++	shmem = INVALID_GPA;
++	ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
++	TEST_ASSERT(ret == 0,
++		    "all-ones for STA shmem succeeds");
++
++	kvm_vm_free(vm);
+ }
+ 
+ #endif
 -- 
 2.34.1
 
