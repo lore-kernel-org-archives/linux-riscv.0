@@ -4,110 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3DFFFEE4C9
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 14:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE0F2FEE4EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 15:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cOqhrXZ0w4FSLXcJSURyrpCJMahzgw+7TvE6FB5nFXg=; b=awGVEMPGMJmeBP
-	EP1QgUaShYTbUzAkx0BeiZHsE0+aqLP0+g8XluLbHDjfBMC1p50gHs5fsWcWfW7gcAcuZxmapLo+4
-	+Oi6nofUcL0r46YPo7bHMszI7DI1XkfUGmhWmcx/Yjh98/ibC+A8RwvFGt28UDuEFttgfNZzyeA7V
-	L2rMvFJrBqWKiHSG+rZNT0ApkrGzNvvvbkCUHgEnCM/86egwUwSQ7cVpPCayEpvZfXdu6IBpOCGRX
-	xLaVEyPq2m83ZF0TG3f4xxYrl49c5WyaKoLLSuYhQWOZ/woczfFWQwnmtlgCRznnMjVoEyg+XFam7
-	cMCgAlJJ4Y5E53wRTgrA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/aNdgBXRvuZ8zH7a4v2BAtRTT+xDOgkxXbxnKjN2jcQ=; b=jmfc/QLpP0yk+B
+	TsqGSB28e+YIKubug1OhoDRoAI/Sbq7qh+8B6qkzA+zSZ1PHddzHVWn/Kn0tr4KWrr9S8s1YJOkoD
+	3xsw4Ld/LBCD00eyPgFnF5Ogfocpo0fl2y7GFnUnRk2tOTcpXcIme07hgO1X3jtnNc2SRhNf+xC7y
+	iJ0+1ZoD5Z4uerJ3ZZ2EMxsaOZ1UR+6JjuRksxE1zigMcNB+rNGfuPQueb2whdEEN81K7ACfnk97C
+	2PPu7Vlly+eKbNWeHXMBD1k8LsZx+Dx7n9zMqyWtAtUZKnWxabRmpp97PNBc/OVqz1o9k+neUFR0N
+	rIcwEtHoDdv7Ea4uXCLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwLa2-00000009ws5-2xu2;
-	Sat, 28 Feb 2026 14:46:06 +0000
-Received: from smtpbg154.qq.com ([15.184.224.54])
+	id 1vwM9c-00000009zQt-30fY;
+	Sat, 28 Feb 2026 15:22:52 +0000
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwLa0-00000009whX-20tU
+	id 1vwM9Y-00000009zQ3-2tx2
 	for linux-riscv@lists.infradead.org;
-	Sat, 28 Feb 2026 14:46:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1772289940;
-	bh=XGJl3Ebpwjc8XqP0Erp8n5QI4s+vHuY4PwAQnqw3qYc=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=fKjI4ptbqtzYkOyJk63gqDvBMOKrlerjFF/WAvDfGrBv/O5bepM/9mSLaDG66DP3x
-	 gLHzrKhkBSbvc6AEHOz80IyQow9DCEz3LK/oy+BQEZb3Z0pKgwkQyNij4ZMGWohhxG
-	 cI/rvTscCI2ti4HxuCfnpRVsreipcQ7vBDkHrJKE=
-X-QQ-mid: esmtpgz10t1772289938t9eeb1592
-X-QQ-Originating-IP: BFePjrheh1QVANmHt8QhCMjcQXaVFA659BV4XTzO8KE=
-Received: from SurfaceBook2-B.localdomain ( [183.193.112.19])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 28 Feb 2026 22:45:34 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5797566648988719530
-EX-QQ-RecipientCnt: 33
-From: Lv Zheng <lv.zheng@linux.spacemit.com>
-To: Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Yixun Lan <dlan@kernel.org>
-Cc: Jingyu Li <joey.li@spacemit.com>,
-	Lv Zheng <lv.zheng@linux.spacemit.com>,
-	Zong Li <zong.li@sifive.com>,
-	Yaxing Guo <guoyaxing@bosc.ac.cn>,
-	Zhijian Chen <zhijian@spacemit.com>,
-	iommu@lists.linux.dev,
-	linux-perf-users@vger.kernel.org,
+	Sat, 28 Feb 2026 15:22:50 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-7982c3b7da9so30984067b3.1
+        for <linux-riscv@lists.infradead.org>; Sat, 28 Feb 2026 07:22:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772292167; x=1772896967; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8gJIyL9AfQkuFfPNEXdWTtLgAIKWa7r6TpMrqBv02Ok=;
+        b=C58YAE1H6NmEI1FPm4RsVpuwfvyfLSutC3CIB1Hs5AO9BR61TqPN8jcZTTRqXzp8Yy
+         sLcuoySJMvNAwXbLQ/vClA8dLX0rkndhu+K0n/AZBAVc1wCkP7ZRc97iygGPBafqhbe5
+         4f/6ATO2dS4ksDlopVSBISkTB5uTLBPLFxVu9lSycb4dlrlmzn6Q9TtWjmPw4BVan3+y
+         p7fSuAbBvKVg77Ut4wN38wFUsrT5Zri7LXXb0XDuzx1PUEwzeT04f918NxbWDfPkLage
+         b9j7QHyjZ9+Ce+wwt83PpLiLTUL82OBTt4EuD8K4XT/3gW715xymUJjh/V0/F+q8zzJh
+         qaiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772292167; x=1772896967;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8gJIyL9AfQkuFfPNEXdWTtLgAIKWa7r6TpMrqBv02Ok=;
+        b=Eu0AzEI34ufJL4HXrBP3T83l9YmZJtgObg4nDTczBq247MaU/0kN2dKlCRDYF/ZtD9
+         RwC1WL+q4sPoWvSCfzA53U0yKT86G5WDn8QxO3cFUk26sEsAz1dbWWXRrzQf5DU1qH2J
+         D2fK0yQi7InubCLjEg45OZL3tCD/IiPYHIr2STATHqtnxqJnDACKhs7a7lIGBEMWSsMM
+         lqh/Fl1FX23K8DoqCsGoEOdlYkDsdsGZrJchShhzv1k6NuzUJjmBp6pkI2UAMNoBGJH+
+         P9mbWHsEegAqlctSXjCI7gzIKMN82rFUeyFJIjbCMw3+n/fVnpFdd5449ALvV9Nd5A2O
+         DSLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUavP/B2Ao7xW0X1iORRl0qmPbUk+vERwL9wu6Nfw/OjbDGbuKNQv/9Y4acWWIJliyCyWN9yQwxQifkUQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6MZYqgM/O1GnRLW7HqoCMZibPw4IMQsowY7MS1qB3pw0y21vV
+	6D5e4AlzS9D6yQkAJVI5dywggAPBATHkt4LrnjGVxpWRp7jFGtiJKqABlcFaSQJNX0I=
+X-Gm-Gg: ATEYQzxc5vRnt98dSOUjDjBygKI86fEYS98K+OeJEi1d6YyqT/v6Wn+MdHcId2J/1r3
+	Mrt+JcfEz9irB/VQhMxTqNs0PbicYfhQx/m72FjNDlUMOAD3lIIOsM39FNlyg8PEbWdKcy8xZfr
+	fePQfQOw3bivSo7XM7bYVlavcEifGoW3UB57XpTZe6v86BT1JXWqUPyi1pD4sdWcRHAXBncAQw5
+	BeXOKbz1MCTq6DiKVzox23C4FPeCpAmJMv0K2Q0MhHklNFgAp05zOtPGISVxogYQ2Q9chHHiORn
+	4YGP/4TX0IfYdm29WSWwf8p1PnxzeP/cMwWjXmKzmMS9TK3tzJRlFlY9LfKq+KONBcZ86KoHq2W
+	M1d9pZ73gzDL5RBfPc3bJ5j3YFxFlWgB4+JkXO5+PiJHL0Or0c24LOM1oCKh3LGdbAb+fuYPXex
+	dBeusL0mztEDafn2jbgOJJ1iMrOdQeUIsmZmpMGDtvxhLZsZzl0BGW/0RxU/8cBBRH+z67Y4W3I
+	hOn3M3j+kGZgQAQoYILgR8J
+X-Received: by 2002:a05:690c:1b:b0:796:74cf:df0c with SMTP id 00721157ae682-798855082c6mr61686407b3.24.1772292167012;
+        Sat, 28 Feb 2026 07:22:47 -0800 (PST)
+Received: from tux ([2601:7c0:c37c:4c00::5c0b])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-79876a92039sm32861897b3.8.2026.02.28.07.22.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Feb 2026 07:22:46 -0800 (PST)
+From: Ethan Tidmore <ethantidmore06@gmail.com>
+To: anup@brainfault.org
+Cc: atish.patra@linux.dev,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	ajones@ventanamicro.com,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 8/8] perf vendor events riscv: Add SpacemiT T100 HPM event aliases
-Date: Sat, 28 Feb 2026 22:45:32 +0800
-Message-ID: <893875E9335710EF+ccc7125fae0d5d494464c3635004aede679bc4ef.1772289741.git.lv.zheng@linux.spacemit.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1772289741.git.lv.zheng@linux.spacemit.com>
-References: <cover.1772289741.git.lv.zheng@linux.spacemit.com>
+	linux-kernel@vger.kernel.org,
+	Ethan Tidmore <ethantidmore06@gmail.com>
+Subject: [PATCH] RISC-V: KVM: Fix out-of-bounds by 1
+Date: Sat, 28 Feb 2026 09:22:26 -0600
+Message-ID: <20260228152226.2116895-1-ethantidmore06@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-1
-X-QQ-XMAILINFO: MUcSNKJIkQ7c5RrhWlfKmtjak3ryOn//OxV2SIED/Nb7n4pj37mp7tWH
-	oBaFwrFA1w3zjUl5vzF2Bt9tp49lL9QXDqz8xMIvpJyXSyxQcfyn6UO1gGeB3KjQsnQ5EEr
-	bibVar10Msg+bhaf4bSXAk3OHemTRNf/lHUICdUM6ChiURqfsHBqFvS8v2P62EimwvG5Qxn
-	RqeK+KbjBiUGfDT/tNPsH7VxWgTLsq+AW859K3j7dQfNP06ehbQjV/m0wZ2ZB5ex8lYrzJB
-	YJmLoRWpYsIph9YSYyYJgrpcYPXEmJ/JTJ6cL3mzdjPZhyPVouXVt2N7tf//0QZ5MBamC4Z
-	2u6Uk+sXHXZLFDmDc7zvS9XjMVr+rQyOv2Vuc234V0fKdxr+2sxLggUBB69xvIVOYzrwNvV
-	lCjJ/LbboeoXpxxeIj8hUaC1/n47/1S76dYjPW7KMDkGKxh2eBPBlYTElR3tlKy1Ze7chYh
-	krBqojzZk2Wi6McSxGOMnb0UJbizk9eIcDhJ0yQKhcdLgOixtJvzor+uiodZsXWmGOpLHNU
-	dMpeQBaIZqwincqOsfGwNzvGMI/8em8W/IC8c6Ga5jEu+vvWf+462U00TilgI2BvExul7kv
-	ONkfRNnued84jZGI0XQ3u9KMkffRf6mr2D6Tl0vVG81ptgn5+n0xVTlUkno/eg0qNRHCNlK
-	1jNrihpzHaCZnnmWzydwjIWyqSn4ytjPwilyQiunq3QIQQlD0jE+UEqdtajyQPbGLaWZtvd
-	8owlEpKjYvEy1us+kCpzrU25Vdiou9GQNvXqPr0MkrRvti4ZAVzMq/BgAZIlmlSkOEuaIun
-	lNtILH/qEkW9CZI1bIKQTtmvBRKv6CqV+SC1GGnvO6UgXDE5FJQ9ocrUtEwFsUBLrNCg3lb
-	AEtebUcOQo3c2Rn+GnQanC0aCq4/xgBC8tolBwN7Krt1ZER8lF+YE07QgsO2r1u82HqGA2L
-	YTLEZHPJ4evobncDvo69dFxSHD0m5NNkYR11PiPm4s4CRf/eFkYk3eVUwJfHWjCPLQwIj8T
-	NZoJfE2ljYmKQEGWSFxT0sSYt1T+BS6+vxjWRUUCuvWRqKl8V2wT7QNaAZLUQJ/uFXvwf0q
-	vogsOhkMXZmm4J+2u/Srak=
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_064605_137467_38B14BE5 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20260228_072248_725195_F4BBF076 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,248 +106,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add JSON HPM event aliases for SpacemiT distributed IOMMU (T100) which is
-general and compatible for all SpacemiT RISC-V SoCs.
+The array kvpmu->pmc is defined as:
 
-Signed-off-by: Lv Zheng <lv.zheng@linux.spacemit.com>
-Signed-off-by: Jingyu Li <joey.li@spacemit.com>
+struct kvm_pmc pmc[RISCV_KVM_MAX_COUNTERS];
+
+So, accessing it with index RISCV_KVM_MAX_COUNTERS would be
+out-of-bounds by 1.
+
+Change index check from > to >=.
+
+Detected by Smatch:
+arch/riscv/kvm/vcpu_pmu.c:528 kvm_riscv_vcpu_pmu_ctr_info() error:
+buffer overflow 'kvpmu->pmc' 64 <= 64
+
+Fixes: 8f0153ecd3bf1 ("RISC-V: KVM: Add skeleton support for perf")
+Signed-off-by: Ethan Tidmore <ethantidmore06@gmail.com>
 ---
- MAINTAINERS                                   |   5 +
- .../arch/riscv/spacemit/iommu/sys/ioatc.json  |  30 ++++
- .../arch/riscv/spacemit/iommu/sys/ioats.json  | 163 ++++++++++++++++++
- 3 files changed, 198 insertions(+)
- create mode 100644 tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioatc.json
- create mode 100644 tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioats.json
+ arch/riscv/kvm/vcpu_pmu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 7c50701b6001..8b6458c1f63a 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22459,12 +22459,17 @@ K:	riscv
+diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+index 3a4d54aa96d8..51a12f90fb30 100644
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -520,7 +520,7 @@ int kvm_riscv_vcpu_pmu_ctr_info(struct kvm_vcpu *vcpu, unsigned long cidx,
+ {
+ 	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
  
- RISC-V IOMMU
- M:	Tomasz Jeznach <tjeznach@rivosinc.com>
-+M:	Lv Zheng <lv.zheng@linux.spacemit.com>
-+M:	Jingyu Li <joey.li@spacemit.com>
- L:	iommu@lists.linux.dev
- L:	linux-riscv@lists.infradead.org
- S:	Maintained
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git
- F:	Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
- F:	drivers/iommu/riscv/
-+F:	drivers/perf/riscv_iommu_hpm.c
-+F:	include/linux/riscv_iommu.h
-+F:	tools/perf/pmu-events/arch/riscv/spacemit/iommu/
- 
- RISC-V MICROCHIP SUPPORT
- M:	Conor Dooley <conor.dooley@microchip.com>
-diff --git a/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioatc.json b/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioatc.json
-new file mode 100644
-index 000000000000..eb2e6fe24c62
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioatc.json
-@@ -0,0 +1,30 @@
-+[
-+  {
-+    "EventName": "mtlb_lkp",
-+    "EventCode": "0x38",
-+    "BriefDescription": "IOATC main TLB (MTLB) lookups",
-+    "Unit": "spacemit_ioatc_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "mtlb_mis",
-+    "EventCode": "0x39",
-+    "BriefDescription": "IOATC main TLB (MTLB) misses",
-+    "Unit": "spacemit_ioatc_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "utlb_lkp",
-+    "EventCode": "0x3A",
-+    "BriefDescription": "IOATC micro TLB (uTLB) lookups",
-+    "Unit": "spacemit_ioatc_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "utlb_mis",
-+    "EventCode": "0x3B",
-+    "BriefDescription": "IOATC micro TLB (uTLB) misses",
-+    "Unit": "spacemit_ioatc_hpm",
-+    "Compat": "spacemit,t100"
-+  }
-+]
-diff --git a/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioats.json b/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioats.json
-new file mode 100644
-index 000000000000..709c0a9d2a8e
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/spacemit/iommu/sys/ioats.json
-@@ -0,0 +1,163 @@
-+[
-+  {
-+    "EventName": "pri_rq",
-+    "EventCode": "0x10",
-+    "BriefDescription": "IOATS PCIe page request interface (PRI) requests",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "ptwc_rq",
-+    "EventCode": "0x11",
-+    "BriefDescription": "IOATS page table walk (PTW) cache requests",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "dtwc_rq",
-+    "EventCode": "0x12",
-+    "BriefDescription": "IOATS directory table walk (DTW) cache requests",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "dtwc_mis",
-+    "EventCode": "0x13",
-+    "BriefDescription": "IOATS directory table walk (DTW) cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "ptwc_mis",
-+    "EventCode": "0x14",
-+    "BriefDescription": "IOATS page table walk (PTW) cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "all_trans_rq",
-+    "EventCode": "0x15",
-+    "BriefDescription": "IOATS all translation requests",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "dtwc_lkp",
-+    "EventCode": "0x20",
-+    "BriefDescription": "IOATS directory table walk (DTW) cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "s0_ptwc_lkp",
-+    "EventCode": "0x28",
-+    "BriefDescription": "IOATS s-stage level-0 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "s0_ptwc_mis",
-+    "EventCode": "0x29",
-+    "BriefDescription": "IOATS s-stage level-0 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "s1_ptwc_lkp",
-+    "EventCode": "0x2A",
-+    "BriefDescription": "IOATS s-stage level-1 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "s1_ptwc_mis",
-+    "EventCode": "0x2B",
-+    "BriefDescription": "IOATS s-stage level-1 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "s2_ptwc_lkp",
-+    "EventCode": "0x2C",
-+    "BriefDescription": "IOATS s-stage level-2 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "s2_ptwc_mis",
-+    "EventCode": "0x2D",
-+    "BriefDescription": "IOATS s-stage level-2 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "s3_ptwc_lkp",
-+    "EventCode": "0x2E",
-+    "BriefDescription": "IOATS s-stage level-3 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "s3_ptwc_mis",
-+    "EventCode": "0x2F",
-+    "BriefDescription": "IOATS s-stage level-3 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "g0_ptwc_lkp",
-+    "EventCode": "0x30",
-+    "BriefDescription": "IOATS g-stage level-0 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "g0_ptwc_mis",
-+    "EventCode": "0x31",
-+    "BriefDescription": "IOATS g-stage level-0 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "g1_ptwc_lkp",
-+    "EventCode": "0x32",
-+    "BriefDescription": "IOATS g-stage level-1 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "g1_ptwc_mis",
-+    "EventCode": "0x33",
-+    "BriefDescription": "IOATS g-stage level-1 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "g2_ptwc_lkp",
-+    "EventCode": "0x34",
-+    "BriefDescription": "IOATS g-stage level-2 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "g2_ptwc_mis",
-+    "EventCode": "0x35",
-+    "BriefDescription": "IOATS g-stage level-2 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "g3_ptwc_lkp",
-+    "EventCode": "0x36",
-+    "BriefDescription": "IOATS g-stage level-3 PTW cache lookups",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  },
-+  {
-+    "EventName": "g3_ptwc_mis",
-+    "EventCode": "0x37",
-+    "BriefDescription": "IOATS g-stage level-3 PTW cache misses",
-+    "Unit": "spacemit_ioats_hpm",
-+    "Compat": "spacemit,t100"
-+  }
-+]
+-	if (cidx > RISCV_KVM_MAX_COUNTERS || cidx == 1) {
++	if (cidx >= RISCV_KVM_MAX_COUNTERS || cidx == 1) {
+ 		retdata->err_val = SBI_ERR_INVALID_PARAM;
+ 		return 0;
+ 	}
 -- 
-2.43.0
+2.53.0
 
 
 _______________________________________________
