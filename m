@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B77FEE4CA
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 06:55:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63442FEE4CA
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 06:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KHCFWEaKbrrkBlGxr2rmS2AAPWxK7pPMQ2kMTzb/1mo=; b=rJEvtveNP0iA3G
-	abV2b+c7VplUWEVxV69kRjkLoBlg9EyfsHqtySaOlVg+FBgsWbfKwdEyvBSoGECRotK6/GV6lR4QU
-	q61Ex/f4Y8ip9QyiwnBUtE0fztNLr4sIeJRJ3ygJawzr4cR8IGNAGYCLS+PrpgFMElhpXtR8PsIsg
-	l5gxXvrM3auJ30uK4UD0xeIKgHAAW9rm44gtoSd0yu3UqhmVoWJ0TWDBDjjqhw1TMCmKVp4/9Ea2P
-	Xmgwku3OZdo8j6P/N3WqP9urd10XmOnWeX1igYM7UkwL2NhJZ/fs41aJZzYzcllZLmigRsRzb4hCH
-	04RoNZCZtZomKN6mOwpw==;
+	List-Owner; bh=/EiLCKB4q+DDIcpOMccGLgnDeU6guMcm4v6DpkV3Ue4=; b=Ub5WBjGMNFd3x7
+	2XU15XdKdrqN2vyrWenTu7u4KXhq9OnFeQOOmsoGK9t4JcFrrA5Z8EfN3hn/boxrDiYyyke+cqzM9
+	10EktuxiWtcJ35wdGUzdh5CG5tgS9ZoKq9en4DJdJdaqnX1H1Qwtsi0MBMpv6L265YSws+D+t9a5f
+	c+klZ/rGjg4PsUiZLoWoJJSaJ1qzYARfabpjQNiNEXZpvhR4Ll3/0s2hkG6QT4ktOuv5WWTtKhINN
+	UVqaucL7rFJVxmd18lRLMQkVJpoGEZOwBtK2PlaZsoWl/dygxaOwSXL01Dnr4K2n/tSyCyWgYud5N
+	AmpdRUhOFPkUrOoKTNWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwEEx-00000009ZfM-1zGc;
-	Sat, 28 Feb 2026 06:55:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwEHL-00000009Zqd-3aBT;
+	Sat, 28 Feb 2026 06:58:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwEEu-00000009ZeV-3V5y;
-	Sat, 28 Feb 2026 06:55:49 +0000
+	id 1vwEHH-00000009Zpl-3IPd;
+	Sat, 28 Feb 2026 06:58:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C63540830;
-	Sat, 28 Feb 2026 06:55:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40A1AC116D0;
-	Sat, 28 Feb 2026 06:55:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0EEED40229;
+	Sat, 28 Feb 2026 06:58:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3B51C116D0;
+	Sat, 28 Feb 2026 06:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772261747;
-	bh=b4wWycMp/qA51ETIBAMbd3c8O+W0qcQO/Vfxz7HjaAs=;
+	s=k20201202; t=1772261893;
+	bh=OZ08akKAa75pF5HX8BdM2b9T1B4d2lEE9VTD0Yyikqo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=psiiY+mjJy9NDUUzgU6LpECxATrYP6E6WdOer+42b5zCn8ow/eyJXB/ug0mExA9cv
-	 6ePYSGlmoaHtHOi7qoSg0Q3QsHkOGGPNWPHKY6G4BOjm8G543wF1gbRSWkuG2NNNoX
-	 iKjLmRNvDQFISHuKPxgVP1X34FieZC9G4odogCmXjbvadUHK8R5eStFkTiEhfNFMtU
-	 4FNEJ616kUSHbRZxM+m3jm1NVk176WszihcTfvBODu+/0eL6+UG2HnIgUPOZLNLSj1
-	 WxX5AcZXlMJ9kqMb4ogEhdlpTjXL93m1Gw4Fm2Ba2sZDjbueHKzehZlPdBX5J/XiRb
-	 igjWvy5k/xF5A==
-Date: Fri, 27 Feb 2026 22:55:43 -0800
+	b=WZJvSmvpEC6sHP/zivxpALj3tLGejpdvAPR0eMYRI+scB+s1IF4OeEtX5WKMQOtse
+	 Y2O4u4bOc8GI/JkEy6r4u1efjOMWWhLBmlfPczD6cmniYI2bymYIkCjhEhIGubJ4gY
+	 U9xKn5Z26jVbpiN+tbnYvysYm7bGRQ8U3XJJKW5Mpnhlp7/c6eic5HbKU4NYZzTh4Y
+	 eWJy6kT6Z+zFjYDjttC40gAqyP1FxjjNb1CXpDAIZpiSYLp4Vl3s7MEe9JtyMARKCq
+	 OsKaO4PPgfcbgTDw33LPxpOolodGKsdhIykRymhYri+JeNTEZUGQdgg0r4NRhV+/z9
+	 uLwVU5xseRMgQ==
+Date: Fri, 27 Feb 2026 22:58:10 -0800
 From: Eric Biggers <ebiggers@kernel.org>
 To: Christoph Hellwig <hch@lst.de>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -83,16 +83,16 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
 	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 22/25] async_xor: use xor_gen
-Message-ID: <20260228065543.GI65277@quark>
+Subject: Re: [PATCH 24/25] xor: pass the entire operation to the low-level ops
+Message-ID: <20260228065810.GJ65277@quark>
 References: <20260226151106.144735-1-hch@lst.de>
- <20260226151106.144735-23-hch@lst.de>
+ <20260226151106.144735-25-hch@lst.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260226151106.144735-23-hch@lst.de>
+In-Reply-To: <20260226151106.144735-25-hch@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_225548_895243_73D617ED 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20260227_225815_945274_5E1EBF9B 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,16 +109,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 07:10:34AM -0800, Christoph Hellwig wrote:
-> Replace use of the loop around xor_blocks with the easier to use xor_gen
-> API.
-> 
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> ---
->  crypto/async_tx/async_xor.c | 16 ++--------------
->  1 file changed, 2 insertions(+), 14 deletions(-)
+On Thu, Feb 26, 2026 at 07:10:36AM -0800, Christoph Hellwig wrote:
+> +#define __DO_XOR_BLOCKS(_name, _handle1, _handle2, _handle3, _handle4)	\
+> +void								\
+> +xor_gen_##_name(void *dest, void **srcs, unsigned int src_cnt,		\
+> +		unsigned int bytes)					\
+> +{									\
+> +	unsigned int src_off = 0;					\
+> +									\
+> +	while (src_cnt > 0) {						\
+> +		unsigned int this_cnt = min(src_cnt, 4);		\
+> +		unsigned long *p1 = (unsigned long *)srcs[src_off];	\
+> +		unsigned long *p2 = (unsigned long *)srcs[src_off + 1];	\
+> +		unsigned long *p3 = (unsigned long *)srcs[src_off + 2];	\
+> +		unsigned long *p4 = (unsigned long *)srcs[src_off + 3];	\
 
-There are still comments in this file that refer to xor_blocks.
+This reads out of bounds if src_cnt isn't a multiple of 4.
 
 - Eric
 
