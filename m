@@ -4,94 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA7EFFEFB6F
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Feb 2026 23:55:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 993E31048925
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 00:54:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3ZBNy0cUccOTtvuXplJZDXreDBT5UyahZJKjZY5K270=; b=L8As73HFPwHbQ+
-	qiBUMr7M9DEw33mGpdyKe2cQX4PbaxaAmWxVWraYW+cqcPUbRtM+zPD04k0VZDNqCFyM7m//WZy2w
-	POTADhelP/QEhHy33rKWCN4gtY9zBQEoW+68iCcw+aghfeZKBx1KXRa4wUtdoVVVi1H7wGonTZqjw
-	R2S2sbe+GAVDXAhfEmVA7EmeoGBp6lnySM/cwd6EH5AhXgboagK/TOUuJ11vveFqbdZFzvdOoJ744
-	STcVtaKEr7FxrztfKJZhU2KFqt0cBVD2cyqKY8vBmDboPNLvXxWyvxtG3fQOWkm3FG9Mg6C7bw5E/
-	u/fqVlJTmlaXysNUGA9g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sR3sZrQt94TkH8fBKqqlHxL9FrIyyAQwPATzaEm93S8=; b=i/UF1inJnhrAFd
+	OJM+m25D09ptUVhAWbdXfJum9xfLgOhQFiCcWySM3Eqdrca8ZM+9a0rscZsri3DKfp9A5HaRVehjy
+	I9+yacAULH1EDZnNc5BlWRQAN3HTfudZ8bW+fCrSQ/9UaiLB79A2bzDxkmeKeAv5eUMqmbkYfGJm7
+	zxZagbions8ynUzMMUZOABgoV1LUMgSYkC4HYDnHmMslv6qVid7NJGOswuHBDYrAc0JDx1sZ8Tq/o
+	T3bowkTou6XIYxAaFk9qjDud85DMf5I13SYPsGedHHJTEcYGST3f51MPV3udjHzv344A7esel2Yoe
+	lQ78OblSqMN7b6U/jhdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw7gF-00000009Hpk-3jBA;
-	Fri, 27 Feb 2026 23:55:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vw8b2-00000009LCu-0GWG;
+	Sat, 28 Feb 2026 00:54:16 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw7gE-00000009HpL-0nQL;
-	Fri, 27 Feb 2026 23:55:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9859C6111B;
-	Fri, 27 Feb 2026 23:55:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97119C116C6;
-	Fri, 27 Feb 2026 23:55:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772236532;
-	bh=9epsKT1Tqv7365SBQ+LgdgBkS+QLvJq0YDfqzGCQppg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XVTF8TDa48poxgWx9OMrHOWcWeX+DIvF8W0Cz9PzVZzIIYVyeCBp8CVqVCQqnKv6k
-	 5zzYRJst/PHEWqq92j85maQBi7plq+GNVhfHcc+9Pog+YMNqi1zTL7+4Ehtq9UJ7o9
-	 QJHa0cD62wS9Zi36AMnb9/VkZXXyv/qc0FNC/OF8hsDCWgrlGfX7gqqn/VNAfN6Fee
-	 CkNTC4E/BHSyzLgTwiN6IqzHfjJo9okaT9JcgxYGTsEHUQc31er3WUHfK/2Gx865yY
-	 ogRz41c7RbSVwCM0hpH/O2zyx2nKKDpUW5eh/FdyMQPRe2Q68ih/qS1f7bbUEX5IYc
-	 3kMoxNtkaet5g==
-Date: Fri, 27 Feb 2026 15:55:29 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Christoph Hellwig <hch@lst.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>, linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 18/25] x86: move the XOR code to lib/raid/
-Message-ID: <20260227235529.GA31321@quark>
-References: <20260226151106.144735-1-hch@lst.de>
- <20260226151106.144735-19-hch@lst.de>
- <20260227143016.GH1282955@noisy.programming.kicks-ass.net>
+	id 1vw8ax-00000009LBD-2jvr;
+	Sat, 28 Feb 2026 00:54:14 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-03 (Coremail) with SMTP id rQCowABXO+KkPKJpPMJ2CQ--.12049S2;
+	Sat, 28 Feb 2026 08:53:57 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	kvm@vger.kernel.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Subject: [PATCH v9 0/3] RISC-V: KVM: Validate SBI STA shmem alignment
+Date: Sat, 28 Feb 2026 00:53:52 +0000
+Message-Id: <20260228005355.823048-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260227143016.GH1282955@noisy.programming.kicks-ass.net>
+X-CM-TRANSID: rQCowABXO+KkPKJpPMJ2CQ--.12049S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Gw4DZFW8ZFyDCr4UJFy5Jwb_yoW8Jr45pa
+	9xCa4FqFy8JayxA3Z3Aw4ktryfWw48CrsFyw17J342yay8KFy8tr47KFWUAasxGF1kXF1Y
+	va4xK3WruF98ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBI14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
+	1j6rxdM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI2
+	0VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28Icx
+	kI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2Iq
+	xVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42
+	IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY
+	6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aV
+	CY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbQVy7UUUUU==
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBgoKCWmgYKJ+jgADs3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260227_165412_058422_5D861F4E 
+X-CRM114-Status: UNSURE (   4.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,41 +89,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026 at 03:30:16PM +0100, Peter Zijlstra wrote:
-> On Thu, Feb 26, 2026 at 07:10:30AM -0800, Christoph Hellwig wrote:
-> > Move the optimized XOR code out of line into lib/raid.
-> > 
-> > Signed-off-by: Christoph Hellwig <hch@lst.de>
-> > ---
-> >  arch/x86/include/asm/xor.h                    | 518 ++----------------
-> >  arch/x86/include/asm/xor_64.h                 |  32 --
-> >  lib/raid/xor/Makefile                         |   8 +
-> >  .../xor_avx.h => lib/raid/xor/x86/xor-avx.c   |  14 +-
-> >  .../xor_32.h => lib/raid/xor/x86/xor-mmx.c    |  60 +-
-> >  lib/raid/xor/x86/xor-sse.c                    | 476 ++++++++++++++++
-> 
-> I gotta ask, why lib/raid/xor/$arch/ instead of something like
-> arch/$arch/lib/xor ?
+This series fixes a missing validation in the RISC-V KVM SBI
+steal-time accounting (STA) register handling.
 
-Similar to lib/crypto/ and lib/crc/, it allows the translation units
-(either .c or .S files) containing architecture-optimized XOR code to be
-included directly in the xor.ko module, where they should be.
+Patch 1 validates the configured SBI STA shared memory GPA at
+KVM_SET_ONE_REG, enforcing the 64-byte alignment requirement
+defined by the SBI specification or allowing INVALID_GPA to explicitly
+disable steal-time accounting. This prevents invalid userspace state
+from reaching runtime code paths and avoids WARN_ON() triggers during
+KVM_RUN.
 
-Previously, these were always built into the core kernel even if
-XOR_BLOCKS was 'n' or 'm', or they were built into a separate module
-xor-neon.ko which xor.ko depended on.  So either the code was included
-unnecessarily, or there was an extra module.
+Patch 2 refactors existing UAPI tests from steal_time_init() into
+a dedicated check_steal_time_uapi() function for better code organization,
+and adds an empty stub for RISC-V.
 
-Technically we could instead have the lib makefile compile stuff in
-arch/, but that would be unusual.  It's much cleaner to have the
-directory structure match the build system.
+Patch 3 fills in the RISC-V stub with tests that verify KVM correctly
+enforces the STA alignment requirements.
 
-If we made this code always built-in, like memcpy(), then we could put
-it anywhere.  But (like many of the crypto and CRC algorithms) many
-kernels don't need this code, and even if they do it may be needed only
-by 'm' code.  So it makes sense to support tristate.
+Jiakai Xu (3):
+  RISC-V: KVM: Validate SBI STA shmem alignment in 
+    kvm_sbi_ext_sta_set_reg()
+  KVM: selftests: Refactor UAPI tests into dedicated function
+  RISC-V: KVM: selftests: Add RISC-V SBI STA shmem alignment tests
 
-- Eric
+ arch/riscv/kvm/vcpu_sbi_sta.c                 | 16 ++-
+ .../selftests/kvm/include/kvm_util_types.h    |  2 +
+ tools/testing/selftests/kvm/steal_time.c      | 98 ++++++++++++++++---
+ 3 files changed, 95 insertions(+), 21 deletions(-)
+
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
