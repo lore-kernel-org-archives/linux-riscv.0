@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A31FEE4C6
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 05:37:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA49BFEE4C7
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Feb 2026 05:47:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YgsKR9xlpEWXZ5YuljggB48+tEw27Mos+v/24saceV8=; b=Ut/k67hxhYprmV
-	yw4llyY1VFT7l/w4ZvGWdXJI1ZPg83Xq+INV3VwNln/ygRA4X5MhdZFPfHiYQ+ElzE4IyR8HPmsit
-	0DCSqa901bJiRdV3udY6WfdEcxWmIpaexjzLSxmOSi/O0G4QAzsEBTvJrl2ozRcRMQStA7T6wXg75
-	bZT//ge7qbI8DgEP49lhRPI1Tt0LdOl0lxUqGBDZ5Tj1I3xTpVXyFoO6GYV6N7C+tIR7Uz2qfGQ4C
-	P04/QyjS5m0V+wDQ4wUCRisVKTkPtl/Z9xIU0OWJDBBFUxSZbtUGdprdyP7CK0VHKmLLEqqo50M2q
-	Vdi+zETKwhlv3sBL6mpw==;
+	List-Owner; bh=ylSJlWHvQvtvTWnGBxQjdUSkD+CmjQytrD+brb5E9HE=; b=4Dh0doP3G+2DMA
+	tmvpgBpY0lXmjnut6zdzvnoMwn7i/m3Qt1vvjamGDeQKgHQ1RSiE2PejNxjaLvZZHdbeNzJ6ss46D
+	vdQf2IFCy+4GCyi/JwGN+AN5IOtiabOIsGVJX2CkONphZ80ZgCgKeM8Hv2nv2Fc93czXMS0jEYKRF
+	dFnP+xzztT+J2ycgsU5e1TYwxXYE6uJamdjzYpDCIt4ZEF9uoJnUaxpu73l5LstZgSVfph/pCjFow
+	FIslbCYOEcgw+tWnhCeZIUs+lpy8ws995r7g1q4g+fVJghv/ZtGv4IAEqQ7WFsiOO7QRazVmiFoAh
+	pCQqbhFEFkdHn4AfmgNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwD1H-00000009WO1-2ItZ;
-	Sat, 28 Feb 2026 05:37:39 +0000
+	id 1vwDAh-00000009Wi3-2yrE;
+	Sat, 28 Feb 2026 05:47:23 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwD1E-00000009WNZ-26y7;
-	Sat, 28 Feb 2026 05:37:37 +0000
+	id 1vwDAf-00000009Whc-26yN;
+	Sat, 28 Feb 2026 05:47:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 555454064C;
-	Sat, 28 Feb 2026 05:37:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE76EC116D0;
-	Sat, 28 Feb 2026 05:37:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2B33141E50;
+	Sat, 28 Feb 2026 05:47:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6374C116D0;
+	Sat, 28 Feb 2026 05:47:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772257055;
-	bh=eqLNM+it9jPNWRs+scO49PSKMIRVyGiqn9NcqSlCp7w=;
+	s=k20201202; t=1772257640;
+	bh=3fhtDiEfYQIsR8xe5v1xLPzjOApnwt1LgQea0fiE/sk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vJAxXZ8Kz5WRI3FAqQiiWltyd3uQ9vRfiXCgBQwT4V+lApPXGfBKpNyhyElFSuB3u
-	 XB4VENMAfKNQt4jt5mepYgezGyP/JFcan/V5g78ruKQj4Ji3BOedSoLRvaGOzY6b7q
-	 Mc5XWWLUQF0PcVSlTTmo7S7Zck6GQKRu3zWFaP+B5XItpiitYzcZpUfca6qi8XUfOd
-	 6vh1cIQZcaLVpiV5n3ZguAWWWmPlxPcj2Nj9plSsomBCSSLqZZekWhAfjQ2YeYW7iu
-	 rDzWS5l+PL0z3I+4kxGk4sYmPecb+wzM6vyPcl7Y9d2Uxa1CYls2Am5BPUZnt/qH5z
-	 mB77YqO/RTn8A==
-Date: Fri, 27 Feb 2026 21:37:30 -0800
+	b=ZxnCfx5JDI332Qrr3aqcMLFE+Z8TXsT+uailOd+3AxcXf1coTOZ7vF5OtRVlFz27S
+	 I+XE3qJMsOy/NaWilUmpaeuY7J3oz+cG4Um71U6OgQ7NcFA0HIvDDJfrudH5EPWD3S
+	 jPn9xscU5HDErluyyxksFTvSuNR6X2vG6RGaNlRTZxMmerYr0sgLOhE7L00/8t5/MJ
+	 uNCGKSSPUVI6ufs4uUbVSf5rsbRTL4oD2BooogSyg1zZ0YWLvakCTY7IPYd2SyPwrp
+	 50+eB5Q59+IeVeLCa8yNWJbEZz5QSmLw3fDIRjKAzMjZdSuoZa7lO1W7LFFthLj2/W
+	 ELDld1Q34kANQ==
+Date: Fri, 27 Feb 2026 21:47:16 -0800
 From: Eric Biggers <ebiggers@kernel.org>
 To: Christoph Hellwig <hch@lst.de>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -83,16 +83,16 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
 	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 15/25] riscv: move the XOR code to lib/raid/
-Message-ID: <20260228053730.GE65277@quark>
+Subject: Re: [PATCH 16/25] sparc: move the XOR code to lib/raid/
+Message-ID: <20260228054716.GF65277@quark>
 References: <20260226151106.144735-1-hch@lst.de>
- <20260226151106.144735-16-hch@lst.de>
+ <20260226151106.144735-17-hch@lst.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260226151106.144735-16-hch@lst.de>
+In-Reply-To: <20260226151106.144735-17-hch@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_213736_573619_A975CDCD 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20260227_214721_600120_BE099D08 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,20 +109,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 07:10:27AM -0800, Christoph Hellwig wrote:
-> Move the optimized XOR into lib/raid and include it it in xor.ko
-> instead of always building it into the main kernel image.
-> 
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> ---
->  arch/riscv/include/asm/xor.h                 | 54 +------------------
->  arch/riscv/lib/Makefile                      |  1 -
->  lib/raid/xor/Makefile                        |  1 +
->  lib/raid/xor/riscv/xor-glue.c                | 56 ++++++++++++++++++++
->  {arch/riscv/lib => lib/raid/xor/riscv}/xor.S |  0
+On Thu, Feb 26, 2026 at 07:10:28AM -0800, Christoph Hellwig wrote:
+> diff --git a/arch/sparc/lib/xor.S b/lib/raid/xor/sparc/xor-niagara.S
+> similarity index 53%
+> rename from arch/sparc/lib/xor.S
+> rename to lib/raid/xor/sparc/xor-niagara.S
+> index 35461e3b2a9b..f8749a212eb3 100644
+> --- a/arch/sparc/lib/xor.S
+> +++ b/lib/raid/xor/sparc/xor-niagara.S
+> @@ -1,11 +1,8 @@
+>  /* SPDX-License-Identifier: GPL-2.0 */
+>  /*
+> - * arch/sparc64/lib/xor.S
+> - *
+>   * High speed xor_block operation for RAID4/5 utilizing the
+> - * UltraSparc Visual Instruction Set and Niagara store-init/twin-load.
+> + * Niagara store-init/twin-load.
+>   *
+> - * Copyright (C) 1997, 1999 Jakub Jelinek (jj@ultra.linux.cz)
+>   * Copyright (C) 2006 David S. Miller <davem@davemloft.net>
+>   */
+>  
+> @@ -16,343 +13,6 @@
+>  #include <asm/dcu.h>
+>  #include <asm/spitfire.h>
+>  
 
-The EXPORT_SYMBOL() statements in xor.S can be removed, since the
-functions are now located in the same module as their callers.
+<linux/export.h> can be removed from the two assembly files, since all
+the invocations of EXPORT_SYMBOL() in them were removed.
+
+Also, xor-niagara.S ended up without a .text directive at the beginning.
+Probably it was unnecessary anyway.  However, this seems unintentional,
+given that xor-vis.S still has it.
 
 - Eric
 
