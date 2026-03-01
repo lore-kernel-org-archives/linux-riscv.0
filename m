@@ -4,103 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 547A0FD0079
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Mar 2026 22:16:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EBF1FD0078
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Mar 2026 22:17:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cU2vciXNGU8tCrpwMvVo7eU6/myhWi41Om8tHDr4nh4=; b=GELwlRxSNsbgBu
-	2cTCpcbLdaZ03FHUVLbyEdpAw8gyt6p1HMBVq76t0hmNOPQdadUlukVMdHBRTaI6ZKPVCsttemwjS
-	L78lw+FVWO5nidNUyqbzwp/oZ7cqCMVbhv+0rz1twy5T2LU3G5OfceQIGTTRlHI5r9CHEd7r661mX
-	uFDsQqsK/q7DHnJ93WtQv7GBtIyA1fc244NCvMpBMiFvwY+sq3Ubm4G3R91214cX86b9SS1OkcHHA
-	8MAuXfU4btsvjcUiy/JNKuDd3g72yat0iZXmJlz9GAo4qM68nBQQlOB7NXJ7ZFZkma1GWv7URLd4e
-	iSwgtDXYfgUWB7G22U9A==;
+	List-Owner; bh=8KXmdTc8qKzl5tJf+42D/3iZfbTT/b0vzbcVQywzMoc=; b=r7W7dlyb4T5vqK
+	omWXjhjy0yHSwrWnkP07IRZz7ZkTWAzGgPLZopc9YkwOSma0YUf2Xo19BM0ADdTqRiXANPdQ8dNTE
+	QUnzNF1rfdAIlIUuL71v2OOWegn9QgQp1tqd2QbZDcthw7fW1GqdT2Rz99o8jzuI7flcBk+/lnmud
+	3lv3y5kIpWXp4kWC8WEkLM9PDfMPdztFqCOdUYeamMCUEKeqeglVeqIOivPuWmqNE+m7OMt3Ed9sC
+	p1UoXyJoYkFx5Ed5q7ZtQEYO6I1hVyP7yqwVtelk2IcQ2Xh1oz/FYKN/Hf/A7JxMEMBCMSNGYnUtp
+	sNhyQSx01dyKxShpBN3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwp5g-0000000BwSH-0hEx;
-	Sun, 01 Mar 2026 22:16:44 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1vwp5r-0000000BwUv-1x7Z;
+	Sun, 01 Mar 2026 22:16:55 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwp5c-0000000BwRU-1c5S
+	id 1vwp5p-0000000BwTK-1kkD
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Mar 2026 22:16:42 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-439b611274bso258306f8f.3
-        for <linux-riscv@lists.infradead.org>; Sun, 01 Mar 2026 14:16:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772403398; x=1773008198; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AIl/dHV642tMqRZscE3Zjz5R/EkJp5KZJrPHqY8MUl4=;
-        b=ZOH7wUn0pFwWlqsmDXVsiZ/GoPolA+rT/2rZ66ZEn3GNseDE9syJuTVo3R2bPrWQ7K
-         qIl00/HnrP5FxDZmKxfFMkVea5rv1/HgDY2PgVdahcpgC++8gEdSmD6Lj1mYOs594br5
-         WCjNm1WyqXkneut/BrR+NKVTn6SZy7IukMsPiHpJgSX3lBHcumYE4nepCqIUb/tYD0vG
-         1t6DjKJxqXgj/V8n2/j16r+PBOaBGzRhG6viI+oC+nHv4SYchCrQEreO5poj93K4ZyEF
-         zGC1bvBYfCrv7BwSGExO7aeIh9gEhTFbx+5TFVqwuN2iQtFG6DvgdOtHRYyEPfAkwWI4
-         utYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772403398; x=1773008198;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=AIl/dHV642tMqRZscE3Zjz5R/EkJp5KZJrPHqY8MUl4=;
-        b=FHuRrhsPvYKKL42uK7zBcxLDJ1H/CWvZJa15qCXfrKAUCRUrLuzU8l/DHSzn+uWfpL
-         D1o0+5xFWQGIeNXRCugYmWd6rb/yhsyLqFZY34pOQQOGHAnxIwYvdnBAt1J6Jk4doav6
-         HIdlZyn9dSkzkNyik9To4sWhvYAMkUCs91cvt5MPl1E3A58wSZ/obJK45DaaUbjGJOXd
-         EcZPD7ha0LkkqcGdExmrT9NX3jWyWM6ABAEAJg29mQanShrixCXuwgSHWQ1vUUBi7l4P
-         OPHuXLQPhTf3N1Rd5QlV3CjE0g6WatHvqmSVGHDONM7BTSFGBuL5olUEwK5hY20E8SV3
-         DXwA==
-X-Forwarded-Encrypted: i=1; AJvYcCUpp8MJ8hOSYf1IlNl20k49zbTTw+gCcvJphYj+DcpogUyWHFQCKK1FP0jhMPem67XKVNH0SgN6DFucnQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLXCX/AqbR6ND5Bzzn/M7oArpEt+OrjnDwhLsmWIAu1k35W5zt
-	sSGRq8m7dcr4k2ER0aKOWv+CgT7khOxC+9sEEYN+nOXZehawjaRqryGz
-X-Gm-Gg: ATEYQzw/lHLYo7LkKH5ML002Ns/Kkgxlv6JLmMNu+xCgllACiL5/Hi9IN9npS91t8Hn
-	C3o1drNes2nRaR077Ok/zMgmhBTLGei91NrGszvFDN1RfTv19JXdMU3JkQaYcAPxtB9D6vAvRev
-	PEr3NwoS85DETlSNtEzgovvVtMhXElFGLtuRhPVo9ZJ7oo7mxzzzulkYMsspdfBVlW0tW73vbvL
-	oIEfoke9MxMLw1TFN1eEFvphUNQuPlZnN46TbAitT+aAF5sjaP/3taIvAzsplM/2kNs6oWhrC+Q
-	NNGNixCiN30tM4MTx7MtiYU8exJTR1UDyQBFZ3sV7dpDGGNc9xEnOP+IJwS3dj+HI0msle6eRII
-	PGLzy/rtp+aT6+OCbibdVgqWDjsVlpRMrOeBpRl1rA0Hh3wbg/WxTJFywsj2eFR+Gj7vHCUgKPL
-	qDn2bLtKE91mQVqngwzQBVdHcuUV8FSxtr266cj+WNAI+iwHsUNmL1ua1PZSWbW26G
-X-Received: by 2002:a05:600c:4444:b0:475:de12:d3b5 with SMTP id 5b1f17b1804b1-483c9c323d8mr157846385e9.34.1772403398069;
-        Sun, 01 Mar 2026 14:16:38 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439b3cc2e65sm6649234f8f.2.2026.03.01.14.16.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Mar 2026 14:16:37 -0800 (PST)
-Date: Sun, 1 Mar 2026 22:16:36 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Thomas Gleixner
- <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Andrew Cooper
- <andrew.cooper3@citrix.com>, kernel test robot <lkp@intel.com>, Russell
- King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
- <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Heiko
- Carstens <hca@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
- linux-s390@vger.kernel.org, Julia Lawall <Julia.Lawall@inria.fr>, Nicolas
- Palix <nicolas.palix@imag.fr>, Peter Zijlstra <peterz@infradead.org>,
- Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
- Andre Almeida <andrealmeid@igalia.com>, Alexander Viro
- <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara
- <jack@suse.cz>, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH] uaccess: Fix build of scoped user access with const
- pointer
-Message-ID: <20260301221636.0efa722c@pumpkin>
-In-Reply-To: <CAHk-=wixyP1mzyVcpZqQZd_xbabZQ873KVph3L-EkrNZGv3Ygw@mail.gmail.com>
-References: <4e994e13b48420ef36be686458ce3512657ddb41.1772393211.git.chleroy@kernel.org>
-	<CAHk-=wixyP1mzyVcpZqQZd_xbabZQ873KVph3L-EkrNZGv3Ygw@mail.gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Sun, 01 Mar 2026 22:16:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=KjrmgbqDuQUoTE7tizH06MNcvn3FP+YVHKxG9kOs+BY=; b=KRMqaNT66WGHYIyuD4Y4Vbgexu
+	jAStbPDQ2v9KhUbU5It83p1lT9e3nB/vQUzRXTX3O8aXvNGmivzBB5/IrFR/G+9bFZQMSEBjeiLQ2
+	+C+bwt54sqmeOvKaP/cGhmLJBBZw3qrb+sBeRqH0oUDjewPoYQJJO/yXyxUJQ9LH/KwCEV8gBw38l
+	PXT/mkAIEP61vvUdgABIm1b2S9CTMoKlVcHbeO+6ytjZcZRC0W48iNNuYB6ct0pFqftHpJKz76VGA
+	a/hFlahbk55aE20SSLwTqK226Wrag13mOEiFvosWFNvzvNIRjVGKglbSDtLUzfVaziNUft7AtanxT
+	4BaR/NIw==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1vwp5a-0000000C8Gc-1plv;
+	Sun, 01 Mar 2026 23:16:38 +0100
+Date: Sun, 1 Mar 2026 23:16:37 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Yanko Kaneti <yaneti@declera.com>
+Cc: linux-kernel@vger.kernel.org, Lee Jones <lee@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
+Subject: Re: [PATCH v5 2/2] mfd: simple-mfd-i2c: add a reboot cell for the
+ SpacemiT P1 chip
+Message-ID: <aaS6xeKFZz06fb1_@aurel32.net>
+Mail-Followup-To: Yanko Kaneti <yaneti@declera.com>,
+	linux-kernel@vger.kernel.org, Lee Jones <lee@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
+References: <20251102230352.914421-1-aurelien@aurel32.net>
+ <20251102230352.914421-3-aurelien@aurel32.net>
+ <b51a62513daa9d2390031ec350e0b33bdb7e54aa.camel@declera.com>
+ <aaC78FTN31QYaVg0@aurel32.net>
+ <990bc03ed2baa05e619f0aa9cc6a23acadd66ea6.camel@declera.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <990bc03ed2baa05e619f0aa9cc6a23acadd66ea6.camel@declera.com>
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_141640_580397_6F603F36 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20260301_141653_463951_6C573467 
+X-CRM114-Status: GOOD (  28.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,54 +96,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 1 Mar 2026 12:01:08 -0800
-Linus Torvalds <torvalds@linux-foundation.org> wrote:
+On 2026-02-27 13:29, Yanko Kaneti wrote:
+> On Thu, 2026-02-26 at 22:32 +0100, Aurelien Jarno wrote:
+> > Hi,
+> > 
+> > On 2026-02-26 16:32, Yanko Kaneti wrote:
+> > > Hello,
+> > > 
+> > > On Mon, 2025-11-03 at 00:02 +0100, Aurelien Jarno wrote:
+> > > > Add a "spacemit-p1-reboot" cell for the SpacemiT P1 chip.
+> > > > 
+> > > > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+> > > > ---
+> > > > v5: no changes
+> > > > 
+> > > >  drivers/mfd/simple-mfd-i2c.c | 1 +
+> > > >  1 file changed, 1 insertion(+)
+> > > > 
+> > > > diff --git a/drivers/mfd/simple-mfd-i2c.c b/drivers/mfd/simple-mfd-i2c.c
+> > > > index 0a607a1e3ca1d..542d378cdcd1f 100644
+> > > > --- a/drivers/mfd/simple-mfd-i2c.c
+> > > > +++ b/drivers/mfd/simple-mfd-i2c.c
+> > > > @@ -99,6 +99,7 @@ static const struct regmap_config spacemit_p1_regmap_config = {
+> > > >  };
+> > > >  
+> > > >  static const struct mfd_cell spacemit_p1_cells[] = {
+> > > > +	{ .name = "spacemit-p1-reboot", },
+> > > >  	{ .name = "spacemit-p1-regulator", },
+> > > >  	{ .name = "spacemit-p1-rtc", },
+> > > >  };
+> > > 
+> > > Perhaps its safe to merge this one now that everything P1 and I2C is
+> > > already in linus tip ?
+> > 
+> > Unfortunately, this patchset is still missing:
+> > https://lore.kernel.org/all/20260207-b4-k3-i2c-pio-v7-0-626942d94d91@linux.spacemit.com/
+> > 
+> > This means the reboots work most of the time, but are not 100% reliable, 
+> > and that's the reason why this patch got blocked from merging.
+> 
+> I see. Thanks. Sounds to me like sometimes working compared to never
+> working is better , but anyway..
 
-I also added to compiler.h :
+I agree with that, but the decision was to hold on this patch until the 
+I2C PIO part got merged.
 
-+/*
-+ * Sometimes a #define needs to declare a variable that is scoped
-+ * to the statement that follows without having mismatched {}.
-+ *	with (int x = expression) {
-+ *		statements
-+ *	}
-+ * is the same as:
-+ *	{
-+ *		int x = expression;
-+ *		statements
-+ *	}
-+ * but lets it all be hidden from the call site, eg:
-+ *	frobnicate(args) {
-+ *		statements
-+ *	} 
-+ * Only a single variable can be defined, and_with() allows extra ones
-+ * without adding an additional outer loop.
-+ *
-+ * The controlled scope can be terminated using break, continue or goto.
-+ */
-+#define with(declaration) \
-+	for (bool _with_done = false; !_with_done; _with_done = true)	\
-+		and_with (declaration)
-+#define and_with(declaration) \
-+	for (declaration; !_with_done; _with_done = true)
-+
+> FWIW  with this patch and the pio patcheset I get this rcu splat on
+> reboot (which is still working). Similar splat is there without the pio
+> patcheset.
 
-So that you get:
-#define __scoped_user_access(mode, uptr, size, elbl)					\
-	with (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl)) \
-		and_with (CLASS(user_##mode##_access, scope)(_tmpptr))			\
-		/* Force modified pointer usage within the scope */			\
-		and_with (const auto uptr = _tmpptr)
+I haven't been able to reproduce the issue here after 10+ reboots on a 
+BPI-F3 board, but I tried the patch on top of 6.19. I'll try to build a 
+7.0.0-rc2 kernel and report back.
 
-The next patch did:
--		and_with (const typeof(uptr) uptr = _tmpptr)
-+		__diag_push() __diag_ignore_all("-Wshadow", "uptr is readonly copy")	\
-+		and_with (const typeof(uptr) uptr = _tmpptr)				\
-+		__diag_pop()
+At a first glance the problem seems to happen in the I2C PIO code. On 
+which hardware is that happening?
 
-I'll update (to use auto as above) and resend.
+Regards
+Aurelien
 
-	David
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
