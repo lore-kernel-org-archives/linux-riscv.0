@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C19B1FD007C
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Mar 2026 22:00:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 547A0FD0079
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Mar 2026 22:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lpIzaMKxTRrTyDJ0fCMzfeJBEXpCqw3ckiTBmJp8ETQ=; b=DSSKWr0AGNdmLP
-	B1VlB/RCCmRVULqnspgCCX/OVQ9bV5E4brtP5OdrETymk6Fz7jTtc1+nZTNJVquIVxPVPXub7SRTq
-	xx9U0KusCRtsXvuFpunGHvBgPkd1sxqo1VCaPlBt5Ah41Q4GSYU+67amJBWWhdrOOpZoRqAUK2dsR
-	9Z2qsF1HS/aCTxEhvzn5dPnW5UpbGOu6/MkTRS8F7kh7VlCLuRy/2NBO7LiguRdoExlLvjRqMg8R5
-	/C+NXmsJ3/L6j3NzwafQcn6Wl2ZjZt3pGhFmgsebLY493UuBnwl9Jh8z/Gnc6O9QnLk4ccYqDFj5R
-	vTZ+rKYwssJZJ/72WlCA==;
+	List-Owner; bh=cU2vciXNGU8tCrpwMvVo7eU6/myhWi41Om8tHDr4nh4=; b=GELwlRxSNsbgBu
+	2cTCpcbLdaZ03FHUVLbyEdpAw8gyt6p1HMBVq76t0hmNOPQdadUlukVMdHBRTaI6ZKPVCsttemwjS
+	L78lw+FVWO5nidNUyqbzwp/oZ7cqCMVbhv+0rz1twy5T2LU3G5OfceQIGTTRlHI5r9CHEd7r661mX
+	uFDsQqsK/q7DHnJ93WtQv7GBtIyA1fc244NCvMpBMiFvwY+sq3Ubm4G3R91214cX86b9SS1OkcHHA
+	8MAuXfU4btsvjcUiy/JNKuDd3g72yat0iZXmJlz9GAo4qM68nBQQlOB7NXJ7ZFZkma1GWv7URLd4e
+	iSwgtDXYfgUWB7G22U9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwopS-0000000BvdJ-2C1E;
-	Sun, 01 Mar 2026 21:59:58 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1vwp5g-0000000BwSH-0hEx;
+	Sun, 01 Mar 2026 22:16:44 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwopO-0000000Bvbi-3V0e
+	id 1vwp5c-0000000BwRU-1c5S
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Mar 2026 21:59:56 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-439b2965d4bso624980f8f.2
-        for <linux-riscv@lists.infradead.org>; Sun, 01 Mar 2026 13:59:54 -0800 (PST)
+	Sun, 01 Mar 2026 22:16:42 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-439b611274bso258306f8f.3
+        for <linux-riscv@lists.infradead.org>; Sun, 01 Mar 2026 14:16:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772402393; x=1773007193; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772403398; x=1773008198; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XdF90L2tMXaU2D2ZcWRZkQORWHdME4B3q+DTo4zCDx4=;
-        b=EdPnui3wYQuN2eGIk/JT7s1d/ShMW/Ijjkx0VgGXnLH8OD2eIRmWd0oL/LuTkXu7+s
-         j5ykwJ+I8+qNNajOpqa5v9LevM8svQHiAF3Kq2R/F1459StUjvPNDrdgjz+I+X4nL8I9
-         PoQGbLR1eNAwPAvw58evARXog0axLHsd8aiZFzQabBnZDh0NowDLcMPlXgdwscGrgBeq
-         2ELcb9SChwKsKKvOgMCdEDre02A5P51CtILdeTwcOXCI2AMB2GSMQWh8r5Otdj85Brwn
-         GUeirCXtl4sTlW65Hm1UBQYTX5l2ZM/Jb+EWBpFhLV8l7nIKWKnXZHOBlY47kDbxWUZO
-         TOjQ==
+        bh=AIl/dHV642tMqRZscE3Zjz5R/EkJp5KZJrPHqY8MUl4=;
+        b=ZOH7wUn0pFwWlqsmDXVsiZ/GoPolA+rT/2rZ66ZEn3GNseDE9syJuTVo3R2bPrWQ7K
+         qIl00/HnrP5FxDZmKxfFMkVea5rv1/HgDY2PgVdahcpgC++8gEdSmD6Lj1mYOs594br5
+         WCjNm1WyqXkneut/BrR+NKVTn6SZy7IukMsPiHpJgSX3lBHcumYE4nepCqIUb/tYD0vG
+         1t6DjKJxqXgj/V8n2/j16r+PBOaBGzRhG6viI+oC+nHv4SYchCrQEreO5poj93K4ZyEF
+         zGC1bvBYfCrv7BwSGExO7aeIh9gEhTFbx+5TFVqwuN2iQtFG6DvgdOtHRYyEPfAkwWI4
+         utYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772402393; x=1773007193;
+        d=1e100.net; s=20230601; t=1772403398; x=1773008198;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=XdF90L2tMXaU2D2ZcWRZkQORWHdME4B3q+DTo4zCDx4=;
-        b=oB5t4F7yDJh6bp9YFDtrNFq99olFvZ2piu55UuGDUWoS2P4CxMkd2Rz0XVCIhmN777
-         4FkPvsgdlcf9HNIL0vWmoLDWHq63w/dFJ3jxyFteWIcfyRPYpOxLrFLQcT7U9TzmPqpq
-         VFwF3uht+yLteCCsX9XE+405gkv9CpOPnxZRl8pyRrGsKEpB3CxiaqJEcSSZZFlH388r
-         ajR8WRP6NrPddll2NS9OUIBEUvPRR1GD5mk43wcOojUNCIWtPKOmcWosYfdLt7vbxsbb
-         RFOLQj2SJ/aVP+d30eU2CDdFm4o0zzlNpzkS+grCvy4S9tD6gf5AFzEsVNh6rtc0whUD
-         n7GQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUjWhLLZf4nOCxgM7Q7WOFr/EhizhzZ71xF8zMe0lw+pA6VEhUgrPMK3qXRHXMZjBhFDO8/7+2gH1TjtQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YymE/wSWdzu8C2sjEjAFq2/BWsMDuLZXC8kuF7j7xSZvOYCmiP0
-	C9HgtP/c5hvStwOeFDnb/WnNIxS6er4p81Ah1M4e46mCEg7cz2SdGChP
-X-Gm-Gg: ATEYQzxDikuoKP8JVYHyU3TXrMQ80EZPXGEsHVT6nBLOBHvgFiY79caC2yXXfqLwAR5
-	66ix+8gG4/V4dHr5gUwYC5LM6Eih0sZUoFi1QiKLu9E4cs0o1qOtAFerJWIsumPy4pf2zO59hOW
-	eMWS75A/8C+Kuj8z5+x75m68hDDkekspVmRgVMMEWeiUGTDmSvuLo1AmIyb3KzNf8auWZIPoCNx
-	l5pzRAQeLtJNxO5OjgzDw7mUwfk8+TYSde5ucDNVJRvMLh/XlREWUwpiFXwdiHcAWuCr2LivaF4
-	FirOFsHJb3/MOUo1HsYzHYboH151FSY7PAwgYZlR8OINiandL+QfDpO/xRTZBHnqT8lw31ujqmY
-	YnislHtEz5SDobi8UMdcQYW5Q5ydGSLzGnVA2YnncBivSD36BXfp2YpPFOC2zI7yt45cCsaToJa
-	tdeV93utUq08bO3w5OFnv5DdBQ1bi4Yf3DaHHLfzQhCo+yCm9INU5NQcV5oAP35+Zm
-X-Received: by 2002:a05:6000:18a6:b0:439:b886:20cd with SMTP id ffacd0b85a97d-439b886219amr989086f8f.16.1772402392592;
-        Sun, 01 Mar 2026 13:59:52 -0800 (PST)
+        bh=AIl/dHV642tMqRZscE3Zjz5R/EkJp5KZJrPHqY8MUl4=;
+        b=FHuRrhsPvYKKL42uK7zBcxLDJ1H/CWvZJa15qCXfrKAUCRUrLuzU8l/DHSzn+uWfpL
+         D1o0+5xFWQGIeNXRCugYmWd6rb/yhsyLqFZY34pOQQOGHAnxIwYvdnBAt1J6Jk4doav6
+         HIdlZyn9dSkzkNyik9To4sWhvYAMkUCs91cvt5MPl1E3A58wSZ/obJK45DaaUbjGJOXd
+         EcZPD7ha0LkkqcGdExmrT9NX3jWyWM6ABAEAJg29mQanShrixCXuwgSHWQ1vUUBi7l4P
+         OPHuXLQPhTf3N1Rd5QlV3CjE0g6WatHvqmSVGHDONM7BTSFGBuL5olUEwK5hY20E8SV3
+         DXwA==
+X-Forwarded-Encrypted: i=1; AJvYcCUpp8MJ8hOSYf1IlNl20k49zbTTw+gCcvJphYj+DcpogUyWHFQCKK1FP0jhMPem67XKVNH0SgN6DFucnQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLXCX/AqbR6ND5Bzzn/M7oArpEt+OrjnDwhLsmWIAu1k35W5zt
+	sSGRq8m7dcr4k2ER0aKOWv+CgT7khOxC+9sEEYN+nOXZehawjaRqryGz
+X-Gm-Gg: ATEYQzw/lHLYo7LkKH5ML002Ns/Kkgxlv6JLmMNu+xCgllACiL5/Hi9IN9npS91t8Hn
+	C3o1drNes2nRaR077Ok/zMgmhBTLGei91NrGszvFDN1RfTv19JXdMU3JkQaYcAPxtB9D6vAvRev
+	PEr3NwoS85DETlSNtEzgovvVtMhXElFGLtuRhPVo9ZJ7oo7mxzzzulkYMsspdfBVlW0tW73vbvL
+	oIEfoke9MxMLw1TFN1eEFvphUNQuPlZnN46TbAitT+aAF5sjaP/3taIvAzsplM/2kNs6oWhrC+Q
+	NNGNixCiN30tM4MTx7MtiYU8exJTR1UDyQBFZ3sV7dpDGGNc9xEnOP+IJwS3dj+HI0msle6eRII
+	PGLzy/rtp+aT6+OCbibdVgqWDjsVlpRMrOeBpRl1rA0Hh3wbg/WxTJFywsj2eFR+Gj7vHCUgKPL
+	qDn2bLtKE91mQVqngwzQBVdHcuUV8FSxtr266cj+WNAI+iwHsUNmL1ua1PZSWbW26G
+X-Received: by 2002:a05:600c:4444:b0:475:de12:d3b5 with SMTP id 5b1f17b1804b1-483c9c323d8mr157846385e9.34.1772403398069;
+        Sun, 01 Mar 2026 14:16:38 -0800 (PST)
 Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4399c75a523sm22434797f8f.19.2026.03.01.13.59.51
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439b3cc2e65sm6649234f8f.2.2026.03.01.14.16.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Mar 2026 13:59:52 -0800 (PST)
-Date: Sun, 1 Mar 2026 21:59:50 +0000
+        Sun, 01 Mar 2026 14:16:37 -0800 (PST)
+Date: Sun, 1 Mar 2026 22:16:36 +0000
 From: David Laight <david.laight.linux@gmail.com>
 To: Linus Torvalds <torvalds@linux-foundation.org>
 Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Thomas Gleixner
@@ -92,15 +92,15 @@ Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Thomas Gleixner
  <jack@suse.cz>, linux-fsdevel@vger.kernel.org
 Subject: Re: [PATCH] uaccess: Fix build of scoped user access with const
  pointer
-Message-ID: <20260301215950.2fef5722@pumpkin>
+Message-ID: <20260301221636.0efa722c@pumpkin>
 In-Reply-To: <CAHk-=wixyP1mzyVcpZqQZd_xbabZQ873KVph3L-EkrNZGv3Ygw@mail.gmail.com>
 References: <4e994e13b48420ef36be686458ce3512657ddb41.1772393211.git.chleroy@kernel.org>
 	<CAHk-=wixyP1mzyVcpZqQZd_xbabZQ873KVph3L-EkrNZGv3Ygw@mail.gmail.com>
 X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_135955_326763_CC869B86 
-X-CRM114-Status: GOOD (  24.32  )
+X-CRM114-CacheID: sfid-20260301_141640_580397_6F603F36 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,120 +120,51 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On Sun, 1 Mar 2026 12:01:08 -0800
 Linus Torvalds <torvalds@linux-foundation.org> wrote:
 
-> On Sun, 1 Mar 2026 at 11:34, Christophe Leroy (CS GROUP)
-> <chleroy@kernel.org> wrote:
-> >
-> > -       for (void __user *_tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl); \
-> > +       for (void __user *_tmpptr = (void __user *)                                     \
-> > +                                   __scoped_user_access_begin(mode, uptr, size, elbl); \  
-> 
-> Why are you casting this return value? Wouldn't it be a lot better to
-> just make the types be the CORRECT ones?
-> 
-> I didn't test this, so maybe I'm missing something, but why isn't that
-> just doing
-> 
->         for (auto _tmpptr = __scoped_user_access_begin(mode, uptr,
-> size, elbl);         \
-> 
-> instead? No cast, just a "use the right type automatically".
-> 
-> That macro actually does something similar just a few lines later, in
-> that the innermost loop uses
-> 
->          for (const typeof(uptr) uptr = _tmpptr; !done; done = true)
-> 
-> which picks up the type automatically from the argument (and then it
-> uses the argument both for the type and name, which is horrendously
-> confusing, but that's a separate thing).
-> 
-> Does that simple "auto" approach break something else?
+I also added to compiler.h :
 
-This is what I needed to do:
-(Note that is pre-dates 'auto', but it should work.)
-Send at 21:56 on dec 20.
++/*
++ * Sometimes a #define needs to declare a variable that is scoped
++ * to the statement that follows without having mismatched {}.
++ *	with (int x = expression) {
++ *		statements
++ *	}
++ * is the same as:
++ *	{
++ *		int x = expression;
++ *		statements
++ *	}
++ * but lets it all be hidden from the call site, eg:
++ *	frobnicate(args) {
++ *		statements
++ *	} 
++ * Only a single variable can be defined, and_with() allows extra ones
++ * without adding an additional outer loop.
++ *
++ * The controlled scope can be terminated using break, continue or goto.
++ */
++#define with(declaration) \
++	for (bool _with_done = false; !_with_done; _with_done = true)	\
++		and_with (declaration)
++#define and_with(declaration) \
++	for (declaration; !_with_done; _with_done = true)
++
 
-If a 'const struct foo __user *ptr' is used for the address passed
-to scoped_user_read_access() then you get a warning/error
-uaccess.h:691:1: error: initialization discards 'const' qualifier
-    from pointer target type [-Werror=discarded-qualifiers]
-for the
-    void __user *_tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl)
-assignment.
+So that you get:
+#define __scoped_user_access(mode, uptr, size, elbl)					\
+	with (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl)) \
+		and_with (CLASS(user_##mode##_access, scope)(_tmpptr))			\
+		/* Force modified pointer usage within the scope */			\
+		and_with (const auto uptr = _tmpptr)
 
-Fix by using typeof(uptr) in that assignment and changing the 'read' functions
-to use 'const void __user *ptr' rather than 'void __user *ptr'.
+The next patch did:
+-		and_with (const typeof(uptr) uptr = _tmpptr)
++		__diag_push() __diag_ignore_all("-Wshadow", "uptr is readonly copy")	\
++		and_with (const typeof(uptr) uptr = _tmpptr)				\
++		__diag_pop()
 
-Fixes: e497310b4ffb "(uaccess: Provide scoped user access regions)"
-Signed-off-by: David Laight <david.laight.linux@gmail.com>
----
- include/linux/uaccess.h | 22 +++++++++++-----------
- 1 file changed, 11 insertions(+), 11 deletions(-)
-
-diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
-index 1f3804245c06..c5d5f2d395bc 100644
---- a/include/linux/uaccess.h
-+++ b/include/linux/uaccess.h
-@@ -650,32 +650,32 @@ static inline void user_access_restore(unsigned long flags) { }
- #define user_rw_access_end()		user_access_end()
- 
- /* Scoped user access */
--#define USER_ACCESS_GUARD(_mode)				\
--static __always_inline void __user *				\
--class_user_##_mode##_begin(void __user *ptr)			\
-+#define USER_ACCESS_GUARD(_mode, type)				\
-+static __always_inline type __user *				\
-+class_user_##_mode##_begin(type __user *ptr)			\
- {								\
- 	return ptr;						\
- }								\
- 								\
- static __always_inline void					\
--class_user_##_mode##_end(void __user *ptr)			\
-+class_user_##_mode##_end(type __user *ptr)			\
- {								\
- 	user_##_mode##_access_end();				\
- }								\
- 								\
--DEFINE_CLASS(user_ ##_mode## _access, void __user *,		\
-+DEFINE_CLASS(user_ ##_mode## _access, type __user *,		\
- 	     class_user_##_mode##_end(_T),			\
--	     class_user_##_mode##_begin(ptr), void __user *ptr)	\
-+	     class_user_##_mode##_begin(ptr), type __user *ptr)	\
- 								\
- static __always_inline class_user_##_mode##_access_t		\
--class_user_##_mode##_access_ptr(void __user *scope)		\
-+class_user_##_mode##_access_ptr(type __user *scope)		\
- {								\
- 	return scope;						\
- }
- 
--USER_ACCESS_GUARD(read)
--USER_ACCESS_GUARD(write)
--USER_ACCESS_GUARD(rw)
-+USER_ACCESS_GUARD(read, const void)
-+USER_ACCESS_GUARD(write, void)
-+USER_ACCESS_GUARD(rw, void)
- #undef USER_ACCESS_GUARD
- 
- /**
-@@ -752,7 +752,7 @@ USER_ACCESS_GUARD(rw)
-  */
- #define __scoped_user_access(mode, uptr, size, elbl)					\
- for (bool done = false; !done; done = true)						\
--	for (void __user *_tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl); \
-+	for (typeof(uptr) _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl); \
- 	     !done; done = true)							\
- 		for (CLASS(user_##mode##_access, scope)(_tmpptr); !done; done = true)	\
- 			/* Force modified pointer usage within the scope */		\
--- 
-2.39.5
+I'll update (to use auto as above) and resend.
 
 	David
-
-> 
->                    Linus
-
 
 _______________________________________________
 linux-riscv mailing list
