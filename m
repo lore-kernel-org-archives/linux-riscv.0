@@ -4,98 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2951DD58E7D
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 08:40:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52BEFD58E7A
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 08:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HZV5NZOUaiNJ5Za7AhnWck1fqDqDJiZtdOeYfLS6kvU=; b=3F1yHzc3PaOOor
-	QEjh38h/9CRBFHFKeyeyjXRi9bF+NdKQWK7020rdq40MAv5IB6NW+gA1NVsNLaJaVzgW/UdwGAv6W
-	LhIrNnGTm+514mOht68RzubJD4yFUgair+uxMYOujG6A3ZKPI40xJ+vqnSW7yyEwySdy5W+kCWwSf
-	mkYGCdBNM1H4QxChmlEl+gUMI8xiuYbwL0XTXjUK8Iowd6KEt+FmjkyHOn8rsm9+pVXJrCIfKbDaT
-	u4ec8XqpEHIRzF3DhEBFxB3ShJbjrYPtG5Lh92DkO+DeUKl6jsKLlyCTrblobHqoMe2Uipzm6lWwS
-	QXD0W9GyuVS9biVDmStw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1G15onxfMnzMus57CbZto5L6ue/qO/0LSBJ4Gevdx4U=; b=QximzGabqQPR5s
+	0v0UQ/tTM6n9h95Smm2oD5UZyxVsVcdbsyUqC/EMP8kg2dagehChXOl/2n1JPhIFDWJ/Pjd0R4ixn
+	BVgj3YzYruuQB42zPpnmjpTfQGGAUZppyZv7Gkx1xRdktlxAWWtaa29zFM7r1B11YyaCdvWVvGTDb
+	CO/XAdJ0p0lT9f6adHVyfl3w7zZFGege7v91ZKy+J9558YLd2FQkcTVM6W4Diei6VG54htZtD7Iu2
+	XbX5zdNHkAZmbVtZkQa3ZngK5ZFKmz6YUMLrLDRiwwJKlPU3HSg6KBoD0+0nx5ryEz7SYpHbeqIDF
+	zZKzflFIF44a181bfw9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwyow-0000000CWxX-03NT;
-	Mon, 02 Mar 2026 08:40:06 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vwz1v-0000000CY9Y-2slf;
+	Mon, 02 Mar 2026 08:53:31 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwyos-0000000CWwo-3hTF
-	for linux-riscv@lists.infradead.org;
-	Mon, 02 Mar 2026 08:40:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1772440801;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vdiPWtYWuhb9fL37CazwRyCdnnWG5JaBkwTXBZF0Kdc=;
-	b=GE3Ia4GYJ+2qkg7nSgngMTK9iN69C6rYyhC+FqMog9YFvhpnqOQRtNxrNvx/MJzBQkdRr8
-	USm6KXI9O7zAJR4UGH4Tvm62JZBMx0l84mpOCIQs3R3mjOGNR2pfsT0kgvMUhCPn+OUrk6
-	lpd9DuGrEeSuLRUVutSImy8qDeBC8Xw=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-500-_IoNSrz5NZas7_QLLC9x_Q-1; Mon, 02 Mar 2026 03:37:54 -0500
-X-MC-Unique: _IoNSrz5NZas7_QLLC9x_Q-1
-X-Mimecast-MFC-AGG-ID: _IoNSrz5NZas7_QLLC9x_Q_1772440673
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-439b5346b6cso763977f8f.0
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Mar 2026 00:37:54 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772440673; x=1773045473;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vdiPWtYWuhb9fL37CazwRyCdnnWG5JaBkwTXBZF0Kdc=;
-        b=PCpeUQJwOwbMvPcFpb5wCT94T/nDk3QKIqZVdU/xeKttQVUKxqlT+YjzZ2DuCzRn8C
-         EhiHJ1W38U6KOm6OdmjDWymtcOSgBJtfc7e8mzb8tTRvX5zuKZ7EK7m7O/2KrofVkWvl
-         z9ga164RaBbSfWAUjcALVkZvFV4azX3M4/Qp1E57vQ2WU1kxSFpWm7bSK2bvy0I680pS
-         VpyH88Rjl+6LNx/qRH32XCW1chjPqirtDHo2jD/kpM9fLY1ltINRFBVdFlAUlSH7RvrL
-         pJW7kX11R9Ux5g2KMiLse6Oh9NaG1x1iRwo7zo9uOKkHnnlrc0zwPNuPOZ5e2mMxyWcV
-         dL4w==
-X-Forwarded-Encrypted: i=1; AJvYcCWCZEMij57HYVnsw3HRw5hOQGLCgqr2GageSDhsA52V4iS12rJAR7BJY5lhKBzEsWDYblpTQIEqcBv3+A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzi+BeVkvqimZ6DCrtH+ZzQW3TaWDwSzYUUUkp/bmEfxOlYm+PL
-	XMKZwKEtcMidOhSMXNJIiJwZt1KzdTN8I0CiSWVwBm8SCn/FIvpveMssU1BVtMStXxMuQRG6GMc
-	DxXZNDmZVDMOwJGdoZbfVbkjoTWg5TuVLsBw5G4qU4ghRGs8oCHCLKPnGLBs1WBdM3ckNOQ==
-X-Gm-Gg: ATEYQzzG++Ly5lBzp2Q9jw920g1ZdwmZ76PAqjqAUPIY4hVyc3QdUzgNkffkyzV/Ggw
-	fOfT7X/6fUX/U3uQLIm+VU/Iei5ne6ldFHGbP1M/a/UiYhc5bQrlwJ4EwmYVLPgNIh5exZ7Ungj
-	Tn9uhtVMpZIFZ1GkgP+xgucVchCU8ldaMjFLGOljVCvPwsDidtzh26amtoejNUPCjytguLmN5fR
-	nLhpYKjz+SQfLFLasHgsuGBov+v3cU/+HZUn0BNVHRJ4I91AV99TJY4JY42HOJi7UqQ88lxC36z
-	gDnj3tOxnJ5KUF+q3CYjH+PX8ckAZHgYGMZdP7d7ALnXhSWEQYorHxn59yhb9jMKatGxBWJAKr4
-	PAhHNioadHDHxSKlPTVsMGM2NUImjDYzQ0t6AL/bMwhNyhg3X1+uMWHZrBaLZ0PJHejuPp+1Lru
-	GfK3RW13X3t/FM
-X-Received: by 2002:a05:600c:8b30:b0:483:afbb:a086 with SMTP id 5b1f17b1804b1-483c9c0e31amr187765705e9.29.1772440673345;
-        Mon, 02 Mar 2026 00:37:53 -0800 (PST)
-X-Received: by 2002:a05:600c:8b30:b0:483:afbb:a086 with SMTP id 5b1f17b1804b1-483c9c0e31amr187765305e9.29.1772440672920;
-        Mon, 02 Mar 2026 00:37:52 -0800 (PST)
-Received: from localhost (220.pool95-22-156.dynamic.orange.es. [95.22.156.220])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439abdf5430sm15077496f8f.5.2026.03.02.00.37.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Mar 2026 00:37:52 -0800 (PST)
-From: Javier Martinez Canillas <javierm@redhat.com>
-To: Yixun Lan <dlan@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: Chukun Pan <amadeus@jmu.edu.cn>, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
-Subject: Re: [PATCH] riscv: dts: spacemit: adapt regulator node name to
- preferred form
-In-Reply-To: <20260226-02-k1-regulator-names-v1-1-e87695d50159@kernel.org>
-References: <20260226-02-k1-regulator-names-v1-1-e87695d50159@kernel.org>
-Date: Mon, 02 Mar 2026 09:37:50 +0100
-Message-ID: <87o6l6vd7l.fsf@ocarina.mail-host-address-is-not-set>
+	id 1vwz1r-0000000CY96-27zZ;
+	Mon, 02 Mar 2026 08:53:30 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-01 (Coremail) with SMTP id qwCowAB34276T6Vpe_AXCQ--.522S2;
+	Mon, 02 Mar 2026 16:53:14 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Anup Patel <anup@brainfault.org>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Jiakai Xu <jiakaiPeanut@gmail.com>
+Subject: [PATCH v2] RISC-V: KVM: Fix use-after-free in kvm_riscv_aia_aplic_has_attr()
+Date: Mon,  2 Mar 2026 08:53:12 +0000
+Message-Id: <20260302085312.1649738-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ydaSpn-iQG8T7fGBczOG0Cpwnci0OwBHk2Ksz7PvH4s_1772440673
-X-Mimecast-Originator: redhat.com
+X-CM-TRANSID: qwCowAB34276T6Vpe_AXCQ--.522S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWF4fGF45WF4DGrWrGF1rJFb_yoW5Cry7pF
+	WrGFyDA3y5Gwn7GrZIkw1kXr4I9r4YkF1rKr47urWI9rsxtrWIyr9a9ry2qr45AFW8J3sI
+	qF4Yk3s5ur15JF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPj14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
+	rcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14
+	v_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AK
+	xVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrx
+	kI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v2
+	6r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8Jw
+	CI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUnJPEDUUU
+	U
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiDAUOCWmlOvpQgAAAsS
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_004003_015140_5C252B30 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20260302_005328_020858_12E455F5 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,38 +87,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Yixun Lan <dlan@kernel.org> writes:
+Fuzzer reports a KASAN use-after-free bug triggered by a race
+between KVM_HAS_DEVICE_ATTR and KVM_SET_DEVICE_ATTR ioctls on the AIA
+device. The root cause is that aia_has_attr() invokes
+kvm_riscv_aia_aplic_has_attr() without holding dev->kvm->lock, while
+a concurrent aia_set_attr() may call aia_init() under that lock. When
+aia_init() fails after kvm_riscv_aia_aplic_init() has succeeded, it
+calls kvm_riscv_aia_aplic_cleanup() in its fail_cleanup_imsics path,
+which frees both aplic_state and aplic_state->irqs. The concurrent
+has_attr path can then dereference the freed aplic->irqs in
+aplic_read_pending():
+	irqd = &aplic->irqs[irq];   /* UAF here */
 
-> The preferred node name for fixed-regulators has changed to pattern [1]:
->  '^regulator(-[0-9]+v[0-9]+|-[0-9a-z-]+)?$'
->
-> Adjust all SpacemiT DT regulator node names to fix this.
->
-> Link: https://lore.kernel.org/r/20240426215147.3138211-1-robh@kernel.org [1]
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-> ---
-> In Review of adding DTS for OrangePi, Chukun mentioned fixed-regulator
-> has preferred node names [1], so let's change it now.
->
-> This isn't strictly a bug, so I've not added the Fixes tag.
->
-> Link: https://lore.kernel.org/r/20260123145015.1926865-1-amadeus@jmu.edu.cn [1]
-> ---
->  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   | 10 +++++-----
->  arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts |  4 ++--
->  2 files changed, 7 insertions(+), 7 deletions(-)
->
+KASAN report:
+ BUG: KASAN: slab-use-after-free in aplic_read_pending
+             arch/riscv/kvm/aia_aplic.c:119 [inline]
+ BUG: KASAN: slab-use-after-free in aplic_read_pending_word
+             arch/riscv/kvm/aia_aplic.c:351 [inline]
+ BUG: KASAN: slab-use-after-free in aplic_mmio_read_offset
+             arch/riscv/kvm/aia_aplic.c:406
+ Read of size 8 at addr ff600000ba965d58 by task 9498
+ Call Trace:
+  aplic_read_pending arch/riscv/kvm/aia_aplic.c:119 [inline]
+  aplic_read_pending_word arch/riscv/kvm/aia_aplic.c:351 [inline]
+  aplic_mmio_read_offset arch/riscv/kvm/aia_aplic.c:406
+  kvm_riscv_aia_aplic_has_attr arch/riscv/kvm/aia_aplic.c:566
+  aia_has_attr arch/riscv/kvm/aia_device.c:469
+ allocated by task 9473:
+  kvm_riscv_aia_aplic_init arch/riscv/kvm/aia_aplic.c:583
+  aia_init arch/riscv/kvm/aia_device.c:248 [inline]
+  aia_set_attr arch/riscv/kvm/aia_device.c:334
+ freed by task 9473:
+  kvm_riscv_aia_aplic_cleanup arch/riscv/kvm/aia_aplic.c:644
+  aia_init arch/riscv/kvm/aia_device.c:292 [inline]
+  aia_set_attr arch/riscv/kvm/aia_device.c:334
 
-Looks good to me.
+Fix this race by acquiring dev->kvm->lock in aia_has_attr() before
+calling kvm_riscv_aia_aplic_has_attr(), consistent with the locking
+pattern used in aia_get_attr() and aia_set_attr().
 
-Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
+Fixes: 289a007b98b06d ("RISC-V: KVM: Expose APLIC registers as attributes of AIA irqchip")
+Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+---
+V1 -> V2:
+- Fixed the race by adding locking in aia_has_attr() instead of
+  introducing a new validation function, as suggested by Anup Patel.
+---
+ arch/riscv/kvm/aia_device.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
+diff --git a/arch/riscv/kvm/aia_device.c b/arch/riscv/kvm/aia_device.c
+index b195a93add1ce..ef944d7097d29 100644
+--- a/arch/riscv/kvm/aia_device.c
++++ b/arch/riscv/kvm/aia_device.c
+@@ -466,7 +466,9 @@ static int aia_has_attr(struct kvm_device *dev, struct kvm_device_attr *attr)
+ 		}
+ 		break;
+ 	case KVM_DEV_RISCV_AIA_GRP_APLIC:
++		mutex_lock(&dev->kvm->lock);
+ 		return kvm_riscv_aia_aplic_has_attr(dev->kvm, attr->attr);
++		mutex_unlock(&dev->kvm->lock);
+ 	case KVM_DEV_RISCV_AIA_GRP_IMSIC:
+ 		return kvm_riscv_aia_imsic_has_attr(dev->kvm, attr->attr);
+ 	}
 -- 
-Best regards,
-
-Javier Martinez Canillas
-Core Platforms
-Red Hat
+2.34.1
 
 
 _______________________________________________
