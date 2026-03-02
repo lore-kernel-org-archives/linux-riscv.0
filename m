@@ -4,86 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B679EE9B37C
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 13:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8082FD58E48
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 13:28:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=v7yNvtx36VurRulwtdswt2GI7JxcjogAVnfBVY7l2jw=; b=1FT93GRRo5hRoV
-	iMjBJZuee0ng/9cppH/jXyCfXuo6/821bH/mGft2GyEpEo+jWTERj48etW+/tk1oysXDEyRN//VX2
-	EDt1KNdDZe3z+jvyUTk+tO9AdQWa7YTppkiBY1rWJG92WzTgDwhW9FraDNgwD/46iqhKIbbuHKJiE
-	1nBbULbCS0jvGtiVhXA+LAvjeynXn4/vS9uVoJYYXJ29YZHoobdLkeNqOlCl04DpBWVK5LVj85z4D
-	2QfjfC1efyhFKQsNvnL3TNZ6OaFaTNfxrexr0WoEQ0T/W/WTFc09SEagtW5iaFtsdODp79aOOPZuA
-	L86as0Ao/WC7sgao7d+g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Brmjjfl1KNHN2DF4dx+TgBq+6LI5VbQVACarALySqcU=; b=q3VD1TTYLum4R1
+	NI4aFNp3CNnJ0bQKoowdapKob849QFEs7+eiHo7spx2D9/zdwHQwkDfUEKoYLkIfAF66fSTzVzMbX
+	n6+xRCHRrzVWeLXlGKvCJ1dfBhcmkaW2SjD7c5Rm2EEtT+47V3DplRVMnd8iclMZ/sZNmnfs0eDLb
+	F8fneyKFVyUTNdJQoQ7CO5mvxL5xIxuxahJg1CNCOSrEwkwTwp9Kg6G+byOIr3dCfklA0lpFIoYKb
+	3t4j6AZYkB8B3VLCb80EJh+T10YC5MRcCg/DyAwSNM9CVYTIyqRicFcTW8ziraJpnPaDh85v0R4cT
+	NSY+PPY8s8L0Cm0TmYjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3J1-0000000D6Gw-1gfa;
-	Mon, 02 Mar 2026 13:27:27 +0000
+	id 1vx3K9-0000000D6W7-1gtm;
+	Mon, 02 Mar 2026 13:28:37 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3J0-0000000D6GV-1Vzw;
-	Mon, 02 Mar 2026 13:27:26 +0000
+	id 1vx3K8-0000000D6Uz-0bNS
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 02 Mar 2026 13:28:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=RuZFEnl9j78powhTNWsrxd/rXdyRxdzz6mO/eVLrOq4=; b=moKm62tyqw/w178p8wbUO3CMWB
-	7v+21OZ3mZaAnHFYio2uYB+Vrr0mX0HNATNeQEfD82GwigwUfr+LvskZ82kghDbj8f6Plbd3uFF/f
-	EPn+LwG0DU7nssTBruuzTAU0cGxYWYonFKAezQgiLZoC068BanTJALqjHBLd83HgPkoLej6Hg8Hlb
-	Sv77gZgvIx4cXK07KaCXmt+G/t1AboW4LbsoDndCR/TbiBlIm2LlgNBBkzSn8br0/FFmcvucCGCQJ
-	J+63looI4ViUi8t5gHrs/Z+Bv2eb9LyW+fv4+W+OAWvWPwhdTJhh3pAOcw+MByrc/vWS7wNwbhEQt
-	RRniTyhQ==;
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	:References:In-Reply-To:Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:
+	Content-Type:Content-ID:Content-Description;
+	bh=gjy8VzZho98qn7gDgAP8doLSL96/gQyRo0dz/GrFn7E=; b=BVlTvbsr5wOSSImWnN1c4WkfJE
+	lLWqpDsvA9sw/9G2eNLWWvfSVVJm6cJld2PEWcfUYPMA0LlQcVnVbvVWD9muCl5nwqHcXr4KQCSuk
+	Rh1FodD9CLkO96o0taTA4J2IM5Quj18EfcFlkGGQlIMR0YsaTa/Lxc6KUL96LoV2udn/wNt6zi/oi
+	CdxgnTAUeqcB/f7bezE3kRFJmZ02ICL/sFVZdT8mqmeI+VHwWojaD7TW8ottS9vRLlujboqaM76PD
+	1KKBQiQqeDoq0gBDkWYp7l4BVZBVSN6x5En2fGuKInWjWDLalZ/dK7Xv4kfSEf/6NUV8nXzMuIbAz
+	vJr3QlxA==;
+Received: from mailtransmit04.runbox.com ([2a0c:5a00:149::25])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3Iv-000000009rs-0z7z;
-	Mon, 02 Mar 2026 13:27:24 +0000
-Received: from fric.. (unknown [210.73.43.101])
-	by APP-01 (Coremail) with SMTP id qwCowABXw24pkKVpxM0bCQ--.814S2;
-	Mon, 02 Mar 2026 21:27:05 +0800 (CST)
-From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-To: linux-kernel@vger.kernel.org,
+	id 1vx3K4-00000000A4f-2nnr
+	for linux-riscv@lists.infradead.org;
+	Mon, 02 Mar 2026 13:28:34 +0000
+Received: from mailtransmit02.runbox ([10.9.9.162] helo=aibo.runbox.com)
+	by mailtransmit04.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.93)
+	(envelope-from <david.laight.linux_spam@runbox.com>)
+	id 1vx3Jw-003ZDu-8P; Mon, 02 Mar 2026 14:28:24 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=runbox.com;
+	 s=selector2; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To
+	:Message-Id:Date:Subject:To:From;
+	bh=gjy8VzZho98qn7gDgAP8doLSL96/gQyRo0dz/GrFn7E=; b=WNKhqMbveWP+K3PmL7U2N/ZjgC
+	CRkQIzZeOHgk5k2HnpMOotG24V0hTJvr6OyT7PqOl2Dm4nA4urOR3OWpHobtPgDSlAr7nWHDbEPwt
+	tSQA2Q7DOv2iXbAH5WTGLe+U0ioyZh17n7ApFQAc/XkWeA54mqXch5dDYlog2nx7U8hngM1sDJ11s
+	tNRhThx7ejIxz+T6UR24ZnQQNxcdrxg2eAm04+CH6ikcFduLKZhvpfDwjgDgloDXZCXGRn/V4LJTr
+	wYXmGMM3HPxkLojYe9Z7XsbLpV20rgoagwKiSMoPtipXBJZirNaVllMP0+p8CbfIcQhj00YQaveaN
+	J3vQaaWw==;
+Received: from [10.9.9.73] (helo=submission02.runbox)
+	by mailtransmit02.runbox with esmtp (Exim 4.86_2)
+	(envelope-from <david.laight.linux_spam@runbox.com>)
+	id 1vx3Ju-0003tB-95; Mon, 02 Mar 2026 14:28:22 +0100
+Received: by submission02.runbox with esmtpsa  [Authenticated ID (1493616)]  (TLS1.2:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.93)
+	id 1vx3Jg-008UTR-FQ; Mon, 02 Mar 2026 14:28:08 +0100
+From: david.laight.linux@gmail.com
+To: Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andre Almeida <andrealmeid@igalia.com>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Darren Hart <dvhart@infradead.org>,
+	David Laight <david.laight.linux@gmail.com>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Jan Kara <jack@suse.cz>,
+	Julia Lawall <Julia.Lawall@inria.fr>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-s390@vger.kernel.org,
+	LKML <linux-kernel@vger.kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Nicolas Palix <nicolas.palix@imag.fr>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Anup Patel <anup@brainfault.org>,
-	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
-	Jiakai Xu <jiakaiPeanut@gmail.com>
-Subject: [PATCH v3] RISC-V: KVM: Fix use-after-free in kvm_riscv_aia_aplic_has_attr()
-Date: Mon,  2 Mar 2026 13:27:03 +0000
-Message-Id: <20260302132703.1721415-1-xujiakai2025@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Paul Walmsley <pjw@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	x86@kernel.org,
+	Kees Cook <kees@kernel.org>,
+	akpm@linux-foundation.org
+Subject: [PATCH v2 1/5] uaccess: Fix scoped_user_read_access() for 'pointer to const'
+Date: Mon,  2 Mar 2026 13:27:51 +0000
+Message-Id: <20260302132755.1475451-2-david.laight.linux@gmail.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260302132755.1475451-1-david.laight.linux@gmail.com>
+References: <20260302132755.1475451-1-david.laight.linux@gmail.com>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABXw24pkKVpxM0bCQ--.814S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWF4fGF45WF4DGrWrGF1rJFb_yoWrJw1xpF
-	WrCFyDArW5Gw1xGrZxtw1kXw429r4Yk3W3GrWUWrWI9rsxtrWxtr9a9ryjvr4YyFW8Jasa
-	qF4Ykas5ur45JF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBE14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVW8JVWxJw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAG
-	YxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwV
-	W5GwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
-	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2
-	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
-	Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMI
-	IF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUVc_fUUUUU
-	=
-X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiDAcOCWmljDcJNwAAsF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_132721_782992_680D56BF 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20260302_132832_866842_73E2690B 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,93 +124,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fuzzer reports a KASAN use-after-free bug triggered by a race
-between KVM_HAS_DEVICE_ATTR and KVM_SET_DEVICE_ATTR ioctls on the AIA
-device. The root cause is that aia_has_attr() invokes
-kvm_riscv_aia_aplic_has_attr() without holding dev->kvm->lock, while
-a concurrent aia_set_attr() may call aia_init() under that lock. When
-aia_init() fails after kvm_riscv_aia_aplic_init() has succeeded, it
-calls kvm_riscv_aia_aplic_cleanup() in its fail_cleanup_imsics path,
-which frees both aplic_state and aplic_state->irqs. The concurrent
-has_attr path can then dereference the freed aplic->irqs in
-aplic_read_pending():
-	irqd = &aplic->irqs[irq];   /* UAF here */
+From: David Laight <david.laight.linux@gmail.com>
 
-KASAN report:
- BUG: KASAN: slab-use-after-free in aplic_read_pending
-             arch/riscv/kvm/aia_aplic.c:119 [inline]
- BUG: KASAN: slab-use-after-free in aplic_read_pending_word
-             arch/riscv/kvm/aia_aplic.c:351 [inline]
- BUG: KASAN: slab-use-after-free in aplic_mmio_read_offset
-             arch/riscv/kvm/aia_aplic.c:406
- Read of size 8 at addr ff600000ba965d58 by task 9498
- Call Trace:
-  aplic_read_pending arch/riscv/kvm/aia_aplic.c:119 [inline]
-  aplic_read_pending_word arch/riscv/kvm/aia_aplic.c:351 [inline]
-  aplic_mmio_read_offset arch/riscv/kvm/aia_aplic.c:406
-  kvm_riscv_aia_aplic_has_attr arch/riscv/kvm/aia_aplic.c:566
-  aia_has_attr arch/riscv/kvm/aia_device.c:469
- allocated by task 9473:
-  kvm_riscv_aia_aplic_init arch/riscv/kvm/aia_aplic.c:583
-  aia_init arch/riscv/kvm/aia_device.c:248 [inline]
-  aia_set_attr arch/riscv/kvm/aia_device.c:334
- freed by task 9473:
-  kvm_riscv_aia_aplic_cleanup arch/riscv/kvm/aia_aplic.c:644
-  aia_init arch/riscv/kvm/aia_device.c:292 [inline]
-  aia_set_attr arch/riscv/kvm/aia_device.c:334
+If a 'const struct foo __user *ptr' is used for the address passed
+to scoped_user_read_access() then you get a warning/error
+uaccess.h:691:1: error: initialization discards 'const' qualifier
+    from pointer target type [-Werror=discarded-qualifiers]
+for the
+    void __user *_tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl)
+assignment.
 
-Fix this race by acquiring dev->kvm->lock in aia_has_attr() before
-calling kvm_riscv_aia_aplic_has_attr(), consistent with the locking
-pattern used in aia_get_attr() and aia_set_attr().
+Fix by using 'auto' for both _tmpptr and the redeclaration of uptr.
+Replace the CLASS() with explicit __cleanup() functions on uptr.
 
-Fixes: 289a007b98b06d ("RISC-V: KVM: Expose APLIC registers as attributes of AIA irqchip")
-Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
-Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Fixes: e497310b4ffb "(uaccess: Provide scoped user access regions)"
+Signed-off-by: David Laight <david.laight.linux@gmail.com>
 ---
-V2 -> V3:
-- Fixed incorrect locking pattern in aia_has_attr(): avoid returning
-  while holding dev->kvm->lock by storing the return value in a local
-  variable, unlocking, and then returning.
-V1 -> V2:
-- Fixed the race by adding locking in aia_has_attr() instead of
-  introducing a new validation function, as suggested by Anup Patel.
----
- arch/riscv/kvm/aia_device.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+ include/linux/uaccess.h | 54 +++++++++++++++--------------------------
+ 1 file changed, 20 insertions(+), 34 deletions(-)
 
-diff --git a/arch/riscv/kvm/aia_device.c b/arch/riscv/kvm/aia_device.c
-index b195a93add1ce..0722cbaed5ec9 100644
---- a/arch/riscv/kvm/aia_device.c
-+++ b/arch/riscv/kvm/aia_device.c
-@@ -437,7 +437,7 @@ static int aia_get_attr(struct kvm_device *dev, struct kvm_device_attr *attr)
+diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
+index 1f3804245c06..809e4f7dfdbd 100644
+--- a/include/linux/uaccess.h
++++ b/include/linux/uaccess.h
+@@ -647,36 +647,22 @@ static inline void user_access_restore(unsigned long flags) { }
+ /* Define RW variant so the below _mode macro expansion works */
+ #define masked_user_rw_access_begin(u)	masked_user_access_begin(u)
+ #define user_rw_access_begin(u, s)	user_access_begin(u, s)
+-#define user_rw_access_end()		user_access_end()
  
- static int aia_has_attr(struct kvm_device *dev, struct kvm_device_attr *attr)
- {
--	int nr_vcpus;
-+	int nr_vcpus, r = -ENXIO;
+ /* Scoped user access */
+-#define USER_ACCESS_GUARD(_mode)				\
+-static __always_inline void __user *				\
+-class_user_##_mode##_begin(void __user *ptr)			\
+-{								\
+-	return ptr;						\
+-}								\
+-								\
+-static __always_inline void					\
+-class_user_##_mode##_end(void __user *ptr)			\
+-{								\
+-	user_##_mode##_access_end();				\
+-}								\
+-								\
+-DEFINE_CLASS(user_ ##_mode## _access, void __user *,		\
+-	     class_user_##_mode##_end(_T),			\
+-	     class_user_##_mode##_begin(ptr), void __user *ptr)	\
+-								\
+-static __always_inline class_user_##_mode##_access_t		\
+-class_user_##_mode##_access_ptr(void __user *scope)		\
+-{								\
+-	return scope;						\
+-}
  
- 	switch (attr->group) {
- 	case KVM_DEV_RISCV_AIA_GRP_CONFIG:
-@@ -466,12 +466,15 @@ static int aia_has_attr(struct kvm_device *dev, struct kvm_device_attr *attr)
- 		}
- 		break;
- 	case KVM_DEV_RISCV_AIA_GRP_APLIC:
--		return kvm_riscv_aia_aplic_has_attr(dev->kvm, attr->attr);
-+		mutex_lock(&dev->kvm->lock);
-+		r = kvm_riscv_aia_aplic_has_attr(dev->kvm, attr->attr);
-+		mutex_unlock(&dev->kvm->lock);
-+		return r;
- 	case KVM_DEV_RISCV_AIA_GRP_IMSIC:
- 		return kvm_riscv_aia_imsic_has_attr(dev->kvm, attr->attr);
- 	}
+-USER_ACCESS_GUARD(read)
+-USER_ACCESS_GUARD(write)
+-USER_ACCESS_GUARD(rw)
+-#undef USER_ACCESS_GUARD
++/* Cleanup wrapper functions */
++static __always_inline void __scoped_user_read_access_end(const void *p)
++{
++	user_read_access_end();
++};
++static __always_inline void __scoped_user_write_access_end(const void *p)
++{
++	user_write_access_end();
++};
++static __always_inline void __scoped_user_rw_access_end(const void *p)
++{
++	user_access_end();
++};
  
--	return -ENXIO;
-+	return r;
- }
+ /**
+  * __scoped_user_access_begin - Start a scoped user access
+@@ -750,13 +736,13 @@ USER_ACCESS_GUARD(rw)
+  *
+  * Don't use directly. Use scoped_masked_user_$MODE_access() instead.
+  */
+-#define __scoped_user_access(mode, uptr, size, elbl)					\
+-for (bool done = false; !done; done = true)						\
+-	for (void __user *_tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl); \
+-	     !done; done = true)							\
+-		for (CLASS(user_##mode##_access, scope)(_tmpptr); !done; done = true)	\
+-			/* Force modified pointer usage within the scope */		\
+-			for (const typeof(uptr) uptr = _tmpptr; !done; done = true)
++#define __scoped_user_access(mode, uptr, size, elbl)				\
++for (bool done = false; !done; done = true)					\
++	for (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl);	\
++	     !done; done = true)						\
++		/* Force modified pointer usage within the scope */		\
++		for (const auto uptr  __cleanup(__scoped_user_##mode##_access_end) = \
++		     _tmpptr; !done; done = true)
  
- struct kvm_device_ops kvm_riscv_aia_device_ops = {
+ /**
+  * scoped_user_read_access_size - Start a scoped user read access with given size
 -- 
-2.34.1
+2.39.5
 
 
 _______________________________________________
