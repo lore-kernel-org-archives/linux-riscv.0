@@ -4,85 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 480C5D58E78
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 07:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 180B7D58E73
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 07:42:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sws1SOHFOXELMcJBSdfdTBGkYp2YRpL0ghnXoOLqcPc=; b=v32734ZjwsjY+K
-	Xz7NSCBxYvGmmhklVuy20sw+ypLn916Qe7vYZ/wtsQSO0eBhcRJCa0PjUZa+dEof5CNFi1rY8ONK2
-	rwkWX/96ytam89OZyq73RRvdOoxWXiMKx3lH5HfPNxHO63XZHpo5tLOKKJ/aJpoXuT5Ls8CnnFVd0
-	8Qbw2vHmxP14uzSkF0+Tkmr0HA9FgIpfzeGbJwQBw1uU9OieZDF1khUrnmbMhCBbYTIzjPw/iUYPW
-	pNOqglsCQ4GMQ7t8pMytppg3Uup7zDKaZMx5la4qqBNprPnoULzFZGe3YBc9A5ICMUAU/0KTWeMW0
-	7ykzNlmsQJRDuZjc4Kbg==;
+	List-Owner; bh=138I4MHfX1fm4ViDwCp7VKdBiSmR07ipGrAIq3eN7/Q=; b=z2nxUY4+OIdhnd
+	cNFHP5QEO5auNdvE918B9kWc+LtNsSiCfbCzKHTPzWY3AtUvvrW2fs/s9C9j6pWUMkQhwYMRLXr1M
+	v2yCi78u4NzyHcWQpEWfgOZ8efl1ldP6HHLgdFiWoY0Jl8KiF0HqazGN0K6O5ywXfB5suNmcHAzs4
+	9awc0LddIiAHwZ2jjjwwYKhI9K6thgq7fc1h7SIEYGMFvgbgWiaSxq3kXVG0S3rzeRTGS08CKIBMd
+	oKEy00PMtDp26uOUlm2eMKNR5lb66v8fLeAMQY10oXcg9eWX5eY2gtbZ+YQEdfvz2XEbsYK/OCSd1
+	JEzd3Vp4K4RGk0eOQpGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwxsS-0000000CQfi-2ruA;
-	Mon, 02 Mar 2026 07:39:40 +0000
-Received: from s3.sipsolutions.net ([2a01:4f8:242:246e::2] helo=sipsolutions.net)
+	id 1vwxvS-0000000CQy1-1TWs;
+	Mon, 02 Mar 2026 07:42:46 +0000
+Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwxsQ-0000000CQf8-1bya;
-	Mon, 02 Mar 2026 07:39:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
-	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
-	Resent-Cc:Resent-Message-ID; bh=s0B14b5FSBUEgAk+L55J5WroPPngMpauRKzhBytrof4=;
-	t=1772437178; x=1773646778; b=GYcBMok1DL44WP+KYBsA0AB73Qda1UX8oQuMUWHvDLcILsM
-	4VHCx51eIielzkeCkO2Sia7bAf3fHggAQP+GmN9QcMH6IgWCSwNcOpz5JnBOyM9M1cSF8uR4UAYjp
-	WZopfLoU0OcxI6vMVmYAJgHxBJotx5LkesU4WsDwaF1rZi6hDPgXhs7qUX8YClqIGg/H52wb1jPYH
-	j36Vqy592QUCSWVYMJZ4XjYBZTLpwHek40K/UYfuGe1noqCp7x3UEFAOhPRolfvljgtZgWtvMcykY
-	XCDNkitE1CcwLl4l7QFGewrScn7ZJskUyBKyFRGD+MM/LNKkjlvseknf6UcBt+gQ==;
-Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.98.2)
-	(envelope-from <johannes@sipsolutions.net>)
-	id 1vwxrd-00000005zul-3cbJ;
-	Mon, 02 Mar 2026 08:38:50 +0100
-Message-ID: <3e3f46aca653cf99799111279fc554b4ca31f6b7.camel@sipsolutions.net>
-Subject: Re: [PATCH 03/25] um/xor: don't override XOR_SELECT_TEMPLATE
-From: Johannes Berg <johannes@sipsolutions.net>
-To: Eric Biggers <ebiggers@kernel.org>, Christoph Hellwig <hch@lst.de>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Richard Henderson	
- <richard.henderson@linaro.org>, Matt Turner <mattst88@gmail.com>, Magnus
- Lindholm <linmag7@gmail.com>, Russell King <linux@armlinux.org.uk>, Catalin
- Marinas	 <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai
- Chen	 <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Madhavan
- Srinivasan	 <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin	 <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)"
- <chleroy@kernel.org>,  Paul Walmsley	 <pjw@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou	 <aou@eecs.berkeley.edu>, Alexandre Ghiti
- <alex@ghiti.fr>, Heiko Carstens	 <hca@linux.ibm.com>, Vasily Gorbik
- <gor@linux.ibm.com>, Alexander Gordeev	 <agordeev@linux.ibm.com>, Christian
- Borntraeger <borntraeger@linux.ibm.com>,  Sven Schnelle
- <svens@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas
- Larsson	 <andreas@gaisler.com>, Richard Weinberger <richard@nod.at>, Anton
- Ivanov	 <anton.ivanov@cambridgegreys.com>, Thomas Gleixner
- <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, Dave Hansen	 <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>,  Herbert Xu
- <herbert@gondor.apana.org.au>, Dan Williams <dan.j.williams@intel.com>,
- Chris Mason	 <clm@fb.com>, David Sterba <dsterba@suse.com>, Arnd Bergmann
- <arnd@arndb.de>,  Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
- Li Nan <linan122@huawei.com>, 	linux-alpha@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, 	linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, 	linux-s390@vger.kernel.org,
- sparclinux@vger.kernel.org, 	linux-um@lists.infradead.org,
- linux-crypto@vger.kernel.org, 	linux-btrfs@vger.kernel.org,
- linux-arch@vger.kernel.org, 	linux-raid@vger.kernel.org
-Date: Mon, 02 Mar 2026 08:38:47 +0100
-In-Reply-To: <20260228043006.GA65277@quark>
-References: <20260226151106.144735-1-hch@lst.de>
-	 <20260226151106.144735-4-hch@lst.de> <20260228043006.GA65277@quark>
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1vwxvP-0000000CQxe-0I8d
+	for linux-riscv@lists.infradead.org;
+	Mon, 02 Mar 2026 07:42:44 +0000
+Received: from localhost (unknown [116.232.48.232])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 1572F341E82;
+	Mon, 02 Mar 2026 07:42:39 +0000 (UTC)
+Date: Mon, 2 Mar 2026 15:42:35 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, conor+dt@kernel.org,
+	devicetree@vger.kernel.org, dlan@kernel.org, krzk+dt@kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com, pjw@kernel.org, robh@kernel.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH 1/1] riscv: dts: spacemit: Add 'linux,pci-domain' to PCIe
+ nodes for K1
+Message-ID: <20260302074235-GYB288339@gentoo.org>
+References: <20260202100000.19176-1-amadeus@jmu.edu.cn>
+ <20260302071502.63672-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-X-malware-bazaar: not-scanned
+Content-Disposition: inline
+In-Reply-To: <20260302071502.63672-1-amadeus@jmu.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_233938_445126_6FAB5517 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20260301_234243_136650_B50CEB5F 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,33 +69,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2026-02-27 at 20:30 -0800, Eric Biggers wrote:
-> On Thu, Feb 26, 2026 at 07:10:15AM -0800, Christoph Hellwig wrote:
-> > XOR_SELECT_TEMPLATE is only ever called with a NULL argument, so all the
-> > ifdef'ery doesn't do anything.  With our without this, the time travel
-> > mode should work fine on CPUs that support AVX2, as the AVX2
-> > implementation is forced in this case, and won't work otherwise.
+Hi Chukun,
+
+On 15:15 Mon 02 Mar     , Chukun Pan wrote:
+> Hi,
 > 
-[snip]
+> > The SpacemiT K1 SoC has 3 PCIe EP controller nodes. Add the
+> > 'linux,pci-domain' property to assign a PCI domain number to
+> > each of the controllers instead of assigning it randomly.
+> 
+> Does anyone have any thoughts on this?
+> Without this patch, the PCI domain number is random.
+> 
+You describe what's has been done here, but no why?
+Can you add description about why problem with random domain,
+and the motivation of the change behind?
 
-> I'm not following this change.  Previously, in TT_MODE_INFCPU mode,
-> XOR_SELECT_TEMPLATE(NULL) returned &xor_block_avx, &xor_block_sse_pf64,
-> or &xor_block_8regs, causing the benchmark to be skipped.  After this
-> change, the benchmark starts being done on CPUs that don't support AVX.
+from my understanding of reading DT document, either way seems
+fine..
 
-Yeah the commit message is confusing - the change itself is really
-trading one (potential?) issue (CPUs w/o AVX) against another old issue
-(benchmark never terminates in TT_MODE_INFCPU).
+> ```
+> /# find /sys/devices -name net
+> /sys/devices/platform/soc/soc:pcie-bus/ca800000.pcie/pci0001:00/0001:00:00.0/0001:01:00.0/net
+> /sys/devices/platform/soc/soc:pcie-bus/ca400000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net
+> 
+> /# find /sys/devices -name net
+> /sys/devices/platform/soc/soc:pcie-bus/ca800000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net
+> /sys/devices/platform/soc/soc:pcie-bus/ca400000.pcie/pci0001:00/0001:00:00.0/0001:01:00.0/net
+> ```
+> 
+> Thanks,
+> Chukun
+> 
 
-However, since commit c055e3eae0f1 ("crypto: xor - use ktime for
-template benchmarking") the latter issue doesn't even exist any more, so
-it now works without it, though it doesn't really benchmark anything.
-But that's fine too, nobody is going to be overly concerned about the
-performance here, I think, and if so there's really no good way to fix
-that other than providing a config option for an individual
-implementation.
-
-johannes
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
