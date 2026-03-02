@@ -4,67 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED2E5EB3622
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 17:14:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6359EB3625
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 17:25:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yg+vxObzF9goCOr2QbAilHEuEbHTIVFTFnktU5CPVxY=; b=ZdYJExtiyjyda1WyES1Ml5AYtE
-	w1xOL6yyoCXvENQYGeqQXAfudNkvtPmjCE9TgH4vTjf6kKDY2F1gu8NOtAN4rLUAul7tfpsUkZJKw
-	IJNj1wIY3kFkC3e+MMpbjAL/HpMCwsu7up+MD0/ppesxjEh1BMpWB1ibTQaCX6bzeIPQ5b23olr/h
-	/8Spl4tTgxpnMUI3bf6qAZ5biRTEuvD+SmzAuiu6XhYa7kCpeLDPgKRPVFzxjHeKKCYmbxtafVjt2
-	ceKUPQWcq5UjdoLgwM9Xy7mpGVSzInFq6B+2ms/friNO+/t8WJphlz9YnjCNQEUnQCm6EpXH7cJmW
-	rGJ823bg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=afTm1b7o25ACtjl6cvdJhSzWUO/Xsg5WOM36Dfgtcxo=; b=krivfw/biRElf0
+	x8mqlo2+ElCu8bT1vLS/CL/fF1pz47fYrPP+B77QXUtxxckecydbJT971yk/Wp+k4GOSgaN+2ptVA
+	CyMBtYn3wRt13UiZV8Pckhvp9uSkJNPFgAlUUtwVS1KwCY7v4Cfl4VWEpw1vcbnH9CysZo9jPj2os
+	Mv6SD7RgFhczMVChd2lbnwsHmgy0VXuUuy8q3B+xLGJzV0btLQpigKrD8x9FVARMV+fpE/gKsMhg7
+	sm0m0ng7r/7YhRaJIF+grDoJ9tnodIRe9hspGa65HrZ9ZVcwEUP9en2aDndmCBxoS+5kJo+twefpF
+	EMyeRma9tHYwlFM/k9Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6q4-0000000DZNo-1fGu;
-	Mon, 02 Mar 2026 17:13:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vx70m-0000000DaP1-1V5Z;
+	Mon, 02 Mar 2026 17:24:52 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6q1-0000000DZNH-2Lur
+	id 1vx70k-0000000DaOC-2mAd
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Mar 2026 17:13:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D1C8143FA1;
-	Mon,  2 Mar 2026 17:13:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8CB3C19423;
-	Mon,  2 Mar 2026 17:13:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772471624;
-	bh=QKdJaOSGIzBxcUx9X/A3nsrNbzD/gVBg/TDbhNKK6o0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KCTIOQKnzO2RfPySqjw6WycKiSw28+Ko+GcRT/ug82GCGeGiyZZqM4f4Dvj+7DcAW
-	 SEbASDyrtCkczNgglbOuZkltfaV2WKOOn0XhRNV7Yku3ZExd3QQgzmF7h4LXNpD5iY
-	 YOT+3picLmyKFjAxzeQTKILiXDaTlb83OiHhLzw7FkEc1AGBsd6Y/Wdml0z7A9c+1J
-	 oh4TRM3nQHhbfDFGPKwNyIikBPSbVilJbR8xgXxa0Dtrc/+9mp0Ktb424lRfS3CveA
-	 yPqLYnW+mduXMWIzgTF1awwAyMjPPeptYqpIuk2YjrkeuLCytRg2FsXUrIgCQLSpYU
-	 4O7vQrQjhhU/g==
-Date: Mon, 2 Mar 2026 17:13:40 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Brian Masney <bmasney@redhat.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, linux-clk@vger.kernel.org,
-	stable@vger.kernel.org,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] clk: microchip: mpfs-ccc: fix out of bounds access
- during output registration
-Message-ID: <20260302-snort-unpicked-a15d25b4d52b@spud>
-References: <20260224-briskly-scholar-294d13464721@wendy>
- <aZ9-NWiX4wMH3Ay6@redhat.com>
- <20260225-cache-nebulizer-2f3669074fa4@spud>
- <20260225-thrive-endless-3168e0b0f916@spud>
- <aaBpBYVtt_VhuJws@redhat.com>
+	Mon, 02 Mar 2026 17:24:51 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-b934fdced05so629592866b.3
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Mar 2026 09:24:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1772472288; x=1773077088; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=TbIkpYLS9gbJFch6OaF8nYKkHDJKdsVHvQjZGTHSn/8=;
+        b=L8fF39lVtfjudgCnRed1AalCSs1DU2u7mok1bKS6g16hZtbXDv5saD1ZFEqCGzZN5e
+         VzC+rHju64ykcZu3k2OxQv7SkGP7YhtaCvsKqwkjMlxJNrA1ciHHW8FjxAevRwPbDtqc
+         WIkHlr6ctHEr4Nv4TY/CM05ASfZDa+AAdGJbc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772472288; x=1773077088;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TbIkpYLS9gbJFch6OaF8nYKkHDJKdsVHvQjZGTHSn/8=;
+        b=YOoCz0gyruX5ZED4f/bi4HNdLteIKOku/nBlGLJaB0xOfoj7oyvorSZQN+OaVYdbg8
+         PKcyTxln28p2rmf+F0Ijob1rl4AqjL1/jAuOwb+F50sdXweKDTEus6Xqs1pJEQOmXkkr
+         0V7LuTKVvS1QQZV3U7gNRt5IMNhH+tGWFvduh4Oj+1diwRHhyN6tHtzDa/lJvTFxEo2m
+         JyoAv3rvRNSkXnDCFDcUtSDQn/qLmN3b9t/mgeGeX2YoPq1Wc4d5c36E3QNg5mOe+doq
+         zbSMza0xsGhd8Yo3L5uss83omoQ17Fa1JVxPARJvsn6WrJDtsDL6xQXcaNHEW18CsrhP
+         dagQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVo4Rj29TkdIK/InryaCwn5R8OGkYzDy3F/HIyc0LBrRwQY+KSFIirO4z9NQoWIWAoqyWsJ1rdkILZCMA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPMdUeQpHXSTHUz4YAZ4T+3WltsYo1FFz3si6tX3duk89DdJU4
+	/ELnyBkYQoyViELj+bxPiP0IU3VCkqcHCZLqml63y3N57oJfvm7kI3fIWDGbPxs0fVeunVbRTdq
+	wZtkYFFEqyQ==
+X-Gm-Gg: ATEYQzwdQ2sZgqLmJduy4mBKpiDJO8zMze/xrL6CRcj6jOk4o8cjfZ7/BgDiyoBcl35
+	dtX8FR7iS9YNQK0dbIbJiU2VikmWbP/p9s2Zsrbx72hxWdoC4A0fxlTebZg3sG2byb1Ww3aXOYO
+	pzN4s1XC4hReChk08efFSqcgqgYjxmJ7GVyVdX79V3ybknUf6tRm6AvTsCOLveF9uNqHv4+U9QM
+	eymxGA69uVZSJ47OTb9Xztx6Hpw1kbOAW7G6KAUvlaQGNr/KBK138o/VgJP/P1zOl4qA5xYikbe
+	Akm0Y0b11G0ssMiJspIbvshaXerkzpiuTRkqfDSmx92U3FYFIkOl9Y3e2iOUo45Xlaz4X8jKWqK
+	uvgauyINBo0KXG7E3i+PUCXJDkSPxYY9F5i73HBrZEwBr2IqXGl5XQOn5/hkH7iOqs9ypgQXvOR
+	e3KQwyBmJGDNZw1No74r6/yxao+T+RPKL6AyZPeDsup5BYL4eRLbvCEDkdvAiRzX1ylb0/a/Go
+X-Received: by 2002:a17:907:97c6:b0:b8a:f9d7:1afe with SMTP id a640c23a62f3a-b93765c84d6mr948759766b.57.1772472288348;
+        Mon, 02 Mar 2026 09:24:48 -0800 (PST)
+Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com. [209.85.218.46])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b935ae61474sm492144066b.44.2026.03.02.09.24.48
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Mar 2026 09:24:48 -0800 (PST)
+Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-b8f992167dcso488318666b.1
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Mar 2026 09:24:48 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUx0WXuA72EDKTmJobqs7A1ltnxwBWuVbcZcSLCzVpcRL7eAGMHLYAUjSrOUk56NZdP+nzy8X4+9CgxhQ==@lists.infradead.org
+X-Received: by 2002:a17:907:25c2:b0:b8e:7dcb:7f1b with SMTP id
+ a640c23a62f3a-b93763af8f8mr867609766b.21.1772471885098; Mon, 02 Mar 2026
+ 09:18:05 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <aaBpBYVtt_VhuJws@redhat.com>
+References: <20260302132755.1475451-1-david.laight.linux@gmail.com> <20260302132755.1475451-5-david.laight.linux@gmail.com>
+In-Reply-To: <20260302132755.1475451-5-david.laight.linux@gmail.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Mon, 2 Mar 2026 09:17:48 -0800
+X-Gmail-Original-Message-ID: <CAHk-=whaR_ujJvWGTe_fZxg_d2YSORZWnXwHLa5Gao+x136pYA@mail.gmail.com>
+X-Gm-Features: AaiRm52ly83FU0bUfVtu2Rv39h3JOZJTzcdxMzg3AYFviKySZcFGK5yhPqg6aWc
+Message-ID: <CAHk-=whaR_ujJvWGTe_fZxg_d2YSORZWnXwHLa5Gao+x136pYA@mail.gmail.com>
+Subject: Re: [PATCH v2 4/5] uaccess: Disable -Wshadow in __scoped_user_access()
+To: david.laight.linux@gmail.com
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Andre Almeida <andrealmeid@igalia.com>, 
+	Andrew Cooper <andrew.cooper3@citrix.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Christian Brauner <brauner@kernel.org>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Darren Hart <dvhart@infradead.org>, 
+	Davidlohr Bueso <dave@stgolabs.net>, Heiko Carstens <hca@linux.ibm.com>, Jan Kara <jack@suse.cz>, 
+	Julia Lawall <Julia.Lawall@inria.fr>, linux-arm-kernel@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	LKML <linux-kernel@vger.kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Nicolas Palix <nicolas.palix@imag.fr>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Russell King <linux@armlinux.org.uk>, 
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, x86@kernel.org, 
+	Kees Cook <kees@kernel.org>, akpm@linux-foundation.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_091345_636967_C9B57B00 
-X-CRM114-Status: GOOD (  38.89  )
+X-CRM114-CacheID: sfid-20260302_092450_708940_6FBD787A 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,134 +113,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0935221326436678397=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, 2 Mar 2026 at 05:28, <david.laight.linux@gmail.com> wrote:
+>
+> From: David Laight <david.laight.linux@gmail.com>
+>
+> -Wshadow is enabled by W=2 builds and __scoped_user_access() quite
+> deliberately creates a 'const' shadow of the 'user' address that
+> references a 'guard page' when the application passes a kernel pointer.
 
---===============0935221326436678397==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="BSpNHjmm58g1yjQa"
-Content-Disposition: inline
+This is too ugly to live.
 
+There is no way that we should make an already unreadable macro even
+worse just because somebody - incorrectly - thinks that W=2 matters.
 
---BSpNHjmm58g1yjQa
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+No - what matters a whole lot more is keeping the kernel sources
+readable (well, at least as readable as is possible).
 
-On Thu, Feb 26, 2026 at 10:38:45AM -0500, Brian Masney wrote:
-> On Wed, Feb 25, 2026 at 11:24:59PM +0000, Conor Dooley wrote:
-> > On Wed, Feb 25, 2026 at 11:14:47PM +0000, Conor Dooley wrote:
-> > > On Wed, Feb 25, 2026 at 05:56:53PM -0500, Brian Masney wrote:
-> > > > Hi Conor,
-> > > >=20
-> > > > On Tue, Feb 24, 2026 at 09:35:25AM +0000, Conor Dooley wrote:
-> > > > > UBSAN reported an out of bounds access during registration of the=
- last
-> > > > > two outputs. This out of bounds access occurs because space is on=
-ly
-> > > > > allocated in the hws array for two PLLs and the four output divid=
-ers
-> > > > > that each has, but the defined IDs contain two DLLS and their two
-> > > > > outputs each, which are not supported by the driver. The ID order=
- is
-> > > > > PLLs -> DLLs -> PLL outputs -> DLL outputs. Decrement the PLL out=
-put IDs
-> > > > > by two while adding them to the array to avoid the problem.
-> > > > >=20
-> > > > > Fixes: d39fb172760e ("clk: microchip: add PolarFire SoC fabric cl=
-ock support")
-> > > > > CC: stable@vger.kernel.org
-> > > > > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > > > > ---
-> > > > > CC: Conor Dooley <conor.dooley@microchip.com>
-> > > > > CC: Daire McNamara <daire.mcnamara@microchip.com>
-> > > > > CC: Michael Turquette <mturquette@baylibre.com>
-> > > > > CC: Stephen Boyd <sboyd@kernel.org>
-> > > > > CC: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-> > > > > CC: linux-riscv@lists.infradead.org
-> > > > > CC: linux-clk@vger.kernel.org
-> > > > > CC: linux-kernel@vger.kernel.org
-> > > > > ---
-> > > > >  drivers/clk/microchip/clk-mpfs-ccc.c | 2 +-
-> > > > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > > > >=20
-> > > > > diff --git a/drivers/clk/microchip/clk-mpfs-ccc.c b/drivers/clk/m=
-icrochip/clk-mpfs-ccc.c
-> > > > > index 3a3ea2d142f8a..54cfbb8be8ab5 100644
-> > > > > --- a/drivers/clk/microchip/clk-mpfs-ccc.c
-> > > > > +++ b/drivers/clk/microchip/clk-mpfs-ccc.c
-> > > > > @@ -178,7 +178,7 @@ static int mpfs_ccc_register_outputs(struct d=
-evice *dev, struct mpfs_ccc_out_hw_
-> > > > >  			return dev_err_probe(dev, ret, "failed to register clock id: =
-%d\n",
-> > > > >  					     out_hw->id);
-> > > > > =20
-> > > > > -		data->hw_data.hws[out_hw->id] =3D &out_hw->divider.hw;
-> > > > > +		data->hw_data.hws[out_hw->id - 2] =3D &out_hw->divider.hw;
-> > > >=20
-> > > > What happens when / if the DLLs are supported by this driver in the
-> > > > future? This seems like a trap for the future.
-> > > >=20
-> > > > According to include/dt-bindings/clock/microchip,mpfs-clock.h, ther=
-e are
-> > > > only 16 clock IDs. Could hws be initialized to have enough room for=
- all
-> > > > 16 structures, and would it be ok if it was a sparse array?
-> > > >=20
-> > > > At the very least, I think it would be nice to include a comment he=
-re.
-> > >=20
-> > > I think I'd rather add a comment, I know it's at most only 24 extra
-> > > allocations, but just feels bad to do it.
-> >=20
-> > I'll add this, maybe on application.
-> >=20
-> > @@ -234,6 +234,10 @@ static int mpfs_ccc_probe(struct platform_device *=
-pdev)
-> >         unsigned int num_clks;
-> >         int ret;
-> > =20
-> > +       /*
-> > +        * If DLLs get added here, mpfs_ccc_register_outputs() currentl=
-y packs
-> > +        * sparse clock IDs in the hws array
-> > +        */
-> >         num_clks =3D ARRAY_SIZE(mpfs_ccc_pll_clks) + ARRAY_SIZE(mpfs_cc=
-c_pll0out_clks) +
-> >                    ARRAY_SIZE(mpfs_ccc_pll1out_clks);
->=20
-> That makes sense.
->=20
-> Reviewed-by: Brian Masney <bmasney@redhat.com>
+Because W=2 is one of those "you get what you deserve" things.
 
-I applied the patch with this comment added.
-
---BSpNHjmm58g1yjQa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaXFQQAKCRB4tDGHoIJi
-0kzGAQDTiMAn/9pA3ovo9CSKkGSKQcbIO43P1mRGblWEqMoLqQEAp5LlMMg9HYIC
-5SB4jiExbrG6ZtuwLfhWVE4Ax0vCTAg=
-=Z7oQ
------END PGP SIGNATURE-----
-
---BSpNHjmm58g1yjQa--
-
-
---===============0935221326436678397==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+             Linus
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0935221326436678397==--
-
