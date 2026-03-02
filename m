@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F4EEA4E21
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C658AEA4E20
 	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 15:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,69 +12,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zh3qkZOnCfm8L4x7kENlWGE3Xdyc9JPyuQ81fxmMJtg=; b=uJ1HDN7GvkNnn5
-	yv72OjJ3lSTqS+1dzpBB0UnL/CpSj4Y1whA5OKMkLwye/Ma0237j3p/w29I+0K74adT56Ea9Snezt
-	d2edvRRzEkPKBQM4y96G6ck2ccwt6A0EdZwl5yp3UUrQ7cQvz42revlkW7jO1pwgu3FnRkHIxipZU
-	e/nHclTJ60CCJFNEDJ9eMwtE/mJJbG7Muujq3o+i+xfG/YbAXT0BH9ellAZYHPZbrYgFFh/Gm1zjh
-	11vw4ri48bwrfzDpgHE26lH7FtyuKkIdnRDOjUsDXCFwKUnncFqn0wJIZs+v11gZmxZI+0tjnbC23
-	EUdb8k/KlwQpIHzPJQzg==;
+	List-Owner; bh=uPRPxz4EAO8KaDH50JNs+mZtRTq9Xu4PTHLoAG3M8/s=; b=bsgVP06CwqEeYr
+	EFG1sYs7I2LgmZrDqodFWq6BtPRh6uH2wS4T1NmcxOZO54d1H7PznW5QChKfv+gIN8jLHKo0ZOMvy
+	jaOXa05ARo7zvm11UmO+XIMt7BTDjCE0fHaKwWpEmEACUOtUvKCNtgS272xypaZQ+PpZBp2Czkrad
+	P9ngBzx3Xm6VhV0SY0nYEriSZRdggqks1H67vKLOF9n78Y2forJ1EaHSA1lUnVXIuzwThQm0PuGnt
+	rvrgQZFEyGjT4izJpKysz4RetciuEKXRej93tsND9dUNgZrB+sKXpi5VBS0EoYzUGNw6bvMUKAILD
+	3LO0/RUQTV1y8cppkTGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4y8-0000000DK4H-1ktk;
-	Mon, 02 Mar 2026 15:14:00 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vx4y9-0000000DK5U-2zig;
+	Mon, 02 Mar 2026 15:14:01 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4y5-0000000DK1M-2Oez
+	id 1vx4y7-0000000DK2R-1SXu
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Mar 2026 15:13:58 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-48371bb515eso70317935e9.1
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Mar 2026 07:13:56 -0800 (PST)
+	Mon, 02 Mar 2026 15:14:00 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-48372efa020so39365675e9.2
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Mar 2026 07:13:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772464435; x=1773069235; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772464437; x=1773069237; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=eBh/BEMhIYd7yMIKn9wpAoeG/vOOsjbo+uR3/+VkGQw=;
-        b=jzD2SKm0Apb9M0K36uQ2kJ3139oaDL5EceoWbvSTurmjMWfhSvZkFk+kUgbvjui4Yz
-         2xDw30PgIrVaL1AYR9vcaFeqA6YD7CTNewM+IBJM965isDRp2KclmocWuEpXpZGtS3S/
-         VxW+sBp7Kt/JVNkgXTFVlFcmbKDGGri3MaYOE5RcCBleLtcm8uECIcqE5pUNBQ8KZP4T
-         MrDSXRRsIAsYtMwlXcvoAjm34pbywbQ2VzKaQtpqZ7fdQOZaj8YTqnRl/uOJo1KfdpvY
-         zUMw3YCBsk0YcQzp96yOULeZ35+3Dky/Hm7TpiculXTOuRgKTspiGFZY9Ezfg8lBa/AA
-         fMvw==
+        bh=1vMnihDprCpz00E0mqvOLaz+xzD900tygzUTesRDljg=;
+        b=aeH5atwX9G6erlF8nkWprnAdV9sKkFLqDJewILjg8eOJ6OnYcmx60gtv4PAns2/W2y
+         m1L1m3NVCPbhhXH5LzVnq53uzscXlkqSqp+LXSsdwMxZf+8h1ZUd4wEnGf2nuSXblCjn
+         LlSwrMGPWPHElY2bnrSi5+p+jCtwNH2ggcGAd4hH/5/b9x0ikZ2DYbs3OJiSrqE4aX+Z
+         zXNVyqtfIDbL/alSWH2nw9ZcFcYRfRnE5LyUH+a4VTP7kWTOwruxIyA8XEHrahlKUoIQ
+         q9wBDbDVv7/n6ASHpEu4MEHfEoRoIj6ZkTpnFiiG8s7N2hWJme4+a+IBi8uyuIg2qW2w
+         juZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772464435; x=1773069235;
+        d=1e100.net; s=20230601; t=1772464437; x=1773069237;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=eBh/BEMhIYd7yMIKn9wpAoeG/vOOsjbo+uR3/+VkGQw=;
-        b=bUW1zFe+upwPxJwk0sadk+0OP0+V5iAYDploBCqCFsUCSZhVOHA2RbjZaZZy0EOazX
-         LoqG6BqZrUELLFEM+XnkvKuk4hJD/8Z2zIq3suwj5EaB2Di+HH6KlsqexiIC7aLCwlmT
-         1uHJuiixCNctfHbVA/JbmZj6P12Ahz9fHuOGT4aT/rhOPtRZAVgIlZ8ICrYiH+o2Tosg
-         uxN+e6rhslwCUb8SHrODfPQQICGuKwbSLSwssCKqfBiU+OvFznt1TzO7JNKAiZlXpGMB
-         suFykq/8NH09M0PB8+9AGr1zPTddTCVuzqEXiG2l5lcf+HcRk/EmJ9YIMUsUUzN41rqc
-         y5GA==
-X-Forwarded-Encrypted: i=1; AJvYcCUPvQi+hsuFMBcXT25kdZtVEoEMR/OGx08p9osAhweQQjio7zSFHq6DhOAwQOCyTO+DjXVeIkIlbe0DdQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwjH7Ql+JKh5pG4T+DwEKDrErfbApzN9gS94shenv3SWwx5dgr
-	gQY+95vxtZW8AZhvs0erucIk4BnJkqnzKT0bV7KFpM0l8GQKhMgalCme
-X-Gm-Gg: ATEYQzxBuXWesXlW7ewVqXYRUbP4HR6t6MRFqYAEDzU5+URUMnr84W3/Rf6OAwbsTBw
-	TvF1TXFA9zjGU+7OGq3O27IcsYPcDBAFo+CedPHi2PwrgM0QzVDjqxqJPx/XVSTCy0UMGy3SqUY
-	f+u6H32qj96dhLSifuEabWmromecxMyLn7EBQt4HbjQXJDv/OCZfqWGFc6S6T29gu8oSOZI4Hlk
-	fnmkbmCJc692rPEyKmAw2K/+/j/kUUaCR88Q7C0sovRKzYOAc+FhwJAy9wqHmy8zmSHPuwFT52F
-	USf8vV670oq3J+DhnRXY37zE0HvBgka8hkMe3pknYKq51P12/35tnevxIPmW+IBJhVcAiPqXzo8
-	N8fvzCL2KpDNDpK7joC06pqrC2vBR7wQLskY4aATDodzqgnz0VHdaKzrO+/RYenApP3wF7R9SiK
-	CoiQZtHatkeSmo64/smwYd+vM2IU4zUStOQqu+H4M4s50wyj4cEcKq0sAYrcJ8TvCcEA==
-X-Received: by 2002:a05:600c:3b18:b0:483:b01c:9508 with SMTP id 5b1f17b1804b1-483c9bb7c0bmr236115405e9.2.1772464435275;
-        Mon, 02 Mar 2026 07:13:55 -0800 (PST)
+        bh=1vMnihDprCpz00E0mqvOLaz+xzD900tygzUTesRDljg=;
+        b=cXO3Uv1B8fdavWWp7yvN2+zXV8ldp9eARwQkg9fiNCwEyCybGdAEFcw7VhMtleOIi8
+         lVdFRNorNB3Vt0qcYElFDMP4IJypJt/K5GXPhTLMPM0hFu9jKBUrOT5EUdVjcVnUoPCw
+         ybgShQTrRtYJy3FGt+isWvBW94M9ijxuuHDTDRzyjSAoqcIxjYZGfZ1k80RVDMFFZ2Nk
+         BJPoPOGzXv3fYqt57lqnrfwR+8NXwaiMIVDSzyaOJWj6s3xWjtaEfg474NCHZuduobgK
+         rId9flHqny0O4QLprBt403vcWBB0/JSumtCs7vTt1fY4S188fl/2s8wdbUTbQ4f8gKU/
+         /B7g==
+X-Forwarded-Encrypted: i=1; AJvYcCUoE1QiceE35jIX7dMFgDK/hjze1owKS7tpq+AyOF++sHlCOQKDYLki0SmA1OYb/B4O3zNbiuQV6InC5w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGeDH6yyhmO3vOZFsnhj8fLIHXOWwywae2H11ik2045P0LGF3Q
+	WyWu993f9BGFAtrQ72BNGW4tAN0OLvTNMihIdiLmq23oV8AdDFTCBqeq
+X-Gm-Gg: ATEYQzxDj3x2nof1J9Aq3Srl+NP5+XuxRspuyAd5/GzPG1Rsmb6m+VohDBCVR9fn0YA
+	+Z+cMd/97C8ZAclq3PyRGbRPklC1cXx8whLRbaKXS1jO2DGrDv+hpiV71upeO48ZuUdTgu+xHCU
+	D884gEGhUBNuCh1WB3SgFCXtWxKjlTjZrsBANXb5LRguC+xKIlbeZ1MSfoUSxV2VhQ9R2UGLau7
+	4QmJgxAD7wKF8S+oD/N0TR8tPNKNvRy5hQoYhrhl/jKWFnQdzXZspKvzxranNl3we9i9xdV6NIp
+	eVHrkN1UO8q9gXlT/FFLkDB6ZVhjUOSuXvA8h2Nxx3Vwc9sEbNnI6bWqYfeH7L53W6LsvihBIFV
+	bRVe5BW1AS9tEU8diKLN0z0u1Tk6DFq/h3+oDEe3MSaZeEDkX74JrJ6eNzpeAcA71QO/5iZ58aj
+	+vuCmXPXsaj/H9NzZtopKPEWbxg8dKU9lxZ74p0AhmbnZIZnDPwBYiOBA0FZF3wYk2Qg==
+X-Received: by 2002:a05:600c:c16e:b0:482:e5d4:b7ca with SMTP id 5b1f17b1804b1-483c9bbb8d3mr200785895e9.8.1772464437211;
+        Mon, 02 Mar 2026 07:13:57 -0800 (PST)
 Received: from ipedrosa-thinkpadx1carbongen12.rmtes.csb ([67.218.235.131])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bd70e692sm437240265e9.7.2026.03.02.07.13.53
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bd70e692sm437240265e9.7.2026.03.02.07.13.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Mar 2026 07:13:54 -0800 (PST)
+        Mon, 02 Mar 2026 07:13:56 -0800 (PST)
 From: Iker Pedrosa <ikerpedrosam@gmail.com>
-Date: Mon, 02 Mar 2026 16:13:25 +0100
-Subject: [PATCH 04/10] mmc: sdhci-of-k1: add pinctrl state switching for
- voltage changes
+Date: Mon, 02 Mar 2026 16:13:26 +0100
+Subject: [PATCH 05/10] mmc: sdhci-of-k1: add AIB register support for
+ voltage switching
 MIME-Version: 1.0
-Message-Id: <20260302-orangepi-sd-card-uhs-v1-4-89c219973c0c@gmail.com>
+Message-Id: <20260302-orangepi-sd-card-uhs-v1-5-89c219973c0c@gmail.com>
 References: <20260302-orangepi-sd-card-uhs-v1-0-89c219973c0c@gmail.com>
 In-Reply-To: <20260302-orangepi-sd-card-uhs-v1-0-89c219973c0c@gmail.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -90,8 +90,8 @@ Cc: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
  Iker Pedrosa <ikerpedrosam@gmail.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_071357_640772_44EED353 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20260302_071359_414966_026A08E7 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,115 +108,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for switching pinctrl states during voltage transitions to
-ensure proper pin drive strength and configuration for different I/O
-voltage domains (3.3V vs 1.8V).
+Add support for SpacemiT K1 Analog Interface Block (AIB) register
+programming required for proper UHS voltage switching. The AIB register
+controls SoC-level voltage domain coordination between the SDHCI
+controller and I/O pins.
 
-Pinctrl states are optional and the driver degrades gracefully if they
-are not defined in the device tree. This allows boards to enable proper
-pin drive strength optimization for UHS-I modes without breaking
-existing functionality.
-
-The pinctrl setup uses:
-- "default" state for 3.3V operation (higher drive strength)
-- "state_uhs" state for 1.8V operation (lower drive strength)
+- Add AIB register address parsing from device tree
+- Implement authentication sequence for secure register access
+- Add voltage domain switching for 3.3V/1.8V operation
 
 Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
 ---
- drivers/mmc/host/sdhci-of-k1.c | 59 +++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 58 insertions(+), 1 deletion(-)
+ drivers/mmc/host/sdhci-of-k1.c | 60 ++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 60 insertions(+)
 
 diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
-index c260cb89704ae7a25bec0f07831d495553405bbd..2a982bca2a50ca96f43af7b4de5bc4fb4b5b195b 100644
+index 2a982bca2a50ca96f43af7b4de5bc4fb4b5b195b..9425bde6a72541bd628997e91f957072a6266c25 100644
 --- a/drivers/mmc/host/sdhci-of-k1.c
 +++ b/drivers/mmc/host/sdhci-of-k1.c
-@@ -15,6 +15,7 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_device.h>
-+#include <linux/pinctrl/consumer.h>
- #include <linux/platform_device.h>
+@@ -68,12 +68,19 @@
+ #define  SDHC_PHY_DRIVE_SEL		GENMASK(2, 0)
+ #define  SDHC_RX_BIAS_CTRL		BIT(5)
  
- #include "sdhci.h"
-@@ -70,6 +71,9 @@
++#define  MMC1_IO_V18EN			BIT(2)
++#define  AKEY_ASFAR			0xBABA
++#define  AKEY_ASSAR			0xEB10
++
  struct spacemit_sdhci_host {
  	struct clk *clk_core;
  	struct clk *clk_io;
-+	struct pinctrl *pinctrl;
-+	struct pinctrl_state *pinctrl_default;
-+	struct pinctrl_state *pinctrl_uhs;
+ 	struct pinctrl *pinctrl;
+ 	struct pinctrl_state *pinctrl_default;
+ 	struct pinctrl_state *pinctrl_uhs;
++	u32 aib_mmc1_io_reg;
++	u32 apbc_asfar_reg;
++	u32 apbc_assar_reg;
  };
  
  /* All helper functions will update clr/set while preserve rest bits */
-@@ -219,7 +223,42 @@ static void spacemit_sdhci_pre_hs400_to_hs200(struct mmc_host *mmc)
+@@ -220,6 +227,47 @@ static void spacemit_sdhci_pre_hs400_to_hs200(struct mmc_host *mmc)
+ 			       SPACEMIT_SDHC_PHY_CTRL_REG);
+ }
+ 
++static void spacemit_sdhci_set_aib_mmc1_io(struct sdhci_host *host, int signal_voltage)
++{
++	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
++	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
++	void __iomem *aib_reg, *asfar_reg, *assar_reg;
++	u32 reg_value;
++
++	if (!sdhst->aib_mmc1_io_reg || !sdhst->apbc_asfar_reg || !sdhst->apbc_assar_reg)
++		return;
++
++	asfar_reg = ioremap(sdhst->apbc_asfar_reg, 4);
++	assar_reg = ioremap(sdhst->apbc_assar_reg, 4);
++	aib_reg = ioremap(sdhst->aib_mmc1_io_reg, 4);
++
++	if (!asfar_reg || !assar_reg || !aib_reg) {
++		dev_err(mmc_dev(host->mmc), "Failed to map AIB registers\n");
++		goto cleanup;
++	}
++
++	writel(AKEY_ASFAR, asfar_reg);
++	writel(AKEY_ASSAR, assar_reg);
++	reg_value = readl(aib_reg);
++
++	if (signal_voltage == MMC_SIGNAL_VOLTAGE_180)
++		reg_value |= MMC1_IO_V18EN;
++	else
++		reg_value &= ~MMC1_IO_V18EN;
++
++	writel(AKEY_ASFAR, asfar_reg);
++	writel(AKEY_ASSAR, assar_reg);
++	writel(reg_value, aib_reg);
++
++cleanup:
++	if (aib_reg)
++		iounmap(aib_reg);
++	if (asfar_reg)
++		iounmap(asfar_reg);
++	if (assar_reg)
++		iounmap(assar_reg);
++}
++
  static int spacemit_sdhci_start_signal_voltage_switch(struct mmc_host *mmc,
  						      struct mmc_ios *ios)
  {
--	return sdhci_start_signal_voltage_switch(mmc, ios);
-+	struct sdhci_host *host = mmc_priv(mmc);
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
-+	struct pinctrl_state *state;
-+	int ret;
-+
-+	ret = sdhci_start_signal_voltage_switch(mmc, ios);
-+	if (ret)
-+		return ret;
-+
-+	/* Select appropriate pinctrl state based on signal voltage */
-+	if (sdhst->pinctrl) {
-+		switch (ios->signal_voltage) {
-+		case MMC_SIGNAL_VOLTAGE_330:
-+			state = sdhst->pinctrl_default;
-+			break;
-+		case MMC_SIGNAL_VOLTAGE_180:
-+			state = sdhst->pinctrl_uhs;
-+			break;
-+		default:
-+			dev_warn(mmc_dev(mmc), "unsupported voltage %d\n", ios->signal_voltage);
-+			return 0;
-+		}
-+
-+		if (state) {
-+			ret = pinctrl_select_state(sdhst->pinctrl, state);
-+			if (ret) {
-+				dev_warn(mmc_dev(mmc), "failed to select pinctrl state: %d\n", ret);
-+				return 0;
-+			}
-+			dev_dbg(mmc_dev(mmc), "switched to %s pinctrl state\n",
-+				ios->signal_voltage == MMC_SIGNAL_VOLTAGE_180 ? "UHS" : "default");
-+		}
-+	}
-+
-+	return 0;
- }
- 
- static inline int spacemit_sdhci_get_clocks(struct device *dev,
-@@ -301,6 +340,24 @@ static int spacemit_sdhci_probe(struct platform_device *pdev)
+@@ -233,6 +281,8 @@ static int spacemit_sdhci_start_signal_voltage_switch(struct mmc_host *mmc,
  	if (ret)
+ 		return ret;
+ 
++	spacemit_sdhci_set_aib_mmc1_io(host, ios->signal_voltage);
++
+ 	/* Select appropriate pinctrl state based on signal voltage */
+ 	if (sdhst->pinctrl) {
+ 		switch (ios->signal_voltage) {
+@@ -341,6 +391,16 @@ static int spacemit_sdhci_probe(struct platform_device *pdev)
  		dev_warn(dev, "Failed to get regulators: %d\n", ret);
  
-+	sdhst = sdhci_pltfm_priv(pltfm_host);
-+	sdhst->pinctrl = devm_pinctrl_get(dev);
-+	if (!IS_ERR(sdhst->pinctrl)) {
-+		sdhst->pinctrl_default = pinctrl_lookup_state(sdhst->pinctrl, "default");
-+		if (IS_ERR(sdhst->pinctrl_default))
-+			sdhst->pinctrl_default = NULL;
+ 	sdhst = sdhci_pltfm_priv(pltfm_host);
 +
-+		sdhst->pinctrl_uhs = pinctrl_lookup_state(sdhst->pinctrl, "state_uhs");
-+		if (IS_ERR(sdhst->pinctrl_uhs))
-+			sdhst->pinctrl_uhs = NULL;
++	if (of_property_read_u32(dev->of_node, "spacemit,aib-mmc1-io-reg", &sdhst->aib_mmc1_io_reg))
++		sdhst->aib_mmc1_io_reg = 0;
 +
-+		dev_dbg(dev, "pinctrl setup: default=%p, uhs=%p\n",
-+			sdhst->pinctrl_default, sdhst->pinctrl_uhs);
-+	} else {
-+		sdhst->pinctrl = NULL;
-+		dev_dbg(dev, "pinctrl not available, voltage switching will work without it\n");
-+	}
++	if (of_property_read_u32(dev->of_node, "spacemit,apbc-asfar-reg", &sdhst->apbc_asfar_reg))
++		sdhst->apbc_asfar_reg = 0;
 +
- 	host->mmc_host_ops.start_signal_voltage_switch = spacemit_sdhci_start_signal_voltage_switch;
- 
- 	ret = spacemit_sdhci_get_clocks(dev, pltfm_host);
++	if (of_property_read_u32(dev->of_node, "spacemit,apbc-assar-reg", &sdhst->apbc_assar_reg))
++		sdhst->apbc_assar_reg = 0;
++
+ 	sdhst->pinctrl = devm_pinctrl_get(dev);
+ 	if (!IS_ERR(sdhst->pinctrl)) {
+ 		sdhst->pinctrl_default = pinctrl_lookup_state(sdhst->pinctrl, "default");
 
 -- 
 2.53.0
