@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90123E9B377
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 12:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81FF3E9B372
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 12:26:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2aKWsoM9BK8fUe+X2AnRHPn7grB6bEFv3IdpBQMDiYM=; b=XY9Ri1fTvxbnqw
-	iglN0lymQHdQzK98Ock/VY6SDnYUQjviVEJYW31qS90cXCCbANOWq8xrwxZqqjHgRl9OhlrPs6IN4
-	jY+woxKKj5B8iTS8ILKppEWNdavVKY81EVursa9dXIQWSeJPd4kXWarsSGE3/CprTy3HGxUwHlHwk
-	yVk6vLBxO9SoA1dk/QC1FGCjnlYBze8REfjb/2BmkSkzj3okot1gTIrZLXsWed4VTF6AarYdjIxlb
-	VbOVjAAd0oRl5OGyliflnZYi0frehim8eDtUS+aeu3qYr7ezSvcYsppvoNmcLs6Yr2h1LE3fAGZCq
-	vEwN166VKpOaPN0+qonw==;
+	List-Owner; bh=6SDSDASeLWZu1t4Z7wchymdApo5c141d76fzz9oQDKk=; b=gZU0lDE352OzhM
+	RY/dtqYoYia9gohWI68avNZEuqIVOEDkLfPOK4255h4j+sQNTlmv1TLE+2t3+kT1IaPoUSBwHrThw
+	32pdWI5lB8SPetUzXUUbxCITWcAMx+GXWQnNveuY96QF/hncz9XNJ8/Kv9OvuZQt4i9kEM4iPi1H+
+	oPR7kDnT16MfMup9CfYplXOV+15SyUuJ9M7AI10K3uoGcL6mOuOw7B9u5V6kaXXCZMpxcyi7EuEhg
+	dC+YXgE+zzofW+K3svucF89n9shjkmXOZpGYRaB0+TokNVvSsWPLpuRh6SVj4vx95yEuRgBTjNAcr
+	0c415+op58t4HRsGP7sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx2LV-0000000Cw16-1LpA;
-	Mon, 02 Mar 2026 12:25:57 +0000
+	id 1vx2LU-0000000Cvz6-05hz;
+	Mon, 02 Mar 2026 12:25:56 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx2LM-0000000CvpE-44Rr;
+	id 1vx2LM-0000000CvpC-3INK;
 	Mon, 02 Mar 2026 12:25:50 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
@@ -33,26 +33,25 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wgXUWuBQc37HPqUBgBljEt4K1lGTSpiCtiKFdFvnpEo=;
-	b=ZRJF2/RIYlZzXdvvP4EyC5ziS1eYTGNaiCpGWGAlhlhh6WP8XJtMwKY10FScMfkRk07Kpn
-	WAm0HrLrPe3V8GufiCyKFmoR+hIoDakEwVJRmOfrOG1vTfDvZthRNy9j1FqSQDBSumosRb
-	lSJyQo7Ek9W6Irxwps/fZr6+32MXQ1g940bY7aUn2wgzoOpTYYGfSmYo1TtUi2eNGBzDXQ
-	HoOKG9XkKlO6Lsynm5IwDc/mDANODBHa3D+7XWmQ4jr8Z4GRPHRxNIFyYedKVrZJWzUsgn
-	Xi/TXpXkeaoOKoyyrYw2RkYIhmbqg4P5rd78zu1pTPRTbMW07FzruR62fY8Dzw==
+	bh=Y+wSVvr2iY1iH7k3F0iPCSqLzNSvbTbj527LLEkOjHE=;
+	b=0ote18nbZ1t68zJyeexrdJSVHAZPwP9UOAsFgAAFR/fpqYcoez3egBK6lgBnGLIpBoYIKz
+	byNNJflcxX/8kT7PsREcxt3F16BI7KnZB/m2IKc74GZSYeD2m3CHoAuFhIulLiNJ8gNHgT
+	fEGJClPPwBHWhKwqt8bqeoHqX9DFdCRP2bHywf7Ar1A3BuZHm88vpLBma/whU2VfEjPu/N
+	0AVHGyqtCyidsedREaPVbnXHovlkR1DKs3rnrmanu3HagPXtCHNl99JbLfJz39FsFs/Mnq
+	gYBYIP+QlW6OTeMQ6Ptwvq/2BcQ8xXbDDHUKO8JYjy6dMfwBHZRxnLHMpnCOzg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1772454345;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wgXUWuBQc37HPqUBgBljEt4K1lGTSpiCtiKFdFvnpEo=;
-	b=0RhC5Fte5zjulHI4Ol2L/ovJ2Kd9lvvPGCNYvwBDoFq6AG8nEkIzJV8ldugwY4YHFGhnle
-	Y1e4YJBTshKAKTBQ==
-Date: Mon, 02 Mar 2026 13:25:26 +0100
-Subject: [PATCH 02/15] auxvec.h: Move AT_VECTOR_SIZE definitions to
- linux/auxvec.h
+	bh=Y+wSVvr2iY1iH7k3F0iPCSqLzNSvbTbj527LLEkOjHE=;
+	b=/aSPglB8AXbqg7opAXpO0/jUG+0+n3k3JqmDL/ll0iG0SJf+fha6jNyO8a0dtGc75s+t06
+	2+O3rwMHLHMlBaCw==
+Date: Mon, 02 Mar 2026 13:25:25 +0100
+Subject: [PATCH 01/15] MAINTAINERS: exec: Add more auxvec.h variants
 MIME-Version: 1.0
-Message-Id: <20260302-at-vector-size-arch-v1-2-a11f03ba2ca8@linutronix.de>
+Message-Id: <20260302-at-vector-size-arch-v1-1-a11f03ba2ca8@linutronix.de>
 References: <20260302-at-vector-size-arch-v1-0-a11f03ba2ca8@linutronix.de>
 In-Reply-To: <20260302-at-vector-size-arch-v1-0-a11f03ba2ca8@linutronix.de>
 To: Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>
@@ -63,16 +62,16 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, 
  linux-sh@vger.kernel.org, linux-alpha@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772454343; l=1267;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772454343; l=935;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=R6dPuK9hTEu2wzxXNEaPtc8TE7i9ikP4nTJiTP9bZT8=;
- b=ZulijLjkAtvEzMGw3cQEKThTnvyrB3XWkn02AB0dxIROztyb5g4HrOCwXizPScG4JZMtRLaOM
- 3hiDIzMjiB4ARdfLbg+OTnHYu6B/6h5UxzpDiSphCOmDSpy2QygkNcG
+ bh=BIlr7zgi66zD1ig2kTolm4aENXktO7wosOLcoYFwhtU=;
+ b=0OWgCWYeIEIelNOmr0tEyiBwM5q6MuFfywVklpSmD0OLBHIs+3QQGBNYsmCJJqT5R/0oHxk2v
+ IVHrY681uTqCvAuwCRegS2QuY8D2kC+ODREUKmQlpZd3Q/msGQ3Pvmv
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_042549_144397_B8FB559A 
-X-CRM114-Status: UNSURE (   8.27  )
+X-CRM114-CacheID: sfid-20260302_042548_960130_DF05811F 
+X-CRM114-Status: UNSURE (   6.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,28 +89,22 @@ Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIGF1eHZlYy5oIGhlYWRlciBpcyBhIG1vcmUgZml0dGluZyBwbGFjZSBmb3IgdGhlc2UgZGVm
-aW5pdGlvbnMuCgpTaWduZWQtb2ZmLWJ5OiBUaG9tYXMgV2Vpw59zY2h1aCA8dGhvbWFzLndlaXNz
-c2NodWhAbGludXRyb25peC5kZT4KLS0tCiBpbmNsdWRlL2xpbnV4L2F1eHZlYy5oICAgfCA3ICsr
-KysrKysKIGluY2x1ZGUvbGludXgvbW1fdHlwZXMuaCB8IDYgLS0tLS0tCiAyIGZpbGVzIGNoYW5n
-ZWQsIDcgaW5zZXJ0aW9ucygrKSwgNiBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9pbmNsdWRl
-L2xpbnV4L2F1eHZlYy5oIGIvaW5jbHVkZS9saW51eC9hdXh2ZWMuaAppbmRleCA0MDdmNzAwNWU2
-ZDYuLjk0M2U4YjgwYjQxZSAxMDA2NDQKLS0tIGEvaW5jbHVkZS9saW51eC9hdXh2ZWMuaAorKysg
-Yi9pbmNsdWRlL2xpbnV4L2F1eHZlYy5oCkBAIC02LDQgKzYsMTEgQEAKIAogI2RlZmluZSBBVF9W
-RUNUT1JfU0laRV9CQVNFIDIyIC8qIE5FV19BVVhfRU5UIGVudHJpZXMgaW4gYXV4aWxpYXJ5IHRh
-YmxlICovCiAgIC8qIG51bWJlciBvZiAiI2RlZmluZSBBVF8uKiIgYWJvdmUsIG1pbnVzIHtBVF9O
-VUxMLCBBVF9JR05PUkUsIEFUX05PVEVMRn0gKi8KKworI2lmbmRlZiBBVF9WRUNUT1JfU0laRV9B
-UkNICisjZGVmaW5lIEFUX1ZFQ1RPUl9TSVpFX0FSQ0ggMAorI2VuZGlmCisKKyNkZWZpbmUgQVRf
-VkVDVE9SX1NJWkUgKDIqKEFUX1ZFQ1RPUl9TSVpFX0FSQ0ggKyBBVF9WRUNUT1JfU0laRV9CQVNF
-ICsgMSkpCisKICNlbmRpZiAvKiBfTElOVVhfQVVYVkVDX0ggKi8KZGlmZiAtLWdpdCBhL2luY2x1
-ZGUvbGludXgvbW1fdHlwZXMuaCBiL2luY2x1ZGUvbGludXgvbW1fdHlwZXMuaAppbmRleCAzY2M4
-YWU3MjI4ODYuLjY0MDE5ZGMyOWY0YyAxMDA2NDQKLS0tIGEvaW5jbHVkZS9saW51eC9tbV90eXBl
-cy5oCisrKyBiL2luY2x1ZGUvbGludXgvbW1fdHlwZXMuaApAQCAtMjUsMTIgKzI1LDYgQEAKIAog
-I2luY2x1ZGUgPGFzbS9tbXUuaD4KIAotI2lmbmRlZiBBVF9WRUNUT1JfU0laRV9BUkNICi0jZGVm
-aW5lIEFUX1ZFQ1RPUl9TSVpFX0FSQ0ggMAotI2VuZGlmCi0jZGVmaW5lIEFUX1ZFQ1RPUl9TSVpF
-ICgyKihBVF9WRUNUT1JfU0laRV9BUkNIICsgQVRfVkVDVE9SX1NJWkVfQkFTRSArIDEpKQotCi0K
-IHN0cnVjdCBhZGRyZXNzX3NwYWNlOwogc3RydWN0IGZ1dGV4X3ByaXZhdGVfaGFzaDsKIHN0cnVj
-dCBtZW1fY2dyb3VwOwoKLS0gCjIuNTMuMAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+VGhlcmUgYXJlIHF1aXRlIGEgZmV3IGF1eHZlYy5oIGhlYWRlcnMuIE1hcmsgYWxsIG9mIHRoZW0g
+bWFpbnRhaW5lZAphcyBwYXJ0IG9mICdFWEVDICYgQklORk1UIEFQSSwgRUxGJy4KClNpZ25lZC1v
+ZmYtYnk6IFRob21hcyBXZWnDn3NjaHVoIDx0aG9tYXMud2Vpc3NzY2h1aEBsaW51dHJvbml4LmRl
+PgotLS0KIE1BSU5UQUlORVJTIHwgMyArKysKIDEgZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMo
+KykKCmRpZmYgLS1naXQgYS9NQUlOVEFJTkVSUyBiL01BSU5UQUlORVJTCmluZGV4IDU1YWYwMTUx
+NzRhNS4uN2EyYzk1MmQ3MmJkIDEwMDY0NAotLS0gYS9NQUlOVEFJTkVSUworKysgYi9NQUlOVEFJ
+TkVSUwpAQCAtOTU3MywxMyArOTU3MywxNiBAQCBMOglsaW51eC1tbUBrdmFjay5vcmcKIFM6CVN1
+cHBvcnRlZAogVDoJZ2l0IGdpdDovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVs
+L2dpdC9rZWVzL2xpbnV4LmdpdCBmb3ItbmV4dC9leGVjdmUKIEY6CURvY3VtZW50YXRpb24vdXNl
+cnNwYWNlLWFwaS9FTEYucnN0CitGOglhcmNoLyovaW5jbHVkZS91YXBpL2FzbS9hdXh2ZWMuaAog
+RjoJZnMvKmJpbmZtdF8qLmMKIEY6CWZzL0tjb25maWcuYmluZm10CiBGOglmcy9leGVjLmMKIEY6
+CWZzL3Rlc3RzL2JpbmZtdF8qX2t1bml0LmMKIEY6CWZzL3Rlc3RzL2V4ZWNfa3VuaXQuYworRjoJ
+aW5jbHVkZS9saW51eC9hdXh2ZWMuaAogRjoJaW5jbHVkZS9saW51eC9iaW5mbXRzLmgKIEY6CWlu
+Y2x1ZGUvbGludXgvZWxmLmgKK0Y6CWluY2x1ZGUvdWFwaS9hc20tZ2VuZXJpYy9hdXh2ZWMuaAog
+RjoJaW5jbHVkZS91YXBpL2xpbnV4L2F1eHZlYy5oCiBGOglpbmNsdWRlL3VhcGkvbGludXgvYmlu
+Zm10cy5oCiBGOglpbmNsdWRlL3VhcGkvbGludXgvZWxmLmgKCi0tIAoyLjUzLjAKCgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
