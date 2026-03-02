@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7099ED58E49
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 03:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6903D58E4B
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 03:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MtHBGwCeljxlJ7wDWeJe47qp2Gz5/pAcDW4tAQJPjDE=; b=d6x1p1bQG20etm
-	QlM+xZT5sjZCxe7RFz0ell+08stUQJ20Z5LUksDIIj0Gx3WvmXtwbzk+FiUA5p/WpLM8se3BrDHjk
-	fGJDIMc7qYG8p7KX8e2Mqa3R7IWvp0b9yWCXnIOn7F3WknNCrvFMLmxVH1OYvkxA3I3OdTUPtnTdo
-	jPTQIwHLNltNFPio29Ueg6SVDULuStfiqwNcuXalHqayH/lZYP6IXzlSzpKH5yYGyU7G5JZhifdcy
-	sC8/D4NqRwnGtR8TKy0H2vanoT8PULza5EoXwbU26KUhg0lAwE9BfS1lzCAGbhtwtSgSiqWpmCGTC
-	k3v6Xx0tVEB/By/RfDeQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pxacviZqoGh493T6ch7182M3pLBsVOXId5hkkdxvKB4=; b=rM1iy/OxsvdhnT
+	cW76qqwPlvAvzrtOG2Kl4AQTXZ4yTQWhIEl+CQl1F6tVGXnR7/j7rDsf+OSf22WC0c0VOrg/1dKJu
+	hhZKg7fcPAwo30o7LdJAWwJmuaHMb8/QLRrgZazt+r8agGPCyJ499m2P14+CoKTYnmbEWgPEB0wDi
+	7qDxoBYJF0qIgVMIhSkxg9munxEHu3yfy8ZdjmY2t1DAR8in1TTw7o8HM7ne+Z+zbAHzPYeGW6YPG
+	GIEGYn0Kqeap03Wh9YRGEwGzz2i/7J34EbAwVpHdx8fLT97SQnuERlo38F1aTiLOkt9206/5JeWfp
+	H4wQMZ0ZACKkA2zSuevw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwu71-0000000CBbw-0P59;
-	Mon, 02 Mar 2026 03:38:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwuLw-0000000CDLX-2kXc;
+	Mon, 02 Mar 2026 03:53:52 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwu6y-0000000CBbS-071u
-	for linux-riscv@lists.infradead.org;
-	Mon, 02 Mar 2026 03:38:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3C80143CBF;
-	Mon,  2 Mar 2026 03:38:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74A48C19423;
-	Mon,  2 Mar 2026 03:38:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772422703;
-	bh=tkyELmpejTLBUSV5SURHjr2MDlMxpNxT6V7ppU9CESc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pKB/qdtBvj62XtioPQsZZBD5rQlhOvCo4jiur+fhAQAjD6JG7OKhwZ1dixGVw6FUU
-	 KnzeD0LjW6+aPCfghs3z+UbWdDT50E8iiK3rb7cvgjYzA/aH1isS8MAd9Xii+eSiES
-	 CnIogF9cXav74pJH6vwU/j6sa062P6OjRn4HJPYKzK1ADXt2NcYWHDLCe2awDf0p6X
-	 nxCXfSp1N4TqizuVreb/7M9sMsOdJLlKj0F0X9He+j0pC1D6xK1l5QctLIDnkL5kvl
-	 qAngG636MvGQ3ZAsjthyYZfywmZTKqPUKO5U6kYPhNSP8KIvqIB7sWz0TEreXpkXpr
-	 fPbYFAAsIv7Mw==
-From: Yixun Lan <dlan@kernel.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>
-Cc: Chukun Pan <amadeus@jmu.edu.cn>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: spacemit: adapt regulator node name to preferred form
-Date: Mon,  2 Mar 2026 03:38:15 +0000
-Message-ID: <177242109477.25815.16699220030099258528.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260226-02-k1-regulator-names-v1-1-e87695d50159@kernel.org>
-References: <20260226-02-k1-regulator-names-v1-1-e87695d50159@kernel.org>
+	id 1vwuLt-0000000CDEA-1gaf;
+	Mon, 02 Mar 2026 03:53:50 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Z1sEAvaHkLWMtMbzMmXnApZeH7AfC1KWFCkOAYYuwo8=;
+	b=l+D7xZtnwu76T/ZSDnkYt4tlkXVd/aGuJwNXaMC4yAmfRWNQe9GmyUWFjJeupA8HLOlWv7U5+
+	1+lmqn8dkfdAi129Xzbav7SRG5J7JFF1fFixb5eBXBDdslSqeWdrIwtH/jkpxlifEq+FquJsOep
+	6KoLwxhwCIppHafvEj5KQOU=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4fPPzZ657Jzcb0N;
+	Mon,  2 Mar 2026 11:48:26 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 59F7940561;
+	Mon,  2 Mar 2026 11:53:36 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 2 Mar
+ 2026 11:53:32 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
+	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
+	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>,
+	<akpm@linux-foundation.org>, <bhe@redhat.com>, <vgoyal@redhat.com>,
+	<dyoung@redhat.com>, <rdunlap@infradead.org>, <pmladek@suse.com>,
+	<dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <paulmck@kernel.org>,
+	<lirongqing@baidu.com>, <fvdl@google.com>, <rppt@kernel.org>,
+	<ardb@kernel.org>, <leitao@debian.org>, <sourabhjain@linux.ibm.com>,
+	<jbohac@suse.cz>, <cfsworks@gmail.com>, <osandov@fb.com>,
+	<tangyouling@kylinos.cn>, <ritesh.list@gmail.com>, <hbathini@linux.ibm.com>,
+	<eajames@linux.ibm.com>, <songshuaishuai@tinylab.org>,
+	<kevin.brodsky@arm.com>, <samuel.holland@sifive.com>,
+	<vishal.moola@gmail.com>, <junhui.liu@pigmoral.tech>, <coxu@redhat.com>,
+	<liaoyuanhong@vivo.com>, <fuqiang.wang@easystack.cn>, <brgerst@gmail.com>,
+	<x86@kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<kexec@lists.infradead.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v8 0/5] arm64/riscv: Add support for crashkernel CMA reservation
+Date: Mon, 2 Mar 2026 11:53:10 +0800
+Message-ID: <20260302035315.3892241-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_193824_409801_3B0E331C 
-X-CRM114-Status: UNSURE (   6.45  )
+X-CRM114-CacheID: sfid-20260301_195349_757297_2894E8F7 
+X-CRM114-Status: UNSURE (   8.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,23 +96,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The crash memory allocation, and the exclude of crashk_res, crashk_low_res
+and crashk_cma memory are almost identical across different architectures,
+This patch set handle them in crash core in a general way, which eliminate
+a lot of duplication code.
 
-On Thu, 26 Feb 2026 09:35:00 +0000, Yixun Lan wrote:
-> The preferred node name for fixed-regulators has changed to pattern [1]:
->  '^regulator(-[0-9]+v[0-9]+|-[0-9a-z-]+)?$'
-> 
-> Adjust all SpacemiT DT regulator node names to fix this.
-> 
-> 
+And add support for crashkernel CMA reservation for arm64 and riscv.
 
-Applied, thanks!
+Rebased on v7.0-rc1.
 
-[1/1] riscv: dts: spacemit: adapt regulator node name to preferred form
-      https://github.com/spacemit-com/linux/commit/edea11c0aa8ca88537cc48d0d83296c66ab69ab8
+Basic second kernel boot test were performed on QEMU platforms for x86,
+ARM64, and RISC-V architectures with the following parameters:
 
-Best regards,
+	"cma=256M crashkernel=256M crashkernel=64M,cma"
+
+Changes in v8:
+- Fix the build issues reported by kernel test robot and Sourabh.
+- Link to v7: https://lore.kernel.org/all/20260226130437.1867658-1-ruanjinjie@huawei.com/
+
+Changes in v7:
+- Correct the inclusion of CMA-reserved ranges for kdump kernel in of/kexec
+  for arm64 and riscv.
+- Add Acked-by.
+- Link to v6: https://lore.kernel.org/all/20260224085342.387996-1-ruanjinjie@huawei.com/
+
+Changes in v6:
+- Update the crash core exclude code as Mike suggested.
+- Rebased on v7.0-rc1.
+- Add acked-by.
+- Link to v5: https://lore.kernel.org/all/20260212101001.343158-1-ruanjinjie@huawei.com/
+
+Changes in v5:
+- Fix the kernel test robot build warnings.
+- Sort crash memory ranges before preparing elfcorehdr for powerpc
+- Link to v4: https://lore.kernel.org/all/20260209095931.2813152-1-ruanjinjie@huawei.com/
+
+Changes in v4:
+- Move the size calculation (and the realloc if needed) into the
+  generic crash.
+- Link to v3: https://lore.kernel.org/all/20260204093728.1447527-1-ruanjinjie@huawei.com/
+
+Jinjie Ruan (4):
+  crash: Exclude crash kernel memory in crash core
+  crash: Use crash_exclude_core_ranges() on powerpc
+  arm64: kexec: Add support for crashkernel CMA reservation
+  riscv: kexec: Add support for crashkernel CMA reservation
+
+Sourabh Jain (1):
+  powerpc/crash: sort crash memory ranges before preparing elfcorehdr
+
+ .../admin-guide/kernel-parameters.txt         |  16 +--
+ arch/arm64/kernel/machine_kexec_file.c        |  39 +++----
+ arch/arm64/mm/init.c                          |   5 +-
+ arch/loongarch/kernel/machine_kexec_file.c    |  39 +++----
+ arch/powerpc/include/asm/kexec_ranges.h       |   1 -
+ arch/powerpc/kexec/crash.c                    |   5 +-
+ arch/powerpc/kexec/ranges.c                   | 101 +-----------------
+ arch/riscv/kernel/machine_kexec_file.c        |  38 +++----
+ arch/riscv/mm/init.c                          |   5 +-
+ arch/x86/kernel/crash.c                       |  89 +++------------
+ drivers/of/fdt.c                              |   9 +-
+ drivers/of/kexec.c                            |   9 ++
+ include/linux/crash_core.h                    |   9 ++
+ kernel/crash_core.c                           |  89 ++++++++++++++-
+ 14 files changed, 178 insertions(+), 276 deletions(-)
+
 -- 
-Yixun Lan <dlan@kernel.org>
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
