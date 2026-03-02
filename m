@@ -4,79 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C247D58E4B
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 03:12:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD22D58E47
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 03:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5jZ5dF91q575hDMVU4C0oRSpyp0wKEBjD3l3OCmOJ2I=; b=0lztIN6I4XuO+m
-	XMzkndiXV94JMi2Rw9YaO52VjEqL440/zqV4DmOcGiI8StRzpq9YGfshXDKohP6Zm1VXdYGt+n2mG
-	mGF7l2kuWX/me3m2S/EyENaYXjg5aobJjzmcIE9ZkulB/xA/ZnX6qAxNwPINNmXYd5BcZCyP3Gk6O
-	kb4V5EkBjvpd+t8vXZgGasUTQJrxIeWqWIfcDwfrXyNmDlThLHkH0lM3rgRSh6OCMLlVFW/3HTzHo
-	raR4xRiqC8lcFioivyvM1idt5+j+ry7f8s2vQKsFdJfZptilVg2h9ctvCLdGFw4Ss914j+6Hk+tDi
-	GAq1C7NEVJg+gYt7zOkA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eaUvpGx3rkv+vjNCGgERa29EFr8nmncNUYBxnBhqZXM=; b=G2/+L0kZuCHcaf
+	VcN3YKneG67Vtscu45tqX2rRV3w4/WwY6vKcecMXEQ+H/uVxafqZIqbzTR9djKUbQsUEUbjpul7kB
+	OY2d53sRDPrqYocUH/FsuzQMaMPPYSwLzQS9JJwFCtl1ecDrqbwBQow3k78IK1R65gSfhrkzKHocK
+	0jvmRPrK5IvZD++dVsg5gibkGgUW5iLzdmoqPNyhfAcFL7Cxb0xDvmKmU+pb0zzY2b59KhSttlMWR
+	FfrrqYIWvgv4mfFAbpIYvYYmTne3mIlpXmCL+w7d+o7h4st3y0XihlM2G0hzG46Uyf0dFKcm5fBGl
+	iC/zmQ4FnXQrv3nVPlxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwthQ-0000000CACm-0wz8;
-	Mon, 02 Mar 2026 03:12:00 +0000
-Received: from out-188.mta0.migadu.com ([91.218.175.188])
+	id 1vwu5q-0000000CBV8-2rwh;
+	Mon, 02 Mar 2026 03:37:14 +0000
+Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwthN-0000000CAAY-0JMm
+	id 1vwu5o-0000000CBUF-1Ov9
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Mar 2026 03:11:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1772421100;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=c80IjFmwrSTyfEdA2osb6JnCGS7RM2etVw9Vzge3vcA=;
-	b=XWQnUevhvW3qqt0n4MlcEcWHSZ9PyYGSKnaoUT9LD7wZytjhOoL4nZQVilpTsPHWq03g7t
-	cWdDmURaQq8W53Sfoqq1cwyqVh/BY7X9Q3O30L3PFDo0vomLWjqiuHGs12JSmtR86BFf6N
-	6SN+deifYZIQ7qmRKRLZh9ibPTEC1/Q=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.400.21\))
-Subject: Re: [PATCHv7 17/18] hugetlb: Update vmemmap_dedup.rst
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <20260227194302.274384-18-kas@kernel.org>
-Date: Mon, 2 Mar 2026 11:10:54 +0800
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>,
- Matthew Wilcox <willy@infradead.org>,
- Usama Arif <usamaarif642@gmail.com>,
- Frank van der Linden <fvdl@google.com>,
- Oscar Salvador <osalvador@suse.de>,
- Mike Rapoport <rppt@kernel.org>,
- Vlastimil Babka <vbabka@suse.cz>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Zi Yan <ziy@nvidia.com>,
- Baoquan He <bhe@redhat.com>,
- Michal Hocko <mhocko@suse.com>,
- Johannes Weiner <hannes@cmpxchg.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>,
- kernel-team@meta.com,
- linux-mm@kvack.org,
- linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org,
- loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org
-Message-Id: <A2A3453A-DA4B-43E1-B970-F704B140A4D3@linux.dev>
-References: <20260227194302.274384-1-kas@kernel.org>
- <20260227194302.274384-18-kas@kernel.org>
-To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+	Mon, 02 Mar 2026 03:37:13 +0000
+Received: from localhost (unknown [116.232.48.232])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 84C1D341E6C;
+	Mon, 02 Mar 2026 03:37:06 +0000 (UTC)
+Date: Mon, 2 Mar 2026 11:36:55 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: dlan@kernel.org, alex@ghiti.fr, aou@eecs.berkeley.edu,
+	conor+dt@kernel.org, conor@kernel.org, devicetree@vger.kernel.org,
+	elder@riscstar.com, krzk+dt@kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com, pjw@kernel.org, robh@kernel.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH] riscv: dts: spacemit: pcie: fix missing power regulator
+Message-ID: <20260302033655-GYA288339@gentoo.org>
+References: <20260226-k1-pcie-fix-pwr-v1-1-94b493cd27e5@kernel.org>
+ <20260302030511.30566-1-amadeus@jmu.edu.cn>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260302030511.30566-1-amadeus@jmu.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_191157_410354_C2849A32 
-X-CRM114-Status: GOOD (  26.70  )
+X-CRM114-CacheID: sfid-20260301_193712_506031_A02EB855 
+X-CRM114-Status: GOOD (  20.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,115 +64,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cgo+IE9uIEZlYiAyOCwgMjAyNiwgYXQgMDM6NDIsIEtpcnlsIFNodXRzZW1hdSAoTWV0YSkgPGth
-c0BrZXJuZWwub3JnPiB3cm90ZToKPiAKPiBGcm9tOiBLaXJ5bCBTaHV0c2VtYXUgPGthc0BrZXJu
-ZWwub3JnPgo+IAo+IFVwZGF0ZSB0aGUgZG9jdW1lbnRhdGlvbiByZWdhcmRpbmcgdm1lbW1hcCBv
-cHRpbWl6YXRpb24gZm9yIGh1Z2V0bGIgdG8KPiByZWZsZWN0IHRoZSBjaGFuZ2VzIGluIGhvdyB0
-aGUga2VybmVsIG1hcHMgdGhlIHRhaWwgcGFnZXMuCj4gCj4gRmFrZSBoZWFkcyBubyBsb25nZXIg
-ZXhpc3QuIFJlbW92ZSB0aGVpciBkZXNjcmlwdGlvbi4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBLaXJ5
-bCBTaHV0c2VtYXUgPGthc0BrZXJuZWwub3JnPgo+IFJldmlld2VkLWJ5OiBNdWNodW4gU29uZyA8
-bXVjaHVuLnNvbmdAbGludXguZGV2Pgo+IFJldmlld2VkLWJ5OiBEYXZpZCBIaWxkZW5icmFuZCAo
-QXJtKSA8ZGF2aWRAa2VybmVsLm9yZz4KPiAtLS0KPiBEb2N1bWVudGF0aW9uL21tL3ZtZW1tYXBf
-ZGVkdXAucnN0IHwgNjAgKysrKysrKysrKysrKy0tLS0tLS0tLS0tLS0tLS0tCj4gMSBmaWxlIGNo
-YW5nZWQsIDI2IGluc2VydGlvbnMoKyksIDM0IGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQg
-YS9Eb2N1bWVudGF0aW9uL21tL3ZtZW1tYXBfZGVkdXAucnN0IGIvRG9jdW1lbnRhdGlvbi9tbS92
-bWVtbWFwX2RlZHVwLnJzdAo+IGluZGV4IDE4NjNkODhkMmRjYi4uNGFhZWYzNmQ4OTcxIDEwMDY0
-NAo+IC0tLSBhL0RvY3VtZW50YXRpb24vbW0vdm1lbW1hcF9kZWR1cC5yc3QKPiArKysgYi9Eb2N1
-bWVudGF0aW9uL21tL3ZtZW1tYXBfZGVkdXAucnN0Cj4gQEAgLTEyNCwzMyArMTI0LDM1IEBAIEhl
-cmUgaXMgaG93IHRoaW5ncyBsb29rIGJlZm9yZSBvcHRpbWl6YXRpb246Ogo+ICB8ICAgICAgICAg
-ICB8Cj4gICstLS0tLS0tLS0tLSsKPiAKPiAtVGhlIHZhbHVlIG9mIHBhZ2UtPmNvbXBvdW5kX2lu
-Zm8gaXMgdGhlIHNhbWUgZm9yIGFsbCB0YWlsIHBhZ2VzLiBUaGUgZmlyc3QKPiAtcGFnZSBvZiBg
-YHN0cnVjdCBwYWdlYGAgKHBhZ2UgMCkgYXNzb2NpYXRlZCB3aXRoIHRoZSBIdWdlVExCIHBhZ2Ug
-Y29udGFpbnMgdGhlIDQKPiAtYGBzdHJ1Y3QgcGFnZWBgIG5lY2Vzc2FyeSB0byBkZXNjcmliZSB0
-aGUgSHVnZVRMQi4gVGhlIG9ubHkgdXNlIG9mIHRoZSByZW1haW5pbmcKPiAtcGFnZXMgb2YgYGBz
-dHJ1Y3QgcGFnZWBgIChwYWdlIDEgdG8gcGFnZSA3KSBpcyB0byBwb2ludCB0byBwYWdlLT5jb21w
-b3VuZF9pbmZvLgo+IC1UaGVyZWZvcmUsIHdlIGNhbiByZW1hcCBwYWdlcyAxIHRvIDcgdG8gcGFn
-ZSAwLiBPbmx5IDEgcGFnZSBvZiBgYHN0cnVjdCBwYWdlYGAKPiAtd2lsbCBiZSB1c2VkIGZvciBl
-YWNoIEh1Z2VUTEIgcGFnZS4gVGhpcyB3aWxsIGFsbG93IHVzIHRvIGZyZWUgdGhlIHJlbWFpbmlu
-Zwo+IC03IHBhZ2VzIHRvIHRoZSBidWRkeSBhbGxvY2F0b3IuCj4gK1RoZSBmaXJzdCBwYWdlIG9m
-IGBgc3RydWN0IHBhZ2VgYCAocGFnZSAwKSBhc3NvY2lhdGVkIHdpdGggdGhlIEh1Z2VUTEIgcGFn
-ZQo+ICtjb250YWlucyB0aGUgNCBgYHN0cnVjdCBwYWdlYGAgbmVjZXNzYXJ5IHRvIGRlc2NyaWJl
-IHRoZSBIdWdlVExCLiBUaGUgcmVtYWluaW5nCj4gK3BhZ2VzIG9mIGBgc3RydWN0IHBhZ2VgYCAo
-cGFnZSAxIHRvIHBhZ2UgNykgYXJlIHRhaWwgcGFnZXMuCj4gKwo+ICtUaGUgb3B0aW1pemF0aW9u
-IGlzIG9ubHkgYXBwbGllZCB3aGVuIHRoZSBzaXplIG9mIHRoZSBzdHJ1Y3QgcGFnZSBpcyBhIHBv
-d2VyLW9mLTIKPiArSW4gdGhpcyBjYXNlLCBhbGwgdGFpbCBwYWdlcyBvZiB0aGUgc2FtZSBvcmRl
-ciBhcmUgaWRlbnRpY2FsLiBTZWUKPiArY29tcG91bmRfaGVhZCgpLiBUaGlzIGFsbG93cyB1cyB0
-byByZW1hcCB0aGUgdGFpbCBwYWdlcyBvZiB0aGUgdm1lbW1hcCB0byBhCj4gK3NoYXJlZCwgcmVh
-ZC1vbmx5IHBhZ2UuIFRoZSBoZWFkIHBhZ2UgaXMgYWxzbyByZW1hcHBlZCB0byBhIG5ldyBwYWdl
-LiBUaGlzCj4gK2FsbG93cyB0aGUgb3JpZ2luYWwgdm1lbW1hcCBwYWdlcyB0byBiZSBmcmVlZC4K
-PiAKPiBIZXJlIGlzIGhvdyB0aGluZ3MgbG9vayBhZnRlciByZW1hcHBpbmc6Ogo+IAo+IC0gICAg
-SHVnZVRMQiAgICAgICAgICAgICAgICAgIHN0cnVjdCBwYWdlcyg4IHBhZ2VzKSAgICAgICAgIHBh
-Z2UgZnJhbWUoOCBwYWdlcykKPiAtICstLS0tLS0tLS0tLSsgLS0tdmlydF90b19wYWdlLS0tPiAr
-LS0tLS0tLS0tLS0rICAgbWFwcGluZyB0byAgICstLS0tLS0tLS0tLSsKPiAtIHwgICAgICAgICAg
-IHwgICAgICAgICAgICAgICAgICAgICB8ICAgICAwICAgICB8IC0tLS0tLS0tLS0tLS0+IHwgICAg
-IDAgICAgIHwKPiAtIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICArLS0tLS0tLS0t
-LS0rICAgICAgICAgICAgICAgICstLS0tLS0tLS0tLSsKPiAtIHwgICAgICAgICAgIHwgICAgICAg
-ICAgICAgICAgICAgICB8ICAgICAxICAgICB8IC0tLS0tLS0tLS0tLS0tLV4gXiBeIF4gXiBeIF4K
-PiAtIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICArLS0tLS0tLS0tLS0rICAgICAg
-ICAgICAgICAgICAgfCB8IHwgfCB8IHwKPiAtIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAg
-ICAgICB8ICAgICAyICAgICB8IC0tLS0tLS0tLS0tLS0tLS0tKyB8IHwgfCB8IHwKPiAtIHwgICAg
-ICAgICAgIHwgICAgICAgICAgICAgICAgICAgICArLS0tLS0tLS0tLS0rICAgICAgICAgICAgICAg
-ICAgICB8IHwgfCB8IHwKPiAtIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICB8ICAg
-ICAzICAgICB8IC0tLS0tLS0tLS0tLS0tLS0tLS0rIHwgfCB8IHwKPiAtIHwgICAgICAgICAgIHwg
-ICAgICAgICAgICAgICAgICAgICArLS0tLS0tLS0tLS0rICAgICAgICAgICAgICAgICAgICAgIHwg
-fCB8IHwKPiAtIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICB8ICAgICA0ICAgICB8
-IC0tLS0tLS0tLS0tLS0tLS0tLS0tLSsgfCB8IHwKPiAtIHwgICAgUE1EICAgIHwgICAgICAgICAg
-ICAgICAgICAgICArLS0tLS0tLS0tLS0rICAgICAgICAgICAgICAgICAgICAgICAgfCB8IHwKPiAt
-IHwgICBsZXZlbCAgIHwgICAgICAgICAgICAgICAgICAgICB8ICAgICA1ICAgICB8IC0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tKyB8IHwKPiAtIHwgIG1hcHBpbmcgIHwgICAgICAgICAgICAgICAgICAg
-ICArLS0tLS0tLS0tLS0rICAgICAgICAgICAgICAgICAgICAgICAgICB8IHwKPiAtIHwgICAgICAg
-ICAgIHwgICAgICAgICAgICAgICAgICAgICB8ICAgICA2ICAgICB8IC0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0rIHwKPiAtIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICArLS0tLS0t
-LS0tLS0rICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwKPiAtIHwgICAgICAgICAgIHwgICAg
-ICAgICAgICAgICAgICAgICB8ICAgICA3ICAgICB8IC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LSsKPiArICAgIEh1Z2VUTEIgICAgICAgICAgICAgICAgICBzdHJ1Y3QgcGFnZXMoOCBwYWdlcykg
-ICAgICAgICAgICAgICAgIHBhZ2UgZnJhbWUgKG5ldykKPiArICstLS0tLS0tLS0tLSsgLS0tdmly
-dF90b19wYWdlLS0tPiArLS0tLS0tLS0tLS0rICAgbWFwcGluZyB0byAgICstLS0tLS0tLS0tLS0t
-LS0tKwo+ICsgfCAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgIHwgICAgIDAgICAgIHwg
-LS0tLS0tLS0tLS0tLT4gfCAgICAgICAwICAgICAgICB8Cj4gKyB8ICAgICAgICAgICB8ICAgICAg
-ICAgICAgICAgICAgICAgKy0tLS0tLS0tLS0tKyAgICAgICAgICAgICAgICArLS0tLS0tLS0tLS0t
-LS0tLSsKPiArIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICB8ICAgICAxICAgICB8
-IC0tLS0tLeKUkAo+ICsgfCAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICstLS0tLS0t
-LS0tLSsgICAgICAgfAo+ICsgfCAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgIHwgICAg
-IDIgICAgIHwgLS0tLS0t4pS8ICAgICAgICArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsK
-PiArIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICArLS0tLS0tLS0tLS0rICAgICAg
-IHwgICAgICAgIHwgQSBzaW5nbGUsIHBlci1ub2RlIHBhZ2UgICAgfAoKWW91J3ZlIGNoYW5nZWQg
-aXQgdG8gcGVyLW5vZGUtcGVyLXpvbmUuIE5lZWQgdXBkYXRlLgoKPiArIHwgICAgICAgICAgIHwg
-ICAgICAgICAgICAgICAgICAgICB8ICAgICAzICAgICB8IC0tLS0tLeKUvC0tLS0tLT4gfCBmcmFt
-ZSBzaGFyZWQgYW1vbmcgYWxsICAgICB8Cj4gKyB8ICAgICAgICAgICB8ICAgICAgICAgICAgICAg
-ICAgICAgKy0tLS0tLS0tLS0tKyAgICAgICB8ICAgICAgICB8IGh1Z2VwYWdlcyBvZiB0aGUgc2Ft
-ZSBzaXplIHwKPiArIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICB8ICAgICA0ICAg
-ICB8IC0tLS0tLeKUvCAgICAgICAgKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCj4gKyB8
-ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgKy0tLS0tLS0tLS0tKyAgICAgICB8Cj4g
-KyB8ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgfCAgICAgNSAgICAgfCAtLS0tLS3i
-lLwKPiArIHwgICAgUE1EICAgIHwgICAgICAgICAgICAgICAgICAgICArLS0tLS0tLS0tLS0rICAg
-ICAgIHwKPiArIHwgICBsZXZlbCAgIHwgICAgICAgICAgICAgICAgICAgICB8ICAgICA2ICAgICB8
-IC0tLS0tLeKUvAo+ICsgfCAgbWFwcGluZyAgfCAgICAgICAgICAgICAgICAgICAgICstLS0tLS0t
-LS0tLSsgICAgICAgfAo+ICsgfCAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgIHwgICAg
-IDcgICAgIHwgLS0tLS0t4pSYCj4gIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAr
-LS0tLS0tLS0tLS0rCj4gIHwgICAgICAgICAgIHwKPiAgfCAgICAgICAgICAgfAo+IEBAIC0xNzIs
-MTYgKzE3NCw2IEBAIFRoZSBjb250aWd1b3VzIGJpdCBpcyB1c2VkIHRvIGluY3JlYXNlIHRoZSBt
-YXBwaW5nIHNpemUgYXQgdGhlIHBtZCBhbmQgcHRlCj4gKGxhc3QpIGxldmVsLiBTbyB0aGlzIHR5
-cGUgb2YgSHVnZVRMQiBwYWdlIGNhbiBiZSBvcHRpbWl6ZWQgb25seSB3aGVuIGl0cwo+IHNpemUg
-b2YgdGhlIGBgc3RydWN0IHBhZ2VgYCBzdHJ1Y3RzIGlzIGdyZWF0ZXIgdGhhbiAqKjEqKiBwYWdl
-Lgo+IAo+IC1Ob3RpY2U6IFRoZSBoZWFkIHZtZW1tYXAgcGFnZSBpcyBub3QgZnJlZWQgdG8gdGhl
-IGJ1ZGR5IGFsbG9jYXRvciBhbmQgYWxsCj4gLXRhaWwgdm1lbW1hcCBwYWdlcyBhcmUgbWFwcGVk
-IHRvIHRoZSBoZWFkIHZtZW1tYXAgcGFnZSBmcmFtZS4gU28gd2UgY2FuIHNlZQo+IC1tb3JlIHRo
-YW4gb25lIGBgc3RydWN0IHBhZ2VgYCBzdHJ1Y3Qgd2l0aCBgYFBHX2hlYWRgYCAoZS5nLiA4IHBl
-ciAyIE1CIEh1Z2VUTEIKPiAtcGFnZSkgYXNzb2NpYXRlZCB3aXRoIGVhY2ggSHVnZVRMQiBwYWdl
-LiBUaGUgYGBjb21wb3VuZF9oZWFkKClgYCBjYW4gaGFuZGxlCj4gLXRoaXMgY29ycmVjdGx5LiBU
-aGVyZSBpcyBvbmx5ICoqb25lKiogaGVhZCBgYHN0cnVjdCBwYWdlYGAsIHRoZSB0YWlsCj4gLWBg
-c3RydWN0IHBhZ2VgYCB3aXRoIGBgUEdfaGVhZGBgIGFyZSBmYWtlIGhlYWQgYGBzdHJ1Y3QgcGFn
-ZWBgLiAgV2UgbmVlZCBhbgo+IC1hcHByb2FjaCB0byBkaXN0aW5ndWlzaCBiZXR3ZWVuIHRob3Nl
-IHR3byBkaWZmZXJlbnQgdHlwZXMgb2YgYGBzdHJ1Y3QgcGFnZWBgIHNvCj4gLXRoYXQgYGBjb21w
-b3VuZF9oZWFkKClgYCBjYW4gcmV0dXJuIHRoZSByZWFsIGhlYWQgYGBzdHJ1Y3QgcGFnZWBgIHdo
-ZW4gdGhlCj4gLXBhcmFtZXRlciBpcyB0aGUgdGFpbCBgYHN0cnVjdCBwYWdlYGAgYnV0IHdpdGgg
-YGBQR19oZWFkYGAuCj4gLQo+IERldmljZSBEQVgKPiA9PT09PT09PT09Cj4gCj4gLS0gCj4gMi41
-MS4yCj4gCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Chukun,
+
+Sorry, I missed your mail due recent problem of my client..
+On 11:05 Mon 02 Mar     , Chukun Pan wrote:
+> Hi,
+> 
+> > &pcie1_port {
+> >  	phys = <&pcie1_phy>;
+> > +	vpcie3v3-supply = <&pcie_vcc_3v3>;
+> >  };
+> > 
+> >  &pcie1 {
+> > @@ -320,6 +321,7 @@ &pcie2_phy {
+> > 
+> >  &pcie2_port {
+> >  	phys = <&pcie2_phy>;
+> > +	vpcie3v3-supply = <&pcie_vcc_3v3>;
+> >  };
+> 
+> ```
+> &pcie1 {
+> 	vpcie3v3-supply = <&pcie_vcc_3v3>;
+> 	status = "okay";
+> };
+> ```
+> 
+> According to DT binding, the vpcie3v3-supply of the &pciex node should
+> be moved to the &pciex_port node. This is simply a duplication of the
+> property.
+> 
+I have confidence that pcie port need to add a regulator to provide 
+supply for devices..
+
+But, I'm not sure whether it's ok to remove regulator from &pciex node,
+it's possibly a 'yes' answer, but to convince me, I'd like to see a real
+test case to prove it: e.g, power supply for pciex is actually off before 
+the driver initialization, then run regular procedure as it should, if
+all works fine
+
+Btw, different drivers request same regulator is ok, and is quite normal,
+can't draw a conclusion that it's a duplication, as they may be used for
+different reasons
+
+> But do we really need this pcie_port (PCIe bridge)?
+> 
+> The PCIe bridge node (pcie@0) was treated as a platform device, but it
+> did not define the interrupts property, which resulted in the following
+> warning: `[    2.897980] irq: no irq domain found for pcie@0 !`
+> 
+> Would it be better to submit a patch to remove this pcie_port?
+> 
+> ```
+> -       ret = k1_pcie_parse_port(k1);
+> -       if (ret)
+> -               return dev_err_probe(dev, ret, "failed to parse root port\n");
+> +       k1->phy = devm_phy_get(dev, "pcie-phy");
+> +       if (IS_ERR(k1->phy))
+> +               return dev_err_probe(dev, PTR_ERR(k1->phy), "missing PHY\n");
+> ```
+
+I've not really looked at this, and not an expert on this area, so will
+leave this to Alex or PCIe maintainers..
+
+> I have tested this change and it works.
+> 
+> Thanks,
+> Chukun
+> 
+
+-- 
+Yixun Lan (dlan)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
