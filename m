@@ -4,108 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8412CE9B37E
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 13:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A88A4EA4E13
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 14:59:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KHFwpQiPsXjXcHG3krFpx4SI691uPzwcGWtfYuXRFSk=; b=BHxPktVktC/Zwj
-	oOGLYnButPj/1EgyKTh4nj49rQBlJK/tzj7ks/rc+57pxIsEoE8hRd8xYLlwjR1I7P53o4mnFnqob
-	mBa5oXbQGIPKsfXLdxwsLTyBw9AxNoHxybZEhMD8rEd7U6avFu+KhZRKGKE8UIcPhSFeZC/oEFU5r
-	hHgyk6LSuNk2X05kfz2UD/RZw+Yq8cpaS4V7YL5A2IEKKnuWpCU26FCHySqr4S6dd/lH6DjUUVx8Y
-	5hia1DblqDQTJdGODLOcfPwYPONxnQaU0qR75okFYo/p6S8YPmjw1FBuwaDFK2X/+JggDqClisTI/
-	TuG7ULjC4JtIijQOUxbA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=waHlcYjgrjjCDe4CbGwrebtsqAkPDDnJoeQbLNQoLgo=; b=L69fFXTxZeLHNJjzLEXd4tZfdf
+	+wBaHfoLz9J2j49Y8C2VWVPb/U2SrZY6Ch3aD/R2H234HbSECujwcNVxanAk0GMVktnEYP7PRH+Y+
+	mqsM4w2n7azCkegkXd5FKP5aE7CivIpWW6LCrREcwkPVosO4wzJGDBlUgjnstF1Yj4w/HlUYGOlAL
+	kM71N0wxgiZZBD2m8kWrH4InYO9dyO0Y+iYDlNRxhTZfpYzhADj3o6QOcPIMAjVOxrMrOgPnIxPDB
+	kwxqXdmaPFmoRwjPMZz12y+roiVwa8IswyJLzuiEWvDgTzASMxML36GzwHJXTdDskkz8zBi7zN9iT
+	2fgmP+hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3KG-0000000D6f8-3Ul3;
-	Mon, 02 Mar 2026 13:28:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vx4jw-0000000DHMN-2TGN;
+	Mon, 02 Mar 2026 14:59:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3KC-0000000D6YI-0TjF;
-	Mon, 02 Mar 2026 13:28:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:
-	Content-Type:Content-ID:Content-Description;
-	bh=DqGOd6ipwPciYOEGbBHYVc1F4qmoJna8wv2iZM4469g=; b=G7tgJaHBhw1+Lgg/iFgipDYIKL
-	k+8qk7w3MMs6tYnjejK9+9X5CycggyEmeIw4jTVlKzsWUtUF0GsKY9Bl2yk8VVFm+0B0teBVE76nk
-	D1bmV0HgF1/Oflc0ExHIBr7H2plCT6JMMK9bEf+ICn5yD0WRXE8ljcM7KaSbaRSz1RjzfB1bHNsGV
-	+uMGu1aXaEkBl7FTczS+4Raw4SLmYijvedMBcLqD+Uw8hutIquLc5zcX9qFTuI1HhcvdX1fiw4q4j
-	ezO2+g5leECjpHFRjsZP0rhpxkr7svhLeiPZxnWOhMCS3AThOYjALI3aGF7vFCR2kGW5A6DsunFFb
-	wF3mFp8Q==;
-Received: from mailtransmit05.runbox.com ([2a0c:5a00:149::26])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3K9-00000000A7U-1YK1;
-	Mon, 02 Mar 2026 13:28:39 +0000
-Received: from mailtransmit03.runbox ([10.9.9.163] helo=aibo.runbox.com)
-	by mailtransmit05.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.93)
-	(envelope-from <david.laight.linux_spam@runbox.com>)
-	id 1vx3Jw-003bl4-7x; Mon, 02 Mar 2026 14:28:24 +0100
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=runbox.com;
-	 s=selector2; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To
-	:Message-Id:Date:Subject:To:From;
-	bh=DqGOd6ipwPciYOEGbBHYVc1F4qmoJna8wv2iZM4469g=; b=C3w8X+KCNPwwUnlCUtq46S90t1
-	DaIzVd1U67pGzKoSNwRgDY0CkJR1WNOs2reVFFLbpCZJ5PTfZVq5TZTYpBtxMw2AfBFKsnU8eNfzL
-	UyKZj1Ao3zw24M6GhXmw4q7AcjpvZz9fajrVInZguhOGa8NYPBkUrjhNlngU3Mr5PEAWm9Jc6JFne
-	y3SR7NYQbKrUQi7nwwLTjarrREdk17HVYnhrX+G5V/PSUpfdGc3Axbaqn/zyoRSLpoMrqqb5dL7RX
-	smVDc6yiyZoQchORsC5WgAugpAW3KLRRAwN3ak0bumYpByVPz6HVuheyobbQNDuH27z7AyGB9th3/
-	IYE9RgWA==;
-Received: from [10.9.9.73] (helo=submission02.runbox)
-	by mailtransmit03.runbox with esmtp (Exim 4.86_2)
-	(envelope-from <david.laight.linux_spam@runbox.com>)
-	id 1vx3Ju-0001hC-Np; Mon, 02 Mar 2026 14:28:22 +0100
-Received: by submission02.runbox with esmtpsa  [Authenticated ID (1493616)]  (TLS1.2:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.93)
-	id 1vx3Jl-008UTR-0w; Mon, 02 Mar 2026 14:28:13 +0100
-From: david.laight.linux@gmail.com
-To: Alexander Viro <viro@zeniv.linux.org.uk>,
-	Andre Almeida <andrealmeid@igalia.com>,
-	Andrew Cooper <andrew.cooper3@citrix.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Darren Hart <dvhart@infradead.org>,
-	David Laight <david.laight.linux@gmail.com>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Jan Kara <jack@suse.cz>,
-	Julia Lawall <Julia.Lawall@inria.fr>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	LKML <linux-kernel@vger.kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Nicolas Palix <nicolas.palix@imag.fr>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	x86@kernel.org,
-	Kees Cook <kees@kernel.org>,
-	akpm@linux-foundation.org
-Subject: [PATCH v2 next 5/5] signal: Use scoped_user_access() instead of __put/get_user()
-Date: Mon,  2 Mar 2026 13:27:55 +0000
-Message-Id: <20260302132755.1475451-6-david.laight.linux@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260302132755.1475451-1-david.laight.linux@gmail.com>
-References: <20260302132755.1475451-1-david.laight.linux@gmail.com>
+	id 1vx4jt-0000000DHLD-1gsM;
+	Mon, 02 Mar 2026 14:59:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8A5AC4430B;
+	Mon,  2 Mar 2026 14:59:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 211BAC19423;
+	Mon,  2 Mar 2026 14:59:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772463556;
+	bh=yLKCSXO+hQApHc+NF2pMZzlTvrx+yrgTZOCdhXU+l+s=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=f2NBa7irVPOLjk3WW4SCmf8FWi+7tBJ3LbL5TJX9XKvS1spGkziwe9pGBJY+oqLo7
+	 kA0iGOYvp0cjlRZXL+tt2MqQSyn2cirVYdwLABTi85/4lhjcDbtxxtfNHjPvF07WxM
+	 VGhJDv969X+0XD8Ltsk+AXrf1C36RCmK274CzxkNnrnNzf+bfkiSYGN9DW2Q5LeFol
+	 85vi9xmsuMiRcJ/1EsNPNL1+QYTCSEkkbB/fpWUiTL6w5gSJgyz7KbZ7zgfoOhM5xy
+	 GUA1X9y6ljSEOT1J2bnp5Y5mMfrMW692fy/GCNHYl8XYEYdmgabRaVoJG4M+mEOaEn
+	 5PRbc9SZdCdXw==
+Message-ID: <e8a688b3-97e1-4523-9a82-8d9dd16e3d90@kernel.org>
+Date: Mon, 2 Mar 2026 15:59:04 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] uaccess: Fix scoped_user_read_access() for
+ 'pointer to const'
+To: david.laight.linux@gmail.com, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andre Almeida <andrealmeid@igalia.com>,
+ Andrew Cooper <andrew.cooper3@citrix.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Christian Brauner <brauner@kernel.org>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ Heiko Carstens <hca@linux.ibm.com>, Jan Kara <jack@suse.cz>,
+ Julia Lawall <Julia.Lawall@inria.fr>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Nicolas Palix <nicolas.palix@imag.fr>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Russell King <linux@armlinux.org.uk>, Sven Schnelle <svens@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, x86@kernel.org,
+ Kees Cook <kees@kernel.org>, akpm@linux-foundation.org
+References: <20260302132755.1475451-1-david.laight.linux@gmail.com>
+ <20260302132755.1475451-2-david.laight.linux@gmail.com>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <20260302132755.1475451-2-david.laight.linux@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_132837_596167_9FE78359 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20260302_065917_477720_AFA90715 
+X-CRM114-Status: GOOD (  19.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,151 +87,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: David Laight <david.laight.linux@gmail.com>
-
-Mechanically change the access_ok() and __get/put_user() to use
-scoped_user_read/write_access() and unsafe_get/put_user().
-
-This generates better code with fewer STAC/CLAC pairs.
-
-It also ensures that access_ok() is called near the user accesses.
-I failed to find the one for __save_altstack().
-
-Looking at the change, perhaps there should be aliases:
-#define scoped_put_user unsafe_put_user
-#define scoped_get_user unsafe_get_user
-
-Signed-off-by: David Laight <david.laight.linux@gmail.com>
----
- kernel/signal.c | 72 ++++++++++++++++++++++++++++---------------------
- 1 file changed, 42 insertions(+), 30 deletions(-)
-
-diff --git a/kernel/signal.c b/kernel/signal.c
-index d65d0fe24bfb..fca257398cbc 100644
---- a/kernel/signal.c
-+++ b/kernel/signal.c
-@@ -4469,10 +4469,16 @@ int restore_altstack(const stack_t __user *uss)
- int __save_altstack(stack_t __user *uss, unsigned long sp)
- {
- 	struct task_struct *t = current;
--	int err = __put_user((void __user *)t->sas_ss_sp, &uss->ss_sp) |
--		__put_user(t->sas_ss_flags, &uss->ss_flags) |
--		__put_user(t->sas_ss_size, &uss->ss_size);
--	return err;
-+
-+	scoped_user_write_access(uss, Efault) {
-+		unsafe_put_user((void __user *)t->sas_ss_sp, &uss->ss_sp, Efault);
-+		unsafe_put_user(t->sas_ss_flags, &uss->ss_flags, Efault);
-+		unsafe_put_user(t->sas_ss_size, &uss->ss_size, Efault);
-+	}
-+	return 0;
-+
-+Efault:
-+	return -EFAULT;
- }
- 
- #ifdef CONFIG_COMPAT
-@@ -4705,12 +4711,12 @@ SYSCALL_DEFINE3(sigaction, int, sig,
- 
- 	if (act) {
- 		old_sigset_t mask;
--		if (!access_ok(act, sizeof(*act)) ||
--		    __get_user(new_ka.sa.sa_handler, &act->sa_handler) ||
--		    __get_user(new_ka.sa.sa_restorer, &act->sa_restorer) ||
--		    __get_user(new_ka.sa.sa_flags, &act->sa_flags) ||
--		    __get_user(mask, &act->sa_mask))
--			return -EFAULT;
-+		scoped_user_read_access(act, Efault) {
-+		    unsafe_get_user(new_ka.sa.sa_handler, &act->sa_handler, Efault);
-+		    unsafe_get_user(new_ka.sa.sa_restorer, &act->sa_restorer, Efault);
-+		    unsafe_get_user(new_ka.sa.sa_flags, &act->sa_flags, Efault);
-+		    unsafe_get_user(mask, &act->sa_mask, Efault);
-+		}
- #ifdef __ARCH_HAS_KA_RESTORER
- 		new_ka.ka_restorer = NULL;
- #endif
-@@ -4720,15 +4726,18 @@ SYSCALL_DEFINE3(sigaction, int, sig,
- 	ret = do_sigaction(sig, act ? &new_ka : NULL, oact ? &old_ka : NULL);
- 
- 	if (!ret && oact) {
--		if (!access_ok(oact, sizeof(*oact)) ||
--		    __put_user(old_ka.sa.sa_handler, &oact->sa_handler) ||
--		    __put_user(old_ka.sa.sa_restorer, &oact->sa_restorer) ||
--		    __put_user(old_ka.sa.sa_flags, &oact->sa_flags) ||
--		    __put_user(old_ka.sa.sa_mask.sig[0], &oact->sa_mask))
--			return -EFAULT;
-+		scoped_user_write_access(oact, Efault) {
-+		    unsafe_put_user(old_ka.sa.sa_handler, &oact->sa_handler, Efault);
-+		    unsafe_put_user(old_ka.sa.sa_restorer, &oact->sa_restorer, Efault);
-+		    unsafe_put_user(old_ka.sa.sa_flags, &oact->sa_flags, Efault);
-+		    unsafe_put_user(old_ka.sa.sa_mask.sig[0], &oact->sa_mask, Efault);
-+		}
- 	}
- 
- 	return ret;
-+
-+Efault:
-+	return -EFAULT;
- }
- #endif
- #ifdef CONFIG_COMPAT_OLD_SIGACTION
-@@ -4742,12 +4751,12 @@ COMPAT_SYSCALL_DEFINE3(sigaction, int, sig,
- 	compat_uptr_t handler, restorer;
- 
- 	if (act) {
--		if (!access_ok(act, sizeof(*act)) ||
--		    __get_user(handler, &act->sa_handler) ||
--		    __get_user(restorer, &act->sa_restorer) ||
--		    __get_user(new_ka.sa.sa_flags, &act->sa_flags) ||
--		    __get_user(mask, &act->sa_mask))
--			return -EFAULT;
-+		scoped_user_read_access(act, Efault) {
-+		    unsafe_get_user(handler, &act->sa_handler, Efault);
-+		    unsafe_get_user(restorer, &act->sa_restorer, Efault);
-+		    unsafe_get_user(new_ka.sa.sa_flags, &act->sa_flags, Efault);
-+		    unsafe_get_user(mask, &act->sa_mask, Efault);
-+		}
- 
- #ifdef __ARCH_HAS_KA_RESTORER
- 		new_ka.ka_restorer = NULL;
-@@ -4760,16 +4769,19 @@ COMPAT_SYSCALL_DEFINE3(sigaction, int, sig,
- 	ret = do_sigaction(sig, act ? &new_ka : NULL, oact ? &old_ka : NULL);
- 
- 	if (!ret && oact) {
--		if (!access_ok(oact, sizeof(*oact)) ||
--		    __put_user(ptr_to_compat(old_ka.sa.sa_handler),
--			       &oact->sa_handler) ||
--		    __put_user(ptr_to_compat(old_ka.sa.sa_restorer),
--			       &oact->sa_restorer) ||
--		    __put_user(old_ka.sa.sa_flags, &oact->sa_flags) ||
--		    __put_user(old_ka.sa.sa_mask.sig[0], &oact->sa_mask))
--			return -EFAULT;
-+		scoped_user_write_access(oact, Efault) {
-+		    unsafe_put_user(ptr_to_compat(old_ka.sa.sa_handler),
-+			       &oact->sa_handler, Efault);
-+		    unsafe_put_user(ptr_to_compat(old_ka.sa.sa_restorer),
-+			       &oact->sa_restorer, Efault);
-+		    unsafe_put_user(old_ka.sa.sa_flags, &oact->sa_flags, Efault);
-+		    unsafe_put_user(old_ka.sa.sa_mask.sig[0], &oact->sa_mask, Efault);
-+		}
- 	}
- 	return ret;
-+
-+Efault:
-+	return -EFAULT;
- }
- #endif
- 
--- 
-2.39.5
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAwMi8wMy8yMDI2IMOgIDE0OjI3LCBkYXZpZC5sYWlnaHQubGludXhAZ21haWwuY29tIGEg
+w6ljcml0wqA6Cj4gRnJvbTogRGF2aWQgTGFpZ2h0IDxkYXZpZC5sYWlnaHQubGludXhAZ21haWwu
+Y29tPgo+IAo+IElmIGEgJ2NvbnN0IHN0cnVjdCBmb28gX191c2VyICpwdHInIGlzIHVzZWQgZm9y
+IHRoZSBhZGRyZXNzIHBhc3NlZAo+IHRvIHNjb3BlZF91c2VyX3JlYWRfYWNjZXNzKCkgdGhlbiB5
+b3UgZ2V0IGEgd2FybmluZy9lcnJvcgo+IHVhY2Nlc3MuaDo2OTE6MTogZXJyb3I6IGluaXRpYWxp
+emF0aW9uIGRpc2NhcmRzICdjb25zdCcgcXVhbGlmaWVyCj4gICAgICBmcm9tIHBvaW50ZXIgdGFy
+Z2V0IHR5cGUgWy1XZXJyb3I9ZGlzY2FyZGVkLXF1YWxpZmllcnNdCj4gZm9yIHRoZQo+ICAgICAg
+dm9pZCBfX3VzZXIgKl90bXBwdHIgPSBfX3Njb3BlZF91c2VyX2FjY2Vzc19iZWdpbihtb2RlLCB1
+cHRyLCBzaXplLCBlbGJsKQo+IGFzc2lnbm1lbnQuCj4gCj4gRml4IGJ5IHVzaW5nICdhdXRvJyBm
+b3IgYm90aCBfdG1wcHRyIGFuZCB0aGUgcmVkZWNsYXJhdGlvbiBvZiB1cHRyLgo+IFJlcGxhY2Ug
+dGhlIENMQVNTKCkgd2l0aCBleHBsaWNpdCBfX2NsZWFudXAoKSBmdW5jdGlvbnMgb24gdXB0ci4K
+PiAKPiBGaXhlczogZTQ5NzMxMGI0ZmZiICIodWFjY2VzczogUHJvdmlkZSBzY29wZWQgdXNlciBh
+Y2Nlc3MgcmVnaW9ucykiCj4gU2lnbmVkLW9mZi1ieTogRGF2aWQgTGFpZ2h0IDxkYXZpZC5sYWln
+aHQubGludXhAZ21haWwuY29tPgoKUmV2aWV3ZWQtYnk6IENocmlzdG9waGUgTGVyb3kgKENTIEdS
+T1VQKSA8Y2hsZXJveUBrZXJuZWwub3JnPgpUZXN0ZWQtYnk6IENocmlzdG9waGUgTGVyb3kgKENT
+IEdST1VQKSA8Y2hsZXJveUBrZXJuZWwub3JnPgoKQ2FuIHdlIGdldCB0aGlzIGZpeCBtZXJnZWQg
+aW4gNy4wLXJjMyBzbyB0aGF0IHdlIGNhbiBzdGFydCBidWlsZGluZyA3LjEgCm9uIHRvcCBvZiBp
+dCA/CgpUaGFua3MKQ2hyaXN0b3BoZQoKPiAtLS0KPiAgIGluY2x1ZGUvbGludXgvdWFjY2Vzcy5o
+IHwgNTQgKysrKysrKysrKysrKysrLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiAgIDEgZmls
+ZSBjaGFuZ2VkLCAyMCBpbnNlcnRpb25zKCspLCAzNCBkZWxldGlvbnMoLSkKPiAKPiBkaWZmIC0t
+Z2l0IGEvaW5jbHVkZS9saW51eC91YWNjZXNzLmggYi9pbmNsdWRlL2xpbnV4L3VhY2Nlc3MuaAo+
+IGluZGV4IDFmMzgwNDI0NWMwNi4uODA5ZTRmN2RmZGJkIDEwMDY0NAo+IC0tLSBhL2luY2x1ZGUv
+bGludXgvdWFjY2Vzcy5oCj4gKysrIGIvaW5jbHVkZS9saW51eC91YWNjZXNzLmgKPiBAQCAtNjQ3
+LDM2ICs2NDcsMjIgQEAgc3RhdGljIGlubGluZSB2b2lkIHVzZXJfYWNjZXNzX3Jlc3RvcmUodW5z
+aWduZWQgbG9uZyBmbGFncykgeyB9Cj4gICAvKiBEZWZpbmUgUlcgdmFyaWFudCBzbyB0aGUgYmVs
+b3cgX21vZGUgbWFjcm8gZXhwYW5zaW9uIHdvcmtzICovCj4gICAjZGVmaW5lIG1hc2tlZF91c2Vy
+X3J3X2FjY2Vzc19iZWdpbih1KQltYXNrZWRfdXNlcl9hY2Nlc3NfYmVnaW4odSkKPiAgICNkZWZp
+bmUgdXNlcl9yd19hY2Nlc3NfYmVnaW4odSwgcykJdXNlcl9hY2Nlc3NfYmVnaW4odSwgcykKPiAt
+I2RlZmluZSB1c2VyX3J3X2FjY2Vzc19lbmQoKQkJdXNlcl9hY2Nlc3NfZW5kKCkKPiAgIAo+ICAg
+LyogU2NvcGVkIHVzZXIgYWNjZXNzICovCj4gLSNkZWZpbmUgVVNFUl9BQ0NFU1NfR1VBUkQoX21v
+ZGUpCQkJCVwKPiAtc3RhdGljIF9fYWx3YXlzX2lubGluZSB2b2lkIF9fdXNlciAqCQkJCVwKPiAt
+Y2xhc3NfdXNlcl8jI19tb2RlIyNfYmVnaW4odm9pZCBfX3VzZXIgKnB0cikJCQlcCj4gLXsJCQkJ
+CQkJCVwKPiAtCXJldHVybiBwdHI7CQkJCQkJXAo+IC19CQkJCQkJCQlcCj4gLQkJCQkJCQkJXAo+
+IC1zdGF0aWMgX19hbHdheXNfaW5saW5lIHZvaWQJCQkJCVwKPiAtY2xhc3NfdXNlcl8jI19tb2Rl
+IyNfZW5kKHZvaWQgX191c2VyICpwdHIpCQkJXAo+IC17CQkJCQkJCQlcCj4gLQl1c2VyXyMjX21v
+ZGUjI19hY2Nlc3NfZW5kKCk7CQkJCVwKPiAtfQkJCQkJCQkJXAo+IC0JCQkJCQkJCVwKPiAtREVG
+SU5FX0NMQVNTKHVzZXJfICMjX21vZGUjIyBfYWNjZXNzLCB2b2lkIF9fdXNlciAqLAkJXAo+IC0J
+ICAgICBjbGFzc191c2VyXyMjX21vZGUjI19lbmQoX1QpLAkJCVwKPiAtCSAgICAgY2xhc3NfdXNl
+cl8jI19tb2RlIyNfYmVnaW4ocHRyKSwgdm9pZCBfX3VzZXIgKnB0cikJXAo+IC0JCQkJCQkJCVwK
+PiAtc3RhdGljIF9fYWx3YXlzX2lubGluZSBjbGFzc191c2VyXyMjX21vZGUjI19hY2Nlc3NfdAkJ
+XAo+IC1jbGFzc191c2VyXyMjX21vZGUjI19hY2Nlc3NfcHRyKHZvaWQgX191c2VyICpzY29wZSkJ
+CVwKPiAtewkJCQkJCQkJXAo+IC0JcmV0dXJuIHNjb3BlOwkJCQkJCVwKPiAtfQo+ICAgCj4gLVVT
+RVJfQUNDRVNTX0dVQVJEKHJlYWQpCj4gLVVTRVJfQUNDRVNTX0dVQVJEKHdyaXRlKQo+IC1VU0VS
+X0FDQ0VTU19HVUFSRChydykKPiAtI3VuZGVmIFVTRVJfQUNDRVNTX0dVQVJECj4gKy8qIENsZWFu
+dXAgd3JhcHBlciBmdW5jdGlvbnMgKi8KPiArc3RhdGljIF9fYWx3YXlzX2lubGluZSB2b2lkIF9f
+c2NvcGVkX3VzZXJfcmVhZF9hY2Nlc3NfZW5kKGNvbnN0IHZvaWQgKnApCj4gK3sKPiArCXVzZXJf
+cmVhZF9hY2Nlc3NfZW5kKCk7Cj4gK307Cj4gK3N0YXRpYyBfX2Fsd2F5c19pbmxpbmUgdm9pZCBf
+X3Njb3BlZF91c2VyX3dyaXRlX2FjY2Vzc19lbmQoY29uc3Qgdm9pZCAqcCkKPiArewo+ICsJdXNl
+cl93cml0ZV9hY2Nlc3NfZW5kKCk7Cj4gK307Cj4gK3N0YXRpYyBfX2Fsd2F5c19pbmxpbmUgdm9p
+ZCBfX3Njb3BlZF91c2VyX3J3X2FjY2Vzc19lbmQoY29uc3Qgdm9pZCAqcCkKPiArewo+ICsJdXNl
+cl9hY2Nlc3NfZW5kKCk7Cj4gK307Cj4gICAKPiAgIC8qKgo+ICAgICogX19zY29wZWRfdXNlcl9h
+Y2Nlc3NfYmVnaW4gLSBTdGFydCBhIHNjb3BlZCB1c2VyIGFjY2Vzcwo+IEBAIC03NTAsMTMgKzcz
+NiwxMyBAQCBVU0VSX0FDQ0VTU19HVUFSRChydykKPiAgICAqCj4gICAgKiBEb24ndCB1c2UgZGly
+ZWN0bHkuIFVzZSBzY29wZWRfbWFza2VkX3VzZXJfJE1PREVfYWNjZXNzKCkgaW5zdGVhZC4KPiAg
+ICAqLwo+IC0jZGVmaW5lIF9fc2NvcGVkX3VzZXJfYWNjZXNzKG1vZGUsIHVwdHIsIHNpemUsIGVs
+YmwpCQkJCQlcCj4gLWZvciAoYm9vbCBkb25lID0gZmFsc2U7ICFkb25lOyBkb25lID0gdHJ1ZSkJ
+CQkJCQlcCj4gLQlmb3IgKHZvaWQgX191c2VyICpfdG1wcHRyID0gX19zY29wZWRfdXNlcl9hY2Nl
+c3NfYmVnaW4obW9kZSwgdXB0ciwgc2l6ZSwgZWxibCk7IFwKPiAtCSAgICAgIWRvbmU7IGRvbmUg
+PSB0cnVlKQkJCQkJCQlcCj4gLQkJZm9yIChDTEFTUyh1c2VyXyMjbW9kZSMjX2FjY2Vzcywgc2Nv
+cGUpKF90bXBwdHIpOyAhZG9uZTsgZG9uZSA9IHRydWUpCVwKPiAtCQkJLyogRm9yY2UgbW9kaWZp
+ZWQgcG9pbnRlciB1c2FnZSB3aXRoaW4gdGhlIHNjb3BlICovCQlcCj4gLQkJCWZvciAoY29uc3Qg
+dHlwZW9mKHVwdHIpIHVwdHIgPSBfdG1wcHRyOyAhZG9uZTsgZG9uZSA9IHRydWUpCj4gKyNkZWZp
+bmUgX19zY29wZWRfdXNlcl9hY2Nlc3MobW9kZSwgdXB0ciwgc2l6ZSwgZWxibCkJCQkJXAo+ICtm
+b3IgKGJvb2wgZG9uZSA9IGZhbHNlOyAhZG9uZTsgZG9uZSA9IHRydWUpCQkJCQlcCj4gKwlmb3Ig
+KGF1dG8gX3RtcHB0ciA9IF9fc2NvcGVkX3VzZXJfYWNjZXNzX2JlZ2luKG1vZGUsIHVwdHIsIHNp
+emUsIGVsYmwpOwlcCj4gKwkgICAgICFkb25lOyBkb25lID0gdHJ1ZSkJCQkJCQlcCj4gKwkJLyog
+Rm9yY2UgbW9kaWZpZWQgcG9pbnRlciB1c2FnZSB3aXRoaW4gdGhlIHNjb3BlICovCQlcCj4gKwkJ
+Zm9yIChjb25zdCBhdXRvIHVwdHIgIF9fY2xlYW51cChfX3Njb3BlZF91c2VyXyMjbW9kZSMjX2Fj
+Y2Vzc19lbmQpID0gXAo+ICsJCSAgICAgX3RtcHB0cjsgIWRvbmU7IGRvbmUgPSB0cnVlKQo+ICAg
+Cj4gICAvKioKPiAgICAqIHNjb3BlZF91c2VyX3JlYWRfYWNjZXNzX3NpemUgLSBTdGFydCBhIHNj
+b3BlZCB1c2VyIHJlYWQgYWNjZXNzIHdpdGggZ2l2ZW4gc2l6ZQoKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
