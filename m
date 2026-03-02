@@ -4,117 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35EDCE9B364
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 10:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F997E9B365
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 11:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kNmeHsmCRJOCSYDqUkZhuoddTBlAycxpWKKBAWEhQQQ=; b=frkpMqQxcgpm+T
-	e2PL9rD73371EZV5u5r2JSkHVRn4pVoxrd2ZC8AH/r/aD6GJHk7/thTg5gCR7yrhH5TmeefERIXvx
-	kHseZO7pcZLmR2Lt5VFqEqTPHD8fC2tzrNJpbPWNBt9/tBtoPiiFGw1OZ4vp1TBuayPPFkI9WmBUP
-	QoE2o4yu32Qt71i6HV0gAf9OJ0dYKwtPOjw07M8GZVVDAnKHc/tRKiZvGUWgsYs5E0xACh5uJ27lt
-	11LziCpPiBSioqDkyhzgEADRygMs0pKmFRFcH9Cl0y0jCljWskvDAl9FKJx57Mo7E9bj/tr3tY3OS
-	IOhcElPjQyCRNoSmK7NA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R5/ouf8gtCbSjfWQd8pOpK0AsCAg7fOqWSnqPfRpsbs=; b=IKYMY+PklgNGzap36DZGolmGaN
+	EMOlinno2/Xx1ekKWkWtOmTFcT2uhcaRrrc5uiHaeFAS5KNa3st1luzkpYI1CPT9IknI4WZK6GjtW
+	uNKDwZnfe9zG1ZVKVee55cCKnAboCluEcKxjUJqCXw6A3yld4Ml3bwWkWbGku657hDAHaw9yvpHaZ
+	y7xGpA9sl3WaTUoh1G7+LdrGTTnXIOMizDADOpcw3BVCbq45Ws9ZVTttRkPIxi7FyB3hsmrJ0hTLS
+	5KCdM7hQQGlJ3Z1feuBCwN89mKfNRuH5MbwryKBF8xzNL22G6x1USEeK/eKfd3jJjiW/J2SPCVfQG
+	P5Mz2reA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0x5-0000000ClMH-29kv;
-	Mon, 02 Mar 2026 10:56:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vx1MU-0000000Cocg-0PJ5;
+	Mon, 02 Mar 2026 11:22:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0x2-0000000ClLw-3rL2
+	id 1vx1MT-0000000Coc1-2IfZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Mar 2026 10:56:38 +0000
+	Mon, 02 Mar 2026 11:22:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 42744443F8;
-	Mon,  2 Mar 2026 10:56:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 251C9C4AF09;
-	Mon,  2 Mar 2026 10:56:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9421160051;
+	Mon,  2 Mar 2026 11:22:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41594C19423;
+	Mon,  2 Mar 2026 11:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772448996;
-	bh=QIorwtQv/JYtsIRrCdeqpsv5dj2Fg5DePeC8vwGY8zk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dF71YNSYWjzj+jvyj2LZUedJtqhSfanvDAm3l4SicHGmzPOwkwizDNf2osWYXDCJC
-	 +tuVGPX5yz9IicwvyLwC09y8MVO7PPDK2kF05mHKDUc8C35f73sv4oZTIsrAlKOQ7P
-	 wN0b+PlR5NT+hEwDEiWQibGQS+M+cDQ+fAnOjK4JIPjOGsc6wh2tFzajbMZzZXrvHY
-	 ebj9/AGaQnZwZz/WRFC2WANaJmDzs/WasJLKYkT6YIjx6BxWdQrKWnZhV98Sy3+WMk
-	 M3XQp9fjp5Ly/eOUxEzvHJpTITd7B6ZuYRnMOi+4nTm7v3a9Y7KCFS74bRvfaLr+T1
-	 x6Q3cKG5CCZPA==
-Received: from phl-compute-09.internal (phl-compute-09.internal [10.202.2.49])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 245B7F40068;
-	Mon,  2 Mar 2026 05:56:34 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-09.internal (MEProxy); Mon, 02 Mar 2026 05:56:34 -0500
-X-ME-Sender: <xms:4myladjV01iWsOUtjtzcj3vZupj1Y1XZ52NB9CTcS42N2KVYqebmBw>
-    <xme:4mylabMmI-f6TLtFwjswwP2yHngZCaAvMI2sOn5bsBZjXBTfu-1Owz5vCGlXXgrHJ
-    5XA2TBeo-AvKsI4gmrM5H1M3Hu7R75Og4XdJj_eyAdhgwPDGrdE78A>
-X-ME-Received: <xmr:4mylaXMtbuPsATgmuxJHjV89K0zt3CuvIB_boPi7x3NPTZBs0D_CosHxgsWlog>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvheejgeekucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucgoteeftdduqddtudculdduhedmnecujfgurhephffvve
-    fufffkofgjfhggtgfgsehtkeertdertdejnecuhfhrohhmpedfmfhirhihlhcuufhhuhht
-    shgvmhgruhculdfovghtrgdmfdcuoehkrghssehkvghrnhgvlhdrohhrgheqnecuggftrf
-    grthhtvghrnhephfdvfedvveejveehhffhvedufedujeefuddvkeehleduhfeihfehudej
-    ffffiefgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
-    epkhhirhhilhhlodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieduudei
-    vdeiheehqddvkeeggeegjedvkedqkhgrsheppehkvghrnhgvlhdrohhrghesshhhuhhtvg
-    hmohhvrdhnrghmvgdpnhgspghrtghpthhtohepvdekpdhmohguvgepshhmthhpohhuthdp
-    rhgtphhtthhopehkrghssehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrkhhpmheslh
-    hinhhugidqfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheprghlvgigsehghhhi
-    thhirdhfrhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupd
-    hrtghpthhtohepsghhvgesrhgvughhrghtrdgtohhmpdhrtghpthhtoheptghhvghnhhhu
-    rggtrghisehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhrsggvtheslhifnhdrnh
-    gvthdprhgtphhtthhopegurghvihgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehf
-    vhgulhesghhoohhglhgvrdgtohhm
-X-ME-Proxy: <xmx:4mylaTL_5a_Tm5FcC4DkzFyVnPOUD7NWAMruXiJ7cLUt4G70LqyDxg>
-    <xmx:4mylaWt-BwsGNwvyb1I9YB3jtaA0LQ2aYs58v6i_bSjprG2Qy9v14A>
-    <xmx:4mylaVF5tD6lw22TzAR11tltaMNEpftkfceacgzzxR6iJ7oYNXtewg>
-    <xmx:4mylaVPV5xjJwdJ_j2BWUtR4lUjIQ7DmcR0whs3UjzW6Fbzus43HZQ>
-    <xmx:4mylaYFG6vRkUEa9tC7J99RSubdP_bO__GGYLVU8KE4yvCzo4jTLrzXq>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 2 Mar 2026 05:56:33 -0500 (EST)
-From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-To: kas@kernel.org
-Cc: akpm@linux-foundation.org,
-	alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
-	bhe@redhat.com,
-	chenhuacai@kernel.org,
-	corbet@lwn.net,
-	david@kernel.org,
-	fvdl@google.com,
-	hannes@cmpxchg.org,
-	kernel-team@meta.com,
-	kernel@xen0n.name,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	lorenzo.stoakes@oracle.com,
-	mhocko@suse.com,
-	muchun.song@linux.dev,
-	osalvador@suse.de,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	rppt@kernel.org,
-	usamaarif642@gmail.com,
-	vbabka@suse.cz,
-	willy@infradead.org,
-	ziy@nvidia.com
-Subject: [PATCHv7.1 17/18] hugetlb: Update vmemmap_dedup.rst
-Date: Mon,  2 Mar 2026 10:56:28 +0000
-Message-ID: <20260302105630.303492-1-kas@kernel.org>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <20260227194302.274384-18-kas@kernel.org>
-References: <20260227194302.274384-18-kas@kernel.org>
+	s=k20201202; t=1772450572;
+	bh=F0RpYt/xYTOulkmg02m2V9erbUhS84/fAQaXNHW+3g8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CR72+dybgJuzcXVs9t6MsaU3kgYio0aW4iyiq+8DDBa4Hp0xPahs91KnZzNlJi+39
+	 q+1F19YAAddZapkFrbdppsoi/fWeqctM2ZSRDpbPyoAEkvbFCVdWlhLMpPceTE9RyT
+	 p4PRJzG2AuS98u3GcUGem0WxKdf1DPdf6lij4dIlPizzG+bBiEWWwhoaEIc4eQiz6p
+	 +WbdF3pEke1x6IZS53RH4XiiR86KAi2PiShsMHesUgX1WW3n92NHjwHwHFeFdU3KcQ
+	 rXhs7Mb+oePBHvBR5NiUCVb2hb3SZrF41baleICzesAHEBzRyoKuEszi/e/b7tZPvT
+	 H+1N1uDeoatBg==
+Date: Mon, 2 Mar 2026 11:22:46 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: linux-gpio@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC v11 3/4] soc: microchip: add mpfs gpio interrupt mux driver
+Message-ID: <20260302-spoiling-bullring-9b7fcdd805ee@spud>
+References: <20260227-ajar-wolverine-7ce1ebd79821@spud>
+ <20260227-flashing-overcast-85ff59b2e82c@spud>
+ <20260302105824.21b5c7d6@bootlin.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_025637_019310_BB24783F 
-X-CRM114-Status: GOOD (  15.12  )
+In-Reply-To: <20260302105824.21b5c7d6@bootlin.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,111 +74,303 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============4324254611489508842=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogS2lyeWwgU2h1dHNlbWF1IDxrYXNAa2VybmVsLm9yZz4KClVwZGF0ZSB0aGUgZG9jdW1l
-bnRhdGlvbiByZWdhcmRpbmcgdm1lbW1hcCBvcHRpbWl6YXRpb24gZm9yIGh1Z2V0bGIgdG8KcmVm
-bGVjdCB0aGUgY2hhbmdlcyBpbiBob3cgdGhlIGtlcm5lbCBtYXBzIHRoZSB0YWlsIHBhZ2VzLgoK
-RmFrZSBoZWFkcyBubyBsb25nZXIgZXhpc3QuIFJlbW92ZSB0aGVpciBkZXNjcmlwdGlvbi4KClNp
-Z25lZC1vZmYtYnk6IEtpcnlsIFNodXRzZW1hdSA8a2FzQGtlcm5lbC5vcmc+ClJldmlld2VkLWJ5
-OiBNdWNodW4gU29uZyA8bXVjaHVuLnNvbmdAbGludXguZGV2PgpSZXZpZXdlZC1ieTogRGF2aWQg
-SGlsZGVuYnJhbmQgKEFybSkgPGRhdmlkQGtlcm5lbC5vcmc+Ci0tLQogRG9jdW1lbnRhdGlvbi9t
-bS92bWVtbWFwX2RlZHVwLnJzdCB8IDYwICsrKysrKysrKysrKystLS0tLS0tLS0tLS0tLS0tLQog
-MSBmaWxlIGNoYW5nZWQsIDI2IGluc2VydGlvbnMoKyksIDM0IGRlbGV0aW9ucygtKQoKdjcuMToK
-ICAtIEFkZCBtaXNzaW5nIHBlcmlvZCAoUmFuZHkpOwogIC0gcy9wZXItbm9kZS9wZXItem9uZS8g
-KE11Y2h1bik7CgpkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9tbS92bWVtbWFwX2RlZHVwLnJz
-dCBiL0RvY3VtZW50YXRpb24vbW0vdm1lbW1hcF9kZWR1cC5yc3QKaW5kZXggMTg2M2Q4OGQyZGNi
-Li45ZmE4NjQyZGVkNDggMTAwNjQ0Ci0tLSBhL0RvY3VtZW50YXRpb24vbW0vdm1lbW1hcF9kZWR1
-cC5yc3QKKysrIGIvRG9jdW1lbnRhdGlvbi9tbS92bWVtbWFwX2RlZHVwLnJzdApAQCAtMTI0LDMz
-ICsxMjQsMzUgQEAgSGVyZSBpcyBob3cgdGhpbmdzIGxvb2sgYmVmb3JlIG9wdGltaXphdGlvbjo6
-CiAgfCAgICAgICAgICAgfAogICstLS0tLS0tLS0tLSsKIAotVGhlIHZhbHVlIG9mIHBhZ2UtPmNv
-bXBvdW5kX2luZm8gaXMgdGhlIHNhbWUgZm9yIGFsbCB0YWlsIHBhZ2VzLiBUaGUgZmlyc3QKLXBh
-Z2Ugb2YgYGBzdHJ1Y3QgcGFnZWBgIChwYWdlIDApIGFzc29jaWF0ZWQgd2l0aCB0aGUgSHVnZVRM
-QiBwYWdlIGNvbnRhaW5zIHRoZSA0Ci1gYHN0cnVjdCBwYWdlYGAgbmVjZXNzYXJ5IHRvIGRlc2Ny
-aWJlIHRoZSBIdWdlVExCLiBUaGUgb25seSB1c2Ugb2YgdGhlIHJlbWFpbmluZwotcGFnZXMgb2Yg
-YGBzdHJ1Y3QgcGFnZWBgIChwYWdlIDEgdG8gcGFnZSA3KSBpcyB0byBwb2ludCB0byBwYWdlLT5j
-b21wb3VuZF9pbmZvLgotVGhlcmVmb3JlLCB3ZSBjYW4gcmVtYXAgcGFnZXMgMSB0byA3IHRvIHBh
-Z2UgMC4gT25seSAxIHBhZ2Ugb2YgYGBzdHJ1Y3QgcGFnZWBgCi13aWxsIGJlIHVzZWQgZm9yIGVh
-Y2ggSHVnZVRMQiBwYWdlLiBUaGlzIHdpbGwgYWxsb3cgdXMgdG8gZnJlZSB0aGUgcmVtYWluaW5n
-Ci03IHBhZ2VzIHRvIHRoZSBidWRkeSBhbGxvY2F0b3IuCitUaGUgZmlyc3QgcGFnZSBvZiBgYHN0
-cnVjdCBwYWdlYGAgKHBhZ2UgMCkgYXNzb2NpYXRlZCB3aXRoIHRoZSBIdWdlVExCIHBhZ2UKK2Nv
-bnRhaW5zIHRoZSA0IGBgc3RydWN0IHBhZ2VgYCBuZWNlc3NhcnkgdG8gZGVzY3JpYmUgdGhlIEh1
-Z2VUTEIuIFRoZSByZW1haW5pbmcKK3BhZ2VzIG9mIGBgc3RydWN0IHBhZ2VgYCAocGFnZSAxIHRv
-IHBhZ2UgNykgYXJlIHRhaWwgcGFnZXMuCisKK1RoZSBvcHRpbWl6YXRpb24gaXMgb25seSBhcHBs
-aWVkIHdoZW4gdGhlIHNpemUgb2YgdGhlIHN0cnVjdCBwYWdlIGlzIGEgcG93ZXIKK29mIDIuIElu
-IHRoaXMgY2FzZSwgYWxsIHRhaWwgcGFnZXMgb2YgdGhlIHNhbWUgb3JkZXIgYXJlIGlkZW50aWNh
-bC4gU2VlCitjb21wb3VuZF9oZWFkKCkuIFRoaXMgYWxsb3dzIHVzIHRvIHJlbWFwIHRoZSB0YWls
-IHBhZ2VzIG9mIHRoZSB2bWVtbWFwIHRvIGEKK3NoYXJlZCwgcmVhZC1vbmx5IHBhZ2UuIFRoZSBo
-ZWFkIHBhZ2UgaXMgYWxzbyByZW1hcHBlZCB0byBhIG5ldyBwYWdlLiBUaGlzCithbGxvd3MgdGhl
-IG9yaWdpbmFsIHZtZW1tYXAgcGFnZXMgdG8gYmUgZnJlZWQuCiAKIEhlcmUgaXMgaG93IHRoaW5n
-cyBsb29rIGFmdGVyIHJlbWFwcGluZzo6CiAKLSAgICBIdWdlVExCICAgICAgICAgICAgICAgICAg
-c3RydWN0IHBhZ2VzKDggcGFnZXMpICAgICAgICAgcGFnZSBmcmFtZSg4IHBhZ2VzKQotICstLS0t
-LS0tLS0tLSsgLS0tdmlydF90b19wYWdlLS0tPiArLS0tLS0tLS0tLS0rICAgbWFwcGluZyB0byAg
-ICstLS0tLS0tLS0tLSsKLSB8ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgfCAgICAg
-MCAgICAgfCAtLS0tLS0tLS0tLS0tPiB8ICAgICAwICAgICB8Ci0gfCAgICAgICAgICAgfCAgICAg
-ICAgICAgICAgICAgICAgICstLS0tLS0tLS0tLSsgICAgICAgICAgICAgICAgKy0tLS0tLS0tLS0t
-KwotIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICB8ICAgICAxICAgICB8IC0tLS0t
-LS0tLS0tLS0tLV4gXiBeIF4gXiBeIF4KLSB8ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
-ICAgKy0tLS0tLS0tLS0tKyAgICAgICAgICAgICAgICAgIHwgfCB8IHwgfCB8Ci0gfCAgICAgICAg
-ICAgfCAgICAgICAgICAgICAgICAgICAgIHwgICAgIDIgICAgIHwgLS0tLS0tLS0tLS0tLS0tLS0r
-IHwgfCB8IHwgfAotIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICArLS0tLS0tLS0t
-LS0rICAgICAgICAgICAgICAgICAgICB8IHwgfCB8IHwKLSB8ICAgICAgICAgICB8ICAgICAgICAg
-ICAgICAgICAgICAgfCAgICAgMyAgICAgfCAtLS0tLS0tLS0tLS0tLS0tLS0tKyB8IHwgfCB8Ci0g
-fCAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICstLS0tLS0tLS0tLSsgICAgICAgICAg
-ICAgICAgICAgICAgfCB8IHwgfAotIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICB8
-ICAgICA0ICAgICB8IC0tLS0tLS0tLS0tLS0tLS0tLS0tLSsgfCB8IHwKLSB8ICAgIFBNRCAgICB8
-ICAgICAgICAgICAgICAgICAgICAgKy0tLS0tLS0tLS0tKyAgICAgICAgICAgICAgICAgICAgICAg
-IHwgfCB8Ci0gfCAgIGxldmVsICAgfCAgICAgICAgICAgICAgICAgICAgIHwgICAgIDUgICAgIHwg
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rIHwgfAotIHwgIG1hcHBpbmcgIHwgICAgICAgICAgICAg
-ICAgICAgICArLS0tLS0tLS0tLS0rICAgICAgICAgICAgICAgICAgICAgICAgICB8IHwKLSB8ICAg
-ICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgfCAgICAgNiAgICAgfCAtLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tKyB8Ci0gfCAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICstLS0t
-LS0tLS0tLSsgICAgICAgICAgICAgICAgICAgICAgICAgICAgfAotIHwgICAgICAgICAgIHwgICAg
-ICAgICAgICAgICAgICAgICB8ICAgICA3ICAgICB8IC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LSsKKyAgICBIdWdlVExCICAgICAgICAgICAgICAgICAgc3RydWN0IHBhZ2VzKDggcGFnZXMpICAg
-ICAgICAgICAgICAgICBwYWdlIGZyYW1lIChuZXcpCisgKy0tLS0tLS0tLS0tKyAtLS12aXJ0X3Rv
-X3BhZ2UtLS0+ICstLS0tLS0tLS0tLSsgICBtYXBwaW5nIHRvICAgKy0tLS0tLS0tLS0tLS0tLS0r
-CisgfCAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgIHwgICAgIDAgICAgIHwgLS0tLS0t
-LS0tLS0tLT4gfCAgICAgICAwICAgICAgICB8CisgfCAgICAgICAgICAgfCAgICAgICAgICAgICAg
-ICAgICAgICstLS0tLS0tLS0tLSsgICAgICAgICAgICAgICAgKy0tLS0tLS0tLS0tLS0tLS0rCisg
-fCAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgIHwgICAgIDEgICAgIHwgLS0tLS0t4pSQ
-CisgfCAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICstLS0tLS0tLS0tLSsgICAgICAg
-fAorIHwgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICB8ICAgICAyICAgICB8IC0tLS0t
-LeKUvCAgICAgICAgKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCisgfCAgICAgICAgICAg
-fCAgICAgICAgICAgICAgICAgICAgICstLS0tLS0tLS0tLSsgICAgICAgfCAgICAgICAgfCBBIHNp
-bmdsZSwgcGVyLXpvbmUgcGFnZSAgICB8CisgfCAgICAgICAgICAgfCAgICAgICAgICAgICAgICAg
-ICAgIHwgICAgIDMgICAgIHwgLS0tLS0t4pS8LS0tLS0tPiB8IGZyYW1lIHNoYXJlZCBhbW9uZyBh
-bGwgICAgIHwKKyB8ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgKy0tLS0tLS0tLS0t
-KyAgICAgICB8ICAgICAgICB8IGh1Z2VwYWdlcyBvZiB0aGUgc2FtZSBzaXplIHwKKyB8ICAgICAg
-ICAgICB8ICAgICAgICAgICAgICAgICAgICAgfCAgICAgNCAgICAgfCAtLS0tLS3ilLwgICAgICAg
-ICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKworIHwgICAgICAgICAgIHwgICAgICAgICAg
-ICAgICAgICAgICArLS0tLS0tLS0tLS0rICAgICAgIHwKKyB8ICAgICAgICAgICB8ICAgICAgICAg
-ICAgICAgICAgICAgfCAgICAgNSAgICAgfCAtLS0tLS3ilLwKKyB8ICAgIFBNRCAgICB8ICAgICAg
-ICAgICAgICAgICAgICAgKy0tLS0tLS0tLS0tKyAgICAgICB8CisgfCAgIGxldmVsICAgfCAgICAg
-ICAgICAgICAgICAgICAgIHwgICAgIDYgICAgIHwgLS0tLS0t4pS8CisgfCAgbWFwcGluZyAgfCAg
-ICAgICAgICAgICAgICAgICAgICstLS0tLS0tLS0tLSsgICAgICAgfAorIHwgICAgICAgICAgIHwg
-ICAgICAgICAgICAgICAgICAgICB8ICAgICA3ICAgICB8IC0tLS0tLeKUmAogIHwgICAgICAgICAg
-IHwgICAgICAgICAgICAgICAgICAgICArLS0tLS0tLS0tLS0rCiAgfCAgICAgICAgICAgfAogIHwg
-ICAgICAgICAgIHwKQEAgLTE3MiwxNiArMTc0LDYgQEAgVGhlIGNvbnRpZ3VvdXMgYml0IGlzIHVz
-ZWQgdG8gaW5jcmVhc2UgdGhlIG1hcHBpbmcgc2l6ZSBhdCB0aGUgcG1kIGFuZCBwdGUKIChsYXN0
-KSBsZXZlbC4gU28gdGhpcyB0eXBlIG9mIEh1Z2VUTEIgcGFnZSBjYW4gYmUgb3B0aW1pemVkIG9u
-bHkgd2hlbiBpdHMKIHNpemUgb2YgdGhlIGBgc3RydWN0IHBhZ2VgYCBzdHJ1Y3RzIGlzIGdyZWF0
-ZXIgdGhhbiAqKjEqKiBwYWdlLgogCi1Ob3RpY2U6IFRoZSBoZWFkIHZtZW1tYXAgcGFnZSBpcyBu
-b3QgZnJlZWQgdG8gdGhlIGJ1ZGR5IGFsbG9jYXRvciBhbmQgYWxsCi10YWlsIHZtZW1tYXAgcGFn
-ZXMgYXJlIG1hcHBlZCB0byB0aGUgaGVhZCB2bWVtbWFwIHBhZ2UgZnJhbWUuIFNvIHdlIGNhbiBz
-ZWUKLW1vcmUgdGhhbiBvbmUgYGBzdHJ1Y3QgcGFnZWBgIHN0cnVjdCB3aXRoIGBgUEdfaGVhZGBg
-IChlLmcuIDggcGVyIDIgTUIgSHVnZVRMQgotcGFnZSkgYXNzb2NpYXRlZCB3aXRoIGVhY2ggSHVn
-ZVRMQiBwYWdlLiBUaGUgYGBjb21wb3VuZF9oZWFkKClgYCBjYW4gaGFuZGxlCi10aGlzIGNvcnJl
-Y3RseS4gVGhlcmUgaXMgb25seSAqKm9uZSoqIGhlYWQgYGBzdHJ1Y3QgcGFnZWBgLCB0aGUgdGFp
-bAotYGBzdHJ1Y3QgcGFnZWBgIHdpdGggYGBQR19oZWFkYGAgYXJlIGZha2UgaGVhZCBgYHN0cnVj
-dCBwYWdlYGAuICBXZSBuZWVkIGFuCi1hcHByb2FjaCB0byBkaXN0aW5ndWlzaCBiZXR3ZWVuIHRo
-b3NlIHR3byBkaWZmZXJlbnQgdHlwZXMgb2YgYGBzdHJ1Y3QgcGFnZWBgIHNvCi10aGF0IGBgY29t
-cG91bmRfaGVhZCgpYGAgY2FuIHJldHVybiB0aGUgcmVhbCBoZWFkIGBgc3RydWN0IHBhZ2VgYCB3
-aGVuIHRoZQotcGFyYW1ldGVyIGlzIHRoZSB0YWlsIGBgc3RydWN0IHBhZ2VgYCBidXQgd2l0aCBg
-YFBHX2hlYWRgYC4KLQogRGV2aWNlIERBWAogPT09PT09PT09PQogCi0tIAoyLjUxLjIKCgpfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
-YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
-aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============4324254611489508842==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jaZPhkjkO4quy2lU"
+Content-Disposition: inline
+
+
+--jaZPhkjkO4quy2lU
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Mar 02, 2026 at 10:58:24AM +0100, Herve Codina wrote:
+> Hi Conor,
+>=20
+> On Fri, 27 Feb 2026 14:52:29 +0000
+> Conor Dooley <conor@kernel.org> wrote:
+>=20
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> >=20
+> > On PolarFire SoC there are more GPIO interrupts than there are interrupt
+> > lines available on the PLIC, and a runtime configurable mux is used to
+> > decide which interrupts are assigned direct connections to the PLIC &
+> > which are relegated to sharing a line.
+> >=20
+> > Add a driver so that Linux can set the mux based on the interrupt
+> > mapping in the devicetree.
+> >=20
+> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> > ---
+> ...
+>=20
+> > --- a/drivers/soc/microchip/Kconfig
+> > +++ b/drivers/soc/microchip/Kconfig
+> > @@ -1,3 +1,14 @@
+> > +config POLARFIRE_SOC_IRQ_MUX
+> > +	bool "Microchip PolarFire SoC's GPIO IRQ Mux"
+> > +	depends on ARCH_MICROCHIP
+> > +	select REGMAP
+> > +	select REGMAP_MMIO
+> > +	default y
+> > +	help
+> > +	  Support for the interrupt mux on Polarfire SoC. It sits between
+> > +	  the GPIO controllers and the PLIC, as only 35 interrupts are shared
+> > +	  between 3 GPIO controllers with 32 interrupts each.
+>=20
+> 35 interrupts ?
+
+I copy-pasted this from Kconfig text for the other mux implementation
+that's been floating around since 6.10. I should have double checked
+it. I think the 35 came from 32 + 3, not realising that there are 6
+lines on GPIO controller 1 that are always in "direct" mode. When I
+wrote that description I must have thought those 6 were always in
+"non-direct" mode.
+
+> Previously (other patches) you mentionned 41 (38 + 3).
+>=20
+> Also 32 interrutps on each (3 * 32 =3D 96) but you talked about 70 on pre=
+vious
+> patches.
+>=20
+> Can you double check or clarify those numbers ?
+
+Yeah, this whole description is not good, 70 and 38 + 3 are correct.
+The controllers have 14, 24 and 32 lines.
+
+> ...
+> > +++ b/drivers/soc/microchip/mpfs-irqmux.c
+> > @@ -0,0 +1,167 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Largely copied from rzn1_irqmux.c
+> > + */
+> > +
+> > +#include <linux/bitmap.h>
+> > +#include <linux/bitops.h>
+> > +#include <linux/mfd/syscon.h>
+> > +#include <linux/module.h>
+> > +#include <linux/of.h>
+> > +#include <linux/of_irq.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/regmap.h>
+> > +
+> > +#define MPFS_IRQMUX_CR		0x54
+> > +#define MPFS_IRQMUX_NUM_OUTPUTS	70
+>=20
+> Is 70 really the outputs ?
+>=20
+> According to previous patches, I would say 41 (38+3).
+
+I guess in my head the direction was PLIC -> MUX -> GPIO, cos that's the
+way the software follows the chain, so the mux would have 41 inputs and
+70 outputs.
+
+> ...
+> > +static int mpfs_irqmux_probe(struct platform_device *pdev)
+> > +{
+> > +	DECLARE_BITMAP(line_done, MPFS_IRQMUX_NUM_OUTPUTS) =3D {};
+> > +	struct device *dev =3D &pdev->dev;
+> > +	struct device_node *np =3D dev->of_node;
+> > +	struct of_imap_parser imap_parser;
+> > +	struct of_imap_item imap_item;
+> > +	struct regmap *regmap;
+> > +	int ret, direct_mode, line, controller, gpio;
+>=20
+> Reverse Xmas tree.
+>=20
+> > +	u32 tmp, val =3D 0, old;
+>=20
+> ...
+> > +	for_each_of_imap_item(&imap_parser, &imap_item) {
+> > +
+> > +		direct_mode =3D mpfs_irqmux_is_direct_mode(dev, &imap_item.parent_ar=
+gs);
+> > +		if (direct_mode < 0) {
+> > +			of_node_put(imap_item.parent_args.np);
+> > +			return direct_mode;
+> > +		}
+> > +
+> > +		line =3D imap_item.child_imap[0];
+> > +		gpio =3D line % 32;
+> > +		controller =3D line / 32;
+> > +
+> > +		if (controller > 2) {
+> > +			of_node_put(imap_item.parent_args.np);
+> > +			dev_err(dev, "child interrupt number too large: %d\n", line);
+> > +			return -EINVAL;
+> > +		}
+> > +
+> > +		if (test_and_set_bit(line, line_done)) {
+>=20
+> Your bitmap size is MPFS_IRQMUX_NUM_OUTPUTS but you your line variable can
+> have values from 0 to 95.
+
+I think this is one of the things that kinda made sense when I started
+copying your work, but by the time I was done I had diverged enough that
+it didn't really make sense any more. Probably I should keep the check,
+but increase the bitmap to 96, not as if packing is going to make a
+worthwhile saving.
+
+> Maybe some checks on imap_item.child_imap[0] or line could be added in
+> order to be be sure that line value will fit in the bitmap.
+>=20
+>=20
+> > +			of_node_put(imap_item.parent_args.np);
+> > +			dev_err(dev, "Mux output line %d already defined in interrupt-map\n=
+",
+> > +				line);
+>=20
+> line is computed from imap_item.child_imap[0]. It is the input and not the
+> output.
+
+That's the starting point being the PLIC versus the GPIO controller. I
+should probably swap that stuff around I guess?
+
+>=20
+> In rzn1-irqmux.c, the bitmap is used to avoid multiple input lines using =
+the same
+> output line. Bitmap bits represent outputs.
+
+I considered checking the other side too, but excluding the 3 shared
+interrupts. Do you think that is worthwhile here? Reuse of what you call
+"output lines" is obviously something that I allow, I wanted to make
+sure that, as I mandated 70 entries in the property, that they were all
+unique.
+
+> > +			return -EINVAL;
+> > +		}
+> > +
+> > +		/*
+> > +		 * There are 41 interrupts assigned to GPIOs, of which 38 are "direc=
+t". Since the
+> > +		 * mux has 32 bits only, 6 of these exclusive/"direct" interrupts re=
+main. These
+> > +		 * are used by GPIO controller 1's lines 18 to 23. Nothing needs to =
+be done
+> > +		 * for these interrupts.
+> > +		 */
+> > +		if (controller =3D=3D 1 && gpio >=3D 18)
+> > +			continue;
+> > +
+> > +		/*
+> > +		 * The mux has a single register, where bits 0 to 13 mux between GPI=
+O controller
+> > +		 * 1's 14 GPIOs and GPIO controller 2's first 14 GPIOs. The remainin=
+g bits mux
+> > +		 * between the first 18 GPIOs of controller 1 and the last 18 GPIOS =
+of
+> > +		 * controller 2. If a bit in the mux's control register is set, the
+> > +		 * corresponding interrupt line for GPIO controller 0 or 1 will be p=
+ut in
+> > +		 * "non-direct" mode. If cleared, the "fabric" controller's will.
+> > +		 *
+> > +		 * Register layout:
+> > +		 *    GPIO 1 interrupt line 17 | mux bit 31 | GPIO 2 interrupt line =
+31
+> > +		 *    ...                      | ...        | ...
+> > +		 *    ...                      | ...        | ...
+> > +		 *    GPIO 1 interrupt line  0 | mux bit 14 | GPIO 2 interrupt line =
+14
+> > +		 *    GPIO 0 interrupt line 13 | mux bit 13 | GPIO 2 interrupt line =
+13
+> > +		 *    ...                      | ...        | ...
+> > +		 *    ...                      | ...        | ...
+> > +		 *    GPIO 0 interrupt line  0 | mux bit  0 | GPIO 2 interrupt line =
+ 0
+> > +		 *
+> > +		 * As the binding mandates 70 items, one for each GPIO line, there's=
+ no need to
+> > +		 * handle anything for GPIO controller 2, since the bit will be set =
+for the
+> > +		 * corresponding line in GPIO controller 0 or 1.
+>=20
+> Hum, what happen if the interrupts property is set in the GPIO controller=
+ 2 and not
+> GPIO controllers 0 or 1.
+>=20
+> Is it legit ?
+>=20
+> If so, should lines coming from GPIO controller 2 be took into account ?
+>=20
+> Maybe my comment is not relevant due to some misunderstanding in the not
+> so obvious mapping.
+
+My logic here was that what is done in the controller nodes doesn't
+matter, because I will always mandate that if the map property is
+provided in the mux node that it has 70 items. Even if controller 0 and
+1 are not used, this driver will still be able to read the mappings for
+them and set the mux correctly. Whether or not there's an interrupts
+property in any of the controllers shouldn't matter here at all, when it
+comes to writing the mux, right?
+
+Thanks for taking a look at the series :+1:
+
+Cheers,
+Conor.
+
+>=20
+> > +		 */
+> > +		if (controller =3D=3D 2)
+> > +			continue;
+> > +
+> > +		/*
+> > +		 * If in direct mode, the bit is cleared, nothing needs to be done a=
+s val is zero
+> > +		 * initialised and that's the direct mode setting for GPIO controlle=
+r 0 and 1.
+> > +		 */
+> > +		if (direct_mode)
+> > +			continue;
+> > +
+> > +		if (controller =3D=3D 0)
+> > +			val |=3D 1U << gpio;
+> > +		else
+> > +			val |=3D 1U << (gpio + 14);
+> > +	}
+> > +
+> > +	regmap_read(regmap, MPFS_IRQMUX_CR, &old);
+> > +	regmap_write(regmap, MPFS_IRQMUX_CR, val);
+> > +
+> > +	if (val !=3D old)
+> > +		dev_info(dev, "firmware mux setting of 0x%x overwritten to 0x%x\n", =
+old, val);
+> > +
+> > +	return 0;
+> > +}
+> > +
+
+
+--jaZPhkjkO4quy2lU
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaVzBgAKCRB4tDGHoIJi
+0guBAP4vIUOOxg9ScxoguhFsRG4Y9tA56aRMtey847+h1+MqmAEAjoxupnv3mR5g
+9yUWvt9idB6qe/LPGkLbHgqN+rzfpAg=
+=WPAE
+-----END PGP SIGNATURE-----
+
+--jaZPhkjkO4quy2lU--
+
+
+--===============4324254611489508842==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4324254611489508842==--
+
