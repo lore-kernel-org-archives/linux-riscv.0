@@ -4,106 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92B14E9B36F
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 12:42:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD2DE9B37D
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 13:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QHQDuovmJyRKIxBgXUgdxyVhU1iv3SRAI0oIWdRjyig=; b=ihHAo0OzcHXXI2
-	wzyzFR3jy8/WTMLNvM/oHTC4rIOf6Y3eBGqC7X8eDaRUmiksuoRZAqe88PqOwKRn17rdy9BpvF4jR
-	7cemNMt8B/fSwYRcxf2VHb24wIqFP0Rjj46llQ+Q5dXL/Od4AUWruroM7MfyagOvzHFpBXsf35T/I
-	Qd17/STG3UoTGp5dFW/PZwhEB3T11+0e9a6Bei67m8ZBDuaXPDTnDkfuDDS+JkX6iczChCXVNr/y5
-	QwQBtJT3tcNE3yVZiHX+9G3ZkjjnNVIkb/WoVveBF4fHUMvUcbsFqXQiD9iB1cxigpzz1R0EfatZr
-	3wJL4qXjm7UbLoHpKogA==;
+	List-Owner; bh=Ran1b0VZfsRt6huRyRhQB/ukHwdcB7s1Kxm1qKP7B9w=; b=EoR0Yh/Gu0TIP2
+	HnYef/uirocgFyJp1llfsz7OuNuzC1Jm3fU6ULnFf/WAXqFXk98KRakKyIyx33Mdj1K/1cEdYJdFK
+	r/Bxpg0/TVKyRG5V3wmdea8nr51+QEJz7EWl5jomf6wfDmd1jQ6UlBcpM3q1jON/Ei1TdMWnIH/Ia
+	2tRGCa57XW+I0bAiGY1Y9cQrRulJVxz4iJbT7RU0xpoO8lt2NjhldNK31/mSJ57QjANj4+pWpsOV1
+	vg34wBQAidDxX6/B7JGLyRmgWOpzeuh5SpVpizMxHdmSXDIztr+b3QfU6pUJ9Yv2yTbSxtoiBoiEo
+	/WA/9L7H4XaFrsxnGOIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx2b9-0000000D0vU-2QxX;
-	Mon, 02 Mar 2026 12:42:07 +0000
-Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
+	id 1vx31K-0000000D4AN-47uL;
+	Mon, 02 Mar 2026 13:09:11 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx2b7-0000000D0v1-1YJS
+	id 1vx31H-0000000D49L-0wny
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Mar 2026 12:42:06 +0000
-Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-662f91bba0fso4426296eaf.0
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Mar 2026 04:42:04 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772455324; cv=none;
+	Mon, 02 Mar 2026 13:09:09 +0000
+Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com [209.85.218.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id EE1D64018D
+	for <linux-riscv@lists.infradead.org>; Mon,  2 Mar 2026 13:09:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1772456942;
+	bh=/ECnSn+s6d8RzhavbIFJQEnGNDdcB3vQZ0KecCsizik=;
+	h=MIME-Version:In-Reply-To:References:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=I49+4W+Ab2x+4ZdPUFs9STW9xcFgMw8YgZgl8zxAIbTWXOdvF0wfhvEZ/MxTdIzRg
+	 K/md4a3aLpI/F9LYncSvlnHi2BUXprfB7g2B4+NbcQK8AWmDL7Wv1MdhZBDzx5+Bhd
+	 KLn9tfiIg9BBHsWkqpIkQPGArAnE+sJRhA7/MhwMnbVPOpAuz9bBnl0AZcx0byDrRR
+	 Nkfr6V5usv4p7KzItQvE1hKGHeu87zIW7tZG5rzvmYOvGZT7T1Icyz4m0fdexBS8wQ
+	 /SEEB7Ppk42UUx0UxfgGZY+PVmP/35dkFuEa3QJmRuytNXSBArv74HQhYqHs+L/fdI
+	 ZuIhidBmppOcMpK4cQvxqzRxtTUWgeHTe+RJLeyDw2XXlLLJEMTwBuXIlvEKhhSI7X
+	 ifjtKO0v5ovCTkUKf/i5rx+umDz6aY4ytU4e0Rq2SYu4VUWC3/4RuZdRO+mDWRmza0
+	 +OF9Rc7TwR9utGrIDSJSCG5Rf9bTOI1dv6BQmUxTgnvRw/radfJeLdM7nBEAlCApV5
+	 YP9WYPUUAzRulEE0lrTOpDpZdV40JJSLgXrcIuNBhRO2mUFda1uUEGmiZP8etWrZ0u
+	 Msp5OX0wCrHsRTPMe5vgC+UcvrfcPPpsA6pHGD4SzLygD1ja4k43i7G1j5HO07IOMR
+	 jBNQpyPH0gNcGbH1I9v3M6Ac=
+Received: by mail-ej1-f69.google.com with SMTP id a640c23a62f3a-b8f5bce308dso420837366b.1
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Mar 2026 05:09:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772456942; cv=none;
         d=google.com; s=arc-20240605;
-        b=UjC5xWjaON2z63r7NrzNJ1NJLa0m/n0UvJckyhsDwXMOVufIsjjUJ7T75qGfqC6x4f
-         VjUqDNPkMAC2W64px0n0ysaeUJxX2NP+G+9p5X3wlCU+GeY4ap/jFKLrgRLrKVu+Hm2v
-         6aeqixwbPRa5AfeCM91R/vpnES/jBw15pnc8RkaCsTUXNGrCd2Jnr8natpYkXGS15sND
-         JzOZJFt4ZnepYr56YQiRZXFUs9y2X3t7jejJOFuMqPyRYc69aDrzP0XLSNhBxlSY0USQ
-         1ZQkE/1ryvMWGIU1qBV7n81NsSG9q2MP1TYWgu02kN+bcUpMeLEkxz7E7wo8g+0Pi9i9
-         rMnw==
+        b=T6Qx9cHnZk2f3MVqNXLEA+uB646WCiI/xdD9my3JRDKIC8wrQFGDgToEhsmZJ1i5Hz
+         XX5b5f8zY7Y89EY3nggfau+MlQkuJJX3Xw1d4VNhWIiHcTdf6V/mPaYnJqxaPC7YtDdJ
+         qjjZEBI1YmA0Eaa7t3AYmqETvlIojIQAq61B9gWgTa+rURkvtF9+cLUNHhkCU0TSuBqq
+         bF2DIEQlxoHb8rWIxnG3Ux+fN2bq0xqeXGkAxkI1CarD0vOD1ZfaHAVesPb9vqelIrqa
+         xnt5rk3+M4Mj19JJJ0u4VwYBAgrdZthtgPBkLv41VYNe+gEkSfV5EZufo/MqvPwS4ypB
+         +Nvw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=TqH8bjVKYuJk4mYqZYpIrfX37amSQklOJO7cCy6+3yA=;
-        fh=JvHElQw8bK2QuFpwo4JqoE7iLaI1wKwjgZi8ES1wbCk=;
-        b=KjN6kAFqCXhdJZTbbpejvj3Z0ls/YSr3BRrudwkWTcbdjD9YPVvVDIpLkq91ncCBrm
-         ryT+152u6GduqOAWWuLD4sCnA0X3JkqXExWDKkL7EHg2BNac065rQ8RxnDNy9J3MIoE0
-         CXNX/7873wMa9tVrNIAISMjPlX1NdgDuRaMfddjT2QKNRSNZ+kgaNAW/4bh5R3pWOZs1
-         ODyBXhaWEGgbM9wbdFohXlfqxiOq2+iflhAk8Xe4CVdXuFm1feVED+pkkoJOpnw8ef8u
-         gu4zd9dVS4XE6T/J1JmgHq2SvlKmvEG9UrvvjR08lnIVdugIJU7XCQPD9tUL50endgAq
-         KGTw==;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version;
+        bh=/ECnSn+s6d8RzhavbIFJQEnGNDdcB3vQZ0KecCsizik=;
+        fh=BX13K7n7Uz1jvpLjQiS+123wi8Zq/+lP0NYuV7nS6pM=;
+        b=Rv/s7Zf8QQyvMkQCIn5fDxxiTOCquLXxn7fSbgHY7U++DQYQpdAGBZsVzcTxFfx1sr
+         78mPicC9CIKQTYjm8CzAGf8ASkosFmXfE0Wk6BE2XlRj6ErdE0cmfVeJBhJcnX7ZdrRl
+         HRggDXiqn7Z5QWqGjrbXDJLlAZa5UCvmAtPrg83h8I0IciWYVAVmxdR5PDo5rhvsA11H
+         Jx6Hi38hoZh5YiUU2eOspAIHL+1v+OveKHB2uVB4abaVktMDUshl0WwRfI5boDIIdUPF
+         421rcrVDGqSGDOt2TDEUGCz9nStD0mdqM+wzA6AIcW8bzHTd4j/YNIbGnCivl5cdxc2t
+         JvmA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1772455324; x=1773060124; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TqH8bjVKYuJk4mYqZYpIrfX37amSQklOJO7cCy6+3yA=;
-        b=Mw25Hh8gx+wNBAkIbL07H5dl5FMViOtVMjTpqWaIJXElULXvq31ciaFKFIqWxhbc8J
-         MK3ZtHfhaqVudwEnbjad/nU0ZDlirk1RsnggfjhjYH0ndkkqVwL98QEARzSRegReBY+b
-         G82/7cqYqTUoROlJP2DFCjoDrXsuR1c8u0Mn1GTUveWXHHj68vgh7JKiqJmimJVQJsUp
-         oDAbqzeV4Bv4hc03MpVjd20CYWS4DMcJT+cSxDVDtQDNzbG8HnkuXIF46V7yCzjniKrp
-         /2Dxn/kfC0/+XLKfare97QvgT8lmNZqyadT3pjMGrxXCSQvtjEr9ULRacaXtl+nMwDuO
-         ZUxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772455324; x=1773060124;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=TqH8bjVKYuJk4mYqZYpIrfX37amSQklOJO7cCy6+3yA=;
-        b=HHnfrmqfeglqQ1WeUTVIYoD72k+7TCe3GmcOQ3d2Q7SzyN5eokuuTHntZd+TO53ZjD
-         ZW1xZHgYD4XpcX2cJShWEGgY8uKcHo2sI53GMv9tvOBNq0m/GfZRHN6LV3uzEvO+M7oI
-         4M9DEDq87iefvBJxk3psIM9aysrycIJe9OuEr8yZ0LokIn2TBdYARI6Gu4DmqLd8Q4AV
-         DKw4l/f6+yDOgOqgWbSPBCnjZk5FNihFMl9QbSTymrl8TtOC7RysF+MKb3xmhDyhvvTV
-         +JI1GknKIAtFGWjrcmWE+UmUyXSYhcAtsUaR3x/LDPg1/y/v4Aq/bcEeGw+AffyyS2Ov
-         7POw==
-X-Forwarded-Encrypted: i=1; AJvYcCX1KS8hXN1KVF0XYz+nfbgTS/ruhK4ME/k2hvhBSOTykl2HnMcpOyzXLcOF1jNOdHdZQii9k4JsjKmncQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyrs4E0PRLszRJKYGbLfihHOQNaBctC2rKZgGNTovFLUMbwENz+
-	NOYPaXDOC9FmW+38uBsbwv0+BbNdju9GqJMqLSd70KcfEs5QgnJ8AEEFAwFFIrHkDADIXD8KD0d
-	+QEgofUatBY7ZLkJvbkQupgkjyyDYXbV3sNFEkebGVQ==
-X-Gm-Gg: ATEYQzzevscknBZEnZl7PEwNaw/r/N1JsBqx9UuJdY/WvMPzTx4A+eYVHeKwdiT8bqD
-	R4Kh1yJ3Tky1ryndBwA0s11HDKNxESfxfiAan0lUhEjp52/pxDfjICokCAOBog0jSrTWNPdGA25
-	bUo1r9ajGhGq9YIR8RD1sO7Gzdr17ZOnf+FhMRVLJkXdSFyUA0v/iuSO2QkIt7S/Uh+KzQR4e2n
-	69gCFB5va/+H2N1mKCli7/pZgxsyuAdlfKX5Za+7yeKFE5hVb3+ycaTtobOpZj++h3tF5K0HXfd
-	otQIsFp5FYv5hBMrIhNJ2h6DsaNfdNYYFTl2m2SrLKcauvAFVVbyaEVO9X4LIYxAFUPHBR7GeZ5
-	WSumiOfM6VeMuFEfwV6+oFhjX5g==
-X-Received: by 2002:a05:6820:1620:b0:676:da17:64d9 with SMTP id
- 006d021491bc7-679f22e84f4mr8372171eaf.23.1772455323813; Mon, 02 Mar 2026
- 04:42:03 -0800 (PST)
+        d=1e100.net; s=20230601; t=1772456942; x=1773061742;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/ECnSn+s6d8RzhavbIFJQEnGNDdcB3vQZ0KecCsizik=;
+        b=qczf/EyYGDt+G04JNDxQvIv7N4PEshAi+doQcbvga4wMiuV2Yu5KAYo770vVHmYwm4
+         kkmTCsZNAbV/PTjzeOv6GH2a8DqJIIYpEZShdrkjLaI9jebY1Nn+rZkf+8i8lXNHBweg
+         6K0CxfL5WETOEnbbqLvL+4x3niy+5NoWdfyzVZLSCb07dvLvjzn5ACKZblz+P3inB4H5
+         KpiXQSqm13MOF4/NENi2+tWxcXAD/OeGKdvvguRBpInl1BUyS3j4PHnp1AUfdvc4DfNX
+         9Q5Om6zPuZvMi8jdqYYZwsz5DBONOrms/2+loBgN15a4mH0MbAgJd3n0GTAQcobtWpAY
+         GfjA==
+X-Forwarded-Encrypted: i=1; AJvYcCUOBG1qjfYT/66FIK+kFUJN4OiRM2rCkP4kBrjN/+bxJM8iO8Z293Tir0T5DIQniPKm5u4FlWofC7o/3Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzn7r0BaU311RnOZpNILULbt3jENmESl7EHKLSL5uoU/X+tIrku
+	hp9U70orH+Y9HAiMK7za5wtwE0xy5QsIsULCRCgFX019KZJzo15DDixXaOLzYaG7+pwNSVYQzG+
+	Q4feM+W3KQQxCvri/r6NNmkaMI2MT83JFeUrwfoXmh/cDhSA50D9O512t7U1LcPIMm5TleCOp00
+	xAwzLLEVxFweNPgskoAdid6huk8D5q+h/CHLnLoWOJ5aUG0VBSZ0ZVpr7go8wn
+X-Gm-Gg: ATEYQzzwALdHBET66MQcwiHLb4zv6f2byqsQffeEotuZHdeRxLgB8timNTcNoX8Ue1b
+	JMrCeV5jofZw237wWxoI5f25fV1oBsYFOLx54ngqLvkdU+YgSToyxgqyKEP1Zp3qe7oA23Psec+
+	sgf13rv//9hiKGBUmqqTNNZz84islPvHy8hG0azrek/rVh1QtCwQTt//56VoGzOIzQyRC1Soqd2
+	fzE
+X-Received: by 2002:a17:906:9fc8:b0:b87:efa:8786 with SMTP id a640c23a62f3a-b937657d99fmr789097066b.55.1772456942116;
+        Mon, 02 Mar 2026 05:09:02 -0800 (PST)
+X-Received: by 2002:a17:906:9fc8:b0:b87:efa:8786 with SMTP id
+ a640c23a62f3a-b937657d99fmr789091166b.55.1772456941578; Mon, 02 Mar 2026
+ 05:09:01 -0800 (PST)
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 2 Mar 2026 08:08:59 -0500
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 2 Mar 2026 08:08:59 -0500
 MIME-Version: 1.0
-References: <20260302085312.1649738-1-xujiakai2025@iscas.ac.cn>
-In-Reply-To: <20260302085312.1649738-1-xujiakai2025@iscas.ac.cn>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 2 Mar 2026 18:11:50 +0530
-X-Gm-Features: AaiRm509bQrteogflTnAc3RIlej5HAafhwmATthLgoCfptB4BOs28sm4hELHMqM
-Message-ID: <CAAhSdy1sRgjRxfjpe7hRNwywUSZmsiErfwz6PoPRzPuTVkxTOQ@mail.gmail.com>
-Subject: Re: [PATCH v2] RISC-V: KVM: Fix use-after-free in kvm_riscv_aia_aplic_has_attr()
-To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Atish Patra <atish.patra@linux.dev>, Jiakai Xu <jiakaiPeanut@gmail.com>
+In-Reply-To: <20260227075718.2243818-1-inochiama@gmail.com>
+References: <20260227075718.2243818-1-inochiama@gmail.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+User-Agent: alot/0.0.0
+Date: Mon, 2 Mar 2026 08:08:59 -0500
+X-Gm-Features: AaiRm52b-jdW2UNX8CSDWuKrreJ-aGAWnKXn668LfKMnXa2Ks1b4qAF3c1WKw8E
+Message-ID: <CAJM55Z_soPhC9P03edfq_A-GN07PbGqu31aHgE_5kKhkQwkMmQ@mail.gmail.com>
+Subject: Re: [PATCH net-next v5 0/3] riscv: spacemit: Add ethernet support for K3
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, Boon Khai Ng <boon.khai.ng@altera.com>, 
+	Chen-Yu Tsai <wens@kernel.org>, Choong Yong Liang <yong.liang.choong@linux.intel.com>, 
+	Conor Dooley <conor+dt@kernel.org>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+	Inochi Amaoto <inochiama@gmail.com>, Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paolo Abeni <pabeni@redhat.com>, Paul Walmsley <pjw@kernel.org>, 
+	Quentin Schulz <quentin.schulz@cherry.de>, Richard Cochran <richardcochran@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Shangjuan Wei <weishangjuan@eswincomputing.com>, 
+	Yanteng Si <siyanteng@cqsoftware.com.cn>, Yao Zi <me@ziyao.cc>, Yixun Lan <dlan@kernel.org>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, 
+	Longbin Li <looong.bin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_044205_702148_C1A9E7E9 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20260302_050907_553958_57335258 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,68 +144,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBNYXIgMiwgMjAyNiBhdCAyOjIz4oCvUE0gSmlha2FpIFh1IDx4dWppYWthaTIwMjVA
-aXNjYXMuYWMuY24+IHdyb3RlOgo+Cj4gRnV6emVyIHJlcG9ydHMgYSBLQVNBTiB1c2UtYWZ0ZXIt
-ZnJlZSBidWcgdHJpZ2dlcmVkIGJ5IGEgcmFjZQo+IGJldHdlZW4gS1ZNX0hBU19ERVZJQ0VfQVRU
-UiBhbmQgS1ZNX1NFVF9ERVZJQ0VfQVRUUiBpb2N0bHMgb24gdGhlIEFJQQo+IGRldmljZS4gVGhl
-IHJvb3QgY2F1c2UgaXMgdGhhdCBhaWFfaGFzX2F0dHIoKSBpbnZva2VzCj4ga3ZtX3Jpc2N2X2Fp
-YV9hcGxpY19oYXNfYXR0cigpIHdpdGhvdXQgaG9sZGluZyBkZXYtPmt2bS0+bG9jaywgd2hpbGUK
-PiBhIGNvbmN1cnJlbnQgYWlhX3NldF9hdHRyKCkgbWF5IGNhbGwgYWlhX2luaXQoKSB1bmRlciB0
-aGF0IGxvY2suIFdoZW4KPiBhaWFfaW5pdCgpIGZhaWxzIGFmdGVyIGt2bV9yaXNjdl9haWFfYXBs
-aWNfaW5pdCgpIGhhcyBzdWNjZWVkZWQsIGl0Cj4gY2FsbHMga3ZtX3Jpc2N2X2FpYV9hcGxpY19j
-bGVhbnVwKCkgaW4gaXRzIGZhaWxfY2xlYW51cF9pbXNpY3MgcGF0aCwKPiB3aGljaCBmcmVlcyBi
-b3RoIGFwbGljX3N0YXRlIGFuZCBhcGxpY19zdGF0ZS0+aXJxcy4gVGhlIGNvbmN1cnJlbnQKPiBo
-YXNfYXR0ciBwYXRoIGNhbiB0aGVuIGRlcmVmZXJlbmNlIHRoZSBmcmVlZCBhcGxpYy0+aXJxcyBp
-bgo+IGFwbGljX3JlYWRfcGVuZGluZygpOgo+ICAgICAgICAgaXJxZCA9ICZhcGxpYy0+aXJxc1tp
-cnFdOyAgIC8qIFVBRiBoZXJlICovCj4KPiBLQVNBTiByZXBvcnQ6Cj4gIEJVRzogS0FTQU46IHNs
-YWItdXNlLWFmdGVyLWZyZWUgaW4gYXBsaWNfcmVhZF9wZW5kaW5nCj4gICAgICAgICAgICAgIGFy
-Y2gvcmlzY3Yva3ZtL2FpYV9hcGxpYy5jOjExOSBbaW5saW5lXQo+ICBCVUc6IEtBU0FOOiBzbGFi
-LXVzZS1hZnRlci1mcmVlIGluIGFwbGljX3JlYWRfcGVuZGluZ193b3JkCj4gICAgICAgICAgICAg
-IGFyY2gvcmlzY3Yva3ZtL2FpYV9hcGxpYy5jOjM1MSBbaW5saW5lXQo+ICBCVUc6IEtBU0FOOiBz
-bGFiLXVzZS1hZnRlci1mcmVlIGluIGFwbGljX21taW9fcmVhZF9vZmZzZXQKPiAgICAgICAgICAg
-ICAgYXJjaC9yaXNjdi9rdm0vYWlhX2FwbGljLmM6NDA2Cj4gIFJlYWQgb2Ygc2l6ZSA4IGF0IGFk
-ZHIgZmY2MDAwMDBiYTk2NWQ1OCBieSB0YXNrIDk0OTgKPiAgQ2FsbCBUcmFjZToKPiAgIGFwbGlj
-X3JlYWRfcGVuZGluZyBhcmNoL3Jpc2N2L2t2bS9haWFfYXBsaWMuYzoxMTkgW2lubGluZV0KPiAg
-IGFwbGljX3JlYWRfcGVuZGluZ193b3JkIGFyY2gvcmlzY3Yva3ZtL2FpYV9hcGxpYy5jOjM1MSBb
-aW5saW5lXQo+ICAgYXBsaWNfbW1pb19yZWFkX29mZnNldCBhcmNoL3Jpc2N2L2t2bS9haWFfYXBs
-aWMuYzo0MDYKPiAgIGt2bV9yaXNjdl9haWFfYXBsaWNfaGFzX2F0dHIgYXJjaC9yaXNjdi9rdm0v
-YWlhX2FwbGljLmM6NTY2Cj4gICBhaWFfaGFzX2F0dHIgYXJjaC9yaXNjdi9rdm0vYWlhX2Rldmlj
-ZS5jOjQ2OQo+ICBhbGxvY2F0ZWQgYnkgdGFzayA5NDczOgo+ICAga3ZtX3Jpc2N2X2FpYV9hcGxp
-Y19pbml0IGFyY2gvcmlzY3Yva3ZtL2FpYV9hcGxpYy5jOjU4Mwo+ICAgYWlhX2luaXQgYXJjaC9y
-aXNjdi9rdm0vYWlhX2RldmljZS5jOjI0OCBbaW5saW5lXQo+ICAgYWlhX3NldF9hdHRyIGFyY2gv
-cmlzY3Yva3ZtL2FpYV9kZXZpY2UuYzozMzQKPiAgZnJlZWQgYnkgdGFzayA5NDczOgo+ICAga3Zt
-X3Jpc2N2X2FpYV9hcGxpY19jbGVhbnVwIGFyY2gvcmlzY3Yva3ZtL2FpYV9hcGxpYy5jOjY0NAo+
-ICAgYWlhX2luaXQgYXJjaC9yaXNjdi9rdm0vYWlhX2RldmljZS5jOjI5MiBbaW5saW5lXQo+ICAg
-YWlhX3NldF9hdHRyIGFyY2gvcmlzY3Yva3ZtL2FpYV9kZXZpY2UuYzozMzQKPgo+IEZpeCB0aGlz
-IHJhY2UgYnkgYWNxdWlyaW5nIGRldi0+a3ZtLT5sb2NrIGluIGFpYV9oYXNfYXR0cigpIGJlZm9y
-ZQo+IGNhbGxpbmcga3ZtX3Jpc2N2X2FpYV9hcGxpY19oYXNfYXR0cigpLCBjb25zaXN0ZW50IHdp
-dGggdGhlIGxvY2tpbmcKPiBwYXR0ZXJuIHVzZWQgaW4gYWlhX2dldF9hdHRyKCkgYW5kIGFpYV9z
-ZXRfYXR0cigpLgo+Cj4gRml4ZXM6IDI4OWEwMDdiOThiMDZkICgiUklTQy1WOiBLVk06IEV4cG9z
-ZSBBUExJQyByZWdpc3RlcnMgYXMgYXR0cmlidXRlcyBvZiBBSUEgaXJxY2hpcCIpCj4gU2lnbmVk
-LW9mZi1ieTogSmlha2FpIFh1IDxqaWFrYWlQZWFudXRAZ21haWwuY29tPgo+IFNpZ25lZC1vZmYt
-Ynk6IEppYWthaSBYdSA8eHVqaWFrYWkyMDI1QGlzY2FzLmFjLmNuPgo+IC0tLQo+IFYxIC0+IFYy
-Ogo+IC0gRml4ZWQgdGhlIHJhY2UgYnkgYWRkaW5nIGxvY2tpbmcgaW4gYWlhX2hhc19hdHRyKCkg
-aW5zdGVhZCBvZgo+ICAgaW50cm9kdWNpbmcgYSBuZXcgdmFsaWRhdGlvbiBmdW5jdGlvbiwgYXMg
-c3VnZ2VzdGVkIGJ5IEFudXAgUGF0ZWwuCj4gLS0tCj4gIGFyY2gvcmlzY3Yva3ZtL2FpYV9kZXZp
-Y2UuYyB8IDIgKysKPiAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKQo+Cj4gZGlmZiAt
-LWdpdCBhL2FyY2gvcmlzY3Yva3ZtL2FpYV9kZXZpY2UuYyBiL2FyY2gvcmlzY3Yva3ZtL2FpYV9k
-ZXZpY2UuYwo+IGluZGV4IGIxOTVhOTNhZGQxY2UuLmVmOTQ0ZDcwOTdkMjkgMTAwNjQ0Cj4gLS0t
-IGEvYXJjaC9yaXNjdi9rdm0vYWlhX2RldmljZS5jCj4gKysrIGIvYXJjaC9yaXNjdi9rdm0vYWlh
-X2RldmljZS5jCj4gQEAgLTQ2Niw3ICs0NjYsOSBAQCBzdGF0aWMgaW50IGFpYV9oYXNfYXR0cihz
-dHJ1Y3Qga3ZtX2RldmljZSAqZGV2LCBzdHJ1Y3Qga3ZtX2RldmljZV9hdHRyICphdHRyKQo+ICAg
-ICAgICAgICAgICAgICB9Cj4gICAgICAgICAgICAgICAgIGJyZWFrOwo+ICAgICAgICAgY2FzZSBL
-Vk1fREVWX1JJU0NWX0FJQV9HUlBfQVBMSUM6Cj4gKyAgICAgICAgICAgICAgIG11dGV4X2xvY2so
-JmRldi0+a3ZtLT5sb2NrKTsKPiAgICAgICAgICAgICAgICAgcmV0dXJuIGt2bV9yaXNjdl9haWFf
-YXBsaWNfaGFzX2F0dHIoZGV2LT5rdm0sIGF0dHItPmF0dHIpOwo+ICsgICAgICAgICAgICAgICBt
-dXRleF91bmxvY2soJmRldi0+a3ZtLT5sb2NrKTsKCk5lZWQgdG8gZG8gdGhlIGZvbGxvd2luZyBo
-ZXJlOgoKICAgIG11dGV4X2xvY2soJmRldi0+a3ZtLT5sb2NrKTsKICAgIHJldCA9IGt2bV9yaXNj
-dl9haWFfYXBsaWNfaGFzX2F0dHIoZGV2LT5rdm0sIGF0dHItPmF0dHIpOwogICAgbXV0ZXhfdW5s
-b2NrKCZkZXYtPmt2bS0+bG9jayk7CiAgICByZXR1cm4gcmV0OwoKUmVnYXJkcywKQW51cAoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Quoting Inochi Amaoto (2026-02-27 08:57:14)
+> Add initial support for ethernet controller of the Spacemit K3 SoC.
+> This ethernet controller is almost a standard Synopsys DesignWare
+> MAC (version 5.40a). This controller require a syscon device to
+> configure some basic features, like interface type and internal delay.
+
+I don't know how we can accept this when it can't be tested since it still
+doesn't come with the device tree nodes. If you don't want it to be part of the
+series, just share a tree where this code is working. There are plenty of free
+public git hosting sites available.
+
+/Emil
+
+>
+> Change from v4:
+> - https://lore.kernel.org/netdev/20260130022705.1059214-1-inochiama@gmail.com
+> patch 1:
+> 1 Apply Rob's tag.
+> 2 Adjust clock description according to Russell's suggestion.
+> patch 3:
+> 1. Add set_phy_intf_sel() and get_interfaces() hook, suggested by Russell.
+>
+> Change from v3:
+> - https://lore.kernel.org/netdev/20260128072931.875041-1-inochiama@gmail.com
+> patch 1:
+> 1. fix the uncorrect compatible string postion
+> patch 3:
+> 1. add "CTRL_" prefix to all ctrl register definition
+> 2. only use delay config 0 to calculate delay code.
+> 3. fix typo in the comment
+>
+> Change from v2:
+> - https://lore.kernel.org/netdev/20260121071315.940130-1-inochiama@gmail.com
+> patch 1:
+> 1. remove not needed compatible for select
+> 2. drop empty line in "spacemit,apmu" properties
+> 3. add spacemit,apmu properties to required.
+> patch 3:
+> 1. remove misused phy_fix_phy_mode_for_mac_delays.
+> 2. use local tx clock instead of the clk_tx_i in the dwmac.
+>
+> Change from v1:
+> - https://lore.kernel.org/netdev/20260120043609.910302-1-inochiama@gmail.com
+> patch 1:
+> 1. remove phy clock
+> patch 3:
+> 1. improve comment and include something special about Spacmit K3 dwmac
+> 2. reorder the included file
+> 3. fix wrong delay macro used in spacemit_dwmac_set_delay.
+> 4. add check for maximum supported delay.
+> 5. use DIV_ROUND_CLOSEST to calculate best delay configuration.
+> 6. use assign for the ctrl register initial value.
+> 7. fix input when calling of_property_read_u32().
+>
+> Inochi Amaoto (3):
+>   dt-bindings: net: Add support for Spacemit K3 dwmac
+>   net: stmmac: platform: Add snps,dwmac-5.40a IP compatible string
+>   net: stmmac: Add glue layer for Spacemit K3 SoC
+>
+>  .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
+>  .../bindings/net/spacemit,k3-dwmac.yaml       | 103 ++++++++
+>  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 +
+>  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+>  .../ethernet/stmicro/stmmac/dwmac-spacemit.c  | 226 ++++++++++++++++++
+>  .../ethernet/stmicro/stmmac/stmmac_platform.c |   1 +
+>  6 files changed, 345 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+>  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
+>
+> --
+> 2.53.0
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
