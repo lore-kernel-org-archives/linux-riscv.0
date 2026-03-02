@@ -4,82 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EBF1FD0078
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Mar 2026 22:17:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B71EFD0072
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 00:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8KXmdTc8qKzl5tJf+42D/3iZfbTT/b0vzbcVQywzMoc=; b=r7W7dlyb4T5vqK
-	omWXjhjy0yHSwrWnkP07IRZz7ZkTWAzGgPLZopc9YkwOSma0YUf2Xo19BM0ADdTqRiXANPdQ8dNTE
-	QUnzNF1rfdAIlIUuL71v2OOWegn9QgQp1tqd2QbZDcthw7fW1GqdT2Rz99o8jzuI7flcBk+/lnmud
-	3lv3y5kIpWXp4kWC8WEkLM9PDfMPdztFqCOdUYeamMCUEKeqeglVeqIOivPuWmqNE+m7OMt3Ed9sC
-	p1UoXyJoYkFx5Ed5q7ZtQEYO6I1hVyP7yqwVtelk2IcQ2Xh1oz/FYKN/Hf/A7JxMEMBCMSNGYnUtp
-	sNhyQSx01dyKxShpBN3Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tYPidkSieTb9dB8fwnmqWDHh/6FhopkgOOUsmmsKQlE=; b=L5qvFjnumpJicRXp20fObI+SiJ
+	RApX0h1ZaKQ9lnSqEtDAMEkQ9HiMCZhH/fNQMJ4MCJsFv+BjU8lmskjm1RbJnp41I4XQ2YLVd6gFj
+	PWXINTbk8HpcKJuNsyoE2c0AWSv899+leVbSlM92n3IsS/EmySomAck15FA/cuoPisOee5m3eses8
+	jmcBS1q7zHf8KhZVouUXNhKVdkFMSssc2Sbmz/STTF6RjOenFTXvKo9IwT54slCE0DQzFOaNFSUhK
+	xxq1l3OtTHygoDYyEWgS3jhlmAkkAbVVpT6a9EkyugA3ecufM2GKLLZvVOh0xIrF6tzxCP2WPoHZI
+	xSI8hvig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwp5r-0000000BwUv-1x7Z;
-	Sun, 01 Mar 2026 22:16:55 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1vwqkk-0000000Bzil-0OT8;
+	Mon, 02 Mar 2026 00:03:14 +0000
+Received: from mail-northcentralusazon11012039.outbound.protection.outlook.com ([40.107.200.39] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwp5p-0000000BwTK-1kkD
+	id 1vwqke-0000000BziM-3IrD
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Mar 2026 22:16:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=KjrmgbqDuQUoTE7tizH06MNcvn3FP+YVHKxG9kOs+BY=; b=KRMqaNT66WGHYIyuD4Y4Vbgexu
-	jAStbPDQ2v9KhUbU5It83p1lT9e3nB/vQUzRXTX3O8aXvNGmivzBB5/IrFR/G+9bFZQMSEBjeiLQ2
-	+C+bwt54sqmeOvKaP/cGhmLJBBZw3qrb+sBeRqH0oUDjewPoYQJJO/yXyxUJQ9LH/KwCEV8gBw38l
-	PXT/mkAIEP61vvUdgABIm1b2S9CTMoKlVcHbeO+6ytjZcZRC0W48iNNuYB6ct0pFqftHpJKz76VGA
-	a/hFlahbk55aE20SSLwTqK226Wrag13mOEiFvosWFNvzvNIRjVGKglbSDtLUzfVaziNUft7AtanxT
-	4BaR/NIw==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1vwp5a-0000000C8Gc-1plv;
-	Sun, 01 Mar 2026 23:16:38 +0100
-Date: Sun, 1 Mar 2026 23:16:37 +0100
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Yanko Kaneti <yaneti@declera.com>
-Cc: linux-kernel@vger.kernel.org, Lee Jones <lee@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
-	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
-Subject: Re: [PATCH v5 2/2] mfd: simple-mfd-i2c: add a reboot cell for the
- SpacemiT P1 chip
-Message-ID: <aaS6xeKFZz06fb1_@aurel32.net>
-Mail-Followup-To: Yanko Kaneti <yaneti@declera.com>,
-	linux-kernel@vger.kernel.org, Lee Jones <lee@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
-	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
-References: <20251102230352.914421-1-aurelien@aurel32.net>
- <20251102230352.914421-3-aurelien@aurel32.net>
- <b51a62513daa9d2390031ec350e0b33bdb7e54aa.camel@declera.com>
- <aaC78FTN31QYaVg0@aurel32.net>
- <990bc03ed2baa05e619f0aa9cc6a23acadd66ea6.camel@declera.com>
+	Mon, 02 Mar 2026 00:03:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=f8/waD+d8IPSJrTt5/X2gB49IW9tsSxKr98G2wVUcNe7xKZHtcP2csMoFtASK8HiZxhTzSAZuGlQhl5/N1kklf6e5vdcIna/hUiCmu4Ewm1ROHcg4b7wakCkDLOWjRzfYKPW9VG/Uqlb3/bUt0Yif2RIGXqJV2jb2ChuVDt6C1akZnikiMee7qZ+F8+tWfWJJccoOkCBq47a8pgAHcUiNpPJRLb6KzsyYuFa4imlB1igYYyBA8KeVQu/wWjOo7B7+NOWnhc4PXtwxQAzOoqXotVzQo/Y+aev5I7BQ44m84+ktarRIkQ12ottXHc6597ZbZL2blJANEFtCz3sFMb75w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DFL7mUJMJe9wehFdmFeA0YgCwUMyKFyEjmxDQGkriZY=;
+ b=xN7NYzMlIYzdv/64hXcnbJKg+/Mdq1TseyI7oBQnaxJiCxRwJHiylFEbEbDCUnwoEkOVhMcnmMv7S0wnwmlIlrwpu081h3ocqerg7UCZZiQahTBGVBnoRGRz9+WyPYNdiv8HM047YthlVdfcQWCKFDeNOqwFotvzbf2mmZplFS85FZMYu98JfZD4wUJ8dtm3FhkZA1zIMUvCvEOSt012MS64HUv0hdpKrlf5DJ5eTljOmrmUDhWufwiZc1Lll47Druxmus2OgXQfUqtSM40vTDHqOT5NbCcfltcSeEMDvSdIjQclRPNosD5Il1fEeCUS1tPQ61y8+lN1d25hOeElHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DFL7mUJMJe9wehFdmFeA0YgCwUMyKFyEjmxDQGkriZY=;
+ b=T+Mu2tECRqWKTMs6xrWv8Yo9m/wEy9Gu0ZsysrKiEsSysmMrnJznT3cpiT9bTfSlwowCfSqvkH8wCoGGSqcEO8yI7OordAL3huUSv3X8f68uM4alpP4zxwbeQaJLvbdYS0/ZumdLuCWl9R6OoiKyXc0FcberVloyYm4SOR9qoFQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CH3PR12MB9194.namprd12.prod.outlook.com (2603:10b6:610:19f::7)
+ by DS7PR12MB6048.namprd12.prod.outlook.com (2603:10b6:8:9f::5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9654.18; Mon, 2 Mar 2026 00:03:00 +0000
+Received: from CH3PR12MB9194.namprd12.prod.outlook.com
+ ([fe80::1e6b:ca8b:7715:6fee]) by CH3PR12MB9194.namprd12.prod.outlook.com
+ ([fe80::1e6b:ca8b:7715:6fee%4]) with mapi id 15.20.9654.015; Mon, 2 Mar 2026
+ 00:03:00 +0000
+Message-ID: <8f734d5d-7d18-4b65-a058-32088353e13e@amd.com>
+Date: Mon, 2 Mar 2026 11:02:48 +1100
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH v8 07/15] iommupt: Add map_pages op
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
+ iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
+ Justin Stitt <justinstitt@google.com>, linux-doc@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
+ llvm@lists.linux.dev, Bill Wendling <morbo@google.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Miguel Ojeda <ojeda@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Shuah Khan <shuah@kernel.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Will Deacon <will@kernel.org>,
+ Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
+ James Gowans <jgowans@amazon.com>, Kevin Tian <kevin.tian@intel.com>,
+ Michael Roth <michael.roth@amd.com>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+ Samiullah Khawaja <skhawaja@google.com>, Vasant Hegde <vasant.hegde@amd.com>
+References: <7-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
+ <fc4f0354-4e6d-452d-abfb-fe24e53253a2@amd.com>
+ <20260117154347.GF1134360@nvidia.com>
+ <bc6817bd-4aa5-4033-b89d-88fef637de65@amd.com>
+ <20260226150440.GB5933@nvidia.com>
+ <c6ac32f2-2531-4bd0-abaf-ff76e9cc864e@amd.com>
+ <20260227134805.GJ5933@nvidia.com>
+From: Alexey Kardashevskiy <aik@amd.com>
+Content-Language: en-US
+In-Reply-To: <20260227134805.GJ5933@nvidia.com>
+X-ClientProxiedBy: SY5P282CA0162.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:10:24a::8) To CH3PR12MB9194.namprd12.prod.outlook.com
+ (2603:10b6:610:19f::7)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <990bc03ed2baa05e619f0aa9cc6a23acadd66ea6.camel@declera.com>
-User-Agent: Mutt/2.2.13 (2024-03-09)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB9194:EE_|DS7PR12MB6048:EE_
+X-MS-Office365-Filtering-Correlation-Id: 57870d0f-5929-45cc-71aa-08de77ef1111
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: dQrtr4cZfarD0hSl/WO0+9ft05J3OGQodE/XCKLmDLJ6Ptu8U1ROUSX+xFLWCXLAGGtJc3+2hDyBQ51MVxDT1MlSmc7lr1Ou0y+KAhKP/yVtQw1dVRtHAojloq1gbh7YzIt/Mh+5ecibHb5cQ+iqidLhu5M/VlxPuQzFqyUIO7K2SMBk9TpzBTRoyA4PQSCN+8Bth19/oYti4T80QF6cwkq6sguqTgnEY5dsqI6Dq7kVge0qNJlrkuXQsA56mI8juXOufoBGPOBkUBZ1oQdaUsS/6JnXmCA3lK/3j7dazneXE0K28iS7GrTnqNIC+raZqoQjq/wdZ/vkoH3aR4eWRBSE+UflLCBExGp+lvw2KZZ+BdRcPggwwnurstvjZmXi0qBhddY27D37vEVEaSIsmuJYUSkRSvrpJY5oANrjP8EbZH5taCLMWxS9h6lv+y3IYVO/uKmrrwrvz2Ke1JO9/tCOG2vP5CDTTHCk4liqF/4V0YIKz7koTylhuEMlMRS+ls+h6JIxvJ9DO5x/BEtBA77nRcDUfY2EMcVM5reK7WobxGbjIOSJAd+nz/yvFwvXwhcTC3zaLdUeT96e90Ckhe4DUvUJkWrb5y9zsKI5GZ47PonAgFLSHj2jd4fupqnOZm9YRqnJA6zYgMdDNx4/GebQjm4IqxewmmG/nYCoYrIvLwKv3LKk1/GAWJFPZj5BBYXBozStCCHzcQtJx1PHYYqIt1ngQ/rVG7REQLrDepk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB9194.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZmF6bGhOVkVHY25FdVVUeCtBbllLN1VLOFVKTURNbUdhbEFPS3orRHpzdFY2?=
+ =?utf-8?B?VDMrWE0zT3Bna05BTXc4Mzl2bVpSTWFyYXUyU2xkRmhreS84aUpQWFY4UWRK?=
+ =?utf-8?B?TUU3V2Yrb1ptdTNBV2MrSWc0Q2pZWjFFNlFwdWRGUjVaZC9KVWZsSzZ4eFNJ?=
+ =?utf-8?B?b252L3ZUT2V5bHJ2Z3VoSWFFZERDdm1oSEdEZ2dvdFA5K25ORW5qYmk0MU5m?=
+ =?utf-8?B?OFRTemdQS1Vpa0hFaHI5QTZBY2JIcVNsdU1LTEZaMU5DeE1vblBSRUNOWHFx?=
+ =?utf-8?B?anNwZVBIY2VoelBiOXJYL3Y1ekRFTzZQcC9RaDB2VG9WWGZSLy8rSy90NmR5?=
+ =?utf-8?B?bFZYeURyQzVEeThJb0ZaeEpPY2pQamE2Ryswb2hXM0xUdjlDd2VYSG9LcEh3?=
+ =?utf-8?B?cHN6MHM5eUg4TVk3ZFI2K3dFVWxOVDhIRHI0Sllqa3FIbzJ1SVVhUVAzaFpp?=
+ =?utf-8?B?UWJxaWQzR3U3T3d2NWN4OVhkVWRRRkFxU2RQMXFxaWFnd0Qza29GUTZla2hk?=
+ =?utf-8?B?RDVoamxLUlQ3blRERktSL1VUZmZkRE5ld2hJVlVLelh2eHNVY3g3RXZvTGxB?=
+ =?utf-8?B?ZWIzaWJRRnpORUYrM0hmRDBRWHd3WS9FNkhhaDE0VHM0ci9QbUJsOVU3UCtO?=
+ =?utf-8?B?Mmo0Q0JlZkV3bG1KSFpNUGpSeGpxeEkyRVRFdndOaUtoNzlHU2lIQjdodEM5?=
+ =?utf-8?B?akhoaitvV2dGL2hCa3o2S2w3QSt5WHh2djZrM0pZVWZTeURvTWcwa3l5Qkww?=
+ =?utf-8?B?QVk5dGpqT1ZWeTl3RjBLdG9UM00vM2xTUmNnSzJYeVYrL0ZDU09EQTJnRVVJ?=
+ =?utf-8?B?T1VGdnM0TEdLQVE3TWQzZm8vSWRFRlVpK2k2WHpwNVN1OFdYOGV0bjhyR2Ju?=
+ =?utf-8?B?blhJUEd5Ly91aFphdDJwaUxGK1lyU1pCYnpoSmdhSnlMa1VkUkxUblhzcFN2?=
+ =?utf-8?B?VTlLbnpFZng5YzJ0dTkxczd3MWVwelJEZjQxOFJ2V1pGUk1sQmVsUk4rSk9H?=
+ =?utf-8?B?aG9rTWU1cWRYY3pBamI3WTduZzNabGdSM3JnTHUwbWthdTBzVExNd2ROQ2VX?=
+ =?utf-8?B?dG90Q0Q4NVh5NmRyZGlxWU9jYWx6TGFNaGZUK2kydC9UUEVTSnp3RVdIb28w?=
+ =?utf-8?B?YXNONU5laENmM3QzSFJqWHdQL1djb3VSbVJ1eHZ4UGtQMklTZUY5WlZYbzkv?=
+ =?utf-8?B?VnVlZEFBL1BRVGQvNXVOQzhUZlltdHAwZk83NnlHZ2dudUY4N01RenV0NU1B?=
+ =?utf-8?B?R21yNkpjOHJRWDNIeFNXMU5VTDNkdGRwK01OQlpVeHBzcXlmV2FEVDNObXBK?=
+ =?utf-8?B?T2dRT1RRNC9ad1FSeTBJbTZkMVNQc1hlUk8zeGZSRVZHdE5NRGlRaEhpTnUy?=
+ =?utf-8?B?MHJleVVVRjBBZlB2R2NNZFp6MmZla2pJTEhOUEtGQStCdlpyVDFFb3RRNHFR?=
+ =?utf-8?B?OXVySGhXZ2pVYlErT1pvK0N6LzRHdzdHZ3JXei9LRzM4Y003Rjc5V09VTVNx?=
+ =?utf-8?B?ak40S2pzWDczaEp6OUlSb0J2K2dNUURrQ09GNnYwNXM1bUtpT2NQWlNRdXVT?=
+ =?utf-8?B?c0JUbzNMQlNyVGRNRWt4aWxTb25aV3h5emNwOEk1eVZOeHdteit2Z3VvL3hq?=
+ =?utf-8?B?bkhZeXc1S2J6M3pWK1h0V2Q5SXZSRjVxeTVzbEFadklJclk3UDlNNm9BaVRl?=
+ =?utf-8?B?dGo0R0N3ejBWRWNnUVppWEt5TXYzMDJaSWVRUm1iaWYvdkVxdUJjUXBOYnRG?=
+ =?utf-8?B?anEvdGhXNS9CaTkzSW9oenZBVkVmbDlXYjhVdTVkZUtFTC9Xc2hXaE1xNEhY?=
+ =?utf-8?B?TGhrbGpPekNxSE1ZWlNnUDlUWG8vTERnQ1paSEs3MnZYQ2V6YzlYZldxSzN2?=
+ =?utf-8?B?OTg4VFRpamFSMGRmWmZlWDRyTm9ZSjRnQU5GdXhMTmZFYTllNXFyem43Tmkv?=
+ =?utf-8?B?anVVdHdyN1ZLT1RhcUt2aGlLSDhvcTduSE5yZkdkNCtNUUJrSzBSL1hIYzZ3?=
+ =?utf-8?B?MG5hMUdxMER5a2VJUkZjU1NyMHRTUXBidE92amVQVk1PKzlLVUxOdjhjalBy?=
+ =?utf-8?B?d1hTOUhURG9LNG9rQjVwdE51Ui9BTytaZytBR1k4ZTlRQm1XNGc4aWNKM0tT?=
+ =?utf-8?B?KzB2RVVFR0h2TkhtVVNsOTVVcEIwaWhKSlRoQ2tVSzdDZ2tlRkwyMWdyM0lp?=
+ =?utf-8?B?ejlPdW1VOEpQeFpKNTVjbFpIVUlSc1hVZFI4UWpORHdET0FIRXNMNTl5UGM0?=
+ =?utf-8?B?bzcvelBsbFlqbkVmenRxS0ZUVWRZeVpSbk0rajAvdXhxazV4ekFNa2JNb3BU?=
+ =?utf-8?Q?6+aicMleS0SclHdgl4?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 57870d0f-5929-45cc-71aa-08de77ef1111
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB9194.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 00:03:00.3637
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZbedsQqnKIsoTqLolpTgJ1oEcsZZbbM0c4h1QUVmpm06M4wjAXO77JrzkxKFcrCO5cEUwy1kH6j6qmj8fFUOaA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6048
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_141653_463951_6C573467 
-X-CRM114-Status: GOOD (  28.12  )
+X-CRM114-CacheID: sfid-20260301_160308_838825_0F5DBC59 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,73 +161,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-02-27 13:29, Yanko Kaneti wrote:
-> On Thu, 2026-02-26 at 22:32 +0100, Aurelien Jarno wrote:
-> > Hi,
-> > 
-> > On 2026-02-26 16:32, Yanko Kaneti wrote:
-> > > Hello,
-> > > 
-> > > On Mon, 2025-11-03 at 00:02 +0100, Aurelien Jarno wrote:
-> > > > Add a "spacemit-p1-reboot" cell for the SpacemiT P1 chip.
-> > > > 
-> > > > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
-> > > > ---
-> > > > v5: no changes
-> > > > 
-> > > >  drivers/mfd/simple-mfd-i2c.c | 1 +
-> > > >  1 file changed, 1 insertion(+)
-> > > > 
-> > > > diff --git a/drivers/mfd/simple-mfd-i2c.c b/drivers/mfd/simple-mfd-i2c.c
-> > > > index 0a607a1e3ca1d..542d378cdcd1f 100644
-> > > > --- a/drivers/mfd/simple-mfd-i2c.c
-> > > > +++ b/drivers/mfd/simple-mfd-i2c.c
-> > > > @@ -99,6 +99,7 @@ static const struct regmap_config spacemit_p1_regmap_config = {
-> > > >  };
-> > > >  
-> > > >  static const struct mfd_cell spacemit_p1_cells[] = {
-> > > > +	{ .name = "spacemit-p1-reboot", },
-> > > >  	{ .name = "spacemit-p1-regulator", },
-> > > >  	{ .name = "spacemit-p1-rtc", },
-> > > >  };
-> > > 
-> > > Perhaps its safe to merge this one now that everything P1 and I2C is
-> > > already in linus tip ?
-> > 
-> > Unfortunately, this patchset is still missing:
-> > https://lore.kernel.org/all/20260207-b4-k3-i2c-pio-v7-0-626942d94d91@linux.spacemit.com/
-> > 
-> > This means the reboots work most of the time, but are not 100% reliable, 
-> > and that's the reason why this patch got blocked from merging.
+
+
+On 28/2/26 00:48, Jason Gunthorpe wrote:
+> On Fri, Feb 27, 2026 at 12:39:28PM +1100, Alexey Kardashevskiy wrote:
+>>
+>>
+>> On 27/2/26 02:04, Jason Gunthorpe wrote:
+>>> On Thu, Feb 26, 2026 at 10:11:56AM +1100, Alexey Kardashevskiy wrote:
+>>>>> The flow would be some thing like..
+>>>>>     1) Create an IOAS
+>>>>>     2) Create a HWPT. If there is some known upper bound on RMP/etc page
+>>>>>        size then limit the HWPT page size to the upper bound
+>>>>>     3) Map stuff into the ioas
+>>>>>     4) Build the RMP/etc and map ranges of page granularity
+>>>>>     5) Call iommufd to adjust the page size within ranges
+>>>>
+>>>> I am about to try this approach now. 5) means splitting bigger pages
+>>>> to smaller and I remember you working on that hitless IO PDEs
+>>>> smashing, do you have something to play with? I could not spot
+>>>> anything on github but do not want to reinvent. Thanks,
+>>>
+>>> I thought this thread had concluded you needed to use the HW engines
+>>
+>> The HW engine has to be used for smashing while DMAing to 2M page
+>> being smashed. It is not needed when the insecure->trusted switch
+>> happens and IOMMU now needs to match already configured RMP.
 > 
-> I see. Thanks. Sounds to me like sometimes working compared to never
-> working is better , but anyway..
+> Oh? I'm surprised shared->private is different that private->shared..
 
-I agree with that, but the decision was to hold on this patch until the 
-I2C PIO part got merged.
+Well, I rather meant "statistically". Confidential VMs are all private with occasional sharing so shared->private normally means there was a recent private->shared which did the smashing. And there is also "unsmash_io" in that HW engine which I am not touching yet (but keep it in mind).
 
-> FWIW  with this patch and the pio patcheset I get this rcu splat on
-> reboot (which is still working). Similar splat is there without the pio
-> patcheset.
+> Regardless, I think if you go this path you have to stick to 4k IOPTEs
+> and avoid the HW engine. Maybe that is good enough to start.
 
-I haven't been able to reproduce the issue here after 10+ reboots on a 
-BPI-F3 board, but I tried the patch on top of 6.19. I'll try to build a 
-7.0.0-rc2 kernel and report back.
+This is the current plan.
 
-At a first glance the problem seems to happen in the I2C PIO code. On 
-which hardware is that happening?
+>>> for this and if so then KVM should maintain the IOMMU S2 where it can
+>>> synchronize things and access the HW engines?
+>>
+>> I want to explore the idea of using the gmemfd->iommufd notification
+>> mechanism for smashing too (as these smashes are always the result
+>> of page state changes and this requires a notification on its own as
+>> we figured out) and plumb that HW engine to the IOMMU side,
+>> somewhere in the AMD IOMMU driver. Hard to imagine KVM learning
+>> about IOMMU.
+> 
+> Equally hard to imagine IOMMU changing the RMP.. Since you explained
+> the HW engine changes both I don't know what you will do.>> Maybe guestmemfd needs to own the RMP updates and it can somehow
+> invoke the HW engine and co-ordinate all the parts. This sounds very
+> hard as well, so IDK.
 
-Regards
-Aurelien
+The latter is worth exploring. Thanks,
 
 -- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+Alexey
+
 
 _______________________________________________
 linux-riscv mailing list
