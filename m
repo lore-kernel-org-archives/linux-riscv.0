@@ -4,105 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A3EEB3625
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 17:34:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 980A3EB3629
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 17:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NyfBtpwkWnPzhnvGrCT2eJAvr0vXPvJ/fStqEMzTyZg=; b=lzH9egro77FZnp
-	lzG/21Os5Y8OVbUzuW808Ga5JMOl6hwS61oWu/sNq41cCLaJ9+cAD8j8GioaFEjnLrdFV5t8pCzGM
-	W3wHuaqfAqpMI1y+LPRl2GnFLezef9pkKqtixdViMg9RqmGgZQcDTlG13++SrHhRPEsmXmmxEpG1B
-	59stNknUNHvF5sqcqPldFjM02qIyTpvSbH6Je8dNE4O/Xb7JKRHHUThUH7gXy1pjIXeAX7mH0vaoo
-	zjfGLwFxsornI0hvRca9aN9DgIPBKk1vqDTg7Tmbe6ckKtnaJ8khatTDGWN5rz84x9u6G2pM74OUs
-	9pWb4o1Z49Of0KImy3Gw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0WnMZOy2mYmt8ew4sB5RQgDfatEAfE22vru3BR5AptM=; b=t3dr3vV6Ok5XMIRQjMuSAFMPLR
+	HDyUuMD+Jy3mLbY4vrbHrhKAxNyGAob/PwpyK8galr2AUcnV5yuSR92oNnzgr80Ddnr5H0jjrTsyc
+	qYg70jt9RgWZcfKqgA4LERHtlAJhB8aTBbI6VG+ov6bqYQZhGp2Q1ZQbuRT1Rb2K/yCc8skeLAlhM
+	8UZHyh0vmTVfF6w5+z4knRyoNKmuD/wBbeBvb/PJ0KZDMWdAiOzzm6oPSZam39Gw+P+jDf/r8Cusb
+	TSGtQxd9vztJjvXSmC7rnm3l6R15SnPuKg5c7irXEQ2RieUFRxXgpHqEXGHVzynkHUrh4DPGStoqA
+	eF+DuBtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx79i-0000000DbiB-2wsz;
-	Mon, 02 Mar 2026 17:34:06 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1vx7SO-0000000DdAT-0Mh4;
+	Mon, 02 Mar 2026 17:53:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx79g-0000000Dbhq-0mnb
+	id 1vx7SN-0000000DdAJ-1pW6
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Mar 2026 17:34:05 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-b9359c0ec47so501868366b.0
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Mar 2026 09:34:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1772472842; x=1773077642; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=NhM0U/KytZp1XoP7N4M9fAB7JNIxjdmFkfjBUQb/l8Q=;
-        b=CbTTgnVA/ePkVJqdJJTaFewvOe093EO7ojnCvtLEcVnnOA6ovDXzNYvN5eIIBNdnaZ
-         TZC/lMZ1lxu7MzRs+ifMPOkSfhpHiCATicB5w2hpEKri2KyT8//XWl9kCCMApRQUTKs+
-         F/WQZ6ppvg2JR2epywSw0xp04i6EluJeTLlYw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772472842; x=1773077642;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NhM0U/KytZp1XoP7N4M9fAB7JNIxjdmFkfjBUQb/l8Q=;
-        b=RpOTRxqtSKefpXhQApgafr/umXx3M91Ph1SeUNR78PIVuomMItBUlT79rD9nBE2ZpL
-         kSSWXrDU8vgJlafCl1zrT5kORhF2liz6kjmlXvvCerSmWp+4JVGKjESLIPaEbewwZL9+
-         EXbR4LS7jclLcJvhTEOO/Vwlb70pXJGAl92eaK9yA+purRGBjm618Rn4lYwLHSwm7rw9
-         sQvY4HopWxSGIyKDXE0nLtWyDj1zgZqeG73CsB/QZ5PxEAexKrzsmBR6zzRF7VRZzn7a
-         Qt8Xgyc5KKr/So/Knr/R78cntLBoujTmvwPd0PZmNfxmggn+JUGz2pfcfsnEJsolrqKg
-         ORGw==
-X-Forwarded-Encrypted: i=1; AJvYcCX8B8Z2nFWrsytJwAN/M8x6r3qCYl3AZK4fubZOc7B+ETaJrC8C48oVvIf9GxkP31aptQr39zXZp93SKw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywy0W+XsdWoQugVjY0H69XCiRUeMrXVRfSAqJnUlEIn3FLnv5es
-	LYMBmAgGt7M7VRLcobigjLqRw6C/+p2juWTCFa8iuqARsFiVWp0hRLZ/F0qDdfIz7iJ58d5Bm2o
-	TBkMlbhfxWg==
-X-Gm-Gg: ATEYQzw/GQVrHYEgBL4ovNjhpqNnNQXrqruBUYVYi+INh/bHmD8Kx2l+RCDi6wdJ+Xw
-	PW39TPbJbiEr52iwHkGzgmXfwVcfjuJG64Yg2uGVmUIlndrflsKQHpGa6J24VGDK5hafqnKOtUB
-	he3HT0Yuf+2D21NJG2E07cBe0LfWbvRQRYOuuGaUblmm59UyCdEJlpgCAkKhTe65PrGrgjl9z6R
-	M1mdjOGoIG5uUIIiw2wCTI5fyncSCQB0Z/OZC77WeVR/D8oKDOULpHkm2Zrofq59sDZv6yG7ayo
-	l4Nv2jHqYyIZHggWudVprgEXZ1RrPU3WclFTzJLmMc8NknfvA8awIeckXTYLo3xii+hps7Plnzn
-	SRlExTkl/eabH+hpuawsElxRm+R7wdI9D89t8jaWSRx8zTPvgCJ891CHdn4Pugvt8Dpr/XNO3Ot
-	3eVyWrr/5SyHAexqmA0r2+DxZefoMxpvMP9fmQV3ymN36R0aI0KgRSRZK+ygGsHR6Gj2Zolhd6
-X-Received: by 2002:a17:907:9628:b0:b90:8016:cfe4 with SMTP id a640c23a62f3a-b93763615f5mr833466066b.10.1772472841998;
-        Mon, 02 Mar 2026 09:34:01 -0800 (PST)
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com. [209.85.128.41])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b935ab13540sm476065966b.11.2026.03.02.09.34.01
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Mar 2026 09:34:01 -0800 (PST)
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-480706554beso54443975e9.1
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Mar 2026 09:34:01 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXok9LKH+1RXXKzXR37eFlTr6RUNZD7eJsC8DWgQXjokI98XfrFLd9tMyDUru5JjkgCk0EJcpbsunO1iA==@lists.infradead.org
-X-Received: by 2002:a17:906:6a17:b0:b83:1326:7d45 with SMTP id
- a640c23a62f3a-b937b42886emr757779066b.32.1772472407269; Mon, 02 Mar 2026
- 09:26:47 -0800 (PST)
+	Mon, 02 Mar 2026 17:53:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7BCB4600AE;
+	Mon,  2 Mar 2026 17:53:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61DCCC19423;
+	Mon,  2 Mar 2026 17:53:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772474002;
+	bh=vhDHla+zJiCxWn7+ZSZE11bQ1FNt76Ap+xB09PlL9cw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=o+AEWwv+jmzgY1erzPnHWxkX3AlnObHZo5pe1wzC5RmpeQHAvqUg/Lsy7SjWk7qTO
+	 7syyv87bwfpmtUFjdF86NQGqR8d7SF0YHRnk2pK4wXJMcGBvjXj4NuEWzAWJrkDFPe
+	 BGVQgvtg+Q1xuibe1C46QzpnqlpcUOgd5T/rCca7k2mP8070Bd2cNwwjMrImOdbEY5
+	 i2uvePt+G4BgarGffz5JzPiBl979bOcBt0dFrOyMDn5XVxzui5u4WMA752C75SN0RF
+	 xrne9rRo80jLSQTD8A5E7W60PU5YZ9SeeMjSvzquU3WYyXBzBsg6lieDQhW15q4nqT
+	 bqkp3jzTJupnA==
+Date: Mon, 2 Mar 2026 17:53:13 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Lv Zheng <lv.zheng@linux.spacemit.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>, Yixun Lan <dlan@kernel.org>,
+	Jingyu Li <joey.li@spacemit.com>, Zong Li <zong.li@sifive.com>,
+	Yaxing Guo <guoyaxing@bosc.ac.cn>, iommu@lists.linux.dev,
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 4/8] dt-bindings: iommu: Add spacemit/t100 features
+Message-ID: <20260302-constrain-untrue-71626a545008@spud>
+References: <cover.1772289741.git.lv.zheng@linux.spacemit.com>
+ <D8CE6E5B1001D797+a6f36da0272ac18fff2a992976b1defc3bb01af6.1772289741.git.lv.zheng@linux.spacemit.com>
+ <177231592262.848068.18080490567217057666@spud>
+ <CAB7A310CE95B577+5f5c0825-25dd-4035-9316-db940c00216b@linux.spacemit.com>
+ <20260301-acclimate-suburb-fc46da7e0cea@spud>
+ <B8675026D2F6DF58+946ff82a-2e2e-4abb-a3c4-26fe67c43ab8@linux.spacemit.com>
 MIME-Version: 1.0
-References: <20260302132755.1475451-1-david.laight.linux@gmail.com>
- <20260302132755.1475451-2-david.laight.linux@gmail.com> <e8a688b3-97e1-4523-9a82-8d9dd16e3d90@kernel.org>
-In-Reply-To: <e8a688b3-97e1-4523-9a82-8d9dd16e3d90@kernel.org>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Mon, 2 Mar 2026 09:26:31 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wjKWi=j_xcMBAi2Hkuut6aNeqXTwOFoMGkHfDA+3WXsgg@mail.gmail.com>
-X-Gm-Features: AaiRm52zcwSKl-2ZFc2XJ2K-Xgcl3ar6vYfBBv7z9Nop6yBvMYBvRXM6loWQHmg
-Message-ID: <CAHk-=wjKWi=j_xcMBAi2Hkuut6aNeqXTwOFoMGkHfDA+3WXsgg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/5] uaccess: Fix scoped_user_read_access() for
- 'pointer to const'
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: david.laight.linux@gmail.com, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Andre Almeida <andrealmeid@igalia.com>, Andrew Cooper <andrew.cooper3@citrix.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Christian Brauner <brauner@kernel.org>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Darren Hart <dvhart@infradead.org>, 
-	Davidlohr Bueso <dave@stgolabs.net>, Heiko Carstens <hca@linux.ibm.com>, Jan Kara <jack@suse.cz>, 
-	Julia Lawall <Julia.Lawall@inria.fr>, linux-arm-kernel@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	LKML <linux-kernel@vger.kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Nicolas Palix <nicolas.palix@imag.fr>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Russell King <linux@armlinux.org.uk>, 
-	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, x86@kernel.org, 
-	Kees Cook <kees@kernel.org>, akpm@linux-foundation.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_093404_236881_C12CEDBD 
-X-CRM114-Status: GOOD (  11.06  )
+In-Reply-To: <B8675026D2F6DF58+946ff82a-2e2e-4abb-a3c4-26fe67c43ab8@linux.spacemit.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,23 +88,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0078819230134891326=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2 Mar 2026 at 06:59, Christophe Leroy (CS GROUP)
-<chleroy@kernel.org> wrote:
->
-> Can we get this fix merged in 7.0-rc3 so that we can start building 7.1
-> on top of it ?
 
-Applied this first patch. I'm not so convinced about the others in the
-series, although people can always try to argue for them..
+--===============0078819230134891326==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="bIo31++ptAE9jI+O"
+Content-Disposition: inline
 
-              Linus
+
+--bIo31++ptAE9jI+O
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Mar 02, 2026 at 09:41:55AM +0800, Lv Zheng wrote:
+> On 3/1/2026 10:01 PM, Conor Dooley wrote:
+> > On Sun, Mar 01, 2026 at 11:48:37AM +0800, Lv Zheng wrote:
+> > > On 3/1/2026 5:58 AM, Conor Dooley wrote:
+> > > > On Sat, 28 Feb 2026 22:44:49 +0800, Lv Zheng <lv.zheng@linux.spacem=
+it.com> wrote:
+> > > > > Adds device tree bindings for SpacemiT T100 specific features by
+> > > > > introducing spacemit,t100 compatible. T100 contains distributed I=
+OATCs,
+> > > > > each of which exposes pmiv interrupt.
+> > > > >=20
+> > > > > Signed-off-by: Lv Zheng <lv.zheng@linux.spacemit.com>
+> > > > > Signed-off-by: Jingyu Li <joey.li@spacemit.com>
+> > > >=20
+> > > > Patch content here is fine, but the signoff chain on this patch is =
+not
+> > > > right. What did Jingyu do? You're author and submitter so either Ji=
+ngyu
+> > > > did nothing and should be removed, or is a co-developer which requi=
+res
+> > > > attribution via the co-developed-by tag. If the latter, their signo=
+ff
+> > > > should be before yours (the submitter is always last).
+> > > >=20
+> > > > pw-bot: changes-requested
+> > >=20
+> > > She is responsible for the common HPM part, and I just gave my commen=
+ts to
+> > > help to improve the quality of that implementation.
+> > > I was just focusing on enabling and maintaining the T100 specific fea=
+tures.
+> > >=20
+> > > Our patches will go each other's local repository, leaving such track=
+s. That
+> > > means the patch from me is Reviewed-and-tested-by her.
+> > > And I'm responsible for sending the whole patchset for upstreaming.
+> >=20
+> > Then you need to either fix your email setup (because it's not inserting
+> > From: Jingyu Li <joey.li@spacemit.com>) so that she is marked as the
+> > author or actually set her to the author in git if you haven't.
+> > Currently it looks like this when applied:
+> > commit 872978c875731be43e84bec38798cb8ecd42b7a0
+> > Author: Lv Zheng <lv.zheng@linux.spacemit.com>
+> > Date:   Sat Feb 28 22:44:49 2026 +0800
+> >=20
+> >      dt-bindings: iommu: Add spacemit/t100 features
+> >      Adds device tree bindings for SpacemiT T100 specific features by
+> >      introducing spacemit,t100 compatible. T100 contains distributed IO=
+ATCs,
+> >      each of which exposes pmiv interrupt.
+> >      Signed-off-by: Lv Zheng <lv.zheng@linux.spacemit.com>
+> >      Signed-off-by: Jingyu Li <joey.li@spacemit.com>
+> >=20
+> > In both cases, you need to change the order of signoffs so that yours is
+> > last as the submitter.
+>=20
+> BTW, since this version of this patch has been worked out all due your
+> constructive feedback and suggestions. Now that it has functionally
+> converged to what the community requested, can I add "Reviewed-by: Conor
+> Dooley <conor@kernel.org>" for its next version?
+
+No, as I said the previous time you asked, I will provide one when I am
+happy with the patch. I have not yet reached a point with you were I am
+comfortable providing tags with the assumption that you will make the
+correct changes. There's no need to hassle me for one at this point
+anyway, because you have to send a v6 anyway. If v6 is satisfactory to
+the maintainers, they'll grab my tag when they apply the series.
+
+Cheers,
+Conor.
+
+--bIo31++ptAE9jI+O
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaXOiQAKCRB4tDGHoIJi
+0poHAQDxsjjLOPKOtb2IC4WJzgt1JbGia7F26+iLWwTvK6+FLwEAzjWz3FACYBYP
+Z2zqTAghSNd/jVb4Yr4Ozyd2TMj26Ao=
+=tGDQ
+-----END PGP SIGNATURE-----
+
+--bIo31++ptAE9jI+O--
+
+
+--===============0078819230134891326==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0078819230134891326==--
+
