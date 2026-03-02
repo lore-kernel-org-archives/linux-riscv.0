@@ -4,37 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 246DDD58E49
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 02:22:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39995D58E49
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 02:22:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/pS8FCbMqwz8IiBFpf8oRGr/aO9eSIJodoQdMu/wtwM=; b=BK18SOAWzUn+At
-	H/crJ7Z6wqVq5TYsc8F/s7LFTP3Z7g3CgntmFecH4EFPd+vI6U4pBprHVBeWTT1Sb4U6tFhBf+xp/
-	2/kAhpNY31Py6N6bOj9/JdwHurlop+pOdrEZ2fL4qYeDB0Ufll9Xfakefh23zUR4XN8E6AJz9ybT+
-	yiwnUYpWjuixqcqDGjzYTrhdJVi0WQefO2EMUwN4uDmG+IJCe1eYtxt4mjgoe39PyiWqsFuDgcw2T
-	VsE/NLT94a63Ik6TO2hE9wCF2sY/SpjXo2LNBcgUg5tmoRS3fUY+MVmVOT2qepjNtXictOZ2jsg1D
-	f9ApLAJv3yNUcE0mb10w==;
+	List-Owner; bh=HKs2XUUfrLcHAVKok20QcbbUeufyw0AlE4QSU56FbkU=; b=jzICQFI55xRrHw
+	xHPf2aHD3E3YlhFEkj31Ic6GOB79lKxBS34919cpdC5AdqCyQFJYitZclmxvYP6d5uk+cEp2OvtAw
+	qKxMt60OUdFdLiPgwxahgW9TpSit5n4AJMKfYAlk9CiIl6nKzhKvL9SGe9GNf8K5exZHgP8o+Gh/d
+	KbpY4G+nA9Pd6/PHXxtNDyCOvD+daqQAMij9Q6P253+SNAB2zcx2xsJfYTu29SyZiuEJo1oeOVTRZ
+	TRYalq4Pv/M1pVAdWI6Q0q75C+a+VA/+Z14z7ITkFqytUWFXJSaX1YpEp98VqX7MPHL0yYxXqXfdq
+	xjXckTtXWa1klSXcj17Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwsv2-0000000C78I-10dt;
-	Mon, 02 Mar 2026 02:22:00 +0000
+	id 1vwsv3-0000000C78W-0bqp;
+	Mon, 02 Mar 2026 02:22:01 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwsux-0000000C76v-342N
+	id 1vwsuy-0000000C76x-0SZu
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Mar 2026 02:21:57 +0000
+	Mon, 02 Mar 2026 02:21:59 +0000
 Received: from [127.0.0.2] (unknown [210.73.43.101])
-	by APP-03 (Coremail) with SMTP id rQCowAD3E9s39KRp6CWmCQ--.11902S4;
+	by APP-03 (Coremail) with SMTP id rQCowAD3E9s39KRp6CWmCQ--.11902S5;
 	Mon, 02 Mar 2026 10:21:44 +0800 (CST)
 From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Mon, 02 Mar 2026 10:21:31 +0800
-Subject: [PATCH 2/3] riscv: mm: Extract helper mark_new_valid_map()
+Date: Mon, 02 Mar 2026 10:21:32 +0800
+Subject: [PATCH 3/3] riscv: kfence: Call mark_new_valid_map() for
+ kfence_unprotect()
 MIME-Version: 1.0
-Message-Id: <20260302-handle-kfence-protect-spurious-fault-v1-2-25c82c879d9c@iscas.ac.cn>
+Message-Id: <20260302-handle-kfence-protect-spurious-fault-v1-3-25c82c879d9c@iscas.ac.cn>
 References: <20260302-handle-kfence-protect-spurious-fault-v1-0-25c82c879d9c@iscas.ac.cn>
 In-Reply-To: <20260302-handle-kfence-protect-spurious-fault-v1-0-25c82c879d9c@iscas.ac.cn>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -43,14 +44,15 @@ To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  Dmitry Vyukov <dvyukov@google.com>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  kasan-dev@googlegroups.com, Palmer Dabbelt <palmer@rivosinc.com>, 
+ stable@vger.kernel.org, Yanko Kaneti <yaneti@declera.com>, 
  Vivian Wang <wangruikang@iscas.ac.cn>
 X-Mailer: b4 0.14.3
-X-CM-TRANSID: rQCowAD3E9s39KRp6CWmCQ--.11902S4
-X-Coremail-Antispam: 1UD129KBjvJXoW7AF1kKF18CF4kKw1Duw15Jwb_yoW8Ar4xpF
-	Wakwn5GrWrCr1fX3yavw42g3yrX34DWa4rKasIy345A3WDJFW7GrZ5KayrXr13JFW7XF17
-	ua1akr98uryUZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmK14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+X-CM-TRANSID: rQCowAD3E9s39KRp6CWmCQ--.11902S5
+X-Coremail-Antispam: 1UD129KBjvJXoWxCw1kXw45Wrykur4DJr1xuFg_yoW5XrW7pF
+	srCr1FgrZ5ur4xXrW7Aw1j9a1UWws5W34rKa4vka4rZwsIqr4jq34DK3yFqr9rJFZYgay0
+	kF45ur1YkF1UAw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmE14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
 	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
 	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
 	8EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
@@ -60,14 +62,14 @@ X-Coremail-Antispam: 1UD129KBjvJXoW7AF1kKF18CF4kKw1Duw15Jwb_yoW8Ar4xpF
 	xKxwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_Gr1l42xK82IYc2Ij64vIr41l4I8I
 	3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxV
 	WUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAF
-	wI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcI
-	k0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j
-	6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUO0PSUUUUU
+	wI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20x
+	vaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8
+	JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbvD7DUUUUU==
 X-Originating-IP: [210.73.43.101]
 X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_182156_170111_68918F73 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20260301_182156_529971_F1F8B19D 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +86,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In preparation of a future patch using the same mechanism for
-non-vmalloc addresses, extract the mark_new_valid_map() helper from
-flush_cache_vmap().
+In kfence_protect_page(), which kfence_unprotect() calls, we cannot send
+IPIs to other CPUs to ask them to flush TLB. This may lead to those CPUs
+spuriously faulting on a recently allocated kfence object despite it
+being valid, leading to false positive use-after-free reports.
 
-No functional change intended.
+Fix this by calling mark_new_valid_map() so that the page fault handling
+code path notices the spurious fault and flushes TLB then retries the
+access.
 
+Update the comment in handle_exception to indicate that
+new_valid_map_cpus_check also handles kfence_unprotect() spurious
+faults.
+
+Note that kfence_protect() has the same stale TLB entries problem, but
+that leads to false negatives, which is fine with kfence.
+
+Cc: <stable@vger.kernel.org>
+Reported-by: Yanko Kaneti <yaneti@declera.com>
+Fixes: b3431a8bb336 ("riscv: Fix IPIs usage in kfence_protect_page()")
 Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
 ---
- arch/riscv/include/asm/cacheflush.h | 25 ++++++++++++++-----------
- 1 file changed, 14 insertions(+), 11 deletions(-)
+ arch/riscv/include/asm/kfence.h | 7 +++++--
+ arch/riscv/kernel/entry.S       | 6 ++++--
+ 2 files changed, 9 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-index b6d1a5eb7564..8c7a0ef2635a 100644
---- a/arch/riscv/include/asm/cacheflush.h
-+++ b/arch/riscv/include/asm/cacheflush.h
-@@ -43,20 +43,23 @@ do {							\
- #ifdef CONFIG_64BIT
- extern u64 new_valid_map_cpus[NR_CPUS / sizeof(u64) + 1];
- extern char _end[];
-+static inline void mark_new_valid_map(void)
-+{
-+	int i;
-+
-+	/*
-+	 * We don't care if concurrently a cpu resets this value since
-+	 * the only place this can happen is in handle_exception() where
-+	 * an sfence.vma is emitted.
-+	 */
-+	for (i = 0; i < ARRAY_SIZE(new_valid_map_cpus); ++i)
-+		new_valid_map_cpus[i] = -1ULL;
-+}
- #define flush_cache_vmap flush_cache_vmap
- static inline void flush_cache_vmap(unsigned long start, unsigned long end)
+diff --git a/arch/riscv/include/asm/kfence.h b/arch/riscv/include/asm/kfence.h
+index d08bf7fb3aee..29cb3a6ee113 100644
+--- a/arch/riscv/include/asm/kfence.h
++++ b/arch/riscv/include/asm/kfence.h
+@@ -6,6 +6,7 @@
+ #include <linux/kfence.h>
+ #include <linux/pfn.h>
+ #include <asm-generic/pgalloc.h>
++#include <asm/cacheflush.h>
+ #include <asm/pgtable.h>
+ 
+ static inline bool arch_kfence_init_pool(void)
+@@ -17,10 +18,12 @@ static inline bool kfence_protect_page(unsigned long addr, bool protect)
  {
--	if (is_vmalloc_or_module_addr((void *)start)) {
--		int i;
--
--		/*
--		 * We don't care if concurrently a cpu resets this value since
--		 * the only place this can happen is in handle_exception() where
--		 * an sfence.vma is emitted.
--		 */
--		for (i = 0; i < ARRAY_SIZE(new_valid_map_cpus); ++i)
--			new_valid_map_cpus[i] = -1ULL;
--	}
-+	if (is_vmalloc_or_module_addr((void *)start))
+ 	pte_t *pte = virt_to_kpte(addr);
+ 
+-	if (protect)
++	if (protect) {
+ 		set_pte(pte, __pte(pte_val(ptep_get(pte)) & ~_PAGE_PRESENT));
+-	else
++	} else {
+ 		set_pte(pte, __pte(pte_val(ptep_get(pte)) | _PAGE_PRESENT));
 +		mark_new_valid_map();
- }
- #define flush_cache_vmap_early(start, end)	local_flush_tlb_kernel_range(start, end)
- #endif
++	}
+ 
+ 	preempt_disable();
+ 	local_flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index e57a0f550860..9c6acfd09141 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -136,8 +136,10 @@ SYM_CODE_START(handle_exception)
+ 
+ #ifdef CONFIG_64BIT
+ 	/*
+-	 * The RISC-V kernel does not eagerly emit a sfence.vma after each
+-	 * new vmalloc mapping, which may result in exceptions:
++	 * The RISC-V kernel does not flush TLBs on all CPUS after each new
++	 * vmalloc mapping or kfence_unprotect(), which may result in
++	 * exceptions:
++	 *
+ 	 * - if the uarch caches invalid entries, the new mapping would not be
+ 	 *   observed by the page table walker and an invalidation is needed.
+ 	 * - if the uarch does not cache invalid entries, a reordered access
 
 -- 
 2.52.0
