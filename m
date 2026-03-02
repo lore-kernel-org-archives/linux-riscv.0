@@ -4,60 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DA31EB362B
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 18:11:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C631EB362A
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 18:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YrmEnd5R5ImEMXbv69FtK1PieSyZDg9VwIUO4tXqnis=; b=ZgyWq3yCTRtSuVUvQNQlaPHlwA
-	hJNrwkijGAHqqo4dV1sRb3gQUk1cHzEKzWLVnVk6ogk+/Uruf/TihvEjyYZnj4oRUQatSvf13BLiR
-	tXrAz4rSj/y2HTBhtful7CamlfZl6Hfv5ztN6svakEssOQsHY2IdvduC9ikDpxQI5grh8PqM4eQUL
-	xmifBw/fmIrgVk30dPcsOvhiLF9QeZMU8Nn2GQrLExJAuI0byo8r+YSdylnZgmQPRj8yEU20X5cO/
-	AFH8JXOPDqNl+EjEx9Lq2NIiy4etY70f2WK5d6g2j5NVg7T0D3FQViifWaO4dn8FgDlU67Fvv0a/i
-	3nsiFuQQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=w7vpaAdVk5jtnUC3br1dOst1YEb5ddbtynyXMw3phfg=; b=fhJ6umM1UM/BiA
+	AFHptHmo4uA+5rvsHJUKRNB//CaC6GCSO7yjB041MtTwLnGT9g5CdfiqmUmdNofWbqhjH0iWa9IOh
+	ACP1km9rDxBApxBuuzWvST2BpRWYQB1E0C3PmT0kYRD6RGDsW5zNGA5LCleQq96W5J6uq5ry752M1
+	0kbMugyfa0w0j9NIEutTSs5Mciska4qpoqTcaYF3A0lm4X5j9MMAHy7i55jqIQxKMX/Mey0vbBaxS
+	q4AAv6GermefE2x29RIRRce8o0guWULOQ6LxIngVZl3QgGwj5ytV4sYCjlSZM08D2yHCHu7osNsn6
+	SdF1CxMIIS7FACbVA/Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7jZ-0000000Df3t-1EnD;
-	Mon, 02 Mar 2026 18:11:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vx7ll-0000000DfDh-3XLi;
+	Mon, 02 Mar 2026 18:13:25 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7jX-0000000Df3X-05AM
+	id 1vx7lj-0000000DfDN-1BeF
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Mar 2026 18:11:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1CED260097;
-	Mon,  2 Mar 2026 18:11:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFB33C2BCAF;
-	Mon,  2 Mar 2026 18:11:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772475065;
-	bh=9vMp8oVY9ly+koARXC2CDFt7G+bOzmkjyESC8o/h6PE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XCThIaT+vkO8MNEptzSfjE8GU7VO97Um4ozCagAenO6aTvoowkOptMN5DJflr8Iw4
-	 1Fziczj1/mxZoJTXL7ofEKJ5lHHYs1owsVXCRfPbs1eG3rZsYX4MZ70h1T8TPgOTVF
-	 N7V876RrEG0k7Hqh0mmxAMSbgbqa8sAuFO6euRnvFxfJjHmQD8EDcCCSNjHefpAUap
-	 /R7kG63cIyP1yb77zLxeLTB9onoPM5rZzwtYKrnaoPgufk/R9k04aFBSy/cu/VqnuG
-	 QWEFAPY8h/iAjnlWtv7YYl7/N6yUiPNQ9KiiF6HuqaHT7UIKhFnbUe89ZfUeH2se7/
-	 Yf6b9egFtYtjw==
-Date: Mon, 2 Mar 2026 18:11:00 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Chukun Pan <amadeus@jmu.edu.cn>, dlan@kernel.org, alex@ghiti.fr,
-	aou@eecs.berkeley.edu, conor+dt@kernel.org,
-	devicetree@vger.kernel.org, elder@riscstar.com, krzk+dt@kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com, pjw@kernel.org, robh@kernel.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH] riscv: dts: spacemit: pcie: fix missing power regulator
-Message-ID: <20260302-glamorous-undivided-08b11b794939@spud>
-References: <20260226-k1-pcie-fix-pwr-v1-1-94b493cd27e5@kernel.org>
- <20260302030511.30566-1-amadeus@jmu.edu.cn>
- <20260302033655-GYA288339@gentoo.org>
+	Mon, 02 Mar 2026 18:13:24 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-82742aa5a3eso2242113b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Mar 2026 10:13:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772475202; x=1773080002; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=hnWhypid25+2v4/CmwVulpRAOWew3H3syajXEsdh0sA=;
+        b=gcUz1YUB2dWdLIm23z4z6UdLobU/NQHkPW6urg78QzMp7HOtnrlYubfQRD6YCF2kFn
+         +vQEQ8gqrBbn39gCSbACU0teiFcBZqz16kiCZS8IWhfWflG4xKy2KHJaw1pu8Zcp99rY
+         uIKqEpUacC62kbDcQfimMCsqCHGv3epk1nBrqhEnPPTfkRrutirR+5U5pv73cz3Ylf5l
+         JWYrDu5ZKZcTnsOru6Hh67/G3gk+LBC06xBnPfs6r9tt3KUSMFipIYqQWJASK2WiAATo
+         34N8ut6FCannp9NLpp8kQk/ODcW78mJgegIPWWyvcuTISMitn/QxyIlXe9btzF875LVN
+         zt7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772475202; x=1773080002;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hnWhypid25+2v4/CmwVulpRAOWew3H3syajXEsdh0sA=;
+        b=IgjP05WRe0ELuwVfxMEu0OvRIzUrXfzSM2eDvI7EW1BAw/toKQz2bFTshQEX6DvayB
+         zlWyFTSGqmRtooTz3cw/boeR3WowNndXzQjVEJ1RKekV23dGa399F/XIcWyqmDmFHq+3
+         CUv7OZjoP0qhpnUn3J8VJgRPWnjBN8oxVN3B5J82OKsjmxujy8assus2zTkYZoKrXurG
+         nPkuuAwoyjqwRSytKgIa0v1ylAE0bmja8Im+Llr1Fte9H/1c7OguQYrs7QLSpeVih2Cq
+         OhXiPuF5Dlgp8mTKBRwbk3HoctQ5iFSy/SxnapBuKX7Lr8oDNgbUclna/elc9UgHdjes
+         Aa/Q==
+X-Gm-Message-State: AOJu0YyVlgoRx7J2yd1VyLkbBqC63GjmWgbhO+hSSHUfK6WhcTc7Qtvk
+	VmHv4zFsFUAOs1RUpI0sNFNq27hZPTshvbixyG9TSeZMn4rpwDXKJt8m
+X-Gm-Gg: ATEYQzynqKxX9AfieqvS3vbcodYr7jCiVjlk0Xda8aUdwUP0GUN4yJtqeNOEk93YJhZ
+	eu6aDyAf/VqJ1LNdNw4saMw+8dsJcYGkOjkf8JBVmzjJodc1xypQUr89TkCNLFPwElZciTt6Fog
+	l/Gk2vL0fIrxJzjICsJNmdPjI6xIhG4KdufftcAIopKTCYDivMzOsqMvFeVFFP1p7jSk3R5N8cu
+	rQjNTpeo20RTF5qGdaw8om6ztmx9i8M3G039pjEjoMTATid2sKBoPHui43dNhwelWtd/UybKkGH
+	PhCfqbVXwlc8sXcRBc1Nyj/8xIevcBOzR5flKN5XnFxdPREf2TD4X0af/qjokb+L0Xts00KQNEE
+	rqaLTxPEZzosZ4H+fs0Gtb+2PhXF0yOMaiKrtK2VQtiBfF9Bd0xve2YWGkGKEF9LmxIivdfwiPI
+	kl8fYg5amytwgx78j332154NjjjoRovOFR+kB1
+X-Received: by 2002:a17:90b:3b8b:b0:359:8632:5e39 with SMTP id 98e67ed59e1d1-35986325f9dmr4652923a91.5.1772475202326;
+        Mon, 02 Mar 2026 10:13:22 -0800 (PST)
+Received: from junjungu-PC.localdomain ([2408:820c:9009:3f2:4c92:fc5c:54e5:712e])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35901883a0bsm24608201a91.6.2026.03.02.10.13.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Mar 2026 10:13:22 -0800 (PST)
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Tue, 03 Mar 2026 02:13:17 +0800
+Subject: [PATCH] pinctrl: microchip-mssio: Fix missing return in probe
 MIME-Version: 1.0
-In-Reply-To: <20260302033655-GYA288339@gentoo.org>
+Message-Id: <20260303-mssio-v1-1-ea0fdf3bf202@gmail.com>
+X-B4-Tracking: v=1; b=H4sIADzTpWkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDYwNj3dxioBJdc2MTYxNL00RDC5M0JaDagqLUtMwKsDnRsbW1AIvNzr1
+ XAAAA
+X-Change-ID: 20260303-mssio-7343495a184f
+To: Conor Dooley <conor.dooley@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Linus Walleij <linusw@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Felix Gu <ustc.gu@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772475199; l=1266;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=X9pFxZzMqkOXOXtjPC/JVKM4MxUqs2nrYJdjE2X9+yA=;
+ b=cYspcSg2cni4FEWF1uboSvnd1CiyndInwPoVrAX1RlAaSyS6iRlllrsyLXTvMue2o2G90tCPd
+ KJL+YEOurDvDBdY9wf4whkeVrXurUzX0DUKbv3pxtCMd+5h/49rpwA/
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260302_101323_328354_6B3CFDCA 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,143 +103,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7749818601841664632=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+In mpfs_pinctrl_probe(), when pctrl->regmap fails, it just print out an
+error message without return, which could lead serious errors.
 
---===============7749818601841664632==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="0Cad6xDtBs6YbbZc"
-Content-Disposition: inline
+Fixes: 488d704ed7b7 ("pinctrl: add polarfire soc mssio pinctrl driver")
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+---
+ drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c b/drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c
+index 3d5ffd6cb14b..15d73ea1028c 100644
+--- a/drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c
++++ b/drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c
+@@ -686,7 +686,7 @@ static int mpfs_pinctrl_probe(struct platform_device *pdev)
+ 
+ 	pctrl->regmap = device_node_to_regmap(pdev->dev.parent->of_node);
+ 	if (IS_ERR(pctrl->regmap))
+-		dev_err_probe(dev, PTR_ERR(pctrl->regmap), "Failed to find syscon regmap\n");
++		return dev_err_probe(dev, PTR_ERR(pctrl->regmap), "Failed to find syscon regmap\n");
+ 
+ 	pctrl->sysreg_regmap = syscon_regmap_lookup_by_compatible("microchip,mpfs-sysreg-scb");
+ 	if (IS_ERR(pctrl->sysreg_regmap))
 
---0Cad6xDtBs6YbbZc
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+---
+base-commit: 3fa5e5702a82d259897bd7e209469bc06368bf31
+change-id: 20260303-mssio-7343495a184f
 
-On Mon, Mar 02, 2026 at 11:36:55AM +0800, Yixun Lan wrote:
-> Hi Chukun,
->=20
-> Sorry, I missed your mail due recent problem of my client..
-> On 11:05 Mon 02 Mar     , Chukun Pan wrote:
-> > Hi,
-> >=20
-> > > &pcie1_port {
-> > >  	phys =3D <&pcie1_phy>;
-> > > +	vpcie3v3-supply =3D <&pcie_vcc_3v3>;
-> > >  };
-> > >=20
-> > >  &pcie1 {
-> > > @@ -320,6 +321,7 @@ &pcie2_phy {
-> > >=20
-> > >  &pcie2_port {
-> > >  	phys =3D <&pcie2_phy>;
-> > > +	vpcie3v3-supply =3D <&pcie_vcc_3v3>;
-> > >  };
-> >=20
-> > ```
-> > &pcie1 {
-> > 	vpcie3v3-supply =3D <&pcie_vcc_3v3>;
-> > 	status =3D "okay";
-> > };
-> > ```
-> >=20
-> > According to DT binding, the vpcie3v3-supply of the &pciex node should
-> > be moved to the &pciex_port node. This is simply a duplication of the
-> > property.
-> >=20
-> I have confidence that pcie port need to add a regulator to provide=20
-> supply for devices..
->=20
-> But, I'm not sure whether it's ok to remove regulator from &pciex node,
-> it's possibly a 'yes' answer, but to convince me, I'd like to see a real
-> test case to prove it: e.g, power supply for pciex is actually off before=
-=20
-> the driver initialization, then run regular procedure as it should, if
-> all works fine
+Best regards,
+-- 
+Felix Gu <ustc.gu@gmail.com>
 
-I'm not really sure what this is about. Whether the supply can be off
-before driver probe has nothing to do with what node the supply should
-be in. If you're concerned about removing it from the pcie node causing
-it to not be enabled during probe, then the driver should probably reach
-into the port node, get the regulator and call enable() on it?
-As I said when reporting this, either you need to change the driver and
-dts, or change the binding. If the supply actually is provided to the
-controller and port, then you need to change the binding to have a
-supply in the controller node and change the driver to make sure that
-both the controller node supply and the port node supply are enabled as
-someone could opt to provide them from different regulators.
-
-Looking at the bpif3 schematic
-https://drive.google.com/file/d/19iLJ5xnCB_oK8VeQjkPGjzAn39WYyylv/view
-I see nowhere where that 3v3 supply is actually provided to the k1,
-which I would expect if it were the supply for the controller itself.
-Instead, the m2 and minipcie slots are where I see that supply provided
-in the schematic. To me, that sounds like the port is what needs the
-supply, not the controller, but I'm not super familiar with pci
-devicetree stuff unfortunately.
-
-> Btw, different drivers request same regulator is ok, and is quite normal,
-> can't draw a conclusion that it's a duplication, as they may be used for
-> different reasons
->=20
-> > But do we really need this pcie_port (PCIe bridge)?
-> >=20
-> > The PCIe bridge node (pcie@0) was treated as a platform device, but it
-> > did not define the interrupts property, which resulted in the following
-> > warning: `[    2.897980] irq: no irq domain found for pcie@0 !`
-> >=20
-> > Would it be better to submit a patch to remove this pcie_port?
-> >=20
-> > ```
-> > -       ret =3D k1_pcie_parse_port(k1);
-> > -       if (ret)
-> > -               return dev_err_probe(dev, ret, "failed to parse root po=
-rt\n");
-> > +       k1->phy =3D devm_phy_get(dev, "pcie-phy");
-> > +       if (IS_ERR(k1->phy))
-> > +               return dev_err_probe(dev, PTR_ERR(k1->phy), "missing PH=
-Y\n");
-> > ```
->=20
-> I've not really looked at this, and not an expert on this area, so will
-> leave this to Alex or PCIe maintainers..
->=20
-> > I have tested this change and it works.
-> >=20
-> > Thanks,
-> > Chukun
-> >=20
->=20
-> --=20
-> Yixun Lan (dlan)
-
---0Cad6xDtBs6YbbZc
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaXStAAKCRB4tDGHoIJi
-0lPgAQCTClU5vis2+9tJyIZfKTjWOd7YSjjJVly2CSagyY0jSwD/QaQ7vxm86Sgy
-owyfMcezZaRHlgKA8IjooEkHjVJuswc=
-=MISq
------END PGP SIGNATURE-----
-
---0Cad6xDtBs6YbbZc--
-
-
---===============7749818601841664632==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7749818601841664632==--
-
