@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C631EB362A
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 18:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A50BEB3624
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 18:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=w7vpaAdVk5jtnUC3br1dOst1YEb5ddbtynyXMw3phfg=; b=fhJ6umM1UM/BiA
-	AFHptHmo4uA+5rvsHJUKRNB//CaC6GCSO7yjB041MtTwLnGT9g5CdfiqmUmdNofWbqhjH0iWa9IOh
-	ACP1km9rDxBApxBuuzWvST2BpRWYQB1E0C3PmT0kYRD6RGDsW5zNGA5LCleQq96W5J6uq5ry752M1
-	0kbMugyfa0w0j9NIEutTSs5Mciska4qpoqTcaYF3A0lm4X5j9MMAHy7i55jqIQxKMX/Mey0vbBaxS
-	q4AAv6GermefE2x29RIRRce8o0guWULOQ6LxIngVZl3QgGwj5ytV4sYCjlSZM08D2yHCHu7osNsn6
-	SdF1CxMIIS7FACbVA/Lg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qm4oAMwHonDSQeu7REolsm1ZcP7uv2Bo7Pcb8fw/MnY=; b=VgfBCb9vRJHqrMDdh4rUWOI2zZ
+	UslQOpboex/HJQi2Ad1kRMsSGK8sHoyOKzmymNxWSNCIRguxkQPJ0jINJyThWBLZ2ZXX4ebSAlnoc
+	Eflt6iOKPHv8Wgcvpy/vVz66DNJXMs07R7jByvrLOdoOVIpQRFvozA0pwCjAMvxBZ0NwKWsJ83fI1
+	30I6H7dxiujKUucwHyHS4peRb8zsiH3L/1pEGRe01Mhw/D9rgdSWAOb70Mt6n+0mILBUH8N0lAadO
+	DfEzV1VbNNy0D5WF2suMmKpS51GVg9J+gBLp2USeTYQoq92HGQHwlMQmbSun9ZM+xiXB+HPf6m3fK
+	pfWkGA+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7ll-0000000DfDh-3XLi;
-	Mon, 02 Mar 2026 18:13:25 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1vx7xB-0000000DgLL-0THc;
+	Mon, 02 Mar 2026 18:25:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7lj-0000000DfDN-1BeF
+	id 1vx7x8-0000000DgKr-1Ubb
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Mar 2026 18:13:24 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-82742aa5a3eso2242113b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Mar 2026 10:13:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772475202; x=1773080002; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hnWhypid25+2v4/CmwVulpRAOWew3H3syajXEsdh0sA=;
-        b=gcUz1YUB2dWdLIm23z4z6UdLobU/NQHkPW6urg78QzMp7HOtnrlYubfQRD6YCF2kFn
-         +vQEQ8gqrBbn39gCSbACU0teiFcBZqz16kiCZS8IWhfWflG4xKy2KHJaw1pu8Zcp99rY
-         uIKqEpUacC62kbDcQfimMCsqCHGv3epk1nBrqhEnPPTfkRrutirR+5U5pv73cz3Ylf5l
-         JWYrDu5ZKZcTnsOru6Hh67/G3gk+LBC06xBnPfs6r9tt3KUSMFipIYqQWJASK2WiAATo
-         34N8ut6FCannp9NLpp8kQk/ODcW78mJgegIPWWyvcuTISMitn/QxyIlXe9btzF875LVN
-         zt7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772475202; x=1773080002;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hnWhypid25+2v4/CmwVulpRAOWew3H3syajXEsdh0sA=;
-        b=IgjP05WRe0ELuwVfxMEu0OvRIzUrXfzSM2eDvI7EW1BAw/toKQz2bFTshQEX6DvayB
-         zlWyFTSGqmRtooTz3cw/boeR3WowNndXzQjVEJ1RKekV23dGa399F/XIcWyqmDmFHq+3
-         CUv7OZjoP0qhpnUn3J8VJgRPWnjBN8oxVN3B5J82OKsjmxujy8assus2zTkYZoKrXurG
-         nPkuuAwoyjqwRSytKgIa0v1ylAE0bmja8Im+Llr1Fte9H/1c7OguQYrs7QLSpeVih2Cq
-         OhXiPuF5Dlgp8mTKBRwbk3HoctQ5iFSy/SxnapBuKX7Lr8oDNgbUclna/elc9UgHdjes
-         Aa/Q==
-X-Gm-Message-State: AOJu0YyVlgoRx7J2yd1VyLkbBqC63GjmWgbhO+hSSHUfK6WhcTc7Qtvk
-	VmHv4zFsFUAOs1RUpI0sNFNq27hZPTshvbixyG9TSeZMn4rpwDXKJt8m
-X-Gm-Gg: ATEYQzynqKxX9AfieqvS3vbcodYr7jCiVjlk0Xda8aUdwUP0GUN4yJtqeNOEk93YJhZ
-	eu6aDyAf/VqJ1LNdNw4saMw+8dsJcYGkOjkf8JBVmzjJodc1xypQUr89TkCNLFPwElZciTt6Fog
-	l/Gk2vL0fIrxJzjICsJNmdPjI6xIhG4KdufftcAIopKTCYDivMzOsqMvFeVFFP1p7jSk3R5N8cu
-	rQjNTpeo20RTF5qGdaw8om6ztmx9i8M3G039pjEjoMTATid2sKBoPHui43dNhwelWtd/UybKkGH
-	PhCfqbVXwlc8sXcRBc1Nyj/8xIevcBOzR5flKN5XnFxdPREf2TD4X0af/qjokb+L0Xts00KQNEE
-	rqaLTxPEZzosZ4H+fs0Gtb+2PhXF0yOMaiKrtK2VQtiBfF9Bd0xve2YWGkGKEF9LmxIivdfwiPI
-	kl8fYg5amytwgx78j332154NjjjoRovOFR+kB1
-X-Received: by 2002:a17:90b:3b8b:b0:359:8632:5e39 with SMTP id 98e67ed59e1d1-35986325f9dmr4652923a91.5.1772475202326;
-        Mon, 02 Mar 2026 10:13:22 -0800 (PST)
-Received: from junjungu-PC.localdomain ([2408:820c:9009:3f2:4c92:fc5c:54e5:712e])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35901883a0bsm24608201a91.6.2026.03.02.10.13.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Mar 2026 10:13:22 -0800 (PST)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Tue, 03 Mar 2026 02:13:17 +0800
-Subject: [PATCH] pinctrl: microchip-mssio: Fix missing return in probe
+	Mon, 02 Mar 2026 18:25:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 83C1D41A74;
+	Mon,  2 Mar 2026 18:25:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CB3BC19423;
+	Mon,  2 Mar 2026 18:25:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772475909;
+	bh=hqlQdJr+TwetXdWKctFYGt6ONv9TGR3xJA5uUdRsGnk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OGt9U3xDvCQN6CIVGOex4BE7QHpNb61w5XBxlJUVPFtv9DuRJh78Oc7k+gpUqLZjU
+	 qjPwqRwzpsxc4wTLJUm7ClOBT5QwEd5bGBPURqbw1gjzecInQzic0mUtVfokZ0DnN4
+	 5zgZSVRTn8d5KxjczSElpn8u8JVgqpCzLNAG21KEiPklO0HjEYpzv21i6h3ra2sZFj
+	 ldRKL0+SqlgUsDfjbOufYVgz7815DGm8Y/6HDWuPgOxris8tcTulN72Sqguji0/RnR
+	 +081cCM5HLlESx40P8S+1XzHGWUJyywyo+HwtkzJs2bX7htwpOnMcYApBxckdU/Swx
+	 GpfgsmaY3W+rw==
+Date: Mon, 2 Mar 2026 18:25:03 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Iker Pedrosa <ikerpedrosam@gmail.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 01/10] dt-bindings: mmc: spacemit,sdhci: add AIB voltage
+ switching registers
+Message-ID: <20260302-crewman-faster-9fd00b62e30c@spud>
+References: <20260302-orangepi-sd-card-uhs-v1-0-89c219973c0c@gmail.com>
+ <20260302-orangepi-sd-card-uhs-v1-1-89c219973c0c@gmail.com>
 MIME-Version: 1.0
-Message-Id: <20260303-mssio-v1-1-ea0fdf3bf202@gmail.com>
-X-B4-Tracking: v=1; b=H4sIADzTpWkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDYwNj3dxioBJdc2MTYxNL00RDC5M0JaDagqLUtMwKsDnRsbW1AIvNzr1
- XAAAA
-X-Change-ID: 20260303-mssio-7343495a184f
-To: Conor Dooley <conor.dooley@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>, 
- Linus Walleij <linusw@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772475199; l=1266;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=X9pFxZzMqkOXOXtjPC/JVKM4MxUqs2nrYJdjE2X9+yA=;
- b=cYspcSg2cni4FEWF1uboSvnd1CiyndInwPoVrAX1RlAaSyS6iRlllrsyLXTvMue2o2G90tCPd
- KJL+YEOurDvDBdY9wf4whkeVrXurUzX0DUKbv3pxtCMd+5h/49rpwA/
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+In-Reply-To: <20260302-orangepi-sd-card-uhs-v1-1-89c219973c0c@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_101323_328354_6B3CFDCA 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20260302_102510_459753_6A082C18 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,44 +77,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6472579222691792796=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In mpfs_pinctrl_probe(), when pctrl->regmap fails, it just print out an
-error message without return, which could lead serious errors.
 
-Fixes: 488d704ed7b7 ("pinctrl: add polarfire soc mssio pinctrl driver")
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
- drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--===============6472579222691792796==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="iVG0vKrqfY2+UZi0"
+Content-Disposition: inline
 
-diff --git a/drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c b/drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c
-index 3d5ffd6cb14b..15d73ea1028c 100644
---- a/drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c
-+++ b/drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c
-@@ -686,7 +686,7 @@ static int mpfs_pinctrl_probe(struct platform_device *pdev)
- 
- 	pctrl->regmap = device_node_to_regmap(pdev->dev.parent->of_node);
- 	if (IS_ERR(pctrl->regmap))
--		dev_err_probe(dev, PTR_ERR(pctrl->regmap), "Failed to find syscon regmap\n");
-+		return dev_err_probe(dev, PTR_ERR(pctrl->regmap), "Failed to find syscon regmap\n");
- 
- 	pctrl->sysreg_regmap = syscon_regmap_lookup_by_compatible("microchip,mpfs-sysreg-scb");
- 	if (IS_ERR(pctrl->sysreg_regmap))
 
----
-base-commit: 3fa5e5702a82d259897bd7e209469bc06368bf31
-change-id: 20260303-mssio-7343495a184f
+--iVG0vKrqfY2+UZi0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Best regards,
--- 
-Felix Gu <ustc.gu@gmail.com>
+On Mon, Mar 02, 2026 at 04:13:22PM +0100, Iker Pedrosa wrote:
+> Add SpacemiT K1 AIB register properties for UHS voltage switching
+> support:
+>=20
+> - spacemit,aib-mmc1-io-reg: AIB MMC1 IO register address for voltage
+>   switching
+> - spacemit,apbc-asfar-reg: APBC ASFAR register address for AIB access
+> - spacemit,apbc-assar-reg: APBC ASSAR register address for AIB access
+>=20
+> These properties enable the driver to perform voltage switching between
+> 3.3V and 1.8V required for UHS SD card modes.
+>=20
+> Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml | 15 +++++++++=
+++++++
+>  1 file changed, 15 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml b/=
+Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
+> index 13d9382058fbc1c12be1024d1c550f04a825673c..4d6590aa8262009b6e5697a04=
+b45cf3736c0fa42 100644
+> --- a/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
+> @@ -32,6 +32,18 @@ properties:
+>        - const: core
+>        - const: io
+> =20
+> +  spacemit,aib-mmc1-io-reg:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description: AIB MMC1 IO register address for voltage switching
+> +
+> +  spacemit,apbc-asfar-reg:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description: APBC ASFAR register address for AIB access
+> +
+> +  spacemit,apbc-assar-reg:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description: APBC ASSAR register address for AIB access
+> +
+>  required:
+>    - compatible
+>    - reg
+> @@ -50,4 +62,7 @@ examples:
+>        interrupt-parent =3D <&plic>;
+>        clocks =3D <&clk_apmu 10>, <&clk_apmu 13>;
+>        clock-names =3D "core", "io";
+> +      spacemit,aib-mmc1-io-reg =3D <0xd401e81c>;
 
+This looks very very wrong to me. This is part of the pinctrl
+reservation:
+		pinctrl: pinctrl@d401e000 {
+			compatible =3D "spacemit,k1-pinctrl";
+			reg =3D <0x0 0xd401e000 0x0 0x1000>;
+			clocks =3D <&syscon_apbc CLK_AIB>,
+				 <&syscon_apbc CLK_AIB_BUS>;
+			clock-names =3D "func", "bus";
+			spacemit,apbc =3D <&syscon_apbc>;
+		};
+so if you need to change something here, you need to do it via pinctrl.
+
+> +      spacemit,apbc-asfar-reg =3D <0xd4015050>;
+> +      spacemit,apbc-assar-reg =3D <0xd4015054>;
+
+These two are the apbc syscon:
+		syscon_apbc: system-controller@d4015000 {
+			compatible =3D "spacemit,k1-syscon-apbc";
+			reg =3D <0x0 0xd4015000 0x0 0x1000>;
+			clocks =3D <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>,
+				 <&vctcxo_24m>;
+			clock-names =3D "osc", "vctcxo_1m", "vctcxo_3m",
+				      "vctcxo_24m";
+			#clock-cells =3D <1>;
+			#reset-cells =3D <1>;
+		};
+so add a phandle to the syscon (like the pinctrl currently has) and
+access these via its regmap. What you've got here is a non-runner,
+sorry.
+pw-bot: changes-requested
+
+Thanks,
+Conor.
+
+--iVG0vKrqfY2+UZi0
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaXV/wAKCRB4tDGHoIJi
+0mz2AP9Q9b/xkWkD/y0/gd0Q80+ijFziY/LsJwgySgJsYSig7gD/YRFFEbPlNDFf
+Bl1OTEmAhqj29hPvOZ0o5CC11uqBGgs=
+=A6Ze
+-----END PGP SIGNATURE-----
+
+--iVG0vKrqfY2+UZi0--
+
+
+--===============6472579222691792796==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6472579222691792796==--
+
