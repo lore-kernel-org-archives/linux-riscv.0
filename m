@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D88D9D58E49
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 03:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC7F4D58E49
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 03:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Oaff0tnjZu7xH38NTvIWRQ5A1VWF1liFh77V6mqntso=; b=gzpdBL8P3njyoM
-	vsVsQ9JpbZJFuzSFqY6dwaS+BJHChtvcRlNOSEX95q/vDUYTwBHYS1ULq3/4oyFiySiqE6ntgS8ce
-	68Nd3pzTzH/UvFOuPWuMIfWTLjvn3iEZauok5l1NbZApCWtkI6PllK1303PdjIG70dgYuN84FEpoI
-	Bkv4UYIoeKvtEeGz/b1VXRVkIH+L06loP5vdlajL3vYY4FrGclEIO5osL2u4PbjFzIuUt8LerXi5j
-	ObctaWZDS1jwU1F1sikidka/fcB5D/N3/20VGMBhvqz3wYgwJSqK8dijnrrpq8IJEj9KLK4C/ztqY
-	SwCL0nOKVqPsYPdh0w+A==;
+	List-Owner; bh=BBih81SeFUcza7rcuXaBKcvJwf9Ba1GSxab8BMEu3jw=; b=a5Iz9sxHd75GvY
+	XiUGC9pd5Kq+0bFr0IpYpNI0OAmdBk9BvSeQph9UFunSiaM18f2ZSKSLdLk9d6JoY0HAzaT5YcgDh
+	XpCRym/tI4lQ83SO2boxp6N/OLuRar9f7GF3T4ujDQv/OVl4Bs6/WWjQpZvTXU2TG0UK8fxU/VVFg
+	N3A8VvvFOVeTgAQwlKCZ16aINzdLPVWZOzWuXd1JIWwNS/d4q23wdRlYmGAq6JQ19kohMoNqm6L1z
+	pBPNdOlIBV3Qhnxgq097Xv/bVvIJokE9uTRUG5brjBimmW0sX1Re7Chc3I3P46E2OFYGx3dxTXEdK
+	OtfYcOQnDpClz03BkI3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwtgB-0000000CA33-2Pul;
-	Mon, 02 Mar 2026 03:10:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vwtgt-0000000CA8H-3oOV;
+	Mon, 02 Mar 2026 03:11:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwtg9-0000000CA2v-1G9O
+	id 1vwtgs-0000000CA7p-0dx5
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Mar 2026 03:10:41 +0000
+	Mon, 02 Mar 2026 03:11:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 237DA60008;
-	Mon,  2 Mar 2026 03:10:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0603CC116C6;
-	Mon,  2 Mar 2026 03:10:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 445FF41AD7;
+	Mon,  2 Mar 2026 03:11:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E45D3C116C6;
+	Mon,  2 Mar 2026 03:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772421039;
-	bh=8piDJdEb2svg4illNkL4A8g7vlo1UGyKKu2McF1IevA=;
+	s=k20201202; t=1772421084;
+	bh=VjD7I6E51OlHu+EsXmHswCKFpLlZJ2k8SacV21baGj0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=o7XfhUmBvLDeLHzdlssWu18VjgCZR2PTujFG9ySGUoGwiTUz+wZmawpVch0WHgNll
-	 OsumX21hsPbyd7lgfd9c1kvcIrbHet4YlbBKvoWv4z/TU5nnVyHTM865cifRfc28xP
-	 tyyPzELsyqOQc4I874jRlSMom7AW20iDttbfH5/x3+FrEaz519ZJJ/zjGRES5K0M8B
-	 OAFR8lekHFd2RT8tKggumSUdzue66SStoF6EktHatEt0XH94d1q4k29+PW0YswuZCv
-	 F0hC+U0fQuIt3qKnDO+lWAicUMbTlA3w4RH6UZInKZdKv0VPHazr3aX2MA/W9KOXxu
-	 L2V3LKUCaObIw==
+	b=PLzWJvEp+AsKTb/UTc21L5WWH2u6BnxdVzfPNPB6vCOFfACHY5pn027oR8sUZvJVH
+	 72gRdItmVnDO6fW1pZPMTpsvzUYiHZ5V/PFCw7AX1rMRDRBeUziPxRfQsy9rlsFn09
+	 5a4WajbsGVllB3hhij+OazilLVOHTA4FoRPJKP67X4iwGIbJU8ULnYbPvlWEHSHUHE
+	 Ka/WGeJxAVnntcNl+HOEus6JJKrl0GJ+h8urDbKgf8gs71/KjTy+y0AAxJ4/1k5bRU
+	 uSPQGQiCfkTbYRoz5k7UODX2/DvfuYZ8LfaL5uQIZKH6p78l4+r9qjtUWThwOn07Uo
+	 S2yS44FiPBDfA==
 From: Yixun Lan <dlan@kernel.org>
-To: Rob Herring <robh@kernel.org>,
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Alex Elder <elder@riscstar.com>,
+	Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Alex Elder <elder@riscstar.com>,
-	Yixun Lan <dlan@kernel.org>
-Cc: devicetree@vger.kernel.org,
+	Yixun Lan <dlan@kernel.org>,
+	Guodong Xu <guodong@riscstar.com>
+Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH] riscv: dts: spacemit: pcie: fix missing power regulator
-Date: Mon,  2 Mar 2026 03:10:31 +0000
-Message-ID: <177242077522.24322.7382117615305152301.b4-ty@kernel.org>
+	devicetree@vger.kernel.org
+Subject: Re: (subset) [PATCH v4 0/3] regulator: spacemit-p1: Support board power tree via DT properties
+Date: Mon,  2 Mar 2026 03:11:15 +0000
+Message-ID: <177242105514.25569.9323033923721110918.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260226-k1-pcie-fix-pwr-v1-1-94b493cd27e5@kernel.org>
-References: <20260226-k1-pcie-fix-pwr-v1-1-94b493cd27e5@kernel.org>
+In-Reply-To: <20260206-spacemit-p1-v4-0-8f695d93811e@riscstar.com>
+References: <20260206-spacemit-p1-v4-0-8f695d93811e@riscstar.com>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260301_191126_209486_EE8DD6BB 
+X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,20 +89,22 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 26 Feb 2026 08:17:55 +0000, Yixun Lan wrote:
-> The PCIe port require 3.3v power regulator for device to work properly, So
-> explicitly add it to fix the DT warning:
+On Fri, 06 Feb 2026 10:32:01 +0800, Guodong Xu wrote:
+> The patch (Patch 1 in v1 and v2) fixing hardware voltage constraints was
+> applied to regulator.git for-next, so is no longer part of this series.
 > 
-> arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: pcie@ca400000 (spacemit,k1-pcie): pcie@0: 'vpcie3v3-supply' is a required property
->         from schema $id: http://devicetree.org/schemas/pci/spacemit,k1-pcie-host.yaml
-> 
+> Patch 1, 2 and 3 (previously 2-4) enable flexible power tree
+> configurations for the SpacemiT P1 PMIC. Hardcoded supply assumptions
+> are replaced with explicit devicetree properties. PMIC supply connections
+> are board-design decisions. Moving this to DT allows supporting varied
+> topologies without driver modifications.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] riscv: dts: spacemit: pcie: fix missing power regulator
-      https://github.com/spacemit-com/linux/commit/8a9071299dec817a544c0fb48f7302396fafdc4b
+[3/3] riscv: dts: spacemit: Update PMIC supply properties for BPI-F3 and Jupiter
+      https://github.com/spacemit-com/linux/commit/108c77b34b929e6bdb7ac9613ed65c90da8bcb9f
 
 Best regards,
 -- 
