@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A25CEA4E1E
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 15:14:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 487E9EA4E21
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 15:14:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L/DqHCMhMkgzH4H/IrRmqMzKYKuSwT1kPZo64wcCyu0=; b=HH13S+grlRfRDQ
-	ratjhnb9hT9TIu/DQeJdEyiFBaiy98X0irl9XPv3s5Rq1faFwjSynBO4kDeVy5HkBdL0LZL0KRVPu
-	BXIy5kpoS6Et9URpTXIpxQqQPSbbtaF1cuLo1azeemsEgPFyVAE9JFhs0adqv9QqrUe6z8bf41ROY
-	sXPHPX/1yMKOVHW9SpcLcIDWr/TCg5/m5yjFLNopAgiAa6fW03RzQhP9x/1s/MEgwUQJmBgRJzlLJ
-	bENmVq9HzNWW0S08Hpd5ETqUunR7k6tmSsJoML/c6SSctvu31FqKkHGcJo/dvMGq0QbZ+6y2eHcbk
-	mc/kgahAEaWtZGkIhe2w==;
+	List-Owner; bh=xSNsuwLsMCb1XzIwLiXu/49rTActztzcDhDq6TeKaLs=; b=tPA555U2GC9WGb
+	84viOXkLzCSIHntl3p6Eeg7dKWscYnAoq6foMrldTS0YvPg6epaYxi+D4YDkPBtUjYy/ArFCupf0+
+	SAWC6SkartMhoLSrad2kMnA2JzejE69YgRN1WP63XcKTlXhzlI3rDYx9hANNFojCki9py6LJ3mkgB
+	bgQnmg4vwy4inruyJHVeh2cdCa6P9Jw694HemY6GFq8wMfZZaEINlLwsKLPRRdwXhji/z62E9hhvz
+	HQGUP1NmPxSB7Pc4mGwx8aRSvJAcp0FXmoTyrx3kjHAUR7i98ArlSfMWm1R4URTuLKpYsLrjRnW6N
+	MYPXfXAvFcS+3M+R3JMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4y2-0000000DK0C-17gS;
-	Mon, 02 Mar 2026 15:13:54 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vx4y4-0000000DK1S-2SEw;
+	Mon, 02 Mar 2026 15:13:56 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4y0-0000000DJzA-1E8b
+	id 1vx4y2-0000000DJzY-0FOG
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Mar 2026 15:13:53 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4837584120eso33053515e9.1
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Mar 2026 07:13:51 -0800 (PST)
+	Mon, 02 Mar 2026 15:13:55 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-48372efa020so39364655e9.2
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Mar 2026 07:13:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772464430; x=1773069230; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772464432; x=1773069232; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=qgPMIovbEThLlPPQFVARziyNrmjJuegOTMLHImP/d90=;
-        b=R7WUEAlmuL0i1YGz3VKnvpsI//XjRTNyyKAnQa5v2+J/n5NMMXtoGZK/DqOQy4IfNw
-         Ep4YMdOAvoNvvWrjnA/lDf2dI0oG3FsJ4RBACwA/TLWV1ggdxh7P+IffGz4xdbUg/4X4
-         8X9qxkFJPoSTu9JyqGGi/XP6PVdFRdCEzRe+JXqq2W8P6SDszVRuxxZ1bXPb14oN4+Lu
-         OHm23aLTfbERxX2kJjrDflkzs2tcyTp//NlGgqFlNeVm9witkUF+tTbFdyO0PgT06MGO
-         qSBNiSMcjZ3CYl0tNhLgdgs7hLehiOlRgnxHn7eCPY52jhYi9INi6P/qSKorcy0027e/
-         U+2A==
+        bh=SjMmH3TKAZLFeVk2hH9QgAPKoSKsH6HVvsl5OwBldO4=;
+        b=UdNgYRHo51AUNwmf3rPEHk02sHL13bXit5CpkV5ctpNm/PqsA5UAfsq0n6jEqmX8bR
+         0M2Xs1sGz7tFiyg66753GABBFpnHYrfPhOWwfl5lqSD70WC2dO5wHAA1gnQg9e4U7TeD
+         ZaayXVmYWpn7J3J4aUry9QOarL9EFT1GajbAmH0cwy3fkz5ClNs5h3Tru5it8JZzddF+
+         9IRViYwkIlo4P8Ly++7FDIc2hqb80nHbeuJb5tRH9DS0W6TCEIZIgesXYRIsp42Wb3Dq
+         7wdBV0EErzDxXJvY6zDF26tA2yQ1XQWyR/P41DkM22SysPCZvB2qS42NplMp5hXlHyLp
+         Rwew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772464430; x=1773069230;
+        d=1e100.net; s=20230601; t=1772464432; x=1773069232;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=qgPMIovbEThLlPPQFVARziyNrmjJuegOTMLHImP/d90=;
-        b=iYjJfmnGDtxThulQJ7rhHDxX46ju2xD7Cp1lfEaKPN1JQf75u2tG7Zsa1UzQwbl6uZ
-         ANSj6yWiXWjgjyEX5v336XZJqqX4ltZ7zHFKTEWDMUVLnmn6m5C3q5ObXQpypdhWf1Ks
-         880eNgzZg2aXKeGsgmINFQAncKCcptObruH8nWaRV3oSS3kE1Du9ks4m70bRMy/qhVu1
-         pN3G0Uq3lYf9Ky/slaWa7lftypgDZ8pMFt6LWVLD6U7OHtg4v5v3Qz+WYMAUMunokiVd
-         ZqUC25TNcZ8CWCXyyplmNUk+x9oKQXMWwSUcY7uhpv+rlY8A9aakIXVbvaYXnmfJ1Qw+
-         svbw==
-X-Forwarded-Encrypted: i=1; AJvYcCVgolD2wN2eySOMhKiVk1icFxxlcxRdyajgv7T0x0hfs/TB4ZBTEnbgAUkMtT02QJlA7H2WcSIYOH4MPA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNUK+m/m2b/G3zicss/u5pm8LmZJnPZ4FnDEmTR4aU3QSZ0Xpj
-	Xm4M5VH9fz61sJkh859un59ngY3qBoUl1uoVk5HkoDqZXP4Qb7gWyAub
-X-Gm-Gg: ATEYQzyyTafsFBFmyLdUVQQvWdQCbPbT+SPRwOFs5NOBMpDgeoCcl7cdSSXV+cVgNxv
-	Qw+a55lgPifKFKDLeDN3WsZ41Q9aDDNRxp1/NrMq3dMC7s9BSXrI3vfWuU4m9Ryeidk49a7HDlG
-	z3TF3OViQExo/zls9aQvA1bf5MMjsFxeHpSc2TV9/PBqZyR4TXgpdPihcaz/W2fGo3zQ7r/UyM2
-	NMp0wKV/owMbfC5kkvN2mKd8Y9SN7C3SmGADRNJc+HIcLO+kC2IAXkaooH0ZSAYTJSmGiUncPQy
-	Aj/Y4mrFqlPtkcPuuWWKW9woz8O095WV+nGOX/1ftDRW9XU3S8ZGNt9FbOi6e4CexY65NYLD9eb
-	CAfqDWdL5cFrqpfYkM9RWdXNDOy41NOUX0OD8ElH97ahO9OG7K3+m5VMCRDHSIEIBjVXlzcgRKW
-	zfn3sJZJ2HX5H1rJOgj5ar9rtrMM1NS9XnKY7xSwuURmPl/RijoU6EpWKv/eCYMlv36g==
-X-Received: by 2002:a05:600c:37c6:b0:483:96d8:9f75 with SMTP id 5b1f17b1804b1-483c9bc5b89mr218710175e9.28.1772464429956;
-        Mon, 02 Mar 2026 07:13:49 -0800 (PST)
+        bh=SjMmH3TKAZLFeVk2hH9QgAPKoSKsH6HVvsl5OwBldO4=;
+        b=YWJGf9uj4lICYiB93Qz2ARg/nKBECmSPEOuCzqYT5gc6MLvlMaGX9cXPXZpEEDrQ3C
+         ZvXmDbdupQaQjp8bQPGo7N0siLk6CJ0iR9ZZTJ5AYKfkWFtINOWHNWdOo9G/HvhOlRkV
+         Oh8DjF7ArL3O9vYy1ckv+MEDueUfYQlZNgfff/M9xruvKtb93ZxKEuVGHWB+bVUUM7OV
+         NePrTOZZo/2dQi4YD+GETazrLT4vKvsRon/6TBCYlfn6w71CUBgcpV351JjRfoeIgSMw
+         fCzDp9TPrebSykVsXqBtSqVay8whbCxxxYtnNlRFyxjGVvKTWefRk3+g7VgZs1c6obuq
+         2Psw==
+X-Forwarded-Encrypted: i=1; AJvYcCVxTUNvjruD+Jg7PC285oVoWgVHXiAPZtY4OlRKwsrVXyGp1ZBOpsvd81Cv9EpMSvQ+PikLQP/BfT0k6g==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yya9AkYC7Hg38Sclkmmm4BCXQriLXKCuapoxjUPLToyyZsD1IRT
+	0Q5RQx+kXpvKWGXOPewSGIRTT9cQ3fxNIhJN8aD2FK29247Ym+XnWJ13ipM0vw==
+X-Gm-Gg: ATEYQzwzh0bEIAnZAIDMtKRtup3anXg03sw8Vfg5vq+tF+5VIziBOvtW3FrWShG6/SQ
+	KSJQCdGL7spUvLQYhFq1hZhLwCtahgEj1BsC0Rx48zizCrxHQuaZkIhVW0fzpwsQMQwnYFK010X
+	FOvoc/nHovC2zO7IEP0NEJXtI34NdkM297NBOwJfywMCwR8CIJ/DAGzkKVknlFGOQFDBsY3xtpg
+	mvekLRFppNdtMMXw6h8kPYHP2rXc/sxdYbRVjt7KYptc3nkjt4AuCY1ddLKiKWvcHi+AjzI7lUI
+	4Rio3Ec/9cUGNqVgw5vNzhjxHifmQ9OkqGLy5PFwZomNfHN8mCAridxNbkvoP8E+bqrlMHcAOFn
+	dIde5nUCRvYi0AEVbHIkbXmz/3fG23uDZ1o/aBIdJlNa97wyhJOhRi0ne5rKALTphZUvEvIKNKy
+	E5MsGvOVmD+W/HP4ygPgi2VjG+8r+YakXk0CQsBHuQqR2ywCZ2pilp66om9XZjJ3baEncfctU0C
+	B+H
+X-Received: by 2002:a05:600c:3e86:b0:480:6941:d38b with SMTP id 5b1f17b1804b1-483c9c1bc0bmr208716755e9.30.1772464431872;
+        Mon, 02 Mar 2026 07:13:51 -0800 (PST)
 Received: from ipedrosa-thinkpadx1carbongen12.rmtes.csb ([67.218.235.131])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bd70e692sm437240265e9.7.2026.03.02.07.13.48
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bd70e692sm437240265e9.7.2026.03.02.07.13.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Mar 2026 07:13:49 -0800 (PST)
+        Mon, 02 Mar 2026 07:13:51 -0800 (PST)
 From: Iker Pedrosa <ikerpedrosam@gmail.com>
-Date: Mon, 02 Mar 2026 16:13:22 +0100
-Subject: [PATCH 01/10] dt-bindings: mmc: spacemit,sdhci: add AIB voltage
- switching registers
+Date: Mon, 02 Mar 2026 16:13:23 +0100
+Subject: [PATCH 02/10] mmc: sdhci-of-k1: enable essential clock
+ infrastructure for SD operation
 MIME-Version: 1.0
-Message-Id: <20260302-orangepi-sd-card-uhs-v1-1-89c219973c0c@gmail.com>
+Message-Id: <20260302-orangepi-sd-card-uhs-v1-2-89c219973c0c@gmail.com>
 References: <20260302-orangepi-sd-card-uhs-v1-0-89c219973c0c@gmail.com>
 In-Reply-To: <20260302-orangepi-sd-card-uhs-v1-0-89c219973c0c@gmail.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -90,8 +91,8 @@ Cc: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
  Iker Pedrosa <ikerpedrosam@gmail.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_071352_350959_539A9CA0 
-X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-CacheID: sfid-20260302_071354_116975_5DAE30D6 
+X-CRM114-Status: UNSURE (   9.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,53 +110,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add SpacemiT K1 AIB register properties for UHS voltage switching
-support:
-
-- spacemit,aib-mmc1-io-reg: AIB MMC1 IO register address for voltage
-  switching
-- spacemit,apbc-asfar-reg: APBC ASFAR register address for AIB access
-- spacemit,apbc-assar-reg: APBC ASSAR register address for AIB access
-
-These properties enable the driver to perform voltage switching between
-3.3V and 1.8V required for UHS SD card modes.
+Ensure SD card pins receive clock signals by enabling pad clock
+generation and overriding automatic clock gating. Required for all SD
+operation modes.
 
 Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
 ---
- Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ drivers/mmc/host/sdhci-of-k1.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml b/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
-index 13d9382058fbc1c12be1024d1c550f04a825673c..4d6590aa8262009b6e5697a04b45cf3736c0fa42 100644
---- a/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
-+++ b/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
-@@ -32,6 +32,18 @@ properties:
-       - const: core
-       - const: io
+diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
+index 0cc97e23a2f9c7b2f9376318a8a7ebb860571504..b703b78282ed8d89183c816477c149c0a565618a 100644
+--- a/drivers/mmc/host/sdhci-of-k1.c
++++ b/drivers/mmc/host/sdhci-of-k1.c
+@@ -20,6 +20,13 @@
+ #include "sdhci.h"
+ #include "sdhci-pltfm.h"
  
-+  spacemit,aib-mmc1-io-reg:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: AIB MMC1 IO register address for voltage switching
++#define SPACEMIT_SDHC_OP_EXT_REG	0x108
++#define  SDHC_OVRRD_CLK_OEN		BIT(11)
++#define  SDHC_FORCE_CLK_ON		BIT(12)
 +
-+  spacemit,apbc-asfar-reg:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: APBC ASFAR register address for AIB access
++#define SPACEMIT_SDHC_LEGACY_CTRL_REG	0x10C
++#define  SDHC_GEN_PAD_CLK_ON		BIT(6)
 +
-+  spacemit,apbc-assar-reg:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: APBC ASSAR register address for AIB access
+ #define SPACEMIT_SDHC_MMC_CTRL_REG	0x114
+ #define  SDHC_MISC_INT_EN		BIT(1)
+ #define  SDHC_MISC_INT			BIT(2)
+@@ -100,6 +107,10 @@ static void spacemit_sdhci_reset(struct sdhci_host *host, u8 mask)
+ 
+ 	if (!(host->mmc->caps2 & MMC_CAP2_NO_MMC))
+ 		spacemit_sdhci_setbits(host, SDHC_MMC_CARD_MODE, SPACEMIT_SDHC_MMC_CTRL_REG);
 +
- required:
-   - compatible
-   - reg
-@@ -50,4 +62,7 @@ examples:
-       interrupt-parent = <&plic>;
-       clocks = <&clk_apmu 10>, <&clk_apmu 13>;
-       clock-names = "core", "io";
-+      spacemit,aib-mmc1-io-reg = <0xd401e81c>;
-+      spacemit,apbc-asfar-reg = <0xd4015050>;
-+      spacemit,apbc-assar-reg = <0xd4015054>;
-     };
++	spacemit_sdhci_setbits(host, SDHC_GEN_PAD_CLK_ON, SPACEMIT_SDHC_LEGACY_CTRL_REG);
++	spacemit_sdhci_setbits(host, SDHC_OVRRD_CLK_OEN | SDHC_FORCE_CLK_ON,
++			       SPACEMIT_SDHC_OP_EXT_REG);
+ }
+ 
+ static void spacemit_sdhci_set_uhs_signaling(struct sdhci_host *host, unsigned int timing)
 
 -- 
 2.53.0
