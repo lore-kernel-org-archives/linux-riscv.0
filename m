@@ -4,147 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D878AD58E40
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 00:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2EDDD58E46
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 01:43:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ochS7NXKqqc3mrvYlfU+c66HUm2B4BHcP2O52XqnRH8=; b=o32HK8q0CJXIBp
-	L0pQjpGAMmSTU9E7z0OWZXmvvKEfXQgyQTC1ZMINsiVWDlf95ZQ+sh5sA9GRE+FXwkKbMjd8znSGX
-	/rrkgS0rWrf9X6aodnU3qCfqDPol7BiEAyXniVSOEcl2fk2IYRMCr+9+12HGBpZgxooDbPKf1Vg4Z
-	DqjsVsybkQPTHJ1fti6SLxZdQX4dNpRiStd8cWHmTgAezper9Gmi3KKSnBFfyoxJYjWV03t7jT449
-	BC+vXF3BUFL/VE+G0wCd6gCH0FgO6KgfMH94Mq5SSmKRc9mkaqZ2ls9yUFAUtQjVgnk1XPW+c/uDq
-	mB37u1UrD2t7p66JXgOw==;
+	List-Owner; bh=BmfsUhmJXtCPqJ0nkLvyRX/gA+WU+BxgbvwqiDuaugI=; b=1dyrUVYl0YYAI2
+	k7ItVUxAOpC1VbwPGsqQ8kzxQ0pRmrwsIfezgu2hDUscpkUJaU9TXPkfOJtSdsH2bWVa0Wo3+z9fh
+	qi647AvkaRXTYzkCiMBGoWYDOOqJqb/iS7JW7jKApxcDGuboRBVwO4qZzYqZnMSJGb6N243Fp9sR0
+	fLX3IkLGVar4R7UEAJVAFz+Q2CTZyBBVXcqCwLym/Yxqg54JVbJwaAz+UBcIeM1jVnsK9zlUIW1QL
+	OV1AMUvwmV7gwwOQ2ltosyKj1Kg4tgEUKC/FCTOp/0cr4J3HLGYoTNkupaJqvhpXR9gnKZaBx3zCr
+	nDWA1FbYfHYlhGwYjgwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwrMN-0000000C1aC-3rmA;
-	Mon, 02 Mar 2026 00:42:07 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1vwsJM-0000000C4lB-37YR;
+	Mon, 02 Mar 2026 01:43:04 +0000
+Received: from smtpbg154.qq.com ([15.184.224.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwrMK-0000000C1Zm-3MSM
+	id 1vwsJJ-0000000C4kR-1E0s
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Mar 2026 00:42:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UQnJDYfJq82l9DUNqU9lHfJZJT5ARsNsKWB+b5M0mz3QmFJOpL3Zqwhc0uBOZlqX+Ko2qnNtS/japZGNkqnmvDi08w70r4696XkHN1qLLmCnGWgsiE2TgMDP4++BQgFWHejuI8Tn7LTNGdF/NkGSRrMsaYSUdObKQY+vi2+L+5Onj1JzKNTse/AZXm76UbEYRX6KwbCLGKhlikGPTt4f9+ckN9HewoaGUcxPTxo6BkWqHjbQojiSnPkxKo/lm+MXQopg5vCJntr2mVUYaMOFybioKvjDRibBtxsU+SnJTiM/nZEDc1LqteM9s7YZuDtV7IrV4w12bevZtbZ71glNyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=b8mr+G+zrI9LK4azegBuvD6dg/PQWijZf3oiLRyGuys=;
- b=yXsXRd6QFjDSZ8d5I2uRa02GDDFrKAyEz18C0MuuxcfUzhBEWTiFLFWM5ZgLF1fNwMdVMTzz6ZElGbzBVtk7PxfkSNWbsCV2iv8Wr50owDm4jJrpM6x5OXoTwoWeo/uGR3ICSyiVrDyRMQGuY8LpMCDiPhYg6/NduzQaXHuQjz1zpqVmqtXehvOe5EoxIdGPLqmmAMFalhl+/LsAPaekYK+tdntPxjdSAu6V0QNAfKLkgS9EVXQ/4YXLdUGsngicbfwPIelT9W+yuzgA0s7FqHDchBzWmzVQ0258r9zOTBNr8nMYLXwhflg7HDTsyISs7OYEFQhLE8TJSiI4f93WYw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b8mr+G+zrI9LK4azegBuvD6dg/PQWijZf3oiLRyGuys=;
- b=tMCay8VYz8XkK5EWVFIyv9eZykIj2Jh6UT+FcpBAQdKDztlmxk/0/cv3bMr05SdrjMzdI9mWLazmBJHGu2kkhggYovKbxZpY7cNJy2CC+ERIh/u02lpwtAdpaeaBjcuuB2wptUnHMm62YfhlgrYn/trRoTd8nh52VdUr/LSzEhAI8kEENxEiYTFz6KPxZgqg++AYDkYwOa7rrgK7wpYpq+AeoBL2edVs5Hwnpsvn8gjjXE8PPkX+qAOM4K6i/+1ZoNBHB8KkNkbWbqZiVladtLs9aqrFb7cOWhclaoYEKeoKaf7vAG0PPCkqHnrovb+VmTBNGbuu7gb3NiHG1XADgA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by CH0PR12MB8488.namprd12.prod.outlook.com (2603:10b6:610:18d::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.20; Mon, 2 Mar
- 2026 00:41:54 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9654.014; Mon, 2 Mar 2026
- 00:41:54 +0000
-Date: Sun, 1 Mar 2026 20:41:53 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alexey Kardashevskiy <aik@amd.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
-	Justin Stitt <justinstitt@google.com>, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev, Bill Wendling <morbo@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Shuah Khan <shuah@kernel.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Will Deacon <will@kernel.org>,
-	Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
-	James Gowans <jgowans@amazon.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Michael Roth <michael.roth@amd.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Vasant Hegde <vasant.hegde@amd.com>
-Subject: Re: [PATCH v8 07/15] iommupt: Add map_pages op
-Message-ID: <20260302004153.GT5933@nvidia.com>
-References: <7-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
- <fc4f0354-4e6d-452d-abfb-fe24e53253a2@amd.com>
- <20260117154347.GF1134360@nvidia.com>
- <bc6817bd-4aa5-4033-b89d-88fef637de65@amd.com>
- <20260226150440.GB5933@nvidia.com>
- <c6ac32f2-2531-4bd0-abaf-ff76e9cc864e@amd.com>
- <20260227134805.GJ5933@nvidia.com>
- <8f734d5d-7d18-4b65-a058-32088353e13e@amd.com>
-Content-Disposition: inline
-In-Reply-To: <8f734d5d-7d18-4b65-a058-32088353e13e@amd.com>
-X-ClientProxiedBy: MN2PR05CA0047.namprd05.prod.outlook.com
- (2603:10b6:208:236::16) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Mon, 02 Mar 2026 01:43:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1772415732;
+	bh=kRDQRl2R+LRWm2HggZ4Cj1vYHy4GXuClk7m0o1am4dw=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=TdUlJrRe6KoS6xPDpC5kBRbyw/L7QLvDkZ3u7sTb103KPWW+/AUiz8x8gpJKwKhio
+	 YjlQsoU5WuN5BNeDdoIi6Mo+ph6AI+Ub6XhcA/hWiJSgvLK9CZ9b9BTRE1KUX+y0Qo
+	 QUofJeo6ADr9uUNBnRLOCXxScSqsNYBheuMm9VlY=
+X-QQ-mid: zesmtpsz8t1772415723tcf6f7fb4
+X-QQ-Originating-IP: w6IfNoMZkeVc0lyzIsKr9uYgMmtkBko/Qpg4ezv6sio=
+Received: from [10.2.99.140] ( [116.237.103.163])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 02 Mar 2026 09:41:59 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4156359098192319691
+Message-ID: <B8675026D2F6DF58+946ff82a-2e2e-4abb-a3c4-26fe67c43ab8@linux.spacemit.com>
+Date: Mon, 2 Mar 2026 09:41:55 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH0PR12MB8488:EE_
-X-MS-Office365-Filtering-Correlation-Id: 445e8416-dd7f-40ef-a8d5-08de77f48063
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: NKeG9fK2lPb2S/D2XXgMCgb86cKzJ4FHagkpHyZplJRpCesU1ymd4BXPPgFpMsXTWp9wtIrPlOnDKHHHEHd0INAfGdJ+82IhKwPVIU/GQ+VHffMCAcBGHMEKXjqln4vuYADRFwbv+65smChf/4pKDp51q+qNXc0X+MSnlg86v+fm6zay4GYxjFdJcfPUW2kVLny9qNOgq1DdtUR8VulTLj/kYKKMdstGNPh148+0cVGD45Xhiginr84LzOxScXbE/pfltrbyYJeidM4lW35pduFU9W7B9gv8Qqpieo5CDvITo5brM5bGXE55bWnQXJK6xlkBd5e2q8GFS692CnvaK1mnJSSL97yLu+X+2pmejT85NBicEAL2wct6iOBerrSzjwkwTsOez7m8c1f9LqC6lXtxoq2+b4uQrx0P6spcfGHtIPz3+rzg5EoysIsac7PwzkIjWHtjbP0y+ZbAXixs2cH06rT3m8644tgoPn7NeuSkfwFNAtBg4W0ScfW9LyCR5OQJgbrkG2m8qnLy3agZPcnCiifUV5xD94ae70jNWM1m8aHGAOFAR6RLZJ0Sf23iZ+Cno/L3kAN2+6bfQDFl3zeiX9ODFGJvcA71DaZ+gGSiSXgYM5L/rdkTzObfu7d0e44H4XIb/QlAJjdwE/3Qlfs+RdQJTUpkfJg+80fL6t3fxgoFCZ/ItoBj0bmtq5PxQq9Vuty5eley/DINPqiSVAVmNv6bKffUT7jR5U0p24U=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gO+v1f2b3LCaxMZUdnxkn3R69/gj1aXIBdfi+MYYOo4D4L/BJeaudnrIkXgS?=
- =?us-ascii?Q?zgGRvbFCG7TZfphvcVX+roNoDDdUiomLpzNZao2dVQJrwEV3nnLbsiEUpd/I?=
- =?us-ascii?Q?7QLAXKGA4e0FTWlnwfZLmNNRnWfSBFfBqcLIvKy4V+oZy4R9lJamg/PRM23c?=
- =?us-ascii?Q?xsDAvf0I6zZreFMVhxH8Qto62DsB35WyWnvTbJ3+o74r6cyxazixFjWXS6l2?=
- =?us-ascii?Q?Fedvci53FpW+hkFZZnb4OpV97z7YLRjwj5vHtTkUVtQXl9ZA3AdKt5ZuVZIR?=
- =?us-ascii?Q?kOTsuWo5iZbu1R/AfgcJxiB7xnjqdTjhA9/cnfi4ipoTPlvVtmhsuQR+WaeJ?=
- =?us-ascii?Q?6LY15q2wE+EtKUPZW6T0orDjHXTwwL8hQfuC/nM4IMHuOYUU4f49fBF2FI2E?=
- =?us-ascii?Q?PrFXGyEnSj1RmLCcXbm6qfPI4YdsVf9Uu5F8w5NjiaFamg/QteSWH2cYjF6c?=
- =?us-ascii?Q?b5y0eB8NTfxObaeFd17eiDSU+VniBYtS/QqEAIHz2JwOsZBNryahEhD3lfYK?=
- =?us-ascii?Q?iefuctRdIvv/7R8aj2CziE3GpCz+MFxtDEW/6IBzFRzx3SfccgHY9q1sUqEu?=
- =?us-ascii?Q?NVWOQ+wA8pivkkH/YI21DR+Mwllyn28syVYPGwI3Hjir9RTQ5Pq4kba4oPTg?=
- =?us-ascii?Q?UdzyzQ9zfkU6LwoiTqGnQ9v2G+Wv6iKIryUJ0dPwvSkjmC3+iCWu3tQKehuK?=
- =?us-ascii?Q?XZbyQX1HDGRs8uejYWjZyMQk6noF8LvHwaUdT6xMpAZdkUZy5/Ybl+ug/iEh?=
- =?us-ascii?Q?DCmyn7mm6CR5juAovM21i0UTwEOMqXeIiuJmkSOrCeHKN2DHyLlD7aPCtIXM?=
- =?us-ascii?Q?8J1Pq7rDGRD7amO4xn/qLwHdrpQYMngKdlVq47B0hVGIKplQ2dXj2Kd9ZxsT?=
- =?us-ascii?Q?Slv1bPgzZFRpy/IMOLaanEEv/JOKeAHxS1+0m8WdvT0r4J/3Q6IhCcdcXjVM?=
- =?us-ascii?Q?rWU1llWxXHxk4PV4xm5kqz2/nYx6Vw7zYtOr/3Cpii3hSidXy8MLjRzRClLn?=
- =?us-ascii?Q?QishLrkmOkR3yMpFIWbis+yIzfdjIkf/H9IsAEcKw0QSK89S65yGVcY3Nbol?=
- =?us-ascii?Q?zbZas5XG9qe0we2NwMGODhsaOhu6DfKeNwHkmC+dYKi+O7GGXb4vJCaL6PaL?=
- =?us-ascii?Q?O50kgIcRH1NzDz9ev/S9K2H42/QGSdlCPjDseVF+YxSli2JIAtEDa7h5I60M?=
- =?us-ascii?Q?lmyl9W48muE8YOIdTg14lezNEnXVgpMK8YlfLpqKxBXGa05Osh9eTnAoRVr5?=
- =?us-ascii?Q?3cNYRXED+8CkFHU3Cir5KbAULsq/mEOczYnu5vuAIo3+PPnfD3TOFgw/Mkyj?=
- =?us-ascii?Q?IHykTyfx1Oe6q2KR0Qycqg42fh7dhoRYXDOyKht+fYZfT7U6uiC6ckAmEu8W?=
- =?us-ascii?Q?6yxD6p8MLLyJyBRUpBobnMJ9jfDvRBIGCCHnpVDZhqgdEx2HaiSJm5OKGnPU?=
- =?us-ascii?Q?+fdwo75A7TmQ8w1IO9CJ/wQ5ZtF6X1G2MVbX/7DPR5zklssV6AhJcQTWJXAA?=
- =?us-ascii?Q?Cewlrr5BbFXhiBHiJJhvJVfA4qHHSAPCcflJRtf7JpE/OH0cqG7NtLKCZHSy?=
- =?us-ascii?Q?NPnI/RFLiDR/kef3I4YBrenZ15TOGHy02mCMg0YYa4LTpSbmX0U2/3Z/ZIVI?=
- =?us-ascii?Q?mt8eQG6EpNHbvJL+Q6KtRD0VyZqRDEHF+wXUiq5M6m7I0l6kgsr2pE80vezg?=
- =?us-ascii?Q?80bV735DSdwBmJ0quhGv4BD6/kq/yyRPh+cJzhewmlF9JQdp3+NT0VUIZGCY?=
- =?us-ascii?Q?Nv88uE+jOw=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 445e8416-dd7f-40ef-a8d5-08de77f48063
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 00:41:54.5413
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CN4V8YM+u8m3gWYJSd0Rzik5nvQtwtGQXnLrJL4BTnp47IQ7+jcNsTpk/uzctnL5
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR12MB8488
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 4/8] dt-bindings: iommu: Add spacemit/t100 features
+To: Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, James Clark
+ <james.clark@linaro.org>, Yixun Lan <dlan@kernel.org>,
+ Jingyu Li <joey.li@spacemit.com>, Zong Li <zong.li@sifive.com>,
+ Yaxing Guo <guoyaxing@bosc.ac.cn>, iommu@lists.linux.dev,
+ linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1772289741.git.lv.zheng@linux.spacemit.com>
+ <D8CE6E5B1001D797+a6f36da0272ac18fff2a992976b1defc3bb01af6.1772289741.git.lv.zheng@linux.spacemit.com>
+ <177231592262.848068.18080490567217057666@spud>
+ <CAB7A310CE95B577+5f5c0825-25dd-4035-9316-db940c00216b@linux.spacemit.com>
+ <20260301-acclimate-suburb-fc46da7e0cea@spud>
+Content-Language: en-US
+From: Lv Zheng <lv.zheng@linux.spacemit.com>
+In-Reply-To: <20260301-acclimate-suburb-fc46da7e0cea@spud>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-1
+X-QQ-XMAILINFO: NTHY/YkN8c+xXjKPQhQQ8z6eRFGBjzhi4ywoP07wySu7NtbvDlHpINhr
+	Pz71ihPECjDvoVUYu4bOJShhop0qXeO/e6VWR2mxAL1OJdgg8SyQl4r89L9NDQW36IrH1tf
+	9LIDObU06QeBqm2idDg5fkfpi8mcQB7amzlQ9ANNVR34Zc0UKkYDzsjfQjX1t3sakX9NMV3
+	7GrTFziluMK8RXcwGIgyEOjrnhdlqLV04/4ldNa+x9XiMlRLdyBg4Vwzyt2I7PTGBBB4MLd
+	FwBZMC0DWuU/7ko5WKERfFXndmdrz1ny4rIaeACrDVBG8ylt91hIr+7lEK6XkeHhn9sncJI
+	PkUvLVI4qI3yi1BtHE80IJn/II1474R+ro+5hBacLeQK7n1+LErbRuoky8CXCzrA1OADUhQ
+	V4hiYkwB9jiAzLTeaA78rQ+KNS2zNikOTtAAqHOv2PK24+aqs9Xmx18JwSj+V7rKIHug1CX
+	ZyK0t/Z4wdhB+3uVhTzQzNo7tSfC8kmh59B79rL+ATK77H8P6kq581THWQpcQxalCj+Qq3u
+	xu40K/MKx45Rumf9pe0hdNAj9Z9CZtoEx9jq42y1WE9sgyHnV6UV1DGMUrUOUXEBpgX/BZN
+	CuJ23Gmw+zwNeW0nJLeGCFRDmPnlMGkM8sheofomhz//A3Wh9q4XyKPrAcXftBbrMj0ZeoS
+	+LWA/0FChficDcMmeYQbO2JiVeDY8jVD1syWj0sMsrEI4o25OeQHXMSBdKfFqGCetBglK4x
+	NbbvDJFwYNNduH8hINU3P5UQu9lmLpNHoAmIj9jm5WLizfBu7PpllOxeOrHFsGyK7/gfHDt
+	oWnSrK3a1HpTaAy4VhEgiDqFhcZpnCEBMPRQu6aG/8PNPe2jdLJr0QXfumC37HFsVRAwI4U
+	o8302hBghm68Fp6cndgbo3kTwGzraWx8VjXIn9L/Ju/vY8Pt+rKrX06qINnZmkO3tB2bVVH
+	3zFj1G9owW9FlGYH120cZcBLFyhsIa1GrHCyZ8Be0Nak0vcYCRt0jOd7QuupyWMDQnMErCX
+	kD0Agjj0aDeXlrE22d
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_164205_247572_06146E39 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20260301_174302_434795_E79EE4E5 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,45 +108,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 02, 2026 at 11:02:48AM +1100, Alexey Kardashevskiy wrote:
-> > Regardless, I think if you go this path you have to stick to 4k IOPTEs
-> > and avoid the HW engine. Maybe that is good enough to start.
+On 3/1/2026 10:01 PM, Conor Dooley wrote:
+> On Sun, Mar 01, 2026 at 11:48:37AM +0800, Lv Zheng wrote:
+>> On 3/1/2026 5:58 AM, Conor Dooley wrote:
+>>> On Sat, 28 Feb 2026 22:44:49 +0800, Lv Zheng <lv.zheng@linux.spacemit.com> wrote:
+>>>> Adds device tree bindings for SpacemiT T100 specific features by
+>>>> introducing spacemit,t100 compatible. T100 contains distributed IOATCs,
+>>>> each of which exposes pmiv interrupt.
+>>>>
+>>>> Signed-off-by: Lv Zheng <lv.zheng@linux.spacemit.com>
+>>>> Signed-off-by: Jingyu Li <joey.li@spacemit.com>
+>>>
+>>> Patch content here is fine, but the signoff chain on this patch is not
+>>> right. What did Jingyu do? You're author and submitter so either Jingyu
+>>> did nothing and should be removed, or is a co-developer which requires
+>>> attribution via the co-developed-by tag. If the latter, their signoff
+>>> should be before yours (the submitter is always last).
+>>>
+>>> pw-bot: changes-requested
+>>
+>> She is responsible for the common HPM part, and I just gave my comments to
+>> help to improve the quality of that implementation.
+>> I was just focusing on enabling and maintaining the T100 specific features.
+>>
+>> Our patches will go each other's local repository, leaving such tracks. That
+>> means the patch from me is Reviewed-and-tested-by her.
+>> And I'm responsible for sending the whole patchset for upstreaming.
 > 
-> This is the current plan.
+> Then you need to either fix your email setup (because it's not inserting
+> From: Jingyu Li <joey.li@spacemit.com>) so that she is marked as the
+> author or actually set her to the author in git if you haven't.
+> Currently it looks like this when applied:
+> commit 872978c875731be43e84bec38798cb8ecd42b7a0
+> Author: Lv Zheng <lv.zheng@linux.spacemit.com>
+> Date:   Sat Feb 28 22:44:49 2026 +0800
+> 
+>      dt-bindings: iommu: Add spacemit/t100 features
+>      
+>      Adds device tree bindings for SpacemiT T100 specific features by
+>      introducing spacemit,t100 compatible. T100 contains distributed IOATCs,
+>      each of which exposes pmiv interrupt.
+>      
+>      Signed-off-by: Lv Zheng <lv.zheng@linux.spacemit.com>
+>      Signed-off-by: Jingyu Li <joey.li@spacemit.com>
+> 
+> In both cases, you need to change the order of signoffs so that yours is
+> last as the submitter.
 
-Okay..
+OK.
 
-So taking the Intel and arm stuff into account I suggest what we need
-here is, in some broad strokes..
+BTW, since this version of this patch has been worked out all due your 
+constructive feedback and suggestions. Now that it has functionally 
+converged to what the community requested, can I add "Reviewed-by: Conor 
+Dooley <conor@kernel.org>" for its next version?
 
-1) Guest memfd gives some phys_addr_t list of its underlying physical
-2) It is marked up with shared/private splits in some way
-3) iommufd has a special area 'synchronized guestmemfd'
-4) When guestmemfd changes anything about its mapping it invokes an
-   synchronization callback that iommufd will register
-5) iommupt provides a new primitive: synchronize IOPTEs with
-   phys_addr_t list
-   It scans the current IOPTEs and adjusts them to match the
-   phys_addr_t list. Splitting,unsplitting,mapping and unmapping as
-   required.
-6) That primitive as some flag 'private is mapped' or 'private is
-   unmapped'
-7) iommufd invokes this primivate from the guestmemfd callback
+Best regards,
+Lv
 
-AMD sets the pgsize bitmap to 4k and 'private is mapped'
-ARM leaves pgsize bitmap alone and does 'private is mapped' (?)
-Intel leaves pgsize bitmap alone and does 'private is unmapped'
-
-Does that work for everyone?
-
-#5 may be a bit tricky to implement, but doable.
-
-Jason
 
 _______________________________________________
 linux-riscv mailing list
