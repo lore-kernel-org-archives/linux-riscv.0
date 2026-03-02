@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E914ED58E4B
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 03:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D88D9D58E49
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2026 03:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1ilg2DVuR7NSROvCOmebnjLZ6ZyzFyyIISwaXCrcXBM=; b=FIOU5tFYheXsnJ
-	akYst/CR1xxD4V4Y8ZnI5hM1Cvg6QKXypDemvJyI+kY91p344irITJZK7Z2eaOkgANeNR3PmHhqEF
-	YScv1s4jLtuH1pBXH3aFoQT4aiartsbQEKBH0EvUgq9pJvnd4dwxY04KJV4zEHeB+0pwiR/InIxI1
-	a13XjQ7qzqbFodwq7wUUpn9YtmC7QH+UHGB/yX8gMwJ6EzD9+ir9Uh5DnEo1zPD36qWeEbepdNZFt
-	QI+6EQ8sKWn2Smce/MDxOS4b7HQof986yqiysJZ9+UpB/yteTTkVhINdLV1P2j/xOE4dQyDnBYXDz
-	3aFFq069ykXXZYtYiN5Q==;
+	List-Owner; bh=Oaff0tnjZu7xH38NTvIWRQ5A1VWF1liFh77V6mqntso=; b=gzpdBL8P3njyoM
+	vsVsQ9JpbZJFuzSFqY6dwaS+BJHChtvcRlNOSEX95q/vDUYTwBHYS1ULq3/4oyFiySiqE6ntgS8ce
+	68Nd3pzTzH/UvFOuPWuMIfWTLjvn3iEZauok5l1NbZApCWtkI6PllK1303PdjIG70dgYuN84FEpoI
+	Bkv4UYIoeKvtEeGz/b1VXRVkIH+L06loP5vdlajL3vYY4FrGclEIO5osL2u4PbjFzIuUt8LerXi5j
+	ObctaWZDS1jwU1F1sikidka/fcB5D/N3/20VGMBhvqz3wYgwJSqK8dijnrrpq8IJEj9KLK4C/ztqY
+	SwCL0nOKVqPsYPdh0w+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwtbE-0000000C9ne-1K3n;
-	Mon, 02 Mar 2026 03:05:37 +0000
-Received: from mail-m155101.qiye.163.com ([101.71.155.101])
+	id 1vwtgB-0000000CA33-2Pul;
+	Mon, 02 Mar 2026 03:10:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwtbA-0000000C9mw-24n9
+	id 1vwtg9-0000000CA2v-1G9O
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Mar 2026 03:05:34 +0000
-Received: from Vostro-3710.lan (unknown [IPV6:240e:3b3:2c02:9c10::aae])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 355ebdd56;
-	Mon, 2 Mar 2026 11:05:19 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: dlan@kernel.org
-Cc: alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
-	conor+dt@kernel.org,
-	conor@kernel.org,
-	devicetree@vger.kernel.org,
-	elder@riscstar.com,
-	krzk+dt@kernel.org,
-	linux-kernel@vger.kernel.org,
+	Mon, 02 Mar 2026 03:10:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 237DA60008;
+	Mon,  2 Mar 2026 03:10:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0603CC116C6;
+	Mon,  2 Mar 2026 03:10:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772421039;
+	bh=8piDJdEb2svg4illNkL4A8g7vlo1UGyKKu2McF1IevA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=o7XfhUmBvLDeLHzdlssWu18VjgCZR2PTujFG9ySGUoGwiTUz+wZmawpVch0WHgNll
+	 OsumX21hsPbyd7lgfd9c1kvcIrbHet4YlbBKvoWv4z/TU5nnVyHTM865cifRfc28xP
+	 tyyPzELsyqOQc4I874jRlSMom7AW20iDttbfH5/x3+FrEaz519ZJJ/zjGRES5K0M8B
+	 OAFR8lekHFd2RT8tKggumSUdzue66SStoF6EktHatEt0XH94d1q4k29+PW0YswuZCv
+	 F0hC+U0fQuIt3qKnDO+lWAicUMbTlA3w4RH6UZInKZdKv0VPHazr3aX2MA/W9KOXxu
+	 L2V3LKUCaObIw==
+From: Yixun Lan <dlan@kernel.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Alex Elder <elder@riscstar.com>,
+	Yixun Lan <dlan@kernel.org>
+Cc: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	robh@kernel.org,
 	spacemit@lists.linux.dev,
-	Chukun Pan <amadeus@jmu.edu.cn>
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor@kernel.org>
 Subject: Re: [PATCH] riscv: dts: spacemit: pcie: fix missing power regulator
-Date: Mon,  2 Mar 2026 11:05:11 +0800
-Message-Id: <20260302030511.30566-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.34.1
+Date: Mon,  2 Mar 2026 03:10:31 +0000
+Message-ID: <177242077522.24322.7382117615305152301.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260226-k1-pcie-fix-pwr-v1-1-94b493cd27e5@kernel.org>
 References: <20260226-k1-pcie-fix-pwr-v1-1-94b493cd27e5@kernel.org>
 MIME-Version: 1.0
-X-HM-Tid: 0a9cac81e3c503a2kunm810cb4777326d4
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCGkxJVh4aQx4eS0wYTx5KSlYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlJT0seQUgZSEFJGEtJQUIYSktBQRoaHllXWRYaDxIVHRRZQVlPS0hVSktJQk
-	1LSlVKS0tVS1kG
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_190532_736916_0D224D46 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,53 +80,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-> &pcie1_port {
->  	phys = <&pcie1_phy>;
-> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
->  };
+On Thu, 26 Feb 2026 08:17:55 +0000, Yixun Lan wrote:
+> The PCIe port require 3.3v power regulator for device to work properly, So
+> explicitly add it to fix the DT warning:
 > 
->  &pcie1 {
-> @@ -320,6 +321,7 @@ &pcie2_phy {
+> arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: pcie@ca400000 (spacemit,k1-pcie): pcie@0: 'vpcie3v3-supply' is a required property
+>         from schema $id: http://devicetree.org/schemas/pci/spacemit,k1-pcie-host.yaml
 > 
->  &pcie2_port {
->  	phys = <&pcie2_phy>;
-> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
->  };
+> 
+> [...]
 
-```
-&pcie1 {
-	vpcie3v3-supply = <&pcie_vcc_3v3>;
-	status = "okay";
-};
-```
+Applied, thanks!
 
-According to DT binding, the vpcie3v3-supply of the &pciex node should
-be moved to the &pciex_port node. This is simply a duplication of the
-property.
+[1/1] riscv: dts: spacemit: pcie: fix missing power regulator
+      https://github.com/spacemit-com/linux/commit/8a9071299dec817a544c0fb48f7302396fafdc4b
 
-But do we really need this pcie_port (PCIe bridge)?
-
-The PCIe bridge node (pcie@0) was treated as a platform device, but it
-did not define the interrupts property, which resulted in the following
-warning: `[    2.897980] irq: no irq domain found for pcie@0 !`
-
-Would it be better to submit a patch to remove this pcie_port?
-
-```
--       ret = k1_pcie_parse_port(k1);
--       if (ret)
--               return dev_err_probe(dev, ret, "failed to parse root port\n");
-+       k1->phy = devm_phy_get(dev, "pcie-phy");
-+       if (IS_ERR(k1->phy))
-+               return dev_err_probe(dev, PTR_ERR(k1->phy), "missing PHY\n");
-```
-
-I have tested this change and it works.
-
-Thanks,
-Chukun
+Best regards,
+-- 
+Yixun Lan <dlan@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
