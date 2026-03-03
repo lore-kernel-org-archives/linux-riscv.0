@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56DBAEC0495
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 10:11:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1205EC1424
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 10:34:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OSwNfLZZ54o3puOu25OOgIcLc1BbrY5ZaUQwGW1tqLM=; b=bh2umJOwfWNrNT
-	7zMA2U7XXCgCYfflkV1O7tFhv9ciT8S1KI6wTjcZS/WVmNnogXa+3hcMIeJWrdFfWX5B0zIFYYs3N
-	GdUzns27h49/i96RSYiMuEz7wpQz0iIA8vQfxYkCiiM8qRgOSijFN2ky27tneVFZgru/UvMF2igI8
-	OAS1P2Q68HvEcHGJZ9zJqVjj6I2NUeNj5/xQRqjjn6moVkBxApG3CZbaE2vOBZKJxiFYIfxYdbB9+
-	jWQUJ6HIXunjNvrU+r/VeDeyo6ucoxaQDY1x2jz2Nrqhe1lV30qVrW1KWDe484CY0qm2+TtU2iERQ
-	oiXpZoqbugBQ0BYBB1Vg==;
+	List-Owner; bh=ygtrkG46phY0EZKXCbmZaAxyd0yQr7YBy2JpzW/FFgY=; b=CUT31+hsKj+f5f
+	WfRcmfkVud152eoHh0hUEAoRaKhwid0p//eh4vYNTd+8X7kNUS4EhqznfNCXfqfWfsLpUi7jViTxH
+	59J1I+b6rZWwX92jV8XFStcUT9X2bsQVffcnnqjqu4kpP2KYvtDDmMU2+1oQCVoJbafWaE6JOSZiW
+	YnG5m9z0Mpv6wErMDMIyy03DjJYzXOaZfzSZ85i7S1NJ7IfQJr9qUyEN8G1uus36BTBPbm84QnDGh
+	TlNw+9WjmJTWoPpJg8bDkKfaR+SNCoyk/LING4sAOsTO2XkW4nJnNREmnQWLJr6+h0z6sZT5Yf5f0
+	ZnMkWzaSshLnNhp7bmmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxMiW-0000000EwNO-1J4P;
-	Tue, 03 Mar 2026 10:11:04 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1vxN4c-0000000Ey0D-2Gsa;
+	Tue, 03 Mar 2026 10:33:54 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxMiT-0000000EwMk-1QJ6;
-	Tue, 03 Mar 2026 10:11:03 +0000
-Received: from fric.. (unknown [210.73.43.101])
-	by APP-05 (Coremail) with SMTP id zQCowADHWQ2Os6Zp6paTCQ--.25899S2;
-	Tue, 03 Mar 2026 18:10:23 +0800 (CST)
-From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-To: anup@brainfault.org
-Cc: alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
-	atish.patra@linux.dev,
-	jiakaiPeanut@gmail.com,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1vxN4a-0000000Exzp-1GMy;
+	Tue, 03 Mar 2026 10:33:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1772534002; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=VQOMfMUATbLwFue8XJSnkr0LD2wH17JwAI9UIvOezcp+iYBiGn5GMa8hTuMXp98SlSh/JhYh13tXhXuLAbpRyw/qkElSn3m8lgy5jacaqEhjGNJrVKa6neymwYkzn5ZgdRG7MyiOpoJepPo+cRqtWFSDv/jhzeFwLIufTmPYIL8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1772534002; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=PbCy8PRJgxvl7inL/4lV7PwnbNxjPe8sBUP9fng+MLM=; 
+	b=DZZawfMRM3zu95Z/jVMjT57aYA93Ay49vX/9a4FqMW0KSN8Aeed32scT61B1Wy24ZuRPBRdZ+uBOhvrlwA4qJQAdYPXk2Hd9+ndhRJ/LpFOSIr4QbmxxOcdGvacdoSFjTPBxfq6rYJvQ82k36V4DvCxiz+0X2EA4+4hZWdbA6L8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ziyao.cc;
+	spf=pass  smtp.mailfrom=me@ziyao.cc;
+	dmarc=pass header.from=<me@ziyao.cc>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772534002;
+	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=PbCy8PRJgxvl7inL/4lV7PwnbNxjPe8sBUP9fng+MLM=;
+	b=Ed+TPOC+fV576dF8loSHtbyPLzFwTZiwE0U3kbDDyPrHVKq6ZFnKJa28v9G8oUb+
+	WWsd5SV+xqHo4DPH1RnlroVnd1c2xuRVvK3sicHFl7Pc5e8uROzOBQYoviysuCllr94
+	mU8FGSwcwae+mgp+QB9IeMYgm7ZVh1qXi5GsYWtY=
+Received: by mx.zohomail.com with SMTPS id 1772533977967751.4643569015835;
+	Tue, 3 Mar 2026 02:32:57 -0800 (PST)
+Date: Tue, 3 Mar 2026 10:32:38 +0000
+From: Yao Zi <me@ziyao.cc>
+To: lizhi2@eswincomputing.com, devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk, wens@kernel.org, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
 	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	xujiakai2025@iscas.ac.cn
-Subject: Re: [PATCH] RISC-V: KVM: Change imsic->vsfile_lock from rwlock_t  to raw_spinlock_t
-Date: Tue,  3 Mar 2026 10:10:22 +0000
-Message-Id: <20260303101022.2174021-1-xujiakai2025@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <CAAhSdy1x=4J2fZA-U_nB2yvFP38rmdcwVqYsR7c_6kHQw56+ew@mail.gmail.com>
-References: <CAAhSdy1x=4J2fZA-U_nB2yvFP38rmdcwVqYsR7c_6kHQw56+ew@mail.gmail.com>
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: ningyu@eswincomputing.com, linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com
+Subject: Re: [PATCH net-next v3 3/3] riscv: dts: eswin:
+ eic7700-hifive-premier-p550: enable Ethernet controller
+Message-ID: <aaa4xodVNaY0gmBA@pie>
+References: <20260303061525.846-1-lizhi2@eswincomputing.com>
+ <20260303061732.918-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowADHWQ2Os6Zp6paTCQ--.25899S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrZFy8AF1rtrW7Jry3Kw15Arb_yoWDXFcEkr
-	Z5KFyxJ3y5Ar1UWrs5Xw1fZF1vkanrAa4xKrWrGFySvryDGFs3GayfKrZ093ZxAw4xG3y2
-	krsxJrZ3Xr9I9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbfkFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
-	1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v
-	4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64
-	vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8G
-	jcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2I
-	x0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK
-	8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I
-	0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUeApnUUUUU
-X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBg0PCWmmd08nhAACsb
+Content-Disposition: inline
+In-Reply-To: <20260303061732.918-1-lizhi2@eswincomputing.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_021101_780430_A835150F 
-X-CRM114-Status: UNSURE (   6.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260303_023352_412792_14528FEC 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,35 +89,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anup,
+On Tue, Mar 03, 2026 at 02:17:32PM +0800, lizhi2@eswincomputing.com wrote:
+> From: Zhi Li <lizhi2@eswincomputing.com>
+> 
+> Enable the on-board Gigabit Ethernet controller on the
+> HiFive Premier P550 development board.
+> 
+> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+> ---
+>  .../dts/eswin/eic7700-hifive-premier-p550.dts | 50 +++++++++++++++++
+>  arch/riscv/boot/dts/eswin/eic7700.dtsi        | 54 +++++++++++++++++++
+>  2 files changed, 104 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
+> index 131ed1fc6b2e..d558f0fdfb38 100644
+> --- a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
+> +++ b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
 
-Thank you for the review and for pointing out the issue.
+...
 
-I've been trying to reproduce the problem following the setup described in 
-https://github.com/kvm-riscv/howto/wiki/KVM-RISCV64-on-QEMU.
+> @@ -20,6 +22,54 @@ chosen {
+>  	};
+>  };
+>  
+> +&gmac0 {
+> +	phy-handle = <&gmac0_phy0>;
+> +	phy-mode = "rgmii-id";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&gpio106_pins>;
+> +	rx-internal-delay-ps = <20>;
+> +	tx-internal-delay-ps = <100>;
+> +	status = "okay";
+> +
+> +	mdio {
+> +		compatible = "snps,dwmac-mdio";
 
-I tested with this patch applied on two different kernel bases:
-1. https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git master
-2. https://github.com/kvm-riscv/linux master
+Since it's implemented in the DWMAC IP, I think the mdio bus is
+SoC-specific and should be put into the SoC devicetree instead.
 
-I modified the QEMU command from the wiki to enable AIA:
-./qemu/build/qemu-system-riscv64 -cpu rv64 -M virt,aia=aplic-imsic -m 512M \
-  -nographic -kernel ./build-riscv64/arch/riscv/boot/Image \
-  -initrd ./rootfs_kvm_riscv64.img \
-  -append "root=/dev/ram rw console=ttyS0 earlycon=sbi"
+Regards,
+Yao Zi
 
-Then ran the guest with:
-./apps/lkvm-static run -m 128 -c2 --console serial \
-  -p "console=ttyS0 earlycon" -k ./apps/Image --debug
-
-In my testing, the guest boots successfully.
-
-Could you please provide more details about your setup so I can reproduce 
-the issue?
-
-Thanks,
-Jiakai
-
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		gmac0_phy0: ethernet-phy@0 {
+> +			compatible = "ethernet-phy-id001c.c916";
+> +			reg = <0>;
+> +			reset-gpios = <&gpioD 10 GPIO_ACTIVE_LOW>;
+> +			reset-assert-us = <10000>;
+> +			reset-deassert-us = <80000>;
+> +		};
+> +	};
+> +};
 
 _______________________________________________
 linux-riscv mailing list
