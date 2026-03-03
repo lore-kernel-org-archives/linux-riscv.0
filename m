@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ABEDEDA68D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 935EBEDA68D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rM6hWbEi1iWrcq5qWZlW+OpGBAGbe+ef4CYpYN4LEAs=; b=Rv9d/tckmJn310
-	rQgfLj4RTfjUhsWRtyyuckN5MWe85ZIVBfdDjbSbaSO/RzxdaL+5G9cJJ2F6ZTinKl6tFV+qio/5P
-	/DQojIxORQk384Fm0BiAFk43dv5ylDZPRn/g6xav2kpk3E/m2Vp5xRyaVLNWeevrEmQ9P8XAzzuJi
-	277yDQcEkHo42apqEtos2pSzQoJQQ/iOT3RbiQF91/AaDfwJwsVgQq6Wbhbv/NolJJLkd91kMGlld
-	cac67gOJz4j9NyQm1L+V1UwVb5X17vf5dW53QBRxsUP7vaA5yOLQB575Wbf3WGKHaMtfz1aZK2xC3
-	eN+AIHCHn67whqpHlhpw==;
+	List-Owner; bh=16lXW7Om+SMb7aAtJ6MxfXTEjThRUtcZ2qXRDnEubRU=; b=bq2VU1i+aEUDbk
+	7PZN5gxI43rQoHkVt2WhH5UWfT959UGGOM6mwqET6vBmjZcKfARvz1772uIJ6ebQ3l5Mp9uwUHfri
+	bXPM5/XAcRuNWyO0Xmziru22nP5NSjoPhfX5v9bfBH7U0t61cSGhnqX/olDBa4sNqirj9WbD6IODX
+	UqnqeSRq3hfGH6ydh5BC5O+M+c84OrCydc1HJBcovhfkKlmCVlH8AyXgvuCvFnZMfhX4JSH2bqPwK
+	Fcs8VfFsV9sUY7tdS20mYRNdJo19hx9/1Wd2NssSKN5p6f1qjBkxdSlh2KdHPc3kGr29mRUqHE9C7
+	U57ibzeedscQ+c7vfabQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSi8-0000000FaH8-0o5s;
-	Tue, 03 Mar 2026 16:35:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxSkm-0000000FamQ-1iH4;
+	Tue, 03 Mar 2026 16:37:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSi6-0000000FaGd-22KV
+	id 1vxSkk-0000000Fam2-3lEV
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Mar 2026 16:35:03 +0000
+	Tue, 03 Mar 2026 16:37:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 36CCA402B0;
-	Tue,  3 Mar 2026 16:35:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDA98C116C6;
-	Tue,  3 Mar 2026 16:34:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 548C260053;
+	Tue,  3 Mar 2026 16:37:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AC21C116C6;
+	Tue,  3 Mar 2026 16:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772555702;
-	bh=HyqZMtRcUrfGU9UNlm5NhcKJckrPgBuMi0FqgbdPt2Q=;
+	s=k20201202; t=1772555866;
+	bh=4zCxRWHuSkku0YSduihXnooyBIGPdu7ySKeLPFfTZ40=;
 	h=From:To:Cc:Subject:Date:From;
-	b=msenSNMh8KjFxvpvnerBh4NvvxBkgSl7OONTO6jmpZG9mczAJrRC82tqX8/oLylTo
-	 fxjMk+QDEEZp+/oCZu0d+PgxSALZN10mMQHvsa7SlzX5sO9D0k7tF7pB9Ti3U2AUmC
-	 o5q11S8Aw/Yj4v6Pge0xGaIeF/geRlk2NcE7bGI9R9r6bMIljIIYy4NyGwNscyfOxP
-	 FKXTnAuzWwT2nCzqg7ZTzwmj/uywWGvxgOgNk6zQaJsfyykV+21SLHWRPEnRURO6tn
-	 PVqbSyIOxrEpN/emw+GchloKjZUuvBaRjFSQxv2LzFO9uazAck7a7eXA7TbVOH8N32
-	 NeF22Ku8klBcg==
+	b=L+PIsnkDLRWMzQhLSe6Aw4kJcPUMaGafo8ac3Pb55w324b0Gp8p+zD+agjL3lcOrz
+	 An9/pHCZGP2GME+b9fbPG4nyQqlVNKyQ7UOaXDd8AXXb8rKqDrAE3DJg8FpiI/9UUk
+	 KFahwsm1N0WWea/cmzP7pUQy+1m9uhCYX+n3c3GIzP84Vxkyd2YFALuDaQDFFk7bpH
+	 fpxMTwCL4DL9ajWIdlNBFYXjYae0fsIcp+XGjjuMlDUfbro/oMWpTfn7yMja7+xgjW
+	 SFJhq8G3Dr2vP5G7F3BvRCK6kqB4AulRQs76CjLmavO7FWNMAbUqSYl41EiI4jqBxG
+	 rFOSwfAHYPVYg==
 From: Conor Dooley <conor@kernel.org>
-To: linux-i2c@vger.kernel.org
+To: linux-usb@vger.kernel.org
 Cc: conor@kernel.org,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Daire McNamara <daire.mcnamara@microchip.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] dt-bindings: i2c: microchip,corei2c: permit resets
-Date: Tue,  3 Mar 2026 16:34:54 +0000
-Message-ID: <20260303-clang-earthling-8a4904cb8a7b@spud>
+Subject: [PATCH v1] dt-bindings: usb: mpfs-musb: permit resets
+Date: Tue,  3 Mar 2026 16:37:39 +0000
+Message-ID: <20260303-backspace-unhearing-c6cc8cbddbba@spud>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1531; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=23oSag2Y7V+S+9pFwJOyhqecZQK8YjdMRoaWJl4XUFs=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnLedepBlzn9LzYnMMuunH2Z8n2+qupActWST0qC54gX n9M4TtTRykLgxgXg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACZivYyR4e7FB8reL5rj1nG0 ZhX+M7p4bFKx0gqTvyEdj6rMp1d+esDwT+vsHYa6ffGVNSdc1QqdMo9cefM9fhH7HIaoWZ7Z3tr 63AA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1478; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=dpcvPwQiXhJxptNJ0T8pgqXJ5w228xDV3ANyBjxePt4=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnL+YJZ/3FZeV7jE3xefTLpbaKVbNW2c+UWZRrMHPd+7 H/PeU+5o5SFQYyLQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABM5No2R4WCT8dZZwrGRv3wD PH6k3Cmb5X0s0mbLu13+rLr1xancLowMDzoTJNKLFGfnzZFYf8z8R9rv5D6VHJelMvz3XrWtelv BDgA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_083502_548239_C0DD300B 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,43 +78,42 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Both CoreI2C and the hardened versions of it on mpfs and pic64gx have a
-reset pin. For the former, usually this is wired to a common fabric
-reset not managed by software and for the latter two the platform
-firmware takes them out of reset on first-party boards (or those using
-modified versions of the vendor firmware), but not all boards may take
-this approach. Permit providing a reset in devicetree for Linux, or
-other devicetree-consuming software, to use.
+The musb IP on mpfs and pic64gx has a reset pin, but until now this has
+been undocumented because platform firmware takes the block out of reset
+on first-party boards (or those using modified versions of the vendor
+firmware), but not all boards may take this approach. Permit providing a
+reset in devicetree for Linux, or other devicetree-consuming software,
+to use.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
 CC: Conor Dooley <conor.dooley@microchip.com>
 CC: Daire McNamara <daire.mcnamara@microchip.com>
-CC: Andi Shyti <andi.shyti@kernel.org>
+CC: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 CC: Rob Herring <robh@kernel.org>
 CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
 CC: linux-riscv@lists.infradead.org
-CC: linux-i2c@vger.kernel.org
+CC: linux-usb@vger.kernel.org
 CC: devicetree@vger.kernel.org
 CC: linux-kernel@vger.kernel.org
 ---
- Documentation/devicetree/bindings/i2c/microchip,corei2c.yaml | 3 +++
+ Documentation/devicetree/bindings/usb/microchip,mpfs-musb.yaml | 3 +++
  1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/i2c/microchip,corei2c.yaml b/Documentation/devicetree/bindings/i2c/microchip,corei2c.yaml
-index 6ff58b64d4962..bd63c70aac6bc 100644
---- a/Documentation/devicetree/bindings/i2c/microchip,corei2c.yaml
-+++ b/Documentation/devicetree/bindings/i2c/microchip,corei2c.yaml
+diff --git a/Documentation/devicetree/bindings/usb/microchip,mpfs-musb.yaml b/Documentation/devicetree/bindings/usb/microchip,mpfs-musb.yaml
+index a812317d80893..c4e1c2d73bdb3 100644
+--- a/Documentation/devicetree/bindings/usb/microchip,mpfs-musb.yaml
++++ b/Documentation/devicetree/bindings/usb/microchip,mpfs-musb.yaml
 @@ -37,6 +37,9 @@ properties:
-       modes are supported, possible values are 100000 and 400000.
-     enum: [100000, 400000]
+   clocks:
+     maxItems: 1
  
 +  resets:
 +    maxItems: 1
 +
- required:
-   - compatible
-   - reg
+   microchip,ext-vbus-drv:
+     description:
+       Some ULPI USB PHYs do not support an internal VBUS supply and driving
 -- 
 2.51.0
 
