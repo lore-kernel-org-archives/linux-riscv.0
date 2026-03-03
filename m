@@ -4,34 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 848F2EDA68D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BEE4EDA693
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vBltp2Bi/kEFeDOCC78aK8kOx3ppMAKgY8cYK6g44ak=; b=RkIisD7hp2gc0H
-	XVtSa8YK3aUXLFgI4YWzcQX0eiBFCKTSHYTGJ+RkrX3U2o3gdSE8DGqj4EUe1BpcYqFRsITYsYl4T
-	D//6b/6UF86UiGKThijPJ7UVK6rKlM2tpeafZPuvJ3q+z7+f5uEGILsqGPNS5fbIHQPXmEB5drryC
-	5nO2me+ASNHpDCIH488oR/wr2gzmFJaxpqO2Qm0Kr4S1IwccrGuIsGDXI5kB/t4LRZeQV5iPK0VcZ
-	jt5xVuvrdIMn1gGaG8iKGI/OvFqgiK92ALVVywyZ91628eYdiVsEpNp3xRj1qI+EhLyOcPz3MZPDR
-	/GACaceApXwVrpG+fG+w==;
+	List-Owner; bh=F4KoBkENrWg8gxeUROiDJ3+vXiOGYagokHOIXZ2OOwU=; b=f7oWLWTnu1/Jik
+	/JpdG6icG13MHBY5+p7g8v3EqnyJNqy9AQvLksgE0TH/FARTKpgCDoNrlwfSFZrjOWtfH1svwxLrY
+	9ivCA5W2ElXuVltGNM1l/7e1+LRQCJ/PGnGdQ7wwjcuHXD01GZEb6h9wKfxO4JrwVTcFsUprcWX6C
+	KFhHlpPX7Q4maUqkf4M8nnIp6C+KgmACbLO6Bw/FDw223Tq+oIm/rKd4q/d9C2N27+xAlxTHma3U+
+	LjjVvQvP2s25+/8C6KPpee2SyynKYS2FCvY4bhlF0RlcxZI3FgpULXKP84cT6SIIoTwVLkDUWyKpX
+	LgmM7R6E3X7YepRQeTAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSFs-0000000FW24-3XQi;
-	Tue, 03 Mar 2026 16:05:52 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1vxSGf-0000000FWFd-46RM;
+	Tue, 03 Mar 2026 16:06:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSFp-0000000FW1R-3smI;
-	Tue, 03 Mar 2026 16:05:51 +0000
+	id 1vxSGe-0000000FWEq-0ouE;
+	Tue, 03 Mar 2026 16:06:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=XBJwlrTdNJjmPV0S2dY1ySmJaA0aEJhhqGpkqw0Qvdg=; b=WXfdtJ+kZBZ4HJWzzvzSeki2v4
+	9euh/EYvhRszvbC6+hf37iTcd1lf5imX01Hwavrq+94wdmuQhbkpAmhfclbJln1wEGcqPrXg7flzT
+	rZ4PDb2laz9i/D46+JikQbm8YbMIATDgPOR97uzslCaZt4QlHDx3KwvSpfoZvbyXdoECCWk5ZOPG7
+	gVwMBOUaGHVy1yYZFGaUSUax//Fm6EqmPKFBARoFQelTdmBx70bPVNI2d4gGoEmZkvEgSMvdFwe4O
+	smfdGZiGpFd+0oM+EtHsexBxWW/iX5G4YLsCZ/HgFCrbMCO5+zOEpoxP4b+AGdc0nAkTBAAts7jbI
+	Nyq24nHg==;
+Received: from verein.lst.de ([213.95.11.211])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxSGb-00000002qMl-1509;
+	Tue, 03 Mar 2026 16:06:38 +0000
 Received: by verein.lst.de (Postfix, from userid 2407)
-	id BF4F068BEB; Tue,  3 Mar 2026 17:05:46 +0100 (CET)
-Date: Tue, 3 Mar 2026 17:05:46 +0100
+	id B41BF68BFE; Tue,  3 Mar 2026 17:06:34 +0100 (CET)
+Date: Tue, 3 Mar 2026 17:06:34 +0100
 From: Christoph Hellwig <hch@lst.de>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Eric Biggers <ebiggers@kernel.org>, Christoph Hellwig <hch@lst.de>,
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Christoph Hellwig <hch@lst.de>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Richard Henderson <richard.henderson@linaro.org>,
 	Matt Turner <mattst88@gmail.com>,
@@ -71,16 +85,16 @@ Cc: Eric Biggers <ebiggers@kernel.org>, Christoph Hellwig <hch@lst.de>,
 	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
 	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 18/25] x86: move the XOR code to lib/raid/
-Message-ID: <20260303160546.GF7021@lst.de>
-References: <20260226151106.144735-1-hch@lst.de> <20260226151106.144735-19-hch@lst.de> <20260227143016.GH1282955@noisy.programming.kicks-ass.net> <20260227235529.GA31321@quark> <20260228103117.GK1282955@noisy.programming.kicks-ass.net>
+Subject: Re: [PATCH 20/25] xor: make xor.ko self-contained in lib/raid/
+Message-ID: <20260303160634.GG7021@lst.de>
+References: <20260226151106.144735-1-hch@lst.de> <20260226151106.144735-21-hch@lst.de> <20260228064249.GG65277@quark>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260228103117.GK1282955@noisy.programming.kicks-ass.net>
+In-Reply-To: <20260228064249.GG65277@quark>
 User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_080550_114558_DED1290C 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20260303_160637_387126_44A7A5D6 
+X-CRM114-Status: GOOD (  20.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,17 +111,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 28, 2026 at 11:31:17AM +0100, Peter Zijlstra wrote:
-> Hmm, I suppose. Its just weird that we now have to look in both
-> arch/$foo and lib/*/$foo/ to find all arch code.
+On Fri, Feb 27, 2026 at 10:42:49PM -0800, Eric Biggers wrote:
+> On Thu, Feb 26, 2026 at 07:10:32AM -0800, Christoph Hellwig wrote:
+> > diff --git a/arch/um/include/asm/xor.h b/lib/raid/xor/um/xor_arch.h
+> > similarity index 61%
+> > rename from arch/um/include/asm/xor.h
+> > rename to lib/raid/xor/um/xor_arch.h
+> > index c9ddedc19301..c75cd9caf792 100644
+> > --- a/arch/um/include/asm/xor.h
+> > +++ b/lib/raid/xor/um/xor_arch.h
+> > @@ -1,7 +1,4 @@
+> >  /* SPDX-License-Identifier: GPL-2.0 */
+> > -#ifndef _ASM_UM_XOR_H
+> > -#define _ASM_UM_XOR_H
+> > -
+> >  #ifdef CONFIG_64BIT
+> >  #undef CONFIG_X86_32
+> >  #else
+> >  #define CONFIG_X86_32 1
+> >  #endif
+> 
+> Due to this change, the above code that sets CONFIG_X86_32 to the
+> opposite of CONFIG_64BIT is no longer included in xor-sse.c, which uses
+> CONFIG_X86_32.  So if the above code actually did anything, this change
+> would have broken it for xor-sse.c.  However, based on
+> arch/x86/um/Kconfig, CONFIG_X86_32 is always the opposite of
+> CONFIG_64BIT, so the above code actually has no effect.  Does that sound
+> right?
 
-We've had instance of that for a long time, e.g. lib/raid6/
+This whole thing looked weird to me.  I'll try to do a more extensive
+cleanup pass on the um mess ahead of the rest of the series.
 
-> And I don't suppose symlinks would make it better?
-
-Ugg, just purely from the organizaton perspective it would make
-things a lot worse.  I'm also not sure how well git copes with
-symlinks.
 
 _______________________________________________
 linux-riscv mailing list
