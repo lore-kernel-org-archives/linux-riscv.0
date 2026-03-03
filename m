@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46EE3EDA698
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:42:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1829EDA69C
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7eW1rQUy7YkvNC1z0aywGcEJqyXnkLZlTAcD8DZ5Kx0=; b=eHFmy9vlHtUtPg
-	ujiMZAKDBMHKyuZv25gPFfJW/nvaIaz8p9F/pHTq6RVsu/7pFcHwFnqihvvOlSmTkV4xSSc8xJ6wG
-	J6k1VyxVZvC1rbZaZudJx6xOL90KyAJhwTzqrF/1EiuRdg93idBD6qIwLtl5OsFCJvnmjgnhsIHFK
-	almKsjLGDjAWY9pcKGQ9w5zxNRhvebBAsAdEDsWRh3zBH8Dhaa1J6oymVolzI5bApR4pYi3qHG6mp
-	gbfXQprT/SrQaxnzNUrqIRc8ERVHXKxRofC0gDVAfJW3a0sOMOl1awdjw/zrDIHIa06zfqCrxg3P2
-	beH1/tK4RgFQacYFaC9w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gDwlUa0diD2KU78uZ2qEBS6dp8OfN7Cx1+D0CIuI3aE=; b=iPrWcTIaUYCZM4
+	/DYZflOxmpfUN0w6eCIFjZrllMTV6/di5Q+04/I7DP5uBdiIgjBlHq60vJEYk2uCqFFm+AqggKPMW
+	ZmVlBEAQG0iC6xbkrkeKxZeC6nsRXIklXcDGUxgREtIuSihH/miwfTMUnFd6UDdrrONY/8kNTi2MG
+	MlUIG/PNOLeBsYDUVFertYiNq7WBuWCBiPSwPl4Ta28G0BD/gDBrm7BdzDLEq0NaoSSk3euU6kZa9
+	wBBLPwiPY37O3wahdhRveJysEAirc3s1oeKjJsXYSSe3ZdpVwKP8y3xCi57PwMQD6DkjCGsfjO8z9
+	iSE51KYtDcABx+uAkATg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSox-0000000Fb73-0BKx;
-	Tue, 03 Mar 2026 16:42:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vxSp5-0000000Fb8b-1Wvy;
+	Tue, 03 Mar 2026 16:42:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSov-0000000Fb6x-0Uvf
+	id 1vxSp3-0000000Fb7j-0jF7
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Mar 2026 16:42:05 +0000
+	Tue, 03 Mar 2026 16:42:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 30B2760008;
-	Tue,  3 Mar 2026 16:42:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF1FEC116C6;
-	Tue,  3 Mar 2026 16:42:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7033440377;
+	Tue,  3 Mar 2026 16:42:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 565EFC19425;
+	Tue,  3 Mar 2026 16:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772556123;
-	bh=G4pcMxh0RxEcAEw5zBZ7807yJibB8k2P6xl2tUln7Is=;
-	h=From:To:Cc:Subject:Date:From;
-	b=h4gTnvU9VQoF3yVsRk4bO/PMqK+e9Uf+Zy7tI/YZ2D8D/KXgWnIuQovcptoc9JysS
-	 RCDiFyqaWECb1VYKCdKwJfZ3NHpvLLg4jFDLbDh/0cXjD4H0sAb2Q1BYw6dA1MseJA
-	 vmpVCpDjckkfM35LArW8onrAdWWCo4JTct/otc8uoNQLpGHv+T4f20iBrfdGoEzk5G
-	 /U9CkYvT3IhBAxTih+US8cJI3FLPQlDOf/AWguMrEz1odq/aGt62LDOwnqfQI0VxdF
-	 rZ58CSs28jA8iiSfGBPiA0bIEJaYsZ8mWnSe6QvnG5fCSGT62+AfxBgT9DAgWcPin1
-	 /UrIFMpjQm+nQ==
+	s=k20201202; t=1772556131;
+	bh=bbZUQ1Fh88Ysd1nXQksQhhVxv6QAdP3LT7Br6CGSAx4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=NwCczY5RputsSxitXbGoWUt4LvLRcgcDCa1WKwRrN0CgdjhCZ+8/BpEN1tZ2K0JjM
+	 jwNKpvGryP5SAK/VG8BPq88chVfnlzFNzk1ZQVLoxzLq4crflL7E2SlklhMqqy5ACZ
+	 3yQjgcae/u6btdQhZLcXShH59pOvUd2Vn79uEu9QQoQmsaXxiUeZRctHjFifbNnxsw
+	 WuJN8HJrVG1QvT+IZujk4IEG/YrkCys3TZuAqC5HIPGYBXsk7tw8h5aqGzBEePcDtr
+	 5iAryzE6Uq7sQd28jcy/j8PX+ViBULn/Gf/Fa8buRmSV8Q1xulLRz1dGPae4xTlDvf
+	 RRhYdKC/z7+aA==
 From: Conor Dooley <conor@kernel.org>
 To: linux-spi@vger.kernel.org
 Cc: conor@kernel.org,
@@ -53,13 +53,19 @@ Cc: conor@kernel.org,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] spi: dt-bindings: mpfs-spi: permit resets
-Date: Tue,  3 Mar 2026 16:41:50 +0000
-Message-ID: <20260303-deceiver-rack-82f2b89eac40@spud>
+Subject: [PATCH 2/2] spi: dt-bindings: mpfs-spi: remove clock-names
+Date: Tue,  3 Mar 2026 16:41:52 +0000
+Message-ID: <20260303-spoils-snowbird-99f6e3a2dae3@spud>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260303-deceiver-rack-82f2b89eac40@spud>
+References: <20260303-deceiver-rack-82f2b89eac40@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1565; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=GS5S3MWIriZDtQzZXlNHQlRdGMI7nMwWi0pnjf8qN6U=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnL+f3mKKnK39rWMFHno+Ya9tevnk37Yf/3pNfVJ+8vu fSmPFH16ChlYRDjYpAVU2RJvN3XIrX+j8sO5563MHNYmUCGMHBxCsBEInIYGY7KCRVel5H1PsNo LH6Duy7wTsDGyEeeKx/K2LS2H7wj+YCRYdIWGeO/OmYik9+v56lM+c6+4sfVepEPCgl1rU3T8kO iuQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1329; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=bFK+YrOO+k6RjSRpgJYi3gE/wKFWYaDieRUCyzGNhUA=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnL+f2y1RwOXhRnLBQvLTZWTppRuuDb+01T9Dx/ZblGs fo3LJ3QUcrCIMbFICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgImU5DP8j3wwa4LZrRDWs3Z/ Y2WehHvFXGdSdViZd519268DVyJZUxj+WU2u9zMyW7+maLf3pPmPNof6hk6+HJeS+Uj+XPnB6G3 RfAA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260303_084213_236998_3E0C904F 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,13 +84,11 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-CoreSPI, CoreQSPI and the hardened versions of them on mpfs and
-pic64gx have a reset pin. For the first two, usually this is wired to
-a common fabric reset not managed by software and for the latter two
-the platform firmware takes them out of reset on first-party boards
-(or those using modified versions of the vendor firmware), but not all
-boards may take this approach. Permit providing a reset in devicetree
-for Linux, or other devicetree-consuming software, to use.
+This binding documented clock-names, but never bothered to document what
+the name should be, rendering the property useless to software. It's not
+a required property, so it can just be removed without harming any
+software that conjured up it's own name for the clock, as they could not
+rely on it being there to begin with.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
@@ -98,23 +102,23 @@ CC: linux-spi@vger.kernel.org
 CC: devicetree@vger.kernel.org
 CC: linux-kernel@vger.kernel.org
 ---
- Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml | 3 ---
+ 1 file changed, 3 deletions(-)
 
 diff --git a/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml b/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
-index 636338d24bdfb..b7d8acc924be4 100644
+index b7d8acc924be4..8ff50dfcf5855 100644
 --- a/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
 +++ b/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
-@@ -41,6 +41,9 @@ properties:
+@@ -35,9 +35,6 @@ properties:
+   interrupts:
+     maxItems: 1
+ 
+-  clock-names:
+-    maxItems: 1
+-
    clocks:
      maxItems: 1
  
-+  resets:
-+    maxItems: 1
-+
-   microchip,apb-datawidth:
-     description: APB bus data width in bits.
-     $ref: /schemas/types.yaml#/definitions/uint32
 -- 
 2.51.0
 
