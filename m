@@ -4,85 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 233CDEDA6BE
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 17:35:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FD3EEDA6BE
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 17:36:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FfvNcD98EcdFm0FvZQLChMowtnYg8QqdytNkUOZ6A1A=; b=X7EtWCmX+PL+8Z
-	2zFndVVbT1y3y1S04AbIiV0qEPh14+8HUKBV4b+8aIwGzgnUIok4naP1bt59f6ZwtKbrnrhELabh1
-	nuJmCcHrwcyqvCE84mMY/s5uk7tcQxb+jt5JT5D2SyFBogKbHG0/fsx3jKplm217XTujktuVkkA+H
-	93aBWoYXnfJly03xSIFXJRaFdpVq1gsvrfU4xuS06roQt4qqGhXAaZyo3meZlKWey3WWZT0FOJ6JX
-	0fyrnoqq+cpri4NTloc3ktl/DEYnApf7fEGa0JVPA9l3Z9jIfsKeuO+qHjmvGtdFDJMRO7dsSUOE5
-	UpCwy1/qC1UrF+jUlFog==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=AEWvHsmvZaZThF47tbOgrxz9TOU5ukKL7HJhV93lBKc=; b=U/EaOwtIxz60Bh
+	CMgbXCEWRmgb/tMD2EQBjlyr2zHwtJQC4FIzGyCV2BlSOF+XfP+VrzqcH4oRbtiWF04fWxGGOv0CO
+	eomw6eiXrZLSYIT/vlw4/fSJEg/EzWH1Q87hJH6ycQSR2K87fQm6w6qxO14AlbVc3xeBMrh80L0pc
+	n5srnsPWpj7ltcJaOBSIuWsrh3t5QDGdRPGBmbgKm7TKErgWBOJa2a9rfShXo7hrPPERzciGdo2yg
+	imfjdMSvcHsenBwRUl/Sr+FxOxRytpY6TaSagczpAlud67sLojh++CFD4TVBfQm+Ldq0lX0p2P5Mu
+	Mjl2XSp81ekFjVEdvq6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxTeT-0000000Fejs-0Adb;
-	Tue, 03 Mar 2026 17:35:21 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1vxTfM-0000000FetI-1dOt;
+	Tue, 03 Mar 2026 17:36:16 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxTeR-0000000FejD-1REw
+	id 1vxTfI-0000000Fes9-4AKo
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Mar 2026 17:35:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1772559319; x=1804095319;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=zDi+9ip27KvaZgXDANm1Jv8MZl7/WZGTtKX3IVlD78E=;
-  b=bmruRbfykpsLQDXVifONA+TOyp0APWNvlXJX6gZ7uwC20DMFULS/cXt9
-   7CcjTIKItJPjtgZkSSGk01TNkYVlwqwbpxCBaRmIi7OU4nry9AE2sYK2W
-   vPLKG2l80m9nsqzIAt3NXU4m1xtjdFHoaBbL1e9/+IGhSmIekmZrOgG6I
-   g+JKWnKTIXMArePN6DvBzqf+Z6evp9jbajuexrWVOT+wKFMhvZ/HPQjE9
-   BESfeiA2+AkLeSjWVmhmuUEAIMHbwaTr8ybCfMT4kk4H9URSGa2vXxPTb
-   C/LCGDktHB7PehyEiedmtfvFfH2vCRqacU9+eSIx2JbrimtKrx72oLj2y
-   Q==;
-X-CSE-ConnectionGUID: l+McZhTnR1KWxB6hU/HDTg==
-X-CSE-MsgGUID: Qt3zyM1aTdSLW8AmyjYHNQ==
-X-IronPort-AV: E=Sophos;i="6.21,322,1763449200"; 
-   d="scan'208";a="53416880"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 03 Mar 2026 10:35:15 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 3 Mar 2026 10:35:00 -0700
-Received: from [10.10.179.162] (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Tue, 3 Mar 2026 10:35:00 -0700
-Message-ID: <a1e36563-0e74-48b2-ae02-813cb28fc931@microchip.com>
-Date: Tue, 3 Mar 2026 10:35:05 -0700
+	Tue, 03 Mar 2026 17:36:15 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-79827d28fc4so53966187b3.1
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Mar 2026 09:36:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1772559371; x=1773164171; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=H6iTpKo42LQycXu04Lv5eBd6w/oQMbMtVO5fhoLyfQU=;
+        b=WdMnsDWZ6/M+utFyJFuQ5akPGJHiJ4Te0fVze5gNocupd6LbX9G/35KOW928QAr0bk
+         KQWwiUQ+E77IO9S4rpkyOpn3QlWZ//Yh36AEsrzqHyxgHXM5PiCnOOL3j8If6BbHryQl
+         V1VWjSVsA5Ye0zYmDWcL8N/M+gYNlYcHIs4HzgAI8vXfxj2v3BYXOs/6rA2vMT3EiGP0
+         /TT8alMreplpJcSlmN1E9TryaYHFrqmj8HqdCEMzdFHgb6Tit68+bHI5RcqWPEUWIPUl
+         MTjjr2gnc5GIPQ2YdyiR53R8MCqabANDj7uviIxJkntsDjOofzOpoTuOuirFCDzoW3/b
+         lNDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772559371; x=1773164171;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=H6iTpKo42LQycXu04Lv5eBd6w/oQMbMtVO5fhoLyfQU=;
+        b=vvWmbVajWctCwdQlLLQbI6jBSKDSYJ5RrXcrUmZPvjvzq1gJQggWO1zz5DlMcWahRu
+         ClNUbbSYIPK90hGjZSg9w0S8vA8jWNCq1vwCdOntQM4x5anW+AGV2xBl+ZdHtJbuYI2Q
+         yMD7ekXvY7854LVkHZPll6f0EhuAt6XqgYbrrZNXQgE+eMMwzuqKkpTb4Rs9wwG+FEax
+         MuDOBM8M/7LdosXbRc5qzYld42SCxsMQikFUVibYFafED1PzgxO0whePK2dSebnJEwyY
+         O8K5Ut5fXwPCfC5eUcOSwcki1tpAPVNu388DOtFvtiOg/YR0oriuBFJvI9tLwmko/NK/
+         OPCg==
+X-Gm-Message-State: AOJu0YzfbBTdu6YdskA2VUS+GdNmlFmVIAXdJ0j8qtP4+1BnfJWYbg3c
+	HW3/Ac8FmUlFyZvi5657isJmwu8wkAGd3p810dlMCsF2BonWwS4lhzk0ySVSskaNjTc=
+X-Gm-Gg: ATEYQzwPITIYkQtrTD9O0gFhbyq4fSyACHKdl09VD99Tdp6F0eZVju2e3kLToJY17Bg
+	zd4VwWiMedL5u+J7jzgYtVRwxt6qnapleUSGXLwvzdsDjsGaYcAGEHOQIAwhx3RrpfDodzbnKj7
+	sfC5SlNZUvgXBERhbd2ZxsA3cfxMWOdB6c1hnv3HPhlg253fit3oa70CVH/hH3KlagCVasSldsv
+	F+2HZopoH8XPbk/RtDXjK/qu2WUph/g6ldJ9gxxWmdx/WCN8G0Oiu2ZNDv9lafLBkVI+e2/DKDx
+	mmPwh9ooo7ouNou4nT7GeoV5pz4R1BTPSBWRDlMOpAUDRBL8/M/AzRG6P3e56s68s+RnqhNB/Mo
+	+6vEmvghnCqEy2sXVFKfk2kTMrRajisdBlenHwZueptk7u9GSv9jQioFkdshNPAd0zOBh+s7Dro
+	twzpSh3KNjOn9II+c964WBd7slXK/SLrbnSx+Xa7CsVidIATa9KCUkdmD2/ftrWV15cNQ0q2EL8
+	nYDxh91q2CdA7sG3oaC
+X-Received: by 2002:a05:690c:d8d:b0:798:78cc:3e54 with SMTP id 00721157ae682-798855df3b0mr150815947b3.48.1772559371384;
+        Tue, 03 Mar 2026 09:36:11 -0800 (PST)
+Received: from [192.168.5.15] ([12.55.13.134])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-79876a8df9bsm64750477b3.1.2026.03.03.09.36.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Mar 2026 09:36:10 -0800 (PST)
+From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Subject: [PATCH v7 0/3] Add Tenstorrent Atlantis Clock/Reset Controller
+Date: Tue, 03 Mar 2026 11:36:06 -0600
+Message-Id: <20260303-atlantis-clocks-v7-0-415c9dda086a@oss.tenstorrent.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next,v2,2/8] net: macb: rename macb_default_usrio to
- at91_default_usrio as not all platforms have mii mode control in usrio
-To: Conor Dooley <conor@kernel.org>, Jakub Kicinski <kuba@kernel.org>
-CC: <andrew+netdev@lunn.ch>, <richardcochran@gmail.com>,
-	<abin.joseph@amd.com>, <robh@kernel.org>, <edumazet@google.com>,
-	<netdev@vger.kernel.org>, <theo.lebrun@bootlin.com>, <pjw@kernel.org>,
-	<Valentina.FernandezAlanis@microchip.com>, <krzk+dt@kernel.org>,
-	<sean.anderson@linux.dev>, <aou@eecs.berkeley.edu>,
-	<linux-kernel@vger.kernel.org>, <alex@ghiti.fr>,
-	<devicetree@vger.kernel.org>, <palmer@dabbelt.com>,
-	<nicolas.ferre@microchip.com>, <vineeth.karumanchi@amd.com>,
-	<claudiu.beznea@tuxon.dev>, <samuel.holland@sifive.com>,
-	<daire.mcnamara@microchip.com>, <conor+dt@kernel.org>,
-	<dave.stevenson@raspberrypi.com>, <linux-riscv@lists.infradead.org>,
-	<davem@davemloft.net>, <conor.dooley@microchip.com>,
-	<narmstrong@baylibre.com>, <pabeni@redhat.com>
-References: <20260226-enjoyer-shock-e17f9dc7cbdb@spud>
- <20260228232600.4187398-1-kuba@kernel.org>
- <20260228-shopping-april-a8c4d2481cbe@spud>
-From: Ryan Wanner <ryan.wanner@microchip.com>
-Content-Language: en-US
-In-Reply-To: <20260228-shopping-april-a8c4d2481cbe@spud>
+X-B4-Tracking: v=1; b=H4sIAAYcp2kC/3XQwWrEIBAG4FdZPNfFGeO49tT3KHtQM+lKt7HEE
+ LYsefeahdJANhfhF+bzd+6i8JC4iNfDXQw8pZJyX4N9OYh48f0Hy9TWLFAhKQCUfrz6fkxFxmu
+ On0V2yqkIToUTtaJOfQ/cpdtDfD/XfEllzMPP44EJlts/y2ysCaSSVhtistDhKbzlUo4j9wsxc
+ D8eY/4SizrhSsJtqwmrFIm0BdKOifYlvZZoK+kqBQUE2hgDwe5LzUrSais1VWqoZYOtQYfNvmT
+ +pXpsJVMl5RC50T764PclWknw5He07CnUVuSNi1Y/l+Z5/gU6XC1HKgIAAA==
+X-Change-ID: 20260112-atlantis-clocks-f090c190b86d
+To: Drew Fustini <dfustini@oss.tenstorrent.com>, 
+ Joel Stanley <jms@oss.tenstorrent.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, 
+ Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, joel@jms.id.au, 
+ fustini@kernel.org, mpe@kernel.org, mpe@oss.tenstorrent.com, 
+ npiggin@oss.tenstorrent.com, agross@kernel.org, agross@oss.tenstorrent.com, 
+ bmasney@redhat.com, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_093519_479173_D7D1DCBF 
-X-CRM114-Status: GOOD (  45.87  )
+X-CRM114-CacheID: sfid-20260303_093613_055646_051BAA67 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,192 +113,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/28/26 17:06, Conor Dooley wrote:
-> Yo,
-> 
-> On Sat, Feb 28, 2026 at 03:26:00PM -0800, Jakub Kicinski wrote:
->> This is an AI-generated review of your patch. The human sending this
->> email has considered the AI review valid, or at least plausible.
->>
->> For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
->> ---
->> net: macb: rename macb_default_usrio to at91_default_usrio as not all
->> platforms have mii mode control in usrio
->>
->> This patch renames macb_default_usrio to at91_default_usrio to better
->> reflect that the usrio configuration is platform-specific, and
->> introduces a new capability flag (MACB_CAPS_USRIO_HAS_MII) to gate MII
->> mode configuration code for platforms that actually support it.
->>
->>> diff --git a/drivers/net/ethernet/cadence/macb.h b/drivers/net/ethernet/cadence/macb.h
->>> --- a/drivers/net/ethernet/cadence/macb.h
->>> +++ b/drivers/net/ethernet/cadence/macb.h
->>> @@ -779,6 +779,7 @@ #define MACB_CAPS_DMA_64B			BIT(21)
->>>  #define MACB_CAPS_DMA_PTP			BIT(22)
->>>  #define MACB_CAPS_RSC				BIT(23)
->>>  #define MACB_CAPS_NO_LSO			BIT(24)
->>> +#define MACB_CAPS_USRIO_HAS_MII			BIT(25)
->>>
->>>  /* LSO settings */
->>>  #define MACB_LSO_UFO_ENABLE			0x01
->>> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
->>> --- a/drivers/net/ethernet/cadence/macb_main.c
->>> +++ b/drivers/net/ethernet/cadence/macb_main.c
->>> @@ -4614,13 +4614,15 @@
->>>
->>>  	if (!(bp->caps & MACB_CAPS_USRIO_DISABLED)) {
->>>  		val = 0;
->>> -		if (phy_interface_mode_is_rgmii(bp->phy_interface))
->>> -			val = bp->usrio->rgmii;
->>> -		else if (bp->phy_interface == PHY_INTERFACE_MODE_RMII &&
->>> -			 (bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
->>> -			val = bp->usrio->rmii;
->>> -		else if (!(bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
->>> -			val = bp->usrio->mii;
->>> +		if (bp->caps & MACB_CAPS_USRIO_HAS_MII) {
->>> +			if (phy_interface_mode_is_rgmii(bp->phy_interface))
->>> +				val = bp->usrio->rgmii;
->>> +			else if (bp->phy_interface == PHY_INTERFACE_MODE_RMII &&
->>> +				 (bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
->>> +				val = bp->usrio->rmii;
->>> +			else if (!(bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
->>> +				val = bp->usrio->mii;
->>> +		}
->>>
->>>  		if (bp->caps & MACB_CAPS_USRIO_HAS_CLKEN)
->>>  			val |= bp->usrio->refclk;
->>
->> Can bp->usrio be NULL here? The new MACB_CAPS_USRIO_HAS_MII capability
->> gates the MII-related dereferences of bp->usrio, but bp->usrio is also
->> dereferenced when MACB_CAPS_USRIO_HAS_CLKEN is set.
->>
->> With the change to default_gem_config later in this patch:
->>
->> static const struct macb_config default_gem_config = {
->> 	...
->> 	.usrio = NULL,
->> 	...
->> };
->>
->> A device that matches the generic 'cdns,macb' compatible string (without
->> specific .data) will get bp->usrio = NULL during probe. If the device
->> tree then has 'cdns,refclk-ext', macb_configure_caps() adds
->> MACB_CAPS_USRIO_HAS_CLKEN without checking if bp->usrio is valid:
->>
->> macb_configure_caps() {
->> 	...
->> 	if (of_property_read_bool(np, "cdns,refclk-ext"))
->> 		bp->caps |= MACB_CAPS_USRIO_HAS_CLKEN;
->> 	...
->> }
->>
->> Then in macb_init(), the code would dereference bp->usrio->refclk with
->> bp->usrio being NULL, causing a crash.
->>
->> The MACB_CAPS_USRIO_HAS_MII gate only protects the MII-related
->> dereferences above, not the CLKEN dereference.
-> 
-> AI makes a good point here, but in one way this isn't even a problem
-> with the patchset, it's actually another example of the sort of thing
-> that I am trying to get rid of from the driver. As far as I can tell,
-> this was added very recently, for the emac on sama7g5. The sama7g5-emac
-> sets this cap in its match data, as do several other devices, so this
-> code that sets the cap based on the dt property isn't needed.
-> 
-> I would like to get rid of setting the cap based on the dt property,
-> because it is inherently tied to how at91 have their USRIO set up.
-> Other platforms that want to use this external refclk might use a
-> different mechanism for the selection, or only support an external
-> source. What USRIO does is very platform specific, so it should be
-> something that is opted in to explicitly. I didn't ask for the property
-> to be bound to only the at91 devices that use it when I reviewed the
-> binding, because I figured other platforms might be able to reuse the
-> property and that's also why I didn't ask for a microchip prefix on the
-> property. For the driver to reflect that general use, it shouldn't then
-> do at91-specific things when the property is present.
-> 
-> Ryan, how does this property actually work now, given your removal
-> of the cap from match data was reverted? I feel like it just doesn't do
-> what you want it to do anymore? Before the revert, having the property
-> meant that the value in sama7g5_usrio.refclk would be written to the
-> hardware and not having the property meant that the bit would remain
-> unset. You then had to revert to avoid breaking old devices, because
-> your property changed the default behaviour for the emac, so now having
-> the property means that the value in sama7g5_usrio.refclk is written to
-> the hardware, but that also happens without the property because the cap
-> is set in the match data.
+This series adds support for a multifunctional register block
+called PRCM in the Tenstorrent Atlantis SoC, whose main functionality
+is to serve clocks and resets. This block is instantiated multiple
+times in the SoC, with each block covering clock/resets from a
+different subsystem. This series also adds a driver that covers clocks
+and resets from the RCPU subsystem, which covers most low speed IO
+interfaces found in the chip. The reset controller is implemented as
+an auxiliary device of the clock controller and shares the same regmap
+as it.
 
-So even with the revert the patch still does what it is intended to do,
-mainly for the sama7g5_gem and the newer SAM devices, sam9x75 and sama7d65.
+The first commit adds bindings documenting the PRCM block, along with
+clock and reset indices. The second commit adds the reset controller
+driver. The third commit adds the clock controller driver, and the reset
+controller is created as an auxdev of it.
 
-Currently with the removal of the change to the emac there is no
-functional difference. With the newer SAM devices that need this usrio
-flexibility this patch still works.
+Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 
-How this works now is for sama7g5_gmac configs, the default is to use
-the internal clock for refclk then adding that dt property will set that
-bit to 1 and refclk will be from an external source. For the
-sama7g5_emac configs this has no effect due to ABI.
-> 
-> Unless I am missing something, should we not actually revert
-> dce32ece3bb8f ("net: cadence: macb: Expose REFCLK as a device tree
-> property") and 1b7531c094c88 ("dt-bindings: net: cdns,macb: Add external
-> REFCLK property"), and instead add a property like
-> "microchip,refclk-internal", because that would actually let you
-> override the default behaviour of the driver?
+---
+Changes in v7:
+- Rebase on v7.0-rc1
+- Added Rb tags for Patch 1 from Krzysztof and Rb+Ab tags for Patch 2
+  from Philipp
+- Addressed comments from Brian on on making clk_ops const static and
+  use of !! operator for non zero value checking in atlantis_clk_gate_is_enabled
+- Removed multiple error messages that would be printed on failure to
+  register a clk
+- Corrected clock-gating bits for some of the PLLs and adjusted
+  pll_is_enabled function accordingly
+- Link to v6: https://lore.kernel.org/r/20260216-atlantis-clocks-v6-0-cb46d6a59c73@oss.tenstorrent.com
 
-I think this could be the better way to go as this keeps the existing
-behavior for the legacy devices while still allowing the initial goal of
-the patch series. Seems it would be more strait forward in the ABI sense
-to have a "microchip,refclk-internal" property than an "refclk-ext"
-property and having the risk of breaking older devices.
+Changes in v6:
+- Renamed bindings for PRCM module from "tenstorrent,atlantis-prcm" to
+  "tenstorrent,atlantis-prcm-rcpu" so that filename matches compatible
+- Updated reset driver to fetch parent device's regmap instead of using
+  auxdev structs
+- Moved reset register offsets from include/soc/tenstorrent header to
+  reset driver
+- In light of above 2 changes, dropped dropped Rb tags for reset
+  controller patch from Philipp Zabel
+- Moved clock register offsets offsets from include/soc/tenstorrent
+  header to clock driver
+- Removed shared header file in include/soc/tenstorrent
+- Remove boilerplate code for initializing and register reset auxdev in
+  clock driver and create it using devm_auxiliary_device_create instead
+- Removed struct atlantis_prcm and it's occurrences as it is actually
+  not used anywhere
+- Fixed an incorrect use of boolean && instead of bitwise & in pll ops
+  in clock driver
+- Link to v5: https://lore.kernel.org/r/20260202-atlantis-clocks-v5-0-0922e43acaba@oss.tenstorrent.com
 
-Just my train of thought with this,
-Ryan
-> 
-> Cheers,
-> Conor.
-> 
->>
->>> @@ -4638,13 +4640,6 @@
->>>  	return 0;
->>>  }
->>>
->>> -static const struct macb_usrio_config macb_default_usrio = {
->>> -	.mii = MACB_BIT(MII),
->>> -	.rmii = MACB_BIT(RMII),
->>> -	.rgmii = GEM_BIT(RGMII),
->>> -	.refclk = MACB_BIT(CLKEN),
->>> -};
->>> -
->>
->> [ ... ]
->>
->>> @@ -5219,6 +5214,13 @@ static int eyeq5_init(struct platform_device *pdev)
->>>  	return ret;
->>>  }
->>>
->>> +static const struct macb_usrio_config at91_default_usrio = {
->>> +	.mii = MACB_BIT(MII),
->>> +	.rmii = MACB_BIT(RMII),
->>> +	.rgmii = GEM_BIT(RGMII),
->>> +	.refclk = MACB_BIT(CLKEN),
->>> +};
->>> +
->>
->> [ ... ]
->>
->>> @@ -5432,7 +5448,7 @@ MODULE_DEVICE_TABLE(of, macb_dt_ids);
->>>  	.dma_burst_length = 16,
->>>  	.clk_init = macb_clk_init,
->>>  	.init = macb_init,
->>> -	.usrio = &macb_default_usrio,
->>> +	.usrio = NULL,
->>>  	.jumbo_max_len = 10240,
->>>  };
->>>
->> -- 
->> pw-bot: cr
+Changes in v5:
+- Replaced to_atlantis_*/hw_to_atlantis_* macros with static inline functions in clk and reset driver
+- Add Rb tags from Philipp Zabel
+- Link to v4: https://lore.kernel.org/r/20260130-atlantis-clocks-v4-0-46de52d52924@oss.tenstorrent.com
+
+Changes in v4:
+- Dropped !rcpu prcms and custom property used by them. Will be added
+  later with rest of clock tree
+- Link to v3: https://lore.kernel.org/r/20260126-atlantis-clocks-v3-0-b016135551b7@oss.tenstorrent.com
+
+Changes in v3:
+- Fixed warnings reported by kernel test bot
+- Addressed comments on reset driver bit set/unset value
+- Changed auxdev macros to use inline functions
+- Renamed bindings and clock driver to use block's name of "PRCM" rather
+  than syscon
+- Link to v2: https://lore.kernel.org/r/20260122-atlantis-clocks-v2-0-c66371639e66@oss.tenstorrent.com
+
+Changes in v2:
+- Improve the documentation about the syscon block in bindings
+- Implemented all clks using custom ops
+- Removed custom lock/lock handling functions for regmap
+- Addressed comments on header file ordering, newlines and typos
+- Removed code for mux parent setting
+- Squashed down multiple commits that added reset/auxdev separately
+- Link to v1: https://lore.kernel.org/r/20260115-atlantis-clocks-v1-0-7356e671f28b@oss.tenstorrent.com
+
+---
+Anirudh Srinivasan (3):
+      dt-bindings: clk: tenstorrent: Add tenstorrent,atlantis-prcm-rcpu
+      reset: tenstorrent: Add reset controller for Atlantis
+      clk: tenstorrent: Add Atlantis clock controller driver
+
+ .../clock/tenstorrent,atlantis-prcm-rcpu.yaml      |  54 ++
+ MAINTAINERS                                        |   4 +
+ drivers/clk/Kconfig                                |   1 +
+ drivers/clk/Makefile                               |   1 +
+ drivers/clk/tenstorrent/Kconfig                    |  14 +
+ drivers/clk/tenstorrent/Makefile                   |   3 +
+ drivers/clk/tenstorrent/atlantis-prcm.c            | 893 +++++++++++++++++++++
+ drivers/reset/Kconfig                              |  11 +
+ drivers/reset/Makefile                             |   1 +
+ drivers/reset/reset-tenstorrent-atlantis.c         | 173 ++++
+ .../clock/tenstorrent,atlantis-prcm-rcpu.h         | 103 +++
+ 11 files changed, 1258 insertions(+)
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260112-atlantis-clocks-f090c190b86d
+
+Best regards,
+-- 
+Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 
 
 _______________________________________________
