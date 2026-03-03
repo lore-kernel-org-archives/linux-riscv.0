@@ -4,99 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D3CEDEBE5
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 19:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D925EDEBF0
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 20:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YQ2vH+N8McL85eoENtqmfvIMnviBu1Tu9zSto3y2jTc=; b=3vd9myqtNrKTi7
-	Qjq1lgTae77Smd4M1jUCBA21cKU5zsujqszA1VxUSoAfa+zTqqeeAM7hTp5K9bx3etNk/n6iGUkpL
-	vcO+lfxY3LErh52LjLClkCfBsmJ3dwifNYue5DpZTk8Na+xoiofWr+ca7nO6lNxTPQKvWvuo2144j
-	l1kwFCy8h5c5/k/Hik0ja9rp79Itzzo4o9EFTgFDhliDQZTGOY2DbhpsB6jNdBj1zRSvG601iThUP
-	ofsJ9U8Q8T74AuzOb218d5Uy7vgZ+u9PoXh63aNvhEqJyk0RS1yt7TNEN0Dzdc0iiypFzWPalmlYO
-	qW1sSOuyFYT4S3PdU79w==;
+	List-Owner; bh=QKEOAWPa9qJPavczKjl+XTxZA+uUI6Z5WlGllPIXc/Q=; b=HswCWK3WeMs+G4
+	i4EZcGMmE5d7tHg+1iNMkrDcLSpzz4F8g/DvTF4lmOseimySXwo2RuUece+pJyzfV/hcOORCDrYU9
+	c7wAzRYq6/W8gotYCWXfRV5t5HeU7OA0jbFGpej3iUC2VT0OA+70iwC+Rkjt/SwCfEdtHDJ4uWJCj
+	SK5nPhC41xodiQxtkNKdMNRFY23tmrBKdqcgxtXnlW+rUKmQpymfnQyqYlXL2B8N78eqA7ByH7gm6
+	DQPMVMUesd6iruWqlR+mjT3EJqUH75oNChc8PYQwPksmNlVZMvJHAw/Oq5d2cnB5oPZQi0ynbzi+m
+	AtUCfshG4W+XiQmrE+eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVqt-0000000FrLG-17Jr;
-	Tue, 03 Mar 2026 19:56:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vxWVz-0000000FvBt-1UqE;
+	Tue, 03 Mar 2026 20:38:47 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVqq-0000000FrKM-1TTZ;
-	Tue, 03 Mar 2026 19:56:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A583F40684;
-	Tue,  3 Mar 2026 19:56:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1644C116C6;
-	Tue,  3 Mar 2026 19:56:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772567774;
-	bh=9sr6A1ZQ/OAOM0MyaKuNScWB7UA08hne7lVI9ssYSPg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mHMra/+se8TmXPAvXWkLhgpf0kETRB4dEaJCtUtlUTftYpe0ReqfitRfwD4MGq4+T
-	 WuzDe+k5qMfwF8Pvg7plbRdHjZuWKh+IB7lEOogeIHeGkKvwd2/EpZagMr99KeT7V+
-	 XN7WYkTp/J6gkuhSVqd3D55QMpvT59XaPLLtFxjhlFBUF5SPdV1HoakLZQKIIo/fdH
-	 BGibgd4432V2o3DyL8VfocxjZKarY5SdEW/Gzxyc6CkyylsV/unCa5mrJJyTo1wkxn
-	 QMVCX29BeW41faad8f8MgUVR1waChaWC40npYyOs3agb3dJecKXchWeHWLYBSYXFrd
-	 nwEHrCxoK1HSw==
-Date: Tue, 3 Mar 2026 11:55:17 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	id 1vxWVw-0000000FvBK-3TZd
+	for linux-riscv@lists.infradead.org;
+	Tue, 03 Mar 2026 20:38:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=ZN9YjA7A/E5P7KV/eCgsd8bu8xvdRjvgUVEuCuL5dSI=; b=kF5mi4y4bri056BNgYXfAyhKzE
+	SLZLqP74NX0rq7RrkYwmymPIZ5Vvl1XuDfCR7Ua3Ba0ntlotelICnOhisN57V4qyfT6mGODYpUwZ6
+	o/cIpbd7nuZxP/TOEoSWjY+mE/K7qMOnHo+IJUrA7/vMxUJ+R7rR+nFH73VMVK+kluEwN/FYNOU97
+	rA5pA0P/IVs+eXXCwoJg/bacFLbB/WSmY1pnA13Lf8XuOVyuUhrOX3thTmu1/iH3HVHIKxVQ0tqnX
+	45pnL5MYzw7X51YFEXGzONYfvQLpF1rHdnjlEwUGDRHyMEnxwwqMneDqOWXiOu9BXoY4SCnQCFHEV
+	O0ZC14QQ==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1vxWVf-0000000EkpA-3dfF;
+	Tue, 03 Mar 2026 21:38:27 +0100
+Date: Tue, 3 Mar 2026 21:38:27 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Yanko Kaneti <yaneti@declera.com>
+Cc: linux-kernel@vger.kernel.org, Lee Jones <lee@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>, linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 01/25] xor: assert that xor_blocks is not called from
- interrupt context
-Message-ID: <20260303195517.GC2846@sol>
-References: <20260226151106.144735-1-hch@lst.de>
- <20260226151106.144735-2-hch@lst.de>
- <20260227142455.GG1282955@noisy.programming.kicks-ass.net>
- <20260303160050.GB7021@lst.de>
+	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
+Subject: Re: [PATCH v5 2/2] mfd: simple-mfd-i2c: add a reboot cell for the
+ SpacemiT P1 chip
+Message-ID: <aadGw1fIlJyNNoum@aurel32.net>
+Mail-Followup-To: Yanko Kaneti <yaneti@declera.com>,
+	linux-kernel@vger.kernel.org, Lee Jones <lee@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
+References: <20251102230352.914421-1-aurelien@aurel32.net>
+ <20251102230352.914421-3-aurelien@aurel32.net>
+ <b51a62513daa9d2390031ec350e0b33bdb7e54aa.camel@declera.com>
+ <aaC78FTN31QYaVg0@aurel32.net>
+ <990bc03ed2baa05e619f0aa9cc6a23acadd66ea6.camel@declera.com>
+ <aaS6xeKFZz06fb1_@aurel32.net>
+ <aaXuWwyA5NzBZzlW@aurel32.net>
+ <36f8df695463e5ff3eaaffbac357fc73026f7373.camel@declera.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260303160050.GB7021@lst.de>
+In-Reply-To: <36f8df695463e5ff3eaaffbac357fc73026f7373.camel@declera.com>
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_115616_435289_0CAC4101 
-X-CRM114-Status: GOOD (  19.58  )
+X-CRM114-CacheID: sfid-20260303_123844_894320_40788B96 
+X-CRM114-Status: GOOD (  35.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,56 +99,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 03, 2026 at 05:00:50PM +0100, Christoph Hellwig wrote:
-> On Fri, Feb 27, 2026 at 03:24:55PM +0100, Peter Zijlstra wrote:
-> > >  	unsigned long *p1, *p2, *p3, *p4;
-> > >  
-> > > +	WARN_ON_ONCE(in_interrupt());
-> > 
-> > Your changelog makes it sound like you want:
-> > 
-> > 	WARN_ON_ONCE(!in_task());
-> > 
-> > But perhaps something like so:
-> > 
-> > 	lockdep_assert_preempt_enabled();
-> > 
-> > Would do? That ensures we are in preemptible context, which is much the
-> > same. That also ensures the cost of this assertion is only paid on debug
-> > kernels.
+Hi,
+
+On 2026-03-02 22:34, Yanko Kaneti wrote:
+> Hello,
 > 
-> No idea honestly.  The kernel FPU/vector helpers generally don't work
-> from irq context, and I want to assert that.  Happy to do whatever
-> version works best for that.
+> On Mon, 2026-03-02 at 21:08 +0100, Aurelien Jarno wrote:
+> > On 2026-03-01 23:16, Aurelien Jarno wrote:
+> > > On 2026-02-27 13:29, Yanko Kaneti wrote:
+> > > > On Thu, 2026-02-26 at 22:32 +0100, Aurelien Jarno wrote:
+> > > > > Hi,
+> > > > > 
+> > > > > On 2026-02-26 16:32, Yanko Kaneti wrote:
+> > > > > > Hello,
+> > > > > > 
+> > > > > > On Mon, 2025-11-03 at 00:02 +0100, Aurelien Jarno wrote:
+> > > > > > > Add a "spacemit-p1-reboot" cell for the SpacemiT P1 chip.
+> > > > > > > 
+> > > > > > > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+> > > > > > > ---
+> > > > > > > v5: no changes
+> > > > > > > 
+> > > > > > >  drivers/mfd/simple-mfd-i2c.c | 1 +
+> > > > > > >  1 file changed, 1 insertion(+)
+> > > > > > > 
+> > > > > > > diff --git a/drivers/mfd/simple-mfd-i2c.c b/drivers/mfd/simple-mfd-i2c.c
+> > > > > > > index 0a607a1e3ca1d..542d378cdcd1f 100644
+> > > > > > > --- a/drivers/mfd/simple-mfd-i2c.c
+> > > > > > > +++ b/drivers/mfd/simple-mfd-i2c.c
+> > > > > > > @@ -99,6 +99,7 @@ static const struct regmap_config spacemit_p1_regmap_config = {
+> > > > > > >  };
+> > > > > > >  
+> > > > > > >  static const struct mfd_cell spacemit_p1_cells[] = {
+> > > > > > > +	{ .name = "spacemit-p1-reboot", },
+> > > > > > >  	{ .name = "spacemit-p1-regulator", },
+> > > > > > >  	{ .name = "spacemit-p1-rtc", },
+> > > > > > >  };
+> > > > > > 
+> > > > > > Perhaps its safe to merge this one now that everything P1 and I2C is
+> > > > > > already in linus tip ?
+> > > > > 
+> > > > > Unfortunately, this patchset is still missing:
+> > > > > https://lore.kernel.org/all/20260207-b4-k3-i2c-pio-v7-0-626942d94d91@linux.spacemit.com/
+> > > > > 
+> > > > > This means the reboots work most of the time, but are not 100% reliable, 
+> > > > > and that's the reason why this patch got blocked from merging.
+> > > > 
+> > > > I see. Thanks. Sounds to me like sometimes working compared to never
+> > > > working is better , but anyway..
+> > > 
+> > > I agree with that, but the decision was to hold on this patch until the 
+> > > I2C PIO part got merged.
+> > > 
+> > > > FWIW  with this patch and the pio patcheset I get this rcu splat on
+> > > > reboot (which is still working). Similar splat is there without the pio
+> > > > patcheset.
+> > > 
+> > > I haven't been able to reproduce the issue here after 10+ reboots on a 
+> > > BPI-F3 board, but I tried the patch on top of 6.19. I'll try to build a 
+> > > 7.0.0-rc2 kernel and report back.
+> > 
+> > I have tried that, and I am still unable to reproduce the issue with a 
+> > 7.0.0-rc2 kernel and a BPI-F3 board.
+> 
+> I can still see it on every reboot (with the patches that allow reboot
+> to work). Do you have CONFIG_PREEMPT_RCU in your config ? its default on
+> when anything PREEMPT is selected. In Fedora its CONFIG_PREEMPT_DYNAMIC
+> that flips it.
 
-may_use_simd() is the "generic" way to check "can the FPU/vector/SIMD
-registers be used".  However, what it does varies by architecture, and
-it's kind of a questionable abstraction in the first place.  It's used
-mostly by architecture-specific code.
+Thanks for the hint, that option was not activated here, it's not the 
+riscv64 defconfig. With it I am also able to reproduce the issue. I'll 
+try to debug that and report back.
 
-If you union together the context restrictions from all the
-architectures, I think you get: "For may_use_simd() to be guaranteed not
-to return false due to the context, the caller needs to be running in
-task context without hardirqs or softirqs disabled."
+Regards
+Aurelien
 
-However, some architectures also incorporate a CPU feature check in
-may_use_simd() as well, which makes it return false if some
-CPU-dependent SIMD feature is not supported.
-
-Because of that CPU feature check, I don't think
-"WARN_ON_ONCE(!may_use_simd())" would actually be correct here.
-
-How about "WARN_ON_ONCE(!preemptible())"?  I think that covers the union
-of the context restrictions correctly.  (Compared to in_task(), it
-handles the cases where hardirqs or softirqs are disabled.)
-
-Yes, it could be lockdep_assert_preemption_enabled(), but I'm not sure
-"ensures the cost of this assertion is only paid on debug kernels" is
-worth the cost of hiding this on production kernels.  The consequences
-of using FPU/vector/SIMD registers when they can't be are very bad: some
-random task's registers get corrupted.
-
-- Eric
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
