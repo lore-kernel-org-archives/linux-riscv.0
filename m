@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB193EDA693
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:07:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEEF6EDA693
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XsP+OpKa4G+DiRJncv0H7pps+h5rqnsvhqmbOAXF5Yw=; b=A2ZrR9mBQJ3OOg
-	z/A061IipP2nGP6GfprdbyJqYDFHacueCsRbOCXQsvK+hoNT3v7vuRLBqUncy2neCQNR8L0u0ednX
-	dk94ydbT5IgW79uGamhxphYbQPiRlFG6qZJTHqXpx68AKsyt3SVQHNA185k/gT9QTpJP+IVXwuFAn
-	jzc+6TwKejwcGEdgC9DlxKMj++5w9wtqyH2gf6DRbnRcV8HMsNE3INa8XN70rFPZ+WetlED6N4R8Q
-	nIn/qbXueH9UC7fS9ZKrvqwSynE8okFzoYltfAbwBpPEIP1I3E42IAQW5ElrcwbSYi/bO63EEWPzP
-	dQgub8xwE0Zms1QEZs0w==;
+	List-Owner; bh=JrWip/7wPTiiKi3a6dehGjARW24i0V3wo4oGAB/fNQE=; b=UE4DGtFlTtZ+Cd
+	GPmDvg6r/oD8e0XNNC3uYIlnOoc2/lMt7gyCfcKcPs73YjBP6d5p4fEDgy4t1/wdD1y5wuJ34RWXR
+	/NMdT0DasPjgYyh26Y1cA/nRH6ZV2Y9S4VIXEaEFBxVG+vsIVzAJozkxRZ8Q94ag0DYfqR92AIhtj
+	2tisIICYU19xEx6AzLEqNw/hyJXiVLZc8rLZaqUvfbdoIHRG7+RyQOKZUyvPJl82urWDz1u5kV7v9
+	Cx3JokM/ZjQr76s3akZyFpsGXDjcPAAhFkFl/zDKRL1gMrED9G/IzcrM5539X2nm1cKsEVItNLioP
+	UQQ8IPWO3IofOuhnFoxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSHQ-0000000FWUg-1Dox;
-	Tue, 03 Mar 2026 16:07:28 +0000
+	id 1vxSJD-0000000FWlM-45Ew;
+	Tue, 03 Mar 2026 16:09:19 +0000
 Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSHN-0000000FWTH-3NCa;
-	Tue, 03 Mar 2026 16:07:26 +0000
+	id 1vxSJB-0000000FWkJ-1mcx;
+	Tue, 03 Mar 2026 16:09:18 +0000
 Received: by verein.lst.de (Postfix, from userid 2407)
-	id 4F76C68C4E; Tue,  3 Mar 2026 17:07:22 +0100 (CET)
-Date: Tue, 3 Mar 2026 17:07:21 +0100
+	id C608B68BFE; Tue,  3 Mar 2026 17:09:11 +0100 (CET)
+Date: Tue, 3 Mar 2026 17:09:11 +0100
 From: Christoph Hellwig <hch@lst.de>
 To: Eric Biggers <ebiggers@kernel.org>
 Cc: Christoph Hellwig <hch@lst.de>,
@@ -71,16 +71,17 @@ Cc: Christoph Hellwig <hch@lst.de>,
 	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
 	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 21/25] xor: add a better public API
-Message-ID: <20260303160721.GH7021@lst.de>
-References: <20260226151106.144735-1-hch@lst.de> <20260226151106.144735-22-hch@lst.de> <20260228065038.GH65277@quark>
+Subject: Re: [PATCH 09/25] xor: move generic implementations out of
+ asm-generic/xor.h
+Message-ID: <20260303160911.GI7021@lst.de>
+References: <20260226151106.144735-1-hch@lst.de> <20260226151106.144735-10-hch@lst.de> <20260228071521.GK65277@quark>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260228065038.GH65277@quark>
+In-Reply-To: <20260228071521.GK65277@quark>
 User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_080726_018419_E751FB9F 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20260303_080917_611087_B1EF52B7 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,14 +98,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026 at 10:50:38PM -0800, Eric Biggers wrote:
-> The alignment requirements on the vectors should be documented, as
-> should which values of bytes are accepted.  It looks like, at the very
-> least, the vectors have to be 32-byte aligned and the length has to be a
-> nonzero multiple of 512 bytes.  But I didn't check every implementation.
+On Fri, Feb 27, 2026 at 11:15:21PM -0800, Eric Biggers wrote:
+> This makes the generic code always be included in xor.ko, even when the
+> architecture doesn't need it.  For example, x86_64 doesn't need it,
+> since it always selects either the AVX or SSE code.
 
-That would match the original use case in the md raid code and also in
-file system uses such as btrfs, yes.
+True.  OTOH it is tiny.
+
+> Have you considered putting the generic code in xor-core.c (or in
+> headers included by it) before xor_arch.h is included, and putting
+> __maybe_unused on the xor_block_template structs?  Then they'll still be
+> available for arch_xor_init() to use, but any of them that aren't used
+> in a particular build will be optimized out as dead code by the
+> compiler.
+
+And earlier version did this, but it's a bit ugly.  What I might
+consider is to require architectures that provide optimized version
+to opt into any generic one they want to use.  This would require
+extra kconfig symbols, but be a lot cleaner overall.
 
 
 _______________________________________________
