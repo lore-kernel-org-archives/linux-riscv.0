@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 603A0EDA693
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:04:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 848F2EDA68D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t5bfpGem81QrHvt7zDPjLwkB7S/gsznwaG2jpYyO5gI=; b=wBprpMJ5T5Epew
-	6cH8oLvWSDlGq9ckcvZ6HMj4zrRmEf7IxrMHfLoFolDmYCmt848xjVyUJSnZsfbmD5ZBAmcgLntsC
-	IVpWDFxYUBCzlKF9ljCMPEBUClSywQ6bcYBy3BnsN/tcq+M38zxiXxwA4ajGL4+VTHK1HwAomIHeB
-	0nXxIvNOe7637vrR9m2kFPK1DcsZRON43/Gyl6HrtKXYS4Pw6q25KrEbGxVahdgNf7Q3lPogaGcPt
-	fBjVnrnhUQ74zYU7LrMNxGEiFEBnqeFf1drtK4J/sva7EoVQyaCOJs14A1llqJWys+lY6Ebvr/F9V
-	BolHMZNG3dm3lE02qmdQ==;
+	List-Owner; bh=vBltp2Bi/kEFeDOCC78aK8kOx3ppMAKgY8cYK6g44ak=; b=RkIisD7hp2gc0H
+	XVtSa8YK3aUXLFgI4YWzcQX0eiBFCKTSHYTGJ+RkrX3U2o3gdSE8DGqj4EUe1BpcYqFRsITYsYl4T
+	D//6b/6UF86UiGKThijPJ7UVK6rKlM2tpeafZPuvJ3q+z7+f5uEGILsqGPNS5fbIHQPXmEB5drryC
+	5nO2me+ASNHpDCIH488oR/wr2gzmFJaxpqO2Qm0Kr4S1IwccrGuIsGDXI5kB/t4LRZeQV5iPK0VcZ
+	jt5xVuvrdIMn1gGaG8iKGI/OvFqgiK92ALVVywyZ91628eYdiVsEpNp3xRj1qI+EhLyOcPz3MZPDR
+	/GACaceApXwVrpG+fG+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSEg-0000000FVpX-2H9U;
-	Tue, 03 Mar 2026 16:04:38 +0000
+	id 1vxSFs-0000000FW24-3XQi;
+	Tue, 03 Mar 2026 16:05:52 +0000
 Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSEa-0000000FVoB-2C5i;
-	Tue, 03 Mar 2026 16:04:37 +0000
+	id 1vxSFp-0000000FW1R-3smI;
+	Tue, 03 Mar 2026 16:05:51 +0000
 Received: by verein.lst.de (Postfix, from userid 2407)
-	id 2F91868BEB; Tue,  3 Mar 2026 17:04:29 +0100 (CET)
-Date: Tue, 3 Mar 2026 17:04:28 +0100
+	id BF4F068BEB; Tue,  3 Mar 2026 17:05:46 +0100 (CET)
+Date: Tue, 3 Mar 2026 17:05:46 +0100
 From: Christoph Hellwig <hch@lst.de>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Christoph Hellwig <hch@lst.de>,
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Eric Biggers <ebiggers@kernel.org>, Christoph Hellwig <hch@lst.de>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Richard Henderson <richard.henderson@linaro.org>,
 	Matt Turner <mattst88@gmail.com>,
@@ -71,16 +71,16 @@ Cc: Christoph Hellwig <hch@lst.de>,
 	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
 	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 16/25] sparc: move the XOR code to lib/raid/
-Message-ID: <20260303160428.GE7021@lst.de>
-References: <20260226151106.144735-1-hch@lst.de> <20260226151106.144735-17-hch@lst.de> <20260228054716.GF65277@quark>
+Subject: Re: [PATCH 18/25] x86: move the XOR code to lib/raid/
+Message-ID: <20260303160546.GF7021@lst.de>
+References: <20260226151106.144735-1-hch@lst.de> <20260226151106.144735-19-hch@lst.de> <20260227143016.GH1282955@noisy.programming.kicks-ass.net> <20260227235529.GA31321@quark> <20260228103117.GK1282955@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260228054716.GF65277@quark>
+In-Reply-To: <20260228103117.GK1282955@noisy.programming.kicks-ass.net>
 User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_080432_859547_52968550 
-X-CRM114-Status: GOOD (  22.49  )
+X-CRM114-CacheID: sfid-20260303_080550_114558_DED1290C 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,44 +97,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026 at 09:47:16PM -0800, Eric Biggers wrote:
-> On Thu, Feb 26, 2026 at 07:10:28AM -0800, Christoph Hellwig wrote:
-> > diff --git a/arch/sparc/lib/xor.S b/lib/raid/xor/sparc/xor-niagara.S
-> > similarity index 53%
-> > rename from arch/sparc/lib/xor.S
-> > rename to lib/raid/xor/sparc/xor-niagara.S
-> > index 35461e3b2a9b..f8749a212eb3 100644
-> > --- a/arch/sparc/lib/xor.S
-> > +++ b/lib/raid/xor/sparc/xor-niagara.S
-> > @@ -1,11 +1,8 @@
-> >  /* SPDX-License-Identifier: GPL-2.0 */
-> >  /*
-> > - * arch/sparc64/lib/xor.S
-> > - *
-> >   * High speed xor_block operation for RAID4/5 utilizing the
-> > - * UltraSparc Visual Instruction Set and Niagara store-init/twin-load.
-> > + * Niagara store-init/twin-load.
-> >   *
-> > - * Copyright (C) 1997, 1999 Jakub Jelinek (jj@ultra.linux.cz)
-> >   * Copyright (C) 2006 David S. Miller <davem@davemloft.net>
-> >   */
-> >  
-> > @@ -16,343 +13,6 @@
-> >  #include <asm/dcu.h>
-> >  #include <asm/spitfire.h>
-> >  
-> 
-> <linux/export.h> can be removed from the two assembly files, since all
-> the invocations of EXPORT_SYMBOL() in them were removed.
-> 
-> Also, xor-niagara.S ended up without a .text directive at the beginning.
-> Probably it was unnecessary anyway.  However, this seems unintentional,
-> given that xor-vis.S still has it.
+On Sat, Feb 28, 2026 at 11:31:17AM +0100, Peter Zijlstra wrote:
+> Hmm, I suppose. Its just weird that we now have to look in both
+> arch/$foo and lib/*/$foo/ to find all arch code.
 
-I'll probably undo the split and just do the mechanical move for the
-next version.  This was a bit too much change even if a split would be
-my preferred outcome.
+We've had instance of that for a long time, e.g. lib/raid6/
 
+> And I don't suppose symlinks would make it better?
+
+Ugg, just purely from the organizaton perspective it would make
+things a lot worse.  I'm also not sure how well git copes with
+symlinks.
 
 _______________________________________________
 linux-riscv mailing list
