@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A20EDA6B4
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 17:10:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 936F3EDA6B2
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 17:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CdBg5Sj9qJcjpbVOL3bS1KOlUFRr9PL9k4N95dRDHn8=; b=FjtwfzFn4Uwh1I
-	huGJ+2RXmAAUUbmlwf3BS9p56THFIAZUaBkwmycaP8ElXJpI6EJOr68fycvzfBm4KeWbHpNgveM4m
-	3Z+n+yWfSlhUcO6VpDCJQs6ZDCmMFrIB0IppvYl4VxvAKm7sgCdNoqEoAxGM6LykNSghuf2mokHyf
-	JUzTfmVrVYmmFapn0b570QTUXgEjIt1hlrY026X6Bk05tZMzU85ZhIfnkpZAMYCKT9Hz7Lo/UEtBA
-	y0eGNXuHhN078+9B78HG/1XNW9xCsKKeo4onU/v8q8BffvI6gXvN62A5hFwrvX+p5X6pjkMHxUIzo
-	I/w0aqstZHa178XNDP5Q==;
+	List-Owner; bh=x6UpLtOELZ3W6WNqjfaY/sw3VO1MCiIIAgyfLtkrZK8=; b=u8IzNNhTs7JPv/
+	o3G9b44QojHXEY6rKzGEFylrvnJD1B0e+FZ6I3E0E8E5ksA5JC+OOLUoFveMEw+Y9qcfm9rjFb46g
+	G+sma5MfEKcVPyyrlziDLMqIYMkJ9ELvGnzy80LxQKsAxWJuV/quS9gxPdrT5L+Zg8dwSiJsHh8dI
+	Ys90Ezyo181NFNwaLVuDtNMmAJ2a2UAs3pOMnVA0frm9AoI72EU/3RRegR8UzvivaXn5sHZQPArqE
+	qMBGH8lMGFDH+Nf3v2yl6XFTpBEcO+2SwojTC6UkKm4YUROfQwiKUIi17VOTxKnyx1m4XcCTefsD9
+	muoVy1xWtHKnd2H8sQZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxTFw-0000000Fcj2-0x8I;
-	Tue, 03 Mar 2026 17:10:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxTMT-0000000FdGo-2vtv;
+	Tue, 03 Mar 2026 17:16:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxTFu-0000000FciQ-2E2O
+	id 1vxTMR-0000000FdGe-3lRn
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Mar 2026 17:09:59 +0000
+	Tue, 03 Mar 2026 17:16:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BF97641A74;
-	Tue,  3 Mar 2026 17:09:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05ED9C116C6;
-	Tue,  3 Mar 2026 17:09:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4818660008;
+	Tue,  3 Mar 2026 17:16:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43C70C116C6;
+	Tue,  3 Mar 2026 17:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772557797;
-	bh=Ed+bCSB3ThJGp+/vAu9s2Q+ELZixwlGJmuotKDRz82k=;
+	s=k20201202; t=1772558201;
+	bh=89uuC9cegDpYKojzKKoYfuDwsIEFdHdSqezxCAPjCPQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=W2oaRn9uiUQSef6/Ag2S7rjVC4JmRCNFZ7VrqoeUSIXgO0UpEYy0N4k9a0joQTKUo
-	 +/5AUpDvxrutE3gyeYcEhN9sIbBmZ/iT+gFFOOfXyznFhKwfNGuCBtoKxPebNSuSDv
-	 dd0oMg3ZBRaYLbByJjsHRINTJY/j7DZM93ll6tHUtD8NtTRo5P2iPIMrWx5SsgXKd1
-	 sz110/HLeLiMuOC40p1TxRgpUbw4I4lsag7Z7fcJ/owWZfIc4V7HVpL99MkO7MogAA
-	 TC05fFm+7PLRzeYfo//cd/8OObmQFo7k2EXkSi6ngSG6G3NoW9XIohMu7dCVA0F82Y
-	 UvfepzWp2H/PQ==
+	b=WAZz3Y0FsJJyI9i2KwiFyXuIwX12KvERWrKBtCYz+yvB441Fb0Acv0V+gCFECi7yR
+	 Fkinl2YqPK3OdJ5mjJWW5M64za1JrZIDcFIH4TrgbW+PFzYpmrXrl1tDhjisUgJKag
+	 18xjs815cuYBNONech2KjWT1kcb0W7ZlR0+bgAPni0XAQ5IhT05u8Simx/0kXYxuSa
+	 D9YKZVL9eRa49S8fZJHo5jmL8XxWjY7fN+dEjsAF27ZtlWirXFCuwe5KcJkpJkLknB
+	 kZtBsaTOVEjYuhFcpVxeXab7I1iYRRXfiTVxOjBZ8PxENLVKmeiliP9JiMtw+FMCSX
+	 EFnXZTKpR6p0A==
 From: Conor Dooley <conor@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	Conor Dooley <conor@kernel.org>
 Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1 0/3] pic64gx soc driver/binding changes
-Date: Tue,  3 Mar 2026 17:09:51 +0000
-Message-ID: <20260303-punk-mustiness-33529cdc51e2@spud>
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 0/3] Add support for Microchip PIC64GX Curiosity Kit
+Date: Tue,  3 Mar 2026 17:16:29 +0000
+Message-ID: <20260303-judicial-blissful-a6cf6282104f@spud>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251117-mashing-cursor-6e965a77ce6a@spud>
-References: <20251117-mashing-cursor-6e965a77ce6a@spud>
+In-Reply-To: <20251117-paprika-tipping-e7bb3e211d6f@spud>
+References: <20251117-paprika-tipping-e7bb3e211d6f@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=961; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=GOUbHoOFTBTdmyKbtuiSppBTOdAoMbcZhph/KEs89vE=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnLRe/PkElQXXCyLqmq+MGETU9eFM19/DeqV6R4idJCt +DcV/OedJSyMIhxMciKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAiy+cyMqyKSVyQVnv4u7qf X3C13oKFVg9lW8pFGRkOzf2csCylajEjwxE1ibuxH2p4La/0mwes8ZY5uOfsvK0Xs+JWhC9n+Wx xmw0A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=797; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=T5Bex/GspdKVSrr1jgN1DmbEltzEuqjdgTmX6pJxDrk=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnLxXPLH+x8Omuy7gs1MzfWDxssTncumW++IM+AV+CY4 sSlW3at6ChlYRDjYpAVU2RJvN3XIrX+j8sO5563MHNYmUCGMHBxCsBENMsZ/ns0sP1rPdU+jzGi ed71LwVHSv5phk88s0HWx/Vt24oVGsmMDEe37Fnz5k3VMZn+RPtFF9jZw57sX72y+692f/0Ls3l H37ICAA==
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_090958_626499_26ABE580 
-X-CRM114-Status: UNSURE (   6.29  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,30 +78,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-On Mon, 17 Nov 2025 14:21:19 +0000, Conor Dooley wrote:
+On Mon, 17 Nov 2025 16:53:21 +0000, Conor Dooley wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Mostly this is stuff that PH did last year, but rebased on top of
-> current work.
-> 
-> CC: Conor Dooley <conor@kernel.org>
-> CC: Rob Herring <robh@kernel.org>
-> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> CC: Daire McNamara <daire.mcnamara@microchip.com>
-> CC: devicetree@vger.kernel.org
-> CC: linux-kernel@vger.kernel.org
-> CC: linux-riscv@lists.infradead.org
+> v3 of Pierre-Henry's stuff from over a year ago:
+> https://lore.kernel.org/all/20240930095449.1813195-1-pierre-henry.moussay@microchip.com/
+> In it he said "This will be fix in a V3 coming in due time", and I guess
+> that due time was ~14 months.
 > 
 > [...]
 
-Applied to riscv-soc-drivers-for-next, thanks!
+Applied to riscv-dt-for-next, thanks!
 
-[1/3] dt-bindings: soc: microchip: add compatible for the mss-top-sysreg on pic64gx
-      https://git.kernel.org/conor/c/7a58baed883a
-[2/3] dt-bindings: soc: microchip: mpfs-sys-controller: Add pic64gx compatibility
-      https://git.kernel.org/conor/c/ecc09da7ba34
-[3/3] soc: microchip: mpfs-sys-controller: add support for pic64gx
-      https://git.kernel.org/conor/c/63b5305ad84d
+[1/3] dt-bindings: riscv: microchip: document the PIC64GX curiosity kit
+      https://git.kernel.org/conor/c/c8cbde5dc18b
+[2/3] riscv: dts: microchip: add pic64gx and its curiosity kit
+      https://git.kernel.org/conor/c/a3c02b37a631
+[3/3] riscv: dts: microchip: remove POLARFIRE mention in Makefile
+      https://git.kernel.org/conor/c/4eddc7ed4904
 
 Thanks,
 Conor.
