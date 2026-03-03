@@ -4,61 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDEFEDEBE6
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 19:20:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D3CEDEBE5
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 19:56:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mazua0uD3UfVwXx63PkgyHuGnI3r0lxATujY70HRIMk=; b=wOY/5Y6Jjj0h1m
-	XQv7QC0QL22gzjvZVILxV+FbHVuFiyNY915dPrwfUYgMgZamDgiPrNohtFHfLPtrTZWT3b3GNKWp2
-	XI9nkat7Cy56oGN6EjjozNgAYBfx/LK7dH64kx1G5pWZgOF6t4LvyQanFpszMMMthdOYKgk7K5BDq
-	0pswMnLAmubTq2dmUUDeI7R2lbCombnfPxQx48yxUAUhBXpk5zPdt4DnYFSiK0cli7xS0pT58A28D
-	n4vmhc9Rf8uT380fyzyCqPAeST+/gnxx/2/nTn27+AdvTUVD7l+Vo9nBRnVHZ4BDRtInRgUkmllgK
-	a/JtVsjVXecdr1a/2bsw==;
+	List-Owner; bh=YQ2vH+N8McL85eoENtqmfvIMnviBu1Tu9zSto3y2jTc=; b=3vd9myqtNrKTi7
+	Qjq1lgTae77Smd4M1jUCBA21cKU5zsujqszA1VxUSoAfa+zTqqeeAM7hTp5K9bx3etNk/n6iGUkpL
+	vcO+lfxY3LErh52LjLClkCfBsmJ3dwifNYue5DpZTk8Na+xoiofWr+ca7nO6lNxTPQKvWvuo2144j
+	l1kwFCy8h5c5/k/Hik0ja9rp79Itzzo4o9EFTgFDhliDQZTGOY2DbhpsB6jNdBj1zRSvG601iThUP
+	ofsJ9U8Q8T74AuzOb218d5Uy7vgZ+u9PoXh63aNvhEqJyk0RS1yt7TNEN0Dzdc0iiypFzWPalmlYO
+	qW1sSOuyFYT4S3PdU79w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVHg-0000000FmGc-0cRg;
-	Tue, 03 Mar 2026 19:19:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxVqt-0000000FrLG-17Jr;
+	Tue, 03 Mar 2026 19:56:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVHd-0000000FmFy-3BmD
-	for linux-riscv@lists.infradead.org;
-	Tue, 03 Mar 2026 19:19:55 +0000
+	id 1vxVqq-0000000FrKM-1TTZ;
+	Tue, 03 Mar 2026 19:56:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 097EC439CC;
-	Tue,  3 Mar 2026 19:19:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A0D4C116C6;
-	Tue,  3 Mar 2026 19:19:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A583F40684;
+	Tue,  3 Mar 2026 19:56:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1644C116C6;
+	Tue,  3 Mar 2026 19:56:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772565592;
-	bh=k0xMJMjHgddl5JPdpo4UCcyWrL6834EIgLwIJ5goCUc=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=BrT8/m4WGbeQdQj6/Ca6gMAe5+VGadJqQuDgdGyiMx4Lsf0Vnm7L7fu0cxY+bnqmQ
-	 VjgB42x0sj34cPZ2NhzFF6UdkiNO1r+3PWWglXqRUKihMCR46l/6Ro495eyUtuo00T
-	 +icak+2Ar9vMiHPSNhfzA0oBPWl4umh++VZ+HGtnstQCqF4clV8BVuVSvfM7kTl8J/
-	 lT+Hh2a1f9nE4rqIj+pdUaUlbxTgBvvnCxoniaS9WjuLqlW5LbBvxeIf3nGbo0HqQH
-	 MXTUqJraJd4h8U5F3Qs6iXTvXbxGRnsjZ+uoSsuxUN3F54mEzM5kVatiqW2Pfb8e8M
-	 Kpv1URpUTnVLA==
-From: Mark Brown <broonie@kernel.org>
-To: linux-spi@vger.kernel.org, Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260303-deceiver-rack-82f2b89eac40@spud>
-References: <20260303-deceiver-rack-82f2b89eac40@spud>
-Subject: Re: [PATCH 1/2] spi: dt-bindings: mpfs-spi: permit resets
-Message-Id: <177256559083.591579.3406513766690686799.b4-ty@kernel.org>
-Date: Tue, 03 Mar 2026 19:19:50 +0000
+	s=k20201202; t=1772567774;
+	bh=9sr6A1ZQ/OAOM0MyaKuNScWB7UA08hne7lVI9ssYSPg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mHMra/+se8TmXPAvXWkLhgpf0kETRB4dEaJCtUtlUTftYpe0ReqfitRfwD4MGq4+T
+	 WuzDe+k5qMfwF8Pvg7plbRdHjZuWKh+IB7lEOogeIHeGkKvwd2/EpZagMr99KeT7V+
+	 XN7WYkTp/J6gkuhSVqd3D55QMpvT59XaPLLtFxjhlFBUF5SPdV1HoakLZQKIIo/fdH
+	 BGibgd4432V2o3DyL8VfocxjZKarY5SdEW/Gzxyc6CkyylsV/unCa5mrJJyTo1wkxn
+	 QMVCX29BeW41faad8f8MgUVR1waChaWC40npYyOs3agb3dJecKXchWeHWLYBSYXFrd
+	 nwEHrCxoK1HSw==
+Date: Tue, 3 Mar 2026 11:55:17 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Christoph Hellwig <hch@lst.de>
+Cc: Peter Zijlstra <peterz@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Matt Turner <mattst88@gmail.com>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
+	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
+	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
+	Li Nan <linan122@huawei.com>, linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
+Subject: Re: [PATCH 01/25] xor: assert that xor_blocks is not called from
+ interrupt context
+Message-ID: <20260303195517.GC2846@sol>
+References: <20260226151106.144735-1-hch@lst.de>
+ <20260226151106.144735-2-hch@lst.de>
+ <20260227142455.GG1282955@noisy.programming.kicks-ass.net>
+ <20260303160050.GB7021@lst.de>
 MIME-Version: 1.0
-X-Mailer: b4 0.15-dev-6ac23
+Content-Disposition: inline
+In-Reply-To: <20260303160050.GB7021@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_111953_821073_515A1B2C 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20260303_115616_435289_0CAC4101 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,47 +113,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 03 Mar 2026 16:41:50 +0000, Conor Dooley wrote:
-> CoreSPI, CoreQSPI and the hardened versions of them on mpfs and
-> pic64gx have a reset pin. For the first two, usually this is wired to
-> a common fabric reset not managed by software and for the latter two
-> the platform firmware takes them out of reset on first-party boards
-> (or those using modified versions of the vendor firmware), but not all
-> boards may take this approach. Permit providing a reset in devicetree
-> for Linux, or other devicetree-consuming software, to use.
+On Tue, Mar 03, 2026 at 05:00:50PM +0100, Christoph Hellwig wrote:
+> On Fri, Feb 27, 2026 at 03:24:55PM +0100, Peter Zijlstra wrote:
+> > >  	unsigned long *p1, *p2, *p3, *p4;
+> > >  
+> > > +	WARN_ON_ONCE(in_interrupt());
+> > 
+> > Your changelog makes it sound like you want:
+> > 
+> > 	WARN_ON_ONCE(!in_task());
+> > 
+> > But perhaps something like so:
+> > 
+> > 	lockdep_assert_preempt_enabled();
+> > 
+> > Would do? That ensures we are in preemptible context, which is much the
+> > same. That also ensures the cost of this assertion is only paid on debug
+> > kernels.
 > 
-> [...]
+> No idea honestly.  The kernel FPU/vector helpers generally don't work
+> from irq context, and I want to assert that.  Happy to do whatever
+> version works best for that.
 
-Applied to
+may_use_simd() is the "generic" way to check "can the FPU/vector/SIMD
+registers be used".  However, what it does varies by architecture, and
+it's kind of a questionable abstraction in the first place.  It's used
+mostly by architecture-specific code.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+If you union together the context restrictions from all the
+architectures, I think you get: "For may_use_simd() to be guaranteed not
+to return false due to the context, the caller needs to be running in
+task context without hardirqs or softirqs disabled."
 
-Thanks!
+However, some architectures also incorporate a CPU feature check in
+may_use_simd() as well, which makes it return false if some
+CPU-dependent SIMD feature is not supported.
 
-[1/2] spi: dt-bindings: mpfs-spi: permit resets
-      commit: f5d09914d473059e4e851c6a3bfa9f0e848c63e4
-[2/2] spi: dt-bindings: mpfs-spi: remove clock-names
-      commit: 96f06d055ca03d1dfb5830fd07ff6eadbd66264c
+Because of that CPU feature check, I don't think
+"WARN_ON_ONCE(!may_use_simd())" would actually be correct here.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+How about "WARN_ON_ONCE(!preemptible())"?  I think that covers the union
+of the context restrictions correctly.  (Compared to in_task(), it
+handles the cases where hardirqs or softirqs are disabled.)
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+Yes, it could be lockdep_assert_preemption_enabled(), but I'm not sure
+"ensures the cost of this assertion is only paid on debug kernels" is
+worth the cost of hiding this on production kernels.  The consequences
+of using FPU/vector/SIMD registers when they can't be are very bad: some
+random task's registers get corrupted.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
