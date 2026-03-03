@@ -4,45 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BEE4EDA693
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:06:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB193EDA693
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F4KoBkENrWg8gxeUROiDJ3+vXiOGYagokHOIXZ2OOwU=; b=f7oWLWTnu1/Jik
-	/JpdG6icG13MHBY5+p7g8v3EqnyJNqy9AQvLksgE0TH/FARTKpgCDoNrlwfSFZrjOWtfH1svwxLrY
-	9ivCA5W2ElXuVltGNM1l/7e1+LRQCJ/PGnGdQ7wwjcuHXD01GZEb6h9wKfxO4JrwVTcFsUprcWX6C
-	KFhHlpPX7Q4maUqkf4M8nnIp6C+KgmACbLO6Bw/FDw223Tq+oIm/rKd4q/d9C2N27+xAlxTHma3U+
-	LjjVvQvP2s25+/8C6KPpee2SyynKYS2FCvY4bhlF0RlcxZI3FgpULXKP84cT6SIIoTwVLkDUWyKpX
-	LgmM7R6E3X7YepRQeTAQ==;
+	List-Owner; bh=XsP+OpKa4G+DiRJncv0H7pps+h5rqnsvhqmbOAXF5Yw=; b=A2ZrR9mBQJ3OOg
+	z/A061IipP2nGP6GfprdbyJqYDFHacueCsRbOCXQsvK+hoNT3v7vuRLBqUncy2neCQNR8L0u0ednX
+	dk94ydbT5IgW79uGamhxphYbQPiRlFG6qZJTHqXpx68AKsyt3SVQHNA185k/gT9QTpJP+IVXwuFAn
+	jzc+6TwKejwcGEdgC9DlxKMj++5w9wtqyH2gf6DRbnRcV8HMsNE3INa8XN70rFPZ+WetlED6N4R8Q
+	nIn/qbXueH9UC7fS9ZKrvqwSynE8okFzoYltfAbwBpPEIP1I3E42IAQW5ElrcwbSYi/bO63EEWPzP
+	dQgub8xwE0Zms1QEZs0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSGf-0000000FWFd-46RM;
-	Tue, 03 Mar 2026 16:06:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSGe-0000000FWEq-0ouE;
-	Tue, 03 Mar 2026 16:06:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=XBJwlrTdNJjmPV0S2dY1ySmJaA0aEJhhqGpkqw0Qvdg=; b=WXfdtJ+kZBZ4HJWzzvzSeki2v4
-	9euh/EYvhRszvbC6+hf37iTcd1lf5imX01Hwavrq+94wdmuQhbkpAmhfclbJln1wEGcqPrXg7flzT
-	rZ4PDb2laz9i/D46+JikQbm8YbMIATDgPOR97uzslCaZt4QlHDx3KwvSpfoZvbyXdoECCWk5ZOPG7
-	gVwMBOUaGHVy1yYZFGaUSUax//Fm6EqmPKFBARoFQelTdmBx70bPVNI2d4gGoEmZkvEgSMvdFwe4O
-	smfdGZiGpFd+0oM+EtHsexBxWW/iX5G4YLsCZ/HgFCrbMCO5+zOEpoxP4b+AGdc0nAkTBAAts7jbI
-	Nyq24nHg==;
+	id 1vxSHQ-0000000FWUg-1Dox;
+	Tue, 03 Mar 2026 16:07:28 +0000
 Received: from verein.lst.de ([213.95.11.211])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSGb-00000002qMl-1509;
-	Tue, 03 Mar 2026 16:06:38 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxSHN-0000000FWTH-3NCa;
+	Tue, 03 Mar 2026 16:07:26 +0000
 Received: by verein.lst.de (Postfix, from userid 2407)
-	id B41BF68BFE; Tue,  3 Mar 2026 17:06:34 +0100 (CET)
-Date: Tue, 3 Mar 2026 17:06:34 +0100
+	id 4F76C68C4E; Tue,  3 Mar 2026 17:07:22 +0100 (CET)
+Date: Tue, 3 Mar 2026 17:07:21 +0100
 From: Christoph Hellwig <hch@lst.de>
 To: Eric Biggers <ebiggers@kernel.org>
 Cc: Christoph Hellwig <hch@lst.de>,
@@ -85,16 +71,16 @@ Cc: Christoph Hellwig <hch@lst.de>,
 	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
 	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 20/25] xor: make xor.ko self-contained in lib/raid/
-Message-ID: <20260303160634.GG7021@lst.de>
-References: <20260226151106.144735-1-hch@lst.de> <20260226151106.144735-21-hch@lst.de> <20260228064249.GG65277@quark>
+Subject: Re: [PATCH 21/25] xor: add a better public API
+Message-ID: <20260303160721.GH7021@lst.de>
+References: <20260226151106.144735-1-hch@lst.de> <20260226151106.144735-22-hch@lst.de> <20260228065038.GH65277@quark>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260228064249.GG65277@quark>
+In-Reply-To: <20260228065038.GH65277@quark>
 User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_160637_387126_44A7A5D6 
-X-CRM114-Status: GOOD (  20.93  )
+X-CRM114-CacheID: sfid-20260303_080726_018419_E751FB9F 
+X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,36 +97,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026 at 10:42:49PM -0800, Eric Biggers wrote:
-> On Thu, Feb 26, 2026 at 07:10:32AM -0800, Christoph Hellwig wrote:
-> > diff --git a/arch/um/include/asm/xor.h b/lib/raid/xor/um/xor_arch.h
-> > similarity index 61%
-> > rename from arch/um/include/asm/xor.h
-> > rename to lib/raid/xor/um/xor_arch.h
-> > index c9ddedc19301..c75cd9caf792 100644
-> > --- a/arch/um/include/asm/xor.h
-> > +++ b/lib/raid/xor/um/xor_arch.h
-> > @@ -1,7 +1,4 @@
-> >  /* SPDX-License-Identifier: GPL-2.0 */
-> > -#ifndef _ASM_UM_XOR_H
-> > -#define _ASM_UM_XOR_H
-> > -
-> >  #ifdef CONFIG_64BIT
-> >  #undef CONFIG_X86_32
-> >  #else
-> >  #define CONFIG_X86_32 1
-> >  #endif
-> 
-> Due to this change, the above code that sets CONFIG_X86_32 to the
-> opposite of CONFIG_64BIT is no longer included in xor-sse.c, which uses
-> CONFIG_X86_32.  So if the above code actually did anything, this change
-> would have broken it for xor-sse.c.  However, based on
-> arch/x86/um/Kconfig, CONFIG_X86_32 is always the opposite of
-> CONFIG_64BIT, so the above code actually has no effect.  Does that sound
-> right?
+On Fri, Feb 27, 2026 at 10:50:38PM -0800, Eric Biggers wrote:
+> The alignment requirements on the vectors should be documented, as
+> should which values of bytes are accepted.  It looks like, at the very
+> least, the vectors have to be 32-byte aligned and the length has to be a
+> nonzero multiple of 512 bytes.  But I didn't check every implementation.
 
-This whole thing looked weird to me.  I'll try to do a more extensive
-cleanup pass on the um mess ahead of the rest of the series.
+That would match the original use case in the md raid code and also in
+file system uses such as btrfs, yes.
 
 
 _______________________________________________
